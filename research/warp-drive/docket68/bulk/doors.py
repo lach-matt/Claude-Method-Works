@@ -1,31 +1,30 @@
 #!/usr/bin/env python3
-"""doors.py -- wall D worked as mathematics after M's rulings 139-149: which premise of censorship the corridor must
-pass through.
+"""doors.py -- wall D worked as mathematics after M's rulings 139-149.
 
-censor.py (verified) found the bulk theorems DEPEND on two choices: the sign of our plane's tension (H-OUR-TENSION) and
-where the bulk ends (H-POINCARE-PATCH).  Since then M ruled ours positive (139) and the planes static and face to face
-(141; static.py: the summed surface +1).  This instrument re-reads the theorems with the first choice settled.
+First written claiming a white-hole allowance, that "any 5D censorship theorem whose global premises hold forbids the
+passage", and that only global premises remain; the verifier showed the first has no source in a nonsingular corridor,
+the second is unsupported by the theorems READ, and generic-condition and smoothness premises also remain
+(DOORS.md History).
 
-READ: Friedman, Schleich & Witt, gr-qc/9305017v2 ("FSW"):
-  p.3 Theorem 1: "If an asymptotically flat, globally hyperbolic spacetime (M, g_ab) satisfies the averaged null energy
-      condition, then every causal curve from J- to J+ is deformable to gamma_0 rel J"
-  p.6: a non-deformable curve "will join J+_0(M) to another copy of the asymptotic region", through surfaces "outer
-      trapped as seen from the first asymptotic region" -- which Lemma 2 forbids
-  p.7: "one can passively observe that topology by detecting light that originates at a past singularity ... one must
-      see a signal that originates in a white hole rather than J-"
+READ: Friedman, Schleich & Witt, gr-qc/9305017v2 ("FSW"): p.3 Theorem 1, "If an asymptotically flat, globally hyperbolic
+spacetime (M, g_ab) satisfies the averaged null energy condition, then every causal curve from J- to J+ is deformable to
+gamma_0 rel J"; p.4, Lemma 2 is stated per component J_alpha of a disconnected J; p.6, a non-deformable curve unwraps
+to one joining "different copies of the asymptotic region".
 
-  K1  the energy premise is now met in five dimensions: the face-to-face sum is +1 (static.py S4, imported), so on the
-      summed surface S_kk = lambda_RS k_y^2 >= 0 for every null vector, and the bulk reads 0 (censor.py C1, imported)
-  K2  along the passage itself the five-dimensional null energy is exactly zero: a ray tangent to the plane has k_y = 0,
-      so S_kk = 0, and the bulk term is 0 -- the 5D averaged null energy holds (= 0) where the plane reads -0.826 E/m
-      (coin.py).  The negative reading is the plane's appearance only (M's items 117, 120)
-  K3  so the only premises left between the corridor and the 5D censorship theorems are GLOBAL: global hyperbolicity
-      and the bulk's asymptotic structure (H-POINCARE-PATCH).  That is wall C
-  K4  entanglement does not open a door around them: with any amount of pre-shared entanglement, a qubit sent carries
-      at most 2 bits (superdense coding; Holevo; standard, not READ), so an N-bit README needs at least N/2 qubits sent
-      along a causal channel between the two positions -- exactly the causal curve censorship governs.  Control:
-      without entanglement, N qubits
-Imports static.py and censor.py by path.  Stdlib + sympy.  python3 doors.py [--selftest]
+  K1  five-dimensional null energy on the face-to-face composite: summed tension +1 gives S_kk = lambda_RS k_y^2 >= 0
+      (static.py S4) -- CONDITIONAL on H-COMPOSITE-SURFACE (the sheets coincide exactly).  Control: position 2's sheet
+      alone, -1/3, reads -(1/3) lambda_RS k_y^2 < 0
+  K2  along the passage (a ray tangent to the plane, k_y = 0) the surface term vanishes for EITHER sign of tension and
+      the bulk gives 0: 5D averaged null energy = 0 there (UMBILIC.md U2's result again, STRUCTURAL)
+  K3  FSW with plane.py P1 forces the plane's negative reading: P1's corridor is nonsingular and one-way between two
+      asymptotically flat regions -- a curve of the kind FSW's Lemma 2 excludes -- so on the plane either the averaged
+      null energy fails or global hyperbolicity does.  coin.py reads -0.826 E/m: the first.  The negative reading is a
+      consequence of the geometry, not an accident (the extension to genuinely distinct ends is the board's, per FSW's
+      Lemma 2 per component)
+  K4  entanglement alone carries nothing (the no-communication theorem; standard, not READ); with unlimited shared
+      entanglement a sent qubit carries at most 2 bits (superdense coding, Holevo), so an N-bit README needs >= N/2
+      qubits through a causal channel between the corridor's two asymptotic regions (STRUCTURAL)
+Imports static.py, positivity.py and censor.py by path.  Stdlib + sympy.  python3 doors.py [--selftest]
 """
 import contextlib
 import importlib.util
@@ -57,24 +56,27 @@ def _load(path, key):
 
 def compute():
     st = _load(os.path.join(HERE, "static.py"), "dr_static")
+    pos = _load(os.path.join(HERE, "positivity.py"), "dr_positivity")
     cs = _load(os.path.join(HERE, "censor.py"), "dr_censor")
-    s4 = st.s4()
-    c1 = cs.c1()
+    coin = _load(os.path.join(D68, "copy", "coin.py"), "dr_coin")
+    s4, q3, c1 = st.s4(), pos.q3(), cs.c1()
     ky = sp.Symbol("k_y", real=True)
-    lam = sp.Symbol("lambda", real=True)
-    passage = sp.simplify(c1["S_kk"].subs(ky, 0))
-    return {"s4_ok": s4["S_ok"], "S_total": s4["S_total"], "bulk_kk": c1["bulk_kk"], "passage_S": passage,
+    return {"s4_ok": s4["S_ok"], "S_total": s4["S_total"], "S_pair_alone": q3["S_pair_alone"],
+            "passage_S": sp.simplify(c1["S_kk"].subs(ky, 0)), "bulk_kk": c1["bulk_kk"],
+            "plane_anec": float(coin.anec_closed(1, 2)),
             "qubits_with_ent": math.ceil(EXAMPLE_N / 2), "qubits_without": EXAMPLE_N}
 
 
 def report(d):
     print("doors.py -- wall D after rulings 139-149\n")
-    print("K1 summed surface null energy %s (static.py S4: %s); bulk %s" % (d["S_total"], d["s4_ok"], d["bulk_kk"]))
-    print("K2 along the passage (k_y = 0): S_kk = %s, bulk 0 -> 5D averaged null energy = 0 (the plane reads -0.826 E/m)"
-          % d["passage_S"])
-    print("K3 the energy premises hold; the premises left are global: hyperbolicity and the bulk's asymptotics (wall C)")
-    print("K4 an N = %d bit README needs >= %d qubits sent causally with unlimited entanglement (%d without)"
-          % (EXAMPLE_N, d["qubits_with_ent"], d["qubits_without"]))
+    print("K1 composite: %s (static.py S4 %s; conditional on H-COMPOSITE-SURFACE); control, position 2's sheet alone: %s"
+          % (d["S_total"], d["s4_ok"], d["S_pair_alone"]))
+    print("K2 along the passage (k_y = 0): surface %s, bulk %s -> 5D averaged null energy 0, for either sign"
+          % (d["passage_S"], d["bulk_kk"]))
+    print("K3 the plane's averaged null energy along the passage: %.6f E/m per leg (coin.py) -- the reading FSW plus P1 "
+          "require" % d["plane_anec"])
+    print("K4 no channel: 0 bits; with unlimited entanglement an N = %d bit README needs >= %d qubits sent causally "
+          "(%d without)" % (EXAMPLE_N, d["qubits_with_ent"], d["qubits_without"]))
 
 
 def selftest():
@@ -87,13 +89,15 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     d = compute()
-    chk("K1: with the face-to-face sum (+1) the null energy on the surface is non-negative for every null vector",
-        d["s4_ok"])
-    chk("K1: the bulk's null energy is zero (cosmological constant only)", d["bulk_kk"] == 0)
-    chk("K2 (STRUCTURAL): along a ray tangent to the plane the surface term vanishes -- 5D null energy exactly zero",
-        d["passage_S"] == 0)
-    chk("K4 (STRUCTURAL, standard bound): with entanglement an N-bit README still needs N/2 qubits sent causally; "
-        "control: N without", d["qubits_with_ent"] * 2 >= EXAMPLE_N and d["qubits_without"] == EXAMPLE_N)
+    lrs, ky = sp.Symbol("lambda_RS", positive=True), sp.Symbol("k_y", real=True)
+    chk("K1: on the face-to-face composite the null energy is non-negative for every null vector", d["s4_ok"])
+    chk("K1 control: position 2's sheet alone reads -(1/3) lambda_RS k_y^2, negative",
+        sp.simplify(d["S_pair_alone"] + lrs * ky**2 / 3) == 0)
+    chk("K2 (STRUCTURAL): along a ray tangent to the plane, surface and bulk terms both vanish",
+        d["passage_S"] == 0 and d["bulk_kk"] == 0)
+    chk("K3: the plane's averaged null energy along the passage is negative, as FSW with P1 requires", d["plane_anec"] < 0)
+    chk("K4 (STRUCTURAL, standard bound): N/2 qubits with entanglement, N without",
+        d["qubits_with_ent"] * 2 >= EXAMPLE_N and d["qubits_without"] == EXAMPLE_N)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
