@@ -68,16 +68,17 @@ The theorem is proved exactly when no lemma below is OPEN.
 | H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | O3 the corridor survives its hold: 2π²/ln2 = 28.4777 clocks for every N; growth ≤ 20.8 | **reading**, o3_hold.py: H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND; the hold exceeds the local bulk's span, so it also leans on B4 |
+| O | O3 the corridor survives its hold, which lies in a window: above the READ bounds (h/(4E) = (2π²/ln2)/N clocks; 1/(2ξ)), below the bulk's certified 13.0 clocks | **proved**, o3_hold.py: the per-bit 28.48 clocks (H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND) withdrawn — the bulk refutes it |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a, so it inherits B5's reading) |
 | B | B1 plane matter-free; Gauss and Codazzi met | **proved**, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones | **proved**, localbulk.py |
-| B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4a with B4b and B4c |
+| B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4a–B4d |
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
-| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 57 m, corridor units); H-WEAK-RADIATION, H-NEAR-ZONE |
-| B | **B4b the bulk regular through the hold (152 (2), a brief evolution)** | **OPEN**, b4_regular.py: necessary, the static local bulk regular within the hold's double cone, ~1.9–2.2 m deep at r = 2.05m and ~8.2 m at r = 3m (ℓ ≫ r₀); series-stable to 1.5 m and 2.25 m |
+| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 26 m, corridor units); H-WEAK-RADIATION, H-NEAR-ZONE |
+| B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, certified regular for holds below 13.0 clocks; longer holds reach its curvature singularity above the throat (y_b ≈ 2.50m at r = 2.15m, K ∝ (y_b − y)⁻³) | **proved** (computed: exact order-60/80 series, Padé continuation, the full double cone; flat limit), b4_static.py |
+| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D initial-boundary problem (H-EVOLUTION, H-GLUING) |
 | B | B5 positivity for the entangled pin, at every point | **reading**, b5_positive.py: H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
@@ -95,8 +96,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 | R | R4 the corridor's length as the trajectory difference, given a measure (not a distance) | **reading**, r4_length.py: H-LENGTH-AS-DIFFERENCE |
 | R | R5 the build's mechanism | **reading**, r5_build.py: the mechanism yours; the fields the board's reading of 148 under 149 |
 
-- **The count:** 33 lemmas. **14 proved, 6 derived, 3 definitions, 7 on the board's readings, 1 a measurement, 2 OPEN**
-  (B3 and B4b, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
+- **The count:** 34 lemmas. **16 proved, 6 derived, 3 definitions, 6 on the board's readings, 1 a measurement, 2 OPEN**
+  (B3 and B4d, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
 ## The energy ledger: the one place your rulings pull against each other (T3)
@@ -136,10 +137,10 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 ## The work left, as the theorem's lemmas
 
-- **Open:** B4b, the bulk regular through the hold. It carries B3, closes formation and the address with B4a and B4c,
-  and bears on the hold (O3d). See lemmas/B4.md.
-- **On the board's readings, each labelled and withdrawn if you correct it:** O3, B5 (and Z3 through it), B7, B4c, E3,
-  R4, R5.
+- **Open:** B4d, the opening and closing as a five-dimensional evolution. It carries B3, and with B4a–B4c closes
+  formation and the address. See lemmas/B4.md.
+- **On the board's readings, each labelled and withdrawn if you correct it:** B5 (and Z3 through it), B7, B4c, E3, R4,
+  R5. O3 left this list when step 5 refuted its readings.
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
@@ -153,7 +154,7 @@ The theorem is proved exactly when no lemma below is OPEN.
   - reading your item 152 (1) as CENSOR5D's escape (a), encoded as one end (B4a);
   - H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE (B4c); H-GLUING (B4b's sufficiency);
   - reading (a) for E3;
-  - H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND (O3); H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE (B5); H-BRIDGE-PREEXISTS (B7);
+  - H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE (B5); H-BRIDGE-PREEXISTS (B7);
     H-LENGTH-AS-DIFFERENCE (R4); H-EXTREMAL-ENTROPY (I1);
   - H-COMPOSITE-SURFACE, H-THICK-COMPOSITE, H-BK-CORRIDOR.
 
@@ -200,4 +201,13 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **The entry above** "orders 7, 9 and 11 disagree past y ≈ 0.8m" was a visual reading. By the 1% criterion they part
     at 0.65m.
   - **B6 is narrowed again:** B4 depends on k's scale.
+- **B4 finished, as far as the board's tools reach (item 153; lemmas/B4.md step 5, not yet verified).**
+  - **The static bulk taken past its series.**
+    - An exact two-variable series to order 60–80, checked against bulkseries.py, with Padé continuation and the full
+      double cone.
+    - It carries a curvature singularity above the throat: y_b ≈ 2.50m at r = 2.15m, K ∝ (y_b − y)⁻³.
+  - **B4b, PROVED.** Every hold below 13.0 clocks keeps its double cone in verified, regular bulk.
+  - **O3, PROVED as a window.** O3's 28.48 clocks reaches K = 2.3×10⁴ and the singular surface. So H-ONE-STEP-PER-BIT
+    and H-HOLD-AT-BOUND are withdrawn, and O3 is now the window from the READ bounds up to 13.0 clocks.
+  - **B4d, OPEN.** The opening and closing as a five-dimensional evolution.
 

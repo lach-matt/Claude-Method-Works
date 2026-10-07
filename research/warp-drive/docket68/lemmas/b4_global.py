@@ -36,16 +36,19 @@ fixed, to a curve included in T".  This instrument does what the board can do ab
       Control: a -> 0 gives C1's 3/R exactly.  Over the throat (alpha = pi/2) its sign is that of ell - 2R: T is strictly
       untrapped iff R < ell/2.  T must also lie beyond the opening's reach, so the model needs ell > 2 R_reach.  The
       reach (Randall-Sundrum estimate, from eq. (17)'s plane: 1 - F H = x (4x - 3)^2/(2 - 3x) with x = m/r, so the
-      coordinate speed dr/dt = sqrt(F H) < 1 and Delta r <= Delta t) is 28.48 m over the hold (O3) -- an estimate, since
+      coordinate speed dr/dt = sqrt(F H) < 1 and Delta r <= Delta t) is at most 13.0 m over the longest hold the bulk
+      admits (O3's window, b4_static.py; first written 28.48 m, O3's withdrawn per-bit hold) -- an estimate, since
       the lapse near the core is not shown to be RS's; under W2 the influenced set is compact whatever the core does
       (J+(K) n J-(Sigma) compact; standard, not READ, and with timelike boundary resting on Ake Hau-Flores-Sanchez-type
-      structure).  So in the model: ell > ~57 m (corridor units) -- met by orders of magnitude if ell is anywhere near
+      structure).  So in the model: ell > ~26 m (corridor units; ~57 m under the withdrawn hold) -- met by orders of
+      magnitude if ell is anywhere near
       its measured bound, and impossible at ell = r0, where no such T exists and escape (a) is not shown.  "Uniformly in
       time" (CGS p.9) holds in the model before the opening and through the hold; after the closing (E2) outgoing
       radiation reaches any fixed T, and that it leaves T untrapped is H-WEAK-RADIATION, the board's.  Scoping eq. (17)
       to inside the reach -- which is what keeps its 1/r tail (GLOBALBULK G2) off T -- is GLOBALBULK OPEN 5's weaker
       form, a hypothesis (H-NEAR-ZONE), not a result
   NOT HERE: W1 (pointwise null energy) inherits B5's reading; W2 (the bulk regular through the hold) is b4_regular.py
+      and b4_static.py
 Imports lemmas/o3_hold.py by path.  Stdlib + sympy.  python3 b4_global.py [--selftest]
 """
 import contextlib
@@ -221,7 +224,7 @@ def report(d):
         print("  %-66s far components %d (positions in one: %s); T arcs %d (joins the ends: %s); deformation: %s"
               % (m, t["far"]["n"], t["far"]["same_end"], t["T"]["n"], t["T"]["joins_ends"], t["homotopy"]))
     ls, fb = d["ls"], d["fb"]
-    print("\nB4c plane: 1 - F H = %s (identity: %s), so dr/dt < 1; reach over the hold %.4f m (RS estimate)"
+    print("\nB4c plane: 1 - F H = %s (identity: %s), so dr/dt < 1; reach over the longest admissible hold %.4f m (RS estimate)"
           % (ls["closed"], ls["identity"], d["hold"]))
     print("    theta+ on T = %s" % fb["theta"])
     print("    a -> 0: %s (C1); over the throat: %s -- untrapped iff R < ell/2" % (fb["a0"], fb["top"]))
@@ -252,7 +255,7 @@ def selftest():
         "(so B4a needs W2 inside T)", h["far"]["n"] == 1 and h["T"]["joins_ends"] and not h["homotopy"])
     ls = d["ls"]
     chk("B4c: on the plane 1 - F H = x(4x - 3)^2/(2 - 3x) > 0 for r > 2m (zero only at r = 4m/3), so dr/dt < 1",
-        ls["identity"] and ls["zero_at"] == [sp.Rational(3, 4)] and abs(d["hold"] - 28.4777) < 1e-3)
+        ls["identity"] and ls["zero_at"] == [sp.Rational(3, 4)] and abs(d["hold"] - 13.0) < 0.1)
     fb = d["fb"]
     ell, Rr, a = fb["symbols"]
     chk("B4c: theta+ of T in the model, closed form; control a -> 0 gives C1's 3/R",

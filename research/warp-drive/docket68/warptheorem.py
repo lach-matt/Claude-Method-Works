@@ -67,16 +67,18 @@ LEMMAS = [
     ("H", "H2 the horizons hold the README as well as the throat", "DERIVED", "lemmas/axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N A_bit (H1)"),
     ("O", "O1 one way, 1 -> 2, nonsingular", "PROVED", "copy/plane.py P1 (seated); exactE.py one-way check"),
     ("O", "O2 the horizon is extremal (surface gravity 0)", "PROVED", "bulk/stability.py S1 (verified)"),
-    ("O", "O3 the corridor survives its hold: the hold's length in the corridor's clocks, derived, against S4's rate and "
-          "S5b's v^2 blueshift", "READING", "lemmas/o3_hold.py: 2 pi^2/ln2 = 28.48 clocks for every N; growth <= 20.8; under "
-     "H-ONE-STEP-PER-BIT and H-HOLD-AT-BOUND (the board's)"),
+    ("O", "O3 the corridor survives its hold, which lies in a window: above the READ bounds (Margolus-Levitin on the whole "
+          "register, h/(4E) = (2 pi^2/ln2)/N clocks; Bremermann-Bekenstein transfer, 1/(2 xi)), below the bulk's certified "
+          "13.0 clocks (B4b); survival at the top: growth <= 6.89 against the control's 7.8", "PROVED",
+     "lemmas/o3_hold.py, 7/7: the per-bit 28.48 clocks (H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND) withdrawn -- the bulk "
+     "refutes it (b4_static.py)"),
     ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
           "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
     ("Z", "Z3 NEC never violated", "DERIVED", "lemmas/axioms.py: bulk R(k,k) = 0; composite >= 0 at every depth (B5a, the board's reading); passage 0 (Z1)"),
     ("B", "B1 the plane is matter-free (R = 0) and meets Gauss and Codazzi", "PROVED", "bulk/localbulk.py L1-L2 (verified)"),
     ("B", "B2 a local vacuum bulk exists, unique among analytic ones", "PROVED", "bulk/localbulk.py L4 (verified)"),
-    ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4a with B4b and B4c"),
+    ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d"),
     ("B", "B4a the global bulk's shape, given W2 inside the far boundary T: the plane's two ends are one end of the "
           "bulk -- two separate positions reached through a dimension (152 (1), encoded as H-SEPARATE-JOINED-THROUGH-"
           "DIMENSION) -- so CGS Thm 3.1 is escaped (a) and Thm 3.5's deformation holds; the topology is fixed before "
@@ -84,15 +86,19 @@ LEMMAS = [
      "lemmas/b4_global.py, 6/6: STRUCTURAL encoding; controls two-ended, and excised regions block the deformation; "
      "Ake Hau-Flores-Sanchez READ"),
     ("B", "B4c the far boundary T strictly untrapped, uniformly in time: in the board's model theta+- has the sign of "
-          "ell - 2R over the throat, so T exists beyond the hold's reach iff ell > 2 R_reach (~57 m in corridor units); "
+          "ell - 2R over the throat, so T exists beyond the hold's reach iff ell > 2 R_reach (~26 m in corridor units); "
           "after the closing, outgoing radiation leaves T untrapped", "READING",
      "lemmas/b4_global.py: H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE (the board's); a -> 0 gives CENSOR5D C1's 3/R"),
-    ("B", "B4b the bulk regular (globally hyperbolic) through the hold, as a brief evolution (152 (2), an option): "
-          "necessary, the static local bulk of eq. (17) regular within the hold's double cone, depth D(r) set by the "
-          "bulk lapse -- ~1.9-2.2 m at r = 2.05m and ~8.2 m at r = 3m (ell >> r0), ~1.2-1.5 m at r = 2.05m (ell = r0)",
-     "OPEN",
-     "lemmas/b4_regular.py, 8/8: series-stable 1.5 m of ~1.9 m at r = 2.05m and 2.25 m of ~8.2 m at r = 3m (ell >> "
-     "r0); 0.65 m of ~1.2 m (ell = r0), singularity and bulk horizon not distinguished; depends on ell"),
+    ("B", "B4b the bulk regular within every admissible hold's double cone: with eq. (17) held on the plane, the static "
+          "bulk (forced there in a locally analytic class) is certified regular for every hold below 13.0 clocks, its "
+          "curvature at most 3.9; longer holds reach the curvature singularity above the throat (y_b ~ 2.50m at r = 2.15m, "
+          "K ~ (y_b - y)^-3), from ~16-24 clocks", "PROVED",
+     "lemmas/b4_static.py, 8/8: exact order-60/80 series (checked against bulkseries.py), Padé continuation, the full "
+     "double cone; flat limit (ell >> r0); lemmas/b4_regular.py"),
+    ("B", "B4d the opening and closing evolve regularly in five dimensions, and data beyond the hold's cone join the "
+          "untouched exterior (H-EVOLUTION, H-GLUING)", "OPEN",
+     "a nonlinear 5D initial-boundary problem; at linear order around the static bulk Holmgren closes the non-analytic "
+     "escape inside the cone (standard, not READ)"),
     ("B", "B5 positivity for the entangled pin (140): met for the sum only under the board's H-COMPOSITE-SURFACE; at "
           "every point and the pin's own energy", "READING",
      "lemmas/b5_positive.py: one shared profile (127) keeps NEC at every depth; a real scalar wall tends to the RS "
@@ -102,7 +108,7 @@ LEMMAS = [
      "lemmas/b6_k.py; kderive.py K3 -- narrowed from 'k fixed by the work'"),
     ("B", "B6' k's scale, by measurement", "NATURE", "item 136 answer 8; b6_k.py B6c"),
     ("B", "B7 formation: the opening and closing between static planes -- a widening of a preexisting bridge, no "
-          "change of topology, consistent and safe; its 5D evolution goes with B4b", "READING",
+          "change of topology, consistent and safe; its 5D evolution goes with B4d", "READING",
      "lemmas/b7_formation.py: chain.py's z3 encoding; H-BRIDGE-PREEXISTS (items 100, 101.1, 122 (4), 140; "
      "Maldacena-Susskind p.17), the board's"),
     ("I", "I1 the passage is N bits of entanglement", "DERIVED", "lemmas/axioms.py: Maldacena-Susskind p.5 (READ) with H2: N bits; extremal via ground-state degeneracy (H-EXTREMAL-ENTROPY: READ for a class, Strominger-Vafa hep-th/9601029 abstract; carried to the corridor by the board)"),
@@ -174,7 +180,7 @@ def lemma_selftests():
     """Each lemma instrument's own selftest, run silently; all must pass."""
     out = {}
     for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py", "b5_positive.py", "b6_k.py", "r5_build.py",
-              "b7_formation.py", "axioms.py", "b4_global.py", "b4_regular.py"):
+              "b7_formation.py", "axioms.py", "b4_global.py", "b4_regular.py", "b4_static.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
