@@ -1,22 +1,24 @@
 #!/usr/bin/env python3
 """witness.py -- M's item 145: "There is ever only one true complete reconstruction. And it is supported by two
-witnesses, the README and the corridor".  What each witness carries, and whether together they fix one reconstruction.
+witnesses, the README and the corridor".  What each witness carries.
 
 The corridor: its throat area is the README's bit count, 4 pi r_min^2 = N A_bit with A_bit = 2 h G ln2 / (pi c^3)
-(exactE.py's identity; H-PASSAGE-IS-N, item 137).  The README: one fixed exact encoding of N bits (item 136 answer 5).
+(exactE.py's identity; the coefficient is chain.py's, loaded by path).  The README: one fixed exact encoding of N bits
+(item 136 answer 5).
 
-  T1  the corridor witnesses N, exactly: r_min(N) = sqrt(N) r_min(1) is strictly increasing, so distinct N give distinct
-      throats -- checked in exact arithmetic for adjacent N at the board's example README.  Its relative difference
-      there is 1/(2N) ~ 1.8e-16 (the corridor tells N from N+1 only exactly, never at measured precision)
-  T2  the corridor does not witness the content: every one of the 2^N strings of length N has the same throat
-      (STRUCTURAL: the area depends on N only)
-  T3  the README witnesses the content but not that it crossed: a string alone is a string
-  T4  together they fix one: the pair (throat, string) is consistent only if len(string) = N(throat), and then names
-      exactly one string -- a checksum.  Control: a README one bit long or short is rejected by its corridor
-  T5  under H-ALPHA-IS-LIGHT the electrons' structure and the Löwdin table are the same in every universe
-      (samelight.py), while molecular frequencies move with mu (nucleus.py U4): a README written in Z and electron
-      configuration reads the same at any position 2; one written in molecular frequencies does not (STRUCTURAL)
-Imports copy/chain.py's exact coefficient by path.  Stdlib + sympy.  python3 witness.py [--selftest]
+First written with "the corridor witnesses N, exactly" and "the pair names exactly one string: a checksum"; the
+verifier showed the first fails by the board's own K2 estimate and the second hides that a length check catches no
+substitution (WITNESS.md History).
+
+  T1  (STRUCTURAL) one bit adds exactly one A_bit of throat area; N and N+1 give distinct classical throats
+  T2  but the classical throat cannot carry that distinction: the board's quantum-correction estimate (l_P/r_min)^2 =
+      pi/(N ln2) (kderive.py K2, not READ) against one bit's 1/N of area is pi/ln2 = 4.53 at EVERY N -- the throat is
+      uncertain by about 4.5 bits.  And measured G (u_r = 2.2e-5, chain.py) fixes N from a measured throat only to
+      ~6e10 bits at the example README.  Exactness of N can come only from H-PASSAGE-IS-N (item 137), not from geometry
+  T3  (STRUCTURAL) the corridor does not witness the content: 2^N strings share one throat
+  T4  (STRUCTURAL) what the pair adds: a length check.  A README one bit short or long is rejected; none of the 2^N - 1
+      same-length substitutions is.  The string is fixed by the README alone, under the fixed encoding
+Stdlib + sympy.  python3 witness.py [--selftest]
 """
 import contextlib
 import importlib.util
@@ -30,6 +32,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 WD = os.path.dirname(D68)
 EXAMPLE_N = 2742570311524972
+_C = {}
 
 
 def _load(path, key):
@@ -45,51 +48,55 @@ def _load(path, key):
     return mod
 
 
-def r1_exact():
-    ch = _load(os.path.join(D68, "copy", "chain.py"), "wt_chain")
-    return sp.sympify(ch.coefficients()["r_min_m_per_sqrt_bit"]["exact"])
+def chain_coeff():
+    if not _C:
+        ch = _load(os.path.join(D68, "copy", "chain.py"), "wt_chain")
+        _C["r1"] = sp.sympify(ch.coefficients()["r_min_m_per_sqrt_bit"]["exact"])
+        _C["u_G"] = ch.U_R_G                                        # chain.py's relative uncertainty of G
+    return _C
 
 
 def t1():
-    r1 = r1_exact()
-    rN, rN1 = sp.sqrt(EXAMPLE_N) * r1, sp.sqrt(EXAMPLE_N + 1) * r1
-    distinct = sp.simplify(rN1 - rN) != 0 and sp.N((rN1 - rN) / rN, 30) > 0
-    rel = sp.N(rN1 / rN - 1, 30)
-    A_bit = 4 * sp.pi * r1**2                                       # area per bit, from the throat at N = 1
-    N_back = sp.nsimplify(sp.simplify(4 * sp.pi * rN**2 / A_bit))
-    return {"distinct": bool(distinct), "rel": rel, "half_over_N": sp.N(sp.Rational(1, 2 * EXAMPLE_N), 30),
-            "N_back": N_back}
+    r1 = chain_coeff()["r1"]
+    A_bit = 4 * sp.pi * r1**2
+    dA = sp.simplify(4 * sp.pi * ((sp.sqrt(EXAMPLE_N + 1) * r1) ** 2 - (sp.sqrt(EXAMPLE_N) * r1) ** 2))
+    return {"one_bit_is_A_bit": sp.simplify(dA - A_bit) == 0,
+            "distinct": sp.simplify(sp.sqrt(EXAMPLE_N + 1) - sp.sqrt(EXAMPLE_N)) != 0}
 
 
-def corridor_N(throat_r, r1):
-    return sp.nsimplify(sp.simplify((throat_r / r1) ** 2))
+def t2():
+    N = sp.Symbol("N", positive=True)
+    qcorr = sp.pi / (N * sp.log(2))                                 # kderive.py K2's estimate, (l_P/r_min)^2
+    ratio = sp.simplify(qcorr / (1 / N))                            # against one bit's fractional area 1/N
+    dN_G = EXAMPLE_N * chain_coeff()["u_G"]                         # area ~ G, so a measured throat fixes N to N u_r(G)
+    return {"ratio": ratio, "ratio_value": float(ratio), "dN_from_G": dN_G}
 
 
-def accepts(readme, throat_r, r1):
-    return len(readme) == corridor_N(throat_r, r1)
+def accepts(readme, N):
+    return len(readme) == N
 
 
-def t2_t4(n=12):
-    r1 = r1_exact()
-    throat = sp.sqrt(n) * r1
+def t34(n=12):
     readme = "101100111010"[:n]
-    return {"strings_per_throat": 2**n, "accepts": accepts(readme, throat, r1),
-            "short": accepts(readme[:-1], throat, r1), "long": accepts(readme + "0", throat, r1), "n": n}
+    flipped = readme[:3] + ("0" if readme[3] == "1" else "1") + readme[4:]
+    return {"strings": 2**n, "accepts": accepts(readme, n), "short": accepts(readme[:-1], n),
+            "long": accepts(readme + "0", n), "substitution": accepts(flipped, n), "n": n}
 
 
 def compute():
-    return {"t1": t1(), "t24": t2_t4()}
+    return {"t1": t1(), "t2": t2(), "t34": t34()}
 
 
 def report(d):
-    a, b = d["t1"], d["t24"]
+    a, b, c = d["t1"], d["t2"], d["t34"]
     print("witness.py -- the README and the corridor as witnesses (item 145)\n")
-    print("T1 at the example README, N and N+1 give distinct throats: %s; relative difference %s (1/(2N) = %s); the "
-          "throat gives back N = %s" % (a["distinct"], sp.N(a["rel"], 6), sp.N(a["half_over_N"], 6), a["N_back"]))
-    print("T2 strings of length %d sharing one throat: %d (the corridor does not witness the content)"
-          % (b["n"], b["strings_per_throat"]))
-    print("T4 a %d-bit README against its corridor: accepted %s; one bit short %s; one bit long %s"
-          % (b["n"], b["accepts"], b["short"], b["long"]))
+    print("T1 one bit adds exactly one A_bit of throat area: %s; N and N+1 distinct classically: %s"
+          % (a["one_bit_is_A_bit"], a["distinct"]))
+    print("T2 quantum-correction estimate against one bit's area: %s = %.3f at every N; measured G fixes N to ~%.1e bits "
+          "at the example README" % (b["ratio"], b["ratio_value"], b["dN_from_G"]))
+    print("T3 strings of length %d sharing one throat: %d" % (c["n"], c["strings"]))
+    print("T4 length check: accepted %s; one bit short %s; one bit long %s; one bit substituted %s (not caught)"
+          % (c["accepts"], c["short"], c["long"], c["substitution"]))
 
 
 def selftest():
@@ -102,13 +109,15 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     d = compute()
-    a, b = d["t1"], d["t24"]
-    chk("T1: N and N+1 give distinct throats at the example README (exact arithmetic)", a["distinct"])
-    chk("T1: the relative difference is 1/(2N) to leading order (1.8e-16)", abs(a["rel"] / a["half_over_N"] - 1) < 1e-15)
-    chk("T1 (STRUCTURAL): the throat gives back N exactly", a["N_back"] == EXAMPLE_N)
-    chk("T2 (STRUCTURAL): 2^N strings share one throat", b["strings_per_throat"] == 2 ** b["n"])
-    chk("T4: the README is accepted by its own corridor", b["accepts"])
-    chk("T4 control (STRUCTURAL): a README one bit short or long is rejected", not b["short"] and not b["long"])
+    a, b, c = d["t1"], d["t2"], d["t34"]
+    chk("T1 (STRUCTURAL): one bit adds exactly one A_bit; N and N+1 are distinct classically",
+        a["one_bit_is_A_bit"] and a["distinct"])
+    chk("T2: the quantum-correction estimate is pi/ln2 = 4.53 bits' worth of area at every N (N cancels)",
+        sp.simplify(b["ratio"] - sp.pi / sp.log(2)) == 0)
+    chk("T2: measured G fixes N from a throat only to ~6e10 bits at the example README", 5e10 < b["dN_from_G"] < 7e10)
+    chk("T3 (STRUCTURAL): 2^N strings share one throat", c["strings"] == 2 ** c["n"])
+    chk("T4 (STRUCTURAL): the length check rejects a bit dropped or added", c["accepts"] and not c["short"] and not c["long"])
+    chk("T4 (STRUCTURAL): the length check does not catch a substituted bit", c["substitution"])
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
