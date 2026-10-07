@@ -68,7 +68,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | O3 the corridor survives any hold in its window — above the READ bounds, max(h/(4E), 1/(2ξ)) clocks, below the ~11.3 clocks the bulk carries — and its hold lies there | **reading**, o3_hold.py: survival computed for every hold in the window; that the hold lies there is H-HOLD-IN-WINDOW, a requirement on the write; the per-bit 28.48 clocks withdrawn |
+| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2))** | **OPEN**, waits on B4d. o3_write.py: the write needs ≥ (3645 ln2·N/(8Z))^(1/3) − 2 clocks ('t Hooft's gas bound, READ; 2.0×10⁵ at the example README, Z = 108.75). If the write sits in the static hold (reading (i)) that is past the static bulk's verified ~11.3 clocks; if the write is the opening (reading (ii)) it is a floor on the opening. The bulk is not still through the write on either reading. o3_hold.py: survival for holds in the static window, linear theory; the per-bit 28.48 clocks withdrawn |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
@@ -96,8 +96,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 | R | R4 the corridor's length as the trajectory difference, in bits (not a distance) | **derived**, r4_length.py: the measure confirmed by you (item 155) |
 | R | R5 the build's mechanism | **derived**, r5_build.py: the mechanism yours; the trigger reading confirmed by you (item 155) |
 
-- **The count:** 34 lemmas. **14 proved, 11 derived, 3 definitions, 3 on the board's readings, 1 a measurement, 2 OPEN**
-  (B3 and B4d, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
+- **The count:** 34 lemmas. **14 proved, 11 derived, 3 definitions, 2 on the board's readings, 1 a measurement, 3 OPEN**
+  (O3, B3 and B4d; all three wait on B4d). warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
 ## The energy ledger: the one place your rulings pull against each other (T3)
@@ -137,16 +137,18 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 ## The work left, as the theorem's lemmas
 
-- **Open:** B4d, the opening and closing as a five-dimensional evolution. It carries B3, and with B4a–B4c closes
-  formation and the address. See lemmas/B4.md.
-- **On the board's readings:** B4c (H-FAR-MODEL), B4b (the locally analytic class and Padé continuation, computed),
-  O3 (H-HOLD-IN-WINDOW). B5, B7 and I1 left the list under item 154; E3, R4 and R5 when you confirmed them (item 155).
-  B4b and O3 returned to it on step 5's verifier.
+- **Open:** B4d, the opening and closing as a five-dimensional evolution, now through a write of at least
+  ~2×10⁵ clocks at the example README (lemmas/O3-WRITE.md). It carries B3, and with B4a–B4c closes formation and the
+  address. O3 now waits on it too.
+- **On the board's readings:** B4c (H-FAR-MODEL), B4b (the locally analytic class and Padé continuation, computed).
+  Both were calibrated to the static window's ~11.3-clock reach, which the write exceeds, so both are re-read with B4d.
+  B5, B7 and I1 left the list under item 154; E3, R4 and R5 when you confirmed them (item 155). O3 left it for OPEN
+  under item 158 (O3-WRITE.md).
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
-- **Verification:** b4_global.py, b4_regular.py and b4_static.py (with o3_hold.py's window) have had one verifier
-  each; the other nine lemma instruments, axioms.py and warptheorem.py have not.
+- **Verification:** b4_global.py, b4_regular.py, b4_static.py (with o3_hold.py's window) and o3_write.py have had
+  one verifier each; the other nine lemma instruments, axioms.py and warptheorem.py have not.
 - The chain map (chainmap.html, published as the Warp Chain Map) shows which station each lemma decides.
 
 ## Named hypotheses
@@ -154,7 +156,9 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Yours:** M-ONE-THEOREM (150), M-PROVE-EVERY-LEMMA (151), and the rulings each derived lemma is derived from.
 - **The board's:**
   - reading your item 152 (1) as CENSOR5D's escape (a), encoded as one end (B4a);
-  - H-FAR-MODEL (B4c); the locally analytic class near the hold and Padé continuation (B4b); H-HOLD-IN-WINDOW (O3);
+  - H-FAR-MODEL (B4c); the locally analytic class near the hold and Padé continuation (B4b); for O3's write
+    (O3-WRITE.md) H-WRITE-IS-ARRIVAL, H-FREE-GAS, H-BITS-ARE-STATES, H-SPECIES-FINITE, H-FLAT-START, H-README-ALONE,
+    H-HOLD-FRAME, H-NO-SHORTCUT, and reading (i)'s H-WRITE-IN-STATIC-HOLD; H-HOLD-IN-WINDOW, refuted on reading (i);
     H-EVOLUTION and H-GLUING (B4d);
   - reading (a) for E3;
   - H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE (B5); H-BRIDGE-PREEXISTS (B7);
@@ -235,4 +239,25 @@ The theorem is proved exactly when no lemma below is OPEN.
     - B4b rests on the locally analytic class, on agreement between Padé orders, and on the flat limit.
     - O3's hold lying in the window is a requirement on the write, H-HOLD-IN-WINDOW.
   - **The count:** 14 proved, 11 derived, 3 definitions, 3 readings, 1 measurement, 2 open.
+
+## History (2026-10-07, item 158)
+
+- **Your item 158 made the hold the write.** You said the hold lasts *"exactly as long as the write needs"*, and left
+  the write's mode, the bulk's stillness and the energy's place to the math. lemmas/o3_write.py and O3-WRITE.md
+  compute the write's least time.
+- **The rate bounds don't decide it.** Bekenstein–Schiffer's information-rate bounds (quant-ph/0311050, eqs. (86),
+  (97), (112), (115), READ) each give a fixed number of clocks for every N: 2, 79.5, 113.9, and 113.9/log₂ of the
+  channel count.
+- **The room the README needs does.** The README is the inflow (115 (c)), so it starts within light-reach of the
+  throat. Until it collapses it can hold no more states than a free gas there ('t Hooft, gr-qc/9310026, pp.4–5,
+  READ). So the write needs at least (3645 ln2·N/(8Z))^(1/3) − 2 clocks: 2.0×10⁵ at the example README, where the
+  gas's own temperature puts every Standard Model particle in Z. That is 1.3×10⁻³¹ s.
+- **One verifier.** The bound stood in every variant: through the extra dimension, without H-README-ALONE (630
+  clocks), and with prior entanglement. The draft's conclusion did not. It needed an unnamed reading, that the write
+  sits inside the static hold. Under your 115 (c) the write may instead be the opening itself, which is already
+  non-static.
+- **Where it stands.** On either reading the bulk is not still through the write; that answers 158 (3). O3 goes from
+  READING to OPEN and waits on B4d. H-HOLD-IN-WINDOW is refuted only if the write sits in the static hold.
+  158 (1) and (4) stay open.
+- **The count:** 14 proved, 11 derived, 3 definitions, 2 readings, 1 measurement, 3 open.
 

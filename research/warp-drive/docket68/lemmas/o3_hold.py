@@ -24,7 +24,10 @@ states, NOT bits (p.2).
        the bulk -- b4_static.py finds every hold shorter than about 11.3 clocks keeps its computed double cone in
        regular, Padé-stable static bulk.  So the theorem now REQUIRES the hold to lie in the window (H-HOLD-IN-WINDOW,
        the board's): no write mechanism achieving it is shown.  At the example README the top is ~7.5e-36 s.  M's
-       136 E, "instantaneous or near instantaneous", is consistent with the window and does not choose it
+       136 E, "instantaneous or near instantaneous", is consistent with the window and does not choose it.
+       Since item 158 the hold is the write, and o3_write.py puts the write at >= (3645 ln2 N/(8 Z))^(1/3) - 2 clocks
+       (2.0e5 at the example README): past this window if the write sits in the static hold, a floor on the opening
+       if it is the opening.  O3 is OPEN, waiting on B4d; this window is what the static bulk carries
   O3c  the corridor survives any hold in the window, in linear theory (PROVED for every hold in it): at the window's top,
        v ~ 11.3 m of the horizon's advanced time, stability.py S4's exact rate changes the second derivative by v/(4m)
        times its natural size, and S5b's power-law blueshift is at most (1 + v/(8m))^2 for rays starting within m of the
