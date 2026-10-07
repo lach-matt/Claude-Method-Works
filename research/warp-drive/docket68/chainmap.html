@@ -163,7 +163,7 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
     <div class="eyebrow">Warp-drive research board · docket 68</div>
     <h1>The warp chain, start to finish</h1>
     <p class="lede">Each station of a trip, now decided by the lemmas of one theorem (item 150). A station is green only when every lemma it rests on is proved, derived from your rulings, or a definition of yours shown consistent, with nothing left on a board reading or open. Every status below is the one <span class="id">warptheorem.py</span> reports.</p>
-    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py · 2026-10-07 · commit 0338746 · rulings through item 151 · lemma instruments unverified · nothing seated</div>
+    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py · 2026-10-07 · commit 35e2d85 · rulings through item 151 · lemma instruments unverified · nothing seated</div>
   </header>
 
   <section class="thm" aria-label="The Warp Theorem">
@@ -308,7 +308,7 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
         <ul class="lemmas">
           <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>I2</b>The README's N bits sit within the capacity bound as READ: the holding bound is N, the interaction bound is met with equality, the channel bound N/2 ≤ N.</div><div class="how">lemmas/i2_capacity.py, 4/4; Maldacena–Stanford–Yang p.4, p.12</div></li>
           <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R0</b>The read: the corridor takes the README as its inflow at the opening; N is read from the object. Consistent: the interaction bound is met with equality exactly because the inflow is the README.</div><div class="how">items 70, 101 answer 8, 115 (c), 130 (2)</div></li>
-          <li class="lm r"><span class="chip read">Derived*</span><div class="what"><b>I1</b>The passage is N bits of entanglement: two-sided black holes carry entanglement entropy equal to the Bekenstein–Hawking entropy of either (Maldacena–Susskind p.5, READ), and the horizon's is exactly N bits.</div><div class="how">lemmas/axioms.py</div><div class="left"><b>Left</b>The READ is for the thermal case. The corridor's horizon is extremal, and that its entropy is still the area's is H-EXTREMAL-ENTROPY: standard, not yet READ at source.</div></li>
+          <li class="lm r"><span class="chip read">Derived*</span><div class="what"><b>I1</b>The passage is N bits of entanglement: two-sided black holes carry entanglement entropy equal to the Bekenstein–Hawking entropy of either (Maldacena–Susskind p.5, READ), and the horizon's is exactly N bits.</div><div class="how">lemmas/axioms.py</div><div class="left"><b>Left</b>The READ is for the thermal case. For extremal horizons, Strominger–Vafa (hep-th/9601029) READ S = A/4 as a count of ground states, for a class of five-dimensional extremal black holes. That the corridor belongs to that class is the board's step, H-EXTREMAL-ENTROPY.</div></li>
         </ul>
         <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
           <li><span class="st ok">answered</span>Information cannot outrun its carrier: it does not. The README runs a null geodesic of the five-dimensional geometry (Z1). <span class="id">D13</span></li>
@@ -349,10 +349,11 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
       <tbody>
         <tr><td>flat limit, to order 12 in y</td><td class="n">1.036, 0.033, 0.285, 0.029, 0.022, 0.0027</td><td>falling: no sign of a blow-up; radius at least about 1.6–1.8m</td></tr>
         <tr><td>ℓ = r₀, to order 8</td><td class="n">3.54, 4.12, 8.25, 11.13, 11.69, 11.04, 11.00</td><td>ratios level near 1: a possible singularity near y ≈ 1.0m, in front of the bulk horizon (y ≈ 1.31m)</td></tr>
-        <tr><td>ℓ = r₀, to order 11</td><td class="n">running</td><td>decides whether that is a singularity or a caustic of the series</td></tr>
+        <tr><td>ℓ = r₀, to order 11</td><td class="n">3.54, 4.12, 8.25, 11.13, 11.69, 11.04, 11.00, 12.35, 14.40, 15.92</td><td>all positive; Padé places a real pole near y ≈ 0.9m (1.07m at r = 2.25m, none within 1.7m at r = 3m)</td></tr>
+        <tr><td>K from the metric itself, orders 7, 9, 11</td><td class="n">y = 1.0: 174, 211, 235<br>y = 1.2: 5,276; 13,022; 20,819</td><td>finite but rising steeply, and not converged past y ≈ 0.8, where g_tt and g_rr fall toward zero together (y ≈ 1.28m)</td></tr>
       </tbody>
     </table></div>
-    <p style="margin-top:10px">If it is a singularity, a lasting static corridor has a singular bulk, which your 136 answer 3 already rules out, and B4 turns on whether the bulk stays regular through the 28.5-clock hold. If not, B4 reduces to the topological argument (one end: R²×S² is contractible, so Thm 3.5's deformation holds) with item 120.</p>
+    <p style="margin-top:10px"><b>Not decided.</b> The series cannot yet tell a curvature singularity from the bulk's own horizon, where g_tt and g_rr vanish together. The next step is a method that does not rest on the Taylor series. If it is a singularity, a lasting static corridor has a singular bulk, which your 136 answer 3 already rules out, and B4 turns on whether the bulk stays regular through the 28.5-clock hold. If not, B4 reduces to the topological argument (one end: R²×S² is contractible, so Thm 3.5's deformation holds) with item 120.</p>
   </section>
 
   <section class="breaks" aria-label="What turns the map green">
@@ -373,8 +374,8 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
       <div class="eyebrow">Still to do on the board's side</div>
       <h2>Residue the board can clear</h2>
       <ol>
-        <li>Finish B4's curvature test, then write its lemma. <span class="id">B3, B4</span></li>
-        <li>READ an extremal horizon's entropy at source, clearing I1's caveat. <span class="id">H-EXTREMAL-ENTROPY</span></li>
+        <li>Decide B4's curvature test by a method beyond the series, then write its lemma. <span class="id">B3, B4</span></li>
+        <li>Carry Strominger–Vafa's extremal count to the corridor's horizon, or derive it there: READ for their class, not yet for this one. <span class="id">H-EXTREMAL-ENTROPY</span></li>
         <li>Re-run the duration quantum inequality against Z3. <span class="id">D7</span></li>
         <li>One verifier each over the nine lemma instruments, axioms.py and warptheorem.py. None has had one.</li>
       </ol>

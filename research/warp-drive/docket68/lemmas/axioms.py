@@ -20,8 +20,11 @@ DERIVED (each from more basic rulings + proved lemmas + physics, computed):
       highly entangled with an entanglement entropy equal to the Bekenstein Hawking entropy of either black hole".  The
       corridor's horizon has area N A_bit (H2), so its Bekenstein-Hawking entropy is A/(4 l_P^2) nats = A/(4 l_P^2 ln2)
       bits = N (i2_capacity.py I2a).  Their statement is for the thermal state; the corridor's horizon is extremal (O2),
-      and at zero temperature the entanglement is the horizon's ground-state degeneracy, e^(A/4) (H-EXTREMAL-ENTROPY,
-      standard, not READ) -- labelled
+      and at zero temperature the entanglement is the horizon's ground-state degeneracy, e^(A/4) (H-EXTREMAL-ENTROPY).
+      READ for a class: Strominger-Vafa arXiv:hep-th/9601029, abstract, "The Bekenstein-Hawking area-entropy relation
+      S_BH=A/4 is derived for a class of five-dimensional extremal black holes in string theory by counting the
+      degeneracy of BPS soliton bound states".  That the corridor's horizon is in that class is NOT READ: carrying the
+      count to it is the board's step -- labelled
   Z3  null energy is never violated, in five dimensions.  In the vacuum bulk R_AB = (2 Lambda/3) g_AB, so R(k,k) = 0 for
       every null k (computed); on the composite plane the null stress is lambda_RS f(y) k_y^2 >= 0 at every depth (B5a,
       the board's H-SHARED-PROFILE); along the passage it is exactly 0 (Z1, proved).  The plane's four-dimensional

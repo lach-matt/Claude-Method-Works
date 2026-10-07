@@ -92,7 +92,7 @@ LEMMAS = [
           "change of topology, consistent and safe; its 5D evolution goes with B4", "READING",
      "lemmas/b7_formation.py: chain.py's z3 encoding; H-BRIDGE-PREEXISTS (items 100, 101.1, 122 (4), 140; "
      "Maldacena-Susskind p.17), the board's"),
-    ("I", "I1 the passage is N bits of entanglement", "DERIVED", "lemmas/axioms.py: Maldacena-Susskind p.5 (READ) with H2: N bits; extremal via ground-state degeneracy (H-EXTREMAL-ENTROPY, standard, not READ)"),
+    ("I", "I1 the passage is N bits of entanglement", "DERIVED", "lemmas/axioms.py: Maldacena-Susskind p.5 (READ) with H2: N bits; extremal via ground-state degeneracy (H-EXTREMAL-ENTROPY: READ for a class, Strominger-Vafa hep-th/9601029 abstract; carried to the corridor by the board)"),
     ("I", "I2 the README's N bits within the capacity bound as READ: information at most what is sent to set up the "
           "interaction (Maldacena-Stanford-Yang p.4; parametric, p.12) -- N is the device's input (130 (2))", "PROVED",
      "lemmas/i2_capacity.py: holding bound = N, interaction bound met with equality, channel bound N/2 <= N"),

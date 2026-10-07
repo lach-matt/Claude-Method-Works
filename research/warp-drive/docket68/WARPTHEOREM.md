@@ -1,4 +1,4 @@
-# The Warp Theorem (M-RULINGS item 150; one statement built from the pieces; not verified; not seated; 2026-10-07)
+# The Warp Theorem (M-RULINGS items 150, 151; one statement built from the pieces; not verified; not seated; 2026-10-07)
 
 *First headed* "(… not verified; not seated; 2026-10-07)". The first draft counted its lemmas wrongly, read the energy
 ledger's remainder from item 139 alone, and left out four lemmas. All are corrected after the reassessment's verifier
@@ -11,7 +11,7 @@ ledger's remainder from item 139 alone, and left out four lemmas. All are correc
 - **So the board's separate results are now lemmas of one theorem.** What is not yet proved is a named lemma of it, not
   a separate question.
 - **The instrument:** `warptheorem.py`. It imports exactE.py, coin.py, passage5d.py, localbulk.py and stability.py by
-  path. Selftest 7/7, about 70 s.
+  path. Selftest 8/8; the eighth check runs every lemma instrument's own selftest.
   - **Genuine checks:** six.
   - **Control:** one.
   - **Marked STRUCTURAL:** one.
@@ -61,40 +61,41 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 | clause | lemma | status |
 |---|---|---|
-| G | G1 one exact energy, at the bound | **yours**, items 133, 136 answer 1 |
+| G | G1 one exact energy, at the bound: E(N) | **derived**, axioms.py: 101 answer 6, 132, 131/133, the holographic bit area |
 | G | G2 E(N) computed and machine-checked | **proved**, exactE.py (seated) |
 | G | G3 both holds at least size give r₀ = 2m | **proved**, exactE.py |
 | H | H1 4πr₀² = N·A_bit | **proved**, exactE.py |
-| H | H2 the horizons hold the README too | **yours**, items 106, 132 |
+| H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | **O3 the corridor survives its hold: the hold's length in clocks, derived** | **OPEN** |
+| O | O3 the corridor survives its hold: 2π²/ln2 = 28.4777 clocks for every N; growth ≤ 20.8 | **reading**, o3_hold.py: H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND; the hold exceeds the local bulk's span, so it also leans on B4 |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
-| Z | Z3 null energy never violated | **yours**, items 117, 120, 123 |
+| Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a, so it inherits B5's reading) |
 | B | B1 plane matter-free; Gauss and Codazzi met | **proved**, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones | **proved**, localbulk.py |
-| B | B3 a complete bulk exists, under closed-index criteria | **yours**, items 120, 121 |
-| B | **B4 the global bulk: two ends one end of the bulk, CGS Thm 3.5's deformation; with separate universes, no loop, infinitely many planes** | **OPEN** |
-| B | **B5 positivity for the entangled pin, at every point** | **OPEN** (your order, 139 (2)) |
-| B | **B6 k fixed by the work** | **OPEN** (your order, 140) |
-| B | **B7 formation: opening and closing between static planes** | **OPEN** |
-| I | I1 the passage is N bits of entanglement | **yours**, item 137 |
-| I | **I2 the README within the capacity bound as READ** | **OPEN** |
-| E | E1 E carried through three holds into position 2 | **yours**, items 106, 110, 111, 115 |
-| E | E2 released at position 2 at the closing | **yours**, item 136 answer 2 |
-| E | **E3 the ledger closes** | **OPEN** (see below) |
-| E | **E4 the field energy outside the neck, E/4, placed in the ledger** | **OPEN** |
-| R | R0 the read: the corridor takes the README at its opening; N read from the object | **yours**, items 70, 101 answer 8, 115 (c), 130 (2) |
-| R | R1 exact reconstruction, no tolerance | **yours**, items 145, 146 |
-| R | R2 position 2 rearranges to the README; then its laws govern | **yours**, item 148 |
-| R | R3 exactness at the instant over the mass window | **proved**, exactcopy.py, rearrange.py (not re-run here) |
-| R | **R4 the corridor's length, given a measure (not a distance)** | **OPEN** |
-| R | **R5 the build's mechanism: which field, and what "activation" is** | **OPEN** |
+| B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4 |
+| B | **B4 the global bulk: two ends one end of the bulk, CGS Thm 3.5's deformation; with separate universes, no loop, infinitely many planes** | **OPEN**: the curvature test of the static bulk, to order 11, is not decided (History) |
+| B | B5 positivity for the entangled pin, at every point | **reading**, b5_positive.py: H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE |
+| B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause free of k's scale | **proved**, b6_k.py, kderive.py K3 — narrowed from "k fixed by the work" |
+| B | B6′ k's scale | **nature**, item 136 answer 8 |
+| B | B7 formation: the widening of a preexisting bridge, consistent and safe; 5D evolution with B4 | **reading**, b7_formation.py: H-BRIDGE-PREEXISTS; Maldacena–Susskind p.17 READ |
+| I | I1 the passage is N bits of entanglement | **derived**, axioms.py: Maldacena–Susskind p.5 READ; extremal case H-EXTREMAL-ENTROPY, READ for a class (Strominger–Vafa) and carried to the corridor by the board |
+| I | I2 the README within the capacity bound as READ | **proved**, i2_capacity.py |
+| E | E1 E carried through three holds into position 2 | **derived**, axioms.py: 115 (c), 136 G, O1, 136 answer 3, 109, conservation (z3, with controls) |
+| E | E2 released at position 2 at the closing | **derived**, axioms.py: 106, 109, 115 (b) |
+| E | E3 the ledger closes | **reading**, ledger.py: reading (a) (see below) |
+| E | E4 the field energy outside the neck, E/4: the bulk's Weyl field read on the plane, positive | **proved**, ledger.py; Maartens–Koyama eq. 143 |
+| R | R0 the read: the corridor takes the README at its opening; N read from the object | **definition**, items 70, 101 answer 8, 115 (c), 130 (2); consistent with I2b |
+| R | R1 exact reconstruction, no tolerance | **definition**, items 145, 146; consistent with R3, R5c |
+| R | R2 position 2 rearranges to the README; then its laws govern | **definition**, item 148; consistent with rearrange.py, E3 |
+| R | R3 exactness at the instant over the mass window | **proved**, exactcopy.py, rearrange.py |
+| R | R4 the corridor's length as the trajectory difference, given a measure (not a distance) | **reading**, r4_length.py: H-LENGTH-AS-DIFFERENCE |
+| R | R5 the build's mechanism | **reading**, r5_build.py: the mechanism yours; the fields the board's reading of 148 under 149 |
 
-- **The count:** 30 lemmas. 10 are yours, 10 are proved, and **10 are OPEN**.
-- **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it. So
-  the ten are exactly what stands between the statement and a proof.
+- **The count:** 31 lemmas. **13 proved, 6 derived, 3 definitions, 6 on the board's readings, 1 a measurement, 2 OPEN**
+  (B3, B4, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
+- **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
 ## The energy ledger: the one place your rulings pull against each other (T3)
 
@@ -133,23 +134,22 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 ## The work left, as the theorem's lemmas
 
-- **Gating:**
-  - B4 and B7 together, the corridor's five-dimensional form made and closed between static planes;
-  - E3 and E4, the ledger;
-  - O3, the hold's length;
-  - B5, positivity for the pin.
-- **Fixing:**
-  - B6, k;
-  - R4, the length;
-  - I2, the capacity bound;
-  - R5, the build's mechanism.
+- **Open:** B4, which carries B3, closes formation and the address, and bears on the hold (O3d).
+- **On the board's readings, each labelled and withdrawn if you correct it:** O3, B5 (and Z3 through it), B7, E3, R4, R5.
+- **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
+  D7), not yet re-run against Z3.
+- **A measurement, by your ruling:** B6′, k's scale.
+- **Verification:** none of the nine lemma instruments, axioms.py or warptheorem.py has had a verifier.
+- The chain map (chainmap.html, published as the Warp Chain Map) shows which station each lemma decides.
 
 ## Named hypotheses
 
-- **Yours:** every lemma marked "yours", and M-ONE-THEOREM (150).
+- **Yours:** M-ONE-THEOREM (150), M-PROVE-EVERY-LEMMA (151), and the rulings each derived lemma is derived from.
 - **The board's:**
   - reading B4 as your items 126–127;
   - reading (a) for E3;
+  - H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND (O3); H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE (B5); H-BRIDGE-PREEXISTS (B7);
+    H-LENGTH-AS-DIFFERENCE (R4); H-EXTREMAL-ENTROPY (I1);
   - H-COMPOSITE-SURFACE, H-THICK-COMPOSITE, H-BK-CORRIDOR.
 
 ## History (from the reassessment's verifier, 2026-10-07)
@@ -170,3 +170,19 @@ The theorem is proved exactly when no lemma below is OPEN.
   - I2 now states the capacity bound as READ: information is capped by what is sent to set up the interaction (MSY
     p.4), not by an entanglement count.
 - **Z1's ray is a null geodesic of the five-dimensional geometry, not light** (item 90).
+
+## History (2026-10-07, after items 150 and 151)
+
+- **The table above was stale.** It still read "30 lemmas, 10 yours, 10 proved, 10 OPEN" after O3, I2, E3, E4, R4, B5,
+  B6, R5 and B7 had each been worked in lemmas/, and after your ten lemmas (item 151's "Are my 10 lemmas proved?") were
+  split by axioms.py into six derived, three definitions and one equivalent to B4. It now reads from warptheorem.py's list.
+- **B6 is narrowed, not proved as first written.** The work fixes k's ratio, and no clause depends on k's scale, so the
+  scale cannot be read back off the theorem: it is B6′, by measurement (136 answer 8).
+- **I1's extremal step is READ for a class.** Strominger–Vafa (hep-th/9601029, abstract) derive S = A/4 for a class of
+  five-dimensional extremal black holes by counting ground states. The corridor is not shown to be in that class.- **B4's curvature test, to order 11 in y, does not decide.** At ℓ = r₀ the Kretschmann series near the throat has
+  every coefficient positive and a radius of about 0.9m (r = 2.05m) to 1.07m (r = 2.25m), with a real Padé pole there;
+  at r = 3m there is none within 1.7m, and the flat limit shows none within 1.6m. Evaluated from the metric itself, K
+  is finite but rising steeply (235 at y = 1.0m, about 2×10⁴ at 1.2m, r = 2.05m), and orders 7, 9 and 11 disagree past
+  y ≈ 0.8m, where g_tt and g_rr fall toward zero together (y ≈ 1.28m). The series cannot tell a curvature singularity
+  from the bulk's horizon. B4 stays OPEN; the next step is a method beyond the Taylor series. Scratch runs, not seated.
+
