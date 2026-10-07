@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""current.py -- DOCKET 68, M-RULINGS items 125-131: the README corridor's coefficients evaluated with exact values,
+"""current.py -- DOCKET 68, M-RULINGS items 125-131 (X5-X6 verified 2026-10-07): the README corridor's coefficients evaluated with exact values,
 from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
@@ -47,9 +47,11 @@ WHAT THE WORK FINDS
      place -- opposite tensions, so K = 0 -- fails the bulk's own yy constraint unless a = 0 (computed).  The plane's
      tension, and the 4D G that sets m, depend on k and kappa.  First written "the device needs no k and no kappa" --
      withdrawn.
-  X5 WHAT THE CORRIDOR ADDS (item 129: "the corridor is a bridge, so it adds nothing to either position").  In
-     plane.py's own masses, ADM = m/4 + r0/2 and the pull (Komar) = m, so at r0 = 3m/2 + Delta the plane's total exceeds
-     the pull by exactly Delta/2 (computed).  Two readings of "adds nothing": (i) no matter -- every member of eq. (17)
+  X5 THE TOTAL MINUS THE PULL (item 129: "the corridor is a bridge, so it adds nothing to either position").  In
+     plane.py's own masses, ADM = m/4 + r0/2 and the pull (Komar) = m, so at r0 = 3m/2 + Delta the total exceeds the pull
+     by Delta/2 (STRUCTURAL: PLANE.md point 4's Penrose gap) -- exactly the integral of eq. 18's tidal density outside
+     the horizon; BK p.1 calls E_mn "the tidal SET ... Due to its geometric origin", p.2 "the most natural 'matter'
+     supporting wormholes" (READ by the verifier).  Two readings of "adds nothing": (i) no matter -- every member of eq. (17)
      has tau = 0 on the plane (escape.py S3), so this holds already; (ii) no mass beyond what is already there -- if the
      pull is the carried energy, which belongs to the matter already present (H-CURRENT-HAS-MATTER), the corridor adds
      Delta/2 and "nothing" forces Delta = 0, where eq. (17) has no throat: in reading (ii) Bronnikov-Kim's family hosts
@@ -61,18 +63,32 @@ WHAT THE WORK FINDS
      member is positive -- the pull m > r0/2 > 0, the total m + Delta/2, the light-bending mean of the two; a negative
      total needs m < -2 r0, which has no horizon (plane.py's zero-total member).  So "negative from outside" is not
      eq. (17)'s gravitational mass; the board's candidate is PLANE.md's apparent mass = carried - defined (item 107).
-  ITEM 131.  M struck item 130's "observed mass appears negative": the observed mass is the gravitational pull,
-     positive here.  And "the throat size only needs to carry the binary information defining the object in transit,
-     so the size of the throat is dependent on the size of the README in its most simplistically exact binary code
-     form".
-  X6 THE THROAT ON THE HORIZON.  A throat carrying the README's N bits at the neck's area per bit (chain.py, ENTANGLE
-     point 3: 2 h G ln2/(pi c^3)) has 4 pi r0^2 = N A_bit, so r0 = r_min(N) = 7.59185110914622e-36 m x sqrt(N), the
-     board's original neck.  With the horizon also holding N (item 106; PLANE.md: 2m = r_min), r0 = 2m EXACTLY: Delta =
-     m/2, the window's boundary, not a horizon member.  There g_tt = x^2/(2m + x^2) has a double zero at the throat --
-     the two mouths' horizons meet at one surface -- the surface gravity is zero, the throat lies at infinite proper
-     distance at fixed t (g_xx = 4 m^2/x^2 + ...), and each leg's null integral is finite, -(4E/3m)[1 - (sqrt3/6)
-     ln(2 + sqrt3)].  The total is m + Delta/2 = 5m/4 (geometry, not matter).  Whether a passage through a double
-     horizon is one-way, and what it does to items 104-109's two-horizon picture, is not computed (OPEN).
+  ITEM 131.  "strike that statement. I meant the gravitational pull."  The board reads it as striking item 130's
+     "observed mass appears negative" (the board's reading); read instead as keeping "appears negative" for the pull,
+     eq. (17) contradicts it -- outside a horizon member the pull m, the total m/4 + r0/2 and the light-bending mean are
+     positive; the pull is negative iff m < 0, the mean iff m < -2 r0/5, the total iff m < -2 r0, none with a horizon
+     (asked).  And "the throat size only needs to carry the binary information defining the object in transit, so the
+     size of the throat is dependent on the size of the README in its most simplistically exact  binary code form".
+  X6 THE THROAT SIZED BY THE README.  Read as the least throat that carries N bits (the board's: H-THROAT-AT-BOUND, with
+     H-NECK-HOLDS and H-STRONG-BOUND on a surface that is not a horizon -- Bousso's extrapolation, CHAIN.md): 4 pi r0^2 =
+     N A_bit, A_bit = 2 h G ln2/(pi c^3) = 4 l_P^2 ln2, so r0 = r_min(N) = 7.59185110914622e-36 m x sqrt(N).  A horizon
+     holds N whenever 2m >= r_min; equality is the floor m = E_min, from wall 4's hypotheses (one E_min(N) per trip:
+     H-PULL-IS-COST, H-DEVICE-SIZES, H-HORIZON-HOLDS, H-STRONG-BOUND), not from holding alone.  So:
+       AT THE FLOOR r0 = 2m (STRUCTURAL: one bound on two surfaces): the boundary member, a degenerate (extremal) horizon
+       at the throat -- g_tt = x^2/(2m + x^2), zero surface gravity (Hawking T = 0; the horizon's own Komar charge -> 0,
+       so the whole pull is the tidal stress outside), the throat infinitely far at fixed t (g_xx = 4m^2/x^2 + ...), the
+       null leg finite, -(4E/3m)[1 - (sqrt3/6) ln(2 + sqrt3)].  g_xx > 0 for every x != 0: x is never a time direction,
+       so PLANE.md point 1's one-way mechanism (the throat a moment between two horizons) is GONE there -- in conflict
+       with H-CORRIDOR-HORIZON's computed mechanism; item 106's two holds become one surface, and item 109's ending
+       horizon is that surface.  BK pp.3-4 (READ by the verifier): eq. 17 is a wormhole "for any r0 > 2m >= 0"; r0 = 2m
+       is excluded and is not a BK throat (a double zero); BK's own example 3, "r0 = 2m leads to the extreme
+       Reissner-Nordstrom black hole metric".  Simpson-Visser 1812.07114v3 (READ by the verifier): a = 2m is "a one-way
+       wormhole with an extremal null throat" (p.3), "only one-way traversable" (p.4) -- an analogue; eq. 17's own causal
+       structure is OPEN, as are stability and fine-tuning (a measure-zero member).  The total 5m/4 is PLANE point 2's
+       upper endpoint; Delta/2 = m/4 is eq. 18's tidal energy outside the horizon.
+       ABOVE THE FLOOR (floor < m < 4/3 floor) r0 = r_min lies inside the horizon: a horizon member of PLANE point 1's
+       kind, the horizon holding more than N (PLANE point 3's interval, restored by item 131).
+     First written "With the horizon also holding N ..., r0 = 2m EXACTLY" and "Delta: fixed at m/2" -- an over-claim.
   WHAT STAYS A COEFFICIENT.  N, now the input (item 130); m's current value; Delta and its side; E and its normalization; the tension's
   sign (H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet, BULK.md); k and kappa (through the tension and
   the 4D G); the coinciding junction.
@@ -80,7 +96,10 @@ WHAT THE WORK FINDS
 NAMED HYPOTHESES
   M's: M-EXACT-VALUES (125); H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COLOCATED-REALIZATION,
     H-SHORTEST-DISTANCE (126); H-HORIZON-NEEDS-OBJECT (109); H-README-AS-NEEDED (108); the horizon members' window.
-  The board's: H-CORE-README, H-GREY-VOLUME (illustrative); H-CURRENT-IS-SCHWARZSCHILD (asked; in conflict with 109);
+  M's, items 129-131: H-CURRENT-HAS-MATTER, H-BRIDGE-ADDS-NOTHING, H-BRIDGE-ADDS-NO-MATTER, H-MOUTH-AS-BLACK-HOLE,
+    H-N-IS-INPUT, H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT; H-NEGATIVE-FROM-OUTSIDE (struck, item 131).
+  The board's: H-THROAT-AT-BOUND, H-NECK-HOLDS, H-STRONG-BOUND (X6); wall 4's floor hypotheses; H-CORE-README,
+    H-GREY-VOLUME (illustrative); H-CURRENT-IS-SCHWARZSCHILD (asked; in conflict with 109);
     H-E-PER-BIT (asked); PLANE.md's H-HORIZON-HOLDS, H-STRONG-BOUND.
 
 USAGE
@@ -221,7 +240,7 @@ def compute():
 
 
 def report(d):
-    print("current.py -- items 125-127: the README corridor's coefficients from a current state outward")
+    print("current.py -- items 125-131: the README corridor's coefficients from a current state outward")
     print("  board's N = %d bits (illustrative grey volume; OPEN under item 108);  m = %.14e m (G's share u_r %.1e)" % (
         d["N"], d["m"], d["u_r_G_share"]))
     print("  candidate current state r0 = 3m/2 = %.14e m: a %.4f kg singular black hole (item 109 conflict)" % (
@@ -236,6 +255,8 @@ def report(d):
     print("  at E = E_min/N = %.14e J (G E/c^4 = %.4e m): limit per leg %.4e" % (
         d["E_per_bit"], d["E_per_bit_geo_m"], d["leg_current_dimensionless_at_E_bit"]))
     print("  two sheets of opposite tension at one place: yy constraint %s" % d["together_yy"])
+    print("  X5 total minus pull = %s;  X6 least throat r0 = %.14e m (= 2m at the floor: %s), leg there %.11e" % (
+        d["adm_minus_pull"], d["r0_throat"], d["throat_over_2m"], d["leg_edge_closed"]))
 
 
 def selftest(d):
@@ -267,14 +288,9 @@ def selftest(d):
         "(remainder/(delta ln delta) %.2e); with ln(delta/3) it fails (%.2e)" % (
             d["series_remainder_over_dlogd_at_1e-8"], d["series_wrong_constant"]),
         abs(d["series_remainder_over_dlogd_at_1e-8"]) < 1e-6 < abs(d["series_wrong_constant"]))
-    chk("X5 (item 129): the plane's total minus the corridor's pull is ADM - Komar = (%s) - (%s) = %s at r0 = 3m/2 + "
-        "Delta (plane.py's masses) -- what the corridor adds beyond its pull is exactly Delta/2, zero only at Delta = 0 "
-        "where there is no throat" % (d["M_adm"], d["M_komar"], d["adm_minus_pull"]), d["adm_minus_pull"] == "Delta/2")
-    chk("X6 (item 131): a throat carrying the README's N bits at the neck's area per bit has r0 = sqrt(N A_bit/4pi) = "
-        "%.14e m; against the horizon's hold (2m = r_min) r0/2m = %s -- the throat sits exactly on the horizon, the "
-        "window's boundary" % (d["r0_throat"], d["throat_over_2m"]), d["throat_over_2m"] == "1")
-    chk("X6: at r0 = 2m, g_tt = %s (a double zero at the throat), the horizon's Komar charge -> %s (zero surface "
-        "gravity), g_xx = %s (the throat infinitely far at fixed t)" % (d["gtt_edge"], d["komar_h_edge"], d["gxx_edge"]),
+    chk("X6 at the floor (r0 = 2m): g_tt = %s (a double zero at the throat), the horizon's Komar charge -> %s (zero "
+        "surface gravity, T = 0), g_xx = %s > 0 for x != 0 (the throat infinitely far at fixed t; x never a time "
+        "direction -- PLANE point 1's one-way mechanism gone)" % (d["gtt_edge"], d["komar_h_edge"], d["gxx_edge"]),
         d["gtt_edge"] == "x**2/(2*m + x**2)" and d["komar_h_edge"] == "0" and d["gxx_edge"].startswith("4*m**2/x**2"))
     chk("X6: each leg's null integral there is -(4E/3m)[1 - (sqrt3/6) ln(2 + sqrt3)] = %.11e per metre of E, coin.py's "
         "closed form %.11e" % (d["leg_edge_closed"], d["leg_edge_coin"]),
@@ -294,6 +310,12 @@ def selftest(d):
                                                          d["leg_current_dimensionless_at_E_bit"]))
     structural.append("X4: K_kk on an empty umbilic plane = %s (from the input K = -a q and k null) -- the null stress "
                       "there totals zero; first counted with 'needs no k', withdrawn" % d["K_kk_on_plane"])
+    structural.append("X5: the total minus the pull = (%s) - (%s) = %s at r0 = 3m/2 + Delta -- PLANE point 4's Penrose "
+                      "gap, eq. 18's tidal energy outside the horizon (first counted)" % (
+                          d["M_adm"], d["M_komar"], d["adm_minus_pull"]))
+    structural.append("X6: the least throat carrying N bits, r0 = sqrt(N A_bit/4pi) = %.14e m; at the floor (2m = r_min) "
+                      "r0/2m = %s by construction (one bound, two surfaces; first counted); above the floor, floor < m < "
+                      "4/3 floor, r0 lies inside the horizon -- a horizon member" % (d["r0_throat"], d["throat_over_2m"]))
     structural.append("X5 at the board's m: Delta/2 in mass for Delta/m = %s is %s kg" % (
         list(FRACTIONS), ["%.4e" % v for v in d["adm_minus_pull_kg_per_Delta_frac"]]))
     structural.append("the last row (Delta = m/2, r0 = 2m) is the window's boundary, not a horizon member")

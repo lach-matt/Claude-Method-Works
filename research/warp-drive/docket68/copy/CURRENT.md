@@ -15,7 +15,8 @@
   - That is item 114's form: *"The trajectory is the difference between position 1 and position 2"*.
 
 Every number is printed by `current.py`.
-- **Selftest:** 10/10 checks, 1 control, with 7 STRUCTURAL lines printed and not counted. It takes about a minute and a
+- **Selftest:** 8/8 checks, 1 control, with 9 STRUCTURAL lines printed and not counted. X5 and X6 were
+  verified on 2026-10-07; two of their checks were restatements, now STRUCTURAL. It takes about a minute and a
   half.
   - *First written:* "6/6 checks, 1 genuine control, 4 STRUCTURAL". Two counted checks were identities or held by
     construction (History).
@@ -87,9 +88,10 @@ Every number is printed by `current.py`.
 - **Both of the board's current states are ruled out.**
   - The candidate r₀ = 3m/2 was a 0.2677 kg black hole that is not there.
   - Alternative (a), empty space, contradicts "it contains matter".
-- **X5. What the corridor adds, computed exactly** (plane.py's masses).
+- **X5. The total minus the pull** (plane.py's masses; STRUCTURAL, PLANE.md point 4's Penrose gap).
   - The plane's total is ADM = m/4 + r₀/2, and the pull is Komar = m.
-  - So at r₀ = 3m/2 + Δ, **the plane's total exceeds the pull by exactly Δ/2.**
+  - So at r₀ = 3m/2 + Δ, **the total exceeds the pull by exactly Δ/2.** That is the integral of eq. 18's tidal
+    density outside the horizon. BK p.1 calls it *"the tidal SET … Due to its geometric origin"* (READ by the verifier).
   - At the board's m that is 1.34×10⁻⁴ kg at Δ/m = 1/1000, rising to 6.69×10⁻² kg at the window's end.
 - **Two readings of "adds nothing":**
   - **(i) No matter.** Every member of eq. 17 has τ = 0 on the plane (escape.py S3), so this already holds.
@@ -118,37 +120,57 @@ Every number is printed by `current.py`.
   - the total, m + Δ/2;
   - their mean, which sets light bending.
   - A negative total needs m < −2r₀, and that has no horizon (plane.py's zero-total member).
-  - The board's candidate: your "observed mass" is PLANE.md's apparent mass = carried − defined (item 107). It is asked.
+  - The board's candidate was PLANE.md's apparent mass = carried − defined (item 107). **Answered by item 131: you meant
+    the gravitational pull.**
+  - The thresholds, for completeness: the pull is negative iff m < 0, the light-bending mean iff m < −2r₀/5, the total
+    iff m < −2r₀. None of these has a horizon.
 - *First written:* "N's value is OPEN" (item 108).
 
 ## Your item 131: the pull; the throat sized by the README
 
-- *"strike that statement. I meant the gravitational pull."* Item 130's "observed mass appears negative only from the
-  outside of the horizon" is struck. The observed mass is the pull, which is positive outside every horizon member.
+- *"strike that statement. I meant the gravitational pull."*
+  - **The board reads it as striking item 130's "appears negative".** The observed mass is the pull, which is positive
+    outside every horizon member.
+  - Read instead as keeping "appears negative" for the pull, eq. 17 contradicts it: a negative pull needs m < 0, which
+    has no horizon. Asked.
 - *"the throat size only needs to carry the binary information defining the object in transit, so the size of the
-  throat is dependent on the size of the README in its most simplistically exact binary code form."*
+  throat is dependent on the size of the README in its most simplistically exact  binary code form."*
   (H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT; N is the shortest exact binary encoding, your input.)
-- **X6. The throat sits exactly on the horizon.**
-  - A throat carrying N bits at the neck's area per bit (chain.py; ENTANGLE point 3: 2hG ln2/(πc³)) has
-    4πr₀² = N·A_bit.
-  - So **r₀ = r_min(N) = 7.59185110914622×10⁻³⁶ m × √N**, the board's original neck.
-  - The horizon also holds N (item 106; PLANE.md: 2m = r_min). So **r₀ = 2m exactly**, and Δ = m/2.
-  - That is the window's boundary, not a horizon member. Both holds sit at the same bound (H-STRONG-BOUND).
-- **At that member:**
-  - g_tt = x²/(2m + x²) has a double zero at the throat. **The two mouths' horizons meet at one surface.**
-  - The surface gravity is zero.
-  - The throat lies at infinite distance at fixed time (g_xx = 4m²/x² + …).
-  - Each leg's null integral is finite: −(4E/3m)·[1 − (√3/6)·ln(2 + √3)] = −4.15731236130×10²⁷ per metre of E at the
-    example N.
-  - The total is m + Δ/2 = 5m/4. That is geometry, not matter.
-- **Not computed:** whether a passage through a double horizon is one-way, and what it does to the two-horizon picture
-  of items 104–109. OPEN.
+- **X6. The least throat that carries N bits.**
+  - This reading is the board's: H-THROAT-AT-BOUND, with H-NECK-HOLDS and H-STRONG-BOUND applied to a surface that is
+    not a horizon (Bousso's extrapolation, CHAIN.md).
+  - It gives 4πr₀² = N·A_bit, with A_bit = 2hG ln2/(πc³) = 4 l_P² ln2. So **r₀ = r_min(N) = 7.59185110914622×10⁻³⁶ m ×
+    √N**, the board's original neck.
+  - **A horizon holds N whenever 2m ≥ r_min.** Equality is the floor, m = E_min. The floor comes from wall 4's
+    hypotheses (one E_min(N) per trip), not from holding alone.
+- **At the floor, r₀ = 2m.** That is STRUCTURAL: one bound applied to two surfaces. It is the boundary member, with a
+  degenerate (extremal) horizon at the throat.
+  - g_tt = x²/(2m + x²) has a double zero at the throat.
+  - The surface gravity is zero, so the Hawking temperature is 0.
+  - The horizon's own Komar charge goes to 0, so the whole pull is the tidal stress outside.
+  - The throat lies at infinite distance at fixed time, but the null leg is finite: −(4E/3m)·[1 − (√3/6)·ln(2 + √3)].
+  - **g_xx > 0 for every x ≠ 0, so x is never a time direction.**
+    - PLANE.md point 1's one-way mechanism (the throat as a moment between two horizons) is gone there. That conflicts
+      with H-CORRIDOR-HORIZON's computed mechanism.
+    - Item 106's two holds become one surface, and item 109's ending horizon is that surface.
+  - **The literature** (READ by the verifier):
+    - BK pp.3–4: eq. 17 is a wormhole *"for any r0 > 2m ≥ 0"*. r₀ = 2m is excluded and is not a BK throat.
+    - BK's own example 3: *"r0 = 2m leads to the extreme Reissner-Nordström black hole metric"*.
+    - Simpson–Visser 1812.07114v3 calls their a = 2m *"a one-way wormhole with an extremal null throat"* (p.3), *"only
+      one-way traversable"* (p.4). That is an analogue. Eq. 17's own causal structure is OPEN.
+  - The total 5m/4 is PLANE point 2's upper endpoint. Δ/2 = m/4 is eq. 18's tidal energy outside the horizon.
+  - Stability and fine-tuning (a single point of the family) are OPEN.
+- **Above the floor** (floor < m < 4/3 floor): r₀ = r_min lies inside the horizon. That is a horizon member of PLANE
+  point 1's kind, with the horizon holding more than N. It is PLANE point 3's interval, restored by item 131.
+- *First written:* "The horizon also holds N … So r₀ = 2m exactly, and Δ = m/2". That over-claimed: it holds only at
+  the floor.
 
 ## What stays a coefficient
 
 - **N:** the input (item 130). The board's value is an example.
 - **m's current value.**
-- **Δ:** fixed at m/2 if the throat and the horizon both hold N (X6). Asked.
+- **Δ:** m/2 at the floor (X6). Above the floor the README-sized throat lies inside the horizon. Which applies is
+  wall 4's floor or not. Asked.
 - **E, and its normalization.**
 - **The tension's sign:** H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet (BULK.md).
 - **k and κ:** through the tension and the strength of gravity.
@@ -156,9 +178,12 @@ Every number is printed by `current.py`.
 
 ## Named hypotheses
 
-- **Yours:** M-EXACT-VALUES (125); H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COLOCATED-REALIZATION,
+- **Yours:** M-EXACT-VALUES (125); H-CURRENT-HAS-MATTER, H-BRIDGE-ADDS-NOTHING (129); H-BRIDGE-ADDS-NO-MATTER,
+  H-MOUTH-AS-BLACK-HOLE, H-N-IS-INPUT (130); H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT (131);
+  H-NEGATIVE-FROM-OUTSIDE (struck, 131); H-PLANES-COINCIDE, H-COEFF-FROM-CURRENT (127); H-COLOCATED-REALIZATION,
   H-SHORTEST-DISTANCE (126); H-HORIZON-NEEDS-OBJECT (109); H-README-AS-NEEDED (108); the horizon members' window.
 - **The board's:**
+  - H-THROAT-AT-BOUND, with H-NECK-HOLDS and H-STRONG-BOUND on the throat (X6); wall 4's floor hypotheses;
   - H-CORE-README and H-GREY-VOLUME (illustrative);
   - H-CURRENT-IS-SCHWARZSCHILD (asked, and in conflict with item 109);
   - H-E-PER-BIT (asked);
@@ -167,7 +192,9 @@ Every number is printed by `current.py`.
 ## OPEN
 
 1. What our current state is: empty space (alternative a), the candidate, or another.
-2. N and m in our current universe.
+2. *Superseded:* N is the input (item 130).
+6. At the floor: the causal structure of the boundary member, its stability, and its fine-tuning.
+7. Whether the device spends exactly the minimum (the floor), or more.
 3. E's current value, and its normalization.
 4. What fixes Δ for a trip, and on which side.
 5. The junction of two sheets at one place; k and κ through the tension and the strength of gravity.
