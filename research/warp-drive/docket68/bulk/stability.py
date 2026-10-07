@@ -1,27 +1,28 @@
 #!/usr/bin/env python3
 """stability.py -- wall E (stability), worked as mathematics (M-RULINGS item 149: "work the math now").
 
+First written quoting Aretakis's extremal-Kerr Theorem 3 (tau^(k-1)) as if general and using an asymptotic bound for
+early times; corrected (STABILITY.md History).  The finite-time result now comes from an exact horizon identity.
+
 The corridor: Bronnikov-Kim eq. (17) at r0 = 2m (plane.py), -F dt^2 + dr^2/H + r^2 dOmega^2, F = 1 - 2m/r,
-H = (1 - 2m/r)^2 / (1 - 3m/2r).  M (items 86, 136 E): the hold is "instantaneous or near instantaneous".
+H = (1 - 2m/r)^2 / (1 - 3m/2r).  In Aretakis's form g = -D dv^2 + 2 dv drho + r(rho)^2 dOmega^2, drho = sqrt(F/H) dr.
 
-READ: Aretakis, "Horizon instability of extremal black holes", arXiv:1206.6598v2:
-  abstract: "translation invariant derivatives of generic solutions to the wave equation do not decay along such
-      horizons as advanced time tends to infinity, and in fact, higher order derivatives blow up"
-  eq. (6)-(8) p.10: in spherical symmetry g = -D(r) dv^2 + 2 dv dr + K^-1 g_S2, extremality D(r_H) = D'(r_H) = 0
-  Prop. 3.2 p.10: the full hierarchy of conservation laws (every l) holds provided eq. (10), D''(r_H) = 2 K(r_H);
-      "extremal Reissner-Nordstrom satisfies the condition (10)" (p.11)
-  Theorem 3 p.15: "sup |Y^k psi| >= c |H0[psi]| tau^(k-1), asympotically along H+ for all k >= 2"
+READ: Aretakis, arXiv:1206.6598v2: abstract ("do not decay along such horizons as advanced time tends to infinity, and
+in fact, higher order derivatives blow up"); eqs. (6)-(8) p.10 (extremality D = D' = 0); Prop. 3.2 p.10 (the hierarchy
+"provided" D''(r_H) = 2K(r_H), eq. 10; "extremal Reissner-Nordstrom satisfies the condition (10)", p.11); Theorem 1
+p.11 (non-decay, under A1-A4 only); Theorem 2 p.12 (blow-up, conditional: "unless psi and the tangential to H+
+derivatives of psi do not decay and H[psi] = 0").  Theorem 3 p.15 ("asympotically", sic) is for extremal Kerr.
 
-  S1  the corridor's horizon is extremal: written as -D dv^2 + 2 dv d(rho) + r^2 dOmega^2 (d rho = sqrt(F/H) dr), D has a
-      double zero at the horizon, D'(rho_H) = 0 (surface gravity zero).  Control: a horizon member of eq. (17) off the
-      corridor (r0 = 1.8m, plane.py's window) has D'(rho_H) != 0
-  S2  it meets Aretakis's condition (10) exactly: D''(rho_H) = 1/(2m^2) = 2K, K = 1/r_H^2 -- so his whole hierarchy of
-      conservation laws applies: the instability is the corridor's, as for extremal Reissner-Nordstrom.  Control
-      (READ): extremal RN, D = (1 - M/r)^2, meets (10)
-  S3  but it is asymptotic in advanced time, in units of the horizon scale m: the growth of the k-th derivative after a
-      time T is of order (cT/m)^(k-1) (Theorem 3's power, its constant unknown).  The corridor's own clock m/c =
-      r_min(N)/(2c) is 6.6e-37 s at the example README, growing as sqrt(N).  A hold no longer than that clock leaves the
-      growth of order one: the instability cannot act within M's near-instantaneous hold
+  S1  the corridor's horizon is extremal: D'(rho_H) = 0.  Control: the r0 = 1.8m member, D' = sqrt(10)/(10m)
+  S2  it meets condition (10) exactly: D'' = 1/(2m^2) = 2K.  Control (READ): extremal RN meets it
+  S3  the corridor's clock m/c = r_min(N)/(2c): 6.6e-37 s at the example README
+  S4  the exact horizon identities for a spherical wave (derived here from the wave operator, generic D(rho), r(rho)):
+        d/dv (d psi/d rho) = 0                       -> H0 = d psi/d rho is conserved exactly (beta_0 = 0: the throat
+                                                       sits on the horizon, r' = 0)
+        d/dv (d^2 psi/d rho^2) = -(D''/2) H0 - (r''/r) d psi/dv,  with D''/2 = 1/(4m^2), r''/r = 1/(2m^2) here
+      so over an advanced time v the second derivative changes by -H0 v/(4m^2) - (psi(v) - psi(0))/(2m^2): linear growth
+      with an exact coefficient, no unknown constant.  Over one clock (v = m) the linear part is H0/(4m), a quarter of
+      the second derivative's natural size H0/m
 Imports copy/chain.py's exact throat coefficient by path.  Stdlib + sympy.  python3 stability.py [--selftest]
 """
 import contextlib
@@ -65,6 +66,28 @@ def D_derivatives(r0v, rH):
     return lim(D1), lim(D2)
 
 
+def transport():
+    """Derive, for generic D(rho), r(rho), the horizon identities of a spherical wave psi(v, rho)."""
+    v, rho = sp.symbols("v rho")
+    Df, Rf = sp.Function("D")(rho), sp.Function("R")(rho)
+    psi = sp.Function("psi")(v, rho)
+    box = (sp.diff(Rf**2 * sp.diff(psi, rho), v) + sp.diff(Rf**2 * (sp.diff(psi, v) + Df * sp.diff(psi, rho)), rho)) / Rf**2
+    d0, d1, d2, r0_, r1, r2 = sp.symbols("d0 d1 d2 R0 R1 R2")
+    sub = {sp.Derivative(Df, (rho, 2)): d2, sp.Derivative(Df, rho): d1, Df: d0,
+           sp.Derivative(Rf, (rho, 2)): r2, sp.Derivative(Rf, rho): r1, Rf: r0_}
+    hz = {d0: 0, d1: 0, r1: 0}
+    first = sp.solve(sp.Eq(sp.expand(box.subs(sub).subs(hz)), 0), sp.Derivative(psi, v, rho))
+    second = sp.solve(sp.Eq(sp.expand(sp.diff(box, rho).subs(sub).subs(hz)), 0), sp.Derivative(psi, v, (rho, 2)))
+    return {"first": first, "second": second, "syms": (d2, r0_, r2), "psi": psi, "v": v, "rho": rho}
+
+
+def r_second(rH):
+    """r''(rho) at the horizon: r_rho = sqrt(H/F), so r_rhorho = (1/2) d(H/F)/dr there."""
+    F = 1 - 2 * m / r
+    H = (1 - 2 * m / r) ** 2 / (1 - sp.Rational(3, 2) * m / r)
+    return sp.limit(sp.Rational(1, 2) * sp.diff(sp.simplify(H / F), r).subs(r, rH + s), s, 0, "+")
+
+
 def compute():
     d1, d2 = D_derivatives(2 * m, 2 * m)                            # the corridor
     K = 1 / (2 * m) ** 2
@@ -75,8 +98,15 @@ def compute():
     r1 = float(sp.N(sp.sympify(ch.coefficients()["r_min_m_per_sqrt_bit"]["exact"]), 20))
     rN = EXAMPLE_N ** 0.5 * r1
     t_m = rN / (2 * C)
+    tr = transport()
+    d2s, r0s, r2s = tr["syms"]
+    rpp = r_second(2 * m)
+    second = tr["second"][0]
+    coeff_H0 = sp.simplify(second.coeff(sp.Derivative(tr["psi"], tr["rho"])).subs({d2s: d2}))
+    coeff_dv = sp.simplify(second.coeff(sp.Derivative(tr["psi"], tr["v"])).subs({r2s: rpp, r0s: 2 * m}))
     return {"D1": d1, "D2": d2, "K": K, "cond10": sp.simplify(d2 - 2 * K) == 0, "control_D1": c1, "rn_ok": rn_ok,
-            "rN": rN, "t_m": t_m, "t_m_per_sqrt_bit": r1 / (2 * C)}
+            "rN": rN, "t_m": t_m, "t_m_per_sqrt_bit": r1 / (2 * C), "first": tr["first"], "rpp": rpp,
+            "coeff_H0": coeff_H0, "coeff_dv": coeff_dv}
 
 
 def report(d):
@@ -86,9 +116,9 @@ def report(d):
           % (d["D2"], 2 * d["K"], d["cond10"], d["rn_ok"]))
     print("S3 the corridor's clock m/c = %.3e s at the example README (r_min = %.3e m); %.3e s x sqrt(N)"
           % (d["t_m"], d["rN"], d["t_m_per_sqrt_bit"]))
-    for T in (1.0, 10.0, 1e3):
-        print("   a hold of %g clock(s): growth of the 2nd derivative ~ %g, of the 3rd ~ %g (order, constant unknown)"
-              % (T, T, T**2))
+    print("S4 on the horizon: d/dv(d psi/d rho) = %s (conserved); r''(rho_H) = %s; d/dv(d2 psi/d rho2) = (%s) H0 + (%s) dpsi/dv"
+          % (d["first"][0] if d["first"] else 0, d["rpp"], d["coeff_H0"], d["coeff_dv"]))
+    print("   over one clock (v = m) the linear part of the change is H0/(4m): a quarter of the natural size H0/m")
 
 
 def selftest():
@@ -107,6 +137,9 @@ def selftest():
         and sp.simplify(d["D2"] - 1 / (2 * m**2)) == 0)
     chk("S2 control (READ): extremal Reissner-Nordstrom meets condition (10)", d["rn_ok"])
     chk("S3: the corridor's clock at the example README is ~6.6e-37 s", 6.0e-37 < d["t_m"] < 7.2e-37)
+    chk("S4: on the horizon the first derivative is conserved exactly (d/dv of it is zero)", d["first"] == [0])
+    chk("S4: the second derivative changes at -H0/(4 m^2) - (1/(2 m^2)) dpsi/dv, exactly (r'' = 1/m)",
+        sp.simplify(d["coeff_H0"] + 1 / (4 * m**2)) == 0 and sp.simplify(d["coeff_dv"] + 1 / (2 * m**2)) == 0)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
