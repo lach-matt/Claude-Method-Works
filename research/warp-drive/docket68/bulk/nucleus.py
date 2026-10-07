@@ -19,14 +19,16 @@ READ:
   U1  (STRUCTURAL, READ scaling) what mu moves: a diatomic's levels T_e + omega_e (v+1/2) + B_e J(J+1) with
       omega_e ~ mu^-1/2, B_e ~ mu^-1 -- computed sensitivities K = 0 (electronic), -1/2 (vibrational), -1 (rotational)
   U2  the board refits Bagdonaite et al.'s Table I (17 points, V_LSR/c = a - K_mu Delta mu/mu): their statistical value
-      (1.5 +- 1.5) x 10^-7 is reproduced, the error scaled by sqrt(reduced chi^2) as theirs is.  Control: a Delta mu/mu
+      (1.5 +- 1.5) x 10^-7 is reproduced if the fit error is scaled by sqrt(reduced chi^2) -- the group's stated
+      convention in Muller et al. 2021 (READ by the verifier); the paper itself does not say.  A K_mu-permutation null
+      gives p = 0.12: no change of mu.  Without the four 12.2 GHz (K = -32.8) points the error grows 4.5-fold  Control: a Delta mu/mu
       of 1e-6 injected into the same velocities is recovered
-  U3  what it means for item 144: in the one distant cloud where it is best measured, the gas's mu is ours to a few
-      parts in 10^7 (their robust result, stat and sys combined).  Matter there whose nuclear or electron mass differed
-      by more would have shown as a slope across methanol's K_mu = -1 to -32.8
-  U4  what the laws would do to a reconstruction at position 2 (item 136: "complete reconstruction at position 2"):
-      the electrons' structure is rebuilt identically (alpha held); every vibrational frequency of the copy moves by
-      -1/2 Delta mu/mu and every rotational one by -Delta mu/mu (STRUCTURAL)
+  U3  what it bounds: the RATIO m_p/m_e of the methanol-bearing BULK of one absorber, to a few parts in 10^7 (the
+      board's combination of their stat and sys).  An equal fractional change of both masses is invisible; a minority
+      fraction f of other matter shifts the centroids only by f, so it is bounded only at ~3.6e-7/f
+  U4  under the board's H-COPY-TAKES-P2-LAWS (a copy is rebuilt under position 2's laws; item 136 H, item 138): with
+      alpha held (H-ALPHA-IS-LIGHT) the electrons' structure is the same; harmonic vibrational intervals move by
+      -1/2 Delta mu/mu and rigid-rotor intervals by -Delta mu/mu against the copy's own electronic lines (STRUCTURAL)
 Stdlib only.  python3 nucleus.py [--selftest]
 """
 import math
@@ -40,7 +42,7 @@ METHANOL = [
     ("00-10A+", -1.0, 8.3, 0.1), ("00-10A+", -1.0, 8.8, 0.2), ("00-10A+", -1.0, 8.7, 0.2), ("00-10A+", -1.0, 7.8, 0.3),
     ("00-10E", -1.0, 8.9, 0.3), ("00-10E", -1.0, 10.4, 0.7), ("00-10E", -1.0, 7.6, 0.6),
     ("2-1-10E", -7.4, 9.8, 0.4), ("2-1-10E", -7.4, 8.0, 0.9),
-    ("30-21A+", -2.7, 9.5, 1.5), ("1-1-10E+", -3.5, 10.5, 0.7), ("10-11A", -1.9, 8.8, 1.0), ("30-41A+", -1.6, 11.7, 0.3)]
+    ("30-21A+", -2.7, 9.5, 1.5), ("blend 1-1-10E/2-1-20E/3-1-30E", -3.5, 10.5, 0.7), ("10-11A", -1.9, 8.8, 1.0), ("30-41A+", -1.6, 11.7, 0.3)]
 
 
 def u1(eps=1e-6):
@@ -68,16 +70,30 @@ def wls(data):
     return {"dmu": -b / C_KMS, "sig": sb / C_KMS, "chi2nu": chi2 / nu, "sig_scaled": sb / C_KMS * math.sqrt(chi2 / nu)}
 
 
-def u2(inject=1e-6):
+def u2(inject=1e-6, trials=2000, seed=144):
+    import random
     fit = wls(METHANOL)
     shifted = [(nm, K, V - K * inject * C_KMS, sg) for nm, K, V, sg in METHANOL]      # V/c = -K dmu/mu added
-    return {"fit": fit, "control": wls(shifted), "inject": inject}
+    no122 = wls([r for r in METHANOL if r[1] != -32.8])
+    noatca = wls([r for r in METHANOL if not ((r[1] == -32.8 and r[2] == 7.4) or (r[1] == -7.4 and r[2] == 8.0))])
+    rng = random.Random(seed)
+    Ks = [r[1] for r in METHANOL]
+    hits = 0
+    for _ in range(trials):
+        rng.shuffle(Ks)
+        if abs(wls([(nm, k, V, sg) for (nm, _, V, sg), k in zip(METHANOL, Ks)])["dmu"]) >= abs(fit["dmu"]):
+            hits += 1
+    return {"fit": fit, "control": wls(shifted), "inject": inject, "no122": no122, "noatca": noatca,
+            "perm_p": hits / trials}
 
 
 def u3():
     stat, sys_ = 0.8e-7, 1.0e-7
     tot = math.hypot(stat, sys_)
-    return {"robust": -1.0e-7, "total_sigma": tot, "two_sigma_bound": abs(-1.0e-7) + 2 * tot}
+    bound = abs(-1.0e-7) + 2 * tot                                   # the board's arithmetic, not theirs
+    shift = 32.8 * bound * C_KMS                                      # the K = -32.8 line's whole-population shift
+    widths = (12.0, 20.0)                                             # Table I FWHM range of that line, km/s (READ)
+    return {"robust": -1.0e-7, "total_sigma": tot, "two_sigma_bound": bound, "shift_kms": shift, "widths": widths}
 
 
 def u4(dmu=1e-7):
@@ -96,10 +112,16 @@ def report(d):
     f = b["fit"]
     print("U2 refit of Bagdonaite et al. Table I (17 points): Delta mu/mu = %+.2e +- %.2e (unscaled), reduced chi^2 = %.1f, "
           "+- %.2e scaled -- theirs (1.5 +- 1.5)e-7" % (f["dmu"], f["sig"], f["chi2nu"], f["sig_scaled"]))
-    print("   control, Delta mu/mu = %.0e injected into the same velocities: recovered %+.3e"
-          % (b["inject"], b["control"]["dmu"]))
-    print("U3 their robust result (-1.0 +- 0.8 stat +- 1.0 sys)e-7: combined sigma %.2e; |Delta mu/mu| < %.1e at 2 sigma, "
-          "7.5 billion years back" % (c["total_sigma"], c["two_sigma_bound"]))
+    print("   control (linear identity), Delta mu/mu = %.0e injected: recovered %+.3e"
+          % (b["inject"], b["control"]["dmu"] - f["dmu"]))
+    print("   null: K_mu permuted among the 17 points, %d trials: p = %.3f" % (2000, b["perm_p"]))
+    print("   without the four K = -32.8 (12.2 GHz) points: %+.2e +- %.2e (scaled, chi2/nu %.1f); without the two ATCA "
+          "points: %+.2e +- %.2e" % (b["no122"]["dmu"], b["no122"]["sig_scaled"], b["no122"]["chi2nu"],
+                                    b["noatca"]["dmu"], b["noatca"]["sig_scaled"]))
+    print("U3 their robust result (-1.0 +- 0.8 stat +- 1.0 sys)e-7; the board's combination: sigma %.2e, |Delta mu/mu| < "
+          "%.1e at 2 sigma.  At that bound the K = -32.8 line of the whole population shifts %.1f km/s, against FWHM "
+          "%.0f-%.0f km/s: a fraction f of other matter is bounded only at ~%.1e/f"
+          % (c["total_sigma"], c["two_sigma_bound"], c["shift_kms"], c["widths"][0], c["widths"][1], c["two_sigma_bound"]))
     print("U4 a copy rebuilt where mu differs by 1e-7: vibrations %+.1e, rotations %+.1e (fractional)"
           % (e["vib_shift"], e["rot_shift"]))
 
@@ -123,7 +145,12 @@ def selftest():
         abs(f["sig_scaled"] - 1.5e-7) < 0.1e-7)
     chk("U2 control (STRUCTURAL: the fit is linear): Delta mu/mu = 1e-6 injected into the same velocities is recovered (to 1e-9)",
         abs(ctl["dmu"] - f["dmu"] - d["u2"]["inject"]) < 1e-9)
-    chk("U3: their robust result bounds |Delta mu/mu| below 4e-7 at 2 sigma", c["two_sigma_bound"] < 4e-7)
+    chk("U2: the slope is what a random arrangement of the K values gives (permutation p > 0.05): no change of mu seen",
+        d["u2"]["perm_p"] > 0.05)
+    chk("U2: the constraint rests on the 12.2 GHz line -- without it the error grows more than threefold",
+        d["u2"]["no122"]["sig_scaled"] > 3 * f["sig_scaled"])
+    chk("U3 (STRUCTURAL, the board's arithmetic): |central| + 2 sigma (stat and sys in quadrature) = 3.6e-7",
+        abs(c["two_sigma_bound"] - 3.56e-7) < 0.01e-7)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
