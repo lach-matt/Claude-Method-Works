@@ -1,24 +1,22 @@
 #!/usr/bin/env python3
-"""kderive.py -- k from the work (M-RULINGS item 140: "the math in our work should give you pieces to both derive and
-prove k. Our math is not dependent on k, k is dependent on our work").
+"""kderive.py -- what the work says about k so far (M-RULINGS item 140: "the math in our work should give you pieces
+to both derive and prove k. Our math is not dependent on k, k is dependent on our work").
 
-The chain sizes every corridor by four-dimensional quantities: E(N) and the throat r_min(N) come from the 4D horizon
-area per bit, A_bit = 4 l_P^2 ln2, and 4D G (chain.py; exactE.py).  In the bulk, a plane object reads four-dimensional
-only when it is large against the bulk's curvature length ell = 1/k, and five-dimensional when small:
-Figueras-Wiseman, arXiv:1105.2558v2 p.3 (READ): "small (compared to ell) braneworld black holes behave like 5d
-asymptotically flat Schwarzschild black holes and large ones recover 4d behaviour"; the 4D corrections go as
-O(ell^2/R^2) (p.4).
+First written as a derivation of a bound, k >= sqrt(pi/ln2)/l_P, and a value (ell = the one-bit throat).  The verifier
+showed both fail (KDERIVE.md History); they are withdrawn.  What the work does say:
 
-  K1  the one-bit throat, exactly: r_min(1) = 2 G E(1)/c^4 = l_P sqrt(ln2/pi), two disjoint paths (exactE's coefficient;
-      the closed form) -- 7.5918511091462209829e-36 m
-  K2  DERIVED BOUND: if every README, down to one bit, has a four-dimensional corridor (the chain's own premise,
-      H-FOUR-D-CORRIDOR), then ell <= r_min(1): k >= (1/l_P) sqrt(pi/ln2) = 1.3172e35 1/m
-  K3  THE VALUE, under one named hypothesis (H-ONE-BIT-SCALE): the bulk's curvature length IS the one-bit throat,
-      ell = r_min(1).  Then, exactly:  r_min(N) = ell sqrt(N)  -- every corridor's throat is sqrt(N) bulk lengths;
-      the 4D description's corrections go as ell^2/r0^2 = 1/N;  G5 = G ell (RS: G4 = G5/ell);  the plane's tension
-      lambda = 3 c^4 / (4 pi G ell^2) = 3 c^7 / (4 hbar G^2 ln2)
-  K4  the checks against measurement: every bound READ (k > 1.25e4 1/m, OUTSIDE.md) is met by 30 orders; it predicts no
-      short-range change of Newton's law on any bench
+  K1  the one-bit throat, exactly: r_min(1) = 2 G E(1)/c^4 = l_P sqrt(ln2/pi) = 7.5918511091462209829e-36 m -- below the
+      Planck length (0.4697 l_P).  The chain's E is coded as sqrt(hbar c^5 ln2/(4 pi G)) per sqrt(bit) (chain.py); this
+      is the same expression, so K1 checks the transcription, not new physics (STRUCTURAL as a physics claim)
+  K2  where the chain is classical: quantum-gravity corrections to a horizon of radius r go as (l_P/r)^2 (the board's
+      estimate, standard order, not READ); at r = r_min(N) that is pi/(N ln2) -- small for any README of many bits,
+      of order one at a few bits.  This holds whatever k is.
+  K3  what the work fixes about the bulk: the RATIO of the two curvatures, from M's quarter (item 139: position 2's
+      plane a quarter of ours, opposite sign): tau2/tau1 = (k_R - k_L)/k_L = -1/4 -> k_R = 3 k_L / 4 (multiplane.py M4).
+      No dimensionful link between the corridor and the bulk has been found, so the SCALE of k is not fixed by the work
+      yet.  Every result of the chain is free of k (KSCALE.md; censor.py; positivity.py).
+  K4  why the withdrawn value cannot stand: at ell = r_min(1) the 5D Planck length l5 = (l_P^2 ell)^(1/3) exceeds ell
+      (ell/l5 = 0.60), so a classical bulk is outside its domain there
 Stdlib + sympy.  python3 kderive.py [--selftest]
 """
 import contextlib
@@ -52,40 +50,36 @@ def _load(path, key):
     return mod
 
 
-def exactE():
-    return _load(os.path.join(D68, "copy", "exactE.py"), "kd_exactE")
-
-
 def compute():
-    e1 = sp.Float(str(exactE().e_per_sqrt_bit()), 25)                # E(1), J (exactE)
-    r1_owner = 2 * G * e1 / C**4                                     # path 1: the owner's coefficient
+    ex = _load(os.path.join(D68, "copy", "exactE.py"), "kd_exactE")
+    mp = _load(os.path.join(HERE, "multiplane.py"), "kd_multiplane")
+    e1 = sp.Float(str(ex.e_per_sqrt_bit()), 25)
     lP = sp.sqrt(HBAR * G / C**3)
-    r1_closed = lP * sp.sqrt(sp.log(2) / sp.pi)                      # path 2: the closed form
-    ell = r1_closed                                                  # K3, H-ONE-BIT-SCALE
-    k = 1 / ell
+    r1 = lP * sp.sqrt(sp.log(2) / sp.pi)
     N = sp.Symbol("N", positive=True)
-    E_N = sp.sqrt(N * H * C**5 * sp.log(2) / (8 * sp.pi**2 * G))
-    r_N = 2 * G * E_N / C**4
-    tension = 3 * C**4 / (4 * sp.pi * G * ell**2)
-    tension_closed = 3 * C**7 / (4 * HBAR * G**2 * sp.log(2))
-    return {"r1_owner": r1_owner, "r1_closed": r1_closed, "lP": lP, "ell": ell, "k": k,
-            "rN_over_ell": sp.simplify(r_N / ell), "corr": sp.simplify((ell / r_N) ** 2),
-            "G5": G * ell, "tension": tension, "tension_closed": tension_closed,
-            "measured_k_bound": sp.Float("1.25e4")}
+    qcorr = sp.simplify((lP / (r1 * sp.sqrt(N))) ** 2)              # (l_P / r_min(N))^2, r_min(N) = sqrt(N) r_min(1)
+    m4 = mp.m4()
+    ratio = sp.simplify(m4["kR"] / mp.kL)
+    tension_ratio = sp.simplify(m4["tau2_over_rs"] / m4["tau1_over_rs"])
+    ell = r1                                                         # the withdrawn value, for K4 only
+    l5 = (lP**2 * ell) ** sp.Rational(1, 3)
+    return {"r1_owner": 2 * G * e1 / C**4, "r1": r1, "lP": lP, "r1_over_lP": r1 / lP, "qcorr": qcorr,
+            "kR_over_kL": ratio, "tension_ratio": tension_ratio, "ell_over_l5": sp.simplify(ell / l5)}
+
+
+NSYM = sp.Symbol("N", positive=True)
 
 
 def report(d):
-    print("kderive.py -- k from the work (item 140)\n")
-    print("K1 the one-bit throat: r_min(1) = %s m (exactE); l_P sqrt(ln2/pi) = %s m"
-          % (sp.N(d["r1_owner"], 20), sp.N(d["r1_closed"], 20)))
-    print("K2 DERIVED: a four-dimensional corridor for every README needs ell <= r_min(1): k >= %s 1/m (= 2.1290/l_P)"
-          % sp.N(d["k"], 8))
-    print("K3 under H-ONE-BIT-SCALE (ell = r_min(1)):")
-    print("   k = %s 1/m;  r_min(N)/ell = %s;  4D corrections ell^2/r0^2 = %s" % (sp.N(d["k"], 12), d["rN_over_ell"],
-                                                                                  d["corr"]))
-    print("   G5 = G ell = %s m^4 kg^-1 s^-2;  the plane's tension = %s J/m^3" % (sp.N(d["G5"], 6), sp.N(d["tension"], 6)))
-    print("K4 against the measured bound k > %s 1/m: exceeded by a factor %s; no bench sees it"
-          % (d["measured_k_bound"], sp.N(d["k"] / d["measured_k_bound"], 4)))
+    print("kderive.py -- what the work says about k so far (item 140)\n")
+    print("K1 the one-bit throat: %s m (exactE), l_P sqrt(ln2/pi) = %s m = %s l_P"
+          % (sp.N(d["r1_owner"], 20), sp.N(d["r1"], 20), sp.N(d["r1_over_lP"], 6)))
+    print("K2 quantum corrections at r_min(N), (l_P/r)^2 = %s: %s at N = 1, %s at the example N = 2742570311524972"
+          % (d["qcorr"], sp.N(d["qcorr"].subs(NSYM, 1), 4), sp.N(d["qcorr"].subs(NSYM, 2742570311524972), 4)))
+    print("K3 the work fixes the ratio k_R/k_L = %s (position 2's tension / ours = %s); not the scale"
+          % (d["kR_over_kL"], d["tension_ratio"]))
+    print("K4 the withdrawn value ell = r_min(1): ell / l5 = %s < 1 -- a classical bulk is outside its domain"
+          % sp.N(d["ell_over_l5"], 4))
 
 
 def selftest():
@@ -98,23 +92,22 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     d = compute()
-    chk("K1: the one-bit throat by two disjoint paths agrees (exactE's coefficient; l_P sqrt(ln2/pi)) to 1e-15",
-        abs(d["r1_owner"] / sp.N(d["r1_closed"], 30) - 1) < 1e-15)
-    chk("K1: it is 7.5918511091462209829e-36 m (EXACTE.md's per-sqrt-bit throat)",
-        abs(sp.N(d["r1_closed"], 30) / sp.Float("7.5918511091462209829e-36", 30) - 1) < 1e-18)
-    chk("K2: the bound is k >= sqrt(pi/ln2)/l_P, about 2.129 Planck units",
-        abs(sp.N(d["k"] * d["lP"], 20) - sp.N(sp.sqrt(sp.pi / sp.log(2)), 20)) < 1e-15)
-    chk("K3: every corridor's throat is exactly sqrt(N) bulk lengths, and its 4D corrections go as 1/N",
-        sp.simplify(d["rN_over_ell"] - sp.sqrt(sp.Symbol("N", positive=True))) == 0 and
-        sp.simplify(d["corr"] - 1 / sp.Symbol("N", positive=True)) == 0)
-    chk("K3: the plane's tension in closed form, 3 c^7/(4 hbar G^2 ln2), two paths agree",
-        sp.simplify(d["tension"] - d["tension_closed"]) == 0)
-    chk("K4: k exceeds every measured lower bound (k > 1.25e4 1/m) -- consistent with all data",
-        d["k"] > d["measured_k_bound"])
+    chk("K1 (transcription): exactE's throat equals l_P sqrt(ln2/pi) to 1e-15",
+        abs(d["r1_owner"] / sp.N(d["r1"], 30) - 1) < 1e-15)
     Gbad = G * (1 + sp.Rational(1, 10**9))
-    r1_bad = sp.sqrt(HBAR * Gbad / C**3) * sp.sqrt(sp.log(2) / sp.pi)
-    chk("control: the closed form with G one part in 1e9 high misses exactE's throat (the two-path check can fail)",
-        abs(d["r1_owner"] / sp.N(r1_bad, 30) - 1) > 1e-12)
+    chk("K1 control: with G one part in 1e9 high the closed form misses it",
+        abs(d["r1_owner"] / sp.N(sp.sqrt(HBAR * Gbad / C**3) * sp.sqrt(sp.log(2) / sp.pi), 30) - 1) > 1e-12)
+    chk("K1: the one-bit throat is below the Planck length (0.4697 l_P)", 0.469 < float(d["r1_over_lP"]) < 0.470)
+    chk("K2: the quantum-correction estimate at r_min(N) is pi/(N ln2): of order one at N = 1, 1.65e-15 at the example",
+        sp.simplify(d["qcorr"] - sp.pi / (NSYM * sp.log(2))) == 0 and
+        1e-15 < float(d["qcorr"].subs(NSYM, 2742570311524972)) < 2e-15)
+    chk("K3: M's quarter fixes k_R = 3 k_L / 4 (tension ratio -1/4)",
+        d["kR_over_kL"] == sp.Rational(3, 4) and d["tension_ratio"] == sp.Rational(-1, 4))
+    chk("K4: at the withdrawn value the bulk's curvature length is below the 5D Planck length",
+        float(d["ell_over_l5"]) < 1)
+    big = 100 * d["r1"]
+    chk("K4 control: at a hundred times that length the curvature length is above the 5D Planck length",
+        float(big / (d["lP"]**2 * big) ** sp.Rational(1, 3)) > 1)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
