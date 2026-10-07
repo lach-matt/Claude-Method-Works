@@ -12,27 +12,40 @@ READ: Chrusciel, Galloway & Solis, arXiv:0808.3233v2 ("CGS"):
   p.9   "our approach to topological censorship in this work requires uniformity in time of the mean null extrinsic
         curvatures of the spheres"
 
-THEOREM W (the board's application of CGS Theorem 3.1).  Let a five-dimensional spacetime carry the corridor's plane, and
-  W1  satisfy the null energy condition everywhere: met by a positive-tension plane (DOORS K1, on H-COMPOSITE-SURFACE);
-      CGS assume a smooth metric, so a thin plane is read as the limit of a thick one (H-THICK-PLANE, the board's);
-  W2  be globally hyperbolic in the region M between two far boundaries T_1, T_2, with Cauchy time function t;
-  W3  have the plane's end 1 and end 2 in two DISTINCT ends of the bulk, cut off by far boundaries T_1, T_2 whose level
-      sets are compact and untrapped (+-theta+- > 0), uniformly in t.
-  Then no causal curve runs from T_1 to T_2 (CGS Thm 3.1).  But the corridor's passage does (it crosses the far sphere of
-  end 1 inward and the far sphere of end 2 outward), and passage5d.py P6 adds timelike curves through the bulk.  So the
-  corridor cannot satisfy W1, W2 and W3 together.
+First written without saying which spacetime the theorem is applied to, with "a thick plane keeps NEC" read as enough for
+a two-sheet composite, with GLOBALBULK G3 filed under the wrong escape, "exactly three" escapes, and a compact-dimension
+control that over-claimed; corrected (CENSOR5D.md History).
 
-  C1  (computed) such boundaries exist in a Randall-Sundrum II bulk: the 3-sphere centred on the plane,
-      |x|^2 + w^2 = R^2 (w the conformal depth, z = ell + |w|), has +-theta+- = 3/R EXACTLY at every point, either side --
-      as untrapped as a sphere in flat space; its level sets are compact (S^3).  Control: a sphere centred on the AdS
-      boundary (z = 0) has theta+- = 0 everywhere -- marginal, the strictness CGS Remark 3.2 says is necessary fails
+THEOREM W (the board's application of CGS Theorem 3.1), applied to the MIRROR-DOUBLED spacetime with the plane an
+interior shell (in the one-sided bulk the plane is itself a boundary meeting the far spheres, and Thm 3.1 says nothing);
+causal curves pass between the two by reflection.  Suppose
+  W1  the null energy condition holds pointwise on a smooth metric: the thin composite is the limit of a thickening that
+      keeps NEC at every point (H-THICK-COMPOSITE, the board's; stronger than censor.py's single-plane remark, since
+      position 2's sheet alone reads -(1/3) lambda_RS k_y^2 and DOORS.md warns of different profiles); the sign is your
+      positive tension (DOORS K1, on H-COMPOSITE-SURFACE);
+  W2  the region M between far boundaries T_1, T_2 is globally hyperbolic with Cauchy time function t, and has no other
+      boundary components, or only inner past trapped ones (other planes, items 123-124, or excised regions would count);
+  W3  the plane's end 1 and end 2 lie in two DISTINCT ends of the bulk, cut off by T_1, T_2 with compact, strictly
+      untrapped (+-theta+- > 0) time slices, uniformly in t.
+  Then no causal curve runs from T_1 to T_2 (CGS Thm 3.1).  The passage is one (in the double it lies on the plane,
+  inside M, between its crossings).  So W1-W3 cannot all hold -- however brief the hold: the theorem binds the whole
+  spacetime.
+
+  C1  (computed) in Randall-Sundrum II the 3-sphere centred on the plane, |x|^2 + w^2 = R^2 (z = ell + |w|), has
+      +-theta+- = 3/R EXACTLY, at every point, either side; compact level sets (S^3); positive across a smoothed even
+      warp.  Control: a sphere centred on the AdS boundary (z = 0) has theta+- = 0 -- marginal, CGS Remark 3.2's
+      strictness fails.  Pure RS II only: with the corridor, W3 remains a hypothesis
   C2  (STRUCTURAL) the passage crosses each far sphere once: on the plane r = 2m + u^2 is monotone in |u| on each side
-  C3  so, with your positive tension (W1 met), the corridor needs one of:
-        (a) the plane's two ends lie in ONE end of the bulk -- joined away from the corridor, through the deep bulk, where
-            the bulk ends (GLOBALBULK G3 reached the same requirement from the far field);
-        (b) the far boundaries are not untrapped uniformly in time;
-        (c) the five-dimensional spacetime is not globally hyperbolic.
-      Control (READ in censor.py): a compact extra dimension gives CGS Thm 5.2 directly, and forbids the passage
+  C3  so the corridor needs at least one of:
+        (a) its two ends in ONE end of the bulk -- and then CGS Thm 3.5 (same premises) requires the passage to deform,
+            ends fixed, into the single far boundary: the throat's handle filled through the bulk;
+        (b) no far boundary compact and strictly untrapped uniformly in time -- where GLOBALBULK G3 points for a lasting
+            corridor (a departure reaching the far horizon meets every plane-centred sphere);
+        (c) no global hyperbolicity;
+        (d) no pointwise-NEC thickening of the composite (W1 in CGS's form fails).
+      Exhaustive only with W2's condition on other boundary components.  First written with a control, "a compact extra
+      dimension ... forbids the passage" -- withdrawn: RS1's second plane has negative tension, and a warped interval is
+      not CGS's product form
 Imports doors.py and passage5d.py by path.  Stdlib + sympy.  python3 censor5d.py [--selftest]
 """
 import contextlib
@@ -106,8 +119,8 @@ def report(d):
     print("W1 null energy on the composite plane (DOORS K1): %s" % d["nec_composite"])
     print("C2 on the plane dr/du * u = %s >= 0: the passage crosses each far sphere once" % d["monotone"])
     print("   and passage5d P6: timelike bulk routes from beyond r_* = %.5f m" % d["r_star"])
-    print("C3 so the corridor needs: (a) its two ends in ONE end of the bulk, (b) far spheres not untrapped uniformly in "
-          "time, or (c) no global hyperbolicity")
+    print("C3 so the corridor needs: (a) its two ends in ONE end of the bulk (then CGS Thm 3.5), (b) no compact far "
+          "boundary untrapped uniformly in time, (c) no global hyperbolicity, or (d) no pointwise-NEC thickening")
 
 
 def selftest():
@@ -124,7 +137,8 @@ def selftest():
         sp.simplify(d["theta_brane"] - 3 / d["R"]) == 0)
     chk("C1 control: a sphere centred on the AdS boundary is marginal, theta = 0 (strictness fails)",
         sp.simplify(d["theta_bdry"]) == 0)
-    chk("W1: the composite plane keeps the null energy condition (DOORS K1, on H-COMPOSITE-SURFACE)", d["nec_composite"])
+    chk("W1's sign: the composite plane's summed null energy is non-negative (DOORS K1, on H-COMPOSITE-SURFACE; the "
+        "pointwise form is H-THICK-COMPOSITE)", d["nec_composite"])
     chk("C2 (STRUCTURAL): r is monotone in |u| on each side, so the passage crosses each far sphere once",
         sp.simplify(d["monotone"] - 2 * sp.Symbol("u", real=True) ** 2) == 0)
     print("selftest: %d/%d" % (ok, n))

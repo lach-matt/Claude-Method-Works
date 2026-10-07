@@ -11,6 +11,12 @@ passage is the radial null geodesic of the plane from end 1 through the throat t
 -D dv^2 + 2 dv drho + r^2 dOmega^2 it is v = const, affine parameter lambda = -rho, complete; with r = 2m + u^2,
 d rho/du = 2 sqrt(m/2 + u^2) (localbulk L3), u > 0 is side 1 and u < 0 side 2.
 
+First written with a corollary that said two premises of a five-dimensional censorship theorem were "now met" and that
+wall D reduced to global hyperbolicity and distinct ends "and to nothing else"; the verifier showed the generic
+condition is met only along gamma, which P6 itself shows is not the null line such a proof needs, and that completeness,
+the asymptotic structure and the causal theory at a thin plane are further premises.  Withdrawn; the censorship theorem
+is now CENSOR5D.md's, which needs neither the generic condition nor completeness (PASSAGE5D.md History).
+
 THEOREM D.  Along the passage gamma:
   P1  gamma is a null geodesic of the bulk: its acceleration off the plane is K(k, k) = c g(k, k) = 0 (STRUCTURAL; UMBILIC
       U1)
@@ -18,31 +24,42 @@ THEOREM D.  Along the passage gamma:
           R5(n,k,n,k) = -R4(k,k) = 2 r''/r = (m/2) / ((r - 3m/2)^2 r)  > 0.
       Proof: R5(k,k) = sum over the transverse frame of R5(e,k,e,k) = 0 in a vacuum-Lambda bulk (g(k,k) = 0); Gauss
       gives R5(e,k,e,k) = R4(e,k,e,k) for e tangent, because the K-terms are c^2 (g(e,e) g(k,k) - g(e,k)^2) = 0; and
-      R4(k,k) = -2 r''/r for this congruence (Raychaudhuri, no shear).  Computed from the bulk series (bulkseries.py)
-      rather than assumed.  Control: the black string reads 0 and 0.  Foil: a non-umbilic first order breaks the
-      identity.  So the 5D generic condition holds along the whole passage (censor.py C3 left it "plausible")
+      R4(k,k) = -2 r''/r for this congruence (Raychaudhuri, no shear).  READ corroboration (verifier): MK eq. (143) p.26,
+      R_mu nu = -E_mu nu on a vacuum plane, and eq. (61) p.14, E_mu nu = C5(., n, ., n); the Lambda part of R5(n,k,n,k)
+      is proportional to g(k,k) = 0, so R5(n,k,n,k) = E(k,k) = -R4(k,k).  Computed from the bulk series (bulkseries.py's
+      solver, which agrees with closedbulk.py's seated build through y^4) in the static chart, which degenerates at the
+      throat (F = 0); the identity is carried through it by continuity in r.  Control: the black string reads 0 and 0.
+      Foil: a non-umbilic first order -- which violates the constraints and is not a solution -- breaks the identity by
+      exactly its Gauss K-term.  So the 5D generic condition holds along gamma (and along gamma only, as computed)
   P3  integrated, Q = integral of R5(n,k,n,k) d lambda = 8/(3m) - (4/(3 sqrt3 m)) artanh(sqrt3/2) = 1.652872/m, exactly
-      minus the plane's averaged null energy along both legs (coin.py's closed form, imported)
-  P4  LEMMA (Sturm; proved here).  If q >= 0 is integrable on the whole line and its integral is positive, then
-      J'' + q J = 0 has a solution with two zeros.  Proof: the quadratic form I[f] = integral (f'^2 - q f^2) is negative
-      for f = 1 on [-L, L], falling linearly to 0 over a length L^2 beyond: I = 2/L^2 - integral q f^2 -> -Q < 0.  A
-      negative form on an interval [a, b] with f(a) = f(b) = 0 means a conjugate pair inside (Jacobi).  The witness is
-      computed for the corridor's q
-  P5  the conjugate points, computed: a point p of the passage on side 1 has a conjugate point in the bulk direction iff
-      it lies beyond r_* = 2.21007m (0.69107m of affine parameter before the throat).  Its conjugate point lies on side 2
-      and tends to r_* on side 2 as p recedes to end 1's infinity.  Two routes give r_*: the limit from end 1, and the
-      zero of end 2's asymptotically constant solution.  Points nearer than r_* on side 1, and all of side 2, have none
+      minus integral G4(k,k) d lambda over both legs (E = 1, no 8 pi: coin.py's closed form, imported)
+  P4  LEMMA (Sturm; classical -- the one-dimensional core of Hawking-Ellis Prop. 4.4.5 and the Gao-Wald lemma; proved
+      here).  If q >= 0 on the whole line and its integral is positive (possibly infinite), then J'' + q J = 0 has a
+      solution with two zeros.  Proof: I[f] = integral (f'^2 - q f^2) is negative for f = 1 on [-L, L], falling linearly
+      to 0 over a length L^2 beyond: I = 2/L^2 - integral q f^2 -> -Q < 0.  A negative form on [a, b] with
+      f(a) = f(b) = 0 means a point conjugate to a inside (Jacobi).  The witness is computed for the corridor's q.
+      The scalar equation is legitimate: Codazzi with c constant gives R5(e,k,n,k) = 0 for every tangent e, and
+      Weingarten gives nabla_k n = -c k, so n is parallel modulo k and g(J, n)'' = g(J'', n) for J orthogonal to k
+  P5  the conjugate points, computed: followed toward end 2, a point p of the passage on side 1 has a conjugate point
+      in the bulk direction iff it lies beyond r_* = 2.21007m (0.69107m of affine parameter before the throat); its
+      conjugate point lies on side 2 and tends to r_* there as p recedes to end 1's infinity.  Conjugacy is symmetric:
+      points of side 2 beyond r_* have past conjugate points on side 1.  The "none" direction is exact by Sturm
+      separation: the solution with J -> 1, J' -> 0 at end 2 (it exists, integral lambda q < infinity) has its only zero
+      at u = +0.45834, so any solution vanishing at a point nearer the throat has no later zero.  The two values of r_*
+      (limit from end 1, threshold from end 2) agree by the exact u -> -u symmetry of q -- a numerical consistency check,
+      not independent evidence (the verifier's independent RK4 in lambda: 2.21009)
   P6  so gamma is not achronal in the bulk (Hawking-Ellis Prop. 4.5.12, standard, not READ: beyond a conjugate point a
-      null geodesic is joined to its start by a timelike curve, inside any neighbourhood of the segment).  The Jacobi
-      field's normal part is positive between the pair, so that curve runs on the bulk side, within the local bulk.
-      Every point of end 1 beyond r_* is joined by a TIMELIKE curve through the bulk to points of end 2: the bulk is a
-      faster route between the plane's two ends than the passage itself
-COROLLARY (censorship).  In five dimensions the plane's two ends are chronologically connected through the bulk.  The
-  composite plane's null energy holds (DOORS K1, positive tension, H-COMPOSITE-SURFACE) and the generic condition holds
-  along the passage (P2).  So a five-dimensional topological censorship theorem, if one holds for a bulk bounded by a
-  plane (none is READ or proved here), can be met by the corridor only through its remaining premises: global
-  hyperbolicity of the five-dimensional spacetime, and the plane's two ends being distinct ends of it.  Those are wall
-  C's global questions (GLOBALBULK.md)
+      null geodesic is joined to its start by a timelike curve, inside any neighbourhood of the segment).  Choosing the
+      Jacobi field's sign so its normal part is positive between the pair (a choice: -J serves as well), and building the
+      variation in the Gaussian normal chart with y = t J_n >= 0, the curve runs on the bulk side, within the local bulk
+      (the one-sided adaptation is the board's; the second variation depends only on the variation field).  Every point of end 1 beyond r_* is joined by a TIMELIKE curve through the
+      bulk to points of end 2: the bulk is a faster route between the plane's two ends than the passage itself.
+      The mechanism is Gao-Wald's (NEC, generic, complete -> conjugate points -> not achronal); bulk shortcuts in brane
+      worlds are known (Chung-Freese 1999; Caldwell-Langlois 2001; Ishihara 2002 -- not READ).  What is new is the
+      corridor's numbers
+WHAT P6 MEANS FOR CENSORSHIP.  gamma is not a null line of the bulk.  So the four-dimensional censorship route through
+  gamma (FSW, READ in DOORS.md, which forced the plane's negative reading) cannot be lifted to five dimensions: there
+  gamma is neither forbidden nor fastest.  A censorship theorem in five dimensions must come another way: CENSOR5D.md
 Imports bulkseries.py and copy/coin.py by path.  Stdlib + sympy.  python3 passage5d.py [--selftest]
 """
 import contextlib
@@ -214,15 +231,18 @@ def selftest():
     chk("P2: from the bulk series, R5(n,k,n,k) = -R4(k,k) = 2r''/r = (1/2)/((r - 3/2)^2 r) exactly, positive",
         sp.simplify(c["n_kk"] + c["R4_kk"]) == 0 and sp.simplify(c["n_kk"] - 2 * c["rpp"] / r) == 0
         and sp.simplify(c["n_kk"] - sp.Rational(1, 2) / ((r - sp.Rational(3, 2)) ** 2 * r)) == 0)
+    chk("P2 -> P3-P5: the hand-typed q(u) used below equals the computed R5(n,k,n,k) at r = 2 + u^2",
+        all(abs(q_of_u(v) - float(c["n_kk"].subs(r, 2 + v * v))) < 1e-14 for v in (-3.0, -0.4, 0.0, 0.7, 5.0)))
     chk("P2 control: the black string reads 0 for both", d["bh"]["n_kk"] == 0 and d["bh"]["R4_kk"] == 0)
-    chk("P2 foil: a non-umbilic first order breaks the identity",
+    chk("P2 foil: a non-umbilic first order (violating the constraints; not a solution) breaks the identity",
         sp.simplify(d["foil"]["n_kk"] + d["foil"]["R4_kk"]) != 0)
     chk("P3: Q = 8/3 - (4/(3 sqrt3)) artanh(sqrt3/2) = 1.652872, minus the plane's ANEC on both legs (coin.py)",
         abs(d["Q_int"] - d["Q_closed"]) < 1e-12 and abs(d["Q_closed"] + 2 * d["anec_leg"]) < 1e-12)
     chk("P4: the Sturm witness is negative for the corridor's q", d["form"] < 0)
     chk("P5: the limit from end 1 and the threshold from end 2 agree, r_* = 2.2101 m on either side of the throat",
         abs(d["u_lim"] + d["u_thr"]) < 1e-4 and abs(d["r_star"] - 2.2101) < 1e-3)
-    chk("P5: points beyond r_* on side 1 have conjugate points on side 2; the throat and side 2 have none",
+    chk("P5: followed toward end 2, points beyond r_* on side 1 have conjugate points on side 2; the throat and side 2 "
+        "have none",
         all(v is not None and v < 0 for v in d["conj_table"].values())
         and all(v is None for v in d["none_at"].values()))
     print("selftest: %d/%d" % (ok, n))

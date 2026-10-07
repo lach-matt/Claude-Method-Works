@@ -22,10 +22,13 @@ on the dS slicing of AdS5).  Data at y = 0: h = eq. (17), dh/dy = -2h/ell.  Each
       + (ell^2 + 6) y^5/(3 ell^3) + (3 ell^4 + 260 ell^2 + 496) y^6/(360 ell^4) + ...   (--order 6, ~8 min)
       ell = r0:   4 + y^2 + y^3 + 2y^4/3 + 5y^5/12 + 11y^6/40 + 79y^7/420 + 2603y^8/20160   (--inv-ell 1/2 --order 8, ~16 min)
       flat limit: 4 + y^2 + y^4/12 + y^6/120 + 23y^8/20160 + 37y^10/259200   (--flat --order 10, ~13 min)
-  B5  the radius of convergence at the throat, by the ratio test (an estimate from the last terms, not a bound; and a
-      radius of this representation, not where the bulk ends): at ell = r0 the ratios settle at 0.684, 0.686 per order,
-      a radius of ~1.46m = 0.73 r0; in the flat limit the ratios in (y/r0)^2 run 0.33, 0.40, 0.55, 0.50, a radius of
-      ~1.4 r0.  So the reach is of order r0 and, at ell = r0, below it
+  B5  the radius of convergence at the throat, from the recorded runs (radius_estimates()): an estimate, not a bound; for
+      one component (C~) at one point (r = 2m, where the static chart degenerates); A, B and other r may differ.
+      ell = r0: ratios 0.625, 0.66, 0.684, 0.686 per order, still rising -- radius about 1.46m by the last ratio, about
+      1.3m by the root test, so 1.46m is if anything an upper estimate.  Flat limit: ratios in y^2 of 0.33, 0.40, 0.55,
+      0.50, not monotone -- radius about 1.35-1.6 r0.  Every computed coefficient is positive, so if that persists the
+      limiting singularity lies on the positive real y axis (Pringsheim): a Gaussian-normal caustic or a curvature
+      singularity at y ~ the radius.  Computed for ell = r0 and ell >> r0 only; ell < r0 is OPEN
 Imports closedbulk.py and throatbulk.py by path.  Stdlib + sympy.
 python3 bulkseries.py [--selftest] [--order N] [--flat | --inv-ell 1/2]
 """
@@ -56,6 +59,27 @@ def _load(path, key):
     finally:
         sys.path[:] = saved
     return mod
+
+
+# B4's long runs, recorded as this instrument's own output (m = 1, r0 = 2; coefficients of y^0 .. y^N of C~ at the
+# throat).  Rerun with --inv-ell 1/2 --order 8 (~16 min) and --flat --order 10 (~13 min); the selftest pins y^4 only.
+RUN_ELL_R0 = ["4", "0", "1", "1", "2/3", "5/12", "11/40", "79/420", "2603/20160"]
+RUN_FLAT = ["4", "0", "1", "0", "1/12", "0", "1/120", "0", "23/20160", "0", "37/259200"]
+
+
+def radius_estimates():
+    """B5: ratio and root tests on the recorded runs, in units of m.  For ell = r0 the series is in y; in the flat limit
+    only even powers occur, so the ratio is taken in y^2."""
+    from fractions import Fraction as Fr
+    a = [Fr(c) for c in RUN_ELL_R0]
+    ratios = [float(a[k + 1] / a[k]) for k in range(2, len(a) - 1)]
+    root = float(a[-1]) ** (-1.0 / (len(a) - 1))
+    f = [Fr(c) for c in RUN_FLAT][2::2]
+    ratios_flat = [float(f[k + 1] / f[k]) for k in range(len(f) - 1)]
+    return {"ell_r0_ratios": ratios, "ell_r0_radius_ratio": 1 / ratios[-1], "ell_r0_radius_root": root,
+            "flat_ratios_y2": ratios_flat, "flat_radius_range": (min(r ** -0.5 for r in ratios_flat[1:]),
+                                                                  max(r ** -0.5 for r in ratios_flat[1:])),
+            "all_positive": all(x > 0 for x in a[2:]) and all(x > 0 for x in f)}
 
 
 def _cz(e):

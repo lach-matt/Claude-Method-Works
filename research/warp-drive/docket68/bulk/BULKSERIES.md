@@ -1,7 +1,8 @@
-# Wall C, second piece: the bulk off the corridor, computed order by order (M-RULINGS item 149; computed; not verified; not seated; 2026-10-07)
+# Wall C, second piece: the bulk off the corridor, computed order by order (M-RULINGS item 149; computed; verified once; not seated; 2026-10-07)
 
 *First headed* "(… not verified; not seated; 2026-10-07)". The first draft re-implemented the series solver that
-closedbulk.py already owns; it now imports that owner and is checked against it (History).
+closedbulk.py already owns; it now imports that owner and is checked against it. The verifier later scoped the radius to
+ℓ ≳ r₀ and added the ratio test's caveats (History).
 
 ## Where this starts
 
@@ -35,8 +36,8 @@ closedbulk.py already owns; it now imports that owner and is checked against it 
 ### 3. The constraints stay satisfied off the plane (B3)
 
 - **The Gauss (yy) and Codazzi (yr) constraints vanish order by order:**
-  - through y⁷ at ℓ = r₀;
-  - through y⁸ in the flat-bulk limit.
+  - through y² in the selftest;
+  - through y⁷ at ℓ = r₀ and y⁸ in the flat-bulk limit, in the long runs.
 - **This checks the Bianchi lemma that localbulk L4 cites.**
 
 ### 4. The throat, to higher order (B4)
@@ -49,25 +50,37 @@ The units are m = 1, so r₀ = 2.
 | ℓ = r₀ (through y⁸) | 4 + y² + y³ + 2y⁴/3 + 5y⁵/12 + 11y⁶/40 + 79y⁷/420 + 2603y⁸/20160 |
 | ℓ ≫ r₀ (through y¹⁰) | 4 + y² + y⁴/12 + y⁶/120 + 23y⁸/20160 + 37y¹⁰/259200 |
 
+- **The selftest pins the y⁴ coefficient.** The rest of the general row comes from `--order 6`. The ℓ = r₀ and ℓ ≫ r₀
+  rows come from the long runs, and the instrument records them as data (`RUN_ELL_R0`, `RUN_FLAT`).
+
 - **The general row and the ℓ = r₀ row agree** where they overlap.
 - **Every computed coefficient is positive, for every ℓ.** That is in g̃. The physical sphere is e^(−2y/ℓ)C̃, and it
   shrinks at first order (throatbulk T6).
 
 ### 5. How far the series reaches (B5)
 
-- **This is a ratio test on the last terms.** It estimates the radius, it is not a bound, and it is the radius of this
-  representation, not where the bulk ends.
-- **At ℓ = r₀:** successive ratios settle at 0.684 and 0.686 per order. The radius is about **1.46m, which is 0.73 r₀**.
-- **At ℓ ≫ r₀:** the ratios in (y/r₀)² run 0.33, 0.40, 0.55, 0.50. The radius is about **1.4 r₀**.
-- **So the reach is of order r₀, and below it when ℓ = r₀.** This replaces localbulk L5's "~min(r₀, ℓ)", which was an
-  estimate from two terms.
+- **`radius_estimates()` computes these from the recorded runs.**
+- **What the estimate is, and is not.**
+  - It estimates the radius from the last terms; it is not a bound.
+  - It is for one component (C̃) at one point, r = 2m, where the static chart degenerates. A, B and other r may differ.
+- **At ℓ = r₀:** the ratios run 0.625, 0.66, 0.684, 0.686 per order, still rising.
+  - The last ratio gives about 1.46m. The root test gives about 1.29m.
+  - So 1.46m (0.73 r₀) is, if anything, an upper estimate.
+- **At ℓ ≫ r₀:** the ratios in y² run 0.083, 0.100, 0.137, 0.125, and they are not monotone.
+  - In (y/r₀)² they are 0.33, 0.40, 0.55, 0.50.
+  - The radius lies in about 2.70m to 3.16m, which is 1.35 to 1.58 r₀. The root test gives less, about 1.21 r₀.
+- **So for ℓ ≳ r₀ the reach is of order r₀, and below it when ℓ = r₀.**
+  - This replaces localbulk L5's "~min(r₀, ℓ)" for ℓ ≳ r₀ only. For ℓ < r₀ it is OPEN.
+- **Every computed coefficient is positive.** If that persists, Pringsheim's theorem puts the singularity that limits
+  the radius on the positive real y axis, at y about the radius. It is then a caustic of the Gaussian normal chart, or a
+  curvature singularity: the first draft's "complex y" understated this.
 
 ## What this does and does not show
 
 - **It shows the local bulk explicitly:** the series, the constraints holding off the plane, and how far the series
   reaches.
-- **It does not show the global bulk.** A finite radius of convergence can come from a singularity at complex y, so it
-  says nothing on its own about whether the bulk ends regularly.
+- **It does not show the global bulk.** Whether the singularity B5 points to is a coordinate caustic or a curvature
+  singularity is not settled.
 - **GLOBALBULK.md takes up what this means for the corridor.**
 
 ## Named hypotheses
@@ -83,10 +96,23 @@ The units are m = 1, so r₀ = 2.
 ## OPEN
 
 1. Higher orders, for a firmer radius: the next two orders at ℓ = r₀ take about an hour.
-2. The radius for ℓ < r₀.
+2. The radius for ℓ < r₀, where H-ONE-BIT-SCALE sits.
 3. The global bulk (GLOBALBULK.md).
+4. Whether B5's singularity, at y about the radius, is a caustic of the chart or of the curvature.
+5. A check of B4's y⁴ coefficient against Maartens–Koyama eq. (148)'s y⁴ term (p.27), as B2 checks y³.
+6. The radius of A and B, and at other r. G1 needs the smallest radius over the whole slab, not one component at one
+   point.
 
 ## History
 
 - *First written* with its own series solver beside closedbulk.py's. It now imports closedbulk.py's `build()` and must
   agree with it through y⁴, which it does. The faster solver is kept for higher orders, and the owner checks it.
+
+## History (verifier, 2026-10-07)
+
+- **"Replaces localbulk L5" over-claimed.** It now holds for ℓ ≳ r₀ only.
+- **The ratio-test caveats are added:** the ratios are still rising at ℓ = r₀, the root test gives a smaller radius,
+  the flat-limit ratios are not monotone, and the estimate is for one component at one point.
+- **Which claims the selftest pins** is now stated, separately from the long runs.
+- **Under-claim taken up: positivity and Pringsheim.**
+- **The recorded runs** are now data in the instrument. GLOBALBULK imports them rather than copying numbers.

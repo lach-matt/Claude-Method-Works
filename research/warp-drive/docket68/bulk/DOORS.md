@@ -102,11 +102,16 @@ global premises remained. All three are withdrawn (History).
 1. A censorship theorem for passage between asymptotic regions of a plane in a bulk. None was READ, so it would have to
    be proved.
    - *Since:* PASSAGE5D.md proves Theorem D. Along the passage the bulk's null energy is zero, the generic condition
-     holds, and the bulk joins the two ends by timelike curves. So a five-dimensional censorship theorem could turn only
-     on global hyperbolicity, and on whether the two ends are distinct ends of the bulk: wall C's global premises.
-   - *Since:* CENSOR5D.md applies Chruściel–Galloway–Solis Theorem 3.1 (READ). In a globally hyperbolic bulk with your
-     positive tension, the plane's two ends cannot be two distinct ends of the bulk with untrapped far spheres. They
-     must be one end of the bulk (joined through the deep bulk), or a far end must fail to be untrapped.
+     holds along γ, and the bulk joins the two ends by timelike curves. So γ is not a null line of the bulk, and FSW's
+     route cannot be lifted to five dimensions. (First written: "could turn only on global hyperbolicity, and on
+     whether the two ends are distinct": withdrawn by its verifier.)
+   - *Since:* CENSOR5D.md applies Chruściel–Galloway–Solis Theorem 3.1 (READ) to the mirror-doubled spacetime. With
+     the null energy condition pointwise on a thickened composite, global hyperbolicity, and two distinct ends with
+     untrapped far spheres, the passage cannot exist. So the corridor needs at least one of four things:
+     - (a) one end of the bulk, and then CGS Theorem 3.5;
+     - (b) no untrapped far boundary;
+     - (c) no global hyperbolicity;
+     - (d) no pointwise thickening.
 2. **Wall C:** the corridor's bulk on one RS II plane.
 
 ## History (verifier, 2026-10-07)
