@@ -3,30 +3,46 @@
 
 M (item 138): "the problem is that you assume the bulk is contained to a single plain. It is not. I keep saying, it is
 multi-universal."  The corridor's far field (eq. 17 at r0 = 2m) has gamma = beta = 5/4 (kscale.py P; Casadio-Fabbri-
-Mazzacurati eq. 8).  A single Randall-Sundrum II plane gives gamma = 1 (Maartens-Koyama eq. 155).  This asks what a
-bulk with more planes gives.
+Mazzacurati eq. 8).  One Randall-Sundrum II plane gives gamma = 1 (Maartens-Koyama eq. 155).
 
-READ at source (alphaXiv): Garriga & Tanaka, "Gravity in the Randall-Sundrum Brane World", hep-th/9911055v4.
-  p.7 eq. (27): on a plane of the two-plane bulk, gravity is linearized Brans-Dicke with
-      omega(+-) = (3/2)(e^(+-2d/ell) - 1)        (+ the positive-tension plane, - the negative one; d the separation)
-  p.7: "In the Einstein frame, the kinetic term for the BD field has the usual sign for omega_BD > -3/2."
-  p.7-8, eq. (25): matter on the other plane ("shadow matter") gravitates on ours through the first term alone, giving
-      h00 = 2 h_zz, and "for the same Newtonian mass the deflection of light rays caused by shadow matter is 25%
-      smaller than in Einstein gravity".
-Brans-Dicke's post-Newtonian gamma is (1 + omega)/(2 + omega) (Will, as cited there [10]; standard, the board's
-formula); light bends by (1 + gamma)/2.
+The post-Newtonian gamma from a propagator's tensor structure.  On a plane, one-graviton exchange between static
+sources goes as (P2 + c0 P0)/q^2 (Pilo-Rattazzi-Zaffaroni's normalisation: Einstein is c0 = -1, eq. 3.1; a massive
+graviton c0 = -2/3, eq. 3.2).  Then h_mu nu ~ T_mu nu + (c0/2) eta_mu nu T, so for a static source
+gamma = h_ii / h_00 = -c0 / (2 + c0).
 
-  M1  gamma on each plane, over every separation d: the positive-tension plane (1/2, 1); the negative (-1, 1/2)
-  M2  shadow matter: gamma = 1/2 (h00 = 2 h_zz), light bending 3/4 -- the 25% READ
-  M3  gamma = 5/4 needs omega = -6, below -3/2: a scalar with the wrong-sign kinetic term (GT p.7)
+READ at source (alphaXiv):
+  Pilo, Rattazzi, Zaffaroni, hep-th/0004028v2 -- the Lykken-Randall (LR) two-plane bulk, warp -k_L z for 0 <= z <= r,
+    -k_R z + (k_R - k_L) r beyond (eq. 2.3); tensions tau1 = 24 M^3 k_L, tau2 = 24 M^3 (k_R - k_L) (p.3); radion kinetic
+    coefficient C_r = (24 M^3/k_L)(e^{2 k_L r} k_R/(k_R - k_L) - 1) (eq. 2.16); Planck mass
+    2 Mhat^2 = (2 M^3/k_L)(1 + e^{-2 k_L r}(k_L - k_R)/k_R) (eq. 2.17); the zero-mode propagator on our plane
+    (1/(8 Mhat^2))(P2 - (2/3) P0)/q^2 - (1/(24 M_L^2)) P0/q^2 with M_L^2 = M^3/k_L (eq. 3.3); and the identity
+    1/Mhat^2 - 24/C_r = 1/M_L^2 (eq. 3.4).  p.11: "the need for a non-decoupling massless and ghost-like radion is always
+    associated with the presence of a brane of negative tension."  Abstract: "The model violates positivity of energy due
+    to a negative tension brane, which induces a negative kinetic term for the radion."
+  Garriga & Tanaka, hep-th/9911055v4 -- the orbifold two-plane bulk (the negative plane at a fixed point, its ghost mode
+    projected out, PRZ p.3): Brans-Dicke on each plane, omega(+-) = (3/2)(e^{+-2d/ell} - 1) (eq. 27); shadow matter
+    through the first term of eq. (25), structure P2 - (2/3) P0, "25 % weaker" light bending (p.1, p.8).
+
+  M1  the GT orbifold bulk: gamma < 1 on either plane, at every separation (exact forms)
+  M2  GT's shadow matter: c0 = -2/3, gamma = 1/2 (a re-derivation of GT's published 25%)
+  M3  the LR bulk, ours the Planck plane: gamma = (3 + X)/(3 - X), X = e^{-2 k_L r}(k_L - k_R)/k_R; gamma = 5/4 at X = 1/3,
+      which needs the second plane's tension negative and its radion a ghost
+  M4  the planes coinciding (M's item 127, r = 0): gamma = 5/4 at k_R = 3 k_L / 4; tensions +4/3 and -1/3 of the one-plane
+      value, summing to it (loose.py L4's sum rule)
 Stdlib + sympy.  python3 multiplane.py [--selftest]
 """
 import sys
 
 import sympy as sp
 
-d, ell, w = sp.symbols("d ell omega", positive=True)
-x = sp.Symbol("x", positive=True)                                  # x = d/ell
+x = sp.Symbol("x", positive=True)                                  # d/ell (GT)
+kL, kR, r, M = sp.symbols("k_L k_R r M", positive=True)
+X = sp.Symbol("X")
+
+
+def gamma_from_c0(c0):
+    """Post-Newtonian gamma for exchange structure (P2 + c0 P0)/q^2: gamma = -c0/(2 + c0)."""
+    return sp.simplify(-c0 / (2 + c0))
 
 
 def gamma_bd(omega):
@@ -37,35 +53,62 @@ def m1():
     wp = sp.Rational(3, 2) * (sp.exp(2 * x) - 1)
     wm = sp.Rational(3, 2) * (sp.exp(-2 * x) - 1)
     gp, gm = sp.simplify(gamma_bd(wp)), sp.simplify(gamma_bd(wm))
-    return {"omega_plus": wp, "omega_minus": wm, "gamma_plus": gp, "gamma_minus": gm,
+    return {"gamma_plus": gp, "gamma_minus": gm,
+            "one_minus_gp": sp.simplify(1 - gp), "one_minus_gm": sp.simplify(1 - gm),
             "gp_limits": (sp.limit(gp, x, 0, "+"), sp.limit(gp, x, sp.oo)),
-            "gm_limits": (sp.limit(gm, x, 0, "+"), sp.limit(gm, x, sp.oo)),
-            "dgp": sp.simplify(sp.diff(gp, x)), "dgm": sp.simplify(sp.diff(gm, x))}
+            "gm_limits": (sp.limit(gm, x, 0, "+"), sp.limit(gm, x, sp.oo))}
 
 
 def m2():
-    """Shadow matter: h00 = 2 h_zz (GT p.8), so gamma = h_zz/h00 = 1/2 in the far field."""
-    g = sp.Rational(1, 2)
-    return {"gamma": g, "deflection": (1 + g) / 2}
+    return {"gamma": gamma_from_c0(sp.Rational(-2, 3))}
+
+
+def lr():
+    Mhat2 = (M**3 / kL) * (1 + sp.exp(-2 * kL * r) * (kL - kR) / kR)           # eq. 2.17
+    ML2 = M**3 / kL
+    Cr = (24 * M**3 / kL) * (sp.exp(2 * kL * r) * kR / (kR - kL) - 1)          # eq. 2.16
+    tau1, tau2 = 24 * M**3 * kL, 24 * M**3 * (kR - kL)
+    # eq. 3.3: (1/(8 Mhat^2))(P2 - (2/3) P0) - (1/(24 ML^2)) P0 = (1/(8 Mhat^2)) (P2 + c0 P0)
+    c0 = sp.simplify(sp.Rational(-2, 3) - 8 * Mhat2 / (24 * ML2))
+    return {"Mhat2": Mhat2, "ML2": ML2, "Cr": Cr, "tau1": tau1, "tau2": tau2, "c0": c0,
+            "gamma": sp.simplify(gamma_from_c0(c0)),
+            "identity_34": sp.simplify(1 / Mhat2 - 24 / Cr - 1 / ML2)}               # eq. 3.4, must vanish
 
 
 def m3():
-    sol = sp.solve(sp.Eq(gamma_bd(sp.Symbol("o")), sp.Rational(5, 4)), sp.Symbol("o"))
-    return {"omega_for_5_4": sol[0], "healthy": sol[0] > sp.Rational(-3, 2)}
+    d = lr()
+    gX = sp.simplify((3 + X) / (3 - X))
+    Xdef = sp.exp(-2 * kL * r) * (kL - kR) / kR
+    sol = sp.solve(sp.Eq(gX, sp.Rational(5, 4)), X)
+    return {"gamma_X": gX, "agrees": sp.simplify(d["gamma"] - gX.subs(X, Xdef)) == 0, "X_for_5_4": sol[0],
+            "identity_34": d["identity_34"]}
+
+
+def m4():
+    """r = 0: X = (k_L - k_R)/k_R = 1/3."""
+    d = lr()
+    kr = sp.solve(sp.Eq((kL - kR) / kR, sp.Rational(1, 3)), kR)[0]
+    lam_rs = 24 * M**3 * kr                                         # the one-plane (Z2) value at the outer curvature
+    t1 = sp.simplify(d["tau1"].subs(kR, kr) / lam_rs)
+    t2 = sp.simplify(d["tau2"].subs(kR, kr) / lam_rs)
+    cr0 = sp.simplify(d["Cr"].subs({r: 0, kR: kr}))
+    g0 = sp.simplify(d["gamma"].subs({r: 0, kR: kr}))
+    return {"kR": kr, "tau1_over_rs": t1, "tau2_over_rs": t2, "Cr_at_r0": cr0, "gamma": g0}
 
 
 def report():
-    a, b, c = m1(), m2(), m3()
+    a, b, c, e = m1(), m2(), m3(), m4()
     print("multiplane.py -- what a bulk of more than one plane gives on our plane (item 138)\n")
-    print("M1 two planes, every separation (Garriga-Tanaka eq. 27):")
-    print("   positive-tension plane: omega = %s, gamma = %s, from %s (d -> 0) to %s (d -> oo)"
-          % (a["omega_plus"], a["gamma_plus"], a["gp_limits"][0], a["gp_limits"][1]))
-    print("   negative-tension plane: omega = %s, gamma = %s, from %s (d -> 0) to %s (d -> oo)"
-          % (a["omega_minus"], a["gamma_minus"], a["gm_limits"][0], a["gm_limits"][1]))
-    print("M2 shadow matter on the other plane: gamma = %s, light bends x %s (GT: 25%% weaker)"
-          % (b["gamma"], b["deflection"]))
-    print("M3 the corridor's gamma = 5/4 needs omega = %s; a healthy scalar needs omega > -3/2: %s"
-          % (c["omega_for_5_4"], c["healthy"]))
+    print("M1 Garriga-Tanaka's orbifold bulk: 1 - gamma(+) = %s; 1 - gamma(-) = %s -- both > 0: gamma < 1 always"
+          % (a["one_minus_gp"], a["one_minus_gm"]))
+    print("M2 GT's shadow matter (structure P2 - (2/3) P0): gamma = %s, light bending x 3/4" % b["gamma"])
+    print("M3 Lykken-Randall, ours the Planck plane: gamma = %s, X = e^(-2 k_L r)(k_L - k_R)/k_R; eq. 3.4 residual %s"
+          % (c["gamma_X"], c["identity_34"]))
+    print("   gamma = 5/4 at X = %s: needs k_R < k_L, i.e. the second plane's tension 24 M^3 (k_R - k_L) < 0, and then"
+          % c["X_for_5_4"])
+    print("   the radion's kinetic coefficient C_r < 0: a ghost (PRZ p.11)")
+    print("M4 the planes coinciding (r = 0): gamma = %s at k_R = %s; tensions %s and %s of the one-plane value; C_r = %s"
+          % (e["gamma"], e["kR"], e["tau1_over_rs"], e["tau2_over_rs"], e["Cr_at_r0"]))
 
 
 def selftest():
@@ -77,22 +120,33 @@ def selftest():
         ok += bool(cond)
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
-    a, b, c = m1(), m2(), m3()
-    chk("M1: on the positive-tension plane gamma runs from 1/2 to 1 and rises monotonically with d",
-        a["gp_limits"] == (sp.Rational(1, 2), 1) and all(float(a["dgp"].subs(x, v)) > 0 for v in (0.1, 1, 3)))
-    chk("M1: on the negative-tension plane gamma runs from 1/2 down to -1",
-        a["gm_limits"] == (sp.Rational(1, 2), -1) and all(float(a["dgm"].subs(x, v)) < 0 for v in (0.1, 1, 3)))
-    chk("M1: so on either plane, at every separation, gamma < 1",
-        all(float(a["gamma_plus"].subs(x, v)) < 1 and float(a["gamma_minus"].subs(x, v)) < 1
-            for v in (0.01, 0.5, 2, 10)))
-    chk("M1 control: far separation on the positive plane recovers Einstein's gamma = 1 (one plane, GT p.6)",
-        a["gp_limits"][1] == 1)
-    chk("M2: shadow matter has gamma = 1/2 and bends light 3/4 as much -- Garriga-Tanaka's 25% (READ)",
-        b["gamma"] == sp.Rational(1, 2) and b["deflection"] == sp.Rational(3, 4))
-    chk("M3: gamma = 5/4 needs omega = -6, which is below -3/2: the wrong-sign scalar (GT p.7)",
-        c["omega_for_5_4"] == -6 and not c["healthy"])
-    chk("M3 control: gamma = 1 is omega -> infinity, gamma = 1/2 is omega = 0",
-        sp.limit(gamma_bd(w), w, sp.oo) == 1 and gamma_bd(sp.Integer(0)) == sp.Rational(1, 2))
+    a, b, c, e = m1(), m2(), m3(), m4()
+    chk("gamma_from_c0: Einstein's c0 = -1 gives 1 and the massive graviton's -2/3 gives 1/2 (the formula's controls)",
+        gamma_from_c0(sp.Integer(-1)) == 1 and gamma_from_c0(sp.Rational(-2, 3)) == sp.Rational(1, 2))
+    chk("M1: exactly, 1 - gamma(+) = 2/(3 e^{2x} + 1) and 1 - gamma(-) = 2 e^{2x}/(e^{2x} + 3): gamma < 1 on both planes",
+        sp.simplify(a["one_minus_gp"] - 2 / (3 * sp.exp(2 * x) + 1)) == 0 and
+        sp.simplify(a["one_minus_gm"] - 2 * sp.exp(2 * x) / (sp.exp(2 * x) + 3)) == 0)
+    chk("M1: gamma(+) runs (1/2, 1), gamma(-) runs (1/2, -1)", a["gp_limits"] == (sp.Rational(1, 2), 1) and
+        a["gm_limits"] == (sp.Rational(1, 2), -1))
+    chk("M2: shadow matter's structure P2 - (2/3) P0 gives gamma = 1/2 -- GT's 25% (re-derived from eq. 25's structure)",
+        b["gamma"] == sp.Rational(1, 2))
+    chk("M3: PRZ eq. (3.4) holds identically from eqs. (2.16), (2.17) -- the transcription checks itself",
+        c["identity_34"] == 0)
+    chk("M3: eq. (3.3) gives gamma = (3 + X)/(3 - X) with X = e^{-2 k_L r}(k_L - k_R)/k_R", c["agrees"])
+    chk("M3: gamma = 5/4 exactly at X = 1/3", c["X_for_5_4"] == sp.Rational(1, 3))
+    chk("M3: X > 0 needs k_R < k_L: the second plane's tension negative and C_r < 0 (ghost), e.g. k_L = 1, k_R = 1/2",
+        float(lr()["tau2"].subs({M: 1, kL: 1, kR: sp.Rational(1, 2)})) < 0 and
+        float(lr()["Cr"].subs({M: 1, kL: 1, kR: sp.Rational(1, 2), r: 1})) < 0)
+    chk("M3 control: a positive-tension second plane (k_R > k_L) gives X < 0 and gamma < 1",
+        float(lr()["gamma"].subs({M: 1, kL: 1, kR: 2, r: 1})) < 1)
+    chk("M3 control: far separation (r -> oo) recovers one plane's gamma = 1",
+        sp.limit(lr()["gamma"].subs({kL: 1, kR: sp.Rational(1, 2)}), r, sp.oo) == 1)
+    chk("M4: coinciding planes give gamma = 5/4 at k_R = 3 k_L / 4, tensions +4/3 and -1/3 of the one-plane value",
+        e["gamma"] == sp.Rational(5, 4) and sp.simplify(e["kR"] - sp.Rational(3, 4) * kL) == 0 and
+        e["tau1_over_rs"] == sp.Rational(4, 3) and e["tau2_over_rs"] == sp.Rational(-1, 3))
+    chk("M4: the two tensions sum to the one-plane value, as loose.py L4's sum rule requires",
+        e["tau1_over_rs"] + e["tau2_over_rs"] == 1)
+    chk("M4: the radion is a ghost there too (C_r < 0)", sp.simplify(e["Cr_at_r0"]).is_negative)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 

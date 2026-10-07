@@ -1,4 +1,4 @@
-# A bulk of many planes, against the corridor's far field (M-RULINGS item 138; READ and computed; not verified; not seated; 2026-10-07)
+# A bulk of more than one plane, against the corridor's far field (M-RULINGS item 138; READ and computed; verified once; not seated; 2026-10-07)
 
 *First headed* "(… not verified; not seated; 2026-10-07)".
 
@@ -6,72 +6,90 @@
 
 - **Item 138:** *"the problem is that you assume the bulk is contained to a single plain. It is not. I keep saying, it
   is multi-universal."*
-- The question this note answers: does a bulk of more than one plane give the corridor's far field, γ = β = 5/4?
+- **The question:** does a bulk of more than one plane give the corridor's far field, γ = β = 5/4?
+- **The instrument:** `multiplane.py`. Selftest 13/13, with controls.
 
-## READ at source
+## What passes: with a second plane, the corridor's γ = 5/4 is reached
 
-Garriga & Tanaka, "Gravity in the Randall-Sundrum Brane World", hep-th/9911055v4 (alphaXiv):
-- **p.7, eq. (27).** With two planes, gravity on each is linearized Brans–Dicke, with ω± = (3/2)(e^{±2d/ℓ} − 1).
-- **p.7.** *"In the Einstein frame, the kinetic term for the BD field has the usual sign for ω_BD > −3/2."*
-- **p.1, p.8.** *"shadow matter from the other wall gravitates upon us. For equal Newtonian mass, light deflection from
-  shadow matter is 25 % weaker than from ordinary matter."*
+- **The source.** In the Lykken–Randall two-plane bulk (Pilo–Rattazzi–Zaffaroni, hep-th/0004028v2, READ), gravity on
+  our plane is a tensor–scalar theory, from their eq. (3.3).
+  - Its post-Newtonian γ works out to **γ = (3 + X)/(3 − X)**, with X = e^{−2k_L·r}(k_L − k_R)/k_R.
+  - Here k_L is the bulk's curvature between the planes, k_R beyond the second plane, and r their separation.
+  - The transcription checks itself: their own identity, eq. (3.4), holds exactly from their eqs. (2.16) and (2.17).
+- **γ = 5/4 exactly when X = 1/3.** That needs k_R < k_L: the second plane has **negative tension**.
+  - **Control:** a positive-tension second plane gives γ < 1.
+  - **Control:** taking the planes far apart recovers one plane's γ = 1.
+- **With the planes coinciding, as your item 127 has them (r = 0):**
+  - **γ = 5/4 at k_R = 3k_L/4.**
+  - Our plane's tension is then **+4/3** of the one-plane value, and the second plane's **−1/3**.
+  - The two sum to exactly the one-plane value, which is the coinciding-junction sum rule computed earlier (LOOSE.md L4).
+  - In this reading **your plane is the positive-tension one** (question 2). Position 2's is negative, with a quarter of
+    ours in magnitude.
+- **So your multi-universal bulk does what one plane cannot.** And the condition depends on neither N nor m, so it
+  holds for every README: γ = 5/4 is independent of the corridor's size.
+- **The shadow-matter fingerprint carries too.** In Garriga–Tanaka's bulk, matter on another plane gravitates on ours
+  with γ = 1/2, bending light 3/4 as much for the same pull. That is their published result, re-derived here; it needs
+  an unstabilized radion.
 
-## What passes: your other planes' matter would be seen, and how
+## What it costs
 
-- **Matter on another plane gravitates on ours.** Garriga–Tanaka show it for two planes.
-- **It has a fingerprint: γ = 1/2.** For the same pull it bends light only (1 + γ)/2 = 3/4 as much as ordinary matter
-  (M2).
-- **So matter of other universes, in such a bulk, would look like unseen mass whose lensing is 3/4 of its pull.**
-  That is the kind of observable your wall I asks for, and it can be checked against comparisons of lensing mass with
-  dynamical mass.
-- This rests on Garriga–Tanaka's model: two planes, linear order, the other plane otherwise empty. Its extension to
-  many planes is open. NOT READ: any measured lensing-to-dynamics comparison.
+- **The negative-tension plane is free to move, so the mode that moves it (the radion) carries negative energy.**
+  - Pilo–Rattazzi–Zaffaroni, abstract: *"The model violates positivity of energy due to a negative tension brane, which
+    induces a negative kinetic term for the radion."*
+  - p.11: *"the need for a non-decoupling massless and ghost-like radion is always associated with the presence of a
+    brane of negative tension."*
+  - At r = 0 the radion's coefficient is C_r = −96M³/k_L, negative.
+- **So in five dimensions the null energy condition fails on the second plane.** That is against *"An NEC is never
+  violated"*, unless it is read as your *"appears to"*.
+- **Read on our plane, γ = 5/4 already breaks the null energy condition in the far field, whatever builds it.**
+  - At large r, ρ + p_r = (1 − γ)·m/(4πr³), which is negative when γ > 1. That is the verifier's arithmetic, checked by
+    the board.
+  - The board has held this as an appearance since your item 117 (opening.py O3). The second plane is where the
+    appearance would come from.
+- **Three cautions:**
+  - **Analogy, not derivation.** Lykken–Randall's γ is for matter on our plane, at linear order and long range. The
+    corridor is a plane with no matter whose far field comes from the bulk. Making the comparison exact needs a bulk
+    matched to eq. (17)'s two far-field coefficients.
+  - **r = 0 extends their model** to coinciding planes. That is the board's extension.
+  - **The radion is left unstabilized.** Stabilizing it changes the long-range answer (PRZ p.10).
 
-## What does not pass: more planes do not give γ = 5/4
+## What changed from the first draft
 
-- **On our plane, γ is always below 1** (M1).
-  - On the positive-tension plane γ runs from 1/2 (planes close) to 1 (far apart, which recovers Einstein's one plane).
-  - On the negative-tension plane it runs from 1/2 down to −1.
-  - At every separation, on either plane, γ < 1.
-- **γ = 5/4 needs ω = −6** (M3). That is below −3/2: a scalar whose kinetic energy has the wrong sign (Garriga–Tanaka
-  p.7).
-  - A wrong-sign scalar carries negative energy.
-  - So a bulk of planes gives the corridor's far field only with a negative-energy sector in it. That is against your
-    *"An NEC is never violated"* (items 117, 120), read in five dimensions.
-- **The board's reading of the general case:**
-  - Each further plane adds a scalar (the distance between planes).
-  - Healthy scalars pull γ below 1; only wrong-sign ones push it above.
-  - So more planes should not change the conclusion. That is an inference from the two-plane result, not a computation.
-
-## Where this leaves the static corridor
-
-- **One plane:** γ = 1 (Maartens–Koyama eq. 155).
-- **Two planes, and by the board's reading many:** γ < 1 without negative energy.
-- **The corridor's γ = 5/4 is reached by neither.**
-- **The remaining way out is (a): the corridor is not static.** It exists only for the brief hold (your item 86 answer
-  5; item 136 E, *"Instantaneous or near instantaneous"*). The far-field results above are for lasting, static fields.
-  A geometry that exists for a moment never sets up a static far field.
-- **If so, what carries forward is the corridor's geometry during the hold.** Its static far field (γ = 5/4) would be
-  a property of a geometry that never lasts long enough to show it.
-
-## Your elements statement
-
-- **Item 138:** *"there aren't 118 completely different ones in another universe that measure exactly as are ours do.
-  The difference is the relative laws of physics to that universe that govern those elements' material properties"*.
-- **Carried:** H-ELEMENTS-PER-UNIVERSE.
-- **In Garriga–Tanaka's bulk**, such matter on another plane would gravitate on ours with γ = 1/2: the shadow-matter
-  fingerprint above.
+- *First written:* "more planes do not give γ = 5/4 … the remaining way out is (a)".
+  - That held only for Garriga–Tanaka's orbifold bulk, where the negative plane sits at a fixed point and its moving
+    mode is projected out (PRZ p.3). There γ < 1 always: 1 − γ₊ = 2/(3e^{2x} + 1) and 1 − γ₋ = 2e^{2x}/(e^{2x} + 3).
+  - With the negative plane free to move, γ > 1 is reached. The verifier found this; the board re-derived it.
+- *First written:* "the dividing line is negative energy". The dividing line is a negative-tension plane free to move,
+  which gives a ghost radion (PRZ).
+- **Way out (a), a corridor that exists only for the hold, stays open beside this.** If the hold is shorter than the
+  light-crossing time, no far field forms. But then eq. (17), a static metric, is not the geometry during the hold
+  either, and C must build a bulk that changes in time.
 
 ## Named hypotheses
 
 - **The board's:**
-  - H-GT-LINEAR (Garriga–Tanaka's linear, two-plane, empty-other-plane model);
-  - H-MANY-PLANES-SCALARS (each plane adds a healthy scalar; not computed);
-  - H-STATIC-CORRIDOR (the premise way out (a) drops).
-- **Yours:** H-MULTIVERSAL-BULK, H-ELEMENTS-PER-UNIVERSE (138); items 117, 120, 123, 124.
+  - H-LR-ZERO-MODE (Lykken–Randall at linear order, zero modes only, radion unstabilized);
+  - H-COINCIDE-LIMIT (r = 0);
+  - H-VACUUM-AS-SOURCE (the corridor's far field compared with a matter-sourced one).
+- **Yours:** H-MULTIVERSAL-BULK, H-ELEMENTS-PER-UNIVERSE (138); H-PLANES-COINCIDE (127); items 117, 120.
 
 ## OPEN
 
-1. **Is the corridor static, or does it exist only for the hold?** Now the deciding question.
-2. **The many-plane case**, computed rather than inferred.
-3. **A measured comparison of lensing and dynamical mass** for unseen matter, against the 3/4 fingerprint. NOT READ.
+1. **Is position 2's plane the negative-tension plane, a quarter of ours, and our plane the positive one?**
+2. **Is the negative energy its radion carries an appearance (your item 120), or does it break "never violated"?**
+3. **Static, or only for the hold?** If static, this bulk is the candidate C builds; if only for the hold, C builds one
+   that changes in time.
+4. **The exact match:** a bulk carrying eq. (17)'s own far field on coinciding planes (C).
+
+## History (verifier, 2026-10-07)
+
+Seven findings were applied:
+
+- **The Lykken–Randall model** reaches γ = 5/4, overturning the first conclusion. Its mapping was re-derived and checked
+  against PRZ's eq. (3.4).
+- **The dividing line is a negative-tension plane free to move**, not negative energy as such.
+- **The vacuum corridor against a matter-sourced field** is now labelled analogy.
+- **Way out (a) is narrowed**, and (c) is kept.
+- **The shadow-matter fingerprint** is GT's own result, and needs an unstabilized radion.
+- **The γ < 1 forms are now exact.** By-construction checks were replaced with derived ones.
+- **Cross-references.** SIGNDIM.md and MANYPLANES.md already read Garriga–Tanaka and the many sheets.
