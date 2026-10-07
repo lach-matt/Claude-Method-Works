@@ -50,7 +50,7 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 
 /* tally */
 .tally { margin-top: 16px; display: grid; gap: 10px; }
-.cells { display: grid; grid-template-columns: repeat(33, minmax(0, 1fr)); gap: 3px; }
+.cells { display: grid; grid-template-columns: repeat(34, minmax(0, 1fr)); gap: 3px; }
 .cell { height: 22px; border-radius: 3px; }
 .c-ok { background: var(--pass); }
 .c-read { background: var(--gap); }
@@ -163,23 +163,23 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
     <div class="eyebrow">Warp-drive research board · docket 68</div>
     <h1>The warp chain, start to finish</h1>
     <p class="lede">Each station of a trip, now decided by the lemmas of one theorem (item 150). A station is green only when every lemma it rests on is proved, derived from your rulings, or a definition of yours shown consistent, with nothing left on a board reading or open. Every status below is the one <span class="id">warptheorem.py</span> reports.</p>
-    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py · 2026-10-07 · rulings through item 152 · B4 instruments verified once, the others not yet · nothing seated</div>
+    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py · 2026-10-07 · rulings through item 154 · B4 steps 1–4 verified once, step 5 being verified, the others not yet · nothing seated</div>
   </header>
 
   <section class="thm" aria-label="The Warp Theorem">
     <div class="eyebrow">The Warp Theorem · item 150</div>
     <blockquote>For an object whose README has N bits, there is exactly one corridor, fixed by N alone, and through it the README becomes, one way and exactly, the object at position 2.</blockquote>
     <p class="sub">E = √(N h c⁵ ln2 / 8π²G) = 459,404,002.42 J × √N &nbsp;·&nbsp; m = GE/c⁴ &nbsp;·&nbsp; r₀ = 2m &nbsp;·&nbsp; throat area = N × 4 ln2 Planck areas. The theorem is proved exactly when no lemma is open (item 151).</p>
-    <div class="tally" aria-label="33 lemmas by status">
-      <div class="cells" role="img" aria-label="23 green, 7 on a reading, 1 nature, 2 open">
-        <span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span>
-        <span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span>
+    <div class="tally" aria-label="34 lemmas by status">
+      <div class="cells" role="img" aria-label="25 green, 6 on a reading, 1 nature, 2 open">
+        <span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span>
+        <span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span>
         <span class="cell c-nat"></span>
         <span class="cell c-open"></span><span class="cell c-open"></span>
       </div>
       <ul class="key">
-        <li><span class="sw c-ok"></span><b>23</b> green: 14 proved, 6 derived from your rulings, 3 your definitions</li>
-        <li><span class="sw c-read"></span><b>7</b> rest on a board reading</li>
+        <li><span class="sw c-ok"></span><b>25</b> green: 16 proved, 6 derived from your rulings, 3 your definitions</li>
+        <li><span class="sw c-read"></span><b>6</b> rest on a board reading</li>
         <li><span class="sw c-nat"></span><b>1</b> a measurement</li>
         <li><span class="sw c-open"></span><b>2</b> open</li>
       </ul>
@@ -192,12 +192,12 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
       <div class="stop"><a href="#supply"><div class="dot amber"></div><div class="n">2</div><div class="t">Supply</div><div class="v amber">reading</div></a></div>
       <div class="stop"><a href="#formation"><div class="dot red"></div><div class="n">3</div><div class="t">Formation</div><div class="v red">open</div></a></div>
       <div class="stop"><a href="#address"><div class="dot red"></div><div class="n">4</div><div class="t">Address</div><div class="v red">open</div></a></div>
-      <div class="stop"><a href="#holding"><div class="dot amber"></div><div class="n">5</div><div class="t">Holding</div><div class="v amber">reading</div></a></div>
+      <div class="stop"><a href="#holding"><div class="dot green"></div><div class="n">5</div><div class="t">Holding</div><div class="v green">green</div></a></div>
       <div class="stop"><a href="#crossing"><div class="dot green"></div><div class="n">6</div><div class="t">Crossing</div><div class="v green">green</div></a></div>
       <div class="stop"><a href="#information"><div class="dot amber"></div><div class="n">7</div><div class="t">Information route</div><div class="v amber">caveat</div></a></div>
       <div class="stop"><a href="#arrival"><div class="dot amber"></div><div class="n">8</div><div class="t">Arrival</div><div class="v amber">reading</div></a></div>
     </div>
-    <p class="strip-note">Filled green: passes with no residue. Amber ring: every lemma there is proved or derived except one resting on the board's reading, a caveat, or a measurement. Red ring: an open lemma. One station is green; the two red ones share a single open lemma, B4, the global bulk.</p>
+    <p class="strip-note">Filled green: passes with no residue. Amber ring: every lemma there is proved or derived except one resting on the board's reading, a caveat, or a measurement. Red ring: an open lemma. Two stations are green, Holding and Crossing; the two red ones share a single open lemma, B4d, the opening and closing as a five-dimensional evolution.</p>
   </div>
 
   <section class="line" aria-label="The chain">
@@ -244,11 +244,12 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
       <div class="body">
         <ul class="lemmas">
           <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B2</b>A local vacuum bulk exists, unique among analytic ones.</div><div class="how">bulk/localbulk.py L4, verified</div></li>
-          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B7</b>Formation is the widening of a bridge already there: no change of topology, consistent and causally safe, no singularity forced. Made at the instant with no prior bridge, or pinched: inconsistent.</div><div class="how">lemmas/b7_formation.py, chain.py's z3 encoding; Maldacena–Susskind p.17, READ</div><div class="left"><b>Left</b>The board's H-BRIDGE-PREEXISTS (from items 100, 101 answer 1, 122 (4), 140). Its five-dimensional evolution goes with B4b.</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>Two separate positions reached through a dimension (item 152) are one end of the bulk, so the censorship theorem is escaped and the passage deforms through the bulk (CGS Thm 3.5). The topology is fixed before the opening: B7's bridge.</div><div class="how">lemmas/b4_global.py, 6/6, STRUCTURAL; Aké Hau–Flores–Sánchez, READ</div><div class="left"><b>Given</b>The bulk inside the far boundary regular: that is B4b. Controls: joined only at the throat, or with excised regions, no deformation.</div></li>
-          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B4c</b>The far boundary is strictly untrapped. In the board's model its expansion over the throat has the sign of ℓ − 2R, so it exists beyond the hold's reach only if ℓ &gt; 2R_reach, about 57 m in corridor units: met easily for ℓ near its measured bound, not at ℓ = r₀.</div><div class="how">lemmas/b4_global.py; a → 0 gives CENSOR5D C1's 3/R</div><div class="left"><b>Left</b>H-FAR-MODEL; after the closing, H-WEAK-RADIATION; eq. (17) scoped inside the reach, H-NEAR-ZONE.</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4b</b>The bulk stays regular through the hold, as a brief evolution (item 152). Necessary: the static local bulk regular within the hold's double cone, about 2 m deep near the throat and 8 m at r = 3m (ℓ ≫ r₀).</div><div class="how">lemmas/b4_regular.py, 8/8</div><div class="left"><b>Left</b>The decisive lemma. See "Where B4 stands" below.</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B3</b>A complete bulk exists. The local bulk is B2; the complete one is B4a with B4b and B4c, so B3 closes with B4b.</div><div class="how">lemmas/axioms.py</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B7</b>Formation is the widening of a bridge already there: no change of topology, consistent and causally safe, no singularity forced. Made at the instant with no prior bridge, or pinched: inconsistent.</div><div class="how">lemmas/b7_formation.py, chain.py's z3 encoding; Maldacena–Susskind p.17, READ</div><div class="left"><b>Left</b>The board's H-BRIDGE-PREEXISTS (from items 100, 101 answer 1, 122 (4), 140). Its five-dimensional evolution goes with B4d.</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>Two separate positions reached through a dimension (item 152) are one end of the bulk, so the censorship theorem is escaped and the passage deforms through the bulk (CGS Thm 3.5). The topology is fixed before the opening: B7's bridge.</div><div class="how">lemmas/b4_global.py, 6/6, STRUCTURAL; Aké Hau–Flores–Sánchez, READ</div><div class="left"><b>Given</b>The bulk inside the far boundary regular: B4b within the hold, B4d for the opening and closing. Controls: joined only at the throat, or with excised regions, no deformation.</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B4c</b>The far boundary is strictly untrapped. In the board's model its expansion over the throat has the sign of ℓ − 2R, so it exists beyond the hold's reach only if ℓ &gt; 2R_reach, about 26 m in corridor units: met easily for ℓ near its measured bound, not at ℓ = r₀.</div><div class="how">lemmas/b4_global.py; a → 0 gives CENSOR5D C1's 3/R</div><div class="left"><b>Left</b>H-FAR-MODEL; after the closing, H-WEAK-RADIATION; eq. (17) scoped inside the reach, H-NEAR-ZONE.</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4b</b>The bulk is regular within every admissible hold's double cone. With eq. (17) held on the plane, the static bulk is forced there, and it is certified regular for any hold below 13.0 clocks (curvature at most 3.9). Longer holds reach its curvature singularity above the throat, about 2.5 m deep.</div><div class="how">lemmas/b4_static.py, 8/8: exact series to order 80, Padé continuation, the full double cone; flat limit</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4d</b>The opening and closing evolve regularly in five dimensions, and the bulk beyond the hold's cone joins the untouched exterior.</div><div class="how">a nonlinear five-dimensional initial-boundary problem; at linear order Holmgren closes the escape inside the cone</div><div class="left"><b>Left</b>The decisive lemma. See "Where B4 stands" below.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B3</b>A complete bulk exists. The local bulk is B2; the complete one is B4a to B4d, so B3 closes with B4d.</div><div class="how">lemmas/axioms.py</div></li>
         </ul>
         <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
           <li><span class="st read">on B7</span>Creating a throat changes topology and Geroch–Borde force a loop: a widening is not a change of topology. <span class="id">D24</span></li>
@@ -263,29 +264,29 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
         <ul class="lemmas">
           <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>R4</b>The corridor's length is the difference between the two trajectories, in bits, given a measure: not a distance (101 answer 7, 136 answer 3, 139 (4)).</div><div class="how">lemmas/r4_length.py, 4/4</div><div class="left"><b>Left</b>The board's H-LENGTH-AS-DIFFERENCE.</div></li>
           <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>Shared with formation: two separate positions, joined through the extra dimension, are one end of the bulk.</div><div class="how">lemmas/b4_global.py, given B4b</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4b</b>Shared with formation: the bulk that joins them stays regular through the hold.</div><div class="how">lemmas/b4_regular.py</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4d</b>Shared with formation: the bulk that joins them stays regular as the corridor opens and closes. Within the hold it is proved (B4b).</div><div class="how">lemmas/b4_static.py</div></li>
         </ul>
         <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
           <li><span class="st ok">answered</span>A static, round device has no parameter for a destination: the second position is an input the device requires, exact to the input. <span class="id">D14; items 86 answer 4, 119</span></li>
-          <li><span class="st open">on B4b</span>Whether a second plane exists, and a geometry that brings the destination near. <span class="id">BULK-O1, BULK-O3</span></li>
+          <li><span class="st open">on B4d</span>Whether a second plane exists, and a geometry that brings the destination near. <span class="id">BULK-O1, BULK-O3</span></li>
         </ul></div>
         <div class="mq"><p class="qq">How does a corridor know where it is going?</p><p>M: the second position is an input; entanglement plus trajectory triangulation give the action. <span class="id">item 86</span></p><p>M: two separate positions connected by, reached through, a dimension. <span class="id">item 152</span></p></div>
       </div>
     </article>
 
     <article class="station" id="holding">
-      <div class="head"><div class="dot amber"></div><div><div class="n">Station 5</div><h2>Holding</h2><div class="q">Holding the README, and surviving the hold</div><span class="verdict amber">Reading left</span></div></div>
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 5</div><h2>Holding</h2><div class="q">Holding the README, and surviving the hold</div><span class="verdict green">Passes</span></div></div>
       <div class="body">
         <ul class="lemmas">
           <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O2</b>The horizon is extremal: surface gravity 0.</div><div class="how">bulk/stability.py S1, verified</div></li>
           <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>H2</b>The horizons hold the README as well as the throat: the horizon at r = 2m sits on the throat and its area is N × A_bit.</div><div class="how">lemmas/axioms.py</div></li>
-          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>O3</b>The corridor survives its hold. hold = hN/(4E) = 2π²/ln2 = 28.4777 corridor clocks for every N (Margolus–Levitin, READ); 1.89×10⁻³⁵ s at the example README. Over it, growth is at most 20.8 against 90.6 for the non-extremal control.</div><div class="how">lemmas/o3_hold.py, 6/6</div><div class="left"><b>Left</b>Two board readings, H-ONE-STEP-PER-BIT and H-HOLD-AT-BOUND. And the hold is longer than the local bulk's span (1.3–3.2 clocks), so it also leans on B4.</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O3</b>The corridor survives its hold, which lies in a window: above the READ bounds (Margolus–Levitin on the whole register, h/(4E) = 28.48/N clocks; Bremermann–Bekenstein transfer, 1/(2ξ)), below the 13.0 clocks the bulk certifies (B4b). At the window's top, 8.6×10⁻³⁶ s at the example README, growth is at most 6.89 against the control's 7.8.</div><div class="how">lemmas/o3_hold.py, 7/7. The per-bit 28.48 clocks, first derived here, is withdrawn: its cone reaches the bulk's curvature singularity (b4_static.py)</div></li>
         </ul>
         <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st open">not re-run</span>The duration quantum inequality on a corridor held for one light-crossing has not yet been re-run against the theorem, where the null energy is never violated (Z3). <span class="id">D7</span></li>
-          <li><span class="st read">on O3</span>Stability past the classical modes: linear through the hold, computed; non-linear goes with B4b. <span class="id">D26, O5</span></li>
+          <li><span class="st ok">answered</span>The duration quantum inequality bounds how long a quantum field's negative energy lasts. The corridor holds none: the plane is matter-free (B1), null energy is never violated (Z3), and the plane's apparent deficit is the bulk's Weyl field (E4, Z1). Deduced. <span class="id">D7</span></li>
+          <li><span class="st read">on B4d</span>Stability past the classical modes: linear through any admissible hold, computed; the non-linear evolution of the opening and closing is B4d, at formation. <span class="id">D26, O5</span></li>
         </ul></div>
-        <div class="mq"><p class="qq">How long must a corridor last?</p><p>M: however long the travel dictates; probably incredibly short, maybe immeasurable, but not zero. <span class="id">item 86</span></p></div>
+        <div class="mq"><p class="qq">How long must a corridor last?</p><p>M: however long the travel dictates; probably incredibly short, maybe immeasurable, but not zero. <span class="id">item 86</span></p><p>M: instantaneous or near instantaneous. <span class="id">item 136 E</span></p></div>
       </div>
     </article>
 
@@ -346,42 +347,40 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
   <section class="panel lead" aria-label="Where B4 stands">
     <div class="eyebrow">The decisive open lemma</div>
     <h2>Where B4 stands</h2>
-    <p>Worked in order after item 152, and verified once. The shape is settled: your two separate positions, reached through a dimension, are one end of the bulk, and the passage deforms through it (B4a). The far boundary needs ℓ &gt; 2R_reach in the board's model (B4c). What is open is B4b: during the hold the plane is static, so the bulk within the hold's double cone must be the static local bulk, and it must be regular there. The extremal horizon's redshift keeps that depth small near the throat.</p>
+    <p>Finished as far as the board's tools reach (item 153). The shape is settled: your two separate positions, reached through a dimension, are one end of the bulk (B4a). The bulk within the hold is settled too (B4b). The board took the static bulk past its series with exact arithmetic to order 80 and Padé continuation, and computed the hold's full double cone. The static bulk has a curvature singularity about 2.5 m above the throat, so the bulk caps the hold.</p>
     <div class="tbl-box"><table>
-      <thead><tr><th></th><th>r = 2.05m</th><th>r = 2.25m</th><th>r = 3m</th></tr></thead>
+      <thead><tr><th>hold (corridor clocks)</th><th>its double cone</th></tr></thead>
       <tbody>
-        <tr><td>ℓ ≫ r₀: depth needed</td><td class="n">1.9–2.2 m</td><td class="n">4.75 m</td><td class="n">8.22 m</td></tr>
-        <tr><td>ℓ ≫ r₀: series-stable to</td><td class="n">1.50 m</td><td class="n">1.75 m</td><td class="n">2.25 m</td></tr>
-        <tr><td>ℓ = r₀: depth needed</td><td class="n">1.2–1.5 m</td><td class="n">2.1–2.4 m</td><td class="n">3.26 m</td></tr>
-        <tr><td>ℓ = r₀: series-stable to</td><td class="n">0.65 m</td><td class="n">0.80 m</td><td class="n">1.20 m</td></tr>
+        <tr><td class="n">below 13.0</td><td>entirely in verified bulk, curvature at most 3.9: <b>certified regular</b></td></tr>
+        <tr><td class="n">from 15.9</td><td>reaches curvature 100 times the plane's</td></tr>
+        <tr><td class="n">about 22–24</td><td>reaches the singular surface (y ≈ 2.50 m at r = 2.15m, K ∝ (y_b − y)⁻³)</td></tr>
+        <tr><td class="n">28.48 (the per-bit hold)</td><td>refuted: O3's per-bit reading is withdrawn, and O3 is now the window below 13.0</td></tr>
       </tbody>
     </table></div>
-    <p style="margin-top:10px"><b>Not decided.</b> In the regime measurement allows (ℓ ≫ r₀), nothing the series reaches is singular, and it reaches 1.5 m of the ~1.9 m needed at the throat. At ℓ = r₀ the series stops near its own radius, where a singularity and a bulk horizon look the same. Closing B4b needs a method past the series: an elliptic solve of the static bulk, or a resummation with a bounded error.</p>
+    <p style="margin-top:10px"><b>What is left: B4d.</b> The opening and closing are not static, so the static bulk does not describe them. Whether they evolve regularly in five dimensions is a nonlinear initial-boundary problem the board's tools do not solve. At linear order around the static bulk, Holmgren's theorem closes the non-analytic escape inside the cone.</p>
   </section>
 
   <section class="breaks" aria-label="What turns the map green">
     <div class="panel">
       <div class="eyebrow">Readings · green on your word, or derived</div>
-      <h2>Seven lemmas wait on the board's readings</h2>
+      <h2>Six lemmas wait on the board's readings</h2>
       <ul>
         <li><b>B5</b> H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE <span class="id">supply; and Z3 at demand</span></li>
-        <li><b>O3</b> H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND <span class="id">holding</span></li>
-        <li><b>B7</b> H-BRIDGE-PREEXISTS <span class="id">formation</span></li>
+                <li><b>B7</b> H-BRIDGE-PREEXISTS <span class="id">formation</span></li>
         <li><b>B4c</b> H-FAR-MODEL, H-WEAK-RADIATION, H-NEAR-ZONE <span class="id">formation</span></li>
         <li><b>R4</b> H-LENGTH-AS-DIFFERENCE <span class="id">address</span></li>
         <li><b>R5</b> the fields of item 148 under 149 <span class="id">arrival</span></li>
         <li><b>E3</b> reading (a), the expansion of position 2 <span class="id">arrival</span></li>
       </ul>
-      <p style="margin-top:8px">Each is labelled and is withdrawn if you correct it. None is asked as a question (item 149).</p>
+      <p style="margin-top:8px">Each is labelled and is withdrawn if you correct it. Under your item 154 the board is now working each one toward a derivation.</p>
     </div>
     <div class="panel">
       <div class="eyebrow">Still to do on the board's side</div>
       <h2>Residue the board can clear</h2>
       <ol>
-        <li>Take B4b past the series: the static bulk regular to ~2 m at the throat and ~8 m at r = 3m (ℓ ≫ r₀). <span class="id">B3, B4b</span></li>
+        <li>The opening and closing as a five-dimensional evolution. <span class="id">B3, B4d</span></li>
         <li>Carry Strominger–Vafa's extremal count to the corridor's horizon, or derive it there: READ for their class, not yet for this one. <span class="id">H-EXTREMAL-ENTROPY</span></li>
-        <li>Re-run the duration quantum inequality against Z3. <span class="id">D7</span></li>
-        <li>One verifier each over the nine earlier lemma instruments, axioms.py and warptheorem.py. B4's two have had one.</li>
+                <li>One verifier each over the nine earlier lemma instruments, axioms.py and warptheorem.py. B4's steps 1–4 have had one; step 5's is running.</li>
       </ol>
       <p style="margin-top:8px">B6′, k's scale, stays with measurement by your ruling.</p>
     </div>
