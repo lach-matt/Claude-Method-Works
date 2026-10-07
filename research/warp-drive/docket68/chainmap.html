@@ -1,0 +1,389 @@
+<title>Warp Chain Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: a transit line. Eight stations run down a spine; each station carries the Warp Theorem lemmas that decide it. */
+:root {
+  --bg: #f3f5f8;
+  --surface: #ffffff;
+  --ink: #18202e;
+  --muted: #5b6577;
+  --rule: #d9dee7;
+  --line: #2f4f86;
+  --line-bg: #e4ebf6;
+  --pass: #1d7a5a;
+  --pass-bg: #e3f3ec;
+  --wall: #b02a2a;
+  --wall-bg: #f8e4e2;
+  --gap: #9a6a12;
+  --gap-bg: #fbf0d9;
+  --f-display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "IBM Plex Sans", "Segoe UI", Roboto, sans-serif;
+  --f-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f141d; --surface: #161d29; --ink: #e6eaf1; --muted: #9aa5b8; --rule: #2a3445;
+    --line: #7e9fd6; --line-bg: #1b2638; --pass: #5cc79e; --pass-bg: #15302a; --wall: #ef7d74; --wall-bg: #3a1c1c;
+    --gap: #e3b55a; --gap-bg: #36290f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f141d; --surface: #161d29; --ink: #e6eaf1; --muted: #9aa5b8; --rule: #2a3445;
+  --line: #7e9fd6; --line-bg: #1b2638; --pass: #5cc79e; --pass-bg: #15302a; --wall: #ef7d74; --wall-bg: #3a1c1c;
+  --gap: #e3b55a; --gap-bg: #36290f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.55; margin: 0; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 20px; padding-block: 36px 56px; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.01em; }
+.lede { color: var(--muted); max-width: 70ch; margin: 10px 0 0; }
+.meta { font-family: var(--f-mono); font-size: 12px; color: var(--muted); margin-top: 14px; }
+.eyebrow { font-family: var(--f-display); font-weight: 700; font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.id { font-family: var(--f-mono); font-size: 11.5px; color: var(--muted); }
+
+/* the theorem */
+.thm { margin-top: 24px; background: var(--surface); border: 1px solid var(--rule); border-left: 4px solid var(--line); border-radius: 10px; padding: 18px 22px; }
+.thm blockquote { margin: 8px 0 0; font-family: var(--f-display); font-weight: 700; font-size: clamp(17px, 2.2vw, 20px); line-height: 1.35; color: var(--ink); max-width: 72ch; text-wrap: balance; }
+.thm .sub { margin: 10px 0 0; font-size: 14px; color: var(--muted); max-width: 76ch; }
+
+/* tally */
+.tally { margin-top: 16px; display: grid; gap: 10px; }
+.cells { display: grid; grid-template-columns: repeat(31, minmax(0, 1fr)); gap: 3px; }
+.cell { height: 22px; border-radius: 3px; }
+.c-ok { background: var(--pass); }
+.c-read { background: var(--gap); }
+.c-nat { background: var(--line); }
+.c-open { background: var(--wall); }
+.key { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; list-style: none; font-size: 13.5px; }
+.key li { display: flex; align-items: center; gap: 8px; }
+.key .sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
+.key b { font-family: var(--f-mono); font-weight: 500; font-variant-numeric: tabular-nums; }
+
+/* overview strip */
+.strip-box { overflow-x: auto; margin-top: 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 18px 14px; }
+.strip { display: grid; grid-template-columns: repeat(8, minmax(92px, 1fr)); min-width: 760px; position: relative; }
+.strip::before { content: ""; position: absolute; left: 6%; right: 6%; top: 11px; height: 4px; background: var(--line); border-radius: 2px; }
+.stop { position: relative; text-align: center; padding: 0 4px; }
+.stop a { color: inherit; text-decoration: none; display: block; }
+.stop a:focus-visible { outline: 2px solid var(--line); outline-offset: 3px; border-radius: 6px; }
+.dot { width: 26px; height: 26px; border-radius: 50%; margin: 0 auto; background: var(--surface); border: 4px solid var(--line); position: relative; z-index: 1; }
+.dot.green { border-color: var(--pass); background: var(--pass); }
+.dot.amber { border-color: var(--gap); }
+.dot.red { border-color: var(--wall); }
+.stop .n { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
+.stop .t { font-family: var(--f-display); font-weight: 700; font-size: 13.5px; line-height: 1.2; }
+.stop .v { font-family: var(--f-mono); font-size: 11px; margin-top: 2px; }
+.v.green { color: var(--pass); } .v.amber { color: var(--gap); } .v.red { color: var(--wall); }
+.strip-note { font-size: 13px; color: var(--muted); margin: 12px 0 0; max-width: 90ch; }
+
+/* stations */
+.line { margin-top: 40px; position: relative; }
+.station { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 0 28px; position: relative; padding-bottom: 34px; }
+.station::before { content: ""; position: absolute; left: 13px; top: 30px; bottom: 0; width: 4px; background: var(--line); border-radius: 2px; }
+.station:last-child::before { display: none; }
+.head { display: flex; gap: 14px; align-items: flex-start; min-width: 0; }
+.head .dot { margin: 2px 0 0; flex: none; }
+.head h2 { font-size: 20px; font-weight: 800; line-height: 1.15; }
+.head .q { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.head .n { font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
+.verdict { display: inline-block; margin-top: 8px; font-family: var(--f-display); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; }
+.verdict.green { background: var(--pass-bg); color: var(--pass); }
+.verdict.amber { background: var(--gap-bg); color: var(--gap); }
+.verdict.red { background: var(--wall-bg); color: var(--wall); }
+
+.body { display: grid; gap: 12px; min-width: 0; }
+.lemmas { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.lm { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 4px 14px; align-items: start; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 10px 14px; }
+.chip { font-family: var(--f-mono); font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; text-align: center; padding: 3px 4px; border-radius: 4px; margin-top: 2px; }
+.chip.ok { background: var(--pass-bg); color: var(--pass); }
+.chip.read { background: var(--gap-bg); color: var(--gap); }
+.chip.nat { background: var(--line-bg); color: var(--line); }
+.chip.open { background: var(--wall-bg); color: var(--wall); }
+.lm .what { font-size: 14px; }
+.lm .what b { font-family: var(--f-mono); font-weight: 500; font-size: 13px; margin-right: 6px; }
+.lm .how { grid-column: 2; font-size: 12.8px; color: var(--muted); }
+.lm .left { grid-column: 2; font-size: 12.8px; margin-top: 2px; padding: 6px 10px; border-radius: 6px; }
+.lm.r .left { background: var(--gap-bg); }
+.lm.o .left { background: var(--wall-bg); }
+.lm.n .left { background: var(--line-bg); }
+.left b { font-family: var(--f-display); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-right: 6px; }
+.lm.r .left b { color: var(--gap); } .lm.o .left b { color: var(--wall); } .lm.n .left b { color: var(--line); }
+
+.walls { background: var(--surface); border: 1px dashed var(--rule); border-radius: 8px; padding: 10px 14px; }
+.walls .lbl, .mq .lbl { font-family: var(--f-display); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
+.walls ul { margin: 0; padding-left: 16px; }
+.walls li { font-size: 13.2px; margin: 0 0 5px; }
+.walls .st { font-family: var(--f-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 4px; }
+.st.ok { color: var(--pass); } .st.read { color: var(--gap); } .st.open { color: var(--wall); }
+.mq { padding: 8px 12px; border-left: 3px solid var(--line); background: var(--surface); border-radius: 0 6px 6px 0; }
+.mq p { margin: 0; font-size: 13.5px; }
+.mq .qq { font-family: var(--f-display); font-weight: 700; font-size: 14.5px; color: var(--line); margin-bottom: 3px; }
+
+/* panels */
+.breaks { margin-top: 18px; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; }
+.panel { background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 20px; min-width: 0; }
+.panel h2 { font-size: 19px; font-weight: 800; margin-bottom: 8px; }
+.panel p { margin: 0 0 10px; }
+.panel ol, .panel ul { margin: 6px 0 0; padding-left: 22px; }
+.panel li { margin-bottom: 8px; font-size: 14px; }
+.panel.lead { border-left: 4px solid var(--wall); margin-top: 18px; }
+.nums { font-family: var(--f-mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+.tbl-box { overflow-x: auto; margin-top: 8px; }
+table { border-collapse: collapse; font-size: 13px; min-width: 520px; }
+th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: var(--f-display); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.foot { margin-top: 28px; font-size: 13px; color: var(--muted); max-width: 84ch; }
+.foot p { margin: 0 0 8px; }
+
+@media (max-width: 860px) {
+  .station { grid-template-columns: 1fr; gap: 12px; }
+  .body { padding-left: 40px; }
+  .breaks { grid-template-columns: 1fr; }
+}
+@media (max-width: 520px) {
+  .wrap { padding-inline: 16px; }
+  .body { padding-left: 0; }
+  .station::before { display: none; }
+  .lm { grid-template-columns: 1fr; }
+  .lm .how, .lm .left { grid-column: 1; }
+  .chip { justify-self: start; padding-inline: 8px; }
+  .cell { height: 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stop a .dot { transition: transform .15s ease; }
+  .stop a:hover .dot { transform: scale(1.12); }
+}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Warp-drive research board · docket 68</div>
+    <h1>The warp chain, start to finish</h1>
+    <p class="lede">Each station of a trip, now decided by the lemmas of one theorem (item 150). A station is green only when every lemma it rests on is proved, derived from your rulings, or a definition of yours shown consistent, with nothing left on a board reading or open. Every status below is the one <span class="id">warptheorem.py</span> reports.</p>
+    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py · 2026-10-07 · commit 0338746 · rulings through item 151 · lemma instruments unverified · nothing seated</div>
+  </header>
+
+  <section class="thm" aria-label="The Warp Theorem">
+    <div class="eyebrow">The Warp Theorem · item 150</div>
+    <blockquote>For an object whose README has N bits, there is exactly one corridor, fixed by N alone, and through it the README becomes, one way and exactly, the object at position 2.</blockquote>
+    <p class="sub">E = √(N h c⁵ ln2 / 8π²G) = 459,404,002.42 J × √N &nbsp;·&nbsp; m = GE/c⁴ &nbsp;·&nbsp; r₀ = 2m &nbsp;·&nbsp; throat area = N × 4 ln2 Planck areas. The theorem is proved exactly when no lemma is open (item 151).</p>
+    <div class="tally" aria-label="31 lemmas by status">
+      <div class="cells" role="img" aria-label="22 green, 6 on a reading, 1 nature, 2 open">
+        <span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span>
+        <span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span><span class="cell c-read"></span>
+        <span class="cell c-nat"></span>
+        <span class="cell c-open"></span><span class="cell c-open"></span>
+      </div>
+      <ul class="key">
+        <li><span class="sw c-ok"></span><b>22</b> green: 13 proved, 6 derived from your rulings, 3 your definitions</li>
+        <li><span class="sw c-read"></span><b>6</b> rest on a board reading</li>
+        <li><span class="sw c-nat"></span><b>1</b> a measurement</li>
+        <li><span class="sw c-open"></span><b>2</b> open</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="strip-box" role="navigation" aria-label="Stations of the chain">
+    <div class="strip">
+      <div class="stop"><a href="#demand"><div class="dot amber"></div><div class="n">1</div><div class="t">Demand</div><div class="v amber">reading</div></a></div>
+      <div class="stop"><a href="#supply"><div class="dot amber"></div><div class="n">2</div><div class="t">Supply</div><div class="v amber">reading</div></a></div>
+      <div class="stop"><a href="#formation"><div class="dot red"></div><div class="n">3</div><div class="t">Formation</div><div class="v red">open</div></a></div>
+      <div class="stop"><a href="#address"><div class="dot red"></div><div class="n">4</div><div class="t">Address</div><div class="v red">open</div></a></div>
+      <div class="stop"><a href="#holding"><div class="dot amber"></div><div class="n">5</div><div class="t">Holding</div><div class="v amber">reading</div></a></div>
+      <div class="stop"><a href="#crossing"><div class="dot green"></div><div class="n">6</div><div class="t">Crossing</div><div class="v green">green</div></a></div>
+      <div class="stop"><a href="#information"><div class="dot amber"></div><div class="n">7</div><div class="t">Information route</div><div class="v amber">caveat</div></a></div>
+      <div class="stop"><a href="#arrival"><div class="dot amber"></div><div class="n">8</div><div class="t">Arrival</div><div class="v amber">reading</div></a></div>
+    </div>
+    <p class="strip-note">Filled green: passes with no residue. Amber ring: every lemma there is proved or derived except one resting on the board's reading, a caveat, or a measurement. Red ring: an open lemma. One station is green; the two red ones share a single open lemma, B4, the global bulk.</p>
+  </div>
+
+  <section class="line" aria-label="The chain">
+
+    <article class="station" id="demand">
+      <div class="head"><div class="dot amber"></div><div><div class="n">Station 1</div><h2>Demand</h2><div class="q">What the geometry asks for</div><span class="verdict amber">Reading left</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B1</b>The plane is free of matter (R = 0) and meets Gauss and Codazzi.</div><div class="how">bulk/localbulk.py L1–L2, verified</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>E4</b>The field energy outside the neck, E/4, is the bulk's Weyl field read on the plane: positive, and not the plane's own energy. M(R) = m + (m/4)(1 − m/(2R − 3m)).</div><div class="how">lemmas/ledger.py; Maartens–Koyama eq. 143</div></li>
+          <li class="lm r"><span class="chip read">Derived*</span><div class="what"><b>Z3</b>Null energy is never violated, in five dimensions: the vacuum bulk gives R(k,k) = 0 for every null k, the passage gives 0, and the composite plane gives λ f(y) k_y² ≥ 0.</div><div class="how">lemmas/axioms.py</div><div class="left"><b>Left</b>The composite-plane part inherits B5's reading (station 2). Z3 turns green with B5.</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st ok">answered</span>D5, negative energy on the path: in five dimensions there is none. The plane's deficit is the bulk's pull (Z1, Z3). <span class="id">D5</span></li>
+          <li><span class="st ok">answered</span>D1–D4, negative enclosed mass: the corridor's mass m = GE/c⁴ is positive (G1); those rows exclude a throat by their own scope. <span class="id">D1–D4, D11</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">Must a warp contain negative energy, or only appear to?</p><p>M: it must appear to contain it. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="supply">
+      <div class="head"><div class="dot amber"></div><div><div class="n">Station 2</div><h2>Supply</h2><div class="q">The one energy, and what carries it</div><span class="verdict amber">Reading left</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>G1</b>One exact energy, at the bound: E(N). From no more and no less (101 answer 6), both holding it (132) and the pull (131, 133).</div><div class="how">lemmas/axioms.py</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>G2</b>E(N) computed and machine-checked: 459,404,002.42 J × √N.</div><div class="how">copy/exactE.py, seated</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>G3</b>Both holds at least size give r₀ = 2m.</div><div class="how">copy/exactE.py; items 106, 132</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>H1</b>4πr₀² = N × A_bit, with A_bit = 4 ln2 Planck areas.</div><div class="how">copy/exactE.py</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E1</b>E is carried through three holds into position 2. One way, nothing held indefinitely, and conservation force it; without either premise it is not forced.</div><div class="how">lemmas/axioms.py, z3 with controls</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B6</b>k's ratio is fixed by the work, k_R = 3k_L/4, and every clause is free of k's scale. The bulk series carries ℓ; the passage's pull does not, so its absence is a result.</div><div class="how">lemmas/b6_k.py; bulk/kderive.py K3</div></li>
+          <li class="lm n"><span class="chip nat">Nature</span><div class="what"><b>B6′</b>k's scale.</div><div class="how">item 136 answer 8: "leave it to measurement"</div><div class="left"><b>Left</b>A measurement, by your ruling. It stays a named premise of nature, not a gap in the proof.</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B5</b>Energy positive at every point for the entangled pin (140). One shared profile (127) keeps null energy ≥ 0 at every depth; a real scalar wall, φ′² = 3 sech²(y/w)/(wℓ) &gt; 0, tends to the RS plane; the pin is the coincidence itself, so there is no radion.</div><div class="how">lemmas/b5_positive.py, 5/5</div><div class="left"><b>Left</b>Two board readings: H-SHARED-PROFILE and H-PIN-IS-COINCIDENCE. Green on your word, or by deriving one shared profile from item 127.</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st ok">answered</span>No mechanism supplies negative mass: none is needed. The supply is E(N), positive (G1, Z3). <span class="id">S1–S10</span></li>
+          <li><span class="st ok">answered</span>"No ladder, so no number": the balance now has one number, E(N), and the ledger closes on it (E3, station 8). <span class="id">B1–B4</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">Must the energy exist in our space at all?</p><p>M: it can sit somewhere we do not see, observable only through its interactions with what we can. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="formation">
+      <div class="head"><div class="dot red"></div><div><div class="n">Station 3</div><h2>Formation</h2><div class="q">Bringing the corridor into existence</div><span class="verdict red">Open lemma</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B2</b>A local vacuum bulk exists, unique among analytic ones.</div><div class="how">bulk/localbulk.py L4, verified</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B7</b>Formation is the widening of a bridge already there: no change of topology, consistent and causally safe, no singularity forced. Made at the instant with no prior bridge, or pinched: inconsistent.</div><div class="how">lemmas/b7_formation.py, chain.py's z3 encoding; Maldacena–Susskind p.17, READ</div><div class="left"><b>Left</b>The board's H-BRIDGE-PREEXISTS (from items 100, 101 answer 1, 122 (4), 140). Its five-dimensional evolution goes with B4.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4</b>The global bulk: the plane's two ends are one end of the bulk (CGS Thm 3.1, escape (a)), with Thm 3.5's deformation, reconciled with separate universes (101 answer 5), no loop (128) and infinitely many planes (123, 124, 136 answer 9, 138).</div><div class="how">bulk/CENSOR5D.md; the curvature test is running</div><div class="left"><b>Left</b>The decisive lemma. See "Where B4 stands" below.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B3</b>A complete bulk exists. The local bulk is B2; the complete one is B4, so B3 closes with B4.</div><div class="how">lemmas/axioms.py</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st read">on B7</span>Creating a throat changes topology and Geroch–Borde force a loop: a widening is not a change of topology. <span class="id">D24</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">Is a corridor made, or found and widened?</p><p>M: likely made; and a corridor can be made under the same conditions used to make one larger. <span class="id">items 86, 101</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="address">
+      <div class="head"><div class="dot red"></div><div><div class="n">Station 4</div><h2>Address</h2><div class="q">Choosing where it goes</div><span class="verdict red">Open lemma</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>R4</b>The corridor's length is the difference between the two trajectories, in bits, given a measure: not a distance (101 answer 7, 136 answer 3, 139 (4)).</div><div class="how">lemmas/r4_length.py, 4/4</div><div class="left"><b>Left</b>The board's H-LENGTH-AS-DIFFERENCE.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4</b>Shared with formation: that the two positions are joined through one end of the bulk, as separate universes, is the same open lemma.</div><div class="how">bulk/CENSOR5D.md</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st ok">answered</span>A static, round device has no parameter for a destination: the second position is an input the device requires, exact to the input. <span class="id">D14; items 86 answer 4, 119</span></li>
+          <li><span class="st open">on B4</span>Whether a second plane exists, and a geometry that brings the destination near. <span class="id">BULK-O1, BULK-O3</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">How does a corridor know where it is going?</p><p>M: the second position is an input; entanglement plus trajectory triangulation give the action. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="holding">
+      <div class="head"><div class="dot amber"></div><div><div class="n">Station 5</div><h2>Holding</h2><div class="q">Holding the README, and surviving the hold</div><span class="verdict amber">Reading left</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O2</b>The horizon is extremal: surface gravity 0.</div><div class="how">bulk/stability.py S1, verified</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>H2</b>The horizons hold the README as well as the throat: the horizon at r = 2m sits on the throat and its area is N × A_bit.</div><div class="how">lemmas/axioms.py</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>O3</b>The corridor survives its hold. hold = hN/(4E) = 2π²/ln2 = 28.4777 corridor clocks for every N (Margolus–Levitin, READ); 1.89×10⁻³⁵ s at the example README. Over it, growth is at most 20.8 against 90.6 for the non-extremal control.</div><div class="how">lemmas/o3_hold.py, 6/6</div><div class="left"><b>Left</b>Two board readings, H-ONE-STEP-PER-BIT and H-HOLD-AT-BOUND. And the hold is longer than the local bulk's span (1.3–3.2 clocks), so it also leans on B4.</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st open">not re-run</span>The duration quantum inequality on a corridor held for one light-crossing has not yet been re-run against the theorem, where the null energy is never violated (Z3). <span class="id">D7</span></li>
+          <li><span class="st read">on O3</span>Stability past the classical modes: linear through the hold, computed; non-linear goes with B4. <span class="id">D26, O5</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">How long must a corridor last?</p><p>M: however long the travel dictates; probably incredibly short, maybe immeasurable, but not zero. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="crossing">
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 6</div><h2>Crossing</h2><div class="q">Entering, traversing, leaving</div><span class="verdict green">Passes</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O1</b>One way, from position 1 to position 2, nonsingular.</div><div class="how">copy/plane.py P1, seated; exactE.py one-way check</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z1</b>Along the passage, a null geodesic of the five-dimensional geometry (not light, item 90), the null energy is zero; the plane's deficit is the bulk's pull. R₅(n,k,n,k) = 2r″/r = (m/2)/((r − 3m/2)² r).</div><div class="how">bulk/passage5d.py P2, verified</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z2</b>The integral equals the plane's reading on both legs: Q = 8/3 − (4/3√3) artanh(√3/2) = 1.652872/m, exactly −2 × coin.py's per-leg value.</div><div class="how">bulk/passage5d.py P3; copy/coin.py</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st ok">answered</span>What crosses: information, by the throat (131, 132, 143). <span class="id">BULK-O2</span></li>
+          <li><span class="st read">on B7</span>Closed loops in a braneworld: causal safety is entailed for the widening, under B7's reading. <span class="id">O3</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">What actually goes through?</p><p>M: information. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="information">
+      <div class="head"><div class="dot amber"></div><div><div class="n">Station 7</div><h2>Information route</h2><div class="q">Send the specification, not the mass</div><span class="verdict amber">One caveat</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>I2</b>The README's N bits sit within the capacity bound as READ: the holding bound is N, the interaction bound is met with equality, the channel bound N/2 ≤ N.</div><div class="how">lemmas/i2_capacity.py, 4/4; Maldacena–Stanford–Yang p.4, p.12</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R0</b>The read: the corridor takes the README as its inflow at the opening; N is read from the object. Consistent: the interaction bound is met with equality exactly because the inflow is the README.</div><div class="how">items 70, 101 answer 8, 115 (c), 130 (2)</div></li>
+          <li class="lm r"><span class="chip read">Derived*</span><div class="what"><b>I1</b>The passage is N bits of entanglement: two-sided black holes carry entanglement entropy equal to the Bekenstein–Hawking entropy of either (Maldacena–Susskind p.5, READ), and the horizon's is exactly N bits.</div><div class="how">lemmas/axioms.py</div><div class="left"><b>Left</b>The READ is for the thermal case. The corridor's horizon is extremal, and that its entropy is still the area's is H-EXTREMAL-ENTROPY: standard, not yet READ at source.</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st ok">answered</span>Information cannot outrun its carrier: it does not. The README runs a null geodesic of the five-dimensional geometry (Z1). <span class="id">D13</span></li>
+          <li><span class="st read">on B7</span>The first trip: a bridge already there needs no first traversal. <span class="id">D23</span></li>
+          <li><span class="st read">in part</span>The port between plane and bulk: the read is your definition (R0) and what it carries is bounded (I2); no Lagrangian for the coupling is written. <span class="id">O6</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">If only information travels, what arrives?</p><p>M: information, like a software patch presented as a README file, telling position 2 what to construct with what it has. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="arrival">
+      <div class="head"><div class="dot amber"></div><div><div class="n">Station 8</div><h2>Arrival</h2><div class="q">Release, rearrangement, the exact copy</div><span class="verdict amber">Readings left</span></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E2</b>E is released at position 2 at the closing: held on position 2's horizon until it ends with the corridor.</div><div class="how">lemmas/axioms.py; items 106, 109, 115 (b)</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R1</b>Exact reconstruction, no tolerance. Consistent with R3 and R5.</div><div class="how">items 145, 146</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R2</b>Position 2 rearranges to the README, then its laws govern. Consistent with rearrange.py and E3.</div><div class="how">item 148</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>R3</b>Exactness at the instant holds across the mass window.</div><div class="how">bulk/exactcopy.py, rearrange.py, verified</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>R5</b>The build's mechanism is yours (91 (b), 101 answer 8, 136 B, 139 (3), 148). An exact README gives E ≥ 3.76×10²² J, above the worst nuclear rearrangement, 5.94×10¹⁶ J; the example core's 2.41×10¹⁶ J does not cover it.</div><div class="how">lemmas/r5_build.py, 3/3</div><div class="left"><b>Left</b>Which fields act, and what "activates the Higgs field" means, is the board's reading of item 148 under 149: the Higgs value unchanged, electromagnetism rearranging atoms, the nuclear forces any nuclei that differ.</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>E3</b>The ledger closes: E goes into position 2 (110), the build uses exactly it (111 (a)), the copy exact (146), its matter reorganized (137). Closes at the example and the full snapshot.</div><div class="how">lemmas/ledger.py, 5/5</div><div class="left"><b>Left</b>The board's reading (a): the remainder is absorbed as the expansion of position 2's universe (136 G, 136 answer 6, 139 (3)), counted as part of the build. The one place your rulings pull against each other.</div></li>
+        </ul>
+        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
+          <li><span class="st ok">answered</span>The stock at the destination: multi-universal (136 H). <span class="id">D25, W3-O3</span></li>
+          <li><span class="st ok">answered</span>The read, by definition (R0); whether one is physically possible waits for the device (135). <span class="id">S1C-O1</span></li>
+          <li><span class="st ok">answered</span>Identity completeness and tolerance: exact, labels and values (145–147). <span class="id">COPY-O1</span></li>
+        </ul></div>
+        <div class="mq"><p class="qq">Is what arrives the same as what left?</p><p>M: yes in principle; if the original matter did not travel, a copy. <span class="id">item 86</span></p></div>
+      </div>
+    </article>
+  </section>
+
+  <section class="panel lead" aria-label="Where B4 stands">
+    <div class="eyebrow">The decisive open lemma</div>
+    <h2>Where B4 stands</h2>
+    <p>B4 closes formation and address together, carries B3 with it, and bears on the hold. The board is testing whether the static bulk below the throat stays free of curvature singularities, with a five-dimensional Kretschmann formula that reproduces the black string exactly (48m²e^{4y/ℓ}/r⁶ + 40/ℓ⁴).</p>
+    <div class="tbl-box"><table>
+      <thead><tr><th>run</th><th>at r = 2.05m</th><th>reading</th></tr></thead>
+      <tbody>
+        <tr><td>flat limit, to order 12 in y</td><td class="n">1.036, 0.033, 0.285, 0.029, 0.022, 0.0027</td><td>falling: no sign of a blow-up; radius at least about 1.6–1.8m</td></tr>
+        <tr><td>ℓ = r₀, to order 8</td><td class="n">3.54, 4.12, 8.25, 11.13, 11.69, 11.04, 11.00</td><td>ratios level near 1: a possible singularity near y ≈ 1.0m, in front of the bulk horizon (y ≈ 1.31m)</td></tr>
+        <tr><td>ℓ = r₀, to order 11</td><td class="n">running</td><td>decides whether that is a singularity or a caustic of the series</td></tr>
+      </tbody>
+    </table></div>
+    <p style="margin-top:10px">If it is a singularity, a lasting static corridor has a singular bulk, which your 136 answer 3 already rules out, and B4 turns on whether the bulk stays regular through the 28.5-clock hold. If not, B4 reduces to the topological argument (one end: R²×S² is contractible, so Thm 3.5's deformation holds) with item 120.</p>
+  </section>
+
+  <section class="breaks" aria-label="What turns the map green">
+    <div class="panel">
+      <div class="eyebrow">Readings · green on your word, or derived</div>
+      <h2>Six lemmas wait on the board's readings</h2>
+      <ul>
+        <li><b>B5</b> H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE <span class="id">supply; and Z3 at demand</span></li>
+        <li><b>O3</b> H-ONE-STEP-PER-BIT, H-HOLD-AT-BOUND <span class="id">holding</span></li>
+        <li><b>B7</b> H-BRIDGE-PREEXISTS <span class="id">formation</span></li>
+        <li><b>R4</b> H-LENGTH-AS-DIFFERENCE <span class="id">address</span></li>
+        <li><b>R5</b> the fields of item 148 under 149 <span class="id">arrival</span></li>
+        <li><b>E3</b> reading (a), the expansion of position 2 <span class="id">arrival</span></li>
+      </ul>
+      <p style="margin-top:8px">Each is labelled and is withdrawn if you correct it. None is asked as a question (item 149).</p>
+    </div>
+    <div class="panel">
+      <div class="eyebrow">Still to do on the board's side</div>
+      <h2>Residue the board can clear</h2>
+      <ol>
+        <li>Finish B4's curvature test, then write its lemma. <span class="id">B3, B4</span></li>
+        <li>READ an extremal horizon's entropy at source, clearing I1's caveat. <span class="id">H-EXTREMAL-ENTROPY</span></li>
+        <li>Re-run the duration quantum inequality against Z3. <span class="id">D7</span></li>
+        <li>One verifier each over the nine lemma instruments, axioms.py and warptheorem.py. None has had one.</li>
+      </ol>
+      <p style="margin-top:8px">B6′, k's scale, stays with measurement by your ruling.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p>Status words: <b>proved</b>, computed or machine-checked; <b>derived</b>, from your more basic rulings, proved lemmas and physics; <b>definition</b>, your words for what the theory means, shown consistent with the rest; <b>reading</b>, the board's, labelled; <b>open</b>, not yet shown. An asterisk marks a derivation that inherits a reading or an unread source.</p>
+    <p>Sources: research/warp-drive/docket68/WARPTHEOREM.md, warptheorem.py (selftest 8/8) and lemmas/. Nothing on this page is seated in ledger.py; that waits on your word.</p>
+  </footer>
+</div>
