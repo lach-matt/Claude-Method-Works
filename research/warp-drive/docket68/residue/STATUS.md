@@ -14,10 +14,11 @@
 - **Then the rows that needed a source were read at source** (OUTSIDE.md).
 - **Then the ones the board could compute were computed** (LOOSE.md).
 - **What passes is in each note.** The strongest:
-  - **The one-way corridor fits topological censorship.** A black hole in and a white hole out is the case the theorem
-    leaves open.
-  - **An instant release of a finite energy is allowed in classical GR when it comes out of a past (white-hole)
-    horizon.** That is the corridor's exit.
+  - **The corridor meets topological censorship where your items 117 and 120 put the violation.** The theorem forbids
+    any passage through a throat under ANEC. The plane reads ANEC as violated along the passage (coin.py), while the
+    bulk reads 0 (umbilic.py).
+  - **The maximum-power conjecture does not bind a release out of a past (white-hole) horizon.** That is the corridor's
+    exit.
   - **Two sheets at one place make a consistent junction.** Their tensions sum to the Randall–Sundrum value, and they
     share one geometry, as your *"different views of the same object"* has it.
   - **The opening shell carries positive energy.**
@@ -60,7 +61,8 @@
 7. **Across two universes, what does synchronizing the cosmic beat mean?** (RES-N3)
    - How does each end read the shared instant when the ends lie in separate universes?
 8. **Do you rule k, or leave it to measurement?** (C8P-O3)
-   - The world gives only a bound. The extra dimension's scale is under 0.08 mm (95%), so k > 1.25×10⁴ m⁻¹.
+   - The world gives only bounds. The extra dimension's scale is under about 0.05–0.08 mm, so k > 1.25×10⁴ m⁻¹.
+   - The tighter astrophysical bounds rest on a contested premise.
    - E and the corridor do not depend on k. The plane's tension and the bulk's layers do.
 9. **What is at the two ends of the extra dimension, if it does not loop?** (C8P-O4)
 10. **Should the passage reading be stated as a ratio?** (C8P-O8)
@@ -103,7 +105,12 @@
 - **The wall.** Every censorship theorem read needs a boundary at infinity. Your plane is at finite distance, so none
   applies.
 - **Yours.** Item 122, *"likely yes"*; items 117, 120, *"An NEC is never violated"*, it *"only ever appears to break"*.
+- **What the board computed.** The plane reads the passage's averaged null energy as negative (coin.py), and the bulk
+  reads 0 (umbilic.py). Topological censorship forbids any passage unless ANEC fails. So your *"only appears"* is what
+  lets the corridor through. If the plane's reading is physical, it is a real violation.
 - **Question: do we set out to prove a censorship theorem for a bulk bounded by your plane**, knowing it may fail?
+  - Such a theorem would show the plane's violation is only a reading.
+  - The nearest the literature comes is a remark (Maldacena–Milekhin p.12).
 
 **E. Stability.**
 - **The wall.** The r₀ = 2m horizon is extremal. Extremal horizons carry the Aretakis instability, and large white holes
