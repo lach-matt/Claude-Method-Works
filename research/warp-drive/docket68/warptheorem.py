@@ -88,8 +88,10 @@ LEMMAS = [
     ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause free of k's scale", "PROVED",
      "lemmas/b6_k.py; kderive.py K3 -- narrowed from 'k fixed by the work'"),
     ("B", "B6' k's scale, by measurement", "NATURE", "item 136 answer 8; b6_k.py B6c"),
-    ("B", "B7 formation: the opening and closing between static planes", "OPEN",
-     "items 115, 136 A, 136 answer 7, 141"),
+    ("B", "B7 formation: the opening and closing between static planes -- a widening of a preexisting bridge, no "
+          "change of topology, consistent and safe; its 5D evolution goes with B4", "READING",
+     "lemmas/b7_formation.py: chain.py's z3 encoding; H-BRIDGE-PREEXISTS (items 100, 101.1, 122 (4), 140; "
+     "Maldacena-Susskind p.17), the board's"),
     ("I", "I1 the passage is N bits of entanglement", "AXIOM", "item 137 (H-PASSAGE-IS-N)"),
     ("I", "I2 the README's N bits within the capacity bound as READ: information at most what is sent to set up the "
           "interaction (Maldacena-Stanford-Yang p.4; parametric, p.12) -- N is the device's input (130 (2))", "PROVED",
@@ -159,7 +161,8 @@ def t1():
 def lemma_selftests():
     """Each lemma instrument's own selftest, run silently; all must pass."""
     out = {}
-    for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py", "b5_positive.py", "b6_k.py", "r5_build.py"):
+    for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py", "b5_positive.py", "b6_k.py", "r5_build.py",
+              "b7_formation.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
