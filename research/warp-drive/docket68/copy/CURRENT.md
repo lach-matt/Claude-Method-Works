@@ -1,4 +1,4 @@
-# The README corridor from a current state (M-RULINGS items 125–129; deduced and computed; verified once; not seated; 2026-10-06)
+# The README corridor from a current state (M-RULINGS items 125–130; deduced and computed; verified once; not seated; 2026-10-06)
 
 *First headed* "(… not verified; not seated; 2026-10-06)".
 
@@ -99,9 +99,31 @@ Every number is printed by `current.py`.
     - So in reading (ii), Bronnikov–Kim's family hosts your bridge only at its edge (item 82: the boundary).
     - A family with a throat whose total equals its pull is not on the board. OPEN.
 
+## Your item 130: no added matter; the mouth; the input
+
+- *"i - no added matter. And in my model a black hole is not matter, it is what the mouth at position 1 looks like.
+  It's observed mass appears negative only from the outside of the horizon."* (H-BRIDGE-ADDS-NO-MATTER,
+  H-MOUTH-AS-BLACK-HOLE, H-NEGATIVE-FROM-OUTSIDE)
+- *"Is that amount your input to the device for each trip, read from the object being moved? - yes"* (H-N-IS-INPUT)
+- **N is the input.** The board's core N is one example of an input. Every result is a formula in the input N, with its
+  coefficients evaluated exactly:
+  - **m = 3.79592555457311×10⁻³⁶ m × √N**;
+  - **E_min = 4.59404002423570×10⁸ J × √N**;
+  - G's share of the uncertainty is 1.1×10⁻⁵ in both.
+- **"No added matter" already holds for every member of eq. 17** (τ = 0 on the plane). So it does not fix Δ, and the
+  Δ/2 of X5 is geometry, not matter.
+- **"Negative from outside" is not eq. 17's gravitational mass.** Every mass read from outside a horizon member is
+  positive:
+  - the pull m (greater than r₀/2);
+  - the total, m + Δ/2;
+  - their mean, which sets light bending.
+  - A negative total needs m < −2r₀, and that has no horizon (plane.py's zero-total member).
+  - The board's candidate: your "observed mass" is PLANE.md's apparent mass = carried − defined (item 107). It is asked.
+- *First written:* "N's value is OPEN" (item 108).
+
 ## What stays a coefficient
 
-- **N:** item 108, and the board's value is illustrative.
+- **N:** the input (item 130). The board's value is an example.
 - **m's current value.**
 - **Δ and its side.**
 - **E, and its normalization.**

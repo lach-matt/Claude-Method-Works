@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""current.py -- DOCKET 68, M-RULINGS items 125-129: the README corridor's coefficients evaluated with exact values,
+"""current.py -- DOCKET 68, M-RULINGS items 125-130: the README corridor's coefficients evaluated with exact values,
 from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
@@ -10,8 +10,10 @@ and its value in our current universe, added to the value of our current univers
 INPUTS.  h, c exact (SI 2019); G = 6.6743e-11 (CODATA 2018, u_r 2.2e-5).  N = 2742570311524972 bits is the board's
 core README (chain.py's core_bits): a float, faithful.identity_core() = synapse density x bits per synapse x
 H_GREY_VOLUME_MM3 = 5e5, a volume the code marks "H-GREY-VOLUME, NAMED-NOT-READ, illustrative" (H-CORE-README, the
-board's).  Under item 108 ("Whatever is needed") N is itself a coefficient, and under item 125 an illustrative input is
-what must go: N's value is OPEN, so the 16 digits below are arithmetic, not precision.  First written "EXACT INPUTS ...
+board's).  Under item 130 N is the user's input to the device for each trip, read from the object being moved
+(H-N-IS-INPUT): the board's core is an example of an input, and every result is a formula in the input N with its
+coefficients evaluated exactly -- m = 3.79592555457311e-36 m x sqrt(N), E_min = 4.59404002423570e8 J x sqrt(N).
+First written "N's value is OPEN" (item 108).  First written "EXACT INPUTS ...
 N = 2742570311524972".  Through chain.py's exact coefficients: E_min = sqrt(N h c^5 ln2/(8 pi^2 G)), r_min = sqrt(N h G
 ln2/(2 pi^2 c^3)), and the pull m = G E_min/c^4 = r_min/2 (PLANE.md point 2).
 
@@ -53,7 +55,13 @@ WHAT THE WORK FINDS
      Delta/2 and "nothing" forces Delta = 0, where eq. (17) has no throat: in reading (ii) Bronnikov-Kim's family hosts
      the bridge only at its edge (item 82: the boundary).  Both of the board's current states are ruled out by item 129
      (a 0.2677 kg hole that is not there; empty space).
-  WHAT STAYS A COEFFICIENT.  N (item 108); m's current value; Delta and its side; E and its normalization; the tension's
+  ITEM 130.  M: reading (i), "no added matter" -- every member of eq. (17) already has tau = 0, so it does not fix
+     Delta.  "a black hole is not matter, it is what the mouth at position 1 looks like. It's observed mass appears
+     negative only from the outside of the horizon."  In eq. (17) every gravitational mass read from outside a horizon
+     member is positive -- the pull m > r0/2 > 0, the total m + Delta/2, the light-bending mean of the two; a negative
+     total needs m < -2 r0, which has no horizon (plane.py's zero-total member).  So "negative from outside" is not
+     eq. (17)'s gravitational mass; the board's candidate is PLANE.md's apparent mass = carried - defined (item 107).
+  WHAT STAYS A COEFFICIENT.  N, now the input (item 130); m's current value; Delta and its side; E and its normalization; the tension's
   sign (H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet, BULK.md); k and kappa (through the tension and
   the 4D G); the coinciding junction.
 
@@ -236,7 +244,7 @@ def selftest(d):
     chk("X4: the board's two sheets of opposite tension put at one place (K = 0) fail the bulk's yy constraint: %s -- "
         "the coinciding junction is not B3's" % d["together_yy"], d["together_yy"][0] != "0")
     structural.append("X1: m = %.14e m; chain.py's bisected floor (same equation, second implementation) agrees to "
-                      "%.2e -- nopath's rounded hbar; N is the board's illustrative core (H-GREY-VOLUME), OPEN" % (
+                      "%.2e -- nopath's rounded hbar; N here is the board's example input (H-N-IS-INPUT, item 130)" % (
                           d["m"], d["m_over_floor_half"] - 1))
     structural.append("X2: on the candidate path G_kk = %s (board's m: %s) -- M's identity with current value 0" % (
         d["gkk_Delta"], d["gkk_Delta_exact_m"]))
