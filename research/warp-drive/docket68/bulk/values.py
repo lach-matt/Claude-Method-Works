@@ -1,47 +1,67 @@
 #!/usr/bin/env python3
-"""values.py -- M's item 147: the copy's motion is not in the README; the README carries both labels and values.
-With item 146's "no tolerance at all", which values can be exact?
+"""values.py -- M's item 147 followed through: the copy's motion is not in the README ("No"); the README carries labels
+AND values ("both"); with item 146's "no tolerance at all".
 
-Two kinds of continuous value a README could carry about a molecule:
-  (P) a PARAMETER the copy is built around -- e.g. its equilibrium shape, the minimum of the electrons' energy surface;
-      in the point-nucleus Born-Oppenheimer picture with alpha shared (the board's H-ALPHA-IS-LIGHT) it is the same in
-      every universe, so it can be exact by construction (corrections of order m_e/M and nuclear size aside)
-  (S) a STATE value -- where the copy's nuclei actually are.  Quantum mechanics forbids an exact one: localizing a
-      nucleus to a width d costs kinetic energy ~ hbar^2/(2 m d^2) (the uncertainty principle; standard, not READ here)
+First written with a parameter/state split and an uncertainty argument; the verifier showed the split revived a claim
+exactcopy.py had withdrawn and the uncertainty argument addressed sharp positions, not the values M was asked about
+(mean lengths, frequencies).  Withdrawn (VALUES.md History).
 
-  V1  the localization cost against the bond: for H2's reduced mass, the width d* at which hbar^2/(2 m d^2) equals the
-      bond's well depth D_e (4.7446 eV, standard, not READ) -- localize better than d* and the molecule comes apart
-  V2  at a nuclear-size width (1e-15 m) the cost is ~40 MeV, millions of times the bond (STRUCTURAL arithmetic)
-  V3  d* is the same order as the zero-point width the copy's own motion supplies (exactcopy.py: <r> - r_e ~ 2.3e-12 m)
-      -- the motion item 147 leaves to position 2 is exactly what keeps a state value from being exact
-Stdlib only.  python3 values.py [--selftest]
+The values put to M were a molecule's mean bond length and its frequencies (EXACTCOPY.md).  Those are consequences of
+the copy's motion under its laws.  If the README states them exactly and the motion is supplied at position 2, the
+laws there must reproduce them exactly.  On the board's H2 Morse model (exactcopy.py, imported by path):
+
+  V1  the mean bond length <r>(m) is strictly monotonic in the reduced mass across a factor of 100 either side: one
+      value of <r> pins one mass.  The harmonic frequency (~ m^-1/2) likewise (STRUCTURAL)
+  V2  contrast: a label (the number of bound levels) is the same across a finite window of mass (exactcopy.py X3) --
+      labels leave the mass free inside the window; values do not
+  V3  so with labels AND values exact, the window collapses to one point: position 2's reduced mass for each pair of
+      nuclei the README names must equal ours exactly.  Control: a mass 1e-9 off ours fails the value test while
+      passing the label test
+Imports exactcopy.py by path.  Stdlib + sympy (through exactcopy).  python3 values.py [--selftest]
 """
-import math
+import contextlib
+import importlib.util
+import io
+import os
 import sys
 
-HBAR = 1.054571817e-34
-EV = 1.602176634e-19
-U = 1.66053906660e-27
-D_E = 4.7446 * EV                      # H2 well depth (standard, not READ here)
-M_RED = 1.00782503 * U / 2             # H2 reduced mass (standard, not READ here)
-ZP_SHIFT = 2.2648e-12                  # exactcopy.py X1's Morse <r> - r_e, m
+HERE = os.path.dirname(os.path.abspath(__file__))
 
 
-def cost(d, m=M_RED):
-    return HBAR**2 / (2 * m * d * d)
+def _load(path, key):
+    spec = importlib.util.spec_from_file_location(key, path)
+    mod = importlib.util.module_from_spec(spec)
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(mod)
+    return mod
+
+
+X = _load(os.path.join(HERE, "exactcopy.py"), "vl_exactcopy")
+
+
+def mean_r(m):
+    return X.R_E + X.mean_shift(m)
 
 
 def compute():
-    d_star = HBAR / math.sqrt(2 * M_RED * D_E)
-    return {"d_star": d_star, "cost_nuclear_MeV": cost(1e-15) / EV / 1e6, "ratio_nuclear": cost(1e-15) / D_E,
-            "zp": ZP_SHIFT, "dstar_over_zp": d_star / ZP_SHIFT}
+    m0 = X.M_RED
+    grid = [m0 * 10 ** (k / 20) for k in range(-40, 41)]           # a factor of 100 either side
+    rs = [mean_r(m) for m in grid]
+    mono = all(b < a for a, b in zip(rs, rs[1:]))                   # heavier -> shorter
+    test_m = m0 * (1 + 1e-9)
+    label_ok = X.n_levels(test_m) == X.n_levels(m0)
+    value_ok = mean_r(test_m) == mean_r(m0)
+    w = X.window()
+    return {"monotonic": mono, "label_same_at_1e-9": label_ok, "value_same_at_1e-9": value_ok,
+            "dr_at_1e-9": mean_r(test_m) - mean_r(m0), "win": (w["m_lo"] / m0, w["m_hi"] / m0)}
 
 
 def report(d):
     print("values.py -- labels and values under no tolerance (item 147)\n")
-    print("V1 localizing H2's nuclei better than d* = %.3e m costs more than the bond (D_e = 4.7446 eV)" % d["d_star"])
-    print("V2 at a nuclear-size width, 1e-15 m: %.1f MeV, %.1e times the bond" % (d["cost_nuclear_MeV"], d["ratio_nuclear"]))
-    print("V3 d* against the zero-point shift the copy's own motion supplies (exactcopy.py): %.2f" % d["dstar_over_zp"])
+    print("V1 <r>(m) strictly monotonic over m/100 to 100 m: %s -- one value pins one mass" % d["monotonic"])
+    print("V2 the label set holds from %.4f to %.4f of our reduced mass (exactcopy.py X3)" % d["win"])
+    print("V3 a reduced mass 1e-9 off ours: label test passes %s; value test passes %s (<r> moves %+.2e m)"
+          % (d["label_same_at_1e-9"], d["value_same_at_1e-9"], d["dr_at_1e-9"]))
 
 
 def selftest():
@@ -54,11 +74,11 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     d = compute()
-    chk("V1: localizing H2's nuclei better than about 3 pm costs more than the bond energy", 2e-12 < d["d_star"] < 4e-12)
-    chk("V1 control: at d* the cost equals the bond energy (to 1e-12)", abs(cost(d["d_star"]) / D_E - 1) < 1e-12)
-    chk("V2 (STRUCTURAL): at a nuclear-size width the cost is ~40 MeV (H2 reduced mass), over a million times the bond",
-        35 < d["cost_nuclear_MeV"] < 50 and d["ratio_nuclear"] > 1e6)
-    chk("V3: d* is the same order as the copy's own zero-point shift (ratio between 0.3 and 3)", 0.3 < d["dstar_over_zp"] < 3)
+    chk("V1: the mean bond length is strictly monotonic in the reduced mass over a factor of 100 either side",
+        d["monotonic"])
+    chk("V2: the label set holds over a finite window around our mass", d["win"][0] < 1 < d["win"][1])
+    chk("V3 control: a mass 1e-9 off ours passes the label test and fails the value test",
+        d["label_same_at_1e-9"] and not d["value_same_at_1e-9"])
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
