@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""current.py -- DOCKET 68, M-RULINGS items 125-130: the README corridor's coefficients evaluated with exact values,
+"""current.py -- DOCKET 68, M-RULINGS items 125-131: the README corridor's coefficients evaluated with exact values,
 from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
@@ -61,6 +61,18 @@ WHAT THE WORK FINDS
      member is positive -- the pull m > r0/2 > 0, the total m + Delta/2, the light-bending mean of the two; a negative
      total needs m < -2 r0, which has no horizon (plane.py's zero-total member).  So "negative from outside" is not
      eq. (17)'s gravitational mass; the board's candidate is PLANE.md's apparent mass = carried - defined (item 107).
+  ITEM 131.  M struck item 130's "observed mass appears negative": the observed mass is the gravitational pull,
+     positive here.  And "the throat size only needs to carry the binary information defining the object in transit,
+     so the size of the throat is dependent on the size of the README in its most simplistically exact binary code
+     form".
+  X6 THE THROAT ON THE HORIZON.  A throat carrying the README's N bits at the neck's area per bit (chain.py, ENTANGLE
+     point 3: 2 h G ln2/(pi c^3)) has 4 pi r0^2 = N A_bit, so r0 = r_min(N) = 7.59185110914622e-36 m x sqrt(N), the
+     board's original neck.  With the horizon also holding N (item 106; PLANE.md: 2m = r_min), r0 = 2m EXACTLY: Delta =
+     m/2, the window's boundary, not a horizon member.  There g_tt = x^2/(2m + x^2) has a double zero at the throat --
+     the two mouths' horizons meet at one surface -- the surface gravity is zero, the throat lies at infinite proper
+     distance at fixed t (g_xx = 4 m^2/x^2 + ...), and each leg's null integral is finite, -(4E/3m)[1 - (sqrt3/6)
+     ln(2 + sqrt3)].  The total is m + Delta/2 = 5m/4 (geometry, not matter).  Whether a passage through a double
+     horizon is one-way, and what it does to items 104-109's two-horizon picture, is not computed (OPEN).
   WHAT STAYS A COEFFICIENT.  N, now the input (item 130); m's current value; Delta and its side; E and its normalization; the tension's
   sign (H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet, BULK.md); k and kappa (through the tension and
   the 4D G); the coinciding junction.
@@ -174,6 +186,20 @@ def compute():
     P, _ = cb.planes()
     kk = cb.kkk_series(cb.build(*P["bk"], order=2), 2)
     together = cb.build(*P["bk"], order=2, a1=0)
+    # item 131: the throat carries the README -- r0 from the neck's area per bit, against 2m from the horizon's hold
+    co = o["chain"].coefficients()
+    a_bit = sp.sympify(co["neck_area_m2_per_bit"]["exact"])
+    r0_throat = sp.sqrt(N * a_bit / (4 * sp.pi))
+    throat_over_2m = sp.simplify(r0_throat / (2 * m))
+    bm6 = o["plane"].bk_masses()
+    q_r, q_r0, q_m, q_x = bm6["syms"]
+    gtt_x = sp.simplify(((q_x ** 2 + q_r0 - 2 * q_m) / (q_r0 + q_x ** 2)).subs(q_r0, 2 * q_m))
+    gxx_x = sp.expand(sp.simplify(bm6["cxx"].subs(q_r0, 2 * q_m)))
+    komar_h_edge = sp.limit(bm6["komar_horizon"], q_r0, 2 * q_m, "-")
+    cb2 = 2 / sp.sqrt(3)
+    bracket_edge = 1 - sp.sqrt(3) / 6 * sp.log(2 + sp.sqrt(3))
+    leg_edge_closed = float(sp.N(-sp.Rational(4, 3) * bracket_edge / m, 15))
+    leg_edge_coin = o["coin"].anec_closed(mv, 2 * mv)
     # item 129: what the corridor adds beyond its pull, in plane.py's own masses
     bm = o["plane"].bk_masses()
     pr, pr0, pm, _ = bm["syms"]
@@ -186,6 +212,9 @@ def compute():
             "series_wrong_constant": wrong, "E_per_bit": E_bit, "E_per_bit_geo_m": E_geo,
             "leg_current_dimensionless_at_E_bit": leg0 * E_geo, "K_kk_on_plane": str(kk[0]),
             "together_yy": [str(v) for v in together["constraints"]["yy"]],
+            "r0_throat": float(sp.N(r0_throat, 15)), "throat_over_2m": str(throat_over_2m), "gtt_edge": str(gtt_x),
+            "gxx_edge": str(gxx_x), "komar_h_edge": str(komar_h_edge), "bracket_edge": float(sp.N(bracket_edge, 15)),
+            "leg_edge_closed": leg_edge_closed, "leg_edge_coin": leg_edge_coin,
             "M_adm": str(bm["M_adm"]), "M_komar": str(bm["M_komar"]), "adm_minus_pull": str(added),
             "adm_minus_pull_kg_per_Delta_frac": [float(sp.Rational(f)) * mv / 2 * C_SI ** 2 / G_SI for f in FRACTIONS],
             "bk_quote_in_plane": BK_SCHWARZSCHILD.replace(".", "") in owners()["plane_src"].replace(".", "")}
@@ -241,6 +270,15 @@ def selftest(d):
     chk("X5 (item 129): the plane's total minus the corridor's pull is ADM - Komar = (%s) - (%s) = %s at r0 = 3m/2 + "
         "Delta (plane.py's masses) -- what the corridor adds beyond its pull is exactly Delta/2, zero only at Delta = 0 "
         "where there is no throat" % (d["M_adm"], d["M_komar"], d["adm_minus_pull"]), d["adm_minus_pull"] == "Delta/2")
+    chk("X6 (item 131): a throat carrying the README's N bits at the neck's area per bit has r0 = sqrt(N A_bit/4pi) = "
+        "%.14e m; against the horizon's hold (2m = r_min) r0/2m = %s -- the throat sits exactly on the horizon, the "
+        "window's boundary" % (d["r0_throat"], d["throat_over_2m"]), d["throat_over_2m"] == "1")
+    chk("X6: at r0 = 2m, g_tt = %s (a double zero at the throat), the horizon's Komar charge -> %s (zero surface "
+        "gravity), g_xx = %s (the throat infinitely far at fixed t)" % (d["gtt_edge"], d["komar_h_edge"], d["gxx_edge"]),
+        d["gtt_edge"] == "x**2/(2*m + x**2)" and d["komar_h_edge"] == "0" and d["gxx_edge"].startswith("4*m**2/x**2"))
+    chk("X6: each leg's null integral there is -(4E/3m)[1 - (sqrt3/6) ln(2 + sqrt3)] = %.11e per metre of E, coin.py's "
+        "closed form %.11e" % (d["leg_edge_closed"], d["leg_edge_coin"]),
+        abs(d["leg_edge_closed"] / d["leg_edge_coin"] - 1) < 1e-12)
     chk("X4: the board's two sheets of opposite tension put at one place (K = 0) fail the bulk's yy constraint: %s -- "
         "the coinciding junction is not B3's" % d["together_yy"], d["together_yy"][0] != "0")
     structural.append("X1: m = %.14e m; chain.py's bisected floor (same equation, second implementation) agrees to "

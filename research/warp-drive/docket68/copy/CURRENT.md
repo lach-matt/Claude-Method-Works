@@ -1,4 +1,4 @@
-# The README corridor from a current state (M-RULINGS items 125–130; deduced and computed; verified once; not seated; 2026-10-06)
+# The README corridor from a current state (M-RULINGS items 125–131; deduced and computed; verified once; not seated; 2026-10-06)
 
 *First headed* "(… not verified; not seated; 2026-10-06)".
 
@@ -15,7 +15,7 @@
   - That is item 114's form: *"The trajectory is the difference between position 1 and position 2"*.
 
 Every number is printed by `current.py`.
-- **Selftest:** 7/7 checks, 1 control, with 7 STRUCTURAL lines printed and not counted. It takes about a minute and a
+- **Selftest:** 10/10 checks, 1 control, with 7 STRUCTURAL lines printed and not counted. It takes about a minute and a
   half.
   - *First written:* "6/6 checks, 1 genuine control, 4 STRUCTURAL". Two counted checks were identities or held by
     construction (History).
@@ -121,11 +121,34 @@ Every number is printed by `current.py`.
   - The board's candidate: your "observed mass" is PLANE.md's apparent mass = carried − defined (item 107). It is asked.
 - *First written:* "N's value is OPEN" (item 108).
 
+## Your item 131: the pull; the throat sized by the README
+
+- *"strike that statement. I meant the gravitational pull."* Item 130's "observed mass appears negative only from the
+  outside of the horizon" is struck. The observed mass is the pull, which is positive outside every horizon member.
+- *"the throat size only needs to carry the binary information defining the object in transit, so the size of the
+  throat is dependent on the size of the README in its most simplistically exact binary code form."*
+  (H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT; N is the shortest exact binary encoding, your input.)
+- **X6. The throat sits exactly on the horizon.**
+  - A throat carrying N bits at the neck's area per bit (chain.py; ENTANGLE point 3: 2hG ln2/(πc³)) has
+    4πr₀² = N·A_bit.
+  - So **r₀ = r_min(N) = 7.59185110914622×10⁻³⁶ m × √N**, the board's original neck.
+  - The horizon also holds N (item 106; PLANE.md: 2m = r_min). So **r₀ = 2m exactly**, and Δ = m/2.
+  - That is the window's boundary, not a horizon member. Both holds sit at the same bound (H-STRONG-BOUND).
+- **At that member:**
+  - g_tt = x²/(2m + x²) has a double zero at the throat. **The two mouths' horizons meet at one surface.**
+  - The surface gravity is zero.
+  - The throat lies at infinite distance at fixed time (g_xx = 4m²/x² + …).
+  - Each leg's null integral is finite: −(4E/3m)·[1 − (√3/6)·ln(2 + √3)] = −4.15731236130×10²⁷ per metre of E at the
+    example N.
+  - The total is m + Δ/2 = 5m/4. That is geometry, not matter.
+- **Not computed:** whether a passage through a double horizon is one-way, and what it does to the two-horizon picture
+  of items 104–109. OPEN.
+
 ## What stays a coefficient
 
 - **N:** the input (item 130). The board's value is an example.
 - **m's current value.**
-- **Δ and its side.**
+- **Δ:** fixed at m/2 if the throat and the horizon both hold N (X6). Asked.
 - **E, and its normalization.**
 - **The tension's sign:** H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet (BULK.md).
 - **k and κ:** through the tension and the strength of gravity.
