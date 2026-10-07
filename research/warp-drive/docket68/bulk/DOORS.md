@@ -101,6 +101,9 @@ global premises remained. All three are withdrawn (History).
 
 1. A censorship theorem for passage between asymptotic regions of a plane in a bulk. None was READ, so it would have to
    be proved.
+   - *Since:* PASSAGE5D.md proves Theorem D. Along the passage the bulk's null energy is zero, the generic condition
+     holds, and the bulk joins the two ends by timelike curves. So a five-dimensional censorship theorem could turn only
+     on global hyperbolicity, and on whether the two ends are distinct ends of the bulk: wall C's global premises.
 2. **Wall C:** the corridor's bulk on one RS II plane.
 
 ## History (verifier, 2026-10-07)

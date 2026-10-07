@@ -142,10 +142,13 @@ def ricci_check():
     return all(sp.simplify(a - b) == 0 for a, b in zip(Ric, closed))
 
 
-def solve(F0, H0, N, e=None):
-    """The series through y^N; e = 1/ell (default symbolic; 0 is the flat-bulk limit, K = 0, Lambda5 = 0)."""
+def solve(F0, H0, N, e=None, first=None):
+    """The series through y^N; e = 1/ell (default symbolic; 0 is the flat-bulk limit, K = 0, Lambda5 = 0).  first: an
+    override of the y^1 coefficients {"A": .., "B": .., "C": ..}, for a deliberately non-umbilic foil."""
     e = 1 / ell if e is None else e
     co = {"A": [F0, -2 * F0 * e], "B": [1 / H0, -2 * e / H0], "C": [r**2, -2 * r**2 * e]}
+    for X, v in (first or {}).items():
+        co[X][1] = v
     for k in range(N - 1):
         S = {X: Series(co[X], N) for X in "ABC"}
         h = {"A": -S["A"], "B": S["B"], "C": S["C"]}
