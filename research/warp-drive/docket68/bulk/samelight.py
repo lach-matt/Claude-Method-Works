@@ -2,72 +2,82 @@
 """samelight.py -- M's answers to walls A and B (M-RULINGS item 143), followed through.
 
 M: "A - the only thing that can cross is that which can cross the horizon of a black hole.  B - light likely doesn't
-vary".  The board's reading of B for the Löwdin walk: its one entered constant c = 137.035999 = 1/alpha in atomic units
-(recovered/BODY2-CHAPTER-35-THE-LOWDIN-SOLUTION.md: "c = 137.035999 as the only entered constant") is the same in every
-universe (H-LIGHT-INVARIANT).
+vary".  The board's reading of B for the Löwdin walk (H-ALPHA-IS-LIGHT): its one entered constant c = 137.035999 = 1/alpha
+in atomic units (method/members/THE-LOWDIN-SOLUTION-2.md l.35: "with c = 137.035999 the only entered constant") is the
+same in every universe.  The walk's nucleus is a point charge of infinite mass ("their attraction -Z/r to the nucleus",
+l.72), so the walk is silent on the nucleus.
 
-  L1  what alpha does to a spectrum: hydrogen-like Dirac levels E(n, j) = m c^2 [1 + (Z alpha/(n - d_j))^2]^(-1/2),
-      d_j = j + 1/2 - sqrt((j + 1/2)^2 - (Z alpha)^2).  Change alpha by eps and the ratio of the 2p fine-structure
-      interval to Lyman-alpha moves by ~2 eps -- a shift that differs from line to line, so it is NOT degenerate with
-      redshift.  Hold alpha fixed (M's B) and every ratio is identical (STRUCTURAL)
-  L2  what a uniform scaling does (a redshift, the nucleus's mass at leading order): every ratio unchanged -- the
-      control, and the reason those cannot tell universes apart
-  L3  the Löwdin walk (READ, deduced): one entered constant, so under H-LIGHT-INVARIANT the walk returns the same
-      107 entrants, the same three exceptions and the same twelve unwitnessed rows in every universe.  Item 138's
-      "measure exactly as are ours do" then follows for the electrons; what could differ lies outside the walk -- the
-      nucleus (its mass, its size, which nuclei are stable)
-  L4  item 143 A against the corridor: plane.py P1 (seated) computes that the corridor's horizon is crossed one way,
-      1 -> 2, leaving through a white-hole horizon on position 2's side; anything that crosses a horizon inward --
-      matter, light, gravitational waves -- is admitted by A
+First written with three faults the verifier found: a float-cancellation value (1.97 for an exact 2.000), "a different
+nuclear mass scales every line by the same factor ... no spectrum can tell", and "chemistry is the same"; corrected
+(SAMELIGHT.md History).
+
+  L1  what alpha does to a spectrum (50-digit arithmetic): hydrogen-like Dirac levels E(n, j) = m c^2 [1 + (Z alpha/
+      (n - d_j))^2]^(-1/2).  Change alpha by eps and fs(2p)/Lyman-alpha moves by 2.000 eps; H-alpha/Lyman-alpha by
+      -2.4e-9 at eps = 1e-4 -- line to line, so a different alpha is visible against a redshift.  Alpha held: identical
+      (STRUCTURAL)
+  L2  what a uniform scaling does -- a redshift, the electron's mass with alpha held, the nucleus's mass at leading
+      order: every ratio unchanged (STRUCTURAL)
+  L3  BEYOND leading order the nucleus IS visible: the hydrogen 21 cm hyperfine line scales as g_p (m_e/m_p) alpha^2 Ry
+      (standard, not READ here), so its ratio to Lyman-alpha moves by -eps when m_p changes by +eps, where every
+      electronic ratio stays put.  Isotope shifts (mass and field) and molecular lines do the same -- the route by which
+      m_p/m_e is measured against redshift
+  L4  item 143 A: a horizon is crossed inward by every causal signal -- A restricts the direction, not the kind; the
+      corridor's horizon is crossed one way, 1 -> 2 (plane.py P1, seated)
 Stdlib only.  python3 samelight.py [--selftest]
 """
-import math
 import sys
+from decimal import Decimal, getcontext
 
-ALPHA = 1 / 137.035999
+getcontext().prec = 50
+ALPHA = Decimal(1) / Decimal("137.035999")
+ME_MP = Decimal("5.44617021487E-4")          # m_e/m_p, CODATA 2018 (standard, not READ here)
+GP = Decimal("5.5856946893")                 # proton g-factor, CODATA 2018 (standard, not READ here)
 
 
 def dirac(n, j, alpha, Z=1):
-    k = j + 0.5
-    dj = k - math.sqrt(k * k - (Z * alpha) ** 2)
-    return 1 / math.sqrt(1 + (Z * alpha / (n - dj)) ** 2)          # in units of m c^2
+    k = Decimal(j) + Decimal("0.5")
+    za = Z * alpha
+    dj = k - (k * k - za * za).sqrt()
+    return 1 / (1 + (za / (n - dj)) ** 2).sqrt()                   # in units of m c^2
 
 
-def lines(alpha, scale=1.0):
-    """Lyman-alpha (2p3/2 -> 1s1/2), H-alpha (3d5/2 -> 2p3/2) and the 2p fine-structure interval, times a uniform scale."""
+def lines(alpha, scale=Decimal(1), me_mp=ME_MP):
     e = lambda n, j: dirac(n, j, alpha)
     lya = e(2, 1.5) - e(1, 0.5)
     ha = e(3, 2.5) - e(2, 1.5)
     fs = e(2, 1.5) - e(2, 0.5)
-    return {k: v * scale for k, v in (("lya", lya), ("ha", ha), ("fs2p", fs))}
+    hfs = Decimal(8) / 3 * GP * me_mp * alpha**2 * (alpha**2 / 2)  # 21 cm, leading order, in m c^2 (Ry = alpha^2/2)
+    return {"lya": lya * scale, "ha": ha * scale, "fs2p": fs * scale, "hfs": hfs * scale}
 
 
 def ratios(L):
-    return {"fs/lya": L["fs2p"] / L["lya"], "ha/lya": L["ha"] / L["lya"]}
+    return {"fs/lya": L["fs2p"] / L["lya"], "ha/lya": L["ha"] / L["lya"], "hfs/lya": L["hfs"] / L["lya"]}
 
 
-def compute(eps=1e-4):
+def rel(a, b):
+    return {k: float(a[k] / b[k] - 1) for k in b}
+
+
+def compute(eps=Decimal("1e-4")):
     base = ratios(lines(ALPHA))
-    var = ratios(lines(ALPHA * (1 + eps)))
-    same = ratios(lines(ALPHA))
-    scaled = ratios(lines(ALPHA, scale=1 / (1 + 1089.0)))            # a redshift
-    mass = ratios(lines(ALPHA, scale=1 / (1 + 5.48579909065e-4 / 1.00728)))   # hydrogen's reduced mass, leading order
-    rel = {k: var[k] / base[k] - 1 for k in base}
-    return {"eps": eps, "base": base, "rel_alpha": rel,
-            "rel_same": {k: same[k] / base[k] - 1 for k in base},
-            "rel_redshift": {k: scaled[k] / base[k] - 1 for k in base},
-            "rel_mass": {k: mass[k] / base[k] - 1 for k in base}}
+    return {"eps": float(eps),
+            "alpha": rel(ratios(lines(ALPHA * (1 + eps))), base),
+            "same": rel(ratios(lines(ALPHA)), base),
+            "redshift": rel(ratios(lines(ALPHA, scale=Decimal(1) / Decimal(1090))), base),
+            "electron_mass": rel(ratios(lines(ALPHA, scale=1 + eps)), base),
+            "proton_mass": rel(ratios(lines(ALPHA, me_mp=ME_MP / (1 + eps))), base)}
 
 
 def report(d):
     print("samelight.py -- walls A and B, followed through (item 143)\n")
-    print("L1 alpha changed by %.0e: fs(2p)/Ly-a moves by %.3e (= %.2f eps); H-a/Ly-a by %.3e -- line to line, not uniform"
-          % (d["eps"], d["rel_alpha"]["fs/lya"], d["rel_alpha"]["fs/lya"] / d["eps"], d["rel_alpha"]["ha/lya"]))
-    print("   alpha held (M's B): %s" % d["rel_same"])
-    print("L2 control, uniform scalings: a redshift z = 1089 %s; hydrogen's reduced mass %s"
-          % ({k: "%.1e" % v for k, v in d["rel_redshift"].items()}, {k: "%.1e" % v for k, v in d["rel_mass"].items()}))
-    print("L3 (READ, deduced) the walk's one entered constant is alpha: held, the walk's table is the same in every universe")
-    print("L4 (plane.py P1, seated) the corridor's horizon is crossed one way, 1 -> 2; A admits whatever crosses a horizon")
+    print("L1 alpha changed by %.0e: fs(2p)/Ly-a %+.4e (%.4f eps); H-a/Ly-a %+.3e; 21cm/Ly-a %+.4e"
+          % (d["eps"], d["alpha"]["fs/lya"], d["alpha"]["fs/lya"] / d["eps"], d["alpha"]["ha/lya"], d["alpha"]["hfs/lya"]))
+    print("   alpha held: %s" % d["same"])
+    print("L2 uniform scalings (redshift; electron mass with alpha held): %s; %s" % (d["redshift"], d["electron_mass"]))
+    print("L3 proton mass changed by %.0e: electronic ratios %s and %s; 21cm/Ly-a %+.4e"
+          % (d["eps"], "%+.1e" % d["proton_mass"]["fs/lya"], "%+.1e" % d["proton_mass"]["ha/lya"],
+             d["proton_mass"]["hfs/lya"]))
+    print("L4 (plane.py P1, seated) the corridor's horizon is crossed one way, 1 -> 2; A restricts direction, not kind")
 
 
 def selftest():
@@ -80,14 +90,15 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     d = compute()
-    r = d["rel_alpha"]["fs/lya"] / d["eps"]
-    chk("L1: a change of alpha by eps moves fs(2p)/Ly-a by about 2 eps (1.9 to 2.1)", 1.9 < r < 2.1)
-    chk("L1: the two ratios move by different amounts -- the shift differs from line to line",
-        abs(d["rel_alpha"]["fs/lya"] - d["rel_alpha"]["ha/lya"]) > 1e-5)
-    chk("L1 (STRUCTURAL): alpha held, every ratio is identical", all(v == 0 for v in d["rel_same"].values()))
-    chk("L2 control (STRUCTURAL): a redshift leaves every ratio unchanged to 1e-14", all(abs(v) < 1e-14 for v in d["rel_redshift"].values()))
-    chk("L2 control (STRUCTURAL): the nucleus's mass, at leading order, leaves every ratio unchanged to 1e-14",
-        all(abs(v) < 1e-14 for v in d["rel_mass"].values()))
+    r = d["alpha"]["fs/lya"] / d["eps"]
+    chk("L1: a change of alpha by eps moves fs(2p)/Ly-a by 2 eps, |r - 2| < 1e-3 (50-digit arithmetic)", abs(r - 2) < 1e-3)
+    chk("L1: H-a/Ly-a moves by about -2.4e-9 at eps = 1e-4 -- line to line, not uniform",
+        -2.5e-9 < d["alpha"]["ha/lya"] < -2.3e-9)
+    chk("L1 (STRUCTURAL): alpha held, every ratio identical", all(v == 0 for v in d["same"].values()))
+    chk("L2 (STRUCTURAL): a redshift, or the electron's mass with alpha held, leaves every ratio unchanged",
+        all(abs(v) < 1e-40 for v in list(d["redshift"].values()) + list(d["electron_mass"].values())))
+    chk("L3: a proton mass changed by eps leaves the electronic ratios unchanged and moves 21cm/Ly-a by -eps",
+        abs(d["proton_mass"]["fs/lya"]) < 1e-40 and abs(d["proton_mass"]["hfs/lya"] / d["eps"] + 1) < 1e-3)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
