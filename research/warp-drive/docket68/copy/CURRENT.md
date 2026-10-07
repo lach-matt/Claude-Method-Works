@@ -1,4 +1,4 @@
-# The README corridor from a current state (M-RULINGS items 125–131; deduced and computed; verified once; not seated; 2026-10-06)
+# The README corridor from a current state (M-RULINGS items 125–132; deduced and computed; verified once; not seated; 2026-10-06)
 
 *First headed* "(… not verified; not seated; 2026-10-06)".
 
@@ -15,7 +15,7 @@
   - That is item 114's form: *"The trajectory is the difference between position 1 and position 2"*.
 
 Every number is printed by `current.py`.
-- **Selftest:** 8/8 checks, 1 control, with 9 STRUCTURAL lines printed and not counted. X5 and X6 were
+- **Selftest:** 10/10 checks, 1 control and 1 contrast, with 10 STRUCTURAL lines printed and not counted. X5 and X6 were
   verified on 2026-10-07; two of their checks were restatements, now STRUCTURAL. It takes about a minute and a
   half.
   - *First written:* "6/6 checks, 1 genuine control, 4 STRUCTURAL". Two counted checks were identities or held by
@@ -165,6 +165,26 @@ Every number is printed by `current.py`.
 - *First written:* "The horizon also holds N … So r₀ = 2m exactly, and Δ = m/2". That over-claimed: it holds only at
   the floor.
 
+## Your item 132: both hold the README; one way by nature
+
+- *"do the horizons still hold the README too (your item 106), as well as the throat? - yes. And the passage is one way
+  by nature, a black hole in and a white hole out, side views of the same corridor object / \*different views of the
+  same object"* (H-HORIZON-AND-THROAT-HOLD, H-ONE-WAY-BY-NATURE, H-ONE-OBJECT-TWO-VIEWS)
+- **Both holds at the least size give the floor member, r₀ = 2m.** That uses the board's carried accounting of one
+  E_min(N) per trip (PLANE.md point 6). Whether the device may spend more is still asked.
+- **X7. One way, computed in eq. 17 itself** (not verified yet).
+  - At the floor member, g_tt·g_xx = 2(m + 2x²) > 0. So ingoing Eddington–Finkelstein coordinates (v = t + x\*) carry
+    the metric regularly through the throat: ds² = −g_tt dv² + 2h dv dx + r²dΩ.
+  - Every future-directed curve obeys ẋ ≤ (g_tt/2h)·v̇, and g_tt = 0 at the throat.
+  - **So nothing future-directed crosses from position 2's side to position 1's.**
+  - **The throat is one null surface:** a black-hole horizon seen from P1, and a white-hole horizon seen from P2. That
+    is your two views of one object, literally one surface.
+  - **Contrast:** a two-way member (r₀ > 2m) has g_tt > 0 at its throat, so crossing either way is possible there.
+  - The ingoing chart is the extension with the black hole at P1 (*"a black hole in"*). Its time reverse is the other
+    extension.
+  - Across the family, g_tt·g_xx = 2(2Δ + 2x²), so the same chart is regular through every horizon member's horizons.
+- *First written* (X6): "eq. 17's own causal structure is OPEN". Now computed.
+
 ## What stays a coefficient
 
 - **N:** the input (item 130). The board's value is an example.
@@ -193,7 +213,7 @@ Every number is printed by `current.py`.
 
 1. What our current state is: empty space (alternative a), the candidate, or another.
 2. *Superseded:* N is the input (item 130).
-6. At the floor: the causal structure of the boundary member, its stability, and its fine-tuning.
+6. At the floor: the boundary member's stability and fine-tuning. *Its causal structure is computed (X7): one way.*
 7. Whether the device spends exactly the minimum (the floor), or more.
 3. E's current value, and its normalization.
 4. What fixes Δ for a trip, and on which side.

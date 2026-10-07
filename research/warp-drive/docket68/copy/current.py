@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""current.py -- DOCKET 68, M-RULINGS items 125-131 (X5-X6 verified 2026-10-07): the README corridor's coefficients evaluated with exact values,
+"""current.py -- DOCKET 68, M-RULINGS items 125-132 (X5-X6 verified 2026-10-07; X7 not verified): the README corridor's coefficients evaluated with exact values,
 from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
@@ -89,6 +89,15 @@ WHAT THE WORK FINDS
        ABOVE THE FLOOR (floor < m < 4/3 floor) r0 = r_min lies inside the horizon: a horizon member of PLANE point 1's
        kind, the horizon holding more than N (PLANE point 3's interval, restored by item 131).
      First written "With the horizon also holding N ..., r0 = 2m EXACTLY" and "Delta: fixed at m/2" -- an over-claim.
+  X7 ONE WAY BY NATURE (item 132: "the passage is one way by nature, a black hole in and a white hole out ... different
+     views of the same object").  At the floor member g_tt g_xx = 2(m + 2x^2) > 0, so ingoing Eddington-Finkelstein
+     coordinates (v = t + x*) give ds^2 = -g_tt dv^2 + 2 h dv dx + r^2 dOmega, regular through the throat.  A
+     future-directed causal curve has xdot <= (g_tt/2h) vdot, and g_tt = 0 at the throat: nothing future-directed crosses
+     from position 2's side (x < 0) to position 1's (x > 0) -- computed, in eq. 17 itself (first left OPEN; the verifier
+     cited Simpson-Visser's analogue).  The throat is one null surface: a future (black-hole) horizon seen from P1, a
+     past (white-hole) horizon seen from P2 -- item 132's two views of one object, literally one surface.  Contrast: a
+     two-way member (r0 > 2m) has g_tt > 0 at its throat.  The ingoing chart is the extension with a black hole at P1
+     ("a black hole in"); its time reverse is the other extension.
   WHAT STAYS A COEFFICIENT.  N, now the input (item 130); m's current value; Delta and its side; E and its normalization; the tension's
   sign (H-OUR-TENSION; RS1 puts our atoms on the negative-tension sheet, BULK.md); k and kappa (through the tension and
   the 4D G); the coinciding junction.
@@ -219,6 +228,14 @@ def compute():
     bracket_edge = 1 - sp.sqrt(3) / 6 * sp.log(2 + sp.sqrt(3))
     leg_edge_closed = float(sp.N(-sp.Rational(4, 3) * bracket_edge / m, 15))
     leg_edge_coin = o["coin"].anec_closed(mv, 2 * mv)
+    # item 132: the floor member's causal structure, ingoing Eddington-Finkelstein (v = t + x*)
+    f_e = gtt_x
+    h2_e = sp.factor(sp.simplify(f_e * bm6["cxx"].subs(q_r0, 2 * q_m)))
+    slope0 = sp.simplify((f_e / (2 * sp.sqrt(h2_e))).subs(q_x, 0))
+    f_two = ((q_x ** 2 + q_r0 - 2 * q_m) / (q_r0 + q_x ** 2)).subs({q_r0: 1, q_m: sp.Rational(2, 5)})
+    h2_two = sp.simplify(f_two * bm6["cxx"].subs({q_r0: 1, q_m: sp.Rational(2, 5)}))
+    slope0_two = sp.simplify((f_two / (2 * sp.sqrt(h2_two))).subs(q_x, 0))
+    h2_general = sp.factor(sp.simplify(((q_x ** 2 + q_r0 - 2 * q_m) / (q_r0 + q_x ** 2)) * bm6["cxx"]))
     # item 129: what the corridor adds beyond its pull, in plane.py's own masses
     bm = o["plane"].bk_masses()
     pr, pr0, pm, _ = bm["syms"]
@@ -231,6 +248,8 @@ def compute():
             "series_wrong_constant": wrong, "E_per_bit": E_bit, "E_per_bit_geo_m": E_geo,
             "leg_current_dimensionless_at_E_bit": leg0 * E_geo, "K_kk_on_plane": str(kk[0]),
             "together_yy": [str(v) for v in together["constraints"]["yy"]],
+            "ef_h2": str(h2_e), "ef_slope_throat": str(slope0), "ef_slope_throat_twoway": str(slope0_two), "ef_slope_twoway_value": float(sp.N(slope0_two)),
+            "ef_h2_general": str(h2_general),
             "r0_throat": float(sp.N(r0_throat, 15)), "throat_over_2m": str(throat_over_2m), "gtt_edge": str(gtt_x),
             "gxx_edge": str(gxx_x), "komar_h_edge": str(komar_h_edge), "bracket_edge": float(sp.N(bracket_edge, 15)),
             "leg_edge_closed": leg_edge_closed, "leg_edge_coin": leg_edge_coin,
@@ -295,6 +314,13 @@ def selftest(d):
     chk("X6: each leg's null integral there is -(4E/3m)[1 - (sqrt3/6) ln(2 + sqrt3)] = %.11e per metre of E, coin.py's "
         "closed form %.11e" % (d["leg_edge_closed"], d["leg_edge_coin"]),
         abs(d["leg_edge_closed"] / d["leg_edge_coin"] - 1) < 1e-12)
+    chk("X7 (item 132): at the floor member g_tt g_xx = %s > 0, so ingoing Eddington-Finkelstein coordinates carry the "
+        "metric regularly through the throat; every future-directed causal curve has xdot <= (g_tt/2h) vdot, and at the "
+        "throat g_tt/2h = %s -- nothing future-directed crosses from position 2's side to position 1's: one way, in "
+        "eq. 17 itself" % (d["ef_h2"], d["ef_slope_throat"]),
+        d["ef_h2"] == "2*(m + 2*x**2)" and d["ef_slope_throat"] == "0")
+    chk("a two-way member (r0 = 1, m = 2/5, r0 > 2m) has g_tt/2h = %s > 0 at its throat: crossing either way" %
+        d["ef_slope_throat_twoway"], d["ef_slope_twoway_value"] > 0, contrast=True)
     chk("X4: the board's two sheets of opposite tension put at one place (K = 0) fail the bulk's yy constraint: %s -- "
         "the coinciding junction is not B3's" % d["together_yy"], d["together_yy"][0] != "0")
     structural.append("X1: m = %.14e m; chain.py's bisected floor (same equation, second implementation) agrees to "
@@ -318,6 +344,10 @@ def selftest(d):
                       "4/3 floor, r0 lies inside the horizon -- a horizon member" % (d["r0_throat"], d["throat_over_2m"]))
     structural.append("X5 at the board's m: Delta/2 in mass for Delta/m = %s is %s kg" % (
         list(FRACTIONS), ["%.4e" % v for v in d["adm_minus_pull_kg_per_Delta_frac"]]))
+    structural.append("X7: across the family g_tt g_xx = %s = 2(2 Delta + 2x^2) -- the chart is regular through every "
+                      "horizon member's horizons too; the throat at the floor is one null surface, a future (black-hole) "
+                      "horizon seen from P1 and a past (white-hole) horizon seen from P2 (item 132's two views)" %
+                      d["ef_h2_general"])
     structural.append("the last row (Delta = m/2, r0 = 2m) is the window's boundary, not a horizon member")
     for s_ in structural:
         print("  STRUCTURAL: " + s_)
