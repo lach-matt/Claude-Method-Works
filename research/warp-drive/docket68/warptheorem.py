@@ -30,7 +30,7 @@ reassessment added the hold's length (O3), the field energy outside the neck (E4
 mechanism (R5), and corrected B4, B5, E3 and I2 (WARPTHEOREM.md History).
 
 Each clause is a conjunction of lemmas.  A lemma is AXIOM (M's ruling, cited), PROVED (an owner, imported and re-run
-here), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
+here), READING (proved under a named reading of the board's, labelled, withdrawn if M corrects it), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
 
   T1  the PROVED lemmas are re-run: exactE.py's identities (z3), passage5d.py's identity and Q, localbulk.py's Gauss
       condition, stability.py's surface gravity, coin.py's passage reading
@@ -67,7 +67,8 @@ LEMMAS = [
     ("O", "O1 one way, 1 -> 2, nonsingular", "PROVED", "copy/plane.py P1 (seated); exactE.py one-way check"),
     ("O", "O2 the horizon is extremal (surface gravity 0)", "PROVED", "bulk/stability.py S1 (verified)"),
     ("O", "O3 the corridor survives its hold: the hold's length in the corridor's clocks, derived, against S4's rate and "
-          "S5b's v^2 blueshift", "OPEN", "items 86 answer 5 ('relative'), 94, 136 E; bulk/STABILITY.md OPEN 1, 3"),
+          "S5b's v^2 blueshift", "READING", "lemmas/o3_hold.py: 2 pi^2/ln2 = 28.48 clocks for every N; growth <= 20.8; under "
+     "H-ONE-STEP-PER-BIT and H-HOLD-AT-BOUND (the board's)"),
     ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
           "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
@@ -87,24 +88,26 @@ LEMMAS = [
      "items 115, 136 A, 136 answer 7, 141"),
     ("I", "I1 the passage is N bits of entanglement", "AXIOM", "item 137 (H-PASSAGE-IS-N)"),
     ("I", "I2 the README's N bits within the capacity bound as READ: information at most what is sent to set up the "
-          "interaction (Maldacena-Stanford-Yang p.4; parametric, p.12) -- N is the device's input (130 (2))", "OPEN",
-     "STATUS wall B; DOORS K4; to show"),
+          "interaction (Maldacena-Stanford-Yang p.4; parametric, p.12) -- N is the device's input (130 (2))", "PROVED",
+     "lemmas/i2_capacity.py: holding bound = N, interaction bound met with equality, channel bound N/2 <= N"),
     ("E", "E1 E carried through three holds into position 2", "AXIOM", "items 106, 110, 111, 115"),
     ("E", "E2 released at position 2 at the closing", "AXIOM", "item 136 answer 2"),
     ("E", "E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)), with the copy "
           "exact (146) and its matter reorganized (137).  The board's reading (a): the copy's matter is the stock's; E is "
           "absorbed as the expansion of position 2's universe (136 G, 136 answer 6, 139 (3)), counted as part of the "
-          "build; item 108's E/c^2 is the appearance accounting (107)", "OPEN",
-     "the one place the rulings pull against each other (108, 111 (a), 136 answer 2 against 137, 146); T3 below"),
-    ("E", "E4 the field energy outside the neck, total - pull = E/4, placed in the one-energy ledger", "OPEN",
-     "items 104 (b), 111 (b), 133; residue/LOOSE.md OPEN 5"),
+          "build; item 108's E/c^2 is the appearance accounting (107)", "READING",
+     "lemmas/ledger.py: closes at the example and the full snapshot under the board's reading (a)"),
+    ("E", "E4 the field energy outside the neck, total - pull = E/4, placed: the bulk's Weyl field read on the plane "
+          "(G = -E), positive, not the plane's energy; its 5D origin goes with B7", "PROVED",
+     "lemmas/ledger.py: M(R) = m + (m/4)(1 - m/(2R - 3m)); MK eq. 143"),
     ("R", "R0 the read: the corridor takes the README as its inflow at the opening; N is read from the object", "AXIOM",
      "items 70, 101 answer 8, 115 (c), 130 (2)"),
     ("R", "R1 exact reconstruction, no tolerance", "AXIOM", "items 145, 146"),
     ("R", "R2 position 2 rearranges to the README; then its laws govern", "AXIOM", "item 148"),
     ("R", "R3 exactness at the instant over the mass window", "PROVED", "bulk/exactcopy.py, rearrange.py (verified)"),
     ("R", "R4 the corridor's length as the trajectory difference, given a measure -- not a distance (101 answer 7, "
-          "136 answer 3, 139 (4))", "OPEN", "items 114 (c), 116, 117"),
+          "136 answer 3, 139 (4))", "READING",
+     "lemmas/r4_length.py: L = trajectory difference in bits (H-LENGTH-AS-DIFFERENCE, the board's)"),
     ("R", "R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position "
           "2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", "OPEN",
      "items 91 (b), 101 answers 3 & 4, 136 B and G, 139 (3), 148"),
@@ -148,12 +151,22 @@ def t1():
             "O2": d1 == 0}
 
 
+def lemma_selftests():
+    """Each lemma instrument's own selftest, run silently; all must pass."""
+    out = {}
+    for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py"):
+        mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
+        with contextlib.redirect_stdout(io.StringIO()):
+            out[f] = mod.selftest()
+    return out
+
+
 def t2():
     """The theorem from its lemmas: T <-> every lemma.  Entailed with all; each OPEN lemma necessary (STRUCTURAL)."""
     import z3
     v = {name: z3.Bool(name) for _, name, _, _ in LEMMAS}
     T = z3.And(*v.values())
-    known = [v[n] for _, n, s, _ in LEMMAS if s != "OPEN"]
+    known = [v[n] for _, n, s, _ in LEMMAS if s != "OPEN"]                       # AXIOM, PROVED, READING
     opens = [n for _, n, s, _ in LEMMAS if s == "OPEN"]
     s = z3.Solver()
     s.add(known + [v[n] for n in opens] + [z3.Not(T)])
@@ -186,7 +199,7 @@ def t3(E_per_sqrt_bit):
 
 def compute():
     a = t1()
-    return {"t1": a, "t2": t2(), "t3": t3(a["E_per_sqrt_bit"])}
+    return {"t1": a, "t2": t2(), "t3": t3(a["E_per_sqrt_bit"]), "lemmas": lemma_selftests()}
 
 
 def report(d):
@@ -196,9 +209,9 @@ def report(d):
             if c == clause:
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
     a, b, c = d["t1"], d["t2"], d["t3"]
-    counts = {k: sum(1 for l in LEMMAS if l[2] == k) for k in ("AXIOM", "PROVED", "OPEN")}
-    print("\n%d lemmas: %d yours (AXIOM), %d PROVED, %d OPEN" % (len(LEMMAS), counts["AXIOM"], counts["PROVED"],
-                                                                 counts["OPEN"]))
+    counts = {k: sum(1 for l in LEMMAS if l[2] == k) for k in ("AXIOM", "PROVED", "READING", "OPEN")}
+    print("\n%d lemmas: %d yours (AXIOM), %d PROVED, %d PROVED under a named board READING, %d OPEN"
+          % (len(LEMMAS), counts["AXIOM"], counts["PROVED"], counts["READING"], counts["OPEN"]))
     print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 %s"
           % (a["E_per_sqrt_bit"], a["H1_G3_O1"], a["Z1"], a["Z2"], a["B1"], a["O2"]))
     print("T2 the theorem follows from its lemmas: %s; each OPEN lemma needed: %s" % (b["entailed"],
@@ -225,6 +238,7 @@ def selftest():
     chk("T1: Z1, R5(n,k,n,k) = -R4(k,k) (passage5d.py); Z2, Q = -2 x coin.py's per-leg reading", a["Z1"] and a["Z2"])
     chk("T1: B1, the Gauss condition with K = -g/ell (localbulk.py); O2, surface gravity zero (stability.py)",
         a["B1"] and a["O2"])
+    chk("T1: the lemma instruments' selftests pass (%s)" % ", ".join(d["lemmas"]), all(d["lemmas"].values()))
     chk("T2 (STRUCTURAL): the theorem follows from its lemmas, and each OPEN lemma is needed",
         b["entailed"] and all(b["needed"].values()))
     chk("T3: the ledger is inconsistent unless the build has an absorber besides the copy, consistent with one",
