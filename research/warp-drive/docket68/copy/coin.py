@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """coin.py -- DOCKET 68, M-RULINGS items 117-118: the test of M's coin (H-NEC-COIN) -- the null energy condition along
 a whole path through the one-way corridor, from position 1's side to position 2's.  Deduced, computed and READ;
-verified once; not seated.  Write-up: COIN.md.
+verified once; SEATED (ledger.py section 8p).  Write-up: COIN.md.
 
 M's words (verbatim in the rulings file): item 117 "An NEC is never violated, between two entangled positions the NEC
 is like a coin, each position sits on a separate side. That action is that the coin flips. The NEC appears broken, but

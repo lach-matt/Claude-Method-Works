@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """manyplanes.py -- DOCKET 68, M-RULINGS items 123-128: infinitely many spacetime planes in a closed dimension, as the
-bulk's layers (A) and as separate sheets (B), both.  Deduced, computed and READ; verified once; not seated.  Write-up:
+bulk's layers (A) and as separate sheets (B), both.  Deduced, computed and READ; verified once; SEATED (ledger.py section 8p).  Write-up:
 MANYPLANES.md.  First headed "items 123-124 ... not verified".
 
 M's words (verbatim in the rulings file): item 123 "by closed I mean every plausibility, possibility, eventuality,

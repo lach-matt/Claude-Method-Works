@@ -1,4 +1,6 @@
-# The README corridor from a current state (M-RULINGS items 125–133; deduced and computed; verified once; not seated; 2026-10-06)
+# The README corridor from a current state (M-RULINGS items 125–133; deduced and computed; verified once; SEATED (ledger.py section 8p); 2026-10-06)
+
+*Seated in ledger.py section 8p on M's order (item 134: "Seat them"); until then headed "… not seated …".*
 
 *First headed* "(… not verified; not seated; 2026-10-06)".
 

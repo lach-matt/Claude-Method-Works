@@ -1,4 +1,6 @@
-# The coin test (M-RULINGS items 117–118, 120; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# The coin test (M-RULINGS items 117–118, 120; deduced, computed and READ; verified once; SEATED (ledger.py section 8p); 2026-10-06)
+
+*Seated in ledger.py section 8p on M's order (item 134: "Seat them"); until then headed "… not seated …".*
 
 *Retired by your item 123: "forget the coin metaphor. It served its intended purpose already." What it described
 stays yours (H-NEC-NEVER-VIOLATED). Nothing below is pursued further. Item 122's four answers are read against this

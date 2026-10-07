@@ -1,4 +1,6 @@
-# Building the bulk as a closed index (M-RULINGS items 120–124; deduced, computed and READ; verified once; not seated; 2026-10-06)
+# Building the bulk as a closed index (M-RULINGS items 120–124; deduced, computed and READ; verified once; SEATED (ledger.py section 8p); 2026-10-06)
+
+*Seated in ledger.py section 8p on M's order (item 134: "Seat them"); until then headed "… not seated …".*
 
 *First headed* "(M-RULINGS items 120–121; deduced, computed and READ; not verified; not seated; 2026-10-06)".
 

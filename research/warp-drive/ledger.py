@@ -1113,6 +1113,41 @@ own corrections to the rulings file are items 103, 105 and 112.
   CHAIN8O_OPEN  nine items, each with what would answer it.
   The board  no status moves; O9 stays OPEN.  H-NO-CHAIN8O-ROW: no index3 row.
   The paper  not edited.
+
+===============================================================================
+8p.  THE BULK AND THE CORRIDOR FIXED BY ITS INPUT (M-RULINGS items 116-134)
+===============================================================================
+
+M ordered the seating (item 134: "Seat them and then compute E").  Items
+116-119 are carried in trajectories.py (TRAJECTORIES.md: the address separate,
+length not width, law and history trajectories) and chain.py (CHAIN.md: wall
+10 recast, the address exact to the input), both seated in 8o.  Five
+instruments are seated here.  docket68/copy/coin.py (COIN.md; retired by item
+123): the averaged null condition along the whole one-way passage, negative in
+the plane's reading in closed form, forced by Friedman-Schleich-Witt (READ).
+docket68/bulk/closedbulk.py (CLOSEDBULK.md): the bulk's series off the plane
+under The Method's criteria (P1, P2, sec. 16.2's D_phys and D_def), with two
+planes kept as the board's withdrawn compact reading.  docket68/bulk/umbilic.py
+(UMBILIC.md): one light ray read by the plane (G_kk) and by the bulk (0), the
+difference the bulk's projected Weyl term.  docket68/bulk/manyplanes.py
+(MANYPLANES.md): the planes as layers and as sheets (item 124), the open
+ledger with its ends (item 128: no loop).  docket68/copy/current.py
+(CURRENT.md): the README corridor fixed by its input N (items 125-133) -- the
+throat sized by the README and both holds at the one exact energy put the
+throat on the horizon, r0 = 2m, and the passage is one way through it (X7).
+Each verified, and corrected.
+
+  THE OWNERS  loaded BY PATH as 'chain8p_<name>' (_chain8p_load) from copy/
+       and bulk/, with _copy_load's lending and key restoration.  Only cheap
+       values are asked at load (coin.py's closed form at the illustrative
+       member and at r0 = 2m); the instruments' own selftests run minutes and
+       are their own.
+  RULED_BY_M  + M-D68-116, 118, 122, 123, 124, 127, 129, 130, 131, 132 and
+       133.  D68_FILE_CARRIED + M-D68-117, 119, 120, 121, 125, 126, 128 and
+       134 (statements, corrections and instructions).
+  CHAIN8P_OPEN  nine items, each with what would answer it.
+  The board  no status moves; O9 stays OPEN.  H-NO-CHAIN8P-ROW: no index3 row.
+  The paper  not edited.
 """
 
 import contextlib
@@ -3816,6 +3851,22 @@ D68_M_WORDS = {
     "M-D68-113": ("3 then 1 then 2", D68_RULINGS_FILE),
     "M-D68-114": ("The trajectory is the difference between position 1 and position 2", D68_RULINGS_FILE),
     "M-D68-115": ("It ends; energy moved", D68_RULINGS_FILE),
+    # ADDED (8p-seat, docstring section 8p): M's answers to questions put, items 116-133.
+    "M-D68-116": ("No, separate", D68_RULINGS_FILE),
+    "M-D68-118": ("Yes: law and history", D68_RULINGS_FILE),
+    "M-D68-122": ("read then compute", D68_RULINGS_FILE),
+    "M-D68-123": ("by closed I mean every plausibility, possibility, eventuality, every position infinitely possible as "
+                  "a closed dimension.", D68_RULINGS_FILE),
+    "M-D68-124": ("Both A and B", D68_RULINGS_FILE),
+    "M-D68-127": ("The coefficient value is the difference of that value in a counterfactual universe and its value in "
+                  "our current universe, added to the value of our current universe", D68_RULINGS_FILE),
+    "M-D68-129": ("It contains matter, you, me, this current universe, just not a corridor for transit because the "
+                  "corridor is a bridge, so it adds nothing to either position.", D68_RULINGS_FILE),
+    "M-D68-130": ("i - no added matter", D68_RULINGS_FILE),
+    "M-D68-131": ("the throat size only needs to carry the binary information defining the object in transit",
+                  D68_RULINGS_FILE),
+    "M-D68-132": ("the passage is one way by nature, a black hole in and a white hole out", D68_RULINGS_FILE),
+    "M-D68-133": ("There is only one exact energy needed for any given README", D68_RULINGS_FILE),
 }
 
 #: THE QUESTIONS PUT TO M FOR M'S DOCKET 66 RULINGS (items 26-28), as the
@@ -4008,6 +4059,20 @@ D68_CARRIED_WORDS = {
                   "it appear to be negative mass", D68_RULINGS_FILE),
     "M-D68-109": ("A horizon cannot exist without the object of which it needs to exist", D68_RULINGS_FILE),
     "M-D68-111": ("one energy read from two sides because both positions are currently entangled as a singular state",
+                  D68_RULINGS_FILE),
+    # ADDED (8p-seat, docstring section 8p): statements, corrections and instructions, items 117-134.
+    "M-D68-117": ("Trajectory does not change size in width, but rather length", D68_RULINGS_FILE),
+    "M-D68-119": ("precision is never a question. The address is always precise to the input", D68_RULINGS_FILE),
+    "M-D68-120": ("Science has already taught us that matter is neither created nor destroyed, it only changes "
+                  "geometric state.", D68_RULINGS_FILE),
+    "M-D68-121": ("yes. And we build it under closed index criteria, self referencing and self defending",
+                  D68_RULINGS_FILE),
+    "M-D68-125": ("We cannot use general coefficients for this work.", D68_RULINGS_FILE),
+    "M-D68-126": ("The corridor will always entangle separate plane position using the shortest distance needed.",
+                  D68_RULINGS_FILE),
+    "M-D68-128": ("A genuine loop would me creating a paradox of transition from position 1 to position 1.",
+                  D68_RULINGS_FILE),
+    "M-D68-134": ("Seat them and then compute E. Machine check E and all the values derived from the coefficients.",
                   D68_RULINGS_FILE),
 }
 
@@ -5649,6 +5714,102 @@ CHAIN8O_OPEN = [
 ]
 
 
+# ----- THE BULK AND THE CORRIDOR FIXED BY ITS INPUT (docstring 8p) -----
+CHAIN8P_OWNERS = (("coin", COPY_DIR), ("current", COPY_DIR), ("closedbulk", BULK_DIR), ("umbilic", BULK_DIR),
+                  ("manyplanes", BULK_DIR))
+
+
+def _chain8p_load():
+    """{'coin': module, ...}, loaded by path as 'chain8p_<name>' from copy/ and bulk/ with _copy_load's lending and key
+    restoration; and the facts."""
+    import importlib.util
+    saved = list(sys.path)
+    before = set(sys.modules)
+    collide = ["chain8p_" + n for n, _ in CHAIN8P_OWNERS]
+    stashed = dict((k, sys.modules.pop(k)) for k in collide if k in sys.modules)
+    lent = "ledger" not in sys.modules
+    if lent:
+        sys.modules["ledger"] = sys.modules[__name__]
+    mods = {}
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            for name, where in CHAIN8P_OWNERS:
+                key = "chain8p_" + name
+                spec = importlib.util.spec_from_file_location(key, os.path.join(where, name + ".py"))
+                m = importlib.util.module_from_spec(spec)
+                sys.modules[key] = m
+                spec.loader.exec_module(m)
+                mods[name] = m
+    finally:
+        sys.path[:] = saved
+        if lent:
+            del sys.modules["ledger"]
+        added = [k for k in sys.modules if k not in before]
+        for k in added:
+            sys.modules.pop(k, None)
+        sys.modules.update(stashed)
+    homes = dict(CHAIN8P_OWNERS)
+    return mods, {"path_restored": sys.path == saved, "keys_left": [k for k in added if k in sys.modules],
+                  "misplaced": [n for n, m in mods.items()
+                                if os.path.dirname(os.path.abspath(m.__file__)) != homes[n]]}
+
+
+CHAIN8P, CHAIN8P_LOAD = _chain8p_load()
+
+
+def chain8p_asked():
+    """The cheap values M-D68-134's cell prints, ASKED of coin.py at call time: the passage's closed form per leg (per
+    unit E, geometric, m = 1) at the illustrative member r0 = 1.8 and at the corridor's member r0 = 2m (current.py X6).
+    The owners' own selftests (minutes) are not run here."""
+    saved = list(sys.path)
+    before = set(sys.modules)
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            coin = CHAIN8P["coin"]
+            illus = coin.anec_closed(1.0, 1.8)
+            edge = coin.anec_closed(1.0, 2.0)
+    finally:
+        sys.path[:] = saved
+        for k in [k for k in sys.modules if k not in before]:
+            sys.modules.pop(k, None)
+    return {"leg_illus": illus, "leg_edge": edge, "m_per_sqrt_bit": CHAIN8O_ASKED["rmin"] / 2}
+
+
+CHAIN8P_ASKED = chain8p_asked()
+
+
+def _chain8p_fig(f, s=1.0):
+    """The scaled figures M-D68-134's cell prints, formatted once (the selftest's needles use the same)."""
+    return {"leg_illus": "%.6f" % (s * f["leg_illus"]), "leg_edge": "%.6f" % (s * f["leg_edge"]),
+            "m": "%.6e" % (s * f["m_per_sqrt_bit"])}
+
+
+#: WHAT THE BULK AND THE CORRIDOR FIXED BY ITS INPUT LEAVE OPEN (docstring
+#: section 8p), as COIN.md, CLOSEDBULK.md, UMBILIC.md, MANYPLANES.md and
+#: CURRENT.md state it.  Named, not ranked.
+CHAIN8P_OPEN = [
+    ("C8P-O1", "the global bulk (BULK5-O1): the series off the plane is local, and evolution off a timelike brane is not "
+     "a well-posed initial-value problem (Maartens p.11)", "the bulk constructed, or READ", "docket68/bulk/CLOSEDBULK.md"),
+    ("C8P-O2", "the junction of two sheets at one place (item 127: the planes coincide) -- not closedbulk.py's B3, and "
+     "the board's opposite-tension sheets there fail the bulk's equations unless k = 0", "the coinciding junction "
+     "computed", "docket68/copy/CURRENT.md"),
+    ("C8P-O3", "the bulk scale k's current value, which the layers off our plane need (the plane's tension and the 4D "
+     "G depend on k and kappa)", "a measured or ruled value", "docket68/bulk/MANYPLANES.md"),
+    ("C8P-O4", "the open ledger's two end values (item 128: no loop)", "the bulk's values at its ends, computed or "
+     "ruled", "docket68/bulk/MANYPLANES.md"),
+    ("C8P-O5", "the r0 = 2m member's stability and fine-tuning, and whether the infinite one-way chain's copies are "
+     "one place", "computed, or READ", "docket68/copy/CURRENT.md"),
+    ("C8P-O6", "a five-dimensional censorship theorem (M's H-5D-CENSORSHIP, item 122) and where it would place a "
+     "failure of the averaged condition", "a theorem READ and applied", "docket68/bulk/UMBILIC.md"),
+    ("C8P-O7", "the paths of light rays that leave the plane, and their crossings of other planes", "computed",
+     "docket68/bulk/UMBILIC.md"),
+    ("C8P-O8", "the light ray's energy normalization in the passage readings (not item 133's one exact energy)",
+     "a ruling, or a stated ray", "docket68/copy/CURRENT.md"),
+    ("C8P-O9", "whether M's one exact energy (item 133) is E(N) at the bound -- the board's identification "
+     "H-EXACT-ENERGY-AT-BOUND", "a ruling", "docket68/copy/CURRENT.md"),
+]
+
+
 #: WHAT DOCKET 68 WAVE 3 AND STEP 1b LEAVE OPEN (docstring section 8c), as
 #: their owners' records state it (step1b/BALANCE.md, docket68/wave3/WAVE3.md):
 #: (id, what is open, what would answer it, owner).  Named, not ranked (section
@@ -6756,6 +6917,97 @@ D68_RULED = [
                "H-P1-HORIZON-ENDS, H-P2-HORIZON-AT-REALIZATION, H-INFLOW-IS-README; the README sent back-loaded, at "
                "least 57 bits per quantum for the core (opening.py O8)"),
      "C8O-O2"),
+    # ----- ADDED (8p-seat, docstring section 8p): items 116-133 (2026-10-06/07).
+    ("M-D68-116",
+     "Three questions after section 8o was seated (M-RULINGS-2026-10-03.md item 116, 2026-10-06, as the file records "
+     "it): whether location counts as a trajectory; which rule makes the corridor's size depend on the ranking; whether "
+     "K and T add almost nothing once alpha and m_e rank above",
+     "the address unplaced among the trajectories; the ranking's effect on size unasked",
+     _d68_rule("NO, SEPARATE", "M-D68-116",
+               "H-ADDRESS-SEPARATE; H-LENGTH-BY-TRAJECTORIES (the corridor's length set by the trajectories needed); K "
+               "and T among the dependent trajectories (docket68/copy/trajectories.py, TRAJECTORIES.md)"),
+     "M-D68-117"),
+    ("M-D68-118",
+     "Two questions after item 117 (M-RULINGS-2026-10-03.md item 118, 2026-10-06, as the file records it): whether the "
+     "new type of trajectory is a history trajectory beside the law trajectories; whether to run the averaged-null test",
+     "H-NEW-TRAJECTORY-TYPE carried, its kind unasked; the coin test proposed",
+     _d68_rule("LAW AND HISTORY; RUN IT", "M-D68-118",
+               "H-LAW-AND-HISTORY; the test run (docket68/copy/coin.py, COIN.md): the averaged null condition negative "
+               "along the whole passage in the plane's reading, forced by Friedman-Schleich-Witt (READ)"),
+     "M-D68-119"),
+    ("M-D68-122",
+     "Four open points of the coin report (M-RULINGS-2026-10-03.md item 122, 2026-10-06, as the file records it): a "
+     "five-dimensional censorship theorem; one light ray read by the plane and the bulk; the two sides; Maldacena-"
+     "Susskind's footnote 1",
+     "H-UMBILIC-GEODESIC a candidate, OPEN until computed and READ",
+     _d68_rule("READ THEN COMPUTE", "M-D68-122",
+               "H-5D-CENSORSHIP (M's expectation); H-SIDES-AS-HORIZON-PAIR; H-ER=EPR-MATTER-ONLY and "
+               "H-RULES-NOT-INFORMATION; the light ray computed (docket68/bulk/umbilic.py): the plane reads G_kk, the "
+               "bulk 0, the difference the bulk's projected Weyl term"),
+     "M-D68-123"),
+    ("M-D68-123",
+     "Whether the board's two-plane reading of closed is M's, and whether a second plane may carry matter breaking the "
+     "averaged condition (M-RULINGS-2026-10-03.md item 123, 2026-10-06, as the file records it)",
+     "closed read as compact, with a second plane (H-CLOSED-AS-COMPACT)",
+     _d68_rule("EVERY POSITION, A CLOSED DIMENSION", "M-D68-123",
+               "H-CLOSED-AS-TOTALITY (the board's compact reading withdrawn); H-COIN-RETIRED with H-NEC-NEVER-VIOLATED "
+               "kept; H-SECOND-PLANE-EXISTS; H-INFINITE-PLANES (docket68/bulk/closedbulk.py)"),
+     "M-D68-124"),
+    ("M-D68-124",
+     "Which picture of infinitely many planes is M's (M-RULINGS-2026-10-03.md item 124, 2026-10-06, as the file records "
+     "it): the bulk's layers, separate sheets, or both",
+     "H-INFINITE-PLANES carried, its picture unasked",
+     _d68_rule("BOTH A AND B", "M-D68-124",
+               "H-PLANES-AS-LAYERS and H-PLANES-AS-SHEETS, both built (docket68/bulk/manyplanes.py)"),
+     "M-D68-125"),
+    ("M-D68-127",
+     "Whether the same place includes the extra dimension, and what fixes r0, E and k (M-RULINGS-2026-10-03.md item 127, "
+     "2026-10-06, as the file records it)",
+     "the corridor's coefficients illustrative (m = 1, r0 = 1.8)",
+     _d68_rule("THE PLANES COINCIDE; FROM THE CURRENT STATE", "M-D68-127",
+               "H-PLANES-COINCIDE; H-COEFF-FROM-CURRENT -- a coefficient is its current value plus the counterfactual "
+               "difference, item 114's form (docket68/copy/current.py)"),
+     "M-D68-129"),
+    ("M-D68-129",
+     "What our current state is at position 1 (M-RULINGS-2026-10-03.md item 129, 2026-10-06, as the file records it)",
+     "the board's current state a 0.2677 kg hole, or empty space",
+     _d68_rule("MATTER, NO CORRIDOR; THE BRIDGE ADDS NOTHING", "M-D68-129",
+               "H-CURRENT-HAS-MATTER, H-BRIDGE-ADDS-NOTHING; both board current states ruled out; the total minus the "
+               "pull is Delta/2 (current.py X5)"),
+     "M-D68-130"),
+    ("M-D68-130",
+     "Which adds-nothing is M's, and whether the README's amount is the user's input (M-RULINGS-2026-10-03.md item 130, "
+     "2026-10-06, as the file records it)",
+     "two readings of adds-nothing; N from an illustrative grey volume",
+     _d68_rule("NO ADDED MATTER; THE AMOUNT IS THE INPUT", "M-D68-130",
+               "H-BRIDGE-ADDS-NO-MATTER (held by every member of eq. 17, tau = 0); H-MOUTH-AS-BLACK-HOLE; H-N-IS-INPUT: "
+               "every result a formula in the input N with its coefficients evaluated exactly"),
+     "M-D68-131"),
+    ("M-D68-131",
+     "Which observed mass is meant, and what sets the throat's size (M-RULINGS-2026-10-03.md item 131, 2026-10-07, as "
+     "the file records it)",
+     "the throat's size free in the window 3m/2 < r0 < 2m",
+     _d68_rule("THE PULL; THE THROAT SIZED BY THE README", "M-D68-131",
+               "item 130's negative-from-outside struck; H-THROAT-CARRIES-README, H-README-MINIMAL-EXACT: the least "
+               "throat carrying N bits has r0 = r_min(N) (current.py X6)"),
+     "M-D68-132"),
+    ("M-D68-132",
+     "Whether the horizons still hold the README too, as well as the throat (M-RULINGS-2026-10-03.md item 132, "
+     "2026-10-07, as the file records it)",
+     "the throat on the horizon only at the floor; one-way at r0 = 2m not computed",
+     _d68_rule("BOTH HOLD; ONE WAY BY NATURE", "M-D68-132",
+               "H-HORIZON-AND-THROAT-HOLD, H-ONE-WAY-BY-NATURE, H-ONE-OBJECT-TWO-VIEWS; the passage one way through the "
+               "throat at r0 = 2m, computed (current.py X7): one null surface, a black hole from P1 and a white hole "
+               "from P2; globally an infinite one-way chain, no return"),
+     "M-D68-133"),
+    ("M-D68-133",
+     "Whether the observed mass is simply the pull, and whether the device spends exactly the minimum energy or more "
+     "(M-RULINGS-2026-10-03.md item 133, 2026-10-07, as the file records it)",
+     "the pull's sign and the energy's range asked",
+     _d68_rule("ONE EXACT ENERGY", "M-D68-133",
+               "the pull confirmed; H-ONE-EXACT-ENERGY, identified with E(N) at the bound (the board's, "
+               "H-EXACT-ENERGY-AT-BOUND): the corridor is the r0 = 2m member, every quantity fixed by N"),
+     "M-D68-134; C8P-O9"),
 ]
 
 RULED_BY_M += D68_RULED
@@ -7261,6 +7513,53 @@ D68_FILE_CARRIED = [
                      "H-BUILD-IS-CLOSING-ENERGY and H-ONE-ENERGY-TWO-SIDES: one energy from the device to the build "
                      "(plane.py P6, modelled by the thermofield double)"),
      "M-D68-113; C8O-O6"),
+    # ----- ADDED (8p-seat, docstring section 8p): statements, corrections and instructions, items 117-134.
+    ("M-D68-117",
+     "M after item 116 was carried (M-RULINGS-2026-10-03.md item 117, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-117",
+                     "H-LENGTH-NOT-WIDTH, H-NEW-TRAJECTORY-TYPE, H-NEC-COIN (a metaphor, item 120; retired, item 123)"),
+     "M-D68-118"),
+    ("M-D68-119",
+     "M's correction of the board's wall 10 (M-RULINGS-2026-10-03.md item 119, 2026-10-06)",
+     _d68_carry_file("STATEMENT", "M-D68-119",
+                     "H-ADDRESS-EXACT-TO-INPUT: wall 10 recast as the input's specificity (chain.py, CHAIN.md)"),
+     "M-D68-120"),
+    ("M-D68-120",
+     "M on the board's coin report (M-RULINGS-2026-10-03.md item 120, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-120",
+                     "H-COMPLETE-BULK, H-CONSERVATION-AS-GEOMETRY; the coin a metaphor (COIN.md)"),
+     "M-D68-121"),
+    ("M-D68-121",
+     "M's direction for the bulk (M-RULINGS-2026-10-03.md item 121, 2026-10-06)",
+     _d68_carry_file("INSTRUCTION", "M-D68-121",
+                     "H-BULK-CLOSED-INDEX: the bulk built under The Method's P1 and P2 (docket68/bulk/closedbulk.py)"),
+     "M-D68-122"),
+    ("M-D68-125",
+     "M's standing rule after manyplanes.py was reported (M-RULINGS-2026-10-03.md item 125, 2026-10-06)",
+     _d68_carry_file("INSTRUCTION", "M-D68-125",
+                     "M-EXACT-VALUES: no general coefficients; every value evaluated with the exact values the device "
+                     "would use (current.py)"),
+     "M-D68-127"),
+    ("M-D68-126",
+     "M on the sheets' ledger (M-RULINGS-2026-10-03.md item 126, 2026-10-06)",
+     _d68_carry_file("STATEMENTS", "M-D68-126",
+                     "H-SHEETS-WHERE-IRRELEVANT, H-SHORTEST-DISTANCE, H-COLOCATED-REALIZATION"),
+     "M-D68-127"),
+    ("M-D68-128",
+     "M's correction of the board's loop (M-RULINGS-2026-10-03.md item 128, 2026-10-06)",
+     _d68_carry_file("STATEMENT", "M-D68-128",
+                     "H-NO-LOOP: H-CLOSED-AS-LOOP withdrawn; the ledger open, with its ends (manyplanes.py)"),
+     "M-D68-129; C8P-O4"),
+    ("M-D68-134",
+     "M's order after the corridor was fixed by its input (M-RULINGS-2026-10-03.md item 134, 2026-10-07)",
+     _d68_carry_file("INSTRUCTION", "M-D68-134",
+                     "docket68/copy/coin.py, current.py and docket68/bulk/closedbulk.py, umbilic.py, manyplanes.py "
+                     "seated here (docstring section 8p), items 116-133 carried.  The passage per leg, per unit E "
+                     "(coin.py's closed form, m = 1): %s at the illustrative member, %s at the corridor's member r0 = "
+                     "2m; the pull %s m per sqrt(bit).  E computed and machine-checked next"
+                     % (_chain8p_fig(CHAIN8P_ASKED)["leg_illus"], _chain8p_fig(CHAIN8P_ASKED)["leg_edge"],
+                        _chain8p_fig(CHAIN8P_ASKED)["m"])),
+     "the OPEN items C8P-O1..O9; O9 stays OPEN"),
 ]
 
 #: DOCKET 68's one pending question, M-D68-P1 (emtension.py's ER = EPR
@@ -8074,6 +8373,7 @@ def _d68_cells():
     out.update(("BULK5-OPEN %s col %d" % (r[0], i), c) for r in BULK5_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("COPY-OPEN %s col %d" % (r[0], i), c) for r in COPY_OPEN for i, c in enumerate(r[1:], 1))
     out.update(("CHAIN8O-OPEN %s col %d" % (r[0], i), c) for r in CHAIN8O_OPEN for i, c in enumerate(r[1:], 1))
+    out.update(("CHAIN8P-OPEN %s col %d" % (r[0], i), c) for r in CHAIN8P_OPEN for i, c in enumerate(r[1:], 1))
     return out
 
 
@@ -9039,6 +9339,11 @@ def report():
         print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
                                                               " ".join(answers.split()), owner),
                             96, initial_indent="  ", subsequent_indent="           "))
+    print("\nTHE BULK AND THE CORRIDOR FIXED BY ITS INPUT -- WHAT STAYS OPEN (section 8p)")
+    for oid, what, answers, owner in CHAIN8P_OPEN:
+        print(textwrap.fill("%s %s -- answered by: %s (%s)" % (oid.ljust(9), " ".join(what.split()),
+                                                              " ".join(answers.split()), owner),
+                            96, initial_indent="  ", subsequent_indent="           "))
     print("\nPENDING M'S RULING -- RECORDED, NOT APPLIED%s"
           % ("" if PENDING_RULINGS else ": none"))
     for pid, q, why, proposal, waits in pending_rulings():
@@ -9385,6 +9690,17 @@ def to_markdown():
         L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
                                             _cell(owner, W_WHY)))
     L.append("")
+    L += ["## The bulk and the corridor fixed by its input -- what stays open", "",
+          "Seated on M's order (item 134; docstring section 8p): coin.py and current.py (docket68/copy/), "
+          "closedbulk.py, umbilic.py and manyplanes.py (docket68/bulk/); items 116-133 carried.",
+          "The coin test, the bulk built under closed-index criteria, one light ray read twice, the planes as layers "
+          "and sheets, and the README corridor fixed by its input N: the throat on the horizon, one way.",
+          "No board status moves; O9 stays OPEN.", "",
+          "| id | open | what would answer it | owner |", "|---|---|---|---|"]
+    for oid, what, answers, owner in CHAIN8P_OPEN:
+        L.append("| %s | %s | %s | %s |" % (oid, _cell(what, W_WHY), _cell(answers, W_WHY),
+                                            _cell(owner, W_WHY)))
+    L.append("")
     L += ["## Pending M's ruling -- recorded, not applied", "",
           "This file edits no peer and changes no requirement. A question",
           "that needs M's ruling is recorded here so the board shows it.", "",
@@ -9571,6 +9887,9 @@ def _truncated_cells(demand_claim=None, demand_moves=None, open_claim=None,
     for r in CHAIN8O_OPEN:
         if any(cut(c, wh) for c in r[1:]):
             out.append(("chain8o-open", r[0]))
+    for r in CHAIN8P_OPEN:
+        if any(cut(c, wh) for c in r[1:]):
+            out.append(("chain8p-open", r[0]))
     return out
 
 
@@ -10363,6 +10682,10 @@ def selftest():
         # 1 then 2", item 113): + M-D68-91, 95, 97, 104, 106, 108, 110, 113,
         # 114 and 115; items 90, 92-94, 96, 98-102, 107, 109 and 111 are
         # D68_FILE_CARRIED.
+        # RE-PINNED WITH THE BULK AND THE CORRIDOR FIXED BY ITS INPUT (8p-seat,
+        # M: "Seat them", item 134): + M-D68-116, 118, 122, 123, 124, 127,
+        # 129-133; items 117, 119-121, 125, 126, 128 and 134 are
+        # D68_FILE_CARRIED.
         (["M-D64-1", "M-S1A-P1", "M-S1A-P2", "M-S1A-P3", "M-S1A-P4",
           "M-S1A-P5", "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5",
           "M-D67-1", "M-D67-2"]
@@ -10379,7 +10702,8 @@ def selftest():
          + ["M-D68-%d" % i for i in (71, 73, 76, 79)]
          + ["M-D68-%d" % i for i in (82, 83)]
          + ["M-D68-%d" % i for i in (87, 88, 89)]
-         + ["M-D68-%d" % i for i in (91, 95, 97, 104, 106, 108, 110, 113, 114, 115)], [],
+         + ["M-D68-%d" % i for i in (91, 95, 97, 104, 106, 108, 110, 113, 114, 115)]
+         + ["M-D68-%d" % i for i in (116, 118, 122, 123, 124, 127, 129, 130, 131, 132, 133)], [],
          True, False, False, True, False))
 
     print("\n3. THE EXCHANGE RATE, RE-DERIVED FROM ASKED CONSTANTS")
@@ -11899,8 +12223,10 @@ def selftest():
     # RE-PINNED WITH THE BULK5 SEATING (BULK5-seat): + items 80 and 81.
     # RE-PINNED WITH THE COPY SEATING (COPY-seat): + items 84, 85 and 86.
     # RE-PINNED WITH THE 8o SEATING (8o-seat): + items 90, 92, 93, 94, 96, 98, 99, 100, 101, 102, 107, 109 and 111.
+    # RE-PINNED WITH THE 8p SEATING (8p-seat): + items 117, 119, 120, 121, 125, 126, 128 and 134.
     chk("M's words the RULINGS FILE carries (items 21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, "
-        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81, 84, 85, 86, 90, 92, 93, 94, 96, 98, 99, 100, 101, 102, 107, 109, 111) "
+        "65, 67, 70, 72, 74, 75, 77, 78, 80, 81, 84, 85, 86, 90, 92, 93, 94, 96, 98, 99, 100, 101, 102, 107, 109, 111, "
+        "117, 119, 120, 121, 125, 126, 128, 134) "
         "are in "
         "D68_FILE_CARRIED, NOT on RULED_BY_M; each cell says so, quotes exactly its held "
         "words, and none reads 'RULED BY M'; none is cut",
@@ -11913,7 +12239,7 @@ def selftest():
          [t for t in _truncated_cells() if t[0] in ("carried", "w3s1b-open")]),
         (["M-D68-%d" % i for i in (21, 23, 25, 31, 32, 35, 41, 44, 46, 48, 50, 52, 56, 57, 60, 62, 63, 65, 67, 70, 72,
                                    74, 75, 77, 78, 80, 81, 84, 85, 86, 90, 92, 93, 94, 96, 98, 99, 100, 101, 102,
-                                   107, 109, 111)],
+                                   107, 109, 111, 117, 119, 120, 121, 125, 126, 128, 134)],
          [], [], []))
     chk("  and LEDGER.md prints them, then the OPEN list, after the charter's carried items "
         "and before the pending rulings",
@@ -12196,6 +12522,27 @@ def selftest():
          < _md.index("## Pending M's ruling"), "8o.  THE WHOLE CHAIN UNDER M'S THEORY" in __doc__,
          "RE-SEATED (8o-seat" in __doc__),
         (9, [], True, True, True))
+    # ADDED (8p-seat, docstring section 8p): the bulk and the corridor fixed by its input.
+    chk("THE BULK AND THE CORRIDOR FIXED BY ITS INPUT: coin.py, current.py (copy/) and closedbulk.py, umbilic.py, "
+        "manyplanes.py (bulk/) load by path; sys.path restored; no module key the load added is left behind",
+        (CHAIN8P_LOAD["misplaced"], CHAIN8P_LOAD["path_restored"], CHAIN8P_LOAD["keys_left"], sorted(CHAIN8P)),
+        ([], True, [], ["closedbulk", "coin", "current", "manyplanes", "umbilic"]))
+    _f8p = CHAIN8P_ASKED
+    _c134 = " ".join([r for r in D68_FILE_CARRIED if r[0] == "M-D68-134"][0][2].split())
+    chk("  M-D68-134's cell prints coin.py's closed form at both members and the pull per sqrt(bit), asked at load (three "
+        "needles); the corridor's leg is -(4/3)[1 - (sqrt3/6) ln(2 + sqrt3)]",
+        ([n for n in _chain8p_fig(_f8p).values() if n not in _c134],
+         abs(_f8p["leg_edge"] + 4.0 / 3 * (1 - math.sqrt(3) / 6 * math.log(2 + math.sqrt(3)))) < 1e-12),
+        ([], True))
+    chk("  CONTROL: the same figures at 1.5 times are not found",
+        len([n for n in _chain8p_fig(_f8p, 1.5).values() if n not in _c134]), 3)
+    chk("  CHAIN8P_OPEN names %d items with owner files; LEDGER.md prints them after section 8o's and before the "
+        "pending rulings; section 8p is in the docstring" % len(CHAIN8P_OPEN),
+        (len(CHAIN8P_OPEN), [r[0] for r in CHAIN8P_OPEN if not _os.path.exists(_os.path.join(HERE, r[3]))],
+         _md.index("## The whole chain under M's theory -- what stays open")
+         < _md.index("## The bulk and the corridor fixed by its input -- what stays open")
+         < _md.index("## Pending M's ruling"), "8p.  THE BULK AND THE CORRIDOR FIXED BY ITS INPUT" in __doc__),
+        (9, [], True, True))
     chk("EVERY QUOTATION in a DOCKET 68 cell (here, and index3.py's DOCKET 68 rows) is the "
         "tree's words, or declared otherwise: M's thesis and the question included, the "
         "D23 note's quotation exact ('because is already exists everywhere')",

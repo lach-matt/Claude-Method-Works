@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """current.py -- DOCKET 68, M-RULINGS items 125-132 (X5-X6 verified 2026-10-07; X7 verified 2026-10-07): the README corridor's coefficients evaluated with exact values,
-from our current state outward.  Deduced and computed; verified once; not seated.  Write-up: CURRENT.md.
+from our current state outward.  Deduced and computed; verified once; SEATED (ledger.py section 8p).  Write-up: CURRENT.md.
 
 M's words (verbatim in the rulings file): item 125 "We cannot use general coefficients for this work. We must always
 avoid that debt by evaluating the coefficient in full and calculate using it exact values." (M-EXACT-VALUES); item 127

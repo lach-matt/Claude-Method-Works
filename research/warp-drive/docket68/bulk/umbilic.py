@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """umbilic.py -- DOCKET 68, M-RULINGS item 122 (2): "read then compute" H-UMBILIC-GEODESIC -- one light ray, read by the
-plane and by the bulk.  Deduced, computed and READ; verified once; not seated.  Write-up: UMBILIC.md.
+plane and by the bulk.  Deduced, computed and READ; verified once; SEATED (ledger.py section 8p).  Write-up: UMBILIC.md.
 
 THE CANDIDATE.  S3 has K = -a q: the plane is umbilic, so K_mn k^m k^n = 0 for every null k, and the plane's light rays
 would be light rays of the bulk; along one, a bulk of vacuum energy alone gives R5_kk = 0.  (It was COIN.md point 5;

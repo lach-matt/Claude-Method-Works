@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """closedbulk.py -- DOCKET 68, M-RULINGS items 120-124: building the bulk (BULK5-O1) under The Method's closed-index
-criteria, self-referencing and self-defending.  Deduced, computed and READ; verified once; not seated.  Write-up:
+criteria, self-referencing and self-defending.  Deduced, computed and READ; verified once; SEATED (ledger.py section 8p).  Write-up:
 CLOSEDBULK.md.  First headed "M-RULINGS items 120-121 ... not verified".
 
 M's words (verbatim in the rulings file): item 120 "yes. Science has already taught us that matter is neither created
