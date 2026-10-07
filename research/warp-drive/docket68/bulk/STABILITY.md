@@ -11,7 +11,7 @@ identity replaces them (History).
   - item 86, answer 5 (H-BRIEF-HOLD): the hold is *"incredibly short, maybe even immeasurable but not zero"*, and
     *"this answer is also a relative one"*;
   - item 136 E: *"Instantaneous or near instantaneous"*.
-- **The instrument:** `stability.py`. Selftest 7/7.
+- **The instrument:** `stability.py`. Selftest 8/8.
   - **Controls:** two. One is a horizon off the corridor; one is READ (extremal Reissner–Nordström).
 
 ## READ
@@ -66,11 +66,23 @@ identity replaces them (History).
   - Aretakis's blow-up is a statement as advanced time goes to infinity.
 - **Caution:** your *"relative"* (item 86) matters here. The clock is measured in the horizon's own advanced time.
 
+### 5. The white-hole half of the wall (S5)
+
+- **READ:** Bianchi, Christodoulou, D'Ambrosio, Haggard and Rovelli, arXiv:1802.04264v2 p.7: *"Generically, white holes
+  are known to be unstable under perturbations … The instability arises because modes of short-wavelength are
+  exponentially blue-shifted along the white hole horizon."*
+- **The exponential rate is the horizon's surface gravity.** The corridor's is zero (section 1). So the exponential
+  blueshift that drives the white-hole instability is absent at the corridor's exit: e^(κv) = 1 for every v.
+  - **Control:** the r₀ = 1.8m member, which is not extremal, e-folds every 2√10·m, about 6.3m.
+- **What remains at zero surface gravity is power-law.** An outgoing ray near the horizon obeys dρ/dv = D/2 =
+  ρ̃²/(8m²). It reaches the throat's scale in a finite advanced time set by where it starts, not exponentially.
+- **So the generic white-hole instability does not act at the corridor's exit.** The power-law remainder is of the
+  same kind as section 3's, finite over finite times.
+
 ## What is not settled
 
-- **The white-hole half of wall E.** The wall's record notes that large white holes are unstable. The corridor's exit
-  is a white-hole horizon (plane.py P1). That is not worked here.
 - **The hold's length,** in the corridor's clocks.
+- **The power-law behaviour at the white-hole horizon,** worked to the same exactness as section 3's.
 
 ## Named hypotheses
 
@@ -84,9 +96,9 @@ identity replaces them (History).
 
 ## OPEN
 
-1. The white-hole instability at the corridor's exit.
-2. The hold's length in the corridor's clocks.
-3. Whether waves decay along this horizon, which Theorem 2's blow-up needs.
+1. The hold's length in the corridor's clocks.
+2. Whether waves decay along this horizon, which Theorem 2's blow-up needs.
+3. The power-law behaviour at the white-hole horizon, worked exactly.
 
 ## History (verifier, 2026-10-07)
 
@@ -95,7 +107,8 @@ Eight findings, all applied:
 1. **Theorem 3 is for extremal Kerr.** The τ^(k−1) law is withdrawn. Theorems 1 and 2 are now stated for the corridor.
 2. **"The instability is real for this horizon" over-stated.** Non-decay holds; blow-up is conditional.
 3. **An asymptotic bound was used for early times.** Replaced by the exact horizon identity (S4).
-4. **The white-hole half of the wall** was missing. It is now OPEN.
+4. **The white-hole half of the wall** was missing. It is now worked (S5): the corridor's zero surface gravity removes
+   the exponential blueshift.
 5. **The hypothesis was mislabelled.** It is H-BRIEF-HOLD (86.5), with its "relative".
 6. **The quote is now verbatim** ("asympotically", sic).
 7. **The degenerate member's structure** is now stated.

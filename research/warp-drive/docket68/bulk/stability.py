@@ -23,6 +23,13 @@ derivatives of psi do not decay and H[psi] = 0").  Theorem 3 p.15 ("asympoticall
       so over an advanced time v the second derivative changes by -H0 v/(4m^2) - (psi(v) - psi(0))/(2m^2): linear growth
       with an exact coefficient, no unknown constant.  Over one clock (v = m) the linear part is H0/(4m), a quarter of
       the second derivative's natural size H0/m
+  S5  the white-hole half of the wall.  READ: Bianchi, Christodoulou, D'Ambrosio, Haggard & Rovelli, arXiv:1802.04264v2
+      p.7: "Generically, white holes are known to be unstable under perturbations ... The instability arises because
+      modes of short-wavelength are exponentially blue-shifted along the white hole horizon."  The exponential rate is
+      the surface gravity kappa = D'(rho_H)/2.  The corridor's is zero (S1), so the exponential blueshift is absent:
+      e^(kappa v) = 1 for every v.  Control: the r0 = 1.8m member, kappa = sqrt(10)/(20m), e-folds every 2 sqrt(10) m
+      ~ 6.3 m.  What remains at kappa = 0 is power-law (an outgoing ray near the horizon obeys d(rho)/dv = D/2 =
+      rho~^2/(8m^2), reaching the throat's scale in a finite advanced time set by its start, not exponentially)
 Imports copy/chain.py's exact throat coefficient by path.  Stdlib + sympy.  python3 stability.py [--selftest]
 """
 import contextlib
@@ -106,7 +113,8 @@ def compute():
     coeff_dv = sp.simplify(second.coeff(sp.Derivative(tr["psi"], tr["v"])).subs({r2s: rpp, r0s: 2 * m}))
     return {"D1": d1, "D2": d2, "K": K, "cond10": sp.simplify(d2 - 2 * K) == 0, "control_D1": c1, "rn_ok": rn_ok,
             "rN": rN, "t_m": t_m, "t_m_per_sqrt_bit": r1 / (2 * C), "first": tr["first"], "rpp": rpp,
-            "coeff_H0": coeff_H0, "coeff_dv": coeff_dv}
+            "coeff_H0": coeff_H0, "coeff_dv": coeff_dv,
+            "kappa": sp.simplify(d1 / 2), "kappa_control": sp.simplify(c1 / 2)}
 
 
 def report(d):
@@ -119,6 +127,8 @@ def report(d):
     print("S4 on the horizon: d/dv(d psi/d rho) = %s (conserved); r''(rho_H) = %s; d/dv(d2 psi/d rho2) = (%s) H0 + (%s) dpsi/dv"
           % (d["first"][0] if d["first"] else 0, d["rpp"], d["coeff_H0"], d["coeff_dv"]))
     print("   over one clock (v = m) the linear part of the change is H0/(4m): a quarter of the natural size H0/m")
+    print("S5 white-hole blueshift rate kappa: corridor %s (exponential blueshift absent); control r0 = 1.8m: %s, "
+          "e-folding %s" % (d["kappa"], d["kappa_control"], sp.simplify(1 / d["kappa_control"])))
 
 
 def selftest():
@@ -140,6 +150,9 @@ def selftest():
     chk("S4: on the horizon the first derivative is conserved exactly (d/dv of it is zero)", d["first"] == [0])
     chk("S4: the second derivative changes at -H0/(4 m^2) - (1/(2 m^2)) dpsi/dv, exactly (r'' = 1/m)",
         sp.simplify(d["coeff_H0"] + 1 / (4 * m**2)) == 0 and sp.simplify(d["coeff_dv"] + 1 / (2 * m**2)) == 0)
+    chk("S5: the corridor's surface gravity is zero, so the white hole's exponential blueshift is absent; control: "
+        "the r0 = 1.8m member e-folds every 2 sqrt(10) m", d["kappa"] == 0
+        and sp.simplify(1 / d["kappa_control"] - 2 * sp.sqrt(10) * m) == 0)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
