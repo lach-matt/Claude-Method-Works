@@ -36,8 +36,8 @@ al., arXiv:1808.08677v2.
 
 **What this means for answer 2 (item 136):**
 - "Activating the Higgs field" sets the electron's mass in full and about a tenth of the nucleons'.
-- Most of the copy's mass is the strong force's field energy inside its nucleons, which the Higgs field does not
-  supply.
+- Most of the copy's mass is the strong force's field energy inside its nucleons, which the Higgs field supplies only
+  indirectly, through the quark masses.
 
 ## Reorganization
 
