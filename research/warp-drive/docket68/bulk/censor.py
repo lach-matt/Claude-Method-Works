@@ -3,7 +3,7 @@
 
 M's order (item 136, wall D): "yes, or prove that a censorship theorem does not apply".
 
-Five theorems were READ at source in step 2 (docket68/residue/OUTSIDE.md).  Each one's premises are checked here, one
+Five theorems were READ at source in step 2, two more after the verifier (Chrusciel-Galloway-Solis) (docket68/residue/OUTSIDE.md).  Each one's premises are checked here, one
 by one, against the board's bulk: vacuum AdS5 off the plane, G_AB = 6 k^2 g_AB, with the plane as an umbilic brane,
 K = -k g (closedbulk.py's K = -a q), mirror-symmetric (H-Z2, LOOSE.md L4), carrying the corridor with no brane matter
 (tau = 0: Bronnikov-Kim eq. 17 is a vacuum brane solution).
@@ -15,6 +15,8 @@ K = -k g (closedbulk.py's K = -a q), mirror-symmetric (H-Z2, LOOSE.md L4), carry
   C5  the Poincare patch off the plane is null incomplete (imported from residue/loose.py L5)
   C6  the plane's averaged null energy along the passage is negative (imported from copy/coin.py)
   C7  the mirror-symmetric plane makes the metric only C^0 across it ([K] != 0)
+  C8  the plane's time slices are not compact
+  C9  the extra dimension is unbounded (M's item 136 answer 9), so no compact internal space
 
 Stdlib + sympy.  python3 censor.py [--selftest]
 """
@@ -163,34 +165,69 @@ def c7():
     return owners()["loose"].l4()
 
 
+# Premise status: ("FAILS", check) robustly fails, backed by a computed check; ("DEPENDS", hypothesis) fails only under
+# a named choice; ("HOLDS", check); ("OPEN", why).  A theorem DOES NOT APPLY if one premise robustly FAILS; it
+# DEPENDS if none FAILS but one fails under a choice; otherwise it MAY APPLY.
 THEOREMS = [
     ("Friedman-Schleich-Witt Thm 1 (gr-qc/9305017v2 p.3), the plane's 4D geometry",
-     [("asymptotically flat", "holds (eq. 17)", True), ("globally hyperbolic", "not checked", None),
-      ("ANEC", "FAILS: the plane reads the passage's averaged null energy as negative (C6)", False)]),
+     [("asymptotically flat", ("HOLDS", "eq. (17)")),
+      ("globally hyperbolic", ("OPEN", "not checked")),
+      ("ANEC in the focusing (Ricci) form its proof uses", ("FAILS", "c6")),
+      ("ANEC on the plane's matter T_ab", ("HOLDS", "tau = 0: trivially; the plane does not obey 4D Einstein"))]),
     ("Gao-Wald Thm 1 (gr-qc/0007021v2 p.6), the 5D bulk",
-     [("null energy condition", "holds in 5D (C1)", True),
-      ("null generic condition", "FAILS in vacuum AdS5 (C3); near the corridor its Weyl part may supply it", False),
-      ("null geodesically complete", "FAILS on the Poincare patch off the plane (C5, H-POINCARE-PATCH)", False),
-      ("a smooth metric", "FAILS across a mirror-symmetric plane: [K] != 0, the metric is C^0 (C7)", False)]),
+     [("null energy condition", ("DEPENDS", "H-OUR-TENSION (positive tension, c1)")),
+      ("null generic condition", ("OPEN", "fails in vacuum AdS5 (c3); the corridor's Weyl part plausibly supplies it")),
+      ("null geodesically complete", ("DEPENDS", "H-POINCARE-PATCH (c5); pure AdS extends past the horizon")),
+      ("a smooth metric", ("OPEN", "C^0 at a thin plane (c7), but a thick plane keeps NEC: a technicality")),
+      ("or, Galloway's variant: no null line", ("OPEN", "not checked; needs neither completeness nor genericity"))]),
     ("Gao-Wald Thm 2 (gr-qc/0007021v2 pp.12-13), the 5D bulk",
-     [("a conformal boundary, Omega = 0, timelike", "FAILS: Omega = k z >= 1 off the plane (C4)", False),
-      ("null energy and null generic conditions", "the generic condition FAILS in vacuum AdS5 (C3)", False)]),
+     [("a timelike conformal boundary, Omega = 0", ("DEPENDS", "H-POINCARE-PATCH: none inside it (c4); global AdS "
+                                                    "past the horizon has one")),
+      ("null energy and generic conditions", ("OPEN", "as for Thm 1")),
+      ("strong causality; compact J+ cap J-", ("OPEN", "not checked"))]),
     ("Galloway-Schleich-Witt-Woolgar Thm 2.1 (gr-qc/9902061v2 p.8), the 5D bulk",
-     [("a boundary I with Omega = 0, d Omega != 0", "FAILS: no Omega = 0 off the plane (C4)", False),
-      ("ANEC near I", "vacuous without I", None)]),
+     [("a boundary I with Omega = 0, d Omega != 0", ("DEPENDS", "H-POINCARE-PATCH (c4)")),
+      ("M cup I globally hyperbolic; a compact cut", ("OPEN", "not checked"))]),
     ("Galloway-Schleich-Witt-Woolgar Thm 1 (hep-th/9912119v2 p.8), the 5D bulk",
-     [("a timelike boundary I with Omega = 0", "FAILS: no Omega = 0 off the plane (C4)", False),
-      ("ANEC", "holds in 5D (C1); 4D-projected it fails (C6)", None)]),
+     [("a timelike boundary I with Omega = 0", ("DEPENDS", "H-POINCARE-PATCH (c4)")),
+      ("M' globally hyperbolic; a compact cut or the generic condition", ("OPEN", "not checked"))]),
+    ("Chrusciel-Galloway-Solis Thms 3.1, 3.5 (arXiv:0808.3233v2 pp.3, 5), the plane as the bulk's timelike boundary",
+     [("the boundary's time slices compact", ("FAILS", "c8")),
+      ("NEC, R_AB X^A X^B >= 0", ("DEPENDS", "H-OUR-TENSION (c1)"))]),
+    ("Chrusciel-Galloway-Solis Thms 5.2, 5.3 (arXiv:0808.3233v2 p.10), Kaluza-Klein ends",
+     [("a compact internal space Q (S_ext = R x N x Q)", ("FAILS", "c9")),
+      ("NEC; global hyperbolicity", ("DEPENDS", "H-OUR-TENSION (c1); global hyperbolicity not checked"))]),
 ]
 
 
+def c8():
+    """The plane's time slices: R^3 (the corridor's plane is asymptotically flat and infinite) -- not compact.
+    Control: a sphere r = R inside the plane would be compact, but it is not the bulk's boundary."""
+    return {"plane_slice": "R^3", "compact": False}
+
+
+def c9():
+    """M's item 136 answer 9: the extra dimension is unbounded ("an infinite amount of contents"), so the internal space
+    Q is non-compact.  Control: a compact (Randall-Sundrum I) interval would be compact, and the theorem would apply."""
+    return {"Q": "unbounded (item 136 answer 9)", "compact": False, "rs1_control_compact": True}
+
+
+def verdict(prem):
+    st = [p[1][0] for p in prem]
+    if "FAILS" in st:
+        return "DOES NOT APPLY"
+    if "DEPENDS" in st:
+        return "DEPENDS ON A NAMED CHOICE"
+    return "MAY APPLY"
+
+
 def compute():
-    return {"c1": c1(), "c3": c3(), "c4": c4(), "c5": c5(), "c6": c6(), "c7": c7()}
+    return {"c1": c1(), "c3": c3(), "c4": c4(), "c5": c5(), "c6": c6(), "c7": c7(), "c8": c8(), "c9": c9()}
 
 
 def report(d):
     print("censor.py -- do the censorship theorems apply to the bulk bounded by M's plane? (wall D)\n")
-    print("C1 null energy in 5D: the plane's S_AB k^A k^B = %s (lambda > 0 under H-Z2: never negative); the bulk's "
+    print("C1 null energy in 5D: the plane's S_AB k^A k^B = %s (never negative iff lambda > 0, H-OUR-TENSION); the bulk's "
           "g_AB k^A k^B = %s" % (d["c1"]["S_kk"], d["c1"]["bulk_kk"]))
     print("C2 the plane's reading is the projected Weyl part: E_kk = -G_kk (umbilic.py, seated; cited)")
     print("C3 null generic condition, max |k_[a R_b]cd[e k_f] k^c k^d|: vacuum AdS5 %.3g (maximal symmetry residual %s, "
@@ -201,12 +238,13 @@ def report(d):
     print("C5 the Poincare horizon off the plane at affine parameter %s: null incomplete" % d["c5"]["affine_to_horizon"])
     print("C6 the plane's averaged null energy per leg: %.15f E/m at r0 = 2m (coin.py)" % d["c6"]["leg_floor"])
     print("C7 the mirror-symmetric plane: total tension %s, from [K] = -2k g != 0 (loose.py L4)" % d["c7"]["Z2"])
+    print("C8 the plane's time slices: %s, not compact" % d["c8"]["plane_slice"])
+    print("C9 the internal space: %s, not compact; control: a Randall-Sundrum I interval is compact" % d["c9"]["Q"])
     print()
     for name, prem in THEOREMS:
-        fails = [p for p in prem if p[2] is False]
-        print("%s -- %s" % (name, "DOES NOT APPLY" if fails else "applies"))
-        for p, why, ok in prem:
-            print("    %-44s %s" % (p, why))
+        print("%s -- %s" % (name, verdict(prem)))
+        for p, (st, why) in prem:
+            print("    %-52s %-8s %s" % (p, st, why))
 
 
 def selftest():
@@ -239,8 +277,17 @@ def selftest():
     chk("C6: the plane's averaged null energy along the passage is negative (coin.py)", d["c6"]["leg_floor"] < 0)
     chk("C7: the mirror-symmetric plane's jump in K is nonzero (total tension 6k/kappa5^2)",
         d["c7"]["Z2"] != 0)
-    applies = [name for name, prem in THEOREMS if not any(p[2] is False for p in prem)]
-    chk("no theorem read has all its premises met (each fails at least one checked premise)", applies == [])
+    passed = {"c1": d["c1"]["S_kk"] != 0, "c3": d["c3"]["ads"] < 1e-12, "c4": d["c4"]["min_Omega_plane_side"] == 1,
+              "c5": True, "c6": d["c6"]["leg_floor"] < 0, "c7": d["c7"]["Z2"] != 0,
+              "c8": d["c8"]["compact"] is False, "c9": d["c9"]["compact"] is False}
+    backed = all(passed.get(why, False) for _, prem in THEOREMS for _, (st, why) in prem if st == "FAILS")
+    chk("every robust FAILS is backed by a computed check that passed", backed)
+    chk("c9 control: a compact (RS1) internal space would meet Chrusciel-Galloway-Solis 5.2's premise",
+        d["c9"]["rs1_control_compact"] is True)
+    v = {name: verdict(prem) for name, prem in THEOREMS}
+    chk("verdicts: FSW and both Chrusciel-Galloway-Solis groups do not apply; the Gao-Wald and GSWW theorems depend on "
+        "named choices", sum(x == "DOES NOT APPLY" for x in v.values()) == 3 and
+        sum(x == "DEPENDS ON A NAMED CHOICE" for x in v.values()) == 4)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 

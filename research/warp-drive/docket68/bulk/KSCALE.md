@@ -1,4 +1,4 @@
-# The bulk scale hypothesized, and what would be seen (M-RULINGS items 136-137, question 8 and wall I; computed and READ; not verified; not seated; 2026-10-07)
+# The bulk scale hypothesized, and what the corridor's far field says (M-RULINGS items 136-137, question 8 and wall I; computed and READ; verified once; not seated; 2026-10-07)
 
 *First headed* "(… not verified; not seated; 2026-10-07)".
 
@@ -6,74 +6,98 @@
 
 - **Item 136, question 8:** *"leave it to measurement. But we can accurately hypothesize it first. Measurement would
   confirm."*
-- **Wall I:** *"take what is established and apply first principles to derive something we can observe/witness"*.
-- **Item 137:** D, then I, then C.
-- **The instrument:** `kscale.py`. Selftest 9/9, with controls.
+- **Wall I:** *"derive something we can observe/witness"*.
+- **The instrument:** `kscale.py`. Selftest 10/10.
 
-## What passes: an observable the corridor itself carries, with no k needed
+## What passes
 
-- **The corridor's far field has a fingerprint that a plain mass does not have.** Far from any mass, general relativity
-  writes the field in two numbers, γ and β (Eddington–Robertson, areal coordinates):
-  - g_tt = 1 − 2M/r + 2(β − γ)M²/r²;
-  - g_rr = 1 + 2γM/r.
-  - A plain mass (Schwarzschild) has γ = β = 1.
-- **Eq. (17) gives γ(r₀) = (m + 2r₀)/(4m) and β = γ.**
-  - At the Schwarzschild member (r₀ = 3m/2) that is γ = β = 1. That is the control, and it is exact.
-  - **At the corridor's member, r₀ = 2m, γ = β = 5/4.**
-- **So, against a plain mass with the same pull, the corridor:**
-  - **bends light by (1 + γ)/2 = 9/8**;
-  - **delays a passing signal (Shapiro) by 9/8**;
-  - **turns an orbit's perihelion by (2 + 2γ − β)/3 = 13/12**.
-- **Where the excess comes from.** The excess curvature in g_rr is the bulk's Weyl part read on the plane: the
-  corridor's 5m/4 total against its pull m (CURRENT.md X6).
-- **So a measurement of γ = 5/4 around a compact object would be the plane reading the bulk.** That is the second plane
-  seen through its geometry, in the classic tests of general relativity, with every factor exact.
+- **The corridor has an exact far-field signature, and it agrees with the literature.**
+  - In Eddington–Robertson form, eq. (17) gives γ = β = (m + 2r₀)/(4m). That is exactly Casadio–Fabbri–Mazzacurati's
+    eq. (8) for the metric they introduced (gr-qc/0111072; the board's selftest checks the match).
+  - At the corridor's member r₀ = 2m, **γ = β = 5/4**. That is CFM's own *"zero temperature black hole"*.
+  - So, against a plain mass with the same pull, light bends **9/8** as much, signals are delayed **9/8** as much, and
+    orbits turn **13/12** as much. These are ratios of the leading coefficients, from the metric's own geodesics.
+  - This is a re-derivation, not a new observable.
+- **One candidate scale for k is ruled out by measurement.** The dark-energy length, ℓ = (ħc/ρ_d)^{1/4} = 84.9 μm
+  (Lee et al., arXiv:2002.11761v1 p.1, READ).
+  - It would change the force by 1% already at **1.2 mm**, well inside the far-field range where the formula holds.
+  - That is inside Lee et al.'s 52 μm – 3.0 mm range, where *"Newtonian gravity gave an excellent fit"*.
+  - This is the board's inference from a Newtonian fit, not a published fit of the 1/r⁴ form.
 
-## The scale k: three candidates, each from an established scale
+## What does not pass: the corridor's far field against the bulk the board assumed
 
-On the plane, Newton's law gains a term from the bulk: V = GM/r·(1 + 2ℓ²/(3r²)), with ℓ = 1/k (Maartens–Koyama,
-arXiv:1004.3962v2 eq. 41, READ).
+This is the most important result of I. It bears directly on C.
 
-| | ℓ | k | Newton changed at 52 μm | what it predicts |
-|---|---|---|---|---|
-| **K1** the dark-energy length (ħc/ρ_d)^{1/4} (Lee et al. p.1, READ) | 84.9 μm | 1.178×10⁴ m⁻¹ | **+178%** | a 1% change already at 0.69 mm |
-| **K2** the largest ℓ the 52 μm data leave (rough) | 6.4 μm | 1.570×10⁵ m⁻¹ | +1% | +27% at 10 μm |
-| **K3** the Planck length | 1.616×10⁻³⁵ m | 6.187×10³⁴ m⁻¹ | 6×10⁻⁶² | nothing on any bench |
+- **In a Randall–Sundrum II bulk, a mass on the plane changes the far field only slightly.**
+  - The change is suppressed by ℓ², at second post-Newtonian order. Maartens–Koyama, arXiv:1004.3962v2 p.26, READ:
+    *"The corrections to the weak-field potential, Equation (41), are at the second post-Newtonian (2PN) level."*
+  - Their eq. (155) gives g_rr's change as about −4mℓ²/(3r³). So that bulk gives **γ = 1**.
+- **The corridor's γ = 5/4 is an ℓ-independent 1/r term.** That bulk does not produce it.
+- **Maartens–Koyama make the same argument against the tidal-charge metric** (p.28): it *"does not satisfy the far-field
+  r⁻³ correction … therefore cannot describe the end-state of collapse"*.
+- **Figueras–Wiseman, arXiv:1105.2558v2 (READ), close the other side.**
+  - For a plane with no matter and small curvature, the plane's geometry is Ricci-flat to leading order (p.2, eqs.
+    5–7).
+  - Large static black holes recover 4D Schwarzschild; small ones (r ≪ ℓ) *"behave like 5d asymptotically flat
+    Schwarzschild black holes"* (p.3).
+- **So a static eq. (17) corridor with r₀ = 2m does not look like what a Randall–Sundrum II bulk gives, in either size
+  regime.**
+  - For r₀ ≫ ℓ it should be Schwarzschild-like, with γ = 1.
+  - For r₀ ≪ ℓ it should be five-dimensional.
+  - Only r₀ ~ ℓ is open.
+  - This is the board's reading of the two sources together. No bulk solution for these metrics is known either way
+    (Maartens–Koyama p.27).
+- **Three ways out, each a premise:**
+  - (a) **The corridor is not static.** It exists only for the brief hold (your item 86 answer 5; *"Instantaneous or
+    near instantaneous"*, item 136 E). Static far-field results then do not bind it, and C must build a time-dependent
+    bulk.
+  - (b) **The bulk is not a single Randall–Sundrum II plane.** Something else in it carries the Weyl field, such as
+    your other planes (items 123, 124).
+  - (c) **r₀ ~ ℓ.** But r₀ is set by your input N and k is one constant, so that could hold for one README only.
+- **No measured body shows γ = 5/4.** Cassini gives |γ − 1| ≲ 2×10⁻⁵ for the Sun (NOT READ here; cited by the
+  verifier). CFM say such values *"are ruled out on astrophysical scales"*. That is about ordinary bodies, not
+  corridors.
 
-- **K1 is ruled out by measurement.** Lee et al. find *"Newtonian gravity gave an excellent fit to our data"* from
-  52 μm to 3.0 mm (arXiv:2002.11761v1 p.1). K1 predicts a 178% change at 52 μm.
-  - Recorded as the boundary: the most natural scale from established physics does not work.
-- **K2 is the board's rough edge, not a published bound.**
-  - It takes Lee et al.'s *"percent-level measurements of G_N at separations down to about 50 μm"* (p.2), applies the
-    point-mass formula, and solves for a 1% change.
-  - Their test bodies are plates, not points, and the formula is a far-field expansion (r ≫ ℓ).
-  - It is the right order. The astrophysical bound, on a contested premise, is ℓ ≲ 13 μm (OUTSIDE.md).
-- **K3 is invisible on a bench.** It is the scale Randall–Sundrum's two-plane hierarchy uses. There, the first
-  graviton excitations would show at colliders: none below 4.5–4.8 TeV at k/M̄_Pl = 0.1 (OUTSIDE.md).
-- **The hypothesis to measure, then, is ℓ between the Planck length and a few μm.** If ℓ sits near the top of that
-  range, the next short-range tests see Newton's law change as 1/r⁴ in the force; a Yukawa change would fall off
-  exponentially instead. That shape is the signature.
+## The scale k: candidates
 
-## What this does and does not show
+The torsion balance measures force. On the plane the force changes by 2ℓ²/r² (eq. 41 differentiated; r ≫ ℓ only).
 
-- **It shows two things.** The corridor's own far field differs from a plain mass by exact factors (9/8 and 13/12).
-  And the bulk's scale has one candidate already ruled out (K1), one edge (K2) and one invisible floor (K3).
-- **It does not fix k.** That stays with measurement (your question 8).
-- **It does not show the corridor's fingerprint is measurable today.** For the board's example README the corridor's
-  pull is 0.27 kg, so the 9/8 bending around it is far below any instrument. The fingerprint holds for any object
-  whose outside is the r₀ = 2m member, at any mass.
-- **Eq. (41) is the far-field correction.** Near r ~ ℓ the full bulk propagator is needed.
+| | ℓ | k | what it predicts |
+|---|---|---|---|
+| **K1** the dark-energy length | 84.9 μm | 1.178×10⁴ m⁻¹ | a 1% force change at 1.2 mm: **ruled out** by Lee et al.'s Newtonian fit |
+| **K2** the largest ℓ the 52 μm data leave (rough: point masses, 1% force) | 3.68 μm | 2.72×10⁵ m⁻¹ | +27% force at 10 μm |
+| **K3** the Planck length | 1.616×10⁻³⁵ m | 6.19×10³⁴ m⁻¹ | nothing on any bench; under one plane, nothing at colliders either (Maartens–Koyama p.11) |
+
+- **The hypothesis to measure is ℓ between the Planck length and a few μm.**
+  - Maartens–Koyama's own table-top statement is ℓ ≲ 0.1 mm. A fit of the 2020 data to the 1/r⁴ form was not found.
+  - If ℓ sits near the top of that range, short-range tests see the force change as 1/r⁴ for r ≫ ℓ, crossing to a
+    five-dimensional 1/r³ for r ≲ ℓ. A Yukawa change would fall off exponentially instead.
 
 ## Named hypotheses
 
 - **The board's:**
-  - H-RS2-ONE-PLANE (the bulk as Randall–Sundrum II, consistent with your item 136 answer 9: no ends);
+  - H-RS2-ONE-PLANE;
   - H-POINT-MASS (K2);
-  - H-ER-FORM (areal-coordinate PPN).
-- **Yours:** questions 8 and 9; wall I.
+  - H-STATIC-CORRIDOR, the premise the far-field tension rests on.
+- **Yours:** question 8, answer 9, wall I.
 
 ## OPEN
 
-1. A published bound on ℓ from fitting the short-range data to the 1/r⁴ form. NOT READ; none was found in step 2.
-2. Which candidate you hypothesize: K2's edge or K3's floor. Or a scale from your theory itself.
-3. Where a γ = 5/4 object could be sought: what compact objects your theory says are corridors.
+1. **Whether the corridor is a static geometry or exists only for the hold (way out a).** This is a question for you,
+   and it decides how C is built.
+2. **Which k you hypothesize:** K2's edge or K3's floor.
+3. **A fit of the 2020 short-range data to the 1/r⁴ form.** Not found.
+
+## History (verifier, 2026-10-07)
+
+Ten findings were applied:
+
+- **P's "the plane reading the bulk"** conflicted with the board's own RS2 sources (2PN only). That conflict is now the
+  section "What does not pass".
+- **P is CFM's eq. (8)**, now cited and checked.
+- **Cassini** is noted.
+- **K1's figures at 52 μm and 10 μm lie outside eq. 41's range.** The ruling-out now rests on the 1.2 mm row.
+- **K2 and K1 are recomputed on the force, not the potential**: K2 is 3.68 μm, *first written* 6.37 μm.
+- **K3** has no collider test under one plane.
+- **OPEN 1 is reworded.**
+- **A by-construction control was replaced.** The perihelion and CFM checks were added.

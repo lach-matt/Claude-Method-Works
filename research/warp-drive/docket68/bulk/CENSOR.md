@@ -1,86 +1,110 @@
-# The censorship theorems against your plane's bulk (M-RULINGS items 136-137, wall D; computed; not verified; not seated; 2026-10-07)
+# The censorship theorems against your plane's bulk (M-RULINGS items 136-137, wall D; computed and READ; verified once; not seated; 2026-10-07)
 
 *First headed* "(… not verified; not seated; 2026-10-07)".
 
 ## What you asked
 
 - **Item 136, wall D:** *"yes, or prove that a censorship theorem does not apply"*.
-- **Item 137:** *"Yes, take them in order"*. D comes first.
-- **The instrument:** `censor.py` takes the five censorship and time-delay theorems READ at source in step 2
-  (OUTSIDE.md). It checks each one's premises against the board's bulk:
+- **The instrument:** `censor.py` takes seven censorship and time-delay theorems, five READ in step 2 and two after the
+  verifier. It checks each premise against the board's bulk:
   - vacuum AdS₅ off the plane;
-  - the plane an umbilic brane with no matter on it (the corridor is a vacuum brane solution);
-  - the two sides mirror images (H-Z2).
-  - Selftest: 13/13, with a control on every computed check. It runs in 3 seconds.
+  - the plane a matter-free umbilic brane carrying the corridor;
+  - the two sides mirror images.
+  - Each verdict is derived from the premises' statuses: a premise that robustly FAILS (backed by a computed check), one
+    that fails only under a named choice (DEPENDS), or OPEN.
+  - Selftest: 15/15.
 
 ## What passes
 
-- **None of the five theorems applies.** Each fails at least one premise the board checks:
+- **The theorem on the plane itself does not apply.** Friedman–Schleich–Witt (gr-qc/9305017v2 p.3) needs the averaged
+  null energy condition in the focusing form its proof uses. The plane reads it negative along the passage, −0.826436
+  E/m per leg (coin.py).
+  - The plane's own matter keeps it trivially, since there is none.
+  - What breaks it is the bulk's Weyl part projected onto the plane (E_kk = −G_kk, umbilic.py). The plane does not obey
+    4D Einstein equations.
+- **The finite-boundary theorems do not apply** (Chruściel–Galloway–Solis, arXiv:0808.3233v2, READ).
+  - Their Thms 3.1 and 3.5 need the boundary's time slices to be compact. An infinite plane's are not.
+  - Their Thms 5.2 and 5.3 need a compact internal space. **Your answer 9 makes the extra dimension unbounded, and that
+    is what keeps them from applying.**
+  - **Control:** in a compact bulk (a Randall–Sundrum I interval), with the null energy condition, Thm 5.2 would apply.
+    It would forbid any causal curve from one end of the corridor to the other: *"J⁺(M_ext^λ1) ∩ J⁻(M_ext^λ2) = ∅"*
+    (p.10).
 
-| theorem | premise that fails | check |
-|---|---|---|
-| Friedman–Schleich–Witt Thm 1 (gr-qc/9305017v2 p.3), on the plane | ANEC: the plane reads the passage's averaged null energy as negative, −0.826436 E/m per leg | C6, coin.py |
-| Gao–Wald Thm 1 (gr-qc/0007021v2 p.6), in the bulk | null generic condition (fails everywhere in vacuum AdS₅); null completeness (the Poincaré patch is incomplete); a smooth metric (the mirror-symmetric plane makes it only C⁰) | C3, C5, C7 |
-| Gao–Wald Thm 2 (pp.12–13), in the bulk | a conformal boundary where Ω = 0: off the plane Ω = k·z ≥ 1; the generic condition | C4, C3 |
-| Galloway–Schleich–Witt–Woolgar Thm 2.1 (gr-qc/9902061v2 p.8) | a boundary I with Ω = 0 | C4 |
-| Galloway–Schleich–Witt–Woolgar Thm 1 (hep-th/9912119v2 p.8) | a timelike boundary I with Ω = 0 | C4 |
+## What does not close: the bulk theorems depend on two choices, one of them yours
 
-- **And the null energy condition holds in five dimensions.**
-  - On the plane, the stress is pure tension λ with no matter. For every null vector, S_AB·k^A·k^B = λ·k_y², which is
-    never negative when λ > 0. The mirror-symmetric junction gives λ = 6k/κ₅² > 0 (LOOSE.md L4).
-  - In the bulk, the only stress is the cosmological constant's, and g_AB·k^A·k^B = 0 for null k.
-  - **Control:** a negative-tension plane gives negative null energy.
-- **So the plane's negative reading is not matter.** It is the bulk's Weyl curvature projected onto the plane:
-  E_kk = −G_kk (umbilic.py, seated).
-- **Your *"An NEC is never violated"* (item 117), *"it only ever appears to break"* (item 120), is a result of this
-  model, under its named premises.**
-  - **In five dimensions the null energy condition holds everywhere** (C1).
-  - **The four-dimensional violation is how the plane reads the bulk's geometry** (C2).
-  - **That is also why the plane's censorship theorem does not bind the passage** (C6).
+- **Gao–Wald Thms 1 and 2, and Galloway–Schleich–Witt–Woolgar's two theorems, DEPEND on named choices:**
+
+| theorem | the choice it depends on |
+|---|---|
+| Gao–Wald Thm 1 | the sign of your plane's tension (the null energy condition); the bulk ending at the Poincaré horizon (completeness). Its generic condition plausibly holds with the corridor present, and its smoothness premise is a technicality: a thick plane keeps the null energy condition |
+| Gao–Wald Thm 2; GSWW Thm 2.1; GSWW Thm 1 | the bulk ending at the Poincaré horizon. Inside that patch there is no boundary where Ω = 0; continued past it, global AdS has one |
+
+- **First choice: the sign of your plane's tension (H-OUR-TENSION).**
+  - On the plane the null energy is S_AB·k^A·k^B = λ·k_y², for every null vector.
+  - With positive tension, the null energy condition holds everywhere in five dimensions, and your *"An NEC is never
+    violated"* holds in the model.
+  - With negative tension it fails on the plane. The board's earlier reading of Randall–Sundrum I (H-RS1, SIGNDIM.md)
+    put our matter on the negative-tension plane.
+  - The mirror symmetry alone does not fix the sign: K = −k·g gives λ > 0, K = +k·g gives λ < 0.
+  - **So "never violated" is consistent with a positive-tension plane, and only that.** It also rests on a bulk carrying
+    eq. (17) existing at all (C).
+- **Second choice: where the bulk ends (H-POINCARE-PATCH).** This is decided by building the bulk (C).
+- **If those theorems do apply, what would they forbid?** Gao–Wald Thm 1 is a time-delay theorem: the fastest
+  connections between distant points avoid a compact region. The corridor is not a shortcut through space, since its
+  two positions coincide (item 127). How such a theorem bears on it is open.
 
 ## The checks
 
-- **C1.** S_AB·k^A·k^B = λ·k_y² for the plane; 0 for the bulk.
-- **C2.** E_kk = −G_kk. This is umbilic.py's seated result, cited, not recomputed.
-- **C3.** The null generic condition fails in vacuum AdS₅.
-  - Exactly: AdS₅'s Riemann tensor is maximally symmetric, R_abcd = −k²(g_ac·g_bd − g_ad·g_bc), identically (residual
-    0). So k_[a R_b]cd[e k_f] k^c k^d = 0 for every null vector at every point.
-  - **Control:** a non-radial light ray in Schwarzschild gives 20.25.
-  - **Contrast:** a radial one gives 0, as it must, since it runs along a principal null direction.
-- **C4.** In z = e^{k·y}/k the bulk is (1/(k·z)²)(η + dz²), so Ω = k·z. Off the plane, z ≥ 1/k and Ω ≥ 1: there is no
-  boundary where Ω = 0.
-  - **Control:** on the other side (bending growing away) Ω falls to 0, a conformal boundary.
-- **C5.** A ray leaving the plane reaches the Poincaré horizon at affine parameter 1/(k·ε·sin θ) (loose.py L5).
-- **C6.** The leg is −0.826436002466036 E/m at r₀ = 2m (coin.py).
-- **C7.** [K] = −2k·g ≠ 0 across the plane (loose.py L4). The metric is continuous but not smooth there.
+- **C1.** S_kk = λ·k_y² on the plane; 0 in the bulk.
+- **C2.** E_kk = −G_kk (umbilic.py, cited).
+- **C3.** Pure AdS₅ fails the generic condition everywhere: exact maximal symmetry, residual 0.
+  - **Control:** a non-radial Schwarzschild ray gives 20.25.
+  - **Contrast:** a radial one gives 0, along a principal null direction.
+- **C4.** Ω = k·z ≥ 1 inside the Poincaré patch.
+- **C5.** The Poincaré horizon is at affine parameter 1/(k·ε·sin θ).
+- **C6.** −0.826436 E/m per leg.
+- **C7.** [K] ≠ 0 across a thin plane.
+- **C8.** The plane's time slices are ℝ³.
+- **C9.** The extra dimension is unbounded (your answer 9).
 
 ## What this does and does not show
 
-- **It shows** that the theorems the board read do not forbid the corridor, because each has a premise this bulk does
-  not meet.
-- **It also shows that five-dimensional matter keeps the null energy condition everywhere**, under the named premises.
-- **A theorem that does not apply forbids nothing; it also permits nothing.** The corridor is not shown allowed by
-  this.
-- **It does not cover theorems not read.** Maldacena–Milekhin's remark that in 5D *"the topological censorship should
-  work"* (OUTSIDE.md) is a remark, not a theorem, and is not tested here.
-- **Two premises rest on choices:**
-  - **H-POINCARE-PATCH:** the bulk is the region between the plane and the Poincaré horizon, as in Randall–Sundrum II.
-    On an extension past that horizon, completeness and the boundary question are open.
-  - **The generic condition.** It fails in the vacuum bulk. Near the corridor the bulk's Weyl part can supply it; there
-    the Poincaré incompleteness and the plane's non-smoothness still fail Gao–Wald Thm 1.
-- **Not checked:** global hyperbolicity of the plane's geometry (FSW). That theorem is already out on ANEC.
+- **It shows** that the plane's own censorship theorem and the finite-boundary ones do not apply. The second rests on
+  your unbounded extra dimension.
+- **It does not show** that the bulk theorems do not apply. They depend on the tension's sign and on where the bulk
+  ends.
+- **A theorem that does not apply also permits nothing.**
+- **Not read:** Galloway's "finite infinity" theorem (CQG 13, 1996), which Chruściel–Galloway–Solis generalise.
 
 ## Named hypotheses
 
 - **The board's:**
-  - H-Z2 (positive total tension);
-  - H-VACUUM-PLANE (no matter on the plane; Bronnikov–Kim);
+  - H-Z2;
+  - H-VACUUM-PLANE;
   - H-VACUUM-BULK;
-  - H-POINCARE-PATCH.
-- **Yours:** items 117, 120, 122, 136 (wall D).
+  - H-POINCARE-PATCH;
+  - H-OUR-TENSION (positive), against the earlier H-RS1 (negative).
+- **Yours:** items 117, 120, 122, 136 (answer 9; wall D).
 
 ## OPEN
 
-1. A theorem the board has not read that does bind a brane-bounded bulk. None was found in step 2.
-2. The bulk past the Poincaré horizon (with C, the numerical bulk).
-3. The corridor's own bulk correction near the plane: the generic condition there.
+1. **The sign of your plane's tension.** Yours to say.
+2. Where the bulk ends (C).
+3. Galloway's variant ("no null line") and global hyperbolicity: not checked.
+
+## History (verifier, 2026-10-07)
+
+Fourteen findings were applied:
+
+- **The generic condition was judged on pure AdS, without the corridor.** It is now OPEN, plausibly holding.
+- **The smoothness and completeness failures were fragile.** Smoothness is now a technicality, and completeness depends
+  on the Poincaré patch.
+- **Positive tension is H-OUR-TENSION, not H-Z2.** It conflicts with the board's H-RS1.
+- **Two theorems were missing** (Chruściel–Galloway–Solis). They are now READ and checked.
+- **Step 2's reading was wrong.** It said every theorem needs a boundary at infinity; Gao–Wald Thm 1 needs completeness
+  instead. Corrected here.
+- **Verdicts are now derived from premise statuses**, and each FAILS must be backed by a check that passed.
+- **FSW's ANEC is stated in its focusing form.**
+- **Premise lists are completed.**
+- *First written:* "None of the five theorems applies", and "Your *An NEC is never violated* … is a result of this
+  model". Both withdrawn as stated.

@@ -15,7 +15,8 @@ Candidates for ell, each from an established scale, each with what it predicts:
       the board's point-mass arithmetic, NOT a fit to their torques)
   K3  the Planck length (k at the Planck scale, as Randall-Sundrum I's hierarchy uses), ell = sqrt(hbar G / c^3)
 
-And the corridor's own fingerprint, which needs no k at all (P): the corridor's far field in Eddington-Robertson form,
+And eq. (17) read in Eddington-Robertson form (P) -- a re-derivation of Casadio-Fabbri-Mazzacurati, gr-qc/0111072
+eq. (8) ("gamma = beta"; their zero-temperature member is beta = 5/4): the corridor's far field in Eddington-Robertson form,
 g_tt = 1 - 2M/r + 2(beta - gamma) M^2/r^2, g_rr = 1 + 2 gamma M/r (areal coordinates).  For eq. (17),
 gamma(r0) = 1/4 + r0/(2m) and beta = gamma; at the corridor's member r0 = 2m, gamma = beta = 5/4, where a plain mass
 (general relativity's Schwarzschild, the r0 = 3m/2 member) has 1.  Light bends by (1 + gamma)/2 = 9/8 of a plain
@@ -39,8 +40,14 @@ G_PRECISION = sp.Rational(1, 100)                                  # "percent-le
 
 
 def deviation(ell, r):
-    """Fractional change of Newton's potential on the plane, eq. (41): 2 ell^2 / (3 r^2)."""
+    """Fractional change of Newton's potential on the plane, eq. (41): 2 ell^2 / (3 r^2).  Valid for r >> ell."""
     return 2 * ell**2 / (3 * r**2)
+
+
+def force_deviation(ell, r):
+    """Fractional change of the force, -d/dr of eq. (41)'s potential: 2 ell^2 / r^2 (three times the potential's).
+    A torsion balance measures force.  Valid for r >> ell; for r << ell gravity turns 5D (eq. 40)."""
+    return 2 * ell**2 / r**2
 
 
 def tension(ell):
@@ -51,7 +58,7 @@ def tension(ell):
 
 def candidates():
     k1 = (HBAR * C / RHO_D) ** sp.Rational(1, 4)
-    k2 = R_MIN * sp.sqrt(3 * G_PRECISION / 2)                         # deviation(ell, 52 um) = 1%
+    k2 = R_MIN * sp.sqrt(G_PRECISION / 2)                             # force_deviation(ell, 52 um) = 1%
     k3 = sp.sqrt(HBAR * G / C**3)
     return {"K1": k1, "K2": k2, "K3": k3}
 
@@ -77,9 +84,10 @@ def compute():
     cs = candidates()
     out = {}
     for name, ell in cs.items():
-        out[name] = {"ell_m": ell, "k_per_m": 1 / ell, "dev_at_52um": deviation(ell, R_MIN),
-                     "dev_at_10um": deviation(ell, sp.Rational(10, 10**6)),
-                     "r_for_1pct": ell * sp.sqrt(2 / (3 * G_PRECISION)), "tension_J_m3": tension(ell)}
+        out[name] = {"ell_m": ell, "k_per_m": 1 / ell, "dev_at_52um": force_deviation(ell, R_MIN),
+                     "dev_at_10um": force_deviation(ell, sp.Rational(10, 10**6)),
+                     "r_for_1pct": ell * sp.sqrt(2 / G_PRECISION), "tension_J_m3": tension(ell),
+                     "valid_at_52um": bool(R_MIN > 3 * ell)}
     out["P"] = fingerprint()
     return out
 
@@ -92,11 +100,12 @@ def report(d):
         v = d[name]
         print("\n%s %s" % (name, label))
         print("  ell = %s m   k = %s 1/m" % (sp.N(v["ell_m"], 6), sp.N(v["k_per_m"], 6)))
-        print("  Newton changed by %s at 52 um, %s at 10 um; a 1%% change sets in at r = %s m"
-              % (sp.N(v["dev_at_52um"], 4), sp.N(v["dev_at_10um"], 4), sp.N(v["r_for_1pct"], 4)))
+        print("  the force changed by %s at 52 um%s, %s at 10 um; a 1%% force change sets in at r = %s m"
+              % (sp.N(v["dev_at_52um"], 4), "" if v["valid_at_52um"] else " (outside eq. 41's r >> ell)",
+                 sp.N(v["dev_at_10um"], 4), sp.N(v["r_for_1pct"], 4)))
         print("  the plane's tension 3 c^4/(4 pi G ell^2) = %s J/m^3" % sp.N(v["tension_J_m3"], 4))
     p = d["P"]
-    print("\nP the corridor's fingerprint (no k needed): gamma(r0) = %s, beta = gamma" % p["gamma"])
+    print("\nP eq. (17) in Eddington-Robertson form (CFM eq. 8): gamma(r0) = %s, beta = gamma" % p["gamma"])
     for name, label in (("floor", "the corridor, r0 = 2m"), ("schw", "control: Schwarzschild, r0 = 3m/2")):
         q = p[name]
         print("  %-36s gamma = %s, beta = %s; light bending and Shapiro delay x %s; perihelion turn x %s"
@@ -114,13 +123,13 @@ def selftest():
 
     d = compute()
     chk("K1 reproduces Lee et al.'s dark-energy length, about 85 um", abs(float(d["K1"]["ell_m"]) - 85e-6) < 1e-6)
-    chk("K1 predicts Newton changed by more than 100% at 52 um, where Lee et al. find an excellent Newtonian fit",
-        float(d["K1"]["dev_at_52um"]) > 1)
-    chk("K2 is the ell whose change at 52 um is exactly 1% (by construction; a rough bound, not a fit)",
+    chk("K1's 1% force change sets in at about 1.2 mm, inside Lee et al.'s 52 um - 3.0 mm range, where eq. 41 holds "
+        "(r >> ell) and their fit is Newtonian", 1.0e-3 < float(d["K1"]["r_for_1pct"]) < 3.0e-3 and
+        float(d["K1"]["r_for_1pct"]) > 10 * float(d["K1"]["ell_m"]))
+    chk("K2 is the ell whose force change at 52 um is exactly 1% (by construction; a rough bound, not a fit)",
         sp.simplify(d["K2"]["dev_at_52um"] - G_PRECISION) == 0)
-    chk("control: the 1/r^2 law -- doubling r quarters the change", sp.simplify(
-        deviation(sp.Symbol("l"), 2 * sp.Symbol("r")) / deviation(sp.Symbol("l"), sp.Symbol("r")) - sp.Rational(1, 4))
-        == 0)
+    chk("the force's change is three times the potential's (eq. 41 differentiated)", sp.simplify(
+        force_deviation(sp.Symbol("l"), sp.Symbol("r")) / deviation(sp.Symbol("l"), sp.Symbol("r")) - 3) == 0)
     chk("K3 is the Planck length, 1.616e-35 m", abs(float(d["K3"]["ell_m"]) / 1.616255e-35 - 1) < 1e-5)
     chk("K3 predicts no change measurable at any tabletop separation (below 1e-50 at 10 um)",
         float(d["K3"]["dev_at_10um"]) < 1e-50)
@@ -131,7 +140,11 @@ def selftest():
         p["floor"]["gamma"] == sp.Rational(5, 4) and p["floor"]["beta"] == sp.Rational(5, 4) and
         p["floor"]["deflection"] == sp.Rational(9, 8) and p["floor"]["perihelion"] == sp.Rational(13, 12))
     chk("P control: the Schwarzschild member (r0 = 3m/2) gives general relativity's gamma = beta = 1",
-        p["schw"]["gamma"] == 1 and p["schw"]["beta"] == 1 and p["schw"]["deflection"] == 1)
+        p["schw"]["gamma"] == 1 and p["schw"]["beta"] == 1 and p["schw"]["deflection"] == 1 and
+        p["schw"]["perihelion"] == 1)
+    rr0, mm = sp.symbols("r0 m", positive=True)
+    chk("P agrees with Casadio-Fabbri-Mazzacurati eq. (8): r0 = M(4 beta - 1)/2, i.e. beta = (M + 2 r0)/(4M)",
+        sp.simplify(p["gamma"] - (mm + 2 * rr0) / (4 * mm)) == 0)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
