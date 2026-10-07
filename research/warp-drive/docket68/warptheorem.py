@@ -124,8 +124,8 @@ LEMMAS = [
     ("E", "E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)), with the copy "
           "exact (146) and its matter reorganized (137).  The board's reading (a): the copy's matter is the stock's; E is "
           "absorbed as the expansion of position 2's universe (136 G, 136 answer 6, 139 (3)), counted as part of the "
-          "build; item 108's E/c^2 is the appearance accounting (107)", "READING",
-     "lemmas/ledger.py: closes at the example and the full snapshot under the board's reading (a)"),
+          "build; item 108's E/c^2 is the appearance accounting (107)", "DERIVED",
+     "lemmas/ledger.py: closes at the example and the full snapshot under the board's reading (a); reading (a) confirmed by M, item 155 (H-EXPANSION-IS-BUILD)"),
     ("E", "E4 the field energy outside the neck, total - pull = E/4, placed: the bulk's Weyl field read on the plane "
           "(G = -E), positive, not the plane's energy; its 5D origin goes with B7", "PROVED",
      "lemmas/ledger.py: M(R) = m + (m/4)(1 - m/(2R - 3m)); MK eq. 143"),
@@ -134,12 +134,12 @@ LEMMAS = [
     ("R", "R2 position 2 rearranges to the README; then its laws govern", "DEFINITION", "item 148; consistent with rearrange.py and E3"),
     ("R", "R3 exactness at the instant over the mass window", "PROVED", "bulk/exactcopy.py, rearrange.py (verified)"),
     ("R", "R4 the corridor's length as the trajectory difference, given a measure -- not a distance (101 answer 7, "
-          "136 answer 3, 139 (4))", "READING",
-     "lemmas/r4_length.py: L = trajectory difference in bits (H-LENGTH-AS-DIFFERENCE, the board's)"),
+          "136 answer 3, 139 (4))", "DERIVED",
+     "lemmas/r4_length.py: L = trajectory difference in bits (H-LENGTH-AS-DIFFERENCE, the board's); the measure confirmed by M, item 155 (H-LENGTH-IN-BITS)"),
     ("R", "R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position "
-          "2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", "READING",
+          "2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", "DERIVED",
      "lemmas/r5_build.py: mechanism yours (91 (b), 101 answer 8, 136 B, 139 (3), 148); fields the board's reading; "
-     "energy covers any exact README's rearrangement (3.76e22 J >= 5.94e16 J)"),
+     "energy covers any exact README's rearrangement (3.76e22 J >= 5.94e16 J); the fields reading confirmed by M, item 155 (H-ACTIVATION-IS-TRIGGER)"),
 ]
 
 

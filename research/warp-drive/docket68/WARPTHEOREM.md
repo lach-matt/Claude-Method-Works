@@ -87,16 +87,16 @@ The theorem is proved exactly when no lemma below is OPEN.
 | I | I2 the README within the capacity bound as READ | **proved**, i2_capacity.py |
 | E | E1 E carried through three holds into position 2 | **derived**, axioms.py: 115 (c), 136 G, O1, 136 answer 3, 109, conservation (z3, with controls) |
 | E | E2 released at position 2 at the closing | **derived**, axioms.py: 106, 109, 115 (b) |
-| E | E3 the ledger closes | **reading**, ledger.py: reading (a) (see below) |
+| E | E3 the ledger closes | **derived**, ledger.py: reading (a), confirmed by you (item 155: E's remainder is position 2's expansion, part of the build) |
 | E | E4 the field energy outside the neck, E/4: the bulk's Weyl field read on the plane, positive | **proved**, ledger.py; Maartens–Koyama eq. 143 |
 | R | R0 the read: the corridor takes the README at its opening; N read from the object | **definition**, items 70, 101 answer 8, 115 (c), 130 (2); consistent with I2b |
 | R | R1 exact reconstruction, no tolerance | **definition**, items 145, 146; consistent with R3, R5c |
 | R | R2 position 2 rearranges to the README; then its laws govern | **definition**, item 148; consistent with rearrange.py, E3 |
 | R | R3 exactness at the instant over the mass window | **proved**, exactcopy.py, rearrange.py |
-| R | R4 the corridor's length as the trajectory difference, given a measure (not a distance) | **reading**, r4_length.py: H-LENGTH-AS-DIFFERENCE |
-| R | R5 the build's mechanism | **reading**, r5_build.py: the mechanism yours; the fields the board's reading of 148 under 149 |
+| R | R4 the corridor's length as the trajectory difference, in bits (not a distance) | **derived**, r4_length.py: the measure confirmed by you (item 155) |
+| R | R5 the build's mechanism | **derived**, r5_build.py: the mechanism yours; the trigger reading confirmed by you (item 155) |
 
-- **The count:** 34 lemmas. **16 proved, 8 derived, 3 definitions, 4 on the board's readings, 1 a measurement, 2 OPEN**
+- **The count:** 34 lemmas. **16 proved, 11 derived, 3 definitions, 1 on the board's reading, 1 a measurement, 2 OPEN**
   (B3 and B4d, one lemma in effect). warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
@@ -139,9 +139,8 @@ The theorem is proved exactly when no lemma below is OPEN.
 
 - **Open:** B4d, the opening and closing as a five-dimensional evolution. It carries B3, and with B4a–B4c closes
   formation and the address. See lemmas/B4.md.
-- **On the board's readings, each labelled and withdrawn if you correct it:** B4c (H-FAR-MODEL), E3 (reading (a)), R4
-  (H-LENGTH-AS-DIFFERENCE), R5 (the fields of 148 under 149). O3 left this list when step 5 refuted its readings; B5,
-  B7 and I1 left it under item 154, each now derived from your rulings.
+- **On the board's reading:** B4c only (H-FAR-MODEL, the bridge's geometry deep in the bulk). O3 left the list when
+  step 5 refuted its readings; B5, B7 and I1 under item 154; E3, R4 and R5 when you confirmed them (item 155).
 - **Caveats the board can clear:** I1's extremal step, READ for a class only; the duration quantum inequality (old wall
   D7), not yet re-run against Z3.
 - **A measurement, by your ruling:** B6′, k's scale.
@@ -219,4 +218,11 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **B4c is down to one reading.** Its radiation step (Raychaudhuri) and its near-zone step (causality) are derived;
     the far model, H-FAR-MODEL, stays the board's.
   - **Still readings:** B4c, E3, R4 and R5, each for the reason its row gives.
+- **You confirmed the three readings only you could settle (item 155).**
+  - E3: E's remainder is position 2's expansion, part of the build.
+  - R4: the length is in bits.
+  - R5: activation is a trigger.
+
+  All three are derived from your rulings now. One lemma rests on the board's reading, B4c's far model; one is open,
+  B4d.
 

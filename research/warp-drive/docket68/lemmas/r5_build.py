@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """r5_build.py -- Warp Theorem lemma R5: the build's mechanism -- which field, what "activation" is, and that the energy
+CONFIRMED BY M (item 155): 'activates the Higgs field' is a trigger, the field's value unchanged, the rearrangement
+by electromagnetism and the nuclear forces (H-ACTIVATION-IS-TRIGGER).  R5 is derived from M's rulings.
 suffices for any exact README.
 
   R5a THE MECHANISM IS YOURS.  Position 2 itself builds (91 (b), H-POSITION-BUILDS); a closed index takes the README,

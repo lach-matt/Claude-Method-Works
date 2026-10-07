@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """ledger.py -- Warp Theorem lemmas E3 and E4: the energy ledger closes, and the field energy outside the neck is placed.
+CONFIRMED BY M (item 155): the board's reading (a) -- E's remainder absorbed as position 2's expansion, part of the
+build -- is M's (H-EXPANSION-IS-BUILD).  E3 is derived from M's rulings.
 
   E4a the plane's energy outside the neck is computed: the Misner-Sharp mass of eq. (17) at r0 = 2m is
           M(R) = m + (m/4) (1 - m/(2R - 3m)),

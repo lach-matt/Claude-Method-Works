@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """r4_length.py -- Warp Theorem lemma R4: the corridor's length, given a measure that is not a distance.
+CONFIRMED BY M (item 155): the length measured in bits, the conditional information of position 2's trajectories
+given position 1's, is M's (H-LENGTH-IN-BITS).  R4 is derived from M's rulings.
 
 Your rulings fix what the length must be, and the board's work is to give it a measure that has those properties
 (item 149):
