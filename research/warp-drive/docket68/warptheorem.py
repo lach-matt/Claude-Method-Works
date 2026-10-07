@@ -76,20 +76,28 @@ LEMMAS = [
     ("Z", "Z3 NEC never violated", "DERIVED", "lemmas/axioms.py: bulk R(k,k) = 0; composite >= 0 at every depth (B5a, the board's reading); passage 0 (Z1)"),
     ("B", "B1 the plane is matter-free (R = 0) and meets Gauss and Codazzi", "PROVED", "bulk/localbulk.py L1-L2 (verified)"),
     ("B", "B2 a local vacuum bulk exists, unique among analytic ones", "PROVED", "bulk/localbulk.py L4 (verified)"),
-    ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4"),
-    ("B", "B4 the global bulk: the plane's two ends one end of the bulk (CGS Thm 3.1 escape (a)), with Thm 3.5's "
-          "deformation; reconciled with separate universes (101 answer 5), no loop (128), and infinitely many planes as "
-          "further boundary components (123, 124, 136 answer 9, 138)", "OPEN",
-     "bulk/CENSOR5D.md; items 126, 127 read by the board; 122 (1), 136 D"),
+    ("B", "B3 a complete bulk exists, built under closed-index criteria", "OPEN", "equivalent to B4: the local bulk is proved (B2), the complete one is B4a with B4b"),
+    ("B", "B4a the global bulk's shape, given global hyperbolicity: the plane's two ends are one end of the bulk -- two "
+          "separate positions reached through a dimension (152 (1)) -- so CGS Thm 3.1 is escaped (a) and Thm 3.5's "
+          "deformation holds; the topology is fixed before the opening (B7's bridge); the far boundary lies in untouched "
+          "Randall-Sundrum II, strictly untrapped (3/R)", "PROVED",
+     "lemmas/b4_global.py, 6/6: item 152 encoded (STRUCTURAL), controls two-ended; Ake Hau-Flores-Sanchez READ; "
+     "CENSOR5D C1"),
+    ("B", "B4b the bulk regular (globally hyperbolic) through the hold, as a brief evolution (152 (2), an option): "
+          "necessary, the static local bulk of eq. (17) regular to depth ell ln(1 + t_h/(2 ell)) at the throat -- "
+          "14.24 m as ell >> r0, 4.19 m at ell = r0; sufficient with H-GLUING", "OPEN",
+     "lemmas/b4_regular.py, 7/7: shown 1.5 m of 14.24 m (ell >> r0); at ell = r0 shown 0.65 m, leaning singular; "
+     "depends on ell"),
     ("B", "B5 positivity for the entangled pin (140): met for the sum only under the board's H-COMPOSITE-SURFACE; at "
           "every point and the pin's own energy", "READING",
      "lemmas/b5_positive.py: one shared profile (127) keeps NEC at every depth; a real scalar wall tends to the RS "
      "plane; the pin is the coincidence, no radion (H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE, the board's)"),
-    ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause free of k's scale", "PROVED",
+    ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause b6_k.py checks free of k's scale (not B4b: "
+          "b4_regular.py R4)", "PROVED",
      "lemmas/b6_k.py; kderive.py K3 -- narrowed from 'k fixed by the work'"),
     ("B", "B6' k's scale, by measurement", "NATURE", "item 136 answer 8; b6_k.py B6c"),
     ("B", "B7 formation: the opening and closing between static planes -- a widening of a preexisting bridge, no "
-          "change of topology, consistent and safe; its 5D evolution goes with B4", "READING",
+          "change of topology, consistent and safe; its 5D evolution goes with B4b", "READING",
      "lemmas/b7_formation.py: chain.py's z3 encoding; H-BRIDGE-PREEXISTS (items 100, 101.1, 122 (4), 140; "
      "Maldacena-Susskind p.17), the board's"),
     ("I", "I1 the passage is N bits of entanglement", "DERIVED", "lemmas/axioms.py: Maldacena-Susskind p.5 (READ) with H2: N bits; extremal via ground-state degeneracy (H-EXTREMAL-ENTROPY: READ for a class, Strominger-Vafa hep-th/9601029 abstract; carried to the corridor by the board)"),
@@ -161,7 +169,7 @@ def lemma_selftests():
     """Each lemma instrument's own selftest, run silently; all must pass."""
     out = {}
     for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py", "b5_positive.py", "b6_k.py", "r5_build.py",
-              "b7_formation.py", "axioms.py"):
+              "b7_formation.py", "axioms.py", "b4_global.py", "b4_regular.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
