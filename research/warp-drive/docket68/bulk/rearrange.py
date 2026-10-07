@@ -2,19 +2,21 @@
 """rearrange.py -- M's item 148: "No, BUT, matter at position 2 can rearrange to accommodate the README, however, after
 reconstruct the object is governed entirely by laws of position 2".
 
-The board's reading: exactness is met at the instant of reconstruction; what follows is position 2's.  Two kinds of
-value then part ways (on exactcopy.py's H2 Morse model, imported by path; the electrons' energy surface shared, the
-board's H-ALPHA-IS-LIGHT, so the curvature k = m w^2 is the same in both universes):
+First written with a displacement term that does not belong (the harmonic mean does not depend on mass) and a
+cancellation-prone width formula; corrected, and an exact Morse check added (REARRANGE.md History).
 
-  R1  a STATE value -- the mean bond length <r>, the spread -- can be prepared exactly at the instant: position 2's
-      matter can be put in a state with our <r> and our spread whatever its mass.  That state is not position 2's
-      ground state: it carries an excess energy, computed in the harmonic approximation as
-      (1/2) k (d<r>)^2 + (hbar w'/4)(x + 1/x - 2), x = sqrt(m'/m), and it goes as eps^2.  Control: eps = 0 gives zero
-  R2  a LAW value -- a vibrational frequency -- cannot be prepared: it belongs to position 2's Hamiltonian from the
-      first instant, w'/w = sqrt(m/m') (STRUCTURAL)
-  R3  after the instant, position 2's laws govern: the prepared <r> oscillates at w' about position 2's own mean, and
-      the spread breathes at 2 w' (standard, not READ) -- the README's state values hold at the instant only
-Imports exactcopy.py by path.  python3 rearrange.py [--selftest]
+On exactcopy.py's H2 Morse model (imported by path), with the electrons' energy surface shared (the board's
+H-ALPHA-IS-LIGHT) so the curvature k = m w^2 is the same in both universes, and eps the reduced-mass ratio in atomic
+units (the README's own units, H-INVARIANT-ENCODING):
+
+  R1  a STATE value -- the bond's mean and spread -- can be prepared at the instant in position 2's matter.  The state
+      with our exact values is not position 2's ground state; its excess energy is the width term
+      (hbar w'/4)(sqrt(x) - 1/sqrt(x))^2, x = sqrt(m'/m), ~ hbar w' eps^2 / 16.  Checked independently by the exact Morse
+      identity (Hellmann-Feynman: <T> = -m dE0/dm; excess = E0(m) - E0(m') + <T>(m/m' - 1)), in which the anharmonic
+      term contributes exactly zero.  Control: eps = 0 gives zero
+  R2  a LAW value -- a vibrational frequency -- is position 2's from the first instant: w'/w = sqrt(m/m') (STRUCTURAL)
+  R3  after the instant, in the harmonic approximation, the spread breathes at 2 w' (standard, not READ)
+Imports exactcopy.py by path; sympy for the exact check.  python3 rearrange.py [--selftest]
 """
 import contextlib
 import importlib.util
@@ -22,6 +24,8 @@ import io
 import math
 import os
 import sys
+
+import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 EV = 1.602176634e-19
@@ -45,25 +49,33 @@ def omega(m):
 
 def excess(eps):
     m, m2 = X.M_RED, X.M_RED * (1 + eps)
-    dr = X.mean_shift(m) - X.mean_shift(m2)                          # our <r> minus position 2's own
     w2 = omega(m2)
     x = math.sqrt(m2 / m)
-    disp = 0.5 * K * dr * dr
-    width = X.HBAR * w2 / 4 * (x + 1 / x - 2)
-    return {"dr": dr, "disp_eV": disp / EV, "width_eV": width / EV, "total_eV": (disp + width) / EV,
-            "in_hw": (disp + width) / (X.HBAR * w2), "w_ratio": w2 / omega(m)}
+    width = X.HBAR * w2 / 4 * (math.sqrt(x) - 1 / math.sqrt(x)) ** 2
+    return {"total_eV": width / EV, "in_hw": width / (X.HBAR * w2), "w_ratio": w2 / omega(m)}
+
+
+def excess_morse_exact(eps, digits=50):
+    m = sp.Symbol("m", positive=True)
+    hb, k, D = sp.Float(X.HBAR, digits), sp.Float(K, digits), sp.Float(X.D_E, digits)
+    E0 = hb * sp.sqrt(k / m) / 2 - (hb * sp.sqrt(k / m)) ** 2 / (16 * D)
+    T = -m * sp.diff(E0, m)
+    m1 = sp.Float(X.M_RED, digits)
+    m2 = m1 * (1 + sp.Float(eps, digits))
+    val = E0.subs(m, m1) - E0.subs(m, m2) + T.subs(m, m1) * (m1 / m2 - 1)
+    return float(sp.N(val / sp.Float(EV, digits), digits))
 
 
 def compute():
-    return {e: excess(e) for e in (0.0, 1e-7, 1e-4, 1e-2)}
+    return {e: dict(excess(e), exact=(excess_morse_exact(e) if e else 0.0)) for e in (0.0, 1e-7, 1e-4, 1e-2)}
 
 
 def report(d):
-    print("rearrange.py -- exact at the instant, position 2's after (item 148)\n")
-    print("hbar w (ours) = %.4f eV" % (X.HBAR * omega(X.M_RED) / EV))
+    print("rearrange.py -- the instant and after (item 148)\n")
+    print("hbar w (ours) = %.4f eV; eps is the reduced-mass ratio in atomic units" % (X.HBAR * omega(X.M_RED) / EV))
     for e, v in d.items():
-        print("eps = %-6g  d<r> = %+.3e m  excess energy %.3e eV (%.3e hbar w')  [displacement %.2e, width %.2e]  "
-              "w'/w = %.9f" % (e, v["dr"], v["total_eV"], v["in_hw"], v["disp_eV"], v["width_eV"], v["w_ratio"]))
+        print("eps = %-6g  excess %.4e eV (%.4e hbar w'); exact Morse %.4e eV; w'/w = %.9f"
+              % (e, v["total_eV"], v["in_hw"], v["exact"], v["w_ratio"]))
 
 
 def selftest():
@@ -76,11 +88,11 @@ def selftest():
         print("  [%s] %s" % ("ok" if cond else "FAIL", name))
 
     d = compute()
-    chk("R1 control: with no mass difference the prepared state is position 2's own, excess zero",
-        d[0.0]["total_eV"] == 0.0)
-    r = d[1e-2]["total_eV"] / d[1e-4]["total_eV"]
-    chk("R1: the excess energy goes as eps^2 (a factor 100 in eps gives ~1e4)", 0.9e4 < r < 1.1e4)
-    chk("R1: at eps = 1e-7 the excess is below 1e-14 hbar w -- tiny, but not zero", 0 < d[1e-7]["in_hw"] < 1e-14)
+    chk("R1 control: with no mass difference the excess is zero", d[0.0]["total_eV"] == 0.0)
+    chk("R1: at eps = 1e-7 the excess is eps^2/16 of a quantum, 6.25e-16 (to 1 percent)",
+        abs(d[1e-7]["in_hw"] / 6.25e-16 - 1) < 0.01)
+    chk("R1: the exact Morse excess (Hellmann-Feynman, independent) equals the width term to 1e-6 at eps = 1e-7, 1e-4, 1e-2",
+        all(abs(d[e]["exact"] / d[e]["total_eV"] - 1) < 1e-6 for e in (1e-7, 1e-4, 1e-2)))
     chk("R2 (STRUCTURAL): position 2's frequency is w sqrt(m/m'), -eps/2 to first order",
         abs((d[1e-4]["w_ratio"] - 1) / 1e-4 + 0.5) < 1e-3)
     print("selftest: %d/%d" % (ok, n))

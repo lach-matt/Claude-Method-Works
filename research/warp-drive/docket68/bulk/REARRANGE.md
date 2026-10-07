@@ -1,61 +1,62 @@
-# Exact at the instant, position 2's after (M-RULINGS item 148; deduced and computed; not verified; not seated; 2026-10-07)
+# The instant of reconstruction, and after (M-RULINGS item 148; deduced and computed; verified once; not seated; 2026-10-07)
 
-*First headed* "(… not verified; not seated; 2026-10-07)".
+*First headed* "Exact at the instant, position 2's after (… not verified …)". The first draft read your "No" as its
+opposite, and its energies were about 7% high (History).
 
 ## What you said
 
 - **Item 148:** *"No, BUT, matter at position 2 can rearrange to accommodate the README, however, after reconstruct the
   object is governed entirely by laws of position 2"*.
-- **Carried:**
-  - H-REARRANGE-TO-README: your item 137's reorganization, at position 2;
-  - H-P2-GOVERNS-AFTER.
-- **The board's reading:** exactness is met at the instant of reconstruction, and what follows is position 2's.
+- **The question it answers:** *"can a universe where the electron's mass differs from ours ever be position 2?"*
+  - The *No* option was: position 2 only where everything the README contains measures exactly as ours.
+  - The *Yes* option was: then item 146 or 147 must change.
+- **Carried:** H-REARRANGE-TO-README and H-P2-GOVERNS-AFTER.
 - **The instrument:** `rearrange.py`. Selftest 4/4.
-  - It uses exactcopy.py's hydrogen-molecule model, imported by path.
-  - The electrons' energy surface is taken as shared: the board's H-ALPHA-IS-LIGHT.
+  - **Genuine checks:** two. One is an exact Morse identity that tests the formula independently.
+  - **Control:** one.
+  - **Marked STRUCTURAL:** one.
+  - **Units:** ε is the mass ratio in atomic units, the README's own (H-INVARIANT-ENCODING). In physical lengths the
+    numbers would differ.
 
-## What follows
+## Two readings of your "No"
 
-### 1. Your answer separates two kinds of value
+- **(i) The literal reading.** Position 2's electron mass must equal ours: that is the No. Your "BUT" then says how
+  position 2's matter takes on the README's arrangement, and that afterwards position 2's laws govern.
+- **(ii) A wider reading** (the board's first draft). The "BUT" opens every universe whose matter can be rearranged into
+  the README. That reads closer to the Yes option, so the board does not adopt it.
+- **The board takes (i) as the plain sense of your words.** It is still yours to confirm.
 
-- **A state value can be met exactly at the instant** (R1). That means the copy's mean bond length and its spread.
-  Position 2's matter can be put into a state with our mean and our spread, whatever its masses are. That is your
-  rearrangement.
-- **A law value cannot be met by rearrangement** (R2, STRUCTURAL). That means a vibrational frequency. It belongs to
-  position 2's laws from the first instant: ω′/ω = √(m/m′), which shifts by −ε/2 when the mass ratio differs by ε.
-- **So the README's values are met at the instant if they are state values.** Its law values are position 2's from the
-  start, as your *"governed entirely by laws of position 2"* says.
+## What passes, either way
 
-### 2. What the exact copy carries into position 2's laws (R1)
+### 1. Two kinds of value (R1, R2)
 
-- **A copy rearranged exactly to our values is not position 2's ground state.** It carries an excess energy. Computed in
-  the harmonic approximation:
+- **A state value can be prepared at the instant:** the bond's mean and its spread. Matter can be put into a state with
+  given values.
+- **A law value cannot:** a vibrational frequency belongs to the laws, ω′/ω = √(m/m′) (STRUCTURAL).
+- **Under reading (i), position 2's masses equal ours,** so both kinds of value come out ours at the instant. After it,
+  position 2's laws govern.
 
-| mass-ratio difference ε | excess energy per molecule | in units of one vibrational quantum |
+### 2. If position 2's masses did differ by ε (R1)
+
+- **The state with our exact values carries an excess energy above position 2's ground state.**
+- **That excess comes entirely from the spread.** The exact Morse identity (Hellmann–Feynman) shows the anharmonic part
+  contributes exactly zero. It equals the width term to a part in 10⁶, and is about ħω′ε²/16:
+
+| ε | excess per molecule | in units of one vibrational quantum |
 |---|---|---|
 | 0 | 0 (control) | 0 |
-| 10⁻⁷ | 3.9×10⁻¹⁶ eV | 7.1×10⁻¹⁶ |
-| 10⁻⁴ | 3.6×10⁻¹⁰ eV | 6.7×10⁻¹⁰ |
-| 10⁻² | 3.6×10⁻⁶ eV | 6.6×10⁻⁶ |
+| 10⁻⁷ | 3.41×10⁻¹⁶ eV | 6.25×10⁻¹⁶ |
+| 10⁻⁴ | 3.41×10⁻¹⁰ eV | 6.25×10⁻¹⁰ |
+| 10⁻² | 3.36×10⁻⁶ eV | 6.19×10⁻⁶ |
 
-- **It goes as ε².** Almost all of it comes from the spread, not the mean.
-- **Tiny, but not zero.** Under your item 146 that matters: the copy is exact at the instant, and from then on it is
-  not at rest in position 2's laws.
+- **And its law values would be position 2's from the first instant,** so a README carrying law values could not be
+  exact there even at the instant (H-NO-TOLERANCE, H-LABELS-AND-VALUES). That is why reading (i) is the consistent
+  one.
 
 ### 3. After the instant (R3)
 
-- **The mean bond length oscillates at position 2's frequency** about position 2's own mean, and the spread breathes at
-  twice that frequency. That is standard quantum mechanics, not READ here.
-- **So the README's state values hold at the instant of reconstruction, and then the copy becomes position 2's.** That
-  is your *"after reconstruct the object is governed entirely by laws of position 2"*, in numbers.
-
-## The board's reading of your "No"
-
-- **No universe is excluded from being position 2 by its masses.** Any universe whose matter can be rearranged into the
-  README's labels and state values can be position 2.
-- **What it costs:** a small excess energy, set by how far position 2's masses are from ours.
-- **What it gives:** after the instant, position 2's own physics.
-- **Your item 144's differences then show in the copy only after the instant**, never in the reconstruction itself.
+- **Position 2's laws govern** (H-P2-GOVERNS-AFTER). In the harmonic approximation a mismatched spread breathes at
+  twice position 2's frequency (standard, not READ).
 
 ## Named hypotheses
 
@@ -68,9 +69,26 @@
 - **The board's:**
   - H-ALPHA-IS-LIGHT;
   - H-MORSE-MODEL;
-  - H-HARMONIC-EXCESS (the excess energy in the harmonic approximation);
-  - H-STATE-VALUES (the README's values are state values; law values are position 2's).
+  - H-STATE-VALUES (the split of the README's values into state and law values).
 
 ## OPEN
 
-1. Whether the README's values are state values only (H-STATE-VALUES), as the board reads your item 148.
+1. **Does your "No" mean position 2's electron mass must equal ours?** That is reading (i).
+
+## History (verifier, 2026-10-07)
+
+Ten findings, all applied:
+
+1. **The "reading of your 'No'" said the opposite of your No.** Both readings are now set out, and the literal one is
+   taken.
+2. **The draft contradicted itself** on whether item 144's differences show at the instant. A law value is position 2's
+   from the first instant. Corrected.
+3. **Words in your mouth:** "from the start" and "that is your rearrangement" are removed, or labelled as the board's.
+4. **The displacement term was spurious.** The harmonic mean does not depend on mass. The exact Morse identity shows
+   the excess is the width term alone. The figures are about 7% lower.
+5. **The ε = 10⁻⁷ row had a rounding error.** A stable formula is now used.
+6. **The units** are now stated: ε is the mass ratio in atomic units.
+7. **The selftest** now checks the formula against the independent exact identity.
+8. **R3 is labelled harmonic.**
+9. **The title** no longer claims exactness at the instant without its condition.
+10. **The exact Morse result** (no anharmonic correction at second order) is now stated.
