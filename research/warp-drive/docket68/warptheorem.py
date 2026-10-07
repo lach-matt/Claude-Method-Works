@@ -30,7 +30,8 @@ reassessment added the hold's length (O3), the field energy outside the neck (E4
 mechanism (R5), and corrected B4, B5, E3 and I2 (WARPTHEOREM.md History).
 
 Each clause is a conjunction of lemmas.  A lemma is AXIOM (M's ruling, cited), PROVED (an owner, imported and re-run
-here), READING (proved under a named reading of the board's, labelled, withdrawn if M corrects it), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
+here), READING (proved under a named reading of the board's, labelled, withdrawn if M corrects it), NATURE (a premise
+measurement fixes), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
 
   T1  the PROVED lemmas are re-run: exactE.py's identities (z3), passage5d.py's identity and Q, localbulk.py's Gauss
       condition, stability.py's surface gravity, coin.py's passage reading
@@ -81,9 +82,12 @@ LEMMAS = [
           "further boundary components (123, 124, 136 answer 9, 138)", "OPEN",
      "bulk/CENSOR5D.md; items 126, 127 read by the board; 122 (1), 136 D"),
     ("B", "B5 positivity for the entangled pin (140): met for the sum only under the board's H-COMPOSITE-SURFACE; at "
-          "every point (H-THICK-COMPOSITE) and the pin's own energy not shown", "OPEN",
-     "item 139 (2) M-PROVE-POSITIVE; bulk/STATIC.md S4 and OPEN 3"),
-    ("B", "B6 k fixed by the work", "OPEN", "item 140; bulk/KDERIVE.md (ratio fixed, scale open)"),
+          "every point and the pin's own energy", "READING",
+     "lemmas/b5_positive.py: one shared profile (127) keeps NEC at every depth; a real scalar wall tends to the RS "
+     "plane; the pin is the coincidence, no radion (H-SHARED-PROFILE, H-PIN-IS-COINCIDENCE, the board's)"),
+    ("B", "B6 k's ratio fixed by the work, k_R = 3 k_L/4; every clause free of k's scale", "PROVED",
+     "lemmas/b6_k.py; kderive.py K3 -- narrowed from 'k fixed by the work'"),
+    ("B", "B6' k's scale, by measurement", "NATURE", "item 136 answer 8; b6_k.py B6c"),
     ("B", "B7 formation: the opening and closing between static planes", "OPEN",
      "items 115, 136 A, 136 answer 7, 141"),
     ("I", "I1 the passage is N bits of entanglement", "AXIOM", "item 137 (H-PASSAGE-IS-N)"),
@@ -109,8 +113,9 @@ LEMMAS = [
           "136 answer 3, 139 (4))", "READING",
      "lemmas/r4_length.py: L = trajectory difference in bits (H-LENGTH-AS-DIFFERENCE, the board's)"),
     ("R", "R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position "
-          "2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", "OPEN",
-     "items 91 (b), 101 answers 3 & 4, 136 B and G, 139 (3), 148"),
+          "2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", "READING",
+     "lemmas/r5_build.py: mechanism yours (91 (b), 101 answer 8, 136 B, 139 (3), 148); fields the board's reading; "
+     "energy covers any exact README's rearrangement (3.76e22 J >= 5.94e16 J)"),
 ]
 
 
@@ -154,7 +159,7 @@ def t1():
 def lemma_selftests():
     """Each lemma instrument's own selftest, run silently; all must pass."""
     out = {}
-    for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py"):
+    for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py", "b5_positive.py", "b6_k.py", "r5_build.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
@@ -209,9 +214,9 @@ def report(d):
             if c == clause:
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
     a, b, c = d["t1"], d["t2"], d["t3"]
-    counts = {k: sum(1 for l in LEMMAS if l[2] == k) for k in ("AXIOM", "PROVED", "READING", "OPEN")}
-    print("\n%d lemmas: %d yours (AXIOM), %d PROVED, %d PROVED under a named board READING, %d OPEN"
-          % (len(LEMMAS), counts["AXIOM"], counts["PROVED"], counts["READING"], counts["OPEN"]))
+    counts = {k: sum(1 for l in LEMMAS if l[2] == k) for k in ("AXIOM", "PROVED", "READING", "NATURE", "OPEN")}
+    print("\n%d lemmas: %d yours (AXIOM), %d PROVED, %d PROVED under a named board READING, %d NATURE, %d OPEN"
+          % (len(LEMMAS), counts["AXIOM"], counts["PROVED"], counts["READING"], counts["NATURE"], counts["OPEN"]))
     print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 %s"
           % (a["E_per_sqrt_bit"], a["H1_G3_O1"], a["Z1"], a["Z2"], a["B1"], a["O2"]))
     print("T2 the theorem follows from its lemmas: %s; each OPEN lemma needed: %s" % (b["entailed"],
