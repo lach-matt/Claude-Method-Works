@@ -1,0 +1,759 @@
+{
+ "read_critical_collapse": {
+  "sources": [
+   {
+    "citation": "C. Gundlach and J. M. Martin-Garcia, 'Critical phenomena in gravitational collapse', Living Reviews in Relativity 10 (2007) 5; arXiv:0711.4620v1 (51 pp.). Fetched as an arXiv PDF parse via Firecrawl. Page numbers were confirmed by cutting the parse off at a set page count (pdfOptions.maxPages = 7, 13, 18, 19); where that was not done, the page is flagged.",
+    "arxiv": "0711.4620",
+    "quotes": [
+     {
+      "text": "Near the threshold, black holes with arbitrarily small masses can be created, and the black hole mass scales as M\\propto(p-p_{*})^{\\gamma}, (1) where p parameterises the initial data and black holes form for p > p∗.",
+      "page": "2",
+      "what": "Definition of the mass-scaling law M ~ (p - p*)^gamma, Eq. (1)."
+     },
+     {
+      "text": "M\\propto e^{-\\tau_{*}}\\propto(p-p_{*})^{1/\\lambda_{0}}, (10) and, comparing with Eq. (1), we have found the critical exponent γ = 1/λ0. When the critical solution is DSS, a periodic or fine structure of small amplitude is superimposed on this basic power law [94, 122]: \\ln M=\\gamma\\ln(p-p_{*})+c+f\\left(\\gamma\\ln(p-p_{*})+c\\right), (11) where f (z) has period ∆ and is universal, and only c depends on the initial data. As the critical solution is periodic in τ with period ∆ the number N of scaling “echos” is approximated by N\\simeq\\Delta^{-1}\\gamma\\ln|p-p_*|+const. (12) Note that this holds for both supercritical and subcritical solutions.",
+      "page": "8 (confirmed: the 7-page cut ends at Eq. 8)",
+      "what": "The periodic 'wiggle' added to the mass scaling, Eqs. (10)-(12), with gamma = 1/lambda_0. Note that the fundamental period for the scalar field is Delta/2 (see caveats)."
+     },
+     {
+      "text": "The Einstein equations are G_{a b}=8\\pi\\left(\\nabla_{a}\\phi\\nabla_{b}\\phi-\\frac{1}{2}g_{a b}\\nabla_{c}\\phi\\nabla^{c}\\phi\\right), (18) and the matter equation is \\nabla_{a}\\nabla^{a}\\phi=0. (19) Note that the matter equation of motion is contained within the contracted Bianchi identities. Choptuik chose Schwarzschild-like coordinates d s^{2}=-\\alpha^{2}(r,t)d t^{2}+a^{2}(r,t)d r^{2}+r^{2}d\\Omega^{2}, (20)",
+      "page": "12 (confirmed: the parse page break falls directly after Eq. 20, and the 13-page cut places Eqs. 21-25 on p.13)",
+      "what": "Field equations and normalization (G = 1, G_ab = 8 pi T_ab with T_ab = grad phi grad phi - 1/2 g (grad phi)^2) and the polar-areal metric, Eqs. (18)-(20)."
+     },
+     {
+      "text": "This choice of coordinates is defined by the radius r giving the surface area of 2-spheres as 4πr2, and by t being orthogonal to r (polar-radial coordinates). One more condition is required to fix the coordinate completely. Choptuik chose α = 1 at r = 0, so that t is the proper time of the central observer.",
+      "page": "13",
+      "what": "Gauge: areal radius and the lapse normalization alpha(r=0) = 1."
+     },
+     {
+      "text": "In the auxiliary variables \\Phi=\\phi_{,r},\\qquad\\Pi=\\frac{a}{\\alpha}\\phi_{,t}, (21) the wave equation becomes a first-order system, \\Phi_{,t}=\\left(\\frac{\\alpha}{a}\\Pi\\right)_{,r}, \\Pi_{,t}=\\frac{1}{r^{2}}\\left(r^{2}\\frac{\\alpha}{a}\\Phi\\right)_{,r}. (22)",
+      "page": "13",
+      "what": "Definitions Phi = d_r phi and Pi = (a/alpha) d_t phi, and the evolution equations for Phi and Pi, Eqs. (21)-(22)."
+     },
+     {
+      "text": "\\frac{a_{,r}}{a}+\\frac{a^{2}-1}{2r}=2\\pi r(\\Pi^{2}+\\Phi^{2}), (23) \\frac{\\alpha_{,r}}{\\alpha}-\\frac{a_{,r}}{a}-\\frac{a^{2}-1}{r}\\quad=\\quad0, (24) \\frac{a_{,t}}{\\alpha}\\quad=\\quad4\\pi r\\Phi\\Pi. (25) Because of spherical symmetry, the only dynamics is in the scalar field equations (22). The metric can be found by integrating the ODEs (23) and (24) for a and α at any fixed t, given φ and Π. Eq. (25) can be ignored in this “fully constrained” evolution scheme.",
+      "page": "13 (confirmed: present in the 13-page cut)",
+      "what": "Hamiltonian constraint (23), polar slicing condition (24) and momentum constraint (25). The 2 pi r and 4 pi r factors are the G = 1 normalization."
+     },
+     {
+      "text": "In the end, he could determine p∗ up to a relative precision of 10−15, and make black holes as small as 10−6 times the ADM mass of the spacetime. The power-law scaling (10) was obeyed from those smallest masses up to black hole masses of, for some families, 0.9 of the ADM mass, that is, over six orders of magnitude [47].",
+      "page": "13-14 (the sentence crosses the page break after 'ADM mass of the')",
+      "what": "Range over which Choptuik's scaling law held, a target for validation."
+     },
+     {
+      "text": "The dimensionful constants t∗ and L depend on the particular one-parameter family of solutions, but the dimensionless critical fields a∗, α∗ and φ∗, and in particular their dimensionless period ∆, are universal. Empirically, ∆ ≃ 3.44 for the scalar field in numerical time evolutions, and ∆ = 3.445452402(3) from a numerical construction of the critical solution based on exact self-similarity and analyticity [149].",
+      "page": "14 (confirmed: absent from the 13-page cut, present in the 19-page cut)",
+      "what": "Echoing period Delta of about 3.44 (numerical evolutions) and Delta = 3.445452402(3)."
+     },
+     {
+      "text": "The predicted value δ ≃ 0.88 of the critical exponent (in scalar electrodynamics) was subsequently verified in collapse simulations by Hod and Piran [121] and later again by Petryk [166]. (The mass scales with γ ≃ 0.37 as for the uncharged scalar field.)",
+      "page": "19 (confirmed: absent from the 18-page cut, present in the 19-page cut)",
+      "what": "The only numerical value of gamma this review gives for the massless scalar field: gamma of about 0.37."
+     },
+     {
+      "text": "In the literature on supercritical evolutions, what is quoted as the black hole mass is in fact the mass of the first apparent horizon (AH) that appears in the time slicing used by the code (spacelike or null). The black hole mass can and generically will be larger than the AH mass when it is first measured because of matter falling in later, and the region of maximal curvature may well be inside the event horizon, and hidden from observers at I +.",
+      "page": "16 or 17 (pages 16-17 merged in the parse; not pinned)",
+      "what": "What a code's 'black hole mass' actually measures, relevant to validating the scaling law."
+     }
+    ]
+   },
+   {
+    "citation": "C. Gundlach, D. Hilditch and J. M. Martin-Garcia, 'Critical Phenomena in Gravitational Collapse' (2025 update of the Living Review), arXiv:2507.07636v1, dated July 11, 2025 (51 pp.).",
+    "arxiv": "2507.07636",
+    "quotes": [
+     {
+      "text": "We use gravitational units, where c = G = 1 (with a few exceptions where G is retained), but ℏ is not set to one.",
+      "page": "3 (Sec. I.C, which the table of contents places on p.3)",
+      "what": "Units statement: G = c = 1."
+     },
+     {
+      "text": "When the critical solution is DSS, a periodic fine structure of small amplitude (colloquially also called a “wiggle”) is superimposed on this basic power law [18–20]: \\operatorname{l n}M=A+\\gamma\\operatorname{l n}(p-p_{*})+f_{M}\\left(\\gamma\\operatorname{l n}(p-p_{*})+B\\right), (17) -\\frac{1}{2}\\operatorname{l n}R_{\\operatorname*{m a x}}=A+\\gamma\\operatorname{l n}(p_{*}-p)+f_{R}\\left(\\gamma\\operatorname{l n}(p_{*}-p)+B\\right) (18) where f_M and f_R have period ∆, and A and B depend on the one-parameter family of initial data. f_R is universal, gauge-independent, and continuous with discontinuous derivative. If M is interpreted as the mass of the first marginally outer-trapped surface (from now on, MOTS) to be found, it is clearly slicing-dependent and could be discontinuous¹.",
+      "page": "6 (confirmed: the 5-page cut ends at Eq. 12)",
+      "what": "Wiggle on the mass scaling (17) and on subcritical curvature scaling (18), with the warning that f_M depends on the slicing."
+     },
+     {
+      "text": "G_{a b}=8\\pi\\left(\\nabla_{a}\\phi\\nabla_{b}\\phi-\\frac{1}{2}g_{a b}\\nabla_{c}\\phi\\nabla^{c}\\phi\\right), (25) ... d s^{2}=-\\alpha^{2}(t,r)\\,d t^{2}+a^{2}(t,r)\\,d r^{2}+r^{2}\\,d\\Omega^{2}, (27) ... \\varPhi=\\phi_{,r},\\qquad\\Pi=\\frac{a}{\\alpha}\\phi_{,t}, (28) \\Phi_ {, t} = \\left(\\frac {\\alpha}{a} \\Pi\\right) _ {, r}, (29) \\Pi_{,t}=\\frac{1}{r^{2}}\\left(r^{2}\\frac{\\alpha}{a}\\varPhi\\right)_{,r}. (30) ... \\frac{a_{,r}}{a}+\\frac{a^{2}-1}{2r}=2\\pi r\\,(\\Pi^{2}+\\varPhi^{2}), (31) \\frac{\\alpha_{,r}}{\\alpha}-\\frac{a_{,r}}{a}-\\frac{a^{2}-1}{r}=0, (32) \\frac{a_{,t}}{\\alpha}=4\\pi r\\,\\varPhi\\,\\Pi. (33)",
+      "page": "9 (inferred: Sec. III.A starts on p.9 per the table of contents, and the parse page break falls directly before III.B, which starts on p.10. Not confirmed by a page cut.)",
+      "what": "The same polar-radial system, renumbered (25)-(33), in the 2025 review. It matches the 2007 Eqs. (18)-(25)."
+     },
+     {
+      "text": "Empirically, ∆ ≃ 3.44 for the scalar field in numerical time evolutions, and ∆ = 3.445452402(3) from a numerical construction of the critical solution based on exact self-similarity and analyticity [43]. The latter agrees with the leading digits of the same quantity as computed in the existence proof of Reiterer and Trubowitz [42].",
+      "page": "10 (inferred: III.B and III.C both start on p.10 per the table of contents)",
+      "what": "Value of Delta, now tied to the existence proof."
+     },
+     {
+      "text": "The curvature scaling function f_R defined above in (18) has been found to be universal, coordinate-independent and continuous (with a discontinuity in the derivative once per period) [17,20,47]. The mass scaling function f_M defined in (17) is slicing-dependent, and discontinuous once per period in some but not all slicings [20,40,41,48,49].",
+      "page": "10 (inferred, as above)",
+      "what": "Validation caution: the wiggle in the mass depends on the slicing; the curvature wiggle does not."
+     },
+     {
+      "text": "(The mass scales with γ ≃ 0.37 as for the uncharged scalar field.)",
+      "page": "13 (inferred: III.E starts on p.12, a parse page break falls after the III.E heading and before this sentence, and III.F starts on p.13)",
+      "what": "gamma of about 0.37, repeated in the 2025 update."
+     },
+     {
+      "text": "Both of these approaches allow perfect numerical tuning in double-precision arithmetic in spherical symmetry. However, scalar field critical collapse still plays the role of a testbed for the development of other formulations and discretizations.",
+      "page": "13 (inferred: III.G starts on p.13 per the table of contents)",
+      "what": "Choptuik collapse as the standard code testbed (Sec. III.G)."
+     },
+     {
+      "text": "In both cases the black holes produced in the supercritical regime are Schwarzschild black holes with zero Yang–Mills field strength, but the final states (and the dynamics leading to them) can be distinguished by the value of the Yang–Mills final gauge potential at infinity, which can take two values, corresponding to two distinct vacuum states.",
+      "page": "16 (the printed page number 17 follows the next parse page break)",
+      "what": "For item 3: the nearest 'Schwarzschild end state' statement found. It concerns Einstein-Yang-Mills, not the scalar field."
+     }
+    ]
+   },
+   {
+    "citation": "C. Gundlach, 'Understanding critical collapse of a scalar field', arXiv:gr-qc/9604019v1 (8 April 1996), 26 pp. preprint.",
+    "arxiv": "gr-qc/9604019",
+    "quotes": [
+     {
+      "text": "The echoing period is ∆ = 3.4453 ± 0.0005. ... The growth of this mode corresponds to a critical exponent of γ = 0.374 ± 0.001, in agreement with the best experimental value. I predict that in critical collapse dominated by a DSS critical solution, the scaling of the black hole mass shows a periodic wiggle, which like γ is universal.",
+      "page": "1 (abstract)",
+      "what": "Precise gamma = 0.374 +/- 0.001, from the single growing perturbation mode of the critical solution."
+     },
+     {
+      "text": "It is real, with λ₁ = −2.674 ± 0.009, corresponding to a critical exponent γ = 0.374 ± 0.001.",
+      "page": "11 or 12 (present in the 12-page cut, absent from the 10-page cut; not pinned further)",
+      "what": "Eigenvalue of the growing mode behind gamma (gamma = -1/lambda_1 in this paper's convention)."
+     },
+     {
+      "text": "In the DSS case we find a “wiggle” overlaid on the scaling law, unless the function (µ + ξ₀) vanishes identically. The period of both µ and ξ₀ is nominally ∆, but ξ₀ has only even frequencies, and so does µ, being based only on the metric coefficients a and g. The real period in τ of (µ + ξ₀) is therefore ∆/2, and hence the period of the wiggle in the directly measured parameter ln(p − p∗) is ∆/(2γ) ≃ 4.61.",
+      "page": "13 (confirmed: absent from the 12-page cut, present in the 13-page cut)",
+      "what": "The wiggle period in ln(p - p*) is Delta/(2 gamma), about 4.61, not Delta/gamma."
+     }
+    ]
+   },
+   {
+    "citation": "I. Olabarrieta, J. F. Ventrella, M. W. Choptuik and W. G. Unruh, 'Critical Behavior in the Gravitational Collapse of a Scalar Field with Angular Momentum in Spherical Symmetry', arXiv:0708.0513v1 (10 pp.). Choptuik is a co-author; setting l = 0 recovers the original Choptuik model. Eqs. (17)-(19) are quoted from the arXiv HTML rendering of v1 because the PDF parse of them is garbled. Pages come from the PDF.",
+    "arxiv": "0708.0513",
+    "quotes": [
+     {
+      "text": "For the current study we adopt Schwarzschild-like (polar-areal) coordinates, in which the metric takes the form: ds^{2}=-\\alpha^{2}(t,r)dt^{2}+a^{2}(t,r)dr^{2}+r^{2}d\\theta^{2}+r^{2}\\sin^{2}\\theta d\\phi^{2}. (7)",
+      "page": "2 (confirmed: the 2-page cut ends at Eq. 14)",
+      "what": "Polar-areal metric."
+     },
+     {
+      "text": "\\Phi\\left(t,r\\right)\\;=\\;\\frac{\\partial\\psi}{\\partial r}, (13) \\Pi\\left(t,r\\right)\\;=\\;\\frac{a}{\\alpha}\\frac{\\partial\\psi}{\\partial t}. (14)",
+      "page": "2",
+      "what": "Definitions of Phi and Pi."
+     },
+     {
+      "text": "\\frac{\\partial\\Phi}{\\partial t}=\\frac{\\partial}{\\partial r}\\left(\\frac{\\alpha}{a}\\Pi\\right), (15) \\frac{\\partial\\Pi}{\\partial t}=\\frac{1}{r^{2}}\\frac{\\partial}{\\partial r}\\left(r^{2}\\frac{\\alpha}{a}\\Phi\\right)-l(l+1)a\\alpha\\frac{\\psi}{r^{2}}. (16)",
+      "page": "3",
+      "what": "Evolution equations. Setting l = 0 gives Choptuik's system."
+     },
+     {
+      "text": "\\frac{1}{a}\\frac{\\partial a}{\\partial r} = \\frac{(2l+1)}{2}r\\left(\\Pi^{2}+\\Phi^{2}+l(l+1)\\frac{a^{2}}{r^{2}}\\psi^{2}\\right) - \\frac{a^{2}-1}{2r}, (17) \\frac{1}{\\alpha}\\frac{\\partial\\alpha}{\\partial r} = \\frac{(2l+1)}{2}r\\left(\\Pi^{2}+\\Phi^{2}-l(l+1)\\frac{a^{2}}{r^{2}}\\psi^{2}\\right) + \\frac{a^{2}-1}{2r}, (18) \\frac{\\partial a}{\\partial t} = (2l+1)r\\alpha\\Pi\\Phi. (19) Equation (17) is the Hamiltonian constraint, which is used to determine the 3-metric component, a. Similarly, the slicing condition (18) fixes the lapse function α at each instant of time, and is often known as the polar slicing condition.",
+      "page": "3",
+      "what": "Hamiltonian constraint (17), polar slicing (18) and the extra a_t equation (19). The field normalization differs from Gundlach's: at l = 0 the coefficient is r/2, not 2 pi r (see equations_summary)."
+     },
+     {
+      "text": "In addition, we compute the mass aspect function, M(t,r), M(t,r)=\\frac{r}{2}\\left(1-\\frac{1}{a^2}\\right), (20) which serves as a valuable diagnostic quantity in our calculations. The value of this function as r → ∞ agrees with the ADM mass, and more generally, in a vacuum region of spacetime, measures the amount of (gravitating) mass contained within the 2-sphere of radius r at time t. Moreover, 2M (t,r)/r is useful since its value approaches 1 when a trapped surface is developing and hence (modulo cosmic censorship), a black hole would form in the spacetime being constructed.",
+      "page": "3",
+      "what": "Mass function M = (r/2)(1 - 1/a^2), Eq. (20), equal to the ADM mass at infinity. The horizon-formation criterion is 2M/r -> 1."
+     },
+     {
+      "text": "We note that, as is the case with the usual Schwarzschild coordinates for a spherically symmetric black hole, polar-areal coordinates cannot penetrate apparent horizons, and in fact become singular as they come “close to” black-hole regions of spacetime, where 2M (t,r)/r → 1.",
+      "page": "3 (p.3 inferred: p.2 ends at Eq. 14, confirmed; the p.3/p.4 boundary comes from the parse separator)",
+      "what": "For item 3: the nearest statement. Polar-areal coordinates behave like Schwarzschild coordinates and cannot reach the horizon. No surface gravity is given."
+     },
+     {
+      "text": "\\alpha(t,r_{\\max})a(t,r_{\\max})=1. (27) This can be viewed as simply providing a convenient normalization for α, since given a solution, α, of the slicing equation (18), kα is also a solution, where k is an arbitrary positive constant.",
+      "page": "3",
+      "what": "Alternative lapse normalization at the outer boundary. Echo periods are then measured in central proper time, Eq. (28)."
+     },
+     {
+      "text": "We also note that due to the discrete ψ → −ψ invariance that is exhibited both by the equations of motion as well as the critical solutions themselves, if ∆ is the echoing exponent for which formula (32) is satisfied with Z(T,r) ≡ ψ(T,r), then the geometric quantities a(T,r), α(T,r), 2M (T,r)/r obey (32) with an echoing exponent ∆/2.",
+      "page": "5",
+      "what": "Geometric quantities echo with period Delta/2. This is why the mass wiggle has period Delta/(2 gamma)."
+     },
+     {
+      "text": "| 0 | 3.43 ± 0.05 | 0.376 ± 0.003 | ... Values of ∆l have been calculated using central proper time normalization of the lapse function, which is the natural normalization for type-II critical behavior. ... Note that the l = 0 data agree with the original values calculated in [17]",
+      "page": "5 (Table III; confirmed: present in the 5-page cut, after the parse page break that starts p.5)",
+      "what": "Simulation values for the l = 0 Choptuik case: Delta_0 = 3.43 +/- 0.05 and gamma_0 = 0.376 +/- 0.003."
+     }
+    ]
+   },
+   {
+    "citation": "S. Hod and T. Piran, 'Fine-Structure of Choptuik's Mass-Scaling Relation', arXiv:gr-qc/9606087v2 (4 Jul 1996), 5 pp.",
+    "arxiv": "gr-qc/9606087",
+    "quotes": [
+     {
+      "text": "We predict that the period ̟ is universal and that it depends on the previous universal parameters, the critical exponent, β, and the echoing period ∆ as ̟ = ∆/β.",
+      "page": "1 (abstract)",
+      "what": "Prediction of the wiggle period. Their beta is gamma."
+     },
+     {
+      "text": "In all those families we have found that −T_bh as a function of ln(p − p∗) was well fit by a straight line with a slope 1/α ≈ 0.37. On top of this straight line there was a small modulation. ... We see that the function F is indeed periodic, with a universal period ϕ = ∆α ≈ 4.6.",
+      "page": "1-2 (within the 2-page cut; not pinned further)",
+      "what": "Measured modulation period of about 4.6 in ln(p - p*)."
+     },
+     {
+      "text": "ln(M_bh) = β ln(p − p∗) + c_k + Ψ[ln(p − p∗)], (9) where c_k is a family-dependent constant and Ψ[ln(p − p∗)] is a periodic function with a universal period, ̟. ... In all four families we obtain the basic power law behavior with β ≈ 0.37.",
+      "page": "3 or later (absent from the 2-page cut; not pinned)",
+      "what": "Mass scaling law with the periodic correction, Eq. (9), and beta (= gamma) of about 0.37."
+     }
+    ]
+   },
+   {
+    "citation": "R. L. Marsa and M. W. Choptuik, 'Black Hole-Scalar Field Interactions in Spherical Symmetry', arXiv:gr-qc/9607034v1; Phys. Rev. D 54, 4929 (1996). Uses ingoing Eddington-Finkelstein coordinates, not polar-areal.",
+    "arxiv": "gr-qc/9607034",
+    "quotes": [
+     {
+      "text": "We can get approximate conditions on a and Kθfrom their Schwarzschild forms (2.23) and (2.24) with the mass aspect (2.27) used in place of M, since in vacuum, or in any region where the scalar field’s self-gravitation is negligible, a and Kθshould take on these forms.",
+      "page": "not confirmed (Sec. IV, near Eqs. 4.15-4.17; 'Kθ' is the parse's rendering of K^θ_θ)",
+      "what": "For item 3: in vacuum regions the metric functions take their Schwarzschild form, with the mass aspect playing the role of M. It says nothing about surface gravity."
+     }
+    ]
+   }
+  ],
+  "gamma_value": "The 2007 Living Review (arXiv:0711.4620) gives gamma only as \"γ ≃ 0.37\", on p.19 (page confirmed by cutting the parse). The 2025 update (arXiv:2507.07636) repeats \"γ ≃ 0.37\" on p.13 (page inferred). The precise value is γ = 0.374 ± 0.001, from the growing mode λ₁ = −2.674 ± 0.009 (Gundlach, gr-qc/9604019, abstract p.1). Simulations give γ_0 = 0.376 ± 0.003 and Δ_0 = 3.43 ± 0.05 (Olabarrieta et al., arXiv:0708.0513, Table III, p.5). Hod–Piran measure β ≈ 0.37. Echoing period: \"∆ ≃ 3.44\" from numerical evolutions and \"∆ = 3.445452402(3)\" from the constructed solution (0711.4620 p.14; 2507.07636 p.10). The wiggle comes from Eq.(11), p.8 of 0711.4620: ln M = γ ln(p−p*) + c + f(γ ln(p−p*) + c), \"where f (z) has period ∆\". For the scalar field, the period actually seen in ln(p−p*) is Δ/(2γ) ≈ 4.61 (gr-qc/9604019 p.13). Hod–Piran measured \"≈ 4.6\" (gr-qc/9606087 pp.1–2). Validation target: γ ≈ 0.374, Δ ≈ 3.4455, wiggle period in ln(p−p*) ≈ 4.61.",
+  "equations_summary": "Normalization, Choptuik/Gundlach form: G = c = 1 (2507.07636 p.3). The field equations are G_ab = 8π(∇_aφ∇_bφ − ½ g_ab ∇_cφ∇^cφ) and ∇_a∇^aφ = 0 (0711.4620 Eqs.18–19, p.12; 2507.07636 Eqs.25–26, p.9).\n\nMetric: ds² = −α²dt² + a²dr² + r²dΩ² (Eq.20, p.12). The lapse is fixed by α = 1 at r = 0, so t is central proper time (p.13).\n\nVariables: Φ = φ_,r and Π = (a/α)φ_,t (Eq.21, p.13).\n\nEvolution:\n- Φ_,t = ((α/a)Π)_,r\n- Π_,t = r⁻²(r²(α/a)Φ)_,r\n(Eq.22, p.13; 2025 Eqs.29–30, p.9)\n\nHamiltonian constraint: a_,r/a + (a²−1)/(2r) = 2πr(Π²+Φ²) (Eq.23).\n\nSlicing condition: α_,r/α − a_,r/a − (a²−1)/r = 0 (Eq.24).\n\nMomentum constraint: a_,t/α = 4πrΦΠ (Eq.25). It is redundant in the fully constrained scheme (p.13; 2025 Eqs.31–33, p.9).\n\nThe 2π vs 4π factors: 2π multiplies Π²+Φ² in the Hamiltonian constraint and 4π multiplies ΦΠ in the momentum constraint. Both follow from G_ab = 8πT_ab with T_ab carrying no 1/(4π). Substituting (23) into (24) gives α_,r/α = 2πr(Π²+Φ²) + (a²−1)/(2r). That is my algebra; neither source prints it.\n\nMass function: M(t,r) = (r/2)(1 − 1/a²) (Olabarrieta et al. Eq.20, p.3). It is purely geometric, so it holds in either field normalization. It equals the ADM mass as r→∞, and 2M/r → 1 signals horizon formation.\n\nOlabarrieta et al. use a rescaled field. At l=0 their Eqs.(17)–(19), p.3, read:\n- (1/a)a_r = (r/2)(Π²+Φ²) − (a²−1)/(2r)\n- (1/α)α_r = (r/2)(Π²+Φ²) + (a²−1)/(2r)\n- a_t = rαΠΦ\nComparing with Gundlach's Eq.(23) gives ψ_Olabarrieta = √(4π) φ_Choptuik. That is my derived comparison, not stated in the paper. They normalize the lapse with α(t,r_max)a(t,r_max) = 1 (Eq.27, p.3) and analyze in central proper time. Regularity conditions are a(t,0) = 1 and ∂_r a = ∂_r α = 0 at r = 0 (Eqs.21–23, p.3).\n\nGundlach 1997 (gr-qc/9604019) keeps G explicit: 8πG, with X = √(2πG)(r/a)φ_,r.",
+  "caveats": "1. How pages were pinned. These were confirmed by cutting the arXiv PDF parse at a set page count (Firecrawl maxPages):\n   - 0711.4620: pp. 2, 8, 12, 13, 14, 19\n   - 2507.07636: p.6\n   - gr-qc/9604019: p.13\n   - 0708.0513: pp.2 and 5\n   \n   These were inferred from the table of contents plus parse page breaks and are flagged as such:\n   - 2507.07636: pp. 3, 9, 10, 13, 16\n   - 0708.0513: p.3\n   \n   These were not pinned:\n   - the λ₁ quote, p.11 or 12\n   - the apparent-horizon (AH) mass passage of 0711.4620, p.16 or 17\n   - Hod–Piran Eq.9, p.≥3\n   - Marsa–Choptuik, no page\n\n2. Math in the quotes is the parser's LaTeX rendering of the PDF, not raw glyphs. The PDF parse of Olabarrieta Eqs.(17)–(18) was garbled, so the equation text is taken from the arXiv HTML of the same v1. The page comes from the PDF.\n\n3. The wiggle period is easy to get wrong. GM2007 Eq.(11) says f has period Δ in z = γ ln(p−p*)+c, which would give 9.2 in ln(p−p*). For the real scalar field the critical solution is symmetric under φ→−φ, so the geometric quantities echo with Δ/2 (Olabarrieta p.5). The observable wiggle in ln(p−p*) therefore has period Δ/(2γ) ≈ 4.61 (Gundlach 1997 p.13). Hod–Piran write ϖ = Δ/β ≈ 4.6, which does not match their own numbers: 3.44/0.37 ≈ 9.3. Their measured 4.6 matches Δ/(2γ). Test the code for ≈4.61, not 9.2.\n\n4. What counts as the black-hole mass:\n   - The mass function f_M depends on the slicing and can jump once per period (2507.07636 p.10). The curvature scaling of R_max, Eq.(18) on p.6, is gauge-independent and the cleaner check.\n   - A polar-areal code cannot penetrate the apparent horizon (Olabarrieta p.3). So its \"mass\" is the AH/MOTS mass where 2M/r → 1, and later infall can raise the true mass (0711.4620 pp.16–17).\n   - Choptuik's scaling held from 10⁻⁶ up to 0.9 of the ADM mass, with p* tuned to 10⁻¹⁵ (0711.4620 pp.13–14; Olabarrieta p.5).\n\n5. Olabarrieta p.3 says polar slicing \"can be derived from the demand that Tr(K_ab)=K^r_r+K^θ_θ+K^φ_φ=K^r_r+2K^θ_θ=0\". As printed, that reads as maximal slicing. Polar slicing is conventionally K^θ_θ = 0; this is my own knowledge, not quoted. Implement from Eq.(18)/(24), not from that sentence.\n\n6. Item 3 (Schwarzschild exterior, surface gravity 1/(4M)): none found. No fetched source says that the black hole formed in Einstein–massless-scalar collapse is Schwarzschild outside the matter, non-extremal, or has surface gravity 1/(4M). The nearest statements are:\n   - Olabarrieta p.3: the mass aspect measures the enclosed mass in vacuum regions, and polar-areal coordinates behave like Schwarzschild coordinates.\n   - Marsa–Choptuik: Schwarzschild forms hold in vacuum regions; page not pinned.\n   - 2507.07636 p.16: the end state is Schwarzschild for Einstein–Yang–Mills, a different matter model.\n   \n   The surface-gravity material in 2507.07636 Sec.VII.G concerns the similarity and Cauchy horizons of self-similar spacetimes, not the final black hole. Any Birkhoff-based claim must be sourced separately.\n\n7. Not fetched: Choptuik's 1993 PRL itself (not on arXiv). The 2007 review never prints 0.374; the precise value comes from Gundlach 1997. Journal references other than LRR 10 (2007) 5 and PRD 54, 4929 were not verified and are omitted.\n\n8. Scope: this was a READ task only. No simulation was run and no file under /home/user/Claude-Method-Works was edited. Scratch parses were written only to the session scratchpad."
+ },
+ "read_braneworld_collapse": {
+  "sources": [
+   {
+    "citation": "D. Wang and M. W. Choptuik, 'Black hole formation in Randall-Sundrum II braneworlds', Phys. Rev. Lett. 117, 011102 (2016). Pages cited are those of the arXiv v2 PDF (5 pages), read through alphaXiv's page-tagged text. The PRL journal page mapping was not confirmed.",
+    "arxiv": "1604.04832v2",
+    "quotes": [
+     {
+      "text": "Due to the prohibitive computational cost of performing the calculations in the fully 5-dimensional context, we start with one of the simplest possible setups in which a black hole could form. This involves (a) imposing spherical symmetry on the brane, which makes the bulk axisymmetric, and (b) using a massless scalar field as the matter source confined on the brane.",
+      "page": "1",
+      "what": "formulation: symmetry reduction and matter model"
+     },
+     {
+      "text": "One vacuum solution of the RSII model is [1, 3] ds^2 = (l^2/z^2)(h_ab dx^a dx^b + dz^2) where z >= l. (1) Here, z labels the extra dimension, with the single brane of the RSII model located at z = l",
+      "page": "1",
+      "what": "coordinates: Poincare-type z, brane at z = l (one-sided domain z >= l)"
+     },
+     {
+      "text": "On the brane the scalar field satisfies its usual 3+1 equation of motion. Additionally, the brane and the matter confined to it are coupled to the bulk through Israel's junction conditions [11]. We use coordinates (t, r, theta, phi, z) adapted to the axisymmetry in the bulk: once spherical symmetry on the brane is imposed the coordinate system is effectively cylindrical, with dynamical variables depending on (t, r, z)",
+      "page": "1-2",
+      "what": "how brane matter couples; (t, r, z) problem"
+     },
+     {
+      "text": "The numerical calculations are carried out using finite difference approximation and employ coordinates R^ = r/(r + r0) and Z^ = (z - l)/(z - l + z0), where r0 and z0 are adjustable parameters, which compactify the spatial domain. We adopt the generalized harmonic formalism of GR [12] which yields a strongly hyperbolic set of evolution equations and, correspondingly, a well-posed initial value problem.",
+      "page": "2",
+      "what": "compactification of r and of the extra dimension; generalized harmonic gauge"
+     },
+     {
+      "text": "we perform a conformal transformation so that the conformally transformed spacetimes are asymptotically flat. Denoting the metric of the physical spacetime as g_mu nu, the conformally transformed metric is defined as g~_mu nu = Psi^-2 g_mu nu, where the conformal function Psi goes to l/z at spatial infinity.",
+      "page": "2",
+      "what": "conformal rescaling that removes the AdS warp so that asymptotically flat NR techniques apply"
+     },
+     {
+      "text": "while the damping term introduced in [16] suffices to damp the constraint-violating modes in the bulk, it can not control the corresponding modes appearing at and near the brane. We solve this problem by explicitly enforcing the constraints at the brane. These constraints can be converted into conditions on eta~_mu z,z |z=l, and can therefore be treated as boundary conditions. Generically there are no boundary conditions for eta~_mu z [14] at the brane, but by utilizing the coordinate freedom there we impose the additional boundary conditions eta~_tz|z=l = eta~_rz|z=l = 0, so that apparent horizons and the brane are perpendicular where they intersect [17].",
+      "page": "2",
+      "what": "brane boundary condition; the main numerical difficulty (constraint violation at the brane) and its fix"
+     },
+     {
+      "text": "Our initial data for the massless scalar field on the brane, z = l, is a localized Gaussian pulse, given by Phi(0, r) = A0 exp[-(r - x0)^2/sigma_r^2], where A0, x0 and sigma_r are adjustable parameters. We further specify the initial data to be time symmetric, so the pulse evolves into distinct ingoing and outgoing pieces.",
+      "page": "2",
+      "what": "initial data"
+     },
+     {
+      "text": "For strong enough initial data, on the other hand, the ingoing pulse becomes sufficiently self-gravitating that an apparent horizon with finite extension into the bulk forms (Fig.1, right panel). We use this as a signal that the resulting spacetime contains a black hole, also with finite extension into the bulk. Once an apparent horizon is detected in a calculation, we implement black hole excision [18], which enables us to continue the evolution for many dynamical times.",
+      "page": "2",
+      "what": "result: a black hole forms, with finite extent in the bulk; excision"
+     },
+     {
+      "text": "(A0, x0, sigma_r) = (0.04, 2, 0.2) (left panel) and (0.24, 2, 0.2) (right panel) ... The evolution on the left results in complete dispersal of the scalar field, while that on the right generates a black hole with r_a = 0.61l.",
+      "page": "3 (Fig. 1 caption)",
+      "what": "dispersal vs collapse threshold, as an example"
+     },
+     {
+      "text": "The black dashed line denotes the first apparent horizon which appeared at t = 2.3, while the red dotted-dashed line is the last horizon computed at t = 6.1.",
+      "page": "3 (Fig. 2 caption)",
+      "what": "time scales (coordinate time in units of l)"
+     },
+     {
+      "text": "Unfortunately, such a slicing condition is non-trivial to devise and we have yet to formulate one. However, during a typical long term evolution of a collapsing configuration, where the elapsed integration time is much greater than the characteristic dynamical time scale, we find that the solution settles into some apparently stationary state that we use to approximate the true end state. We note that the evolution inevitably departs from this configuration. We assume that this is a coordinate effect but have not yet been able to develop a technique to show that this is the case.",
+      "page": "3",
+      "what": "is the final state static? Only 'apparently stationary'; the run eventually departs from it"
+     },
+     {
+      "text": "We have performed a series of evolutions using five distinct initial data families, from which we have obtained black holes with sizes in the range 0.04l <~ r_a <~ 19.6l.",
+      "page": "3",
+      "what": "range of black hole sizes"
+     },
+     {
+      "text": "The figure shows preliminary evidence that the specific black holes in the RSII spacetimes studied here, which are axisymmetric in the bulk, and which have no angular momentum or non-gravitational charges, comprise a unique sequence, regardless of the details of the initial data.",
+      "page": "4",
+      "what": "uniqueness of the end states; scope excludes charge, so nothing on extremal objects"
+     },
+     {
+      "text": "When the sizes of the black holes are much smaller than l, the solutions tend to 5-dimensional asymptotically flat Schwarzschild ones [6]. As shown in the left panel of Fig. 3, as the size of the black hole increases, its embedding-diagram shape changes from spherical to prolate (cigar-shaped). Now, large black holes have an upper limit which is the corresponding AdS5/CFT4 solution [6, 14].",
+      "page": "4",
+      "what": "bulk shape at late times"
+     },
+     {
+      "text": "For large black holes, C5 is well approximated by C5 ~ 4 log(zeta r_a) [9], as long as the shape of the holes (as seen in an embedding plot), does not change with the size [14]. For our data we find a best fit zeta ~ 2.71 while Figueras and Wiseman [9] independently and previously obtained zeta ~ 2.8",
+      "page": "4",
+      "what": "quantitative agreement with the static Figueras-Wiseman solutions"
+     },
+     {
+      "text": "Our approach could be improved through the development of a slicing condition that would adapt to the assumed time translational symmetry of the stationary end states. ... Consideration of a wider range of sizes would also require improvement of coordinate conditions. It would be particularly useful to be able to probe the regime of small black holes since the nature of black hole critical phenomena in this scenario could well be different than it is in usual 4-dimensional spacetime.",
+      "page": "4",
+      "what": "open problems: slicing, gauge, small-hole and critical regime"
+     }
+    ]
+   },
+   {
+    "citation": "D. Wang, 'Gravitational Collapse and Black Hole Formation in a Braneworld', PhD thesis, University of British Columbia (2015), supervisor M. W. Choptuik. Each page is given as the PDF page with the printed page in brackets.",
+    "arxiv": "1505.00093v1",
+    "quotes": [
+     {
+      "text": "The brane content, including brane tension and the matter, is imposed via Israel's junction conditions [26], which serve as parts of the boundary conditions of the IVP. The matter on the brane evolves as ordinary 4D matter (which only \"feels\" the 4D metric on the brane).",
+      "page": "PDF 19 [printed 4]",
+      "what": "how the brane boundary condition is imposed and how matter couples"
+     },
+     {
+      "text": "There is a Z2 symmetry with respect to the brane [3] in Randall-Sundrum braneworlds, so that n- = -n+. ... Israel's second junction condition (1.18) is then reduced to K+_ab = -K-_ab = (1/2) k_d ( lambda h_ab/(d-2) + tau_ab - h_ab tau/(d-2) ). (1.29)",
+      "page": "PDF 28 [printed 13]",
+      "what": "Z2 symmetry and the reduced Israel condition"
+     },
+     {
+      "text": "The E_ab term in (1.24) is related to the geometry of the bulk and can not be eliminated easily. However, as analysed in [4], this term is only important at high energy regime. ... The Einstein tensor on the brane is therefore [4] G_ab = -Lambda h_ab + k tau_ab + k_d^2 pi_ab - E_ab (1.30)",
+      "page": "PDF 28 [printed 13]",
+      "what": "the Weyl (tidal) term E_ab on the brane; the thesis's only general statement about it"
+     },
+     {
+      "text": "Under this coordinate choice, Israel's first junction condition is simply g_ab|y=0+ = g_ab|y=0- = h_ab ... Israel's second junction condition imposes conditions on the extrinsic curvature K_ab (of the brane embedding in the bulk). These conditions can be translated into conditions on dg_ab/dy, which will serve as the boundary conditions for g_ab. g_yy and g_ay are not related to Israel's conditions.",
+      "page": "PDF 52 [printed 37]",
+      "what": "which metric components get boundary conditions from the junction"
+     },
+     {
+      "text": "In the braneworld, the causal structure of the spacetime is determined by the spacetime geometry in 5D, therefore the 4D apparent horizon and event horizon on the brane should play no direct role in braneworlds.",
+      "page": "PDF 51 [printed 36]",
+      "what": "brane horizons vs bulk horizons"
+     },
+     {
+      "text": "For the conformal factor Psi, we simply choose Psi = l/z and q = 2. ... In this chapter and the next, we choose the unit l = k5 = 1 (which implies 8 pi G4 = 8 pi G5 = 1).",
+      "page": "PDF 110 [printed 95]",
+      "what": "conformal factor and units (times are in units of l)"
+     },
+     {
+      "text": "In the braneworld, Israel's boundary condition can not be met if there is only one unknown variable in the spatial metric. To \"absorb\" this \"inconsistency\", there must be at least two unknown variables in the spatial metric.",
+      "page": "PDF 111 [printed 96]",
+      "what": "initial data: the junction condition forces at least two free metric functions"
+     },
+     {
+      "text": "A,z = 1 - e^(A+B) - (1/6) e^(-A-B) (Phi,r)^2, (4.5a) B,z = -(1/4) e^(-A-B) (Phi,r)^2, (4.5b) from which one see that a vanishing B is only possible when there is no matter (Phi,r = 0) on the brane.",
+      "page": "PDF 111 [printed 96]",
+      "what": "explicit Israel boundary conditions for the initial-data metric functions"
+     },
+     {
+      "text": "Often the lapse and the shifts are freely specifiable in initial data. However, for the braneworld, the Israel's junction condition imposes non-trivial boundary conditions on the lapse function and the shift functions.",
+      "page": "PDF 122 [printed 107]",
+      "what": "initial data: gauge is constrained at the brane"
+     },
+     {
+      "text": "which translates into conditions on eta~_tt,z, eta~_tr,z, eta~_rr,z, W~_z. The expressions are long and the specific forms do not matter at this stage, and are thus not written here. ... The massless scalar field Phi only exists at z = l. Therefore it is not defined in the bulk.",
+      "page": "PDF 128 [printed 113]",
+      "what": "brane boundary conditions during evolution; scalar field lives only on the brane (D_a D^a Phi = 0 with the brane metric, eq. 5.6)"
+     },
+     {
+      "text": "Adaptive Mesh Refinement (AMR) is used to reach high resolution (when needed). We used PAMR/AMRD [65] as the tool to realize the parallelization of the code. ... The simulations producing BHs in this chapter, however, were obtained using only one CPU with uniform grid structure, because a shooting method is employed to locate apparent horizons, which is not parallelized, nor adapted to AMR.",
+      "page": "PDF 130 [printed 115]",
+      "what": "resolution and AMR: the black-hole runs used one CPU on a uniform grid with no AMR"
+     },
+     {
+      "text": "Courant factor dt/min(dr) = dt/(r0 dR^) is set to be 0.5.",
+      "page": "PDF 129 [printed 114]",
+      "what": "numerics: second-order central finite differences, Courant factor 0.5"
+     },
+     {
+      "text": "In ours simulations, (3) was adopted for the simulations that produce small black holes. For small black holes, it is crucial to set both r0 and z0 much less than 1 to let the black hole boundaries include many grid points, so that the small black holes are well-resolved. (2) was adopted for the simulations that produce large black holes.",
+      "page": "PDF 131 [printed 116]",
+      "what": "gauge choice by size: damped wave gauge for small holes, Pretorius lapse driver for large; compactification parameters as a resolution control"
+     },
+     {
+      "text": "A survey over the parameters showed that the effect of damping is very sensitive to parameters. Also, even for the most successful result (Fig. 5.2), the independent residuals (and the residual of constraint equations) increase rapidly after certain time. i.e. very long term simulations seems to be problematic.",
+      "page": "PDF 133 [printed 118]",
+      "what": "numerical difficulty: constraint damping alone fails near the brane"
+     },
+     {
+      "text": "Imposing two boundary conditions on one function is achieved by the following trick: let one of the conditions be satisfied automatically by choosing the forms of the functions: eta~_tz = (z - l) xi~_t, (5.27) eta~_rz = (z - l) xi~_r. (5.28) ... It turns out that this method works well, and there is no need to use special damping.",
+      "page": "PDF 135 [printed 120]",
+      "what": "how the constraint-at-brane condition and the perpendicular gauge are imposed together"
+     },
+     {
+      "text": "During the evolution, sometimes singularities are formed and the code crashes. There are at least two types of singularities. The first is the coordinate singularity due to pathological coordinate gauges, which can be avoided by properly choosing coordinate gauges (which is non-trivial). The second is the physical singularity.",
+      "page": "PDF 135 [printed 120]",
+      "what": "singularities in the bulk evolution (handled by excision)"
+     },
+     {
+      "text": "In all the tests shown in the figures, the spacing of the coarser grid is dR^ = dZ^ = 1/256 and the spacing of the finer grid is dR^ = dZ^ = 1/512. The simulations were performed using 16 CPUs",
+      "page": "PDF 136 [printed 121] (Fig. 5.3 caption)",
+      "what": "resolution used for the convergence tests"
+     },
+     {
+      "text": "Instabilities and noises tend to happen at the excision boundary ... Another way, which is the best among the methods we tried, is to use the one-side dissipation at the excision boundary, which was developed by Calabrese et al. [72]",
+      "page": "PDF 139 [printed 124]",
+      "what": "numerical difficulty at the excision boundary"
+     },
+     {
+      "text": "The unique phenomena in RSII, is the interaction between the brane and the bulk, which mainly appears as the energy leaking into the bulk from the brane.",
+      "page": "PDF 140 [printed 125]",
+      "what": "dynamics: energy leaks from the brane into the bulk"
+     },
+     {
+      "text": "Such a slicing condition is currently not imposed in our numerical schemes. As a result, we do not have a time-independent state at the end of the evolutions. In the simulations, instead, we can obtain apparently stationary states, the states with BHs whose horizons (embedded into a fixed space) appear to be stationary for a finite time.",
+      "page": "PDF 141 [printed 126]",
+      "what": "is the final state static? Not established"
+     },
+     {
+      "text": "The two smaller BHs are apparently stationary states, and the largest BH is not since the configuration has not settled down to stationary state after evolving for a long time, and eventually the code crashes. In general it is harder for an evolution to settle down if the excision surface is going across the \"wiggling\" regions. This appears to be a technical issue related to the black hole excision at relatively coarse resolutions. ... The evolutions clearly show how the energy flows from the brane into the bulk, and flow from the exterior towards the symmetric axis. Part of the energy is captured by black holes, the remaining energy continue to flow towards the \"far end\" of the bulk.",
+      "page": "PDF 142 [printed 127] (Fig. 5.4 caption)",
+      "what": "failures (code crash) and the late-time bulk picture"
+     },
+     {
+      "text": "The processes of the settlement into time-independent states, show that the portion of the apparent horizons that is close to the brane, gets settled first, when the remaining portion might be still dynamical. ... At the end of an evolution, the matter has either fallen into the BH, or escaped to infinity, which makes the brane tension be the only content associated with the brane.",
+      "page": "PDF 144 [printed 129]",
+      "what": "late-time picture: the horizon settles first near the brane; the brane ends in vacuum plus tension"
+     },
+     {
+      "text": "the shape of the apparent horizon has settled down, since the coordinate time t ~ 5.5.",
+      "page": "PDF 145 [printed 130] (Fig. 5.6 caption; run with A = 0.24, x0 = 2, r_a = 0.601)",
+      "what": "time scale to settle"
+     },
+     {
+      "text": "Note the plots of r_a and A_bulk are noisy, which we can not explain. This might be caused by the KO dissipation ... As a result, the energy of the BH gradually decreases, which causes the decrease in A_bulk.",
+      "page": "PDF 149 [printed 134] (Fig. 5.10 caption; large BH, r_a = 15.1)",
+      "what": "numerical artefact for large holes"
+     },
+     {
+      "text": "In general, however, the BH solutions in AdS spacetimes may not be unique (see, e.g. [117]). Therefore, the uniqueness of the BHs is limited to the RSII spacetimes studied in this thesis, these spacetimes are axisymmetric without angular momentum and non-gravitational charges.",
+      "page": "PDF 154 [printed 139]",
+      "what": "scope: no charged or extremal objects studied"
+     },
+     {
+      "text": "it implies that generally apparently stationary states are, close to but distinct from, end states. Here we emphasize that our solution for large BHs were obtained at a resolution that is effectively coarse at the horizon, thus the solution should be less reliable.",
+      "page": "PDF 155 [printed 140]",
+      "what": "reliability and resolution caveat"
+     },
+     {
+      "text": "The graph shows that the Hawking mass is not a constant in the braneworld, in contrast to 4D GR. Hawking mass agrees with ADM mass only at r -> infinity.",
+      "page": "PDF 117 [printed 102] (Fig. 4.3 caption)",
+      "what": "brane metric differs from 4D GR: no Birkhoff-type constant mass"
+     },
+     {
+      "text": "For the ADM mass and Hawking mass on the brane, please refer to Fig. 5.16, where one can see that the above mentioned features (2) and (3) are lost.",
+      "page": "PDF 157 [printed 142]",
+      "what": "brane metric during evolution: the Birkhoff 'stair' (feature 3) and monotonic mass (feature 2) of 4D GR are lost"
+     },
+     {
+      "text": "for certain initial data, the gauges we used (Harmonic gauge, lapse driven gauge, damping wave gauge) can not yield a simulation that last \"forever\". ... (3) There is slight inconsistency in the initial stages of the evolution (which fade out during evolution), which might be due to the truncation error, or inconsistency in initial data. ... resolution is important since our calculation of large BHs resulted in apparent horizon at z ~ 30l, where the effective resolution was quite low and should be improved.",
+      "page": "PDF 161-162 [printed 146-147]",
+      "what": "open numerical difficulties"
+     }
+    ]
+   },
+   {
+    "citation": "M. W. Choptuik, 'Black Hole Formation in Randall-Sundrum II Braneworlds', plenary talk, CCGRRA 16, Vancouver, July 6, 2016 (49-slide PDF at sfu.ca). The scrape did not preserve slide numbers, so none are given.",
+    "arxiv": "",
+    "quotes": [
+     {
+      "text": "Approach to AH location effectively precludes parallelization and adaptive mesh refinement: unigrid, uniprocessor operation",
+      "page": "slide number unconfirmed ('Implementation' slide)",
+      "what": "no AMR"
+     },
+     {
+      "text": "Note: AH on brane does not necessarily coincide with intersection of AH in bulk with brane",
+      "page": "slide number unconfirmed",
+      "what": "brane horizon vs bulk horizon"
+     },
+     {
+      "text": "Always blend to lapse driver for long time evolution once apparent horizon is detected",
+      "page": "slide number unconfirmed",
+      "what": "gauge at late times"
+     },
+     {
+      "text": "Find evidence for a single-parameter family of stable, static black hole solutions (finite extension into the bulk) conveniently characterized by size on the brane",
+      "page": "slide number unconfirmed ('Summary')",
+      "what": "end-state claim; stronger wording than the paper's 'apparently stationary'"
+     },
+     {
+      "text": "Would also be extremely challenging; 5D and several of the strategies adopted here won't generalize easily (or at all) to the symmetry-free case",
+      "page": "slide number unconfirmed ('Speculation')",
+      "what": "limits of the method"
+     }
+    ]
+   },
+   {
+    "citation": "R. Emparan, R. Luna, R. Suzuki, M. Tomasevic and B. Way, 'Holographic duals of evaporating black holes', JHEP 05 (2023) 182. Pages are the journal/arXiv footer numbers.",
+    "arxiv": "2301.02587v3",
+    "quotes": [
+     {
+      "text": "Namely, we consider global AdS bulks and Karch-Randall branes with AdS geometry.",
+      "page": "4",
+      "what": "setup differs from RS2 (AdS branes in global AdS)"
+     },
+     {
+      "text": "This method reduces the dynamics of the horizons to a set of two PDEs that can be quickly solved numerically in a conventional computer. Although the leading large-D approximation may not give quantitatively accurate results for, say, AdS5/CFT4, it has nevertheless proven to be a fruitful guide",
+      "page": "4-5",
+      "what": "the only dynamical follow-up found: large-D effective theory, not full GR"
+     },
+     {
+      "text": "A different kind of braneworld collapse to a black hole, using classical scalar fields on the brane, was studied in [30].",
+      "page": "5 (footnote 6; [30] = Wang and Choptuik, PRL 117, 011102)",
+      "what": "acknowledges Wang-Choptuik as the scalar-field collapse precedent"
+     },
+     {
+      "text": "we find that (2.14) requires that d_x m(t, x0) = 0, p(t, x0) = 0. (2.19) We can therefore study black holes on branes using the effective equations (2.9) and imposing the Neumann conditions (2.19).",
+      "page": "12",
+      "what": "how the Israel junction reduces at large D: Neumann conditions"
+     },
+     {
+      "text": "Hence, it does not reproduce well gravity in D - 1 dimensions and, instead, gravity on the brane is closer to a D-dimensional theory. This is a limitation of the large D approach to this problem.",
+      "page": "14",
+      "what": "limitation"
+     },
+     {
+      "text": "The bulk black hole hits the brane and sticks to it, thus forming a black droplet, which is a stable configuration since it does not have a funnel through which it would evaporate.",
+      "page": "14",
+      "what": "dynamical collapse end state (large D)"
+     },
+     {
+      "text": "This method is successful largely because the emission of bulk gravitational waves is suppressed",
+      "page": "26",
+      "what": "why large D is tractable, and what it omits"
+     }
+    ]
+   },
+   {
+    "citation": "T. Shiromizu and M. Shibata, 'Black holes in the brane world: Time symmetric initial data', Phys. Rev. D 62, 127502 (2000).",
+    "arxiv": "hep-th/0007203v2",
+    "quotes": [
+     {
+      "text": "we numerically compute a black hole space using a time symmetric initial value formulation; namely we solve the 5D Einstein equation only on a spacelike 4D hypersurface. Thus, the black hole obtained here is not static nor the exact solution for the 5D Einstein equation, implying that we cannot identify the event horizon.",
+      "page": "1",
+      "what": "initial data only; no time evolution"
+     },
+     {
+      "text": "Equation (2.4) is solved using a uniform grid with grid size 1200 x 1200 for r and z directions ... It should be noted that two horizons do not coincidently appear. In some cases, the apparent horizon on the brane exists although that in the bulk does not.",
+      "page": "2",
+      "what": "resolution; the brane apparent horizon is not the bulk apparent horizon"
+     },
+     {
+      "text": "This implies that the black hole is not static and will evolve to other state with time evolution.",
+      "page": "3",
+      "what": "time evolution left open"
+     }
+    ]
+   },
+   {
+    "citation": "A. Chamblin, H. S. Reall, H. Shinkai and T. Shiromizu, 'Charged brane-world black holes', Phys. Rev. D 63, 064015 (2001).",
+    "arxiv": "hep-th/0008177v2",
+    "quotes": [
+     {
+      "text": "It has been shown that a Reissner-Nordstrom geometry is induced on the wall when only Weyl charge is present. However, we show that such solutions exhibit pathological features in the bulk.",
+      "page": "1 (abstract)",
+      "what": "tidal RN of Dadhich et al., evolved into the bulk"
+     },
+     {
+      "text": "The solution is simply a solution to the Hamiltonian constraint of general relativity and gives appropriate initial data for evolution into the bulk. Until this evolution is performed and boundary conditions in the bulk are imposed, it is not clear what this solution represents. For example, it might give rise to some pathology such as a naked curvature singularity.",
+      "page": "2",
+      "what": "brane metrics with a Weyl term are only 'initial data' in y"
+     },
+     {
+      "text": "we will prescribe \"initial\" data on the brane and evolve it in the spacelike direction transverse to the brane, whereas in [16], initial data was prescribed on a spacelike hypersurface and evolved in a timelike direction.",
+      "page": "2",
+      "what": "method: evolution in y (spacelike), not in t"
+     },
+     {
+      "text": "We assume that the induced metric on the brane takes the form ds^2 = -U(r)dt^2 + dr^2/U(r) + r^2 dOmega^2 ... Note that this is a guess.",
+      "page": "3",
+      "what": "ansatz has g_tt = -1/g_rr, so it excludes F != H metrics such as the board's eq. (17)"
+     },
+     {
+      "text": "We were only able to solve numerically in a region near the domain wall with a maximum value for chi of O(1). This is because the volume element of surfaces of constant chi decreases exponentially as one moves away from the wall, just as in pure AdS.",
+      "page": "5",
+      "what": "numerical difficulty of evolving into the bulk"
+     },
+     {
+      "text": "The plot is for M = 5, Q = 3 and beta = 0, +-5, +-10, +-15, where beta = 15 is close to the extreme** case for this choice of Q. ... ** By extreme, we mean that U(r) has a double root at r = r+.",
+      "page": "5",
+      "what": "a near-extremal case evolved into the bulk"
+     },
+     {
+      "text": "Fig.1 (a) and (b) suggests that a negative value for beta is the natural choice since the apparent horizon grows (relative to the black string) in the fifth dimension when beta is positive.",
+      "page": "5",
+      "what": "sign of the tidal term and the bulk horizon"
+     },
+     {
+      "text": "For all cases (including beta > 0), we have found that the trace of the extrinsic curvature diverges at a finite distance from the brane, with the volume element of the spacetime tending to zero.",
+      "page": "7",
+      "what": "bulk caustic or tip at finite distance"
+     },
+     {
+      "text": "We suspect that our solutions will generically have a curvature singularity at the point where the trace of the extrinsic curvature diverges.",
+      "page": "7",
+      "what": "bulk regularity of Weyl-charged brane metrics"
+     }
+    ]
+   },
+   {
+    "citation": "N. Dadhich, R. Maartens, P. Papadopoulos and V. Rezania, 'Black holes on the brane', Phys. Lett. B 487, 1 (2000). Ligatures lost in text extraction were restored.",
+    "arxiv": "hep-th/0003061v3",
+    "quotes": [
+     {
+      "text": "We show that the Reissner-Nordstrom metric is an exact solution of the effective Einstein equations on the brane, re-interpreted as a black hole without electric charge, but with instead a tidal 'charge' arising via gravitational effects from the fifth dimension.",
+      "page": "1 (abstract)",
+      "what": "tidal RN"
+     },
+     {
+      "text": "As in general relativity, both horizons lie inside the Schwarzschild horizon ... and there is an upper limit on q: 0 <= q <= q_max",
+      "page": "3",
+      "what": "extremal bound for positive tidal charge"
+     },
+     {
+      "text": "It turns out that if ds^2 is given by our solution ... then ds~^2 = f(z)[dz^2 + ds^2] cannot satisfy the bulk field equations for any f(z) if q != 0.",
+      "page": "4",
+      "what": "no black-string-type bulk for a Weyl-charged brane"
+     },
+     {
+      "text": "We have not investigated fully the effect of the brane-world black hole on the bulk geometry, and in particular the nature of the off-brane horizon structure.",
+      "page": "4",
+      "what": "bulk left open"
+     }
+    ]
+   },
+   {
+    "citation": "R. Casadio, A. Fabbri and L. Mazzacurati, 'New black holes in the brane-world?', Phys. Rev. D 65, 084040 (2002).",
+    "arxiv": "gr-qc/0111072v2",
+    "quotes": [
+     {
+      "text": "We propose two families of analytic solutions (with g_tt != -g_rr^-1), parameterized by the ADM mass and the PPN parameter beta, which reduce to Schwarzschild for beta = 1.",
+      "page": "1",
+      "what": "the family containing the board's eq. (17)"
+     },
+     {
+      "text": "Case I. By demanding that N = 1 - 2M/r, (7) the general solution to Eq. (6) is A = (1 - 3M/2r) / [ (1 - 2M/r) (1 - (M/2r)(4 beta - 1)) ]. (8) The only other non-vanishing PPN parameter (which controls the deflection and time delay of light [11]) gamma = beta",
+      "page": "2",
+      "what": "Case I metric; with 4 beta - 1 = 4 it equals the board's eq. (17)"
+     },
+     {
+      "text": "As in Schwarzschild, the event horizon is at r = r_h = 2M and the related Hawking temperature is T_H = sqrt(1 - 3 eta-bar)/(8 pi M) (13)",
+      "page": "2",
+      "what": "temperature; vanishes at eta-bar = 1/3"
+     },
+     {
+      "text": "Unlike RN, the spacetime is completely regular (the geometry is that of a traversable wormhole with the minimal sphere inside the horizon)",
+      "page": "3",
+      "what": "interior structure for eta > 0"
+     },
+     {
+      "text": "We also note that for finite values of eta each family of solutions possesses a zero temperature black hole: eta-bar = 1/3 for case I, eta = 1 for case II and the well-known extreme RN eta = 2 in Eq. (25). Contrary to the extreme RN which is singular at r = 0, the first two solutions are instead completely regular and, although the corresponding values of eta are ruled out on atrophysical scales, they might be acceptable candidates as small black holes [8,9].",
+      "page": "4",
+      "what": "the extremal (zero-temperature) member, which is the board's eq. (17)"
+     },
+     {
+      "text": "Let us finally mention that it will be important to investigate the extension of our solutions into the bulk. ... for eta > 0 the solutions with (7) and (8) are remarkably free of singularities and one might hope that the bulk is regular as well. This study can be attempted either numerically or by Taylor expanding all five-dimensional metric elements in powers of the extra coordinate.",
+      "page": "4",
+      "what": "bulk extension of eq. (17)'s family left open"
+     },
+     {
+      "text": "Note added. After completion of this work we learned that our case I was also derived in Ref. [14] as a possible metric outside a star on the brane.",
+      "page": "4 ([14] = Germani and Maartens)",
+      "what": "link to a stellar exterior"
+     }
+    ]
+   },
+   {
+    "citation": "R. Casadio and L. Mazzacurati, 'Bulk shape of brane-world black holes', Mod. Phys. Lett. A 18, 651 (2003).",
+    "arxiv": "gr-qc/0205129v2",
+    "quotes": [
+     {
+      "text": "We propose a method to extend into the bulk asymptotically flat static spherically symmetric brane-world metrics. We employ the multipole (1/r) expansion in order to allow exact integration of the relevant equations along the (fifth) extra coordinate",
+      "page": "1",
+      "what": "static extension in y, not a time evolution"
+     },
+     {
+      "text": "The relevant boundary conditions for Eq. (2.6) are given by the requirement (2.5) for f_n(0) and the junction conditions which imply df_n/dz(0) = -sigma f_n(0).",
+      "page": "3",
+      "what": "junction condition in Gaussian normal coordinates"
+     },
+     {
+      "text": "In such a range (M sigma >> 1 and |eta| << 1) one finds a qualitatively identical behavior for all brane metrics in Refs. 4,5,6, so we shall just give the results for case I of Ref. 6",
+      "page": "4",
+      "what": "regime of validity (CFM Case I with small eta)"
+     },
+     {
+      "text": "As we mentioned previously, the cases with eta > 0 show a very different qualitative behavior. One in fact finds that R^2_n(r, z) is generically a (monotonically) increasing function of z for all (sufficiently large) values of r, as one would indeed expect on a negative tension brane. However, for any r1, r2 > 0 there now exists z*_n(r1, r2) such that R^2_n(r1, z*_n) = R^2_n(r2, z*_n), i.e. space-like geodesics of constant r display caustics and the Gaussian coordinates (r, z) do not cover the whole bulk",
+      "page": "9",
+      "what": "eta > 0 (the sign of the board's eq. 17): caustics in the y-extension"
+     },
+     {
+      "text": "The remaining problem of stability under (linear) perturbations is a difficult one to tackle and we do not attempt at it here.",
+      "page": "9",
+      "what": "no dynamics"
+     }
+    ]
+   },
+   {
+    "citation": "C. Germani and R. Maartens, 'Stars in the braneworld', Phys. Rev. D 64, 124010 (2001).",
+    "arxiv": "hep-th/0107011v3",
+    "quotes": [
+     {
+      "text": "Standard matching conditions do not lead to a unique exterior on the brane because of these 5-dimensional graviton effects.",
+      "page": "1 (abstract)",
+      "what": "non-uniqueness of brane exteriors"
+     },
+     {
+      "text": "However, even in the much simpler case of black hole solutions, numerical integration into the bulk proves very difficult [5].",
+      "page": "2",
+      "what": "y-integration difficulty ([5] = CRSS)"
+     },
+     {
+      "text": "(A+)^2 = 1 - 2GN/r, (42) (B+)^-2 = (A+)^2 [ 1 + C / (lambda (r - (3/2) GN)) ], (43)",
+      "page": "5",
+      "what": "the second exterior; it equals the board's eq. (17) when C/lambda = -N/2 (G = 1), which is my algebra, not the paper's"
+     },
+     {
+      "text": "C = 3GM rho [ (1 - 3GM/2R) / (1 + 3GM rho/R lambda) ], (47)",
+      "page": "5",
+      "what": "the matched stellar C is positive for R > 3GM/2, the opposite sign to the eq. (17) member"
+     },
+     {
+      "text": "We expect that these corrections, together with the nonlocal bulk graviton stress effects, will leave a non-static, but transient, signature in the exterior of collapsing matter.",
+      "page": "6",
+      "what": "expected dynamics (not computed)"
+     }
+    ]
+   },
+   {
+    "citation": "M. Bruni, C. Germani and R. Maartens, 'Gravitational collapse on the brane: a no-go theorem', Phys. Rev. Lett. 87, 231302 (2001).",
+    "arxiv": "gr-qc/0108013v2",
+    "quotes": [
+     {
+      "text": "Without making any assumptions about the bulk, we prove a no-go theorem: the exterior spacetime on the brane cannot be static, which is in stark contrast with general relativity.",
+      "page": "1 (abstract)",
+      "what": "a static exterior is excluded during brane collapse"
+     },
+     {
+      "text": "Numerical integration into the bulk, starting from static black hole solutions on the brane, is plagued with difficulties [9].",
+      "page": "1",
+      "what": "[9] = Shiromizu-Shibata and CRSS"
+     },
+     {
+      "text": "Comparing with Eq. (13), we see that a static exterior is only possible if M/lambda = 0.",
+      "page": "3",
+      "what": "the theorem's crux"
+     },
+     {
+      "text": "We expect that the non-static exterior will be transient and non-radiative ... It is reasonable to assume that the exterior metric will be static at late times and tend to Schwarzschild, at least at large distances.",
+      "page": "4",
+      "what": "late-time expectation (conjecture, not computed)"
+     }
+    ]
+   }
+  ],
+  "gamma_value": "The board's eq. (17) is exactly the zero-temperature (extremal) member of Casadio-Fabbri-Mazzacurati Case I, with PPN parameters beta = gamma = 5/4. Equivalently eta = 3(beta - 1) = 3/4 and eta-bar = (4/9)eta = 1/3. I derived this; it is not stated in any paper.\n\nThe steps:\n- CFM eq. (8) gives H = 1/A = (1 - 2M/r)(1 - (4 beta - 1)M/(2r)) / (1 - 3M/(2r)).\n- Setting 4 beta - 1 = 4 gives H = (1 - 2m/r)^2 / (1 - 3m/(2r)).\n- CFM eq. (13) gives T_H = sqrt(1 - 3 eta-bar)/(8 pi M) = 0 at eta-bar = 1/3, which is the member CFM single out on p. 4 as 'completely regular'.\n- Their turning surface r0 = (3/2)M(1 + eta-bar) = 2M then coincides with the horizon r_h = 2M.\n- The same metric is Germani-Maartens's second exterior, eqs. (42)-(43), with C/lambda = -N/2 (G = 1).\n\nI checked both identities exactly with rational arithmetic at several radii.",
+  "equations_summary": "FORMULATION (Wang and Choptuik 2016 PRL; Wang thesis 2015)\n- Bulk: 5D Einstein equations with Lambda < 0. Background ds^2 = (l^2/z^2)(eta_ab dx^a dx^b + dz^2) with z >= l and the brane at z = l. The domain is one-sided, so Z2 is built in.\n- Variables depend on (t, r, z) once spherical symmetry is imposed on the brane, which makes the bulk axisymmetric.\n- Compactified grid coordinates: R^ = r/(r + r0) and Z^ = (z - l)/(z - l + z0), uniform in both.\n- Conformal metric g~ = Psi^-2 g with Psi = l/z (q = 2). The extra Psi terms are treated as matter, so the conformal problem is asymptotically flat. Units: l = k5 = 1.\n- Generalized harmonic gauge with regularized Cartesian-component variables:\n  - metric components eta~_tt, eta~_tr, eta~_rr, eta~_tz, eta~_rz, eta~_zz, plus W with eta~_thth = eta~_rr + rW;\n  - source functions H~_mu = h~_mu + (2/r)(eta~_{mu r}/eta~_thth).\n- Axis conditions: eta~_{tt,r} = eta~_{rr,r} = eta~_{zz,r} = eta~_{tz,r} = eta~_tr = eta~_rz = W = 0.\n\nBRANE\n- Israel junction: K+ = -K- = (1/2) k_d (lambda h/(d-2) + tau - h tau/(d-2)). It gives Neumann-type conditions on eta~_{tt,z}, eta~_{tr,z}, eta~_{rr,z}, W_z (explicit forms not printed).\n- The GH constraints are imposed exactly at the brane. They fix eta~_{tz,z}, eta~_{rz,z}, eta~_{zz,z}.\n- The perpendicular gauge eta~_tz = eta~_rz = 0 at z = l is enforced by writing eta~_tz = (z - l) xi_t and eta~_rz = (z - l) xi_r. This keeps the apparent horizon smooth and perpendicular at the brane.\n- Brane matter obeys D_a D^a Phi = 0 with the induced metric and enters only through tau_ab in the junction condition.\n- Effective brane equation: G_ab = -Lambda4 h_ab + k4 tau_ab + k5^2 pi_ab - E_ab. The thesis says only that E 'is only important at high energy regime'.\n\nINITIAL DATA\n- Time-symmetric, with spatial metric (l^2/z^2)[e^(2A+2B)(dr^2 + dz^2) + e^(2A-2B) r^2 dOmega^2].\n- Junction conditions: A_z = 1 - e^(A+B) - (1/6)e^(-A-B)Phi_r^2 and B_z = -(1/4)e^(-A-B)Phi_r^2. At least two free metric functions are needed.\n- The evolution-ready ansatz (4.26) adds a lapse e^(2a) and g_zz = e^(2b), with a_z = (1/12)e^(-2A-2B)Phi_r^2 and b_z = -(h~_z + ...).\n- Scalar field: Phi(0, r) = A0 exp[-(r - x0)^2/sigma_r^2].\n\nGAUGE AND NUMERICS\n- Gauges: harmonic h~ = 0; Pretorius lapse driver (5.20) with alpha0 = 1; damped wave (5.21). Damped wave was used for small holes, the lapse driver for large ones.\n- Constraint damping Z~_mu nu = kappa(n_(mu C_nu) - (1+p)/2 g n.C). A brane-enhanced variant with F = z^4/(z^4 - 0.99) was superseded by imposing the constraints exactly at the brane.\n- Second-order central differences, fourth-order Kreiss-Oliger dissipation, Courant factor 0.5, Newton-Gauss-Seidel update.\n- Convergence tests at dR^ = dZ^ = 1/256 and 1/512 on 16 CPUs. The black-hole runs were single-CPU on a uniform grid with no AMR.\n- Apparent horizon found by ODE shooting, then excised with one-sided dissipation.\n\nRESULTS\n- Weak data disperse; strong data form an apparent horizon of finite bulk extent. Example: first horizon at t = 2.3, settled by t ~ 5.5, last at t = 6.1, giving r_a = 0.61 l.\n- Sizes 0.04 l to 19.6 l. Small holes approach 5D Schwarzschild: A_bulk = 2 pi^2 r_a^3 and C5 = 2 pi r_a.\n- Large holes approach the black-string area law, with C5 ~ 4 log(zeta r_a): zeta = 2.71 here against 2.8 from Figueras-Wiseman.\n- The final states are only 'apparently stationary' and the evolution eventually departs. No late-time brane metric functions (g_tt, g_rr) are reported.\n\nWEYL-CHARGED BRANE METRICS IN THE BULK (static y-extensions only)\n- CRSS: Gaussian normal coordinates (N = 1), free evolution in chi with Crank-Nicholson. For tidal RN, K diverges at a finite chi_crit for all beta != 0.\n- CM: multipole (1/r) expansion with df_n/dz(0) = -sigma f_n(0) to order 19. For eta < 0 the horizon closes as a 'pancake'; for eta > 0 constant-r geodesics form caustics.\n- Board's eq. (17): F = 1 - 2m/r and H = (1 - 2m/r)^2/(1 - 3m/(2r)), which is CFM Case I at eta-bar = 1/3 (T_H = 0, r0 = r_h = 2m).",
+  "caveats": "1. Pagination.\n- Wang-Choptuik pages are those of the 5-page arXiv v2 PDF; the mapping to PRL 117, 011102 journal pages was not confirmed.\n- Thesis pages are given as the PDF page with the printed page in brackets.\n- Emparan et al. pages are the journal/arXiv footer numbers.\n- Choptuik's slide numbers could not be confirmed: the scrape dropped them.\n\n2. Quote fidelity.\n- Text came from PDF extraction (alphaXiv page-tagged text). Line-break hyphens were rejoined and math was transcribed to ASCII.\n- The Dadhich et al. extraction had lost ligatures (e.g. 'eective'); these were restored.\n- Wording is otherwise verbatim, including the authors' own grammar ('In ours simulations', 'atrophysical').\n\n3. Coverage of the thesis.\n- I read targeted sections by query, not all 180 pages.\n- The production grid size of the black-hole runs (as opposed to the 1/256 and 1/512 convergence grids) was not found. The only stated controls are r0 = z0 compactification and unigrid on one CPU; no AMR was used in any black-hole run.\n\n4. Internal inconsistencies.\n- The thesis (printed p. 116) says that after horizon formation 'we gradually change the gauge into (3) to drive the value of alpha toward alpha0 = 1'. Option (3) is the damped wave gauge, but that description fits (2), the lapse driver. The slides say 'Always blend to lapse driver'.\n- The PRL and thesis label the five initial-data families differently: PRL (iv) is (x0, sigma_r) = (0, 0.3), while thesis Fig. 5.12 has (ii) = (0, 0.3).\n- The thesis gives r_a in (0.04 l, 19.6 l), but Table 5.1 tops out at 15.1 and Fig. 5.12 spans about 0.04 to 15 l.\n- The slides say 'stable, static black hole solutions'; the paper and thesis claim only 'apparently stationary' states that the evolution 'inevitably departs from', with no slicing adapted to the Killing vector.\n\n5. What Wang-Choptuik do not provide.\n- No explicit late-time brane metric functions. They report only r_a, A_bulk, C5 and brane ADM/Hawking 'energies'.\n- No statement on bulk curvature singularities beyond excision and the remark that coordinate or physical singularities crash the code.\n- No charged, extremal, rotating or Weyl-charged brane configurations. So there is no dynamical test of tidal RN or CFM-type end states, and no comparison of the late-time brane metric with eq. (17).\n\n6. Follow-ups.\n- An INSPIRE 'refersto' query listed 21 records citing the PRL.\n- The only time-evolution follow-up found is Emparan et al. 2023. It is a large-D effective theory with Karch-Randall (AdS) branes in global AdS, not full GR, and not an RS2 flat brane; the authors note that brane gravity there is closer to D-dimensional.\n- No full-GR dynamical follow-up of Wang-Choptuik was found. The search was not exhaustive.\n\n7. Extremal and Weyl-term literature is all static.\n- CRSS and Casadio-Mazzacurati extend brane metrics in the extra coordinate; they do not evolve in time.\n- CRSS's ansatz has g_tt = -1/g_rr, so it cannot represent eq. (17), which has F != H.\n- Casadio-Mazzacurati's quantitative results assume |eta| << 1 and M sigma >> 1. The board's member has eta = 3/4 > 0, and their eta > 0 remark (caustics, Gaussian normal coordinates not covering the bulk) is only qualitative there.\n- CFM themselves leave the bulk extension of Case I open.\n\n8. Derived claims are mine.\n- The identification of eq. (17) with CFM Case I at beta = gamma = 5/4 (eta-bar = 1/3, T_H = 0) is my algebra, checked exactly. The extremal member itself is named in CFM p. 4.\n- So is the equivalence with Germani-Maartens's exterior at C/lambda = -N/2. Their matched stellar value of C is positive for R > 3GM/2, so eq. (17) is not the exterior of their uniform-density star.\n\n9. Bruni-Germani-Maartens rest on assumptions.\n- Their 'non-static exterior' theorem assumes Oppenheimer-Snyder homogeneous dust and standard 4D matching.\n- 'Transient, tends to Schwarzschild at large distance' is their expectation, not a computation.\n\n10. Repository not touched.\n- No file in /home/user/Claude-Method-Works was read or edited. Scratch files are in the session scratchpad only."
+ },
+ "note": "READ agents' structured results (2026-10-08), quotes verbatim from the fetched sources; pages as each agent pinned or flagged them."
+}

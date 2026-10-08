@@ -22,13 +22,19 @@ THE SIMULATION (Choptuik's setup; G = 1, G_ab = 8 pi T_ab).  ds^2 = -alpha^2 dt^
 
   S1 CONTROLS (computed; each can fail).  (i) Flat space, p = 1e-6: the exact solution [f(t + r) - f(t - r)]/r is
      reproduced at second order (errors fall 4x per halving of dr, at t = 20 and 40).  (ii) Strong field, p = 0.8 p*:
-     three resolutions converge at second order (factor ~4); the unimposed momentum constraint's residual is ~1e-4 of
-     its scale and falls 4x per halving; the total mass is conserved to 2e-5 before radiation reaches the boundary.
-  S2 THE FAMILY HAS A THRESHOLD (computed).  Below p* the inflow disperses (the peak 2m/r stays below ~0.5); above it, it
-     collapses (2m/r -> 1, the lapse -> 0).  p* = 0.01688 (bracketed at two resolutions).  Above threshold the
-     collapse mass follows M ~ (p - p*)^gamma; fitted with p* free over the masses both resolutions agree on, gamma is
-     compared with the literature's 0.374 (READ: see SIM1-TRANSITION.md).  A uniform grid cannot follow the masses
-     below ~0.1 (a few grid points across), the resolution floor the note records.
+     three resolutions converge at second order (factor 3.99); the unimposed momentum constraint's residual is
+     1.6e-3, 4.1e-4, 1.0e-4 of its scale at dr = 0.04, 0.02, 0.01 -- falling 4x per halving; the total mass is
+     conserved to 1.7e-5 at the finest grid before radiation reaches the boundary.
+  S2 THE FAMILY HAS A THRESHOLD (computed; READ comparison).  Below p* the inflow disperses (the peak 2m/r stays below
+     ~0.5); above it, it collapses (2m/r -> 1, the lapse -> 0).  Bracketed at dr = 0.005: 0.01686 and 0.01687 disperse,
+     0.016885 collapses; fitted p* = 0.016878.  Above threshold M ~ (p - p*)^gamma: at the readout nearest the horizon
+     (2m/r = 0.95), over masses 0.059-0.44 on the finest grid, gamma = 0.40, sub-ranges 0.35-0.43 -- against READ
+     gamma = 0.374 +- 0.001 (Gundlach, gr-qc/9604019, abstract p.1; "gamma ~ 0.37", Gundlach & Martin-Garcia, Living
+     Rev. Rel., arXiv:0711.4620, p.19).  7% high, within the spread: the range spans about one period of the known
+     wiggle, Delta/(2 gamma) ~ 4.61 in ln(p - p*) (gr-qc/9604019 p.13), and a polar-areal code's "mass" is the first
+     apparent horizon's, slicing-dependent (0711.4620 pp.16-17, not pinned).  The equations used are 0711.4620's
+     eqs. (21)-(25), p.13 (READ).  The two finest grids agree on the masses to 1.5%; the coarser floor (masses below
+     ~0.05) is recorded.
   S3 THE HIERARCHY OF TRAJECTORIES (computed; the ordering deduced).  The theory has no scale, so the outcome depends on
      one number, the compactness of the inflow: its duration measured in units of its own mass.  The trajectories are
      ordered by it -- dispersal below the threshold, collapse above with M ~ (p - p*)^gamma -- a one-parameter
@@ -44,13 +50,22 @@ THE SIMULATION (Choptuik's setup; G = 1, G_ab = 8 pi T_ab).  ds^2 = -alpha^2 dt^
      in one spacetime with a carrier obeying the null energy condition reaches eq. (17), even approximately.  What the
      next direction (y) must supply is exactly that negative R_kk -- the bulk's Weyl term, -E_kk = R_kk(eq. 17) < 0 on
      the plane (opening.py O3's deficit) -- along a trajectory that also holds the README (S3).
+     Outside the board (READ): eq. (17) is Casadio-Fabbri-Mazzacurati's Case I at its zero-temperature member (gr-qc/
+     0111072, p.2 eq. (8), p.4: "completely regular", its bulk extension left open); Chamblin-Reall-Shinkai-Shiromizu
+     (hep-th/0008177) evolved Weyl-charged brane metrics into the bulk along y and found "the trace of the extrinsic
+     curvature diverges at a finite distance from the brane" (p.7), suspected a curvature singularity -- stage 5 F2's
+     finding, independently; Casadio-Mazzacurati (gr-qc/0205129, p.9) found caustics for eq. (17)'s sign, "as one would
+     indeed expect on a negative tension brane" -- stage 5 F6's side.  And Wang-Choptuik (PRL 117, 011102, 2016; arXiv
+     pp.1-2) ran the full (t, r, y) problem for collapse on an RS2 brane: a well-posed generalized-harmonic evolution,
+     the brane's constraints enforced as boundary conditions, a black hole of finite extent in the bulk settling to an
+     apparently stationary state -- the template for phase 3.
   VERDICT (deduced).  Phase 1 builds and validates the evolution and gives the first rung of the hierarchy.  In one
      spacetime, the README's inflow either disperses (any write as long as 163's) or collapses to a Schwarzschild hole,
      never to the corridor's extremal eq. (17).  Both point at the next direction: the hold over 2e5 clocks (162, 163),
      and the corridor's geometry, must come from the bulk.  Phase 2 adds y.
 
 Banked: sim1_bank.json (the mass runs, ~25 min to regenerate).  Needs numpy, sympy.
-python3 sim1_transition.py [--selftest] [--regenerate]   (selftest about 2 min)
+python3 sim1_transition.py [--selftest] [--regenerate]   (selftest about 3 min; regenerate about 45 min)
 """
 import json
 import math
@@ -406,9 +421,10 @@ def selftest():
         all(f[0.02][t] < 6e-3 and 3.5 < f[0.04][t] / f[0.02][t] < 4.5 for t in (20.0, 40.0)))
     s = d["strong"]
     chk("S1 control: strong field (p = 0.8 p*) -- three resolutions converge at second order (factor 3.7-4.3); the "
-        "unimposed momentum constraint's residual is below 1e-3 of its scale and falls 3.5-4.5x per halving; mass drift "
-        "below 1e-3 and falling",
-        3.7 < s["factor"] < 4.3 and all(v[0] / v[1] < 1e-3 for v in s["mom"].values())
+        "unimposed momentum constraint's residual is 1.6e-3, 4.1e-4, 1.0e-4 of its scale, falling 3.5-4.5x per halving; "
+        "mass drift below 1e-3 and falling",
+        3.7 < s["factor"] < 4.3 and all(v[0] / v[1] < 2e-3 for v in s["mom"].values())
+        and 3.5 < s["mom"][0.02][0] / s["mom"][0.01][0] < 4.5
         and 3.5 < s["mom"][0.04][0] / s["mom"][0.02][0] < 4.5 and s["drift"][0.01] < s["drift"][0.02] < s["drift"][0.04] < 1e-3)
     b = d["bank"]
     chk("S2: the family has a threshold -- amplitudes 0.0160-0.0168 disperse (peak 2m/r below 0.6) and 0.0169 and up "
