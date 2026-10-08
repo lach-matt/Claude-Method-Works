@@ -63,7 +63,7 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 BANK = os.path.join(HERE, "sim1_bank.json")
 R0, DELTA, ROUT = 20.0, 3.0, 50.0
-P_STAR = 0.016884                       # bracketed in S2 (the banked run records the bracket)
+P_STAR = 0.016878                       # fitted in S2 at dr = 0.005 (0.95 readout); bracketed by the banked runs
 GAMMA_READ = 0.374                      # Gundlach & Martin-Garcia, Living Rev. Rel. (READ; page in SIM1-TRANSITION.md)
 P_LIST = [0.01690, 0.01692, 0.01695, 0.01700, 0.01710, 0.01730, 0.01760, 0.01800, 0.01900, 0.02000, 0.02200]
 
@@ -262,8 +262,14 @@ def strong_control(p=0.8 * P_STAR, drs=(0.04, 0.02, 0.01), T=30.0, t_mom=25.0):
 
 
 # ------------------------------------------------------------------------------------------------ S2 the threshold and gamma
-def regenerate():
+FINE_P = [0.016885, 0.01689, 0.016895, 0.0169, 0.01691, 0.01693, 0.01696, 0.0170, 0.0171, 0.0173, 0.0176, 0.0180]
+
+
+def regenerate(fine=True):
     bank = {"p_list": P_LIST, "masses": {}}
+    if fine:                                   # ~25 min: the masses at three readouts on the finest grid
+        bank["fine005"] = {repr(p): collapse_masses(p, 0.005) for p in FINE_P}
+        bank["sub005"] = {repr(p): collapse_masses(p, 0.005) for p in (0.01686, 0.01687)}
     for dr in (0.02, 0.01):
         bank["masses"][str(dr)] = [collapse_mass(p, dr) for p in P_LIST]
     bank["sub"] = {str(dr): [collapse_mass(p, dr) for p in (0.0160, 0.0165, 0.0168)] for dr in (0.02, 0.01)}
@@ -281,7 +287,7 @@ def fit_gamma(ps, Ms):
     """Least squares ln M = gamma ln(p - p*) + c with p* free (grid search on p* below the smallest p)."""
     ps, Ms = np.array(ps), np.array(Ms)
     best = None
-    for ps_ in np.linspace(0.01660, min(ps) - 1e-7, 4000):
+    for ps_ in np.linspace(0.01670, min(ps) - 1e-8, 20000):
         x, y = np.log(ps - ps_), np.log(Ms)
         A = np.vstack([x, np.ones_like(x)]).T
         coef, res, *_ = np.linalg.lstsq(A, y, rcond=None)
@@ -289,6 +295,11 @@ def fit_gamma(ps, Ms):
         if best is None or rss < best[0]:
             best = (rss, float(ps_), float(coef[0]), float(coef[1]))
     return {"rss": best[0], "p_star": best[1], "gamma": best[2], "c": best[3]}
+
+
+def fine_series(bank, th="0.95"):
+    ps = sorted(float(k) for k in bank["fine005"])
+    return ps, [bank["fine005"][repr(p)]["masses"][th]["M"] for p in ps]
 
 
 def agreed(bank, tol=0.1):
@@ -342,7 +353,13 @@ def compute(live=True):
         d["strong"] = strong_control()
     pts = agreed(d["bank"])
     d["agreed"] = pts
-    d["fit"] = fit_gamma([p for p, _ in pts], [M for _, M in pts]) if len(pts) >= 4 else None
+    ps, Ms = fine_series(d["bank"])
+    d["fine"] = (ps, Ms)
+    d["fit"] = fit_gamma(ps, Ms)
+    d["fit_subsets"] = [fit_gamma(ps[a:b], Ms[a:b]) for a, b in ((0, 9), (3, 12), (0, 7), (5, 12))]
+    m01 = {p: x["M"] for p, x in zip(d["bank"]["p_list"], d["bank"]["masses"]["0.01"])}
+    d["res_agree"] = [(p, m01[p], d["bank"]["fine005"][repr(p)]["masses"]["0.8"]["M"]) for p in (0.0169, 0.017, 0.0171,
+                                                                                                 0.0173, 0.0176, 0.018)]
     d["T_star"] = 2 * DELTA / d["madm_star"]
     return d
 
@@ -360,9 +377,13 @@ def report(d):
     for p, x, y in zip(b["p_list"], b["masses"]["0.02"], b["masses"]["0.01"]):
         print("   p = %.5f  %s / %s" % (p, "%.4f" % x["M"] if x["collapse"] else "disp", "%.4f" % y["M"] if y["collapse"] else "disp"))
     print("   subcritical peaks 2m/r: %s" % {k: ["%.3f" % s_.get("peak", float("nan")) for s_ in v] for k, v in b["sub"].items()})
-    if d["fit"]:
-        print("   fit over %d agreed points: gamma = %.3f (p* = %.6f); READ %.3f" % (len(d["agreed"]), d["fit"]["gamma"],
-                                                                             d["fit"]["p_star"], GAMMA_READ))
+    ps, Ms = d["fine"]
+    print("   dr = 0.005, 0.95 readout: %s" % ", ".join("%.6f:%.4f" % (p, M) for p, M in zip(ps, Ms)))
+    print("   dr = 0.005 subcritical: %s" % {k: ("collapse" if v["collapse"] else "disperse, peak %.3f" % v["peak"])
+                                              for k, v in b.get("sub005", {}).items()})
+    print("   gamma = %.3f (p* = %.6f); sub-ranges %s; READ %.3f" % (d["fit"]["gamma"], d["fit"]["p_star"],
+          ", ".join("%.3f" % f_["gamma"] for f_ in d["fit_subsets"]), GAMMA_READ))
+    print("   dr = 0.01 vs 0.005 (0.8 readout): %s" % ", ".join("%.4f: %.4f/%.4f" % t for t in d["res_agree"]))
     print("S3 M_ADM(p*) = %.4f; threshold inflow duration ~ 2 delta/M_ADM = %.1f mass units; README write >= 2.0e5" % (
         d["madm_star"], d["T_star"]))
     print("S4 eq. (17) radial R_kk = %s (residual vs closed form %s); scalar T_kk - (k.dphi)^2 = %s, g(k,k) = %s" % (
@@ -395,11 +416,17 @@ def selftest():
         all(not s_["collapse"] and s_["peak"] < 0.6 for v in b["sub"].values() for s_ in v)
         and all(x["collapse"] for v in b["masses"].values() for x in v)
         and all(np.diff([x["M"] for x in b["masses"]["0.01"]][3:]) > 0))
-    fit = d["fit"]
-    chk("S2: over the masses both resolutions agree on (at least 5), M ~ (p - p*)^gamma with gamma within 15% of the "
-        "READ 0.374 and the fitted p* between the last dispersing and first collapsing amplitude",
-        fit is not None and len(d["agreed"]) >= 5 and abs(fit["gamma"] / GAMMA_READ - 1) < 0.15
-        and 0.0168 < fit["p_star"] < 0.0169)
+    fit, subs = d["fit"], d["fit_subsets"]
+    sub5 = b.get("sub005", {})
+    chk("S2: the threshold is bracketed at dr = 0.005 -- 0.01686 and 0.01687 disperse, 0.016885 collapses -- and the "
+        "fitted p* lies inside the bracket",
+        len(sub5) == 2 and all(not v["collapse"] for v in sub5.values())
+        and all(v["collapse"] for v in b["fine005"].values()) and 0.01687 < fit["p_star"] < 0.016885)
+    chk("S2: the two finest grids agree on the masses (dr = 0.01 vs 0.005, 0.8 readout, p >= 0.0169) to 1.5%",
+        all(abs(x / y - 1) < 0.015 for _, x, y in d["res_agree"]))
+    chk("S2: at the 0.95 readout, over masses 0.059-0.44, M ~ (p - p*)^gamma with gamma within 15% of the READ 0.374, "
+        "and four sub-ranges within 0.06 of it", abs(fit["gamma"] / GAMMA_READ - 1) < 0.15
+        and all(abs(f_["gamma"] - fit["gamma"]) < 0.06 for f_ in subs))
     chk("S3: at threshold the inflow's ADM mass gives a duration ~ 2 delta/M_ADM of order 10 mass units -- the README's "
         ">= 2.0e5-clock write is at least 1e4 times longer", 0.4 < d["madm_star"] < 0.8 and 5 < d["T_star"] < 20
         and 2.0e5 / d["T_star"] > 1e4)
