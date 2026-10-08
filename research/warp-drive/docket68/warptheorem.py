@@ -69,10 +69,10 @@ LEMMAS = [
     ("O", "O2 the horizon is extremal (surface gravity 0)", "PROVED", "bulk/stability.py S1 (verified)"),
     ("O", "O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor "
           "and the opening are the same object (160)", "OPEN",
-     "item 160 settles item 159: the hold is the corridor through the write, >= 2.0e5 clocks (o3_write.py).  Held "
-     "static, eq. (17)'s bulk reaches its singular surface by ~18 clocks (b4_static.py), so the corridor must evolve "
-     "while the README passes -- O3 is B4d's.  The Vaidya/black-string model of the opening (o3_readings.py R3) is not "
-     "the corridor and no longer bears on it"),
+     "item 160 settles item 159: the hold is the corridor through the write, >= 2.0e5 clocks (o3_write.py; 163 keeps "
+     "it: 'at once' is all together, one whole).  The write's energy is settled (o3_ground.py, 164): the held README "
+     "is an exact eigenstate at E, the write's spread 5.2e-20 of E.  What stays open is the bulk -- O3 is B4d's "
+     "(b4d_stage5.py: singular on a positive-tension plane, regular on the evidence on 139's negative one)"),
     ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
           "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
@@ -102,9 +102,11 @@ LEMMAS = [
      "the write lasts ~1e5 clocks (o3_write.py), past this window -- re-read with B4d"),
     ("B", "B4d the opening and closing evolve regularly in five dimensions, and data beyond the hold's cone join the "
           "untouched exterior (H-EVOLUTION, H-GLUING)", "OPEN",
-     "a nonlinear 5D initial-boundary problem through an opening of >= 2.0e5 clocks (o3_write.py); stage 1 "
-     "(lemmas/b4d_stage1.py): on the board's models no regular bulk through it ends in eq. (17), the open routes named; "
-     "at linear order around the static bulk Holmgren closes the non-analytic escape inside the cone (standard, not READ)"),
+     "a nonlinear 5D initial-boundary problem through a write of >= 2.0e5 clocks at fixed size (162, 163).  Stage 5 "
+     "(lemmas/b4d_stage5.py, verified once): with eq. (17) on a positive-tension plane the bulk reaches K >= 1e4 within "
+     "8-16 clocks at every finite ell tested; on 139's negative-tension plane it relaxes to AdS, regular on the "
+     "evidence, at the cost of boundary data and localized gravity -- the live route.  Stages 1-2 verified; 3-4 "
+     "conditional on the withdrawn instant reading"),
     ("B", "B5 positivity for the entangled pin (140, 139 (2)): null energy at every point is your ruling (117, 120), "
           "shown consistent -- at one place (127) the sheets' summed tension is +lambda_RS and a smooth wall keeping null "
           "energy at every point exists; the pin carries no negative energy, the separation held at zero (127, 141) leaving "
@@ -189,7 +191,7 @@ def lemma_selftests():
     out = {}
     for f in ("o3_hold.py", "i2_capacity.py", "ledger.py", "r4_length.py", "b5_positive.py", "b6_k.py", "r5_build.py",
               "b7_formation.py", "axioms.py", "b4_global.py", "b4_regular.py", "b4_static.py", "o3_write.py",
-              "o3_readings.py", "b4d_stage1.py"):
+              "o3_readings.py", "b4d_stage1.py", "o3_ground.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

@@ -73,14 +73,16 @@ other side is the live route for your 161. All findings are applied (History).
 **F4. Over that hold the plane's data are eq. (17)'s** (a reading, H-QUASI-STATIC-CORRIDOR, the board's).
 - **How much changes.** In the window F1 picks, the inflow moves at most about 10⁻⁴ of the mass.
 - **What that gives.** Read inside the locally analytic class, the bulk in that window's cone is the static bulk.
-- **Why it is a reading.** The bulk problem is Hadamard-ill-posed, so this continuity is the hypothesis, not a theorem.
+- **Why it is a reading.** The bulk problem is Hadamard-ill-posed: a disturbance of size ε and wavenumber k grows like
+  ε·e^{ky}. So this continuity needs a bound on the 10⁻⁴ disturbance in an analytic norm. That bound is the hypothesis,
+  not a theorem.
 - **No escape through the opening.** Only the first such window matters. The opening's own transient does not escape:
   any later window of eq. (17) data fixes its own cone.
 
 **F5. A second plane below the surface would carry NEC-breaking matter at finite ℓ too** (computed; STRUCTURAL at small
 height).
 - **What it must carry.** ρ + p_r = R⁽⁴⁾_kk·(y_w + 3y_w²/ℓ) + O(y_w³), with R⁽⁴⁾_kk = −2m(r − 2m)/(r²(2r − 3m)²) < 0. The
-  warp cancels identically, and any tension drops out, your 139's negative one included. Checked rationally, and derived
+  explicit warp factor cancels identically (ℓ comes back only through the 3y²/ℓ term), and any tension drops out, your 139's negative one included. Checked rationally, and derived
   analytically by the verifier.
 - **Where it is negative.** Computed at r = 2.15, 3, 5, 10 and 32m for y_w = y_s/4 and y_s/2. The verifier found it
   negative for every y_w up to 0.99 y_s at r = 2.25–32m.

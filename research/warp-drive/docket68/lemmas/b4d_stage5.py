@@ -52,7 +52,8 @@ itself" (the inflow); item 136 G (the README is the energy); item 139 (position 
   F4 OVER THAT HOLD THE PLANE'S DATA ARE EQ. (17)'S (a reading, H-QUASI-STATIC-CORRIDOR, the board's).  In a 20-clock
      window chosen by F1's pigeonhole the inflow moves at most ~1e-4 of the mass; read inside the locally analytic class,
      the bulk in that window's cone is the static bulk to that order.  The y-problem is elliptic and Hadamard-ill-posed,
-     so this continuity is the hypothesis, not a theorem.  Only the first such window matters; secular effects over
+     so this continuity -- a bound on the 1e-4 perturbation in an analytic norm, since a mode of wavenumber k grows like
+     e^(ky) -- is the hypothesis, not a theorem.  Only the first such window matters; secular effects over
      2e5 clocks do not enter.  The opening's own transient is no escape: any later 20-clock window of eq. (17) data fixes
      its own cone.
   F5 A SECOND PLANE BELOW THE SURFACE CARRIES NEC-BREAKING MATTER AT FINITE ell TOO (computed; STRUCTURAL at small

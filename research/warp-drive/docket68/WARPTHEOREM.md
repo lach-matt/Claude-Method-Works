@@ -68,7 +68,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor and the opening are the same object (160)** | **OPEN**, B4d's. Item 160 settles item 159: the hold is the corridor through the write, ≥ 2.0×10⁵ clocks (o3_write.py). Held static, eq. (17)'s bulk reaches its singular surface by ~18 clocks (b4_static.py), so the corridor must evolve while the README passes. The Vaidya/black-string model of the opening (o3_readings.py R3) is not the corridor and no longer bears on it |
+| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor and the opening are the same object (160)** | **OPEN**, B4d's. The hold is the corridor through the write, ≥ 2.0×10⁵ clocks (o3_write.py); item 163 keeps that ("at once" is all together, one whole). The write's energy is settled (o3_ground.py, item 164, verified once): the held README is an exact energy state at E, and the write needs a spread of 5.2×10⁻²⁰ of E. What stays open is the bulk (B4d) |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
@@ -78,7 +78,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
 | B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL. A round T exists beyond the hold's reach only if ℓ > 2R_reach; a tipped T is untrapped at any ℓ (computed: at ℓ = 0.11m, min θ+ = +0.07, B4D-STAGE2.md). Radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5), and eq. (17) holds only within the reach (causality); both derived. Open: whether the model holds deep in the bulk, where a tipped T goes |
 | B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
-| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D initial-boundary problem through an opening of ≥ 2.0×10⁵ clocks. Stage 1 (b4d_stage1.py, verified once): on the board's models no regular bulk through the opening ends in eq. (17) — the string is unstable, the static bulk singular, the one hole that stands is 5D, non-extremal and ~580 m; the open routes are named (H-TWO-SIDED, a curved wall, H-SLAB-PHASES, an extremal opening, a non-string opening, a late shell) |
+| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (b4d_stage5.py, verified once): with eq. (17) on a positive-tension plane the bulk reaches curvature ≥ 10⁴ within 8–16 clocks at every finite ℓ tested; on 139's negative-tension plane it relaxes to anti-de Sitter, regular on the evidence, at the cost of data at the bulk's edge and of localized gravity — the live route. Stages 1–2 verified; 3–4 conditional on the withdrawn instant reading |
 | B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
@@ -293,4 +293,22 @@ The theorem is proved exactly when no lemma below is OPEN.
   reaches the singular surface by about 18 clocks. The write needs at least 2.0×10⁵. So the corridor must change while
   the README passes through it.
 - **O3 is B4d's.**
+
+## History (2026-10-08, items 161–164 and B4d stage 5)
+
+- **Item 161:** your inclination that the corridor stays regular through the write.
+- **Items 162–163:** one object of fixed size, holding the README all together, as one whole. The instant reading of
+  "at once" is set aside, so `O3-ATONCE.md`'s instant route and B4d stages 3–4 become conditional on that withdrawn
+  reading.
+- **Item 164:** a ground state oscillates. `o3_ground.py` (verified once) answers it.
+  - The phase turns, and position and the kinetic and potential energies fluctuate.
+  - The total energy does not.
+  - Under 163 the held README is an exact energy state, and the write's spread is 5.2×10⁻²⁰ of E. That answers all
+    three of the board's objections to achievability.
+- **B4d stage 5** (`b4d_stage5.py`, verified once).
+  - **Positive-tension side:** with eq. (17) there, the bulk is singular within 8–16 clocks at every finite ℓ tested.
+  - **A closing plane** would carry matter that breaks the NEC.
+  - **Negative-tension side (your 139):** the bulk is regular on the evidence. That is the live route for 161. Its open
+    costs are data at the bulk's edge and localized gravity.
+- **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 nature, 3 open.
 
