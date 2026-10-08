@@ -1,71 +1,92 @@
 #!/usr/bin/env python3
-"""sim1_transition.py -- B4d simulation, phase 1 (M-RULINGS item 167): a transition in one spacetime.  Computed, READ and
-deduced; not verified; not seated.
+"""sim1_transition.py -- B4d simulation, phase 1 (M-RULINGS item 167): a transition in one spacetime, as the board reads
+it.  Computed, READ and deduced; verified once (findings applied, SIM1-TRANSITION.md History); not seated.  First headed
+"... not verified; not seated" -- and first claiming the collapse endpoint as computed, one number as deciding every
+inflow, and the ordering of outcomes as M's hierarchy of trajectories, none of which its verifiers let stand.
 
-M's words (verbatim in the rulings file): item 167 "You are technically running a simulation. Run it in phases. Start
-small, a transition in the same spacetime. Then build on it, with independent directions one at a time. This incidently
-will also likely give you a hierarchy of trajectories I would think."  Items 115 (c) and 136 G (the README is the inflow,
-and the energy); 162 (fixed size); 163 (held as one whole; the write >= 2.0e5 clocks); 157 (our universe before).
+M's words (verbatim in the rulings file): item 167 "... Run it in phases. Start small, a transition in the same spacetime.
+Then build on it, with independent directions one at a time. This incidently will also likely give you a hierarchy of
+trajectories I would think. ..." (cut marked; the full text is item 167).  Items 115 (c) and 136 G (the README is the
+inflow, and the energy); 162 (fixed size, H-FIXED-SIZE); 163 ("All together, one whole"); 157 (our universe).
 
-The board's reading of "a transition in the same spacetime" (H-PHASE1-IS-4D-COLLAPSE, to be corrected by M if wrong): one
-four-dimensional spacetime, no bulk, spherical symmetry; the README's energy carried in by the simplest carrier that obeys
-the null energy condition and has real dynamics -- a massless scalar field -- from flat space (157) to whatever the
-inflow becomes.  The directions are (t, r).  Phase 2 adds the extra dimension y; phase 3 both.
+The board's reading (H-PHASE1-IS-4D, offered for correction): one four-dimensional spacetime, no bulk, spherical
+symmetry, directions (t, r); the start flat (H-FLAT-START, the board's gloss on 157's "our current universe"); the
+README's energy carried in by a massless scalar field (H-SCALAR-CARRIER), one initial-data family (H-GAUSSIAN-FAMILY).
+M's own usage points to another reading (items 116 (b), 117: "travel between two positions within one universe vs
+travel between two counterfactual universes"; 118: law and history trajectories): that is put to M.  On either reading
+this phase is the validated time-evolution tool the later phases build on.
 
-THE SIMULATION (Choptuik's setup; G = 1, G_ab = 8 pi T_ab).  ds^2 = -alpha^2 dt^2 + a^2 dr^2 + r^2 dOmega^2, Phi = d_r phi,
-  Pi = (a/alpha) d_t phi:  d_t Phi = d_r(alpha Pi/a),  d_t Pi = r^-2 d_r(r^2 alpha Phi/a);  a'/a = (1 - a^2)/(2r) +
-  2 pi r (Pi^2 + Phi^2);  alpha'/alpha = a'/a + (a^2 - 1)/r;  alpha a = 1 at the outer boundary; m = (r/2)(1 - a^-2).  The
-  Hamiltonian constraint is solved exactly in integral form each step (1/a^2 by an integrating factor), second-order
-  differences, RK4, fourth-order Kreiss-Oliger dissipation, outgoing condition at r = 50.  Initial data, one family:
-  phi = p exp(-((r - 20)/3)^2), ingoing (Pi = Phi + phi/r).  The momentum constraint d_t a = 4 pi r alpha Phi Pi is never
-  imposed and is used as a check.
+THE SIMULATION.  Polar-areal coordinates, G = 1, G_ab = 8 pi T_ab: the evolution eqs. (21)-(22), Hamiltonian constraint
+  (23), slicing (24) and momentum constraint (25) of Gundlach & Martin-Garcia, arXiv:0711.4620, p.13 (READ); the lapse
+  normalised alpha a = 1 at the outer boundary (Olabarrieta et al., arXiv:0708.0513, eq. (27), p.3, READ), which only
+  relabels t.  The Hamiltonian constraint is solved each step from its closed integral form (1/a^2 by an integrating
+  factor) by trapezoidal quadrature, second order; second-order differences, RK4, fourth-order Kreiss-Oliger
+  dissipation, outgoing condition at r = 50.  Initial data: phi = p exp(-((r - 20)/3)^2), ingoing (Pi = Phi + phi/r).
+  The momentum constraint is never imposed and is the check.  Polar-areal slicing cannot follow a black hole (it does
+  not penetrate apparent horizons, 0708.0513 p.3, READ): every collapsing run is read at 2m/r = 0.95 (H-READOUT-095) and
+  stopped; past that the hole drains away numerically (its verifier's continuation).
 
-  S1 CONTROLS (computed; each can fail).  (i) Flat space, p = 1e-6: the exact solution [f(t + r) - f(t - r)]/r is
-     reproduced at second order (errors fall 4x per halving of dr, at t = 20 and 40).  (ii) Strong field, p = 0.8 p*:
-     three resolutions converge at second order (factor 3.99); the unimposed momentum constraint's residual is
-     1.6e-3, 4.1e-4, 1.0e-4 of its scale at dr = 0.04, 0.02, 0.01 -- falling 4x per halving; the total mass is
-     conserved to 1.7e-5 at the finest grid before radiation reaches the boundary.
-  S2 THE FAMILY HAS A THRESHOLD (computed; READ comparison).  Below p* the inflow disperses (the peak 2m/r stays below
-     ~0.5); above it, it collapses (2m/r -> 1, the lapse -> 0).  Bracketed at dr = 0.005: 0.01686 and 0.01687 disperse,
-     0.016885 collapses; fitted p* = 0.016878.  Above threshold M ~ (p - p*)^gamma: at the readout nearest the horizon
-     (2m/r = 0.95), over masses 0.059-0.44 on the finest grid, gamma = 0.40, sub-ranges 0.35-0.43 -- against READ
-     gamma = 0.374 +- 0.001 (Gundlach, gr-qc/9604019, abstract p.1; "gamma ~ 0.37", Gundlach & Martin-Garcia, Living
-     Rev. Rel., arXiv:0711.4620, p.19).  7% high, within the spread: the range spans about one period of the known
-     wiggle, Delta/(2 gamma) ~ 4.61 in ln(p - p*) (gr-qc/9604019 p.13), and a polar-areal code's "mass" is the first
-     apparent horizon's, slicing-dependent (0711.4620 pp.16-17, not pinned).  The equations used are 0711.4620's
-     eqs. (21)-(25), p.13 (READ).  The two finest grids agree on the masses to 1.5%; the coarser floor (masses below
-     ~0.05) is recorded.
-  S3 THE HIERARCHY OF TRAJECTORIES (computed; the ordering deduced).  The theory has no scale, so the outcome depends on
-     one number, the compactness of the inflow: its duration measured in units of its own mass.  The trajectories are
-     ordered by it -- dispersal below the threshold, collapse above with M ~ (p - p*)^gamma -- a one-parameter
-     hierarchy with one critical member.  At threshold the inflow's duration is T* ~ 2 delta/M_ADM(p*) ~ 10 of its mass
-     units (this family's profile; an order of magnitude, profile-dependent).  The README's write under 163 lasts >= 2.0e5
-     clocks, a clock being m = the README's own mass: 2e4 times longer than the threshold.  So a wave inflow carrying the
-     README's own energy over the write disperses; it cannot hold itself.  (Pressureless matter would not disperse; a
-     radiation gas, o3_write.py's carrier, behaves as the wave does -- a reading, not computed here.)
-  S4 THE ENDPOINT IS NOT EQ. (17), AND CANNOT BE IN ONE SPACETIME (computed; STRUCTURAL).  A collapse ends with
-     2m/r -> 1 and m(r) constant outside the matter: Schwarzschild outside (H = F, surface gravity 1/(4M), not
-     extremal).  More strongly: for this carrier R_kk = 8 pi T_kk = 8 pi (k.d phi)^2 >= 0 for every null k, at every point
-     of every trajectory; eq. (17) has radial R_kk = -2m(r - 2m)/(r^2 (2r - 3m)^2) < 0 at every r > 2m.  So no trajectory
-     in one spacetime with a carrier obeying the null energy condition reaches eq. (17), even approximately.  What the
-     next direction (y) must supply is exactly that negative R_kk -- the bulk's Weyl term, -E_kk = R_kk(eq. 17) < 0 on
-     the plane (opening.py O3's deficit) -- along a trajectory that also holds the README (S3).
-     Outside the board (READ): eq. (17) is Casadio-Fabbri-Mazzacurati's Case I at its zero-temperature member (gr-qc/
-     0111072, p.2 eq. (8), p.4: "completely regular", its bulk extension left open); Chamblin-Reall-Shinkai-Shiromizu
-     (hep-th/0008177) evolved Weyl-charged brane metrics into the bulk along y and found "the trace of the extrinsic
-     curvature diverges at a finite distance from the brane" (p.7), suspected a curvature singularity -- stage 5 F2's
-     finding, independently; Casadio-Mazzacurati (gr-qc/0205129, p.9) found caustics for eq. (17)'s sign, "as one would
-     indeed expect on a negative tension brane" -- stage 5 F6's side.  And Wang-Choptuik (PRL 117, 011102, 2016; arXiv
-     pp.1-2) ran the full (t, r, y) problem for collapse on an RS2 brane: a well-posed generalized-harmonic evolution,
-     the brane's constraints enforced as boundary conditions, a black hole of finite extent in the bulk settling to an
-     apparently stationary state -- the template for phase 3.
-  VERDICT (deduced).  Phase 1 builds and validates the evolution and gives the first rung of the hierarchy.  In one
-     spacetime, the README's inflow either disperses (any write as long as 163's) or collapses to a Schwarzschild hole,
-     never to the corridor's extremal eq. (17).  Both point at the next direction: the hold over 2e5 clocks (162, 163),
-     and the corridor's geometry, must come from the bulk.  Phase 2 adds y.
+  S1 CONTROLS, BELOW THRESHOLD (computed; each can fail -- a mutation test by its verifier broke them).  Flat space
+     (p = 1e-6) against the exact [f(t + r) - f(t - r)]/r: errors fall 4.2x and 4.0x per halving (t = 20, 40).  Strong
+     field (p = 0.8 p*): convergence factor 3.99; the unimposed momentum constraint's residual 1.6e-3, 4.1e-4, 1.0e-4 of
+     its scale at dr = 0.04, 0.02, 0.01; total mass conserved to 1.7e-5 on the finest grid.  Near threshold the code is
+     checked only by the two-grid masses and by gamma (S2); the echoing period is not measured.
+  S2 THE THRESHOLD AND THE MASS SCALING (computed; READ comparison).  Robust outcomes (classify): collapse when 2m/r
+     reaches 0.95 at a radius >= 20 dr; dispersal only when the total mass is conserved and the centre empties.  At
+     dr = 0.005: 0.01686, 0.01687, 0.016875 disperse, 0.016885 collapses (0.01688 crosses 0.8 at a few grid points and
+     then drains -- a floor event, undecided); an independent fourth-order code (sim1_repro.json) puts p* = 0.01688 to
+     four figures.  The masses at the 0.95 readout, 0.059-0.44, on the finest grid: a plain power law fixes gamma only
+     with p*, from ~0.43 at p* = 0.016875 to ~0.31 near 0.016884 (best fit 0.40 at 0.016878); with the known wiggle of
+     period Delta/(2 gamma) = 4.61 in ln(p - p*) (gr-qc/9604019 p.13, READ) fitted in, gamma = 0.37 at p* = 0.01688
+     with a residual ten times smaller -- against READ gamma = 0.374 +- 0.001 (gr-qc/9604019, abstract p.1).  The two
+     finest grids agree on the 0.8-readout masses to 0.35%; the 0.95-readout masses differ by 2-6% between dr = 0.01 and
+     0.005 (both banked), the readout itself jumping between echoes in places.
+  S3 WHAT THE OUTCOME DEPENDS ON (computed within the family; deduced beyond it).  The theory has no scale, so within a
+     family of fixed shape one number decides: dispersal below the threshold, collapse above it with M ~ (p - p*)^gamma,
+     one critical member between (an ordering of solutions -- the board's analogy, H-HIERARCHY-IS-OUTCOME-ORDER, not
+     M's trajectories).  Across shapes it is not one number: a supercritical burst followed by a tail of any length
+     still collapses (domain of dependence).  For a long write the deciding quantity is the inflow rate: at threshold
+     this family carries its mass M_ADM = 0.59 in a duration ~ 2 delta, a rate ~ M/(2 delta) ~ 0.1 per mass unit.  The
+     README's energy spread evenly over the write -- >= 2.0e5 clocks, o3_write.py W3's gas bound at the example README
+     (computed there), carried in the option of item 163 -- is a rate ~ 5e-6, 2e4 times below: in this family that is
+     p ~ 1.2e-4, deep in the computed dispersing range.  So such a write disperses (deduced for evenly spread writes);
+     a write with any stretch above ~0.1 m per clock collapses, and is then held by a hole that grows.
+  S3b A HORIZON OF FIXED SIZE ABSORBS NOTHING IN ONE SPACETIME (deduced; Raychaudhuri, standard, not READ).  Along a
+     horizon's generators d theta/d lambda = -theta^2/2 - sigma^2 - R_kk; a horizon of fixed size (162) has theta = 0
+     throughout, so R_kk = -sigma^2 <= 0, and with matter obeying the null energy condition R_kk = 0 = sigma: no flux
+     crosses it.  Stage 5 F1's dm/dv = 0 at r = 2m is the same statement.  So in one spacetime the README cannot be
+     carried into a horizon that keeps its size; the negative R_kk that would let it is S4's.
+  S4 EQ. (17) IS OUT OF REACH OF ONE SPACETIME (computed; STRUCTURAL; partly a restatement of opening.py O3).  For any
+     static -F dt^2 + dr^2/H: radial R_kk = (H/r) d ln(F/H)/dr (exact), so the null energy condition is F/H
+     non-decreasing.  Eq. (17): d ln(F/H)/dr = -m/((2r - 3m)(r - 2m)) < 0, F/H falling from infinity at the horizon --
+     and its zero surface gravity comes exactly from F/H -> infinity there.  So no static end state reached with matter
+     obeying the condition is eq. (17), or close to it in F/H.  Pointwise: a scalar's R_kk = 8 pi (k.d phi)^2 >= 0, eq.
+     (17)'s radial R_kk = -2m(r - 2m)/(r^2 (2r - 3m)^2) < 0, the shortfall largest (0.0443/m^2) at r = 2.295m.  The
+     collapse end state, Schwarzschild outside (non-extremal), is Birkhoff's (standard, not READ; not computed here).
+  S5 WHAT THE NEXT DIRECTION MUST SUPPLY (computed).  Read as an effective fluid on the plane, eq. (17)'s Weyl term has
+     rho = m^2/(8 pi r^2 (2r - 3m)^2) > 0 (integrating to m/4 outside 2m -- ledger.py E4's 5m/4 - m, the control),
+     p_r = -m/(8 pi r^2 (2r - 3m)) and p_t = m(r - m)/(8 pi r^2 (2r - 3m)^2): radial rho + p_r < 0, tangential rho + p_t > 0.
+     It is anisotropic.  A Weyl term uniform along the plane is isotropic (dark radiation), so a plane-uniform phase 2
+     cannot carry it; the bulk must supply an anisotropic, radially null-energy-breaking Weyl stress, along a trajectory
+     that also holds the README.
+  OUTSIDE THE BOARD (READ, sim_reads.json).  Eq. (17) is Casadio-Fabbri-Mazzacurati's Case I at its zero-temperature
+     member (deduced from their READ eqs. (8) and (13), gr-qc/0111072 p.2); they call it "completely regular" and leave
+     its bulk open (p.4).  For a different brane metric (tidal Reissner-Nordstrom, F = H, which excludes eq. (17)),
+     Chamblin-Reall-Shinkai-Shiromizu (hep-th/0008177 p.7) found "the trace of the extrinsic curvature diverges at a
+     finite distance from the brane" -- an analogue of stage 5 F2 (deduced).  Casadio-Mazzacurati (gr-qc/0205129 p.9,
+     qualitative only at eq. (17)'s eta = 3/4) find the area growing into the bulk for eta > 0, "as one would indeed
+     expect on a negative tension brane", and caustics: Gaussian coordinates that do not cover the bulk -- a caution on
+     the chart stage 5 used, not a check of F6.  Wang-Choptuik (PRL 117, 011102; arXiv:1604.04832 pp.1-3) evolved
+     collapse on an RS2 brane in (t, r, y): generalized-harmonic, the brane's constraints as boundary conditions, a hole
+     of finite extent settling to an "apparently stationary" state -- though "the evolution inevitably departs from this
+     configuration" (p.3).
+  VERDICT (deduced).  Phase 1 gives a validated time-evolution tool and three statements about one spacetime: an evenly
+     spread README write disperses; a horizon that keeps its size absorbs nothing; and eq. (17) cannot be an end state.
+     All three point at the extra dimension, which must supply an anisotropic Weyl stress (S5).  Whether the next phase
+     is the board's (y added, the plane uniform) or M's (two positions within one universe) is put to M.
 
-Banked: sim1_bank.json (the mass runs, ~25 min to regenerate).  Needs numpy, sympy.
-python3 sim1_transition.py [--selftest] [--regenerate]   (selftest about 3 min; regenerate about 45 min)
+Banked: sim1_bank.json (about 45 min to regenerate).  Needs numpy, sympy.
+python3 sim1_transition.py [--selftest] [--regenerate]   (selftest about 1 min)
 """
 import json
 import math
@@ -79,7 +100,9 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 BANK = os.path.join(HERE, "sim1_bank.json")
 R0, DELTA, ROUT = 20.0, 3.0, 50.0
 P_STAR = 0.016878                       # fitted in S2 at dr = 0.005 (0.95 readout); bracketed by the banked runs
-GAMMA_READ = 0.374                      # Gundlach & Martin-Garcia, Living Rev. Rel. (READ; page in SIM1-TRANSITION.md)
+GAMMA_READ = 0.374                      # Gundlach, gr-qc/9604019, abstract p.1 (READ); the Living Review gives only ~0.37, p.19
+WIGGLE_READ = 4.61                      # Delta/(2 gamma), the wiggle's period in ln(p - p*): gr-qc/9604019 p.13 (READ)
+BRACKET = (0.016875, 0.016885)          # robust bracket at dr = 0.005 (classify): 0.016875 disperses, 0.016885 collapses
 P_LIST = [0.01690, 0.01692, 0.01695, 0.01700, 0.01710, 0.01730, 0.01760, 0.01800, 0.01900, 0.02000, 0.02200]
 
 
@@ -218,6 +241,36 @@ def collapse_masses(p, dr, thrs=(0.8, 0.9, 0.95), T=150.0, lam=0.25):
     return {"collapse": 0.8 in out or (thrs[0] in out), "masses": {str(k): v for k, v in out.items()}, "peak": peak}
 
 
+def classify(p, dr, T=65.0, lam=0.25):
+    """Robust outcome (its verifier's criterion).  COLLAPSE: 2m/r reaches 0.95 at a radius >= 20 dr.  DISPERSE: the
+    total mass m(R) is conserved to 1e-3 to T, and at T m(r < 10) < 1e-3 m(R) and alpha(0) > 0.9 -- observed, not
+    inferred from a low peak (a hole the slicing cannot hold drains away and takes m(R) with it).  Else FLOOR."""
+    r = grid(dr)
+    dt = lam * dr
+    Phi, Pi = init(p, r)
+    i10 = int(round(10 / dr))
+    _, _, A0 = metric(Phi, Pi, r, dr)
+    mR0 = r[-1] / 2 * (1 - A0[-1])
+    t, peak, drift = 0.0, 0.0, 0.0
+    for _ in range(int(round(T / dt))):
+        Phi, Pi, _, k4 = step(Phi, Pi, r, dr, dt)
+        t += dt
+        a = k4[2]
+        c = np.zeros_like(r)
+        c[1:] = 1 - 1 / a[1:] ** 2
+        j = int(np.argmax(c))
+        peak = max(peak, c[j])
+        if c[j] >= 0.95 and r[j] >= 20 * dr:
+            return {"outcome": "collapse", "t": t, "r": float(r[j]), "peak": float(c[j])}
+        mR = r[-1] / 2 * (1 - 1 / a[-1] ** 2)
+        drift = max(drift, abs(mR / mR0 - 1))
+    a, al, A = metric(Phi, Pi, r, dr)
+    m10 = r[i10] / 2 * (1 - A[i10])
+    ok = drift < 1e-3 and m10 < 1e-3 * mR0 and al[0] > 0.9
+    return {"outcome": "disperse" if ok else "floor", "peak": float(peak), "drift": float(drift),
+            "m10_over_mR": float(m10 / mR0), "alpha0": float(al[0])}
+
+
 # ------------------------------------------------------------------------------------------------ S1 controls
 def flat_exact(t, r, p):
     f = lambda x: x * p * np.exp(-((x - R0) / DELTA) ** 2)
@@ -285,6 +338,8 @@ def regenerate(fine=True):
     if fine:                                   # ~25 min: the masses at three readouts on the finest grid
         bank["fine005"] = {repr(p): collapse_masses(p, 0.005) for p in FINE_P}
         bank["sub005"] = {repr(p): collapse_masses(p, 0.005) for p in (0.01686, 0.01687)}
+        bank["robust005"] = {repr(p): classify(p, 0.005) for p in (0.01686, 0.01687, 0.016875, 0.01688)}
+        bank["m95_01"] = {repr(p): collapse_masses(p, 0.01) for p in (0.0169, 0.017, 0.0171, 0.0173, 0.0176, 0.018)}
     for dr in (0.02, 0.01):
         bank["masses"][str(dr)] = [collapse_mass(p, dr) for p in P_LIST]
     bank["sub"] = {str(dr): [collapse_mass(p, dr) for p in (0.0160, 0.0165, 0.0168)] for dr in (0.02, 0.01)}
@@ -298,18 +353,39 @@ def load_bank():
         return json.load(f)
 
 
-def fit_gamma(ps, Ms):
-    """Least squares ln M = gamma ln(p - p*) + c with p* free (grid search on p* below the smallest p)."""
+def fit_gamma(ps, Ms, lo=0.01670, hi=None, n=20000):
+    """Least squares ln M = gamma ln(p - p*) + c with p* free inside [lo, min(hi, min(ps)))."""
     ps, Ms = np.array(ps), np.array(Ms)
+    top = min(ps) - 1e-8 if hi is None else min(hi, min(ps) - 1e-8)
     best = None
-    for ps_ in np.linspace(0.01670, min(ps) - 1e-8, 20000):
+    for ps_ in np.linspace(lo, top, n):
         x, y = np.log(ps - ps_), np.log(Ms)
         A = np.vstack([x, np.ones_like(x)]).T
-        coef, res, *_ = np.linalg.lstsq(A, y, rcond=None)
+        coef, *_ = np.linalg.lstsq(A, y, rcond=None)
         rss = float(np.sum((A @ coef - y) ** 2))
         if best is None or rss < best[0]:
             best = (rss, float(ps_), float(coef[0]), float(coef[1]))
     return {"rss": best[0], "p_star": best[1], "gamma": best[2], "c": best[3]}
+
+
+def fit_fixed(ps, Ms, pstar, wiggle=None):
+    """Slope at fixed p*; with wiggle = period in ln(p - p*), add A sin + B cos (READ: Delta/(2 gamma) ~ 4.61)."""
+    x, y = np.log(np.array(ps) - pstar), np.log(np.array(Ms))
+    cols = [x, np.ones_like(x)]
+    if wiggle:
+        cols += [np.sin(2 * np.pi * x / wiggle), np.cos(2 * np.pi * x / wiggle)]
+    A = np.vstack(cols).T
+    coef, *_ = np.linalg.lstsq(A, y, rcond=None)
+    return float(coef[0]), float(np.sum((A @ coef - y) ** 2))
+
+
+def fit_wiggle(ps, Ms, lo, hi, period=WIGGLE_READ, n=4000):
+    best = None
+    for ps_ in np.linspace(lo, min(hi, min(ps) - 1e-8), n):
+        g, rss = fit_fixed(ps, Ms, ps_, period)
+        if best is None or rss < best[0]:
+            best = (rss, float(ps_), g)
+    return {"rss": best[0], "p_star": best[1], "gamma": best[2]}
 
 
 def fine_series(bank, th="0.95"):
@@ -361,6 +437,38 @@ def scalar_nec():
     return sp.simplify(T_kk.subs(u, 1) - ((k.T * dphi)[0].subs(u, 1)) ** 2), sp.simplify(gk.subs(u, 1))
 
 
+def static_nec():
+    """For any static -F dt^2 + dr^2/H + r^2 dOmega^2: radial R_kk = (H/r) d ln(F/H)/dr (exact), so the static null energy
+    condition is F/H non-decreasing; for eq. (17), d ln(F/H)/dr = -m/((2r - 3m)(r - 2m)) < 0 (r in units of m)."""
+    t, r, th, ph = sp.symbols("t r theta phi", positive=True)
+    Ff, Hf = sp.Function("F")(r), sp.Function("H")(r)
+
+    def rkk(F, H):
+        g = sp.diag(-F, 1 / H, r**2, r**2 * sp.sin(th) ** 2)
+        X = [t, r, th, ph]
+        gi = g.inv()
+        Gam = [[[sum(gi[a, k] * (sp.diff(g[k, b], X[c]) + sp.diff(g[k, c], X[b]) - sp.diff(g[b, c], X[k]))
+                     for k in range(4)) / 2 for c in range(4)] for b in range(4)] for a in range(4)]
+
+        def ric(b, c):
+            return sp.simplify(sum(sp.diff(Gam[a][b][c], X[a]) - sp.diff(Gam[a][b][a], X[c])
+                                   + sum(Gam[a][a][k] * Gam[k][b][c] - Gam[a][c][k] * Gam[k][b][a] for k in range(4))
+                                   for a in range(4)))
+        return sp.simplify(ric(0, 0) / F + H * ric(1, 1)), [sp.simplify(gi[i, i] * ric(i, i)) for i in range(4)]
+    gen, _ = rkk(Ff, Hf)
+    F = 1 - 2 / r
+    H = (1 - 2 / r) ** 2 / (1 - sp.Rational(3, 2) / r)
+    _, mixed = rkk(F, H)
+    Rs = sp.simplify(sum(mixed))
+    Gt = [sp.simplify(mixed[i] - Rs / 2) for i in range(4)]
+    rho, pr, pt = (sp.simplify(-Gt[0] / (8 * sp.pi)), sp.simplify(Gt[1] / (8 * sp.pi)), sp.simplify(Gt[2] / (8 * sp.pi)))
+    return {"general": sp.simplify(gen - (Hf / r) * sp.diff(sp.log(Ff / Hf), r)),
+            "dlnFH": sp.factor(sp.simplify(sp.diff(sp.log(F / H), r))), "R": Rs, "rho": sp.factor(rho),
+            "pr": sp.factor(pr), "pt": sp.factor(pt), "radial": sp.factor(sp.simplify(rho + pr)),
+            "tangential": sp.factor(sp.simplify(rho + pt)),
+            "int_rho": sp.simplify(sp.integrate(4 * sp.pi * r**2 * rho, (r, 2, sp.oo)))}
+
+
 def compute(live=True):
     d = {"bank": load_bank(), "rkk": eq17_rkk(), "nec": scalar_nec(), "madm_star": m_adm(P_STAR)}
     if live:
@@ -370,8 +478,13 @@ def compute(live=True):
     d["agreed"] = pts
     ps, Ms = fine_series(d["bank"])
     d["fine"] = (ps, Ms)
-    d["fit"] = fit_gamma(ps, Ms)
-    d["fit_subsets"] = [fit_gamma(ps[a:b], Ms[a:b]) for a, b in ((0, 9), (3, 12), (0, 7), (5, 12))]
+    lo, hi = BRACKET
+    d["fit"] = fit_gamma(ps, Ms, lo, hi)
+    d["fit_subsets"] = [fit_gamma(ps[a:b], Ms[a:b], lo, hi) for a, b in ((0, 9), (3, 12), (0, 7), (5, 12))]
+    d["gamma_range"] = [fit_fixed(ps, Ms, x)[0] for x in np.linspace(lo + 1e-7, hi - 1e-7, 9)]
+    d["wiggle"] = fit_wiggle(ps, Ms, lo, hi)
+    d["static"] = static_nec()
+    d["m95_01"] = d["bank"].get("m95_01", {})
     m01 = {p: x["M"] for p, x in zip(d["bank"]["p_list"], d["bank"]["masses"]["0.01"])}
     d["res_agree"] = [(p, m01[p], d["bank"]["fine005"][repr(p)]["masses"]["0.8"]["M"]) for p in (0.0169, 0.017, 0.0171,
                                                                                                  0.0173, 0.0176, 0.018)]
@@ -380,29 +493,36 @@ def compute(live=True):
 
 
 def report(d):
-    print("sim1_transition.py -- B4d simulation phase 1: a transition in one spacetime\n")
+    print("sim1_transition.py -- B4d simulation phase 1: a transition in one spacetime (the board's reading)\n")
     if "flat" in d:
         print("S1 flat control, max relative error in Pi (t = 20, 40): %s" % {k: {t: "%.2e" % e for t, e in v.items()}
                                                                            for k, v in d["flat"].items()})
         s = d["strong"]
         print("   strong field p = 0.8 p*: convergence factor %.3f; momentum residual/scale %s; mass drift %s" % (
-            s["factor"], {k: "%.1e/%.1e" % v for k, v in s["mom"].items()}, {k: "%.1e" % v for k, v in s["drift"].items()}))
+            s["factor"], {k: "%.1e" % (v[0] / v[1]) for k, v in s["mom"].items()}, {k: "%.1e" % v for k, v in s["drift"].items()}))
     b = d["bank"]
-    print("S2 masses (dr = 0.02 / 0.01):")
-    for p, x, y in zip(b["p_list"], b["masses"]["0.02"], b["masses"]["0.01"]):
-        print("   p = %.5f  %s / %s" % (p, "%.4f" % x["M"] if x["collapse"] else "disp", "%.4f" % y["M"] if y["collapse"] else "disp"))
-    print("   subcritical peaks 2m/r: %s" % {k: ["%.3f" % s_.get("peak", float("nan")) for s_ in v] for k, v in b["sub"].items()})
+    print("S2 robust outcomes at dr = 0.005: %s" % {k: v["outcome"] for k, v in sorted(b.get("robust005", {}).items())})
     ps, Ms = d["fine"]
     print("   dr = 0.005, 0.95 readout: %s" % ", ".join("%.6f:%.4f" % (p, M) for p, M in zip(ps, Ms)))
-    print("   dr = 0.005 subcritical: %s" % {k: ("collapse" if v["collapse"] else "disperse, peak %.3f" % v["peak"])
-                                              for k, v in b.get("sub005", {}).items()})
-    print("   gamma = %.3f (p* = %.6f); sub-ranges %s; READ %.3f" % (d["fit"]["gamma"], d["fit"]["p_star"],
-          ", ".join("%.3f" % f_["gamma"] for f_ in d["fit_subsets"]), GAMMA_READ))
-    print("   dr = 0.01 vs 0.005 (0.8 readout): %s" % ", ".join("%.4f: %.4f/%.4f" % t for t in d["res_agree"]))
-    print("S3 M_ADM(p*) = %.4f; threshold inflow duration ~ 2 delta/M_ADM = %.1f mass units; README write >= 2.0e5" % (
-        d["madm_star"], d["T_star"]))
-    print("S4 eq. (17) radial R_kk = %s (residual vs closed form %s); scalar T_kk - (k.dphi)^2 = %s, g(k,k) = %s" % (
-        d["rkk"][0], d["rkk"][1], d["nec"][0], d["nec"][1]))
+    m01 = d["m95_01"]
+    print("   dr = 0.01 vs 0.005, 0.95 readout: %s" % ", ".join(
+        "%s: %.4f/%.4f" % (k, v["masses"]["0.95"]["M"], b["fine005"][repr(float(k))]["masses"]["0.95"]["M"])
+        for k, v in sorted(m01.items())))
+    print("   dr = 0.01 vs 0.005, 0.8 readout: %s" % ", ".join("%.4f: %.4f/%.4f" % t for t in d["res_agree"]))
+    print("   plain fit (p* in the bracket): gamma = %.3f at p* = %.6f; sub-ranges %s" % (
+        d["fit"]["gamma"], d["fit"]["p_star"], ", ".join("%.3f" % f_["gamma"] for f_ in d["fit_subsets"])))
+    print("   plain gamma across the bracket: %s" % ", ".join("%.3f" % g for g in d["gamma_range"]))
+    print("   with the wiggle (period %.2f): gamma = %.3f at p* = %.6f, rss %.1e against plain %.1e; READ %.3f" % (
+        WIGGLE_READ, d["wiggle"]["gamma"], d["wiggle"]["p_star"], d["wiggle"]["rss"], d["fit"]["rss"], GAMMA_READ))
+    print("S3 M_ADM(p*) = %.4f; threshold duration ~ 2 delta/M_ADM = %.1f, rate ~ %.3f per mass unit; an even write over "
+          "2.0e5 clocks: rate %.0e, family amplitude ~ %.1e" % (d["madm_star"], d["T_star"], 1 / d["T_star"], 1 / 2.0e5,
+                                                                 P_STAR * math.sqrt(d["T_star"] / 2.0e5)))
+    st = d["static"]
+    print("S4 static: R_kk - (H/r) dln(F/H)/dr = %s; eq. (17) dln(F/H)/dr = %s" % (st["general"], st["dlnFH"]))
+    print("   eq. (17) radial R_kk = %s (vs closed form %s); scalar T_kk - (k.dphi)^2 = %s" % (
+        d["rkk"][0], d["rkk"][1], d["nec"][0]))
+    print("S5 eq. (17)'s Weyl fluid (m = 1): rho = %s, p_r = %s, p_t = %s; R = %s" % (st["rho"], st["pr"], st["pt"], st["R"]))
+    print("   rho + p_r = %s; rho + p_t = %s; int rho outside 2m = %s" % (st["radial"], st["tangential"], st["int_rho"]))
 
 
 def selftest():
@@ -416,38 +536,45 @@ def selftest():
 
     d = compute()
     f = d["flat"]
-    chk("S1 control: flat space, p = 1e-6 -- the exact solution reproduced, error below 2e-3 at dr = 0.02 and falling "
-        "by 3.5-4.5x per halving at t = 20 and 40",
-        all(f[0.02][t] < 6e-3 and 3.5 < f[0.04][t] / f[0.02][t] < 4.5 for t in (20.0, 40.0)))
+    chk("S1 control: flat space, p = 1e-6 -- the exact solution reproduced, error below 2e-3 at dr = 0.02, falling 3.5-4.5x "
+        "per halving at t = 20 and 40", all(f[0.02][t] < 2e-3 and 3.5 < f[0.04][t] / f[0.02][t] < 4.5 for t in (20.0, 40.0)))
     s = d["strong"]
-    chk("S1 control: strong field (p = 0.8 p*) -- three resolutions converge at second order (factor 3.7-4.3); the "
-        "unimposed momentum constraint's residual is 1.6e-3, 4.1e-4, 1.0e-4 of its scale, falling 3.5-4.5x per halving; "
-        "mass drift below 1e-3 and falling",
+    chk("S1 control: strong field (p = 0.8 p*) -- convergence factor 3.7-4.3; the unimposed momentum constraint's residual "
+        "below 2e-3 of its scale and falling 3.5-4.5x per halving; mass drift below 1e-3 and falling",
         3.7 < s["factor"] < 4.3 and all(v[0] / v[1] < 2e-3 for v in s["mom"].values())
-        and 3.5 < s["mom"][0.02][0] / s["mom"][0.01][0] < 4.5
-        and 3.5 < s["mom"][0.04][0] / s["mom"][0.02][0] < 4.5 and s["drift"][0.01] < s["drift"][0.02] < s["drift"][0.04] < 1e-3)
+        and 3.5 < s["mom"][0.04][0] / s["mom"][0.02][0] < 4.5 and 3.5 < s["mom"][0.02][0] / s["mom"][0.01][0] < 4.5
+        and s["drift"][0.01] < s["drift"][0.02] < s["drift"][0.04] < 1e-3)
     b = d["bank"]
-    chk("S2: the family has a threshold -- amplitudes 0.0160-0.0168 disperse (peak 2m/r below 0.6) and 0.0169 and up "
-        "collapse, at both resolutions; masses rise with p",
-        all(not s_["collapse"] and s_["peak"] < 0.6 for v in b["sub"].values() for s_ in v)
-        and all(x["collapse"] for v in b["masses"].values() for x in v)
-        and all(np.diff([x["M"] for x in b["masses"]["0.01"]][3:]) > 0))
-    fit, subs = d["fit"], d["fit_subsets"]
-    sub5 = b.get("sub005", {})
-    chk("S2: the threshold is bracketed at dr = 0.005 -- 0.01686 and 0.01687 disperse, 0.016885 collapses -- and the "
-        "fitted p* lies inside the bracket",
-        len(sub5) == 2 and all(not v["collapse"] for v in sub5.values())
-        and all(v["collapse"] for v in b["fine005"].values()) and 0.01687 < fit["p_star"] < 0.016885)
-    chk("S2: the two finest grids agree on the masses (dr = 0.01 vs 0.005, 0.8 readout, p >= 0.0169) to 1.5%",
-        all(abs(x / y - 1) < 0.015 for _, x, y in d["res_agree"]))
-    chk("S2: at the 0.95 readout, over masses 0.059-0.44, M ~ (p - p*)^gamma with gamma within 15% of the READ 0.374, "
-        "and four sub-ranges within 0.06 of it", abs(fit["gamma"] / GAMMA_READ - 1) < 0.15
-        and all(abs(f_["gamma"] - fit["gamma"]) < 0.06 for f_ in subs))
-    chk("S3: at threshold the inflow's ADM mass gives a duration ~ 2 delta/M_ADM of order 10 mass units -- the README's "
-        ">= 2.0e5-clock write is at least 1e4 times longer", 0.4 < d["madm_star"] < 0.8 and 5 < d["T_star"] < 20
-        and 2.0e5 / d["T_star"] > 1e4)
-    chk("S4 (STRUCTURAL): eq. (17)'s radial R_kk = -2(r - 2)/(r^2 (2r - 3)^2) < 0 (computed from its metric); a scalar "
-        "field's T_kk = (k.d phi)^2 >= 0 for null k (exact)", d["rkk"][1] == 0 and d["nec"][0] == 0 and d["nec"][1] == 0)
+    rob = b.get("robust005", {})
+    chk("S2: robust outcomes at dr = 0.005 -- 0.01686, 0.01687, 0.016875 disperse (mass conserved, centre emptied), "
+        "0.016885 collapses (2m/r 0.95 at >= 20 grid points), bracketing p*; the independent code's 0.01688 lies inside",
+        all(rob.get(repr(x), {}).get("outcome") == "disperse" for x in (0.01686, 0.01687, 0.016875))
+        and b["fine005"][repr(0.016885)]["masses"]["0.95"]["M"] * 2 / 0.95 >= 20 * 0.005
+        and BRACKET[0] < 0.01688 < BRACKET[1])
+    chk("S2: the two finest grids agree on the 0.8-readout masses to 0.5% (p >= 0.0169); the 0.95-readout masses agree to "
+        "within 7%", all(abs(x / y - 1) < 0.005 for _, x, y in d["res_agree"])
+        and all(abs(v["masses"]["0.95"]["M"] / b["fine005"][repr(float(k))]["masses"]["0.95"]["M"] - 1) < 0.07
+                for k, v in d["m95_01"].items()) and len(d["m95_01"]) == 6)
+    w = d["wiggle"]
+    chk("S2: a plain power law fixes gamma only with p* (0.43 to ~0.31 across the bracket); fitting the READ wiggle "
+        "(period 4.61) gives gamma within 5% of the READ 0.374 and a residual at least 3x smaller",
+        max(d["gamma_range"]) - min(d["gamma_range"]) > 0.05 and abs(w["gamma"] / GAMMA_READ - 1) < 0.05
+        and w["rss"] < d["fit"]["rss"] / 3)
+    chk("S3: at threshold the family carries M_ADM ~ 0.59 over ~2 delta: duration ~10, rate ~0.1 per mass unit; an even "
+        "write over 2.0e5 clocks is a rate 2e4 times smaller -- in this family an amplitude ~1e-4, between the computed "
+        "dispersals at 1e-6 and 0.01686", 0.4 < d["madm_star"] < 0.8 and 5 < d["T_star"] < 20
+        and 2.0e5 / d["T_star"] > 1e4 and 1e-6 < P_STAR * math.sqrt(d["T_star"] / 2.0e5) < 0.01686)
+    st = d["static"]
+    chk("S4 (exact): for any static metric radial R_kk = (H/r) d ln(F/H)/dr; eq. (17)'s d ln(F/H)/dr = -m/((2r - 3m)(r - 2m)) "
+        "< 0; its radial R_kk matches the closed form; a scalar's T_kk = (k.d phi)^2",
+        st["general"] == 0 and sp.simplify(st["dlnFH"] + 1 / ((2 * sp.Symbol("r", positive=True) - 3)
+                                                             * (sp.Symbol("r", positive=True) - 2))) == 0
+        and d["rkk"][1] == 0 and d["nec"][0] == 0 and d["nec"][1] == 0)
+    rr = sp.Symbol("r", positive=True)
+    chk("S5 (exact): eq. (17)'s Weyl fluid has R = 0, rho > 0 integrating to m/4 outside 2m (ledger.py E4's 5m/4 - m, the "
+        "control), radial rho + p_r < 0 and tangential rho + p_t > 0 -- anisotropic",
+        st["R"] == 0 and st["int_rho"] == sp.Rational(1, 4)
+        and all(float(st["radial"].subs(rr, x)) < 0 < float(st["tangential"].subs(rr, x)) for x in (2.01, 2.5, 3, 5, 20)))
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
