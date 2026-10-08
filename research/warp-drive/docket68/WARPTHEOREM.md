@@ -68,7 +68,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2))** | **OPEN**, waits on B4d. o3_write.py: the write needs ≥ (3645 ln2·N/(8Z))^(1/3) − 2 clocks ('t Hooft's gas bound, READ; 2.0×10⁵ at the example README, Z = 108.75). If the write sits in the static hold (reading (i)) that is past the static bulk's verified ~11.3 clocks; if the write is the opening (reading (ii)) it is a floor on the opening. The bulk is not still through the write on either reading. o3_hold.py: survival for holds in the static window, linear theory; the per-bit 28.48 clocks withdrawn |
+| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2))** | **OPEN**. Item 159, both readings tested (o3_readings.py, verified once): on (i′), a write after the README has arrived, O3 keeps its static window of ~11.3 clocks (a reading, H-HOLD-IN-WINDOW); on (ii), the write as the opening, it lasts ≥ 2.0×10⁵ clocks (o3_write.py) and folds into B4d. Open until the reading is fixed; on either, the opening is B4d's |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
@@ -78,7 +78,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
 | B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL — in the board's model T exists beyond the hold's reach iff ℓ > 2R_reach (≈ 23 m); radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5) and eq. (17) holds only within the reach (causality), both derived |
 | B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
-| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D initial-boundary problem (H-EVOLUTION, H-GLUING) |
+| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D initial-boundary problem through an opening of ≥ 2.0×10⁵ clocks. Stage 1 (b4d_stage1.py, verified once): on the board's models no regular bulk through the opening ends in eq. (17) — the string is unstable, the static bulk singular, the one hole that stands is 5D, non-extremal and ~580 m; the open routes are named (H-TWO-SIDED, a curved wall, H-SLAB-PHASES, an extremal opening, a non-string opening, a late shell) |
 | B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
@@ -260,4 +260,22 @@ The theorem is proved exactly when no lemma below is OPEN.
   READING to OPEN and waits on B4d. H-HOLD-IN-WINDOW is refuted only if the write sits in the static hold.
   158 (1) and (4) stay open.
 - **The count:** 14 proved, 11 derived, 3 definitions, 2 readings, 1 measurement, 3 open.
+
+## History (2026-10-08, items 159 and B4d stage 1)
+
+- **Item 159, both readings tested** (lemmas/o3_readings.py, O3-READINGS.md, verified once).
+  - **Reading (i), a hold after the corridor stands.** As first tested it contradicted 115 (c): a standing corridor
+    means the README has arrived. Its coherent form (i′) is a write after arrival, and it keeps O3's static window.
+  - **Reading (ii), the write as the opening.** It is refuted in the board's quasi-static model: the black string
+    around the opening is Gregory–Laflamme unstable for ≥ 9.2×10³ e-folds. The dispersion relation is computed from
+    GL's equation, which now matches Emparan–Suzuki–Tanabe term by term.
+  - **The nearby-wall escape is closed.** Every mode crosses the unstable band as the mass rises from zero.
+- **B4d stage 1** (lemmas/b4d_stage1.py, B4D-STAGE1.md, verified once).
+  - **Regime.** Through the opening, B4c's far model forces the flat limit (ℓ > 4×10⁵ m).
+  - **What stands.** The only bulk the board can show standing is a localized 5D hole, and it is not the corridor: no
+    1/r tail, not extremal, r_h ~ 580 m.
+  - **Closing the static bulk.** A plane closing eq. (17)'s static bulk would carry matter breaking the NEC. At small
+    heights this is structural: ρ + p_r = y_w·R⁽⁴⁾_kk, eq. (17)'s own radial null combination. That matters only on
+    the withdrawn reading (i).
+- **The count** is unchanged: O3 stays OPEN until the reading is fixed.
 
