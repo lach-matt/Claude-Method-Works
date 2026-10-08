@@ -78,7 +78,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
 | B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL. A round T exists beyond the hold's reach only if ℓ > 2R_reach; a tipped T is untrapped at any ℓ (computed: at ℓ = 0.11m, min θ+ = +0.07, B4D-STAGE2.md). Radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5), and eq. (17) holds only within the reach (causality); both derived. Open: whether the model holds deep in the bulk, where a tipped T goes |
 | B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
-| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (b4d_stage5.py, verified once): with eq. (17) on a positive-tension plane the bulk reaches curvature ≥ 10⁴ within 8–16 clocks at every finite ℓ tested; on 139's negative-tension plane it relaxes to anti-de Sitter, regular on the evidence, at the cost of data at the bulk's edge and of localized gravity — the live route. Stages 1–2 verified; 3–4 conditional on the withdrawn instant reading |
+| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (verified once): with eq. (17) on a plane, a side where the warp decays is singular within 8–16 clocks, a side where it grows is regular on the evidence. Stage 6 (verified once): every positive-tension plane has a decaying side, so ours (139, clause (B)) cannot carry eq. (17) regularly; position 2's plane can, at its own ℓ₂ = 3ℓ (138), carrying exactly 139's −1/3 with both sides growing. The live route, put to you: eq. (17) on position 2's plane |
 | B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
@@ -311,4 +311,15 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **Negative-tension side (your 139):** the bulk is regular on the evidence. That is the live route for 161. Its open
     costs are data at the bulk's edge and localized gravity.
 - **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 nature, 3 open.
+
+## History (2026-10-08, item 165 and B4d stage 6)
+
+- **Item 165:** *"Of course. Continue"*, to putting the two planes together.
+- **Stage 6** (`b4d_stage6.py`, verified once).
+  - **Our plane cannot carry eq. (17) regularly.** Every positive-tension plane has a side where the warp decays, and
+    stage 5 makes that side singular. Ours is positive by your 139 and at the Randall–Sundrum tension by clause (B).
+  - **Position 2's plane can.** At its own ℓ₂ = 3ℓ (your 138), both its sides grow at exactly your 139's −1/3.
+  - **A mirrored closing plane** would break the NEC at every separation.
+- **Put to you:** whether the corridor's eq. (17) sits on position 2's plane. If it does, clause (B)'s "at the
+  Randall–Sundrum tension" would not apply to the corridor's plane.
 
