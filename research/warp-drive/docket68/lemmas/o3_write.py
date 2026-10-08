@@ -40,7 +40,7 @@ READ
      (106.75 and the graviton's 2).  At the example README: 2.0e5 clocks (Z = 108.75); 7.6e5 at Z = 2 (illustration);
      through the extra dimension (d = 4, a 4-ball of radius (2 + T) m, H-NO-SHORTCUT) the power is 1/4, 4.7e4 at Z = 2.
      Variants that need fewer hypotheses: dropping H-README-ALONE ('t Hooft's eq. (8), energy up to collapse) leaves
-     N^(1/6) -- 632 clocks at Z = 108.75; prior entanglement (superdense coding, items 111, 137 (1)) halves the states
+     N^(1/6) -- 630 clocks at Z = 108.75; prior entanglement (superdense coding, items 111, 137 (1)) halves the states
      needed -- 2^(-4/3) on 2 + T (the radius goes as bits^(4/3)/N), 3.0e5 at Z = 2.  Self-gravity: 2m/R ~ 1e-5 at the example README.
   W4 WHAT IT DOES TO THE HOLD (deduced; the choice of reading is the board's).  With 158 (2) the hold is the write.
      Two readings of where the write sits:
