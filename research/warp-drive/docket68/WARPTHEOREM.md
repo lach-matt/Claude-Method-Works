@@ -68,7 +68,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
 | O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
 | O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2))** | **OPEN**. Item 159, both readings tested (o3_readings.py, verified once): on (i′), a write after the README has arrived, O3 keeps its static window of ~11.3 clocks (a reading, H-HOLD-IN-WINDOW); on (ii), the write as the opening, it lasts ≥ 2.0×10⁵ clocks (o3_write.py) and folds into B4d. Open until the reading is fixed; on either, the opening is B4d's |
+| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor and the opening are the same object (160)** | **OPEN**, B4d's. Item 160 settles item 159: the hold is the corridor through the write, ≥ 2.0×10⁵ clocks (o3_write.py). Held static, eq. (17)'s bulk reaches its singular surface by ~18 clocks (b4_static.py), so the corridor must evolve while the README passes. The Vaidya/black-string model of the opening (o3_readings.py R3) is not the corridor and no longer bears on it |
 | Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
 | Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
 | Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
@@ -278,4 +278,19 @@ The theorem is proved exactly when no lemma below is OPEN.
     heights this is structural: ρ + p_r = y_w·R⁽⁴⁾_kk, eq. (17)'s own radial null combination. That matters only on
     the withdrawn reading (i).
 - **The count** is unchanged: O3 stays OPEN until the reading is fixed.
+
+## History (2026-10-08, item 160)
+
+- **You said the corridor and the opening are the same object.** That settles item 159.
+  - The hold "after the corridor stands", reading (i) and its form (i′), dissolves: there is no corridor before or
+    after the opening.
+  - Reading (ii) stands, with the opening being the corridor itself.
+- **Two board readings give way:**
+  - opening.py's Vaidya model as the form of the opening. It ends in Schwarzschild, not the corridor, so the
+    Gregory–Laflamme refutation built on it (o3_readings.py R3) no longer bears on the corridor;
+  - H-PULL-IS-COST, where it was read as "the corridor does not exist until the README has arrived".
+- **What remains is one question: the corridor itself, through the write.** Held static on eq. (17), its own bulk
+  reaches the singular surface by about 18 clocks. The write needs at least 2.0×10⁵. So the corridor must change while
+  the README passes through it.
+- **O3 is B4d's.**
 

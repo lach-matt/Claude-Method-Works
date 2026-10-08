@@ -67,10 +67,12 @@ LEMMAS = [
     ("H", "H2 the horizons hold the README as well as the throat", "DERIVED", "lemmas/axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N A_bit (H1)"),
     ("O", "O1 one way, 1 -> 2, nonsingular", "PROVED", "copy/plane.py P1 (seated); exactE.py one-way check"),
     ("O", "O2 the horizon is extremal (surface gravity 0)", "PROVED", "bulk/stability.py S1 (verified)"),
-    ("O", "O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2))", "OPEN",
-     "item 159, both readings tested (lemmas/o3_readings.py): (i') a write after arrival keeps O3's static window "
-     "(~11.3 clocks; H-HOLD-IN-WINDOW, a reading); (ii) the write as the opening -- >= 2.0e5 clocks (o3_write.py) -- "
-     "folds O3 into B4d.  Open until the reading is fixed; on either, the opening is B4d's"),
+    ("O", "O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor "
+          "and the opening are the same object (160)", "OPEN",
+     "item 160 settles item 159: the hold is the corridor through the write, >= 2.0e5 clocks (o3_write.py).  Held "
+     "static, eq. (17)'s bulk reaches its singular surface by ~18 clocks (b4_static.py), so the corridor must evolve "
+     "while the README passes -- O3 is B4d's.  The Vaidya/black-string model of the opening (o3_readings.py R3) is not "
+     "the corridor and no longer bears on it"),
     ("Z", "Z1 5D null energy zero along the passage (a null geodesic of the 5D geometry -- not light, item 90); plane "
           "deficit = bulk pull", "PROVED", "bulk/passage5d.py P2 (verified)"),
     ("Z", "Z2 the integral equals the plane's reading on both legs", "PROVED", "bulk/passage5d.py P3; copy/coin.py"),
