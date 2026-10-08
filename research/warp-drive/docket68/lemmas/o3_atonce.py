@@ -35,6 +35,11 @@ READ
      Margolus-Levitin; O3c's survival there is o3_hold.py's (linear theory, PROVED for every hold in the window).
   A5 FIXED SIZE (deduced).  No ramp of m(v): H-MASS-RISES fails, and with it o3_readings.py R3/R4 (b)'s mechanism (a
      string crossing the unstable band as its mass rises).  Within the hold's cone the bulk is the static bulk (B4b).
+  A6 THE BULK IN THE HOLD'S CONE (computed).  The hold's double cone reaches ~hold/2 ~ 5e-15 m into the bulk.  There
+     b4_static.py's exact series (order 20, no continuation needed) gives K equal to its value on the plane to double
+     precision at r = 2.01m to 8m (largest 1.39): B4b's condition holds in the cone without Padé continuation and
+     without the singular surface 2.5m away.  Flat limit computed; at y ~ 5e-15 m the ell-dependent terms are O(y/ell)
+     (deduced), so any ell well above 1e-14 m gives the same.  B4b's locally analytic class remains a reading.
   VERDICT  Under 162 (with 158 (2), 160 and R0) O3 is DERIVED: the hold is Margolus-Levitin's least time for one
      collective step, inside the static window.  It rests on B4b for the bulk in the cone, and B4b's flat-limit regime
      is what b4d_stage2.py questions.  Not decided: how the object comes to hold the README at once -- the formation
@@ -97,9 +102,12 @@ def compute():
     seconds = hold_ex * CLOCK_PER_SQRT_BIT_S * math.sqrt(EXAMPLE_N)
     v = float(b4["cone"]["t_cert"])
     zero, half = ml_two_level()
+    b4s = _load(os.path.join(HERE, "b4_static.py"), "o3a_b4series")
+    depth = hold_ex / 2
+    kcone = {rc: b4s.branch_and_K(rc, 20, [0.0, depth])["K"][1] for rc in ("201/100", "43/20", "3", "8")}
     return {"a1": a1_size(), "hold": hold, "hold_ex": hold_ex, "seconds": seconds, "v": v,
             "ratio": hold_ex / v, "ml_zero": zero, "ml_half": half,
-            "s4": hold_ex / 4, "s5b": (1 + hold_ex / 8)**2}
+            "s4": hold_ex / 4, "s5b": (1 + hold_ex / 8)**2, "depth": depth, "kcone": kcone}
 
 
 def report(d):
@@ -108,6 +116,8 @@ def report(d):
     print("A2 the write at once: hold = h/(4E) = %s clocks = %.3g clocks = %.2g s at the example README; ML's state "
           "reaches overlap %s at h/(4E) (half-way: %s)" % (d["hold"], d["hold_ex"], d["seconds"], d["ml_zero"],
                                                             d["ml_half"]))
+    print("A6 the hold's cone reaches %.1e m into the bulk; K there vs on the plane: %s" % (d["depth"], ", ".join(
+        "%s: %.6g/%.6g" % (rc, k[1], k[0]) for rc, k in d["kcone"].items())))
     print("A4 the static window holds %.2f clocks; the hold is %.2g of it; O3c factors S4 %.2g, S5b %.6f" %
           (d["v"], d["ratio"], d["s4"], d["s5b"]))
 
@@ -133,6 +143,9 @@ def selftest():
         10.5 < d["v"] < 12 and d["ratio"] < 1e-14 and d["s5b"] < 1 + 1e-14 and d["s4"] < 1e-14)
     chk("A2 control: in seconds the hold is ~7e-51 s, far below a Planck time -- the README held at once",
         1e-51 < d["seconds"] < 1e-50)
+    chk("A6: in the hold's cone (~5e-15 m deep) K equals its value on the plane to 1e-12 at r = 2.01-8m, at most 1.39 "
+        "-- B4b's condition without continuation", all(abs(k[1] / k[0] - 1) < 1e-12 for k in d["kcone"].values())
+        and max(k[1] for k in d["kcone"].values()) < 1.4 and d["depth"] < 1e-14)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
