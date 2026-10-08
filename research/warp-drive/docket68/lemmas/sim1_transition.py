@@ -36,10 +36,10 @@ THE SIMULATION.  Polar-areal coordinates, G = 1, G_ab = 8 pi T_ab: the evolution
      dr = 0.005: 0.01686, 0.01687, 0.016875 disperse, 0.016885 collapses (0.01688 crosses 0.8 at a few grid points and
      then drains -- a floor event, undecided); an independent fourth-order code (sim1_repro.json) puts p* = 0.01688 to
      four figures.  The masses at the 0.95 readout, 0.059-0.44, on the finest grid: a plain power law fixes gamma only
-     with p*, from ~0.43 at p* = 0.016875 to ~0.31 near 0.016884 (best fit 0.40 at 0.016878); with the known wiggle of
-     period Delta/(2 gamma) = 4.61 in ln(p - p*) (gr-qc/9604019 p.13, READ) fitted in, gamma = 0.37 at p* = 0.01688
+     with p*, from 0.42 at p* = 0.016875 to 0.24 at the bracket's top (best fit 0.40 at 0.016878); with the known wiggle of
+     period Delta/(2 gamma) = 4.61 in ln(p - p*) (gr-qc/9604019 p.13, READ) fitted in, gamma = 0.371 at p* = 0.016881
      with a residual ten times smaller -- against READ gamma = 0.374 +- 0.001 (gr-qc/9604019, abstract p.1).  The two
-     finest grids agree on the 0.8-readout masses to 0.35%; the 0.95-readout masses differ by 2-6% between dr = 0.01 and
+     finest grids agree on the 0.8-readout masses to 0.35%; the 0.95-readout masses differ by 0-6% between dr = 0.01 and
      0.005 (both banked), the readout itself jumping between echoes in places.
   S3 WHAT THE OUTCOME DEPENDS ON (computed within the family; deduced beyond it).  The theory has no scale, so within a
      family of fixed shape one number decides: dispersal below the threshold, collapse above it with M ~ (p - p*)^gamma,
@@ -556,7 +556,7 @@ def selftest():
         and all(abs(v["masses"]["0.95"]["M"] / b["fine005"][repr(float(k))]["masses"]["0.95"]["M"] - 1) < 0.07
                 for k, v in d["m95_01"].items()) and len(d["m95_01"]) == 6)
     w = d["wiggle"]
-    chk("S2: a plain power law fixes gamma only with p* (0.43 to ~0.31 across the bracket); fitting the READ wiggle "
+    chk("S2: a plain power law fixes gamma only with p* (0.42 to 0.24 across the bracket); fitting the READ wiggle "
         "(period 4.61) gives gamma within 5% of the READ 0.374 and a residual at least 3x smaller",
         max(d["gamma_range"]) - min(d["gamma_range"]) > 0.05 and abs(w["gamma"] / GAMMA_READ - 1) < 0.05
         and w["rss"] < d["fit"]["rss"] / 3)

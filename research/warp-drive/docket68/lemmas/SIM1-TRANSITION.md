@@ -1,6 +1,6 @@
 # B4d simulation, phase 1: a transition in one spacetime, as the board reads it (computed, READ and deduced; verified once; not seated; 2026-10-08)
 
-*First headed* "(… not verified; not seated …)". The instrument is `sim1_transition.py`, selftest 9/9, about 1 minute.
+*First headed* "(… not verified; not seated …)". The instrument is `sim1_transition.py`, selftest 8/8, about 1 minute.
 The heavy runs are banked in `sim1_bank.json` (about 45 minutes to regenerate). An independent fourth-order code's
 numbers are in `sim1_repro.json`, and the READ sources, verbatim with pages, are in `sim_reads.json`.
 
@@ -82,13 +82,13 @@ All findings are applied (History).
 - **An independent code agrees.** A separate fourth-order code (`sim1_repro.json`) puts p* = 0.01688 to four figures,
   inside the bracket.
 - **The exponent depends on p* unless the wiggle is fitted.** Over masses 0.059–0.44, a plain power law gives γ anywhere
-  from 0.43 (p* = 0.016875) to about 0.31 (p* near 0.016884); the best fit is 0.40. Fitting in the known wiggle, period
-  Δ/(2γ) = 4.61 in ln(p − p*) (gr-qc/9604019, p.13, READ), gives **γ = 0.37** at p* = 0.01688, with a residual ten times
-  smaller.
+  from 0.42 (p* = 0.016875) down to 0.24 (p* at the bracket's top); the best fit is 0.40. Fitting in the known wiggle, period
+  Δ/(2γ) = 4.61 in ln(p − p*) (gr-qc/9604019, p.13, READ), gives **γ = 0.371** at p* = 0.016881, with a residual ten
+  times smaller.
 - **The READ value is γ = 0.374 ± 0.001** (gr-qc/9604019, abstract p.1).
 - **How well the two grids agree.**
   - The 0.8-readout masses agree to 0.35%.
-  - The 0.95-readout masses differ by 2–6% between dr = 0.01 and 0.005. Both are banked; the readout jumps between echoes
+  - The 0.95-readout masses differ by 0–6% between dr = 0.01 and 0.005, the largest at p = 0.017. Both are banked; the readout jumps between echoes
     in places.
 
 **S3. What the outcome depends on** (computed within the family; deduced beyond it).
@@ -205,9 +205,9 @@ All findings are applied (History).
 
 **SHOULD-FIX**
 - **A robust dispersal test.** Total mass conserved; the 0.8 floor events are now undecided.
-- **γ depends on p*.** The range across the bracket is reported, and the wiggle-aware fit gives 0.37.
+- **γ depends on p*.** The range across the bracket is reported, and the wiggle-aware fit gives 0.371.
 - **A sub-range fit put p* above banked collapses.** p* is now bounded by the bracket.
-- **The 0.95 masses** are now banked at a second resolution: 2–6%.
+- **The 0.95 masses** are now banked at a second resolution: 0–6%.
 - **Labels:** 4.2× and 4.0×; 0.35% agreement at the 0.8 readout; the 0.05 floor claim dropped.
 - **"Why 7% is acceptable"** is now answered by the wiggle fit, not argued.
 - **The 2×10⁵ clocks** are attributed to `o3_write.py` W3, not to you.
