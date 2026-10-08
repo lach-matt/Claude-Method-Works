@@ -323,3 +323,16 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Put to you:** whether the corridor's eq. (17) sits on position 2's plane. If it does, clause (B)'s "at the
   Randall–Sundrum tension" would not apply to the corridor's plane.
 
+## History (2026-10-08, item 166 and B4d stage 7)
+
+- **Item 166:** *"Both planes at once"*.
+- **Stage 7** (`b4d_stage7.py`, verified once).
+  - **No parallel, matter-free position-2 plane exists** at a nonzero tension.
+  - **The slab** between the planes is itself stage 5's singular case.
+  - **Every small-separation branch has a decaying outer bulk,** whichever ℓ is the unit and whichever count of 139's
+    −1/3. That holds with eq. (17) on either plane. Our side is then singular directly, position 2's by continuity.
+  - **Recorded:** 139's −1/3 counts position 2's plane twice. One sheet is −1/6, and with that the equations reproduce
+    M4 exactly.
+- **Still open:** separations near the slab's own singular surface, data that differ by direction, curved planes, and
+  outer bulks that are not anti-de Sitter.
+

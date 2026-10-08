@@ -148,3 +148,9 @@ and your 139 makes ours the positive one. Is the corridor's eq. (17) on position
   - B4b's locally analytic class;
   - the readings of `b4d_stage5.py`;
   - `b5_positive.py` B5a's summed tension at a coincidence.
+
+## Downstream note (from stage 7's verifier, 2026-10-08)
+
+- **J3's −1/3 counts position 2's plane twice.** It is M4's figure on the doubled space (`B4D-STAGE7.md` K5).
+- **One sheet carries −1/6** under J1's per-plane formula. The live route then reads ℓ₂ = 6ℓ, not 3ℓ.
+- **This is recorded, not repaired.** The unit and the count are put to you there.
