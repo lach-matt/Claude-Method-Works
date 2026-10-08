@@ -17,8 +17,9 @@ position 1's).
      shell from any distance arrives at the throat in one instant of v, so the energy can arrive at once.
   C3 THE README CANNOT RIDE IT (computed, from o3_write.py's gas bound).  A carrier arriving within a hold of T clocks
      brings at most N <= 8 Z (T + 2)^3/(3645 ln2) bits.  At T ~ 1e-14 that is ~2.8 bits at Z = 108.75.  So for any
-     README above a few bits the information is not carried by the energy that arrives at once: under 162,
-     H-TAKEN-NOT-CARRIED (o3_atonce.py A3) is forced, not chosen.  115 (c) and 136 G -- the inflow is the README, the
+     README above a few bits, an instant and an inflow carrying the README cannot both hold -- the conflict, not a
+     forcing of H-TAKEN-NOT-CARRIED (regraded after o3_atonce.py's verifier: that reading runs against causality and
+     was circular with o3_atonce.py).  115 (c) and 136 G -- the inflow is the README, the
      README is the energy -- then read as the README's ENERGY arriving at once and its INFORMATION taken (R0); the board
      names that split H-ENERGY-CARRIED-INFO-TAKEN, a reading of M's words to be put to M.
   C4 NO TIME FOR THE STRING'S INSTABILITY (computed).  Over the hold the black string's fastest growth (0.046 per

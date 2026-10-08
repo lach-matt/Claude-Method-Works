@@ -30,8 +30,10 @@
 - **The limit.** A carrier arriving within a hold of T clocks brings at most N ≤ 8Z(T + 2)³/(3645 ln2) bits.
 - **At T ≈ 10⁻¹⁴ clocks** that is **about 2.8 bits**, at the Standard Model's particle count.
 - **The control.** Inverting the bound at its own time gives back the example README exactly.
-- **So under 162 the information is not carried in at once; it is taken.** Taken means the corridor takes the README at
-  its opening (R0). For any README above a few bits this is forced, not chosen.
+- **So, if "at once" is an instant, the README cannot be carried in.** For any README above a few bits, an instant
+  and an inflow carrying the README (your 115 (c)) cannot both hold. *Regraded after the O3-ATONCE verifier:* this
+  states the conflict; it does not force "taken". "Taken" runs against causality and no-signalling, and it was
+  circular with `o3_atonce.py`.
 - **How your words then read.**
   - 115 (c), "the inflow is the README", and 136 G, "the README is the energy", read as: the README's energy arrives at
     once, and its information is taken (R0).

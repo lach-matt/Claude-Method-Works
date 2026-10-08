@@ -1,49 +1,50 @@
 #!/usr/bin/env python3
-"""o3_atonce.py -- Warp Theorem lemma O3 under M-RULINGS item 162: one object, fixed size, the README held once and
-at once.  Computed, READ and deduced; not verified; not seated.
+"""o3_atonce.py -- Warp Theorem lemma O3 under M-RULINGS item 162: what holds IF the README is held at once.
+Computed, READ and deduced; verified once (findings applied, O3-ATONCE.md History); not seated.  First headed "...
+not verified; not seated" -- and first concluding "O3 DERIVED", which its verifier showed does not follow.
 
 M's words (verbatim in the rulings file): item 162 "I submit that it may be more like a black hole, containing both
 mouths and throat at once. The throat doesn't change size because the whole chain object only every takes on the size
 that contains the README upon opening. It is and always will be only the size that is needed to hold the object once
-and at once"; item 160 "the corridor and the opening are the same object"; item 158 (2) "Exactly as long as the write
-needs  I should think"; item 136 E "instantaneous or near instantaneous".
+and at once"; item 160; item 158 (2) "Exactly as long as the write needs  I should think"; 158 (1) "This is for the
+math to decide, not myself"; 115 (c) "The README itself" (the opening's inflow is the README); 133 (one exact energy).
 
 READ
-  Margolus & Levitin, quant-ph/9710043: p.4, eq. (4), the time to an orthogonal state tau >= h/(4E), E the average
-    energy above the ground state; p.5, "This bound is achievable if the spectrum of energies includes the energy 2E
-    (and is very nearly achievable if the spectrum includes a value very close to this, as we would expect, for
-    example, for any ordinary macroscopic system)", by (|0> + |2E>)/sqrt(2).
-  't Hooft, gr-qc/9310026, p.4, eq. (3): n = 4 pi M^2/ln2 = A/(4 ln2) Boolean degrees of freedom.
+  Margolus & Levitin, quant-ph/9710043: p.4, eq. (4), tau >= h/(4E), E above the ground state (p.3, footnote 2: the
+    zero at the lowest allowed energy); p.5, achievable by (|0> + |2E>)/sqrt(2), which oscillates back after another
+    h/(4E); p.9, an exact-energy eigenstate "never transitions to an orthogonal state"; App. B, achievability shown for
+    "ordinary macroscopic" spectra.
+  't Hooft, gr-qc/9310026, p.4, eq. (3).
 
-  A1 THE SIZE NEEDED TO HOLD THE README ONCE IS r0 = 2m (STRUCTURAL).  The surface that holds N bits once, at 't Hooft's
-     density, has A = 4 N ln2 Planck areas -- H1's 4 pi r0^2 = N A_bit -- and with G1's E its radius is 2m: G3.  So
-     H-FIXED-SIZE is the board's r0 = 2m held from the opening on, and "containing both mouths and throat at once" is
-     H2's horizon on the throat with 127's coinciding planes.  By G1's construction, not a finding.
-  A2 THE WRITE AT ONCE (READ, deduced).  Under H-AT-ONCE the write is one collective step: the whole register goes from
-     its state before the opening to the README's state, an orthogonal state.  Its least time is Margolus-Levitin's
-     h/(4E), and that bound is achievable (p.5).  With 158 (2), the hold is that least time:
-            hold = h/(4E) = (2 pi^2/ln2)/N clocks  -- 1.0e-14 clocks at the example README (6.9e-51 s).
-     158 (1) is answered by 162: collective.
-  A3 WHAT NO LONGER APPLIES (deduced).  The gas bound (O3-WRITE W3, >= 2.0e5 clocks) and the transfer-rate bounds
-     (W2; quant-ph/0311049 eq. (26)) bound a README carried in by a signal or by matter (H-WRITE-IS-ARRIVAL).  Under 162
-     the object takes the size that holds the README upon opening; the board reads this with R0 ("the corridor takes
-     the README at its opening") as the README taken, not carried (H-TAKEN-NOT-CARRIED).  Those bounds then do not
-     bind the hold.  The physics cost stays on record: no carrier that has not collapsed can bring N bits within 2m
-     faster than W3's bound, so H-TAKEN-NOT-CARRIED is a statement about the corridor, not a delivery.
-  A4 THE HOLD IS IN THE STATIC WINDOW (computed).  The window's bottom is now h/(4E) alone, and the hold sits on it --
-     ~1e-15 of the static bulk's verified 11.28 clocks.  So H-HOLD-IN-WINDOW follows from 158 (2), 160, 162 and
-     Margolus-Levitin; O3c's survival there is o3_hold.py's (linear theory, PROVED for every hold in the window).
-  A5 FIXED SIZE (deduced).  No ramp of m(v): H-MASS-RISES fails, and with it o3_readings.py R3/R4 (b)'s mechanism (a
-     string crossing the unstable band as its mass rises).  Within the hold's cone the bulk is the static bulk (B4b).
-  A6 THE BULK IN THE HOLD'S CONE (computed).  The hold's double cone reaches ~hold/2 ~ 5e-15 m into the bulk.  There
-     b4_static.py's exact series (order 20, no continuation needed) gives K equal to its value on the plane to double
-     precision at r = 2.01m to 8m (largest 1.39): B4b's condition holds in the cone without Padé continuation and
-     without the singular surface 2.5m away.  Flat limit computed; at y ~ 5e-15 m the ell-dependent terms are O(y/ell)
-     (deduced), so any ell well above 1e-14 m gives the same.  B4b's locally analytic class remains a reading.
-  VERDICT  Under 162 (with 158 (2), 160 and R0) O3 is DERIVED: the hold is Margolus-Levitin's least time for one
-     collective step, inside the static window.  It rests on B4b for the bulk in the cone, and B4b's flat-limit regime
-     is what b4d_stage2.py questions.  Not decided: how the object comes to hold the README at once -- the formation
-     (B7, B4d), now an at-once appearance rather than an inflow.
+  A1 (STRUCTURAL) the size that holds N bits once at 't Hooft's density is r0 = 2m -- G1, H1, G3 by construction.
+  A2 A LOWER BOUND ONLY (READ).  Read as one collective orthogonal step (H-AT-ONCE-IS-ONE-ORTHOGONAL-STEP, the board's;
+     158 (1) stays the math's), with E the energy above the register's ground (H-ML-ENERGY-IS-E, the board's choice of
+     ground), Margolus-Levitin give hold >= h/(4E) = (2 pi^2/ln2)/N clocks, 1.0e-14 at the example README.  Their
+     achieving state needs an energy spread E and a level at 2E -- against 133's one exact energy (an exact-energy
+     state never turns orthogonal, p.9) and 162's fixed size (a level at 2E is an object of radius 4m) -- and it
+     oscillates back, so it would not hold the README.  So h/(4E) is a floor, not the hold (H-WRITE-SATURATES-ML would
+     be needed and conflicts with 133 and 162).
+  A3 CARRIED OR TAKEN: A CONFLICT TO PUT TO M (deduced).  The gas bound (>= 2.0e5 clocks), the transfer bounds and
+     opening.py O5's 4-clock floor bind a README carried in -- and 115 (c), with R0 and E1 as axioms.py words them
+     ("takes the README as its inflow"), says it is carried.  Read as an instant, 162's "at once" leaves no time for
+     that: a carrier arriving within ~1e-14 clocks brings at most ~2.8 bits (b4d_stage3.py C3).  The board's way
+     through -- the README taken, not carried (H-TAKEN-NOT-CARRIED) -- runs against causality and no-signalling (the
+     bits would have to correlate with a distant object without a carrier) and leaves only pre-loading, which is
+     against 162's "upon opening".  The alternative reading of "at once" -- together, as one whole, not an instant --
+     removes the conflict and keeps the gas bound.  This is M's to settle.
+  A4 CONDITIONAL.  IF the README and E are present within 2m at the opening and the write saturates Margolus-Levitin,
+     THEN the hold is ~1e-14 clocks and lies in the static window.  A floor alone cannot place it under the window's
+     ceiling.
+  A5 fixed size removes o3_readings.py's band-crossing mechanism only; a string at fixed mass is still unstable in 127's
+     single-wall case -- what defuses it is a short lifetime, ~5e-16 e-folds over 1e-14 clocks, returning for ~20 clocks.
+  A6 (STRUCTURAL) in a cone 5e-15 mass lengths deep any bulk C^2 at the plane matches its plane value to double precision
+     (Padé [4/5], [5/5] of the order-20 series); it assumes eq. (17) on the plane across the cone through the hold
+     (H-EQ17-ON-PLANE-THROUGH-HOLD), which b4d_stage3.py C5 leaves open.
+  PLANCK CAVEAT  For E above the Planck energy h/(4E) is below the Planck time: the hold is 6.9e-51 s (1.3e-7 Planck
+     times), the cone 1e-42 m.  Margolus-Levitin (non-relativistic, fixed background) and the classical bulk do not
+     apply there; opening.py O5 already marks such figures as where "the model breaks down".
+  VERDICT  O3 stays OPEN.  Banked: the conditional A4, and the conflict A3 -- 162's "at once" read as an instant against
+     115 (c)'s README carried in -- which is M's.
 
 Imports lemmas/o3_hold.py, lemmas/o3_write.py and lemmas/b4_static.py by path.  Stdlib + sympy.
 python3 o3_atonce.py [--selftest]
@@ -135,16 +136,17 @@ def selftest():
     N = sp.Symbol("N", positive=True)
     chk("A1 (STRUCTURAL, G1's construction): the size that holds N bits once at 't Hooft's density is r0 = 2m",
         d["a1"] == 0)
-    chk("A2: Margolus-Levitin's achieving state is orthogonal at exactly h/(4E) and not before (control: overlap 1/2 "
-        "in modulus half-way)", d["ml_zero"] == 0 and abs(complex(d["ml_half"])) > 0.7)
-    chk("A2: the hold is h/(4E) = (2 pi^2/ln2)/N clocks -- 1.0e-14 clocks at the example README",
+    chk("A2 (READ check): Margolus-Levitin's achieving state is orthogonal at h/(4E); half-way its overlap has modulus "
+        "1/sqrt(2)", d["ml_zero"] == 0 and abs(complex(d["ml_half"])) > 0.7)
+    chk("A2 (arithmetic): the floor h/(4E) = (2 pi^2/ln2)/N clocks -- 1.0e-14 clocks at the example README",
         sp.simplify(d["hold"] - 2 * sp.pi**2 / sp.log(2) / N) == 0 and 1.0e-14 < d["hold_ex"] < 1.1e-14)
-    chk("A4: the hold sits inside the static window (~1e-15 of its 11.28 clocks); O3c's factors there are ~1",
+    chk("A4 (conditional, arithmetic): IF the hold is the floor, it is ~1e-15 of the window's 11.28 clocks; O3c's "
+        "relative changes there ~1e-15",
         10.5 < d["v"] < 12 and d["ratio"] < 1e-14 and d["s5b"] < 1 + 1e-14 and d["s4"] < 1e-14)
-    chk("A2 control: in seconds the hold is ~7e-51 s, far below a Planck time -- the README held at once",
+    chk("PLANCK CAVEAT: the floor in seconds, ~7e-51 s, is below a Planck time -- outside the domain of the physics used",
         1e-51 < d["seconds"] < 1e-50)
-    chk("A6: in the hold's cone (~5e-15 m deep) K equals its value on the plane to 1e-12 at r = 2.01-8m, at most 1.39 "
-        "-- B4b's condition without continuation", all(abs(k[1] / k[0] - 1) < 1e-12 for k in d["kcone"].values())
+    chk("A6 (STRUCTURAL): in the hold's cone (~5e-15 m deep) K equals its value on the plane to 1e-12 at r = 2.01-8m, at most 1.39 "
+        "-- STRUCTURAL (any C^2 bulk at that depth)", all(abs(k[1] / k[0] - 1) < 1e-12 for k in d["kcone"].values())
         and max(k[1] for k in d["kcone"].values()) < 1.4 and d["depth"] < 1e-14)
     print("selftest: %d/%d" % (ok, n))
     return ok == n

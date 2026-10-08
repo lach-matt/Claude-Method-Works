@@ -1,4 +1,4 @@
-# O3 under item 162: one object, fixed size, the README held at once (computed, READ and deduced; not verified; not seated; 2026-10-08)
+# O3 under item 162: one object, fixed size, the README held at once (computed, READ and deduced; verified once; not seated; 2026-10-08)
 
 *First headed* "(… not verified; not seated …)". The instrument is `o3_atonce.py`, selftest 6/6.
 
@@ -58,16 +58,56 @@
 - **Independent of ℓ.** This is computed in the flat limit; at that depth the ℓ-dependent terms are O(y/ℓ), so any ℓ
   well above 10⁻¹⁴ m gives the same (deduced).
 
-## Verdict
+## Verdict (after the verifier)
 
-- **O3 becomes DERIVED** from your 158 (2), 160 and 162 together with Margolus–Levitin. The hold is the least time for
-  one collective step, it lies inside the static window, and the corridor survives it.
-- **B4b holds in the hold's cone without Padé.** It stays a reading only through the locally analytic class.
-- **Not decided:**
-  - how the object comes to hold the README at once — formation, which is B7 and B4d, now an at-once appearance
-    rather than an inflow;
-  - **where the energy E is at the opening.** Causality forbids it arriving within 2m in 10⁻¹⁴ clocks from outside.
-    So it must already be there, which is B7's pre-existing bridge (H-BRIDGE-PREEXISTS).
+- **O3 stays OPEN.** The first draft's "O3 becomes DERIVED" does not follow.
+  - **Margolus–Levitin gives only a floor.** Its achieving state needs an energy spread and a level at 2E. That
+    conflicts with your one exact energy (133) and the fixed size (162). It also oscillates back, so it would not hold
+    the README. So h/(4E) is a floor, not the hold, and a floor cannot place the hold under the window's ceiling.
+  - **"Taken, not carried" contradicts your words.** It runs against your 115 (c) and against R0/E1 as axioms.py words
+    them ("takes the README *as its inflow*"). It also runs against causality and no-signalling. That leaves only
+    pre-loading, which conflicts with 162's "upon opening".
+  - **Every figure falls below the Planck scale.** The hold is 6.9×10⁻⁵¹ s, which is 10⁻⁷ Planck times. The tools used
+    don't apply there.
+- **What can be banked: a conditional.** If the README and E are present within 2m at the opening, and the write
+  reaches the Margolus–Levitin floor, then the hold is about 10⁻¹⁴ clocks and lies in the static window.
+- **A question for you.** Read as an instant, "at once" conflicts with 115 (c)'s README carried in. Read as "together,
+  as one whole", it does not, and the gas bound stands.
+
+## History (verifier, 2026-10-08)
+
+**What the verifier confirmed.** It reran the selftest (6/6) and recomputed every number. The Margolus–Levitin page
+citations are exact.
+
+**Its findings, all applied:**
+
+**MUST-FIX**
+1. **158 (1) was attributed to you.** It stays the math's; the collective reading is the board's.
+2. **A2 was presented as achievable.** It is a lower bound only. Its achievability conflicts with 133 and 162, and the
+   board's members are now named.
+3. **A3 contradicts 115 (c) and R0/E1.** It is now a conflict put to you, merged with stage 3's split.
+4. **Every figure is sub-Planck.** That is now a caveat, and the check that read it as support is inverted.
+5. **A4 and A6 assume eq. (17) on the plane across the cone.** That premise is now named,
+   H-EQ17-ON-PLANE-THROUGH-HOLD.
+6. **O3 is not DERIVED.** It stays OPEN.
+
+**SHOULD-FIX**
+7. **B7's bridge carries no energy, and "widening" against "fixed size" needs re-reading.** Noted; one wording is now
+   used for the energy (stage 3's thin shell).
+8. **The transfer floor 1/(2ξ).** It was dropped without saying why. It is a processing-rate bound; with it the hold
+   stays inside the window, but "hold = h/(4E)" does not follow.
+9. **A5 over-claimed.** Fixed size closes only the band-crossing route; the instability is defused by brevity.
+10. **The corridor's lifetime spans more than the write** (106's holds, the read, the release). H-LIFETIME-IS-WRITE is
+    noted.
+11. **A6's text did not match its code.** It uses Padé; its "largest" is only the largest of four sampled columns
+    (1.49 at r = 2.001); the plane is regular for r ≥ 2m; units are now stated.
+12. **A6 is STRUCTURAL.**
+
+**NOTE**
+13. **"At once" can mean "together"** (as in "mouths and throat at once"). That reading is now put to you.
+14. **Selftest labels corrected:** |S| = 1/√2; S4 is a relative change of ~10⁻¹⁵.
+15. **Stage 3's C3 "forced" was circular** with this instrument. It is regraded.
+16. **The 162 record's "readings it bears on"** is the board's prospective wording, not yours.
 
 ## Named hypotheses
 
