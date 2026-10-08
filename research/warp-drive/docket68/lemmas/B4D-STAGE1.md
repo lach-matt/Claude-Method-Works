@@ -26,6 +26,8 @@ this is corrected below (History).
 
 ## D1. The regime (computed)
 
+> **Re-read after stage 2 (verified):** D1's "the flat limit" holds only for a *round* far surface. A tipped far surface is untrapped at any ℓ (`b4_global.py`), so D1 does not force the flat limit. D2's "~580 m" uses the same round-surface ℓ.
+
 - **How far the write reaches.** By O3-WRITE W3, the README starts spread over a ball of radius (2 + T)m. Here m =
   GE/c⁴ is the corridor's mass length; one clock is about 6.6×10⁻³⁷ s at the example README. Light moves at most at 1,
   so the region the write disturbs reaches about T·m.

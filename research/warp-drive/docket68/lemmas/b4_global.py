@@ -27,14 +27,19 @@ fixed, to a curve included in T".  This instrument does what the board can do ab
       orthogonal product R x Sigma-bar with Cauchy slices with boundary {t} x Sigma-bar is proved".  So every slice has
       the same topology: the one end is present before the opening, as B7's preexisting bridge joined through the bulk --
       and, by the same splitting, at every earlier time too.  The widening changes the bridge's size, not its topology
-  B4c THE FAR BOUNDARY: UNTRAPPED ONLY INSIDE HALF THE CURVATURE LENGTH (computed in the board's model, H-FAR-MODEL).
+  B4c THE FAR BOUNDARY (computed in the board's model, H-FAR-MODEL).  For a ROUND T, untrapped only inside half the
+      curvature length; a non-round, deep, sharp-tipped T is untrapped at any ell (computed below; first written as if
+      every T were round -- History in lemmas/B4D-STAGE2.md).
       CENSOR5D C1's sphere (an S^3 centred on one plane in pure RS II) is not B4a's T, which is S^1 x S^2 and crosses the
       deep bulk over the throat.  So theta+- is computed for T itself, in a labelled model -- not a solution: the
       Randall-Sundrum II conformal form with the plane's spheres given a throat, g = (ell/z)^2 (-dt^2 + du^2 + dw^2 +
       rho(u)^2 dOmega^2), z = ell + |w|, rho^2 = u^2 + a^2.  On T, at angle alpha from the plane,
           +-theta+- = (3 R^2 ell cos^2 alpha - 2 R a^2 sin alpha + a^2 ell) / (R ell (R^2 cos^2 alpha + a^2)).
       Control: a -> 0 gives C1's 3/R exactly.  Over the throat (alpha = pi/2) its sign is that of ell - 2R: T is strictly
-      untrapped iff R < ell/2.  T must also lie beyond the opening's reach, so the model needs ell > 2 R_reach.  The
+      untrapped iff R < ell/2 -- for a round T.  The same div n - a_n for any level-set T gives, at the bulk-most point,
+      theta+ ~ (z/ell)(kappa - 3/(ell + W)): a tip of coordinate curvature kappa > 3/(ell + W) is untrapped at any depth
+      W.  A tipped T, w = W (1 - u^2/U^2), at ell = 0.11m, U = 24, W = 2.4e4 encloses the reach and has min theta+ = +0.07
+      (computed, tipped_far_boundary()).  So a round T needs ell > 2 R_reach; a tipped T does not.  The
       reach (Randall-Sundrum estimate, from eq. (17)'s plane: 1 - F H = x (4x - 3)^2/(2 - 3x) with x = m/r, so the
       coordinate speed dr/dt = sqrt(F H) < 1 and Delta r <= Delta t) is at most ~11.3 m over the longest hold the bulk
       admits (O3's window, b4_static.py; first written 28.48 m under O3's withdrawn per-bit hold, then 13.0 m before
@@ -43,7 +48,8 @@ fixed, to a curve included in T".  This instrument does what the board can do ab
       (J+(K) n J-(Sigma) compact; standard, not READ, and with timelike boundary resting on Ake Hau-Flores-Sanchez-type
       structure).  So in the model: ell > ~23 m (corridor units; ~57 m under the withdrawn hold) -- met by orders of
       magnitude if ell is anywhere near
-      its measured bound, and impossible at ell = r0, where no such T exists and escape (a) is not shown.  "Uniformly in
+      its measured bound -- for a round T.  At ell = r0 no round T exists, but a tipped one does (above).  What stays
+      open is whether the model holds deep in the bulk, where a tipped T goes.  "Uniformly in
       time" (CGS p.9) holds in the model before the opening and through the hold.  After the closing (E2) outgoing
       radiation reaches any fixed T; it cannot trap it (derived, an estimate): by Raychaudhuri's equation (standard, not
       READ) energy E_rad crossing a sphere of radius R lowers its expansion by about 2 G E_rad/(c^4 R^2) against
@@ -214,13 +220,36 @@ def far_boundary():
             "min": min_theta, "symbols": (ell, Rr, a)}
 
 
+def tipped_far_boundary(ell, U, W, a=2, n=4000):
+    """theta+ (b4_global's own div n - a_n, sqrt|g| with the lapse) on the level set F = (u/U)^2 + w/W = 1 (w > 0):
+    the minimum over the quadrant, and the surface's least distance from the origin."""
+    u, w = sp.symbols("u w", real=True)
+    ell, a, Ul, Wl = sp.nsimplify(ell), sp.Integer(a), sp.Float(U), sp.Float(W)
+    z = ell + w
+    lapse = ell / z
+    sqrtg = (ell / z) ** 5 * (u**2 + a**2)
+    F = (u / Ul) ** 2 + w / Wl
+    gu, gw = sp.diff(F, u), sp.diff(F, w)
+    nrm = sp.sqrt(gu**2 + gw**2)
+    nv = [z / ell * gu / nrm, z / ell * gw / nrm]
+    div = (sp.diff(sqrtg * nv[0], u) + sp.diff(sqrtg * nv[1], w)) / sqrtg
+    an = nv[0] * sp.diff(sp.log(lapse), u) + nv[1] * sp.diff(sp.log(lapse), w)
+    th = sp.lambdify((u, w), div - an)
+    pts = [(float(Ul) * math.cos(math.pi / 2 * k / n), float(Wl) * (1 - math.cos(math.pi / 2 * k / n) ** 2))
+           for k in range(1, n)]
+    return min(th(x, y) for x, y in pts), min(math.hypot(x, y) for x, y in pts)
+
+
 def compute():
     topo = {m: {"far": far_components(m), "T": t_arcs(m), "homotopy": homotopy_ok(m)} for m in MODELS}
     ls = plane_light_speed()
     o3 = _load(os.path.join(HERE, "o3_hold.py"), "b4_o3")
     hold = float(o3.compute()["v"])
     fb = far_boundary()
-    return {"topo": topo, "ls": ls, "hold": hold, "reach_plane": hold, "fb": fb,
+    tipped = tipped_far_boundary(sp.Rational(11, 100), 24, 2.4e4)
+    tipped_round_ctl = fb["min"](float(sp.Rational(11, 100)), 24.0, 2.0)
+    return {"topo": topo, "ls": ls, "hold": hold, "reach_plane": hold, "fb": fb, "tipped": tipped,
+            "tipped_round_ctl": tipped_round_ctl,
             "min_ok": fb["min"](10 * hold, 1.2 * hold, 1.0), "min_bad": fb["min"](2.0, 1.2 * hold, 1.0)}
 
 
@@ -269,6 +298,9 @@ def selftest():
     chk("B4c: over the throat theta+ has the sign of ell - 2R; with T beyond the reach, untrapped at ell = 10 x reach, "
         "trapped somewhere at ell = r0", sp.simplify(fb["top"] - a**2 * (ell - 2 * Rr) / (Rr * ell * a**2)) == 0
         and d["min_ok"] > 0 and d["min_bad"] < 0)
+    chk("B4c: the round T's condition is shape-specific -- at ell = 0.11m a tipped T, w = W(1 - u^2/U^2), enclosing the "
+        "reach (distance >= 24 > 22.6) is untrapped (min theta+ > 0), where a round T of radius 24 is trapped (control)",
+        d["tipped"][0] > 0 and d["tipped"][1] > 22.6 and d["tipped_round_ctl"] < 0)
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 
