@@ -2,6 +2,11 @@
 
 *First headed* "(… not verified; not seated …)". The instrument is `o3_atonce.py`, selftest 6/6.
 
+> **Under item 163 (2026-10-08): this route is set aside.** You chose *"All together, one whole"*. "At once" means
+> together, not an instant. So 115 (c) stands as written (the README is carried in), the gas bound stands (≥ 2.0×10⁵
+> clocks), and the instant hold of h/(4E), with H-TAKEN-NOT-CARRIED, is no longer a live reading. What stays banked
+> here: A1 (r₀ = 2m), and A3's conflict, which your answer resolved. The live question moved to `B4D-STAGE5.md`.
+
 ## What you said
 
 - **Item 162:** *"I submit that it may be more like a black hole, containing both mouths and throat at once. The throat

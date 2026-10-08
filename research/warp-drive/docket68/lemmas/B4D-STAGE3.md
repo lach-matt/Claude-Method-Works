@@ -3,6 +3,12 @@
 *First headed* "(… not verified; not seated …)". The instrument is `b4d_stage3.py`, selftest 3/3. It builds on
 `o3_atonce.py`, whose verifier is still out; this stage gets its own verifier once that one reports.
 
+> **Under item 163 (2026-10-08): conditional on a withdrawn reading.** Everything below assumes "at once" is an instant.
+> You chose *"All together, one whole"*, so the instant hold is set aside and so is H-ENERGY-CARRIED-INFO-TAKEN. Still
+> standing, and used by stage 5: C2's Vaidya fact (the trapping radius is r = 2m(v)) and C3's inversion of the gas bound
+> (an instant carries ~2.8 bits — which is why the instant reading could not hold the README). The verifier is deferred:
+> this stage is off the live path.
+
 ## What you said
 
 - **Item 162:** the object *"only every takes on the size that contains the README upon opening. It is and always will

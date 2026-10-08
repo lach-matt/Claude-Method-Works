@@ -2,6 +2,11 @@
 
 *First headed* "(… not verified; not seated …)". The instrument is `b4d_stage4.py`, selftest 4/4.
 
+> **Under item 163 (2026-10-08): conditional on a withdrawn reading.** This shell is the opening as an instant step from
+> our universe into eq. (17). Item 163 sets the instant aside, so this computes one model of the opening's leading
+> edge, not the live corridor. D1–D3 stand as computations (a positive energy with a tension, which on the plane reads as
+> an NEC break and under clause (B) as the bulk's Weyl jump). The live question is stage 5's. The verifier is deferred.
+
 ## The question
 
 - **The setup.** Under your 162 the corridor takes its size at once, so it opens across a null shell.
