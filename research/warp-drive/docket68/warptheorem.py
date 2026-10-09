@@ -9,14 +9,19 @@ THE WARP THEOREM.  For an object whose README -- its one fixed exact encoding, l
 universe shares -- has N bits (the user's input), there is exactly one corridor, fixed by N alone, and through it the
 README becomes, one way and exactly, the object at position 2:
 
-  (G) GEOMETRY   the corridor is Bronnikov-Kim's eq. (17) at r0 = 2m on the plane, with
+  (G) GEOMETRY   [seated as re-worded, item 187] the corridor sits in the bulk, on neither plane; it only bridges them
+                 (179/180).  Bronnikov-Kim's eq. (17) at r0 = 2m is kept only as a plane's possible reading of the
+                 corridor's mouth (H-PLANE-READS-MOUTH, the board's; OPEN).  Its size is fixed by N:
                    E  = sqrt(N h c^5 ln2 / (8 pi^2 G)) = 459,404,002.42 J x sqrt(N),
                    m  = G E / c^4,   r0 = 2m = sqrt(N h G ln2 / (2 pi^2 c^3));
   (H) HOLDING    its throat holds exactly the README: 4 pi r0^2 = N x 2 h G ln2/(pi c^3), 4 ln2 Planck areas per bit;
   (O) ONE WAY    its passage runs from position 1 to position 2 through an extremal horizon (surface gravity 0),
                  nonsingular and complete, never back;
-  (Z) NULL ENERGY NEVER VIOLATED   along the passage the five-dimensional null energy is zero; the plane's apparent
-                 deficit is exactly the bulk's pull, integral 8/(3m) - (4/(3 sqrt3 m)) artanh(sqrt3/2) per unit E;
+  (Z) NULL ENERGY NEVER VIOLATED   [seated as re-worded, item 187] "never violated" holds net along each light ray
+                 (183): a negative member paired along the same light rays is the appearance (117/120).  Along the
+                 passage the five-dimensional null energy is zero; the plane's apparent deficit is exactly the bulk's
+                 pull, integral 8/(3m) - (4/(3 sqrt3 m)) artanh(sqrt3/2) per unit E (Z1, Z2: computed with eq. (17) as
+                 the plane's own metric, the board's configuration, re-read under 179);
   (B) BULK       a vacuum five-dimensional bulk carries it, the plane matter-free at the Randall-Sundrum tension, the
                  bulk's two ends one end, the energy positive at every point, the bulk's scale k fixed by the work;
   (I) INFORMATION  the passage is N bits of entanglement, and carries the N-bit README;

@@ -24,8 +24,10 @@ ledger's remainder from item 139 alone, and left out four lemmas. All are correc
 
 The corridor is the following, clause by clause.
 
-- **(G) Geometry.**
-  - It is Bronnikov–Kim's eq. (17) at r₀ = 2m on the plane.
+- **(G) Geometry** (seated as re-worded, item 187).
+  - The corridor sits in the bulk, on neither plane; it only bridges them (179/180).
+  - Bronnikov–Kim's eq. (17) at r₀ = 2m is kept only as a plane's possible reading of the corridor's mouth
+    (H-PLANE-READS-MOUTH, the board's; OPEN).
   - **E = √(N h c⁵ ln2 / (8π²G)) = 459,404,002.42 J × √N.**
   - **m = GE/c⁴.**
   - **r₀ = 2m = √(N h G ln2 / (2π²c³)).**
@@ -35,9 +37,12 @@ The corridor is the following, clause by clause.
 - **(O) One way.**
   - The passage runs from position 1 to position 2 through an extremal horizon, with surface gravity 0.
   - It is nonsingular and complete, never runs back, and survives its hold.
-- **(Z) Null energy never violated.**
-  - Along the passage, a null geodesic of the five-dimensional geometry, the null energy is zero.
-  - The plane's apparent deficit is exactly the bulk's pull.
+- **(Z) Null energy never violated** (seated as re-worded, item 187).
+  - "Never violated" holds net along each light ray (183): a negative member paired along the same light rays is the
+    appearance (117/120).
+  - Along the passage, a null geodesic of the five-dimensional geometry, the null energy is zero, and the plane's
+    apparent deficit is exactly the bulk's pull (Z1, Z2: computed with eq. (17) as the plane's own metric, the board's
+    configuration, and re-read under 179).
 - **(B) Bulk.**
   - A vacuum five-dimensional bulk carries the corridor. The plane is free of matter, at the Randall–Sundrum tension.
   - The plane's two ends are one end of the bulk.
@@ -421,3 +426,14 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **(Z) and (B)'s positivity:** "never violated" holds net per light ray (183). Positivity stays your 139 (2), a
     separate ruling.
 - **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
+
+## History (2026-10-09, items 186 and 187)
+
+- **Item 186:** you asked whether k differing for each corridor solves any questions, and proposed working from that
+  assumption if the evidence leans that way (H-K-PER-CORRIDOR, yours, conditional). The board's assessment is running
+  (`lemmas/ITEM186-K-PER-CORRIDOR.md`, to come).
+- **Item 187:** clauses **(G) and (Z) are seated** as re-worded above, on your "Seat both". The lemmas under them keep
+  their own statuses: Z1 and Z2 were computed with eq. (17) as the plane's own metric, the board's configuration, and
+  are re-read under 179. What k varies with, and whether each universe has its own strength of gravity, you left "For
+  the math": the board decides both in the item-186 note. Clause (B) is re-worded after it.
+- **No lemma status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
