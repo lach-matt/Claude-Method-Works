@@ -57,7 +57,7 @@ two engines share no code.
 agreed with Mathics3 and SymPy:
 - 1/H to first order gave 1 + 5m/(2r);
 - d ln(F/H)/dr gave 1/(−6 + 7r − 2r²);
-- ∫ gave 1/4;
+- eq. (17)'s ∫ρ, `Integrate[1/(2 (2 r - 3)^2), {r, 2, Infinity}]`, gave 1/4;
 - the warp null-energy expression for AdS₄-sliced AdS₅ gave 0.
 
 ## 3. A local Wolfram Engine: blocked here
