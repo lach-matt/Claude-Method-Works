@@ -7,9 +7,10 @@ Fix round 2026-10-09: the verification's findings (lemmas/EPASS-VERIFY-RECOVERED
 verdicts in the fix round's scratch) applied once per substance; then the two audits of that fix (refutation RF-1 to
 RF-11, overclaim OC-1 to OC-17) applied where reproduced.  Rulings since the instrument: 179/180, 183 and 184 applied
 below; 181 and 182 noted; 187 and 188, recorded after the fix, noted.  The fixed instrument is not re-verified and not
-seated.
+seated.  Integration 2026-10-09: X11-X25 appended after X10 (the [FREE] sections from two owners imported by path, the
+[PLANE] sections deferred); X1-X10 unchanged; the integration is not verified and not seated.
 
-M's words (verbatim in the rulings file; to be quoted in SIM2-PASSAGE.md, not yet written; never paraphrased as M's):
+M's words (verbatim in the rulings file; quoted in SIM2-PASSAGE.md; never paraphrased as M's):
 173 "Go ahead with E-PASS next"; 172 (1) "Yes, it may" and (2) "Yes, that is coinciding" (the board's question in (2)
 read "(so it never actually touches)"); 174 "For the math" (three times); 177 "Yes, that is the appearance"; 170 (the
 clocks; it bears on X8's hold reading but is not used); 132 and 143 A (one way; what can cross); 117/120 (the NEC
@@ -63,7 +64,8 @@ Owners imported by path, never copied -- with one exception: the Hamiltonian con
 function in sim2_facing, is written out once here (_constraint) and checked against the 5D vacuum equations by C2.
 Imported: sim2_facing.py (throat_bulk, throat_rhs, kret_throat, x_valid, _ystar, _yK, wec_window, piece_stress,
 _profile, _smooth_g2, _kind_name, CO_KINDS, DT_LAMS, DT_C, _ricci_diag, BANNED_ARGS, S5.k_bs, B4._eq17,
-B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the example README: 2.0e5 clocks).
+B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the example README: 2.0e5 clocks); and, for X13-X18
+only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and compute output, called by path).
 
   X1  THE CHART (computed, sympy).  x = u^2, t = v + 2 sqrt2/u turns the throat metric into
       dy^2 + alpha^2 [-(u^2/2) dv^2 + 2 sqrt2 dv du] + 4 beta^2 dOmega^2 (AdS2's ingoing Eddington-Finkelstein form),
@@ -334,24 +336,222 @@ B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the example READ
       planes (E-AN, E-NS, E-ROT (141); X10 (c)).  X10 (c)-(d) under 187's clause (G) (H-PLANE-READS-MOUTH, OPEN).
       H-REACHED-ONLY-BY-THE-CROSSER, put to M (X9).  H-PAIRING-IS-ENTANGLEMENT, put to M (176; X10 (c)).  The board's
       reading of item 178, to go to M with the E-PASS report (X10 (e)).  The singular surface within O(x) (X7).
+  X11-X25 THE INTEGRATION (2026-10-09; the [FREE] sections computed by two owners, imported by path, never copied; the
+      [PLANE] sections DEFERRED; not verified as integrated; not seated).  The design spec (lemmas/EPASS-DESIGN-SPEC.md,
+      a design document, not verified) tags each section [FREE] (it holds whatever carries the corridor: a plane, a
+      sheet, or the bulk alone) or [PLANE] (it uses eq. (17) as our plane's own metric, the board's pre-179
+      configuration).  Under 179-181 its recommendation stands: the [FREE] sections are built, the [PLANE] sections wait
+      for the 179 re-read.  The two owners were each built, then refuted and overclaim-checked by separate AI sessions
+      inside this project (not an outside review), findings applied: lemmas/epass_pairing.py (X13, X14; md5
+      152621fa...; its own selftest 11/11, its own --mutants 33/33) and lemmas/epass_frames.py (X17's stationary half
+      and X18; md5 97bbfff9...; 16/16 and 30/30).  Checks C15-C19 and C26-C31 below call the owners' own selftests and
+      fail if an owner fails or is missing.  Every value quoted in X13-X18 is the owner's output, given with the owner's
+      label and its [FREE]/[PLANE] tag, and C35a requires each quoted value to equal the owner's live output (the md5
+      prefixes included).  Nothing in X13-X18 is re-derived here.
+  X11 DEFERRED [PLANE] -- Lemma 0's far-time half: the README's own pre-crossing events on end 1 (r = 2.02-2.2m) on the
+      plane's static clock, from stage 5's owner columns.  Until it is built, X8's refutation of the route with no
+      second sheet rests on its advanced-time half (X7) and the static-clock half stays OPEN (X8).
+  X12 DEFERRED [PLANE] -- footprint, ceiling, Lemma X (excision) and the far gate, from the owner bank's columns on
+      our plane.
+  X13 LEMMA S, THE PAIRING LAW AT A HORIZON OF FIXED SIZE [FREE] (owner epass_pairing; computed as identities;
+      deduced).  (b) BULK FORM, primary under 179/180 (computed): on D dy^2 + g_vv dv^2 + 2B dv du + C dOmega^2 (A, B, C,
+      D arbitrary functions of (y, u); g_vv = -A u^2, degenerate, or -A u, non-degenerate; no g_uu, no cross terms, no
+      rotation), with no field equation, R(xi,xi)|_{u=0} = 0 on the stationary members and on a non-stationary member
+      that keeps u = 0 null.  THE PREMISE IS NOT STATIONARITY -- the owner's verification found this as a blocker, and
+      it is applied there: the Raychaudhuri route agrees with the Riemann route on every variant,
+      R(xi,xi)|_H = -dtheta/dv + kappa theta - theta^2/3 - sigma^2 (computed), so on a horizon that does not expand
+      (theta = 0) R(xi,xi) = -sigma^2 <= 0; shear at fixed volume gives -0.014138938637006316 (eps = 1/10, v = 3/10, on
+      the owner's stand-in functions; Wolfram 15.0.1 agreed, computed by the owner's fix session, not run here).  With
+      Einstein + Lambda_5, kappa_5^2 T5(xi,xi) = R(xi,xi) on H (deduced).  So across a horizon that keeps its size --
+      162's H-FIXED-SIZE (M's) read as theta = 0 through H-FIXED-SIZE-AS-THETA-ZERO (the board's, put to M, unanswered)
+      -- the net 5D null energy along each generator is -sigma^2/kappa_5^2: zero or negative, never above zero.  The
+      partner is at least as large as the README, exactly as large only if the horizon is unsheared (deduced).  With
+      183 (H-NEC-NEVER-VIOLATED-AS-PAIR, M's: zero net along each light ray) the horizon must be unsheared and the pair
+      exact (deduced).
+      (a) SHEET FORM, on whichever sheet carries the README (172 (1)) (computed): K(xi,xi)|_H = 0 for sheets y = F(u),
+      F arbitrary, in the throat metric and on (b)'s family, degenerate (u_H = 0) and non-degenerate (u_H = 1/3), also
+      on non-stationary members that keep u_H null and on a horizon whose section grows: the sheet form is blind to
+      stationarity and to growth.  Its premise is u = u_H null at every depth with the sheet tangent to xi: a sheet
+      tilted off xi gives K(xi,xi) = -kappa n.xi, witness 0.01166 where kappa != 0 and 0 where kappa = 0.
+      S(xi,xi) = -nu K(xi,xi) on H (deduced, g(xi,xi)|_H = 0): T^c(xi,xi) = -T^R(xi,xi) on the README's own sheet,
+      generator by generator, at any tension or law and with matter (184).  A regular held AdS2-invariant stress has
+      tau(xi,xi) = pi(xi,xi) = 0 on H, so held stress cannot be the partner: it must be a genuine negative null flux
+      (deduced).
+      (c) THE WEYL TERM GIVES NOTHING [FREE] (computed; READ SMS eq. (A10), PDF p.6, as the owner transcribes it):
+      E~(xi,xi) = R(xi,n,xi,n) = 0 and E(xi,xi) = 0 on (b)'s family's horizon, stationary or null-preserving
+      non-stationary (a growing section gives E != 0).  [PLANE]: on eq. (17)'s data R4(xi,xi) = 0 at r = 2m (computed),
+      and E(xi,xi) = 0 there under SMS's eq. (17) with Z2 (H-Z2-PIECES, the board's) (deduced).
+      (d) THE PAIR [PLANE] (computed; deduced): README member T^R(xi,xi) = 2 per mu in eq. (17)'s ingoing chart
+      (l.xi = -sqrt2), partner -2, net 0 BY CONSTRUCTION (the partner is defined as -T^R: not a finding).  A null-dust
+      partner tilted by b along the sphere gives pi(xi,xi) = -b^2 mu^2/2 by two routes (SMS eq. (20); the null-dust
+      algebra), independent of a static held stress.  With R4(xi,xi) = 0, E(xi,xi) = 0 from the bulk side (taken
+      non-expanding and shear-free) and tau(xi,xi) = 0, pi(xi,xi) = 0 forces b = 0: the only admitted null partner is
+      the README's exact reverse, and the pair's total stress tensor is then ZERO -- the README's stress is cancelled
+      outright, a plain negative (135) (deduced).  A zero total is not "positive".
+  X14 LEMMA K, A NET-FLUX CROSSING KINKS THE BULK HORIZON [FREE for sheets] (owner epass_pairing; computed; deduced):
+      in Gaussian normal coordinates the null geodesic tangent to the sheet along the horizon generator obeys
+      y'' = K_vv by two routes (the connection; (1/2) Lie_n g_vv with no Christoffel symbol), with K_vv = -S_vv/nu.
+      Integrated: S_vv = 0 stays on the sheet to 1e-12; S_vv = +1 leaves the kept side (y_end = -0.5572, leading order
+      -1/2); S_vv = -1 leaves the sheet into the bulk (y_end = 0.4832).  So a bulk horizon C^2 up to the sheet, with the
+      brane horizon as its trace, carries no net flux there, and a net-flux crossing is a five-dimensional event
+      (E-NS): it creases the bulk horizon at the sheet or separates it from the brane horizon (deduced).  WITHDRAWN:
+      the smooth-horizon identity's B_start budget and design 4's "q >= 0 absorbs classically"; that identity's algebra
+      is kept only as the owner's C15 (contracted Gauss, SMS eq. (3)) and C16 (transport, Raychaudhuri).
+  X15 DEFERRED [PLANE] -- Lemmas L and Q and the absorbing band: Lemma L is the brane ledger of a changing crossing
+      (SMS) with eq. (17)'s data on our plane, Lemma Q is stated at our plane's law, and the band (d_beta, d_+, q(d_+))
+      is S15's slab.  X17's changing half (the coefficient 5.912 at 32m, tending to 5, times P1's) waits with it.
+  X16 DEFERRED [PLANE] -- the crossable class at the horizon (S7's profiles on the throat bulk at our plane;
+      H-CROSSABLE-HORIZON, the board's, put to M).
+  X17 THE DEMANDS, STATIONARY HALF (owner epass_frames; computed; deduced; STRUCTURAL; READ; OPEN).
+      [PLANE]-conditional (eq. (17) as P1's metric; under 184 a vacuum-plane limit; under 172 (1) P1 is not the README's
+      sheet, so this is a normalisation reference only): r_h = 2m with surface gravity kappa = 0 (Schwarzschild control
+      1/4; v affine); W1 (STRUCTURAL): E = m c^2 crossing uniformly over the S^2; kappa_4^2 int T_vv dv = 1/(2m) per
+      generator (computed, sympy), so the partner's is -1/(2m).
+      [FREE], gated on the Lemma S owner's zeros (deduced; on H-STATIONARY-CROSSING, the board's): bulk form,
+      T5^c(xi,xi) = -T5^R(xi,xi) - T5^m(xi,xi) along every generator, = -T5^R on the matter premise T^m(xi,xi)|_H = 0
+      (the planes' matter held static across the horizon); its 5D normalisation is OPEN (the bulk horizon's section is
+      the bulk balance's, 181).  Sheet form, the same on the README's own sheet, which under 172 (1) is position 2's
+      piece, in a normalisation not computed (OPEN).  The pair's net per generator is the owner's zero: neither
+      positive nor negative.
+      SI (computed; u(G) standard-not-READ, CODATA 2018; W1 STRUCTURAL): at o3_write's example README E = 2.40588e16 J,
+      m = G E/c^4 = 1.98791e-28 m and 1/(2m) = 2.51521e27 m^-1; at item 155's E = 3.8e22 J (the board's figure)
+      m = 3.13983e-22 m and 1/(2m) = 1.59244e21 m^-1.  E and m [FREE], 1/(2m) [PLANE]-conditional.  E ~ G^(-1/2), read
+      from the owner's own form, so u_r(m) = 1.12e-5 at the example README and 2.25e-5 at the fixed E.  These hold at
+      our G; a per-universe G was left "For the math" in 187 (2) (OPEN).
+      158 (4): stationary, nothing net is absorbed (Lemma S); changing, into the bulk's Weyl field and the creased bulk
+      horizon, a necessary condition only (deduced; OPEN).
+      Set beside the demand, never a supply (READ, as the owner transcribes them): Gao-Jafferis-Wall 1608.05687v3, PDF
+      p.2, "Violation of the averaged null energy condition (ANEC) is a prerequisite for all traversable wormholes", and
+      PDF p.4, "T_UU in the modified state along U > 0 will exactly cancel that along U < 0" (their non-traversable
+      case); Maldacena-Stanford-Yang 1704.05333v1, PDF p.13, "we cannot send more information through the wormhole than
+      we transferred in order to set up the OO interaction" (a one-sided parametric bound, set against 122 (4); not
+      decided).  GJW's prerequisite is net-negative null energy of the TOTAL; Lemma S's pair totals zero, which is
+      GJW's cancelling case: a tension, OPEN -- GJW's horizon is bifurcate and their analysis linearised, the
+      corridor's is degenerate.
+  X18 ENDS, GENERATORS, LEMMA P (owner epass_frames; computed; READ; deduced; OPEN).
+      [FREE]: on global AdS2 (its induced metric equals Maldacena-Qi (2.1), READ PDF p.5; the parametrisation is
+      standard-not-READ) d_T is elliptic, components (1, 1), with xi.xi = -1/sin^2 sigma < 0 (no Killing horizon);
+      B_origin hyperbolic, (-cos T, cos T); K hyperbolic, (sin T, -sin T); J + K and J - K parabolic; J - B_origin (the
+      Poincare d_t) parabolic, (1 + cos T, 1 - cos T).  x = 8/z^2 gives 4(-dt^2 + dz^2)/z^2 with z = 2 sqrt2/u, and the
+      throat's d_v pushes forward to J - B_origin.
+      [FREE given kappa = 0] -- kappa = 0 comes here from eq. (17) at r0 = 2m, so for the corridor these rows are
+      [PLANE]-conditional, and under 179 whether the bulk corridor's horizon is degenerate is OPEN: the throat's d_v has
+      Q = 0, parabolic (the owner's non-degenerate mutation turns it hyperbolic); the ingoing chart is smooth through
+      u = 0, with end 1 (u > 0) on sigma=0, end 2 (u < 0) on sigma=pi, and u = 0 patch 1's future and patch 2's past
+      horizon -- the shape of 122 (3)/132 only if patch 2 is position 2's side (OPEN).
+      [FREE given AdS2]: on -(x/2)dt^2 + dx^2/(x(x - delta)), R = -1/2 and Q = delta/8 -- delta < 0 hyperbolic (the
+      thermofield double, no passage, MQ PDF p.7), delta = 0 parabolic, delta > 0 elliptic (Maldacena-Qi's coupled
+      wormhole, two-way, MQ PDF p.3).  An AdS2 throat alone does not fix the class; given kappa = 0 the corridor is the
+      extremal member, delta = 0 (deduced).
+      LEMMA P: (i) [FREE] a delta-stress S = s delta reads -s for every observer (1000 exact rational Lorentz
+      transformations; s = 1, -1, 3/7).  (ii) [PLANE]-conditional: eq. (17)'s Weyl fluid at r = 3m, 8 pi rho = 1/81 and
+      8 pi (rho + p_r) = -2/81, reads below zero for observers boosted beyond v* = 1/sqrt3 (rapidity 0.658479), and
+      tends to -oo as v -> 1; NEC matter gives rho' >= rho (1000 exact rows); along S15's approach (rho = -sigma_RS,
+      rho + p bounded by 9.4e-7 sigma_RS, a bound) a boost beyond v* = 1/sqrt(1 + eps) reads above zero, with
+      gamma^2 v^2 = 1/eps = 1.0638e6 at v*.  v is an observer's boost parameter, never a speed.  (iii) [FREE given AdS2]
+      the boundary Killing charge flips under B_origin only; it does not flip under J, J + K, J - K or J - B_origin.
+      DEDUCED: at the coincidence limit (never reached, 172 (2)) S15's -sigma_RS is a delta-stress, the same in every
+      tangent frame.  The board's own 176 sentence ("position 2's -1 would be the partner's sign seen from our side")
+      fails WITHIN ONE UNIVERSE at the limit under four premises (S15's [PLANE] sheet at our tension; the limit;
+      kappa = 0; position 2's side taken as the opposite AdS2 boundary, OPEN); its between-universes clause is OPEN, so
+      it is not refuted as a whole.  139 (2)'s "positive" can be met only as each piece's own-frame density
+      (H-POSITIVE-IN-OWN-FRAME, the board's, put to M), and along the approach S15 computes that density negative
+      (H-POSITIVE-ON-P2 fails there).
+  X19 DEFERRED [PLANE] -- three phases of a coupling, across eq. (17)'s family at r0 = 2m.
+  X20 DEFERRED [PLANE] -- the classical placements of E-Q (the plane's data, the conformal layer, the Bronnikov-Kim
+      gap).
+  X21 DEFERRED [PLANE] -- the transverse reading and the two pairs for 177 and 178 (Lemma S's own pair, [FREE], is
+      X13 (d) here).
+  X22 DEFERRED [PLANE] -- the cap: the README held on P1 at the throat (conditional on H-README-AT-THE-THROAT, the
+      board's; a held configuration, not a passage; the spec builds it after the core).
+  X23 DEFERRED [PLANE] -- Kaus-Reall reproduced (support for the [PLANE] rows).
+  X24 DEFERRED [PLANE] -- the between-universes column for phase 3 (Lemma S's law-independence, [FREE], already holds
+      there: X13).
+      WHY THE TEN WAIT: each takes eq. (17) as a plane's own metric -- the board's configuration, which 179/180
+      (H-CORRIDOR-IN-BULK, M's) re-reads and clause (G), SEATED on M's "Seat both" (187 (3)), keeps only as a plane's
+      possible reading of the corridor's mouth (H-PLANE-READS-MOUTH, the board's, OPEN); 181 puts the bulk balance
+      first; under 184 a matter-free plane is a limit only.  The spec recommends building them only after the 179
+      re-read decides whether the plane configuration stays as the board's comparison case.  That re-read is not made.
+  X25 THE DECISION TABLE, RESTRICTED TO WHAT IS NOW COMPUTED [mixed] (deduced from X1-X10, X13, X14, X17's stationary
+      half, X18 and sim2_facing S15; a row or cell that needs a deferred section is left out and named).  Gates:
+      G1 REGULAR PAST (174 (1)); G2 POSITIVE (139 (2), in its own frame: H-POSITIVE-ON-P2, H-POSITIVE-IN-OWN-FRAME, the
+      board's); G3 NEC (117/120; 183: net along each light ray); G4 CROSSES AT FIXED SIZE (143 A, 132, 162, 163: Lemma
+      S, and Lemma K for a net-flux crossing).
+      R0 no second sheet, README on P1 [PLANE]: G1 fails (X7-X8: within O(x) every claimed layer lies in J^-(P_c) below
+         the write's floor; the far-time half, X11, DEFERRED); G4 needs a partner at least as large as the README along
+         each generator, exact under 183 (X13), and no classical, NEC-obeying matter supplies one (deduced).  The route
+         with no second sheet is REFUTED on X8's conjunction (G1 alone suffices); E-PASS as a whole is not.
+      R2-R3 position 2's piece shallower than d_+ [PLANE]: G2 fails (S15: outside the positive-energy window
+         [d_+, top]; X9).  The band's split at d_beta is X15's, DEFERRED.
+      R4 position 2's piece in [d_+, top] (ell > 27.07m only) [PLANE]: G1 holds near the throat for the profiles X9
+         passes, the cover and the far field OPEN (E-G, E-FAR); G2 and G3 hold classically (S15); G4, stationary: the
+         exact pair (X13), with no classical partner (deduced), OPEN through 177/183 as H-PARTNER-IS-THE-COUPLING (the
+         supply not computed); changing: a five-dimensional event (X14), its coefficient X15's, DEFERRED.  No classical
+         crossing; OPEN only as 177's partner or as E-NS.
+      R5 coinciding, depth -> 0 [PLANE]: G1, the slab pinches along the horizon line through P_c and power-law P2
+         stress diverges along the regular null frame (X9, C11b); G2 fails at every finite ell (S15: rho_m -> -2
+         sigma_RS; X10 (e)), and at the limit, never reached, -sigma_RS is a delta-stress, the same in every tangent
+         frame (X18, Lemma P (i)); G3 marginal (X10 (e)).  Fails G2 within one universe at finite ell (174 (3)); at
+         ell = inf a limit (flat, no RS localisation).
+      R6 classical E-Q: the bulk Weyl term gives nothing along the generators, E(xi,xi) = 0 ([FREE], X13 (c)); a static
+         symmetric coupling that leaves the plane's data unchanged changes nothing, and a horizonless link removes the
+         horizon against 132 ([PLANE], X10 (c)-(d)); the conformal layer and the BK gap are X20's, DEFERRED.  Pays
+         nothing along the generators.
+      R7 coupled ends, quantum (177): the exact negative partner along each generator, sheet or bulk form (X13), at
+         [PLANE] only the README's exact reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite
+         stands against Lemma S's zero total (X17): a tension, OPEN; given kappa = 0 the corridor is the extremal,
+         parabolic member (X18).  OPEN: the demand exact, the supply beyond the board's instruments.
+      R8 changing corridor (E-NS; 152 (2), 160): needs expansion (theta != 0, against 162 as read through
+         H-FIXED-SIZE-AS-THETA-ZERO) or a crease or separation of the bulk horizon at the sheet (X14); its number,
+         Lemma L's, is X15's, DEFERRED.  OPEN, to phase 2b-ii.
+      R9 between universes: Lemma S is law-independent, so the pair is still demanded (X13); X24 DEFERRED.  Handed to
+         phase 3.
+      LEFT OUT (deferred): R1, the cap (X22); R2-R3's split at d_beta (X15); the far gate (X12).
+      COMBINED, restricted (deduced): within one universe at our tension no configuration computed here carries the
+      README across the corridor object's horizon with a regular past through the write.  Position 2's near-coinciding
+      piece regularises the crossing's past near the throat (X9) and does not pay the crossing (X13).  A horizon that
+      keeps its size takes a partner at least as large as the README along each generator, exactly as large only if
+      unsheared, and under 183 exactly as large (X13).  A net-flux crossing is a five-dimensional event (X14).  The
+      classical Weyl term pays nothing; quantum E-Q could supply only the exact partner, which the board cannot
+      compute, and GJW's net-negative prerequisite stands against that zero total (OPEN).
+  OPEN (X11-X25, plainly).  The partner's supply (177; H-PARTNER-IS-THE-COUPLING, the board's; 188's
+      H-PARTNER-AS-ENTANGLED-REFLECTION, M's, offered for the math, bears on it and is not used).  GJW's net-negative
+      prerequisite against Lemma S's zero total.  The bulk-form demand's 5D normalisation (181) and the demand on
+      position 2's piece in its own normalisation (172 (1)).  Whether 162's fixed size is zero expansion
+      (H-FIXED-SIZE-AS-THETA-ZERO), whether the crossing is stationary (H-STATIONARY-CROSSING) and which sheets 143
+      admits (H-CROSSABLE-HORIZON): put to M.  Whether the bulk corridor's horizon is degenerate under 179 (kappa = 0
+      comes from eq. (17) here), on which the parabolic class rests.  Which boundary is position 2's side
+      (H-END-2-IS-OUR-PLANE, X1; epass_frames names it H-END-2-IS-OUR-FAR-END).  The 176 sentence between universes, and
+      139 (2)'s positivity in position 2's own frame (phase 3).  MSY's parametric bound against 122 (4) (reported, not
+      decided).  A per-universe G (187 (2)).  The ten [PLANE] sections, after the 179 re-read.
+  SINCE THE SPEC (noted; nothing decided here): 185, the matter round (lemmas/ITEM185-MATTER-ROUND.md; being written
+      when this integration began, since headed "verified once, findings applied; not seated"); 186, k per corridor
+      (H-K-PER-CORRIDOR, M's, conditional; lemmas/ITEM186-K-PER-CORRIDOR.md, a draft in verification); 187 (3), clauses
+      (G) and (Z) SEATED as the board worded them; 188, M's thought on the partner as a positron, an entangled
+      reflection (H-PARTNER-AS-ENTANGLED-REFLECTION, being worked).
   It is necessary, not sufficient, and never B4d green.  No value here is the corridor's length (155 (2): in bits), a
   distance between the positions or anything the device sees (101 (7)), or a speed (139 (4)): the depths d and y are
   locations in the bulk and ell its curvature length, all in units of m, and the budgets are holds for the cone
   premise, as stage 5 F3's.
 
 python3 sim2_passage.py [--selftest] [--mutants] [--json PATH]
-  (needs sympy, numpy, scipy, mpmath, python-flint; --selftest about a minute; --mutants several minutes: for every
-  check a named mutation of the instrument's own input that the check must FAIL under; exit 1 if any survives or
-  raises)
+  (needs sympy, numpy, scipy, mpmath, python-flint, and the two owners' own owners; --selftest about two minutes, the
+  owners' own selftests included; --mutants several minutes: for every check a named mutation of the instrument's own
+  input (for C15-C19 and C26-C31, of the owner's) that the check must FAIL under, then each owner's own --mutants run
+  as a subprocess and its count reported; exit 1 if any mutation survives or raises, or an owner's --mutants fails)
 """
 import contextlib
+import hashlib
 import importlib.util
 import inspect
 import io
 import json
 import math
 import os
+import re
+import subprocess
 import sys
+import tempfile
 import time
 from fractions import Fraction as Fr
 from math import gcd
@@ -959,9 +1159,561 @@ def data_fixes_bulk(dp=1e-3):
             "cons_max": max(v0[2], mi[2], pl[2])}
 
 
+# ------------------------------------------------------------------------------- X11-X25: the two owners, by path
+# The [FREE] sections X13, X14, X17 (stationary half) and X18 are computed by two owners, loaded here by path and never
+# copied: their own selftest() is called (C15-C19, C26-C31) and their own compute output is read (X13-X18 rows, C35a).
+OWNER_PATHS = {"epass_pairing": os.path.join(HERE, "epass_pairing.py"),
+               "epass_frames": os.path.join(HERE, "epass_frames.py")}
+OWNER_CHECK_IDS = {   # the owners' checks as built and verified (an owner that drops one fails C15-C19 / C26-C31)
+    "epass_pairing": ("C15", "C16", "C17", "C18", "C18s", "C18b", "C18c", "C19", "C19b", "C19c", "CG"),
+    "epass_frames": ("C26a", "C26b", "C26c", "C26d", "C26e", "C30a", "C30b", "C30c", "C30d", "C31a", "C31b", "C31c",
+                     "C31d", "G1", "G2", "G3")}
+OWNER_SECTIONS = {"epass_pairing": ("X13", "X14"), "epass_frames": ("X17", "X18")}
+LABELS = ("computed", "READ", "deduced", "STRUCTURAL", "standard-not-READ", "OPEN")
+SPEC_FREE = ("X13", "X14", "X17", "X18")          # the spec's [FREE] sections (X17: its stationary half)
+SPEC_PLANE = ("X11", "X12", "X15", "X16", "X19", "X20", "X21", "X22", "X23", "X24")   # the spec's [PLANE] sections
+SPEC_TAG = {"X13": "[FREE]", "X14": "[FREE for sheets]", "X17": "[FREE stationary; PLANE changing]",
+            "X18": "[FREE given an AdS2 throat]"}
+DEFERRED = {
+    "X11": "Lemma 0's far-time half: the README's own pre-crossing events on end 1 (r = 2.02-2.2m) on the plane's "
+           "static clock, from stage 5's owner columns; until it is built, X8's refutation of the route with no second "
+           "sheet rests on its advanced-time half (X7) and the static-clock half stays OPEN (X8)",
+    "X12": "footprint, ceiling, Lemma X (excision) and the far gate, from the owner bank's columns on our plane",
+    "X15": "Lemmas L and Q and the absorbing band: Lemma L is the brane ledger of a changing crossing (SMS) with eq. "
+           "(17)'s data on our plane, Lemma Q is stated at our plane's law, and the band (d_beta, d_+, q(d_+)) is S15's "
+           "slab; X17's changing half (the coefficient 5.912 at 32m, tending to 5, times P1's) waits with it",
+    "X16": "the crossable class at the horizon (S7's profiles on the throat bulk at our plane; H-CROSSABLE-HORIZON, the "
+           "board's, put to M)",
+    "X19": "three phases of a coupling, across eq. (17)'s family at r0 = 2m",
+    "X20": "the classical placements of E-Q (the plane's data, the conformal layer, the Bronnikov-Kim gap)",
+    "X21": "the transverse reading and the two pairs for 177 and 178 (Lemma S's own pair, [FREE], is X13 (d) here)",
+    "X22": "the cap: the README held on P1 at the throat (conditional on H-README-AT-THE-THROAT, the board's; a held "
+           "configuration, not a passage; the spec builds it after the core)",
+    "X23": "Kaus-Reall reproduced (support for the [PLANE] rows)",
+    "X24": "the between-universes column for phase 3 (Lemma S's law-independence, [FREE], already holds there: X13)",
+}
+DEFER_WHY = ("each takes eq. (17) as a plane's own metric -- the board's configuration, which 179/180 "
+             "(H-CORRIDOR-IN-BULK, M's) re-reads and clause (G), SEATED on M's \"Seat both\" (187 (3)), keeps only as a "
+             "plane's possible reading of the corridor's mouth (H-PLANE-READS-MOUTH, the board's, OPEN); 181 puts the "
+             "bulk balance first; under 184 a matter-free plane is a limit only.  The spec recommends building them only "
+             "after the 179 re-read decides whether the plane configuration stays as the board's comparison case.  That "
+             "re-read is not made.")
+# the owners' rows carried into X13-X18 (owner, path into its output, section)
+PAIRING_ROWS = tuple(("epass_pairing", ("results", k), "X13") for k in (
+    "X13b_bulk", "X13b_premise", "X13b_label_note", "X13a_sheet", "X13a_scope", "X13a_statement", "X13a_held_stress",
+    "X13a_readme_flux", "X13c_weyl", "X13c_eq17", "X13d_pair", "X13d_pair_tensor", "X13d_readings", "X13_limit",
+    "E_PASS_status")) + tuple(("epass_pairing", ("results", k), "X14") for k in (
+    "X14_tangent", "X14_numeric", "X14_consequence", "X14_withdrawn", "C15_gauss", "C16_transport"))
+FRAMES_ROWS = tuple(("epass_frames", ("X17", k), "X17") for k in (
+    "readme_flux_P1", "stationary_demand", "demand_si", "reads_beside", "answer_158_4", "changing_half")) + tuple(
+    ("epass_frames", ("X18",) + k, "X18") for k in (
+        ("generator_classes",), ("induced_metric",), ("poincare_map",), ("throat_generator",), ("embedding_generator",),
+        ("ends_map",), ("ads2_family",), ("lemma_p", "i_delta_stress"), ("lemma_p", "ii_weyl_fluid"),
+        ("lemma_p", "iii_charge_flip"), ("deduced", "s15_delta_stress"), ("deduced", "s15_along_the_approach"),
+        ("deduced", "board_176_sentence"), ("deduced", "extremal_member"), ("deduced", "end2_identification"),
+        ("deduced", "positive_in_own_frame")))
+
+# X25, restricted to what is now computed: every source is a computed section (X1-X10, the owners' X13, X14, X17's
+# stationary half, X18) or sim2_facing's S15 (computed and verified there); a cell that needs a deferred section names it.
+X25_COMPUTED = tuple(f"X{i}" for i in range(1, 11)) + SPEC_FREE + ("S15",)
+X25_GATES = {"G1": "REGULAR PAST (174 (1))",
+             "G2": "POSITIVE (139 (2), in its own frame: H-POSITIVE-ON-P2, H-POSITIVE-IN-OWN-FRAME, the board's)",
+             "G3": "NEC (117/120; 183: net along each light ray)",
+             "G4": "CROSSES AT FIXED SIZE (143 A, 132, 162, 163: Lemma S, and Lemma K for a net-flux crossing)"}
+X25_ROWS = (
+    {"row": "R0", "config": "no second sheet, README on P1", "tag": "[PLANE]",
+     "G1": "fails (X7-X8: within O(x) every claimed layer lies in J^-(P_c) below the write's floor); the far-time half "
+           "(X11) DEFERRED",
+     "G2": "-", "G3": "-",
+     "G4": "a partner at least as large as the README along each generator, exact under 183 (X13); no classical, "
+           "NEC-obeying matter supplies one (deduced)",
+     "verdict": "the route with no second sheet is REFUTED on X8's conjunction (G1 alone suffices); E-PASS as a whole "
+                "is not", "sources": ("X7", "X8", "X13"), "deferred_parts": ("X11",)},
+    {"row": "R2-R3", "config": "position 2's piece shallower than d_+", "tag": "[PLANE]",
+     "G1": "as R4 near the throat (X9)", "G2": "fails (S15: outside the positive-energy window [d_+, top]; X9)",
+     "G3": "holds on the samples (S15)", "G4": "as R4",
+     "verdict": "fails G2; the band's split at d_beta is X15's, DEFERRED", "sources": ("X9", "S15"),
+     "deferred_parts": ("X15",)},
+    {"row": "R4", "config": "position 2's piece in [d_+, top] (ell > 27.07m only)", "tag": "[PLANE]",
+     "G1": "holds near the throat for the profiles X9 passes; the cover and the far field OPEN (E-G, E-FAR)",
+     "G2": "holds (S15)", "G3": "holds classically (S15)",
+     "G4": "stationary: the exact pair (X13), with no classical partner (deduced), OPEN through 177/183 as "
+           "H-PARTNER-IS-THE-COUPLING (the supply not computed); changing: a five-dimensional event (X14), its "
+           "coefficient X15's, DEFERRED",
+     "verdict": "no classical crossing; OPEN only as 177's partner or as E-NS", "sources": ("X9", "S15", "X13", "X14"),
+     "deferred_parts": ("X15",)},
+    {"row": "R5", "config": "coinciding, depth -> 0", "tag": "[PLANE]",
+     "G1": "the slab pinches along the horizon line through P_c, and power-law P2 stress diverges along the regular "
+           "null frame (X9, C11b)",
+     "G2": "fails at every finite ell (S15: rho_m -> -2 sigma_RS; X10 (e)); at the limit, never reached, -sigma_RS is a "
+           "delta-stress, the same in every tangent frame (X18, Lemma P (i))",
+     "G3": "marginal (X10 (e))", "G4": "as R0's Lemma S (X13)",
+     "verdict": "fails G2 within one universe at finite ell (174 (3)); at ell = inf a limit (flat, no RS localisation)",
+     "sources": ("X9", "X10", "S15", "X18", "X13"), "deferred_parts": ()},
+    {"row": "R6", "config": "classical E-Q", "tag": "[FREE] (the Weyl term); [PLANE] (X10 (c)-(d))",
+     "G1": "-", "G2": "-", "G3": "-",
+     "G4": "the bulk Weyl term gives nothing along the generators, E(xi,xi) = 0 (X13 (c)); a static symmetric coupling "
+           "that leaves the plane's data unchanged changes nothing, and a horizonless link removes the horizon against "
+           "132 (X10 (c)-(d)); the conformal layer and the BK gap are X20's, DEFERRED",
+     "verdict": "pays nothing along the generators", "sources": ("X10", "X13"), "deferred_parts": ("X20",)},
+    {"row": "R7", "config": "coupled ends, quantum (177)", "tag": "[FREE]; [PLANE] for the pair tensor",
+     "G1": "-", "G2": "-", "G3": "admitted (183; H-PARTNER-IS-THE-COUPLING, the board's)",
+     "G4": "the exact negative partner along each generator, sheet or bulk form (X13); at [PLANE] only the README's "
+           "exact reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite stands against Lemma S's "
+           "zero total (X17): a tension, OPEN; given kappa = 0 the corridor is the extremal, parabolic member (X18)",
+     "verdict": "OPEN: the demand exact, the supply beyond the board's instruments", "sources": ("X13", "X17", "X18"),
+     "deferred_parts": ()},
+    {"row": "R8", "config": "changing corridor (E-NS; 152 (2), 160)", "tag": "[FREE] (Lemma K); [PLANE] (Lemma L)",
+     "G1": "open", "G2": "-", "G3": "-",
+     "G4": "needs expansion (theta != 0, against 162 as read through H-FIXED-SIZE-AS-THETA-ZERO) or a crease or "
+           "separation of the bulk horizon at the sheet (X14); its number, Lemma L's, is X15's, DEFERRED",
+     "verdict": "OPEN, to phase 2b-ii", "sources": ("X13", "X14"), "deferred_parts": ("X15",)},
+    {"row": "R9", "config": "between universes", "tag": "[FREE] (Lemma S)",
+     "G1": "phase 3", "G2": "-", "G3": "-",
+     "G4": "Lemma S is law-independent, so the pair is still demanded (X13); X24 DEFERRED",
+     "verdict": "handed to phase 3", "sources": ("X13",), "deferred_parts": ("X24",)},
+)
+X25_LEFT_OUT = {"R1": "the cap (X22)", "R2-R3 split at d_beta": "the band (X15)", "far gate": "X12"}
+X25_COMBINED = (
+    "Within one universe at our tension no configuration computed here carries the README across the corridor "
+    "object's horizon with a regular past through the write.  Position 2's near-coinciding piece regularises the "
+    "crossing's past near the throat (X9) and does not pay the crossing (X13).  A horizon that keeps its size takes a "
+    "partner at least as large as the README along each generator, exactly as large only if unsheared, and under 183 "
+    "exactly as large (X13).  A net-flux crossing is a five-dimensional event (X14).  The classical Weyl term pays "
+    "nothing; quantum E-Q could supply only the exact partner, which the board cannot compute, and GJW's net-negative "
+    "prerequisite stands against that zero total (OPEN).")
+X25_EXTRA = ()      # C35b's mutation: a row added to X25's table
+X25_PLANT = ""      # C35b's mutation: a sentence planted in X25's combined answer
+
+# C35a: every value the X11-X25 docstring quotes from an owner, as (id, owner, path into the owner's output, kind,
+# expected, the text as the docstring prints it).  kinds: str, true, false, zero, sig (the owner's number rounded to
+# the quoted significant digits equals the quote), num, prefix, contains, md5 (prefix of the owner file's md5).
+_PR, _FX = ("results",), ("X17",)
+_GC = ("X18", "generator_classes", "rows")
+_LP = ("X18", "lemma_p")
+DOC_QUOTES = (
+    ("p_md5", "epass_pairing", (), "md5", "152621fa", "md5 152621fa"),
+    ("p_bulk_deg", "epass_pairing", _PR + ("X13b_bulk", "cases", "degenerate", "R_xixi"), "str", "0",
+     "R(xi,xi)|_{u=0} = 0 on the stationary members"),
+    ("p_bulk_nondeg", "epass_pairing", _PR + ("X13b_bulk", "cases", "nondegenerate", "R_xixi"), "str", "0",
+     "R(xi,xi)|_{u=0} = 0 on the stationary members"),
+    ("p_bulk_nullkept", "epass_pairing", _PR + ("X13b_bulk", "cases", "degenerate", "R_xixi_nonstationary_null_kept"),
+     "str", "0", "on a non-stationary member that keeps u = 0 null"),
+    ("p_shear_deg", "epass_pairing", _PR + ("X13b_premise", "cases", "degenerate", "shear_fixed_volume",
+                                            "R_xixi_witness"), "sig", "-0.014138938637006316", "-0.014138938637006316"),
+    ("p_shear_nondeg", "epass_pairing", _PR + ("X13b_premise", "cases", "nondegenerate", "shear_fixed_volume",
+                                               "R_xixi_witness"), "sig", "-0.014138938637006316",
+     "-0.014138938637006316"),
+    ("p_shear_theta", "epass_pairing", _PR + ("X13b_premise", "cases", "degenerate", "shear_fixed_volume", "theta"),
+     "str", "0", "(theta = 0) R(xi,xi) = -sigma^2 <= 0"),
+    ("p_raych", "epass_pairing", _PR + ("X13b_premise", "cases", "degenerate", "section_growth",
+                                        "raychaudhuri_residual"), "str", "0",
+     "the Raychaudhuri route agrees with the Riemann route on every variant"),
+    ("p_sheet_deg", "epass_pairing", _PR + ("X13a_sheet", "cases", "throat_degenerate", "K_xixi"), "str", "0",
+     "K(xi,xi)|_H = 0 for sheets y = F(u)"),
+    ("p_sheet_nondeg", "epass_pairing", _PR + ("X13a_sheet", "cases", "general_nondegenerate", "K_xixi"), "str", "0",
+     "K(xi,xi)|_H = 0 for sheets y = F(u)"),
+    ("p_sheet_growth", "epass_pairing", _PR + ("X13a_scope", "K_xixi", "throat_nondegenerate_section_growth"), "str",
+     "0", "on a horizon whose section grows"),
+    ("p_tilt_nondeg", "epass_pairing", _PR + ("X13a_scope", "K_xixi", "throat_nondegenerate_tilted_sheet"), "sig",
+     "0.01166", "witness 0.01166 where kappa != 0"),
+    ("p_tilt_deg", "epass_pairing", _PR + ("X13a_scope", "K_xixi", "throat_degenerate_tilted_sheet"), "zero", 0,
+     "and 0 where kappa = 0"),
+    ("p_held_tau", "epass_pairing", _PR + ("X13a_held_stress", "tau_xixi_on_H"), "str", "0",
+     "tau(xi,xi) = pi(xi,xi) = 0 on H"),
+    ("p_held_pi", "epass_pairing", _PR + ("X13a_held_stress", "pi_xixi_on_H"), "str", "0",
+     "tau(xi,xi) = pi(xi,xi) = 0 on H"),
+    ("p_weyl_Et", "epass_pairing", _PR + ("X13c_weyl", "cases", "degenerate", "stationary", "Etilde_xixi"), "str", "0",
+     "E~(xi,xi) = R(xi,n,xi,n) = 0 and E(xi,xi) = 0"),
+    ("p_weyl_E", "epass_pairing", _PR + ("X13c_weyl", "cases", "nondegenerate", "nonstationary_null_kept", "E_xixi"),
+     "str", "0", "E~(xi,xi) = R(xi,n,xi,n) = 0 and E(xi,xi) = 0"),
+    ("p_R4", "epass_pairing", _PR + ("X13c_eq17", "R4_xixi_on_H"), "str", "0", "R4(xi,xi) = 0 at r = 2m"),
+    ("p_readme", "epass_pairing", _PR + ("X13d_pair", "readme_member"), "str", "2", "T^R(xi,xi) = 2 per mu"),
+    ("p_partner", "epass_pairing", _PR + ("X13d_pair", "partner_member"), "str", "-2", "partner -2"),
+    ("p_net", "epass_pairing", _PR + ("X13d_pair", "net"), "str", "0", "net 0 BY CONSTRUCTION"),
+    ("p_lxi", "epass_pairing", _PR + ("X13a_readme_flux", "l_dot_xi"), "str", "-sqrt(2)", "(l.xi = -sqrt2)"),
+    ("p_pi_sms", "epass_pairing", _PR + ("X13d_pair_tensor", "pi_xixi_sms20"), "str", "-b**2*mu**2/2",
+     "pi(xi,xi) = -b^2 mu^2/2 by two routes"),
+    ("p_pi_dust", "epass_pairing", _PR + ("X13d_pair_tensor", "pi_xixi_nulldust"), "str", "-b**2*mu**2/2",
+     "pi(xi,xi) = -b^2 mu^2/2 by two routes"),
+    ("p_b0", "epass_pairing", _PR + ("X13d_pair_tensor", "pair_is_zero_at_b0"), "true", True,
+     "the pair's total stress tensor is then ZERO"),
+    ("p_b", "epass_pairing", _PR + ("X13d_pair_tensor", "pair_is_zero_at_b"), "false", False,
+     "the only admitted null partner is the README's exact reverse"),
+    ("p_status", "epass_pairing", _PR + ("E_PASS_status", "label"), "str", "OPEN", "OPEN through 177/183"),
+    ("p_K_conn", "epass_pairing", _PR + ("X14_tangent", "ydd_connection"), "str", "K_vv", "y'' = K_vv by two routes"),
+    ("p_K_lie", "epass_pairing", _PR + ("X14_tangent", "K_vv_lie"), "str", "K_vv", "y'' = K_vv by two routes"),
+    ("p_K_zero", "epass_pairing", _PR + ("X14_numeric", "cases", "S_vv=0", "stays_on_sheet"), "true", True,
+     "S_vv = 0 stays on the sheet to 1e-12"),
+    ("p_K_plus", "epass_pairing", _PR + ("X14_numeric", "cases", "S_vv=+1", "y_end"), "sig", "-0.5572",
+     "(y_end = -0.5572, leading order -1/2)"),
+    ("p_K_plus_lo", "epass_pairing", _PR + ("X14_numeric", "cases", "S_vv=+1", "leading_order_y_end"), "num", -0.5,
+     "leading order -1/2"),
+    ("p_K_minus", "epass_pairing", _PR + ("X14_numeric", "cases", "S_vv=-1", "y_end"), "sig", "0.4832",
+     "(y_end = 0.4832)"),
+    ("p_K_minus_side", "epass_pairing", _PR + ("X14_numeric", "cases", "S_vv=-1", "stays_kept_side"), "true", True,
+     "S_vv = -1 leaves the sheet into the bulk"),
+    ("f_md5", "epass_frames", (), "md5", "97bbfff9", "md5 97bbfff9"),
+    ("f_flux", "epass_frames", _FX + ("readme_flux_P1", "value"), "str", "1/(2*m)",
+     "kappa_4^2 int T_vv dv = 1/(2m) per generator"),
+    ("f_rh", "epass_frames", _FX + ("readme_flux_P1", "r_h_over_m"), "str", "2",
+     "r_h = 2m with surface gravity kappa = 0"),
+    ("f_kappa", "epass_frames", _FX + ("readme_flux_P1", "kappa_x_m"), "str", "0",
+     "r_h = 2m with surface gravity kappa = 0"),
+    ("f_kappa_ctl", "epass_frames", _FX + ("readme_flux_P1", "kappa_x_m_schwarzschild_control"), "str", "1/4",
+     "(Schwarzschild control 1/4; v affine)"),
+    ("f_partner_P1", "epass_frames", _FX + ("stationary_demand", "sheet_form", "partner_kappa4sq_int_Tvv_P1"), "str",
+     "-1/(2*m)", "so the partner's is -1/(2m)"),
+    ("f_gated", "epass_frames", _FX + ("stationary_demand", "gated_on_owner_zero"), "true", True,
+     "gated on the Lemma S owner's zeros"),
+    ("f_net", "epass_frames", _FX + ("stationary_demand", "pair_net_per_generator"), "str", "0",
+     "The pair's net per generator is the owner's zero"),
+    ("f_E_N", "epass_frames", _FX + ("demand_si", "rows", "N_example", "E_J"), "sig", "2.40588e16",
+     "E = 2.40588e16 J"),
+    ("f_m_N", "epass_frames", _FX + ("demand_si", "rows", "N_example", "m_geometric_m"), "sig", "1.98791e-28",
+     "m = G E/c^4 = 1.98791e-28 m"),
+    ("f_inv_N", "epass_frames", _FX + ("demand_si", "rows", "N_example", "kappa4sq_int_Tvv_per_m"), "sig", "2.51521e27",
+     "1/(2m) = 2.51521e27 m^-1"),
+    ("f_E_155", "epass_frames", _FX + ("demand_si", "rows", "item155", "E_J"), "sig", "3.8e22",
+     "item 155's E = 3.8e22 J"),
+    ("f_m_155", "epass_frames", _FX + ("demand_si", "rows", "item155", "m_geometric_m"), "sig", "3.13983e-22",
+     "m = 3.13983e-22 m"),
+    ("f_inv_155", "epass_frames", _FX + ("demand_si", "rows", "item155", "kappa4sq_int_Tvv_per_m"), "sig", "1.59244e21",
+     "1/(2m) = 1.59244e21 m^-1"),
+    ("f_gexp", "epass_frames", _FX + ("demand_si", "G_exponent_of_E"), "str", "-1/2", "E ~ G^(-1/2)"),
+    ("f_ur_N", "epass_frames", _FX + ("demand_si", "rows", "N_example", "u_r_m"), "sig", "1.12e-5",
+     "u_r(m) = 1.12e-5 at the example README"),
+    ("f_ur_155", "epass_frames", _FX + ("demand_si", "rows", "item155", "u_r_m"), "sig", "2.25e-5",
+     "2.25e-5 at the fixed E"),
+    ("f_gjw2_page", "epass_frames", _FX + ("reads_beside", "reads", "id=GJW-2", "page"), "prefix", "PDF p.2 ",
+     'PDF p.2, "Violation of the averaged null energy condition'),
+    ("f_gjw2", "epass_frames", _FX + ("reads_beside", "reads", "id=GJW-2", "quote"), "contains",
+     "Violation of the averaged null energy condition (ANEC) is a prerequisite for all traversable wormholes",
+     "Violation of the averaged null energy condition (ANEC) is a prerequisite for all traversable wormholes"),
+    ("f_gjw4b_page", "epass_frames", _FX + ("reads_beside", "reads", "id=GJW-4b", "page"), "prefix", "PDF p.4 ",
+     'PDF p.4, "T_UU in the modified state'),
+    ("f_gjw4b", "epass_frames", _FX + ("reads_beside", "reads", "id=GJW-4b", "quote"), "contains",
+     "T_UU in the modified state along U > 0 will exactly cancel that along U < 0",
+     "T_UU in the modified state along U > 0 will exactly cancel that along U < 0"),
+    ("f_msy_page", "epass_frames", _FX + ("reads_beside", "reads", "id=MSY-13", "page"), "prefix", "PDF p.13 ",
+     'PDF p.13, "we cannot send more information'),
+    ("f_msy", "epass_frames", _FX + ("reads_beside", "reads", "id=MSY-13", "quote"), "contains",
+     "we cannot send more information through the wormhole than we transferred in order to set up the OO interaction",
+     "we cannot send more information through the wormhole than we transferred in order to set up the OO interaction"),
+    ("f_J", "epass_frames", _GC + ("J", "class_matrix"), "str", "elliptic", "d_T is elliptic, components (1, 1)"),
+    ("f_J0", "epass_frames", _GC + ("J", "component_at_sigma0"), "str", "1", "d_T is elliptic, components (1, 1)"),
+    ("f_Jpi", "epass_frames", _GC + ("J", "component_at_sigmapi"), "str", "1", "d_T is elliptic, components (1, 1)"),
+    ("f_Jnorm", "epass_frames", _GC + ("J", "xi_dot_xi"), "str", "-1/sin(sigma)**2",
+     "with xi.xi = -1/sin^2 sigma < 0"),
+    ("f_B", "epass_frames", _GC + ("B_origin", "class_matrix"), "str", "hyperbolic",
+     "B_origin hyperbolic, (-cos T, cos T)"),
+    ("f_B0", "epass_frames", _GC + ("B_origin", "component_at_sigma0"), "str", "-cos(T)",
+     "B_origin hyperbolic, (-cos T, cos T)"),
+    ("f_Bpi", "epass_frames", _GC + ("B_origin", "component_at_sigmapi"), "str", "cos(T)",
+     "B_origin hyperbolic, (-cos T, cos T)"),
+    ("f_K", "epass_frames", _GC + ("K", "class_matrix"), "str", "hyperbolic", "K hyperbolic, (sin T, -sin T)"),
+    ("f_K0", "epass_frames", _GC + ("K", "component_at_sigma0"), "str", "sin(T)", "K hyperbolic, (sin T, -sin T)"),
+    ("f_Kpi", "epass_frames", _GC + ("K", "component_at_sigmapi"), "str", "-sin(T)", "K hyperbolic, (sin T, -sin T)"),
+    ("f_JpK", "epass_frames", _GC + ("J+K", "class_matrix"), "str", "parabolic", "J + K and J - K parabolic"),
+    ("f_JmK", "epass_frames", _GC + ("J-K", "class_matrix"), "str", "parabolic", "J + K and J - K parabolic"),
+    ("f_JmB", "epass_frames", _GC + ("J-B_origin", "class_matrix"), "str", "parabolic",
+     "J - B_origin (the Poincare d_t) parabolic, (1 + cos T, 1 - cos T)"),
+    ("f_JmB0", "epass_frames", _GC + ("J-B_origin", "component_at_sigma0"), "str", "cos(T) + 1",
+     "J - B_origin (the Poincare d_t) parabolic, (1 + cos T, 1 - cos T)"),
+    ("f_JmBpi", "epass_frames", _GC + ("J-B_origin", "component_at_sigmapi"), "str", "1 - cos(T)",
+     "J - B_origin (the Poincare d_t) parabolic, (1 + cos T, 1 - cos T)"),
+    ("f_mq21", "epass_frames", ("X18", "induced_metric", "equals_MQ_2_1"), "true", True,
+     "its induced metric equals Maldacena-Qi (2.1), READ PDF p.5"),
+    ("f_poincare", "epass_frames", ("X18", "poincare_map", "is_poincare_radius2"), "true", True,
+     "x = 8/z^2 gives 4(-dt^2 + dz^2)/z^2 with z = 2 sqrt2/u"),
+    ("f_zofu", "epass_frames", ("X18", "poincare_map", "z_of_u"), "str", "['2*sqrt(2)/u']",
+     "x = 8/z^2 gives 4(-dt^2 + dz^2)/z^2 with z = 2 sqrt2/u"),
+    ("f_push", "epass_frames", ("X18", "embedding_generator", "equals_J_minus_B_origin"), "true", True,
+     "the throat's d_v pushes forward to J - B_origin"),
+    ("f_pushY", "epass_frames", ("X18", "embedding_generator", "pushforward", "dv_Y_equals_M_Y"), "true", True,
+     "the throat's d_v pushes forward to J - B_origin"),
+    ("f_throatQ", "epass_frames", ("X18", "throat_generator", "Q"), "str", "0", "the throat's d_v has Q = 0, parabolic"),
+    ("f_throatC", "epass_frames", ("X18", "throat_generator", "class"), "str", "parabolic",
+     "the throat's d_v has Q = 0, parabolic"),
+    ("f_smooth", "epass_frames", ("X18", "ends_map", "smooth_through_u0"), "true", True,
+     "the ingoing chart is smooth through u = 0"),
+    ("f_end1", "epass_frames", ("X18", "ends_map", "end1_boundary"), "str", "sigma=0", "end 1 (u > 0) on sigma=0"),
+    ("f_end2", "epass_frames", ("X18", "ends_map", "end2_boundary"), "str", "sigma=pi", "end 2 (u < 0) on sigma=pi"),
+    ("f_u0", "epass_frames", ("X18", "ends_map", "u0_is_patch1_future_horizon"), "true", True,
+     "u = 0 patch 1's future and patch 2's past horizon"),
+    ("f_famR", "epass_frames", ("X18", "ads2_family", "R"), "str", "-1/2", "R = -1/2 and Q = delta/8"),
+    ("f_famQ", "epass_frames", ("X18", "ads2_family", "Q_general"), "str", "delta/8", "R = -1/2 and Q = delta/8"),
+    ("f_fam_neg", "epass_frames", ("X18", "ads2_family", "classes", "-1/9"), "str", "hyperbolic",
+     "delta < 0 hyperbolic"),
+    ("f_fam_zero", "epass_frames", ("X18", "ads2_family", "classes", "0"), "str", "parabolic", "delta = 0 parabolic"),
+    ("f_fam_pos", "epass_frames", ("X18", "ads2_family", "classes", "1/9"), "str", "elliptic", "delta > 0 elliptic"),
+    ("f_lp1", "epass_frames", _LP + ("i_delta_stress", "rows", "1", "all_equal_minus_s"), "true", True,
+     "reads -s for every observer (1000 exact rational Lorentz transformations; s = 1, -1, 3/7)"),
+    ("f_lp1m", "epass_frames", _LP + ("i_delta_stress", "rows", "-1", "all_equal_minus_s"), "true", True,
+     "reads -s for every observer (1000 exact rational Lorentz transformations; s = 1, -1, 3/7)"),
+    ("f_lp37", "epass_frames", _LP + ("i_delta_stress", "rows", "3/7", "all_equal_minus_s"), "true", True,
+     "reads -s for every observer (1000 exact rational Lorentz transformations; s = 1, -1, 3/7)"),
+    ("f_rho", "epass_frames", _LP + ("ii_weyl_fluid", "fluid", "8pi_rho"), "str", "1/81", "8 pi rho = 1/81"),
+    ("f_nec", "epass_frames", _LP + ("ii_weyl_fluid", "fluid", "8pi_rho_plus_p_r"), "str", "-2/81",
+     "8 pi (rho + p_r) = -2/81"),
+    ("f_vstar", "epass_frames", _LP + ("ii_weyl_fluid", "v_star_is_one_over_sqrt3"), "true", True, "v* = 1/sqrt3"),
+    ("f_rapid", "epass_frames", _LP + ("ii_weyl_fluid", "rapidity_star"), "sig", "0.658479", "rapidity 0.658479"),
+    ("f_limit", "epass_frames", _LP + ("ii_weyl_fluid", "rho_prime_limit_v_to_1"), "str", "-oo",
+     "tends to -oo as v -> 1"),
+    ("f_necctl", "epass_frames", _LP + ("ii_weyl_fluid", "nec_control", "all_rho_prime_ge_rho"), "true", True,
+     "NEC matter gives rho' >= rho (1000 exact rows)"),
+    ("f_eps", "epass_frames", _LP + ("ii_weyl_fluid", "approach_counterpart", "rho_plus_p_over_sigma"), "str",
+     "47/50000000", "bounded by 9.4e-7 sigma_RS"),
+    ("f_g2v2", "epass_frames", _LP + ("ii_weyl_fluid", "approach_counterpart", "gamma2v2_float"), "sig", "1.0638e6",
+     "gamma^2 v^2 = 1/eps = 1.0638e6"),
+    ("f_g2v2_inv", "epass_frames", _LP + ("ii_weyl_fluid", "approach_counterpart", "gamma2v2_is_inv_eps"), "true", True,
+     "gamma^2 v^2 = 1/eps = 1.0638e6"),
+    ("f_flipB", "epass_frames", _LP + ("iii_charge_flip", "rows", "B_origin", "flips_at_all_samples"), "true", True,
+     "the boundary Killing charge flips under B_origin only"),
+    ("f_flipJ", "epass_frames", _LP + ("iii_charge_flip", "rows", "J", "flips_at_some_sample"), "false", False,
+     "it does not flip under J, J + K, J - K or J - B_origin"),
+    ("f_flipJpK", "epass_frames", _LP + ("iii_charge_flip", "rows", "J+K", "flips_at_some_sample"), "false", False,
+     "it does not flip under J, J + K, J - K or J - B_origin"),
+    ("f_flipJmK", "epass_frames", _LP + ("iii_charge_flip", "rows", "J-K", "flips_at_some_sample"), "false", False,
+     "it does not flip under J, J + K, J - K or J - B_origin"),
+    ("f_flipJmB", "epass_frames", _LP + ("iii_charge_flip", "rows", "J-B_origin", "flips_at_some_sample"), "false",
+     False, "it does not flip under J, J + K, J - K or J - B_origin"),
+    ("f_176", "epass_frames", ("X18", "deduced", "board_176_sentence", "verdict"), "prefix", "Not refuted as a whole",
+     "so it is not refuted as a whole"),
+    ("f_176_text", "epass_frames", ("X18", "deduced", "board_176_sentence", "board_sentence"), "contains",
+     "position 2's -1 would be the partner's sign seen from our side",
+     "position 2's -1 would be the partner's sign seen from our side"),
+)
+_OWN = {}
+
+
+def owner_module(name):
+    """lemmas/<name>.py loaded by path (never copied), once per path; FileNotFoundError when the file is absent."""
+    path = OWNER_PATHS[name]
+    if not os.path.exists(path):
+        raise FileNotFoundError(path)
+    if path not in _OWN:
+        _OWN[path] = _load(path, "passage_" + name)
+    return _OWN[path]
+
+
+def _md5(path):
+    with open(path, "rb") as fh:
+        return hashlib.md5(fh.read()).hexdigest()
+
+
+def _owner_ids(mod):
+    return list(mod.CHECKS) if isinstance(mod.CHECKS, dict) else [row[0] for row in mod.CHECKS]
+
+
+def _owner_lines(name, lines, ids):
+    """Each owner check's PASS/FAIL as the owner's own selftest printed it (epass_pairing: 'C15   PASS  what';
+    epass_frames: '[PASS] C26a what -- detail'); a check printed on no line is absent from the result."""
+    got = {}
+    for ln in lines:
+        if name == "epass_pairing":
+            m = re.match(r"^(\S+)\s+(PASS|FAIL)\s\s(.*)$", ln)
+            cid, st, what = (m.group(1), m.group(2), m.group(3)) if m else (None, None, None)
+        else:
+            m = re.match(r"^\[(PASS|FAIL)\] (\S+) (.*)$", ln)
+            cid, st, what = (m.group(2), m.group(1), m.group(3).split(" -- ")[0]) if m else (None, None, None)
+        if cid in ids:
+            got[cid] = {"status": st, "what": what}
+    return got
+
+
+def owner_run(name):
+    """C15-C19's and C26-C31's computation: the owner loaded by path and its own selftest() called (its stdout
+    captured); each owner check's PASS/FAIL as the owner printed it, the owner's verdict and check list, its md5.  An
+    owner that is absent, will not load, or raises counts as failed, never as passed."""
+    path = OWNER_PATHS[name]
+    rec = {"owner": name, "file": os.path.basename(path), "present": os.path.exists(path), "md5": None,
+           "imported": False, "verdict": False, "ids": [], "checks": {}, "summary": "", "error": None,
+           "sections": list(OWNER_SECTIONS[name])}
+    t0 = time.time()
+    if not rec["present"]:
+        rec["error"] = "owner file absent: " + path
+    else:
+        rec["md5"] = _md5(path)
+        try:
+            mod = owner_module(name)
+            rec["imported"] = True
+            buf = io.StringIO()
+            with contextlib.redirect_stdout(buf):
+                good = mod.selftest()
+            lines = buf.getvalue().splitlines()
+            rec["verdict"] = bool(good)
+            rec["ids"] = _owner_ids(mod)
+            rec["checks"] = _owner_lines(name, lines, rec["ids"])
+            rec["summary"] = next((ln for ln in reversed(lines) if ln.startswith("selftest")), "")
+            rec["selftest_text"] = "\n".join(lines)
+        except Exception as ex:
+            rec["error"] = f"{type(ex).__name__}: {ex}"[:400]
+    rec["seconds"] = time.time() - t0
+    return rec
+
+
+def owner_output(name):
+    """The owner's own compute() output as its selftest left it cached (epass_pairing._out(), epass_frames._output()),
+    made plain JSON with the owner's own serializer; None when the owner is absent or will not run."""
+    try:
+        mod = owner_module(name)
+        if name == "epass_pairing":
+            return json.loads(json.dumps(mod._out(), default=str))
+        return json.loads(json.dumps(mod._output(), default=mod._json_default))
+    except Exception:
+        return None
+
+
+def _get(obj, path):
+    """obj[path[0]][path[1]]...; an 'id=X' step picks, in a list, the dict whose 'id' is X; None when absent."""
+    for step in path:
+        if isinstance(obj, list) and isinstance(step, str) and step.startswith("id="):
+            obj = next((r for r in obj if isinstance(r, dict) and r.get("id") == step[3:]), None)
+        elif isinstance(obj, dict):
+            obj = obj.get(step)
+        else:
+            return None
+    return obj
+
+
+def _norm(s):
+    return re.sub(r"\s+", " ", str(s)).strip()
+
+
+def _sig_equal(value, quoted):
+    """The owner's number rounded to the quote's significant digits equals the quote."""
+    mant = quoted.lower().split("e")[0].lstrip("-")
+    digits = len(mant.replace(".", "").lstrip("0"))
+    return float(f"{float(value):.{digits - 1}e}") == float(quoted)
+
+
+def quote_agrees(kind, value, expected, md5=None):
+    """C35a's comparison of an owner's live value with what the docstring quotes (kinds as DOC_QUOTES says)."""
+    try:
+        if kind == "md5":
+            return bool(md5) and md5.startswith(expected)
+        if value is None:
+            return False
+        return {"str": lambda: str(value) == expected, "true": lambda: value in (True, "True"),
+                "false": lambda: value in (False, "False"), "zero": lambda: float(value) == 0.0,
+                "sig": lambda: _sig_equal(value, expected),
+                "num": lambda: abs(float(value) - expected) <= 1e-12 * max(1.0, abs(expected)),
+                "prefix": lambda: str(value).startswith(expected),
+                "contains": lambda: _norm(expected) in _norm(value)}[kind]()
+    except (TypeError, ValueError, KeyError):
+        return False
+
+
+def _row_from_owner(name, path, sec, outp):
+    """An owner's row carried whole into X13-X18: the owner's own label and tag (the spec's section tag where the
+    owner's row has none, said so)."""
+    r = _get(outp, path) if outp is not None else None
+    if not isinstance(r, dict):
+        return {"section": sec, "owner": name, "owner_row": "/".join(path), "label": "OPEN (owner output absent)",
+                "tag": SPEC_TAG[sec] + " (the spec's section tag)", "content": None}
+    tag = r.get("tag") or (SPEC_TAG[sec] + " (the spec's section tag; the owner's row carries none)")
+    return {"section": sec, "owner": name, "owner_row": "/".join(path), "label": r.get("label", "OPEN (unlabelled)"),
+            "tag": tag, "content": r}
+
+
+def x11_x25():
+    """The X11-X25 block as data: X13 and X14 from epass_pairing's output, X17's stationary half and X18 from
+    epass_frames' output (each owner row carried whole with the owner's label and tag; nothing re-derived here); the
+    ten [PLANE] sections DEFERRED with the reason; X25's table restricted to computed sources; and C35a's comparison of
+    every value the docstring quotes with the owners' live output."""
+    outs = {n: owner_output(n) for n in OWNER_PATHS}
+    md5 = {n: (_md5(p) if os.path.exists(p) else None) for n, p in OWNER_PATHS.items()}
+    rows = {}
+    for name, path, sec in PAIRING_ROWS + FRAMES_ROWS:
+        rows[sec + ":" + "/".join(path)] = _row_from_owner(name, path, sec, outs[name])
+    for sec, what in DEFERRED.items():
+        rows[sec] = {"section": sec, "status": "DEFERRED (not built)", "label": "OPEN (deferred: not built)",
+                     "tag": "[PLANE]", "content": what, "why": DEFER_WHY}
+    doc = _norm(__doc__)
+    quotes = []
+    for qid, name, path, kind, expected, text in DOC_QUOTES:
+        value = None if kind == "md5" else _get(outs[name], path)
+        quotes.append({"id": qid, "owner": name, "docstring_text": text, "in_docstring": _norm(text) in doc,
+                       "expected": expected, "owner_value": md5[name] if kind == "md5" else value,
+                       "agrees": quote_agrees(kind, value, expected, md5[name])})
+    table = [dict(r, label="deduced (from the computed sections the row names)") for r in X25_ROWS + tuple(X25_EXTRA)]
+    return {"rows": rows, "built": list(SPEC_FREE) + ["X25"], "deferred": sorted(DEFERRED),
+            "x25": {"label": "deduced (from X1-X10, X13, X14, X17's stationary half, X18 and sim2_facing S15)",
+                    "tag": "[mixed]", "gates": X25_GATES, "rows": table, "left_out": X25_LEFT_OUT,
+                    "combined": X25_COMBINED + ((" " + X25_PLANT) if X25_PLANT else "")},
+            "quotes": quotes, "owner_md5": md5}
+
+
+def _label_tokens(lab):
+    """A label's tokens: parentheses and [tags] removed (nested ones too), split at ';' and ','."""
+    s, depth, kept = str(lab), 0, ""
+    for ch in s:
+        if ch in "([":
+            depth += 1
+        elif ch in ")]":
+            depth = max(0, depth - 1)
+        elif depth == 0:
+            kept += ch
+    return [t.strip() for t in re.split(r"[;,]", kept) if t.strip()]
+
+
+def _labels_in(o, acc, path=""):
+    """Every 'label' value anywhere in o, with its path."""
+    if isinstance(o, dict):
+        if "label" in o:
+            acc.append((path, o["label"]))
+        for k, v in o.items():
+            _labels_in(v, acc, path + "/" + str(k))
+    elif isinstance(o, list):
+        for i, v in enumerate(o):
+            _labels_in(v, acc, path + f"[{i}]")
+    return acc
+
+
+def _strings_in(o, acc):
+    if isinstance(o, dict):
+        for v in o.values():
+            _strings_in(v, acc)
+    elif isinstance(o, list):
+        for v in o:
+            _strings_in(v, acc)
+    elif isinstance(o, str):
+        acc.append(o)
+    return acc
+
+
+_NEG = r"(?:\bnot\b|\bnever\b|\bneither\b|\bnon-|\bno\b)"
+
+
+def calls_zero_positive(text):
+    """Pitfall 13: a clause that calls a pair total, a net or a sum 'positive' (not negated in that clause)."""
+    hits = []
+    for clause in re.split(r"[.;:()\[\]]", text):
+        for m in re.finditer(r"\bpositive\b", clause, re.I):
+            before, after = clause[:m.start()], clause[m.end():]
+            if re.search(_NEG + r"[^,]{0,30}$", before, re.I):
+                continue
+            if (re.search(r"\b(?:pair|pairs|net|total|totals|sum|sums|summed)\b[^,]{0,40}$", before, re.I)
+                    or re.match(r"^[^,]{0,12}\b(?:total|net|sum)\b", after, re.I)):
+                hits.append(clause.strip())
+    return hits
+
+
+def calls_epass_refuted(text):
+    """A clause that calls E-PASS refuted or passed, unless it negates that or speaks of the no-second-sheet route."""
+    hits = []
+    for clause in re.split(r"[.;:]", text):
+        if re.search(r"\bE-PASS\b", clause) and re.search(r"\b(?:refuted|passed|passes)\b", clause, re.I):
+            if re.search(r"\b(?:not|never)\b", clause, re.I) or "second sheet" in clause.lower():
+                continue
+            hits.append(clause.strip())
+    return hits
+
+
 # ------------------------------------------------------------------------------------------------------- compute
 SECTIONS = ("chart", "horizon", "one_way", "kasner", "eta", "jminus", "budgets", "slab", "coincide", "frame", "eq",
-            "data", "inject")
+            "data", "inject", "own_pairing", "own_frames", "x11")
 
 
 def compute(only=None):
@@ -1028,6 +1780,12 @@ def compute(only=None):
         out.setdefault("eq", {})["data"] = data_fixes_bulk()
     if want("inject") and INJECT_KEY:
         out[INJECT_KEY] = 0
+    if want("own_pairing"):                  # X13, X14: the owner's own selftest, by path (C15-C19)
+        out["owner_pairing"] = owner_run("epass_pairing")
+    if want("own_frames"):                   # X17 (stationary half), X18: the owner's own selftest, by path (C26-C31)
+        out["owner_frames"] = owner_run("epass_frames")
+    if want("x11"):                          # the X11-X25 block, from the owners' cached outputs (C35a, C35b)
+        out["x11_x25"] = x11_x25()
     out["seconds"] = time.time() - t0
     return out
 
@@ -1188,13 +1946,78 @@ def report(out):
       f"{d['cons_max']:.1e}")
     P("X10 (c)/(e): the coincident pair's net surface stress is zero (sim2_facing S15, computed there, not here) -- "
       "a total of zero, not positive")
+    report_x11(out)
     P(f"(computed in {out['seconds']:.1f} s)")
+
+
+def report_x11(out):
+    """The X11-X25 block: the owners' selftests, their rows' key values (the owners' outputs, never re-derived), the
+    deferred [PLANE] sections and X25, restricted."""
+    P = print
+    xb = out["x11_x25"]
+    P("X11-X25 (the integration; [FREE] sections from two owners imported by path; [PLANE] sections DEFERRED):")
+    for key in ("owner_pairing", "owner_frames"):
+        r = out[key]
+        st = ", ".join(f"{c} {v['status']}" for c, v in r["checks"].items())
+        P(f"  owner {r['file']} ({', '.join(r['sections'])}; md5 {r['md5'] or '-'}): {r['summary'] or r['error']} "
+          f"[{st}]")
+    g = lambda *path: _get(xb["rows"], path)
+    pr = lambda k: (g("X13:results/" + k, "content") or g("X14:results/" + k, "content") or {})
+    b, pm, sh = pr("X13b_bulk"), pr("X13b_premise"), pr("X13a_sheet")
+    if b:
+        P(f"  X13 Lemma S [FREE], bulk form: R(xi,xi)|_H = {b['cases']['degenerate']['R_xixi']} (degenerate), "
+          f"{b['cases']['nondegenerate']['R_xixi']} (non-degenerate), {b['cases']['degenerate']['R_xixi_nonstationary_null_kept']}"
+          f" (non-stationary, u = 0 kept null); shear at fixed volume: theta = "
+          f"{pm['cases']['degenerate']['shear_fixed_volume']['theta']}, R(xi,xi) = "
+          f"{pm['cases']['degenerate']['shear_fixed_volume']['R_xixi_witness']} = -sigma^2 [{pm['label']}]")
+        P(f"      sheet form: K(xi,xi)|_H = {sh['cases']['throat_degenerate']['K_xixi']}, "
+          f"{sh['cases']['throat_nondegenerate']['K_xixi']} (throat, degenerate / non-degenerate); tilted sheet "
+          f"{pr('X13a_scope')['K_xixi']['throat_nondegenerate_tilted_sheet']:.4g} where kappa != 0 [{sh['label']}]")
+        w, pt, pa = pr("X13c_weyl"), pr("X13d_pair_tensor"), pr("X13d_pair")
+        P(f"      Weyl term: E(xi,xi) = {w['cases']['degenerate']['stationary']['E_xixi']} [FREE]; pair [PLANE]: README "
+          f"{pa['readme_member']}, partner {pa['partner_member']}, net {pa['net']} ({pa['net_status']}; by "
+          f"construction); tilted partner pi(xi,xi) = {pt['pi_xixi_sms20']}, zero total stress only at b = 0: "
+          f"{pt['pair_is_zero_at_b0']}")
+        kn = pr("X14_numeric")["cases"]
+        P(f"  X14 Lemma K [FREE for sheets]: y'' = {pr('X14_tangent')['ydd_connection']}; S_vv = 0 stays "
+          f"({kn['S_vv=0']['stays_on_sheet']}); +1 -> y_end {kn['S_vv=+1']['y_end']:.4f}; -1 -> y_end "
+          f"{kn['S_vv=-1']['y_end']:.4f} (into the bulk)")
+    fr = lambda *k: g(*k, "content") or {}
+    fl, sd, si = fr("X17:X17/readme_flux_P1"), fr("X17:X17/stationary_demand"), fr("X17:X17/demand_si")
+    if fl:
+        P(f"  X17 stationary half: kappa_4^2 int T_vv dv = {fl['value']} per generator (r_h = {fl['r_h_over_m']}m, "
+          f"kappa m = {fl['kappa_x_m']}, control {fl['kappa_x_m_schwarzschild_control']}) [{fl['tag'][:48]}...]; "
+          f"pair net per generator {sd['pair_net_per_generator']} ({sd['pair_net_reading'][:60]}...)")
+        for k, r in si["rows"].items():
+            P(f"      {k}: E = {r['E_J']:.6g} J, m = {r['m_geometric_m']:.6g} m, 1/(2m) = "
+              f"{r['kappa4sq_int_Tvv_per_m']:.6g} m^-1, u_r(m) = {r['u_r_m']:.3g}")
+    gc = fr("X18:X18/generator_classes")
+    if gc:
+        P("  X18 [FREE] classes: " + "; ".join(f"{n} {v['class_matrix']} ({v['component_at_sigma0']}, "
+                                              f"{v['component_at_sigmapi']})" for n, v in gc["rows"].items()))
+        tg, em, fa = fr("X18:X18/throat_generator"), fr("X18:X18/ends_map"), fr("X18:X18/ads2_family")
+        P(f"      throat d_v: Q = {tg['Q']}, {tg['class']} [{tg['tag'][:24]}...]; ends: end 1 {em['end1_boundary']}, "
+          f"end 2 {em['end2_boundary']}, u = 0 patch 1's future horizon {em['u0_is_patch1_future_horizon']}; AdS2 "
+          f"family Q = {fa['Q_general']}: {fa['classes']}")
+        w2 = fr("X18:X18/lemma_p/ii_weyl_fluid")
+        P(f"      Lemma P (ii) [PLANE]-conditional: 8 pi rho = {w2['fluid']['8pi_rho']}, 8 pi (rho + p_r) = "
+          f"{w2['fluid']['8pi_rho_plus_p_r']}, v* = {w2['v_star']} (rapidity {w2['rapidity_star']:.6f}); approach "
+          f"gamma^2 v^2 = {w2['approach_counterpart']['gamma2v2_float']:.5g}; 176 sentence: "
+          f"{fr('X18:X18/deduced/board_176_sentence')['verdict']}")
+    P("  DEFERRED [PLANE], not built: " + ", ".join(xb["deferred"]) + " -- " + DEFER_WHY[:150] + " ...")
+    for r in xb["x25"]["rows"]:
+        P(f"  X25 {r['row']} {r['config']} {r['tag']}: {r['verdict']}")
+    P(f"  X25 left out (deferred): {xb['x25']['left_out']}")
+    qs = xb["quotes"]
+    P(f"  C35a: {sum(q['in_docstring'] and q['agrees'] for q in qs)}/{len(qs)} docstring values equal the owners' "
+      "live output")
 
 
 # ------------------------------------------------------------------------------------------------------ checks
 def checks(out):
-    """C1-C14 (C11 in two parts) as (id, label, ok, note); each reads only the output, and each has a mutation in
-    MUTANTS under which it must fail."""
+    """C1-C14 (C11 in two parts), then C15-C19 and C26-C31 (the owners' own selftests, run by path) and C35a-C35b (the
+    X11-X25 block), as (id, label, ok, note); each reads only the output, and each has a mutation in MUTANTS under
+    which it must fail."""
     res = []
 
     def ok(cid, name, cond, note=""):
@@ -1292,6 +2115,49 @@ def checks(out):
     bad = address_guard(out)
     ok("C14", "address guard: no key names a length, distance, time, speed, clock or arrival; no banned argument",
        not bad, str(bad))
+    for cid, key, name in (("C15-C19", "owner_pairing", "epass_pairing"), ("C26-C31", "owner_frames", "epass_frames")):
+        r = out[key]
+        st = r["checks"]
+        good = (r["present"] and r["imported"] and r["verdict"] and not r["error"]
+                and set(OWNER_CHECK_IDS[name]) <= set(r["ids"]) and set(st) == set(r["ids"])
+                and all(v["status"] == "PASS" for v in st.values()))
+        note = (f"{r['summary']}; md5 {r['md5'][:8]}" if r["md5"] else "") + (f"; {r['error']}" if r["error"] else "")
+        ok(cid, f"owner {name}.py ({', '.join(OWNER_SECTIONS[name])}), by path: its own selftest passes and every one "
+           f"of its checks ({len(OWNER_CHECK_IDS[name])} as verified, or more) prints PASS; fails if the owner fails, "
+           "is missing or drops a check", good, note)
+    xb = out["x11_x25"]
+    qs = xb["quotes"]
+    bad_q = [q["id"] for q in qs if not (q["in_docstring"] and q["agrees"])]
+    per_owner = {n: sum(1 for q in qs if q["owner"] == n) for n in OWNER_PATHS}
+    ok("C35a", "every value the X11-X25 docstring quotes from an owner is printed there and equals the owner's live "
+       "output (md5 prefixes included)",
+       not bad_q and all(v >= 20 for v in per_owner.values())
+       and all(any(q["id"] == f"{p}_md5" for q in qs) for p in ("p", "f")),
+       f"{len(qs) - len(bad_q)}/{len(qs)} agree" + (f"; disagree: {bad_q}" if bad_q else ""))
+    rows = xb["rows"]
+    lab_bad = [(p, lab) for p, lab in _labels_in(xb, [])
+               if not _label_tokens(lab) or any(t not in LABELS for t in _label_tokens(lab))]
+    tag_bad = [k for k, r in rows.items() if not any(s in str(r.get("tag", "")) for s in ("[FREE", "[PLANE"))]
+    read_bad = [k for k, r in rows.items() if "READ" in _label_tokens(r["label"]) and "PDF p" not in str(r)]
+    dset = set(xb["deferred"])
+    built = set(xb["built"])
+    defer_ok = (dset == set(SPEC_PLANE) and built == set(SPEC_FREE) | {"X25"} and not dset & built
+                and dset | built == {f"X{i}" for i in range(11, 26)}
+                and all(rows[s]["status"] == "DEFERRED (not built)" and rows[s]["tag"] == "[PLANE]"
+                        and rows[s]["content"] and "179" in rows[s]["why"] for s in dset)
+                and {r["section"] for r in rows.values() if r["section"] not in dset} == set(SPEC_FREE))
+    t_bad = [r["row"] for r in xb["x25"]["rows"]
+             if not set(r["sources"]) <= set(X25_COMPUTED) or set(r["sources"]) & set(SPEC_PLANE)
+             or not set(r["deferred_parts"]) <= set(SPEC_PLANE)]
+    texts = _strings_in(xb, [])
+    pos_bad = [h for t_ in texts for h in calls_zero_positive(t_)]
+    ref_bad = [h for t_ in texts for h in calls_epass_refuted(t_)]
+    ok("C35b", "the X11-X25 rows: every label made of the six, every row tagged [FREE...] or [PLANE...], READ rows "
+       "paged; the ten [PLANE] sections exactly DEFERRED with the reason and the [FREE] four built; X25's rows draw "
+       "only on computed sections; no zero total called positive; E-PASS never called refuted or passed",
+       not (lab_bad or tag_bad or read_bad or t_bad or pos_bad or ref_bad) and defer_ok,
+       f"labels {lab_bad[:2]}; tags {tag_bad[:2]}; READ {read_bad[:2]}; deferred/built {'ok' if defer_ok else 'WRONG'}; "
+       f"X25 {t_bad}; positive {pos_bad[:2]}; refuted {ref_bad[:2]}")
     return res
 
 
@@ -1360,7 +2226,79 @@ MUTANTS = [
      lambda: _patched(_ME, "DATA_CONSTRAINED", False), ("data",)),
     ("C14", "a key 'arrival_hold' added to the output", lambda: _patched(_ME, "INJECT_KEY", "arrival_hold"),
      ("inject",)),
+    ("C15-C19", "the owner epass_pairing.py missing (its path pointed at an absent file)",
+     lambda: _patched(_ME, "OWNER_PATHS", {**OWNER_PATHS, "epass_pairing": os.path.join(HERE, "absent_epass_pairing.py")}),
+     ("own_pairing",)),
+    ("C15-C19", "the owner's own ZERO_TOL 1e-12 -> -1 (its checks then fail, and its selftest returns False)",
+     lambda: _owner_patched("epass_pairing", "ZERO_TOL", -1.0), ("own_pairing",)),
+    ("C26-C31", "the owner epass_frames.py missing (its path pointed at an absent file)",
+     lambda: _patched(_ME, "OWNER_PATHS", {**OWNER_PATHS, "epass_frames": os.path.join(HERE, "absent_epass_frames.py")}),
+     ("own_frames",)),
+    ("C26-C31", "the owner's own SI_TOL 1e-5 -> 0 (its C26b then fails)",
+     lambda: _owner_patched("epass_frames", "SI_TOL", 0.0), ("own_frames",)),
+    ("C35a", "the frames owner's item-155 energy 3.8e22 -> 3.9e22 J, its cached output cleared (two quoted values are "
+     "then no longer the owner's)", lambda: _owner_patched("epass_frames", "E_ITEM155", 3.9e22, clear=True), ("x11",)),
+    ("C35b", "X15 dropped from the deferred list (a [PLANE] section counted as built)",
+     lambda: _patched(_ME, "DEFERRED", {k: v for k, v in DEFERRED.items() if k != "X15"}), ("x11",)),
+    ("C35b", "a row drawing on the cap (X22, deferred) added to X25's table",
+     lambda: _patched(_ME, "X25_EXTRA", ({"row": "R1", "config": "the cap", "tag": "[PLANE]", "G1": "near the throat",
+                                         "G2": "at the throat", "G3": "fails at O(x)", "G4": "nothing crosses",
+                                         "verdict": "held configuration, not a passage", "sources": ("X22",),
+                                         "deferred_parts": ()},)), ("x11",)),
+    ("C35b", "'E-PASS is refuted within one universe' planted in X25's combined answer",
+     lambda: _patched(_ME, "X25_PLANT", "E-PASS is refuted within one universe."), ("x11",)),
 ]
+
+
+@contextlib.contextmanager
+def _owner_patched(name, attr, value, clear=False):
+    """A mutation of an owner's own input (the owner loaded by path): set, and restore after; clear=True empties the
+    owner's cached output before and after, so its compute() runs under the mutation."""
+    mod = owner_module(name)
+    caches = [c for c in (getattr(mod, "_OUT", None), getattr(mod, "_OUT_CACHE", None)) if isinstance(c, dict)]
+    old = getattr(mod, attr)
+    setattr(mod, attr, value)
+    if clear:
+        for c in caches:
+            c.clear()
+    try:
+        yield
+    finally:
+        setattr(mod, attr, old)
+        if clear:
+            for c in caches:
+                c.clear()
+
+
+def owner_mutants_start():
+    """Each owner's own --mutants, as a subprocess (python, by path), started so it runs beside this file's own."""
+    procs = {}
+    for name, path in OWNER_PATHS.items():
+        fh = tempfile.TemporaryFile(mode="w+")
+        procs[name] = (subprocess.Popen([sys.executable, path, "--mutants"], stdout=fh, stderr=subprocess.STDOUT,
+                                        cwd=HERE), fh)
+    return procs
+
+
+def owner_mutants_collect(procs):
+    """Each owner's --mutants count, read from its own final line (epass_pairing: 'mutants: N run, K caught, P passed';
+    epass_frames: 'mutants: K/N mutations make their check fail'), and its exit code."""
+    res = {}
+    for name, (proc, fh) in procs.items():
+        rc = proc.wait()
+        fh.seek(0)
+        txt = fh.read()
+        fh.close()
+        if name == "epass_pairing":
+            m = re.search(r"mutants: (\d+) run, (\d+) caught, (\d+) passed", txt)
+            n_run, n_caught = (int(m.group(1)), int(m.group(2))) if m else (None, None)
+        else:
+            m = re.search(r"mutants: (\d+)/(\d+) mutations make their check fail", txt)
+            n_caught, n_run = (int(m.group(1)), int(m.group(2))) if m else (None, None)
+        res[name] = {"exit": rc, "run": n_run, "caught": n_caught,
+                     "line": m.group(0) if m else (txt.strip().splitlines() or ["(no output)"])[-1],
+                     "ok": rc == 0 and n_run is not None and n_run > 0 and n_caught == n_run}
+    return res
 
 
 def _clear():
@@ -1371,7 +2309,10 @@ def _clear():
 def mutants():
     """For every check, its named mutation(s) of the instrument's own input: recompute the sections the check reads
     under the mutation and require the check to FAIL.  A mutation under which the computation raises is reported as
-    ERROR and is not counted as killed.  Returns True when the unmutated checks pass and every mutation is killed."""
+    ERROR and is not counted as killed.  Then each owner's own --mutants (a subprocess, started first so it runs
+    beside these) is collected and its count reported.  Returns True when the unmutated checks pass, every mutation is
+    killed and both owners' --mutants catch every one of theirs."""
+    procs = owner_mutants_start()
     base = compute()
     base_ok = {cid: good for cid, _, good, _ in checks(base)}
     print("unmutated: " + ", ".join(f"{cid} {'PASS' if g else 'FAIL'}" for cid, g in base_ok.items()))
@@ -1401,7 +2342,14 @@ def mutants():
     n_k = sum(1 for _ in MUTANTS)
     print(f"mutants: {'all ' + str(n_k) + ' killed' if killed_all else 'NOT all killed'}; every check has a mutation: "
           f"{not missing}")
-    return killed_all
+    own = owner_mutants_collect(procs)
+    for name, r in own.items():
+        print(f"  owner {name}.py --mutants (its own, run by path as a subprocess): {r['caught']}/{r['run']} caught, "
+              f"exit {r['exit']} -- '{r['line']}'")
+    owners_ok = all(r["ok"] for r in own.values())
+    print(f"owners' --mutants: {'all caught' if owners_ok else 'NOT all caught'} "
+          f"({sum(r['caught'] or 0 for r in own.values())}/{sum(r['run'] or 0 for r in own.values())})")
+    return killed_all and owners_ok
 
 
 if __name__ == "__main__":
