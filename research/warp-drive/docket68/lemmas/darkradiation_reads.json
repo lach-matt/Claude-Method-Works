@@ -1,0 +1,77 @@
+{
+ "_note": "READs for item 184's lead (dark radiation = the bulk black hole's mass on a brane carrying matter). Verbatim, PDF page. Read 2026-10-09 through alphaXiv. Not seated.",
+ "reads": [
+  {
+   "source": "Binetruy, Deffayet, Ellwanger, Langlois, hep-th/9910219v2",
+   "page": "6",
+   "eq": "(21)",
+   "quote": "˙a0²/a0² = κ²ρ_B/6 + κ⁴ρ_b²/36 + C/a0⁴ − k/a0²  ...  the cosmological evolution depends on a free parameter C (related to the choice of initial conditions in the whole space-time), whose influence corresponds to an effective radiation term",
+   "status": "READ"
+  },
+  {
+   "source": "Binetruy, Deffayet, Ellwanger, Langlois, hep-th/9910219v2",
+   "page": "9",
+   "eq": "(42)-(43)",
+   "quote": "If we follow Randall and Sundrum by choosing ρ_Λ such that κ²ρ_B/6 + κ⁴ρ_Λ²/36 = 0, ... standard cosmology is recovered with the identification 8πG ≃ κ⁴ρ_Λ/6, when ρ ≪ ρ_Λ",
+   "status": "READ"
+  },
+  {
+   "source": "Binetruy, Deffayet, Ellwanger, Langlois, hep-th/9910219v2",
+   "page": "10",
+   "eq": "(49)",
+   "quote": "the free parameter C can be constrained by nucleosynthesis ... since the additional C-term evolves like radiation, it can also be seen effectively as additional relativistic degrees of freedom ... ρ_C(t_N) ≡ 3C/(8πG a⁴(t_N)) ≤ (π²/15) T_N⁴",
+   "status": "READ"
+  },
+  {
+   "source": "Mukohyama, Shiromizu, Maeda, hep-th/9912287v2",
+   "page": "1",
+   "quote": "the 3-brane is described as a 'domain wall' moving in 5-dimensional black-hole geometries",
+   "status": "READ"
+  },
+  {
+   "source": "Mukohyama, Shiromizu, Maeda, hep-th/9912287v2",
+   "page": "2",
+   "eq": "(1)-(3)",
+   "quote": "f(r) = K + r²/l² − μ/r² ... Israel's junction condition gives the Friedmann equation on the brane: (ȧ/a)² = 8πG_N ρ/3 − K/a² + Λ4/3 + κ5⁴ρ²/36 + μ/a⁴ ... G_N = κ5⁴λ/48π, Λ4 = κ5⁴λ²/12 − 3l⁻² ... The fifth term comes from the 'electric' part of the 5-dimensional Weyl tensor",
+   "status": "READ"
+  },
+  {
+   "source": "Mukohyama, Shiromizu, Maeda, hep-th/9912287v2",
+   "page": "4",
+   "eq": "(27)",
+   "quote": "the metric (1) has an event horizon at r = r_h, where r_h is given by r_h² = (l²/2)(√(K² + 4l⁻²μ) − K)",
+   "status": "READ"
+  },
+  {
+   "source": "Mukohyama, Shiromizu, Maeda, hep-th/9912287v2",
+   "page": "6",
+   "quote": "For the Sch-AdS spacetime, E_00 ∼ −μ/a⁴",
+   "status": "READ"
+  },
+  {
+   "source": "Ichiki, Yahiro, Kajino, Orito, Mathews, astro-ph/0203272v2",
+   "page": "1",
+   "quote": "It scales just like radiation with a constant μ. Hence, it is called the dark radiation. This term derives from the electric (Coulomb) part of the five-dimensional Weyl tensor",
+   "status": "READ"
+  },
+  {
+   "source": "Ichiki et al., astro-ph/0203272v2",
+   "page": "2",
+   "quote": "Both positive and negative μ are possible mathematically. Its magnitude and sign can depend on the choice of initial conditions when solving the five-dimensional Einstein equation. Hence, even the sign of μ remains an open question",
+   "status": "READ"
+  },
+  {
+   "source": "Ichiki et al., astro-ph/0203272v2",
+   "page": "1 (abstract)",
+   "quote": "BBN limits the possible contribution from dark radiation just before the e+e− annihilation epoch to lie between −123% and +11% of the background photon energy density. Combining this with the CMB constraint reduces this range to between −41% and +10.5% at the 2σ confidence level",
+   "status": "READ"
+  },
+  {
+   "source": "Ichiki et al., astro-ph/0203272v2",
+   "page": "4-5",
+   "eq": "(7)",
+   "quote": "if one wishes to avoid a naked singularity in the bulk dimension, then there is a relation between the curvature K and the dark radiation μ when the sign of μ is negative, μ ≥ −K²l²/4 for μ < 0",
+   "status": "READ"
+  }
+ ]
+}
