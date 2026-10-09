@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """sim2_facing.py -- B4d simulation, phase 2, first instrument (M-RULINGS item 168): can two pieces of our one plane
-face each other across a static bulk?  Computed, READ and deduced; not verified; not seated.  First headed "... not
-verified; not seated".
+face each other across a static bulk?  Computed, READ and deduced; verified once (three verifiers and an adjudication,
+2026-10-09: S7's first down-the-throat argument was refuted and is corrected; see SIM2-FACING.md, History); not
+seated.  First headed "... not verified; not seated".
 
 M's words (verbatim in the rulings file; quoted in SIM2-FACING.md, never paraphrased as M's): item 168 "My sense:
 positions, one universe"; 152 (1) "two separate positions connected by/reached through a dimension." and (2) "It could
@@ -9,62 +10,102 @@ very well be possible, so let's consider this an option and check it."; 126; 127
 and (b); 117 and 120 (the NEC "appears broken, but is not"); 123 "forget the coin metaphor."; 118 "Yes: law and
 history"; 119; 129 (1); 130 (1) "no added matter"; 136 (2) "released at position two at the closing of the horizon" and
 (3) "It is a bridge, not a physical place."; 138; 139 (1), (2), (4); 140; 141 "I suggest the planes are static"; 143 A;
-155 (2) "Yes, in bits"; 157; 158 (4); 161; 162; 166 "Both planes at once"; 101 (7).  Items 169-171 (2026-10-09) bear on
-why this phase is static at one moment: 169 (no travel through time alone), 170 (the world on position 2's clock, the
-object keeping position 1's), 171 (space-only teleportation is this phase).  The theorem's clause (B): "A vacuum
-five-dimensional bulk carries the corridor. The plane is free of matter, at the Randall-Sundrum tension."
+155 (2) "Yes, in bits"; 157; 158 (2), (3), (4); 161; 162; 166 "Both planes at once"; 101 (7).  Items 169-171
+(2026-10-09) bear on why this phase compares the pieces on one static slice: 169 (M's thought, offered for discussion:
+no travel through time alone), 170 (carried as H-CLOCK-ABSORBED and H-OBJECT-KEEPS-P1-TIME), 171 (M's question; the
+board's answer offered for discussion: space-only teleportation within one universe is this phase).  The static bulk
+is the board's choice (158 (3) left it to the math; 141 fixes the planes).  The theorem's clause (G): eq. (17) on the
+plane; clause (B): "A vacuum five-dimensional bulk carries the corridor. The plane is free of matter, at the
+Randall-Sundrum tension."
 
 THE SETUP.  Units m = 1, e = m/ell, nu = 2/kappa_5^2 (one-sided Israel factor).  Static SO(3) bulk, vacuum, Lambda_5 =
--6/ell^2: ds^2 = dy^2 - A dt^2 + B dr^2 + C dOmega^2, grown from eq. (17) on position 1's piece P1 (y = 0, clause (B),
-157) by b4_static.series (exact, rational).  kappa_X = (1/2) d_y ln X; a = (kappa_t + kappa_r + 2 kappa_th)/4,
-a~ = a + 1/ell; the wall coefficients w_r = kappa_r - kappa_t, w_th = kappa_th - kappa_t (the warp cancels from both and
-from a~).  Position 2's piece P2 is a second piece of the same mirrored plane, one-sided toward the slab
+-6/ell^2: ds^2 = dy^2 - A dt^2 + B dr^2 + C dOmega^2, grown from eq. (17) on position 1's piece P1 (y = 0; clause
+(G), at our tension: clause (B), 157) by b4_static.series (exact, rational).  kappa_X = (1/2) d_y ln X;
+a = (kappa_t + kappa_r + 2 kappa_th)/4, a~ = a + 1/ell; the wall coefficients w_r = kappa_r - kappa_t,
+w_th = kappa_th - kappa_t (the warp cancels from both and from a~).  Position 2's piece P2 is a second piece of the same mirrored plane, one-sided toward the slab
 (H-Z2-PIECES); it faces P1 when its bulk nearest approach p2 = (r2, depth) is attained in the static region
-(H-NEAREST-APPROACH) -- a depth is a property of the bulk, never the corridor's length (155: bits) and never an output
-called a distance (139 (4), 101 (7)).  Junction, normal into the slab: S^a_b = -nu (K^a_b - delta K); for a static P2,
-rho + p_i = nu (k_t - k_i) for any tension (the local Israel lemma).
+(H-NEAREST-APPROACH), and the case where it is only approached, down the throat, is S7's class.  The depth of p2 is,
+by construction, the two pieces' bulk separation at their nearest point: it is reported only as where in the bulk
+facing can occur -- never as the corridor's length (155 (2): bits), never as anything the device sees (101 (7)), and
+never optimised over or turned into a time or a speed (139 (4)).  C14 checks names only.  Junction, normal into the
+slab: S^a_b = -nu (K^a_b - delta K); for a static P2, rho + p_i = nu (k_t - k_i) for any tension (the local Israel
+lemma).
 
   S1  LEMMA T, THE RICCATI TRAP (deduced; T1 computed exactly on the owner's series).  a' = 1/ell^2 - a^2 - Pi.Pi/4
       (5D Raychaudhuri, R_yy = -4/ell^2); Pi.Pi >= 0 (static: K diagonal); a(0) = -1/ell (Gauss, R4 = 0); so a~ <= 0 at
       every depth the Gaussian chart reaches.  Anchor: a~ = -(R_ab R^ab/12)(y^3 + 5 e y^4) + O(y^5).
   S2  LEMMA C, COMPARISON AT THE NEAREST POINT (deduced; the comparison step standard-not-READ): k_t(P2) = -kappa_t,
       k_spatial(P2) >= -kappa_spatial at p2.
-  S3  COROLLARY T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= -1, every depth, every ell.  Within
-      one universe under clause (B) two matter-free pieces of our plane cannot face each other: decided.
-  S4  LEMMA W (deduced): a static mirrored P2 whose total stress obeys the NEC, nearest approach in the static region,
-      needs w_r >= 0 and w_th >= 0 there -- any tension, any matter split, no bulk field equation used.
+  S3  COROLLARY T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= -1, every depth, every ell.  Under
+      clause (B) two matter-free pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum
+      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; the down-the-throat member closes too (S7's
+      umbilic member).  That closes this one way of building the corridor within one universe; E-PASS, E-NS and E-ROT
+      stay open (S14).
+  S4  LEMMA W (deduced): a static mirrored P2 whose total stress obeys the NEC, nearest approach attained in the static
+      region with no focal point of P1 before it (S2), needs w_r >= 0 and w_th >= 0 there -- any tension, any matter
+      split, no bulk field equation used.
   S5  LEADING ORDERS (computed, exact): w_r = R_rad (y + 3 e y^2), w_th = R_tan (y + 3 e y^2) + O(y^3);
       R_rad = -2m(r - 2m)/(r^2 (2r - 3m)^2) < 0, R_tan = m/(r (2r - 3m)^2) > 0 (sim1_transition.static_nec).
   S6  THE THROAT (STRUCTURAL + computed): eq. (17) at r = 2m is AdS2(2m) x S2(2m); over it the bulk is homogeneous and
       w_r = 0 by the AdS2 boost.
-  S7  THE THROAT BULK (computed by ODE, constraint to 3e-12 relative): y_s^th = 2.5536, 2.3744, 2.2247, 1.9868, 1.6591,
-      1.2803, 0.9139, 0.6101, 0.3864m at ell = inf, 32m, 16m, 8m, 4m, 2m, m, m/2, m/4 (alpha -> 0; K diverges); a~ <= 0;
-      w_th > 0; the level-set stress rho = nu (p + 2q), rho + p_r = 0, rho + p_th = nu (q - p).
+  S7  THE THROAT BULK (computed by ODE; the constraint, measured on the zeroth-order solve, to 5e-13
+      relative): y_s^th = 2.5536, 2.3744, 2.2247, 1.9868, 1.6591, 1.2803, 0.9139, 0.6101, 0.3864m at ell = inf, 32m,
+      16m, 8m, 4m, 2m, m, m/2, m/4 (alpha -> 0; K diverges); a~ < 0 and w_th > 0 at all 3000 points (max a~/y^3 =
+      -0.0208 to -0.0210, min w_th/y = 0.500 to 0.502: the near-plane limits -RR/12 and R_tan at r = 2m); the level-set
+      stress rho = nu (p + 2q), rho + p_r = 0, rho + p_th = nu (q - p).  DOWN THE THROAT (computed, corrected after the
+      physics verifier refuted the first build's f_ss <= x W1): along y = depth + f(u), u = ln x, the radial NEC is
+      f'' - f'/2 <= alpha^2 x W1(depth), the f'/2 being the lapse-gradient term; down_throat_class checks f = c x^lam
+      (0 < lam < 1/2) against the exact radial and angular NEC over the throat fields, and the umbilic (matter-free)
+      member's closing (k_t - k_th -> w_th(depth) > 0).  So in this class -- a nearest approach never attained, the
+      horizon being degenerate and at infinite proper distance in the static slice -- the NEC sets no lower edge: it
+      holds at every sampled depth, 0.01 to 0.9 y_s^th, at every ell (the adjudication: every depth in [0, y_s^th)).
+      Positive energy in the class (the limiting level-set rho_m, at its best depth) needs ell > 27.07m
+      (ell_w_class), not 49.86m; at depth -> 0 the limiting stress reads rho_m = -2 sigma_RS at every finite ell.
   S8  THE FIRST CORRECTION IN x = r - 2m (computed): w_r = x W1(y) + O(x^2); y* = first zero of W1 = 1.7901, 1.7286,
-      1.6720, 1.5709, 1.4053, 1.1673, 0.8812, 0.6042, 0.3856m (y*/y_s 0.701 to 0.998); the band [y*, y_s^th); K(y*)/K_bs
-      18.3 to 5.9e8; rho_m(y*) = +0.1215 nu/m flat, -0.73 to -36.5 sigma_RS at finite ell; positive energy needs
-      ell >= ell_W = 49.86m; the edge lies below 30 K_bs for ell > 21.05m, below 100 K_bs for ell > 5.82m, never below 10.
-  S9  THE MAP ON THE OWNER'S BULK (computed; raw Pade as evidence): 13 radii x 9 ell at order 32, banked: 4406 verified
-      points; at every one of the 3861 at r >= 2.05m or ell <= 2m, w_r < 0, w_th > 0, a~ < 0; w_r >= 0 only at r <= 2.02m
-      and ell >= 4m, past a sign change at 1.821, 1.758, 1.700, 1.597, 1.428m (r = 2.005m, ell = inf to 4m).
-  S10 THROAT AND OWNER AGREE (computed): the sign change extrapolated to x -> 0 meets y* to 0.1%; W1(1.088) to 0.5%; the
-      x -> 0 extrapolation of w_th, a~ to 0.2%; y_s^th 1-3% below the near-throat columns' Pade singularity.
+      1.6720, 1.5709, 1.4053, 1.1673, 0.8812, 0.6042, 0.3856m (y*/y_s 0.701 to 0.998); the band [y*, y_s^th) for an
+      ATTAINED nearest point, at first order in x (the limit r -> 2m); K(y*)/K_bs 18.3 to 5.9e8; rho_m(y*) = +0.1215
+      nu/m flat, -0.73 to -36.5 sigma_RS at finite ell; positive energy needs ell >= ell_W = 49.86m; the edge lies below
+      30 K_bs for ell > 21.05m, below 100 K_bs for ell > 5.82m, never below 10.  On H-LAW-READ-BY-TRACE a facing piece
+      at depth >= y* reads s <= ell a(y*) = -7.17 (32m) ... -3.36 (4m) ... -84.2 (m/4): a law that is not ours.  The
+      O(x) expansion holds while x max(|a1|, |b1|, |c1|) <= 0.1: x <= 1.7e-2, 1.2e-2, 3.9e-3, 2.7e-4 at y* (ell = inf,
+      4m, m, m/4), about half that at the band's midpoint, shrinking toward y_s.
+  S9  THE MAP ON THE OWNER'S BULK (computed; raw Pade as evidence): 13 radii x 9 ell at order 32, banked.  Verified =
+      b4_static S3's value rule; admissible = verified, the two orders agreeing on the SIGNS of w_r and w_th, both >= 0.
+      (The first build's w-agreement rule sat in the verified prefix and cut each column where w_r changes sign; it is
+      now a reported diagnostic only.)  4480 verified points (4479 sign-settled), 86 admissible.  Of the 3910 at
+      r >= 2.05m or ell <= 2m: w_r < 0 at 3906 and >= 0 at 4 (r = 2.05m at ell = inf past 2.198m; r = 2.005m at
+      ell = 2m past 1.186m); w_th > 0 at 3906 (w_th < 0 at four deep points of r = 2.5m, ell = inf, 32m, 16m, all with
+      w_r < 0); a~ < 0 at all.  w_r turns positive at r = 2.005m past 1.821, 1.758, 1.700, 1.597, 1.428, 1.186m
+      (ell = inf to 2m).  At ell = inf the three Pade orders are now distinct approximants (pade_orders).
+  S10 THROAT AND OWNER AGREE (computed): the sign change extrapolated to x -> 0 meets y* to 0.07-0.15% (ell = inf to 4m);
+      W1(1.088) to 0.5%; the x -> 0 extrapolation of w_th, a~ to 0.2%; y_s^th 0.3-3% below the near-throat columns' Pade
+      singularity.
   S11 LEMMA N (deduced; sympy): Gamma^y_ab = -(1/2) d_y g_ab; a radial null ray tangent to a level set has
       y'' = w_r B r'^2.  Corollary W: warped products have w = 0 (the black string, RS2).
-  S12 THE DECISION per ell (WIDE / THROAT-BAND / NONE), from S7-S9: THROAT-BAND at every ell -- CONFIRMED on the owner's
-      bulk at ell >= 4m, EXPANSION-ONLY at ell <= 2m (the r = 2.005m column's verified top lies below y*: not
-      reached); regular at 30 and 100 K_bs for ell = inf, 32m, at 100 only for 16m, 8m, at none for ell <= 4m;
-      positive energy only at ell >= 49.86m.
-  S13 THE HAND-OFF TO PHASE 3 (deduced): s_slab = ell a(depth) <= -1; the outer side needed for 139's figures.
-  S14 THE ESCAPES LEFT (STRUCTURAL / OPEN).
-  The computed branch (S4, S7-S12) rests on the board's H-README-ON-P2, which conflicts with 130 (1) and 136 (2) as M
-  worded them; it is necessary, not sufficient, and never B4d green.
+  S12 THE DECISION per ell (WIDE / THROAT-BAND / NONE), from S7-S9, for ATTAINED nearest points: THROAT-BAND at every
+      ell -- CONFIRMED on the owner's bulk at ell >= 2m (the r = 2.005m column's first rising sign change of w_r lies
+      1.6-1.8% from the throat's y*, x -> 0: the O(x) shift), EXPANSION-ONLY at ell <= m (the near-throat columns'
+      verified tops lie below y*: not reached); regular at 30 and 100 K_bs for ell = inf, 32m, at 100 only for 16m, 8m,
+      at none for ell <= 4m; positive energy only at ell >= 49.86m.  WIDE is excluded on the verified points only:
+      decide() records, per ell, the unverified depths at r >= 2.1m.  The down-the-throat class (S7) has no lower edge,
+      its shallow depths lie below 10 K_bs at every ell, and its positive-energy threshold is 27.07m.
+  S13 THE HAND-OFF TO PHASE 3 (deduced): s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down
+      the throat), in units of sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows); the
+      outer side needed for the -1/3 that 139 (1) said yes to (multiplane.py M4's figure) and for stage 7 K5's -1/6.
+  S14 THE ESCAPES LEFT (STRUCTURAL / OPEN), now with E-Q (quantum or semiclassical stress; excluded only by
+      H-NEC-NEVER-VIOLATED, 117/120) and E-FAR (a nearest approach reached only as r -> infinity, beyond r = 10m, or
+      beyond a column's verified top; open).
+  The computed branch (S4, S7-S12) rests on the board's H-README-ON-P2, which 129 (1), 130 (1) and 136 (2) read against
+  as M worded them (132 and 158 (4) leave room for it), and it counts as within one universe only on the board's
+  H-SPLIT-AT-OUR-TENSION (position 2's law fixed at our tension; everything else in its stress, its trace included, the
+  README's).  On H-LAW-READ-BY-TRACE instead the band's piece reads s <= ell a(y*) <= -1, a law not ours (phase 3).
+  It is necessary, not sufficient, and never B4d green.
 
 Owners imported by path (never copied): b4_static.py (series, _eq17, _schwarzschild, pade), b4d_stage5.py (warped,
 orders, _approx, nearest_real, evaluator for K only, k_bs, wall_exact; _clean only in C5's mutation), b4d_stage6.py
 (sigma_over_rs), b4d_stage7.py (ricci_squared, slab_trace), sim1_transition.py (static_nec, eq17_rkk).
 Needs python-flint, sympy, numpy, scipy, mpmath.
-python3 sim2_facing.py [--selftest] [--regenerate]   (selftest about 2 min; regenerate about 22 min on 3 CPUs, 40 CPU-min)
+python3 sim2_facing.py [--selftest] [--regenerate]   (selftest about 2 min; regenerate about 14 min on 3 CPUs)
 """
 import contextlib
 import importlib.util
@@ -82,7 +123,7 @@ import mpmath as mp
 import numpy as np
 import sympy as sp
 from scipy.integrate import solve_ivp
-from scipy.optimize import brentq
+from scipy.optimize import brentq, minimize_scalar
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
@@ -92,8 +133,11 @@ ORDER = 32
 ES2 = [Fr(0), Fr(1, 32), Fr(1, 16), Fr(1, 8), Fr(1, 4), Fr(1, 2), Fr(1), Fr(2), Fr(4)]
 RADII2 = ["401/200", "201/100", "101/50", "41/20", "21/10", "43/20", "11/5", "23/10", "5/2", "3", "4", "5", "10"]
 NGRID = 40                  # S9's y grid
-VAL_TOL = 1e-4              # two Pade orders agree on A, B, C (b4_static S3's criterion)
-W_ABS, W_REL = 1e-6, 1e-3   # and on w_r, w_th (this instrument's addition; it can only remove points)
+VAL_TOL = 1e-4              # two Pade orders agree on A, B, C (b4_static S3's criterion): the verified prefix
+W_ABS, W_REL = 1e-6, 1e-3   # the first build's w-agreement rule on w_r, w_th: a reported DIAGNOSTIC only, never part of
+#                             the verified prefix (verifiers: near a zero of w_r it collapses to 1e-6 absolute and cut
+#                             each column exactly where w_r changes sign).  Admissibility needs the two orders to agree on
+#                             the SIGN of w_r and w_th instead (sign_ok).
 DOUBLET = 2e-3              # a real pole with a zero this close is a Froissart doublet (b4d_stage5.nearest_real's rule)
 CAP = 10.0                  # scan cap in m
 WIDE_R = 2.1                # S12: WIDE needs an admissible point at r_c >= 2.1m
@@ -230,6 +274,17 @@ def israel(K, nu=1, trace_from=0):
     tr = sum(K[trace_from:])
     S = [-nu * (k - tr) for k in K]
     return -S[0], S[1:]
+
+
+def level_set_k(e, n_y):
+    """The mixed extrinsic curvature of an RS2 level set y = Y in dy^2 + e^(-2 e y) eta, computed from the warp:
+    K^a_b = n^y (1/2) d_y ln(e^(-2 e y)) delta^a_b, for the normal n = n_y d_y (n_y = +1 or -1).  C1's RS1 control
+    (n_y = -1, into a slab lying at y < Y) and its mutation (n_y = +1) both come through here, not through P1's literal
+    K = -h/ell."""
+    Y = sp.Symbol("Y", real=True)
+    warp = sp.exp(-2 * e * Y)
+    k = sp.simplify(n_y * sp.diff(warp, Y) / (2 * warp))
+    return [k] * 4
 
 
 def lemma_w(kt, kr, kth):
@@ -470,8 +525,11 @@ def throat_bulk(e, s2=1.0, mut=0.0, b1_0=2.5):
         return u[0] - ALPHA_FULL
     end1.terminal = True
     f0 = lambda y, u: throat_rhs(y, list(u) + [0.0] * 6, ef, s2)[:4]
+    # max_step: C7 measures the zeroth-order constraint on this solve (verifier).  Without a cap it took about 60 steps
+    # below 0.95 y_s and held the constraint only to 2.3e-10 relative at ell = m/4 (the 10-variable solve, whose O(x)
+    # variables force about 500 steps, had hidden this); at 0.005 it holds to about 5e-13 and y_s moves by <= 1.1e-11.
     sol0 = solve_ivp(f0, [0, 12], u0[:4], method="DOP853", rtol=1e-13, atol=1e-15, events=[end0, blow],
-                     dense_output=True)
+                     dense_output=True, max_step=0.005)
     sol = solve_ivp(lambda y, u: throat_rhs(y, u, ef, s2, mut), [0, 12], u0, method="DOP853", rtol=1e-13, atol=1e-15,
                     events=[end1, blow], dense_output=True)
     return {"e": ef, "y_s": float(sol0.t[-1]), "y_end": float(sol.t[-1]), "sol": sol, "sol0": sol0,
@@ -512,7 +570,7 @@ def throat_row(e):
     U = lambda y: s.sol(y)
     rho = lambda y: float(U(y)[2] + 2 * U(y)[3] - 3 * ef)                  # rho_m in units of nu/m (level set)
     g95 = np.linspace(1e-3 * ys, 0.95 * ys, 3000)
-    V = s.sol(g95)
+    V = tb["sol0"].sol(g95)          # C7's constraint on the zeroth-order solve (not the 10-variable one: step control)
     al, be, p, q = V[0], V[1], V[2], V[3]
     cons = p * p + q * q + 4 * p * q - 6 * ef * ef - 1 / (4 * be * be) + 1 / (4 * al * al)
     scale = p * p + q * q + 1 / (4 * al * al) + 1 / (4 * be * be) + 6 * ef * ef
@@ -523,12 +581,15 @@ def throat_row(e):
            + (Z[7] + Z[8]) * (Z[2] + 2 * Z[3]) + 4 * Z[9] * Z[2] + 2 * Z[9] * Z[3])
     gall = np.linspace(1e-3 * ys, ye * (1 - 1e-6), 3000)
     A_ = s.sol(gall)
+    wth_all, at_all = A_[3] - A_[2], (A_[2] + A_[3]) / 2 + ef
     row = {"e": str(Fr(e)), "ell": None if ef == 0 else 1 / ef, "y_s": ys, "y_star": yst,
            "frac": None if yst is None else yst / ys, "yK": {str(f): yK[f] for f in KF},
            "K_ratio": None if yst is None else kret_throat(U(yst), ef) / S5.k_bs(ef, 2.0, yst),
            "rho_m": None if yst is None else rho(yst),
            "rho_m_rs": None if (yst is None or ef == 0) else rho(yst) / (3 * ef),
-           "w_th_min": float(np.min(A_[3] - A_[2])), "at_max": float(np.max((A_[2] + A_[3]) / 2 + ef)),
+           # interior extremes, not the grid's start (w_th ~ y/2 and a~ ~ -(RR/12) y^3 near the plane)
+           "n_grid": int(len(gall)), "w_th_pos_all": bool(np.all(wth_all > 0)), "at_neg_all": bool(np.all(at_all < 0)),
+           "w_th_over_y_min": float(np.min(wth_all / gall)), "at_over_y3_max": float(np.max(at_all / gall**3)),
            "cons_rel": float(np.max(np.abs(cons) / scale)), "mom": float(np.max(np.abs(mom))),
            "ham": float(np.max(np.abs(ham))), "reached": tb["reached_alpha0"],
            "W1_026": float(W1(0.26)) if 0.26 < ye else None, "W1_1088": float(W1(1.088)) if 1.088 < ye else None}
@@ -537,19 +598,41 @@ def throat_row(e):
         row["level_set"] = {"rho": float(u[2] + 2 * u[3]), "rho_plus_pr": 0.0, "rho_plus_pth": float(u[3] - u[2])}
         band = np.linspace(yst, ye * (1 - 1e-6), 1500)
         row["rho_m_band_max"] = float(np.max(np.array([rho(z) for z in band])))
+        # the O(x) expansion's range: x max(|a1|, |b1|, |c1|) <= 0.1, at y* and at the band's midpoint
+        row["x_O1_ystar"] = x_valid(tb, yst)
+        row["x_O1_mid"] = x_valid(tb, (yst + ye) / 2)
     return row
+
+
+O1_BOUND = 0.1                   # the O(x) expansion is taken to hold while x max(|a1|, |b1|, |c1|) <= 0.1
+
+
+def x_valid(tb, y):
+    """The largest x = r - 2m (the column's areal coordinate, not a separation) at which the first correction stays
+    small at depth y: x max(|a1|, |b1|, |c1|) <= O1_BOUND (physics verifier)."""
+    u = tb["sol"].sol(y)
+    return float(O1_BOUND / max(abs(u[4]), abs(u[5]), abs(u[6])))
+
+
+def _ystar_or_nan(tb):
+    yst, _ = _ystar(tb)
+    return float("nan") if yst is None else yst
 
 
 def _rho_at_ystar(e):
     tb = throat_bulk(e)
-    yst, _ = _ystar(tb)
+    yst = _ystar_or_nan(tb)
+    if not math.isfinite(yst):
+        return float("nan")
     u = tb["sol"].sol(yst)
     return float(u[2] + 2 * u[3] - 3 * float(e))
 
 
 def _rho_band_max(e):
     tb = throat_bulk(e)
-    yst, _ = _ystar(tb)
+    yst = _ystar_or_nan(tb)
+    if not math.isfinite(yst):
+        return float("nan")
     s, ye = tb["sol"], tb["y_end"]
     band = np.linspace(yst, ye * (1 - 1e-6), 1500)
     V = s.sol(band)
@@ -558,21 +641,28 @@ def _rho_band_max(e):
 
 def _edge_minus_yK(e, f):
     tb = throat_bulk(e)
-    yst, _ = _ystar(tb)
-    return yst - _yK(tb, f)
+    yst, yk = _ystar_or_nan(tb), _yK(tb, f)
+    return float("nan") if yk is None else yst - yk
 
 
 def ell_w(band=False):
-    """ell_W: rho_m(y*) >= 0 iff ell >= ell_W (band=True: the maximum of rho_m over [y*, y_s))."""
+    """ell_W: rho_m(y*) >= 0 iff ell >= ell_W (band=True: the maximum of rho_m over [y*, y_s)).  nan (never a crash)
+    when y* does not exist at an end of the bracket or the bracket holds no sign change."""
     fn = _rho_band_max if band else _rho_at_ystar
+    f0, f1 = fn(1e-4), fn(0.05)
+    if not (math.isfinite(f0) and math.isfinite(f1)) or f0 * f1 > 0:
+        return float("nan"), float("nan")
     ew = brentq(fn, 1e-4, 0.05, xtol=1e-10)
     return 1 / ew, ew
 
 
 def ell_c(f):
-    """ell_c(f): the band's shallow edge lies below f K_bs (y* < y_K(f)) iff ell > ell_c(f); None if never."""
+    """ell_c(f): the band's shallow edge lies below f K_bs (y* < y_K(f)) iff ell > ell_c(f); None if never; nan when y*
+    or y_K(f) does not exist at an end of the bracket."""
     g0 = _edge_minus_yK(1e-6, f)
     g1 = _edge_minus_yK(2.0, f)
+    if not (math.isfinite(g0) and math.isfinite(g1)):
+        return float("nan"), g0
     if g0 * g1 > 0:
         return None, g0
     ec = brentq(lambda e: _edge_minus_yK(e, f), 1e-6, 2.0, xtol=1e-10)
@@ -588,6 +678,189 @@ def throat_table(es=ES2, thresholds=True):
         out["ell_c"] = {str(f): ell_c(f)[0] for f in KF}
         out["edge_minus_yK10_flat"] = _edge_minus_yK(1e-6, 10)
     return out
+
+
+# ------------------------------------------------------------------------------------------------ S7 down the throat
+DT_LAMS = (0.1, 0.25, 0.4)           # f = c x^lam with 0 < lam < 1/2
+DT_LAM_CONTROL = 0.75                # the control, lam in (1/2, 1): must violate the radial NEC
+DT_C = 0.05
+DT_FRACS = (0.01, 0.25, 0.5, 0.75, 0.9)                 # sample depths, as fractions of y_s^th
+DT_XS = tuple(10.0 ** k for k in range(-14, -2))        # x = r - 2m from 1e-14 to 1e-3 (capped at x_O1(depth))
+
+
+def _graph_k(u, xv, F1, F2):
+    """Exact mixed extrinsic curvature (k_t, k_x, k_th) of the static graph y = depth + F(x), normal into the slab
+    (n_mu = -(dy - F' dx)/N, N = sqrt(1 + F'^2/B)), in the throat metric to first order in x taken as exact:
+    A = (x/2) alpha^2 (1 + x a1), B = (alpha^2/x^2)(1 + x b1), C = 4 beta^2 (1 + x c1), with the fields
+    u = (alpha, beta, p, q, a1, b1, c1, a1', b1', c1') at y = depth + F(x); F1 = F'(x), F2 = F''(x).
+      k_t  = [-kappa_t + F' d_x ln A/(2B)]/N,   k_th = [-kappa_th + F' d_x ln C/(2B)]/N,
+      k_x  = [F'' - B kappa_x - F'(d_x ln B/2 + 2 F' kappa_x)]/(N (B + F'^2)).
+    (Cross-checked against a brute-force 5D projection with generic A, B, C to 1e-16 in the build's scratch.)"""
+    al, be, p, q, a1, b1, c1, da, db, dc = (mp.mpf(float(v)) for v in u)
+    x, F1, F2 = mp.mpf(xv), mp.mpf(F1), mp.mpf(F2)
+    B = al**2 / x**2 * (1 + x * b1)
+    kap_t = p + x * da / (2 * (1 + x * a1))
+    kap_x = p + x * db / (2 * (1 + x * b1))
+    kap_q = q + x * dc / (2 * (1 + x * c1))
+    dlA, dlB, dlC = 1 / x + a1 / (1 + x * a1), -2 / x + b1 / (1 + x * b1), c1 / (1 + x * c1)
+    N = mp.sqrt(1 + F1**2 / B)
+    kt = (-kap_t + F1 * dlA / (2 * B)) / N
+    kq = (-kap_q + F1 * dlC / (2 * B)) / N
+    kx = (F2 - B * kap_x - F1 * (dlB / 2 + 2 * F1 * kap_x)) / (N * (B + F1**2))
+    return kt, kx, kq
+
+
+def down_throat_class(e, tb=None, lams=DT_LAMS, c=DT_C, fracs=DT_FRACS):
+    """S7's asymptotic class, corrected (physics verifier, REFUTED item): a static piece y = depth + f, f > 0, f -> 0 as
+    x -> 0, so that its infimum depth is approached only down the throat.  With u = ln x the radial NEC along the
+    approach is
+
+        f'' - f'/2 <= alpha^2 x W1(depth)        (' = d/du; first order in x and in the slope)
+
+    -- the f'/2 is the lapse-gradient term n^u (1/2) d_u ln A (the static observers' acceleration), which the first
+    build's f_ss <= x W1(depth) dropped.  Its homogeneous solutions are 1 and e^(u/2) (the lapse).  This function
+    computes, and leaves the interpretation to the note:
+      (i)   f = c x^lam, 0 < lam < 1/2: the EXACT radial and angular NEC (k_t - k_x >= 0, k_t - k_th >= 0, the local
+            Israel lemma) of the graph over this ell's throat fields, at depths fracs x y_s^th and x from 1e-14 to
+            min(1e-3, x_O1(depth)); with the leading-order prediction k_t - k_x ~ x W1 + (f'/2 - f'')/alpha^2 at the
+            graph's point.  The lapse term c lam (1/2 - lam) x^lam/alpha^2 dominates as x -> 0; where W1(depth) < 0 the
+            x W1 term overtakes it above the crossover x_c = [c lam (1/2 - lam)/(alpha^2 |W1|)]^(1/(1 - lam)), so the
+            check is that every sample below x_c/2 holds and that any failure lies above x_c/2 (the profile is the
+            class's approach x -> 0; above x_c the piece must bend, which this class does not constrain);
+      (ii)  the control lam = 3/4 (must violate the radial NEC as x -> 0 at every depth), and the first build's dropped-
+            term condition f'' <= alpha^2 x W1(depth), which excludes every convex f at depths where W1 < 0;
+      (iii) the umbilic (matter-free) member: the radial equality f'' - f'/2 = alpha^2 x W1(depth) with f -> 0 forces
+            f' -> 0 (f = c sqrt(x) + 2 alpha^2 W1 x), so k_t - k_th -> w_th(depth) = q - p > 0 and umbilicity
+            (k_t = k_x = k_th) fails; the trace reading -ell (k_t + k_x + 2 k_th)/4 -> ell a(depth)."""
+    tb = tb if tb is not None else throat_bulk(e)
+    s, ys, ye, ef = tb["sol"], tb["y_s"], tb["y_end"], tb["e"]
+    yst, W1 = _ystar(tb)
+    mp.mp.dps = 30
+    out = {"e": str(Fr(e)), "y_star": yst, "lams": list(lams), "c": c, "depths": [], "n": 0, "n_below_xc": 0,
+           "n_fail": 0}
+    good_ok, ctrl_ok, consistent, dev = True, True, True, 0.0
+    old_excl, fail_over_xc = 0, []
+    for fr in fracs:
+        dep = fr * ys
+        u0 = s.sol(dep)
+        al2, w1 = float(u0[0]) ** 2, float(W1(dep))
+        xmax = min(1e-3, x_valid(tb, dep))
+        xs = [xv for xv in DT_XS if xv <= xmax]
+        rec = {"depth": dep, "frac": fr, "W1": w1, "below_ystar": bool(yst is not None and dep < yst), "x_max": xmax,
+               "rad_min_below_xc": math.inf, "ang_min": math.inf, "x_c": {}, "first_fail": {},
+               "ctrl_rad_at_xmin": None, "old_violated": False}
+        for lam in tuple(lams) + (DT_LAM_CONTROL,):
+            xc = math.inf if w1 >= 0 else (c * lam * (0.5 - lam) / (al2 * abs(w1))) ** (1 / (1 - lam))
+            first_fail = None
+            for xv in xs:
+                F = c * xv**lam
+                if dep + F >= ye * (1 - 1e-6):
+                    continue
+                F1, F2 = c * lam * xv**(lam - 1), c * lam * (lam - 1) * xv**(lam - 2)
+                ug = s.sol(dep + F)
+                kt, kx, kq = _graph_k(ug, xv, F1, F2)
+                rad, ang = float(kt - kx), float(kt - kq)
+                fu, fuu = c * lam * xv**lam, c * lam**2 * xv**lam
+                if lam == DT_LAM_CONTROL:
+                    if xv == xs[0]:
+                        rec["ctrl_rad_at_xmin"] = rad
+                        ctrl_ok = ctrl_ok and rad < 0
+                    continue
+                out["n"] += 1
+                ok_here = rad >= 0 and ang >= 0
+                rec["ang_min"] = min(rec["ang_min"], ang)
+                if xv <= xc / 2:
+                    out["n_below_xc"] += 1
+                    rec["rad_min_below_xc"] = min(rec["rad_min_below_xc"], rad)
+                    good_ok = good_ok and ok_here
+                if not ok_here:
+                    out["n_fail"] += 1
+                    if first_fail is None:
+                        first_fail = xv
+                pred = xv * float(W1(dep + F)) + (fu / 2 - fuu) / float(ug[0]) ** 2
+                if xv <= 1e-8:
+                    dev = max(dev, abs(rad / pred - 1))
+                if fuu > al2 * xv * w1:                       # the first build's condition (lapse term dropped)
+                    rec["old_violated"] = True
+            if lam != DT_LAM_CONTROL:
+                rec["x_c"][str(lam)] = xc
+                rec["first_fail"][str(lam)] = first_fail
+                if first_fail is not None:
+                    consistent = consistent and first_fail > xc / 2
+                    fail_over_xc.append(first_fail / xc)
+        old_excl += bool(rec["old_violated"] and rec["below_ystar"])
+        # (iii) the umbilic member at this depth
+        cu = c
+        xu = DT_XS[0]
+        Fu = cu * math.sqrt(xu) + 2 * al2 * w1 * xu
+        F1u = cu / (2 * math.sqrt(xu)) + 2 * al2 * w1
+        F2u = -cu / (4 * xu**1.5)
+        kt, kx, kq = _graph_k(s.sol(dep + Fu), xu, F1u, F2u)
+        wth = float(u0[3] - u0[2])
+        rec["umbilic"] = {"kt_minus_kth": float(kt - kq), "w_th": wth, "ratio": float(kt - kq) / wth,
+                          "kt_minus_kx_over_w_th": float(kt - kx) / wth,
+                          "trace_read": None if ef == 0 else float(-(kt + kx + 2 * kq) / 4) / ef,
+                          "ell_a": None if ef == 0 else float((u0[2] + u0[3]) / 2) / ef,
+                          "a": float((u0[2] + u0[3]) / 2)}
+        out["depths"].append(rec)
+    um = [r_["umbilic"] for r_ in out["depths"]]
+    out.update({"nec_holds": good_ok, "fails_only_above_xc": consistent,
+                "fail_over_xc": [min(fail_over_xc), max(fail_over_xc)] if fail_over_xc else None,
+                "control_fails": ctrl_ok, "lead_dev": dev, "old_excludes_below_ystar": old_excl,
+                "n_below_ystar": sum(r_["below_ystar"] for r_ in out["depths"]),
+                "umbilic_closes": all(v["w_th"] > 0 and abs(v["ratio"] - 1) < 1e-2 and abs(v["kt_minus_kx_over_w_th"]) < 1e-2
+                                      for v in um),
+                "umbilic_ratio_dev": max(abs(v["ratio"] - 1) for v in um),
+                "umbilic_radial_dev": max(abs(v["kt_minus_kx_over_w_th"]) for v in um),
+                "ell_a_max": None if ef == 0 else max(v["ell_a"] for v in um),
+                "trace_minus_ell_a": None if ef == 0 else max(abs(v["trace_read"] - v["ell_a"]) for v in um)})
+    return out
+
+
+def _rho_class_max(e, detail=False):
+    """The down-the-throat class's best energy at e = m/ell.  A piece whose nearest approach to depth y is reached only
+    down the throat carries, as x -> 0, the level-set stress at that depth (its slope terms vanish), so its matter tends
+    to rho_m = nu (p + 2q - 3/ell)(y).  The class has no lower edge (S7), so this is the maximum over every depth in
+    (0, y_end), in nu/m.  detail=True also returns the best depth as a fraction of y_s^th and of y*, and K/K_bs there."""
+    tb = throat_bulk(e)
+    s, ys, ye, ef = tb["sol"], tb["y_s"], tb["y_end"], tb["e"]
+    g = np.linspace(1e-6 * ye, ye * (1 - 1e-6), 3000)
+    V = s.sol(g)
+    i = int(np.argmax(V[2] + 2 * V[3] - 3 * ef))
+    neg = lambda z: -float(s.sol(z)[2] + 2 * s.sol(z)[3] - 3 * ef)
+    res = minimize_scalar(neg, bounds=(g[max(i - 1, 0)], g[min(i + 1, len(g) - 1)]), method="bounded",
+                          options={"xatol": 1e-12})
+    zb, rb = float(res.x), float(-res.fun)
+    if not detail:
+        return rb
+    yst, _ = _ystar(tb)
+    return {"rho_m_max": rb, "frac_ys": zb / ys, "frac_ystar": None if yst is None else zb / yst,
+            "K_ratio": float(kret_throat(s.sol(zb), ef) / S5.k_bs(ef, 2.0, zb))}
+
+
+def ell_w_class():
+    """Positive energy in the down-the-throat class: the maximum over depth of the limiting rho_m is >= 0 iff ell >= this
+    threshold (the adjudication: on the profiles the slope correction to rho, -f''/alpha^2, is negative, so at finite x
+    the threshold is strict).  nan, never a crash, when the bracket holds no sign change."""
+    nan = float("nan")
+    f0, f1 = _rho_class_max(1e-4), _rho_class_max(0.1)
+    if not (math.isfinite(f0) and math.isfinite(f1)) or f0 * f1 > 0:
+        return {"ell": nan, "e": nan}
+    ew = brentq(_rho_class_max, 1e-4, 0.1, xtol=1e-10)
+    out = _rho_class_max(ew, detail=True)
+    out.update({"ell": 1 / ew, "e": ew, "flat": _rho_class_max(0.0, detail=True)})
+    return out
+
+
+def depth_zero(e):
+    """Item 127's coincidence read as a limit (H-COINCIDE-AS-LIMIT): the down-the-throat class approaching depth 0.  At
+    y = 0 the throat data are alpha = beta = 1, p = q = -1/ell, so the limiting stress reads rho = nu (p + 2q) =
+    -sigma_RS and rho_m = -2 sigma_RS at every finite ell (deduced); K/K_bs = 2(80 e^4 + 3)/(160 e^4 + 3) <= 2."""
+    ef = float(e)
+    u0 = [1.0, 1.0, -ef, -ef]
+    return {"rho_m_rs": None if ef == 0 else (u0[2] + 2 * u0[3] - 3 * ef) / (3 * ef),
+            "K_ratio": float(kret_throat(u0, ef) / S5.k_bs(ef, 2.0, 0.0)),
+            "K_closed": 2 * (80 * ef**4 + 3) / (160 * ef**4 + 3)}
 
 
 # ------------------------------------------------------------------------------------------------ S9 the map
@@ -623,17 +896,31 @@ def _w_at(Rs, y):
     return float((lB - lA) / 2), float((lC - lA) / 2), float((lA + lB + 2 * lC) / 8)
 
 
+def pade_orders(N, e):
+    """The three Pade orders.  At e != 0, b4d_stage5.orders(N).  At e = 0 (ell = inf) the bulk is even in y, so the series
+    holds only even powers and stage 5's (N/2 - 1, N/2) and (N/2 - 2, N/2 + 1) are one approximant ([N/4 - 1 / N/4] in
+    y^2; numerics verifier): the three-order checks would rest on two.  There the orders are (N/2 - 2, N/2), (N/2, N/2),
+    (N/2, N/2 - 2), three distinct approximants; the verification pair (the first two) is the same two approximants as
+    before."""
+    if Fr(e) == 0:
+        return [(N // 2 - 2, N // 2), (N // 2, N // 2), (N // 2, N // 2 - 2)]
+    return S5.orders(N)
+
+
 def column_w(rc, e, N=ORDER, ngrid=NGRID, with_k=True):
-    """One owner column: raw Pade of A~, B~, C~ at S5.orders(N); w_r, w_th, a~ on a 40-point y grid up to the scan top;
-    verified points (two orders agree on A, B, C to 1e-4, all positive, no real non-doublet pole or zero of the two
-    orders below y, and the two orders agree on w_r and w_th); the admissible set; K/K_bs at admissible points through
-    b4d_stage5.evaluator at two orders."""
+    """One owner column: raw Pade of A~, B~, C~ at pade_orders(N, e); w_r, w_th, a~ on a 40-point y grid up to the scan
+    top.  VERIFIED (the prefix): two orders agree on A, B, C to 1e-4, all positive, no real non-doublet pole or zero of
+    the two orders below y -- b4_static S3's value rule, and nothing else.  ADMISSIBLE: verified, the two orders agree
+    on the SIGN of w_r and of w_th (sign_ok), and both are >= 0 at both orders.  The first build's w-agreement rule
+    (|w_o0 - w_o1| <= 1e-6 + 1e-3 |w|) is kept per point as a diagnostic (w_ok, and its own prefix ver_w and
+    admissible set adm_w), never in the verified prefix.  K/K_bs at admissible points through b4d_stage5.evaluator at
+    two orders."""
     t0 = time.process_time()
     mp.mp.dps = 40
     r = float(Fr(rc))
     S = B4.series(rc, N, e)
     W = S5.warped(S, e, N)
-    ords = S5.orders(N)
+    ords = pade_orders(N, e)
     sing = [S5.nearest_real(W["C"][0], o) for o in ords]
     ysl = [float(z[0]) for z in sing if z]
     stable = bool(len(ysl) == 3 and (max(ysl) - min(ysl)) / float(np.median(ysl)) < 0.05)
@@ -647,34 +934,40 @@ def column_w(rc, e, N=ORDER, ngrid=NGRID, with_k=True):
                and all(abs(a - b) <= VAL_TOL * abs(b) for a, b in zip(vals[0], vals[1])))
         w = [_w_at(R[o], y) for o in ords]
         okw = all(abs(w[0][i] - w[1][i]) <= W_ABS + W_REL * abs(w[1][i]) for i in (0, 1))
-        return okv, okw, w
+        sign_ok = all(w[0][i] * w[1][i] > 0 for i in (0, 1))
+        return okv, okw, sign_ok, w
 
     if stable:
         top = min(0.95 * float(np.median(ysl)), CAP)
     else:
         top = 0.0
         for y in np.linspace(CAP / 200, CAP, 200):
-            okv, okw, _ = point(float(y))
-            if not (okv and okw):
+            okv, _, _, _ = point(float(y))
+            if not okv:
                 break
             top = float(y)
     grid = [top * k / ngrid for k in range(1, ngrid + 1)] if top > 0 else []
-    rows, prefix = [], True
+    rows, prefix, prefix_w = [], True, True
     for y in grid:
-        okv, okw, w = point(y)
-        prefix = prefix and okv and okw
-        adm = prefix and all(w[i][0] >= 0 and w[i][1] >= 0 for i in (0, 1))
+        okv, okw, sign_ok, w = point(y)
+        prefix = prefix and okv
+        prefix_w = prefix_w and okv and okw
+        nonneg = all(w[i][0] >= 0 and w[i][1] >= 0 for i in (0, 1))
         rows.append({"y": y, "wr": w[1][0], "wth": w[1][1], "at": w[1][2],
                      "wr_spread": max(abs(w[i][0] - w[j][0]) for i in range(3) for j in range(3)),
-                     "val_ok": okv, "w_ok": okw, "ver": prefix, "adm": adm})
+                     "val_ok": okv, "w_ok": okw, "sign_ok": sign_ok, "ver": prefix, "adm": prefix and sign_ok and nonneg,
+                     "ver_w": prefix_w, "adm_w": prefix_w and nonneg})
     ver = [z for z in rows if z["ver"]]
     vtop = ver[-1]["y"] if ver else 0.0
-    wr_zero = None
-    for z0, z1 in zip(ver, ver[1:]):
-        if z0["wr"] < 0 <= z1["wr"]:
-            f = lambda yy: float((R[ords[1]]["B"]["ld"](yy) - R[ords[1]]["A"]["ld"](yy)) / 2)
-            wr_zero = float(brentq(f, z0["y"], z1["y"], xtol=1e-10))
-            break
+    # sign changes of w_r over the verified, sign-settled points (both directions; the first rising one is wr_zero)
+    settled = [z for z in ver if z["sign_ok"]]
+    f = lambda yy: float((R[ords[1]]["B"]["ld"](yy) - R[ords[1]]["A"]["ld"](yy)) / 2)
+    wr_zeros = []
+    for z0, z1 in zip(settled, settled[1:]):
+        if (z0["wr"] < 0) != (z1["wr"] < 0):
+            wr_zeros.append([float(brentq(f, z0["y"], z1["y"], xtol=1e-10)), 1 if z1["wr"] >= 0 else -1])
+    rising = [z for z, s in wr_zeros if s > 0]
+    wr_zero = rising[0] if rising else None
     kk = []
     adm = [z for z in rows if z["adm"]]
     if with_k and adm:
@@ -683,9 +976,11 @@ def column_w(rc, e, N=ORDER, ngrid=NGRID, with_k=True):
         for z in pick:
             kb = S5.k_bs(e, r, z["y"])
             kk.append([z["y"], Ks[0](z["y"]) / kb, Ks[1](z["y"]) / kb])
-    return {"rc": rc, "r": r, "e": str(Fr(e)), "N": N, "ys": ysl, "ys_im": [float(z[1]) for z in sing if z],
-            "ys_stable": stable, "top": top, "block": None if block == math.inf else block, "doublets": doublets,
-            "rows": rows, "vtop": vtop, "wr_zero": wr_zero, "kk": kk, "cost_s": time.process_time() - t0}
+    return {"rc": rc, "r": r, "e": str(Fr(e)), "N": N, "orders": [list(o) for o in ords], "ys": ysl,
+            "ys_im": [float(z[1]) for z in sing if z], "ys_stable": stable, "top": top,
+            "block": None if block == math.inf else block, "doublets": doublets, "rows": rows, "vtop": vtop,
+            "vtop_w": max([z["y"] for z in rows if z["ver_w"]], default=0.0), "wr_zero": wr_zero, "wr_zeros": wr_zeros,
+            "kk": kk, "cost_s": time.process_time() - t0}
 
 
 def _job(args):
@@ -703,6 +998,8 @@ def regenerate(procs=3):
     table = throat_table()
     bank = {"note": "regenerated by lemmas/sim2_facing.py --regenerate", "N": ORDER, "radii": RADII2,
             "es": [str(e) for e in ES2], "grid": NGRID, "val_tol": VAL_TOL, "w_tol": [W_ABS, W_REL],
+            "w_tol_role": "diagnostic only (w_ok, ver_w, adm_w); the verified prefix is the value rule, admissibility "
+                          "needs sign_ok",
             "columns": {"%s|%s" % (c["rc"], c["e"]): c for c in cols}, "throat": table,
             "wall_s": time.monotonic() - t0}
     json.dump(bank, open(BANK, "w"), separators=(",", ":"), default=float)
@@ -713,26 +1010,40 @@ def load_bank():
     return json.load(open(BANK))
 
 
-def admissible(bank):
-    """The admissible set per ell: (r_c, y) with w_r >= 0, w_th >= 0 at two verified Pade orders."""
+def admissible(bank, key="adm"):
+    """The admissible set per ell: (r_c, r, y) with w_r >= 0, w_th >= 0 at two orders that agree on their signs, at a
+    value-verified point.  key = 'adm_w' gives the first build's rule (the w-agreement prefix), a diagnostic."""
     out = {}
     for es in bank["es"]:
         out[es] = [(c["rc"], c["r"], z["y"]) for k, c in bank["columns"].items() if c["e"] == es
-                   for z in c["rows"] if z["adm"]]
+                   for z in c["rows"] if z[key]]
     return out
 
 
 def map_summary(bank):
-    """S9's statements over the verified points: signs of w_r, w_th, a~ by class of column."""
-    far = [(c, z) for c in bank["columns"].values() for z in c["rows"] if z["ver"]
-           and (c["r"] >= 2.05 or Fr(c["e"]) >= Fr(1, 2))]
-    allv = [(c, z) for c in bank["columns"].values() for z in c["rows"] if z["ver"]]
-    pos = sorted({(c["rc"], c["e"]) for c, z in allv if z["wr"] >= 0})
-    return {"n_ver": len(allv), "n_far": len(far),
-            "far_wr_neg": sum(z["wr"] < 0 for _, z in far), "far_wth_pos": sum(z["wth"] > 0 for _, z in far),
-            "far_at_neg": sum(z["at"] < 0 for _, z in far), "at_max": max(z["at"] for _, z in allv),
-            "wth_min": min(z["wth"] for _, z in allv), "wr_pos_cols": pos,
-            "removed_by_w": sum(1 for c in bank["columns"].values() for z in c["rows"] if z["val_ok"] and not z["w_ok"])}
+    """S9's statements over the verified points: signs of w_r, w_th, a~ by class of column.  The sign of w_r is counted
+    only where the two orders agree on it (sign_ok); w_th and a~ over every verified point."""
+    cols = list(bank["columns"].values())
+    far = [(c, z) for c in cols for z in c["rows"] if z["ver"] and (c["r"] >= 2.05 or Fr(c["e"]) >= Fr(1, 2))]
+    far_s = [(c, z) for c, z in far if z["sign_ok"]]
+    allv = [(c, z) for c in cols for z in c["rows"] if z["ver"]]
+    alls = [(c, z) for c, z in allv if z["sign_ok"]]
+    pos = sorted({(c["rc"], c["e"]) for c, z in alls if z["wr"] >= 0}, key=lambda v: (Fr(v[1]), Fr(v[0])))
+    far_pos = sorted({(c["rc"], c["e"]) for c, z in far_s if z["wr"] >= 0}, key=lambda v: (Fr(v[1]), Fr(v[0])))
+    return {"n_ver": len(allv), "n_ver_settled": len(alls), "n_far": len(far), "n_far_settled": len(far_s),
+            "far_wr_neg": sum(z["wr"] < 0 for _, z in far_s), "far_wr_pos": sum(z["wr"] >= 0 for _, z in far_s),
+            "far_wth_pos": sum(z["wth"] > 0 for _, z in far), "far_at_neg": sum(z["at"] < 0 for _, z in far),
+            "at_max": max(z["at"] for _, z in allv), "wth_min": min(z["wth"] for _, z in allv), "wr_pos_cols": pos,
+            "far_wr_pos_cols": far_pos,
+            "wth_nonpos": sorted([(c["rc"], c["e"], z["y"], z["wth"], z["sign_ok"], z["wr"]) for c, z in allv
+                                  if z["wth"] <= 0],
+                                 key=lambda v: (Fr(v[1]), Fr(v[0]), v[2])),
+            "unsettled": sum(1 for _, z in allv if not z["sign_ok"]),
+            # the first build's w-agreement rule, as a diagnostic
+            "w_disagree": sum(1 for c in cols for z in c["rows"] if z["ver"] and not z["w_ok"]),
+            "n_ver_w": sum(1 for c in cols for z in c["rows"] if z["ver_w"]),
+            "n_adm": sum(1 for c in cols for z in c["rows"] if z["adm"]),
+            "n_adm_w": sum(1 for c in cols for z in c["rows"] if z["adm_w"])}
 
 
 # ------------------------------------------------------------------------------------------------ S11 Lemma N
@@ -801,8 +1112,16 @@ def wedge(warp="cosh"):
 def decide(bank, table):
     """Per ell: WIDE (an admissible verified point at r_c >= 2.1m), THROAT-BAND (y* < y_s^th, every admissible point at
     r_c < 2.1m; qualified CONFIRMED / EXPANSION-ONLY, regular at 10/30/100 K_bs, the strict y < y_s, WEC), NONE (no
-    zero of W1 before y_s^th and no admissible point), else UNDECIDED."""
+    zero of W1 before y_s^th and no admissible point), else UNDECIDED.
+    WIDE is decided on the VERIFIED points only: per ell, 'unverified_wide' records each column at r_c >= WIDE_R whose
+    verified top lies below its Pade singular depth (median of the three orders' nearest real singularity of C~, where
+    the three agree to 5%; the 10m scan cap otherwise), i.e. the depths at which this map cannot tell 'no admissible
+    point' from 'not verified'.
+    CONFIRMED compares an owner column's first rising sign change of w_r (x > 0) with the THROAT's y* (x -> 0); the
+    offset is the O(x) shift, which S10's extrapolation to x -> 0 removes.  The first build's w-agreement rule is
+    reported alongside as a diagnostic (n_adm_w, confirmed_w), never decisive."""
     adm = admissible(bank)
+    adm_w = admissible(bank, "adm_w")
     rows = {r_["e"]: r_ for r_ in table["rows"]}
     out = {}
     for es in bank["es"]:
@@ -810,7 +1129,7 @@ def decide(bank, table):
         A = adm[es]
         wide = [a for a in A if a[1] >= WIDE_R]
         ys_, yst = row["y_s"], row["y_star"]
-        d = {"y_s": ys_, "y_star": yst, "n_adm": len(A), "wide": wide[:5]}
+        d = {"y_s": ys_, "y_star": yst, "n_adm": len(A), "wide": wide[:5], "n_adm_w": len(adm_w[es])}
         if wide:
             d["class"] = "WIDE"
         elif yst is not None and yst < ys_:
@@ -819,17 +1138,32 @@ def decide(bank, table):
             d["class"] = "NONE"
         else:
             d["class"] = "UNDECIDED"
+        far = sorted([c for c in bank["columns"].values() if c["e"] == es and c["r"] >= WIDE_R], key=lambda c: c["r"])
+        unv = []
+        for c in far:
+            # the Pade singular depth only where the three orders agree on it (ys_stable); else the scan cap
+            ysing = min(float(np.median(c["ys"])), CAP) if (c["ys"] and c["ys_stable"]) else None
+            upper = ysing if ysing is not None else CAP
+            if upper > c["vtop"] + 1e-9:
+                unv.append((c["rc"], round(c["vtop"], 4), round(upper, 4), ysing is not None))
+        d["unverified_wide"] = unv
         near = [c for c in bank["columns"].values() if c["e"] == es and c["r"] < WIDE_R]
         d["not_reached"] = sorted([(c["rc"], round(c["vtop"], 4)) for c in near
                                    if yst is not None and c["vtop"] < yst], key=lambda v: Fr(v[0]))
-        conf = []
+        conf, conf_w = [], []
         for c in near:
             if c["r"] <= NEAR_R + 1e-12 and any(z["adm"] for z in c["rows"]) and yst:
                 edge = c["wr_zero"] if c["wr_zero"] is not None else min(z["y"] for z in c["rows"] if z["adm"])
                 conf.append((c["rc"], edge, abs(edge - yst) / yst))
+            if c["r"] <= NEAR_R + 1e-12 and any(z["adm_w"] for z in c["rows"]) and yst:
+                edge = min(z["y"] for z in c["rows"] if z["adm_w"])
+                conf_w.append((c["rc"], edge, abs(edge - yst) / yst))
         conf.sort(key=lambda v: v[2])
+        conf_w.sort(key=lambda v: v[2])
         d["confirm"] = conf
         d["confirmed"] = bool(conf and conf[0][2] <= CONFIRM_TOL)
+        d["confirm_against"] = "the throat's y* (x -> 0); the offset is the O(x) shift (S10's extrapolation removes it)"
+        d["confirmed_w"] = bool(conf_w and conf_w[0][2] <= CONFIRM_TOL)
         if yst is not None:
             d["regular"] = {str(f): bool(row["yK"][str(f)] is not None and yst < row["yK"][str(f)]) for f in KF}
             d["strict"] = bool(yst < ys_)
@@ -841,12 +1175,22 @@ def decide(bank, table):
 
 # ------------------------------------------------------------------------------------------------ S13 hand-off
 def delta_rows():
-    """s_slab = ell a(depth) <= -1 (S3); two-sided sigma_2/lambda_RS = (s_slab + s_outer)/2, so 139's -1/3 needs
-    s_outer >= +1/3 and stage 7 K5's -1/6 needs s_outer >= +2/3 (both positive: the outer side decays, K4)."""
+    """At any nearest point the slab side of a facing piece reads s_slab <= ell a(depth) <= -1, with equality for a
+    level surface (Lemma C: tr K(P2) >= -4 a(depth), the Hessian adding a non-negative trace; T4).  These s are in
+    units of sigma_RS at the slab's ell, which within one universe is ours: stage 7 K4's unit-ell_1 rows (in
+    multiplane.py M4's own unit, ell_2, the required s_outer differ; the unit, K4, and the image count, K5, stay put to
+    M).  Two-sided sigma_2/sigma_RS = (s_slab + s_outer)/2, so the -1/3 that 139 (1) said yes to (multiplane.py M4's
+    figure) needs s_outer >= +1/3 and stage 7 K5's -1/6 needs s_outer >= +2/3 (both positive: the outer side decays,
+    K4)."""
     s_slab = Fr(-1)
     need = {str(s2): 2 * s2 - s_slab for s2 in (Fr(-1, 3), Fr(-1, 6))}
-    rows = [("(0, 0 | 0)", "EMPTY (S3, T5c)"), ("(0, 0 | NEC)", "S12"), ("(0, 0 | NEC+WEC)", "ell >= ell_W only")]
-    return {"s_slab_max": s_slab, "s_outer_min": need, "rows": rows}
+    rows = [("(0, 0 | 0)", "EMPTY (S3, T5c; the down-the-throat member too)"),
+            ("(0, 0 | NEC)", "attained: the throat band (S12); down the throat: every depth (S7)"),
+            ("(0, 0 | NEC+WEC)", "attained: ell >= ell_W only; down the throat: ell > ell_W^class only")]
+    return {"s_slab_max": s_slab,
+            "s_slab_read": "s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down the throat)",
+            "unit": "sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows)",
+            "s_outer_min": need, "rows": rows}
 
 
 # For the next instrument, sim2_passage (escape E-PASS): anchors two judges reproduced in the design phase, kept internal
@@ -862,6 +1206,10 @@ ESCAPES = [
     ("E-PASS", "no second sheet; end 2 of our own plane reached through the horizon", "the next instrument, sim2_passage"),
     ("E-G", "global closure of P2", "phase 2b-i"),
     ("E-AN", "outside the analytic class", "open"),
+    ("E-Q", "quantum or semiclassical stress violating the pointwise NEC on P2 or in the slab",
+     "excluded only by H-NEC-NEVER-VIOLATED (117, 120)"),
+    ("E-FAR", "nearest approach reached only as r -> infinity, beyond r = 10m, or beyond a column's verified top",
+     "open; the lapse-gradient term must be kept (cf. S7, down_throat_class)"),
 ]
 
 
@@ -962,7 +1310,8 @@ def compute_live():
     """The fast exact parts the report prints live (seconds)."""
     return {"lead3": leading_coefficients("3", Fr(1, 2)), "lead215": leading_coefficients("43/20", Fr(1, 2)),
             "t5c": t5c(Fr(1)), "lemma_t": lemma_t(), "near": near_horizon(), "n": lemma_n(), "delta": delta_rows(),
-            "wproof": lemma_w_proof(4000)}
+            "wproof": lemma_w_proof(4000), "dt": {str(e): down_throat_class(e) for e in ES2},
+            "dt_wec": ell_w_class(), "depth0": {str(e): depth_zero(e) for e in ES2}}
 
 
 def report(bank, live):
@@ -981,7 +1330,9 @@ def report(bank, live):
     tc = live["t5c"]
     print("S3 T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= %s at every depth and ell; general "
           "bound s2 <= %s, which at s1 -> 1 is %s (the depth drops out).  DECIDED: under clause (B) two matter-free "
-          "pieces of our plane cannot face each other" % (tc["s2_max"], tc["general"], tc["at_s1_1"]))
+          "pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum Lambda_5), on the board's "
+          "H-Z2-PIECES and H-NEAREST-APPROACH; the down-the-throat member closes too (S7, umbilic).  Not closed by "
+          "this: E-PASS, E-NS, E-ROT (S14)" % (tc["s2_max"], tc["general"], tc["at_s1_1"]))
     wp = live["wproof"]
     print("S4 Lemma W (deduced): k_t I - k_spatial = diag(w) - H exactly: %s; %d NEC-obeying random samples, %d "
           "counterexamples to w >= 0" % (wp["exact"], wp["nec_samples"], wp["counterexamples"]))
@@ -991,37 +1342,106 @@ def report(bank, live):
     nh = live["near"]
     print("S6 near horizon: R^a_b(r = 2m) = %s; F ~ %s x, H ~ %s x^2; AdS2 curvature %s (radius 2m), S2 radius %s"
           % (nh["R_mixed"], nh["F_lead"], nh["H_lead"], nh["AdS2_R"], nh["S2_radius"]))
-    print("S7/S8 the throat bulk (ODE; rho_m in nu/m, level set; K_bs = b4d_stage5.k_bs(e, 2, y)):")
+    print("S7/S8 the throat bulk (ODE; the band [y*, y_s^th) for an ATTAINED nearest point, at first order in x; rho_m in "
+          "nu/m, level set; K_bs = b4d_stage5.k_bs(e, 2, y); the constraint on the zeroth-order solve; x_O1 = the largest "
+          "x = r - 2m with x max(|a1|,|b1|,|c1|) <= %g, at y* and at the band's midpoint; the depth of a nearest point is "
+          "the two pieces' bulk separation there, and these depths are reported only as where facing can occur):"
+          % O1_BOUND)
     print("   ell    y_s^th   y*      y*/y_s  y_K(10/30/100)          K(y*)/K_bs  rho_m(y*) nu/m  (sigma_RS)  "
-          "w_th min   a~ max    constraint")
+          "x_O1(y*)  x_O1(mid)  min w_th/y  max a~/y^3  constraint")
     for r_ in T["rows"]:
         yk = r_["yK"]
-        print("   %-5s  %.4f   %s  %s   %s  %10.3g  %+9.4f  %10s  %.2e  %+.1e  %.0e" % (
+        print("   %-5s  %.4f   %s  %s   %s  %10.3g  %+9.4f  %10s  %8s  %9s  %10.4f  %+10.5f  %.0e" % (
             _ell(r_["e"]), r_["y_s"], "%.4f" % r_["y_star"] if r_["y_star"] else "none  ",
             "%.3f" % r_["frac"] if r_["frac"] else "  -  ",
             " / ".join("%.3f" % yk[str(f)] if yk[str(f)] else "  -  " for f in KF), r_["K_ratio"] or float("nan"),
             r_["rho_m"] if r_["rho_m"] is not None else float("nan"),
-            "" if r_["rho_m_rs"] is None else "(%+.3f)" % r_["rho_m_rs"], r_["w_th_min"], r_["at_max"],
-            r_["cons_rel"]))
+            "" if r_["rho_m_rs"] is None else "(%+.3f)" % r_["rho_m_rs"],
+            "%.1e" % r_["x_O1_ystar"] if r_.get("x_O1_ystar") else "-",
+            "%.1e" % r_["x_O1_mid"] if r_.get("x_O1_mid") else "-",
+            r_["w_th_over_y_min"], r_["at_over_y3_max"], r_["cons_rel"]))
+    print("   w_th > 0 and a~ < 0 on all %d points of (0, y_end) at every ell: %s" % (
+        T["rows"][0]["n_grid"], all(r_["w_th_pos_all"] and r_["at_neg_all"] for r_ in T["rows"])))
     print("   WEC in the band (rho_m(y*) >= 0): ell >= ell_W = %.2fm (e <= %.6f); maximum over the band gives %.2fm"
           % (T["ell_W"], T["e_W"], T["ell_W_band"]))
+    lar = []
+    for r_ in T["rows"]:
+        ls_ = r_.get("level_set")
+        if ls_ is None:
+            continue
+        a_ = ls_["rho"] / 3 - ls_["rho_plus_pth"] / 6        # a = (p + q)/2 from rho = p + 2q, rho + p_th = q - p
+        ef_ = float(Fr(r_["e"]))
+        lar.append("%s %+.2f" % (_ell(r_["e"]), a_ / ef_) if ef_ else "inf a(y*) = %+.4f/m (sigma_RS -> 0: no ratio)" % a_)
+    print("   on H-LAW-READ-BY-TRACE a facing piece at depth >= y* reads s <= ell a(depth) <= ell a(y*) (a is non-increasing,"
+          " T4): %s -- a law not ours; on H-SPLIT-AT-OUR-TENSION the tension is ours and the rest is the README's"
+          % ", ".join(lar))
     print("   the band's shallow edge below f K_bs: f = 10 %s; f = 30 for ell > %s; f = 100 for ell > %s" % (
         "never (flat: y* - y_K(10) = %+.3f m)" % T["edge_minus_yK10_flat"] if T["ell_c"]["10"] is None
         else "for ell > %.2fm" % T["ell_c"]["10"],
         "%.2fm" % T["ell_c"]["30"] if T["ell_c"]["30"] else "never", "%.2fm" % T["ell_c"]["100"] if T["ell_c"]["100"]
         else "never"))
-    print("S9 the map (order 32, %d columns, raw Pade, %d verified points; the w-agreement removed %d value-verified "
-          "points):" % (len(bank["columns"]), ms["n_ver"], ms["removed_by_w"]))
-    print("   columns at r >= 2.05m or ell <= 2m: %d verified points; w_r < 0 at %d, w_th > 0 at %d, a~ < 0 at %d" % (
-        ms["n_far"], ms["far_wr_neg"], ms["far_wth_pos"], ms["far_at_neg"]))
-    print("   over every verified point: max a~ %.2e, min w_th %.2e; columns with some verified w_r >= 0: %s" % (
-        ms["at_max"], ms["wth_min"], ", ".join("%s@%s" % (rc, _ell(es)) for rc, es in ms["wr_pos_cols"])))
+    DT = live["dt"]
+    print("S7 down the throat (computed; corrected): radial NEC along y = depth + f(u), u = ln x: f'' - f'/2 <= alpha^2 "
+          "x W1(depth) (f'/2: the lapse-gradient term the first build dropped).  f = %g x^lam, lam = %s, exact NEC over "
+          "the throat fields at depths %s y_s^th, x = 1e-14 .. min(1e-3, x_O1):" % (
+              DT_C, "/".join("%g" % v for v in DT_LAMS), "/".join("%g" % v for v in DT_FRACS)))
+    for es in bank["es"]:
+        d = DT[es]
+        print("   ell = %-5s %d samples, %d below the crossover x_c/2: radial and angular NEC hold there %s; failures %d, "
+              "all above x_c/2 %s (first failure at %s x_c); leading order to %.1e at x <= 1e-8; control lam = %g fails "
+              "at every depth %s; the first build's f'' <= alpha^2 x W1 excludes %d/%d sampled depths below y*; umbilic "
+              "member: k_t - k_th -> w_th(depth) to %.0e, k_t - k_x -> 0 to %.0e: closes %s%s" % (
+                  _ell(es), d["n"], d["n_below_xc"], d["nec_holds"], d["n_fail"], d["fails_only_above_xc"],
+                  "-" if not d["fail_over_xc"] else "%.1f-%.1f" % tuple(d["fail_over_xc"]), d["lead_dev"],
+                  DT_LAM_CONTROL, d["control_fails"], d["old_excludes_below_ystar"], d["n_below_ystar"],
+                  d["umbilic_ratio_dev"], d["umbilic_radial_dev"], d["umbilic_closes"],
+                  "" if d["ell_a_max"] is None else "; its trace reads ell a(depth) <= %.6f" % d["ell_a_max"]))
+    print("   so in this class (the nearest approach never attained: a degenerate horizon, at infinite proper distance in "
+          "the static slice) the NEC sets no lower edge: it holds at every sampled depth, %g to %g y_s^th, at every ell "
+          "-- including depths shallower than y_K(10), where K < 10 K_bs" % (min(DT_FRACS), max(DT_FRACS)))
+    cw = live["dt_wec"]
+    print("   positive energy in the class (the limiting level-set rho_m, maximised over every depth in (0, y_s^th)): "
+          "ell > ell_W^class = %.2fm (e < %.7f), best depth %.3f y_s^th (%.3f y*), K/K_bs %.2f there; at ell = inf the "
+          "best is %+.4f nu/m at %.3f y_s^th (attained band: ell >= ell_W = %.2fm)" % (
+              cw["ell"], cw["e"], cw["frac_ys"], cw["frac_ystar"], cw["K_ratio"], cw["flat"]["rho_m_max"],
+              cw["flat"]["frac_ys"], T["ell_W"]))
+    d0 = live["depth0"]
+    print("   depth -> 0 (H-COINCIDE-AS-LIMIT; never reached at a point of the static region): the limiting stress reads "
+          "rho_m/sigma_RS = %s at every finite ell (deduced: p = q = -1/ell at y = 0); K/K_bs = 2(80 e^4 + 3)/(160 e^4 + 3)"
+          " = %s (ell = inf .. m/4), max deviation from the closed form %.0e" % (
+              ", ".join(sorted({"%+.6f" % v["rho_m_rs"] for v in d0.values() if v["rho_m_rs"] is not None})),
+              "/".join("%.3f" % d0[es]["K_ratio"] for es in bank["es"]),
+              max(abs(v["K_ratio"] - v["K_closed"]) for v in d0.values())))
+    print("S9 the map (order 32, %d columns, raw Pade; verified = b4_static S3's value rule; admissible = verified, the two "
+          "orders agree on the signs of w_r and w_th, both >= 0): %d verified points, %d with the sign of w_r and w_th "
+          "settled, %d admissible" % (len(bank["columns"]), ms["n_ver"], ms["n_ver_settled"], ms["n_adm"]))
+    print("   columns at r >= 2.05m or ell <= 2m: %d verified points (%d sign-settled); w_r < 0 at %d and >= 0 at %d of "
+          "the sign-settled; w_th > 0 at %d, a~ < 0 at %d of the verified; sign-settled w_r >= 0 there: %s" % (
+              ms["n_far"], ms["n_far_settled"], ms["far_wr_neg"], ms["far_wr_pos"], ms["far_wth_pos"], ms["far_at_neg"],
+              ", ".join("%s@%s" % (rc, _ell(es)) for rc, es in ms["far_wr_pos_cols"]) or "none"))
+    print("   over every verified point: max a~ %.2e, min w_th %.2e; columns with some verified, sign-settled w_r >= 0: "
+          "%s" % (ms["at_max"], ms["wth_min"], ", ".join("%s@%s" % (rc, _ell(es)) for rc, es in ms["wr_pos_cols"])))
+    print("   verified points with w_th <= 0 (%d; w_r < 0 at all of them: %s): %s" % (
+        len(ms["wth_nonpos"]), all(v[5] < 0 for v in ms["wth_nonpos"]),
+        "; ".join("%s@%s y = %.3f: w_th %+.2e%s" % (rc, _ell(es), y, w, "" if s else " (sign unsettled)")
+                  for rc, es, y, w, s, _ in ms["wth_nonpos"]) or "none"))
+    print("   diagnostic, the first build's w-agreement rule (1e-6 + 1e-3|w|, never decisive): it fails at %d verified "
+          "points; as a prefix it would keep %d verified and %d admissible points" % (
+              ms["w_disagree"], ms["n_ver_w"], ms["n_adm_w"]))
     for es in bank["es"]:
         cs = [bank["columns"]["%s|%s" % (rc, es)] for rc in ("401/200", "201/100", "101/50")]
-        print("   ell = %-5s r = 2.005/2.01/2.02m: verified top %s; w_r changes sign at %s; y_s(C~) %s" % (
-            _ell(es), "/".join("%.3f" % c["vtop"] for c in cs),
-            "/".join("%.3f" % c["wr_zero"] if c["wr_zero"] else "-" for c in cs),
+        print("   ell = %-5s r = 2.005/2.01/2.02m: verified top %s (w-rule %s); w_r changes sign at %s; y_s(C~) %s" % (
+            _ell(es), "/".join("%.3f" % c["vtop"] for c in cs), "/".join("%.3f" % c["vtop_w"] for c in cs),
+            "/".join(",".join("%.3f(%s)" % (z, "+" if sg > 0 else "-") for z, sg in c["wr_zeros"]) or "-" for c in cs),
             "/".join("%.3f" % float(np.median(c["ys"])) if c["ys"] else "-" for c in cs)))
+    farz = sorted([c for c in bank["columns"].values() if c["r"] > NEAR_R + 1e-12 and c["wr_zeros"]],
+                  key=lambda c: (Fr(c["e"]), c["r"]))
+    if farz:
+        print("   sign changes of w_r at r > 2.02m (verified, sign-settled): %s" % "; ".join(
+            "%s@%s %s" % (c["rc"], _ell(c["e"]), ",".join("%.3f(%s)" % (z, "+" if sg > 0 else "-")
+                                                       for z, sg in c["wr_zeros"])) for c in farz))
+    print("   orders: stage 5's at ell < inf; at ell = inf %s (three distinct approximants of the even series)" % (
+        bank["columns"]["401/200|0"].get("orders")))
     print("   K/K_bs at the shallowest admissible point (two Pade orders, b4d_stage5.evaluator):")
     for es in bank["es"]:
         pts = sorted([(c["r"], c["rc"], k) for c in bank["columns"].values() if c["e"] == es and c["kk"]
@@ -1045,26 +1465,38 @@ def report(bank, live):
     nl = live["n"]
     print("S11 Lemma N (sympy): Gamma^y_ab = -(1/2) d_y g_ab: %s; y'' - w_r B r'^2 = %s; warped products w = %s" % (
         nl["connection"], nl["ray"], nl["warped_w"]))
-    print("S12 decision:")
+    print("S12 decision, for ATTAINED nearest points (WIDE on the verified points only; CONFIRMED against the throat's y* "
+          "(x -> 0), the offset being the O(x) shift; the down-the-throat class has no lower edge, S7):")
     for es in bank["es"]:
         d = dec[es]
         line = "   ell = %-5s %s" % (_ell(es), d["class"])
         if d["class"] == "THROAT-BAND":
             cf = d["confirm"][0] if d["confirm"] else None
             line += (" %s%s; regular at 10/30/100 K_bs: %s (strict y < y_s: %s; settled: %s); WEC: %s; admissible "
-                     "points %d" % ("CONFIRMED" if d["confirmed"] else "EXPANSION-ONLY",
-                                    " (%s, edge %.4f vs y* %.4f, %.1f%%)" % (cf[0], cf[1], d["y_star"], 100 * cf[2])
-                                    if cf else "", "/".join("yes" if d["regular"][str(f)] else "no" for f in KF),
-                                    d["strict"], d["settled"], "yes" if d["wec"] else "no", d["n_adm"]))
+                     "points %d (w-rule diagnostic: %d, %s)" % (
+                         "CONFIRMED" if d["confirmed"] else "EXPANSION-ONLY",
+                         " (%s, sign change %.4f vs the throat's y* %.4f: %.1f%%, the O(x) shift)"
+                         % (cf[0], cf[1], d["y_star"], 100 * cf[2]) if cf else "",
+                         "/".join("yes" if d["regular"][str(f)] else "no" for f in KF), d["strict"], d["settled"],
+                         "yes" if d["wec"] else "no", d["n_adm"], d["n_adm_w"],
+                         "CONFIRMED" if d["confirmed_w"] else "EXPANSION-ONLY"))
             if d["not_reached"]:
                 line += "; not reached: %s" % ", ".join("%s (top %.3f)" % v for v in d["not_reached"])
         print(line)
+        if d["unverified_wide"]:
+            print("      not verified at r >= %gm (depths from the verified top to the Pade singular depth where the three "
+                  "orders agree, else to the %gm cap (*); where facing is unchecked): %s" % (
+                      WIDE_R, CAP, ", ".join("%s %.3f-%.3f%s" % (v[:3] + ("" if v[3] else "*",))
+                                             for v in d["unverified_wide"])))
     dl = live["delta"]
-    print("S13 hand-off: s_slab <= %s; s_outer needed: %s (both > 0: the outer side decays, stage 7 K4); rows: %s" % (
-        dl["s_slab_max"], ", ".join("%s -> >= %s" % kv for kv in dl["s_outer_min"].items()),
-        "; ".join("%s %s" % r_ for r_ in dl["rows"])))
+    print("S13 hand-off: %s, in units of %s; s_outer needed: %s (both > 0: the outer side decays, stage 7 K4; the unit, "
+          "K4, and the image count, K5, stay put to M); rows: %s" % (
+              dl["s_slab_read"], dl["unit"], ", ".join("%s -> >= %s" % kv for kv in dl["s_outer_min"].items()),
+              "; ".join("%s %s" % r_ for r_ in dl["rows"])))
     print("S14 escapes: %s" % "; ".join("%s (%s): %s" % e_ for e_ in ESCAPES))
-    print("   No length, distance, time, redshift or speed is computed (155/R4, 101 (7), 139 (4)).")
+    print("   The depth of a nearest point is the two pieces' bulk separation there: it is reported only as where facing can "
+          "occur, never as the corridor's length (bits: 155 (2), R4c) or as anything the device sees (101 (7)); no "
+          "time, redshift or speed is computed (139 (4)).")
     return dec
 
 
@@ -1073,6 +1505,7 @@ PIN = {  # this instrument's own computed values (C13), pinned at its first rege
     "0": {"y_s": 2.55355, "y_star": 1.79006, "K_ratio": 18.3},
     "1": {"y_s": 0.91386, "y_star": 0.88119, "K_ratio": 2.69e4},
     "ell_W": 49.86, "ell_c30": 21.05,
+    "ell_W_class": 27.07,   # added after the adjudication (down-the-throat class; its scratch gave 27.0665m)
 }
 
 
@@ -1090,16 +1523,18 @@ def selftest():
     # C1
     e = sp.Symbol("e", positive=True)
     rho1, _ = israel([-e] * 4)
-    rhoL, _ = israel([+e] * 4)
-    rhoM, _ = israel([-e] * 4)
+    KL, KM = level_set_k(e, -1), level_set_k(e, +1)
+    rhoL, _ = israel(KL)
+    rhoM, _ = israel(KM)
     rhoT, _ = israel([-e] * 4, trace_from=1)
     s1 = sp.simplify(rho1 / (3 * e))
     sL = sp.simplify(rhoL / (3 * e))
     sM = sp.simplify(rhoM / (3 * e))
     sT = sp.simplify(rhoT / (3 * e))
     chk("C1 Israel calibration: P1 (n = +d_y, K = -h/ell) reads s = %s = b4d_stage6.sigma_over_rs(-e,-e,e) = %s; an RS2 "
-        "level set read with n = -d_y reads s = %s (RS1's negative sheet); mutations: n = +d_y gives %s, failing RS1; "
-        "the trace over the spatial part only gives P1 s = %s" % (s1, S6.sigma_over_rs(-e, -e, e), sL, sM, sT),
+        "level set, K = %s from the warp e^(-2eY) with n = -d_y, reads s = %s (RS1's negative sheet); mutations: the "
+        "same level set read with n = +d_y (K = %s) gives %s, failing RS1; the trace over the spatial part only gives "
+        "P1 s = %s" % (s1, S6.sigma_over_rs(-e, -e, e), KL[0], sL, KM[0], sM, sT),
         s1 == 1 and S6.sigma_over_rs(-e, -e, e) == 1 and sL == -1 and sM != -1 and sT != 1)
     # C2
     kt, kr, kq, kp, c, nu = sp.symbols("k_t k_r k_q k_p c nu", real=True)
@@ -1112,9 +1547,10 @@ def selftest():
     li_t = [sp.simplify(rho_t + ps_t[i] - nu * (kt - [kr, kq, kp][i])) for i in range(3)]
     wp = lemma_w_proof()
     wf = lemma_w_proof(flip=True)
-    chk("C2 local Israel lemma: rho + p_i - nu (k_t - k_i) = %s for any added tension c; mutation (the two-sided factor "
-        "nu/2) leaves %s; the trace drops out of rho + p_i (a trace error leaves %s, so C1 catches it); Lemma W's step "
-        "exact (%s), %d NEC samples with %d counterexamples, and the reversed comparison produces %d"
+    chk("C2 local Israel lemma (identity, algebraic by construction: rho + p_i - nu (k_t - k_i) = %s for any added "
+        "tension c); mutation (the two-sided factor nu/2) leaves %s; identity: the trace drops out of rho + p_i (a trace "
+        "error leaves %s, so C1 catches it); Lemma W's step exact (identity: %s), %d NEC samples with %d "
+        "counterexamples, and the reversed comparison produces %d"
         % (li, li_m[0], li_t[0], wp["exact"], wp["nec_samples"], wp["counterexamples"], wf["counterexamples"]),
         all(v == 0 for v in li) and any(v != 0 for v in li_m) and all(v == 0 for v in li_t) and wp["exact"]
         and wp["counterexamples"] == 0 and wp["nec_samples"] > 100 and wf["counterexamples"] > 0)
@@ -1173,8 +1609,8 @@ def selftest():
     scm = V[2]**2 + V[3]**2 + 1 / (4 * V[0]**2) + 1 / (4 * V[1]**2) + 1.5
     mutc = float(np.max(np.abs(consm) / scm))
     chk("C7 throat ODEs from a sympy 5D Ricci: p', q' residuals %s, %s; xx = tt (%s), phph = thth (%s); constraint = "
-        "%s x coded; R_yx = %s; K_th residual %s; constraint held to %.1e relative below 0.95 y_s (ell = inf, 2m, m, "
-        "m/4); mutation (S2 curvature flipped): coded q' residual %s, constraint %.2f relative"
+        "%s x coded; R_yx = %s; K_th residual %s; constraint held to %.1e relative below 0.95 y_s on the zeroth-order "
+        "solve (ell = inf, 2m, m, m/4); mutation (S2 curvature flipped): coded q' residual %s, constraint %.2f relative"
         % (te["P"], te["Q"], te["xx_tt"], te["ph_th"], te["constraint_ratio"], te["yx"], te["K"],
            max(r_["cons_rel"] for r_ in rows_all), tm["Q"], mutc),
         te["P"] == 0 and te["Q"] == 0 and te["xx_tt"] == 0 and te["ph_th"] == 0 and te["constraint_ratio"] == 2
@@ -1211,10 +1647,10 @@ def selftest():
     r005 = [v for y in tv["rel"]["401/200"] for v in tv["rel"]["401/200"][y]]
     r01 = [v for y in tv["rel"]["201/100"] for v in tv["rel"]["201/100"][y]]
     chk("C9 throat against owner (ell = 2m, N = 20, y = 0.13 and 0.26): w_th, a~ within %.1f%% of the ODE at r = 2.005m "
-        "and %.1f%% at 2.01m; the gap is linear in x (ratio %s), and the x -> 0 extrapolation 2 own(2.005) - own(2.01) "
-        "meets the ODE to %.2f%%" % (100 * max(r005), 100 * max(r01), ", ".join("%.3f" % v for v in ratios),
-                                     100 * max(rich)),
-        max(r005) < 0.04 and all(abs(v - 2) <= 0.3 for v in ratios) and max(rich) < 0.005)
+        "(a loose 5%% bound: the ratio and the extrapolation clauses carry the check) and %.1f%% at 2.01m; the gap is "
+        "linear in x (ratio %s, 2 +- 0.3), and the x -> 0 extrapolation 2 own(2.005) - own(2.01) meets the ODE to "
+        "%.2f%% (< 0.5%%)" % (100 * max(r005), 100 * max(r01), ", ".join("%.3f" % v for v in ratios), 100 * max(rich)),
+        max(r005) < 0.05 and all(abs(v - 2) <= 0.3 for v in ratios) and max(rich) < 0.005)
     chk("C10 W1(1.088) = %.4f against w_r(2.005m)/0.005 = %.4f (flat, N = 24): %.2f%%"
         % (tv["W1"], tv["wr_over_x"], 100 * abs(tv["wr_over_x"] / tv["W1"] - 1)),
         abs(tv["wr_over_x"] / tv["W1"] - 1) < 0.02)
@@ -1223,30 +1659,41 @@ def selftest():
     wd = wedge()
     wm = wedge("sinh")
     chk("C11 exact controls: Schwarzschild data (ell = m) terminate %s, w_r = w_th = a~ = 0 exactly %s; the AdS4-sliced "
-        "wedge is Einstein (%s), a = %s, s1 = %s, s2 = %s, equal %s, T5 bound gap %.1e; mutation sinh warp: Einstein "
-        "residuals %s" % (sc["terminates"], sc["w_r"] and sc["w_th"] and sc["at"], all(v == 0 for v in wd["einstein"]),
-                          wd["a"], wd["s1"], wd["s2"], wd["equal"], wd["bound_gap"],
-                          [v for v in wm["einstein"] if v != 0][:1]),
+        "wedge is Einstein (%s), a = %s, s1 = %s, s2 = %s, identity: equal %s (the reflection symmetry gives s2 = s1 for "
+        "either warp; the sinh warp gives %s too), T5 bound gap %.1e; mutation sinh warp: caught by the Einstein "
+        "residuals only, %s" % (sc["terminates"], sc["w_r"] and sc["w_th"] and sc["at"],
+                                all(v == 0 for v in wd["einstein"]), wd["a"], wd["s1"], wd["s2"], wd["equal"],
+                                wm["equal"], wd["bound_gap"], [v for v in wm["einstein"] if v != 0][:1]),
         sc["terminates"] and sc["w_r"] and sc["w_th"] and sc["at"] and all(v == 0 for v in wd["einstein"])
         and wd["equal"] and wd["bound_gap"] < 1e-14 and any(v != 0 for v in wm["einstein"]))
     # C12
     ln = lemma_n()
     lm = lemma_n(sign=+1)
-    chk("C12 Lemma N: Gamma^y_ab = -(1/2) d_y g_ab %s; y'' - w_r B r'^2 = %s; warped products w = %s; mutation (+1/2) "
-        "connection %s, ray residual nonzero %s" % (ln["connection"], ln["ray"], ln["warped_w"], lm["connection"],
-                                                   lm["ray"] != 0),
+    chk("C12 Lemma N: Gamma^y_ab = -(1/2) d_y g_ab %s; y'' - w_r B r'^2 = %s; identity: warped products w = %s (the "
+        "three components share one factor e^(2f)); mutation (+1/2) connection %s, ray residual nonzero %s" % (
+            ln["connection"], ln["ray"], ln["warped_w"], lm["connection"], lm["ray"] != 0),
         ln["connection"] and ln["ray"] == 0 and ln["warped_w"] == [0, 0] and not lm["connection"] and lm["ray"] != 0)
-    # C13
-    lw, _ = ell_w()
-    lc30, _ = ell_c(30)
-    r0_, r1_ = rows01["0"], rows01["1"]
-    chk("C13 S8's table: ell = inf y_s %.5f, y* %.5f, K(y*)/K_bs %.3g; ell = m y_s %.5f, y* %.5f, K %.3g; ell_W = %.2fm; "
-        "ell_c(30) = %.2fm (pinned: %s)" % (r0_["y_s"], r0_["y_star"], r0_["K_ratio"], r1_["y_s"], r1_["y_star"],
-                                           r1_["K_ratio"], lw, lc30, PIN),
-        abs(r0_["y_s"] - PIN["0"]["y_s"]) < 2e-5 and abs(r0_["y_star"] - PIN["0"]["y_star"]) < 2e-5
-        and abs(r0_["K_ratio"] / PIN["0"]["K_ratio"] - 1) < 5e-3 and abs(r1_["y_s"] - PIN["1"]["y_s"]) < 2e-5
-        and abs(r1_["y_star"] - PIN["1"]["y_star"]) < 2e-5 and abs(r1_["K_ratio"] / PIN["1"]["K_ratio"] - 1) < 5e-3
-        and abs(lw - PIN["ell_W"]) <= 0.05 and abs(lc30 - PIN["ell_c30"]) <= 0.05)
+    # C13 (robust: a mutation that leaves W1 without a zero gives y* = None and nan thresholds -> FAIL, never a crash)
+    nan = float("nan")
+    try:
+        lw, _ = ell_w()
+        lc30, _ = ell_c(30)
+        lw = nan if lw is None else float(lw)
+        lc30 = nan if lc30 is None else float(lc30)
+        r0_, r1_ = rows01["0"], rows01["1"]
+        have = r0_["y_star"] is not None and r1_["y_star"] is not None
+        g_ = lambda r_, k: nan if r_[k] is None else float(r_[k])
+        vals = (g_(r0_, "y_s"), g_(r0_, "y_star"), g_(r0_, "K_ratio"), g_(r1_, "y_s"), g_(r1_, "y_star"),
+                g_(r1_, "K_ratio"), lw, lc30)
+        c13 = (have and abs(vals[0] - PIN["0"]["y_s"]) < 2e-5 and abs(vals[1] - PIN["0"]["y_star"]) < 2e-5
+               and abs(vals[2] / PIN["0"]["K_ratio"] - 1) < 5e-3 and abs(vals[3] - PIN["1"]["y_s"]) < 2e-5
+               and abs(vals[4] - PIN["1"]["y_star"]) < 2e-5 and abs(vals[5] / PIN["1"]["K_ratio"] - 1) < 5e-3
+               and abs(lw - PIN["ell_W"]) <= 0.05 and abs(lc30 - PIN["ell_c30"]) <= 0.05)
+        msg = ("C13 S8's table: ell = inf y_s %.5f, y* %.5f, K(y*)/K_bs %.3g; ell = m y_s %.5f, y* %.5f, K %.3g; "
+               "ell_W = %.2fm; ell_c(30) = %.2fm (pinned: %s)" % (vals + (PIN,)))
+    except Exception as exc:                                   # report, never crash (C14 must still run)
+        c13, msg = False, "C13 S8's table: raised %s: %s" % (type(exc).__name__, exc)
+    chk(msg, bool(c13))
     # C14
     g = address_guard()
 
@@ -1258,6 +1705,29 @@ def selftest():
             g["n_funcs"], g["bad_args"] or "none", g["n_keys"], g["bad_keys"] or "none", gm_["bad_args"],
             gm_["bad_keys"]),
         not g["bad_args"] and not g["bad_keys"] and g["n_keys"] > 10 and gm_["bad_args"] and gm_["bad_keys"])
+    # C15
+    dts = [down_throat_class(Fr(es)) for es in ("0", "1")]
+    try:
+        cw = ell_w_class()
+    except Exception as exc:                                   # report, never crash
+        cw = {"ell": float("nan"), "err": "%s: %s" % (type(exc).__name__, exc)}
+    cw_ok = math.isfinite(cw["ell"]) and abs(cw["ell"] - PIN["ell_W_class"]) <= 0.05 and cw["ell"] < PIN["ell_W"]
+    chk("C15 down the throat (S7, corrected): f = %g x^lam (lam %s) over the throat fields at ell = inf and m: exact radial "
+        "and angular NEC hold at all %s samples below the crossover x_c/2, failures (%s) only above x_c/2 %s; leading "
+        "order f'' - f'/2 <= alpha^2 x W1 to %s at x <= 1e-8; mutation-like controls: lam = 3/4 violates the radial NEC "
+        "at every depth %s, and the first build's f'' <= alpha^2 x W1 (lapse term dropped) excludes every sampled depth "
+        "below y* (%s of %s); the umbilic member: k_t - k_th -> w_th(depth) to %s, closes %s; its trace at ell = m reads "
+        "ell a(depth) <= %.6f; positive energy in the class needs ell > %.2fm (pinned %.2f, below ell_W %.2f)" % (
+            DT_C, "/".join("%g" % v for v in DT_LAMS), "/".join(str(d_["n_below_xc"]) for d_ in dts),
+            "/".join(str(d_["n_fail"]) for d_ in dts), all(d_["fails_only_above_xc"] for d_ in dts),
+            "/".join("%.1e" % d_["lead_dev"] for d_ in dts), all(d_["control_fails"] for d_ in dts),
+            "/".join(str(d_["old_excludes_below_ystar"]) for d_ in dts), "/".join(str(d_["n_below_ystar"]) for d_ in dts),
+            "/".join("%.0e" % d_["umbilic_ratio_dev"] for d_ in dts), all(d_["umbilic_closes"] for d_ in dts),
+            dts[1]["ell_a_max"], cw["ell"], PIN["ell_W_class"], PIN["ell_W"]),
+        cw_ok and all(d_["nec_holds"] and d_["fails_only_above_xc"] and d_["control_fails"] and d_["umbilic_closes"]
+            and d_["n_below_xc"] > 100 and d_["lead_dev"] < 0.05
+            and d_["old_excludes_below_ystar"] == d_["n_below_ystar"] > 0 for d_ in dts)
+        and dts[1]["ell_a_max"] <= -1 + 1e-9)
     print("selftest: %d/%d (%.0f s)" % (ok, n, time.monotonic() - t0))
     return ok == n
 
