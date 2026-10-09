@@ -90,6 +90,35 @@ the corridor is held fixed: a residual net flux delta S along a generator bends 
 the affine parameter (Lemma K), and a growing section gives R(xi,xi) != 0 (C18's growth mutation).  Lemma S says
 nothing about a corridor that changes; that case is E-NS (Lemma L, elsewhere).
 
+READS (verbatim; read by this build on 2026-10-09 from the page text of arXiv gr-qc/9910076v3 served by the alphaXiv
+connector -- a direct arXiv fetch was refused by the egress proxy; PDF pages as served):
+  SMS PDF p.2, eq. (3): "Contracting the Gauss equation (1) on alpha and gamma, we find (4)R_mu nu = (5)R_rho sigma
+      q^rho_mu q^sigma_nu - (5)R^alpha_beta gamma delta n_alpha q^beta_mu n^gamma q^delta_nu + K K_mu nu -
+      K^alpha_mu K_nu alpha. (3)"  (contracted with a null k tangent to the sheet: the C15 form.)
+  SMS PDF p.3, eq. (20): "pi_mu nu = - 1/4 tau_mu alpha tau^alpha_nu + 1/12 tau tau_mu nu + 1/8 q_mu nu tau_alpha beta
+      tau^alpha beta - 1/24 q_mu nu tau^2"; eq. (17): "(4)G_mu nu = -Lambda_4 q_mu nu + 8 pi G_N tau_mu nu +
+      kappa^4_5 pi_mu nu - E_mu nu"  (SMS's own eq. (17), never the board's eq. (17) metric).
+  SMS PDF p.6, eq. (A8): "E~_mu nu = (5)R_mu alpha nu beta n^alpha n^beta = -Lie_n K_mu nu + K_mu alpha K^alpha_nu";
+      eq. (A10), first line: "E_mu nu = E~_mu nu - 1/3 q_mu nu (5)R_alpha beta n^alpha n^beta - 1/3 q^alpha_mu
+      q^beta_nu (5)R_alpha beta + 1/12 q_mu nu (5)R".
+  standard-not-READ: R(xi,xi) = 0 on a Killing horizon (computed here for the families named); geodesic generators of
+  a C^2 null hypersurface; the Raychaudhuri equation.
+
+CROSS-CHECK (by this build, Wolfram 15.0.1 through the connector, 2026-10-09; not re-run by this module): C15's
+R(k,n,k,n) = 0.3124288156984969, residual 0, sign-flipped -0.6248576313969938, quadratic-dropped -0.1075040888002711;
+C18/C18b on the witness stand-ins: clean 0, 0, 0; v-dependence R(xi,xi) = -0.003033721637192139, E~ =
+0.004499538106600371, E = 0.005510778652331084; angular growth R(xi,xi) = 0.004712979545668772, E~ = 0; depth growth
+E~ = 0.002356489772834386, E = 0.001570993181889591.  All agree with the sympy witnesses to 15 significant digits.
+
+DEPARTURES FROM THE SPEC.  (1) C19's "leaves y >= 0 if and only if S_vv != 0" is corrected: the tangent geodesic
+leaves the SHEET iff S_vv != 0; it leaves the kept side y >= 0 iff S_vv > 0; S_vv < 0 sends it into the bulk (y > 0),
+which is the separation branch of Lemma K.  (2) Added checks: C18b (X13 (c) on the general bulk), C18c (X13 (c) on the
+board's eq. (17) data), C19b (the pair ledger through Lemma K; its exact-pair net = 0 holds by construction of the
+exact pair and is not a finding -- its content is that a 1e-6 imperfection and the README alone are detected), CG
+(guards).  (3) C18 carries a second mutation, a section growing along v (162).  (4) A symbolic zero is accepted only
+with a numeric witness < 1e-12 on concrete stand-in functions; a nonzero witness is the certificate that a mutation
+really is nonzero.
+
 OWNERS IMPORTED BY PATH, NEVER COPIED: lemmas/sim2_facing.py (BANNED_ARGS, BANNED_KEYS, B4._eq17 = b4_static's eq. (17)
 data, lemma_n for the cross-reference of Lemma N's connection).  BANNED_KEYS of lemmas/sim2_passage.py are read from
 its source text with ast (that file is being edited by another run, so it is parsed, never executed).
@@ -343,7 +372,8 @@ def _eq17_ingoing(data=None, grow=0):
 @functools.lru_cache(maxsize=None)
 def weyl_eq17(u_at=0, grow=0):
     """X13 (c) on eq. (17)'s data [PLANE]: R4(xi,xi) of eq. (17) at u = u_at in the ingoing chart (xi = d_v); u_at = 0
-    is the horizon r = 2m.  With SMS eq. (17) contracted with null xi (Lambda_4 drops):
+    is the horizon r = 2m.  With SMS's own eq. (17) (the effective equation, READ PDF p.3; not the board's eq. (17)
+    metric) contracted with null xi (Lambda_4 drops):
     E(xi,xi) = 8 pi G tau(xi,xi) + kappa^4 pi(xi,xi) - R4(xi,xi); the held stress terms are horizon_stress_eq17's."""
     u_at = sp.sympify(u_at)
     g, X4, F = _eq17_ingoing(grow=grow)
@@ -534,7 +564,7 @@ def deflection_numeric(S_vv, nu=1, israel_sign=1, lam_end=1.0):
     mutation), from y = u = 0 with k = d_v (null there: the brane horizon's generator), over affine parameter
     [0, lam_end] (DOP853, rtol 1e-12).  Reports y at the end, min and max of y, whether it stays on the sheet
     (|y| <= 1e-12) and in the kept side (y >= -1e-12), the null-norm drift, and the leading-order y = K_vv lam^2/2."""
-    Kvv = -israel_sign * S_vv / nu
+    Kvv = -israel_sign * S_vv / nu + 0.0     # + 0.0 turns -0.0 into 0.0
     Gf, gf = _geodesic_rhs(float(Kvv))
 
     def rhs(_lam, s):
@@ -681,10 +711,11 @@ def compute():
                          "statement": "E~(xi,xi) = R(xi,n,xi,n) = 0 and E(xi,xi) = E~(xi,xi) - R(xi,xi)/3 = 0 on the "
                          "stationary bulk horizon: the static bulk's Weyl term supplies nothing along the generators; a "
                          "bulk field cannot change a sheet's surface flux"}
-    rows["X13c_eq17"] = {"label": "computed; READ (SMS eq. (3), PDF p.2; eq. (17), PDF p.3); deduced",
+    rows["X13c_eq17"] = {"label": "computed; READ (SMS eq. (3), PDF p.2, and SMS's own eq. (17), the effective "
+                         "equation, PDF p.3); deduced",
                          "tag": "[PLANE]", "R4_xixi_on_H": w17["R4_xixi"], "g_vu_on_H": w17["g_vu_on_H"],
                          "R4_xixi_at_u_half": weyl_eq17(sp.Rational(1, 2))["R4_xixi_float"],
-                         "statement": "eq. (17)'s own data (owner B4._eq17): R4(xi,xi) = 0 at r = 2m; with Gauss and "
+                         "statement": "the board's eq. (17) metric (owner B4._eq17): R4(xi,xi) = 0 at r = 2m; with Gauss and "
                          "the held stress's tau(xi,xi) = pi(xi,xi) = 0, E(xi,xi) = 0 there.  The matter-free plane is a "
                          "limit only (184); with held matter the same zero holds"}
     pc = pair_crossing()
@@ -892,7 +923,9 @@ def check_C19(mut=None):
 
 def check_C19b(mut=None):
     """The pair through Lemma K: the exact pair gives net 0 (exact), a generator that stays on the sheet, and a status
-    that never calls the zero total positive."""
+    that never calls the zero total positive.  The exact pair's net = 0 holds by construction (the partner is defined
+    as -T^R); the check's content is the mutated inputs: a pair off by 1e-6 and the README alone must leave the sheet
+    in deflection_numeric's integration."""
     frac = {"pair_off": 1 - Fr(1, 10**6), "no_partner": 0}.get(mut, 1)
     o = pair_crossing(partner_fraction=frac)
     ok = (o["net"] == 0 and o["lemma_s_admits"] and o["deflection"]["stays_on_sheet"]
