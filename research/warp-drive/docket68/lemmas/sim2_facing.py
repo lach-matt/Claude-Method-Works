@@ -1414,7 +1414,8 @@ def coinciding(e, tb=None, nu=1, n_sign=1, full=True):
     = k_th = 1/ell, S^a_b = (3 nu/ell) delta^a_b: rho -> -sigma_RS, rho + p_i -> 0, s = rho/sigma_RS = -1 -- the RS1
     sheet (C1's control) -- and rho_m = rho - sigma_RS -> -2 sigma_RS at every finite ell.  P1, normal into the slab,
     has k = kappa(0) = -1/ell, S^a_b = -sigma_RS delta^a_b: at coincidence P2's surface stress is exactly minus P1's,
-    and the coincident pair carries zero net surface stress (net_lim; computed, no reading attached).  Along the approach, to
+    and the coincident pair carries zero net surface stress (net_lim; computed, no reading attached).  Along the
+    approach, to
     first order in f, rho/nu + 3/ell ~ (p' + 2q')(0) f - f_uu/alpha^2 = f/4 - f_uu ((p' + 2q')(0) = -1/4 + 2/4 at every
     ell; alpha(0) = 1): c x^lam (1/4 - lam^2) on the power law (the adjudication's form, extended to finite ell), and
     -(3/4) g2 x on the smooth family in the flat limit (its sqrt(x) terms cancel; g2 < 0 there is the NEC's condition).
@@ -1615,6 +1616,16 @@ def compute_live():
             "far": far_level()}
 
 
+def _up(v, sig=2):
+    """A bound printed as a bound: |v| rounded UP to sig significant figures, in %.(sig-1)e (the verification of item
+    172's changes found '%.0e' rounding 1.21e-7 and 9.38e-7 down to 1e-07 and 9e-07 under a '<=')."""
+    v = abs(float(v))
+    if v == 0.0:
+        return "0"
+    ex = math.floor(math.log10(v)) - sig + 1
+    return "%.*e" % (sig - 1, math.ceil(v / 10.0**ex) * 10.0**ex)
+
+
 def report(bank, live):
     T = bank["throat"]
     dec = decide(bank, T)
@@ -1632,8 +1643,9 @@ def report(bank, live):
     print("S3 T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= %s at every depth and ell; general "
           "bound s2 <= %s, which at s1 -> 1 is %s (the depth drops out).  DECIDED: under clause (B) two matter-free "
           "pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum Lambda_5), on the board's "
-          "H-Z2-PIECES and H-NEAREST-APPROACH; down the throat (M's H-COINCIDE-DOWN-THE-THROAT, item 172) the member "
-          "closes too "
+          "H-Z2-PIECES and H-NEAREST-APPROACH; down the throat the member closes too, at every approach depth: held "
+          "at d > 0 (the board's H-APPROACH-AT-DEPTH) and with the depth going to zero (M's coinciding, "
+          "H-COINCIDE-DOWN-THE-THROAT, item 172) "
           "(deduced in the adjudication, with w_th > 0 computed on the throat bulk at the nine ell; illustrated in S7).  "
           "Not closed by this: E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them"
           % (tc["s2_max"], tc["general"], tc["at_s1_1"]))
@@ -1685,8 +1697,10 @@ def report(bank, live):
         "%.2fm" % T["ell_c"]["30"] if T["ell_c"]["30"] else "never", "%.2fm" % T["ell_c"]["100"] if T["ell_c"]["100"]
         else "never"))
     DT = live["dt"]
-    print("S7 down the throat (computed; corrected; facing down the throat on M's H-COINCIDE-DOWN-THE-THROAT, item 172, "
-          "which replaces the board's H-FACING-DOWN-THE-THROAT): radial NEC along "
+    print("S7 down the throat (computed; corrected; an approach held at depth d > 0 faces only on the board's "
+          "H-APPROACH-AT-DEPTH, which item 172 (2) does not cover; its depth -> 0 member is M's coinciding, "
+          "H-COINCIDE-DOWN-THE-THROAT, S15; the record lists the board's H-FACING-DOWN-THE-THROAT as replaced): radial "
+          "NEC along "
           "y = depth + f(u), u = ln x: f'' - f'/2 <= alpha^2 x W1(depth) (f'/2: the lapse-gradient term the first build "
           "dropped).  f = %g x^lam, lam = %s, NEC exact in the slope on the throat metric through O(x), at depths %s "
           "y_s^th, x = 1e-14 .. min(1e-3, x_O1):" % (
@@ -1710,7 +1724,8 @@ def report(bank, live):
           "the NEC still bends the piece back (SIM2-FACING.md S7, deduced to first order): whether a member exists below "
           "y* is decided on the owner's bulk (E-FAR, E-G)" % (min(DT_FRACS), max(DT_FRACS)))
     cw = live["dt_wec"]
-    print("   positive energy in the class (the limiting level-set rho_m, maximised over every depth in (0, y_s^th)): "
+    print("   positive energy in the class (the limiting level-set rho_m, maximised over every depth in (0, y_s^th); "
+          "held there at d > 0, facing only on H-APPROACH-AT-DEPTH): "
           "ell > ell_W^class = %.2fm (e < %.7f), best depth %.3f y_s^th (%.3f y*), K/K_bs %.2f there; at ell = inf the "
           "best is %+.4f nu/m at %.3f y_s^th (attained band: ell >= ell_W = %.2fm)" % (
               cw["ell"], cw["e"], cw["frac_ys"], cw["frac_ystar"], cw["K_ratio"], cw["flat"]["rho_m_max"],
@@ -1807,6 +1822,14 @@ def report(bank, live):
               dl["s_slab_read"], dl["unit"], ", ".join("%s -> >= %s" % kv for kv in dl["s_outer_min"].items()),
               dl["rows_on"], "; ".join("%s %s" % r_ for r_ in dl["rows"]), dl["on_trace"]))
     print("S14 escapes: %s" % "; ".join("%s (%s): %s" % e_ for e_ in ESCAPES))
+    fl = live["far"]
+    print("   E-FAR, the NEC+WEC row (computed, far_level; the verification of item 172's changes found these values "
+          "first): the level value off the throat, nu (kappa_r + 2 kappa_th - 3/ell), which bounds rho_m at an attained "
+          "nearest point (Lemma C), on the owner's exact series (partial sums through order %d) at ell = %s, at depth "
+          "%gm (only where facing would occur): %s sigma_RS; -> -2 sigma_RS as r grows (pure AdS: kappa = -1/ell); "
+          "closed as r -> infinity at every depth (deduced in the verification), only the limit between r = 10m and "
+          "infinity" % (fl["N"] - 1, _ell(fl["e"]), fl["depth"], ", ".join(
+              "%+.4f (r = %sm; last term %s)" % (v["level_rs"], v["r"], _up(v["last_term_rs"], 1)) for v in fl["rows"])))
     print("   The depth of a nearest point is the two pieces' bulk separation there: it is reported only as where facing can "
           "occur, never as the corridor's length (bits: 155 (2), R4c) or as anything the device sees (101 (7)); no "
           "time, redshift or speed is computed (139 (4)).")
@@ -1815,8 +1838,10 @@ def report(bank, live):
           "approach down the throat with its depth -> 0, never reached at a point of the static region; P2's stress by "
           "the instrument's Israel convention, normal into the slab, K exact in the slope on the throat metric through "
           "O(x); s = rho/sigma_RS and the trace reading s_tau = (ell/3 nu)(-S^a_a/4); profiles lam = %s (c = %g) and the "
-          "smooth f = %g sqrt(x) + g2 x, g2 = 2 alpha^2 W1 + p g1^2/2 - %g; the approach depth is reported only as where "
-          "facing occurs):" % ("/".join("%g" % v for v in DT_LAMS), DT_C, DT_C, CO_MARGIN))
+          "smooth f = %g sqrt(x) + g2 x, g2 = 2 alpha^2 W1 + p g1^2/2 - %g; \"coinciding\" is this case only: an approach "
+          "held at a depth d > 0 is not coinciding, 172 (2) does not cover it, and it faces only on the board's "
+          "H-APPROACH-AT-DEPTH; depths are reported only as where coinciding or facing occurs):"
+          % ("/".join("%g" % v for v in DT_LAMS), DT_C, DT_C, CO_MARGIN))
     print("   deduced: at depth 0 the throat data are alpha = beta = 1, p = q = -1/ell, so k_t = k_x = k_th = 1/ell, "
           "S^a_b = (3 nu/ell) delta: rho -> -sigma_RS, rho + p_i -> 0, s = s_tau = -1 (the RS1 sheet: C1's control), "
           "rho_m = rho - sigma_RS -> -2 sigma_RS at every finite ell; along the approach, to first order in f, "
@@ -1825,31 +1850,34 @@ def report(bank, live):
         c_ = CO[es]
         P_ = c_["profiles"]
         if c_["s_lim"] is not None:
-            print("   ell = %-5s depth 0, x = %s: s = %s; |s + 1|, |s_tau + 1| at 1e-14 (lam 0.4, smooth) <= %.0e, %.0e; "
-                  "NEC part (rho + p_i)/sigma_RS <= %.0e there (%.0e with lam 0.1, falling as x^lam), every sample "
+            print("   ell = %-5s depth 0, x = %s: s = %s; |s + 1|, |s_tau + 1| at 1e-14 (lam 0.4, smooth) <= %s, %s; "
+                  "NEC part (rho + p_i)/sigma_RS <= %s there (<= %s with lam 0.1, falling as x^lam), every sample "
                   "NEC-legal %s, |s + 1| falling along x on all four %s; rho_m/sigma_RS -> %.7f; approach depths %s y_s^th: "
                   "s = %s" % (
                       _ell(es), "/".join("%g" % v for v in CO_XS),
                       "; ".join("%s %s" % (n, " ".join("%.5f" % v["s"] for v in pts)) for n, pts in P_.items()),
-                      c_["worst_s"], c_["worst_tau"], c_["worst_nec_fast"], c_["worst_nec"], c_["nec_ok"],
+                      _up(c_["worst_s"]), _up(c_["worst_tau"]), _up(c_["worst_nec_fast"]), _up(c_["worst_nec"]),
+                      c_["nec_ok"],
                       c_["monotone"], c_["rho_m_rs"], "/".join("%g" % v["frac"] for v in c_["depths"]),
                       "/".join("%.5f" % v["s"] for v in c_["depths"])))
         else:
             sm = P_["smooth"]
             print("   ell = %-5s (sigma_RS = 0: rho_m = rho, in nu/m) depth 0, x = %s: rho/nu = %s; against the first "
-                  "order c x^lam (1/4 - lam^2) and, smooth, -(3/4) g2 x = %.4f x: within %.0e at x <= 1e-8; smooth "
-                  "(rho/nu)/x = %s; rho > 0 at every sample %s and falling toward 0 along x %s; NEC part <= %.0e at "
+                  "order c x^lam (1/4 - lam^2) and, smooth, -(3/4) g2 x = %.4f x: within %s at x <= 1e-8; smooth "
+                  "(rho/nu)/x = %s; rho > 0 at every sample %s and falling toward 0 along x %s; NEC part <= %s at "
                   "1e-14 (lam 0.4, smooth), every sample NEC-legal %s; approach depths %s y_s^th: rho/nu = %s" % (
                       _ell(es), "/".join("%g" % v for v in CO_XS),
                       "; ".join("%s %s" % (n, " ".join("%.3e" % v["rho"] for v in pts)) for n, pts in P_.items()),
-                      -0.75 * c_["g2_0"], c_["flat_lead_dev"], "/".join("%.4f" % (v["rho"] / v["x"]) for v in sm),
-                      c_["flat_pos"], c_["flat_to_0"], c_["worst_nec_fast"], c_["nec_ok"],
+                      -0.75 * c_["g2_0"], _up(c_["flat_lead_dev"]), "/".join("%.4f" % (v["rho"] / v["x"]) for v in sm),
+                      c_["flat_pos"], c_["flat_to_0"], _up(c_["worst_nec_fast"]), c_["nec_ok"],
                       "/".join("%g" % v["frac"] for v in c_["depths"]), "/".join("%.3e" % v["rho"] for v in c_["depths"])))
     print("   on H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2 (rho_m >= 0).  Deduced, exact in the slope at x -> 0: along "
           "any approach the WEC forces f_uu <= alpha^2 (p + 2q - 3/ell) + f_u^2 (4a - 3/ell), the last bracket <= -7/ell "
-          "(T4), so it needs the level value nu (p + 2q - 3/ell) >= 0 at the approach depth, for every profile; at finite "
-          "ell that value is -6 nu/ell = -2 sigma_RS at depth 0, so d_+ (the shallowest approach depth with rho_m >= 0) "
-          "is > 0 (depths reported only as where positive-energy facing down the throat can occur).  Computed:")
+          "(T4), so it needs the level value nu (p + 2q - 3/ell) >= 0 at the approach depth, for every profile (the "
+          "verification of item 172's changes adds, deduced: pieces whose depth does not converge, and pieces that fold "
+          "back in u, too); at every finite ell that value is -6 nu/ell = -2 sigma_RS at depth 0, so d_+ (the shallowest "
+          "approach depth with rho_m >= 0) is > 0, and an approach held at d >= d_+ is not coinciding: it faces only on "
+          "the board's H-APPROACH-AT-DEPTH (depths reported only as where it can occur).  Computed:")
     for es in bank["es"]:
         w = CO[es]["wec"]
         wp = CO[es]["wec_profiles"]
@@ -1857,8 +1885,8 @@ def report(bank, live):
             print("   ell = %-5s no approach depth: the level value's maximum is %+.4f nu/m (%+.3f sigma_RS) < 0" % (
                 _ell(es), w["level_max"], w["level_max"] / (3 * float(Fr(es)))))
         elif w["d_plus"] == 0.0:
-            print("   ell = %-5s d_+ = 0 only as an infimum: the level value is %+.1e at depth 0 and > 0 from there to "
-                  "%.4fm (%.4f y_s^th); at depth 0 itself rho -> 0+ along the approach (above): no positive margin at "
+            print("   ell = %-5s d_+ = 0, attained: the level value is %+.1e at depth 0 and > 0 at every depth past "
+                  "it, to %.4fm (%.4f y_s^th); along the approach at depth 0, rho -> 0+ (above): positive, no margin at "
                   "coincidence" % (_ell(es), w["level_at_0"], w["top"], w["frac_top"]))
         else:
             print("   ell = %-5s d_+ = %.4fm (%.4f y_s^th; W1 = %+.4f < 0 there, so down the throat only, y* = %.4fm) to "
@@ -1873,17 +1901,31 @@ def report(bank, live):
                       ", ".join("%s %s" % (n, "holds" if v else "fails") for n, v in wp["at_d_plus"].items()),
                       w["lam_max"], w["smooth_coef"],
                       ", ".join("%+.4f at x = %g" % (v, xv) for xv, v in wp["finite_x"])))
-    print("   d_+ -> 0 only as ell -> infinity (deduced: the level value is nu (-6/ell + depth/4 + ...), so d_+ = 24 m^2/ell "
-          "(1 + O(m/ell))); computed d_+/(24 m^2/ell) = %s" % ", ".join(
-              ["%.4f (%s)" % (CO["1/32"]["wec"]["d_plus"] * 32 / 24, _ell("1/32"))]
-              + ["%.4f (%s)" % (v["ratio"], _ell(v["e"])) for v in live["dplus_far"]]))
+    r32 = CO["1/32"]["wec"]["d_plus"] * 32 / 24
+    rows_ = [(r32, (r32 - 1) * 1024 / 72, "1/32")] + [(v["ratio"], v["ratio_72"], v["e"]) for v in live["dplus_far"]]
+    print("   d_+ -> 0 only as ell -> infinity (deduced in the verification of item 172's changes, from the level value's "
+          "exact series nu (-6/ell + depth/4 + (3/(4 ell)) depth^2 + ...): d_+ = 24 m^2/ell (1 + 72 m^2/ell^2 + ...), "
+          "the O(m/ell) coefficient exactly zero); computed d_+/(24 m^2/ell) = %s; (that - 1)/(72 m^2/ell^2) = %s "
+          "(-> 1)" % (", ".join("%.6f (%s)" % (r_, _ell(es_)) for r_, _, es_ in rows_),
+                      ", ".join("%.4f" % q_ for _, q_, _ in rows_)))
+    print("   no other route to depth 0 beats coinciding (deduced in the verification of item 172's changes): an attained "
+          "nearest point near depth 0 has rho_m <= nu (kappa_r + 2 kappa_th - 3/ell) -> -2 sigma_RS (Lemma C; "
+          "kappa_X(0) = -1/ell at P1), and far out the level value tends to -2 sigma_RS at every depth (S14, E-FAR)")
+    fin = [CO[es] for es in bank["es"] if CO[es]["s_lim"] is not None]
+    nets = max(c_["net_lim"] for c_ in CO.values())
+    dev_ = max(max(abs(c_["s_lim"] + 1), abs(c_["p1_s"] - 1)) for c_ in fin)
+    print("   computed, no reading attached: at coincidence P2's surface stress is exactly minus P1's, S^a_b = "
+          "+sigma_RS delta against -sigma_RS delta (P2 s = -1, P1 s = +1 at every finite ell, to %s), so the "
+          "coincident pair carries zero net surface stress (%s in sigma_RS at every finite ell, and 0 at ell = inf): "
+          "the zero-width limit of the RS1 pair" % ("%.0e" % dev_ if dev_ else "0", "%.0e" % nets if nets else "0"))
     print("   on H-LAW-READ-BY-TRACE: at coincidence the NEC part (the history) -> 0 and the trace reads s_tau -> -1: a "
           "matter-free sheet of tension -1 in sigma_RS at our ell, not our +1 -- a different law, so between universes "
           "on the board's H-ONE-UNIVERSE-ONE-LAW (phase 3).  Its sign is 139 (1)'s (position 2's plane negative); its "
-          "magnitude, -1, is not multiplane.py M4's -1/3 of the one-plane value nor stage 7 K5's -1/6 per sheet: "
-          "different setups and units (K4, K5), not identified.  On H-SPLIT-AT-OUR-TENSION the same limit is our tension "
-          "plus README stress rho_m = -2 sigma_RS, p_m = +2 sigma_RS: NEC-marginal, and against H-POSITIVE-ON-P2 at every "
-          "finite ell.  Question 1 (b) (not answered in item 172) decides which.")
+          "magnitude is 1 in sigma_RS, the size of ours.  139 (1)'s quarter comes from multiplane.py M4 (-1/3 of the "
+          "one-plane value, against +4/3), and stage 7 K5 gives -1/6 per sheet: different setups and units (K4, K5), "
+          "which the board neither identifies with this sheet nor sets against it.  On H-SPLIT-AT-OUR-TENSION the same "
+          "limit is our tension plus README stress rho_m = -2 sigma_RS, p_m = +2 sigma_RS: NEC-marginal, and against "
+          "H-POSITIVE-ON-P2 at every finite ell.  Question 1 (b) (not answered in item 172) decides which.")
     return dec
 
 
@@ -1897,8 +1939,11 @@ PIN = {  # this instrument's own computed values (C13), pinned at its first rege
     "c16": {"wr_zero": 2.198, "n_adm": 3, "adm_from": 2.237, "edge_2m": 1.186,
             "n_ver": 4480, "n_settled": 4479, "n_adm_total": 86,
             "adm_per_ell": {"0": 24, "1/32": 21, "1/16": 18, "1/8": 14, "1/4": 8, "1/2": 1, "1": 0, "2": 0, "4": 0}},
-    # C17, added for item 172 (S15, the coinciding limit): d_+ at ell = 32m and d_+/(24 m^2/ell) at ell = 1024m
-    "c17": {"d_plus_32": 0.8395, "ratio_1024": 1.0001},
+    # C17, added for item 172 (S15, the coinciding limit): d_+ at ell = 32m; d_+/(24 m^2/ell) at ell = 1024m against
+    # the deduced 1 + 72 m^2/ell^2 (the verification of item 172's changes; the O(m/ell) coefficient is exactly zero)
+    "c17": {"d_plus_32": 0.8395, "ratio_1024": 1 + 72 / 1024**2, "ratio_tol": 1e-6,
+            # the finite-slope point (the verification's NOTE): f_u = 2, f_uu = 0.7 at x = 1e-12, ell = 32m, depth 0
+            "slope_pt": (2.0, 0.7, 1e-12), "slope_tol": 1e-9},
 }
 
 
@@ -2177,7 +2222,12 @@ def selftest():
     # two-sided Israel factor (nu/2: s -> -1/2) and the normal out of the slab (s -> +1) must fail the same test.  Flat
     # limit: rho > 0 at every sample and falling toward 0, on the first-order form to 1e-3.  The WEC window: d_+ at
     # ell = 32m pinned, 0 < d_+ < y*, the WEC failing at 0.9 and 0.99 d_+ and holding at 1.01 d_+ on all four profiles,
-    # no d_+ at ell = m, d_+ = 0 (an infimum) at ell = inf, d_+/(24 m^2/ell) -> 1 at ell = 1024m.  S15's keys pass C14.
+    # no d_+ at ell = m, d_+ = 0 (attained) at ell = inf, d_+/(24 m^2/ell) at ell = 1024m within 1e-6 of
+    # 1 + 72 m^2/ell^2.  S15's keys pass C14.  Added after the verification of item 172's changes: the deduced-limit
+    # keys s_lim and rho_m_lim (-1, -2) and the zero net surface stress at coincidence (net_lim) are checked, and
+    # piece_stress is checked at one finite slope against the closed form, exact in the slope, at x -> 0:
+    # rho/nu = [2q (alpha^2 + f_u^2) + alpha^2 p + 2p f_u^2 - f_uu]/((alpha^2 + f_u^2) N), N = sqrt(1 + f_u^2/alpha^2)
+    # (the slopes at x = 1e-14 are about 1e-7, so the other clauses never see N).
     pc = PIN["c17"]
     try:
         tbs17 = {k: throat_bulk(Fr(k)) for k in ("0", "1/32", "1")}
@@ -2185,7 +2235,8 @@ def selftest():
 
         def lim_ok(c_):
             return (c_["worst_s"] < 1e-5 and c_["worst_tau"] < 1e-5 and c_["worst_nec_fast"] < 1e-5 and c_["monotone"]
-                    and c_["nec_ok"] and abs(c_["rho_m_rs"] + 2) < 1e-5)
+                    and c_["nec_ok"] and abs(c_["rho_m_rs"] + 2) < 1e-5
+                    and abs(c_["s_lim"] + 1) < 1e-12 and abs(c_["rho_m_lim"] + 2) < 1e-12 and c_["net_lim"] < 1e-12)
         base = all(lim_ok(co[k]) for k in ("1/32", "1"))
         m_nu = coinciding(Fr(1), tb=tbs17["1"], nu=0.5, full=False)
         m_n = coinciding(Fr(1), tb=tbs17["1"], n_sign=-1, full=False)
@@ -2198,23 +2249,38 @@ def selftest():
         wec_ok = (w32["d_plus"] is not None and abs(w32["d_plus"] - pc["d_plus_32"]) <= 2e-3
                   and 0 < w32["d_plus"] < w32["y_star"] and wp32["below_fails"] and wp32["above_holds"]
                   and co["1"]["wec"]["d_plus"] is None and sc["ratio"] is not None
-                  and abs(sc["ratio"] - pc["ratio_1024"]) < 1e-3)
+                  and abs(sc["ratio"] - pc["ratio_1024"]) < pc["ratio_tol"])
+        fu_, fuu_, xs_ = pc["slope_pt"]                        # the finite-slope point, ell = 32m, depth 0
+        tb32 = tbs17["1/32"]
+        st_ = piece_stress(tb32, 0.0, xs_, ("local", fu_, fuu_))
+        u_ = tb32["sol"].sol(0.0)
+        al_, p_, q_ = float(u_[0]), float(u_[2]), float(u_[3])
+        N_ = math.sqrt(1 + fu_**2 / al_**2)
+        rho_cf = (2 * q_ * (al_**2 + fu_**2) + al_**2 * p_ + 2 * p_ * fu_**2 - fuu_) / ((al_**2 + fu_**2) * N_)
+        slope_dev = abs(st_["rho"] - rho_cf)
+        slope_ok = slope_dev < pc["slope_tol"] and N_ > 2
         g17 = address_guard(extra_keys=co)
-        c17 = base and caught and flat_ok and wec_ok and not g17["bad_keys"]
+        c17 = base and caught and flat_ok and wec_ok and slope_ok and not g17["bad_keys"]
         sl = lambda c_: c_["profiles"]["lam 0.4"][-1]["s"]
         msg = ("C17 the coinciding limit (S15, item 172): along the approach to depth 0, x -> 1e-14, s = rho/sigma_RS -> -1 "
-               "to %.0e (32m) and %.0e (m), the trace reading to %.0e/%.0e, the NEC part to %.0e/%.0e sigma_RS, rho_m -> "
-               "%.6f sigma_RS: %s; mutations caught: the two-sided factor nu/2 gives s = %.4f, the normal out of the slab "
-               "s = %+.4f: %s; flat: rho > 0 and falling toward 0 (rho/nu at 1e-14, lam 0.1: %.2e), on the first-order "
-               "form to %.0e: %s; WEC window: d_+(32m) = %.4f (pinned %.4f +- 0.002), below y* %.4f, failing at 0.9/0.99 "
-               "d_+ %s, holding at 1.01 d_+ %s; d_+(m) %s; d_+(inf) = %s; d_+/(24 m^2/ell) at 1024m = %.5f (pinned %.4f): "
-               "%s; S15's keys name no distance, time or speed: %s" % (
-                   co["1/32"]["worst_s"], co["1"]["worst_s"], co["1/32"]["worst_tau"], co["1"]["worst_tau"],
-                   co["1/32"]["worst_nec_fast"], co["1"]["worst_nec_fast"], co["1/32"]["rho_m_rs"], base,
-                   sl(m_nu), sl(m_n), caught, f0["profiles"]["lam 0.1"][-1]["rho"], f0["flat_lead_dev"], flat_ok,
+               "to %s (32m) and %s (m), the trace reading to %s/%s, the NEC part to %s/%s sigma_RS, rho_m -> "
+               "%.6f sigma_RS; the deduced limit s = %+.1f, rho_m = %+.1f sigma_RS, net surface stress of the "
+               "coincident pair %s: %s; mutations caught: the two-sided factor nu/2 gives s = %.4f, the normal out of "
+               "the slab s = %+.4f: %s; flat: rho > 0 and falling toward 0 (rho/nu at 1e-14, lam 0.1: %.2e), on the "
+               "first-order form to %s: %s; WEC window: d_+(32m) = %.4f (pinned %.4f +- 0.002), below y* %.4f, failing "
+               "at 0.9/0.99 d_+ %s, holding at 1.01 d_+ %s; d_+(m) %s; d_+(inf) = %s; d_+/(24 m^2/ell) at 1024m = %.7f "
+               "against 1 + 72/1024^2 = %.7f (to %.0e): %s; finite slope f_u = %g, f_uu = %g (N = %.4f) at x = %g, "
+               "32m, depth 0: piece_stress against the closed form to %s (< %.0e): %s; S15's keys name no distance, "
+               "time or speed: %s" % (
+                   _up(co["1/32"]["worst_s"]), _up(co["1"]["worst_s"]), _up(co["1/32"]["worst_tau"]),
+                   _up(co["1"]["worst_tau"]), _up(co["1/32"]["worst_nec_fast"]), _up(co["1"]["worst_nec_fast"]),
+                   co["1/32"]["rho_m_rs"], co["1/32"]["s_lim"], co["1/32"]["rho_m_lim"],
+                   "%.0e" % co["1/32"]["net_lim"] if co["1/32"]["net_lim"] else "0", base,
+                   sl(m_nu), sl(m_n), caught, f0["profiles"]["lam 0.1"][-1]["rho"], _up(f0["flat_lead_dev"]), flat_ok,
                    w32["d_plus"] or float("nan"), pc["d_plus_32"], w32["y_star"], wp32["below_fails"],
                    wp32["above_holds"], "none" if co["1"]["wec"]["d_plus"] is None else co["1"]["wec"]["d_plus"],
-                   f0["wec"]["d_plus"], sc["ratio"] or float("nan"), pc["ratio_1024"], wec_ok, g17["bad_keys"] or "none"))
+                   f0["wec"]["d_plus"], sc["ratio"] or float("nan"), pc["ratio_1024"], pc["ratio_tol"], wec_ok,
+                   fu_, fuu_, N_, xs_, _up(slope_dev), pc["slope_tol"], slope_ok, g17["bad_keys"] or "none"))
     except Exception as exc:                                   # report, never crash
         c17, msg = False, "C17 the coinciding limit: raised %s: %s" % (type(exc).__name__, exc)
     chk(msg, bool(c17))
