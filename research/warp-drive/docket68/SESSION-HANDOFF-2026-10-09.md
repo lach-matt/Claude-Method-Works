@@ -133,10 +133,16 @@ sessions they describe skill sync but say nothing about plugins.
 - **Science tools:** `.claude/skills/science-tools/sci` (`sci list | install <group> | check | run`). It
   installs under `/root/sci`, outside the repo, which a new container will not have, so reinstall per group as
   needed.
-  - Its `SKILL.md`, and `.claude/skills/science-databases/SKILL.md` (a connector routing table built from
-    `research/warp-drive/toolsweep/toolsweep_result.json`), were being written when this handoff was made.
-  - If they are missing after `git pull`, write them from the script and the JSON, skipping every item marked
-    `excluded: true`.
+  - **Skills:** `science-tools` (`SKILL.md` + `sci`) and `science-databases` (`SKILL.md` + `dbroute.py <name>`,
+    a lookup over 127 routes built from `research/warp-drive/toolsweep/toolsweep_result.json`, excluded items
+    skipped). Both are committed.
+  - **Verified groups:** gr, cas, provers and numerics installed from empty and passed `sci check`. Example:
+    EinsteinPy, GraviPy, pytearcat, OGRePy, Maxima ctensor and REDUCE excalc all give R = −20k² for the 5D RS
+    metric.
+  - **Not yet run end to end:** data, cosmo, gw, lit, tex, sage, dedalus, lean and coq. Check free disk before
+    `sci install default`, which comes to about 5 GB.
+  - **Literature routing:** most science hosts are refused by the container's proxy. The databases skill reaches
+    them through the research connectors M connected for sourcing data, never by tunnelling from the container.
 - **Research connectors:** alphaXiv, Consensus, SciSpace, Wiley Scholar Gateway, Firecrawl, TinyFish, Exa,
   Parallel Search, the PDF Viewer, Google Drive (M's Warp folder), Elicit and Mathify.
   - Elicit needs a paid plan.
