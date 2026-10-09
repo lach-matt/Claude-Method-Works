@@ -78,7 +78,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
 | B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL. A round T exists beyond the hold's reach only if ℓ > 2R_reach; a tipped T is untrapped at any ℓ (computed: at ℓ = 0.11m, min θ+ = +0.07, B4D-STAGE2.md). Radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5), and eq. (17) holds only within the reach (causality); both derived. Open: whether the model holds deep in the bulk, where a tipped T goes |
 | B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
-| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (verified once): with eq. (17) on a plane, a side where the warp decays is singular within 8–16 clocks, a side where it grows is regular on the evidence. Stage 6 (verified once): every positive-tension plane has a decaying side, so ours (139, clause (B)) cannot carry eq. (17) regularly; position 2's plane can, at its own ℓ₂ = 3ℓ (138), carrying exactly 139's −1/3 with both sides growing. Stage 7 (verified once, item 166): across both planes every small-separation branch has a decaying outer bulk, so singular. Simulation phase 1 (sim1_transition.py, verified once): eq. (17) is no 4D null-energy end state; the bulk must supply its anisotropic Weyl stress. Phase 2, in your sense (item 168): two positions, one universe, through the extra dimension -- being designed |
+| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (verified once): with eq. (17) on a plane, a side where the warp decays is singular within 8–16 clocks, a side where it grows is regular on the evidence. Stage 6 (verified once): every positive-tension plane has a decaying side, so ours (139, clause (B)) cannot carry eq. (17) regularly; position 2's plane can, at its own ℓ₂ = 3ℓ (138), carrying exactly 139's −1/3 with both sides growing. Stage 7 (verified once, item 166): across both planes every small-separation branch has a decaying outer bulk, so singular. Simulation phase 1 (sim1_transition.py, verified once): eq. (17) is no 4D null-energy end state; the bulk must supply its anisotropic Weyl stress. Phase 2 (sim2_facing.py, verified and re-verified; item 168): two matter-free pieces of our plane cannot face each other across a static bulk (a facing piece would read tension <= -1, another universe's); with the README's NEC-obeying stress on position 2's piece (H-README-ON-P2, put to you), facing only near the object's throat on the verified map. Still open within one universe: the passage through the horizon (next), a changing bulk, motion inside the planes |
 | B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
@@ -359,4 +359,23 @@ The theorem is proved exactly when no lemma below is OPEN.
   - Eardley's white hole;
   - Hochberg & Visser's null-energy theorem, which excludes horizon throats, the corridor's kind.
 - **Phase 2 is being designed** in your sense (item 168).
+- **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
+
+## History (2026-10-09, simulation phase 2: two positions, one universe)
+
+- **Phase 2** (`lemmas/sim2_facing.py`, selftest 16/16; verified by three verifiers and an adjudication, then
+  re-verified by two more; `SIM2-FACING.md`).
+- **Decided by deduction, for one member.** Two matter-free pieces of our plane, at our tension, cannot face each other
+  across a static bulk. A Raychaudhuri trap keeps the warp falling away from our plane, so a facing piece would read a
+  tension of −1 or below: the negative plane of your 139, another universe's. The member is refuted on its stated
+  conjunction (H-Z2-PIECES, H-NEAREST-APPROACH, static, vacuum, clause (B) on both pieces).
+- **Computed, only on H-README-ON-P2** (position 2's piece carries the README's stress, obeying the NEC). This is put to
+  you: it sits against your 129 (1), 130 (1) and 136 (2) as worded, and would relax clause (B) on position 2's piece.
+  - **On the verified map,** facing is allowed only near the object's throat.
+  - **For a reached nearest point:** a band of depths y\* to y_s. Positive energy needs ℓ ≥ 49.86m.
+  - **Approached down the throat:** no lower edge in the approach, so your 127's coincidence is allowed by the NEC
+    there. Positive energy needs ℓ > 27.07m.
+  - **Within one universe only on H-SPLIT-AT-OUR-TENSION;** on H-LAW-READ-BY-TRACE it is phase 3.
+- **Still open within one universe:** the passage through the horizon (`sim2_passage`, next), a bulk that changes
+  during the hold (152 (2)), motion inside the planes (141), and nearest approaches far out.
 - **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
