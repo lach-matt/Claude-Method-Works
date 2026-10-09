@@ -230,6 +230,10 @@ before any pass that spans more than one file.
 ## Skills
 
 - **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
+- **mathematica** (`.claude/skills/mathematica/SKILL.md`) — Wolfram Language through Mathics3, an open-source
+  interpreter (`.claude/skills/mathematica/wl 'expr' ...`), or through the official Wolfram connector when it is connected.
+  Mathics3 is a subset of Mathematica, not Mathematica: label its results "computed (Mathics3)" and cross-check any that
+  carry weight. A full local Wolfram Engine is blocked by the egress proxy. Trigger: `/mathematica`
 
 Two more programs exist and are named here so nothing in the tree is unaccounted for:
 `tools/colab_land_chats.py` shards the Claude Chats export and lands it in the repository (**Colab
