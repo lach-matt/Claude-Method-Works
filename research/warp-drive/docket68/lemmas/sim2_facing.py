@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """sim2_facing.py -- B4d simulation, phase 2, first instrument (M-RULINGS item 168): can two pieces of our one plane
-face each other across a static bulk?  Computed, READ and deduced; verified once (three verifiers and an adjudication,
-2026-10-09: S7's first down-the-throat argument was refuted and is corrected; see SIM2-FACING.md, History); not
-seated.  First headed "... not verified; not seated".
+face each other across a static bulk?  Computed, READ and deduced; verified (three verifiers and an adjudication,
+2026-10-09: S7's first down-the-throat argument was refuted and is corrected), then re-verified (two re-verifiers,
+2026-10-09; their findings applied: see SIM2-FACING.md, History); not seated.  First headed "... not verified; not
+seated".
 
 M's words (verbatim in the rulings file; quoted in SIM2-FACING.md, never paraphrased as M's): item 168 "My sense:
 positions, one universe"; 152 (1) "two separate positions connected by/reached through a dimension." and (2) "It could
@@ -24,7 +25,8 @@ THE SETUP.  Units m = 1, e = m/ell, nu = 2/kappa_5^2 (one-sided Israel factor). 
 a = (kappa_t + kappa_r + 2 kappa_th)/4, a~ = a + 1/ell; the wall coefficients w_r = kappa_r - kappa_t,
 w_th = kappa_th - kappa_t (the warp cancels from both and from a~).  Position 2's piece P2 is a second piece of the same mirrored plane, one-sided toward the slab
 (H-Z2-PIECES); it faces P1 when its bulk nearest approach p2 = (r2, depth) is attained in the static region
-(H-NEAREST-APPROACH), and the case where it is only approached, down the throat, is S7's class.  The depth of p2 is,
+(H-NEAREST-APPROACH).  A nearest approach only approached down the throat, never attained, counts as facing only on
+a named extension, H-FACING-DOWN-THE-THROAT (put to M), and is S7's class.  The depth of p2 is,
 by construction, the two pieces' bulk separation at their nearest point: it is reported only as where in the bulk
 facing can occur -- never as the corridor's length (155 (2): bits), never as anything the device sees (101 (7)), and
 never optimised over or turned into a time or a speed (139 (4)).  C14 checks names only.  Junction, normal into the
@@ -38,9 +40,10 @@ lemma).
       k_spatial(P2) >= -kappa_spatial at p2.
   S3  COROLLARY T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= -1, every depth, every ell.  Under
       clause (B) two matter-free pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum
-      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; the down-the-throat member closes too (S7's
-      umbilic member).  That closes this one way of building the corridor within one universe; E-PASS, E-NS and E-ROT
-      stay open (S14).
+      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; on H-FACING-DOWN-THE-THROAT the down-the-throat
+      member closes too (deduced in the adjudication, using w_th > 0 computed on the throat bulk at the nine ell;
+      illustrated on one profile by S7's umbilic member).  That closes this one way of building the corridor within one
+      universe; E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them, stay open.
   S4  LEMMA W (deduced): a static mirrored P2 whose total stress obeys the NEC, nearest approach attained in the static
       region with no focal point of P1 before it (S2), needs w_r >= 0 and w_th >= 0 there -- any tension, any matter
       split, no bulk field equation used.
@@ -55,10 +58,15 @@ lemma).
       stress rho = nu (p + 2q), rho + p_r = 0, rho + p_th = nu (q - p).  DOWN THE THROAT (computed, corrected after the
       physics verifier refuted the first build's f_ss <= x W1): along y = depth + f(u), u = ln x, the radial NEC is
       f'' - f'/2 <= alpha^2 x W1(depth), the f'/2 being the lapse-gradient term; down_throat_class checks f = c x^lam
-      (0 < lam < 1/2) against the exact radial and angular NEC over the throat fields, and the umbilic (matter-free)
-      member's closing (k_t - k_th -> w_th(depth) > 0).  So in this class -- a nearest approach never attained, the
-      horizon being degenerate and at infinite proper distance in the static slice -- the NEC sets no lower edge: it
-      holds at every sampled depth, 0.01 to 0.9 y_s^th, at every ell (the adjudication: every depth in [0, y_s^th)).
+      (0 < lam < 1/2) against the radial and angular NEC, exact in the slope, on the throat metric through O(x), and
+      illustrates the umbilic (matter-free) member's closing (k_t - k_th -> w_th(depth) > 0: at x = 1e-14 an identity
+      for any f -> 0; that the radial equation forces f' -> 0 is deduced, in the adjudication).  So in this class -- a
+      nearest approach never attained, the horizon being degenerate and at infinite proper distance in the static
+      slice; facing only on H-FACING-DOWN-THE-THROAT -- the NEC sets no lower edge in the approach (x -> 0): it holds at
+      every sampled depth, 0.01 to 0.9 y_s^th, at every ell scanned (the adjudication: every depth in [0, y_s^th)).
+      Past the crossover the NEC still bends the piece back (the re-verifier, deduced to first order in x and in the
+      slope: where W1 < 0, f' e^(-u/2) cannot increase), so whether a member exists below y* is decided on the owner's
+      bulk at r of about 2.03-2.7m (E-FAR, E-G), not at the throat.
       Positive energy in the class (the limiting level-set rho_m, at its best depth) needs ell > 27.07m
       (ell_w_class), not 49.86m; at depth -> 0 the limiting stress reads rho_m = -2 sigma_RS at every finite ell.
   S8  THE FIRST CORRECTION IN x = r - 2m (computed): w_r = x W1(y) + O(x^2); y* = first zero of W1 = 1.7901, 1.7286,
@@ -82,23 +90,29 @@ lemma).
       singularity.
   S11 LEMMA N (deduced; sympy): Gamma^y_ab = -(1/2) d_y g_ab; a radial null ray tangent to a level set has
       y'' = w_r B r'^2.  Corollary W: warped products have w = 0 (the black string, RS2).
-  S12 THE DECISION per ell (WIDE / THROAT-BAND / NONE), from S7-S9, for ATTAINED nearest points: THROAT-BAND at every
+  S12 THE DECISION per ell (WIDE / THROAT-BAND / NONE), from S7-S9, for ATTAINED nearest points, on the verified map
+      (13 radii to r = 10m, nine ell): THROAT-BAND at every
       ell -- CONFIRMED on the owner's bulk at ell >= 2m (the r = 2.005m column's first rising sign change of w_r lies
       1.6-1.8% from the throat's y*, x -> 0: the O(x) shift), EXPANSION-ONLY at ell <= m (the near-throat columns'
       verified tops lie below y*: not reached); regular at 30 and 100 K_bs for ell = inf, 32m, at 100 only for 16m, 8m,
       at none for ell <= 4m; positive energy only at ell >= 49.86m.  WIDE is excluded on the verified points only:
-      decide() records, per ell, the unverified depths at r >= 2.1m.  The down-the-throat class (S7) has no lower edge,
-      its shallow depths lie below 10 K_bs at every ell, and its positive-energy threshold is 27.07m.
+      decide() records, per ell, the unverified depths at r >= 2.1m (the board's line, a convention), where facing is
+      unchecked, as it is for E-FAR.  The down-the-throat class (S7) has no lower edge in the approach (x -> 0), its
+      shallow depths lie below 10 K_bs at every ell, and its positive-energy threshold is 27.07m.
   S13 THE HAND-OFF TO PHASE 3 (deduced): s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down
       the throat), in units of sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows); the
       outer side needed for the -1/3 that 139 (1) said yes to (multiplane.py M4's figure) and for stage 7 K5's -1/6.
+      The within-universe rows hold on H-SPLIT-AT-OUR-TENSION; on H-LAW-READ-BY-TRACE the NEC rows move to
+      Delta s <= ell a(depth) - 1 < 0, phase 3's direction.
   S14 THE ESCAPES LEFT (STRUCTURAL / OPEN), now with E-Q (quantum or semiclassical stress; excluded only by
       H-NEC-NEVER-VIOLATED, 117/120) and E-FAR (a nearest approach reached only as r -> infinity, beyond r = 10m, or
-      beyond a column's verified top; open).
+      beyond a column's verified top, including the continuation of S7's approach below y*; open).
   The computed branch (S4, S7-S12) rests on the board's H-README-ON-P2, which 129 (1), 130 (1) and 136 (2) read against
-  as M worded them (132 and 158 (4) leave room for it), and it counts as within one universe only on the board's
-  H-SPLIT-AT-OUR-TENSION (position 2's law fixed at our tension; everything else in its stress, its trace included, the
-  README's).  On H-LAW-READ-BY-TRACE instead the band's piece reads s <= ell a(y*) <= -1, a law not ours (phase 3).
+  as M worded them (132 and 158 (4) leave room for it); a yes to it also relaxes the theorem's clause (B), "The plane is
+  free of matter", on P2, so clause (B) then holds in full on P1 only (on H-SPLIT-AT-OUR-TENSION its tension still
+  holds on P2).  It counts as within one universe only on the board's H-SPLIT-AT-OUR-TENSION (position 2's law fixed
+  at our tension; everything else in its stress, its trace included, the README's).  On H-LAW-READ-BY-TRACE instead
+  the band's piece reads s <= ell a(y*) <= -1, a law not ours (phase 3).
   It is necessary, not sufficient, and never B4d green.
 
 Owners imported by path (never copied): b4_static.py (series, _eq17, _schwarzschild, pade), b4d_stage5.py (warped,
@@ -720,18 +734,23 @@ def down_throat_class(e, tb=None, lams=DT_LAMS, c=DT_C, fracs=DT_FRACS):
     -- the f'/2 is the lapse-gradient term n^u (1/2) d_u ln A (the static observers' acceleration), which the first
     build's f_ss <= x W1(depth) dropped.  Its homogeneous solutions are 1 and e^(u/2) (the lapse).  This function
     computes, and leaves the interpretation to the note:
-      (i)   f = c x^lam, 0 < lam < 1/2: the EXACT radial and angular NEC (k_t - k_x >= 0, k_t - k_th >= 0, the local
-            Israel lemma) of the graph over this ell's throat fields, at depths fracs x y_s^th and x from 1e-14 to
-            min(1e-3, x_O1(depth)); with the leading-order prediction k_t - k_x ~ x W1 + (f'/2 - f'')/alpha^2 at the
-            graph's point.  The lapse term c lam (1/2 - lam) x^lam/alpha^2 dominates as x -> 0; where W1(depth) < 0 the
-            x W1 term overtakes it above the crossover x_c = [c lam (1/2 - lam)/(alpha^2 |W1|)]^(1/(1 - lam)), so the
-            check is that every sample below x_c/2 holds and that any failure lies above x_c/2 (the profile is the
-            class's approach x -> 0; above x_c the piece must bend, which this class does not constrain);
+      (i)   f = c x^lam, 0 < lam < 1/2: the radial and angular NEC (k_t - k_x >= 0, k_t - k_th >= 0, the local Israel
+            lemma) of the graph, exact in the slope, on this ell's throat metric through O(x) (_graph_k), at depths
+            fracs x y_s^th and x from 1e-14 to min(1e-3, x_O1(depth)); with the leading-order prediction
+            k_t - k_x ~ x W1 + (f'/2 - f'')/alpha^2 at the graph's point.  The lapse term c lam (1/2 - lam) x^lam/alpha^2
+            dominates as x -> 0; where W1(depth) < 0 the x W1 term overtakes it above the crossover
+            x_c = [c lam (1/2 - lam)/(alpha^2 |W1|)]^(1/(1 - lam)), so the check is that every sample below x_c/2 holds
+            and that any failure lies above x_c/2 (the profile is the class's approach x -> 0; above x_c the piece must
+            bend otherwise, and the NEC still constrains how: SIM2-FACING.md S7, deduced by the re-verifier);
       (ii)  the control lam = 3/4 (must violate the radial NEC as x -> 0 at every depth), and the first build's dropped-
-            term condition f'' <= alpha^2 x W1(depth), which excludes every convex f at depths where W1 < 0;
-      (iii) the umbilic (matter-free) member: the radial equality f'' - f'/2 = alpha^2 x W1(depth) with f -> 0 forces
-            f' -> 0 (f = c sqrt(x) + 2 alpha^2 W1 x), so k_t - k_th -> w_th(depth) = q - p > 0 and umbilicity
-            (k_t = k_x = k_th) fails; the trace reading -ell (k_t + k_x + 2 k_th)/4 -> ell a(depth)."""
+            term condition f'' <= alpha^2 x W1(depth), which excludes every convex f at depths where W1 < 0 (an identity
+            below y*, where W1 < 0 by y*'s definition);
+      (iii) the umbilic (matter-free) member, an illustration: the radial equality f'' - f'/2 = alpha^2 x W1(depth)
+            with f -> 0 forces f' -> 0 (deduced, the adjudication; f = c sqrt(x) + 2 alpha^2 W1 x), so k_t - k_th ->
+            w_th(depth) = q - p > 0 and umbilicity (k_t = k_x = k_th) fails.  It is evaluated at x = 1e-14, where the
+            slope terms are below 1e-7, so k_t - k_th -> q - p there for any f -> 0: an identity, not a test of the
+            radial equation.  The trace reading -ell (k_t + k_x + 2 k_th)/4 -> ell a(depth) is checked
+            (trace_minus_ell_a)."""
     tb = tb if tb is not None else throat_bulk(e)
     s, ys, ye, ef = tb["sol"], tb["y_s"], tb["y_end"], tb["e"]
     yst, W1 = _ystar(tb)
@@ -820,8 +839,9 @@ def down_throat_class(e, tb=None, lams=DT_LAMS, c=DT_C, fracs=DT_FRACS):
 def _rho_class_max(e, detail=False):
     """The down-the-throat class's best energy at e = m/ell.  A piece whose nearest approach to depth y is reached only
     down the throat carries, as x -> 0, the level-set stress at that depth (its slope terms vanish), so its matter tends
-    to rho_m = nu (p + 2q - 3/ell)(y).  The class has no lower edge (S7), so this is the maximum over every depth in
-    (0, y_end), in nu/m.  detail=True also returns the best depth as a fraction of y_s^th and of y*, and K/K_bs there."""
+    to rho_m = nu (p + 2q - 3/ell)(y).  The class has no lower edge in the approach (S7), so this is the maximum over
+    every depth in (0, y_end), in nu/m.  detail=True also returns the best depth as a fraction of y_s^th and of y*, and
+    K/K_bs there."""
     tb = throat_bulk(e)
     s, ys, ye, ef = tb["sol"], tb["y_s"], tb["y_end"], tb["e"]
     g = np.linspace(1e-6 * ye, ye * (1 - 1e-6), 3000)
@@ -1185,12 +1205,15 @@ def delta_rows():
     s_slab = Fr(-1)
     need = {str(s2): 2 * s2 - s_slab for s2 in (Fr(-1, 3), Fr(-1, 6))}
     rows = [("(0, 0 | 0)", "EMPTY (S3, T5c; the down-the-throat member too)"),
-            ("(0, 0 | NEC)", "attained: the throat band (S12); down the throat: every depth (S7)"),
+            ("(0, 0 | NEC)", "attained: the throat band (S12); down the throat: every depth in the approach (S7)"),
             ("(0, 0 | NEC+WEC)", "attained: ell >= ell_W only; down the throat: ell > ell_W^class only")]
     return {"s_slab_max": s_slab,
             "s_slab_read": "s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down the throat)",
             "unit": "sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows)",
-            "s_outer_min": need, "rows": rows}
+            "s_outer_min": need, "rows": rows,
+            "rows_on": "H-SPLIT-AT-OUR-TENSION",
+            "on_trace": "on H-LAW-READ-BY-TRACE the NEC rows move to Delta s <= ell a(depth) - 1 < 0 (equality for a "
+                        "level surface), phase 3's direction"}
 
 
 # For the next instrument, sim2_passage (escape E-PASS): anchors two judges reproduced in the design phase, kept internal
@@ -1208,7 +1231,8 @@ ESCAPES = [
     ("E-AN", "outside the analytic class", "open"),
     ("E-Q", "quantum or semiclassical stress violating the pointwise NEC on P2 or in the slab",
      "excluded only by H-NEC-NEVER-VIOLATED (117, 120)"),
-    ("E-FAR", "nearest approach reached only as r -> infinity, beyond r = 10m, or beyond a column's verified top",
+    ("E-FAR", "nearest approach reached only as r -> infinity, beyond r = 10m, or beyond a column's verified top, "
+              "including the continuation of S7's approach below y*",
      "open; the lapse-gradient term must be kept (cf. S7, down_throat_class)"),
 ]
 
@@ -1331,8 +1355,10 @@ def report(bank, live):
     print("S3 T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= %s at every depth and ell; general "
           "bound s2 <= %s, which at s1 -> 1 is %s (the depth drops out).  DECIDED: under clause (B) two matter-free "
           "pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum Lambda_5), on the board's "
-          "H-Z2-PIECES and H-NEAREST-APPROACH; the down-the-throat member closes too (S7, umbilic).  Not closed by "
-          "this: E-PASS, E-NS, E-ROT (S14)" % (tc["s2_max"], tc["general"], tc["at_s1_1"]))
+          "H-Z2-PIECES and H-NEAREST-APPROACH; on H-FACING-DOWN-THE-THROAT the down-the-throat member closes too "
+          "(deduced in the adjudication, with w_th > 0 computed on the throat bulk at the nine ell; illustrated in S7).  "
+          "Not closed by this: E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them"
+          % (tc["s2_max"], tc["general"], tc["at_s1_1"]))
     wp = live["wproof"]
     print("S4 Lemma W (deduced): k_t I - k_spatial = diag(w) - H exactly: %s; %d NEC-obeying random samples, %d "
           "counterexamples to w >= 0" % (wp["exact"], wp["nec_samples"], wp["counterexamples"]))
@@ -1376,29 +1402,34 @@ def report(bank, live):
           " T4): %s -- a law not ours; on H-SPLIT-AT-OUR-TENSION the tension is ours and the rest is the README's"
           % ", ".join(lar))
     print("   the band's shallow edge below f K_bs: f = 10 %s; f = 30 for ell > %s; f = 100 for ell > %s" % (
-        "never (flat: y* - y_K(10) = %+.3f m)" % T["edge_minus_yK10_flat"] if T["ell_c"]["10"] is None
+        "never (flat: K(y*)/K_bs = %.1f)" % T["rows"][0]["K_ratio"] if T["ell_c"]["10"] is None
         else "for ell > %.2fm" % T["ell_c"]["10"],
         "%.2fm" % T["ell_c"]["30"] if T["ell_c"]["30"] else "never", "%.2fm" % T["ell_c"]["100"] if T["ell_c"]["100"]
         else "never"))
     DT = live["dt"]
-    print("S7 down the throat (computed; corrected): radial NEC along y = depth + f(u), u = ln x: f'' - f'/2 <= alpha^2 "
-          "x W1(depth) (f'/2: the lapse-gradient term the first build dropped).  f = %g x^lam, lam = %s, exact NEC over "
-          "the throat fields at depths %s y_s^th, x = 1e-14 .. min(1e-3, x_O1):" % (
+    print("S7 down the throat (computed; corrected; facing only on H-FACING-DOWN-THE-THROAT): radial NEC along "
+          "y = depth + f(u), u = ln x: f'' - f'/2 <= alpha^2 x W1(depth) (f'/2: the lapse-gradient term the first build "
+          "dropped).  f = %g x^lam, lam = %s, NEC exact in the slope on the throat metric through O(x), at depths %s "
+          "y_s^th, x = 1e-14 .. min(1e-3, x_O1):" % (
               DT_C, "/".join("%g" % v for v in DT_LAMS), "/".join("%g" % v for v in DT_FRACS)))
     for es in bank["es"]:
         d = DT[es]
         print("   ell = %-5s %d samples, %d below the crossover x_c/2: radial and angular NEC hold there %s; failures %d, "
               "all above x_c/2 %s (first failure at %s x_c); leading order to %.1e at x <= 1e-8; control lam = %g fails "
-              "at every depth %s; the first build's f'' <= alpha^2 x W1 excludes %d/%d sampled depths below y*; umbilic "
-              "member: k_t - k_th -> w_th(depth) to %.0e, k_t - k_x -> 0 to %.0e: closes %s%s" % (
+              "at every depth %s; the first build's f'' <= alpha^2 x W1 excludes %d/%d sampled depths below y* (an "
+              "identity: W1 < 0 there); umbilic member (an illustration at x = 1e-14, an identity for any f -> 0; the "
+              "closing is deduced): k_t - k_th -> w_th(depth) to %.0e, k_t - k_x -> 0 to %.0e: %s%s" % (
                   _ell(es), d["n"], d["n_below_xc"], d["nec_holds"], d["n_fail"], d["fails_only_above_xc"],
                   "-" if not d["fail_over_xc"] else "%.1f-%.1f" % tuple(d["fail_over_xc"]), d["lead_dev"],
                   DT_LAM_CONTROL, d["control_fails"], d["old_excludes_below_ystar"], d["n_below_ystar"],
                   d["umbilic_ratio_dev"], d["umbilic_radial_dev"], d["umbilic_closes"],
-                  "" if d["ell_a_max"] is None else "; its trace reads ell a(depth) <= %.6f" % d["ell_a_max"]))
+                  "" if d["ell_a_max"] is None else "; its trace reads ell a(depth) <= %.6f (trace minus ell a: %.0e)"
+                  % (d["ell_a_max"], d["trace_minus_ell_a"])))
     print("   so in this class (the nearest approach never attained: a degenerate horizon, at infinite proper distance in "
-          "the static slice) the NEC sets no lower edge: it holds at every sampled depth, %g to %g y_s^th, at every ell "
-          "-- including depths shallower than y_K(10), where K < 10 K_bs" % (min(DT_FRACS), max(DT_FRACS)))
+          "the static slice) the NEC sets no lower edge in the approach (x -> 0): it holds at every sampled depth, %g to "
+          "%g y_s^th, at every ell -- including depths shallower than y_K(10), where K < 10 K_bs.  Past the crossover "
+          "the NEC still bends the piece back (SIM2-FACING.md S7, deduced to first order): whether a member exists below "
+          "y* is decided on the owner's bulk (E-FAR, E-G)" % (min(DT_FRACS), max(DT_FRACS)))
     cw = live["dt_wec"]
     print("   positive energy in the class (the limiting level-set rho_m, maximised over every depth in (0, y_s^th)): "
           "ell > ell_W^class = %.2fm (e < %.7f), best depth %.3f y_s^th (%.3f y*), K/K_bs %.2f there; at ell = inf the "
@@ -1407,8 +1438,8 @@ def report(bank, live):
               cw["flat"]["frac_ys"], T["ell_W"]))
     d0 = live["depth0"]
     print("   depth -> 0 (H-COINCIDE-AS-LIMIT; never reached at a point of the static region): the limiting stress reads "
-          "rho_m/sigma_RS = %s at every finite ell (deduced: p = q = -1/ell at y = 0); K/K_bs = 2(80 e^4 + 3)/(160 e^4 + 3)"
-          " = %s (ell = inf .. m/4), max deviation from the closed form %.0e" % (
+          "rho_m/sigma_RS = %s at every finite ell (deduced: p = q = -1/ell at y = 0); K/K_bs (computed) = "
+          "2(80 e^4 + 3)/(160 e^4 + 3) = %s (ell = inf .. m/4), max deviation from the closed form %.0e" % (
               ", ".join(sorted({"%+.6f" % v["rho_m_rs"] for v in d0.values() if v["rho_m_rs"] is not None})),
               "/".join("%.3f" % d0[es]["K_ratio"] for es in bank["es"]),
               max(abs(v["K_ratio"] - v["K_closed"]) for v in d0.values())))
@@ -1465,8 +1496,10 @@ def report(bank, live):
     nl = live["n"]
     print("S11 Lemma N (sympy): Gamma^y_ab = -(1/2) d_y g_ab: %s; y'' - w_r B r'^2 = %s; warped products w = %s" % (
         nl["connection"], nl["ray"], nl["warped_w"]))
-    print("S12 decision, for ATTAINED nearest points (WIDE on the verified points only; CONFIRMED against the throat's y* "
-          "(x -> 0), the offset being the O(x) shift; the down-the-throat class has no lower edge, S7):")
+    print("S12 decision, for ATTAINED nearest points, on the verified map (WIDE on the verified points only: deeper than "
+          "them at r >= %gm, the board's line, a convention, and for E-FAR, facing is unchecked; CONFIRMED against the "
+          "throat's y* (x -> 0), the offset being the O(x) shift; the down-the-throat class has no lower edge in the "
+          "approach, S7):" % WIDE_R)
     for es in bank["es"]:
         d = dec[es]
         line = "   ell = %-5s %s" % (_ell(es), d["class"])
@@ -1490,9 +1523,9 @@ def report(bank, live):
                                              for v in d["unverified_wide"])))
     dl = live["delta"]
     print("S13 hand-off: %s, in units of %s; s_outer needed: %s (both > 0: the outer side decays, stage 7 K4; the unit, "
-          "K4, and the image count, K5, stay put to M); rows: %s" % (
+          "K4, and the image count, K5, stay put to M); the within-universe rows, on %s: %s; %s" % (
               dl["s_slab_read"], dl["unit"], ", ".join("%s -> >= %s" % kv for kv in dl["s_outer_min"].items()),
-              "; ".join("%s %s" % r_ for r_ in dl["rows"])))
+              dl["rows_on"], "; ".join("%s %s" % r_ for r_ in dl["rows"]), dl["on_trace"]))
     print("S14 escapes: %s" % "; ".join("%s (%s): %s" % e_ for e_ in ESCAPES))
     print("   The depth of a nearest point is the two pieces' bulk separation there: it is reported only as where facing can "
           "occur, never as the corridor's length (bits: 155 (2), R4c) or as anything the device sees (101 (7)); no "
@@ -1506,6 +1539,10 @@ PIN = {  # this instrument's own computed values (C13), pinned at its first rege
     "1": {"y_s": 0.91386, "y_star": 0.88119, "K_ratio": 2.69e4},
     "ell_W": 49.86, "ell_c30": 21.05,
     "ell_W_class": 27.07,   # added after the adjudication (down-the-throat class; its scratch gave 27.0665m)
+    # C16, added after the re-verification: the map's rules, on the bank as regenerated after the w-rule fix
+    "c16": {"wr_zero": 2.198, "n_adm": 3, "adm_from": 2.237, "edge_2m": 1.186,
+            "n_ver": 4480, "n_settled": 4479, "n_adm_total": 86,
+            "adm_per_ell": {"0": 24, "1/32": 21, "1/16": 18, "1/8": 14, "1/4": 8, "1/2": 1, "1": 0, "2": 0, "4": 0}},
 }
 
 
@@ -1690,7 +1727,8 @@ def selftest():
                and abs(vals[4] - PIN["1"]["y_star"]) < 2e-5 and abs(vals[5] / PIN["1"]["K_ratio"] - 1) < 5e-3
                and abs(lw - PIN["ell_W"]) <= 0.05 and abs(lc30 - PIN["ell_c30"]) <= 0.05)
         msg = ("C13 S8's table: ell = inf y_s %.5f, y* %.5f, K(y*)/K_bs %.3g; ell = m y_s %.5f, y* %.5f, K %.3g; "
-               "ell_W = %.2fm; ell_c(30) = %.2fm (pinned: %s)" % (vals + (PIN,)))
+               "ell_W = %.2fm; ell_c(30) = %.2fm (pinned: %s)"
+               % (vals + ({k: PIN[k] for k in ("0", "1", "ell_W", "ell_c30")},)))
     except Exception as exc:                                   # report, never crash (C14 must still run)
         c13, msg = False, "C13 S8's table: raised %s: %s" % (type(exc).__name__, exc)
     chk(msg, bool(c13))
@@ -1712,22 +1750,71 @@ def selftest():
     except Exception as exc:                                   # report, never crash
         cw = {"ell": float("nan"), "err": "%s: %s" % (type(exc).__name__, exc)}
     cw_ok = math.isfinite(cw["ell"]) and abs(cw["ell"] - PIN["ell_W_class"]) <= 0.05 and cw["ell"] < PIN["ell_W"]
-    chk("C15 down the throat (S7, corrected): f = %g x^lam (lam %s) over the throat fields at ell = inf and m: exact radial "
-        "and angular NEC hold at all %s samples below the crossover x_c/2, failures (%s) only above x_c/2 %s; leading "
-        "order f'' - f'/2 <= alpha^2 x W1 to %s at x <= 1e-8; mutation-like controls: lam = 3/4 violates the radial NEC "
-        "at every depth %s, and the first build's f'' <= alpha^2 x W1 (lapse term dropped) excludes every sampled depth "
-        "below y* (%s of %s); the umbilic member: k_t - k_th -> w_th(depth) to %s, closes %s; its trace at ell = m reads "
-        "ell a(depth) <= %.6f; positive energy in the class needs ell > %.2fm (pinned %.2f, below ell_W %.2f)" % (
+    chk("C15 down the throat (S7, corrected): f = %g x^lam (lam %s) over the throat fields at ell = inf and m, the NEC "
+        "exact in the slope on the throat metric through O(x): radial and angular NEC hold at the %s samples below the "
+        "crossover x_c/2: %s; failures (%s) only above x_c/2: %s; leading order f'' - f'/2 <= alpha^2 x W1 to %s at "
+        "x <= 1e-8; control: lam = 3/4 violates the radial NEC at every depth: %s; identity (W1 < 0 below y* by y*'s "
+        "definition, f_uu > 0): the first build's f'' <= alpha^2 x W1 (lapse term dropped) excludes every sampled depth "
+        "below y* (%s of %s); identity (at x = 1e-14 the slope terms are below 1e-7, so it holds for any f -> 0; that the "
+        "radial equation forces f' -> 0 is deduced): the umbilic member's k_t - k_th -> w_th(depth) to %s, %s; its trace "
+        "at ell = m reads ell a(depth) <= %.6f, trace minus ell a %.0e (< 1e-5): %s; positive energy in the class needs "
+        "ell > %.2fm (pinned %.2f, below ell_W %.2f)" % (
             DT_C, "/".join("%g" % v for v in DT_LAMS), "/".join(str(d_["n_below_xc"]) for d_ in dts),
+            all(d_["nec_holds"] for d_ in dts),
             "/".join(str(d_["n_fail"]) for d_ in dts), all(d_["fails_only_above_xc"] for d_ in dts),
             "/".join("%.1e" % d_["lead_dev"] for d_ in dts), all(d_["control_fails"] for d_ in dts),
             "/".join(str(d_["old_excludes_below_ystar"]) for d_ in dts), "/".join(str(d_["n_below_ystar"]) for d_ in dts),
             "/".join("%.0e" % d_["umbilic_ratio_dev"] for d_ in dts), all(d_["umbilic_closes"] for d_ in dts),
-            dts[1]["ell_a_max"], cw["ell"], PIN["ell_W_class"], PIN["ell_W"]),
+            dts[1]["ell_a_max"], dts[1]["trace_minus_ell_a"], dts[1]["trace_minus_ell_a"] < 1e-5,
+            cw["ell"], PIN["ell_W_class"], PIN["ell_W"]),
         cw_ok and all(d_["nec_holds"] and d_["fails_only_above_xc"] and d_["control_fails"] and d_["umbilic_closes"]
             and d_["n_below_xc"] > 100 and d_["lead_dev"] < 0.05
             and d_["old_excludes_below_ystar"] == d_["n_below_ystar"] > 0 for d_ in dts)
-        and dts[1]["ell_a_max"] <= -1 + 1e-9)
+        and dts[1]["ell_a_max"] <= -1 + 1e-9 and dts[1]["trace_minus_ell_a"] < 1e-5)
+    # C16 (numerics re-verifier: no check exercised column_w, admissible, map_summary or decide).  One owner column
+    # recomputed live, r = 2.05m at ell = inf (about 20 s): the verified prefix must be the value rule alone; under the
+    # first build's prefix (value rule AND w-agreement) the prefix stops below the sign change of w_r and this column
+    # has no admissible point.  decide(), admissible() and map_summary() on the bank, against pinned values.
+    pc = PIN["c16"]
+    try:
+        col = column_w("41/20", Fr(0), with_k=False)
+        rows_c = col["rows"]
+        run_v, ver_run = True, True
+        for z in rows_c:
+            run_v = run_v and z["val_ok"]
+            ver_run = ver_run and z["ver"] == run_v
+        adm_cons = all(z["adm"] == (z["ver"] and z["sign_ok"] and z["wr"] >= 0 and z["wth"] >= 0) for z in rows_c)
+        rising = [y_ for y_, sg in col["wr_zeros"] if sg > 0]
+        adm_y = [z["y"] for z in rows_c if z["adm"]]
+        wtop = max([z["y"] for z in rows_c if z["ver_w"]], default=0.0)
+        bk = load_bank()
+        bcol = bk["columns"]["41/20|0"]
+        same = (len(bcol["rows"]) == len(rows_c)
+                and all(a_["ver"] == b_["ver"] and a_["adm"] == b_["adm"] and abs(a_["y"] - b_["y"]) < 1e-12
+                        for a_, b_ in zip(rows_c, bcol["rows"])))
+        d2 = decide(bk, bk["throat"])["1/2"]
+        cf2 = d2["confirm"][0] if d2["confirm"] else (None, float("nan"), float("nan"))
+        ms_ = map_summary(bk)
+        nadm = {es: len(v) for es, v in admissible(bk).items()}
+        c16 = (len(rising) == 1 and abs(rising[0] - pc["wr_zero"]) <= 0.002 and len(adm_y) == pc["n_adm"]
+               and abs(min(adm_y) - pc["adm_from"]) <= 0.002 and ver_run and adm_cons and same
+               and d2["confirmed"] and cf2[0] == "401/200" and abs(cf2[1] - pc["edge_2m"]) <= 0.002
+               and nadm == pc["adm_per_ell"] and ms_["n_ver"] == pc["n_ver"] and ms_["n_ver_settled"] == pc["n_settled"]
+               and ms_["n_adm"] == pc["n_adm_total"] == sum(nadm.values()))
+        msg = ("C16 the map's rules, live: column_w(r = 2.05m, ell = inf) recomputed: rising zeros of w_r %s (one, at "
+               "%.3f +- 0.002), %d admissible points from y = %.3f (pinned %d from %.3f; the first build's w-prefix would "
+               "stop at %.3f, below the zero, and admit none); verified = the running AND of the value rule: %s; "
+               "admissible = verified, signs agreed and w >= 0: %s; rows equal to the bank's: %s.  On the bank: decide() "
+               "at ell = 2m %s (%s, edge %.4f; pinned %.3f +- 0.002); admissible() per ell %s (pinned); map_summary "
+               "%d verified, %d sign-settled, %d admissible (pinned %d/%d/%d)" % (
+                   ", ".join("%.4f" % v for v in rising) or "none", pc["wr_zero"], len(adm_y),
+                   min(adm_y) if adm_y else float("nan"), pc["n_adm"], pc["adm_from"], wtop, ver_run, adm_cons, same,
+                   "CONFIRMED" if d2["confirmed"] else "not CONFIRMED", cf2[0], cf2[1], pc["edge_2m"],
+                   "/".join(str(nadm[es]) for es in bk["es"]), ms_["n_ver"], ms_["n_ver_settled"], ms_["n_adm"],
+                   pc["n_ver"], pc["n_settled"], pc["n_adm_total"]))
+    except Exception as exc:                                   # report, never crash
+        c16, msg = False, "C16 the map's rules, live: raised %s: %s" % (type(exc).__name__, exc)
+    chk(msg, bool(c16))
     print("selftest: %d/%d (%.0f s)" % (ok, n, time.monotonic() - t0))
     return ok == n
 
