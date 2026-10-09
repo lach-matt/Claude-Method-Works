@@ -25,8 +25,8 @@ and overclaim verifiers.
     value in our current universe, added to the value of our current universe"*.
   - **129 (1):** *"… just not a corridor for transit because the corridor is a bridge, so it adds nothing to either
     position."* **130 (1):** *"1 - i - no added matter."*
-  - **131 (2):** *"… the size of the throat is dependent on the size of the README in its most simplistically exact
-    binary code form."* **133 (2):** *"There is only one exact energy needed for any given README"*.
+  - **131 (2):** *"… the size of the throat is dependent on the size of the README in its most simplistically exact  binary code form."*
+  - **133 (2):** *"There is only one exact energy needed for any given README"*.
   - **134:** *"Machine check E and all the values derived from the coefficients."*
   - **136 (8):** *"leave it to measurement. But we can accurately hypothesize it first. Measurement would confirm."*
   - **138:** *"The difference is the relative laws of physics to that universe that govern those elements' material
@@ -62,7 +62,7 @@ and overclaim verifiers.
    corridor.
 5. **Your 187 (2), decided: one law of gravity in the bulk, and each universe gets its own strength of gravity from
    its own plane.** That needs no stretching of 138. A corridor's own region does not get its own coupling: walling
-   it off would cost about the corridor's whole energy or more, against your 133.
+   it off would cost a large share of the corridor's whole energy, or several times it, against your 133.
 6. **One candidate survives in form: c = 4**, the extremal bulk read through the mouth's own shape. It has heavy
    costs, and no candidate is admissible on every ground.
 7. **Nothing is seated, no lemma status moves, and there is no question for you.**
@@ -115,8 +115,9 @@ Units: m = GE/c⁴ is the corridor's mass length, m(N) = m₁√N with m₁ = 3.
   corridor today to fix one universal value. No N-free link survives in anything computed: K1 is ruled out, H-ONE-BIT-
   SCALE is withdrawn, the static closed toy is excluded, and no Planck-length or Λ₄ link was ever realised.
 - **S8. Measurement cannot refute it** (computed). A change confined to the hold reaches at most (2 + T)m from the
-  corridor: 4.0×10⁻²³ m at the example README, 8.5×10⁻¹³ m at 155's E = 3.8×10²² J. Newton's constant is measured
-  down to 52 μm (Lee et al. 2002.11761v1 p.5, READ). Lunar ranging gives *"Gdot/G0 = (-5.0 +- 9.6) x 10^-15 yr^-1"*
+  corridor: 4.0×10⁻²³ m at the example README, 8.5×10⁻¹³ m at 155's E = 3.8×10²² J. Torsion balances give
+  *"percent-level measurements of GN at separations down to about 50 um"* (Lee et al. 2002.11761v1 p.2, READ). Lunar
+  ranging gives *"Gdot/G0 = (-5.0 +- 9.6) x 10^-15 yr^-1"*
   (Biskupek et al. 2012.12032v1 p.1, READ), and sees nothing confined to the hold.
   - Two premises sit under this: no bulk path beats our light cone (H-NO-SHORTCUT), and the hold equals the least write
     (H-HOLD-AT-BOUND). So the reach is a floor. The verdict holds for any hold shorter than 1.7×10⁻¹³ s, which is
@@ -128,7 +129,7 @@ Units: m = GE/c⁴ is the corridor's mass length, m(N) = m₁√N with m₁ = 3.
 - **N2. The matter round's verdicts stand** (computed; verified). They failed for reasons other than √N, so 186 does
   not change them:
   - route 1 (local match): NO-SOLUTION at every r_h/ℓ. Eq. (17)'s surface gravity is 0, and every READ static
-    Randall–Sundrum black hole is non-extremal; the plane and the bulk share κ for any cut (computed);
+    Randall–Sundrum black hole is non-extremal; the plane and the bulk share κ for any static cut (computed);
   - route 2 (uniform dark radiation): FREE. The data bound the horizon's depth in units of ℓ, not ℓ;
   - route 3 (balance with matter): FREE. ℓ cancels at leading order; the matter fixes ratios only (d/ℓ, position 2's
     content), and those need position 2's stress, which no ruling or observation supplies.
@@ -161,8 +162,9 @@ Units: m = GE/c⁴ is the corridor's mass length, m(N) = m₁√N with m₁ = 3.
   - **Where the region meets a plane,** that plane's tension shifts by the wall tension (computed). In the natural
     orientation, with the warp falling on both sides, there is no solution at all once k_c² > 5k₀², which covers every c
     here (checker). So the region must meet our plane only inside the mouth (OPEN).
-  - A tension change is not matter: SMS split the tension from the matter, and your 130 (1) narrowed "adds nothing" to
-    "no added matter". So this is a cost, not a conflict with your ruling (checker).
+  - A tension change is not matter: SMS split the tension from the matter (gr-qc/9910076v3 p.3, eqs. (13)–(14), as
+    the checker read it), and your 130 (1) narrowed "adds nothing" to "no added matter". So this is a cost, not a
+    conflict with your ruling.
 - **K3. The plain reading breaks the chain at the mouth** (deduced; qualitative). If our own plane's ℓ changed at a
   fixed 5D coupling, G at the mouth would change, and with it E(N) and the throat, both computed with today's G. So the
   reading has to be H-K-LOCAL-TO-CORRIDOR or H-G5-PER-CORRIDOR. The task's numeric factors for this are illustrations,
@@ -189,8 +191,8 @@ Units: m = GE/c⁴ is the corridor's mass length, m(N) = m₁√N with m₁ = 3.
 - **K8. The chain's 4D readings fail for every corridor** (computed). Figueras–Wiseman's corrections go as ℓ²/r₀² =
   c²/4 (*"corrections going as O(ℓ²/R4²)"*, 1105.2558v2 p.4, READ). That is 1 to 40 for the candidates, all on the 5D
   side. Under one k, a large enough README could still reach the 4D regime; under a fixed c none can. G1 and H1 then
-  hold as the chain's 4D accounting, and the 5D holding differs (5D horizon 3m or 3.19m, not 2m; Bekenstein ratio
-  2/3 or 0.627).
+  hold as the chain's 4D accounting. For the count candidates the 5D holding differs: a horizon of 3m or 3.19m, not
+  2m, and a Bekenstein ratio of 2/3 or 0.627.
 - **K9. Two corridors at once need two regions** (deduced). That is consistent only under H-K-LOCAL-TO-CORRIDOR.
 
 ## 4. Does the evidence lean that way? (decided under 149)
@@ -264,10 +266,12 @@ How the mathematics decides it:
   - With one 5D coupling, a plane's Newton's constant is set by its own tension and the curvature on its sides. SMS:
     *"G_N = κ_5^4 λ/(48π)"* (gr-qc/9910076v3 p.3, eq. (19), READ). Maartens–Koyama: *"M_5^3 = M_p^2/ell"*
     (1004.3962v2 p.9, eq. (27), READ).
-  - Route 3 computed it for the board's two-plane bulk (verified): on the LR/M4 sheet position 2's G is 6 times ours
-    and positive. The mirrored rows give it negative, which 139 (2) excludes.
-  - So "each universe its own Newton's constant" is what one bulk law already gives through 139 (1)'s tensions. 138
-    does not need to cover gravity, and the board does not stretch it to.
+  - Route 3 computed it for the board's two-plane bulks (verified). On the LR/M4 sheet of the board's convention table,
+    position 2's G is positive, 6 times ours. On the mirrored rows it comes out negative, which forces position 2's
+    matter negative, against 139 (2) (CGS's one-plane argument, per the checker).
+  - So the value depends on the configuration; that each universe has its own does not. "Each universe its own
+    Newton's constant" is what one bulk law already gives through 139 (1)'s tensions. 138 does not need to cover
+    gravity, and the board does not stretch it to.
 - **A corridor's own region: no** (deduced; computed).
   - Inside a region about ℓ_c across, no four-dimensional Newton's constant is defined (Maartens–Koyama eqs.
     (40)–(41), READ p.10; checker). The live question is the 5D coupling.
@@ -278,10 +282,13 @@ How the mathematics decides it:
     of our theory can differ on either side of the brane"* (hep-th/0406157v3 p.4, READ), so this point alone does not
     decide it; K5 does.
 - **What this does to the candidates** (computed inline for this note; deduced; not yet an instrument). Every 5D-count
-  candidate (12.73, 10.60, 5.37, the column's 3.12) used G₅ = Gℓ with ℓ the corridor's own. With one coupling,
-  G₅ = Gℓ₀, the same count gives a horizon R_h³ = (8/π)m²ℓ₀ and a c that depends on ℓ₀/m(N). It returns c = 12.727
-  only at the one README where ℓ₀ = ℓ_c; the one-scale limit reproduces the task's π²ρ⁴(ρ − 3) = 192. So under this
-  decision those candidates are not pure numbers. The cap's c = 4 is geometry alone and is unaffected.
+  candidate (12.73, 10.60, 5.37, the column's 3.12) used G₅ = Gℓ with ℓ the corridor's own.
+  - With one coupling, G₅ = Gℓ₀, the Schwarzschild–AdS₅ count gives a horizon R_h³ = (8/π)m²ℓ₀ and a c that depends
+    on ℓ₀/m(N). It returns c = 12.727 only at the one README where ℓ₀ = ℓ_c; the one-scale limit reproduces the
+    task's π²ρ⁴(ρ − 3) = 192.
+  - The Tangherlini and route-2 counts then fix ℓ₀ instead of ℓ_c (the two-scale task computed this for route 2).
+  - So under this decision those candidates are not pure numbers. The cap's c = 4 is geometry alone and is
+    unaffected.
 - **What would reverse it:** an exact closed-wall junction under H-REGION-G5 with an energy far below E, or a
   wall-free configuration that gives the corridor region its own coupling.
 
@@ -303,7 +310,8 @@ How the mathematics decides it:
   - **Grounds.** Kaus–Reall's exact member: *"A == ell/2, R = (ell/sqrt2) sinh(sqrt2 rho/ell)"* (0901.4236 PDF p.6,
     eq. (2.18), READ). A plane reading eq. (17)'s mouth must share its AdS₂ radius: ℓ/2 = 2m, so ℓ = 4m, with the
     plane at sinh = 1/√2 (computed, Wolfram). It is E-PASS X22's exact cap. Its horizon is degenerate (κ = 0), which
-    matches clause (O) and 172 (2)'s endless approach. It needs no 5D coupling, so it survives §6. At the example
+    matches clause (O), and 172 (2)'s endless approach on H-ENDLESS-IS-DEGENERATE. It needs no 5D coupling, so it
+    survives §6. At the example
     README ℓ = 7.95×10⁻²⁸ m and k = 1.26×10²⁷ m⁻¹.
   - **Costs.** A pure-tension plane is impossible there. The plane needs stress ρ_m/σ_RS = (2√6 − 3)/3 = 0.633 with
     p_r = −ρ_m. That is not ordinary matter; on our plane it is stress the corridor adds, which 130 (1) reads
@@ -320,9 +328,9 @@ How the mathematics decides it:
   - **Exclusions and costs.**
     - It needs the corridor region's own coupling, which §6 sets aside.
     - It is non-extremal: there is no degenerate member at k_s = +1 (computed). That is the ground D2 uses against the
-      Tangherlini hole. Since the plane and the bulk share κ for any cut (route 1, computed), no plane that cuts this
-      horizon can read eq. (17)'s κ = 0 mouth. It fits clause (O) as worded only if no plane cuts it, and then how a
-      plane reads the mouth is OPEN.
+      Tangherlini hole, and it does not fit clause (O)'s extremal horizon as worded. Since the plane and the bulk
+      share κ for any static cut (route 1, computed), no plane cutting this horizon can read eq. (17)'s κ = 0 mouth.
+      If no plane cuts it, how a plane reads the mouth is OPEN.
     - It is a small AdS black hole, R_h = 0.25ℓ: *"the smaller of which has negative specific heat"* (Birmingham
       hep-th/9808032v3 PDF p.7, READ).
     - Two-sided, it is model C's eternal black hole, with a past singularity (BULK-BALANCE §7).
@@ -345,7 +353,8 @@ How the mathematics decides it:
   mouth's AdS₂ radius gives 4 (checker). With matter the planes' positions are a modulus; the balance never fixes c.
   In Randall–Sundrum orientations our plane needs negative-density matter (w = −1/3, at the flat-tuned tension only).
   A pure-tension, negative-tension plane does border this bulk (ℓ/√3 < ℓ₂ < ℓ; at −1/4, ℓ₂ = ℓ/√2 and R = ℓ;
-  checker), but it is matter-free, a 184 limit.
+  checker). It is matter-free, a 184 limit, and it needs position 2 to face the corridor from an exterior, which no
+  single static slice provides.
 - **c = 5.367, route 2's closed bulk horizon** (computed). It comes from two identifications and no observation, on the
   board's uniform reading. It needs the region's own coupling (K5: 12.6 E at R = ℓ_c), it is non-extremal, and under
   one coupling it fixes ℓ₀ instead.
@@ -377,9 +386,8 @@ How the mathematics decides it:
 ## 9. Clause (B): proposed wording (not seated)
 
 > **(B) Bulk.** A five-dimensional bulk, with one law of gravity, carries the corridor. Each plane carries its own
-> universe's matter, and the corridor adds none; a matter-free plane is a limit. Our plane's tension is the positive
-> Randall–Sundrum value and position 2's is negative, a quarter of ours; each universe's strength of gravity follows
-> from its own plane. The plane's two ends are one end of the bulk. The energy is positive at every point. The bulk's
+> universe's matter, and the corridor adds none; a matter-free plane is a limit. Our plane's tension is positive and
+> position 2's is negative, a quarter of ours; each universe's strength of gravity follows from its own plane. The plane's two ends are one end of the bulk. The energy is positive at every point. The bulk's
 > curvature: its ratio is fixed by the work, k_R = 3k_L/4; its scale is not yet fixed — our universe's own value is
 > nature's, and if each corridor carries its own (186), it is ℓ = c·m(N), with one pure number c for every corridor,
 > fixed by the work. The corridor opens and closes between static planes.
@@ -387,13 +395,15 @@ How the mathematics decides it:
 - **What changes, and from what:**
   - "a vacuum bulk … the plane is free of matter" gives way to your 184, with 129 (1) and 130 (1);
   - "one law of gravity" and "each universe's strength … from its own plane" are §6's decision (the board's);
-  - the tensions are your 139 (1); positivity stays your 139 (2), separate from clause (Z)'s pairing;
+  - the tensions are your 139 (1). "At the Randall–Sundrum tension" is dropped: which value ours takes depends on the
+    count (multiplane M4's +4/3 of the one-plane value; the 174 (2) rule). Positivity stays your 139 (2), separate
+    from clause (Z)'s pairing;
   - the ratio 3/4 holds under the board's 174 (2) doubled count (k_L/2 per sheet);
   - the scale is written so that it holds under both readings of 186 and adopts neither;
   - "static" is your 141, read as a fixed separation (H-STATIC-AS-FIXED-SEPARATION). A plane at rest in the bulk's own
     chart would have no expansion for its observers, which ours has (route 3, deduced).
-- **Its lemmas keep their statuses.** B1 and B2 (matter-free, local bulk) become limits. B6 stays PROVED; B6′ stays
-  NATURE unless H-K-PER-CORRIDOR is adopted (K6).
+- **Its lemmas keep their statuses.** B1 and B2 stand as statements about the matter-free limit. B6 stays PROVED;
+  B6′ stays NATURE unless H-K-PER-CORRIDOR is adopted (K6).
 
 ## What it does to B4d (no status moves; nothing seated)
 
