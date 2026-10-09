@@ -122,8 +122,9 @@ sessions they describe skill sync but say nothing about plugins.
 
 ## Tools, access and the rules on them
 
-- **Wolfram:** the connector, `mcp__Wolfram__WolframLanguageEvaluator`, runs Wolfram 15.0.1 and loads xAct and
-  FeynCalc. Mathics3 runs offline through `.claude/skills/mathematica/wl`.
+- **Wolfram:** the connector, `mcp__Wolfram__WolframLanguageEvaluator`, runs Wolfram 15.0.1 and loads xAct.
+  FeynCalc only loads by downloading it from GitHub inside the kernel, so `science-tools` lists it as excluded;
+  do not use it. Mathics3 runs offline through `.claude/skills/mathematica/wl`.
   - Mathics3 is a subset of Mathematica. Label its results "computed (Mathics3)".
   - Quirks: use one compound `-c` with `</dev/null`, or `-f file`. `-script` prints nothing, and repeated `-c`
     runs only the first.

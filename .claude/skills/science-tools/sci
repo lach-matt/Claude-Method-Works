@@ -54,8 +54,8 @@ declare -A DESC=(
   [lit]="verbatim READs: poppler (pdftotext/pdftoppm), tesseract (eng+deu), pdfplumber, pypdf, pymupdf, pylatexenc, bibtexparser, TexSoup"
   [tex]="TeX Live 2023 from Ubuntu debs (relocated): pdflatex, bibtex; latex-base/recommended/extra, pictures (TikZ), science, publishers (revtex4-2)"
 )
-declare -A SIZE=( [gr]="~0.9 GB" [cas]="~0.5 GB" [sage]="~1.6 GB" [provers]="~0.2 GB" [lean]="~3.5 GB"
-  [coq]="~1.2 GB" [numerics]="~0.9 GB" [dedalus]="~0.9 GB" [data]="~0.4 GB" [cosmo]="~0.3 GB"
+declare -A SIZE=( [gr]="~1.2 GB" [cas]="~0.5 GB" [sage]="~1.6 GB" [provers]="~0.2 GB" [lean]="~3.5 GB"
+  [coq]="~1.2 GB" [numerics]="~1.1 GB" [dedalus]="~0.9 GB" [data]="~0.4 GB" [cosmo]="~0.3 GB"
   [gw]="~0.6 GB" [lit]="~0.2 GB" [tex]="~0.5 GB" )
 
 # pip requirement sets (also used by `sci dryrun`)
