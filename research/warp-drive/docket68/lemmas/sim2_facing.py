@@ -3,7 +3,8 @@
 face each other across a static bulk?  Computed, READ and deduced; verified (three verifiers and an adjudication,
 2026-10-09: S7's first down-the-throat argument was refuted and is corrected), then re-verified (two re-verifiers,
 2026-10-09; their findings applied: see SIM2-FACING.md, History); not seated.  First headed "... not verified; not
-seated".
+seated".  S15 (the coinciding limit) and its selftest C17 were added for M's item 172 after the re-verification and
+are not yet verified.
 
 M's words (verbatim in the rulings file; quoted in SIM2-FACING.md, never paraphrased as M's): item 168 "My sense:
 positions, one universe"; 152 (1) "two separate positions connected by/reached through a dimension." and (2) "It could
@@ -11,7 +12,8 @@ very well be possible, so let's consider this an option and check it."; 126; 127
 and (b); 117 and 120 (the NEC "appears broken, but is not"); 123 "forget the coin metaphor."; 118 "Yes: law and
 history"; 119; 129 (1); 130 (1) "no added matter"; 136 (2) "released at position two at the closing of the horizon" and
 (3) "It is a bridge, not a physical place."; 138; 139 (1), (2), (4); 140; 141 "I suggest the planes are static"; 143 A;
-155 (2) "Yes, in bits"; 157; 158 (2), (3), (4); 161; 162; 166 "Both planes at once"; 101 (7).  Items 169-171
+155 (2) "Yes, in bits"; 157; 158 (2), (3), (4); 161; 162; 166 "Both planes at once"; 101 (7); 172 (1) "Yes, it
+may" and (2) "Yes, that is coinciding".  Items 169-171
 (2026-10-09) bear on why this phase compares the pieces on one static slice: 169 (M's thought, offered for discussion:
 no travel through time alone), 170 (carried as H-CLOCK-ABSORBED and H-OBJECT-KEEPS-P1-TIME), 171 (M's question; the
 board's answer offered for discussion: space-only teleportation within one universe is this phase).  The static bulk
@@ -25,8 +27,10 @@ THE SETUP.  Units m = 1, e = m/ell, nu = 2/kappa_5^2 (one-sided Israel factor). 
 a = (kappa_t + kappa_r + 2 kappa_th)/4, a~ = a + 1/ell; the wall coefficients w_r = kappa_r - kappa_t,
 w_th = kappa_th - kappa_t (the warp cancels from both and from a~).  Position 2's piece P2 is a second piece of the same mirrored plane, one-sided toward the slab
 (H-Z2-PIECES); it faces P1 when its bulk nearest approach p2 = (r2, depth) is attained in the static region
-(H-NEAREST-APPROACH).  A nearest approach only approached down the throat, never attained, counts as facing only on
-a named extension, H-FACING-DOWN-THE-THROAT (put to M), and is S7's class.  The depth of p2 is,
+(H-NEAREST-APPROACH).  A nearest approach only approached down the throat, never attained, is S7's class; since item
+172 (2) it rests on M's H-COINCIDE-DOWN-THE-THROAT (127's coincidence is the endless approach down the object's
+throat, never a reached point), which replaces the board's H-FACING-DOWN-THE-THROAT and H-COINCIDE-AS-LIMIT; its
+depth -> 0 member is the coincidence itself (S15).  The depth of p2 is,
 by construction, the two pieces' bulk separation at their nearest point: it is reported only as where in the bulk
 facing can occur -- never as the corridor's length (155 (2): bits), never as anything the device sees (101 (7)), and
 never optimised over or turned into a time or a speed (139 (4)).  C14 checks names only.  Junction, normal into the
@@ -40,8 +44,8 @@ lemma).
       k_spatial(P2) >= -kappa_spatial at p2.
   S3  COROLLARY T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= -1, every depth, every ell.  Under
       clause (B) two matter-free pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum
-      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; on H-FACING-DOWN-THE-THROAT the down-the-throat
-      member closes too (deduced in the adjudication, using w_th > 0 computed on the throat bulk at the nine ell;
+      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; down the throat (M's H-COINCIDE-DOWN-THE-THROAT,
+      item 172) the member closes too (deduced in the adjudication, using w_th > 0 computed on the throat bulk at the nine ell;
       illustrated on one profile by S7's umbilic member).  That closes this one way of building the corridor within one
       universe; E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them, stay open.
   S4  LEMMA W (deduced): a static mirrored P2 whose total stress obeys the NEC, nearest approach attained in the static
@@ -62,7 +66,7 @@ lemma).
       illustrates the umbilic (matter-free) member's closing (k_t - k_th -> w_th(depth) > 0: at x = 1e-14 an identity
       for any f -> 0; that the radial equation forces f' -> 0 is deduced, in the adjudication).  So in this class -- a
       nearest approach never attained, the horizon being degenerate and at infinite proper distance in the static
-      slice; facing only on H-FACING-DOWN-THE-THROAT -- the NEC sets no lower edge in the approach (x -> 0): it holds at
+      slice; since item 172 M's H-COINCIDE-DOWN-THE-THROAT -- the NEC sets no lower edge in the approach (x -> 0): it holds at
       every sampled depth, 0.01 to 0.9 y_s^th, at every ell scanned (the adjudication: every depth in [0, y_s^th)).
       Past the crossover the NEC still bends the piece back (the re-verifier, deduced to first order in x and in the
       slope: where W1 < 0, f' e^(-u/2) cannot increase), so whether a member exists below y* is decided on the owner's
@@ -107,12 +111,23 @@ lemma).
   S14 THE ESCAPES LEFT (STRUCTURAL / OPEN), now with E-Q (quantum or semiclassical stress; excluded only by
       H-NEC-NEVER-VIOLATED, 117/120) and E-FAR (a nearest approach reached only as r -> infinity, beyond r = 10m, or
       beyond a column's verified top, including the continuation of S7's approach below y*; open).
-  The computed branch (S4, S7-S12) rests on the board's H-README-ON-P2, which 129 (1), 130 (1) and 136 (2) read against
-  as M worded them (132 and 158 (4) leave room for it); a yes to it also relaxes the theorem's clause (B), "The plane is
-  free of matter", on P2, so clause (B) then holds in full on P1 only (on H-SPLIT-AT-OUR-TENSION its tension still
-  holds on P2).  It counts as within one universe only on the board's H-SPLIT-AT-OUR-TENSION (position 2's law fixed
-  at our tension; everything else in its stress, its trace included, the README's).  On H-LAW-READ-BY-TRACE instead
-  the band's piece reads s <= ell a(y*) <= -1, a law not ours (phase 3).
+  S15 THE COINCIDING LIMIT (item 172; computed and deduced): S7's class with its approach depth -> 0 and x -> 0.  P2's
+      stress tends to the RS1 sheet: rho -> -sigma_RS, rho + p_i -> 0, s = rho/sigma_RS and the trace reading -> -1
+      (deduced from the throat data at depth 0; computed on four profiles at the nine ell), so rho_m -> -2 sigma_RS at
+      every finite ell.  On H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2 the WEC along any approach needs the level value
+      nu (p + 2q - 3/ell) >= 0 at the approach depth (deduced, exact in the slope at x -> 0), so positive energy starts
+      only at d_+ > 0 at every finite ell (computed: d_+ exists only for ell > 27.07m; 0.8395m at 32m; d_+ ~ 24 m^2/ell
+      as ell -> infinity).  Flat limit: rho -> 0+ along the approach (c x^lam (1/4 - lam^2); -(3/4) g2 x on the smooth
+      family): no positive margin at coincidence.  On H-LAW-READ-BY-TRACE the coinciding piece is a matter-free sheet of
+      tension -1 at our ell: 139 (1)'s sign, a different law (phase 3).  Depths reported only as where facing occurs.
+  The computed branch (S4, S7-S12, S15) rests on H-README-ON-P2, M's since item 172 (1) ("Yes, it may"): during the
+  hold position 2's piece may carry the README's stress, obeying the NEC, and the theorem's clause (B), "The plane is
+  free of matter", then holds in full on P1 and its tension half only on P2 -- a change to clause (B)'s scope, carried,
+  not seated.  As M worded them, 129 (1), 130 (1) and 136 (2) had read against it.  Which part of P2's stress is its
+  law was not answered (question 1 (b)): the results count as within one universe only on the board's
+  H-SPLIT-AT-OUR-TENSION (position 2's law fixed at our tension; everything else in its stress, its trace included, the
+  README's).  On H-LAW-READ-BY-TRACE instead the band's piece reads s <= ell a(y*) <= -1, and the coinciding piece
+  s = -1: a law not ours (phase 3).
   It is necessary, not sufficient, and never B4d green.
 
 Owners imported by path (never copied): b4_static.py (series, _eq17, _schwarzschild, pade), b4d_stage5.py (warped,
@@ -873,7 +888,8 @@ def ell_w_class():
 
 
 def depth_zero(e):
-    """Item 127's coincidence read as a limit (H-COINCIDE-AS-LIMIT): the down-the-throat class approaching depth 0.  At
+    """The down-the-throat class approaching depth 0 (first read as the board's H-COINCIDE-AS-LIMIT; since item 172 the
+    coincidence of M's H-COINCIDE-DOWN-THE-THROAT, which S15 computes along the approach).  At
     y = 0 the throat data are alpha = beta = 1, p = q = -1/ell, so the limiting stress reads rho = nu (p + 2q) =
     -sigma_RS and rho_m = -2 sigma_RS at every finite ell (deduced); K/K_bs = 2(80 e^4 + 3)/(160 e^4 + 3) <= 2."""
     ef = float(e)
@@ -1206,7 +1222,8 @@ def delta_rows():
     need = {str(s2): 2 * s2 - s_slab for s2 in (Fr(-1, 3), Fr(-1, 6))}
     rows = [("(0, 0 | 0)", "EMPTY (S3, T5c; the down-the-throat member too)"),
             ("(0, 0 | NEC)", "attained: the throat band (S12); down the throat: every depth in the approach (S7)"),
-            ("(0, 0 | NEC+WEC)", "attained: ell >= ell_W only; down the throat: ell > ell_W^class only")]
+            ("(0, 0 | NEC+WEC)", "attained: ell >= ell_W only; down the throat: ell > ell_W^class only, at approach "
+                                 "depths >= d_+ > 0, so never coinciding (S15)")]
     return {"s_slab_max": s_slab,
             "s_slab_read": "s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down the throat)",
             "unit": "sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows)",
@@ -1326,7 +1343,8 @@ def wec_window(tb):
 
 def wec_profiles(tb, w, xs=(1e-8, 1e-11, 1e-14)):
     """At finite ell with d_plus > 0: the WEC (rho_m >= 0, with the NEC) on the four profiles at x = 1e-14 at
-    0.9, 0.99 and 1.01 d_plus, and along the approach (xs) at d_plus itself."""
+    0.9, 0.99 and 1.01 d_plus, and along the approach (xs) at d_plus itself; and, as an illustration that a positive
+    rho_m at finite x does not last along the approach, lam = 0.1 at 0.99 d_plus and x = 1e-4, 1e-7, 1e-14."""
     ef, (_, W1) = tb["e"], _ystar(tb)
     rs = 3 * ef
     res = {}
@@ -1340,6 +1358,8 @@ def wec_profiles(tb, w, xs=(1e-8, 1e-11, 1e-14)):
         sts = [piece_stress(tb, w["d_plus"], xv, k, g2) for xv in xs]
         at[_kind_name(k)] = all(st["rho"] - rs >= 0 and st["nec_r"] >= 0 and st["nec_th"] >= 0 for st in sts)
     res["at_d_plus"] = at
+    dep = 0.99 * w["d_plus"]                       # finite x is not the approach: lam = 0.1 just below d_plus
+    res["finite_x"] = [(xv, (piece_stress(tb, dep, xv, ("pow", 0.1), 0.0)["rho"] - rs) / rs) for xv in (1e-4, 1e-7, 1e-14)]
     res["below_fails"] = all(v < 0 for fac in ("0.9", "0.99") for v in res[fac].values())
     res["above_holds"] = all(v > 0 for v in res["1.01"].values())
     return res
@@ -1540,7 +1560,8 @@ def report(bank, live):
     print("S3 T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= %s at every depth and ell; general "
           "bound s2 <= %s, which at s1 -> 1 is %s (the depth drops out).  DECIDED: under clause (B) two matter-free "
           "pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum Lambda_5), on the board's "
-          "H-Z2-PIECES and H-NEAREST-APPROACH; on H-FACING-DOWN-THE-THROAT the down-the-throat member closes too "
+          "H-Z2-PIECES and H-NEAREST-APPROACH; down the throat (M's H-COINCIDE-DOWN-THE-THROAT, item 172) the member "
+          "closes too "
           "(deduced in the adjudication, with w_th > 0 computed on the throat bulk at the nine ell; illustrated in S7).  "
           "Not closed by this: E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them"
           % (tc["s2_max"], tc["general"], tc["at_s1_1"]))
@@ -1592,7 +1613,8 @@ def report(bank, live):
         "%.2fm" % T["ell_c"]["30"] if T["ell_c"]["30"] else "never", "%.2fm" % T["ell_c"]["100"] if T["ell_c"]["100"]
         else "never"))
     DT = live["dt"]
-    print("S7 down the throat (computed; corrected; facing only on H-FACING-DOWN-THE-THROAT): radial NEC along "
+    print("S7 down the throat (computed; corrected; facing down the throat on M's H-COINCIDE-DOWN-THE-THROAT, item 172, "
+          "which replaces the board's H-FACING-DOWN-THE-THROAT): radial NEC along "
           "y = depth + f(u), u = ln x: f'' - f'/2 <= alpha^2 x W1(depth) (f'/2: the lapse-gradient term the first build "
           "dropped).  f = %g x^lam, lam = %s, NEC exact in the slope on the throat metric through O(x), at depths %s "
           "y_s^th, x = 1e-14 .. min(1e-3, x_O1):" % (
@@ -1622,7 +1644,8 @@ def report(bank, live):
               cw["ell"], cw["e"], cw["frac_ys"], cw["frac_ystar"], cw["K_ratio"], cw["flat"]["rho_m_max"],
               cw["flat"]["frac_ys"], T["ell_W"]))
     d0 = live["depth0"]
-    print("   depth -> 0 (H-COINCIDE-AS-LIMIT; never reached at a point of the static region): the limiting stress reads "
+    print("   depth -> 0 (the coincidence, item 172; never reached at a point of the static region; along the approach: "
+          "S15): the limiting stress reads "
           "rho_m/sigma_RS = %s at every finite ell (deduced: p = q = -1/ell at y = 0); K/K_bs (computed) = "
           "2(80 e^4 + 3)/(160 e^4 + 3) = %s (ell = inf .. m/4), max deviation from the closed form %.0e" % (
               ", ".join(sorted({"%+.6f" % v["rho_m_rs"] for v in d0.values() if v["rho_m_rs"] is not None})),
@@ -1715,6 +1738,80 @@ def report(bank, live):
     print("   The depth of a nearest point is the two pieces' bulk separation there: it is reported only as where facing can "
           "occur, never as the corridor's length (bits: 155 (2), R4c) or as anything the device sees (101 (7)); no "
           "time, redshift or speed is computed (139 (4)).")
+    CO = live["coin"]
+    print("S15 the coinciding limit (item 172 (2), \"Yes, that is coinciding\": H-COINCIDE-DOWN-THE-THROAT, M's; the "
+          "approach down the throat with its depth -> 0, never reached at a point of the static region; P2's stress by "
+          "the instrument's Israel convention, normal into the slab, K exact in the slope on the throat metric through "
+          "O(x); s = rho/sigma_RS and the trace reading s_tau = (ell/3 nu)(-S^a_a/4); profiles lam = %s (c = %g) and the "
+          "smooth f = %g sqrt(x) + g2 x, g2 = 2 alpha^2 W1 + p g1^2/2 - %g; the approach depth is reported only as where "
+          "facing occurs):" % ("/".join("%g" % v for v in DT_LAMS), DT_C, DT_C, CO_MARGIN))
+    print("   deduced: at depth 0 the throat data are alpha = beta = 1, p = q = -1/ell, so k_t = k_x = k_th = 1/ell, "
+          "S^a_b = (3 nu/ell) delta: rho -> -sigma_RS, rho + p_i -> 0, s = s_tau = -1 (the RS1 sheet: C1's control), "
+          "rho_m = rho - sigma_RS -> -2 sigma_RS at every finite ell; along the approach, to first order in f, "
+          "rho/nu + 3/ell = f/4 - f_uu ((p' + 2q')(0) = 1/4 at every ell): c x^lam (1/4 - lam^2) on the power law")
+    for es in bank["es"]:
+        c_ = CO[es]
+        P_ = c_["profiles"]
+        if c_["s_lim"] is not None:
+            print("   ell = %-5s depth 0, x = %s: s = %s; |s + 1|, |s_tau + 1| at 1e-14 (lam 0.4, smooth) <= %.0e, %.0e; "
+                  "NEC part (rho + p_i)/sigma_RS <= %.0e there (%.0e with lam 0.1, falling as x^lam), every sample "
+                  "NEC-legal %s, |s + 1| falling along x on all four %s; rho_m/sigma_RS -> %.7f; approach depths %s y_s^th: "
+                  "s = %s" % (
+                      _ell(es), "/".join("%g" % v for v in CO_XS),
+                      "; ".join("%s %s" % (n, " ".join("%.5f" % v["s"] for v in pts)) for n, pts in P_.items()),
+                      c_["worst_s"], c_["worst_tau"], c_["worst_nec_fast"], c_["worst_nec"], c_["nec_ok"],
+                      c_["monotone"], c_["rho_m_rs"], "/".join("%g" % v["frac"] for v in c_["depths"]),
+                      "/".join("%.5f" % v["s"] for v in c_["depths"])))
+        else:
+            sm = P_["smooth"]
+            print("   ell = %-5s (sigma_RS = 0: rho_m = rho, in nu/m) depth 0, x = %s: rho/nu = %s; against the first "
+                  "order c x^lam (1/4 - lam^2) and, smooth, -(3/4) g2 x = %.4f x: within %.0e at x <= 1e-8; smooth "
+                  "(rho/nu)/x = %s; rho > 0 at every sample %s and falling toward 0 along x %s; NEC part <= %.0e at "
+                  "1e-14 (lam 0.4, smooth), every sample NEC-legal %s; approach depths %s y_s^th: rho/nu = %s" % (
+                      _ell(es), "/".join("%g" % v for v in CO_XS),
+                      "; ".join("%s %s" % (n, " ".join("%.3e" % v["rho"] for v in pts)) for n, pts in P_.items()),
+                      -0.75 * c_["g2_0"], c_["flat_lead_dev"], "/".join("%.4f" % (v["rho"] / v["x"]) for v in sm),
+                      c_["flat_pos"], c_["flat_to_0"], c_["worst_nec_fast"], c_["nec_ok"],
+                      "/".join("%g" % v["frac"] for v in c_["depths"]), "/".join("%.3e" % v["rho"] for v in c_["depths"])))
+    print("   on H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2 (rho_m >= 0).  Deduced, exact in the slope at x -> 0: along "
+          "any approach the WEC forces f_uu <= alpha^2 (p + 2q - 3/ell) + f_u^2 (4a - 3/ell), the last bracket <= -7/ell "
+          "(T4), so it needs the level value nu (p + 2q - 3/ell) >= 0 at the approach depth, for every profile; at finite "
+          "ell that value is -6 nu/ell = -2 sigma_RS at depth 0, so d_+ (the shallowest approach depth with rho_m >= 0) "
+          "is > 0 (depths reported only as where positive-energy facing down the throat can occur).  Computed:")
+    for es in bank["es"]:
+        w = CO[es]["wec"]
+        wp = CO[es]["wec_profiles"]
+        if w["d_plus"] is None:
+            print("   ell = %-5s no approach depth: the level value's maximum is %+.4f nu/m (%+.3f sigma_RS) < 0" % (
+                _ell(es), w["level_max"], w["level_max"] / (3 * float(Fr(es)))))
+        elif w["d_plus"] == 0.0:
+            print("   ell = %-5s d_+ = 0 only as an infimum: the level value is %+.1e at depth 0 and > 0 from there to "
+                  "%.4fm (%.4f y_s^th); at depth 0 itself rho -> 0+ along the approach (above): no positive margin at "
+                  "coincidence" % (_ell(es), w["level_at_0"], w["top"], w["frac_top"]))
+        else:
+            print("   ell = %-5s d_+ = %.4fm (%.4f y_s^th; W1 = %+.4f < 0 there, so down the throat only, y* = %.4fm) to "
+                  "%.4fm (%.4f y_s^th); on the four profiles at x = 1e-14 rho_m/sigma_RS at 0.9 d_+ %s, at 0.99 d_+ %s "
+                  "(all < 0: %s), at 1.01 d_+ %s (all > 0: %s); at d_+ itself, along x = 1e-8 .. 1e-14 with the NEC: %s "
+                  "(lam < lam_max = %.3f holds; the smooth family's first-order coefficient (p' + 2q') - 1/(4 alpha^2) "
+                  "= %+.3f); finite x is not the approach: at 0.99 d_+, lam 0.1 reads %s" % (
+                      _ell(es), w["d_plus"], w["frac_plus"], w["W1_plus"], w["y_star"], w["top"], w["frac_top"],
+                      "/".join("%+.4f" % v for v in wp["0.9"].values()),
+                      "/".join("%+.4f" % v for v in wp["0.99"].values()), wp["below_fails"],
+                      "/".join("%+.4f" % v for v in wp["1.01"].values()), wp["above_holds"],
+                      ", ".join("%s %s" % (n, "holds" if v else "fails") for n, v in wp["at_d_plus"].items()),
+                      w["lam_max"], w["smooth_coef"],
+                      ", ".join("%+.4f at x = %g" % (v, xv) for xv, v in wp["finite_x"])))
+    print("   d_+ -> 0 only as ell -> infinity (deduced: the level value is nu (-6/ell + depth/4 + ...), so d_+ = 24 m^2/ell "
+          "(1 + O(m/ell))); computed d_+/(24 m^2/ell) = %s" % ", ".join(
+              ["%.4f (%s)" % (CO["1/32"]["wec"]["d_plus"] * 32 / 24, _ell("1/32"))]
+              + ["%.4f (%s)" % (v["ratio"], _ell(v["e"])) for v in live["dplus_far"]]))
+    print("   on H-LAW-READ-BY-TRACE: at coincidence the NEC part (the history) -> 0 and the trace reads s_tau -> -1: a "
+          "matter-free sheet of tension -1 in sigma_RS at our ell, not our +1 -- a different law, so between universes "
+          "on the board's H-ONE-UNIVERSE-ONE-LAW (phase 3).  Its sign is 139 (1)'s (position 2's plane negative); its "
+          "magnitude, -1, is not multiplane.py M4's -1/3 of the one-plane value nor stage 7 K5's -1/6 per sheet: "
+          "different setups and units (K4, K5), not identified.  On H-SPLIT-AT-OUR-TENSION the same limit is our tension "
+          "plus README stress rho_m = -2 sigma_RS, p_m = +2 sigma_RS: NEC-marginal, and against H-POSITIVE-ON-P2 at every "
+          "finite ell.  Question 1 (b) (not answered in item 172) decides which.")
     return dec
 
 
@@ -1728,6 +1825,8 @@ PIN = {  # this instrument's own computed values (C13), pinned at its first rege
     "c16": {"wr_zero": 2.198, "n_adm": 3, "adm_from": 2.237, "edge_2m": 1.186,
             "n_ver": 4480, "n_settled": 4479, "n_adm_total": 86,
             "adm_per_ell": {"0": 24, "1/32": 21, "1/16": 18, "1/8": 14, "1/4": 8, "1/2": 1, "1": 0, "2": 0, "4": 0}},
+    # C17, added for item 172 (S15, the coinciding limit): d_+ at ell = 32m and d_+/(24 m^2/ell) at ell = 1024m
+    "c17": {"d_plus_32": 0.8395, "ratio_1024": 1.0001},
 }
 
 
@@ -2000,6 +2099,53 @@ def selftest():
     except Exception as exc:                                   # report, never crash
         c16, msg = False, "C16 the map's rules, live: raised %s: %s" % (type(exc).__name__, exc)
     chk(msg, bool(c16))
+    # C17 (item 172, S15): the coinciding limit.  At finite ell, along the approach to depth 0, P2's stress must tend to
+    # the RS1 sheet: s = rho/sigma_RS -> -1 and the trace reading -> -1 (to 1e-5 on lam = 0.4 and the smooth family at
+    # x = 1e-14), the NEC part -> 0, |s + 1| falling along x on all four profiles, rho_m -> -2 sigma_RS.  Mutations: the
+    # two-sided Israel factor (nu/2: s -> -1/2) and the normal out of the slab (s -> +1) must fail the same test.  Flat
+    # limit: rho > 0 at every sample and falling toward 0, on the first-order form to 1e-3.  The WEC window: d_+ at
+    # ell = 32m pinned, 0 < d_+ < y*, the WEC failing at 0.9 and 0.99 d_+ and holding at 1.01 d_+ on all four profiles,
+    # no d_+ at ell = m, d_+ = 0 (an infimum) at ell = inf, d_+/(24 m^2/ell) -> 1 at ell = 1024m.  S15's keys pass C14.
+    pc = PIN["c17"]
+    try:
+        tbs17 = {k: throat_bulk(Fr(k)) for k in ("0", "1/32", "1")}
+        co = {k: coinciding(Fr(k), tb=tb_) for k, tb_ in tbs17.items()}
+
+        def lim_ok(c_):
+            return (c_["worst_s"] < 1e-5 and c_["worst_tau"] < 1e-5 and c_["worst_nec_fast"] < 1e-5 and c_["monotone"]
+                    and c_["nec_ok"] and abs(c_["rho_m_rs"] + 2) < 1e-5)
+        base = all(lim_ok(co[k]) for k in ("1/32", "1"))
+        m_nu = coinciding(Fr(1), tb=tbs17["1"], nu=0.5, full=False)
+        m_n = coinciding(Fr(1), tb=tbs17["1"], n_sign=-1, full=False)
+        caught = not lim_ok(m_nu) and not lim_ok(m_n)
+        f0 = co["0"]
+        flat_ok = (f0["flat_pos"] and f0["flat_to_0"] and f0["flat_lead_dev"] < 1e-3 and f0["nec_ok"]
+                   and f0["wec"]["d_plus"] == 0.0)
+        w32, wp32 = co["1/32"]["wec"], co["1/32"]["wec_profiles"]
+        sc = d_plus_scaling((Fr(1, 1024),))[0]
+        wec_ok = (w32["d_plus"] is not None and abs(w32["d_plus"] - pc["d_plus_32"]) <= 2e-3
+                  and 0 < w32["d_plus"] < w32["y_star"] and wp32["below_fails"] and wp32["above_holds"]
+                  and co["1"]["wec"]["d_plus"] is None and sc["ratio"] is not None
+                  and abs(sc["ratio"] - pc["ratio_1024"]) < 1e-3)
+        g17 = address_guard(extra_keys=co)
+        c17 = base and caught and flat_ok and wec_ok and not g17["bad_keys"]
+        sl = lambda c_: c_["profiles"]["lam 0.4"][-1]["s"]
+        msg = ("C17 the coinciding limit (S15, item 172): along the approach to depth 0, x -> 1e-14, s = rho/sigma_RS -> -1 "
+               "to %.0e (32m) and %.0e (m), the trace reading to %.0e/%.0e, the NEC part to %.0e/%.0e sigma_RS, rho_m -> "
+               "%.6f sigma_RS: %s; mutations caught: the two-sided factor nu/2 gives s = %.4f, the normal out of the slab "
+               "s = %+.4f: %s; flat: rho > 0 and falling toward 0 (rho/nu at 1e-14, lam 0.1: %.2e), on the first-order "
+               "form to %.0e: %s; WEC window: d_+(32m) = %.4f (pinned %.4f +- 0.002), below y* %.4f, failing at 0.9/0.99 "
+               "d_+ %s, holding at 1.01 d_+ %s; d_+(m) %s; d_+(inf) = %s; d_+/(24 m^2/ell) at 1024m = %.5f (pinned %.4f): "
+               "%s; S15's keys name no distance, time or speed: %s" % (
+                   co["1/32"]["worst_s"], co["1"]["worst_s"], co["1/32"]["worst_tau"], co["1"]["worst_tau"],
+                   co["1/32"]["worst_nec_fast"], co["1"]["worst_nec_fast"], co["1/32"]["rho_m_rs"], base,
+                   sl(m_nu), sl(m_n), caught, f0["profiles"]["lam 0.1"][-1]["rho"], f0["flat_lead_dev"], flat_ok,
+                   w32["d_plus"] or float("nan"), pc["d_plus_32"], w32["y_star"], wp32["below_fails"],
+                   wp32["above_holds"], "none" if co["1"]["wec"]["d_plus"] is None else co["1"]["wec"]["d_plus"],
+                   f0["wec"]["d_plus"], sc["ratio"] or float("nan"), pc["ratio_1024"], wec_ok, g17["bad_keys"] or "none"))
+    except Exception as exc:                                   # report, never crash
+        c17, msg = False, "C17 the coinciding limit: raised %s: %s" % (type(exc).__name__, exc)
+    chk(msg, bool(c17))
     print("selftest: %d/%d (%.0f s)" % (ok, n, time.monotonic() - t0))
     return ok == n
 

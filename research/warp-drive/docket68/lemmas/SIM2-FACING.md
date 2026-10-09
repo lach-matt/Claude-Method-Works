@@ -1,44 +1,47 @@
-# B4d simulation, phase 2: two pieces of our plane, facing across the extra dimension (computed, READ and deduced; verified, then re-verified; not seated; 2026-10-09)
+# B4d simulation, phase 2: two pieces of our plane, facing across the extra dimension (computed, READ and deduced; verified, then re-verified; S15 added for item 172, not yet verified; not seated; 2026-10-09)
 
 *First headed* "(… not verified; not seated …)", then "(… verified once; not seated …)". Three verifiers and an
 adjudication checked it. They found one result refuted (S7's first argument for a piece that comes nearest only down
 the object's throat) and several overclaims. Two re-verifiers then checked the fixes and found one more overclaim, on
-where the pieces can come nearest, and smaller points. All the findings of both rounds are applied (History).
+where the pieces can come nearest, and smaller points. All the findings of both rounds are applied (History). Then you
+answered two of its questions (item 172). S15, the coinciding limit, and its selftest C17 were added for that answer.
+They have not been verified.
 
-The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map of the bulk is banked in
+The instrument is `sim2_facing.py`, selftest 17/17, about 130 seconds. The map of the bulk is banked in
 `sim2_bank.json` (1.1 MB; 815 seconds to regenerate on three CPUs), and the READ sources, verbatim with pages, are in
 `sim2_reads.json`.
 
 **In plain words.**
 - **Decided by deduction.** Two pieces of our own plane that carry no matter, at our tension, cannot face each other
   across a static bulk. That holds at every ℓ and every depth where their nearest point is reached. It rests on two
-  readings of the board's, H-Z2-PIECES and H-NEAREST-APPROACH (question 2). If a nearest point that is only approached
-  down the object's throat counts as facing too (H-FACING-DOWN-THE-THROAT, question 2), it holds there as well; that
-  member also uses the computed throat bulk at the nine ℓ scanned. So within one universe, under the theorem's
-  clause (B), this way of building the corridor is closed. Not closed: the passage through the horizon to the far end
-  of our own plane (`sim2_passage`, next), a bulk that changes during the hold (your 152 (2)), motion inside the
-  planes (your 141), and the other escapes in S14, among them a nearest approach reached only far out (E-FAR).
+  readings of the board's, H-Z2-PIECES and H-NEAREST-APPROACH (question 2). It holds as well where the nearest point is
+  only approached, down the object's throat, which your item 172 counts as coinciding; that member also uses the
+  computed throat bulk at the nine ℓ scanned. So within one universe, under the theorem's clause (B), this way of
+  building the corridor is closed. Not closed: the passage through the horizon to the far end of our own plane
+  (`sim2_passage`, next), a bulk that changes during the hold (your 152 (2)), motion inside the planes (your 141), and
+  the other escapes in S14, among them a nearest approach reached only far out (E-FAR).
 - **For your 171 (space only, within one universe).** The board's answer to 171 was that the corridor within one
   universe already is space-only teleportation. This phase finds that it cannot be built as two matter-free pieces of
-  our plane facing across a static bulk. In this form it stays possible only if position 2's piece carries the
-  README's stress during the hold (question 1), and then, on the verified map, only near the object's throat. None of
+  our plane facing across a static bulk. In this form it stays possible only because position 2's piece may carry the
+  README's stress during the hold (your 172 (1)), and then, on the verified map, only near the object's throat. None of
   the three routes above is computed yet: the passage (`sim2_passage`) is next, the changing bulk is phase 2b-ii, and
   motion inside the planes is open. Nothing here shows that space-only teleportation works.
-- **The one way left in this form.** Suppose position 2's piece carries the README's stress, and that stress obeys the
-  NEC (your 117/120). Then, on every point of the bulk the board could verify (13 radii out to r = 10m, at the nine ℓ),
-  the two pieces come nearest only near the object's throat: every point where facing is allowed lies at r ≤ 2.05m,
-  inside the board's line at r = 2.1m, which is a convention (S12). Deeper than the verified points at r ≥ 2.1m, and
-  for a nearest approach reached only far out (E-FAR), facing is unchecked. Near the throat there are two cases.
+- **The one way left in this form.** Position 2's piece may carry the README's stress (your 172 (1)), and that stress
+  obeys the NEC (your 117/120). Then, on every point of the bulk the board could verify (13 radii out to r = 10m, at
+  the nine ℓ), the two pieces come nearest only near the object's throat: every point where facing is allowed lies at
+  r ≤ 2.05m, inside the board's line at r = 2.1m, which is a convention (S12). Deeper than the verified points at
+  r ≥ 2.1m, and for a nearest approach reached only far out (E-FAR), facing is unchecked. Near the throat there are two
+  cases.
   - **The nearest point is reached at a point of the bulk.** Then, in the limit r → 2m, it lies in a band of depths:
     from a depth y\* down to the depth y_s where the bulk becomes singular. A depth here is how far apart the two
     pieces are in the bulk at their nearest point. The board reports it only as where facing can occur. It is never the
     corridor's length (your 155 (2): bits), and never anything the device sees (your 101 (7)).
-  - **The nearest point is only approached, down the throat, and never reached** (facing only on
-    H-FACING-DOWN-THE-THROAT). This case arises because the object's horizon lies infinitely far away inside one static
-    slice, so a piece can come ever nearer without reaching it. In the approach itself (x = r − 2m → 0) there is no
-    lower edge: the NEC allows it at every depth from 0 to y_s (deduced to first order; computed at the nine ℓ). The
-    first build said this case also needed depth ≥ y\*. A verifier refuted that, and the adjudication confirmed the
-    refutation (S7).
+  - **The nearest point is only approached, down the throat, and never reached.** Your 172 (2) counts this approach as
+    coinciding, when its depth goes to zero (H-COINCIDE-DOWN-THE-THROAT). This case arises because the object's horizon
+    lies infinitely far away inside one static slice, so a piece can come ever nearer without reaching it. In the
+    approach itself (x = r − 2m → 0) there is no lower edge: the NEC allows it at every depth from 0 to y_s (deduced to
+    first order; computed at the nine ℓ). The first build said this case also needed depth ≥ y\*. A verifier refuted
+    that, and the adjudication confirmed the refutation (S7).
     - Past the approach, the NEC still bends the piece back toward its approach depth. So whether such a piece exists
       below y\* is decided on the owner's bulk at r of about 2.03–2.7m (E-FAR, E-G), not at the throat itself (S7,
       deduced).
@@ -46,24 +49,37 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
       shallower (OPEN G).
 - **What this is, and what it is not.** It is a necessary condition where the pieces come nearest. It does not say that
   such a piece exists.
-  - Positive energy needs ℓ ≥ 49.86m for a reached nearest point, and ℓ > 27.07m down the throat.
+  - Positive energy needs ℓ ≥ 49.86m for a reached nearest point. Down the throat it needs ℓ > 27.07m, and an approach
+    depth of at least d₊, which is above zero (S15).
   - At ℓ ≤ 4m the band of reached points lies where the bulk's curvature is more than 100 times the black string's.
     Down the throat, shallow depths stay below 10 times it at every ℓ.
 - **Whether this is within one universe is itself a reading.** It is within one universe if position 2's law is our
   tension and everything else in its stress is the README's (H-SPLIT-AT-OUR-TENSION). On H-LAW-READ-BY-TRACE (S3: the
   trace part of a piece's stress reads its law, and the part that carries the NEC is history), the band's piece reads
   a tension of ℓ·a(y\*) or below, for example −3.59 at ℓ = 8m. That is a different law, so this way would go to phase 3
-  as well. Both readings are put to you (question 1).
-- **What only you can settle.** That one way rests on a reading of the board's, H-README-ON-P2. A yes to it also relaxes
-  the theorem's clause (B), *"The plane is free of matter"*, on position 2's piece: clause (B) then holds in full on P1
-  only (on H-SPLIT-AT-OUR-TENSION its tension still holds on P2). As worded, your 129 (1), 130 (1) and 136 (2) read
-  against it, and your 132 and 158 (4) leave room for it (question 1).
+  as well. Item 172 did not settle which reading holds, so both are still put to you (question 1 (b)).
+- **What you settled in item 172.**
+  - You said position 2's piece may carry the README's stress (*"Yes, it may"*). The computed results now stand on
+    your answer (H-README-ON-P2, yours). Clause (B), *"The plane is free of matter"*, then holds in full on position 1's
+    piece, and on position 2's piece its tension half only. That changes clause (B)'s scope; it is carried, not seated.
+  - You said the endless approach down the throat is coinciding (*"Yes, that is coinciding"*). Your 127's coincidence
+    is that approach, never a reached point (H-COINCIDE-DOWN-THE-THROAT, yours). It replaces two readings of the
+    board's, H-FACING-DOWN-THE-THROAT and H-COINCIDE-AS-LIMIT.
+- **What your two answers imply** (S15, computed and deduced).
+  - **Within one universe at our tension** (H-SPLIT-AT-OUR-TENSION), coinciding gives position 2's piece negative
+    energy at every finite ℓ: its matter tends to −2σ_RS. That is against your 139 (2) (*"positive, and you have to
+    prove it."*) as the board reads it (H-POSITIVE-ON-P2). No shape of the piece avoids it (deduced).
+  - **Positive energy needs the approach to stop short of coinciding,** at an approach depth of at least d₊. d₊ is
+    above zero at every finite ℓ. It exists only for ℓ > 27.07m, and it goes to zero only as ℓ → ∞.
+  - **Only in the flat limit (ℓ = ∞) is the energy positive along the approach,** and there it falls to zero at
+    coincidence: positive, with no margin left.
+  - **On H-LAW-READ-BY-TRACE the coinciding piece is a matter-free sheet of tension −1:** negative, which is your
+    139 (1)'s sign. That is another universe's law, so the case belongs to phase 3.
+  - **So question 1 (b) now decides whether coinciding is within one universe at all.**
 - **Your 126 and 127.** For a reached nearest point, if position 2's piece carries stress that obeys the NEC, the
   pieces cannot coincide: the depth where they come nearest is at least y\*. That reads against your 126 and 127 (1) as
-  worded. Down the throat (on H-FACING-DOWN-THE-THROAT) the NEC allows that depth to approach zero. At finite ℓ,
-  positive energy excludes it (H-POSITIVE-ON-P2, with our tension subtracted as H-SPLIT-AT-OUR-TENSION does). In the
-  flat limit not even that excludes it (the adjudication, not board evidence). Depth zero is reached at no point of the
-  static region.
+  worded. Down the throat, which your 172 (2) counts as coinciding, the NEC allows that depth to approach zero, and
+  S15 computes what it costs (the bullet above). Depth zero is reached at no point of the static region.
 - **No status moves.** B4d stays OPEN, and O3 stays OPEN as B4d's.
 
 ## What you said
@@ -115,6 +131,11 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
     because memory is part of the reconstruction, will always be relative to the clock of position 1, like an astronaut
     taking relative time with him"*.
   - 171: *"might we be able to derive a basic teleportation from it, not time, just space?"*
+- **Item 172, your answers to this note's questions** (the option texts are the board's):
+  - (1) *"Yes, it may"*: position 2's piece may carry the README's stress, a stress that obeys the NEC, while the
+    corridor holds.
+  - (2) *"Yes, that is coinciding"*: position 2's piece only approaching yours, sliding down the throat toward a horizon
+    that is infinitely far along the bulk, so that it never touches, counts as coinciding in your 127's sense.
 - **The theorem's words, not yours:**
   - clause (G): *"It is Bronnikov–Kim's eq. (17) at r₀ = 2m on the plane."*
   - clause (B): *"A vacuum five-dimensional bulk carries the corridor. The plane is free of matter, at the
@@ -148,8 +169,10 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
   - Your 166's *"Both planes at once"* is read, within one universe, as both pieces present at once inside the one
     object (H-BOTH-PIECES-AT-ONCE).
 - **Facing** (H-NEAREST-APPROACH). P2 faces P1 when the bulk's nearest approach from P1 to P2 is attained at a point p₂
-  of the static region. A nearest approach that is only approached, down the throat, and never attained counts as
-  facing only on a named extension, H-FACING-DOWN-THE-THROAT (S7; question 2).
+  of the static region. A nearest approach that is only approached, down the throat, and never attained is S7's class.
+  Your 172 (2) counts that approach as coinciding (H-COINCIDE-DOWN-THE-THROAT). It replaces the board's
+  H-FACING-DOWN-THE-THROAT, which had counted it as facing, and H-COINCIDE-AS-LIMIT. Its member whose depth goes to
+  zero is S15.
   - **The depth of p₂ is, by construction, the two pieces' bulk separation at their nearest point.** So y\* and y_s
     bound that separation.
   - The board reports it only as where in the bulk facing can occur. It is not the corridor's length (155 (2): bits),
@@ -199,7 +222,7 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
   Riemannian form, READ). It solves Einstein's equations, and a facing sheet there reads s₂ = s₁ exactly. A sinh warp
   fails Einstein's equations (selftest C11; the equality itself is an identity there, so the Einstein clause is the
   test).
-- **Down the throat, too** (on H-FACING-DOWN-THE-THROAT; deduced in the adjudication; illustrated on one profile:
+- **Down the throat, too** (which your 172 (2) counts as coinciding; deduced in the adjudication; illustrated on one profile:
   k_t − k_θ meets w_θ to 3×10⁻⁷ to 2×10⁻⁶). A matter-free piece needs k_t = k_x = k_θ.
   - Along the approach, the radial equation forces the slope to zero (deduced). Then k_t − k_θ tends to w_θ(depth),
     which is positive on the computed throat bulk at the nine ℓ (S7), so the piece cannot be matter-free.
@@ -207,12 +230,13 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
     2×10⁻⁶, at the sampled depths 0.01 to 0.9 y_s^th and every ℓ. At that x the slope terms are below 10⁻⁷, so this
     holds for any profile that tends to its depth: an identity, labelled so in C15, not a test of the radial equation.
   - At depth 0, w_θ = 0, and the step closes one order later: (q − p)′(0) = ½ at every ℓ (deduced in the adjudication).
-    That leaves only f ≡ 0, which is P1 itself, read from the slab side: s = −1.
+    That leaves only f ≡ 0, which is P1 itself, read from the slab side: s = −1. A piece that carries stress tends to
+    the same sheet, s = −1, as its approach depth goes to zero (S15).
   - Its trace reads ℓ·a(depth) ≤ −1 here too (computed: ≤ −1.000009 at ℓ = 32m, ≤ −1.000000 at ℓ ≤ 4m; the trace read
     off the piece meets ℓ·a(depth) to 2×10⁻⁷ to 9×10⁻⁷).
 - **What follows within one universe.** Under clause (B) on both pieces, two positions cannot face each other across a
-  static bulk. This way of building the corridor is closed, on the board's H-Z2-PIECES and H-NEAREST-APPROACH, and on
-  H-FACING-DOWN-THE-THROAT as well if an approach down the throat counts as facing. The passage through the horizon
+  static bulk. This way of building the corridor is closed, on the board's H-Z2-PIECES and H-NEAREST-APPROACH, and down
+  the throat as well, where your 172 (2) counts the approach as coinciding. The passage through the horizon
   (E-PASS), a changing bulk (E-NS), motion inside the planes (E-ROT) and the other escapes of S14, E-FAR among them, are
   not closed by it.
 - **What the facing piece reads instead** (H-LAW-READ-BY-TRACE, a reading: the trace part reads a law, the part that
@@ -262,8 +286,8 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
   largest ã/y³ is −0.0208 to −0.0210: the near-plane limits, so neither sign is a grid edge.
 - **A facing level surface there carries** ρ = ν(p + 2q), ρ + p_r = 0 and ρ + p_θ = ν(q − p). Its matter, once our
   tension is subtracted, is ρ_m = ν(p + 2q − 3/ℓ).
-- **The approach down the throat: the first build's argument is refuted.** (This case is facing only on
-  H-FACING-DOWN-THE-THROAT, question 2.)
+- **The approach down the throat: the first build's argument is refuted.** (Your 172 (2) counts this approach as
+  coinciding, H-COINCIDE-DOWN-THE-THROAT; its member whose depth goes to zero is S15.)
   - **What the first build said.** A piece whose nearest approach is only reached as r → 2m must bend no more than x·W₁
     allows (f_ss ≤ x·W₁). Where W₁ < 0 that is impossible, so this case also needs depth ≥ y\*.
   - **What was wrong** (the physics verifier, confirmed by the adjudication). That condition drops a term: the static
@@ -313,7 +337,8 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
   - In the flat limit the best is +0.2030 ν/m, at 0.487 y_s^th.
 - **Depth 0** (deduced: p = q = −1/ℓ at depth 0; K/K_bs computed, and equal to its closed form). Along an approach to
   depth 0, the stress tends to ρ = −σ_RS, so ρ_m → −2σ_RS at every finite ℓ. K/K_bs there is 2(80e⁴ + 3)/(160e⁴ + 3),
-  which is 2.000 at ℓ = ∞ and 1.000 at m/4.
+  which is 2.000 at ℓ = ∞ and 1.000 at m/4. S15 computes the stress along that approach, on four profiles at the
+  nine ℓ.
 
 **S8. The band, for a reached nearest point** (computed).
 - **One step off the throat,** w_r = x·W₁(y) + O(x²). W₁ starts as −y/2 at our plane and turns positive deep in. Its
@@ -337,7 +362,7 @@ The instrument is `sim2_facing.py`, selftest 16/16, about 120 seconds. The map o
 - **The band's shallow edge lies below 30 K_bs** for ℓ > 21.05m, and below 100 K_bs for ℓ > 5.82m. It never lies below
   10 K_bs: in the flat limit K(y\*) is 18.3 times K_bs, so y\* lies deeper than y_K(10).
 - **ρ_m is given in ν/m,** since σ_RS → 0 in the flat limit. For the same reason the flat row gives a(y\*), not a ratio.
-- **The last column** is what H-LAW-READ-BY-TRACE makes of the band (S12, question 1). Since a never increases with depth
+- **The last column** is what H-LAW-READ-BY-TRACE makes of the band (S12, question 1 (b)). Since a never increases with depth
   (T4), a piece whose nearest point is at depth y\* or deeper reads s ≤ ℓ·a(y\*), which is −3.36 or below at every
   finite ℓ scanned.
 - **Where the expansion in x holds.** The first correction stays small while x·max(|a₁|, |b₁|, |c₁|) ≤ 0.1. Here
@@ -464,14 +489,14 @@ r = 10m, at the nine ℓ).
 - **Regularity, for reached points.** It is settled (all three thresholds agree) only at ℓ ≤ 4m, and there the band
   lies in the singular layer. At ℓ ≥ 8m the answer depends on the threshold, so it is not settled. In the strict sense
   (y\* < y_s) the band is regular at every ℓ.
-- **Down the throat (S7) the picture differs** (on H-FACING-DOWN-THE-THROAT). There is no lower edge in the approach
-  itself (x → 0). Every ℓ admits approach depths shallower than y_K(10), where K < 10 K_bs, and at depth 0,
-  K/K_bs ≤ 2. Positive energy there needs ℓ > 27.07m. Past the approach the NEC bends the piece back, so whether such
+- **Down the throat (S7) the picture differs** (your H-COINCIDE-DOWN-THE-THROAT). There is no lower edge in the
+  approach itself (x → 0). Every ℓ admits approach depths shallower than y_K(10), where K < 10 K_bs, and at depth 0,
+  K/K_bs ≤ 2. Positive energy there needs ℓ > 27.07m, and an approach depth of at least d₊ > 0 (S15). Past the approach the NEC bends the piece back, so whether such
   a piece exists below y\* is decided on the owner's bulk at r of about 2.03–2.7m (S7, deduced; E-FAR, E-G).
 - **On H-LAW-READ-BY-TRACE instead.** The band's piece reads a tension of ℓ·a(y\*) or below (−3.59 at ℓ = 8m; S8's last
   column). That is a different law, which would send the band to phase 3 with the matter-free case. The band lies within
-  one universe only on H-SPLIT-AT-OUR-TENSION (question 1). Down the throat the trace reads ℓ·a(depth) ≤ −1 in the
-  limit, so the same holds there.
+  one universe only on H-SPLIT-AT-OUR-TENSION (question 1 (b)). Down the throat the trace reads ℓ·a(depth) ≤ −1 in
+  the limit, so the same holds there, and at coincidence it reads exactly −1 (S15).
 
 **S13. The hand-off to phase 3** (deduced).
 - **What the slab side reads.** At any attained nearest point, the slab side of a facing piece reads
@@ -491,7 +516,7 @@ r = 10m, at the nine ℓ).
 |---|---|
 | (0, 0 \| no matter) | EMPTY (S3), the approach down the throat included |
 | (0, 0 \| NEC) | reached: the throat band [y\*, y_s) (S12); down the throat: every depth in the approach (S7) |
-| (0, 0 \| NEC and positive energy) | reached: ℓ ≥ 49.86m only; down the throat: ℓ > 27.07m only |
+| (0, 0 \| NEC and positive energy) | reached: ℓ ≥ 49.86m only; down the throat: ℓ > 27.07m only, at approach depths ≥ d₊ > 0, so never coinciding (S15) |
 
 - **On H-LAW-READ-BY-TRACE** the NEC rows move to Δs ≤ ℓ·a(depth) − 1 < 0 (equality for a level surface), phase 3's
   direction.
@@ -515,6 +540,78 @@ r = 10m, at the nine ℓ).
 | E-AN: outside the analytic class | open |
 | E-Q: quantum or semiclassical stress that breaks the pointwise NEC on P2 or in the slab | excluded only by H-NEC-NEVER-VIOLATED (your 117, 120) |
 | E-FAR: a nearest approach reached only as r → ∞, beyond r = 10m, or beyond a column's verified top, including the continuation of S7's approach below y\* | open; the lapse-gradient term must be kept (S7). The physics verifier's first-order sign analysis suggests it closes wherever w_r < 0 persists, which is shown only to r = 10m |
+
+**S15. The coinciding limit, item 172** (deduced and computed; added after the re-verification, not yet verified).
+- **What it computes.** Your 172 (2) counts the endless approach down the throat as coinciding
+  (H-COINCIDE-DOWN-THE-THROAT). S15 takes S7's class, a piece y = d + f(ln x), and lets its approach depth d go to 0
+  and, along the approach, x = r − 2m go to 0. x is the plane's radial coordinate, not a separation. The approach depth
+  is reported only as where facing, here coinciding, occurs.
+  - P2's stress is read by the instrument's Israel convention, S^a_b = −ν(K^a_b − δ^a_b K), with the normal into the
+    slab, and K exact in the slope on the throat metric through O(x).
+  - Four profiles: the power law f = 0.05·x^λ with λ = 0.1, 0.25 and 0.4, and the adjudication's smooth family
+    f = g₁√x + g₂x, with g₁ = 0.05 and g₂ = 2α²W₁ + p·g₁²/2 − 1 (its NEC condition, with a margin). The smooth family is
+    now in the instrument too.
+  - Two readings of the tension: s = ρ/σ_RS, from the total energy, and the trace reading s_τ = (ℓ/3ν)·(−S^a_a/4), the
+    tension the trace part reads.
+- **The limit, deduced.** At depth 0 the throat data are α = β = 1 and p = q = −1/ℓ. A level surface there has
+  k_t = k_x = k_θ = 1/ℓ, so S^a_b = (3ν/ℓ)δ^a_b. Then ρ → −σ_RS, ρ + p_i → 0, and s = s_τ = −1. That is the RS1
+  sheet, the negative one of selftest C1's control. So P2's matter, once our tension is subtracted, tends to
+  ρ_m = ρ − σ_RS = −2σ_RS at every finite ℓ.
+  - Along the approach, to first order in f: ρ/ν + 3/ℓ ≈ (p′ + 2q′)(0)·f − f_uu/α² = f/4 − f_uu, because
+    (p′ + 2q′)(0) = ¼ at every ℓ. On the power law that is c·x^λ(¼ − λ²): the adjudication's form, now at every ℓ.
+- **Computed: the deduced limit holds at all nine ℓ; nothing refuted it.**
+  - At depth 0 and x = 10⁻¹⁴, on λ = 0.4 and the smooth family: |s + 1| ≤ 1×10⁻⁷ and |s_τ + 1| ≤ 4×10⁻⁷ (largest at
+    ℓ = 32m), and the NEC part (ρ + p_i)/σ_RS ≤ 9×10⁻⁷. So ρ_m/σ_RS → −2.000000.
+  - λ = 0.1 converges slowly, like x^λ: at ℓ = 32m it reads s = −0.94898, −0.97970 and −0.99490 at x = 10⁻⁴, 10⁻⁸ and
+    10⁻¹⁴. On all four profiles at every ℓ, |s + 1| falls along the approach, and every sample obeys the NEC.
+  - Letting the depth go to 0 from above (λ = 0.4, x = 10⁻¹⁴): s = −0.93655 and −0.99937 at depths 10⁻² and 10⁻⁴ y_s^th
+    at ℓ = 32m, and −1.00000 at depth 0.
+- **Within one universe at our tension (H-SPLIT-AT-OUR-TENSION): negative energy at every finite ℓ.** The README's
+  part of the coinciding piece is ρ_m = −2σ_RS with p_m = +2σ_RS. It obeys the NEC only marginally (ρ_m + p_m → 0). It
+  fails H-POSITIVE-ON-P2, the board's reading of your 139 (2).
+  - **No profile avoids it** (deduced, exact in the slope, at x → 0 with the O(x) terms dropped). Along the approach,
+    ρ/ν = [2q − (f_uu − α²p − 2p·f_u²)/(α² + f_u²)]/N with N ≥ 1. So ρ_m ≥ 0 forces
+    f_uu ≤ α²(p + 2q − 3/ℓ) + f_u²(4a − 3/ℓ), and 4a − 3/ℓ ≤ −7/ℓ by Lemma T. If the level value ν(p + 2q − 3/ℓ) is
+    negative at the approach depth, f_uu stays below a negative number as x → 0, and then f cannot tend to 0. So
+    positive energy needs the level value ≥ 0 at the approach depth, for every profile. Call the shallowest such depth
+    d₊. At finite ℓ the level value at depth 0 is −2σ_RS, so d₊ > 0.
+  - **Computed.** d₊ exists only for ℓ > 27.07m, the class's threshold (S7). Of the nine ℓ only 32m has one:
+    d₊ = 0.8395m (0.354 y_s^th), with positive energy from there to 1.5352m (0.647 y_s^th). W₁ = −0.372 < 0 at d₊, so
+    only the approach down the throat reaches it. At ℓ ≤ 16m the level value's maximum is −0.747σ_RS (16m) to
+    −1.800σ_RS (m/4).
+    - At x = 10⁻¹⁴, on all four profiles, ρ_m is negative at 0.9 d₊ and 0.99 d₊ and positive at 1.01 d₊. At 0.99 d₊
+      the λ = 0.1 profile reads ρ_m/σ_RS = +0.0146 at x = 10⁻⁴ and +0.0011 at 10⁻⁷, but −0.0105 at 10⁻¹⁴: positive
+      energy at finite x does not last along the approach.
+    - At d₊ itself the profile's first correction decides. The power law holds for λ below 0.342 (λ = 0.1 and 0.25
+      hold, 0.4 fails). The smooth family fails (its coefficient is −0.170). So the best profile family the instrument
+      has reaches d₊ itself, and nothing shallower.
+    - d₊ goes to 0 only as ℓ → ∞. Deduced: the level value is ν(−6/ℓ + d/4 + …) at small depth, so d₊ ≈ 24m²/ℓ.
+      Computed: d₊/(24m²/ℓ) = 1.1194, 1.0194, 1.0045 and 1.0001 at ℓ = 32, 64, 128 and 1024m.
+- **The flat limit (ℓ = ∞): ρ falls to zero from above; no positive margin.** Here σ_RS = 0, so ρ_m = ρ.
+  - At depth 0, ρ > 0 at every sample on all four profiles, and it falls toward 0 along the approach. On the power law
+    ρ/ν = c·x^λ(¼ − λ²), matched to 2×10⁻⁵ at x ≤ 10⁻⁸: for λ = 0.1, 4.774×10⁻³, 1.902×10⁻³ and 4.777×10⁻⁴ at
+    x = 10⁻⁴, 10⁻⁸ and 10⁻¹⁴. On the smooth family ρ/ν = −(3/4)g₂·x = 0.75x, positive because the NEC there needs
+    g₂ < 0.
+  - At small depths above 0, ρ tends to the level value, about ν·d/4 > 0 (6.38×10⁻³ ν/m at 10⁻² y_s^th). So the flat
+    limit's d₊ = 0 is only an infimum: positive energy holds from just above 0 to 2.0063m (0.786 y_s^th).
+  - The adjudication's ρ ≈ ν·c·x^λ(¼ − λ²) is reproduced in the instrument. It is positive at every x, but it is
+    ρ → 0⁺, not a positive margin at coincidence.
+- **On H-LAW-READ-BY-TRACE: a matter-free sheet of tension −1, another universe's law.** At coincidence the NEC part,
+  the history, goes to zero, and the trace reads s_τ = −1. So the coinciding piece is a matter-free sheet of tension
+  −1 in σ_RS at our ℓ. It is free of matter, as clause (B) asks, but its tension is not ours (+1). On the board's
+  H-ONE-UNIVERSE-ONE-LAW that is another universe's law: phase 3.
+  - Its sign is your 139 (1)'s: position 2's plane negative, which the board reads as between universes (S3).
+  - Its magnitude is not 139 (1)'s quarter. Here it is −1, the size of ours. multiplane.py M4 gives −1/3 of the
+    one-plane value (ours +4/3 there), and stage 7 K5 gives −1/6 per sheet. These are different setups and units (K4,
+    K5), so the board does not identify them.
+- **So question 1 (b) decides whether coinciding is within one universe at all.** On H-SPLIT-AT-OUR-TENSION it is,
+  at the cost of negative energy at every finite ℓ. On H-LAW-READ-BY-TRACE it is not.
+- **Selftest C17** checks this. On the approach to depth 0 at ℓ = 32m and m, s and s_τ must tend to −1 to 10⁻⁵, the
+  NEC part to 0, and ρ_m to −2σ_RS. The same test must fail with the two-sided Israel factor (s = −0.5000) and with the
+  normal out of the slab (s = +1.0000), and it does. It also checks the flat limit, the WEC window at ℓ = 32m (d₊
+  pinned to 0.8395 ± 0.002), no d₊ at ℓ = m, d₊/(24m²/ℓ) at 1024m, and that no key of S15 names a distance, time or
+  speed. With either mutation applied to the instrument's stress (a scratch harness), the selftest reads 16/17 and
+  C17 is the failure.
 
 ## Where the computation differs from the design
 
@@ -549,43 +646,60 @@ itself, and where the two differ the computed value stands.
    factor instead; a trace error is caught by C1's calibration, where it gives s = 2/3.
 10. **A page.** Witten–Yau's eq. (2.28) is on PDF p.9; eq. (2.29) and *"we can replace the Einstein equation …"* are on
     p.10.
-11. **Run costs.** The selftest takes about 120 s, not 3 minutes (about 110 s before C16 was added). The regeneration
+11. **Run costs.** The selftest takes about 130 s, not 3 minutes (about 110 s before C16 was added, and about 120 s
+    before C17). The regeneration
     took 815 s on three CPUs of a shared machine. The bank is 1.1 MB.
 12. **The design's S7 was wrong.** Its argument that a piece approaching only down the throat needs depth ≥ y\* dropped
     the lapse-gradient term (S7). The design's "127's coincidence is excluded, since d ≥ y\* > 0" holds only for attained
     nearest points.
+13. **S15 against what was expected.** S15 was specified after item 172 with these limits deduced in advance:
+    ρ → −σ_RS, s → −1 (the RS1 sheet), ρ_m → −2σ_RS at every finite ℓ, d₊ > 0 at every finite ℓ, and, in the flat
+    limit, ρ ≈ ν·c·x^λ(¼ − λ²). The computation confirms every one; none was refuted. It adds three things: d₊ is the
+    same for every profile (deduced, S15); d₊ exists only for ℓ > 27.07m; and in the flat limit the smooth family's ρ
+    is of order x, not √x, because its √x terms cancel.
 
 ## Verdict
 
 - **Decided (S3), for one member, by deduction.** Under clause (B) on both pieces, two positions cannot face each other
-  across a static bulk where the nearest approach is attained. If an approach down the throat counts as facing
-  (H-FACING-DOWN-THE-THROAT), it holds there too; that member also uses the computed throat bulk at the nine ℓ.
+  across a static bulk where the nearest approach is attained. It holds down the throat too, where your 172 (2) counts
+  the approach as coinciding; that member also uses the computed throat bulk at the nine ℓ.
   - **For B4d:** this member is refuted, and reported as such under M-IRREFUTABLE (item 135; the board's note at item
     151). It rests on this conjunction:
     - static planes (your 141), and a static bulk with diagonal K (the board's; your 158 (3) left it to the math);
     - mirrored pieces at the Randall–Sundrum tension with one ℓ (clause (B); H-ONE-UNIVERSE-ONE-LAW, the board's
       reading of your 138);
     - the two pieces as pieces of our one plane (H-Z2-PIECES), and facing as the nearest approach attained in the
-      static region (H-NEAREST-APPROACH), or (question 2) approached down the throat (H-FACING-DOWN-THE-THROAT);
+      static region (H-NEAREST-APPROACH), or approached down the throat (your H-COINCIDE-DOWN-THE-THROAT, item 172);
     - a vacuum Λ₅ bulk;
     - eq. (17) on P1 (the theorem's clause (G)), and our tension s = 1 (clause (B), your 157).
   - **Not closed by it:** the passage through the horizon (E-PASS), a changing bulk (E-NS, your 152 (2)), motion inside
     the planes (E-ROT, your 141), and the other escapes of S14, E-FAR among them.
   - **For O3:** unchanged.
-- **Computed, on H-README-ON-P2 only** (clause (B) then holds in full on P1 only; on H-SPLIT-AT-OUR-TENSION its
-  tension still holds on P2).
+- **Computed, on your H-README-ON-P2** (item 172 (1): *"Yes, it may"*; clause (B) then holds in full on P1, and its
+  tension half only on P2, a change to its scope carried, not seated).
   - **For a reached nearest point (S12): THROAT-BAND at every ℓ, on the verified map.** On the verified points (13 radii
     out to r = 10m, at the nine ℓ), position 2's piece can face ours only near the object's throat (r < 2.1m, the
     board's line, a convention: S12), at depths from y\* to y_s in the limit r → 2m: y\*/y_s = 0.70 in the flat limit,
     0.998 at ℓ = m/4. WIDE is not excluded deeper than the verified points at r ≥ 2.1m, and E-FAR is open.
     Confirmed on the owner's bulk at ℓ ≥ 2m: within 1.6–1.8% from the r = 2.005m column at each ℓ, and to 0.07–0.15%
     after extrapolation to x → 0 at ℓ ≥ 4m. At 2m only that one column turns admissible.
-  - **Down the throat (S7, on H-FACING-DOWN-THE-THROAT): no lower edge in the approach (x → 0).** The NEC allows the
+  - **Down the throat (S7, your H-COINCIDE-DOWN-THE-THROAT): no lower edge in the approach (x → 0).** The NEC allows the
     approach at every depth, at every ℓ (deduced to first order; computed at the nine ℓ). Past the approach it bends
     the piece back, so whether such a piece exists below y\* is decided on the owner's bulk at r of about 2.03–2.7m
     (deduced; E-FAR, E-G).
-  - **Within one universe only on H-SPLIT-AT-OUR-TENSION.** On H-LAW-READ-BY-TRACE the piece reads a tension of
-    ℓ·a(y\*) or below in the band (−3.59 at ℓ = 8m), and ≤ −1 down the throat: a different law, phase 3.
+  - **Within one universe only on H-SPLIT-AT-OUR-TENSION** (question 1 (b), not answered in item 172). On
+    H-LAW-READ-BY-TRACE the piece reads a tension of ℓ·a(y\*) or below in the band (−3.59 at ℓ = 8m), ≤ −1 down the
+    throat, and exactly −1 at coincidence: a different law, phase 3.
+  - **The coinciding limit (S15, your H-COINCIDE-DOWN-THE-THROAT).** As the approach depth goes to zero, P2's stress
+    tends to the RS1 sheet, s = −1, at every finite ℓ (deduced; computed on four profiles at the nine ℓ; nothing
+    refuted it).
+    - On H-SPLIT-AT-OUR-TENSION its matter tends to −2σ_RS. So coinciding fails H-POSITIVE-ON-P2 at every finite ℓ,
+      for every profile (deduced). Positive energy needs an approach depth of at least d₊ > 0: 0.8395m at ℓ = 32m, none
+      at ℓ ≤ 16m, and d₊ ≈ 24m²/ℓ as ℓ → ∞.
+    - In the flat limit ρ → 0⁺ along the approach: positive, but with no margin at coincidence.
+    - On H-LAW-READ-BY-TRACE the coinciding piece is a matter-free sheet of tension −1: another universe's law
+      (phase 3), with your 139 (1)'s sign.
+    - So question 1 (b) decides whether coinciding is within one universe at all.
   - It is necessary, not sufficient. It is not a configuration that exists, and it is not B4d green.
 - **What it would mean for B4d.** Candidate classes, located inside the one object (H-ONE-OBJECT-IN-GAP, the board's
   reading of your 162).
@@ -594,12 +708,14 @@ itself, and where the two differ the computed value stands.
     needs (your 158 (2)). Your 136 (3) rules out holding indefinitely.
   - Down the throat, a piece can approach at shallow depths, where the curvature stays below 10 times the black
     string's at every ℓ. On the instrument's power-law profiles, though, P2's own stress grows at the horizon in a
-    freely falling frame. Only the adjudication's smooth family (scratch, not board evidence) avoids that.
+    freely falling frame. Only the adjudication's smooth family avoids that (the freely falling frame is the
+    adjudication's, scratch, not board evidence; S15 now computes the family's stress).
 - **What does not move.**
   - At ℓ ≤ 4m the band of reached points lies in the singular layer under all three thresholds, so it is closed there
     in practice. That does not hold down the throat.
   - At ℓ ≥ 8m the band's regularity depends on the threshold, so it is not settled.
-  - Positive energy needs ℓ ≥ 49.86m for a reached point, and ℓ > 27.07m down the throat.
+  - Positive energy needs ℓ ≥ 49.86m for a reached point, and ℓ > 27.07m down the throat, there at approach depths of
+    at least d₊ > 0, so never at coincidence (S15).
   - Whether a whole piece P2 exists, over the band or down the throat, is phase 2b-i, a free-boundary problem. So is
     whether the approach depth is P2's shallowest (OPEN G).
   - For O3: for this member, stage 5's 8–16 clocks no longer bind O3's write of at least 2.0×10⁵ clocks
@@ -608,13 +724,15 @@ itself, and where the two differ the computed value stands.
   - **For a reached nearest point,** with stress that obeys the NEC, the two pieces' bulk separation is at least
     y\* > 0. Your 126 (*"it is realized in the same place the position 1 occupies"*) and 127 (1), as worded (the planes
     coincide, the extra dimension included), read against this.
-  - **Down the throat, the NEC does not exclude it** (on H-FACING-DOWN-THE-THROAT). A piece can approach depth 0 at
-    every ℓ (the board's H-COINCIDE-AS-LIMIT).
+  - **Down the throat, the NEC does not exclude it.** A piece can approach depth 0 at every ℓ, and your 172 (2) counts
+    that endless approach as coinciding (H-COINCIDE-DOWN-THE-THROAT, which replaces the board's H-COINCIDE-AS-LIMIT).
     - At finite ℓ, what excludes it is positive energy (H-POSITIVE-ON-P2, with our tension subtracted as
-      H-SPLIT-AT-OUR-TENSION does), not the NEC: the matter there tends to −2σ_RS.
-    - At ℓ = ∞ not even that excludes it: on the power-law profiles ρ ≈ ν·c·x^λ(¼ − λ²), which is positive as
-      depth → 0 (the adjudication: deduced to first order in x; scratch, not board evidence). This is a different depth
-      from S7's negative slope correction, which is at the class's best depth.
+      H-SPLIT-AT-OUR-TENSION does), not the NEC: the matter there tends to −2σ_RS, for every profile (S15, deduced and
+      computed).
+    - At ℓ = ∞ not even that excludes it, but only just: along the approach ρ falls to zero from above, as
+      ν·c·x^λ(¼ − λ²) on the power law and −(3/4)ν·g₂·x on the smooth family (computed in S15; the power-law form was
+      the adjudication's). That is ρ → 0⁺, not a positive margin. This is a different depth from S7's negative slope
+      correction, which is at the class's best depth.
     - Depth 0 is reached at no point of the static region, because the horizon where it would be reached lies
       infinitely far away inside the static slice.
     - On the power-law profiles the stress grows at the horizon in a freely falling frame, and the profile is not
@@ -630,46 +748,45 @@ itself, and where the two differ the computed value stands.
 ## Questions for you
 
 1. **H-README-ON-P2, and which part of it is a law.**
-   - (a) While the corridor holds, may position 2's piece carry the README's stress, a stress that obeys the NEC? The
-     computed results (S7, S8, S12) exist only if it may.
-     - A yes also relaxes the theorem's clause (B) on position 2's piece. Clause (B) says *"The plane is free of
-       matter"*, and on H-Z2-PIECES that piece is part of the plane. On H-SPLIT-AT-OUR-TENSION, clause (B)'s tension
-       still holds there; its matter-free plane does not. Clause (B) would then hold in full on P1 only.
-     - As worded, your 129 (1) (*"the corridor is a bridge, so it adds nothing to either position."*), 130 (1)
-       (*"no added matter"*) and 136 (2) (*"released at position two at the closing of the horizon"*) read against it.
-       A stress on position 2's piece during the hold is something added at position 2 before the closing.
-     - Your 132 (*"yes"*: the horizons hold the README too) and 158 (4) (*"This too is a question for the math."*)
-       leave room for it. Both the band, on the verified map, and the approach down the throat lie at the object's
-       throat and horizon.
-   - (b) If it may, which part of position 2's stress is its law?
-     - On H-SPLIT-AT-OUR-TENSION, position 2's law is fixed at our tension, and everything else in its stress, its trace
-       included, is the README's. Then the results are within one universe, and positive energy needs ℓ ≥ 49.86m for a
-       reached point and ℓ > 27.07m down the throat.
-     - On H-LAW-READ-BY-TRACE (S3: the trace part of a piece's stress reads its law, and the part that carries the NEC
-       is history), the piece reads a tension of ℓ·a(y\*) or below, for example −3.59 at ℓ = 8m. That is a different
-       law, so the case goes to phase 3.
-   - If it may not, this form of the within-universe route is closed by S3 alone. Within one universe the passage
-     through the horizon (E-PASS, `sim2_passage`), a changing bulk (E-NS, your 152 (2)), motion inside the planes
-     (E-ROT, your 141) and the other escapes of S14 stay open. Between universes, stage 6's H-EQ17-ON-P2 is phase 3.
+   - (a) **Answered in item 172: *"Yes, it may"*.** Position 2's piece may carry the README's stress, a stress that
+     obeys the NEC, while the corridor holds. The computed results (S7, S8, S12, S15) stand on that answer.
+     - Clause (B), *"The plane is free of matter"*, then holds in full on position 1's piece, and on position 2's
+       piece its tension half only. That is a change to clause (B)'s scope, carried, not seated.
+     - Before your answer, your 129 (1), 130 (1) and 136 (2) read against it as worded, and your 132 and 158 (4) left
+       room for it.
+   - (b) **Still open: which part of position 2's stress is its law?** Item 172 did not answer it. It now decides
+     whether coinciding is within one universe at all.
+     - Put plainly: when position 2's piece coincides with ours, is the part of its stress that is not our tension the
+       README's? Or is it position 2's own law?
+     - **If it is the README's** (H-SPLIT-AT-OUR-TENSION), position 2's law is our tension, and everything else in its
+       stress, its trace included, is the README's. The results are then within one universe. Positive energy needs
+       ℓ ≥ 49.86m for a reached point, and ℓ > 27.07m down the throat at an approach depth of at least d₊ > 0.
+       Coinciding itself gives position 2's piece negative energy, −2σ_RS, at every finite ℓ (S15).
+     - **If it is position 2's own law** (H-LAW-READ-BY-TRACE; S3: the trace part of a piece's stress reads its law,
+       and the part that carries the NEC is history), the band's piece reads a tension of ℓ·a(y\*) or below, for
+       example −3.59 at ℓ = 8m. The coinciding piece reads exactly −1: a matter-free sheet of negative tension, with
+       your 139 (1)'s sign. That is a different law, so the case goes to phase 3.
 2. **For correction, the board's other readings:**
    - H-Z2-PIECES: positions 1 and 2 are two pieces of our one mirrored plane, each one-sided toward the slab;
    - H-NEAREST-APPROACH: facing means the nearest approach is attained in the static region;
-   - H-FACING-DOWN-THE-THROAT, its named extension: a nearest approach that is only approached down the throat, and
-     never reached, counts as facing too. Should it? S7's down-the-throat results, and the 27.07m, bear on facing only
-     if it does;
+   - H-FACING-DOWN-THE-THROAT, its named extension (a nearest approach only approached down the throat, never reached,
+     counts as facing): **answered in item 172** (*"Yes, that is coinciding"*). It is replaced by your
+     H-COINCIDE-DOWN-THE-THROAT;
    - H-POSITIVE-ON-P2: your 139 (2)'s *"positive"* applied to position 2's matter once the tension is subtracted. It
-     sets 49.86m for a reached point and 27.07m down the throat;
+     sets 49.86m for a reached point and 27.07m down the throat, and with it coinciding has negative energy at every
+     finite ℓ (S15);
    - H-BOTH-PIECES-AT-ONCE: your 166, read within one universe as both pieces present at once inside the one object;
    - H-ONE-OBJECT-IN-GAP: one horizon spans the slab, the board's reading of your 162 over the throat;
    - H-APPEARANCE-IS-THE-OBSTRUCTION: the plane's apparent radial NEC shortfall, read as the appearance your 117/120
      describe, is what forbids a reached nearest point away from the throat;
-   - H-COINCIDE-AS-LIMIT: your 127's coincidence read as the depth going to zero;
+   - H-COINCIDE-AS-LIMIT (your 127's coincidence read as the depth going to zero): **answered in item 172**, replaced
+     by your H-COINCIDE-DOWN-THE-THROAT;
    - H-REGULAR-SLAB: the corridor's bulk is the slab between the pieces, regular when the piece is shallower than y_s.
 
-## History (three verifiers and an adjudication, then two re-verifiers, 2026-10-09)
+## History (three verifiers and an adjudication, then two re-verifiers, then item 172, 2026-10-09)
 
-After the first round the title read "verified once"; after the second it reads "verified, then re-verified". Both
-earlier headings are kept at the top.
+After the first round the title read "verified once"; after the second it read "verified, then re-verified". Both
+earlier headings are kept at the top. After item 172 the title adds that S15 is not yet verified.
 
 **What the verifiers confirmed.**
 - **Numerics.** They reproduced these with their own code:
@@ -839,6 +956,26 @@ every number here, and confirmed the first round's fixes. Their findings, all ap
     is not closed.
 - No bank number changed, and the bank was not regenerated. The selftest went from 15/15 to 16/16 (about 120 s).
 
+**Item 172: your answers, and S15** (2026-10-09; not yet verified).
+- **What you answered.** To question 1 (a), *"Yes, it may"*: H-README-ON-P2 is now yours, and clause (B)'s scope on
+  position 2's piece changes (its tension half only), carried, not seated. To question 2's down-the-throat item,
+  *"Yes, that is coinciding"*: your H-COINCIDE-DOWN-THE-THROAT replaces the board's H-FACING-DOWN-THE-THROAT and
+  H-COINCIDE-AS-LIMIT. Question 1 (b), which part of position 2's stress is its law, was not answered.
+- **What changed in this note.** The plain words gained two bullets, on what you settled and what it implies. Also
+  changed: "What you said" (item 172, verbatim), the setup's facing, S3, S7, S12, S13's positive-energy row, the
+  Verdict, the Questions (1 (a) and question 2's two items marked answered, 1 (b) put plainly) and the Named
+  hypotheses. Question 1's branch for a no was dropped, since your answer was yes.
+- **What was added: S15, the coinciding limit.** In the instrument: `piece_stress`, `wec_window`, `wec_profiles`,
+  `coinciding` and `d_plus_scaling`; the adjudication's smooth family is now computed there; the report prints S15;
+  `compute_live` shares one throat bulk per ℓ between S7 and S15.
+  - The limits deduced in advance all held: ρ → −σ_RS, s → −1 (the RS1 sheet), ρ_m → −2σ_RS at every finite ℓ,
+    d₊ > 0 at every finite ℓ, and, in the flat limit, ρ ≈ ν·c·x^λ(¼ − λ²) → 0⁺. Nothing refuted them.
+  - New: d₊ is the same for every profile (deduced); d₊ exists only for ℓ > 27.07m (0.8395m at 32m); d₊ ≈ 24m²/ℓ as
+    ℓ → ∞; and the smooth family's flat-limit ρ is −(3/4)ν·g₂·x.
+- **Selftest C17** was added. With the instrument's stress mutated in a scratch harness, the normal out of the slab
+  and the two-sided Israel factor each fail C17 (16/17). The selftest is now 17/17 (about 130 s). The bank is
+  unchanged (same md5) and was not regenerated.
+
 ## Named hypotheses
 
 - **Yours:**
@@ -865,19 +1002,21 @@ every number here, and confirmed the first round's fixes. Their findings, all ap
   - 162 (H-ONE-OBJECT, H-FIXED-SIZE);
   - 166 (H-CORRIDOR-SPANS-BOTH);
   - 170 (H-CLOCK-ABSORBED);
+  - 172 (1) (H-README-ON-P2: during the hold position 2's piece may carry the README's stress, obeying the NEC; the
+    theorem's clause (B) then holds in full on P1, and its tension half only on P2: carried, not seated);
+  - 172 (2) (H-COINCIDE-DOWN-THE-THROAT: your 127's coincidence is the endless approach down the object's throat, never
+    a reached point; it replaces the board's H-FACING-DOWN-THE-THROAT and H-COINCIDE-AS-LIMIT);
   - 169 (H-NO-TIME-ALONE) is your thought, offered for discussion. It fits a static analysis on one slice and is not
     used.
 - **The theorem's:** clause (G) (eq. (17) on the plane) and clause (B) (vacuum bulk, matter-free plane at the
   Randall–Sundrum tension, static planes).
 - **The board's:**
   - H-ONE-UNIVERSE-ONE-LAW (one universe, one ℓ, one tension: the fold design's reading of 138);
-  - H-Z2-PIECES and H-NEAREST-APPROACH (attained), with its named extension H-FACING-DOWN-THE-THROAT (new: an approach
-    down the throat, never attained, counted as facing; question 2);
-  - H-README-ON-P2 (the computed branch only);
-  - H-SPLIT-AT-OUR-TENSION (new), and H-LAW-READ-BY-TRACE (question 1 (b));
-  - H-POSITIVE-ON-P2;
+  - H-Z2-PIECES and H-NEAREST-APPROACH (attained);
+  - H-SPLIT-AT-OUR-TENSION and H-LAW-READ-BY-TRACE (question 1 (b), still open: it decides whether coinciding is within
+    one universe, S15);
+  - H-POSITIVE-ON-P2 (with it, coinciding has negative energy at every finite ℓ: S15);
   - H-APPEARANCE-IS-THE-OBSTRUCTION, H-BOTH-PIECES-AT-ONCE, H-ONE-OBJECT-IN-GAP and H-REGULAR-SLAB;
-  - H-COINCIDE-AS-LIMIT: excluded for attained points, not excluded by the NEC down the throat; recorded;
   - its answer to your 171 (space-only teleportation within one universe is this phase's corridor), offered for
     discussion;
   - a static bulk with diagonal K (your 158 (3) left it to the math);
@@ -885,5 +1024,7 @@ every number here, and confirmed the first round's fixes. Their findings, all ap
   - B4b's locally analytic class, and uniqueness in it (S6);
   - Padé as evidence, the verification rule of S9, and the radii (2.005m to 10m) and ℓ (∞ to m/4) tested;
   - the conventions: the 5% of CONFIRMED, the line at r = 2.1m for WIDE, and the 0.1 bound on the expansion in x;
-  - the profiles of the approach down the throat: f = c·x^λ in the instrument, and the smooth family f = g₁√x + g₂x in
-    the adjudication.
+  - the profiles of the approach down the throat: f = c·x^λ, and the adjudication's smooth family f = g₁√x + g₂x with
+    the NEC margin g₂ = 2α²W₁ + p·g₁²/2 − 1, both in the instrument (the smooth family since S15).
+- **No longer the board's (item 172):** H-README-ON-P2 is now yours; H-FACING-DOWN-THE-THROAT and H-COINCIDE-AS-LIMIT
+  are replaced by your H-COINCIDE-DOWN-THE-THROAT.
