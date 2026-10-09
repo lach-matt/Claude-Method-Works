@@ -488,6 +488,8 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
   - 190, "Information is energy": H-INFORMATION-IS-ENERGY, yours. The board's reading, to be worked: where the README's
     information crosses, its energy crosses, so Lemma S's partner is needed.
   - Neither changes a computed row here.
+- **191 and 192** (on k's scale, B6′) were recorded as this note was finished. They do not bear on the rows here and
+  are not folded in.
 
 ## OPEN
 
@@ -579,5 +581,7 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
       called positive and E-PASS is never called refuted;
     - eight new mutations;
     - the owners' own `--mutants`, run as subprocesses with their counts reported.
+  - **Result:** selftest 19/19 (105.4 s); `--mutants` 25/25 killed, with the owners' own `--mutants` at 33/33 and
+    30/30 (exit 0); `sim2_passage.py` md5 741bab9104c24be696f60538d15fc7b3, its X1–X10 text and code unchanged.
   - **This note**, written to the spec's section 11.
   - Neither is verified yet, and nothing is seated.
