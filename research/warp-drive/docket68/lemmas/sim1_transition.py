@@ -13,8 +13,10 @@ The board's reading (H-PHASE1-IS-4D, offered for correction): one four-dimension
 symmetry, directions (t, r); the start flat (H-FLAT-START, the board's gloss on 157's "our current universe"); the
 README's energy carried in by a massless scalar field (H-SCALAR-CARRIER), one initial-data family (H-GAUSSIAN-FAMILY).
 M's own usage points to another reading (items 116 (b), 117: "travel between two positions within one universe vs
-travel between two counterfactual universes"; 118: law and history trajectories): that is put to M.  On either reading
-this phase is the validated time-evolution tool the later phases build on.
+travel between two counterfactual universes"; 118: law and history trajectories): that was put to M, and M chose it
+(item 168: "My sense: positions, one universe") -- so H-PHASE1-IS-4D is withdrawn as a reading of M's words, and this
+phase stands as the validated time-evolution tool the later phases build on (H-PHASES-BY-TRAJECTORY: phase 2 is the
+corridor between two positions within one universe, through the extra dimension).
 
 THE SIMULATION.  Polar-areal coordinates, G = 1, G_ab = 8 pi T_ab: the evolution eqs. (21)-(22), Hamiltonian constraint
   (23), slicing (24) and momentum constraint (25) of Gundlach & Martin-Garcia, arXiv:0711.4620, p.13 (READ); the lapse

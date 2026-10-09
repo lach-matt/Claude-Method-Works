@@ -38,9 +38,21 @@ All findings are applied (History).
 - **A simulation makes the plane's geometry an output** instead of an input, so it tests the readings those stages
   rested on.
 
-## Which transition? Two readings, put to you
+## Your answer (item 168)
 
-- **The board's reading, which this phase ran (H-PHASE1-IS-4D).** One four-dimensional spacetime, no bulk, spherical:
+- **You chose:** *"My sense: positions, one universe"*. The option read: *"Phase 2 simulates the corridor between two
+  positions within our one universe, adding the extra dimension the trajectory passes through. Later phases go between
+  universes, and the hierarchy is your law and history trajectories."*
+- **So H-PHASE1-IS-4D is withdrawn as a reading of your words.** This phase stands as the validated tool the next phases
+  build on; its results S1–S5 are unchanged, since none of them depends on which reading was yours.
+- **Carried as yours:** H-PHASES-BY-TRAJECTORY. The phases follow your trajectories: first the corridor between two
+  positions within one universe, then between universes. Item 167's "hierarchy of trajectories" is your law and history
+  trajectories (items 116–118).
+- **Phase 2 is designed in that sense** (the section below, and its own note when built).
+
+## Which transition? Two readings, as put to you (answered by item 168)
+
+- **The board's reading, which this phase ran (H-PHASE1-IS-4D; withdrawn as a reading of your words by item 168).** One four-dimensional spacetime, no bulk, spherical:
   - the start flat (H-FLAT-START, the board's gloss on your 157's "our current universe");
   - the README's energy carried in by a massless scalar field (H-SCALAR-CARRIER), one initial-data family
     (H-GAUSSIAN-FAMILY).
@@ -159,7 +171,7 @@ All findings are applied (History).
 - **All three point at the extra dimension,** which must supply an anisotropic Weyl stress (S5).
 - **No status moves.** B4d stays OPEN.
 
-## Phase 2, depending on your answer
+## Phase 2, depending on your answer (item 168 chose the second)
 
 - **On the board's reading:** add y with the plane uniform along r.
   - **Its limits.** S5 shows such a plane cannot carry eq. (17)'s anisotropy, and its sign question already has a
@@ -227,9 +239,9 @@ All findings are applied (History).
 ## Named hypotheses
 
 - **Yours:** 115 (c), 116 (b), 117, 118, 136 G, 157, 162 (H-FIXED-SIZE), 163 (H-AT-ONCE-IS-WHOLE), 167
-  (H-PHASED-SIMULATION, H-TRAJECTORY-HIERARCHY).
+  (H-PHASED-SIMULATION, H-TRAJECTORY-HIERARCHY), 168 (H-PHASES-BY-TRAJECTORY).
 - **The board's:**
-  - H-PHASE1-IS-4D;
+  - H-PHASE1-IS-4D (withdrawn as a reading of M by item 168; the phase stands as the tool);
   - H-FLAT-START;
   - H-SCALAR-CARRIER;
   - H-GAUSSIAN-FAMILY;
