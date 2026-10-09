@@ -1,0 +1,934 @@
+#!/usr/bin/env bash
+# sci -- science toolchain for the research board (GR, brane worlds, cosmology, quantum, number theory).
+#
+#   sci list                      groups, what each gives, and what is installed
+#   sci install <group>...        idempotent install into $SCI_ROOT  (also: default, all)
+#   sci run <group> <cmd...>      run a command inside that group's environment
+#   sci check [group...]          smoke-test installed groups with one small real computation each
+#   sci env <group>               print the group's environment (source it in another shell)
+#   sci dryrun <group>            pip --dry-run of the group's packages against the SYSTEM python
+#   sci du | sci remove <group> | sci clean
+#
+# Everything lives under SCI_ROOT (default /root/sci), which must not be inside the repository.
+# Routes, and only these: PyPI (pip into venvs, PYTHONNOUSERSITE=1, no --user), the Ubuntu archive
+# (archive.ubuntu.com / security.ubuntu.com: `apt-get download` + `dpkg-deb -x` into a private prefix;
+# the dependency set comes from a *simulated* `apt-get -s install`, which installs nothing),
+# conda-forge via micromamba (conda.anaconda.org), and SourceForge (REDUCE).
+# Nothing is fetched from GitHub or any GitHub-content mirror.
+
+set -uo pipefail
+
+SCI_ROOT="${SCI_ROOT:-/root/sci}"
+SCI_SELF="$(readlink -f "${BASH_SOURCE[0]}")"
+SCI_DIR="$(dirname "$SCI_SELF")"
+CA_BUNDLE="${SCI_CA_BUNDLE:-/root/.ccr/ca-bundle.crt}"
+PY311="${SCI_PY311:-$(command -v python3.11 || command -v python3)}"
+PY312="${SCI_PY312:-/usr/bin/python3.12}"
+PY313="${SCI_PY313:-/usr/bin/python3.13}"
+LIBARCH=x86_64-linux-gnu
+MAMBA_URL="https://conda.anaconda.org/conda-forge/linux-64/micromamba-2.9.0-0.tar.bz2"
+REDUCE_URL="${SCI_REDUCE_URL:-https://sourceforge.net/projects/reduce-algebra/files/snapshot_2026-03-08/linux64/reduce-freestanding_2026-03-08_x86_64.tar.bz2/download}"
+REDUCE_MD5="${SCI_REDUCE_MD5:-00b0008635f3bf140433eef7e55b1dbc}"
+
+export PYTHONNOUSERSITE=1 PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1 PIP_NO_INPUT=1
+unset PIP_USER PYTHONPATH PYTHONHOME
+if [ -f "$CA_BUNDLE" ]; then
+  export PIP_CERT="$CA_BUNDLE" SSL_CERT_FILE="$CA_BUNDLE" REQUESTS_CA_BUNDLE="$CA_BUNDLE" CURL_CA_BUNDLE="$CA_BUNDLE"
+fi
+
+ALL_GROUPS="gr cas sage provers lean coq numerics dedalus data cosmo gw lit tex"
+DEFAULT_GROUPS="gr cas provers numerics data cosmo gw lit tex"
+
+declare -A DESC=(
+  [gr]="GR tensor algebra in Python: EinsteinPy, GraviPy, pytearcat (py3.11 venv); OGRePy (py3.13 venv, command ogrepy-python)"
+  [cas]="CAS engines: Maxima 5.46 + ctensor/itensor, Cadabra2 2.4.5, PARI/GP 2.15, FORM 4.3, GiNaC ginsh, REDUCE (2026-03) + EXCALC/Redlog"
+  [sage]="SageMath parts via passagemath-symbolics + passagemath-maxima (SageManifolds, Sage's symbolic ring) -- ~1.5 GB"
+  [provers]="cvc5 + z3 (py venv), Metamath + set.mm, SPASS 3.9, QEPCAD-B 1.74 (+ Singular 4.3)"
+  [lean]="Lean 4 core (conda-forge lean4; Mathlib is NOT available here) -- ~3.5 GB"
+  [coq]="Coq 8.18 + Interval/Coquelicot/Flocq (Ubuntu debs) -- ~1.2 GB"
+  [numerics]="py-pde, findiff, diffrax + jax (CPU), pygro (geodesics), SumOfSquares (PICOS/cvxopt), scipy, matplotlib"
+  [dedalus]="Dedalus 3 spectral PDE solver (conda-forge env with FFTW/MPI; command dedalus-python) -- ~0.9 GB"
+  [data]="offline data: pdg (PDG 2026 sqlite), particle, mendeleev, periodictable, radioactivedecay, xraydb, astropy (CODATA 2022, IAU, Planck18), matplotlib"
+  [cosmo]="Boltzmann codes: CAMB (wheel), CLASS/classy (sdist built with the system gcc)"
+  [gw]="gravitational waves: lalsuite (lal, lalsimulation), qnm, pykerr, pybhpt (Teukolsky fluxes)"
+  [lit]="verbatim READs: poppler (pdftotext/pdftoppm), tesseract (eng+deu), pdfplumber, pypdf, pymupdf, pylatexenc, bibtexparser, TexSoup"
+  [tex]="TeX Live 2023 from Ubuntu debs (relocated): pdflatex, bibtex; latex-base/recommended/extra, pictures (TikZ), science, publishers (revtex4-2)"
+)
+declare -A SIZE=( [gr]="~0.9 GB" [cas]="~0.5 GB" [sage]="~1.6 GB" [provers]="~0.2 GB" [lean]="~3.5 GB"
+  [coq]="~1.2 GB" [numerics]="~0.9 GB" [dedalus]="~0.9 GB" [data]="~0.4 GB" [cosmo]="~0.3 GB"
+  [gw]="~0.6 GB" [lit]="~0.2 GB" [tex]="~0.5 GB" )
+
+# pip requirement sets (also used by `sci dryrun`)
+REQ_gr="einsteinpy gravipy pytearcat"
+REQ_gr313="OGRePy"
+REQ_cas312="sympy"
+REQ_sage="passagemath-symbolics passagemath-maxima"
+REQ_provers="cvc5 z3-solver"
+REQ_numerics="py-pde findiff jax[cpu] diffrax pygro SumOfSquares matplotlib scipy"
+REQ_data="pdg particle mendeleev periodictable radioactivedecay xraydb astropy matplotlib python-dateutil six"
+REQ_cosmo="camb classy"
+REQ_gw="lalsuite qnm pykerr pybhpt"
+REQ_lit="pdfplumber pypdf pymupdf pylatexenc bibtexparser TexSoup"
+
+# Ubuntu (noble) package sets. DEB_*: resolved with dependencies; NODEP_*: fetched alone (deps already on
+# the system, and their own deps would only add MPI for parform).
+DEB_cas="maxima maxima-share cadabra2 libgmpxx4ldbl pari-gp ginac-tools"
+NODEP_cas="form"
+DEB_provers="metamath metamath-databases spass qepcad"
+DEB_coq="coq libcoq-interval libcoq-coquelicot libcoq-flocq"
+DEB_lit="poppler-utils tesseract-ocr tesseract-ocr-eng tesseract-ocr-deu"
+DEB_tex="texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-pictures texlive-fonts-recommended texlive-science texlive-publishers"
+
+# --------------------------------------------------------------------------------------------- helpers
+log()  { printf '[sci] %s\n' "$*" >&2; }
+die()  { printf '[sci] ERROR: %s\n' "$*" >&2; exit 1; }
+venv() { echo "$SCI_ROOT/venv/$1"; }
+droot(){ echo "$SCI_ROOT/deb/$1"; }
+
+guard_root() {
+  local r top
+  r="$(readlink -m "$SCI_ROOT")"
+  top="$(git -C "$SCI_DIR" rev-parse --show-toplevel 2>/dev/null || true)"
+  if [ -n "$top" ] && [[ "$r/" == "$(readlink -m "$top")/"* ]]; then
+    die "SCI_ROOT=$r is inside the repository ($top). Use a path outside it (default /root/sci)."
+  fi
+  case "$r" in
+    /|/usr|/usr/*|/etc|/etc/*|/bin|/bin/*|/lib|/lib/*|/var/lib/*|"$HOME"|"$HOME/.local"|"$HOME/.local/"*)
+      die "SCI_ROOT=$r would write into a system or user-site location; refused." ;;
+  esac
+  mkdir -p "$SCI_ROOT"/{venv,deb,bin,env,state,tmp,logs,opt,cache,conda}
+}
+
+is_installed() { [ -f "$SCI_ROOT/state/$1.ok" ]; }
+mark_ok() {
+  local g=$1; shift
+  { echo "installed $(date -u +%FT%TZ)"; echo "by $SCI_SELF"; printf '%s\n' "$@"; } > "$SCI_ROOT/state/$g.ok"
+}
+
+mkvenv() { # name python
+  local v; v="$(venv "$1")"
+  [ -x "$2" ] || die "interpreter $2 not found (needed for venv $1)"
+  if [ ! -x "$v/bin/python" ]; then
+    log "creating venv $1 with $("$2" -c 'import sys;print(sys.version.split()[0])')"
+    "$2" -m venv "$v" || die "venv creation failed: $v"
+  fi
+}
+
+pipin() { # venv-name pkgs...
+  local n=$1; shift
+  local v; v="$(venv "$n")"
+  log "pip install into venv/$n: $*"
+  "$v/bin/python" -m pip install --progress-bar off -q "$@" > "$SCI_ROOT/logs/pip-$n.log" 2>&1 \
+    || { tail -20 "$SCI_ROOT/logs/pip-$n.log" >&2; die "pip install failed in venv/$n (log: $SCI_ROOT/logs/pip-$n.log)"; }
+  "$v/bin/python" -m pip freeze > "$SCI_ROOT/state/$n.freeze" 2>/dev/null || true
+}
+
+# Report what a pip install of these packages WOULD change in the system python (3.11). Informational:
+# the real install always goes into an isolated venv, so the system python is never modified.
+sys_dryrun() { # label pkgs...
+  [ "${SCI_NO_DRYRUN:-0}" = 1 ] && return 0
+  local label=$1; shift
+  local d; d="$(mktemp -d "$SCI_ROOT/tmp/dry.XXXXXX")"
+  if ! "$PY311" -m venv --system-site-packages "$d/v" >/dev/null 2>&1; then
+    log "dry-run ($label): could not create probe venv; skipped"; rm -rf "$d"; return 0
+  fi
+  if "$d/v/bin/python" -m pip install --dry-run -q --report "$d/r.json" "$@" > "$d/log" 2>&1; then
+    "$PY311" -I - "$d/r.json" "$label" <<'PYEOF' | tee "$SCI_ROOT/state/$label.dryrun" >&2
+import json, sys, importlib.metadata as md
+rep = json.load(open(sys.argv[1])); label = sys.argv[2]
+inst = {i["metadata"]["name"].lower(): i["metadata"]["version"] for i in rep.get("install", [])}
+watch = ["numpy", "scipy", "sympy", "mpmath"]
+hits = []
+for w in watch:
+    if w in inst:
+        try: cur = md.version(w)
+        except md.PackageNotFoundError: cur = "absent"
+        hits.append("%s %s -> %s" % (w, cur, inst[w]))
+if hits:
+    print("[sci] dry-run vs SYSTEM python (%s): WOULD CHANGE %s -- harmless here (isolated venv), "
+          "but never install these into the system python" % (label, "; ".join(hits)))
+else:
+    print("[sci] dry-run vs SYSTEM python (%s): numpy/scipy/sympy/mpmath unchanged (%d new dists would be added)"
+          % (label, len(inst)))
+PYEOF
+  else
+    log "dry-run ($label): resolver failed against the system python: $(tail -1 "$d/log")"
+  fi
+  rm -rf "$d"
+}
+
+# ---- Ubuntu archive, private apt state (never touches the system dpkg database or /var/cache/apt)
+APT_DIR="$SCI_ROOT/apt"
+apt_opts() {
+  APT_OPTS=(-o "Dir::Etc::sourcelist=$APT_DIR/sources.list" -o "Dir::Etc::sourceparts=$APT_DIR/sources.list.d"
+            -o "Dir::State::Lists=$APT_DIR/lists" -o "Dir::Cache=$APT_DIR/cache" -o "Debug::NoLocking=1"
+            -o "APT::Sandbox::User=root" -o "Acquire::Retries=3" -q)
+  [ -n "${HTTPS_PROXY:-${https_proxy:-}}" ] && APT_OPTS+=(-o "Acquire::https::Proxy=${HTTPS_PROXY:-${https_proxy:-}}")
+  [ -f "$CA_BUNDLE" ] && APT_OPTS+=(-o "Acquire::https::CAInfo=$CA_BUNDLE")
+}
+apt_update() {
+  apt_opts
+  mkdir -p "$APT_DIR"/{lists/partial,cache/archives/partial,sources.list.d,debs}
+  if [ ! -f "$APT_DIR/sources.list" ]; then
+    local k=/usr/share/keyrings/ubuntu-archive-keyring.gpg c
+    c="$( . /etc/os-release 2>/dev/null; echo "${VERSION_CODENAME:-noble}")"
+    {
+      echo "deb [signed-by=$k] https://archive.ubuntu.com/ubuntu $c main universe restricted multiverse"
+      echo "deb [signed-by=$k] https://archive.ubuntu.com/ubuntu $c-updates main universe restricted multiverse"
+      echo "deb [signed-by=$k] https://security.ubuntu.com/ubuntu $c-security main universe restricted multiverse"
+    } > "$APT_DIR/sources.list"
+  fi
+  if [ -z "$(find "$APT_DIR/lists" -maxdepth 1 -name '*Packages*' -mmin -1440 2>/dev/null | head -1)" ]; then
+    log "apt-get update (private lists in $APT_DIR)"
+    apt-get "${APT_OPTS[@]}" update > "$SCI_ROOT/logs/apt-update.log" 2>&1 \
+      || { tail -5 "$SCI_ROOT/logs/apt-update.log" >&2; die "private apt-get update failed"; }
+  fi
+}
+# apt_fetch <group> "<pkgs resolved with deps>" "<pkgs fetched alone>"
+apt_fetch() {
+  local g=$1 pkgs=$2 nodeps=${3:-}
+  apt_update
+  local R D plan list f
+  R="$(droot "$g")"; D="$APT_DIR/debs/$g"
+  mkdir -p "$R" "$D"
+  # Simulation only (-s): prints the plan relative to the system's dpkg status, installs nothing.
+  plan="$(apt-get "${APT_OPTS[@]}" -s install --no-install-recommends $pkgs 2>&1)" \
+    || { echo "$plan" | tail -5 >&2; die "apt dependency simulation failed for: $pkgs"; }
+  list="$(awk '/^Inst /{v=$3; if (v ~ /^\[/) v=$4; gsub(/[()]/,"",v); print $2"="v}' <<<"$plan")"
+  for f in $nodeps; do list="$list"$'\n'"$f"; done
+  log "apt-get download ($g): $(echo $list | wc -w) debs"
+  (cd "$D" && apt-get "${APT_OPTS[@]}" download $list > "$SCI_ROOT/logs/apt-download-$g.log" 2>&1) \
+    || { tail -5 "$SCI_ROOT/logs/apt-download-$g.log" >&2; die "apt-get download failed ($g)"; }
+  : > "$SCI_ROOT/state/$g.debs"
+  for f in "$D"/*.deb; do
+    dpkg-deb -x "$f" "$R" || die "dpkg-deb -x failed on $f"
+    echo "$(md5sum < "$f" | cut -c1-32)  $(basename "$f")" >> "$SCI_ROOT/state/$g.debs"
+  done
+  rm -f "$D"/*.deb
+  # absolute symlinks that point at files we extracted: point them inside the prefix instead
+  find "$R" -type l -lname '/*' 2>/dev/null | while read -r f; do
+    local t; t="$(readlink "$f")"
+    [ -e "$R$t" ] && ln -sfn "$R$t" "$f"
+  done
+  return 0
+}
+
+# ---- wrappers and environment files
+mkwrap() { # group name target [env-block]
+  local g=$1 n=$2 tgt=$3 envb=${4:-}
+  mkdir -p "$SCI_ROOT/bin/$g"
+  printf '#!/bin/sh\n# generated by sci (group %s) -- re-create with: sci install %s\n%s\nexec "%s" "$@"\n' \
+    "$g" "$g" "$envb" "$tgt" > "$SCI_ROOT/bin/$g/$n"
+  chmod +x "$SCI_ROOT/bin/$g/$n"
+}
+ld_block() { # deb root -> shell line prepending its libraries
+  printf 'export LD_LIBRARY_PATH="%s/usr/lib/%s:%s/usr/lib:%s/lib/%s${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"' \
+    "$1" "$LIBARCH" "$1" "$1" "$LIBARCH"
+}
+wrap_bins() { # group deb-root env-block [skip-regex]
+  local g=$1 R=$2 envb=$3 skip=${4:-'^$'} f n
+  for f in "$R"/usr/bin/* "$R"/bin/*; do
+    [ -e "$f" ] || continue; [ -x "$f" ] || continue; [ -d "$f" ] && continue
+    n="$(basename "$f")"
+    [[ "$n" =~ $skip ]] && continue
+    [ -e "$SCI_ROOT/bin/$g/$n" ] && continue
+    mkwrap "$g" "$n" "$f" "$envb"
+  done
+}
+write_env() { # group venv-name|"" extra-lines
+  local g=$1 vn=$2 extra=${3:-} f="$SCI_ROOT/env/$1.sh" vpath=""
+  [ -n "$vn" ] && vpath="$(venv "$vn")/bin:"
+  {
+    echo "# sci environment for group '$g' -- generated; re-create with: sci install $g"
+    echo "export SCI_ROOT=\"$SCI_ROOT\" PYTHONNOUSERSITE=1"
+    [ -n "$vn" ] && echo "export VIRTUAL_ENV=\"$(venv "$vn")\""
+    echo "export PATH=\"$SCI_ROOT/bin/$g:$vpath\$PATH\""
+    [ -n "$extra" ] && echo "$extra"
+  } > "$f"
+}
+
+# ---- conda-forge via micromamba (bootstrapped from conda.anaconda.org itself)
+MM="$SCI_ROOT/conda/bin/micromamba"
+mamba_boot() {
+  if [ ! -x "$MM" ]; then
+    log "fetching micromamba from conda-forge"
+    mkdir -p "$SCI_ROOT/conda"
+    curl -fsSL "$MAMBA_URL" | tar -xj -C "$SCI_ROOT/conda" bin/micromamba || die "micromamba download failed"
+  fi
+  export MAMBA_ROOT_PREFIX="$SCI_ROOT/conda/root"
+}
+mamba_env() { # env-name specs...
+  local n=$1; shift
+  mamba_boot
+  local e="$SCI_ROOT/conda/envs/$n" ssl=()
+  [ -f "$CA_BUNDLE" ] && ssl=(--ssl-verify "$CA_BUNDLE")
+  if [ ! -d "$e/conda-meta" ]; then
+    log "micromamba create $n: $*"
+    "$MM" create -y -q -p "$e" -c conda-forge --override-channels "${ssl[@]}" "$@" > "$SCI_ROOT/logs/mamba-$n.log" 2>&1 \
+      || { tail -10 "$SCI_ROOT/logs/mamba-$n.log" >&2; rm -rf "$MAMBA_ROOT_PREFIX/pkgs"; die "micromamba create $n failed"; }
+  fi
+  rm -rf "$MAMBA_ROOT_PREFIX/pkgs"     # the package cache is as large as the env; never keep it
+  "$MM" list -p "$e" > "$SCI_ROOT/state/conda-$n.list" 2>/dev/null || true
+}
+
+# --------------------------------------------------------------------------------------------- groups
+install_gr() {
+  sys_dryrun gr $REQ_gr
+  mkvenv gr "$PY311"; pipin gr $REQ_gr
+  if [ -x "$PY313" ]; then
+    mkvenv gr313 "$PY313"; pipin gr313 $REQ_gr313
+    mkwrap gr ogrepy-python "$(venv gr313)/bin/python"
+  else
+    log "no $PY313: OGRePy (needs Python >= 3.13) skipped"
+  fi
+  write_env gr gr "export MPLBACKEND=Agg"
+  mark_ok gr "venv: $(venv gr)" "venv: $(venv gr313)"
+}
+
+install_cas() {
+  local R; R="$(droot cas)"
+  apt_fetch cas "$DEB_cas" "$NODEP_cas"
+  mkvenv cas312 "$PY312"; pipin cas312 $REQ_cas312
+  # REDUCE (SourceForge freestanding build; redpsl works headless, redcsl needs X11 libs)
+  local O="$SCI_ROOT/opt/reduce"
+  if [ ! -x "$O/current/redpsl" ]; then
+    log "fetching REDUCE from SourceForge"
+    mkdir -p "$O"; curl -fsSL -o "$O/reduce.tar.bz2" "$REDUCE_URL" || die "REDUCE download failed"
+    local m; m="$(md5sum < "$O/reduce.tar.bz2" | cut -c1-32)"
+    if [ -n "$REDUCE_MD5" ] && [ "$m" != "$REDUCE_MD5" ]; then die "REDUCE md5 $m != pinned $REDUCE_MD5 (set SCI_REDUCE_MD5= to accept)"; fi
+    tar -xjf "$O/reduce.tar.bz2" -C "$O" || die "REDUCE extract failed"
+    rm -f "$O/reduce.tar.bz2"
+    ln -sfn "$(ls -d "$O"/reduce-snapshot_* | tail -1)" "$O/current"
+  fi
+  rm -rf "$SCI_ROOT/bin/cas"; mkdir -p "$SCI_ROOT/bin/cas"
+  local L; L="$(ld_block "$R")"
+  local CP="export PYTHONPATH=\"$R/usr/lib/python3/dist-packages\""
+  mkwrap cas cadabra2 "$(venv cas312)/bin/python" "$L
+$CP
+set -- \"$R/usr/bin/cadabra2\" \"\$@\""
+  mkwrap cas cadabra-python "$(venv cas312)/bin/python" "$L
+$CP"
+  mkwrap cas reduce "$O/current/redpsl"
+  mkwrap cas redpsl "$O/current/redpsl"
+  wrap_bins cas "$R" "$L" '^(cadabra2|cadabra2python|cadabra2-gtk|cadabra2cadabra|cadabra2html|cadabra2ipynb|cadabra2latex|cdb-nbtool|cadabra-server|xmaxima|parform)$'
+  write_env cas "" "$L"
+  mark_ok cas "debs: $R" "reduce: $(readlink -f "$O/current")" "venv: $(venv cas312)"
+}
+
+install_sage() {
+  sys_dryrun sage $REQ_sage
+  mkvenv sage "$PY311"; pipin sage $REQ_sage
+  write_env sage sage ""
+  mark_ok sage "venv: $(venv sage)"
+}
+
+install_provers() {
+  local R; R="$(droot provers)"
+  sys_dryrun provers $REQ_provers
+  mkvenv provers "$PY311"; pipin provers $REQ_provers
+  apt_fetch provers "$DEB_provers"
+  # QEPCAD reads $qe/default.qepcadrc and $qe/bin/qepcad.help; point it at the private Singular
+  sed -i "s|^SINGULAR .*|SINGULAR $R/usr/bin|" "$R/usr/lib/qepcad/default.qepcadrc"
+  local L; L="$(ld_block "$R")
+export qe=\"$R/usr/lib/qepcad\" SINGULARPATH=\"$R/usr/share/singular/LIB\" SINGULAR_PROCS_DIR=\"$R/usr/libexec/$LIBARCH/singular/MOD\"
+export SET_MM=\"$R/usr/share/metamath/databases/set.mm\""
+  rm -rf "$SCI_ROOT/bin/provers"; mkdir -p "$SCI_ROOT/bin/provers"
+  wrap_bins provers "$R" "$L"
+  write_env provers provers "$L"
+  mark_ok provers "venv: $(venv provers)" "debs: $R"
+}
+
+install_lean() {
+  mamba_env lean lean4
+  local E="$SCI_ROOT/conda/envs/lean"
+  rm -rf "$SCI_ROOT/bin/lean"
+  mkwrap lean lean "$E/bin/lean"; mkwrap lean lake "$E/bin/lake"
+  write_env lean "" ""
+  mark_ok lean "conda env: $E"
+}
+
+install_coq() {
+  local R; R="$(droot coq)"
+  apt_fetch coq "$DEB_coq"
+  printf 'destdir="%s"\npath="%s:%s"\n' "$R/usr/lib/ocaml" "$R/usr/lib/ocaml" "$R/usr/lib/$LIBARCH/ocaml" > "$R/findlib.conf"
+  local L; L="$(ld_block "$R")
+export OCAMLFIND_CONF=\"$R/findlib.conf\" COQLIB=\"$R/usr/lib/ocaml/coq\" OCAMLLIB=\"$R/usr/lib/ocaml\""
+  rm -rf "$SCI_ROOT/bin/coq"; mkdir -p "$SCI_ROOT/bin/coq"
+  wrap_bins coq "$R" "$L"
+  write_env coq "" "$L"
+  mark_ok coq "debs: $R"
+}
+
+install_numerics() {
+  sys_dryrun numerics $REQ_numerics
+  mkvenv numerics "$PY311"; pipin numerics $REQ_numerics
+  write_env numerics numerics "export MPLBACKEND=Agg JAX_PLATFORMS=cpu NUMBA_CACHE_DIR=\"$SCI_ROOT/cache/numba\""
+  mark_ok numerics "venv: $(venv numerics)"
+}
+
+install_dedalus() {
+  mamba_env dedalus python=3.12 dedalus "fftw=*=mpi_openmpi*"
+  local E="$SCI_ROOT/conda/envs/dedalus"
+  rm -rf "$SCI_ROOT/bin/dedalus"
+  mkwrap dedalus dedalus-python "$E/bin/python" "export OMP_NUM_THREADS=1 PYTHONNOUSERSITE=1 MPLBACKEND=Agg"
+  write_env dedalus "" "export OMP_NUM_THREADS=1 MPLBACKEND=Agg"
+  mark_ok dedalus "conda env: $E"
+}
+
+install_data() {
+  sys_dryrun data $REQ_data
+  mkvenv data "$PY311"; pipin data $REQ_data
+  write_env data data "export MPLBACKEND=Agg"
+  mark_ok data "venv: $(venv data)"
+}
+
+install_cosmo() {
+  sys_dryrun cosmo $REQ_cosmo
+  mkvenv cosmo "$PY311"; pipin cosmo $REQ_cosmo
+  write_env cosmo cosmo ""
+  mark_ok cosmo "venv: $(venv cosmo)"
+}
+
+install_gw() {
+  sys_dryrun gw $REQ_gw
+  mkvenv gw "$PY311"; pipin gw $REQ_gw
+  write_env gw gw "export XDG_CACHE_HOME=\"$SCI_ROOT/cache\" MPLBACKEND=Agg"
+  mark_ok gw "venv: $(venv gw)"
+}
+
+install_lit() {
+  local R; R="$(droot lit)"
+  sys_dryrun lit $REQ_lit
+  mkvenv lit "$PY311"; pipin lit $REQ_lit
+  apt_fetch lit "$DEB_lit"
+  local L; L="$(ld_block "$R")
+export TESSDATA_PREFIX=\"$R/usr/share/tesseract-ocr/5/tessdata\""
+  rm -rf "$SCI_ROOT/bin/lit"; mkdir -p "$SCI_ROOT/bin/lit"
+  wrap_bins lit "$R" "$L"
+  write_env lit lit "$L"
+  mark_ok lit "venv: $(venv lit)" "debs: $R"
+}
+
+install_tex() {
+  local R T; R="$(droot tex)"; T="$R/sci-texmf"
+  apt_fetch tex "$DEB_tex"
+  mkdir -p "$T"/{cnf,home,var}
+  # private texmf.cnf: every system path rewritten into the prefix; '!!' dropped so a missing ls-R
+  # degrades to a disk search instead of a miss
+  sed -e "s|/usr/share/texlive|$R/usr/share/texlive|g" -e "s|/usr/local/share/texmf|$R/usr/local/share/texmf|g" \
+      -e "s|/var/lib/texmf|$R/var/lib/texmf|g" -e "s|/etc/texmf|$R/etc/texmf|g" -e "s|/usr/share/texmf|$R/usr/share/texmf|g" \
+      -e "s|/var/cache/fonts|$T/var/fonts|g" -e "s|^TEXMFHOME = .*|TEXMFHOME = $T/home|" \
+      -e "s|^TEXMFVAR = .*|TEXMFVAR = $T/var/texmf-var|" -e "s|^TEXMFCONFIG = .*|TEXMFCONFIG = $T/var/texmf-config|" \
+      -e "s|^TEXMFCNF = .*|TEXMFCNF = $T/cnf|" -e 's|!!||g' \
+      "$R/usr/share/texlive/texmf-dist/web2c/texmf.cnf" > "$T/cnf/texmf.cnf"
+  # font maps: Debian's per-package fontmap snippets -> one updmap.cfg -> updmap-sys
+  cat "$R"/var/lib/tex-common/fontmap-cfg/*/*.cfg 2>/dev/null | grep -E '^(Map|MixedMap|KanjiMap) ' | sort -u > "$T/cnf/updmap.cfg"
+  local E="export TEXMFCNF=\"$T/cnf\" PERL5LIB=\"$R/usr/share/texlive/tlpkg\"
+$(ld_block "$R")"
+  rm -rf "$SCI_ROOT/bin/tex"; mkdir -p "$SCI_ROOT/bin/tex"
+  wrap_bins tex "$R" "$E"
+  write_env tex "" "$E"
+  (
+    eval "$E"; export PATH="$SCI_ROOT/bin/tex:$PATH"
+    updmap-sys --nohash --cnffile "$T/cnf/updmap.cfg" > "$SCI_ROOT/logs/tex-updmap.log" 2>&1 || exit 11
+    for d in "$R/usr/share/texlive/texmf-dist" "$R/usr/share/texmf" "$R/var/lib/texmf"; do
+      rm -f "$d/ls-R"; printf '%% ls-R -- filename database for kpathsea; do not change this line.\n' > "$d/ls-R"
+    done
+    mktexlsr "$R/usr/share/texlive/texmf-dist" "$R/usr/share/texmf" "$R/var/lib/texmf" > "$SCI_ROOT/logs/tex-lsr.log" 2>&1 || exit 12
+    mkdir -p "$R/var/lib/texmf/web2c/pdftex" && cd "$R/var/lib/texmf/web2c/pdftex" || exit 13
+    pdftex -ini -jobname=pdflatex -progname=pdflatex -etex -interaction=nonstopmode pdflatex.ini > "$SCI_ROOT/logs/tex-fmt.log" 2>&1 || exit 14
+    pdftex -ini -jobname=pdftex -progname=pdftex -etex -interaction=nonstopmode pdfetex.ini >> "$SCI_ROOT/logs/tex-fmt.log" 2>&1 || true
+    mktexlsr "$R/var/lib/texmf" >/dev/null 2>&1
+  ) || die "TeX configuration step failed (code $?); see $SCI_ROOT/logs/tex-*.log"
+  mark_ok tex "debs: $R" "texmf.cnf: $T/cnf/texmf.cnf"
+}
+
+# --------------------------------------------------------------------------------------------- checks
+# Each check does one small real computation with a known answer and fails loudly on a wrong one.
+PYV() { "$(venv "$1")/bin/python" -I -; }
+
+check_gr() {
+  PYV gr <<'PYEOF' || return 1
+import builtins, sympy as sp
+builtins.display = lambda *a, **k: None          # pytearcat expects a Jupyter display()
+ok = True
+def val(e):  # substitute k=0.7 into whatever symbol each engine calls k; want -20 k^2 = -9.8
+    e = sp.sympify(e); return complex(e.subs({s: sp.Rational(7, 10) for s in e.free_symbols if s.name == 'k'}))
+def rep(name, e):
+    global ok
+    good = abs(val(e) + 9.8) < 1e-12
+    ok &= good; print(('ok  ' if good else 'FAIL') + ' %-11s RS5 Ricci scalar = %s' % (name, e))
+t, x, y, z, w, k = sp.symbols('t x y z w k', positive=True); a = sp.exp(-2*k*w)
+from einsteinpy.symbolic import MetricTensor, RicciScalar, RicciTensor
+from einsteinpy.symbolic.predefined import Schwarzschild
+rep('einsteinpy', sp.simplify(RicciScalar.from_metric(MetricTensor(sp.diag(-a, a, a, a, 1).tolist(), (t, x, y, z, w))).expr))
+z0 = all(sp.simplify(c) == 0 for c in sp.flatten(RicciTensor.from_metric(Schwarzschild()).tensor().tolist()))
+ok &= z0; print(('ok  ' if z0 else 'FAIL') + ' einsteinpy  Schwarzschild Ricci tensor = 0')
+from gravipy.tensorial import Coordinates, MetricTensor as GM, Christoffel, Ricci
+X = Coordinates('chi', [t, x, y, z, w]); g = GM('g', X, sp.diag(-a, a, a, a, 1)); Christoffel('Ga', g)
+rep('gravipy', sp.simplify(Ricci('Ri', g).scalar()))
+import pytearcat as pt, io, contextlib
+with contextlib.redirect_stdout(io.StringIO()):
+    pt.coords('t,x,y,z,w'); pt.var('k')
+    pt.metric('ds2 = exp(-2*k*w)*(-dt**2 + dx**2 + dy**2 + dz**2) + dw**2')
+    pt.christoffel(); pt.ricci(); R = pt.riccis()
+rep('pytearcat', sp.simplify(R.tensor if hasattr(R, 'tensor') else R))
+raise SystemExit(0 if ok else 1)
+PYEOF
+  if [ -x "$(venv gr313)/bin/python" ]; then
+    "$(venv gr313)/bin/python" -I - <<'PYEOF' 2>/dev/null | grep -E '^(ok|FAIL)' ; [ "${PIPESTATUS[0]}" = 0 ] || return 1
+import io, contextlib, sympy as sp
+with contextlib.redirect_stdout(io.StringIO()):
+    import OGRePy as T
+    t, x, y, z, w = T.syms('t x y z w'); k = T.sym('k', positive=True); a = sp.exp(-2*k*w)
+    g = T.Metric(coords=T.Coordinates(t, x, y, z, w), components=T.diag(-a, a, a, a, 1))
+    R = g.ricci_scalar().components()
+e = sp.sympify(list(R)[0] if hasattr(R, '__iter__') else R)
+good = sp.simplify(e + 20*k**2) == 0
+print(('ok  ' if good else 'FAIL') + ' %-11s RS5 Ricci scalar = %s' % ('OGRePy', e))
+raise SystemExit(0 if good else 1)
+PYEOF
+  fi
+}
+
+check_cas() {
+  local B="$SCI_ROOT/bin/cas" d out rc=0; d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  cat > "$d/rs.mac" <<'EOF'
+display2d:false$ assume(k>0)$ load(ctensor)$ dim:5$ ct_coords:[t,x,y,z,w]$
+lg:matrix([-exp(-2*k*w),0,0,0,0],[0,exp(-2*k*w),0,0,0],[0,0,exp(-2*k*w),0,0],[0,0,0,exp(-2*k*w),0],[0,0,0,0,1])$
+cmetric(false)$ christof(false)$ ricci(false)$ print("RS5=", ratsimp(scurvature()))$
+EOF
+  out="$("$B/maxima" --very-quiet --batch="$d/rs.mac" </dev/null 2>&1 | grep 'RS5=')"
+  [[ "$out" == *"-20*k^2"* ]] && echo "ok   maxima      ctensor RS5 Ricci scalar: ${out#RS5= }" || { echo "FAIL maxima: $out"; rc=1; }
+  cat > "$d/s.cdb" <<'EOF'
+{t,r,\theta,\phi}::Coordinate;
+{a,b,c,d,e,f,g,h#}::Indices(values={t,r,\theta,\phi}, position=fixed);
+\partial{#}::PartialDerivative;
+g_{a b}::Metric.
+g^{a b}::InverseMetric.
+ss:= { g_{t t} = -(1-2 M/r), g_{r r} = 1/(1-2 M/r), g_{\theta\theta} = r**2, g_{\phi\phi}=r**2 \sin(\theta)**2 }.
+complete(ss, $g^{a b}$);
+ch:= \Gamma^{a}_{b c} = 1/2 g^{a d} ( \partial_{b}{g_{d c}} + \partial_{c}{g_{b d}} - \partial_{d}{g_{b c}} );
+evaluate(ch, ss, rhsonly=True);
+rm:= R^{a}_{b c d} = \partial_{c}{\Gamma^{a}_{b d}} - \partial_{d}{\Gamma^{a}_{b c}} + \Gamma^{a}_{e c} \Gamma^{e}_{b d} - \Gamma^{a}_{e d} \Gamma^{e}_{b c};
+substitute(rm, ch)
+evaluate(rm, ss, rhsonly=True);
+rc:= R_{a b} = R^{c}_{a c b};
+substitute(rc, rm)
+evaluate(rc, ss, rhsonly=True);
+print("RICCI", rc)
+EOF
+  out="$(cd "$d" && "$B/cadabra2" s.cdb 2>&1 | grep '^RICCI')"
+  [[ "$out" == "RICCI R_{a b} = 0" ]] && echo "ok   cadabra2    Schwarzschild Ricci: ${out#RICCI }" || { echo "FAIL cadabra2: $out"; rc=1; }
+  out="$(echo 'print(lindep([Pi^2,zeta(2),1]))' | "$B/gp" -q -f 2>&1)"
+  [[ "$out" == "[1, -6, 0]~" ]] && echo "ok   gp          lindep([Pi^2,zeta(2),1]) = $out" || { echo "FAIL gp: $out"; rc=1; }
+  printf 'I mu,nu,rho,sigma;\nL T = g_(1,mu,nu,rho,sigma);\ntrace4,1;\nprint;\n.end\n' > "$d/t.frm"
+  out="$(cd "$d" && "$B/form" -q t.frm 2>&1 | tr -d ' \n')"
+  [[ "$out" == *"T=4*d_(mu,nu)*d_(rho,sigma)-4*d_(mu,rho)*d_(nu,sigma)+4*d_(mu,sigma)*d_(nu,rho);"* ]] \
+    && echo "ok   form        Tr(g^mu g^nu g^rho g^sigma) = 4(d d - d d + d d)" || { echo "FAIL form: $out"; rc=1; }
+  out="$(echo 'series(sqrt(1-2*M/r),M==0,3);' | "$B/ginsh" 2>&1 | tail -1)"
+  [[ "$out" == "1+(-r^(-1))*M+(-1/2*r^(-2))*M^2+Order(M^3)" ]] && echo "ok   ginsh       series sqrt(1-2M/r) = $out" || { echo "FAIL ginsh: $out"; rc=1; }
+  cat > "$d/rs.red" <<'EOF'
+off nat;
+load_package excalc;
+coframe o(t) = exp(-k*w)*d t, o(x) = exp(-k*w)*d x, o(y) = exp(-k*w)*d y, o(z) = exp(-k*w)*d z, o(w) = d w with signature (-1,1,1,1,1);
+frame e;
+riemannconx om;
+pform curv(a,b)=2;
+antisymmetric curv;
+curv(a,-b) := d om(a,-b) + om(a,-c) ^ om(c,-b);
+pform rsc=0;
+rsc := e(-b) _| (e(-a) _| curv(a,b));
+write "RS5=", rsc;
+bye;
+EOF
+  out="$("$B/reduce" < "$d/rs.red" 2>&1 | grep '^RS5=' | tr -d ' $')"
+  [[ "$out" == "RS5=-20*k**2" ]] && echo "ok   reduce      excalc RS5 Ricci scalar: ${out#RS5=}" || { echo "FAIL reduce: $out"; rc=1; }
+  rm -rf "$d"; return $rc
+}
+
+check_sage() {
+  PYV sage <<'PYEOF'
+from sage.all__sagemath_symbolics import *
+M = Manifold(5, 'M', structure='Lorentzian'); X = M.chart('t x y z w'); t, x, y, z, w = X[:]
+k = var('k', domain='real'); assume(k > 0); g = M.metric(); a = exp(-2*k*w)
+g[0,0], g[1,1], g[2,2], g[3,3], g[4,4] = -a, a, a, a, 1
+R = g.ricci_scalar().expr().simplify_full()
+good = bool(R == -20*k**2)
+print(('ok  ' if good else 'FAIL') + ' sagemanifolds RS5 Ricci scalar = %s' % R)
+I = integrate(exp(-x**2), x, -oo, oo); print(('ok  ' if I == sqrt(pi) else 'FAIL') + ' sage/maxima   int exp(-x^2) = %s' % I)
+raise SystemExit(0 if good and I == sqrt(pi) else 1)
+PYEOF
+}
+
+check_provers() {
+  local B="$SCI_ROOT/bin/provers" d out rc=0; d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  PYV provers <<'PYEOF' || rc=1
+import cvc5, z3
+tm = cvc5.TermManager(); s = cvc5.Solver(tm); s.setLogic('QF_NRA'); s.setOption('produce-models', 'true')
+x = tm.mkConst(tm.getRealSort(), 'x')
+s.assertFormula(tm.mkTerm(cvc5.Kind.EQUAL, tm.mkTerm(cvc5.Kind.MULT, x, x), tm.mkReal(2)))
+s.assertFormula(tm.mkTerm(cvc5.Kind.GT, x, tm.mkReal(0)))
+r1 = s.checkSat(); print(('ok  ' if r1.isSat() else 'FAIL') + ' cvc5 %s     x^2=2, x>0: %s  x = %s' % (s.getVersion(), r1, s.getValue(x)))
+a, b = z3.Reals('a b'); zs = z3.Solver(); zs.add(a > 0, b > 0, a*a + b*b < 1, a*b > z3.RealVal('1/2'))
+r2 = zs.check(); print(('ok  ' if r2 == z3.unsat else 'FAIL') + ' z3 %s       a,b>0, a^2+b^2<1, ab>1/2: %s (AM-GM)' % (z3.get_version_string(), r2))
+raise SystemExit(0 if r1.isSat() and r2 == z3.unsat else 1)
+PYEOF
+  out="$("$B/metamath" "read '$(droot provers)/usr/share/metamath/databases/set.mm'" "show statement 2p2e4" "verify proof 2p2e4" exit 2>&1)"
+  if grep -q '2p2e4 \$p |- ( 2 + 2 ) = 4' <<<"$out" && ! grep -qi 'error' <<<"$out"; then echo "ok   metamath    set.mm: 2p2e4 |- ( 2 + 2 ) = 4 verified"; else echo "FAIL metamath: $(tail -3 <<<"$out")"; rc=1; fi
+  printf 'fof(a1,axiom,less(a,b)).\nfof(a2,axiom,less(b,c)).\nfof(tr,axiom,![X,Y,Z]:((less(X,Y)&less(Y,Z))=>less(X,Z))).\nfof(g,conjecture,less(a,c)).\n' > "$d/t.p"
+  out="$("$B/SPASS" -TPTP -PGiven=0 -PProblem=0 "$d/t.p" 2>&1 | grep 'SPASS beiseite')"
+  [[ "$out" == *"Proof found"* ]] && echo "ok   SPASS       transitivity: $out" || { echo "FAIL SPASS: $out"; rc=1; }
+  out="$(printf '[q]\n(b,c,x)\n2\n(Ex)[x^2 + b x + c = 0].\nfinish\n' | timeout 120 "$B/qepcad" +N20000000 2>&1 | grep -A2 'equivalent quantifier-free' | tail -1)"
+  [[ "$out" == "4 c - b^2 <= 0" ]] && echo "ok   qepcad      (Ex)[x^2+bx+c=0] <=> $out" || { echo "FAIL qepcad: $out"; rc=1; }
+  rm -rf "$d"; return $rc
+}
+
+check_lean() {
+  local d rc=0 out; d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  printf 'theorem sq (n : Nat) : (n+1)*(n+1) = n*n + 2*n + 1 := by\n  simp [Nat.add_mul, Nat.mul_add]; omega\n#print axioms sq\n' > "$d/T.lean"
+  out="$("$SCI_ROOT/bin/lean/lean" "$d/T.lean" 2>&1)"; [ $? = 0 ] && echo "ok   lean $("$SCI_ROOT/bin/lean/lean" --version | grep -o 'version [0-9.]*')  (n+1)^2 = n^2+2n+1: $(echo $out)" || { echo "FAIL lean: $out"; rc=1; }
+  printf 'example : 1 + 1 = 3 := by decide\n' > "$d/F.lean"
+  "$SCI_ROOT/bin/lean/lean" "$d/F.lean" >/dev/null 2>&1 && { echo "FAIL lean accepted 1+1=3"; rc=1; } || echo "ok   lean        negative control 1+1=3 rejected"
+  rm -rf "$d"; return $rc
+}
+
+check_coq() {
+  local d out rc=0; d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  cat > "$d/T.v" <<'EOF'
+Require Import Reals Lra Lia.
+Open Scope R_scope.
+Lemma amgm : forall x y : R, 2*x*y <= x*x + y*y.
+Proof. intros; nra. Qed.
+Print Assumptions amgm.
+EOF
+  out="$(cd "$d" && "$SCI_ROOT/bin/coq/coqc" T.v 2>&1)"
+  if [ $? = 0 ]; then echo "ok   coqc        forall x y:R, 2xy <= x^2+y^2 proved ($(echo "$out" | tr '\n' ' ' | cut -c1-60))"; else echo "FAIL coqc: $out"; rc=1; fi
+  printf 'Require Import Interval.Tactic Reals.\nOpen Scope R_scope.\nGoal 3.14 <= PI <= 3.15. Proof. interval. Qed.\n' > "$d/I.v"
+  out="$(cd "$d" && "$SCI_ROOT/bin/coq/coqc" I.v 2>&1)" && echo "ok   coq-interval 3.14 <= PI <= 3.15 by interval" || { echo "FAIL coq-interval: $(echo "$out" | tail -3)"; rc=1; }
+  rm -rf "$d"; return $rc
+}
+
+check_numerics() {
+  PYV numerics <<'PYEOF'
+import numpy as np, warnings; warnings.filterwarnings('ignore')
+ok = True
+def rep(good, msg):
+    global ok; ok &= bool(good); print(('ok  ' if good else 'FAIL') + ' ' + msg)
+from findiff import Diff
+xg = np.linspace(0, 2*np.pi, 201); dx = xg[1]-xg[0]; f = np.sin(xg)
+e = np.max(np.abs((Diff(0, dx)**2)(f) + f)); rep(e < 1e-3, "findiff     max|f''+sin| = %.2e" % e)
+import jax; jax.config.update('jax_enable_x64', True); import jax.numpy as jnp, diffrax
+sol = diffrax.diffeqsolve(diffrax.ODETerm(lambda t, y, a: jnp.array([y[1], -y[0]])), diffrax.Tsit5(), t0=0., t1=10., dt0=.01,
+      y0=jnp.array([1., 0.]), stepsize_controller=diffrax.PIDController(rtol=1e-10, atol=1e-12))
+v = float(sol.ys[-1][0]); rep(abs(v - np.cos(10)) < 1e-8, "diffrax     x''=-x: x(10) = %.12f vs cos 10 = %.12f" % (v, np.cos(10)))
+import pde
+grid = pde.CartesianGrid([[0, 2*np.pi]], [64], periodic=True)
+u = pde.DiffusionPDE(1.).solve(pde.ScalarField.from_expression(grid, 'sin(x)'), t_range=1, dt=1e-3, tracker=None)
+v = float(u.interpolate([np.pi/2])); rep(abs(v - np.exp(-1)) < 2e-3, "py-pde      heat eq u(pi/2,1) = %.6f vs e^-1 = %.6f" % (v, np.exp(-1)))
+import pygro
+t, x, y, z = __import__('sympy').symbols('t x y z')
+ds = "-dt**2+(dx-vs*f*dt)**2+dy**2+dz**2"
+m = pygro.Metric(name='Alcubierre', coordinates=['t', 'x', 'y', 'z'],
+    line_element="-dt**2+(dx-vs*(tanh(sg*(sqrt((x-vs*t)**2+y**2+z**2)+R))-tanh(sg*(sqrt((x-vs*t)**2+y**2+z**2)-R)))/(2*tanh(sg*R))*dt)**2+dy**2+dz**2",
+    transform=['t', 'x', 'y', 'z'], vs=0.5, sg=8., R=1.)
+eng = pygro.GeodesicEngine(m, backend='lambdify', verbose=False) if 'verbose' in pygro.GeodesicEngine.__init__.__code__.co_varnames else pygro.GeodesicEngine(m, backend='lambdify')
+g = pygro.Geodesic('time-like', eng, verbose=False); g.set_starting_point(0, 0, 0.01, 0); g.set_starting_4velocity(u1=0.5, u2=0, u3=0)
+eng.integrate(g, 10., 0.01, verbose=False)
+xs = np.asarray(g.x); xe = xs[-1, 1]; te = xs[-1, 0]
+rep(abs(xe - 0.5*te) < 1e-6, "pygro       Alcubierre bubble-centre geodesic: x = vs*t to %.1e" % abs(xe - 0.5*te))
+import sympy as sp
+from SumOfSquares import SOSProblem
+X, Y = sp.symbols('x y'); M = X**4*Y**2 + X**2*Y**4 - 3*X**2*Y**2 + 1
+p = SOSProblem(); p.add_sos_constraint(sp.expand((X**2 + Y**2 + 1)*M), [X, Y], sparse=True); p.solve(solver='cvxopt')
+rep(p.status == 'optimal', "SumOfSquares (x^2+y^2+1)*Motzkin is SOS: status %s" % p.status)
+raise SystemExit(0 if ok else 1)
+PYEOF
+}
+
+check_dedalus() {
+  OMP_NUM_THREADS=1 "$SCI_ROOT/bin/dedalus/dedalus-python" -I - <<'PYEOF' 2>&1 | grep -E '^(ok|FAIL)'; return "${PIPESTATUS[0]}"
+import numpy as np, logging; logging.disable(logging.CRITICAL)
+import dedalus.public as d3
+xc = d3.Coordinate('x'); dist = d3.Distributor(xc, dtype=np.float64)
+xb = d3.RealFourier(xc, size=64, bounds=(0, 2*np.pi)); u = dist.Field(name='u', bases=xb)
+x = dist.local_grid(xb); u['g'] = np.sin(x)
+dx = lambda A: d3.Differentiate(A, xc)
+prob = d3.IVP([u], namespace=locals()); prob.add_equation("dt(u) - dx(dx(u)) = 0")
+s = prob.build_solver(d3.RK443); s.stop_sim_time = 1.0
+while s.proceed: s.step(1e-3)
+v = float(np.interp(np.pi/2, x.ravel(), u['g'].ravel()))
+good = abs(v - np.exp(-1)) < 1e-6
+print(('ok  ' if good else 'FAIL') + ' dedalus %s  heat eq u(pi/2,1) = %.12f vs e^-1 = %.12f' % (d3.__name__, v, np.exp(-1)))
+raise SystemExit(0 if good else 1)
+PYEOF
+}
+
+check_data() {
+  PYV data <<'PYEOF'
+import warnings; warnings.filterwarnings('ignore')
+ok = True
+def rep(good, msg):
+    global ok; ok &= bool(good); print(('ok  ' if good else 'FAIL') + ' ' + msg)
+import pdg; api = pdg.connect(); W = api.get_particle_by_name('W+')
+rep(abs(W.mass - 80.37) < 0.05, "pdg %s     W mass = %s GeV (edition %s)" % (pdg.__version__, W.mass, api.edition))
+from particle import Particle; Z = Particle.from_name('Z0')
+rep(abs(Z.mass - 91187.6) < 5, "particle    Z0 mass = %s MeV" % Z.mass)
+from mendeleev import element; ie = element('H').ionenergies[1]
+rep(abs(ie - 13.598434) < 1e-4, "mendeleev   H IE1 = %s eV" % ie)
+import periodictable as P; rep(abs(P.Fe.mass - 55.845) < 1e-3, "periodictable Fe = %s u, 56Fe = %s u" % (P.Fe.mass, P.Fe[56].mass))
+import radioactivedecay as rd; th = rd.Nuclide('Cs-137').half_life('y')
+rep(abs(th - 30.17) < 0.05, "radioactivedecay Cs-137 t1/2 = %.4f y" % th)
+import xraydb; e = xraydb.xray_edge('Fe', 'K').energy; rep(abs(e - 7112) < 2, "xraydb      Fe K edge = %s eV" % e)
+from astropy.constants import G, c; from astropy.cosmology import Planck18
+rep(abs(G.value - 6.6743e-11) < 1e-15 and c.value == 299792458.0, "astropy     G = %s (%s), H0(Planck18) = %s" % (G.value, G.reference.split(' ')[0], Planck18.H0))
+import scipy.constants as sc; rep(sc.G == G.value, "scipy       G agrees with astropy (both CODATA 2022)")
+import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt, io
+b = io.BytesIO(); plt.plot([0, 1], [0, 1]); plt.savefig(b, format='png'); rep(b.tell() > 1000, "matplotlib  Agg PNG %d bytes" % b.tell())
+raise SystemExit(0 if ok else 1)
+PYEOF
+}
+
+check_cosmo() {
+  PYV cosmo <<'PYEOF'
+ok = True
+def rep(good, msg):
+    global ok; ok &= bool(good); print(('ok  ' if good else 'FAIL') + ' ' + msg)
+import camb
+p = camb.set_params(H0=67.4, ombh2=0.0224, omch2=0.12, As=2.1e-9, ns=0.965, tau=0.054, lmax=2500, WantTransfer=True)
+r = camb.get_results(p); s8 = r.get_sigma8_0(); age = r.get_derived_params()['age']
+Dl = r.get_cmb_power_spectra(p, CMB_unit='muK')['total'][220, 0]
+rep(abs(s8 - 0.811) < 0.005 and abs(age - 13.79) < 0.02, "camb %s   sigma8 = %.4f, age = %.4f Gyr, D_220^TT = %.1f muK^2" % (camb.__version__, s8, age, Dl))
+from classy import Class
+cl = Class(); cl.set({'output': 'tCl,pCl,lCl,mPk', 'lensing': 'yes', 'h': 0.674, 'omega_b': 0.0224, 'omega_cdm': 0.12,
+                      'A_s': 2.1e-9, 'n_s': 0.965, 'tau_reio': 0.054, 'l_max_scalars': 2500, 'P_k_max_1/Mpc': 2.0})
+cl.compute(); l = cl.lensed_cl(2500); T0 = cl.T_cmb()*1e6
+Dc = l['tt'][220]*220*221/(2*3.141592653589793)*T0**2
+rep(abs(cl.age() - 13.80) < 0.03, "classy      age = %.4f Gyr, sigma8 = %.4f, D_220^TT = %.1f muK^2" % (cl.age(), cl.sigma8(), Dc))
+rep(abs(Dc/Dl - 1) < 0.005, "camb vs class D_220^TT agree to %.2f%%" % (100*abs(Dc/Dl - 1)))
+raise SystemExit(0 if ok else 1)
+PYEOF
+}
+
+check_gw() {
+  PYV gw <<'PYEOF'
+import warnings; warnings.filterwarnings('ignore')
+import numpy as np
+ok = True
+def rep(good, msg):
+    global ok; ok &= bool(good); print(('ok  ' if good else 'FAIL') + ' ' + msg)
+import lal, lalsimulation as ls
+hp, hc = ls.SimInspiralChooseTDWaveform(30*lal.MSUN_SI, 30*lal.MSUN_SI, 0, 0, 0, 0, 0, 0, 400e6*lal.PC_SI, 0, 0, 0, 0, 0,
+                                        1/4096., 20., 20., None, ls.GetApproximantFromString('IMRPhenomD'))
+pk = np.max(np.abs(hp.data.data)); rep(1e-21 < pk < 3e-21, "lalsimulation IMRPhenomD 30+30 Msun @400 Mpc: %d samples, peak |h+| = %.3e" % (hp.data.length, pk))
+import qnm
+om = qnm.modes_cache(s=-2, l=2, m=2, n=0)(a=0.0)[0]
+rep(abs(om - (0.373672 - 0.088962j)) < 2e-6, "qnm         Schwarzschild (2,2,0) M*omega = %.6f%+.6fi (Leaver 0.373672-0.088962i)" % (om.real, om.imag))
+import pykerr
+Ms = lal.MTSUN_SI; f = pykerr.qnmfreq(1.0, 0.0, 2, 2, 0); tau = pykerr.qnmtau(1.0, 0.0, 2, 2, 0)
+w = 2*np.pi*f*Ms; gi = Ms/tau
+rep(abs(w - om.real) < 1e-5 and abs(gi + om.imag) < 1e-5, "pykerr      M*omega = %.6f - %.6fi (agrees with qnm)" % (w, gi))
+from pybhpt.geo import KerrGeodesic; from pybhpt.teuk import TeukolskyMode; from pybhpt.flux import FluxMode
+geo = KerrGeodesic(0.0, 10.0, 0.0, 1.0, nsamples=2**4); tot = 0.0
+for l in range(2, 13):
+    for m in range(1, l+1):
+        T = TeukolskyMode(-2, l, m, 0, 0, geo); T.solve(geo); F = FluxMode(geo, T); tot += 2*(F.energy["I"] + F.energy["H"])
+rep(abs(tot/6.15163e-5 - 1) < 1e-4, "pybhpt      Schwarzschild r0=10M circular, Edot(l<=12) = %.6e (ref 6.15163e-5)" % tot)
+raise SystemExit(0 if ok else 1)
+PYEOF
+}
+
+# a one-page PDF written by hand (Helvetica text), so the lit/tex checks need no input file
+mkpdf() { # out.pdf lines...
+  "$PY311" -I - "$@" <<'PYEOF'
+import sys
+lines = sys.argv[2:]
+esc = lambda s: s.replace('\\', r'\\').replace('(', r'\(').replace(')', r'\)')
+content = "BT /F1 20 Tf 72 720 Td 26 TL " + " ".join("(%s) '" % esc(l) for l in lines) + " ET"
+objs = ["<< /Type /Catalog /Pages 2 0 R >>", "<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        "<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R >> >> >>",
+        "<< /Length %d >>\nstream\n%s\nendstream" % (len(content), content), "<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>"]
+out = b"%PDF-1.4\n"; offs = []
+for i, o in enumerate(objs, 1):
+    offs.append(len(out)); out += ("%d 0 obj\n%s\nendobj\n" % (i, o)).encode('latin-1')
+x = len(out)
+out += ("xref\n0 %d\n0000000000 65535 f \n" % (len(objs) + 1)).encode() + b"".join(("%010d 00000 n \n" % o).encode() for o in offs)
+out += ("trailer\n<< /Size %d /Root 1 0 R >>\nstartxref\n%d\n%%%%EOF\n" % (len(objs) + 1, x)).encode()
+open(sys.argv[1], 'wb').write(out)
+PYEOF
+}
+
+check_lit() {
+  local B="$SCI_ROOT/bin/lit" d out rc=0 want="The brane tension sigma = 6k/kappa5^2 (Randall-Sundrum 1999)"
+  d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  mkpdf "$d/t.pdf" "$want" "Second line: ds2 = exp(-2k|y|) eta dx dx + dy2"
+  out="$("$B/pdftotext" -layout "$d/t.pdf" - 2>&1 | head -1)"
+  [ "$out" = "$want" ] && echo "ok   pdftotext   verbatim: $out" || { echo "FAIL pdftotext: $out"; rc=1; }
+  "$B/pdftoppm" -r 200 -png -singlefile "$d/t.pdf" "$d/page" && out="$("$B/tesseract" "$d/page.png" - -l eng --psm 6 2>/dev/null | head -1)"
+  [[ "$out" == *"brane tension"*"Randall-Sundrum 1999"* ]] && echo "ok   tesseract   OCR of pdftoppm render: $out" || { echo "FAIL tesseract: $out"; rc=1; }
+  "$(venv lit)/bin/python" -I - "$d/t.pdf" "$want" <<'PYEOF' || rc=1
+import sys; pdf, want = sys.argv[1], sys.argv[2]; ok = True
+def rep(good, msg):
+    global ok; ok &= bool(good); print(('ok  ' if good else 'FAIL') + ' ' + msg)
+import pdfplumber; t = pdfplumber.open(pdf).pages[0].extract_text().splitlines()[0]; rep(t == want, "pdfplumber  verbatim: %s" % t)
+import pypdf; t = pypdf.PdfReader(pdf).pages[0].extract_text().splitlines()[0]; rep(t.strip() == want, "pypdf       verbatim: %s" % t)
+import pymupdf; t = pymupdf.open(pdf)[0].get_text().splitlines()[0]; rep(t == want, "pymupdf     verbatim: %s" % t)
+from pylatexenc.latex2text import LatexNodes2Text; t = LatexNodes2Text().latex_to_text(r"Schr\"odinger's $\alpha$")
+rep(t == "Schrödinger's α", "pylatexenc  %s" % t)
+import bibtexparser; lib = bibtexparser.parse_string("@article{Randall:1999ee, title={A large mass hierarchy}, doi={10.1103/PhysRevLett.83.3370}}")
+rep(lib.entries[0].key == 'Randall:1999ee', "bibtexparser key %s doi %s" % (lib.entries[0].key, lib.entries[0]['doi']))
+from TexSoup import TexSoup; s = TexSoup(r"\begin{document}\begin{equation}ds^2 = e^{-2k|y|}\eta_{\mu\nu}dx^\mu dx^\nu + dy^2\end{equation}\end{document}")
+rep(len(list(s.find_all('equation'))) == 1, "TexSoup     equation: %s" % str(next(iter(s.find_all('equation'))))[:60])
+raise SystemExit(0 if ok else 1)
+PYEOF
+  rm -rf "$d"; return $rc
+}
+
+check_tex() {
+  local B="$SCI_ROOT/bin/tex" d out rc=0; d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  cat > "$d/rs.tex" <<'EOF'
+\documentclass[prd,twocolumn]{revtex4-2}
+\usepackage{amsmath,amssymb,tikz,physics,siunitx,hyperref}
+\begin{document}
+\title{Check}\maketitle
+The Randall--Sundrum line element
+\begin{equation} ds^2 = e^{-2k|y|}\eta_{\mu\nu}dx^\mu dx^\nu + dy^2 . \end{equation}
+\begin{align} R &= -20k^2, & \dv{f}{x} &= \SI{3.0e8}{\metre\per\second} . \end{align}
+\begin{tikzpicture}\draw[domain=0:2] plot (\x,{exp(-\x)});\end{tikzpicture}
+\end{document}
+EOF
+  out="$(cd "$d" && "$B/pdflatex" -interaction=nonstopmode -halt-on-error rs.tex 2>&1 | grep -E 'Output written|^!' | head -3)"
+  [[ "$out" == *"Output written on rs.pdf"* ]] && echo "ok   pdflatex    revtex4-2 + amsmath + tikz + physics + siunitx: $out" || { echo "FAIL pdflatex: $out (log $d/rs.log)"; rc=1; return $rc; }
+  if [ -x "$SCI_ROOT/bin/lit/pdftotext" ]; then
+    out="$("$SCI_ROOT/bin/lit/pdftotext" "$d/rs.pdf" - | grep -m1 'ds2')"
+    [[ "$out" == *"ds2 = e"*"dy 2"* ]] && echo "ok   round trip  pdftotext of the output: $out" || { echo "FAIL round trip: $out"; rc=1; }
+  fi
+  rm -rf "$d"; return $rc
+}
+
+# --------------------------------------------------------------------------------------------- commands
+expand_groups() {
+  local out="" g
+  for g in "$@"; do
+    case "$g" in
+      default) out="$out $DEFAULT_GROUPS" ;;
+      all) out="$out $ALL_GROUPS" ;;
+      *) [[ " $ALL_GROUPS " == *" $g "* ]] || die "unknown group '$g' (groups: $ALL_GROUPS)"; out="$out $g" ;;
+    esac
+  done
+  echo $out
+}
+
+group_paths() { # every path a group owns
+  local g=$1
+  case "$g" in
+    gr) echo "$(venv gr) $(venv gr313)" ;;
+    cas) echo "$(droot cas) $(venv cas312) $SCI_ROOT/opt/reduce" ;;
+    lean|dedalus) echo "$SCI_ROOT/conda/envs/$g" ;;
+    provers|lit) echo "$(venv "$g") $(droot "$g")" ;;
+    coq|tex) echo "$(droot "$g")" ;;
+    *) echo "$(venv "$g")" ;;
+  esac
+  echo "$SCI_ROOT/bin/$g $SCI_ROOT/env/$g.sh"
+}
+group_mb() { local p t=0 s; for p in $(group_paths "$1"); do [ -e "$p" ] && { s=$(du -sm "$p" 2>/dev/null | cut -f1); t=$((t+s)); }; done; echo "$t"; }
+
+cmd_list() {
+  printf '%-9s %-15s %s\n' GROUP STATUS "WHAT IT GIVES"
+  local g st
+  for g in $ALL_GROUPS; do
+    if is_installed "$g"; then st="installed $(group_mb "$g")M"; else st="- (${SIZE[$g]})"; fi
+    printf '%-9s %-15s %s\n' "$g" "$st" "${DESC[$g]}"
+  done
+  echo
+  echo "default set (sci install default): $DEFAULT_GROUPS"
+  echo "SCI_ROOT=$SCI_ROOT   free disk: $(df -h --output=avail "$SCI_ROOT" 2>/dev/null | tail -1 | tr -d ' ')"
+}
+
+cmd_install() {
+  [ $# -ge 1 ] || die "usage: sci install <group>... | default | all"
+  guard_root
+  local g force=0 args=()
+  for g in "$@"; do [ "$g" = "--force" ] && force=1 || args+=("$g"); done
+  for g in $(expand_groups "${args[@]}"); do
+    if is_installed "$g" && [ $force = 0 ]; then log "$g already installed (sci install --force $g to redo)"; continue; fi
+    rm -f "$SCI_ROOT/state/$g.ok"
+    log "installing $g -> $SCI_ROOT  ($(df -h --output=avail "$SCI_ROOT" | tail -1 | tr -d ' ') free)"
+    local t0=$SECONDS
+    ( "install_$g" ) || die "install of $g failed"
+    log "$g installed in $((SECONDS - t0)) s, $(group_mb "$g") MB"
+  done
+}
+
+cmd_run() {
+  [ $# -ge 2 ] || die "usage: sci run <group> <cmd...>"
+  local g=$1; shift
+  is_installed "$g" || die "group $g is not installed (run: sci install $g)"
+  # shellcheck disable=SC1090
+  . "$SCI_ROOT/env/$g.sh"
+  exec "$@"
+}
+
+cmd_check() {
+  local gs g rc=0 t0 out st
+  if [ $# -gt 0 ]; then gs="$(expand_groups "$@")"; else gs=""; for g in $ALL_GROUPS; do is_installed "$g" && gs="$gs $g"; done; fi
+  [ -n "${gs// /}" ] || { echo "no groups installed (sci install default)"; return 1; }
+  mkdir -p "$SCI_ROOT/tmp" "$SCI_ROOT/logs"
+  for g in $gs; do
+    if ! is_installed "$g"; then printf '%-9s SKIP  (not installed)\n' "$g"; continue; fi
+    t0=$SECONDS
+    out="$( ( set +e; . "$SCI_ROOT/env/$g.sh"; "check_$g" ) 2>"$SCI_ROOT/logs/check-$g.err" )"; st=$?
+    echo "$out" > "$SCI_ROOT/logs/check-$g.log"
+    if [ $st = 0 ]; then printf '%-9s PASS  (%ss)\n' "$g" $((SECONDS - t0)); else printf '%-9s FAIL  (%ss)  stderr: %s\n' "$g" $((SECONDS - t0)) "$SCI_ROOT/logs/check-$g.err"; rc=1; fi
+    echo "$out" | sed 's/^/          /'
+  done
+  return $rc
+}
+
+cmd_env() { [ $# = 1 ] || die "usage: sci env <group>"; is_installed "$1" || die "$1 not installed"; cat "$SCI_ROOT/env/$1.sh"; }
+
+cmd_dryrun() {
+  [ $# = 1 ] || die "usage: sci dryrun <group>"; guard_root
+  local v="REQ_$1"; [ -n "${!v:-}" ] || die "group $1 has no pip packages for the system python (py3.11)"
+  SCI_NO_DRYRUN=0 sys_dryrun "$1" ${!v}
+}
+
+cmd_remove() {
+  [ $# -ge 1 ] || die "usage: sci remove <group>..."
+  local g p
+  for g in $(expand_groups "$@"); do
+    for p in $(group_paths "$g"); do rm -rf "$p"; done
+    rm -f "$SCI_ROOT/state/$g".*; [ "$g" = gr ] && rm -f "$SCI_ROOT/state/gr313".*
+    log "removed $g"
+  done
+}
+
+cmd_du() {
+  local g
+  for g in $ALL_GROUPS; do is_installed "$g" && printf '%-9s %6s MB\n' "$g" "$(group_mb "$g")"; done
+  printf '%-9s %6s MB   (apt lists, micromamba, caches, logs)\n' other \
+    "$(( $(du -sm "$SCI_ROOT" | cut -f1) - $(for g in $ALL_GROUPS; do is_installed "$g" && group_mb "$g"; done | awk '{s+=$1} END{print s+0}') ))"
+  printf '%-9s %6s MB   %s\n' total "$(du -sm "$SCI_ROOT" | cut -f1)" "$SCI_ROOT"
+}
+
+cmd_clean() { rm -rf "$SCI_ROOT/apt/lists" "$SCI_ROOT/apt/cache" "$SCI_ROOT/apt/debs" "$SCI_ROOT/conda/root" "$SCI_ROOT/tmp"/*; log "cleaned caches"; }
+
+usage() { sed -n '2,15p' "$SCI_SELF" | sed 's/^# \{0,1\}//'; }
+
+main() {
+  local c=${1:-help}; shift || true
+  case "$c" in
+    list|ls) cmd_list ;;
+    install) cmd_install "$@" ;;
+    run) cmd_run "$@" ;;
+    check) cmd_check "$@" ;;
+    env) cmd_env "$@" ;;
+    dryrun) cmd_dryrun "$@" ;;
+    remove|rm) cmd_remove "$@" ;;
+    du) cmd_du ;;
+    clean) cmd_clean ;;
+    help|-h|--help) usage ;;
+    *) usage; exit 2 ;;
+  esac
+}
+main "$@"
