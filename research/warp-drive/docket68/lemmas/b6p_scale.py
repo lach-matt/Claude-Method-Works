@@ -15,8 +15,9 @@ B6'' AS APPLIED (section S6; the rows are PROPOSED_ROWS):
   B6''a2  a two-sided plane (k_a != k_b): (G, sigma) fix only the product k_a k_b.  READING (Israel's junction,
           standard-not-READ; H-ZERO-MODE-NORM, the board's).
   B6''b   sigma's value: NATURE (136 (8) rules k to measurement; carried to sigma through B6''a, deduced).
-  B6''c   the tie at a finite static separation, or in M's general multi-plane bulk (138): k is fixed only together
-          with every separation.  OPEN.
+  B6''c   the tie at a finite static separation (our current state too, if its separation is not zero: 127's
+          coincidence is carried "while the corridor exists", and with the radion removed gamma no longer bounds it), or
+          in M's general multi-plane bulk (138): k is fixed only together with every separation.  OPEN.
 STATUS (stated plainly, 135): B6'' is NOT GREEN (READ and standard-not-READ premises, the board's readings, a NATURE
 value), and it carries one OPEN row, B6''c, which B6' did not carry.  The cypher CLASSIFIES (S1); it derives nothing.
 
@@ -870,9 +871,10 @@ def status(mut=None):
         "B6''b": ("sigma's value",
                   {"M's 136 (8): k left to measurement (H-K-BY-MEASUREMENT), carried to sigma through B6''a (deduced)":
                        "AXIOM",
-                   "sigma fixed by no lemma, Lambda_4 included (S3), and by no N-free tie (S4b): measurement fixes it":
-                       "NATURE"}),
-        "B6''c": ("the tie at a finite static separation, or in M's general multi-plane bulk (138; 123-124)",
+                   "sigma fixed by no lemma, Lambda_4 included (S3); the N-free ties are item 191's run, carried (S4b "
+                   "re-computes only the window's scales and v^4): measurement fixes it": "NATURE"}),
+        "B6''c": ("the tie at a finite static separation (our current state too, if its separation is not zero), or in "
+                  "M's general multi-plane bulk (138; 123-124)",
                   {"k fixed only together with every separation (S1's separation index; S5)": "OPEN"}),
     }
     if mut == "open_hidden":
@@ -917,10 +919,12 @@ PROPOSED_ROWS = [
      "derive it"),
     ("B", "B6''b sigma, the tension, by measurement (136 (8), carried to sigma through B6''a): sigma >= 1.48e53 J/m^3 on "
           "one RS plane (68% CL; MK eq. (41), the one-plane law), i.e. sigma_sum >= 1.48e53 and sigma_1 >= 1.98e53 J/m^3 "
-          "on the composite; Lambda_4 fixes only sigma - sigma_RS, never sigma; no N-free tie survives",
+          "on the composite; Lambda_4 fixes only sigma - sigma_RS, never sigma; the electroweak v^4 lands outside the "
+          "window (S4b; the other N-free ties are item 191's run, carried)",
      "NATURE", "item 136 answer 8; lemmas/b6p_scale.py S3-S4b; item 191's N-free ties run"),
-    ("B", "B6''c the tie at a finite static separation, or in your general multi-plane bulk (138): k is fixed only "
-          "together with every separation", "OPEN", "lemmas/b6p_scale.py S1 (the separation index), S5"),
+    ("B", "B6''c the tie at a finite static separation (our current state too, if its separation is not zero), or in "
+          "your general multi-plane bulk (138): k is fixed only together with every separation", "OPEN",
+     "lemmas/b6p_scale.py S1 (the separation index), S5"),
 ]
 
 
@@ -941,7 +945,7 @@ CHECKS = {
     "C4": (check_C4, "S1 G5 fixed by (G, sigma), by no subset of {N, G, l_P} (helper)",
            [("tied_to_N", "G5 = G N planted in the law"), ("G_only", "G5 = G planted in the law")]),
     "C5": (check_C5, "S1 control G5 = G N: the binaries flip", [("law_cells", "the law's cells given to the control")]),
-    "C6": (check_C6, "S1 the separation (radion removed): its value free -> G a second axis; fixed -> one axis (helper)",
+    "C6": (check_C6, "S1 the separation (radion removed): its value free -> G a second axis; fixed -> G fixed by (k_L, sigma1) (helper)",
            [("no_warp_change", "the coincident ratio set to 1 (G no longer changes with the separation)")]),
     "C7": (check_C7, "S1 every roster run; NOT-RUN kept; Z2 E = 0 in every roster",
            [("one_roster", "only roster 1173 run"), ("notrun_as_silent", "NOT-RUN relabelled SILENT")]),
