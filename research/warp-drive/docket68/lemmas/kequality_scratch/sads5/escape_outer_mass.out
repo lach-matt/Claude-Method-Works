@@ -1,0 +1,35 @@
+E-OUTER-MASS (numerical): our plane on L2's k = -1 family; position 2 with its outer mass free
+
+Delta=1.0500  u1=1.935993 (a1^2=0.516531 ell^2) mu_slab=-0.249796 (horizons R^2 = 0.4857, 0.5143) mu_far=-1.299796 (naked)
+      T1(+1,+1) u2=1.935993 mu_o2=-0.381046 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T1(+1,-1) u2=8.005803 mu_o2=-0.234188 [CONNECTED slab (a2 < a1); outer horizon]
+      T1(-1,+1) u2=2.067996 mu_o2=-0.368682 [NOT CONNECTED (a2 < a1); outer naked]
+      T2(+1,+1) u2=1.935993 mu_o2=-0.512296 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T2(+1,-1) u2=8.005803 mu_o2=-0.218580 [CONNECTED slab (a2 < a1); outer horizon]
+      T2(-1,+1) u2=2.067996 mu_o2=-0.487568 [NOT CONNECTED (a2 < a1); outer naked]
+Delta=1.5000  u1=1.526286 (a1^2=0.655185 ell^2) mu_slab=-0.232778 (horizons R^2 = 0.3688, 0.6312) mu_far=-1.732778 (naked)
+      T1(+1,+1) u2=1.526286 mu_o2=-0.420278 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T1(+1,-1) u2=8.524720 mu_o2=-0.218573 [CONNECTED slab (a2 < a1); outer horizon]
+      T1(-1,+1) u2=2.836809 mu_o2=-0.306774 [NOT CONNECTED (a2 < a1); outer naked]
+      T2(+1,+1) u2=1.526286 mu_o2=-0.607778 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T2(+1,-1) u2=8.524720 mu_o2=-0.204368 [CONNECTED slab (a2 < a1); outer horizon]
+      T2(-1,+1) u2=2.836809 mu_o2=-0.380771 [NOT CONNECTED (a2 < a1); outer naked]
+Delta=2.0000  u1=1.259921 (a1^2=0.793701 ell^2) mu_slab=-0.190551 (horizons R^2 = 0.2562, 0.7438) mu_far=-2.190551 (naked)
+      T1(+1,+1) u2=1.259921 mu_o2=-0.440551 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T1(+1,-1) u2=10.196181 mu_o2=-0.179692 [CONNECTED slab (a2 < a1); outer horizon]
+      T1(-1,+1) u2=4.287732 mu_o2=-0.230372 [NOT CONNECTED (a2 < a1); outer horizon]
+      T2(+1,+1) u2=1.259921 mu_o2=-0.690551 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T2(+1,-1) u2=10.196181 mu_o2=-0.168832 [CONNECTED slab (a2 < a1); outer horizon]
+      T2(-1,+1) u2=4.287732 mu_o2=-0.270193 [NOT CONNECTED (a2 < a1); outer naked]
+Delta=3.3750  u1=0.888889 (a1^2=1.125000 ell^2) mu_slab=0.000000 (horizons R^2 = 1.0000) mu_far=-3.375000 (naked)
+      T1(+1,-1) u2=0.888889 mu_o2=-0.421875 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T2(+1,+1) u2=0.888889 mu_o2=-0.843750 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+Delta=4.0000  u1=0.793701 (a1^2=1.259921 ell^2) mu_slab=0.110118 (horizons R^2 = 1.1001) mu_far=-3.889882 (naked)
+      T1(+1,-1) u2=0.793701 mu_o2=-0.389882 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+      T2(+1,+1) u2=0.793701 mu_o2=-0.889882 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+Delta=10.0000  u1=0.430887 (a1^2=2.320794 ell^2) mu_slab=1.518808 (horizons R^2 = 1.8300) mu_far=-8.481192 (naked)
+      T1(+1,-1) u2=0.430887 mu_o2=0.268808 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer horizon]
+      T2(+1,-1) u2=0.430887 mu_o2=-0.981192 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer naked]
+Delta=100.0000  u1=0.092832 (a1^2=10.772173 ell^2) mu_slab=33.841740 (horizons R^2 = 6.3388) mu_far=-66.158260 (naked)
+      T1(+1,-1) u2=0.092832 mu_o2=21.341740 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer horizon]
+      T2(+1,-1) u2=0.092832 mu_o2=8.841740 [COINCIDING (a2 = a1: no slab, the corridor has no room); outer horizon]

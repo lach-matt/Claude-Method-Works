@@ -1,0 +1,7 @@
+Wolfram 15.0.1 connector, 2026-10-09, input modelc_wolfram.wl (ell_s = 1):
+Out[1]= {False, u == 3 && mu == 9/13 && L == 1/2, False, u >= (2*(5639 + 181*Sqrt[13561]))/7161 && mu == (3*u + u^2)/(2*(4 + u)) + Sqrt[(9*u^2 + 18*u^3 + 4*u^4)/(4 + u)^2]/2 && L == 2, (-4*mu)/(R*Sqrt[-mu + R^4]), {0, 2}, {8.26408180387871666768201834198393091124`20.}, {0.66226731065695388340133388938632710924`20.}, {0, 1/2 - 1/(2*Lo^2)}}
+w1  P2 static (u > 2mu) with L >= 1: False            w1b control L = 1/2, u = 3: exists (mu = 9/13)
+w2  ours at or below critical (1 + 1/L): False         w2b control cap raised by 1/10 at L = 2: solutions exist
+w3  flat mirrored B = -4 mu/(R sqrt(R^4 - mu))         w4  RS at ell_s, u = mu = L^2/(L^2-1): residual 0, lam = 2
+w5  L1 = 2, ratio -1/4: u2 = 8.2640818038787166677, L2 = 0.66226731065695388340 (sympy: 8.264081804, 0.6622673107)
+w6  extremal hyperbolic: balance 0, lam = -(1 - L^2)/(2 L^2)

@@ -1,0 +1,19 @@
+L1 k= 1: solutions [] ; with u>0: []
+       groebner: [1]
+L1 k= 0: solutions [{mu: 0}, {u: 0}] ; with u>0: []
+       groebner: [mu*u]
+L1 k=-1: solutions [] ; with u>0: []
+       groebner: [1]
+L1 closed form F(u*)-1 = k**2/(4*mu)
+C1 general: [{mu: 1/(4*(tau - 1)*(tau + 1)), u: 2*(tau - 1)*(tau + 1)}]
+C1 at tau = 11/10: {mu: 25/21, u: 21/50}  a^2 = 1/u = 50/21  2 mu = 50/21
+    horizon R_h^2 = -1/2 + 11*sqrt(21)/42 = 0.7001983962979581  a^2 = 50/21 2.380952380952381  outside horizon: True
+    sqrt F at the plane = 11/10 (= tau, so eta=-1 consistent)
+    V(a*) = 0  V'(a*) = 0  V''(a*) = -42/25 (negative = unstable)
+C1 k=1 general: [{mu: 1/(4*(tau - 1)*(tau + 1)), u: 2*(tau - 1)*(tau + 1)}]
+C1 k=-1 general: [{mu: 1/(4*(tau - 1)*(tau + 1)), u: -2*(tau - 1)*(tau + 1)}]
+L2 k= 1 groebner (lex s_p>s_m>m_p>m_m>u), last elements: [-2*m_m*u**2 + 4*s_m + 3*u + 4, 12*m_m**2*u**2 - 36*m_m*u + 8*m_m + 8*m_p + 27, 4*m_m**2*u**3 - 12*m_m*u**2 + 9*u + 8]
+L2 k= 0 groebner (lex s_p>s_m>m_p>m_m>u), last elements: [-m_m*u**2 + 2*s_m + 2, m_m**2*u**3 + m_m*u + m_p*u, m_m**2*u**4]
+L2 k=-1 groebner (lex s_p>s_m>m_p>m_m>u), last elements: [-2*m_m*u**2 + 4*s_m - 3*u + 4, 12*m_m**2*u**2 + 36*m_m*u + 8*m_m + 8*m_p + 27, 4*m_m**2*u**3 + 12*m_m*u**2 + 9*u - 8]
+  relation u, Delta: Delta**2*u**3 - 8
+L2 k=-1 with far side mu=0: [{m_p: -27/8, s_m: -1/3, s_p: -5/3, u: 8/9}]

@@ -1,0 +1,35 @@
+X1 column equations, my own Ricci, with slice curvatures (cA, cS):
+   alpha''/alpha - p^2 = P = 4*e**2 - 2*p**2 - 2*p*q - c_A/(4*a**2)
+   beta''/beta  - q^2 = Q = 4*e**2 - 2*p*q - 2*q**2 + c_S/(4*b**2)
+   constraint (yy)       = -12*e**2 + 2*p**2 + 8*p*q + 2*q**2 - c_S/(2*b**2) + c_A/(2*a**2)
+   against sim2_facing.throat_rhs at cA = cS = 1: P - P_owner = 0 ; Q - Q_owner = 0 ; constraint / SIM2's coded constraint = 2
+   x-eq minus t-eq, phi-eq minus theta-eq: (0, 0)
+
+X2 the umbilic defect D = q - p:
+   D' - (-4 a D + S) = 0  with S = cA/(4 alpha^2) + cS/(4 beta^2)
+   owner's throat_rhs: Q - P - (-2D(p+q) + 1/(4a^2) + 1/(4b^2)) = 0 ; at its s2 = -1 mutation the S2 term flips sign: 0
+   variation of constants D = Int_0^y S exp(-4 Int a): ODE residual = 0 ; D(0) = 0
+   S at the throat (cA = cS = 1): 1/(4*b**2) + 1/(4*a**2) (> 0 wherever alpha, beta are finite and nonzero)
+   S with flat slices (cA = cS = 0): 0 -> D == 0 from D(0) = 0: every depth umbilic
+   Lemma T on the column, a' - (e^2 - a^2 - D^2/4) on the constraint surface: 0 ; stable form at' = -at^2 + 2e at - D^2/4: 0
+   so for y > 0 (D > 0): a' < e^2 - a^2 <= 0 wherever a <= -e, hence |a| strictly increasing from e
+
+X3 Gauss at a level surface:
+   constraint - 2 (p^2 + q^2 + 4pq - 6e^2 - R4/2) = 0 ; R4 from the slice metric: 0
+   umbilic level surface: k = [-sqrt(144*a**2*b**2*e**2 + 6*a**2*c_S - 6*b**2*c_A)/(12*a*b), sqrt(144*a**2*b**2*e**2 + 6*a**2*c_S - 6*b**2*c_A)/(12*a*b)]
+   at our plane (alpha = beta = 1, the throat of eq. (17)): k = [-e, e] ; mirrored s1 = 1
+   the constraint at our plane's data p = q = -e, alpha = beta = 1: 0 for every e (an identity: ours pins nothing)
+
+X4 Israel at position 2's plane (slab side y < y2):
+   (a) mirrored: pure tension iff q = [p] ; then s2 = rho/sigma_RS(ell) = p/e
+   general far side with p_f - p = q_f - q = 2 kbar: S^t_t - S^th_th = 0 ; rho = -3*kbar*nu
+   far constraint fixes kbar = [-a/2 - sqrt(a**2 - e**2 + e_f**2)/2, -a/2 + sqrt(a**2 - e**2 + e_f**2)/2]
+   so s2 = -kbar/e = [(a + sqrt(a**2 - e**2 + e_f**2))/(2*e), (a - sqrt(a**2 - e**2 + e_f**2))/(2*e)]
+   (first root: far trace a_f = a + 2 kbar = -sqrt(...) < 0, a DECAYING far side; second: a_f = +sqrt(...), GROWING)
+
+X5 positive control: slices of unequal radii (alpha0 = 1, beta0 = 2), umbilic plane at s1 = 1/2: e = [-sqrt(6)/12, sqrt(6)/12]
+   with equal radii (eq. (17)'s throat) the same condition reads 12*e**2*(s_1 - 1)*(s_1 + 1) = 0: s1^2 = 1 at every e, no e for s1^2 != 1
+
+X6 owner: lemma_t {'split': 0, 'ode': 0, 'start': 0, 'fixed_point': -1} ; t5c(1/32) {'general': tanh(Y/32 - atanh(s_1)), 'at_s1_1': -1, 's2_max': -1}
+
+all exact checks: PASS

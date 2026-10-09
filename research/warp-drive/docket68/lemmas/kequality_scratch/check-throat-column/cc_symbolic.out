@@ -1,0 +1,48 @@
+  R^y_y = -2*p**2 - 2*pprime - 2*q**2 - 2*qprime
+== throat
+   pprime : 4*e**2 - 2*p**2 - 2*p*q - 1/(4*A**2)
+   qprime : 4*e**2 - 2*p*q - 2*q**2 + 1/(4*B**2)
+   constraint : (-24*A**2*B**2*e**2 + 4*A**2*B**2*p**2 + 16*A**2*B**2*p*q + 4*A**2*B**2*q**2 - A**2 + B**2)/(4*A**2*B**2)
+   rr_minus_tt : 0
+   phph_minus_thth : 0
+   offdiag_zero : True
+  R^y_y = -2*p**2 - 2*pprime - 2*q**2 - 2*qprime
+== flat-slices
+   pprime : 4*e**2 - 2*p**2 - 2*p*q
+   qprime : 4*e**2 - 2*p*q - 2*q**2
+   constraint : -6*e**2 + p**2 + 4*p*q + q**2
+   rr_minus_tt : 0
+   phph_minus_thth : 0
+   offdiag_zero : True
+E1 p' residual: 0
+E1 q' residual: 0
+E1 constraint ratio (must be a nonzero constant): 1
+flat-slice system p', q': 4*e**2 - 2*p**2 - 2*p*q | 4*e**2 - 2*p*q - 2*q**2
+E2 D' - (-4 a D + S): 0
+E4 a' + constraint/2 - (e^2 - a^2 - D^2/4): 0
+a' unconstrained: -4*a**2 + 4*e**2 + 1/(8*B**2) - 1/(8*A**2)  ; in a~: -4*at**2 + 8*at*e + 1/(8*B**2) - 1/(8*A**2)
+E2 variation-of-constants residual: 0
+E3 k^2 = [R4/12 + e**2]
+K^a_b (n = +d_y): [p, p, q, q]
+Our plane (mirrored, nu one-sided): {'rho': 3*e*nu, 'p_r': -3*e*nu, 'p_th': -3*e*nu}  -> s1 = rho/(3 nu e) = 1
+P2 mirrored level surface: {'rho': nu*(p + 2*q), 'p_r': -nu*(p + 2*q), 'p_th': -nu*(2*p + q)}
+   rho + p_r = 0  ; rho + p_th = nu*(-p + q)
+   umbilic p=q=k: s2 = rho/(3 nu e) = p/e
+   rho_m + p_r,m = 0  ; rho_m + p_th,m = -nu*(p - q)
+E5 pure tension iff (S^t_t - S^th_th) = 0: nu*(p - p_f - q + q_f)/2
+   with pf = p + 2kbar, qf = q + 2kbar: S = [3*kbar*nu, 3*kbar*nu, 3*kbar*nu, 3*kbar*nu]  -> s2 = rho/(3 nu e) = -kbar/e
+   far constraint in (a, D, kbar): 6*(4*a*kbar + e**2 - e_f**2 + 4*kbar**2)
+   kbar roots: [-a/2 - sqrt(a**2 - e**2 + e_f**2)/2, -a/2 + sqrt(a**2 - e**2 + e_f**2)/2]
+   -kbar/e at a = -x e: (-e*x + sqrt(lam**2 + x**2 - 1)*Abs(e))/(2*e)
+   -kbar/e at a = -x e: (-e*x - sqrt(lam**2 + x**2 - 1)*Abs(e))/(2*e)
+   decaying form check: 0
+C-PRZ: target -1/4, ell_f = ell/3/4: decaying s2(x=1) = -1/8, ->0 as x->oo, d/dx = 7/(2*(16*x**2 + 4*x*sqrt(16*x**2 - 7) - 7)); growing s2(x=1) = -7/8 (max); decaying roots x = [11/16]; growing roots x = []
+C-SHEET-M4: target -1/8, ell_f = ell/3/4: decaying s2(x=1) = -1/8, ->0 as x->oo, d/dx = 7/(2*(16*x**2 + 4*x*sqrt(16*x**2 - 7) - 7)); growing s2(x=1) = -7/8 (max); decaying roots x = [1]; growing roots x = []
+C-S6: target -1/3, ell_f = ell/1/3: decaying s2(x=1) = -1/3, ->0 as x->oo, d/dx = 4/(9*x**2 + 3*x*sqrt(9*x**2 - 8) - 8); growing s2(x=1) = -2/3 (max); decaying roots x = [1]; growing roots x = []
+C-S7: target -1/6, ell_f = ell/1/6: decaying s2(x=1) = -5/12, ->0 as x->oo, d/dx = 35/(2*(36*x**2 + 6*x*sqrt(36*x**2 - 35) - 35)); growing s2(x=1) = -7/12 (max); decaying roots x = [13/8]; growing roots x = []
+C-MIRROR: s2 = -x <= -1 at every depth
+positive control R4 = -3/8 ; e with s1 = 1/2: [-sqrt(6)/12, sqrt(6)/12] [-0.204124145231932, 0.204124145231932]
+eq.(17) equal radii: (s1 e)^2 = e^2 -> [0] for s1=1/2; s1 = +-1 identity
+E7 pure AdS residual p': 0 ; constraint: 0
+5D vacuum Kasner (2+2 split): [{c1: 1/4 - sqrt(3)/4, c2: 1/4 + sqrt(3)/4}, {c1: 1/4 + sqrt(3)/4, c2: 1/4 - sqrt(3)/4}]
+  alpha ~ tau^c1, c1 = 1/4 + sqrt(3)/4 = 0.683012701892219 ; Kretschmann ~ tau^-4 ~ alpha^(-4/c1) = 8 - 8*sqrt(3) = -5.85640646055102

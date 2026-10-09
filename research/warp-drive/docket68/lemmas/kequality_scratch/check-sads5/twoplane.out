@@ -1,0 +1,84 @@
+=== T1  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 5; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== T1d  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: []
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== T2  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 5; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== T3  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 5; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== T4  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: []
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== S7a  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== S7b  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== S7c  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, 1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== S7d  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, 1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== S7e  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== V1  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+=== V2  flat (mu=0,k=0) balancing orientations [(eta at P1),(eta at P2)]: [((-1, -1), (1, -1))]
+   k= 1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0
+   k= 0  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 6; mu reduces to 0
+   k=-1  with corridor (mu != 0): groebner = [1]  INCONSISTENT (no complex solution)
+          ideal without mu!=0: GB len 1; mu reduces to 0

@@ -1,0 +1,66 @@
+S7a-free    k= 1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 6
+       root: rejected  -> u or lam <= 0 (u1=2.592 u2=0.8928 lam=-0.1736)
+       root: rejected  -> u or lam <= 0 (u1=-0.9662 u2=-0.04547 lam=0.1263)
+       root: rejected  -> u or lam <= 0 (u1=-0.8869 u2=0.07203 lam=2.802)
+       root: rejected  -> u or lam <= 0 (u1=-0.1203 u2=-0.9992 lam=13.28)
+       admissible: 0
+S7a-free    k= 0 : INCONSISTENT over C
+S7a-free    k=-1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 6
+       root: rejected  -> u or lam <= 0 (u1=-2.592 u2=-0.8928 lam=-0.1736)
+       root: rejected  -> two-exterior (-,-) but no horizon: a1=1.01736 a2=4.68947 mu=-7.50295 L_s=2.81423 eta_s=(-1,-1) slab horizons R=[] s={'s1_0': -2.482736, 's1_1': -0.18393, 's2_0': -0.310332, 's2_1': 0.976999}
+       root: rejected  -> u or lam <= 0 (u1=0.8869 u2=-0.07203 lam=2.802)
+       root: ADMISSIBLE  -> CONNECTED SLAB a1=2.8837 a2=1.0004 mu=11.8212 L_s=0.274365 eta_s=(-1,1) slab horizons R=[0.990812] s={'s1_0': -3.604615, 's1_1': 0.937948, 's2_0': 0.694887, 's2_1': -0.02822}
+       admissible: 1
+S7c-free    k= 1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=-0.8887 u2=-0.02474 lam=13.44)
+       admissible: 0
+S7c-free    k= 0 : INCONSISTENT over C
+S7c-free    k=-1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> slab (-,+) needs a2<a1: a1=1.0608 a2=6.35712 mu=4.49652 L_s=0.272755 eta_s=(-1,1) slab horizons R=[0.785347] s={'s1_0': -3.000344, 's1_1': 0.333678, 's2_0': 3.66254, 's2_1': -2.995873}
+       admissible: 0
+S7d-free    k= 1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=-0.8888 u2=-0.01112 lam=13.44)
+       admissible: 0
+S7d-free    k= 0 : INCONSISTENT over C
+S7d-free    k=-1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> slab (-,+) needs a2<a1: a1=1.06069 a2=9.48372 mu=4.4993 L_s=0.272733 eta_s=(-1,1) slab horizons R=[0.785426] s={'s1_0': -3.00007, 's1_1': 0.333403, 's2_0': 3.664998, 's2_1': -3.331665}
+       admissible: 0
+S7e-free    k= 1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: ADMISSIBLE  -> TWO-EXTERIOR BRIDGE a1=0.824309 a2=2.20661 mu=0.576263 L_s=1.01307 eta_s=(-1,-1) slab horizons R=[0.641384] s={'s1_0': -1.094502, 's1_1': -1.572165, 's2_0': -1.074912, 's2_1': 1.408245}
+       root: rejected  -> u or lam <= 0 (u1=-0.9546 u2=-0.01918 lam=1.002)
+       root: rejected  -> u or lam <= 0 (u1=-0.8886 u2=0.02759 lam=2.781)
+       admissible: 1
+S7e-free    k= 0 : INCONSISTENT over C
+S7e-free    k=-1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=-1.472 u2=-0.2054 lam=0.9744)
+       root: rejected  -> two-exterior (-,-) but no horizon: a1=1.02351 a2=7.22134 mu=-6.55391 L_s=0.998804 eta_s=(-1,-1) slab horizons R=[] s={'s1_0': -2.453546, 's1_1': -0.213121, 's2_0': -0.992789, 's2_1': 1.326123}
+       root: rejected  -> u or lam <= 0 (u1=0.8886 u2=-0.02759 lam=2.781)
+       admissible: 0
+T1mir-free  k= 1 : GB 9 elements, zero-dim=True
+       univariate in lam: degree 3
+       root: ADMISSIBLE  -> TWO-EXTERIOR BRIDGE a1=0.782484 a2=1.55543 mu=0.30614 L_s=2.33519 eta_s=(-1,-1) slab horizons R=[0.539119] s={'s1_m': -1.0, 's2_0': -0.737843, 's2_1': 0.987843}
+       admissible: 1
+T1mir-free  k= 0 : INCONSISTENT over C
+T1mir-free  k=-1 : GB 9 elements, zero-dim=True
+       univariate in lam: degree 3
+       root: rejected  -> u or lam <= 0 (u1=-1.633 u2=-0.4133 lam=0.1834)
+       admissible: 0
+T2mir-free  k= 1 : GB 9 elements, zero-dim=True
+       univariate in lam: degree 2
+       root: rejected  -> u or lam <= 0 (u1=2.914 u2=1.207 lam=-0.4571)
+       root: rejected  -> u or lam <= 0 (u1=0.08579 u2=-0.2071 lam=0.9571)
+       admissible: 0
+T2mir-free  k= 0 : INCONSISTENT over C
+T2mir-free  k=-1 : GB 9 elements, zero-dim=True
+       univariate in lam: degree 2
+       root: rejected  -> u or lam <= 0 (u1=-2.914 u2=-1.207 lam=-0.4571)
+       root: rejected  -> u or lam <= 0 (u1=-0.08579 u2=0.2071 lam=0.9571)
+       admissible: 0

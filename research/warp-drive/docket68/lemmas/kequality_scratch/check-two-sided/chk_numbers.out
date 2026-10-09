@@ -1,0 +1,24 @@
+RS at ell_s, L1=2, mu=4/3, |lam2|=0.5: [('2.874731606', '0.6622673106569538834013', True)]
+RS at ell_s, L1=2, mu=4/3, |lam2|=0.25: [('3.698592704', '0.7976791159585346740855', True)]
+  ratio -1/4: mu=1.0 L2=['0.660893315115'] ok=[True]
+  ratio -1/4: mu=1.001 L2=['0.660898722309'] ok=[True]
+  ratio -1/4: mu=2 L2=['0.663685214673'] ok=[True]
+  ratio -1/4: mu=10 L2=['0.666053763675'] ok=[True]
+  ratio -1/4: mu=10000 L2=['0.666666049387'] ok=[True]
+  ratio -1/4: mu=1000000 L2=['0.666666660494'] ok=[True]
+  ratio -1/4: mu=1000000000 L2=['0.66666666666'] ok=[True]
+  ratio -1/8: mu=1.0 L2=['0.796938173175'] ok=[True]
+  ratio -1/8: mu=1.001 L2=['0.796941103712'] ok=[True]
+  ratio -1/8: mu=2 L2=['0.798435810324'] ok=[True]
+  ratio -1/8: mu=10 L2=['0.799681476451'] ok=[True]
+  ratio -1/8: mu=10000 L2=['0.799999680001'] ok=[True]
+  ratio -1/8: mu=1000000 L2=['0.7999999968'] ok=[True]
+  ratio -1/8: mu=1000000000 L2=['0.799999999997'] ok=[True]
+
+k=-1 ours decaying outer: B=0 needs (-1-2mu/u) sqrt f_o = sqrt f_s > 0 -> mu < -u/2.
+  any mu in (-1/4,0) with -2mu >= u_+ (exterior reachable)? 0 (0 => only inside the inner horizon)
+  extremal k=-1 P2 L=0.6: u=0.5625 bal=-2.02e-60 lam=-0.888888888889 claim=-0.888888888889
+  extremal k=-1 P2 L=0.8: u=1.777777778 bal=7.78e-62 lam=-0.28125 claim=-0.28125
+  extremal k=-1 P2 L=0.95: u=9.256410256 bal=-3.89e-62 lam=-0.0540166204986 claim=-0.0540166204986
+
+depth from R=1 to r_h=0.6050003337 at mu=1/2: 0.5731079174

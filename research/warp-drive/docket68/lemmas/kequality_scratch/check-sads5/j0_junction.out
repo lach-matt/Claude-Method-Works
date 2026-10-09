@@ -1,0 +1,8 @@
+off-diagonal K all zero: True
+K^t_t   = eta*Derivative(f(R), R)/(2*sqrt(f(R)))
+K^chi_chi = eta*sqrt(f(R))/R  K^th_th = eta*sqrt(f(R))/R  K^ph_ph = eta*sqrt(f(R))/R
+J0 verified: K^t_t = eta f'/(2 sqrt f), K^i_i = eta sqrt(f)/a (independent of k and S(chi))
+rho + (3/kappa^2) Phi = 0
+p - (a Phi' + 3 Phi)/kappa^2 = 0
+RS control (mirrored, decaying, k=0, mu=0): S^t_t = -6/(L*kappa**2)  S^i_i = -6/(L*kappa**2) -> pure tension sigma = 6/(L*kappa**2) = 6/(kappa^2 L): True
+mutation trace-from-spatial: S^t_t = -4/(L*kappa**2)  S^i_i = -4/(L*kappa**2)  pure tension? True

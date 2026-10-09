@@ -1,0 +1,10 @@
+k=1 quadratic roots mu = u[(4A-1) +/- sqrt(1+8A+16Au)]/(8A): True
+ours lam^2 = (x + 1)*(v**2*x - v**2 + 2)/(2*x - 1)
+ours (lam^2 - (1+v)^2)(2x-1) = (v*x - 1)*(v*x - 2*v - 3)  [own proof: (vx-1)(vx-2v-3); u>0 forces sign(2x-1)=sign(1-xv) => >0]
+P2: u(1 - y^2 v^2) = (2y+1)(y-1)/2 < 0 for y in (0,1) => needs y v > 1 => v > 1 (L < 1). check uY form: True
+P2 lam^2 = -(y - 1)*(v**2*y + v**2 - 2)/(2*y + 1)
+
+(ii) RS at ell_s, L1=2: ours solutions (x,u,mu): [('1.0', '1.33333333333', '1.33333333333')]
+   R1 = 1.154700538  r_h = 0.8708075213
+   ratio -0.25: u2=8.26408180388 R2=2.874731606 L2=0.66226731065695382173 recheck lam=['-0.5']
+   ratio -0.125: u2=13.679587987 R2=3.698592704 L2=0.79767911595853470016 recheck lam=['-0.25']

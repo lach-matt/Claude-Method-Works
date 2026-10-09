@@ -1,0 +1,51 @@
+== 1. columns: y_s, e*y_s, min D, max at (=a+e), constraint rel err, cross-form agreement
+  e=0          y_s=2.553551338 e*y_s=0 reached=False minD=1.277e-04 max(a+e)=-3.469e-13 cons95=1.4e-15 cons99=6.8e-15 |unc-con|99=7.2e-14 y_s(con)=2.553551338
+  e=0.000976562 y_s=2.547411178 e*y_s=0.00248771 reached=False minD=1.274e-04 max(a+e)=-3.444e-13 cons95=1.4e-15 cons99=4.9e-15 |unc-con|99=5.6e-14 y_s(con)=2.547411178
+  e=0.00390625 y_s=2.529221026 e*y_s=0.00987977 reached=False minD=1.265e-04 max(a+e)=-3.371e-13 cons95=1.2e-15 cons99=7.0e-15 |unc-con|99=3.2e-14 y_s(con)=2.529221026
+  e=0.015625   y_s=2.459730751 e*y_s=0.0384333 reached=False minD=1.230e-04 max(a+e)=-3.100e-13 cons95=1.5e-15 cons99=8.6e-15 |unc-con|99=3.3e-14 y_s(con)=2.459730751
+  e=0.03125    y_s=2.374421491 e*y_s=0.0742007 reached=False minD=1.187e-04 max(a+e)=-2.789e-13 cons95=1.6e-15 cons99=6.3e-15 |unc-con|99=3.5e-14 y_s(con)=2.374421491
+  e=0.0625     y_s=2.224703917 e*y_s=0.139044 reached=False minD=1.112e-04 max(a+e)=-2.294e-13 cons95=9.1e-16 cons99=6.1e-15 |unc-con|99=3.0e-14 y_s(con)=2.224703917
+  e=0.125      y_s=1.986774506 e*y_s=0.248347 reached=False minD=9.935e-05 max(a+e)=-1.634e-13 cons95=9.0e-16 cons99=5.4e-15 |unc-con|99=6.5e-14 y_s(con)=1.986774506
+  e=0.25       y_s=1.659115609 e*y_s=0.414779 reached=False minD=8.297e-05 max(a+e)=-9.517e-14 cons95=9.4e-16 cons99=5.1e-15 |unc-con|99=4.6e-14 y_s(con)=1.659115609
+  e=0.5        y_s=1.280302212 e*y_s=0.640151 reached=False minD=6.403e-05 max(a+e)=-4.374e-14 cons95=2.0e-15 cons99=3.9e-15 |unc-con|99=5.1e-14 y_s(con)=1.280302212
+  e=1          y_s=0.9138553576 e*y_s=0.913855 reached=False minD=4.571e-05 max(a+e)=-1.591e-14 cons95=2.0e-15 cons99=3.3e-15 |unc-con|99=5.9e-14 y_s(con)=0.9138553576
+  e=2          y_s=0.6100607857 e*y_s=1.22012 reached=False minD=3.051e-05 max(a+e)=-4.733e-15 cons95=7.4e-15 cons99=7.0e-15 |unc-con|99=2.0e-14 y_s(con)=0.6100607857
+  e=4          y_s=0.38637445 e*y_s=1.5455 reached=False minD=1.933e-05 max(a+e)=-1.203e-15 cons95=2.2e-14 cons99=2.2e-14 |unc-con|99=2.1e-13 y_s(con)=0.38637445
+  e=8          y_s=0.2351518244 e*y_s=1.88121 reached=False minD=1.176e-05 max(a+e)=-2.712e-16 cons95=4.5e-14 cons99=5.4e-14 |unc-con|99=7.0e-13 y_s(con)=0.2351518244
+  e=16         y_s=0.1388936139 e*y_s=2.2223 reached=False minD=6.949e-06 max(a+e)=-5.588e-17 cons95=2.2e-14 cons99=2.2e-14 |unc-con|99=2.8e-13 y_s(con)=0.1388936139
+  e=32         y_s=0.0801909794 e*y_s=2.56611 reached=False minD=4.013e-06 max(a+e)=-1.076e-17 cons95=8.4e-13 cons99=1.0e-12 |unc-con|99=1.2e-11 y_s(con)=0.0801909794
+  e=64         y_s=0.04548908244 e*y_s=2.9113 reached=False minD=2.276e-06 max(a+e)=-1.964e-18 cons95=4.9e-12 cons99=6.6e-12 |unc-con|99=6.5e-11 y_s(con)=0.04548908244
+  e*y_s strictly rising on grid: True
+== 2. C-S7 depth curve (at = -5e/8)
+  e=0.000976562 roots=1 y2=0.308099 e*y2=0.000300878 y2/y_s=0.1209 s2 check=-0.166666666667
+  e=0.00390625 roots=1 y2=0.487581 e*y2=0.00190461 y2/y_s=0.1928 s2 check=-0.166666666667
+  e=0.03125    roots=1 y2=0.926213 e*y2=0.0289442 y2/y_s=0.3901 s2 check=-0.166666666667
+  e=0.25       roots=1 y2=1.14374 e*y2=0.285936 y2/y_s=0.6894 s2 check=-0.166666666667
+  e=1          roots=1 y2=0.750975 e*y2=0.750975 y2/y_s=0.8218 s2 check=-0.166666666667
+  e=4          roots=1 y2=0.342657 e*y2=1.37063 y2/y_s=0.8869 s2 check=-0.166666666667
+  e=16         roots=1 y2=0.127754 e*y2=2.04407 y2/y_s=0.9198 s2 check=-0.166666666667
+  e=64         roots=1 y2=0.0426907 e*y2=2.73221 y2/y_s=0.9385 s2 check=-0.166666666667
+== 3. free-far-side s2 along columns vs targets (sampled), convention by convention
+  e=0.01562  C-PRZ       dec in [-0.125000,-0.000000] crossings=0; gro max=-0.875000
+  e=0.01562  C-SHEET-M4  dec in [-0.125000,-0.000000] crossings=1; gro max=-0.875000
+  e=0.01562  C-S6        dec in [-0.333333,-0.000000] crossings=1; gro max=-0.666667
+  e=0.01562  C-S7        dec in [-0.416667,-0.000000] crossings=1; gro max=-0.583333
+  e=1        C-PRZ       dec in [-0.125000,-0.000000] crossings=0; gro max=-0.875000
+  e=1        C-SHEET-M4  dec in [-0.125000,-0.000000] crossings=1; gro max=-0.875000
+  e=1        C-S6        dec in [-0.333333,-0.000001] crossings=1; gro max=-0.666667
+  e=1        C-S7        dec in [-0.416667,-0.000001] crossings=1; gro max=-0.583333
+  e=64       C-PRZ       dec in [-0.125000,-0.000001] crossings=0; gro max=-0.875000
+  e=64       C-SHEET-M4  dec in [-0.125000,-0.000001] crossings=1; gro max=-0.875000
+  e=64       C-S6        dec in [-0.333333,-0.000003] crossings=1; gro max=-0.666667
+  e=64       C-S7        dec in [-0.416667,-0.000003] crossings=1; gro max=-0.583333
+== 4. WEC thresholds ell* (positive README energy on mirrored level-surface P2)
+  example README: r_min(1) sqrt(N) = 3.975819e-28 m, m = 1.987909e-28 m
+  s2=-0.2500: e*=0.1170751  ell*/m=8.5415  best depth/y_s=0.573  ell*=1.6980e-27 m
+  s2=-0.3333: e*=0.1369730  ell*/m=7.3007  best depth/y_s=0.583  ell*=1.4513e-27 m
+  s2=-0.1667: e*=0.1022425  ell*/m=9.7807  best depth/y_s=0.565  ell*=1.9443e-27 m
+  s2=-0.1250: e*=0.0961561  ell*/m=10.3998  best depth/y_s=0.561  ell*=2.0674e-27 m
+  s2=+1.0000: e*=0.0369461  ell*/m=27.0665  best depth/y_s=0.520  ell*=5.3806e-27 m
+== 5. singular end: Kretschmann exponent d ln K / d ln alpha near y_s
+  e=0.03125: dlnK/dln(alpha) = -5.8564  (Kasner prediction -16/(1+sqrt3) = -5.8564)
+  e=1.0: dlnK/dln(alpha) = -5.8564  (Kasner prediction -16/(1+sqrt3) = -5.8564)
+  e=64.0: dlnK/dln(alpha) = -5.8564  (Kasner prediction -16/(1+sqrt3) = -5.8564)

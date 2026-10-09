@@ -1,0 +1,16 @@
+Delta=1.2 mu_slab=-0.246932 mu_own1=-1.44693 a1=0.751413 slab horizons=['0.666794', '0.745242']
+   P2 a2=0.75141308 mu_own2=-0.39693243 eta_s2=+1 eta_o2=+1 res=1.2e-41 -> outside outer horizon ; a2<a1: True
+   P2 a2=0.35161824 mu_own2=-0.23156259 eta_s2=+1 eta_o2=-1 res=1.8e-40 -> inside inner horizon ; a2<a1: True
+   P2 a2=0.66086534 mu_own2=-0.34897794 eta_s2=-1 eta_o2=+1 res=1.7e-41 -> inside inner horizon ; a2<a1: True
+Delta=2.0 mu_slab=-0.190551 mu_own1=-2.19055 a1=0.890899 slab horizons=['0.50614', '0.862451']
+   P2 a2=0.89089872 mu_own2=-0.44055079 eta_s2=+1 eta_o2=+1 res=3.6e-43 -> outside outer horizon ; a2<a1: False
+   P2 a2=0.31317078 mu_own2=-0.17969157 eta_s2=+1 eta_o2=-1 res=1.8e-40 -> inside inner horizon ; a2<a1: True
+   P2 a2=0.48293223 mu_own2=-0.23037192 eta_s2=-1 eta_o2=+1 res=5.7e-42 -> inside inner horizon ; a2<a1: True
+Delta=3.0 mu_slab=-0.0600629 mu_own1=-3.06006 a1=1.01982 slab horizons=['0.253342', '0.967377']
+   P2 a2=1.0198245 mu_own2=-0.43506287 eta_s2=+1 eta_o2=-1 res=2.2e-42 -> outside outer horizon ; a2<a1: True
+   P2 a2=0.18467274 mu_own2=-0.057836159 eta_s2=+1 eta_o2=-1 res=1.8e-40 -> inside inner horizon ; a2<a1: True
+   P2 a2=0.22550846 mu_own2=-0.064117425 eta_s2=-1 eta_o2=+1 res=9.2e-41 -> inside inner horizon ; a2<a1: True
+Delta=3.3 mu_slab=-0.0124065 mu_own1=-3.31241 a1=1.05274 slab horizons=['0.112091', '0.993698']
+   P2 a2=1.0527445 mu_own2=-0.42490648 eta_s2=+1 eta_o2=-1 res=2.9e-42 -> outside outer horizon ; a2<a1: False
+Delta=3.5 mu_slab=0.0210864 mu_own1=-3.47891 a1=1.0736 slab horizons=['1.01028']
+   P2 a2=1.0735963 mu_own2=-0.41641361 eta_s2=+1 eta_o2=-1 res=7.2e-42 -> outside outer horizon ; a2<a1: False

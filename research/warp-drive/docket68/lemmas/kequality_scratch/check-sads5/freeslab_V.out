@@ -1,0 +1,30 @@
+V1free      k= 1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=-0.9696 u2=-0.5611 lam=-1.255)
+       root: ADMISSIBLE  -> TWO-EXTERIOR BRIDGE a1=1.11337 a2=2.5038 mu=0.922223 L_s=2.11473 eta_s=(-1,-1) slab horizons R=[0.885764] s={'s1_0': -0.65586, 's1_1': -1.34414, 's2_0': -0.599715, 's2_1': 0.849715}
+       root: rejected  -> u or lam <= 0 (u1=-0.9372 u2=-0.04063 lam=0.2568)
+       root: rejected  -> u or lam <= 0 (u1=-0.888 u2=0.04756 lam=1.008)
+       root: rejected  -> u or lam <= 0 (u1=-0.03872 u2=-0.5624 lam=8.961)
+       admissible: 1
+V1free      k= 0 : INCONSISTENT over C
+V1free      k=-1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=0.9696 u2=0.5611 lam=-1.255)
+       root: rejected  -> u or lam <= 0 (u1=-0.8067 u2=-0.1595 lam=0.2236)
+       root: rejected  -> two-exterior (-,-) but no horizon: a1=1.03294 a2=4.96122 mu=-4.25897 L_s=1.97347 eta_s=(-1,-1) slab horizons R=[] s={'s1_0': -1.749478, 's1_1': -0.250522, 's2_0': -0.472407, 's2_1': 0.722407}
+       root: rejected  -> u or lam <= 0 (u1=0.888 u2=-0.04756 lam=1.008)
+       root: ADMISSIBLE  -> CONNECTED SLAB a1=5.08184 a2=1.33342 mu=26.3401 L_s=0.334053 eta_s=(-1,1) slab horizons R=[1.330845] s={'s1_0': -2.980448, 's1_1': 0.980448, 's2_0': 0.258438, 's2_1': -0.008438}
+       admissible: 1
+V2free      k= 1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=1.346 u2=0.5694 lam=-0.248)
+       root: rejected  -> u or lam <= 0 (u1=-0.8817 u2=0.124 lam=1.061)
+       root: rejected  -> u or lam <= 0 (u1=-0.00739 u2=-0.2499 lam=8.993)
+       admissible: 0
+V2free      k= 0 : INCONSISTENT over C
+V2free      k=-1 : GB 10 elements, zero-dim=True
+       univariate in lam: degree 7
+       root: rejected  -> u or lam <= 0 (u1=-1.346 u2=-0.5694 lam=-0.248)
+       root: rejected  -> u or lam <= 0 (u1=0.8817 u2=-0.124 lam=1.061)
+       root: ADMISSIBLE  -> CONNECTED SLAB a1=11.6327 a2=2.00022 mu=135.823 L_s=0.33347 eta_s=(-1,1) slab horizons R=[1.985539] s={'s1_0': -2.996298, 's1_1': 0.996298, 's2_0': 0.507364, 's2_1': -0.007364}
+       admissible: 1
