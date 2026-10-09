@@ -105,8 +105,10 @@ LEMMAS = [
      "a nonlinear 5D initial-boundary problem through a write of >= 2.0e5 clocks at fixed size (162, 163).  Stage 5 "
      "(lemmas/b4d_stage5.py, verified once): with eq. (17) on a positive-tension plane the bulk reaches K >= 1e4 within "
      "8-16 clocks at every finite ell tested; on 139's negative-tension plane it relaxes to AdS, regular on the "
-     "evidence, at the cost of boundary data and localized gravity -- the live route.  Stages 1-2 verified; 3-4 "
-     "conditional on the withdrawn instant reading"),
+     "evidence, at the cost of boundary data and localized gravity.  Stage 6: every positive plane has a decaying side; "
+     "stage 7 (item 166): across both planes every small-separation branch has a decaying outer bulk.  Simulation "
+     "phase 1 (sim1_transition.py): eq. (17) is no 4D null-energy end state.  Phase 2 (item 168: two positions, one "
+     "universe, through y) in design.  Stages 1-2 verified; 3-4 conditional on the withdrawn instant reading"),
     ("B", "B5 positivity for the entangled pin (140, 139 (2)): null energy at every point is your ruling (117, 120), "
           "shown consistent -- at one place (127) the sheets' summed tension is +lambda_RS and a smooth wall keeping null "
           "energy at every point exists; the pin carries no negative energy, the separation held at zero (127, 141) leaving "

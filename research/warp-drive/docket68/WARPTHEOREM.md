@@ -78,7 +78,7 @@ The theorem is proved exactly when no lemma below is OPEN.
 | B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
 | B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL. A round T exists beyond the hold's reach only if ℓ > 2R_reach; a tipped T is untrapped at any ℓ (computed: at ℓ = 0.11m, min θ+ = +0.07, B4D-STAGE2.md). Radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5), and eq. (17) holds only within the reach (causality); both derived. Open: whether the model holds deep in the bulk, where a tipped T goes |
 | B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
-| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (verified once): with eq. (17) on a plane, a side where the warp decays is singular within 8–16 clocks, a side where it grows is regular on the evidence. Stage 6 (verified once): every positive-tension plane has a decaying side, so ours (139, clause (B)) cannot carry eq. (17) regularly; position 2's plane can, at its own ℓ₂ = 3ℓ (138), carrying exactly 139's −1/3 with both sides growing. The live route, put to you: eq. (17) on position 2's plane |
+| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (verified once): with eq. (17) on a plane, a side where the warp decays is singular within 8–16 clocks, a side where it grows is regular on the evidence. Stage 6 (verified once): every positive-tension plane has a decaying side, so ours (139, clause (B)) cannot carry eq. (17) regularly; position 2's plane can, at its own ℓ₂ = 3ℓ (138), carrying exactly 139's −1/3 with both sides growing. Stage 7 (verified once, item 166): across both planes every small-separation branch has a decaying outer bulk, so singular. Simulation phase 1 (sim1_transition.py, verified once): eq. (17) is no 4D null-energy end state; the bulk must supply its anisotropic Weyl stress. Phase 2, in your sense (item 168): two positions, one universe, through the extra dimension -- being designed |
 | B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
 | B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
 | B | B6′ k's scale | **nature**, item 136 answer 8 |
@@ -336,3 +336,27 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Still open:** separations near the slab's own singular surface, data that differ by direction, curved planes, and
   outer bulks that are not anti-de Sitter.
 
+
+## History (2026-10-08/09, items 167–170, simulation phase 1, your PDF)
+
+- **Item 167:** run B4d as a simulation, in phases. **Item 168:** in your sense: first the corridor between two
+  positions within one universe, then between universes. The hierarchy is your law and history trajectories.
+- **Phase 1** (`sim1_transition.py`, verified once by three verifiers). A four-dimensional Einstein–scalar evolution. It
+  stands as the validated tool; its 4D reading of your words is withdrawn by item 168.
+  - **Matter in, evenly spread:** a README written evenly over the write disperses.
+  - **Fixed size:** a horizon that keeps its size absorbs nothing (Raychaudhuri).
+  - **Eq. (17):** not a 4D null-energy end state. Its Weyl fluid is anisotropic, so the bulk must supply it.
+- **Item 169** (a thought, offered for discussion). No travel through time alone; a time-only target lands in a separate
+  spacetime. The board reads chronology protection within one universe as following from your 117/120 (Hawking 1992,
+  not READ).
+- **Item 170:** the world arrived in runs on position 2's clock; the object keeps position 1's time, like an astronaut.
+  - **The board's reading** (destination's frame sets "now"): a return between positions approaching each other would
+    arrive before the departure, by ~2.8 h for Proxima.
+  - **Item 169 sends that return to a separate spacetime,** so the two together keep one universe free of loops.
+- **Your PDF** (`lemmas/M-PDF-ASTRO.md`): it answers no open question and is set aside. Four filings from its sources:
+  - one universe is a global condition of topology;
+  - the vacuum bridge lives 6.3 clocks against the write's 2.0×10⁵;
+  - Eardley's white hole;
+  - Hochberg & Visser's null-energy theorem, which excludes horizon throats, the corridor's kind.
+- **Phase 2 is being designed** in your sense (item 168).
+- **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
