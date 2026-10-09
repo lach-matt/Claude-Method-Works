@@ -138,6 +138,22 @@ X10 (e) in the E-PASS fix round.
 - **Item 179.** It changes where the corridor sits. These readings are of the board's SIM2 setup and are re-read with
   179's results.
 
+## Re-read under item 183 (M's answer, 2026-10-09)
+
+- **What M chose:** *"Yes: never violated as a pair"*. 117/120's "never violated" holds for the pair: zero net null
+  energy along each light ray, with a negative member paired along the same light rays as the appearance
+  (H-NEC-NEVER-VIOLATED-AS-PAIR, M's).
+- **What changes here:**
+  - **Section 5's "Decided under 149" is superseded in its ground.** It read axiom Z3 ("null energy is never violated,
+    in five dimensions") pointwise. Z3 is now re-read as net per light ray.
+  - **177's appearance** is no longer confined to the plane's four-dimensional reading. It includes a negative member
+    of a pair along the same light rays: E-PASS's Lemma S partner, H-PARTNER-IS-THE-COUPLING, now admitted.
+- **What stands:**
+  - X10 (e)'s exclusion of the README's negative energy density inside one universe now rests on H-POSITIVE-ON-P2,
+    the board's reading of your positivity ruling 139 (2), not on the NEC.
+  - At exact coincidence, the across-plane sum is zero, which satisfies H-NEC-NEVER-VIOLATED-AS-PAIR exactly.
+  - Every computation in this note stands as computed.
+
 ## History
 
 - **2026-10-09, workflow `item178-reading`.** Five readers ran (the corpus on nulls, the corpus on pairs, the work's
