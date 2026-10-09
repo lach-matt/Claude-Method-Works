@@ -310,7 +310,7 @@ set -- \"$R/usr/bin/cadabra2\" \"\$@\""
 $CP"
   mkwrap cas reduce "$O/current/redpsl"
   mkwrap cas redpsl "$O/current/redpsl"
-  wrap_bins cas "$R" "$L" '^(cadabra2|cadabra2python|cadabra2-gtk|cadabra2cadabra|cadabra2html|cadabra2ipynb|cadabra2latex|cdb-nbtool|cadabra-server|xmaxima|parform)$'
+  wrap_bins cas "$R" "$L" '^(cadabra2|cadabra2python|cadabra2-gtk|cadabra2cadabra|cadabra2html|cadabra2ipynb|cadabra2latex|cdb-nbtool|cadabra-server|xmaxima|parform|dh_installtex)$'
   write_env cas "" "$L"
   mark_ok cas "debs: $R" "reduce: $(readlink -f "$O/current")" "venv: $(venv cas312)"
 }
@@ -498,7 +498,7 @@ display2d:false$ assume(k>0)$ load(ctensor)$ dim:5$ ct_coords:[t,x,y,z,w]$
 lg:matrix([-exp(-2*k*w),0,0,0,0],[0,exp(-2*k*w),0,0,0],[0,0,exp(-2*k*w),0,0],[0,0,0,exp(-2*k*w),0],[0,0,0,0,1])$
 cmetric(false)$ christof(false)$ ricci(false)$ print("RS5=", ratsimp(scurvature()))$
 EOF
-  out="$("$B/maxima" --very-quiet --batch="$d/rs.mac" </dev/null 2>&1 | grep 'RS5=')"
+  out="$("$B/maxima" --very-quiet --batch="$d/rs.mac" </dev/null 2>&1 | grep '^RS5=' | tr -s ' ')"
   [[ "$out" == *"-20*k^2"* ]] && echo "ok   maxima      ctensor RS5 Ricci scalar: ${out#RS5= }" || { echo "FAIL maxima: $out"; rc=1; }
   cat > "$d/s.cdb" <<'EOF'
 {t,r,\theta,\phi}::Coordinate;
@@ -569,13 +569,14 @@ tm = cvc5.TermManager(); s = cvc5.Solver(tm); s.setLogic('QF_NRA'); s.setOption(
 x = tm.mkConst(tm.getRealSort(), 'x')
 s.assertFormula(tm.mkTerm(cvc5.Kind.EQUAL, tm.mkTerm(cvc5.Kind.MULT, x, x), tm.mkReal(2)))
 s.assertFormula(tm.mkTerm(cvc5.Kind.GT, x, tm.mkReal(0)))
-r1 = s.checkSat(); print(('ok  ' if r1.isSat() else 'FAIL') + ' cvc5 %s     x^2=2, x>0: %s  x = %s' % (s.getVersion(), r1, s.getValue(x)))
+r1 = s.checkSat(); v = s.getVersion(); v = v.decode() if isinstance(v, bytes) else v
+print(('ok  ' if r1.isSat() else 'FAIL') + ' cvc5 %s x^2=2, x>0: %s  x = %s' % (v, r1, s.getValue(x)))
 a, b = z3.Reals('a b'); zs = z3.Solver(); zs.add(a > 0, b > 0, a*a + b*b < 1, a*b > z3.RealVal('1/2'))
 r2 = zs.check(); print(('ok  ' if r2 == z3.unsat else 'FAIL') + ' z3 %s       a,b>0, a^2+b^2<1, ab>1/2: %s (AM-GM)' % (z3.get_version_string(), r2))
 raise SystemExit(0 if r1.isSat() and r2 == z3.unsat else 1)
 PYEOF
   out="$("$B/metamath" "read '$(droot provers)/usr/share/metamath/databases/set.mm'" "show statement 2p2e4" "verify proof 2p2e4" exit 2>&1)"
-  if grep -q '2p2e4 \$p |- ( 2 + 2 ) = 4' <<<"$out" && ! grep -qi 'error' <<<"$out"; then echo "ok   metamath    set.mm: 2p2e4 |- ( 2 + 2 ) = 4 verified"; else echo "FAIL metamath: $(tail -3 <<<"$out")"; rc=1; fi
+  if grep -q '2p2e4 \$p |- ( 2 + 2 ) = 4' <<<"$out" && ! grep -q '?Error' <<<"$out"; then echo "ok   metamath    set.mm: 2p2e4 |- ( 2 + 2 ) = 4 verified"; else echo "FAIL metamath: $(tail -3 <<<"$out")"; rc=1; fi
   printf 'fof(a1,axiom,less(a,b)).\nfof(a2,axiom,less(b,c)).\nfof(tr,axiom,![X,Y,Z]:((less(X,Y)&less(Y,Z))=>less(X,Z))).\nfof(g,conjecture,less(a,c)).\n' > "$d/t.p"
   out="$("$B/SPASS" -TPTP -PGiven=0 -PProblem=0 "$d/t.p" 2>&1 | grep 'SPASS beiseite')"
   [[ "$out" == *"Proof found"* ]] && echo "ok   SPASS       transitivity: $out" || { echo "FAIL SPASS: $out"; rc=1; }
@@ -842,7 +843,7 @@ cmd_list() {
   done
   echo
   echo "default set (sci install default): $DEFAULT_GROUPS"
-  echo "SCI_ROOT=$SCI_ROOT   free disk: $(df -h --output=avail "$SCI_ROOT" 2>/dev/null | tail -1 | tr -d ' ')"
+  echo "SCI_ROOT=$SCI_ROOT   free disk: $(df -h --output=avail "$(readlink -m "$SCI_ROOT/..")" 2>/dev/null | tail -1 | tr -d ' ')"
 }
 
 cmd_install() {
