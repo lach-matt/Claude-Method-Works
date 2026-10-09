@@ -3,8 +3,11 @@
 face each other across a static bulk?  Computed, READ and deduced; verified (three verifiers and an adjudication,
 2026-10-09: S7's first down-the-throat argument was refuted and is corrected), then re-verified (two re-verifiers,
 2026-10-09; their findings applied: see SIM2-FACING.md, History); not seated.  First headed "... not verified; not
-seated".  S15 (the coinciding limit) and its selftest C17 were added for M's item 172 after the re-verification and
-are not yet verified.
+seated".  S15 (the coinciding limit) and its selftest C17 were added for M's item 172 after the re-verification.
+Item 172's changes were then verified once (two verifiers, 2026-10-09: S15 and C17, and the item-172 edits to the
+note's plain words, setup, S3, S7, S12, S13, Verdict, Questions and Named hypotheses, and to this docstring and the
+report); no refutation; their findings applied (SIM2-FACING.md, History).  The edits made for those findings are not
+themselves verified.
 
 M's words (verbatim in the rulings file; quoted in SIM2-FACING.md, never paraphrased as M's): item 168 "My sense:
 positions, one universe"; 152 (1) "two separate positions connected by/reached through a dimension." and (2) "It could
@@ -25,12 +28,17 @@ THE SETUP.  Units m = 1, e = m/ell, nu = 2/kappa_5^2 (one-sided Israel factor). 
 -6/ell^2: ds^2 = dy^2 - A dt^2 + B dr^2 + C dOmega^2, grown from eq. (17) on position 1's piece P1 (y = 0; clause
 (G), at our tension: clause (B), 157) by b4_static.series (exact, rational).  kappa_X = (1/2) d_y ln X;
 a = (kappa_t + kappa_r + 2 kappa_th)/4, a~ = a + 1/ell; the wall coefficients w_r = kappa_r - kappa_t,
-w_th = kappa_th - kappa_t (the warp cancels from both and from a~).  Position 2's piece P2 is a second piece of the same mirrored plane, one-sided toward the slab
-(H-Z2-PIECES); it faces P1 when its bulk nearest approach p2 = (r2, depth) is attained in the static region
-(H-NEAREST-APPROACH).  A nearest approach only approached down the throat, never attained, is S7's class; since item
-172 (2) it rests on M's H-COINCIDE-DOWN-THE-THROAT (127's coincidence is the endless approach down the object's
-throat, never a reached point), which replaces the board's H-FACING-DOWN-THE-THROAT and H-COINCIDE-AS-LIMIT; its
-depth -> 0 member is the coincidence itself (S15).  The depth of p2 is,
+w_th = kappa_th - kappa_t (the warp cancels from both and from a~).  Position 2's piece P2 is a second piece of the
+same mirrored plane, one-sided toward the slab (H-Z2-PIECES); it faces P1 when its bulk nearest approach
+p2 = (r2, depth) is attained in the static region (H-NEAREST-APPROACH).  A nearest approach only approached down the
+throat, never attained, is S7's class, in two cases.  With its depth going to zero it is coinciding: M's
+H-COINCIDE-DOWN-THE-THROAT (item 172 (2), "Yes, that is coinciding", to a question about position 2's piece
+approaching position 1's; 127's coincidence is the endless approach down the object's throat, never a reached point).
+That is S15, and "coinciding" here means that case only.  Held at an approach depth d > 0 it is NOT coinciding, and
+172 (2) does not cover it: the board carries it as facing on its own reading H-APPROACH-AT-DEPTH (an approach down
+the throat held at depth d > 0 counts as facing), put to M (SIM2-FACING.md question 3).  Item 172's record lists the
+board's H-FACING-DOWN-THE-THROAT (the whole class as facing) and H-COINCIDE-AS-LIMIT as replaced by M's
+H-COINCIDE-DOWN-THE-THROAT.  The depth of p2 is,
 by construction, the two pieces' bulk separation at their nearest point: it is reported only as where in the bulk
 facing can occur -- never as the corridor's length (155 (2): bits), never as anything the device sees (101 (7)), and
 never optimised over or turned into a time or a speed (139 (4)).  C14 checks names only.  Junction, normal into the
@@ -44,10 +52,12 @@ lemma).
       k_spatial(P2) >= -kappa_spatial at p2.
   S3  COROLLARY T5c (deduced): a matter-free mirrored P2 reads s2 <= ell a(depth) <= -1, every depth, every ell.  Under
       clause (B) two matter-free pieces of our plane cannot face each other across a static bulk (diagonal K, vacuum
-      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; down the throat (M's H-COINCIDE-DOWN-THE-THROAT,
-      item 172) the member closes too (deduced in the adjudication, using w_th > 0 computed on the throat bulk at the nine ell;
-      illustrated on one profile by S7's umbilic member).  That closes this one way of building the corridor within one
-      universe; E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them, stay open.
+      Lambda_5), on the board's H-Z2-PIECES and H-NEAREST-APPROACH; down the throat the member closes too, at every
+      approach depth: held at d > 0 (the board's H-APPROACH-AT-DEPTH) and with the depth going to zero (M's
+      coinciding, H-COINCIDE-DOWN-THE-THROAT, item 172) (deduced in the adjudication, using w_th > 0 computed on the
+      throat bulk at the nine ell; illustrated on one profile by S7's umbilic member).  That closes this one way of
+      building the corridor within one universe; E-PASS, E-NS, E-ROT and the other escapes of S14, E-FAR among them,
+      stay open.
   S4  LEMMA W (deduced): a static mirrored P2 whose total stress obeys the NEC, nearest approach attained in the static
       region with no focal point of P1 before it (S2), needs w_r >= 0 and w_th >= 0 there -- any tension, any matter
       split, no bulk field equation used.
@@ -66,8 +76,9 @@ lemma).
       illustrates the umbilic (matter-free) member's closing (k_t - k_th -> w_th(depth) > 0: at x = 1e-14 an identity
       for any f -> 0; that the radial equation forces f' -> 0 is deduced, in the adjudication).  So in this class -- a
       nearest approach never attained, the horizon being degenerate and at infinite proper distance in the static
-      slice; since item 172 M's H-COINCIDE-DOWN-THE-THROAT -- the NEC sets no lower edge in the approach (x -> 0): it holds at
-      every sampled depth, 0.01 to 0.9 y_s^th, at every ell scanned (the adjudication: every depth in [0, y_s^th)).
+      slice; held at d > 0 it faces only on the board's H-APPROACH-AT-DEPTH, its depth -> 0 member is M's coinciding
+      -- the NEC sets no lower edge in the approach (x -> 0): it holds at every sampled depth, 0.01 to 0.9 y_s^th, at
+      every ell scanned (the adjudication: every depth in [0, y_s^th)).
       Past the crossover the NEC still bends the piece back (the re-verifier, deduced to first order in x and in the
       slope: where W1 < 0, f' e^(-u/2) cannot increase), so whether a member exists below y* is decided on the owner's
       bulk at r of about 2.03-2.7m (E-FAR, E-G), not at the throat.
@@ -101,8 +112,9 @@ lemma).
       verified tops lie below y*: not reached); regular at 30 and 100 K_bs for ell = inf, 32m, at 100 only for 16m, 8m,
       at none for ell <= 4m; positive energy only at ell >= 49.86m.  WIDE is excluded on the verified points only:
       decide() records, per ell, the unverified depths at r >= 2.1m (the board's line, a convention), where facing is
-      unchecked, as it is for E-FAR.  The down-the-throat class (S7) has no lower edge in the approach (x -> 0), its
-      shallow depths lie below 10 K_bs at every ell, and its positive-energy threshold is 27.07m.
+      unchecked, as it is for E-FAR.  The down-the-throat class (S7; held at d > 0, facing on the board's
+      H-APPROACH-AT-DEPTH) has no lower edge in the approach (x -> 0), its shallow depths lie below 10 K_bs at every
+      ell, and its positive-energy threshold is 27.07m.
   S13 THE HAND-OFF TO PHASE 3 (deduced): s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down
       the throat), in units of sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows); the
       outer side needed for the -1/3 that 139 (1) said yes to (multiplane.py M4's figure) and for stage 7 K5's -1/6.
@@ -110,20 +122,33 @@ lemma).
       Delta s <= ell a(depth) - 1 < 0, phase 3's direction.
   S14 THE ESCAPES LEFT (STRUCTURAL / OPEN), now with E-Q (quantum or semiclassical stress; excluded only by
       H-NEC-NEVER-VIOLATED, 117/120) and E-FAR (a nearest approach reached only as r -> infinity, beyond r = 10m, or
-      beyond a column's verified top, including the continuation of S7's approach below y*; open).
-  S15 THE COINCIDING LIMIT (item 172; computed and deduced): S7's class with its approach depth -> 0 and x -> 0.  P2's
-      stress tends to the RS1 sheet: rho -> -sigma_RS, rho + p_i -> 0, s = rho/sigma_RS and the trace reading -> -1
-      (deduced from the throat data at depth 0; computed on four profiles at the nine ell), so rho_m -> -2 sigma_RS at
-      every finite ell.  On H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2 the WEC along any approach needs the level value
-      nu (p + 2q - 3/ell) >= 0 at the approach depth (deduced, exact in the slope at x -> 0), so positive energy starts
-      only at d_+ > 0 at every finite ell (computed: d_+ exists only for ell > 27.07m; 0.8395m at 32m; d_+ ~ 24 m^2/ell
-      as ell -> infinity).  Flat limit: rho -> 0+ along the approach (c x^lam (1/4 - lam^2); -(3/4) g2 x on the smooth
-      family): no positive margin at coincidence.  On H-LAW-READ-BY-TRACE the coinciding piece is a matter-free sheet of
-      tension -1 at our ell: 139 (1)'s sign, a different law (phase 3).  Depths reported only as where facing occurs.
+      beyond a column's verified top, including the continuation of S7's approach below y*).  E-FAR is open on the NEC
+      rows; on the NEC + positive-energy row (H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2) it is closed as
+      r -> infinity (deduced in the verification of item 172's changes: the bulk tends to pure AdS on any fixed depth
+      range, where the level value is -2 sigma_RS at every depth), and far_level computes the level value off the
+      throat at r = 3, 5, 10m (about -2 sigma_RS); between r = 10m and infinity only the limit is deduced.
+  S15 THE COINCIDING LIMIT (item 172; computed and deduced): S7's class with its approach depth -> 0 and x -> 0 -- the
+      only case "coinciding" names here.  P2's stress tends to the RS1 sheet: rho -> -sigma_RS, rho + p_i -> 0,
+      s = rho/sigma_RS and the trace reading -> -1 (deduced from the throat data at depth 0; computed on four profiles
+      at the nine ell), so rho_m -> -2 sigma_RS at every finite ell.  At coincidence P2's surface stress is exactly
+      minus P1's, so the coincident pair carries zero net surface stress, the zero-width limit of the RS1 pair
+      (computed; no reading attached).  On H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2 the WEC along any approach
+      needs the level value nu (p + 2q - 3/ell) >= 0 at the approach depth (deduced, exact in the slope at x -> 0; the
+      verification adds that the deduction covers pieces whose depth does not converge and pieces that fold back in u),
+      so at every finite ell positive energy needs an approach held at d >= d_+ > 0 -- not coinciding, and facing
+      there only on the board's H-APPROACH-AT-DEPTH (computed: d_+ exists only for ell > 27.07m; 0.8395m at 32m;
+      d_+ = 24 m^2/ell (1 + 72 m^2/ell^2 + ...), the O(m/ell) coefficient exactly zero).  At ell = inf d_+ = 0 is
+      attained, and rho -> 0+ along the approach at depth 0 (c x^lam (1/4 - lam^2); -(3/4) g2 x on the smooth family):
+      positive, no margin at coincidence.  No other route to depth 0 beats coinciding: an attained nearest point near
+      depth 0 has rho_m <= nu (kappa_r + 2 kappa_th - 3/ell) -> -2 sigma_RS (Lemma C), and far out the level value
+      tends to -2 sigma_RS (E-FAR; deduced in the verification).  On H-LAW-READ-BY-TRACE the coinciding piece is a
+      matter-free sheet of tension -1 at our ell: 139 (1)'s sign, a different law (phase 3).  Depths reported only as
+      where facing or coinciding occurs.
   The computed branch (S4, S7-S12, S15) rests on H-README-ON-P2, M's since item 172 (1) ("Yes, it may"): during the
   hold position 2's piece may carry the README's stress, obeying the NEC, and the theorem's clause (B), "The plane is
   free of matter", then holds in full on P1 and its tension half only on P2 -- a change to clause (B)'s scope, carried,
-  not seated.  As M worded them, 129 (1), 130 (1) and 136 (2) had read against it.  Which part of P2's stress is its
+  not seated.  As M worded them, 129 (1), 130 (1) and 136 (2) read against it, and 132 and 158 (4) leave room; M's
+  yes is carried as given and does not reword them.  Which part of P2's stress is its
   law was not answered (question 1 (b)): the results count as within one universe only on the board's
   H-SPLIT-AT-OUR-TENSION (position 2's law fixed at our tension; everything else in its stress, its trace included, the
   README's).  On H-LAW-READ-BY-TRACE instead the band's piece reads s <= ell a(y*) <= -1, and the coinciding piece
@@ -134,7 +159,8 @@ Owners imported by path (never copied): b4_static.py (series, _eq17, _schwarzsch
 orders, _approx, nearest_real, evaluator for K only, k_bs, wall_exact; _clean only in C5's mutation), b4d_stage6.py
 (sigma_over_rs), b4d_stage7.py (ricci_squared, slab_trace), sim1_transition.py (static_nec, eq17_rkk).
 Needs python-flint, sympy, numpy, scipy, mpmath.
-python3 sim2_facing.py [--selftest] [--regenerate]   (selftest about 2 min; regenerate about 14 min on 3 CPUs)
+python3 sim2_facing.py [--selftest] [--regenerate]   (selftest about 130-170 s, load-dependent; regenerate about 14 min
+on 3 CPUs)
 """
 import contextlib
 import importlib.util
@@ -1221,9 +1247,12 @@ def delta_rows():
     s_slab = Fr(-1)
     need = {str(s2): 2 * s2 - s_slab for s2 in (Fr(-1, 3), Fr(-1, 6))}
     rows = [("(0, 0 | 0)", "EMPTY (S3, T5c; the down-the-throat member too)"),
-            ("(0, 0 | NEC)", "attained: the throat band (S12); down the throat: every depth in the approach (S7)"),
+            ("(0, 0 | NEC)", "attained: the throat band (S12); down the throat: every depth in the approach (S7; "
+                             "held at d > 0, facing on the board's H-APPROACH-AT-DEPTH; depth -> 0, coinciding)"),
             ("(0, 0 | NEC+WEC)", "attained: ell >= ell_W only; down the throat: ell > ell_W^class only, at approach "
-                                 "depths >= d_+ > 0, so never coinciding (S15)")]
+                                 "depths >= d_+ (facing on H-APPROACH-AT-DEPTH), d_+ > 0 at every finite ell, so never "
+                                 "coinciding at finite ell; at ell = inf d_+ = 0 and rho -> 0+ at coincidence "
+                                 "(positive, no margin) (S15)")]
     return {"s_slab_max": s_slab,
             "s_slab_read": "s_slab <= ell a(depth) <= -1 (equality for a level surface; in the limit down the throat)",
             "unit": "sigma_RS at the slab's ell (ours within one universe: stage 7 K4's unit-ell_1 rows)",
@@ -1250,16 +1279,22 @@ ESCAPES = [
      "excluded only by H-NEC-NEVER-VIOLATED (117, 120)"),
     ("E-FAR", "nearest approach reached only as r -> infinity, beyond r = 10m, or beyond a column's verified top, "
               "including the continuation of S7's approach below y*",
-     "open; the lapse-gradient term must be kept (cf. S7, down_throat_class)"),
+     "NEC rows: open; the lapse-gradient term must be kept (cf. S7, down_throat_class).  NEC+WEC row "
+     "(H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2): closed as r -> infinity (deduced in the verification of item "
+     "172's changes; the level value off the throat is about -2 sigma_RS, computed at r = 3, 5, 10m: far_level); "
+     "between r = 10m and infinity only the limit is deduced"),
 ]
 
 
 # ------------------------------------------------------------------------------------------------ S15 coinciding (172)
-# M's item 172 (2), "Yes, that is coinciding": 127's coincidence is the endless approach down the object's throat, never
-# a reached point (H-COINCIDE-DOWN-THE-THROAT, M's; it replaces the board's H-FACING-DOWN-THE-THROAT and
-# H-COINCIDE-AS-LIMIT).  S15 computes what position 2's piece carries there: S7's class y = depth + f(ln x), the
-# approach depth going to 0 and, along the approach, x = r - 2m -> 0 (x is the plane's radial coordinate, not a
-# separation).  The approach depth is reported only as where facing (coinciding) occurs.
+# M's item 172 (2), "Yes, that is coinciding", answered a question about position 2's piece approaching position 1's
+# down the throat: 127's coincidence is that endless approach, never a reached point (H-COINCIDE-DOWN-THE-THROAT, M's;
+# the record lists the board's H-FACING-DOWN-THE-THROAT and H-COINCIDE-AS-LIMIT as replaced).  "Coinciding" here means
+# only the approach whose depth goes to zero.  An approach held at a depth d > 0 is not coinciding and 172 (2) does not
+# cover it; the board carries it as facing on its own H-APPROACH-AT-DEPTH (put to M).  S15 computes what position 2's
+# piece carries as it coincides: S7's class y = depth + f(ln x), the approach depth going to 0 and, along the approach,
+# x = r - 2m -> 0 (x is the plane's radial coordinate, not a separation).  An approach depth is reported only as where
+# facing or coinciding occurs.
 CO_XS = (1e-4, 1e-8, 1e-14)                 # x along the approach
 CO_FRACS = (1e-2, 1e-4, 0.0)                # approach depths going to 0, as fractions of y_s^th
 CO_MARGIN = 1.0                             # the smooth family's NEC margin at O(x) (the adjudication's choice)
@@ -1274,8 +1309,13 @@ def _kind_name(kind):
 def _profile(kind, xv, g2=0.0):
     """A static piece y = depth + F(x) whose depth is approached only down the throat: S7's power law f = c x^lam
     (0 < lam < 1/2) or the adjudication's smooth family f = g1 sqrt(x) + g2 x, g1 = c (sqrt(x) is the regular coordinate
-    across AdS2's degenerate horizon: standard-not-READ).  Returns F, F' = dF/dx, F'' and f_uu (u = ln x)."""
+    across AdS2's degenerate horizon: standard-not-READ).  Returns F, F' = dF/dx, F'' and f_uu (u = ln x).  The kind
+    ("local", f_u, f_uu) is not a profile: a piece passing through the given depth at this x with the given slopes in u
+    (F = 0, F' = f_u/x, F'' = (f_uu - f_u)/x^2), C17's finite-slope check of piece_stress against the closed form."""
     c = DT_C
+    if kind[0] == "local":
+        fu, fuu = kind[1], kind[2]
+        return 0.0, fu / xv, (fuu - fu) / xv**2, fuu
     if kind[0] == "pow":
         lam = kind[1]
         return c * xv**lam, c * lam * xv**(lam - 1), c * lam * (lam - 1) * xv**(lam - 2), c * lam * lam * xv**lam
@@ -1311,9 +1351,12 @@ def wec_window(tb):
     f_uu <= alpha^2 (p + 2q - 3e) + f_u^2 (2p + 2q - 3e), and 2p + 2q - 3e = 4a - 3e <= -7e (T4; a~ < 0 on the throat
     bulk, S7).  If the level value is negative at the approach depth, f_uu stays below a negative number as u -> -inf,
     so f -> -inf and the piece cannot approach that depth.  So for EVERY profile the WEC needs the level value >= 0 at
-    the approach depth: d_plus is the shallowest such depth (0.0 in the flat limit, where the level value is 0 at depth
-    0 and positive just below; None if there is none) and top the deepest before it turns negative again.  At finite
-    ell the level value at depth 0 is -6 e nu < 0, so d_plus > 0 (deduced).  At d_plus itself the profile's first
+    the approach depth.  (The verification of item 172's changes adds, deduced, that this covers pieces whose depth
+    does not converge -- at each local minimum f_u = 0, f_uu >= 0, so rho_m <= the level value there -- and pieces
+    that fold back in u, not graphs, where rho_m <= -sigma_RS at every other turn.)  d_plus is the shallowest such
+    depth (0.0 in the flat limit, attained: the level value is exactly 0 at depth 0 and positive at every depth past
+    it; None if there is none) and top the deepest before it turns negative again.  At every finite ell the level
+    value at depth 0 is -6 e nu < 0, so d_plus > 0 (deduced).  At d_plus itself the profile's first
     correction decides: (p' + 2q') f - f_uu/alpha^2, i.e. lam < lam_max = alpha sqrt(p' + 2q') on the power law, and
     the sign of (p' + 2q') - 1/(4 alpha^2) on the smooth family."""
     s, ys, ye, ef = tb["sol"], tb["y_s"], tb["y_end"], tb["e"]
@@ -1369,7 +1412,9 @@ def coinciding(e, tb=None, nu=1, n_sign=1, full=True):
     """S15 at e = m/ell: P2's stress as the approach depth -> 0 and x -> 0 (H-COINCIDE-DOWN-THE-THROAT, M's, item 172).
     Deduced: at depth 0 the throat data are alpha = beta = 1, p = q = -1/ell (C8's start), so the level set's k_t = k_x
     = k_th = 1/ell, S^a_b = (3 nu/ell) delta^a_b: rho -> -sigma_RS, rho + p_i -> 0, s = rho/sigma_RS = -1 -- the RS1
-    sheet (C1's control) -- and rho_m = rho - sigma_RS -> -2 sigma_RS at every finite ell.  Along the approach, to
+    sheet (C1's control) -- and rho_m = rho - sigma_RS -> -2 sigma_RS at every finite ell.  P1, normal into the slab,
+    has k = kappa(0) = -1/ell, S^a_b = -sigma_RS delta^a_b: at coincidence P2's surface stress is exactly minus P1's,
+    and the coincident pair carries zero net surface stress (net_lim; computed, no reading attached).  Along the approach, to
     first order in f, rho/nu + 3/ell ~ (p' + 2q')(0) f - f_uu/alpha^2 = f/4 - f_uu ((p' + 2q')(0) = -1/4 + 2/4 at every
     ell; alpha(0) = 1): c x^lam (1/4 - lam^2) on the power law (the adjudication's form, extended to finite ell), and
     -(3/4) g2 x on the smooth family in the flat limit (its sqrt(x) terms cancel; g2 < 0 there is the NEC's condition).
@@ -1382,9 +1427,12 @@ def coinciding(e, tb=None, nu=1, n_sign=1, full=True):
     rs = 3 * ef                                                        # sigma_RS in nu/m (m = 1)
     u0 = s.sol(0.0)
     k0 = [-float(u0[2])] * 2 + [-float(u0[3])] * 2                     # the level set at depth 0: k = -kappa
-    rho0, _ = israel(k0)                                               # the deduced limit (unmutated)
+    rho0, ps0 = israel(k0)                                             # the deduced limit (unmutated)
+    rho1, ps1 = israel([-v for v in k0])                               # P1: normal into the slab, k = kappa(0)
+    net = max([abs(float(rho0 + rho1))] + [abs(float(a_ + b_)) for a_, b_ in zip(ps0, ps1)])
     out = {"e": str(Fr(e)), "rho_lim": float(rho0), "s_lim": float(rho0) / rs if ef else None,
-           "rho_m_lim": (float(rho0) - rs) / rs if ef else None, "profiles": {}}
+           "rho_m_lim": (float(rho0) - rs) / rs if ef else None,
+           "p1_s": float(rho1) / rs if ef else None, "net_lim": net / rs if ef else net, "profiles": {}}
     g2_0 = _smooth_g2(tb, 0.0, W1)
     out["g2_0"] = g2_0
     for k in CO_KINDS:
@@ -1430,14 +1478,37 @@ def coinciding(e, tb=None, nu=1, n_sign=1, full=True):
 
 
 def d_plus_scaling(es=ES_FAR):
-    """S15: d_plus -> 0 only as ell -> infinity.  Deduced leading order: the level value nu (p + 2q - 3e) = nu (-6e +
-    depth/4 + ...) at small depth ((p + 2q)'(0) = 1/4), so d_plus = 24 e m (1 + O(e)); computed d_plus/(24 e m)."""
+    """S15: d_plus -> 0 only as ell -> infinity.  Deduced (the verification of item 172's changes, from the level
+    value's exact Taylor series at depth 0, L = -6e + y/4 + (3e/4) y^2 + (7e^2/6 - 1/16) y^3 + ...): d_plus =
+    24 e m (1 + 72 e^2 + O(e^3)), the O(e) coefficient exactly zero.  Computed: d_plus/(24 e m), and (ratio - 1)/(72 e^2),
+    which tends to 1."""
     out = []
     for e in es:
         w = wec_window(throat_bulk(e))
-        out.append({"e": str(Fr(e)), "d_plus": w["d_plus"], "ratio": None if not w["d_plus"] else
-                    w["d_plus"] / (24 * float(e))})
+        ef = float(e)
+        r_ = None if not w["d_plus"] else w["d_plus"] / (24 * ef)
+        out.append({"e": str(Fr(e)), "d_plus": w["d_plus"], "ratio": r_,
+                    "ratio_72": None if r_ is None else (r_ - 1) / (72 * ef * ef)})
     return out
+
+
+FAR_RC = ("3", "5", "10")
+
+
+def far_level(e=Fr(1, 32), depth=1.0, rcs=FAR_RC, N=14):
+    """E-FAR's NEC+WEC row (computed; the verification of item 172's changes found these values first): the level
+    value off the throat, rho_m of a level surface = nu (kappa_r + 2 kappa_th - 3/ell), in sigma_RS, on the owner's
+    exact series (partial sums through order N - 1) at one depth, r = 3, 5, 10m.  By Lemma C an attained nearest point
+    has rho_m <= this value.  It tends to -2 sigma_RS as r grows (pure AdS: kappa = -1/ell); that the r -> infinity
+    limit closes the row at every depth is deduced, not computed.  The depth is only where facing would occur."""
+    ef = float(e)
+    out = []
+    for rc in rcs:
+        k = kappas(rc, e, N)
+        val = lambda c: sum(float(c[j]) * depth**j for j in range(len(c)))
+        last = abs(float(k["B"][-1]) + 2 * float(k["C"][-1])) * depth**(len(k["B"]) - 1) / (3 * ef)
+        out.append({"r": rc, "level_rs": (val(k["B"]) + 2 * val(k["C"]) - 3 * ef) / (3 * ef), "last_term_rs": last})
+    return {"e": str(Fr(e)), "depth": depth, "N": N, "rows": out}
 
 
 # ------------------------------------------------------------------------------------------------ C14 address guard
@@ -1540,7 +1611,8 @@ def compute_live():
             "t5c": t5c(Fr(1)), "lemma_t": lemma_t(), "near": near_horizon(), "n": lemma_n(), "delta": delta_rows(),
             "wproof": lemma_w_proof(4000), "dt": {str(e): down_throat_class(e, tb=tbs[str(e)]) for e in ES2},
             "dt_wec": ell_w_class(), "depth0": {str(e): depth_zero(e) for e in ES2},
-            "coin": {str(e): coinciding(e, tb=tbs[str(e)]) for e in ES2}, "dplus_far": d_plus_scaling()}
+            "coin": {str(e): coinciding(e, tb=tbs[str(e)]) for e in ES2}, "dplus_far": d_plus_scaling(),
+            "far": far_level()}
 
 
 def report(bank, live):
