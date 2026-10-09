@@ -1,109 +1,299 @@
 #!/usr/bin/env python3
 """sim2_passage.py -- B4d simulation, phase 2, second instrument (M-RULINGS items 168, 173, 174, 176, 177): E-PASS,
-the passage through the corridor object's own horizon to the far end of our own plane, within one universe.
+the passage through the corridor object's own horizon into the plane's second end (u < 0), which the board reads as
+the far end of our own plane within one universe (H-END-2-IS-OUR-PLANE, the board's reading, OPEN: see X1).
 Computed, READ and deduced; not verified; not seated.  First headed "... not verified; not seated" (2026-10-09).
+Fix round 2026-10-09: the verification's findings (lemmas/EPASS-VERIFY-RECOVERED.md; 70 findings, the list with
+verdicts in the fix round's scratch) applied once per substance, the rulings since the instrument (179-184) carried
+below; the fixed instrument is not re-verified and not seated.
 
-M's words (verbatim in the rulings file; quoted in SIM2-PASSAGE.md, never paraphrased as M's): 173 "Go ahead with
-E-PASS next"; 172 (1) "Yes, it may" and (2) "Yes, that is coinciding"; 174 "For the math" (three times); 177 "Yes, that
-is the appearance"; 170 (the clocks); 132 and 143 A (one way; what can cross); 117/120 (the NEC "appears broken, but is
-not"); 155 (2) "Yes, in bits"; 139 (2) and (4); 101 (7).  176's H-PAIRING-IS-ENTANGLEMENT is the board's.
+M's words (verbatim in the rulings file; to be quoted in SIM2-PASSAGE.md, not yet written; never paraphrased as M's):
+173 "Go ahead with E-PASS next"; 172 (1) "Yes, it may" and (2) "Yes, that is coinciding" (the board's question in (2)
+read "(so it never actually touches)"); 174 "For the math" (three times); 177 "Yes, that is the appearance"; 170 (the
+clocks; it bears on X8's hold reading but is not used); 132 and 143 A (one way; what can cross); 117/120 (the NEC
+"appears broken, but is not"); 155 (2) "Yes, in bits"; 139 (2) "positive, and you have to prove it." and (4); 101 (7);
+129 (1) "the corridor is a bridge, so it adds nothing to either position."; 161 "my inclination is yes"; 162 (the
+throat "only every takes on the size that contains the README upon opening"); 163 "All together, one whole".  176's
+H-PAIRING-IS-ENTANGLEMENT is the board's.
+
+RULINGS SINCE THE INSTRUMENT (read verbatim; applied here).
+  179/180  "We know the corridor doesn't not sit on either position's plane, it only bridges them. So one could surmise
+      that the corridor is exclusive to the bulk." (typing kept; 180, M's correction: "*does not sit on either
+      position's plane").  Carried as M's: H-CORRIDOR-IN-BULK.  X1-X10 describe the board's configuration (eq. (17) as
+      our plane's own metric); under 179-180 re-read (H-CORRIDOR-IN-BULK).
+  183  M chose "Yes: never violated as a pair" (carried as M's: H-NEC-NEVER-VIOLATED-AS-PAIR; the board re-reads axiom
+      Z3 as net per light ray).  So X10 (e)'s exclusion of a negative energy DENSITY within one universe rests on
+      H-POSITIVE-ON-P2 (the board's reading of 139 (2)), a positivity ruling, not on the NEC, and its earlier "put to M"
+      is withdrawn (item 178 records M's thought on it; 183 records the re-read).  X8's refutation refutes only the
+      route with no second sheet (SIM2-FACING S14's E-PASS, "no second sheet"; the design spec's section 2, Lemma 0).
+      E-PASS as a whole is OPEN through 177/183 (H-PARTNER-IS-THE-COUPLING, the board's): it is never called refuted.
+  184  "There are no matter free planes" (carried as M's: H-NO-MATTER-FREE-PLANES; with 129 (1), each plane carries its
+      own universe's matter and the corridor adds none).  Every matter-free result here is a LIMIT, never M's
+      configuration: P1 under clause (B) in full ("The plane is free of matter", the board's theorem clause, 172's
+      carry), so eq. (17) on P1, X10 (a)-(b) and every X1-X9 result that uses P1's data; and Schwarzschild's control.
+      (184 speaks of planes; the vacuum Lambda_5 bulk is clause (B)'s premise, carried as such.)
+  So X10 (c)'s last sentence keeps its text and carries the design spec's note (X10 (c) below; item 178 cites X10, so
+  X1-X10 are never renumbered or deleted).
 
 THE SETUP.  Units m = 1, e = m/ell.  Over the throat r = 2m the static bulk grown from eq. (17) on our plane is SIM2's
-throat bulk (sim2_facing S6-S7; Kaus-Reall's ODEs at Q = 0, READ in the ground stage):
+throat bulk (sim2_facing S6-S7), Kaus-Reall's ODEs (2.4)-(2.7) with their Israel data (2.16)-(2.17) at Q = 0 (READ in
+the ground stage, PDF pp.4-6; staticity is assumed there: "It is natural to assume that the bulk will also be static",
+PDF p.4); the identity with sim2_facing's system is X1 here (C2):
     ds^2 = dy^2 + alpha(y)^2 [-(x/2) dt^2 + dx^2/x^2] + 4 beta(y)^2 dOmega^2,   x = r - 2m,
 alpha = beta = 1, p = q = -e at the plane y = 0, alpha -> 0 at y_s^th (a curvature singularity).  It is an exact 5D
 vacuum solution in its own right (the near-horizon limit), and the owner's bulk tends to it as x -> 0 at O(x)
 (sim2_facing S8, x_valid).  The README's crossing is the event P_c where the plane (y = 0) meets the object's horizon,
-at advanced coordinate v_c.  Owners imported by path, never copied: sim2_facing.py (throat_bulk, throat_rhs,
-kret_throat, x_valid, _ystar, wec_window, _ricci_diag, S5.k_bs, B4._eq17, B4._schwarzschild), o3_write.py (the write's
-floor, t_min(3) at the example README: 2.0e5 clocks).
+at advanced coordinate v_c; the README is a test event there (no backreaction; SIM1 S3b not addressed: see OPEN).
+Owners imported by path, never copied: sim2_facing.py (throat_bulk, throat_rhs, kret_throat, x_valid, _ystar, _yK,
+wec_window, piece_stress, _profile, _smooth_g2, _kind_name, CO_KINDS, DT_LAMS, _ricci_diag, BANNED_ARGS, S5.k_bs,
+B4._eq17, B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the example README: 2.0e5 clocks).
 
   X1  THE CHART (computed, sympy).  x = u^2, t = v + 2 sqrt2/u turns the throat metric into
       dy^2 + alpha^2 [-(u^2/2) dv^2 + 2 sqrt2 dv du] + 4 beta^2 dOmega^2 (AdS2's ingoing Eddington-Finkelstein form),
-      regular through u = 0; u < 0 is end 2 (r = 2m + u^2 has its minimum on the throat).  In this chart the 5D vacuum
-      equations depend on y only and reproduce sim2_facing's P, Q and constraint exactly.
+      regular through u = 0 ON THE EXACT AdS2-SYMMETRIC THROAT (with Lambda < 0, generic perturbations of an extremal
+      horizon have diverging tidal forces: Horowitz-Kolanowski-Santos, READ in the ground stage, PDF p.1, "When the
+      cosmological constant is negative, we show that (in almost all cases) tidal forces diverge as one crosses the
+      horizon", and PDF p.4, "Smoothness of the known exact solutions is an artifact of the symmetry rather than a
+      basic physical feature"; E-AN, OPEN).  Near P_c the bulk is fixed by the plane's Cauchy data, which are analytic
+      across u = 0 (eq. (17) at r0 = 2m in the ingoing chart: g_vv = -u^2/(u^2 + 2), g_vu = sqrt(4u^2 + 2); the
+      verification's computation, reproduced in this round's scratch, not an output here), so by Cauchy-Kovalevskaya
+      the bulk is analytic in a neighbourhood of P_c (deduced; standard-not-READ; not verified): the caution bears
+      toward y_s, where the analytic class is assumed (E-AN).  In this chart the 5D vacuum equations depend on y only
+      and reproduce sim2_facing's P, Q and constraint exactly.  u < 0 is the plane's second end in eq. (17)'s analytic extension
+      (plane.py P1's position-2 side; in the throat metric the S2 radius is 2 beta(y), and "r = 2m + u^2" belongs to
+      the plane's eq. (17)).  That it is the far end of OUR OWN plane within one universe is a global identification no
+      instrument here computes: H-END-2-IS-OUR-PLANE, the board's reading under its theorem clause (B) ("The plane's
+      two ends are one end of the bulk"), OPEN.  Against it: Simpson-Visser's maximal extension of the closest 4D
+      analogue labels the far side "Copy of our universe", and their one-universe version is "the 'looped'
+      Carter-Penrose diagram" that identifies the past and future bounces (READ in the ground stage, PDF pp.4-6),
+      which may close causal curves (against 128); two mouths in one ambient space need a non-trivial pi_1, and "The
+      topological censorship theorems say that in classical general relativity we cannot have a non-trivial first
+      homotopy group, pi_1" (Maldacena-Milekhin, READ, PDF p.12).  X7-X8 do not use the identification (their
+      J^-(P_c) lies in u >= 0); X9's one-universe placement and E-PASS's definition do.
   X2  THE HORIZON (computed).  xi = d_v has norm -alpha^2 u^2/2; g^uu = u^2/(4 alpha^2), g^yu = 0; so u = 0 is a null
       hypersurface generated by d_v at every depth, and kappa^2 = -(1/2) (nabla xi)^2 = u^2 (4 alpha'^2 + 1)/8 vanishes
-      on it at every y < y_s^th: a Killing horizon, VERTICAL and DEGENERATE at every depth (Racz-Wald's constancy met
-      with kappa = 0; the theorem standard-not-READ, cited through Karasik et al., READ in the ground stage).
-      Control: the non-degenerate g_vv = -alpha^2 (u^2 - h^2)/2 gives kappa != 0 on its horizon u = h.
-  X3  ONE WAY (deduced from the computed null directions).  The radial null directions are dv = 0 (ingoing; -d_u is
-      future-directed since g(d_v, d_u) = sqrt2 alpha^2 > 0) and du/dv = u^2/(4 sqrt2) >= 0; on u < 0 the second
-      reaches u = 0 only as v -> infinity.  So the horizon is crossed only from end 1 into end 2 (plane.py P1; 132).
-  X4  THE SINGULAR END IS KASNER (deduced, then computed).  Near y_s the leading balance of the throat ODEs gives
-      alpha ~ delta^a, beta ~ delta^b (delta = y_s - y) with a + b = 1/2, ab = -1/8: a, b = (1 +- sqrt3)/4 =
-      0.6830, -0.1830; the exponents (a, a, b, b) sum to 1 and their squares to 1.  Computed by fitting at the nine
-      ell.  Control: a mutated ODE (2pq -> 3pq) gives other exponents.
+      on it at every y < y_s^th: a Killing horizon, VERTICAL and DEGENERATE at every depth, exact on the AdS2-symmetric
+      throat only.  kappa = 0 identically, so Racz-Wald's singularity theorem, which needs kappa != 0 on a generator,
+      does not apply, and the horizon is in their class of horizons with kappa = 0, on whose regularity they decide
+      nothing (their abstract, CQG 9 (1992) 2643, as two verifiers quote it from the SciSpace record and the IOP page;
+      not re-read here, the full text NOT READ; cited before through Karasik et al., READ in the ground stage, p.3).
+      Control: the non-degenerate
+      g_vv = -alpha^2 (u^2 - h^2)/2 gives kappa != 0 on its horizon u = h.
+  X3  ONE WAY (deduced from the computed null directions).  From ef_metric's (v, u) block: the radial null directions are
+      dv = 0 (ingoing; -d_u is future-directed since g(d_v, d_u) = sqrt2 alpha^2 > 0) and du/dv = u^2/(4 sqrt2) >= 0; on
+      u < 0 the second reaches u = 0 only as v -> infinity.  So the hypersurface u = 0 is crossed only from u > 0 into
+      u < 0 (132).  At r0 = 2m this computation is the evidence; plane.py P1 covers the neighbouring non-degenerate
+      members r0 < 2m, whose two horizons have x timelike between them.
+  X4  THE SINGULAR END IS KASNER (deduced, then computed).  Near y_s put alpha ~ delta^a, beta ~ delta^b (delta = y_s - y;
+      p = -a/delta, q = -b/delta).  The two evolution equations' leading balance gives a + b = 1/2 (each gives it once);
+      the Hamiltonian constraint gives (a + b)^2 + 2ab = 0, so ab = -1/8 (1/(4 alpha^2) ~ delta^(-2a) and 1/(4 beta^2)
+      are subleading since a < 1): a, b = (1 +- sqrt3)/4 = 0.6830, -0.1830, derived here from the coded system (sympy).
+      The swapped pair is also a leading balance; alpha -> 0 (a > 0) is the computed branch.  The exponents
+      (a, a, b, b) sum to 1 and their squares to 1.  Computed by fitting at the nine ell.  Control: a mutated ODE
+      (2pq -> 3pq) gives other exponents (a = 1.002).
   X5  THE SINGULAR SURFACE IS TIMELIKE AND AT FINITE CONFORMAL DEPTH (deduced, computed).  The radial metric is
       alpha^2 (d eta^2 + g_AdS2(radius 2)), eta = int dy/alpha; since a < 1, eta_s = eta(y_s) is finite, so the
       singular surface is the boundary {eta_s} x AdS2 of a product with a line: timelike, and reachable by causal
-      curves.  Control: alpha ~ delta^1 makes eta diverge logarithmically.
-  X6  THE CAUSAL PAST OF THE CROSSING (deduced; checked by integrating null geodesics).  In the conformal frame
-      d eta^2 + 4(-dt^2 + d zeta^2)/zeta^2 (zeta = 2 sqrt2/u, v = t - zeta), a point q = (eta, zeta_q, v_q) lies in
-      J^-(P_c) iff  v_c - v_q >= zeta_q * 2 sin^2(eta/4)  (eta < 2 pi), the S2 being no help to a radial curve.  Points
-      of end 2 and of the horizon at depth > 0 are never in it.  Checked: along past-directed null geodesics from P_c
-      the equality holds to the integrator's tolerance; the control sin^2(eta/2) fails.
-  X7  THE CONE BUDGET (deduced, computed).  A causal curve from the singular layer to P_c that stays where the throat
-      geometry holds (x <= x_lim, zeta >= zeta_lim = 2 sqrt2/sqrt(x_lim)) needs an advanced-coordinate hold of at least
-      zeta_lim 2 sin^2(eta/4) and at most zeta_lim eta/2 (an explicit curve at fixed zeta, then the plane's ingoing
-      null leg, which costs no advanced coordinate).  For a layer of curvature F K_bs, x_lim is the least x_valid over
-      the layer's depth range (O(x) kept below 0.1).  Every budget lies far below the write's floor (2.0e5 clocks,
-      o3_write, kept by 163): the singular layer is in the crossing's causal past.
-  X8  WITHOUT A SECOND SHEET (deduced).  So stage 6's cone premise refutes E-PASS on its own, on the conjunction:
-      static bulk through the hold; eq. (17) on our plane at our tension; vacuum Lambda_5; the throat ODE and its O(x)
-      correction as evidence; the hold measured in advanced coordinate (H-HOLD-IN-ADVANCED-TIME, the board's: on the
-      plane's static clock the crossing lies at t = +infinity, outside every finite hold); a write of >= 2.0e5 clocks.
-  X9  WITH POSITION 2'S PIECE AT DEPTH d < y_s (computed, deduced).  With P2 (H-README-ON-P2, M's 172 (1)) mirrored,
-      the bulk beyond d is cut away, so J^-(P_c) near the throat holds slab points only, at eta <= eta(d) < eta_s: no
-      singular layer.  P2's own points with u > 0 enter J^-(P_c) down to u_min = 4 sqrt2 sin^2(eta(d)/4)/Delta_v.  In
-      the coinciding limit d -> 0 (M's 172 (2)) K -> 2(80 e^4 + 3)/(160 e^4 + 3) K_bs, the slab pinches exactly at the
-      crossing, and the README's crossing event is the coincidence event: reached at finite advanced coordinate (and
-      finite proper time of the README), never on any static slice (the world's clock), as EHM READ say of such
-      horizons.  The board decides, under 149, that this is what 172 (2)'s "never a reached point" means
-      (H-REACHED-ONLY-BY-THE-CROSSER, the board's).  At every finite ell exact coincidence costs P2 rho_m -> -2 sigma_RS
-      (sim2_facing S15); held at d >= d_+ (ell > 27.07m) the slab is still regular.
-  X10 E-Q, ITEM 177 (computed, deduced).  (a) The 5D bulk is vacuum with Lambda_5, so R_kk = 0 for every 5D null k:
-      any negative null energy read on the plane is the projected Weyl term (Maldacena-Milekhin, READ: "a classical
-      effect in five dimensions").  (b) Computed: eq. (17)'s own plane already reads negative integrated null energy
-      along the ingoing radial null ray from far out to the throat (finite; Schwarzschild's is exactly zero, the
-      control).  (c) The static throat bulk is fixed by the plane's data (an initial-value problem in y, Picard-
-      Lindelof): a static coupling that leaves the plane's data unchanged changes nothing, and a change of the plane's
-      data is a sheet or matter (computed: a perturbed p(0) moves y_s).  So E-Q, realised classically in five
-      dimensions, is a change of the bulk, and the change E-PASS needs is position 2's sheet: the coupled ends are the
-      slab, whose coincident pair carries zero net surface stress (sim2_facing S15), the +sigma/-sigma pairing of 176.
+      curves.  eta is integrated as an ODE variable to alpha = 1e-9 with the Kasner tail added ONCE (the first version
+      counted it twice: every eta_s was 1.4-2.7e-4 too high); an independent integration with eta as the independent
+      variable to alpha = 1e-12 agrees to 1e-11 (C6).  Control (computed): the same eta_of run on the mutated ODE of
+      X4's control (2pq -> 3pq, alpha ~ delta^1.002, i.e. exponent 1): eta's increment per three decades of alpha
+      stays ~9.8 (it diverges, logarithmically to the fit's precision), while the true system's shrinks ~25-fold.
+  X6  THE CAUSAL PAST OF THE CROSSING (deduced; checked by integrating geodesics).  In the conformal frame
+      d eta^2 + 4(-dt^2 + d zeta^2)/zeta^2 (zeta = 2 sqrt2/u, v = t - zeta), a point q = (eta, zeta_q, v_q) at P_c's
+      angle lies in J^-(P_c) iff  v_c - v_q >= zeta_q * 2 sin^2(eta/4)  (eta < 2 pi); at another angle the inequality
+      is necessary only (a causal curve projects to a causal curve of the radial factor; angular motion only adds).
+      Points of end 2 and of the horizon at depth > 0 are never in it.  Checked: along past-directed null geodesics
+      from P_c the equality holds to the integrator's tolerance -- one ray up to AdS2's dilatation (v -> lambda v,
+      w -> w/lambda), so the eight rays check the integrator, not eight cases; past-directed timelike geodesics land
+      strictly inside (the interior); the control sin^2(eta/2) fails.
+  X7  THE CONE BUDGET (deduced, computed).  A causal curve from conformal depth eta to P_c that stays where the throat
+      geometry holds (x <= x_lim, zeta >= zeta_lim = 2 sqrt2/sqrt(x_lim)) needs the static bulk to have stood an
+      advanced-coordinate hold v_c - v_open of at least zeta_lim 2 sin^2(eta/4) -- attained for eta <= pi; for eta > pi
+      the confined minimum is zeta_lim [1 + (eta - pi)/2] (the ground stage's g, reproduced here by a dynamic
+      programme, C9) -- and at most zeta_lim eta/2 (an explicit curve at fixed zeta, then the plane's ingoing null leg,
+      which costs no advanced coordinate).  lower <= upper is STRUCTURAL (1 - cos(eta/2) <= eta/2).  The budgets are
+      computed on the zeroth-order throat; the upper curve is null there at x = x_lim, where the O(x) terms reach 10%,
+      a rescaling the margins below absorb.
+      Computed: every layer up to K = 1e10 K_bs lies in J^-(P_c) within the O(x) range (x_lim the least x_valid over
+      the layer's depths, O(x) <= 0.1): at most 389.3 clocks over the nine ell.  Deeper, the budget computable within
+      that range grows (upper ~ K^0.126 fitted between 1e15 and 1e30 K_bs, near the verification's K^(1/8)) and is
+      unbounded at the singular surface: the layer's LOWER budget passes the write's floor at K = 1e33 K_bs (ell = inf,
+      8m; at ell = m the full system ends at alpha = 1e-6 before it).  Part of the shrinking O(x) range is a shift of
+      the singular depth with x (y_s(x) ~ y_s + s1 x, the verification's computation, not computed here), so this says
+      the instrument does not reach the singular surface within O(x); it does not say the surface is outside J^-(P_c).
+      The singular surface itself lies in J^-(P_c) only in the exact near-horizon solution held to y_s at a fixed
+      x_lim: below the floor for x_lim >= 1e-8 (the floor is 2.47 times the upper budget at 1e-8, ell = inf), above it
+      past the computed crossover (upper below x_lim = 1.64e-9, lower below 7.72e-10, ell = inf).  Those rows
+      illustrate the x_lim^(-1/2) law; they are not O(x)-supported evidence about the singular surface.
+      The comparison is v_c - v_open >= budget: it holds with v_c - v_open >= 2.0e5 when the crossing ends the write
+      (H-WRITE-IS-ARRIVAL, the board's, o3_write W3, on which the gas bound rests; 162's record set it aside, 163's keeps
+      the gas bound and 115 (c), the README carried in) and the fixed-size static corridor stands from its opening
+      through the write (162 "upon opening"; 163's carry, "B4d must keep the fixed-size corridor regular for that
+      long"): o3_write W4's reading (i) H-WRITE-IN-STATIC-HOLD, not (ii), where the corridor does not exist until the
+      README has arrived.
+  X8  WITHOUT A SECOND SHEET (deduced).  So stage 6's cone premise refutes the route with no second sheet -- SIM2-FACING
+      S14's E-PASS ("no second sheet"), the design spec's Lemma 0 -- on its own, on the conjunction: the exact throat
+      geometry down to y_s (within O(x) only finite layers up to 1e10 K_bs are placed in J^-(P_c); the singular surface
+      only in the exact near-horizon solution); 174 (1)'s strict rule as the board decided it (a curvature singularity
+      in the corridor's causal past counts against it); static bulk through the hold (H-QUASI-STATIC-CORRIDOR, the
+      board's); eq. (17) on P1 at our tension, clause (B) in full on P1 (a matter-free limit under 184); vacuum
+      Lambda_5 and the analytic class; the throat ODE and its O(x) correction as evidence; the hold measured in
+      advanced coordinate (H-HOLD-IN-ADVANCED-TIME, the board's: it coincides with O3-WRITE's gloss of H-HOLD-FRAME,
+      "T is measured in advanced time (H-HOLD-FRAME)", o3_write W3, and departs from B4D-STAGE5's gloss, "the far-time
+      frame (H-HOLD-FRAME)"; on the plane's static clock the crossing lies at t = +infinity, outside every finite hold,
+      and on such a hold X1-X10 neither refute nor save the route -- the spec's far-time X11 is to take that half up,
+      not in this file); H-WRITE-IS-ARRIVAL with the corridor standing from its opening (X7); a write of >= 2.0e5
+      clocks (o3_write W3, kept by 163); the README as a test event (no backreaction; SIM1 S3b not addressed).
+      H-END-2-IS-OUR-PLANE (X1, OPEN) is not a conjunct.  E-PASS as a whole is NOT refuted: under 183
+      (H-NEC-NEVER-VIOLATED-AS-PAIR, M's) its stationary crossing is OPEN through 177 (H-PARTNER-IS-THE-COUPLING, the
+      board's), and position 2's piece regularises the crossing's past near the throat (X9).
+  X9  WITH POSITION 2'S PIECE AT DEPTH d < y_s (computed, deduced).  With P2 mirrored (H-Z2-PIECES, the board's) and
+      carrying the README's stress (H-README-ON-P2, M's 172 (1) "Yes, it may"), the slab is bounded by P1 (y = 0) and
+      P2: y = d + f(x), a level surface (f = 0) only where W1(d) >= 0 (d >= y*), otherwise S7's class (f > 0 at x > 0:
+      the power law c x^lam, 0 < lam < 1/2, or the smooth family g1 sqrt(x) + g2 x).  No slab is cut at d: near the
+      throat J^-(P_c) holds slab points down to P2's own depth d + f(x) over its part of P2 (x from u_min^2 to x_valid(d)),
+      so "no singular layer" needs d + f(x) < y_s^th there.  Computed (C11a): it holds for the level surface at every
+      d >= y* row, for every profile at 0.1 y_s, at d_+ (ell = 32m) and in the coinciding limit at every ell; it FAILS
+      for S7's power laws at y* or the band's midpoint at ell <= m (ell = m: lam 0.1 at the band's midpoint; m/2: lam
+      0.1, 0.25 at both; m/4: all three lam at both -- each reaches y_s^th inside x_valid(d) and inside J^-(P_c)).
+      Unmirrored (E-ASYM) the slab does not exclude anything.  Away from the throat "no singular layer" needs P2 above
+      y_s(r) on all of J^-(P_c), which reaches every r with v <= v_c: OPEN (E-G, E-FAR; for the band case P2 is deeper
+      near the horizon than at its nearest point).  P2's own points with u > 0 enter J^-(P_c) down to
+      u_min = 4 sqrt2 sin^2(eta(d)/4)/Delta_v (to leading order in f).
+      The coinciding limit d -> 0 (M's 172 (2) "Yes, that is coinciding"): K -> 2(80 e^4 + 3)/(160 e^4 + 3) K_bs, and
+      the slab pinches along the plane's horizon line, which contains P_c.  On the power-law profiles P2's stress in the
+      crosser's frame diverges at P_c (computed, C11b: along the null direction n = -d_u, regular across u = 0, the
+      sheet reads 4 alpha^2 (rho + p_r)/x, which grows as x^(lam - 1)), which 174 (1)'s strict rule, as the board
+      decided it, counts against it; only the smooth family stays finite (S7; computed).  Restricted to the smooth
+      family, the README's crossing event is the coincidence event.  It is reached at finite advanced coordinate, at
+      finite proper time by a radial timelike observer on the plane (computed: u'^2 = E^2/2 - u^2/4, so u' = -E/sqrt2
+      at u = 0) and at finite affine parameter by the null README (H-README-AS-NULL-DUST, opening.py; dv = 0), never on
+      any static slice (X3, X6); compare Emparan-Horowitz-Myers on RS2's AdS5 Poincare horizons, by analogy only (READ
+      in the ground stage, PDF p.2): "... can be reached by observers in finite proper time (just like the horizons of
+      extreme charged black holes). The linearized modes studied in [1] turn out to be singular on these horizons [5]."
+      Separately, the board's reading, not derived: 172 (2)'s question said "(so it never actually touches)", and the
+      carry H-COINCIDE-DOWN-THE-THROAT's "never a reached point" is the board's wording, not M's; the board reads it as
+      "on no static slice", while the crosser does reach the event (H-REACHED-ONLY-BY-THE-CROSSER, the board's) -- an
+      inversion of the question's wording, not decided under 149, put to M with the E-PASS report.  On positive energy
+      at finite ell exact coincidence is not available within one universe (174 (3)): at every finite ell it costs P2
+      rho_m -> -2 sigma_RS (sim2_facing S15).  Held at an approach depth in P2's positive-energy window [d_+, top]
+      (ell = 32m: [0.8395m, 1.5352m]; such a window exists only for ell > 27.07m), P2's energy is positive (S15) and
+      near the throat the slab is regular there, as at any d > 0 whose profile keeps its margin (C11a); at d_+ itself
+      only power laws with lam < lam_max = 0.342 (32m), non-smooth at u = 0, hold (S15).  At ell = inf, d_+ = 0 is
+      exact coincidence, the flat limit, where the coincidence caveat above applies.  The smooth family continued
+      through u = 0 meets P1 just past the horizon on end 2's side (ground stage, scratch: u_x -> -d/g1).  The README
+      is a test event here too (SIM1 S3b, OPEN).
+  X10 E-Q, ITEM 177 (computed, deduced).  (a) The 5D bulk is vacuum with Lambda_5 (clause (B)'s premise), so
+      R_kk = -(4/ell^2) g_kk = 0 for every 5D null k (deduced).  On a vacuum piece at the RS tension (P1) the plane's
+      Einstein tensor is minus the projected bulk Weyl term, so any negative null energy read on P1 is that
+      term: Shiromizu-Maeda-Sasaki (standard-not-READ), as Bronnikov-Kim relay it (READ, gr-qc/0212112v1 PDF p.1): "In
+      vacuum, when matter on the brane is absent and the 4-dimensional cosmological constant is zero ..., these
+      equations reduce to G_mu nu = -E_mu nu, (1) where ... E_mu nu is the projection of the 5-dimensional Weyl tensor
+      onto the brane."  On P2, which carries the README's stress (172 (1)), the quadratic term pi_kk enters too (for a
+      perfect fluid (1/6) rho (rho + p)(u.k)^2, standard-not-READ; negative when rho < 0).  Maldacena-Milekhin is a
+      precedent only (READ, PDF p.12): "what looks like a quantum Casimir energy in four dimensions is actually a
+      classical effect in five dimensions (the negative classical energy of AdS3)" -- under hypotheses this bulk does
+      not meet: their 5D action carries a U(1) gauge field, "- 1/(4 g_5^2) int d^5x sqrt(g) F_mu nu F^mu nu" (eq.
+      (3.17), PDF p.8), with "a magnetic flux at the boundary of AdS5" (PDF p.9), mouths of opposite magnetic charge
+      ("two black holes with opposite charges", PDF p.4), and no horizon ("Since g_tt never vanishes", PDF p.12).
+      (b) Computed: eq. (17)'s own plane (a matter-free limit under 184) reads negative integrated null energy along the
+      ingoing radial null ray from far out to the throat, exactly (sqrt3 ln(2 + sqrt3) - 6)/(36 pi) = -0.0328828437...
+      (sympy's exact integral equals this closed form to 60 digits; reduced by hand with r = 2 + s^2, s = tan(th)/sqrt2,
+      w = sin th to -(1/(2 pi)) int_0^1 (1 - w^2)/(4 - 3 w^2) dw; Wolfram 15 gives (-6 + Sqrt[3] ArcCosh[2])/(36 Pi));
+      Schwarzschild's is exactly zero (the control).  The end-2 half, by the (v, u) -> (-v, -u) isometry, gives the same
+      value, so the full ray carries twice this (deduced; the second half uses end 2).  This is eq. (17)'s induced Weyl
+      fluid, not P1's surface stress.
+      (c) The static throat bulk is fixed by the plane's data WITHIN THE STATIC AdS2 x S2-SYMMETRIC REDUCTION (an
+      initial-value problem in y for the cohomogeneity-one ODEs: Picard-Lindelof, deduced): a static symmetric coupling
+      that leaves the plane's data unchanged changes nothing there, and a change of the plane's data is a sheet or
+      matter (computed: p(0) moved along the constraint surface, q(0) solved from the yy constraint, moves y_s both
+      ways, the constraint held to ~1e-14 along the run).  For static data that break the AdS2 x S2 symmetry, uniqueness
+      is unique continuation for the static elliptic system (standard-not-READ here; Anderson-Herzlich arXiv:0710.1305v2
+      Thm 1.1 was READ by the verification's skeptic, not by the board), while existence needs the analytic class
+      (Cauchy-Kovalevskaya; E-AN, OPEN); non-static changes are not covered (E-NS, OPEN).  Maldacena-Milekhin's own
+      classical-5D route needs bulk and plane fields (a 5D U(1) field, charged mouths) that clauses (B) and (G)
+      exclude.  [Kept as written:] So E-Q, realised classically in five dimensions, is a change of the bulk, and the
+      change E-PASS needs is position 2's sheet: the coupled ends are the slab, whose coincident pair carries zero net
+      surface stress (sim2_facing S15), the +sigma/-sigma pairing of 176.  [Labels:] "the coupled ends are the slab" is
+      the board's reading under H-PAIRING-IS-ENTANGLEMENT (176, the board's, put to M); S15's zero net is a computed
+      fact with no reading attached, a total of zero, never "positive"; and by (e) the slab carries no negative null
+      energy, so the identification does not by itself realise 177's appearance.  [Note:] superseded in part by X13:
+      position 2's piece regularises the crossing's past; it does not pay the crossing (Lemma S).
       (d) Maldacena-Qi's horizonless link (global AdS2, READ) would remove the degenerate horizon: a two-way passage,
-      against clause (O) and 132; it needs r0 > 2m (Bronnikov-Kim's wormhole branch, READ), against clause (G).  So the
-      coupling the corridor admits keeps the horizon (deduced; Gao-Jafferis-Wall's protocol NOT READ).
+      against clause (O) and 132.  Any horizonless plane metric departs from (G)'s eq. (17) at r0 = 2m, whose
+      g_tt = -(1 - 2m/r) vanishes at the throat (computed); within eq. (17)'s family that is Bronnikov-Kim's wormhole
+      branch r0 > 2m (READ, PDF p.4: "This is evidently a symmetric wormhole geometry for any r0 > 2m"), whose
+      near-throat geometry at r0 = 2m + delta is global AdS2 (deduced: -(x/2) dt^2 + dx^2/(x(x - delta)), x =
+      delta/cos^2 chi).  So the coupling the corridor admits keeps the horizon (deduced; Gao-Jafferis-Wall's protocol
+      NOT READ).
       (e) At coincidence P2's matter obeys the NEC only marginally (rho_m + p_m -> 0) and its energy density is
-      negative: 177 speaks of negative NULL energy, so as worded it does not reach this negative density -- put to M.
+      negative: 177 speaks of negative NULL energy, so as worded it does not reach this negative density.  Under 183
+      (H-NEC-NEVER-VIOLATED-AS-PAIR, M's; axiom Z3 re-read as net per light ray) the exclusion of a negative energy
+      DENSITY within one universe rests on H-POSITIVE-ON-P2 (the board's reading of 139 (2)), a positivity ruling, not
+      on the NEC.  The earlier "put to M" is withdrawn (item 178 records M's thought on this point, item 183 the
+      re-read; lemmas/ITEM178-NULL-PAIRS.md).  At exact coincidence the across-plane pair total is zero, which meets
+      H-NEC-NEVER-VIOLATED-AS-PAIR exactly; a zero total is not "positive".
+  OPEN (every item, plainly).  Crossing regularity off the exact AdS2-symmetric throat (HKS; E-AN; X1, X2, X9).  The
+      global P2: P2 above y_s(r) on all of J^-(P_c) (E-G, E-FAR; X9).  Topology and one universe: H-END-2-IS-OUR-PLANE
+      (X1).  The README as a test event: SIM1 S3b (a horizon that keeps its size absorbs nothing in one spacetime when
+      the flux obeys the NEC) bars the crossing unless a negative R_kk supplies it; under 183 that negative member is the
+      appearance (H-NEC-NEVER-VIOLATED-AS-PAIR, M's) and its supply is OPEN through 177 (H-PARTNER-IS-THE-COUPLING, the
+      board's; the spec's Lemma S), so E-PASS's stationary crossing is OPEN.  The far-time (static-clock) half of the
+      no-second-sheet refutation (X8; the spec's X11).  Symmetry-breaking static and non-static bulk changes (E-AN, E-NS;
+      X10 (c)).  H-REACHED-ONLY-BY-THE-CROSSER, put to M (X9).  The singular surface within O(x) (X7).
   It is necessary, not sufficient, and never B4d green.  No value here is a length (155 (2): bits), a distance, a
   speed (139 (4)) or anything the device sees (101 (7)); the budgets are holds for the cone premise, as stage 5 F3's.
 
-python3 sim2_passage.py [--selftest] [--json PATH]   (needs sympy, numpy, scipy, mpmath, python-flint; about a minute)
+python3 sim2_passage.py [--selftest] [--mutants] [--json PATH]
+  (needs sympy, numpy, scipy, mpmath, python-flint; --selftest about a minute; --mutants several minutes: for every
+  check a named mutation of the instrument's own input that the check must FAIL under; exit 1 if any survives)
 """
 import contextlib
 import importlib.util
+import inspect
 import io
 import json
 import math
 import os
 import sys
 import time
-import warnings
 from fractions import Fraction as Fr
+from math import gcd
 
 import numpy as np
 import sympy as sp
-from scipy.integrate import IntegrationWarning, quad, solve_ivp
+from scipy.integrate import solve_ivp
+from scipy.optimize import brentq
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-F_LAYERS = (1e2, 1e4, 1e6, 1e10)            # layers K = F K_bs
-X_LIMS = (1e-2, 1e-4, 1e-6, 1e-8)          # throat-region bounds for X7's exact-throat rows
+F_LAYERS = (1e2, 1e4, 1e6, 1e10)            # layers K = F K_bs (the claimed rows, within O(x))
+F_SCAN = (1e15, 1e20, 1e25, 1e30, 1e31, 1e32, 1e33)   # past the claimed rows: where the layer budget passes the floor
+X_LIMS = (1e-2, 1e-4, 1e-6, 1e-8)          # throat-region bounds for X7's exact-throat rows (the tested range)
+X_LIMS_PAST = (1e-9, 1e-10)                # past the tested range: the exact-throat bracket crosses the floor here
 ELL_SHOW = (Fr(0), Fr(1, 8), Fr(1))        # ell = inf, 8m, m: the ground stage's three columns
 GROUND_ETA = {"0": 5.726, "1/32": 5.466, "1/16": 5.242, "1/8": 4.876, "1/4": 4.344, "1/2": 3.680, "1": 2.969,
               "2": 2.302, "4": 1.733}      # the ground stage's eta_s (scratch, not board evidence): a cross-check only
-ETA_ERR = [0.0]                            # the largest quadrature error estimate met in eta_of
+KASNER_A = (1 + math.sqrt(3)) / 4          # X4's deduced exponent (the Kasner tail's)
+ALPHA_CUT = 1e-9                           # eta_of's y-integration stops here; the tail is added once
+ALPHA_CUT_B = 1e-12                        # the independent integration (eta as the variable) stops here
+ETA_CUTS = (1e-3, 1e-6)                    # the control's intermediate cuts (with ALPHA_CUT)
+DP_GRID = (480, 240, 6)                    # C9's dynamic programme: eta cells, w cells, stencil reach
 BANNED_KEYS = ("dist", "separation", "time", "redshift", "speed", "velocity", "length", "clock", "arrival")
+
+# The instrument's own inputs that --mutants mutates (one named mutation per check; the defaults are the instrument).
+CHART_SHIFT = 2                            # X1: t = v + CHART_SHIFT sqrt2/u
+G_VU = sp.sqrt(2)                          # X1-X3: g_vu = G_VU alpha^2
+GVV_POWER = 2                              # X2: g_vv = -alpha^2 (u^P - hh^P)/2
+KASNER_MUT = 0.0                           # X4's fits: p' gets -(2 + KASNER_MUT) p q
+KASNER_CONS_PQ = 4                         # X4's leading balance: the constraint's 4pq
+ETA_TAIL_COUNT = 1                         # X5: the Kasner tail is added this many times
+ETA_CONTROL_MUT = 1.0                      # X5's control: the mutated ODE's 2pq -> (2 + this) pq
+ADS2_R2 = 4                                # X6, X7: the conformal AdS2 factor's radius squared
+COINCIDE_FRAC = 0.0                        # X9: the coinciding limit is taken at depth COINCIDE_FRAC y_s
+PLANE_DATA = "eq17"                        # X10 (b): the plane's data
+DATA_CONSTRAINED = True                    # X10 (c): q(0) solved from the yy constraint
+INJECT_KEY = None                          # C14's mutation: a key added to the output
 
 
 def _load(path, key):
@@ -141,25 +331,38 @@ def _ricci(G, X):
 
 
 def ef_metric(hh=0, shift=2):
-    """The throat metric in the (y, v, u) chart; hh != 0 gives the non-degenerate control g_vv = -alpha^2 (u^2 - hh^2)/2."""
+    """The throat metric in the (y, v, u) chart; hh != 0 gives the non-degenerate control g_vv = -alpha^2 (u^2 - hh^2)/2.
+    g_vu = G_VU alpha^2 and the power in g_vv are the instrument's inputs (C2-C4's mutations)."""
     y, v, u, th, ph = sp.symbols("y v u theta phi", real=True)
     al, be = sp.Function("alpha")(y), sp.Function("beta")(y)
     g = sp.zeros(5)
     g[0, 0] = 1
-    g[1, 1] = -al**2 * (u**2 - hh**2) / 2
-    g[1, 2] = g[2, 1] = sp.sqrt(2) * al**2
+    g[1, 1] = -al**2 * (u**GVV_POWER - sp.sympify(hh)**GVV_POWER) / 2
+    g[1, 2] = g[2, 1] = G_VU * al**2
     g[3, 3] = 4 * be**2
     g[4, 4] = 4 * be**2 * sp.sin(th)**2
     return g, [y, v, u, th, ph], al, be
 
 
-def chart_identity(shift=2):
+def chart_identity(shift=None):
     """X1: x = u^2, t = v + shift sqrt2/u in -(x/2) dt^2 + dx^2/x^2, minus the EF form; 0 at shift = 2."""
+    shift = CHART_SHIFT if shift is None else shift
     u = sp.Symbol("u", positive=True)
     dv, du = sp.symbols("dv du")
     dt = dv - shift * sp.sqrt(2) / u**2 * du
     dx = 2 * u * du
     return sp.simplify(sp.expand(-(u**2 / 2) * dt**2 + dx**2 / u**4) - (-(u**2 / 2) * dv**2 + 2 * sp.sqrt(2) * dv * du))
+
+
+def coded_system(p, q, a, b, e, s2=1, cons_pq=4):
+    """sim2_facing's coded zeroth-order system as expressions: P = p' and Q = q' taken from sim2_facing.throat_rhs itself
+    (called on symbols, the O(x) slots zero: imported, not re-typed), and the Hamiltonian constraint C as throat_row
+    codes it (that line is not a function there, so it is written out here): the forms X1 compares against and X4's
+    leading balance is taken from.  s2 = -1 flips the S2 term (C2's control); cons_pq != 4 mutates the constraint's
+    4pq (C5's second mutation)."""
+    P, Q = SF.throat_rhs(0, [a, b, p, q] + [sp.Integer(0)] * 6, e, sp.Integer(s2))[2:4]
+    C = p**2 + q**2 + cons_pq * p * q - 6 * e**2 - 1 / (4 * b**2) + 1 / (4 * a**2)
+    return P, Q, C
 
 
 def chart_equations(s2=1):
@@ -175,12 +378,14 @@ def chart_equations(s2=1):
     sub = {sp.Derivative(al, (X[0], 2)): (P + p**2) * a, sp.Derivative(be, (X[0], 2)): (Q + q**2) * b,
            sp.Derivative(al, X[0]): p * a, sp.Derivative(be, X[0]): q * b}
     Es = {k: sp.simplify(E[k].subs(sub).subs({al: a, be: b})) for k in nonzero}
-    sol = sp.solve([Es[(1, 2)], Es[(3, 3)]], [P, Q], dict=True)[0]
-    coded_P = 4 * e**2 - 2 * p**2 - 2 * p * q - 1 / (4 * a**2)
-    coded_Q = 4 * e**2 - 2 * q**2 - 2 * p * q + s2 / (4 * b**2)
-    coded_c = p**2 + q**2 + 4 * p * q - 6 * e**2 - 1 / (4 * b**2) + 1 / (4 * a**2)
-    cons = sp.simplify(sp.expand(Es[(0, 0)].subs(sol)) / coded_c)
+    sols = sp.solve([Es.get((1, 2), 0), Es.get((3, 3), 0)], [P, Q], dict=True)
+    coded_P, coded_Q, coded_c = coded_system(p, q, a, b, e, s2)
     u = X[2]
+    if not sols or P not in sols[0] or Q not in sols[0]:
+        return {"nonzero": [list(k) for k in nonzero], "P": "no solution", "Q": "no solution", "vv_over_vu": None,
+                "uu": Es.get((2, 2), 0), "constraint_ratio": "no solution"}
+    sol = sols[0]
+    cons = sp.simplify(sp.expand(Es[(0, 0)].subs(sol)) / coded_c) if (0, 0) in Es else 0
     return {"nonzero": [list(k) for k in nonzero], "P": sp.simplify(sol[P] - coded_P), "Q": sp.simplify(sol[Q] - coded_Q),
             "vv_over_vu": sp.simplify(Es[(1, 1)] / Es[(1, 2)] + u**2 / (2 * sp.sqrt(2))) if (1, 1) in Es else None,
             "uu": Es.get((2, 2), 0), "constraint_ratio": cons}
@@ -203,15 +408,24 @@ def horizon(hh=0):
 
 
 def one_way():
-    """X3: the radial null directions of -(u^2/2) dv^2 + 2 sqrt2 dv du (per alpha^2): du/dv for the non-ingoing family,
-    and the sign of g(d_v, d_u)."""
-    u, w = sp.symbols("u w", real=True)                                   # w = du/dv
-    roots = sp.solve(sp.Eq(-(u**2 / 2) + 2 * sp.sqrt(2) * w, 0), w)
-    return {"dudv": roots, "g_v_u": sp.sqrt(2)}
+    """X3, taken from ef_metric (not a hand-typed form): the radial null directions of its (v, u) block per alpha^2
+    (g_uu = 0, so dv = 0 or du/dv = -g_vv/(2 g_vu)), the sign of g(d_v, d_u) per alpha^2, and X9's crossing at finite
+    proper time: on the plane (alpha = 1) a radial timelike geodesic with Killing energy E = -g(d_v, x') has u'^2 as
+    returned (E^2/2 - u^2/4 on the throat), so u' = -E/sqrt2 at u = 0."""
+    g, X, al, be = ef_metric()
+    u = X[2]
+    w = sp.Symbol("w", real=True)                                         # w = du/dv
+    gvv, gvu = sp.simplify(g[1, 1] / al**2), sp.simplify(g[1, 2] / al**2)
+    roots = sp.solve(sp.Eq(gvv + 2 * gvu * w, 0), w)
+    E, vd, ud = sp.symbols("E vdot udot", real=True)
+    sols = sp.solve([sp.Eq(E, -(gvv * vd + gvu * ud)), sp.Eq(gvv * vd**2 + 2 * gvu * vd * ud, -1)], [vd, ud], dict=True)
+    ud2 = sorted({str(sp.simplify(sp.expand(s_[ud]**2))) for s_ in sols})
+    return {"dudv": roots, "g_v_u": gvu, "udot2": ud2}
 
 
 # -------------------------------------------------------------------------------------------------- X4-X5 the throat
 _TB = {}
+_ETA = {}
 
 
 def tb(e):
@@ -222,20 +436,34 @@ def tb(e):
 
 
 def kasner_deduced():
-    a, b = sp.symbols("a b")
-    sols = sp.solve([sp.Eq(a + b, sp.Rational(1, 2)), sp.Eq(a * b, -sp.Rational(1, 8))], [a, b], dict=True)
-    s = max(sols, key=lambda d: d[a])
-    return {"a": s[a], "b": s[b], "sum": sp.simplify(2 * s[a] + 2 * s[b]), "squares": sp.simplify(2 * s[a]**2 + 2 * s[b]**2)}
+    """X4: the leading balance of the coded system near y_s, p = -a/delta, q = -b/delta (alpha ~ delta^a, beta ~
+    delta^b), the 4e^2, 6e^2, 1/(4 alpha^2) and 1/(4 beta^2) terms subleading for a < 1, b < 1 (dropped: a, b -> oo in
+    coded_system's alpha, beta slots).  The evolution equations give a + b = 1/2; the constraint gives ab = -1/8."""
+    A, B, dl = sp.symbols("a b delta", real=True)
+    al_, be_, e_ = sp.symbols("alpha beta e", positive=True)
+    P, Q, C = coded_system(-A / dl, -B / dl, al_, be_, e_, cons_pq=KASNER_CONS_PQ)
+    lead = lambda ex: sp.simplify(sp.expand(ex.subs({e_: 0}) * dl**2).subs({al_: sp.oo, be_: sp.oo}))
+    eq_p = sp.factor(sp.expand(-A - lead(P)))                         # p' = -a/delta^2
+    eq_q = sp.factor(sp.expand(-B - lead(Q)))
+    eq_c = sp.expand(lead(C))
+    sols = sp.solve([eq_p, eq_q, eq_c], [A, B], dict=True)
+    sols = [s_ for s_ in sols if s_[A] != 0 and s_[B] != 0]
+    s = max(sols, key=lambda d_: float(d_[A]))                        # the alpha -> 0 branch (a > 0): the computed one
+    a, b = sp.nsimplify(s[A]), sp.nsimplify(s[B])
+    return {"a": a, "b": b, "sum": sp.simplify(2 * a + 2 * b), "squares": sp.simplify(2 * a**2 + 2 * b**2),
+            "ab": sp.simplify(a * b), "a_plus_b": sp.simplify(a + b), "evolution_p": str(eq_p), "evolution_q": str(eq_q),
+            "constraint": str(eq_c), "n_branches": len(sols)}
 
 
 def _zeroth(e, mutate=0.0):
-    """The zeroth-order throat system to alpha = 1e-12 (X4's fit); mutate adds mutate*p*q to p' (the control)."""
+    """The zeroth-order throat system (SF.throat_rhs, imported) to alpha = 1e-12 (X4's fit); mutate adds -mutate*p*q to
+    p' (2pq -> (2 + mutate) pq: the control)."""
     ef = float(e)
 
     def rhs(y, u):
-        al, be, p, q = u
-        return [p * al, q * be, 4 * ef * ef - 2 * p * p - (2 + mutate) * p * q - 1 / (4 * al * al),
-                4 * ef * ef - 2 * q * q - 2 * p * q + 1 / (4 * be * be)]
+        f = SF.throat_rhs(y, list(u) + [0.0] * 6, ef)[:4]
+        f[2] -= mutate * u[2] * u[3]
+        return f
 
     def end(y, u):
         return u[0] - 1e-12
@@ -244,9 +472,10 @@ def _zeroth(e, mutate=0.0):
                      dense_output=True, max_step=0.005)
 
 
-def kasner_fit(e, mutate=0.0):
+def kasner_fit(e, mutate=None):
     """X4: the exponents d ln alpha / d ln delta and d ln beta / d ln delta at the end, delta = y_s - y, from -p delta and
     -q delta (p = alpha'/alpha), with y_s taken where alpha = 1e-12."""
+    mutate = KASNER_MUT if mutate is None else mutate
     s = _zeroth(e, mutate)
     ys = float(s.t[-1])
     out = []
@@ -256,75 +485,132 @@ def kasner_fit(e, mutate=0.0):
     return {"y_s": ys, "a": out[-1][0], "b": out[-1][1], "drift": abs(out[0][0] - out[1][0])}
 
 
-def eta_of(e, y):
-    """eta(y) = int_0^y dy/alpha on the zeroth-order throat bulk; past alpha = 1e-9 the Kasner tail is added."""
-    s = tb(e)
-    s0, ys = s["sol0"], s["y_s"]
-    yt = min(y, ys)
-    f = lambda z: 1.0 / float(s0.sol(z)[0])
-    pts = [0.0] + [ys * c for c in (0.5, 0.9, 0.99, 0.999, 0.9999, 0.99999) if ys * c < yt] + [yt]
-    val = 0.0
-    for i in range(len(pts) - 1):
-        with warnings.catch_warnings():
-            warnings.simplefilter("ignore", IntegrationWarning)     # the estimate is recorded instead (ETA_ERR)
-            v_, err = quad(f, pts[i], pts[i + 1], limit=800, epsabs=1e-12, epsrel=1e-11)
-        ETA_ERR[0] = max(ETA_ERR[0], err)
-        val += v_
-    if y >= ys:                                    # tail beyond alpha = 1e-9: alpha = c delta^a over (0, delta_end)
-        a = float(kasner_deduced()["a"])
-        al_end = float(s0.sol(ys)[0])
-        # delta_end from the local slope: alpha'/alpha = -a/delta  ->  delta = -a/p
-        p_end = float(s0.sol(ys)[2])
-        d_end = -a / p_end
-        val += d_end / (al_end * (1 - a))
-    return val
+def _eta_solve(e, mut=0.0):
+    """X5: (alpha, beta, p, q, eta) on the zeroth-order throat system (SF.throat_rhs, imported; mut adds -mut*p*q to p',
+    the control's mutation), eta' = 1/alpha integrated with the system to alpha = ALPHA_CUT, with events at ETA_CUTS."""
+    key = (str(Fr(e)), float(mut))
+    if key not in _ETA:
+        ef = float(e)
+
+        def rhs(y, u):
+            f = SF.throat_rhs(y, list(u[:4]) + [0.0] * 6, ef)[:4]
+            f[2] -= mut * u[2] * u[3]
+            return f + [1.0 / u[0]]
+        evs = []
+        for c in ETA_CUTS:
+            ev = (lambda c_: (lambda y, u: u[0] - c_))(c)
+            ev.terminal = False
+            evs.append(ev)
+
+        def end(y, u):
+            return u[0] - ALPHA_CUT
+        end.terminal = True
+        _ETA[key] = solve_ivp(rhs, [0, 40], [1.0, 1.0, -ef, -ef, 0.0], method="DOP853", rtol=1e-13, atol=1e-15,
+                              events=evs + [end], dense_output=True, max_step=0.005)
+    return _ETA[key]
 
 
-def eta_control():
-    """X5's control: alpha = delta (exponent 1) at the same y_s: eta to delta diverges like -ln delta."""
-    return [(dl, math.log(1.0 / dl)) for dl in (1e-2, 1e-4, 1e-6, 1e-8)]
+def eta_of(e, y, mut=0.0, cut=None):
+    """eta(y) = int_0^y dy/alpha on the zeroth-order throat bulk, integrated as an ODE variable (not by quadrature: the
+    first version's quadrature already extrapolated to alpha -> 0 and then had the tail added again).  For y >= y_s:
+    eta_s = eta(alpha = ALPHA_CUT) + the Kasner tail int_0^delta_end d delta/(alpha_end (delta/delta_end)^a)
+    = delta_end/(alpha_end (1 - a)), delta_end = -a/p_end, added ETA_TAIL_COUNT times (once; C6's mutation, twice).
+    cut = an alpha in ETA_CUTS + (ALPHA_CUT,): eta there, no tail (X5's control).  mut: the control's mutated ODE."""
+    s = _eta_solve(e, mut)
+    if cut is not None:
+        cuts = list(ETA_CUTS)
+        if cut in cuts:
+            ev = s.y_events[cuts.index(cut)]
+            return float(ev[0][4]) if len(ev) else float("nan")
+        return float(s.y[4, -1])
+    ys = float(s.t[-1])
+    if y < ys:
+        return float(s.sol(y)[4])
+    al, p, eta = float(s.y[0, -1]), float(s.y[2, -1]), float(s.y[4, -1])
+    d_end = -KASNER_A / p
+    return eta + ETA_TAIL_COUNT * d_end / (al * (1 - KASNER_A))
+
+
+def eta_independent(e):
+    """X5's cross-check: eta as the independent variable, d(alpha, beta, p, q, y)/d eta = alpha (alpha p, beta q, P, Q, 1)
+    (SF.throat_rhs), to alpha = ALPHA_CUT_B = 1e-12, plus the Kasner tail once."""
+    ef = float(e)
+
+    def rhs(t_, u):
+        f = SF.throat_rhs(u[4], list(u[:4]) + [0.0] * 6, ef)[:4]
+        return [u[0] * v_ for v_ in f] + [u[0]]
+
+    def end(t_, u):
+        return u[0] - ALPHA_CUT_B
+    end.terminal = True
+    s = solve_ivp(rhs, [0, 20], [1.0, 1.0, -ef, -ef, 0.0], method="DOP853", rtol=1e-13, atol=1e-16, events=[end],
+                  max_step=0.01)
+    al, p = float(s.y[0, -1]), float(s.y[2, -1])
+    return float(s.t[-1]) + (-KASNER_A / p) / (al * (1 - KASNER_A))
+
+
+def eta_control(e=Fr(1, 8)):
+    """X5's control (computed through eta_of): eta at alpha = 1e-3, 1e-6, 1e-9 on the mutated ODE of X4's control
+    (2pq -> (2 + ETA_CONTROL_MUT) pq: alpha ~ delta^1.002) and on the true system.  Their increments per three decades
+    of alpha: the mutated's do not shrink (eta diverges), the true system's shrink."""
+    cuts = list(ETA_CUTS) + [ALPHA_CUT]
+    mutated = [eta_of(e, 0.0, mut=ETA_CONTROL_MUT, cut=c) for c in cuts]
+    true = [eta_of(e, 0.0, mut=0.0, cut=c) for c in cuts]
+    inc = lambda vs: [vs[i + 1] - vs[i] for i in range(len(vs) - 1)]
+    return {"cuts": cuts, "mutated": mutated, "true": true, "mutated_inc": inc(mutated), "true_inc": inc(true)}
 
 
 # ---------------------------------------------------------------------------------------------- X6 the causal past
 def _conformal_geodesics():
-    """Christoffels of d eta^2 - 4 w^2 dv^2 + 8 dv dw (w = 1/zeta; regular through the horizon w = 0), lambdified."""
+    """Christoffels of d eta^2 + R2(-w^2 dv^2 + 2 dv dw) (w = 1/zeta; regular through the horizon w = 0; R2 = ADS2_R2 =
+    4, the radius-2 AdS2), lambdified."""
     et, v, w = sp.symbols("eta v w", real=True)
-    g = sp.Matrix([[1, 0, 0], [0, -4 * w**2, 4], [0, 4, 0]])
+    g = sp.Matrix([[1, 0, 0], [0, -ADS2_R2 * w**2, ADS2_R2], [0, ADS2_R2, 0]])
     X = [et, v, w]
     _, G = _christoffel(g, X)
     f = sp.lambdify((et, v, w), [[[G[a][b][c] for c in range(3)] for b in range(3)] for a in range(3)], "numpy")
     return f
 
 
-def jminus_check(n_rays=8, eta_to=6.0, wrong=False):
+def jminus_check(n_rays=8, eta_to=6.0, wrong=False, n_timelike=4):
     """X6: past-directed null geodesics from P_c = (eta 0, v 0, w 0); along each, the criterion's equality
-    (-v) w = 2 sin^2(eta/4) (wrong=True: 2 sin^2(eta/2), the control).  Returns the worst relative residual."""
+    (-v) w = 2 sin^2(eta/4) (wrong=True: 2 sin^2(eta/2), the control); the rays are one orbit of the dilatation
+    v -> lambda v, w -> w/lambda.  And past-directed timelike geodesics: the strict inequality, the interior.
+    Returns the worst relative residual on the null rays and the least relative margin on the timelike ones."""
     G = _conformal_geodesics()
 
     def rhs(lam, s):
-        x, d = s[:3], s[3:]
+        x, d_ = s[:3], s[3:]
         Ga = np.array(G(*x), dtype=float)
-        acc = [-sum(Ga[a][b][c] * d[b] * d[c] for b in range(3) for c in range(3)) for a in range(3)]
-        return list(d) + acc
+        acc = [-sum(Ga[a][b][c] * d_[b] * d_[c] for b in range(3) for c in range(3)) for a in range(3)]
+        return list(d_) + acc
 
     def stop(lam, s):
         return s[0] - eta_to
     stop.terminal = True
+    crit = lambda et: 2 * math.sin(et / (2 if wrong else 4))**2
+
+    def ray(c1, wd):
+        return solve_ivp(rhs, [0, 1e4], [0.0, 0.0, 0.0, c1, -1.0, wd], method="DOP853", rtol=1e-12, atol=1e-14,
+                         events=[stop], dense_output=True)
     worst = 0.0
     for k in range(n_rays):
-        c1 = 0.3 + 2.7 * k / max(1, n_rays - 1)                     # d eta/d lambda
-        vd = -1.0                                                     # past-directed
-        wd = c1 * c1 / 8.0                                            # null at w = 0: c1^2 + 8 vd wd = 0
-        sol = solve_ivp(rhs, [0, 1e4], [0.0, 0.0, 0.0, c1, vd, wd], method="DOP853", rtol=1e-12, atol=1e-14,
-                        events=[stop], dense_output=True)
+        c1 = 0.3 + 2.7 * k / max(1, n_rays - 1)                     # d eta/d lambda; v' = -1 (past-directed)
+        sol = ray(c1, c1 * c1 / (2 * ADS2_R2))                       # null at w = 0: c1^2 + 2 R2 v' w' = 0
         for lam in np.linspace(sol.t[-1] * 0.05, sol.t[-1], 40):
             et, v, w = sol.sol(lam)[:3]
-            rhs_v = 2 * math.sin(et / (2 if wrong else 4))**2
-            lhs = -v * w
-            worst = max(worst, abs(lhs - rhs_v) / max(rhs_v, 1e-12))
-    return worst
+            worst = max(worst, abs(-v * w - crit(et)) / max(crit(et), 1e-12))
+    margin = float("inf")
+    for k in range(n_timelike):
+        c1 = 0.5 + 0.8 * k
+        sol = ray(c1, c1 * c1 / (2 * ADS2_R2) + 0.05 * (1 + k))      # timelike: c1^2 + 2 R2 v' w' < 0
+        for lam in np.linspace(sol.t[-1] * 0.05, sol.t[-1], 40):
+            et, v, w = sol.sol(lam)[:3]
+            margin = min(margin, (-v * w) / max(crit(et), 1e-12) - 1)
+    return {"worst": worst, "interior_margin": margin}
 
 
+# ---------------------------------------------------------------------------------------------- X7 the cone budget
 def budget(eta, x_lim):
     """X7: the advanced-coordinate hold (clocks) a causal curve from a point at conformal depth eta, kept at x <= x_lim,
     needs to reach P_c: [lower, upper] = zeta_lim [2 sin^2(eta/4), eta/2]."""
@@ -332,8 +618,47 @@ def budget(eta, x_lim):
     return z * 2 * math.sin(eta / 4)**2, z * eta / 2
 
 
+def g_confined(eta):
+    """The ground stage's confined minimum per zeta_lim: 2 sin^2(eta/4) for eta <= pi, 1 + (eta - pi)/2 beyond."""
+    return 2 * math.sin(eta / 4)**2 if eta <= math.pi else 1 + (eta - math.pi) / 2
+
+
+def budget_tight(eta, x_lim):
+    """X7: zeta_lim g(eta), the least hold for a curve confined to x <= x_lim (C9 checks it against the programme)."""
+    return 2 * math.sqrt(2) / math.sqrt(x_lim) * g_confined(eta)
+
+
+def dp_confined(eta_max=6.2, grid=None):
+    """C9's independent computation: a dynamic programme for the least advanced-coordinate hold v_c - v_q from
+    (eta, w = 1) (zeta = zeta_lim = 1; holds scale with zeta_lim) to P_c = (0, w = 0), over causal curves of
+    d eta^2 + R2(-w^2 dv^2 + 2 dv dw) confined to w <= 1.  A future causal step (d eta, dw) costs at least
+    dv_+ = (d eta^2/R2)/(sqrt(dw^2 + w^2 d eta^2/R2) - dw); steps toward the plane over a stencil of reach K, free
+    inward moves (dv = 0) at fixed eta.  Returns (eta grid, least hold at w = 1)."""
+    n_eta, n_w, K = grid or DP_GRID
+    he, hw = eta_max / n_eta, 1.0 / n_w
+    W = np.arange(n_w + 1) * hw
+    V = np.full((n_eta + 1, n_w + 1), np.inf)
+    V[0, :] = 0.0                                                   # on the plane the ingoing null leg costs nothing
+    steps = [(i, j) for i in range(1, K + 1) for j in range(-K, K + 1) if gcd(i, abs(j)) == 1]
+    for i in range(1, n_eta + 1):
+        best = np.full(n_w + 1, np.inf)
+        for di, dj in steps:
+            if di > i:
+                continue
+            idx = np.arange(max(0, -dj), min(n_w, n_w - dj) + 1)
+            wm = (W[idx] + W[idx + dj]) / 2
+            deta, dw = di * he, dj * hw
+            s = np.sqrt(dw * dw + wm * wm * deta * deta / ADS2_R2)
+            with np.errstate(divide="ignore", invalid="ignore"):
+                cost = np.where(s - dw > 0, (deta * deta / ADS2_R2) / (s - dw), np.inf)
+            best[idx] = np.minimum(best[idx], V[i - di][idx + dj] + cost)
+        V[i] = np.minimum.accumulate(best)
+    return np.arange(n_eta + 1) * he, V[:, -1]
+
+
 def layer(e, F):
-    """X7: the layer K_th = F K_bs: its depth, eta there, x_lim = min x_valid over [0, y_K] (O(x) <= 0.1), and its budget."""
+    """X7: the layer K_th = F K_bs: its depth, eta there, x_lim = min x_valid over [0, y_K] (O(x) <= 0.1), its budget
+    and the confined minimum."""
     s = tb(e)
     yK = SF._yK(s, F)
     if yK is None:
@@ -342,7 +667,17 @@ def layer(e, F):
     xl = min(SF.x_valid(s, z) for z in ys)
     et = eta_of(e, yK)
     lo, hi = budget(et, xl)
-    return {"F": F, "y_K": yK, "eta": et, "x_lim": xl, "lower": lo, "upper": hi}
+    return {"F": F, "y_K": yK, "eta": et, "x_lim": xl, "lower": lo, "upper": hi, "tight": budget_tight(et, xl)}
+
+
+def layer_scan(e, floor):
+    """X7, past the claimed rows: the layers at F_SCAN, the first F whose LOWER budget passes the write's floor (None if
+    the full system ends first), and the fitted exponent of the upper budget in K between 1e15 and 1e30 K_bs."""
+    rows = [layer(e, F) for F in F_SCAN]
+    cross = next((L["F"] for L in rows if L and L["lower"] > floor), None)
+    byF = {L["F"]: L for L in rows if L}
+    expo = (math.log(byF[1e30]["upper"] / byF[1e15]["upper"]) / math.log(1e15)) if 1e15 in byF and 1e30 in byF else None
+    return {"rows": rows, "crossover_F": cross, "exponent": expo}
 
 
 # ------------------------------------------------------------------------------------------ X9 position 2's piece
@@ -356,30 +691,103 @@ def k_ratio_zero_deduced(e):
     return 2 * (80 * ef**4 + 3) / (160 * ef**4 + 3)
 
 
+SLAB_KINDS = (("level",),) + tuple(SF.CO_KINDS)       # the level surface, S7's power laws, the smooth family
+
+
+def _kname(kind):
+    return "level" if kind[0] == "level" else SF._kind_name(kind)
+
+
+def _profile_margin(s, dep, xv, kind, W1, ys):
+    """X9: y_s^th minus P2's deepest point d + f(x) over x <= x_valid(d) (the verification's convention), and where a
+    power law reaches y_s^th (x_hit).  None for a level surface where W1(d) < 0 (not admissible) or at depth 0."""
+    if kind[0] == "level":
+        if dep <= 0 or float(W1(dep)) < -1e-9:
+            return None, None
+        return ys - dep, None
+    g2 = SF._smooth_g2(s, dep, W1) if kind[0] == "smooth" else 0.0
+    xs = np.logspace(-14, math.log10(xv), 240)
+    fmax = max(SF._profile(kind, x, g2)[0] for x in xs)
+    mg = ys - dep - fmax
+    xh = None
+    if mg < 0 and kind[0] == "pow":
+        h = lambda lx: dep + SF._profile(kind, 10.0**lx, g2)[0] - ys
+        if h(-14.0) >= 0:
+            xh = 0.0                                   # already deeper than y_s^th at x = 1e-14, the grid's floor
+        elif h(math.log10(xv)) > 0:
+            xh = 10.0 ** brentq(h, -14.0, math.log10(xv), xtol=1e-12)
+    return mg, xh
+
+
 def slab_rows(e, dv):
-    """X9: depths of P2 -- y*, the band's midpoint, 0.1 y_s, d_+ where it exists -- with eta(d), K/K_bs at d, and
-    u_min = 4 sqrt2 sin^2(eta(d)/4)/Delta_v at Delta_v = the write's floor."""
+    """X9: depths of P2 -- depth 0 (the coinciding limit), y*, the band's midpoint, 0.1 y_s, d_+ where it exists
+    (including d_+ = 0.0 at ell = inf, the flat limit) -- with eta(d), K/K_bs at d, u_min = 4 sqrt2 sin^2(eta(d)/4)/Delta_v
+    at Delta_v = the write's floor, and per profile the margin y_s^th - max(d + f) over x <= x_valid(d) (a level
+    surface only where W1(d) >= 0) with, where a power law reaches y_s^th, its x_hit and whether that point is in
+    J^-(P_c) (P2's points with x >= u_min^2 are in it at Delta_v = the floor; u_min taken at eta_s: x_valid(d) >=
+    max(x_hit, u_min(eta_s)^2)); x_hit = 0.0 means already past y_s^th at x = 1e-14, the grid's floor."""
     s = tb(e)
-    yst, _ = SF._ystar(s)
-    rows = {}
-    cand = {"y_star": yst, "band_mid": None if yst is None else (yst + s["y_end"]) / 2, "tenth": 0.1 * s["y_s"]}
+    ys = s["y_s"]
+    yst, W1 = SF._ystar(s)
+    eta_s = eta_of(e, ys * 1.0001)
+    u_min_s = 4 * math.sqrt(2) * math.sin(eta_s / 4)**2 / dv
+    cand = {"zero": 0.0, "y_star": yst, "band_mid": None if yst is None else (yst + s["y_end"]) / 2, "tenth": 0.1 * ys}
     w = SF.wec_window(s)
-    if w["d_plus"]:
+    if w["d_plus"] is not None:                    # 0.0 at ell = inf is a row (the flat limit), not a skip
         cand["d_plus"] = w["d_plus"]
-    for k, d in cand.items():
-        if d is None:
+    rows = {}
+    for k, dep in cand.items():
+        if dep is None:
             continue
-        et = eta_of(e, d)
-        rows[k] = {"depth": d, "eta": et, "eta_over_eta_s": et / eta_of(e, s["y_s"] * 1.0001),
-                   "K_ratio": k_ratio(e, d), "u_min": 4 * math.sqrt(2) * math.sin(et / 4)**2 / dv}
+        et = eta_of(e, dep)
+        xv = SF.x_valid(s, dep)
+        margins, hits = {}, {}
+        for kind in SLAB_KINDS:
+            mg, xh = _profile_margin(s, dep, xv, kind, W1, ys)
+            margins[_kname(kind)] = mg
+            if xh is not None:                     # P2 is deeper than y_s^th on [x_hit, x_valid(d)]; that part
+                hits[_kname(kind)] = {"x_hit": xh, "in_cone": xv >= max(xh, u_min_s**2)}   # meets J^-: x >= u_min^2
+        rows[k] = {"depth": dep, "eta": et, "eta_over_eta_s": et / eta_s, "K_ratio": k_ratio(e, dep),
+                   "u_min": 4 * math.sqrt(2) * math.sin(et / 4)**2 / dv, "x_valid": xv,
+                   "W1": float(W1(max(dep, 1e-9))), "margins": margins, "hits": hits}
     return rows
 
 
+def slab_window(e):
+    """X9: S15's positive-energy window [d_+, top] and lam_max at d_+ (sim2_facing.wec_window)."""
+    w = SF.wec_window(tb(e))
+    return {"d_plus": w["d_plus"], "top": w["top"], "lam_max": w.get("lam_max")}
+
+
+def crosser_frame(e, xs=(1e-4, 1e-8, 1e-12)):
+    """X9 (C11b): P2's surface stress at the coinciding depth (0) as the crosser at P_c reads it, along the null
+    direction n = -d_u, regular across u = 0: n = (2 alpha/u)(e_0 - e_1) in the static frame (deduced from x = u^2,
+    t = v + 2 sqrt2/u), so S(n, n) = 4 alpha^2 (rho + p_r)/x, with rho + p_r from sim2_facing.piece_stress.  Per profile:
+    the values along x -> 0 and their growth (last/first)."""
+    s = tb(e)
+    _, W1 = SF._ystar(s)
+    g2 = SF._smooth_g2(s, 0.0, W1)
+    out = {}
+    for kind in SF.CO_KINDS:
+        vals = []
+        for xv in xs:
+            st = SF.piece_stress(s, 0.0, xv, kind, g2)
+            al = float(s["sol"].sol(SF._profile(kind, xv, g2)[0])[0])
+            vals.append(4 * al * al * st["nec_r"] / xv)
+        out[SF._kind_name(kind)] = {"values": vals, "growth": vals[-1] / vals[0]}
+    return out
+
+
 # ----------------------------------------------------------------------------------------------------- X10 E-Q
+ANEC_CLOSED = (sp.sqrt(3) * sp.log(2 + sp.sqrt(3)) - 6) / (36 * sp.pi)
+
+
 def plane_null_energy(data="eq17"):
     """X10 (b): on the plane's metric -F dt^2 + dr^2/H + r^2 dOmega^2, rho + p_r = (G^r_r - G^t_t)/(8 pi) and the
     integrated null energy along the ingoing radial null ray (energy 1), int (rho + p_r)/sqrt(F H) dr, from r = 2m to
-    infinity.  eq17: Bronnikov-Kim's eq. (17) at r0 = 2m; schw: Schwarzschild (the control, exactly zero)."""
+    infinity, numerically (mpmath, 30 digits) and exactly (sympy, after r = 2 + s^2), with the exact value's distance
+    from the closed form (sqrt3 ln(2 + sqrt3) - 6)/(36 pi) at 60 digits.  eq17: Bronnikov-Kim's eq. (17) at r0 = 2m;
+    schw: Schwarzschild (the control, exactly zero).  g_tt at the throat is returned too (X10 (d))."""
     r = sp.Symbol("r", positive=True)
     t, th, ph = sp.symbols("t theta phi", real=True)
     F, H = (SF.B4._eq17 if data == "eq17" else SF.B4._schwarzschild)(r)
@@ -389,64 +797,118 @@ def plane_null_energy(data="eq17"):
     Rs = sp.simplify(sum(gi[i] * R(i, i) for i in range(4)))
     nec = sp.factor(sp.simplify((Rr - Rt) / (8 * sp.pi)))               # G^r_r - G^t_t = R^r_r - R^t_t
     bk18 = -(r - 2) * (2 - sp.Rational(3, 2)) / (r**2 * (r - sp.Rational(3, 2))**2)
-    integrand = sp.lambdify(r, sp.simplify(nec / sp.sqrt(F * H)), "mpmath")
+    integrand = sp.simplify(nec / sp.sqrt(F * H))
+    f = sp.lambdify(r, integrand, "mpmath")
     import mpmath as mp
     mp.mp.dps = 30
-    val = mp.quad(integrand, [2, 2.001, 2.1, 3, 10, mp.inf]) if data == "eq17" else mp.quad(integrand, [2.5, 10, mp.inf])
+    val = mp.quad(f, [2, 2.001, 2.1, 3, 10, mp.inf]) if data == "eq17" else mp.quad(f, [2.5, 10, mp.inf])
+    s = sp.Symbol("s", positive=True)
+    gs = sp.simplify(integrand.subs(r, 2 + s**2) * 2 * s)
+    exact = sp.integrate(gs, (s, 0, sp.oo))
+    diff = complex(sp.N(exact - ANEC_CLOSED, 60))
     return {"R": Rs, "nec": nec, "bk18_ratio": sp.simplify(nec * 8 * sp.pi / bk18) if data == "eq17" else None,
-            "anec": float(val)}
+            "anec": float(val), "integrand_s": gs, "exact_minus_closed": abs(diff), "g_tt_at_throat": sp.simplify(-F.subs(r, 2))}
 
 
 def data_fixes_bulk(dp=1e-3):
-    """X10 (c): the throat bulk is the solution of an initial-value problem in y from the plane's data; a change of
-    p(0) (matter on the plane) moves y_s.  Returns y_s at the vacuum data and at p(0) = -e +- dp, ell = 8m."""
+    """X10 (c): the throat bulk is the solution of an initial-value problem in y from the plane's data; a change of the
+    data (matter on the plane) moves y_s.  p(0) = -e -+ dp at ell = 8m, with q(0) solved from the yy constraint
+    p^2 + q^2 + 4pq - 6e^2 = 0 at alpha = beta = 1 (the root through -e: q0 = -2 p0 - sqrt(3 p0^2 + 6 e^2)); with
+    DATA_CONSTRAINED False (C13's mutation) q(0) is held at -e, off the constraint surface (the first version's data).
+    Returns y_s (alpha = 1e-9) for the vacuum data and the two perturbations, the q0 used, and the largest relative
+    constraint residual along [0, 0.95 y_s] over the three runs."""
     ef = 1 / 8
 
     def run(p0):
+        q0 = -2 * p0 - math.sqrt(3 * p0 * p0 + 6 * ef * ef) if DATA_CONSTRAINED else -ef
+
         def rhs(y, u):
-            al, be, p, q = u
-            return [p * al, q * be, 4 * ef * ef - 2 * p * p - 2 * p * q - 1 / (4 * al * al),
-                    4 * ef * ef - 2 * q * q - 2 * p * q + 1 / (4 * be * be)]
+            return SF.throat_rhs(y, list(u) + [0.0] * 6, ef)[:4]
 
         def end(y, u):
             return u[0] - 1e-9
         end.terminal = True
-        return float(solve_ivp(rhs, [0, 12], [1.0, 1.0, p0, -ef], method="DOP853", rtol=1e-12, atol=1e-15,
-                               events=[end], max_step=0.005).t[-1])
-    return {"vacuum": run(-ef), "minus": run(-ef - dp), "plus": run(-ef + dp)}
+        sol = solve_ivp(rhs, [0, 12], [1.0, 1.0, p0, q0], method="DOP853", rtol=1e-12, atol=1e-15, events=[end],
+                        max_step=0.005, dense_output=True)
+        ys = float(sol.t[-1])
+        al, be, p, q = sol.sol(np.linspace(0, 0.95 * ys, 2000))
+        cons = p * p + q * q + 4 * p * q - 6 * ef * ef - 1 / (4 * be * be) + 1 / (4 * al * al)
+        scale = p * p + q * q + 1 / (4 * al * al) + 1 / (4 * be * be) + 6 * ef * ef
+        return ys, q0, float(np.max(np.abs(cons) / scale))
+    v0, mi, pl = run(-ef), run(-ef - dp), run(-ef + dp)
+    return {"vacuum": v0[0], "minus": mi[0], "plus": pl[0], "q0_minus": mi[1], "q0_plus": pl[1],
+            "cons_max": max(v0[2], mi[2], pl[2])}
 
 
 # ------------------------------------------------------------------------------------------------------- compute
-def compute():
+SECTIONS = ("chart", "horizon", "one_way", "kasner", "eta", "jminus", "budgets", "slab", "coincide", "frame", "eq",
+            "data", "inject")
+
+
+def compute(only=None):
+    """The instrument's output; only = a subset of SECTIONS recomputes those (--mutants)."""
     t0 = time.time()
+    want = lambda k: only is None or k in only
     dv = write_floor()
     out = {"write_floor": dv}
-    out["chart"] = {"identity": str(chart_identity()), "identity_control": str(chart_identity(shift=1))}
-    ce = chart_equations()
-    out["chart"]["equations"] = {k: str(v) for k, v in ce.items()}
-    out["chart"]["equations_control_Q"] = str(chart_equations(s2=-1)["Q"])
-    hz, hc = horizon(), horizon(hh=sp.Rational(1, 3))
-    out["horizon"] = {k: str(v) for k, v in hz.items()}
-    out["horizon_control_kappa2_on"] = str(hc["kappa2_on"])
-    out["one_way"] = {k: str(v) for k, v in one_way().items()}
-    kd = kasner_deduced()
-    out["kasner"] = {"deduced": {k: str(v) for k, v in kd.items()}, "a_num": float(kd["a"]), "b_num": float(kd["b"]),
-                     "fits": {str(e): kasner_fit(e) for e in ES2}, "control": kasner_fit(Fr(1, 8), mutate=1.0)}
-    out["eta_s"] = {str(e): eta_of(e, tb(e)["y_s"] * 1.0001) for e in ES2}
-    out["eta_control"] = eta_control()
-    out["eta_quad_err"] = ETA_ERR[0]
-    out["jminus"] = {"worst": jminus_check(), "control": jminus_check(n_rays=4, wrong=True)}
-    rows = {}
-    for e in ES2:
-        es = out["eta_s"][str(e)]
-        rows[str(e)] = {"exact_throat": {str(x): budget(es, x) for x in X_LIMS},
-                        "layers": [layer(e, F) for F in F_LAYERS]}
-    out["budgets"] = rows
-    out["slab"] = {str(e): slab_rows(e, dv) for e in ES2}
-    out["coincide_K"] = {str(e): {"computed": k_ratio(e, 0.0), "deduced": k_ratio_zero_deduced(e)} for e in ES2}
-    out["eq"] = {"eq17": {k: str(v) if k != "anec" else v for k, v in plane_null_energy("eq17").items()},
-                 "schw": {k: str(v) if k != "anec" else v for k, v in plane_null_energy("schw").items()},
-                 "data": data_fixes_bulk()}
+    if want("chart"):
+        out["chart"] = {"identity": str(chart_identity()), "identity_control": str(chart_identity(shift=1))}
+        ce = chart_equations()
+        out["chart"]["equations"] = {k: str(v) for k, v in ce.items()}
+        out["chart"]["equations_control_Q"] = str(chart_equations(s2=-1)["Q"])
+    if want("horizon"):
+        hz, hc = horizon(), horizon(hh=sp.Rational(1, 3))
+        out["horizon"] = {k: str(v) for k, v in hz.items()}
+        out["horizon_control_kappa2_on"] = str(hc["kappa2_on"])
+    if want("one_way"):
+        ow = one_way()
+        out["one_way"] = {"dudv": [str(r_) for r_ in ow["dudv"]], "g_v_u": str(ow["g_v_u"]),
+                          "g_v_u_num": float(ow["g_v_u"]) if ow["g_v_u"].is_number else None, "udot2": ow["udot2"]}
+    if want("kasner"):
+        kd = kasner_deduced()
+        out["kasner"] = {"deduced": {k: str(v) for k, v in kd.items()}, "a_num": float(kd["a"]), "b_num": float(kd["b"]),
+                         "fits": {str(e): kasner_fit(e) for e in ES2}, "control": kasner_fit(Fr(1, 8), mutate=1.0)}
+    if want("eta"):
+        out["eta_s"] = {str(e): eta_of(e, tb(e)["y_s"] * 1.0001) for e in ES2}
+        out["eta_s_independent"] = {str(e): eta_independent(e) for e in ES2}
+        out["eta_ab_diff"] = max(abs(out["eta_s"][k] - out["eta_s_independent"][k]) for k in out["eta_s"])
+        out["eta_control"] = eta_control()
+    if want("jminus"):
+        out["jminus"] = {"null": jminus_check(), "control": jminus_check(n_rays=4, wrong=True, n_timelike=0)}
+    if want("budgets"):
+        rows = {}
+        for e in ES2:
+            es = eta_of(e, tb(e)["y_s"] * 1.0001)
+            rows[str(e)] = {"exact_throat": {str(x): budget(es, x) for x in X_LIMS},
+                            "exact_throat_past": {str(x): budget(es, x) for x in X_LIMS_PAST},
+                            "x_cross_lower": 8 * (2 * math.sin(es / 4)**2 / dv)**2,
+                            "x_cross_upper": 8 * (es / 2 / dv)**2,
+                            "layers": [layer(e, F) for F in F_LAYERS]}
+        out["budgets"] = rows
+        out["layer_scan"] = {str(e): layer_scan(e, dv) for e in ELL_SHOW}
+        grid, vdp = dp_confined()
+        z2 = 2 * math.sqrt(2) / math.sqrt(1e-2)
+        etas = sorted({round(eta_of(e, tb(e)["y_s"] * 1.0001), 12) for e in ES2}
+                      | {round(L["eta"], 12) for r_ in rows.values() for L in r_["layers"] if L})
+        out["dp_check"] = [{"eta": et, "lower_n": budget(et, 1e-2)[0] / z2, "upper_n": budget(et, 1e-2)[1] / z2,
+                            "dp": float(np.interp(et, grid, vdp)), "g": g_confined(et)} for et in etas]
+    if want("slab"):
+        out["slab"] = {str(e): slab_rows(e, dv) for e in ES2}
+        out["slab_window"] = {str(e): slab_window(e) for e in ES2}
+    if want("coincide"):
+        out["coincide_K"] = {str(e): {"computed": float(k_ratio(e, COINCIDE_FRAC * tb(e)["y_s"])),
+                                      "deduced": k_ratio_zero_deduced(e)} for e in ES2}
+    if want("frame"):
+        out["crosser_frame"] = {str(e): crosser_frame(e) for e in ELL_SHOW + (Fr(1, 32),)}
+    if want("eq"):
+        q17, qs = plane_null_energy(PLANE_DATA), plane_null_energy("schw")
+        keep = lambda q: {k: (v if isinstance(v, (float, type(None))) else str(v)) for k, v in q.items()}
+        out["eq"] = {"eq17": keep(q17), "schw": keep(qs), "closed": str(ANEC_CLOSED),
+                     "closed_num": float(ANEC_CLOSED)}
+    if want("data"):
+        out.setdefault("eq", {})["data"] = data_fixes_bulk()
+    if want("inject") and INJECT_KEY:
+        out[INJECT_KEY] = 0
     out["seconds"] = time.time() - t0
     return out
 
@@ -462,10 +924,14 @@ def _keys(o, path=""):
 
 
 def address_guard(out):
-    """No key of the output names a length, distance, time, speed, redshift, clock or arrival (155 (2), 139 (4), 101 (7));
-    write_floor and the budgets are holds for the cone premise."""
-    bad = [k for k in _keys(out) if any(b in k.lower() for b in BANNED_KEYS)]
-    return bad
+    """No key of the output names a length, distance, time, speed, redshift, clock or arrival (155 (2), 139 (4), 101 (7)),
+    and no function of this instrument takes an argument named in sim2_facing.BANNED_ARGS (a plane separation); the
+    write floor and the budgets are holds for the cone premise."""
+    mod = sys.modules[__name__]
+    funcs = [f for _, f in inspect.getmembers(mod, inspect.isfunction) if f.__module__ == mod.__name__]
+    bad_args = sorted({f"{f.__name__}({p})" for f in funcs for p in inspect.signature(f).parameters
+                       if p in SF.BANNED_ARGS})
+    return [k for k in _keys(out) if any(b in k.lower() for b in BANNED_KEYS)] + bad_args
 
 
 def _ell(k):
@@ -473,9 +939,21 @@ def _ell(k):
     return "inf" if e == 0 else (f"{1/e}m" if (1 / e).denominator == 1 else f"{float(1/e)}m")
 
 
+def _fails(out):
+    """X9's negative result: the (ell, row, profile) at which P2 reaches y_s^th within x_valid(d)."""
+    return [(e, k, kn) for e, rws in out["slab"].items() for k, r_ in rws.items()
+            for kn, mg in r_["margins"].items() if mg is not None and mg <= 0]
+
+
+def _xh(v):
+    return "?" if v is None else ("< 1e-14" if v == 0 else f"{v:.2g}")
+
+
 def report(out):
     P = print
     P("sim2_passage.py -- E-PASS, the passage through the corridor object's own horizon (not verified; not seated)")
+    P("  184: every matter-free plane below (P1 under clause (B) in full; Schwarzschild's control) is a limit, not M's "
+      "configuration; X1-X10 are the board's configuration, re-read under 179-180 (H-CORRIDOR-IN-BULK)")
     P(f"write floor (o3_write, example README): {out['write_floor']:.4g} clocks")
     P("X1 chart identity:", out["chart"]["identity"], "| control (shift 1):", out["chart"]["identity_control"][:40], "...")
     P("X1 EF vacuum equations vs coded: P", out["chart"]["equations"]["P"], "Q", out["chart"]["equations"]["Q"],
@@ -484,117 +962,310 @@ def report(out):
     h = out["horizon"]
     P("X2 horizon: xi^2 =", h["norm"], " g^uu =", h["g_uu_inv"], " g^yu =", h["g_yu_inv"], " kappa^2 =", h["kappa2"],
       " on u=0:", h["kappa2_on"], "| control (u^2 - 1/9) on its horizon:", out["horizon_control_kappa2_on"])
-    P("X3 null directions: du/dv =", out["one_way"]["dudv"], "(and dv = 0); g(d_v, d_u) =", out["one_way"]["g_v_u"])
+    ow = out["one_way"]
+    P("X3 null directions (from ef_metric): du/dv =", ow["dudv"], "(and dv = 0); g(d_v, d_u)/alpha^2 =", ow["g_v_u"],
+      "| on the plane u'^2 =", ow["udot2"])
     k = out["kasner"]
-    P(f"X4 Kasner deduced a = {k['deduced']['a']} = {k['a_num']:.6f}, b = {k['b_num']:.6f}; 2a+2b = "
-      f"{k['deduced']['sum']}, 2a^2+2b^2 = {k['deduced']['squares']}")
+    kd = k["deduced"]
+    P(f"X4 Kasner deduced (leading balance of the coded system): evolution {kd['evolution_p']} = 0, "
+      f"{kd['evolution_q']} = 0 -> a + b = {kd['a_plus_b']}; constraint {kd['constraint']} = 0 -> ab = {kd['ab']}")
+    P(f"    a = {kd['a']} = {k['a_num']:.6f}, b = {k['b_num']:.6f}; 2a+2b = {kd['sum']}, 2a^2+2b^2 = {kd['squares']}")
     for e, f in k["fits"].items():
         P(f"    ell = {_ell(e):>6}: a = {f['a']:.6f}, b = {f['b']:.6f}")
     P(f"    control (2pq -> 3pq): a = {k['control']['a']:.4f}, b = {k['control']['b']:.4f}")
-    P("X5 eta_s (conformal depth of the singular surface; ground stage's value in brackets):")
+    P("X5 eta_s (conformal depth of the singular surface; tail counted once) | independent (eta as variable) | ground:")
     for e, v in out["eta_s"].items():
-        P(f"    ell = {_ell(e):>6}: eta_s = {v:.4f} [{GROUND_ETA[e]}]  eta_s/pi = {v/math.pi:.3f}")
-    P(f"    largest quadrature error estimate in eta: {out['eta_quad_err']:.1e}")
-    P("    control alpha ~ delta: eta grows as ln(1/delta):", [round(v, 1) for _, v in out["eta_control"]])
-    P(f"X6 J^-(P_c) criterion along null geodesics: worst relative residual {out['jminus']['worst']:.2e}; "
-      f"control sin^2(eta/2): {out['jminus']['control']:.2e}")
-    P("X7 cone budgets [lower, upper], clocks (advanced coordinate):")
+        P(f"    ell = {_ell(e):>6}: eta_s = {v:.7f} | {out['eta_s_independent'][e]:.7f} | [{GROUND_ETA[e]}]  "
+          f"eta_s/pi = {v/math.pi:.3f}")
+    P(f"    largest |eta_s - independent|: {out['eta_ab_diff']:.1e}")
+    c = out["eta_control"]
+    P("    control through eta_of, eta at alpha = 1e-3, 1e-6, 1e-9 (ell = 8m): mutated ODE (alpha ~ delta^1.002)",
+      [round(v, 3) for v in c["mutated"]], "increments", [round(v, 3) for v in c["mutated_inc"]], "| true system",
+      [round(v, 6) for v in c["true"]], "increments", [f"{v:.2e}" for v in c["true_inc"]])
+    j = out["jminus"]
+    P(f"X6 J^-(P_c) criterion along null geodesics (one ray up to dilatation): worst relative residual "
+      f"{j['null']['worst']:.2e}; timelike rays strictly inside, least relative margin {j['null']['interior_margin']:.3f}; "
+      f"control sin^2(eta/2): {j['control']['worst']:.2e}")
+    wf = out["write_floor"]
+    P("X7 cone budgets [lower, upper] (confined minimum), clocks (advanced coordinate v_c - v_open):")
     for e in ELL_SHOW:
         r = out["budgets"][str(e)]
         P(f"  ell = {_ell(str(e))}:")
         for x, (lo, hi) in r["exact_throat"].items():
-            P(f"    singular surface, exact throat, x_lim = {x}: [{lo:.4g}, {hi:.4g}]")
+            P(f"    singular surface, EXACT THROAT held to y_s, x_lim = {x}: [{lo:.4g}, {hi:.4g}]  (floor/upper "
+              f"{wf/hi:.3g})")
+        for x, (lo, hi) in r["exact_throat_past"].items():
+            P(f"    past the tested range, x_lim = {x}: [{lo:.4g}, {hi:.4g}]{'  ABOVE THE FLOOR' if hi > wf else ''}")
+        P(f"    exact-throat crossover: upper passes the floor below x_lim = {r['x_cross_upper']:.3g}, lower below "
+          f"{r['x_cross_lower']:.3g}")
         for L in r["layers"]:
             if L:
                 P(f"    layer K = {L['F']:.0e} K_bs at y = {L['y_K']:.4f}m: x_lim {L['x_lim']:.2e}, eta {L['eta']:.3f}, "
-                  f"[{L['lower']:.4g}, {L['upper']:.4g}]")
+                  f"[{L['lower']:.4g}, {L['upper']:.4g}] ({L['tight']:.4g})")
+        sc = out["layer_scan"][str(e)]
+        for L in sc["rows"]:
+            if L:
+                P(f"    deeper, K = {L['F']:.0e} K_bs: x_lim {L['x_lim']:.2e}, [{L['lower']:.4g}, {L['upper']:.4g}]"
+                  f"{'  LOWER ABOVE THE FLOOR' if L['lower'] > wf else ''}")
+        P(f"    budget ~ K^{sc['exponent']:.3f} (upper, 1e15-1e30 K_bs); lower passes the floor at K = "
+          + (f"{sc['crossover_F']:.0e} K_bs" if sc["crossover_F"] else "-- not reached before the full system ends "
+                                                                        "(alpha = 1e-6)"))
     mx = max(L["upper"] for r in out["budgets"].values() for L in r["layers"] if L)
-    P(f"    largest layer budget over all nine ell and layers: {mx:.4g} clocks, against the write's "
-      f"{out['write_floor']:.4g}")
-    P("X9 position 2's piece at depth d (eta(d)/eta_s; K/K_bs; u_min at the write's floor):")
-    for e in ELL_SHOW + (Fr(1, 32),):
+    P(f"    largest claimed layer budget (K <= 1e10 K_bs, within O(x)) over all nine ell: {mx:.4g} clocks, against the "
+      f"write's {wf:.4g}")
+    worst = max(abs(d_["dp"] - d_["g"]) / d_["g"] for d_ in out["dp_check"])
+    P(f"    confined minimum by dynamic programme vs g(eta) at {len(out['dp_check'])} depths: worst relative "
+      f"{worst:.2e}; bracket [2 sin^2(eta/4), eta/2] holds: "
+      f"{all(d_['lower_n'] <= d_['dp'] * 1.01 + 2e-3 and d_['dp'] <= d_['upper_n'] * 1.01 for d_ in out['dp_check'])}")
+    P("X9 position 2's piece at depth d (eta(d)/eta_s; K/K_bs; u_min at the write's floor; margin y_s - max(d + f) per "
+      "profile within x_valid(d), '-' = not admissible):")
+    for e in ELL_SHOW + (Fr(1, 32), Fr(1, 2), Fr(4)):
         for k2, v in out["slab"][str(e)].items():
-            P(f"    ell = {_ell(str(e)):>6} {k2:>8}: d = {v['depth']:.4f}m, eta = {v['eta']:.4f} "
-              f"({v['eta_over_eta_s']:.3f}), K/K_bs = {v['K_ratio']:.4g}, u_min = {v['u_min']:.2e}")
+            tag = " (= 0: flat limit, exact coincidence)" if k2 == "d_plus" and v["depth"] == 0 else ""
+            mg = ", ".join(f"{kn} {('%+.4f' % m_) if m_ is not None else '-'}" for kn, m_ in v["margins"].items())
+            P(f"    ell = {_ell(str(e)):>6} {k2:>8}{tag}: d = {v['depth']:.4f}m, eta = {v['eta']:.4f} "
+              f"({v['eta_over_eta_s']:.3f}), K/K_bs = {v['K_ratio']:.4g}, u_min = {v['u_min']:.2e}; {mg}")
+    P("    P2 reaches y_s^th within x_valid(d) (NEGATIVE result): "
+      + "; ".join(f"ell = {_ell(e)} {k2} {kn} from x = {_xh(out['slab'][e][k2]['hits'].get(kn, {}).get('x_hit'))}"
+                  f"{' (in J^-(P_c))' if out['slab'][e][k2]['hits'].get(kn, {}).get('in_cone') else ''}"
+                  for e, k2, kn in _fails(out)))
+    sw = out["slab_window"]["1/32"]
+    P(f"    positive-energy window at ell = 32m: [d_+, top] = [{sw['d_plus']:.4f}m, {sw['top']:.4f}m], lam_max at d_+ "
+      f"{sw['lam_max']:.3f}; at ell = inf d_+ = {out['slab_window']['0']['d_plus']}")
     P("    coinciding limit d -> 0, K/K_bs computed vs 2(80e^4+3)/(160e^4+3):",
       [(_ell(e), round(v["computed"], 6), round(v["deduced"], 6)) for e, v in out["coincide_K"].items()])
+    P("    crosser's frame at P_c, 4 alpha^2 (rho + p_r)/x at x = 1e-4, 1e-8, 1e-12 (depth 0):")
+    for e, fr in out["crosser_frame"].items():
+        P(f"      ell = {_ell(e):>6}: " + "; ".join(f"{kn} {[f'{v:.3g}' for v in d_['values']]}"
+                                                    for kn, d_ in fr.items()))
     q = out["eq"]
     P("X10 (a) 5D vacuum: R_kk = 0 for every null k (Lambda_5 g_kk = 0)")
     P(f"X10 (b) eq. (17) on the plane: R = {q['eq17']['R']}; rho + p_r = {q['eq17']['nec']} (ratio to BK eq. (18) x "
-      f"1/(8 pi): {q['eq17']['bk18_ratio']}); integrated null energy along the ingoing ray {q['eq17']['anec']:.6f}; "
-      f"Schwarzschild control {q['schw']['anec']:.1e}")
+      f"1/(8 pi): {q['eq17']['bk18_ratio']}); integrated null energy along the ingoing ray {q['eq17']['anec']:.12f} = "
+      f"{q['closed']} exactly (|sympy exact - closed form| = {q['eq17']['exact_minus_closed']:.1e} at 60 digits); full "
+      f"ray twice this; Schwarzschild control {q['schw']['anec']:.1e}")
+    P(f"X10 (d) eq. (17) at r0 = 2m: g_tt at the throat = {q['eq17']['g_tt_at_throat']}")
     d = q["data"]
-    P(f"X10 (c) y_s at ell = 8m: vacuum data {d['vacuum']:.6f}; p(0) -+ 1e-3: {d['minus']:.6f}, {d['plus']:.6f}")
+    P(f"X10 (c) y_s at ell = 8m: vacuum data {d['vacuum']:.6f}; p(0) -+ 1e-3 on the constraint surface (q(0) = "
+      f"{d['q0_minus']:.6f}, {d['q0_plus']:.6f}): {d['minus']:.6f}, {d['plus']:.6f}; largest relative constraint residual "
+      f"{d['cons_max']:.1e}")
+    P("X10 (c)/(e): the coincident pair's net surface stress is zero (sim2_facing S15, computed there, not here) -- "
+      "a total of zero, not positive")
     P(f"(computed in {out['seconds']:.1f} s)")
 
 
-# ------------------------------------------------------------------------------------------------------ selftest
-def selftest():
+# ------------------------------------------------------------------------------------------------------ checks
+def checks(out):
+    """C1-C14 (C11 in two parts) as (id, label, ok, note); each reads only the output, and each has a mutation in
+    MUTANTS under which it must fail."""
     res = []
 
-    def ok(name, cond, note=""):
-        res.append((name, bool(cond)))
-        print(f"  {'PASS' if cond else 'FAIL'}  {name}  {note}")
-
-    out = compute()
+    def ok(cid, name, cond, note=""):
+        res.append((cid, name, bool(cond), note))
     c = out["chart"]
-    ok("C1 chart identity; control shift 1 non-zero", c["identity"] == "0" and c["identity_control"] != "0")
+    ok("C1", "chart identity; control shift 1 non-zero", c["identity"] == "0" and c["identity_control"] != "0")
     eq = c["equations"]
-    ok("C2 EF equations = coded P, Q, constraint; uu = 0; control (S2 flipped) differs",
-       eq["P"] == "0" and eq["Q"] == "0" and sp.sympify(eq["constraint_ratio"]).is_number
-       and sp.sympify(eq["constraint_ratio"]) != 0 and eq["uu"] == "0"
-       and eq["vv_over_vu"] == "0" and c["equations_control_Q"] != "0")
+    try:
+        cr = sp.sympify(eq["constraint_ratio"])
+        crok = cr.is_number and cr != 0
+    except (sp.SympifyError, TypeError):
+        crok = False
+    ok("C2", "EF equations = coded P, Q, constraint; uu = 0; control (S2 flipped) differs",
+       eq["P"] == "0" and eq["Q"] == "0" and crok and eq["uu"] == "0" and eq["vv_over_vu"] == "0"
+       and c["equations_control_Q"] != "0")
     h = out["horizon"]
-    ok("C3 horizon at u = 0 null, kappa = 0 at every depth; control kappa != 0",
+    ok("C3", "horizon at u = 0 null, kappa = 0 at every depth; control kappa != 0",
        h["kappa2_on"] == "0" and h["norm_on"] == "0" and h["g_uu_inv_on"] == "0" and h["g_yu_inv"] == "0"
        and out["horizon_control_kappa2_on"] != "0")
-    ow = one_way()
+    ow = out["one_way"]
     uu = sp.Symbol("u", real=True)
-    ok("C4 one way: du/dv = u^2/(4 sqrt2) >= 0, g(d_v,d_u) > 0",
-       len(ow["dudv"]) == 1 and sp.simplify(ow["dudv"][0] - uu**2 / (4 * sp.sqrt(2))) == 0 and float(ow["g_v_u"]) > 0)
+    E_ = sp.Symbol("E", real=True)
+    good4 = (len(ow["dudv"]) == 1 and sp.simplify(sp.sympify(ow["dudv"][0], locals={"u": uu}) - uu**2 / (4 * sp.sqrt(2))) == 0
+             and ow["g_v_u_num"] is not None and ow["g_v_u_num"] > 0 and len(ow["udot2"]) == 1
+             and sp.simplify(sp.sympify(ow["udot2"][0], locals={"u": uu, "E": E_}) - (E_**2 / 2 - uu**2 / 4)) == 0)
+    ok("C4", "one way, from ef_metric: du/dv = u^2/(4 sqrt2) >= 0, g(d_v,d_u) > 0; on the plane u'^2 = E^2/2 - u^2/4",
+       good4)
     k = out["kasner"]
     good = all(abs(f["a"] - k["a_num"]) < 2e-4 and abs(f["b"] - k["b_num"]) < 2e-4 for f in k["fits"].values())
-    ok("C5 Kasner exponents at nine ell; sums 1; control differs",
-       good and k["deduced"]["sum"] == "1" and k["deduced"]["squares"] == "1"
-       and abs(k["control"]["a"] - k["a_num"]) > 1e-2)
-    ge = all(abs(out["eta_s"][e] - GROUND_ETA[e]) < 5e-3 for e in GROUND_ETA)
-    mono = all(out["eta_s"][str(ES2[i])] > out["eta_s"][str(ES2[i + 1])] for i in range(len(ES2) - 1))
-    ok("C6 eta_s finite, below 2 pi, falls with 1/ell, matches the ground stage to 5e-3; control diverges",
-       ge and mono and all(v < 2 * math.pi for v in out["eta_s"].values())
-       and out["eta_control"][-1][1] > 3 * out["eta_control"][0][1] and out["eta_quad_err"] < 1e-4)
-    ok("C7 J^- criterion holds along null geodesics; control fails",
-       out["jminus"]["worst"] < 1e-6 and out["jminus"]["control"] > 1e-2)
+    ok("C5", "Kasner: deduced from the coded leading balance (a + b = 1/2, ab = -1/8; sums 1); fits at nine ell; "
+       "control differs", good and k["deduced"]["sum"] == "1" and k["deduced"]["squares"] == "1"
+       and k["deduced"]["ab"] == "-1/8" and abs(k["control"]["a"] - k["a_num"]) > 1e-2)
+    es = out["eta_s"]
+    mono = all(es[str(ES2[i])] > es[str(ES2[i + 1])] for i in range(len(ES2) - 1))
+    ge = all(abs(es[e] - GROUND_ETA[e]) <= 5e-4 + 1e-9 for e in GROUND_ETA)
+    cc = out["eta_control"]
+    ctl = (all(v > 0.5 * cc["mutated_inc"][0] for v in cc["mutated_inc"])
+           and all(cc["true_inc"][i + 1] < 0.1 * cc["true_inc"][i] for i in range(len(cc["true_inc"]) - 1)))
+    ok("C6", "eta_s finite, below 2 pi, falls with 1/ell, equals an independent integration to 1e-9 (rounds to the "
+       "ground stage's 3 decimals); control through eta_of diverges, the true system converges",
+       out["eta_ab_diff"] < 1e-9 and mono and ge and all(v < 2 * math.pi for v in es.values()) and ctl,
+       f"|A - B| = {out['eta_ab_diff']:.1e}")
+    j = out["jminus"]
+    ok("C7", "J^- criterion holds along null geodesics; timelike rays strictly inside; control fails",
+       j["null"]["worst"] < 1e-6 and j["null"]["interior_margin"] > 0 and j["control"]["worst"] > 1e-2)
     wf = out["write_floor"]
-    allb = [L for r in out["budgets"].values() for L in r["layers"] if L]
-    ok("C8 budgets: lower <= upper; every layer and exact-throat row (x_lim >= 1e-8) below the write's floor",
-       all(L["lower"] <= L["upper"] < wf for L in allb)
-       and all(lo <= hi < wf for r in out["budgets"].values() for lo, hi in r["exact_throat"].values())
-       and 1.9e5 < wf < 2.1e5)
-    sc = out["budgets"]["0"]["exact_throat"]
-    ok("C9 exact-throat budget scales as x_lim^(-1/2)", abs(sc["1e-08"][1] / sc["0.01"][1] - 1e3) < 1e-6)
+    claimed = [L for r in out["budgets"].values() for L in r["layers"] if L]
+    scans = out["layer_scan"]
+    deep = (all(scans[str(e)]["crossover_F"] is not None for e in (Fr(0), Fr(1, 8)))
+            and all(0.1 < (sc["exponent"] or 0) < 0.2 for sc in scans.values())
+            and all(all(a_["upper"] < b_["upper"] for a_, b_ in zip([L for L in sc["rows"] if L],
+                                                                    [L for L in sc["rows"] if L][1:]))
+                    for sc in scans.values()))
+    ok("C8", "every claimed layer (K <= 1e10 K_bs, within O(x)) and every exact-throat row (x_lim >= 1e-8) below the "
+       "floor; deeper the budget grows (K^0.1-0.2) and the lower passes the floor (ell = inf, 8m)",
+       all(L["upper"] < wf for L in claimed) and len(claimed) == len(F_LAYERS) * len(ES2)
+       and all(hi < wf for r in out["budgets"].values() for _, hi in r["exact_throat"].values())
+       and deep and 1.9e5 < wf < 2.1e5)
+    dpc = out["dp_check"]
+    ok("C9", "the bracket [2 sin^2(eta/4), eta/2] contains the confined minimum of an independent dynamic programme, "
+       "which equals g(eta) (2 sin^2(eta/4) to pi, 1 + (eta - pi)/2 beyond) to 1.5%",
+       len(dpc) >= 20 and all(d_["lower_n"] <= d_["dp"] * 1.01 + 2e-3 and d_["dp"] <= d_["upper_n"] * 1.01
+                               and abs(d_["dp"] - d_["g"]) <= 0.015 * d_["g"] + 2e-3 for d_ in dpc))
     ck = out["coincide_K"]
-    ok("C10 coinciding limit K/K_bs = 2(80e^4+3)/(160e^4+3) at nine ell",
+    ok("C10", "coinciding limit K/K_bs = 2(80e^4+3)/(160e^4+3) at nine ell",
        all(abs(v["computed"] - v["deduced"]) < 1e-9 for v in ck.values()))
-    sl = [v for r in out["slab"].values() for v in r.values()]
-    ok("C11 every P2 depth tried leaves the slab short of the singular surface (eta(d) < eta_s)",
-       len(sl) >= 20 and all(v["eta_over_eta_s"] < 1 for v in sl))
+    sl = out["slab"]
+    relied = [mg for e, rws in sl.items() for k_, r_ in rws.items() for kn, mg in r_["margins"].items()
+              if (k_ in ("zero", "tenth", "d_plus") or kn == "level") and mg is not None]
+    fails = _fails(out)
+    confined = all(kn.startswith("lam") and k_ in ("y_star", "band_mid") and Fr(e) >= 1
+                   and sl[e][k_]["hits"].get(kn, {}).get("in_cone") for e, k_, kn in fails)
+    ok("C11a", "P2's profile (not a cut): the level surface at d >= y*, every profile at 0.1 y_s, d_+ and depth 0 stay "
+       "shallower than y_s^th within x_valid(d); every failure is a power law at y*/band_mid with ell <= m, inside J^-",
+       len(relied) >= 60 and all(mg > 0 for mg in relied) and confined, f"{len(fails)} power-law failures")
+    fr = out["crosser_frame"]
+    ok("C11b", "crosser's frame at P_c: power-law P2 stress grows without bound as x -> 0, the smooth family's stays "
+       "finite", all(d_["growth"] > 1e3 for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam"))
+       and all(0.5 < f_["smooth"]["growth"] < 2 for f_ in fr.values()))
     q = out["eq"]
-    ok("C12 eq. (17)'s plane: R = 0, rho + p_r = BK (18)/(8 pi), integrated null energy < 0 and finite; Schwarzschild 0",
+    ok("C12", "eq. (17)'s plane: R = 0, rho + p_r = BK (18)/(8 pi), integrated null energy < 0, finite and equal to "
+       "(sqrt3 ln(2+sqrt3) - 6)/(36 pi) exactly; Schwarzschild 0",
        q["eq17"]["R"] == "0" and q["eq17"]["bk18_ratio"] == "1" and -10 < q["eq17"]["anec"] < 0
+       and abs(q["eq17"]["anec"] - q["closed_num"]) < 1e-12 and q["eq17"]["exact_minus_closed"] < 1e-50
        and abs(q["schw"]["anec"]) < 1e-20)
     d = q["data"]
-    ok("C13 the plane's data fix the throat bulk: p(0) moved, y_s moves both ways",
-       d["minus"] < d["vacuum"] < d["plus"] or d["plus"] < d["vacuum"] < d["minus"])
-    ok("C14 address guard: no key names a length, distance, time, speed, clock or arrival", not address_guard(out),
-       str(address_guard(out)))
-    n = sum(r for _, r in res)
-    print(f"selftest {n}/{len(res)}")
+    ok("C13", "y_s depends on the plane's data: p(0) moved on the constraint surface, y_s moves both ways; constraint "
+       "held along the runs", (d["minus"] < d["vacuum"] < d["plus"] or d["plus"] < d["vacuum"] < d["minus"])
+       and d["cons_max"] < 1e-10, f"constraint {d['cons_max']:.1e}")
+    bad = address_guard(out)
+    ok("C14", "address guard: no key names a length, distance, time, speed, clock or arrival; no banned argument",
+       not bad, str(bad))
+    return res
+
+
+def selftest():
+    out = compute()
+    res = checks(out)
+    for cid, name, good, note in res:
+        print(f"  {'PASS' if good else 'FAIL'}  {cid} {name}  {note}")
+    n = sum(r[2] for r in res)
+    print(f"selftest {n}/{len(res)}  ({out['seconds']:.1f} s)")
     return n == len(res)
+
+
+# ------------------------------------------------------------------------------------------------------ mutants
+@contextlib.contextmanager
+def _patched(target, name, value):
+    old = getattr(target, name)
+    setattr(target, name, value)
+    try:
+        yield
+    finally:
+        setattr(target, name, old)
+
+
+def _wrong_budget(eta, x_lim):
+    z = 2 * math.sqrt(2) / math.sqrt(x_lim)
+    return z * 2 * math.sin(eta / 2)**2, z * eta
+
+
+_ORIG_PROFILE = SF._profile
+
+
+def _smooth_as_power(kind, xv, g2=0.0):
+    if kind[0] == "smooth":
+        c, lam = SF.DT_C, 0.4
+        return (c * xv**lam + g2 * xv, c * lam * xv**(lam - 1) + g2, c * lam * (lam - 1) * xv**(lam - 2),
+                c * lam * lam * xv**lam + g2 * xv)
+    return _ORIG_PROFILE(kind, xv, g2)
+
+
+_ME = sys.modules[__name__]
+MUTANTS = [
+    ("C1", "chart shift 2 -> 1 (t = v + sqrt2/u)", lambda: _patched(_ME, "CHART_SHIFT", 1), ("chart",)),
+    ("C2", "ef_metric's g_vu = sqrt2 alpha^2 -> 2 alpha^2", lambda: _patched(_ME, "G_VU", sp.Integer(2)), ("chart",)),
+    ("C3", "g_vv = -alpha^2 u^2/2 -> -alpha^2 u/2 (a non-degenerate horizon at u = 0)",
+     lambda: _patched(_ME, "GVV_POWER", 1), ("horizon",)),
+    ("C4", "ef_metric's g_vu sign flipped (-sqrt2 alpha^2)", lambda: _patched(_ME, "G_VU", -sp.sqrt(2)), ("one_way",)),
+    ("C5", "the throat ODE's 2pq -> 3pq in the nine fits", lambda: _patched(_ME, "KASNER_MUT", 1.0), ("kasner",)),
+    ("C5", "the constraint's 4pq -> 3pq in the leading balance", lambda: _patched(_ME, "KASNER_CONS_PQ", 3),
+     ("kasner",)),
+    ("C6", "the Kasner tail counted twice in eta_of (the first version's double count)",
+     lambda: _patched(_ME, "ETA_TAIL_COUNT", 2), ("eta",)),
+    ("C6", "the control run on the unmutated ODE (no exponent-1 profile)", lambda: _patched(_ME, "ETA_CONTROL_MUT", 0.0),
+     ("eta",)),
+    ("C7", "the conformal AdS2 radius 2 -> 1", lambda: _patched(_ME, "ADS2_R2", 1), ("jminus",)),
+    ("C8", "a layer at K = 1e33 K_bs added to the claimed rows", lambda: _patched(_ME, "F_LAYERS", F_LAYERS + (1e33,)),
+     ("budgets",)),
+    ("C9", "budget()'s bracket -> [z 2 sin^2(eta/2), z eta]", lambda: _patched(_ME, "budget", _wrong_budget),
+     ("budgets",)),
+    ("C10", "the coinciding limit taken at depth 1e-3 y_s, not 0", lambda: _patched(_ME, "COINCIDE_FRAC", 1e-3),
+     ("coincide",)),
+    ("C11a", "P2's profile amplitude c = 0.05 -> 50 (sim2_facing.DT_C)", lambda: _patched(SF, "DT_C", 50.0), ("slab",)),
+    ("C11b", "the smooth family's sqrt(x) -> x^0.4", lambda: _patched(SF, "_profile", _smooth_as_power), ("frame",)),
+    ("C12", "eq. (17) replaced by Schwarzschild on the plane", lambda: _patched(_ME, "PLANE_DATA", "schw"), ("eq",)),
+    ("C13", "p(0) moved with q(0) held at -e (off the constraint surface)",
+     lambda: _patched(_ME, "DATA_CONSTRAINED", False), ("data",)),
+    ("C14", "a key 'arrival_hold' added to the output", lambda: _patched(_ME, "INJECT_KEY", "arrival_hold"),
+     ("inject",)),
+]
+
+
+def _clear():
+    _TB.clear()
+    _ETA.clear()
+
+
+def mutants():
+    """For every check, its named mutation(s) of the instrument's own input: recompute the sections the check reads
+    under the mutation and require the check to FAIL.  Returns True when the unmutated checks pass and every mutation
+    is killed."""
+    base = compute()
+    base_ok = {cid: good for cid, _, good, _ in checks(base)}
+    print("unmutated: " + ", ".join(f"{cid} {'PASS' if g else 'FAIL'}" for cid, g in base_ok.items()))
+    killed_all = all(base_ok.values())
+    covered = set()
+    for cid, name, patch, secs in MUTANTS:
+        _clear()
+        note = ""
+        try:
+            with patch():
+                part = compute(only=secs)
+                merged = dict(base)
+                for k_, v_ in part.items():
+                    merged[k_] = {**base["eq"], **v_} if k_ == "eq" else v_
+                good = {c_: g for c_, _, g, _ in checks(merged)}[cid]
+        except Exception as ex:                       # a mutated input the computation cannot carry: the check fails
+            good, note = False, f"(raised {type(ex).__name__}: {ex})"
+        _clear()
+        covered.add(cid)
+        killed_all = killed_all and not good
+        print(f"  {'KILLED  ' if not good else 'SURVIVED'}  {cid}  {name}  {note}")
+    missing = sorted(set(base_ok) - covered)
+    if missing:
+        print("  checks without a mutation:", missing)
+        killed_all = False
+    n_k = sum(1 for _ in MUTANTS)
+    print(f"mutants: {'all ' + str(n_k) + ' killed' if killed_all else 'NOT all killed'}; every check has a mutation: "
+          f"{not missing}")
+    return killed_all
 
 
 if __name__ == "__main__":
     if "--selftest" in sys.argv:
         sys.exit(0 if selftest() else 1)
+    if "--mutants" in sys.argv:
+        sys.exit(0 if mutants() else 1)
     o = compute()
     report(o)
     if "--json" in sys.argv:
