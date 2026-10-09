@@ -354,14 +354,21 @@ def chart_identity(shift=None):
     return sp.simplify(sp.expand(-(u**2 / 2) * dt**2 + dx**2 / u**4) - (-(u**2 / 2) * dv**2 + 2 * sp.sqrt(2) * dv * du))
 
 
+def _constraint(p, q, a, b, e, cons_pq=4):
+    """The Hamiltonian (yy) constraint as sim2_facing's throat_row codes it.  That line is not a function there, so it is
+    written out ONCE, here (the only line of an owner this file re-types), used by coded_system (symbols) and
+    data_fixes_bulk (arrays), and checked against the 5D vacuum equations themselves by C2.  cons_pq != 4 mutates the
+    4pq (C5's second mutation)."""
+    return p * p + q * q + cons_pq * p * q - 6 * e * e - 1 / (4 * b * b) + 1 / (4 * a * a)
+
+
 def coded_system(p, q, a, b, e, s2=1, cons_pq=4):
     """sim2_facing's coded zeroth-order system as expressions: P = p' and Q = q' taken from sim2_facing.throat_rhs itself
-    (called on symbols, the O(x) slots zero: imported, not re-typed), and the Hamiltonian constraint C as throat_row
-    codes it (that line is not a function there, so it is written out here): the forms X1 compares against and X4's
-    leading balance is taken from.  s2 = -1 flips the S2 term (C2's control); cons_pq != 4 mutates the constraint's
-    4pq (C5's second mutation)."""
+    (called on symbols, the O(x) slots zero: imported, not re-typed), and the Hamiltonian constraint C (_constraint):
+    the forms X1 compares against and X4's leading balance is taken from.  s2 = -1 flips the S2 term (C2's control);
+    cons_pq != 4 mutates the constraint's 4pq (C5's second mutation)."""
     P, Q = SF.throat_rhs(0, [a, b, p, q] + [sp.Integer(0)] * 6, e, sp.Integer(s2))[2:4]
-    C = p**2 + q**2 + cons_pq * p * q - 6 * e**2 - 1 / (4 * b**2) + 1 / (4 * a**2)
+    C = _constraint(p, q, a, b, e, cons_pq)
     return P, Q, C
 
 
@@ -677,7 +684,17 @@ def layer_scan(e, floor):
     cross = next((L["F"] for L in rows if L and L["lower"] > floor), None)
     byF = {L["F"]: L for L in rows if L}
     expo = (math.log(byF[1e30]["upper"] / byF[1e15]["upper"]) / math.log(1e15)) if 1e15 in byF and 1e30 in byF else None
-    return {"rows": rows, "crossover_F": cross, "exponent": expo}
+
+    def deepest(key):                      # the deepest scan row with every row up to it below the floor on `key`
+        last = None
+        for L in rows:
+            if L is None or L[key] >= floor:
+                break
+            last = L["F"]
+        return last
+    prev = None if cross is None else (F_SCAN[F_SCAN.index(cross) - 1] if F_SCAN.index(cross) else F_LAYERS[-1])
+    return {"rows": rows, "crossover_F": cross, "crossover_after_F": prev, "exponent": expo,
+            "placed_F": deepest("upper"), "placed_tight_F": deepest("tight")}
 
 
 # ------------------------------------------------------------------------------------------ X9 position 2's piece
@@ -741,15 +758,17 @@ def slab_rows(e, dv):
             continue
         et = eta_of(e, dep)
         xv = SF.x_valid(s, dep)
-        margins, hits = {}, {}
+        margins, hits, ccrit = {}, {}, {}
         for kind in SLAB_KINDS:
             mg, xh = _profile_margin(s, dep, xv, kind, W1, ys)
             margins[_kname(kind)] = mg
             if xh is not None:                     # P2 is deeper than y_s^th on [x_hit, x_valid(d)]; that part
                 hits[_kname(kind)] = {"x_hit": xh, "in_cone": xv >= max(xh, u_min_s**2)}   # meets J^-: x >= u_min^2
+            if kind[0] == "pow":                   # f = c x^lam rises with x: the margin holds iff c < c*
+                ccrit[_kname(kind)] = (ys - dep) / xv**kind[1]
         rows[k] = {"depth": dep, "eta": et, "eta_over_eta_s": et / eta_s, "K_ratio": k_ratio(e, dep),
                    "u_min": 4 * math.sqrt(2) * math.sin(et / 4)**2 / dv, "x_valid": xv,
-                   "W1": float(W1(max(dep, 1e-9))), "margins": margins, "hits": hits}
+                   "W1": float(W1(max(dep, 1e-9))), "margins": margins, "hits": hits, "c_crit": ccrit}
     return rows
 
 
@@ -763,18 +782,23 @@ def crosser_frame(e, xs=(1e-4, 1e-8, 1e-12)):
     """X9 (C11b): P2's surface stress at the coinciding depth (0) as the crosser at P_c reads it, along the null
     direction n = -d_u, regular across u = 0: n = (2 alpha/u)(e_0 - e_1) in the static frame (deduced from x = u^2,
     t = v + 2 sqrt2/u), so S(n, n) = 4 alpha^2 (rho + p_r)/x, with rho + p_r from sim2_facing.piece_stress.  Per profile:
-    the values along x -> 0 and their growth (last/first)."""
+    the values along x -> 0 and their growth (last/first); and the static orthonormal frame's rho, rho + p_r and
+    rho + p_th at the same points (all finite: the divergence is along the regular null frame only)."""
     s = tb(e)
     _, W1 = SF._ystar(s)
     g2 = SF._smooth_g2(s, 0.0, W1)
     out = {}
     for kind in SF.CO_KINDS:
-        vals = []
+        vals, srho, snr, snt = [], [], [], []
         for xv in xs:
             st = SF.piece_stress(s, 0.0, xv, kind, g2)
             al = float(s["sol"].sol(SF._profile(kind, xv, g2)[0])[0])
             vals.append(4 * al * al * st["nec_r"] / xv)
-        out[SF._kind_name(kind)] = {"values": vals, "growth": vals[-1] / vals[0]}
+            srho.append(st["rho"])
+            snr.append(st["nec_r"])
+            snt.append(st["nec_th"])
+        out[SF._kind_name(kind)] = {"values": vals, "growth": vals[-1] / vals[0], "static_rho": srho,
+                                    "static_nec_r": snr, "static_nec_th": snt}
     return out
 
 
@@ -832,7 +856,7 @@ def data_fixes_bulk(dp=1e-3):
                         max_step=0.005, dense_output=True)
         ys = float(sol.t[-1])
         al, be, p, q = sol.sol(np.linspace(0, 0.95 * ys, 2000))
-        cons = p * p + q * q + 4 * p * q - 6 * ef * ef - 1 / (4 * be * be) + 1 / (4 * al * al)
+        cons = _constraint(p, q, al, be, ef)
         scale = p * p + q * q + 1 / (4 * al * al) + 1 / (4 * be * be) + 6 * ef * ef
         return ys, q0, float(np.max(np.abs(cons) / scale))
     v0, mi, pl = run(-ef), run(-ef - dp), run(-ef + dp)
@@ -1006,10 +1030,12 @@ def report(out):
         for L in sc["rows"]:
             if L:
                 P(f"    deeper, K = {L['F']:.0e} K_bs: x_lim {L['x_lim']:.2e}, [{L['lower']:.4g}, {L['upper']:.4g}]"
-                  f"{'  LOWER ABOVE THE FLOOR' if L['lower'] > wf else ''}")
-        P(f"    budget ~ K^{sc['exponent']:.3f} (upper, 1e15-1e30 K_bs); lower passes the floor at K = "
-          + (f"{sc['crossover_F']:.0e} K_bs" if sc["crossover_F"] else "-- not reached before the full system ends "
-                                                                        "(alpha = 1e-6)"))
+                  f" ({L['tight']:.4g}){'  LOWER ABOVE THE FLOOR' if L['lower'] > wf else ''}")
+        P(f"    budget ~ K^{sc['exponent']:.3f} (upper, 1e15-1e30 K_bs); lower passes the floor "
+          + (f"between K = {sc['crossover_after_F']:.0e} and {sc['crossover_F']:.0e} K_bs (per-decade scan)"
+             if sc["crossover_F"] else "-- not before the full system ends (alpha = 1e-6)"))
+        P(f"    placed in J^-(P_c) within O(x): by the upper budget (an explicit curve) to K = {sc['placed_F']:.0e} K_bs; "
+          f"by the confined minimum (g, numerical to 1.3%) to {sc['placed_tight_F']:.0e} K_bs")
     mx = max(L["upper"] for r in out["budgets"].values() for L in r["layers"] if L)
     P(f"    largest claimed layer budget (K <= 1e10 K_bs, within O(x)) over all nine ell: {mx:.4g} clocks, against the "
       f"write's {wf:.4g}")
@@ -1029,6 +1055,14 @@ def report(out):
       + "; ".join(f"ell = {_ell(e)} {k2} {kn} from x = {_xh(out['slab'][e][k2]['hits'].get(kn, {}).get('x_hit'))}"
                   f"{' (in J^-(P_c))' if out['slab'][e][k2]['hits'].get(kn, {}).get('in_cone') else ''}"
                   for e, k2, kn in _fails(out)))
+    cc = [(v_, e, k2, kn) for e, rws in out["slab"].items() for k2, r_ in rws.items()
+          for kn, v_ in r_["c_crit"].items()]
+    rel = [t_ for t_ in cc if t_[2] in ("zero", "tenth", "d_plus")]
+    oth = [t_ for t_ in cc if t_[2] not in ("zero", "tenth", "d_plus")]
+    fmt = lambda t_: f"{t_[0]:.3g} (ell = {_ell(t_[1])}, {t_[2]}, {t_[3]})"
+    P(f"    amplitude: a power law keeps its margin iff c < c* = (y_s - d)/x_valid(d)^lam (sampled c = {SF.DT_C}); "
+      f"least c* at depth 0, 0.1 y_s, d_+: {fmt(min(rel))}; at y*/band_mid: least {fmt(min(oth))}, largest "
+      f"{fmt(max(oth))}")
     sw = out["slab_window"]["1/32"]
     P(f"    positive-energy window at ell = 32m: [d_+, top] = [{sw['d_plus']:.4f}m, {sw['top']:.4f}m], lam_max at d_+ "
       f"{sw['lam_max']:.3f}; at ell = inf d_+ = {out['slab_window']['0']['d_plus']}")
@@ -1038,6 +1072,13 @@ def report(out):
     for e, fr in out["crosser_frame"].items():
         P(f"      ell = {_ell(e):>6}: " + "; ".join(f"{kn} {[f'{v:.3g}' for v in d_['values']]}"
                                                     for kn, d_ in fr.items()))
+    P("    the same points in the static orthonormal frame (rho, rho + p_r), finite -- a divergence along the regular "
+      "null frame only:")
+    for e in ("0", "1/8"):
+        fr = out["crosser_frame"][e]
+        P(f"      ell = {_ell(e):>6}: " + "; ".join(
+            f"{kn} rho {[f'{v:.3g}' for v in d_['static_rho']]}, rho+p_r {[f'{v:.3g}' for v in d_['static_nec_r']]}"
+            for kn, d_ in fr.items()))
     q = out["eq"]
     P("X10 (a) 5D vacuum: R_kk = 0 for every null k (Lambda_5 g_kk = 0)")
     P(f"X10 (b) eq. (17) on the plane: R = {q['eq17']['R']}; rho + p_r = {q['eq17']['nec']} (ratio to BK eq. (18) x "
@@ -1126,17 +1167,22 @@ def checks(out):
        all(abs(v["computed"] - v["deduced"]) < 1e-9 for v in ck.values()))
     sl = out["slab"]
     relied = [mg for e, rws in sl.items() for k_, r_ in rws.items() for kn, mg in r_["margins"].items()
-              if (k_ in ("zero", "tenth", "d_plus") or kn == "level") and mg is not None]
+              if k_ in ("zero", "tenth", "d_plus") and kn != "level" and mg is not None]
     fails = _fails(out)
     confined = all(kn.startswith("lam") and k_ in ("y_star", "band_mid") and Fr(e) >= 1
                    and sl[e][k_]["hits"].get(kn, {}).get("in_cone") for e, k_, kn in fails)
-    ok("C11a", "P2's profile (not a cut): the level surface at d >= y*, every profile at 0.1 y_s, d_+ and depth 0 stay "
-       "shallower than y_s^th within x_valid(d); every failure is a power law at y*/band_mid with ell <= m, inside J^-",
-       len(relied) >= 60 and all(mg > 0 for mg in relied) and confined, f"{len(fails)} power-law failures")
+    ok("C11a", "P2's profile (not a cut): every sampled profile (c = 0.05) at 0.1 y_s, d_+ and depth 0 stays shallower "
+       "than y_s^th within x_valid(d); every failure is a power law at y*/band_mid with ell <= m, inside J^- (the level "
+       "surface at d >= y*: STRUCTURAL, not tested)",
+       len(relied) >= 70 and all(mg > 0 for mg in relied) and confined, f"{len(fails)} power-law failures")
     fr = out["crosser_frame"]
-    ok("C11b", "crosser's frame at P_c: power-law P2 stress grows without bound as x -> 0, the smooth family's stays "
-       "finite", all(d_["growth"] > 1e3 for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam"))
-       and all(0.5 < f_["smooth"]["growth"] < 2 for f_ in fr.values()))
+    static_fin = all(max(abs(v) for v in d_["static_nec_r"]) <= abs(d_["static_nec_r"][0]) * (1 + 1e-6)
+                     and max(abs(v) for v in d_["static_rho"]) < 1.0
+                     for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam"))
+    ok("C11b", "crosser's frame at P_c: power-law P2 stress grows without bound as x -> 0 along the regular null frame "
+       "while its static-frame rho, rho + p_r stay finite; the smooth family's stays finite",
+       all(d_["growth"] > 1e3 for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam"))
+       and static_fin and all(0.5 < f_["smooth"]["growth"] < 2 for f_ in fr.values()))
     q = out["eq"]
     ok("C12", "eq. (17)'s plane: R = 0, rho + p_r = BK (18)/(8 pi), integrated null energy < 0, finite and equal to "
        "(sqrt3 ln(2+sqrt3) - 6)/(36 pi) exactly; Schwarzschild 0",
@@ -1228,8 +1274,8 @@ def _clear():
 
 def mutants():
     """For every check, its named mutation(s) of the instrument's own input: recompute the sections the check reads
-    under the mutation and require the check to FAIL.  Returns True when the unmutated checks pass and every mutation
-    is killed."""
+    under the mutation and require the check to FAIL.  A mutation under which the computation raises is reported as
+    ERROR and is not counted as killed.  Returns True when the unmutated checks pass and every mutation is killed."""
     base = compute()
     base_ok = {cid: good for cid, _, good, _ in checks(base)}
     print("unmutated: " + ", ".join(f"{cid} {'PASS' if g else 'FAIL'}" for cid, g in base_ok.items()))
@@ -1237,7 +1283,7 @@ def mutants():
     covered = set()
     for cid, name, patch, secs in MUTANTS:
         _clear()
-        note = ""
+        note, errored = "", False
         try:
             with patch():
                 part = compute(only=secs)
@@ -1245,12 +1291,13 @@ def mutants():
                 for k_, v_ in part.items():
                     merged[k_] = {**base["eq"], **v_} if k_ == "eq" else v_
                 good = {c_: g for c_, _, g, _ in checks(merged)}[cid]
-        except Exception as ex:                       # a mutated input the computation cannot carry: the check fails
-            good, note = False, f"(raised {type(ex).__name__}: {ex})"
+        except Exception as ex:          # a crash shows nothing about the check: ERROR, not a kill (and exit 1)
+            good, errored, note = None, True, f"(raised {type(ex).__name__}: {ex})"
         _clear()
         covered.add(cid)
-        killed_all = killed_all and not good
-        print(f"  {'KILLED  ' if not good else 'SURVIVED'}  {cid}  {name}  {note}")
+        killed_all = killed_all and not errored and not good
+        tag = "ERROR   " if errored else ("KILLED  " if not good else "SURVIVED")
+        print(f"  {tag}  {cid}  {name}  {note}")
     missing = sorted(set(base_ok) - covered)
     if missing:
         print("  checks without a mutation:", missing)
