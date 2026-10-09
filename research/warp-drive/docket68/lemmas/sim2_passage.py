@@ -425,9 +425,10 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       PDF p.4, "T_UU in the modified state along U > 0 will exactly cancel that along U < 0" (their non-traversable
       case); Maldacena-Stanford-Yang 1704.05333v1, PDF p.13, "we cannot send more information through the wormhole than
       we transferred in order to set up the OO interaction" (a one-sided parametric bound, set against 122 (4); not
-      decided).  GJW's prerequisite is net-negative null energy of the TOTAL; Lemma S's pair totals zero, which is
-      GJW's cancelling case: a tension, OPEN -- GJW's horizon is bifurcate and their analysis linearised, the
-      corridor's is degenerate.
+      decided).  GJW's prerequisite is net-negative null energy of the TOTAL; under 183 Lemma S's pair totals zero,
+      which is GJW's cancelling case: a tension, OPEN -- GJW's horizon is bifurcate and their analysis linearised, the
+      corridor's is degenerate.  The one branch of X13 with a net below zero along the generators, a sheared horizon
+      of fixed size, is the branch 183 excludes (deduced, here, from X13 and the READ).
   X18 ENDS, GENERATORS, LEMMA P (owner epass_frames; computed; READ; deduced; OPEN).
       [FREE]: on global AdS2 (its induced metric equals Maldacena-Qi (2.1), READ PDF p.5; the parametrisation is
       standard-not-READ) d_T is elliptic, components (1, 1), with xi.xi = -1/sin^2 sigma < 0 (no Killing horizon);
@@ -524,11 +525,14 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       (H-END-2-IS-OUR-PLANE, X1; epass_frames names it H-END-2-IS-OUR-FAR-END).  The 176 sentence between universes, and
       139 (2)'s positivity in position 2's own frame (phase 3).  MSY's parametric bound against 122 (4) (reported, not
       decided).  A per-universe G (187 (2)).  The ten [PLANE] sections, after the 179 re-read.
-  SINCE THE SPEC (noted; nothing decided here): 185, the matter round (lemmas/ITEM185-MATTER-ROUND.md; being written
-      when this integration began, since headed "verified once, findings applied; not seated"); 186, k per corridor
-      (H-K-PER-CORRIDOR, M's, conditional; lemmas/ITEM186-K-PER-CORRIDOR.md, a draft in verification); 187 (3), clauses
-      (G) and (Z) SEATED as the board worded them; 188, M's thought on the partner as a positron, an entangled
-      reflection (H-PARTNER-AS-ENTANGLED-REFLECTION, being worked).
+  SINCE THE SPEC (noted; nothing decided here): 185, the matter round (lemmas/ITEM185-MATTER-ROUND.md); 186, k per
+      corridor (H-K-PER-CORRIDOR, M's, conditional; lemmas/ITEM186-K-PER-CORRIDOR.md) -- both notes were being written
+      when this integration began and are since headed "verified once, findings applied"; 187 (3), clauses (G) and (Z)
+      SEATED as the board worded them; 188, M's thought on the partner as a positron, an entangled reflection
+      (H-PARTNER-AS-ENTANGLED-REFLECTION, being worked).  Recorded while this integration ran, and only noted: 189,
+      "the bond" (H-PAIRING-HELD-AS-TENSION, M's: 188's tension is the bond holding the pair, not the partner); 190,
+      "Information is energy" (H-INFORMATION-IS-ENERGY, M's; the board's reading, to be worked: where the README's
+      information crosses, its energy crosses, so Lemma S's partner is needed).
   It is necessary, not sufficient, and never B4d green.  No value here is the corridor's length (155 (2): in bits), a
   distance between the positions or anything the device sees (101 (7)), or a speed (139 (4)): the depths d and y are
   locations in the bulk and ell its curvature length, all in units of m, and the budgets are holds for the cone
@@ -1642,7 +1646,14 @@ def x11_x25():
             "x25": {"label": "deduced (from X1-X10, X13, X14, X17's stationary half, X18 and sim2_facing S15)",
                     "tag": "[mixed]", "gates": X25_GATES, "rows": table, "left_out": X25_LEFT_OUT,
                     "combined": X25_COMBINED + ((" " + X25_PLANT) if X25_PLANT else "")},
-            "quotes": quotes, "owner_md5": md5}
+            "quotes": quotes, "owner_md5": md5, "docstring_block": docstring_block()}
+
+
+def docstring_block():
+    """The X11-X25 block of this file's docstring, as printed (C35b scans it with the rows)."""
+    doc = __doc__ or ""
+    a, b = doc.find("X11-X25 THE INTEGRATION"), doc.find("It is necessary, not sufficient")
+    return doc[a:b] if 0 <= a < b else ""
 
 
 def _label_tokens(lab):
@@ -1966,8 +1977,9 @@ def report_x11(out):
     b, pm, sh = pr("X13b_bulk"), pr("X13b_premise"), pr("X13a_sheet")
     if b:
         P(f"  X13 Lemma S [FREE], bulk form: R(xi,xi)|_H = {b['cases']['degenerate']['R_xixi']} (degenerate), "
-          f"{b['cases']['nondegenerate']['R_xixi']} (non-degenerate), {b['cases']['degenerate']['R_xixi_nonstationary_null_kept']}"
-          f" (non-stationary, u = 0 kept null); shear at fixed volume: theta = "
+          f"{b['cases']['nondegenerate']['R_xixi']} (non-degenerate), "
+          f"{b['cases']['degenerate']['R_xixi_nonstationary_null_kept']} (non-stationary, u = 0 kept null); shear at "
+          f"fixed volume: theta = "
           f"{pm['cases']['degenerate']['shear_fixed_volume']['theta']}, R(xi,xi) = "
           f"{pm['cases']['degenerate']['shear_fixed_volume']['R_xixi_witness']} = -sigma^2 [{pm['label']}]")
         P(f"      sheet form: K(xi,xi)|_H = {sh['cases']['throat_degenerate']['K_xixi']}, "
@@ -2149,13 +2161,14 @@ def checks(out):
     t_bad = [r["row"] for r in xb["x25"]["rows"]
              if not set(r["sources"]) <= set(X25_COMPUTED) or set(r["sources"]) & set(SPEC_PLANE)
              or not set(r["deferred_parts"]) <= set(SPEC_PLANE)]
-    texts = _strings_in(xb, [])
+    texts = _strings_in(xb, [])           # the rows, X25 and the docstring's X11-X25 block (docstring_block)
     pos_bad = [h for t_ in texts for h in calls_zero_positive(t_)]
     ref_bad = [h for t_ in texts for h in calls_epass_refuted(t_)]
     ok("C35b", "the X11-X25 rows: every label made of the six, every row tagged [FREE...] or [PLANE...], READ rows "
        "paged; the ten [PLANE] sections exactly DEFERRED with the reason and the [FREE] four built; X25's rows draw "
        "only on computed sections; no zero total called positive; E-PASS never called refuted or passed",
-       not (lab_bad or tag_bad or read_bad or t_bad or pos_bad or ref_bad) and defer_ok,
+       not (lab_bad or tag_bad or read_bad or t_bad or pos_bad or ref_bad) and defer_ok
+       and len(xb["docstring_block"]) > 1000,
        f"labels {lab_bad[:2]}; tags {tag_bad[:2]}; READ {read_bad[:2]}; deferred/built {'ok' if defer_ok else 'WRONG'}; "
        f"X25 {t_bad}; positive {pos_bad[:2]}; refuted {ref_bad[:2]}")
     return res
@@ -2227,17 +2240,20 @@ MUTANTS = [
     ("C14", "a key 'arrival_hold' added to the output", lambda: _patched(_ME, "INJECT_KEY", "arrival_hold"),
      ("inject",)),
     ("C15-C19", "the owner epass_pairing.py missing (its path pointed at an absent file)",
-     lambda: _patched(_ME, "OWNER_PATHS", {**OWNER_PATHS, "epass_pairing": os.path.join(HERE, "absent_epass_pairing.py")}),
+     lambda: _patched(_ME, "OWNER_PATHS",
+                      {**OWNER_PATHS, "epass_pairing": os.path.join(HERE, "absent_epass_pairing.py")}),
      ("own_pairing",)),
     ("C15-C19", "the owner's own ZERO_TOL 1e-12 -> -1 (its checks then fail, and its selftest returns False)",
      lambda: _owner_patched("epass_pairing", "ZERO_TOL", -1.0), ("own_pairing",)),
     ("C26-C31", "the owner epass_frames.py missing (its path pointed at an absent file)",
-     lambda: _patched(_ME, "OWNER_PATHS", {**OWNER_PATHS, "epass_frames": os.path.join(HERE, "absent_epass_frames.py")}),
+     lambda: _patched(_ME, "OWNER_PATHS",
+                      {**OWNER_PATHS, "epass_frames": os.path.join(HERE, "absent_epass_frames.py")}),
      ("own_frames",)),
     ("C26-C31", "the owner's own SI_TOL 1e-5 -> 0 (its C26b then fails)",
      lambda: _owner_patched("epass_frames", "SI_TOL", 0.0), ("own_frames",)),
-    ("C35a", "the frames owner's item-155 energy 3.8e22 -> 3.9e22 J, its cached output cleared (two quoted values are "
-     "then no longer the owner's)", lambda: _owner_patched("epass_frames", "E_ITEM155", 3.9e22, clear=True), ("x11",)),
+    ("C35a", "the frames owner's item-155 energy 3.8e22 -> 3.9e22 J, its cached output cleared (three quoted values, E, "
+     "m and 1/(2m) at item 155, are then no longer the owner's)",
+     lambda: _owner_patched("epass_frames", "E_ITEM155", 3.9e22, clear=True), ("x11",)),
     ("C35b", "X15 dropped from the deferred list (a [PLANE] section counted as built)",
      lambda: _patched(_ME, "DEFERRED", {k: v for k, v in DEFERRED.items() if k != "X15"}), ("x11",)),
     ("C35b", "a row drawing on the cap (X22, deferred) added to X25's table",

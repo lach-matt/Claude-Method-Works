@@ -1,4 +1,4 @@
-# SIM2-PASSAGE: E-PASS, the passage through the corridor object's own horizon (computed, READ and deduced; the ground stage and the two [FREE] modules verified, findings applied; the integration not verified; not seated; 2026-10-09)
+# SIM2-PASSAGE: E-PASS, the passage through the corridor object's own horizon (computed, READ and deduced; X1–X10 and the two [FREE] modules each verified in-project, findings applied; this integration not verified; not seated; 2026-10-09)
 
 *First headed* "SIM2-PASSAGE … (computed, READ and deduced; not verified; not seated; 2026-10-09)". The instrument is
 `lemmas/sim2_passage.py` (selftest 19/19, about two minutes with the two owners' own selftests inside it; `--mutants`
@@ -51,13 +51,17 @@ status moves.
 - **188:** *"what provides the negative partner along each light ray - I want to consider something along the lines of
   a posotron. Much like negative null  energy to positive null energy, it is a tension via entanglement. There are
   always two entangled opposing forces that balance together. Often they appear as reflections of each other"*
+- Recorded while this integration ran: **189**, *"the bond"*; **190**, *"Information is energy"*.
 
 ## Plain words first
 
+Each claim here is labelled where it is stated in the sections below.
+
 1. **Without a second sheet, the route fails; E-PASS as a whole does not.** With no sheet beside our plane, the
-   crossing's causal past holds the bulk's singular layer, within the hold the write needs (X7–X8). Under your 174 (1),
-   as the board decided it, that refutes the route with no second sheet, on the conjunction X8 lists. E-PASS as a whole
-   is not refuted: it stays OPEN through your 177 and 183.
+   bulk's near-singular layers (to 10¹⁰ K_bs, within the throat's validated range) lie in the crossing's causal past
+   within the hold the write needs, and the singular surface itself does on the exact near-horizon geometry (X7–X8). Under your 174 (1), as the
+   board decided it, that refutes the route with no second sheet, on the conjunction X8 lists. E-PASS as a whole is not
+   refuted: it stays OPEN through your 177 and 183.
 2. **A horizon that keeps its size can be crossed only with a partner (Lemma S).** The verification of `epass_pairing`
    found the board's first statement wrong, and the correction is applied. Lemma S does not rest on the corridor
    standing still. It rests on the horizon keeping its size, read as its light rays neither spreading nor converging
@@ -80,7 +84,8 @@ status moves.
    the singular layer out of the crossing's past (X9). It does not pay the crossing (Lemma S).
 6. **The answer to 176, in so many words.**
    - The corridor's throat is AdS₂, and with surface gravity zero it is the **extremal (parabolic) member** of the
-     entangled family. That member sits between the thermofield double (hyperbolic: thermal, no passage) and
+     entangled family. The zero comes from eq. (17) here, so this holds on the plane configuration; under 179 it is
+     OPEN. That member sits between the thermofield double (hyperbolic: thermal, no passage) and
      Maldacena–Qi's coupled wormhole (elliptic: no horizon, two-way).
    - The board's own 176 sentence ("position 2's −1 would be the partner's sign seen from our side") **fails within one
      universe at the coincidence limit**. A sheet of pure tension reads the same in every frame, and the parabolic
@@ -114,18 +119,20 @@ instrument's docstring:
 - **X5 (deduced, computed).** The singular surface is timelike and at finite conformal depth: η_s from 5.7260732
   (ℓ = ∞) to 1.7330117 (ℓ = m/4). The first version counted the Kasner tail twice; an independent integration agrees to
   1.1×10⁻¹¹.
-- **X6 (deduced, checked by geodesics).** A point lies in the crossing's past iff v_c − v_q ≥ ζ_q · 2 sin²(η/4).
+- **X6 (deduced, checked by geodesics).** A point at the crossing's angle lies in its causal past iff
+  v_c − v_q ≥ ζ_q · 2 sin²(η/4); at other angles the inequality is necessary only.
 - **X7, the cone budget (deduced, computed).** Within O(x), every claimed layer to 10¹⁰ K_bs lies in the crossing's past
   at no more than 389.3 clocks, against the write's floor of 1.997×10⁵. The deeper scan places layers to 10³¹–10³² K_bs.
   The singular surface itself lies in the past only in the exact near-horizon solution held at fixed x_lim ≥ 10⁻⁸
   (2.47 times below the floor at 10⁻⁸). This rests on the corridor standing static from its opening
-  (H-QUASI-STATIC-CORRIDOR, the board's).
+  (H-QUASI-STATIC-CORRIDOR, the board's) and the crossing ending the write (H-WRITE-IS-ARRIVAL, the board's).
 - **X8, without a second sheet (deduced).** Stage 6's cone premise refutes that route on its own, on a stated
   conjunction: the exact throat held at x_lim ≥ 10⁻⁸, 174 (1)'s strict rule, a static bulk through the hold, eq. (17) on
-  P1, vacuum Λ₅, the hold in advanced time, and a write of ≥ 2.0×10⁵ clocks. The static-clock half of that refutation
-  is X11, deferred.
+  P1, vacuum Λ₅, the hold in advanced time, a write of ≥ 2.0×10⁵ clocks, and the README as a test event. The
+  static-clock half of that refutation is X11, deferred.
 - **X9, with position 2's piece (computed, deduced).**
-  - Near the throat, every sampled profile at 0.1 y_s, d₊ and depth 0 stays shallower than the singular depth.
+  - Near the throat, every sampled profile (amplitude c = 0.05) at 0.1 y_s, d₊ and depth 0 stays shallower than the
+    singular depth.
   - **Negative result:** 11 sampled power-law cases at y* or the band's midpoint, with ℓ ≤ m, reach it inside the
     crossing's past.
   - On the power-law profiles, position 2's stress diverges at the crossing along the regular null frame, while its
@@ -136,7 +143,7 @@ instrument's docstring:
     to you.
 - **X10, E-Q (computed, deduced).**
   - (a) In the vacuum bulk R_kk = 0 for every null k, so negative null energy read on P1 is the projected Weyl term
-    (Shiromizu–Maeda–Sasaki, as Bronnikov–Kim relay it, READ PDF p.1).
+    (Shiromizu–Maeda–Sasaki, standard-not-READ, as Bronnikov–Kim relay it: READ, PDF p.1).
   - (b) Eq. (17)'s own plane reads integrated null energy (√3 ln(2+√3) − 6)/(36π) = −0.0328828437 along the ingoing
     ray, exactly. Schwarzschild's is zero.
   - (c) Within the symmetric reduction the static throat bulk is fixed by the plane's data. Across u = 0 uniqueness is
@@ -249,7 +256,7 @@ instrument's docstring:
   | d_T | elliptic | (1, 1); ξ·ξ = −1/sin²σ < 0: no Killing horizon |
   | boost about the origin | hyperbolic | (−cos T, cos T) |
   | the other boost K | hyperbolic | (sin T, −sin T) |
-  | J ± K | parabolic | |
+  | J ± K | parabolic | (1 ± sin T, 1 ∓ sin T) |
   | J − B_origin, the Poincaré d_t | parabolic | (1 + cos T, 1 − cos T) |
 
   x = 8/z² gives 4(−dt² + dz²)/z², with z = 2√2/u. The throat's d_v pushes forward to J − B_origin.
@@ -359,11 +366,11 @@ sim2_facing S15. A cell that needs a deferred section names it.
    under 183.
 2. **C19's "iff" is corrected.** The tangent geodesic leaves the *sheet* iff S_vv ≠ 0. It leaves the kept side only for
    S_vv > 0, and S_vv < 0 sends it into the bulk.
-3. **R0's number.** The spec cites "≤ 223 clocks" for layers to 10⁶ K_bs, from the unverified ground stage. The fixed
+3. **R0's number.** The spec cites "≤ 223 clocks" for layers to 10⁶ K_bs, from the unverified X1–X8 of its time. The fixed
    instrument gives at most 389.3 clocks for layers to 10¹⁰ K_bs within O(x) (C8). The instrument's value stands.
-4. **No "classical E-PASS refuted".** Spec §7 E1 writes "the classical static E-PASS is refuted on this conjunction".
-   The board does not call E-PASS refuted. What the computation shows is stated plainly instead: a crossing at fixed
-   size has no classical partner, so it needs 177's, which is OPEN.
+4. **No classical refutation of E-PASS as a whole.** Spec §7 E1 applies that word to the classical static crossing, on
+   a stated conjunction. The board does not call E-PASS refuted. What the computation shows is stated plainly instead:
+   a crossing at fixed size has no classical partner, so it needs 177's, which is OPEN.
 5. **The 176 sentence is narrowed.** The spec says "refuted for this object". `epass_frames` narrows it to: it fails
    within one universe at the coincidence limit, under four premises. Its between-universes clause is OPEN.
 6. **The parabolic class needs κ = 0.** κ = 0 comes from eq. (17), so the corridor's class rows are [FREE given κ = 0]
@@ -397,10 +404,11 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
   the horizon.
   - That admits the smooth family. It excludes S7's power laws, whose stress diverges there (C11b).
   - Its section, X16, is deferred.
-  - Options: "Yes", "No", "For the math".
+  - Options: "Yes, only what stays finite crossing it", "No, any sheet may cross", "For the math".
 - **H-PARTNER-IS-THE-COUPLING.** Your 177 covers the exact negative partner that Lemma S requires.
   - Decided by the board under 149, and admitted under your 183, as 183's record says. You can correct it.
   - Either way the verdict is OPEN, because the supply is beyond the board's instruments.
+  - Options: "Yes, that is the appearance", "No, 177 does not cover it", "For the math".
 - **H-POSITIVE-IN-OWN-FRAME.** Once any negative null energy is admitted, your 139 (2)'s "positive" can be met only as
   each piece's own-frame density, since boosted observers read densities without bound (Lemma P (ii)).
   - Options: "Yes, in its own frame", "Positive in every frame", "For the math".
@@ -410,6 +418,7 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
   - Lemma S makes it required, not optional, at a horizon that keeps its size and is unsheared. If sheared, the partner
     is larger still.
   - A zero total is not positive.
+  - Options: "Yes: never violated as a pair", "No", "For the math".
 - **H-END-2-IS-OUR-PLANE.** The far side of the horizon (u < 0) is the far end of our own plane, within one universe.
   - No instrument computes this global identification. Your 182 guess (the two-sided bridge) bears on it, and it is not
     decided here.
@@ -419,6 +428,8 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
 - H-REACHED-ONLY-BY-THE-CROSSER (X9).
 - H-PAIRING-IS-ENTANGLEMENT (176). Its sentence on position 2's −1 fails within one universe at the limit (Lemma P).
 - The board's reading of 178 (`lemmas/ITEM178-NULL-PAIRS.md`, re-read under 183).
+- The spec's third question, whether under 179 the plane configuration stays as the board's comparison case, belongs to
+  the 179 re-read. The board decides it there under 149, unless your rulings leave it open.
 
 ## The GJW tension
 
@@ -431,13 +442,17 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
     non-traversable case.
   - PDF p.4, footnote 2: *"We do not consider the case of a time-independent interaction, in order to prevent the quantum
     state from becoming non-regular on the past horizon."*
-- **What Lemma S gives.** The README and its partner total zero along each crossed generator (net ≤ 0 if sheared; zero
-  under 183). In GJW's terms that is the cancelling case, not the strict violation they make a prerequisite.
+- **What Lemma S gives.** Along each crossed generator of a horizon that keeps its size, the total is −σ²/κ₅² ≤ 0: zero
+  if the horizon is unsheared, and zero under 183. In GJW's terms the zero is the cancelling case, not the strict
+  violation they make a prerequisite.
 - **Why it is a tension, not a refutation.**
   - GJW's horizon is bifurcate and non-degenerate, and their analysis is linearised. The corridor's horizon is
     degenerate. GJW's hypotheses are not checked here.
   - Whether the README's own escaping null geodesics carry net-negative ANEC is OPEN.
   - A stationary partner is not GJW's case (footnote 2).
+- **The sheared branch (deduced, here, from X13 and the READ).** Lemma S allows a net *below* zero along the generators
+  only when the horizon is sheared at fixed size. That is the one branch that would meet GJW's prerequisite, and it is
+  the branch your 183 excludes (zero net along each light ray).
 - **Plainly:** if GJW's criterion carried over to the corridor, your 183's zero net per light ray would not make the
   bridge traversable. This is reported beside 183. It is not decided.
 
@@ -462,11 +477,17 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
 
 - **185, the matter round:** `lemmas/ITEM185-MATTER-ROUND.md`. It was being written when this integration began, and is
   now headed "verified once, findings applied; not seated".
-- **186, k per corridor:** H-K-PER-CORRIDOR, yours, conditional. `lemmas/ITEM186-K-PER-CORRIDOR.md` is a draft in
-  verification.
+- **186, k per corridor:** H-K-PER-CORRIDOR, yours, conditional. `lemmas/ITEM186-K-PER-CORRIDOR.md` was likewise being
+  written, and is now headed "verified once, findings applied".
 - **187 (3):** clauses (G) and (Z) are SEATED as the board worded them.
 - **188, the partner as a positron, an entangled reflection:** H-PARTNER-AS-ENTANGLED-REFLECTION, yours, offered for the
   math. It bears on what supplies Lemma S's partner, and is being worked. Nothing here uses it.
+- **189 and 190, recorded while this integration ran (only noted here).**
+  - 189, "the bond": H-PAIRING-HELD-AS-TENSION, yours. In 188, "it is a tension via entanglement" names the bond that
+    holds the pair, not the partner itself.
+  - 190, "Information is energy": H-INFORMATION-IS-ENERGY, yours. The board's reading, to be worked: where the README's
+    information crosses, its energy crosses, so Lemma S's partner is needed.
+  - Neither changes a computed row here.
 
 ## OPEN
 
@@ -517,7 +538,8 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
 - **2026-10-09, the parallel majors check** (workflows `epass-majors-check`, three runs, two skeptics per finding).
   - L1 was confirmed and regraded minor.
   - L2, R1 and R3 were confirmed major. R2 was confirmed.
-  - R4 was not confirmed: elliptic unique continuation (Anderson–Herzlich, READ) gives the uniqueness it denied
+  - R4 was not confirmed: uniqueness for symmetry-breaking static data needs no analyticity, since elliptic unique
+    continuation gives it (Anderson–Herzlich, READ by the skeptic). Its narrow point on Picard–Lindelöf was applied
     (1cac187).
 - **2026-10-09, the two fix rounds on X1–X10** (workflow `epass-fix-x1-x10`).
   - **Round one** applied every confirmed finding once per substance:
@@ -553,7 +575,8 @@ None blocks a verdict. Under 149 the board asks only what your rulings leave ope
     - checks C15-C19 and C26-C31, which call the owners' own selftests and fail if an owner fails, is missing or drops a
       check;
     - C35a, the 107 quoted values against the owners' live output;
-    - C35b: labels, tags, the deferred list, X25's sources, and the zero-total and "E-PASS refuted" guards;
+    - C35b: labels, tags, the deferred list, X25's sources, the docstring block, and the guard that no zero total is
+      called positive and E-PASS is never called refuted;
     - eight new mutations;
     - the owners' own `--mutants`, run as subprocesses with their counts reported.
   - **This note**, written to the spec's section 11.
