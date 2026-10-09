@@ -379,3 +379,45 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Still open within one universe:** the passage through the horizon (`sim2_passage`, next), a bulk that changes
   during the hold (152 (2)), motion inside the planes (141), and nearest approaches far out.
 - **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
+
+## History (2026-10-09, items 171–185: E-PASS, the corridor in the bulk, pairs, matter)
+
+- **Items 171–177.**
+  - **171:** a question about space-only teleportation. The board's answer, offered for discussion: on your rulings the
+    corridor within one universe already is that.
+  - **172:** position 2's piece may carry the README's stress (H-README-ON-P2), and coinciding is the endless approach
+    down the throat (H-COINCIDE-DOWN-THE-THROAT).
+  - **173:** E-PASS next.
+  - **174:** three questions left "For the math", each decided by the board under 149.
+  - **175–177:** entanglement. You chose "Yes, that is the appearance", so escape E-Q (coupling the entangled ends) is
+    open as a route for B4d.
+- **E-PASS** (`lemmas/sim2_passage.py`, X1–X10). Verified by five verifiers, each finding put to skeptics
+  (`lemmas/EPASS-VERIFY-RECOVERED.md`).
+  - Its key overclaims are confirmed: X7–X8 put a singular layer in the crossing's past beyond what is computed; X9 cuts
+    the slab; X10 (c)'s perturbed run breaks the bulk constraint; two controls cannot fail; and "end 2 is our own
+    plane's far end" is a global identification no instrument computes.
+  - The design for X11–X25 (`lemmas/EPASS-DESIGN-SPEC.md`) adds Lemma S: a horizon that keeps its size and stays still
+    takes no net null flux, so the README can cross only with an exact negative partner along the same light rays.
+  - The fix round is running.
+- **Item 178** (pairs; a null is a definable nothing). Answered in `lemmas/ITEM178-NULL-PAIRS.md`, then re-read under
+  183.
+- **Items 179/180** (the corridor exclusive to the bulk) are answered in `lemmas/ITEM179-BULK-CORRIDOR.md`.
+  - Eq. (17) is demoted from input to candidate output: at most a plane's reading of the corridor's mouth
+    (H-PLANE-READS-MOUTH, the board's).
+  - k's scale still has no value. Every corridor length grows as √N, so any equality ℓ = c × (corridor length) would
+    give a different k for every README, against the board's reading of your 127 (2) and 138.
+- **Items 181/182** (the bulk balance, your guess C) are in `lemmas/BULK-BALANCE.md`.
+  - Matter-free planes beside a bulk corridor cannot rest.
+  - With matter, a flat plane can rest, but its matter breaks the null energy condition at each point.
+- **Item 183** ("Yes: never violated as a pair"). Axiom Z3 is re-read as net per light ray, and E-PASS's stationary
+  crossing is OPEN through 177, not refuted.
+- **Item 184** ("There are no matter free planes"). Every matter-free result is a limit.
+- **Item 185** (the matter round) is running.
+- **Clauses to be re-worded** (the board's proposals, put to you; not seated):
+  - **(G):** the corridor is in the bulk and sits on neither plane (179/180). Eq. (17) at r₀ = 2m is kept as a
+    plane's possible reading of its mouth, OPEN.
+  - **(B):** "The plane is free of matter" gives way to 184: each plane carries its own universe's matter, the corridor
+    adds none, and the matter-free plane is a limit.
+  - **(Z) and (B)'s positivity:** "never violated" holds net per light ray (183). Positivity stays your 139 (2), a
+    separate ruling.
+- **No status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.

@@ -27,7 +27,15 @@ DERIVED (each from more basic rulings + proved lemmas + physics, computed):
   Z3  null energy is never violated, in five dimensions.  In the vacuum bulk R_AB = (2 Lambda/3) g_AB, so R(k,k) = 0 for
       every null k (computed); on the composite plane the null stress is lambda_RS f(y) k_y^2 >= 0 at every depth (B5a,
       the board's H-SHARED-PROFILE); along the passage it is exactly 0 (Z1, proved).  The plane's four-dimensional
-      reading of a violation is the bulk's pull (Z1) -- the appearance items 117 and 120 describe
+      reading of a violation is the bulk's pull (Z1) -- the appearance items 117 and 120 describe.
+      RE-READ under item 183 (2026-10-09; M chose "Yes: never violated as a pair"; carried as M's:
+      H-NEC-NEVER-VIOLATED-AS-PAIR): "never violated" holds NET PER LIGHT RAY -- zero net null energy along each light
+      ray, a negative member paired along the same light rays being the appearance.  The computations above are
+      unchanged and still met; what changes is what Z3 forbids: an exact +/- null pair along one generator (the pair
+      Lemma S demands of a stationary crossing, lemmas/EPASS-DESIGN-SPEC.md X13) no longer violates it, so E-PASS's
+      stationary crossing is OPEN through 177 (H-PARTNER-IS-THE-COUPLING, the board's), not refuted by Z3.  Positivity
+      of energy density is 139 (2)'s separate ruling, not Z3's.  Under item 184 ("There are no matter free planes")
+      the composite plane's matter-free B5a value is a limit, not M's configuration (deduced)
   E1  E is carried into position 2.  The opening's inflow is the README (115 (c)) and the README is the energy (136 G);
       the passage is one way (O1, proved) so none returns to position 1; the corridor holds nothing indefinitely
       (136 answer 3) and a horizon cannot outlive its object (109), so none stays.  Energy is conserved: E_in =

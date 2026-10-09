@@ -1,8 +1,20 @@
-# E-PASS verification, recovered from the journal (workflow epass-verify, run wf_9048b6df-563; recovered 2026-10-09 after a container restart; not yet complete; not seated)
+# E-PASS verification, recovered from the journal (workflow epass-verify, run wf_9048b6df-563; recovered 2026-10-09 after a container restart; the six unchecked majors then checked in three parallel runs; not seated)
 
-Five verifiers on lemmas/sim2_passage.py (commit cd1a4c1), each finding then put to one or two skeptics told to refute it. CONFIRMED means a majority of skeptics found it real; 'unchecked' means its skeptic check had not run when the container restarted. The resumed run (same run id) completes the unchecked ones. Findings are applied in the E-PASS fix round.
+Five verifiers on lemmas/sim2_passage.py (commit cd1a4c1), each finding then put to one or two skeptics told to refute it. CONFIRMED means a majority of skeptics found it real; 'unchecked' means its skeptic check had not run when the container restarted. The resumed run was stopped for speed; the six unchecked majors were instead checked in three parallel runs (below), and the 23 unchecked minors go to the fix round. In the journal block below, 'unchecked' is the state at the restart; the table below supersedes it for L1, L2 and R1–R4. Findings are applied in the E-PASS fix round (workflow epass-fix-x1-x10).
 
-Tally: 70 findings. 40 CONFIRMED (15 major, 25 minor), 1 rejected (minor), 29 not yet checked (6 major, 23 minor).
+Tally: 70 findings. **45 CONFIRMED** (40 from the journal, 15 major and 25 minor; then L1, L2, R1, R2 and R3 from the three parallel runs), **2 not confirmed** (PA-7 rejected; R4 split, its central claim refuted), **23 minors not skeptic-checked**: by decision, for speed, they go to the fix round, which applies each only if it reproduces it.
+
+## The six majors, checked afterwards (workflows epass-majors-check, three runs in parallel, two skeptics per finding, 2026-10-09)
+
+| id | verdict | what the skeptics found |
+|---|---|---|
+| L1 | CONFIRMED, regraded **minor** (2/2) | Maldacena–Milekhin's "classical effect in five dimensions" is the negative energy of an AdS₃ region held up by magnetic flux, which a vacuum Λ₅ bulk cannot carry. X10 (a)'s identity rests on R_kk = 0 under the stated vacuum premise (Shiromizu–Maeda–Sasaki, standard-not-READ), not on MM. Duplicates PA-8, RI-9 and C1; the only new part is X10 (c)'s missing caveat that MM's route is excluded by clauses (B) and (G). |
+| L2 | CONFIRMED, **major** (2/2) | "u < 0 is end 2 of our own plane, within one universe" is a global identification that no instrument computes; the ground stage recorded it as open and the instrument dropped the caveat. Duplicates RI-6. |
+| R1 | CONFIRMED, **major** (2/2) | O(x)-supported layers stop at finite curvature (x_valid → 0 at y_s; the supported budget grows without bound as K → ∞, 7.1×10³ clocks at 10²⁰ K_bs). The singular surface enters J⁻(P_c) only in the exact near-horizon solution, an unstated premise; under 174 (1) it is the singularity that counts. The exact-throat row at x_lim = 10⁻⁸ is 2.5 times below the floor, not "far below", and the margin is gone by 10⁻⁹. |
+| R2 | CONFIRMED (one major, one minor vote) | X7's step needs v_c − v_open ≥ budget, never stated. The failure case cited (o3_write W4 (ii)) is already ruled out by 162/163, so the fix is a stated placement, not a new escape. |
+| R3 | CONFIRMED, **major** (2/2) | On S7's power-law profiles P2's stress in the crosser's frame grows as x^(λ−1) and diverges at P_c; only the smooth family stays finite. X9's coincidence sentence, and its "regular at d ≥ d₊" at ℓ = ∞ where d₊ = 0, hold only on the smooth family. slab_rows silently skips d₊ = 0.0. The d > 0 regularity clause survives. |
+| R4 | **not confirmed** (1/2) | Refuted as stated: uniqueness for symmetry-breaking static data does not need analyticity; elliptic unique continuation gives it (Anderson–Herzlich 0710.1305v2, Thm 1.1, C^{3,α}, READ by the skeptic); analyticity is what existence needs. Both votes keep one narrow point: Picard–Lindelöf covers only the AdS₂×S²-symmetric ODE reduction that data_fixes_bulk integrates, so X10 (c) must cite the right ground for the general case (applied with RI-8). |
+
 
 ```
 
