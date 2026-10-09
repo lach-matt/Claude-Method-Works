@@ -214,6 +214,12 @@ def _zero(expr, wit):
     return expr == 0 and abs(wit) < ZERO_TOL
 
 
+def _settle(ex, wit):
+    """Simplify only when the numeric witness is zero (then a symbolic zero is required); a nonzero witness already
+    certifies a nonzero expression, which is returned unsimplified."""
+    return sp.simplify(ex) if abs(wit) < ZERO_TOL else ex
+
+
 # ------------------------------------------------------------------------------------------------ X13 Lemma S
 def sheet_gvv(kind="degenerate"):
     """The spec's two sheet-form g_vv: degenerate -alpha^2 u^2/2 (horizon u = 0) and non-degenerate
@@ -271,9 +277,8 @@ def pairing_sheet(gvv, u_h=0, metric="throat"):
     out = {}
     for key, ex in (("K_xixi", Kxx), ("S_xixi_over_nu", Sxx), ("trK", trK)):
         on = ex.subs(u, u_h)
-        sym = sp.simplify(on) if key != "trK" else on
-        out[key] = sym
         out[key + "_witness"] = _witness(on, sheet_at=u_h)
+        out[key] = _settle(on, out[key + "_witness"]) if key != "trK" else on
     out["trK_finite"] = bool(math.isfinite(out["trK_witness"]) and not out["trK"].has(sp.zoo, sp.nan, sp.oo))
     out["xixi_on_H"] = sp.simplify(g[1, 1].subs(u, u_h))
     return out
@@ -303,20 +308,20 @@ def pairing_bulk(gvv, u_h=0, grow=0, grow_y=0):
              for b in range(5) for c in range(5) if gi0[b, c] != 0)
     out = {}
     Rxx0, Et0 = Rxx.subs(u, u_h), Ryy.subs(u, u_h)
-    out["R_xixi"] = sp.simplify(Rxx0)
     out["R_xixi_witness"] = _witness(Rxx0)
-    out["Etilde_xixi"] = sp.simplify(Et0)
+    out["R_xixi"] = _settle(Rxx0, out["R_xixi_witness"])
     out["Etilde_xixi_witness"] = _witness(Et0)
+    out["Etilde_xixi"] = _settle(Et0, out["Etilde_xixi_witness"])
     E0 = Et0 - Rxx0 / 3
-    out["E_xixi"] = sp.simplify(E0)
     out["E_xixi_witness"] = _witness(E0)
+    out["E_xixi"] = _settle(E0, out["E_xixi_witness"])
     out["R_scalar_witness"] = _witness(Rs)
     out["R_scalar_finite"] = bool(math.isfinite(out["R_scalar_witness"]) and not Rs.has(sp.zoo, sp.nan, sp.oo))
     xixi = g[1, 1].subs(u, u_h)
     out["xixi_on_H"] = sp.simplify(xixi)
     T5 = Rxx0 - (Rs / 2 - LAM5) * xixi
-    out["kappa2_T5_xixi"] = sp.simplify(T5)
     out["kappa2_T5_xixi_witness"] = _witness(T5.subs(LAM5, -6))
+    out["kappa2_T5_xixi"] = _settle(T5, out["kappa2_T5_xixi_witness"])
     return out
 
 
