@@ -1,25 +1,31 @@
 #!/usr/bin/env python3
 """f1_audit.py -- the Warp Theorem's input F1 audited: eq. (17) as our plane's own metric, demoted by seated clause (G)
-(item 187) to "a plane's possible reading of the corridor's mouth".  Computed, READ and deduced; not verified; not
-seated; 2026-10-09.  Note: lemmas/F1-AUDIT.md.
+(item 187) to "a plane's possible reading of the corridor's mouth".  Computed, READ and deduced; checked by two separate
+AI sessions in this project, findings applied; not seated; 2026-10-09.  Note: lemmas/F1-AUDIT.md.
 
-WHAT THIS DOES.  Ten lemmas of warptheorem.py rest on F1 -- H2, O1, O2, Z1, Z2, B1, B2, B4b, B4d, E4 (B3 through B4).
+WHAT THIS DOES.  Twelve lemmas of warptheorem.py rest on F1 -- H2, O1, O2, Z1, Z2, B1, B2, B4b, B4d, E4 (B3 through B4)
+  as the item-192 audit listed them, and G1, G3, which that list carried F1-free although axioms.derive_h2_g1 places the
+  horizon with eq. (17)'s F = 0 (G1's E(N) = r0 c^4/(2G) is the plane's horizon relation r_h = 2Gm/c^2).
   PART A re-runs each one's decisive check from its owner, by path (bulk/stability.py, bulk/passage5d.py, copy/coin.py,
          copy/plane.py, copy/exactE.py, bulk/localbulk.py, lemmas/ledger.py, lemmas/b4_static.py, lemmas/b4d_stage6.py,
-         lemmas/axioms.py).  Every one still passes: each is a true theorem ABOUT eq. (17) on a plane.  What F1 decides
-         is whether it is a lemma about M's corridor.
-  PART B re-proves what can be re-proved WITHOUT F1: H2 and O1's "one way" are M's item 132 verbatim (AXIOM); the
-         plane's null-energy deficit is the bulk's pull plus the plane's own matter, for ANY trace (Z1', the contracted
-         Gauss identity, computed); Gauss and Codazzi with matter for any trace (B1', computed); and two negative results:
-         a horizon on the throat does not force extremality (so O2 is not derivable from G3/132), and a plane tangent to
-         the bulk's Killing field reads the bulk's surface gravity (O2's bulk form needs only M1 and S1).
-  PART C states M1 (H-PLANE-READS-MOUTH as a theorem) and computes what plane matter eq. (17) would need: the 4D-limit
-         candidate (bulk Weyl zero) breaks the NEC; the vacuum plane's near-horizon bulk is singular (SIM2's y_s
-         reproduced), and on a negative-tension plane it is regular only for ell <= 4.79m, outside the window; and
-         every regular SINGLE-plane static near-horizon geometry reading eq. (17)'s AdS2(2m) x S2(2m)
-         needs plane matter rho(2m/ell) sigma_RS at the horizon -- positive, NEC-obeying, but never our universe's (the
-         corridor would add it, against 129 (1)/130 (1) on the board's H-OWN-MATTER-ONLY).  M1's question goes through
-         the cypher (196), and the green table shows what M1 would green.
+         lemmas/axioms.py).  Every decisive check still passes.  What they establish is a statement about eq. (17) on a
+         matter-free plane at the RS tension (inputs F1 and F2); O1's "nonsingular" is OPEN even there (plane.py P1).
+  PART B what survives without F1.  H2's qualitative form and O1's direction are DERIVED from M's 132 (with 130), carried
+         as M's -- no axiom is claimed.  For a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, with any
+         symmetric plane matter tau: Z1q, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k), and B1q, Gauss
+         -R4 = -12(q^2 - 1)/ell^2 + q 8 pi G tau + kappa5^4 (tau.tau/4 - tau^2/12) with Codazzi (computed, symbolic; on
+         the standard-not-READ Gauss equation and Israel junction).  Our plane is q = 1; the q = 1 forms FAIL at position
+         2's q < 0, and a plane without Z2 symmetry is outside (its K is not fixed by tau).  pi(k,k) is not sign-definite
+         under the NEC.  Two negative results: a horizon on the throat does not force extremality, and a plane tangent
+         to the bulk's Killing field reads the bulk's surface gravity.
+  PART C states M1 (H-PLANE-READS-MOUTH as a theorem, OPEN) with its clauses and the stronger M1-P2 and M1-global, and
+         computes: the 4D-limit candidate's net -Q per ray (against 183); the matter-free plane's near-horizon bulk
+         singular at SIM2's y_s; the regular single-plane caps (KR's compact-horizon class) and the plane matter they
+         need -- positive, NEC-obeying, never our universe's (so the single-plane form fails ON THE BOARD'S READING
+         H-OWN-MATTER-ONLY, at the computed grid points, numerical RK4 without error control); M1-c's error bound from
+         our matter and the observed dark energy, which excludes M1-global in its exact form; the question "may our
+         plane carry the README's stress at the mouth" put to the cypher (196), which does not decide it; and the green
+         table, its statuses imported from warptheorem.py and its inputs from the item-192 list (b1_matter.py).
 
 LABELS.  computed / READ (verbatim + page) / deduced / STRUCTURAL / standard-not-READ / OPEN, on every result.
 M'S WORDS USED (verbatim, typing kept; M-RULINGS-2026-10-03.md):
@@ -32,6 +38,7 @@ M'S WORDS USED (verbatim, typing kept; M-RULINGS-2026-10-03.md):
   172 (1) M chose "Yes, it may" (position 2's piece may carry the README's stress)
   179/180 "We know the corridor *does not sit on either position's plane, it only bridges them. So one could surmise
        that the corridor is exclusive to the bulk."
+  183  M chose "Yes: never violated as a pair"
   184  "There are no matter free planes"
   187 (3) M chose "Seat both": (G) "the corridor sits in the bulk, on neither plane (179/180), with eq. (17) kept only as
        a plane's possible reading of the corridor's mouth"
@@ -41,11 +48,16 @@ THE BOARD'S READINGS (named; withdrawn if M says otherwise):
        theorem to prove, M1 (OPEN).
   H-OWN-MATTER-ONLY    the board's gloss of 184 with 129 (1) and 130 (1) (184's record: "each plane carries its own
        universe's matter, and the corridor adds none"): our plane's matter at the mouth is our universe's alone, bounded
-       here (generously) by nuclear density.  ITEM185 already reads X22's cap (README stress on our plane) as against
-       129 (1)/130 (1); this is the same reading.
-  H-M1-TRACE-INDEX     how M1's single-plane question is encoded for tools/cypher.py (section C8); the encoding is the
-       board's, every roster is run, none chosen.
+       here by nuclear density.  ITEM185 read X22's cap the same way; that is the same reading, not support for it.  It
+       sits in tension with 172 (1), where M allowed README stress on position 2's piece although the board had said
+       129 (1)/130 (1) read against it.  Put to the cypher (C11): undecided.
+  H-STRESS-INDEX       how that question is encoded for tools/cypher.py (C11); the encoding is the board's.
+  H-M1-TRACE-INDEX     how M1's single-plane question is encoded for tools/cypher.py (C8); the board's.
   H-RH-IS-2M           (ITEM185) the trace's horizon radius 2m is the size compared with ell, x = 2m/ell.
+  H-EQ17-ON-P2         (stage 6) position 2's piece reads eq. (17) -- tested matter-free in C2b; its leg is M1-P2.
+  H-POSITIVE-ON-P2     (ITEM185, 139 (2)) in M1-f.
+  H-BK-FLUID-NOT-MATTER the board's gloss of 130's "a black hole is not matter": eq. (17)'s Bronnikov-Kim effective
+       fluid is not plane matter either.
 READ (via lemmas/epass_ground.json, the board's E-PASS ground stage -- READ by board agents, itself not verified):
   Kaus-Reall 0901.4236v1 PDF p.4 "In the bulk, the surface gravity is constant. Hence, by continuity, it will take the
   same value on the brane. Therefore if the horizon is degenerate on the brane then it will also be degenerate in the
@@ -53,12 +65,14 @@ READ (via lemmas/epass_ground.json, the board's E-PASS ground stage -- READ by b
   compactness of the horizon implies that R(rho) must vanish somewhere" and (2.8) smoothness; PDF p.6 (2.16) the Israel
   condition "A'(rho0)/A(rho0) = 1/l - lQ^2/(2R(rho0)^4), R'(rho0)/R(rho0) = 1/l + lQ^2/(2R(rho0)^4)"; p.11 "our bulk
   solution is independent of what kind of matter field is present on the brane".
+READ (via ../cosmo.py, imported): Planck 2018 H0 = 67.36 km/s/Mpc, Omega_m = 0.3153 (flat taken: Omega_K = 0.001 +-
+  0.002, READ in b1_matter.py) -- for the dark-energy density in C10.
 standard-not-READ: the Gauss and Codazzi equations; Israel's junction (Z2); Cauchy-Kovalevskaya with constraint
   propagation (as in localbulk.py L4); that the near-horizon geometry of a static degenerate horizon is a warped
-  product (KR cite it as proved in their ref. [16]); nuclear density ~2.3e17 kg/m^3; Bertotti-Robinson's
-  AdS2 x S2 needing traceless matter rho = 1/(8 pi G L^2) in 4D general relativity.
+  product (KR cite it as proved in their ref. [16]); nuclear density ~2.3e17 kg/m^3 (neutron-star cores several times
+  more); Bertotti-Robinson's AdS2 x S2 needing traceless matter rho = 1/(8 pi G L^2) in 4D general relativity.
 
-CLI:  python3 f1_audit.py [--selftest] [--mutants] [--json PATH]     (selftest ~40 s; --mutants ~70 s)
+CLI:  python3 f1_audit.py [--selftest] [--mutants] [--json PATH]     (selftest ~40 s; --mutants ~3 min)
 Stdlib + sympy (+ the owners' own needs: z3, mpmath, numpy, scipy, python-flint).  No file is written but --json's.
 """
 import contextlib
@@ -81,21 +95,30 @@ REPO = os.path.dirname(os.path.dirname(WD))
 RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
 GROUND = os.path.join(HERE, "epass_ground.json")
 CYPHER = os.path.join(REPO, "tools", "cypher.py")
+WARPTHEOREM = os.path.join(D68, "warptheorem.py")
+B1MATTER = os.path.join(HERE, "b1_matter.py")
+COSMO = os.path.join(WD, "cosmo.py")
 
 RHO_NUC = 2.3e17              # kg/m^3, nuclear density (standard-not-READ; ITEM185 uses the same)
+RHO_NS = 2.0e18               # kg/m^3, several times nuclear (neutron-star cores; standard-not-READ) -- F1A-R11
 ELL_MAX = 13.964e-6           # m, ITEM185's refined upper edge (deduced from READ Adelberger et al. p.3; MK eq. 41)
-EDGE_SIM2 = 27.07             # ell > 27.07 m(N), SIM2-FACING's lower edge (rests on eq. (17) on our plane; to be redone)
+EDGE_SIM2 = 27.07             # ell > 27.07 m(N), SIM2-FACING's lower edge (computed WITH eq. (17) on our plane: rests on
+#                               F1, which M1 grants; to be redone)
 EDGE_B4C = 4.0e5              # ell > 4.0e5 m(N), B4c's edge with the write's hold (ITEM179; to be redone)
 SNAPSHOT_N = 1.088e29         # item 108's full snapshot
 Q_REF = 1.652872              # passage5d.py P3, per m
 YS_FLAT, YS_ELL_M = 2.5536, 0.9139   # SIM2-FACING's y_s^th (flat; ell = m), in m -- reproduced in C2
 GRID = (0.005, 0.02, 0.05, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 0.99, 0.999, 0.9999)   # cap parameter A0/ell (C3-C8)
+CROSS_A0 = (0.005, 0.02, 0.05, 0.6, 0.8, 0.95)   # crossing count to rho = 60 ell (three inside the window) -- OC-5, R12
+P2_COUNTS = (3, 6)            # position 2's ell_2 / ell: stage 6 J3's 3 (with 138) and the 6 B4D-STAGE6's downstream
+#                               note gives when J3's -1/3 is not counted twice (put to M; 174 (2) "For the math")
 
 DEFAULT = {"r0_over_m": sp.Integer(2), "z1_first": None, "q_arg": sp.sqrt(3) / 2, "lam5_sign": -1, "b1_metric": "eq17",
            "o1_key": "main", "bank_K_scale": 1, "j6_flip": False, "axiom_132": "true", "kappa_H": "F",
            "string_grr": "warp", "gauss_sign": 1, "israel_sign": 1, "nh_lam": 4.0, "c1_metric": "eq17",
            "ys_side": -1, "rho_nuc": RHO_NUC, "cy_add_question": False, "cy_drop_route1": False, "m1_green": False,
-           "keep_B1_F2": False, "swap_ab": False, "kr_quote": "true"}
+           "keep_B1_F2": False, "swap_ab": False, "kr_quote": "true", "c3_div": 12, "pi_form": "sms",
+           "rho_lambda_on": True, "z2_on_m1": False, "cy_stress_add_q1": False, "g13_f1_free": False}
 
 _CACHE = {}
 
@@ -250,6 +273,9 @@ def axiom_texts(cfg):
          "179_180": "We know the corridor *does not sit on either position's plane, it only bridges them.",
          "184": "There are no matter free planes",
          "187_G": "with eq. (17) kept only as a plane's possible reading of the corridor's mouth",
+         "172_1": "M chose: \"Yes, it may\"",
+         "183": "M chose: \"Yes: never violated as a pair\"",
+         "194": "Disregard that last ruling. I want that question put to the cypher",
          "195": "The README is not a pair"}
     if cfg["axiom_132"] == "corrupt":
         q["132_holds"] = q["132_holds"].replace("- yes", "- no")
@@ -356,34 +382,63 @@ def gauss_identity(cfg):
 
 
 def israel(cfg):
-    """computed (symbolic; Israel Z2 and Gauss, standard-not-READ): K = -(1/ell) h - s (kappa5^2/2)(tau - tau h/3)
-    in the normal pointing into the kept bulk (localbulk's K = -g/ell), 8 pi G = kappa5^2/ell, Lambda5 = -6/ell^2.
-      null:   -K K(k,k) + (K.K)(k,k) = -8 pi G tau(k,k) - kappa5^4 pi(k,k),   pi = SMS's quadratic term
-      scalar: R4 = 2 Lambda5 + K^2 - K.K   gives   -R4 = 8 pi G tau + kappa5^4 (tau.tau/4 - tau^2/12)
-    So Z1' and B1' hold for ANY trace: 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k), and the plane's
-    Gauss and Codazzi constraints with its own matter (Codazzi: D^mu tau_mu nu = 0)."""
+    """computed (symbolic; Israel Z2 and Gauss, standard-not-READ): for a Z2-symmetric plane of tension q sigma_RS
+    bounding the vacuum bulk (Lambda5 = -6/ell^2), K = -(q/ell) h - s (kappa5^2/2)(tau - tau h/3) in the normal pointing
+    into the kept bulk (localbulk's K = -g/ell at q = 1), 8 pi G := kappa5^2/ell, tau ANY symmetric plane matter:
+      null (Z1q):   -K K(k,k) + (K.K)(k,k) = -q 8 pi G tau(k,k) - kappa5^4 pi(k,k),   pi = SMS's quadratic term
+      scalar (B1q): R4 = 2 Lambda5 + K^2 - K.K  gives  -R4 = -12(q^2 - 1)/ell^2 + q 8 pi G tau + kappa5^4 (tau.tau/4
+                    - tau^2/12)
+    Our plane is q = 1 (the RS tension of clause (B) as worded).  The q = 1 forms are FALSE at position 2's q < 0
+    (139 (1); -1/3, -1/4, -1/6 in the counts stages 6-7 carry) and at multiplane M4's 4/3; a plane without Z2 symmetry is
+    outside (tau = 0 with K = -h/ell + diag(0, d, -d, 0) gives R4 = -2 d^2).  pi(k,k) is not sign-definite under the
+    NEC (diagonal tau: rho = 0, p1 = 1 gives -1/6) but is rho (rho + p)(u.k)^2/6 for a perfect fluid.  Uniform dark
+    energy tau = -rho_L h (or a tension shift q != 1) gives R4 != 0: no exact R4 = 0 trace (C10)."""
     ell, k5 = sp.symbols("ell kappa5", positive=True)
+    q = sp.Symbol("q", real=True)
     s = cfg["israel_sign"]
     eta = sp.diag(-1, 1, 1, 1)                                   # an orthonormal frame on the plane
     tau_dn = sp.Matrix(4, 4, lambda i, j: sp.Symbol("tau%d%d" % (min(i, j), max(i, j)), real=True))  # any symmetric
-    tr = sum((eta * tau_dn)[i, i] for i in range(4))
-    K = -(1 / ell) * eta - s * (k5**2 / 2) * (tau_dn - tr * eta / 3)
-    Kmix = eta * K                                               # K^a_b
-    Ktr = sum(Kmix[i, i] for i in range(4))
-    KK = sum(Kmix[i, j] * Kmix[j, i] for i in range(4) for j in range(4))
     k = sp.Matrix([1, 1, 0, 0])
-    Kkk = (k.T * K * k)[0]
-    KoK = (k.T * (K * eta * K) * k)[0]
-    tkk = (k.T * tau_dn * k)[0]
-    tmix = eta * tau_dn
-    tt = sum(tmix[i, j] * tmix[j, i] for i in range(4) for j in range(4))
-    tok = (k.T * (tau_dn * eta * tau_dn) * k)[0]
     G8 = k5**2 / ell
-    pi_kk = -tok / 4 + tr * tkk / 12
-    null_res = sp.simplify(sp.expand(-Ktr * Kkk + KoK - (-G8 * tkk - k5**4 * pi_kk)))
-    R4 = 2 * (-6 / ell**2) + Ktr**2 - KK
-    scal_res = sp.simplify(sp.expand(-R4 - (G8 * tr + k5**4 * (tt / 4 - tr**2 / 12))))
-    return {"null_res": null_res, "scalar_res": scal_res}
+
+    def parts(tau, Kextra=None, qq=q):
+        tr = sum((eta * tau)[i, i] for i in range(4))
+        K = -(qq / ell) * eta - s * (k5**2 / 2) * (tau - tr * eta / 3)
+        if Kextra is not None:
+            K = K + Kextra
+        Km = eta * K
+        Ktr = sum(Km[i, i] for i in range(4))
+        KK = sum(Km[i, j] * Km[j, i] for i in range(4) for j in range(4))
+        tm = eta * tau
+        tt = sum(tm[i, j] * tm[j, i] for i in range(4) for j in range(4))
+        tkk = (k.T * tau * k)[0]
+        tok = (k.T * (tau * eta * tau) * k)[0]
+        pi_kk = -tok / 4 + (tr * tkk / 12 if cfg["pi_form"] == "sms" else 0)
+        R4 = 2 * (-6 / ell**2) + Ktr**2 - KK
+        return {"tr": tr, "Kkk": (k.T * K * k)[0], "KoK": (k.T * (K * eta * K) * k)[0], "Ktr": Ktr, "tt": tt,
+                "tkk": tkk, "pi_kk": pi_kk, "R4": R4}
+    P = parts(tau_dn)
+    null_lhs = -P["Ktr"] * P["Kkk"] + P["KoK"]
+    null_q = sp.simplify(sp.expand(null_lhs - (-q * G8 * P["tkk"] - k5**4 * P["pi_kk"])))
+    scal_q = sp.simplify(sp.expand(-P["R4"] - (-12 * (q**2 - 1) / ell**2 + q * G8 * P["tr"]
+                                               + k5**4 * (P["tt"] / 4 - P["tr"] ** 2 / 12))))
+    null_1 = sp.expand(null_lhs - (-G8 * P["tkk"] - k5**4 * P["pi_kk"]))          # the q = 1 forms ("our plane")
+    scal_1 = sp.expand(-P["R4"] - (G8 * P["tr"] + k5**4 * (P["tt"] / 4 - P["tr"] ** 2 / 12)))
+    qs = (-sp.Rational(1, 3), -sp.Rational(1, 4), -sp.Rational(1, 6), sp.Rational(4, 3))
+    q1_fails = {str(qq): (sp.simplify(null_1.subs(q, qq)) != 0, sp.simplify(scal_1.subs(q, qq)) != 0) for qq in qs}
+    d = sp.Symbol("d", real=True)
+    nz = parts(sp.zeros(4, 4), sp.diag(0, d, -d, 0), sp.Integer(1))
+    rr, p1, p2, p3 = sp.symbols("rho p1 p2 p3", real=True)
+    pd = parts(sp.diag(rr, p1, p2, p3), None, sp.Integer(1))["pi_kk"]
+    rl = sp.Symbol("rho_L", positive=True)
+    de = parts(-rl * eta, None, sp.Integer(1))
+    shift = parts(sp.zeros(4, 4), None, q)
+    return {"null_res": sp.simplify(null_q.subs(q, 1)), "scalar_res": sp.simplify(scal_q.subs(q, 1)),
+            "null_q": null_q, "scalar_q": scal_q, "q1_fails": q1_fails,
+            "nonZ2_R4": sp.simplify(nz["R4"]),
+            "pi_counter": sp.simplify(pd.subs({rr: 0, p1: 1, p2: 0, p3: 0})),
+            "pi_fluid": sp.factor(pd.subs({p1: p2, p3: p2})), "pi_fluid_p": p2, "pi_fluid_rho": rr,
+            "R4_de": sp.simplify(de["R4"]), "R4_shift": sp.simplify(shift["R4"]), "rho_L": rl, "q": q}
 
 
 def part_b(cfg):
@@ -441,11 +496,45 @@ def _rhs(inv_l2, lam):
     return f
 
 
+C3_DIV = [12]                 # divisor of the cubic coefficient c3 in the cap's series start (F1A-R7: 12, not 10)
+
+
 def _cap_start(A0, inv_l2, lam):
+    """The regular cap's series start: A = A0 + c2 rho^2, R = rho + c3 rho^3, c2 = (lam/l^2 - 1/A0^2) A0/6,
+    c3 = (lam/l^2 - 4 c2/A0)/12 = (1/A0^2 + 2/l^2)/18 at lam = 4 (re-derived by a separate session; F1A-R7)."""
     c2 = (lam * inv_l2 - 1 / A0**2) * A0 / 6
-    c3 = (lam * inv_l2 - 4 * c2 / A0) / 10
+    c3 = (lam * inv_l2 - 4 * c2 / A0) / C3_DIV[0]
     e = A0 * 1e-3
     return [e, A0 + c2 * e * e, 2 * c2 * e, e + c3 * e**3, 1 + 3 * c3 * e * e]
+
+
+def hamiltonian(s, inv_l2=1.0, lam=4.0):
+    """The rho-rho constraint of KR's ansatz (derived in nh_equations): A'^2/A^2 + 4A'R'/(AR) + R'^2/R^2 + 1/A^2 - 1/R^2
+    - (3 lam/2)/l^2 = 0.  Returned times rho^2, so the O(1/rho^2) terms of a cap start do not swamp the residual."""
+    rho, A, Ap, R, Rp = s
+    c = Ap**2 / A**2 + 4 * Ap * Rp / (A * R) + Rp**2 / R**2 + 1 / A**2 - 1 / R**2 - 1.5 * lam * inv_l2
+    return c * rho * rho
+
+
+def cap_crossings(A0, inv_l2=1.0, lam=4.0, rmax=60.0, nper=4000):
+    return _memo(("cross", A0, inv_l2, lam, rmax, nper, C3_DIV[0]),
+                 lambda: _cap_crossings(A0, inv_l2, lam, rmax, nper))
+
+
+def _cap_crossings(A0, inv_l2, lam, rmax, nper):
+    """Sign changes of A - R along the cap out to rho = rmax (the stepping of _cap_cut); None if it breaks down."""
+    f = _rhs(inv_l2, lam)
+    s = _cap_start(A0, inv_l2, lam)
+    h = A0 / nper
+    n_x, prev = 0, s[1] - s[3]
+    while s[0] < rmax:
+        s = _rk4(f, s, min(h * max(1.0, s[3] / A0), 0.01))
+        if not (s[1] > 0 and math.isfinite(s[1]) and math.isfinite(s[3])):
+            return None
+        dd = s[1] - s[3]
+        n_x += (prev > 0) != (dd > 0)
+        prev = dd
+    return n_x
 
 
 def cap_to(A0, rho_end, inv_l2=1.0, lam=4.0, n=20000):
@@ -458,7 +547,7 @@ def cap_to(A0, rho_end, inv_l2=1.0, lam=4.0, n=20000):
 
 
 def cap_cut(A0, inv_l2=1.0, lam=4.0, rmax=12.0, nper=4000):
-    return _memo(("cap", A0, inv_l2, lam, rmax, nper), lambda: _cap_cut(A0, inv_l2, lam, rmax, nper))
+    return _memo(("cap", A0, inv_l2, lam, rmax, nper, C3_DIV[0]), lambda: _cap_cut(A0, inv_l2, lam, rmax, nper))
 
 
 def _cap_cut(A0, inv_l2, lam, rmax, nper):
