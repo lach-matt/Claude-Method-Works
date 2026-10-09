@@ -1237,6 +1237,189 @@ ESCAPES = [
 ]
 
 
+# ------------------------------------------------------------------------------------------------ S15 coinciding (172)
+# M's item 172 (2), "Yes, that is coinciding": 127's coincidence is the endless approach down the object's throat, never
+# a reached point (H-COINCIDE-DOWN-THE-THROAT, M's; it replaces the board's H-FACING-DOWN-THE-THROAT and
+# H-COINCIDE-AS-LIMIT).  S15 computes what position 2's piece carries there: S7's class y = depth + f(ln x), the
+# approach depth going to 0 and, along the approach, x = r - 2m -> 0 (x is the plane's radial coordinate, not a
+# separation).  The approach depth is reported only as where facing (coinciding) occurs.
+CO_XS = (1e-4, 1e-8, 1e-14)                 # x along the approach
+CO_FRACS = (1e-2, 1e-4, 0.0)                # approach depths going to 0, as fractions of y_s^th
+CO_MARGIN = 1.0                             # the smooth family's NEC margin at O(x) (the adjudication's choice)
+CO_KINDS = tuple(("pow", lam) for lam in DT_LAMS) + (("smooth",),)
+ES_FAR = (Fr(1, 64), Fr(1, 128), Fr(1, 1024))   # d_+ as ell -> infinity
+
+
+def _kind_name(kind):
+    return "smooth" if kind[0] == "smooth" else "lam %g" % kind[1]
+
+
+def _profile(kind, xv, g2=0.0):
+    """A static piece y = depth + F(x) whose depth is approached only down the throat: S7's power law f = c x^lam
+    (0 < lam < 1/2) or the adjudication's smooth family f = g1 sqrt(x) + g2 x, g1 = c (sqrt(x) is the regular coordinate
+    across AdS2's degenerate horizon: standard-not-READ).  Returns F, F' = dF/dx, F'' and f_uu (u = ln x)."""
+    c = DT_C
+    if kind[0] == "pow":
+        lam = kind[1]
+        return c * xv**lam, c * lam * xv**(lam - 1), c * lam * (lam - 1) * xv**(lam - 2), c * lam * lam * xv**lam
+    return (c * math.sqrt(xv) + g2 * xv, c / (2 * math.sqrt(xv)) + g2, -c / (4 * xv**1.5),
+            c * math.sqrt(xv) / 4 + g2 * xv)
+
+
+def _smooth_g2(tb, dep, W1):
+    """The smooth family's g2 at an approach depth: the adjudication's NEC condition g2 < 2 alpha^2 W1 + p g1^2/2, with
+    a margin CO_MARGIN (so k_t - k_x ~ x CO_MARGIN/(2 alpha^2) > 0)."""
+    u = tb["sol"].sol(dep)
+    return 2 * float(u[0])**2 * float(W1(dep)) + float(u[2]) * DT_C**2 / 2 - CO_MARGIN
+
+
+def piece_stress(tb, dep, xv, kind, g2=0.0, nu=1, n_sign=1):
+    """P2's surface stress at one point of a piece approaching depth dep down the throat, by the instrument's Israel
+    convention (israel: S^a_b = -nu (K^a_b - delta K), the normal into the slab; K exact in the slope on the throat
+    metric through O(x): _graph_k).  Returns rho, the NEC part rho + p_r and rho + p_th, and the trace tension
+    tau = -S^a_a/4 (= rho - (rho + p) for a pure-tension sheet), in units of the true one-sided nu with m = 1.
+    C17's mutations: nu = 1/2 (the two-sided factor) and n_sign = -1 (the normal out of the slab)."""
+    F, F1, F2, _ = _profile(kind, xv, g2)
+    kt, kx, kq = _graph_k(tb["sol"].sol(dep + F), xv, F1, F2)
+    rho, ps = israel([n_sign * kt, n_sign * kx, n_sign * kq, n_sign * kq], nu)
+    rho, pr, pq = float(rho), float(ps[0]), float(ps[1])
+    return {"rho": rho, "nec_r": rho + pr, "nec_th": rho + pq, "tau": (rho - pr - 2 * pq) / 4}
+
+
+def wec_window(tb):
+    """S15, on H-SPLIT-AT-OUR-TENSION with H-POSITIVE-ON-P2: the approach depths down the throat at which P2's matter
+    rho_m = rho - sigma_RS can be >= 0.  Along any approach the stress tends to the level set's, so rho_m -> the level
+    value nu (p + 2q - 3/ell)(depth).  Deduced, exact in the slope at x -> 0 (the O(x) terms dropped): with
+    rho/nu = [2q - (f_uu - alpha^2 p - 2p f_u^2)/(alpha^2 + f_u^2)]/N, N >= 1, rho_m >= 0 along the approach forces
+    f_uu <= alpha^2 (p + 2q - 3e) + f_u^2 (2p + 2q - 3e), and 2p + 2q - 3e = 4a - 3e <= -7e (T4; a~ < 0 on the throat
+    bulk, S7).  If the level value is negative at the approach depth, f_uu stays below a negative number as u -> -inf,
+    so f -> -inf and the piece cannot approach that depth.  So for EVERY profile the WEC needs the level value >= 0 at
+    the approach depth: d_plus is the shallowest such depth (0.0 in the flat limit, where the level value is 0 at depth
+    0 and positive just below; None if there is none) and top the deepest before it turns negative again.  At finite
+    ell the level value at depth 0 is -6 e nu < 0, so d_plus > 0 (deduced).  At d_plus itself the profile's first
+    correction decides: (p' + 2q') f - f_uu/alpha^2, i.e. lam < lam_max = alpha sqrt(p' + 2q') on the power law, and
+    the sign of (p' + 2q') - 1/(4 alpha^2) on the smooth family."""
+    s, ys, ye, ef = tb["sol"], tb["y_s"], tb["y_end"], tb["e"]
+    lv = lambda y: float(s.sol(y)[2] + 2 * s.sol(y)[3] - 3 * ef)          # the level value, nu/m
+    hi = ye * (1 - 1e-6)
+    yy = np.linspace(0.0, hi, 3000)
+    vmax = float(max(lv(z) for z in yy))
+    if abs(lv(0.0)) <= 1e-14 and lv(1e-6 * ys) > 0:
+        dp = 0.0
+    else:
+        dp = _first_root(lv, 0.0, hi, rising=True)
+    top = _first_root(lv, 0.0, hi, rising=False)
+    yst, W1 = _ystar(tb)
+    out = {"level_at_0": lv(0.0), "level_max": vmax, "d_plus": dp,
+           "top": top, "frac_plus": None if dp is None else dp / ys, "frac_top": None if top is None else top / ys,
+           "y_star": yst}
+    if dp:
+        u = s.sol(dp)
+        al2 = float(u[0])**2
+        P = 4 * ef * ef - 2 * u[2]**2 - 2 * u[2] * u[3] - 1 / (4 * u[0]**2)
+        Q = 4 * ef * ef - 2 * u[3]**2 - 2 * u[2] * u[3] + 1 / (4 * u[1]**2)
+        slope = float(P + 2 * Q)
+        out.update({"W1_plus": float(W1(dp)), "slope": slope, "alpha2": al2,
+                    "lam_max": math.sqrt(al2 * slope) if slope > 0 else 0.0, "smooth_coef": slope - 1 / (4 * al2)})
+    return out
+
+
+def wec_profiles(tb, w, xs=(1e-8, 1e-11, 1e-14)):
+    """At finite ell with d_plus > 0: the WEC (rho_m >= 0, with the NEC) on the four profiles at x = 1e-14 at
+    0.9, 0.99 and 1.01 d_plus, and along the approach (xs) at d_plus itself."""
+    ef, (_, W1) = tb["e"], _ystar(tb)
+    rs = 3 * ef
+    res = {}
+    for fac in (0.9, 0.99, 1.01):
+        dep = fac * w["d_plus"]
+        g2 = _smooth_g2(tb, dep, W1)
+        res[str(fac)] = {_kind_name(k): (piece_stress(tb, dep, 1e-14, k, g2)["rho"] - rs) / rs for k in CO_KINDS}
+    g2 = _smooth_g2(tb, w["d_plus"], W1)
+    at = {}
+    for k in CO_KINDS:
+        sts = [piece_stress(tb, w["d_plus"], xv, k, g2) for xv in xs]
+        at[_kind_name(k)] = all(st["rho"] - rs >= 0 and st["nec_r"] >= 0 and st["nec_th"] >= 0 for st in sts)
+    res["at_d_plus"] = at
+    res["below_fails"] = all(v < 0 for fac in ("0.9", "0.99") for v in res[fac].values())
+    res["above_holds"] = all(v > 0 for v in res["1.01"].values())
+    return res
+
+
+def coinciding(e, tb=None, nu=1, n_sign=1, full=True):
+    """S15 at e = m/ell: P2's stress as the approach depth -> 0 and x -> 0 (H-COINCIDE-DOWN-THE-THROAT, M's, item 172).
+    Deduced: at depth 0 the throat data are alpha = beta = 1, p = q = -1/ell (C8's start), so the level set's k_t = k_x
+    = k_th = 1/ell, S^a_b = (3 nu/ell) delta^a_b: rho -> -sigma_RS, rho + p_i -> 0, s = rho/sigma_RS = -1 -- the RS1
+    sheet (C1's control) -- and rho_m = rho - sigma_RS -> -2 sigma_RS at every finite ell.  Along the approach, to
+    first order in f, rho/nu + 3/ell ~ (p' + 2q')(0) f - f_uu/alpha^2 = f/4 - f_uu ((p' + 2q')(0) = -1/4 + 2/4 at every
+    ell; alpha(0) = 1): c x^lam (1/4 - lam^2) on the power law (the adjudication's form, extended to finite ell), and
+    -(3/4) g2 x on the smooth family in the flat limit (its sqrt(x) terms cancel; g2 < 0 there is the NEC's condition).
+    Computed here: rho, s, the trace reading and the NEC part on the four profiles at depth 0 (CO_XS), s at approach
+    depths CO_FRACS y_s^th (lam = 0.4, x = 1e-14), and (full) the WEC window with its profile checks."""
+    tb = tb if tb is not None else throat_bulk(e)
+    s, ys, ef = tb["sol"], tb["y_s"], tb["e"]
+    _, W1 = _ystar(tb)
+    mp.mp.dps = 30
+    rs = 3 * ef                                                        # sigma_RS in nu/m (m = 1)
+    u0 = s.sol(0.0)
+    k0 = [-float(u0[2])] * 2 + [-float(u0[3])] * 2                     # the level set at depth 0: k = -kappa
+    rho0, _ = israel(k0)                                               # the deduced limit (unmutated)
+    out = {"e": str(Fr(e)), "rho_lim": float(rho0), "s_lim": float(rho0) / rs if ef else None,
+           "rho_m_lim": (float(rho0) - rs) / rs if ef else None, "profiles": {}}
+    g2_0 = _smooth_g2(tb, 0.0, W1)
+    out["g2_0"] = g2_0
+    for k in CO_KINDS:
+        pts = []
+        for xv in CO_XS:
+            st = piece_stress(tb, 0.0, xv, k, g2_0, nu, n_sign)
+            F, _, _, fuu = _profile(k, xv, g2_0)
+            lead = F / 4 - fuu                                         # first order in f: rho/nu + 3/ell
+            pts.append({"x": xv, "rho": st["rho"], "nec": max(abs(st["nec_r"]), abs(st["nec_th"])),
+                        "nec_ok": st["nec_r"] >= 0 and st["nec_th"] >= 0, "lead": lead,
+                        "lead_dev": abs((st["rho"] + rs) / lead - 1) if lead else None,
+                        "s": st["rho"] / rs if ef else None, "s_tau": st["tau"] / rs if ef else None,
+                        "tau": st["tau"]})
+        out["profiles"][_kind_name(k)] = pts
+    last = [v[-1] for v in out["profiles"].values()]
+    fast = [out["profiles"][n][-1] for n in ("lam 0.4", "smooth")]   # the two that converge fastest in x
+    if ef:
+        out["worst_s"] = max(abs(v["s"] + 1) for v in fast)
+        out["worst_tau"] = max(abs(v["s_tau"] + 1) for v in fast)
+        out["worst_nec"] = max(v["nec"] for v in last) / rs
+        out["worst_nec_fast"] = max(v["nec"] for v in fast) / rs
+        out["rho_m_rs"] = max(((v["rho"] - rs) / rs for v in fast), key=lambda z: abs(z + 2))
+        out["monotone"] = all(abs(p_[i + 1]["s"] + 1) < abs(p_[i]["s"] + 1)
+                              for p_ in out["profiles"].values() for i in range(len(CO_XS) - 1))
+    else:
+        out["flat_pos"] = all(v["rho"] > 0 for p_ in out["profiles"].values() for v in p_)
+        out["flat_to_0"] = all(p_[i + 1]["rho"] < p_[i]["rho"] for p_ in out["profiles"].values()
+                               for i in range(len(CO_XS) - 1))
+        out["flat_lead_dev"] = max(v["lead_dev"] for p_ in out["profiles"].values() for v in p_ if v["x"] <= 1e-8)
+        out["worst_nec"] = max(v["nec"] for v in last)
+        out["worst_nec_fast"] = max(v["nec"] for v in fast)
+    out["nec_ok"] = all(v["nec_ok"] for p_ in out["profiles"].values() for v in p_)
+    conv = []
+    for fr in CO_FRACS:
+        st = piece_stress(tb, fr * ys, 1e-14, ("pow", 0.4), 0.0, nu, n_sign)
+        conv.append({"frac": fr, "rho": st["rho"], "s": st["rho"] / rs if ef else None})
+    out["depths"] = conv
+    if full:
+        w = wec_window(tb)
+        out["wec"] = w
+        out["wec_profiles"] = wec_profiles(tb, w) if w["d_plus"] else None
+    return out
+
+
+def d_plus_scaling(es=ES_FAR):
+    """S15: d_plus -> 0 only as ell -> infinity.  Deduced leading order: the level value nu (p + 2q - 3e) = nu (-6e +
+    depth/4 + ...) at small depth ((p + 2q)'(0) = 1/4), so d_plus = 24 e m (1 + O(e)); computed d_plus/(24 e m)."""
+    out = []
+    for e in es:
+        w = wec_window(throat_bulk(e))
+        out.append({"e": str(Fr(e)), "d_plus": w["d_plus"], "ratio": None if not w["d_plus"] else
+                    w["d_plus"] / (24 * float(e))})
+    return out
+
+
 # ------------------------------------------------------------------------------------------------ C14 address guard
 def address_guard(extra_keys=None, extra_funcs=()):
     """No function of this instrument takes a plane separation (by signature), and no key of the bank or the report
@@ -1332,10 +1515,12 @@ def _ell(es):
 
 def compute_live():
     """The fast exact parts the report prints live (seconds)."""
+    tbs = {str(e): throat_bulk(e) for e in ES2}
     return {"lead3": leading_coefficients("3", Fr(1, 2)), "lead215": leading_coefficients("43/20", Fr(1, 2)),
             "t5c": t5c(Fr(1)), "lemma_t": lemma_t(), "near": near_horizon(), "n": lemma_n(), "delta": delta_rows(),
-            "wproof": lemma_w_proof(4000), "dt": {str(e): down_throat_class(e) for e in ES2},
-            "dt_wec": ell_w_class(), "depth0": {str(e): depth_zero(e) for e in ES2}}
+            "wproof": lemma_w_proof(4000), "dt": {str(e): down_throat_class(e, tb=tbs[str(e)]) for e in ES2},
+            "dt_wec": ell_w_class(), "depth0": {str(e): depth_zero(e) for e in ES2},
+            "coin": {str(e): coinciding(e, tb=tbs[str(e)]) for e in ES2}, "dplus_far": d_plus_scaling()}
 
 
 def report(bank, live):
