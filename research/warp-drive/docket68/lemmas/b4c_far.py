@@ -2,7 +2,8 @@
 """b4c_far.py -- Warp Theorem lemma B4c (the far boundary T strictly untrapped, uniformly in time), rebuilt on an
 ellipsoidal far surface.  A new owner beside lemmas/b4_global.py, which it imports by path and never copies.
 Computed, READ and deduced; not verified; not seated; 2026-10-09.  Revised the same day on two reviews by separate AI
-sessions inside this project (not an outside review); their findings are applied here.  Note: lemmas/B4C-FAR.md.
+sessions inside this project (not an outside review); their findings are applied here, and this revision has not
+itself had a separate-session check.  Note: lemmas/B4C-FAR.md.
 
 WHY.  b4_global.py's B4c found a ROUND far surface untrapped only if ell > 2 R_reach, a bound that grows with the README
 (N^(1/3)), and a tipped parabola that needs a depth growing as N^(2/3)/c.  The item-186 window checker -- a separate AI
@@ -95,8 +96,9 @@ RESULTS (units m = 1; c = ell/m; T_E = the ellipse {(u/U)^2 + (w/W)^2 = 1} x S^2
      from the README's own matter (inside R_core + T when the write began, o3_write W3, and carried in, 163) reaches
      T_E before the closing (under 179, U must also cover the corridor's depth w_c, which is OPEN: H-FAR-MODEL (v)).
      That the region outside then keeps its prior static state needs global hyperbolicity
-     (W2, non-green) and a causally propagating evolution; CGS Theorem 3.5's premises also include the NEC
-     (CENSOR5D.md, READ, pp.3-4), which the model's own column violates pointwise (X9 (c)).  Any finite hold works
+     (W2, non-green) and a causally propagating evolution; CGS Theorem 3.1's premises include "the null energy
+     condition (NEC)" (READ, CGS pp.3-4, in bulk/CENSOR5D.md, which records Theorem 3.5, p.5, "on the same premises"),
+     and the model's own column violates the NEC pointwise (X9 (c)).  Any finite hold works
      (X2 is free of U); E2's closing (DERIVED) and 158 (2) make it finite.
   X7 AFTER THE CLOSING (deduced, an estimate, NON-GREEN; Raychaudhuri and the area law standard-not-READ).  4D form:
      focusing ~ 2 E_rad/U^2, E_rad <= (5/4) m (ledger.py E4, computed on eq. (17)), against the floor U/W^2: margin
@@ -124,17 +126,25 @@ RESULTS (units m = 1; c = ell/m; T_E = the ellipse {(u/U)^2 + (w/W)^2 = 1} x S^2
      premise (deduced).  So no column in the family the tip formula covers is admissible; a join consistent with (Z)
      is not a static traversable column of this family, and what T's tip does then is OPEN.  (d) Tip formula for any
      A(w): ((ell + W)/ell)(W/U^2 + 2 A'(W)/A(W)) - 3/ell (computed, exact); power-law columns A = a (z/ell)^p move the
-     threshold to k^2 >= 3 - 2p.  These are statements about excluded columns.
+     threshold to k^2 >= 3 - 2p.  These are statements about excluded columns.  (e) Against (G), 139 (1) and 166
+     (STRUCTURAL, checked): the model's w = 0 slice has S^2 radius^2 u^2 + a^2, least at u = 0 with a^2 > 0 -- a throat
+     ON our plane, against seated (G) as worded; the warp's jump across the plane, d_w ln Om at w = 0+, is -1/ell on
+     both sheets u > 0 and u < 0 -- one positive tension for both positions, where 139 (1) has position 2's plane
+     negative; and there is one plane, not the two of 166 with the bulk between them.
   X10 UNDER 184 (computed; deduced, an estimate).  H-FAR-MODEL's plane is matter-free.  Our plane's MEAN energy
      density over its RS tension is rho_crit c^2/lambda_RS = (H0 ell/c)^2/2 exactly, 2.65e-61 at ell = 1e-4 m.  That is
-     a mean, not a bound: local matter up to nuclear density (address.RHO_NUCLEAR, DERIVED-FROM-ORDER, the board's
-     generous H-OWN-MATTER-ONLY bound) gives ~8e-18 -- still negligible.
+     a mean, not a bound: local matter up to nuclear density (address.RHO_NUCLEAR = 2.676e17 kg/m^3, DERIVED-FROM-ORDER;
+     f1_audit.py bounds a plane's matter the same generous way, 2.3e17, under the board's H-OWN-MATTER-ONLY) gives
+     ~8e-18 -- still negligible.
   X11 NO COLUMN (computed: z3, and a scan in the board's test extension; deduced).  With a = 0 our plane is throat-free
      and the model is Poincare AdS5 with the RS plane; then Q = K/(1 + (K - 1) x) + 2K >= 3 for K >= 1, so EVERY
      W >= U is untrapped at every ell.  With a bulk-centred conformal test field (E1 centred at depth w_c = U/2 inside
      T_E), k = sqrt(3) stays untrapped at both README sizes tested while the round surface (k = 1) is trapped at small
-     c.  The sqrt(3) threshold is the column's alone.  Whether T in 179's configuration must cross a join or can
-     enclose it (B4a's topology) is OPEN.
+     c; a deduced sufficient condition for that field at every ell (both parts: 2/U >= 3 gamma m/d_min^2 and
+     2(K - 1)/(K U) >= 3 gamma m/d_min^2, d_min the least distance from the field's centre to T_E, checked on the grid)
+     holds at both sizes.  The sqrt(3) threshold is the column's alone.  Whether T in 179's configuration must cross a
+     join or can enclose it (B4a's topology) is OPEN; a negative-tension position-2 plane (139 (1)) and the two
+     planes of 166 are not computed here.
 
 WHAT B4c EARNS.
   Within H-FAR-MODEL: X1-X5 PROVED (exact; z3) at every ell and every N for W >= sqrt(3) U; X6 deduced, conditional on W2
@@ -635,9 +645,33 @@ def check_C9(mut=None):
                 "largest field multiple 1.74 survives at the example (bound)": float(lam_max), "scans": scans}
 
 
+def model_vs_rulings(mut=None):
+    """X9 (e), STRUCTURAL: what H-FAR-MODEL puts on our plane, read off metric('model').  (G): the w = 0 slice's S^2
+    radius^2 is least at u = 0 with value a^2 > 0 -- a throat ON the plane.  139 (1): the warp's jump d_w ln Om at
+    w = 0+ is the same, -1/ell, on position 1's sheet (u > 0) and position 2's (u < 0) -- one positive tension."""
+    lapse, guu, gww, goo = metric("model")
+    if mut == "a_zero":
+        goo = goo.subs(a, 0)
+    plane = sp.simplify(goo.subs(w, 0))
+    throat = (sp.diff(plane, u).subs(u, 0) == 0 and sp.diff(plane, u, 2).subs(u, 0).is_positive is True
+              and plane.subs(u, 0).is_positive is True)
+
+    def om_sheet(sheet):                                  # the model's warp is u-independent: one plane for both sheets
+        if mut == "p2_negative" and sheet < 0:            # position 2's sheet on a negative-tension plane (139 (1))
+            return ell / (ell - w)
+        return lapse
+    jumps = [sp.simplify(sp.diff(sp.log(om_sheet(sg)), w).subs(w, 0)) for sg in (1, -1)]
+    one_tension = all(sp.simplify(j + 1 / ell) == 0 for j in jumps)
+    return throat and one_tension, {"plane's S^2 radius^2": str(plane), "throat on our plane (against (G))": throat,
+                                    "warp jump d_w ln Om at w=0+, sheets u>0, u<0": [str(j) for j in jumps],
+                                    "one positive tension on both sheets (against 139 (1))": one_tension}
+
+
 def check_C10(mut=None):
     """X9: the model's own 5D Ricci (constant a), the general column A(w): R(k,k), the affine geodesic, Raychaudhuri's
-    identity and the net per ray; the tip formulas; the power-law columns; the crossing depth against the bank."""
+    identity and the net per ray; the tip formulas; the power-law columns; the crossing depth against the bank; and
+    (e) the model against (G) and 139 (1), STRUCTURAL."""
+    mvr_ok, mvr = model_vs_rulings(mut)
     t_, th_, ph_ = sp.symbols("t theta phi")
     X = [t_, u, w, th_, ph_]
     aa = sp.Integer(0) if mut == "a_zero" else a
@@ -701,7 +735,7 @@ def check_C10(mut=None):
     y_max = max(len(c_["A"]) for c_ in bank["cols"].values()) * bank["dy"]
     cross_ok = Rr > 1e3 * max(r_max, y_max)
     ok = (ricci_ok and ads_ok and ray_ok and genA_ok and geod_ok and conf_inv and raych_ok and net_ok and tipA_ok
-          and tipp_ok and col_ok and cross_ok)
+          and tipp_ok and col_ok and cross_ok and mvr_ok)
     return ok, {"R(k,k), k = d_t + d_u (constant a)": str(rkk), "only R_uu departs from AdS5": ricci_ok,
                 "a = 0 is AdS5": ads_ok, "net along a radial ray (constant a)": str(ray),
                 "R(k,k) for every profile A(w)": str(rkkA), "general-profile R(k,k) = -2A^2/rho^4": genA_ok,
@@ -710,7 +744,7 @@ def check_C10(mut=None):
                 str(net), "net per ray = -pi/A, never zero": net_ok,
                 "general column tip": str(tip), "general tip formula": tipA_ok, "power-law tip formula": tipp_ok,
                 "column scans (excluded columns)": scan, "crossing depth >= R_reach": float(Rr),
-                "b4_static bank reaches r <=, y <=": [r_max, y_max]}
+                "b4_static bank reaches r <=, y <=": [r_max, y_max], "model against (G), 139 (1)": mvr}
 
 
 def check_C11(mut=None):
@@ -758,19 +792,27 @@ def check_C12(mut=None):
     q_ok = q_on == 0                                      # Q0 is W^2 P at a = 0 (off the axis; the axis by continuity)
     aval = A_THROAT if mut == "column_restored" else 0
     fn = lam("ellipse", "E1c", None, (m, gam, wc))
-    gv = mp.mpf(5) / 4
+    gv = mp.mpf(5) / 4 * (100 if mut == "field_x1e2" else 1)
     scans, ok_scan = {}, True
     for N in (1e3, example_N()):
         _, _, Uv = reach(N)
+        Wv, wcv = mp.sqrt(3) * Uv, Uv / 2
         for c in ("1e-6", "1", "1e9"):
-            v, _ = surface_min(fn, "ellipse", c, Uv, mp.sqrt(3) * Uv, (mp.mpf(1), gv, Uv / 2), n=150, aval=aval)
+            v, _ = surface_min(fn, "ellipse", c, Uv, Wv, (mp.mpf(1), gv, wcv), n=150, aval=aval)
             scans["N=%.3g k=sqrt3 c=%s" % (N, c)] = float(v)
             ok_scan = ok_scan and v > 0
-        v1, _ = surface_min(fn, "ellipse", "1e-6", Uv, Uv, (mp.mpf(1), gv, Uv / 2), n=150, aval=aval)
+        v1, _ = surface_min(fn, "ellipse", "1e-6", Uv, Uv, (mp.mpf(1), gv, wcv), n=150, aval=aval)
         scans["N=%.3g k=1 c=1e-6 (round, field on)" % N] = float(v1)
         ok_scan = ok_scan and v1 < 0
-        bound = 2 * (3 - 1) >= 3 * gv * 3 * Uv / (Uv / 2)**2    # deduced sufficient: 2(K - 1) >= 3 gamma m K U/d_min^2
-        scans["N=%.3g sufficient bound at sqrt3" % N] = bool(bound)
+        # deduced sufficient condition at every ell (the conformal identity, n0.grad d >= -1, f >= 1, D <= 1/U, and at
+        # a = 0 P >= 2/U^2 and Q - 3 >= 2(K - 1)): 2/U >= 3 gamma m/d_min^2 (the ell part) and
+        # 2(K - 1)/(K U) >= 3 gamma m/d_min^2 (the w/ell part), d_min the least distance from the centre to T_E
+        dmin = mp.sqrt(min((Uv * mp.cos(t))**2 + (Wv * mp.sin(t) - wcv)**2 for t in tgrid(200)))
+        part_ell = 2 / Uv >= 3 * gv / dmin**2
+        part_w = 2 * (3 - 1) / (3 * Uv) >= 3 * gv / dmin**2
+        bound = part_ell and part_w and dmin >= (Uv - wcv) * (1 - mp.mpf("1e-25"))
+        scans["N=%.3g sufficient bound at sqrt3 (ell part, w part; d_min/U)" % N] = [bool(part_ell), bool(part_w),
+                                                                                   float(dmin / Uv)]
         ok_scan = ok_scan and bound
     ok = proved and vacuity_ok and drift_ok and q_ok and ok_scan
     return ok, {"z3: Q >= 3 at a = 0 for K >= 1": proved, "counterexample": cex, "vacuity_guard": vacuity_ok,
@@ -822,13 +864,16 @@ def rows_from(details):
          "value": d["C9"]},
         {"id": "X9", "label": "computed; STRUCTURAL; deduced", "claim": "H-FAR-MODEL is not derived here, and its column "
          "is excluded by seated (Z): for every depth profile A(w), R(k,k) = -2A^2/rho^4 and the net per radial ray is "
-         "-pi/A; pointwise against CGS's NEC premise; the tip formula covers only excluded columns", "value": d["C10"]},
+         "-pi/A; pointwise against CGS's NEC premise; the tip formula covers only excluded columns; the model puts a "
+         "throat on our plane and one positive tension on both sheets (against (G), 139 (1); STRUCTURAL)",
+         "value": d["C10"]},
         {"id": "X10", "label": "computed; deduced, an estimate", "claim": "under 184: the mean-density ratio is "
          "(H0 ell/c)^2/2 = 2.65e-61 at 1e-4 m (a mean); a nuclear-density bound gives ~8e-18; negligible",
          "value": d["C11"]},
         {"id": "X11", "label": "computed (z3; scan in the board's test extension); deduced", "claim": "no column "
          "(a = 0): every W >= U untrapped at every ell; with a bulk-centred conformal test field sqrt(3) stays "
-         "untrapped, the round surface is trapped at small c: the sqrt(3) threshold is the column's alone",
+         "untrapped (scan; a deduced sufficient bound holds at both sizes), the round surface is trapped at small c: "
+         "the sqrt(3) threshold is the column's alone",
          "value": d["C12"]},
         {"id": "STATUS", "label": "deduced", "claim": "B4c: within H-FAR-MODEL, X1-X5 PROVED (exact) at every ell and N "
          "for W >= sqrt(3) U; X6 deduced, conditional on W2 and causal propagation; after the closing an ESTIMATE "
@@ -864,16 +909,18 @@ CHECKS = {
            [("e_rad_big", "E_rad inflated by 1e5"), ("g5_no_ell", "G5 taken as G4, without the factor ell")]),
     "C9": (check_C9, "X8 a far field at T_E in the board's configuration",
            [("field_x1e4", "the far field inflated by 1e4"), ("no_field", "the far field switched off")]),
-    "C10": (check_C10, "X9 why H-FAR-MODEL is not derived, and (Z) against its column",
+    "C10": (check_C10, "X9 why H-FAR-MODEL is not derived; (Z) against its column; the model against (G), 139 (1)",
             [("a_zero", "the column removed (a = 0) in the Ricci computation"),
              ("p_sign", "the column's depth power's sign flipped"),
-             ("general_sign", "the general column's R(k,k) claimed positive, +2A^2/rho^4")]),
+             ("general_sign", "the general column's R(k,k) claimed positive, +2A^2/rho^4"),
+             ("p2_negative", "position 2's sheet put on a negative-tension plane, as 139 (1) (the conflict vanishes)")]),
     "C11": (check_C11, "X10 the plane's matter against its tension (184)",
             [("no_c2", "the mass density used as an energy density"),
              ("nuc_as_mean", "the local density bound taken as the cosmic mean")]),
     "C12": (check_C12, "X11 no column: every W >= U untrapped; a bulk-centred test field",
             [("k_below_1", "K >= 9/10 in place of 1 (z3 must find a counterexample)"),
-             ("column_restored", "the column put back (a = 2) in the scan")]),
+             ("column_restored", "the column put back (a = 2) in the scan"),
+             ("field_x1e2", "the bulk-centred test field inflated by 100 (the sufficient bound must fail)")]),
 }
 
 
@@ -901,15 +948,24 @@ def check_CG(mut=None, details=None):
                  and (st["status"] == "READING") == bool(st["non_green_inputs"]))
     doc = __doc__ + ("\n  193      M chose: \"An axiom of my theory\"" if mut == "193_live" else "")
     doc_ok = _doc_193_ok(doc)
-    ok = lab_ok and ids_ok and mut_ok and status_ok and doc_ok
+    try:
+        with open(os.path.join(HERE, "B4C-FAR.md"), encoding="utf-8") as fh:
+            note = fh.read()
+    except OSError:
+        note = ""
+    if mut == "193_live_note":
+        note += "\n- **193:** you chose *\"An axiom of my theory\"*.\n"
+    note_ok = bool(note) and _doc_193_ok(note)
+    ok = lab_ok and ids_ok and mut_ok and status_ok and doc_ok and note_ok
     return ok, {"labels": lab_ok, "ids": ids_ok, "every check has a mutant": mut_ok,
                 "status by M's green rule (READING iff a non-green input; not green)": status_ok,
-                "193 only as withdrawn": doc_ok}
+                "193 only as withdrawn (docstring)": doc_ok, "193 only as withdrawn (B4C-FAR.md)": note_ok}
 
 
 CG_MUTANTS = (("planted_label", "a row labelled 'positive'"), ("green_claimed", "the status row says green"),
               ("inputs_dropped", "the non-green inputs dropped while the status stays READING"),
-              ("193_live", "a line citing 193 as standing"))
+              ("193_live", "a line citing 193 as standing"),
+              ("193_live_note", "a line in B4C-FAR.md citing 193 as standing"))
 
 
 def compute():

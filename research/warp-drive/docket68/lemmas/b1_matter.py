@@ -6,13 +6,15 @@ rested on it are re-done with each plane carrying its own universe's matter and 
   B1'   edits B1   the FRW plane with its matter meets Gauss and Codazzi exactly when ...   PROVED, green
   B2'   edits B2   a local vacuum bulk off such a plane, unique among analytic ones          PROVED, green
   Z3    split      Z3'a away from the corridor, through today: DERIVED, green (a part only);
-                   Z3'b rays meeting or beside the corridor: OPEN;  Z3'c the future: NATURE
+                   Z3'b rays meeting or beside the corridor: OPEN;  Z3'c the future, sparse regions: NATURE
   B5    split      B5'a the composite's positivity, as a conditional: DERIVED, green (a part only);
                    B5'p position 2's matter meets its antecedent: OPEN;  B5'b a smooth wall with matter: OPEN
-So Z3 and B5 do NOT go green; B1 does; B2 does only if its corridor-carrying instance is split off as B2t (F1-AUDIT.md's
-lemma, on M1, non-green).  Computed, READ and deduced; not verified; not seated; 2026-10-09.  Note: lemmas/B1-MATTER.md.
+So Z3 and B5 do NOT go green; B1 does; of B2, B2' does and its corridor-carrying instance B2t (F1-AUDIT.md's lemma, on
+M1, carried here) does not.  Computed, READ and deduced; the build was checked by two separate AI sessions in this project
+(one to refute, one for overclaim -- not an outside review) and their findings are applied here; the applied version is
+not re-checked; not seated; 2026-10-09.  Note: lemmas/B1-MATTER.md.
 
-CLI:  --selftest  (every check, each able to fail; about 35-45 s, most of it the bulk series in y)
+CLI:  --selftest  (every check, each able to fail; about 25 s, most of it the bulk series in y)
       --mutants   (every named mutation of every check, each shown to make its check FAIL; exit 1 if any passes)
       --json PATH (writes compute(): every row labelled)
 
@@ -286,9 +288,12 @@ OWNER_PATHS = {
     "cosmo": os.path.join(WD, "cosmo.py"),
     "exactE": os.path.join(D68, "copy", "exactE.py"),
     "stage2": os.path.join(HERE, "b4d_stage2.py"),
+    "b6p": os.path.join(HERE, "b6p_scale.py"),
+    "warp": os.path.join(D68, "warptheorem.py"),
 }
 OWNER_ALLOW = {("localbulk", "gauss_rhs"), ("axioms", "derive_z3"), ("b5", "b5a"), ("b5", "b5b"), ("cosmo", "H0"),
-               ("cosmo", "OMEGA_M"), ("exactE", "C_SI"), ("exactE", "G_SI"), ("stage2", "TABLETOP")}
+               ("cosmo", "OMEGA_M"), ("exactE", "C_SI"), ("exactE", "G_SI"), ("stage2", "TABLETOP"),
+               ("b6p", "determined"), ("warp", "LEMMAS")}
 EQ17_CARRIERS = {("localbulk", "ricci_scalar"), ("localbulk", "compute")}   # the owner functions that carry eq. (17)
 
 
@@ -776,13 +781,15 @@ def check_B1(mut=None):
             Ac, Nc, dets = ck_series(jet, N, mut=mut, l5=l5)
         res = ck_residuals(jet, Ac, Nc, N, l5=l5)
         rows[name] = {"order": N, "dets": [str(d) for d in dets], "dets_nonzero": all(not _z(d) for d in dets),
+                      "dets_label": "STRUCTURAL: Kovalevskaya normal form in Gaussian-normal gauge; cannot fail; CK and "
+                                    "Dahia-Romero (READ) carry uniqueness",
                       "residuals_zero": {k: all(v) for k, v in res.items()},
                       "A2": str(sp.factor(Ac[2])), "N2": str(sp.factor(Nc[2])), "A3": str(sp.factor(Ac[3])),
                       "N3": str(sp.factor(Nc[3]))}
-        if not (rows[name]["dets_nonzero"] and all(rows[name]["residuals_zero"].values())):
+        if not all(rows[name]["residuals_zero"].values()):
             break
-    ok = all(r["dets_nonzero"] and all(r["residuals_zero"].values()) for r in rows.values()) and len(rows) == 2
-    return ok, {"rows": rows, "label": "computed; READ Dahia-Romero Lemma 1 p.8, CK p.10, Lemma 2/Thm 2 p.12"}
+    ok = all(all(r["residuals_zero"].values()) for r in rows.values()) and len(rows) == 2
+    return ok, {"rows": rows, "label": "computed; READ Dahia-Romero Lemma 1 pp.8-9, CK p.10, Lemma 2/Thm 2 p.12"}
 
 
 def _order0_constraints(jet, data):
@@ -846,10 +853,11 @@ def check_B3(mut=None):
         t, Y = _TY
         Af, Nf, X, Gam, g = b5["Af"], b5["Nf"], b5["X"], b5["Gam"], b5["g"]
         maxsym = True
-        ncomp = 0
+        ncomp = npair = 0
         for a_, b_, c_, d_ in itertools.product(range(5), repeat=4):
             if not (a_ < b_ and c_ < d_ and (a_, b_) <= (c_, d_)):
                 continue
+            npair += 1
             rr = (sp.diff(Gam[a_][b_][d_], X[c_]) - sp.diff(Gam[a_][b_][c_], X[d_])
                   + sum(Gam[a_][c_][f_] * Gam[f_][b_][d_] - Gam[a_][d_][f_] * Gam[f_][b_][c_] for f_ in range(5)))
             rr = sp.simplify(g[a_, a_] * rr + (g[a_, c_] * g[b_, d_] - g[a_, d_] * g[b_, c_]) / scale**2)
@@ -869,7 +877,8 @@ def check_B3(mut=None):
         num = sp.expand(sp.numer(sp.together(Aex / AJ)))                 # a polynomial in X
         reach = (mut != "beta_no_rho" and not num.subs(Xs, 0) == num
                  and _z(sp.expand(num.subs(Xs, sp.sqrt(Q)))))
-        out[name] = {"components_zero": zero, "max_symmetric": maxsym, "components_checked": ncomp,
+        out[name] = {"components_zero": zero, "max_symmetric": maxsym, "pairs_examined": npair,
+                     "pairs_not_identically_zero_under_ansatz": ncomp,
                      "a_zero_at_y*": reach, "beta": str(beta), "n_coefficient": str(nb)}
         ok = ok and all(zero.values()) and maxsym and reach
     # the series at C = 0 equals the closed form through order 6 (dust)
@@ -903,8 +912,9 @@ def check_B4(mut=None):
 
 # ======================================================================================== PART C: Z3' and B5' with matter
 def check_C1(mut=None):
-    """Z3': the vacuum bulk's R(k,k) = 0 for null k (axioms.py's derive_z3, imported); control: a timelike k gives
-    (2 Lambda/3) g(k,k) != 0, so the zero is the null vector's."""
+    """Z3'a: R(k,k) = 0 for null k wherever the bulk is the model's vacuum (axioms.py's derive_z3, imported: it evaluates
+    (2 Lambda/3) g(k,k), so it says nothing about a region carrying stress, the corridor's included); control: a timelike
+    k gives (2 Lambda/3) g(k,k) != 0, so the zero is the null vector's."""
     d = own("axioms", "derive_z3")()
     lam = sp.Symbol("Lambda")
     g = sp.diag(-1, 1, 1, 1, 1)
@@ -950,8 +960,11 @@ def _cpl_density():
 
 
 def net_rows(mut=None):
-    """Net null energy per ray / (t.k)^2 / rho_c0, all components summed (flat; radiation, positive, omitted: a lower
-    bound), and dark energy's own share, on a grid of a in [1e-4, 1]."""
+    """The total null stress of the mean matter per (t.k)^2 / rho_c0, all components at one point (flat; radiation,
+    positive, omitted: a lower bound), and dark energy's own share: through today on a grid of a in [1e-4, 1], and in the
+    future on a grid of a in (1, 100].  For a constant w < -1 the closed-form zero a_x = [Omega_m/(|1+w|(1 - Omega_m))]
+    ^(1/(3|w|)) (deduced) and the matter fraction of its mean below which a uniform dark energy outweighs matter at
+    a = 1, f_min = |1+w|(1 - Omega_m)/Omega_m (deduced)."""
     f, _form = _cpl_density()
     Om_pl = observed()["Omega_m"]
     fits = {"Planck18 base LCDM (w = -1)": (Om_pl, -1.0, 0.0),
@@ -959,42 +972,71 @@ def net_rows(mut=None):
             "Planck18 w0 eq. (50) -3 sigma": (Om_pl, PLANCK_W0 - 3 * PLANCK_W0_SIG, 0.0),
             "Planck18 Table 6 Planck+SNe+BAO": (Om_pl, PLANCK_T6[0], PLANCK_T6[1])}
     fits.update(DESI_FITS)
-    grid = [math.exp(math.log(1e-4) * (1 - i / 4000)) for i in range(4001)]
+    past = [math.exp(math.log(1e-4) * (1 - i / 4000)) for i in range(4001)]
+    future = [] if mut == "today_only" else [math.exp(math.log(100.0) * i / 4000) for i in range(1, 4001)]
     out = {}
     for name, (Om, w0, wa) in fits.items():
         if mut == "flip_w":
             w0, wa = -w0 - 2, -wa
-        mins, de_min, de_at_half = float("inf"), float("inf"), None
-        for av in grid:
+        mins, de_min, fmin, first_neg = float("inf"), float("inf"), float("inf"), None
+        for av in past:
             w = w0 + (1 - av) * wa
             de = (1 + w) * (1 - Om) * f(av, w0, wa)
             net = (0.0 if mut == "omit_matter" else Om * av**-3) + de
             mins = min(mins, net)
             de_min = min(de_min, de)
+        for av in future:
+            w = w0 + (1 - av) * wa
+            de = (1 + w) * (1 - Om) * f(av, w0, wa)
+            net = (0.0 if mut == "omit_matter" else Om * av**-3) + de
+            fmin = min(fmin, net)
+            if net < 0 and first_neg is None:
+                first_neg = av
         de_at_half = (1 + w0 + 0.5 * wa) * (1 - Om) * f(0.5, w0, wa)
         cross = None
         if wa != 0 and -1 < 1 + (1 + w0) / wa < 1 and (1 + w0) * wa < 0:
             ac = 1 + (1 + w0) / wa
             cross = 1 / ac - 1
-        out[name] = {"Omega_m": Om, "w0": w0, "wa": wa, "net_min": mins, "de_min": de_min, "de_at_a_0.5": de_at_half,
-                     "z_phantom_crossing": cross}
+        a_x = f_min = None
+        if wa == 0 and w0 < -1:
+            expo = 1 / 3 if mut == "ax_exponent" else 1 / (3 * abs(w0))
+            a_x = (Om / (abs(1 + w0) * (1 - Om))) ** expo
+            f_min = abs(1 + w0) * (1 - Om) / Om
+        out[name] = {"Omega_m": Om, "w0": w0, "wa": wa, "net_min_through_today": mins, "de_min": de_min,
+                     "de_at_a_0.5": de_at_half, "z_phantom_crossing": cross,
+                     "net_min_future_a_to_100": fmin if future else None, "future_first_negative_a": first_neg,
+                     "a_x_closed_form": a_x, "void_fraction_f_min_at_a_1": f_min}
     return out
 
 
+PHANTOM_CONST = ("Planck18 w0 eq. (50) central", "Planck18 w0 eq. (50) -3 sigma")
+
+
 def check_C3(mut=None):
-    """Z3' observed: the net null energy along each ray is positive at every epoch in every READ fit; dark energy's own
-    null energy is negative in DESI's DESY5 fit at a = 0.5 (per-component NEC not established); thresholds."""
+    """Z3'a observed, Z3'c: the total null stress of the mean matter is positive through today (a <= 1) in every READ fit;
+    dark energy's own null stress is negative in some (per-component NEC not established); in the future it stays
+    positive in six fits and turns negative in exactly the two constant-phantom fits, at the closed-form a_x (grid and
+    formula agree); at a = 1 a region whose matter is below f_min of the mean is outweighed by a uniform phantom w."""
     rows = net_rows(mut)
-    net_pos = all(r["net_min"] > 0 for r in rows.values())
+    today = all(r["net_min_through_today"] > 0 for r in rows.values())
     honest = rows["DESI+CMB+DESY5"]["de_at_a_0.5"] < 0 and rows["Planck18 w0 eq. (50) central"]["de_min"] < 0
+    neg_future = sorted(n for n, r in rows.items() if r["net_min_future_a_to_100"] is not None
+                        and r["net_min_future_a_to_100"] < 0)
+    pos_future = [n for n, r in rows.items() if r["net_min_future_a_to_100"] is not None
+                  and r["net_min_future_a_to_100"] > 0]
+    future_ok = neg_future == sorted(PHANTOM_CONST) and len(pos_future) == 6
+    ax_ok = all(rows[n]["a_x_closed_form"] is not None and rows[n]["future_first_negative_a"] is not None
+                and abs(rows[n]["future_first_negative_a"] / rows[n]["a_x_closed_form"] - 1) < 2e-3 for n in PHANTOM_CONST)
     w = PLANCK_W0
     thr = -(1 + w) / (-w)
     thr3 = -(1 + w - 3 * PLANCK_W0_SIG) / (-(w - 3 * PLANCK_W0_SIG))
     omb = float(PLANCK_OMB_H2 / PLANCK_H_LITTLE**2)
-    ok = net_pos and honest and omb > thr and observed()["Omega_m"] > thr3
-    return ok, {"fits": rows, "Omega_m_threshold_w0_central": thr, "Omega_m_threshold_w0_-3sigma": thr3,
+    ok = today and honest and future_ok and ax_ok and omb > thr and observed()["Omega_m"] > thr3
+    return ok, {"fits": rows, "negative_in_future": neg_future, "positive_in_future": len(pos_future),
+                "Omega_m_threshold_w0_central_at_a_1": thr, "Omega_m_threshold_w0_-3sigma_at_a_1": thr3,
                 "Omega_b_alone": omb, "cpl_density": _cpl_density()[1],
-                "label": "computed from READ (Planck 2018 pp.1, 43-44; DESI DR2 pp.20, 23-25); radiation omitted"}
+                "label": "computed from READ (Planck 2018 pp.1, 43-44; DESI DR2 pp.20, 23-25); closed forms deduced; "
+                         "radiation omitted; mean (homogeneous) densities"}
 
 
 def check_C4(mut=None):
@@ -1045,24 +1087,40 @@ def check_C4(mut=None):
 
 
 def check_C5(mut=None):
-    """Z3' against BULK-BALANCE.md result 2: a plane holding its scale fixed (H' = 0) beside a bulk of positive dark
-    radiation C must carry net (1 + w) sigma = (k_c/a^2 - 2C/a^4) ell/(3 (1 + ell sigma)), negative when flat -- the NEC
-    broken at each point, recovered here in the plane's own chart; our plane expands and decelerates in its matter
-    (READ H0 > 0; Planck base LCDM) and needs no such matter."""
+    """Z3'b, against BULK-BALANCE.md result 2: a flat plane beside a bulk of positive dark radiation C that stays static
+    (H = 0 and H' = 0).  H' = 0 alone gives (1 + w) sigma = (k_c/a^2 - 2C/a^4) ell/(3 (1 + ell sigma)); H = 0 adds
+    sigma^2 + 2 sigma/ell + C/a^4 = 0, so sigma = -1/ell +- sqrt(1/ell^2 - C/a^4) < 0: rho < 0 on both branches; on the
+    branch near the RS tension rho + p < 0, on the other lambda + rho < 0 -- either way the 5D null stress
+    (lambda + rho) k_y^2 + (rho + p)|k_space|^2 is negative for some null k.  Not our plane's case (READ H0 > 0), but the
+    corridor's neighbourhood is left OPEN by it."""
     av, sg, w, kc, C = sp.symbols("a sigma w k_c C", real=True)
     csign = -1 if mut == "c_sign" else 1
     h2 = (sg + 1 / ELL) ** 2 - 1 / ELL**2 + csign * C / av**4 - kc / av**2
     hdot = av / 2 * sp.diff(h2, av) - sp.Rational(3, 2) * (1 + w) * sg * sp.diff(h2, sg)
-    x = sp.Symbol("x")                                        # x = (1 + w) sigma
+    x = sp.Symbol("x")                                        # x = (1 + w) sigma = kappa^2 (rho + p)/6
     sol = sp.solve(sp.Eq(sp.expand(hdot).subs(w * sg, x - sg), 0), x)
     want = (kc / av**2 - 2 * C / av**4) * ELL / (3 * (1 + ELL * sg))
     form = len(sol) == 1 and _z(sol[0] - want)
+    # H = 0 as well (flat): the two branches of sigma, at a sample point C a^-4 ell^2 = 1/2 (a = ell = 1, C = 1/2)
+    pt = {C: sp.Rational(1, 2), av: 1, ELL: 1, kc: 0}
+    branches = [] if mut == "no_static" else sp.solve(sp.Eq(h2.subs(pt), 0), sg)
+    rows, every_branch_negative = [], len(branches) == 2
+    for b in branches:
+        xb = sp.nsimplify(sol[0].subs(pt).subs(sg, b)) if sol else sp.nan    # kappa^2 (rho + p)/6
+        lam_plus_rho = 1 / sp.Integer(1) + b                                 # kappa^2 (lambda_RS + rho)/6, sigma_lambda = 1/ell
+        neg_rho = bool(b < 0)
+        some_null_negative = bool(xb < 0) or bool(lam_plus_rho < 0)
+        every_branch_negative = every_branch_negative and neg_rho and some_null_negative
+        rows.append({"sigma": str(sp.nsimplify(b)), "rho_sign": "negative" if neg_rho else "non-negative",
+                     "(1+w)sigma": str(xb), "lambda+rho (units 6/kappa^2)": str(sp.nsimplify(lam_plus_rho))})
     flat = sol[0].subs(kc, 0) if sol else sp.nan
     neg = bool(sp.simplify(flat.subs({C: 1, av: 1, ELL: 1, sg: sp.Rational(1, 10)})) < 0) if sol else False
-    ok = form and neg
-    return ok, {"(1+w)sigma at H'=0": str(sp.factor(sol[0])) if sol else None, "flat_C>0_sign": "negative" if neg
-                else "not negative", "our_plane": "H0 > 0 (READ PL_abstract): not static; net rho + p > 0 (C3)",
-                "label": "computed; deduced (BULK-BALANCE.md result 2 recovered)"}
+    ok = form and neg and every_branch_negative
+    return ok, {"(1+w)sigma at H'=0": str(sp.factor(sol[0])) if sol else None, "flat_C>0_sign_H'=0_only": "negative"
+                if neg else "not negative", "static_branches_H=0_and_H'=0": rows,
+                "our_plane": "H0 > 0 (READ PL_abstract): not static in its own Gaussian-normal chart; whether it is "
+                             "'static' in 141's sense depends on the chart and is not decided here",
+                "label": "computed; deduced (BULK-BALANCE.md result 2 recovered and sharpened)"}
 
 
 # ======================================================================================== THE CYPHER (196)
@@ -1070,12 +1128,9 @@ CY_OPTS = {"statistics_order": 2, "algebra_budget": 20000}
 
 
 def determined(cells, coords, by, target):
-    """Logic's binary: does the tuple of coordinates `by` fix `target` on these cells? (by = [] asks for one value)"""
-    seen = {}
-    ti = coords.index(target)
-    for cl in cells:
-        seen.setdefault(tuple(cl[coords.index(b)] for b in by), set()).add(cl[ti])
-    return all(len(v) == 1 for v in seen.values())
+    """Logic's binary (b6p_scale.py's determined(), imported by path, never copied): does the tuple of coordinates `by`
+    fix `target` on these cells?  by = [] asks for one value."""
+    return own("b6p", "determined")(cells, coords, by, target)
 
 
 def _q1_series():
@@ -1120,12 +1175,15 @@ def q1_cells(kind, mut=None):
     return ["sigma", "C", "A3", "N3", "gauss0"], cells
 
 
-def q2_cells(kind, mut=None):
+def q2_cells(kind, mut=None, when="today"):
     rows = net_rows("omit_matter" if (kind == "control" or mut == "omit_matter_in_law") else None)
     f, _ = _cpl_density()
     cells = set()
+    grid = (1.0, 0.75, 0.5, 0.25, 0.1) if when == "today" else (1.5, 2.0, 3.0, 5.0)
+    if when == "future" and mut == "future_as_today":
+        grid = (1.0, 0.75, 0.5, 0.25, 0.1)
     for name, r in rows.items():
-        for av in (1.0, 0.75, 0.5, 0.25, 0.1):
+        for av in grid:
             w = r["w0"] + (1 - av) * r["wa"]
             de = (1 + w) * (1 - r["Omega_m"]) * f(av, r["w0"], r["wa"])
             mat = 0.0 if (kind == "control" or mut == "omit_matter_in_law") else r["Omega_m"] * av**-3
@@ -1189,27 +1247,36 @@ def check_Q1(mut=None):
           and not b["gauss0 one value zero (GR control)"] and every and _notrun_kept(rl))
     return ok, {"binaries": b, "law": _cy_brief(rl), "free_control": _cy_brief(rf), "gr_control": _cy_brief(rg),
                 "A3": str(_q1_series()["A3"]), "N3": str(_q1_series()["N3"]),
-                "label": "computed (tools/cypher.py imported; H-CYPHER-MATTER-INDEX, the board's encoding)"}
+                "label": "computed (tools/cypher.py imported; binaries by b6p_scale.py's determined(), imported; "
+                         "H-CYPHER-MATTER-INDEX, the board's encoding)"}
 
 
 def check_Q2(mut=None):
-    """The cypher, Q2 (Z3', B5'): is the net null-energy sign one value on the READ fits whatever dark energy's own sign?
-    Law: net_sign one value (+1), de_sign not; control (matter omitted): net_sign varies."""
+    """The cypher, Q2 (Z3'a, Z3'c): is the sign of the total null stress one value on the READ fits through today, whatever
+    dark energy's own sign?  Law: net_sign one value (+1), de_sign not; control (matter omitted): net_sign varies.  The
+    future (a in {1.5, 2, 3, 5}): net_sign is NOT one value, and every negative cell has w < -1 (Z3'c is nature's)."""
     co, law = q2_cells("law", mut)
     _, ctl = q2_cells("control", mut)
+    _, fut = q2_cells("law", mut, when="future")
     lawtxt = ("continuous law in a: net(a) = Omega_m a^-3 + (1 + w(a))(1 - Omega_m) %s, w(a) = w0 + (1 - a) wa "
               "(READ fits; computed)" % _cpl_density()[1])
-    rl = run_index("Q2 net null energy on the READ fits", co, law, lawtxt)
+    rl = run_index("Q2 total null stress on the READ fits, through today", co, law, lawtxt)
     rc = run_index("Q2 control: matter omitted", co, ctl, "the same law with the matter term removed (control)")
-    b = {"net_sign one value (law)": determined(law, co, [], "net_sign"),
-         "net_sign value (law)": sorted({c[3] for c in law}),
+    rf = run_index("Q2 the same fits in the future (a = 1.5 to 5)", co, fut, lawtxt)
+    b = {"net_sign one value (law, through today)": determined(law, co, [], "net_sign"),
+         "net_sign value (law, through today)": sorted({c[3] for c in law}),
          "de_sign one value (law)": determined(law, co, [], "de_sign"),
-         "net_sign one value (control)": determined(ctl, co, [], "net_sign")}
-    every = all(set(r["rosters"]) == set(cypher().ROSTERS) for r in (rl, rc))
-    ok = (b["net_sign one value (law)"] and b["net_sign value (law)"] == [1] and not b["de_sign one value (law)"]
-          and not b["net_sign one value (control)"] and every and _notrun_kept(rl))
-    return ok, {"binaries": b, "law": _cy_brief(rl), "control": _cy_brief(rc),
-                "label": "computed (tools/cypher.py imported; H-CYPHER-MATTER-INDEX, the board's encoding)"}
+         "net_sign one value (control)": determined(ctl, co, [], "net_sign"),
+         "net_sign one value (future)": determined(fut, co, [], "net_sign"),
+         "every future negative cell has w < -1": all(c[0] < -1 for c in fut if c[3] < 0) and any(c[3] < 0 for c in fut)}
+    every = all(set(r["rosters"]) == set(cypher().ROSTERS) for r in (rl, rc, rf))
+    ok = (b["net_sign one value (law, through today)"] and b["net_sign value (law, through today)"] == [1]
+          and not b["de_sign one value (law)"] and not b["net_sign one value (control)"]
+          and not b["net_sign one value (future)"] and b["every future negative cell has w < -1"]
+          and every and _notrun_kept(rl))
+    return ok, {"binaries": b, "law": _cy_brief(rl), "control": _cy_brief(rc), "future": _cy_brief(rf),
+                "label": "computed (tools/cypher.py imported; binaries by b6p_scale.py's determined(), imported; "
+                         "H-CYPHER-MATTER-INDEX, the board's encoding)"}
 
 
 def _cy_brief(r):
@@ -1220,49 +1287,108 @@ def _cy_brief(r):
 
 
 # ======================================================================================== the lemmas, as edited
+# Each lemma: its status, the claim the status is for ("statement"), every input that claim rests on with its status,
+# and, apart from the claim, what applying it to our plane or to position 2 needs ("instance").  Every board reading
+# (H-...) named in a statement must be a declared input (guard G1); an instance's readings are not part of the claim.
+BOARD_READINGS = {"H-OUR-PLANE-IS-FRW": "READING", "H-DE-IN-TAU": "READING", "H-P2-AS-OURS": "READING",
+                  "H-EXPANSION-IN-SURFACE": "READING", "H-CYPHER-MATTER-INDEX": "READING", "H-README-HELD": "OPEN"}
+AXIOM_ITEMS = {117, 120, 127, 129, 130, 139, 183, 184}          # M's rulings used as axioms here (141, 187 never)
 LEMMAS = [
     {"name": "B1'", "edits": "B1", "status": "PROVED",
-     "statement": "each plane carries its own universe's matter and the corridor adds none (184 with 129 (1), 130 (1)); "
-                  "a plane carrying matter meets Codazzi iff its matter is conserved, and Gauss iff its metric obeys the "
-                  "trace of its effective equation (SMS (17), any tau) -- computed for the FRW plane with any perfect "
-                  "fluid, any spatial curvature and any dark-radiation C, Z2 or each side its own ell; our plane as "
-                  "Planck fits it is such a plane (an instance, H-OUR-PLANE-IS-FRW, its matter ~1e-62 of its tension at "
-                  "the table-top ell); the matter-free plane is the limit rho -> 0, where the Gauss right side is "
-                  "localbulk.gauss_rhs and R(4) = 0 (B1)",
-     "inputs": [("SMS eqs. (2), (10), (13)-(21), (28)", "READ"), ("Planck 2018 H0, Omega_m, Omega_K (cosmo.py)", "READ"),
-                ("184 with 129 (1), 130 (1)", "AXIOM"), ("localbulk.gauss_rhs (B1's own Gauss form)", "PROVED"),
-                ("checks A1-A8", "computed")],
+     "statement": "a plane carrying a perfect fluid on the FRW metric (any spatial curvature, any dark-radiation constant "
+                  "C; Z2, or each side its own ell) meets Codazzi iff its matter is conserved (SMS (21)) and meets Gauss "
+                  "iff it obeys its brane Friedmann equation, the trace of SMS (17) for any tau; the matter-free plane "
+                  "is the limit rho -> 0, where the Gauss right side is localbulk.gauss_rhs and R(4) = 0 (B1); with 184, "
+                  "129 (1), 130 (1): each plane carries its own universe's matter and the corridor adds none",
+     "instance": "that our plane with its observed matter is such a plane is H-OUR-PLANE-IS-FRW (READING); "
+                 "observation cannot tell it from four-dimensional gravity: the brane terms are eps_total = 2.65e-61 "
+                 "of the tension at the table-top ell (all of tau, under H-DE-IN-TAU), eps_matter = 8.36e-62 (A8)",
+     "inputs": [("SMS eqs. (2), (10), (13)-(21), (28)", "READ"), ("184 with 129 (1), 130 (1)", "AXIOM"),
+                ("localbulk.gauss_rhs (B1's own Gauss form)", "PROVED"), ("checks A1-A7", "computed")],
      "where": "lemmas/b1_matter.py A1-A8 (with the cypher's Q1)"},
     {"name": "B2'", "edits": "B2", "status": "PROVED",
-     "statement": "with analytic plane data that include matter (B1'), a local vacuum bulk off the plane exists and is "
-                  "unique among analytic ones (Dahia-Romero Lemmas 1-2, Theorem 2, READ); computed on the FRW plane with "
-                  "dust to order 6 in y (constraints 0 through y^5; controls with inconsistent Israel data fail) and, "
-                  "for C = 0, exactly: the bulk off our plane is pure AdS5",
+     "statement": "for analytic plane data meeting B1''s conditions (Z2 Israel data, conserved matter, the brane "
+                  "Friedmann equation) -- e.g. the FRW model plane with dust, or dust + w = -1 -- a local vacuum bulk "
+                  "off the plane exists and is unique among analytic ones (Dahia-Romero Lemmas 1-2, Theorem 2, READ); "
+                  "computed to order 6 in y (constraints 0 through y^5), three controls with inconsistent Israel data "
+                  "failing; for C = 0, exactly: the bulk off the FRW model plane is pure AdS5, with no corridor in it",
+     "instance": "for our real plane (inhomogeneous, not known to be analytic) existence is OPEN; that the FRW model "
+                 "plane is ours is H-OUR-PLANE-IS-FRW (READING); the corridor's own local bulk is B2t's",
      "inputs": [("B1'", "PROVED"), ("Dahia-Romero gr-qc/0109076v2 pp.8-12, 16", "READ"), ("checks B1-B4", "computed")],
      "where": "lemmas/b1_matter.py B1-B4 (with the cypher's Q1)"},
-    {"name": "Z3'", "edits": "Z3", "status": "DERIVED",
-     "statement": "null energy never violated, net along each light ray (seated (Z), 183/187 (3)), with each plane's "
-                  "matter: the bulk's R(k,k) = 0; the plane's 5D null stress (lambda + rho) k_y^2 + (rho + p)|k_space|^2; "
-                  "our observed matter, all components summed along each ray, positive at every epoch in every fit "
-                  "read; dark energy by itself not shown to obey the NEC (stated plainly)",
-     "inputs": [("seated (Z) (183, 187 (3))", "AXIOM"), ("axioms.py Z3, the bulk's R(k,k) = 0", "DERIVED"),
-                ("B1' (the plane with its matter)", "PROVED"), ("Planck 2018, DESI DR2", "READ"),
-                ("checks C1-C3", "computed")],
+    {"name": "B2t", "edits": "B2", "status": "PROVED",
+     "statement": "B2's instance for the corridor-carrying plane: the local bulk beneath eq. (17) read on the plane as the "
+                  "corridor's mouth -- F1-AUDIT.md's lemma (localbulk.py L3-L4), carried here, not computed here; "
+                  "PROVED as a conditional on M1",
+     "instance": "", "carried": "lemmas/F1-AUDIT.md (B2t)",
+     "inputs": [("F1 / M1: eq. (17) as the plane's reading of the corridor's mouth (seated (G), 187)", "OPEN"),
+                ("localbulk.py L3-L4", "PROVED")],
+     "where": "lemmas/F1-AUDIT.md, lemmas/f1_audit.py (not this instrument)"},
+    {"name": "Z3'a", "edits": "Z3 (a part)", "status": "DERIVED",
+     "statement": "away from the corridor and through today: the vacuum bulk gives R(k,k) = 0 for every null k (axioms.py's "
+                  "Z3); the FRW model plane's 5D null stress is (lambda + rho) k_y^2 + (rho + p)|k_space|^2, non-negative "
+                  "for every null k iff lambda + rho >= 0 and rho + p >= 0 for its total stress-energy; the mean matter "
+                  "of every READ fit (Planck 2018, DESI DR2) has rho + p > 0 at every a in [1e-4, 1] -- so 117/120's "
+                  "'An NEC is never violated' is consistent there; dark energy by itself is not shown to obey it",
+     "instance": "applied to our plane through H-OUR-PLANE-IS-FRW (READING); the criterion is the null stress of all "
+                 "the stress present at each point, the one axioms.py's Z3 evaluates (the per-component reading and "
+                 "the withdrawn H-NET-OVER-COMPONENTS are not used)",
+     "inputs": [("117, 120: An NEC is never violated", "AXIOM"),
+                ("axioms.py derive_z3: the vacuum bulk's R(k,k) = 0", "DERIVED"),
+                ("B1' (the FRW plane with its matter)", "PROVED"), ("Planck 2018, DESI DR2 fits", "READ"),
+                ("checks C1-C3 (consistency checks)", "computed")],
      "where": "lemmas/b1_matter.py C1-C3 (with the cypher's Q2)"},
-    {"name": "B5'", "edits": "B5", "status": "DERIVED",
-     "statement": "positivity for the entangled pin with each universe's matter: at one place (127) the summed tension "
-                  "+lambda_RS and both planes' matter give the null stress (lambda_RS + rho_1 + rho_2) k_y^2 + sum "
-                  "(rho + p)|k_space|^2 >= 0 at every point when the summed matter is net non-negative along each ray "
-                  "(seated (Z)); exhibited with position 2's matter as ours (H-P2-AS-OURS); B5c's absent radion "
-                  "unchanged; B5b's smooth wall is exact matter-free, and with matter every one-profile thickening keeps "
-                  "the null stress at every depth (an exact thick solution with matter is not constructed: OPEN, outside "
-                  "B5''s claim)",
-     "inputs": [("127, 139 (1), 141, 184, 138", "AXIOM"), ("seated (Z) (183, 187 (3))", "AXIOM"),
-                ("b5_positive.py B5a, B5b, B5c", "DERIVED"), ("Planck 2018", "READ"), ("check C4", "computed")],
-     "where": "lemmas/b1_matter.py C4 (with the cypher's Q2)"},
+    {"name": "Z3'b", "edits": "Z3 (a part)", "status": "OPEN",
+     "statement": "rays that meet the corridor or run beside it: zero net null energy along each such ray (183, 'never "
+                  "violated as a pair') needs a vacuum bulk carrying the corridor (B3/B4) and either the exact partner "
+                  "(F5, OPEN again since 194 withdrew 193) or the README held by the horizon (H-README-HELD, 195, to be "
+                  "computed); and a flat plane static beside positive dark radiation has rho < 0 and a negative 5D null "
+                  "stress for some null k (C5)",
+     "instance": "",
+     "inputs": [("183: never violated as a pair", "AXIOM"), ("B3/B4: a vacuum bulk carrying the corridor", "OPEN"),
+                ("F5: the exact +/- null pair (194)", "OPEN"), ("H-README-HELD (195: to be computed)", "OPEN"),
+                ("C5's configuration beside the corridor (BULK-BALANCE, E-PASS)", "OPEN"), ("check C5", "computed")],
+     "where": "lemmas/b1_matter.py C5; BULK-BALANCE.md, E-PASS"},
+    {"name": "Z3'c", "edits": "Z3 (a part)", "status": "NATURE",
+     "statement": "the FRW model plane's total null stress in the future and in sparse regions today: positive for every a "
+                  "in (1, 100] in six READ fits; negative in the two constant-phantom fits beyond a_x = 2.48 (Planck eq. "
+                  "(50) central) and 1.49 (its -3 sigma), and eventually for every constant w < -1 (deduced); at a = 1 a "
+                  "region whose matter is below 6.1% (central) or 26% (-3 sigma) of the mean is outweighed by a uniform "
+                  "phantom dark energy -- there Z3 rests on w_DE >= -1, a premise nature fixes",
+     "instance": "",
+     "inputs": [("w_DE >= -1 (asymptotically, and wherever matter is sparse)", "NATURE"),
+                ("Planck 2018, DESI DR2 fits", "READ"), ("checks C3, Q2", "computed")],
+     "where": "lemmas/b1_matter.py C3 (with the cypher's Q2)"},
+    {"name": "B5'a", "edits": "B5 (a part)", "status": "DERIVED",
+     "statement": "at coincidence (127) the summed tension +lambda_RS (B5a) with both universes' matter gives the 5D null "
+                  "stress (lambda_RS + rho_1 + rho_2) k_y^2 + sum (rho + p)|k_space|^2, non-negative for every null k iff "
+                  "rho_1 + rho_2 >= -lambda_RS and sum (rho + p) >= 0 -- a conditional; it does not by itself discharge "
+                  "139 (2)'s 'positive, and you have to prove it'",
+     "instance": "exhibited with position 2's matter measuring as ours (H-P2-AS-OURS, an example only); position 2's "
+                 "plane alone is negative for crossing rays",
+     "inputs": [("127 (1), 139 (1), 184", "AXIOM"), ("b5_positive.py B5a", "DERIVED"), ("check C4", "computed")],
+     "where": "lemmas/b1_matter.py C4"},
+    {"name": "B5'p", "edits": "B5 (a part)", "status": "OPEN",
+     "statement": "position 2's matter meets B5'a's antecedent (summed with ours, rho + p >= 0 along each ray and the "
+                  "density above -lambda_RS): position 2's matter is unknown; only ratios are known (ITEM185)",
+     "instance": "",
+     "inputs": [("position 2's matter (ITEM185: only ratios known)", "OPEN"), ("B5'a", "DERIVED")],
+     "where": "lemmas/ITEM185-MATTER-ROUND.md"},
+    {"name": "B5'b", "edits": "B5 (a part)", "status": "OPEN",
+     "statement": "a smooth wall carrying both universes' matter that keeps null energy at every point exists: B5b's exact "
+                  "wall is matter-free (a limit under 184); with matter only algebraic one-profile thickenings are shown, "
+                  "not Einstein solutions, and a per-component thickening with phantom dark energy goes negative (C4)",
+     "instance": "",
+     "inputs": [("an exact thick wall with matter", "OPEN"), ("b5_positive.py B5b (matter-free)", "DERIVED"),
+                ("check C4", "computed")],
+     "where": "lemmas/b1_matter.py C4; b5_positive.py B5b"},
 ]
+SLOTS = {"B1": ["B1'"], "B2": ["B2'", "B2t"], "Z3": ["Z3'a", "Z3'b", "Z3'c"], "B5": ["B5'a", "B5'p", "B5'b"]}
+EXPECT_GREEN = {"B1'": True, "B2'": True, "B2t": False, "Z3'a": True, "Z3'b": False, "Z3'c": False, "B5'a": True,
+                "B5'p": False, "B5'b": False}
 STILL_ON_F2 = {"B3": "OPEN (equivalent to B4)", "B4d": "OPEN (its matter-free stages are limits under 184)"}
-F1_STILL = ["H2", "O1", "O2", "Z1", "Z2", "E4", "B4b", "B3", "B4d", "the corridor's own local bulk (H-PLANE-READS-MOUTH)"]
+F1_STILL = ["H2", "O1", "O2", "Z1", "Z2", "E4", "B4b", "B3", "B4d", "B2t (the corridor's own local bulk)"]
+H_TOKEN = re.compile(r"H-[A-Z0-9]+(?:-[A-Z0-9]+)*")
 
 
 def green_of(lem, extra_inputs=()):
@@ -1271,24 +1397,50 @@ def green_of(lem, extra_inputs=()):
 
 
 def check_G1(mut=None):
-    """Guards: every M quote verbatim in the rulings file (whitespace normalised); every READ row has a source, a page and
-    a quote; statuses and labels from the allowed sets; no owner attribute outside the allowlist and no eq. (17) carrier
-    used (F1 does not enter); each edited lemma GREEN under the rule, with no F1 or F2 input."""
-    blocks = ruling_blocks()
+    """Guards (STRUCTURAL bookkeeping over declared inputs, not a computation of greenness): every M quote verbatim inside
+    M's own spans of its item ("M, verbatim:" / "M chose:" up to "Recorded as given"), the seated (Z) wording inside 187's
+    question; every READ row has a source, page(s) and a quote; statuses from the allowed set; every board reading named
+    in a lemma's statement is a declared input, and every one named in an instance is a registered reading; AXIOM inputs
+    cite only M's rulings (never 141's suggestion or 187's seating); the green map is the expected one (the OPEN and
+    NATURE parts non-green); no green lemma has an F1 or F2 input; no owner attribute outside the allowlist and no
+    eq. (17) carrier used; every row's label from the allowed set."""
+    spans, blocks = ruling_spans(), ruling_blocks()
     words = dict(M_WORDS)
     if mut == "planted_mword":
         words["184"] = "There are no matter-free planes"
+    if mut == "mword_from_narrative":
+        words["184"] = "H-NO-MATTER-FREE-PLANES (every plane carries matter"
     bad_words = [k for k, v in words.items()
-                 if re.sub(r"\s+", " ", v) not in blocks.get(int(re.match(r"\d+", k).group()), "")]
-    bad_reads = [k for k, (src, pg, q) in READS.items() if not (src and isinstance(pg, int) and pg > 0 and q)]
-    lems = [dict(l) for l in LEMMAS]
+                 if re.sub(r"\s+", " ", v) not in spans.get(int(re.match(r"\d+", k).group()), "")]
+    q187 = blocks.get(187, "").split("M chose:")[0]
+    bad_seated = [k for k, v in SEATED_WORDING.items() if re.sub(r"\s+", " ", v) not in q187]
+    bad_reads = [k for k, (src, pg, q) in READS.items()
+                 if not (src and q and (isinstance(pg, int) and pg > 0 or isinstance(pg, tuple) and pg
+                                        and all(isinstance(x, int) and x > 0 for x in pg)))]
+    lems = [dict(l, inputs=list(l["inputs"])) for l in LEMMAS]
+    by = {l["name"]: l for l in lems}
     if mut == "planted_F2":
-        lems[0] = dict(lems[0], inputs=lems[0]["inputs"] + [("F2: the plane matter-free", "OPEN")])
+        by["B1'"]["inputs"].append(("F2: the plane matter-free", "OPEN"))
     if mut == "planted_status":
-        lems[1] = dict(lems[1], status="GREEN")
+        by["B2'"]["status"] = "GREEN"
+    if mut == "drop_reading":
+        by["Z3'b"]["inputs"] = [i for i in by["Z3'b"]["inputs"] if not i[0].startswith("H-README-HELD")]
+    if mut == "drop_open_input":
+        by["B2t"]["inputs"] = [i for i in by["B2t"]["inputs"] if i[1] != "OPEN"]
+    if mut == "axiom_187":
+        by["Z3'a"]["inputs"].append(("seated (Z) (183, 187 (3))", "AXIOM"))
+    if mut == "axiom_141":
+        by["B5'a"]["inputs"].append(("141: the planes static", "AXIOM"))
     bad_status = [l["name"] for l in lems if l["status"] not in STATUSES]
+    undeclared = sorted({(l["name"], h) for l in lems for h in H_TOKEN.findall(l["statement"])
+                         if not any(n.startswith(h) for n, _ in l["inputs"])})
+    unregistered = sorted({(l["name"], h) for l in lems for h in H_TOKEN.findall(l.get("instance", ""))
+                           if h not in BOARD_READINGS and h != "H-NET-OVER-COMPONENTS"})
+    bad_axioms = [(l["name"], n) for l in lems for n, st in l["inputs"] if st == "AXIOM"
+                  and not set(int(x) for x in re.findall(r"\b(\d{3})\b", n)) <= AXIOM_ITEMS]
     greens = {l["name"]: green_of(l) for l in lems}
-    f12 = [l["name"] for l in lems if any(n.startswith(("F1", "F2")) for n, _ in l["inputs"])]
+    f12 = [l["name"] for l in lems if greens[l["name"]] and any(n.startswith(("F1", "F2")) for n, _ in l["inputs"])]
+    f2_any = [l["name"] for l in lems if any(n.startswith("F2") for n, _ in l["inputs"])]
     used = set(_USED)
     if mut == "planted_eq17":
         used.add(("localbulk", "ricci_scalar"))
@@ -1298,11 +1450,86 @@ def check_G1(mut=None):
     if mut == "planted_label":
         rows = rows + ["positive"]
     bad_labels = [r for r in rows if not any(r.startswith(l) for l in LABELS)]
-    ok = (not bad_words and not bad_reads and not bad_status and all(greens.values()) and not f12 and not outside
-          and not eq17 and not bad_labels)
-    return ok, {"bad_words": bad_words, "bad_reads": bad_reads, "bad_status": bad_status, "green": greens,
-                "F1_or_F2_inputs": f12, "owner_attrs_used": sorted(used), "outside_allowlist": outside,
-                "eq17_carriers_used": eq17, "bad_labels": bad_labels}
+    ok = (not bad_words and not bad_seated and not bad_reads and not bad_status and not undeclared and not unregistered
+          and not bad_axioms and greens == EXPECT_GREEN and not f12 and not f2_any and not outside and not eq17
+          and not bad_labels)
+    return ok, {"bad_words": bad_words, "bad_seated": bad_seated, "bad_reads": bad_reads, "bad_status": bad_status,
+                "undeclared_readings": undeclared, "unregistered_readings": unregistered, "bad_axioms": bad_axioms,
+                "green": greens, "green_as_expected": greens == EXPECT_GREEN, "F1_or_F2_in_green": f12,
+                "F2_anywhere": f2_any, "owner_attrs_used": sorted(used), "outside_allowlist": outside,
+                "eq17_carriers_used": eq17, "bad_labels": bad_labels,
+                "label": "STRUCTURAL (bookkeeping over the declared inputs)"}
+
+
+# ---------------------------------------------------------------------------------------- G2: the count
+# The board's reading of each lemma's foundational inputs, as the item-192 cypher audit recorded it (its own scratch
+# list; inputs F1-F6 there, all non-green).  Statuses are cross-checked against warptheorem.py's LEMMAS, imported by path.
+AUDIT_INPUTS = {
+    "G1": "", "G2": "", "G3": "", "H1": "", "H2": "F1", "O1": "F1", "O2": "F1", "O3": "F4 F5", "Z1": "F1", "Z2": "F1",
+    "Z3": "F2", "B1": "F1 F2", "B2": "F1 F2", "B3": "F1 F3 F4 F5", "B4a": "", "B4c": "F3", "B4b": "F1 F4",
+    "B4d": "F1 F2 F4 F5", "B5": "F2", "B6": "", "B6'": "F6", "B7": "F4 F5", "I1": "", "I2": "", "E1": "", "E2": "",
+    "E3": "", "E4": "F1", "R0": "", "R1": "", "R2": "", "R3": "", "R4": "", "R5": ""}
+AUDIT_STATUS = {
+    "G1": "DERIVED", "G2": "PROVED", "G3": "PROVED", "H1": "PROVED", "H2": "DERIVED", "O1": "PROVED", "O2": "PROVED",
+    "O3": "OPEN", "Z1": "PROVED", "Z2": "PROVED", "Z3": "DERIVED", "B1": "PROVED", "B2": "PROVED", "B3": "OPEN",
+    "B4a": "PROVED", "B4c": "READING", "B4b": "READING", "B4d": "OPEN", "B5": "DERIVED", "B6": "PROVED", "B6'": "NATURE",
+    "B7": "DERIVED", "I1": "DERIVED", "I2": "PROVED", "E1": "DERIVED", "E2": "DERIVED", "E3": "DERIVED", "E4": "PROVED",
+    "R0": "DEFINITION", "R1": "DEFINITION", "R2": "DEFINITION", "R3": "PROVED", "R4": "DERIVED", "R5": "DERIVED"}
+EXPECT_COUNT = {"before_audit_rule": (17, 34), "before_strict": (14, 34), "per_slot_audit_rule": (18, 34),
+                "per_slot_strict": (15, 34), "after_splits_audit_rule": (21, 39), "after_splits_strict": (18, 39)}
+
+
+def chain_count(mut=None):
+    rules = {"audit_rule": GREEN + ("DEFINITION",), "strict": GREEN}
+    if mut == "definition_strict":
+        rules["strict"] = GREEN + ("DEFINITION",)
+    by = {l["name"]: l for l in LEMMAS}
+    new = {n: green_of(by[n]) for n in by}
+    if mut == "b2t_green":
+        new["B2t"] = True
+    out = {}
+    for rn, rule in rules.items():
+        old = {n: AUDIT_STATUS[n] in rule and not AUDIT_INPUTS[n].split() for n in AUDIT_STATUS}
+        out["before_" + rn] = (sum(old.values()), len(old))
+        slot = dict(old)
+        for s_, parts in SLOTS.items():
+            slot[s_] = (any if mut == "slot_any" else all)(new[p] for p in parts)
+        out["per_slot_" + rn] = (sum(slot.values()), len(slot))
+        split = {n: g for n, g in old.items() if n not in SLOTS}
+        split.update({p: new[p] for parts in SLOTS.values() for p in parts})
+        out["after_splits_" + rn] = (sum(split.values()), len(split))
+    return out
+
+
+def check_G2(mut=None):
+    """The count (deduced from the item-192 audit's list): the chain's lemmas green before and after these edits, under
+    the audit's rule (DEFINITION counted green) and the strict rule (PROVED, DERIVED, AXIOM only); per original slot (a
+    slot green only if every part is green) and per lemma after the splits.  warptheorem.py's statuses cross-checked
+    (informational: an integration elsewhere may move them)."""
+    cnt = chain_count(mut)
+    wt = {}
+    try:
+        for row in own("warp", "LEMMAS"):
+            wt[row[1].split()[0]] = row[2]
+    except Exception as exc:                                         # informational only
+        wt = {"error": repr(exc)[:120]}
+    diff = {n: (AUDIT_STATUS[n], wt.get(n)) for n in AUDIT_STATUS if wt.get(n) != AUDIT_STATUS[n]}
+    ok = cnt == EXPECT_COUNT
+    return ok, {"count": {k: "%d of %d" % v for k, v in cnt.items()},
+                "warptheorem_status_differences": diff or "none",
+                "label": "deduced (the audit's inputs are the board's reading); statuses STRUCTURAL"}
+
+
+def ruling_spans():
+    """M's own words in each numbered item: the text after "M, verbatim:" or "M chose:" up to "Recorded as given",
+    whitespace normalised (the board's title, question and narrative excluded)."""
+    out = {}
+    for k, v in ruling_blocks().items():
+        parts = []
+        for m in re.finditer(r"(?:M, verbatim:|M chose:)(.*?)(?:Recorded as given|$)", v):
+            parts.append(m.group(1))
+        out[k] = " ".join(parts)
+    return out
 
 
 def ruling_blocks():
@@ -1351,7 +1578,7 @@ CHECKS = {
     "A8": (check_A8, "B1': our plane's matter is eps = Omega (H0 ell/c)^2/2 of its tension (two routes; < 1e-60)",
            [("factor_two", "the 1/2 dropped from the formula"), ("c_kms", "c in km/s")],
            "computed (cosmo.py, exactE.py, b4d_stage2.py)"),
-    "B1": (check_B1, "B2': dust to order 6, LCDM to order 4 -- unique series, constraints 0 through y^(N-1)",
+    "B1": (check_B1, "B2': dust to order 6, LCDM to order 4 -- constraints 0 through y^(N-1) (uniqueness STRUCTURAL)",
            [("skip_solve", "A_(j+2), N_(j+2) set to 0 instead of solved"),
             ("kx_no_matter", "Israel data without the matter (inconsistent)"), ("L5_sign", "Lambda5 = +6/ell^2")],
            "computed; READ Dahia-Romero pp.8-12"),
@@ -1362,32 +1589,47 @@ CHECKS = {
             ("curv_scale", "compared with curvature -1/(2 ell)^2")],
            "computed (exact, sympy); deduced"),
     "B4": (check_B4, "B2': the dust plane a(t) explicit", [("gr_dust", "GR's dust a^3 ~ t^2 used")], "computed"),
-    "C1": (check_C1, "Z3': bulk R(k,k) = 0 (axioms.py, imported); a timelike control is not 0",
+    "C1": (check_C1, "Z3'a: vacuum bulk R(k,k) = 0 (axioms.py, imported); a timelike control is not 0",
            [("control_null", "the control given a null vector")], "computed (imported axioms.py)"),
-    "C2": (check_C2, "Z3': S(k,k) = (lambda + rho) k_y^2 + (rho + p)|k|^2; pi(k,k) = rho (rho + p)(t.k)^2/6",
+    "C2": (check_C2, "Z3'a: S(k,k) = (lambda + rho) k_y^2 + (rho + p)|k|^2; pi(k,k) = rho (rho + p)(t.k)^2/6",
            [("lambda_sign", "the tension's sign flipped in S"), ("pi_tt", "SMS (20)'s -1/4 tau tau replaced by -1/2")],
            "computed; READ SMS"),
-    "C3": (check_C3, "Z3' observed: net null energy positive in every READ fit; dark energy alone is not",
-           [("omit_matter", "the matter left out of the net"), ("flip_w", "w reflected about -1")],
+    "C3": (check_C3, "Z3'a/Z3'c: total null stress positive through today in every READ fit (dark energy alone is "
+                     "not); future negative in exactly the two constant-phantom fits, at the closed-form a_x",
+           [("omit_matter", "the matter left out of the net"), ("flip_w", "w reflected about -1"),
+            ("today_only", "the future grid dropped"), ("ax_exponent", "a_x's exponent 1/3 instead of 1/(3|w|)")],
            "computed from READ Planck 2018, DESI DR2"),
-    "C4": (check_C4, "B5': composite with both universes' matter; p2 alone negative; shared vs per-component profiles",
+    "C4": (check_C4, "B5'a: composite with both universes' matter; p2 alone negative; B5'b: shared vs per-component",
            [("sum_wrong", "the tensions summed as 4/3 + 1/3"), ("control_shared", "the per-component control shared"),
             ("p2_phantom", "position 2's matter net-negative, twice ours")],
            "computed (imported b5_positive.py); deduced"),
-    "C5": (check_C5, "Z3' vs BULK-BALANCE: a flat plane fixed in scale beside C > 0 needs rho + p < 0; ours expands",
-           [("c_sign", "the dark radiation's sign flipped")], "computed; deduced"),
+    "C5": (check_C5, "Z3'b vs BULK-BALANCE: a flat plane static (H = 0, H' = 0) beside C > 0 has rho < 0 and a "
+                     "negative 5D null stress on both branches",
+           [("c_sign", "the dark radiation's sign flipped"), ("no_static", "H = 0 not imposed")], "computed; deduced"),
     "Q1": (check_Q1, "the cypher Q1: the bulk fixed by the plane's data; Gauss met; controls flip",
            [("control_free_off", "the free-bulk control without its extra datum"),
             ("gr_as_law", "GR-Friedmann data used in the law index")],
            "computed (tools/cypher.py, imported); the encoding the board's"),
-    "Q2": (check_Q2, "the cypher Q2: net null-energy sign one value on the READ fits; dark energy's is not",
-           [("omit_matter_in_law", "matter omitted in the law index")],
+    "Q2": (check_Q2, "the cypher Q2: total null-stress sign one value through today, dark energy's not; the future not",
+           [("omit_matter_in_law", "matter omitted in the law index"),
+            ("future_as_today", "the future index given today's epochs")],
            "computed (tools/cypher.py, imported); the encoding the board's"),
-    "G1": (check_G1, "guards: M's words verbatim; READ pages; statuses; no eq. (17) carrier; GREEN rule",
-           [("planted_mword", "184 re-typed with a hyphen"), ("planted_F2", "F2 planted among B1''s inputs"),
+    "G1": (check_G1, "guards: M's words in M's spans; READ pages; statuses; readings declared; axioms M's; green map; "
+                     "no eq. (17) carrier",
+           [("planted_mword", "184 re-typed with a hyphen"),
+            ("mword_from_narrative", "a 'quote' taken from the board's narrative of 184"),
+            ("planted_F2", "F2 planted among B1''s inputs"),
             ("planted_status", "B2' given status 'GREEN'"), ("planted_eq17", "localbulk.ricci_scalar recorded as used"),
-            ("planted_label", "a row labelled 'positive'")],
+            ("planted_label", "a row labelled 'positive'"),
+            ("drop_reading", "H-README-HELD dropped from Z3'b's inputs while its statement names it"),
+            ("drop_open_input", "B2t's OPEN input (F1 / M1) dropped, so it would turn green"),
+            ("axiom_187", "187 (3)'s seating planted as an AXIOM input of Z3'a"),
+            ("axiom_141", "141's suggestion planted as an AXIOM input of B5'a")],
            "STRUCTURAL"),
+    "G2": (check_G2, "the count: before and after, per slot and after the splits, under the audit's and the strict rule",
+           [("b2t_green", "B2t counted green"), ("definition_strict", "DEFINITION counted under the strict rule"),
+            ("slot_any", "a slot counted green if any part is")],
+           "deduced (the audit's inputs the board's reading)"),
 }
 
 
@@ -1404,35 +1646,43 @@ def _clean(x):
 
 
 def compute():
-    out = {"checks": {}, "lemmas": [], "reads": READS, "m_words": M_WORDS}
+    out = {"checks": {}, "lemmas": [], "reads": READS, "m_words": M_WORDS, "seated_wording": SEATED_WORDING,
+           "board_readings": BOARD_READINGS}
     for cid, (fn, what, _m, label) in CHECKS.items():
         ok, det = fn(None)
         out["checks"][cid] = {"ok": ok, "what": what, "label": label, "detail": _clean(det)}
     for l in LEMMAS:
         out["lemmas"].append({"name": l["name"], "edits": l["edits"], "status": l["status"], "green": green_of(l),
-                              "statement": l["statement"], "inputs": l["inputs"], "where": l["where"],
-                              "label": "STRUCTURAL (status from the checks above)"})
-    out["F1"] = {"enters_B1'_B2'_Z3'_B5'": False, "still_rests_on_F1": F1_STILL,
-                 "label": "STRUCTURAL (guard G1: no eq. (17) carrier among the owner attributes used)"}
+                              "statement": l["statement"], "instance": l.get("instance", ""), "inputs": l["inputs"],
+                              "where": l["where"], "label": "STRUCTURAL (status from the checks above)"})
+    out["slots"] = {s_: {"parts": p, "green": all(green_of(next(l for l in LEMMAS if l["name"] == q)) for q in p)}
+                    for s_, p in SLOTS.items()}
+    out["F1"] = {"enters": ["B2t (directly)", "Z3'b (through B3/B4)"],
+                 "enters_none_of": ["B1'", "B2'", "Z3'a", "Z3'c", "B5'a", "B5'p", "B5'b"],
+                 "still_rests_on_F1": F1_STILL,
+                 "label": "STRUCTURAL (guard G1: no eq. (17) carrier among the owner attributes used; B2t carried)"}
     out["F2_still"] = {"lemmas": STILL_ON_F2, "label": "STRUCTURAL (not edited here; both OPEN by status)"}
     return out
 
 
 def report(d):
-    print("b1_matter.py -- F2 greened: there are no matter-free planes (184)\n")
+    print("b1_matter.py -- four lemmas re-based off input F2: there are no matter-free planes (184)\n")
     for cid, c in d["checks"].items():
         print("  %-3s %-4s %s  [%s]" % (cid, "ok" if c["ok"] else "FAIL", c["what"], c["label"]))
     print("\nThe edited lemmas:")
     for l in d["lemmas"]:
-        print("  %-4s (edits %s) %-8s green=%s  %s" % (l["name"], l["edits"], l["status"], l["green"], l["statement"]))
-    print("\nF1 (eq. (17) on the plane) enters none of B1', B2', Z3', B5'; it still enters: %s" % ", ".join(F1_STILL))
+        print("  %-5s (edits %s) %-8s green=%s  %s" % (l["name"], l["edits"], l["status"], l["green"], l["statement"]))
+    print("\nSlots: %s" % "; ".join("%s %s" % (k, "green" if v["green"] else "NOT green") for k, v in d["slots"].items()))
+    print("F1 (eq. (17) on the plane) enters B2t directly and Z3'b through B3/B4, none of the other parts; it still "
+          "enters: %s" % ", ".join(F1_STILL))
     print("Still on F2, not edited here: %s" % "; ".join("%s %s" % kv for kv in STILL_ON_F2.items()))
 
 
 def selftest():
     t0 = _wall.perf_counter()
     allok = True
-    print("b1_matter selftest (computed, READ and deduced; not verified; not seated)")
+    print("b1_matter selftest (computed, READ and deduced; the build checked by two separate AI sessions in this project, "
+          "findings applied; the applied version not re-checked; not seated)")
     for cid, (fn, what, _m, _label) in CHECKS.items():
         ok, det = fn(None)
         allok = allok and ok
