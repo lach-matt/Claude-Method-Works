@@ -12,10 +12,20 @@ sessions they describe skill sync but say nothing about plugins.
 
 ## First actions in the new session
 
-1. **Check the plugins before anything else.**
-   - Run `ListPlugins`, and `SearchPlugins` for the nine names above.
-   - Check that the plugin skills (`<plugin>:<skill>` names, e.g. Mathbox's `proof-audit`) are in the skill list.
-   - Tell M plainly which loaded and which did not. Do not claim a plugin works until one of its skills has run.
+1. **Load the plugins (account sync does not reach cloud sessions; this route works, done 2026-10-09):**
+   - **Install** each plugin with Claude Code's own installer, from the built-in Anthropic Directory, pinned to
+     the reviewed commit:
+     `for n in mathbox math-olympiad research-integrity research-desk paper-search deep-review verify-ai-output citation-needed data; do claude plugin install "$n@anthropic-plugin-directory" --scope user; done`.
+   - **Link the skills.** Approval: M approved this step on 2026-10-09; the auto-mode classifier refuses it
+     without approval. Command:
+     `for d in ~/.claude/plugins/cache/anthropic-plugin-directory/*/*/skills/*/; do ln -s "${d%/}" ~/.claude/skills/$(basename $d); done`.
+   - **Reload.** M runs `/reload-skills`; the count went from 34 to 70. `/reload-plugins` is refused over a remote
+     connection, so the plugins' MCP servers and hooks do not load; their 34 skills do.
+   - **What the plugins contain:**
+     - Citation Needed's only hook adds its rules only if `~/.claude/.citation-needed-always` exists.
+     - Research Desk's local server contacts OpenAlex, arXiv and doi.org; its hosted checker is a third-party
+       server.
+     - Data's servers need logins we do not have.
 2. **Pull before writing.** The old session may push the science-tools skill files after this handoff (see Tools).
 3. **Resume E-PASS** (below), unless M directs otherwise.
 
