@@ -190,6 +190,6 @@ sessions they describe skill sync but say nothing about plugins.
 - **Push** with `git push -u origin claude/warp-drive-theory-ditjk4`; on network failure retry after 2, 4, 8 and
   16 s.
 - **No PR** unless M asks. **No model identifiers** in repo files.
-- **Commit trailers:** `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>` and a `Claude-Session:` line for
-  the new session.
+- **Commit trailers:** the `Co-Authored-By:` and `Claude-Session:` lines given in the new session's attribution
+  reminder. Keep model names out of every file in the repository.
 - **The stop hook** requires everything committed and pushed before a turn ends.

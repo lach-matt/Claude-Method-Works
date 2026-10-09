@@ -2,7 +2,7 @@
 
 *First headed* "Item 185: the matter round … (verified once, findings applied; not seated)". Twelve sessions ran:
 three readers, three routes, a checker for each route, a synthesis, and refute and overclaim verifiers. **Every one was
-a separate AI session (Claude Opus 5.5) inside this project. None is an outside review.** The scratch instruments are
+a separate AI session inside this project. None is an outside review.** The scratch instruments are
 in the session scratchpad (`…/scratchpad/matter/`). They are not archived in the tree and are not owned instruments.
 The round wrote nothing to the repository; this note is the only file written.
 
@@ -53,8 +53,9 @@ The round wrote nothing to the repository; this note is the only file written.
   - x ≫ 1: AC-PYT 1206.0708v4 eq. 13 (READ); p.5: *"the surface gravity … is exactly 1/(4M)"*.
   - **All four are non-extremal by construction.** KTN p.5 (READ): *"Assuming the surface gravity is nonzero
     (nonextremal)"*.
-  - In x = 2m/ℓ (under H-RH-IS-2M, the board's) the window is 2.85×10⁻²³ to 0.0739 on SIM2's edge (5×10⁻⁶ on B4c's). Below x = 0.004, most of it,
-    the family is the Tangherlini limit plus a deduced O(x) argument, not READ data.
+  - In x = 2m/ℓ (under H-RH-IS-2M, the board's) the window is 2.85×10⁻²³ to 0.0739 on SIM2's edge (5×10⁻⁶ on
+    B4c's). Below x = 0.004, most of it, the family is the Tangherlini limit plus a deduced O(x) argument, not READ
+    data.
 - **The deciding handle is surface gravity** (computed, sympy exact; Wolfram 15.0.1 and Mathics3 agree).
   - Eq. (17) has κ² = (2m − r₀)/(8m³). That is 0 at r₀ = 2m.
   - The family has κr_h between about 1/2 and 1, never 0: Tangherlini 1; KTN 0.760–0.997; FW a finite temperature;
@@ -126,8 +127,8 @@ The round wrote nothing to the repository; this note is the only file written.
   - **H-CORRIDOR-AS-BULK-HORIZON** (the board's: a bulk horizon on the kept side of our plane), K = 0: the bound limits
     the horizon's depth, d/ℓ > 39.15 at ℓ = 13.96 µm (63.8 at SIM2's edge). Depth, not ℓ.
   - Same, K = +1, with **H-BULK-MASS-IS-README** (the board's identification Mc² = E(N), resting on your 136 G, *"the
-    README is the energy, not separate"*): ℓ/a₀⁴ < 3πB/(8m(N)), with B the bound above. a₀ is bounded only from below (a₀ ≥ 2.5×10²⁷ metres,
-    computed from Planck p.40 Table 4's Ω_K, READ). So ℓ is unbounded.
+    README is the energy, not separate"*): ℓ/a₀⁴ < 3πB/(8m(N)), with B the bound above. a₀ is bounded only from
+    below (a₀ ≥ 2.5×10²⁷ metres, computed from Planck p.40 Table 4's Ω_K, READ). So ℓ is unbounded.
   - Adding **H-README-SIZED-HORIZON** (the board's: r_h = 2m): **ℓ = 5.3668 m(N)**, the root of
     x³ − (3π/2)x² − 6π = 0 (1.067×10⁻²⁷ metres at the example README).
     - It comes from two board identifications and no observation.
@@ -239,8 +240,8 @@ The round wrote nothing to the repository; this note is the only file written.
       Such a fit would probably be tighter (the bounds reader's expectation, not computed).
     - About 19.5–19.7 µm at 95% under H-GAUSS-SCALE (the bounds reader's; not READ).
     - Whether the table-top ℓ is a corridor's ℓ (H-TABLETOP-SEES-CORRIDOR-ELL, the board's) is for the item-186 note.
-  - KSCALE's K2 = 3.68 µm rests on H-PERCENT (the board's reading) applied to the 2020 data. It is unfitted, not refuted, and not comparable
-    with the 2007 fit.
+  - KSCALE's K2 = 3.68 µm rests on H-PERCENT (the board's reading) applied to the 2020 data. It is unfitted, not
+    refuted, and not comparable with the 2007 fit.
 - **Two lower edges, both carried from ITEM179, both to be redone under 179:**
   - SIM2's ℓ > 27.07 m(N), in corridor mass lengths (5.38×10⁻²⁷ metres at the example README). It rests on eq. (17)
     on our plane, the board's configuration.
@@ -275,7 +276,8 @@ The round wrote nothing to the repository; this note is the only file written.
 - **"Static."** H-STATIC-SCALE is refuted for our plane. B4d's static-plane stages (5–7, SIM phases 1–2) are re-read in
   Lemma K's frame, under H-STATIC-AS-FIXED-SEPARATION. This supplies ITEM179's "A2's weaker reading".
 - **BULK-BALANCE §4's NEC gate** is an artefact of H-STATIC-SCALE for our plane.
-- **Matter-free results stand numerically for our plane** (to 10⁻¹⁹ at nuclear density, at 13.96 µm). Under 184 they stay limits.
+- **Matter-free results stand numerically for our plane** (to 10⁻¹⁹ at nuclear density, at 13.96 µm). Under 184
+  they stay limits.
 - **The stabilizer** (restated). A Goldberger–Wise-type field would fix d/ℓ given ℓ (standard-not-READ). Whether a
   stabilizer with a scale of its own (140's pin, H-ENTANGLED-PIN) could fix ℓ is not computed.
 - **B6'** keeps its row: "nature, item 136 answer 8". The round closes three routes and moves the upper edge. It does
@@ -330,7 +332,7 @@ The round wrote nothing to the repository; this note is the only file written.
   - **Synthesise:** one draft.
   - **Verify:** a refute verifier (re-ran the decisive numbers in sympy and mpmath, and re-opened the decisive quotes)
     and an overclaim verifier (re-read, no recomputation).
-  - Every session was a Claude (Opus 5.5) session inside this project. None is an outside review.
+  - Every session was an AI session inside this project. None is an outside review.
 - **The checks' corrections, kept:**
   - Route 1: only κ and γ cover every x, so ε_H is interpolated; H3 → 0 at large x, not 0⁻; leading-order labels; GT
     eq. (27)'s "other wall empty" condition; zone mixing; the −4/3 slip is in MK's printed eq. (155); AC-PYT's

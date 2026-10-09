@@ -1,4 +1,4 @@
-# DOCKET 67 shards (fresh run on M's ruling "Start the workflow over"; Opus 5.5)
+# DOCKET 67 shards (fresh run on M's ruling "Start the workflow over")
 Extraction + merge: wf_b2052d90-b95 (pass A, stopped after extract/merge; 832 occurrences, 431 canonical, 165 context-only)
 canonical.json rebuilt from that journal with the script's own rules; shards interleaved canonical[i::12].
 shard task    run id
