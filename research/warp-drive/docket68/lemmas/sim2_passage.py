@@ -348,9 +348,10 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       verified against the pairing owner BEFORE that owner's blocker fix (see X17).  Checks C15-C19 and C26-C31 below
       call the owners' own selftests and fail if an owner fails or is missing.  Every value quoted in X13-X18 is copied
       from the owner's output, given with the owner's label and its [FREE]/[PLANE] tag; C35a requires the 107 values
-      listed in DOC_QUOTES to equal the owner's live output (the md5 prefixes included).  The few other values quoted
-      here (u_H = 1/3, eps = 1/10 and v = 3/10, the 1000-row counts, r = 3m, the PDF pages, the Wolfram agreement) are
-      not in DOC_QUOTES and are not machine-checked.  Nothing in X13-X18 is re-derived here.
+      listed in DOC_QUOTES to equal the owner's live output (the md5 prefixes included).  The few other numbers quoted
+      here (u_H = 1/3, eps = 1/10 and v = 3/10, the counts of 1000 rows and 1000 transformations, r = 3m, the SMS and
+      Maldacena-Qi PDF pages, the Wolfram agreement) are not compared by C35a and are not machine-checked.  Nothing in
+      X13-X18 is re-derived here.
   X11 DEFERRED [PLANE] -- Lemma 0's far-time half: the README's own pre-crossing events on end 1 (r = 2.02-2.2m) on the
       plane's static clock, from stage 5's owner columns.  Until it is built, X8's refutation of the route with no
       second sheet rests on its advanced-time half (X7) and the static-clock half stays OPEN (X8).
@@ -371,8 +372,8 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       -int sigma^2 dv / kappa_5^2: zero or negative, never above zero.  The partner is at least as large as the README,
       exactly as large only if the horizon is unsheared (deduced).  With 183 (H-NEC-NEVER-VIOLATED-AS-PAIR, carried as
       M's: the option he chose, "Yes: never violated as a pair", which the board glossed as zero net along each light
-      ray; seated clause (Z), 187 (3), read as a net not below zero along each light ray, gives the same) the horizon
-      must be unsheared and the pair exact (deduced).
+      ray; seated clause (Z), 187 (3), read by the board as a net not below zero along each light ray, gives the same)
+      the horizon must be unsheared and the pair exact (deduced).
       (a) SHEET FORM, on whichever sheet carries the README (172 (1)) (computed): K(xi,xi)|_H = 0 for sheets y = F(u),
       F arbitrary, in the throat metric and on (b)'s family, degenerate (u_H = 0) and non-degenerate (u_H = 1/3), also
       on non-stationary members that keep u_H null and on a horizon whose section grows: the sheet form is blind to
@@ -532,7 +533,7 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
          under 183, sheet or bulk form (X13); at [PLANE], among null-dust partners with no held momentum flux, only the
          README's exact reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite
          stands against Lemma S's zero total (X17): a tension, OPEN; given kappa = 0 the corridor is the extremal,
-         parabolic member (X18).  OPEN: the demand exact, the supply beyond the board's instruments.
+         parabolic member (X18).  OPEN: the demand exact under 183, the supply beyond the board's instruments.
       R8 changing corridor (E-NS; 152 (2), 160): needs expansion (theta != 0, against 162 as read through
          H-FIXED-SIZE-AS-THETA-ZERO) or a crease or separation of the bulk horizon at the sheet (X14); its number,
          Lemma L's, is X15's, DEFERRED.  OPEN, to phase 2b-ii.
@@ -565,18 +566,19 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       corridor (H-K-PER-CORRIDOR, M's, conditional; lemmas/ITEM186-K-PER-CORRIDOR.md; set aside as the working
       assumption by 191's record) -- both notes were being written when this integration began and are since headed
       "verified once, findings applied"; 187 (3), clauses (G) and (Z) SEATED as the board worded them; 188, M's thought
-      on the partner as a positron, an entangled reflection (H-PARTNER-AS-ENTANGLED-REFLECTION; lemmas/ITEM188-PARTNER.md,
-      since headed "verified once, findings applied", proposes restating X25's R7 as "no READ construction supplies it
-      at kappa = 0; beyond READ constructions, OPEN" -- noted, not applied here).  Recorded while this integration ran,
-      and only noted: 189, "the bond" (H-PAIRING-HELD-AS-TENSION, M's: 188's tension is the bond holding the pair, not
-      the partner); 190, "Information is energy" (H-INFORMATION-IS-ENERGY, M's; the board's reading, to be worked:
-      where the README's information crosses, its energy crosses, so Lemma S's partner is needed); 191 and 192, k's
-      scale (H-K-LIKE-GRAVITY; H-K-TIE-TO-THE-CYPHER); 193, the pair as an axiom (H-PAIR-AXIOM), WITHDRAWN by M at 194,
-      which puts the pair's question to the cypher and returns input F5 (the exact +/- null pair) to OPEN; 195, "The
-      README is not a pair" (H-README-NOT-A-PAIR, M's; the board's reading, to be computed: the README is HELD by the
-      corridor's horizon rather than crossing it, in which case Lemma S asks no partner, and the crossing framing used
-      here is the board's, not M's); 196, every question through the cypher (M-ALL-QUESTIONS-THROUGH-THE-CYPHER, M's),
-      which bears on how the readings put to M are worked.  None of 189-196 changes a computed row here.
+      on the partner as a positron, an entangled reflection (H-PARTNER-AS-ENTANGLED-REFLECTION;
+      lemmas/ITEM188-PARTNER.md, since headed "verified once, findings applied", proposes restating X25's R7 as "no READ
+      construction supplies it at kappa = 0; beyond READ constructions, OPEN" -- noted, not applied here).  Recorded
+      while this integration ran, and only noted: 189, "the bond" (H-PAIRING-HELD-AS-TENSION, M's: 188's tension is
+      the bond holding the pair, not the partner); 190, "Information is energy" (H-INFORMATION-IS-ENERGY, M's; the
+      board's reading, to be worked: where the README's information crosses, its energy crosses, so Lemma S's partner
+      is needed); 191 and 192, k's scale (H-K-LIKE-GRAVITY; H-K-TIE-TO-THE-CYPHER); 193, the pair as an axiom
+      (H-PAIR-AXIOM), WITHDRAWN by M at 194, which puts the pair's question to the cypher and returns input F5 (the
+      exact +/- null pair) to OPEN; 195, "The README is not a pair" (H-README-NOT-A-PAIR, M's; the board's reading, to
+      be computed: the README is HELD by the corridor's horizon rather than crossing it, in which case Lemma S asks no
+      partner, and the crossing framing used here is the board's, not M's); 196, every question through the cypher
+      (M-ALL-QUESTIONS-THROUGH-THE-CYPHER, M's), which bears on how the readings put to M are worked.  None of 189-196
+      changes a computed row here.
   It is necessary, not sufficient, and never B4d green.  No value here is the corridor's length (155 (2): in bits), a
   distance between the positions or anything the device sees (101 (7)), or a speed (139 (4)): the depths d and y are
   locations in the bulk and ell its curvature length, all in units of m, and the budgets are holds for the cone
@@ -1229,8 +1231,8 @@ DEFERRED = {
     "X12": "footprint, ceiling, Lemma X (excision) and the far gate, from the owner bank's columns on our plane",
     "X15": "Lemmas L and Q and the absorbing band: Lemma L is the brane ledger of a changing crossing (SMS) with eq. "
            "(17)'s data on our plane, Lemma Q is stated at our plane's law, and the band (d_beta, d_+, q(d_+)) is S15's "
-           "slab; X17's changing half (Lemma L's coefficient times P1's; the spec, a design document not verified, gives "
-           "5.912 at 32m tending to 5: not computed here) waits with it",
+           "slab; X17's changing half (Lemma L's coefficient times P1's; the spec, a design document not verified, "
+           "gives 5.912 at 32m tending to 5: not computed here) waits with it",
     "X16": "the crossable class at the horizon (S7's profiles on the throat bulk at our plane; H-CROSSABLE-HORIZON, the "
            "board's, put to M)",
     "X19": "three phases of a coupling, across eq. (17)'s family at r0 = 2m",
@@ -1313,7 +1315,8 @@ X25_ROWS = (
            "form (X13); at [PLANE], among null-dust partners with no held momentum flux, only the README's exact "
            "reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite stands against Lemma S's "
            "zero total (X17): a tension, OPEN; given kappa = 0 the corridor is the extremal, parabolic member (X18)",
-     "verdict": "OPEN: the demand exact, the supply beyond the board's instruments", "sources": ("X13", "X17", "X18"),
+     "verdict": "OPEN: the demand exact under 183, the supply beyond the board's instruments",
+     "sources": ("X13", "X17", "X18"),
      "deferred_parts": ()},
     {"row": "R8", "config": "changing corridor (E-NS; 152 (2), 160)", "tag": "[FREE] (Lemma K); [PLANE] (Lemma L)",
      "G1": "open", "G2": "-", "G3": "-",
@@ -1337,9 +1340,10 @@ X25_COMBINED = (
 X25_EXTRA = ()      # C35b's mutation: a row added to X25's table
 X25_PLANT = ""      # C35b's mutation: a sentence planted in X25's combined answer
 
-# C35a: every value the X11-X25 docstring quotes from an owner, as (id, owner, path into the owner's output, kind,
-# expected, the text as the docstring prints it).  kinds: str, true, false, zero, sig (the owner's number rounded to
-# the quoted significant digits equals the quote), num, prefix, contains, md5 (prefix of the owner file's md5).
+# C35a: the values of the X11-X25 docstring that C35a checks against an owner, as (id, owner, path into the owner's
+# output, kind, expected, the text as the docstring prints it).  kinds: str, true, false, zero, sig (the owner's number
+# rounded to the quoted significant digits equals the quote), num, prefix, contains, md5 (prefix of the owner file's
+# md5).
 _PR, _FX = ("results",), ("X17",)
 _GC = ("X18", "generator_classes", "rows")
 _LP = ("X18", "lemma_p")
@@ -2335,8 +2339,8 @@ MUTANTS = [
      lambda: _patched(_ME, "X25_PLANT", "E-PASS is refuted, not merely OPEN."), ("x11",)),
     ("C35b", "'The pair, summed, is positive' planted (commas between the total and the word)",
      lambda: _patched(_ME, "X25_PLANT", "The pair, summed, is positive."), ("x11",)),
-    ("C35b", "the frames owner's output absent while its file is present (X17 and X18 then have no owner rows' content, "
-     "so they are not built)",
+    ("C35b", "the frames owner's output absent while its file is present (X17 and X18 then have no owner rows' "
+     "content, so they are not built)",
      lambda: _patched(_ME, "owner_output", _output_absent_for("epass_frames")), ("x11",)),
 ]
 
