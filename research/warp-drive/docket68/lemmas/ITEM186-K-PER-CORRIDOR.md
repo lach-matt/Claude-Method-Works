@@ -117,8 +117,8 @@ Units: m = GE/c⁴ is the corridor's mass length, m(N) = m₁√N with m₁ = 3.
 - **S8. Measurement cannot refute it** (computed). A change confined to the hold reaches at most (2 + T)m from the
   corridor: 4.0×10⁻²³ m at the example README, 8.5×10⁻¹³ m at 155's E = 3.8×10²² J. Torsion balances give
   *"percent-level measurements of GN at separations down to about 50 um"* (Lee et al. 2002.11761v1 p.2, READ). Lunar
-  ranging gives *"Gdot/G0 = (-5.0 +- 9.6) x 10^-15 yr^-1"*
-  (Biskupek et al. 2012.12032v1 p.1, READ), and sees nothing confined to the hold.
+  ranging gives *"Gdot/G0 = (-5.0 +- 9.6) x 10^-15 yr^-1"* (Biskupek et al. 2012.12032v1 p.1, READ), and sees
+  nothing confined to the hold.
   - Two premises sit under this: no bulk path beats our light cone (H-NO-SHORTCUT), and the hold equals the least write
     (H-HOLD-AT-BOUND). So the reach is a floor. The verdict holds for any hold shorter than 1.7×10⁻¹³ s, which is
     1.3×10¹⁸ times the example's.
@@ -241,8 +241,9 @@ How the mathematics decides it:
      (checker);
    - the destination's strength of gravity, decided in §6: it follows from the same 139 (1) tensions, so it is the
      same for every destination.
-   - And no candidate's c depends on N (computed), so c is one number, the counterpart of 134's per-bit coefficients.
-     A c that varies with N is not excluded by your words; nothing computed produces one.
+
+   No candidate's c depends on N either (computed). So c is one number, the counterpart of 134's per-bit coefficients.
+   A c that varies with N is not excluded by your words; nothing computed produces one.
 3. **The destination enters through the bits** (deduced, on H-TRAJECTORIES-IN-README). Your 114 (c) and 116 (b) make
    the trajectory the difference between the positions, and 155 (2) counts it in bits. On the board's carried reading
    (TRAJECTORIES point 6; PLANE row 4: "one E_min(N) … N including the trajectory bits"), those bits ride in the
@@ -311,8 +312,7 @@ How the mathematics decides it:
     eq. (2.18), READ). A plane reading eq. (17)'s mouth must share its AdS₂ radius: ℓ/2 = 2m, so ℓ = 4m, with the
     plane at sinh = 1/√2 (computed, Wolfram). It is E-PASS X22's exact cap. Its horizon is degenerate (κ = 0), which
     matches clause (O), and 172 (2)'s endless approach on H-ENDLESS-IS-DEGENERATE. It needs no 5D coupling, so it
-    survives §6. At the example
-    README ℓ = 7.95×10⁻²⁸ m and k = 1.26×10²⁷ m⁻¹.
+    survives §6. At the example README ℓ = 7.95×10⁻²⁸ m and k = 1.26×10²⁷ m⁻¹.
   - **Costs.** A pure-tension plane is impossible there. The plane needs stress ρ_m/σ_RS = (2√6 − 3)/3 = 0.633 with
     p_r = −ρ_m. That is not ordinary matter; on our plane it is stress the corridor adds, which 130 (1) reads
     against. The cap on position 2's plane (172 (1)) is not computed. The NEC breaks beside the horizon at O(x).
@@ -387,10 +387,11 @@ How the mathematics decides it:
 
 > **(B) Bulk.** A five-dimensional bulk, with one law of gravity, carries the corridor. Each plane carries its own
 > universe's matter, and the corridor adds none; a matter-free plane is a limit. Our plane's tension is positive and
-> position 2's is negative, a quarter of ours; each universe's strength of gravity follows from its own plane. The plane's two ends are one end of the bulk. The energy is positive at every point. The bulk's
-> curvature: its ratio is fixed by the work, k_R = 3k_L/4; its scale is not yet fixed — our universe's own value is
-> nature's, and if each corridor carries its own (186), it is ℓ = c·m(N), with one pure number c for every corridor,
-> fixed by the work. The corridor opens and closes between static planes.
+> position 2's is negative, a quarter of ours; each universe's strength of gravity follows from its own plane. The
+> plane's two ends are one end of the bulk. The energy is positive at every point. The bulk's curvature: its ratio is
+> fixed by the work, k_R = 3k_L/4; its scale is not yet fixed — our universe's own value is nature's, and if each
+> corridor carries its own (186), it is ℓ = c·m(N), with one pure number c for every corridor, fixed by the work. The
+> corridor opens and closes between static planes.
 
 - **What changes, and from what:**
   - "a vacuum bulk … the plane is free of matter" gives way to your 184, with 129 (1) and 130 (1);
