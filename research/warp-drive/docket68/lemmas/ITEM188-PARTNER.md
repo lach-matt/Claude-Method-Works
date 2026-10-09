@@ -735,3 +735,6 @@ rejected (History).
   rests openly on your axiom where standard physics finds no supply. The board does not claim a mechanism.
 - What it does to B4d: with the pair in place, the crossed horizon stays at fixed size and unsheared, so B4d and O3
   reduce to the bulk staying regular through the write (`lemmas/b4d_axiom.py` and `lemmas/r1_cover.py`, being built).
+- **Item 194 withdraws 193.** You wrote: *"Disregard that last ruling. I want that question put to the cypher"*. The
+  pair is not an axiom; input F5 is OPEN again, and the question goes to the cypher. The B4d reduction begun on 193's
+  footing is read as conditional on F5.
