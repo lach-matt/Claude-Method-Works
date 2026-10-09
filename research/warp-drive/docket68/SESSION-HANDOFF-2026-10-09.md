@@ -67,8 +67,9 @@ sessions they describe skill sync but say nothing about plugins.
   5. Report to M.
   6. Seat only on M's word.
   Owners are imported by path, never copied.
-- **Ultracode is on:** orchestrate substantive work with the Workflow tool (ground → propose → judge → synthesise;
-  adversarial verify). Load `workflow-authoring` first.
+- **Ultracode:** M had ultracode on in the old session, and substantive work was orchestrated with the Workflow
+  tool (ground → propose → judge → synthesise; adversarial verify). In the new session, use Workflow that way
+  only if a system reminder confirms ultracode is on, or if M asks for it. Load `workflow-authoring` first.
 
 ## Where B4d stands
 
