@@ -722,3 +722,16 @@ rejected (History).
   - **Rejected:** only the question each verifier offered conditionally (refute M4, overclaim OC1). The rulings decide
     it (§3.3), so none is asked.
   - Nothing is seated; no status moves; nothing was written to the repository but this note.
+
+## Since this note was written: item 193 (the pair is an axiom)
+
+- Running the chain through the cypher toward full green (192), the board asked whether 188's "always two entangled
+  opposing forces that balance together" is an axiom or a hypothesis. **You chose: "An axiom of my theory"** (193,
+  verbatim in the rulings file).
+- So the exact negative partner exists, for the README crossing the corridor's fixed-size horizon, as your AXIOM
+  (H-PAIR-AXIOM, yours). Input F5 of the chain is green as an AXIOM.
+- Everything in sections 1 to 4 above still stands as a statement about **standard physics**: no standard source
+  supplies the partner at zero surface gravity, and quantum interest makes such pairs net positive. The theorem now
+  rests openly on your axiom where standard physics finds no supply. The board does not claim a mechanism.
+- What it does to B4d: with the pair in place, the crossed horizon stays at fixed size and unsheared, so B4d and O3
+  reduce to the bulk staying regular through the write (`lemmas/b4d_axiom.py` and `lemmas/r1_cover.py`, being built).
