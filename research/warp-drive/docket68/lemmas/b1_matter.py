@@ -1,98 +1,119 @@
 #!/usr/bin/env python3
-"""b1_matter.py -- input F2 of the chain's cypher audit greened by editing the lemmas that rested on the matter-free
-plane: M, item 184, "There are no matter free planes".  Four lemmas of the Warp Theorem re-done with each plane carrying
-its own universe's matter and the corridor adding none (184 with 129 (1), 130 (1)):
-  B1'  edits B1  ("the plane is matter-free (R = 0) and meets Gauss and Codazzi")
-  B2'  edits B2  ("a local vacuum bulk exists, unique among analytic ones")
-  Z3'  Z3 with matter ("null energy never violated", read net along each light ray, seated clause (Z), 183/187 (3))
-  B5'  B5 with matter (positivity for the entangled pin)
-Computed, READ and deduced; not verified; not seated; 2026-10-09.  Note: lemmas/B1-MATTER.md.
+"""b1_matter.py -- four lemmas of the Warp Theorem re-based off input F2 (the matter-free plane), which M's item 184
+rules out: "There are no matter free planes".  Input F2 itself is not greened; it stays ruled out, and the lemmas that
+rested on it are re-done with each plane carrying its own universe's matter and the corridor adding none (184 with
+129 (1), 130 (1)):
+  B1'   edits B1   the FRW plane with its matter meets Gauss and Codazzi exactly when ...   PROVED, green
+  B2'   edits B2   a local vacuum bulk off such a plane, unique among analytic ones          PROVED, green
+  Z3    split      Z3'a away from the corridor, through today: DERIVED, green (a part only);
+                   Z3'b rays meeting or beside the corridor: OPEN;  Z3'c the future: NATURE
+  B5    split      B5'a the composite's positivity, as a conditional: DERIVED, green (a part only);
+                   B5'p position 2's matter meets its antecedent: OPEN;  B5'b a smooth wall with matter: OPEN
+So Z3 and B5 do NOT go green; B1 does; B2 does only if its corridor-carrying instance is split off as B2t (F1-AUDIT.md's
+lemma, on M1, non-green).  Computed, READ and deduced; not verified; not seated; 2026-10-09.  Note: lemmas/B1-MATTER.md.
 
-CLI:  --selftest  (every check, each able to fail; about 2 minutes, most of it the bulk series in y)
+CLI:  --selftest  (every check, each able to fail; about 35-45 s, most of it the bulk series in y)
       --mutants   (every named mutation of every check, each shown to make its check FAIL; exit 1 if any passes)
       --json PATH (writes compute(): every row labelled)
 
 LABELS.  Every result row carries one of: computed / READ (verbatim + PDF page) / deduced / STRUCTURAL /
-standard-not-READ / OPEN.  M's words are quoted verbatim, typing kept, from M-RULINGS-2026-10-03.md (a guard checks each
-quote against that file); the board's readings are named H-... and kept apart from them.  A lemma is GREEN only if its
+standard-not-READ / OPEN.  M's words are quoted verbatim, typing kept, from M-RULINGS-2026-10-03.md; guard G1 checks
+each quote inside M's own spans of that item (after "M, verbatim:" or "M chose:", up to "Recorded as given"), never the
+board's title or narrative.  The board's readings are named H-... and kept apart from them.  A lemma is GREEN only if its
 status is PROVED, DERIVED or AXIOM and no input it rests on is non-green (OPEN, READING or NATURE).
 
-M'S WORDS USED (verbatim, typing kept; M_WORDS below; checked against the rulings file by check G1):
-  129 (1), 130 (1), 184, 183 (choice), 187 (3) (choice and the seated wording of (Z)), 117 and 120 (excerpts),
-  127 (1), 139 (1)-(2), 141 (excerpt), 138 (excerpt), 196.
+M'S WORDS USED (verbatim, typing kept; M_WORDS below):
+  129 (1), 130 (1) (excerpt), 184, 183 (choice), 187 (3) (choice), 117 and 120 (excerpts), 127 (1), 139 (1)-(2),
+  141 (excerpt), 138 (excerpt), 196.
+THE SEATED CLAUSE (Z) is the board's wording, which M seated by choosing "Seat both" (187 (3)): it is the criterion
+  these lemmas are measured against (STRUCTURAL), never an input to them -- 187 says "The lemmas under (G) and (Z) keep
+  their own statuses".  The AXIOM content is M's 117/120 ("An NEC is never violated") with 183's choice.
 
 THE BOARD'S READINGS (named; withdrawn if M says otherwise):
   H-OUR-PLANE-IS-FRW   our plane, with its observed matter, is the homogeneous isotropic plane Planck fits (base LCDM,
-           flat: READ Omega_K = 0.001 +- 0.002); the board's model of "this current universe" (129 (1)), not M's words.
+           flat: READ Omega_K = 0.001 +- 0.002), and a Z2 Randall-Sundrum brane over a vacuum bulk; the board's model of
+           "this current universe" (129 (1)).  B1' does not rest on it (an instance, A8); observation cannot tell it
+           from four-dimensional gravity, the brane terms being ~1e-61 of the rest (A8).
   H-DE-IN-TAU          dark energy at w = -1 is carried in the plane's matter tau (p = -rho), leaving the plane at the
            Randall-Sundrum tension; SMS p.3 (READ) calls the split ambiguous, and check A7 shows both splits give the same
-           four-dimensional equation exactly.
-  H-NET-OVER-COMPONENTS  seated (Z)'s "net along each light ray" sums every stress the ray meets, so a dark-energy
-           component with w < -1 met along the same rays as matter does not violate (Z) when the sum is non-negative.
-           (Z)'s seated wording says "net along each light ray"; applying it across cosmological components is the
-           board's.
-  H-P2-AS-OURS         the board's example of position 2's matter for B5''s consistency: a universe whose matter
-           measures as ours (138's words), used only to exhibit one admissible configuration.
-  H-EXPANSION-IN-SURFACE  our plane's expansion a(t) is its surface's own movement (141's words), the plane staying at
-           y = 0 in the Gaussian-normal chart built on it (computed: the chart puts the plane at y = 0 for every t).
-  H-CYPHER-MATTER-INDEX  how this run's questions are encoded as indices for tools/cypher.py (196): cells are plane
-           states (its matter sigma, its dark radiation C) with the bulk's first y-coefficients and the order-0 Gauss
-           residual; and READ cosmological fits with the dark-energy and net null-energy signs.  The encoding is the
+           four-dimensional equation exactly, so nothing rests on it.
+  H-P2-AS-OURS         the board's example of position 2's matter: a universe whose matter measures as ours (138's
+           words), used only to exhibit one configuration meeting B5'a's antecedent; not a claim about position 2.
+  H-EXPANSION-IN-SURFACE  our plane's expansion a(t) is its surface's own movement (141's words).  The plane sits at
+           y = 0 in the Gaussian-normal chart built on it -- STRUCTURAL, true of every hypersurface by construction of
+           that chart, so it cannot by itself support reading 141's "static".  In AdS5's static chart an FRW plane is a
+           moving surface (standard-not-READ).  It conflicts with BULK-BALANCE.md's H-STATIC-SCALE (141 read as
+           R = const); neither reading is M's, and no lemma here rests on either.
+  H-CYPHER-MATTER-INDEX  how this run's questions are encoded as indices for tools/cypher.py (196).  The encoding is the
            board's; every roster in cypher.py is run, none chosen; NOT-RUN is never counted as silent.
+  WITHDRAWN in verification: H-NET-OVER-COMPONENTS (summing cosmological components under (Z)'s "net along each light
+  ray").  It stretched 183, whose "net" concerns a negative member paired along the same rays, and it is not needed:
+  the null energy condition is a condition on the total stress-energy (standard-not-READ), which check C3 computes
+  directly, all components at one point.
 
 WHAT IS COMPUTED HERE
-  B1' (a) THE PLANE WITH ITS MATTER MEETS GAUSS AND CODAZZI.  Plane: FRW, q = -dt^2 + a(t)^2 (spatial curvature k_c),
-     carrying a perfect fluid (rho, p).  Israel with Z2, SMS eq. (16) (READ p.3): K^t_t = -(kappa^2/6)(lambda - 2 rho -
-     3 p), K^i_i = -(kappa^2/6)(lambda + rho) (A1).  Codazzi, SMS eq. (2)/(10) (READ p.2) with a vacuum bulk:
-     D_nu K^nu_t - d_t K = (kappa^2/2)(rho' + 3H(rho + p)) = -(kappa^2/2) D_nu tau^nu_t, zero iff the fluid is conserved
-     (SMS eq. (21), READ p.4); a non-conserved control fails (A2).  Gauss, R(4) = 2 Lambda5 + K^2 - K.K (localbulk.py's
-     form): holds identically, for every rho, p, k_c, lambda, Lambda5 and every constant C, on the plane obeying
-     H^2 = Lambda4/3 + kappa^4 lambda rho/18 + kappa^4 rho^2/36 - k_c/a^2 + C/a^4 with Lambda4 = (Lambda5 + kappa^4
-     lambda^2/6)/2 (SMS eq. (18), READ p.3, with kappa^2 Lambda_SMS = Lambda5); conversely Gauss with Codazzi gives
-     d/dt[a^4(H^2 + k_c/a^2 - Lambda4/3 - kappa^4 lambda rho/18 - kappa^4 rho^2/36)] = (a^3 a'/3) x (Gauss residual),
-     so the Friedmann equation with a dark-radiation constant C is the first integral (A3).  The trace of SMS eq. (17)
-     equals the Gauss constraint for EVERY symmetric tau (computed on a generic tau, 10 entries); SMS (28) follows from
-     (20); on FRW, SMS (17) gives E^mu_nu traceless, proportional to C, zero iff C = 0 (A4).  The matter-free plane is
-     the limit rho, p -> 0: the right side becomes localbulk.gauss_rhs(-kappa^2 lambda/6, Lambda5), imported by path,
-     zero at the RS tension, and H = 0, R(4) = 0 -- B1 exactly (A5).  Each side its own ell (B6's unequal sides, no Z2):
-     per side Gauss and Codazzi hold with K^x_x = -/+ sqrt(H^2 + k_c/a^2 + 1/ell_s^2 - C_s/a^4), K^t_t = d(a K^x_x)/da;
-     Israel's jump then gives a conserved fluid; matter-free, lambda = (3/kappa^2)(1/ell_+ + 1/ell_-) (A6).  Dark
-     energy as tension or as tau (A7).  Our plane: Planck's H0 and Omega_m (cosmo.py, imported): the plane's matter is
-     eps = rho/lambda = Omega (H0 ell/c)^2/2 of its tension, ~1e-62 at the table-top ell (A8).
-  B2' (b) A LOCAL VACUUM BULK OFF THE PLANE EXISTS AND IS UNIQUE AMONG ANALYTIC ONES, with matter.  READ: Dahia-Romero
-     gr-qc/0109076v2 Lemma 1 (constraint propagation, PDF pp.8-10), the Cauchy-Kowalewski theorem as stated there (PDF
-     pp.10-11), Lemma 2 and Theorem 2 (PDF p.12): analytic (g, Omega) with their (39) [Codazzi] and (40) [Gauss] give a
-     unique analytic Einstein space with phi = 1 (Gaussian normal gauge).  Computed on an explicit example: the FRW plane
-     with dust (w = 0), C symbolic, expanded in y to order 6 in Gaussian-normal coordinates: the coefficient matrix of
-     each order is invertible (the Taylor series is unique), the evolution residuals vanish through y^4 and the two
-     constraints (yy, ty) through y^5 (B1); the observed LCDM plane (dust + w = -1) to order 4, the same.  Controls that
-     fail: Israel data with doubled matter, the GR Friedmann equation (no rho^2 term) with SMS's Israel data, and a
-     non-conserved fluid -- each leaves an order-0 constraint residual (B2).  For C = 0 the bulk is exact and closed:
-     a = a0 [cosh(y/ell) - (1 + ell sigma) sinh(y/ell)], n = cosh(y/ell) - (1 + ell sigma - 3 ell sum (1+w_i) sigma_i)
-     sinh(y/ell), sigma = kappa^2 rho/6: every component of G + Lambda5 g vanishes identically, it equals the series
-     through order 6, and the bulk is maximally symmetric (pure AdS5, Kretschmann 40/ell^4); a(t, y) = 0 at y* =
-     (ell/2) ln(1 + 2/(ell sigma)), a coordinate boundary of the chart, curvature constant there (B3).  The dust plane is
-     explicit: a^3 = (9 sigma0 a0^3/(2 ell)) t^2 + 3 sigma0 a0^3 t solves its Friedmann equation, analytic for t > 0
-     (B4).  F1 (eq. (17) on the plane) is not used: the data are our plane's own.
-  Z3' and B5' (c) WITH MATTER.  Z3': the bulk R(k,k) = 0 (axioms.py's derive_z3, imported); the plane's 5D null stress
-     for a 5D null k is S(k,k) = (lambda + rho) k_y^2 + (rho + p) |k_space|^2, so >= 0 for all null k iff lambda + rho
-     >= 0 and rho + p >= 0; SMS's pi(k,k) = (1/6) rho (rho + p)(t.k)^2 (C2).  Observed (READ Planck 2018, DESI DR2): the
-     net null energy along each ray, all components summed, is positive at every epoch in every fit read (it needs
-     Omega_m > -(1+w)/(-w) = 0.027 at Planck's w0 = -1.028; baryons alone give 0.049); dark energy by itself is NOT
-     shown to obey the NEC: Planck is consistent with w = -1 (0.9 sigma), DESI DR2 prefers a phantom crossing above
-     z ~ 0.4 at 2.8-4.2 sigma (C3).  B5': at coincidence (127) the summed tension +lambda_RS (b5_positive.py's B5a,
-     imported) with both universes' matter gives (lambda_RS + rho_1 + rho_2) k_y^2 + sum (rho + p)|k_space|^2 >= 0; with
-     position 2's matter measuring as ours it is positive; position 2's plane alone stays negative for rays crossing it;
-     a thickening with one shared profile keeps it at every depth, a per-component one with phantom dark energy does not
-     (control) (C4).
-  THE CYPHER (196; H-CYPHER-MATTER-INDEX).  tools/cypher.py imported by path, every roster run.  Q1: on plane states
-     (sigma, C) the bulk's coefficients (A3, N3) are fixed by (sigma, C) and by neither alone, and the order-0 Gauss
-     residual is zero on every cell; controls: a bulk with a datum of its own (two bulks per plane state) flips the
-     first binary, GR-Friedmann data flip the second.  Q2: on the READ fits, the net null-energy sign is one value
-     (positive) on every cell while the dark-energy sign is not; control: matter omitted, the net sign varies.
+  B1' (A1-A8).  Plane: FRW, q = -dt^2 + a(t)^2 (spatial curvature k_c), carrying a perfect fluid (rho, p).  Israel with
+     Z2, SMS eq. (16) (READ p.3): K^t_t = -(kappa^2/6)(lambda - 2 rho - 3 p), K^i_i = -(kappa^2/6)(lambda + rho) (A1).
+     Codazzi, SMS eq. (2)/(10) (READ p.2), vacuum bulk: D_nu K^nu_t - d_t K = (kappa^2/2)(rho' + 3H(rho + p)) =
+     -(kappa^2/2) D_nu tau^nu_t, zero iff the fluid is conserved (SMS eq. (21), READ p.4); a non-conserved control
+     fails (A2).  Gauss, R(4) = 2 Lambda5 + K^2 - K.K (localbulk.py's form): holds identically, for every rho, p, k_c,
+     lambda, Lambda5 and every constant C, on the plane obeying H^2 = Lambda4/3 + kappa^4 lambda rho/18 + kappa^4 rho^2/36
+     - k_c/a^2 + C/a^4, Lambda4 = (Lambda5 + kappa^4 lambda^2/6)/2 (SMS eq. (18), READ p.3); conversely Gauss with
+     Codazzi gives d/dt[a^4(H^2 + k_c/a^2 - Lambda4/3 - kappa^4 lambda rho/18 - kappa^4 rho^2/36)] = (a^3 a'/3) x (Gauss
+     residual), so the Friedmann equation with a dark-radiation constant C is the first integral (A3).  The trace of
+     SMS eq. (17) equals the Gauss constraint for EVERY symmetric tau (generic tau, 10 entries); SMS (28) follows from
+     (20); on FRW, E^mu_nu is traceless, proportional to C, zero iff C = 0 (A4).  The matter-free plane is the limit
+     rho, p -> 0: the right side becomes localbulk.gauss_rhs(-kappa^2 lambda/6, Lambda5), imported by path, zero at the
+     RS tension, H = 0, R(4) = 0 -- B1 exactly (A5).  Each side its own ell (no Z2): per-side Gauss and Codazzi hold;
+     Israel's jump gives a conserved fluid; matter-free, lambda = (3/kappa^2)(1/ell_+ + 1/ell_-) (A6).  Dark energy as
+     tension or as tau (A7).  The instance (H-OUR-PLANE-IS-FRW, not an input): Planck's H0 and Omega_m (cosmo.py,
+     imported) give eps = rho/lambda_RS = Omega (H0 ell/c)^2/2 at the table-top ell; A8 prints eps_total (all of tau,
+     under H-DE-IN-TAU) and eps_matter (A8).
+  B2' (B1-B4).  READ: Dahia-Romero gr-qc/0109076v2 Lemma 1 (constraint propagation, PDF pp.8-9), the Cauchy-Kowalewski
+     theorem as stated there (PDF p.10), Lemma 2 and Theorem 2 (PDF p.12): analytic (g, Omega) with their (39) [Codazzi]
+     and (40) [Gauss] give a unique analytic Einstein space (Gaussian normal gauge).  Computed on the FRW model plane with
+     dust (w = 0), C symbolic, expanded in y to order 6: the evolution residuals vanish through y^4 and the two
+     constraints (yy, ty) through y^5; the observed-LCDM model plane (dust + w = -1) to order 4, the same (B1).
+     Uniqueness at each order is STRUCTURAL: in Gaussian-normal gauge the evolution equations are already solved for the
+     second y-derivatives (Kovalevskaya normal form), so the per-order determinants (9a^2, ...) carry no data and cannot
+     fail; CK and Dahia-Romero (READ) carry uniqueness.  Controls that fail -- analytic data with matter that violate
+     Gauss or Codazzi: doubled matter in K, the GR Friedmann equation with SMS's Israel data, a non-conserved fluid --
+     each leaves an order-0 constraint residual (B2).  C = 0 exactly: a = a0 [cosh(y/ell) - (1 + ell sigma) sinh(y/ell)],
+     n = cosh(y/ell) - (1 + ell sigma - 3 ell sum (1+w_i) sigma_i) sinh(y/ell), sigma = kappa^2 rho/6: every component of
+     G + Lambda5 g vanishes, it equals the series through order 6, and all 55 bivector-pair components of R_abcd +
+     (g_ac g_bd - g_ad g_bc)/ell^2 vanish (13 not identically zero under the ansatz): pure AdS5 (B3).  The dust plane
+     explicit, analytic for t > 0 (B4).  F1 (eq. (17) on the plane) is not used.
+  Z3'a, Z3'b, Z3'c (C1-C3, C5).  The bulk: R(k,k) = 0 wherever the bulk is the model's vacuum (axioms.py's derive_z3,
+     imported; it evaluates (2 Lambda/3) g(k,k) for a null k, so it says nothing about a region carrying stress) (C1).
+     The plane: S(k,k) = (lambda + rho) k_y^2 + (rho + p)|k_space|^2 for a 5D null k (C2).  Observed (READ Planck 2018,
+     DESI DR2): the total null stress of the matter every fit measures, all components at one point, is positive at
+     every epoch a in [1e-4, 1]; dark energy by itself is NOT shown to obey the NEC; in the future (a in (1, 100]) it
+     stays positive in six fits and turns negative in the two constant-phantom fits, at a_x = [Omega_m/(|1+w|(1 -
+     Omega_m))]^(1/(3|w|)) (closed form, deduced; grid, computed) -- so Z3'c is nature's; a uniform phantom dark energy
+     would also outweigh matter locally wherever matter falls below a computed fraction of its mean (C3).  Beside the
+     corridor: a flat plane held at fixed scale (H = 0 and H' = 0) beside positive dark radiation C has rho < 0, and its
+     5D null stress is negative for some null k on either branch (rho + p < 0 on the branch near the RS tension,
+     lambda + rho < 0 on the other) (C5; BULK-BALANCE.md's sign, recovered).
+  B5'a, B5'p, B5'b (C4).  At coincidence (127) the summed tension +lambda_RS (b5_positive.py's B5a, imported) with both
+     universes' matter: (lambda_RS + rho_1 + rho_2) k_y^2 + sum (rho + p)|k_space|^2, non-negative iff rho_1 + rho_2 >=
+     -lambda_RS and sum (rho + p) >= 0 -- the conditional B5'a; with position 2's matter measuring as ours (H-P2-AS-OURS,
+     an example) both hold; position 2's plane alone is negative for crossing rays; a thickening with one shared profile
+     keeps it at every depth, a per-component one with phantom dark energy does not (control).  These thickenings are
+     algebra, not Einstein solutions: the smooth wall with matter (B5'b) is OPEN.
+  THE COUNT (G2, deduced from the live cypher audit's lemma list): the chain's own lemmas green, before and after these
+     edits, under the audit's rule (DEFINITION counted green) and under the strict rule (PROVED, DERIVED, AXIOM only).
+  THE CYPHER (196; H-CYPHER-MATTER-INDEX).  tools/cypher.py imported by path, every roster run.  Q1: plane states
+     (sigma, C) with the bulk's coefficients (A3, N3) and the order-0 Gauss residual; Q2: the READ fits through today with
+     the dark-energy and net null-stress signs, and the same fits in the future.  The binaries are computed by
+     determined() (b6p_scale.py's, imported by path) on the board's encoding -- the board's stand-in for logic as the
+     mechanism (register 1173); Q1's law binaries restate Part B (A3, N3 are polynomials in (sigma, C) by construction),
+     and only the controls flip them.  Stated plainly: the measured languages (order, algebra, geometry, information,
+     statistics) return E > 0 and disagree on every index, so tools/cypher.py itself separated no law from its control;
+     documentary is silent by construction; roster 20.2's four unmapped names stay NOT-RUN.
 Imports by path (never copied): bulk/localbulk.py (gauss_rhs only), lemmas/axioms.py (derive_z3), lemmas/b5_positive.py
-(b5a, b5b), ../cosmo.py (H0, OMEGA_M), copy/exactE.py (C_SI, G_SI), lemmas/b4d_stage2.py (TABLETOP), tools/cypher.py.
-Stdlib + sympy.  python3 b1_matter.py [--selftest] [--mutants] [--json PATH]
+(b5a, b5b), lemmas/b6p_scale.py (determined), ../cosmo.py (H0, OMEGA_M), copy/exactE.py (C_SI, G_SI),
+lemmas/b4d_stage2.py (TABLETOP), tools/cypher.py; warptheorem.py (LEMMAS, read only for an informational cross-check of
+the count's statuses).  Stdlib + sympy.  python3 b1_matter.py [--selftest] [--mutants] [--json PATH]
 """
 import argparse
 import contextlib
@@ -125,12 +146,11 @@ GREEN_INPUT = GREEN + ("READ", "computed")
 M_WORDS = {
     "129 (1)": "1 - no. It contains matter, you, me, this current universe, just not a corridor for transit because "
                "the corridor is a bridge, so it adds nothing to either position.",
-    "130 (1)": "1 - i - no added matter. And in my model a black hole is not matter, it is what the mouth at position 1 "
-               "looks like.",
+    "130 (1) (excerpt)": "1 - i - no added matter. And in my model a black hole is not matter, it is what the mouth at "
+                         "position 1 looks like.",
     "184": "There are no matter free planes",
     "183 (choice)": "Yes: never violated as a pair",
     "187 (3) (choice)": "(3) \"Seat both\"",
-    "187 (3) (seated (Z))": "(Z) \\\"null energy never violated\\\" holds net along each light ray (183)",
     "117 (excerpt)": "An NEC is never violated",
     "120 (excerpt)": "it was an methaphor to describe that the NEC only ever appears to break, but never does",
     "127 (1)": "1 - yes",
@@ -141,6 +161,11 @@ M_WORDS = {
     "138 (excerpt)": "That is not to say there aren't 118 completely different ones in another universe that measure "
                      "exactly as are ours do.",
     "196": "Review all tasks running. Stop any that are no longer relevant. All questions get works through the cypher",
+}
+# The seated clause (Z): the BOARD's wording in its question of item 187 (3), which M seated by choosing "Seat both".
+# It is the criterion the lemmas are measured against (STRUCTURAL), never an input; G1 checks it inside 187's question.
+SEATED_WORDING = {
+    "187 (3) (Z), the board's wording M seated": "(Z) \\\"null energy never violated\\\" holds net along each light ray (183)",
 }
 
 # ------------------------------------------------------------------------------------------------ READ at source
@@ -175,7 +200,7 @@ READS = {
     "SMS_28_30": ("Shiromizu, Maeda, Sasaki, gr-qc/9910076v3", 5,
                   "tau_mu nu = rho t_mu t_nu + P h_mu nu, (27) ... pi_mu nu = 1/12 rho (rho t_mu t_nu + (rho + 2P) h_mu "
                   "nu). (28) ... This means d_i rho = 0. Hence an inhomogeneous perfect fluid is rejected."),
-    "DR_lemma1": ("Dahia, Romero, gr-qc/0109076v2", 8,
+    "DR_lemma1": ("Dahia, Romero, gr-qc/0109076v2", (8, 9),
                   "Lemma 1. Let the functions g_ik and phi be analytic at (0, ..., 0) in Sigma_0 and satisfy the "
                   "conditions (7), (8), (9), and the equation (20) in an open set of R^(n+1) which contains (0, ..., 0, "
                   "0). If, in addition, g_ik and phi satisfy (21) and (22) at Sigma_0, then g_ik e phi also satisfy (21) "
@@ -230,7 +255,7 @@ READS = {
                  "energy density of dark energy not increase with the expansion of the Universe--is violated."),
     "DESI_cross": ("DESI Collaboration, DR2 Results II, 2503.14738v3", 25,
                    "In all cases, the favored w(z) shows a phase of w > -1 at low redshifts and a phantom crossing to w < "
-                   "-1 above redshifts z ~ 0.4."),
+                   "-1 above redshifts z ≃ 0.4."),
     "DESI_sig": ("DESI Collaboration, DR2 Results II, 2503.14738v3", 24,
                  "The Delta chi2_MAP values are -10.7, -17.4, and -21.0, corresponding to preferences for the w0waCDM "
                  "model over LambdaCDM at the 2.8 sigma, 3.8 sigma, and 4.2 sigma levels, for combination with "
@@ -365,7 +390,8 @@ def pi_sms(tau, mut=None):
     """SMS eq. (20) (READ p.3), mixed indices."""
     tt = tau.trace()
     c8 = sp.Rational(1, 4) if mut == "pi_coeff" else sp.Rational(1, 8)
-    return -(tau * tau) / 4 + tt * tau / 12 + I4 * (tau * tau).trace() * c8 - I4 * tt**2 / 24
+    c4 = sp.Rational(1, 2) if mut == "pi_tt" else sp.Rational(1, 4)
+    return -(tau * tau) * c4 + tt * tau / 12 + I4 * (tau * tau).trace() * c8 - I4 * tt**2 / 24
 
 
 def _fluid_tau(rho, p):
@@ -729,6 +755,13 @@ def ck_residuals(jet, Ac, Nc, N, l5=None):
     return out
 
 
+def dust_series6():
+    """The dust plane's series to order 6, C symbolic, unmutated (computed once; B1 checks it, B3 compares it)."""
+    if "dust6" not in _CACHE:
+        _CACHE["dust6"] = ck_series(Jet((0,)), 6)
+    return _CACHE["dust6"]
+
+
 def check_B1(mut=None):
     """B2': the FRW plane with dust (C symbolic) to order 6 and the observed LCDM plane (dust + w = -1) to order 4: unique
     Taylor series (invertible coefficient matrix at every order), evolution residuals 0 through y^(N-2), the yy and ty
@@ -737,7 +770,10 @@ def check_B1(mut=None):
     rows = {}
     for name, ws, N in (("dust", (0,), 6), ("LCDM", (0, -1), 4)):
         jet = Jet(ws)
-        Ac, Nc, dets = ck_series(jet, N, mut=mut, l5=l5)
+        if name == "dust" and mut is None:
+            Ac, Nc, dets = dust_series6()
+        else:
+            Ac, Nc, dets = ck_series(jet, N, mut=mut, l5=l5)
         res = ck_residuals(jet, Ac, Nc, N, l5=l5)
         rows[name] = {"order": N, "dets": [str(d) for d in dets], "dets_nonzero": all(not _z(d) for d in dets),
                       "residuals_zero": {k: all(v) for k, v in res.items()},
@@ -746,8 +782,6 @@ def check_B1(mut=None):
         if not (rows[name]["dets_nonzero"] and all(rows[name]["residuals_zero"].values())):
             break
     ok = all(r["dets_nonzero"] and all(r["residuals_zero"].values()) for r in rows.values()) and len(rows) == 2
-    if "dust" in rows:
-        _CACHE.setdefault("dust_series", None)
     return ok, {"rows": rows, "label": "computed; READ Dahia-Romero Lemma 1 p.8, CK p.10, Lemma 2/Thm 2 p.12"}
 
 
@@ -831,14 +865,18 @@ def check_B3(mut=None):
             e = rr.subs(sub).subs({Af: Aex, Nf: Nex})
             maxsym = maxsym and _z(jet.red(sp.expand(sp.numer(sp.together(e)))))
         # y*: a = 0 at X^2 = 1 + 2/(ell S) when beta = -(1 + ell S)
-        Xstar = sp.sqrt(1 + 2 / (ELL * jet.S()))
-        reach = _z(Aex.subs(Xs, Xstar)) if mut != "beta_no_rho" else False
+        Q = 1 + 2 / (ELL * jet.S())                                     # X*^2
+        num = sp.expand(sp.numer(sp.together(Aex / AJ)))                 # a polynomial in X
+        reach = (mut != "beta_no_rho" and not num.subs(Xs, 0) == num
+                 and _z(sp.expand(num.subs(Xs, sp.sqrt(Q)))))
         out[name] = {"components_zero": zero, "max_symmetric": maxsym, "components_checked": ncomp,
                      "a_zero_at_y*": reach, "beta": str(beta), "n_coefficient": str(nb)}
         ok = ok and all(zero.values()) and maxsym and reach
     # the series at C = 0 equals the closed form through order 6 (dust)
     jet = Jet((0,), C=0)
-    Ac, Nc, _d = ck_series(jet, 6)
+    Ac, Nc, _d = dust_series6()
+    Ac = [sp.simplify(q.subs(CDR, 0)) for q in Ac]
+    Nc = [sp.simplify(q.subs(CDR, 0)) for q in Nc]
     S = jet.S()
     beta = -(1 + ELL * S)
     nb = beta + 3 * ELL * S
@@ -894,6 +932,8 @@ def check_C2(mut=None):
     pikk = sp.simplify((k0.T * (eta * pim) * k0)[0])
     ok2 = _z(pikk - rh * (rh + pp) / 6 * (u1**2 + u2**2 + u3**2))
     return (ok1 and ok2), {"S(k,k)": str(sp.factor(Skk)), "pi(k,k)": str(sp.factor(pikk)),
+                           "blind": "STRUCTURAL: a null k sees none of SMS (20)'s q_mu nu terms (1/8, 1/24); A4's trace "
+                                    "check sees them",
                            "label": "computed; READ SMS (13)-(14), (20) p.3"}
 
 
@@ -901,7 +941,8 @@ def _cpl_density():
     """rho_DE(a)/rho_DE0 for w(a) = w0 + (1 - a) wa (Planck eq. (49), READ) from d rho/da = -3 (1 + w) rho/a (computed)."""
     if "cpl" in _CACHE:
         return _CACHE["cpl"]
-    av, w0, wa, x = sp.symbols("a w0 wa x", positive=True)
+    av, x = sp.symbols("a x", positive=True)
+    w0, wa = sp.symbols("w0 wa", real=True)
     lnf = sp.integrate(-3 * (1 + w0 + (1 - x) * wa) / x, (x, 1, av))
     f = sp.lambdify((av, w0, wa), sp.exp(sp.simplify(lnf)), "math")
     _CACHE["cpl"] = (f, str(sp.simplify(sp.exp(lnf))))
@@ -1003,6 +1044,27 @@ def check_C4(mut=None):
                 "label": "computed (imported b5_positive.py B5a, B5b); deduced"}
 
 
+def check_C5(mut=None):
+    """Z3' against BULK-BALANCE.md result 2: a plane holding its scale fixed (H' = 0) beside a bulk of positive dark
+    radiation C must carry net (1 + w) sigma = (k_c/a^2 - 2C/a^4) ell/(3 (1 + ell sigma)), negative when flat -- the NEC
+    broken at each point, recovered here in the plane's own chart; our plane expands and decelerates in its matter
+    (READ H0 > 0; Planck base LCDM) and needs no such matter."""
+    av, sg, w, kc, C = sp.symbols("a sigma w k_c C", real=True)
+    csign = -1 if mut == "c_sign" else 1
+    h2 = (sg + 1 / ELL) ** 2 - 1 / ELL**2 + csign * C / av**4 - kc / av**2
+    hdot = av / 2 * sp.diff(h2, av) - sp.Rational(3, 2) * (1 + w) * sg * sp.diff(h2, sg)
+    x = sp.Symbol("x")                                        # x = (1 + w) sigma
+    sol = sp.solve(sp.Eq(sp.expand(hdot).subs(w * sg, x - sg), 0), x)
+    want = (kc / av**2 - 2 * C / av**4) * ELL / (3 * (1 + ELL * sg))
+    form = len(sol) == 1 and _z(sol[0] - want)
+    flat = sol[0].subs(kc, 0) if sol else sp.nan
+    neg = bool(sp.simplify(flat.subs({C: 1, av: 1, ELL: 1, sg: sp.Rational(1, 10)})) < 0) if sol else False
+    ok = form and neg
+    return ok, {"(1+w)sigma at H'=0": str(sp.factor(sol[0])) if sol else None, "flat_C>0_sign": "negative" if neg
+                else "not negative", "our_plane": "H0 > 0 (READ PL_abstract): not static; net rho + p > 0 (C3)",
+                "label": "computed; deduced (BULK-BALANCE.md result 2 recovered)"}
+
+
 # ======================================================================================== THE CYPHER (196)
 CY_OPTS = {"statistics_order": 2, "algebra_budget": 20000}
 
@@ -1017,35 +1079,39 @@ def determined(cells, coords, by, target):
 
 
 def _q1_series():
-    """Bulk coefficients A3, N3 and the order-0 Gauss residual (E44 at y^0), dust, ell = 1, a = 1, from Part B's series."""
+    """Bulk coefficients A3, N3 and the order-0 Gauss residual (E44 at y^0), dust, ell = 1, a = 1, from Part B's series
+    (exact sympy expressions; evaluated exactly on the cells)."""
     if "q1" in _CACHE:
         return _CACHE["q1"]
     jet = Jet((0,))
-    Ac, Nc, _d = ck_series(jet, 3)
+    Ac, Nc, _d = dust_series6()
     s0 = jet.sig[0]
     sub = {AJ: 1, ELL: 1}
-    A3 = sp.lambdify((s0, CDR), Ac[3].subs(sub))
-    N3 = sp.lambdify((s0, CDR), Nc[3].subs(sub))
     gr = Jet((0,), mode="gr")
-    e44gr = _order0_constraints(gr, gr.israel_data())["E44"]
-    e44 = _order0_constraints(jet, jet.israel_data())["E44"]
-    _CACHE["q1"] = {"A3": A3, "N3": N3, "E44_gr": sp.lambdify((gr.sig[0], CDR), e44gr.subs(sub)),
-                    "E44": sp.lambdify((s0, CDR), e44.subs(sub)), "A3_expr": str(sp.factor(Ac[3].subs(sub))),
-                    "N3_expr": str(sp.factor(Nc[3].subs(sub)))}
+    e44gr = _order0_constraints(gr, gr.israel_data())["E44"].subs(sub)
+    e44 = _order0_constraints(jet, jet.israel_data())["E44"].subs(sub)
+    _CACHE["q1"] = {"s0": s0, "A3": sp.factor(Ac[3].subs(sub)), "N3": sp.factor(Nc[3].subs(sub)), "E44": e44,
+                    "E44_gr": e44gr}
     return _CACHE["q1"]
+
+
+def _fr(e):
+    e = sp.nsimplify(sp.simplify(e))
+    if not e.is_Rational:
+        raise ValueError("not rational: %s" % e)
+    return Fr(int(e.p), int(e.q))
 
 
 def q1_cells(kind, mut=None):
     q = _q1_series()
+    s0 = q["s0"]
     cells = []
     for s_ in (0, 1, 2, 3):
         for c_ in (0, 1, 2):
-            A3 = Fr(q["A3"](Fr(s_), Fr(c_))).limit_denominator(10**6)
-            N3 = Fr(q["N3"](Fr(s_), Fr(c_))).limit_denominator(10**6)
-            if kind == "gr" or (kind == "law" and mut == "gr_as_law"):
-                g = Fr(q["E44_gr"](Fr(s_), Fr(c_))).limit_denominator(10**6)
-            else:
-                g = Fr(q["E44"](Fr(s_), Fr(c_))).limit_denominator(10**6)
+            at = {s0: s_, CDR: c_}
+            A3, N3 = _fr(q["A3"].subs(at)), _fr(q["N3"].subs(at))
+            use_gr = kind == "gr" or (kind == "law" and mut == "gr_as_law")
+            g = _fr((q["E44_gr"] if use_gr else q["E44"]).subs(at))
             if kind == "free":
                 for extra in ((0,) if mut == "control_free_off" else (0, 1)):
                     cells.append([Fr(s_), Fr(c_), A3 + extra, N3, g])
@@ -1103,10 +1169,14 @@ def check_Q1(mut=None):
     co, law = q1_cells("law", mut)
     _, free = q1_cells("free", mut)
     _, gr = q1_cells("gr", mut)
-    wl = "the bulk's Taylor coefficients from the plane's data, exact (Part B, computed)"
+    q = _q1_series()
+    wl = ("continuous law: A3 = %s, N3 = %s, gauss0 = 0, polynomials in (sigma, C), exact on every cell (Part B, "
+          "computed)" % (q["A3"], q["N3"]))
     rl = run_index("Q1 bulk from the plane's data (dust, ell = a = 1)", co, law, wl)
-    rf = run_index("Q1 control: a bulk datum of its own", co, free, "two bulks per plane state (control)")
-    rg = run_index("Q1 control: GR's Friedmann data", co, gr, "inconsistent data (control)")
+    rf = run_index("Q1 control: a bulk datum of its own", co, free,
+                   "the same law with A3 + q, q in {0, 1} a bulk datum on no plane coordinate (two bulks per state)")
+    rg = run_index("Q1 control: GR's Friedmann data", co, gr,
+                   "the same A3, N3; gauss0 = %s, the order-0 Gauss residual of GR-Friedmann data" % q["E44_gr"])
     b = {"A3,N3 by sigma,C (law)": determined(law, co, ["sigma", "C"], "A3") and determined(law, co, ["sigma", "C"], "N3"),
          "A3 by sigma alone (law)": determined(law, co, ["sigma"], "A3"),
          "A3 by C alone (law)": determined(law, co, ["C"], "A3"),
@@ -1118,7 +1188,7 @@ def check_Q1(mut=None):
           and b["gauss0 one value (law)"] and not b["A3 by sigma,C (free control)"]
           and not b["gauss0 one value zero (GR control)"] and every and _notrun_kept(rl))
     return ok, {"binaries": b, "law": _cy_brief(rl), "free_control": _cy_brief(rf), "gr_control": _cy_brief(rg),
-                "A3": _q1_series()["A3_expr"], "N3": _q1_series()["N3_expr"],
+                "A3": str(_q1_series()["A3"]), "N3": str(_q1_series()["N3"]),
                 "label": "computed (tools/cypher.py imported; H-CYPHER-MATTER-INDEX, the board's encoding)"}
 
 
@@ -1127,8 +1197,10 @@ def check_Q2(mut=None):
     Law: net_sign one value (+1), de_sign not; control (matter omitted): net_sign varies."""
     co, law = q2_cells("law", mut)
     _, ctl = q2_cells("control", mut)
-    rl = run_index("Q2 net null energy on the READ fits", co, law, "READ fits, computed signs")
-    rc = run_index("Q2 control: matter omitted", co, ctl, "dark energy alone (control)")
+    lawtxt = ("continuous law in a: net(a) = Omega_m a^-3 + (1 + w(a))(1 - Omega_m) %s, w(a) = w0 + (1 - a) wa "
+              "(READ fits; computed)" % _cpl_density()[1])
+    rl = run_index("Q2 net null energy on the READ fits", co, law, lawtxt)
+    rc = run_index("Q2 control: matter omitted", co, ctl, "the same law with the matter term removed (control)")
     b = {"net_sign one value (law)": determined(law, co, [], "net_sign"),
          "net_sign value (law)": sorted({c[3] for c in law}),
          "de_sign one value (law)": determined(law, co, [], "de_sign"),
@@ -1151,10 +1223,12 @@ def _cy_brief(r):
 LEMMAS = [
     {"name": "B1'", "edits": "B1", "status": "PROVED",
      "statement": "each plane carries its own universe's matter and the corridor adds none (184 with 129 (1), 130 (1)); "
-                  "our plane, an FRW plane with its observed matter (a conserved perfect fluid), meets the Gauss and "
-                  "Codazzi equations -- Codazzi iff the matter is conserved, Gauss iff the plane obeys its brane Friedmann "
-                  "equation (any dark-radiation C); also with each side its own ell; the matter-free plane is the limit "
-                  "rho -> 0, where the Gauss right side is localbulk.gauss_rhs and R(4) = 0 (B1)",
+                  "a plane carrying matter meets Codazzi iff its matter is conserved, and Gauss iff its metric obeys the "
+                  "trace of its effective equation (SMS (17), any tau) -- computed for the FRW plane with any perfect "
+                  "fluid, any spatial curvature and any dark-radiation C, Z2 or each side its own ell; our plane as "
+                  "Planck fits it is such a plane (an instance, H-OUR-PLANE-IS-FRW, its matter ~1e-62 of its tension at "
+                  "the table-top ell); the matter-free plane is the limit rho -> 0, where the Gauss right side is "
+                  "localbulk.gauss_rhs and R(4) = 0 (B1)",
      "inputs": [("SMS eqs. (2), (10), (13)-(21), (28)", "READ"), ("Planck 2018 H0, Omega_m, Omega_K (cosmo.py)", "READ"),
                 ("184 with 129 (1), 130 (1)", "AXIOM"), ("localbulk.gauss_rhs (B1's own Gauss form)", "PROVED"),
                 ("checks A1-A8", "computed")],
@@ -1179,8 +1253,10 @@ LEMMAS = [
      "statement": "positivity for the entangled pin with each universe's matter: at one place (127) the summed tension "
                   "+lambda_RS and both planes' matter give the null stress (lambda_RS + rho_1 + rho_2) k_y^2 + sum "
                   "(rho + p)|k_space|^2 >= 0 at every point when the summed matter is net non-negative along each ray "
-                  "(seated (Z)); exhibited with position 2's matter as ours; B5b's matter-free smooth wall and B5c's "
-                  "absent radion unchanged",
+                  "(seated (Z)); exhibited with position 2's matter as ours (H-P2-AS-OURS); B5c's absent radion "
+                  "unchanged; B5b's smooth wall is exact matter-free, and with matter every one-profile thickening keeps "
+                  "the null stress at every depth (an exact thick solution with matter is not constructed: OPEN, outside "
+                  "B5''s claim)",
      "inputs": [("127, 139 (1), 141, 184, 138", "AXIOM"), ("seated (Z) (183, 187 (3))", "AXIOM"),
                 ("b5_positive.py B5a, B5b, B5c", "DERIVED"), ("Planck 2018", "READ"), ("check C4", "computed")],
      "where": "lemmas/b1_matter.py C4 (with the cypher's Q2)"},
@@ -1198,11 +1274,12 @@ def check_G1(mut=None):
     """Guards: every M quote verbatim in the rulings file (whitespace normalised); every READ row has a source, a page and
     a quote; statuses and labels from the allowed sets; no owner attribute outside the allowlist and no eq. (17) carrier
     used (F1 does not enter); each edited lemma GREEN under the rule, with no F1 or F2 input."""
-    text = re.sub(r"\s+", " ", open(RULINGS, encoding="utf-8").read())
+    blocks = ruling_blocks()
     words = dict(M_WORDS)
     if mut == "planted_mword":
         words["184"] = "There are no matter-free planes"
-    bad_words = [k for k, v in words.items() if re.sub(r"\s+", " ", v) not in text]
+    bad_words = [k for k, v in words.items()
+                 if re.sub(r"\s+", " ", v) not in blocks.get(int(re.match(r"\d+", k).group()), "")]
     bad_reads = [k for k, (src, pg, q) in READS.items() if not (src and isinstance(pg, int) and pg > 0 and q)]
     lems = [dict(l) for l in LEMMAS]
     if mut == "planted_F2":
@@ -1226,6 +1303,22 @@ def check_G1(mut=None):
     return ok, {"bad_words": bad_words, "bad_reads": bad_reads, "bad_status": bad_status, "green": greens,
                 "F1_or_F2_inputs": f12, "owner_attrs_used": sorted(used), "outside_allowlist": outside,
                 "eq17_carriers_used": eq17, "bad_labels": bad_labels}
+
+
+def ruling_blocks():
+    """Each numbered item of the rulings file, its bold title removed (the board's), whitespace normalised."""
+    blocks, cur, buf = {}, None, []
+    for line in open(RULINGS, encoding="utf-8"):
+        m = re.match(r"^\s*(\d+)\. \*\*", line)
+        if m:
+            if cur is not None:
+                blocks[cur] = " ".join(buf)
+            cur, buf = int(m.group(1)), [re.sub(r"^\s*\d+\. \*\*.*?\*\*", "", line)]
+        elif cur is not None:
+            buf.append(line)
+    if cur is not None:
+        blocks[cur] = " ".join(buf)
+    return {k: re.sub(r"\s+", " ", v) for k, v in blocks.items()}
 
 
 def compute_rows_labels():
@@ -1272,7 +1365,7 @@ CHECKS = {
     "C1": (check_C1, "Z3': bulk R(k,k) = 0 (axioms.py, imported); a timelike control is not 0",
            [("control_null", "the control given a null vector")], "computed (imported axioms.py)"),
     "C2": (check_C2, "Z3': S(k,k) = (lambda + rho) k_y^2 + (rho + p)|k|^2; pi(k,k) = rho (rho + p)(t.k)^2/6",
-           [("lambda_sign", "the tension's sign flipped in S"), ("pi_coeff", "SMS (20)'s 1/8 replaced by 1/4")],
+           [("lambda_sign", "the tension's sign flipped in S"), ("pi_tt", "SMS (20)'s -1/4 tau tau replaced by -1/2")],
            "computed; READ SMS"),
     "C3": (check_C3, "Z3' observed: net null energy positive in every READ fit; dark energy alone is not",
            [("omit_matter", "the matter left out of the net"), ("flip_w", "w reflected about -1")],
@@ -1281,6 +1374,8 @@ CHECKS = {
            [("sum_wrong", "the tensions summed as 4/3 + 1/3"), ("control_shared", "the per-component control shared"),
             ("p2_phantom", "position 2's matter net-negative, twice ours")],
            "computed (imported b5_positive.py); deduced"),
+    "C5": (check_C5, "Z3' vs BULK-BALANCE: a flat plane fixed in scale beside C > 0 needs rho + p < 0; ours expands",
+           [("c_sign", "the dark radiation's sign flipped")], "computed; deduced"),
     "Q1": (check_Q1, "the cypher Q1: the bulk fixed by the plane's data; Gauss met; controls flip",
            [("control_free_off", "the free-bulk control without its extra datum"),
             ("gr_as_law", "GR-Friedmann data used in the law index")],

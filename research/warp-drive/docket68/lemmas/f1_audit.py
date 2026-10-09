@@ -15,7 +15,8 @@ WHAT THIS DOES.  Ten lemmas of warptheorem.py rest on F1 -- H2, O1, O2, Z1, Z2, 
          the bulk's Killing field reads the bulk's surface gravity (O2's bulk form needs only M1 and S1).
   PART C states M1 (H-PLANE-READS-MOUTH as a theorem) and computes what plane matter eq. (17) would need: the 4D-limit
          candidate (bulk Weyl zero) breaks the NEC; the vacuum plane's near-horizon bulk is singular (SIM2's y_s
-         reproduced); and every regular SINGLE-plane static near-horizon geometry reading eq. (17)'s AdS2(2m) x S2(2m)
+         reproduced), and on a negative-tension plane it is regular only for ell <= 4.79m, outside the window; and
+         every regular SINGLE-plane static near-horizon geometry reading eq. (17)'s AdS2(2m) x S2(2m)
          needs plane matter rho(2m/ell) sigma_RS at the horizon -- positive, NEC-obeying, but never our universe's (the
          corridor would add it, against 129 (1)/130 (1) on the board's H-OWN-MATTER-ONLY).  M1's question goes through
          the cypher (196), and the green table shows what M1 would green.
@@ -57,7 +58,7 @@ standard-not-READ: the Gauss and Codazzi equations; Israel's junction (Z2); Cauc
   product (KR cite it as proved in their ref. [16]); nuclear density ~2.3e17 kg/m^3; Bertotti-Robinson's
   AdS2 x S2 needing traceless matter rho = 1/(8 pi G L^2) in 4D general relativity.
 
-CLI:  python3 f1_audit.py [--selftest] [--mutants] [--json PATH]     (selftest ~40 s; --mutants ~3 min)
+CLI:  python3 f1_audit.py [--selftest] [--mutants] [--json PATH]     (selftest ~40 s; --mutants ~70 s)
 Stdlib + sympy (+ the owners' own needs: z3, mpmath, numpy, scipy, python-flint).  No file is written but --json's.
 """
 import contextlib
@@ -94,7 +95,7 @@ DEFAULT = {"r0_over_m": sp.Integer(2), "z1_first": None, "q_arg": sp.sqrt(3) / 2
            "o1_key": "main", "bank_K_scale": 1, "j6_flip": False, "axiom_132": "true", "kappa_H": "F",
            "string_grr": "warp", "gauss_sign": 1, "israel_sign": 1, "nh_lam": 4.0, "c1_metric": "eq17",
            "ys_side": -1, "rho_nuc": RHO_NUC, "cy_add_question": False, "cy_drop_route1": False, "m1_green": False,
-           "keep_B1_F2": False, "swap_ab": False}
+           "keep_B1_F2": False, "swap_ab": False, "kr_quote": "true"}
 
 _CACHE = {}
 
@@ -226,7 +227,8 @@ def part_a(cfg):
     bk = _memo("plane_bk", lambda: owner("plane").bk_masses())
     rP, r0P, mP, _ = bk["syms"]
     ms_at = sp.simplify(bk["MS"].subs(r0P, cfg["r0_over_m"] * mP))
-    Rl, ml = sorted(lg["M"].free_symbols, key=str)[1], sorted(lg["M"].free_symbols, key=str)[0]
+    Rl = next(q for q in lg["M"].free_symbols if q.name == "r")
+    ml = next(q for q in lg["M"].free_symbols if q.name == "m")
     cross = sp.simplify(ms_at.subs({rP: sp.Symbol("Rx", positive=True), mP: sp.Symbol("mx", positive=True)})
                         - lg["M"].subs({Rl: sp.Symbol("Rx", positive=True), ml: sp.Symbol("mx", positive=True)})) == 0
     out["A10"] = {"closed_ok": lg["closed_ok"], "far": lg["far"], "at_throat": lg["at_throat"], "dM_pos": lg["dM_pos"],
@@ -260,7 +262,7 @@ def axiom_texts(cfg):
     return {"found": found, "lines": lines}
 
 
-def ground_reads():
+def ground_reads(cfg):
     """READ (via epass_ground.json): Kaus-Reall's quotes this note rests on, verbatim."""
     g = _norm(json.dumps(json.load(open(GROUND, encoding="utf-8")), ensure_ascii=False))
     q = {"KR_p4_kappa": "In the bulk, the surface gravity is constant. Hence, by continuity, it will take the same value "
@@ -271,6 +273,8 @@ def ground_reads():
          "KR_2.16": "A′(ρ0)/A(ρ0) = 1/ℓ − ℓQ^2/(2R(ρ0)^4), "
                     "R′(ρ0)/R(ρ0) = 1/ℓ + ℓQ^2/(2R(ρ0)^4). (2.16)",
          "KR_p11_matter": "our bulk solution is independent of what kind of matter field is present on the brane"}
+    if cfg["kr_quote"] == "corrupt":
+        q["KR_p4_kappa"] = q["KR_p4_kappa"].replace("degenerate in the bulk", "non-degenerate in the bulk")
     return {k: (g.find(v) >= 0) for k, v in q.items()}
 
 
@@ -329,8 +333,8 @@ def gauss_identity(cfg):
         h = [g[i, i].subs(sub) for i in range(4)]
         X4 = X[:4]
         hm = sp.diag(*h)
-        G4 = [[[sum(1 / hm[a, a] * (sp.diff(hm[a, b], X4[c]) + sp.diff(hm[a, c], X4[b]) - sp.diff(hm[b, c], X4[a]))
-                    for _ in (0,)) / 2 for c in range(4)] for b in range(4)] for a in range(4)]
+        G4 = [[[(sp.diff(hm[a, b], X4[c]) + sp.diff(hm[a, c], X4[b]) - sp.diff(hm[b, c], X4[a])) / (2 * hm[a, a])
+                for c in range(4)] for b in range(4)] for a in range(4)]
         R4 = lambda b: sum(sp.diff(G4[a][b][b], X4[a]) - sp.diff(G4[a][b][a], X4[b])
                            + sum(G4[a][a][e] * G4[e][b][b] - G4[a][b][e] * G4[e][b][a] for e in range(4))
                            for a in range(4))
@@ -360,10 +364,9 @@ def israel(cfg):
     Gauss and Codazzi constraints with its own matter (Codazzi: D^mu tau_mu nu = 0)."""
     ell, k5 = sp.symbols("ell kappa5", positive=True)
     s = cfg["israel_sign"]
-    t0, t1, t2, t3 = sp.symbols("tau0:4", real=True)             # orthonormal-frame components, eta = diag(-1,1,1,1)
-    eta = sp.diag(-1, 1, 1, 1)
-    tau_dn = sp.diag(t0, t1, t2, t3)                             # tau_{ab}: tau_00 = t0 = the energy density
-    tr = -t0 + t1 + t2 + t3
+    eta = sp.diag(-1, 1, 1, 1)                                   # an orthonormal frame on the plane
+    tau_dn = sp.Matrix(4, 4, lambda i, j: sp.Symbol("tau%d%d" % (min(i, j), max(i, j)), real=True))  # any symmetric
+    tr = sum((eta * tau_dn)[i, i] for i in range(4))
     K = -(1 / ell) * eta - s * (k5**2 / 2) * (tau_dn - tr * eta / 3)
     Kmix = eta * K                                               # K^a_b
     Ktr = sum(Kmix[i, i] for i in range(4))
@@ -384,14 +387,15 @@ def israel(cfg):
 
 
 def part_b(cfg):
-    return {"axioms": axiom_texts(cfg), "reads": ground_reads(), "kappa": kappa_criterion(cfg), "tangency": tangency(cfg),
+    return {"axioms": axiom_texts(cfg), "reads": ground_reads(cfg), "kappa": kappa_criterion(cfg), "tangency": tangency(cfg),
             "gauss": _memo(("gauss", cfg["gauss_sign"]), lambda: gauss_identity(cfg)), "israel": israel(cfg)}
 
 
 # ======================================================================================== PART C: M1 and its matter
-def nh_equations():
+def nh_equations(lam=4.0, israel_sign=1):
     """computed: the bulk equations R_AB = -(4/ell^2) g_AB for KR's ansatz (2.2) with k = -1, derived here, against
-    the hand-typed right-hand sides used by the integrator."""
+    the hand-typed right-hand sides used by the integrator (coefficient lam); and the Hamiltonian constraint at an
+    equal-radii cut, with the Israel data of plane_matter, against the SMS trace equation."""
     t, x, rho, th, ph, ell = sp.symbols("t x rho theta phi ell", positive=True)
     A, R = sp.Function("A")(rho), sp.Function("R")(rho)
     X = [t, x, rho, th, ph]
@@ -403,8 +407,8 @@ def nh_equations():
                                     + sum(Gam[a][a][e] * Gam[e][b][b] - Gam[a][b][e] * Gam[e][b][a] for e in range(5))
                                     for a in range(5)))
     Ap, Rp = sp.diff(A, rho), sp.diff(R, rho)
-    App_typed = A * (4 / ell**2 - 1 / A**2 - Ap**2 / A**2 - 2 * Ap * Rp / (A * R))
-    Rpp_typed = R * (4 / ell**2 + 1 / R**2 - Rp**2 / R**2 - 2 * Ap * Rp / (A * R))
+    App_typed = A * (lam / ell**2 - 1 / A**2 - Ap**2 / A**2 - 2 * Ap * Rp / (A * R))
+    Rpp_typed = R * (lam / ell**2 + 1 / R**2 - Rp**2 / R**2 - 2 * Ap * Rp / (A * R))
     eA = sp.simplify((Ric(0) + 4 / ell**2 * g[0, 0]) / g[0, 0])
     eR = sp.simplify((Ric(3) + 4 / ell**2 * g[3, 3]) / g[3, 3])
     resA = sp.simplify(eA.subs(sp.diff(A, rho, 2), App_typed).subs(sp.diff(R, rho, 2), Rpp_typed))
@@ -413,7 +417,7 @@ def nh_equations():
     con = sp.simplify(Ric(2) - Rs / 2 * g[2, 2] - 6 / ell**2 * g[2, 2])
     # at an equal-radii cut with Israel data: a = ell A'/A = 1 - (x + 2z), b = ell R'/R = 1 + (2x + z)
     xs, zs = sp.symbols("x z", real=True)
-    a_, b_ = 1 - (xs + 2 * zs), 1 + (2 * xs + zs)
+    a_, b_ = 1 - israel_sign * (xs + 2 * zs), 1 + israel_sign * (2 * xs + zs)
     con_cut = sp.expand(a_**2 + 4 * a_ * b_ + b_**2 - 6)
     sms = sp.expand((zs - xs) / 3 + (xs**2 + zs**2) / 2 - (zs - xs) ** 2 / 3)
     ratio = sp.simplify(con_cut / sms)
@@ -454,6 +458,10 @@ def cap_to(A0, rho_end, inv_l2=1.0, lam=4.0, n=20000):
 
 
 def cap_cut(A0, inv_l2=1.0, lam=4.0, rmax=12.0, nper=4000):
+    return _memo(("cap", A0, inv_l2, lam, rmax, nper), lambda: _cap_cut(A0, inv_l2, lam, rmax, nper))
+
+
+def _cap_cut(A0, inv_l2, lam, rmax, nper):
     """The smooth cap R(0) = 0, R'(0) = 1, A(0) = A0 (KR (2.8)), integrated out to the first rho0 where A = R -- the
     plane there reads AdS2(L) x S2(L), L = A = R: eq. (17)'s near-horizon geometry with L = 2m.  None if no cut."""
     f = _rhs(inv_l2, lam)
@@ -493,6 +501,10 @@ def plane_matter(cut, israel_sign=1, swap=False):
 
 
 def ys(ell_over_m, side=-1, lam=4.0):
+    return _memo(("ys", ell_over_m, side, lam), lambda: _ys(ell_over_m, side, lam))
+
+
+def _ys(ell_over_m, side, lam):
     """Q = 0 data (a matter-free plane at the RS tension; KR (2.16) with Q = 0): A = R = 2m, A'/A = R'/R = 1/ell at the
     plane, integrated into the kept bulk until A -> 0 (the curvature singularity of KR's singular branch; SIM2's
     y_s^th).  side = -1 is into the kept bulk; +1 the wrong side (a mutant)."""
@@ -513,7 +525,7 @@ def ys(ell_over_m, side=-1, lam=4.0):
 
 def find_A0_for_x(xt, lam=4.0):
     lo, hi = 1e-4, 0.999999
-    for _ in range(60):
+    for _ in range(45):
         mid = (lo * hi) ** 0.5 if hi / lo > 10 else (lo + hi) / 2
         c = cap_cut(mid, lam=lam)
         if c is None or c["L"] > xt:
@@ -546,6 +558,12 @@ def part_c(cfg):
                       if need_3m else float("inf")})
     # C2 the vacuum plane: Q = 0 data are singular at finite depth (SIM2's y_s^th reproduced)
     out["C2"] = {"ys_flat": ys(None, cfg["ys_side"], lam), "ys_ell_m": ys(1.0, cfg["ys_side"], lam)}
+    # C2b the same data on a NEGATIVE-tension plane (the growing side; H-EQ17-ON-P2, stage 6 J3): regular to y = 50m
+    #     for ell <= 4.79m (stage 5 F6's range), singular from ell = 4.80m -- so at P2's own ell_2 = 3 ell in the window
+    #     (ell_2 > 81.21m) a matter-free P2 cannot carry eq. (17)'s near-horizon either
+    gs = -cfg["ys_side"]
+    out["C2b"] = {"ell_2": ys(2.0, gs, lam), "ell_479": ys(4.79, gs, lam), "ell_480": ys(4.80, gs, lam),
+                  "ell_8": ys(8.0, gs, lam), "ell_edge": ys(3 * EDGE_SIM2, gs, lam)}
     # C3 integrator controls: AdS5 (A0 = ell) exactly A = cosh, R = sinh; the exact cap A0 = ell/2: A = ell/2,
     #    R = (ell/sqrt2) sinh(sqrt2 rho/ell), cut at L = ell/2 with a = 0, b = sqrt6
     s = cap_to(1.0, 1.0, lam=lam)
@@ -558,7 +576,16 @@ def part_c(cfg):
         cut = cap_cut(A0, lam=lam)
         rows.append({"A0": A0, "cut": cut, "m": plane_matter(cut, sgn, cfg["swap_ab"]) if cut else None})
     flat = cap_cut(1.0, inv_l2=0.0, lam=lam, rmax=50)
-    out["C4"] = {"rows": rows, "no_cut": [cap_cut(A0, lam=lam) is None for A0 in (1.2, 1.5)],
+    second = []                                                    # one cut per cap: no second crossing to rho = 10
+    for A0 in (0.6, 0.8, 0.95):
+        f, st_, n_x, prev = _rhs(1.0, lam), _cap_start(A0, 1.0, lam), 0, None
+        while st_[0] < 10 and st_[1] > 0:
+            st_ = _rk4(f, st_, 2e-3)
+            dd = st_[1] - st_[3]
+            n_x += prev is not None and (prev > 0) != (dd > 0)
+            prev = dd
+        second.append(n_x)
+    out["C4"] = {"rows": rows, "no_cut": [cap_cut(A0, lam=lam) is None for A0 in (1.2, 1.5)], "crossings": second,
                  "c_flat": (flat["L"] * flat["Ap_A"] + 2 * flat["L"] * flat["Rp_R"]) / 3 if flat else None}
     # C6 the window and H-OWN-MATTER-ONLY
     A0e = find_A0_for_x(2 / EDGE_SIM2, lam)
@@ -571,7 +598,8 @@ def part_c(cfg):
     # threshold: rho_need <= rho_ours needs the Bertotti-Robinson regime, rho = c^2/(8 pi G L^2) (C5's limit)
     L_star = math.sqrt(c**2 / (8 * math.pi * G * cfg["rho_nuc"]))
     N_star = (L_star / 2 / m1) ** 2
-    out["C6"] = {"x_edge": 2 / EDGE_SIM2, "L_edge": ce["L"], "rho_edge": me["rho"],
+    ell_need = 3 * cf * c**2 / (4 * math.pi * G * 2 * mN * cfg["rho_nuc"])   # ell at which the flat-regime need
+    out["C6"] = {"ell_need_example_m": ell_need, "x_edge": 2 / EDGE_SIM2, "L_edge": ce["L"], "rho_edge": me["rho"],
                  "x_b4c": 2 / EDGE_B4C, "rho_b4c": cf / (2 / EDGE_B4C),
                  "sigma_over_nuc": sigma_kgm3 / cfg["rho_nuc"], "ours_over_sigma": cfg["rho_nuc"] / sigma_kgm3,
                  "need_example_over_nuc": need_ex / cfg["rho_nuc"], "L_star_m": L_star, "N_star": N_star}
@@ -681,7 +709,9 @@ def green_table(cfg):
 # ========================================================================================================= compute
 def compute(cfg=None):
     cfg = dict(DEFAULT, **(cfg or {}))
-    return {"A": part_a(cfg), "B": part_b(cfg), "C": part_c(cfg), "NH": _memo("nh_eq", nh_equations), "cfg": cfg}
+    return {"A": part_a(cfg), "B": part_b(cfg), "C": part_c(cfg), "NH": _memo(("nh_eq", cfg["nh_lam"], cfg["israel_sign"]),
+                                                                 lambda: nh_equations(cfg["nh_lam"], cfg["israel_sign"])),
+            "cfg": cfg}
 
 
 def checks(d):
@@ -738,6 +768,11 @@ def checks(d):
     add("C2 computed: matter-free (Q = 0) data reach the singularity at y_s = 2.5536m (flat), 0.9139m (ell = m) -- "
         "SIM2's numbers", C["C2"]["ys_flat"] is not None and abs(C["C2"]["ys_flat"] - YS_FLAT) < 2e-3
         and C["C2"]["ys_ell_m"] is not None and abs(C["C2"]["ys_ell_m"] - YS_ELL_M) < 2e-3)
+    c2b = C["C2b"]
+    add("C2b computed: on a negative-tension plane (growing side) the same data stay regular to y = 50m at ell = 2m and "
+        "4.79m, and are singular from 4.80m (8m: 3.95m; P2's ell_2 = 3 x 27.07m: 2.63m)",
+        c2b["ell_2"] is None and c2b["ell_479"] is None and c2b["ell_480"] is not None and c2b["ell_8"] is not None
+        and abs(c2b["ell_8"] - 3.951) < 0.01 and c2b["ell_edge"] is not None and abs(c2b["ell_edge"] - 2.634) < 0.01)
     add("C3 computed: integrator controls -- AdS5 (A0 = ell) to 1e-9; the exact cap A0 = ell/2 cuts at L = ell/2 with "
         "rho/sigma = (2 sqrt6 - 3)/3, p/sigma = (3 - sqrt6)/3", C["C3"]["ads5_err"] < 1e-9 and C["C3"]["half"]
         is not None and abs(C["C3"]["half"]["L"] - 0.5) < 1e-8 and abs(C["C3"]["half_m"]["rho"]
@@ -746,11 +781,11 @@ def checks(d):
     rows = C["C4"]["rows"]
     okrows = [r for r in rows if r["m"]]
     add("C4 computed: every cap on the grid cuts once, with the constraint to 1e-9, rho > 0 and rho + p > 0 (rho + p_r "
-        "= 0 by AdS2); L/ell rises and rho/sigma falls with A0; no cut on the AdS5 side (A0 = 1.2, 1.5)",
+        "= 0 by AdS2); L/ell rises and rho/sigma falls with A0; one crossing per cap; none on the AdS5 side (A0 = 1.2, 1.5)",
         len(okrows) == len(GRID) and all(abs(r["m"]["con_rel"]) < 1e-9 and r["m"]["rho"] > 0
                                          and r["m"]["rho"] + r["m"]["p"] > 0 for r in okrows)
         and all(okrows[i]["cut"]["L"] < okrows[i + 1]["cut"]["L"] and okrows[i]["m"]["rho"] > okrows[i + 1]["m"]["rho"]
-                for i in range(len(okrows) - 1)) and all(C["C4"]["no_cut"]))
+                for i in range(len(okrows) - 1)) and all(C["C4"]["no_cut"]) and C["C4"]["crossings"] == [1, 1, 1])
     small = [r["m"]["rho"] * r["cut"]["L"] for r in okrows[:1]]
     big = okrows[-1]["m"]["rho"] * okrows[-1]["cut"]["L"] ** 2 if okrows else 0
     add("C5 computed: limits -- rho/sigma -> 0.6627 ell/L as L/ell -> 0 (the ell = infinity cap) and -> (1/6)(ell/L)^2 as "
@@ -761,7 +796,7 @@ def checks(d):
     add("C6 computed: in the window (2m/ell <= 2/27.07) the plane needs rho >= 7 sigma_RS; sigma_RS >= 7e18 x nuclear "
         "(ell <= 13.964 um); at the example README >= 1e40 x nuclear; ours suffices only past N ~ 1e78 >> item 108's "
         "1.088e29", c6["rho_edge"] >= 7 and 6.5e18 < c6["sigma_over_nuc"] < 8e18 and c6["need_example_over_nuc"] > 1e40
-        and c6["N_star"] > 1e77 and c6["N_star"] > 1e40 * SNAPSHOT_N)
+        and c6["N_star"] > 1e77 and c6["N_star"] > 1e40 * SNAPSHOT_N and c6["ell_need_example_m"] > 1e30)
     add("C7 computed: b > a at every cap's cut, so two capped sides cannot cancel their anisotropy (J1's Pi_L = -Pi_R)",
         C["C7"]["b_gt_a"] and all(C["C7"]["b_gt_a"]) and len(C["C7"]["b_gt_a"]) == len(GRID))
     cya, cyb = C["C8"]["a"]["1173"], C["C8"]["b"]["1173"]
@@ -811,6 +846,7 @@ MUTANTS = [
     ("M1 marked green", {"m1_green": True}),
     ("B1' kept on F2", {"keep_B1_F2": True}),
     ("a and b read swapped", {"swap_ab": True}),
+    ("a corrupted Kaus-Reall quote", {"kr_quote": "corrupt"}),
 ]
 
 
@@ -868,6 +904,11 @@ def report(d):
           % (C["C1"]["need_3m_kgm3"], C["C1"]["ours_over_need"]))
     print("  C2 matter-free plane's near-horizon bulk singular at y_s = %.4fm (flat), %.4fm (ell = m)"
           % (C["C2"]["ys_flat"], C["C2"]["ys_ell_m"]))
+    c2b = C["C2b"]
+    print("  C2b the same data on a negative-tension plane (growing side): ell = 2m %s, 4.79m %s, 4.80m %s, 8m %s, "
+          "3 x 27.07m %s (None = regular to y = 50m)" % tuple(
+              ("%.4fm" % v) if v is not None else "None" for v in (c2b["ell_2"], c2b["ell_479"], c2b["ell_480"],
+                                                                    c2b["ell_8"], c2b["ell_edge"])))
     print("  C4 regular single-plane caps reading AdS2(2m) x S2(2m):  2m/ell    rho/sigma     p/sigma")
     for r in C["C4"]["rows"]:
         if r["m"]:
@@ -876,8 +917,9 @@ def report(d):
     print("  C5 rho/sigma -> %.4f ell/(2m) small, -> (1/6)(ell/2m)^2 large (Bertotti-Robinson)" % C["C4"]["c_flat"])
     print("  C6 at 2m/ell = %.4f (SIM2's edge): rho = %.3f sigma_RS; at B4c's edge %.3g sigma_RS; sigma_RS/nuclear = "
           "%.3g at ell = 13.964 um; needed at the example README %.3g x nuclear; our matter would do only for 2m >= "
-          "%.3g m, N >= %.2g bits" % (c6["x_edge"], c6["rho_edge"], c6["rho_b4c"], c6["sigma_over_nuc"],
-                                      c6["need_example_over_nuc"], c6["L_star_m"], c6["N_star"]))
+          "%.3g m, N >= %.2g bits; without the upper edge, ell >= %.2g m at the example README"
+          % (c6["x_edge"], c6["rho_edge"], c6["rho_b4c"], c6["sigma_over_nuc"], c6["need_example_over_nuc"],
+             c6["L_star_m"], c6["N_star"], c6["ell_need_example_m"]))
     for key, lab in (("a", "H-M1-TRACE-INDEX"), ("b", "control (Route 1 added)")):
         for rn, v in C["C8"][key].items():
             print("  C8 cypher %-24s roster %-5s question admitted (of %d): %s" % (lab, rn, C["C8"]["n_q"], v["per"]))

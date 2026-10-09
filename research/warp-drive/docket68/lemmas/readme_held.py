@@ -25,6 +25,9 @@ PLAIN WORDS FIRST.
       lasts at least ~200,000 clocks; B4d must keep the fixed-size corridor regular for that long") is (b)'s framing and
       does not survive.  The gas bound survives as the opening's lead (O3-WRITE reading (ii)): it limits how early the
       README must start, not how long it takes to cross r = 2m.
+  The Vaidya figures are four-dimensional ([4D-VAIDYA]); under 179 the corridor is in the five-dimensional bulk, where a
+  static horizon's area grows as M^(3/2) (Tangherlini, standard-not-READ): (b) without a partner then ends at 2^(3/2) =
+  2.83 N A_bit instead of 4, still not N; the law that decides (a) against (b) is Lemma S's bulk form, which is [FREE].
   A forming horizon holds the README only as a WHOLE: with a fraction f of E in, its area is f^2 N A_bit, short of the
   f N bits in proportion (G1: E grows as sqrt N).  That is 163's "All together, one whole", computed.
 
@@ -319,8 +322,8 @@ def vaidya_run(pre=0.0, partner=0.0, width=1.0, write=2.0e5, partner_sign=1.0, a
     N A_bit (H1: the README's horizon r = 2 has area 16 pi = N A_bit), final mass in units of E, the README's share of
     the final mass, the net inflow, the fraction of the write over which the trapping horizon's size moves while it
     exists, the least expansion of the event horizon's generators inside the inflow, a finite-difference Raychaudhuri
-    residual along the event horizon, and where the event horizon is born (forming case).  partner_sign = -1 and
-    area_exp are mutations.  Label: computed (scipy, rtol 1e-11)."""
+    residual along the event horizon (relative to the sum of the terms' sizes), and where the event horizon is born (forming case).  partner_sign = -1 and
+    area_exp are mutations.  Label: computed (scipy LSODA, rtol 1e-11; backward the horizon is attracting and stiff where M is small)."""
     q = 1.0 - partner_sign * partner
     mfin = pre + q
 
@@ -346,7 +349,7 @@ def vaidya_run(pre=0.0, partner=0.0, width=1.0, write=2.0e5, partner_sign=1.0, a
     born.terminal = True
     v_lo = -(4.0 * mfin + 50.0 * max(pre, 0.0) + 10.0)
     sol = solve_ivp(rhs, (v_end, v_lo), [r_end], dense_output=True, rtol=1e-11, atol=1e-13, events=born,
-                    max_step=max(width / 400.0, 0.02))
+                    max_step=max(width / 400.0, 0.02), method="LSODA")
     vb = float(sol.t_events[0][0]) if len(sol.t_events[0]) else None
     rs = lambda v: float(sol.sol(v)[0])
     # expansion of the outgoing generators (k^v = 1): theta = (1 - 2M/r)/r; kappa = M/r^2; R(k,k) = 2 M'/r^2
@@ -359,8 +362,9 @@ def vaidya_run(pre=0.0, partner=0.0, width=1.0, write=2.0e5, partner_sign=1.0, a
         tp, tm = [(1.0 - 2.0 * M(w) / rs(w)) / rs(w) for w in (v + h, v - h)]
         dth = (tp - tm) / (2 * h)
         r0, t0 = rs(v), (1.0 - 2.0 * M(v) / rs(v)) / rs(v)
-        rhs_r = M(v) / r0**2 * t0 - t0**2 / 2 - 2.0 * Mp(v) / r0**2
-        rel.append(abs(dth - rhs_r) / max(abs(dth), abs(rhs_r), 1e-30))
+        terms = (M(v) / r0**2 * t0, t0**2 / 2, 2.0 * Mp(v) / r0**2)
+        rhs_r = terms[0] - terms[1] - terms[2]
+        rel.append(abs(dth - rhs_r) / max(abs(dth) + sum(abs(x) for x in terms), 1e-30))
     area_N = (rs(v_end) / 2.0) ** area_exp
     moves = 0.0 if abs(q) < 1e-15 else width / write
     out.update({"horizon_forms": True, "area_N": area_N, "share": (q / mfin if q > 0 else 0.0),
@@ -493,7 +497,8 @@ def cypher_run(control=False, sc=None):
         per = {}
         for lang, out in admitted.items():
             per[lang] = (None not in enc) and enc in out
-        per["analysis"] = ("speaks only by its declared witness; on the LAW index the target is " +
+        per["analysis"] = ("answers only by its declared witness; against the law's witness (mass = pre + net, area = "
+                           "mass^2, moves > 0 iff net > 0) the target is " +
                            ("lawful" if (float(Fr(t[4])) == int(t[0]) + float(Fr(t[6])) and
                                          abs(float(Fr(t[3])) - float(Fr(t[4]))**2) < 1e-12 and
                                          ((t[7] > 0) == (float(Fr(t[6])) > 0))) else "UNLAWFUL"))
@@ -509,7 +514,7 @@ def cypher_run(control=False, sc=None):
             _determined(ix_cells_raw(cells), ["partner"], "moves", where={"partner": "0", "area_N": "1", "net": "1"}),
         "L3 is net fixed by (pre, mass_E) (energy balance)?":
             _determined(ix_cells_raw(cells), ["pre", "mass_E"], "net"),
-        "L4 among net = 1 cells, is moves ever 0 (fixed size with a net inflow)?":
+        "L4 the values moves takes among net = 1 cells (0 would be a fixed size with a net inflow)":
             _determined(ix_cells_raw(cells), ["net"], "moves", where={"net": "1"}),
     }
     rows_, keys = CY.coordinate_report(ix)
@@ -690,6 +695,10 @@ def compute():
                                         "computed", "[4D-VAIDYA]", "(b) with the exact partner (163's option text): "
                                         "size fixed (theta = 0), but the README's share of the mass is 0 -- the README "
                                         "is one member of a pair (195: it is not)")
+    R["five_dim_scaling"] = row({"area_ratio_b_without_partner_5D": 2 ** 1.5, "area_ratio_b_without_partner_4D":
+                                 pn["area_N"]}, "deduced; standard-not-READ", "[FREE] law, 5D scaling",
+                                "Tangherlini: area grows as M^(3/2) in five dimensions; (b) without a partner ends at "
+                                "2.83 N A_bit, not N -- the factor changes, the verdict does not")
     R["forming_with_partner"] = row({"horizon_forms": fp["horizon_forms"], "area_N": fp["area_N"]}, "computed",
                                     "[4D-VAIDYA]", "a partner on a forming horizon cancels the horizon itself")
     R["cypher_LAW"] = row(law, "computed", "the board's encoding (H-CYPHER-README-HELD-INDEX)",
