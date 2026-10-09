@@ -230,8 +230,9 @@ before any pass that spans more than one file.
 ## Skills
 
 - **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
-- **mathematica** (`.claude/skills/mathematica/SKILL.md`) — Wolfram Language through Mathics3, an open-source
-  interpreter (`.claude/skills/mathematica/wl 'expr' ...`), or through the official Wolfram connector when it is connected.
+- **mathematica** (`.claude/skills/mathematica/SKILL.md`) — Wolfram Language through the official Wolfram connector
+  (`mcp__Wolfram__WolframLanguageEvaluator`, Wolfram 15.0.1; connected 2026-10-09), or offline through Mathics3, an
+  open-source interpreter (`.claude/skills/mathematica/wl 'expr' ...`).
   Mathics3 is a subset of Mathematica, not Mathematica: label its results "computed (Mathics3)" and cross-check any that
   carry weight. A full local Wolfram Engine is blocked by the egress proxy. Trigger: `/mathematica`
 

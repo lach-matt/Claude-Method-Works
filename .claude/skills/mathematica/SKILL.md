@@ -1,6 +1,6 @@
 ---
 name: mathematica
-description: "Evaluate Wolfram Language (Mathematica syntax): symbolic algebra, series, integrals, ODEs, exact simplification. Runs locally through Mathics3, an open-source Wolfram Language interpreter (a subset of Mathematica, not Mathematica itself), or through the official Wolfram connector when it is connected. Trigger: /mathematica, or when a derivation is best checked in Wolfram Language."
+description: "Evaluate Wolfram Language (Mathematica syntax): symbolic algebra, series, integrals, ODEs, exact simplification. Runs locally through Mathics3, an open-source Wolfram Language interpreter (a subset of Mathematica, not Mathematica itself), or through the official Wolfram connector (connected; Wolfram 15.0.1). Trigger: /mathematica, or when a derivation is best checked in Wolfram Language."
 ---
 
 # /mathematica
@@ -41,14 +41,24 @@ If you call `mathics` directly, close stdin (`</dev/null`) and put everything in
 - `Series` of 1/H gave `1 + 5 m/(2 r)`;
 - `DSolve`, `Solve` and `N[Zeta[3], 30]` were also checked.
 
-## 2. Real Wolfram Language: the official Wolfram connector
+## 2. Real Wolfram Language: the official Wolfram connector (connected 2026-10-09)
 
-The claude.ai connector directory lists **Wolfram** ("Inject precise, real-time computation and knowledge"). It needs no
-sign-in, and offers the tools `WolframLanguageEvaluator`, `WolframAlpha` and `WolframContext`.
-- **To enable it:** claude.ai → Settings → Connectors → add Wolfram, then enable it in the chat.
-- **Its tools appear** as `mcp__Wolfram__*`; find them with ToolSearch.
-- **Label its results** "computed (Wolfram connector)". This is the route to use when Mathics3 lacks a function, or
-  when a result should come from Wolfram's own kernel.
+This is Wolfram's own kernel, running remotely. It needs no sign-in. Load its tools with ToolSearch:
+- `mcp__Wolfram__WolframLanguageEvaluator`: evaluates Wolfram Language code. The kernel is stateless, so put
+  definitions and results in one call. The default time limit is 60 s.
+- `mcp__Wolfram__WolframAlpha`: natural-language queries, for constants, data and entities.
+- `mcp__Wolfram__WolframContext`: semantic search over Wolfram documentation.
+
+**Label its results** "computed (Wolfram 15.0.1, connector)". Prefer this route to Mathics3 whenever a result carries
+weight, or when Mathics3 lacks a function. Mathics3 stays the offline route, and an independent cross-check, since the
+two engines share no code.
+
+**Checked on connection (2026-10-09).** `$Version` returned "15.0.1 for Linux x86 (64-bit) (July 2, 2026)". These
+agreed with Mathics3 and SymPy:
+- 1/H to first order gave 1 + 5m/(2r);
+- d ln(F/H)/dr gave 1/(−6 + 7r − 2r²);
+- ∫ gave 1/4;
+- the warp null-energy expression for AdS₄-sliced AdS₅ gave 0.
 
 ## 3. A local Wolfram Engine: blocked here
 
