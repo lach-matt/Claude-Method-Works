@@ -1,0 +1,139 @@
+{
+ "read_this_build": {
+  "sources": [
+   {
+    "citation": "E. Witten and S.-T. Yau, 'Connectedness of the boundary in the AdS/CFT correspondence', arXiv:hep-th/9910245v1 (29 Oct 1999), Adv. Theor. Math. Phys. 3 (1999) 1635. Opened 2026-10-09 with the alphaXiv connector (answer_pdf_queries, full PDF pages returned). PDF page = printed page + 1 (the title page is unnumbered).",
+    "arxiv": "hep-th/9910245",
+    "quotes": [
+     {
+      "text": "Results of this type definitely depend on N having positive scalar curvature. For example, let Q be any compact negatively curved Einstein manifold of dimension n, with metric g_ij dx^i dx^j. Then a complete Einstein metric of negative curvature on M = Q × R is given by the simple formula ds^2 = dt^2 + cosh^2 t g_ij dx^i dx^j. (1.2) The conformal boundary of M consists of two copies of Q, at t = ±∞.",
+      "page": "PDF p.4 (printed 3)",
+      "what": "The cosh-warped product over a negatively curved Einstein slice: the Riemannian model of selftest C11 (ii)'s AdS4-sliced wedge, where two faces see each other and T5's bound is an equality."
+     },
+     {
+      "text": "If N is a real symmetric n × n matrix, then Tr N^2 ≥ (1/n)(Tr N)^2, (2.17) with equality only if and only if N is a multiple of the identity.",
+      "page": "PDF p.8 (printed 7)",
+      "what": "The inequality behind Lemma T's T2 (Pi.Pi >= 0, zero only for pure trace) once K is diagonal (static)."
+     },
+     {
+      "text": "the nonzero Christoffel symbols Γ̂ of M in the metric (2.10) are Γ̂^i_jk = Γ^i_jk, Γ̂^r_jk = − 1/2 ġ_jk, Γ̂^i_rj = 1/2 g^is ġ_js. (2.19) ... R̂_rr = − 1/2 Tr g^−1 g̈ + 1/4 Tr g^−1 ġ g^−1 ġ (2.20)",
+      "page": "PDF p.8 (printed 7)",
+      "what": "Gaussian-normal connection and normal Ricci: Lemma N's Gamma^y_ab = -(1/2) d_y g_ab (S11) and Lemma T's T1 (S1)."
+     },
+     {
+      "text": "dF/dr = −n + 1/4 Tr(g^−1 ġ g^−1 ġ). (2.28)",
+      "page": "PDF p.9 (printed 8)",
+      "what": "The Riccati form of the normal Raychaudhuri equation on level sets, Riemannian (Lemma T's T1). The spec placed (2.28) on PDF p.10; it is on p.9."
+     },
+     {
+      "text": "Using (2.17), with N = g^−1 ġ, this implies an inequality dF/dr ≥ − (1/n) F (2n − F). (2.29) ... In the above, we can replace the Einstein equation R_IJ = −n g_IJ by an inequality R_IJ ≥ −n g_IJ, since this would only improve the crucial inequality (2.21). Physically, this corresponds to having additional matter fields excited in an asymptotically AdS spacetime.",
+      "page": "PDF p.10 (printed 9)",
+      "what": "The Riccati comparison (Lemma T's T4) and its survival under Ric >= -n: escape E-BULK (T fails only for Ric(n,n) < -4/ell^2)."
+     }
+    ]
+   },
+   {
+    "citation": "D. Z. Freedman, S. S. Gubser, K. Pilch and N. P. Warner, 'Renormalization group flows from holography -- supersymmetry and a c-theorem', arXiv:hep-th/9904017v3 (7 May 1999). Opened 2026-10-09 with the alphaXiv connector. The extraction drops the '≤' glyph in both passages (it reads 'A''(r) 0' and 'A'' 0'); the glyph is restored here from the ground stage's Firecrawl text of the same passages, as the ground stage recorded.",
+    "arxiv": "hep-th/9904017",
+    "quotes": [
+     {
+      "text": "The one general restriction, which we will prove in section 4.2, is A''(r) ≤ 0. This rules out a second anti-de Sitter boundary: it is impossible to have A'(r) approach a positive constant as r → ∞ and a negative constant as r → −∞. The monotonicity of A'(r) implies a c-theorem, as we shall see.",
+      "page": "PDF p.14 (printed 13), sec. 4.1",
+      "what": "The c-theorem precedent for Lemma T (flat or Ricci-flat slicing: the warp cannot turn back)."
+     },
+     {
+      "text": "What we learn, then, is that given Poincare invariance, the desired monotonicity relation A'' ≤ 0 is exactly equivalent to the weaker energy condition.",
+      "page": "PDF p.17 (printed 16), sec. 4.2",
+      "what": "With Poincare-invariant slices the bulk NEC is exactly the trap; Lemma T needs only Ric(n,n) >= -4/ell^2 and a diagonal K, and holds for eq. (17)'s non-flat slices."
+     }
+    ]
+   },
+   {
+    "citation": "H. Ishihara, 'Causality of the brane universe', arXiv:gr-qc/0007070v2 (14 Dec 2000), Phys. Rev. Lett. 86 (2001) 381. Opened 2026-10-09 with the alphaXiv connector. PDF page = printed page.",
+    "arxiv": "gr-qc/0007070",
+    "quotes": [
+     {
+      "text": "First, we consider the vacuum brane with a positive tension σ > 0. K_ab u^a u^b < 0 for a spacelike vector u^a means that Σ is concave towards M in the spacelike direction. ... When the tension of the brane is negative, there are timelike ‘short cuts’ in M but there is no spacelike ‘short cut’.",
+      "page": "PDF p.4, sec. II",
+      "what": "The sign convention for K and the tension (selftest C1's RS1 control: a level set read from the far side has negative tension); S3."
+     },
+     {
+      "text": "For ordinary matter it is natural that a energy condition T_ab k^a k^b > 0 holds. Then we have K_ab k^a k^b = −(1/2) κ^2 (S_ab − (1/3) S γ_ab) k^a k^b = −(1/2) κ^2 S_ab k^a k^b = −(1/2) κ^2 T_ab k^a k^b < 0. (11) It means that Σ is concave towards M in the null direction.",
+      "page": "PDF p.5, sec. III, eq. (11)",
+      "what": "Matter obeying the NEC bends a sheet one way only: Lemma W's local Israel step (rho + p_i = nu (k_t - k_i))."
+     }
+    ]
+   }
+  ]
+ },
+ "ground_stage_carried": {
+  "sources": [
+   {
+    "citation": "E. Abdalla, B. Cuadros-Melgar, S. Feng and B. Wang, 'The shortest cut in brane cosmology', arXiv:hep-th/0109024. READ in this phase's ground stage (design, 2026-10-09); quote carried verbatim from that stage's record; not re-opened in this build.",
+    "arxiv": "hep-th/0109024",
+    "quotes": [
+     {
+      "text": "From this equation we can see that the shortest path is on the brane only when (a′/a)n² − nn′ = 0, (28) i.e. ∂_y(a/n) = 0. (29)",
+      "page": "PDF p.8, eqs. (28)-(29)",
+      "what": "The warped precedent for w_r: the brane path is extremal only when d_y(g_xx/g_tt) = 0; here w_r = (1/2) d_y ln(B/A)."
+     }
+    ]
+   },
+   {
+    "citation": "R. R. Caldwell and D. Langlois, 'Shortcuts in the fifth dimension', arXiv:gr-qc/0103070. READ in the ground stage (2026-10-09); carried; not re-opened in this build.",
+    "arxiv": "gr-qc/0103070",
+    "quotes": [
+     {
+      "text": "Note that, if our universe was static, i.e. H = 0, which in the present model would correspond to the strict Randall-Sundrum configuration [3], or de Sitter, i.e. H > 0 and constant, then the photon horizon and the bulk gravitational horizon would be exactly identical.",
+      "page": "PDF p.5, sec. II C",
+      "what": "Corollary W and the black-string control: a warped product has w = 0 (S11)."
+     }
+    ]
+   },
+   {
+    "citation": "N. Arkani-Hamed, S. Dimopoulos, G. Dvali and N. Kaloper, 'Manyfold universe', arXiv:hep-ph/9911386. READ in the ground stage (2026-10-09); carried; not re-opened in this build.",
+    "arxiv": "hep-ph/9911386",
+    "quotes": [
+     {
+      "text": "On the other hand, they can probe objects on adjacent folds gravitationally, since they are nearby in the bulk, at sub-millimeter distances.",
+      "page": "PDF p.3 (printed 2), sec. 1",
+      "what": "The precedent for one brane folded to face itself (flat ADD bulk, not warped; H-Z2-PIECES)."
+     }
+    ]
+   },
+   {
+    "citation": "D. J. H. Chung and K. Freese, 'Can geodesics in extra dimensions solve the cosmological horizon problem?', arXiv:hep-ph/9910235. READ in the ground stage (2026-10-09); carried; not re-opened in this build.",
+    "arxiv": "hep-ph/9910235",
+    "quotes": [
+     {
+      "text": "However we have not found continuous paths which return to our brane at a point more distant than our naive ‘horizon’ ... On the other hand, as shown above, the scenario of patched causal paths (without a single smooth causal geodesic) can solve the horizon problem. Such a scenario may be effective when there is another “hidden sector” brane at u = L",
+      "page": "PDF p.4, sec. II A",
+      "what": "Bears on escapes E-PASS and E-ASYM: their working shortcut needs a second, hidden-sector brane."
+     }
+    ]
+   }
+  ]
+ },
+ "already_banked": {
+  "sources": [
+   {
+    "citation": "R. Casadio, A. Fabbri and L. Mazzacurati, 'New black holes in the brane-world?', arXiv:gr-qc/0111072v2 -- READ in sim_reads.json (read_braneworld_collapse); not duplicated here.",
+    "arxiv": "gr-qc/0111072",
+    "quotes": [
+     {
+      "text": "see sim_reads.json: Case I, the zero-temperature member, 'completely regular'",
+      "page": "PDF pp.2-4 (as banked there)",
+      "what": "Eq. (17) is CFM's Case I at its zero-temperature member: the data on P1."
+     }
+    ]
+   }
+  ]
+ },
+ "standard_not_read": [
+  "The hypersurface comparison at a point of tangency and the maximum principle (Lemma C, S2).",
+  "Calabi's barrier trick at a focal point (S2).",
+  "Uniqueness of the bulk in the analytic class, so that the data's isometries are the bulk's (S6).",
+  "The Raychaudhuri equation for a hypersurface-orthogonal congruence (S1; its Riemannian form is READ above, Witten-Yau eqs. (2.20), (2.28))."
+ ],
+ "note": "READs for lemmas/sim2_facing.py (B4d simulation phase 2), 2026-10-09. Quotes verbatim with pages; a source opened in this build is marked so, a source carried from the ground stage is marked carried. Never written into sim_reads.json."
+}
