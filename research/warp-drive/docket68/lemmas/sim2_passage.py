@@ -4,16 +4,19 @@ the passage through the corridor object's own horizon into the plane's second en
 the far end of our own plane within one universe (H-END-2-IS-OUR-PLANE, the board's reading, OPEN: see X1).
 Computed, READ and deduced; not verified; not seated.  First headed "... not verified; not seated" (2026-10-09).
 Fix round 2026-10-09: the verification's findings (lemmas/EPASS-VERIFY-RECOVERED.md; 70 findings, the list with
-verdicts in the fix round's scratch) applied once per substance, the rulings since the instrument (179-184) carried
-below; the fixed instrument is not re-verified and not seated.
+verdicts in the fix round's scratch) applied once per substance; then the two audits of that fix (refutation RF-1 to
+RF-11, overclaim OC-1 to OC-17) applied where reproduced.  Rulings since the instrument: 179/180, 183 and 184 applied
+below; 181 and 182 noted; 187 and 188, recorded after the fix, noted.  The fixed instrument is not re-verified and not
+seated.
 
 M's words (verbatim in the rulings file; to be quoted in SIM2-PASSAGE.md, not yet written; never paraphrased as M's):
 173 "Go ahead with E-PASS next"; 172 (1) "Yes, it may" and (2) "Yes, that is coinciding" (the board's question in (2)
 read "(so it never actually touches)"); 174 "For the math" (three times); 177 "Yes, that is the appearance"; 170 (the
 clocks; it bears on X8's hold reading but is not used); 132 and 143 A (one way; what can cross); 117/120 (the NEC
 "appears broken, but is not"); 155 (2) "Yes, in bits"; 139 (2) "positive, and you have to prove it." and (4); 101 (7);
-129 (1) "the corridor is a bridge, so it adds nothing to either position."; 161 "my inclination is yes"; 162 (the
-throat "only every takes on the size that contains the README upon opening"); 163 "All together, one whole".  176's
+129 (1) "the corridor is a bridge, so it adds nothing to either position."; 159 "test both options"; 160 "the
+corridor and the opening are the same object"; 161 "my inclination is yes"; 162 (the whole chain object "only every
+takes on the size that contains the README upon opening"); 163 "All together, one whole".  176's
 H-PAIRING-IS-ENTANGLEMENT is the board's.
 
 RULINGS SINCE THE INSTRUMENT (read verbatim; applied here).
@@ -21,17 +24,29 @@ RULINGS SINCE THE INSTRUMENT (read verbatim; applied here).
       that the corridor is exclusive to the bulk." (typing kept; 180, M's correction: "*does not sit on either
       position's plane").  Carried as M's: H-CORRIDOR-IN-BULK.  X1-X10 describe the board's configuration (eq. (17) as
       our plane's own metric); under 179-180 re-read (H-CORRIDOR-IN-BULK).
+  181/182  181 "this bears directly on B4d, and requires priority" (the two-plane balance first): it orders the work and
+      changes nothing in X1-X10.  182, M's guess, not a ruling: "If I had to guess, I would go with C"
+      (H-TWO-SIDED-BRIDGE: a two-sided bridge in the bulk, our plane on one side and position 2's on the other).  It
+      bears on X1's H-END-2-IS-OUR-PLANE and is not decided here.
   183  M chose "Yes: never violated as a pair" (carried as M's: H-NEC-NEVER-VIOLATED-AS-PAIR; the board re-reads axiom
-      Z3 as net per light ray).  So X10 (e)'s exclusion of a negative energy DENSITY within one universe rests on
-      H-POSITIVE-ON-P2 (the board's reading of 139 (2)), a positivity ruling, not on the NEC, and its earlier "put to M"
-      is withdrawn (item 178 records M's thought on it; 183 records the re-read).  X8's refutation refutes only the
-      route with no second sheet (SIM2-FACING S14's E-PASS, "no second sheet"; the design spec's section 2, Lemma 0).
-      E-PASS as a whole is OPEN through 177/183 (H-PARTNER-IS-THE-COUPLING, the board's): it is never called refuted.
+      Z3 as net per light ray, and 187 (3) has since SEATED clause (Z) so worded).  So X10 (e)'s exclusion of a negative
+      energy DENSITY within one universe rests on H-POSITIVE-ON-P2 (the board's reading of 139 (2)), a positivity
+      ruling, not on the NEC, and its earlier "put to M" is withdrawn (item 178 records M's thought on it; 183 records
+      the re-read).  X8's refutation refutes only the route with no second sheet (SIM2-FACING S14's E-PASS, "no second
+      sheet"; the design spec's section 2, Lemma 0).  E-PASS as a whole is OPEN through 177/183
+      (H-PARTNER-IS-THE-COUPLING, the board's): it is never called refuted.
   184  "There are no matter free planes" (carried as M's: H-NO-MATTER-FREE-PLANES; with 129 (1), each plane carries its
       own universe's matter and the corridor adds none).  Every matter-free result here is a LIMIT, never M's
       configuration: P1 under clause (B) in full ("The plane is free of matter", the board's theorem clause, 172's
-      carry), so eq. (17) on P1, X10 (a)-(b) and every X1-X9 result that uses P1's data; and Schwarzschild's control.
-      (184 speaks of planes; the vacuum Lambda_5 bulk is clause (B)'s premise, carried as such.)
+      carry), so eq. (17) on P1 and every X1-X10 result where P1's data enter -- among them X10 (a)-(e), the vacuum data
+      of X10 (c) and S15's zero-net pair -- and Schwarzschild's control.  (184 speaks of planes; the vacuum Lambda_5
+      bulk is clause (B)'s premise, carried as such.)
+  187 (3)  M chose "Seat both": clause (G) is SEATED as the board worded it, "the corridor sits in the bulk, on neither
+      plane (179/180), with eq. (17) kept only as a plane's possible reading of the corridor's mouth" (WARPTHEOREM.md:
+      H-PLANE-READS-MOUTH, the board's, OPEN).  X10 (c)-(d) cite (G) as worded before 187 (eq. (17) at r0 = 2m on the
+      plane): the board's configuration, re-read with the 179-180 line above.
+  188  M's thought, offered for the math (H-PARTNER-AS-ENTANGLED-REFLECTION: the negative partner "along the lines of a
+      posotron", typing kept).  It bears on what supplies 183's partner (OPEN below); nothing here uses it.
   So X10 (c)'s last sentence keeps its text and carries the design spec's note (X10 (c) below; item 178 cites X10, so
   X1-X10 are never renumbered or deleted).
 
@@ -44,9 +59,11 @@ alpha = beta = 1, p = q = -e at the plane y = 0, alpha -> 0 at y_s^th (a curvatu
 vacuum solution in its own right (the near-horizon limit), and the owner's bulk tends to it as x -> 0 at O(x)
 (sim2_facing S8, x_valid).  The README's crossing is the event P_c where the plane (y = 0) meets the object's horizon,
 at advanced coordinate v_c; the README is a test event there (no backreaction; SIM1 S3b not addressed: see OPEN).
-Owners imported by path, never copied: sim2_facing.py (throat_bulk, throat_rhs, kret_throat, x_valid, _ystar, _yK,
-wec_window, piece_stress, _profile, _smooth_g2, _kind_name, CO_KINDS, DT_LAMS, _ricci_diag, BANNED_ARGS, S5.k_bs,
-B4._eq17, B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the example README: 2.0e5 clocks).
+Owners imported by path, never copied -- with one exception: the Hamiltonian constraint, which is a line and not a
+function in sim2_facing, is written out once here (_constraint) and checked against the 5D vacuum equations by C2.
+Imported: sim2_facing.py (throat_bulk, throat_rhs, kret_throat, x_valid, _ystar, _yK, wec_window, piece_stress,
+_profile, _smooth_g2, _kind_name, CO_KINDS, DT_LAMS, DT_C, _ricci_diag, BANNED_ARGS, S5.k_bs, B4._eq17,
+B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the example README: 2.0e5 clocks).
 
   X1  THE CHART (computed, sympy).  x = u^2, t = v + 2 sqrt2/u turns the throat metric into
       dy^2 + alpha^2 [-(u^2/2) dv^2 + 2 sqrt2 dv du] + 4 beta^2 dOmega^2 (AdS2's ingoing Eddington-Finkelstein form),
@@ -54,31 +71,44 @@ B4._eq17, B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the ex
       horizon have diverging tidal forces: Horowitz-Kolanowski-Santos, READ in the ground stage, PDF p.1, "When the
       cosmological constant is negative, we show that (in almost all cases) tidal forces diverge as one crosses the
       horizon", and PDF p.4, "Smoothness of the known exact solutions is an artifact of the symmetry rather than a
-      basic physical feature"; E-AN, OPEN).  Near P_c the bulk is fixed by the plane's Cauchy data, which are analytic
-      across u = 0 (eq. (17) at r0 = 2m in the ingoing chart: g_vv = -u^2/(u^2 + 2), g_vu = sqrt(4u^2 + 2); the
-      verification's computation, reproduced in this round's scratch, not an output here), so by Cauchy-Kovalevskaya
-      the bulk is analytic in a neighbourhood of P_c (deduced; standard-not-READ; not verified): the caution bears
-      toward y_s, where the analytic class is assumed (E-AN).  In this chart the 5D vacuum equations depend on y only
-      and reproduce sim2_facing's P, Q and constraint exactly.  u < 0 is the plane's second end in eq. (17)'s analytic extension
-      (plane.py P1's position-2 side; in the throat metric the S2 radius is 2 beta(y), and "r = 2m + u^2" belongs to
-      the plane's eq. (17)).  That it is the far end of OUR OWN plane within one universe is a global identification no
-      instrument here computes: H-END-2-IS-OUR-PLANE, the board's reading under its theorem clause (B) ("The plane's
-      two ends are one end of the bulk"), OPEN.  Against it: Simpson-Visser's maximal extension of the closest 4D
-      analogue labels the far side "Copy of our universe", and their one-universe version is "the 'looped'
-      Carter-Penrose diagram" that identifies the past and future bounces (READ in the ground stage, PDF pp.4-6),
-      which may close causal curves (against 128); two mouths in one ambient space need a non-trivial pi_1, and "The
-      topological censorship theorems say that in classical general relativity we cannot have a non-trivial first
-      homotopy group, pi_1" (Maldacena-Milekhin, READ, PDF p.12).  X7-X8 do not use the identification (their
-      J^-(P_c) lies in u >= 0); X9's one-universe placement and E-PASS's definition do.
+      basic physical feature"; E-AN, OPEN).  Near P_c the plane's Cauchy data are analytic across u = 0 (eq. (17) at
+      r0 = 2m in the ingoing chart: g_vv = -u^2/(u^2 + 2), g_vu = sqrt(4u^2 + 2); the verification's computation,
+      reproduced in scratch, not an output here), so Cauchy-Kovalevskaya gives an analytic bulk near P_c with these
+      data (existence, unique among analytic solutions; standard-not-READ).  That the bulk IS this one needs uniqueness
+      among smooth solutions, which for data on the timelike plane across u = 0 is not established here (OPEN; X10 (c):
+      the unique continuation used there covers the static region off the horizon only).  Under that uniqueness HKS's
+      caution bears toward y_s, where the analytic class is assumed (E-AN); without it, at P_c as well (deduced).  In
+      this chart the 5D vacuum equations depend on y only and reproduce sim2_facing's P, Q and constraint exactly.
+      u < 0 is the plane's second end in eq. (17)'s analytic extension (plane.py P1's position-2 side; in the throat
+      metric the S2 radius is 2 beta(y), and "r = 2m + u^2" belongs to the plane's eq. (17)).  That it is the far end
+      of OUR OWN plane within one universe is a global identification no instrument here computes:
+      H-END-2-IS-OUR-PLANE, the board's reading under its theorem clause (B) ("The plane's two ends are one end of the
+      bulk"), OPEN; 182's guess (M's) bears on it and is not decided here.  What bears on it (READ in the ground
+      stage): Simpson-Visser, for the closest 4D analogue (the ground stage's deduction), label the maximal extension's
+      far side "Copy of our universe" (PDF p.6, Fig. 2), and their alternative construction -- "we can identify the past
+      null bounce at r = 0 with the future null bounce at r = 0 yielding the 'looped' Carter-Penrose diagram of figure
+      3" (PDF p.5) -- is what the ground stage reads as the one-universe version; it may close causal curves, against
+      128 (deduced and OPEN, the ground stage's; SV do not discuss it).  In 4D, two mouths in one ambient space give a
+      non-trivial pi_1, which topological censorship forbids classically (deduced; standard); Maldacena-Milekhin say so
+      and resolve it in 5D (READ, PDF p.12): "The topological censorship theorems say that in classical general
+      relativity we cannot have a non-trivial first homotopy group, pi_1. This is allowed when quantum effects are
+      included. However, what looks like a quantum Casimir energy in four dimensions is actually a classical effect in
+      five dimensions (the negative classical energy of AdS3). So in five dimensions the topological censorship should
+      work. It indeed works because the classical geometry in five dimensions has a trivial pi_1. ... This is possible
+      by moving the light ray into the fifth dimension."  Their construction, which fills the loop, rests on that AdS3
+      region (a 5D U(1) field with magnetic flux, charged mouths: X10 (a)), which clause (B)'s vacuum bulk excludes
+      (X10 (c)).  Whether this vacuum bulk fills the loop is OPEN (the ground stage, deduced: in 5D a passage between
+      two regions of one plane is compatible with topological censorship when the bulk makes it homotopic to a path in
+      the plane).  X7-X8 do not use the identification (their J^-(P_c) lies in u >= 0); X9's one-universe placement
+      and E-PASS's definition do.
   X2  THE HORIZON (computed).  xi = d_v has norm -alpha^2 u^2/2; g^uu = u^2/(4 alpha^2), g^yu = 0; so u = 0 is a null
       hypersurface generated by d_v at every depth, and kappa^2 = -(1/2) (nabla xi)^2 = u^2 (4 alpha'^2 + 1)/8 vanishes
       on it at every y < y_s^th: a Killing horizon, VERTICAL and DEGENERATE at every depth, exact on the AdS2-symmetric
       throat only.  kappa = 0 identically, so Racz-Wald's singularity theorem, which needs kappa != 0 on a generator,
-      does not apply, and the horizon is in their class of horizons with kappa = 0, on whose regularity they decide
-      nothing (their abstract, CQG 9 (1992) 2643, as two verifiers quote it from the SciSpace record and the IOP page;
-      not re-read here, the full text NOT READ; cited before through Karasik et al., READ in the ground stage, p.3).
-      Control: the non-degenerate
-      g_vv = -alpha^2 (u^2 - h^2)/2 gives kappa != 0 on its horizon u = h.
+      does not apply, and the horizon is in their class of horizons with kappa = 0, on whose regularity their abstract
+      decides nothing (CQG 9 (1992) 2643, the abstract as two verifiers quote it from the SciSpace record and the IOP
+      page; not re-read here; the full text NOT READ; cited before through Karasik et al., READ in the ground stage,
+      p.3).  Control: the non-degenerate g_vv = -alpha^2 (u^2 - h^2)/2 gives kappa != 0 on its horizon u = h.
   X3  ONE WAY (deduced from the computed null directions).  From ef_metric's (v, u) block: the radial null directions are
       dv = 0 (ingoing; -d_u is future-directed since g(d_v, d_u) = sqrt2 alpha^2 > 0) and du/dv = u^2/(4 sqrt2) >= 0; on
       u < 0 the second reaches u = 0 only as v -> infinity.  So the hypersurface u = 0 is crossed only from u > 0 into
@@ -110,93 +140,132 @@ B4._eq17, B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the ex
   X7  THE CONE BUDGET (deduced, computed).  A causal curve from conformal depth eta to P_c that stays where the throat
       geometry holds (x <= x_lim, zeta >= zeta_lim = 2 sqrt2/sqrt(x_lim)) needs the static bulk to have stood an
       advanced-coordinate hold v_c - v_open of at least zeta_lim 2 sin^2(eta/4) -- attained for eta <= pi; for eta > pi
-      the confined minimum is zeta_lim [1 + (eta - pi)/2] (the ground stage's g, reproduced here by a dynamic
-      programme, C9) -- and at most zeta_lim eta/2 (an explicit curve at fixed zeta, then the plane's ingoing null leg,
-      which costs no advanced coordinate).  lower <= upper is STRUCTURAL (1 - cos(eta/2) <= eta/2).  The budgets are
-      computed on the zeroth-order throat; the upper curve is null there at x = x_lim, where the O(x) terms reach 10%,
-      a rescaling the margins below absorb.
+      the confined minimum is zeta_lim [1 + (eta - pi)/2] (the ground stage's g, deduced there; reproduced numerically,
+      to 1.3%, by an independent dynamic programme, C9) -- and at most zeta_lim eta/2 (an explicit curve at fixed zeta,
+      then the plane's ingoing null leg, which costs no advanced coordinate).  lower <= upper is STRUCTURAL
+      (1 - cos(eta/2) <= eta/2).  The budgets are computed on the zeroth-order throat; the upper curve is null there at
+      x = x_lim, where the O(x) terms reach 10%, a rescaling the margins below absorb.
       Computed: every layer up to K = 1e10 K_bs lies in J^-(P_c) within the O(x) range (x_lim the least x_valid over
-      the layer's depths, O(x) <= 0.1): at most 389.3 clocks over the nine ell.  Deeper, the budget computable within
-      that range grows (upper ~ K^0.126 fitted between 1e15 and 1e30 K_bs, near the verification's K^(1/8)) and is
-      unbounded at the singular surface: the layer's LOWER budget passes the write's floor at K = 1e33 K_bs (ell = inf,
-      8m; at ell = m the full system ends at alpha = 1e-6 before it).  Part of the shrinking O(x) range is a shift of
-      the singular depth with x (y_s(x) ~ y_s + s1 x, the verification's computation, not computed here), so this says
-      the instrument does not reach the singular surface within O(x); it does not say the surface is outside J^-(P_c).
+      the layer's depths, O(x) <= 0.1): at most 389.3 clocks over the nine ell (the claimed rows, C8).  Deeper, the
+      per-decade scan (ell = inf, 8m, m) still places layers in J^-(P_c) within O(x): by the upper budget (the explicit
+      curve) to K = 1e31 K_bs at ell = inf and 8m and to 1e32 K_bs at ell = m, and by the confined minimum to 1e32 K_bs
+      at all three.  The budget grows (upper ~ K^0.126 fitted between 1e15 and 1e30 K_bs, near the verification's
+      K^(1/8)) and is unbounded at the singular surface: the layer's LOWER budget passes the write's floor between
+      K = 1e32 and 1e33 K_bs (ell = inf, 8m; at ell = m the full system ends at alpha = 1e-6 before it).  Part of the
+      shrinking O(x) range is a shift of the singular depth with x (y_s(x) ~ y_s + s1 x, the verification's
+      computation, not computed here), so this says the instrument does not reach the singular surface within O(x);
+      it does not say the surface is outside J^-(P_c).
       The singular surface itself lies in J^-(P_c) only in the exact near-horizon solution held to y_s at a fixed
       x_lim: below the floor for x_lim >= 1e-8 (the floor is 2.47 times the upper budget at 1e-8, ell = inf), above it
       past the computed crossover (upper below x_lim = 1.64e-9, lower below 7.72e-10, ell = inf).  Those rows
       illustrate the x_lim^(-1/2) law; they are not O(x)-supported evidence about the singular surface.
-      The comparison is v_c - v_open >= budget: it holds with v_c - v_open >= 2.0e5 when the crossing ends the write
+      The comparison is v_c - v_open >= budget.  It holds with v_c - v_open >= 2.0e5 when the crossing ends the write
       (H-WRITE-IS-ARRIVAL, the board's, o3_write W3, on which the gas bound rests; 162's record set it aside, 163's keeps
-      the gas bound and 115 (c), the README carried in) and the fixed-size static corridor stands from its opening
-      through the write (162 "upon opening"; 163's carry, "B4d must keep the fixed-size corridor regular for that
-      long"): o3_write W4's reading (i) H-WRITE-IN-STATIC-HOLD, not (ii), where the corridor does not exist until the
-      README has arrived.
+      the gas bound and 115 (c), the README carried in) and the fixed-size corridor stands, static, from its opening
+      through the write (162: the whole chain object takes its size "upon opening"; 163's chosen option, in the board's
+      wording that M chose: "B4d must keep the fixed-size corridor regular for that long"; static:
+      H-QUASI-STATIC-CORRIDOR, the board's).  That placement is o3_write W4's reading (ii) as 160's record re-reads it
+      (M's 160: the opening is the corridor), with the static-hold mechanics W4 gave reading (i)
+      (H-WRITE-IN-STATIC-HOLD, the board's; 159 keeps both readings live), whose hold distinct from the opening 160's
+      record dissolves (the board's record, to be worked).  It is not W4's own (ii), where under H-PULL-IS-COST "the
+      corridor of mass m does not exist until the README has arrived" (an ingoing Vaidya opening, non-static; 160's
+      record: no longer the opening's model).  There no static corridor stands before v_c, and X7-X8 neither refute
+      nor save the route (OPEN; 159).
   X8  WITHOUT A SECOND SHEET (deduced).  So stage 6's cone premise refutes the route with no second sheet -- SIM2-FACING
       S14's E-PASS ("no second sheet"), the design spec's Lemma 0 -- on its own, on the conjunction: the exact throat
-      geometry down to y_s (within O(x) only finite layers up to 1e10 K_bs are placed in J^-(P_c); the singular surface
-      only in the exact near-horizon solution); 174 (1)'s strict rule as the board decided it (a curvature singularity
-      in the corridor's causal past counts against it); static bulk through the hold (H-QUASI-STATIC-CORRIDOR, the
-      board's); eq. (17) on P1 at our tension, clause (B) in full on P1 (a matter-free limit under 184); vacuum
-      Lambda_5 and the analytic class; the throat ODE and its O(x) correction as evidence; the hold measured in
-      advanced coordinate (H-HOLD-IN-ADVANCED-TIME, the board's: it coincides with O3-WRITE's gloss of H-HOLD-FRAME,
-      "T is measured in advanced time (H-HOLD-FRAME)", o3_write W3, and departs from B4D-STAGE5's gloss, "the far-time
-      frame (H-HOLD-FRAME)"; on the plane's static clock the crossing lies at t = +infinity, outside every finite hold,
-      and on such a hold X1-X10 neither refute nor save the route -- the spec's far-time X11 is to take that half up,
-      not in this file); H-WRITE-IS-ARRIVAL with the corridor standing from its opening (X7); a write of >= 2.0e5
-      clocks (o3_write W3, kept by 163); the README as a test event (no backreaction; SIM1 S3b not addressed).
-      H-END-2-IS-OUR-PLANE (X1, OPEN) is not a conjunct.  E-PASS as a whole is NOT refuted: under 183
+      geometry down to y_s held at x_lim >= 1e-8 (within O(x) the claimed rows place layers to 1e10 K_bs in J^-(P_c)
+      and the scan to 1e31-1e32 K_bs, X7; the singular surface itself only in the exact near-horizon solution at
+      x_lim >= 1e-8 -- below x_lim = 1.64e-9 its upper budget passes the floor, ell = inf); 174 (1)'s strict rule as
+      the board decided it (a curvature singularity in the corridor's causal past counts against it); static bulk
+      through the hold (H-QUASI-STATIC-CORRIDOR, the board's); eq. (17) on P1 at our tension, clause (B) in full on P1
+      (a matter-free limit under 184); vacuum Lambda_5 and the analytic class; the throat ODE and its O(x) correction as
+      evidence; the hold measured in advanced coordinate (H-HOLD-IN-ADVANCED-TIME, the board's: the write floor's own
+      frame, "T the write's length in clocks (advanced time, H-HOLD-FRAME)", o3_write W3; it coincides with O3-WRITE's
+      gloss of H-HOLD-FRAME (the board's), "T is measured in advanced time (H-HOLD-FRAME)", and departs from
+      B4D-STAGE5's, "the far-time frame (H-HOLD-FRAME)"; which gloss stands is not decided here, OPEN; on the plane's
+      static clock the crossing lies at t = +infinity, outside every finite hold, and on such a hold X1-X10 neither
+      refute nor save the route -- the spec's far-time X11 is to take that half up, not in this file);
+      H-WRITE-IS-ARRIVAL with the corridor standing static from its opening (X7; not o3_write W4's own (ii)); a write
+      of >= 2.0e5 clocks (o3_write W3, kept by 163); the README as a test event (no backreaction; SIM1 S3b not
+      addressed).  H-END-2-IS-OUR-PLANE (X1, OPEN) is not a conjunct.  E-PASS as a whole is NOT refuted: under 183
       (H-NEC-NEVER-VIOLATED-AS-PAIR, M's) its stationary crossing is OPEN through 177 (H-PARTNER-IS-THE-COUPLING, the
-      board's), and position 2's piece regularises the crossing's past near the throat (X9).
+      board's).  Near the throat position 2's piece keeps the singular layer out of the crossing's past only for the
+      depth and profile pairs X9 passes (the level surface at d >= y*; the smooth family at every sampled depth; every
+      sampled profile at 0.1 y_s, d_+ and depth 0; all at amplitude c = 0.05); it does not for the 11 sampled
+      power-law cases at y* or the band's midpoint with ell <= m, and on the power-law coincidence P2's own stress
+      diverges at P_c along the regular null frame (C11b).
   X9  WITH POSITION 2'S PIECE AT DEPTH d < y_s (computed, deduced).  With P2 mirrored (H-Z2-PIECES, the board's) and
       carrying the README's stress (H-README-ON-P2, M's 172 (1) "Yes, it may"), the slab is bounded by P1 (y = 0) and
       P2: y = d + f(x), a level surface (f = 0) only where W1(d) >= 0 (d >= y*), otherwise S7's class (f > 0 at x > 0:
-      the power law c x^lam, 0 < lam < 1/2, or the smooth family g1 sqrt(x) + g2 x).  No slab is cut at d: near the
-      throat J^-(P_c) holds slab points down to P2's own depth d + f(x) over its part of P2 (x from u_min^2 to x_valid(d)),
-      so "no singular layer" needs d + f(x) < y_s^th there.  Computed (C11a): it holds for the level surface at every
-      d >= y* row, for every profile at 0.1 y_s, at d_+ (ell = 32m) and in the coinciding limit at every ell; it FAILS
-      for S7's power laws at y* or the band's midpoint at ell <= m (ell = m: lam 0.1 at the band's midpoint; m/2: lam
-      0.1, 0.25 at both; m/4: all three lam at both -- each reaches y_s^th inside x_valid(d) and inside J^-(P_c)).
-      Unmirrored (E-ASYM) the slab does not exclude anything.  Away from the throat "no singular layer" needs P2 above
-      y_s(r) on all of J^-(P_c), which reaches every r with v <= v_c: OPEN (E-G, E-FAR; for the band case P2 is deeper
-      near the horizon than at its nearest point).  P2's own points with u > 0 enter J^-(P_c) down to
-      u_min = 4 sqrt2 sin^2(eta(d)/4)/Delta_v (to leading order in f).
+      the power law c x^lam, 0 < lam < 1/2, or the smooth family g1 sqrt(x) + g2 x).  Which profile and amplitude is
+      P2's is not answered (172: "Not answered: which part of position 2's stress is its law"); the rows sample four
+      profiles at one amplitude, c = g1 = 0.05 (sim2_facing.DT_C; lam 0.1, 0.25, 0.4, and the smooth family).  No slab
+      is cut at d: near the throat J^-(P_c) holds slab points down to P2's own depth d + f(x) over its part of P2 (x
+      from u_min^2 to x_valid(d)), so "no singular layer" needs d + f(x) < y_s^th there.  Computed (C11a): it holds for
+      every sampled profile at 0.1 y_s, at d_+ (ell = 32m) and in the coinciding limit at every ell, and for the
+      smooth family at every row (every failure is a power law); for the level surface at every d >= y* row it holds
+      by construction (STRUCTURAL: every row is shallower than y_s^th); it
+      FAILS for the sampled power laws at y* or the band's midpoint at ell <= m (ell = m: lam 0.1 at the band's
+      midpoint; m/2: lam 0.1, 0.25 at both; m/4: all three lam at both -- each reaches y_s^th inside x_valid(d) and
+      inside J^-(P_c)).
+      The margins depend on the amplitude: a power law keeps its margin iff c < c* = (y_s^th - d)/x_valid(d)^lam
+      (deduced: f rises with x; computed per row).  At depth 0, 0.1 y_s and d_+, c* >= 0.48 (ell = m/4, 0.1 y_s,
+      lam 0.1), about ten times the sampled 0.05; at y* and the band's midpoint c* runs from 9.0e-4 (ell = m/4) to 3.9
+      (ell = inf).  Unmirrored (E-ASYM, phase 3) P2's outer side is its own bulk, so the cut does not by itself remove
+      the singular layer (deduced, the board's; not computed here).  Away from the throat "no singular layer" needs P2
+      above y_s(r) on all of J^-(P_c), which reaches every r with v <= v_c: OPEN (E-G, E-FAR; for the band case P2 is
+      deeper near the horizon than at its nearest point).  P2's own points with u > 0 enter J^-(P_c) down to
+      u_min = 4 sqrt2 sin^2(eta(d)/4)/Delta_v (to leading order in f); its horizon line at d > 0 is not in J^-(P_c).
       The coinciding limit d -> 0 (M's 172 (2) "Yes, that is coinciding"): K -> 2(80 e^4 + 3)/(160 e^4 + 3) K_bs, and
       the slab pinches along the plane's horizon line, which contains P_c.  On the power-law profiles P2's stress in the
       crosser's frame diverges at P_c (computed, C11b: along the null direction n = -d_u, regular across u = 0, the
-      sheet reads 4 alpha^2 (rho + p_r)/x, which grows as x^(lam - 1)), which 174 (1)'s strict rule, as the board
-      decided it, counts against it; only the smooth family stays finite (S7; computed).  Restricted to the smooth
-      family, the README's crossing event is the coincidence event.  It is reached at finite advanced coordinate, at
-      finite proper time by a radial timelike observer on the plane (computed: u'^2 = E^2/2 - u^2/4, so u' = -E/sqrt2
-      at u = 0) and at finite affine parameter by the null README (H-README-AS-NULL-DUST, opening.py; dv = 0), never on
-      any static slice (X3, X6); compare Emparan-Horowitz-Myers on RS2's AdS5 Poincare horizons, by analogy only (READ
-      in the ground stage, PDF p.2): "... can be reached by observers in finite proper time (just like the horizons of
-      extreme charged black holes). The linearized modes studied in [1] turn out to be singular on these horizons [5]."
+      sheet reads 4 alpha^2 (rho + p_r)/x, which grows as x^(lam - 1)), while its static-frame rho, rho + p_r and
+      rho + p_th stay finite (rho + p_r -> 0 as x^lam; computed): a divergence along the regular null frame only, a
+      parallelly-propagated divergence of P2's sheet with finite static-frame components (compare HKS's horizons, whose
+      tidal forces diverge while "all scalar curvature invariants remain finite", ground stage READ, PDF p.1; by analogy
+      only).  174 (1)'s strict rule was decided for curvature singularities; counting this divergence under it is the
+      board's reading.  Only the smooth family stays finite (S7; computed).  Restricted to the smooth family, the
+      README's crossing event is the coincidence event.  It is reached at finite advanced coordinate, at finite proper
+      time by a radial timelike observer on the plane (computed: u'^2 = E^2/2 - u^2/4, so u' = -E/sqrt2 at u = 0) and
+      at finite affine parameter by the null README (H-README-AS-NULL-DUST, the board's: the E-PASS design's name for
+      opening.py's null-dust convention, whose own reading is R-VAIDYA-HOLDS; dv = 0), never on any static slice (X3,
+      X6); compare Emparan-Horowitz-Myers on RS2's AdS5 Poincare horizons, by analogy only (READ in the ground stage,
+      PDF p.2): "... can be reached by observers in finite proper time (just like the horizons of extreme charged black
+      holes). The linearized modes studied in [1] turn out to be singular on these horizons [5]."
       Separately, the board's reading, not derived: 172 (2)'s question said "(so it never actually touches)", and the
       carry H-COINCIDE-DOWN-THE-THROAT's "never a reached point" is the board's wording, not M's; the board reads it as
       "on no static slice", while the crosser does reach the event (H-REACHED-ONLY-BY-THE-CROSSER, the board's) -- an
       inversion of the question's wording, not decided under 149, put to M with the E-PASS report.  On positive energy
-      at finite ell exact coincidence is not available within one universe (174 (3)): at every finite ell it costs P2
-      rho_m -> -2 sigma_RS (sim2_facing S15).  Held at an approach depth in P2's positive-energy window [d_+, top]
-      (ell = 32m: [0.8395m, 1.5352m]; such a window exists only for ell > 27.07m), P2's energy is positive (S15) and
-      near the throat the slab is regular there, as at any d > 0 whose profile keeps its margin (C11a); at d_+ itself
-      only power laws with lam < lam_max = 0.342 (32m), non-smooth at u = 0, hold (S15).  At ell = inf, d_+ = 0 is
-      exact coincidence, the flat limit, where the coincidence caveat above applies.  The smooth family continued
-      through u = 0 meets P1 just past the horizon on end 2's side (ground stage, scratch: u_x -> -d/g1).  The README
-      is a test event here too (SIM1 S3b, OPEN).
+      at finite ell exact coincidence is not available within one universe (174 (3)): on H-SPLIT-AT-OUR-TENSION (the
+      board's decision under 174) it costs P2 rho_m -> -2 sigma_RS at every finite ell (sim2_facing S15).  Held at an
+      approach depth (facing on H-APPROACH-AT-DEPTH, the board's, adopted under 174) in P2's positive-energy window
+      [d_+, top] (ell = 32m: [0.8395m, 1.5352m]; such a window exists only for ell > 27.07m), P2's energy is positive
+      (S15, on H-SPLIT-AT-OUR-TENSION), and near the throat the slab holds no curvature singularity of the bulk (it is
+      the throat bulk above its singular depth) at any d > 0 whose profile keeps its margin (C11a).  At d_+ itself only
+      power laws with lam < lam_max = 0.342 (32m) hold (S15): non-smooth at u = 0, where their stress grows as above,
+      but P2's horizon line at d_+ > 0 is outside J^-(P_c) and its points enter only down to u_min > 0.  At ell = inf,
+      d_+ = 0 is exact coincidence, the flat limit, where the coincidence caveat above applies.  The smooth family
+      continued through u = 0 meets P1 just past the horizon on end 2's side (ground stage, scratch: u_x -> -d/g1).
+      The README is a test event here too (SIM1 S3b, OPEN).
   X10 E-Q, ITEM 177 (computed, deduced).  (a) The 5D bulk is vacuum with Lambda_5 (clause (B)'s premise), so
       R_kk = -(4/ell^2) g_kk = 0 for every 5D null k (deduced).  On a vacuum piece at the RS tension (P1) the plane's
       Einstein tensor is minus the projected bulk Weyl term, so any negative null energy read on P1 is that
       term: Shiromizu-Maeda-Sasaki (standard-not-READ), as Bronnikov-Kim relay it (READ, gr-qc/0212112v1 PDF p.1): "In
       vacuum, when matter on the brane is absent and the 4-dimensional cosmological constant is zero ..., these
       equations reduce to G_mu nu = -E_mu nu, (1) where ... E_mu nu is the projection of the 5-dimensional Weyl tensor
-      onto the brane."  On P2, which carries the README's stress (172 (1)), the quadratic term pi_kk enters too (for a
-      perfect fluid (1/6) rho (rho + p)(u.k)^2, standard-not-READ; negative when rho < 0).  Maldacena-Milekhin is a
-      precedent only (READ, PDF p.12): "what looks like a quantum Casimir energy in four dimensions is actually a
-      classical effect in five dimensions (the negative classical energy of AdS3)" -- under hypotheses this bulk does
-      not meet: their 5D action carries a U(1) gauge field, "- 1/(4 g_5^2) int d^5x sqrt(g) F_mu nu F^mu nu" (eq.
-      (3.17), PDF p.8), with "a magnetic flux at the boundary of AdS5" (PDF p.9), mouths of opposite magnetic charge
-      ("two black holes with opposite charges", PDF p.4), and no horizon ("Since g_tt never vanishes", PDF p.12).
+      onto the brane. ... Due to its geometric origin, E_mu nu does not necessarily satisfy the energy conditions
+      applicable to ordinary matter. Thus, examples are known [29] when negative energies on the brane are induced by
+      gravitational waves or black strings in the bulk." (READ this round, PDF p.1).  On P2, which carries the README's
+      stress (172 (1)), the quadratic term pi_kk enters too (for a perfect fluid (1/6) rho (rho + p)(u.k)^2,
+      standard-not-READ; negative when rho < 0).  Maldacena-Milekhin is a precedent only (READ, PDF p.12): "what looks
+      like a quantum Casimir energy in four dimensions is actually a classical effect in five dimensions (the negative
+      classical energy of AdS3)" -- under hypotheses this bulk does not meet (READ this round): a dark sector, "Our
+      construction needs a dark sector consisting of a four dimensional conformal field theory with a U(1) symmetry
+      that is gauged by a four dimensional (dark) gauge field" (PDF p.2), holographic, "it has an AdS5 dual described by
+      five dimensional gravity and a five dimensional U(1) gauge field" (PDF p.3); their 5D action carries that field,
+      "- 1/(4 g_5^2) int d^5x sqrt(g) F_mu nu F^mu nu" (eq. (3.17), PDF p.8), with "a magnetic flux at the boundary of
+      AdS5" (PDF p.9), mouths of opposite magnetic charge ("two black holes with opposite charges", PDF p.4), and no
+      horizon ("Since g_tt never vanishes", PDF p.12).
       (b) Computed: eq. (17)'s own plane (a matter-free limit under 184) reads negative integrated null energy along the
       ingoing radial null ray from far out to the throat, exactly (sqrt3 ln(2 + sqrt3) - 6)/(36 pi) = -0.0328828437...
       (sympy's exact integral equals this closed form to 60 digits; reduced by hand with r = 2 + s^2, s = tan(th)/sqrt2,
@@ -208,46 +277,72 @@ B4._eq17, B4._schwarzschild), o3_write.py (the write's floor, t_min(3) at the ex
       initial-value problem in y for the cohomogeneity-one ODEs: Picard-Lindelof, deduced): a static symmetric coupling
       that leaves the plane's data unchanged changes nothing there, and a change of the plane's data is a sheet or
       matter (computed: p(0) moved along the constraint surface, q(0) solved from the yy constraint, moves y_s both
-      ways, the constraint held to ~1e-14 along the run).  For static data that break the AdS2 x S2 symmetry, uniqueness
-      is unique continuation for the static elliptic system (standard-not-READ here; Anderson-Herzlich arXiv:0710.1305v2
-      Thm 1.1 was READ by the verification's skeptic, not by the board), while existence needs the analytic class
-      (Cauchy-Kovalevskaya; E-AN, OPEN); non-static changes are not covered (E-NS, OPEN).  Maldacena-Milekhin's own
-      classical-5D route needs bulk and plane fields (a 5D U(1) field, charged mouths) that clauses (B) and (G)
-      exclude.  [Kept as written:] So E-Q, realised classically in five dimensions, is a change of the bulk, and the
-      change E-PASS needs is position 2's sheet: the coupled ends are the slab, whose coincident pair carries zero net
-      surface stress (sim2_facing S15), the +sigma/-sigma pairing of 176.  [Labels:] "the coupled ends are the slab" is
-      the board's reading under H-PAIRING-IS-ENTANGLEMENT (176, the board's, put to M); S15's zero net is a computed
-      fact with no reading attached, a total of zero, never "positive"; and by (e) the slab carries no negative null
-      energy, so the identification does not by itself realise 177's appearance.  [Note:] superseded in part by X13:
-      position 2's piece regularises the crossing's past; it does not pay the crossing (Lemma S).
+      ways, the constraint held to ~1e-14 along the run).  For static data that break the AdS2 x S2 symmetry,
+      uniqueness in the static region off the horizon is unique continuation for the Riemannian section (a static
+      vacuum metric with Lambda_5 Wick-rotates to a Riemannian Einstein metric with the same constant:
+      standard-not-READ; the plane its boundary, with eq. (17)'s metric and the Israel data as (gamma, A): deduced).
+      Anderson-Herzlich, arXiv:0710.1305v2 (READ this round): Thm 1.1, for "a C^{3,alpha} metric on a compact manifold
+      with boundary" with "Ric_g = lambda g" (PDF p.1; their class is "Riemannian metrics"), "Then (M, g) is uniquely
+      determined up to local isometry and inclusion, by the Cauchy data (gamma, A) on an arbitrary open set U of dM",
+      and "the proofs are local, and these results hold for metrics defined on an open manifold with boundary" (PDF p.2)
+      [math transcribed].  Across u = 0 the static quotient degenerates (the lapse vanishes on the Killing horizon,
+      which lies at infinite distance on a static slice: X2), so uniqueness there is NOT covered: OPEN (with HKS, X1).
+      Existence off the reduction needs the analytic class (Cauchy-Kovalevskaya; E-AN, OPEN); non-static changes
+      (E-NS) and motion inside the planes (E-ROT: "K not diagonal (your 141's internal motion)", SIM2-FACING S14) are
+      not covered: OPEN.  Maldacena-Milekhin's own classical-5D route needs a 5D U(1) gauge field and charged mouths
+      (X10 (a)): clause (B)'s vacuum bulk excludes the field; the charged mouths were excluded too by (G) as worded
+      before 187 (eq. (17), a vacuum-plane metric with no Maxwell field), which 187's (G) keeps only as a plane's
+      possible reading of the mouth.  [Kept as written:] So E-Q, realised classically in five dimensions, is a change of
+      the bulk, and the change E-PASS needs is position 2's sheet: the coupled ends are the slab, whose coincident pair
+      carries zero net surface stress (sim2_facing S15), the +sigma/-sigma pairing of 176.  [Labels:] "the coupled ends
+      are the slab" is the board's reading under H-PAIRING-IS-ENTANGLEMENT (176, the board's, put to M); S15's zero net
+      is a computed fact with no reading attached, a total of zero, never "positive"; and by (e) the slab carries no
+      negative null energy, so the identification does not by itself realise 177's appearance.  [Note:] superseded in
+      part by X13: position 2's piece regularises the crossing's past; it does not pay the crossing (Lemma S).
+      [Pointer:] on the depths and profiles X9 passes (X8).
       (d) Maldacena-Qi's horizonless link (global AdS2, READ) would remove the degenerate horizon: a two-way passage,
-      against clause (O) and 132.  Any horizonless plane metric departs from (G)'s eq. (17) at r0 = 2m, whose
+      against clause (O) and 132.  Any horizonless plane metric departs from eq. (17) at r0 = 2m (the board's
+      configuration: (G) before 187; under 187's (G) a plane's possible reading of the mouth, OPEN), whose
       g_tt = -(1 - 2m/r) vanishes at the throat (computed); within eq. (17)'s family that is Bronnikov-Kim's wormhole
-      branch r0 > 2m (READ, PDF p.4: "This is evidently a symmetric wormhole geometry for any r0 > 2m"), whose
-      near-throat geometry at r0 = 2m + delta is global AdS2 (deduced: -(x/2) dt^2 + dx^2/(x(x - delta)), x =
-      delta/cos^2 chi).  So the coupling the corridor admits keeps the horizon (deduced; Gao-Jafferis-Wall's protocol
-      NOT READ).
-      (e) At coincidence P2's matter obeys the NEC only marginally (rho_m + p_m -> 0) and its energy density is
-      negative: 177 speaks of negative NULL energy, so as worded it does not reach this negative density.  Under 183
-      (H-NEC-NEVER-VIOLATED-AS-PAIR, M's; axiom Z3 re-read as net per light ray) the exclusion of a negative energy
-      DENSITY within one universe rests on H-POSITIVE-ON-P2 (the board's reading of 139 (2)), a positivity ruling, not
-      on the NEC.  The earlier "put to M" is withdrawn (item 178 records M's thought on this point, item 183 the
-      re-read; lemmas/ITEM178-NULL-PAIRS.md).  At exact coincidence the across-plane pair total is zero, which meets
-      H-NEC-NEVER-VIOLATED-AS-PAIR exactly; a zero total is not "positive".
-  OPEN (every item, plainly).  Crossing regularity off the exact AdS2-symmetric throat (HKS; E-AN; X1, X2, X9).  The
-      global P2: P2 above y_s(r) on all of J^-(P_c) (E-G, E-FAR; X9).  Topology and one universe: H-END-2-IS-OUR-PLANE
-      (X1).  The README as a test event: SIM1 S3b (a horizon that keeps its size absorbs nothing in one spacetime when
-      the flux obeys the NEC) bars the crossing unless a negative R_kk supplies it; under 183 that negative member is the
-      appearance (H-NEC-NEVER-VIOLATED-AS-PAIR, M's) and its supply is OPEN through 177 (H-PARTNER-IS-THE-COUPLING, the
-      board's; the spec's Lemma S), so E-PASS's stationary crossing is OPEN.  The far-time (static-clock) half of the
-      no-second-sheet refutation (X8; the spec's X11).  Symmetry-breaking static and non-static bulk changes (E-AN, E-NS;
-      X10 (c)).  H-REACHED-ONLY-BY-THE-CROSSER, put to M (X9).  The singular surface within O(x) (X7).
-  It is necessary, not sufficient, and never B4d green.  No value here is a length (155 (2): bits), a distance, a
-  speed (139 (4)) or anything the device sees (101 (7)); the budgets are holds for the cone premise, as stage 5 F3's.
+      branch (READ, PDF p.4: "This is evidently a symmetric wormhole geometry for any r0 > 2m >= 0, or for any r0 > 0
+      in case m < 0." [math transcribed]), whose near-throat geometry at r0 = 2m + delta is global AdS2 (deduced:
+      -(x/2) dt^2 + dx^2/(x(x - delta)), x = delta/cos^2 chi).  So the coupling the corridor admits keeps the horizon
+      (deduced; Gao-Jafferis-Wall's protocol NOT READ).
+      (e) At coincidence P2's matter obeys the NEC only marginally (rho_m + p_m -> 0) and, on H-SPLIT-AT-OUR-TENSION
+      (the board's), its energy density is negative: 177 speaks of negative NULL energy, so as worded it does not reach
+      this negative density.  Under 183 (H-NEC-NEVER-VIOLATED-AS-PAIR, M's; axiom Z3 re-read as net per light ray) the
+      exclusion of a negative energy DENSITY within one universe rests on H-POSITIVE-ON-P2 (the board's reading of
+      139 (2)), a positivity ruling, not on the NEC.  This point's earlier "put to M" is withdrawn (item 178 records M's
+      thought on it, item 183 the re-read); the board's reading of 178 (lemmas/ITEM178-NULL-PAIRS.md, re-read under 183)
+      is still to go to M with the E-PASS report, as 178's record says.  At exact coincidence the 5D null energy along
+      a ray crossing the coincident sheets sums to zero (per-sheet -sigma_RS k_y^2 for position 2's piece and
+      +sigma_RS k_y^2 for ours, bookkeeping whose sign follows the owner's orientation: ITEM178-NULL-PAIRS.md section 5,
+      deduced there); the board reads that zero as meeting H-NEC-NEVER-VIOLATED-AS-PAIR exactly.  A zero total is not
+      "positive".
+  OPEN (every item found, plainly).  Crossing regularity off the exact AdS2-symmetric throat (HKS; E-AN; X1, X2, X9).
+      Uniqueness of the bulk among smooth solutions near P_c and across u = 0 (X1, X10 (c)).  The global P2: P2 above
+      y_s(r) on all of J^-(P_c) (E-G, E-FAR; X9).  P2's law: which profile and amplitude (172's "Not answered"; X9's
+      margins are sampled at c = 0.05).  Whether a parallelly-propagated divergence of P2's sheet counts under
+      174 (1) (X9; the board's reading).  Topology and one universe: H-END-2-IS-OUR-PLANE, with 182's guess bearing on
+      it (X1).  The README as a test event: SIM1 S3b (a horizon that keeps its size absorbs nothing in one spacetime
+      when the flux obeys the NEC) bars the crossing unless a negative R_kk supplies it; under 183 that negative member
+      is the appearance (H-NEC-NEVER-VIOLATED-AS-PAIR, M's) and its supply is OPEN through 177
+      (H-PARTNER-IS-THE-COUPLING, the board's; the spec's Lemma S; 188's thought bears on it), so E-PASS's stationary
+      crossing is OPEN.  o3_write W4's own reading (ii), the Vaidya opening, which 159 keeps live: X7-X8 show nothing
+      there.  The far-time (static-clock) half of the no-second-sheet refutation (X8; the spec's X11), and which gloss
+      of H-HOLD-FRAME stands (X8).  Symmetry-breaking static bulk changes, non-static bulk changes and motion inside the
+      planes (E-AN, E-NS, E-ROT (141); X10 (c)).  X10 (c)-(d) under 187's clause (G) (H-PLANE-READS-MOUTH, OPEN).
+      H-REACHED-ONLY-BY-THE-CROSSER, put to M (X9).  H-PAIRING-IS-ENTANGLEMENT, put to M (176; X10 (c)).  The board's
+      reading of item 178, to go to M with the E-PASS report (X10 (e)).  The singular surface within O(x) (X7).
+  It is necessary, not sufficient, and never B4d green.  No value here is the corridor's length (155 (2): in bits), a
+  distance between the positions or anything the device sees (101 (7)), or a speed (139 (4)): the depths d and y are
+  locations in the bulk and ell its curvature length, all in units of m, and the budgets are holds for the cone
+  premise, as stage 5 F3's.
 
 python3 sim2_passage.py [--selftest] [--mutants] [--json PATH]
   (needs sympy, numpy, scipy, mpmath, python-flint; --selftest about a minute; --mutants several minutes: for every
-  check a named mutation of the instrument's own input that the check must FAIL under; exit 1 if any survives)
+  check a named mutation of the instrument's own input that the check must FAIL under; exit 1 if any survives or
+  raises)
 """
 import contextlib
 import importlib.util
@@ -976,8 +1071,9 @@ def _xh(v):
 def report(out):
     P = print
     P("sim2_passage.py -- E-PASS, the passage through the corridor object's own horizon (not verified; not seated)")
-    P("  184: every matter-free plane below (P1 under clause (B) in full; Schwarzschild's control) is a limit, not M's "
-      "configuration; X1-X10 are the board's configuration, re-read under 179-180 (H-CORRIDOR-IN-BULK)")
+    P("  184: every matter-free plane below (P1 under clause (B) in full, wherever its data enter, X10 (a)-(e) included; "
+      "Schwarzschild's control) is a limit, not M's configuration; X1-X10 are the board's configuration, re-read under "
+      "179-180 (H-CORRIDOR-IN-BULK)")
     P(f"write floor (o3_write, example README): {out['write_floor']:.4g} clocks")
     P("X1 chart identity:", out["chart"]["identity"], "| control (shift 1):", out["chart"]["identity_control"][:40], "...")
     P("X1 EF vacuum equations vs coded: P", out["chart"]["equations"]["P"], "Q", out["chart"]["equations"]["Q"],
@@ -1176,11 +1272,11 @@ def checks(out):
        "surface at d >= y*: STRUCTURAL, not tested)",
        len(relied) >= 70 and all(mg > 0 for mg in relied) and confined, f"{len(fails)} power-law failures")
     fr = out["crosser_frame"]
-    static_fin = all(max(abs(v) for v in d_["static_nec_r"]) <= abs(d_["static_nec_r"][0]) * (1 + 1e-6)
-                     and max(abs(v) for v in d_["static_rho"]) < 1.0
-                     for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam"))
+    static_fin = all(abs(d_[key][2] - d_[key][1]) <= abs(d_[key][1] - d_[key][0])     # converging along x -> 0
+                     for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam")
+                     for key in ("static_rho", "static_nec_r", "static_nec_th"))
     ok("C11b", "crosser's frame at P_c: power-law P2 stress grows without bound as x -> 0 along the regular null frame "
-       "while its static-frame rho, rho + p_r stay finite; the smooth family's stays finite",
+       "while its static-frame rho, rho + p_r, rho + p_th converge (finite); the smooth family's stays finite",
        all(d_["growth"] > 1e3 for f_ in fr.values() for kn, d_ in f_.items() if kn.startswith("lam"))
        and static_fin and all(0.5 < f_["smooth"]["growth"] < 2 for f_ in fr.values()))
     q = out["eq"]

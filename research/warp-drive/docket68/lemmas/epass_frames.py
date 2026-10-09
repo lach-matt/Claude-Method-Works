@@ -1597,6 +1597,8 @@ def chk_c30a(mut=None):
             bad.append(name)
         ok = ok and good
     j_norm = sp.simplify(rows["J"]["xi_dot_xi"] + 1 / sp.sin(S_)**2) == 0
+    bad += [lab for lab, good in (("induced metric != MQ (2.1)", im["equals_MQ_2_1"]),
+                                  ("Y.Y != -1", im["on_unit_hyperboloid"]), ("J's norm", j_norm)) if not good]
     ok = ok and im["equals_MQ_2_1"] and im["on_unit_hyperboloid"] and j_norm
     return ok, "; ".join("%s %s/%s (%s, %s)" % (k, rows[k]["class_matrix"], rows[k]["class_killing_invariant"],
                                                   rows[k]["component_at_sigma0"], rows[k]["component_at_sigmapi"])
@@ -1706,8 +1708,9 @@ def chk_g2(mut=None):
     if mut == "swapped-items":
         words["177"], words["183"] = words["183"], words["177"]
     f = m_words_verbatim(words)
-    return all(f.values()), "%d/%d quotes verbatim inside their own items of M-RULINGS-2026-10-03.md (%d M's, %d the " \
-                            "board's)%s" % (sum(f.values()), len(f), len(M_WORDS), len(BOARD_WORDS),
+    n_m = sum(1 for k in words if "board's" not in k)
+    return all(f.values()), "%d/%d quotes verbatim inside their own items of M-RULINGS-2026-10-03.md (%d M's words, %d " \
+                            "the board's)%s" % (sum(f.values()), len(f), n_m, len(f) - n_m,
                                             "" if all(f.values()) else ": not found " +
                                             ", ".join(k for k, vv in f.items() if not vv))
 
