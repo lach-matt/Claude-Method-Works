@@ -181,7 +181,7 @@ sessions they describe skill sync but say nothing about plugins.
 - Republish the map after E-PASS.
 - WARPTHEOREM: add a History line for items 172–177 when E-PASS lands.
 - Verify item 174's decisions in SIM2-FACING.
-- `CLAUDE.md` still says Lean and Coq cannot be installed. Lean 4 core (conda-forge) and Coq 8.18 (Ubuntu debs)
+- (done 2026-10-09) `CLAUDE.md` said Lean and Coq cannot be installed; corrected. Lean 4 core (conda-forge) and Coq 8.18 (Ubuntu debs)
   do work; Mathlib does not, because it needs GitHub.
 
 ## Git

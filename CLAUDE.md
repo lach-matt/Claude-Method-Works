@@ -165,13 +165,22 @@ all, analysis has one but returns a magnitude rather than a cell decision.
 reads the corpus and never writes to it. It is **not** part of the corpus and none of the rules above
 about mirrored content apply to it. Its own `research/README.md` is the index.
 
-**There is a proof assistant available in this environment, and finding it was not obvious.** Lean and
-Coq cannot be installed — `elan` and `opam` both need github, which the egress proxy refuses with a 403
-— but **pypi is on the proxy allowlist**, so:
+**There is a proof assistant available in this environment, and finding it was not obvious.** Lean's and
+Coq's usual installers cannot be used — `elan` and `opam` both need github, which the egress proxy refuses
+with a 403 — but **pypi is on the proxy allowlist**, so:
 
 ```
 pip install z3-solver
 ```
+
+Lean and Coq themselves are reachable by other routes, measured in the 2026-10-09 tool sweep
+(`research/warp-drive/toolsweep/toolsweep_result.json`): **Lean 4.33 core** from conda-forge
+(`conda.anaconda.org`, via a micromamba binary taken from conda-forge itself; about 3.5 GB) and **Coq 8.18**
+from the Ubuntu noble archive debs (a private `findlib.conf` and `-coqlib`; about 1 GB). Both ran a test
+file and were deleted afterwards to free disk. **Mathlib is excluded**: every route to it found used
+GitHub content, which is not to be used. The `sci` script's `lean` and `coq` groups
+(`.claude/skills/science-tools/`) install these. They are **not yet verified end to end**, so check free
+disk first; z3 stays the light route.
 
 `research/warp-drive/hlaw.py` is the hierarchy law as a runnable instrument — hand it an index and
 it checks the seven lawful containments against it, exits 1 on a refutation, and refuses to print a
