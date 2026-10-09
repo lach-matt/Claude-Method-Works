@@ -101,8 +101,11 @@ sessions they describe skill sync but say nothing about plugins.
   - Item 174's decisions are carried in the note but **not yet verified**.
 - **A correction already given to M (keep it straight):** coinciding is met **within one universe**, up to d₊.
   The board had earlier said it moves to phase 3; that was wrong and was corrected under item 174.
-- **E-PASS design:** the workflow `epass-design` was **killed** after its ground stage. Proposals, judges and spec
-  never finished. The ground stage is saved in `lemmas/epass_ground.json`.
+- **E-PASS design:** the workflow `epass-design` (run wf_718c7606-e5a) is **still running in the old session**. An
+  earlier attempt was killed, and the run was resumed after it. Its stored status still reads "killed" from that
+  attempt, which is why this note first said so; M's screenshot showed it live. At 16:30 UTC: ground 2/2, propose
+  4/4, judge 1/2, synthesise pending. Its spec is to be reconciled against `lemmas/sim2_passage.py`, which the new
+  session built independently. The ground stage is also saved in `lemmas/epass_ground.json`.
   - **Literature:** Kaus–Reall confirm that a vacuum-brane extremal throat has no smooth bulk cap. Its singular end
     agrees with SIM2's y_s^th to four decimals.
   - **Causal, computed in scratch:** without a second sheet, the singular layer lies in the causal past of the
