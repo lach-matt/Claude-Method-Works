@@ -57,7 +57,10 @@ THE BOARD'S READINGS USED (named, the board's; withdrawn if M corrects them)
     positive-tension warp -- the on-plane configuration that seated (G) moves into the bulk, with position 2's sheet
     positive where 139 (1) has position 2's plane negative, and no bulk between two planes as in 166; (ii) the join
     column at every depth, which T's tip crosses; (iii) the RS-II warp and a matter-free plane on all of T; (iv) the
-    model's causal structure everywhere inside T, the column at every depth included, as a well-posed prior state.
+    model's causal structure everywhere inside T, the column at every depth included, as a well-posed prior state;
+    (v) under 179 the corridor sits in the bulk, so its depth w_c must lie inside the cover (U >= 1.05 (R_core + w_c
+    + 2T)); no ruling and no computation here bounds w_c, and a corridor reaching down the column to depth W would put
+    T's tip inside the corridor itself -- OPEN.
   H-FAR-FIELD-EXTENSION (this file, for X8 and X11 only): a far field extended into the bulk isotropically in the
     coordinate distance from its centre (E1; centred on the plane in X8, at depth w_c in X11) or in g_uu alone (E2) --
     test extensions, not solutions.
@@ -90,7 +93,8 @@ RESULTS (units m = 1; c = ell/m; T_E = the ellipse {(u/U)^2 + (w/W)^2 = 1} x S^2
      du^2 + dw^2 <= dt^2 (checked from metric("model")); T_E keeps coordinate distance >= U from the origin (W >= U).
      With U = 1.05 R_reach, R_reach = R_core + 2T (R_core = 2, G3's r0, fixed by 162), no signal from the corridor or
      from the README's own matter (inside R_core + T when the write began, o3_write W3, and carried in, 163) reaches
-     T_E before the closing.  That the region outside then keeps its prior static state needs global hyperbolicity
+     T_E before the closing (under 179, U must also cover the corridor's depth w_c, which is OPEN: H-FAR-MODEL (v)).
+     That the region outside then keeps its prior static state needs global hyperbolicity
      (W2, non-green) and a causally propagating evolution; CGS Theorem 3.5's premises also include the NEC
      (CENSOR5D.md, READ, pp.3-4), which the model's own column violates pointwise (X9 (c)).  Any finite hold works
      (X2 is free of U); E2's closing (DERIVED) and 158 (2) make it finite.
