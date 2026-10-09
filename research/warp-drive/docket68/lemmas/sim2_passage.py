@@ -341,13 +341,16 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       a design document, not verified) tags each section [FREE] (it holds whatever carries the corridor: a plane, a
       sheet, or the bulk alone) or [PLANE] (it uses eq. (17) as our plane's own metric, the board's pre-179
       configuration).  Under 179-181 its recommendation stands: the [FREE] sections are built, the [PLANE] sections wait
-      for the 179 re-read.  The two owners were each built, then refuted and overclaim-checked by separate AI sessions
-      inside this project (not an outside review), findings applied: lemmas/epass_pairing.py (X13, X14; md5
-      152621fa...; its own selftest 11/11, its own --mutants 33/33) and lemmas/epass_frames.py (X17's stationary half
-      and X18; md5 97bbfff9...; 16/16 and 30/30).  Checks C15-C19 and C26-C31 below call the owners' own selftests and
-      fail if an owner fails or is missing.  Every value quoted in X13-X18 is the owner's output, given with the owner's
-      label and its [FREE]/[PLANE] tag, and C35a requires each quoted value to equal the owner's live output (the md5
-      prefixes included).  Nothing in X13-X18 is re-derived here.
+      for the 179 re-read.  The two owners were each built, then refuted and overclaim-checked once by separate AI
+      sessions inside this project (not an outside review), findings applied, the fixes not re-verified:
+      lemmas/epass_pairing.py (X13, X14; md5 152621fa...; its own selftest 11/11, its own --mutants 33/33) and
+      lemmas/epass_frames.py (X17's stationary half and X18; md5 97bbfff9...; 16/16 and 30/30).  epass_frames was
+      verified against the pairing owner BEFORE that owner's blocker fix (see X17).  Checks C15-C19 and C26-C31 below
+      call the owners' own selftests and fail if an owner fails or is missing.  Every value quoted in X13-X18 is copied
+      from the owner's output, given with the owner's label and its [FREE]/[PLANE] tag; C35a requires the 107 values
+      listed in DOC_QUOTES to equal the owner's live output (the md5 prefixes included).  The few other values quoted
+      here (u_H = 1/3, eps = 1/10 and v = 3/10, the 1000-row counts, r = 3m, the PDF pages, the Wolfram agreement) are
+      not in DOC_QUOTES and are not machine-checked.  Nothing in X13-X18 is re-derived here.
   X11 DEFERRED [PLANE] -- Lemma 0's far-time half: the README's own pre-crossing events on end 1 (r = 2.02-2.2m) on the
       plane's static clock, from stage 5's owner columns.  Until it is built, X8's refutation of the route with no
       second sheet rests on its advanced-time half (X7) and the static-clock half stays OPEN (X8).
@@ -364,30 +367,38 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       the owner's stand-in functions; Wolfram 15.0.1 agreed, computed by the owner's fix session, not run here).  With
       Einstein + Lambda_5, kappa_5^2 T5(xi,xi) = R(xi,xi) on H (deduced).  So across a horizon that keeps its size --
       162's H-FIXED-SIZE (M's) read as theta = 0 through H-FIXED-SIZE-AS-THETA-ZERO (the board's, put to M, unanswered)
-      -- the net 5D null energy along each generator is -sigma^2/kappa_5^2: zero or negative, never above zero.  The
-      partner is at least as large as the README, exactly as large only if the horizon is unsheared (deduced).  With
-      183 (H-NEC-NEVER-VIOLATED-AS-PAIR, M's: zero net along each light ray) the horizon must be unsheared and the pair
-      exact (deduced).
+      -- kappa_5^2 T5(xi,xi) = -sigma^2 pointwise on H, and the net 5D null energy along each generator is
+      -int sigma^2 dv / kappa_5^2: zero or negative, never above zero.  The partner is at least as large as the README,
+      exactly as large only if the horizon is unsheared (deduced).  With 183 (H-NEC-NEVER-VIOLATED-AS-PAIR, carried as
+      M's: the option he chose, "Yes: never violated as a pair", which the board glossed as zero net along each light
+      ray; seated clause (Z), 187 (3), read as a net not below zero along each light ray, gives the same) the horizon
+      must be unsheared and the pair exact (deduced).
       (a) SHEET FORM, on whichever sheet carries the README (172 (1)) (computed): K(xi,xi)|_H = 0 for sheets y = F(u),
       F arbitrary, in the throat metric and on (b)'s family, degenerate (u_H = 0) and non-degenerate (u_H = 1/3), also
       on non-stationary members that keep u_H null and on a horizon whose section grows: the sheet form is blind to
       stationarity and to growth.  Its premise is u = u_H null at every depth with the sheet tangent to xi: a sheet
       tilted off xi gives K(xi,xi) = -kappa n.xi, witness 0.01166 where kappa != 0 and 0 where kappa = 0.
       S(xi,xi) = -nu K(xi,xi) on H (deduced, g(xi,xi)|_H = 0): T^c(xi,xi) = -T^R(xi,xi) on the README's own sheet,
-      generator by generator, at any tension or law and with matter (184).  A regular held AdS2-invariant stress has
+      generator by generator, at any tension or law, with held matter (184) -- matter held on the sheet, so that
+      T^m(xi,xi)|_H = 0, as a regular held stress has (below); matter flowing across the horizon enters the ledger as
+      T^c(xi,xi) = -T^R(xi,xi) - T^m(xi,xi) (X17's matter premise).  A regular held AdS2-invariant stress has
       tau(xi,xi) = pi(xi,xi) = 0 on H, so held stress cannot be the partner: it must be a genuine negative null flux
       (deduced).
       (c) THE WEYL TERM GIVES NOTHING [FREE] (computed; READ SMS eq. (A10), PDF p.6, as the owner transcribes it):
       E~(xi,xi) = R(xi,n,xi,n) = 0 and E(xi,xi) = 0 on (b)'s family's horizon, stationary or null-preserving
-      non-stationary (a growing section gives E != 0).  [PLANE]: on eq. (17)'s data R4(xi,xi) = 0 at r = 2m (computed),
-      and E(xi,xi) = 0 there under SMS's eq. (17) with Z2 (H-Z2-PIECES, the board's) (deduced).
+      non-stationary, both unsheared (a growing section gives E != 0; a sheared one, where R(xi,xi) = -sigma^2 enters
+      E = E~ - R(xi,xi)/3, is not computed).  [PLANE]: on eq. (17)'s data R4(xi,xi) = 0 at r = 2m (computed), and
+      E(xi,xi) = 0 there under SMS's eq. (17) with Z2 (H-Z2-PIECES, the board's) (deduced).
       (d) THE PAIR [PLANE] (computed; deduced): README member T^R(xi,xi) = 2 per mu in eq. (17)'s ingoing chart
       (l.xi = -sqrt2), partner -2, net 0 BY CONSTRUCTION (the partner is defined as -T^R: not a finding).  A null-dust
       partner tilted by b along the sphere gives pi(xi,xi) = -b^2 mu^2/2 by two routes (SMS eq. (20); the null-dust
-      algebra), independent of a static held stress.  With R4(xi,xi) = 0, E(xi,xi) = 0 from the bulk side (taken
-      non-expanding and shear-free) and tau(xi,xi) = 0, pi(xi,xi) = 0 forces b = 0: the only admitted null partner is
-      the README's exact reverse, and the pair's total stress tensor is then ZERO -- the README's stress is cancelled
-      outright, a plain negative (135) (deduced).  A zero total is not "positive".
+      algebra), independent of a static held stress.  With SMS (17) under Z2 (H-Z2-PIECES, the board's), a static held
+      stress, R4(xi,xi) = 0, E(xi,xi) = 0 from the bulk side (the bulk near the plane taken in (b)'s family,
+      non-expanding and shear-free) and tau(xi,xi) = 0, pi(xi,xi) = 0 forces b = 0.  So among null-dust partners, with
+      no held momentum flux along the sphere (one would enter pi(xi,xi) and could cancel it at b != 0: the owner's
+      C19c mutation), the only admitted null partner is the README's exact reverse, and the pair's total stress tensor
+      is then ZERO -- the README's stress is cancelled outright, a plain negative (135) (deduced).  A zero total is not
+      "positive".
   X14 LEMMA K, A NET-FLUX CROSSING KINKS THE BULK HORIZON [FREE for sheets] (owner epass_pairing; computed; deduced):
       in Gaussian normal coordinates the null geodesic tangent to the sheet along the horizon generator obeys
       y'' = K_vv by two routes (the connection; (1/2) Lie_n g_vv with no Christoffel symbol), with K_vv = -S_vv/nu.
@@ -399,7 +410,8 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       is kept only as the owner's C15 (contracted Gauss, SMS eq. (3)) and C16 (transport, Raychaudhuri).
   X15 DEFERRED [PLANE] -- Lemmas L and Q and the absorbing band: Lemma L is the brane ledger of a changing crossing
       (SMS) with eq. (17)'s data on our plane, Lemma Q is stated at our plane's law, and the band (d_beta, d_+, q(d_+))
-      is S15's slab.  X17's changing half (the coefficient 5.912 at 32m, tending to 5, times P1's) waits with it.
+      is S15's slab.  X17's changing half (Lemma L's coefficient times P1's; the spec, a design document not verified,
+      gives 5.912 at 32m tending to 5: not computed here) waits with it.
   X16 DEFERRED [PLANE] -- the crossable class at the horizon (S7's profiles on the throat bulk at our plane;
       H-CROSSABLE-HORIZON, the board's, put to M).
   X17 THE DEMANDS, STATIONARY HALF (owner epass_frames; computed; deduced; STRUCTURAL; READ; OPEN).
@@ -412,12 +424,22 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       (the planes' matter held static across the horizon); its 5D normalisation is OPEN (the bulk horizon's section is
       the bulk balance's, 181).  Sheet form, the same on the README's own sheet, which under 172 (1) is position 2's
       piece, in a normalisation not computed (OPEN).  The pair's net per generator is the owner's zero: neither
-      positive nor negative.
+      positive nor negative.  NOT RECONCILED WITH THE FIXED X13 (recorded, the owner not edited here): epass_frames was
+      verified at c2e08b0 against the pairing owner before its blocker fix (md5 b8603300, then headed "the stationary
+      pairing law"), and its stationary rows still carry that reading.  Their "refused, it becomes E-NS" is superseded
+      by X13: refused while the size is kept, the pair is still demanded (at least as large as the README, exact
+      unsheared or under 183), and only expansion, or a crease or separation of the bulk horizon at the sheet,
+      releases it.  Their pointer "R(xi,xi) = 0 on any Killing horizon" is the spec's pre-fix statement, and their C26e
+      mutation, the pairing owner's non_stationary(), breaks nullness, not stationarity (the pairing owner relabels it
+      off_null).  The exact demand above stands as the stationary subcase (sigma = theta = 0).  epass_frames is listed
+      for a re-read against epass_pairing md5 152621fa.
       SI (computed; u(G) standard-not-READ, CODATA 2018; W1 STRUCTURAL): at o3_write's example README E = 2.40588e16 J,
       m = G E/c^4 = 1.98791e-28 m and 1/(2m) = 2.51521e27 m^-1; at item 155's E = 3.8e22 J (the board's figure)
       m = 3.13983e-22 m and 1/(2m) = 1.59244e21 m^-1.  E and m [FREE], 1/(2m) [PLANE]-conditional.  E ~ G^(-1/2), read
       from the owner's own form, so u_r(m) = 1.12e-5 at the example README and 2.25e-5 at the fixed E.  These hold at
-      our G; a per-universe G was left "For the math" in 187 (2) (OPEN).
+      our G.  187 (2) left gravity's strength per universe "For the math"; ITEM186 decided it provisionally under 149
+      (one law of gravity in the bulk, H-ONE-G5; each universe's G from its own plane, H-G4-FROM-THE-PLANE; not
+      seated; provisional until the closed-wall energy is computed, OPEN).
       158 (4): stationary, nothing net is absorbed (Lemma S); changing, into the bulk's Weyl field and the creased bulk
       horizon, a necessary condition only (deduced; OPEN).
       Set beside the demand, never a supply (READ, as the owner transcribes them): Gao-Jafferis-Wall 1608.05687v3, PDF
@@ -427,8 +449,13 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       we transferred in order to set up the OO interaction" (a one-sided parametric bound, set against 122 (4); not
       decided).  GJW's prerequisite is net-negative null energy of the TOTAL; under 183 Lemma S's pair totals zero,
       which is GJW's cancelling case: a tension, OPEN -- GJW's horizon is bifurcate and their analysis linearised, the
-      corridor's is degenerate.  The one branch of X13 with a net below zero along the generators, a sheared horizon
-      of fixed size, is the branch 183 excludes (deduced, here, from X13 and the READ).
+      corridor's is degenerate.  Within X13's premise (theta = 0) a net below zero along the generators needs shear.
+      With kappa = 0, a crossing during which the horizon changes size between two moments of zero expansion (E-NS)
+      also nets below zero: the computed identity integrates to int R(xi,xi) dv = -int (theta^2/3 + sigma^2) dv.  183
+      (zero net per light ray, as the board glossed the option M chose) excludes every net-negative branch (deduced,
+      here, from X13's identity; read by no separate session).  Which null geodesics GJW's criterion would apply to
+      (theirs is ANEC along null geodesics through the wormhole), and whether it carries over to the corridor's horizon
+      generators, is not checked (OPEN).
   X18 ENDS, GENERATORS, LEMMA P (owner epass_frames; computed; READ; deduced; OPEN).
       [FREE]: on global AdS2 (its induced metric equals Maldacena-Qi (2.1), READ PDF p.5; the parametrisation is
       standard-not-READ) d_T is elliptic, components (1, 1), with xi.xi = -1/sin^2 sigma < 0 (no Killing horizon);
@@ -447,9 +474,11 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       LEMMA P: (i) [FREE] a delta-stress S = s delta reads -s for every observer (1000 exact rational Lorentz
       transformations; s = 1, -1, 3/7).  (ii) [PLANE]-conditional: eq. (17)'s Weyl fluid at r = 3m, 8 pi rho = 1/81 and
       8 pi (rho + p_r) = -2/81, reads below zero for observers boosted beyond v* = 1/sqrt3 (rapidity 0.658479), and
-      tends to -oo as v -> 1; NEC matter gives rho' >= rho (1000 exact rows); along S15's approach (rho = -sigma_RS,
-      rho + p bounded by 9.4e-7 sigma_RS, a bound) a boost beyond v* = 1/sqrt(1 + eps) reads above zero, with
-      gamma^2 v^2 = 1/eps = 1.0638e6 at v*.  v is an observer's boost parameter, never a speed.  (iii) [FREE given AdS2]
+      tends to -oo as v -> 1; NEC matter gives rho' >= rho (1000 exact rows); along S15's approach (rho tends to
+      -sigma_RS, with rho + p bounded by 9.4e-7 sigma_RS: a bound, not a value), wherever rho < 0 < rho + p a boost
+      reads the density above zero beyond v* = sqrt(-rho/p); at the bound itself (rho = -sigma_RS, rho + p =
+      eps sigma_RS, eps = 9.4e-7) v* = 1/sqrt(1 + eps), with gamma^2 v^2 = 1/eps = 1.0638e6 at v*, and below the bound
+      the boost needed is larger.  v is an observer's boost parameter, never a speed.  (iii) [FREE given AdS2]
       the boundary Killing charge flips under B_origin only; it does not flip under J, J + K, J - K or J - B_origin.
       DEDUCED: at the coincidence limit (never reached, 172 (2)) S15's -sigma_RS is a delta-stress, the same in every
       tangent frame.  The board's own 176 sentence ("position 2's -1 would be the partner's sign seen from our side")
@@ -461,8 +490,8 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
   X19 DEFERRED [PLANE] -- three phases of a coupling, across eq. (17)'s family at r0 = 2m.
   X20 DEFERRED [PLANE] -- the classical placements of E-Q (the plane's data, the conformal layer, the Bronnikov-Kim
       gap).
-  X21 DEFERRED [PLANE] -- the transverse reading and the two pairs for 177 and 178 (Lemma S's own pair, [FREE], is
-      X13 (d) here).
+  X21 DEFERRED [PLANE] -- the transverse reading and the two pairs for 177 and 178 (Lemma S's own pair: its
+      cancellation is [FREE], X13 (a)-(b); its [PLANE] ledger and tensor are X13 (d)).
   X22 DEFERRED [PLANE] -- the cap: the README held on P1 at the throat (conditional on H-README-AT-THE-THROAT, the
       board's; a held configuration, not a passage; the spec builds it after the core).
   X23 DEFERRED [PLANE] -- Kaus-Reall reproduced (support for the [PLANE] rows).
@@ -494,12 +523,14 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
          sigma_RS; X10 (e)), and at the limit, never reached, -sigma_RS is a delta-stress, the same in every tangent
          frame (X18, Lemma P (i)); G3 marginal (X10 (e)).  Fails G2 within one universe at finite ell (174 (3)); at
          ell = inf a limit (flat, no RS localisation).
-      R6 classical E-Q: the bulk Weyl term gives nothing along the generators, E(xi,xi) = 0 ([FREE], X13 (c)); a static
+      R6 classical E-Q: on the unsheared horizon of (b)'s family the bulk Weyl term gives nothing along the
+         generators, E(xi,xi) = 0 ([FREE], X13 (c); a sheared horizon is not computed); a static
          symmetric coupling that leaves the plane's data unchanged changes nothing, and a horizonless link removes the
          horizon against 132 ([PLANE], X10 (c)-(d)); the conformal layer and the BK gap are X20's, DEFERRED.  Pays
          nothing along the generators.
-      R7 coupled ends, quantum (177): the exact negative partner along each generator, sheet or bulk form (X13), at
-         [PLANE] only the README's exact reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite
+      R7 coupled ends, quantum (177): a negative partner along each generator at least as large as the README, exact
+         under 183, sheet or bulk form (X13); at [PLANE], among null-dust partners with no held momentum flux, only the
+         README's exact reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite
          stands against Lemma S's zero total (X17): a tension, OPEN; given kappa = 0 the corridor is the extremal,
          parabolic member (X18).  OPEN: the demand exact, the supply beyond the board's instruments.
       R8 changing corridor (E-NS; 152 (2), 160): needs expansion (theta != 0, against 162 as read through
@@ -513,26 +544,39 @@ only, epass_pairing.py and epass_frames.py (their own selftest(), CHECKS and com
       piece regularises the crossing's past near the throat (X9) and does not pay the crossing (X13).  A horizon that
       keeps its size takes a partner at least as large as the README along each generator, exactly as large only if
       unsheared, and under 183 exactly as large (X13).  A net-flux crossing is a five-dimensional event (X14).  The
-      classical Weyl term pays nothing; quantum E-Q could supply only the exact partner, which the board cannot
-      compute, and GJW's net-negative prerequisite stands against that zero total (OPEN).
+      classical Weyl term pays nothing on the unsheared horizon computed; quantum E-Q could supply only the partner
+      (exact under 183), which the board cannot compute, and GJW's net-negative prerequisite stands against that zero
+      total (OPEN).
   OPEN (X11-X25, plainly).  The partner's supply (177; H-PARTNER-IS-THE-COUPLING, the board's; 188's
       H-PARTNER-AS-ENTANGLED-REFLECTION, M's, offered for the math, bears on it and is not used).  GJW's net-negative
       prerequisite against Lemma S's zero total.  The bulk-form demand's 5D normalisation (181) and the demand on
       position 2's piece in its own normalisation (172 (1)).  Whether 162's fixed size is zero expansion
-      (H-FIXED-SIZE-AS-THETA-ZERO), whether the crossing is stationary (H-STATIONARY-CROSSING) and which sheets 143
-      admits (H-CROSSABLE-HORIZON): put to M.  Whether the bulk corridor's horizon is degenerate under 179 (kappa = 0
-      comes from eq. (17) here), on which the parabolic class rests.  Which boundary is position 2's side
-      (H-END-2-IS-OUR-PLANE, X1; epass_frames names it H-END-2-IS-OUR-FAR-END).  The 176 sentence between universes, and
-      139 (2)'s positivity in position 2's own frame (phase 3).  MSY's parametric bound against 122 (4) (reported, not
-      decided).  A per-universe G (187 (2)).  The ten [PLANE] sections, after the 179 re-read.
+      (H-FIXED-SIZE-AS-THETA-ZERO) and which sheets 143 admits (H-CROSSABLE-HORIZON): put to M.  Whether the crossing
+      is stationary (H-STATIONARY-CROSSING) is NOT put to M: 158 (3) left whether the bulk is static during the hold to
+      the math, and 139 (3) asked the board not to re-ask the static question; after the fix it is not Lemma S's
+      premise, and the board decides it under 149 where a result needs it.  Whether the bulk corridor's horizon is
+      degenerate under 179 (kappa = 0 comes from eq. (17) here), on which the parabolic class rests.  Which boundary is
+      position 2's side (H-END-2-IS-OUR-PLANE, X1; epass_frames names it H-END-2-IS-OUR-FAR-END).  The 176 sentence
+      between universes, and 139 (2)'s positivity in position 2's own frame (phase 3).  MSY's parametric bound against
+      122 (4) (reported, not decided).  Gravity's strength per universe (187 (2); provisional in ITEM186, OPEN).
+      epass_frames' stationary rows, to be re-read against the fixed X13 (X17).  The ten [PLANE] sections, after the
+      179 re-read.
   SINCE THE SPEC (noted; nothing decided here): 185, the matter round (lemmas/ITEM185-MATTER-ROUND.md); 186, k per
-      corridor (H-K-PER-CORRIDOR, M's, conditional; lemmas/ITEM186-K-PER-CORRIDOR.md) -- both notes were being written
-      when this integration began and are since headed "verified once, findings applied"; 187 (3), clauses (G) and (Z)
-      SEATED as the board worded them; 188, M's thought on the partner as a positron, an entangled reflection
-      (H-PARTNER-AS-ENTANGLED-REFLECTION, being worked).  Recorded while this integration ran, and only noted: 189,
-      "the bond" (H-PAIRING-HELD-AS-TENSION, M's: 188's tension is the bond holding the pair, not the partner); 190,
-      "Information is energy" (H-INFORMATION-IS-ENERGY, M's; the board's reading, to be worked: where the README's
-      information crosses, its energy crosses, so Lemma S's partner is needed).
+      corridor (H-K-PER-CORRIDOR, M's, conditional; lemmas/ITEM186-K-PER-CORRIDOR.md; set aside as the working
+      assumption by 191's record) -- both notes were being written when this integration began and are since headed
+      "verified once, findings applied"; 187 (3), clauses (G) and (Z) SEATED as the board worded them; 188, M's thought
+      on the partner as a positron, an entangled reflection (H-PARTNER-AS-ENTANGLED-REFLECTION; lemmas/ITEM188-PARTNER.md,
+      since headed "verified once, findings applied", proposes restating X25's R7 as "no READ construction supplies it
+      at kappa = 0; beyond READ constructions, OPEN" -- noted, not applied here).  Recorded while this integration ran,
+      and only noted: 189, "the bond" (H-PAIRING-HELD-AS-TENSION, M's: 188's tension is the bond holding the pair, not
+      the partner); 190, "Information is energy" (H-INFORMATION-IS-ENERGY, M's; the board's reading, to be worked:
+      where the README's information crosses, its energy crosses, so Lemma S's partner is needed); 191 and 192, k's
+      scale (H-K-LIKE-GRAVITY; H-K-TIE-TO-THE-CYPHER); 193, the pair as an axiom (H-PAIR-AXIOM), WITHDRAWN by M at 194,
+      which puts the pair's question to the cypher and returns input F5 (the exact +/- null pair) to OPEN; 195, "The
+      README is not a pair" (H-README-NOT-A-PAIR, M's; the board's reading, to be computed: the README is HELD by the
+      corridor's horizon rather than crossing it, in which case Lemma S asks no partner, and the crossing framing used
+      here is the board's, not M's); 196, every question through the cypher (M-ALL-QUESTIONS-THROUGH-THE-CYPHER, M's),
+      which bears on how the readings put to M are worked.  None of 189-196 changes a computed row here.
   It is necessary, not sufficient, and never B4d green.  No value here is the corridor's length (155 (2): in bits), a
   distance between the positions or anything the device sees (101 (7)), or a speed (139 (4)): the depths d and y are
   locations in the bulk and ell its curvature length, all in units of m, and the budgets are holds for the cone
@@ -1185,12 +1229,14 @@ DEFERRED = {
     "X12": "footprint, ceiling, Lemma X (excision) and the far gate, from the owner bank's columns on our plane",
     "X15": "Lemmas L and Q and the absorbing band: Lemma L is the brane ledger of a changing crossing (SMS) with eq. "
            "(17)'s data on our plane, Lemma Q is stated at our plane's law, and the band (d_beta, d_+, q(d_+)) is S15's "
-           "slab; X17's changing half (the coefficient 5.912 at 32m, tending to 5, times P1's) waits with it",
+           "slab; X17's changing half (Lemma L's coefficient times P1's; the spec, a design document not verified, gives "
+           "5.912 at 32m tending to 5: not computed here) waits with it",
     "X16": "the crossable class at the horizon (S7's profiles on the throat bulk at our plane; H-CROSSABLE-HORIZON, the "
            "board's, put to M)",
     "X19": "three phases of a coupling, across eq. (17)'s family at r0 = 2m",
     "X20": "the classical placements of E-Q (the plane's data, the conformal layer, the Bronnikov-Kim gap)",
-    "X21": "the transverse reading and the two pairs for 177 and 178 (Lemma S's own pair, [FREE], is X13 (d) here)",
+    "X21": "the transverse reading and the two pairs for 177 and 178 (Lemma S's own pair: its cancellation is [FREE], "
+           "X13 (a)-(b); its [PLANE] ledger and tensor are X13 (d))",
     "X22": "the cap: the README held on P1 at the throat (conditional on H-README-AT-THE-THROAT, the board's; a held "
            "configuration, not a passage; the spec builds it after the core)",
     "X23": "Kaus-Reall reproduced (support for the [PLANE] rows)",
@@ -1256,14 +1302,16 @@ X25_ROWS = (
      "sources": ("X9", "X10", "S15", "X18", "X13"), "deferred_parts": ()},
     {"row": "R6", "config": "classical E-Q", "tag": "[FREE] (the Weyl term); [PLANE] (X10 (c)-(d))",
      "G1": "-", "G2": "-", "G3": "-",
-     "G4": "the bulk Weyl term gives nothing along the generators, E(xi,xi) = 0 (X13 (c)); a static symmetric coupling "
+     "G4": "on the unsheared horizon of X13 (b)'s family the bulk Weyl term gives nothing along the generators, "
+           "E(xi,xi) = 0 (X13 (c); a sheared horizon is not computed); a static symmetric coupling "
            "that leaves the plane's data unchanged changes nothing, and a horizonless link removes the horizon against "
            "132 (X10 (c)-(d)); the conformal layer and the BK gap are X20's, DEFERRED",
      "verdict": "pays nothing along the generators", "sources": ("X10", "X13"), "deferred_parts": ("X20",)},
     {"row": "R7", "config": "coupled ends, quantum (177)", "tag": "[FREE]; [PLANE] for the pair tensor",
      "G1": "-", "G2": "-", "G3": "admitted (183; H-PARTNER-IS-THE-COUPLING, the board's)",
-     "G4": "the exact negative partner along each generator, sheet or bulk form (X13); at [PLANE] only the README's "
-           "exact reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite stands against Lemma S's "
+     "G4": "a negative partner along each generator at least as large as the README, exact under 183, sheet or bulk "
+           "form (X13); at [PLANE], among null-dust partners with no held momentum flux, only the README's exact "
+           "reverse, with a zero total stress (X13 (d)); GJW's net-negative prerequisite stands against Lemma S's "
            "zero total (X17): a tension, OPEN; given kappa = 0 the corridor is the extremal, parabolic member (X18)",
      "verdict": "OPEN: the demand exact, the supply beyond the board's instruments", "sources": ("X13", "X17", "X18"),
      "deferred_parts": ()},
@@ -1284,8 +1332,8 @@ X25_COMBINED = (
     "crossing's past near the throat (X9) and does not pay the crossing (X13).  A horizon that keeps its size takes a "
     "partner at least as large as the README along each generator, exactly as large only if unsheared, and under 183 "
     "exactly as large (X13).  A net-flux crossing is a five-dimensional event (X14).  The classical Weyl term pays "
-    "nothing; quantum E-Q could supply only the exact partner, which the board cannot compute, and GJW's net-negative "
-    "prerequisite stands against that zero total (OPEN).")
+    "nothing on the unsheared horizon computed; quantum E-Q could supply only the partner (exact under 183), which the "
+    "board cannot compute, and GJW's net-negative prerequisite stands against that zero total (OPEN).")
 X25_EXTRA = ()      # C35b's mutation: a row added to X25's table
 X25_PLANT = ""      # C35b's mutation: a sentence planted in X25's combined answer
 
@@ -1642,7 +1690,11 @@ def x11_x25():
                        "expected": expected, "owner_value": md5[name] if kind == "md5" else value,
                        "agrees": quote_agrees(kind, value, expected, md5[name])})
     table = [dict(r, label="deduced (from the computed sections the row names)") for r in X25_ROWS + tuple(X25_EXTRA)]
-    return {"rows": rows, "built": list(SPEC_FREE) + ["X25"], "deferred": sorted(DEFERRED),
+    # a [FREE] section counts as built only when it has owner rows and every one of them carries the owner's content
+    built = [s for s in SPEC_FREE
+             if any(r["section"] == s for r in rows.values())
+             and all(r["content"] is not None for r in rows.values() if r["section"] == s and "status" not in r)]
+    return {"rows": rows, "built": built + ["X25"], "deferred": sorted(DEFERRED),
             "x25": {"label": "deduced (from X1-X10, X13, X14, X17's stationary half, X18 and sim2_facing S15)",
                     "tag": "[mixed]", "gates": X25_GATES, "rows": table, "left_out": X25_LEFT_OUT,
                     "combined": X25_COMBINED + ((" " + X25_PLANT) if X25_PLANT else "")},
@@ -1698,27 +1750,41 @@ _NEG = r"(?:\bnot\b|\bnever\b|\bneither\b|\bnon-|\bno\b)"
 
 
 def calls_zero_positive(text):
-    """Pitfall 13: a clause that calls a pair total, a net or a sum 'positive' (not negated in that clause)."""
+    """Pitfall 13, a clause-level regex guard: a clause that calls a pair total, a net or a sum 'positive' within 40
+    characters (commas included), not negated within the 30 characters before it."""
     hits = []
     for clause in re.split(r"[.;:()\[\]]", text):
         for m in re.finditer(r"\bpositive\b", clause, re.I):
             before, after = clause[:m.start()], clause[m.end():]
             if re.search(_NEG + r"[^,]{0,30}$", before, re.I):
                 continue
-            if (re.search(r"\b(?:pair|pairs|net|total|totals|sum|sums|summed)\b[^,]{0,40}$", before, re.I)
-                    or re.match(r"^[^,]{0,12}\b(?:total|net|sum)\b", after, re.I)):
+            if (re.search(r"\b(?:pair|pairs|net|total|totals|sum|sums|summed)\b.{0,40}$", before, re.I)
+                    or re.match(r"^.{0,12}\b(?:total|net|sum)\b", after, re.I)):
                 hits.append(clause.strip())
     return hits
 
 
+_VERDICT = (r"\b(?:refuted|refutes|passed|passes|fails|failed|ruled out|disproved|disproven)"
+            r"(?:\s+(?:or|and|nor)\s+(?:refuted|passed))?\b")
+_NEG_NEAR = r"\b(?:not|never|nor|neither|no longer)\b(?:\W+[\w'-]+){0,2}\W*$"
+_ROUTE_SUBJ = r"\broute\b(?:\W+[\w'-]+){0,8}?\W+second sheet\b(?:\W+[\w'-]+){0,2}\W*$"
+
+
 def calls_epass_refuted(text):
-    """A clause that calls E-PASS refuted or passed, unless it negates that or speaks of the no-second-sheet route."""
+    """A clause-level regex guard: a clause naming E-PASS with a verdict word (refuted, passed, fails, ruled out,
+    disproved) counts unless a negator stands within the two words directly before that word, or the word's subject
+    is the route with no second sheet ("the route with no second sheet is REFUTED").  It guards against the phrasings
+    it was tested on, not against every phrasing."""
     hits = []
     for clause in re.split(r"[.;:]", text):
-        if re.search(r"\bE-PASS\b", clause) and re.search(r"\b(?:refuted|passed|passes)\b", clause, re.I):
-            if re.search(r"\b(?:not|never)\b", clause, re.I) or "second sheet" in clause.lower():
+        if not re.search(r"\bE-PASS\b", clause):
+            continue
+        for m in re.finditer(_VERDICT, clause, re.I):
+            before = clause[:m.start()]
+            if re.search(_NEG_NEAR, before, re.I) or re.search(_ROUTE_SUBJ, before, re.I):
                 continue
             hits.append(clause.strip())
+            break
     return hits
 
 
@@ -2141,8 +2207,9 @@ def checks(out):
     qs = xb["quotes"]
     bad_q = [q["id"] for q in qs if not (q["in_docstring"] and q["agrees"])]
     per_owner = {n: sum(1 for q in qs if q["owner"] == n) for n in OWNER_PATHS}
-    ok("C35a", "every value the X11-X25 docstring quotes from an owner is printed there and equals the owner's live "
-       "output (md5 prefixes included)",
+    ok("C35a", "the values DOC_QUOTES lists from the X11-X25 docstring (107 as built) are each printed there and equal "
+       "the owner's live output (md5 prefixes included); other values the docstring or the note quotes are not "
+       "checked here",
        not bad_q and all(v >= 20 for v in per_owner.values())
        and all(any(q["id"] == f"{p}_md5" for q in qs) for p in ("p", "f")),
        f"{len(qs) - len(bad_q)}/{len(qs)} agree" + (f"; disagree: {bad_q}" if bad_q else ""))
@@ -2165,8 +2232,9 @@ def checks(out):
     pos_bad = [h for t_ in texts for h in calls_zero_positive(t_)]
     ref_bad = [h for t_ in texts for h in calls_epass_refuted(t_)]
     ok("C35b", "the X11-X25 rows: every label made of the six, every row tagged [FREE...] or [PLANE...], READ rows "
-       "paged; the ten [PLANE] sections exactly DEFERRED with the reason and the [FREE] four built; X25's rows draw "
-       "only on computed sections; no zero total called positive; E-PASS never called refuted or passed",
+       "paged; the ten [PLANE] sections exactly DEFERRED with the reason and the [FREE] four built (each with its "
+       "owner rows present); X25's rows draw only on computed sections; the clause-level guards find no zero total "
+       "called positive and no E-PASS called refuted or passed",
        not (lab_bad or tag_bad or read_bad or t_bad or pos_bad or ref_bad) and defer_ok
        and len(xb["docstring_block"]) > 1000,
        f"labels {lab_bad[:2]}; tags {tag_bad[:2]}; READ {read_bad[:2]}; deferred/built {'ok' if defer_ok else 'WRONG'}; "
@@ -2263,7 +2331,23 @@ MUTANTS = [
                                          "deferred_parts": ()},)), ("x11",)),
     ("C35b", "'E-PASS is refuted within one universe' planted in X25's combined answer",
      lambda: _patched(_ME, "X25_PLANT", "E-PASS is refuted within one universe."), ("x11",)),
+    ("C35b", "'E-PASS is refuted, not merely OPEN' planted (a negator after the verdict, not before it)",
+     lambda: _patched(_ME, "X25_PLANT", "E-PASS is refuted, not merely OPEN."), ("x11",)),
+    ("C35b", "'The pair, summed, is positive' planted (commas between the total and the word)",
+     lambda: _patched(_ME, "X25_PLANT", "The pair, summed, is positive."), ("x11",)),
+    ("C35b", "the frames owner's output absent while its file is present (X17 and X18 then have no owner rows' content, "
+     "so they are not built)",
+     lambda: _patched(_ME, "owner_output", _output_absent_for("epass_frames")), ("x11",)),
 ]
+
+
+def _output_absent_for(absent):
+    """C35b's mutation: owner_output() returning None for one owner (its rows then carry no content)."""
+    orig = owner_output
+
+    def patched(name):
+        return None if name == absent else orig(name)
+    return patched
 
 
 @contextlib.contextmanager
