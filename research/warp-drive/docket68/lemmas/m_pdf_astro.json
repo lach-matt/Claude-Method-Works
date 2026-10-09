@@ -1,0 +1,252 @@
+{
+ "reads": [
+  {
+   "source": "M's document: 'Theoretical Astrophysics & Cosmology Overview.pdf', Drive id 1ApASk0x71rO8IhdM8QJTMMFBZVLxaQOi (opened with the Google Drive connector; the text matches the copy in the task)",
+   "claim": "The document's central claim: in 1935 Einstein and Rosen showed that a black hole and a white hole are the two mouths of one bridge.",
+   "quote": "In 1935, Einstein and Rosen demonstrated that a black hole and a white hole are not necessarily distinct isolated objects, but rather the two \"mouths\" of a single continuous spacetime bridge.",
+   "page": "p.1, sec. 2 (sections 1-2 on p.1, sections 3-4 on p.2)",
+   "status": "READ",
+   "bearing": "This is the claim the rest of the assessment checks. Einstein-Rosen 1935, Kruskal 1960 and Morris-Thorne 1988 all contradict it as written."
+  },
+  {
+   "source": "Einstein & Rosen, Phys. Rev. 48, 73 (1935). Read from scan reproductions of the journal pages (jp-petit.org and idoc.pub, OCR) and the APS abstract page.",
+   "claim": "The 1935 construction is static. It models a particle as a 'bridge' joining two identical sheets, and it changes the field equations. Black holes and white holes do not appear in it.",
+   "quote": "By the consideration of a simple example they are led to modify slightly the gravitational equations which then admit regular solutions for the static spherically symmetric case. These solutions involve the mathematical representation of physical space by a space of two identical sheets, a particle being represented by a \"bridge\" connecting these sheets.",
+   "page": "p.73 (abstract)",
+   "status": "READ",
+   "bearing": "Refutes the document's sec. 2 attribution. Bears on item 162: the 1935 'bridge' is a particle, not a corridor."
+  },
+  {
+   "source": "Einstein & Rosen, Phys. Rev. 48, 73 (1935), sec. 2, same scans",
+   "claim": "The bridge is the surface u = 0 (r = 2m), where u^2 = r - 2m. It joins two congruent sheets and represents an elementary particle.",
+   "quote": "If one introduces in place of r a new variable according to the equation u^2 = r - 2m ... As u varies from -oo to +oo, r varies from +oo to 2m and then again from 2m to +oo. ... The four-dimensional space is described mathematically by two congruent parts or \"sheets,\" corresponding to u > 0 and u < 0, which are joined by a hyperplane r = 2m or u = 0 in which g vanishes. We call such a connection between the two sheets a \"bridge.\" ... We see now in the given solution, free from singularities, the mathematical representation of an elementary particle (neutron or neutrino).",
+   "page": "pp.74-75. The 'sheets' sentence was reassembled from a column-scrambled OCR, and one '<' sign was restored.",
+   "status": "READ",
+   "bearing": "Same correction: the 1935 paper has no ingoing or outgoing mouths, no horizon reading and no time dependence."
+  },
+  {
+   "source": "Kruskal, Phys. Rev. 119, 1743 (1960). Read from a Scribd OCR scan; abstract also on APS/ADS.",
+   "claim": "The maximal extension contains the ER bridge between two otherwise Euclidean spaces. It can also be read as Wheeler's wormhole joining two distant regions of one space, in the limit where the mouths are far apart.",
+   "quote": "It is remarkable that it presents just such a \"bridge\" between two otherwise Euclidean spaces as Einstein and Rosen sought to obtain by modifying the field equations. It may also be interpreted as describing the \"throat of a wormhole\" in the sense of Wheeler, connecting two distant regions in one Euclidean space in the limit when this separation of the wormhole mouths is very large compared to the circumference of the throat.",
+   "page": "p.1743",
+   "status": "READ",
+   "bearing": "Item 168: the within-one-universe and between-universes readings are the same local geometry. The within-universe reading is an approximation with the mouths far apart, which is the distance framing ruled out in item 139(4)."
+  },
+  {
+   "source": "Kruskal 1960, Fig. 1 and Fig. 2 captions (same scan)",
+   "claim": "There are two interpretations. The extension holds two exterior regions and two interior regions, so the black hole and the white hole are the future and past interiors, not the two mouths.",
+   "quote": "Above: A connection or bridge in the sense of Einstein and Rosen between two otherwise Euclidean spaces. Below: A wormhole in the sense of Wheeler connecting two regions in one Euclidean space, in the limiting case where these regions are extremely far apart compared to the dimensions of the throat of the wormhole. [Fig. 2:] This comprises two images of the exterior of the spherical singularity and two of its interior.",
+   "page": "p.1744",
+   "status": "READ",
+   "bearing": "Item 162: one spacetime holds both mouths (the exteriors), the bridge and both interiors at once. But in it the black hole and white hole each touch both mouths, so the document's linear diagram misdescribes it."
+  },
+  {
+   "source": "Kruskal 1960 (same scan)",
+   "claim": "Nothing passes through. The throat pinches off the light ray, and an infalling particle reaches r = 0.",
+   "quote": "if a test particle crosses r = 2m* into the interior (where r is time-like and T space-like), it can never get back out ... This circumstance guarantees that one cannot violate ordinary causality in the \"main universe\" by sending signals via the wormhole effectively faster than light. ... it is impossible to send a signal through the throat in such a way as to contradict the principle of causality; in effect the throat \"pinches off\" the light ray before it can get through.",
+   "page": "pp.1744-1745",
+   "status": "READ",
+   "bearing": "Item 152(2) and phase 2: the vacuum bridge is the classic within-universe shortcut, and it is closed off dynamically."
+  },
+  {
+   "source": "Fuller & Wheeler, Phys. Rev. 128, 919 (1962), 'Causality and Multiply Connected Space-Time'. Abstract read from APS, ADS and INSPIRE; the body was not opened.",
+   "claim": "The throat pinches off in a finite time and traps any signal, so no signal passes between the two non-catastrophic regions.",
+   "quote": "There are alternative routes between two points in a multiply connected space. Therefore, one may ask if a signal traveling at the speed of light along one route could be outpaced by a signal which has traveled a much shorter path through a handle or \"wormhole.\" ... It is shown that no signal can ever be sent from one to the other. The key point in preventing any violation of causality is simple: The (Schwarzschild) throat of the wormhole pinches off in a finite time and traps the signal in a region of infinite curvature.",
+   "page": "p.919 (abstract only)",
+   "status": "READ",
+   "bearing": "Corrects the document's 'pinches off instantly': the paper says 'in a finite time'. It is a dynamical example of the one-spacetime wall that phase 2 is designed to get past."
+  },
+  {
+   "source": "Morris & Thorne, Am. J. Phys. 56, 395 (1988). Read from a Scribd OCR scan of the journal pages.",
+   "claim": "Traversable wormholes need a throat with no horizon, and that forces tension greater than mass-energy density (exotic material that violates the energy conditions).",
+   "quote": "It is essential in these solutions that the wormhole possess a throat at which there is no horizon; and this property, together with the Einstein field equations, places an extreme constraint on the material that generates the wormhole's spacetime curvature ... Moreover, this tension must exceed the material's density of mass-energy, rho0 c^2. No known material has this tau0 > rho0 c^2 property, and such material would violate all the \"energy conditions\"",
+   "page": "p.395 (abstract)",
+   "status": "READ",
+   "bearing": "The exotic-matter requirement applies to a throat without a horizon. It does not apply to the vacuum ER bridge, and not directly to the board's corridor, whose throat is a horizon (CURRENT X7)."
+  },
+  {
+   "source": "Morris & Thorne 1988 (same scan), objections (2)-(3) to black holes",
+   "claim": "Through a black hole, only one-way travel is possible, and the exit has to be something else, such as a white hole. White-hole antihorizons are unstable and seal within a few tens of GM/c^3.",
+   "quote": "(2) A black hole horizon is a one-way \"membrane\": Things can fall in, but nothing can emerge. Thus, two-way travel (which is often invoked) is forbidden; and even in one-way travel the object at the other end, from which the adventurer emerges, cannot be a black hole. It must be some other, even more bizarre [OCR: 'bizzare'] object--for example, a white hole. (3) All of the objects known as solutions to Einstein's equations that could exist at the other end (e.g., white holes) possess \"past event horizons\" or \"antihorizons,\" i.e. surfaces out of which things can emerge but down which nothing can go. Such antihorizons are known to be highly unstable against small perturbations. ... By its exponentiating energy the wave packet would convert the antihorizon into a normal horizon in a time of (a few tens) x GM/c^3 ~ 1 s x (M/10^[exponent lost in OCR] solar masses).",
+   "page": "pp.395-396",
+   "status": "READ",
+   "bearing": "This is the primary source for 'black hole in, white hole out', not Einstein-Rosen 1935. Items 132 and 143. Items 163 and STABILITY S5: a non-extremal exit seals in 20-50 clocks, against a write of at least 2.0e5 clocks."
+  },
+  {
+   "source": "Morris & Thorne 1988 (same scan), Sec. I B",
+   "claim": "A wormhole between two universes and one between two regions of our own universe are the same solution. Only the topology differs, and the field equations do not fix topology.",
+   "quote": "Figure 1(a) shows, by means of an embedding diagram (discussed below), a wormhole that connects two different universes; Fig. 1(b) shows a wormhole connecting two distant regions of our own universe. Both wormholes are described by the same solution of the Einstein field equations. Only their topologies differ, and the Einstein field equations do not constrain the topology of a solution.",
+   "page": "p.396",
+   "status": "READ",
+   "bearing": "Item 168 and phase 2: 'one universe' is a global choice to be imposed (CENSOR5D escape (a)). The local corridor solution does not output it."
+  },
+  {
+   "source": "Morris & Thorne 1988 (same scan), Schwarzschild wormholes",
+   "claim": "Flamm (1916) came before Einstein-Rosen. The Schwarzschild wormhole is dynamic: it opens and recloses too fast for light to get through.",
+   "quote": "Within one year after Einstein's final formulation of his field equations, the Viennese physicist Ludwig Flamm recognized that the Schwarzschild solution of Einstein's field equations represents a wormhole. ... (2) A Schwarzschild wormhole is actually dynamic, not static. As time passes, it expands from zero throat circumference (two disconnected universes) to a maximum circumference, and then recontracts to zero circumference (the universes disconnect). This expansion and recontraction is so rapid that even moving at the speed of light one cannot pass all the way through the wormhole and into the other universe without being caught in the crunch of recontraction and killed by tidal gravity.",
+   "page": "p.397",
+   "status": "READ",
+   "bearing": "Items 162 (H-FIXED-SIZE) and 152(2) (H-BRIEF-EVOLUTION): the vacuum bridge is a brief evolution with no fixed size."
+  },
+  {
+   "source": "Morris & Thorne 1988 (same scan), Sec. on the flaring-out condition",
+   "claim": "'Exotic' means tension greater than a positive energy density. A negative energy density is seen only by fast-moving observers.",
+   "quote": "The constraint tau0 > rho0 c^2 is deeply troublesome; it says that in the throat the tension must be so large as to exceed the total density of mass-energy rho0 c^2. We shall call material with this property, tau0 > rho0 c^2 > 0, \"exotic.\" ... If such an observer moves sufficiently fast (sufficiently large gamma), the observer will see a negative density of mass-[energy]",
+   "page": "p.405",
+   "status": "READ",
+   "bearing": "Corrects the document's 'exotic matter with negative mass/energy density'. The condition is NEC violation, with rho > 0 in the static frame."
+  },
+  {
+   "source": "Hochberg & Visser, gr-qc/9704082, PRD 56, 4745 (1997) (alphaXiv page text)",
+   "claim": "Visser's own terms: Morris-Thorne wormholes are 'inter-universe'. 'Intra-universe' ones are an approximation in which both ends are forced into one asymptotic region.",
+   "quote": "Indeed, the Morris-Thorne class of inter-universe traversable wormholes is even more restricted, requiring both exact spherical symmetry and the existence of two asymptotically flat regions in the spacetime. To deal with intra-universe traversable wormholes, the Morris-Thorne analysis must be subjected to an approximation procedure wherein the two ends of the wormhole are distorted and forced to reside in the same asymptotically flat region.",
+   "page": "p.2",
+   "status": "READ",
+   "bearing": "Item 168: the terms are READ here, in a paper Visser co-wrote. The ER/Kruskal bridge is the inter-universe kind, so the document's 'two separate points' description is the intra-universe reading wrongly attached to it."
+  },
+  {
+   "source": "Hochberg & Visser, gr-qc/9802048, PRL 81, 746 (1998) (alphaXiv page text)",
+   "claim": "NEC violation at or near the throat is generic, for static and dynamic, one-way and two-way wormholes. Apparent horizons and bifurcation spheres are not throats. Any apparent suspension of the violation is an illusion.",
+   "quote": "We extend previous proofs that violations of the null energy condition (NEC) are a generic and universal feature of traversable wormholes to completely non-symmetric time-dependent wormholes. [p.1] ... the relative motion of the two throats can be such as to render the wormhole either one-way traversable or two-way traversable [p.2] ... Apparent horizons and bifurcation two-spheres fail to satisfy these strict inequalities and so are not examples of throats. [p.3] ... The key here is to note that the suspension of the NEC is essentially an illusion in that if one ever succeeds in passing through the wormhole and reaching the other universe then one must have passed a throat as defined above and there must be NEC violations at or near this throat. [p.3]",
+   "page": "pp.1-3",
+   "status": "READ",
+   "bearing": "The one-way corridor and items 117/120. The theorem does not cover the Schwarzschild bifurcation sphere, and does not directly cover the board's null horizon throat (deduced). But for any passage through a throat in their sense, it reverses H-NEC-COIN's direction ('appears broken, but is not'). Recorded under M-IRREFUTABLE; it does not refute M."
+  },
+  {
+   "source": "Eardley, PRL 33, 442 (1974) (abstract only, APS/INSPIRE)",
+   "claim": "A white hole is a delayed region of the big bang, and an exponentially growing instability turns it into a black hole.",
+   "quote": "A white hole (a compact, long-delayed region of the big bang) cannot exist, because it suffers an exponentially growing instability that converts it into a black hole. Such instabilities might have homogenized the early universe.",
+   "page": "p.442 (abstract)",
+   "status": "READ",
+   "bearing": "Item 139(3): this is the nearest primary-source link between white-hole outflow and a universe's expansion, and it comes with an instability verdict for exits with non-zero surface gravity. The board already has it at abstract level (residue/OUTSIDE.md)."
+  },
+  {
+   "source": "Hawking, PRD 13, 191 (1976) (abstract, APS/ADS/INSPIRE)",
+   "claim": "In thermal equilibrium, black holes cannot be told apart from white holes, so a static white hole does not by itself break thermodynamics.",
+   "quote": "Black holes behave in a completely random and time-symmetric way and are indistinguishable, for an external observer, from white holes. The irreversibility that appears in the classical limit is merely a statistical effect.",
+   "page": "p.191 (abstract)",
+   "status": "READ",
+   "bearing": "Corrects the document's 'breaks thermodynamics if static' and its 'entropy decrease' entry. Bears on no board question."
+  },
+  {
+   "source": "Carlstrom, Holder & Reese, astro-ph/0208192 (ARA&A 40, 2002) (alphaXiv page text)",
+   "claim": "The thermal SZ effect raises CMB photon energies by about kT_e/m_e c^2, with about 1% scattering probability. The result is a distortion of 1 mK or less: a decrement below about 218 GHz and an increment above. Photons stay in the microwave band.",
+   "quote": "CMB photons passing through the center of a massive cluster have only a ~1% probability of interacting with an energetic ICM electron. The resulting inverse Compton scattering preferentially boosts the energy of the CMB photon by roughly k_B T_e/m_e c^2 causing a small (<~ 1 mK) distortion in the CMB spectrum. [p.4] ... a unique spectral signature with a decrease in the CMB intensity at frequencies <~ 218 GHz and an increase at higher frequencies [p.7]",
+   "page": "pp.4, 7 (printed)",
+   "status": "READ",
+   "bearing": "Corrects the document's sec. 4 'SZ ... into the ultraviolet, X-ray, and gamma-ray', and sec. 3's listing of Compton scattering as a uniform slide of the spectrum. Bears on no board question."
+  },
+  {
+   "source": "Visser, Lorentzian Wormholes (AIP, 1995)",
+   "claim": "Inter-universe versus intra-universe wormhole terminology.",
+   "quote": "",
+   "page": "",
+   "status": "standard-not-READ",
+   "bearing": "The book was not opened. The terms are READ instead through Hochberg-Visser gr-qc/9704082 p.2, which cites it."
+  },
+  {
+   "source": "Standard cosmology values (Planck z* ~ 1090; T_rec ~ 3000 K; T0 = 2.7255 K; Lyman-alpha 121.567 nm)",
+   "claim": "The document's numbers are about right: z ~ 1100, about 3000 K, 2.7 K, 121.6 nm. Computed: 3000/2.7255 = 1100.7.",
+   "quote": "",
+   "page": "",
+   "status": "standard-not-READ",
+   "bearing": "None. Computed checks are in the inaccuracies list: a 3000 K blackbody peaks at 966 nm in wavelength form or 1.70 um in frequency form, which is near-infrared, not UV. Lyman-alpha lands at 365-608 nm for z = 2-4."
+  },
+  {
+   "source": "Board computation (scratchpad/erdoc/checks.py, mpmath, G = c = m = 1; board clock = m/c per bulk/STABILITY.md)",
+   "claim": "The Schwarzschild throat's worldline takes pi*m (3.1416 clocks) from maximum to pinch-off, and 2*pi*m (6.2832 clocks) over its whole life. The control (free fall from 6m) matches the closed form to 12 digits. The write's 2.0e5 clocks (O3-WRITE W3, carried in item 163) is 3.18e4 times the whole life. Morris-Thorne's 20-50 clock antihorizon sealing time is 4e3-1e4 times shorter than the write.",
+   "quote": "",
+   "page": "computed",
+   "status": "standard-not-READ",
+   "bearing": "Items 162/163 and 152(2): the timescale gap between vacuum bridges or non-extremal white-hole exits and the write. Labelled computed; the input formula (radial free fall) is standard and was not READ."
+  }
+ ],
+ "inaccuracies": [
+  "p.1 sec. 2: 'In 1935, Einstein and Rosen demonstrated that a black hole and a white hole are ... the two \"mouths\" of a single continuous spacetime bridge.' FALSE. Einstein-Rosen 1935 (abstract p.73; pp.74-75) build a STATIC solution of MODIFIED field equations: two identical sheets joined at u = 0 (r = 2m), which they read as an elementary particle ('neutron or neutrino'). There are no black holes, white holes or horizons in it. The black-hole and white-hole regions arrive with the maximal extension (Kruskal 1960 p.1744: 'two images of the exterior ... and two of its interior'). Flamm (1916) read Schwarzschild as a wormhole before Einstein-Rosen (Morris-Thorne p.397).",
+  "p.1 diagram 'Black Hole Mouth (Ingoing) - Bridge Throat - White Hole Mouth (Outgoing)': this misdescribes the ER/Schwarzschild bridge. Its two mouths are the two exterior regions (Kruskal Fig. 1: a bridge 'between two otherwise Euclidean spaces'). The black hole (future interior) and white hole (past interior) are each one region that touches both mouths (Fig. 2), and nothing passes through (Kruskal p.1745; Fuller-Wheeler abstract). The linear black-hole-in, white-hole-out passage is a different arrangement: one-way travel with a white hole at the far end (Morris-Thorne p.395, objection (2)), a Reissner-Nordstrom/Kerr-type interior tunnel (Morris-Thorne p.395, objection (4)), or the board's own one-way chain for eq. (17) (CURRENT X7, PLANE P1).",
+  "p.1 table, ER bridge 'Pinches off instantly without exotic matter': not instantly. Fuller & Wheeler (abstract p.919): it 'pinches off in a finite time'. Morris-Thorne p.397: it expands from zero to a maximum and recontracts, 'so rapid that even moving at the speed of light one cannot pass all the way through'. Computed: pi*m from maximum to pinch-off, 2*pi*m whole life.",
+  "p.1 'Wormhole ... Requires hypothetical exotic matter with negative mass/energy density': imprecise. Morris-Thorne define exotic as tau0 > rho0 c^2 > 0 (p.405): positive density in the static frame with tension exceeding it, i.e. NEC violation. A negative density is seen only by observers moving fast enough (p.405). The requirement belongs to a throat with no horizon (abstract p.395). The vacuum ER bridge the document calls 'Permitted in GR' needs no exotic matter but is not traversable, so sec. 1 and sec. 2 describe two different objects as one. Hochberg-Visser (gr-qc/9802048 p.3) also exclude bifurcation spheres and apparent horizons from their NEC theorem.",
+  "p.1 'Wormhole (Spacetime Bridge): A geometric channel connecting two separate points in spacetime' and the table's 'Spatial/temporal shortcut', both attributed to the ER bridge: wrong for that object. The ER/Kruskal bridge joins two distinct asymptotic regions (inter-universe: Kruskal Fig. 1 upper; Morris-Thorne Fig. 1(a); Hochberg-Visser gr-qc/9704082 p.2). It is not traversable and so is no shortcut. 'Two points in one space' is Wheeler's intra-universe reading, valid only as an approximation with the mouths far apart (Kruskal Fig. 1 lower; Hochberg-Visser p.2).",
+  "p.1 'White Hole ... bounded by an event horizon': strictly, a past horizon or antihorizon (Morris-Thorne p.395: \"past event horizons\" or \"antihorizons\"). Minor.",
+  "p.1 'breaks thermodynamics if static' and the table's 'entropy decrease': at odds with Hawking 1976 (abstract p.191), which finds black holes in equilibrium 'indistinguishable, for an external observer, from white holes'. The established defect of white holes is instability (Eardley 1974 abstract; Morris-Thorne pp.395-396), not a thermodynamic violation by a static one. The table's 'Highly unstable' is right for exits with non-zero surface gravity.",
+  "p.2 sec. 4 'Inverse Compton / SZ Effect ... kick photon frequencies up into the ultraviolet, X-ray, and gamma-ray regimes': wrong for the SZ effect. The boost is about kT_e/m_e c^2 (about 2% at 10 keV), the scattering probability about 1%, and the distortion 1 mK or less; the photons stay microwave (Carlstrom-Holder-Reese pp.4, 7; computed 160 GHz -> about 173 GHz). Up-scattering to X-rays or gamma rays needs relativistic electrons, a different setting (standard-not-READ).",
+  "p.2 sec. 3 lists Compton scattering as a way 'the entire electromagnetic spectrum slides continuously': Compton/SZ scattering is a spectral DISTORTION, a decrement below about 218 GHz and an increment above (Carlstrom-Holder-Reese p.7), not a uniform slide. Only Doppler, cosmological and gravitational shifts multiply every frequency by one factor (standard-not-READ).",
+  "p.2 sec. 4 'CMB ... originally hot glowing visible/UV light (~3,000 K) ... shifting the ancient UV thermal peak': a 3000 K blackbody peaks in the NEAR-INFRARED, not UV (computed, Wien: lambda_peak = 966 nm; frequency peak 1.76e14 Hz, i.e. 1.70 um). The stretch factor of about 1100 is right (computed 3000/2.7255 = 1100.7).",
+  "p.2 sec. 4 Lyman-alpha forest 'redshifted into the visible red and near-infrared bands': imprecise. At the commonly observed z = 2-4 the line falls at 365-608 nm (near-UV to orange), and reaches the near-infrared (above about 750 nm) only beyond z ~ 5.2 (computed). 121.6 nm itself is correct."
+ ],
+ "bearings": [
+  {
+   "question": "B4D-STAGE6's decision to M: 'Is the corridor's eq. (17) on position 2's plane?'",
+   "verdict": "disregard",
+   "why": "M already answered this in item 166: 'Both planes at once'. The document says nothing about planes, tensions, AdS bulks or junctions."
+  },
+  {
+   "question": "B4D-STAGE7 K4: which universe's AdS radius (l1 or l2) item 139's +4/3 and -1/3 are measured in",
+   "verdict": "disregard",
+   "why": "The document has no brane-world content. Nothing in it touches a tension, a unit or a curvature radius."
+  },
+  {
+   "question": "B4D-STAGE7 K5: whether 139's -1/3 counts position 2's plane once or twice (single sheet -1/6, live route l2 = 6l)",
+   "verdict": "disregard",
+   "why": "Same reason: no junction conditions and no image count. Only M or the source's convention (PRZ hep-th/0004028) can settle it."
+  },
+  {
+   "question": "SIM1-TRANSITION phase 2 / item 168: the corridor between two positions within one universe, adding the extra dimension",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The document restates only the four-dimensional wall that phase 2 exists to get past: a shortcut needs exotic matter or pinches off. That is Morris-Thorne, Fuller-Wheeler, and topological censorship, which the board already has (FSW in residue/OUTSIDE.md; Morris-Thorne graded STANDS in CHARTER.md). It contains no extra dimension, bulk or junction. Its 'shortcut' picture is Wheeler's intra-universe approximation with the mouths far apart (Kruskal Fig. 1), which is the distance framing ruled out in 139(4), and it runs against 126/127 (position 2 realized where position 1 is). One useful point comes from the source check, not the document: Morris-Thorne p.396 says 'the Einstein field equations do not constrain the topology of a solution'. So 'one universe' must be imposed as a global or boundary condition (CENSOR5D escape (a)); the local corridor solution will not produce it."
+  },
+  {
+   "question": "Item 143 wall A: what carries an element's signature between universes ('what can cross the horizon of a black hole')",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The document's 'nothing can escape' and 'permits matter and light to escape, but forbids entry' agree with the board's reading of H-HORIZON-CARRIER: inward crossing by matter, light and gravitational waves; the corridor crossed one way, PLANE P1. Morris-Thorne p.395 gives the primary wording ('one-way membrane'). Nothing in either identifies what carries an element's signature, so nothing new."
+  },
+  {
+   "question": "Item 152(1): 'two separate positions connected by/reached through a dimension'",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "'Connecting two separate points in spacetime' matches M's words. But the document's channel is four-dimensional topology. The 'hyperspace' in wormhole embedding diagrams (Morris-Thorne Fig. 1, an equatorial slice at fixed t) is not a physical dimension (deduced; standard-not-READ). Phase 2's fifth dimension is physical, so the document offers no picture of passing through it."
+  },
+  {
+   "question": "Item 152(2): H-BRIEF-EVOLUTION (B4 as a brief forward evolution rather than a standing static bulk)",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The vacuum ER bridge is the textbook brief evolution, and it closes before light crosses (Kruskal p.1745; Fuller-Wheeler abstract; Morris-Thorne p.397). Computed: 2*pi*m whole life, pi*m from maximum to pinch-off. That is a caution for the option: a brief evolution with nothing holding it open closes within a few clocks. It does not answer it, because eq. (17) is not Schwarzschild and the board's bulk supplies a Weyl stress that vacuum Schwarzschild lacks (SIM1 S5)."
+  },
+  {
+   "question": "Item 162: one black-hole-like object holding both mouths and the throat at once, of fixed size (H-ONE-OBJECT, H-FIXED-SIZE)",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "Kruskal's single maximal extension does hold both mouths (the exteriors), the bridge, and the black-hole and white-hole interiors in one spacetime (p.1744, Fig. 2). That is H-ONE-OBJECT's shape, but there the black hole and white hole are not one per mouth. And its throat is not fixed: it is 'dynamic, not static' (Morris-Thorne p.397), against H-FIXED-SIZE. The document's linear diagram matches M's item 132, not Kruskal. On a fixed-size horizon absorbing anything, the board already has SIM1 S3b (Raychaudhuri). The document adds nothing to it."
+  },
+  {
+   "question": "Item 163: the write lasts at least ~2.0e5 clocks; the fixed-size corridor must stay regular that long",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "From the source check: the vacuum bridge lives 2*pi*m, 3.2e4 times too short. A white-hole exit with non-zero surface gravity seals in '(a few tens) x GM/c^3' (Morris-Thorne pp.395-396), 4e3 to 1e4 times too short. Both computed in board clocks (m/c). This supports the board's reliance on zero surface gravity at the exit (STABILITY.md S5). It does not decide whether the v^2 blueshift that remains at zero surface gravity destabilises the exit, so that stays OPEN."
+  },
+  {
+   "question": "Item 139(3): 'Absorbing of the README into position 2 is an expansion of that universe' (compare white holes as outflow)",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The document says only that a white hole is a 'unidirectional output of matter/energy'. It never links white holes to expansion. The nearest primary link is Eardley's 'a white hole (a compact, long-delayed region of the big bang)' (abstract p.442), and it arrives with the verdict 'cannot exist ... converts it into a black hole' (exponential, so non-zero surface gravity). Nothing bears on M-PROVE-POSITIVE or on the README being the trigger."
+  },
+  {
+   "question": "Item 168: within one universe (positions) versus between universes",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The document never draws the distinction, and it attaches the intra-universe description ('two separate points', 'shortcut') to the ER bridge, which is the inter-universe kind (Kruskal Fig. 1; Morris-Thorne Fig. 1(a); Hochberg-Visser p.2). If its ER model maps anywhere, it is onto the later between-universes phases, not phase 2. The literature treats the two as one local solution with two topologies (Morris-Thorne p.396; Kruskal p.1743). So M's ordering, within-universe trajectories smaller than between-universe ones (116(b), 117), is not a property of the local throat in that literature."
+  },
+  {
+   "question": "The one-way corridor (item 132 H-ONE-WAY-BY-NATURE / H-ONE-OBJECT-TWO-VIEWS; PLANE P1; CURRENT X7)",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The document's black-hole-mouth, throat, white-hole-mouth diagram is M's own item 132 ('a black hole in and a white hole out, side views of the same corridor object') and the board's computed P1/X7 (one null surface: the black-hole horizon seen from position 1 is the white-hole horizon seen from position 2). It supplies nothing new, and its attribution is wrong. The right primary sources are Morris-Thorne p.395 objection (2) for the travel arrangement and the one-way extremal-throat literature the board already holds (Simpson-Visser 1812.07114). Hochberg-Visser (gr-qc/9802048 p.3) exclude horizons from their NEC theorem, so it does not directly bind the board's null throat (deduced)."
+  },
+  {
+   "question": "Items 117/120: the NEC is never violated, only appears broken (H-NEC-COIN)",
+   "verdict": "bears-on-but-does-not-answer",
+   "why": "The document's 'requires exotic matter' is the standard four-dimensional statement the board already carries. Hochberg-Visser p.3 ('the suspension of the NEC is essentially an illusion' for any passage through a throat in their sense) runs the opposite way to H-NEC-COIN. It covers horizonless throats only, so it does not refute M, and the board's position stands (the plane reads an ANEC violation, the bulk reads 0; residue/OUTSIDE.md). Recorded under M-IRREFUTABLE."
+  }
+ ],
+ "mapping_to_M": "How the document's ER picture lines up with M's rulings, item by item.\n\n- **Item 162 (one object holding both mouths and the throat).** The document's picture fits item 162 only in its words. Both describe one object with an ingoing black-hole side, a throat and an outgoing white-hole side. Read against the sources, the document's diagram matches M's item 132 and the board's computed one-way chain for eq. (17) (CURRENT X7: one null surface that is the black-hole horizon from position 1 and the white-hole horizon from position 2). It does not match the Einstein-Rosen bridge it names. In Kruskal's extension both mouths are exterior regions, and the black hole and white hole are the shared future and past interiors (p.1744, Fig. 2). That spacetime does hold both mouths, the bridge and both interiors at once, which is item 162's shape. But its throat is not of fixed size: Morris-Thorne p.397 say it is 'dynamic, not static', and computed, it lives 2*pi*m, about 6.3 clocks. That is against H-FIXED-SIZE, and 3.2e4 times shorter than item 163's write of at least 2.0e5 clocks.\n\n- **Item 139(3) (absorbing the README into position 2 is an expansion of that universe).** The document says only that a white hole outputs matter and energy. The one primary-source link between white-hole outflow and a universe's expansion is Eardley's 'a white hole (a compact, long-delayed region of the big bang)', and it comes with an instability verdict for non-zero surface gravity. That supports the board's dependence on zero surface gravity at the exit (STABILITY S5). Morris-Thorne's 'a few tens of GM/c^3' sealing time is 4e3 to 1e4 times shorter than the write. None of this proves the energy positive (M-PROVE-POSITIVE) or bears on the README as the trigger.\n\n- **Item 143 (only what can cross a black hole's horizon crosses).** The document's 'nothing can escape' and 'forbids entry' agree with the board's reading and with Morris-Thorne p.395 ('one-way membrane'). They do not identify what carries an element's signature between universes.\n\n- **Within one universe versus between universes (item 168).** The document draws no such distinction. It attaches the within-universe description ('two separate points', 'shortcut') to the ER bridge, which is the between-universes kind (Kruskal Fig. 1 upper; Morris-Thorne Fig. 1(a); Hochberg-Visser's 'inter-universe'). In the standard literature the two are one local solution with two topologies, and 'the Einstein field equations do not constrain the topology of a solution' (Morris-Thorne p.396). The within-universe version is an approximation in which the mouths sit far apart (Kruskal Fig. 1 lower; Hochberg-Visser p.2). That is the distance framing ruled out in item 139(4), and it is the opposite of items 126/127, where position 2 is realized where position 1 is.\n\n- **What follows for phase 2.** 'One universe' has to be imposed as a global condition (CENSOR5D escape (a), the plane's two ends in one end of the bulk). The local corridor solution will not produce it, and the document has no extra dimension to say anything about the passage through it. If the document's ER model maps anywhere, it is onto the later between-universes phases. It supplies nothing the board does not already have. The board already holds Morris-Thorne (STANDS), topological censorship, the one-way chain, Eardley at abstract level, Bianchi et al. and Simpson-Visser.",
+ "verdict": "The document answers none of the board's open questions. It does not bear on B4D-STAGE6's decision, which item 166 already settled, or on either of B4D-STAGE7's two questions about item 139: the unit is a choice of curvature radius, and the image count is a junction convention, and the document has neither. On phase 2 and items 143, 152, 162, 163, 139(3), 168 and the one-way corridor it bears-on-but-does-not-answer.\n\n- **Its one structural picture is already on the board.** 'Black hole in, throat, white hole out, as one object' is M's own item 132 and the board's computed PLANE P1/CURRENT X7.\n- **It misattributes that picture.** Einstein-Rosen 1935 built a static, two-sheet particle model with modified field equations (READ, pp.73-75). The black-hole and white-hole regions come from Kruskal 1960 (READ). The pinch-off is Kruskal 1960 and Fuller-Wheeler 1962 (READ, abstract only), and it takes 'a finite time', not 'instantly'. The one-way travel arrangement is Morris-Thorne 1988 p.395 (READ).\n- **It conflates two objects.** It treats the vacuum, non-traversable ER bridge and the exotic-matter traversable wormhole as one thing. Morris-Thorne's 'exotic' is tension greater than a positive energy density (p.405), not 'negative mass/energy density'.\n- **Its cosmology page has errors.** Three need correcting: the SZ effect does not push photons into the UV, X-ray or gamma range (Carlstrom-Holder-Reese pp.4, 7, READ); Compton scattering is a distortion, not a uniform slide of the spectrum; and a 3000 K blackbody peaks in the near-infrared, not the UV (computed). The z ~ 1100, 2.7 K and 121.6 nm figures are right (standard-not-READ; ratio computed). 'Breaks thermodynamics if static' is contradicted by Hawking 1976 (READ, abstract).\n\nChecking the document did turn up four things worth filing, all from the primary sources rather than from the document:\n- (i) Morris-Thorne p.396 and Kruskal 1960 p.1743: within-universe and between-universe wormholes are one local solution with different topology. For phase 2, 'one universe' must be imposed globally (CENSOR5D escape (a)). And the standard within-universe picture uses mouths far apart, which does not fit items 126/127 or 139(4).\n- (ii) Computed: a vacuum bridge lives 2*pi*m, about 6.3 clocks, 3.2e4 times shorter than the write. Morris-Thorne put a non-extremal white-hole exit's sealing time at 'a few tens' of GM/c^3, 4e3 to 1e4 times shorter than the write. Both underline the board's reliance on zero surface gravity at the exit (STABILITY S5). Whether the remaining v^2 blueshift destabilises it stays OPEN.\n- (iii) Eardley's 'white hole = long-delayed region of the big bang' is the only primary link between item 139(3)'s 'expansion' and white-hole outflow, and it comes with an instability verdict.\n- (iv) Hochberg-Visser 1998 make NEC violation generic at any throat, one-way or two-way, and call its apparent suspension 'an illusion'. That runs opposite to H-NEC-COIN. But they exclude horizons and bifurcation spheres, so it does not refute M for the board's horizon throat.\n\nNo status moves; B4d stays OPEN. Nothing was written to drive/, extracted/, recovered/, method/ or the board tree. The only file is the scratch check script /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/erdoc/checks.py.\n\nSource caveats:\n- The 1935, 1960 and 1988 journal texts were read from third-party scan reproductions (OCR); the 1935 'sheets' sentence was reassembled from a column-scrambled scan.\n- Fuller-Wheeler, Eardley and Hawking were read from their abstracts only.\n- Visser's 1995 book was not opened; its terms are READ through Hochberg-Visser.\n- The Parallel search connector was rate-limited, so searches went through Exa, alphaXiv and the Drive connector.",
+ "_document": {
+  "title": "Theoretical Astrophysics & Cosmology Overview.pdf",
+  "drive_id": "1ApASk0x71rO8IhdM8QJTMMFBZVLxaQOi",
+  "added_by": "M, 2026-10-08",
+  "read": "2026-10-09"
+ }
+}
