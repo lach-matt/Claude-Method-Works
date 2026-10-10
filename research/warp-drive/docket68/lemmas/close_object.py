@@ -90,7 +90,7 @@ def words():
 
 def degenerate():
     src = open(os.path.join(D68, "warptheorem.py")).read()
-    m = re.search(r'\("O", "O2 the horizon is extremal \(surface gravity 0\)", "(\w+)"', src)
+    m = re.search(r"""\(['"]O['"], ['"]O2 the horizon is extremal \(surface gravity 0\)['"], ['"](\w+)['"]""", src)
     status = m.group(1) if m else None
     if MUT.get("o2_open"):
         status = "OPEN"

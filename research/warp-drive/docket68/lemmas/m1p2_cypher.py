@@ -218,7 +218,7 @@ NOTES = {
                     "C2b finds its matter-free form singular at every sampled ℓ from 4.80m up, including position 2's "
                     "own ℓ₂ under both counts. With 172 (1)'s README stress it is OPEN."],
     "ITEM197-REFLECTION.md": ["Untouched here; P2 reads unequal radii in general."],
-    "../warptheorem.py": ["M1P2x between universes, position 2's side reads its own eq. (17)"],
+    "../warptheorem.py": ["seated restatement (206): between universes, position 2's side reads its own eq. (17)"],
     "chain_cypher.py": ["within one universe no event horizon, no negative-flux demand (E1u, E2u DERIVED, no input); "
                         "between universes it stands (E1x, E2x on CLOSE)"],
     "../copy/COIN.md": ["In the plane both read alike: G_kk depends on r only, and the two legs are equal.",
