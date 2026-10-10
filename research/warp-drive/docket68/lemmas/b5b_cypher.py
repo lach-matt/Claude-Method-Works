@@ -41,7 +41,8 @@ THE OWNERS' RESULTS (imported by path; each computed or deduced there, checked h
   S5 (computed, b1_matter.py B3, C1, C3) our plane alone: the closed-form bulk off a thin FRW plane carrying dust, and
      dust + Lambda, is exact (every Einstein component zero, maximally symmetric: pure AdS5); the bulk's R(k,k) = 0; the
      plane's rho + p > 0 through today in all 8 fits read
-  S6 (READ from chain_cypher.py ROWS, read only) B2 PROVED, Z3a DERIVED, B5a DERIVED, B5p OPEN, B5b OPEN
+  S6 (READ from chain_cypher.py ROWS, read only) B2 PROVED, Z3a DERIVED, B5a DERIVED, B5pu DERIVED, B5px OPEN (seated on
+     item 206 from b5p_cypher's split), B5b OPEN
 
 THE CELLS (H-CYPHER-B5B-INDEX, the board's encoding; each cell's source is in a comment at cells()).  Coordinates:
   smooth (0 a thin sheet, 1 a profile of finite width); exact (0 a stress profile only, no metric solved; 1 a metric
@@ -255,7 +256,7 @@ def s_ours():
 
 def s_status():
     rows = {r[0]: (r[1], r[2]) for r in mod("cc").ROWS}
-    return {k: rows.get(k) for k in ("B2", "Z3a", "B5a", "B5p", "B5b")}
+    return {k: rows.get(k) for k in ("B2", "Z3a", "B5a", "B5pu", "B5px", "B5b")}
 
 
 # ---------------------------------------------------------------------------------------------------------- cells
@@ -461,8 +462,9 @@ def checks(d):
         "component zero, maximally symmetric); bulk R(k,k) = 0; rho + p > 0 through today in all 8 fits",
         o["B3"][0] and _ours_exact(o) and o["C1"][0] and o["C3"][0] and _ours_nec(o))
     st = d["st"]
-    add("S6 chain_cypher ROWS (read only): B2 PROVED, Z3a DERIVED, B5a DERIVED, B5p OPEN, B5b OPEN",
-        st == {"B2": ("PROVED", ""), "Z3a": ("DERIVED", ""), "B5a": ("DERIVED", ""), "B5p": ("OPEN", ""),
+    add("S6 chain_cypher ROWS (read only; seated, item 206): B2 PROVED, Z3a DERIVED, B5a DERIVED, B5pu DERIVED, B5px OPEN, "
+        "B5b OPEN",
+        st == {"B2": ("PROVED", ""), "Z3a": ("DERIVED", ""), "B5a": ("DERIVED", ""), "B5pu": ("DERIVED", ""), "B5px": ("OPEN", ""),
                "B5b": ("OPEN", "")})
     cy = d["cy"]
     wi = {c[0]: c[1] for c in cy["within"]}

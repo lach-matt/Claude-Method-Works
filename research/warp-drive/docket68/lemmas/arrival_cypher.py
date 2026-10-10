@@ -80,26 +80,27 @@ FINDINGS
      forms with (Z), the cancelling rim in_bulk with (Z), the forming rows forms with in_bulk) -- and admits the
      forbidden chimera CH just as readily.  Order 3 refuses both: the lowest order at which the computed-forbidden
      chimera is refused refuses T (the board's H-ORDER-BY-CHIMERA).  Order 4 admits the data and nothing else
-  A6 (cypher) order 3's blocking triples are exactly (forms, in_bulk, z_kept) and (in_bulk, z_kept, partner_free): no
-     computed formation in the bulk keeps (Z), and no computed bulk arrangement keeps (Z) without a partner -- the one
-     that keeps it is the README-cancelling rim, whose partner status is 195/198's
-  A7 (cypher) the unknowns the refusal waits on, each set favourable alone: exactly the null energy (z_kept) of the
-     three forming bulk rows that leave it uncomputed -- corridor_shape's frame, the kink, the Z2 images.  Any one flips
-     order 3.  At order 4 no single unknown flips it
+  A6 (cypher) order 3's blocking triple is exactly (forms, in_bulk, z_kept): no computed formation in the bulk keeps
+     (Z).  [First run: also (in_bulk, z_kept, partner_free); corridor_shape's correction (S0) made the static ring rows
+     keep (Z) without a partner, so that triple no longer blocks]
+  A7 (cypher) the unknowns the refusal waits on, each set favourable alone: the null energy (z_kept) of the three forming
+     bulk rows -- corridor_shape's frame, the kink, the Z2 images -- and the 'forms' of the four static rows.  Any one
+     flips order 3.  At order 4 exactly the 'forms' of the two static ring rows: whether the closing static rim (ring,
+     or Z2 images and ring) comes to be by formation in the bulk -- the one computation ARRIVAL now waits on
   A8 (cypher) order, algebra and geometry ADMIT T under all 64 codings -- not a coding artefact -- but admit the
      forbidden chimera under all 64 too (negative control): their admission is the closure's reach over five axes it
      treats as independent (algebra, house coding: the join of 4D (a) with the forming tangent row (1, 1, 0, 1, 1)
      is T), not evidence of a bulk formation (the board's reading H-CLOSURE-REACH).  Information admits T under 40 and
-     CH under 35 of the 64: it moves with the coding, an artefact.  T4 is data, admitted by all five under every coding
+     CH under 36 of the 64: it moves with the coding, an artefact.  T4 is data, admitted by all five under every coding
      (forced).  CONTROL C2 below lifts information to 64 of 64 on T, so its 24 refusals are the coding's, not a reading
   A9 CONTROL C1: the Z2-images forming row's null energy -- the route forming_rim F3b (i) says 198 (a) and R0 name -- set
-     to 1: statistics order 3 flips to ADMIT; order 4 refuses, blocked by (forms, in_bulk, z_kept, fixed_once_in) and
-     (in_bulk, z_kept, partner_free, fixed_once_in): F5's hold, where the images without a ring cannot keep the size
+     to 1: statistics order 3 flips to ADMIT; order 4 refuses, blocked by (forms, in_bulk, z_kept, fixed_once_in): F5's
+     hold, where the images without a ring cannot keep the size
   A10 CONTROL C2: the forming tangent row's (Z) set to 1 (the hold's radial deficit gone with no partner, which R8
      computes against): T becomes data, admitted by all five under every coding
   A11 VARIANTS: 'five-dimensional' (the black string and the localized hole coded in_bulk 1): order 3 still refuses,
      blocked by (forms, in_bulk, z_kept) alone; 'pair' (H-CANCEL-IS-183-PAIR: the cancelling rim's partner_free 0):
-     the same two triples
+     the same blocking triple
 NAMED READINGS (the board's, never M's): H-CYPHER-ARRIVAL-INDEX (the encoding); H-IN-BULK-IS-BRIDGING (179/180 with
 203: in the bulk means on neither plane, bridging); H-ORDER-BY-CHIMERA (A5); H-CLOSURE-REACH (A8).  Carried:
 H-ARRIVAL-FORMS-THE-HORIZON and H-SIZE-IS-TRAPPING-HORIZON (README-HELD.md), H-CANCEL-IS-183-PAIR (rim_readme.py),
@@ -494,32 +495,36 @@ def checks(d):
         "order 4 admits the data and nothing else; T4 admitted at every order (data)",
         st[2]["T"] and st[2]["CH"] and not st[3]["T"] and not st[3]["CH"] and not st[4]["T"] and st[4]["extra"] == 0
         and all(st[o]["T4"] for o in (2, 3, 4)))
-    add("A6 order 3's blocking triples are exactly (forms, in_bulk, z_kept) and (in_bulk, z_kept, partner_free)",
-        st[3]["block"] == [("forms", "in_bulk", "z_kept"), ("in_bulk", "z_kept", "partner_free")])
-    add("A7 the unknowns order 3 waits on, each alone set favourable, are exactly the z_kept of the forming bulk rows "
-        "in corridor_shape's frame, with a kink and with Z2 images; at order 4 no single unknown flips it",
+    add("A6 order 3's blocking triple is exactly (forms, in_bulk, z_kept) -- since corridor_shape's correction (S0) the "
+        "static ring rows keep (Z), so (in_bulk, z_kept, partner_free) no longer blocks", st[3]["block"] == [("forms", "in_bulk", "z_kept")])
+    add("A7 the unknowns order 3 waits on, each alone set favourable: the z_kept of the three forming bulk rows and the "
+        "'forms' of the four static rows; at order 4 exactly the 'forms' of the two static ring rows -- whether the "
+        "closing static rim (ring, or Z2 images and ring) comes to be by formation in the bulk",
         d["cy"]["dec3"] == sorted([(C1_ROW, "z_kept"), ("K forming steep, corridor_shape's frame (P1-P4)", "z_kept"),
-                                   ("K forming steep, kink, README onto the planes", "z_kept")]) and d["cy"]["dec4"] == [])
+                                   ("K forming steep, kink, README onto the planes", "z_kept"),
+                                   ("K static steep marginal + ring", "forms"), ("K static steep marginal corridor", "forms"),
+                                   ("K static steep marginal, Z2 images + ring", "forms"),
+                                   ("K static tangent, README cancelling", "forms")])
+        and d["cy"]["dec4"] == sorted([("K static steep marginal + ring", "forms"),
+                                       ("K static steep marginal, Z2 images + ring", "forms")]))
     sw = d["cy"]["sweep"]
     add("A8 order, algebra and geometry admit T under all 64 codings and the forbidden chimera under all 64 as well "
         "(negative control: closure reach, not evidence); in the house coding algebra's join of 4D (a) with the forming "
-        "tangent row is T; "
-        "information admits T under 40 and the chimera under 35 of 64 (moves with the coding: an artefact); T4 by all "
-        "four under all 64; none silent",
+        "tangent row is T; information admits T under 40 and the chimera under 36 of 64 (moves with the coding: an "
+        "artefact); T4 by all four under all 64; none silent",
         all(sw[l]["T"] == 64 and sw[l]["CH"] == 64 for l in ("order", "algebra", "geometry"))
-        and sw["information"]["T"] == 40 and sw["information"]["CH"] == 35
+        and sw["information"]["T"] == 40 and sw["information"]["CH"] == 36
         and all(sw[l]["T4"] == 64 and sw[l]["silent"] == 0 for l in CLOSURE) and d["cy"]["join"] == TARGET)
     c1 = d["cy"]["c1"]
     add("A9 CONTROL C1: the Z2-images forming row's null energy set to 1 -> statistics order 3 flips to admit T; order 4 "
-        "refuses, blocked by (forms, in_bulk, z_kept, fixed_once_in) and (in_bulk, z_kept, partner_free, fixed_once_in) "
-        "(F5's hold)", c1[3]["T"] and not c1[4]["T"] and c1[4]["block"] == [
-            ("forms", "in_bulk", "z_kept", "fixed_once_in"), ("in_bulk", "z_kept", "partner_free", "fixed_once_in")])
+        "refuses, blocked by (forms, in_bulk, z_kept, fixed_once_in) (F5's hold without a ring)", c1[3]["T"]
+        and not c1[4]["T"] and c1[4]["block"] == [("forms", "in_bulk", "z_kept", "fixed_once_in")])
     c2 = d["cy"]["c2"]
     add("A10 CONTROL C2: the forming tangent row's (Z) set to 1 -> it is T, admitted by statistics and by order, "
         "algebra, geometry and information under all 64 codings", c2["row"] == TARGET and c2["stat3"]["T"]
         and all(c2["sweep"][l]["T"] == 64 for l in CLOSURE))
     add("A11 variants: 'five-dimensional' still refused at order 3, blocked by (forms, in_bulk, z_kept) alone; 'pair' "
-        "refused with the same two triples as the main run", not d["cy"]["five"]["T"]
+        "refused with the same blocking triple as the main run", not d["cy"]["five"]["T"]
         and d["cy"]["five"]["block"] == [("forms", "in_bulk", "z_kept")] and not d["cy"]["pair"]["T"]
         and d["cy"]["pair"]["block"] == st[3]["block"])
     return res

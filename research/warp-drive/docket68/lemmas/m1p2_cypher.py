@@ -91,7 +91,8 @@ WHAT IS PUT TOGETHER (each owner imported by path; owner results computed once p
      plane has our values (202) fixes M1P2's verdict; reads, nec, regular, positive, universe alone do not.  Every computed
      configuration that is not 202's fails M1P2 for a reason of its own (unequal radii, the radial NEC, minus our energy,
      a singular bulk); the one that is 202's meets it, given M1.  A statement about this index (H-CYPHER-M1P2-INDEX)
-  CH (computed; imported chain_cypher.py ROWS, green, index, cypher; a PROPOSAL, never applied) split H2t as CLOSE-FLUX
+  CH (computed; imported chain_cypher.py ROWS, green, index, cypher; SEATED on item 206 -- the split below is now the
+     chain's) split H2t as CLOSE-FLUX
      split E1/E2 and b5p_cypher.py split B5'p: H2tu (within one universe, on M1 alone) and H2tx (between, on M1 and
      M1P2).  M1 alone then greens 30 of 46 rows (29 of 45 before); the within-one-universe rows' smallest input set is
      {M1, WRITE, ARRIVAL, CLOSE} and on them information reports M1P2 as adding nothing (trivially: its column is empty);
@@ -217,8 +218,8 @@ NOTES = {
                     "C2b finds its matter-free form singular at every sampled ℓ from 4.80m up, including position 2's "
                     "own ℓ₂ under both counts. With 172 (1)'s README stress it is OPEN."],
     "ITEM197-REFLECTION.md": ["Untouched here; P2 reads unequal radii in general."],
-    "chain_cypher.py": ["position 2's side reads eq. (17)'s other leg (OPEN)",
-                        "within one universe no event horizon, no negative-flux demand (E1u, E2u DERIVED, no input); "
+    "../warptheorem.py": ["M1P2x between universes, position 2's side reads its own eq. (17)"],
+    "chain_cypher.py": ["within one universe no event horizon, no negative-flux demand (E1u, E2u DERIVED, no input); "
                         "between universes it stands (E1x, E2x on CLOSE)"],
     "../copy/COIN.md": ["In the plane both read alike: G_kk depends on r only, and the two legs are equal.",
                         "They are time-reversed images."],
@@ -229,7 +230,7 @@ NOTES = {
                       "(between universes, OPEN)"],
     "corridor_shape.py": ["so the corridor is a symmetric junction in the full static bulk of eq. (17)"],
     "rim_readme.py": ["no static finite-ell rim closes among the arrangements computed"],
-    "forming_rim.py": ["no computed arrangement has the radial and tangential null energy together and fits 198"],
+    "forming_rim.py": ["the rim closes through the hold"],
     "COUNT-CYPHER.md": ["per-sheet: k_R = k_L/2, tension −1/4 of ours per sheet, gravity G2 = 2 G1;",
                         "Position 2's G is never observed."],
     "axioms.py": ["P1's future horizon and P2's past horizon are one null surface"],
@@ -324,7 +325,8 @@ def l7_within():
     m, m2 = G * E / c**4, G2 * E / c**4                          # 131/133 (axioms.py G1's m = G E/c^4), per side
     within = sp.simplify((m2 / m).subs(G2, G))
     st = {r[0]: (r[1], r[2]) for r in mod("cc").ROWS}
-    return {"within_ratio": within, "z3a": st.get("Z3a"), "z3c": st.get("Z3c"), "h2t": st.get("H2t")}
+    return {"within_ratio": within, "z3a": st.get("Z3a"), "z3c": st.get("Z3c"), "h2tu": st.get("H2tu"),
+            "h2tx": st.get("H2tx")}
 
 
 # ---------------------------------------------------------------------------------------------------------- X3
@@ -472,14 +474,12 @@ def logic(named):
 # ---------------------------------------------------------------------------------------------------------- CH
 def chain():
     cc = mod("cc")
-    R = list(cc.ROWS)
-    if not MUT.get("h2t_unsplit"):
-        R2 = []
-        for r in R:
-            R2 += ([("H2tu", r[1], "M1", r[3]), ("H2tx", r[1], "M1 M1P2", r[3])] if r[0] == "H2t" else [r])
-    else:
-        R2 = R
-    within = [r for r in R2 if r[0] not in ("E1x", "E2x", "H2tx")]
+    R2 = list(cc.ROWS)                                           # the seated chain (206): H2tu, H2tx already split
+    if MUT.get("h2t_unsplit"):
+        R2 = [r for r in R2 if r[0] != "H2tx"]
+        R2 = [("H2t", r[1], "M1 M1P2x", r[3]) if r[0] == "H2tu" else r for r in R2]
+    R = R2
+    within = [r for r in R2 if r[0] not in ("E1x", "E2x", "H2tx", "B5px")]
     inputs = list(cc.INPUTS)
 
     def tal(rows):
@@ -547,8 +547,9 @@ def checks(d):
         and abs(c["p2_3"] - 2.634) < 0.01 and abs(c["p2_6"] - 2.593) < 0.01)
     l7 = d["l7"]
     add("L7 within one universe (deduced): one E and one G give m_2/m = 1; our matter's NEC rows Z3a, Z3c DERIVED with no "
-        "input; H2t DERIVED on M1 and M1P2 (chain_cypher ROWS, read only)", l7["within_ratio"] == 1
-        and l7["z3a"] == ("DERIVED", "") and l7["z3c"] == ("DERIVED", "") and l7["h2t"] == ("DERIVED", "M1 M1P2"))
+        "input; seated (206): H2tu DERIVED on M1, H2tx DERIVED on M1 and M1P2x (chain_cypher ROWS, read only)",
+        l7["within_ratio"] == 1 and l7["z3a"] == ("DERIVED", "") and l7["z3c"] == ("DERIVED", "")
+        and l7["h2tu"] == ("DERIVED", "M1") and l7["h2tx"] == ("DERIVED", "M1 M1P2x"))
     named = d["cy"]["cells"]
     cd = dict(named)
     add("P0 cells: each verdict follows from its coordinates; only W202 meets M1P2; the cuts, S15 and C2b fail it, each "
@@ -592,12 +593,12 @@ def checks(d):
                                                                                ("reads", "nec", "regular", "universe",
                                                                                 "positive")))
     ch = d["chain"]
-    add("CH chain (proposal): H2t split into H2tu (M1) and H2tx (M1, M1P2) -- M1 alone greens 30 of 46 (29 of 45 "
-        "before); within-one-universe rows' smallest input set {M1, WRITE, ARRIVAL, CLOSE}, M1P2 adding nothing there; "
-        "on all rows M1P2 stays in the smallest set and an independent axis",
-        ch["before"]["m1"] == 29 and ch["before"]["n"] == 45 and ch["after"]["m1"] == 30 and ch["after"]["n"] == 46
-        and ch["within"]["smallest"] == [("M1", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2" in ch["adds_within"]
-        and ch["after"]["smallest"] == [("M1", "M1P2", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2" not in ch["adds_all"])
+    add("CH chain (seated, item 206): H2tu (M1) and H2tx (M1, M1P2x) in the chain -- M1 alone greens 31 of 47; the "
+        "within-one-universe rows' (43) smallest input set {M1, FAR, WRITE, ARRIVAL, CLOSE}, M1P2x adding nothing there; "
+        "on all rows M1P2x stays in the smallest set and an independent axis",
+        ch["after"]["m1"] == 31 and ch["after"]["n"] == 47 and ch["within"]["n"] == 43
+        and ch["within"]["smallest"] == [("M1", "FAR", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2x" in ch["adds_within"]
+        and ch["after"]["smallest"] == [("M1", "M1P2x", "FAR", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2x" not in ch["adds_all"])
     x3 = d["x3"]
     add("X3 between universes (READ G2 = 2 G1, COUNT-CYPHER.md; arithmetic on axioms.py G1): position 2's side reads "
         "m_2 = 2m from 203's one E, and N bits on its horizon read E/sqrt2 -- the other leg of the same eq. (17) needs "

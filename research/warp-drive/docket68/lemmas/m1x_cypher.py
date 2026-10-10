@@ -240,7 +240,7 @@ NOTES = {
                        "its stress obeys the NEC and tends to minus ours (-sigma, +sigma) at coincidence"],
     "F1-AUDIT.md": ["reads eq. (17)'s other leg to the same order"],
     "rim_readme.py": ["no static finite-ell rim closes among the arrangements computed"],
-    "forming_rim.py": ["no computed arrangement has the radial and tangential null energy together and fits 198"],
+    "forming_rim.py": ["the rim closes through the hold"],
     "../bulk/bulkseries.py": ["Randall-Sundrum plane with K = -g/ell"],
 }
 _norm = lambda s: " ".join(s.split())

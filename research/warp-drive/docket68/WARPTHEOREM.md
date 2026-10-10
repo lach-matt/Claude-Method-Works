@@ -437,3 +437,34 @@ The theorem is proved exactly when no lemma below is OPEN.
   are re-read under 179. What k varies with, and whether each universe has its own strength of gravity, you left "For
   the math": the board decides both in the item-186 note. Clause (B) is re-worded after it.
 - **No lemma status moves.** The count stays at 14 proved, 11 derived, 2 readings, 3 definitions, 1 measurement, 3 open.
+
+## History (2026-10-10, items 204–206: the cycle through the cypher; the chain seated)
+
+- **Item 206** ("Seat the corrections after this pass ..."): the lemma table in `warptheorem.py` is now the chain the
+  board has been running through the cypher. It was `lemmas/chain_cypher.py`'s proposal (the green-the-chain round:
+  B1-MATTER, F1-AUDIT, ITEM197, CLOSE-FLUX, items 200 and 201, `o1c_complete.py`), with item 204's two splits and pass
+  2's corrections. Each row is seated with its owner and the status that owner earned; `RESTS_ON` names the inputs a
+  status is conditional on; the six inputs are rows of their own (clause N, OPEN). `chain_cypher.py` now reads its rows
+  from here, so the chain and the theorem cannot drift apart.
+- **Seated from the 204 splits:** B5′p → **B5pu** (within one universe, DERIVED: 202 makes position 2's matter ours,
+  `b5p_cypher.py`) and **B5px** (between universes, OPEN); H2t → **H2tu** (within one universe, DERIVED on M1,
+  `m1p2_cypher.py`) and **H2tx** (between universes, DERIVED on M1 and M1P2x, `g2_between.py`).
+- **Seated from pass 2:**
+  - **Z3b: OPEN → DERIVED** on M1, FAR, WRITE, ARRIVAL, CLOSE (`z3b_cypher.py`): every static ray class keeps (Z),
+    and the dynamic phases are exactly its inputs.
+  - **M1 re-worded** (`corridor_shape.py` S0, `rim_profile.py`, `forming_rim.py`): the rim closes in the static bulk.
+    Pass 3 found the bank's interpolation 8% wrong in g_rr near the throat (S0: now within 10⁻⁴ of exact columns).
+    Corrected, the plain marginal corridor (radial held at zero) meets our plane at 3.1–5.3m, beyond r_b = 3.01m, with
+    tangential null energy and energy positive all the way. Traced inward on exact near-horizon columns, it flattens
+    into the throat's constant-depth corridor. A ring of 0.013–0.10 aσ balances the rim. The earlier "tangential gap"
+    (S3, S5) was the interpolation's. Still open: the ring's nature and Wall C's bridge.
+  - **CLOSE re-worded** (`close_object.py`): within one universe the closing needs no negative flux. Position 1's
+    horizon ends (your 115 (a)), and it is extremal, so no outer-horizon area law binds it. What remains is the joint
+    ending of the (+E, −E) mouths keeping (Z) (the wormhole mouth-mass rule, READ secondary). Between universes the
+    negative-flux demand stands.
+  - **M1P2 → M1P2x re-worded** (`g2_between.py`): between universes position 2 reads its own eq. (17), at
+    m2 = (G2/G) m = 2m on 200 (1)'s count. Within one universe M1P2 reduces to M1.
+- **The count:** 47 lemmas and 6 inputs. **21 green** under the strict rule (25 counting definitions). M1 alone would
+  green 31; all six inputs, 36. The other 11 are 7 rows non-green by their own status (O3, B3, B4c, B4b, B4d, B5px,
+  B5b) and 4 definitions under the strict rule.
+- **The selftest** now also runs the seated owners' own selftests: about 10 minutes in place of 2.

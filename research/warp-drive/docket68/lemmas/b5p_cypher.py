@@ -45,7 +45,8 @@ WHAT IS PUT TOGETHER (each cell's source is in a comment at cells()):
      rho_m = -2 sigma beyond our tension (the README's part, 172 (1)).  On B5'a's form both coefficients are then zero:
      B5'a's condition met with equality, no margin (deduced).  It fails H-POSITIVE-ON-P2 (the board's reading of
      139 (2)), a different condition, kept apart
-  P6 (imported, chain_cypher.py ROWS, read only) the current statuses: Z3a DERIVED, Z3c DERIVED, B5a DERIVED, B5p OPEN
+  P6 (imported, chain_cypher.py ROWS, read only) the current statuses: Z3a DERIVED, Z3c DERIVED, B5a DERIVED, and this
+     file's split seated on item 206 -- B5pu DERIVED, B5px OPEN
   P7 (cypher; tools/cypher.py, roster 1173, the five operator-bearing languages) six cells, unknown a distinct code:
      W202 (within one universe on 202: position 2's sheet at our tension, its matter ours), the same with our plane on a
      phantom fit in the future, W139 (the named variant, outside target W: 139 (1)'s quarter kept within, its matter
@@ -298,7 +299,7 @@ def p5_s15():
 
 def p6_status():
     rows = {r[0]: (r[1], r[2]) for r in mod("cc").ROWS}
-    return {k: rows.get(k) for k in ("Z3a", "Z3c", "B5a", "B5p")}
+    return {k: rows.get(k) for k in ("Z3a", "Z3c", "B5a", "B5pu", "B5px")}
 
 
 # ---------------------------------------------------------------------------------------------------------- P7 cells
@@ -509,9 +510,9 @@ def checks(d):
         and abs(s["rho_m"] - s["rho_m_owner"]) < 1e-9 and abs(s["ny"]) < 1e-9 and 0 <= s["ns"] < 1e-5
         and s["nec_ok"] and s["worst_s"] < 1e-6)
     st = d["p6"]
-    add("P6 chain_cypher ROWS (read only): Z3a and Z3c DERIVED with no open input, B5a DERIVED, B5p OPEN",
-        st["Z3a"] == ("DERIVED", "") and st["Z3c"] == ("DERIVED", "") and st["B5a"] == ("DERIVED", "")
-        and st["B5p"] == ("OPEN", ""))
+    add("P6 chain_cypher ROWS (read only; seated, item 206): Z3a and Z3c DERIVED with no open input, B5a DERIVED, and "
+        "this file's split seated -- B5pu DERIVED, B5px OPEN", st["Z3a"] == ("DERIVED", "") and st["Z3c"] == ("DERIVED", "")
+        and st["B5a"] == ("DERIVED", "") and st["B5pu"] == ("DERIVED", "") and st["B5px"] == ("OPEN", ""))
     cyr = d["cy"]
     add("P7 target W (W202 alone: T5's flag decided the board's way under 149, as m1p2_cypher.py): all five languages, "
         "statistics included, admit exactly W202 under every coding (10 x 2 x 2)",

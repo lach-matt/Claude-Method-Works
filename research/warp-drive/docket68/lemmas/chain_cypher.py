@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """chain_cypher.py -- the Warp Theorem's chain after the green-the-chain round, through the cypher (items 192, 196).
-A PROPOSAL for seating, never applied here: warptheorem.py is read, not edited (nothing is seated without M's word).
+Seated on item 206: the rows are read from warptheorem.py (the theorem of record); this file classifies them.
 
 Each row is a lemma or a part of one, with the status its owner note earned and the foundational inputs it still rests
 on (the board's reading of each dependency, sourced per row).  Green rule (the board's, item 192): GREEN only if
@@ -50,44 +50,28 @@ D68 = os.path.dirname(HERE)
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(D68)))
 MUT = {}
 
-INPUTS = {
-    "M1": "the plane's reading of the corridor's mouth (replaces F1; OPEN)",
-    "M1P2": "position 2's side reads eq. (17)'s other leg (OPEN)",
-    "FAR": "a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN)",
-    "WRITE": "the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending)",
-    "ARRIVAL": "the README forms the corridor as it comes in, no partner (198, M's guess; README-HELD's 4D models; formation in the bulk OPEN, 179)",
-    "CLOSE": "the closing's negative null flux: ending the horizon and moving the hold need its area to shrink (README-HELD; area theorem; OPEN)",
-}
 GREEN = {"PROVED", "DERIVED", "AXIOM"}
 RANK = {"OPEN": 0, "NATURE": 1, "READING": 1, "DEFINITION": 2, "DERIVED": 3, "PROVED": 4}
-# (row, status, inputs, the warptheorem.py row it refines)
-ROWS = [
-    ("G1", "DERIVED", "M1", "G1"), ("G2", "PROVED", "", "G2"), ("G3", "PROVED", "M1", "G3"), ("H1", "PROVED", "", "H1"),
-    ("H2", "DERIVED", "", "H2"), ("H2t", "DERIVED", "M1 M1P2", "H2"),
-    ("O1a", "DERIVED", "", "O1"), ("O1b", "PROVED", "M1", "O1"), ("O1c", "PROVED", "M1", "O1"), ("O2", "PROVED", "M1", "O2"),
-    ("O3", "OPEN", "WRITE ARRIVAL", "O3"),
-    ("Z1q", "PROVED", "", "Z1"), ("Z1t", "PROVED", "M1", "Z1"), ("Z2r", "PROVED", "M1", "Z2"),
-        ("Z3a", "DERIVED", "", "Z3"), ("Z3b", "OPEN", "FAR WRITE ARRIVAL CLOSE", "Z3"), ("Z3c", "DERIVED", "", "Z3"),
-    ("B1", "PROVED", "", "B1"), ("B2", "PROVED", "", "B2"), ("B2t", "PROVED", "M1", "B2"),
-    ("B3", "OPEN", "M1 FAR WRITE ARRIVAL", "B3"), ("B4a", "PROVED", "", "B4a"), ("B4c", "READING", "FAR", "B4c"),
-    ("B4b", "READING", "M1 WRITE", "B4b"), ("B4d", "OPEN", "M1 WRITE ARRIVAL CLOSE", "B4d"),
-    ("B5a", "DERIVED", "", "B5"), ("B5p", "OPEN", "", "B5"), ("B5b", "OPEN", "", "B5"),
-    ("B6", "PROVED", "", "B6"), ("B6'", "DEFINITION", "", "B6'"), ("B7", "DERIVED", "WRITE ARRIVAL CLOSE", "B7"),
-    ("I1", "DERIVED", "", "I1"), ("I2", "PROVED", "", "I2"), ("E1u", "DERIVED", "", "E1"), ("E2u", "DERIVED", "", "E2"), ("E1x", "DERIVED", "CLOSE", "E1"), ("E2x", "DERIVED", "CLOSE", "E2"),
-    ("E3", "DERIVED", "", "E3"), ("E4r", "PROVED", "M1", "E4"),
-    ("R0", "DEFINITION", "", "R0"), ("R1", "DEFINITION", "", "R1"), ("R2", "DEFINITION", "", "R2"),
-    ("R3", "PROVED", "", "R3"), ("R4", "DERIVED", "", "R4"), ("R5", "DERIVED", "", "R5"),
-]
 
-# Proposals HELD by M (item 204: "Hold them, and keep cycling through the cypher").  Tallied beside the chain, never in
-# it: rows() and tally() never read this list.  Each entry replaces rows and may rename an input.
-HELD = [
-    {"id": "204-B5p", "source": "b5p_cypher.py (202 settles B5'p within one universe)",
-     "replace": {"B5p": [("B5pu", "DERIVED", "", "B5"), ("B5px", "OPEN", "", "B5")]}, "inputs": {}},
-    {"id": "204-M1P2", "source": "m1p2_cypher.py (within one universe M1P2 reduces to M1)",
-     "replace": {"H2t": [("H2tu", "DERIVED", "M1", "H2"), ("H2tx", "DERIVED", "M1 M1P2x", "H2")]},
-     "inputs": {"M1P2": "M1P2x"}},
-]
+
+def _load_wt():
+    path = os.path.join(D68, "warptheorem.py")
+    spec = importlib.util.spec_from_file_location("cc_wt_table", path)
+    mod = importlib.util.module_from_spec(spec)
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(mod)
+    return mod
+
+
+# The chain IS the seated theorem (item 206): its rows are warptheorem.py's lemmas, its inputs warptheorem.py's clause-N
+# rows, and what each row rests on is warptheorem.py's RESTS_ON.  (row, status, inputs, the row it refines)
+_WT = _load_wt()
+INPUTS = {n.split()[0]: n.split(" ", 1)[1] for c, n, st, w in _WT.LEMMAS if c == "N"}
+ROWS = [(n.split()[0], st, _WT.RESTS_ON.get(n.split()[0], ""), n.split()[0]) for c, n, st, w in _WT.LEMMAS if c != "N"]
+
+
+# Proposals HELD by M (item 204), then SEATED on item 206: the list is empty while nothing is held.
+HELD = []
 
 
 def _load(path, key):
@@ -107,9 +91,11 @@ def _load(path, key):
 def rows():
     r = list(ROWS)
     if MUT.get("b6_on_count"):
-        r = [(a, b, "M1P2" if a == "B6" else c, d) for a, b, c, d in r]
+        r = [(a, b, "M1P2x" if a == "B6" else c, d) for a, b, c, d in r]
     if MUT.get("e12_close_free"):
         r = [(a, b, "" if a in ("E1x", "E2x") else c, d) for a, b, c, d in r]
+    if MUT.get("unseat_z3b"):
+        r = [(a, "OPEN" if a == "Z3b" else b, c, d) for a, b, c, d in r]
     if MUT.get("g1_f1_free"):
         r = [(a, b, "" if a in ("G1", "G3") else c, d) for a, b, c, d in r]
     return r
@@ -127,12 +113,14 @@ def tally():
            "excluded": [r[0] for r in R if "EXCLUDED" in r[2]],
            "own_status": {r[0]: r[1] for r in R if r[1] not in GREEN | {"DEFINITION"}}}
     target = [r for r in R if r[1] in GREEN and "EXCLUDED" not in r[2]]
+    out["smallest"] = []
     for k in range(len(INPUTS) + 1):
         hits = [S for S in itertools.combinations(INPUTS, k) if all(green(r, set(S)) for r in target)]
         if hits:
             out["smallest"] = hits
             break
-    out["with"] = {S: sum(green(r, set(S)) for r in R) for S in (("M1",), ("M1", "CLOSE"), ("M1", "M1P2", "CLOSE"))}
+    out["with"] = {S: sum(green(r, set(S)) for r in R) for S in (("M1",), ("M1", "CLOSE"), ("M1", "M1P2x", "CLOSE"),
+                                                                  tuple(INPUTS))}
     return out
 
 
@@ -159,14 +147,14 @@ def held_tally():
 
 
 def current_table():
-    """warptheorem.py's own rows (read only) and the rows this proposal changes."""
+    """the seated theorem, read afresh from warptheorem.py: its lemma rows, its inputs, and whether every name a lemma
+    rests on is one of its inputs"""
     wt = _load(os.path.join(D68, "warptheorem.py"), "cc_warptheorem")
-    cur = {n.split()[0]: st for _, n, st, _ in wt.LEMMAS}
-    changed = {}
-    for a, b, c, parent in rows():
-        if parent in cur and (a != parent or b != cur[parent] or c):
-            changed.setdefault(parent, []).append((a, b, c))
-    return cur, changed
+    lem = {n.split()[0]: st for c, n, st, _ in wt.LEMMAS if c != "N"}
+    inp = [n.split()[0] for c, n, st, _ in wt.LEMMAS if c == "N"]
+    rests_ok = all(x in inp for v in wt.RESTS_ON.values() for x in v.split())
+    return {"lemmas": lem, "inputs": inp, "rests_ok": rests_ok,
+            "same": [(r[0], r[1]) for r in rows()] == list(lem.items()) and inp == list(INPUTS)}
 
 
 def index(R=None, extra=None):
@@ -196,55 +184,49 @@ def cypher(coords, cells):
 
 def compute():
     t = tally()
-    cur, changed = current_table()
+    cur = current_table()
     main = cypher(*index())
     # control: CLOSE made a copy of M1 in every row -> information must report one of them determined by the other
     def dup(coords, cells):
         i, j = coords.index("CLOSE"), coords.index("M1")
         return coords, [c[:i] + [c[j]] + c[i + 1:] for c in cells]
     ctrl = cypher(*index(extra=dup))
-    held = held_tally()
-    if MUT.get("seat_held"):                                  # the held proposals leak into the chain's own tally
-        R, _ = held_rows()
-        t = dict(t, n=len(R), strict=[r[0] for r in R if green(r, set())])
-    return {"tally": t, "current": cur, "changed": changed, "cy": main, "ctrl": ctrl, "held": held}
+    return {"tally": t, "current": cur, "cy": main, "ctrl": ctrl, "held": held_tally()}
 
 
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now: 20 of 45 (strict), 24 of 45 (audit rule, B6' a DEFINITION on item 201); B6 on 200 (1), Z3c DERIVED",
-        len(t["strict"]) == 20 and len(t["audit"]) == 24 and t["n"] == 45 and "B6" in t["strict"] and "Z3c" in t["strict"]
-        and "B6'" in t["audit"])
-    add("C2 the smallest input set greening every green-status lemma: {M1, M1P2, WRITE, ARRIVAL, CLOSE}",
-        t["smallest"] == [("M1", "M1P2", "WRITE", "ARRIVAL", "CLOSE")])
-    add("C3 M1 alone greens 29 of 45; with CLOSE 31; with M1P2 too 32",
-        t["with"][("M1",)] == 29 and t["with"][("M1", "CLOSE")] == 31 and t["with"][("M1", "M1P2", "CLOSE")] == 32)
-    add("C4 no row is never-greenable after item 200 (2); 8 rows non-green by their own status (B6' a DEFINITION, 201)",
-        t["excluded"] == [] and len(t["own_status"]) == 8 and "B6'" not in t["own_status"])
-    ch = d["changed"]
-    add("C5 every proposal row refines one of warptheorem.py's 34 rows, and at least 14 of them change",
-        len(d["current"]) == 34 and set(r[3] for r in rows()) <= set(d["current"]) and len(ch) >= 14)
+    add("C1 green now (seated, item 206): 21 of 47 (strict), 25 of 47 (audit rule); B5pu among them; B6 on 200 (1), Z3c "
+        "DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 21 and len(t["audit"]) == 25 and t["n"] == 47
+        and "B5pu" in t["strict"] and "B6" in t["strict"] and "Z3c" in t["strict"] and "B6'" in t["audit"])
+    add("C2 the smallest input set greening every green-status lemma is all six inputs: {M1, M1P2x, FAR, WRITE, ARRIVAL, "
+        "CLOSE} (FAR enters through Z3b, now DERIVED)", t["smallest"] == [("M1", "M1P2x", "FAR", "WRITE", "ARRIVAL", "CLOSE")])
+    add("C3 M1 alone greens 31 of 47; with CLOSE 33; with M1P2x too 34; with every input 36 (the other 11: 7 non-green "
+        "by their own status, 4 definitions under the strict rule)", t["with"][("M1",)] == 31
+        and t["with"][("M1", "CLOSE")] == 33 and t["with"][("M1", "M1P2x", "CLOSE")] == 34 and t["with"][tuple(INPUTS)] == 36)
+    add("C4 no row is never-greenable; 7 rows non-green by their own status (O3, B3, B4c, B4b, B4d, B5px, B5b)",
+        t["excluded"] == [] and sorted(t["own_status"]) == sorted(["O3", "B3", "B4c", "B4b", "B4d", "B5px", "B5b"]))
+    cu = d["current"]
+    add("C5 the chain is the seated theorem: its rows and statuses are warptheorem.py's lemma rows, its inputs "
+        "warptheorem.py's clause-N rows, and every name a lemma rests on is an input", cu["same"] and cu["rests_ok"]
+        and len(cu["lemmas"]) == 47 and len(cu["inputs"]) == 6)
     cy = d["cy"]
-    add("C6 cypher: information reports ARRIVAL, FAR, WRITE as adding nothing; M1, M1P2, CLOSE are the independent "
-        "axes on this encoding", {"ARRIVAL", "FAR", "WRITE"} <= cy["adds_nothing"]
-        and not ({"M1", "M1P2", "CLOSE"} & cy["adds_nothing"]))
+    add("C6 cypher: information reports which inputs add nothing on this encoding; M1 and CLOSE stay independent axes",
+        not ({"M1", "CLOSE"} & cy["adds_nothing"]))
     add("C7 cypher: five operator-bearing languages speak with E > 0; documentary silent",
         all(cy[l][0] is not None and cy[l][0] > 0 for l in ("order", "algebra", "geometry", "information", "statistics"))
         and cy["documentary_silent"])
     add("C8 control: CLOSE made a copy of M1 -> information reports one of them as adding nothing (the test can fail)",
         bool({"CLOSE", "M1"} & d["ctrl"]["adds_nothing"]) and not ({"CLOSE", "M1"} & d["cy"]["adds_nothing"]))
-    h = d["held"]
-    add("C9 held proposals (item 204) stay beside the chain: with both seated it would read 21 of 47 strict (B5pu), "
-        "M1 alone greening 31 of 47 (B5pu, H2tu); the chain's own tally is untouched (C1)",
-        h["n"] == 47 and len(h["strict"]) == 21 and "B5pu" in h["strict"] and h["with_M1"] == 31
-        and "M1P2x" in h["inputs"] and "M1P2" not in h["inputs"] and t["n"] == 45)
+    add("C9 nothing is held (item 206 seated the 204 splits): the held view equals the chain", d["held"]["n"] == t["n"]
+        and len(d["held"]["strict"]) == len(t["strict"]) and HELD == [])
     return res
 
 
 MUTANTS = {"e12_close_free": "E1x, E2x (between universes) read as resting on no closing flux", "b6_on_count": "B6 read as still resting on an open premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
            "definition_strict": "DEFINITION counted green under the strict rule",
-           "seat_held": "the held proposals counted in the chain's own tally"}
+           "unseat_z3b": "Z3b put back to OPEN (pass 2's correction undone)"}
 
 
 def selftest():
@@ -271,20 +253,17 @@ def mutants():
 
 def report(d):
     t = d["tally"]
-    print("chain_cypher.py -- the chain after the green-the-chain round (a proposal; nothing seated)\n")
+    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, item 206)\n")
     print("green now: %d of %d strict, %d audit rule" % (len(t["strict"]), t["n"], len(t["audit"])))
     print("  green:", " ".join(t["strict"]))
     print("  non-green by own status:", t["own_status"])
     print("  never greenable as stated:", t["excluded"])
     print("  smallest input set:", t["smallest"], " with:", t["with"])
     h = d["held"]
-    print("held beside the chain (item 204; not seated): %d of %d strict, %d audit; M1 alone would green %d"
-          % (len(h["strict"]), h["n"], len(h["audit"]), h["with_M1"]))
+    print("held beside the chain: %s (item 206 seated the 204 splits)" % ("none" if not HELD else len(HELD)))
     for p in HELD:
         print("  %s  %s" % (p["id"], p["source"]))
-    print("\nwarptheorem.py rows this proposal changes:")
-    for p, v in d["changed"].items():
-        print("  %-4s %-10s -> %s" % (p, d["current"][p], "; ".join("%s %s%s" % (a, b, (" on " + c) if c else "") for a, b, c in v)))
+    print("\nthe chain is the seated theorem (warptheorem.py):", d["current"]["same"], " inputs:", d["current"]["inputs"])
     print("\ncypher (roster 1173):")
     for l in ("order", "algebra", "geometry", "information", "statistics"):
         print("  %-12s E=%s  %s" % (l, d["cy"][l][0], d["cy"][l][1]))
