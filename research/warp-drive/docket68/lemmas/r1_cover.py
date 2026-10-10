@@ -171,7 +171,9 @@ DEPTH_KEYS = ("zero", "tenth", "d_plus", "y_star", "band_mid")
 MEMBERS = (("smooth", "adj"), ("smooth", "near"), ("level",), ("pow", 0.1), ("pow", 0.25), ("pow", 0.4))
 CROSSABLE = {"smooth adj", "smooth near", "level"}
 NEAR_MARGIN = 1e-2                               # the smooth family 1e-2 inside its O(x) NEC bound (the board's choice)
-CUT_RC = "41/20"                                 # R6 (b): the cut piece ends at r = 2.05m
+CUT_RC = "201/100"                               # R6 (b): the cut piece ends at r = 2.01m (2.05m before the verification;
+                                                 # History in R1-COVER.md: at 2.05m no y_s beyond is curvature-settled at
+                                                 # ell = inf on the bank's order, so that cut could no longer fail there)
 CONTROL_AMP = 2.0                                # R6 (a): the power law at twice its c* over the cover
 LIVE = (("41/20", "1/8"), ("11/5", "1/8"), ("10", "4"))     # the selftest's live columns
 DPS = 30
@@ -179,6 +181,12 @@ GRID_N = 240                                     # P2 sampled per interval (log-
 BANNED_KEYS = ("dist", "separation", "time", "redshift", "speed", "velocity", "length", "clock", "arrival")
 NEC_SIGN = 1                                     # mutation hook: -1 flips the Israel normal (C6)
 HOLD_POWER = 0.5                                 # mutation hook: 1/A**HOLD_POWER in the vertical leg (C3)
+K_FRACS = (0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.93, 0.95, 0.97, 0.99)   # the curvature scan's depths, as fractions of y_s
+K_TOL = 0.01                                     # b4_static S3's K rule: two Pade orders agree on K to 1%
+K_LARGE = 100.0                                  # b4_static S3's mark of a large curvature: the settled K must reach it
+CONE_GAPS = ("20|2", "20|4", "21/10|0", "5/2|2")   # located columns whose hold to 0.9 y_s is not finite at both orders
+FAR_LOCATED = ("10|4", "100|1", "100|1/2", "100|2", "100|4", "20|2", "20|4", "50|1", "50|2", "50|4")
+K_CONTROLS = ("401/200|0", "41/20|0", "401/200|1", "21/10|2")      # near-throat layer columns that must settle (C11)
 
 
 def mname(m):
@@ -189,6 +197,32 @@ def fmax(vals):
     """The larger finite value of a two-order pair (None if neither is finite)."""
     v = [x for x in (vals or []) if x is not None and math.isfinite(x)]
     return max(v) if v else None
+
+
+def hold2(vals):
+    """R2's hold, counted for the cone only where both verification orders give a finite value (the larger of the two).
+    One-order holds are reported (CONE_GAPS), never used to place a y_s in J^-(P_c)."""
+    v = [x for x in (vals or []) if x is not None and math.isfinite(x)]
+    return max(v) if len(v) == 2 else None
+
+
+def k_settled(ks):
+    """H-CURVATURE-SETTLED (the board's, from b4_static S2/S3; added after the verification, RF2/RC-O4).  A located y_s is
+    a C~ Pade pole -- b4d_stage5.nearest_real: "A scale for the depth, not a claim that the singular point is real".  It
+    counts as a curvature singularity, a site where a piece can FAIL (DEEP or UNCUT), only if K/K_bs rises to K_LARGE
+    over the contiguous prefix of K_FRACS on which the two verification orders agree on it to K_TOL (S3's 1% K rule),
+    positive and not falling.  Returns (settled, depth fraction reached, K/K_bs there)."""
+    best, prev = None, -math.inf
+    for f, a, b in ks or []:
+        if a is None or b is None or not (math.isfinite(a) and math.isfinite(b)) or a <= 0 or b <= 0:
+            break
+        if abs(a - b) / max(a, b) > K_TOL:
+            break
+        k = max(a, b)
+        if k < prev * (1 - K_TOL):
+            break
+        prev, best = k, (f, k)
+    return (best is not None and best[1] >= K_LARGE), (best[0] if best else None), (best[1] if best else None)
 
 
 # ------------------------------------------------------------------------------------------------- columns (R1, R2)
@@ -258,6 +292,26 @@ def hold(S, e, y):
     return out
 
 
+def kscan(S, e, rc, ysm):
+    """H-CURVATURE-SETTLED's data: K/K_bs at K_FRACS of the located y_s, at the two verification orders, through the
+    owner's b4d_stage5.evaluator (the route sim2_facing.column_w uses for K/K_bs; it removes Froissart doublets)."""
+    e = Fr(e)
+    W = S5.warped(S, e, N)
+    Ks = [S5.evaluator(W, e, o)[0] for o in SF.pade_orders(N, e)[:2]]
+    out = []
+    for f in K_FRACS:
+        y = f * ysm
+        kb = S5.k_bs(e, float(Fr(rc)), y)
+        row = [f]
+        for K in Ks:
+            try:
+                row.append(float(K(y)) / kb)
+            except Exception:                                        # a failed evaluation is not agreement
+                row.append(float("nan"))
+        out.append(row)
+    return out
+
+
 def column(rc, e, queries=(), S=None, col=None):
     """One owner column: sim2_facing.column_w unchanged (series memoised; or its cached output `col`, computed by the
     same call), the holds to vtop and to 0.9 y_s, and the NEC of each queried piece point (key, P2, F', F'') at the two
@@ -281,7 +335,8 @@ def column(rc, e, queries=(), S=None, col=None):
     ysm = float(np.median(ys)) if stable else None
     out = {"rc": rc, "r": float(Fr(rc)), "e": str(e), "ys": ys, "ys_im": [float(v) for v in col["ys_im"]],
            "stable": stable, "ys_med": ysm, "vtop": float(col["vtop"]), "top": float(col["top"]),
-           "hold_vtop": hold(S, e, float(col["vtop"])), "hold_ys90": hold(S, e, 0.9 * ysm) if stable else None}
+           "hold_vtop": hold(S, e, float(col["vtop"])), "hold_ys90": hold(S, e, 0.9 * ysm) if stable else None,
+           "kscan": kscan(S, e, rc, ysm) if stable else None}
     nec = {}
     if queries:
         ats = [raw_metric(S, e, o) for o in SF.pade_orders(N, e)[:2]]
@@ -349,15 +404,26 @@ def node_status(P2, ys, vtop):
 
 
 def nodes_for(cols, e):
-    """The cover's nodes at e: the throat (x = 0: y_s^th, regular below it at zeroth order) and every column."""
+    """The cover's nodes at e: the throat (x = 0: y_s^th, regular below it at zeroth order; a curvature singularity,
+    imported: SIM2-FACING, "the AdS2 factor shrinks to zero ... K rises") and every column, with H-CURVATURE-SETTLED's
+    verdict on its located y_s (kset) and its two-order hold (hold2)."""
     st = setup(e)
-    out = [{"rc": "2", "x": 0.0, "ys": st["ys_th"], "vtop": st["ys_th"], "stable": True, "hold": None}]
+    out = [{"rc": "2", "x": 0.0, "ys": st["ys_th"], "vtop": st["ys_th"], "stable": True, "hold": None, "hold2": None,
+            "kset": True}]
     for rc in sorted(RADII, key=lambda v: float(Fr(v))):
         c = cols["%s|%s" % (rc, Fr(e))]
         out.append({"rc": rc, "x": float(Fr(rc)) - 2.0, "ys": c["ys_med"] if c["stable"] else None,
                     "vtop": c["vtop"], "stable": c["stable"],
-                    "hold": fmax(c["hold_ys90"]) if c["stable"] else fmax(c["hold_vtop"])})
+                    "hold": fmax(c["hold_ys90"]) if c["stable"] else fmax(c["hold_vtop"]),
+                    "hold2": hold2(c["hold_ys90"]) if c["stable"] else None,
+                    "kset": bool(c["stable"] and k_settled(c.get("kscan"))[0])})
     return out
+
+
+def uncut_site(n, floor):
+    """A column where a piece that has met P1 FAILS (UNCUT): a located y_s that is a settled curvature singularity
+    (H-CURVATURE-SETTLED) and whose column, to 0.9 y_s, lies in J^-(P_c) at both orders (R2: hold2 below the floor)."""
+    return n["ys"] is not None and n["kset"] and n["hold2"] is not None and n["hold2"] < floor
 
 
 def r_f(cols, e):
@@ -397,25 +463,33 @@ def cover(cols, e, m, dk, cut_x=None, amp=None):
             break
         p2max = max(P2(x) for x in xs)
         yss = [n["ys"] for n in (a, b) if n["ys"] is not None]
+        yss_k = [n["ys"] for n in (a, b) if n["ys"] is not None and n["kset"]]
         ys_i = min(yss) if yss else None
         vt_i = min(a["vtop"], b["vtop"])
         s = node_status(p2max, ys_i, vt_i)
+        if s == "DEEP" and not (yss_k and p2max >= min(yss_k)):
+            s = "PAST-POLE"              # deeper than a located C~ pole that is not a settled singularity: undecided
         ivs.append({"lo": a["rc"], "hi": b["rc"], "status": s, "P2max": p2max, "ys": ys_i, "vtop": vt_i,
                     "margin_s": None if ys_i is None else ys_i - p2max, "margin_v": vt_i - p2max})
         if s == "DEEP" and verdict is None:
             verdict = ("FAILS", "DEEP", b["rc"])
-        if s == "UNDECIDED" and first_und is None:
+        if s in ("UNDECIDED", "PAST-POLE") and first_und is None:
             first_und = b["rc"]
         if s == "VERIFIED" and first_und is None and verdict is None:
             ver_to = float(Fr(b["rc"]))
+    pole_beyond = None
     if closed_at is not None and verdict is None:
-        # beyond the closing the piece is absent: a located y_s whose column (to 0.9 y_s) lies in J^-(P_c) (R2: its
-        # vertical-leg hold below the write's floor) is an uncut singular layer in the crossing's past
+        # beyond the closing the piece is absent: a located y_s that is a settled curvature singularity and whose column
+        # (to 0.9 y_s, both orders) lies in J^-(P_c) (R2: its vertical-leg hold below the write's floor) is an uncut
+        # singular layer in P_c's past.  A located pole that is not settled leaves the cover UNDECIDED (174 (1)'s record:
+        # the strict rule stands for curvature singularities).
         later = [n for n in nodes if n["x"] > closed_at]
         floor = P.write_floor()
-        uncut = next((n for n in later if n["ys"] is not None and n["hold"] is not None and n["hold"] < floor), None)
+        uncut = next((n for n in later if uncut_site(n, floor)), None)
         if uncut is not None:
             verdict = ("FAILS", "UNCUT", uncut["rc"])
+        else:
+            pole_beyond = next((n["rc"] for n in later if n["ys"] is not None), None)
     # the throat's own segment: X9 (imported) -- margin to y_s^th over x <= x_valid(d), with its hits
     x9 = row["margins"].get("smooth" if m == ("smooth", "adj") else mname(m)) if amp is None else None
     if verdict is None and x9 is not None and x9 < 0:
@@ -423,6 +497,8 @@ def cover(cols, e, m, dk, cut_x=None, amp=None):
     if verdict is None:
         if first_und is not None:
             verdict = ("UNDECIDED", "from", first_und)
+        elif closed_at is not None and pole_beyond is not None:
+            verdict = ("UNDECIDED", "closed, located pole beyond not settled", pole_beyond)
         elif closed_at is not None:
             verdict = ("UNDECIDED", "closed, no located y_s beyond", "%.6g" % (2 + closed_at))
         else:
@@ -468,10 +544,19 @@ def nec_along(cols, e, m, dk):
     the sign and the point is verified (P2 <= vtop)."""
     key = "%s|%s" % (dk, mname(m))
     rows = []
-    for rc in sorted(RADII, key=lambda v: float(Fr(v))):
+    pinned = PIN_NECROWS.get("%s|%s|%s" % (Fr(e), dk, mname(m)))
+    for i, rc in enumerate(sorted(RADII, key=lambda v: float(Fr(v)))):
         c = cols["%s|%s" % (rc, Fr(e))]
         v = c.get("nec", {}).get(key)
         if v is None:
+            # a pinned column without live NEC values: the full run's per-node summary (PIN_NECROWS; k kept, r radial
+            # broken, t angular broken, x both, u unsettled, '-' no open point)
+            ch = pinned[i] if pinned else "-"
+            if ch == "-":
+                continue
+            rows.append({"rc": rc, "P2": None, "verified": None, "nec_r": None, "nec_th": None, "pinned": True,
+                         "settled": ch != "u", "holds": ch in "ku", "radial_broken": ch in "rx",
+                         "angular_broken": ch in "tx"})
             continue
         st = setup(e)
         dep = st["rows"][dk]["depth"]
@@ -481,7 +566,8 @@ def nec_along(cols, e, m, dk):
         sr = (v[0][0] > 0) == (v[1][0] > 0)
         sth = (v[0][1] > 0) == (v[1][1] > 0)
         rows.append({"rc": rc, "P2": y, "verified": ver, "nec_r": v[1][0], "nec_th": v[1][1],
-                     "settled": ver and sr and sth, "holds": v[1][0] >= 0 and v[1][1] >= 0})
+                     "settled": ver and sr and sth, "holds": v[1][0] >= 0 and v[1][1] >= 0,
+                     "radial_broken": v[1][0] < 0, "angular_broken": v[1][1] < 0})
     settled = [z for z in rows if z["settled"]]
     br = next((z["rc"] for z in settled if not z["holds"]), None)
     return {"member": mname(m), "depth_key": dk, "rows": rows, "n_settled": len(settled),
@@ -587,18 +673,22 @@ def analyse(cols):
         cl = [cols["%s|%s" % (rc, es)] for rc in RADII]
         holds = [v for v in [fmax(c["hold_vtop"]) for c in cl] + [fmax(c["hold_ys90"]) for c in cl if c["hold_ys90"]]
                  if v is not None]
+        h2 = [v for v in [hold2(c["hold_vtop"]) for c in cl] + [hold2(c["hold_ys90"]) for c in cl if c["hold_ys90"]]
+              if v is not None]
         pe = {"ys_th": st["ys_th"], "y_star": st["y_star"], "R_F": r_f(cols, e),
-              "ceiling": [{"rc": n["rc"], "ys": n["ys"], "vtop": n["vtop"]} for n in nodes],
+              "ceiling": [{"rc": n["rc"], "ys": n["ys"], "vtop": n["vtop"], "kset": n["kset"]} for n in nodes],
               "ys_ge_throat": all(n["ys"] >= st["ys_th"] - 1e-9 for n in nodes[1:] if n["ys"] is not None),
-              "hold_max": max(holds), "floor_over_hold": floor / max(holds),
+              "hold_max": max(holds), "floor_over_hold": floor / max(holds), "hold2_max": max(h2),
+              "cone_gaps": sorted("%s|%s" % (c["rc"], es) for c in cl if c["stable"] and hold2(c["hold_ys90"]) is None),
+              "k_settled": sorted("%s|%s" % (n["rc"], es) for n in nodes[1:] if n["kset"]),
+              "k_located": sorted("%s|%s" % (n["rc"], es) for n in nodes[1:] if n["ys"] is not None),
               "covers": [], "nec": [], "critical": {}, "far_exit": {}}
         for dk in DEPTH_KEYS:
             for m in MEMBERS:
                 c = cover(cols, e, m, dk)
                 if c is not None:
                     pe["covers"].append(c)
-                    if any(cols["%s|%s" % (rc, es)].get("nec") for rc in RADII):
-                        pe["nec"].append(nec_along(cols, e, m, dk))
+                    pe["nec"].append(nec_along(cols, e, m, dk))
             cr = critical(cols, e, dk)
             if cr is not None:
                 pe["critical"][dk] = cr
@@ -612,10 +702,12 @@ def analyse(cols):
             ctrl_pl = cover(cols, e, ("pow", 0.25), "tenth", amp=amp)
         holder = next((c for c in pe["covers"] if c["member"] == "smooth near" and c["depth_key"] == "tenth"), None)
         cut = cover(cols, e, ("smooth", "near"), "tenth", cut_x=float(Fr(CUT_RC)) - 2.0)
+        cut_old = cover(cols, e, ("smooth", "near"), "tenth", cut_x=float(Fr("41/20")) - 2.0)
         pe["controls"] = {"power_law_amp": None if ctrl_pl is None else {"verdict": ctrl_pl["verdict"],
                                                                           "amp_over_c": CONTROL_AMP},
                           "cut_piece": {"verdict": cut["verdict"], "uncut_from": CUT_RC,
-                                        "uncut_holder_verdict": holder["verdict"] if holder else None}}
+                                        "uncut_holder_verdict": holder["verdict"] if holder else None},
+                          "cut_piece_at_2.05": {"verdict": cut_old["verdict"]}}
         res["per_e"][es] = pe
     res["crosser"] = {k: v["growth"] for k, v in P.crosser_frame(Fr(1, 8)).items()}
     res["x7_upper_1e10"] = max(P.layer(e, 1e10)["upper"] for e in (Fr(0), Fr(1, 8), Fr(1)))
@@ -819,7 +911,8 @@ def pinned_columns():
         ys, stable, vtop, top, hv, h9 = v
         out[k] = {"rc": k.split("|")[0], "r": float(Fr(k.split("|")[0])), "e": k.split("|")[1], "ys": ys,
                   "stable": stable, "ys_med": float(np.median(ys)) if stable else None, "vtop": vtop, "top": top,
-                  "hold_vtop": hv, "hold_ys90": h9, "nec": PIN_NEC.get(k, {})}
+                  "hold_vtop": hv, "hold_ys90": h9, "nec": PIN_NEC.get(k, {}),
+                  "kscan": [[f, a, b] for f, a, b in PIN_KSCAN[k]] if k in PIN_KSCAN else None}
     return out
 
 
@@ -1301,82 +1394,145 @@ PIN_VERDICTS = {   # e|depth|member: the full run's verdict
 }
 
 
+PIN_KSCAN = {}      # filled below by the pin pass
+PIN_NECROWS = {}
+PIN_CYPHER = {}
+
+
 # ---------------------------------------------------------------------------------------------------------- cypher
-REGIONS = ("T", "C", "B", "F")          # throat to 2.005m; owner columns to R_F; R_F to 10m; the far columns to 100m
-CY_COORDS = ["crossable", "throat", "to_RF", "past_RF", "far", "nec"]
-CY_TARGET = (1, 2, 2, 2, 2, 1)          # the statement's YES: a crossable member verified everywhere, NEC kept
-CY_TARGET_RF = (1, 2, 2, 1, 1, 1)       # the weaker cell: verified to R_F, undecided beyond, NEC kept
+# The board's encoding H-CYPHER-R1-COVER (built by the cypher step, a separate AI session in this project, and carried
+# into the instrument after the verification), with H-CURVATURE-SETTLED applied.  The cypher CLASSIFIES the computed
+# cells; an admitted cell that was not computed is a classification, never a configuration, and nothing here is a
+# physical derivation.
+ZONES = ("throat", "footprint", "near", "far")  # r <= 2.005m; to R_F(ell); R_F to 10m; 10m to 100m
+CY_COORDS = ["crossable", "every_ell", "open", "throat", "footprint", "near", "far", "nec"]
+CY_TARGET = (1, 1, 4, 2, 2, 2, 2, 2)    # the statement's YES: crossable, at every ell, never meets P1 within 100m,
+#                                         every zone verified, the NEC kept at every settled node
+CY_VO = {"crossable": [0, 1], "every_ell": [0, 1], "open": [0, 1, 2, 3, 4], "throat": [0, 1, 2],
+         "footprint": [0, 1, 2], "near": [0, 1, 2], "far": [0, 1, 2], "nec": [0, 1, 2]}
+CY_OPTS = {"statistics_order": 2, "algebra_budget": 200000}
+CY_LANGS = ("order", "algebra", "geometry", "information", "statistics")
+INJECT_CELL = None                       # C12's mutation: a cell fed to MAIN as if computed
+EMPTY_ZONE_VERIFIED = False              # C12's mutation: an empty zone written as verified (the old regions())
 
 
-def region_of(rc, rf):
-    r = float(Fr(rc))
+def zone_of(r, rf):
     if r <= 2.005 + 1e-12:
-        return "T"
+        return "throat"
     if r <= rf + 1e-12:
-        return "C"
+        return "footprint"
     if r <= 10 + 1e-12:
-        return "B"
-    return "F"
+        return "near"
+    return "far"
 
 
-def regions(c, cols, e):
-    """Per region the member's outcome: 0 a failure located there (DEEP, or an uncut located y_s after the piece has
-    met P1), 1 undecided (an unverified interval, or the piece absent with no located y_s), 2 verified throughout."""
+def zones(c, cols, e, cut=None):
+    """Zone outcomes of one cover record: 0 a failure located in the zone (a DEEP interval on a settled singularity;
+    DEEP-THROAT; or, after the piece has met P1, an uncut_site); 1 undecided (an unverified interval, PAST-POLE, the
+    closing interval, or the piece absent with no uncut_site); 2 every interval in it VERIFIED.  cut truncates the cover
+    (Control A: the zones past R_F are not asked).  An empty zone (the near zone at ell = m/4, where R_F = 10m) takes
+    the far zone's value: it is never written as verified (RC-O7)."""
     rf = c["R_F"]
-    out = {k: 2 for k in REGIONS}
-
-    def worse(k, v):
-        out[k] = min(out[k], v)
+    cap = math.inf if cut is None else cut
+    out = {k: 2 for k in ZONES}
+    seen = {k: False for k in ZONES}
     closed = False
     for iv in c["intervals"]:
-        k = region_of(iv["hi"], rf)
+        r = float(Fr(iv["hi"]))
+        if r > cap + 1e-12:
+            break
+        k = zone_of(r, rf)
+        seen[k] = True
         s = iv["status"]
         if s == "DEEP":
-            worse(k, 0)
-        elif s == "UNDECIDED":
-            worse(k, 1)
-        elif s == "CLOSED":
-            closed = True
-            worse(k, 1)
+            out[k] = min(out[k], 0)
+        elif s in ("UNDECIDED", "PAST-POLE", "CLOSED"):
+            closed = closed or s == "CLOSED"
+            out[k] = min(out[k], 1)
     if closed:
         floor = P.write_floor()
         for n in nodes_for(cols, e):
-            if n["x"] > c["x_meet"]:
-                k = region_of(n["rc"], rf)
-                located = n["ys"] is not None and n["hold"] is not None and n["hold"] < floor
-                worse(k, 0 if located else 1)
+            r = float(Fr(n["rc"]))
+            if n["x"] > c["x_meet"] and r <= cap + 1e-12:
+                k = zone_of(r, rf)
+                seen[k] = True
+                out[k] = min(out[k], 0 if uncut_site(n, floor) else 1)
     if c["verdict"][1] == "DEEP-THROAT":
-        worse("T", 0)
-    return out
+        out["throat"], seen["throat"] = 0, True
+    asked = ZONES if cut is None else ("throat", "footprint")
+    if not EMPTY_ZONE_VERIFIED and cut is None and not seen["near"]:
+        out["near"] = out["far"]
+    return {k: out[k] for k in asked}
 
 
-def cypher_cells(res, cols, per_e=False):
-    """The board's encoding (H-R1-CYPHER-INDEX, the board's): one cell per (member, depth row) -- or per (member, depth
-    row, ell) with per_e -- over CY_COORDS: crossable (1: H-CROSSABLE-HORIZON's classes; 0: the power-law controls),
-    the four region outcomes (worst over the ell scan unless per_e), nec (0 if the continued member breaks the NEC at a
-    settled node at any ell, else 1)."""
-    agg = {}
+def open_zone(c, cut=None):
+    """Where the continued piece meets P1: the index of its zone among those asked; len(asked) if never within the
+    (truncated) cover.  The P1 side of 'strictly between P1 and y_s(r)'."""
+    asked = ZONES if cut is None else ("throat", "footprint")
+    cap = 100.0 if cut is None else cut
+    rm = c["r_meet"]
+    if rm is None or rm > cap + 1e-12:
+        return len(asked)
+    return asked.index(zone_of(rm, c["R_F"]))
+
+
+def nec_code(nrow, cut=None):
+    """0 broken at a settled node; 1 no settled node (unmeasured -- never read as kept, RC-O7); 2 kept at every
+    settled node.  H-POINTWISE-NEC-ON-P2: the board's reading of 172 (1)'s "stress that obeys the NEC" (pointwise, P2's
+    own Israel stress at each settled node); M's seated clause (Z) reads net along each light ray (183)."""
+    rows = [w for w in (nrow or {}).get("rows", []) if w["settled"] and (cut is None or float(Fr(w["rc"])) <= cut + 1e-12)]
+    if not rows:
+        return 1
+    return 0 if any(not w["holds"] for w in rows) else 2
+
+
+def cypher_cells(res, cols, per_e=False, control_a=False):
+    """H-CYPHER-R1-COVER's cells: one per (member, depth row), worst over ES2 (min per coordinate), with every_ell; or
+    per (member, depth row, ell) with per_e (coordinate e, ES2's position, in place of every_ell).  control_a truncates
+    the cover at each ell's R_F (zones throat and footprint, open in {0, 1, 2}, the NEC at settled nodes r <= R_F)."""
+    agg, pres = {}, {}
     for es, pe in res["per_e"].items():
         e = Fr(es)
         necs = {(n["depth_key"], n["member"]): n for n in pe["nec"]}
         for c in pe["covers"]:
-            rg = regions(c, cols, e)
-            n = necs.get((c["depth_key"], c["member"]))
-            nec = 0 if (n is not None and n["n_broken"] > 0) else 1
-            cell = [1 if c["member"] in CROSSABLE else 0] + [rg[k] for k in REGIONS] + [nec]
+            cut = c["R_F"] if control_a else None
+            z = zones(c, cols, e, cut)
+            cell = {"crossable": 1 if c["member"] in CROSSABLE else 0, "open": open_zone(c, cut)}
+            cell.update(z)
+            cell["nec"] = nec_code(necs.get((c["depth_key"], c["member"])), cut)
             key = (c["member"], c["depth_key"]) + ((es,) if per_e else ())
+            pres.setdefault((c["member"], c["depth_key"]), set()).add(es)
             if key in agg:
-                agg[key] = [min(a, b) if i else a for i, (a, b) in enumerate(zip(agg[key], cell))]
+                agg[key] = {k: (v if k == "crossable" else min(v, cell[k])) for k, v in agg[key].items()}
             else:
                 agg[key] = cell
-    return agg
+    es_list = list(res["per_e"])
+    out = {}
+    for key, cell in agg.items():
+        if per_e:
+            cell = dict(cell, e=es_list.index(key[2]))
+        else:
+            cell = dict(cell, every_ell=1 if len(pres[key[:2]]) == len(es_list) else 0)
+        out[key] = cell
+    return out
 
 
-def cypher_spec(cells, name, extra=()):
-    rows = [list(v) for v in cells.values()] + [list(x) for x in extra]
-    return {"name": name, "coordinates": CY_COORDS, "cells": rows,
-            "value_order": {"crossable": [0, 1], "throat": [0, 1, 2], "to_RF": [0, 1, 2], "past_RF": [0, 1, 2],
-                            "far": [0, 1, 2], "nec": [0, 1]},
+def cy_coords(per_e=False, control_a=False):
+    zs = list(ZONES) if not control_a else ["throat", "footprint"]
+    cs = ["crossable"] + ([] if per_e else ["every_ell"]) + ["open"] + zs + ["nec"] + (["e"] if per_e else [])
+    vo = dict(CY_VO, open=list(range(len(zs) + 1)), e=list(range(len(ES2))))
+    return cs, {k: vo[k] for k in cs}
+
+
+def cy_target(coords, nz):
+    t = {"crossable": 1, "every_ell": 1, "open": nz, "nec": 2}
+    t.update({z: 2 for z in ZONES})
+    return tuple(t[k] for k in coords if k != "e")
+
+
+def cypher_spec(cells, coords, vo, name, extra=()):
+    rows = [[c[k] for k in coords] for c in cells.values()] + [list(x) for x in extra]
+    return {"name": name, "coordinates": coords, "cells": rows, "value_order": vo,
             "declared": {"analysis": {"speaks": True, "witness":
                                       "a continuous margin law: y_s(r) - d - c x^lam (power law) and "
                                       "y_s(r) - d - g1 sqrt(x) - g2 x (smooth family), continuous in (r, d, c); the cover "
@@ -1385,45 +1541,75 @@ def cypher_spec(cells, name, extra=()):
                                       "only at the columns"}}}
 
 
-def cypher_run(res, outdir, cols=None):
-    """Write the index specs and ask each language of roster 1173 whether the target cells are admitted (cypher.py
-    imported by path).  CONTROL: the same cells with the target inserted as if computed -- every operator-bearing
-    language must then admit it (an encoding that can say YES)."""
-    os.makedirs(outdir, exist_ok=True)
-    spec = importlib.util.spec_from_file_location("r1cover_cypher", CYPHER_PATH)
-    cy = importlib.util.module_from_spec(spec)
-    sys.modules["r1cover_cypher"] = cy
-    spec.loader.exec_module(cy)
+def _cy():
+    key = "r1cover_cypher"
+    if key not in sys.modules:
+        spec = importlib.util.spec_from_file_location(key, CYPHER_PATH)
+        cy = importlib.util.module_from_spec(spec)
+        sys.modules[key] = cy                                         # registered before exec_module
+        spec.loader.exec_module(cy)
+    return sys.modules[key]
+
+
+def ask(sp, targets):
+    """Every language of roster 1173 on one spec: state, E, and each target's membership; with whether each target is
+    the top of the observed box (RF1: then order, algebra and information admit it by construction)."""
+    cy = _cy()
+    ix = cy.Index(sp["name"], sp["coordinates"], sp["cells"], sp["value_order"], sp["declared"])
+    r = cy.run(ix, "1173", CY_OPTS)
+    top = tuple(ix.decode[i][max(ix.alphabets[i])] for i in range(ix.d))
+    out = {"cells": len(ix.cells), "d": ix.d, "box": ix.box, "degenerate": r["degenerate"],
+           "langclose_holds": r["langclose_holds"], "verdicts": {},
+           "target_is_top": {tn: tuple(t) == top for tn, t in targets.items()}}
+    for v in r["_verdicts"]:
+        row = {"state": v.state, "E": v.E}
+        if v.language in cy.ADMISSION and v.state == cy.SPEAKS:
+            adm, _ = cy.ADMISSION[v.language][0](ix, CY_OPTS)
+            for tn, t in targets.items():
+                et = tuple(ix.code[i].get(x) for i, x in enumerate(t))
+                row[tn] = ("NO (a value never seen: STRUCTURAL)" if None in et else ("YES" if et in adm else "NO"))
+        out["verdicts"][v.language] = row
+    return out
+
+
+def carriers(cells, coords, target):
+    """RF1: which (member, depth row) records carry each target value (the leave-one-out notes, recast)."""
+    return {k: sorted("|".join(key) for key, c in cells.items() if c[k] == t)
+            for k, t in zip(coords, target) if k not in ("crossable",)}
+
+
+def cypher_run(res, outdir=None, cols=None):
+    """Ask each language of roster 1173 (tools/cypher.py imported by path) on: MAIN (worst over ES2); CONTROL-B (the
+    target inserted as if computed: an encoding that can say YES); CONTROL-A (the cover truncated at R_F, the question's
+    own contrast); NEC-REVERSED (MAIN with nec's value order reversed, kept lowest -- RF1's discriminating target, which
+    is then not the top of the box); PER-ELL (one cell per ell)."""
+    main_c = cypher_cells(res, cols)
+    cs, vo = cy_coords()
+    tgt = cy_target(cs, 4)
+    extra = [INJECT_CELL] if INJECT_CELL else []
+    a_c = cypher_cells(res, cols, control_a=True)
+    acs, avo = cy_coords(control_a=True)
+    atgt = cy_target(acs, 2)
+    pe_c = cypher_cells(res, cols, per_e=True)
+    pcs, pvo = cy_coords(per_e=True)
+    runs = {
+        "main": (cypher_spec(main_c, cs, vo, "r1-cover MAIN: members x depth rows, worst over ES2", extra), {"target": tgt}),
+        "control_b": (cypher_spec(main_c, cs, vo, "CONTROL-B: the target inserted as computed", [tgt]), {"target": tgt}),
+        "control_a": (cypher_spec(a_c, acs, avo, "CONTROL-A: the cover truncated at R_F(ell)"), {"target": atgt}),
+        "nec_reversed": (cypher_spec(main_c, cs, dict(vo, nec=[2, 1, 0]), "NEC-REVERSED: nec kept lowest", extra),
+                         {"target": tgt}),
+        "per_ell": (cypher_spec(pe_c, pcs, pvo, "r1-cover PER-ELL: members x depth rows x ell"),
+                    {"target@e%d" % i: tuple(list(cy_target(pcs, 4)) + [i]) for i in range(len(ES2))}),
+    }
     out = {}
-    runs = (("main", cypher_spec(cypher_cells(res, cols), "r1-cover: members x depth rows, worst over ES2"), ()),
-            ("control", cypher_spec(cypher_cells(res, cols), "CONTROL: target inserted as computed", [CY_TARGET]), ()),
-            ("per_e", cypher_spec(cypher_cells(res, cols, per_e=True), "r1-cover: members x depth rows x ell"), ()))
-    for tag, sp_, _ in runs:
-        json.dump(sp_, open(os.path.join(outdir, "r1_%s.json" % tag), "w"), indent=1)
-        ix = cy.Index(sp_["name"], sp_["coordinates"], sp_["cells"], sp_["value_order"], sp_["declared"])
-        r = cy.run(ix, "1173", {"statistics_order": 2, "algebra_budget": 20000})
-        enc = lambda t: tuple(ix.code[i][v] if v in ix.code[i] else None for i, v in enumerate(t))
-        verdicts = {}
-        for lang in cy.ROSTERS["1173"]["languages"]:
-            if lang in cy.ADMISSION:
-                adm, note = cy.ADMISSION[lang][0](ix, {"statistics_order": 2, "algebra_budget": 20000})
-                if adm is None:
-                    verdicts[lang] = {"state": "SILENT", "note": note}
-                    continue
-                row = {"state": "SPEAKS", "E": len(adm) - len(ix.cells)}
-                for tname, t in (("target", CY_TARGET), ("target_RF", CY_TARGET_RF)):
-                    et = enc(t)
-                    row[tname] = ("NO (a value never seen in any cell: STRUCTURAL)" if None in et
-                                  else ("YES" if et in adm else "NO"))
-                verdicts[lang] = row
-            else:
-                d = ix.declared.get(lang)
-                verdicts[lang] = {"state": "NOT-RUN" if d is None else ("SPEAKS" if d.get("speaks") else "SILENT"),
-                                  "note": "" if d is None else d.get("witness", "")}
-        r.pop("_verdicts", None)
-        out[tag] = {"cells": len(ix.cells), "d": ix.d, "degenerate": r["degenerate"], "verdicts": verdicts,
-                    "langclose_holds": r["langclose_holds"], "warnings": r["warnings"]}
-        json.dump(out[tag], open(os.path.join(outdir, "r1_%s.out.json" % tag), "w"), indent=1)
+    for tag, (sp_, tg) in runs.items():
+        out[tag] = ask(sp_, tg)
+        if outdir:
+            os.makedirs(outdir, exist_ok=True)
+            json.dump(sp_, open(os.path.join(outdir, "r1_%s.json" % tag), "w"), indent=1)
+            json.dump(out[tag], open(os.path.join(outdir, "r1_%s.out.json" % tag), "w"), indent=1)
+    out["main"]["carriers"] = carriers(main_c, cs, tgt)
+    out["main"]["cells_by_record"] = {"|".join(k): [c[x] for x in cs] for k, c in main_c.items()}
     return out
 
 
