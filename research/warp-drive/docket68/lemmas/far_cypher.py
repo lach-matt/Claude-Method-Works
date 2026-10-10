@@ -96,6 +96,10 @@ reverse) with U ranked above 1 and below 0 -- 24 runs on the six far models, 32 
   X7 the board's reading H-NEG-PLANE-UNPAIRED run as BRIDGE-NEG (Z) = 0: no set of the remaining unknowns moves
      statistics on the model axis.  In the projection (model axis dropped) only sets that take (Z) from SLAB do --
      pairwise support stitching two different bulks, recorded as an artefact
+     [item 211 (far_bridge.py F5; the hold critic re-derived it): BRIDGE-NEG's (Z) is 0, deduced -- every ray meeting
+     position 2's plane meets no other member -- so X7's reading is now a deduction and X6's minimal set is closed: no
+     unknown on the model axis moves statistics.  Model C's whole growing-side family fails the surface WEC (far_bridge
+     F3).  The model-axis verdicts here are forced by a key (index_audit) and are void as evidence either way.]
   X8 the projection: the unseen (1, 1) pairs are exactly (corridor, z), (untrapped, p139), (untrapped, c166), (z, p139),
      (z, c166) -- no computed far model is untrapped with a negative position-2 plane or with two planes, none with
      a corridor keeps (Z), and none keeping (Z) has two planes or a negative position-2 plane; all five refuse T-FAR

@@ -665,3 +665,25 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **Not seated:**
     - the analyst's CLOSE recode, which is close_object O4 (ii)'s own cell and isolates nothing new;
     - "refuted" for H-MOUTH-FLUX.
+- **Correction to the dive note above (deduced from TS's wording, P2-FULL).** The dive keeps every *in-sheet* ray
+  class non-negative. A bulk ray grazing the sheet where its tangent null energy is negative gains
+  S(k₀,k₀)/α → −∞, and the sheet's shape elsewhere cannot offset it. Only a second source at the same place can: TS's
+  own exception. So the partner of the open mouth's joint sits at the rim, which is where M's "coupling interaction
+  between the mouth and our plane" places it. The corridor's own shape pairs in-sheet rays only.
+- **The hold (FAR, WRITE, O3, B4d), through its critic.** Every count reproduced independently, and no status moves.
+  - **FAR (`lemmas/far_bridge.py`, new, in closed form).** Model C's bridge with position 2's plane on the growing side
+    fails the surface WEC for every matter content: at k = 1, ρ ≥ 0 and ρ + p ≥ 0 force μ ≤ 0; at k = 0, ρ + p < 0.
+    - Its matter-free member BRIDGE-NEG breaks (Z) on every ray meeting the plane, so its (Z) is 0 (deduced).
+    - SLAB fails only on a board reading. FAR needs every ray across position 2's plane paired on that ray (177's
+      coupling the obvious candidate), or that plane meeting the WEC in total.
+  - **WRITE.**
+    - Every computed hold that ends is shorter than the floor for Z < 1.4456e10.
+    - Its cypher bracket is now exact about orders. Order 3 is informative. Under 200 (1) it gains a second triple,
+      (corridor, keeps_Z, stands). Order 2 admits from pairs. Orders 4 and above are forced.
+  - **O3.**
+    - It carries the exact floor and the spread at T_min.
+    - The perturbation's amplifications are exact: T/4 = 4.99255e4 and (1 + T/8)² = 6.23190e8.
+    - No survival threshold is recorded, because none is sourced (refuted: the analyst's cut at 1).
+    - Its order-2 admission rests on the window-hold cell alone.
+    - Whether O3 rests on B4d's inputs is left as a record question, and is not decided by the count.
+  - **B4d** carries the exact floor in place of "≥ 2.0e5".

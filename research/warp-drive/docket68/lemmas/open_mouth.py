@@ -52,10 +52,14 @@ and answer were refuted for working one orientation without stating it as a choi
      has no key and no one-hot code (index_audit).  So the cypher does not decide whether D- has a body
 So the open mouth that keeps the seated corridor is D+.  On paper it is a line in compression, so 210's board reading
 stands, and the analyst's correction of it does not.  Its negative null energy per ray asks (Z) for a partner on the
-same rays: the coupling.  What pairs it is OPEN.  One candidate is the corridor's own shape.  In the item-210 pass
-(scratch, its critic re-ran it on two banks; broad, one member of a free family, not re-run here) a prescribed D+ path
-that dives to a depth of about m near the throat, plateaus, and rises to a tangential joint keeps every ray class
-computed non-negative.  Its radial affine net is +0.27 to +0.29 (a 1.6% difference of terms near +-16.7 at
+same rays: the coupling.  What pairs it is OPEN.  Under TS (deduced from P2-FULL's wording) only a second source at
+the same place can pair it for bulk rays: a ray grazing the sheet where its tangent null energy is negative gains
+S(k0, k0)/alpha -> -infinity, which the sheet's own shape elsewhere cannot offset.  So the partner sits at the rim, as
+M's 'coupling interaction between the mouth and our plane' places it.  The corridor's own shape pairs in-sheet rays
+only.  In the item-210 pass (scratch, its critic re-ran it on two banks; broad, one member of a free family, not re-run
+here) a prescribed D+ path that dives to a depth of about m near the throat, plateaus, and rises to a tangential joint
+keeps every in-sheet ray class computed non-negative, though its own radial pattern (-, +, -, +, -) leaves TS's grazing
+bulk rays unpaired.  Its radial affine net is +0.27 to +0.29 (a 1.6% difference of terms near +-16.7 at
 r - 2m < 1e-3), it has no horizon boundary term, and its energy is positive only with sigma counted, for
 ell/m <= about 28.9.  The half-ray positives of the shallow 'throat lever' were refuted: they were the boundary term
 where the ray is cut at the horizon, and on mirror-completed rays the net is 2L < 0.  The board's reading H-OPEN-MOUTH-DPLUS (M's open mouth is D+,

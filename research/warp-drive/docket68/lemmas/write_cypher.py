@@ -132,6 +132,12 @@ THE CYPHER (roster 1173's five operator-bearing languages; tools/cypher.py impor
      the one blocking 4-tuple (corridor, lasts, keeps_Z, stands) -- that one cell sets order 3 against order 4.  V200
      (R1's keeps_Z read unknown under 200 (1)): refused from order 3, as in the main run.  The recorded finding (both
      planes' keeps_Z read 0 or U): no statistics verdict moves.
+     [item 211 (the hold analyst; its critic reproduced it): V200 with the both-planes cell's keeps_Z entered U is the
+     coding 200 (1) and this file's own recorded finding call for.  Under it statistics at order 3 has E = 2 and gains
+     a second blocking triple, (corridor, keeps_Z, stands): no computed corridor configuration that M's words leave
+     standing keeps (Z).  At the pinned order 2 all five admit T_WRITE from pairs (statistics 3 of the 6 target cells),
+     the board's reading H-ORDER2-FROM-PAIRS (not decided); orders >= 4 refuse every novel cell, so they are forced.
+     The main coding in code is unchanged; no statistics verdict moves.]
 THE BOARD'S READING (H-WRITE-NEEDS-ONE-OF-TWO, not M's): WRITE stays OPEN, neither met nor refuted.  On the computed
 cells, carrying the corridor, lasting the write and keeping (Z) never occur together -- already as a triple, before
 standing under M's words is asked -- and the blocking triple names what would close it: F5 (a pairing that makes the
