@@ -786,3 +786,24 @@ The theorem is proved exactly when no lemma below is OPEN.
   - two_sided T1–T4 and asym_junction A1, as computed.
 - **What is next:** what relates the two cells in the index — where they meet (203) and how the object comes to be
   contained at position 2 (213) — put through the cypher. No status moves.
+
+## History (2026-10-10, item 216: the index questions through the cypher)
+
+- **M, item 216:** "I agree. Run those questions through the cypher here please".
+- **`lemmas/bulk_index.py`, worked in the conversation.** The index is M's own account of the transfer:
+  - before (213);
+  - the three holds (106 (b)): position 1's horizon only, then both horizons at once, then position 2's only;
+  - after (213, 136 (2), 110).
+
+  Its coordinates are where the object is held and which horizons stand (115). It has no key and no redundant group.
+  A first design carried (Z) and dropped it, because it duplicated position 2's horizon exactly.
+- **Where the two cells meet.** Only in the realized stage, where both positions hold the object. Leave that stage out
+  and statistics admits no cell with the object at both positions.
+- **How the object comes to be at position 2.**
+  - The index never admits the object held nowhere.
+  - The after state cannot be assembled from the transit stages, so the release at position 2 (its horizon ending,
+    the object kept) is a step of its own.
+- **(Z)** is unknown exactly where position 2's horizon stands, which is the hold and the closing (Z3b and CLOSE).
+- **What it adds.** Every verdict is forced by a named unseen projection, since there are five cells (211). The cypher
+  adds that each step is irreducible, that pairs alone over-reach (order 2 admits both-held states with fewer
+  horizons; order 3 is closed), and where (Z) is still to be computed. No status moves.
