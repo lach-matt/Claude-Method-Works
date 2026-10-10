@@ -32,8 +32,9 @@ WHAT IS PUT TOGETHER (each cell's source is in a comment at cells()):
   P3 (deduced; the arithmetic done here on C4's own eps) B5'a re-read under 200 (1): its density bound is -3 sigma/4,
      its form unchanged.  With position 2's matter as ours the k_y^2 coefficient is (1 + t2)/eps + 2, positive for every
      position-2 sheet tension t2 > -1 - 2 eps (units of our sigma).  t2 = +1 (within one universe at our tension:
-     sigma_defines.py T5, rim_readme.py R7) and t2 = -1/4 (139 (1)) both clear it; position 2's plane alone stays
-     negative (-0.25/eps + 1 = -9.4e59)
+     sigma_defines.py T5, rim_readme.py R7; the board's within configuration on 202, below) and t2 = -1/4 (139 (1);
+     within one universe the named variant W139) both clear it; position 2's plane alone stays negative
+     (-0.25/eps + 1 = -9.4e59)
   P4 (imported, b1_matter.py check C3; computed there from READ fits) our plane's total rho + p, mean matter: positive at
      every a <= 1 in all eight fits; positive to a = 100 on the base LCDM row (w = -1: the constant offset of 201, the
      board's carrying of 201, sigma_defines.py T4 (a)); negative in the future only on the two constant-phantom fits
@@ -47,19 +48,29 @@ WHAT IS PUT TOGETHER (each cell's source is in a comment at cells()):
   P6 (imported, chain_cypher.py ROWS, read only) the current statuses: Z3a DERIVED, Z3c DERIVED, B5a DERIVED, B5p OPEN
   P7 (cypher; tools/cypher.py, roster 1173, the five operator-bearing languages) six cells, unknown a distinct code:
      W202 (within one universe on 202: position 2's sheet at our tension, its matter ours), the same with our plane on a
-     phantom fit in the future, W139 (within, 139 (1)'s quarter kept), WS15 (S15's cut through our bulk), X (between
-     universes on 139 (1) and 200 (1)), Xalone (position 2's plane alone).  Statistics is coding-independent and carries
-     the verdict; all five are run under every coding of the nominal case axis (10), both orders of the nominal
-     position-2-matter axis, and the unknown placed above and below: 40 codings per index.
-     Target W ("B5'p settled within one universe on 202, with margin"): all five languages, statistics included,
-     admit exactly W139 and W202 under every coding.  Control: 202 withheld (position 2's matter unknown, as B1-MATTER
-     had it) -- all five refuse W under every coding: the verdict flips on the 202 cell.
-     Target X ("B5'p settled between universes"): statistics refuses under every coding (0 of 40); order and algebra
-     admit X under 30 of 40, geometry 20, information 14 (all 14 with the unknown placed below) -- the case coding moves
-     it, and for information the unknown's placement too: an artefact of ordering a nominal axis, not a reading.  Control:
-     position 2's matter set as ours (the board's example, C4) -- all five admit X under every coding: what blocks X is
-     the unknown, not a contradiction.  The cypher classifies; the decision is carried by the cells (C4's computed
-     instance with 202), as B1-MATTER.md said of its own run
+     phantom fit in the future, W139 (the named variant, outside target W: 139 (1)'s quarter kept within, its matter
+     ours), WS15 (S15's cut through our bulk), X (between universes on 139 (1) and 200 (1)), Xalone (position 2's plane
+     alone).  Statistics is coding-independent and carries the verdict; all five are run under the case codings defined
+     in this file (_codings: each of the 5 rotations of the nominal case axis and its reverse, the dihedral orders, 10),
+     both orders of the nominal position-2-matter axis, and the unknown placed above and below: 40 codings per index
+     (computed; check P7n pins every count below, so a change to the coding set or the cells cannot pass silently).
+     Target W ("B5'p settled within one universe on 202, with margin"; W202 alone, on the board's decision of T5's flag
+     below): all five languages, statistics included, admit exactly W202 under 40 of 40 codings.  Variant W139: all five
+     admit it, with margin, under 40 of 40 -- B5'a's condition holds for the quarter too (P3).  Control: 202 withheld
+     (position 2's matter unknown, as B1-MATTER had it) -- all five refuse both W and W139 under 40 of 40: the verdict
+     flips on the 202 cell.
+     Target X ("B5'p settled between universes"): statistics admits X under 0 of 40; order admits it under 30 of 40,
+     algebra 30, geometry 20, information 14 (all 14 with the unknown placed below) -- the case coding moves it, and for
+     information the unknown's placement too: an artefact of ordering a nominal axis, not a reading.  Control: position
+     2's matter set as ours (the board's example, C4) -- all five admit X under 40 of 40: what blocks X is the unknown,
+     not a contradiction.  The cypher classifies; the decision is carried by the cells (C4's computed instance with
+     202), as B1-MATTER.md said of its own run.
+     A finding about this file, recorded: it once imported its codings from forming_rim.py's _codings, which has since
+     been changed to return all 120 orders of the case axis; under those 480 codings (computed 2026-10-10 in the fix
+     round, not re-run by the selftest) X is admitted by order under 372, algebra 372, geometry 264, information 180
+     (all with the unknown placed below), statistics 0, and W202 and W139 by all five under 480 of 480 -- the same
+     pattern, different numbers, so the counts this file stated had gone stale while every set-valued check passed.
+     The dihedral set it was written for is now defined here, and mutant codings_all_perms shows P7n catches the change
   P8 (logic's binary: b6p_scale.py determined(), through b1_matter.py, imported) on the within-one-universe cells the
      verdict is fixed by our own plane's rho + p >= 0 alone, and by none of the case, position 2's sheet tension, or
      whether its matter is ours or S15's forced stress; over all cells it is fixed by (position 2's matter, our NEC, the
@@ -76,6 +87,11 @@ THE BOARD'S READINGS (named; withdrawn if M says otherwise):
      own tension and offset", its bulk meeting ours at the corridor (203).  S15's geometry is a cut through our bulk, and
      its opposite stress (P5) conflicts with 202's "the energies are the same" at every finite ell; under 202, S15 is not
      the within-one-universe configuration.  B5'a's condition is met in both, so the verdict does not rest on which
+  T5's flag (sigma_defines.py T5: 139 (1)'s quarter against our tension within one universe, "flagged, not decided")
+     decided the board's way under 149, as m1p2_cypher.py decides it (guard Q1 finds its sentence there): on 202 ("the
+     energies are the same") the within configuration is at our tension, W202, and target W is W202 alone.  The quarter
+     kept within, its matter ours, is a different energy and stays a named variant, W139, outside target W; it is not
+     dropped, and B5'a holds on it too (P3), so the within verdict does not rest on this decision either
   H-203-OFF-THE-SHEETS  above.     H-CYPHER-B5P-INDEX  the encoding of the cells
 WHAT IT DOES NOT SHOW.  (1) Matter is the homogeneous model plane's mean (C3, C4), as in Z3'a; applying it to our real,
   lumpy plane goes through H-OUR-PLANE-IS-FRW (B1-MATTER's reading), and local matter is not computed.  (2) The future
@@ -83,23 +99,27 @@ WHAT IT DOES NOT SHOW.  (1) Matter is the homogeneous model plane's mean (C3, C4
   criterion, never an input -- or on the board's carrying of 201 as w = -1; through today neither is needed (C3).
   (3) B5'a was computed on the doubled count; its re-read under 200 (1) is deduced here, not a re-run of C4.  (4) The
   202/203 geometry (two bulks meeting at the corridor) is not computed; B5'a is a condition on the sheets' stress and
-  does not need it, but B5'b (a smooth wall with matter) and the bulk stay OPEN.  (5) sigma_defines.py T5's flag (139 (1)'s
-  quarter against our tension within one universe) is not decided; the verdict holds for both.  (6) H-POSITIVE-ON-P2
+  does not need it, but B5'b (a smooth wall with matter) and the bulk stay OPEN.  (5) sigma_defines.py T5's flag is
+  decided here only as the board's reading under 149 (above), not by M; were it decided the other way, the variant W139
+  (t2 = -1/4 > -1 - 2 eps) still meets B5'a's condition with margin (P3, P7).  (6) H-POSITIVE-ON-P2
   (139 (2) as the board reads it) is a different condition: W202 meets it, S15 fails it; 139 (2)'s "you have to prove
   it" is not discharged by B5'a alone (B1-MATTER).
 SO (the board's decision, under 149): within one universe, 202 settles B5'p.  B5'a's condition holds with margin, and
 B5'p there reduces to our own plane's rho + p >= 0 -- Z3a through today (computed, C3), Z3c in the future (DERIVED,
-nature_rows.py) -- for either reading of position 2's sheet tension.  Between universes B5'p stays OPEN: 202's "perhaps
+nature_rows.py) -- at our tension (W202, T5's flag decided the board's way), and equally on the named variant W139
+(139 (1)'s quarter kept within).  Between universes B5'p stays OPEN: 202's "perhaps
 different values" and ITEM185's ratios leave both coefficients' signs unknown, and ITEM185's model C names position-2
 matter of order sigma_RS as one route to a negative tension, so even the k_y^2 sign is not safe.  Proposed, not seated:
 split B5'p into B5'pu (within one universe, DERIVED; inputs 202, C3, C4, Z3a, Z3c) and B5'px (between universes, OPEN).
 Imports by path (never copied): lemmas/b1_matter.py (check_C3, check_C4, determined), lemmas/b6_once.py (derive),
-lemmas/sim2_facing.py (coinciding), lemmas/forming_rim.py (_codings), lemmas/chain_cypher.py (ROWS), tools/cypher.py.
-Stdlib + sympy.  About 7 s.  python3 b5p_cypher.py [--selftest | --mutants]
+lemmas/sim2_facing.py (coinciding), lemmas/chain_cypher.py (ROWS), tools/cypher.py.  The case codings are defined here
+(_codings), no longer imported from forming_rim.py.  Stdlib + sympy.  About 7 s (--mutants about 70 s: one mutant runs
+all 480 codings).  python3 b5p_cypher.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
 import io
+import itertools
 import os
 import re
 import sys
@@ -133,8 +153,8 @@ def _load(path, key):
 
 def mod(name):
     paths = {"b1": os.path.join(HERE, "b1_matter.py"), "b6o": os.path.join(HERE, "b6_once.py"),
-             "s2": os.path.join(HERE, "sim2_facing.py"), "fr": os.path.join(HERE, "forming_rim.py"),
-             "cc": os.path.join(HERE, "chain_cypher.py"), "cy": os.path.join(ROOT, "tools", "cypher.py")}
+             "s2": os.path.join(HERE, "sim2_facing.py"), "cc": os.path.join(HERE, "chain_cypher.py"),
+             "cy": os.path.join(ROOT, "tools", "cypher.py")}
     if name not in _CACHE:
         _CACHE[name] = _load(paths[name], "b5p_" + name)
     return _CACHE[name]
@@ -168,8 +188,11 @@ M_WORDS = {
 NOTES = {"B1-MATTER.md": ["Whether position 2's matter meets that condition is unknown; only ratios are known (ITEM185)."],
          "ITEM185-MATTER-ROUND.md": ["Position 2's matter fixes only ratios, and nothing gives its amount.",
                                      "position-2 matter of order σ_RS"],
-         "sigma_defines.py": ["Within one universe position 2 is on our own plane, tension sigma"],
-         "rim_readme.py": ["within one universe the two sheets of our plane enclose"]}
+         "sigma_defines.py": ["Within one universe position 2 is on our own plane, tension sigma",
+                              "T5 (deduced, STRUCTURAL; flagged, not decided)"],
+         "rim_readme.py": ["within one universe the two sheets of our plane enclose"],
+         "m1p2_cypher.py": ["is decided the board's way under 149: on 202 the within configuration is at our tension "
+                            "(W202); a quarter kept within (W139) is a different energy"]}
 _norm = lambda s: " ".join(s.split())
 
 
@@ -354,9 +377,19 @@ def ask(cs, case_order, p2_order, unk_low):
     return res
 
 
+def _margin(h):
+    return h[3] == OURS and h[4] == 1 and h[5] == POS and h[6] == POS and h[7] == 1
+
+
 def target_w(h):
-    """B5'p settled within one universe on 202, with margin"""
-    return h[0] in ("W202", "W139") and h[3] == OURS and h[4] == 1 and h[5] == POS and h[6] == POS and h[7] == 1
+    """B5'p settled within one universe on 202, with margin: W202 alone (T5's flag decided the board's way under 149,
+    as m1p2_cypher.py decides it); MUT w139_in_target puts the variant back in"""
+    return h[0] in (("W202", "W139") if MUT.get("w139_in_target") else ("W202",)) and _margin(h)
+
+
+def target_v(h):
+    """the named variant W139 (139 (1)'s quarter kept within one universe, matter ours), outside target W"""
+    return h[0] == "W139" and _margin(h)
 
 
 def target_x(h):
@@ -364,14 +397,36 @@ def target_x(h):
     return h[0] == "X" and h[3] != U and h[7] == 1
 
 
+def _codings(n):
+    """the case codings this file was written for, defined here (no longer imported from forming_rim.py, whose helper
+    now returns all n! orders): each of the n rotations of the nominal case axis and its reverse -- the dihedral orders,
+    2n of them.  MUT codings_all_perms takes all n! orders instead (forming_rim.py's present helper)"""
+    if MUT.get("codings_all_perms"):
+        return [list(p) for p in itertools.permutations(range(n))]
+    base = list(range(n))
+    out = []
+    for k in range(n):
+        rot = base[k:] + base[:k]
+        out += [rot, rot[::-1]]
+    return out
+
+
+def _dihedral(co, n):
+    """independent of _codings: a sequence is a rotation or a reversed rotation of 0..n-1 iff it is a permutation whose
+    consecutive differences are all +1 or all -1 (mod n)"""
+    steps = {(co[i + 1] - co[i]) % n for i in range(n - 1)}
+    return sorted(co) == list(range(n)) and steps in ({1}, {n - 1})
+
+
 def sweep(cs):
     runs = {}
-    for co in mod("fr")._codings(len(CASES)):                     # forming_rim.py's codings, imported
+    for co in _codings(len(CASES)):                               # defined in this file (dihedral, 10)
         for p2o in ([FORCED, OURS], [OURS, FORCED]):
             for ul in (False, True):
                 r = ask(cs, co, p2o, ul)
                 runs[(tuple(co), tuple(p2o), ul)] = {
                     l: (None if v is None else {"W": sorted({h[0] for h in v if target_w(h)}),
+                                                "V": sorted({h[0] for h in v if target_v(h)}),
                                                 "X": sorted({h[0] for h in v if target_x(h)}), "n": len(v)})
                     for l, v in r.items()}
     return runs
@@ -410,6 +465,18 @@ def _set(runs, lang, t):
     return {tuple(v[lang][t]) if v[lang] is not None else None for v in runs.values()}
 
 
+def _count(runs, lang, t, unk_low=None):
+    """number of codings under which lang admits target t (optionally only those with the unknown placed low/high)"""
+    return sum(1 for (co, p2o, ul), v in runs.items()
+               if v[lang] is not None and v[lang][t] and (unk_low is None or ul == unk_low))
+
+
+# P7n: the measured counts under the 40 codings (10 dihedral case orders x 2 p2-matter orders x unknown low/high)
+PIN_X = {"order": 30, "algebra": 30, "geometry": 20, "information": 14, "statistics": 0}
+PIN_X_INFO_LOW = 14
+N_RUNS = 40
+
+
 def checks(d):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
@@ -446,16 +513,32 @@ def checks(d):
         st["Z3a"] == ("DERIVED", "") and st["Z3c"] == ("DERIVED", "") and st["B5a"] == ("DERIVED", "")
         and st["B5p"] == ("OPEN", ""))
     cyr = d["cy"]
-    add("P7 target W: all five languages, statistics included, admit exactly the two 202 cells (W139, W202) under every "
-        "coding (10 x 2 x 2)", all(_set(cyr["main"], l, "W") == {("W139", "W202")} for l in LANGS))
-    add("P7 control: 202 withheld (position 2's matter unknown within one universe) -- all five refuse W under every "
-        "coding: the verdict flips on the 202 cell", all(_set(cyr["no202"], l, "W") == {()} for l in LANGS))
+    add("P7 target W (W202 alone: T5's flag decided the board's way under 149, as m1p2_cypher.py): all five languages, "
+        "statistics included, admit exactly W202 under every coding (10 x 2 x 2)",
+        all(_set(cyr["main"], l, "W") == {("W202",)} for l in LANGS))
+    add("P7 variant W139 (139 (1)'s quarter kept within, matter ours; outside target W): all five admit it with margin "
+        "under every coding -- B5'a holds there too", all(_set(cyr["main"], l, "V") == {("W139",)} for l in LANGS))
+    add("P7 control: 202 withheld (position 2's matter unknown within one universe) -- all five refuse W and the variant "
+        "under every coding: the verdict flips on the 202 cell",
+        all(_set(cyr["no202"], l, "W") == {()} and _set(cyr["no202"], l, "V") == {()} for l in LANGS))
     add("P7 target X (between universes): statistics refuses under every coding", _set(cyr["main"], "statistics", "X") == {()})
     add("P7 target X: order, algebra, geometry and information each admit X under some codings and refuse it under "
         "others -- it moves with the coding (an artefact, not a reading)",
         all(_set(cyr["main"], l, "X") == {(), ("X",)} for l in ORDER_DEP))
     add("P7 control: position 2's matter set as ours between universes (C4's example) -- all five admit X under every "
         "coding (the block is the unknown, not a contradiction)", all(_set(cyr["fav"], l, "X") == {("X",)} for l in LANGS))
+    cods = _codings(len(CASES))
+    add("P7n the counts, pinned: 10 case codings, each a rotation of the case axis or its reverse (all distinct), 40 runs "
+        "per index; X admitted by order under 30 of 40, algebra 30, geometry 20, information 14 (all 14 with the unknown "
+        "placed below), statistics 0; W202 and the variant W139 by all five under 40 of 40; with 202 withheld W and the "
+        "variant under 0 of 40; position 2's matter as ours, X under 40 of 40",
+        len(cods) == 10 and len({tuple(c) for c in cods}) == 10 and all(_dihedral(c, len(CASES)) for c in cods)
+        and all(len(cyr[k]) == N_RUNS for k in ("main", "no202", "fav"))
+        and all(_count(cyr["main"], l, "X") == PIN_X[l] for l in LANGS)
+        and _count(cyr["main"], "information", "X", unk_low=True) == PIN_X_INFO_LOW
+        and all(_count(cyr["main"], l, t) == N_RUNS for l in LANGS for t in ("W", "V"))
+        and all(_count(cyr["no202"], l, t) == 0 for l in LANGS for t in ("W", "V"))
+        and all(_count(cyr["fav"], l, "X") == N_RUNS for l in LANGS))
     lg = d["logic"]
     add("P8 logic (determined()): within one universe the verdict is fixed by our NEC alone, not by the case, position 2's "
         "sheet tension, or whether its matter is ours or S15's; every within cell with our NEC met holds",
@@ -472,7 +555,9 @@ MUTANTS = {"misquote": "202 misquoted ('the energies differ')",
            "ours_phantom": "our plane taken on the phantom fit (w0 = -1.028) in the future",
            "s15_same": "S15's position-2 stress taken equal to position 1's (not opposite)",
            "drop_202": "202 dropped: position 2's matter within one universe left unknown",
-           "seat_between": "position 2's matter between universes seated as ours (a guess entered as data)"}
+           "seat_between": "position 2's matter between universes seated as ours (a guess entered as data)",
+           "w139_in_target": "the quarter kept within (W139) put back in target W (T5's flag left undecided)",
+           "codings_all_perms": "case codings taken as all 120 orders (forming_rim.py's present _codings)"}
 
 
 def selftest():
@@ -495,7 +580,7 @@ def mutants():
             failed = ["raised %s" % type(ex).__name__]
         MUT.clear()
         caught += bool(failed) and not any(f.startswith("raised") for f in failed)
-        print("  mutant %-13s %-68s %s" % (k, desc, "caught by " + ", ".join(sorted(set(failed))) if failed else "NOT CAUGHT"))
+        print("  mutant %-17s %-72s %s" % (k, desc, "caught by " + ", ".join(sorted(set(failed))) if failed else "NOT CAUGHT"))
     print("mutants: %d/%d caught" % (caught, len(MUTANTS)))
     return caught == len(MUTANTS)
 
@@ -515,7 +600,10 @@ def report(d):
         runs = d["cy"][key]
         print("P7 %-6s" % key)
         for l in LANGS:
-            print("      %-11s W:" % l, sorted(_set(runs, l, "W"), key=str), " X:", sorted(_set(runs, l, "X"), key=str))
+            print("      %-11s W:" % l, sorted(_set(runs, l, "W"), key=str), " W139:", sorted(_set(runs, l, "V"), key=str),
+                  " X:", sorted(_set(runs, l, "X"), key=str), " counts W/W139/X of %d: %d/%d/%d (X, unknown below: %d)"
+                  % (len(runs), _count(runs, l, "W"), _count(runs, l, "V"), _count(runs, l, "X"),
+                     _count(runs, l, "X", unk_low=True)))
     print("P8 logic:", d["logic"])
 
 

@@ -25,11 +25,17 @@ M'S WORDS (verbatim, typing kept; guard G0 finds each inside M's own item block 
   149     "I have given you everything I can. You have to work the math now"
 
 THE BOARD'S READINGS USED (named; withdrawn if M says otherwise): H-P2-COUNTS-ONCE (200 (1) as recorded: no mirror
-  image); (Z) as seated, net per light ray (183), which for a thin plane is the pointwise NEC on its surface stress (TS,
-  deduced in P2-FULL.md; H-THIN-PLANE); H-POSITIVE-ON-P2 (139 (2) read as P2's energy beyond its tension >= 0, F1-AUDIT
-  M1-f); H-COINCIDE-DOWN-THE-THROAT (172 (2) as recorded: coincidence is never a reached point); "reads the mouth" as
-  F1-AUDIT.md words M1-P2 -- eq. (17)'s near-horizon AdS2 x S2 at equal radii, "to the same order" as M1-c (relative
-  corrections <= 2.3e-63 from our matter); H-CYPHER-M1X (the encoding below).
+  image); (Z) as seated, net per light ray (183).  For a thin plane TS (deduced in P2-FULL.md; H-THIN-PLANE) gives a
+  NECESSARY condition only -- "(Z) needs S(k0,k0) >= 0 for every tangent null k0", the grazing rays -- while a ray
+  crossing at a finite angle picks up S(k_par,k_par)/|n.k| (P2-FULL.md TS), which for a pure tension q is q sin a
+  (far_cypher.py F8; X2 here): the grazing condition met is not (Z) met.  H-POSITIVE-ON-P2 (139 (2) read as P2's
+  energy beyond its tension >= 0, F1-AUDIT M1-f); H-COINCIDE-DOWN-THE-THROAT (172 (2) as recorded: coincidence is never
+  a reached point); "reads the mouth" as F1-AUDIT.md words M1-P2 -- eq. (17)'s near-horizon AdS2 x S2 at equal radii,
+  "to the same order" as M1-c (relative corrections <= 2.3e-63 from our matter); H-CYPHER-M1X (the encoding below).
+  H-CROSSING-PAIRED (a VARIANT only, never the main run): 183's "never violated as a pair" read as every ray that
+  crosses the mirrored P2 at a finite angle being paired by its crossing of P1 with a non-negative net, so that only
+  TS's grazing condition is left on P2 and the mirror's z_p2 is entered as 1 from C4.  No instrument computes that
+  pairing; the variant exists to show what the cypher's earlier counts rested on.
 
 WHAT IS PUT TOGETHER (owners imported by path, never copied; each owner's result computed once per process):
   X0 (computed; imported b6_once.py derive, its O1) counted once, the quarter gives k_R = k_L/2, so ell_2 = 2 ell;
@@ -38,11 +44,23 @@ WHAT IS PUT TOGETHER (owners imported by path, never copied; each owner's result
   X1 (computed; imported m1_facing.py facing and threshold) THE FACING FORM ACCEPTS A TENSION RATIO, but only as the
      tension q2 read into a MIRRORED P2: its p2_stress takes the Z2 doubling of the slab's side and no far-side bulk of
      P2's own.  At 2m/ell = 0.0044, 0.0739, 0.179, 0.5 (ell = 454, 27.06, 11.2, 4m): P1 needs no added matter (C3);
-     P2's NEC > 0 at every sampled depth (C4); read at the quarter, P2's energy beyond its tension is -3/4 at
+     P2's GRAZING condition holds -- e2 + P2 > 0 at every sampled depth along the S2 directions, zero along the AdS2
+     directions (C4; TS's necessary condition, not (Z)); read at the quarter, P2's energy beyond its tension is -3/4 at
      coincidence at every ell and positive only in a depth band -- y2/y_s in [0.008, 0.784], [0.141, 0.757],
      [0.370, 0.694], none at 4m; the band opens at ell = 8.54m (C6b reproduced)
-  X2 (deduced; checked symbolically) a tension adds no null energy: S = -q h + M gives S(k,k) = M(k,k) for every null k
-     tangent to the plane.  (Z) on a plane is the same whatever tension is read into it; only positivity moves
+  X2 (deduced; checked symbolically) along a null k0 TANGENT to the plane (TS's grazing rays) a tension adds nothing:
+     S = -q h + M gives S(k0,k0) = M(k0,k0), so TS's necessary condition is the same whatever tension is read into a
+     plane.  Along a ray CROSSING at angle a it does not drop out: S(k_par,k_par)/|n.k| carries q sin a, the tension's
+     sign (far_cypher.py F8).  For the throat class's stress S = diag(e, -e, P, P) on AdS2 x S2 the crossing share is
+     e sin a + (e + P) cos^2 a sin^2 b / sin a (b the ray's tangent angle off the AdS2 direction), so P2's own share is
+     non-negative on every ray if and only if e >= 0 and e + P >= 0.  A negative tension, or any e < 0, gives crossing
+     rays negative null energy, which (Z), net per ray (183), admits only if they are paired
+  X2b (computed; m1_facing.py traj read at every step, with X2) on the mirror, P2's total surface energy e2 tends to
+     -sigma at coincidence at every ell (minus ours: m1p2_cypher.py L3's (-sigma, +sigma)), and is >= 0 only in a band
+     -- y2/y_s in [0.010, 0.783] at 454m, [0.189, 0.738] at 27.06m, nowhere at 11.2m or 4m -- where A/R <= 0.99983 and
+     0.9502.  So P2's own share is non-negative on every ray only where it reads unequal radii; where it reads the mouth
+     it gives every crossing ray negative null energy (e2 sin a -> -sigma sin a in the AdS2 directions).  Whether those
+     rays are paired by their crossing of P1 is computed nowhere: the mirror's z_p2 is U, not 1
   X3 (computed: m1_facing.py traj read at every step; m1p2_cypher.py L3's 0.986, 0.878, 0.683 reproduced) the slab's
      radii ratio A/R falls strictly from 1 at coincidence, at every ell.  Where the quarter's remainder is positive,
      A/R <= 0.99990 (454m), 0.9725 (27.06m), 0.8378 (11.2m).  ESTIMATE (three grid points, to 1.5%): the gap 1 - A/R at
@@ -57,35 +75,44 @@ WHAT IS PUT TOGETHER (owners imported by path, never copied; each owner's result
      at finite ell the mirror is the RS1 sheet and the quarter leaves -3 sigma/4 (P2-FULL.md, deduced there)
   X6 (deduced) (Z) holds on our plane in every configuration here: P1 carries the RS tension only -- in the throat its
      matter is computed from its own Q = 0 slopes (m1_facing.py C3), so nothing beyond P2 reaches it (the slab is fixed
-     by P1's data); in the full static bulk it is bulkseries.py's "Randall-Sundrum plane with K = -g/ell" -- and a pure
-     tension carries zero null energy in every direction (X2 with M = 0).  So "(Z) on both planes" is (Z) on P2
+     by P1's data); in the full static bulk it is bulkseries.py's "Randall-Sundrum plane with K = -g/ell" -- and a
+     POSITIVE pure tension gives every ray non-negative null energy: zero along grazing rays, sigma sin a along a ray
+     crossing at angle a (X2 with M = 0).  z_p1 = 1 holds because our plane's tension is positive -- non-negative, not
+     zero in every direction.  So "(Z) on both planes" is (Z) on P2
   X7 (deduced; Israel, standard-not-READ) with position 2's own bulk beyond, P2's stress is the slab's share -- half the
-     mirror's, whose null energy is positive (C4) -- plus the far side's share, the one free function after Gauss and
-     Codazzi that P2-FULL.md OPEN 1 names.  Not computed: z_p2, positive and regular are unknown on the own side
+     mirror's, whose grazing condition holds (C4) and whose crossing share is negative near coincidence (X2b) -- plus
+     the far side's share, the one free function after Gauss and Codazzi that P2-FULL.md OPEN 1 names.  Not computed:
+     z_p2, positive and regular are unknown on the own side
   P  (cypher; tools/cypher.py, roster 1173, the five operator-bearing languages; H-CYPHER-M1X) eleven cells over
      (beyond, tension, form, reads, z_p1, z_p2, positive, regular).  beyond: mirror (the facing form's P2) or own
      (between universes); tension -1, -1/4, +1 of ours (three of the facing form's Q2S readings, in numeric order);
      form: the coincidence approach, constant depth in the throat class, constant depth in the full static bulk, or
-     shaped (y = Y(r)); U = not computed (a distinct code).  No per-cell key.  beyond and form are nominal: all 2 x 24
-     orders, with U placed low, high and between 0 and 1 -- 144 codings.  Statistics is pairwise-marginal support, the
-     same under every coding (checked); it is run at order 2 and 3.
-     Target TX (the question: between universes, the quarter, a reached form, P2 reading the mouth, (Z) on both planes):
-       statistics (orders 2 and 3) and geometry refuse it under all 144 codings.  Order and algebra admit it under 58,
-       information under 36, and refuse it under the rest -- at constant depth too, where X4 has reads = 0: it moves
-       with the coding, an artefact of ordering nominal axes and of where an unknown is placed, not a reading
-     Target TX0 (the same in the coincidence approach, never reached): statistics and geometry refuse it under every
-       coding; order and algebra admit it under 72, information under 48 (artefact)
+     shaped (y = Y(r)); U = not computed (a distinct code).  z_p2: U on the mirror's six throat-class cells (X2, X2b:
+     the grazing condition holds, the crossing rays' pairing is not computed), 0 on its full-bulk cell (X5: the grazing
+     condition itself fails), U on the own side (X7) -- no cell has z_p2 = 1.  No per-cell key.  beyond and form are
+     nominal: all 2 x 24 orders, with U placed low, high and between 0 and 1 -- 144 codings.  Statistics is
+     pairwise-marginal support, the same under every coding (checked); it is run at order 2 and 3.
+     Targets TX (the question: between universes, the quarter, a reached form, P2 reading the mouth, (Z) on both
+       planes), TX0 (the same in the coincidence approach, never reached) and TM (the facing form's own configuration
+       at the quarter, the mirror, reading the mouth with (Z) on both planes AND positive beyond its tension): every
+       language -- order, algebra, geometry, information, statistics at orders 2 and 3 -- refuses all three under all
+       144 codings, and none is silent.  STRUCTURAL: z_p2 = 1 lies in no data cell, so every target asking (Z) on P2
+       lies outside the box.  That is the record's gap -- (Z) on P2 is computed for crossing rays on no form -- not a
+       refutation, and no over-reach is left to report
      Control (fav): the own side's unknowns set favourable -- statistics admits TX only at the shaped form (forced: it is
        then data) and TX0 only as data; the constant-depth TX stays refused, its one blocking pair (form, reads): the
        cypher restates X4 and adds no independent exclusion.  Control (flip, the decisive cell): OWN-DEPTH's reads set
        to 1 with the unknowns favourable -- statistics admits TX at constant depth: the verdict turns on that cell
-     Target TM (the facing form's own configuration at the quarter, the mirror, reading the mouth with (Z) on both
-       planes AND positive beyond its tension): statistics order 2 admits it at coincidence -- an over-reach assembled
-       from pairs, the pair (reads, positive) supplied only by the RS1 sheet's coincident cell; order 3 refuses it, and
-       the blocking triples are exactly (tension, reads, positive) and (tension, form, positive): at the quarter the
-       facing form reads the mouth only where the remainder is -3/4, and is positive only where it reads unequal radii.
-       Order, algebra, geometry and information admit TM under every coding.  Control: the coincident cell's remainder
-       entered >= 0 -- order 3 admits it
+     Variant H-CROSSING-PAIRED (the mirror's z_p2 entered as 1 from C4; the board's reading, not the main run): the
+       counts an earlier encoding reported as the main run come back, and only here.  TX: statistics (orders 2 and 3)
+       and geometry refuse it under all 144 codings; order and algebra admit it under 58, information under 36 -- at
+       constant depth too, where X4 has reads = 0: an artefact of ordering nominal axes and of where an unknown is
+       placed.  TX0: statistics and geometry refuse it; order and algebra admit it under 72, information under 48
+       (artefact).  TM: statistics order 2 admits it at coincidence -- an over-reach assembled from pairs, the pair
+       (reads, positive) supplied only by the RS1 sheet's coincident cell; order 3 refuses it, the blocking triples
+       exactly (tension, reads, positive) and (tension, form, positive); order, algebra, geometry and information admit
+       it under every coding; control: the coincident cell's remainder entered >= 0 -- order 3 admits it.  Every one of
+       these admissions rests on the variant's reading, which X2b shows is not computed
 WHAT IS LEFT BETWEEN UNIVERSES (OPEN; named, nothing decided):
   (1) a shaped P2, y = Y(r), with position 2's own bulk beyond at -sigma/4 (P2-FULL.md OPEN 1-2; F1-AUDIT.md D1 with
       its one-sided junction (iii)): whether the far side's share keeps P2's null energy >= 0 in every direction, its
@@ -94,6 +121,9 @@ WHAT IS LEFT BETWEEN UNIVERSES (OPEN; named, nothing decided):
       contradiction blocks it, and nothing computed supports it
   (2) the coincidence approach with its own bulk beyond: it reads the mouth with (Z) on P1; P2's far-side share is not
       computed -- and it is never reached (172 (2))
+  (2b) on the mirror too, (Z) on P2: whether the rays that cross P2 where it carries e2 < 0 -- every crossing ray in
+      the coincidence approach (X2b) -- are paired by their crossing of P1 (183), as S15's coincident pair is at the
+      limit (P2-FULL.md TS's exception)
   (3) the rim between universes, and the meeting of two different bulks at the corridor (203 between universes;
       m1p2_cypher.py X4): rim_readme.py's and forming_rim.py's balances count position 2's sheet at our tension, within
       one universe
@@ -102,17 +132,24 @@ WHAT IT DOES NOT SHOW.  (1) M1 itself: every cell is given M1 on our side.  (2) 
   position 2 reads the same m with its own G (m1p2_cypher.py X3; COUNT-CYPHER.md's G2 = 2 G1): "reads" here is the
   equal-radii form at any mass.  (4) "positive" in a throat-class cell is positivity in the throat; far out the mirror is
   the RS1 sheet (X5).  (5) The ESTIMATE's (2m/ell)^2 is fitted to three grid points; whether any ell at which the gap
-  reaches M1-c's order lies in the window is not computed.  (6) The cypher classifies; it derives nothing.
+  reaches M1-c's order lies in the window is not computed.  (6) The cypher classifies; it derives nothing.  (7) (Z) on
+  P2 for crossing rays: TS's grazing condition (C4) is necessary, not sufficient, and the pairing of crossing rays
+  (183) is computed for no configuration here; the main run enters it U, and the cypher's refusals of TX, TX0 and TM
+  are STRUCTURAL (z_p2 = 1 is in no cell), not refutations.
 SO (the board's decision under 149; no question for M): on the facing form -- the only computed form that accepts a
   tension ratio -- the between-universes mouth is not read with (Z) on both planes at any reached depth.  (Z) on our
-  plane holds throughout (X6); what fails is the reading: a constant-depth P2 reads the slab's unequal radii whatever
-  lies beyond it (X3, X4), and the coincidence approach that does read the mouth is never reached (172 (2)), with -3/4
-  sigma beyond the quarter on the mirror (X1).  With its own bulk beyond, (Z) on P2 is not computed at all (X7).  M1
-  between universes stays OPEN (M1x); its first decisive computation is F1-AUDIT.md's D1 with position 2's own bulk
-  beyond at -sigma/4 -- the board's to compute, not M's to rule.
+  plane holds throughout (X6: a positive tension, non-negative on every ray); what fails is the reading: a
+  constant-depth P2 reads the slab's unequal radii whatever lies beyond it (X3, X4), and the coincidence approach that
+  does read the mouth is never reached (172 (2)), with -3/4 sigma beyond the quarter on the mirror (X1).  (Z) on P2 is
+  established nowhere: on the mirror only its necessary grazing condition is computed, and where P2 reads the mouth it
+  gives crossing rays negative null energy whose pairing is not computed (X2b); with its own bulk beyond nothing of it
+  is computed (X7).  The cypher, given that, refuses every target structurally and reports no over-reach; the counts
+  an earlier encoding reported return only under the variant H-CROSSING-PAIRED.  M1 between universes stays OPEN
+  (M1x); its first decisive computation is F1-AUDIT.md's D1 with position 2's own bulk beyond at -sigma/4, which must
+  now settle (Z) on P2 for crossing rays as well -- the board's to compute, not M's to rule.
 Imports by path (never copied): lemmas/m1_facing.py (and through it f1_audit.py), lemmas/p2_full.py (and through it
 b4_static.py), lemmas/b6_once.py (derive only), lemmas/m1p2_cypher.py (its quotes_ok guard), tools/cypher.py.  Stdlib +
-sympy (+ mpmath through p2_full.py).  About 35 s; --mutants about 75 s.  python3 m1x_cypher.py [--selftest | --mutants]
+sympy (+ mpmath through p2_full.py).  About 40 s; --mutants about 2.2 min.  python3 m1x_cypher.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
@@ -189,12 +226,18 @@ NOTES = {
     "b6_once.py": ["plane, counted once: one sheet joining the slab (k_L) to its own bulk beyond (k_R; 138)"],
     "nature_rows.py": ["item 200 (1)'s count fixes only k_R/k_L"],
     "COUNT-CYPHER.md": ["per-sheet: k_R = k_L/2, tension −1/4 of ours per sheet"],
-    "m1_facing.py": ["the remainder is then positive in a depth band for ell > 8.54m"],
+    "m1_facing.py": ["the remainder is then positive in a depth band for ell > 8.54m",
+                     "(e2 + P2 = (alpha - beta) sigma/3 > 0, -> 0+ at coincidence)"],
     "P2-FULL.md": ["So the mirrored constant-depth plane is refuted as M1's position-2 plane",
                    "with 139 (1)'s quarter tension its remainder there would be −3σ/4",
-                   "M1 with position 2's own bulk beyond its plane (138)."],
+                   "M1 with position 2's own bulk beyond its plane (138).",
+                   "Crossing a thin plane with surface stress S, a light ray gains ∫T(k,k)dλ = S(k∥, k∥)/|n·k|.",
+                   "So (Z) needs S(k₀,k₀) ≥ 0 for every tangent null k₀."],
+    "far_cypher.py": ["a pure tension sigma crossed at angle a gives sigma sin a: a NEGATIVE tension gives negative null "
+                      "energy at every crossing angle"],
     "m1p2_cypher.py": ["a shaped position-2 plane between universes, or one with its own bulk beyond at -sigma/4 "
-                       "(P2-FULL.md OPEN 1), is not computed"],
+                       "(P2-FULL.md OPEN 1), is not computed",
+                       "its stress obeys the NEC and tends to minus ours (-sigma, +sigma) at coincidence"],
     "F1-AUDIT.md": ["reads eq. (17)'s other leg to the same order"],
     "rim_readme.py": ["no static finite-ell rim closes among the arrangements computed"],
     "forming_rim.py": ["no computed arrangement has the radial and tangential null energy together and fits 198"],
@@ -260,6 +303,11 @@ def readings(F):
                   "rat_first": rat[0], "mono": all(rat[i + 1] < rat[i] for i in range(len(rat) - 1)),
                   "band_rs1": G["f"]["bands"]["-1 (RS1 sheet, coincidence)"],
                   "band_ours": G["f"]["bands"]["+1 (H-SPLIT-AT-OUR-TENSION)"]}
+        # X2b: P2's TOTAL surface energy e2 (not the remainder): where it is >= 0, and A/R there
+        nn = [i for i, e in enumerate(G["e"]) if e >= 0]
+        out[x].update({"e2_band": (G["y"][nn[0]], G["y"][nn[-1]]) if nn else None,
+                       "e2_band_contig": nn == list(range(nn[0], nn[-1] + 1)) if nn else True,
+                       "rat_e2_nonneg": max(rat[i] for i in nn) if nn else None})
         if x == 0.0739:
             out[x]["rat_at"] = {fr: rat[min(range(len(rat)), key=lambda i: abs(G["y"][i] - fr))] for fr in (0.1, 0.3, 0.5)}
     return out
@@ -267,8 +315,13 @@ def readings(F):
 
 # ---------------------------------------------------------------------------------------------------------- X2
 def tension_null():
-    """a tension adds no null energy: S = -q h + M on a 3+1 plane, S(k, k) = M(k, k) for null k (h(k, k) = 0)"""
+    """S = -q h + M on a 3+1 plane.  Grazing (k0 null and tangent, h(k0, k0) = 0): S(k0, k0) = M(k0, k0), free of q --
+    TS's necessary condition.  Crossing at angle a (k = k_par + sin a n, k_par = (1, cos a e), |n.k| = sin a): the share
+    S(k_par, k_par)/sin a carries q sin a, the tension's sign (far_cypher F8).  For the throat class's
+    S = diag(e, -e, P, P) on AdS2 x S2 the share is e sin a + (e + P) cos^2 a sin^2 b / sin a."""
     q, rho, pr, pt, a, b = sp.symbols("q rho p_r p_t alpha beta", real=True)
+    th = sp.symbols("theta", positive=True)                       # the crossing angle, 0 < theta < pi
+    e, P = sp.symbols("e P", real=True)
     h = sp.diag(-1, 1, 1, 1)
     M = sp.diag(rho, pr, pt, pt)
     S = -q * h + M
@@ -276,8 +329,18 @@ def tension_null():
     k = sp.Matrix([1, c * sp.cos(a), c * sp.sin(a) * sp.cos(b), c * sp.sin(a) * sp.sin(b)])
     u = sp.Matrix([1, 0, 0, 0])
     Skk = sp.simplify((k.T * S * k)[0])
+    # crossing: k_par's spatial part has length cos(theta) < 1 (the rest, sin(theta), is along the normal)
+    kp = sp.Matrix([1, sp.cos(th) * sp.cos(b), sp.cos(th) * sp.sin(b) * sp.cos(a), sp.cos(th) * sp.sin(b) * sp.sin(a)])
+    cross = (kp.T * S * kp)[0] / sp.sin(th)
+    t_part = sp.simplify(sp.diff(cross, q))                       # the tension's share per unit q
+    Sx = sp.diag(e, -e, P, P)                                     # AdS2 (t, x) x S2: boost-invariant along AdS2
+    cross_x = (kp.T * Sx * kp)[0] / sp.sin(th)
+    want_x = e * sp.sin(th) + (e + P) * sp.cos(th)**2 * sp.sin(b)**2 / sp.sin(th)
     return {"null": sp.simplify((k.T * h * k)[0]) == 0, "free_of_q": sp.diff(Skk, q) == 0,
-            "Skk": Skk, "ctrl_timelike": sp.diff((u.T * S * u)[0], q) != 0}
+            "Skk": Skk, "ctrl_timelike": sp.diff((u.T * S * u)[0], q) != 0,
+            "cross_t": t_part, "cross_t_ok": sp.simplify(t_part - sp.sin(th)) == 0,
+            "cross_x_ok": sp.simplify(sp.expand_trig(cross_x - want_x)) == 0,
+            "grazing_x": tuple(sp.simplify((v.T * Sx * v)[0]) for v in (sp.Matrix([1, 1, 0, 0]), sp.Matrix([1, 0, 1, 0])))}
 
 
 # ---------------------------------------------------------------------------------------------------------- X5
@@ -301,9 +364,10 @@ FORMS = ("coin", "depth-nh", "depth-full", "shaped")
 REACHED = ("depth-nh", "depth-full", "shaped")
 
 
-def cells(d, fav=False, flip=False, coin_pos=False):
+def cells(d, fav=False, flip=False, coin_pos=False, paired=False):
     """One cell per configuration computed or deduced; every cell is GIVEN M1 on our side (P1 reads eq. (17): the facing
-    form's input, b4_static's bulk).  Returns [(name, tuple over C)]."""
+    form's input, b4_static's bulk).  paired=True is the variant H-CROSSING-PAIRED (the mirror's throat-class z_p2
+    entered as 1 from C4's grazing condition), never the main run.  Returns [(name, tuple over C)]."""
     R, fc = d["r"], d["full"]
     x0 = R[0.0739]
     big = R[0.0044]
@@ -311,11 +375,17 @@ def cells(d, fav=False, flip=False, coin_pos=False):
     # falls strictly; in the quarter's band it is <= 0.99990 at every computed ell, short of M1-c's order)
     reads_coin = 1 if all(1 - R[x]["rat_first"] < 1e-6 for x in XS) else 0
     reads_depth = 0 if all(R[x]["mono"] for x in XS) and x0["rat_at"][0.1] < 1 - 1e3 * EPS_M1C else 1
-    # z_p1 (X6): P1's added matter computed from its own Q = 0 slopes is zero at every ell (m1_facing C3): pure tension
+    # z_p1 (X6): P1's added matter computed from its own Q = 0 slopes is zero at every ell (m1_facing C3): a pure
+    # POSITIVE tension, whose share is zero on grazing rays and sigma sin a on crossing rays (X2): non-negative
     z1 = 1 if all(abs(R[x]["p1_rho"]) < 1e-12 and abs(R[x]["p1_p"]) < 1e-12 for x in XS) else 0
-    # z_p2 on the mirror, near-horizon class (m1_facing C4 with X2): the NEC part e2 + P2 > 0 at every sampled depth,
-    # the AdS2 directions carry zero (the class's AdS2 symmetry); the tension read into P2 does not enter (X2)
-    z2_nh = 1 if all(R[x]["nec_min"] > 0 for x in XS) and d["tn"]["free_of_q"] else 0
+    # z_p2 on the mirror, near-horizon class.  TS (P2-FULL.md) gives a NECESSARY condition only: grazing rays need
+    # S(k0,k0) >= 0, which C4 meets (e2 + P2 > 0 at every sampled depth; the AdS2 directions carry zero, X2).  A ray
+    # crossing at angle a picks up e2 sin a + (e2 + P2) cos^2 a sin^2 b / sin a (X2), and e2 -> -1 at coincidence at
+    # every ell, >= 0 only in a band of unequal radii (X2b): negative on crossing rays unless they are paired by P1
+    # (183: (Z) is net per light ray), which is computed nowhere -> U.  Under the variant H-CROSSING-PAIRED every
+    # crossing ray is taken as paired and only the grazing condition is entered: 1 from C4
+    z2_graze = 1 if all(R[x]["nec_min"] > 0 for x in XS) and d["tn"]["free_of_q"] else 0
+    z2_nh = z2_graze if (paired or MUT.get("mirror_z2_data")) else U
     reg_nh = 1 if all(R[x]["reached"] > 0.99 for x in XS) else 0          # the slab before y_s (m1_facing F3, F5)
     out = []
     # MIR-COIN(-1/4) -- m1_facing C6b: the remainder after the quarter is -3/4 at coincidence at every ell
@@ -326,7 +396,8 @@ def cells(d, fav=False, flip=False, coin_pos=False):
     # MIR-FULL(-1/4) -- the mirrored constant-depth cut in the full static bulk.  reads 0: m1p2_cypher.py CUT-FULL
     # (deduced there: a cut carrying a non-zero Israel stress sits where the bulk metric has changed with depth, so its
     # induced metric is not eq. (17)'s); z_p1 1: bulkseries.py's RS plane, K = -g/ell (X6); z_p2 0: p2_full S1 (X5),
-    # rho + p_r < 0 at every depth, with TS (P2-FULL.md) against (Z); positive 0: P2-FULL.md's deduction, far out the
+    # rho + p_r < 0 at every depth, so TS's necessary (grazing) condition itself fails -- no pairing rescues it, TS's
+    # one exception being a second singular source on the same rays; positive 0: P2-FULL.md's deduction, far out the
     # mirror is the RS1 sheet and the quarter leaves -3 sigma/4; regular U: not established at the cut's depth near the
     # throat (m1p2_cypher.py CUT-FULL; F1-AUDIT D1 (i))
     reads_full = 0
@@ -446,14 +517,16 @@ def cypher_runs(d):
     main = cells(d)
     fav = cells(d, fav=True)
     flip = cells(d, fav=True, flip=True)
-    ctl_m = cells(d, coin_pos=True)
+    var = cells(d, paired=True)                                  # the variant H-CROSSING-PAIRED
+    ctl_m = cells(d, coin_pos=True, paired=True)
     tx_depth = {f: (OWN, T_Q, f, 1, 1, 1, 1, 1) for f in REACHED}
     tm_cell = (MIRROR, T_Q, "coin", 1, 1, 1, 1, 1)
-    return {"cells": main, "main": sweep(main),
+    return {"cells": main, "main": sweep(main), "var_cells": var, "var": sweep(var),
             "fav2": stat(fav, 2), "fav3": stat(fav, 3), "flip2": stat(flip, 2), "flip3": stat(flip, 3),
             "fav_block": {f: blocking(fav, c, 2) for f, c in tx_depth.items()},
             "main_block": {f: blocking(main, c, 2) for f, c in tx_depth.items()},
-            "tm2": stat(main, 2), "tm3": stat(main, 3), "tm_block3": blocking(main, tm_cell, 3),
+            "tm_main_block2": blocking(main, tm_cell, 2),
+            "tm2": stat(var, 2), "tm3": stat(var, 3), "tm_block3": blocking(var, tm_cell, 3),
             "tm_ctl3": stat(ctl_m, 3)}
 
 
@@ -487,8 +560,8 @@ def checks(d):
         and x0["used"] == sp.Rational(1, 2) and x0["ell2_over_ell"] == 2)
     R = d["r"]
     add("X1 m1_facing facing form (imported) at 2m/ell = 0.0044, 0.0739, 0.179, 0.5: P1 needs no added matter (C3); P2's "
-        "NEC > 0 at every sampled depth and the slab reaches 0.999 y_s (C4, F3); read at the quarter the remainder is "
-        "-3/4 at coincidence at every ell (C6b)",
+        "grazing condition e2 + P2 > 0 at every sampled depth (C4: TS's necessary condition, not (Z)) and the slab "
+        "reaches 0.999 y_s (F3); read at the quarter the remainder is -3/4 at coincidence at every ell (C6b)",
         all(abs(R[x]["p1_rho"]) < 1e-12 and abs(R[x]["p1_p"]) < 1e-12 and R[x]["nec_min"] > 0 and R[x]["reached"] > 0.99
             and abs(R[x]["rem_coin"] + 0.75) < 5e-3 for x in XS))
     b = R[0.0739]["band"]
@@ -497,8 +570,25 @@ def checks(d):
         all(R[x]["band"] is not None for x in (0.0044, 0.0739, 0.179)) and R[0.5]["band"] is None
         and b is not None and abs(b[0] - 0.141) < 2e-3 and abs(b[1] - 0.757) < 2e-3 and abs(R["thr_ell"] - 8.5415) < 0.01)
     tn = d["tn"]
-    add("X2 a tension adds no null energy: S = -q h + M gives S(k,k) free of q for every null k; control: along a "
-        "timelike vector it is not", tn["null"] and tn["free_of_q"] and tn["ctrl_timelike"])
+    e_, P_ = sp.symbols("e P", real=True)
+    add("X2 along a null k0 tangent to the plane (TS's grazing rays) S = -q h + M gives S(k0,k0) free of q (control: "
+        "along a timelike vector it is not); along a ray crossing at angle a the share S(k_par,k_par)/|n.k| carries "
+        "q sin a, the tension's sign; for S = diag(e, -e, P, P) on AdS2 x S2 the crossing share is "
+        "e sin a + (e + P) cos^2 a sin^2 b / sin a and the grazing shares are 0 (AdS2) and e + P (S2)",
+        tn["null"] and tn["free_of_q"] and tn["ctrl_timelike"] and tn["cross_t_ok"] and tn["cross_x_ok"]
+        and tn["grazing_x"] == (0, e_ + P_))
+    eb = {x: R[x]["e2_band"] for x in XS}
+    re2 = {x: R[x]["rat_e2_nonneg"] for x in (0.0044, 0.0739)}
+    add("X2b on the mirror P2's total surface energy e2 -> -1 (minus ours) at coincidence at every ell, and is >= 0 only "
+        "in one band -- y2/y_s in [0.010, 0.783] at 454m, [0.189, 0.738] at 27.06m, nowhere at 11.2m or 4m -- where "
+        "A/R <= 0.99983, 0.9502 (short of M1-c's order by more than fifty orders): P2's own share is non-negative on "
+        "every ray only where it reads unequal radii; where it reads the mouth every crossing ray gets e2 sin a < 0",
+        all(abs(R[x]["e_first"] + 1) < 5e-3 and R[x]["e2_band_contig"] for x in XS)
+        and eb[0.179] is None and eb[0.5] is None and eb[0.0044] is not None and eb[0.0739] is not None
+        and abs(eb[0.0044][0] - 0.010) < 2e-3 and abs(eb[0.0044][1] - 0.783) < 2e-3
+        and abs(eb[0.0739][0] - 0.189) < 2e-3 and abs(eb[0.0739][1] - 0.738) < 2e-3
+        and None not in re2.values() and abs(re2[0.0044] - 0.99983) < 2e-5 and abs(re2[0.0739] - 0.9502) < 1e-3
+        and all(1 - v > 1e50 * EPS_M1C for v in re2.values()))
     ra = R[0.0739]["rat_at"]
     add("X3 the slab's radii ratio A/R (m1_facing traj, read at every step) falls strictly from 1 at every ell; 0.986, "
         "0.878, 0.683 at y2/y_s = 0.1, 0.3, 0.5 (m1p2_cypher L3 reproduced)",
@@ -525,27 +615,44 @@ def checks(d):
     mir = {c[2]: c[3] for n, c in named if c[0] == MIRROR}
     own = [c for n, c in named if c[0] == OWN]
     q_mir = [c for n, c in named if c[0] == MIRROR and c[1] == T_Q]
+    mir_nh = [c for n, c in named if c[0] == MIRROR and c[2] != "depth-full"]
     add("P0 cells: (Z) on our plane holds in every cell (X6); each own-bulk cell reads what the mirror reads at the same "
-        "form (X4: the induced metric is the slab's); every own-side z_p2, positive and regular is U; no cell meets TX; "
-        "on the mirror at the quarter no cell reads the mouth with positive energy",
+        "form (X4: the induced metric is the slab's); every own-side z_p2, positive and regular is U; the mirror's six "
+        "throat-class z_p2 are U (X2b: grazing condition met, crossing rays' pairing not computed) and its full-bulk z_p2 "
+        "0 (X5); no cell has z_p2 = 1, so none meets TX, TX0 or TM; on the mirror at the quarter no cell reads the "
+        "mouth with positive energy",
         all(c[4] == 1 for c in cd.values()) and all(c[3] == mir[c[2]] for c in own if c[2] in mir)
-        and all(c[5] == U and c[6] == U and c[7] == U for c in own) and not any(target_x(c) for c in cd.values())
-        and not any(c[3] == 1 and c[6] == 1 for c in q_mir) and cd["MIR-FULL(-1/4)"][5] == 0)
+        and all(c[5] == U and c[6] == U and c[7] == U for c in own)
+        and len(mir_nh) == 6 and all(c[5] == U for c in mir_nh) and cd["MIR-FULL(-1/4)"][5] == 0
+        and {c[5] for c in cd.values()} == {0, U} and not any(f(c) for c in cd.values() for f in TARGETS.values())
+        and not any(c[3] == 1 and c[6] == 1 for c in q_mir))
     cy = d["cy"]
     main = cy["main"]
     stat_same = all(len({tuple(v[l][t]) for v in main.values()}) == 1 for l in ("statistics", "statistics3")
                     for t in TARGETS)
-    add("K1 cypher, TX and TX0: statistics (orders 2 and 3) and geometry refuse the between-universes mouth read with "
-        "(Z) on both planes under every one of the 144 codings; statistics' answer is the same under every coding",
-        all(_over(main, l, t) == {()} for l in ("statistics", "statistics3", "geometry") for t in ("TX", "TX0"))
-        and stat_same)
-    nx = {l: _count(main, l, "TX") for l in ("order", "algebra", "information")}
-    depth_adm = any(h[2] in ("depth-nh", "depth-full") for v in main.values() for l in ("order", "algebra", "information")
+    add("K1 cypher, main run: every language -- order, algebra, geometry, information, statistics at orders 2 and 3 -- "
+        "refuses TX, TX0 and TM under every one of the 144 codings and none is silent; statistics' answer is the same "
+        "under every coding.  STRUCTURAL: z_p2 = 1 is in no data cell (z_p2's alphabet is {0, U}), and every 2-subset "
+        "blocking TM's coincident cell contains z_p2 -- the record's gap, not a refutation; no over-reach is left",
+        all(_over(main, l, t) == {()} for l in LANGS + ("statistics3",) for t in TARGETS) and stat_same
+        and {c[5] for _, c in named} == {0, U} and cy["tm_main_block2"] != []
+        and all("z_p2" in S for S in cy["tm_main_block2"]))
+    var, vn = cy["var"], cy["var_cells"]
+    diff = [(a[0], i) for a, b in zip(vn, named) for i in range(len(C)) if a[1][i] != b[1][i]]
+    nx = {l: _count(var, l, "TX") for l in ("order", "algebra", "information")}
+    nx0 = {l: _count(var, l, "TX0") for l in ("order", "algebra", "information")}
+    depth_adm = any(h[2] in ("depth-nh", "depth-full") for v in var.values() for l in ("order", "algebra", "information")
                     for h in v[l]["TX"])
-    add("K2 cypher, TX: order and algebra admit it under 58 of 144 codings, information under 36, each refusing it under "
-        "the rest -- including cells at constant depth, where reads = 0 is deduced (X4): it moves with the coding, an "
-        "artefact of ordering nominal axes and of where an unknown is placed, not a reading",
-        nx == {"order": 58, "algebra": 58, "information": 36} and depth_adm)
+    add("V1 variant H-CROSSING-PAIRED (the board's reading, not the main run: it differs only in the mirror's six "
+        "throat-class z_p2, entered 1 from C4): statistics (orders 2 and 3) and geometry refuse TX and TX0 under every "
+        "coding; order and algebra admit TX under 58 of 144 codings, information under 36 -- at constant depth too, "
+        "where reads = 0 is deduced (X4) -- and TX0 under 72, 72, 48: the earlier encoding's counts, an artefact of "
+        "ordering nominal axes and of where an unknown is placed, and present only under this reading",
+        sorted(diff) == sorted((n, 5) for n, c in named if c[0] == MIRROR and c[2] != "depth-full")
+        and all(vn[i][1][5] == 1 for i, (n, c) in enumerate(named) if c[0] == MIRROR and c[2] != "depth-full")
+        and all(_over(var, l, t) == {()} for l in ("statistics", "statistics3", "geometry") for t in ("TX", "TX0"))
+        and nx == {"order": 58, "algebra": 58, "information": 36}
+        and nx0 == {"order": 72, "algebra": 72, "information": 48} and depth_adm)
     add("K3 control (the own side's unknowns set favourable): statistics, orders 2 and 3, admits TX only at the shaped "
         "form (forced: it is then data) and TX0 only as data; the constant-depth TX stays refused, its one blocking pair "
         "(form, reads) -- the deduction X4, not an unknown, decides the facing form between universes",
@@ -557,14 +664,15 @@ def checks(d):
         "at constant depth, orders 2 and 3 -- the verdict flips on that cell",
         "depth-nh" in [h[2] for h in cy["flip2"]["TX"]] and "depth-nh" in [h[2] for h in cy["flip3"]["TX"]])
     tmc = (MIRROR, T_Q, "coin", 1, 1, 1, 1, 1)
-    add("K5 cypher, TM (the mirror at the quarter reading the mouth, (Z) on both planes, positive): statistics order 2 "
-        "admits it at coincidence -- an over-reach from pairs; order 3 refuses it, and the blocking triples are exactly "
-        "(tension, form, positive) and (tension, reads, positive); order, algebra, geometry, information admit it under "
-        "every coding; the pair (reads, positive) is supplied only by the RS1 sheet's coincident cell; control: the "
-        "coincident cell's remainder entered >= 0 -- order 3 admits it",
-        [n for n, c in named if c[3] == 1 and c[6] == 1] == ["MIR-COIN(-1)"] and cy["tm2"]["TM"] == [tmc] and cy["tm3"]["TM"] == [] and cy["tm_block3"] == [("tension", "form", "positive"),
-                                                                                    ("tension", "reads", "positive")]
-        and all(() not in _over(main, l, "TM") and None not in _over(main, l, "TM") for l in ORDER_DEP)
+    add("V2 variant H-CROSSING-PAIRED, TM (the mirror at the quarter reading the mouth, (Z) on both planes, positive): "
+        "statistics order 2 admits it at coincidence -- an over-reach from pairs; order 3 refuses it, and the blocking "
+        "triples are exactly (tension, form, positive) and (tension, reads, positive); order, algebra, geometry, "
+        "information admit it under every coding; the pair (reads, positive) is supplied only by the RS1 sheet's "
+        "coincident cell; control: the coincident cell's remainder entered >= 0 -- order 3 admits it.  Every admission "
+        "rests on the variant's z_p2 = 1, which the main run does not have (K1)",
+        [n for n, c in vn if c[3] == 1 and c[6] == 1] == ["MIR-COIN(-1)"] and cy["tm2"]["TM"] == [tmc]
+        and cy["tm3"]["TM"] == [] and cy["tm_block3"] == [("tension", "form", "positive"), ("tension", "reads", "positive")]
+        and all(() not in _over(var, l, "TM") and None not in _over(var, l, "TM") for l in ORDER_DEP)
         and cy["tm_ctl3"]["TM"] == [tmc])
     return res
 
@@ -575,7 +683,8 @@ MUTANTS = {"misquote": "200 misquoted ('Twice')",
            "tension_in_nec": "the tension check run along a non-null vector",
            "full_nec_flip": "the full-bulk cut's radial null energy read with its sign flipped",
            "seat_between": "the own side's unknowns entered as met (a guess entered as data)",
-           "reads_at_depth": "the own-bulk P2 at constant depth entered as reading the mouth (X4 ignored)"}
+           "reads_at_depth": "the own-bulk P2 at constant depth entered as reading the mouth (X4 ignored)",
+           "mirror_z2_data": "the mirror's z_p2 = 1 restored as data (TS's grazing condition taken as (Z))"}
 
 
 def selftest():
@@ -615,20 +724,30 @@ def report(d):
               "there <= %s" % (x, r["ell"], r["p1_rho"], r["nec_min"], r["rem_coin"],
                                "[%.3f, %.3f]" % r["band"] if r["band"] else "none",
                                "%.5f" % r["rat_in_band"] if r["rat_in_band"] else "-"))
-    print("X2 S(k,k) =", d["tn"]["Skk"], " (free of the tension)")
+    print("X2 grazing S(k0,k0) =", d["tn"]["Skk"], " (free of the tension); crossing: the tension's share per unit q =",
+          d["tn"]["cross_t"], " (the tension's sign)")
+    print("X2b on the mirror, P2's total energy e2 at coincidence and where e2 >= 0 (A/R there):")
+    for x in XS:
+        r = R[x]
+        print("  2m/ell=%-6g e2(first step) %+.4f  e2 >= 0 for y2/y_s in %s  A/R there <= %s" % (
+            x, r["e_first"], "[%.3f, %.3f]" % r["e2_band"] if r["e2_band"] else "none",
+            "%.5f" % r["rat_e2_nonneg"] if r["rat_e2_nonneg"] else "-"))
     print("X5 full bulk, r = 2.1m:", {y: (round(r["rho"], 4), round(r["nec_r"], 4)) for y, r in d["full"].items()})
     print("\nP cells over (beyond, tension, form, reads, z_p1, z_p2, positive, regular); beyond 0 mirror 1 own; U = %d:" % U)
     for n, c in d["cy"]["cells"]:
         print("    %-15s (%d, %5s, %-10s, %s)" % (n, c[0], c[1], c[2], ", ".join(str(v) for v in c[3:])))
     cy = d["cy"]
-    print("\nmain run, over the 144 codings (number admitting each target):")
-    for l in LANGS + ("statistics3",):
-        print("  %-12s TX %3d   TX0 %3d   TM %3d" % (l, _count(cy["main"], l, "TX"), _count(cy["main"], l, "TX0"),
-                                                   _count(cy["main"], l, "TM")))
-    print("statistics, favourable control: TX", cy["fav2"]["TX"], " blocking pairs at constant depth:", cy["fav_block"])
+    for key, title in (("main", "main run (STRUCTURAL: z_p2 = 1 in no cell)"),
+                       ("var", "variant H-CROSSING-PAIRED (the mirror's throat z_p2 entered 1; the board's reading)")):
+        print("\n%s, over the 144 codings (number admitting each target):" % title)
+        for l in LANGS + ("statistics3",):
+            print("  %-12s TX %3d   TX0 %3d   TM %3d" % (l, _count(cy[key], l, "TX"), _count(cy[key], l, "TX0"),
+                                                       _count(cy[key], l, "TM")))
+    print("\nstatistics, favourable control: TX", cy["fav2"]["TX"], " blocking pairs at constant depth:", cy["fav_block"])
     print("statistics, decisive cell flipped: TX", cy["flip2"]["TX"])
-    print("TM: statistics order 2", cy["tm2"]["TM"], " order 3", cy["tm3"]["TM"], " blocking triples", cy["tm_block3"],
-          " control order 3", cy["tm_ctl3"]["TM"])
+    print("TM, main run: blocking pairs at coincidence", cy["tm_main_block2"])
+    print("TM, variant: statistics order 2", cy["tm2"]["TM"], " order 3", cy["tm3"]["TM"], " blocking triples",
+          cy["tm_block3"], " control order 3", cy["tm_ctl3"]["TM"])
 
 
 if __name__ == "__main__":

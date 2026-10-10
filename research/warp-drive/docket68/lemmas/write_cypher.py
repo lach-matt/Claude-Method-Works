@@ -2,7 +2,9 @@
 """write_cypher.py -- the chain input WRITE ("the static bulk held through the whole write, >= 2.0e5 clocks (OPEN;
 R1-COVER pending)") and row O3 ("the corridor survives its hold, which lasts exactly as long as the write needs
 (158 (2))"), put to the cypher (items 196, 158 (2)).  Computed and deduced from instruments already run; the cypher
-CLASSIFIES, it derives nothing.  Not verified by a separate session; not seated; 2026-10-10.
+CLASSIFIES, it derives nothing.  Not verified by a separate session; not seated; 2026-10-10.  Restated once on a
+critic's finding: the negative-tension plane's keeps_Z had been entered 1 with no source; p2_full.py TS gives 0 by this
+file's own coding rule, and statistics' refusal of WRITE moves from order 4 to order 3 (WZ, C1-C4 below).
 
 WHAT IS ASKED.  Among the holds and bulks the board has computed, is there a bulk held through the whole write -- one
 that carries the corridor, stands static, stays regular on the crossing's causal past for >= 2.0e5 clocks, keeps
@@ -34,8 +36,9 @@ M'S WORDS (verbatim, rulings file; never paraphrased as M's).
 THE CELLS (every value from an instrument or note already run; U = not computed, a distinct code, never guessed).
   Coordinates: corridor (1 carries the corridor's crossable extremal throat; 0 not), static (1 held static through its
   hold; 0 changes), lasts (1 regular on the crossing's past for >= the write's floor; 0 not; U undecided or not
-  computed), keeps_Z (1 no negative null energy on its rays -- vacuum bulk, or the NEC kept at every settled node; 0
-  broken pointwise at a settled node, net per light ray NOT computed (F5); U not computed), survives (1 linear
+  computed), keeps_Z (1 no negative null energy on its rays -- a vacuum bulk whose planes carry no negative stress, or
+  the NEC kept at every settled node; 0 broken pointwise -- at a settled node, or on every ray crossing a plane of
+  negative pure tension (WZ) -- with net per light ray NOT computed (F5); U not computed), survives (1 linear
   survival of the horizon certified over its own hold; 0 a computed linear instability; U not certified / not
   computed), stands (1 no word of M's sets the configuration aside; 0 set aside, quoted), ell (0: ell <= 2m; 1: ell >=
   4m and the flat limit; a cell not computed at either is entered at both).
@@ -62,11 +65,25 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
      the horizon is extremal (D' = 0); S4's exact rate changes the second derivative by T/4 = 4.99e4 natural sizes over
      the write and S5b's blueshift reaches (1 + T/8)^2 = 6.23e8; inside the static window (11.28 clocks) 2.82 and 5.8,
      o3_hold O3c's PROVED survival.  Over the write linear survival is not certified (o3_write W5): survives U.
+  WZ (computed, imported p2_full.py TS; ITEM178-NULL-PAIRS.md 2, computed there, exact, READ here) "A light ray
+     crossing a thin sheet sees null energy with the sign of the sheet's energy density. For a pure tension, that is the
+     tension's sign."  thin_shell run here at J3's -1/3 (only the sign enters): sigma sin a < 0 at every crossing angle
+     a = 0.5 ... 0.001, control +1/3 positive; far_cypher.py F8 and b5p_cypher.py use the same rule.  So the lone
+     negative-tension plane (matter-free, clause (B); vacuum bulk) breaks the NEC pointwise on every ray that crosses
+     it, and net per ray is computed nowhere (no partner on its rays is computed; far_cypher's H-NEG-PLANE-UNPAIRED is
+     a reading and is not used): keeps_Z 0 by the coding rule, as R1's y*-pieces are coded -- not 1 (it had been
+     entered 1, citing only F6's regularity, J3 and 166, none of which bears on (Z)) and not U (the pointwise sign is
+     computed).
   Other cells (each cited in cells()): the window hold (o3_hold O3b/O3c), the closing plane (b4d_stage1 D3, b4d_stage5
      F5, b4d_stage6 J4: real matter with rho + p_r < 0), the negative-tension plane (b4d_stage5 F6: regular on the
-     evidence), both planes (b4d_stage7 K4: every small-separation branch decays, singular), stage 7's named escapes,
-     203's meeting and 198 (a)'s forming phase (nothing computed through the write), the black string (o3_readings R3:
-     Gregory-Laflamme, >= 9.2e3 e-folds) and the slab string (b4d_stage1 D4).
+     evidence, lasts 1; keeps_Z 0 by WZ), both planes (b4d_stage7 K4: every small-separation branch decays, singular),
+     stage 7's named escapes, 203's meeting and 198 (a)'s forming phase (nothing computed through the write), the black
+     string (o3_readings R3: Gregory-Laflamme, >= 9.2e3 e-folds) and the slab string (b4d_stage1 D4).
+  A FINDING RECORDED, NOT REPAIRED (outside this restatement): the both-planes cell's keeps_Z 1 faces WZ's question too
+     -- every K4 branch has position 2's plane at negative tension (-1/3 or -1/6 against ours +4/3; far_cypher F6), and
+     K2 says that plane must curve or carry matter, which far_cypher codes (Z) U.  It is left as entered.  Read 0 or U
+     it moves no statistics verdict on either target (C4, checked): its lasts is 0, and (corridor, keeps_Z, stands) is
+     met by R1's NEC-keeping pieces as well.
   The board's readings that set "stands" (decided under 149, labelled; none is M's):
      H-166-ONE-PLANE-SET-ASIDE: M chose "Both planes at once" over "No, ours" and "Yes, position 2's plane", so every
        single-plane placement of eq. (17) -- b4_static's, stage 5's F2 and F6, the route with no second sheet -- is
@@ -82,37 +99,48 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
 THE CYPHER (roster 1173's five operator-bearing languages; tools/cypher.py imported by path).
   T_WRITE = (corridor 1, static 1, lasts 1, keeps_Z 1, stands 1); T_O3 = (corridor 1, lasts 1, keeps_Z 1, survives 1,
   stands 1).  No computed cell is either target.
-  C1 (cypher) statistics refuses T_WRITE at order 4 (and 5, 6) and admits it at orders 2 and 3: an over-reach
-     assembled from triples.  The one blocking 4-tuple is (corridor, lasts, keeps_Z, stands); no triple blocks.  Each
-     three of the four are met together by some computed cell, and each triple that contains "lasts" by one family
-     only: (corridor, lasts, keeps_Z) by the negative-tension plane -- set aside by 166; (lasts, keeps_Z, stands) by
-     the localized hole -- not the corridor; (corridor, lasts, stands) by R1's pieces at y* and at the band's midpoint
-     for ell >= 4m -- breaking the NEC pointwise, net per ray not computed (F5).  (corridor, keeps_Z, stands) is met
-     by several: stage 7's both planes and R1's NEC-keeping pieces, none of which lasts.
-  C2 (cypher) T_O3 is refused by statistics from order 3; the blocking triples are (corridor, lasts, survives) and
-     (corridor, survives, stands): certified survival belongs only to holds inside the static window (set aside as O3's
-     hold) and to the localized hole (not the corridor).  Granting F5 leaves it refused; certifying survival too for
-     the F5 cells admits it (control).  So O3 is blocked twice, by WRITE and independently by linear survival.
+  C1 (cypher) statistics refuses T_WRITE from order 3 (3 to 6) and admits it only at order 2: an over-reach assembled
+     from pairs (no pair blocks).  The one blocking triple is (corridor, lasts, keeps_Z), and the blocking 4-tuples are
+     exactly the two that contain it, (corridor, lasts, keeps_Z, stands) and (corridor, static, lasts, keeps_Z).  No
+     computed cell carries the corridor, lasts the write and keeps (Z): lasting and keeping (Z) meet in one cell only,
+     the localized hole -- not the corridor.  Of the four triples of (corridor, lasts, keeps_Z, stands), three are met:
+     (lasts, keeps_Z, stands) by the localized hole alone; (corridor, lasts, stands) by R1's pieces at y* and at the
+     band's midpoint for ell >= 4m alone -- breaking the NEC pointwise, net per ray not computed (F5); (corridor,
+     keeps_Z, stands) by several, stage 7's both planes and R1's NEC-keeping pieces, none of which lasts.  The
+     negative-tension plane, which met (corridor, lasts, keeps_Z) while its keeps_Z stood at 1, breaks the NEC on every
+     crossing ray (WZ) and meets it no longer; put back to 1, the refusal returns to order 4 (C4).
+  C2 (cypher) T_O3 is refused by statistics from order 3; the blocking triples are (corridor, lasts, keeps_Z) --
+     WRITE's own -- (corridor, lasts, survives) and (corridor, survives, stands): certified survival belongs only to
+     holds inside the static window (set aside as O3's hold) and to the localized hole (not the corridor).  Granting F5
+     leaves it refused, by the two survival triples alone; certifying survival too for the F5 cells admits it
+     (control).  So O3 is blocked twice, by WRITE and independently by linear survival.
   C3 (cypher; codings; deduced) order, algebra and geometry admit both targets in EVERY coding tried -- the 81
      placements of the unknown code on its four axes (0 < 1 kept), every value order of each axis singly, and 200
      seeded joint permutations of all seven (311 in all).  For order and geometry that is by construction (deduced,
      checked at the base coding): a pair of values seen together in a cell meets each staircase inequality and lies in
      its shadow's hull, so both contain statistics' order-2 support, and statistics at order 2 over-reaches here.  Their
      YES is a stable over-reach, not a reading (no cell is the target).  Information's verdict MOVES with the coding:
-     YES under every placement of the unknown code, NO for T_O3 under 7 of the 30 single-axis orders, and NO under 50
-     (T_WRITE) and 119 (T_O3) of the 200 joint permutations -- an artefact of ordering nominal axes, not a reading.
-     Statistics' verdict is the same in every coding (coding-independent, checked).
+     YES under every placement of the unknown code, NO for T_O3 under 7 of the 30 single-axis orders, and NO under 85
+     (T_WRITE) and 128 (T_O3) of the 200 joint permutations -- an artefact of ordering nominal axes, not a reading.
+     Statistics' verdict, taken at order 3 for both targets, is the same in every coding (coding-independent, checked).
   C4 (controls, variants) F5 granted on R1's pointwise breaks: T_WRITE is admitted by all five (statistics at every
-     order), the decisive cells being R1's y* and band-midpoint pieces at ell >= 4m; one cell alone (r1:0|y_star|level
-     made keeps_Z 1) flips statistics at order 4.  166 decided away (the negative plane standing): admitted.  V200
-     (R1's keeps_Z read unknown under 200 (1)): refused, as in the main run.
+     order), the decisive cells being R1's 12 y* and band-midpoint pieces at ell >= 4m; one cell alone
+     (r1:0|y_star|level made keeps_Z 1, which makes it the target) flips statistics at every order.  166 decided away
+     (the negative plane standing): REFUSED from order 3, as in the main run -- standing, the plane still breaks (Z)
+     on its crossing rays; admitted only when its crossing rays are read net-kept as well (control: the cell is then
+     the target).  The old entry (the negative plane's keeps_Z 1, 166 standing): admitted at 3, refused from 4 with
+     the one blocking 4-tuple (corridor, lasts, keeps_Z, stands) -- that one cell sets order 3 against order 4.  V200
+     (R1's keeps_Z read unknown under 200 (1)): refused from order 3, as in the main run.  The recorded finding (both
+     planes' keeps_Z read 0 or U): no statistics verdict moves.
 THE BOARD'S READING (H-WRITE-NEEDS-ONE-OF-TWO, not M's): WRITE stays OPEN, neither met nor refuted.  On the computed
-cells, carrying the corridor, lasting the write, keeping (Z) and standing under M's words never occur together, and
-the blocking tuple names what would close it: F5 (a pairing that makes the y*-pieces' pointwise breaks net-kept at
-ell >= 4m -- on 195 and 198 that pairing would make the README's stress on P2 a member of a pair, the compatibility
-rim_readme R9 left open), or R1-COVER's OPEN items on the NEC-keeping pieces (their UNDECIDED decided over the far
-field, or a piece of the classes shaped otherwise beyond 3m that keeps the NEC and does not close onto P1).  O3 needs
-more than WRITE: linear survival over 2.0e5 clocks, which W4 does not certify.
+cells, carrying the corridor, lasting the write and keeping (Z) never occur together -- already as a triple, before
+standing under M's words is asked -- and the blocking triple names what would close it: F5 (a pairing that makes the
+y*-pieces' pointwise breaks net-kept at ell >= 4m -- on 195 and 198 that pairing would make the README's stress on P2 a
+member of a pair, the compatibility rim_readme R9 left open), or R1-COVER's OPEN items on the NEC-keeping pieces (their
+UNDECIDED decided over the far field, or a piece of the classes shaped otherwise beyond 3m that keeps the NEC and does
+not close onto P1).  166 is not a third door: the lone negative-tension plane lasts but breaks (Z) on its crossing
+rays (WZ), so reading it as standing admits nothing unless a partner on those rays is computed too.  O3 needs more
+than WRITE: linear survival over 2.0e5 clocks, which W4 does not certify.
 On M's guess 198 (option 1) the write is the forming phase, not static (the size grows as the README comes in), so
 WRITE as worded is the fixed-size way's input (162, 163); the forming cell enters with lasts, keeps_Z, survives U:
 nothing about the forming phase's bulk through the write is computed (179).  Caveats: H-HOLD-FRAME's two glosses
@@ -122,13 +150,15 @@ H-PROFILE-CONTINUED and on a finite sample (R1-COVER: NOT SHOWN, OPEN), so its U
 the cells are an enumeration of what the board computed, not a classification of every bulk.  No question for M:
 whether a partner for the README's stress squares with 195 is not needed for this verdict, since no pairing is
 computed.
-Imports o3_write.py, b4_static.py, r1_cover.py (and through it sim2_passage.py), b4d_stage1.py, bulk/stability.py and
-tools/cypher.py by path.  Stdlib + sympy.  ~25 s.  python3 write_cypher.py [--selftest | --mutants]
+Imports o3_write.py, b4_static.py, r1_cover.py (and through it sim2_passage.py), b4d_stage1.py, p2_full.py,
+bulk/stability.py and tools/cypher.py by path.  Stdlib + sympy (+ mpmath, through p2_full.py).  ~30 s.
+python3 write_cypher.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
 import io
 import itertools
+import math
 import os
 import random
 import sys
@@ -202,13 +232,16 @@ def sources():
     d2s, r0s, r2s = tr["syms"]
     cH0 = sp.simplify(tr["second"][0].coeff(sp.Derivative(tr["psi"], tr["rho"])).subs({d2s: d2}))
     wh = st.white_hole()                                                  # W4: S5b's ray law
+    p2 = _load(os.path.join(HERE, "p2_full.py"), "wc_p2full")             # WZ: TS's crossing integral, a pure tension
+    ts_neg = p2.thin_shell(0.0, rho=-1 / 3)                               # J3's -1/3 (only the sign enters)
+    ts_pos = p2.thin_shell(0.0, rho=1 / 3)                                # control: a positive tension
     a, v = sp.Symbol("a", positive=True), sp.Symbol("v", positive=True)
     _SRC.update({"floor": floor, "floor_p": float(P.write_floor()), "window": float(cone["t_cert"]),
                  "k100": float(cone["t_fail_2"]), "sing": float(ow.SINGULAR_CLOCKS), "x7": float(x7),
                  "r1_hold": max(holds), "r1_rows": rows, "tang": tang, "rh": rh, "D1": d1, "cH0": cH0,
                  "s4": lambda T: float(abs(cH0 * (T * m) * m)),          # natural sizes H0/m over v = T m
                  "s5b": lambda T: float(sp.simplify((1 / wh["spacing"]).subs({a: m, v: T * m}))),   # a ray m off
-                 "m": m})
+                 "ts_neg": ts_neg, "ts_pos": ts_pos, "m": m})
     return _SRC
 
 
@@ -247,9 +280,19 @@ def cells(src):
         add("forming-198a", (1, 0, U, U, U, 1, e),
             "198 (M's guess, option 1): the README forms the corridor, size growing; README-HELD.md; chain_cypher "
             "ARRIVAL: formation in the bulk OPEN (179)")
-    add("negative-plane", (1, 1, 1, 1, U, 0 if not MUT.get("decide_166") else 1, 0),
+    # keeps_Z by the coding rule (WZ): a lone plane of negative pure tension (clause (B), matter-free) in a vacuum bulk;
+    # a ray crossing it sees null energy with the tension's sign at every crossing angle (p2_full.py TS, imported and
+    # run in sources(); ITEM178-NULL-PAIRS.md 2, computed, exact; far_cypher.py F8) -- broken pointwise, on every
+    # crossing ray -- and net per ray is computed nowhere (no partner on its rays is computed; far_cypher's
+    # H-NEG-PLANE-UNPAIRED is a reading and is not used here).  So 0, coded as R1's y*-pieces are, not 1 and not U.
+    zneg = 0 if any(x < 0 for _, x in src["ts_neg"]) else 1
+    if MUT.get("neg_keeps_z1"):
+        zneg = 1                                                          # mutant: the cell back to keeps_Z 1
+    add("negative-plane", (1, 1, 1, zneg, U, 0 if not MUT.get("decide_166") else 1, 0),
         "b4d_stage5.py F6 (check 'F6', ell = 2m, m, m/2): regular on the evidence, static; b4d_stage6.py J3; one plane: "
-        "set aside by 166 (M chose 'Both planes at once', not 'Yes, position 2's plane')")
+        "set aside by 166 (M chose 'Both planes at once', not 'Yes, position 2's plane').  Keeps Z 0: a negative pure "
+        "tension, crossed at any angle, gives negative null energy (p2_full.py TS; ITEM178 2; far_cypher.py F8); net "
+        "per ray not computed")
     add("both-planes", (1, 1, 0, 1, U, 1, 0),
         "b4d_stage7.py K4: every small-separation branch has a decaying outer bulk, singular (stage 5 F2; H-F2-STABLE)")
     hole_is_corridor = int(not (tang["one_over_r"] == 0 and tang["kappa"] != 0 and src["rh"] > 2))
@@ -335,20 +378,20 @@ def kind(cid):
 
 
 def codings(n_random=200, seed=196):
-    """The 81 placements of U on its four axes (0 < 1 kept); every value order of each axis singly; and seeded joint
-    permutations of all seven axes."""
+    """(family, coding): the 81 placements of U on its four axes (0 < 1 kept); every value order of each axis singly;
+    and seeded joint permutations of all seven axes."""
     out = []
     for p in itertools.product(range(3), repeat=len(WITH_U)):
         cd = {n: list(BASE[n]) for n in C}
         for n, pos in zip(WITH_U, p):
             cd[n] = [0, 1]
             cd[n].insert(pos, U)
-        out.append(cd)
+        out.append(("placement", cd))
     for n in C:
         for perm in itertools.permutations(BASE[n]):
             cd = {k: list(BASE[k]) for k in C}
             cd[n] = list(perm)
-            out.append(cd)
+            out.append(("single", cd))
     rng = random.Random(seed)
     for _ in range(n_random):
         cd = {}
@@ -356,8 +399,13 @@ def codings(n_random=200, seed=196):
             vals = list(BASE[n])
             rng.shuffle(vals)
             cd[n] = vals
-        out.append(cd)
+        out.append(("joint", cd))
     return out
+
+
+def recode(cs, cid, **vals):
+    """cs with the named cell's coordinates replaced (a variant, run beside the main cells, never in place of them)"""
+    return [(i, tuple(vals.get(C[j], x) for j, x in enumerate(c)) if i == cid else c, s) for i, c, s in cs]
 
 
 def compute(sweep=True):
@@ -368,29 +416,32 @@ def compute(sweep=True):
     d["in_cells_o3"] = sorted(i for i, c, _ in cs if hit(c, T_O3))
     d["stat_write"] = stat_profile(cs, T_WRITE)
     d["stat_o3"] = stat_profile(cs, T_O3)
-    d["block_write"] = {k: blocking(cs, T_WRITE, k) for k in (3, 4)}
+    d["block_write"] = {k: blocking(cs, T_WRITE, k) for k in (2, 3, 4)}
     d["block_o3"] = {k: blocking(cs, T_O3, k) for k in (2, 3)}
     core = {k: T_WRITE[k] for k in ("corridor", "lasts", "keeps_Z", "stands")}
     d["wit3"] = {S: sorted({kind(i) for i in v}) for S, v in witnesses(cs, core, 3).items()}
-    d["base"] = {lang: (answer(cs, T_WRITE, lang, {"statistics_order": 4} if lang == "statistics" else None),
-                        answer(cs, T_O3, lang, {"statistics_order": 3} if lang == "statistics" else None))
-                 for lang in LANGS}
+    d["wit2_lz"] = sorted({kind(i) for i in witnesses(cs, core, 2)[("lasts", "keeps_Z")]})
+    st3 = {"statistics_order": 3}                                         # statistics' lowest refusing order, both
+    d["base"] = {lang: (answer(cs, T_WRITE, lang, st3 if lang == "statistics" else None),
+                        answer(cs, T_O3, lang, st3 if lang == "statistics" else None)) for lang in LANGS}
     if sweep:
         by = {lang: {"write": set(), "o3": set()} for lang in LANGS}
         cnt = {lang: {"write": 0, "o3": 0} for lang in LANGS}                # codings in which the language refuses
+        fam = {}                                                          # the same counts, by coding family
         cds = codings()
-        for cd in cds:
+        for f, cd in cds:
+            fam.setdefault(f, {"n": 0, **{lang: [0, 0] for lang in LANGS}})["n"] += 1
             for lang in LANGS:
-                a = admitted(cs, lang, {"statistics_order": 4} if lang == "statistics" else None, cd)
+                a = admitted(cs, lang, st3 if lang == "statistics" else None, cd)
                 aw = None if a is None else any(hit(h, T_WRITE) for h in a)
-                if lang == "statistics":
-                    a = admitted(cs, lang, {"statistics_order": 3}, cd)
                 ao = None if a is None else any(hit(h, T_O3) for h in a)
                 by[lang]["write"].add(aw)
                 by[lang]["o3"].add(ao)
                 cnt[lang]["write"] += aw is False
                 cnt[lang]["o3"] += ao is False
-        d["by_coding"], d["n_codings"], d["refusals"] = by, len(cds), cnt
+                fam[f][lang][0] += aw is False
+                fam[f][lang][1] += ao is False
+        d["by_coding"], d["n_codings"], d["refusals"], d["by_family"] = by, len(cds), cnt, fam
     st2 = admitted(cs, "statistics", {"statistics_order": 2})
     d["contain_stat2"] = {lang: st2 <= admitted(cs, lang) for lang in ("order", "geometry")}
     # controls and variants
@@ -400,6 +451,7 @@ def compute(sweep=True):
                      for lang in LANGS}
     d["f5_stat"] = stat_profile(f5, T_WRITE)
     d["f5_o3"] = stat_profile(f5, T_O3)
+    d["f5_block_o3"] = blocking(f5, T_O3, 3)
     f5v = [(i, (c[:4] + (1,) + c[5:]) if i in d["f5_cells"] else c, s) for i, c, s in f5]
     d["f5v_o3"] = {lang: answer(f5v, T_O3, lang, {"statistics_order": 6} if lang == "statistics" else None)
                    for lang in LANGS}
@@ -407,8 +459,12 @@ def compute(sweep=True):
     d["one_cell"] = stat_profile(one, T_WRITE)
     v200 = [(i, (c[:3] + (U,) + c[4:]) if i.startswith("r1:") else c, s) for i, c, s in cs]
     d["v200_write"] = stat_profile(v200, T_WRITE)
-    neg = [(i, (c[:5] + (1,) + c[6:]) if i == "negative-plane" else c, s) for i, c, s in cs]
-    d["v166_write"] = stat_profile(neg, T_WRITE)
+    d["v166_write"] = stat_profile(recode(cs, "negative-plane", stands=1), T_WRITE)          # 166 decided away
+    d["v166z_write"] = stat_profile(recode(cs, "negative-plane", stands=1, keeps_Z=1), T_WRITE)   # and net-kept
+    vz = recode(cs, "negative-plane", keeps_Z=1)                          # the old entry, 166 standing
+    d["vzneg_write"], d["vzneg_block"] = stat_profile(vz, T_WRITE), {k: blocking(vz, T_WRITE, k) for k in (3, 4)}
+    d["vbp"] = {z: (stat_profile(recode(cs, "both-planes", keeps_Z=z), T_WRITE),          # the recorded finding
+                    stat_profile(recode(cs, "both-planes", keeps_Z=z), T_O3)) for z in (0, U)}
     return d
 
 
@@ -449,39 +505,69 @@ def checks(d):
         and 6.22e8 < s["s5b"](T) < 6.24e8 and abs(s["s4"](s["window"]) - 2.819) < 0.01
         and abs(s["s5b"](s["window"]) - 5.80) < 0.01 and s["s5b"](s["window"]) < 6.5
         and cs["window-hold"][IX["survives"]] == 1 and cs["eq17-static-flat"][IX["survives"]] == U)
+    neg, pos = s["ts_neg"], s["ts_pos"]
+    add("WZ p2_full TS (imported): a negative pure tension crossed at angle a gives sigma sin a < 0 at every angle "
+        "(control: a positive tension gives > 0) -- broken pointwise on every crossing ray, net per ray not computed: "
+        "the negative plane's keeps_Z is 0 by the coding rule",
+        all(x < 0 and abs(x - (-1 / 3) * math.sin(a_)) < 1e-12 for a_, x in neg) and all(x > 0 for _, x in pos)
+        and cs["negative-plane"][IX["keeps_Z"]] == 0)
     add("C1 no computed cell is T_WRITE or T_O3", d["in_cells_write"] == [] and d["in_cells_o3"] == [])
-    add("C1 statistics refuses T_WRITE at orders 4-6 and admits it at 2 and 3 (an over-reach from triples); the one "
-        "blocking 4-tuple is (corridor, lasts, keeps_Z, stands), and no triple blocks",
-        d["stat_write"] == {2: True, 3: True, 4: False, 5: False, 6: False}
-        and d["block_write"] == {3: [], 4: [("corridor", "lasts", "keeps_Z", "stands")]})
+    add("C1 statistics refuses T_WRITE at orders 3-6 and admits it only at 2 (an over-reach from pairs); no pair blocks; "
+        "the one blocking triple is (corridor, lasts, keeps_Z), and the blocking 4-tuples are the two that contain it, "
+        "(corridor, lasts, keeps_Z, stands) and (corridor, static, lasts, keeps_Z)",
+        d["stat_write"] == {2: True, 3: False, 4: False, 5: False, 6: False}
+        and d["block_write"] == {2: [], 3: [("corridor", "lasts", "keeps_Z")],
+                                 4: [("corridor", "lasts", "keeps_Z", "stands"),
+                                     ("corridor", "static", "lasts", "keeps_Z")]})
     w = d["wit3"]
-    add("C1 each triple of the four that contains 'lasts' is met by one family only: the negative plane (set aside by "
-        "166), the localized hole (not the corridor), R1's pieces at y* / the band's midpoint (NEC broken pointwise)",
-        w[("corridor", "lasts", "keeps_Z")] == ["negative-plane"]
+    add("C1 of the four triples of (corridor, lasts, keeps_Z, stands): (corridor, lasts, keeps_Z) is met by no cell; "
+        "(lasts, keeps_Z, stands) by the localized hole alone (not the corridor); (corridor, lasts, stands) by R1's pieces "
+        "at y* / the band's midpoint alone (NEC broken pointwise); (corridor, keeps_Z, stands) by both planes and R1's "
+        "NEC-keeping pieces, none lasting; and lasting with keeping (Z) meet in the localized hole alone",
+        w[("corridor", "lasts", "keeps_Z")] == []
         and w[("lasts", "keeps_Z", "stands")] == ["localized-hole"]
-        and w[("corridor", "lasts", "stands")] == ["r1 level @ band_mid", "r1 level @ y_star", "r1 smooth near @ y_star"])
-    add("C2 statistics refuses T_O3 from order 3; blocking triples (corridor, lasts, survives) and (corridor, survives, "
-        "stands); with F5 granted still refused; with survival certified for the F5 cells too, all five admit (control)",
+        and w[("corridor", "lasts", "stands")] == ["r1 level @ band_mid", "r1 level @ y_star", "r1 smooth near @ y_star"]
+        and w[("corridor", "keeps_Z", "stands")] == ["both-planes", "r1 smooth adj @ tenth", "r1 smooth near @ tenth",
+                                                     "r1 smooth near @ zero"]
+        and d["wit2_lz"] == ["localized-hole"])
+    add("C2 statistics refuses T_O3 from order 3; blocking triples (corridor, lasts, keeps_Z) -- WRITE's -- (corridor, "
+        "lasts, survives) and (corridor, survives, stands); with F5 granted still refused, by the two survival triples "
+        "alone; with survival certified for the F5 cells too, all five admit (control)",
         d["stat_o3"] == {2: True, 3: False, 4: False, 5: False, 6: False}
-        and d["block_o3"] == {2: [], 3: [("corridor", "lasts", "survives"), ("corridor", "survives", "stands")]}
-        and d["f5_o3"][3] is False and all(d["f5v_o3"][l] for l in LANGS))
+        and d["block_o3"] == {2: [], 3: [("corridor", "lasts", "keeps_Z"), ("corridor", "lasts", "survives"),
+                                         ("corridor", "survives", "stands")]}
+        and d["f5_o3"][3] is False
+        and d["f5_block_o3"] == [("corridor", "lasts", "survives"), ("corridor", "survives", "stands")]
+        and all(d["f5v_o3"][l] for l in LANGS))
     if "by_coding" in d:
-        by, rf = d["by_coding"], d["refusals"]
-        add("C3 over %d codings: statistics refuses both targets in every one (coding-independent); order, algebra, "
-            "geometry admit both in every one (a stable over-reach); information's verdict moves with the coding "
-            "(refusing T_WRITE in %d, T_O3 in %d): an artefact" % (d["n_codings"], rf["information"]["write"],
-                                                                  rf["information"]["o3"]),
-            d["n_codings"] == 311 and by["statistics"]["write"] == {False} and by["statistics"]["o3"] == {False}
+        by, fm = d["by_coding"], d["by_family"]
+        info = {f: tuple(fm[f]["information"]) for f in fm}
+        add("C3 over %d codings, statistics at order 3: statistics refuses both targets in every one (coding-"
+            "independent); order, algebra, geometry admit both in every one (a stable over-reach); information's verdict "
+            "moves with the coding -- refusing (T_WRITE, T_O3) in %s of the 81 placements of U, %s of the 30 single-axis "
+            "orders, %s of the 200 joint permutations: an artefact" % (d["n_codings"], info["placement"], info["single"],
+                                                                      info["joint"]),
+            d["n_codings"] == 311 and {f: fm[f]["n"] for f in fm} == {"placement": 81, "single": 30, "joint": 200}
+            and by["statistics"]["write"] == {False} and by["statistics"]["o3"] == {False}
             and all(by[l]["write"] == {True} and by[l]["o3"] == {True} for l in ("order", "algebra", "geometry"))
-            and by["information"]["write"] == {False, True} and by["information"]["o3"] == {False, True})
+            and info == {"placement": (0, 0), "single": (0, 7), "joint": (85, 128)})
     add("C3 (deduced, checked at the base coding) order and geometry contain statistics' order-2 support",
         all(d["contain_stat2"].values()))
     add("C4 control (the decisive cells): F5 granted on R1's pointwise breaks -> T_WRITE admitted by all five, statistics "
-        "at every order; the cells are R1's y* / band-midpoint pieces at ell >= 4m; one cell alone flips order 4",
+        "at every order; the cells are R1's y* / band-midpoint pieces at ell >= 4m; one cell alone (made the target) "
+        "flips every order",
         all(d["f5_write"][l] for l in LANGS) and all(d["f5_stat"].values()) and len(d["f5_cells"]) == 12
-        and all(i.startswith("r1:") for i in d["f5_cells"]) and d["one_cell"][4] is True)
-    add("C4 variants: 166 decided away (the negative plane standing) -> admitted; V200 (R1's keeps_Z unknown) -> refused "
-        "at order 4, as in the main run", d["v166_write"][4] is True and d["v200_write"][4] is False)
+        and all(i.startswith("r1:") for i in d["f5_cells"]) and all(d["one_cell"].values()))
+    add("C4 variants: 166 decided away (the negative plane standing) -> refused from order 3, as in the main run; "
+        "admitted when its crossing rays are also read net-kept (control: the cell is then the target); V200 (R1's "
+        "keeps_Z unknown) -> refused from order 3, as in the main run",
+        d["v166_write"] == d["stat_write"] and all(d["v166z_write"].values()) and d["v200_write"] == d["stat_write"])
+    add("C4 the old entry (the negative plane's keeps_Z 1, 166 standing) gives the old profile -- admitted at 3, refused "
+        "from 4, the one blocking 4-tuple (corridor, lasts, keeps_Z, stands): that cell alone sets order 3 against 4",
+        d["vzneg_write"] == {2: True, 3: True, 4: False, 5: False, 6: False}
+        and d["vzneg_block"] == {3: [], 4: [("corridor", "lasts", "keeps_Z", "stands")]})
+    add("C4 the recorded finding: both planes' keeps_Z read 0 or U moves no statistics verdict on either target",
+        all(d["vbp"][z] == (d["stat_write"], d["stat_o3"]) for z in (0, U)))
     return res
 
 
@@ -491,7 +577,8 @@ MUTANTS = {"seat_write": "a bulk held through the write seated as data",
            "f5_granted": "F5's pairing decided in code (R1's pointwise breaks read net-kept)",
            "survival_any": "linear survival read as certified over any hold (W5 ignored)",
            "hole_tail": "the localized hole given 4D Schwarzschild's 1/r tail (read as the corridor)",
-           "u_as_one": "every uncomputed value guessed favourable"}
+           "u_as_one": "every uncomputed value guessed favourable",
+           "neg_keeps_z1": "the negative-tension plane's keeps_Z set back to 1 (TS ignored)"}
 
 
 def selftest():
@@ -533,6 +620,8 @@ def report(d):
                                                                           s["floor"] / s["r1_hold"][0]))
     print("W3 localized hole: r_h = %.0f m; W4 over the write S4 %.3g, S5b %.3g; in the window %.2f, %.2f"
           % (s["rh"], s["s4"](s["floor"]), s["s5b"](s["floor"]), s["s4"](s["window"]), s["s5b"](s["window"])))
+    print("WZ TS, a pure tension -1/3 crossed at angles %s: %s (control +1/3: %s)"
+          % ([a_ for a_, _ in s["ts_neg"]], ["%.3g" % x for _, x in s["ts_neg"]], ["%.3g" % x for _, x in s["ts_pos"]]))
     print("\ncells (distinct tuples over %s; U = %d):" % (C, U))
     seen = {}
     for i, c, _ in d["cells"]:
@@ -544,16 +633,24 @@ def report(d):
     print("statistics on T_O3 by order:", d["stat_o3"], " blocking:", d["block_o3"])
     print("triple witnesses (corridor, lasts, keeps_Z, stands):")
     for S, v in d["wit3"].items():
-        print("  %-36s %s" % (", ".join(S), ", ".join(v) if len(v) < 6 else "%d kinds" % len(v)))
+        print("  %-36s %s" % (", ".join(S), "(no cell)" if not v else ", ".join(v) if len(v) < 6 else
+                              "%d kinds" % len(v)))
+    print("pair witnesses (lasts, keeps_Z):", ", ".join(d["wit2_lz"]))
     print("languages at the base coding (T_WRITE, T_O3):", d["base"])
     if "by_coding" in d:
-        print("over %d codings, the codings in which each language refuses (T_WRITE, T_O3):" % d["n_codings"],
-              {l: (x["write"], x["o3"]) for l, x in d["refusals"].items()})
+        print("over %d codings (statistics at order 3), the codings in which each language refuses (T_WRITE, T_O3):"
+              % d["n_codings"], {l: (x["write"], x["o3"]) for l, x in d["refusals"].items()})
+        for f, x in d["by_family"].items():
+            print("  %-9s (%3d): %s" % (f, x["n"], {l: tuple(x[l]) for l in LANGS}))
     print("order and geometry contain statistics' order-2 support (base coding):", d["contain_stat2"])
     print("control F5 granted: T_WRITE", d["f5_write"], "statistics", d["f5_stat"], "; T_O3 statistics", d["f5_o3"])
+    print("control F5 granted: T_O3 blocking triples", d["f5_block_o3"])
     print("control F5 + survival certified: T_O3", d["f5v_o3"])
     print("one cell (r1:0|y_star|level keeps_Z 1):", d["one_cell"])
-    print("variant 166 decided away:", d["v166_write"], " variant V200:", d["v200_write"])
+    print("variant 166 decided away:", d["v166_write"], " and net-kept too:", d["v166z_write"])
+    print("variant V200:", d["v200_write"])
+    print("the old entry (negative plane keeps_Z 1):", d["vzneg_write"], " blocking:", d["vzneg_block"])
+    print("recorded finding, both planes' keeps_Z read 0 / U (T_WRITE, T_O3):", d["vbp"])
 
 
 if __name__ == "__main__":

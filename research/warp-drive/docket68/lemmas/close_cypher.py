@@ -46,15 +46,21 @@ FACTS
   F7 (cypher, roster 1173; the encoding is the board's, H-CYPHER-CLOSE-INDEX) six coordinates -- side (1, 2), class (one
      universe, between universes), area (grows, held, shrinks), z_kept, partner_free, ends_horizon -- with U = 9 the
      code for what nobody computed.  side and class are nominal: every run is repeated under both orders of
-     each and with U above 1 and below 0 (8 codings).  Results (Q6-Q10):
+     each and with U above 1 and below 0 (8 codings).  Results (Q6-Q11):
        - statistics REFUSES T1 in both classes under every coding; the one unseen pair is (side 1, ends 1) -- the
          refusal is F6, the record's gap, not the area theorem.  Its one admitted cell beyond the data is (side 1,
          between universes, shrinks, (Z) kept, no partner, ending U): the very cell F3-F4 exclude, which pairwise
          support cannot see
        - order, algebra, geometry and information each ADMIT T1 under some codings and refuse it under others: 6, 6,
          4 and 4 of the 8, the same in both classes.  All four refuse with side 1 ordered first and U below 0; with U
-         above 1 (the house default) order, algebra and geometry read A1's unknown ending as reached.  The verdict moves
-         with the coding: an artefact of ordering a nominal axis and of where the unknown sits, not a reading
+         above 1 (the house default) order, algebra and geometry read an unknown side-1 ending as reached -- A1's OR
+         A3's, either one alone: A1's ending set to 0 leaves every T1 verdict of the four unchanged under all 8
+         codings, and so does A3's set to 0 (the 'trapping' variant, whose one side-1 unknown is A3's, gives the same
+         6, 6, 4, 4); only both set to 0 removes the side-1-first admissions (computed, Q11; the zeros are probes, not
+         readings).  With both at 0, order, algebra and information still admit T1 in the 4 codings with side 2 ordered
+         first, under either placing of U -- the nominal side axis's ordering alone -- and geometry in none: all 4 of
+         geometry's admissions come from the unknowns.  The verdict moves with the coding: an artefact of ordering a
+         nominal axis and of where the unknowns sit, not a reading
        - T2 is data (the white-hole release), admitted by all five: forced, not informative
        - CONTROL: the decisive unknown -- whether B4d's one-universe positive closing ends the horizon (A1's U) -- set
          to 1: T1 (one universe) becomes data and all five admit it.  Statistics then ALSO admits T1 between universes,
@@ -75,7 +81,7 @@ FACTS
      position 1's horizon is degenerate (eq. (17)'s extremal horizon, surface gravity 0, clause (O)) or not outer.
      Run as the variant 'trapping': A1 replaced by the trapping horizon's computed growth; statistics still refuses
      T1, no unknown is left on a side-1 cell with (Z) kept and no partner, and the other four over-reach exactly as in
-     the main run (6, 6, 4, 4 of 8)
+     the main run (6, 6, 4, 4 of 8) -- on A3's unknown ending alone (F7)
   F9 (STRUCTURAL; OPEN; not entered, since nothing is computed) the one route the cells leave untouched: the plane's
      reading of the closing.  The board's appearance mechanism (117/120; WARPTHEOREM (Z): "the plane's apparent
      deficit is exactly the bulk's pull") puts a negative R(k,k) on the plane through the projected Weyl term with no
@@ -285,6 +291,11 @@ def cypher(ph):
     if not MUT.get("ctrl_noop"):
         ctrl[key] = main[key][:5] + (1,)                            # the decisive cell: B4d's closing ends the horizon
     ctrl_cf = {k: v for k, v in ctrl.items() if not k.startswith("W1")}
+    # probes, not readings: each unknown side-1 ending set to 0 ('does not end') to find which unknown carries the
+    # side-1-first admissions of order, algebra and geometry (F7, Q11)
+    a3 = "A3 between universes, negative influx"
+    ends0 = lambda cs, ks: {k: (v[:5] + (0,) if k in ks else v) for k, v in cs.items()}
+    no_both = ends0(main, {key} if MUT.get("unk_partial") else {key, a3})
     trap = cells(ph, "trapping")
     cy = owners()["cy"]
     cl = sorted(set(main.values()))
@@ -297,7 +308,9 @@ def cypher(ph):
     return {"stat_extra": extra, "cells": main, "main": run_all(main.values()), "ctrl": run_all(ctrl.values()),
             "ctrl_cf": run_all(ctrl_cf.values()), "trap": run_all(trap.values()), "trap_cells": trap,
             "unseen": {k: unseen_pairs(list(main.values()), t) for k, t in T1.items()},
-            "ctrl_cells": ctrl}
+            "ctrl_cells": ctrl, "no_a1": run_all(ends0(main, {key}).values()),
+            "no_a3": run_all(ends0(main, {a3}).values()), "no_both": run_all(no_both.values()),
+            "no_both_cells": no_both}
 
 
 # ---------------------------------------------------------------------------------------------------------- run
@@ -353,7 +366,7 @@ def checks(d):
     low = [cd for cd in m if cd[0] == (1, 2) and cd[2]]
     add("Q7 F7 order, algebra, geometry and information admit T1 under some codings and refuse it under others -- 6, "
         "6, 4 and 4 of 8, the same in both classes; all four refuse with side 1 ordered first and U below 0: the verdict "
-        "moves with the coding (an artefact of ordering a nominal axis and of where the unknown sits), not a reading",
+        "moves with the coding (an artefact of ordering a nominal axis and of where the unknowns sit), not a reading",
         cnt == {"order": [6, 6], "algebra": [6, 6], "geometry": [4, 4], "information": [4, 4]}
         and all(not m[cd][l][t] for cd in low for l in cnt for t in ("T1_0", "T1_1")))
     add("Q8 contrast: T2 (position 2's horizon ended by the positive release) admitted by all five under every coding "
@@ -374,6 +387,24 @@ def checks(d):
         and _all(t, "statistics", "T1_1", False)
         and not any(c[0] == 1 and c[3] == 1 and c[4] == 1 and U in c for c in tc.values())
         and {l: [sum(r[l][x] for r in t.values()) for x in ("T1_0", "T1_1")] for l in cnt} == cnt)
+    t1s = ("T1_0", "T1_1")
+    verdicts = lambda runs: {cd: {l: tuple(bool(r[l][x]) for x in t1s) for l in cnt} for cd, r in runs.items()}
+    hi1 = [cd for cd in m if cd[0] == (1, 2) and not cd[2]]
+    nb = d["cy"]["no_both"]
+    add("Q11 F7 which unknown carries the over-reach: with side 1 ordered first and U above 1, order, algebra and "
+        "geometry admit T1 and information does not, and geometry admits only with U above 1; A1's ending set to 0 "
+        "alone, or A3's alone, leaves every T1 verdict of the four unchanged under all 8 codings (either unknown "
+        "suffices); both set to 0 leaves no side-1 unknown and order, algebra and information admitting only with "
+        "side 2 ordered first (4 of 8, under either placing of U), geometry nowhere; the 'trapping' variant's one "
+        "side-1 unknown is A3's", all(m[cd][l][x] is (l != "information") for cd in hi1 for l in cnt for x in t1s)
+        and all(m[cd]["geometry"][x] is (not cd[2]) for cd in m for x in t1s)
+        and verdicts(d["cy"]["no_a1"]) == verdicts(m) and verdicts(d["cy"]["no_a3"]) == verdicts(m)
+        and not any(c[0] == 1 and c[5] == U for c in d["cy"]["no_both_cells"].values())
+        and {l: [sum(r[l][x] for r in nb.values()) for x in t1s] for l in cnt}
+        == {"order": [4, 4], "algebra": [4, 4], "geometry": [0, 0], "information": [4, 4]}
+        and all(nb[cd][l][x] is (cd[0] == (2, 1)) for cd in nb for l in ("order", "algebra", "information")
+                for x in t1s)
+        and sorted(k[:2] for k, c in tc.items() if c[0] == 1 and c[5] == U) == ["A3"])
     return res
 
 
@@ -382,7 +413,8 @@ MUTANTS = {"seat_target": "position 1's horizon's ending seated as data (A1 ends
            "exit_ignored": "close_flux K3: position 2's exit not counted in the same universe",
            "ray_sign": "close_flux K2: positive energy read as defocusing",
            "release_partner": "the white-hole release given a partner",
-           "ctrl_noop": "the control leaves the decisive cell unchanged"}
+           "ctrl_noop": "the control leaves the decisive cell unchanged",
+           "unk_partial": "the both-unknowns probe clears A1's ending only (A3's U left)"}
 
 
 def selftest():
@@ -415,7 +447,7 @@ def report(d):
     print("question:", d["question"])
     for k, v in d["cy"]["cells"].items():
         print("  cell %-60s %s" % (k, v))
-    for part in ("main", "ctrl", "ctrl_cf", "trap"):
+    for part in ("main", "ctrl", "ctrl_cf", "trap", "no_a1", "no_a3", "no_both"):
         runs = d["cy"][part]
         print("\n%s:" % part)
         for lang in LANGS:
