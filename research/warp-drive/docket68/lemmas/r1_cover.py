@@ -1,13 +1,15 @@
 #!/usr/bin/env python3
-"""r1_cover.py -- B4d / E-PASS: THE COVER (question r1-cover, put under M-RULINGS item 196).  Computed and deduced; not
-verified (to be verified by a separate AI session in this project); not seated.  First headed "... not verified; not
-seated" (2026-10-09).
+"""r1_cover.py -- B4d / E-PASS: THE COVER (question r1-cover, put under M-RULINGS item 196).  Computed and deduced; checked
+once by two separate AI sessions in this project (a refute verifier and an overclaim verifier), findings applied
+(lemmas/R1-COVER.md, History); not seated.  First headed "... not verified; not seated" (2026-10-09), with the
+headline "No: no sampled member ... keeps y_s out"; that headline over-claimed and is withdrawn (VERDICT below).
 
 THE QUESTION (the board's wording).  With nothing crossing the corridor's horizon (the README held, 195's reading, being
 worked) or with a balanced pair (F5, OPEN), the corridor is stationary through the write.  Is the stationary corridor's
 bulk regular on the README's causal past over the whole write (>= 2.0e5 clocks): does position 2's piece (172 (1)) keep
 the singular depth y_s out of J^-(P_c) across the whole cover -- beyond the throat's O(x) range, out to the footprint
-R_F and the far field -- and not only near the throat?
+R_F and the far field -- and not only near the throat?  (Existential: "some piece of position 2 in H-CROSSABLE-HORIZON's
+classes".  What is computed is a finite sample; see VERDICT.)
 
 M's words used here (verbatim in the rulings file; quoted, never paraphrased as M's):
   161 "my inclination is yes"
@@ -16,113 +18,139 @@ M's words used here (verbatim in the rulings file; quoted, never paraphrased as 
   172 (1) M chose "Yes, it may" to the board's "While the corridor holds, may position 2's piece of our plane carry the
       README's stress (stress that obeys the NEC)?"; (2) M chose "Yes, that is coinciding"; the record: "Not answered:
       which part of position 2's stress is its law"
-  174 M chose "For the math" (three times)
+  174 M chose "For the math" (three times); the strict rule for curvature singularities is the board's decision under 149
   149 "I have given you everything I can. You have to work the math now"
   179/180 "We know the corridor *does not sit on either position's plane, it only bridges them. So one could surmise that
       the corridor is exclusive to the bulk."
+  183 M chose "Yes: never violated as a pair"; 187 (3) M chose "Seat both": clause (Z), "null energy never violated"
+      holds net along each light ray (183)
   184 "There are no matter free planes"
+  194 "Disregard that last ruling. I want that question put to the cypher" (193 withdrawn; not used here)
   195 "The README is not a pair"
   196 "Review all tasks running. Stop any that are no longer relevant. All questions get works through the cypher"
+  197 "... - because it sees its own reflection, not the other plane"
 
-CONDITIONS, NAMED (every one the board's unless marked).  F1: these columns take eq. (17) as the plane's own metric
-(the board's configuration; seated clause (G) keeps eq. (17) only as a plane's possible reading of the mouth, so every
-result here is conditional on the mouth lemma, H-PLANE-READS-MOUTH, OPEN).  Clause (B) in full on P1 (vacuum Lambda_5,
-RS tension, matter-free: a limit under 184).  H-Z2-PIECES (P2 mirrored, one-sided toward the slab).  H-README-ON-P2
-(M's 172 (1)).  H-CROSSABLE-HORIZON (adopted under 149 for P2's unanswered law: the smooth and band classes at the
-horizon; S7's power laws excluded there and kept as the control).  H-PROFILE-CONTINUED (each sampled member's
-near-throat formula continued literally beyond x_valid: the only global continuation computed here; no ruling fixes
-P2's global shape).  H-QUASI-STATIC-CORRIDOR (stationary bulk through the write: the question's premise).
-H-HOLD-IN-ADVANCED-TIME (X8's frame).  Raw Pade as evidence (S9's rule): VERIFIED means two Pade orders agree on A, B, C
-to 1e-4 (b4_static S3's value rule) -- a convergence heuristic, not a bound.  The README a test event (SIM1 S3b).
+CONDITIONS, NAMED (every one the board's unless marked).  F1: these columns take eq. (17) as the plane's own metric (the
+board's configuration; the F1 audit, lemmas/F1-AUDIT.md, now carries this input as the theorem M1, OPEN -- every result
+here is conditional on it).  Clause (B) in full on P1 (vacuum Lambda_5, RS tension, matter-free: a limit under 184).
+H-Z2-PIECES (P2 mirrored, one-sided toward the slab: its Israel stress is the Z2 form; 197 bears on that construction,
+and the board's reading of 197 is still to be worked; with position 2's own bulk beyond P2, F1-AUDIT D1 (iii), P2's
+stress is not computed).  H-README-ON-P2 (M's 172 (1)).  H-CROSSABLE-HORIZON (adopted under 149 for P2's unanswered law:
+the smooth and band classes at the horizon; S7's power laws excluded there and kept as the control).
+H-PROFILE-CONTINUED (each sampled member's near-throat formula continued literally beyond x_valid: the only global
+continuation computed here; no ruling fixes P2's global shape).  H-QUASI-STATIC-CORRIDOR (stationary bulk through the
+write: the question's premise).  H-HOLD-IN-ADVANCED-TIME (X8's frame).  H-README-TEST-EVENT (the README treated as a test
+event, SIM1 S3b; 195's record puts that framing with the board, not M; J^-(P_c) as computed does not depend on whether
+the README is held or crossing).  H-POINTWISE-NEC-ON-P2 (172 (1)'s "stress that obeys the NEC" read pointwise: P2's own
+Israel stress at each settled node; M's seated clause (Z) is net along each light ray, and a pointwise break counts
+against (Z) only if nothing pairs it on the same rays -- that pairing is F5, OPEN since 194).  H-CURVATURE-SETTLED (added
+after the verification: a located y_s is a C~ Pade pole -- b4d_stage5.nearest_real, "A scale for the depth, not a claim
+that the singular point is real" -- and counts as a curvature singularity, where a piece can FAIL, only if the two
+verification orders agree on K/K_bs to 1% (b4_static S3's K rule) over a contiguous prefix of depths on which K rises to
+at least 100 (S3's mark of a large curvature); k_settled).  Raw Pade as evidence (S9's rule): VERIFIED and "settled" mean
+two Pade orders agree (A, B, C to 1e-4; K to 1%) -- a convergence heuristic, not a bound.
 
   R1 THE CEILING (computed).  y_s(r) on the cover, per ell of ES2: the throat's y_s^th (sim2_facing.throat_bulk, the
-     zeroth-order ODE to alpha = 1e-9); on each owner column (b4_static.series at order 32, sim2_facing.column_w
-     unchanged: the 13 banked radii 2.005m-10m and three far radii 20, 50, 100m) the median Pade singularity where the
-     three orders agree within 5% (ys_stable), and the verified top vtop.  R_F (X12's rule): the largest banked radius
-     whose column is ys_stable.
+     zeroth-order ODE to alpha = 1e-9; a curvature singularity, SIM2-FACING); on each owner column (b4_static.series at
+     order 32, sim2_facing.column_w unchanged: the 13 banked radii 2.005m-10m and three far radii 20, 50, 100m) the
+     median C~ Pade pole where three orders agree within 5% (ys_stable), and the verified top vtop.  R_F (X12's rule): the
+     largest banked radius whose column is ys_stable.  The curvature scan (kscan): K/K_bs at 0.5-0.99 y_s, two orders.
   R2 THE CONE (computed; deduced).  A column point (r, y) reaches P_c by the vertical null leg at fixed r (advanced cost
      int_0^y dy/sqrt(A), raw Pade at two orders), the plane's ingoing null leg (dv = 0 by the definition of v) and the
      plane's horizon generator (v increasing to v_c).  So the advanced hold that places (r, y) in J^-(P_c) is at most
-     that integral; near the throat X7's budgets (imported, verified) take over.
+     that integral: to vtop on verified Pade; from vtop to 0.9 y_s on unverified raw Pade.  Only two-order holds place a
+     y_s in J^-(P_c) (hold2); near the throat X7's budgets (imported, verified) take over.
   R3 THE MEMBERS CONTINUED (computed).  Depth rows from X9 (sim2_passage.slab_rows, imported): 0 (coinciding), 0.1 y_s,
-     d_+ (where it exists), y*, the band's midpoint.  Members: the smooth family at the adjudication's g2 (margin
-     CO_MARGIN = 1) and at the NEC margin NEAR_MARGIN = 1e-2 (the board's choice); the level surface (band class, only
-     where W1(d) >= 0); the power laws lam = 0.1, 0.25, 0.4 (controls).  Amplitude c = g1 = 0.05 (sim2_facing.DT_C).
-     P2 = d + f(x), x = r - 2m.  Per node: CLOSED (P2 <= 0: the piece has met P1), DEEP (P2 >= y_s at a stable
-     column), VERIFIED (0 < P2 <= vtop), UNDECIDED; between nodes the board's convention (P2's maximum on the interval
+     d_+ (only at ell = inf and 32m), y*, the band's midpoint.  Members: the smooth family at the adjudication's g2
+     (margin CO_MARGIN = 1) and at the NEC margin NEAR_MARGIN = 1e-2 (the board's choice); the level surface (band class,
+     only where W1(d) >= 0); the power laws lam = 0.1, 0.25, 0.4 (controls).  One amplitude, c = g1 = 0.05
+     (sim2_facing.DT_C).  P2 = d + f(x), x = r - 2m.  Per node: CLOSED (P2 <= 0: the piece has met P1), DEEP (P2 >= y_s at
+     a stable column whose y_s is a settled singularity), PAST-POLE (deeper than a located pole that is not settled:
+     undecided), VERIFIED (0 < P2 <= vtop), UNDECIDED; between nodes the board's convention (P2's maximum on the interval
      against the lesser ceiling of its two ends; not a bound: y_s is not computed between columns).  After a CLOSED
-     interval the piece is absent: a later column whose y_s is located (stable) is an UNCUT singular layer.
+     interval the piece is absent: a later column whose y_s is a settled singularity with a two-order hold below the floor
+     is an UNCUT singular layer (FAILS); a later located pole that is not settled leaves the cover UNDECIDED.
   R4 THE NEC ALONG THE CONTINUATION (computed).  P2's radial and angular NEC (rho + p_r, rho + p_th, Israel with the
-     normal into the slab) at each open node, on the owner column, exact in the slope: k_t = [-kappa_t + F' d_r ln A /
-     (2B)]/N, k_th likewise with C, k_r = [F'' - B kappa_r - F'(d_r ln B/2 + 2 F' kappa_r)]/(N (B + F'^2)) -- the same
-     formula as sim2_facing._graph_k's docstring, here with the owner's A, B, C (checked equal to _graph_k on the throat
-     metric).
+     normal into the slab, the Z2 form of H-Z2-PIECES) at each open node, on the owner column, exact in the slope: k_t =
+     [-kappa_t + F' d_r ln A / (2B)]/N, k_th likewise with C, k_r = [F'' - B kappa_r - F'(d_r ln B/2 + 2 F' kappa_r)]/(N
+     (B + F'^2)) -- the same formula as sim2_facing._graph_k's docstring, here with the owner's A, B, C (checked equal to
+     _graph_k on the throat metric).  Pointwise (H-POINTWISE-NEC-ON-P2).
   R5 THE CRITICAL AMPLITUDE (computed).  For each power law, c* over the cover to R_F = min over the throat (X9's c*)
      and the stable columns of (y_s - d)/x^lam; for the smooth family at its sampled g2, g1* = min (y_s - d - g2 x)/sqrt x.
   R6 CONTROLS (computed).  (a) A power law: excluded at the horizon by H-CROSSABLE-HORIZON (C11b: its crosser-frame
      stress diverges; imported), and at twice its c* it must FAIL the cover.  (b) A cut piece: a member that holds,
-     ended at r = 2.05m, must FAIL (the columns beyond carry a located y_s, in J^-(P_c) by R2).
-  R7 THE FAR FIELD (computed; deduced; OPEN).  The three far columns; and, deduced and checked with sympy, the radial NEC
-     in pure AdS_5 reads F'' <= -e F'^2 (so a NEC piece far out deepens at most logarithmically in r: e^(eF) at most
-     linear), against which a literal power law leaves the NEC class far out.
+     ended at r = 2.01m, must FAIL (UNCUT on a settled singularity at every ell).
+  R7 THE FAR FIELD (deduced; sympy; OPEN).  The radial NEC only, in pure AdS_5: F'' <= -e F'^2 (so for e > 0 a NEC piece
+     far out deepens at most logarithmically in r: e^(eF) at most linear; at ell = inf the law is F'' <= 0 and allows
+     linear deepening).  The angular NEC is not part of it, and how near pure AdS_5 the far columns are is not computed.
 
-RESULTS (the full run, 2026-10-09: 144 columns = 16 radii x 9 ell at order 32; pinned below; labels as stated).
+RESULTS (the full run, 2026-10-09: 144 columns = 16 radii x 9 ell at order 32; re-analysed after the verification with
+the curvature scan of the 74 located columns; pinned below; labels as stated).
   R1 (computed).  The 117 banked columns reproduce sim2_bank.json (y_s, stability, vtop; worst 5e-13 after pinning) and
      X12's R_F table exactly: R_F = 2.2, 2.2, 2.2, 2.2, 2.15, 2.2, 2.1, 2.5, 10.0m at ell = inf ... m/4.  y_s(r) >= y_s^th
-     at every stable column.  Beyond R_F no y_s is located at ell >= 4m (e <= 1/4) out to 100m (verified tops 2.3m at
-     r = 2.3m rising to the 10m scan cap at r >= 10-20m for e <= 1/16).  At ell <= 2m a singular depth is located
-     again in the far field: e = 1/2 at 100m (8.45m); e = 1 at 50m (3.98m) and 100m (4.52m); e = 2 at 20, 50, 100m
-     (1.86, 2.16, 2.42m); e = 4 at 10, 20, 50, 100m (0.867, 0.989, 1.162, 1.299m) -- at r = 100m 4.2-5.2 ell deep.
-  R2 (computed; deduced).  The largest vertical-leg hold over all 144 columns, to vtop or to 0.9 y_s, is 88.7 clocks
-     (e = 1/2, r = 100m); floor/hold >= 2250 at every ell.  So every computed column point down to its ceiling lies in
-     J^-(P_c) through the write (with X7's 389.3 clocks, imported, near the throat).  One located column is not counted:
-     at e = 4, r = 20m the raw Pade's A is not positive to 0.9 y_s at either order, so its hold is not computed.
+     at every stable column.  Beyond R_F no y_s is located at ell >= 4m (e <= 1/4) out to 100m.  At ell <= 2m a C~ Pade
+     pole is located again in the far field (8.45m at 100m, e = 1/2; 3.98, 4.52m at 50, 100m, e = 1; 1.86, 2.16, 2.42m at
+     20, 50, 100m, e = 2; 0.867, 0.989, 1.162, 1.299m at 10, 20, 50, 100m, e = 4).  Curvature: 43 of the 74 located poles
+     are settled singularities, all within r <= 2.2m; none of the 10 far poles is (K/K_bs about 1-2 at 0.8 y_s; from 0.85-
+     0.9 y_s the two orders part, by factors up to 1.6e5 and sometimes in sign).  At 50m (ell = m) and 20m (ell = m/2) one
+     order puts the pole off the real axis (Im 0.129, 0.046).
+  R2 (computed; deduced).  Two-order holds: at most 88.74 clocks (e = 1/2, r = 100m, the doublet-free order; the other
+     order crosses a Froissart doublet at y = 6.581), floor/hold >= 2250 at every ell.  So every column point down to vtop,
+     and on 70 of the 74 located columns down to 0.9 y_s, lies in J^-(P_c) through the write (with X7's 389.3 clocks,
+     imported, near the throat).  Two located columns rest on one order (21/10|0, 20|2) and two have none (5/2|2, 20|4):
+     CONE_GAPS, never used for UNCUT.
   R3 (computed, on H-PROFILE-CONTINUED).  Shallower than y_s: every crossable member at depth 0, 0.1 y_s and d_+ stays
-     below y_s(r) at every node where it exists, at every ell (least y_s - P2 from 2.55m at ell = inf to 0.34m at
-     m/4).  But a piece that meets P1 leaves the bulk beyond it uncut:
+     shallower than y_s(r) at every node where y_s is located (least y_s - P2 over the shallow rows 2.296m at ell = inf,
+     1.534m at 32m on the d_+ row, 0.345m at m/4).
        smooth family at the adjudication's g2 (X9's member): at depth 0 it meets P1 at r = 2.0025m, inside x_valid(0) =
-       0.04 (X9 compared P2 with y_s^th only, not with P1: a finding, recorded, not repaired), and FAILS (UNCUT) at
-       r = 2.005m at every ell; at 0.1 y_s it meets P1 at 2.047-2.224m: verified to R_F at ell = inf, 32m, 16m, 4m, and
-       FAILS (UNCUT) at 2.2, 2.15, 2.1, 2.1, 2.05m at e = 1/8, 1/2, 1, 2, 4.
-       smooth family 1e-2 inside its NEC bound: at 0.1 y_s it is verified, with the NEC kept at all 10 settled nodes,
-       to r = 3m at every ell (past R_F), then meets P1 at 3.205-3.734m; beyond, UNDECIDED at e <= 1/4 (nothing
-       located), FAILS (UNCUT) at e = 1/2, 1, 2, 4 (at 100, 50, 20, 10m).  At depth 0 it is verified to 20m (10m at
-       e = 2, 4), meets P1 at 27.0-13.1m, UNDECIDED beyond at e <= 1/4, FAILS (UNCUT) at e >= 1/2.
-       level surface (band class): verified where its depth is, but it breaks the radial NEC at every settled node at
-       r >= 2.05m (215 of 215; Lemma W), so it leaves 172 (1)'s class off the throat.
-       deep rows (y*, the band's midpoint): margins thin (0.76m at ell = inf down to 1e-4m at m/4).  At ell >= 4m y* is
-       verified to 100m for the level surface and the NEC-near smooth family (both breaking the NEC); the band's
-       midpoint is verified to 100m only for the level surface (and some power laws) at ell = inf and 16m, and is
-       otherwise UNDECIDED from 2.005-2.1m; at ell <= 2m every deep row is UNDECIDED from the first column (the slab
-       passes the verified top) or FAILS.
-       power laws (controls): verified to 100m at shallow depths at every ell, but excluded at the horizon and breaking
-       the NEC along the continuation at most settled nodes; at y* and the band they FAIL at the throat for ell <= m/2
-       (X9's 11 cases, reproduced as C10).
+       0.04 (X9 compared P2 with y_s^th only, not with P1: a finding, recorded, not repaired), and FAILS (UNCUT, on a
+       settled singularity) at 2.005m at every ell but m/4 (2.15m there).  At 0.1 y_s it meets P1 at 2.047-2.224m and
+       FAILS (UNCUT) at e = 1/8, 1/2, 1, 2, 4; UNDECIDED at the other ells.
+       smooth family 1e-2 inside its NEC bound: at 0.1 y_s it is verified, with the NEC kept at all 10 settled nodes, to
+       r = 3m at every ell -- past R_F at every ell but m/4 (R_F = 10m there: it meets P1 at 3.73m inside the footprint)
+       -- then meets P1 at 3.205-3.734m; beyond, UNDECIDED at every ell (nothing located at e <= 1/4; at e >= 1/2 a far
+       pole that is not settled).  At depth 0 it is verified to 20m (10m at e = 2, 4), meets P1 at 27.0-13.1m, UNDECIDED
+       beyond at every ell.  Its closing at depth 0 is set by the margin (nearer the bound it stays open to 100m: cover()
+       HOLDS at margin 1e-3 for ell >= m/2 and at 1e-5 for m/4); at 0.1 y_s by 2 alpha^2 W1(d) < 0 (3.2-4.3m for margins
+       1e-2 to 1e-4).
+       level surface (band class): verified to 100m at y* for ell >= 4m and at the band's midpoint for ell = inf and 16m,
+       but it breaks the radial NEC at every settled node at r >= 2.05m (215 of 215; Lemma W).
+       smooth near at y*: verified to 100m at ell >= 4m, breaking the radial NEC at 13-14 of 16 settled nodes.
+       deep rows at ell <= 2m: UNDECIDED from the first columns (PAST-POLE or past the verified top), except smooth adj
+       at the band's midpoint at m/4 (FAILS, UNCUT at 2.15m).
+       power laws (controls): verified to 100m at the shallow rows at every ell, but excluded at the horizon and
+       breaking the NEC along the continuation at most settled nodes; at y* and the band's midpoint they FAIL (DEEP at
+       2.005m, on settled singularities) in 13 cases at ell <= m.
   R4 (computed).  The literally continued smooth family breaks the angular NEC once it heads back to P1 steeply (e.g.
      0.1 y_s, adjudication's g2: 2 of 7 settled nodes at ell = inf); the NEC-near member at 0.1 y_s keeps both parts at
      every settled node at every ell.
-  R5 (computed).  c* over the cover to R_F (shallow rows) runs from about 5.0 (lam 0.4, ell = inf) to 0.36 (m/4).  The
-     columns, not the throat, set it in every shallow case but one (e = 1, 0.1 y_s, lam 0.1: the throat, by 1%): the
-     cover is tighter than X9's near-throat c* by up to a factor 1.9 at ell >= m/2 and 3.7 at m/4 (lam 0.4, R_F = 10m).
-     All are far above the sampled 0.05.
-  R6 (computed).  Both controls FAIL at every ell: the power law at 2 c* (DEEP, at 2.005-2.02m), the cut piece (UNCUT at
-     2.1m).  Power laws' crosser-frame growth 6.3e4-1.6e7 (smooth: 1).
-  R7 (deduced; sympy).  In pure AdS_5 the radial NEC reads F'' <= -e F'^2 exactly (control: a wrong warp leaves a
-     residual); a literal power law leaves the NEC class beyond x_max = ((1 - lam)/(e c lam))^(1/lam) (154m for lam 0.4
-     at m/4).  Whether a NEC piece can stay open at bounded depth far out is OPEN (not computed).
-  VERDICT (on the board's configuration, F1; conditional on the mouth lemma; H-PROFILE-CONTINUED).  No: no sampled
-     member of H-CROSSABLE-HORIZON keeps y_s out of J^-(P_c) across the whole computed cover at every ell.  The best,
-     the smooth family 1e-2 inside its NEC bound at 0.1 y_s, does so with the NEC kept to r = 3m at every ell -- past R_F,
-     not only near the throat -- and then meets P1; beyond it nothing is located at ell >= 4m (UNDECIDED) and a far
-     singular depth is located and left uncut at ell <= 2m (FAILS).  What it shows is a property of the continued
-     formulas; a piece shaped otherwise beyond 3m (P2's law is unanswered, 172) is not computed.  The cypher
-     classifies; nothing here is a derived physical value.
+  R5 (computed).  c* over the cover to R_F (shallow rows) runs from about 5.0 (lam 0.4, ell = inf) to 0.36 (m/4), far
+     above the sampled 0.05; the columns, not the throat, set it in every shallow case but one.
+  R6 (computed).  Both controls FAIL at every ell: the power law at 2 c* (DEEP, at 2.005-2.15m), the cut piece (UNCUT at
+     2.02m; 2.15m at m/4).  Ended at 2.05m instead, the cut piece is UNDECIDED at ell = inf (no y_s beyond 2.05m settles
+     at the bank's order there; b4_static S2 settles r = 2.15m at order 60-80).  Power laws' crosser-frame growth
+     6.3e4-1.6e7 (smooth: 1).
+  R7 (deduced; sympy).  As above; a literal power law leaves the radial NEC class beyond x_max = ((1 - lam)/(e c lam))^
+     (1/lam), as x = r - 2m (154 for lam 0.4 at m/4, 871 at m/2).  Whether a NEC piece can stay open at bounded depth far
+     out is OPEN (not computed).
+  VERDICT (on the board's configuration; conditional on F1 / M1, H-Z2-PIECES, H-PROFILE-CONTINUED and
+     H-POINTWISE-NEC-ON-P2).  NOT SHOWN: no sampled member, continued literally, is verified across the cover with the
+     NEC kept.  The members that keep the NEC close onto P1 and are then UNDECIDED at every ell (no settled singularity is
+     located beyond them); the members verified across the whole cover (ell >= 4m) break the NEC; the adjudication's
+     member at depth 0 FAILS at the throat's edge at every ell.  Whether any member of H-CROSSABLE-HORIZON's classes keeps
+     y_s out of J^-(P_c) across the cover: OPEN.  The sample is six members at five depth rows, one amplitude and two
+     margins; a piece shaped otherwise beyond 3m (P2's law is unanswered, 172) is not computed.  The cypher (--cypher)
+     classifies the computed cells; its MAIN target is the top of its box, so order, algebra and information admit it by
+     construction, and geometry and statistics refuse it because no computed cell keeps the NEC while open or verified
+     past the footprint.  Nothing here is a derived physical value.
 
 Owners imported by path (never copied): sim2_passage.py (tb, slab_rows, write_floor, layer, crosser_frame), and through
 it sim2_facing.py (column_w, raw_rational, pade_orders, throat_bulk, _ystar, _smooth_g2, _profile, _graph_k, israel,
-x_valid, CO_MARGIN, DT_C, DT_LAMS, RADII2, ES2), b4d_stage5.py (warped), b4_static.py (series); tools/cypher.py for
---cypher (registered in sys.modules before exec_module).  The memo around b4_static.series inside column() changes no
-value (one exact solve shared by column_w and the evaluations here).
+x_valid, CO_MARGIN, DT_C, DT_LAMS, RADII2, ES2), b4d_stage5.py (warped, evaluator, k_bs), b4_static.py (series);
+tools/cypher.py for the cypher (registered in sys.modules before exec_module).  The memo around b4_static.series inside
+column() changes no value (one exact solve shared by column_w and the evaluations here).  H-CYPHER-R1-COVER (the
+cypher step's encoding, the board's) is carried here; with the curvature gate and the two-order hold switched off it
+reproduces the cypher step's cells record for record.
 Needs python-flint, sympy, numpy, scipy, mpmath.
 python3 r1_cover.py [--selftest] [--mutants] [--full] [--cache PATH] [--json PATH] [--cypher DIR]
 """
@@ -212,14 +240,14 @@ def k_settled(ks):
     counts as a curvature singularity, a site where a piece can FAIL (DEEP or UNCUT), only if K/K_bs rises to K_LARGE
     over the contiguous prefix of K_FRACS on which the two verification orders agree on it to K_TOL (S3's 1% K rule),
     positive and not falling.  Returns (settled, depth fraction reached, K/K_bs there)."""
-    best, prev = None, -math.inf
+    best, prev = None, None
     for f, a, b in ks or []:
         if a is None or b is None or not (math.isfinite(a) and math.isfinite(b)) or a <= 0 or b <= 0:
             break
         if abs(a - b) / max(a, b) > K_TOL:
             break
         k = max(a, b)
-        if k < prev * (1 - K_TOL):
+        if prev is not None and k < prev * (1 - min(K_TOL, 1.0)):
             break
         prev, best = k, (f, k)
     return (best is not None and best[1] >= K_LARGE), (best[0] if best else None), (best[1] if best else None)
@@ -725,8 +753,8 @@ def _v(v, f="%.4g"):
 def report(res, cols):
     o = []
     o.append("r1_cover -- the cover: position 2's piece against y_s(r) over J^-(P_c) through the write")
-    o.append("  (computed; deduced; not verified; not seated.  F1: eq. (17) as the plane's metric -- conditional on the "
-             "mouth lemma.)")
+    o.append("  (computed; deduced; checked once by two separate AI sessions, findings applied; not seated.  F1: eq. (17) "
+             "as the plane's metric -- conditional on M1, OPEN; H-Z2-PIECES; H-CURVATURE-SETTLED.)")
     o.append("  write floor %.6g clocks (o3_write W3, imported)" % res["floor"])
     o.append("")
     o.append("R1/R2  ceiling and cone per ell (y_s^th; R_F; y_s(r) >= y_s^th at every stable column; largest vertical-"
@@ -734,8 +762,11 @@ def report(res, cols):
     for es, pe in res["per_e"].items():
         o.append("  e=%-5s y_s^th=%.4f R_F=%s ys>=ys_th:%s hold_max=%.3g floor/hold=%.3g" % (
             es, pe["ys_th"], _v(pe["R_F"], "%g"), pe["ys_ge_throat"], pe["hold_max"], pe["floor_over_hold"]))
-        o.append("        " + "  ".join("%s:%s/%s" % (c["rc"], _v(c["ys"], "%.3f"), _v(c["vtop"], "%.3f"))
-                                       for c in pe["ceiling"]))
+        o.append("        " + "  ".join("%s:%s%s/%s" % (c["rc"], _v(c["ys"], "%.3f"), "*" if c.get("kset") and c["ys"] else "",
+                                                     _v(c["vtop"], "%.3f")) for c in pe["ceiling"]))
+        o.append("        (* a settled curvature singularity, H-CURVATURE-SETTLED; located %d, settled %d; two-order hold "
+                 "missing at %s; largest two-order hold %.3g)" % (len(pe["k_located"]), len(pe["k_settled"]),
+                                                                  pe["cone_gaps"] or "none", pe["hold2_max"]))
     o.append("  X7 (imported): upper budget for layers to 1e10 K_bs within O(x): %.4g clocks" % res["x7_upper_1e10"])
     o.append("")
     o.append("R3  verdict per member and depth row (margin_s: least y_s - P2 at stable nodes; margin_v: least vtop - P2)")
@@ -765,9 +796,10 @@ def report(res, cols):
         CONTROL_AMP, CUT_RC))
     for es, pe in res["per_e"].items():
         c = pe["controls"]
-        o.append("  e=%-5s power law: %-30s cut piece: %-30s (uncut holder: %s)" % (
+        o.append("  e=%-5s power law: %-30s cut piece: %-30s (cut at 2.05m: %s; uncut holder: %s)" % (
             es, " ".join(map(str, c["power_law_amp"]["verdict"])) if c["power_law_amp"] else "-",
-            " ".join(map(str, c["cut_piece"]["verdict"])), " ".join(map(str, c["cut_piece"]["uncut_holder_verdict"] or ()))))
+            " ".join(map(str, c["cut_piece"]["verdict"])), " ".join(map(str, c["cut_piece_at_2.05"]["verdict"])),
+            " ".join(map(str, c["cut_piece"]["uncut_holder_verdict"] or ()))))
     o.append("  crosser-frame growth at depth 0, x 1e-4 -> 1e-12 (C11b, imported): " +
              ", ".join("%s %.3g" % kv for kv in res["crosser"].items()))
     o.append("")
@@ -802,9 +834,12 @@ def checks(res, cols, live=None):
     rf = [pe[str(e)]["R_F"] for e in ES2]
     add("C1b", "R_F = X12's table", rf == [2.2, 2.2, 2.2, 2.2, 2.15, 2.2, 2.1, 2.5, 10.0], str(rf))
     add("C1c", "y_s(r) >= y_s^th at every stable column", all(p["ys_ge_throat"] for p in pe.values()))
-    # C2 the cone: every hold far below the write's floor; X7's 389.3 imported
-    fh = min(p["floor_over_hold"] for p in pe.values())
-    add("C2", "every column point to vtop / 0.9 y_s in J^-(P_c) within the floor", fh > 100, "least floor/hold %.4g" % fh)
+    # C2 the cone: every two-order hold far below the write's floor, and the located columns without one are exactly the
+    # recorded gaps (so a column used for UNCUT always has both orders); X7's 389.3 imported
+    fh = min(res["floor"] / p["hold2_max"] for p in pe.values())
+    gaps = sorted(g for p in pe.values() for g in p["cone_gaps"])
+    add("C2", "two-order holds (to vtop and to 0.9 y_s) within the floor; the located columns without one are the "
+        "recorded four", fh > 100 and gaps == sorted(CONE_GAPS), "least floor/hold %.4g; gaps %s" % (fh, gaps))
     add("C2b", "X7's upper budget (imported) 389.3", abs(res["x7_upper_1e10"] - 389.3) < 0.1,
         "%.4g" % res["x7_upper_1e10"])
     # C3 the graph NEC formula equals sim2_facing._graph_k on the throat metric
@@ -817,8 +852,8 @@ def checks(res, cols, live=None):
     add("C5a", "power law at 2 c*: FAILS at every e", pl and all(c["verdict"][0] == "FAILS" for c in pl),
         str([c["verdict"][1:] for c in pl][:3]))
     cuts = [p["controls"]["cut_piece"] for p in pe.values()]
-    add("C5b", "cut piece: FAILS (UNCUT) at every e where the holder does not", all(
-        c["verdict"][0] == "FAILS" for c in cuts), str([c["verdict"] for c in cuts][:3]))
+    add("C5b", "cut piece (ended at r = 2.01m): FAILS (UNCUT, on a settled singularity) at every e", all(
+        c["verdict"][:2] == ("FAILS", "UNCUT") for c in cuts), str([c["verdict"] for c in cuts][:3]))
     gr = res["crosser"]
     add("C5c", "power laws excluded at the horizon (C11b growth > 1e3; smooth finite)",
         all(gr["lam %g" % l] > 1e3 for l in SF.DT_LAMS) and abs(gr["smooth"]) < 10, str({k: "%.3g" % v for k, v in gr.items()}))
@@ -829,9 +864,42 @@ def checks(res, cols, live=None):
         for nrow in p["nec"]:
             if nrow["member"] == "level":
                 lw += [z for z in nrow["rows"] if z["settled"] and float(Fr(z["rc"])) >= 2.05]
-    add("C6", "level surface breaks the radial NEC at every settled node r >= 2.05m (Lemma W)",
-        lw and all(z["nec_r"] < 0 for z in lw), "%d settled, %d with rho + p_r < 0" % (
-            len(lw), sum(z["nec_r"] < 0 for z in lw)))
+    live_lw = [z for z in lw if not z.get("pinned")]
+    add("C6", "level surface breaks the radial NEC at every settled node r >= 2.05m (Lemma W; live values where "
+        "computed, the full run's summary elsewhere)", lw and all(z["radial_broken"] for z in lw),
+        "%d settled (%d live), %d with rho + p_r < 0" % (len(lw), len(live_lw), sum(z["radial_broken"] for z in lw)))
+    # C11 H-CURVATURE-SETTLED: the near-throat layer columns (b4_static S2's singular layer) settle -- a rule too strict
+    # fails here -- and no far-field located pole settles -- a rule too loose fails here (RF2/RC-O4)
+    kset = {k for p in pe.values() for k in p["k_settled"]}
+    kloc = {k for p in pe.values() for k in p["k_located"]}
+    add("C11", "curvature rule: the near-throat control columns settle; none of the 10 far located poles does; "
+        "43 of 74 located settle", all(k in kset for k in K_CONTROLS) and not (kset & set(FAR_LOCATED))
+        and set(FAR_LOCATED) <= kloc and (len(kset), len(kloc)) == (43, 74),
+        "settled %d of %d; far settled %s; controls %s" % (len(kset), len(kloc), sorted(kset & set(FAR_LOCATED)),
+                                                           [k in kset for k in K_CONTROLS]))
+    # C12 the cypher on the computed cells (RF1): MAIN's target is the top of its box, so order, algebra and information
+    # admit it by construction; geometry and statistics decide; CONTROL-B (inserted) is admitted by all five;
+    # NEC-REVERSED makes the target not the top; every state, E and binary equals the pinned run
+    try:
+        cy = cypher_run(res, None, cols)
+        mv = cy["main"]["verdicts"]
+        add("C12a", "MAIN's target is the top of its box; order, algebra, information admit it (forced, RF1)",
+            cy["main"]["target_is_top"]["target"] and all(mv[L].get("target") == "YES" for L in
+                                                          ("order", "algebra", "information")))
+        add("C12b", "geometry and statistics refuse MAIN's target; CONTROL-B admitted by all five",
+            all(mv[L].get("target", "").startswith("NO") for L in ("geometry", "statistics")) and
+            all(cy["control_b"]["verdicts"][L].get("target") == "YES" for L in CY_LANGS))
+        add("C12c", "NEC-REVERSED: the target is not the top; all five refuse",
+            not cy["nec_reversed"]["target_is_top"]["target"] and
+            all(cy["nec_reversed"]["verdicts"][L].get("target", "").startswith("NO") for L in CY_LANGS))
+        got = {tag: {"cells": r["cells"], "top": r["target_is_top"],
+                     "langs": {L: [v["state"], v["E"]] + [v.get(t) for t in sorted(r["target_is_top"])]
+                               for L, v in r["verdicts"].items() if L in CY_LANGS}} for tag, r in cy.items()}
+        bad = [t for t in PIN_CYPHER if got.get(t) != PIN_CYPHER[t]]
+        add("C12d", "cypher states, E and binaries equal the pinned run (MAIN, CONTROL-A/B, NEC-REVERSED, PER-ELL)",
+            PIN_CYPHER and not bad, "differ: %s" % bad)
+    except Exception as ex:                                            # a crash is a failure, not a pass
+        add("C12", "cypher run", False, "crash: %s" % ex)
     # C7 pins: verdicts unchanged
     if PIN_VERDICTS:
         bad = []
@@ -876,9 +944,23 @@ def checks(res, cols, live=None):
                 pv = pc.get("nec", {}).get(q)
                 if pv is not None:
                     d = max(d, max(abs(a - b) / max(1e-3, abs(b)) for u, w in zip(v, pv) for a, b in zip(u, w)))
+            # the curvature scan (H-CURVATURE-SETTLED) recomputed live against PIN_KSCAN (6 digits), and its verdict
+            if c.get("kscan") is not None or pc.get("kscan") is not None:
+                lk, pk = c.get("kscan") or [], pc.get("kscan") or []
+                if len(lk) != len(pk):
+                    d = math.inf
+                for u, w in zip(lk, pk):
+                    for a, b in zip(u[1:], w[1:]):
+                        if a is None or b is None or not math.isfinite(a) or not math.isfinite(b):
+                            d = max(d, 0.0 if (a is None or not math.isfinite(a)) == (b is None or not math.isfinite(b))
+                                    else math.inf)
+                        else:
+                            d = max(d, abs(a - b) / max(1.0, abs(b)) * 1e-2)    # 6 printed digits: 1e-4 relative
+                if k_settled(lk)[0] != k_settled(pk)[0]:
+                    d = math.inf
             if d > 1e-6:
                 bad.append("%s %.2g" % (k, d))
-        add("C9", "live columns equal the pinned/cached ones", not bad, str(bad[:3]))
+        add("C9", "live columns (summary, holds, NEC, curvature scan) equal the pinned ones", not bad, str(bad[:3]))
     return out
 
 
@@ -977,6 +1059,13 @@ MUTANTS = [
     ("C1b", "R_F taken as the least stable radius", lambda: _patched(_ME, "r_f", _rf_least)),
     ("C10", "the sampled amplitude c = 0.05 -> 0.5 (sim2_facing.DT_C)", lambda: _patched(SF, "DT_C", 0.5)),
     ("C8", "a key 'arrival_hold' added to the output", lambda: _patched(_ME, "INJECT_KEY", "arrival_hold")),
+    ("C11", "every located C~ pole read as a curvature singularity (a non-singular pole fed to UNCUT)",
+     lambda: _multi((_ME, "K_TOL", 1e9), (_ME, "K_LARGE", 0.0))),
+    ("C2", "a one-order hold admitted to the cone (fmax for hold2)", lambda: _patched(_ME, "hold2", fmax)),
+    ("C12", "a NEC-kept, open, every-zone-verified power-law cell fed to MAIN as if computed",
+     lambda: _patched(_ME, "INJECT_CELL", (0, 1, 4, 2, 2, 2, 2, 2))),
+    ("C12", "an empty zone written as verified (the near zone at ell = m/4 kept at 2)",
+     lambda: _patched(_ME, "EMPTY_ZONE_VERIFIED", True)),
 ]
 
 
@@ -1182,221 +1271,504 @@ PIN_NEC = {   # the live columns' NEC queries: depth|member: [[rho + p_r, rho + 
     '41/20|1/8': {'zero|smooth near': [[0.000217658259056, 0.006414317932506], [0.000217658259056, 0.006414317932506]], 'zero|lam 0.1': [[0.000737795381647, 0.016686426154066], [0.000737795381647, 0.016686426154066]], 'zero|lam 0.25': [[0.00108527079304, 0.012060818439517], [0.00108527079304, 0.012060818439517]], 'zero|lam 0.4': [[0.000479025076211, 0.008605655784055], [0.000479025076211, 0.008605655784055]], 'tenth|smooth adj': [[0.02171229566008, 0.040504316765501], [0.02171229566008, 0.040504316765501]], 'tenth|smooth near': [[0.000502581996917, 0.084534341331185], [0.000502581996917, 0.084534341331185]], 'tenth|lam 0.1': [[-0.003460690192862, 0.105574168926212], [-0.003460690192862, 0.105574168926212]], 'tenth|lam 0.25': [[-0.00306980683935, 0.100120196071804], [-0.00306980683935, 0.100120196071804]], 'tenth|lam 0.4': [[-0.003701721416789, 0.09610443541504], [-0.003701721416789, 0.09610443541504]], 'y_star|smooth adj': [[-0.001726717383557, 1.440042517131114], [-0.001726812399194, 1.440042417923906]], 'y_star|smooth near': [[-0.035687778392766, 1.73213562514075], [-0.035688218547954, 1.732135164131381]], 'y_star|level': [[-0.041532780627937, 1.678167271241924], [-0.041533096980546, 1.678166940007269]], 'y_star|lam 0.1': [[-0.03213199167479, 1.84293019664021], [-0.032133007440083, 1.842929133021399]], 'y_star|lam 0.25': [[-0.030093842563681, 1.789130590337509], [-0.030094506010949, 1.789129895447823]], 'y_star|lam 0.4': [[-0.033479248187316, 1.753183085295404], [-0.033479754987135, 1.753182554453061]], 'band_mid|smooth adj': [[-0.026744420087144, 2.717129250167136], [-0.027002608162625, 2.716865181972776]], 'band_mid|smooth near': [[-0.036143181559868, 3.635827362426409], [-0.043904833894929, 3.628029972926396]], 'band_mid|level': [[-0.048040670281587, 3.105654242034403], [-0.048866259818075, 3.104815864338386]], 'band_mid|lam 0.1': [[-0.023984941569242, 3.664041163576391], [-0.056005717292794, 3.631972253427167]], 'band_mid|lam 0.25': [[-0.015853470473721, 3.464304027972211], [-0.020719077572005, 3.459408746599816]], 'band_mid|lam 0.4': [[-0.023047253127948, 3.340024542721912], [-0.025346869965445, 3.337703046532999]]},
     '10|4': {'zero|smooth near': [[0.000362867133995, 0.000491377788637], [0.000362867133995, 0.000491377788637]], 'zero|lam 0.1': [[2.8191287306e-05, -3.791690278e-05], [2.8191287306e-05, -3.791690278e-05]], 'zero|lam 0.25': [[0.00017835062415, -0.000257924509904], [0.00017835062415, -0.000257924509904]], 'zero|lam 0.4': [[0.00026274117241, -0.000785152507819], [0.00026274117241, -0.000785152507819]], 'tenth|lam 0.1': [[-5.3022373396e-05, 5.481336557e-06], [-5.3022373396e-05, 5.481336557e-06]], 'tenth|lam 0.25': [[0.000111849853041, -0.000269421369901], [0.000111849853041, -0.000269421369901]], 'tenth|lam 0.4': [[0.000143405991724, -0.000935495971995], [0.000143405991724, -0.000935495971995]], 'y_star|level': [[-0.031621137100123, 0.019651905908992], [-0.031621137100175, 0.019651905908947]], 'y_star|lam 0.1': [[-0.084071951095333, 0.051598897952578], [-0.084071951115249, 0.051598897937463]], 'y_star|lam 0.25': [[-0.117375005327614, 0.069405418768201], [-0.117375005492823, 0.069405418649545]], 'y_star|lam 0.4': [[-0.192193007573402, 0.105215156052866], [-0.192193010406145, 0.105215154196576]], 'band_mid|level': [[-0.031813681109557, 0.019771163077758], [-0.031813681109611, 0.019771163077711]], 'band_mid|lam 0.1': [[-0.084585872488061, 0.051914010520086], [-0.084585872508689, 0.051914010504444]], 'band_mid|lam 0.25': [[-0.118101478724709, 0.06984283814374], [-0.118101478895722, 0.069842838021039]], 'band_mid|lam 0.4': [[-0.193379011695183, 0.10590357984933], [-0.193379014625839, 0.105903577931427]]},
 }
-PIN_VERDICTS = {   # e|depth|member: the full run's verdict
+PIN_VERDICTS = {   # e|depth|member: the full run's verdict (re-pinned after the verification: H-CURVATURE-SETTLED, two-order holds)
     '0|band_mid|lam 0.1': ['UNDECIDED', 'from', '21/10'],
-    '1/16|band_mid|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|band_mid|lam 0.1': ['UNDECIDED', 'from', '401/200'],
     '1/32|band_mid|lam 0.1': ['UNDECIDED', 'from', '21/10'],
-    '1/4|band_mid|lam 0.1': ['UNDECIDED', 'from', '401/200'],
+    '1/16|band_mid|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/8|band_mid|lam 0.1': ['UNDECIDED', 'from', '41/20'],
+    '1/4|band_mid|lam 0.1': ['UNDECIDED', 'from', '401/200'],
+    '1/2|band_mid|lam 0.1': ['UNDECIDED', 'from', '401/200'],
     '1|band_mid|lam 0.1': ['FAILS', 'DEEP', '401/200'],
     '2|band_mid|lam 0.1': ['FAILS', 'DEEP', '401/200'],
     '4|band_mid|lam 0.1': ['FAILS', 'DEEP', '401/200'],
-    '0|band_mid|lam 0.25': ['UNDECIDED', 'from', '21/10'],
-    '1/16|band_mid|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|band_mid|lam 0.25': ['UNDECIDED', 'from', '401/200'],
-    '1/32|band_mid|lam 0.25': ['UNDECIDED', 'from', '21/10'],
-    '1/4|band_mid|lam 0.25': ['UNDECIDED', 'from', '101/50'],
-    '1/8|band_mid|lam 0.25': ['UNDECIDED', 'from', '41/20'],
-    '1|band_mid|lam 0.25': ['UNDECIDED', 'from', '401/200'],
-    '2|band_mid|lam 0.25': ['FAILS', 'DEEP', '401/200'],
-    '4|band_mid|lam 0.25': ['FAILS', 'DEEP', '401/200'],
-    '0|band_mid|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|band_mid|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|band_mid|lam 0.4': ['UNDECIDED', 'from', '401/200'],
-    '1/32|band_mid|lam 0.4': ['UNDECIDED', 'from', '21/10'],
-    '1/4|band_mid|lam 0.4': ['UNDECIDED', 'from', '101/50'],
-    '1/8|band_mid|lam 0.4': ['UNDECIDED', 'from', '41/20'],
-    '1|band_mid|lam 0.4': ['UNDECIDED', 'from', '401/200'],
-    '2|band_mid|lam 0.4': ['FAILS', 'DEEP', '401/200'],
-    '4|band_mid|lam 0.4': ['FAILS', 'DEEP', '401/200'],
-    '0|band_mid|level': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|band_mid|level': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|band_mid|level': ['UNDECIDED', 'from', '401/200'],
-    '1/32|band_mid|level': ['UNDECIDED', 'from', '21/10'],
-    '1/4|band_mid|level': ['UNDECIDED', 'from', '101/50'],
-    '1/8|band_mid|level': ['UNDECIDED', 'from', '41/20'],
-    '1|band_mid|level': ['UNDECIDED', 'from', '401/200'],
-    '2|band_mid|level': ['UNDECIDED', 'from', '401/200'],
-    '4|band_mid|level': ['UNDECIDED', 'from', '401/200'],
-    '0|band_mid|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '6.22271'],
-    '1/16|band_mid|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '5.37575'],
-    '1/2|band_mid|smooth adj': ['FAILS', 'UNCUT', '100'],
-    '1/32|band_mid|smooth adj': ['UNDECIDED', 'from', '21/10'],
-    '1/4|band_mid|smooth adj': ['UNDECIDED', 'from', '101/50'],
-    '1/8|band_mid|smooth adj': ['UNDECIDED', 'from', '41/20'],
-    '1|band_mid|smooth adj': ['FAILS', 'UNCUT', '50'],
-    '2|band_mid|smooth adj': ['FAILS', 'UNCUT', '20'],
-    '4|band_mid|smooth adj': ['FAILS', 'UNCUT', '43/20'],
-    '0|band_mid|smooth near': ['UNDECIDED', 'from', '21/10'],
-    '1/16|band_mid|smooth near': ['UNDECIDED', 'from', '50'],
-    '1/2|band_mid|smooth near': ['FAILS', 'DEEP', '100'],
-    '1/32|band_mid|smooth near': ['UNDECIDED', 'from', '21/10'],
-    '1/4|band_mid|smooth near': ['UNDECIDED', 'from', '101/50'],
-    '1/8|band_mid|smooth near': ['UNDECIDED', 'from', '41/20'],
-    '1|band_mid|smooth near': ['FAILS', 'DEEP', '50'],
-    '2|band_mid|smooth near': ['FAILS', 'UNCUT', '20'],
-    '4|band_mid|smooth near': ['FAILS', 'UNCUT', '11/5'],
     '0|d_plus|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/32|d_plus|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '0|d_plus|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/32|d_plus|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '0|d_plus|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/32|d_plus|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '0|d_plus|smooth adj': ['FAILS', 'UNCUT', '401/200'],
-    '1/32|d_plus|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.55387'],
-    '0|d_plus|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '27'],
-    '1/32|d_plus|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.51979'],
     '0|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/32|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/8|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '2|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '4|tenth|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '0|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/32|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/8|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '2|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '4|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '0|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/32|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/8|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '2|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '4|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '0|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.2237'],
-    '1/16|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.2007'],
-    '1/2|tenth|smooth adj': ['FAILS', 'UNCUT', '43/20'],
-    '1/32|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.21129'],
-    '1/4|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.15872'],
-    '1/8|tenth|smooth adj': ['FAILS', 'UNCUT', '11/5'],
-    '1|tenth|smooth adj': ['FAILS', 'UNCUT', '21/10'],
-    '2|tenth|smooth adj': ['FAILS', 'UNCUT', '21/10'],
-    '4|tenth|smooth adj': ['FAILS', 'UNCUT', '41/20'],
-    '0|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.20632'],
-    '1/16|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.20546'],
-    '1/2|tenth|smooth near': ['FAILS', 'UNCUT', '100'],
-    '1/32|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.20511'],
-    '1/4|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.22327'],
-    '1/8|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.2092'],
-    '1|tenth|smooth near': ['FAILS', 'UNCUT', '50'],
-    '2|tenth|smooth near': ['FAILS', 'UNCUT', '20'],
-    '4|tenth|smooth near': ['FAILS', 'UNCUT', '10'],
     '0|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|y_star|lam 0.1': ['UNDECIDED', 'from', '201/100'],
     '1/32|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/8|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|y_star|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|y_star|lam 0.1': ['UNDECIDED', 'from', '201/100'],
     '1|y_star|lam 0.1': ['UNDECIDED', 'from', '401/200'],
     '2|y_star|lam 0.1': ['FAILS', 'DEEP', '401/200'],
     '4|y_star|lam 0.1': ['FAILS', 'DEEP', '401/200'],
-    '0|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|y_star|lam 0.25': ['UNDECIDED', 'from', '201/100'],
-    '1/32|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/8|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1|y_star|lam 0.25': ['UNDECIDED', 'from', '401/200'],
-    '2|y_star|lam 0.25': ['FAILS', 'DEEP', '401/200'],
-    '4|y_star|lam 0.25': ['FAILS', 'DEEP', '401/200'],
-    '0|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|y_star|lam 0.4': ['UNDECIDED', 'from', '201/100'],
-    '1/32|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/8|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1|y_star|lam 0.4': ['UNDECIDED', 'from', '401/200'],
-    '2|y_star|lam 0.4': ['FAILS', 'DEEP', '401/200'],
-    '4|y_star|lam 0.4': ['FAILS', 'DEEP', '401/200'],
-    '0|y_star|level': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|y_star|level': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|y_star|level': ['UNDECIDED', 'from', '101/50'],
-    '1/32|y_star|level': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|y_star|level': ['HOLDS', 'verified at every node to', '100'],
-    '1/8|y_star|level': ['HOLDS', 'verified at every node to', '100'],
-    '1|y_star|level': ['UNDECIDED', 'from', '401/200'],
-    '2|y_star|level': ['UNDECIDED', 'from', '401/200'],
-    '4|y_star|level': ['UNDECIDED', 'from', '401/200'],
-    '0|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.85643'],
-    '1/16|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.73553'],
-    '1/2|y_star|smooth adj': ['FAILS', 'UNCUT', '100'],
-    '1/32|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.79354'],
-    '1/4|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.46107'],
-    '1/8|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.63171'],
-    '1|y_star|smooth adj': ['FAILS', 'UNCUT', '50'],
-    '2|y_star|smooth adj': ['FAILS', 'UNCUT', '20'],
-    '4|y_star|smooth adj': ['FAILS', 'UNCUT', '11/5'],
-    '0|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|y_star|smooth near': ['FAILS', 'UNCUT', '100'],
-    '1/32|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
-    '1/8|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
-    '1|y_star|smooth near': ['FAILS', 'UNCUT', '50'],
-    '2|y_star|smooth near': ['FAILS', 'UNCUT', '20'],
-    '4|y_star|smooth near': ['FAILS', 'UNCUT', '5/2'],
     '0|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/32|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1/8|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '1|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '2|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
     '4|zero|lam 0.1': ['HOLDS', 'verified at every node to', '100'],
+    '0|band_mid|lam 0.25': ['UNDECIDED', 'from', '21/10'],
+    '1/32|band_mid|lam 0.25': ['UNDECIDED', 'from', '21/10'],
+    '1/16|band_mid|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|band_mid|lam 0.25': ['UNDECIDED', 'from', '41/20'],
+    '1/4|band_mid|lam 0.25': ['UNDECIDED', 'from', '101/50'],
+    '1/2|band_mid|lam 0.25': ['UNDECIDED', 'from', '401/200'],
+    '1|band_mid|lam 0.25': ['UNDECIDED', 'from', '401/200'],
+    '2|band_mid|lam 0.25': ['FAILS', 'DEEP', '401/200'],
+    '4|band_mid|lam 0.25': ['FAILS', 'DEEP', '401/200'],
+    '0|d_plus|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|d_plus|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '0|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '2|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '4|tenth|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '0|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|y_star|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|y_star|lam 0.25': ['UNDECIDED', 'from', '201/100'],
+    '1|y_star|lam 0.25': ['UNDECIDED', 'from', '401/200'],
+    '2|y_star|lam 0.25': ['FAILS', 'DEEP', '401/200'],
+    '4|y_star|lam 0.25': ['FAILS', 'DEEP', '401/200'],
     '0|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
     '1/32|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
     '1/8|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
     '1|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
     '2|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
     '4|zero|lam 0.25': ['HOLDS', 'verified at every node to', '100'],
+    '0|band_mid|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|band_mid|lam 0.4': ['UNDECIDED', 'from', '21/10'],
+    '1/16|band_mid|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|band_mid|lam 0.4': ['UNDECIDED', 'from', '41/20'],
+    '1/4|band_mid|lam 0.4': ['UNDECIDED', 'from', '101/50'],
+    '1/2|band_mid|lam 0.4': ['UNDECIDED', 'from', '401/200'],
+    '1|band_mid|lam 0.4': ['UNDECIDED', 'from', '401/200'],
+    '2|band_mid|lam 0.4': ['FAILS', 'DEEP', '401/200'],
+    '4|band_mid|lam 0.4': ['FAILS', 'DEEP', '401/200'],
+    '0|d_plus|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|d_plus|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '0|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '2|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '4|tenth|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '0|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|y_star|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|y_star|lam 0.4': ['UNDECIDED', 'from', '201/100'],
+    '1|y_star|lam 0.4': ['UNDECIDED', 'from', '401/200'],
+    '2|y_star|lam 0.4': ['FAILS', 'DEEP', '401/200'],
+    '4|y_star|lam 0.4': ['FAILS', 'DEEP', '401/200'],
     '0|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/16|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/2|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
     '1/32|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
-    '1/4|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
     '1/8|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
     '1|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
     '2|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
     '4|zero|lam 0.4': ['HOLDS', 'verified at every node to', '100'],
+    '0|band_mid|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|band_mid|level': ['UNDECIDED', 'from', '21/10'],
+    '1/16|band_mid|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|band_mid|level': ['UNDECIDED', 'from', '41/20'],
+    '1/4|band_mid|level': ['UNDECIDED', 'from', '101/50'],
+    '1/2|band_mid|level': ['UNDECIDED', 'from', '401/200'],
+    '1|band_mid|level': ['UNDECIDED', 'from', '401/200'],
+    '2|band_mid|level': ['UNDECIDED', 'from', '401/200'],
+    '4|band_mid|level': ['UNDECIDED', 'from', '401/200'],
+    '0|y_star|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|y_star|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|y_star|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|y_star|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|y_star|level': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|y_star|level': ['UNDECIDED', 'from', '101/50'],
+    '1|y_star|level': ['UNDECIDED', 'from', '401/200'],
+    '2|y_star|level': ['UNDECIDED', 'from', '401/200'],
+    '4|y_star|level': ['UNDECIDED', 'from', '401/200'],
+    '0|band_mid|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '6.22271'],
+    '1/32|band_mid|smooth adj': ['UNDECIDED', 'from', '21/10'],
+    '1/16|band_mid|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '5.37575'],
+    '1/8|band_mid|smooth adj': ['UNDECIDED', 'from', '41/20'],
+    '1/4|band_mid|smooth adj': ['UNDECIDED', 'from', '101/50'],
+    '1/2|band_mid|smooth adj': ['UNDECIDED', 'from', '401/200'],
+    '1|band_mid|smooth adj': ['UNDECIDED', 'from', '401/200'],
+    '2|band_mid|smooth adj': ['UNDECIDED', 'from', '401/200'],
+    '4|band_mid|smooth adj': ['FAILS', 'UNCUT', '43/20'],
+    '0|d_plus|smooth adj': ['FAILS', 'UNCUT', '401/200'],
+    '1/32|d_plus|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.55387'],
+    '0|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.2237'],
+    '1/32|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.21129'],
+    '1/16|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.2007'],
+    '1/8|tenth|smooth adj': ['FAILS', 'UNCUT', '11/5'],
+    '1/4|tenth|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '2.15872'],
+    '1/2|tenth|smooth adj': ['FAILS', 'UNCUT', '43/20'],
+    '1|tenth|smooth adj': ['FAILS', 'UNCUT', '21/10'],
+    '2|tenth|smooth adj': ['FAILS', 'UNCUT', '21/10'],
+    '4|tenth|smooth adj': ['FAILS', 'UNCUT', '43/20'],
+    '0|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.85643'],
+    '1/32|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.79354'],
+    '1/16|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.73553'],
+    '1/8|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.63171'],
+    '1/4|y_star|smooth adj': ['UNDECIDED', 'closed, no located y_s beyond', '3.46107'],
+    '1/2|y_star|smooth adj': ['UNDECIDED', 'from', '101/50'],
+    '1|y_star|smooth adj': ['UNDECIDED', 'from', '401/200'],
+    '2|y_star|smooth adj': ['UNDECIDED', 'from', '401/200'],
+    '4|y_star|smooth adj': ['UNDECIDED', 'from', '401/200'],
     '0|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
-    '1/16|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
-    '1/2|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
     '1/32|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
-    '1/4|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
+    '1/16|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
     '1/8|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
+    '1/4|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
+    '1/2|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
     '1|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
     '2|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
-    '4|zero|smooth adj': ['FAILS', 'UNCUT', '401/200'],
+    '4|zero|smooth adj': ['FAILS', 'UNCUT', '43/20'],
+    '0|band_mid|smooth near': ['UNDECIDED', 'from', '21/10'],
+    '1/32|band_mid|smooth near': ['UNDECIDED', 'from', '21/10'],
+    '1/16|band_mid|smooth near': ['UNDECIDED', 'from', '50'],
+    '1/8|band_mid|smooth near': ['UNDECIDED', 'from', '41/20'],
+    '1/4|band_mid|smooth near': ['UNDECIDED', 'from', '101/50'],
+    '1/2|band_mid|smooth near': ['UNDECIDED', 'from', '401/200'],
+    '1|band_mid|smooth near': ['UNDECIDED', 'from', '401/200'],
+    '2|band_mid|smooth near': ['UNDECIDED', 'from', '401/200'],
+    '4|band_mid|smooth near': ['UNDECIDED', 'from', '401/200'],
+    '0|d_plus|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '27'],
+    '1/32|d_plus|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.51979'],
+    '0|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.20632'],
+    '1/32|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.20511'],
+    '1/16|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.20546'],
+    '1/8|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.2092'],
+    '1/4|tenth|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '3.22327'],
+    '1/2|tenth|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '100'],
+    '1|tenth|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '50'],
+    '2|tenth|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '20'],
+    '4|tenth|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '10'],
+    '0|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
+    '1/32|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
+    '1/16|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
+    '1/8|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
+    '1/4|y_star|smooth near': ['HOLDS', 'verified at every node to', '100'],
+    '1/2|y_star|smooth near': ['UNDECIDED', 'from', '101/50'],
+    '1|y_star|smooth near': ['UNDECIDED', 'from', '401/200'],
+    '2|y_star|smooth near': ['UNDECIDED', 'from', '401/200'],
+    '4|y_star|smooth near': ['UNDECIDED', 'from', '401/200'],
     '0|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '27'],
-    '1/16|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '26.6139'],
-    '1/2|zero|smooth near': ['FAILS', 'UNCUT', '100'],
     '1/32|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '26.8058'],
-    '1/4|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '25.5078'],
+    '1/16|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '26.6139'],
     '1/8|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '26.2367'],
-    '1|zero|smooth near': ['FAILS', 'UNCUT', '50'],
-    '2|zero|smooth near': ['FAILS', 'UNCUT', '20'],
-    '4|zero|smooth near': ['FAILS', 'UNCUT', '50'],
+    '1/4|zero|smooth near': ['UNDECIDED', 'closed, no located y_s beyond', '25.5078'],
+    '1/2|zero|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '100'],
+    '1|zero|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '50'],
+    '2|zero|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '20'],
+    '4|zero|smooth near': ['UNDECIDED', 'closed, located pole beyond not settled', '20'],
 }
+PIN_KSCAN = {   # rc|e: [y/y_s, K/K_bs at the two verification orders] (owner b4d_stage5.evaluator; 6 digits)
+    '100|1': [[0.5, 0.999934, 0.999251], [0.6, 1.00012, 0.999233], [0.7, 1.0058, 1.00464], [0.8, 1.18374, 1.18232], [0.85, 9.48955, 1.92558], [0.9, 2314400.0, 14.7535], [0.93, 65.3543, 23660.9], [0.95, 53.1807, 855.225], [0.97, 368.153, 1815570.0], [0.99, 48337.4, 21470.7]],
+    '100|1/2': [[0.5, 0.999824, 0.999311], [0.6, 1.00031, 0.999943], [0.7, 1.01631, 1.01647], [0.8, 1.37965, 1.39892], [0.85, 2.53408, 2.88207], [0.9, 732.131, 2485.7], [0.93, 197115.0, 1114.77], [0.95, 320.304, 18434.5], [0.97, 498.408, 5409.63], [0.99, 32449.4, 3764960.0]],
+    '100|2': [[0.5, 0.999963, 1.00007], [0.6, 1.00002, 1.00015], [0.7, 1.00208, 1.00222], [0.8, 1.08923, 1.08909], [0.85, 1.52405, 1.52813], [0.9, 13.4443, 9.03363], [0.93, 96062.4, 16797300.0], [0.95, -1900830.0, 209.918], [0.97, 216.209, 246.062], [0.99, 21070.0, 20086.5]],
+    '100|4': [[0.5, 0.999643, 1.00006], [0.6, 0.999565, 1.00003], [0.7, 1.00045, 1.00094], [0.8, 1.05686, 1.05727], [0.85, 1.40423, 1.39562], [0.9, 10.0368, 7.52123], [0.93, 212597.0, 33005200.0], [0.95, -153.162, -3771960000.0], [0.97, 958.325, 180.892], [0.99, 388558000.0, 15423.2]],
+    '101/50|0': [[0.5, 3.9312, 3.93233], [0.6, 7.71021, 7.71363], [0.7, 20.7437, 20.7595], [0.8, 93.275, 93.4365], [0.85, 286.181, 287.163], [0.9, 1508.41, 1524.44], [0.93, 7245.97, 7461.9], [0.95, 36773.6, 39126.1], [0.97, 984217.0, 957020.0], [0.99, 53778000.0, 124070000.0]],
+    '101/50|1': [[0.5, 2.20753, 2.20756], [0.6, 3.93938, 3.93987], [0.7, 9.75877, 9.76084], [0.8, 42.9038, 42.9142], [0.85, 133.475, 133.506], [0.9, 718.672, 718.696], [0.93, 3459.38, 3455.93], [0.95, 17067.9, 16988.3], [0.97, 297142.0, 288647.0], [0.99, 19027600.0, -285612000.0]],
+    '101/50|1/16': [[0.5, 4.30929, 4.30929], [0.6, 8.07926, 8.07926], [0.7, 20.8936, 20.8936], [0.8, 91.2249, 91.2249], [0.85, 276.705, 276.706], [0.9, 1442.17, 1442.17], [0.93, 6834.92, 6832.57], [0.95, 33832.3, 33733.4], [0.97, 642902.0, 621664.0], [0.99, 109249000.0, 157994000.0]],
+    '101/50|1/2': [[0.5, 4.58582, 4.59089], [0.6, 8.24023, 8.25045], [0.7, 19.8578, 19.8783], [0.8, 82.1797, 82.1662], [0.85, 245.741, 245.23], [0.9, 1276.52, 1264.97], [0.93, 6082.58, 5934.71], [0.95, 30305.1, 28783.9], [0.97, 575861.0, 512317.0], [0.99, 103889000.0, -11845300000.0]],
+    '101/50|1/32': [[0.5, 4.11287, 4.11257], [0.6, 7.87751, 7.87647], [0.7, 20.7819, 20.7778], [0.8, 92.2489, 92.225], [0.85, 282.044, 281.958], [0.9, 1485.75, 1484.78], [0.93, 7132.71, 7114.57], [0.95, 36078.7, 35361.7], [0.97, 777530.0, 686437.0], [0.99, 64089500.0, 131510000.0]],
+    '101/50|1/4': [[0.5, 5.33518, 5.34399], [0.6, 9.3314, 9.34282], [0.7, 22.2773, 22.2977], [0.8, 90.5021, 90.5603], [0.85, 264.911, 265.026], [0.9, 1319.53, 1319.06], [0.93, 5962.03, 5943.05], [0.95, 27557.5, 27241.6], [0.97, 402761.0, 379901.0], [0.99, 2291460000.0, 12247400000.0]],
+    '101/50|1/8': [[0.5, 4.72191, 4.72775], [0.6, 8.56619, 8.57611], [0.7, 21.4262, 21.4477], [0.8, 90.9637, 91.0361], [0.85, 272.372, 272.554], [0.9, 1397.88, 1398.45], [0.93, 6517.32, 6514.11], [0.95, 31440.7, 31314.6], [0.97, 533439.0, 516648.0], [0.99, 142911000.0, 402305000.0]],
+    '101/50|2': [[0.5, 1.28762, 1.28701], [0.6, 1.85366, 1.85333], [0.7, 3.94295, 3.9436], [0.8, 16.6561, 16.6616], [0.85, 53.3249, 53.3274], [0.9, 305.545, 304.464], [0.93, 1577.85, 1547.47], [0.95, 8642.8, 8106.04], [0.97, 210228.0, 168548.0], [0.99, 142387000000.0, 20466700.0]],
+    '101/50|4': [[0.5, 1.07131, 1.07322], [0.6, 1.26646, 1.26566], [0.7, 2.10177, 2.08074], [0.8, 7.66173, 7.41015], [0.85, 24.9227, 23.6503], [0.9, 158.021, 146.521], [0.93, 930.211, 875.735], [0.95, 6073.29, 6564.43], [0.97, 395707.0, 1246320.0], [0.99, 2169570.0, 207161.0]],
+    '10|4': [[0.5, 1.00177, 1.00114], [0.6, 1.00793, 1.00615], [0.7, 1.07859, 1.0754], [0.8, 1.97704, 2.00858], [0.85, 7.99482, 9.43852], [0.9, 188418.0, 10452.4], [0.93, 1186660.0, 204.827], [0.95, 5932.52, 270.835], [0.97, 279579.0, 1836.29], [0.99, 84711.3, 1095410.0]],
+    '11/5|0': [[0.5, 1.85373, 1.84524], [0.6, 3.33442, 3.29682], [0.7, 8.16337, 7.98383], [0.8, 29.4963, 28.4212], [0.85, 67.3089, 64.7297], [0.9, 150.011, 152.244], [0.93, 204.757, 234.619], [0.95, 17259.3, 17837.4], [0.97, 3544990.0, 3044510.0], [0.99, 8082740.0, 9157760.0]],
+    '11/5|1/16': [[0.5, 2.20047, 2.19744], [0.6, 3.94866, 3.9437], [0.7, 9.79416, 9.78441], [0.8, 37.251, 37.2301], [0.85, 89.6666, 89.8782], [0.9, 759.65, 248.869], [0.93, 614.155, 5949.59], [0.95, 10215.5, 16454.1], [0.97, 163586.0, 67327.8], [0.99, 1512020.0, 140753.0]],
+    '11/5|1/2': [[0.5, 3.42089, 3.40279], [0.6, 7.76573, 7.69934], [0.7, 31.0998, 30.6232], [0.8, 341.004, 325.497], [0.85, 1840.76, 1026.46], [0.9, 4350360000.0, 4216680.0], [0.93, -335397000.0, -35409.3], [0.95, 10997900.0, -13873.3], [0.97, 167666.0, 48234.9], [0.99, 83910500.0, 4627530.0]],
+    '11/5|1/32': [[0.5, 2.02692, 2.01816], [0.6, 3.64315, 3.61566], [0.7, 8.98122, 8.87626], [0.8, 33.2272, 32.8313], [0.85, 77.7213, 78.1406], [0.9, 184.671, 224.16], [0.93, 250.137, 538.007], [0.95, 6009.53, 20205.8], [0.97, 171028.0, 33722400.0], [0.99, 672765.0, 476059.0]],
+    '11/5|1/8': [[0.5, 3.11123, 3.11151], [0.6, 6.77115, 6.77176], [0.7, 23.2425, 23.2454], [0.8, 153.679, 153.981], [0.85, 453.287, 499.224], [0.9, 43718.3, 41020.3], [0.93, 54606.5, 57593.7], [0.95, 262966.0, 244682.0], [0.97, 229035000000.0, 1339730000000.0], [0.99, 2912850000.0, 9683360.0]],
+    '11/5|2': [[0.5, 1.16268, 1.1633], [0.6, 1.56037, 1.55639], [0.7, 3.26007, 3.22722], [0.8, 16.3873, 16.0468], [0.85, 65.0197, 63.3736], [0.9, 541.903, 526.382], [0.93, 4165.61, 3939.26], [0.95, 43313.9, 37408.0], [0.97, 11958200.0, 3687850.0], [0.99, 4147790.0, 2306050.0]],
+    '11/5|4': [[0.5, 1.04106, 1.04081], [0.6, 1.17361, 1.17308], [0.7, 1.80548, 1.80364], [0.8, 6.59687, 6.57751], [0.85, 23.7603, 23.6516], [0.9, 192.015, 195.032], [0.93, 1470.9, 1897.11], [0.95, 106332.0, 53432.6], [0.97, 26289900.0, 10912800.0], [0.99, 1229090.0, 1135770.0]],
+    '201/100|0': [[0.5, 4.0075, 4.00737], [0.6, 7.71961, 7.71933], [0.7, 20.358, 20.3572], [0.8, 90.0084, 90.0043], [0.85, 274.986, 274.982], [0.9, 1453.78, 1454.6], [0.93, 7045.07, 7064.28], [0.95, 36377.1, 36548.9], [0.97, 868230.0, 793826.0], [0.99, 32607900.0, 369639000.0]],
+    '201/100|1': [[0.5, 2.2718, 2.27182], [0.6, 4.06941, 4.06988], [0.7, 10.0626, 10.0645], [0.8, 43.8803, 43.8896], [0.85, 135.618, 135.644], [0.9, 723.694, 723.695], [0.93, 3456.75, 3453.38], [0.95, 16926.1, 16850.9], [0.97, 291058.0, 283143.0], [0.99, 121305000.0, 126465000.0]],
+    '201/100|1/16': [[0.5, 4.41263, 4.41241], [0.6, 8.14461, 8.144], [0.7, 20.6583, 20.6563], [0.8, 88.3456, 88.3357], [0.85, 265.304, 265.272], [0.9, 1369.67, 1369.38], [0.93, 6453.01, 6447.61], [0.95, 31793.6, 31672.0], [0.97, 601334.0, 581790.0], [0.99, 84216700.0, 112738000.0]],
+    '201/100|1/2': [[0.5, 4.75878, 4.76072], [0.6, 8.49927, 8.50308], [0.7, 20.2504, 20.2587], [0.8, 82.2654, 82.2881], [0.85, 242.667, 242.692], [0.9, 1234.92, 1233.57], [0.93, 5762.55, 5727.57], [0.95, 27994.9, 27451.9], [0.97, 488246.0, 455180.0], [0.99, 154189000.0, 153956000.0]],
+    '201/100|1/32': [[0.5, 4.203, 4.20295], [0.6, 7.91566, 7.91548], [0.7, 20.471, 20.4704], [0.8, 89.1224, 89.1192], [0.85, 270.383, 270.377], [0.9, 1417.57, 1417.75], [0.93, 6805.95, 6808.17], [0.95, 34556.5, 34486.5], [0.97, 745763.0, 707621.0], [0.99, 45512400.0, 80551600.0]],
+    '201/100|1/4': [[0.5, 5.5178, 5.51595], [0.6, 9.55759, 9.5546], [0.7, 22.5157, 22.5096], [0.8, 89.9785, 89.9605], [0.85, 260.97, 260.935], [0.9, 1286.28, 1286.56], [0.93, 5754.08, 5763.0], [0.95, 26205.1, 26329.1], [0.97, 366498.0, 370323.0], [0.99, 2956160000.0, 3917500000.0]],
+    '201/100|1/8': [[0.5, 4.85691, 4.84307], [0.6, 8.69448, 8.65754], [0.7, 21.3678, 21.2292], [0.8, 88.8593, 87.8441], [0.85, 263.071, 258.493], [0.9, 1332.81, 1289.11], [0.93, 6148.38, 5793.34], [0.95, 29301.5, 26576.7], [0.97, 479840.0, 408714.0], [0.99, 310517000.0, 480064000.0]],
+    '201/100|2': [[0.5, 1.30271, 1.30215], [0.6, 1.8933, 1.89235], [0.7, 4.06287, 4.06213], [0.8, 17.1809, 17.2446], [0.85, 54.609, 55.2877], [0.9, 304.342, 317.125], [0.93, 1492.24, 1627.06], [0.95, 7606.6, 8679.94], [0.97, 178545.0, 196876.0], [0.99, 9486100.0, 14727300.0]],
+    '201/100|4': [[0.5, 1.07469, 1.07636], [0.6, 1.27724, 1.27638], [0.7, 2.14012, 2.12037], [0.8, 7.87349, 7.63814], [0.85, 25.6817, 24.4913], [0.9, 163.142, 152.748], [0.93, 956.07, 923.438], [0.95, 6021.29, 7107.61], [0.97, 235006.0, 1625140.0], [0.99, 40650400.0, 198774.0]],
+    '20|2': [[0.5, 0.999765, 0.998213], [0.6, 1.00393, 1.001], [0.7, 1.06599, 1.06018], [0.8, 1.94941, 1.964], [0.85, 1181.55, 7.19513], [0.9, 8182.97, 6410.71], [0.93, 12570.6, 5839.33], [0.95, 6119.53, 33713.5], [0.97, 2080.36, 248.856], [0.99, 2036010.0, 285.906]],
+    '20|4': [[0.5, 1.00103, 1.00149], [0.6, 1.00241, 1.00295], [0.7, 1.01915, 1.01985], [0.8, 1.31077, 1.3146], [0.85, 39.7565, 5.49778], [0.9, 49.1121, 91.6515], [0.93, 22944.9, 11622.6], [0.95, 1364.12, 691.923], [0.97, 9509040.0, 6252.89], [0.99, 36973.2, 126356.0]],
+    '21/10|0': [[0.5, 2.99998, 3.01323], [0.6, 6.33659, 6.37923], [0.7, 19.301, 19.5063], [0.8, 103.796, 105.932], [0.85, 352.065, 364.514], [0.9, 1911.15, 2095.27], [0.93, 7929.95, 10476.5], [0.95, 33934.5, 67173.8], [0.97, 776453.0, 6326570.0], [0.99, 344258000.0, 1209430000.0]],
+    '21/10|1': [[0.5, 1.9019, 1.90083], [0.6, 3.39185, 3.39188], [0.7, 9.04456, 9.05165], [0.8, 48.7982, 48.8948], [0.85, 185.292, 185.86], [0.9, 1457.29, 1462.92], [0.93, 11503.0, 11446.8], [0.95, 122039.0, 114131.0], [0.97, 52840800000.0, 775670000.0], [0.99, 14308900.0, 1317340000.0]],
+    '21/10|1/16': [[0.5, 3.38597, 3.39067], [0.6, 6.90529, 6.92241], [0.7, 20.5714, 20.6565], [0.8, 112.465, 113.308], [0.85, 402.433, 406.961], [0.9, 2591.98, 2640.51], [0.93, 13562.0, 13789.4], [0.95, 60744.7, 57639.2], [0.97, 3664730.0, 2730900.0], [0.99, 127508000.0, 60119800.0]],
+    '21/10|1/2': [[0.5, 3.64272, 3.64737], [0.6, 6.91169, 6.92374], [0.7, 18.7969, 18.8413], [0.8, 98.5967, 98.9337], [0.85, 364.026, 365.779], [0.9, 2743.85, 2775.25], [0.93, 19514.5, 20274.7], [0.95, 157241.0, 166241.0], [0.97, 174776000.0, 12487900.0], [0.99, 159807000.0, 677562000.0]],
+    '21/10|1/32': [[0.5, 3.1957, 3.19173], [0.6, 6.63188, 6.62322], [0.7, 20.0002, 19.9805], [0.8, 108.842, 108.867], [0.85, 381.038, 381.694], [0.9, 2274.02, 2263.53], [0.93, 10462.1, 9153.9], [0.95, 42771.9, 760781.0], [0.97, 833836.0, 2454480.0], [0.99, 349272000000.0, 467613000000.0]],
+    '21/10|1/4': [[0.5, 4.4066, 4.41835], [0.6, 8.57524, 8.60049], [0.7, 24.8664, 24.9241], [0.8, 145.18, 145.133], [0.85, 593.674, 592.209], [0.9, 5580.6, 5579.08], [0.93, 54177.5, 55177.2], [0.95, 594968.0, 595919.0], [0.97, 34930600000.0, 100075000000000.0], [0.99, 17089100.0, 5238930.0]],
+    '21/10|1/8': [[0.5, 3.82607, 3.84045], [0.6, 7.68565, 7.72685], [0.7, 22.8937, 23.0716], [0.8, 131.482, 133.173], [0.85, 508.765, 518.556], [0.9, 4025.89, 4185.88], [0.93, 28957.4, 32004.6], [0.95, 325096.0, 284804.0], [0.97, 4102920000000000.0, 7081350000000.0], [0.99, 242965000.0, 1207890000.0]],
+    '21/10|2': [[0.5, 1.21295, 1.21298], [0.6, 1.6725, 1.67261], [0.7, 3.4808, 3.48145], [0.8, 15.6098, 15.6178], [0.85, 54.3486, 54.3976], [0.9, 364.698, 365.579], [0.93, 2280.05, 2292.08], [0.95, 16769.8, 16645.8], [0.97, 2013330.0, 1497100.0], [0.99, 5158720.0, 3978600000.0]],
+    '21/10|4': [[0.5, 1.05162, 1.0518], [0.6, 1.20348, 1.20363], [0.7, 1.87789, 1.87813], [0.8, 6.46083, 6.46491], [0.85, 20.814, 20.857], [0.9, 132.284, 133.753], [0.93, 787.53, 819.547], [0.95, 5404.38, 6014.01], [0.97, 1065770.0, 1203580.0], [0.99, 859629.0, 19238300.0]],
+    '23/10|2': [[0.5, 1.11397, 1.11394], [0.6, 1.39038, 1.39024], [0.7, 2.5094, 2.50913], [0.8, 9.90258, 9.93749], [0.85, 32.0651, 32.6997], [0.9, 179.694, 224.87], [0.93, 377.045, 975.834], [0.95, 1556870.0, 5328.51], [0.97, 89222.1, 64338.0], [0.99, 1640780.0, 955024.0]],
+    '23/10|4': [[0.5, 1.03639, 1.03731], [0.6, 1.1661, 1.16731], [0.7, 1.83617, 1.83869], [0.8, 7.77307, 7.8119], [0.85, 33.8763, 34.425], [0.9, 401.749, 447.127], [0.93, 5972.79, 11097.7], [0.95, 481394000000.0, 178691000000.0], [0.97, -50025700.0, 965008.0], [0.99, 1939380.0, 2681220.0]],
+    '401/200|0': [[0.5, 4.042, 4.042], [0.6, 7.71544, 7.71544], [0.7, 20.1535, 20.1535], [0.8, 88.4322, 88.433], [0.85, 269.672, 269.698], [0.9, 1426.93, 1428.6], [0.93, 6940.16, 6977.54], [0.95, 36108.1, 36550.7], [0.97, 894190.0, 849769.0], [0.99, 26606100.0, 511102000.0]],
+    '401/200|1': [[0.5, 2.30623, 2.30629], [0.6, 4.13898, 4.13954], [0.7, 10.2272, 10.2293], [0.8, 44.4474, 44.4567], [0.85, 137.028, 137.053], [0.9, 729.089, 729.076], [0.93, 3476.03, 3472.56], [0.95, 17005.4, 16929.4], [0.97, 293816.0, 285768.0], [0.99, 117140000.0, 141753000.0]],
+    '401/200|1/16': [[0.5, 4.46491, 4.46498], [0.6, 8.17986, 8.18008], [0.7, 20.5719, 20.5726], [0.8, 87.3006, 87.3044], [0.85, 261.498, 261.508], [0.9, 1349.53, 1349.41], [0.93, 6374.16, 6367.94], [0.95, 31600.6, 31435.9], [0.97, 619779.0, 591272.0], [0.99, 63134500.0, 88920900.0]],
+    '401/200|1/2': [[0.5, 4.83889, 4.83889], [0.6, 8.60325, 8.60325], [0.7, 20.3367, 20.3367], [0.8, 81.5294, 81.5295], [0.85, 237.891, 237.889], [0.9, 1187.26, 1187.03], [0.93, 5405.02, 5397.96], [0.95, 25339.1, 25199.2], [0.97, 394841.0, 381520.0], [0.99, 402550000.0, 591598000.0]],
+    '401/200|1/32': [[0.5, 4.24656, 4.24658], [0.6, 7.93164, 7.93168], [0.7, 20.3257, 20.3258], [0.8, 87.7922, 87.7927], [0.85, 265.694, 265.7], [0.9, 1392.75, 1393.06], [0.93, 6704.78, 6708.65], [0.95, 34268.7, 34212.8], [0.97, 769745.0, 727609.0], [0.99, 37163300.0, 69070200.0]],
+    '401/200|1/4': [[0.5, 5.60499, 5.60499], [0.6, 9.65976, 9.6598], [0.7, 22.6021, 22.6022], [0.8, 89.5816, 89.5818], [0.85, 258.617, 258.62], [0.9, 1268.11, 1268.38], [0.93, 5655.36, 5663.47], [0.95, 25743.5, 25878.4], [0.97, 382702.0, 367705.0], [0.99, 2706110000.0, 2913650000.0]],
+    '401/200|1/8': [[0.5, 4.92202, 4.92202], [0.6, 8.75346, 8.75346], [0.7, 21.3396, 21.3396], [0.8, 87.9871, 87.9863], [0.85, 259.445, 259.424], [0.9, 1309.79, 1308.56], [0.93, 6033.45, 6005.47], [0.95, 28785.8, 28354.7], [0.97, 480168.0, 451875.0], [0.99, 201391000.0, 284464000.0]],
+    '401/200|2': [[0.5, 1.31121, 1.30996], [0.6, 1.91152, 1.91192], [0.7, 4.1145, 4.11888], [0.8, 17.53, 17.498], [0.85, 56.374, 56.0608], [0.9, 322.962, 321.294], [0.93, 1630.69, 1648.76], [0.95, 8460.23, 8812.81], [0.97, 194131.0, 203357.0], [0.99, 9124060.0, 13902000.0]],
+    '401/200|4': [[0.5, 1.07649, 1.07807], [0.6, 1.28297, 1.28207], [0.7, 2.16044, 2.14116], [0.8, 7.98647, 7.75724], [0.85, 26.0914, 24.9335], [0.9, 165.939, 156.109], [0.93, 968.204, 950.443], [0.95, 5876.73, 7440.04], [0.97, 127829.0, 1953040.0], [0.99, 25283300.0, 194726.0]],
+    '41/20|0': [[0.5, 3.61912, 3.61912], [0.6, 7.40626, 7.40627], [0.7, 21.0405, 21.0405], [0.8, 99.2976, 99.2983], [0.85, 305.595, 305.604], [0.9, 1537.5, 1537.68], [0.93, 6730.95, 6735.12], [0.95, 29630.4, 29830.0], [0.97, 469231.0, 651956.0], [0.99, 3545180000000.0, 30439000000000.0]],
+    '41/20|1': [[0.5, 2.04972, 2.04978], [0.6, 3.62436, 3.62456], [0.7, 9.07269, 9.0734], [0.8, 41.4577, 41.4613], [0.85, 133.598, 133.608], [0.9, 762.583, 762.366], [0.93, 3917.21, 3908.2], [0.95, 21064.2, 20866.5], [0.97, 479008.0, 452923.0], [0.99, 882097000.0, 20767900000.0]],
+    '41/20|1/16': [[0.5, 3.98513, 3.97388], [0.6, 7.80271, 7.77283], [0.7, 21.473, 21.355], [0.8, 101.626, 100.673], [0.85, 323.226, 318.541], [0.9, 1779.75, 1724.97], [0.93, 8844.24, 8205.99], [0.95, 45846.0, 40678.9], [0.97, 1282340.0, 2647230.0], [0.99, 223620000.0, 325281000.0]],
+    '41/20|1/2': [[0.5, 4.13807, 4.12159], [0.6, 7.55601, 7.51786], [0.7, 18.8141, 18.7136], [0.8, 82.3972, 82.0686], [0.85, 257.4, 256.78], [0.9, 1429.35, 1430.69], [0.93, 7266.51, 7329.91], [0.95, 38932.8, 40102.9], [0.97, 1063230.0, 1222440.0], [0.99, 30108200.0, 1425990000.0]],
+    '41/20|1/32': [[0.5, 3.80216, 3.8008], [0.6, 7.62101, 7.61784], [0.7, 21.407, 21.3966], [0.8, 102.306, 102.249], [0.85, 323.781, 323.632], [0.9, 1740.67, 1741.93], [0.93, 8305.87, 8344.55], [0.95, 40315.3, 40594.3], [0.97, 1035430.0, 918503.0], [0.99, 2129240000.0, 662842000.0]],
+    '41/20|1/4': [[0.5, 4.89572, 4.88394], [0.6, 8.82441, 8.80595], [0.7, 22.1464, 22.1072], [0.8, 97.3879, 97.2531], [0.85, 302.705, 302.346], [0.9, 1656.12, 1653.87], [0.93, 8272.81, 8244.14], [0.95, 43464.3, 42923.8], [0.97, 918927.0, 844062.0], [0.99, 517812000.0, 36176500000000.0]],
+    '41/20|1/8': [[0.5, 4.35014, 4.35022], [0.6, 8.20153, 8.20185], [0.7, 21.7458, 21.7472], [0.8, 100.293, 100.31], [0.85, 317.483, 317.617], [0.9, 1756.8, 1759.75], [0.93, 8776.07, 8815.64], [0.95, 45615.4, 45926.4], [0.97, 1025690.0, 1000100.0], [0.99, 16551300000.0, 3524780000.0]],
+    '41/20|2': [[0.5, 1.25224, 1.25224], [0.6, 1.76542, 1.76541], [0.7, 3.69777, 3.6977], [0.8, 15.7503, 15.7493], [0.85, 51.3083, 51.2995], [0.9, 302.822, 302.431], [0.93, 1603.5, 1593.06], [0.95, 8963.77, 8749.52], [0.97, 264866.0, 209669.0], [0.99, 31542900.0, 15394500.0]],
+    '41/20|4': [[0.5, 1.06284, 1.0662], [0.6, 1.23878, 1.23863], [0.7, 2.0038, 1.97487], [0.8, 7.13716, 6.78766], [0.85, 23.1114, 21.394], [0.9, 146.501, 131.082], [0.93, 867.993, 774.161], [0.95, 5846.61, 5666.98], [0.97, 627830.0, 1099140.0], [0.99, 1665470.0, 227040.0]],
+    '43/20|0': [[0.5, 2.21593, 2.22323], [0.6, 4.19411, 4.21792], [0.7, 11.0695, 11.1725], [0.8, 47.6539, 48.4091], [0.85, 137.994, 140.978], [0.9, 659.914, 679.474], [0.93, 3252.06, 3171.8], [0.95, 18828.2, 19365.0], [0.97, 61964500.0, 1673490.0], [0.99, 11343300.0, 17674300.0]],
+    '43/20|1/16': [[0.5, 2.60865, 2.61053], [0.6, 4.9011, 4.90712], [0.7, 13.0394, 13.0678], [0.8, 58.4481, 58.7074], [0.85, 175.013, 176.23], [0.9, 854.741, 863.768], [0.93, 3812.37, 3846.15], [0.95, 24895.9, 25365.5], [0.97, 4330250.0, 215432.0], [0.99, 826333000.0, 623381000.0]],
+    '43/20|1/2': [[0.5, 3.02824, 3.02855], [0.6, 5.52949, 5.52976], [0.7, 14.2838, 14.2858], [0.8, 67.4872, 67.515], [0.85, 218.098, 218.23], [0.9, 1150.45, 1151.54], [0.93, 4626.59, 4692.65], [0.95, 16343.9, 19499.6], [0.97, 83413.0, 324544.0], [0.99, 7438000.0, 3172220000000.0]],
+    '43/20|1/32': [[0.5, 2.40402, 2.40947], [0.6, 4.52306, 4.53925], [0.7, 11.9519, 12.0154], [0.8, 52.2075, 52.5803], [0.85, 152.736, 153.679], [0.9, 726.352, 722.318], [0.93, 3223.42, 3132.74], [0.95, 23030.7, 21407.3], [0.97, 2072970.0, 331040.0], [0.99, 897786000000000.0, 1081540000.0]],
+    '43/20|1/4': [[0.5, 3.58966, 3.59257], [0.6, 6.68487, 6.68835], [0.7, 18.1463, 18.1464], [0.8, 91.6398, 91.5788], [0.85, 311.886, 311.586], [0.9, 1803.48, 1804.11], [0.93, 8223.38, 8386.78], [0.95, 44746.4, 47638.9], [0.97, 2870190.0, 1190520.0], [0.99, 63315700000.0, 8258660000.0]],
+    '43/20|1/8': [[0.5, 3.05526, 3.05132], [0.6, 5.79162, 5.783], [0.7, 15.8856, 15.8568], [0.8, 77.681, 77.4528], [0.85, 253.984, 252.649], [0.9, 1448.66, 1420.03], [0.93, 7939.63, 7279.99], [0.95, 66342.7, 47925.3], [0.97, 3224460.0, 2671600.0], [0.99, 881176000.0, 38906100000.0]],
+    '43/20|2': [[0.5, 1.19407, 1.19491], [0.6, 1.64469, 1.64568], [0.7, 3.54826, 3.54886], [0.8, 18.2699, 18.2583], [0.85, 73.9326, 73.7876], [0.9, 674.146, 662.229], [0.93, 6586.19, 5753.49], [0.95, 106879.0, 112962.0], [0.97, 9595970000000000.0, 138424000.0], [0.99, 5707210.0, 179446000000000.0]],
+    '43/20|4': [[0.5, 1.04542, 1.04405], [0.6, 1.18524, 1.18288], [0.7, 1.8283, 1.8244], [0.8, 6.42734, 6.41518], [0.85, 21.742, 21.683], [0.9, 155.133, 154.392], [0.93, 1127.42, 1119.17], [0.95, 12829.7, 12322.3], [0.97, 222816000.0, 51361000000.0], [0.99, 69609600.0, 16312300.0]],
+    '5/2|2': [[0.5, 1.24552, 1.24549], [0.6, 2.24942, 2.2492], [0.7, 12.1038, 12.0926], [0.8, 10510.4, 1138.19], [0.85, 51586.8, 32471.6], [0.9, 2390.18, 2196.43], [0.93, 55946.0, 54184.6], [0.95, 42876600.0, 40108700.0], [0.97, 7985510.0, 16597.2], [0.99, 137117.0, 618340.0]],
+    '5/2|4': [[0.5, 1.03123, 1.03136], [0.6, 1.16266, 1.16303], [0.7, 1.93966, 1.94336], [0.8, 11.258, 11.3457], [0.85, 70.5454, 69.1878], [0.9, 9164850.0, 2300250.0], [0.93, 18337800000.0, 35736500000000.0], [0.95, 265108.0, 401529.0], [0.97, 19841.5, 25146.9], [0.99, 585364.0, 54442500.0]],
+    '50|1': [[0.5, 0.9998, 1.00008], [0.6, 1.00045, 1.00079], [0.7, 1.01689, 1.01734], [0.8, 1.58155, 1.33371], [0.85, 2.45276, 2.35085], [0.9, 34.2629, 52.1174], [0.93, 15630.3, 5596.85], [0.95, 3070.65, 3228.19], [0.97, 16740.2, 4815130.0], [0.99, 3654.14, 1495.32]],
+    '50|2': [[0.5, 0.999881, 1.00003], [0.6, 1.00012, 1.00025], [0.7, 1.00743, 1.00755], [0.8, 1.63987, 1.2842], [0.85, 1.9377, 1.97797], [0.9, 8.3521, 12.9148], [0.93, 2554.74, 193553.0], [0.95, 338.099, 941.79], [0.97, 413.615, 44010.6], [0.99, 30511.5, 33888.2]],
+    '50|4': [[0.5, 0.999969, 1.00022], [0.6, 1.00004, 1.00035], [0.7, 1.00293, 1.00326], [0.8, 1.10967, 1.10853], [0.85, 1.62257, 1.59142], [0.9, 19.7407, 7.24671], [0.93, 115929.0, 895117.0], [0.95, 70.2957, 467.129], [0.97, 268.239, 354.226], [0.99, 24194.2, 27735.6]],
+}
+PIN_NECROWS = {   # e|depth|member: per radius (2.005m ... 100m) k kept, r radial broken, t angular broken, x both, u unsettled, - no open point (the full run)
+    '0|band_mid|lam 0.1': 'kkkkurrrrrrrrrrx',
+    '0|band_mid|lam 0.25': 'kkkkurrrrrrrrrtt',
+    '0|band_mid|lam 0.4': 'kkkkrrrrrrrrrxtt',
+    '0|band_mid|level': 'kkkrrrrrrrrrrrrr',
+    '0|band_mid|smooth adj': 'kkkkrrrrrrrk----',
+    '0|band_mid|smooth near': 'kkkrurrurrxxxuuu',
+    '0|d_plus|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '0|d_plus|lam 0.25': 'kkkkkkkkkkkttttt',
+    '0|d_plus|lam 0.4': 'kkkkkkkkkktttttt',
+    '0|d_plus|smooth adj': '----------------',
+    '0|d_plus|smooth near': 'kkkkkkkkkkktkk--',
+    '0|tenth|lam 0.1': 'krrrrrrrrrrrrxtt',
+    '0|tenth|lam 0.25': 'krrrrrrrrrrrxttt',
+    '0|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '0|tenth|smooth adj': 'kkkkktt---------',
+    '0|tenth|smooth near': 'kkkkkkkkkk------',
+    '0|y_star|lam 0.1': 'kkkrrrrrrrrrrrrx',
+    '0|y_star|lam 0.25': 'kkkrrrrrrrrrrrtt',
+    '0|y_star|lam 0.4': 'kkrrrrrrrrrrrxtt',
+    '0|y_star|level': 'rrrrrrrrrrrrrrrr',
+    '0|y_star|smooth adj': 'kkkkrrrrrr------',
+    '0|y_star|smooth near': 'rrrrrrrrrrrrrkkk',
+    '0|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '0|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '0|zero|lam 0.4': 'kkkkkkkkkktttttt',
+    '0|zero|smooth adj': '----------------',
+    '0|zero|smooth near': 'kkkkkkkkkkktkk--',
+    '1/16|band_mid|lam 0.1': 'kkkrrrrrrrrrrrrx',
+    '1/16|band_mid|lam 0.25': 'kkkkrrrrrrrrrrtt',
+    '1/16|band_mid|lam 0.4': 'kkkrrrrrrrrrrxtt',
+    '1/16|band_mid|level': 'kkkrrrrrrrrrrrrr',
+    '1/16|band_mid|smooth adj': 'kkkrrrrrrrrr----',
+    '1/16|band_mid|smooth near': 'kkkrrrrrrrrxxxuu',
+    '1/16|tenth|lam 0.1': 'kkrrrrrrrrrrrxtt',
+    '1/16|tenth|lam 0.25': 'krrrrrrrrrrrtttt',
+    '1/16|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '1/16|tenth|smooth adj': 'kkkkttt---------',
+    '1/16|tenth|smooth near': 'kkkkkkkkkk------',
+    '1/16|y_star|lam 0.1': 'kkkrrrrrrrrrrrrx',
+    '1/16|y_star|lam 0.25': 'kkkrrrrrrrrrrrtt',
+    '1/16|y_star|lam 0.4': 'kkrrrrrrrrrrrxtt',
+    '1/16|y_star|level': 'rrrrrrrrrrrrrrrr',
+    '1/16|y_star|smooth adj': 'kkkkrrrrrr------',
+    '1/16|y_star|smooth near': 'rrrrrrrrrrrrrkkk',
+    '1/16|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '1/16|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '1/16|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '1/16|zero|smooth adj': '----------------',
+    '1/16|zero|smooth near': 'kkkkkkkkkkktkk--',
+    '1/2|band_mid|lam 0.1': 'uuuuuurrrrrrrrrx',
+    '1/2|band_mid|lam 0.25': 'uuuuuurrrrrrrrxt',
+    '1/2|band_mid|lam 0.4': 'uuuuuurrrrrrrxtt',
+    '1/2|band_mid|level': 'uuuururrrrrrrrrr',
+    '1/2|band_mid|smooth adj': 'uuurrrrrrr------',
+    '1/2|band_mid|smooth near': 'uuuuuurrrrrrxxuu',
+    '1/2|tenth|lam 0.1': 'kkrrrrrrrrrrrttt',
+    '1/2|tenth|lam 0.25': 'kkrrrrrrrrrrtttt',
+    '1/2|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '1/2|tenth|smooth adj': 'kkkkt-----------',
+    '1/2|tenth|smooth near': 'kkkkkkkkkk------',
+    '1/2|y_star|lam 0.1': 'kuurrrrrrrrrrrrx',
+    '1/2|y_star|lam 0.25': 'kuurrrrrrrrrrrxt',
+    '1/2|y_star|lam 0.4': 'kuurrrrrrrrrrxtt',
+    '1/2|y_star|level': 'rrurrrrrrrrrrrrr',
+    '1/2|y_star|smooth adj': 'kkurrrrrrr------',
+    '1/2|y_star|smooth near': 'krurrrrrrrrrrrr-',
+    '1/2|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '1/2|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '1/2|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '1/2|zero|smooth adj': '----------------',
+    '1/2|zero|smooth near': 'kkkkkkkkkkktkk--',
+    '1/32|band_mid|lam 0.1': 'kkkkurrrrrrrrrrx',
+    '1/32|band_mid|lam 0.25': 'kkkkurrrrrrrrrtt',
+    '1/32|band_mid|lam 0.4': 'kkkkurrrrrrrrxtt',
+    '1/32|band_mid|level': 'kkkrurrrrrrrrrrr',
+    '1/32|band_mid|smooth adj': 'kkkkurrrrrrr----',
+    '1/32|band_mid|smooth near': 'kkkruurrrrxxxxuu',
+    '1/32|d_plus|lam 0.1': 'rrrrrrrrrrrrrrxt',
+    '1/32|d_plus|lam 0.25': 'rrrrrrrrrrrrrxtt',
+    '1/32|d_plus|lam 0.4': 'rrrrrrrrrrrrxttt',
+    '1/32|d_plus|smooth adj': 'kkkkkkktt-------',
+    '1/32|d_plus|smooth near': 'krrrrrrrkk------',
+    '1/32|tenth|lam 0.1': 'kkrrrrrrrrrrrxtt',
+    '1/32|tenth|lam 0.25': 'krrrrrrrrrrrxttt',
+    '1/32|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '1/32|tenth|smooth adj': 'kkkkktt---------',
+    '1/32|tenth|smooth near': 'kkkkkkkkkk------',
+    '1/32|y_star|lam 0.1': 'kkkrrrrrrrrrrrrx',
+    '1/32|y_star|lam 0.25': 'kkkrrrrrrrrrrrtt',
+    '1/32|y_star|lam 0.4': 'kkrrrrrrrrrrrxtt',
+    '1/32|y_star|level': 'rrrrrrrrrrrrrrrr',
+    '1/32|y_star|smooth adj': 'kkkkrrrrrr------',
+    '1/32|y_star|smooth near': 'rrrrrrrrrrrrrkkk',
+    '1/32|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '1/32|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '1/32|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '1/32|zero|smooth adj': '----------------',
+    '1/32|zero|smooth near': 'kkkkkkkkkkktkk--',
+    '1/4|band_mid|lam 0.1': 'uuuuurrrrrrrrrrx',
+    '1/4|band_mid|lam 0.25': 'kkururrrrrrrrrxt',
+    '1/4|band_mid|lam 0.4': 'kkurrrrrrrrrrxtt',
+    '1/4|band_mid|level': 'kkurrrrrrrrrrrrr',
+    '1/4|band_mid|smooth adj': 'kkkrrrrrrrr-----',
+    '1/4|band_mid|smooth near': 'kkuuurrrrrrxxxuu',
+    '1/4|tenth|lam 0.1': 'kkrrrrrrrrrrrxtt',
+    '1/4|tenth|lam 0.25': 'kkrrrrrrrrrrtttt',
+    '1/4|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '1/4|tenth|smooth adj': 'kkkktt----------',
+    '1/4|tenth|smooth near': 'kkkkkkkkkk------',
+    '1/4|y_star|lam 0.1': 'kkkrrrrrrrrrrrrx',
+    '1/4|y_star|lam 0.25': 'kkkrrrrrrrrrrrtt',
+    '1/4|y_star|lam 0.4': 'kkrrrrrrrrrrrxtt',
+    '1/4|y_star|level': 'rrurrrrrrrrrrrrr',
+    '1/4|y_star|smooth adj': 'kkkrrrrrrr------',
+    '1/4|y_star|smooth near': 'rrrrrrrrrrrrrkkr',
+    '1/4|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '1/4|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '1/4|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '1/4|zero|smooth adj': '----------------',
+    '1/4|zero|smooth near': 'kkkkkkkkkkktkk--',
+    '1/8|band_mid|lam 0.1': 'kkkurrrrrrrrrrrx',
+    '1/8|band_mid|lam 0.25': 'kkkurrrrrrrrrrtt',
+    '1/8|band_mid|lam 0.4': 'kkkurrrrrrrrrxtt',
+    '1/8|band_mid|level': 'kkkurrrrrrrrrrrr',
+    '1/8|band_mid|smooth adj': 'kkkrrrrrrrr-----',
+    '1/8|band_mid|smooth near': 'kkkurrrrrrrxxxuu',
+    '1/8|tenth|lam 0.1': 'kkrrrrrrrrrrrxtt',
+    '1/8|tenth|lam 0.25': 'krrrrrrrrrrrtttt',
+    '1/8|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '1/8|tenth|smooth adj': 'kkkktt----------',
+    '1/8|tenth|smooth near': 'kkkkkkkkkk------',
+    '1/8|y_star|lam 0.1': 'kkkrrrrrrrrrrrrx',
+    '1/8|y_star|lam 0.25': 'kkkrrrrrrrrrrrtt',
+    '1/8|y_star|lam 0.4': 'kkrrrrrrrrrrrxtt',
+    '1/8|y_star|level': 'rrrrrrrrrrrrrrrr',
+    '1/8|y_star|smooth adj': 'kkkrrrrrrr------',
+    '1/8|y_star|smooth near': 'rrrrrrrrrrrrrkkk',
+    '1/8|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '1/8|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '1/8|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '1/8|zero|smooth adj': '----------------',
+    '1/8|zero|smooth near': 'kkkkkkkkkkktkk--',
+    '1|band_mid|lam 0.1': 'uuuuuuurrrrrrrrr',
+    '1|band_mid|lam 0.25': 'uuuuuuurrrrrrrxt',
+    '1|band_mid|lam 0.4': 'uuuuuuurrrrrrxtt',
+    '1|band_mid|level': 'uuuurrrrrrrrrrrr',
+    '1|band_mid|smooth adj': 'uuurrrrrrr------',
+    '1|band_mid|smooth near': 'uuuuuuurrrrrxxuu',
+    '1|tenth|lam 0.1': 'kkkrrrrrrrrrrttt',
+    '1|tenth|lam 0.25': 'kkkrrrrrrrrrtttt',
+    '1|tenth|lam 0.4': 'rrrrrrrrrrrrtttt',
+    '1|tenth|smooth adj': 'kkkt------------',
+    '1|tenth|smooth near': 'kkkkkkkkkk------',
+    '1|y_star|lam 0.1': 'uuuuuuurrrrrrrrx',
+    '1|y_star|lam 0.25': 'uuuuuuurrrrrrrxt',
+    '1|y_star|lam 0.4': 'uuuuruurrrrrrxtt',
+    '1|y_star|level': 'uuurrrrrrrrrrrrr',
+    '1|y_star|smooth adj': 'uuurrrrrr-------',
+    '1|y_star|smooth near': 'uuuurrrrrrrrrr--',
+    '1|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '1|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '1|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '1|zero|smooth adj': '----------------',
+    '1|zero|smooth near': 'kkkkkkkkkkkkkk--',
+    '2|band_mid|lam 0.1': 'uuuuuuurrrrrrrrr',
+    '2|band_mid|lam 0.25': 'uuuuuuurrrrrrrxt',
+    '2|band_mid|lam 0.4': 'uuuuuuurrrrrrrxx',
+    '2|band_mid|level': 'uuuuuurrrrrrrrrr',
+    '2|band_mid|smooth adj': 'uuurrrrrx-------',
+    '2|band_mid|smooth near': 'uuuuurrrrrrr----',
+    '2|tenth|lam 0.1': 'kkkrrrrrrrrrrttt',
+    '2|tenth|lam 0.25': 'kkkrrrrrrrrrtttt',
+    '2|tenth|lam 0.4': 'krrrrrrrrrrrtttt',
+    '2|tenth|smooth adj': 'kkkt------------',
+    '2|tenth|smooth near': 'kkkkkkkkkk------',
+    '2|y_star|lam 0.1': 'uuuuuuurrrrrrrrr',
+    '2|y_star|lam 0.25': 'uuuuuuurrrrrrrxt',
+    '2|y_star|lam 0.4': 'uuuuuuurrrrrrrxx',
+    '2|y_star|level': 'uuuuuurrrrrrrrrr',
+    '2|y_star|smooth adj': 'uuurrrrrx-------',
+    '2|y_star|smooth near': 'uuuuurrrrrrr----',
+    '2|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '2|zero|lam 0.25': 'kkkkkkkkkkkttttt',
+    '2|zero|lam 0.4': 'kkkkkkkkkkkttttt',
+    '2|zero|smooth adj': '----------------',
+    '2|zero|smooth near': 'kkkkkkkkkkkkk---',
+    '4|band_mid|lam 0.1': 'uuuuuuuuurrrrrrr',
+    '4|band_mid|lam 0.25': 'uuuuuuuuurrrrrrx',
+    '4|band_mid|lam 0.4': 'uuuuuuuuurrrrrrx',
+    '4|band_mid|level': 'uuuuuuurrrrrrrrr',
+    '4|band_mid|smooth adj': 'uurrx-----------',
+    '4|band_mid|smooth near': 'uuurrx----------',
+    '4|tenth|lam 0.1': 'kkkrrrrrrrrrrttt',
+    '4|tenth|lam 0.25': 'kkkrrrrrrrrrtttt',
+    '4|tenth|lam 0.4': 'kkrrrrrrrrrrtttt',
+    '4|tenth|smooth adj': 'kkk-------------',
+    '4|tenth|smooth near': 'kkkkkkkkkk------',
+    '4|y_star|lam 0.1': 'uuuuuuuuurrrrrrr',
+    '4|y_star|lam 0.25': 'uuuuuuuuurrrrrrx',
+    '4|y_star|lam 0.4': 'uuuuuuuuurrrrrrx',
+    '4|y_star|level': 'uuuuuuurrrrrrrrr',
+    '4|y_star|smooth adj': 'uuurrx----------',
+    '4|y_star|smooth near': 'uuurrrrx--------',
+    '4|zero|lam 0.1': 'kkkkkrrrrrrrtttt',
+    '4|zero|lam 0.25': 'kkkkkkkkrrkttttt',
+    '4|zero|lam 0.4': 'kkkkkkkkrkkttttt',
+    '4|zero|smooth adj': '----------------',
+    '4|zero|smooth near': 'kkkkkkkkkkkkk---',
+}
+PIN_CYPHER = {'main': {'cells': 13, 'top': {'target': True}, 'langs': {'order': ['SPEAKS', 151, 'YES'], 'algebra': ['SPEAKS', 151, 'YES'], 'geometry': ['SPEAKS', 83, 'NO'], 'information': ['SPEAKS', 34, 'YES'], 'statistics': ['SPEAKS', 22, 'NO']}}, 'control_b': {'cells': 14, 'top': {'target': True}, 'langs': {'order': ['SPEAKS', 150, 'YES'], 'algebra': ['SPEAKS', 150, 'YES'], 'geometry': ['SPEAKS', 108, 'YES'], 'information': ['SPEAKS', 33, 'YES'], 'statistics': ['SPEAKS', 25, 'YES']}}, 'control_a': {'cells': 13, 'top': {'target': True}, 'langs': {'order': ['SPEAKS', 74, 'YES'], 'algebra': ['SPEAKS', 74, 'YES'], 'geometry': ['SPEAKS', 58, 'YES'], 'information': ['SPEAKS', 18, 'YES'], 'statistics': ['SPEAKS', 14, 'YES']}}, 'nec_reversed': {'cells': 13, 'top': {'target': False}, 'langs': {'order': ['SPEAKS', 167, 'NO'], 'algebra': ['SPEAKS', 167, 'NO'], 'geometry': ['SPEAKS', 83, 'NO'], 'information': ['SPEAKS', 14, 'NO'], 'statistics': ['SPEAKS', 22, 'NO']}}, 'per_ell': {'cells': 90, 'top': {'target@e0': False, 'target@e1': False, 'target@e2': False, 'target@e3': False, 'target@e4': False, 'target@e5': False, 'target@e6': False, 'target@e7': False, 'target@e8': True}, 'langs': {'order': ['SPEAKS', 1656, 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES'], 'algebra': ['SPEAKS', 1656, 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES'], 'geometry': ['SPEAKS', 891, 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO'], 'information': ['SPEAKS', 253, 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES', 'YES'], 'statistics': ['SPEAKS', 382, 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO', 'NO']}}}
 
-
-PIN_KSCAN = {}      # filled below by the pin pass
-PIN_NECROWS = {}
-PIN_CYPHER = {}
 
 
 # ---------------------------------------------------------------------------------------------------------- cypher
@@ -1637,17 +2009,14 @@ def main(argv=None):
     if a.json:
         json.dump({"res": res, "cols": cols}, open(a.json, "w"), indent=1, default=str)
     if a.cypher:
-        if not (a.full or a.cache):
-            print("\nnote: pinned columns carry the NEC of the live columns only, so the cypher's nec coordinate is "
-                  "partial; run with --cache PATH (the exact series) or --full for the full encoding")
         cy = cypher_run(res, a.cypher, cols)
         for tag, r in cy.items():
-            print("\ncypher %s: %d cells, d = %d, degenerate %s, K.langclose %s" % (tag, r["cells"], r["d"],
-                                                                                   r["degenerate"], r["langclose_holds"]))
+            print("\ncypher %s: %d cells, d = %d, box %d, degenerate %s, K.langclose %s, target is the top: %s" % (
+                tag, r["cells"], r["d"], r["box"], r["degenerate"], r["langclose_holds"], r["target_is_top"]))
             for lang, v in r["verdicts"].items():
-                print("  %-12s %-8s %s" % (lang, v["state"], "  ".join("%s=%s" % (k, v[k]) for k in ("E", "target",
-                                                                                                      "target_RF")
-                                                                        if k in v) or v.get("note", "")[:90]))
+                print("  %-12s %-8s E=%-6s %s" % (lang, v["state"], v["E"], "  ".join(
+                    "%s=%s" % (k, v[k]) for k in sorted(r["target_is_top"]) if k in v)))
+        print("\ncarriers of each MAIN target value: %s" % json.dumps(cy["main"]["carriers"]))
     return 0
 
 
