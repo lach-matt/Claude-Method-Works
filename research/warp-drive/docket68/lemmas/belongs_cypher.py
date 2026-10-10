@@ -37,6 +37,11 @@ less held cells), never a ratio.
      -- lowers the exact E from 1938 to 693 (247/247/39/143/17); the input rows' cell now falls most, then Z3b and B4d,
      which now index alike (OPEN on M1 FAR WRITE ARRIVAL CLOSE): the rim's junction and the 5D evolution, the two rows the
      ring and the write leave open
+  B9 (computed; deduced from the seated records) item 211 seated -- B3 is 'equivalent to B4', and since item 210 B4 is
+     B4a (PROVED) and B4d, so B3 rests on B4d's inputs: CLOSE added, which B3 lacked since B4d first rested on CLOSE.
+     51 rows, 16 cells; exact E 220/220/39/120/17 (616, from 693) with no language rising -- exactly what leaving B3
+     out of item 210's table gives: B3, Z3b and B4d are one cell.  Statistics stays at 17, so the count is not what
+     moves B3; the records are
 Item-208 critics (an independent rebuild, 74 design-and-coding jobs and 382 more codings): every count here reproduces;
 no single row closes any design; which row falls most depends on the design; no "missing" cell survives a change of
 coding -- B4 is the shared excess, nothing more.
@@ -108,6 +113,8 @@ def rows(table="as_asked"):
     out = []
     table_rows = list(wt().LEMMAS)
     rests = dict(wt().RESTS_ON)
+    if table in ("as_asked", "after_208", "after_210"):
+        rests["B3"] = "M1 FAR WRITE ARRIVAL"                         # item 211 added CLOSE (B3 is B4a with B4d)
     if table in ("as_asked", "after_208"):
         table_rows += list(getattr(wt(), "SUPERSEDED", []))
         rests.update(getattr(wt(), "SUPERSEDED_RESTS", {}))
@@ -176,7 +183,8 @@ def measure(table):
 def compute():
     d = measure("as_asked")
     d["seated"] = measure("after_208")
-    d["now"] = measure("seated")
+    d["now"] = measure("after_210")
+    d["s211"] = measure("seated")
     d["words"] = words()
     return d
 
@@ -213,6 +221,15 @@ def checks(d):
         nw["n"] == 51 and nw["distinct"] == 17
         and nw["E"] == {"order": 247, "algebra": 247, "geometry": 39, "information": 143, "statistics": 17}
         and [(x[0], x[1]) for x in nw["drops"][:2]] == [(-198, ["M1", "FAR", "WRITE", "ARRIVAL", "CLOSE"]), (-154, ["Z3b", "B4d"])])
+    s2 = d["s211"]
+    b3_out = [x[2] for x in nw["drops"] if x[1] == ["B3"]]
+    add("B9 on the table as seated after item 211 (B3 rests on B4d's inputs, CLOSE added): 51 rows, 16 cells, exact E "
+        "order 220, algebra 220, geometry 39, information 120, statistics 17 (616, from 693), no language rising -- "
+        "exactly B3 left out of item 210's table; B3, Z3b and B4d one cell",
+        s2["n"] == 51 and s2["distinct"] == 16
+        and s2["E"] == {"order": 220, "algebra": 220, "geometry": 39, "information": 120, "statistics": 17}
+        and all(s2["E"][lg] <= nw["E"][lg] for lg in LANGS) and b3_out == [s2["E"]]
+        and any(sorted(v) == ["B3", "B4d", "Z3b"] for v in s2["names"].values()))
     no_rise = lambda m: all(m["pair"][lg] <= m["E"][lg] for lg in LANGS) and total(m["pair"]) < total(m["E"])
     add("B7 B4b and B4c left out together lower the exact E with no language rising, as asked and as corrected (the "
         "critics: on every coding tried, and not unique -- six other pairs do it too)", no_rise(d) and no_rise(se))
@@ -256,6 +273,7 @@ def report(d):
     print("as corrected (Z3b OPEN): exact E %s (total %d)" % (d["seated"]["E"], total(d["seated"]["E"])))
     print("as seated after item 210: exact E %s (total %d); first falls: %s" % (d["now"]["E"], total(d["now"]["E"]),
           [(x[0], x[1]) for x in d["now"]["drops"][:4]]))
+    print("as seated after item 211: exact E %s (total %d)" % (d["s211"]["E"], total(d["s211"]["E"])))
     print("left out one at a time (exact fall in total E):")
     for dd, nm, e in d["drops"]:
         print("  %5d  %-40s %s" % (dd, ",".join(nm), e))

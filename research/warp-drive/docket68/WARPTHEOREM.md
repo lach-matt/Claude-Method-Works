@@ -607,3 +607,13 @@ The theorem is proved exactly when no lemma below is OPEN.
     - the analyst's claim that the open mouth needs no appeal to 177 or 183, which holds in D− only;
     - its correction of item 210's board reading, which holds in D− only;
     - its cypher's "one missing cell", an artefact of an omitted carrier.
+- **The hold's records, corrected (206; checked against the sources).**
+  - **B3** rests on B4d's inputs. B3 is "equivalent to B4", and since item 210 B4 is B4a (PROVED) plus B4d, so CLOSE
+    is added, which B3 lacked ever since B4d first rested on it. The theorem's exact E falls from 693 to 616
+    (220/220/39/120/17) with no language rising, the same as leaving B3 out. B3, Z3b and B4d are now one cell
+    (belongs_cypher B9). Statistics stays at 17, so it is the records that move B3, not the count. B3 stays OPEN.
+  - **B4d's stage-5 range.** "Within 8–16 clocks at every finite ℓ tested" becomes the four measured holds: 16.0,
+    13.0, 10.9 and 7.8 clocks at ℓ = 2m, m, m/2 and m/4. ℓ = m/4 was added after the verifier, and its 7.8 lies
+    outside the old range.
+  - **WRITE's floor, exactly.** (9/2)(5N ln2/Z)^(1/3) − 2 = 199,702.19 clocks at the example README, with Z = 108.75
+    (its lower bound). "≥ 2.0e5" rounds a floor up, and the floor falls as Z^(−1/3).
