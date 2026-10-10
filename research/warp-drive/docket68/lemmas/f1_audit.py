@@ -443,7 +443,11 @@ def israel(cfg):
 
 def part_b(cfg):
     return {"axioms": axiom_texts(cfg), "reads": ground_reads(cfg), "kappa": kappa_criterion(cfg), "tangency": tangency(cfg),
-            "gauss": _memo(("gauss", cfg["gauss_sign"]), lambda: gauss_identity(cfg)), "israel": israel(cfg)}
+            "gauss": _memo(("gauss", cfg["gauss_sign"]), lambda: gauss_identity(cfg)), "israel": israel_m(cfg)}
+
+
+def israel_m(cfg):
+    return _memo(("israel", cfg["israel_sign"], cfg["pi_form"]), lambda: israel(cfg))
 
 
 # ======================================================================================== PART C: M1 and its matter
@@ -522,19 +526,24 @@ def cap_crossings(A0, inv_l2=1.0, lam=4.0, rmax=60.0, nper=4000):
 
 
 def _cap_crossings(A0, inv_l2, lam, rmax, nper):
-    """Sign changes of A - R along the cap out to rho = rmax (the stepping of _cap_cut); None if it breaks down."""
+    """Sign changes of A - R along the cap (the stepping of _cap_cut) until rho = rmax or the continuation ends at
+    A -> 0 beyond the cut (a curvature singularity on the side the Z2 plane discards; DOP853 confirms it for the
+    in-window caps, a separate check).  Returns (crossings, 'rho_max' | 'A->0')."""
     f = _rhs(inv_l2, lam)
     s = _cap_start(A0, inv_l2, lam)
     h = A0 / nper
     n_x, prev = 0, s[1] - s[3]
-    while s[0] < rmax:
-        s = _rk4(f, s, min(h * max(1.0, s[3] / A0), 0.01))
-        if not (s[1] > 0 and math.isfinite(s[1]) and math.isfinite(s[3])):
-            return None
-        dd = s[1] - s[3]
-        n_x += (prev > 0) != (dd > 0)
-        prev = dd
-    return n_x
+    try:
+        while s[0] < rmax:
+            s = _rk4(f, s, min(h * max(1.0, s[3] / A0) * min(1.0, s[1] / A0), 0.01))
+            if not (math.isfinite(s[1]) and math.isfinite(s[3])) or s[1] < 1e-3 * A0:
+                return n_x, "A->0"
+            dd = s[1] - s[3]
+            n_x += (prev > 0) != (dd > 0)
+            prev = dd
+    except (OverflowError, ZeroDivisionError):
+        return n_x, "A->0"
+    return n_x, "rho_max"
 
 
 def cap_to(A0, rho_end, inv_l2=1.0, lam=4.0, n=20000):
@@ -628,7 +637,8 @@ def part_c(cfg):
     lam, sgn = cfg["nh_lam"], cfg["israel_sign"]
     out = {}
     # C1 the 4D-limit candidate: plane matter = G(eq17)/(8 pi G) (bulk Weyl term zero).  Its radial null part is
-    #    R4(k,k) = -2r''/r < 0 at every r > 2m, and its integral over both legs is -Q: NEC broken pointwise and net.
+    #    R4(k,k) = -2r''/r < 0 at every r tested (a pointwise fact; 183 allows a paired negative member), and its integral
+    #    over both legs is -Q: negative net per light ray, which is what 183 excludes.
     p5 = owner("passage5d")
     tid = _memo(("tidal", cfg["c1_metric"]),
                 lambda: p5.tidal(schwarzschild=(cfg["c1_metric"] == "schw")))
@@ -647,36 +657,34 @@ def part_c(cfg):
                       if need_3m else float("inf")})
     # C2 the vacuum plane: Q = 0 data are singular at finite depth (SIM2's y_s^th reproduced)
     out["C2"] = {"ys_flat": ys(None, cfg["ys_side"], lam), "ys_ell_m": ys(1.0, cfg["ys_side"], lam)}
-    # C2b the same data on a NEGATIVE-tension plane (the growing side; H-EQ17-ON-P2, stage 6 J3): regular to y = 50m
-    #     for ell <= 4.79m (stage 5 F6's range), singular from ell = 4.80m -- so at P2's own ell_2 = 3 ell in the window
-    #     (ell_2 > 81.21m) a matter-free P2 cannot carry eq. (17)'s near-horizon either
+    # C2b the same data on a NEGATIVE-tension plane (the growing side; H-EQ17-ON-P2, stage 6 J3).  Numerical (RK4, no
+    #     error control), sampled: no singularity to y = 50m at ell = 2m and 4.79m; singular at the sampled 4.80m, 8m and
+    #     at position 2's ell_2 under both counts (3 x 27.07m, stage 6 J3; 6 x 27.07m, B4D-STAGE6's downstream note).
+    #     The 27.07m edge itself rests on F1 (SIM2-FACING computed it with eq. (17) on our plane).
     gs = -cfg["ys_side"]
     out["C2b"] = {"ell_2": ys(2.0, gs, lam), "ell_479": ys(4.79, gs, lam), "ell_480": ys(4.80, gs, lam),
-                  "ell_8": ys(8.0, gs, lam), "ell_edge": ys(3 * EDGE_SIM2, gs, lam)}
+                  "ell_8": ys(8.0, gs, lam)}
+    for k_ in P2_COUNTS:
+        out["C2b"]["p2_%d" % k_] = ys(k_ * EDGE_SIM2, gs, lam)
     # C3 integrator controls: AdS5 (A0 = ell) exactly A = cosh, R = sinh; the exact cap A0 = ell/2: A = ell/2,
-    #    R = (ell/sqrt2) sinh(sqrt2 rho/ell), cut at L = ell/2 with a = 0, b = sqrt6
+    #    R = (ell/sqrt2) sinh(sqrt2 rho/ell), cut at L = ell/2 with a = 0, b = sqrt6; and the cap's series start meets the
+    #    Hamiltonian constraint (F1A-R7: the irregular mode decays, so only this check sees a wrong start)
     s = cap_to(1.0, 1.0, lam=lam)
     half = cap_cut(0.5, lam=lam)
     out["C3"] = {"ads5_err": max(abs(s[1] - math.cosh(1.0)), abs(s[3] - math.sinh(1.0))),
-                 "half": half, "half_m": plane_matter(half, sgn, cfg["swap_ab"]) if half else None}
-    # C4-C5 the cap family on the grid
+                 "half": half, "half_m": plane_matter(half, sgn, cfg["swap_ab"]) if half else None,
+                 "start_con": max(abs(hamiltonian(_cap_start(A0, 1.0, lam), 1.0, lam)) for A0 in GRID)}
+    # C4-C5 the cap family on the grid (numerical, RK4 without error control)
     rows = []
     for A0 in GRID:
         cut = cap_cut(A0, lam=lam)
         rows.append({"A0": A0, "cut": cut, "m": plane_matter(cut, sgn, cfg["swap_ab"]) if cut else None})
     flat = cap_cut(1.0, inv_l2=0.0, lam=lam, rmax=50)
-    second = []                                                    # one cut per cap: no second crossing to rho = 10
-    for A0 in (0.6, 0.8, 0.95):
-        f, st_, n_x, prev = _rhs(1.0, lam), _cap_start(A0, 1.0, lam), 0, None
-        while st_[0] < 10 and st_[1] > 0:
-            st_ = _rk4(f, st_, 2e-3)
-            dd = st_[1] - st_[3]
-            n_x += prev is not None and (prev > 0) != (dd > 0)
-            prev = dd
-        second.append(n_x)
-    out["C4"] = {"rows": rows, "no_cut": [cap_cut(A0, lam=lam) is None for A0 in (1.2, 1.5)], "crossings": second,
+    out["C4"] = {"rows": rows, "no_cut": [cap_cut(A0, lam=lam) is None for A0 in (1.2, 1.5)],
+                 "crossings": [cap_crossings(A0, lam=lam) for A0 in CROSS_A0],
                  "c_flat": (flat["L"] * flat["Ap_A"] + 2 * flat["L"] * flat["Rp_R"]) / 3 if flat else None}
-    # C6 the window and H-OWN-MATTER-ONLY
+    # C6 the window and H-OWN-MATTER-ONLY.  The window's lower edges rest on F1 (SIM2-FACING's 27.07m) or are to be
+    #    redone (B4c's 4.0e5m); the example-README figure uses only the upper edge 13.964 um.
     A0e = find_A0_for_x(2 / EDGE_SIM2, lam)
     ce = cap_cut(A0e, lam=lam)
     me = plane_matter(ce, sgn, cfg["swap_ab"])
@@ -687,17 +695,65 @@ def part_c(cfg):
     # threshold: rho_need <= rho_ours needs the Bertotti-Robinson regime, rho = c^2/(8 pi G L^2) (C5's limit)
     L_star = math.sqrt(c**2 / (8 * math.pi * G * cfg["rho_nuc"]))
     N_star = (L_star / 2 / m1) ** 2
+    L_ns = math.sqrt(c**2 / (8 * math.pi * G * RHO_NS * cfg["rho_nuc"] / RHO_NUC))
     ell_need = 3 * cf * c**2 / (4 * math.pi * G * 2 * mN * cfg["rho_nuc"])   # ell at which the flat-regime need
     out["C6"] = {"ell_need_example_m": ell_need, "x_edge": 2 / EDGE_SIM2, "L_edge": ce["L"], "rho_edge": me["rho"],
                  "x_b4c": 2 / EDGE_B4C, "rho_b4c": cf / (2 / EDGE_B4C),
                  "sigma_over_nuc": sigma_kgm3 / cfg["rho_nuc"], "ours_over_sigma": cfg["rho_nuc"] / sigma_kgm3,
-                 "need_example_over_nuc": need_ex / cfg["rho_nuc"], "L_star_m": L_star, "N_star": N_star}
+                 "need_example_over_nuc": need_ex / cfg["rho_nuc"], "L_star_m": L_star, "N_star": N_star,
+                 "N_star_ns": (L_ns / 2 / m1) ** 2}
     # C7 two capped sides cannot cancel their anisotropy: b > a at every cut (Pi^Omega > Pi^Sigma), so Pi_L = -Pi_R
     #    (stage 6 J1's matter-free condition) fails for two caps
     out["C7"] = {"b_gt_a": [r["m"]["b"] > r["m"]["a"] for r in rows if r["m"]]}
     out["C8"] = cypher_m1(cfg, rows)
     out["C9"] = green_table(cfg)
+    out["C10"] = m1c_bound(cfg, tid, mN, G, c)
+    out["C11"] = cypher_stress(cfg)
     return out
+
+
+# ---------------------------------------------------------------------------------- C10 M1-c's error bound (F1A-R4)
+def m1c_bound(cfg, tid, mN, G, c):
+    """computed: how far our universe's matter moves our plane's trace off eq. (17) (M1-c is stated to that order).
+    The measure is the board's: our matter's 8 pi G rho/c^2 against eq. (17)'s radial tidal term |R4(k,k)| at r, for
+    the example README.  (i) Our densest matter at the mouth, bounded by nuclear density: C1's figure at r = 3m.
+    (ii) The uniform dark energy (rho_L = (1 - Omega_m) 3 H0^2/(8 pi G), READ Planck via cosmo.py, flat): its trace
+    4 rho_L against the same term; eq. (17)'s term falls as r^-3, so eps_L(r) grows as r^3 and reaches 1 at R_L.
+    (iii) Exact eq. (17) out to R* = infinity (M1-global) needs R4 = 0 on P1, and B1q gives R4 != 0 for any uniform
+    dark energy, as plane matter (tau = -rho_L h) or as a tension shift (q != 1): EXCLUDED in its exact form (deduced
+    from B1q, computed, with the READ dark-energy density).  (iv) The reach-limited shares: Z2's per-leg integral and
+    E4's total - pull within r = 30m."""
+    cosmo = _load(COSMO, "f1a_cosmo")
+    H0 = cosmo.H0_KMSMPC * 1e3 / cosmo.MPC
+    rho_L = (1 - cosmo.OMEGA_M) * 3 * H0**2 / (8 * math.pi * G) if cfg["rho_lambda_on"] else 0.0
+    rr = tid["r"]
+    R4f = sp.lambdify(rr, sp.Abs(tid["R4_kk"]), "math")
+    need = lambda r: R4f(r) * c**2 / (8 * math.pi * G * mN**2)     # kg/m^3 at which 8 pi G rho/c^2 = |R4(k,k)|
+    eps_L = lambda r: 4 * rho_L / need(r)
+    R_L = float("inf")
+    if rho_L > 0:
+        lo, hi = 3.0, 1e80
+        for _ in range(300):
+            mid = math.sqrt(lo * hi)
+            lo, hi = (mid, hi) if eps_L(mid) < 1 else (lo, mid)
+        R_L = math.sqrt(lo * hi)
+    isr = israel_m(cfg)
+    rl = isr["rho_L"]
+    de_ok = rho_L > 0 and sp.simplify(isr["R4_de"]) != 0 and sp.simplify(isr["R4_de"].subs(rl, 0)) == 0
+    sh_ok = sp.simplify(isr["R4_shift"].subs(isr["q"], 1)) == 0 and sp.simplify(isr["R4_shift"]) != 0
+    p5 = owner("passage5d")
+    import mpmath as mp
+    f = lambda u: p5.q_of_u(float(u)) * p5.rho_u(float(u))
+    leg_all = float(mp.quad(f, [0, 1, 10, mp.inf]))
+    leg_30 = float(mp.quad(f, [0, 1, math.sqrt(28.0)]))
+    lg = _memo("ledger_e4", lambda: owner("ledger").e4())
+    Rl = next(q_ for q_ in lg["M"].free_symbols if q_.name == "r")
+    ml = next(q_ for q_ in lg["M"].free_symbols if q_.name == "m")
+    e4_30 = float(((lg["M"] - lg["at_throat"]) / (lg["far"] - lg["at_throat"])).subs({Rl: 30 * ml}).subs(ml, 1))
+    return {"rho_L_kgm3": rho_L, "eps_nuc_3m": cfg["rho_nuc"] / need(3.0), "eps_L_3m": eps_L(3.0),
+            "eps_L_30m": eps_L(30.0), "R_L_m_units": R_L, "R_L_metres": R_L * mN, "exact_excluded_de": bool(de_ok),
+            "exact_excluded_shift": bool(sh_ok), "leg_all": leg_all, "leg_30_share": leg_30 / leg_all,
+            "e4_30_share": e4_30}
 
 
 # ------------------------------------------------------------------------------------------------ C8 the cypher (196)
@@ -705,8 +761,11 @@ def cypher_m1(cfg, rows):
     """H-M1-TRACE-INDEX (the board's).  Cells: static near-horizon configurations whose plane trace is eq. (17)'s
     AdS2(2m) x S2(2m), on the computed grid x = 2m/ell: the regular single-plane caps (x, rho-rank > 0, regular 1) and
     the matter-free plane's Q = 0 bulk (x, 0, regular 0; singular at y_s, C2).  The question: (x, 0, 1) -- single
-    plane, our matter only, regular.  Control (must flip): add a coordinate 'extremal' and Route 1's READ non-extremal
-    vacuum RS-II families as (x, 0, 1, 0) (ITEM185: Tangherlini, KTN, FW, AC-PYT cover the grid's x)."""
+    plane, our matter only, regular.  Its absence is by construction (C2 found the rho = 0 configuration singular), so
+    the closures restate C2: the PROJECTION to (rho, regular) is excluded alike -- a two-coordinate dependence the
+    closures see.  The cypher adds no independent exclusion.  Control (must flip): add a coordinate 'extremal' and
+    Route 1's READ non-extremal vacuum RS-II families as (x, 0, 1, 0) (ITEM185: Tangherlini, KTN, FW, AC-PYT cover the
+    grid's x); only there does a three-way reading (extremal, regular, no added matter) apply."""
     cy = _load(CYPHER, "f1a_cypher", register=True)
     good = [r for r in rows if r["m"]]
     xs = sorted(r["cut"]["L"] for r in good)
@@ -722,6 +781,7 @@ def cypher_m1(cfg, rows):
     route1 = [] if cfg["cy_drop_route1"] else [[i, 0, 1, 0] for i in range(len(xs))]
     cells_b = caps4 + vac4 + route1
     q4 = [[i, 0, 1, 1] for i in range(len(xs))]
+    proj = [list(t) for t in sorted({(cl[1], cl[2]) for cl in cells_a})]
     wit = {"analysis": {"speaks": True, "witness": "continuous law rho/sigma = f(2m/ell) along the caps (C4-C5, computed)"}}
     opts = {"statistics_order": 2, "algebra_budget": 20000}
 
@@ -748,56 +808,135 @@ def cypher_m1(cfg, rows):
         return out
     a = ask("H-M1-TRACE-INDEX: eq. (17)-trace near-horizon configurations", ["x", "rho", "regular"], cells_a, qcells)
     b = ask("CONTROL: with Route 1's non-extremal families", ["x", "rho", "regular", "extremal"], cells_b, q4)
+    pj = ask("PROJECTION of H-M1-TRACE-INDEX to (rho, regular)", ["rho", "regular"], proj, [[0, 1]])
     reg = [cl for cl in cells_a if cl[2] == 1]
     seen = {}
     for cl in reg:
         seen.setdefault(cl[0], set()).add(cl[1])
-    return {"a": a, "b": b, "n_q": len(qcells), "logic_rho_by_x": all(len(v) == 1 for v in seen.values())}
+    return {"a": a, "b": b, "proj": pj, "n_q": len(qcells), "one_cap_per_x": all(len(v) == 1 for v in seen.values())}
+
+
+# ------------------------------------------------------------------------------- C11 the stress question (196; OC-4)
+STRESS_LAW = [("P1", "own", 1, "184 with 129 (1): our plane carries our universe's matter"),
+              ("P2", "own", 1, "184: position 2's plane carries its universe's matter"),
+              ("P2", "readme", 1, "172 (1): position 2's piece may carry the README's stress"),
+              ("P1", "added", 0, "130 (1): no added matter"), ("P2", "added", 0, "130 (1): no added matter")]
+
+
+def cypher_stress(cfg):
+    """H-STRESS-INDEX (the board's).  The question H-OWN-MATTER-ONLY answers by reading: may our plane P1 carry the
+    README's stress at the corridor's mouth while the corridor holds?  Cells: (plane, stress kind, allowed), one per
+    ruling (STRESS_LAW).  The plane and the stress kind are nominal, so their value orders are the encoding's choice;
+    every order is swept (2 x 6).  A language DECIDES only if, in every order, it admits exactly one of (P1, readme, 1)
+    and (P1, readme, 0), the same one.  Control (must flip): the index with (P1, readme, 1) seated as a cell."""
+    cy = _load(CYPHER, "f1a_cypher", register=True)
+    law = [tuple(c_[:3]) for c_ in STRESS_LAW]
+    q1, q0 = ("P1", "readme", 1), ("P1", "readme", 0)
+    if cfg["cy_stress_add_q1"]:
+        law = law + [q1]
+    ctl = sorted(set(law + [q1]), key=str)
+    opts = {"statistics_order": 2, "algebra_budget": 20000}
+
+    def sweep(cells):
+        out = {}
+        for rn in sorted(cy.ROSTERS):
+            per = {}
+            for lang in cy.ROSTERS[rn]["languages"]:
+                if lang not in cy.ADMISSION:
+                    per[lang] = "DECLARED" if lang in cy.DECLARED_ONLY else "NOT-RUN"
+                    continue
+                ver = set()
+                for po in itertools.permutations(["P1", "P2"]):
+                    for so in itertools.permutations(["own", "readme", "added"]):
+                        ix = cy.Index("H-STRESS-INDEX", ["plane", "stress", "allowed"], cells,
+                                      {"plane": list(po), "stress": list(so), "allowed": [0, 1]},
+                                      {"analysis": {"speaks": False}})
+                        adm, _ = cy.ADMISSION[lang][0](ix, opts)
+                        if adm is None:
+                            ver.add("SILENT")
+                            continue
+                        enc = lambda qq: tuple(ix.code[i][v] for i, v in enumerate(qq)) in adm
+                        ver.add((enc(q1), enc(q0)))
+                ver = sorted(ver, key=str)
+                per[lang] = {"verdicts": ver, "decides": "allowed" if ver == [(True, False)] else
+                             ("excluded" if ver == [(False, True)] else ("SILENT" if ver == ["SILENT"] else "no"))}
+            out[rn] = per
+        return out
+    return {"law": sweep(law), "control": sweep(ctl)}
 
 
 # ------------------------------------------------------------------------------------------------ C9 the green table
+AFTER = {
+    "G1": ("DERIVED", ["M1"]),          # E(N) = r0 c^4/(2G) is the plane's horizon relation, M1-c at the horizon
+    "G3": ("PROVED", ["M1"]),
+    "H2": ("DERIVED", ["M132"]),        # M's 132 verbatim, carried as M's (no axiom claimed)
+    "H2t": ("PROVED", ["M1", "M1-P2"]),  # axioms.py's H2 is plural: P1's future and P2's past horizon
+    "O1a": ("DERIVED", ["M132", "M130"]),
+    "O1b": ("DERIVED", ["M1"]),         # no curvature singularity (M1-e) only
+    "O1c": ("OPEN", []),                # geodesic completeness: never computed, even for eq. (17) (plane.py P1)
+    "O2": ("DERIVED", ["M1"]),
+    "Z1q": ("PROVED", []),
+    "Z1t": ("PROVED", ["M1"]),
+    "Z2r": ("PROVED", ["M1"]),          # our leg, within the reach, to M1-c's order
+    "Z2": ("PROVED", ["M1-global", "M1-P2"]),
+    "B1q": ("PROVED", []),
+    "B2q": ("PROVED", []),
+    "B2t": ("PROVED", ["M1"]),
+    "B3": ("OPEN", ["M1", "F3", "F4", "F5"]), "B4b": ("READING", ["M1", "F4"]),
+    "B4d": ("OPEN", ["M1", "F2", "F4", "F5"]),
+    "E4r": ("PROVED", ["M1"]),          # total - pull within the reach: (E/4)(1 - m/(2R* - 3m)), to M1-c's order
+    "E4": ("PROVED", ["M1-global"]),    # the exact E/4 is the far-field mass
+    "M1": ("OPEN", []), "M1-P2": ("OPEN", []), "M1-global": ("EXCLUDED", []),
+}
+AUDITED = ("G1", "G3", "H2", "O1", "O2", "Z1", "Z2", "B1", "B2", "B3", "B4b", "B4d", "E4")
+COVERS = {"G1": ["G1"], "G3": ["G3"], "H2": ["H2", "H2t"], "O1": ["O1a", "O1b", "O1c"], "O2": ["O2"],
+          "Z1": ["Z1q", "Z1t"], "Z2": ["Z2r", "Z2"], "B1": ["B1q"], "B2": ["B2q", "B2t"], "E4": ["E4r", "E4"]}
+
+
 def green_table(cfg):
     """STRUCTURAL: the board's green rule (a lemma is GREEN iff its status is PROVED, DERIVED or AXIOM and every input
-    is green).  BEFORE: the ten F1 lemmas as warptheorem.py and the live cypher audit carry them.  AFTER: the edits this
-    audit proposes, with M1 an explicit OPEN lemma in F1's place."""
+    is green).  M's carried rulings (M132, M130) count as green inputs -- the sibling convention (b1_matter.py's
+    AXIOM_ITEMS), meaning M's carried statement, not an axiom M declared.  BEFORE: statuses imported from warptheorem.py's
+    LEMMAS, inputs from the item-192 audit's list as b1_matter.py records it (AUDIT_INPUTS), with G1 and G3 corrected
+    to carry F1 (F1A-R2).  AFTER: this audit's proposal (AFTER), with M1, M1-P2 and M1-global in F1's place."""
+    wt = _load(WARPTHEOREM, "f1a_warptheorem")
+    b1m = _load(B1MATTER, "f1a_b1matter")
+    wstat = {name.split()[0]: st for _, name, st, _ in wt.LEMMAS}
     G = {"PROVED", "DERIVED", "AXIOM"}
-    inputs_green = {"F1": False, "F2": False, "F3": False, "F4": False, "F5": False}
-    before = {"H2": ("DERIVED", ["F1"]), "O1": ("PROVED", ["F1"]), "O2": ("PROVED", ["F1"]), "Z1": ("PROVED", ["F1"]),
-              "Z2": ("PROVED", ["F1"]), "B1": ("PROVED", ["F1", "F2"]), "B2": ("PROVED", ["F1", "F2"]),
-              "B3": ("OPEN", ["F1", "F3", "F4", "F5"]), "B4b": ("READING", ["F1", "F4"]),
-              "B4d": ("OPEN", ["F1", "F2", "F4", "F5"]), "E4": ("PROVED", ["F1"])}
-    after = {"H2": ("AXIOM", []), "H2t": ("PROVED", ["M1"]), "O1a": ("AXIOM", []), "O1b": ("DERIVED", ["M1"]),
-             "O2": ("DERIVED", ["M1"]), "Z1'": ("PROVED", []), "Z1t": ("PROVED", ["M1"]), "Z2": ("PROVED", ["M1"]),
-             "B1'": ("PROVED", ["F2"] if cfg["keep_B1_F2"] else []), "B2'": ("PROVED", []), "B2t": ("PROVED", ["M1"]),
-             "B3": ("OPEN", ["M1", "F3", "F4", "F5"]), "B4b": ("READING", ["M1", "F4"]),
-             "B4d": ("OPEN", ["M1", "F2", "F4", "F5"]), "E4": ("PROVED", ["M1"]), "M1": ("OPEN", [])}
+    green_in = {"M132": True, "M130": True}
+    listed = {k: (wstat[k], b1m.AUDIT_INPUTS[k].split()) for k in AUDITED}
+    corrected = {k: (st, list(ins) + (["F1"] if k in ("G1", "G3") and not cfg["g13_f1_free"] else []))
+                 for k, (st, ins) in listed.items()}
+    after = dict(AFTER)
+    if cfg["z2_on_m1"]:
+        after["Z2"], after["E4"] = ("PROVED", ["M1"]), ("PROVED", ["M1"])
+    if cfg["keep_B1_F2"]:
+        after["B1q"] = ("PROVED", ["F2"])
     if cfg["m1_green"]:
         after["M1"] = ("PROVED", [])
 
-    def greens(table, extra):
-        gi = dict(inputs_green)
-        gi.update(extra)
-        done = {}
-        changed = True
+    def greens(table):
+        done, changed = {}, True
         while changed:
             changed = False
             for k, (st, ins) in table.items():
-                ok = st in G and all(done.get(i, gi.get(i, False)) for i in ins)
+                ok = st in G and all(done.get(i, green_in.get(i, False)) for i in ins)
                 if done.get(k) != ok:
                     done[k] = ok
                     changed = True
         return done
-    gb = greens(before, {})
-    ga = greens(after, {})
-    gm = greens(dict(after, M1=("PROVED", [])), {})
-    covers = {"H2": ["H2", "H2t"], "O1": ["O1a", "O1b"], "O2": ["O2"], "Z1": ["Z1'", "Z1t"], "Z2": ["Z2"],
-              "B1": ["B1'"], "B2": ["B2'", "B2t"], "E4": ["E4"]}
-    return {"before": gb, "after": ga, "with_M1": gm, "covers": covers}
+    return {"status_agree": all(wstat[k] == b1m.AUDIT_STATUS[k] for k in AUDITED),
+            "F1_listed": {k: "F1" in b1m.AUDIT_INPUTS[k].split() for k in AUDITED},
+            "before_listed": greens(listed), "before": greens(corrected), "after": greens(after),
+            "with_M1": greens(dict(after, M1=("PROVED", []))),
+            "with_M1_P2": greens(dict(after, **{"M1": ("PROVED", []), "M1-P2": ("PROVED", [])})),
+            "covers": COVERS}
 
 
 # ========================================================================================================= compute
 def compute(cfg=None):
     cfg = dict(DEFAULT, **(cfg or {}))
+    C3_DIV[0] = cfg["c3_div"]
     return {"A": part_a(cfg), "B": part_b(cfg), "C": part_c(cfg), "NH": _memo(("nh_eq", cfg["nh_lam"], cfg["israel_sign"]),
                                                                  lambda: nh_equations(cfg["nh_lam"], cfg["israel_sign"])),
             "cfg": cfg}
@@ -809,7 +948,7 @@ def checks(d):
     out = []
     add = lambda name, ok: out.append((name, bool(ok)))
     # ---- PART A
-    add("A1 H2 (axioms.py, computed): eq. (17)'s horizon r = 2m holds N A_bit, and the throat r0 = 2m sits on it",
+    add("A1 H2/G1 (axioms.py, computed): eq. (17)'s horizon r = 2m holds N A_bit, and the throat r0 = 2m sits on it",
         A["A1"]["horizon"] == [2 * m] and A["A1"]["H2"] and A["A1"]["throat_on_horizon"])
     add("A2 O1 (exactE.py, z3): one way under H-FUTURE-INGOING proved; both controls refuted",
         A["A2"]["one_way"] == "proved" and A["A2"]["controls"] == ["refuted", "refuted"])
@@ -832,8 +971,8 @@ def checks(d):
         and sp.simplify(A["A10"]["far"] - 5 * A["A10"]["m"] / 4) == 0)
     # ---- PART B
     ax = B["axioms"]["found"]
-    add("B1 READ: M's 132 (both halves), 129 (1), 130 (1), 179/180, 184, 187's (G), 195 verbatim in the rulings file",
-        all(ax.values()))
+    add("B1 READ: M's 132 (both halves), 129 (1), 130 (1), 172 (1), 179/180, 183, 184, 187's (G), 194, 195 verbatim in "
+        "the rulings file", all(ax.values()))
     add("B2 READ (via epass_ground.json): Kaus-Reall p.4 (kappa constant), (2.2), p.5 (compact), (2.16), p.11 (matter)",
         all(B["reads"].values()))
     k = B["kappa"]
@@ -843,38 +982,55 @@ def checks(d):
     tg = B["tangency"]
     add("B4 STRUCTURAL/computed: the black string's kappa is 1/(4m) at every depth (the plane's); KR's ansatz has "
         "kappa = 0 at every rho", sp.simplify(tg["string_kappa2"] - 1 / (16 * m**2)) == 0 and tg["nh_kappa2_at_x0"] == 0)
-    add("B5 computed: the contracted Gauss identity R5(k,k) = R4(k,k) + R5(n,k,n,k) - K K(k,k) + (K.K)(k,k) on two "
-        "families", all(r == 0 for r in B["gauss"]["residuals"]))
-    add("B6 computed: Israel's null projection gives Z1' (8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + "
-        "R5(n,k,n,k)) for any trace", B["israel"]["null_res"] == 0)
-    add("B7 computed: Israel's scalar projection gives B1' (-R4 = 8 pi G tau + kappa5^4 (tau.tau/4 - tau^2/12))",
-        B["israel"]["scalar_res"] == 0)
+    add("B5 computed: the contracted Gauss identity R5(k,k) = R4(k,k) + R5(n,k,n,k) - K K(k,k) + (K.K)(k,k) checked on "
+        "two families (the identity itself is the standard-not-READ Gauss equation)",
+        all(r == 0 for r in B["gauss"]["residuals"]))
+    isr = B["israel"]
+    add("B6 computed (symbolic, any symmetric tau): Z1q for a Z2 plane of tension q sigma_RS, q 8 pi G tau(k,k) + "
+        "kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); its q = 1 form (our plane) FAILS at q = -1/3, -1/4, -1/6, 4/3",
+        isr["null_q"] == 0 and isr["null_res"] == 0 and all(v[0] for v in isr["q1_fails"].values()))
+    add("B7 computed (symbolic): B1q, -R4 = -12(q^2-1)/ell^2 + q 8 pi G tau + kappa5^4 (tau.tau/4 - tau^2/12); the q = 1 "
+        "form fails at position 2's q; a non-Z2 plane is outside (tau = 0, K = -h/ell + diag(0,d,-d,0): R4 = -2d^2)",
+        isr["scalar_q"] == 0 and isr["scalar_res"] == 0 and all(v[1] for v in isr["q1_fails"].values())
+        and sp.simplify(isr["nonZ2_R4"] + 2 * sp.Symbol("d", real=True) ** 2) == 0)
+    pf = isr["pi_fluid"]
+    add("B8 computed: pi(k,k) is not sign-definite under the NEC (diagonal tau, rho = 0, p1 = 1: -1/6), but is "
+        "rho (rho + p)/6 for a perfect fluid -- so Z2's inequality holds for perfect fluids or matter << sigma",
+        isr["pi_counter"] == -sp.Rational(1, 6)
+        and sp.simplify(pf - isr["pi_fluid_rho"] * (isr["pi_fluid_rho"] + isr["pi_fluid_p"]) / 6) == 0)
     # ---- PART C
     c1 = C["C1"]
-    add("C1 computed: the 4D-limit candidate (Weyl term zero) has R4(k,k) < 0 at every r tested and net -Q per ray: "
-        "NEC broken; our densest matter supplies < 1e-60 of it", all(v < 0 for v in c1["R4kk"])
-        and abs(c1["net"] + Q_REF) < 1e-5 and c1["ours_over_need"] < 1e-60)
+    add("C1 computed: the 4D-limit candidate (Weyl term zero) has R4(k,k) < 0 at every r tested and net -Q per ray "
+        "(against 183); at r = 3m for the example README it needs 1.0e80 kg/m^3, nuclear density supplies 2.3e-63 of it",
+        all(v < 0 for v in c1["R4kk"]) and abs(c1["net"] + Q_REF) < 1e-5 and 0.95e80 < c1["need_3m_kgm3"] < 1.05e80
+        and 2.2e-63 < c1["ours_over_need"] < 2.4e-63)
     add("C2 computed: matter-free (Q = 0) data reach the singularity at y_s = 2.5536m (flat), 0.9139m (ell = m) -- "
         "SIM2's numbers", C["C2"]["ys_flat"] is not None and abs(C["C2"]["ys_flat"] - YS_FLAT) < 2e-3
         and C["C2"]["ys_ell_m"] is not None and abs(C["C2"]["ys_ell_m"] - YS_ELL_M) < 2e-3)
     c2b = C["C2b"]
-    add("C2b computed: on a negative-tension plane (growing side) the same data stay regular to y = 50m at ell = 2m and "
-        "4.79m, and are singular from 4.80m (8m: 3.95m; P2's ell_2 = 3 x 27.07m: 2.63m)",
+    add("C2b numerical (RK4, sampled): on a negative-tension plane (growing side) no singularity to y = 50m at ell = 2m "
+        "and 4.79m; singular at the sampled 4.80m, 8m (3.95m deep) and at position 2's ell_2 = 3 x 27.07m (2.634m) and "
+        "6 x 27.07m (2.593m)",
         c2b["ell_2"] is None and c2b["ell_479"] is None and c2b["ell_480"] is not None and c2b["ell_8"] is not None
-        and abs(c2b["ell_8"] - 3.951) < 0.01 and c2b["ell_edge"] is not None and abs(c2b["ell_edge"] - 2.634) < 0.01)
+        and abs(c2b["ell_8"] - 3.951) < 0.01 and c2b["p2_3"] is not None and abs(c2b["p2_3"] - 2.634) < 0.01
+        and c2b["p2_6"] is not None and abs(c2b["p2_6"] - 2.593) < 0.01)
     add("C3 computed: integrator controls -- AdS5 (A0 = ell) to 1e-9; the exact cap A0 = ell/2 cuts at L = ell/2 with "
         "rho/sigma = (2 sqrt6 - 3)/3, p/sigma = (3 - sqrt6)/3", C["C3"]["ads5_err"] < 1e-9 and C["C3"]["half"]
         is not None and abs(C["C3"]["half"]["L"] - 0.5) < 1e-8 and abs(C["C3"]["half_m"]["rho"]
                                                                        - (2 * math.sqrt(6) - 3) / 3) < 1e-8
         and abs(C["C3"]["half_m"]["p"] - (3 - math.sqrt(6)) / 3) < 1e-8)
+    add("C3b computed: the cap's series start meets the Hamiltonian constraint (rho^2 x residual < 1e-10 at every grid "
+        "A0); a wrong cubic coefficient leaves an O(1) residual that no other check sees", C["C3"]["start_con"] < 1e-10)
     rows = C["C4"]["rows"]
     okrows = [r for r in rows if r["m"]]
-    add("C4 computed: every cap on the grid cuts once, with the constraint to 1e-9, rho > 0 and rho + p > 0 (rho + p_r "
-        "= 0 by AdS2); L/ell rises and rho/sigma falls with A0; one crossing per cap; none on the AdS5 side (A0 = 1.2, 1.5)",
+    add("C4 numerical (RK4, the 12 grid caps): each cuts, with the constraint to 1e-9, rho > 0 and rho + p > 0 (rho + p_r "
+        "= 0 by AdS2); L/ell rises and rho/sigma falls along the grid; one crossing of A = R, to rho = 60 ell or to the "
+        "continuation's end beyond the cut, at A0 = 0.005, 0.02, 0.05 (in the window), 0.6, 0.8, 0.95; none at 1.2, 1.5",
         len(okrows) == len(GRID) and all(abs(r["m"]["con_rel"]) < 1e-9 and r["m"]["rho"] > 0
                                          and r["m"]["rho"] + r["m"]["p"] > 0 for r in okrows)
         and all(okrows[i]["cut"]["L"] < okrows[i + 1]["cut"]["L"] and okrows[i]["m"]["rho"] > okrows[i + 1]["m"]["rho"]
-                for i in range(len(okrows) - 1)) and all(C["C4"]["no_cut"]) and C["C4"]["crossings"] == [1, 1, 1])
+                for i in range(len(okrows) - 1)) and all(C["C4"]["no_cut"])
+        and [c_[0] for c_ in C["C4"]["crossings"]] == [1] * len(CROSS_A0))
     small = [r["m"]["rho"] * r["cut"]["L"] for r in okrows[:1]]
     big = okrows[-1]["m"]["rho"] * okrows[-1]["cut"]["L"] ** 2 if okrows else 0
     add("C5 computed: limits -- rho/sigma -> 0.6627 ell/L as L/ell -> 0 (the ell = infinity cap) and -> (1/6)(ell/L)^2 as "
@@ -882,30 +1038,61 @@ def checks(d):
         C["C4"]["c_flat"] is not None and abs(C["C4"]["c_flat"] - 0.6627) < 2e-3 and small
         and abs(small[0] - C["C4"]["c_flat"]) < 0.01 * C["C4"]["c_flat"] and abs(big - 1 / 6) < 1e-3)
     c6 = C["C6"]
-    add("C6 computed: in the window (2m/ell <= 2/27.07) the plane needs rho >= 7 sigma_RS; sigma_RS >= 7e18 x nuclear "
-        "(ell <= 13.964 um); at the example README >= 1e40 x nuclear; ours suffices only past N ~ 1e78 >> item 108's "
-        "1.088e29", c6["rho_edge"] >= 7 and 6.5e18 < c6["sigma_over_nuc"] < 8e18 and c6["need_example_over_nuc"] > 1e40
-        and c6["N_star"] > 1e77 and c6["N_star"] > 1e40 * SNAPSHOT_N and c6["ell_need_example_m"] > 1e30)
+    add("C6 computed (gates at the printed figures): at SIM2's edge rho = 8.02 sigma_RS (>= 8.0); B4c's edge 1.3e5; "
+        "sigma_RS = 7.17e18 x nuclear (ell <= 13.964 um); the example README needs 1.67e41 x nuclear; ours suffices "
+        "only for 2m >= 1.53e4 m, N >= 4.0e78 (4.7e77 at 2e18 kg/m^3) >> 1.088e29; without the upper edge ell >= 2.3e36 m",
+        8.0 <= c6["rho_edge"] < 8.05 and 1.30e5 < c6["rho_b4c"] < 1.35e5 and 7.1e18 < c6["sigma_over_nuc"] < 7.2e18
+        and 1.6e41 < c6["need_example_over_nuc"] < 1.7e41 and 1.52e4 < c6["L_star_m"] < 1.53e4
+        and 4.0e78 < c6["N_star"] < 4.1e78 and 4.6e77 < c6["N_star_ns"] < 4.7e77 and c6["N_star"] > 1e40 * SNAPSHOT_N
+        and 2.3e36 < c6["ell_need_example_m"] < 2.4e36)
     add("C7 computed: b > a at every cap's cut, so two capped sides cannot cancel their anisotropy (J1's Pi_L = -Pi_R)",
         C["C7"]["b_gt_a"] and all(C["C7"]["b_gt_a"]) and len(C["C7"]["b_gt_a"]) == len(GRID))
     cya, cyb = C["C8"]["a"]["1173"], C["C8"]["b"]["1173"]
     num = lambda per: {k_: v for k_, v in per.items() if isinstance(v, int)}
-    add("C8 cypher (196, H-M1-TRACE-INDEX): no operator-bearing language admits the question cell (every roster); "
-        "logic's binary: rho is fixed by x", all(all(v == 0 for v in num(r["per"]).values()) and len(num(r["per"])) >= 2
-                                                 for r in C["C8"]["a"].values()) and len(num(cya["per"])) >= 4
-        and not cya["degenerate"] and C["C8"]["logic_rho_by_x"])
-    add("C8 control: with Route 1's READ non-extremal families added, every operator-bearing language admits it -- the "
-        "obstruction is a three-way conjunction", all(v == C["C8"]["n_q"] for v in num(cyb["per"]).values())
+    add("C8 cypher (196, H-M1-TRACE-INDEX): no operator-bearing language admits the question cell (every roster); the "
+        "index has one cap per grid x (by construction)",
+        all(all(v == 0 for v in num(r["per"]).values()) and len(num(r["per"])) >= 2 for r in C["C8"]["a"].values())
+        and len(num(cya["per"])) >= 4 and not cya["degenerate"] and C["C8"]["one_cap_per_x"])
+    pj = C["C8"]["proj"]["1173"]["per"]
+    add("C8 projection: on (rho, regular) alone order, algebra, geometry and information also admit no (0, 1) -- the "
+        "exclusion is the index's own two-coordinate dependence (C2 restated), not an independent finding",
+        all(pj.get(lg_) == 0 for lg_ in ("order", "algebra", "geometry", "information")))
+    add("C8 control: with Route 1's READ non-extremal families added, every operator-bearing language admits it -- a "
+        "three-way reading applies to the control index only", all(v == C["C8"]["n_q"] for v in num(cyb["per"]).values())
         and len(num(cyb["per"])) >= 4)
     g = C["C9"]
-    bef8 = ["H2", "O1", "O2", "Z1", "Z2", "B1", "B2", "E4"]
-    add("C9 STRUCTURAL: before, none of the eight green-status F1 lemmas is green; after the edits H2, O1a, Z1', B1', "
-        "B2' are green and the seven M1-conditionals wait on M1 (OPEN)",
-        not any(g["before"][k_] for k_ in bef8) and all(g["after"][k_] for k_ in ("H2", "O1a", "Z1'", "B1'", "B2'"))
-        and not any(g["after"][k_] for k_ in ("H2t", "O1b", "O2", "Z1t", "Z2", "B2t", "E4")))
-    add("C9 STRUCTURAL: with M1 proved, every edit of the eight is green; B3, B4b, B4d stay non-green by their own status",
-        all(all(g["with_M1"][k_] for k_ in g["covers"][b]) for b in bef8)
-        and not any(g["with_M1"][k_] for k_ in ("B3", "B4b", "B4d")))
+    bef = ["H2", "O1", "O2", "Z1", "Z2", "B1", "B2", "E4"]
+    add("C9 STRUCTURAL (imported): warptheorem.py's statuses agree with the item-192 list; that list puts F1 under the "
+        "ten audited lemmas and none under G1, G3; corrected for G1, G3 (axioms.py places the horizon with eq. (17)'s "
+        "F = 0), none of the ten green-status F1 lemmas is green",
+        g["status_agree"] and all(g["F1_listed"][k_] for k_ in bef + ["B3", "B4b", "B4d"])
+        and not g["F1_listed"]["G1"] and not g["F1_listed"]["G3"] and g["before_listed"]["G1"]
+        and g["before_listed"]["G3"] and not any(g["before"][k_] for k_ in bef + ["G1", "G3"]))
+    add("C9 STRUCTURAL: after the edits, with M1 OPEN, exactly H2, O1a, Z1q, B1q, B2q are green",
+        sorted(k_ for k_, v in g["after"].items() if v) == sorted(["H2", "O1a", "Z1q", "B1q", "B2q"]))
+    gain = sorted(k_ for k_, v in g["with_M1"].items() if v and not g["after"][k_])
+    gain2 = sorted(k_ for k_, v in g["with_M1_P2"].items() if v and not g["with_M1"][k_])
+    add("C9 STRUCTURAL: with M1 proved, G1, G3, O1b, O2, Z1t, Z2r, B2t, E4r (and M1) turn green; with M1-P2 too, H2t; "
+        "Z2 and E4 (M1-global, excluded in its exact form), O1c, B3, B4b, B4d never",
+        gain == sorted(["G1", "G3", "O1b", "O2", "Z1t", "Z2r", "B2t", "E4r", "M1"]) and gain2 == ["H2t", "M1-P2"]
+        and not any(g["with_M1_P2"][k_] for k_ in ("Z2", "E4", "O1c", "B3", "B4b", "B4d", "M1-global")))
+    c10 = C["C10"]
+    add("C10 computed (M1-c's bound): nuclear density is 2.3e-63 of eq. (17)'s tidal term at 3m; the READ dark energy "
+        "(~5.8e-27 kg/m^3) is 1e-106 of it at 3m and reaches it at r ~ 3e35 m(N); exact eq. (17) to infinity is "
+        "excluded (B1q: R4 != 0 for tau = -rho_L h and for q != 1); Z2's leg and E4 hold 97-99% within 30m",
+        5.5e-27 < c10["rho_L_kgm3"] < 6.2e-27 and 2.2e-63 < c10["eps_nuc_3m"] < 2.4e-63 and c10["eps_L_3m"] < 1e-100
+        and 1e35 < c10["R_L_m_units"] < 1e36 and c10["exact_excluded_de"] and c10["exact_excluded_shift"]
+        and abs(c10["leg_all"] - Q_REF / 2) < 1e-6 and 0.97 < c10["leg_30_share"] < 0.995
+        and abs(c10["e4_30_share"] - (1 - 1 / 57)) < 1e-9)
+    st = C["C11"]
+    dec = lambda sw: [(rn, lg_, v["decides"]) for rn, per in sw.items() for lg_, v in per.items()
+                      if isinstance(v, dict) and v["decides"] in ("allowed", "excluded")]
+    nb = [v for v in st["law"]["1173"].values() if isinstance(v, dict) and v["decides"] != "SILENT"]
+    add("C11 cypher (196, H-STRESS-INDEX): may our plane carry the README's stress at the mouth?  Over every value order "
+        "no language of any roster decides it; the control (that cell seated) is decided 'allowed' by at least one",
+        not dec(st["law"]) and len(nb) >= 4
+        and any(v == "allowed" for _, _, v in dec(st["control"])) and not any(v == "excluded" for _, _, v in
+                                                                            dec(st["control"])))
     add("NH computed: KR's (2.4)/(2.6) derived for the ansatz equal the integrator's right-hand sides; the cut's "
         "Hamiltonian constraint is the SMS trace equation", NH["resA"] == 0 and NH["resR"] == 0
         and NH["cut_vs_sms"].is_number and NH["cut_vs_sms"] != 0)
@@ -933,9 +1120,15 @@ MUTANTS = [
     ("the question cells put into the index", {"cy_add_question": True}),
     ("Route 1 dropped from the control", {"cy_drop_route1": True}),
     ("M1 marked green", {"m1_green": True}),
-    ("B1' kept on F2", {"keep_B1_F2": True}),
+    ("B1q kept on F2", {"keep_B1_F2": True}),
     ("a and b read swapped", {"swap_ab": True}),
     ("a corrupted Kaus-Reall quote", {"kr_quote": "corrupt"}),
+    ("the cap start's cubic coefficient over 10 (F1A-R7)", {"c3_div": 10}),
+    ("SMS's pi without its trace term", {"pi_form": "no_trace"}),
+    ("no dark energy", {"rho_lambda_on": False}),
+    ("Z2 and E4 keyed to M1 alone (F1A-R1, OC-1)", {"z2_on_m1": True}),
+    ("(P1, readme, 1) seated in the stress index", {"cy_stress_add_q1": True}),
+    ("G1 and G3 read F1-free, as the item-192 list has them (F1A-R2)", {"g13_f1_free": True}),
 ]
 
 
@@ -979,43 +1172,57 @@ def mutants():
 
 def report(d):
     A, C = d["A"], d["C"]
-    print("f1_audit.py -- input F1 (eq. (17) as our plane's own metric) across the ten lemmas resting on it\n")
-    print("PART A, the owners re-run (each a true theorem about eq. (17) on a plane; F1 decides whether it is the "
-          "corridor's):")
+    print("f1_audit.py -- input F1 (eq. (17) as our plane's own metric) across the twelve lemmas resting on it\n")
+    print("PART A, the owners' decisive checks re-run (statements about eq. (17) on a matter-free RS-tension plane, F1 and "
+          "F2; O1's 'nonsingular' OPEN even there):")
     print("  H2 horizon %s; O1 one way %s; O2 D' = %s (control %s); Z1 identity %s; Z2 Q = %.6f/m; B1 R4 = %s; "
           "B4b t_cert = %.2f clocks; E4 far mass 5m/4"
           % (A["A1"]["horizon"], A["A2"]["one_way"], A["A3"]["D1"], A["A3"]["control_D1"], A["A4"]["identity"],
              A["A5"]["Q"], A["A6"]["R4"], A["A8"]["t_cert"]))
     print("\nPART C, M1 (H-PLANE-READS-MOUTH as a theorem; OPEN):")
-    print("  C1 4D-limit candidate: R4(k,k) at r = 2.01..100m = %s (< 0: NEC broken); net per ray %.6f/m"
+    print("  C1 4D-limit candidate: R4(k,k) at r = 2.01..100m = %s (< 0 pointwise); net per ray %.6f/m (against 183)"
           % (", ".join("%.3g" % v for v in C["C1"]["R4kk"]), C["C1"]["net"]))
-    print("     needed at r = 3m, example README: %.3g kg/m^3; our densest matter supplies %.2g of it"
+    print("     needed at r = 3m, example README: %.3g kg/m^3; nuclear density supplies %.2g of it"
           % (C["C1"]["need_3m_kgm3"], C["C1"]["ours_over_need"]))
     print("  C2 matter-free plane's near-horizon bulk singular at y_s = %.4fm (flat), %.4fm (ell = m)"
           % (C["C2"]["ys_flat"], C["C2"]["ys_ell_m"]))
     c2b = C["C2b"]
-    print("  C2b the same data on a negative-tension plane (growing side): ell = 2m %s, 4.79m %s, 4.80m %s, 8m %s, "
-          "3 x 27.07m %s (None = regular to y = 50m)" % tuple(
+    print("  C2b the same data on a negative-tension plane (growing side; RK4, sampled): ell = 2m %s, 4.79m %s, 4.80m %s, "
+          "8m %s, 3 x 27.07m %s, 6 x 27.07m %s (None = no singularity to y = 50m)" % tuple(
               ("%.4fm" % v) if v is not None else "None" for v in (c2b["ell_2"], c2b["ell_479"], c2b["ell_480"],
-                                                                    c2b["ell_8"], c2b["ell_edge"])))
-    print("  C4 regular single-plane caps reading AdS2(2m) x S2(2m):  2m/ell    rho/sigma     p/sigma")
+                                                                    c2b["ell_8"], c2b["p2_3"], c2b["p2_6"])))
+    print("  C3b cap start: rho^2 x Hamiltonian residual, max over the grid = %.2g" % C["C3"]["start_con"])
+    print("  C4 regular single-plane caps reading AdS2(2m) x S2(2m) (RK4, grid):  2m/ell    rho/sigma     p/sigma")
     for r in C["C4"]["rows"]:
         if r["m"]:
             print("       A0/ell = %-7g %10.5g %12.6g %11.5g" % (r["A0"], r["cut"]["L"], r["m"]["rho"], r["m"]["p"]))
+    print("     crossings of A = R to rho = 60 ell at A0 = %s: %s" % (list(CROSS_A0), C["C4"]["crossings"]))
     c6 = C["C6"]
     print("  C5 rho/sigma -> %.4f ell/(2m) small, -> (1/6)(ell/2m)^2 large (Bertotti-Robinson)" % C["C4"]["c_flat"])
-    print("  C6 at 2m/ell = %.4f (SIM2's edge): rho = %.3f sigma_RS; at B4c's edge %.3g sigma_RS; sigma_RS/nuclear = "
-          "%.3g at ell = 13.964 um; needed at the example README %.3g x nuclear; our matter would do only for 2m >= "
-          "%.3g m, N >= %.2g bits; without the upper edge, ell >= %.2g m at the example README"
+    print("  C6 at 2m/ell = %.4f (SIM2's edge, itself resting on F1): rho = %.3f sigma_RS; at B4c's edge %.3g sigma_RS; "
+          "sigma_RS/nuclear = %.3g at ell = 13.964 um; needed at the example README %.3g x nuclear; nuclear density would "
+          "do only for 2m >= %.3g m, N >= %.2g bits (%.2g at 2e18 kg/m^3); without the upper edge, ell >= %.2g m"
           % (c6["x_edge"], c6["rho_edge"], c6["rho_b4c"], c6["sigma_over_nuc"], c6["need_example_over_nuc"],
-             c6["L_star_m"], c6["N_star"], c6["ell_need_example_m"]))
-    for key, lab in (("a", "H-M1-TRACE-INDEX"), ("b", "control (Route 1 added)")):
+             c6["L_star_m"], c6["N_star"], c6["N_star_ns"], c6["ell_need_example_m"]))
+    for key, lab in (("a", "H-M1-TRACE-INDEX"), ("proj", "projection (rho, regular)"), ("b", "control (Route 1 added)")):
         for rn, v in C["C8"][key].items():
-            print("  C8 cypher %-24s roster %-5s question admitted (of %d): %s" % (lab, rn, C["C8"]["n_q"], v["per"]))
+            print("  C8 cypher %-26s roster %-5s question admitted: %s" % (lab, rn, v["per"]))
     g = C["C9"]
-    print("  C9 green now: %s | after edits: %s | with M1: %s" % (
-        sorted(k for k, v in g["before"].items() if v), sorted(k for k, v in g["after"].items() if v),
-        sorted(k for k, v in g["with_M1"].items() if v)))
+    print("  C9 green before (item-192 list): %s | corrected for G1, G3: %s"
+          % (sorted(k for k, v in g["before_listed"].items() if v), sorted(k for k, v in g["before"].items() if v)))
+    print("     after edits: %s | with M1: %s | with M1 and M1-P2: %s" % (
+        sorted(k for k, v in g["after"].items() if v), sorted(k for k, v in g["with_M1"].items() if v),
+        sorted(k for k, v in g["with_M1_P2"].items() if v)))
+    c10 = C["C10"]
+    print("  C10 rho_L = %.3g kg/m^3 (READ Planck via cosmo.py); eps at 3m: nuclear %.2g, dark energy %.2g; eps_L = 1 at "
+          "r = %.3g m(N) = %.3g m for the example README; exact M1-global excluded: %s (as tau), %s (as a tension shift); "
+          "within 30m: %.4f of Z2's leg, %.4f of E4's E/4"
+          % (c10["rho_L_kgm3"], c10["eps_nuc_3m"], c10["eps_L_3m"], c10["R_L_m_units"], c10["R_L_metres"],
+             c10["exact_excluded_de"], c10["exact_excluded_shift"], c10["leg_30_share"], c10["e4_30_share"]))
+    for key in ("law", "control"):
+        for rn, per in C["C11"][key].items():
+            print("  C11 stress question, %-7s roster %-5s %s" % (key, rn, {lg_: (v["decides"] if isinstance(v, dict)
+                                                                            else v) for lg_, v in per.items()}))
 
 
 def _jsonable(o):
