@@ -21,9 +21,20 @@ non-negative in every tangent direction.
      directions non-negative and energy positive) is refused by statistics, admitted by geometry only through the
      throat-limit cell (refused when it is left out), and admitted by order, algebra and information through closure
      (over-reach, recorded).  Control: a cell meeting both, seated, flips all five
+  S5 (computed) the gap's size: the tangential null energy missing on the last stretch, Killing-weighted on the curved
+     surface, is 0.027-0.126 (m/ell) E (start depths 0.25-1m) -- at most 1/68 of E at the window's lowest ell/m = 8.54,
+     about 1e-16 of E for a real README.  Our plane's own matter (at most nuclear) is short of the gap's density by
+     ~1e40 at the example README (sigma_RS = 7.17e18 x nuclear at ell = 13.964 um; ell/m = 7e22)
+  S6 (computed; the cypher CLASSIFIES) the rim put to the cypher: candidate carriers as cells -- the shape alone (gap
+     negative), our plane's matter (positive, insufficient), the README on the corridor (positive as (Z) through TS
+     requires of any carrier; sufficient by 68 to ~1e16; compatible with 198 and 203).  The ring where the surfaces meet
+     at the rim is NOT RUN (its force balance is not computed) and is never counted as a refusal.  Target: a positive,
+     sufficient, compatible carrier.  With the README's cell left out no language regrows the target: on the computed
+     cells the README is the only carrier that closes the gap.  Control: a ring cell seated as positive and sufficient
+     is admitted by all five
 So: in the throat both directions hold (ITEM197); the marginal corridor carries the radial condition across the whole
 surface to a rim where it meets our plane (r ~ 2.1-2.2m); the only gap is the tangential null energy on the stretch
-just before the rim.  Flat limit; Pade continuation (a heuristic); thin surface; static.
+just before the rim -- a fraction <= 1/68 of E, which the README covers and our plane's matter does not.  Flat limit; Pade continuation (a heuristic); thin surface; static.
 Imports p2_full.py (and through it b4_static.py) and tools/cypher.py by path.  Bank: corridor_shape_bank.json (Pade
 coefficients per column; --regenerate rebuilds it, about 8 minutes).  python3 corridor_shape.py [--selftest | --mutants]
 """
@@ -227,6 +238,38 @@ def cypher_run():
     return {"all": ask(cells), "leave": ask([c for c in cells if c[0] != 5])}
 
 
+def rim_gap(ks, bulk, d):
+    run = marginal(ks, bulk, d, 0.0, 0.0)
+    rows, gap, tot = run["rows"], 0.0, 0.0
+    for (r0, Y0, Y10, rho0, nr0, nt0), (r1, *_rest) in zip(rows, rows[1:]):
+        g = bulk.at(r0, Y0)
+        w = math.sqrt(g["A"][0] * (g["B"][0] + Y10 ** 2)) * g["C"][0] * 4 * math.pi
+        gap += max(0.0, -nt0) * w * (r1 - r0)
+        tot += rho0 * w * (r1 - r0)
+    return {"gap_over_E_times_ell_over_m": gap / (4 * math.pi), "gap_over_energy": gap / tot}
+
+
+def rim_cypher():
+    cy = _load(os.path.join(ROOT, "tools", "cypher.py"), "cs_cypher_rim")
+    C = ["carrier", "sign", "sufficient", "compatible"]
+    cells = [(0, 0, 0, 1), (1, 1, 0, 1), (2, 1, 1, 1)]            # shape alone; our plane's matter; the README on the corridor
+    if MUT.get("readme_insufficient"):
+        cells[2] = (2, 1, 0, 1)
+    ok = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1
+
+    def ask(cs):
+        cl = sorted(set(cs))
+        ix = cy.Index("rim", C, [list(c) for c in cl])
+        inv = [{v: k for k, v in ix.code[i].items()} for i in range(len(C))]
+        res = {}
+        for lang in ("order", "algebra", "geometry", "information", "statistics"):
+            out, _ = cy.ADMISSION[lang][0](ix, {})
+            res[lang] = None if out is None else any(
+                all(c[i] in inv[i] for i in range(len(C))) and ok(tuple(inv[i][c[i]] for i in range(len(C)))) for c in out)
+        return res
+    return {"all": ask(cells), "leave": ask([c for c in cells if c[0] != 2]), "ctrl": ask(cells[:2] + [(3, 1, 1, 1)])}
+
+
 def compute(full=False):
     ks = curvature_exprs()
     bulk = Bulk(load_bank())
@@ -236,7 +279,8 @@ def compute(full=False):
     for i, rc in enumerate(bulk.rs[:20]):
         g = bulk.col(i, 0.5)
         const.append(stresses(ks, g, 0.0, 0.0))
-    return {"ks": ks, "runs": runs, "const": const, "cy": cypher_run()}
+    gaps = {d0: rim_gap(ks, bulk, d0) for d0 in (0.25, 1.0)}
+    return {"ks": ks, "runs": runs, "const": const, "cy": cypher_run(), "gaps": gaps, "rim_cy": rim_cypher()}
 
 
 def checks(d):
@@ -262,10 +306,18 @@ def checks(d):
         "leave-out); order, algebra, information admit (over-reach)", cy["all"]["statistics"] is False
         and cy["all"]["geometry"] is True and cy["leave"]["geometry"] is False
         and all(cy["all"][l] for l in ("order", "algebra", "information")))
+    gp = d["gaps"]
+    add("S5 the tangential gap is 0.02-0.13 (m/ell) E, at most 1/68 of E at ell/m = 8.54",
+        0.02 < gp[0.25]["gap_over_E_times_ell_over_m"] < 0.035 and 0.11 < gp[1.0]["gap_over_E_times_ell_over_m"] < 0.14
+        and max(v["gap_over_E_times_ell_over_m"] for v in gp.values()) / 8.54 < 1 / 60)
+    rc_ = d["rim_cy"]
+    add("S6 rim cypher: the README's cell admitted (forced: data); left out, no language regrows a positive, sufficient, "
+        "compatible carrier; control (a ring cell seated) admitted by all five", all(rc_["all"].values())
+        and not any(rc_["leave"].values()) and all(rc_["ctrl"].values()))
     return res
 
 
-MUTANTS = {"normal_out": "the corridor's normal pointing away from its plane", "drop_curvature": "Y'' dropped (no design)",
+MUTANTS = {"readme_insufficient": "the README's cell marked insufficient", "normal_out": "the corridor's normal pointing away from its plane", "drop_curvature": "Y'' dropped (no design)",
            "seat_both": "a whole surface meeting both directions seated as data"}
 
 
