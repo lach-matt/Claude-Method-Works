@@ -16,6 +16,8 @@ different corridors.
   C2 (computed, imported) the marginal corridor's own stress at its rim, every admissible member: energy density
      rho_rim > 0 and rho + p_r = 0, so its pull along its conormal is -p_r = rho_rim > 0 -- a positive tension,
      tau = rho_rim ell/(3m) in sigma's units (sigma = (2/kappa5^2)(3/ell), the stress in 2/kappa5^2 per m)
+     [item 211 (open_mouth.py O2; the item-210 critic confirmed it): rho_rim = sqrt2 sin t sqrt(2 r_rim - 3m)/r_rim^1.5
+     exactly, so tau is an exact function of (r_rim, t), not a free coefficient]
   C3 (deduced from C1, C2) every admissible member meets the plane below 45 deg, where cos 2t > 0; with tau >= 0 the
      ring is then negative: lambda/(a sigma) = -0.60 to -1.16 at ell/m = 8.5415 over the members computed (the seated
      count gives +0.013 to +0.70 at the same angles).  In the flat

@@ -561,3 +561,49 @@ The theorem is proved exactly when no lemma below is OPEN.
     compression) is what the open mouth looks like on paper, as 130's black hole "is what the mouth at position 1 looks
     like". On that guess it is not added matter, so clause (d) is met.
   - What the open mouth carries, and whether it keeps (Z), stay to be computed.
+
+## History (2026-10-10, item 211: the open questions through the cypher, first part)
+
+- **M, item 211: "Keep moving the open questions through the cypher please".**
+- **The indexes audited first (`lemmas/index_audit.py`).** Each open row's cypher index was checked for what item 208
+  found in the ring's index.
+  - **Keys:** z3b_cypher, far_cypher, g2_between, corridor_shape S6 and rim_readme each have a coordinate that
+    individuates every cell, so any verdict that turns on such a value is forced.
+  - **Redundant groups:** eleven indexes carry one distinction over several coordinates.
+  - **Clean:** arrival, write, close_object and b5b.
+  - No seated status rests on a forced verdict alone. Each forced verdict is marked void as evidence in its own
+    instrument, and no status moves.
+- **The open mouth (`lemmas/open_mouth.py`).** This is M's guess in item 210: our plane turning smoothly into the
+  corridor. It was computed in the flat-limit bank, and an adversarial verifier checked it.
+  - **Two orientations.** A smooth turn fixes the surface but not which side is kept.
+    - D+ keeps corridor_shape's own normal. It is what B becomes when our plane inside the rim is removed.
+    - D− keeps the other side. There every seated stress changes sign, so the seated family has negative energy along
+      its whole length and no D− body has been computed.
+    - D+ is therefore the only orientation in which the seated corridor (rim_profile P4, P4b) is the open mouth's body.
+  - **The joint in D+.** It is the plane's own concave fold. It carries a negative Nambu–Goto line,
+    λ = −(2/κ₅²)·t, where t is the meeting angle. On paper that is a line in compression, as item 210's board reading
+    had it, and it needs no balance.
+    - A radial null ray in the sheet gains −t/√(1 − 2m/r_rim) across the joint (−0.14 to −0.33 over the members), and
+      the marginal corridor adds exactly 0.
+    - So (Z), net per ray (183), asks for a partner on the same rays. That is TS's own exception (P2-FULL) and where
+      177's appearance and 210's coupling enter.
+    - What pairs it is OPEN.
+  - **The joint in D−.** It is a convex fold carrying a positive line, with its tangential null energy kept only if
+    r_rim ≤ 3m.
+  - **Exact values.**
+    - The marginal corridor's energy at its rim is ρ_rim = √2 sin t √(2r_rim − 3m)/r_rim^1.5, so ring_consistent's τ
+      is an exact function of (r_rim, t), not a free coefficient.
+    - The tangential bound is the photon sphere, r = 3m exactly. rim_profile P2's "~3.01m" is the grid step.
+    - A gravitating sheet's fold carries a Nambu–Goto line. ring_cypher R2 ("no line tension at a fold") holds for a
+      test membrane only.
+  - **The cypher (O7).** M's sentence entered as a cell is the D+ cell, so every language admits it by construction;
+    the cypher adds nothing beyond the computation. Whether D− has a body splits the languages, and statistics'
+    refusal is forced, so the cypher does not decide it.
+  - **The board's reading, H-OPEN-MOUTH-DPLUS, to be overruled by M at any point:** M's open mouth is D+, because it
+    keeps the seated corridor. D− is kept on record.
+  - **Corrections seated (206), notes only:** M1's and Z3b's records; rim_profile P2 (r_b = 3m); ring_cypher R2
+    (scope); ring_consistent C2 (τ exact). No status moves.
+  - **Refuted and kept on record (the item-210 critic):**
+    - the analyst's claim that the open mouth needs no appeal to 177 or 183, which holds in D− only;
+    - its correction of item 210's board reading, which holds in D− only;
+    - its cypher's "one missing cell", an artefact of an omitted carrier.

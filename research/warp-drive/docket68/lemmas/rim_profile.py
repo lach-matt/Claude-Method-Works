@@ -14,6 +14,9 @@ slopes 0 and +-0.3 only.
      rho + p_r = k_t - k_r is kept exactly when Y'' <= Y''_m(r, Y, Y') (the marginal curvature)
   P2 (computed) near the plane, to first order in depth and slope: tangential = a(r) Y + b(r) Y' with a > 0, and b > 0
      inside r_b ~ 3.01m, b < 0 beyond (the sign change located); Y''_m = -lambda(r) Y + mu(r) Y' with lambda > 0
+     [CORRECTED, item 211 (open_mouth.py O2; the item-210 critic confirmed it): r_b is exactly 3m, the photon sphere --
+     as y -> 0 the tangential null energy is sqrt2 sin t (r - 3m)/(r^1.5 sqrt(2r - 3m)) in closed form; '~3.01m' is the
+     0.01m grid step below.  Kept as computed.]
   P3 (deduced from P2; Gronwall) inside r_b a descending corridor keeps the tangential null energy only if
      Y' >= -kappa Y, kappa = a/b, bounded on [2.02, 2.9]m; then Y >= Y0 exp(-int kappa) > 0: NO rim inside r_b keeps the
      tangential null energy.  Illustrated by the marginal corridor held strictly positive (margin 0.01): its rims fall

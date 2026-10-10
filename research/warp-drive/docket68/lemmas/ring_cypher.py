@@ -18,6 +18,10 @@ family (P5).  The board read that tension as the fold's own, part of the plane's
      which is negative on (0, pi) and vanishes as w -> 0.  The plane as the board models it (201: a tension and an
      offset, both pure tension, thin) gives its own fold zero line tension, never the ring's positive one.  So the
      reading's identification of the ring with the fold is refuted in the thin-plane model
+     [SCOPE, item 211 (open_mouth.py O3; the item-210 critic confirmed it): this holds for a test membrane whose stress
+     is sigma h_ab whatever its shape.  A gravitating Z2 sheet's stress is fixed by its extrinsic curvature, and Y''
+     enters k_r only: its fold carries a Nambu-Goto line of (2/kappa5^2) times the turning angle, negative or positive
+     by the side kept -- in D+, the open mouth's joint.  The positive ring stays refuted (item 208).  Kept as computed.]
   R3 (READ, read 2026-10-10 through alphaXiv) the junctions physics records.  Csaki and Shirman, "Brane junctions in
      the Randall-Sundrum scenario" (hep-th/9908186): a static junction of branes exists "only if the mechanical forces
      acting on the junction exactly cancel", sum V_i n_i = 0 (their (3.10)), with no junction tension; a tension on the
