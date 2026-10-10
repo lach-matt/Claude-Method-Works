@@ -898,12 +898,17 @@ COVERS = {"G1": ["G1"], "G3": ["G3"], "H2": ["H2", "H2t"], "O1": ["O1a", "O1b", 
 def green_table(cfg):
     """STRUCTURAL: the board's green rule (a lemma is GREEN iff its status is PROVED, DERIVED or AXIOM and every input
     is green).  M's carried rulings (M132, M130) count as green inputs -- the sibling convention (b1_matter.py's
-    AXIOM_ITEMS), meaning M's carried statement, not an axiom M declared.  BEFORE: statuses imported from warptheorem.py's
+    AXIOM_ITEMS), meaning M's carried statement, not an axiom M declared.  BEFORE: statuses as the item-192 list recorded them (warptheorem.py, re-seated on item 206, cross-checked where a name is seated whole) --
     LEMMAS, inputs from the item-192 audit's list as b1_matter.py records it (AUDIT_INPUTS), with G1 and G3 corrected
     to carry F1 (F1A-R2).  AFTER: this audit's proposal (AFTER), with M1, M1-P2 and M1-global in F1's place."""
     wt = _load(WARPTHEOREM, "f1a_warptheorem")
     b1m = _load(B1MATTER, "f1a_b1matter")
-    wstat = {name.split()[0]: st for _, name, st, _ in wt.LEMMAS}
+    live = {name.split()[0]: st for _, name, st, _ in wt.LEMMAS}
+    # The item-192 list is history: item 206 re-seated the table, splitting O1, Z1, Z2 and E4 into the parts this audit
+    # proposed (COVERS).  BEFORE reads the statuses that list recorded; the live table is checked against it wherever an
+    # audited name is still seated whole, and each name no longer seated must have a part of its split seated.
+    wstat = {k: b1m.AUDIT_STATUS[k] for k in AUDITED}
+    reseated = sorted(k for k in AUDITED if k not in live)
     G = {"PROVED", "DERIVED", "AXIOM"}
     green_in = {"M132": True, "M130": True}
     listed = {k: (wstat[k], b1m.AUDIT_INPUTS[k].split()) for k in AUDITED}
@@ -927,7 +932,8 @@ def green_table(cfg):
                     done[k] = ok
                     changed = True
         return done
-    return {"status_agree": all(wstat[k] == b1m.AUDIT_STATUS[k] for k in AUDITED),
+    return {"status_agree": all(live[k] == b1m.AUDIT_STATUS[k] for k in AUDITED if k in live)
+            and all(any(p in live for p in COVERS.get(k, [])) for k in reseated), "reseated": reseated,
             "F1_listed": {k: "F1" in b1m.AUDIT_INPUTS[k].split() for k in AUDITED},
             "before_listed": greens(listed), "before": greens(corrected), "after": greens(after),
             "with_M1": greens(dict(after, M1=("PROVED", []))),
@@ -1064,10 +1070,12 @@ def checks(d):
         and len(num(cyb["per"])) >= 4)
     g = C["C9"]
     bef = ["H2", "O1", "O2", "Z1", "Z2", "B1", "B2", "E4"]
-    add("C9 STRUCTURAL (imported): warptheorem.py's statuses agree with the item-192 list; that list puts F1 under the "
+    add("C9 STRUCTURAL (imported): warptheorem.py's statuses agree with the item-192 list wherever a name is still "
+        "seated whole (O1, Z1, Z2, E4 re-seated split on item 206, a part of each seated); that list puts F1 under the "
         "ten audited lemmas and none under G1, G3; corrected for G1, G3 (axioms.py places the horizon with eq. (17)'s "
         "F = 0), none of the ten green-status F1 lemmas is green",
-        g["status_agree"] and all(g["F1_listed"][k_] for k_ in bef + ["B3", "B4b", "B4d"])
+        g["status_agree"] and g["reseated"] == ["E4", "O1", "Z1", "Z2"]
+        and all(g["F1_listed"][k_] for k_ in bef + ["B3", "B4b", "B4d"])
         and not g["F1_listed"]["G1"] and not g["F1_listed"]["G3"] and g["before_listed"]["G1"]
         and g["before_listed"]["G3"] and not any(g["before"][k_] for k_ in bef + ["G1", "G3"]))
     add("C9 STRUCTURAL: after the edits, with M1 OPEN, exactly H2, O1a, Z1q, B1q, B2q are green",
