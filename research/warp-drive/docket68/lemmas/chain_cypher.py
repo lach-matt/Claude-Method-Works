@@ -24,6 +24,11 @@ Sources of this round's changes (each checked by two separate AI sessions in thi
   README-HELD.md   'held, not crossing' fails in every computed model; the README forms the horizon it crosses
                    (H-ARRIVAL-FORMS-THE-HORIZON); 198 (M's guess) takes that way in: ARRIVAL replaces F5's pair for the
                    README.  New OPEN: the closing's negative flux (CLOSE), on which E1 and E2 now rest ('(a) with OPEN')
+  CLOSE-FLUX.md    CLOSE splits by trajectory class: within one universe no event horizon, no negative-flux demand
+                   (E1u, E2u DERIVED, no input); between universes it stands (E1x, E2x on CLOSE).  Not verified by a
+                   separate session.
+  o1c_complete.py  O1c PROVED for eq. (17)'s geometry (curvature bounded; every geodesic crosses the throat in finite
+                   affine parameter and is unbounded at both ends); on M1.  Not verified by a separate session.
 python3 chain_cypher.py [--selftest | --mutants]
 """
 import contextlib
@@ -55,7 +60,7 @@ RANK = {"OPEN": 0, "NATURE": 1, "READING": 1, "DEFINITION": 2, "DERIVED": 3, "PR
 ROWS = [
     ("G1", "DERIVED", "M1", "G1"), ("G2", "PROVED", "", "G2"), ("G3", "PROVED", "M1", "G3"), ("H1", "PROVED", "", "H1"),
     ("H2", "DERIVED", "", "H2"), ("H2t", "DERIVED", "M1 M1P2", "H2"),
-    ("O1a", "DERIVED", "", "O1"), ("O1b", "PROVED", "M1", "O1"), ("O1c", "OPEN", "", "O1"), ("O2", "PROVED", "M1", "O2"),
+    ("O1a", "DERIVED", "", "O1"), ("O1b", "PROVED", "M1", "O1"), ("O1c", "PROVED", "M1", "O1"), ("O2", "PROVED", "M1", "O2"),
     ("O3", "OPEN", "WRITE ARRIVAL", "O3"),
     ("Z1q", "PROVED", "", "Z1"), ("Z1t", "PROVED", "M1", "Z1"), ("Z2r", "PROVED", "M1", "Z2"),
     ("Z2", "PROVED", "M1 EXCLUDED", "Z2"),
@@ -65,7 +70,7 @@ ROWS = [
     ("B4b", "READING", "M1 WRITE", "B4b"), ("B4d", "OPEN", "M1 WRITE ARRIVAL CLOSE", "B4d"),
     ("B5a", "DERIVED", "", "B5"), ("B5p", "OPEN", "", "B5"), ("B5b", "OPEN", "", "B5"),
     ("B6", "PROVED", "COUNT", "B6"), ("B6'", "NATURE", "SIGMA", "B6'"), ("B7", "DERIVED", "WRITE ARRIVAL CLOSE", "B7"),
-    ("I1", "DERIVED", "", "I1"), ("I2", "PROVED", "", "I2"), ("E1", "DERIVED", "CLOSE", "E1"), ("E2", "DERIVED", "CLOSE", "E2"),
+    ("I1", "DERIVED", "", "I1"), ("I2", "PROVED", "", "I2"), ("E1u", "DERIVED", "", "E1"), ("E2u", "DERIVED", "", "E2"), ("E1x", "DERIVED", "CLOSE", "E1"), ("E2x", "DERIVED", "CLOSE", "E2"),
     ("E3", "DERIVED", "", "E3"), ("E4r", "PROVED", "M1", "E4"), ("E4", "PROVED", "M1 EXCLUDED", "E4"),
     ("R0", "DEFINITION", "", "R0"), ("R1", "DEFINITION", "", "R1"), ("R2", "DEFINITION", "", "R2"),
     ("R3", "PROVED", "", "R3"), ("R4", "DERIVED", "", "R4"), ("R5", "DERIVED", "", "R5"),
@@ -91,7 +96,7 @@ def rows():
     if MUT.get("b6_count_dropped"):
         r = [(a, b, "" if a == "B6" else c, d) for a, b, c, d in r]
     if MUT.get("e12_close_free"):
-        r = [(a, b, "" if a in ("E1", "E2") else c, d) for a, b, c, d in r]
+        r = [(a, b, "" if a in ("E1x", "E2x") else c, d) for a, b, c, d in r]
     if MUT.get("g1_f1_free"):
         r = [(a, b, "" if a in ("G1", "G3") else c, d) for a, b, c, d in r]
     return r
@@ -169,15 +174,15 @@ def compute():
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now: 16 of 45 (strict), 19 of 45 (audit rule); E1 and E2 wait on CLOSE", len(t["strict"]) == 16 and len(t["audit"]) == 19 and t["n"] == 45)
+    add("C1 green now: 18 of 47 (strict), 21 of 47 (audit rule); E1u, E2u green within one universe, E1x, E2x wait on CLOSE", len(t["strict"]) == 18 and len(t["audit"]) == 21 and t["n"] == 47)
     add("C2 the smallest input set greening every green-status lemma: {M1, M1P2, WRITE, ARRIVAL, CLOSE, COUNT}",
         t["smallest"] == [("M1", "M1P2", "WRITE", "ARRIVAL", "CLOSE", "COUNT")])
-    add("C3 M1 alone greens 24 of 45; with COUNT 25; with M1P2 too 26",
-        t["with"][("M1",)] == 24 and t["with"][("M1", "COUNT")] == 25 and t["with"][("M1", "M1P2", "COUNT")] == 26)
-    add("C4 Z2 and E4 as stated are never greenable (M1-global excluded); 11 rows non-green by their own status",
-        t["excluded"] == ["Z2", "E4"] and len(t["own_status"]) == 11)
+    add("C3 M1 alone greens 27 of 47; with COUNT 28; with M1P2 too 29",
+        t["with"][("M1",)] == 27 and t["with"][("M1", "COUNT")] == 28 and t["with"][("M1", "M1P2", "COUNT")] == 29)
+    add("C4 Z2 and E4 as stated are never greenable (M1-global excluded); 10 rows non-green by their own status (O1c now PROVED on M1)",
+        t["excluded"] == ["Z2", "E4"] and len(t["own_status"]) == 10)
     ch = d["changed"]
-    add("C5 the proposal changes 14 of warptheorem.py's 34 rows (G1 G3 H2 O1 O2 O3 Z1 Z2 Z3 B1 B2 B3 B4c B4b B4d B5 B6 B6' "
+    add("C5 the proposal changes at least 14 of warptheorem.py's 34 rows (G1 G3 H2 O1 O2 O3 Z1 Z2 Z3 B1 B2 B3 B4c B4b B4d B5 B6 B6' "
         "B7 E4 carry inputs or splits); every proposal row refines an existing row",
         len(d["current"]) == 34 and set(r[3] for r in rows()) <= set(d["current"]) and len(ch) >= 14)
     cy = d["cy"]
@@ -191,7 +196,7 @@ def checks(d):
     return res
 
 
-MUTANTS = {"e12_close_free": "E1, E2 read as resting on no closing flux", "b6_count_dropped": "B6 read as resting on no premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
+MUTANTS = {"e12_close_free": "E1x, E2x (between universes) read as resting on no closing flux", "b6_count_dropped": "B6 read as resting on no premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
            "definition_strict": "DEFINITION counted green under the strict rule"}
 
 
