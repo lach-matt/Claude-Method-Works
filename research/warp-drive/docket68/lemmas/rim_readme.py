@@ -20,8 +20,19 @@ of E, which only the README has the energy to cover.  This works out where it ca
      over u being at u = 1.  So rho falls no faster than r^(2 - 2 sqrt3) = r^-1.464 and int rho r^2 dr diverges: the
      README's stress on the plane cannot have finite energy without an edge.  At the rim, where the corridor meets our
      plane, the stress must end -- and an edge of a stressed plane needs a force there: a ring at the rim
-So the rim gap is closed, if at all, by the README's stress on our plane near the mouth (the + cone), ending at the rim
-on a ring whose force balance is the next computation.  Imports tools/cypher.py by path.  Stdlib + sympy.
+  R5 (computed, imported m1_facing.py) the coincidence law: a corridor approaching our plane carries minus the plane's
+     stress (e2 -> -sigma, P2 -> +sigma at y2 -> 0, at every ell tested; SIM2-FACING S15's "exactly minus P1's").  So a
+     corridor leaving the plane tangentially where the plane carries the README's stress carries minus that stress near
+     the rim: its null energy there is -(rho + p) of the README's, negative.  The reading H-CORRIDOR-IS-THE-README-SHEET
+     (the corridor as the README's sheet peeling off the plane tangentially) fails (Z) at the rim
+  R6 (cypher) the whole static rim -- plane, corridor and rim together, with the NEC in both directions, finite energy
+     and force balance at the rim (standard-not-READ: sheets meeting along a line balance their tensions; in the flat
+     limit our plane's own tension is negligible beside the corridor's) -- against every arrangement computed or
+     deduced: the marginal (steep) corridor, constant depth, the tangent README sheet, the README on the plane without an
+     edge, the throat region.  The target is in no cell; see the run for which languages refuse and which over-reach
+So, in the flat limit and static, no arrangement computed or deduced closes the rim: the steep corridor misses the
+tangential null energy and an unbalanced pull normal to the plane; the tangent one carries minus the README's stress; the
+README alone on the plane needs an edge.  What could still close it is named in the note, not chosen here.  Imports tools/cypher.py by path.  Stdlib + sympy.
 python3 rim_readme.py [--selftest | --mutants]
 """
 import contextlib
@@ -102,8 +113,44 @@ def cypher_plane():
     return {"all": ask(cells), "leave": ask([c for c in cells if c[0] not in (4, 6)])}
 
 
+def coincidence():
+    spec = importlib.util.spec_from_file_location("rr_m1f", os.path.join(HERE, "m1_facing.py"))
+    m = importlib.util.module_from_spec(spec)
+    sys.modules["rr_m1f"] = m
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(m)
+    return {x: m.facing(x, 20000)["first"][1:3] for x in (0.0739, 0.5)}
+
+
+def cypher_rim():
+    spec = importlib.util.spec_from_file_location("rr_cypher2", os.path.join(ROOT, "tools", "cypher.py"))
+    cy = importlib.util.module_from_spec(spec)
+    sys.modules["rr_cypher2"] = cy
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(cy)
+    C = ["config", "nec_radial", "nec_tangential", "finite_energy", "balance", "whole"]
+    # config: 0 marginal (steep) corridor, 1 constant depth, 2 tangent README sheet, 3 README on the plane without an edge,
+    # 4 the throat region; balance: 0 fails, 1 holds, 2 no rim (does not meet the plane)
+    cells = [(0, 1, 0, 1, 0, 1), (1, 0, 1, 1, 2, 1), (2, 1, 0, 1, 0, 1), (3, 1, 1, 0, 2, 1), (4, 1, 1, 1, 2, 0)]
+    if MUT.get("seat_rim"):
+        cells.append((5, 1, 1, 1, 1, 1))
+    ok = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1 and h[4] == 1 and h[5] == 1
+
+    def ask(cs):
+        cl = sorted(set(cs))
+        ix = cy.Index("rim", C, [list(c) for c in cl])
+        inv = [{v: k for k, v in ix.code[i].items()} for i in range(len(C))]
+        res = {}
+        for lang in ("order", "algebra", "geometry", "information", "statistics"):
+            out, _ = cy.ADMISSION[lang][0](ix, {})
+            res[lang] = None if out is None else any(all(c[i] in inv[i] for i in range(len(C)))
+                                                     and ok(tuple(inv[i][c[i]] for i in range(len(C)))) for c in out)
+        return res
+    return ask(cells)
+
+
 def compute():
-    return {"g": gauss(), "t": tail_bound(), "cy": cypher_plane()}
+    return {"g": gauss(), "t": tail_bound(), "cy": cypher_plane(), "co": coincidence(), "rim": cypher_rim()}
 
 
 def checks(d):
@@ -121,10 +168,15 @@ def checks(d):
     add("R4 the decay bound: 2(1 - sqrt3 sqrt u)/u is decreasing on (0, 1], minimum 2(1 - sqrt3) = -1.464 at u = 1; every "
         "integrated profile decays no faster than r^-1.464 (to the integrator's 2e-3), so int rho r^2 dr diverges",
         t["decreasing"] and abs(float(t["fmin"]) + 1.4641) < 1e-3 and all(s >= -1.4641 - 2e-3 for s in t["slopes"]))   # 2e-3: the Euler step error
+    co = d["co"]
+    add("R5 the coincidence law: the corridor at y2 -> 0 carries minus the plane's stress (e2 -> -sigma, P2 -> +sigma)",
+        all(abs(v[0] + 1) < 2e-3 and abs(v[1] - 1) < 2e-3 for v in co.values()))
+    add("R6 cypher: the whole static rim (NEC both ways, finite energy, balance) is admitted by no language on the "
+        "computed and deduced arrangements", d["rim"]["statistics"] is False and d["rim"]["geometry"] is False)
     return res
 
 
-MUTANTS = {"trace_half": "the trace term taken with 1/2 instead of 1/3", "fast_tail": "the tail made to decay faster"}
+MUTANTS = {"seat_rim": "a closing rim seated as data", "trace_half": "the trace term taken with 1/2 instead of 1/3", "fast_tail": "the tail made to decay faster"}
 
 
 def selftest():
