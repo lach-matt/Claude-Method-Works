@@ -491,5 +491,9 @@ The theorem is proved exactly when no lemma below is OPEN.
     tension of its own (a stiffness or a thickness, as a domain wall's field does); or a rim that closes with no ring
     (the Plateau angle, 120°, which the family's 5–16° does not reach); or the ring being something M's model already
     holds.
+- **No rim without the ring** (R8): with the README all in, the ring can be dropped only at a tangential meeting or
+  at 120°. A corridor keeping its radial null energy cannot meet the plane tangentially (Grönwall on the radial bound:
+  its slope at the rim keeps at least 89% of its earlier value), and at 120° it would leave the rim heading away from
+  the throat. So the static rim needs the ring, and M1's static rim turns on what the ring is.
 - **The count is unchanged:** M1 stays OPEN, on (d). The proposed split into M1u and M1x moves no row, so it is not
   seated. 21 green under the strict rule (25 counting definitions).

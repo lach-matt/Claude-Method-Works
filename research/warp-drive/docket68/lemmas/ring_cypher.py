@@ -49,12 +49,21 @@ family (P5).  The board read that tension as the fold's own, part of the plane's
      do not (R2); 202's "the same definitions as we do" carries no third
   R7 control: the ring's nature entered (either way) -- every language admits it, so the refusals are the ring's, not
      the index's
+  R8 (deduced from rim_profile P2, Gronwall; lambda and mu computed beyond r_b) the ring cannot be done without at the
+     hold.  lambda(theta) vanishes only at theta = 0 and 120 deg (in C, a sigma (1 - cos theta): at 0 only).  At 120 deg
+     the corridor leaves the rim heading outward, away from the throat -- not a graph y = Y(r) down to it.  At theta = 0
+     (a tangential meeting) a descending corridor keeping the radial null energy is excluded: with Z = -Y' > 0, the
+     bound Y'' <= -lambda Y + mu Y' gives Z' >= lambda Y - |mu| Z >= -|mu| Z, so the slope at the rim keeps at least
+     exp(-int |mu|) of its earlier value -- lambda in (0.007, 0.09), mu in (-0.15, -0.02) over 3.1-5.3m.  So with the
+     README all in (198 (a), T^nn = 0: no flux to push, F5) the static rim needs the ring, and its nature is what M1's
+     static rim turns on
 So the cypher does not decide the ring's nature: it refuses it, and names the cell that would decide it.  The board's
 reading H-RING-IS-THE-FOLD is refuted as stated (R2), not dropped (206): the thin plane's fold has no tension of its
 own.  Clause (d) of M1 within one universe stays OPEN, now on a sharper question -- either the plane has structure
 beyond its tension and offset that gives a junction its own tension (a stiffness, or a thickness, as a domain wall's
 field gives its hub energy), or the rim closes without a ring (the Plateau angle, 120 deg, which the family's 5-16 deg
-does not reach), or the ring is something M's model already holds.
+does not reach), or the ring is something M's model already holds.  Not a rim with no ring at all, for a corridor that reaches the
+throat as a graph (R8).
 Imports rim_profile.py (and through it corridor_shape.py, forming_rim.py) and tools/cypher.py by path.  Stdlib +
 sympy (+ mpmath through corridor_shape).  python3 ring_cypher.py [--selftest | --mutants]
 """
@@ -142,6 +151,26 @@ def fold_line_tension():
     series = sp.series((th - 2 * sp.tan(th / 2)), th, 0, 5).removeO()
     return {"limit": sp.limit(dE, w, 0), "band_limit": sp.limit(band, w, 0), "negative": neg,
             "series": sp.simplify(series - (-th ** 3 / 12)) == 0}
+
+
+# ======================================================================================= R8 no rim without the ring
+def ringless(rs=(3.1, 3.4, 3.8, 4.2, 4.6, 5.0, 5.3)):
+    """the near-plane coefficients beyond r_b (rim_profile P2, imported, re-run) and the two zeros of lambda(theta)"""
+    import sympy as sp
+    if "p2" not in _C:
+        rp = _load(os.path.join(HERE, "rim_profile.py"), "ring_rim_profile_p2")
+        _C["p2"] = rp.p2(rs=rs)["rows"]
+    rows = _C["p2"]
+    lam = [rows[r]["lam"] * (-1 if MUT.get("lam_sign") else 1) for r in rs]
+    mu = [rows[r]["mu"] for r in rs]
+    int_mu = sum((abs(mu[i]) + abs(mu[i + 1])) / 2 * (rs[i + 1] - rs[i]) for i in range(len(rs) - 1))
+    th = sp.symbols("theta", real=True)
+    corr_dir = sp.cos(sp.pi - th).subs(th, 2 * sp.pi / 3)               # B: the corridor leaves the rim at pi - theta
+    lamC = 1 - sp.cos(th)
+    zerosC = sorted(float(z) for z in sp.solveset(sp.Eq(lamC, 0), th, sp.Interval(0, sp.pi)))
+    return {"lam_pos": all(x > 0 for x in lam), "mu_bounded": max(abs(x) for x in mu), "int_mu": int_mu,
+            "keeps": math.exp(-int_mu), "outward_at_120": corr_dir > 0, "zerosC": zerosC,
+            "lam_range": (min(lam), max(lam)), "mu_range": (min(mu), max(mu))}
 
 
 # ============================================================================================ R4-R7 the cypher
@@ -264,7 +293,8 @@ def cypher():
 
 
 def compute():
-    return {"words": words(), "ring": ring_attributes(), "fold": fold_line_tension(), "cy": cypher()}
+    return {"words": words(), "ring": ring_attributes(), "fold": fold_line_tension(), "cy": cypher(),
+            "ringless": ringless()}
 
 
 def _names(coords, blocks):
@@ -315,6 +345,11 @@ def checks(d):
         and c["B_hub_nohub"] == "refused")
     add("R7 control: the ring's nature entered, either way, is admitted by every language -- the refusals are the "
         "ring's, not the index's", c["control"][0] and c["control"][1])
+    g = d["ringless"]
+    add("R8 no rim without the ring at the hold, for a graph corridor: lambda(theta)'s zeros are 0 and 120 deg (C: 0 "
+        "only); at 120 deg the corridor heads outward; tangency is excluded -- lambda > 0, |mu| <= 0.15 over 3.1-5.3m, "
+        "so the rim slope keeps >= exp(-int |mu|) > 0.7 of its value",
+        g["lam_pos"] and g["mu_bounded"] < 0.15 and g["keeps"] > 0.7 and g["outward_at_120"] and g["zerosC"] == [0.0])
     return res
 
 
@@ -322,7 +357,8 @@ MUTANTS = {"misquote": "M's 130 quoted as 'a black hole is matter'",
            "fold_tension": "the thin fold given a line tension of its own",
            "ring_as_fold": "the ring as computed replaced by the reading's description",
            "drop_support": "the support coordinate (sheet or line) dropped",
-           "seat_ring": "the ring entered as not matter (the answer seated)"}
+           "seat_ring": "the ring entered as not matter (the answer seated)",
+           "lam_sign": "the near-plane lambda taken with the wrong sign"}
 
 
 def selftest():
@@ -366,6 +402,9 @@ def report(d):
               % (v["stat_by_order"], _names(coords, v["block0"]), _names(coords, v["block1"])))
     print("A_reading without the fold:", c["A_reading_nofold"], "  B_hub without the hub:", c["B_hub_nohub"])
     print("control (the ring's nature entered):", c["control"])
+    g = d["ringless"]
+    print("R8 beyond r_b: lambda %.4f-%.4f, mu %.4f-%.4f, int|mu| %.3f, slope kept >= %.2f; corridor outward at 120 deg: %s"
+          % (g["lam_range"] + g["mu_range"] + (g["int_mu"], g["keeps"], g["outward_at_120"])))
 
 
 if __name__ == "__main__":
