@@ -48,6 +48,12 @@ of E, which only the README has the energy to cover.  This works out where it ca
      six codings of the nominal meeting axis; order, algebra, geometry and information each invent one, but which meeting
      they close moves with the coding -- an artefact of ordering a nominal axis, not a reading.  Ignoring compatibility,
      all five admit the README-cancelling cell; marked compatible, all five admit it, statistics included
+     The board's reading, not M's (H-CANCEL-IS-183-PAIR): the cancelling cell is 183's pair -- the README's + against
+     the corridor's - on the same grazing rays -- with the README as a member, which 198 (M's guess, option 1) carries as
+     set aside ("the README is not a member of such a pair").  Independently, on 198 (a) the whole README is in the
+     corridor once it has formed, so in the static phase it is not on our plane at the rim to cancel anything.  On the
+     guess, then, no static finite-ell rim closes among the arrangements computed; what is left is the forming phase,
+     where the rim is not static and the README is mid-inflow -- not computed here
 So, in the flat limit and static, no arrangement computed or deduced closes the rim: the steep corridor misses the
 tangential null energy and an unbalanced pull normal to the plane; the tangent one carries minus the README's stress; the
 README alone on the plane needs an edge.  What could still close it is named in the note, not chosen here.  Imports tools/cypher.py by path.  Stdlib + sympy.
