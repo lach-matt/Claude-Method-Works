@@ -497,3 +497,43 @@ The theorem is proved exactly when no lemma below is OPEN.
   the throat. So the static rim needs the ring, and M1's static rim turns on what the ring is.
 - **The count is unchanged:** M1 stays OPEN, on (d). The proposed split into M1u and M1x moves no row, so it is not
   seated. 21 green under the strict rule (25 counting definitions).
+
+## History (2026-10-10, items 208–209: too much in the cypher; exact values)
+
+- **Item 208** ("We have too much information in the cypher. Something doesn't belong. Ask the cypher what the ring is
+  supposed to be, and what in the current theorem doesn't belong or what is missing") and **item 209** ("Normalizing
+  suggests that we are allow for broad coefficients instead of exact evaluated values"). Every count below is the
+  cypher's exact E. A first leave-one-out measured as a normalized ratio was withdrawn on 209. Two independent analysts
+  and two adversarial verifiers checked every claim; only what survived is recorded here.
+- **The ring: the cypher is silent, because the index held too much.** The ring's index had three carriers M has ruled
+  on (matter 129; tension and offset 201–202; mouth and corridor 130/203) and five coordinates. One coordinate,
+  fixed_by, is a key. Three others, with_corridor, pure_tension and matter, are a one-hot code of a single three-way
+  choice. No cell of any kind can close that index, and any lone junction entered with its nature unknown gets the
+  ring's refusal. So ring_cypher's R4 and R6 refusals measure a value no ruled carrier has, not the ring. The only cell
+  that closes the index, (sheet, README-fixed, not matter), depends on the board's own fold cell, and it is not a ring.
+- **What the ring is supposed to be, on consistent physics: not a positive ring.** forming_rim F3b's ring is positive
+  only because the corridor is given −σ at the rim. That is rim_readme R5's coincidence law for facing sheets, but the
+  meeting angle comes from the tilted marginal corridor, so two corridors' inputs are mixed. With the marginal
+  corridor's own tension (ρ_rim > 0, ρ + p_r = 0, τ = ρ_rim ℓ/(3m)), the balance asks λ/(aσ) = −cos 2θ − τ cos θ. That
+  is −0.60 to −1.16 at ℓ/m = 8.54 for every admissible member: a junction in compression. A rim needing no junction sits
+  past 45° (47–51°), which no admissible member reaches (`lemmas/ring_consistent.py`). The ring's coefficient was in any
+  case broad by 209: a free family of launches, a Padé flat-limit bulk, quoted as a range.
+- **Seated (206):**
+  - **Z3b DERIVED → OPEN.** Its across-the-ring class assumed the positive, NEC-keeping ring. What the junction carries,
+    and its NEC, are not computed (`z3b_cypher.py` Z4).
+  - **M1's record corrected.**
+  - **Correction notes, with the computations kept as they were:** forming_rim F3b, rim_profile P5 and ring_cypher R1/R8
+    rest on R5's −σ; corridor_shape S2's "at most 0.76 (m/ℓ)E" is stale (q = 0.67–5.66 on the corrected bank).
+  - **The count:** 21 green (strict) and 25 (audit), unchanged. Eight rows are now non-green by their own status. The
+    smallest input set is {M1, M1P2x, WRITE, ARRIVAL, CLOSE}, since FAR entered only through Z3b. All six inputs would
+    green 35.
+- **The theorem through the cypher** (`lemmas/belongs_cypher.py`): 53 rows, 20 distinct cells.
+  - **E:** 748/748/114/312/52 as asked; 748/748/90/312/40 after Z3b's correction. The correction itself moved the
+    theorem toward closure.
+  - **Does not belong:** no single row closes it. B4c falls most, then B4b, then E1x/E2x. B4b and B4c are READINGs
+    calibrated to a hold of ~11.3 clocks, against the real hold of ≥ 2.0×10⁵ (O3, item 160), and both say "re-read
+    with B4d". Together they lower E with no language rising on every coding the critics tried, but six other pairs do
+    too, so it is not decided. B4d's record carries a range as well.
+  - **Missing:** nothing survives a change of coding.
+  - **M1:** it holds content beyond the mouth — the rim, the ring and Wall C's bridge. 14 of the 15 rows resting on M1
+    use only its reading of the mouth.

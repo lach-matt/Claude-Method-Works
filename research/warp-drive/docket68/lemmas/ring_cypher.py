@@ -57,6 +57,11 @@ family (P5).  The board read that tension as the fold's own, part of the plane's
      exp(-int |mu|) of its earlier value -- lambda in (0.007, 0.09), mu in (-0.15, -0.02) over 3.1-5.3m.  So with the
      README all in (198 (a), T^nn = 0: no flux to push, F5) the static rim needs the ring, and its nature is what M1's
      static rim turns on
+  [CORRECTED, item 208: R1 and R8 take the ring from forming_rim F3b, whose corridor carries -sigma at the rim (R5);
+     with the marginal corridor's own tension the junction is in compression and the zeros of lambda move to 47-51
+     deg (B with images), which no admissible member reaches (ring_consistent.py).  The item-208 critics also showed
+     that R4's and R6's refusals are forced by the index: every line cell, and every cell solved from a balance,
+     gets the ring's verdict -- they measure a value no ruled carrier has, not the ring.  Kept as computed.]
 So the cypher does not decide the ring's nature: it refuses it, and names the cell that would decide it.  The board's
 reading H-RING-IS-THE-FOLD is refuted as stated (R2), not dropped (206): the thin plane's fold has no tension of its
 own.  Clause (d) of M1 within one universe stays OPEN, now on a sharper question -- either the plane has structure

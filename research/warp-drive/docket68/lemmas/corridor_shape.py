@@ -12,6 +12,9 @@ non-negative in every tangent direction.
      reduces to k = (1/2) d_y ln g.  Y'' enters k_r only, through Y'' B/(B + Y'^2)^2 (B small near the throat)
   S2 (computed) the corridor's own Killing energy is (I/4pi)(m/ell) E, at most 0.76 (m/ell) E (d = 1-1.5m): E is read
      on the planes (111, 203 as read: each plane reads eq. (17) with mass m), not carried by the surface's own stress
+     [STALE, item 208 (recorded by the item-208 critics; no function here computes it): on the corrected bank the
+     marginal members carry q = I/4pi = 0.67-5.66 (box members), 2.71-4.22 at slope 0 and depth 1-1.5m; the first
+     interpolation gave 0.70-1.00.  The 0.76 is not reproduced under any reading tried]
   S0 (computed; CORRECTION, 2026-10-10, pass 3 of the cycle) the bank is interpolated between its columns in
      u = ln(r - 2) on the near-horizon-scaled functions A/x, B x^2, C (x = r - 2): within 1e-4 of three exactly
      computed columns mid-interval (corridor_shape_mid.json).  The first version interpolated A, B, C in r unscaled,

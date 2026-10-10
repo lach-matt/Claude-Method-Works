@@ -100,8 +100,8 @@ LEMMAS = [
      'bulk/passage5d.py P3; copy/coin.py (F1-AUDIT)'),
     ('Z', "Z3a NEC never violated away from the corridor, through today: the vacuum bulk gives zero; the FRW plane's total null stress is positive at every epoch read", 'DERIVED',
      "lemmas/b1_matter.py C1-C3 (B1-MATTER Z3'a); items 117, 120"),
-    ('Z', 'Z3b rays that meet the corridor or run beside it keep (Z): the static ray classes (bulk; across the corridor; across our plane; across the ring) are kept; the dynamic phases are its inputs', 'DERIVED',
-     'lemmas/z3b_cypher.py Z1-Z3, with rim_profile.py P4 (radial and tangential null energy kept along the marginal corridor, corridor_shape S0 corrected); C5 a different configuration (H-C5-ELSEWHERE); seated item 206, was OPEN'),
+    ('Z', 'Z3b rays that meet the corridor or run beside it keep (Z): the static ray classes (bulk; across the corridor; across our plane; across the ring) are kept; the dynamic phases are its inputs', 'OPEN',
+     'corrected item 208 (206): the across-the-ring class is open -- with the marginal corridor\'s own tension the rim\'s junction is in compression, not P5\'s positive ring, and its energy density is not computed (lemmas/ring_consistent.py; z3b_cypher.py Z4).  The other static classes keep (Z) (z3b_cypher.py Z1-Z3, rim_profile.py P4, corridor_shape S0 corrected); C5 a different configuration (H-C5-ELSEWHERE); seated DERIVED on item 206, was OPEN'),
     ('Z', "Z3c the plane's dark energy has w >= -1 at every epoch the theory controls", 'DERIVED',
      'lemmas/nature_rows.py Z1-Z3 (seated (Z) via TS; SMS READ); item 200 (3)'),
     ('B', "B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'; the matter-free plane a limit, 184)", 'PROVED',
@@ -163,7 +163,7 @@ LEMMAS = [
     ('R', "R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position 2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", 'DERIVED',
      "lemmas/r5_build.py: mechanism yours (91 (b), 101 answer 8, 136 B, 139 (3), 148); fields the board's reading; energy covers any exact README's rearrangement (3.76e22 J >= 5.94e16 J); the fields reading confirmed by M, item 155 (H-ACTIVATION-IS-TRIGGER)"),
     ('N', "M1 the plane's reading of the corridor's mouth (replaces F1; OPEN)", 'OPEN',
-     "seated restatement (206): the plane's reading of the corridor's mouth (replaces F1).  The rim closes in the static bulk: the marginal corridor keeps the radial and tangential null energy from the throat, which it joins smoothly, to a rim beyond r_b, and a ring of positive tension balances it (corridor_shape.py S0-S3 corrected; rim_profile.py; forming_rim.py).  Within one universe every clause is met but (d) (m1_cypher.py).  Open: the ring's nature -- put to the cypher on item 207, which refuses it; the reading that the ring is the fold's own tension is refuted in the thin-plane model, a thin pure-tension fold carrying no line tension (ring_cypher.py) -- and Wall C's bridge  [lemmas/F1-AUDIT.md; lemmas/corridor_shape.py S0; lemmas/rim_profile.py P4, P4b; lemmas/forming_rim.py F3b, F7; lemmas/m1_cypher.py; lemmas/ring_cypher.py]"),
+     "seated restatement (206): the plane's reading of the corridor's mouth (replaces F1).  The rim closes in the static bulk: the marginal corridor keeps the radial and tangential null energy from the throat, which it joins smoothly, to a rim beyond r_b, (corridor_shape.py S0-S3 corrected; rim_profile.py; forming_rim.py).  CORRECTED item 208 (206): the ring of positive tension that balanced it rested on the corridor carrying -sigma at the rim (rim_readme R5's coincidence law for facing sheets); with the marginal corridor's own tension the rim balances only with a junction in compression, lambda = -(cos 2t + tau cos t) a sigma < 0 for every admissible member, and with no junction only past 45 deg, which no admissible member reaches (ring_consistent.py).  Within one universe every clause but (d) was met with that ring (m1_cypher.py).  Open: what the rim's junction carries; the ring's nature, put to the cypher on item 207, was refused because the index held too much (a key and a one-hot code, item 208), and the fold reading is refuted (ring_cypher.py); and Wall C's bridge  [lemmas/F1-AUDIT.md; lemmas/corridor_shape.py S0; lemmas/rim_profile.py P4, P4b; lemmas/forming_rim.py F3b, F7; lemmas/m1_cypher.py; lemmas/ring_cypher.py; lemmas/ring_consistent.py; lemmas/belongs_cypher.py]"),
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg (OPEN)", 'OPEN',
      "seated restatement (206): between universes, position 2's side reads its own eq. (17), at m2 = (G2/G) m; within one universe M1P2 reduces to M1  [lemmas/g2_between.py; lemmas/m1p2_cypher.py; lemmas/m1x_cypher.py]"),
     ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN)', 'OPEN',
@@ -226,7 +226,9 @@ def lemma_selftests():
               "m1p2_cypher.py", "z3b_cypher.py", "b1_matter.py", "f1_audit.py", "g2_between.py", "close_object.py",
               "rim_profile.py", "corridor_shape.py", "forming_rim.py",
               # pass 3 (item 207)
-              "m1_cypher.py", "ring_cypher.py"):
+              "m1_cypher.py", "ring_cypher.py",
+              # items 208-209
+              "ring_consistent.py", "belongs_cypher.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

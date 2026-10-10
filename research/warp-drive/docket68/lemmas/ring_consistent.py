@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """ring_consistent.py -- the rim's balance with the corridor's own tension entered (items 208, 209).  Computed by import
 of corridor_shape.py / rim_profile.py, deduced where marked; checked by an adversarial verifier in the item-208 critic
-pass (its findings F5, F1 and F2 survived; the sign result "stronger than stated"); not seated; 2026-10-10.
+pass (its findings F5, F1 and F2 survived; the sign result "stronger than stated"); seated on item 208 (206):
+Z3b OPEN on the ring, M1's record corrected; 2026-10-10.
 
 forming_rim.py F3b (ii) balances the rim (B, Z2 images) with a ring lambda = a sigma (1 - cos t)(1 + 2 cos t) > 0, and
 rim_profile.py P5 evaluates it at 0.013-0.10 a sigma over the marginal family.  That count gives the corridor's sheet the

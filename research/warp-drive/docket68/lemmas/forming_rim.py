@@ -55,6 +55,11 @@ and position 2's sigma, corridor -sigma (R5) -- and nothing computed pins the ge
            split balances for every kappa strictly between B's (pi - theta) and pi + theta; C is kappa = pi
      (v)   reflection: B balances at theta = pi/3 with pure reflection back along the outside sheet, T^nn = sigma/2
            (absorption needs the rim to have stress-energy of its own -- a ring)
+     [CORRECTED, item 208 (ring_consistent.py; the item-208 critics confirmed the sign): this ring is positive only b
+     ecause the corridor's sheet is given -sigma at the rim (TENS['corr'] = -1, rim_readme R5's coincidence law for f
+     acing sheets) while the meeting angle comes from the tilted marginal corridor.  With the marginal corridor's own
+      tension (rho_rim > 0, rho + p_r = 0) the balance asks lambda = -(cos 2t + tau cos t) a sigma < 0: a junction in
+      compression.  The computation below is kept as it was; its premise is refuted.]
   F4 (computed) null energy the README supplies: null dust Phi l l gives T(l,l) = 0 along its own infall rays and
      4 Phi, Phi along the opposite radial and the tangential rays (n, k_t with unit time component in the rim frame);
      timelike dust gives rho (u.k)^2 > 0 along every null k (u.k = -gamma (1 + v cos alpha), 1 + v cos alpha >= 1 - v)

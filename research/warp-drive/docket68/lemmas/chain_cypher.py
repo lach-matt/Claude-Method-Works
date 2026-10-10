@@ -94,8 +94,8 @@ def rows():
         r = [(a, b, "M1P2x" if a == "B6" else c, d) for a, b, c, d in r]
     if MUT.get("e12_close_free"):
         r = [(a, b, "" if a in ("E1x", "E2x") else c, d) for a, b, c, d in r]
-    if MUT.get("unseat_z3b"):
-        r = [(a, "OPEN" if a == "Z3b" else b, c, d) for a, b, c, d in r]
+    if MUT.get("reseat_z3b"):
+        r = [(a, "DERIVED" if a == "Z3b" else b, c, d) for a, b, c, d in r]
     if MUT.get("g1_f1_free"):
         r = [(a, b, "" if a in ("G1", "G3") else c, d) for a, b, c, d in r]
     return r
@@ -200,13 +200,13 @@ def checks(d):
     add("C1 green now (seated, item 206): 21 of 47 (strict), 25 of 47 (audit rule); B5pu among them; B6 on 200 (1), Z3c "
         "DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 21 and len(t["audit"]) == 25 and t["n"] == 47
         and "B5pu" in t["strict"] and "B6" in t["strict"] and "Z3c" in t["strict"] and "B6'" in t["audit"])
-    add("C2 the smallest input set greening every green-status lemma is all six inputs: {M1, M1P2x, FAR, WRITE, ARRIVAL, "
-        "CLOSE} (FAR enters through Z3b, now DERIVED)", t["smallest"] == [("M1", "M1P2x", "FAR", "WRITE", "ARRIVAL", "CLOSE")])
-    add("C3 M1 alone greens 31 of 47; with CLOSE 33; with M1P2x too 34; with every input 36 (the other 11: 7 non-green "
+    add("C2 the smallest input set greening every green-status lemma is {M1, M1P2x, WRITE, ARRIVAL, CLOSE}: FAR entered "
+        "only through Z3b, OPEN again since item 208", t["smallest"] == [("M1", "M1P2x", "WRITE", "ARRIVAL", "CLOSE")])
+    add("C3 M1 alone greens 31 of 47; with CLOSE 33; with M1P2x too 34; with every input 35 (the other 12: 8 non-green "
         "by their own status, 4 definitions under the strict rule)", t["with"][("M1",)] == 31
-        and t["with"][("M1", "CLOSE")] == 33 and t["with"][("M1", "M1P2x", "CLOSE")] == 34 and t["with"][tuple(INPUTS)] == 36)
-    add("C4 no row is never-greenable; 7 rows non-green by their own status (O3, B3, B4c, B4b, B4d, B5px, B5b)",
-        t["excluded"] == [] and sorted(t["own_status"]) == sorted(["O3", "B3", "B4c", "B4b", "B4d", "B5px", "B5b"]))
+        and t["with"][("M1", "CLOSE")] == 33 and t["with"][("M1", "M1P2x", "CLOSE")] == 34 and t["with"][tuple(INPUTS)] == 35)
+    add("C4 no row is never-greenable; 8 rows non-green by their own status (O3, Z3b, B3, B4c, B4b, B4d, B5px, B5b)",
+        t["excluded"] == [] and sorted(t["own_status"]) == sorted(["O3", "Z3b", "B3", "B4c", "B4b", "B4d", "B5px", "B5b"]))
     cu = d["current"]
     add("C5 the chain is the seated theorem: its rows and statuses are warptheorem.py's lemma rows, its inputs "
         "warptheorem.py's clause-N rows, and every name a lemma rests on is an input", cu["same"] and cu["rests_ok"]
@@ -226,7 +226,7 @@ def checks(d):
 
 MUTANTS = {"e12_close_free": "E1x, E2x (between universes) read as resting on no closing flux", "b6_on_count": "B6 read as still resting on an open premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
            "definition_strict": "DEFINITION counted green under the strict rule",
-           "unseat_z3b": "Z3b put back to OPEN (pass 2's correction undone)"}
+           "reseat_z3b": "Z3b put back to DERIVED (item 208's correction undone)"}
 
 
 def selftest():
@@ -253,7 +253,7 @@ def mutants():
 
 def report(d):
     t = d["tally"]
-    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, item 206)\n")
+    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-208)\n")
     print("green now: %d of %d strict, %d audit rule" % (len(t["strict"]), t["n"], len(t["audit"])))
     print("  green:", " ".join(t["strict"]))
     print("  non-green by own status:", t["own_status"])

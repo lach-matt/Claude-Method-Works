@@ -32,6 +32,11 @@ slopes 0 and +-0.3 only.
      balances the rim in the Z2 double cover: lambda = a sigma (1 - cos theta)(1 + 2 cos theta), 0.013-0.10 a sigma over
      the family (0.037 at the representative, 0.5m launched at slope 1).  The ring, a 2-sphere of energy density equal
      to its tension, obeys the NEC
+     [CORRECTED, item 208 (ring_consistent.py; the item-208 critics confirmed the sign): this ring is positive only b
+     ecause the corridor's sheet is given -sigma at the rim (TENS['corr'] = -1, rim_readme R5's coincidence law for f
+     acing sheets) while the meeting angle comes from the tilted marginal corridor.  With the marginal corridor's own
+      tension (rho_rim > 0, rho + p_r = 0) the balance asks lambda = -(cos 2t + tau cos t) a sigma < 0: a junction in
+      compression.  The computation below is kept as it was; its premise is refuted.]
   P6 (cypher) forming_rim's corrected index (its static marginal cells carry this computation): the closing rim through
      the hold is DATA, all five admit it.  Control: the static closing cells removed -- statistics refuses at order 4
 What this does not show, recorded: (i) the bulk is eq. (17)'s static bulk in the flat limit, by Pade continuation (a
