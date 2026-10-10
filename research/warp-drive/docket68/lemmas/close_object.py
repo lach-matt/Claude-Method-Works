@@ -35,6 +35,12 @@ for a degenerate or non-outer horizon.
 Proposal, for seating after this pass (206): CLOSE splits into CLOSEu -- within one universe the closing needs no
 negative null flux (O2; DERIVED) -- and a new OPEN input MOUTHFLUX -- the joint ending of the (+E, -E) mouths keeps
 (Z) -- with CLOSEx (between universes) keeping CLOSE's old wording.  No row turns green on it alone.
+[item 211 (the formclose analyst; its critic scoped the verdict): H-MOUTH-FLUX is withdrawn as a reading -- a secondary
+source seen as a search excerpt, and additive bookkeeping against 111 (b) on H-ONE-ENERGY-NONADDITIVE.  In the plane's
+4D far zone with local exchange no accounting carries the closing's E into position 2 without an unpaired negative or a
+transit through the plane (the transit barred on H-NO-MOVEMENT-COVERS-CLOSING, the board's reading of 94), and the same
+bookkeeping fails M's one-energy accounting too: CLOSE's (Z) is a 5D question.  MOUTHFLUX is not proposed.  The
+computation above is kept as it was.]
 Imports close_cypher.py (and through it close_flux.py, chain_cypher.py, tools/cypher.py) and warptheorem.py's lemma
 table by path.  Stdlib + sympy.  python3 close_object.py [--selftest | --mutants]
 """

@@ -101,6 +101,18 @@ FINDINGS
   A11 VARIANTS: 'five-dimensional' (the black string and the localized hole coded in_bulk 1): order 3 still refuses,
      blocked by (forms, in_bulk, z_kept) alone; 'pair' (H-CANCEL-IS-183-PAIR: the cancelling rim's partner_free 0):
      the same blocking triple
+  [CORRECTED, item 211 (the formclose analyst; its critic passed (1), (3), (4) and (5) as written and fixed (2);
+     recorded, the computation kept as it was).  (1) The in-bulk refusal is 'undecided: the record's gap, forced by the
+     unknowns': statistics refuses 146 of the 147 novel box cells at order 3 and every one at order 4, so those refusals
+     discriminate nothing (A4 and A7 say as much).  (2) A6, A7: since item 208 the two static ring rows' z_kept is U
+     (the positive ring refuted), and since item 211 the open mouth's D+ joint carries negative radial null energy
+     (open_mouth.py O5), so that U stands as '(Z) pending an OPEN partner'.  No single computation now decides order 4:
+     it waits on the open mouth keeping (Z) per ray and forming by the README's inflow, or on the kink's (Z) and hold.
+     (3) ARRIVAL's (Z) half shares its deciding carrier with M1's and Z3b's open mouth (210; open_mouth.py) and with the
+     corridor's surface (203) -- deduced from the seated (Z), (B)'s vacuum bulk, 130 and the Gauss identity (f1_audit
+     B5).  (4) A2's T4 is 'consistent in a 4D Vaidya model whose end state is Schwarzschild, not the corridor', never
+     'ARRIVAL holds off the bulk'.  (5) The Z2-image rows (the board reads 197 as setting the reflection aside) are
+     invisible duplicates, and the P rows carry excess E that is not decided; neither is removed on this evidence.]
 NAMED READINGS (the board's, never M's): H-CYPHER-ARRIVAL-INDEX (the encoding); H-IN-BULK-IS-BRIDGING (179/180 with
 203: in the bulk means on neither plane, bridging); H-ORDER-BY-CHIMERA (A5); H-CLOSURE-REACH (A8).  Carried:
 H-ARRIVAL-FORMS-THE-HORIZON and H-SIZE-IS-TRAPPING-HORIZON (README-HELD.md), H-CANCEL-IS-183-PAIR (rim_readme.py),

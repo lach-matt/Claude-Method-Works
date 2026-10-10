@@ -646,3 +646,22 @@ The theorem is proved exactly when no lemma below is OPEN.
     - "every shallow mouth fails (Z)", which holds for complete mirrored rays only;
     - "N_D = −N_S exactly", which holds at flat order only, since the warp's radial part does not flip;
     - "iff r_rim ≥ 3m", where the exact condition is r_rim > 3m.
+- **Formation and closing (ARRIVAL, CLOSE), through the cypher and its critic.** Both stay OPEN, and the critic
+  reproduced every count independently.
+  - **The refusals are fully forced.** At the orders used, statistics refuses nearly every novel cell: ARRIVAL at order
+    3 refuses 146 of 147, and at order 4 it refuses all of them. So those refusals are the record's gap, not findings.
+  - **ARRIVAL's record.** Its in-bulk refusal is undecided. Its (Z) half shares its deciding carrier with the open mouth
+    (open_mouth O5) and the corridor's surface (203). README-HELD's 4D model ends in Schwarzschild, not the corridor.
+    arrival_cypher A6 and A7 are noted: the ring rows' U now stands as "(Z) pending an OPEN partner".
+  - **CLOSE's record.**
+    - The (+E, −E) mouths were H-MOUTH-FLUX, which is withdrawn as a reading. It came from a secondary source and is
+      additive bookkeeping, against 111 (b). It is scoped, not "refuted": the same 4D local bookkeeping fails M's
+      one-energy accounting too. So CLOSE's (Z) is a 5D question.
+    - **Within one universe** the plane's net negative influx is the appearance only if it is paired on the same rays,
+      through B4d's 5D ending. That pairing is not computed.
+    - **Between universes** the 4D area theorem binds only if R4(k,k) ≥ 0, which (Z) does not assert. The 5D theorem
+      binds if the corridor's horizon is a bulk event horizon. That is not computed.
+  - **E1u** now reads "no area-law obstruction" in place of "no negative-flux demand", and stays DERIVED.
+  - **Not seated:**
+    - the analyst's CLOSE recode, which is close_object O4 (ii)'s own cell and isolates nothing new;
+    - "refuted" for H-MOUTH-FLUX.
