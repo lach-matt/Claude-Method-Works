@@ -30,6 +30,24 @@ of E, which only the README has the energy to cover.  This works out where it ca
      limit our plane's own tension is negligible beside the corridor's) -- against every arrangement computed or
      deduced: the marginal (steep) corridor, constant depth, the tangent README sheet, the README on the plane without an
      edge, the throat region.  The target is in no cell; see the run for which languages refuse and which over-reach
+  R7 (deduced; standard-not-READ force balance) at finite ell, within one universe the two sheets of our plane enclose
+     the corridor and rejoin at the rim; balancing tensions along their conormals, sigma (outside) = sigma (inside, ours)
+     + sigma (inside, position 2's) + T_corridor, at the meeting angle.  With the coincidence law (R5: the corridor
+     carries -sigma where it meets the plane) the rim balances exactly with pure tensions: sigma = sigma + sigma - sigma
+     -- provided the corridor arrives tangentially (any meeting angle breaks it; sympy: theta = 0 the only root)
+  R8 (computed, p2_full.py) a corridor near the plane has radial null energy proportional to its depth: at r = 2.1m,
+     -0.0079, -0.016, -0.032 at depths 0.25, 0.5, 1m (linear), of the sign of eq. (17)'s own 4D radial null deficit
+     (R4(k,k) = -2r''/r < 0, F1-AUDIT C1).  So the tangential arrival R7 requires carries eq. (17)'s negative radial null
+     energy onto the corridor near the rim -- (Z) through TS fails there, unless something on the same rays carries the
+     opposite
+  R9 (cypher) the finite-ell rim: the tangent meeting with pure tensions (balance holds, radial NEC fails), the steep
+     meeting (balance fails, tangential NEC fails), and the tangent meeting with the README's stress on our plane near
+     the rim cancelling the corridor's negative radial null energy along the same grazing rays (balance and (Z) net per
+     ray, as 183 reads it) -- whose compatibility with 195 ("The README is not a pair") and 198 is M's to say, not the
+     cypher's; that cell is entered with its compatibility unknown.  Statistics admits no closing rim under any of the
+     six codings of the nominal meeting axis; order, algebra, geometry and information each invent one, but which meeting
+     they close moves with the coding -- an artefact of ordering a nominal axis, not a reading.  Ignoring compatibility,
+     all five admit the README-cancelling cell; marked compatible, all five admit it, statistics included
 So, in the flat limit and static, no arrangement computed or deduced closes the rim: the steep corridor misses the
 tangential null energy and an unbalanced pull normal to the plane; the tangent one carries minus the README's stress; the
 README alone on the plane needs an edge.  What could still close it is named in the note, not chosen here.  Imports tools/cypher.py by path.  Stdlib + sympy.
@@ -149,8 +167,75 @@ def cypher_rim():
     return ask(cells)
 
 
+def rim_balance():
+    """R7: outside sheet (tension sigma) along +x; the two inside sheets (ours, position 2's, sigma each) along -x; the
+    corridor (coincidence law: -sigma, or T free) leaving at angle theta to the plane.  Balance both components."""
+    s, th, T = sp.symbols("sigma theta T", real=True)
+    Tc = -s if not MUT.get("corridor_plus") else s
+    fx = s - 2 * s - Tc * sp.cos(th)
+    fy = -Tc * sp.sin(th)
+    sol = sp.solve([fx, fy], th, dict=True)
+    free = sp.solve([s - 2 * s - T * sp.cos(th), -T * sp.sin(th)], [T, th], dict=True)
+    return {"theta": sorted({sp.nsimplify(d[th]) for d in sol}, key=str), "free": free}
+
+
+def depth_law():
+    spec = importlib.util.spec_from_file_location("rr_p2f", os.path.join(HERE, "p2_full.py"))
+    p = importlib.util.module_from_spec(spec)
+    sys.modules["rr_p2f"] = p
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(p)
+    b4 = p._b4()
+    rows = p.column(b4, "21/10")
+    return {r["y2"]: r["nec_r"] for r in rows if r["y2"] in (0.25, 0.5, 1.0)}
+
+
+def cypher_finite():
+    spec = importlib.util.spec_from_file_location("rr_cypher3", os.path.join(ROOT, "tools", "cypher.py"))
+    cy = importlib.util.module_from_spec(spec)
+    sys.modules["rr_cypher3"] = cy
+    with contextlib.redirect_stdout(io.StringIO()):
+        spec.loader.exec_module(cy)
+    C = ["meeting", "balance", "nec_radial", "nec_tangential", "compatible"]
+    # meeting 0 tangent pure tensions, 1 steep, 2 tangent with the README cancelling on the same rays; compatible 2 = unknown
+    cells = [(0, 1, 0, 1, 1), (1, 0, 1, 0, 1), (2, 1, 1, 1, 2)]
+    if MUT.get("decide_compat"):
+        cells[2] = (2, 1, 1, 1, 1)                                  # M's question decided in code
+    ok = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1 and h[4] == 1
+    okq = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1          # ignoring compatibility
+    langs = ("order", "algebra", "geometry", "information", "statistics")
+
+    def ask(cs, test):
+        """per language: the meeting kinds (decoded back to 0/1/2) of the admitted cells that pass the test, or None"""
+        cl = sorted(set(cs))
+        ix = cy.Index("finite_rim", C, [list(c) for c in cl])
+        inv = [{v: k for k, v in ix.code[i].items()} for i in range(len(C))]
+        res = {}
+        for lang in langs:
+            out, _ = cy.ADMISSION[lang][0](ix, {})
+            if out is None:
+                res[lang] = None
+                continue
+            dec = {tuple(inv[i][c[i]] for i in range(len(C))) for c in out if all(c[i] in inv[i] for i in range(len(C)))}
+            res[lang] = sorted(h[0] for h in dec if test(h))
+        return res
+
+    def recode(perm, cs):
+        return [(perm[c[0]],) + tuple(c[1:]) for c in cs]
+
+    # the meeting coordinate is nominal: put every one of its six codings to the cypher, decode back, and keep what moves
+    by_coding = {}
+    for perm in __import__("itertools").permutations(range(3)):
+        back = {perm[k]: k for k in range(3)}
+        r = ask(recode(perm, cells), ok)
+        by_coding[perm] = {l: (None if v is None else sorted(back[m] for m in v)) for l, v in r.items()}
+    return {"compatible_target": by_coding[(0, 1, 2)], "by_coding": by_coding, "physics_only": ask(cells, okq),
+            "ctrl_compatible": ask(cells[:2] + [(2, 1, 1, 1, 1)], ok)}
+
+
 def compute():
-    return {"g": gauss(), "t": tail_bound(), "cy": cypher_plane(), "co": coincidence(), "rim": cypher_rim()}
+    return {"g": gauss(), "t": tail_bound(), "cy": cypher_plane(), "co": coincidence(), "rim": cypher_rim(),
+            "rb": rim_balance(), "dl": depth_law(), "fin": cypher_finite()}
 
 
 def checks(d):
@@ -173,10 +258,29 @@ def checks(d):
         all(abs(v[0] + 1) < 2e-3 and abs(v[1] - 1) < 2e-3 for v in co.values()))
     add("R6 cypher: the whole static rim (NEC both ways, finite energy, balance) is admitted by no language on the "
         "computed and deduced arrangements", d["rim"]["statistics"] is False and d["rim"]["geometry"] is False)
+    rb = d["rb"]
+    add("R7 the finite-ell rim with pure tensions balances only with the corridor carrying -sigma and arriving "
+        "tangentially (theta = 0)", rb["theta"] == [0] and all(f.get(sp.Symbol("theta", real=True)) in (0, None)
+        for f in rb["free"]))
+    dl = d["dl"]
+    add("R8 a corridor near the plane: radial null energy < 0 and linear in depth at r = 2.1m (ratios 2.0 +- 0.1)",
+        all(v < 0 for v in dl.values()) and 1.9 < dl[0.5] / dl[0.25] < 2.1 and 1.9 < dl[1.0] / dl[0.5] < 2.1)
+    f = d["fin"]
+    bc = f["by_coding"]
+    stat_refuses = all(v["statistics"] == [] for v in bc.values())
+    others_move = all(len({tuple(v[l]) for v in bc.values()}) > 1 for l in ("order", "algebra", "geometry", "information"))
+    add("R9 cypher: with compatibility required, statistics admits no closing finite-ell rim under any of the six codings "
+        "of the nominal meeting axis; order, algebra, geometry and information each admit one, but which meeting closes "
+        "moves with the coding (an artefact of ordering a nominal axis, not a reading)", stat_refuses and others_move)
+    add("R9 ignoring compatibility, every language admits the README-cancelling tangent rim (meeting 2); control: that cell "
+        "marked compatible is admitted by all five, statistics included", all(2 in (f["physics_only"][l] or [])
+        for l in f["physics_only"]) and all(2 in (f["ctrl_compatible"][l] or []) for l in f["ctrl_compatible"]))
     return res
 
 
-MUTANTS = {"seat_rim": "a closing rim seated as data", "trace_half": "the trace term taken with 1/2 instead of 1/3", "fast_tail": "the tail made to decay faster"}
+MUTANTS = {"seat_rim": "a closing rim seated as data", "trace_half": "the trace term taken with 1/2 instead of 1/3", "fast_tail": "the tail made to decay faster",
+           "corridor_plus": "the corridor given +sigma (the coincidence law's sign flipped)",
+           "decide_compat": "the README cell marked compatible (M's 195/198 question decided in code)"}
 
 
 def selftest():
