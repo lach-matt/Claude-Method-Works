@@ -687,3 +687,24 @@ The theorem is proved exactly when no lemma below is OPEN.
     - Its order-2 admission rests on the window-hold cell alone.
     - Whether O3 rests on B4d's inputs is left as a record question, and is not decided by the count.
   - **B4d** carries the exact floor in place of "≥ 2.0e5".
+- **Between universes (M1P2x, H2tx, B5px, B5b), through its critic.** No status moves.
+  - **M1P2x (`lemmas/m1p2_junction.py`, new).** Where position 2's bulk meets ours at the corridor (203), the near-horizon
+    AdS2 and S2 radii must agree from both sides. The Ricci-flat equations reduce to (c b')' = −c/2 and (b c')' = 2b,
+    which make their ratio strictly monotone in depth (proved; the ODE matches the bank to 1e-5).
+    - So, with position 2's side the same family scaled by m2 (H-OWN-BULK-SAME-FASHION), m2 = m. Every other mass
+      ratio is excluded in the flat-limit static class, 2m included.
+    - That refutes a conjunction of readings: H-ONE-G5's per-sheet G2 = 2G1 read as position 2's G, H-PULL-PER-SIDE,
+      203's one E, and H-OWN-BULK-SAME-FASHION. **Which one gives way is the board's call and has not been made.**
+    - H2tx's per-sheet capacity of 2N stands on that conjunction. Its arithmetic is unaffected, and its status is not
+      moved on this alone.
+    - Not seated:
+      - "M1P2x reduces to M1": position 2's tension still acts on crossing rays and in the rim's balance;
+      - the misreading of COUNT-CYPHER's sentence.
+  - **B5px** under 183 is (Z) net per ray at the pin.
+    - Normal rays need (3/4)σ + δσ₂ + ρ₁ + ρ₂ ≥ 0, which no ruling gives (OPEN).
+    - Grazing rays need Σ(ρ + p) ≥ 0. This follows from TS on position 2's plane if its matter is the same at the pin.
+    - The cypher's refusal is the X cell restated, so it is void.
+  - **B5b** under 183 is B5'a on crossing rays plus each component's ρ + p ≥ 0 along the wall.
+    - The pointwise demand asks more than (Z), and rests on item 154's reading, which 183 superseded.
+    - No localised matter wall exists in the separable warped class.
+    - Asked of belongs_cypher, leaving B5b out *raises* the exact E by 4. So the count does not say it does not belong.

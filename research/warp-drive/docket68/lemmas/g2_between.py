@@ -29,6 +29,14 @@ COUNT-CYPHER.md's per-sheet law gives G2 = 2 G1, so m2 = 2m (or E/sqrt2 for N bi
      two readings (an artefact).  Control: the per-sheet reading removed -- statistics refuses the target
 [ITEM 211 AUDIT (index_audit.py): reading and g_ratio are KEYS of G5's index (three and four cells over seven
 coordinates), so G5's verdicts are forced by construction and void as evidence.  H2tx's DERIVED rests on G3-G4, not on G5.]
+[ITEM 211 (m1p2_junction.py; the between critic): in the flat-limit static class, where position 2's bulk meets ours at
+the corridor (203) and the junction crosses the horizon at finite depths, Israel's first condition makes the
+near-horizon AdS2 and S2 radii agree from both sides, and their ratio is strictly monotone in depth (proved from the
+Ricci-flat ODE); with position 2's side the same family scaled by m2 (H-OWN-BULK-SAME-FASHION) that forces m2 = m.  So
+G3-G4's per-sheet m2 = 2m, capacity 2N, is refuted in that class -- as one member of a conjunction (H-ONE-G5's per-sheet
+G2 = 2 G1 read as position 2's pull and Planck-area G, H-PULL-PER-SIDE, 203's one E, H-OWN-BULK-SAME-FASHION, the
+class).  Which member gives way is the board's call under 149, not made here.  The computation above is kept as it
+was.]
 Proposal, for seating after this pass (206): M1P2x re-worded "position 2's side reads its own eq. (17), at m2 = (G2/G) m
 (= 2m on the per-sheet count, 200 (1)), its horizon holding the README in a capacity (G2/G) N" -- still OPEN on the
 mouth reading with (Z) on both planes (m1x_cypher).  No row turns green on it alone.

@@ -66,6 +66,14 @@ WHAT IS PUT TOGETHER (each cell's source is in a comment at cells()):
      2's matter set as ours (the board's example, C4) -- all five admit X under 40 of 40: what blocks X is the unknown,
      not a contradiction.  The cypher classifies; the decision is carried by the cells (C4's computed instance with
      202), as B1-MATTER.md said of its own run.
+     [item 211 (the between analyst; its critic: survives): case is a near-key (W139, WS15, X and Xalone each on one
+     cell), and replacing X by each of the 1152 case-X tuples, statistics admits exactly the replacement -- so the X
+     refusal is the X cell restated, forced by construction and void as evidence.  Under 183, B5'a's form is exactly
+     TS's crossing share, (lambda + rho1 + rho2) sin^2 a + sum (rho + p) cos^2 a = S(k_par, k_par): B5px is (Z) net per
+     ray for rays that cross the pin and nothing else -- (3/4) sigma + delta_sigma2 + rho1 + rho2 >= 0 on normal rays,
+     sum (rho + p) >= 0 on grazing ones.  The grazing half follows from TS on position 2's own plane (as nature_rows
+     does for Z3c) if (Z) is applied to P2 and P2's matter at the pin is its matter away from it; the normal half needs
+     position 2's matter and offset no lower than -3 sigma/4, which no ruling gives (OPEN)]
      A finding about this file, recorded: it once imported its codings from forming_rim.py's _codings, which has since
      been changed to return all 120 orders of the case axis; under those 480 codings (computed 2026-10-10 in the fix
      round, not re-run by the selftest) X is admitted by order under 372, algebra 372, geometry 264, information 180

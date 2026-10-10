@@ -99,6 +99,16 @@ THE BOARD'S READINGS (named; withdrawn if M says otherwise):
      187).  A pointwise wall meets (Z); the converse fails -- S2's control is negative at 3w, but its two normalised
      profiles integrate along a crossing ray to (4/3 - 1/3) lambda_RS > 0 (deduced here; not entered as a cell).  The
      index's nec is pointwise, as B5'b is worded
+     [item 211 (the between analyst; its critic: the core survives): statistics refuses every tuple with (exact 1,
+     matter 2) whatever its null energy, so the refusal says only that no exact wall carrying matter is a cell.  Under
+     183, at leading order in width over ell, a crossing ray's net is the thin composite's TS share (3/4 for 200 (1)'s
+     control, which is pointwise negative beyond 2 sqrt(ln 2) w), and along the wall net and pointwise coincide (k^y
+     stays 0 in a static warp): B5b's (Z) content is B5'a on crossing rays (B5pu, B5px) and each component's
+     rho + p >= 0 along the wall (Z3a, Z3c), for any profiles.  The pointwise demand asks more than (Z) and rests on
+     154's pointwise reading, which 183 superseded.  No localised matter wall exists in the separable warped class
+     e^(2A) ghat + dy^2 (its matter's proper density grows as e^(-2A)); a localised wall needs a non-separable (t, y)
+     solution, which no instrument here solves.  Whether B5b, so re-read, still belongs is put to belongs_cypher, not
+     decided here]
   H-NEC-BY-PROFILE  L1 is a regularity over eleven computed cells, not a derivation: it does not compute the missing
      wall's null energy
 
