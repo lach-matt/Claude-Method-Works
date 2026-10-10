@@ -35,6 +35,7 @@ Sources of this round's changes (each checked by two separate AI sessions in thi
                    (sigma_defines.py T1-T4 show it consistent)
   o1c_complete.py  O1c PROVED for eq. (17)'s geometry (curvature bounded; every geodesic crosses the throat in finite
                    affine parameter and is unbounded at both ends); on M1.  Not verified by a separate session.
+  item 204         the B5'p and M1P2 splits HELD: tallied beside the chain (HELD, held_tally), never in it
 python3 chain_cypher.py [--selftest | --mutants]
 """
 import contextlib
@@ -76,6 +77,16 @@ ROWS = [
     ("E3", "DERIVED", "", "E3"), ("E4r", "PROVED", "M1", "E4"),
     ("R0", "DEFINITION", "", "R0"), ("R1", "DEFINITION", "", "R1"), ("R2", "DEFINITION", "", "R2"),
     ("R3", "PROVED", "", "R3"), ("R4", "DERIVED", "", "R4"), ("R5", "DERIVED", "", "R5"),
+]
+
+# Proposals HELD by M (item 204: "Hold them, and keep cycling through the cypher").  Tallied beside the chain, never in
+# it: rows() and tally() never read this list.  Each entry replaces rows and may rename an input.
+HELD = [
+    {"id": "204-B5p", "source": "b5p_cypher.py (202 settles B5'p within one universe)",
+     "replace": {"B5p": [("B5pu", "DERIVED", "", "B5"), ("B5px", "OPEN", "", "B5")]}, "inputs": {}},
+    {"id": "204-M1P2", "source": "m1p2_cypher.py (within one universe M1P2 reduces to M1)",
+     "replace": {"H2t": [("H2tu", "DERIVED", "M1", "H2"), ("H2tx", "DERIVED", "M1 M1P2x", "H2")]},
+     "inputs": {"M1P2": "M1P2x"}},
 ]
 
 
@@ -125,6 +136,28 @@ def tally():
     return out
 
 
+def held_rows(held=None):
+    held = HELD if held is None else held
+    R, ren = [], {}
+    for h in held:
+        ren.update(h["inputs"])
+    rep = {k: v for h in held for k, v in h["replace"].items()}
+    for r in ROWS:
+        for a, b, c, d in rep.get(r[0], [r]):
+            R.append((a, b, " ".join(ren.get(x, x) for x in c.split()), d))
+    inputs = [ren.get(k, k) for k in INPUTS]
+    return R, inputs
+
+
+def held_tally():
+    """the chain as it would read with every HELD proposal seated -- beside the chain, not in it"""
+    R, inputs = held_rows()
+    out = {"n": len(R), "strict": [r[0] for r in R if green(r, set())],
+           "audit": [r[0] for r in R if green(r, set(), True)], "inputs": inputs}
+    out["with_M1"] = sum(green(r, {"M1"}) for r in R)
+    return out
+
+
 def current_table():
     """warptheorem.py's own rows (read only) and the rows this proposal changes."""
     wt = _load(os.path.join(D68, "warptheorem.py"), "cc_warptheorem")
@@ -170,7 +203,11 @@ def compute():
         i, j = coords.index("CLOSE"), coords.index("M1")
         return coords, [c[:i] + [c[j]] + c[i + 1:] for c in cells]
     ctrl = cypher(*index(extra=dup))
-    return {"tally": t, "current": cur, "changed": changed, "cy": main, "ctrl": ctrl}
+    held = held_tally()
+    if MUT.get("seat_held"):                                  # the held proposals leak into the chain's own tally
+        R, _ = held_rows()
+        t = dict(t, n=len(R), strict=[r[0] for r in R if green(r, set())])
+    return {"tally": t, "current": cur, "changed": changed, "cy": main, "ctrl": ctrl, "held": held}
 
 
 def checks(d):
@@ -197,11 +234,17 @@ def checks(d):
         and cy["documentary_silent"])
     add("C8 control: CLOSE made a copy of M1 -> information reports one of them as adding nothing (the test can fail)",
         bool({"CLOSE", "M1"} & d["ctrl"]["adds_nothing"]) and not ({"CLOSE", "M1"} & d["cy"]["adds_nothing"]))
+    h = d["held"]
+    add("C9 held proposals (item 204) stay beside the chain: with both seated it would read 21 of 47 strict (B5pu), "
+        "M1 alone greening 31 of 47 (B5pu, H2tu); the chain's own tally is untouched (C1)",
+        h["n"] == 47 and len(h["strict"]) == 21 and "B5pu" in h["strict"] and h["with_M1"] == 31
+        and "M1P2x" in h["inputs"] and "M1P2" not in h["inputs"] and t["n"] == 45)
     return res
 
 
 MUTANTS = {"e12_close_free": "E1x, E2x (between universes) read as resting on no closing flux", "b6_on_count": "B6 read as still resting on an open premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
-           "definition_strict": "DEFINITION counted green under the strict rule"}
+           "definition_strict": "DEFINITION counted green under the strict rule",
+           "seat_held": "the held proposals counted in the chain's own tally"}
 
 
 def selftest():
@@ -234,6 +277,11 @@ def report(d):
     print("  non-green by own status:", t["own_status"])
     print("  never greenable as stated:", t["excluded"])
     print("  smallest input set:", t["smallest"], " with:", t["with"])
+    h = d["held"]
+    print("held beside the chain (item 204; not seated): %d of %d strict, %d audit; M1 alone would green %d"
+          % (len(h["strict"]), h["n"], len(h["audit"]), h["with_M1"]))
+    for p in HELD:
+        print("  %s  %s" % (p["id"], p["source"]))
     print("\nwarptheorem.py rows this proposal changes:")
     for p, v in d["changed"].items():
         print("  %-4s %-10s -> %s" % (p, d["current"][p], "; ".join("%s %s%s" % (a, b, (" on " + c) if c else "") for a, b, c in v)))
