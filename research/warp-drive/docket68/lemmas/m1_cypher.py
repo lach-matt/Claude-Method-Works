@@ -39,6 +39,9 @@ F1-AUDIT D1 named what decides it: a P2 hypersurface below the static bulk's sin
 So: within one universe M1's static existence is met in the analytic class -- every clause computed -- except (d),
 which turns on what the ring at the fold is.  Proposal, for seating after this pass (206): M1 splits into M1u (within
 one universe, 168's class: READING on H-RING-IS-THE-FOLD, otherwise computed) and M1x (between universes, OPEN).
+[Item 207 put the ring to the cypher (ring_cypher.py): it refuses the ring's nature, and H-RING-IS-THE-FOLD is refuted
+as stated -- a thin pure-tension fold carries no line tension.  So M1u would be OPEN on (d), not READING; the split
+moves no row and is not seated.  The M2 control above runs the refuted reading, as a control only.]
 What it does not show, recorded: the static bulk is eq. (17)'s in the flat limit, by its series and Pade columns; the
 global bulk beyond the reach (FAR, B4c) and the write (WRITE, B4d) are other inputs; F0: the rim is realised only in the
 Z2 double cover.

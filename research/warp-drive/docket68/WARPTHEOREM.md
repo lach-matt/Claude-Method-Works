@@ -468,3 +468,28 @@ The theorem is proved exactly when no lemma below is OPEN.
   green 31; all six inputs, 36. The other 11 are 7 rows non-green by their own status (O3, B3, B4c, B4b, B4d, B5px,
   B5b) and 4 definitions under the strict rule.
 - **The selftest** now also runs the seated owners' own selftests: about 10 minutes in place of 2.
+
+## History (2026-10-10, item 207: the ring through the cypher)
+
+- **Item 207** ("Ask the cypher"): M1 within one universe is met on every clause but (d), no added matter
+  (`lemmas/m1_cypher.py`). The rim balances only with a ring of positive tension, 0.013–0.10 aσ, and the board read
+  that tension as the fold's own (H-RING-IS-THE-FOLD). Put to the cypher (`lemmas/ring_cypher.py`):
+  - **The cypher refuses the ring's nature.** Beside the carriers M has ruled (129's matter, 130's mouth, 201–202's
+    tension and offset, the fold, the corridor), the ring as computed — a line, its tension solved from the rim's
+    balance — is refused by geometry, information and statistics under every coding (order and algebra are
+    coding-dependent). No ruled carrier is a line, and none has a tension solved from a balance.
+  - **The reading is refuted as stated.** A thin pure-tension sheet carries no line tension at a fold: rounding a fold
+    changes its line energy by σw(θ − 2 tan(θ/2)), negative, and zero in the thin limit. So the plane as modelled
+    (201: a tension and an offset) gives its fold zero tension, never the ring's positive one. Entered as the fold, the
+    ring is "not matter" at every order — but that is the reading restated.
+  - **What physics records (READ):** Csáki and Shirman (hep-th/9908186) — a brane junction is static only when the
+    branes' forces cancel, with no junction tension; a tension on the intersection is a separate parameter.
+    Carroll, Hellerman and Trodden (hep-th/9905217) — a domain-wall junction's "hub" has energy of its own, fixed by the
+    walls' own field. Entered as a line tension fixed by the plane's structure, the ring is "own structure" by that hub
+    alone, and refused on M's carriers.
+  - **What would decide it:** whether a plane has structure beyond its tension and offset that gives a junction a
+    tension of its own (a stiffness or a thickness, as a domain wall's field does); or a rim that closes with no ring
+    (the Plateau angle, 120°, which the family's 5–16° does not reach); or the ring being something M's model already
+    holds.
+- **The count is unchanged:** M1 stays OPEN, on (d). The proposed split into M1u and M1x moves no row, so it is not
+  seated. 21 green under the strict rule (25 counting definitions).

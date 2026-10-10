@@ -163,7 +163,7 @@ LEMMAS = [
     ('R', "R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position 2's matter -- which field, and what 'activation' is when the field is non-zero everywhere", 'DERIVED',
      "lemmas/r5_build.py: mechanism yours (91 (b), 101 answer 8, 136 B, 139 (3), 148); fields the board's reading; energy covers any exact README's rearrangement (3.76e22 J >= 5.94e16 J); the fields reading confirmed by M, item 155 (H-ACTIVATION-IS-TRIGGER)"),
     ('N', "M1 the plane's reading of the corridor's mouth (replaces F1; OPEN)", 'OPEN',
-     "seated restatement (206): the plane's reading of the corridor's mouth (replaces F1).  The rim closes in the static bulk: the marginal corridor keeps the radial and tangential null energy from the throat, which it joins smoothly, to a rim beyond r_b, and a ring of positive tension balances it (corridor_shape.py S0-S3 corrected; rim_profile.py; forming_rim.py); open: the ring's nature, Wall C's bridge  [lemmas/F1-AUDIT.md; lemmas/corridor_shape.py S0; lemmas/rim_profile.py P4, P4b; lemmas/forming_rim.py F3b, F7]"),
+     "seated restatement (206): the plane's reading of the corridor's mouth (replaces F1).  The rim closes in the static bulk: the marginal corridor keeps the radial and tangential null energy from the throat, which it joins smoothly, to a rim beyond r_b, and a ring of positive tension balances it (corridor_shape.py S0-S3 corrected; rim_profile.py; forming_rim.py).  Within one universe every clause is met but (d) (m1_cypher.py).  Open: the ring's nature -- put to the cypher on item 207, which refuses it; the reading that the ring is the fold's own tension is refuted in the thin-plane model, a thin pure-tension fold carrying no line tension (ring_cypher.py) -- and Wall C's bridge  [lemmas/F1-AUDIT.md; lemmas/corridor_shape.py S0; lemmas/rim_profile.py P4, P4b; lemmas/forming_rim.py F3b, F7; lemmas/m1_cypher.py; lemmas/ring_cypher.py]"),
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg (OPEN)", 'OPEN',
      "seated restatement (206): between universes, position 2's side reads its own eq. (17), at m2 = (G2/G) m; within one universe M1P2 reduces to M1  [lemmas/g2_between.py; lemmas/m1p2_cypher.py; lemmas/m1x_cypher.py]"),
     ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN)', 'OPEN',
@@ -224,7 +224,9 @@ def lemma_selftests():
               # owners seated on item 206
               "b6_once.py", "nature_rows.py", "o1c_complete.py", "sigma_defines.py", "close_flux.py", "b5p_cypher.py",
               "m1p2_cypher.py", "z3b_cypher.py", "b1_matter.py", "f1_audit.py", "g2_between.py", "close_object.py",
-              "rim_profile.py", "corridor_shape.py", "forming_rim.py"):
+              "rim_profile.py", "corridor_shape.py", "forming_rim.py",
+              # pass 3 (item 207)
+              "m1_cypher.py", "ring_cypher.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
