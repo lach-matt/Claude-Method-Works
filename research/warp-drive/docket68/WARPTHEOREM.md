@@ -731,3 +731,27 @@ The theorem is proved exactly when no lemma below is OPEN.
   and the corridor's positive energy is its warp-order tension.
 - **Not computed:** a bulk in which the warp's kink follows our plane into the corridor (the bank puts it at y = 0),
   and 203's equality of the corridor's energy with E. **No status moves.**
+
+## History (2026-10-10, item 213: not mirror images; the object at position 1, not at position 2)
+
+- **M, item 213:** "they are not mirror images of each other. The whole need for warp travel is that position 1
+  contains a geometric object that is not contained at position 2. We want position 2 to contain the geometric object
+  after the corridor is closed".
+- **`lemmas/asym_junction.py` (worked in the conversation; two independent routes).**
+  - **Route 1, the lapse.** Along every seated corridor the lapse runs from below 1e-5 at the throat to 1 − 2m/r_rim at
+    the rim, a factor above 4×10⁴. A static sheet needs the lapse to agree from both sides up to one constant. A side
+    without the object has no horizon, so its lapse cannot follow ours, and no static sheet joins the two.
+  - **Route 2, the near-horizon radii** (m1p2_junction J5). Only equal masses match, and a side with no object has no
+    horizon to match at all.
+- **So, reading "contains" as the object's field on that side, the corridor cannot be static while position 2 lacks
+  the object: it is the transfer itself.** That fits o3_write W4 (ii) (the write is the opening), 160 and 198.
+- **On the other reading** (the field reaches position 2's side during the hold, as 132's black-hole and white-hole
+  side views), a static sheet needs equal fields. Mirror images being excluded, that is one smooth bulk, and 213's
+  asymmetry then lives in time, which no static field carries either. Either way, the transfer is dynamic.
+- **Narrowed, no status moves.**
+  - two_sided T3 is set aside by M's words.
+  - The static rim readings (the joint, the ring, H-CORRIDOR-IS-OUR-BRANE) describe same-field corridors.
+  - In M1P2x's conjunction, the member that gives way is the static class.
+  - WRITE's "static bulk through the write" cannot hold on reading (b).
+- **Next:** (Z) in the dynamic transfer. The object's positive E moves from position 1's side to position 2's side, and
+  each position's own reading of its mass change is to be computed against 183, 177 and 212.

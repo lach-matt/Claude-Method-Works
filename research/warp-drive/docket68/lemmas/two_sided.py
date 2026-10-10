@@ -32,6 +32,10 @@ three of M's statements hold together: the bulk is one bulk at flat order (212, 
 the rim is the reflection's appearance and (Z) holds at the rim with no partner (212, H-Z-REFLECTION); and the corridor
 carries positive energy, its warp-order tension, where the two bulks meet (203).  The other reading -- the two bulks as
 flat-order mirror images (T3) -- keeps 203's energy at flat order but makes the joint's negative real.
+[item 213 (M: 'they are not mirror images of each other'; asym_junction.py): T3's configuration is set aside by M's
+words, and H-CORRIDOR-IS-OUR-BRANE describes a corridor whose two sides carry the same field -- which 213 excludes before
+the closing on the reading that 'contains' means the object's field; no static sheet joins a side with the object to one
+without it (asym_junction A2, A3).  T1, T2 and T4 stand as computed.]
 What this does not show: no bulk has been computed in which the warp's kink follows our plane into the corridor (the bank
 puts it at y = 0), so H-CORRIDOR-IS-OUR-BRANE is a reading on the sheet's own geometry, not a solved bulk; 203's equality
 of the corridor's energy with the README's E is not computed; flat limit and thin sheets throughout.
