@@ -14,6 +14,14 @@ deduced where marked; the conclusion reached by two independent routes; seated u
   A3 (computed, second route: m1p2_junction J5) where the sheet crosses the horizon the near-horizon radii must agree
      from both sides, and only equal masses match: mass ratio 0 (no object on position 2's side) has no horizon to match
      at all, and every ratio but 1 fails
+  A4 (deduced; item 214, M: 'They see their own reflections but are not mirror images of each other') each bulk closes on
+     its own mirror image at the sheet (the one-sided junction; 197's L1 forces it locally at a sheet carrying only its
+     tension), so each position's view of the sheet is its own one-sided reading: the seated corridor's stresses are
+     position 1's view, and 212's negative line at the joint is the appearance in that view.  Israel's first condition
+     compares the sheet's INTRINSIC geometry only: a bulk closed on its own mirror meets it trivially, but one corridor
+     seen from both sides (132: 'side views of the same corridor object') has one intrinsic lapse, and A2's test is on
+     that lapse alone.  So 214 changes how each side reads the sheet, not A1-A3: a horizonless, matter-free static side
+     (flat, standard-not-READ) cannot carry the shared sheet's lapse
 So, on the board's reading of 213 that 'contains' means the object's field on that side, the corridor cannot be static
 while position 2 lacks the object: it is the transfer itself -- in line with o3_write W4 (ii) (the write is the opening,
 non-static by construction), 160 (the corridor and the opening are the same object) and 198 (the README forms the

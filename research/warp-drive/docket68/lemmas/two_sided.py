@@ -35,7 +35,10 @@ flat-order mirror images (T3) -- keeps 203's energy at flat order but makes the 
 [item 213 (M: 'they are not mirror images of each other'; asym_junction.py): T3's configuration is set aside by M's
 words, and H-CORRIDOR-IS-OUR-BRANE describes a corridor whose two sides carry the same field -- which 213 excludes before
 the closing on the reading that 'contains' means the object's field; no static sheet joins a side with the object to one
-without it (asym_junction A2, A3).  T1, T2 and T4 stand as computed.]
+without it (asym_junction A2, A3).  T1, T2 and T4 stand as computed.  Item 214 (M: 'They see their own reflections but
+are not mirror images of each other'): each bulk closes on its own mirror, so the one-sided readings are each position's
+own view of the sheet -- T2's D+ reading is position 1's view, its negative line the appearance there; the two views
+differ because the contents differ, not because one reflects the other (asym_junction A4).]
 What this does not show: no bulk has been computed in which the warp's kink follows our plane into the corridor (the bank
 puts it at y = 0), so H-CORRIDOR-IS-OUR-BRANE is a reading on the sheet's own geometry, not a solved bulk; 203's equality
 of the corridor's energy with the README's E is not computed; flat limit and thin sheets throughout.

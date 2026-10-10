@@ -755,3 +755,17 @@ The theorem is proved exactly when no lemma below is OPEN.
   - WRITE's "static bulk through the write" cannot hold on reading (b).
 - **Next:** (Z) in the dynamic transfer. The object's positive E moves from position 1's side to position 2's side, and
   each position's own reading of its mass change is to be computed against 183, 177 and 212.
+
+## History (2026-10-10, item 214: each sees its own reflection, not mirror images of each other)
+
+- **M, item 214:** "They see their own reflections but are not mirror images of each other".
+- **The board's reading (asym_junction A4).** Each bulk closes on its own mirror image at the corridor, the one-sided
+  junction that item 197's mirror lemma forces locally. So the one-sided readings computed so far are each position's
+  own view of the sheet:
+  - the seated corridor's stresses are position 1's view;
+  - 212's negative line at the joint is the appearance in that view;
+  - the two views differ because the bulks' contents differ (213), not because one reflects the other.
+- **What it leaves standing.** Israel's first condition compares only the sheet's intrinsic geometry, and one corridor
+  seen from both sides (132) has one intrinsic lapse. So the item-213 finding stands: while position 2 lacks the
+  object, no static sheet carries both views, and the transfer is dynamic.
+- No status moves.
