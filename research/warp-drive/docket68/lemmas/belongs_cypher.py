@@ -23,7 +23,7 @@ less held cells), never a ratio.
      (O3, item 160), and both records already say "re-read with B4d".  209's reading H-BROAD-DOES-NOT-BELONG is met by
      the counts, not assumed by them
   B4 (computed) what is missing: 15 cells every language admits that the theorem does not hold.  Each, added, lowers E
-     by exactly one: they are the excess every language shares, not cells whose absence keeps the index open.  Among
+     by exactly one in every language: they are the excess every language shares, not cells whose absence keeps the index open.  Among
      them the join of B3 and B4d -- a row OPEN on M1, FAR, WRITE, ARRIVAL and CLOSE together, the theorem's own conclusion
      -- and between-universe DERIVED rows resting on nothing, on M1, and on M1 with CLOSE
   B5 (computed) controls: the six input rows left out lower the exact E by 557 -- 4th -- and B4c stays first however the
@@ -144,7 +144,7 @@ def compute():
     drops.sort(key=lambda x: x[0])
     stat = sorted(((E([x for x in cells if x != c])[0]["statistics"], names[c]) for c in sorted(set(cells))))
     miss = common_missing(cells)
-    add_one = [total(E(cells + [m])[0]) - total(e0) for m in miss]
+    add_one = [tuple(E(cells + [m])[0][lg] - e0[lg] for lg in LANGS) for m in miss]
     broad = sorted(r["name"] for r in rs if r["broad"])
     return {"n": len(rs), "distinct": len(set(cells)), "E": e0, "box": ix.box, "drops": drops, "stat": stat,
             "missing": miss, "add_one": add_one, "broad": broad, "names": names, "words": words()}
@@ -164,8 +164,8 @@ def checks(d):
         and [s[1] for s in d["stat"][:3]] == [["B4c"], ["B4b"], ["E1x", "E2x"]] and [s[0] for s in d["stat"][:3]] == [26, 30, 33])
     add("B3 the only rows carrying broad coefficients are B4c and B4b -- the two the counts single out",
         d["broad"] == ["B4b", "B4c"] and {tuple(x[1]) for x in d["drops"][:2]} == {("B4c",), ("B4b",)})
-    add("B4 15 cells every language admits are missing; each, added, lowers the exact E by exactly one",
-        len(d["missing"]) == 15 and set(d["add_one"]) == {-1})
+    add("B4 15 cells every language admits are missing; each, added, lowers the exact E by exactly one in every "
+        "language", len(d["missing"]) == 15 and set(d["add_one"]) == {(-1, -1, -1, -1, -1)})
     inp = [x[0] for x in d["drops"] if x[1] == ["M1", "FAR", "WRITE", "ARRIVAL", "CLOSE"]]
     add("B5 control: the input rows left out lower the exact E by 557, fourth", inp == [-557]
         and [x[1] for x in d["drops"]].index(["M1", "FAR", "WRITE", "ARRIVAL", "CLOSE"]) == 3)
