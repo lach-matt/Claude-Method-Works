@@ -31,6 +31,8 @@ Sources of this round's changes (each checked by two separate AI sessions in thi
                    (2) Z2 and E4 restated within the reach (Z2r, E4r); (3) Z3c and B6' are ours to solve: NATURE -> OPEN
   nature_rows.py   Z3c DERIVED: the plane's dark energy has w >= -1 (seated (Z) via TS, SMS READ); B6' OPEN: sigma is an
                    axis no clause determines (the cypher), one relation missing.  Not verified by a separate session.
+  item 201         B6' a DEFINITION: our universe is defined by its plane's tension and its dark-energy offset
+                   (sigma_defines.py T1-T4 show it consistent)
   o1c_complete.py  O1c PROVED for eq. (17)'s geometry (curvature bounded; every geodesic crosses the throat in finite
                    affine parameter and is unbounded at both ends); on M1.  Not verified by a separate session.
 python3 chain_cypher.py [--selftest | --mutants]
@@ -54,7 +56,6 @@ INPUTS = {
     "WRITE": "the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending)",
     "ARRIVAL": "the README forms the corridor as it comes in, no partner (198, M's guess; README-HELD's 4D models; formation in the bulk OPEN, 179)",
     "CLOSE": "the closing's negative null flux: ending the horizon and moving the hold need its area to shrink (README-HELD; area theorem; OPEN)",
-    "SIGMA": "the plane's tension, k's scale (200 (3): ours to solve, through the cypher; OPEN)",
 }
 GREEN = {"PROVED", "DERIVED", "AXIOM"}
 RANK = {"OPEN": 0, "NATURE": 1, "READING": 1, "DEFINITION": 2, "DERIVED": 3, "PROVED": 4}
@@ -70,7 +71,7 @@ ROWS = [
     ("B3", "OPEN", "M1 FAR WRITE ARRIVAL", "B3"), ("B4a", "PROVED", "", "B4a"), ("B4c", "READING", "FAR", "B4c"),
     ("B4b", "READING", "M1 WRITE", "B4b"), ("B4d", "OPEN", "M1 WRITE ARRIVAL CLOSE", "B4d"),
     ("B5a", "DERIVED", "", "B5"), ("B5p", "OPEN", "", "B5"), ("B5b", "OPEN", "", "B5"),
-    ("B6", "PROVED", "", "B6"), ("B6'", "OPEN", "SIGMA", "B6'"), ("B7", "DERIVED", "WRITE ARRIVAL CLOSE", "B7"),
+    ("B6", "PROVED", "", "B6"), ("B6'", "DEFINITION", "", "B6'"), ("B7", "DERIVED", "WRITE ARRIVAL CLOSE", "B7"),
     ("I1", "DERIVED", "", "I1"), ("I2", "PROVED", "", "I2"), ("E1u", "DERIVED", "", "E1"), ("E2u", "DERIVED", "", "E2"), ("E1x", "DERIVED", "CLOSE", "E1"), ("E2x", "DERIVED", "CLOSE", "E2"),
     ("E3", "DERIVED", "", "E3"), ("E4r", "PROVED", "M1", "E4"),
     ("R0", "DEFINITION", "", "R0"), ("R1", "DEFINITION", "", "R1"), ("R2", "DEFINITION", "", "R2"),
@@ -175,21 +176,22 @@ def compute():
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now: 20 of 45 (strict), 23 of 45 (audit rule); B6 green on item 200 (1), Z3c DERIVED (nature_rows.py)",
-        len(t["strict"]) == 20 and len(t["audit"]) == 23 and t["n"] == 45 and "B6" in t["strict"] and "Z3c" in t["strict"])
+    add("C1 green now: 20 of 45 (strict), 24 of 45 (audit rule, B6' a DEFINITION on item 201); B6 on 200 (1), Z3c DERIVED",
+        len(t["strict"]) == 20 and len(t["audit"]) == 24 and t["n"] == 45 and "B6" in t["strict"] and "Z3c" in t["strict"]
+        and "B6'" in t["audit"])
     add("C2 the smallest input set greening every green-status lemma: {M1, M1P2, WRITE, ARRIVAL, CLOSE}",
         t["smallest"] == [("M1", "M1P2", "WRITE", "ARRIVAL", "CLOSE")])
     add("C3 M1 alone greens 29 of 45; with CLOSE 31; with M1P2 too 32",
         t["with"][("M1",)] == 29 and t["with"][("M1", "CLOSE")] == 31 and t["with"][("M1", "M1P2", "CLOSE")] == 32)
-    add("C4 no row is never-greenable after item 200 (2); 9 rows non-green by their own status, B6' OPEN (200 (3))",
-        t["excluded"] == [] and len(t["own_status"]) == 9 and t["own_status"].get("B6'") == "OPEN")
+    add("C4 no row is never-greenable after item 200 (2); 8 rows non-green by their own status (B6' a DEFINITION, 201)",
+        t["excluded"] == [] and len(t["own_status"]) == 8 and "B6'" not in t["own_status"])
     ch = d["changed"]
     add("C5 every proposal row refines one of warptheorem.py's 34 rows, and at least 14 of them change",
         len(d["current"]) == 34 and set(r[3] for r in rows()) <= set(d["current"]) and len(ch) >= 14)
     cy = d["cy"]
-    add("C6 cypher: information reports ARRIVAL, FAR, WRITE as adding nothing; M1, M1P2, CLOSE, SIGMA are the "
-        "independent axes on this encoding", {"ARRIVAL", "FAR", "WRITE"} <= cy["adds_nothing"]
-        and not ({"M1", "M1P2", "CLOSE", "SIGMA"} & cy["adds_nothing"]))
+    add("C6 cypher: information reports ARRIVAL, FAR, WRITE as adding nothing; M1, M1P2, CLOSE are the independent "
+        "axes on this encoding", {"ARRIVAL", "FAR", "WRITE"} <= cy["adds_nothing"]
+        and not ({"M1", "M1P2", "CLOSE"} & cy["adds_nothing"]))
     add("C7 cypher: five operator-bearing languages speak with E > 0; documentary silent",
         all(cy[l][0] is not None and cy[l][0] > 0 for l in ("order", "algebra", "geometry", "information", "statistics"))
         and cy["documentary_silent"])
