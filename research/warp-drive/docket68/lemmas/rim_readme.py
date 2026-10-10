@@ -35,6 +35,9 @@ of E, which only the README has the energy to cover.  This works out where it ca
      + sigma (inside, position 2's) + T_corridor, at the meeting angle.  With the coincidence law (R5: the corridor
      carries -sigma where it meets the plane) the rim balances exactly with pure tensions: sigma = sigma + sigma - sigma
      -- provided the corridor arrives tangentially (any meeting angle breaks it; sympy: theta = 0 the only root)
+     [forming_rim.py F0, later: this count with three one-sided planes and a two-sided corridor is not realisable as a
+     line junction -- it is a force diagram, realisable in the Z2 double cover; and forming_rim F3b finds the balance
+     closing with Z2 images, a ring, a kink or a tension-carrying README.  R7's check stands as the force diagram's]
   R8 (computed, p2_full.py) a corridor near the plane has radial null energy proportional to its depth: at r = 2.1m,
      -0.0079, -0.016, -0.032 at depths 0.25, 0.5, 1m (linear), of the sign of eq. (17)'s own 4D radial null deficit
      (R4(k,k) = -2r''/r < 0, F1-AUDIT C1).  So the tangential arrival R7 requires carries eq. (17)'s negative radial null

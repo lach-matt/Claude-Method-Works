@@ -1,58 +1,96 @@
 #!/usr/bin/env python3
 """forming_rim.py -- the rim while the corridor forms (198 (a)): can the README's inflow, at a rim that moves, supply
-both the force balance and the null energy?  Put to the cypher (computed, deduced; flat limit; thin sheets; not
-verified by a separate session; not seated; 2026-10-10).
+both the force balance and the null energy?  Put to the cypher (computed, deduced; flat limit; thin sheets; checked by
+four independent verifiers whose findings are folded in below; not seated; 2026-10-10).
 
-rim_readme.py left the static finite-ell rim with no closing arrangement on M's guess 198, and named what was left: the
-forming phase, where the rim is not static and the README is mid-inflow (198 (a): "the README comes in while the
-corridor forms, with no partner, the size growing as it comes in (94) and fixed once the whole README is in").
+rim_readme.py left the static finite-ell rim with no closing arrangement on M's guess 198 and named what was left: the
+forming phase (198 (a): "the README comes in while the corridor forms, with no partner, the size growing as it comes in
+(94) and fixed once the whole README is in").  R7 fixed a tension count at the rim -- outside sigma, inside ours sigma
+and position 2's sigma, corridor -sigma (R5) -- and nothing computed pins the geometry.
 
-The geometry at the rim is not pinned by anything the board has computed (Wall C, the corridor's global bulk, is open).
-R7 fixed only the tension count -- outside sigma, inside ours sigma and position 2's sigma, corridor -sigma (R5) -- so
-every arrangement consistent with that count is run, in a cross-section with the rim at the origin:
-  A  R7's own check: our inside sheet and position 2's both along the plane, the corridor tilted by theta
-  B  our plane flat through the rim (corridor_shape.py's frame, the corridor a graph y = Y(r) over it), the corridor at
-     theta, position 2's sheet its mirror across the corridor at 2 theta ("depth Y below each plane")
-  C  mirror-symmetric about the corridor (202's symmetry applied at the rim): the outside sheet and the corridor on the
-     mirror line, our sheet and position 2's at +-theta.  Our plane then kinks by theta at the rim
-  F1 (computed, sympy) a pure-tension sheet's stress -sigma eta is invariant under boosts along the sheet, so a rim
-     sliding along our plane at any speed meets the same planes in its own rest frame: rim motion alone changes no
-     balance, and each case is read in the rim's rest frame (the README's flux Doppler-shifted, still >= 0)
-  F2 (computed) a flow arriving along sheet i and leaving along sheet j with momentum flux Pi pushes the rim by
-     -Pi (e_i + e_j): to the rim it is a pressure Pi added to both sheets.  The NEC on the flow gives Pi >= 0 (a null or
-     timelike README carries Pi = (rho + p) gamma^2 v^2, or Pi = Phi)
-  F3 (computed, sympy) the steep forming rim (theta in (0, pi)), README arriving from outside (it falls in from large r):
-     A  into the corridor: balance needs Pi = -sigma at every theta -- a negative flux, or a README that is itself a
-        membrane of net tension sigma; onto either plane sheet: no bend, no force, theta = 0 only
-     B  no route balances at any theta in (0, pi), whatever Pi's sign (the cross product is -k sigma (cos th - 1) sin th)
-     C  onto both plane sheets, split evenly: balance at EVERY theta with Pi = 2 sigma exactly -- the README's pressure
-        cancels the inside sheets' tension and turns the outside sheet's to -sigma, head-on against the corridor's;
-        into the corridor (on the mirror line): no bend, theta = 0 only; onto one plane sheet alone: none
-  F4 (computed, sympy) null energy the README supplies: null dust Phi l l gives T(l,l) = 0 along its own rays, 4 Phi along
-     the opposite radial rays, Phi along tangential ones; timelike dust gives rho (u.k)^2 > 0 along every null k.  So a
-     null README never covers a deficit along its own infall rays; a timelike one can, by magnitude
-  F5 (deduced, computed) the hold: on 198 (a) the README is all in once the corridor has formed, Pi = 0 at the rim, and
-     every geometry balances only at theta = 0 -- R7 again, with R8's radial deficit.  Nothing in the forming phase
-     carries through the hold
-  F6 (ESTIMATE, the board's; uniform spread over r < 2.15m) C's flux is within the README's budget: its mean density
-     near the rim is 0.10 (ell/m)^2 sigma (7.3 sigma at ell/m = 8.54), and E feeds Pi = 2 sigma through the rim for at
-     most 0.036 (ell/m)^2 m/c (2.6 m/c at ell/m = 8.54; far longer for a real README, ell/m ~ 7e22)
-  F7 (cypher) the static (rim_readme R9) and forming arrangements as cells; NEC coordinates take 2 = not computed
-     (the corridor's null energy with the README's flux at the rim needs the self-consistent bulk re-solve).  Target A,
-     a rim that closes through the hold: refused by statistics under every coding tried.  Target B, closing while the
-     README flows: refused by statistics with the uncomputed cells left unknown; with them set favourable (control),
-     statistics admits the timelike-README cells and still refuses target A
-Named readings (the board's): H-DEPTH-LAW-FOLLOWS-R4 -- the corridor's radial null energy near the rim follows the
-plane's 4D radial null Ricci along the same direction (R8's sign match, not derived); on it a null README leaves the
-corridor's deficit along the README's own infall rays.  Geometries A, B, C are the board's; none is M's.
-So: in the forming phase the README's inflow balances the steep rim only in the mirror-symmetric arrangement C, with
-its flux onto the two planes tuned to exactly 2 sigma; it cannot supply null energy along its own rays if it is null;
-and on 198 (a) nothing of it remains at the rim through the hold.
+  F0 (deduced; checked by enumeration) R7's count cannot be realised as a line junction of three one-sided planes
+     (bulk on one side, nothing on the other) and a two-sided corridor (position 1's bulk against position 2's): going
+     round the rim each one-sided sheet switches bulk and nothing, a closed loop switches an even number of times, and
+     three is odd.  So the arrangements below are FORCE DIAGRAMS, not spacetimes.  R7's count is realisable in the Z2
+     double cover (every plane two-sided, its mirror image across our plane reaching the rim), which brings the images
+     of the corridor and of position 2's sheet into the balance (F3b (i))
+  Arrangements run (the board's; none is M's; 202 says the meeting is symmetric "by this item, not by a reflection",
+  so it fixes only that ours and position 2's sheets mirror each other across the corridor -- it chooses none of these):
+     B  corridor_shape.py's frame: our plane flat through the rim (kink 0), the corridor at theta, position 2's sheet
+        its mirror at 2 theta.  The steep angle of the marginal corridor was measured in this frame
+     C  the outside sheet collinear with the corridor, ours and position 2's at +-theta (our plane kinks by theta,
+        out of its own bulk, so that the corridor lies on its bulk side)
+     A  R7's own force check (both inside sheets along the plane, the corridor tilted): a force diagram only -- it
+        leaves no room for position 2's bulk, against 203, at theta != 0
+  F1 (computed) a pure-tension sheet's stress is invariant under boosts along itself, so the sheets that lie along the
+     rim's sliding direction are unchanged in the rim's rest frame; a tilted sheet is not (L T L^T - T is proportional
+     to sin alpha) -- it must co-move with the rim, and its angle aberrates, tan alpha' = tan alpha / gamma.  So B's
+     mirror relation holds in one frame only.  The verdicts below still transfer, because each holds at every theta
+     and B's holds for every tilt of position 2's sheet (F3 B)
+  F2 (computed) a flow arriving along sheet i and leaving along sheet j pushes the rim by -T^nn (e_i + e_j): to the rim
+     it is a pressure added to both sheets, with T^nn = (rho + p) gamma^2 v^2 + p the flow's momentum flux along the
+     sheet.  The NEC (rho + p >= 0) gives only T^nn >= p: T^nn >= 0 holds for dust, null dust and radiation (p >= 0),
+     not for every NEC-obeying README -- rho = 2 sigma, p = -1.5 sigma, v^2 = 1/2 obeys the NEC strictly with T^nn =
+     -sigma
+  F3 (computed) premises: (P1) the flow leaves the rim with the flux it brought, forward (no reflection, no absorption);
+     (P2) T^nn >= 0; (P3) no stress at the rim itself (no ring); (P4) no Z2 images at the rim.  With g_k = e_out + e_k,
+     the pure-tension residual is sigma (g_ours + g_p2 - g_corr) and a split w pushes -T^nn sum w_k g_k.  Then:
+     B  the split solves uniquely as position 2's share +sigma and the corridor's -sigma, at every theta: opposite
+        signs, so no forward split of one flow balances, of either sign -- for ANY tilt phi of position 2's sheet,
+        since det[g_p2, g_corr] = 4 sin(theta/2) sin(phi/2) sin((phi - theta)/2) != 0 unless they coincide
+     C  the flux onto the two plane sheets must be exactly 2 sigma (any share into the corridor is free and exerts no
+        force); the README's pressure then cancels the inside sheets' tension
+     A  the corridor's share needs T^nn = -sigma -- excluded by (P2), allowed by the NEC (F2)
+     So in corridor_shape's frame, under (P1)-(P4), the README's inflow cannot balance the steep rim
+  F3b (computed) each premise dropped, the value it takes:
+     (i)   Z2 images at the rim, B: the normal force cancels by symmetry; README into the corridor and its image balances
+           at every theta in (0, pi/2) with T^nn = 2 sigma (1 + 2 cos theta) -- the route 198 (a) and R0 name
+     (ii)  a ring at the rim (a 2-sphere of radius a, tension lambda, pulling 2 lambda / a toward the mouth's axis,
+           in the plane): C balances with lambda = a sigma (1 - cos theta); B with images with
+           lambda = a sigma (1 - cos theta)(1 + 2 cos theta); A and B without images never (their residual has a
+           component normal to the plane).  A ring with energy density equal to its tension obeys the NEC.  Static:
+           it needs no README, so it lasts through the hold
+     (iii) a README carrying tension: A balances with T^nn = -sigma (NEC-compatible, F2)
+     (iv)  a kink in our plane: with the corridor at kappa and ours, position 2's at kappa -+ theta, a non-negative
+           split balances for every kappa strictly between B's (pi - theta) and pi + theta; C is kappa = pi
+     (v)   reflection: B balances at theta = pi/3 with pure reflection back along the outside sheet, T^nn = sigma/2
+           (absorption needs the rim to have stress-energy of its own -- a ring)
+  F4 (computed) null energy the README supplies: null dust Phi l l gives T(l,l) = 0 along its own infall rays and
+     4 Phi, Phi along the opposite radial and the tangential rays (n, k_t with unit time component in the rim frame);
+     timelike dust gives rho (u.k)^2 > 0 along every null k (u.k = -gamma (1 + v cos alpha), 1 + v cos alpha >= 1 - v)
+  F5 (computed) the hold, T^nn = 0 (198 (a): the README all in): with no ring, none of A, B, C, B-with-images balances
+     at any theta in (0, pi/2) -- a pure-tension rim balances only when the corridor coincides with an inside sheet
+     (R7's tangency).  With a ring, C and B-with-images balance at every theta in (0, pi/2) with lambda > 0
+  F6 (ESTIMATE, the board's; a scale comparison, not the README's density at the rim during inflow) E = c^4 m/G spread
+     over r < 2.15m has mean density (ell/m)^2 / 2.15^3 sigma = 0.10 (ell/m)^2 sigma, >= 2 sigma once ell/m >= 4.46
+     (7.3 sigma at the window's lowest 8.54); E feeds 2 sigma through the rim for at most (ell/m)^2/(6 x 2.15^2) m/c
+  F7 (cypher) the static and forming arrangements as cells over (phase, support at the rim, balance, nec_in, nec_out,
+     nec_t, fits_198, through_hold), with NO per-cell key (a key makes statistics return the table itself).  2 = not
+     computed.  The README-cancelling static cell's fit with 198 is entered unknown, as rim_readme R9 does (the board's
+     reading H-CANCEL-IS-183-PAIR decides it 0; M has not).  Target: a rim that closes through the hold.
+     Statistics at order 2 ADMITS it with no support at the rim -- an over-reach assembled from pairs of the tangent,
+     steep and cancelling rows; at order 3 it refuses, and the triples that block it are exactly (nec_in, nec_t,
+     fits_198) and (nec_out, nec_t, fits_198): the tangent rim has the tangential null energy but not the radial, the
+     steep (with or without a ring) the radial but not the tangential, the cancelling rim both but not 198.  Control:
+     the cancelling cell marked as fitting 198 -- order 3 admits it.  Closing while the README flows (phase forming):
+     refused at order 3; with the uncomputed null energies set favourable it is admitted.  In that favourable case
+     order 3 over-reaches to a closing through the hold too, and order 4 refuses it: the blocking 4-tuples are the same
+     triple with through_hold (or phase) -- whatever the forming phase turns out to supply, the triple has to hold
+     through the hold
+Named readings (the board's): H-DEPTH-LAW-FOLLOWS-R4 (the corridor's radial null energy near the rim follows the
+plane's 4D radial null Ricci along the same direction; R8's sign match, not derived) -- the null-README cell's nec_in = 0
+rests on it.  H-CANCEL-IS-183-PAIR (rim_readme.py).
+So: the force balance at the rim is not the obstacle.  It fails in corridor_shape's own frame only under (P1)-(P4), and
+closes with Z2 images (README into the corridor, 2 sigma (1 + 2 cos theta)), with a ring of positive tension (C, or B
+with images -- static, through the hold), with a kink, or with a tension-carrying README.  What blocks a closing rim is
+the null energy near it: no computed arrangement has the radial and tangential null energy together and fits 198.  The
+geometry itself is a force diagram until Wall C's global construction gives the rim a spacetime.
 Imports tools/cypher.py by path.  Stdlib + sympy.  python3 forming_rim.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
 import io
+import itertools
 import math
 import os
 import sys
@@ -62,7 +100,8 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 MUT = {}
-S, TH, PI = sp.symbols("sigma theta Pi", real=True)
+S, TH, PI, PHI, LAM, A = sp.symbols("sigma theta Pi phi lambda a", real=True)
+STEEP = sp.Interval.open(0, sp.pi / 2)                           # corridor_shape's graph frame needs theta < pi/2
 
 
 def _load(path, key):
@@ -78,75 +117,165 @@ def _v(a):
     return sp.Matrix([sp.cos(a), sp.sin(a)])
 
 
-# ---------------------------------------------------------------------------------------------------------- F1
+# ---------------------------------------------------------------------------------------------------------- F0
+def parity():
+    """every cyclic order of O, U, P (one-sided) and K (two-sided): is there a bulk/void labelling of the four regions
+    with each one-sided sheet between bulk and void and K between bulk and bulk?  Then the same in the Z2 double cover
+    (all planes two-sided)."""
+    def realisable(sided):
+        names = list(sided)
+        for order in itertools.permutations(names[1:]):
+            seq = [names[0]] + list(order)
+            for lab in itertools.product((0, 1), repeat=4):          # region i lies between seq[i] and seq[i+1]
+                ok = True
+                for i, sh in enumerate(seq):
+                    left, right = lab[i - 1], lab[i]
+                    if sided[sh] == 1 and left == right:
+                        ok = False
+                    if sided[sh] == 2 and not (left == 1 and right == 1):
+                        ok = False
+                if ok:
+                    return True
+        return False
+    one = {"O": 1, "U": 1, "P": 1, "K": 2}
+    if MUT.get("even_planes"):
+        one = {"O": 1, "U": 1, "P": 2, "K": 2}
+    return {"single": realisable(one), "double": realisable({"O": 2, "U": 2, "P": 2, "K": 2})}
+
+
+# ---------------------------------------------------------------------------------------------------------- F1, F2
 def boost():
-    v = sp.Symbol("v", real=True)
+    v, al = sp.symbols("v alpha", real=True)
     g = 1 / sp.sqrt(1 - v**2)
-    L = sp.Matrix([[g, g * v], [g * v, g]])
+    L = sp.Matrix([[g, g * v, 0], [g * v, g, 0], [0, 0, 1]])            # (t, x, y), boost along x
+    t = sp.Matrix([0, sp.cos(al), sp.sin(al)])                          # the sheet's direction in the cross-section
+    h = sp.diag(-1, 0, 0) + t * t.T                                     # its induced metric (t and its own direction)
+    T = -S * h if not MUT.get("dust_sheet") else S * sp.diag(1, 0, 0)
+    dT = sp.simplify(L * T * L.T - T)
+    along = all(sp.simplify(x) == 0 for x in dT.subs(al, 0))
+    tilted = any(sp.simplify(x) != 0 for x in dT.subs(al, sp.pi / 4))
+    # aberration: a co-moving line at rest-frame angle a' is seen in the lab Lorentz-contracted along x
+    ap = sp.Symbol("ap", positive=True)
+    lab_tan = sp.tan(ap) * g                                            # dx shrinks by gamma: tan grows by gamma
+    return {"along": along, "tilted": tilted, "aberr": sp.simplify(lab_tan / sp.tan(ap) - g) == 0}
+
+
+def fluid_flux():
+    rho, p, v = sp.symbols("rho p v", real=True)
+    g2 = 1 / (1 - v**2)
+    u = sp.Matrix([sp.sqrt(g2), sp.sqrt(g2) * v])
     eta = sp.diag(-1, 1)
-    T = -S * eta if not MUT.get("dust_sheet") else S * sp.diag(1, 0)
-    return sp.simplify(L * T * L.T - T) == sp.zeros(2, 2)
+    T = (rho + p) * u * u.T + p * eta.inv()
+    Tnn = sp.simplify(T[1, 1])
+    if MUT.get("drop_p"):
+        Tnn = sp.simplify((rho + p) * g2 * v**2)
+    target = sp.simplify((rho + p) * g2 * v**2 + p)
+    ex = Tnn.subs({rho: 2 * S, p: -sp.Rational(3, 2) * S, v: 1 / sp.sqrt(2)})
+    return {"Tnn": Tnn, "matches": sp.simplify(Tnn - target) == 0, "example": sp.simplify(ex)}
 
 
-# ---------------------------------------------------------------------------------------------------------- F2, F3
-def geometries():
-    p2C = _v(sp.pi + TH) if not MUT.get("no_mirror") else _v(sp.pi)
-    return {"A": {"ours": _v(sp.pi), "p2": _v(sp.pi), "corr": _v(sp.pi - TH)},
-            "B": {"ours": _v(sp.pi), "p2": _v(sp.pi - 2 * TH), "corr": _v(sp.pi - TH)},
-            "C": {"ours": _v(sp.pi - TH), "p2": p2C, "corr": _v(sp.pi)}}
+# ---------------------------------------------------------------------------------------------------------- F3
+def geom(name, phi=None):
+    if name == "A":
+        return {"ours": _v(sp.pi), "p2": _v(sp.pi), "corr": _v(sp.pi - TH)}
+    if name == "B":
+        return {"ours": _v(sp.pi), "p2": _v(sp.pi - (2 * TH if phi is None else phi)), "corr": _v(sp.pi - TH)}
+    if name == "C":
+        return {"ours": _v(sp.pi + TH), "p2": _v(sp.pi - TH), "corr": _v(sp.pi)}
+    raise KeyError(name)
 
 
-TENS = {"ours": 1, "p2": 1, "corr": -1}                        # in units of sigma; corr -sigma by R5
-ROUTES = {"corr": {"corr": 1}, "ours": {"ours": 1}, "p2": {"p2": 1},
-          "both": {"ours": sp.Rational(1, 2), "p2": sp.Rational(1, 2)}}
+TENS = {"ours": 1, "p2": 1, "corr": -1}
 
 
-def flux_force(e_in, outs, Pi):
-    """momentum in minus momentum out at the rim: arriving along sheet e_in (moving -e_in), leaving along e_j"""
-    sgn = 1 if not MUT.get("pi_plus") else -1
-    p_in = -e_in * Pi
-    p_out = sum((w * Pi * e for e, w in outs), sp.zeros(2, 1))
-    return sgn * (p_in - p_out)
-
-
-def balance(g, route, Pi=PI):
-    sh = geometries()[g]
+def residual(sh, images=False):
     o = _v(0)
     R = S * o + sum((TENS[k] * S * sh[k] for k in sh), sp.zeros(2, 1))
-    F = R + flux_force(o, [(sh[k], w) for k, w in ROUTES[route].items()], Pi)
-    return R, F
+    if images:                                                       # mirror across our plane of the off-plane sheets
+        for k in ("p2", "corr"):
+            e = sh[k]
+            if sp.simplify(e[1]) != 0:
+                R += TENS[k] * S * sp.Matrix([e[0], -e[1]])
+    return sp.simplify(R)
 
 
-def solve_route(g, route):
-    """theta in (0, pi): 'nobend' (flux exerts no force; theta = 0 only), 'family' (balance at every theta with Pi = ...),
-    or the finite roots"""
-    R, F = balance(g, route)
-    D = sp.simplify(balance(g, route, 1)[1] - R)                  # the flux's force per unit Pi
-    if sp.simplify(D.T * D)[0] == 0:
-        return {"kind": "nobend"}
-    cross = sp.factor(sp.simplify(sp.expand_trig(R[0] * D[1] - R[1] * D[0])))
-    if sp.simplify(cross) == 0:
-        Pi = sp.simplify(-(R.T * D)[0] / (D.T * D)[0])
-        return {"kind": "family", "Pi": Pi}
-    roots = sp.solveset(sp.simplify(cross.subs(S, 1)), TH, sp.Interval.open(0, sp.pi))
-    return {"kind": "roots", "roots": roots, "cross": cross}
+def g_law():
+    o = _v(0)
+    out = {}
+    for gname in ("A", "B", "C"):
+        sh = geom(gname)
+        gk = {k: o + sh[k] for k in sh}
+        R = residual(sh)
+        out[gname] = sp.simplify(R - S * (gk["ours"] + gk["p2"] - gk["corr"])) == sp.zeros(2, 1)
+    # B for any tilt phi of position 2's sheet: det[g_p2, g_corr]
+    sh = geom("B", phi=PHI)
+    gp, gc = o + sh["p2"], o + sh["corr"]
+    det = sp.simplify(gp[0] * gc[1] - gp[1] * gc[0])
+    target = 4 * sp.sin(TH / 2) * sp.sin(PHI / 2) * sp.sin((PHI - TH) / 2)
+    out["B_det"] = sp.simplify(sp.expand_trig(det - target)) == 0 or sp.simplify(sp.expand_trig(det + target)) == 0
+    return out
 
 
-def hold(g):
-    """F5: Pi = 0 at the rim (198 (a), the README all in): theta in (0, pi) with the pure tensions balancing"""
-    Pi = 0 if not MUT.get("hold_flux") else 2 * S
-    R, F = balance(g, "both", Pi)
-    F = sp.simplify(F.subs(S, 1))
-    sol = sp.solveset(F[0], TH, sp.Interval.open(0, sp.pi)).intersect(
-        sp.solveset(F[1], TH, sp.Interval.open(0, sp.pi))) if F[1] != 0 else sp.solveset(F[0], TH, sp.Interval.open(0, sp.pi))
-    return sol
+def solve_split(gname):
+    """premises P1-P4: non-negative-or-any-sign forward split (w_ours, w_p2, w_corr); returns the forms"""
+    sh = geom(gname)
+    o = _v(0)
+    sgn = 1 if not MUT.get("pi_plus") else -1
+    R = residual(sh)
+    g = {k: o + sh[k] for k in sh}
+    x, y, z = sp.symbols("x y z", real=True)                        # x = T^nn w_ours, y = T^nn w_p2, z = T^nn w_corr
+    F = R - sgn * (x * g["ours"] + y * g["p2"] + z * g["corr"])
+    return {"F": sp.simplify(F), "x": x, "y": y, "z": z}
+
+
+def f3():
+    a = solve_split("A")
+    sa = sp.solve(list(a["F"]), [a["z"]], dict=True)                 # A: ours, p2 along the plane give g = 0
+    c = solve_split("C")
+    sc = sp.solve(list(c["F"]), [c["x"], c["y"]], dict=True)         # C: g_corr = 0
+    b = solve_split("B")
+    sb = sp.solve(list(b["F"]), [b["y"], b["z"]], dict=True)         # B: g_ours = 0
+    return {"A": sa, "C": sc, "B": sb, "Bsym": b}
+
+
+# ---------------------------------------------------------------------------------------------------------- F3b
+def f3b():
+    o = _v(0)
+    shB = geom("B")
+    imgs = not MUT.get("images_off")
+    RBi = residual(shB, images=imgs)
+    Dc = o + (shB["corr"] + sp.Matrix([shB["corr"][0], -shB["corr"][1]])) / 2
+    Pi_img = sp.factor(sp.simplify(sp.expand_trig(RBi[0] / Dc[0])))
+    ring = 1 if not MUT.get("ring_out") else -1
+    lam = {}
+    for nm, R in (("C", residual(geom("C"))), ("Bimg", RBi), ("A", residual(geom("A"))), ("B", residual(shB))):
+        sol = sp.solve(sp.simplify(R[0] - ring * 2 * LAM / A), LAM)
+        lam[nm] = (sp.factor(sp.simplify(sp.expand_trig(sol[0]))) if sol else None, sp.simplify(R[1]))
+    # kink family, numerically at theta = 0.3: corridor at kappa, ours/p2 at kappa -+ theta
+    def kink(kap, t=0.3):
+        eO = (1.0, 0.0)
+        eK, eU, eP = [(math.cos(q), math.sin(q)) for q in (kap, kap + t, kap - t)]
+        R = [eO[i] + eU[i] + eP[i] - eK[i] for i in range(2)]
+        gU = [eO[i] + eU[i] for i in range(2)]
+        gP = [eO[i] + eP[i] for i in range(2)]
+        det = gU[0] * gP[1] - gU[1] * gP[0]
+        x = (R[0] * gP[1] - R[1] * gP[0]) / det
+        y = (gU[0] * R[1] - gU[1] * R[0]) / det
+        return x >= 0 and y >= 0
+    t = 0.3
+    inside = all(kink(math.pi + f * t) for f in (-0.99, -0.5, 0.0, 0.5, 0.99))
+    outside = not any(kink(math.pi + f * t) for f in (-1.2, 1.2))
+    # reflection, B at theta = pi/3: pure reflection back along the outside sheet pushes -2 T^nn e_out
+    Rb = residual(shB).subs(TH, sp.pi / 3)
+    refl = sp.solve(list(sp.simplify(Rb - 2 * PI * o)), PI, dict=True)
+    return {"Pi_img": Pi_img, "lam": lam, "kink_inside": inside, "kink_outside": outside, "refl": refl}
 
 
 # ---------------------------------------------------------------------------------------------------------- F4
 def null_energy():
     eta = sp.diag(-1, 1, 1)
-    Phi, rho, v, a = sp.symbols("Phi rho v alpha", positive=True)
-    l = sp.Matrix([1, -1, 0])                                    # the README's infall direction
+    Phi, v, a = sp.symbols("Phi v alpha", positive=True)
+    l = sp.Matrix([1, -1, 0])
     n = sp.Matrix([1, 1, 0])
     kt = sp.Matrix([1, 0, 1])
     lo = eta * l
@@ -156,131 +285,197 @@ def null_energy():
     g = 1 / sp.sqrt(1 - v**2)
     u = g * sp.Matrix([1, -v, 0])
     k = sp.Matrix([1, sp.cos(a), sp.sin(a)])
-    uk = sp.simplify((u.T * eta * k)[0])                         # u.k = -gamma (1 + v cos alpha)
-    num = sp.simplify(-uk * sp.sqrt(1 - v**2))                    # 1 + v cos alpha; its least value over alpha
-    uk_min = sp.simplify(num.subs(sp.cos(a), -1))
-    return {"own": q(Tn, own), "opp": q(Tn, n), "tan": q(Tn, kt), "uk": uk, "v": v, "a": a, "uk_min": uk_min,
-            "uk_min_expect": 1 - v}
+    uk = sp.simplify((u.T * eta * k)[0])
+    c = sp.Symbol("c", real=True)                                    # cos alpha in [-1, 1]: 1 + v c is linear in c
+    lin = sp.simplify(-uk * sp.sqrt(1 - v**2)).subs(sp.cos(a), c)
+    lo_end = sp.simplify(lin.subs(c, -1))
+    return {"own": q(Tn, own), "opp": q(Tn, n), "tan": q(Tn, kt), "lin_is_linear": sp.degree(lin, c) == 1,
+            "lo_end": lo_end, "v": v}
+
+
+# ---------------------------------------------------------------------------------------------------------- F5
+def hold():
+    out = {}
+    for nm, R in (("A", residual(geom("A"))), ("B", residual(geom("B"))), ("C", residual(geom("C"))),
+                  ("Bimg", residual(geom("B"), images=True))):
+        if MUT.get("hold_flux") and nm == "C":
+            R = R - 2 * S * (_v(0) + (geom("C")["ours"] + geom("C")["p2"]) / 2)
+        Rn = [sp.simplify(sp.expand_trig(x.subs(S, 1))) for x in R]
+        sols = [sp.solveset(x, TH, STEEP) if x != 0 else STEEP for x in Rn]
+        out[nm] = sols[0].intersect(sols[1])
+    return out
 
 
 # ---------------------------------------------------------------------------------------------------------- F6
 def estimate(lm=8.54, rr=2.15):
-    ratio = lm**2 / rr**3                                         # [E / ((4pi/3)(rr m)^3)] / [3 c^4/(4 pi G ell^2)], E = c^4 m/G
-    tau = lm**2 / (2 * 3 * rr**2)                                 # E / (2 sigma 4 pi r^2 c) in units of m/c
-    return {"ratio": ratio, "coef_ratio": ratio / lm**2, "tau": tau, "coef_tau": tau / lm**2}
+    c4G, m, ell = sp.symbols("c4G m ell", positive=True)               # c^4/G, the corridor's mass length, ell
+    E = c4G * m
+    sigma = 3 * c4G / (4 * sp.pi * ell**2)
+    rpow = 3 if not MUT.get("est_r2") else 2
+    ratio = sp.simplify(E / (sp.Rational(4, 3) * sp.pi * (rr * m) ** rpow) / sigma)
+    tau = sp.simplify(E / (2 * sigma * 4 * sp.pi * (rr * m) ** 2))     # in units of 1/c
+    r_at = float(ratio.subs(ell, lm * m)) if rpow == 3 else float(ratio.subs({ell: lm * m, m: 1}))
+    t_at = float(sp.simplify(tau.subs(ell, lm * m) / m))
+    need = math.sqrt(2 * rr**3)                                         # ell/m where the mean density reaches 2 sigma
+    return {"ratio": r_at, "tau": t_at, "need": need}
 
 
 # ---------------------------------------------------------------------------------------------------------- F7
-C7 = ["arrangement", "balance", "nec_in", "nec_out", "nec_t", "no_partner", "through_hold"]
-U = 2                                                            # not computed
-CELLS = [(0, 1, 0, 0, 1, 1, 1),    # static, tangent, pure tensions (rim_readme R9)
-         (1, 0, 1, 1, 0, 1, 1),    # static, steep, marginal corridor (R9)
-         (2, 1, 1, 1, 1, 0, 1),    # static, tangent, README cancelling (set aside on 198)
-         (3, 0, U, U, U, 1, 0),    # forming, steep, geometry A or B, README flux Pi >= 0 any route (F3)
-         (4, 1, 0, U, 1, 1, 0),    # forming, tangent, null README (F4 + H-DEPTH-LAW-FOLLOWS-R4)
-         (5, 1, U, U, 1, 1, 0),    # forming, tangent, timelike README
-         (6, 1, 0, U, U, 1, 0),    # forming, steep, geometry C, null README onto both planes, Pi = 2 sigma
-         (7, 1, U, U, U, 1, 0),    # forming, steep, geometry C, timelike README, Pi = 2 sigma
-         (8, 1, U, U, U, 1, 0)]    # forming, steep, geometry A, README into the corridor with net tension sigma
+U = 2
+C7 = ["phase", "support", "balance", "nec_in", "nec_out", "nec_t", "fits_198", "through_hold"]
+# phase 0 static (the hold), 1 forming; support at the rim 0 none, 1 ring, 2 Z2 images, 3 kink
+CELLS = [(0, 0, 1, 0, 0, 1, 1, 1),   # static tangent, pure tensions (rim_readme R7-R9; R8 the radial deficit)
+         (0, 0, 0, 1, 1, 0, 1, 1),   # static steep marginal corridor (corridor_shape S3; R7 no balance)
+         (0, 0, 1, 1, 1, 1, U, 1),   # static tangent, README cancelling (rim_readme R9; fit with 198 M's to say)
+         (0, 1, 1, 1, 1, 0, 1, 1),   # static steep marginal + ring (F3b (ii), C); NEC as S3 computed it
+         (0, 2, 1, 1, 1, 0, 1, 1),   # static steep marginal, Z2 images + ring (F3b (ii)); NEC as S3
+         (1, 0, 0, U, U, U, 1, 0),   # forming steep, corridor_shape's frame, P1-P4 (F3 B)
+         (1, 0, 1, 0, U, U, 1, 0),   # forming tangent, null README (F4; nec_in 0 on H-DEPTH-LAW-FOLLOWS-R4)
+         (1, 0, 1, U, U, U, 1, 0),   # forming tangent, timelike README
+         (1, 3, 1, U, U, U, U, 0),   # forming steep, kink (C), README onto the planes (fit with 198 (a)'s endpoint unknown)
+         (1, 2, 1, U, U, U, 1, 0)]   # forming steep, Z2 images, README into the corridor (F3b (i))
 
 
 def _codings(n):
-    base = list(range(n))
     out = []
-    for k in range(n):
-        rot = base[k:] + base[:k]
-        out += [rot, rot[::-1]]
+    for perm in itertools.permutations(range(n)):
+        out.append(list(perm))
     return out
 
 
 def cypher():
     cy = _load(os.path.join(ROOT, "tools", "cypher.py"), "fr_cypher")
-    langs = ("order", "algebra", "geometry", "information", "statistics")
-    full = lambda h: all(h[i] == 1 for i in range(1, 7))
-    forming = lambda h: all(h[i] == 1 for i in range(1, 6))
+    full = lambda h: all(h[i] == 1 for i in range(2, 8))
+    forming = lambda h: h[0] == 1 and all(h[i] == 1 for i in range(2, 7))
     cells = list(CELLS)
+    if MUT.get("decide_compat"):
+        cells[2] = (0, 0, 1, 1, 1, 1, 1, 1)
     if MUT.get("seat_hold"):
-        cells.append((9, 1, 1, 1, 1, 1, 1))
+        cells.append((1, 2, 1, 1, 1, 1, 1, 1))
 
-    def ask(cs, test, arr_order, unk_low=False):
-        n_arr = sorted({c[0] for c in cs})
-        vo = {"arrangement": [n_arr[i] for i in arr_order if i < len(n_arr)] + [a for a in n_arr if a >= len(arr_order)]}
-        for name in C7[1:]:
-            vo[name] = [x for x in ([U, 0, 1] if unk_low else [0, 1, U]) if x in {c[C7.index(name)] for c in cs}]
+    def index(cs, sup_order=(0, 1, 2, 3)):
+        vo = {"phase": [0, 1], "support": [x for x in sup_order if x in {c[1] for c in cs}]}
+        for j, name in enumerate(C7[2:], start=2):
+            vo[name] = [x for x in (0, 1, U) if x in {c[j] for c in cs}]
         ix = cy.Index("forming_rim", C7, [list(c) for c in cs], value_order=vo)
         inv = [{v: k for k, v in ix.code[i].items()} for i in range(len(C7))]
-        res = {}
-        for lang in langs:
-            out, _ = cy.ADMISSION[lang][0](ix, {})
-            if out is None:
-                res[lang] = None
-                continue
-            dec = {tuple(inv[i][c[i]] for i in range(len(C7))) for c in out if all(c[i] in inv[i] for i in range(len(C7)))}
-            res[lang] = sorted(h[0] for h in dec if test(h))
-        return res
+        return ix, inv
 
-    n = len({c[0] for c in cells})
-    runs = {}
-    for unk_low in (False, True):
-        for order in _codings(n):
-            runs[(unk_low, tuple(order))] = {"full": ask(cells, full, order, unk_low),
-                                             "forming": ask(cells, forming, order, unk_low)}
-    fav = [(c[0],) + tuple(1 if x == U else x for x in c[1:]) for c in cells]     # the arrangement axis is not converted
-    control = {"full": ask(fav, full, list(range(n))), "forming": ask(fav, forming, list(range(n)))}
-    return {"runs": runs, "control": control}
+    def admitted(cs, test, lang, opts=None, sup_order=(0, 1, 2, 3)):
+        ix, inv = index(cs, sup_order)
+        out, _ = cy.ADMISSION[lang][0](ix, opts or {})
+        if out is None:
+            return None
+        dec = {tuple(inv[i][c[i]] for i in range(len(C7))) for c in out if all(c[i] in inv[i] for i in range(len(C7)))}
+        return sorted(h for h in dec if test(h))
+
+    st2 = admitted(cells, full, "statistics", {"statistics_order": 2})
+    st3 = admitted(cells, full, "statistics", {"statistics_order": 3})
+    tgt = (0, 0, 1, 1, 1, 1, 1, 1)
+    seen3 = {Sx: {tuple(c[i] for i in Sx) for c in cells} for Sx in itertools.combinations(range(8), 3)}
+    blocking = sorted(tuple(C7[i] for i in Sx) for Sx, v in seen3.items() if tuple(tgt[i] for i in Sx) not in v)
+    ctrl = list(cells)
+    ctrl[2] = (0, 0, 1, 1, 1, 1, 1, 1)
+    ctrl3 = admitted(ctrl, full, "statistics", {"statistics_order": 3})
+    form3 = admitted(cells, forming, "statistics", {"statistics_order": 3})
+    fav = [c if c[0] == 0 else c[:2] + tuple(1 if x == U else x for x in c[2:]) for c in cells]
+    fav_form3 = admitted(fav, forming, "statistics", {"statistics_order": 3})
+    fav_full3 = admitted(fav, full, "statistics", {"statistics_order": 3})
+    fav_full4 = admitted(fav, full, "statistics", {"statistics_order": 4})
+    seen4 = {Sx: {tuple(c[i] for i in Sx) for c in fav} for Sx in itertools.combinations(range(8), 4)}
+    fav_block4 = sorted(tuple(C7[i] for i in Sx) for Sx, v in seen4.items() if tuple(tgt[i] for i in Sx) not in v)
+    others = {}
+    for lang in ("order", "algebra", "geometry", "information"):
+        others[lang] = sorted({tuple(admitted(cells, full, lang, None, tuple(o)) or []) for o in _codings(4)})
+    return {"st2": st2, "st3": st3, "blocking": blocking, "ctrl3": ctrl3, "form3": form3, "fav_form3": fav_form3,
+            "fav_full3": fav_full3, "fav_full4": fav_full4, "fav_block4": fav_block4, "others": others}
 
 
 # ---------------------------------------------------------------------------------------------------------- run
 def compute():
-    sols = {(g, r): solve_route(g, r) for g in "ABC" for r in ROUTES}
-    return {"boost": boost(), "sols": sols, "hold": {g: hold(g) for g in "ABC"}, "nec": null_energy(),
-            "est": estimate(), "cy": cypher()}
+    return {"parity": parity(), "boost": boost(), "fluid": fluid_flux(), "glaw": g_law(), "f3": f3(), "f3b": f3b(),
+            "nec": null_energy(), "hold": hold(), "est": estimate(), "cy": cypher()}
 
 
 def checks(d):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("F1 a pure-tension sheet's stress is invariant under boosts along it: rim motion alone changes no balance", d["boost"])
-    s = d["sols"]
-    add("F3 A: into the corridor needs Pi = -sigma at every theta (negative flux or a README of net tension sigma); onto "
-        "either plane sheet: no bend, theta = 0 only", s[("A", "corr")]["kind"] == "family"
-        and sp.simplify(s[("A", "corr")]["Pi"] + S) == 0 and all(s[("A", r)]["kind"] == "nobend" for r in ("ours", "p2", "both")))
-    add("F3 B: no route balances at any theta in (0, pi), whatever Pi's sign", s[("B", "ours")]["kind"] == "nobend"
-        and all(s[("B", r)]["kind"] == "roots" and s[("B", r)]["roots"] == sp.EmptySet for r in ("corr", "p2", "both")))
-    add("F3 C: onto both plane sheets, balance at every theta with Pi = 2 sigma exactly; into the corridor no bend; onto "
-        "one plane sheet alone none", s[("C", "both")]["kind"] == "family" and sp.simplify(s[("C", "both")]["Pi"] - 2 * S) == 0
-        and s[("C", "corr")]["kind"] == "nobend" and all(s[("C", r)]["kind"] == "roots" and s[("C", r)]["roots"] == sp.EmptySet
-                                                       for r in ("ours", "p2")))
+    p = d["parity"]
+    add("F0 R7's count with three one-sided planes and a two-sided corridor is not realisable as a line junction; in "
+        "the Z2 double cover it is", not p["single"] and p["double"])
+    b = d["boost"]
+    add("F1 a pure-tension sheet is boost-invariant along itself, not when tilted to the boost; a co-moving sheet's "
+        "angle aberrates by gamma", b["along"] and b["tilted"] and b["aberr"])
+    fl = d["fluid"]
+    add("F2 the flow's momentum flux along the sheet is (rho + p) gamma^2 v^2 + p; the NEC-obeying example rho = 2 sigma, "
+        "p = -1.5 sigma, v^2 = 1/2 has T^nn = -sigma", fl["matches"] and sp.simplify(fl["example"] + S) == 0)
+    g = d["glaw"]
+    add("F3 the residual is sigma (g_ours + g_p2 - g_corr) in A, B, C; B's det[g_p2, g_corr] = +-4 sin(theta/2) "
+        "sin(phi/2) sin((phi - theta)/2) for any tilt phi", g["A"] and g["B"] and g["C"] and g["B_det"])
+    f = d["f3"]
+    zA = f["A"][0][f["Bsym"]["z"]] if f["A"] else None
+    add("F3 A: the corridor's share needs T^nn = -sigma (excluded by T^nn >= 0, allowed by the NEC)",
+        zA is not None and sp.simplify(zA + S) == 0)
+    sC = f["C"][0] if f["C"] else {}
+    add("F3 C: the flux onto each plane sheet is exactly sigma (2 sigma onto the two), the corridor's share free",
+        sC and sp.simplify(sC[f["Bsym"]["x"]] - S) == 0 and sp.simplify(sC[f["Bsym"]["y"]] - S) == 0)
+    sB = f["B"][0] if len(f["B"]) == 1 else {}
+    add("F3 B (corridor_shape's frame): the split solves uniquely as position 2's share +sigma and the corridor's "
+        "-sigma at every theta -- opposite signs, so no forward split of one flow balances, of either sign",
+        sB and sp.simplify(sB[f["Bsym"]["y"]] - S) == 0 and sp.simplify(sB[f["Bsym"]["z"]] + S) == 0)
+    x = d["f3b"]
+    lam = x["lam"]
+    add("F3b (i) Z2 images, B: README into the corridor and its image balances with T^nn = 2 sigma (1 + 2 cos theta)",
+        sp.simplify(x["Pi_img"] - 2 * S * (1 + 2 * sp.cos(TH))) == 0)
+    add("F3b (ii) a ring: C with lambda = a sigma (1 - cos theta), B with images with a sigma (1 - cos theta)(1 + 2 cos "
+        "theta), both > 0 on (0, pi/2); A and B without images keep a normal residual",
+        sp.simplify(lam["C"][0] - A * S * (1 - sp.cos(TH))) == 0 and lam["C"][1] == 0
+        and sp.simplify(sp.expand_trig(lam["Bimg"][0] - A * S * (1 - sp.cos(TH)) * (1 + 2 * sp.cos(TH)))) == 0
+        and lam["Bimg"][1] == 0 and lam["A"][1] != 0 and lam["B"][1] != 0)
+    add("F3b (iv) kink: a non-negative split balances for every kappa strictly between pi - theta and pi + theta, not "
+        "outside", x["kink_inside"] and x["kink_outside"])
+    add("F3b (v) reflection: B at theta = pi/3 balances with pure reflection, T^nn = sigma/2",
+        len(x["refl"]) == 1 and sp.simplify(x["refl"][0][PI] - S / 2) == 0)
     nec = d["nec"]
     Phi = sp.Symbol("Phi", positive=True)
-    add("F4 null dust: T(l,l) = 0 along its own rays, 4 Phi along the opposite radial rays, Phi along tangential ones; "
-        "timelike dust: u.k = -gamma (1 + v cos alpha), and 1 + v cos alpha >= 1 - v > 0, so rho (u.k)^2 > 0 along every "
-        "null k",
+    add("F4 null dust: T(l,l) = 0 along its own rays, 4 Phi and Phi along the opposite radial and tangential rays; "
+        "timelike: u.k is linear in cos alpha and its least magnitude factor is 1 - v > 0",
         nec["own"] == 0 and sp.simplify(nec["opp"] - 4 * Phi) == 0 and sp.simplify(nec["tan"] - Phi) == 0
-        and nec["uk_min"] == nec["uk_min_expect"] and all(float(nec["uk"].subs({nec["v"]: vv, nec["a"]: aa})) < 0
-                                                           for vv in (0.1, 0.9, 0.999) for aa in (0, 1.5, 3.14159)))
-    add("F5 the hold (Pi = 0, 198 (a)): no geometry balances at any theta in (0, pi) -- R7 again",
-        all(d["hold"][g] == sp.EmptySet for g in "ABC"))
+        and nec["lin_is_linear"] and sp.simplify(nec["lo_end"] - (1 - nec["v"])) == 0)
+    h = d["hold"]
+    add("F5 the hold (T^nn = 0), no ring: none of A, B, C, B-with-images balances at any theta in (0, pi/2)",
+        all(h[k] == sp.EmptySet for k in ("A", "B", "C", "Bimg")))
     e = d["est"]
-    add("F6 ESTIMATE: mean README density near the rim 0.10 (ell/m)^2 sigma (7.3 sigma at ell/m = 8.54); E feeds "
-        "Pi = 2 sigma for at most 0.036 (ell/m)^2 m/c (2.6 m/c at 8.54)", abs(e["coef_ratio"] - 0.1006) < 1e-3
-        and 7.2 < e["ratio"] < 7.5 and abs(e["coef_tau"] - 0.03606) < 1e-4 and 2.5 < e["tau"] < 2.7)
-    runs = d["cy"]["runs"]
-    add("F7 cypher: target A (closing through the hold) refused by statistics under every coding tried (18 orderings of "
-        "the arrangement axis, unknown above 1 and below 0)", all(r["full"]["statistics"] == [] for r in runs.values()))
-    add("F7 cypher: target B (closing while the README flows) refused by statistics with the uncomputed cells unknown, "
-        "under every coding tried", all(r["forming"]["statistics"] == [] for r in runs.values()))
-    c = d["cy"]["control"]
-    add("F7 control: uncomputed cells set favourable -- statistics admits the timelike-README cells (5, 7, 8) for target "
-        "B and still refuses target A", c["forming"]["statistics"] == [5, 7, 8] and c["full"]["statistics"] == [])
+    add("F6 ESTIMATE: mean density (ell/m)^2/2.15^3 sigma, 7.3 sigma at ell/m = 8.54, >= 2 sigma from ell/m = 4.46; "
+        "the feed time (ell/m)^2/(6 x 2.15^2) m/c, 2.6 m/c at 8.54", 7.2 < e["ratio"] < 7.5 and e["ratio"] >= 2
+        and abs(e["need"] - 4.459) < 1e-2 and 2.55 < e["tau"] < 2.7)
+    cy = d["cy"]
+    add("F7 statistics order 2 admits a stress-free rim closing through the hold (an over-reach from pairs); order 3 "
+        "refuses it", cy["st2"] == [(0, 0, 1, 1, 1, 1, 1, 1)] and cy["st3"] == [])
+    add("F7 the blocking triples are exactly (nec_in, nec_t, fits_198) and (nec_out, nec_t, fits_198)",
+        cy["blocking"] == [("nec_in", "nec_t", "fits_198"), ("nec_out", "nec_t", "fits_198")])
+    add("F7 control: the cancelling cell marked as fitting 198 -- order 3 admits the closing rim",
+        (0, 0, 1, 1, 1, 1, 1, 1) in (cy["ctrl3"] or []))
+    add("F7 closing while the README flows: refused at order 3; admitted with the uncomputed null energies favourable",
+        cy["form3"] == [] and len(cy["fav_form3"] or []) > 0)
+    add("F7 favourable control, closing through the hold: order 3 over-reaches to it, order 4 refuses, and the blocking "
+        "4-tuples are the same triple with through_hold or phase", cy["fav_full3"] == [(0, 0, 1, 1, 1, 1, 1, 1)]
+        and cy["fav_full4"] == [] and cy["fav_block4"] == sorted([("phase", "nec_in", "nec_t", "fits_198"),
+        ("phase", "nec_out", "nec_t", "fits_198"), ("nec_in", "nec_t", "fits_198", "through_hold"),
+        ("nec_out", "nec_t", "fits_198", "through_hold")]))
     return res
 
 
-MUTANTS = {"dust_sheet": "the sheet given dust's stress (not boost-invariant)",
+MUTANTS = {"even_planes": "position 2's plane taken two-sided (parity hidden)",
+           "dust_sheet": "the sheet given dust's stress (not boost-invariant)",
+           "drop_p": "the flow's own pressure dropped from T^nn",
            "pi_plus": "the flux's push sign flipped (acting as tension)",
-           "no_mirror": "C's position-2 sheet not mirrored",
+           "images_off": "the Z2 images left out of B's balance",
+           "ring_out": "the ring made to push outward",
            "null_own": "null dust tested along the opposite rays as its own",
            "hold_flux": "the README left flowing at the rim through the hold",
+           "est_r2": "the estimate's volume taken as r^2",
+           "decide_compat": "the cancelling cell's fit with 198 decided in code",
            "seat_hold": "a rim closing through the hold seated as data"}
 
 
@@ -304,24 +499,25 @@ def mutants():
             failed = ["raised %s" % type(ex).__name__]
         MUT.clear()
         caught += bool(failed)
-        print("  mutant %-11s %-52s %s" % (k, desc, "caught by " + ", ".join(sorted(set(failed))) if failed else "NOT CAUGHT"))
+        print("  mutant %-13s %-50s %s" % (k, desc, "caught by " + ", ".join(sorted(set(failed))) if failed else "NOT CAUGHT"))
     print("mutants: %d/%d caught" % (caught, len(MUTANTS)))
     return caught == len(MUTANTS)
 
 
 def report(d):
     print("forming_rim.py -- the rim while the corridor forms (198 (a))\n")
-    for (g, r), v in d["sols"].items():
-        print("F3 %s %-5s %s" % (g, r, v))
-    print("F4", d["nec"])
+    print("F0 parity:", d["parity"])
+    print("F1", d["boost"], " F2", d["fluid"]["Tnn"], d["fluid"]["example"])
+    print("F3 A:", d["f3"]["A"], " C:", d["f3"]["C"], " B:", d["f3"]["B"])
+    print("F3b", {k: v for k, v in d["f3b"].items()})
+    print("F4", {k: v for k, v in d["nec"].items() if k != "v"})
     print("F5 hold:", d["hold"])
     print("F6", d["est"])
-    runs = d["cy"]["runs"]
-    for key in list(runs)[:2] + list(runs)[-2:]:
-        print("F7 coding", key, runs[key])
-    print("F7 control", d["cy"]["control"])
-    over = {l: sorted({tuple(r["full"][l] or []) for r in runs.values()}) for l in ("order", "algebra", "geometry", "information")}
-    print("F7 over-reach on target A by coding (closing arrangements invented):", over)
+    c = d["cy"]
+    print("F7 statistics order 2 / 3 on the closing rim:", c["st2"], c["st3"], " blocking triples:", c["blocking"])
+    print("F7 control (cancelling cell fits 198):", c["ctrl3"], " forming:", c["form3"], " favourable:", c["fav_form3"],
+          " favourable through the hold, order 3 / 4:", c["fav_full3"], c["fav_full4"], c["fav_block4"])
+    print("F7 other languages on the closing rim, over the 24 codings of the support axis:", c["others"])
 
 
 if __name__ == "__main__":
