@@ -72,7 +72,7 @@ standard-not-READ: the Gauss and Codazzi equations; Israel's junction (Z2); Cauc
   product (KR cite it as proved in their ref. [16]); nuclear density ~2.3e17 kg/m^3 (neutron-star cores several times
   more); Bertotti-Robinson's AdS2 x S2 needing traceless matter rho = 1/(8 pi G L^2) in 4D general relativity.
 
-CLI:  python3 f1_audit.py [--selftest] [--mutants] [--json PATH]     (selftest ~40 s; --mutants ~3 min)
+CLI:  python3 f1_audit.py [--selftest] [--mutants] [--json PATH]     (selftest ~25 s; --mutants ~1 min)
 Stdlib + sympy (+ the owners' own needs: z3, mpmath, numpy, scipy, python-flint).  No file is written but --json's.
 """
 import contextlib
@@ -729,9 +729,10 @@ def m1c_bound(cfg, tid, mN, G, c):
     rr = tid["r"]
     R4f = sp.lambdify(rr, sp.Abs(tid["R4_kk"]), "math")
     need = lambda r: R4f(r) * c**2 / (8 * math.pi * G * mN**2)     # kg/m^3 at which 8 pi G rho/c^2 = |R4(k,k)|
-    eps_L = lambda r: 4 * rho_L / need(r)
+    tidal = need(3.0) > 0                                          # a vacuum trace (the Schwarzschild foil) has none
+    eps_L = lambda r: 4 * rho_L / need(r) if tidal else float("inf")
     R_L = float("inf")
-    if rho_L > 0:
+    if rho_L > 0 and tidal:
         lo, hi = 3.0, 1e80
         for _ in range(300):
             mid = math.sqrt(lo * hi)
@@ -750,7 +751,8 @@ def m1c_bound(cfg, tid, mN, G, c):
     Rl = next(q_ for q_ in lg["M"].free_symbols if q_.name == "r")
     ml = next(q_ for q_ in lg["M"].free_symbols if q_.name == "m")
     e4_30 = float(((lg["M"] - lg["at_throat"]) / (lg["far"] - lg["at_throat"])).subs({Rl: 30 * ml}).subs(ml, 1))
-    return {"rho_L_kgm3": rho_L, "eps_nuc_3m": cfg["rho_nuc"] / need(3.0), "eps_L_3m": eps_L(3.0),
+    return {"rho_L_kgm3": rho_L, "eps_nuc_3m": cfg["rho_nuc"] / need(3.0) if tidal else float("inf"),
+            "eps_L_3m": eps_L(3.0),
             "eps_L_30m": eps_L(30.0), "R_L_m_units": R_L, "R_L_metres": R_L * mN, "exact_excluded_de": bool(de_ok),
             "exact_excluded_shift": bool(sh_ok), "leg_all": leg_all, "leg_30_share": leg_30 / leg_all,
             "e4_30_share": e4_30}
@@ -1040,7 +1042,7 @@ def checks(d):
     c6 = C["C6"]
     add("C6 computed (gates at the printed figures): at SIM2's edge rho = 8.02 sigma_RS (>= 8.0); B4c's edge 1.3e5; "
         "sigma_RS = 7.17e18 x nuclear (ell <= 13.964 um); the example README needs 1.67e41 x nuclear; ours suffices "
-        "only for 2m >= 1.53e4 m, N >= 4.0e78 (4.7e77 at 2e18 kg/m^3) >> 1.088e29; without the upper edge ell >= 2.3e36 m",
+        "only for 2m >= 1.53e4 m, N >= 4.0e78 (4.6e77 at 2e18 kg/m^3) >> 1.088e29; without the upper edge ell >= 2.3e36 m",
         8.0 <= c6["rho_edge"] < 8.05 and 1.30e5 < c6["rho_b4c"] < 1.35e5 and 7.1e18 < c6["sigma_over_nuc"] < 7.2e18
         and 1.6e41 < c6["need_example_over_nuc"] < 1.7e41 and 1.52e4 < c6["L_star_m"] < 1.53e4
         and 4.0e78 < c6["N_star"] < 4.1e78 and 4.6e77 < c6["N_star_ns"] < 4.7e77 and c6["N_star"] > 1e40 * SNAPSHOT_N
@@ -1079,10 +1081,10 @@ def checks(d):
     c10 = C["C10"]
     add("C10 computed (M1-c's bound): nuclear density is 2.3e-63 of eq. (17)'s tidal term at 3m; the READ dark energy "
         "(~5.8e-27 kg/m^3) is 1e-106 of it at 3m and reaches it at r ~ 3e35 m(N); exact eq. (17) to infinity is "
-        "excluded (B1q: R4 != 0 for tau = -rho_L h and for q != 1); Z2's leg and E4 hold 97-99% within 30m",
+        "excluded (B1q: R4 != 0 for tau = -rho_L h and for q != 1); within 30m lie 99.96% of Z2's leg and 98.2% of E/4",
         5.5e-27 < c10["rho_L_kgm3"] < 6.2e-27 and 2.2e-63 < c10["eps_nuc_3m"] < 2.4e-63 and c10["eps_L_3m"] < 1e-100
         and 1e35 < c10["R_L_m_units"] < 1e36 and c10["exact_excluded_de"] and c10["exact_excluded_shift"]
-        and abs(c10["leg_all"] - Q_REF / 2) < 1e-6 and 0.97 < c10["leg_30_share"] < 0.995
+        and abs(c10["leg_all"] - Q_REF / 2) < 1e-6 and 0.9995 < c10["leg_30_share"] < 0.9998
         and abs(c10["e4_30_share"] - (1 - 1 / 57)) < 1e-9)
     st = C["C11"]
     dec = lambda sw: [(rn, lg_, v["decides"]) for rn, per in sw.items() for lg_, v in per.items()
