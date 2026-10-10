@@ -33,6 +33,10 @@ less held cells), never a ratio.
   B6 (computed) item 208's correction seated -- Z3b OPEN on the ring -- lowers the theorem's exact E from 1974 to 1938
      (geometry 114 -> 90, statistics 52 -> 40); B4c, B4b, E1x/E2x still head the leave-one-out
   B7 (computed; the critics' check) B4b and B4c left out together lower E with no language rising
+  B8 (computed) item 210 seated -- B4b and B4c set aside as superseded by B4d (M), kept on record, B4d taking B4c's FAR
+     -- lowers the exact E from 1938 to 693 (247/247/39/143/17); the input rows' cell now falls most, then Z3b and B4d,
+     which now index alike (OPEN on M1 FAR WRITE ARRIVAL CLOSE): the rim's junction and the 5D evolution, the two rows the
+     ring and the write leave open
 Item-208 critics (an independent rebuild, 74 design-and-coding jobs and 382 more codings): every count here reproduces;
 no single row closes any design; which row falls most depends on the design; no "missing" cell survives a change of
 coding -- B4 is the shared excess, nothing more.
@@ -99,13 +103,21 @@ def words():
 
 # ======================================================================================================= B1 cells
 def rows(table="as_asked"):
+    """as_asked: the table when M asked (item 208); after_208: Z3b OPEN on the ring; seated: as it stands (item 210 set
+    B4b and B4c aside as superseded by B4d, kept on record, and B4d took B4c's FAR)"""
     out = []
-    for clause, name, status, where in wt().LEMMAS:
+    table_rows = list(wt().LEMMAS)
+    rests = dict(wt().RESTS_ON)
+    if table in ("as_asked", "after_208"):
+        table_rows += list(getattr(wt(), "SUPERSEDED", []))
+        rests.update(getattr(wt(), "SUPERSEDED_RESTS", {}))
+        rests["B4d"] = "M1 WRITE ARRIVAL CLOSE"
+    for clause, name, status, where in table_rows:
         key = name.split()[0]
         if table == "as_asked":
             status = AS_ASKED.get(key, status)
         text = name.lower()
-        ins = wt().RESTS_ON.get(key, "").split()
+        ins = rests.get(key, "").split()
         if MUT.get("drop_b4c_input") and key == "B4c":
             ins = []
         scope = 1 if "within one universe" in text else (2 if "between universes" in text or key == "M1P2x" else 0)
@@ -163,7 +175,8 @@ def measure(table):
 
 def compute():
     d = measure("as_asked")
-    d["seated"] = measure("seated")
+    d["seated"] = measure("after_208")
+    d["now"] = measure("seated")
     d["words"] = words()
     return d
 
@@ -193,6 +206,13 @@ def checks(d):
         "312, statistics 40 (1938, 36 less than as asked); B4c, B4b, E1x/E2x still lower it most",
         se["E"] == {"order": 748, "algebra": 748, "geometry": 90, "information": 312, "statistics": 40}
         and [x[1] for x in se["drops"][:3]] == [["B4c"], ["B4b"], ["E1x", "E2x"]])
+    nw = d["now"]
+    add("B8 on the table as seated after item 210 (B4b, B4c superseded by B4d, on record; B4d on FAR): 51 rows, 17 cells, "
+        "exact E order 247, algebra 247, geometry 39, information 143, statistics 17 (693, from 1974 as asked); the input "
+        "rows now lower it most (-198), then Z3b and B4d -- one cell now, OPEN on M1 FAR WRITE ARRIVAL CLOSE (-154)",
+        nw["n"] == 51 and nw["distinct"] == 17
+        and nw["E"] == {"order": 247, "algebra": 247, "geometry": 39, "information": 143, "statistics": 17}
+        and [(x[0], x[1]) for x in nw["drops"][:2]] == [(-198, ["M1", "FAR", "WRITE", "ARRIVAL", "CLOSE"]), (-154, ["Z3b", "B4d"])])
     no_rise = lambda m: all(m["pair"][lg] <= m["E"][lg] for lg in LANGS) and total(m["pair"]) < total(m["E"])
     add("B7 B4b and B4c left out together lower the exact E with no language rising, as asked and as corrected (the "
         "critics: on every coding tried, and not unique -- six other pairs do it too)", no_rise(d) and no_rise(se))
@@ -234,6 +254,8 @@ def report(d):
     print("belongs_cypher.py -- what does not belong, what is missing (items 208, 209)\n")
     print("as asked (item 208): rows %d, distinct cells %d, box %d, exact E %s (total %d)" % (d["n"], d["distinct"], d["box"], d["E"], total(d["E"])))
     print("as corrected (Z3b OPEN): exact E %s (total %d)" % (d["seated"]["E"], total(d["seated"]["E"])))
+    print("as seated after item 210: exact E %s (total %d); first falls: %s" % (d["now"]["E"], total(d["now"]["E"]),
+          [(x[0], x[1]) for x in d["now"]["drops"][:4]]))
     print("left out one at a time (exact fall in total E):")
     for dd, nm, e in d["drops"]:
         print("  %5d  %-40s %s" % (dd, ",".join(nm), e))

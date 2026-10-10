@@ -537,3 +537,27 @@ The theorem is proved exactly when no lemma below is OPEN.
   - **Missing:** nothing survives a change of coding.
   - **M1:** it holds content beyond the mouth — the rim, the ring and Wall C's bridge. 14 of the 15 rows resting on M1
     use only its reading of the mouth.
+
+## History (2026-10-10, item 210: B4b and B4c superseded; the rim is a coupling)
+
+- **Item 210 (1), M: "Yes: superseded by B4d".**
+  - B4b (the static bulk regular within the hold's double cone) and B4c (the far boundary untrapped) are set aside.
+    Both were READINGs calibrated to a hold of about 11.3 clocks; the real hold is at least 2.0×10⁵ clocks (O3, item
+    160). They are kept on record in `warptheorem.py`'s `SUPERSEDED` list, with the statuses and records they were
+    seated with, and are not deleted.
+  - B4d now carries their questions over the real hold, and rests on FAR through B4c.
+  - The chain is now 45 lemmas and 6 inputs. Green is unchanged at 21 (strict) and 25 (audit rule). Six rows are
+    non-green by their own status: O3, Z3b, B3, B4d, B5px and B5b. M1 alone would green 31; all six inputs, 35.
+  - Through the cypher (`lemmas/belongs_cypher.py`), the theorem's exact E falls from 1938 to 693 (order 247, algebra
+    247, geometry 39, information 143, statistics 17); it was 1974 when item 208 was asked.
+  - Z3b and B4d now index alike: both OPEN on M1, FAR, WRITE, ARRIVAL and CLOSE. These are the rim's junction and the
+    5D evolution, the two rows the ring and the write leave open.
+- **Item 210 (2), M: "The rim is a coupling interaction between the mouth and our plane. My guess is it looks like a
+  singularity on paper, but is an open mouth."**
+  - Carried as M's: the rim is a coupling between the mouth and our plane.
+  - Carried as M's guess: on paper it looks like a singularity, but it is an open mouth.
+  - The board's reading: the rim stays in M1, since a coupling between the mouth and our plane is part of the plane's
+    reading of the corridor's mouth, so M1 is not split. The junction the thin-sheet balance asks for (a line in
+    compression) is what the open mouth looks like on paper, as 130's black hole "is what the mouth at position 1 looks
+    like". On that guess it is not added matter, so clause (d) is met.
+  - What the open mouth carries, and whether it keeps (Z), stay to be computed.

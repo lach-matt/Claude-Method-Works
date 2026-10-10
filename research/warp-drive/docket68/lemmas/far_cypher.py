@@ -127,7 +127,8 @@ returning BOTH theta+- on a far surface enclosing the bridge AND the net null en
 2's negative plane; either output alone leaves statistics refusing (X6).  On H-NEG-PLANE-UNPAIRED the second output is
 already negative, and then no far-boundary computation moves the verdict (X7): FAR would need a configuration in which
 every ray crossing position 2's negative plane also crosses a positive member, which no computed model supplies.  FAR
-stays OPEN; B4c stays READING.  The rulings let the board decide this (149): no question for M.
+stays OPEN; B4c stays READING.  The rulings let the board decide this (149): no question for M.  [Item 210 (M): B4c
+superseded by B4d, kept on record; B4d now rests on FAR.]
 CAVEATS: every cell is a matter-free limit, against 184 (b4c_far X10 found our plane's matter negligible at T; the
 bridge's is not computed); model C as it stands is the eternal two-sided black hole, not an admissible B4d corridor
 (BULK-BALANCE 7); stage 7's outer bulks decay and are singular near the throat (K4), so a far boundary there needs W2 as
@@ -426,7 +427,9 @@ def fixtures():
     f["TS"] = mod("p2_full").thin_shell(0.0, rho=rho)
     f["TSc"] = mod("p2_full").thin_shell(0.0, rho=0.5)
     ch = mod("chain")
-    f["chain"] = {"FAR": ch.INPUTS["FAR"], "B4c": [r for r in ch.ROWS if r[0] == "B4c"]}
+    f["chain"] = {"FAR": ch.INPUTS["FAR"], "B4c": [r for r in ch.ROWS if r[0] == "B4c"],
+                  "B4d": [r for r in ch.ROWS if r[0] == "B4d"],
+                  "superseded": (getattr(ch._WT, "SUPERSEDED_BY", {}).get("B4c"), getattr(ch._WT, "SUPERSEDED_RESTS", {}).get("B4c"))}
     return f
 
 
@@ -464,10 +467,12 @@ def checks(d):
         "182, 184, 200 (1), 196, 149", all(w in d["rulings"] for w in M_WORDS))
     add("Q2 READ: the board's notes as cited (no far model for a slab; 139 (1) and 166 not computed in B4C-FAR; model C "
         "fits 179/180 and is not an admissible corridor as it stands; the slab is the throat; 179's carried note; "
-        "ITEM178's crossing sign; ITEM185's negative branch) and chain_cypher's FAR input and B4c row",
+        "ITEM178's crossing sign; ITEM185's negative branch) and chain_cypher's FAR input; B4c (READING on FAR) superseded "
+        "by B4d on item 210, kept on record, and B4d now resting on FAR",
         all(ok for _, _, ok in d["reads"])
         and f["chain"]["FAR"] == "a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN)"
-        and f["chain"]["B4c"] == [("B4c", "READING", "FAR", "B4c")])
+        and f["chain"]["B4c"] == [] and f["chain"]["superseded"] == ("B4d", "FAR")
+        and f["chain"]["B4d"] and "FAR" in f["chain"]["B4d"][0][2].split())
     ok4, c4 = f["C4"]
     tip = f["S"]["round_tip"]
     ell, Uu = mod("b4c_far").ell, mod("b4c_far").U

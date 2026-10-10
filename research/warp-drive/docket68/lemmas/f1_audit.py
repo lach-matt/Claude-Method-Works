@@ -904,6 +904,8 @@ def green_table(cfg):
     wt = _load(WARPTHEOREM, "f1a_warptheorem")
     b1m = _load(B1MATTER, "f1a_b1matter")
     live = {name.split()[0]: st for _, name, st, _ in wt.LEMMAS}
+    # item 210: rows superseded by B4d stay on record with the status they were seated with
+    live.update({name.split()[0]: st for _, name, st, _ in getattr(wt, "SUPERSEDED", [])})
     # The item-192 list is history: item 206 re-seated the table, splitting O1, Z1, Z2 and E4 into the parts this audit
     # proposed (COVERS).  BEFORE reads the statuses that list recorded; the live table is checked against it wherever an
     # audited name is still seated whole, and each name no longer seated must have a part of its split seated.

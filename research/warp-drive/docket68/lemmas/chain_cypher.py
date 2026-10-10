@@ -197,20 +197,21 @@ def compute():
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now (seated, item 206): 21 of 47 (strict), 25 of 47 (audit rule); B5pu among them; B6 on 200 (1), Z3c "
-        "DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 21 and len(t["audit"]) == 25 and t["n"] == 47
+    add("C1 green now (seated, items 206-210): 21 of 45 (strict), 25 of 45 (audit rule); B5pu among them; B6 on 200 (1), "
+        "Z3c DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 21 and len(t["audit"]) == 25 and t["n"] == 45
         and "B5pu" in t["strict"] and "B6" in t["strict"] and "Z3c" in t["strict"] and "B6'" in t["audit"])
     add("C2 the smallest input set greening every green-status lemma is {M1, M1P2x, WRITE, ARRIVAL, CLOSE}: FAR entered "
         "only through Z3b, OPEN again since item 208", t["smallest"] == [("M1", "M1P2x", "WRITE", "ARRIVAL", "CLOSE")])
-    add("C3 M1 alone greens 31 of 47; with CLOSE 33; with M1P2x too 34; with every input 35 (the other 12: 8 non-green "
+    add("C3 M1 alone greens 31 of 45; with CLOSE 33; with M1P2x too 34; with every input 35 (the other 10: 6 non-green "
         "by their own status, 4 definitions under the strict rule)", t["with"][("M1",)] == 31
         and t["with"][("M1", "CLOSE")] == 33 and t["with"][("M1", "M1P2x", "CLOSE")] == 34 and t["with"][tuple(INPUTS)] == 35)
-    add("C4 no row is never-greenable; 8 rows non-green by their own status (O3, Z3b, B3, B4c, B4b, B4d, B5px, B5b)",
-        t["excluded"] == [] and sorted(t["own_status"]) == sorted(["O3", "Z3b", "B3", "B4c", "B4b", "B4d", "B5px", "B5b"]))
+    add("C4 no row is never-greenable; 6 rows non-green by their own status (O3, Z3b, B3, B4d, B5px, B5b) -- B4b and B4c "
+        "superseded by B4d (item 210), on record", t["excluded"] == []
+        and sorted(t["own_status"]) == sorted(["O3", "Z3b", "B3", "B4d", "B5px", "B5b"]))
     cu = d["current"]
     add("C5 the chain is the seated theorem: its rows and statuses are warptheorem.py's lemma rows, its inputs "
         "warptheorem.py's clause-N rows, and every name a lemma rests on is an input", cu["same"] and cu["rests_ok"]
-        and len(cu["lemmas"]) == 47 and len(cu["inputs"]) == 6)
+        and len(cu["lemmas"]) == 45 and len(cu["inputs"]) == 6)
     cy = d["cy"]
     add("C6 cypher: information reports which inputs add nothing on this encoding; M1 and CLOSE stay independent axes",
         not ({"M1", "CLOSE"} & cy["adds_nothing"]))
@@ -253,7 +254,7 @@ def mutants():
 
 def report(d):
     t = d["tally"]
-    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-208)\n")
+    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-210)\n")
     print("green now: %d of %d strict, %d audit rule" % (len(t["strict"]), t["n"], len(t["audit"])))
     print("  green:", " ".join(t["strict"]))
     print("  non-green by own status:", t["own_status"])
