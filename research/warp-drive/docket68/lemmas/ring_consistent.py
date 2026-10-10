@@ -32,6 +32,17 @@ different corridors.
      itself the tangential null energy stays positive, so the coincidence is not an identity
   C5 (computed) corridor_shape S2's "at most 0.76 (m/ell) E" is not reproduced on the corrected bank: the marginal
      members carry E_corr = q (m/ell) E with q = 0.67-5.66 (box members), 2.71-4.22 at slope 0, depth 1-1.5m
+     [not checked by the selftest; the check named C5 below is item 211's]
+  C5 (computed; item 211, the item-210 shoot critic's F13, confirmed by hand) C1-C4 leave out the corridor's own WARP
+     part.  A sheet tilted at t that faces its plane across the slab carries, from corridor_shape's own curvature,
+     rho_w = -sigma cos t (1 + sin^2 t/3) and p_r = +sigma cos t (the warp's tension along its conormal is -sigma cos t:
+     R5's -sigma as t -> 0).  So tau -> tau - cos t, and the balance is lambda/(a sigma) = sin^2 t - tau cos t.  At
+     ell/m = 8.5415 every admissible member is still in compression, but at -0.097 to -0.268 a sigma, not C3's -0.60 to
+     -1.16; its junction-free balance is at ell/m = 3 sin^2 t/(rho_rim cos t) = 0.63-7.14, below the window.  The
+     members past 45 deg (C4, inadmissible) balance with no junction at ell/m = 7.0-9.0, not 0.29-4.2.  The 45-deg
+     threshold was the dropped warp part's: with it there is none
+[CORRECTED, item 211 (C5): the values of C3 and C4 dropped the corridor's warp part; the sign survives, the values do
+not.  Kept as computed, with C5 beside them.]
 So the ring as seated -- positive, NEC-keeping, 0.013-0.10 a sigma -- does not belong: it is the product of R5's -sigma
 entered at a rim the marginal corridor reaches at an angle.  What the balance asks for, with the corridor's own tension,
 is a junction in compression of the corridor's own scale; and the ring's coefficient was in any case broad (a free family
@@ -124,7 +135,34 @@ def compute():
     for k, m in past.items():
         c2 = math.cos(2 * m["theta"])
         ringless[k] = dict(m, ell_m=(-3 * c2 / (m["rho_rim"] * math.cos(m["theta"]))) if c2 < 0 and m["rho_rim"] > 0 else None)
-    return {"b": b, "rows": rows, "ringless": ringless}
+    return {"b": b, "rows": rows, "ringless": ringless, "warp": warp_part()}
+
+
+# ================================================================================================================ C5
+def warp_part():
+    """the warp's part of a tilted sheet's stress, from corridor_shape's own curvature (normal into the slab), at y = 0
+    in a flat 4D section (A = B = 1, C = r^2, A_y = B_y = -2/ell, C_y = -2 r^2/ell): against -sigma cos t (1 + sin^2 t/3)
+    and +sigma cos t, sigma = 3/ell; and the balance with tau -> tau - cos t, symbolically"""
+    import sympy as sp
+    shape()
+    ks = _C["rp"]._C["ks"]
+    worst = 0.0
+    for ell in (10.0, 100.0):
+        for t in (0.1, 0.3, 0.6):
+            r, Y1 = 4.0, math.tan(t)
+            def S(w):
+                a = (1.0, 1.0, r * r, w, w, w * r * r, 0.0, 0.0, 2 * r, Y1, 0.0)
+                kt, kr, kth = ks["kt"](*a), ks["kr"](*a), ks["kth"](*a)
+                return -(kr + 2 * kth), kt + 2 * kth
+            (rw, pw), (r0, p0) = S(-2.0 / ell), S(0.0)
+            sig = 3 / ell
+            worst = max(worst, abs((rw - r0) / (-sig * math.cos(t) * (1 + math.sin(t) ** 2 / 3)) - 1),
+                        abs((pw - p0) / (sig * math.cos(t)) - 1))
+    th, tau = sp.symbols("theta tau", real=True)
+    shift = 0 if MUT.get("drop_warp") else sp.cos(th)
+    lam = -sp.cos(2 * th) - (tau - shift) * sp.cos(th)
+    return {"worst": worst, "form": sp.simplify(sp.expand_trig(lam - (sp.sin(th) ** 2 - tau * sp.cos(th)))) == 0,
+            "f": sp.lambdify((th, tau), lam)}
 
 
 def checks(d):
@@ -147,10 +185,20 @@ def checks(d):
         "tangential null energy turns negative inside the corridor (r = 2.4-2.7m) though it is positive at the rim",
         all(math.degrees(v["theta"]) > 45 for v in rl.values()) and all(v["ell_m"] and 0.25 < v["ell_m"] < 4.3 for v in rl.values())
         and all(v["min_tan"] < 0 < v["tan_rim"] and 2.4 < v["min_tan_r"] < 2.7 for v in rl.values()))
+    w = d["warp"]
+    lw = [w["f"](v["theta"], v["tau"]) for v in adm.values()]
+    z = [3 * math.sin(v["theta"]) ** 2 / (v["rho_rim"] * math.cos(v["theta"])) for v in adm.values()]
+    zp = [3 * math.sin(v["theta"]) ** 2 / (v["rho_rim"] * math.cos(v["theta"])) for v in rl.values()]
+    add("C5 the corridor's warp part (corridor_shape's curvature: rho_w = -sigma cos t (1 + sin^2 t/3), p_r = +sigma cos t, "
+        "to 1e-6) counted: lambda/(a sigma) = sin^2 t - tau cos t; at ell/m = 8.5415 every admissible member in compression "
+        "at -0.097 to -0.268 (C3's values dropped it); junction-free only at ell/m = 0.63-7.14, below the window; past "
+        "45 deg at 7.0-9.0", w["worst"] < 1e-6 and w["form"] and all(-0.27 < x < -0.09 for x in lw)
+        and all(0.6 < x < 7.2 for x in z) and all(6.9 < x < 9.1 for x in zp))
     return res
 
 
-MUTANTS = {"drop_images": "the Z2 images left out of the balance",
+MUTANTS = {"drop_warp": "the corridor's warp part left out of the balance",
+           "drop_images": "the Z2 images left out of the balance",
            "corridor_negative": "the corridor's rim energy density entered negative (R5's sign)"}
 
 

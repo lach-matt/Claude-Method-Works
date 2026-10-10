@@ -63,7 +63,9 @@ family (P5).  The board read that tension as the fold's own, part of the plane's
      static rim turns on
   [CORRECTED, item 208: R1 and R8 take the ring from forming_rim F3b, whose corridor carries -sigma at the rim (R5);
      with the marginal corridor's own tension the junction is in compression and the zeros of lambda move to 47-51
-     deg (B with images), which no admissible member reaches (ring_consistent.py).  The item-208 critics also showed
+     deg (B with images), which no admissible member reaches (ring_consistent.py).  Item 211: with the corridor's warp
+     part counted too the balance is sin^2 t - tau cos t, there is no 45-deg threshold, and no admissible member
+     balances without a junction in the window (ring_consistent.py C5).  The item-208 critics also showed
      that R4's and R6's refusals are forced by the index: every line cell, and every cell solved from a balance,
      gets the ring's verdict -- they measure a value no ruled carrier has, not the ring.  Kept as computed.]
 So the cypher does not decide the ring's nature: it refuses it, and names the cell that would decide it.  The board's

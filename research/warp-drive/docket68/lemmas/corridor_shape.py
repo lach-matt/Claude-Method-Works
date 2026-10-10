@@ -22,6 +22,12 @@ non-negative in every tangent direction.
      are restated below, and the first wording is kept here for the record: S3 "meets our plane at r = 2.10-2.20m ...
      its tangential null energy turns negative from r = 2.05-2.09m"; S5 "the gap ... 0.027-0.126 (m/ell) E, at most
      1/68 of E"; S6 "the README is the only carrier that closes the gap"
+     [item 211 (the item-210 shoot critic; the rim figure checked): A, B and C are within 1e-4 between columns, but the
+     y-derivatives are interpolated linearly in u too, and near the throat the radial null energy is a small difference
+     of order-one terms.  Between columns it comes out wrong by +50% to +220% at r - 2m = 1.5e-5 to 3e-4 and by +7% to
+     +14% at r - 2m = 0.0035 to 0.03 (the critic's measurement, against exactly computed columns).  The marginal rims
+     move by about 1%: the exact shallow-marginal ODE, launched flat at 2.005m, meets the plane at 3.430704m against
+     the bank's 3.390m.  This selftest checks A, B and C, not the derivatives.  Recorded, not repaired.]
   S3 (computed) shapes: constant depth -- radial null energy < 0 (small), tangential and energy > 0; deepening outward
      (a > 0) -- worse; rising (a < 0) -- slightly better, still < 0; a bump -- radial > 0 where Y'' < 0, worse on its
      flanks.  The marginal shape (rho + p_r held at 0 by solving for Y''): energy > 0 throughout, and it meets our plane

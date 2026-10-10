@@ -23,10 +23,14 @@ and answer were refuted for working one orientation without stating it as a choi
      test membrane, not for such a sheet (a scope correction, recorded and not repaired)
   O4 (deduced from O2, O3; computed check) 'our plane turns smoothly into the corridor' fixes the surface, not the
      side kept.  D+ keeps corridor_shape's normal (into the slab): what B becomes when our plane inside the rim is
-     removed.  D- keeps the other side, where every flat-limit stress changes sign: read in D-, the seated marginal
-     family has negative energy and negative tangential null energy at every member.  So D+ is the only orientation
-     in which the seated corridor is the open mouth's body (rim_profile P4, P4b: radial null energy 0, tangential and
-     energy positive, joined to the throat)
+     removed.  Reflected y -> -y (the bank is even in y) it is the shoot analyst's S, whose dome lies in the
+     analytically continued region beyond our plane.  D- (the shoot's D) keeps the other side, where every flat-limit
+     stress changes sign.  Read in D-, every seated member has negative tangential null energy along its whole length
+     (the warp adds none to it), so by TS grazing rays break (Z) unless a second source lies on them; it also has
+     negative energy at flat order.  So D+ is the only orientation in which the seated corridor is the open mouth's
+     body (rim_profile P4, P4b: radial null energy 0, tangential and energy positive, joined to the throat).  The warp
+     part, +sigma cos t (1 + sin^2 t/3) on a dome whose kept bulk lies above it, has the same sign in both orientations
+     and puts no line at the fold
   O5 (computed, D+) the joint is a concave fold carrying a NEGATIVE Nambu-Goto line, lambda = -(2/kappa5^2) t.
      It is a line in compression with negative energy at the line: the strut's sign (ring_consistent C3), but the
      fold's own value, and it needs no balance.  A radial null ray in the sheet gains
@@ -35,8 +39,8 @@ and answer were refuted for working one orientation without stating it as a choi
      the same rays: TS's own exception, a second source on the same rays (P2-FULL).  That is where 177's appearance
      and 210's coupling enter.  The tangential null energy is kept (r_rim > 3m, O2)
   O6 (computed, D-) the joint is a convex fold carrying a POSITIVE Nambu-Goto line, lambda = +(2/kappa5^2) t, with
-     its tangential null energy kept iff r_rim <= 3m (O2).  No D- body has been computed (O4: the seated family fails
-     there)
+     its tangential null energy kept for r_rim < 3m and lost for r_rim > 3m (O2; at 3m the first order vanishes and
+     the next decides -- the item-210 shoot critic).  No D- body has been computed (O4: the seated family fails there)
   O7 (cypher, 196; audited per 211) the computed rim carriers, on exact values over (lam, rho, inside, body): B's
      strut read Nambu-Goto, B's strut read with energy >= 0 (added matter), the D+ open mouth, the D- open mouth
      (body not computed: U), and the ringless members past 45 deg.  The refuted positive ring is left out, since its
@@ -48,11 +52,21 @@ and answer were refuted for working one orientation without stating it as a choi
      has no key and no one-hot code (index_audit).  So the cypher does not decide whether D- has a body
 So the open mouth that keeps the seated corridor is D+.  On paper it is a line in compression, so 210's board reading
 stands, and the analyst's correction of it does not.  Its negative null energy per ray asks (Z) for a partner on the
-same rays: the coupling.  What pairs it is OPEN.  The board's reading H-OPEN-MOUTH-DPLUS (M's open mouth is D+,
+same rays: the coupling.  What pairs it is OPEN.  One candidate is the corridor's own shape.  In the item-210 pass
+(scratch, its critic re-ran it on two banks; broad, one member of a free family, not re-run here) a prescribed D+ path
+that dives to a depth of about m near the throat, plateaus, and rises to a tangential joint keeps every ray class
+computed non-negative.  Its radial affine net is +0.27 to +0.29 (a 1.6% difference of terms near +-16.7 at
+r - 2m < 1e-3), it has no horizon boundary term, and its energy is positive only with sigma counted, for
+ell/m <= about 28.9.  The half-ray positives of the shallow 'throat lever' were refuted: they were the boundary term
+where the ray is cut at the horizon, and on mirror-completed rays the net is 2L < 0.  The board's reading H-OPEN-MOUTH-DPLUS (M's open mouth is D+,
 because it keeps the seated corridor) goes to M with the report; D- is kept on record.
 What this does not show: (i) the flat limit, eq. (17)'s static bulk by Pade continuation; the fold integrals use the
 bank within 0.01m of y = 0, where O1 is exact to 1e-13; (ii) thin sheets; (iii) the folds are smooth at width
-w = 0.002m, so the limit w -> 0 is taken numerically; (iv) what lies on the same rays.
+w = 0.002m, so the limit w -> 0 is taken numerically; (iv) what lies on the same rays; (v) both orientations keep eq.
+(17)'s deep static bulk under the throat, b4_static S2's singular surface (y = 2.49-2.50m at r = 2.15m, numerical
+evidence) included (deduced; the item-210 shoot critic), so what is shown is a sheet and its joint, bounding a bulk that
+is singular on that evidence, not yet an open mouth in a regular bulk; (vi) the bank's near-throat interpolation
+(corridor_shape S0's note) moves the members' rims by about 1%, which no check here turns on.
 Imports rim_profile.py (and through it corridor_shape.py), index_audit.py and tools/cypher.py by path.  Stdlib + sympy
 (+ mpmath through corridor_shape).  python3 open_mouth.py [--selftest | --mutants]
 """

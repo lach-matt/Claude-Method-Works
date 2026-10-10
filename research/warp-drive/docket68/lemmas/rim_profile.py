@@ -31,6 +31,9 @@ slopes 0 and +-0.3 only.
      (corridor_shape_inner.json), the marginal corridor traced inward from its launch flattens into the throat: its
      proper slope falls toward zero (about as sqrt(r - 2m)) and its depth settles, the tangential null energy and the
      energy positive throughout -- the throat's constant-depth corridor (ITEM197's facing form) joined smoothly
+     [item 211: the trace between the inner columns carries the bank's derivative interpolation, which puts the radial
+     null energy off by +50% to +220% there (corridor_shape S0's note); P4b is not re-run on exactly computed columns.
+     P4's rims are about 1% low for the same reason (3.390m against the exact linear 3.430704m).]
   P5 (computed, forming_rim F3b) the meeting angle theta (proper: tan theta = |Y'| / sqrt(g_rr)) and the ring that
      balances the rim in the Z2 double cover: lambda = a sigma (1 - cos theta)(1 + 2 cos theta), 0.013-0.10 a sigma over
      the family (0.037 at the representative, 0.5m launched at slope 1).  The ring, a 2-sphere of energy density equal

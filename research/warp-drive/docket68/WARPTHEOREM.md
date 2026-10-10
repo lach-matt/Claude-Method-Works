@@ -617,3 +617,32 @@ The theorem is proved exactly when no lemma below is OPEN.
     outside the old range.
   - **WRITE's floor, exactly.** (9/2)(5N ln2/Z)^(1/3) − 2 = 199,702.19 clocks at the example README, with Z = 108.75
     (its lower bound). "≥ 2.0e5" rounds a floor up, and the floor falls as Z^(−1/3).
+- **The shoot critic's findings, seated (206).**
+  - **The ring's balance counts the corridor's warp part** (ring_consistent C5; the critic's F13, re-derived by hand).
+    A sheet facing its plane across the slab carries ρ_w = −σ cos t (1 + sin²t/3) and p_r = +σ cos t. So
+    λ/(aσ) = sin²t − τ cos t.
+    - At ℓ/m = 8.5415 every admissible member is still in compression, at −0.10 to −0.27 aσ. Item 208's −0.60 to
+      −1.16 dropped the warp part: the sign survives, the values do not.
+    - A balance with no junction needs ℓ/m = 0.63–7.14, below the window.
+    - The 45° threshold belonged to the dropped term.
+    - M1's record now carries this.
+  - **The bank's near-throat derivatives** (corridor_shape S0 and rim_profile P4b, notes only). The y-derivatives are
+    interpolated linearly in ln(r − 2m). Near the throat that puts the radial null energy off between columns by up to
+    +220%.
+    - The marginal rims move by about 1%: 3.430704m exact against 3.390m from the bank (the rim figure checked here).
+    - P4b is not re-run on exact columns.
+    - Recorded, not repaired.
+  - **The open mouth's record** (open_mouth.py, docstring).
+    - D+ is the shoot analyst's S, reflected.
+    - D− is excluded through TS on grazing rays, not on a pointwise reading alone.
+    - The tangential bound in D− is strict.
+    - Both orientations keep b4_static S2's singular surface under the throat, so what is shown is a sheet and its
+      joint, not yet an open mouth in a regular bulk.
+    - One dive near the throat keeps every ray class computed non-negative: the corridor's own shape is a candidate
+      for what pairs the joint. It is broad and was computed in scratch, not re-run here.
+  - **Refuted and kept on record:**
+    - the "throat lever", whose half-ray positive was the boundary term where the ray is cut at the horizon (on
+      mirror-completed rays the net is 2L < 0);
+    - "every shallow mouth fails (Z)", which holds for complete mirrored rays only;
+    - "N_D = −N_S exactly", which holds at flat order only, since the warp's radial part does not flip;
+    - "iff r_rim ≥ 3m", where the exact condition is r_rim > 3m.
