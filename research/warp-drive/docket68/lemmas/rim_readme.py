@@ -25,6 +25,8 @@ of E, which only the README has the energy to cover.  This works out where it ca
      corridor leaving the plane tangentially where the plane carries the README's stress carries minus that stress near
      the rim: its null energy there is -(rho + p) of the README's, negative.  The reading H-CORRIDOR-IS-THE-README-SHEET
      (the corridor as the README's sheet peeling off the plane tangentially) fails (Z) at the rim
+  [corridor_shape S0, 2026-10-10: the marginal corridor's tangential null energy is kept (its first value, failing, was an
+  interpolation error); R6 and R9's marginal cells are corrected; with a ring, forming_rim and rim_profile close the rim.]
   R6 (cypher) the whole static rim -- plane, corridor and rim together, with the NEC in both directions, finite energy
      and force balance at the rim (standard-not-READ: sheets meeting along a line balance their tensions; in the flat
      limit our plane's own tension is negligible beside the corridor's) -- against every arrangement computed or
@@ -44,7 +46,7 @@ of E, which only the README has the energy to cover.  This works out where it ca
      energy onto the corridor near the rim -- (Z) through TS fails there, unless something on the same rays carries the
      opposite
   R9 (cypher) the finite-ell rim: the tangent meeting with pure tensions (balance holds, radial NEC fails), the steep
-     meeting (balance fails, tangential NEC fails), and the tangent meeting with the README's stress on our plane near
+     meeting (balance fails; tangential NEC kept since corridor_shape's correction, S0 -- first entered as failing), and the tangent meeting with the README's stress on our plane near
      the rim cancelling the corridor's negative radial null energy along the same grazing rays (balance and (Z) net per
      ray, as 183 reads it) -- whose compatibility with 195 ("The README is not a pair") and 198 is M's to say, not the
      cypher's; that cell is entered with its compatibility unknown.  Statistics admits no closing rim under any of the
@@ -158,7 +160,9 @@ def cypher_rim():
     C = ["config", "nec_radial", "nec_tangential", "finite_energy", "balance", "whole"]
     # config: 0 marginal (steep) corridor, 1 constant depth, 2 tangent README sheet, 3 README on the plane without an edge,
     # 4 the throat region; balance: 0 fails, 1 holds, 2 no rim (does not meet the plane)
-    cells = [(0, 1, 0, 1, 0, 1), (1, 0, 1, 1, 2, 1), (2, 1, 0, 1, 0, 1), (3, 1, 1, 0, 2, 1), (4, 1, 1, 1, 2, 0)]
+    # config 0, the marginal corridor: tangential kept since corridor_shape's correction (S0-S3); balance fails in this
+    # flat-limit frame with no ring (R7)
+    cells = [(0, 1, 1, 1, 0, 1), (1, 0, 1, 1, 2, 1), (2, 1, 0, 1, 0, 1), (3, 1, 1, 0, 2, 1), (4, 1, 1, 1, 2, 0)]
     if MUT.get("seat_rim"):
         cells.append((5, 1, 1, 1, 1, 1))
     ok = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1 and h[4] == 1 and h[5] == 1
@@ -207,7 +211,8 @@ def cypher_finite():
         spec.loader.exec_module(cy)
     C = ["meeting", "balance", "nec_radial", "nec_tangential", "compatible"]
     # meeting 0 tangent pure tensions, 1 steep, 2 tangent with the README cancelling on the same rays; compatible 2 = unknown
-    cells = [(0, 1, 0, 1, 1), (1, 0, 1, 0, 1), (2, 1, 1, 1, 2)]
+    # 1, the steep (marginal) meeting: tangential kept since corridor_shape's correction; balance fails without a ring
+    cells = [(0, 1, 0, 1, 1), (1, 0, 1, 1, 1), (2, 1, 1, 1, 2)]
     if MUT.get("decide_compat"):
         cells[2] = (2, 1, 1, 1, 1)                                  # M's question decided in code
     ok = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1 and h[4] == 1
