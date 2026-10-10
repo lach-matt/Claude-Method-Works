@@ -31,7 +31,11 @@ non-negative in every tangent direction.
      at the rim is NOT RUN (its force balance is not computed) and is never counted as a refusal.  Target: a positive,
      sufficient, compatible carrier.  With the README's cell left out no language regrows the target: on the computed
      cells the README is the only carrier that closes the gap.  Control: a ring cell seated as positive and sufficient
-     is admitted by all five
+     is admitted by all five.  LIMIT (deduced): a thin surface's stress IS the jump in extrinsic curvature across it, so
+     the README cannot be added on top of the computed jump; with the README's stress at the rim the bulks either side
+     must be re-solved (the planes' readings near the rim then change at relative order ~ m/ell).  S6 classifies
+     whether the README has the energy for the gap, not that the re-solved corridor meets (Z): that is the next
+     computation
 So: in the throat both directions hold (ITEM197); the marginal corridor carries the radial condition across the whole
 surface to a rim where it meets our plane (r ~ 2.1-2.2m); the only gap is the tangential null energy on the stretch
 just before the rim -- a fraction <= 1/68 of E, which the README covers and our plane's matter does not.  Flat limit; Pade continuation (a heuristic); thin surface; static.
