@@ -32,6 +32,9 @@ non-negative in every tangent direction.
      directions non-negative and energy positive) is DATA -- the marginal corridor -- admitted by all five; with that
      cell left out statistics refuses again
   S5 (computed) at margin 0 no tangential gap remains on the marginal family
+  [ITEM 211 AUDIT (index_audit.py): S6's index is two and three cells with carrier and sufficient as KEYS and a one-hot
+     code -- its verdict is forced by construction and void as evidence; S4 carries a redundant pair (radial, whole) in
+     one variant.]
   S6 (computed; the cypher CLASSIFIES) the rim's candidate carriers as cells -- the shape alone (now: no gap, positive,
      sufficient), our plane's matter, the README on the corridor.  The shape alone closes: no carrier is needed for the
      null energy.  The ring where the surfaces meet (its force balance) is forming_rim's and rim_profile's.  LIMIT

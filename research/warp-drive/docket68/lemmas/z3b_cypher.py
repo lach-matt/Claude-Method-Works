@@ -31,6 +31,9 @@ Z3b OPEN on FAR WRITE ARRIVAL CLOSE.
   Z4 (cypher; item 208) with the ring class entered unknown, static Z3b is refused by statistics at order 2, blocked by
      the one pair (ray_class across the ring, z_kept 1): no static class but the ring is unknown.  Control: the ring
      entered as kept (the seated P5 ring) -- static Z3b admitted again
+[ITEM 211 AUDIT (index_audit.py): ray_class is a KEY of this index -- it individuates every cell -- so Z3's and Z4's
+statistics verdicts, which turn on a ray class only one cell holds, are forced by construction and void as evidence.
+Z3b's OPEN rests on the physics (item 208), not on them.]
 So Z3b reduced to its inputs and its static content was met (pass 2) only while the ring was the positive, NEC-keeping
 ring of P5.  Seated on pass 2 (206): Z3b OPEN -> DERIVED on M1 FAR WRITE ARRIVAL CLOSE.  Seated on item 208 (206): Z3b
 DERIVED -> OPEN -- the across-the-ring class is open (what the rim's junction carries, and its NEC, are not computed).

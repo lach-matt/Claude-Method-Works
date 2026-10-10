@@ -27,6 +27,8 @@ COUNT-CYPHER.md's per-sheet law gives G2 = 2 G1, so m2 = 2m (or E/sqrt2 for N bi
      With 'exactly N' added to the target statistics and geometry refuse under every coding -- no reading gives one E,
      exactly N bits and 200 (1) together; order, algebra and information admit it under some codings only, by joining
      two readings (an artefact).  Control: the per-sheet reading removed -- statistics refuses the target
+[ITEM 211 AUDIT (index_audit.py): reading and g_ratio are KEYS of G5's index (three and four cells over seven
+coordinates), so G5's verdicts are forced by construction and void as evidence.  H2tx's DERIVED rests on G3-G4, not on G5.]
 Proposal, for seating after this pass (206): M1P2x re-worded "position 2's side reads its own eq. (17), at m2 = (G2/G) m
 (= 2m on the per-sheet count, 200 (1)), its horizon holding the README in a capacity (G2/G) N" -- still OPEN on the
 mouth reading with (Z) on both planes (m1x_cypher).  No row turns green on it alone.

@@ -27,6 +27,9 @@ of E, which only the README has the energy to cover.  This works out where it ca
      (the corridor as the README's sheet peeling off the plane tangentially) fails (Z) at the rim
   [corridor_shape S0, 2026-10-10: the marginal corridor's tangential null energy is kept (its first value, failing, was an
   interpolation error); R6 and R9's marginal cells are corrected; with a ring, forming_rim and rim_profile close the rim.]
+  [ITEM 211 AUDIT (index_audit.py): config, kind and meeting are KEYS of this file's indexes and several coordinates
+     form redundant groups -- the R6 and R9 verdicts that turn on a keyed value are forced by construction and void as
+     evidence; M1's record (the rim) was corrected on item 208.]
   R6 (cypher) the whole static rim -- plane, corridor and rim together, with the NEC in both directions, finite energy
      and force balance at the rim (standard-not-READ: sheets meeting along a line balance their tensions; in the flat
      limit our plane's own tension is negligible beside the corridor's) -- against every arrangement computed or

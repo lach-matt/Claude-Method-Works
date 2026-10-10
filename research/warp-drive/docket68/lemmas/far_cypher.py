@@ -127,6 +127,9 @@ returning BOTH theta+- on a far surface enclosing the bridge AND the net null en
 2's negative plane; either output alone leaves statistics refusing (X6).  On H-NEG-PLANE-UNPAIRED the second output is
 already negative, and then no far-boundary computation moves the verdict (X7): FAR would need a configuration in which
 every ray crossing position 2's negative plane also crosses a positive member, which no computed model supplies.  FAR
+[ITEM 211 AUDIT (index_audit.py): in this file's seven-coordinate indexes 'model' is a KEY, so the verdicts that turn
+on a model only one cell holds are forced by construction and void as evidence; most variants also carry coordinates that
+add nothing.  FAR stays OPEN on the computations, not on those verdicts.]
 stays OPEN; B4c stays READING.  The rulings let the board decide this (149): no question for M.  [Item 210 (M): B4c
 superseded by B4d, kept on record; B4d now rests on FAR.]
 CAVEATS: every cell is a matter-free limit, against 184 (b4c_far X10 found our plane's matter negligible at T; the
