@@ -21,7 +21,9 @@ Sources of this round's changes (each checked by two separate AI sessions in thi
   B4C-FAR.md       B4c READING, cannot turn green on H-FAR-MODEL; needs a far boundary consistent with (Z), (G), 139 (1), 166
   COUNT-CYPHER.md  no status moves; the board reads B6's k_R = 3k_L/4 as resting on the doubled count, a premise
                    (deduced here, not verified by a separate session)
-  195 / README-HELD (pending)  F5's pair replaced by the README held by the horizon (HELD), OPEN until README-HELD.md lands
+  README-HELD.md   'held, not crossing' fails in every computed model; the README forms the horizon it crosses
+                   (H-ARRIVAL-FORMS-THE-HORIZON); 198 (M's guess) takes that way in: ARRIVAL replaces F5's pair for the
+                   README.  New OPEN: the closing's negative flux (CLOSE), on which E1 and E2 now rest ('(a) with OPEN')
 python3 chain_cypher.py [--selftest | --mutants]
 """
 import contextlib
@@ -41,7 +43,8 @@ INPUTS = {
     "M1P2": "position 2's side reads eq. (17)'s other leg (OPEN)",
     "FAR": "a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN)",
     "WRITE": "the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending)",
-    "HELD": "the README held by the horizon, not crossing it (195; OPEN; README-HELD pending)",
+    "ARRIVAL": "the README forms the corridor as it comes in, no partner (198, M's guess; README-HELD's 4D models; formation in the bulk OPEN, 179)",
+    "CLOSE": "the closing's negative null flux: ending the horizon and moving the hold need its area to shrink (README-HELD; area theorem; OPEN)",
     "SIGMA": "the plane's tension, k's scale (136 (8): NATURE)",
     "COUNT": "position 2's sheet counted doubled, not per-sheet (a premise; COUNT-CYPHER)",
     "DE": "dark energy w >= -1 (NATURE)",
@@ -53,16 +56,16 @@ ROWS = [
     ("G1", "DERIVED", "M1", "G1"), ("G2", "PROVED", "", "G2"), ("G3", "PROVED", "M1", "G3"), ("H1", "PROVED", "", "H1"),
     ("H2", "DERIVED", "", "H2"), ("H2t", "DERIVED", "M1 M1P2", "H2"),
     ("O1a", "DERIVED", "", "O1"), ("O1b", "PROVED", "M1", "O1"), ("O1c", "OPEN", "", "O1"), ("O2", "PROVED", "M1", "O2"),
-    ("O3", "OPEN", "WRITE HELD", "O3"),
+    ("O3", "OPEN", "WRITE ARRIVAL", "O3"),
     ("Z1q", "PROVED", "", "Z1"), ("Z1t", "PROVED", "M1", "Z1"), ("Z2r", "PROVED", "M1", "Z2"),
     ("Z2", "PROVED", "M1 EXCLUDED", "Z2"),
-    ("Z3a", "DERIVED", "", "Z3"), ("Z3b", "OPEN", "FAR WRITE HELD", "Z3"), ("Z3c", "NATURE", "DE", "Z3"),
+    ("Z3a", "DERIVED", "", "Z3"), ("Z3b", "OPEN", "FAR WRITE ARRIVAL CLOSE", "Z3"), ("Z3c", "NATURE", "DE", "Z3"),
     ("B1", "PROVED", "", "B1"), ("B2", "PROVED", "", "B2"), ("B2t", "PROVED", "M1", "B2"),
-    ("B3", "OPEN", "M1 FAR WRITE HELD", "B3"), ("B4a", "PROVED", "", "B4a"), ("B4c", "READING", "FAR", "B4c"),
-    ("B4b", "READING", "M1 WRITE", "B4b"), ("B4d", "OPEN", "M1 WRITE HELD", "B4d"),
+    ("B3", "OPEN", "M1 FAR WRITE ARRIVAL", "B3"), ("B4a", "PROVED", "", "B4a"), ("B4c", "READING", "FAR", "B4c"),
+    ("B4b", "READING", "M1 WRITE", "B4b"), ("B4d", "OPEN", "M1 WRITE ARRIVAL CLOSE", "B4d"),
     ("B5a", "DERIVED", "", "B5"), ("B5p", "OPEN", "", "B5"), ("B5b", "OPEN", "", "B5"),
-    ("B6", "PROVED", "COUNT", "B6"), ("B6'", "NATURE", "SIGMA", "B6'"), ("B7", "DERIVED", "WRITE HELD", "B7"),
-    ("I1", "DERIVED", "", "I1"), ("I2", "PROVED", "", "I2"), ("E1", "DERIVED", "", "E1"), ("E2", "DERIVED", "", "E2"),
+    ("B6", "PROVED", "COUNT", "B6"), ("B6'", "NATURE", "SIGMA", "B6'"), ("B7", "DERIVED", "WRITE ARRIVAL CLOSE", "B7"),
+    ("I1", "DERIVED", "", "I1"), ("I2", "PROVED", "", "I2"), ("E1", "DERIVED", "CLOSE", "E1"), ("E2", "DERIVED", "CLOSE", "E2"),
     ("E3", "DERIVED", "", "E3"), ("E4r", "PROVED", "M1", "E4"), ("E4", "PROVED", "M1 EXCLUDED", "E4"),
     ("R0", "DEFINITION", "", "R0"), ("R1", "DEFINITION", "", "R1"), ("R2", "DEFINITION", "", "R2"),
     ("R3", "PROVED", "", "R3"), ("R4", "DERIVED", "", "R4"), ("R5", "DERIVED", "", "R5"),
@@ -87,6 +90,8 @@ def rows():
     r = list(ROWS)
     if MUT.get("b6_count_dropped"):
         r = [(a, b, "" if a == "B6" else c, d) for a, b, c, d in r]
+    if MUT.get("e12_close_free"):
+        r = [(a, b, "" if a in ("E1", "E2") else c, d) for a, b, c, d in r]
     if MUT.get("g1_f1_free"):
         r = [(a, b, "" if a in ("G1", "G3") else c, d) for a, b, c, d in r]
     return r
@@ -164,11 +169,11 @@ def compute():
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now: 18 of 45 (strict), 21 of 45 (audit rule)", len(t["strict"]) == 18 and len(t["audit"]) == 21 and t["n"] == 45)
-    add("C2 the smallest input set greening every green-status lemma: {M1, M1P2, WRITE, HELD, COUNT}",
-        t["smallest"] == [("M1", "M1P2", "WRITE", "HELD", "COUNT")])
-    add("C3 M1 alone greens 26 of 45; with COUNT 27; with M1P2 too 28",
-        t["with"][("M1",)] == 26 and t["with"][("M1", "COUNT")] == 27 and t["with"][("M1", "M1P2", "COUNT")] == 28)
+    add("C1 green now: 16 of 45 (strict), 19 of 45 (audit rule); E1 and E2 wait on CLOSE", len(t["strict"]) == 16 and len(t["audit"]) == 19 and t["n"] == 45)
+    add("C2 the smallest input set greening every green-status lemma: {M1, M1P2, WRITE, ARRIVAL, CLOSE, COUNT}",
+        t["smallest"] == [("M1", "M1P2", "WRITE", "ARRIVAL", "CLOSE", "COUNT")])
+    add("C3 M1 alone greens 24 of 45; with COUNT 25; with M1P2 too 26",
+        t["with"][("M1",)] == 24 and t["with"][("M1", "COUNT")] == 25 and t["with"][("M1", "M1P2", "COUNT")] == 26)
     add("C4 Z2 and E4 as stated are never greenable (M1-global excluded); 11 rows non-green by their own status",
         t["excluded"] == ["Z2", "E4"] and len(t["own_status"]) == 11)
     ch = d["changed"]
@@ -176,8 +181,8 @@ def checks(d):
         "B7 E4 carry inputs or splits); every proposal row refines an existing row",
         len(d["current"]) == 34 and set(r[3] for r in rows()) <= set(d["current"]) and len(ch) >= 14)
     cy = d["cy"]
-    add("C6 cypher: information reports WRITE, HELD, SIGMA, DE as adding nothing (determined by the others); M1, M1P2, "
-        "FAR, COUNT are independent axes on this encoding", cy["adds_nothing"] == {"WRITE", "HELD", "SIGMA", "DE"})
+    add("C6 cypher: information reports ARRIVAL, DE, FAR, SIGMA, WRITE as adding nothing (determined by the others); "
+        "M1, M1P2, CLOSE, COUNT are the independent axes on this encoding", cy["adds_nothing"] == {"ARRIVAL", "DE", "FAR", "SIGMA", "WRITE"})
     add("C7 cypher: five operator-bearing languages speak with E > 0; documentary silent",
         all(cy[l][0] is not None and cy[l][0] > 0 for l in ("order", "algebra", "geometry", "information", "statistics"))
         and cy["documentary_silent"])
@@ -186,7 +191,7 @@ def checks(d):
     return res
 
 
-MUTANTS = {"b6_count_dropped": "B6 read as resting on no premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
+MUTANTS = {"e12_close_free": "E1, E2 read as resting on no closing flux", "b6_count_dropped": "B6 read as resting on no premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
            "definition_strict": "DEFINITION counted green under the strict rule"}
 
 
