@@ -7,7 +7,10 @@ It answers the new OPEN item `README-HELD.md` named.
 
 - **109:** a horizon cannot outlive its object.
 - **136 (2):** *"2 - released at position two at the closing of the horizon"*.
-- **132:** position 2's side is the white-hole view of the same corridor object.
+- **132**, verbatim: *"the passage is one way by nature, a black hole in and a white hole out, side views of the same
+  corridor object"*. The white hole is yours, not the board's. You had already confirmed it at 122 (3) (*"3 - your
+  candidate is correct"*, to P2's white-hole past horizon), and you put it on the record again at 199: *"For the
+  record, I did suggest a white hole earlier on"*.
 - **198** (your guess): *"My guess would be 1."* The README forms the corridor; it has no partner.
 - **167, 168:** the trajectories run first *"two positions, one universe"*, then between universes.
 
@@ -27,7 +30,8 @@ end. Whether the corridor's horizon is one depends on where the README goes.
   horizon at least the README's size stays in universe 1 for good, against your 109 and 136 answer 3. **The demand
   stands for this class.**
 - **The same mass loss looks different from the two sides.** From position 1 it is a negative inflow. From position 2,
-  the white-hole side, it is a positive outflow. This is your 132's two views, with 136 (2)'s release at position two.
+  **your white hole (132)**, it is a positive outflow. This is your 132's *"a black hole in and a white hole out"* with
+  136 (2)'s release at position two. The board computed it; the idea is yours.
 
 ## The facts
 
@@ -70,6 +74,9 @@ end. Whether the corridor's horizon is one depends on where the README goes.
 - **H-CYPHER-CLOSE:** K4's index.
 
 ## History
+
+- 2026-10-10, after item 199: the white hole's attribution was corrected. K1's white-hole release is your 132 (and
+  122 (3)), not the board's. Your words are now quoted verbatim where the note first paraphrased them.
 
 - 2026-10-10: first headed after `README-HELD.md` and item 198. K1–K4 were computed; selftest 4/4, mutants 5/5. The
   first K4 check expected information to refuse the between-universes cell. The run showed geometry and statistics
