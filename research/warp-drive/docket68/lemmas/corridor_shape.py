@@ -12,33 +12,30 @@ non-negative in every tangent direction.
      reduces to k = (1/2) d_y ln g.  Y'' enters k_r only, through Y'' B/(B + Y'^2)^2 (B small near the throat)
   S2 (computed) the corridor's own Killing energy is (I/4pi)(m/ell) E, at most 0.76 (m/ell) E (d = 1-1.5m): E is read
      on the planes (111, 203 as read: each plane reads eq. (17) with mass m), not carried by the surface's own stress
+  S0 (computed; CORRECTION, 2026-10-10, pass 3 of the cycle) the bank is interpolated between its columns in
+     u = ln(r - 2) on the near-horizon-scaled functions A/x, B x^2, C (x = r - 2): within 1e-4 of three exactly
+     computed columns mid-interval (corridor_shape_mid.json).  The first version interpolated A, B, C in r unscaled,
+     which put g_rr 8% low between 2.005m and 2.04m.  Every result of S3-S6 as first written rested on that error; they
+     are restated below, and the first wording is kept here for the record: S3 "meets our plane at r = 2.10-2.20m ...
+     its tangential null energy turns negative from r = 2.05-2.09m"; S5 "the gap ... 0.027-0.126 (m/ell) E, at most
+     1/68 of E"; S6 "the README is the only carrier that closes the gap"
   S3 (computed) shapes: constant depth -- radial null energy < 0 (small), tangential and energy > 0; deepening outward
      (a > 0) -- worse; rising (a < 0) -- slightly better, still < 0; a bump -- radial > 0 where Y'' < 0, worse on its
      flanks.  The marginal shape (rho + p_r held at 0 by solving for Y''): energy > 0 throughout, and it meets our plane
-     at r = 2.10-2.20m for every start depth (0.25m, 1m), slope (0, +-0.3) and margin (0, 0.002, 0.01) -- but its
-     tangential null energy turns negative from r = 2.05-2.09m, on the steep last stretch before the rim
+     at r = 3.1-3.8m for every start depth (0.25m, 1m) and slope (0, +-0.3), beyond r_b = 3.01m (rim_profile P2), with
+     its tangential null energy never negative.  Held strictly positive instead (margin 0.01), the radial condition
+     brings the rim inside r_b (2.26-2.87m) and the tangential fails there (rim_profile P3)
   S4 (computed; the cypher CLASSIFIES) roster 1173 on the computed shapes: the target (a whole surface with both null
-     directions non-negative and energy positive) is refused by statistics, admitted by geometry only through the
-     throat-limit cell (refused when it is left out), and admitted by order, algebra and information through closure
-     (over-reach, recorded).  Control: a cell meeting both, seated, flips all five
-  S5 (computed) the gap's size: the tangential null energy missing on the last stretch, Killing-weighted on the curved
-     surface, is 0.027-0.126 (m/ell) E (start depths 0.25-1m) -- at most 1/68 of E at the window's lowest ell/m = 8.54,
-     about 1e-16 of E for a real README.  Our plane's own matter (at most nuclear) is short of the gap's density by
-     ~1e40 at the example README (sigma_RS = 7.17e18 x nuclear at ell = 13.964 um; ell/m = 7e22)
-  S6 (computed; the cypher CLASSIFIES) the rim put to the cypher: candidate carriers as cells -- the shape alone (gap
-     negative), our plane's matter (positive, insufficient), the README on the corridor (positive as (Z) through TS
-     requires of any carrier; sufficient by 68 to ~1e16; compatible with 198 and 203).  The ring where the surfaces meet
-     at the rim is NOT RUN (its force balance is not computed) and is never counted as a refusal.  Target: a positive,
-     sufficient, compatible carrier.  With the README's cell left out no language regrows the target: on the computed
-     cells the README is the only carrier that closes the gap.  Control: a ring cell seated as positive and sufficient
-     is admitted by all five.  LIMIT (deduced): a thin surface's stress IS the jump in extrinsic curvature across it, so
-     the README cannot be added on top of the computed jump; with the README's stress at the rim the bulks either side
-     must be re-solved (the planes' readings near the rim then change at relative order ~ m/ell).  S6 classifies
-     whether the README has the energy for the gap, not that the re-solved corridor meets (Z): that is the next
-     computation
-So: in the throat both directions hold (ITEM197); the marginal corridor carries the radial condition across the whole
-surface to a rim where it meets our plane (r ~ 2.1-2.2m); the only gap is the tangential null energy on the stretch
-just before the rim -- a fraction <= 1/68 of E, which the README covers and our plane's matter does not.  Flat limit; Pade continuation (a heuristic); thin surface; static.
+     directions non-negative and energy positive) is DATA -- the marginal corridor -- admitted by all five; with that
+     cell left out statistics refuses again
+  S5 (computed) at margin 0 no tangential gap remains on the marginal family
+  S6 (computed; the cypher CLASSIFIES) the rim's candidate carriers as cells -- the shape alone (now: no gap, positive,
+     sufficient), our plane's matter, the README on the corridor.  The shape alone closes: no carrier is needed for the
+     null energy.  The ring where the surfaces meet (its force balance) is forming_rim's and rim_profile's.  LIMIT
+     (deduced): a thin surface's stress IS the jump in extrinsic curvature across it
+So: in the throat both directions hold (ITEM197); the marginal corridor carries the radial condition at zero across the
+whole surface to a rim beyond r_b where it meets our plane (r ~ 3.1-3.8m), with the tangential null energy and the
+energy positive all the way.  Flat limit; Pade continuation (a heuristic); thin surface; static.
 Imports p2_full.py (and through it b4_static.py) and tools/cypher.py by path.  Bank: corridor_shape_bank.json (Pade
 coefficients per column; --regenerate rebuilds it, about 8 minutes).  python3 corridor_shape.py [--selftest | --mutants]
 """
@@ -177,18 +174,39 @@ class Bulk:
             out[X] = (v, dv, _ev(n1, s) / _ev(d1, s))
         return out
 
+    POW = {"A": 1, "B": -2, "C": 0}                           # near the horizon A ~ x, B ~ x^-2, C ~ 1, x = r - 2
+
     def at(self, r, Yv):
+        """Hermite interpolation between banked columns, in u = ln(r - 2) on the scaled functions F / x^p (S0: within 1e-4,
+        5e-5 of exact columns mid-interval).  The first version interpolated F itself in r, which put g_rr 8% low
+        between 2.005m and 2.04m (S0's mutant 'hermite_r')."""
         j = max(0, min(len(self.rv) - 2, bisect.bisect_right(self.rv, r) - 1))
         r0, r1 = self.rv[j], self.rv[j + 1]
-        h, t = r1 - r0, (r - r0) / (r1 - r0)
         c0, c1 = self.col(j, Yv), self.col(j + 1, Yv)
         out = {}
+        if MUT.get("hermite_r"):
+            h, t = r1 - r0, (r - r0) / (r1 - r0)
+            for X in "ABC":
+                f0, fy0, fr0 = c0[X]
+                f1, fy1, fr1 = c1[X]
+                f = (2*t**3 - 3*t**2 + 1) * f0 + (t**3 - 2*t**2 + t) * h * fr0 + (-2*t**3 + 3*t**2) * f1 + (t**3 - t**2) * h * fr1
+                fr = ((6*t**2 - 6*t) / h) * f0 + (3*t**2 - 4*t + 1) * fr0 + ((-6*t**2 + 6*t) / h) * f1 + (3*t**2 - 2*t) * fr1
+                out[X] = (f, (1 - t) * fy0 + t * fy1, fr)
+            return out
+        u0, u1, u = math.log(r0 - 2), math.log(r1 - 2), math.log(r - 2)
+        h, t, x = u1 - u0, (u - u0) / (u1 - u0), r - 2
         for X in "ABC":
-            f0, fy0, fr0 = c0[X]
-            f1, fy1, fr1 = c1[X]
-            f = (2*t**3 - 3*t**2 + 1) * f0 + (t**3 - 2*t**2 + t) * h * fr0 + (-2*t**3 + 3*t**2) * f1 + (t**3 - t**2) * h * fr1
-            fr = ((6*t**2 - 6*t) / h) * f0 + (3*t**2 - 4*t + 1) * fr0 + ((-6*t**2 + 6*t) / h) * f1 + (3*t**2 - 2*t) * fr1
-            out[X] = (f, (1 - t) * fy0 + t * fy1, fr)
+            p = self.POW[X]
+
+            def sc(c, rr):
+                f, fy, fr = c[X]
+                xx = rr - 2
+                return f / xx**p, fy / xx**p, (fr / xx**p - p * f / xx**(p + 1)) * xx
+            g0, gy0, gu0 = sc(c0, r0)
+            g1, gy1, gu1 = sc(c1, r1)
+            g = (2*t**3 - 3*t**2 + 1) * g0 + (t**3 - 2*t**2 + t) * h * gu0 + (-2*t**3 + 3*t**2) * g1 + (t**3 - t**2) * h * gu1
+            gu = ((6*t**2 - 6*t) / h) * g0 + (3*t**2 - 4*t + 1) * gu0 + ((-6*t**2 + 6*t) / h) * g1 + (3*t**2 - 2*t) * gu1
+            out[X] = (g * x**p, ((1 - t) * gy0 + t * gy1) * x**p, (gu / x) * x**p + p * g * x**(p - 1))
         return out
 
 
@@ -224,10 +242,9 @@ def marginal(ks, bulk, d, margin=0.0, slope0=0.0, rmax=6.0):
 def cypher_run():
     cy = _load(os.path.join(ROOT, "tools", "cypher.py"), "cs_cypher")
     C = ["shape", "radial", "tangential", "energy", "whole"]
+    # 4: the marginal corridor -- radial held at 0 (1), tangential > 0 at margin 0 since S0's correction (2)
     cells = [(0, 0, 2, 1, 1), (1, 0, 2, 1, 1), (2, 0, 2, 1, 1), (2, 0, 0, 0, 1), (3, 0, 2, 1, 1), (3, 0, 2, 0, 1),
-             (4, 1, 0, 1, 1), (5, 1, 2, 1, 0)]
-    if MUT.get("seat_both"):
-        cells.append((4, 1, 2, 1, 1))
+             (4, 1, 2 if not MUT.get("old_tangential") else 0, 1, 1), (5, 1, 2, 1, 0)]
     ok = lambda h: h[1] >= 1 and h[2] >= 1 and h[3] == 1 and h[4] == 1
 
     def ask(cs):
@@ -239,7 +256,7 @@ def cypher_run():
             out, _ = cy.ADMISSION[lang][0](ix, {})
             res[lang] = None if out is None else any(ok(tuple(inv[i][c[i]] for i in range(len(C)))) for c in out)
         return res
-    return {"all": ask(cells), "leave": ask([c for c in cells if c[0] != 5])}
+    return {"all": ask(cells), "leave": ask([c for c in cells if c[0] != 5]), "leave4": ask([c for c in cells if c[0] != 4])}
 
 
 def rim_gap(ks, bulk, d):
@@ -256,7 +273,8 @@ def rim_gap(ks, bulk, d):
 def rim_cypher():
     cy = _load(os.path.join(ROOT, "tools", "cypher.py"), "cs_cypher_rim")
     C = ["carrier", "sign", "sufficient", "compatible"]
-    cells = [(0, 0, 0, 1), (1, 1, 0, 1), (2, 1, 1, 1)]            # shape alone; our plane's matter; the README on the corridor
+    # shape alone (no gap at margin 0 since S0's correction: positive, sufficient); our plane's matter; the README
+    cells = [(0, 1, 1, 1) if not MUT.get("old_tangential") else (0, 0, 0, 1), (1, 1, 0, 1), (2, 1, 1, 1)]
     if MUT.get("readme_insufficient"):
         cells[2] = (2, 1, 0, 1)
     ok = lambda h: h[1] == 1 and h[2] == 1 and h[3] == 1
@@ -271,7 +289,23 @@ def rim_cypher():
             res[lang] = None if out is None else any(
                 all(c[i] in inv[i] for i in range(len(C))) and ok(tuple(inv[i][c[i]] for i in range(len(C)))) for c in out)
         return res
-    return {"all": ask(cells), "leave": ask([c for c in cells if c[0] != 2]), "ctrl": ask(cells[:2] + [(3, 1, 1, 1)])}
+    return {"all": ask(cells), "leave": ask([c for c in cells if c[0] != 2]), "ctrl": ask(cells[:2] + [(3, 1, 1, 1)]),
+            "shape_only": ask([cells[0], cells[1]])}
+
+
+MID = os.path.join(HERE, "corridor_shape_mid.json")
+
+
+def interp_check(bulk):
+    """the interpolation against three exactly computed columns mid-interval (2.0075, 2.015, 2.03m)"""
+    raw = json.load(open(MID))
+    ex = Bulk({rc: {k: ([float(v) for v in nd[0]], [float(v) for v in nd[1]]) for k, nd in e.items()} for rc, e in raw.items()})
+    worst = 0.0
+    for i, r in enumerate(ex.rv):
+        for Yv in (0.0, 0.4, 0.8):
+            e, a = ex.col(i, Yv), bulk.at(r, Yv)
+            worst = max(worst, max(abs(a[X][0] / e[X][0] - 1) for X in "ABC"))
+    return worst
 
 
 def compute(full=False):
@@ -284,7 +318,8 @@ def compute(full=False):
         g = bulk.col(i, 0.5)
         const.append(stresses(ks, g, 0.0, 0.0))
     gaps = {d0: rim_gap(ks, bulk, d0) for d0 in (0.25, 1.0)}
-    return {"ks": ks, "runs": runs, "const": const, "cy": cypher_run(), "gaps": gaps, "rim_cy": rim_cypher()}
+    return {"ks": ks, "runs": runs, "const": const, "cy": cypher_run(), "gaps": gaps, "rim_cy": rim_cypher(),
+            "interp": interp_check(bulk)}
 
 
 def checks(d):
@@ -299,30 +334,30 @@ def checks(d):
     c = d["const"]
     add("S3 constant depth 0.5m: radial null energy < 0 at every sampled radius, tangential and energy > 0 (P2-FULL)",
         all(x[1] < 0 for x in c[1:]) and all(x[2] > 0 and x[0] > 0 for x in c))
+    add("S0 the interpolation between banked columns is within 1e-4 of three exactly computed columns mid-interval "
+        "(2.0075, 2.015, 2.03m); the first version's (in r, unscaled) put g_rr 8% low there", d["interp"] < 1e-4)
     runs = d["runs"]
-    add("S3 the marginal corridor (radial held at 0) meets our plane at r = 2.10-2.20m with energy > 0 throughout",
-        all(v["rim"] is not None and 2.10 <= v["rim"] <= 2.20 for v in runs.values())
+    add("S3 the marginal corridor (radial held at 0) meets our plane at r = 3.1-3.8m, beyond r_b = 3.01m, with energy "
+        "> 0 throughout", all(v["rim"] is not None and 3.1 <= v["rim"] <= 3.8 for v in runs.values())
         and all(min(x[3] for x in v["rows"]) > 0 for v in runs.values()))
-    add("S3 its tangential null energy turns negative before the rim, from r = 2.05-2.10m",
-        all(any(x[5] < 0 for x in v["rows"]) and 2.04 <= min(x[0] for x in v["rows"] if x[5] < 0) <= 2.10 for v in runs.values()))
+    add("S3 its tangential null energy is never negative, all the way to the rim",
+        all(not any(x[5] < 0 for x in v["rows"]) for v in runs.values()))
     cy = d["cy"]
-    add("S4 cypher: statistics refuses the target; geometry admits it only with the throat-limit cell (refuses on the "
-        "leave-out); order, algebra, information admit (over-reach)", cy["all"]["statistics"] is False
-        and cy["all"]["geometry"] is True and cy["leave"]["geometry"] is False
-        and all(cy["all"][l] for l in ("order", "algebra", "information")))
+    add("S4 cypher: the target (both directions kept, energy positive, a whole surface) is data -- the marginal corridor "
+        "-- admitted by all five; left out, statistics refuses again", all(cy["all"].values())
+        and cy["leave4"]["statistics"] is False)
     gp = d["gaps"]
-    add("S5 the tangential gap is 0.02-0.13 (m/ell) E, at most 1/68 of E at ell/m = 8.54",
-        0.02 < gp[0.25]["gap_over_E_times_ell_over_m"] < 0.035 and 0.11 < gp[1.0]["gap_over_E_times_ell_over_m"] < 0.14
-        and max(v["gap_over_E_times_ell_over_m"] for v in gp.values()) / 8.54 < 1 / 60)
+    add("S5 at margin 0 no tangential gap remains (the 0.02-0.13 (m/ell) E of the first version was the interpolation's)",
+        all(abs(v["gap_over_E_times_ell_over_m"]) < 1e-9 for v in gp.values()))
     rc_ = d["rim_cy"]
-    add("S6 rim cypher: the README's cell admitted (forced: data); left out, no language regrows a positive, sufficient, "
-        "compatible carrier; control (a ring cell seated) admitted by all five", all(rc_["all"].values())
-        and not any(rc_["leave"].values()) and all(rc_["ctrl"].values()))
+    add("S6 rim cypher: the shape alone now closes -- positive, sufficient, compatible -- so the README's cell is not "
+        "needed (left out, every language still admits); control: a ring cell seated admitted by all five",
+        all(rc_["all"].values()) and all(rc_["leave"].values()) and all(rc_["shape_only"].values()) and all(rc_["ctrl"].values()))
     return res
 
 
-MUTANTS = {"readme_insufficient": "the README's cell marked insufficient", "normal_out": "the corridor's normal pointing away from its plane", "drop_curvature": "Y'' dropped (no design)",
-           "seat_both": "a whole surface meeting both directions seated as data"}
+MUTANTS = {"hermite_r": "the first version's interpolation (in r, unscaled)", "normal_out": "the corridor's normal pointing away from its plane", "drop_curvature": "Y'' dropped (no design)",
+           "old_tangential": "the marginal corridor's tangential entered as the first version had it (negative)"}
 
 
 def selftest():
