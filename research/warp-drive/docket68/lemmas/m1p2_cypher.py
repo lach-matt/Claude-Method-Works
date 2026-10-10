@@ -593,12 +593,12 @@ def checks(d):
                                                                                ("reads", "nec", "regular", "universe",
                                                                                 "positive")))
     ch = d["chain"]
-    add("CH chain (seated, item 206): H2tu (M1) and H2tx (M1, M1P2x) in the chain -- M1 alone greens 31 of 47; the "
-        "within-one-universe rows' (43) smallest input set {M1, FAR, WRITE, ARRIVAL, CLOSE}, M1P2x adding nothing there; "
-        "on all rows M1P2x stays in the smallest set and an independent axis",
+    add("CH chain (seated, items 206-208): H2tu (M1) and H2tx (M1, M1P2x) in the chain -- M1 alone greens 31 of 47; the "
+        "within-one-universe rows' (43) smallest input set {M1, WRITE, ARRIVAL, CLOSE} (FAR entered only through Z3b, "
+        "OPEN since item 208), M1P2x adding nothing there; on all rows M1P2x stays in the smallest set and an independent axis",
         ch["after"]["m1"] == 31 and ch["after"]["n"] == 47 and ch["within"]["n"] == 43
-        and ch["within"]["smallest"] == [("M1", "FAR", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2x" in ch["adds_within"]
-        and ch["after"]["smallest"] == [("M1", "M1P2x", "FAR", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2x" not in ch["adds_all"])
+        and ch["within"]["smallest"] == [("M1", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2x" in ch["adds_within"]
+        and ch["after"]["smallest"] == [("M1", "M1P2x", "WRITE", "ARRIVAL", "CLOSE")] and "M1P2x" not in ch["adds_all"])
     x3 = d["x3"]
     add("X3 between universes (READ G2 = 2 G1, COUNT-CYPHER.md; arithmetic on axioms.py G1): position 2's side reads "
         "m_2 = 2m from 203's one E, and N bits on its horizon read E/sqrt2 -- the other leg of the same eq. (17) needs "
