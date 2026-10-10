@@ -65,26 +65,25 @@ and position 2's sigma, corridor -sigma (R5) -- and nothing computed pins the ge
      over r < 2.15m has mean density (ell/m)^2 / 2.15^3 sigma = 0.10 (ell/m)^2 sigma, >= 2 sigma once ell/m >= 4.46
      (7.3 sigma at the window's lowest 8.54); E feeds 2 sigma through the rim for at most (ell/m)^2/(6 x 2.15^2) m/c
   F7 (cypher) the static and forming arrangements as cells over (phase, support at the rim, balance, nec_in, nec_out,
-     nec_t, fits_198, through_hold), with NO per-cell key (a key makes statistics return the table itself).  2 = not
-     computed.  The README-cancelling static cell's fit with 198 is entered unknown, as rim_readme R9 does (the board's
-     reading H-CANCEL-IS-183-PAIR decides it 0; M has not).  Target: a rim that closes through the hold.
-     Statistics at order 2 ADMITS it with no support at the rim -- an over-reach assembled from pairs of the tangent,
-     steep and cancelling rows; at order 3 it refuses, and the triples that block it are exactly (nec_in, nec_t,
-     fits_198) and (nec_out, nec_t, fits_198): the tangent rim has the tangential null energy but not the radial, the
-     steep (with or without a ring) the radial but not the tangential, the cancelling rim both but not 198.  Control:
-     the cancelling cell marked as fitting 198 -- order 3 admits it.  Closing while the README flows (phase forming):
-     refused at order 3; with the uncomputed null energies set favourable it is admitted.  In that favourable case
-     order 3 over-reaches to a closing through the hold too, and order 4 refuses it: the blocking 4-tuples are the same
-     triple with through_hold (or phase) -- whatever the forming phase turns out to supply, the triple has to hold
-     through the hold
+     nec_t, fits_198, through_hold), with NO per-cell key.  2 = not computed.  The README-cancelling static cell's fit
+     with 198 is entered unknown, as rim_readme R9 does.  CORRECTED 2026-10-10 (pass 3): the static marginal cells now
+     carry the tangential null energy as KEPT -- corridor_shape S0 found the bank's interpolation 8% wrong in g_rr near
+     the throat, and with it corrected the marginal corridor meets the plane beyond r_b with the tangential kept (S3).
+     So the target -- a rim that closes through the hold -- is DATA: with a ring (support 1) and with Z2 images and a
+     ring (support 2), admitted by every language under every coding, statistics at orders 2-4.  With no support at
+     the rim statistics over-reaches at orders 2-3 and refuses at order 4: balance needs a ring or images (F5).  The
+     README-cancelling cell is not needed.  Control: the marginal cells given the first version's tangential -- order
+     3 refuses, blocked by (nec_in | nec_out, nec_t, fits_198), which was this instrument's first finding and rested on
+     that interpolation error.  Closing while the README flows (phase forming) stays refused at order 3 (its null
+     energies are not computed)
 Named readings (the board's): H-DEPTH-LAW-FOLLOWS-R4 (the corridor's radial null energy near the rim follows the
 plane's 4D radial null Ricci along the same direction; R8's sign match, not derived) -- the null-README cell's nec_in = 0
 rests on it.  H-CANCEL-IS-183-PAIR (rim_readme.py).
-So: the force balance at the rim is not the obstacle.  It fails in corridor_shape's own frame only under (P1)-(P4), and
-closes with Z2 images (README into the corridor, 2 sigma (1 + 2 cos theta)), with a ring of positive tension (C, or B
-with images -- static, through the hold), with a kink, or with a tension-carrying README.  What blocks a closing rim is
-the null energy near it: no computed arrangement has the radial and tangential null energy together and fits 198.  The
-geometry itself is a force diagram until Wall C's global construction gives the rim a spacetime.
+So: the force balance at the rim is not the obstacle -- it closes with Z2 images, a ring of positive tension, a kink or
+a tension-carrying README -- and, since corridor_shape's correction, neither is the null energy: the static marginal
+corridor keeps the radial and tangential null energy to a rim beyond r_b, and with a ring (or images and a ring) the rim
+closes through the hold.  The geometry stays a force diagram until Wall C's global construction gives the rim a
+spacetime; what the ring is, is OPEN.
 Imports tools/cypher.py by path.  Stdlib + sympy.  python3 forming_rim.py [--selftest | --mutants]
 """
 import contextlib
@@ -325,10 +324,10 @@ U = 2
 C7 = ["phase", "support", "balance", "nec_in", "nec_out", "nec_t", "fits_198", "through_hold"]
 # phase 0 static (the hold), 1 forming; support at the rim 0 none, 1 ring, 2 Z2 images, 3 kink
 CELLS = [(0, 0, 1, 0, 0, 1, 1, 1),   # static tangent, pure tensions (rim_readme R7-R9; R8 the radial deficit)
-         (0, 0, 0, 1, 1, 0, 1, 1),   # static steep marginal corridor (corridor_shape S3; R7 no balance)
+         (0, 0, 0, 1, 1, 1, 1, 1),   # static steep marginal corridor (corridor_shape S0-S3 corrected: tangential kept; R7 no balance)
          (0, 0, 1, 1, 1, 1, U, 1),   # static tangent, README cancelling (rim_readme R9; fit with 198 M's to say)
-         (0, 1, 1, 1, 1, 0, 1, 1),   # static steep marginal + ring (F3b (ii), C); NEC as S3 computed it
-         (0, 2, 1, 1, 1, 0, 1, 1),   # static steep marginal, Z2 images + ring (F3b (ii)); NEC as S3
+         (0, 1, 1, 1, 1, 1, 1, 1),   # static steep marginal + ring (F3b (ii), C); NEC: corridor_shape S0-S3 corrected
+         (0, 2, 1, 1, 1, 1, 1, 1),   # static steep marginal, Z2 images + ring (F3b (ii)); NEC as corrected
          (1, 0, 0, U, U, U, 1, 0),   # forming steep, corridor_shape's frame, P1-P4 (F3 B)
          (1, 0, 1, 0, U, U, 1, 0),   # forming tangent, null README (F4; nec_in 0 on H-DEPTH-LAW-FOLLOWS-R4)
          (1, 0, 1, U, U, U, 1, 0),   # forming tangent, timelike README
@@ -348,10 +347,11 @@ def cypher():
     full = lambda h: all(h[i] == 1 for i in range(2, 8))
     forming = lambda h: h[0] == 1 and all(h[i] == 1 for i in range(2, 7))
     cells = list(CELLS)
-    if MUT.get("decide_compat"):
-        cells[2] = (0, 0, 1, 1, 1, 1, 1, 1)
-    if MUT.get("seat_hold"):
-        cells.append((1, 2, 1, 1, 1, 1, 1, 1))
+    if MUT.get("old_tangential"):                               # the first version's (artefactual) tangential, S3
+        cells = [c[:5] + (0,) + c[6:] if c[0] == 0 and c[1] in (0, 1, 2) and c[3] == 1 and c[2] in (0, 1) and c[5] == 1
+                 and c[6] == 1 else c for c in cells]
+    if MUT.get("drop_closing"):
+        cells = [c for c in cells if not (c[0] == 0 and c[1] in (1, 2))]
 
     def index(cs, sup_order=(0, 1, 2, 3)):
         vo = {"phase": [0, 1], "support": [x for x in sup_order if x in {c[1] for c in cs}]}
@@ -384,11 +384,23 @@ def cypher():
     fav_full4 = admitted(fav, full, "statistics", {"statistics_order": 4})
     seen4 = {Sx: {tuple(c[i] for i in Sx) for c in fav} for Sx in itertools.combinations(range(8), 4)}
     fav_block4 = sorted(tuple(C7[i] for i in Sx) for Sx, v in seen4.items() if tuple(tgt[i] for i in Sx) not in v)
+    st4 = admitted(cells, full, "statistics", {"statistics_order": 4})
+    old = [c[:5] + (0,) + c[6:] if (c[0] == 0 and c[1] in (0, 1, 2) and c[2] in (0, 1) and c[3] == 1 and c[5] == 1
+                                     and c[6] == 1) else c for c in CELLS]
+    old3 = admitted(old, full, "statistics", {"statistics_order": 3})
+    seen3o = {Sx: {tuple(c[i] for i in Sx) for c in old} for Sx in itertools.combinations(range(8), 3)}
+    old_block = sorted(tuple(C7[i] for i in Sx) for Sx, v in seen3o.items() if tuple(tgt[i] for i in Sx) not in v)
+    nocancel = [c for c in cells if c[6] != U or c[0] != 0]
+    nocancel_ok = {l: all((0, 1, 1, 1, 1, 1, 1, 1) in (admitted(nocancel, full, l, None, tuple(o)) or []) for o in _codings(4))
+                   for l in ("order", "algebra", "geometry", "information")}
+    closing_all = {l: all({(0, 1, 1, 1, 1, 1, 1, 1), (0, 2, 1, 1, 1, 1, 1, 1)} <= set(admitted(cells, full, l, None, tuple(o)) or [])
+                          for o in _codings(4)) for l in ("order", "algebra", "geometry", "information")}
     others = {}
     for lang in ("order", "algebra", "geometry", "information"):
         others[lang] = sorted({tuple(admitted(cells, full, lang, None, tuple(o)) or []) for o in _codings(4)})
     return {"st2": st2, "st3": st3, "blocking": blocking, "ctrl3": ctrl3, "form3": form3, "fav_form3": fav_form3,
-            "fav_full3": fav_full3, "fav_full4": fav_full4, "fav_block4": fav_block4, "others": others}
+            "fav_full3": fav_full3, "fav_full4": fav_full4, "fav_block4": fav_block4, "others": others, "st4": st4,
+            "old3": old3, "old_block": old_block, "nocancel_ok": nocancel_ok, "closing_all": closing_all}
 
 
 # ---------------------------------------------------------------------------------------------------------- run
@@ -450,19 +462,21 @@ def checks(d):
         "the feed time (ell/m)^2/(6 x 2.15^2) m/c, 2.6 m/c at 8.54", 7.2 < e["ratio"] < 7.5 and e["ratio"] >= 2
         and abs(e["need"] - 4.459) < 1e-2 and 2.55 < e["tau"] < 2.7)
     cy = d["cy"]
-    add("F7 statistics order 2 admits a stress-free rim closing through the hold (an over-reach from pairs); order 3 "
-        "refuses it", cy["st2"] == [(0, 0, 1, 1, 1, 1, 1, 1)] and cy["st3"] == [])
-    add("F7 the blocking triples are exactly (nec_in, nec_t, fits_198) and (nec_out, nec_t, fits_198)",
-        cy["blocking"] == [("nec_in", "nec_t", "fits_198"), ("nec_out", "nec_t", "fits_198")])
-    add("F7 control: the cancelling cell marked as fitting 198 -- order 3 admits the closing rim",
-        (0, 0, 1, 1, 1, 1, 1, 1) in (cy["ctrl3"] or []))
+    add("F7 the closing rim through the hold is data: a ring (support 1) and Z2 images with a ring (support 2) -- "
+        "admitted by order, algebra, geometry, information under every coding of the support axis, and by statistics at "
+        "orders 2, 3 and 4", all(cy["closing_all"].values())
+        and all({(0, 1, 1, 1, 1, 1, 1, 1), (0, 2, 1, 1, 1, 1, 1, 1)} <= set(x or []) for x in (cy["st2"], cy["st3"], cy["st4"])))
+    add("F7 with no support at the rim it is not: statistics admits it at orders 2-3 (over-reach) and refuses it at "
+        "order 4 -- balance needs a ring or images (F5)", (0, 0, 1, 1, 1, 1, 1, 1) in (cy["st3"] or [])
+        and (0, 0, 1, 1, 1, 1, 1, 1) not in (cy["st4"] or []))
+    add("F7 control: the static marginal cells given the first version's tangential (negative, corridor_shape S3 before "
+        "S0): order 3 refuses, blocked by (nec_in, nec_t, fits_198) and (nec_out, nec_t, fits_198) -- the block of this "
+        "instrument's first run, which rested on that interpolation error", cy["old3"] == []
+        and cy["old_block"] == [("nec_in", "nec_t", "fits_198"), ("nec_out", "nec_t", "fits_198")])
+    add("F7 the README-cancelling cell is not needed: removed, the ring's closing rim is still admitted by every language "
+        "under every coding", all(cy["nocancel_ok"].values()))
     add("F7 closing while the README flows: refused at order 3; admitted with the uncomputed null energies favourable",
         cy["form3"] == [] and len(cy["fav_form3"] or []) > 0)
-    add("F7 favourable control, closing through the hold: order 3 over-reaches to it, order 4 refuses, and the blocking "
-        "4-tuples are the same triple with through_hold or phase", cy["fav_full3"] == [(0, 0, 1, 1, 1, 1, 1, 1)]
-        and cy["fav_full4"] == [] and cy["fav_block4"] == sorted([("phase", "nec_in", "nec_t", "fits_198"),
-        ("phase", "nec_out", "nec_t", "fits_198"), ("nec_in", "nec_t", "fits_198", "through_hold"),
-        ("nec_out", "nec_t", "fits_198", "through_hold")]))
     return res
 
 
@@ -475,8 +489,8 @@ MUTANTS = {"even_planes": "position 2's plane taken two-sided (parity hidden)",
            "null_own": "null dust tested along the opposite rays as its own",
            "hold_flux": "the README left flowing at the rim through the hold",
            "est_r2": "the estimate's volume taken as r^2",
-           "decide_compat": "the cancelling cell's fit with 198 decided in code",
-           "seat_hold": "a rim closing through the hold seated as data"}
+           "old_tangential": "the static marginal cells given the first version's tangential",
+           "drop_closing": "the ring's and the images' closing cells left out"}
 
 
 def selftest():
