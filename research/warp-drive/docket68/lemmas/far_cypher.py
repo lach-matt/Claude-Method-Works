@@ -46,8 +46,7 @@ def _load(path, key):
 _PATHS = {"cypher": os.path.join(ROOT, "tools", "cypher.py"), "b4c_far": os.path.join(HERE, "b4c_far.py"),
           "stage7": os.path.join(HERE, "b4d_stage7.py"),
           "modelc": os.path.join(HERE, "kequality_scratch", "two-sided", "modelc.py"),
-          "p2_full": os.path.join(HERE, "p2_full.py"), "chain": os.path.join(HERE, "chain_cypher.py"),
-          "forming_rim": os.path.join(HERE, "forming_rim.py")}
+          "p2_full": os.path.join(HERE, "p2_full.py"), "chain": os.path.join(HERE, "chain_cypher.py")}
 
 
 def mod(name):
@@ -123,7 +122,13 @@ def ask(cs, tests, model_order=None, unk_low=False, coords=None):
 
 
 def codings(n):
-    return mod("forming_rim")._codings(n)
+    """The nominal model axis's dihedral codings: every rotation of 0..n-1 and its reverse (2n orders)."""
+    base = list(range(n))
+    out = []
+    for k in range(n):
+        rot = base[k:] + base[:k]
+        out += [rot, rot[::-1]]
+    return out
 
 
 def sweep(cs, tests):
