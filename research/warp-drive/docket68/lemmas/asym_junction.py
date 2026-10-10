@@ -31,6 +31,10 @@ both sides (A3: equal mass), which, mirror images excluded by 213, is one smooth
 names then lives in time (ingoing at position 1, outgoing at position 2), which no static field carries either.  Either
 way the asymmetry is not carried by any static configuration: what 213 asks is the dynamic transfer, where (Z) is to be
 computed (B4d's evolution; CLOSE's five-dimensional ending).
+[ITEM 215 (M: 'they exist within the everything bulk index'): A2-A4 glue the two bulks along one shared sheet by
+Israel's first condition.  M places them as cells of the everything bulk index, related by their place in it, not
+glued, so A2-A4 stand as computed for glued bulks and do not bind M's configuration; A1 stands as computed.  The
+narrowings below are withdrawn as statements about M's configuration.]
 What this sets aside or narrows (records, no status moves): two_sided T3 (the two bulks as flat-order mirror images) by
 M's words; the static readings of the rim -- open_mouth's joint, ring_consistent's balance, two_sided's
 H-CORRIDOR-IS-OUR-BRANE -- describe a corridor whose two sides carry the same field, which 213 excludes before the

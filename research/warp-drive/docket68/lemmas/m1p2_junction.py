@@ -22,6 +22,10 @@ depths); seated under 206 with the critic's limits; 2026-10-10.
      L: L(s1) = mu L(s2), and R: R(s1) = mu R(s2).  Their ratio gives lambda(s1) = lambda(s2), so s1 = s2 by J3 and
      mu = 1.  Every mass ratio but 1 is excluded in the class, 2 among them.  Control: mu = 1 matches at any s1 = s2,
      corridor_shape's symmetric junction
+[ITEM 215 (M: 'they exist within the everything bulk index'): J5 glues our bulk to position 2's by Israel's first
+condition at the corridor.  M places the two bulks as cells of the everything bulk index, not glued, so J5 stands as
+computed for glued bulks and does not bind M's configuration: there the per-sheet conjunction is not refuted.  J1-J4
+stand as computed.]
 So the per-sheet m2 = 2m is refuted in the flat-limit static class, on H-OWN-BULK-SAME-FASHION and a finite-depth
 crossing.  What it refutes is a CONJUNCTION -- H-ONE-G5's per-sheet G2 = 2 G1 read as position 2's pull and Planck-area
 G (g2_between G3-G4, m1p2_cypher X3), H-PULL-PER-SIDE, 203's one E, H-OWN-BULK-SAME-FASHION and the class -- and which

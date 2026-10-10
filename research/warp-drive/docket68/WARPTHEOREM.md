@@ -769,3 +769,20 @@ The theorem is proved exactly when no lemma below is OPEN.
   seen from both sides (132) has one intrinsic lapse. So the item-213 finding stands: while position 2 lacks the
   object, no static sheet carries both views, and the transfer is dynamic.
 - No status moves.
+
+## History (2026-10-10, item 215: they exist within the everything bulk index)
+
+- **M, item 215:** "they exist within the everything bulk index."
+- **What it withdraws, as statements about M's configuration.** The two bulks are cells of the everything bulk index,
+  related by their place in it, not glued to each other along a shared sheet. So Israel's first condition is not
+  imposed between them, and two board results that glued them stand as computed for glued bulks only:
+  - asym_junction A2–A4 (item 213: no static corridor);
+  - m1p2_junction J5 (item 211: m2 = m).
+- **What follows from that.** WRITE's static bulk is no longer excluded, and M1P2x's per-sheet conjunction is no longer
+  refuted, in M's configuration.
+- **What stands:**
+  - each position's own view (214): the one-sided readings, with the joint's negative line as the appearance in
+    position 1's view (212);
+  - two_sided T1–T4 and asym_junction A1, as computed.
+- **What is next:** what relates the two cells in the index — where they meet (203) and how the object comes to be
+  contained at position 2 (213) — put through the cypher. No status moves.

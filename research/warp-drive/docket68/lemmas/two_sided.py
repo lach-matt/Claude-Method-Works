@@ -39,6 +39,9 @@ without it (asym_junction A2, A3).  T1, T2 and T4 stand as computed.  Item 214 (
 are not mirror images of each other'): each bulk closes on its own mirror, so the one-sided readings are each position's
 own view of the sheet -- T2's D+ reading is position 1's view, its negative line the appearance there; the two views
 differ because the contents differ, not because one reflects the other (asym_junction A4).]
+[item 215 (M: 'they exist within the everything bulk index'): T1, T3 and H-CORRIDOR-IS-OUR-BRANE are pictures of
+two bulks joined by a metric; M places the bulks as cells of the everything bulk index, so they stand as computed for
+joined bulks.  Each position's own view (214) stands.]
 What this does not show: no bulk has been computed in which the warp's kink follows our plane into the corridor (the bank
 puts it at y = 0), so H-CORRIDOR-IS-OUR-BRANE is a reading on the sheet's own geometry, not a solved bulk; 203's equality
 of the corridor's energy with the README's E is not computed; flat limit and thin sheets throughout.
