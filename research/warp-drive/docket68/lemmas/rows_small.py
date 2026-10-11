@@ -3,40 +3,60 @@
 (the localized five-dimensional hole).  The ten were B2t, E4r, G1, G3, H2tu, O1b, O1c, O2, Z1t and Z2r (chain_cypher,
 item 231); O1b and O1c were restated by M's item 259.  Each row's record text is a reading of eq. (17); here each is
 computed for f = 1 - r_h^2/r^2 on the plane and the Tangherlini bulk beneath it.  Worked in the conversation
-(computed with sympy, exact where marked; deduced where marked; not verified by a separate session; not seated);
-2026-10-11.
+(computed with sympy, exact where marked; deduced where marked; verified once -- item 271, CONFIRMED with
+qualifications, all seated below in [Verifier, item 271] notes (205/206); not seated); 2026-10-11.  First headed "...
+not verified by a separate session ...".
 
-  R0 (read) M's item-262 words, verbatim in the rulings file.
+  R0 (read) M's item-263 words ("Ready, verify it", C7 finalized), inside item 263's entry of the rulings file.  [First
+     checked item 262's words, which finalized C6, C5 and C4 -- verifier, item 271.]
   G1s (computed, exact) One exact energy, at the bound.  The record's three steps carry: capacity exactly N (101.6),
      now the five-dimensional count over both sides (C2 R1, verified); the horizon and the throat hold it together
      (132), the throat being the bridge's least sphere, r_h (G3s); the energy is the pull (131/133), now the hole's
      Komar mass (C4 N1).  E(N) = 3 pi c^4 r_h(N)^2/(8 G5) = (3 pi/8)(2 N ln2/pi^2)^(2/3) (hbar^2 c^6/G5)^(1/3) -- one value
-     for each N at a given ell (equal to corridor_family F1's small end, computed).
+     for each N at a given ell (equal to corridor_family F1's small end, computed).  [Verifier, item 271: at the example
+     E falls from the record's 2.405878e16 J to 1.281e9 J (x 5.32e-8, computed, R1), below ledger.py's assembly ceiling
+     1.1947e10 J (ASSEMBLY_MAX_J, LOOSE L1) -- so T3's example verdict and E3's control ("with no expansion term the
+     ledger is unsatisfiable") flip at the small end, the example behaving like T3's 600-bit control (deduced); item
+     239's setting-aside of T3's ceiling softens this, it does not remove it.  G2, H1 and I1 still carry the 4D E(N) and
+     "area N A_bit" -- as the large end, item 256 (c), while the example README sits at the small end.]
   G3s (STRUCTURAL, as G3 on the record) Both holds at least size: the bridge's slice dx^2 + (r_h^2 + x^2) dOmega^2 has
      its least sphere at x = 0, radius r_h, where f = 0 -- the horizon -- so the throat and the horizon are one sphere,
      and r_h = (8 G5 E/(3 pi c^4))^(1/2) is the record's r0 = 2m at the small end.  [C1 verifier, item 254: a least
-     sphere on the time-symmetric slice only -- the bridge pinches on later slices; not a static throat.]
+     sphere on the time-symmetric slice only -- the bridge pinches on later slices; not a static throat.]  [Verifier,
+     item 271: it takes the place of r0 = 2m; the relation itself does not carry -- 2 G E/c^4 = (3 pi/4)(r_h/ell) r_h =
+     1.89e-15 r_h at the example (computed, R1).]
   H2tu-s (computed, exact) The horizon's trace on each plane is r = r_h (f = 0 on the plane's metric); position 2's
      plane, the equator in the second exterior, reads the same f (the eternal solution's two exteriors are isometric,
      C1 H4) -- position 2 on our plane reads as ours.  But the record's "with area N A_bit" does not carry: the README
      is held by the horizon's 3-sphere, 2 pi^2 r_h^3 = 4 N ln2 l5^3 (C2 R1), and the trace's 2-area read in the
      plane's bits, 4 pi r_h^2/A_bit, is (pi/ln2)(r_h/l_P)^2 = 7.9e14 N at the example README (ell = 13.964 um),
      falling as N^(-1/3) ell^(2/3) -- exactly 2N/pi where r_h reaches ell (the crossover, C3 F2), so the two ends'
-     holding agrees there within the pi/2 C3 already carries.
+     holding agrees there within the pi/2 C3 already carries.  [Verifier, item 271: 7.9e14 N is a reading with 4D G,
+     as E4r's is; the 2N/pi is exact for the formula at a crossover item 261 seated as a convention, outside the small
+     end's control (r_h < 0.1 ell).]
   O1b, O1c (M's item 259) The static bulk, its horizon and the bridge are regular and complete for the passage; the
      interior singularity is outside it.  Not recomputed here.
   O2s (computed, exact) The horizon is not extremal: surface gravity kappa = f'(r_h)/2 = c^2/r_h (C1 H4), temperature
      hbar c/(2 pi k r_h).  Item 251 dropped clause (O)'s "extremal"; O2 as worded ("surface gravity 0") is false at the
      small end, and every result resting on the extremal horizon (stability.py's D' = 0, Wall E's transport) does not
-     carry.  The hole's linear stability is READ (Ishibashi-Kodama, via B4D-STAGE1.md), not computed here.
+     carry.  The hole's linear stability is READ (Ishibashi-Kodama, via B4D-STAGE1.md), not computed here.  [Verifier,
+     item 271: O2 is false at both ends -- the large end is 4D Schwarzschild (item 261, C3 F5).  What the flip loses:
+     Wall E's one mitigation, "the exponential blueshift is absent at the exit" (STABILITY.md section 5), rested on
+     kappa = 0; at kappa = c^2/r_h the exponential white-hole blueshift returns at O1a's exit, one e-fold per clock by
+     STABILITY.md's own control law -- e^66980 ~ 10^29089 over C6's write floor (deduced).  Ishibashi-Kodama is mode
+     stability of the black-hole exterior, not of the white-hole horizon.  Resting on kappa = 0 besides: O3's figures
+     (T/4 = 4.99e4, (1 + T/8)^2 = 6.23e8), o3_hold O3c, write_cypher W4 and its "crossable extremal throat"
+     coordinate, and warptheorem T1's re-run of stability.py's surface gravity.]
   Z1t-s (computed, exact) Along the mouth's radial ray, our leg: the five-dimensional null energy is zero (the bulk is
      Ricci-flat, C1 H1) and so is the plane's reading -- G^t_t = G^r_r = r_h^2/r^4, so G_ab k^a k^b = 0 on every radial
      null k.  The record's "the plane's deficit the bulk's pull" becomes: no deficit on the radial ray; the plane's
      reading on tangential rays, -2 r_h^2/r^4, is the bulk's traceless Weyl term (C1 verifier, item 254).
   Z2r-s (computed, exact) Our leg's integral within the reach equals the plane's reading -- both zero, exactly, not
-     to M1-c's order.
-  B2t-s (computed, from C1) The local bulk beneath the corridor: Tangherlini, Ricci-flat, the plane totally geodesic
-     (C1 H1-H2, verified).
+     to M1-c's order.  [Verifier, item 271: both zero at flat order, to M1-c's order in our matter -- the zero is exact
+     only for the matter-free flat-order equator, the plane's reading for r_h << r << ell (item 269 (1)); warp-order
+     terms (K = -h/ell) and M1-c's matter remain.  Z1t-s's "exactly" carries the same tag.]
+  B2t-s (from C1, verified -- cited, not computed here [verifier, item 271]) The local bulk beneath the corridor:
+     Tangherlini, Ricci-flat, the plane totally geodesic (C1 H1-H2).
   E4r-s (computed, exact) The field energy outside the neck within the reach.  In five dimensions it is zero: the
      Komar mass is the same at every r (C4 N1), so no energy lies between the horizon and any sphere.  The plane's
      four-dimensional reading, its Einstein tensor read with G, is the Weyl term as an energy density, rho_W = -r_h^2 c^4
@@ -45,13 +65,24 @@ computed for f = 1 - r_h^2/r^2 on the plane and the Tangherlini bulk beneath it.
      README (R >> r_h), its size set by ell, not by N.  At r = ell the plane's Misner-Sharp mass is (4/(3 pi)) E/c^2 =
      0.42 E/c^2 -- of the order of the hole's own, where the plane goes over to four-dimensional gravity and its 1/r tail
      (C1 H3, A4).  So within the reach the plane's 4D reading is the appearance (183, 254), not the energy: read with
-     G at r << ell it overstates the field by ell/r_h, because gravity there is five-dimensional.
+     G at r << ell it overstates the field by ell/r_h, because gravity there is five-dimensional.  [Verifier, item 271:
+     "its size set by ell, not by N" is false -- its ratio to E, (4/(3 pi))(ell/r_h), is 2/3 of H2tu-s's and falls as
+     N^(-1/3) ell^(2/3), the absolute field as N^(1/3) ell^(1/3) (computed, R1); "(R >> r_h)" is (r_h << R << ell),
+     the record's reach (~6e7 m, F1-AUDIT M1-c) lying far beyond the Tangherlini form; the value at r = ell evaluates
+     the r << ell form at its own edge -- an order-of-magnitude match to the far field, not a value; and "overstates
+     the field by ell/r_h" is a factor on zero -- the plane reads a field of magnitude (4/(3 pi))(ell/r_h) E where the
+     5D field is 0, the factor being 1/G = ell/G5 against E ~ r_h^2/G5.  "The appearance, not the energy" stands: by
+     Gauss with K = 0 in a Ricci-flat bulk G_ab = -E_ab exactly, and 4D G does not govern r << ell.]
 
 What this does not show.
   - The rows that rest on more than M1 (M1P2x, WRITE, ARRIVAL, CLOSE and the rows above them) -- in chain order next.
   - The plane's reading between r ~ ell and r >> ell (the numerical brane holes, C3 F5).
   - E4r's sign change moves no other row: none rests on E4r (warptheorem.py RESTS_ON, checked), and the record's own
-    E4r already read "not the plane's energy".  The record's ledger (ledger.py E3/E4: the throat's m plus the Weyl
+    E4r already read "not the plane's energy".  [Verifier, item 271: RESTS_ON lists only the chain inputs (M1, M1P2x,
+    FAR, WRITE, ARRIVAL, CLOSE), so the check proves nothing; no row's owner text cites E4r, but b5_positive.py B5c
+    answers M's 139 (2) "positive" with "the positive density outside the neck (ledger.py E4b)" -- at the small end
+    negative in the 4D reading and zero in 5D -- and the 5m/4 of b4d_stage4 D1, sim1_transition S5, residue/loose L6
+    and exactE (re-run by warptheorem T1) is eq. (17)'s own.]  The record's ledger (ledger.py E3/E4: the throat's m plus the Weyl
     field's m/4, ADM 5m/4) is eq. (17)'s; at the small end the five-dimensional energy is the Komar E with no field
     part, and E3 is re-read with the chain.
 
@@ -148,9 +179,24 @@ def example():
                 field_over_E=-(4 / (3 * math.pi)) * ell_ / rh_)
 
 
+def r1(e, h, x):
+    """item 271: E4r's ratio against H2tu's; 2GE/c^4 against r_h; the example's E against the record's and the ceiling"""
+    ratio = sp.simplify(sp.limit(e["field_over_E"], R, sp.oo) / h["bits2_over_N"].subs(
+        {N: 2 * sp.pi ** 2 * rh ** 3 / (4 * sp.log(2)) / (hb * G * ell / c ** 3)}))
+    PG = _load("p2_gravity.py", "rs_pg_r1")
+    l5 = (PG.HBAR * PG.G * PG.ELL_MAX / PG.C ** 3) ** (1 / 3)
+    rh_ = (2 * N_EX * math.log(2) / math.pi ** 2) ** (1 / 3) * l5
+    E_s = 3 * math.pi * PG.C ** 4 * rh_ ** 2 / (8 * PG.G * PG.ELL_MAX)
+    E_rec = PG.corridor(PG.G)["E1"] * math.sqrt(N_EX)
+    return dict(ratio=ratio, r0_over_rh=2 * PG.G * E_s / PG.C ** 4 / rh_, E_s=E_s, E_rec=E_rec, E_ratio=E_s / E_rec,
+                below_ceiling=E_s < 1.1947e10)
+
+
 def compute():
     p = plane()
-    return dict(p=p, e=energies(p), h=holding(), ex=example())
+    o = dict(p=p, e=energies(p), h=holding(), ex=example())
+    o["r1"] = r1(o["e"], o["h"], o["ex"])
+    return o
 
 
 def report(o):
@@ -172,7 +218,8 @@ def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     rul = " ".join(open(RULINGS, encoding="utf-8").read().split())
-    add("R0 M's item-262 words verbatim in the rulings file", M262 in rul)
+    blk = rul.split("263. **C7 finalized", 1)[1].split("264. **", 1)[0] if "263. **C7 finalized" in rul else ""
+    add("R0 M's item-263 words (\"Ready, verify it\") inside item 263's entry", '"Ready, verify it"' in blk)
     p, e, h, x = o["p"], o["e"], o["h"], o["ex"]
     ok = sp.simplify(e["M"] - 3 * sp.pi * rh ** 2 / (8 * G5)) == 0
     ok &= sp.simplify(e["E_N"] - sp.Rational(3, 8) * sp.pi * (2 * N * sp.log(2) / sp.pi ** 2) ** sp.Rational(2, 3)
@@ -197,6 +244,11 @@ def checks(o):
     add("E4r-s the plane's Weyl reading is negative, rho_W = -r_h^2 c^4/(8 pi G r^4); between r_h and R it reads -(4/(3 "
         "pi))(ell/r_h)(1 - r_h/R) E, -5.3e14 E at the example; Misner-Sharp at ell = (4/(3 pi)) E/c^2 (the 5D field "
         "energy is 0: Komar r-independent)", ok)
+    v = o["r1"]
+    ok = sp.simplify(v["ratio"] + sp.Rational(2, 3)) == 0 and "%.3g" % v["r0_over_rh"] == "1.89e-15"
+    ok &= "%.3g" % v["E_ratio"] == "5.32e-08" and v["below_ceiling"]
+    add("R1 (item 271) E4r's ratio is -2/3 of H2tu-s's; 2GE/c^4 = 1.89e-15 r_h; the example's E is 5.32e-8 of the "
+        "record's, below the assembly ceiling", ok)
     return res
 
 
