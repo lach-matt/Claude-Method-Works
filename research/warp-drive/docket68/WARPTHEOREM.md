@@ -62,47 +62,71 @@ The corridor is the following, clause by clause.
 
 ## Its lemmas
 
-The theorem is proved exactly when no lemma below is OPEN.
+The theorem is proved exactly when no lemma below is OPEN.  The rows are `warptheorem.py`'s list, seated on item 206 from
+`chain_cypher.py`'s proposal and printed by the instrument; this table is generated from it (item 225: it had not been
+regenerated since item 206 and still showed the 34-lemma table of before).  Each row's full statement and its owners'
+claims are in the instrument; "rests on" names the inputs (clause N) a status is conditional on.
 
-| clause | lemma | status |
-|---|---|---|
-| G | G1 one exact energy, at the bound: E(N) | **derived**, axioms.py: 101 answer 6, 132, 131/133, the holographic bit area |
-| G | G2 E(N) computed and machine-checked | **proved**, exactE.py (seated) |
-| G | G3 both holds at least size give r₀ = 2m | **proved**, exactE.py |
-| H | H1 4πr₀² = N·A_bit | **proved**, exactE.py |
-| H | H2 the horizons hold the README too | **derived**, axioms.py: the horizon at r = 2m sits on the throat (G3) and holds N·A_bit (H1) |
-| O | O1 one way, 1 → 2, nonsingular | **proved**, plane.py P1 (seated); exactE.py |
-| O | O2 extremal horizon | **proved**, stability.py S1 |
-| O | **O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor and the opening are the same object (160)** | **OPEN**, B4d's. The hold is the corridor through the write, ≥ 2.0×10⁵ clocks (o3_write.py); item 163 keeps that ("at once" is all together, one whole). The write's energy is settled (o3_ground.py, item 164, verified once): the held README is an exact energy state at E, and the write needs a spread of 5.2×10⁻²⁰ of E. What stays open is the bulk (B4d) |
-| Z | Z1 5D null energy zero along the passage; deficit = bulk pull | **proved**, passage5d.py P2 |
-| Z | Z2 the integral equals the plane's reading on both legs | **proved**, passage5d.py P3, coin.py |
-| Z | Z3 null energy never violated | **derived**, axioms.py: bulk R(k,k) = 0, passage 0 (Z1), composite ≥ 0 (B5a: your 117/120, shown consistent) |
-| B | B1 plane matter-free; Gauss and Codazzi met | **proved**, localbulk.py |
-| B | B2 a local vacuum bulk exists, unique among analytic ones | **proved**, localbulk.py |
-| B | **B3 a complete bulk exists, under closed-index criteria** | **OPEN**, equivalent to B4a–B4d |
-| B | B4a the global bulk's shape: two separate positions reached through a dimension (152 (1)) are one end of the bulk; CGS Thm 3.5's deformation; topology fixed before the opening | **proved** (STRUCTURAL), given W2 inside T, b4_global.py |
-| B | B4c the far boundary untrapped, uniformly in time | **reading**, b4_global.py: H-FAR-MODEL. A round T exists beyond the hold's reach only if ℓ > 2R_reach; a tipped T is untrapped at any ℓ (computed: at ℓ = 0.11m, min θ+ = +0.07, B4D-STAGE2.md). Radiation after the closing cannot trap it (Raychaudhuri, margin ~4.5), and eq. (17) holds only within the reach (causality); both derived. Open: whether the model holds deep in the bulk, where a tipped T goes |
-| B | B4b the bulk regular within every admissible hold's double cone: the static bulk, forced there with eq. (17) on the plane, is regular and Padé-stable for holds below ~11.3 clocks; longer holds reach the surface above the throat where its curvature diverges (y_b = 2.49–2.50m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3) | **reading** (computed: exact order-60/80 series, Padé continuation, the full double cone converged; flat limit; the board's locally analytic class), b4_static.py |
-| B | **B4d the opening and closing evolve regularly in five dimensions; data beyond the cone join the exterior** | **OPEN**: a nonlinear 5D problem through a write of ≥ 2.0×10⁵ clocks at fixed size (162, 163). Stage 5 (verified once): with eq. (17) on a plane, a side where the warp decays is singular within 8–16 clocks, a side where it grows is regular on the evidence. Stage 6 (verified once): every positive-tension plane has a decaying side, so ours (139, clause (B)) cannot carry eq. (17) regularly; position 2's plane can, at its own ℓ₂ = 3ℓ (138), carrying exactly 139's −1/3 with both sides growing. Stage 7 (verified once, item 166): across both planes every small-separation branch has a decaying outer bulk, so singular. Simulation phase 1 (sim1_transition.py, verified once): eq. (17) is no 4D null-energy end state; the bulk must supply its anisotropic Weyl stress. Phase 2 (sim2_facing.py, verified and re-verified; item 168): two matter-free pieces of our plane cannot face each other across a static bulk (a facing piece would read tension <= -1, another universe's); with the README's NEC-obeying stress on position 2's piece (H-README-ON-P2, put to you), facing only near the object's throat on the verified map. Still open within one universe: the passage through the horizon (next), a changing bulk, motion inside the planes |
-| B | B5 positivity for the entangled pin, at every point | **derived**, b5_positive.py: null energy at every point is your 117/120, shown consistent (summed tension +λ_RS at one place, 127; a smooth wall keeping it exists); no radion, the separation held at zero (127, 141) |
-| B | B6 k's ratio fixed by the work, k_R = 3k_L/4; every clause b6_k.py checks free of k's scale — **not B4**, whose depth and far boundary depend on ℓ | **proved**, b6_k.py, kderive.py K3 — narrowed twice |
-| B | B6′ k's scale | **nature**, item 136 answer 8 |
-| B | B7 formation: the widening of the bridge already there, consistent and safe; 5D evolution with B4d | **derived**, b7_formation.py: 100, 140, 122 (4), 101 answer 1; Maldacena–Susskind p.17 READ |
-| I | I1 the passage is N bits of entanglement | **derived**, axioms.py: your 137 (1) with H1; Maldacena–Susskind p.5 and Strominger–Vafa (READ) agree |
-| I | I2 the README within the capacity bound as READ | **proved**, i2_capacity.py |
-| E | E1 E carried through three holds into position 2 | **derived**, axioms.py: 115 (c), 136 G, O1, 136 answer 3, 109, conservation (z3, with controls) |
-| E | E2 released at position 2 at the closing | **derived**, axioms.py: 106, 109, 115 (b) |
-| E | E3 the ledger closes | **derived**, ledger.py: reading (a), confirmed by you (item 155: E's remainder is position 2's expansion, part of the build) |
-| E | E4 the field energy outside the neck, E/4: the bulk's Weyl field read on the plane, positive | **proved**, ledger.py; Maartens–Koyama eq. 143 |
-| R | R0 the read: the corridor takes the README at its opening; N read from the object | **definition**, items 70, 101 answer 8, 115 (c), 130 (2); consistent with I2b |
-| R | R1 exact reconstruction, no tolerance | **definition**, items 145, 146; consistent with R3, R5c |
-| R | R2 position 2 rearranges to the README; then its laws govern | **definition**, item 148; consistent with rearrange.py, E3 |
-| R | R3 exactness at the instant over the mass window | **proved**, exactcopy.py, rearrange.py |
-| R | R4 the corridor's length as the trajectory difference, in bits (not a distance) | **derived**, r4_length.py: the measure confirmed by you (item 155) |
-| R | R5 the build's mechanism | **derived**, r5_build.py: the mechanism yours; the trigger reading confirmed by you (item 155) |
+| clause | lemma | status | rests on | owners (first named) |
+|---|---|---|---|---|
+| G | G1 one exact energy, at the bound: E(N) | derived | M1 | axioms.py |
+| G | G2 E(N) computed and machine-checked | proved | — | exactE.py |
+| G | G3 both holds at least size give r0 = 2m | proved | M1 | exactE.py |
+| H | H1 4 pi r0^2 = N A_bit | proved | — | exactE.py |
+| H | H2 the horizons hold the README as well as the throat | derived | — | axioms.py |
+| H | H2tu within one universe, on each plane reading eq. (17), the horizon's trace is r = 2m with area N A_bit -- position 2 on our plane reads as ours … | derived | M1 | axioms.py, m1p2_cypher.py |
+| H | H2tx between universes, position 2's horizon at its own m2 = (G2/G) m (= 2m on the per-sheet count, 200 (1)) holds the README in a capacity (G2/G) N | derived | M1 M1P2x | g2_between.py, m1p2_cypher.py, m1p2_junction.py ... |
+| O | O1a one way, 1 -> 2: a black hole in, a white hole out, different views of one object | derived | — | — |
+| O | O1b no curvature singularity | proved | M1 | plane.py |
+| O | O1c geodesic completeness | proved | M1 | o1c_complete.py |
+| O | O2 the horizon is extremal (surface gravity 0) | proved | M1 | stability.py |
+| O | O3 the corridor survives its hold, which lasts exactly as long as the write needs (158 (2)); the corridor and the opening are the same object (160) | **OPEN** | WRITE ARRIVAL | o3_write.py, o3_ground.py, b4d_stage5.py |
+| Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = … | proved | — | f1_audit.py |
+| Z | Z1t the value along the mouth's radial ray, our leg, within the reach: 5D null energy zero, the plane's deficit the bulk's pull | proved | M1 | passage5d.py |
+| Z | Z2r our leg's integral within the reach equals the plane's reading, to M1-c's order | proved | M1 | passage5d.py, coin.py |
+| Z | Z3a NEC never violated away from the corridor, through today: the vacuum bulk gives zero; the FRW plane's total null stress is positive at every … | derived | — | b1_matter.py |
+| Z | Z3b rays that meet the corridor or run beside it keep (Z): the static ray classes (bulk; across the corridor; across our plane; across the ring) are … | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | ring_consistent.py, z3b_cypher.py, open_mouth.py ... |
+| Z | Z3c the plane's dark energy has w >= -1 at every epoch the theory controls | derived | — | nature_rows.py |
+| B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'; the matter-free plane a limit, 184) | proved | — | b1_matter.py, localbulk.py |
+| B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | — | b1_matter.py, localbulk.py |
+| B | B2t its instance beneath eq. (17) | proved | M1 | localbulk.py |
+| B | B3 a complete bulk exists, built under closed-index criteria | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | belongs_cypher.py |
+| B | B4a the global bulk's shape, given W2 inside the far boundary T: the plane's two ends are one end of the bulk -- two separate positions reached … | proved | — | b4_global.py |
+| B | B4d the opening and closing evolve regularly in five dimensions, and data beyond the hold's cone join the untouched exterior (H-EVOLUTION, H-GLUING) | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | b4d_stage5.py, sim1_transition.py, sim2_facing.py |
+| B | B5a positivity for the entangled pin at coincidence (127): the sheets' summed tension and both universes' matter meet B5'a's condition -- a … | derived | — | b5_positive.py, b1_matter.py |
+| B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | — | b5p_cypher.py |
+| B | B5px between universes, position 2's matter meets B5'a's condition | **OPEN** | — | b5p_cypher.py |
+| B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b): none computed even for one universe's matter | **OPEN** | — | b5b_cypher.py, b5_positive.py |
+| B | B6 k's ratio fixed by the work, k_R = k_L/2 (position 2's plane counts once, 200 (1)); every clause b6_k.py checks free of k's scale | proved | — | b6_once.py, b6_k.py |
+| B | B6' k's scale: our universe is defined by its plane's tension and its dark-energy offset (201) | definition | — | sigma_defines.py, nature_rows.py |
+| B | B7 formation: the opening and closing between static planes -- a widening of the bridge already there, no change of topology, consistent and safe; … | derived | WRITE ARRIVAL CLOSE | b7_formation.py, chain.py |
+| I | I1 the passage is N bits of entanglement | derived | — | axioms.py |
+| I | I2 the README's N bits within the capacity bound as READ: information at most what is sent to set up the interaction (Maldacena-Stanford-Yang p.4; … | proved | — | i2_capacity.py |
+| E | E1u within one universe, E carried through three holds into position 2 -- no event horizon, no area-law obstruction | derived | — | close_flux.py, axioms.py |
+| E | E2u within one universe, released at position 2 at the closing | derived | — | close_flux.py, axioms.py |
+| E | E1x between universes, E carried through three holds into position 2 | derived | CLOSE | axioms.py |
+| E | E2x between universes, released at position 2 at the closing | derived | CLOSE | axioms.py |
+| E | E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)), with the copy exact (146) and its matter reorganized … | derived | — | ledger.py |
+| E | E4r the field energy outside the neck within the reach, (E/4)(1 - m/(2R* - 3m)) to M1-c's order: the bulk's Weyl field read on the plane, positive, … | proved | M1 | ledger.py |
+| R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the object | definition | — | — |
+| R | R1 exact reconstruction, no tolerance | definition | — | — |
+| R | R2 position 2 rearranges to the README; then its laws govern | definition | — | rearrange.py |
+| R | R3 exactness at the instant over the mass window | proved | — | exactcopy.py, rearrange.py |
+| R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance (101 answer 7, 136 answer 3, 139 (4)) | derived | — | r4_length.py |
+| R | R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position 2's matter -- which field, and what … | derived | — | r5_build.py |
+| N | M1 the plane's reading of the corridor's mouth (replaces F1; OPEN) | **OPEN** | — | corridor_shape.py, rim_profile.py, forming_rim.py ... |
+| N | M1P2x position 2's side reads eq. (17)'s other leg (OPEN) | **OPEN** | — | g2_between.py, m1p2_cypher.py, m1x_cypher.py ... |
+| N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN) | **OPEN** | — | far_cypher.py, far_bridge.py |
+| N | WRITE the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending) | **OPEN** | — | write_cypher.py, asym_junction.py |
+| N | ARRIVAL the README forms the corridor as it comes in, no partner (198, M's guess; README-HELD's 4D models; formation in the bulk OPEN, 179) | **OPEN** | — | open_mouth.py, arrival_cypher.py |
+| N | CLOSE the closing's negative null flux: ending the horizon and moving the hold need its area to shrink (README-HELD; area theorem; OPEN) | **OPEN** | — | open_mouth.py, close_object.py, close_cypher.py |
 
-- **The count:** 34 lemmas. **14 proved, 11 derived, 3 definitions, 2 on the board's readings, 1 a measurement, 3 OPEN**
-  (O3, B3 and B4d; all three wait on B4d). warptheorem.py prints it from its list; selftest 8/8.
+Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
+
+- **The count:** 51 rows, 45 lemmas and 6 inputs (clause N: M1, M1P2x, FAR, WRITE, ARRIVAL, CLOSE, all OPEN).
+  - Of the 45 lemmas: 17 proved, 18 derived, 4 definitions, 6 OPEN (O3, Z3b, B3, B4d, B5px, B5b).
+  - **21 green** under the strict rule (proved or derived, resting on no input); 25 counting definitions.
+  - 18 rows rest on an input. warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
 ## The energy ledger: the one place your rulings pull against each other (T3)
@@ -1205,3 +1229,48 @@ The theorem is proved exactly when no lemma below is OPEN.
     - the digits held against 2400 steps;
     - 0.68 %, not 0.69 %.
   - Nothing is seated by this item alone.
+
+## History (2026-10-11, items 225 and 226: back to the theorem with positions 2a, 2b and 2c)
+
+- **M, item 225:** "Continue. Keep all the work here please". The board's plan from item 224's report: item 201's units
+  first, then σ, position 2's G and m, and position 2's plane. Worked in the conversation (`lemmas/theorem_p2.py`).
+- **Item 201's units (TA; READ, computed, cypher).**
+  - The SI's seven defining constants (SI Brochure 9th ed., §2.2) are realised identically in ours, 2a, 2b and 2c.
+    None is G, and caesium is not an exception element. Planck units carry G, and are not shared.
+  - Of eight readings, one holds the target (fits 201 as stated in J/m³, a standard all share, every universe its own
+    cell). That reading is **σ and the offset in SI, with the coupling and the matter law as further coordinates.**
+  - Planck units alone split the universes exactly as SI with the coupling does: they carry κ₅, not the matter law.
+- **The head table was stale (TB; structural).** It had not been regenerated since item 206. It still showed 34
+  lemmas, with B6′ as a measurement, against `warptheorem.py`'s 51 rows (45 lemmas and 6 inputs; 21 green strict, 25
+  counting definitions; B6′ a definition on 201).
+  - The history had carried the true count since item 206.
+  - The table is now generated from the instrument, as on 2026-10-07, and `theorem_p2.py` checks the two agree.
+- **σ in the theorem (TB; computed, deduced).**
+  - Under one coupling σ fixes G and ℓ. Across couplings, σ and the offset fix only Gℓ² = 3c⁴/(4π(σ − 2δσ)).
+  - The theorem reads σ only through ℓ/m, that is through σ/σ_P. So position 2b at σ is, for every clause, ours at
+    4σ (ℓ/m agrees exactly at N = 1, 676 and 10⁶).
+  - The offset enters one row, B5px, as a ratio to σ. The window's top is 0.0593 σ_P in both universes.
+  - **Item 201 defines σ in SI; the theorem reads it in Planck units.**
+- **Position 2's G and m (TC).**
+  - Under one E: 2a gives m₂ = m and capacity N; 2b and 2c give m₂ = 2m and capacity 2N, the per-sheet value reached
+    by a law.
+  - B5px's normal half is met by every positive candidate plane, and undecided for 139's negative quarter.
+- **Position 2's plane (TD).** Seven theorem rows rest on 139 (1)'s negative plane: H2tx, O3, B4d, B5px, B6, M1P2x and
+  FAR. The O3 and B4d readings are plane-carried, set aside for M's configuration by item 179.
+  - **Put to M**: "Which position 2 does the theorem's corridor reach?" **M, item 226: "Its own values"** — a position
+    2 carries its own universe's values, so 2a, 2b and 2c are positive planes.
+  - **B6**, recomputed with Israel's junction in b6_once's convention (its control reproduced):
+    - in each position's own view (214, 215), k₂/k₁ = 1 for 2a and √2 for 2b and 2c, as item 223 found;
+    - in b6_once's slab, a plane at +σ gives k_R = 3k_L;
+    - a negative plane cannot close its own bulk.
+  - **FAR**, recomputed on far_bridge's own forms. With position 2's positive plane on the decaying side (k = 1),
+    18,741 of 20,000 sampled points meet the surface WEC, which keeps (Z) at the plane. The growing side and both sides
+    at k = 0 meet it nowhere.
+    - FAR is narrowed, not met. The k = 0 failure never depended on the plane's sign.
+  - **H2tx and M1P2x**: G₂ is the destination's law's.
+- **Seated (206, critic lenses in the conversation).**
+  - Item 226 notes on B6, H2tx, M1P2x, B5px and FAR in `warptheorem.py`.
+  - The regenerated head table.
+  - `theorem_p2.py` among the lemma selftests (5/5; mutants 4/4).
+  - **No status moves.** B5px is met for destinations 2a–2c, but stays OPEN while the theorem's position 2 is not fixed.
+    The count is unchanged: 51 rows, 21 green strict.
