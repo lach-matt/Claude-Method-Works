@@ -807,3 +807,26 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **What it adds.** Every verdict is forced by a named unseen projection, since there are five cells (211). The cypher
   adds that each step is irreducible, that pairs alone over-reach (order 2 admits both-held states with fewer
   horizons; order 3 is closed), and where (Z) is still to be computed. No status moves.
+
+## History (2026-10-11, item 217: a missing piece; the method equation; a three-body problem)
+
+- **M, item 217:** "pairs alone over-reach: - we are missing a piece of the puzzle. Position 2. It could be the method
+  equation itself that connects position 1 to position 2. It could be that the everything bulk contributes something
+  we cannot see making this a 3 body problem." M pointed to M's paper "The Three Body Problem for Unknown Masses"
+  (Drive, Prints & Proofs; read in full from the mirror).
+- **`lemmas/three_body_index.py`, against the paper's Law 3.** Law 3 (verbatim): "Every coupling coordinate's exact
+  physical bound requires either two parents or a congruence, and a tree carries only one … Three bodies form K₃,
+  treewidth 2, requiring strong 3-consistency (Freuder 1982) where the closure operator ℛ delivers 2."
+  - **The bulk index fits that mechanism.** Its pairwise constraints form a tree, yet pairs over-reach and order 3
+    closes. The binding bound — both horizons stand exactly when both positions hold the object — has two parents.
+  - **No hidden two-valued coordinate closes it pairwise. Exactly one three-valued coordinate does,** up to
+    relabelling, with no key and no redundant group: where the object belongs — position 1, both at once, position 2.
+    These are M's three holds (106 (b)), and the middle value, the corridor holding the object across, is the piece
+    the index left implicit.
+  - **With it, statistics closes** at orders 2 and 3, while the four lattice languages close under none of the 96
+    codings. The exact region is not a lattice.
+  - **So the method equation's ordinal half (ℛ) gives only the envelope.** If the equation connects position 1 to
+    position 2, it does so through its metric half — a closed form on the index's coordinates (register 1206) — which
+    needs the positions' values (E: 203, 110, 111).
+- **On M's guesses:** H-BULK-THIRD-BODY is supported in the cypher's sense; H-METHOD-EQUATION-CONNECTS is open, on its
+  metric half. No status moves.
