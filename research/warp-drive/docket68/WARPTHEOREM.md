@@ -22,6 +22,9 @@ ledger's remainder from item 139 alone, and left out four lemmas. All are correc
 > shares — has N bits, there is exactly one corridor, fixed by N alone, and through it the README becomes, one way and
 > exactly, the object at position 2.**
 
+**Position 2** (items 226, 229): a universe carrying its own values, whose plane's tension and offset are not negative
+and whose matter is ordinary. Positions 2a, 2b, 2c and 2P are such universes; item 139 (1)'s negative quarter is not.
+
 The corridor is the following, clause by clause.
 
 - **(G) Geometry** (seated as re-worded, item 187).
@@ -95,9 +98,9 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 | B | B4d the opening and closing evolve regularly in five dimensions, and data beyond the hold's cone join the untouched exterior (H-EVOLUTION, H-GLUING) | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | b4d_stage5.py, sim1_transition.py, sim2_facing.py |
 | B | B5a positivity for the entangled pin at coincidence (127): the sheets' summed tension and both universes' matter meet B5'a's condition -- a … | derived | — | b5_positive.py, b1_matter.py |
 | B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | — | b5p_cypher.py |
-| B | B5px between universes, position 2's matter meets B5'a's condition | **OPEN** | — | b5p_cypher.py |
+| B | B5px between universes, position 2's matter meets B5'a's condition | derived | — | b5p_cypher.py, theorem_p2.py |
 | B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b): none computed even for one universe's matter | **OPEN** | — | b5b_cypher.py, b5_positive.py |
-| B | B6 k's ratio fixed by the work, k_R = k_L/2 (position 2's plane counts once, 200 (1)); every clause b6_k.py checks free of k's scale | proved | — | b6_once.py, b6_k.py |
+| B | B6 k's ratio fixed by the work, k_R = k_L/2 (position 2's plane counts once, 200 (1)); every clause b6_k.py checks free of k's scale | proved | — | b6_once.py, b6_k.py, theorem_p2.py |
 | B | B6' k's scale: our universe is defined by its plane's tension and its dark-energy offset (201) | definition | — | sigma_defines.py, nature_rows.py |
 | B | B7 formation: the opening and closing between static planes -- a widening of the bridge already there, no change of topology, consistent and safe; … | derived | WRITE ARRIVAL CLOSE | b7_formation.py, chain.py |
 | I | I1 the passage is N bits of entanglement | derived | — | axioms.py |
@@ -116,7 +119,7 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 | R | R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position 2's matter -- which field, and what … | derived | — | r5_build.py |
 | N | M1 the plane's reading of the corridor's mouth (replaces F1; OPEN) | **OPEN** | — | corridor_shape.py, rim_profile.py, forming_rim.py ... |
 | N | M1P2x position 2's side reads eq. (17)'s other leg (OPEN) | **OPEN** | — | g2_between.py, m1p2_cypher.py, m1x_cypher.py ... |
-| N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN) | **OPEN** | — | far_cypher.py, far_bridge.py |
+| N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN) | **OPEN** | — | far_cypher.py, far_bridge.py, theorem_p2.py |
 | N | WRITE the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending) | **OPEN** | — | write_cypher.py, asym_junction.py |
 | N | ARRIVAL the README forms the corridor as it comes in, no partner (198, M's guess; README-HELD's 4D models; formation in the bulk OPEN, 179) | **OPEN** | — | open_mouth.py, arrival_cypher.py |
 | N | CLOSE the closing's negative null flux: ending the horizon and moving the hold need its area to shrink (README-HELD; area theorem; OPEN) | **OPEN** | — | open_mouth.py, close_object.py, close_cypher.py |
@@ -124,8 +127,8 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 
 - **The count:** 51 rows, 45 lemmas and 6 inputs (clause N: M1, M1P2x, FAR, WRITE, ARRIVAL, CLOSE, all OPEN).
-  - Of the 45 lemmas: 17 proved, 18 derived, 4 definitions, 6 OPEN (O3, Z3b, B3, B4d, B5px, B5b).
-  - **21 green** under the strict rule (proved or derived, resting on no input); 25 counting definitions.
+  - Of the 45 lemmas: 17 proved, 19 derived, 4 definitions, 5 OPEN (O3, Z3b, B3, B4d, B5b).
+  - **22 green** under the strict rule (proved or derived, resting on no input); 26 counting definitions.
   - 18 rows rest on an input. warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
@@ -1324,3 +1327,23 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - **Status.** `--selftest` passes 7/7, and `--mutants` catches 3/3. The critic lenses were run in the conversation; the
   physics lens corrected "the theorem cannot see 2P" to its geometric clauses. The instrument is registered among the
   lemma selftests. No status moves.
+
+## History (2026-10-11, items 228 and 229: the chain measured; the destination fixed; B5px derived)
+
+- **M, item 228:** "Are we ready to attempt a run at the full warp chain?"
+  - The board measured it (`chain_cypher.py`): 21 of 45 green strict, unchanged since item 206.
+  - Six inputs and six rows were OPEN, with B4d — the five-dimensional evolution in M's configuration — as the hub.
+  - So a run can measure but not close.
+- **M, item 229**, to the board's "If the theorem's destination is a position 2 like 2a–2P (tension and offset not
+  negative, ordinary matter), B5px moves from open to derived": **"yes"**.
+  - **Seated:**
+    - the theorem's position 2 is now stated under the theorem (items 226, 229);
+    - **B5px OPEN → DERIVED**: at the pin the normal half holds term by term, and the grazing half holds for ordinary
+      matter (`theorem_p2.py` TC);
+    - `chain_cypher.py`'s fixtures move with it.
+  - **The count:**
+    - 22 green strict and 26 counting definitions, up from 21 and 25;
+    - 5 rows OPEN by their own status (O3, Z3b, B3, B4d, B5b);
+    - M1 alone would green 32, and every input 36.
+  - The critic lenses were run in the conversation.
+- **Next:** M1, the plane's reading of the corridor's mouth, worth ten rows.
