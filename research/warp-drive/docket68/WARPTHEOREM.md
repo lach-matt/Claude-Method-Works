@@ -1647,3 +1647,41 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - 75.1%, not 74.5%;
   - an inert mutant replaced.
 - `relgrav.py`: selftest 6/6, mutants 2/2. No theorem row moves.
+
+## History (2026-10-11, item 237: the missing bound on weak gravity)
+
+- **M, item 237**, to which governs position 2 (the destination or the ensemble's weighting): *"A bound is missing"*.
+  The bound was sought in the record first.
+- **The open direction (`lemmas/wbound.py` Z1).** Item 233's region is open along the 2P step. Along it every
+  Planck-unit quantity stays fixed (σ/σ_P, N_max, ℓ/l₅), and only comparisons of matter against gravity move: α_G, the
+  README's energy in SI, and the ledger's no-sink README size.
+- **The candidates (Z2):**
+  - **Bounded nothing on the weak side:** the README's capacity, the corridor inside the bulk's curvature, the throat's
+    density against the tension, and the existence of bodies. The table-top floor moves along the step but bounds the
+    strong side.
+  - **Not a condition:** the stock's stars (136 H: the stock is multi-universal).
+  - **One bound: the energy ledger read at position 2.**
+    - The build uses *"that and only that which is provided by the closing"* (111 (a)).
+    - Its need is matter-scale, at most T3's assembly ceiling A = 1.1947×10¹⁰ J.
+    - The closing energy read with position 2's G falls as G^(−½).
+    - So G₂ ≥ N h c⁵ ln2 / (8π² A²), which for the example README is **G₂ ≥ 4.055362×10¹² × ours** (41.883 doublings).
+    - The record already reads the ledger this way per position (p2_gravity's N*).
+- **The region with the bound (Z3) is finite:** 21,274 universes per law under the relative floor, 7,239 under the
+  absolute.
+- **Items 234 and 235 re-run (Z4):**
+  - 234's rule now finds the unweighted count a probability: **UNWEIGHTED**, no weighting needed.
+  - Uniform, position 2's log₂ G is 111.71 ± 44.15 (relative) or 67.87 ± 16.31 (absolute).
+- **The matter law moves the bound (Z5):** the floor scales as A⁻², and A is the build's matter-scale need. For a
+  one-metal object the floor moves ×0.878 / ×1.424 (Cu, min / mirror), ×0.540 / ×1.976 (Ag), ×0.604 / ×0.752 (Au).
+  Through the ledger, matter governs the bound on G, not G itself — the answer to item 236 completed.
+- **The cypher (Z6):** the target is held by the ledger alone, but the index has four cells and one-hot codes, so its
+  verdicts are void as evidence (211). The computation decides.
+- **For M (Z7):** the ledger bounds G₂ only if the closing energy at the build is read with position 2's G — as
+  p2_gravity does, and as 111 (b)'s *"one energy read from two sides"* allows. Item 230 has the energy *"read/defined
+  at position 1"*: read with our G it is 2.406×10¹⁶ J whatever G₂ is, and the ledger then bounds nothing. The rulings
+  pull both ways.
+- **A correction to item 235's reading, recorded and not repaired.** Item 229 defines "like 2a–2P" by its parenthesis:
+  tension and offset not negative, and ordinary matter. Every plausible universe meets that. weight_address A4 took the
+  destination as 2a–2P's own addresses, which is narrower than the text. Under the text, every universe in the bounded
+  region is a destination like 2a–2P.
+- `wbound.py`: selftest 7/7, mutants 2/2. No theorem row moves.
