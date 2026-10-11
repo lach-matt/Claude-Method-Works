@@ -253,7 +253,9 @@ def lemma_selftests():
               # item 220
               "lowdin_replay.py", "madelung_field.py",
               # item 221
-              "p2_matter.py"):
+              "p2_matter.py",
+              # item 223
+              "p2_gravity.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
