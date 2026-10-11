@@ -1451,3 +1451,57 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   5. the corridor's formation in the bulk (ARRIVAL);
   6. the method equation's metric half as a three-body problem, with the bulk as the third body, on positions 2a–2P's
      values (217).
+
+## History (2026-10-11, item 233: the 5D bulk index from the positions)
+
+- **M, item 233:** *"Use universe positions 1, 2a, 2b, 2c, and 2P to build the 5D bulk index. The 5D bulk should
+  contain every plausible and possible statistical universe"*.
+- **Built (`lemmas/bulk5_index.py`, selftest 7/7, mutants 4/4).** The board's readings, to be overruled by M:
+  - *possible*: every universe the positions' differences generate, composed in any order and either direction;
+  - *plausible*: the theorem's own conditions;
+  - *statistical*: both the ensemble 230 names and the cypher's statistics language.
+- **Each position's 5D side, exact (K1).** A universe at G × 2^g, with its tension and offset × 2^s, has:
+  - κ₅⁴ × 2^(g−s), ℓ² × 2^−(g+s) and Λ₅ × 2^(g+s);
+  - the bulk's curvature in its own 5D Planck units, (ℓ/l₅)³, equal to the inverse of the plane's Planck-unit tension:
+    201's second reading is the bulk's geometry.
+  - **The positions sit in three 5D bulks:** {1, 2a}, {2b, 2c} (κ₅⁴ × 2) and {2P} (κ₅⁴ × 8).
+  - **And in two 5D geometries:** 2P's geometry is ours, and only its coupling against matter differs.
+- **Every possible universe the positions generate (K2).** i steps of 2b and j of 2P (positive or negative), on each
+  of the three matter laws. The twelve members are i, j ∈ {0, 1}. Exactly half of the integer (G, tension) plane is
+  reached: G × 2 with tension × 2 is possible, but no composition makes it.
+- **Plausible (K3), by the theorem's own conditions:**
+  - the destination's conditions (229);
+  - the README's corridor inside the bulk's curvature (ITEM197: the top);
+  - the table-top floor;
+  - the README's capacity.
+  - Our tension's window spans W = 196.885 doublings. The capacity (354.66 doublings) never binds before the top does.
+  - **The region is bounded toward strong gravity** (at most 98 steps of 2b) **and open toward weak gravity.** Every
+    universe with weaker gravity stays plausible, so the plausible bulk is infinite.
+- **The statistical weight (K4):** the share of our tension's window for which a universe is plausible.
+  - 1 and 2a weigh 1. 2b weighs (W−2)/W. 2P weighs (W−1)/W or (W−2)/W, by the floor's reading.
+  - **Infinitely many universes weigh exactly 1**, so the ensemble 230 names cannot be normalised by the theorem's
+    conditions. A measure on G and the tension is needed — the 5D coupling's distribution over the bulk — and no ruling
+    gives one.
+- **Through the cypher (K5; roster 1173, each axis ordered away from ours, audited: no key, no one-hot code).**
+  - **In 201's basis:** order, algebra and information admit exactly the five compositions (E = 5 each); geometry and
+    statistics admit none.
+  - **In the 5D basis:** 2b + 2P compounds to a coupling no position carries, so it lies outside the box. Exact E is
+    8/8/3/5/0. Order and algebra also admit six universes no composition reaches (G × 2^(1/3) and × 2^(5/3), on every
+    law), so the bulk's own coordinates fill in between the positions.
+  - **Statistics admits nothing beyond the seven position universes in either basis.** As the cypher's statistics
+    language reads them, the positions determine no universe but themselves.
+- **What it means for M1's kink (K6, deduced):**
+  - Positions 1 and 2a share one 5D bulk, so a construction joining them needs no varying coupling.
+  - Joining 1 to 2b, 2c or 2P needs the 5D coupling itself to vary across the bulk. Λ₅ may jump across a brane; κ₅
+    cannot without a field (a dilaton's role).
+  - The everything bulk is then that field's configuration space, and K4's missing measure is its distribution.
+  - Noted on M1's row; no status moves.
+- **Unseen (K7):**
+  - the offset's ratio to the tension, which every position keeps;
+  - the matter law beyond the three computed laws;
+  - ħ and c as carriers, which 225 A's shared SI excludes.
+- The critic lenses were run in the conversation. Corrections made:
+  - the axes' orientation for the cypher (a numeric order dropped 2P's move from every join);
+  - C, which is 354.66, not 354.2;
+  - the absolute floor's region, which needs i ≤ W/2;
+  - K7's check, which was missing.
