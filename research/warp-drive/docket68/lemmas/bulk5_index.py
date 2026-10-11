@@ -63,6 +63,12 @@ statistics language over the positions; an axis the positions never move is repo
      (item 221's delta is continuous; only delta = 0, min and mirror are computed); hbar and c as carriers, excluded by
      225 A's shared SI (p2_planck Q1), so not possible universes under a README every universe can read.
 
+Item 245 (M: "add the six in-between universes to the bulk index").  IN_BETWEEN holds the six K5 found -- G x 2^(1/3)
+with the tension x 2^(-2/3), and G x 2^(5/3) with x 2^(-4/3), each under the three laws -- and BULK the eighteen members
+the bulk index has since; exps_gs and five_d_bulk build any member's 5D side at exact fractional exponents.  K1-K7 above
+are item 233's record over the twelve and are checked as they were; the eighteen are built and put to the cypher in
+bulk18.py.
+
 What this does not show.
   - W and the floors are the window's computed values (sigma_cypher W1, imported exact, 209); C uses the example README.
   - "Ordinary matter" is taken from item 221's computed laws (Cu2 has no bound minimum under mirror; it is still
@@ -111,6 +117,15 @@ PP = _load(os.path.join(HERE, "p2_planck.py"), "b5_pp")
 PG = PP.PG
 POSITIONS = ("ours", "2a-min", "2a-mirror", "2b", "2c-min", "2c-mirror", "2P")      # the five positions' universes
 LAW_ORDER = ("ours", "min", "mirror")                                               # item 221's delta: 0 < min < mirror
+# item 245 (M: "add the six in-between universes to the bulk index"): the six cells the cypher adds to the twelve in the
+# 5D basis (cell_closure E2; K5 below already found them from the seven positions), as (law, g, s) -- G x 2^g, tension
+# and offset x 2^s, exact.  A third of a 2P step, and 2b with two thirds of one, under each law.
+IN_BETWEEN = {"2P/3": ("ours", F(1, 3), F(-2, 3)), "2a+2P/3-min": ("min", F(1, 3), F(-2, 3)),
+              "2a+2P/3-mirror": ("mirror", F(1, 3), F(-2, 3)), "2b+2P*2/3": ("ours", F(5, 3), F(-4, 3)),
+              "2c+2P*2/3-min": ("min", F(5, 3), F(-4, 3)), "2c+2P*2/3-mirror": ("mirror", F(5, 3), F(-4, 3))}
+# the bulk index's members since item 245: the twelve (item 233's record, checked below as it was) and the six
+BULK = dict({n: (law, F(int(math.log2(gf))), F(round(math.log2(float(sf))))) for n, (law, gf, sf) in PP.MEMBERS.items()},
+            **IN_BETWEEN)
 
 
 # ============================================================================================== K1 the 5D side
@@ -118,11 +133,33 @@ def exps(gf, sf):
     """exact exponents of 2 (as Fractions) of each quantity against ours, for G x gf and tension, offset x sf"""
     g, s = F(int(math.log2(gf))), F(round(math.log2(float(sf))))
     assert F(2) ** int(g) == gf and F(2) ** int(s) == sf
+    return exps_gs(g, s)
+
+
+def exps_gs(g, s):
+    """the same at G x 2^g, tension and offset x 2^s for any exact g, s (item 245: the six have thirds)"""
     e = dict(G=g, sigma=s, k4=g - s, ell2=-(g + s), L5=g + s, G5=(g - s) / 2, l5=(g - s) / 6, ell_l5=-(2 * g + s) / 3,
              sigma_planck=2 * g + s, N_max=-(2 * g + s), E1=-g / 2, m1=g / 2)
     if MUT.get("k4_wrong"):
         e["k4"] = g + s
     return e
+
+
+def five_d_bulk(members=None):
+    """each bulk member's exact 5D exponents (BULK by default), checked against p2_planck.sector()'s floats at
+    G x 2^g, tension x 2^s"""
+    base = PP.sector(1, F(1))
+    out = {}
+    for name, (law, g, s) in (members or BULK).items():
+        e = exps_gs(g, s)
+        gf, sf = 2.0 ** float(g), 2.0 ** float(s)
+        sec = PP.sector(gf, sf)
+        num = dict(k4=sec["k4"] / base["k4"], ell2=(sec["ell"] / base["ell"]) ** 2, L5=sec["L5"] / base["L5"],
+                   sigma_planck=sec["sigma_planck"] / base["sigma_planck"], N_max=sec["N_max"] / base["N_max"],
+                   E1=sec["E1"] / base["E1"], m1=sec["m1"] / base["m1"])
+        agree = all(abs(num[k] / 2 ** float(e[k]) - 1) < 1e-12 for k in num)
+        out[name] = dict(law=law, gf=gf, sf=sf, g=g, s=s, i=g + s / 2, j=-s / 2, e=e, agree=agree)
+    return out
 
 
 def five_d():

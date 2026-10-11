@@ -1974,3 +1974,42 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - The six in-between universes are the cypher's completion of the 5D basis, not members any position builds.
   - Whether the regime is a bound is the record's question (236 R4 calls it a regime); both readings are reported.
 - `cell_closure.py`: selftest 6/6, mutants 4/4. `closed_bounds.py` gains the two powers as hooks (6/6, 4/4). No status moves.
+
+## History (2026-10-11, item 245: the six in-between universes added to the bulk index)
+
+- **M, item 245:** *"add the six in-between universes to the bulk index"*.
+  - `bulk5_index.py` gains `IN_BETWEEN` (the six) and `BULK` (the eighteen members), with exact fractional exponents.
+  - Item 233's twelve-member checks (K1–K7) stay as recorded.
+  - The eighteen are built and put to the cypher in `lemmas/bulk18.py`.
+- **The six, built as the twelve were (X1–X3, exact):**
+  - **2P/3** (G × 2^(1/3), tension × 2^(−2/3)) and **2b + 2/3 2P** (G × 2^(5/3), tension × 2^(−4/3)), under the three
+    laws. Each 5D side agrees with `p2_planck.sector` to 10⁻¹².
+  - Each sits in a 5D bulk of its own, six bulks in all. They add no 5D geometry: 2P/3 is in ours' geometry with 2b's
+    coupling, and 2b + 2/3 2P is in 2b's geometry with 2P's coupling. Each geometry now carries three couplings.
+  - 2P/3's tension in its own Planck units is ours, as 2P's is: it lies a third of the way along 2P's ray.
+  - All eighteen are whole-number combinations of 2b and 2P/3. The positions' lattice has index 3 in theirs.
+  - All six are plausible. Weights, relative / absolute: 2P/3 (W − 1/3)/W and (W − 2/3)/W; 2b + 2/3 2P (W − 2)/W and
+    (W − 10/3)/W.
+- **Through the cypher (X4):**
+  - In the bulk's 5D basis the eighteen are closed in every language (E = 0), with no key and no one-hot code.
+  - Leave one out: each of the six is predicted by the other seventeen. The far corners, 2a-mirror and 2b+2P, are
+    predicted by none.
+  - **In 201's basis (SI tension, Planck tension) the eighteen are not closed.** Six more are admitted: two thirds of a
+    2P step (G × 2^(2/3), tension × 2^(−4/3)) and 2b with a third of one (G × 2^(4/3), tension × 2^(−2/3)), under each
+    law. They are the rest of the finer lattice's unit cell. With them, twenty-four, the index is closed in both bases.
+  - Recorded, not added: the item names six. Which basis the bulk's closure is read in is not settled here.
+- **What moves downstream (X5):**
+  - V6 (G from the bulk and the plane) holds on the six.
+  - The README-matched corridor at position 2 is × 2^(1/6) in size and × 2^(−1/6) in mass-energy at 2P/3, and
+    × 2^(±5/6) at 2b + 2/3 2P.
+  - A 1e22 kg body's surface gravity: × 1.26–1.57 at 2P/3, × 3.23–4.01 at 2b + 2/3 2P, by law and element.
+  - copy_p2's variance index (law, G, Λ4) moves furthest from closed: order E rises from 9 over the twelve to 36 over
+    the eighteen, as the six bring G and Λ4 in thirds.
+  - V2's positions' box excludes the six.
+  - closed_bounds and cell_closure already held them.
+  - relgrav is unchanged.
+  - **Deduced:** the instruments scanning the integer lattice (bounds B3, wbound, weight_address) report half-planes and
+    directions, which a finer step cannot move.
+- `bulk18.py`: selftest 6/6, mutants 3/3. `bulk5_index.py`: 7/7, 4/4. No status moves.
+- The full theorem selftest started for item 243 was stopped at the background time limit, so it never finished. It is
+  rerun with a longer limit, covering items 243–245.

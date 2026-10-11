@@ -283,7 +283,9 @@ def lemma_selftests():
               # item 243
               "closed_bounds.py",
               # item 244
-              "cell_closure.py"):
+              "cell_closure.py",
+              # item 245
+              "bulk18.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
