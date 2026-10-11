@@ -830,3 +830,24 @@ The theorem is proved exactly when no lemma below is OPEN.
     needs the positions' values (E: 203, 110, 111).
 - **On M's guesses:** H-BULK-THIRD-BODY is supported in the cypher's sense; H-METHOD-EQUATION-CONNECTS is open, on its
   metric half. No status moves.
+
+## History (2026-10-11, item 218: the one-hour experiment)
+
+- **M, item 218:** "let's treat this as a simple time travel experiment. I want to move an hour in the future. The warp
+  corridor will put me in a universe identical to this one with a singular exception, that that universe is 1 hour
+  ahead of ours."
+- **`lemmas/one_hour.py`.** Position 2's values come from the record's Planck 2018 inputs (cosmo.py) and 201's
+  constant offset.
+  - **Unchanged:** σ, the offset, G, ℓ, and the README's mass and horizon. So for the experiment G2 = G, m2 = m, and the
+    capacity is N; the per-sheet G2 = 2G1 is set aside for it on M's word.
+  - **Advanced by one hour of expansion:** H₀Δt = 7.858760e-15.
+    - The scale factor rises by 7.858760e-15.
+    - The Hubble rate changes by −3.718052e-15.
+    - Matter density changes by −2.357628e-14 and radiation by −3.143504e-14.
+    - The CMB temperature changes by −2.141905e-14 K.
+    - The critical density changes by −7.436105e-15, and Ω_Λ by +7.436105e-15.
+    - Dark energy is unchanged exactly.
+  - **In the bulk index:** by 201's two coordinates the two positions are the same cell. Cosmic time is the coordinate
+    that tells them apart, and they differ by 3600 s in it alone.
+- **Noted, not resolved:** 139 (1) has position 2's plane negative, a quarter of ours. An identical universe's plane
+  carries our positive σ, and for this experiment the board reads 218 as governing the destination. No status moves.
