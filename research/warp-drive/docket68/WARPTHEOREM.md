@@ -1557,3 +1557,57 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - ℓ was added to the candidates.
 - `weight_cypher.py`: selftest 8/8, mutants 3/3 caught, and the ask-anyway control moves no check. No theorem row
   moves.
+
+## History (2026-10-11, item 235: which weighting; position 2's address under each)
+
+- **M, item 235:** *"Ask the cypher which weighting the ensemble carries. … Each weighting likely governs a aspect of
+  position 2's address, each individually bearing on what position 2 can actually be compared to plausibility."*
+  - The second sentence is carried as M's guess, H-WEIGHT-GOVERNS-ADDRESS, and tested.
+- **The family (`lemmas/weight_address.py` A1).** Every normalisable weighting is G^x σ^−z. The record's weightings lie
+  on three rays, which are two directions, since the coupling is G over the tension:
+  - G's ray (z = 0): G, the corridor's mass;
+  - the coupling's ray (z = x): κ₅⁴, G₅, l₅;
+  - the tension's ray (x = 0): 1/σ, under the relative floor only.
+  - x moves position 2's mean log G, and z moves its mean −log σ.
+- **Each of the record's weightings, against plausibility (A2).**
+  - **Every one presses position 2 to within a few doublings of the G ceiling,** where its own tension window closes:
+    G ≤ ours × 2^196.9 under the relative floor, × 2^98.4 under the absolute.
+  - **The destination 2a–2P (229) is all but excluded:** weight 2.6×10⁻⁵⁹ under G's weight, 1.3×10⁻¹⁷⁴ under the
+    coupling's.
+- **The guess, tested (A3): it holds for G's ray.**
+  - G's weights fix position 2's G (to 2–4 doublings) and leave its tension, coupling and 5D curvature spread along
+    the whole top edge (57 doublings): one aspect, as guessed.
+  - The coupling's and the tension's weights fix two aspects: G, and the 5D curvature, which they fix at ours (the
+    2P direction).
+  - No weighting the record computes touches the matter law or the offset.
+- **Which weighting the destination carries (A4: maximum entropy with 2a–2P's mean address as the constraint).**
+  - **It lands on G's ray:** the tension's multiplier is within 1% of zero, at x = 0.0149 under the relative floor and
+    0.0296 under the absolute.
+  - **The control:** other addresses near ours, fitted the same way, sit 5–67% off the ray, so landing on it is the
+    destination's own.
+  - Under this weighting 2a–2P is the centre, but position 2's G spreads over ±139 doublings (±69 absolute), and 2a–2P
+    itself weighs 8.4×10⁻⁵ (1.7×10⁻⁴).
+- **The trade (A4b, scanned along each ray).** As the strength x grows:
+  - position 2's G rises to the ceiling;
+  - its spread falls, to about 2/x doublings;
+  - the destination's weight falls, by about 2^(−x·W).
+  - So fixing G and carrying 2a–2P trade against each other: a weight of 10⁻³ on 2a–2P needs G left spread over tens of
+    doublings.
+- **Through the cypher (A5; seven cells, no key, no one-hot code).**
+  - No weighting held is normalisable, computed by the record, and carries the destination. Every one that carries it
+    is a strength the record does not compute.
+  - Order, algebra and information admit such a weighting from the cells' structure; geometry and statistics refuse
+    it. So the cypher does not decide whether some weighting the record could compute would carry it. The record's
+    actual weightings do not.
+- **So (A6, deduced): the ensemble carries a G-weighting.**
+  - The record's own G-weights and the destination agree on the ray and disagree on its strength.
+  - At the record's strengths (G, G^½), position 2 sits at the G ceiling and 2a–2P is excluded.
+  - At the destination's (about G^(1/67)), 2a–2P is the centre and position 2 is spread over the window.
+  - The open number is that one exponent, and it governs the G aspect of position 2's address.
+- The critic lenses were run in the conversation. Corrections made:
+  - the destination's addresses (2b+2P had been counted);
+  - an index first void (one-hot codes), repaired by the scan;
+  - the "exclude" claim softened to a trade;
+  - the control added for z ≈ 0;
+  - the universes' tolerance stated as measured.
+- `weight_address.py`: selftest 7/7, mutants 3/3. No theorem row moves.
