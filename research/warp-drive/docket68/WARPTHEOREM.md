@@ -929,5 +929,7 @@ The theorem is proved exactly when no lemma below is OPEN.
   - The record voided that walk itself, at F54.2 and F59.3: it ran at c = 137.036.
   - Its eleven are session 53's restart-versus-chained differences, borne by the reference configuration.
   - The record's live-lever walks (sessions 54 and 60) and this board's runs change one entrant: Th's.
+  - The same claim stands in the live corpus, for R3 under the chat-67 hold: Register 1706, Chapter 35 of the main
+    volume, and the Physics Compendium's "The twin operator, c → ∞".
 - **For the corridor:** none of σ, the offset, G, ℓ or m moves. Position 2 differs in the law that sets its element
   table, which the bulk index needs as a coordinate.

@@ -39,7 +39,10 @@ conversation, the rows banked in data/madelung_field_rows.json; seated under 206
      c = 137.035999: the lever never reached the HF solve) and F59.3 ("VOIDED: pack53/cinf.jsonl (not a NR walk -- a
      restart walk at c=137.035999)").  The eleven are session 53's restart-versus-chained list, "borne by the
      REFERENCE CONFIGURATION", not by c.  The record's live-lever walks change one entrant, Th's (session 54, 8 rows;
-     session 60, 13 rows: "Every entrant at c=1e6 is the entrant at c=137.035999"), and so does this board's (F2)
+     session 60, 13 rows: "Every entrant at c=1e6 is the entrant at c=137.035999"), and so does this board's (F2).
+     The same claim stands in the live corpus: Register 1706 ("ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-
+     RELATIVISTIC COUNTERFACTUAL ... (Λ_cinf, 107 rows)"), Chapter 35 of the main volume, and the Physics Compendium's
+     "The twin operator, c → ∞" -- for R3, under the chat-67 hold
 So for item 219: a universe without the Madelung exceptions is not ours with a different fine-structure constant -- with
 alpha -> 0 Th's exception goes and La's and Ac's stay -- and on M's own chain no constant of the atom delivers it.
 What this does not show: the walk is mean-field (CORR = False); La's c -> infinity margin, 2.88 mHa, is small beside the
@@ -73,6 +76,11 @@ B53 = ["25/30      4s", "47/48      5s", "60/61/62   5d", "71         5d", "80  
        "Every disagreement is borne by the REFERENCE CONFIGURATION"]
 B59 = "**VOIDED:** `pack53/cinf.jsonl` (not a NR walk — a restart walk at c=137.035999)"
 PAPER11 = "misplaces eleven elements, silver and mercury among them"
+MAIN = os.path.join(ROOT, "method", "The_Method_1_6_BUILD90_main_and_register.md")
+COMP = os.path.join(ROOT, "method", "The_Method_1_6_BUILD180_compendia_papers_audits.md")
+R1706 = "### 1706\n\n**ELEVEN ELEMENTS SEPARATE THE TABLE FROM ITS NON-RELATIVISTIC COUNTERFACTUAL.** *The identical walk at c → ∞ (Λ_cinf, 107 rows)"
+CH35 = "eleven elements — Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, Rf."
+TWIN = "### The twin operator, c → ∞"
 S8 = "La (4f by 0.187) · Ac (5f by 0.096) · Th (5f by 0.245)"
 ANCHOR = "a53d8a1c3936d437589f15e676fdcfb89fd4e18f1a4baf68e583aaff66f031e7"
 PAIR = {57: ("4f", "5d"), 89: ("5f", "6d"), 90: ("5f", "6d")}
@@ -176,10 +184,13 @@ def checks(d):
     fig6 = open(os.path.join(ROOT, "recovered", "fig6.py"), encoding="utf-8").read()
     eleven = {25: "Mn", 30: "Zn", 47: "Ag", 48: "Cd", 60: "Nd", 61: "Pm", 62: "Sm", 71: "Lu", 80: "Hg", 103: "Lr", 104: "Rf"}
     add("F7 the paper's eleven c -> infinity elements are session 53's restart-versus-chained list (reference-borne), "
-        "drawn by fig6.py from rt/cinf.jsonl, which session 59 VOIDED; the live-lever rows change only Th (F2)",
+        "drawn by fig6.py from rt/cinf.jsonl, which session 59 VOIDED; the live-lever rows change only Th (F2); the claim "
+        "stands in Register 1706, Chapter 35 and the Physics Compendium (for R3)",
         PAPER11 in paper and all(q in b53 for q in B53) and B59 in b59 and "open('rt/cinf.jsonl')" in fig6
         and all(("%d:'%s'" % (z, e)) in fig6.replace(" ", "") for z, e in eleven.items())
-        and not any(g.get((Z, 1e6), 1) < 0 for Z in (57, 89)) and g.get((90, 1e6), 1) < 0)
+        and not any(g.get((Z, 1e6), 1) < 0 for Z in (57, 89)) and g.get((90, 1e6), 1) < 0
+        and R1706 in open(MAIN, encoding="utf-8").read() and CH35 in open(MAIN, encoding="utf-8").read()
+        and TWIN in open(COMP, encoding="utf-8").read())
     return res
 
 
