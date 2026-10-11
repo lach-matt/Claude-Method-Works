@@ -851,3 +851,51 @@ The theorem is proved exactly when no lemma below is OPEN.
     that tells them apart, and they differ by 3600 s in it alone.
 - **Noted, not resolved:** 139 (1) has position 2's plane negative, a quarter of ours. An identical universe's plane
   carries our positive σ, and for this experiment the board reads 218 as governing the destination. No status moves.
+
+## History (2026-10-11, item 219: a universe without the Madelung exceptions)
+
+- **M, item 219:** "Let's consider position 2 universe where the madelung exceptions didn't exist. That is the
+  principle difference between ours and theirs, all other differences are built from that condition. My Löwdin
+  challenge work may be very helpful here"
+- **`lemmas/no_madelung.py`.** Inputs: register 1306's observed ground configurations (`LW1-ground.py`), the Register's
+  118-cell lattice (registers 11, 49, 66, 67), M's Löwdin solution, and the cypher. All are read-only.
+- **Three readings of "the exceptions", all measured on register 1306's data:**
+  - **Configurations:** 20 elements.
+  - **First openings:** 2 of 19, La and Ac (register 1307).
+  - **The differentiating electron:** exactly 3, La, Ac and Th. This is M's paper's own count.
+  - The primary rule holds at every element in all three readings.
+- **Position 2's table is the Madelung table.** M's chain, run with no exception, gives the aufbau table exactly.
+  - The periodic table itself is unchanged: the same period lengths and the same period × group cells. The cypher's
+    periodic-table index (E = 36) is one cell for both universes.
+- **On the Method's lattice, both universes hold the same 118 cells.** These are 118 of 630.
+  - The cypher gives identical E in every language.
+  - What differs is which element sits in which cell:
+
+    | Table | Inversions | τ |
+    |---|---|---|
+    | Register 49's (ours; the table is reconstructed from its count) | 28, reproduced exactly | 6847/6903 |
+    | M's chain | 42 | 2273/2301 |
+    | Position 2 | 0 | 1 |
+
+  - The labelling as a cypher index closes only for position 2 (E = 0). For ours, information's E equals the
+    inversion count.
+- **On the observed configurations, the cypher separates the two universes.**
+
+  | Observed configurations | Ours | Position 2 |
+  |---|---|---|
+  | Cells | 98 | 108 |
+  | Order ideal | No (197 violations) | Yes |
+  | Statistics(2) over-reach | 8 | 0 (closes) |
+
+- **Built from that condition.** M's chain is causal in Z.
+  - With and without the three exceptions, it differs at exactly 29 elements: Z = 57–70 and 89–103.
+  - It meets again at Lu and at Rf, and nothing below La changes.
+  - So "every other difference built from that condition" fits the differentiating-electron reading. There the one
+    condition is the paper's own mechanism: orbital collapse at the first f openings.
+  - The board's configuration reading is kept and computed. Under it, the condition becomes twenty conditions, eight of
+    them below La.
+- **For the corridor:** the condition touches no defining value (σ, the offset, G, ℓ, m), so G2 = G and m2 = m. In
+  the bulk index the two positions are the same cell, and the labelling is the coordinate that tells them apart.
+- **Not computed:** which physical difference makes the collapse come first.
+  - M's paper reads that with c → ∞ eleven entrants change, but La, Ac and Th do not.
+  - The chain data are pending bank.
