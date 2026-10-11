@@ -136,6 +136,10 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 
 ## The energy ledger: the one place your rulings pull against each other (T3)
 
+> **Item 239 (2026-10-11):** the build's need is what the closing energy activates (136 (2)), not T3's assembly
+> ceiling, so the ledger closes with no sink and the pull below is resolved. T3 stands as computed for its own
+> premise (absorbed ≤ the ceiling), which item 239 sets aside (`lemmas/ledger_cypher.py` L6–L8).
+
 - **What you ruled:**
   - E goes into position 2 (110);
   - the build uses *"that and only that which is provided by the closing"* (111 (a));
@@ -1716,3 +1720,31 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - **P2** keeps the no-sink build by putting position 2's G at or above 4.055×10¹² × ours for the example README.
   - At position 2's G = ours, the two are the same cell.
 - `ledger_cypher.py`: selftest 5/5, mutants 1/1. No theorem row moves.
+
+## History (2026-10-11, item 239: the build's need; position 2 at our G)
+
+- **M, item 239**, to which yields, 111 (a) or the one value: *"The need isn't T3's ceiling"*. The build's need is
+  what the closing energy activates (136 (2): the Higgs field forming the mass), not bond energies.
+- **Through the cypher again, by item 238's rule** (`ledger_cypher.py` L6).
+  - With that need, 111 (a) holds under every reading: the build uses exactly what it is given.
+  - A reading then bounds weak gravity only if it ties position 2's G to something.
+  - The target is held by ONE alone (one value read from both sides), at both README sizes. No pair conflicts, every
+    operator-bearing language admits it, and the audit is clean.
+  - **The cypher selects ONE.**
+- **What it fixes (L7, exact).** With h and c shared, the same README has the same energy on both sides only if
+  position 2's G is ours.
+  - So **every destination carries our G**. That is the bound item 237 found missing, at its tightest.
+  - The destinations are the plausible universes with G = ours: 197 per law, the tension ×4^−j for j from −98 to 98,
+    and the matter law free.
+- **What moves (L8):**
+  - **wbound's bound** (G₂ ≥ 4.055×10¹² × ours) rested on T3's ceiling as the need. It is withdrawn with that premise
+    and stands as computed for it.
+  - **T3** stands as computed for its own premise, which item 239 sets aside. The ledger now closes with no sink; the
+    note is at the head of the ledger section.
+  - **2b, 2c and 2P** are universes of the bulk, not destinations. 2a and every plausible universe at our G are
+    destinations, each like 2a–2P in 229's sense.
+  - **For a destination m₂ = m.** This is noted on M1P2x, which stays OPEN for position 2's tension on crossing rays and
+    in the rim's balance.
+  - **Items 234–235 on the destinations:** G is fixed, so no weighting of G arises, and the unweighted count is a
+    probability over the finite set.
+- `ledger_cypher.py`: selftest 7/7, mutants 2/2. No status moves.
