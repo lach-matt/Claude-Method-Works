@@ -1,10 +1,10 @@
 {
  "what": "item 219/220: chain steps of M's L\u00f6wdin walk (nlchain s40/s48 on the ruling hfc2 field), rebuilt from the chats by lemmas/lowdin_replay.py; computed 2026-10-11",
  "replay_sha256": {
-  "derive_P.py": "f13242a543cb11801153cd4d4e439d4ef6dfeb9ffec84441a6f559cef2c582d5",
+  "derive_P.py": "6699f587c7bd1f67cf209f129d7885cf7b10605df16812499f64ca8e3dd5ee50",
   "eigen_fix.py": "1f39ea4d0b01ea913738bd260cda11298c8c93f615fea69134ff198ab00b1729",
   "hfc2.py": "a7e8389ed0bdb98842b06d05e57deb6aa2a046422c760679f09433f7f6721549",
-  "hfs.py": "d001a0ecda8668f34d2c5042ad3dad3598eda0c94024c149842beeffa1161acb",
+  "hfs.py": "643f9c4fca7d7097d21241c1f3556c9b5d214a1d00fb143a4478075f059b52b6",
   "nlchain.py": "655e0232aa648f0c1bdc76ade2937eb2896649656834c1b6e10b9b83d41fb33a",
   "nlguard.py": "84b298dd9fb2eebedcf2b7ce62e03eebd74f80d495e403924ae49122082feddb",
   "rad.py": "a6245942b1591b58ab583bc89cacd509c076cf527b4714b87479f748b57f5264",
@@ -12,7 +12,7 @@
   "shoot_sr.c": "f509d29c6e5f8a0ab03d95aa41a06e6ae2dc70892b84e1c7c37ecea673ab8b01",
   "shoot_x.c": "ac6c4bbaff5d5d4f67c1671999c21058e2904d47802ea29e0508037ec1036dad",
   "step2_run.py": "8428269c1241552691c5294ed93a92821e3be8164312ada552e3d07d19f3b951",
-  "t5_scf.py": "2d5b8b5a052564602f4d894037bb2018a35a68897ada66c070028b3348f7d472",
+  "t5_scf.py": "380c3336837a5aaa76319fde1670adcc228603fffce334157b9c568fb157774e",
   "t7b_hf.py": "a53d8a1c3936d437589f15e676fdcfb89fd4e18f1a4baf68e583aaff66f031e7",
   "t7c_hfsr.py": "6f7aed72b4f0d2b5f343d4a26d2807c799a8f5b45e97e9553281113cbdf0aefc",
   "t7c_kernel.py": "94acb68372b3998317b7e8ad24195c68c6c08949765c33b17f50c77e1c0fedbe",
@@ -67,7 +67,7 @@
     35
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 57,
@@ -138,7 +138,7 @@
     32
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 57,
@@ -195,7 +195,7 @@
     39
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 57,
@@ -252,7 +252,7 @@
     36
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 57,
@@ -309,7 +309,7 @@
     32
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 57,
@@ -366,7 +366,7 @@
     32
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 57,
@@ -423,7 +423,7 @@
     34
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 89,
@@ -484,7 +484,7 @@
     48
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 89,
@@ -545,7 +545,7 @@
     44
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 89,
@@ -609,7 +609,7 @@
     37
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 89,
@@ -673,7 +673,7 @@
     33
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 89,
@@ -737,7 +737,7 @@
     34
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -798,7 +798,7 @@
     42
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -859,7 +859,7 @@
     40
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -920,7 +920,7 @@
     38
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -981,7 +981,7 @@
     39
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -1042,7 +1042,7 @@
     37
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -1103,7 +1103,7 @@
     34
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 90,
@@ -1164,7 +1164,7 @@
     34
    ],
    "rung_ref": 0,
-   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep: c set on nlguard.C0, which run_guarded passes to hfc2.HFC and so to every relativistic solve (HFSR.solve_one -> qlog, eigen_sr); the SCF seed (t5_scf/hfs, tfd) is non-relativistic at every c, as in the record; nlchain.C0 and the kernel defaults are set too but are not read on this path"
   },
   {
    "Z": 21,
@@ -1507,5 +1507,6 @@
    ],
    "source": "t7b_hf mode='hfs' via HFSR at c = C0 (cstep_hfs)"
   }
- ]
+ ],
+ "replay_note": "module sha256s from lowdin_replay.py after the critics' fixes (refused calls skipped, quote-aware splitting); derive_P.py, hfs.py and t5_scf.py changed from the first replay and now match the record's sizes (hfs.py 5143 B, t5_scf.py 2141 B); none lies on the step's executed path, and the Sc and Th rows recompute identically"
 }

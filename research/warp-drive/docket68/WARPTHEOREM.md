@@ -916,14 +916,21 @@ The theorem is proved exactly when no lemma below is OPEN.
   | Ac 6d/5f | 0.096 | 0.126 | 0.094 | 0.055 | 0.022 |
   | Th 6d/5f | 0.125 | 0.054 | −0.041 | −0.090 | −0.129 |
 
-  - La and Ac stay d-elements at every c; their gaps fall linearly in 1/c² to +2.9 mHa and +22 mHa at α = 0.
-  - Th's exception goes above c ≈ 164, bracketed by computed rows at c = 160 and 170.
+  - La and Ac stay d-elements at every scanned c (115 to 10⁶). La's gap falls nearly linearly in 1/c² (concave) to
+    +2.9 mHa at c = 10⁶; Ac's falls from c = 137 upward to +22 mHa. Below c = 200 Ac's 5f is the uncollapsed
+    outer-well state, so its two lowest-c gaps are a different quantity.
+  - Th's restart competition flips above c ≈ 164, bracketed by computed rows at c = 160 and 170. Each c row is one step
+    from the c = 137 chain's reference, not a walk at that c.
+  - Below c = 115 nothing was computed.
 - **No other single change in the atom does it.**
   - Local exchange (the record's own `hfs` switch) keeps Th as 6d.
   - Scaling the electron–electron coupling destroys neutrality.
   - The non-relativistic equation has no constant at all.
-  - On M's chain, position 2's condition is therefore a different law, not a different constant.
-  - Spin-orbit, even at the paper's worst case, does not reopen it.
+  - So no change of c alone, within 115 ≤ c ≤ 10⁶, does it on the mean-field chain. That does not make position 2's
+    condition a different law (item 222, the board's correction). Whether the exact equation at α → 0 keeps La's
+    exception is not decided: La's margin there is 2.9 mHa, and physics outside the field moves La's gap by about
+    31 mHa toward 4f already at c = 137.
+  - Spin-orbit, even at the paper's worst case, does not reopen it for c ≥ 137.
 - **A finding about M's paper, recorded and not repaired.** The paper's relativistic clause (eleven elements
   "misplaced" with c → ∞; Figure 5) is drawn from `rt/cinf.jsonl`.
   - The record voided that walk itself, at F54.2 and F59.3: it ran at c = 137.036.
