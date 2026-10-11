@@ -518,9 +518,10 @@ def checks(d):
         and abs(s["rho_m"] - s["rho_m_owner"]) < 1e-9 and abs(s["ny"]) < 1e-9 and 0 <= s["ns"] < 1e-5
         and s["nec_ok"] and s["worst_s"] < 1e-6)
     st = d["p6"]
-    add("P6 chain_cypher ROWS (read only; seated, item 206): Z3a and Z3c DERIVED with no open input, B5a DERIVED, and "
-        "this file's split seated -- B5pu DERIVED, B5px OPEN", st["Z3a"] == ("DERIVED", "") and st["Z3c"] == ("DERIVED", "")
-        and st["B5a"] == ("DERIVED", "") and st["B5pu"] == ("DERIVED", "") and st["B5px"] == ("OPEN", ""))
+    add("P6 chain_cypher ROWS (read only; seated, items 206, 229): Z3a and Z3c DERIVED with no open input, B5a DERIVED, "
+        "and this file's split seated -- B5pu DERIVED, B5px DERIVED on item 229 (OPEN until then)",
+        st["Z3a"] == ("DERIVED", "") and st["Z3c"] == ("DERIVED", "") and st["B5a"] == ("DERIVED", "")
+        and st["B5pu"] == ("DERIVED", "") and st["B5px"] == ("DERIVED", ""))
     cyr = d["cy"]
     add("P7 target W (W202 alone: T5's flag decided the board's way under 149, as m1p2_cypher.py): all five languages, "
         "statistics included, admit exactly W202 under every coding (10 x 2 x 2)",

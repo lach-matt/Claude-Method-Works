@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """belongs_cypher.py -- what in the seated theorem does not belong, and what is missing, asked of the cypher on its exact
-counts (items 208, 209).  Computed by import of warptheorem.py and tools/cypher.py; deduced where marked; not verified by
+counts (items 208, 209; tables re-measured through item 231).  Computed by import of warptheorem.py and tools/cypher.py; deduced where marked; not verified by
 a separate session; not seated; 2026-10-10.
 
 M, 208: "We have too much information in the cypher. Something doesn't belong. Ask the cypher what the ring is supposed to
@@ -42,6 +42,14 @@ less held cells), never a ratio.
      51 rows, 16 cells; exact E 220/220/39/120/17 (616, from 693) with no language rising -- exactly what leaving B3
      out of item 210's table gives: B3, Z3b and B4d are one cell.  Statistics stays at 17, so the count is not what
      moves B3; the records are
+  B10 (computed) item 229 seated -- B5px DERIVED -- lowers the exact E from 616 to 610 (220/220/39/114/17): information
+     alone falls, by 6, no language rising; still 16 cells, and Z3b, B3 and B4d still fall most (-261).  The earlier
+     tables (B1-B9) are rebuilt with each row's status before a later item moved it (MOVED), so they read as measured
+  B11 (computed) item 231 seated -- M1 DERIVED -- raises the exact E from 610 to 613 (219/219/44/113/18): M1 leaves the
+     input rows' cell (17 cells), geometry rises by 5 and statistics by 1 while order, algebra and information fall by
+     1.  Ten lemmas turn green and the index does not close: on this coding a derived input is a cell of its own beside
+     four OPEN ones.  Z3b, B3 and B4d still fall most (-261), M1P2x next (-169); 6 cells every language admits are
+     missing, each lowering E by exactly one in every language.  Recorded, not repaired
 Item-208 critics (an independent rebuild, 74 design-and-coding jobs and 382 more codings): every count here reproduces;
 no single row closes any design; which row falls most depends on the design; no "missing" cell survives a change of
 coding -- B4 is the shared excess, nothing more.
@@ -70,6 +78,10 @@ STATUS = {"OPEN": 0, "READING": 1, "DEFINITION": 2, "DERIVED": 3, "PROVED": 4}
 CO = ["status"] + INPUTS + ["scope", "input"]
 BROAD = re.compile(r"~|\bheuristic\b|\bcalibrat|\bPade\b|\bflat limit\b|\d\.\d+\s*-\s*\d\.\d+|\b\d+\s*-\s*\d+\s+clocks")
 AS_ASKED = {"Z3b": "DERIVED"}            # the table as it stood when M asked (item 208); item 208's seating set Z3b OPEN
+# statuses moved after a table was measured: each earlier table is rebuilt with the row's status before the move
+TABLES = ["as_asked", "after_208", "after_210", "after_211", "after_229", "seated"]
+MOVED = [("after_229", {"B5px": "OPEN"}),          # item 229 seated B5px DERIVED
+         ("seated", {"M1": "OPEN"})]               # item 231 seated M1 DERIVED (the input row's own status)
 
 
 def _load(path, key):
@@ -123,6 +135,9 @@ def rows(table="as_asked"):
         key = name.split()[0]
         if table == "as_asked":
             status = AS_ASKED.get(key, status)
+        for since, before in ([] if MUT.get("moved_ignored") else MOVED):
+            if TABLES.index(table) < TABLES.index(since):
+                status = before.get(key, status)
         text = name.lower()
         ins = rests.get(key, "").split()
         if MUT.get("drop_b4c_input") and key == "B4c":
@@ -184,7 +199,9 @@ def compute():
     d = measure("as_asked")
     d["seated"] = measure("after_208")
     d["now"] = measure("after_210")
-    d["s211"] = measure("seated")
+    d["s211"] = measure("after_211")
+    d["s229"] = measure("after_229")
+    d["s231"] = measure("seated")
     d["words"] = words()
     return d
 
@@ -230,6 +247,21 @@ def checks(d):
         and s2["E"] == {"order": 220, "algebra": 220, "geometry": 39, "information": 120, "statistics": 17}
         and all(s2["E"][lg] <= nw["E"][lg] for lg in LANGS) and b3_out == [s2["E"]]
         and any(sorted(v) == ["B3", "B4d", "Z3b"] for v in s2["names"].values()))
+    s9 = d["s229"]
+    add("B10 on the table as seated after item 229 (B5px DERIVED): 51 rows, 16 cells, exact E order 220, algebra 220, "
+        "geometry 39, information 114, statistics 17 (610, from 616) -- information alone falls; Z3b, B3, B4d still "
+        "lower it most (-261)", s9["n"] == 51 and s9["distinct"] == 16
+        and s9["E"] == {"order": 220, "algebra": 220, "geometry": 39, "information": 114, "statistics": 17}
+        and [(x[0], x[1]) for x in s9["drops"][:1]] == [(-261, ["Z3b", "B3", "B4d"])])
+    s1 = d["s231"]
+    add("B11 on the table as seated after item 231 (M1 DERIVED): 51 rows, 17 cells (M1 leaves the inputs' cell), exact E "
+        "order 219, algebra 219, geometry 44, information 113, statistics 18 (613, from 610) -- geometry +5 and "
+        "statistics +1 rise: ten rows green, the index no nearer closed; Z3b, B3, B4d still first (-261), M1P2x next "
+        "(-169); 6 shared missing cells, each -1 in every language", s1["n"] == 51 and s1["distinct"] == 17
+        and s1["E"] == {"order": 219, "algebra": 219, "geometry": 44, "information": 113, "statistics": 18}
+        and [(x[0], x[1]) for x in s1["drops"][:2]] == [(-261, ["Z3b", "B3", "B4d"]), (-169, ["M1P2x"])]
+        and len(s1["missing"]) == 6 and set(s1["add_one"]) == {(-1, -1, -1, -1, -1)}
+        and ["M1"] in s1["names"].values())
     no_rise = lambda m: all(m["pair"][lg] <= m["E"][lg] for lg in LANGS) and total(m["pair"]) < total(m["E"])
     add("B7 B4b and B4c left out together lower the exact E with no language rising, as asked and as corrected (the "
         "critics: on every coding tried, and not unique -- six other pairs do it too)", no_rise(d) and no_rise(se))
@@ -238,7 +270,8 @@ def checks(d):
 
 MUTANTS = {"misquote": "M's 209 misquoted",
            "b4c_derived": "B4c entered as DERIVED instead of READING",
-           "drop_b4c_input": "B4c entered as resting on nothing"}
+           "drop_b4c_input": "B4c entered as resting on nothing",
+           "moved_ignored": "earlier tables read with today's statuses (items 229, 231 not undone)"}
 
 
 def selftest():
@@ -274,6 +307,9 @@ def report(d):
     print("as seated after item 210: exact E %s (total %d); first falls: %s" % (d["now"]["E"], total(d["now"]["E"]),
           [(x[0], x[1]) for x in d["now"]["drops"][:4]]))
     print("as seated after item 211: exact E %s (total %d)" % (d["s211"]["E"], total(d["s211"]["E"])))
+    print("as seated after item 229: exact E %s (total %d)" % (d["s229"]["E"], total(d["s229"]["E"])))
+    print("as seated after item 231: exact E %s (total %d); first falls: %s" % (d["s231"]["E"], total(d["s231"]["E"]),
+          [(x[0], x[1]) for x in d["s231"]["drops"][:4]]))
     print("left out one at a time (exact fall in total E):")
     for dd, nm, e in d["drops"]:
         print("  %5d  %-40s %s" % (dd, ",".join(nm), e))

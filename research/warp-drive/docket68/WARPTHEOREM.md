@@ -30,7 +30,7 @@ The corridor is the following, clause by clause.
 - **(G) Geometry** (seated as re-worded, item 187).
   - The corridor sits in the bulk, on neither plane; it only bridges them (179/180).
   - Bronnikov–Kim's eq. (17) at r₀ = 2m is kept only as a plane's possible reading of the corridor's mouth
-    (H-PLANE-READS-MOUTH, the board's; OPEN).
+    (H-PLANE-READS-MOUTH, the board's; M1, derived on item 231).
   - **E = √(N h c⁵ ln2 / (8π²G)) = 459,404,002.42 J × √N.**
   - **m = GE/c⁴.**
   - **r₀ = 2m = √(N h G ln2 / (2π²c³)).**
@@ -117,7 +117,7 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 | R | R3 exactness at the instant over the mass window | proved | — | exactcopy.py, rearrange.py |
 | R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance (101 answer 7, 136 answer 3, 139 (4)) | derived | — | r4_length.py |
 | R | R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position 2's matter -- which field, and what … | derived | — | r5_build.py |
-| N | M1 the plane's reading of the corridor's mouth (replaces F1; OPEN) | **OPEN** | — | corridor_shape.py, rim_profile.py, forming_rim.py ... |
+| N | M1 the plane's reading of the corridor's mouth (replaces F1; DERIVED on item 231) | derived | — | corridor_shape.py, rim_profile.py, forming_rim.py ... |
 | N | M1P2x position 2's side reads eq. (17)'s other leg (OPEN) | **OPEN** | — | g2_between.py, m1p2_cypher.py, m1x_cypher.py ... |
 | N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN) | **OPEN** | — | far_cypher.py, far_bridge.py, theorem_p2.py |
 | N | WRITE the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending) | **OPEN** | — | write_cypher.py, asym_junction.py |
@@ -126,9 +126,11 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 
 Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 
-- **The count:** 51 rows, 45 lemmas and 6 inputs (clause N: M1, M1P2x, FAR, WRITE, ARRIVAL, CLOSE, all OPEN).
+- **The count:** 51 rows, 45 lemmas and 6 inputs (clause N: M1, derived on item 231; M1P2x, FAR, WRITE, ARRIVAL,
+  CLOSE, OPEN).
   - Of the 45 lemmas: 17 proved, 19 derived, 4 definitions, 5 OPEN (O3, Z3b, B3, B4d, B5b).
-  - **22 green** under the strict rule (proved or derived, resting on no input); 26 counting definitions.
+  - **32 green** under the strict rule (proved or derived, resting on no input that is not itself green: M1 counts
+    green since item 231); 36 counting definitions.
   - 18 rows rest on an input. warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
@@ -1347,3 +1349,65 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
     - M1 alone would green 32, and every input 36.
   - The critic lenses were run in the conversation.
 - **Next:** M1, the plane's reading of the corridor's mouth, worth ten rows.
+
+## History (2026-10-11, items 230 and 231: the bulk does the work; D− computed; M1 derived)
+
+- **M, item 230**, on the two computations item 212 left for M1:
+  - on the kink: *"the everything everywhere all at once bulk. This bulk does all the work"*;
+  - on 203's equality: the energy read at position 1 *"can be absorbed by position 2 off it is not already contained
+    within position 2"*.
+  - **The board's readings**, to be overruled by M at any point:
+    - (a) the kink was the board's demand under H-CORRIDOR-IS-OUR-BRANE, so it is set aside, as item 179 found for the
+      plane-carried stages;
+    - (b) 203's equality is the ledger's: E read at position 1 and absorbed at position 2 (E3, which rests on no
+      input).
+  - `lemmas/m1_bulk.py` then found M1 blocked on **clause (d) alone**: 210's guess (the rim's junction is the open
+    mouth) and 211's reading (the open mouth keeps the corridor on its D+ side).
+- **M, item 231:**
+  - to 210: **"Yes, a statement"**;
+  - to 211: **"Do the computations for D-. I want to say yes to D+, but we have no choice but to confirm by computing
+    D-"**.
+- **D− computed** (`lemmas/d_minus.py`; D− is the same sheet with its normal reversed, every flat-limit stress negated):
+  - **None of 40 marginal members is a D− body.** Every one has D−'s energy and tangential null energy negative
+    somewhere.
+  - **A corridor flat at the throat** has D−'s tangential null energy negative at every depth: −4.889e-3 at 0.01m and
+    −0.5027 at 1m (in 2/κ₅² per m). D− needs a tilt of at least its own depth: tan t ≥ 0.983–0.991 Y at r = 2.005m.
+  - **The tangential does not depend on Y″**, and the warp adds nothing to it (two_sided T4), so this holds with the
+    warp included.
+  - **Going inward, a D− corridor's depth must grow.** The least steep admissible path grows as (r − 2m)^−0.87 to
+    ^−0.96, from 0.01m to 0.509m by r = 2.005m. Its limit at the throat is infinite (deduced from the threshold law).
+  - **The critic's check (DM5):** the other tilt, with the depth shrinking going in, is never admissible: negative at
+    all 378 points tested. So no D− corridor reaches the throat at a finite depth.
+  - **So D+ is the only orientation in which the open mouth has a body.** That is the computation M asked for, and it
+    confirms D+.
+- **Seated (206), after the critic lenses in the conversation:**
+  - **M1 OPEN → DERIVED.** With 210 M's statement and 211 computed, every clause is carried (`m1_bulk.py` M3). Either
+    move alone would have left M1 blocked.
+  - **The green rule as `warptheorem.py` states it:** a lemma is green only when every input it rests on is. An input
+    therefore counts green by its own status (`chain_cypher.py` given(); `theorem_p2.py`'s head check).
+  - The fixtures pinned to the old state moved with it: belongs_cypher's earlier tables are now rebuilt with each row's
+    status before a later item moved it, since B5px's seating on item 229 had shifted them.
+- **The count:**
+  - **32 green** under the strict rule, up from 22; **36** counting definitions, up from 26.
+  - The ten rows that rested on M1 alone are green: B2t, E4r, G1, G3, H2tu, O1b, O1c, O2, Z1t and Z2r.
+  - Still OPEN:
+    - 5 inputs: M1P2x, FAR, WRITE, ARRIVAL and CLOSE;
+    - 5 rows by their own status: O3, Z3b, B3, B4d and B5b.
+  - The smallest set of open inputs that would green every green-status lemma is {M1P2x, WRITE, ARRIVAL, CLOSE}.
+    CLOSE alone adds 2 rows, M1P2x then 1, and every input 36.
+- **Through the cypher (belongs_cypher B10, B11), recorded and not repaired:**
+  - B5px's seating lowered the theorem's exact E from 616 to 610, information alone falling.
+  - **M1's seating raises it from 610 to 613** (219/219/44/113/18). M1 leaves the input rows' cell, and geometry rises
+    by 5 and statistics by 1. So ten rows turned green and the index is no nearer closed: on this coding a derived
+    input is a cell of its own beside four OPEN ones.
+  - Z3b, B3 and B4d (one cell) still fall most.
+- **What this does not show:**
+  - D−'s throat limit is deduced, on the flat-limit bank, for static thin sheets.
+  - Clause (e) holds inside the verified layer. Eq. (17)'s deep static bulk keeps b4_static S2's singular surface; the
+    board reads that bulk as its own static model, not the everything bulk that does the work (212, 230).
+  - **The logic lens:** the kink and 203's equality stand on the board's readings of M's 230 answers. These are
+    readings of M's words, which 149 lets the board make, where 211's was a reading of the physics. If M overrules
+    either, M1 returns to OPEN on that clause.
+  - Not verified by a separate session.
+- **Next:** B4d, the five-dimensional evolution, on which O3, B3, Z3b, WRITE, ARRIVAL and CLOSE wait, is the hub. Of
+  the inputs, CLOSE greens the most rows (E1x, E2x).

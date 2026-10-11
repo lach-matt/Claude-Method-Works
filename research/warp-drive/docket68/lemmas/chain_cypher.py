@@ -36,6 +36,9 @@ Sources of this round's changes (each checked by two separate AI sessions in thi
   o1c_complete.py  O1c PROVED for eq. (17)'s geometry (curvature bounded; every geodesic crosses the throat in finite
                    affine parameter and is unbounded at both ends); on M1.  Not verified by a separate session.
   item 204         the B5'p and M1P2 splits HELD: tallied beside the chain (HELD, held_tally), never in it
+  item 231         M1 DERIVED (m1_bulk.py: 210 M's statement, D+ confirmed by d_minus.py).  An input counts green by its
+                   own status, as warptheorem.py's rule has it (given()): 22 -> 32 strict, 26 -> 36 audit.  Not
+                   verified by a separate session.
 python3 chain_cypher.py [--selftest | --mutants]
 """
 import contextlib
@@ -68,6 +71,14 @@ def _load_wt():
 _WT = _load_wt()
 INPUTS = {n.split()[0]: n.split(" ", 1)[1] for c, n, st, w in _WT.LEMMAS if c == "N"}
 ROWS = [(n.split()[0], st, _WT.RESTS_ON.get(n.split()[0], ""), n.split()[0]) for c, n, st, w in _WT.LEMMAS if c != "N"]
+INPUT_STATUS = {n.split()[0]: st for c, n, st, w in _WT.LEMMAS if c == "N"}
+
+
+def given(extra=()):
+    """the inputs counted green: those whose own status is green (warptheorem.py's rule -- a lemma is green only when
+    every input it rests on is; M1 DERIVED on item 231), plus any put in by hypothesis"""
+    own = set() if MUT.get("inputs_by_name") else {k for k, st in INPUT_STATUS.items() if st in GREEN}
+    return own | set(extra)
 
 
 # Proposals HELD by M (item 204), then SEATED on item 206: the list is empty while nothing is held.
@@ -108,18 +119,22 @@ def green(row, greened, definition=False):
 
 def tally():
     R = rows()
-    out = {"n": len(R), "strict": [r[0] for r in R if green(r, set())],
-           "audit": [r[0] for r in R if green(r, set(), True)],
+    out = {"n": len(R), "strict": [r[0] for r in R if green(r, given())],
+           "audit": [r[0] for r in R if green(r, given(), True)], "given": sorted(given()),
            "excluded": [r[0] for r in R if "EXCLUDED" in r[2]],
            "own_status": {r[0]: r[1] for r in R if r[1] not in GREEN | {"DEFINITION"}}}
     target = [r for r in R if r[1] in GREEN and "EXCLUDED" not in r[2]]
     out["smallest"] = []
-    for k in range(len(INPUTS) + 1):
-        hits = [S for S in itertools.combinations(INPUTS, k) if all(green(r, set(S)) for r in target)]
+    rest = [k for k in INPUTS if k not in given()]
+    for k in range(len(rest) + 1):
+        hits = [S for S in itertools.combinations(rest, k) if all(green(r, given(S)) for r in target)]
         if hits:
             out["smallest"] = hits
             break
-    out["with"] = {S: sum(green(r, set(S)) for r in R) for S in (("M1",), ("M1", "CLOSE"), ("M1", "M1P2x", "CLOSE"),
+    held_open = given() - {"M1"}                              # the chain before item 231 seated M1
+    out["m1_open"] = (sum(green(r, held_open) for r in R), sum(green(r, held_open, True) for r in R))
+    out["on_m1_alone"] = sorted(r[0] for r in R if r[2] == "M1")
+    out["with"] = {S: sum(green(r, given(S)) for r in R) for S in (("M1",), ("M1", "CLOSE"), ("M1", "M1P2x", "CLOSE"),
                                                                   tuple(INPUTS))}
     return out
 
@@ -140,9 +155,9 @@ def held_rows(held=None):
 def held_tally():
     """the chain as it would read with every HELD proposal seated -- beside the chain, not in it"""
     R, inputs = held_rows()
-    out = {"n": len(R), "strict": [r[0] for r in R if green(r, set())],
-           "audit": [r[0] for r in R if green(r, set(), True)], "inputs": inputs}
-    out["with_M1"] = sum(green(r, {"M1"}) for r in R)
+    out = {"n": len(R), "strict": [r[0] for r in R if green(r, given())],
+           "audit": [r[0] for r in R if green(r, given(), True)], "inputs": inputs}
+    out["with_M1"] = sum(green(r, given({"M1"})) for r in R)
     return out
 
 
@@ -197,14 +212,16 @@ def compute():
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now (seated, items 206-229): 22 of 45 (strict), 26 of 45 (audit rule); B5pu and B5px (item 229) among "
-        "them; B6 on 200 (1), Z3c DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 22 and len(t["audit"]) == 26
+    add("C1 green now (seated, items 206-231): 32 of 45 (strict), 36 of 45 (audit rule) -- M1 DERIVED on item 231 and "
+        "counted green by its own status (22 and 26 before it); B5pu and B5px (item 229) among them; B6 on 200 (1), Z3c "
+        "DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 32 and len(t["audit"]) == 36 and t["given"] == ["M1"]
         and t["n"] == 45
         and "B5pu" in t["strict"] and "B6" in t["strict"] and "Z3c" in t["strict"] and "B6'" in t["audit"])
-    add("C2 the smallest input set greening every green-status lemma is {M1, M1P2x, WRITE, ARRIVAL, CLOSE}: FAR entered "
-        "only through Z3b, OPEN again since item 208", t["smallest"] == [("M1", "M1P2x", "WRITE", "ARRIVAL", "CLOSE")])
-    add("C3 M1 alone greens 32 of 45; with CLOSE 34; with M1P2x too 35; with every input 36 (the other 9: 5 non-green "
-        "by their own status, 4 definitions under the strict rule)", t["with"][("M1",)] == 32
+    add("C2 the smallest set of open inputs greening every green-status lemma is {M1P2x, WRITE, ARRIVAL, CLOSE} (M1 "
+        "green since item 231): FAR entered only through Z3b, OPEN again since item 208",
+        t["smallest"] == [("M1P2x", "WRITE", "ARRIVAL", "CLOSE")])
+    add("C3 with M1 (seated) 32 of 45; with CLOSE too 34; with M1P2x too 35; with every input 36 (the other 9: 5 "
+        "non-green by their own status, 4 definitions under the strict rule)", t["with"][("M1",)] == 32
         and t["with"][("M1", "CLOSE")] == 34 and t["with"][("M1", "M1P2x", "CLOSE")] == 35 and t["with"][tuple(INPUTS)] == 36)
     add("C4 no row is never-greenable; 5 rows non-green by their own status (O3, Z3b, B3, B4d, B5b; B5px DERIVED on item "
         "229) -- B4b and B4c superseded by B4d (item 210), on record", t["excluded"] == []
@@ -223,12 +240,16 @@ def checks(d):
         bool({"CLOSE", "M1"} & d["ctrl"]["adds_nothing"]) and not ({"CLOSE", "M1"} & d["cy"]["adds_nothing"]))
     add("C9 nothing is held (item 206 seated the 204 splits): the held view equals the chain", d["held"]["n"] == t["n"]
         and len(d["held"]["strict"]) == len(t["strict"]) and HELD == [])
+    add("C10 with M1 held OPEN (the chain before item 231) 22 strict, 26 audit; the ten rows resting on M1 alone, green "
+        "since: B2t, E4r, G1, G3, H2tu, O1b, O1c, O2, Z1t, Z2r", t["m1_open"] == (22, 26)
+        and t["on_m1_alone"] == ["B2t", "E4r", "G1", "G3", "H2tu", "O1b", "O1c", "O2", "Z1t", "Z2r"])
     return res
 
 
 MUTANTS = {"e12_close_free": "E1x, E2x (between universes) read as resting on no closing flux", "b6_on_count": "B6 read as still resting on an open premise", "g1_f1_free": "G1, G3 read F1-free (the item-192 list)",
            "definition_strict": "DEFINITION counted green under the strict rule",
-           "reseat_z3b": "Z3b put back to DERIVED (item 208's correction undone)"}
+           "reseat_z3b": "Z3b put back to DERIVED (item 208's correction undone)",
+           "inputs_by_name": "an input counted green only when named by hypothesis, never by its own status"}
 
 
 def selftest():
@@ -255,7 +276,7 @@ def mutants():
 
 def report(d):
     t = d["tally"]
-    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-210)\n")
+    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-231)\n")
     print("green now: %d of %d strict, %d audit rule" % (len(t["strict"]), t["n"], len(t["audit"])))
     print("  green:", " ".join(t["strict"]))
     print("  non-green by own status:", t["own_status"])
