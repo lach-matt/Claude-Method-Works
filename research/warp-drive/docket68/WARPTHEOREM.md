@@ -139,6 +139,8 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 > **Item 239 (2026-10-11):** the build's need is what the closing energy activates (136 (2)), not T3's assembly
 > ceiling, so the ledger closes with no sink and the pull below is resolved. T3 stands as computed for its own
 > premise (absorbed ≤ the ceiling), which item 239 sets aside (`lemmas/ledger_cypher.py` L6–L8).
+> **Item 240:** the no-sink resolution stands; item 239's consequences for position 2 (G = ours, m₂ = m) are
+> overruled, since the copy is built under position 2's laws (`lemmas/copy_p2.py`).
 
 - **What you ruled:**
   - E goes into position 2 (110);
@@ -1748,3 +1750,38 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - **Items 234–235 on the destinations:** G is fixed, so no weighting of G arises, and the unweighted count is a
     probability over the finite set.
 - `ledger_cypher.py`: selftest 7/7, mutants 2/2. No status moves.
+
+## History (2026-10-11, item 240: the copy is built under position 2's laws)
+
+- **M, item 240:** *"no. Remember that the object is built from the bulk at position 2 as an exact copy under the laws
+  and conditions of position 2. The mass on position 2's side is not equal to ours. Position 2 accounts for the
+  difference as it assembles the mass to match a README from position 1 under position 2's laws. Survivability of the
+  object when contained in position 2 depends on how well it is equipped to mitigate that variances of position 2"*
+- **Overruled:** item 239's consequences (2b, 2c and 2P not destinations; m₂ = m).
+  - Their source was the board's reading in item 238 that the one value of 111 (b) and 230 meant equal energies in SI.
+    Under 240 the one value is the README, read under each side's laws.
+  - The cypher's selection of ONE is withdrawn with that reading (ledger_cypher L9).
+  - The build reads under position 2's laws (P2). With 239's need it keeps every ruling but 237, whose bound the ledger
+    no longer supplies.
+- **The corridor on position 2's side (`lemmas/copy_p2.py` C1, exact).** Matched to the README, position 2's throat
+  holds exactly N bits at its own bit area.
+  - Its size scales as (G₂/G)^½ and its mass-energy as (G/G₂)^½.
+  - 2b, 2c and 2P: ×√2 and ×1/√2. 2b+2P: ×2 and ×½.
+  - The record's trip had held one E: m₂/m = G₂/G, with capacity (G₂/G)·N. Matched to the README, the capacity is N.
+- **The copy's own mass (C2).** Rest masses are the shared SI's. The matter law moves an atom's mass by under 4×10⁻¹¹
+  and G moves none. What position 2 accounts for as it assembles is chiefly the closing energy's difference: −29.3% at
+  2b, 2c and 2P, −50% at 2b+2P.
+- **The variances each destination presents (C3),** which survival asks the object to mitigate:
+  - gravity ×1, ×2 or ×4;
+  - dark energy Λ₄ ×2 (2b), ×½ (2P), ×1 (2b+2P);
+  - a reference body's surface gravity ×2.03 at 2b, up to ×5.07 (2c+2P, mirror);
+  - the closing energy ×0.7071 or ×0.5;
+  - under the matter laws, bond energies −3 to +35% (min) and −121 to +0.4% (mirror), with Cu₂ unbound and Ag₂ and CuF
+    unresolved under mirror; densities up to +41%; cohesive energies −29 to +36%.
+- **Through the cypher (C5; 12 cells, audited, no key):** the variances are three independent axes (matter law, G,
+  Λ₄). No coordinate adds nothing, so each must be met by its own means.
+- **Survivability (C4, deduced)** is a condition on the object. It survives where every variance lies within its means
+  of mitigation, so the destinations it can survive form a box it sets. If those means hold a limit on gravity, that
+  limit bounds weak and strong gravity for that object. That is the board's candidate for item 237's missing bound —
+  object-relative, not seated.
+- `copy_p2.py`: selftest 5/5, mutants 2/2. No status moves.

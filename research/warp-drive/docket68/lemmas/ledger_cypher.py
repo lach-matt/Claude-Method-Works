@@ -51,6 +51,12 @@ Otherwise it narrows to the nearest and names the rulings that conflict.
      destination m2 = m (M1P2x, as in item 218's one-hour case).  Items 234-235 on the destinations: G is fixed, so no
      weighting of G arises; the destinations are finite, and the unweighted count is a probability over them.
 
+  L9 (record; item 240) M overrules L7-L8's consequences: the object is built at position 2 as an exact copy under
+     position 2's laws, and the mass on position 2's side is not ours.  The selection of ONE rested on item 238's
+     reading (b) of the one value as equal energies in SI, which 240 withdraws: the one value is the README.  L2-L6 stand
+     as computed for the readings they encode; the build reads under position 2's laws (P2), which with 239's need keeps
+     every ruling but 237, whose bound the ledger no longer supplies (copy_p2.py C6).
+
 What this does not show.
   - L7 holds while h and c are shared (225 A); a carrier other than G would change it (p2_planck Q1 excludes them).
   - A is T3's ceiling for the example's core; the bound scales as N / N*0 with it.
