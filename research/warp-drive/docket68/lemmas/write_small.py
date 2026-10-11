@@ -4,8 +4,9 @@ o3_write.py: T >= (9/2)(5 N ln2/Z)^(1/3) - 2 clocks of m/c, 199,702.19 at the ex
 derivation; M: "The write's clock count is still the record's 4D derivation. Redoing it at the small end belongs to the
 WRITE row. - we need to address this first".  Here it is redone for the localized five-dimensional hole (C1, C2, C3;
 items 251, 256), every hypothesis of O3-WRITE carried where it carries and named where it does not.  Worked in the
-conversation (computed with sympy and mpmath, exact where marked; READ where marked; not verified by a separate
-session; not seated); 2026-10-11.
+conversation (computed with sympy and mpmath, exact where marked; READ where marked; verified once -- item 264,
+CONFIRMED with qualifications, all seated below in [Verifier, item 264] notes (205/206); not seated); 2026-10-11.
+First headed "... not verified by a separate session ...".
 
   S0 (read) M's item-260 words, verbatim in the rulings file.
   S1 (STRUCTURAL) The small end's E is the five-dimensional black-hole energy of N bits: 2 pi^2 r_h^3/(4 l5^3) = N ln2
@@ -29,39 +30,62 @@ session; not seated); 2026-10-11.
      self-gravity:
             T >= (3/2)(5 N ln2/Z)^(1/3) - 1 clocks of r_h/c          (d = 3, on the plane)
      -- at equal Z one third of the record's ball, (9/2)(5 N ln2/Z)^(1/3) in clocks of m/c, each end in its own clock.
+     [Verifier, item 264: "one third" is a clock convention -- m/c = 1/(4 c kappa) there, r_h/c = 1/(c kappa) here; in
+     horizon radii the ratio is 2/3, in units of 1/kappa 4/3 (computed, S5); physically the small end's ball is 1.9e7
+     times the record's (7.5e-16 m against 4.0e-23 m) and its write as much longer in seconds (computed, S5).]
      Z is fixed by the gas's own temperature: at the bound 4E/(3S) = hbar c/(pi r_h), twice the hole's Hawking
      temperature, 5.6 TeV at the example README -- every Standard Model species is lighter, so Z >= 106.75 (the plane's
      species; at R << ell the graviton is five-dimensional, not a field of the plane, and enters V2).  At the example
      README: 66,980 clocks (Z = 106.75); the record's Z = 108.75 gives 66,567.06 = (199,702.19 + 2)/3 - 1, exactly.
      The count carries no ell: r_h/l5 is fixed by N (C3 F4).  In seconds at ell = 13.964 um (clock r_h/c = 3.74e-29 s):
      2.5e-24 s, and at every ell as ell^(1/3).  Self-gravity at the start: (r_h/R)^2 = 2.2e-10; R/ell = 5.4e-11.
+     [Verifier, item 264: three of O3-WRITE's twelve hypotheses were left unnamed.  H-EXACT-ENERGY-AT-BOUND (G1) is
+     replaced by C2's R1 count -- the count carries R1, which item 258 records as resting on convention-consistency:
+     under R2 (one side) 1 + T halves and the head is 33,490 clocks (computed, S5).  H-WRITE-IN-STATIC-HOLD is carried
+     by S4 only (the hole standing at its size through the write, M's 162-163).  R-VAIDYA-HOLDS is not carried:
+     reading (ii) is not computed.]
      Variants (each fits the hold, S4):
        V2 H-README-ON-PLANE dropped: the plane's gas (d = 3, Z = 106.75) and the bulk graviton's (d = 4, 5 states, the
-          4-ball on both sides of the plane as C2's R1 counts both) at one temperature -- 1.251e4 clocks (computed,
-          mpmath); the graviton gas holds the most states per energy and sets the bound, the plane's lowering it by
-          0.2%.
+          4-ball on both sides of the plane, if the two sides are independent) at one temperature -- 1.251e4 clocks
+          (computed, mpmath; the verifier's brute-force scan of the energy split peaks at the same split, 0.5% of E in
+          the plane's gas); the graviton gas holds the most states per energy and sets the bound, the plane's lowering
+          it by 0.2%.  [Verifier, item 264: "both sides as C2's R1 counts both" does not follow -- R1 and E are the same
+          under the Z2 orbifold (covering-space normalisation) and under two independent sides, but the gas is not:
+          under the orbifold only one side's graviton modes are independent -- V2 1.486e4, V3 1.490e4 (computed).]
        V3 the bulk graviton alone (d = 4, Z = 5): T >= 16 30^(3/4) pi (N ln2/Z)^(1/4)/(225 zeta(5)^(1/4)) - 1 =
           1.253e4 clocks; the power is 1/4, as the record's d = 4 variant.  Over one side of the plane only (the 4-ball
-          halved, as Z/2: 1 + T scales as 2^(1/4), exact) 1.490e4 -- the critic's case, computed.
+          halved, as Z/2: 1 + T scales as 2^(1/4), exact) 1.490e4 -- the critic's case, computed.  [Verifier, item
+          264: V3's floor does not fall with the plane's Z, so with the same species in the evaporation (life as
+          1/Z) it fails above Z = 6.8e12 (5.7e12 over one side) -- inside H-SPECIES-FINITE's ~1e14 (computed, S5).]
        V4 H-README-ALONE dropped ('t Hooft's eq. (8): energy up to the five-dimensional collapse 3 pi c^4 R^2/(8 G5) in
           the ball): 1 + T = ((3/2)(5 N ln2/Z)^(1/3))^(1/3), the head's ball to the power 1/3 -- 39.6 clocks, N^(1/9)
           (the record's eq. (8) variant goes as N^(1/6): the 4D collapse energy grows as R, the 5D as R^2).
        V5 prior entanglement (superdense coding, items 111, 137 (1)): 2^(-4/3) on 1 + T -- 26,580 clocks (Z = 106.75).
-  S4 (computed; hold_small L3 imported) What it does to the hold at the small end.  The static bulk under the corridor
+  S4 (computed; hold_small L3 imported) What it does to the hold at the small end, on reading (i) -- the hole standing
+     at its size through the write (H-WRITE-IN-STATIC-HOLD; M's 162-163) [verifier, item 264].  The static bulk under the corridor
      is Tangherlini's exterior, regular with a smooth horizon (C1 H5, verified); it has no singular surface outside the
      horizon, so the record's tension -- the static eq. (17) bulk singular by ~18 clocks against a write of 2.0e5
      (O3-WRITE W4, the theorem's item-160 history: "the corridor must change while the README passes") -- does not
      arise.  The static hold lasts as long as the hole: 8.0e14 clocks at every ell (greybody 1; hold_small L4).  The
-     write's floor sits inside it by 1.2e10 (greybody 1; 1.2e11 at greybody 0.1), and every variant fits.  The energy
-     the hole radiates over the write is t_w/(2 t_life) = 4.2e-11 of E: quasi-static through the write.
+     write's floor sits inside it by 1.2e10 (greybody 1; 1.2e11 at greybody 0.1), and every variant fits at g* =
+     106.75.  The energy the hole radiates over the write is t_w/(2 t_life) = 4.2e-11 of E: quasi-static through the
+     write.  [Verifier, item 264: on reading (ii) (198, a guess: the README forms the hole) the bulk is not static
+     through the write, as on the record, and the lifetime bounds only the completed hole.  Reading (i) carries an open
+     energy question of its own: a hole of E(N) standing, and a README carrying E under H-README-ALONE, total 2E.
+     With the same Z in the evaporation (life as 1/Z, floor as Z^(-1/3)) the head, V2, V4 and V5 fit at every Z --
+     the head's floor reaches zero first (computed over Z to 3.2e16; V2, V4, V5 lie below the head) -- and V3 only for
+     Z < 6.8e12 (S5).]
 
 What this does not show.
   - Whether the hole stands before the README arrives (items 162, 163: fixed size, one whole) or forms as it arrives
-    (198, a guess): the floor counts only the README's states before arrival and holds on either reading.
+    (198, a guess): the floor counts only the README's states before arrival and holds on either reading; S4 holds on
+    the first only [verifier, item 264].
   - The WRITE row's cypher at the small end (write_cypher.py with the localized hole's row re-read under item 251; item
     260 (b), in chain order).
-  - The gas's self-gravity and greybody factors; species beyond the Standard Model (H-SPECIES-FINITE, carried: Z
-    larger only shortens the floor, and the floor fits the hold at every Z >= 1).
+  - The gas's self-gravity and greybody factors; species beyond the Standard Model (H-SPECIES-FINITE, carried).
+    [First written "Z larger only shortens the floor, and the floor fits the hold at every Z >= 1" -- overstated
+    (verifier, item 264): it held the evaporation's g* at 106.75 while Z varied; with the same Z in both, V3 fails
+    above 6.8e12 (S4, S5).]
   - Linear survival over the write: the hole's linear stability is READ (Ishibashi-Kodama, via B4D-STAGE1.md and
     write_cypher W3), not computed here.
 
@@ -111,9 +135,9 @@ def _o3w():
     return _load(os.path.join(HERE, "o3_write.py"), "ws_o3w")
 
 
-def hole():
-    """the small end in the bulk's Planck units (hbar = c = 1, G5 = l5^3): r_h, E, S (C2 R1, both sides)"""
-    area = sp.pi ** 2 if MUT.get("one_side") else 2 * sp.pi ** 2
+def hole(side="both"):
+    """the small end in the bulk's Planck units (hbar = c = 1, G5 = l5^3): r_h, E, S (C2 R1, both sides; R2 one side)"""
+    area = sp.pi ** 2 if (MUT.get("one_side") or side == "one") else 2 * sp.pi ** 2
     rho = (4 * N * sp.log(2) / area) ** sp.Rational(1, 3)
     rh = rho * l5
     E = 3 * sp.pi * rh ** 2 / (8 * l5 ** 3)
@@ -144,11 +168,11 @@ def s2():
     return dict(clocks=clocks, smarr=smarr)
 
 
-def _bound(d, energy, bits=N):
+def _bound(d, energy, bits=N, side="both"):
     """1 + T (offset + T under a mutant): the radius, in r_h, of the d-ball whose free gas at this energy holds 2^bits"""
     O = _o3w()
     _, _, a = O.gas(d)
-    h = hole()
+    h = hole(side)
     zz = Z_GRAV5 if d == 4 else Z
     S = a * zz ** sp.Rational(1, d + 1) * O.ball(d, X * h["rh"]) ** sp.Rational(1, d + 1) * energy ** sp.Rational(d, d + 1)
     # both sides positive: raise to the power d + 1, so the equation is a monomial in x with one positive root
@@ -166,10 +190,11 @@ def s3():
     x8 = _bound(3, 3 * sp.pi * (X * h["rh"]) ** 2 / (8 * l5 ** 3))
     xd = _bound(3, h["E"], bits=N / 2)
     tgas = sp.simplify(4 * h["E"] / (3 * h["S"]) * h["rh"])          # in units 1/r_h; Hawking is 1/(2 pi)
-    return dict(x3=x3, t3=t3, x4=x4, x8=x8, xd=xd, tgas_rh=tgas)
+    x3_r2 = _bound(3, hole("one")["E"], side="one")                   # item 264: the count under C2's R2 (one side)
+    return dict(x3=x3, t3=t3, x4=x4, x8=x8, xd=xd, tgas_rh=tgas, x3_r2=x3_r2)
 
 
-def mixed(n=N_EX, zb=106.75, zg=Z_GRAV5):
+def mixed(n=N_EX, zb=106.75, zg=Z_GRAV5, half=False):
     """V2: the plane's gas (d = 3, zb) and the bulk graviton's (d = 4, zg) in balls of radius x r_h, one temperature,
     energy E, entropy N ln2 (mpmath, 30 digits; units l5 = 1)"""
     mp.mp.dps = 30
@@ -178,7 +203,7 @@ def mixed(n=N_EX, zb=106.75, zg=Z_GRAV5):
     E = 3 * mp.pi * rho ** 2 / 8
     u3, u4 = mp.pi ** 2 / 30, 3 * mp.zeta(5) / mp.pi ** 2
     v3 = lambda R: 4 * mp.pi / 3 * R ** 3
-    v4 = lambda R: mp.pi ** 2 / 2 * R ** 4
+    v4 = lambda R: mp.pi ** 2 / (4 if half else 2) * R ** 4       # half: the Z2 orbifold, one side's modes (item 264)
 
     def entropy(x):
         R = x * rho
@@ -249,7 +274,29 @@ def compute():
     O = _o3w()
     o["record"] = float(O.t_min(3).subs({O.N: N_EX, O.Z: Z_RECORD}).evalf(30))
     o["s4"] = s4(o["ex"]["head"])
+    o["s5"] = s5(o)
     return o
+
+
+def s5(o):
+    """item 264, the C6 verifier's qualifications, computed: R2's head; V2 over one side; the Z at which V3 outlasts
+    the hole with the evaporation's species set to Z; the head against the life over Z; the balls compared with the
+    record's, in convention and in metres"""
+    t, e, s = o["s3"], o["ex"], o["s4"]
+    life_z = lambda z: s["life1"] * 106.75 / z                        # P is linear in g*: the life falls as 1/Z
+    head_z = lambda z: max(0.0, _num(t["t3"], z=sp.Float(z, 30)))
+    zs = [10.0 ** k for k in range(0, 17)] + [3.2e16]
+    head_fits = all(life_z(z) > head_z(z) for z in zs)
+    zero_at = float(sp.Rational(27, 8) * 5 * N_EX * sp.log(2))          # the head's 1 + T reaches 1 here
+    PG = _load(os.path.join(HERE, "p2_gravity.py"), "ws_pg5")
+    m_rec = PG.G * PG.corridor(PG.G)["E1"] * math.sqrt(N_EX) / PG.C ** 4
+    R_rec = (o["record"] + 2) * m_rec
+    R_small = _num(t["x3"]) * o["sec"]["rows"][o["sec"]["ell_max"]]["rh"]
+    rec_ball = sp.Rational(9, 2) * (5 * N * sp.log(2) / Z) ** sp.Rational(1, 3)   # in m; r0 = 2m, 1/kappa = 4m there
+    return dict(head_r2=_num(t["x3_r2"]) - _offset(), v2_one=mixed(half=True) - _offset(),
+                z_v3=s["life1"] * 106.75 / e["v3"], z_v3_one=s["life1"] * 106.75 / e["v3_one_side"],
+                head_fits=head_fits, zero_at=zero_at, R_rec=R_rec, R_small=R_small, R_ratio=R_small / R_rec,
+                in_radii=sp.simplify(t["x3"] / (rec_ball / 2)), in_kappa=sp.simplify(t["x3"] / (rec_ball / 4)))
 
 
 def report(o):
@@ -273,6 +320,12 @@ def report(o):
     s = o["s4"]
     print("S4 the hold (the hole's lifetime) %.3g clocks (grey 1) / %.3g (grey 0.1); over the floor %.3g / %.3g; "
           "radiated over the write %.2g of E" % (s["life1"], s["life01"], s["ratio1"], s["ratio01"], s["radiated"]))
+    v = o["s5"]
+    print("S5 (item 264) under R2 the head %.2f; V2 over one side %.4g; V3 outlasts the life (species = Z) above Z = %.3g "
+          "(%.3g one side); the head fits at every Z to %.3g: %s" % (v["head_r2"], v["v2_one"], v["z_v3"], v["z_v3_one"],
+                                                                   v["zero_at"], v["head_fits"]))
+    print("   the ball against the record's: %s in horizon radii, %s in 1/kappa; %.3g m against %.3g m (x %.3g)" % (
+        v["in_radii"], v["in_kappa"], v["R_small"], v["R_rec"], v["R_ratio"]))
 
 
 def checks(o):
@@ -313,6 +366,15 @@ def checks(o):
     ok &= e["z1"] < s["life1"]
     add("S4 the static hold (the hole's life, 8.0e14 clocks) exceeds the floor by 1.2e10 (grey 1) / 1.2e11 (grey 0.1); "
         "4.2e-11 of E radiated over the write; fits at Z = 1 too", ok)
+    v = o["s5"]
+    ok = "%.0f" % v["head_r2"] == "33490" and "%.3e" % v["v2_one"] == "1.486e+04"
+    ok &= "%.2g" % v["z_v3"] == "6.8e+12" and "%.2g" % v["z_v3_one"] == "5.7e+12" and v["head_fits"]
+    ok &= "%.2g" % v["zero_at"] == "3.2e+16"
+    ok &= v["in_radii"] == sp.Rational(2, 3) and v["in_kappa"] == sp.Rational(4, 3) and "%.2g" % v["R_ratio"] == "1.9e+07"
+    ok &= "%.2g" % v["R_small"] == "7.5e-16" and "%.2g" % v["R_rec"] == "4e-23"
+    add("S5 (item 264) R2's head 33,490; V2 over one side 1.486e4; V3 outlasts the life above Z = 6.8e12 (5.7e12 one "
+        "side) while the head fits at every Z (to 3.2e16, where its floor is 0); the ball 2/3 of the record's in horizon "
+        "radii, 4/3 in 1/kappa, 1.9e7 in metres", ok)
     return res
 
 

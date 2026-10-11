@@ -23,15 +23,19 @@ redone at the small end (write_small.py); first written with the record's 4D cou
      /c) is fixed by N alone: 8.0e14 clocks for the example (0.29 N), at every ell.  The write at the small end
      (write_small.py S3, item 260: T >= (3/2)(5 N ln2/Z)^(1/3) - 1 clocks of r_h/c, 66,980 for the example at Z =
      106.75) grows as N^(1/3) and carries no ell either; at ell = 13.964 um it is 2.5e-24 s.  The hole outlives the
-     write's floor by 1.2e10 (greybody 1), 1.2e11 (greybody 0.1); every variant of write_small S3 fits.  [First written
+     write's floor by 1.2e10 (greybody 1), 1.2e11 (greybody 0.1); every variant of write_small S3 fits at g* = 106.75.
+     [Verifier, item 264: on reading (i) only -- the hole standing at its size through the write (162-163); on reading
+     (ii) (198) the lifetime bounds only the completed hole.  "8.0e14 at every ell" holds g* at 106.75 even where the
+     Hawking temperature reaches 3e8 GeV (ell = 1e-20 m) -- H-SPECIES-FINITE; with g* = Z the life falls as 1/Z and
+     write_small's V3 outlasts it above Z = 6.8e12 (write_small S5).]  [First written
      with the record's 4D count, 199,702 clocks of m/c (O3-WRITE), carried into the small end's clock as 7.5e-24 s and
      outlived by 4e9 -- M, item 260: "The write's clock count is still the record's 4D derivation. Redoing it at the
      small end belongs to the WRITE row."  The record's write in its own 4D clock, 1.3e-31 s, is printed for
      comparison.]
 
 What this does not show.
-  - The evaporation's greybody factors and species beyond the Standard Model; bulk graviton emission (subdominant by
-    the abstract read).
+  - The evaporation's greybody factors and species beyond the Standard Model (H-SPECIES-FINITE); bulk graviton
+    emission (subdominant by the abstract read).
   - The WRITE row's cypher at the small end (item 260 (b)); L4 uses write_small's count, a floor.
 
 Imports p2_gravity.py and write_small.py by path.  Stdlib + sympy.  python3 hold_small.py [--selftest | --mutants]
