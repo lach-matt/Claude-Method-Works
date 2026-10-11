@@ -37,8 +37,9 @@ in {0, 1/3, 2/3, 1}, three laws.  They are the bulk index's unit cell, not the i
      besides; this item does not cut them.
 
 What this does not show.
-  - That the infinite index is closed: the cypher sees finite windows.  Closure holds in every window tried; a window
-    that straddles ours needs one of two orders in the 5D basis.  The windows are the evidence, not a proof for all.
+  - Closure of the whole: M ruled (item 247) that the infinite index is not closed and never can be -- whatever can be
+    imagined is plausible, and each imagined universe reopens it (open_index.py).  The windows here are closed; the
+    whole is not.
   - The unit cell's matter is the three computed laws; the law between them is unseen (item 233 K7).
 
 Imports bulk5_index.py (and through it p2_planck.py, p2_gravity.py), closed_bounds.py, cell_closure.py, tools/cypher.py

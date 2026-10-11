@@ -111,7 +111,7 @@ LEMMAS = [
     ('B', 'B2t its instance beneath eq. (17)', 'PROVED',
      'bulk/localbulk.py L3-L4 (F1-AUDIT)'),
     ('B', 'B3 a complete bulk exists, built under closed-index criteria', 'OPEN',
-     'equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d.  Item 211 (deduced from the seated records): since item 210 B4 is B4a (PROVED) and B4d (B4b and B4c superseded by B4d), so B3 rests on B4d\'s inputs -- CLOSE added, which it lacked since B4d first rested on CLOSE; the theorem\'s exact E falls 693 -> 616 with no language rising (belongs_cypher.py B9)'),
+     'equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d.  Item 211 (deduced from the seated records): since item 210 B4 is B4a (PROVED) and B4d (B4b and B4c superseded by B4d), so B3 rests on B4d\'s inputs -- CLOSE added, which it lacked since B4d first rested on CLOSE; the theorem\'s exact E falls 693 -> 616 with no language rising (belongs_cypher.py B9).  Item 247 (M: the infinite bulk index is not closed and never can be; whatever can be imagined is plausible): the closed-index criteria are read cell by cell -- each universe a closed index, its own index closed and its self-defence the constants\' (cell_closure.py, item 244) -- never of the whole, which every imagined universe reopens (open_index.py); "complete" here is B4a-B4d\'s global spacetime, not a closed totality.  No status moves'),
     ('B', "B4a the global bulk's shape, given W2 inside the far boundary T: the plane's two ends are one end of the bulk -- two separate positions reached through a dimension (152 (1), encoded as H-SEPARATE-JOINED-THROUGH-DIMENSION) -- so CGS Thm 3.1 is escaped (a) and Thm 3.5's deformation holds; the topology is fixed before the opening (B7's bridge)", 'PROVED',
      'lemmas/b4_global.py, 6/6: STRUCTURAL encoding; controls two-ended, and excised regions block the deformation; Ake Hau-Flores-Sanchez READ'),
     ('B', "B4d the opening and closing evolve regularly in five dimensions, and data beyond the hold's cone join the untouched exterior (H-EVOLUTION, H-GLUING)", 'OPEN',
@@ -287,7 +287,9 @@ def lemma_selftests():
               # item 245
               "bulk18.py",
               # item 246
-              "unit_cell.py"):
+              "unit_cell.py",
+              # item 247
+              "open_index.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

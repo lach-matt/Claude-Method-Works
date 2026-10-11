@@ -73,6 +73,13 @@ translates by whole 2b and 2P steps (lattice_member), infinitely many universes,
 plausible part.  unit_cell.py puts the cell, its translates and windows of cells to the cypher.  K1-K7 above are item
 233's record over the twelve and are checked as they were.
 
+Item 247 (M: the infinite index "is not closed and never can be"; "if it can be imagined, it exists within
+plausibility").  Item 233's reading of "plausible" as the theorem's own conditions is overruled: plausibility is
+everything imaginable.  What K3 and K4 compute -- and every instrument after them that says "plausible" (weight_cypher,
+weight_address, wbound, bounds, bulk18, unit_cell) -- is the set of universes within the theorem's conditions (its top,
+floors and capacity); the results stand as what they measured, under that name.  open_index.py takes the ruling
+through the cypher.
+
 What this does not show.
   - W and the floors are the window's computed values (sigma_cypher W1, imported exact, 209); C uses the example README.
   - "Ordinary matter" is taken from item 221's computed laws (Cu2 has no bound minimum under mirror; it is still

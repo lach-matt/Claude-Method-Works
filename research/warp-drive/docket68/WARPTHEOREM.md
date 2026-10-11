@@ -2051,3 +2051,36 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
     item does not cut.
 - `unit_cell.py`: selftest 5/5, mutants 3/3. `bulk5_index.py` 7/7; `bulk18.py` 6/6 (pinned to its eighteen as item
   245's record). No status moves.
+
+## History (2026-10-11, item 247: the infinite index is never closed; the imaginable is plausible)
+
+- **M, item 247**, of the board's *"not shown: that the whole infinite index is closed"*: *"it is not closed and never
+  can be. This comes back to first principles and observation with imagine being a legitimate perception of reality.
+  Thus , if it can be imagined, it exists within plausibility."*
+  - Seated as M's ruling, in two parts: the whole bulk index is never closed, and whatever can be imagined is
+    plausible.
+  - The ruling is taken through the cypher as a demonstration (`lemmas/open_index.py`).
+- **Imagined universes reopen the index (O1, the cypher, 5D basis):**
+  - From the closed unit cell (E = 0), each imagined universe it does not hold reopens it.
+    - Half a 2P step: E 5, closed again at 30 cells, 2P's step now a sixth.
+    - A fifth of a 2P step: E 2, closed at 33, a thirtieth.
+    - A seventh: E 2, closed at 36, a 210th.
+    - Half a 2b step: E 20, closed at 57, 2b in halves.
+  - A matter law between min and mirror reopens it (E 18), and so does an offset's ratio no member carries (E 56).
+  - Each closure lasts only until the next imagined universe.
+- **Why never (O2, deduced).** Imagination respects no least step and no last value on the continuous axes. A closed
+  index is fixed by its alphabet and envelopes (§15.2), and each imagined value outside the alphabet reopens it. M's
+  ruling is consistent with The Method's own definition of a closed index; M's principle itself is M's.
+- **Closed cells, open whole (O3).** Every imagined universe is itself a closed cell: every constant with a form holds
+  on it, and its own index is closed under both regime readings.
+- **Plausibility (O4; item 247 (a)):**
+  - Item 233's reading of "plausible" as the theorem's conditions is overruled. What K3–K4 and the instruments after
+    them called "plausible" is the set within the theorem's conditions (top, floors, capacity). Noted in
+    `bulk5_index.py`; the results stand under that name.
+  - An imagined G × 2^99 lies outside the theorem's conditions (no window, its own index empty), yet every constant
+    holds on it, and it is plausible.
+- **Item 121 (O5; item 247 (b)).** The closed-index criteria are met cell by cell (item 244) and never by the whole.
+  Row B3's "complete bulk" is B4a–B4d's global spacetime, not a closed totality. A note is added to B3; no status
+  moves.
+- `unit_cell.py`'s "not shown" now carries M's ruling.
+- `open_index.py`: selftest 3/3, mutants 3/3.
