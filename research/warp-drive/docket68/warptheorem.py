@@ -273,7 +273,9 @@ def lemma_selftests():
               # item 236
               "relgrav.py",
               # item 237
-              "wbound.py"):
+              "wbound.py",
+              # item 238
+              "ledger_cypher.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

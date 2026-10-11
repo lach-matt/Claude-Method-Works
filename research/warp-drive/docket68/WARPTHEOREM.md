@@ -1685,3 +1685,34 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   destination as 2a–2P's own addresses, which is narrower than the text. Under the text, every universe in the bounded
   region is a destination like 2a–2P.
 - `wbound.py`: selftest 7/7, mutants 2/2. No theorem row moves.
+
+## History (2026-10-11, item 238: the ledger's reading, through the cypher)
+
+- **M, item 238**, to which reading of the closing energy holds at the build: *"This is a question to put to the
+  cypher"*.
+- **The readings (`lemmas/ledger_cypher.py`):**
+  - **P2:** the build uses the closing energy read with position 2's own G.
+  - **P1:** it uses the energy read and defined at position 1 (230).
+  - **ONE:** one value from both sides (111 (b)), which fixes position 2's G at ours.
+- **How the question was put.** Each reading was entered as cells: one per position-2 G (×½, ×1, ×2, at the ledger's
+  bound, ×2¹⁰⁰) and per README size (T3's 600-bit control and the example), each over the four rulings it keeps,
+  computed from the energies:
+  - 111 (a): no sink;
+  - one value: 111 (b) with 230;
+  - 226: position 2 keeps its own G;
+  - 237: weak gravity bounded.
+  - The decision rule was fixed before the run.
+- **What the cypher found:**
+  - **At 600 bits no ruling conflicts.** P2 and ONE at position 2's G = ours keep all four. The ledger's bound is then
+    0.887 × ours.
+  - **At the example README no cell keeps all four.** The one pair no held cell keeps together is 111 (a) with the one
+    value: the no-sink build against the one value read at both sides. That is T3's pull.
+  - **P1 breaks two rulings** (111 (a) and 237) and is out. P2 and ONE break one each.
+  - Order, algebra and information admit a reading keeping all four; geometry and statistics refuse it. The index has
+    five cells, no key and no one-hot code.
+- **Decision by the rule: narrowed to P2 and ONE.**
+  - **ONE** keeps the one value by fixing position 2's G at ours: a destination of 2a's kind, with T3's absorber at the
+    build.
+  - **P2** keeps the no-sink build by putting position 2's G at or above 4.055×10¹² × ours for the example README.
+  - At position 2's G = ours, the two are the same cell.
+- `ledger_cypher.py`: selftest 5/5, mutants 1/1. No theorem row moves.
