@@ -2013,3 +2013,41 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `bulk18.py`: selftest 6/6, mutants 3/3. `bulk5_index.py`: 7/7, 4/4. No status moves.
 - The full theorem selftest started for item 243 was stopped at the background time limit, so it never finished. It is
   rerun with a longer limit, covering items 243–245.
+
+## History (2026-10-11, item 246: the unit cell completed; the bulk index is infinite)
+
+- **M, item 246:** *"add the other six to complete the unit cell"*, and, of the board's *"The bulk index now holds
+  eighteen universes"*: *"no, it contains infinite universes"*.
+  - The direction is carried out: `bulk5_index.py` gains `UNIT_REST` (the other six) and `UNIT_CELL` (twenty-four).
+  - The correction is recorded. The board's sentence is withdrawn, and the instruments' wording "the eighteen members
+    the bulk index has" is corrected in `bulk5_index.py` and `bulk18.py`. The computed members are cells of the bulk
+    index, not the index (`lemmas/unit_cell.py`).
+- **The other six (U1, U2, exact):**
+  - Two thirds of a 2P step (G × 2^(2/3), tension × 2^(−4/3)) and 2b with a third of one (G × 2^(4/3),
+    tension × 2^(−2/3)), under each law. Their 5D side agrees with the sector to 10⁻¹².
+  - Every constant holds on them, and each one's own index is closed under both regime readings.
+  - They add no geometry. The cell holds eight 5D bulks, and each geometry carries four couplings in doublings: ours'
+    ×1–×8, 2b's ×2–×16.
+  - Ours, 2P/3, 2P × 2/3 and 2P lie on 2P's ray, a third apart.
+  - Weights, relative / absolute: 2P × 2/3 (W − 2/3)/W and (W − 4/3)/W; 2b + 2P/3 (W − 2)/W and (W − 8/3)/W.
+- **The cell through the cypher (U3):**
+  - The twenty-four are closed in both bases in every language (E = 0), with no key and no one-hot code.
+  - Left out, every member is predicted by the rest in 201's basis. In the 5D basis all are predicted except the far
+    corners, 2a-mirror and 2b+2P.
+- **The infinite index (U4):**
+  - The bulk index is the lattice of (law, i, j), with i whole and j in thirds. Every one of its universes is a cell
+    member moved by whole 2b and 2P steps (exact, on a box), so it holds infinitely many universes.
+  - The cypher takes finite indexes, so it was asked of translates and windows. Eight translates, toward stronger and
+    weaker gravity, are closed in both bases. Windows of 2 × 2, 3 × 3 and 4 × 2 cells from ours are closed.
+  - 2 × 2 cells around ours are closed in 201's basis under every order. In the 5D basis they are closed under exactly
+    the two orders that run geometry and coupling opposite ways, and open (E = 18) under the other two: closure under
+    some order, as §15.3 asks.
+  - No window admits a universe between the thirds.
+  - The plausible part on the thirds is i ≤ 98, j ≤ 196 2/3, and it runs off the scan box: infinite, as item 233's K3
+    found.
+- **Not shown:**
+  - That the infinite index is closed: the windows are evidence, not a proof for all.
+  - The continuous unseen axes (the offset's ratio; the matter law between and beyond the three computed), which this
+    item does not cut.
+- `unit_cell.py`: selftest 5/5, mutants 3/3. `bulk5_index.py` 7/7; `bulk18.py` 6/6 (pinned to its eighteen as item
+  245's record). No status moves.

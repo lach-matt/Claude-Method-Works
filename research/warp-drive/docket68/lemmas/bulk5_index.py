@@ -64,10 +64,14 @@ statistics language over the positions; an axis the positions never move is repo
      225 A's shared SI (p2_planck Q1), so not possible universes under a README every universe can read.
 
 Item 245 (M: "add the six in-between universes to the bulk index").  IN_BETWEEN holds the six K5 found -- G x 2^(1/3)
-with the tension x 2^(-2/3), and G x 2^(5/3) with x 2^(-4/3), each under the three laws -- and BULK the eighteen members
-the bulk index has since; exps_gs and five_d_bulk build any member's 5D side at exact fractional exponents.  K1-K7 above
-are item 233's record over the twelve and are checked as they were; the eighteen are built and put to the cypher in
-bulk18.py.
+with the tension x 2^(-2/3), and G x 2^(5/3) with x 2^(-4/3), each under the three laws; exps_gs and five_d_bulk build
+any member's 5D side at exact fractional exponents; the eighteen are put to the cypher in bulk18.py.  Item 246 (M: "add
+the other six to complete the unit cell" -- and, of the board's "the bulk index now holds eighteen universes": "no, it
+contains infinite universes"): UNIT_REST holds the other six (G x 2^(2/3) with x 2^(-4/3); G x 2^(4/3) with x 2^(-2/3)),
+UNIT_CELL the twenty-four.  They are the index's unit cell, not the index: the bulk index is the cell and all its
+translates by whole 2b and 2P steps (lattice_member), infinitely many universes, as K3 below already measured of its
+plausible part.  unit_cell.py puts the cell, its translates and windows of cells to the cypher.  K1-K7 above are item
+233's record over the twelve and are checked as they were.
 
 What this does not show.
   - W and the floors are the window's computed values (sigma_cypher W1, imported exact, 209); C uses the example README.
@@ -123,9 +127,24 @@ LAW_ORDER = ("ours", "min", "mirror")                                           
 IN_BETWEEN = {"2P/3": ("ours", F(1, 3), F(-2, 3)), "2a+2P/3-min": ("min", F(1, 3), F(-2, 3)),
               "2a+2P/3-mirror": ("mirror", F(1, 3), F(-2, 3)), "2b+2P*2/3": ("ours", F(5, 3), F(-4, 3)),
               "2c+2P*2/3-min": ("min", F(5, 3), F(-4, 3)), "2c+2P*2/3-mirror": ("mirror", F(5, 3), F(-4, 3))}
-# the bulk index's members since item 245: the twelve (item 233's record, checked below as it was) and the six
-BULK = dict({n: (law, F(int(math.log2(gf))), F(round(math.log2(float(sf))))) for n, (law, gf, sf) in PP.MEMBERS.items()},
-            **IN_BETWEEN)
+# item 246 (M: "add the other six to complete the unit cell"): the six 201's basis admitted beyond the eighteen -- two
+# thirds of a 2P step, and 2b with a third of one, under each law
+UNIT_REST = {"2P*2/3": ("ours", F(2, 3), F(-4, 3)), "2a+2P*2/3-min": ("min", F(2, 3), F(-4, 3)),
+             "2a+2P*2/3-mirror": ("mirror", F(2, 3), F(-4, 3)), "2b+2P/3": ("ours", F(4, 3), F(-2, 3)),
+             "2c+2P/3-min": ("min", F(4, 3), F(-2, 3)), "2c+2P/3-mirror": ("mirror", F(4, 3), F(-2, 3))}
+# the twelve as exact (law, g, s)
+TWELVE = {n: (law, F(int(math.log2(gf))), F(round(math.log2(float(sf))))) for n, (law, gf, sf) in PP.MEMBERS.items()}
+# item 246 also corrects item 245's wording: the bulk index contains infinitely many universes.  These twenty-four are
+# its unit cell (i in {0, 1}, j in {0, 1/3, 2/3, 1}, three laws); the index is the cell and every translate of it by
+# whole steps of 2b and 2P (lattice_member), without end -- and item 233's unseen axes besides.
+UNIT_CELL = dict(TWELVE, **IN_BETWEEN, **UNIT_REST)
+
+
+def lattice_member(law, i, j):
+    """the universe of the bulk index at (law, i 2b-steps, j 2P-steps), j in thirds: (law, g, s) = (law, i + j, -2j)"""
+    i, j = F(i), F(j)
+    assert (3 * j).denominator == 1 and i.denominator == 1
+    return (law, i + j, -2 * j)
 
 
 # ============================================================================================== K1 the 5D side
@@ -146,11 +165,11 @@ def exps_gs(g, s):
 
 
 def five_d_bulk(members=None):
-    """each bulk member's exact 5D exponents (BULK by default), checked against p2_planck.sector()'s floats at
+    """each member's exact 5D exponents (the unit cell by default), checked against p2_planck.sector()'s floats at
     G x 2^g, tension x 2^s"""
     base = PP.sector(1, F(1))
     out = {}
-    for name, (law, g, s) in (members or BULK).items():
+    for name, (law, g, s) in (members or UNIT_CELL).items():
         e = exps_gs(g, s)
         gf, sf = 2.0 ** float(g), 2.0 ** float(s)
         sec = PP.sector(gf, sf)

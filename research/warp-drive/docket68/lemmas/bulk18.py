@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """bulk18.py -- item 245: the bulk index with the six in-between universes added.  M: "add the six in-between universes
 to the bulk index".  The six are bulk5_index.IN_BETWEEN (G x 2^(1/3) with the tension x 2^(-2/3), a third of a 2P step;
-G x 2^(5/3) with x 2^(-4/3), 2b and two thirds of one; each under the three matter laws), and bulk5_index.BULK holds the
-eighteen.  Item 233's twelve-member results stay as recorded in bulk5_index K1-K7.  Worked in the conversation
+G x 2^(5/3) with x 2^(-4/3), 2b and two thirds of one; each under the three matter laws).  Item 233's twelve-member
+results stay as recorded in bulk5_index K1-K7.  Item 246 corrected this item's wording: the bulk index contains
+infinitely many universes, and these eighteen are cells of it, not the index; it completed the unit cell
+(unit_cell.py).  What follows is item 245's record of the eighteen.  Worked in the conversation
 (computed, exact where marked; deduced where marked; not verified by a separate session; not seated); 2026-10-11.
 
   X0 (read) M's item-245 words, verbatim in the rulings file.
@@ -90,7 +92,7 @@ SIX = list(B5.IN_BETWEEN)
 
 
 def bulk():
-    members = dict(B5.BULK)
+    members = dict(B5.TWELVE, **B5.IN_BETWEEN)
     if MUT.get("wrong_third"):
         law, g, s = members["2P/3"]
         members["2P/3"] = (law, g, F(-1, 3))
