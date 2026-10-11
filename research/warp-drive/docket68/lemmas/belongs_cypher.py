@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """belongs_cypher.py -- what in the seated theorem does not belong, and what is missing, asked of the cypher on its exact
-counts (items 208, 209; tables re-measured through item 231).  Computed by import of warptheorem.py and tools/cypher.py; deduced where marked; not verified by
+counts (items 208, 209; tables re-measured through item 232).  Computed by import of warptheorem.py and tools/cypher.py; deduced where marked; not verified by
 a separate session; not seated; 2026-10-10.
 
 M, 208: "We have too much information in the cypher. Something doesn't belong. Ask the cypher what the ring is supposed to
@@ -50,6 +50,7 @@ less held cells), never a ratio.
      1.  Ten lemmas turn green and the index does not close: on this coding a derived input is a cell of its own beside
      four OPEN ones.  Z3b, B3 and B4d still fall most (-261), M1P2x next (-169); 6 cells every language admits are
      missing, each lowering E by exactly one in every language.  Recorded, not repaired
+  B12 (computed) item 232 returned M1 to OPEN: the table is item 229's again, exact E 610 (220/220/39/114/17), 16 cells
 Item-208 critics (an independent rebuild, 74 design-and-coding jobs and 382 more codings): every count here reproduces;
 no single row closes any design; which row falls most depends on the design; no "missing" cell survives a change of
 coding -- B4 is the shared excess, nothing more.
@@ -79,9 +80,11 @@ CO = ["status"] + INPUTS + ["scope", "input"]
 BROAD = re.compile(r"~|\bheuristic\b|\bcalibrat|\bPade\b|\bflat limit\b|\d\.\d+\s*-\s*\d\.\d+|\b\d+\s*-\s*\d+\s+clocks")
 AS_ASKED = {"Z3b": "DERIVED"}            # the table as it stood when M asked (item 208); item 208's seating set Z3b OPEN
 # statuses moved after a table was measured: each earlier table is rebuilt with the row's status before the move
-TABLES = ["as_asked", "after_208", "after_210", "after_211", "after_229", "seated"]
+TABLES = ["as_asked", "after_208", "after_210", "after_211", "after_229", "after_231", "seated"]
 MOVED = [("after_229", {"B5px": "OPEN"}),          # item 229 seated B5px DERIVED
-         ("seated", {"M1": "OPEN"})]               # item 231 seated M1 DERIVED (the input row's own status)
+         ("after_231", {"M1": "OPEN"}),            # item 231 seated M1 DERIVED (the input row's own status)
+         ("seated", {"M1": "DERIVED"})]            # item 232 returned M1 to OPEN
+# a table reads each row's status as it stood then: the moves made after it are undone, latest first
 
 
 def _load(path, key):
@@ -135,7 +138,7 @@ def rows(table="as_asked"):
         key = name.split()[0]
         if table == "as_asked":
             status = AS_ASKED.get(key, status)
-        for since, before in ([] if MUT.get("moved_ignored") else MOVED):
+        for since, before in ([] if MUT.get("moved_ignored") else reversed(MOVED)):
             if TABLES.index(table) < TABLES.index(since):
                 status = before.get(key, status)
         text = name.lower()
@@ -201,7 +204,8 @@ def compute():
     d["now"] = measure("after_210")
     d["s211"] = measure("after_211")
     d["s229"] = measure("after_229")
-    d["s231"] = measure("seated")
+    d["s231"] = measure("after_231")
+    d["s232"] = measure("seated")
     d["words"] = words()
     return d
 
@@ -262,6 +266,10 @@ def checks(d):
         and [(x[0], x[1]) for x in s1["drops"][:2]] == [(-261, ["Z3b", "B3", "B4d"]), (-169, ["M1P2x"])]
         and len(s1["missing"]) == 6 and set(s1["add_one"]) == {(-1, -1, -1, -1, -1)}
         and ["M1"] in s1["names"].values())
+    s2b = d["s232"]
+    add("B12 on the table as seated after item 232 (M1 OPEN again): item 229's table -- 51 rows, 16 cells, exact E 610 "
+        "(220/220/39/114/17)", s2b["n"] == 51 and s2b["distinct"] == 16 and s2b["E"] == s9["E"]
+        and total(s2b["E"]) == 610)
     no_rise = lambda m: all(m["pair"][lg] <= m["E"][lg] for lg in LANGS) and total(m["pair"]) < total(m["E"])
     add("B7 B4b and B4c left out together lower the exact E with no language rising, as asked and as corrected (the "
         "critics: on every coding tried, and not unique -- six other pairs do it too)", no_rise(d) and no_rise(se))
@@ -310,6 +318,7 @@ def report(d):
     print("as seated after item 229: exact E %s (total %d)" % (d["s229"]["E"], total(d["s229"]["E"])))
     print("as seated after item 231: exact E %s (total %d); first falls: %s" % (d["s231"]["E"], total(d["s231"]["E"]),
           [(x[0], x[1]) for x in d["s231"]["drops"][:4]]))
+    print("as seated after item 232: exact E %s (total %d)" % (d["s232"]["E"], total(d["s232"]["E"])))
     print("left out one at a time (exact fall in total E):")
     for dd, nm, e in d["drops"]:
         print("  %5d  %-40s %s" % (dd, ",".join(nm), e))

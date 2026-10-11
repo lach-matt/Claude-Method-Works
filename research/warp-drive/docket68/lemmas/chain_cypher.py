@@ -39,6 +39,8 @@ Sources of this round's changes (each checked by two separate AI sessions in thi
   item 231         M1 DERIVED (m1_bulk.py: 210 M's statement, D+ confirmed by d_minus.py).  An input counts green by its
                    own status, as warptheorem.py's rule has it (given()): 22 -> 32 strict, 26 -> 36 audit.  Not
                    verified by a separate session.
+  item 232         M overruled the board's readings 230 (a), 230 (b) and (e): M1 OPEN again (m1_bulk.py M7), 32 -> 22
+                   strict, 36 -> 26 audit; the rule stays, tested in C10 on M1 seated hypothetically.
 python3 chain_cypher.py [--selftest | --mutants]
 """
 import contextlib
@@ -74,10 +76,12 @@ ROWS = [(n.split()[0], st, _WT.RESTS_ON.get(n.split()[0], ""), n.split()[0]) for
 INPUT_STATUS = {n.split()[0]: st for c, n, st, w in _WT.LEMMAS if c == "N"}
 
 
-def given(extra=()):
+def given(extra=(), status=None):
     """the inputs counted green: those whose own status is green (warptheorem.py's rule -- a lemma is green only when
-    every input it rests on is; M1 DERIVED on item 231), plus any put in by hypothesis"""
-    own = set() if MUT.get("inputs_by_name") else {k for k, st in INPUT_STATUS.items() if st in GREEN}
+    every input it rests on is; M1 DERIVED on item 231, OPEN again on 232), plus any put in by hypothesis; status
+    replaces the inputs' statuses (a hypothetical seating)"""
+    st = INPUT_STATUS if status is None else status
+    own = set() if MUT.get("inputs_by_name") else {k for k, v in st.items() if v in GREEN}
     return own | set(extra)
 
 
@@ -131,8 +135,8 @@ def tally():
         if hits:
             out["smallest"] = hits
             break
-    held_open = given() - {"M1"}                              # the chain before item 231 seated M1
-    out["m1_open"] = (sum(green(r, held_open) for r in R), sum(green(r, held_open, True) for r in R))
+    derived = given(status=dict(INPUT_STATUS, M1="DERIVED"))  # M1 seated by its own status, as on item 231
+    out["m1_derived"] = (sum(green(r, derived) for r in R), sum(green(r, derived, True) for r in R))
     out["on_m1_alone"] = sorted(r[0] for r in R if r[2] == "M1")
     out["with"] = {S: sum(green(r, given(S)) for r in R) for S in (("M1",), ("M1", "CLOSE"), ("M1", "M1P2x", "CLOSE"),
                                                                   tuple(INPUTS))}
@@ -212,15 +216,15 @@ def compute():
 def checks(d):
     t, res = d["tally"], []
     add = lambda name, ok: res.append((name, bool(ok)))
-    add("C1 green now (seated, items 206-231): 32 of 45 (strict), 36 of 45 (audit rule) -- M1 DERIVED on item 231 and "
-        "counted green by its own status (22 and 26 before it); B5pu and B5px (item 229) among them; B6 on 200 (1), Z3c "
-        "DERIVED, B6' a DEFINITION (201)", len(t["strict"]) == 32 and len(t["audit"]) == 36 and t["given"] == ["M1"]
+    add("C1 green now (seated, items 206-232): 22 of 45 (strict), 26 of 45 (audit rule) -- M1 OPEN again on item 232 "
+        "(32 and 36 while it was DERIVED, item 231); B5pu and B5px (item 229) among them; B6 on 200 (1), Z3c DERIVED, "
+        "B6' a DEFINITION (201)", len(t["strict"]) == 22 and len(t["audit"]) == 26 and t["given"] == []
         and t["n"] == 45
         and "B5pu" in t["strict"] and "B6" in t["strict"] and "Z3c" in t["strict"] and "B6'" in t["audit"])
-    add("C2 the smallest set of open inputs greening every green-status lemma is {M1P2x, WRITE, ARRIVAL, CLOSE} (M1 "
-        "green since item 231): FAR entered only through Z3b, OPEN again since item 208",
-        t["smallest"] == [("M1P2x", "WRITE", "ARRIVAL", "CLOSE")])
-    add("C3 with M1 (seated) 32 of 45; with CLOSE too 34; with M1P2x too 35; with every input 36 (the other 9: 5 "
+    add("C2 the smallest set of open inputs greening every green-status lemma is {M1, M1P2x, WRITE, ARRIVAL, CLOSE}: "
+        "FAR entered only through Z3b, OPEN again since item 208",
+        t["smallest"] == [("M1", "M1P2x", "WRITE", "ARRIVAL", "CLOSE")])
+    add("C3 M1 alone greens 32 of 45; with CLOSE too 34; with M1P2x too 35; with every input 36 (the other 9: 5 "
         "non-green by their own status, 4 definitions under the strict rule)", t["with"][("M1",)] == 32
         and t["with"][("M1", "CLOSE")] == 34 and t["with"][("M1", "M1P2x", "CLOSE")] == 35 and t["with"][tuple(INPUTS)] == 36)
     add("C4 no row is never-greenable; 5 rows non-green by their own status (O3, Z3b, B3, B4d, B5b; B5px DERIVED on item "
@@ -240,8 +244,9 @@ def checks(d):
         bool({"CLOSE", "M1"} & d["ctrl"]["adds_nothing"]) and not ({"CLOSE", "M1"} & d["cy"]["adds_nothing"]))
     add("C9 nothing is held (item 206 seated the 204 splits): the held view equals the chain", d["held"]["n"] == t["n"]
         and len(d["held"]["strict"]) == len(t["strict"]) and HELD == [])
-    add("C10 with M1 held OPEN (the chain before item 231) 22 strict, 26 audit; the ten rows resting on M1 alone, green "
-        "since: B2t, E4r, G1, G3, H2tu, O1b, O1c, O2, Z1t, Z2r", t["m1_open"] == (22, 26)
+    add("C10 the green-input rule: with M1's own status DERIVED (as seated on item 231) 32 strict, 36 audit -- an input "
+        "green by its own status counts green; the ten rows resting on M1 alone: B2t, E4r, G1, G3, H2tu, O1b, O1c, O2, "
+        "Z1t, Z2r", t["m1_derived"] == (32, 36)
         and t["on_m1_alone"] == ["B2t", "E4r", "G1", "G3", "H2tu", "O1b", "O1c", "O2", "Z1t", "Z2r"])
     return res
 
@@ -276,7 +281,7 @@ def mutants():
 
 def report(d):
     t = d["tally"]
-    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-231)\n")
+    print("chain_cypher.py -- the chain, read from the seated theorem (warptheorem.py, items 206-232)\n")
     print("green now: %d of %d strict, %d audit rule" % (len(t["strict"]), t["n"], len(t["audit"])))
     print("  green:", " ".join(t["strict"]))
     print("  non-green by own status:", t["own_status"])

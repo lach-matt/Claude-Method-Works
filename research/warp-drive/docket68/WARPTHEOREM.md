@@ -30,7 +30,7 @@ The corridor is the following, clause by clause.
 - **(G) Geometry** (seated as re-worded, item 187).
   - The corridor sits in the bulk, on neither plane; it only bridges them (179/180).
   - Bronnikov–Kim's eq. (17) at r₀ = 2m is kept only as a plane's possible reading of the corridor's mouth
-    (H-PLANE-READS-MOUTH, the board's; M1, derived on item 231).
+    (H-PLANE-READS-MOUTH, the board's; M1, OPEN: derived on item 231, OPEN again on item 232).
   - **E = √(N h c⁵ ln2 / (8π²G)) = 459,404,002.42 J × √N.**
   - **m = GE/c⁴.**
   - **r₀ = 2m = √(N h G ln2 / (2π²c³)).**
@@ -117,7 +117,7 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 | R | R3 exactness at the instant over the mass window | proved | — | exactcopy.py, rearrange.py |
 | R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance (101 answer 7, 136 answer 3, 139 (4)) | derived | — | r4_length.py |
 | R | R5 the build's mechanism: the field reaction by which the released energy and the README rearrange position 2's matter -- which field, and what … | derived | — | r5_build.py |
-| N | M1 the plane's reading of the corridor's mouth (replaces F1; DERIVED on item 231) | derived | — | corridor_shape.py, rim_profile.py, forming_rim.py ... |
+| N | M1 the plane's reading of the corridor's mouth (replaces F1; OPEN, again on item 232) | **OPEN** | — | corridor_shape.py, rim_profile.py, forming_rim.py ... |
 | N | M1P2x position 2's side reads eq. (17)'s other leg (OPEN) | **OPEN** | — | g2_between.py, m1p2_cypher.py, m1x_cypher.py ... |
 | N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 (OPEN) | **OPEN** | — | far_cypher.py, far_bridge.py, theorem_p2.py |
 | N | WRITE the static bulk held through the whole write, >= 2.0e5 clocks (OPEN; R1-COVER pending) | **OPEN** | — | write_cypher.py, asym_junction.py |
@@ -126,11 +126,11 @@ claims are in the instrument; "rests on" names the inputs (clause N) a status is
 
 Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 
-- **The count:** 51 rows, 45 lemmas and 6 inputs (clause N: M1, derived on item 231; M1P2x, FAR, WRITE, ARRIVAL,
-  CLOSE, OPEN).
+- **The count:** 51 rows, 45 lemmas and 6 inputs (clause N: M1, M1P2x, FAR, WRITE, ARRIVAL, CLOSE, all OPEN; M1
+  was derived on item 231 and returned to OPEN on item 232).
   - Of the 45 lemmas: 17 proved, 19 derived, 4 definitions, 5 OPEN (O3, Z3b, B3, B4d, B5b).
-  - **32 green** under the strict rule (proved or derived, resting on no input that is not itself green: M1 counts
-    green since item 231); 36 counting definitions.
+  - **22 green** under the strict rule (proved or derived, resting on no input that is not itself green); 26 counting
+    definitions.
   - 18 rows rest on an input. warptheorem.py prints it from its list; selftest 8/8.
 - **T2 (STRUCTURAL)** confirms that the theorem follows from all its lemmas, and that dropping any OPEN lemma loses it.
 
@@ -1411,3 +1411,43 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - Not verified by a separate session.
 - **Next:** B4d, the five-dimensional evolution, on which O3, B3, Z3b, WRITE, ARRIVAL and CLOSE wait, is the hub. Of
   the inputs, CLOSE greens the most rows (E1x, E2x).
+
+## History (2026-10-11, item 232: nine answers; M1 OPEN again)
+
+- **M asked for the open questions one at a time, with context.** The board put nine, and M answered each.
+- **The guesses:**
+  - **H-METHOD-EQUATION-CONNECTS** (217) is now M's statement: the method equation itself connects position 1 to
+    position 2.
+  - **H-BULK-THIRD-BODY** (217) is now M's statement: the everything bulk contributes something unseen, which makes
+    this a three-body problem.
+  - **H-TWO-SIDED-BRIDGE** (182) is withdrawn: *"No: the index"*. The connection is the everything bulk index's (215),
+    not one bridge object.
+  - **H-Z-REFLECTION** (212) is withdrawn: *"No"*.
+  - **H-README-FORMS-THE-CORRIDOR** (198): *"1 - compute the formation in the bulk to confirm"*. It is M's inclination,
+    confirmed only by that computation.
+- **The board's readings, overruled:** 230 (a), 230 (b) and the reading on clause (e).
+- **D+:** *"Compute the limit"*. The bank is to be extended to the throat and the last step computed. Until then D+
+  stays carried by d_minus.py's computation.
+- **Seated (206):**
+  - **M1 DERIVED → OPEN.** Three clauses now need a computation M requires, and none has been done
+    (`m1_bulk.py` M7):
+    - **the kink:** the everything bulk built in five dimensions, with the warp's kink following our plane into the
+      corridor;
+    - **203:** the corridor's own energy equal to the README's E;
+    - **(e):** regular through the whole bulk under the corridor, with b4_static S2's singular surface counting
+      against it.
+  - Notes on ARRIVAL (the formation to compute), FAR (model C not M's configuration) and Z3b (H-Z-REFLECTION
+    withdrawn; the ring class waits on the kink bulk).
+  - The fixtures moved back: chain_cypher, theorem_p2, m1_bulk; belongs_cypher B12.
+- **The count:**
+  - **22 green** under the strict rule, **26** counting definitions: item 229's count again.
+  - M1 alone would green 32. The green-input rule stays, tested on M1 seated by hypothesis (chain_cypher C10).
+  - The theorem's exact E is 610 again (belongs_cypher B12).
+- **What the board computes next.** The work M has now named:
+  1. the everything bulk in 5D, with the warp's kink following our plane into the corridor (M1; Z3b's ring class);
+  2. the corridor's own energy equal to E (203);
+  3. regularity through the whole bulk under the corridor;
+  4. D−'s limit at the throat, with the bank extended;
+  5. the corridor's formation in the bulk (ARRIVAL);
+  6. the method equation's metric half as a three-body problem, with the bulk as the third body, on positions 2a–2P's
+     values (217).

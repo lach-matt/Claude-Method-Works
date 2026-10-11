@@ -23,7 +23,8 @@ conversation by three lenses; not verified by a separate session; not seated bey
      - WARPTHEOREM.md's head table had not been regenerated since item 206.  It still showed 34 lemmas, with B6' as
        "nature", against warptheorem.py's 51 rows (45 lemmas, 6 inputs; 17 proved, 18 derived, 4 definitions, 6 OPEN;
        then 21 green strict, 25 counting definitions; 22 and 26 since item 229 derived B5px; 32 and 36 since item 231
-       derived M1, an input counting green by its own status), where B6' is a
+       derived M1, an input counting green by its own status; 22 and 26 again since item 232 returned M1 to OPEN), where
+       B6' is a
        DEFINITION on item 201.  The history had carried the
        true count since item 206.  The head is now generated from the instrument, and checked against it here.
      - B6' (201) defines our universe among those with our laws.  Under one coupling (H-ONE-G5) sigma fixes G and ell.
@@ -428,12 +429,12 @@ def checks(o):
     B = o["B"]
     h = B["head"]
     ok = h["agree"] and h["count_in_md"] and h["green_in_md"] and h["count"] == "51 rows, 45 lemmas and 6 inputs"
-    ok &= h["green"] == 32 and h["b6"] == "DEFINITION"     # 21 until item 229 (B5px), 22 until item 231 (M1)
+    ok &= h["green"] == 22 and h["b6"] == "DEFINITION"     # 21 until item 229 (B5px); 32 on item 231 (M1), 22 on 232
     ok &= all(abs(r["p2b"] / r["ours4"] - 1) < 1e-12 and abs(r["ours"] / r["p2b"] - 2) < 1e-12 for r in B["pairs"].values())
     ok &= "%.6e" % B["gl2"]["ours"] == "1.301444e-20" and abs(B["gl2"]["2b"] / B["gl2"]["ours"] - 1) < 1e-12
     ok &= ["%.6e" % B["win"][u]["top_planck"] for u in ("ours", "2b")] == ["5.932360e-02"] * 2
     ok &= ("%.4e" % B["win"]["ours"]["top"], "%.4e" % B["win"]["2b"]["top"]) == ("2.7484e+112", "6.8711e+111")
-    add("TB WARPTHEOREM.md's head agrees with warptheorem.py (51 rows, 32 green since item 231, B6' a DEFINITION); G ell^2 1.301444e-20 "
+    add("TB WARPTHEOREM.md's head agrees with warptheorem.py (51 rows, 22 green since item 232, B6' a DEFINITION); G ell^2 1.301444e-20 "
         "in ours and 2b; 2b at sigma has ours-at-4-sigma's ell/m at every N; the window's top 0.0593236 sigma_P in both", ok)
     C = o["C"]
     ok = [(C[n]["m_ratio"], C[n]["capacity"], C[n]["b5px_normal"]) for n in CANDIDATES] == [
