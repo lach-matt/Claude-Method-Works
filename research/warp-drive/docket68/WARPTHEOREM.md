@@ -1128,3 +1128,80 @@ The theorem is proved exactly when no lemma below is OPEN.
   - Friedmann histories and BBN are not computed.
   - A body whose central pressure passes its own rows' reach (12.8–27.4 GPa under our law) is outside the banked
     equations of state.
+
+## History (2026-10-11, item 224: position 2c — positions 2a and 2b together; the three positions 2 side by side)
+
+- **M, item 224:** "We need another set of readings. Let's make another position 2 by combining the other to position
+  2s. Call them 2a 2b and 2c. 2c is 2a+2b. Keep all the work here with no workflows so that I may remain involved and
+  keep an eye on the process please. Once we have all the data from all 3 position 2s, I would imagine we have enough
+  information to go back to the warp theorem"
+- **Position 2c (`lemmas/p2_combined.py`).** Item 221's d-shell law, in both its forms (min and mirror), together with
+  item 223's κ₅⁴ = 2 × ours. σ, the offset and every other law are ours. 2a and 2b are imported, never copied. The
+  work was done in the conversation, and its three critic lenses were run there too.
+- **What 2c inherits from one law alone (deduced).**
+  - The d-shell law reaches none of σ, the offset, G, ℓ or m, so 2c's gravitational sector, corridor and stars are 2b's.
+  - Gravity's share of an atom's binding is 8.8 × 10⁻⁴⁰, so 2c's molecules, solids and chemistry are 2a's.
+- **Where both act at once: bodies (computed).** 1 × 10²² kg of one metal, cold and hydrostatic.
+  - The two laws nearly compound. Against the product of 2a's and 2b's effects, 2c departs by at most:
+    - 0.68 % in surface gravity;
+    - 1.03 % in mean density;
+    - 2.18 % in central pressure (all silver under the mirror law).
+  - The departure is 2a's change to the metal's compression.
+    - 2b's pull beyond × 2 follows t = k·Pc/B₀, with k fitted per metal on ours and 2b alone.
+    - Carried to 2a's metal, it predicts the sign of all six interactions, and their sizes to 0.69–1.14 of the
+      computed values.
+    - Where 2a stiffens the metal, the interaction is negative. Under gold's min law the metal softens (B₀ −5 %), and
+      it turns positive.
+    - Logic's binary agrees in all five languages: the interaction's sign is fixed by the sign of the change in Pc/B₀.
+      A control with one sign flipped is refused.
+    - The rule rests on one positive case.
+  - Gold under 2c's mirror law reaches 26.7 GPa at its centre, 33 % past its banked rows. That body rests on the fit
+    extrapolated.
+  - A body's mass: its gravitational binding doubles, to 1.4 × 10⁻¹¹ of Mc² for copper in 2c. That is the same order as
+    2a's shift in an atom's mass, which is gauge-dependent (item 221). The elastic energy stored by compression is
+    0.2–1.3 % of the binding.
+- **Through the cypher.**
+  - On the sectors, the measured coordinates fall into two classes: gravity, and matter. The six universes (ours, 2a ×
+    2, 2b, 2c × 2) fill the 3 × 2 product of the two classes.
+  - Read as distance from ours, the index is closed in every language. Left out, 2c is admitted by order, algebra and
+    information as exactly the join of 2a and 2b.
+  - Read in raw numeric order it is not. There the disproportionation energy falls while the densities rise, and no
+    language predicts 2c. Geometry and statistics refuse 2c from its parents in either order.
+  - **2c is the join of its parents only when each change is read as a distance from ours.**
+  - On the bodies, every g is a key, so that index is void (211). No language can produce 2c's bodies from its
+    parents: they had to be computed.
+- **Item 201's coordinates over the six universes.**
+  - In SI, σ and the offset make one cell of all six.
+  - In Planck units they make two, {ours, 2a} and {2b, 2c}.
+  - With the matter law as a coordinate they make six.
+  - 201's two numbers never tell a matter law apart.
+- **The three positions 2 side by side (2a and 2c each have two members, min / mirror):**
+
+  | | ours | 2a | 2b | 2c |
+  |---|---|---|---|---|
+  | changed law | — | d-shell energy | κ₅⁴ × 2 | both |
+  | σ, offset (SI) | ours | ours | ours | ours |
+  | G; ℓ; m₁ | ours | ours | × 2; × 1/√2; × √2 | as 2b |
+  | E₁ (J) | 4.594040 × 10⁸ | ours | 3.248477 × 10⁸ | as 2b |
+  | N_max | 1.5918 × 10¹²² | ours | 3.9795 × 10¹²¹ | as 2b |
+  | σ/σ_P, δσ/σ_P | ours | ours | × 4 | × 4 |
+  | Ag, zero-pressure (kg/m³) | 9942.9 | 12235.2 / 13991.7 | 9942.9 | as 2a |
+  | 2CuF → Cu + CuF₂ (eV) | +0.294 | −0.176 / −1.046 | +0.294 | as 2a |
+  | Ag body g (m/s²) | 1.7526 | 2.0028 / 2.1833 | 3.5506 | 4.0408 / 4.3930 |
+  | Au body g (m/s²) | 2.5679 | 2.5895 / 2.6234 | 5.2244 | 5.2772 / 5.3344 |
+  | Cu body binding, W/Mc² | 6.87 × 10⁻¹² | 7.02 / 7.15 × 10⁻¹² | 1.38 × 10⁻¹¹ | 1.41 / 1.44 × 10⁻¹¹ |
+  | a star's L at fixed mass | ours | ours | × 16 (massive) to × 128–256 (Sun-like) | as 2b |
+  | 201's cell: SI / Planck | A / A | A / A | A / B | A / B |
+
+- **What it does not show.**
+  - The d-shell law is the board's reconstruction.
+  - Bodies were computed for Cu, Ag and Au only.
+  - Stars are READ scalings, not models.
+  - No molecule or solid was recomputed under 2G; that they are 2a's is deduced from gravity's 10⁻³⁹ share.
+- **Status.** `--selftest` passes 9/9, and `--mutants` catches 5/5.
+  - Seated from the conversation's critic lenses:
+    - the raw-order cypher run;
+    - the elastic energy;
+    - the digits held against 2400 steps;
+    - 0.68 %, not 0.69 %.
+  - Nothing is seated by this item alone.
