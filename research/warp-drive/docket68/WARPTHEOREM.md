@@ -899,3 +899,35 @@ The theorem is proved exactly when no lemma below is OPEN.
 - **Not computed:** which physical difference makes the collapse come first.
   - M's paper reads that with c → ∞ eleven entrants change, but La, Ac and Th do not.
   - The chain data are pending bank.
+
+## History (2026-10-11, item 220: the Löwdin bank is in the repository; no constant of the atom removes the exceptions)
+
+- **M, item 220:** "That and all the lowdin Handoff and chat transcipts are all in the repo"
+- **The chain, rebuilt (`lemmas/lowdin_replay.py`).**
+  - The Löwdin walk is `nlchain.py` on the ruling scalar-relativistic HF field, with the session-48 convergence guard.
+  - It is rebuilt by replaying every file operation in the 105 Löwdin chats.
+  - `t7b_hf.py` reproduces the sha256 the chat printed in session 28.
+  - The rebuilt step reproduces the record's rows exactly: Sc, Ac and Th at our c, and Th, La and Ac at c = 10⁶.
+- **The one constant M's field enters, c = 1/α (`lemmas/madelung_field.py`).**
+
+  | d − f gap (Ha) | c = 115 | 137.036 (ours) | 200 | 300 | 10⁶ |
+  |---|---|---|---|---|---|
+  | La 5d/4f | 0.139 | 0.100 | 0.049 | 0.024 | 0.003 |
+  | Ac 6d/5f | 0.096 | 0.126 | 0.094 | 0.055 | 0.022 |
+  | Th 6d/5f | 0.125 | 0.054 | −0.041 | −0.090 | −0.129 |
+
+  - La and Ac stay d-elements at every c; their gaps fall linearly in 1/c² to +2.9 mHa and +22 mHa at α = 0.
+  - Th's exception goes above c ≈ 164, bracketed by computed rows at c = 160 and 170.
+- **No other single change in the atom does it.**
+  - Local exchange (the record's own `hfs` switch) keeps Th as 6d.
+  - Scaling the electron–electron coupling destroys neutrality.
+  - The non-relativistic equation has no constant at all.
+  - On M's chain, position 2's condition is therefore a different law, not a different constant.
+  - Spin-orbit, even at the paper's worst case, does not reopen it.
+- **A finding about M's paper, recorded and not repaired.** The paper's relativistic clause (eleven elements
+  "misplaced" with c → ∞; Figure 5) is drawn from `rt/cinf.jsonl`.
+  - The record voided that walk itself, at F54.2 and F59.3: it ran at c = 137.036.
+  - Its eleven are session 53's restart-versus-chained differences, borne by the reference configuration.
+  - The record's live-lever walks (sessions 54 and 60) and this board's runs change one entrant: Th's.
+- **For the corridor:** none of σ, the offset, G, ℓ or m moves. Position 2 differs in the law that sets its element
+  table, which the bulk index needs as a coordinate.

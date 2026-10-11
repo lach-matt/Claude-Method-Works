@@ -1,0 +1,1511 @@
+{
+ "what": "item 219/220: chain steps of M's L\u00f6wdin walk (nlchain s40/s48 on the ruling hfc2 field), rebuilt from the chats by lemmas/lowdin_replay.py; computed 2026-10-11",
+ "replay_sha256": {
+  "derive_P.py": "f13242a543cb11801153cd4d4e439d4ef6dfeb9ffec84441a6f559cef2c582d5",
+  "eigen_fix.py": "1f39ea4d0b01ea913738bd260cda11298c8c93f615fea69134ff198ab00b1729",
+  "hfc2.py": "a7e8389ed0bdb98842b06d05e57deb6aa2a046422c760679f09433f7f6721549",
+  "hfs.py": "d001a0ecda8668f34d2c5042ad3dad3598eda0c94024c149842beeffa1161acb",
+  "nlchain.py": "655e0232aa648f0c1bdc76ade2937eb2896649656834c1b6e10b9b83d41fb33a",
+  "nlguard.py": "84b298dd9fb2eebedcf2b7ce62e03eebd74f80d495e403924ae49122082feddb",
+  "rad.py": "a6245942b1591b58ab583bc89cacd509c076cf527b4714b87479f748b57f5264",
+  "shoot.c": "e4111c5148f9fb4bb94d6261f536126cb03913fa88b2cdf5b3574d1f372d631a",
+  "shoot_sr.c": "f509d29c6e5f8a0ab03d95aa41a06e6ae2dc70892b84e1c7c37ecea673ab8b01",
+  "shoot_x.c": "ac6c4bbaff5d5d4f67c1671999c21058e2904d47802ea29e0508037ec1036dad",
+  "step2_run.py": "8428269c1241552691c5294ed93a92821e3be8164312ada552e3d07d19f3b951",
+  "t5_scf.py": "2d5b8b5a052564602f4d894037bb2018a35a68897ada66c070028b3348f7d472",
+  "t7b_hf.py": "a53d8a1c3936d437589f15e676fdcfb89fd4e18f1a4baf68e583aaff66f031e7",
+  "t7c_hfsr.py": "6f7aed72b4f0d2b5f343d4a26d2807c799a8f5b45e97e9553281113cbdf0aefc",
+  "t7c_kernel.py": "94acb68372b3998317b7e8ad24195c68c6c08949765c33b17f50c77e1c0fedbe",
+  "tfd.py": "4b72c9a85ada1c3e9800860fb1e1740d1b482624d277aef0640c3b6f3b265c75"
+ },
+ "rows": [
+  {
+   "Z": 21,
+   "mode": "hf",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "3d",
+   "D_ent": -0.26664,
+   "margin": 0.09763,
+   "order": [
+    [
+     "3d",
+     -0.26664
+    ],
+    [
+     "4p",
+     -0.16901
+    ],
+    [
+     "5s",
+     -0.0816
+    ],
+    [
+     "5p",
+     -0.05807
+    ],
+    [
+     "4f",
+     -0.03132
+    ],
+    [
+     "5f",
+     -0.02006
+    ],
+    [
+     "5g",
+     -0.02
+    ]
+   ],
+   "fail": [
+    "4d",
+    "5d"
+   ],
+   "it": [
+    30,
+    35
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 57,
+   "mode": "hf",
+   "c": 137.035999,
+   "lambda": 0.95,
+   "seed": "observed",
+   "ent": "4f",
+   "D_ent": -2.01033,
+   "margin": 0.72996,
+   "order": [
+    [
+     "4f",
+     -2.01033
+    ],
+    [
+     "5d",
+     -1.28037
+    ],
+    [
+     "6p",
+     -0.82212
+    ],
+    [
+     "6d",
+     -0.53578
+    ],
+    [
+     "7s",
+     -0.50628
+    ],
+    [
+     "5f",
+     -0.50485
+    ],
+    [
+     "7p",
+     -0.4298
+    ],
+    [
+     "7d",
+     -0.32287
+    ],
+    [
+     "6f",
+     -0.31235
+    ],
+    [
+     "5g",
+     -0.29367
+    ],
+    [
+     "7f",
+     -0.2135
+    ],
+    [
+     "6g",
+     -0.20475
+    ],
+    [
+     "7g",
+     -0.15047
+    ]
+   ],
+   "fail": [],
+   "it": [
+    32,
+    32
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 57,
+   "mode": "hf",
+   "c": 115.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5d",
+   "D_ent": -0.19324,
+   "margin": 0.05666,
+   "order": [
+    [
+     "5d",
+     -0.19324
+    ],
+    [
+     "6p",
+     -0.13658
+    ],
+    [
+     "7s",
+     -0.07156
+    ],
+    [
+     "4f",
+     -0.05427
+    ],
+    [
+     "7p",
+     -0.05116
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ]
+   ],
+   "fail": [
+    "5f",
+    "6d",
+    "6f",
+    "7d",
+    "7f"
+   ],
+   "it": [
+    33,
+    39
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 57,
+   "mode": "hf",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5d",
+   "D_ent": -0.20585,
+   "margin": 0.06756,
+   "order": [
+    [
+     "5d",
+     -0.20585
+    ],
+    [
+     "6p",
+     -0.13829
+    ],
+    [
+     "4f",
+     -0.10556
+    ],
+    [
+     "7s",
+     -0.07085
+    ],
+    [
+     "7p",
+     -0.05126
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ]
+   ],
+   "fail": [
+    "5f",
+    "6d",
+    "6f",
+    "7d",
+    "7f"
+   ],
+   "it": [
+    32,
+    36
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 57,
+   "mode": "hf",
+   "c": 200.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5d",
+   "D_ent": -0.22151,
+   "margin": 0.0494,
+   "order": [
+    [
+     "5d",
+     -0.22151
+    ],
+    [
+     "4f",
+     -0.17211
+    ],
+    [
+     "6p",
+     -0.14014
+    ],
+    [
+     "7s",
+     -0.07005
+    ],
+    [
+     "7p",
+     -0.05135
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ]
+   ],
+   "fail": [
+    "5f",
+    "6d",
+    "6f",
+    "7d",
+    "7f"
+   ],
+   "it": [
+    32,
+    32
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 57,
+   "mode": "hf",
+   "c": 300.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5d",
+   "D_ent": -0.22911,
+   "margin": 0.02372,
+   "order": [
+    [
+     "5d",
+     -0.22911
+    ],
+    [
+     "4f",
+     -0.20539
+    ],
+    [
+     "6p",
+     -0.14093
+    ],
+    [
+     "7s",
+     -0.0697
+    ],
+    [
+     "7p",
+     -0.05138
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ]
+   ],
+   "fail": [
+    "5f",
+    "6d",
+    "6f",
+    "7d",
+    "7f"
+   ],
+   "it": [
+    32,
+    32
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 57,
+   "mode": "hf",
+   "c": 1000000.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5d",
+   "D_ent": -0.23514,
+   "margin": 0.00288,
+   "order": [
+    [
+     "5d",
+     -0.23514
+    ],
+    [
+     "4f",
+     -0.23226
+    ],
+    [
+     "6p",
+     -0.14151
+    ],
+    [
+     "7s",
+     -0.06943
+    ],
+    [
+     "7p",
+     -0.0514
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ]
+   ],
+   "fail": [
+    "5f",
+    "6d",
+    "6f",
+    "7d",
+    "7f"
+   ],
+   "it": [
+    33,
+    34
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 89,
+   "mode": "hf",
+   "c": 115.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.12781,
+   "margin": 0.00985,
+   "order": [
+    [
+     "6d",
+     -0.12781
+    ],
+    [
+     "7p",
+     -0.11796
+    ],
+    [
+     "8s",
+     -0.0736
+    ],
+    [
+     "8p",
+     -0.04851
+    ],
+    [
+     "5f",
+     -0.03132
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    38,
+    48
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 89,
+   "mode": "hf",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.15762,
+   "margin": 0.03233,
+   "order": [
+    [
+     "6d",
+     -0.15762
+    ],
+    [
+     "7p",
+     -0.12529
+    ],
+    [
+     "8s",
+     -0.07065
+    ],
+    [
+     "8p",
+     -0.04917
+    ],
+    [
+     "5f",
+     -0.03146
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    37,
+    44
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 89,
+   "mode": "hf",
+   "c": 200.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.19303,
+   "margin": 0.06179,
+   "order": [
+    [
+     "6d",
+     -0.19303
+    ],
+    [
+     "7p",
+     -0.13124
+    ],
+    [
+     "5f",
+     -0.09867
+    ],
+    [
+     "8s",
+     -0.06813
+    ],
+    [
+     "8p",
+     -0.04955
+    ],
+    [
+     "8d",
+     -0.02785
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8f"
+   ],
+   "it": [
+    34,
+    37
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 89,
+   "mode": "hf",
+   "c": 300.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.20964,
+   "margin": 0.05513,
+   "order": [
+    [
+     "6d",
+     -0.20964
+    ],
+    [
+     "5f",
+     -0.15451
+    ],
+    [
+     "7p",
+     -0.1333
+    ],
+    [
+     "8s",
+     -0.06717
+    ],
+    [
+     "8p",
+     -0.04964
+    ],
+    [
+     "8d",
+     -0.0282
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00782
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8f"
+   ],
+   "it": [
+    34,
+    33
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 89,
+   "mode": "hf",
+   "c": 1000000.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.22259,
+   "margin": 0.02223,
+   "order": [
+    [
+     "6d",
+     -0.22259
+    ],
+    [
+     "5f",
+     -0.20036
+    ],
+    [
+     "7p",
+     -0.13462
+    ],
+    [
+     "8s",
+     -0.0665
+    ],
+    [
+     "8p",
+     -0.04968
+    ],
+    [
+     "8d",
+     -0.02845
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00782
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8f"
+   ],
+   "it": [
+    34,
+    34
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 115.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.15842,
+   "margin": 0.03307,
+   "order": [
+    [
+     "6d",
+     -0.15842
+    ],
+    [
+     "7p",
+     -0.12535
+    ],
+    [
+     "8s",
+     -0.07683
+    ],
+    [
+     "8p",
+     -0.05015
+    ],
+    [
+     "5f",
+     -0.03369
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    40,
+    42
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.19094,
+   "margin": 0.05405,
+   "order": [
+    [
+     "6d",
+     -0.19094
+    ],
+    [
+     "5f",
+     -0.13689
+    ],
+    [
+     "7p",
+     -0.13206
+    ],
+    [
+     "8s",
+     -0.0733
+    ],
+    [
+     "8p",
+     -0.05066
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    38,
+    40
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 160.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.21055,
+   "margin": 0.00683,
+   "order": [
+    [
+     "6d",
+     -0.21055
+    ],
+    [
+     "5f",
+     -0.20372
+    ],
+    [
+     "7p",
+     -0.1351
+    ],
+    [
+     "8s",
+     -0.07166
+    ],
+    [
+     "8p",
+     -0.05081
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    36,
+    38
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 170.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5f",
+   "D_ent": -0.22482,
+   "margin": 0.00826,
+   "order": [
+    [
+     "5f",
+     -0.22482
+    ],
+    [
+     "6d",
+     -0.21656
+    ],
+    [
+     "7p",
+     -0.13591
+    ],
+    [
+     "8s",
+     -0.0712
+    ],
+    [
+     "8p",
+     -0.05084
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    35,
+    39
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 200.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5f",
+   "D_ent": -0.27041,
+   "margin": 0.04114,
+   "order": [
+    [
+     "5f",
+     -0.27041
+    ],
+    [
+     "6d",
+     -0.22927
+    ],
+    [
+     "7p",
+     -0.13746
+    ],
+    [
+     "8s",
+     -0.07031
+    ],
+    [
+     "8p",
+     -0.05088
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    34,
+    37
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 300.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5f",
+   "D_ent": -0.33673,
+   "margin": 0.08961,
+   "order": [
+    [
+     "5f",
+     -0.33673
+    ],
+    [
+     "6d",
+     -0.24712
+    ],
+    [
+     "7p",
+     -0.13927
+    ],
+    [
+     "8s",
+     -0.06919
+    ],
+    [
+     "8p",
+     -0.05091
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    34,
+    34
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 90,
+   "mode": "hf",
+   "c": 1000000.0,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5f",
+   "D_ent": -0.39017,
+   "margin": 0.12918,
+   "order": [
+    [
+     "5f",
+     -0.39017
+    ],
+    [
+     "6d",
+     -0.26099
+    ],
+    [
+     "7p",
+     -0.14042
+    ],
+    [
+     "8s",
+     -0.06841
+    ],
+    [
+     "8p",
+     -0.0509
+    ],
+    [
+     "5g",
+     -0.02
+    ],
+    [
+     "6g",
+     -0.01389
+    ],
+    [
+     "7g",
+     -0.01021
+    ],
+    [
+     "8g",
+     -0.00781
+    ]
+   ],
+   "fail": [
+    "6f",
+    "7d",
+    "7f",
+    "8d",
+    "8f"
+   ],
+   "it": [
+    34,
+    34
+   ],
+   "rung_ref": 0,
+   "source": "lemmas/lowdin_replay.py runtime; nlchain.step via cstep (c on nlguard.C0, nlchain.C0, kernel defaults)"
+  },
+  {
+   "Z": 21,
+   "mode": "hfs",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "3d",
+   "D_ent": -0.34981,
+   "margin": 0.12845,
+   "order": [
+    [
+     "3d",
+     -0.34981
+    ],
+    [
+     "4p",
+     -0.22136
+    ],
+    [
+     "5s",
+     -0.12572
+    ],
+    [
+     "4d",
+     -0.09574
+    ],
+    [
+     "5p",
+     -0.09414
+    ],
+    [
+     "4f",
+     -0.05203
+    ],
+    [
+     "5d",
+     -0.05182
+    ],
+    [
+     "5g",
+     -0.03284
+    ],
+    [
+     "5f",
+     -0.03138
+    ]
+   ],
+   "fail": [],
+   "it": [
+    26
+   ],
+   "source": "t7b_hf mode='hfs' via HFSR at c = C0 (cstep_hfs)"
+  },
+  {
+   "Z": 57,
+   "mode": "hfs",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "5d",
+   "D_ent": -0.26453,
+   "margin": 0.08406,
+   "order": [
+    [
+     "5d",
+     -0.26453
+    ],
+    [
+     "6p",
+     -0.18047
+    ],
+    [
+     "7s",
+     -0.10987
+    ],
+    [
+     "6d",
+     -0.08598
+    ],
+    [
+     "7p",
+     -0.08221
+    ],
+    [
+     "5f",
+     -0.05315
+    ],
+    [
+     "7d",
+     -0.04673
+    ],
+    [
+     "5g",
+     -0.03297
+    ],
+    [
+     "6f",
+     -0.03235
+    ],
+    [
+     "7f",
+     -0.02235
+    ],
+    [
+     "6g",
+     -0.02166
+    ],
+    [
+     "7g",
+     -0.01551
+    ]
+   ],
+   "fail": [
+    "4f"
+   ],
+   "it": [
+    31
+   ],
+   "source": "t7b_hf mode='hfs' via HFSR at c = C0 (cstep_hfs)"
+  },
+  {
+   "Z": 88,
+   "mode": "hfs",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "7s",
+   "D_ent": -0.24149,
+   "margin": 0.08196,
+   "order": [
+    [
+     "7s",
+     -0.24149
+    ],
+    [
+     "6d",
+     -0.15953
+    ],
+    [
+     "7p",
+     -0.15005
+    ],
+    [
+     "8s",
+     -0.10188
+    ],
+    [
+     "7d",
+     -0.07522
+    ],
+    [
+     "8p",
+     -0.07204
+    ],
+    [
+     "5f",
+     -0.05428
+    ],
+    [
+     "8d",
+     -0.04152
+    ],
+    [
+     "6f",
+     -0.03447
+    ],
+    [
+     "5g",
+     -0.03303
+    ],
+    [
+     "7f",
+     -0.02522
+    ],
+    [
+     "6g",
+     -0.02168
+    ],
+    [
+     "8f",
+     -0.01937
+    ],
+    [
+     "7g",
+     -0.01551
+    ],
+    [
+     "8g",
+     -0.01171
+    ]
+   ],
+   "fail": [],
+   "it": [
+    35
+   ],
+   "source": "t7b_hf mode='hfs' via HFSR at c = C0 (cstep_hfs)"
+  },
+  {
+   "Z": 89,
+   "mode": "hfs",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.21793,
+   "margin": 0.05052,
+   "order": [
+    [
+     "6d",
+     -0.21793
+    ],
+    [
+     "7p",
+     -0.16741
+    ],
+    [
+     "8s",
+     -0.10954
+    ],
+    [
+     "7d",
+     -0.08076
+    ],
+    [
+     "8p",
+     -0.07817
+    ],
+    [
+     "6f",
+     -0.05253
+    ],
+    [
+     "8d",
+     -0.04405
+    ],
+    [
+     "5g",
+     -0.03298
+    ],
+    [
+     "7f",
+     -0.03176
+    ],
+    [
+     "8f",
+     -0.0218
+    ],
+    [
+     "6g",
+     -0.02167
+    ],
+    [
+     "7g",
+     -0.01551
+    ],
+    [
+     "8g",
+     -0.01171
+    ]
+   ],
+   "fail": [
+    "5f"
+   ],
+   "it": [
+    36
+   ],
+   "source": "t7b_hf mode='hfs' via HFSR at c = C0 (cstep_hfs)"
+  },
+  {
+   "Z": 90,
+   "mode": "hfs",
+   "c": 137.035999,
+   "lambda": 1.0,
+   "seed": "observed",
+   "ent": "6d",
+   "D_ent": -0.25748,
+   "margin": 0.01509,
+   "order": [
+    [
+     "6d",
+     -0.25748
+    ],
+    [
+     "5f",
+     -0.24239
+    ],
+    [
+     "7p",
+     -0.17714
+    ],
+    [
+     "8s",
+     -0.11386
+    ],
+    [
+     "7d",
+     -0.08329
+    ],
+    [
+     "8p",
+     -0.08097
+    ],
+    [
+     "6f",
+     -0.05272
+    ],
+    [
+     "8d",
+     -0.04522
+    ],
+    [
+     "5g",
+     -0.03293
+    ],
+    [
+     "7f",
+     -0.03198
+    ],
+    [
+     "8f",
+     -0.02197
+    ],
+    [
+     "6g",
+     -0.02165
+    ],
+    [
+     "7g",
+     -0.0155
+    ],
+    [
+     "8g",
+     -0.01169
+    ]
+   ],
+   "fail": [],
+   "it": [
+    35
+   ],
+   "source": "t7b_hf mode='hfs' via HFSR at c = C0 (cstep_hfs)"
+  }
+ ]
+}

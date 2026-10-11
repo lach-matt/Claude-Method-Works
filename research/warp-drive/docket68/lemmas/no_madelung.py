@@ -51,10 +51,13 @@ So position 2's precise values, for this experiment: the Madelung table (every e
 opening sequence 1s 2s 2p 3s 3p 4s 3d 4p 5s 4d 5p 6s 4f 5d 6p 7s 5f 6d 7p); the same periodic table, the same lattice of
 118 cells, the same E in every language; different ground configurations at 29 elements (57-70, 89-103) in M's chain,
 listed by the report, and none elsewhere.
-What this does not show: no field is computed.  What physical difference makes the collapse come first is not computed
--- M's paper enters one constant, c = 137.035999, and READS that with c taken to infinity eleven entrants change (Mn Zn Ag
-Cd Nd Pm Sm Lu Hg Lr Rf) and La, Ac, Th do not, so position 2 is not ours with relativity removed; the chain data that
-could test other values are pending bank (LW1-README, objects 1, 2, 4-8, 10).  Position 2's ground-state
+What this does not show: no field is computed here.  What physical difference makes the collapse come first is not
+computed here -- M's paper enters one constant, c = 137.035999, and READS that with c taken to infinity eleven entrants
+change (Mn Zn Ag Cd Nd Pm Sm Lu Hg Lr Rf) and La, Ac, Th do not, so position 2 is not ours with relativity removed.
+(Item 220: the chain was since rebuilt from the chats and the question computed -- madelung_field.py: no value of c
+removes La's and Ac's exceptions; Th's goes above c of about 164.  The paper's eleven-element c -> infinity list is
+drawn from a walk the record itself voided, F54.2/F59.3 -- madelung_field.py F7 -- so it is READ here as the paper's
+statement, not as a measurement.)  Position 2's ground-state
 rearrangements at Z >= 57 (Ce Gd Pt Au Pa U Np Cm Lr in ours) are not computable here.  An object holding elements of
 Z = 57-70 or 89-103 would have other ground states at position 2, and so a mass differing at the binding-energy level;
 the theory's m is given, not built from composition, and does not carry that.  The ell-orderings test of
