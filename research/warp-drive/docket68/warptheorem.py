@@ -259,7 +259,9 @@ def lemma_selftests():
               # item 224
               "p2_combined.py",
               # items 225, 226
-              "theorem_p2.py"):
+              "theorem_p2.py",
+              # item 227
+              "p2_planck.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

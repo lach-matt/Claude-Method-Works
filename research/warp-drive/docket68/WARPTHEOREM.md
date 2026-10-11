@@ -1274,3 +1274,53 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - `theorem_p2.py` among the lemma selftests (5/5; mutants 4/4).
   - **No status moves.** B5px is met for destinations 2a–2c, but stays OPEN while the theorem's position 2 is not fixed.
     The count is unchanged: 51 rows, 21 green strict.
+
+## History (2026-10-11, item 227: position 2P — a different Planck length — and its combinations)
+
+- **M, item 227:** "We need to build one more universe. We'll call it position 2P, and it varies from our universe by
+  Planck length, with every other variance a product of the new Planck length in that universe. Then analyze
+  combinations 2a+2P, 2b+2P, 2c+2. All work gets done here so I can monitor please." ("2c+2" read as 2c+2P.)
+- **Which universe 2P is (`lemmas/p2_planck.py` Q1, through the cypher).** Sixteen candidates were run: what carries
+  l_P (G, ħ, or c), σ and the offset held in SI or scaled in Planck units, and two sizes.
+  - Three hold the target (the SI shared, matter ours, a universe beside 2b), all carried by G.
+  - G with σ held in SI at √2 is 2b itself.
+  - One differs from 2b in item 201's Planck values alone: **G × 2 (l_P × √2), with σ and the offset × ¼ in SI, so
+    that in its own Planck units they are ours.**
+- **Position 2P.**
+  - κ₅⁴ × 8, ℓ × √2, Λ₄ × ½. The README's E, m and area are as in 2b.
+  - In corridor units 2P is ours: N_max, ℓ/m and σ/σ_P are all × 1.
+  - **2P and 2b are identical locally (matter, bodies, stars, the README's E, m and area). They differ only in the bulk
+    and dark-energy sector:**
+
+    | | ℓ | Λ₄ | N_max | ℓ/m |
+    |---|---|---|---|---|
+    | 2b | × 1/√2 | × 2 | × ¼ | × ½ |
+    | 2P | × √2 | × ½ | × 1 | × 1 |
+
+  - The theorem's geometric clauses cannot see 2P. Its ledger can: the assembly ceiling (matter-scale) writes 1352.6
+    bits against our 676.3, as in 2b.
+- **The window is not Planck-covariant.** The table-top floor is set by matter, the top by Planck units. So 2P fits its
+  own window only if our σ is at least twice (relative reading) or four times (absolute) our floor.
+- **The combinations.**
+  - 2a+2P has 2P's gravity with 2a's matter.
+  - 2b+2P has G × 4, ℓ and Λ₄ ours in SI, N_max × ¼ and σ/σ_P × 4.
+  - 2c+2P has 2b+2P's gravity with 2a's matter.
+- **Bodies (computed).** A body sees the d-shell law and G, never σ, so 2P's bodies are 2b's and 2a+2P's are 2c's.
+  - **The G-mass trade is exact:** at G × 4 and an eighth of the mass, every body is ours with each length halved (R ×
+    0.5, g × 2, the same central pressure).
+  - At G × 4, stronger gravity compresses more than the product of two doublings: g is +0.2 to +0.4 % above it at
+    1.25 × 10²¹ kg.
+  - At 10²² kg most G × 4 bodies pass their rows' reach.
+- **Item 201 read both ways.**
+  - In SI, σ and the offset make two cells of the twelve members, split by 2P. In Planck units they make two cells
+    crosswise, split by 2b.
+  - (σ/σ_P)/σ_SI = (G/G₀)² on every member: **201 read both ways carries G.**
+- **Through the cypher.**
+  - On (G, σ_SI, matter), 2a+2P is the join of its parents. 2b+2P and 2c+2P are not: G compounds to 4, a value no
+    parent carries.
+  - **On item 201 read both ways (σ_SI, σ/σ_P, matter), every combination is exactly the join of its parents.** Order,
+    algebra and information predict all five; geometry and statistics refuse them.
+  - In that basis each law moves one axis: 2a moves matter, 2b moves σ/σ_P, 2P moves σ in SI. G is derived.
+- **Status.** `--selftest` passes 7/7, and `--mutants` catches 3/3. The critic lenses were run in the conversation; the
+  physics lens corrected "the theorem cannot see 2P" to its geometric clauses. The instrument is registered among the
+  lemma selftests. No status moves.
