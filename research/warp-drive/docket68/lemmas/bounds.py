@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""bounds.py -- items 241 and 242: the bounds, in M's three kinds and the board's fourth, indexed to see how they
-interact and whether they identify or mitigate one another.  M: "There are likely relativity bounds such as survivability, and structural bounds such as a
+"""bounds.py -- items 241 to 243: the bounds, in M's three categories with the constant bounds beside them, indexed to
+see how they interact and whether they identify or mitigate one another.  M: "There are likely relativity bounds such as survivability, and structural bounds such as a
 universe's own laws/rules/exceptions, and universal bounds that directly apply to the 5D bulk. Index the bounds to see
 how they interact and if they identify or mitigate other bounds".  Item 242, on the board's report that three invariants
-touch no variable: "another bound classification in the index?"  Worked in the conversation (computed, exact where
+touch no variable: "another bound classification in the index?"  Item 243: "They are not invariant bounds. They are
+likely bounds of a closed index, the constant bounds that always apply regardless of the other 3 categories" -- item
+242's name and fourth category withdrawn; M's hypothesis is tested in closed_bounds.py.  Worked in the conversation (computed, exact where
 marked; READ where marked; deduced where marked; not verified by a separate session; not seated); 2026-10-11.
 
 The address space (item 241 (a)): i, j -- a universe's 2b and 2P steps (G x 2^(i+j), tension x 2^(-2j)); w -- our
@@ -12,16 +14,17 @@ tension's place in its window, S0 x 2^w, w in [0, W]; z -- log2 of the offset's 
 0, min 1, mirror 2); mu -- the object's means of mitigation, in doublings; field -- 1 if a field varies the 5D coupling
 across the bulk.  Each bound is a slack, c0 + sum a_v v >= 0, exact in these variables where the bound is log-linear.
 
-  B0 (read) M's item-241 words, verbatim in the rulings file.
+  B0 (read) M's item-241 words, verbatim in the rulings file (items 242 and 243 are read in closed_bounds.py).
   B1 (computed; each sourced) Twenty-two bounds.  Universal (the 5D bulk; five): the corridor inside the bulk's
      curvature (ITEM197, the top), the README's capacity, the plane's positivity (229), one 5D coupling unless a field
      varies it (item 233 K6, above and below).  Structural (a universe's own laws; five): the table-top floor (relative
      and absolute readings), the matter law's exceptions (Cu2 binds only off the mirror law, 221), the G ceiling where a
      universe's window closes (233), and the regime in which matter's own density governs its gravity at the throat (236
      R4).  Relativity (the object against position 2, 240; six): survivability's tolerances on gravity (above, below),
-     dark energy (above, below), the closing energy and chemistry.  Invariant (item 242, the board's reading; six): the
-     null energy per ray (183 (Z)), the shared SI (225 A), the README match (240 (b)) -- item 241's three -- and, found
-     by searching the record for conditions that hold at every universe and act on no variable, G fixed by the bulk and
+     dark energy (above, below), the closing energy and chemistry.  The constant bounds (M's name, item 243; six), which
+     act on no variable and are no category: the null energy per ray (183 (Z)), the shared SI (225 A), the README match
+     (240 (b)) -- item 241's three -- and, found by searching the record for conditions that hold at every universe and
+     act on no variable (item 242 (b)), G fixed by the bulk and
      the plane (SMS, G = kappa5^4 sigma c^4 / 48 pi; 234 V6), the throat's bit area (clause (H)), and the build using
      exactly the closing energy (111 (a); 239).  Not run: "not already contained" (230) -- no instrument decides it;
      withdrawn: T3's ceiling as the build's need (239).
@@ -48,38 +51,35 @@ across the bulk.  Each bound is a slack, c0 + sum a_v v >= 0, exact in these var
      gravity presses at a body's surface at fixed G (density): for Cu, Ag and Au it tightens survivability's gravity
      tolerance (surface gravity x 1.04-1.25), for Cr it relaxes it (x 0.97 / 0.96 under min / mirror, a less dense
      solid).  Which way depends on the object's material.
-  B6 (computed; the cypher, roster 1173, audited) The bounds as cells over (kind, and the sign each variable moves its
-     slack); sixteen cells, no key, no one-hot code.  With the invariants as a fourth kind, the kind coordinate adds
-     nothing: every bound's kind follows from how it acts.  Under M's three kinds it does not -- the same bounds give
-     seventeen cells and the no-variable row splits between universal and relativity, so there the kind of those six is
-     carried by meaning alone (item 241's finding, now measured against its alternative).  One acting cell holds two
-     bounds, the gravity floor and the closing-energy tolerance (B2: the second acts along the first at half its rate),
-     and both are relativity: the one place the test could have failed for acting bounds, and it did not.  The object's
-     means enter exactly the relativity bounds.  The critic's limits, recorded: giving the no-variable row a label of its
-     own closes the split by construction, so B6 shows the three kinds need meaning to place those six -- not that
-     "invariant" is the right name for them; with fifteen acting rows over sixteen acting bounds, almost any labelling of
-     the acting bounds would pass; and mu enters only relativity bounds because survivability is defined against the
-     object.  The cypher fails to refute the four kinds; it does not confirm them.  What gives the fourth kind content is
-     B7.
-  B7 (computed; deduced where marked) What the invariants act on.  The invariant kind is exactly the six bounds acting
-     on no variable (a consistency check: the board placed them by their sources, knowing the rows).  A slack with no
-     variable never excludes an address, so an invariant does not bound the address: it fixes the acting bounds' rows and
-     constants.  Three of the six are shown to (computed from the stated forms, 1e-12): the throat's bit area sets the
-     capacity identity's 4/3 (the bit area scaled by k gives 4k/3); SMS sets the one-coupling row i + 3j (log2 kappa5^4
-     moves by i + (1 + 2b) j, b = 1 the tension's power in G); the bit area with the README match sets the closing-energy
-     row (1/2, 1/2) (E ~ sqrt(N A_bit) / G, so the row is 1 - a/2 with a = 1 the bit area's power of G and N the same
-     at both positions).  Change the invariant and the row moves (mutants sms_sigma2, bit_area_G2).  Deduced: the four
-     kinds sort the bounds by what they act on -- the bulk, a universe, the object against position 2, and the bounds
-     themselves.  The roles of the null energy per ray, the shared SI and the build using the closing energy are not
-     computed.  The alternative reading, recorded: the invariants as a level across M's three kinds (each still has a
-     home domain by meaning -- B6's split, four universal and two relativity) rather than a kind beside them; the cypher
-     cannot see a domain on a row that acts on nothing, so the board takes the reading the index can see (196).
+  B6 (computed; the cypher, roster 1173, audited) The sixteen acting bounds as cells over (category, and the sign each
+     variable moves its slack); fifteen cells, no key, no one-hot code.  The category coordinate adds nothing: every
+     acting bound's category follows from how it acts.  The six constant bounds are no cell of this index (item 243:
+     they apply regardless of the three categories).  Two placings are measured beside it.  As cells in the three
+     categories (item 241's table) the constants split the no-variable row between universal and relativity -- seventeen
+     cells, and the category is then needed: those six can be placed in a category only by meaning.  As a fourth kind
+     (item 242's reading, withdrawn by M) they close the split, but only by construction -- sixteen cells.  One acting
+     cell holds two bounds, the gravity floor and the closing-energy tolerance (B2: the second acts along the first at
+     half its rate), and both are relativity: the one place the test could have failed, and it did not.  The object's
+     means enter exactly the relativity bounds.  The critic's limits, recorded: with fifteen acting rows over sixteen
+     acting bounds, almost any labelling of the acting bounds would pass, and mu enters only relativity bounds because
+     survivability is defined against the object -- the cypher fails to refute M's three categories on the acting
+     bounds; it does not confirm them.
+  B7 (computed; deduced where marked) What the constant bounds act on.  They are exactly the six bounds acting on no
+     variable (a consistency check: the board placed them by their sources, knowing the rows).  A slack with no
+     variable never excludes an address, so a constant bound does not bound the address: it fixes the acting bounds'
+     rows and constants.  Three of the six are shown to (computed from the stated forms, 1e-12): the throat's bit area
+     sets the capacity identity's 4/3 (the bit area scaled by k gives 4k/3); SMS sets the one-coupling row i + 3j (log2
+     kappa5^4 moves by i + (1 + 2b) j, b = 1 the tension's power in G); the bit area with the README match sets the
+     closing-energy row (1/2, 1/2) (E ~ sqrt(N A_bit) / G, so the row is 1 - a/2 with a = 1 the bit area's power of G
+     and N the same at both positions).  Change the constant and the row moves (mutants sms_sigma2, bit_area_G2).
+     closed_bounds.py carries this through every constant and every acting bound (item 243).
 
 What this does not show.
   - mu is the object's and is not computed; survivability's tolerances are symbols, their signs exact.
   - B7's rows agree with the table because the table's rows were written from the same forms (items 233, 240): the
-    agreement shows where those rows come from, not independent evidence for the forms.
-  - The search for further invariants (item 242 (b)) was a reading of the record, not exhaustive.
+    agreement shows where those rows come from, not independent evidence for the forms.  closed_bounds.py C1 computes
+    all sixteen rows from the forms and finds the table exact.
+  - The search for further constant bounds (item 242 (b)) was a reading of the record, not exhaustive.
   - The matter law enters as an ordinal; its effects are element by element (B5), not one sign.
   - "Not already contained" (230) and the corridor's own energy against the README's (203) are not computed.
 
@@ -104,7 +104,8 @@ M241 = ("There are likely relativity bounds such as survivability, and structura
         "laws/rules/exceptions, and universal bounds that directly apply to the 5D bulk.")
 OPTS = {"statistics_order": 2, "algebra_budget": 10 ** 6}
 VARS = ["i", "j", "w", "z", "n", "law", "mu", "field"]
-KINDS = {"universal": 0, "structural": 1, "relativity": 2, "invariant": 3}
+KINDS = {"universal": 0, "structural": 1, "relativity": 2}            # M's three categories (item 241)
+K4 = dict(KINDS, constant=3)       # the constants as a fourth kind: item 242's reading, withdrawn by M (243)
 
 
 def _load(path, key):
@@ -143,13 +144,17 @@ def PP_sector_nmax():
 
 
 # ================================================================================ B1 the bounds
-# the six invariants under M's three kinds (item 241's placing, and where the three added for item 242 would sit)
+# the six constant bounds placed in M's three kinds (item 241's placing, and where the three added for item 242 would
+# sit) -- used only to measure what placing them in a category does (B6) and by the mutant constants_as_cells
 KIND3 = {"null energy per ray": "universal", "shared SI": "universal", "G from the bulk and the plane": "universal",
          "the throat's bit area": "universal", "build uses the closing energy": "relativity", "README match": "relativity"}
 
 
 def _inv(name):
-    return KIND3[name] if MUT.get("three_kinds") else "invariant"
+    """item 243: a constant bound applies regardless of M's three categories, so it is no cell of the kind coordinate"""
+    if MUT.get("constants_as_cells"):
+        return KIND3[name]
+    return "constant"
 
 
 def bounds(c):
@@ -285,7 +290,7 @@ def matter_vs_gravity():
     return out
 
 
-# ================================================================================ B7 what the invariants do
+# ================================================================================ B7 what the constant bounds do
 def _abit(Gx, a):
     """clause (H)'s bit area at a universe's G: 2 h G ln2 / (pi c^3), scaling as G^a (a = 1 as written)"""
     return 2 * PG.H * PG.G * math.log(2) / (math.pi * PG.C ** 3) * (Gx / PG.G) ** a
@@ -318,12 +323,12 @@ def closing_exponent(a=1):
     return [-math.log2(E(PG.G * 2.0 ** k) / E(PG.G)) / k for k in (1, 3, -2)]
 
 
-def invariant_role(b):
-    """the invariants act on no variable; three of them are what fix the acting bounds' rows and constants:
+def constant_role(b):
+    """the constant bounds act on no variable; three of them are what fix the acting bounds' rows and constants:
     the bit area sets the capacity identity's 4/3 (scaled by k it is 4k/3); SMS sets the one-coupling row (i + 3j: the
     3 is 1 + 2b, b the tension's power in G); the bit area with the README match sets the closing-energy row (1/2, 1/2:
     1 - a/2, a the bit area's power of G)"""
-    inv = sorted(n for n, (k, s, coef, note) in b.items() if k == "invariant")
+    inv = sorted(n for n, (k, s, coef, note) in b.items() if k == "constant")
     zero = sorted(n for n, (k, s, coef, note) in b.items() if not any(vec(coef)))
     a = 2 if MUT.get("bit_area_G2") else 1
     bexp = 2 if MUT.get("sms_sigma2") else 1
@@ -341,10 +346,14 @@ def invariant_role(b):
 
 
 # ================================================================================ B6 the cypher
-def _cells(b, kindof):
+def _cells(b, kindof, kinds=KINDS):
+    """the bounds as cells over (kind, the sign each variable moves the slack); bounds whose kind is not in kinds are
+    not cells"""
     cells = {}
     for n, (k, s, coef, note) in b.items():
-        cells.setdefault(tuple([KINDS[kindof(n, k)]] + [sign(F(coef.get(v, 0))) for v in VARS]), []).append(n)
+        kk = kindof(n, k)
+        if kk in kinds:
+            cells.setdefault(tuple([kinds[kk]] + [sign(F(coef.get(v, 0))) for v in VARS]), []).append(n)
     return cells
 
 
@@ -355,24 +364,36 @@ def _index(cy, cells):
     return held, cy.Index("bounds", ["kind"] + VARS, [list(c) for c in held], value_order=vo)
 
 
+def _kind_adds(cy, cells):
+    held, ix = _index(cy, cells)
+    rows, _ = cy.coordinate_report(ix)
+    return len(held), [r for r in rows if r["coordinate"] == "kind"][0]["adds_nothing"]
+
+
 def cypher_index(cy, ia, b):
-    cells = _cells(b, lambda n, k: k)
+    """the index of the acting bounds in M's three categories; the constant bounds are not cells of it (243).  Two
+    placings measured beside it: the constants as cells in the three categories (item 241), and as a fourth kind (item
+    242, withdrawn)"""
+    kfour = (lambda n, k: k) if not MUT.get("fourth_kind") else (lambda n, k: "constant" if k == "constant" else k)
+    cells = _cells(b, kfour, K4 if MUT.get("fourth_kind") else KINDS)
     held, ix = _index(cy, cells)
     rows, keys = cy.coordinate_report(ix)
     kind_free = {tuple(c[1:]) for c in held}
     acting = [c for c in held if any(c[1:])]
-    collide = sorted({n for c in held if not any(c[1:]) for n in cells[c]})
     shared = [sorted(cells[c]) for c in acting if len(cells[c]) > 1]
-    # the same bounds under M's three kinds (the invariants placed as KIND3 does): does the kind still follow from action?
-    c3 = _cells(b, lambda n, k: KIND3.get(n, k))
-    h3, ix3 = _index(cy, c3)
-    r3, _ = cy.coordinate_report(ix3)
+    constants = sorted(n for n, v in b.items() if v[0] == "constant")
+    in_index = sorted(n for c in held for n in cells[c])
+    n3, k3 = _kind_adds(cy, _cells(b, lambda n, k: KIND3.get(n, k) if k == "constant" else k))
+    c3 = _cells(b, lambda n, k: KIND3.get(n, k) if k == "constant" else k)
+    n4, k4 = _kind_adds(cy, _cells(b, lambda n, k: k, K4))
     return dict(cells=cells, n=len(held), adds_nothing=[r["coordinate"] for r in rows if r["adds_nothing"]], keys=keys,
                 kind_determined=len(kind_free) == len({tuple(c[1:]) + (c[0],) for c in held}),
-                kind_determined_acting=len({tuple(c[1:]) for c in acting}) == len(acting), invariants=collide,
-                shared=shared, rel_is_mu=all((c[0] == 2) == (c[VARS.index("mu") + 1] != 0) for c in acting),
-                three=dict(n=len(h3), kind_adds_nothing=[r for r in r3 if r["coordinate"] == "kind"][0]["adds_nothing"],
-                           zero_split=sorted({KIND3[n] for c in h3 if not any(c[1:]) for n in c3[c]})),
+                no_zero_row=all(any(c[1:]) for c in held), constants=constants,
+                constants_in_index=sorted(set(constants) & set(in_index)), shared=shared,
+                rel_is_mu=all((c[0] == 2) == (c[VARS.index("mu") + 1] != 0) for c in acting),
+                as_cells=dict(n=n3, kind_adds_nothing=k3,
+                              zero_split=sorted({KIND3[n] for c in c3 if not any(c[1:]) for n in c3[c]})),
+                as_fourth=dict(n=n4, kind_adds_nothing=k4),
                 run=cy.run(ix, "1173", dict(OPTS)), audit=ia.audit_index(["kind"] + VARS, held))
 
 
@@ -384,7 +405,7 @@ def compute():
     b = bounds(c)
     closers = closes_open_direction(b)
     return dict(c=c, b=b, ids=identities(b), cap=capacity_vs_top(c), closers=closers, cap_id=capacity_identity(),
-                inv=invariant_role(b),
+                inv=constant_role(b),
                 finite={"none": finite_with([], b), "gravity floor": finite_with(["survive: gravity, below"], b),
                         "dark-energy ceiling": finite_with(["survive: dark energy, above"], b),
                         "one coupling, no field": finite_with(["one coupling, above", "one coupling, below"], b, field=0)},
@@ -393,7 +414,7 @@ def compute():
 
 def report(o):
     c = o["c"]
-    print("bounds.py -- the bounds by kind, and how they interact (items 241, 242)\n")
+    print("bounds.py -- the bounds in M's three categories, the constant bounds, and how they interact (items 241-243)\n")
     print("constants: W %.3f, log2 N_max0 %.3f, positivity %.3f, throat regime %.3f, example README n %.3f" % (
         c["W"], c["lognmax0"], c["c_pos"], c["c_reg"], c["n_ex"]))
     print("\nB1 the bounds (kind; source; slack):")
@@ -418,17 +439,19 @@ def report(o):
     print("\nB5 a 1e22 kg body's surface gravity at our G under the law, against ours: %s" % {
         el: {l: "%.4f" % v for l, v in d.items()} for el, d in o["mvg"].items()})
     y = o["cy"]
-    print("\nB6 the cypher: %d cells; adds nothing %s; keys %s; kind determined by the signs: %s (acting bounds only: %s; "
-          "invariants %s; relativity = the mu-relaxed bounds: %s); audit %s" % (
-              y["n"], y["adds_nothing"], y["keys"], y["kind_determined"], y["kind_determined_acting"], y["invariants"],
-              y["rel_is_mu"], y["audit"]))
+    print("\nB6 the cypher, the acting bounds in M's three categories: %d cells; adds nothing %s; keys %s; kind follows "
+          "from the signs: %s; no cell acts on nothing: %s; relativity = the mu-relaxed bounds: %s; audit %s" % (
+              y["n"], y["adds_nothing"], y["keys"], y["kind_determined"], y["no_zero_row"], y["rel_is_mu"], y["audit"]))
+    print("   the constant bounds, not cells (243): %s; in the index: %s" % (y["constants"], y["constants_in_index"]))
     print("   acting bounds sharing a cell: %s" % y["shared"])
-    print("   under M's three kinds: %d cells; kind adds nothing: %s; the no-variable row split across %s" % (
-        y["three"]["n"], y["three"]["kind_adds_nothing"], y["three"]["zero_split"]))
+    print("   placed as cells in the three categories (item 241): %d cells; kind adds nothing: %s; the no-variable row split "
+          "across %s" % (y["as_cells"]["n"], y["as_cells"]["kind_adds_nothing"], y["as_cells"]["zero_split"]))
+    print("   placed as a fourth kind (item 242, withdrawn): %d cells; kind adds nothing: %s (by construction)" % (
+        y["as_fourth"]["n"], y["as_fourth"]["kind_adds_nothing"]))
     print("   capacity identity N_max/N over (4/3)(sigma/2 dsigma)(rho_E/2 sigma) at three points: %s" % [
         "%.15f" % x for x in o["cap_id"]])
     iv = o["inv"]
-    print("\nB7 the invariant kind: %s; the bounds acting on no variable: %s" % (iv["inv"], iv["zero"]))
+    print("\nB7 the constant bounds: %s; the bounds acting on no variable: %s" % (iv["inv"], iv["zero"]))
     print("   what they act on -- the acting bounds' rows and constants:")
     print("     bit area -> capacity identity's constant, bit area x k: %s" % {k: "%.15f" % v for k, v in iv["consts"].items()})
     print("     SMS -> one-coupling row: log2 kappa5^4 moves by (%.15f i, %.15f j); at (2,-1) %.15f; the table's row "
@@ -445,10 +468,10 @@ def checks(o):
     rul = " ".join(open(RULINGS, encoding="utf-8").read().split())
     add("B0 M's item-241 words verbatim in the rulings file", M241 in rul)
     b = o["b"]
-    kinds = {k: sum(1 for v in b.values() if v[0] == k) for k in KINDS}
-    add("B1 twenty-two bounds entered -- universal %d, structural %d, relativity %d, invariant %d -- and two not run or "
-        "withdrawn" % (kinds["universal"], kinds["structural"], kinds["relativity"], kinds["invariant"]),
-        len(b) == 22 and kinds == {"universal": 5, "structural": 5, "relativity": 6, "invariant": 6} and len(NOT_RUN) == 2)
+    kinds = {k: sum(1 for v in b.values() if v[0] == k) for k in K4}
+    add("B1 twenty-two bounds entered -- sixteen acting (universal %d, structural %d, relativity %d) and %d constant -- and "
+        "two not run or withdrawn" % (kinds["universal"], kinds["structural"], kinds["relativity"], kinds["constant"]),
+        len(b) == 22 and kinds == {"universal": 5, "structural": 5, "relativity": 6, "constant": 6} and len(NOT_RUN) == 2)
     ids = {(cn, a, d) for cn, a, d, la, lb, r in o["ids"]}
     ok = ("G ceiling", "top (corridor inside the curvature)", "table-top floor (relative)") in ids
     g = [r for cn, a, d, la, lb, r in o["ids"] if cn == "G ceiling" and a == "top (corridor inside the curvature)"]
@@ -480,29 +503,32 @@ def checks(o):
     add("B5 the matter law tightens the gravity tolerance for Cu, Ag, Au (surface gravity up) and relaxes it for Cr (down)",
         ok)
     y = o["cy"]
-    ok = bool(y["run"]["verdicts"]) and y["n"] == 16 and not y["audit"]["keys"] and not y["audit"]["onehot"]
-    ok &= y["kind_determined"] and "kind" in y["adds_nothing"] and y["rel_is_mu"]
+    ok = bool(y["run"]["verdicts"]) and y["n"] == 15 and not y["audit"]["keys"] and not y["audit"]["onehot"]
+    ok &= y["kind_determined"] and "kind" in y["adds_nothing"] and y["no_zero_row"] and y["rel_is_mu"]
+    ok &= len(y["constants"]) == 6 and not y["constants_in_index"]
     ok &= y["shared"] == [["survive: closing energy", "survive: gravity, below"]]
-    ok &= y["three"]["n"] == 17 and not y["three"]["kind_adds_nothing"] and y["three"]["zero_split"] == ["relativity",
-                                                                                                         "universal"]
-    add("B6 the cypher (16 cells, no key, no one-hot): with the invariants as a fourth kind, kind adds nothing -- every "
-        "bound's kind follows from how it acts; under M's three kinds it does not (17 cells, the no-variable row split "
-        "universal / relativity).  One acting cell holds two bounds (the gravity floor and the closing-energy tolerance), "
-        "one kind", ok)
+    ok &= y["as_cells"]["n"] == 17 and not y["as_cells"]["kind_adds_nothing"] and y["as_cells"]["zero_split"] == [
+        "relativity", "universal"]
+    ok &= y["as_fourth"]["n"] == 16 and y["as_fourth"]["kind_adds_nothing"]
+    add("B6 the cypher on the sixteen acting bounds in M's three categories (15 cells, no key, no one-hot): kind adds "
+        "nothing -- every acting bound's category follows from how it acts -- and the six constant bounds are no cell of "
+        "it; placed as cells in the three categories they split the no-variable row (17 cells, kind needed); as a fourth "
+        "kind (item 242, withdrawn) they close the split only by construction (16 cells)", ok)
     iv = o["inv"]
     ok = iv["inv"] == iv["zero"] and len(iv["inv"]) == 6
     ok &= all(abs(iv["consts"][k] - F(4, 3) * F(k)) < 1e-12 for k in (1.0, 2.0, 0.5))
     ok &= iv["coupling_ok"] and iv["closing_ok"]
-    add("B7 the invariant kind is exactly the bounds acting on no variable (six), and three of them fix the acting bounds: "
+    add("B7 the constant bounds are exactly the bounds acting on no variable (six), and three of them fix the acting bounds: "
         "the bit area sets the capacity identity's 4/3 (x k: 4k/3), SMS sets the one-coupling row i + 3j, the bit area "
         "with the README match sets the closing-energy row (1/2, 1/2)", ok)
     return res
 
 
 MUTANTS = {"floor_sign": "the relative floor's j-sign reversed",
-           "three_kinds": "the invariants left in the three kinds (item 241's table)",
-           "sms_sigma2": "SMS with G ~ sigma^2 (the invariant changed)",
-           "bit_area_G2": "the bit area ~ G^2 (the invariant changed)"}
+           "constants_as_cells": "the constant bounds placed in the three categories (item 241's table)",
+           "fourth_kind": "the constant bounds as a fourth kind (item 242's reading, withdrawn)",
+           "sms_sigma2": "SMS with G ~ sigma^2 (the constant changed)",
+           "bit_area_G2": "the bit area ~ G^2 (the constant changed)"}
 
 
 def selftest():

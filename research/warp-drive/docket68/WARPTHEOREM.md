@@ -1869,3 +1869,60 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   Each invariant still has a home domain by meaning (four universal, two relativity). The cypher cannot see a domain on
   a row that acts on nothing, so the board takes the reading the index can see (196).
 - `bounds.py`: selftest 8/8, mutants 4/4. No status moves.
+
+## History (2026-10-11, item 243: the constant bounds, as bounds of a closed index)
+
+- **M, item 243:** *"They are not invariant bounds. They are likely bounds of a closed index, the constant bounds that
+  always apply regardless of the other 3 categories"*.
+  - The first sentence is a correction. Item 242's name ("invariant") and its fourth category are withdrawn.
+  - The rest is carried as M's hypothesis, H-CONSTANT-BOUNDS, and put to the cypher (`lemmas/closed_bounds.py`; `bounds.py`
+    revised).
+- **"Closed index" is read from The Method (READ, `The_Method_1_6-2.md`).**
+  - §15.2: a closed index is X = ℛ(X), its alphabet and its envelopes.
+  - §15.5: ℛ(X) = X "recovers alphabet and bounds for any closed index".
+  - §16: "A closed index contains its own contradiction", with ⅅ = dim q − rank ∂Φ/∂p and two disjoint paths.
+
+  With item 121's two criteria and item 8's H-CLOSED-INDEX. The translation to these forms is the board's reading.
+- **The categories without the constants (`bounds.py` B6):**
+  - The sixteen acting bounds in M's three categories give 15 cells, and the category adds nothing: every acting
+    bound's category follows from how it acts. The six constants are no cell of this index.
+  - Placed as cells in the three categories, they split the no-variable row (17 cells), so they can be placed only by
+    meaning. As a fourth kind they close that split only by construction.
+- **The rows from the forms (C1, exact):** all sixteen acting rows computed from the instruments' own relations equal
+  `bounds.py`'s table exactly. The forms match `p2_planck.sector` at the twelve members to 10⁻¹⁶.
+- **They always apply (C2):**
+  - Each constant with a form holds at all twelve bulk members, to 10⁻¹⁵: shared SI, SMS, the bit area, and four found
+    in the forms as candidates (the bulk's curvature from the plane, the plane's vacuum, the horizon, the capacity's
+    form).
+  - On the bulk index, each is a one-value coordinate (§15.2's alphabet as a point, its envelope flat). It adds nothing
+    and leaves every language's E unchanged.
+  - The bulk index itself is not closed: order and algebra E are 8 over the seven positions and 6 over the twelve.
+  - Given a second value at one universe, any constant raises order and algebra E to 15. This is what a second value on
+    any coordinate does, not a property of the constant.
+  - All of this is by construction, since every member was built under these forms.
+- **What each reaches (C3):** lift one at a time and recompute every acting row.
+  - Shared SI, the bit area and the README match move bounds in all three categories.
+  - The curvature and the horizon move bounds in two; SMS, the vacuum, the capacity's form and the build's energy in
+    one each. The null energy per ray enters no form.
+  - The reach is relative to the forms as stated: the record gives the curvature directly in G and σ, so SMS alone
+    reaches only the coupling.
+  - The stated values keep the open direction closed. The bit area's power of G is 1, below the closing-energy
+    tolerance's threshold of 2; the vacuum's power is 1, below the dark-energy ceiling's threshold of 2; SMS's tension
+    power is 1, above one coupling's threshold of −½.
+- **The self-defence they supply (C4, the board's translation of P2):**
+  - Position 2 as the map from (G, σ, the offset's ratio, the README) to what the constants fix has dim q 10 and
+    rank 4, so ⅅ = 6 (The Method's Λ has ⅅ = 2).
+  - Freeing a constant drops ⅅ by the quantities it fixes (shared SI 2, the rest 1). Freeing all gives ⅅ = 0: without
+    the constants there is no check.
+  - G by two disjoint paths, through the bulk's coupling and through its curvature: these agree exactly with the
+    sector's curvature. With the window's form they disagree by exactly (σ − 2δσ)/σ, which is 2^−(plane positivity's
+    slack), or 2^−206.457 at ours (exact rational algebra).
+- **The board's reading, through the cypher:**
+  - "Always apply" holds for every constant with a form.
+  - "Regardless of the other 3 categories" holds in two senses. The constants are no cell of the categorised index,
+    and three of M's six shape bounds in all three categories.
+  - "Of a closed index" holds in P2's sense: the index's whole self-defence is theirs.
+  - P1 for the bulk (E = 0) is not met by the present members. That is item 121's open construction.
+- **Not shown:** the null energy per ray's role, and the four candidates as M's.
+- `closed_bounds.py`: selftest 6/6, mutants 4/4. `bounds.py`: selftest 8/8, mutants 5/5. The full theorem selftest
+  through item 241 passes 8/8. No status moves.
