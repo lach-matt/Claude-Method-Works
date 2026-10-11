@@ -1007,3 +1007,124 @@ The theorem is proved exactly when no lemma below is OPEN.
   - Free atoms were searched as doublets only.
 - **For the corridor:** none of σ, the offset, G, ℓ or m moves. This is deduced from M's "all the other laws are the
   as ours".
+
+## History (2026-10-11, item 223: a second position 2 — the bulk's gravitational coupling, at fixed matter)
+
+- **M, item 223:** "The next step is to build another separate position 2 that separates our universe by one law other
+  than the madelung exceptions. 2 position 2s that are different from our universe and each other will give as a lot
+  more to measure. Perhaps the law you choose to change could give us more insights into σ, the offset, G, ℓ and m"
+- **The choice, through the cypher (`lemmas/p2_gravity.py` Y1, computed).** Seven candidate laws, each on its own grid
+  of our exact values.
+  - The five languages agree on every candidate's moves over (σ, offset, G, ℓ, m):
+    - κ₅ moves G, ℓ and m;
+    - the σ-setter moves σ, G, ℓ and m;
+    - the offset moves itself and ℓ;
+    - the bit-area law and h move m only;
+    - c moves ℓ and m.
+  - c's row depends on what is held when c moves (00011, 00101 or 00111). The choice does not.
+  - The offset reaches ℓ only through 2δσ/σ, at most 7.08 × 10⁻⁶³. A 12-figure pipeline loses it.
+  - The rule is the board's reading 223 (b): σ and the offset kept, matter ours, and the most of the five moved. It
+    picks **κ₅ alone**. Its target is held by κ₅ and admitted by all five languages.
+  - "All five moved" and "the offset moved with G" are held by no candidate, and geometry and statistics refuse both.
+  - The record states no offset for position 2's 139 (1) plane, so both codings were run.
+    - Read as moved, the plane holds both targets.
+    - Read as held, it falls in the σ-setter's cell and holds neither.
+  - **No single law in the record moves the offset with G.**
+  - The choice rests on holding the offset at ρ_Λ. Held at Λ₄, κ₅ would move it too, and the rule would pick the
+    bit-area law.
+- **Position 2b.** κ₅⁴ = 2 × ours, so G₂b = 2G. σ, the offset and every matter law are ours. H-ONE-G5 is set aside for
+  position 2b only.
+  - The record's per-sheet count gives the same G₂ = 2G by another route: there it is position 2's negative plane under
+    one coupling.
+  - Position 2a changes matter at fixed gravity; 2b changes gravity at fixed matter.
+- **The gravitational sector (deduced).**
+  - ℓ × 1/√2 and k × √2. Λ₄ × 2. Λ₅ = −6/ℓ² × 2 in the record's geometric form; SMS's vacuum energy density × √2.
+  - **Gℓ² = 3c⁴/(4π(σ − 2δσ)) does not move.** It is fixed by σ and the offset alone, so κ₅ trades G against ℓ along
+    it.
+  - On MK (41), the one-plane law, the short-range term relative to Newton's halves, and the absolute 2GMℓ²/(3r³) is
+    unchanged.
+  - Position 2b's floor on σ depends on what its experiment holds fixed:
+    - at our relative precision, 7.4086 × 10⁵² J/m³ (half ours);
+    - at our absolute precision, 1.4817 × 10⁵³ J/m³ (ours).
+- **The corridor at fixed N (computed).**
+  - E₁ 4.594040 × 10⁸ → 3.248477 × 10⁸ J; m₁ × √2; A_bit × 2; σ_P × 1/4.
+  - N_max (the Nariai cap, a third of the de Sitter horizon's bits) 1.5918 × 10¹²² → 3.9795 × 10¹²¹.
+  - The assembly ceiling writes a 676.3-bit README in ours and 1352.6 in 2b.
+  - A trip from ours to 2b under 203's one E gives m₂ = 2m and a capacity of 2N. J5's m₂ = m binds glued bulks only
+    (215).
+- **Matter, bodies and stars.**
+  - No atomic, molecular or solid value moves. Gravity's share of hydrogen's binding doubles, to 8.816 × 10⁻⁴⁰.
+  - Bodies of 1 × 10²² kg on item 221's equations of state (cold, hydrostatic; converged to the printed digits):
+
+    | | Cu: R (km), g (m/s²) | Ag | Au |
+    |---|---|---|---|
+    | ours | 649.30, 1.5831 | 617.11, 1.7526 | 509.82, 2.5679 |
+    | 2a min | 636.06, 1.6497 | 577.28, 2.0028 | 507.68, 2.5895 |
+    | 2a mirror | 623.72, 1.7157 | 552.90, 2.1833 | 504.40, 2.6234 |
+    | 2b | 646.70, 3.1918 | 613.15, 3.5506 | 505.48, 5.2244 |
+
+    - Position 2a pulls harder through density. Position 2b pulls harder through G, with the body's extra compression
+      second (g × 2.016, 2.026, 2.035).
+    - The compression term follows Pc/B₀ (0.033, 0.060, 0.083), not softness: gold, the stiffest, compresses most.
+    - Every central pressure lies inside its own rows' reach. In 2b silver uses 92 % of it, gold 94 %.
+  - Stars (READ scalings, ESTIMATE), at fixed mass:
+    - The Chandrasekhar mass is × 0.354, and the year at 1 AU × 0.707.
+    - A massive star (L ∝ G⁴) shines × 16, and 10 Gyr becomes 0.625 Gyr.
+    - A Sun-like star (L ∝ G⁷ to G⁸; Teller, Pochoda and Schwarzschild) shines × 128 to 256 and lasts 0.04 to
+      0.08 Gyr. At 1 AU its insolation is × 128 to 256.
+- **The three universes side by side.**
+
+  | | ours | position 2a | position 2b |
+  |---|---|---|---|
+  | the one changed law | — | a d-shell energy (min / mirror) | κ₅⁴ × 2 |
+  | σ, offset (SI) | ours | ours | ours |
+  | G, ℓ, m at fixed N | ours | ours | × 2, × 1/√2, × √2 |
+  | σ/σ_P, δσ/σ_P | ours | ours | × 4 |
+  | α_G = Gm_p²/(ħc) | ours | ours | × 2 |
+  | silver, zero-pressure density (item 221) | ours | +23 % / +41 % | ours |
+  | silver body of 10²² kg, g | 1.7526 m/s² | 2.0028 / 2.1833 | 3.5506 |
+  | item 201's cell, SI | one cell | the same | the same |
+  | item 201's cell, Planck units | one cell | the same | its own |
+
+- **What the second position 2 says about the five (deduced).**
+  - **σ** fixes Gℓ². κ₅ trades G against ℓ along it. On the one-plane law, the absolute short-range term reads σ in
+    every κ₅ universe.
+  - **The offset** reaches ℓ at 10⁻⁶². In Planck units it sets the bit budget, N_max ∝ σ_P/δσ.
+  - **G, ℓ and m** move together under κ₅ and under no other candidate that keeps σ, the offset and matter (c does too
+    when G5 is held, but c moves α).
+  - **In each universe's own Planck units,** the corridor's per-bit scale does not move (E₁/E_P = m₁/l_P = √(ln2/4π),
+    A_bit = 4 ln2 l_P²). Its pure numbers do: N_max × 1/4 and ℓ/m × 1/2, because σ and the offset, held in SI, rise × 4.
+  - **Item 201's two coordinates** make one cell of the three universes in SI and two in Planck units, with 2b apart.
+    Whether 201's defining numbers are SI or Planck-unit values decides whether a κ₅ universe is a different cell. That
+    is recorded for the board, not decided.
+- **Recorded, not resolved.**
+  - Which universe's G sets E on a trip.
+  - The record's three values for position 2's G, against G₂ = G in items 218–221:
+    - +2, per sheet;
+    - +6, doubled, set aside by 200 (1);
+    - −1/4, one-plane, superseded.
+  - H-ONE-G5 set aside for 2b only.
+  - The offset held at ρ_Λ, not Λ₄.
+  - The record carries two values of ρ_Λc², 0.08 % apart: sigma_defines.py's 5.2487 × 10⁻¹⁰ J/m³, used here, and
+    b6p_scale.py's 5.2447 × 10⁻¹⁰.
+- **Through its critics (physics, numbers, record; 206).**
+  - The record read was done in the conversation at M's request; the duplicate agent was stopped.
+  - Seated corrections:
+    - the plane's unstated offset;
+    - the exact σ window and our exact grid;
+    - the one-plane caveat;
+    - the floor's dependence on the experiment;
+    - the Sun's own luminosity scaling;
+    - the compression ordering;
+    - the per-metal reach;
+    - 92 %, not 91 %;
+    - the Planck-unit wording;
+    - c's convention;
+    - checks held to the stated digits.
+  - `--selftest` passes 9/9, and `--mutants` catches 7/7.
+- **What it does not show.**
+  - No bulk solution for 2b is computed.
+  - Stars are scalings, not models.
+  - Friedmann histories and BBN are not computed.
+  - A body whose central pressure passes its own rows' reach (12.8–27.4 GPa under our law) is outside the banked
+    equations of state.
