@@ -1785,3 +1785,45 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   limit bounds weak and strong gravity for that object. That is the board's candidate for item 237's missing bound —
   object-relative, not seated.
 - `copy_p2.py`: selftest 5/5, mutants 2/2. No status moves.
+
+## History (2026-10-11, item 241: the bounds, indexed)
+
+- **M, item 241:** *"There are likely relativity bounds such as survivability, and structural bounds such as a
+  universe's own laws/rules/exceptions, and universal bounds that directly apply to the 5D bulk. Index the bounds to see
+  how they interact and if they identify or mitigate other bounds"*.
+- **The index (`lemmas/bounds.py`).** Every bound the record holds is a slack over one address space: the universe's
+  2b and 2P steps, our tension's place in its window, the offset's ratio, the README's size, the matter law, the
+  object's means of mitigation, and whether a field varies the 5D coupling. Nineteen bounds:
+  - **Universal (7):** the corridor inside the curvature (the top), the README's capacity, the plane's positivity, one
+    5D coupling unless a field (two sides), the null energy per ray, and the shared SI.
+  - **Structural (5):** the table-top floor (two readings), the matter law's exceptions, the G ceiling, and the throat's
+    matter regime.
+  - **Relativity (7):** survivability's tolerances on gravity (two sides), dark energy (two sides), the closing energy
+    and chemistry, and the README match.
+  - **Not run:** "not already contained" (230). **Withdrawn:** T3's ceiling as the need (239).
+- **What identifies what (exact):**
+  - **The G ceiling is the top plus the relative floor,** exactly, so it is not a bound of its own.
+  - **The README's capacity is the plane's positivity plus the throat's matter regime, plus log₂(4/3):**
+    N_max/N = (4/3)(σ/2δσ)(ρ_E/2σ) for every universe and README. The constants cancel symbolically, and the identity
+    checks to 10⁻¹² at three points. A universal bound is identified by a universal and a structural one.
+  - **The capacity also follows from the top** while the offset's ratio plus the README's size stay within 209.06 + w
+    doublings; the example README sits 157.78 inside.
+- **The open direction (item 233):**
+  - No structural bound closes it.
+  - Survivability's gravity floor, closing-energy tolerance and dark-energy ceiling close it, and so does one coupling
+    without a field.
+  - The gravity floor and one coupling make the region finite. The dark-energy ceiling leaves the diagonal open.
+  - With M's field (230) the coupling is lifted, so **item 237's missing bound is relativity's:** survivability's
+    gravity floor, finite for any object whose tolerance is finite.
+- **Mitigation and trade:**
+  - The offset's ratio relaxes the capacity, the positivity and the dark-energy ceiling together.
+  - Our tension's place trades the top against the floors; their meeting is the G ceiling.
+  - The README's size tightens the capacity and leaves the throat's matter regime sooner.
+  - The object's means relax only relativity bounds.
+  - **A structural bound mitigates a relativity bound:** the matter law raises a body's surface gravity at fixed G for
+    Cu, Ag and Au (×1.04–1.25), tightening survivability's gravity tolerance, and lowers it for Cr (×0.97, ×0.96),
+    relaxing it. Which way depends on the object's material.
+- **Through the cypher (17 cells, no key, no one-hot code):** the three kinds are not contradicted by how the bounds
+  act, bar three invariants that act on no variable. The critic's limit, recorded: any labelling of distinct rows passes
+  this test, so the cypher fails to refute the kinds; it does not confirm them.
+- `bounds.py`: selftest 7/7, mutants 1/1. No status moves.

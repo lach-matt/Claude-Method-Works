@@ -277,7 +277,9 @@ def lemma_selftests():
               # item 238
               "ledger_cypher.py",
               # item 240
-              "copy_p2.py"):
+              "copy_p2.py",
+              # item 241
+              "bounds.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
