@@ -1505,3 +1505,55 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - C, which is 354.66, not 354.2;
   - the absolute floor's region, which needs i ≤ W/2;
   - K7's check, which was missing.
+
+## History (2026-10-11, item 234: the ensemble is weighted; what supplies G)
+
+- **M, item 234**, on whether to weight the bulk's universes or leave them unweighted: *"put this to the cypher, and
+  if the answer is that the ensemble IS weighted, then ask the cypher what is supplying G and How"*.
+- **The decision rule was fixed before the run** (`lemmas/weight_cypher.py` W0). Weighted if:
+  - (i) no unweighted ensemble is a probability over item 233's plausible bulk; and
+  - (ii) a normalisable measure, positive on every plausible universe, is held by some candidate the record computes
+    and not by the unweighted count.
+- **Is it weighted? Yes.**
+  - **V1.** Every candidate measure the record computes per universe was tested: each 5D and README quantity, its
+    inverse, the window share, and the unweighted count. A power weight 2^(a i + b j) is normalisable exactly when it
+    rises along both lattice directions (b > 0, and a + b > 0 or a > 0, by the floor's reading).
+    - **Normalisable:** G, the 5D coupling's forms (κ₅⁴, G₅, l₅) and the corridor's mass.
+    - **Not normalisable:** the unweighted count, the README's capacity, its energy, ℓ, Λ, and the Planck tension.
+    - Log-sums over growing sections agree on every candidate.
+  - **V2, the statistics language** (maximum entropy on the order-2 marginals).
+    - With only the bulk held it is uniform, and position 1's share falls with the section's size toward 0: the
+      unweighted ensemble gives our own universe no weight.
+    - With the positions held, it weighs each of the seven position universes 1/7 and the five plausible compositions
+      0.
+  - **V3, the decision index** (all five languages, audited, no key): the target is held only by candidates that rise
+    along both directions, never by the unweighted count.
+  - **Verdict: WEIGHTED.** It rests on the theorem's conditions leaving weak gravity unbounded (item 233 K3). A
+    condition that bounded it would call for a re-run.
+- **What supplies G, and how.**
+  - **V4, exact** (as functions of G, the tension and the offset, with the offset kept free):
+    - neither the plane alone nor the bulk alone fixes G;
+    - every minimal set of the 5D action's and the plane's own parameters holds one of each: {coupling, tension},
+      {curvature, tension, offset}, {coupling, curvature, offset};
+    - with the offset exactly 0 (a flat plane), {coupling, curvature} also fixes it;
+    - the README's quantities fix G alone, but only because each is G rewritten with the shared SI constants.
+  - **V5, through the cypher:** the target (G fixed with a bulk parameter and none of G's equivalents) is held by
+    exactly those three sets, each with a plane parameter.
+  - **The cypher finds G fixed by the bulk and the plane together.** That the bulk *supplies* it is the direction the
+    record gives (230; the bulk as the third body, 232): 4D gravity is the bulk's gravity reduced onto the plane.
+  - **How (V6, exact on all twelve):** G = κ₅⁴ σ c⁴ / (48π), the bulk's coupling carried onto the plane by its tension
+    (Shiromizu–Maeda–Sasaki; the relation p2_gravity's sector already uses), for every offset. Equivalently
+    G = 3c⁴ / (4π ℓ² (σ − 2δσ)).
+    - 2b's G × 2 is the coupling × 2 at our tension.
+    - 2P's G × 2 is the coupling × 8 against a tension × ¼.
+    - In a bulk of one coupling (no field), G is proportional to each plane's tension alone.
+- **So (V7, deduced):** among the record's powers, the weights that normalise rise with G, so they rise with the bulk's
+  coupling read through the plane's tension. Which such weight the ensemble carries is not fixed (several normalise).
+  A weight peaked at some universe would also normalise, but it needs a width the record does not give (209).
+- The critic lenses were run in the conversation:
+  - the "rises with G" claim was narrowed to power weights;
+  - "the bulk supplies G" was narrowed to what the cypher computes;
+  - the sums were extended to the whole upper region (the first draft cut it);
+  - ℓ was added to the candidates.
+- `weight_cypher.py`: selftest 8/8, mutants 3/3 caught, and the ask-anyway control moves no check. No theorem row
+  moves.
