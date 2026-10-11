@@ -1827,3 +1827,45 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   act, bar three invariants that act on no variable. The critic's limit, recorded: any labelling of distinct rows passes
   this test, so the cypher fails to refute the kinds; it does not confirm them.
 - `bounds.py`: selftest 7/7, mutants 1/1. No status moves.
+
+## History (2026-10-11, item 242: the invariants as a fourth kind)
+
+- **M, item 242,** quoting the board's line *"The exception is three invariants that touch no variable, so their kind
+  comes from meaning rather than action."*: *"another bound classification in the index?"*
+- **The board's answer, through the cypher: yes, a fourth kind, "invariant".** It is seated as the board's reading, not
+  M's, until M rules (`lemmas/bounds.py` B1, B6, B7).
+- **Six invariants.** Item 241 had three: the null energy per ray (183 (Z)), the shared SI (225 A) and the README match
+  (240 (b)). Searching the record for conditions that hold at every universe and act on no variable added three more:
+  - G fixed by the bulk and the plane (SMS, G = κ₅⁴σc⁴/48π; 234 V6);
+  - the throat's bit area (clause (H));
+  - the build using exactly the closing energy (111 (a); 239).
+
+  That makes 22 bounds: universal 5, structural 5, relativity 6, invariant 6.
+- **The cypher (16 cells, no key, no one-hot code):**
+  - With four kinds, the kind coordinate adds nothing: every bound's kind follows from how it acts.
+  - Under M's three kinds it does not. The same bounds give 17 cells, and the row that acts on no variable splits
+    between universal and relativity, so those six can be placed only by meaning.
+  - One acting cell holds two bounds, the gravity floor and the closing-energy tolerance, and both are relativity.
+- **What the invariants act on:** the other bounds, not the address. A slack with no variable never excludes an
+  address. Three of the six are shown to fix the acting bounds' rows and constants (computed, 10⁻¹²):
+  - the bit area sets the capacity identity's 4/3 (scaled by k it gives 4k/3);
+  - SMS sets the one-coupling row i + 3j (the 3 is 1 + 2b, with b = 1 the tension's power in G);
+  - the bit area with the README match sets the closing-energy row (½, ½), which is 1 − a/2 with a = 1 the bit area's
+    power of G.
+
+  Change the invariant and the row moves (mutants `sms_sigma2` and `bit_area_G2`). **Deduced:** the four kinds sort the
+  bounds by what they act on: the bulk, a universe, the object against position 2, and the bounds themselves.
+- **The critic's limits, recorded:**
+  - Giving the no-variable row its own label closes the split by construction. B6 therefore shows that three kinds need
+    meaning to place those six; it does not show that "invariant" is the right name.
+  - With 15 acting rows over 16 acting bounds, almost any labelling passes. The cypher fails to refute the four kinds;
+    it does not confirm them.
+  - That the invariant set equals the zero-row set is a consistency check: the board placed the six knowing their rows.
+  - B7's rows match the table because the table was written from the same forms (items 233 and 240). The match shows
+    where those rows come from; it is not independent evidence for the forms.
+  - The roles of the null energy per ray, the shared SI and the build-uses-closing-energy invariant are not computed.
+  - The search for invariants was a reading of the record, not an exhaustive one.
+- **The alternative reading, recorded:** the invariants as a level across M's three kinds rather than a kind beside them.
+  Each invariant still has a home domain by meaning (four universal, two relativity). The cypher cannot see a domain on
+  a row that acts on nothing, so the board takes the reading the index can see (196).
+- `bounds.py`: selftest 8/8, mutants 4/4. No status moves.
