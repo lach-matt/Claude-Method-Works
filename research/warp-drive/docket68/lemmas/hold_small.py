@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """hold_small.py -- item 251's last step at the family's small end: O1b/O1c restated (item 259), and the hold against the
 hole's temperature.  Worked in the conversation (computed with sympy, exact where marked; READ where marked; estimates
-marked; not verified by a separate session; not seated); 2026-10-11.
+marked; not verified by a separate session; not seated); 2026-10-11.  L4 re-read on item 260 against the write's count
+redone at the small end (write_small.py); first written with the record's 4D count.
 
   L0 (read) M's item-259 words, verbatim in the rulings file.
   L1 (computed, exact; item 259) O1b/O1c at the small end: the static bulk, its horizon and the bridge's slice are
@@ -19,18 +20,21 @@ marked; not verified by a separate session; not seated); 2026-10-11.
      For the example README at ell = 13.964 um (C2: r_h = 1.120e-20 m, E = 1.281e9 J): P = 2.1e22 W at greybody 1,
      lifetime 3.0e-14 s (3.0e-13 s at greybody 0.1).
   L4 (computed, exact in its scaling) The lifetime in the hole's own clock r_h/c grows as N and carries no ell -- t / (r_h
-     /c) is fixed by N alone: 8.0e14 clocks for the example (0.29 N), at every ell.  The write the record computed (O3-
-     WRITE: T >= (3645 ln2 N/(8Z))^(1/3) - 2 clocks, 199,702 for the example) grows as N^(1/3); in the small end's clock
-     that is 7.5e-24 s, and in the record's own 4D clock 1.3e-31 s.  The hole outlives the hold by 4e9 at the least
-     (greybody 1, the small end's clock), more otherwise.  [The write's clock count is the record's 4D derivation; its
-     small-end re-derivation is the WRITE row's, not done here.]
+     /c) is fixed by N alone: 8.0e14 clocks for the example (0.29 N), at every ell.  The write at the small end
+     (write_small.py S3, item 260: T >= (3/2)(5 N ln2/Z)^(1/3) - 1 clocks of r_h/c, 66,980 for the example at Z =
+     106.75) grows as N^(1/3) and carries no ell either; at ell = 13.964 um it is 2.5e-24 s.  The hole outlives the
+     write's floor by 1.2e10 (greybody 1), 1.2e11 (greybody 0.1); every variant of write_small S3 fits.  [First written
+     with the record's 4D count, 199,702 clocks of m/c (O3-WRITE), carried into the small end's clock as 7.5e-24 s and
+     outlived by 4e9 -- M, item 260: "The write's clock count is still the record's 4D derivation. Redoing it at the
+     small end belongs to the WRITE row."  The record's write in its own 4D clock, 1.3e-31 s, is printed for
+     comparison.]
 
 What this does not show.
   - The evaporation's greybody factors and species beyond the Standard Model; bulk graviton emission (subdominant by
     the abstract read).
-  - The write's duration at the small end (row WRITE), re-derived; L4 uses the record's count.
+  - The WRITE row's cypher at the small end (item 260 (b)); L4 uses write_small's count, a floor.
 
-Imports p2_gravity.py by path.  Stdlib + sympy.  python3 hold_small.py [--selftest | --mutants]
+Imports p2_gravity.py and write_small.py by path.  Stdlib + sympy.  python3 hold_small.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
@@ -48,7 +52,7 @@ MUT = {}
 M259 = "Admitted (Recommended)"
 N_EX = 2742570311524972
 G_STAR = 106.75
-WRITE_CLOCKS = 199702.19
+WRITE_CLOCKS_RECORD = 199702.19                 # the record's 4D count, clocks of m/c (O3-WRITE), for comparison
 
 
 def infall():
@@ -78,6 +82,10 @@ def lifetime():
     G, c, hbar, kB = PG.G, PG.C, PG.HBAR, 1.380649e-23
     sigma_SB = 5.670374419e-8
     L2 = math.log(2)
+    spec = importlib.util.spec_from_file_location("hs_ws", os.path.join(HERE, "write_small.py"))
+    WS = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(WS)
+    write_clocks = WS.head_clocks()
     out = {}
     for ell in (PG.ELL_MAX, 1e-9, 1e-20):
         G5 = G * ell
@@ -90,9 +98,9 @@ def lifetime():
             P = (G_STAR / 2) * sigma_SB * 4 * (4 * math.pi * rh ** 2) * T ** 4 * grey
             t = E / (2 * P)
             rows[grey] = dict(P=P, t=t, clocks=t / (rh / c))
-        out[ell] = dict(rh=rh, E=E, T=T, rows=rows, clock=rh / c, write_s=WRITE_CLOCKS * rh / c)
+        out[ell] = dict(rh=rh, E=E, T=T, rows=rows, clock=rh / c, write_s=write_clocks * rh / c)
     m = G * PG.corridor(G)["E1"] * math.sqrt(N_EX) / c ** 4
-    return dict(rows=out, ell_max=PG.ELL_MAX, write_4d_s=WRITE_CLOCKS * m / c)
+    return dict(rows=out, ell_max=PG.ELL_MAX, write_clocks=write_clocks, write_4d_s=WRITE_CLOCKS_RECORD * m / c)
 
 
 def compute():
@@ -108,8 +116,10 @@ def report(o):
         print("L3 ell %.3e: r_h %.3e m, E %.3e J, T %.3e K, clock %.3e s; lifetime %.2e s (grey 1) / %.2e s (grey 0.1) = "
               "%.2e / %.2e clocks; the write's %d clocks = %.2e s" % (ell, x["rh"], x["E"], x["T"], x["clock"], x["rows"][1.0]["t"],
                                                                      x["rows"][0.1]["t"], x["rows"][1.0]["clocks"],
-                                                                     x["rows"][0.1]["clocks"], WRITE_CLOCKS, x["write_s"]))
-    print("   the write in the record's 4D clock: %.2e s" % L["write_4d_s"])
+                                                                     x["rows"][0.1]["clocks"], L["write_clocks"],
+                                                                     x["write_s"]))
+    print("   for comparison, the record's 4D write (%.2f clocks of m/c) in its own clock: %.2e s" % (
+        WRITE_CLOCKS_RECORD, L["write_4d_s"]))
 
 
 def checks(o):
@@ -127,9 +137,10 @@ def checks(o):
     ok = "%.1e" % x["rows"][1.0]["t"] == "3.0e-14" and "%.1e" % x["rows"][0.1]["t"] == "3.0e-13"
     clocks = [row["rows"][1.0]["clocks"] for row in L["rows"].values()]
     ok &= max(clocks) / min(clocks) - 1 < 1e-9 and "%.1e" % clocks[0] == "8.0e+14"
-    ok &= x["rows"][1.0]["t"] / x["write_s"] > 4e9 and "%.1e" % x["write_s"] == "7.5e-24"
+    ok &= "%.2g" % (x["rows"][1.0]["t"] / x["write_s"]) == "1.2e+10" and "%.1e" % x["write_s"] == "2.5e-24"
+    ok &= "%.0f" % L["write_clocks"] == "66980"
     add("L3/L4 the example's lifetime 3.0e-14 s (grey 1) to 3.0e-13 s (grey 0.1); 8.0e14 clocks at every ell; the write "
-        "(199,702 clocks = 7.5e-24 s) outlived by more than 4e9", ok)
+        "at the small end (write_small: 66,980 clocks = 2.5e-24 s) outlived by 1.2e10", ok)
     return res
 
 
