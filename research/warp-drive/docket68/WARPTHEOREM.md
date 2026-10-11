@@ -940,3 +940,70 @@ The theorem is proved exactly when no lemma below is OPEN.
     volume, and the Physics Compendium's "The twin operator, c → ∞".
 - **For the corridor:** none of σ, the offset, G, ℓ or m moves. Position 2 differs in the law that sets its element
   table, which the bulk index needs as a coordinate.
+
+## History (2026-10-11, item 221: matter in position 2 — the same laws, the exception change carried into molecules, solids and bodies)
+
+- **M, item 221:** "Now assume all the other laws are the as ours and start building molecules and measuring mass,
+  density, gravity, etc, and notice how those value differ because of the madel exception change"
+- **The one different law (`lemmas/p2_matter.py`, RECONSTRUCTED).** On each atom of Cu, Ag, Au and Cr (the four
+  computed), each d electron carries an extra energy δ, counted by the Löwdin population of the atom's d orbitals.
+  Every other law is ours.
+  - Reading (b) of item 221 gives the smallest such term, the **min** law: δ puts the free atom's aufbau configuration
+    0.05 eV below the observed one.
+  - The board adds the **mirror** law, where the order is reversed by NIST's measured gap. It also adds the counting
+    and the gauge.
+  - For the four computed, δ_min is the exception's whole cost in the method (1.35–4.14 eV per d electron) plus
+    0.05 eV, acting on every d electron. So the smallest law is not a small change for them; for Nb or Pt, with gaps
+    of 0.1 eV, it could be.
+  - Where the aufbau state mixes (PBE Cu, Ag, Au; PBE0 Au), a banked state reaches the target at a smaller δ. Those min
+    laws are upper bounds on the smallest, by 0.01–0.11 eV per d electron.
+- **Molecules (PBE0).** Under min every bond shortens (−0.7 to −7.7 %), stiffens, and all but Cu₂ bind more (+3 to
+  +35 %).
+  - Under mirror the resolved bonds shorten, and binding falls in four of five: CuH −26 %, AgH −18 % (and AgH becomes a
+    triplet), CuF −14 %, Au₂ −63 %; AuH +0.4 %. The free atom they bind against has been lowered by the whole gap.
+  - Cu₂ under mirror holds no bound minimum the runs found. Ag₂ has none resolved out to 3.68 Å, where its curve is
+    still falling. Au₂ under the same law binds by 0.74 eV.
+- **Solids (PBE; density, stiffness, cohesion).**
+
+  | | a₀ ours → min → mirror (Å) | density change | bulk modulus change |
+  |---|---|---|---|
+  | Cu | 3.660 → 3.583 → 3.512 | +6.5 % / +13.2 % | +23 % / +55 % |
+  | Ag | 4.161 → 3.883 → 3.713 | +23 % / +41 % | ×2.0 / ×3.7 |
+  | Au | 4.212 → 4.198 → 4.167 | +1.0 % / +3.3 % | −5 % / +7 % |
+  | Cr (bcc, nonmagnetic) | 2.831 → 2.875 → 2.889 | −4.5 % / −5.9 % | −11 % / −10 % |
+
+  - Why: the law charges for d electrons. To first order a₀ moves by −δ·N_d′(a₀)/E″(a₀). The d count falls on
+    compression in Cu, Ag and Au and rises in Cr, which gives the right sign in all eight cases and the size within a
+    factor 2.6.
+  - The projector was tested in three copper cases, with Mulliken's d count in place of Löwdin's (equal on a free atom,
+    so the same δ). Every sign held, and the sizes moved by 33–72 %. Ag, Au, Cr, the bands and the chemistry were not
+    tested this way.
+- **Mass.** The law's gauge constant is free, so an atom's rest-mass shift is a gauge choice in size and sign.
+  - Between the two natural gauges the largest shift is 3.73 × 10⁻¹¹ (Ag, mirror).
+  - Without a constant the shift reaches 7.3 × 10⁻¹⁰.
+  - What a body binds or loses is gauge-free.
+- **Gravity.**
+  - The Earth's free-atom mass part is −4.9 × 10⁻¹⁵ to ∓9.5 × 10⁻¹⁴, 98 % of it Cr. It leaves out binding changes of
+    the same order.
+  - The structural part, an ESTIMATE that has Cr's atoms swelling as pure Cr does, is −7.4 × 10⁻⁵ (min) and
+    −9.8 × 10⁻⁵ (mirror). That is nine to ten orders larger.
+  - A copper body of the same atoms pulls 4.3 % / 8.6 % harder at its surface, a silver one 15 % / 26 %.
+  - In matter the exception change acts through structure, not through mass.
+- **Chemistry (one gas-phase reaction).**
+  - 2 CuF → Cu + CuF₂ costs +0.29 eV under our law. It pays −0.18 eV under min and −1.05 eV under mirror.
+  - The banked d counts put most of that change on the free Cu atom the law makes d⁹s², not on Cu(II).
+  - That copper's +2 state would win in condensed matter is inferred.
+- **Colour (inferred; mirror only for Ag and Au).**
+  - The top of silver's occupied d band rises 0.6–1.25 eV, depending on the edge rule. In the same method it lands
+    between gold's and copper's under our law for every rule. Position 2's silver would absorb in the visible as they
+    do, so it would not be white.
+  - PBE places every onset too low. Copper's and gold's onsets move by less than 0.2 eV.
+- **Unchanged:** water, air and carbon chemistry exactly; silicate rock but for its trace exception elements.
+- **What it does not show.**
+  - The law's form, gauge and mirror target are the board's choices, and its projector is not an observable.
+  - DFT carries its own errors. Our-law values are compared with measurement where read.
+  - Only Cu, Ag and Au (and Cr as a solid) were computed, of the twenty elements.
+  - Molecules take the lowest state over the guesses tried, and three needed branch-following.
+  - Free atoms were searched as doublets only.
+- **For the corridor:** none of σ, the offset, G, ℓ or m moves. This is deduced from M's "all the other laws are the
+  as ours".

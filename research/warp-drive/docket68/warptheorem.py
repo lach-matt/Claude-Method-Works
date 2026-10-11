@@ -251,7 +251,9 @@ def lemma_selftests():
               # item 219
               "no_madelung.py",
               # item 220
-              "lowdin_replay.py", "madelung_field.py"):
+              "lowdin_replay.py", "madelung_field.py",
+              # item 221
+              "p2_matter.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
