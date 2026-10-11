@@ -1611,3 +1611,39 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   - the control added for z ≈ 0;
   - the universes' tolerance stated as measured.
 - `weight_address.py`: selftest 7/7, mutants 3/3. No theorem row moves.
+
+## History (2026-10-11, item 236: do matter and the offset govern G?)
+
+- **M, item 236:** *"do the matter laws and offsets govern G because they provide the mass for relative gravity?"*
+- **G itself: no** (`lemmas/relgrav.py` R1, exact; with the offset free and matter's density as a fourth parameter).
+  - No minimal set of the bulk's, the plane's and matter's own parameters that fixes G contains matter. G is the same
+    in positions 1 and 2a, which differ only in the law.
+  - The offset enters only when G is read through the bulk's curvature: G = 3c⁴/(4πℓ²(σ − 2δσ)). There it moves G by
+    at most 7.08×10⁻⁶³ per unit change in ln δσ (at our tension window's floor). Through the coupling, G = κ₅⁴σc⁴/(48π),
+    it does not enter at all.
+  - **The mass that governs G is the plane's own:** its tension, an energy density, carried by the bulk's coupling.
+- **Relative gravity: yes, in three ways.**
+  - **R2, through density.** At our G, the law raises a 10²² kg body's surface gravity by ×1.042–1.246, the same as
+    raising G by ×1.008–1.242 for our matter.
+    - It does this through density (mean density up to ×1.390), not mass: an atom's mass moves by under 4×10⁻¹¹.
+    - It is a surface effect. Outside the body, at a given distance, the pull is GM and does not move.
+  - **R3, as the measure.** Matter is the mass against which G is measured: {surface gravity, matter's density} fixes G
+    (the Cavendish route). The surface gravity is itself G times matter.
+  - **R4, above the plane's tension.** There matter's density raises its own gravity: the effective coupling is
+    G(1 + ρ/2σ), the braneworld's quadratic term (READ). Every minimal primitive set that fixes it contains matter.
+    - For ordinary matter the term is negligible: gold's is at most 5.3×10⁻³³.
+    - For the README as energy on our plane at the throat's scale, it is not: E/(4/3 πr₀³) = 9.1×10⁹⁷ J/m³, above 2σ
+      over 75.1% of our tension's window (in doublings). There the README's own mass-energy governs its gravity. The
+      corridor itself lies in the bulk (179).
+- **The offset is mass too** (ρ_Λ = 5.84×10⁻²⁷ kg/m³). It gravitates as a source, Λ₄ = 8πGρ_Λ/c², not as the coupling,
+  and its measured value is itself read through our G (R5, READ).
+- **Through the cypher (R6; 22 cells, no key, no one-hot code):**
+  - "matter fixes G with the bulk and the plane" is held by none;
+  - every set that fixes the effective coupling without a quantity made from G contains matter.
+- The critic lenses were run in the conversation. Corrections made:
+  - the surface-only nature of the body effect;
+  - the offset's sensitivity stated as an upper bound;
+  - the throat's term placed on the plane;
+  - 75.1%, not 74.5%;
+  - an inert mutant replaced.
+- `relgrav.py`: selftest 6/6, mutants 2/2. No theorem row moves.

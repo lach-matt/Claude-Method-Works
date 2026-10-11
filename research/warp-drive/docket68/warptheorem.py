@@ -269,7 +269,9 @@ def lemma_selftests():
               # item 234
               "weight_cypher.py",
               # item 235
-              "weight_address.py"):
+              "weight_address.py",
+              # item 236
+              "relgrav.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
