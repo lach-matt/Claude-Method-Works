@@ -14,20 +14,31 @@ five-dimensional vacuum, the plane's tension a correction of order r_h/ell.
      bulk, clause (B) as seated.  Its Kretschmann scalar is 72 r_h^4/r^8.
   H2 (computed, exact) Our plane: the equator chi = pi/2.  Its extrinsic curvature vanishes identically -- the
      surface is totally geodesic (the reflection chi -> pi - chi is an isometry and the equator its fixed set) -- so
-     with the bulk mirrored across it the plane carries no stress at flat order: the bulk and the plane both keep (Z),
-     the null energy zero.
+     with the bulk mirrored across it the plane carries no stress at flat order: the matter's null energy is zero, in
+     the bulk (T_AB = 0) and on the plane (S_ab = 0).  [Verifier, item 254: the plane's own four-dimensional reading is
+     not zero -- its Einstein tensor is (r_h^2/r^4) diag(1, 1, -1, -1), radial null energy 0, tangential -2 r_h^2/r^4:
+     a negative read on tangential rays that is the bulk's traceless Weyl term, the appearance 183 names, not matter.
+     Computed here since.]
   H3 (computed, exact) What the plane reads: -f dt^2 + dr^2/f + r^2 dOmega^2 with the same f.  Its Ricci scalar is 0
      -- the plane's vacuum condition (its bulk Weyl term traceless), the class eq. (17) belongs to.  It is not eq. (17):
      lim r (f - 1) = 0 and lim r^2 (f - 1) = -r_h^2, a 1/r^2 pull, where eq. (17) has 1/r (B4D-STAGE1 D2, recomputed).
+     [Verifier, item 254: the flat-limit metric holds for r << ell, so the 1/r^2 pull is the plane's reading for
+     r_h << r << ell; at r >> ell the plane recovers four-dimensional gravity (Garriga-Tanaka, abstract READ by the
+     verifier) and the 1/r tail of the hole's mass returns.  D2 carried "at r << ell"; item 251's "loses the 1/r tail"
+     dropped it -- restored here.]
   H4 (computed, exact) Through the bridge.  Surface gravity kappa = f'(r_h)/2 = 1/r_h; tortoise r* = r + (r_h/2)
      ln|(r - r_h)/(r + r_h)|; with U = -e^(-kappa (t - r*)), V = e^(kappa (t + r*)) the (t, r) part is -F dU dV with
      F = r_h^2 (r + r_h)^2 e^(-2r/r_h) / r^2 -- smooth and positive at r = r_h, so the chart crosses the horizon.  The
      equator is untouched by the change of chart, so our plane continues through the bifurcation sphere (U = V = 0)
      into the second exterior: our plane on position 1's side, the same surface on position 2's.  On the plane's
-     t = 0 slice, dr^2/f + r^2 dOmega^2, r has a minimum r_h where the two sides join: the Einstein-Rosen bridge is a
-     throat.  (B4D-STAGE1 D2's "No throat. Its areal radius is r" read the static chart alone; in the extended geometry
-     the bridge's slice has a throat.  Recorded, not repaired.)  The bridge is not traversable: no causal curve runs
-     from one exterior to the other -- which item 251 accepts, since only the README crosses, as information.
+     t = 0 slice, dr^2/f + r^2 dOmega^2 -- with r^2 = r_h^2 + x^2 exactly dx^2 + (r_h^2 + x^2) dOmega^2, x real -- r
+     has a minimum r_h where the two sides join (checked).  [Verifier, item 254: that minimal sphere is the bifurcation
+     sphere of a non-degenerate horizon, a minimum only on the time-symmetric slice; on later slices the minimum radius
+     falls below r_h and to 0 -- the bridge pinches off -- and the second exterior exists only in the eternal solution,
+     not in a hole formed by collapse.  So it is not a static throat: B4D-STAGE1 D2's conclusion ("no throat", against
+     eq. (17)'s static throat) stands; its reason read the static chart alone.]  The bridge is not traversable: no
+     causal curve runs from one exterior to the other -- which item 251 accepts, since only the README crosses, as
+     information.  The chart is checked by pulling -F dU dV back to -f dt^2 + dr^2/f.
   H5 (computed) Regularity: the Kretschmann scalar is finite at every r > 0 -- 72/r_h^4 at the horizon and across the
      bridge -- and diverges only at r = 0, which lies in the hole's future and past interiors, never in either exterior
      nor on the bridge's slice (where r >= r_h).  Both exteriors and the bridge are regular; the interior is O1b/O1c's
@@ -121,9 +132,13 @@ def plane_metric():
     xs = [t, r, th, ph]
     G, Ric, K = curvature(g, xs)
     Rs = sp.simplify(sum(Ric[i][i] / g[i] for i in range(4)))
+    # the mixed Einstein tensor G^a_a (diagonal) and the null energies of the plane's own 4D reading (orthonormal)
+    Gmix = [sp.simplify(Ric[i][i] / g[i] - Rs / 2) for i in range(4)]
+    rho, pr, pt = -Gmix[0], Gmix[1], Gmix[2]
+    null_radial, null_tangential = sp.simplify(rho + pr), sp.simplify(rho + pt)
     tail1 = sp.limit(r * (f - 1), r, sp.oo)
     tail2 = sp.limit(r ** 2 * (f - 1), r, sp.oo)
-    return dict(R=Rs, tail1=tail1, tail2=tail2)
+    return dict(R=Rs, tail1=tail1, tail2=tail2, Gmix=Gmix, null_radial=null_radial, null_tangential=null_tangential)
 
 
 def bridge():
@@ -136,7 +151,15 @@ def bridge():
     Fclosed = rh ** 2 * (r + rh) ** 2 * sp.exp(-2 * r / rh) / r ** 2
     same = sp.simplify(sp.expand_log(sp.simplify(F / Fclosed), force=True)) == 1
     at_h = sp.simplify(sp.limit(F, r, rh))
-    return dict(kappa=kappa, F=F, closed=same, F_at_h=at_h, finite_positive=bool(at_h.is_positive))
+    # pullback: dU = -kappa U (dt - dr*), dV = kappa V (dt + dr*), so -F dU dV = -F kappa^2 (-UV) (dt^2 - dr*^2) with
+    # -UV = e^(2 kappa r*); it is -f dt^2 + dr^2/f exactly when F kappa^2 e^(2 kappa r*) = f
+    pullback = sp.simplify(F * kappa ** 2 * sp.exp(2 * kappa * rstar) - f) == 0
+    # the t = 0 slice: r^2 = r_h^2 + x^2 turns dr^2/f into dx^2
+    x = sp.symbols("x", real=True)
+    rx = sp.sqrt(rh ** 2 + x ** 2)
+    slice_ok = sp.simplify(sp.diff(rx, x) ** 2 / f.subs(r, rx) - 1) == 0
+    return dict(kappa=kappa, F=F, closed=same, F_at_h=at_h, finite_positive=bool(at_h.is_positive), pullback=pullback,
+                throat=slice_ok)
 
 
 def example():
@@ -164,12 +187,15 @@ def report(o):
     print("localized_hole.py -- the corridor as the regular localized 5D hole (item 251)\n")
     b = o["bulk"]
     print("H1 5D Schwarzschild-Tangherlini: Ricci = 0: %s; Kretschmann = %s" % (b["ricci_zero"], b["K"]))
-    print("H2 the plane chi = pi/2: extrinsic curvature identically zero: %s" % o["totally_geodesic"])
+    print("H2 the plane chi = pi/2: extrinsic curvature identically zero: %s; the plane's 4D G^a_b %s; null energy "
+          "radial %s, tangential %s" % (o["totally_geodesic"], o["plane"]["Gmix"], o["plane"]["null_radial"],
+                                         o["plane"]["null_tangential"]))
     p = o["plane"]
     print("H3 the plane's metric: Ricci scalar %s; lim r(f-1) = %s; lim r^2(f-1) = %s" % (p["R"], p["tail1"], p["tail2"]))
     br = o["bridge"]
-    print("H4 surface gravity %s; Kruskal F = %s (closed form agrees: %s); F at r_h = %s, finite and positive: %s" % (
-        br["kappa"], br["F"], br["closed"], br["F_at_h"], br["finite_positive"]))
+    print("H4 surface gravity %s; Kruskal F = %s (closed form agrees: %s); F at r_h = %s, finite and positive: %s; pulls "
+          "back to the static metric: %s; t = 0 slice a throat: %s" % (br["kappa"], br["F"], br["closed"], br["F_at_h"],
+                                                                      br["finite_positive"], br["pullback"], br["throat"]))
     K = b["K"]
     print("H5 Kretschmann at r_h = %s; at r -> 0: %s" % (sp.simplify(K.subs(r, rh)), sp.limit(K, r, 0)))
     ex = o["ex"]
@@ -187,14 +213,21 @@ def checks(o):
     b = o["bulk"]
     add("H1 the 5D Schwarzschild-Tangherlini bulk is Ricci-flat (vacuum, clause (B)); Kretschmann 72 r_h^4/r^8",
         b["ricci_zero"] and sp.simplify(b["K"] - 72 * rh ** 4 / r ** 8) == 0)
-    add("H2 our plane, the equator, is totally geodesic: no stress at flat order, null energy zero", o["totally_geodesic"])
+    pl = o["plane"]
+    ok = o["totally_geodesic"] and [sp.simplify(e) for e in pl["Gmix"]] == [sp.simplify(e) for e in (
+        rh ** 2 / r ** 4, rh ** 2 / r ** 4, -rh ** 2 / r ** 4, -rh ** 2 / r ** 4)]
+    ok &= pl["null_radial"] == 0 and sp.simplify(pl["null_tangential"] + 2 * rh ** 2 / r ** 4) == 0
+    add("H2 our plane, the equator, is totally geodesic: no stress at flat order, matter null energy zero; the plane's own "
+        "4D reading G^a_b = (r_h^2/r^4) diag(1, 1, -1, -1) -- radial null 0, tangential -2 r_h^2/r^4, the bulk's Weyl "
+        "term (verifier, 254)", ok)
     p = o["plane"]
     add("H3 the plane reads -f dt^2 + dr^2/f + r^2 dOmega^2 with Ricci scalar 0 (eq. (17)'s class), a 1/r^2 pull: "
         "lim r(f-1) = 0, lim r^2(f-1) = -r_h^2", p["R"] == 0 and p["tail1"] == 0 and sp.simplify(p["tail2"] + rh ** 2) == 0)
     br = o["bridge"]
-    add("H4 surface gravity 1/r_h; Kruskal F = r_h^2 (r + r_h)^2 e^(-2r/r_h) / r^2, finite and positive at r_h: the plane "
-        "continues through the bifurcation sphere to the second exterior", sp.simplify(br["kappa"] - 1 / rh) == 0
-        and br["closed"] and br["finite_positive"])
+    add("H4 surface gravity 1/r_h; Kruskal F = r_h^2 (r + r_h)^2 e^(-2r/r_h) / r^2, finite and positive at r_h, pulling "
+        "back to -f dt^2 + dr^2/f; the t = 0 slice dx^2 + (r_h^2 + x^2) dOmega^2 with its minimum at r_h; the plane "
+        "continues through the bifurcation sphere", sp.simplify(br["kappa"] - 1 / rh) == 0
+        and br["closed"] and br["finite_positive"] and br["pullback"] and br["throat"])
     K = b["K"]
     ok = sp.simplify(K.subs(r, rh) - 72 / rh ** 4) == 0 and sp.limit(K, r, 0) == sp.oo
     add("H5 regular at every r > 0 (Kretschmann 72/r_h^4 at the horizon and the bridge); divergent only at r = 0, inside the "
