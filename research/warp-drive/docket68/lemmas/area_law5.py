@@ -10,7 +10,9 @@ conversation (computed, exact where marked; not verified by a separate session; 
      of the plane, pi^2 r_h^3 over one (the plane's mirror identifies the sides).  Then r_h = (2 N ln2 / pi^2)^(1/3) l5
      (both sides) or (4 N ln2 / pi^2)^(1/3) l5 (one side): fixed by N alone in the bulk's own Planck units, as the
      theorem's head asks of the corridor -- in SI it depends on ell through G5 = G ell.  With r_h^2 = 8 G5 M / 3 pi c^2,
-     E = M c^2 = (3 pi / 8) (r_h / l5)^2 (hbar^2 c^4 / G5)^(1/3): E grows as N^(2/3) and falls as ell^(-1/3).
+     E = M c^2 = (3 pi / 8) (r_h / l5)^2 (hbar^2 c^6 / G5)^(1/3) -- the last factor hbar c / l5, the 5D Planck energy
+     [verifier, item 258: first written with c^4, dimensionally wrong; the code always computed 3 pi c^4 r_h^2/(8 G5)]:
+     E grows as N^(2/3) and falls as ell^(-1/3).
   A2 (computed, exact) Reading 4D on the plane: the plane's throat 2-sphere holds it, 4 pi r_h^2 = N A_bit, so r_h = r0
      and E = 3 pi c^4 r0^2 / (8 G ell), proportional to N / ell.  This is the four-dimensional count applied to a
      five-dimensional hole; it is not the hole's entropy.

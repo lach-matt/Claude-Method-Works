@@ -18,9 +18,13 @@ consistent pairing, item 254):
      E(r_h) as above, integrating dS = dE/T from r_h = 0 gives S = k 2 pi^2 r_h^3 c^3 / (4 hbar G5) -- the count over
      both sides.  The count is the hole's entropy exactly when it equals that S.
   Q2 (computed) P2 -- semiclassical: the example README's hole has r_h above the bulk's Planck length.
-  Q3 (computed, exact) P3 -- the large-hole limit: the black string's horizon (Chamblin-Hawking-Reall; standard, the
-     large brane hole's limit) has 3-area A4 ell/2 per side, so a count reduces to the record's clause (H), A4/(4 l_P^2),
-     only if it is R1 under G5 = G ell (or is the record's own count, R3).
+  Q3 (computed, exact) P3 -- the large-hole limit: the black string's horizon has 3-area A4 ell/2 per side, so a count
+     reduces to the record's clause (H), A4/(4 l_P^2), only if it is R1 under G5 = G ell (or is the record's own count,
+     R3).  [Verifier, item 258: the string is a leading-order proxy, not the large hole's limit -- the true large hole is
+     pancake-like (Figueras-Wiseman 1105.2558, read in full by the verifier; Chamblin-Hawking-Reall's own "black cigar"),
+     and its horizon matches the string's area at leading order in ell/r_h; Abdolrahimi et al. (1206.0708) find the
+     large hole's entropy and temperature those of Schwarzschild at leading order by the first law, the brane 2-area
+     raised but not the entropy -- so R3 matches only at leading order, R1 is the entropy itself.]
   Q4 (computed, exact) P4 -- the head statement: the corridor fixed by N alone in the bulk's own Planck units (r_h/l5 a
      function of N only).
   Q5 (computed; the cypher, roster 1173, audited) the cells over (P1, P2, P3, P4): R1 alone holds all four.  With R1
@@ -29,6 +33,10 @@ consistent pairing, item 254):
      classifies; the computed table decides: R1, the hole's 3-sphere horizon over both sides of the plane in the bulk's
      own Planck units, is the only count that is the hole's first-law entropy, gives a semiclassical hole, reduces to
      the record's clause (H) for large holes under G5 = G ell, and fixes the corridor by N alone in the bulk's units.
+     [Verifier, item 258: the first law alone is homogeneous -- (E/2, S/2) obeys it at the same T -- so R1 over R2 rests on
+     convention-consistency: the record's two-copy normalisation 8 pi G = kappa5^2/ell (G5 = G ell) with E the energy the
+     plane reads.  R2 as defined mixes a one-sided area with the two-sided l5; a one-sided G5' = G ell/2 makes the
+     one-sided count identical to R1.  P4 is the head statement's own requirement, mildly circular; P1 decides.]
 
 Imports p2_gravity.py, tools/cypher.py and index_audit.py by path.  Stdlib + sympy.  python3 hcount_cypher.py
 [--selftest | --mutants]
