@@ -128,21 +128,24 @@ VARS = BD.VARS
 CONSTANTS = [
     ("shared SI", "225 A", "the six (243)", ("h", "cc")),
     ("G from the bulk and the plane", "SMS; 234 V6", "the six (243)", ("b",)),
-    ("the throat's bit area", "clause (H)", "the six (243)", ("a",)),
+    ("the throat's bit area", "clause (H)", "the six (243)", ("a", "qN")),
     ("README match", "240 (b); copy_p2 C1", "the six (243)", ("r",)),
     ("build uses the closing energy", "111 (a); 239", "the six (243)", ("e",)),
     ("null energy per ray", "183 (Z)", "the six (243)", ()),
     ("the bulk's curvature from the plane", "p2_planck: ell^2 = 3 c^4 / 4 pi G (sigma - 2 dsigma)", "candidate", ("beta",)),
     ("the plane's vacuum", "p2_planck: Lambda4 = 8 pi G dsigma / c^4", "candidate", ("gamma",)),
     ("the horizon", "p2_gravity: m1 = G E1 / c^4", "candidate", ("eta",)),
-    ("the capacity's form", "p2_gravity: N_max = sigma_P / 8 ln2 dsigma", "candidate", ("kappa",)),
+    ("the capacity's form", "p2_gravity: N_max = sigma_P / 8 ln2 dsigma", "candidate", ("kappa", "pc")),
 ]
 # h, cc: log2 of position 2's hbar and c against ours; b: the tension's power in SMS (kappa5^4 = 48 pi G / sigma^b c^4);
 # a: G's power in the bit area; r: log2 of position 2's README against position 1's; e: log2 of the build's energy
 # against the closing energy; beta: sigma's power in the curvature (ell^2 = kap / sigma^beta); gamma: G's power in the
-# vacuum; eta: log2 of the horizon's factor (E1 = 2^-eta m1 c^4 / G); kappa: log2 of the capacity's factor
-DEFAULT = dict(h=F(0), cc=F(0), b=F(1), a=F(1), r=F(0), e=F(0), beta=F(1), gamma=F(1), eta=F(0), kappa=F(0))
-LIFT = dict(h=F(1), cc=F(1), b=F(3, 2), a=F(3, 2), r=F(1), e=F(1), beta=F(3, 2), gamma=F(3, 2), eta=F(1), kappa=F(1))
+# vacuum; eta: log2 of the horizon's factor (E1 = 2^-eta m1 c^4 / G); kappa: log2 of the capacity's factor; qN: N's power
+# in the throat's area (4 pi r0^2 = N^qN A_bit, item 244); pc: delta sigma's power in the capacity (N_max ~ dsigma^-pc)
+DEFAULT = dict(h=F(0), cc=F(0), b=F(1), a=F(1), r=F(0), e=F(0), beta=F(1), gamma=F(1), eta=F(0), kappa=F(0), qN=F(1),
+               pc=F(1))
+LIFT = dict(h=F(1), cc=F(1), b=F(3, 2), a=F(3, 2), r=F(1), e=F(1), beta=F(3, 2), gamma=F(3, 2), eta=F(1), kappa=F(1),
+            qN=F(3, 2), pc=F(3, 2))
 
 
 # ================================================================================ C1 the forms, as exponents of 2
@@ -160,11 +163,11 @@ def ex(i, j, w, z, n, P):
     q["m1"] = q["A"] / 2 if not MUT.get("rows_drift") else q["A"]     # the one-bit throat, 4 pi (2 m1)^2 = A_bit
     q["E1"] = q["m1"] + 4 * cc - g - P["eta"]            # the horizon, m1 = G E1 / c^4
     q["n2"] = F(n) + P["r"]                               # position 2's README
-    q["E"] = q["E1"] + q["n2"] / 2                        # N bits: the throat x sqrt N, its energy x sqrt N
-    q["r0"] = q["m1"] + q["n2"] / 2
+    q["E"] = q["E1"] + P["qN"] * q["n2"] / 2              # N bits: the throat x sqrt N, its energy x sqrt N
+    q["r0"] = q["m1"] + P["qN"] * q["n2"] / 2
     q["rho"] = q["E"] - 3 * q["r0"]
     q["sP"] = 7 * cc - h - 2 * g                          # sigma_P = c^7 / hbar G^2
-    q["Nmax"] = q["sP"] - ds + P["kappa"]                 # N_max = sigma_P / 8 ln2 delta sigma
+    q["Nmax"] = q["sP"] - P["pc"] * ds + P["kappa"]       # N_max = sigma_P / 8 ln2 delta sigma
     return q
 
 
@@ -244,27 +247,27 @@ def forms_vs_sector():
 
 
 # ================================================================================ C2 the constants at every universe
+def evaluate_sector(sec, hbar_factor=1.0):
+    """each constant with a form, evaluated on one computed sector (1 where it holds)"""
+    Gx, sig, ds = sec["G"], sec["sigma"], sec["offset"]
+    C, H, HBAR = PG.C, PG.H, PG.HBAR
+    hb = C ** 7 / (sec["sigma_P"] * Gx ** 2) * hbar_factor              # hbar recovered from sigma_P
+    cc = (hb * Gx / sec["lP"] ** 2) ** (1 / 3)                           # c recovered from the Planck length
+    return {
+        "shared SI": (hb / HBAR, cc / C),
+        "G from the bulk and the plane": (48 * math.pi * Gx / (sec["k4"] * sig * C ** 4),),
+        "the throat's bit area": (sec["A_bit"] / (2 * H * Gx * math.log(2) / (math.pi * C ** 3)),),
+        "the bulk's curvature from the plane": (sec["ell"] ** 2 * 4 * math.pi * Gx * (sig - 2 * ds) / (3 * C ** 4),),
+        "the plane's vacuum": (sec["L4"] * C ** 4 / (8 * math.pi * Gx * ds),),
+        "the horizon": (sec["m1"] * C ** 4 / (Gx * sec["E1"]),),
+        "the capacity's form": (sec["N_max"] * 8 * math.log(2) * ds / sec["sigma_P"],),
+    }
+
+
 def evaluate_members():
-    """each constant with a form, evaluated on each member's computed sector (1 where it holds)"""
-    out = {}
-    for name, (law, gf, sf) in PP.MEMBERS.items():
-        sec = PP.sector(gf, sf)
-        Gx, sig, ds = sec["G"], sec["sigma"], sec["offset"]
-        C, H, HBAR = PG.C, PG.H, PG.HBAR
-        hb = C ** 7 / (sec["sigma_P"] * Gx ** 2)                     # hbar recovered from sigma_P
-        if MUT.get("si_not_shared") and name == "2b":
-            hb *= 2
-        cc = (hb * Gx / sec["lP"] ** 2) ** (1 / 3)                     # c recovered from the Planck length
-        out[name] = {
-            "shared SI": (hb / HBAR, cc / C),
-            "G from the bulk and the plane": (48 * math.pi * Gx / (sec["k4"] * sig * C ** 4),),
-            "the throat's bit area": (sec["A_bit"] / (2 * H * Gx * math.log(2) / (math.pi * C ** 3)),),
-            "the bulk's curvature from the plane": (sec["ell"] ** 2 * 4 * math.pi * Gx * (sig - 2 * ds) / (3 * C ** 4),),
-            "the plane's vacuum": (sec["L4"] * C ** 4 / (8 * math.pi * Gx * ds),),
-            "the horizon": (sec["m1"] * C ** 4 / (Gx * sec["E1"]),),
-            "the capacity's form": (sec["N_max"] * 8 * math.log(2) * ds / sec["sigma_P"],),
-        }
-    return out
+    """each constant with a form, evaluated on each member's computed sector"""
+    return {name: evaluate_sector(PP.sector(gf, sf), 2.0 if MUT.get("si_not_shared") and name == "2b" else 1.0)
+            for name, (law, gf, sf) in PP.MEMBERS.items()}
 
 
 STATUS = {"README match": "DEFINED (240 (b): the README the same at both positions)",

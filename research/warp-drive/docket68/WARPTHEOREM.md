@@ -1926,3 +1926,51 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - **Not shown:** the null energy per ray's role, and the four candidates as M's.
 - `closed_bounds.py`: selftest 6/6, mutants 4/4. `bounds.py`: selftest 8/8, mutants 5/5. The full theorem selftest
   through item 241 passes 8/8. No status moves.
+
+## History (2026-10-11, item 244: closure per cell, not of the whole bulk index)
+
+- **M, item 244:** *"I also found the twelve-member bulk index isn't closed (order E = 6) - what if the constants of the
+  bulk index only need to guarantee closure of each cell under its own conditions, not closure of the entire bulk
+  index?"* Carried as M's hypothesis, H-CELL-CLOSURE, and put to the cypher (`lemmas/cell_closure.py`).
+- **The constants cannot close the bulk index (E1).** As coordinates they take one value in every cell, and a one-value
+  coordinate multiplies the index's box by one: every language's E is unchanged. The bulk's closure was never theirs
+  to give.
+- **What the bulk lacks (E2, exact).** The six cells the cypher adds to the twelve members are all off the positions'
+  lattice:
+  - a third of a 2P step (G × 2^(1/3), tension × 2^(−2/3));
+  - 2b plus two thirds of one (G × 2^(5/3), tension × 2^(−4/3)).
+
+  Each comes under the three laws. In 5D terms they are ours' geometry with 2b's coupling and 2b's geometry with 2P's.
+  Each holds every constant with a form, and with them the bulk index is closed in every language (18 cells, E = 0).
+  The bulk's non-closure is universes between the members that it does not yet hold (item 233's "every plausible and
+  possible" bulk), not a constant's failure.
+- **Every cell is closed under its own conditions (E3).** A cell's own conditions are its window, its plane's
+  positivity and its README capacity, with the throat's matter regime read both as a regime and as a bound. Over its
+  own coordinates (the tension's place w, the offset's ratio z, the README's size n), all 18 cells (the twelve and the
+  six) are closed in every language under every reading. They close under exactly two orders: w and z rising with the
+  README falling, and the reverse. A cell's matter law enters none of its own conditions.
+- **What guarantees each cell's closure (E4).**
+  - Under the stated forms the binding own conditions form a tree in every reading. With the regime as a regime they
+    are positivity and capacity. With the regime as a bound they are positivity and the regime, and the capacity never
+    binds: positivity and the regime imply it with log₂(4/3) to spare (B2's identity, the bit area's 4/3). So each cell
+    is closed by the shape of its own conditions, and stays closed under every constant lifted.
+  - A cycle appears only if a lift makes the capacity bind beside the regime, and a cycle closes only when its signs
+    agree.
+  - Sweeping the offset's power in the capacity (pc) and the README's power in the throat's area (qN) over −1, 0, 1,
+    2: the cell opens exactly when pc < 0 and qN > 0, i.e. a capacity growing with the offset beside a throat growing
+    with the README.
+  - The cypher agrees with the binding sign rule at every point. The stated forms have (1, 1).
+- **Every cell defends itself (E5).** At each of the 18 cells, dim q 10, rank 4, ⅅ = 6; freed of every constant, ⅅ = 0.
+- **The board's reading, through the cypher:** H-CELL-CLOSURE holds.
+  - The constants guarantee each cell's self-defence entirely.
+  - Each cell's order-closure is guaranteed by the shape of its own conditions. With the regime read as a bound, it is
+    also guaranteed by the capacity's form not growing with the offset, given the throat's area grows with the README
+    (clause H).
+  - The whole bulk index's closure is a matter of membership, and it closes once the six in-between universes are
+    held.
+- **Critic's record:**
+  - An earlier scan of the offset's ratio, from −50 up, hid the capacity's binding below −406 and read four open
+    cells as closed. The scan now runs over [−450, 450], so every swept condition binds inside it.
+  - The six in-between universes are the cypher's completion of the 5D basis, not members any position builds.
+  - Whether the regime is a bound is the record's question (236 R4 calls it a regime); both readings are reported.
+- `cell_closure.py`: selftest 6/6, mutants 4/4. `closed_bounds.py` gains the two powers as hooks (6/6, 4/4). No status moves.
