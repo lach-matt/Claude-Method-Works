@@ -297,6 +297,16 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      C1 verifier's (5): the outside-the-hole clauses kept from C1 -- (c), (d), N1 -- hold for the singular interior, the
      quantum bounce and the shell; the inner horizon needs charge or spin (b_interior B3), which changes the exterior,
      so P7-P20's inner-horizon configurations carry C4's outside clauses as the board's simplification.]
+     [Item 306, found on M's question: (8) the quantum bounce's two-exterior form -- on which (b)/(e) at the bounce,
+     P3's quantum region and P1's "position 2 reads the same mass" rest -- is b_interior B4's "named, not
+     constructed": b_bounce Q1 gives the map, not the glued solution.  (9) Position 2's face's closing within 33.6
+     clocks (c1_oneway K2) rests on c_junction J1, which uses m1p2x_fifth F1, marked two-way at 270 (d) and let stand
+     as outflow at 277.  (10) tau's consequence -- flat, static planes need the bulk 2 : 1 across the junction (P19) --
+     is not carried into P1's position-2 reading at warp order, where N4's AdS term uses one ell.  (11) The population
+     of tensions and matters is entered over binary classes, C4's value against any other: the board's encoding of
+     295's unbounded range.  (12) The singular interior's (f) is read from P2's state though nothing of its route
+     lands.  (13) Clean: on 211's audit the one-condition indices of P17-P18 flag nothing for (a), (b)/(e) or (f); the
+     flag on (b)/(e) is the two-clause coding's alone (P20).]
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
