@@ -241,11 +241,33 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      agrees (1, 1, 1, all 6 orderings) as it does at order 3; but order 2 reopens (f), whose law turns three-way in (the
      object, survivability, the answer).  Built in, survivability is not a variable, and every lawful order from 2
      agrees.
+     [M, item 302: the order-4 refusals are not the code's artefacts -- a one-bit change landing on a continuation with
+     another answer is a binary communication, and a code no continuation holds means more continuation clauses.  P20.]
   P19 (computed, exact; item 301) tau, calculated before the verifier (tau_share.py).  The coincidence fixes only the
      summed stress at the one junction (275), and our side carries ours alone (chi = 0, 276), so position 2 receives
      tau = 1 + lambda_2/lambda_1 = 3/4 of our tension -- exactly the summed tension, lambda_RS -- and its side carries
      sigma/2 = 2/3 lambda_RS, positive.  P4's crossing share is positive at tau = 3/4 (tau_share T5; it was for every
      tau in [0, 1]).  With matter on position 2's plane, what it receives is the summed stress itself (T3).
+  P20 (computed; the board's reading where marked; item 302) More continuation clauses; binary communication.  The
+     continuation's two bits are its own clauses, b_interior's binary properties that separate the interiors: NEC
+     holding (no bounce) and README-only (nothing else carried inside).  The three interiors that open into position 2
+     hold three of the four codes -- the inner horizon (1, 0), the quantum bounce (0, 1), the classical shell (0, 0) --
+     and the code none held, (1, 1), is b_interior's fourth interior: no inner horizon and no bounce, the classical
+     singular one (B1), whose route ends inside (vacuum 1, complete 0; nothing exits it, so it carries no reverse
+     passage; (f) read from P2's state, as for the inner horizon).  Entered, with the population and survivability
+     built in (P17-P18), orders 2 and 3 give 1, 1, 1.  At order 4 (f) is admitted -- its refusal was the missing
+     continuation -- and (a) and (b)/(e) are refused, each carried by one continuation clause: (b)/(e) is exactly "a
+     bounce" (NEC failing), so the quantum bounce's NEC neighbour, the singular interior, is incomplete; (a) at the
+     quantum bounce follows README-only, its neighbour there the shell, which carries matter in the bulk.  Each is a
+     binary communication (302): the bit's change carries the answer with it.  Under all 24 codes: order 3 gives 1, 1,
+     1 in every one; order 2 in 22 (the other 2 put the quantum bounce and the shell on a diagonal, where no single
+     clause separates the complete interiors); order 4 refuses (b)/(e) in all and (a) in 16.
+     The board's reading of 302 (b): at the top order a continuation bit is a channel -- its neighbour's answer, the
+     same or the other, is consistent with C4's so long as the neighbour exists -- while position 2's conditions
+     constrain as before.  Under it the top order gives 1, 1, 1 in every code.  Control: each of the four interiors
+     entered as the question returns its own answers (the singular interior and the inner horizon 1, 0, 1, the shell
+     0, 1, 1, the quantum bounce 1, 1, 1), so the reading decides from what the cells hold, not toward 1.  The operator's
+     own order-4 verdict stays beside it, unrepaired.
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
@@ -953,11 +975,79 @@ def tau_check():
     return dict(tau=o["tv"]["tau"], side2=o["cq"].get("side2"), checks=res)
 
 
+_P20 = {}
+NAMES4 = ["singular", "inner", "quantum", "shell"]
+
+
+def _channel_rule(kn, at, cont=(0, 1)):
+    """P20, the board's reading of 302 (b): at the top order a continuation bit is a channel -- its neighbour, if one
+    exists, is consistent with C4's answer whatever its own; the other conditions keep the one-flip rule"""
+    out = set()
+    for a in (0, 1):
+        ok = True
+        for i in range(len(at)):
+            nb = {x[-1] for x in kn if all(x[j] == at[j] for j in range(len(at)) if j != i) and x[i] != at[i]}
+            if MUT.get("channel_biased"):
+                nb = nb | {1}                               # the mutant: every neighbour taken as agreeing with 1
+            ok &= (len(nb) > 0) if (i in cont and not MUT.get("channel_off")) else (a in nb)
+        if ok:
+            out.add(a)
+    return {(0,): 0, (1,): 1, (0, 1): "both", (): "refused"}[tuple(sorted(out))]
+
+
+def more_continuations():
+    """P20 (item 302): the continuation's own two clauses, the fourth interior entered; the top order under the
+    operator and under the channel reading; each interior as the question for control"""
+    key = tuple(sorted(k for k in MUT if k in ("three_continuations", "channel_off", "channel_biased")))
+    if key in _P20:
+        return _P20[key]
+    CA = _load("calculator.py", "c4o_calc")
+    HL = _load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c4o_hl")
+    BI = _load("b_interior.py", "c4o_bi8")
+    cells = BI.cells()
+    inter = {"singular": cells[(0, "none", "ours")], "inner": cells[(1, "none", "pos2")],
+             "quantum": cells[(0, "quantum", "pos2")], "shell": cells[(0, "shell", "pos2")]}
+    names = [n for n in NAMES4 if not (MUT.get("three_continuations") and n == "singular")]
+    own = {k: (inter[k]["nec"], inter[k]["readme_only"]) for k in NAMES4}
+    A = {k: int(k != "shell") for k in NAMES4}
+    BE = {k: inter[k]["complete"] for k in NAMES4}
+    F = {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}     # P18's population, survivability built in
+    views = dict(order=(0, 1), algebra=(0, 1), geometry=(0, 1), information=(0, 1), statistics=(0, 1, 2, 3))
+
+    def known(cl, cm, q):
+        rows = []
+        for kk in names:
+            for t, m in itertools.product((0, 1), repeat=2):
+                if (kk, t, m) == q:
+                    continue
+                for v in ({A[kk]} if cl == "a" else {BE[kk]} if cl == "be" else F[(t, m)]):
+                    rows.append(cm[kk] + (t, m, v))
+        return rows
+
+    def run(code, k, q="quantum", rule=False):
+        cm = dict(zip(NAMES4, code))
+        at = cm[q] + (1, 1)
+        if rule:
+            return tuple(_channel_rule(known(cl, cm, (q, 1, 1)), at) for cl, _, _ in CLAUSES)
+        return tuple(_staged(CA, HL, ["c1", "c2", "t", "m", cl], known(cl, cm, (q, 1, 1)), at, views, k)["answer"]
+                     for cl, _, _ in CLAUSES)
+
+    ownc = tuple(own[k] for k in NAMES4)
+    codes = list(itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 4))
+    out = dict(own=own, ownrun={k: run(ownc, k) for k in (2, 3, 4)}, ownrule=run(ownc, 4, rule=True),
+               all={k: Counter(run(c, k) for c in codes) for k in (2, 3, 4)},
+               allrule=Counter(run(c, 4, rule=True) for c in codes),
+               control={q: (run(ownc, 4, q=q, rule=True), (A[q], BE[q], 1)) for q in NAMES4 if q in names})
+    _P20[key] = out
+    return out
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
                 wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces(),
                 hi=higher(), sv=higher(survive=True), rl=relative(sp.Float(_load("e_positive.py", "c4o_ep6").example()[
-                    "R_rh"] ** 3, 20)), ac=as_condition(), tc=tau_check())
+                    "R_rh"] ** 3, 20)), ac=as_condition(), tc=tau_check(),
+                mc=more_continuations())
 
 
 def report(o):
@@ -1030,6 +1120,13 @@ def report(o):
     for k in (2, 3, 4):
         print("P18 contrast, survivability a varying condition, order %d: %s; lawful %s" % (k, dict(ac["out"][k]),
                                                                                          ac["lawful"][k]))
+    mc = o["mc"]
+    print("P20 the continuation's own clauses (NEC holds, README-only): %s" % mc["own"])
+    for k in (2, 3, 4):
+        print("P20 four interiors, order %d: own code %s; all 24 codes %s" % (k, mc["ownrun"][k], dict(mc["all"][k])))
+    print("P20 the channel reading at the top order: own code %s; all 24 codes %s" % (mc["ownrule"],
+                                                                                   dict(mc["allrule"])))
+    print("P20 control, each interior as the question: %s" % mc["control"])
     tc = o["tc"]
     print("P19 tau = %s (tau_share.py); position 2's side carries %s lambda_RS; tau_share's checks %s" % (
         tc["tau"], tc["side2"], tc["checks"]))
@@ -1188,6 +1285,17 @@ def checks(o):
     add("P19 tau calculated before the verifier (tau_share.py): 3/4, position 2 receiving the summed tension lambda_RS; "
         "P4's crossing share positive at it (T5)", tc["tau"] == sp.Rational(3, 4) and tc["side2"] == sp.Rational(2, 3)
         and all(tc["checks"].values()))
+    mc = o["mc"]
+    ok = mc["own"] == {"singular": (1, 1), "inner": (1, 0), "quantum": (0, 1), "shell": (0, 0)}
+    ok &= mc["ownrun"][2] == mc["ownrun"][3] == (1, 1, 1) and mc["ownrun"][4] == ("refused", "refused", 1)
+    ok &= mc["all"][3] == Counter({(1, 1, 1): 24}) and mc["all"][2] == Counter({(1, 1, 1): 22, (1, "both", 1): 2})
+    ok &= mc["all"][4] == Counter({("refused", "refused", 1): 16, (1, "refused", 1): 8})
+    add("P20 the fourth interior entered (b_interior's singular, the code none held): orders 2 and 3 1, 1, 1; at order 4 "
+        "(f) admitted, (a) and (b)/(e) refused, each carried by one continuation clause -- binary communications", ok)
+    ok = mc["ownrule"] == (1, 1, 1) and mc["allrule"] == Counter({(1, 1, 1): 24}) and len(mc["control"]) == 4
+    ok &= all(g == t for g, t in mc["control"].values())
+    add("P20 the channel reading (302 (b)): the top order 1, 1, 1 under every code; each interior as the question returns "
+        "its own answers", ok)
     return res
 
 
@@ -1210,7 +1318,10 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "finite_grid": "the index's four (t, m) cells, not the population (P17)",
            "two_bits": "the continuation entered as two bits in the solved form (P17)",
            "absolute_readme": "the object's density kept at ours in every position 2, not scaled (P18)",
-           "tau_two_way": "tau read from one junction both sheets act on (through tau_share) (P19)"}
+           "tau_two_way": "tau read from one junction both sheets act on (through tau_share) (P19)",
+           "three_continuations": "the fourth interior left out (P20)",
+           "channel_off": "the continuation bits held to the one-flip rule (P20)",
+           "channel_biased": "every neighbour taken as agreeing with 1 (P20)"}
 
 
 def selftest():
