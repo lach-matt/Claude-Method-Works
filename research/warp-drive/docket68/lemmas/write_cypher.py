@@ -111,6 +111,9 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
      README is within for at most its stay.  That is the verified reading -- "The write's floor bounds how long the face
      stands, not how long the README is held" (C5 U12 (Q4)); "V2's \"hold\" is the face standing" (C7 V11 (Q4),
      verified with C7) -- and the board takes it (H-HOLD-IS-THE-FACE), to be confirmed or overruled by M (331 (d)).
+     [Item 334: confirmed by M, verbatim "For you — one reading to confirm or overrule - confirmed" -- seated as
+     M-HOLD-IS-THE-FACE: the hold of 158 (2) is the corridor standing, our face open in advanced time through the write;
+     158 (2) and 163 hold together, and the C5 verifier's 317 (c) is answered. WRITEs is no longer a reading.]
   Other cells (each cited in cells()): the window hold (o3_hold O3b/O3c), the closing plane (b4d_stage1 D3, b4d_stage5
      F5, b4d_stage6 J4: real matter with rho + p_r < 0), the negative-tension plane (b4d_stage5 F6: regular on the
      evidence, lasts 1; keeps_Z 0 by WZ), both planes (b4d_stage7 K4: every small-separation branch decays, singular),
@@ -658,6 +661,11 @@ def checks(d):
         "The write's floor bounds how long the face stands, not how long the README is held" in c5t
         and "V2's \"hold\" is the face standing, which the write's floor bounds" in c7t
         and "stay = 3" in c5t and round(se["floor"]) == 66980 and 3 < se["floor"])
+    rul = q(open(os.path.join(D68, "M-RULINGS-2026-10-03.md"), encoding="utf-8").read())
+    add("W5 (b) (item 334) the reading confirmed by M: \"For you — one reading to confirm or overrule - confirmed\", "
+        "inside item 334, seated M-HOLD-IS-THE-FACE",
+        "For you — one reading to confirm or overrule - confirmed" in rul.split("334. **")[-1]
+        and "Seated as M's: M-HOLD-IS-THE-FACE" in rul)
     return res
 
 

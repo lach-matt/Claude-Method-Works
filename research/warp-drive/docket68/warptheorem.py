@@ -42,9 +42,10 @@ and exactly, the object at position 2:
                  laws (240, 285), taking its room by displacing what is there and keeping it as the new whole of
                  position 2 (284, 285); the corridor's length is the difference of the trajectories.
 
-At the small end, where the example README sits, five lemmas stay OPEN -- B3, B4d, FAR, ARRIVAL, CLOSE -- and three
-rows stand on a named reading of the board's: O3s and WRITEs on H-HOLD-IS-THE-FACE (put to M), Z3bs on 318's.  The
-large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE.
+At the small end, where the example README sits, five lemmas stay OPEN -- B3, B4d, FAR, ARRIVAL, CLOSE -- and one
+row stands on a named reading of the board's: Z3bs, on 318's.  [Item 334: O3s and WRITEs stood on H-HOLD-IS-THE-FACE,
+which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVED.]  The large end keeps the record's OPEN rows: O3, Z3b, M1,
+M1P2x, WRITE.
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -243,7 +244,8 @@ SUPERSEDED_BY = {'B4c': 'B4d', 'B4b': 'B4d'}
 # small end the README's own localized five-dimensional hole (251), the large end the record's four-dimensional corridor
 # -- the passage one object, one-way in every aspect (270, 273, 276, 282), its horizon not extremal (251, 271), the
 # bulk's law Einstein's exactly (C9, 332).  A row whose two ends differ is split: 's' marks the small end's row.  The
-# report, T1, T2 and T3 run on this register.
+# report, T1, T2 and T3 run on this register.  [Item 334: O3s and WRITEs moved from READING to DERIVED on M's
+# M-HOLD-IS-THE-FACE.]
 LEMMAS_NOW = [
     ('G', 'G1 one exact energy, at the bound: E(N)', 'DERIVED',
      ("small end: the hole's Komar mass, E = 3 pi c^4 r_h^2/(8 G5), r_h = (2 N ln2/pi^2)^(1/3) l5 -- 1.28098e9 J at "
@@ -287,13 +289,14 @@ LEMMAS_NOW = [
       'verified, 261); bulk/stability.py S6 (item 331): our face damps every transverse derivative at kappa, the '
       "white-hole face's blueshift bounded by e^33.6 over its open period (c_junction J5, c7_oneway V12 (Q1))")),
     ('O',
-     'O3s the corridor survives its hold at the small end: the face standing through the write (158 (2) with 160)',
-     'READING',
+     ("O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing through the "
+      'write (158 (2) with 160; M-HOLD-IS-THE-FACE, 334)'),
+     'DERIVED',
      ("lemmas/o3_hold.py O3e: the hold is the write, at least C6's 66,980 clocks (write_small S3, verified 264), "
       "within the life 8.57e14 clocks (C5 verified, 267, 317); our face damped (stability S6) and Schlue's uniform "
-      "boundedness READ for the scalar wave; position 2's face bounded by e^33.6.  Under the board's "
-      'H-HOLD-IS-THE-FACE (write_cypher W5 (b), put to M) and the scalar model; gravitational perturbations hold '
-      "Ishibashi-Kodama's mode stability only")),
+      "boundedness READ for the scalar wave; position 2's face bounded by e^33.6.  The hold read as the face standing"
+      " is M's (334, confirming write_cypher W5 (b)); gravitational perturbations hold Ishibashi-Kodama's mode "
+      "stability only, outside the row's scope")),
     ('O', 'O3 the corridor survives its hold at the large end (158 (2); 160)', 'OPEN',
      ("the record's: the write >= 199,702.19 clocks of m/c (o3_write); eq. (17)'s static window and its kappa = 0 "
       "figures (o3_hold O3a-O3d) are eq. (17)'s, not the large end's Schwarzschild; the large end's open period is "
@@ -436,10 +439,10 @@ LEMMAS_NOW = [
     ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166', 'OPEN',
      ("the record's (far_cypher, far_bridge); at the small end the hole's far field is the Randall-Sundrum "
       "background's, not computed")),
-    ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'READING',
+    ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
-      'data; with 158 (2) read against 163 as the face standing (H-HOLD-IS-THE-FACE, W5 (b), put to M)')),
+      'data; 158 (2) and 163 held together by M-HOLD-IS-THE-FACE (334), the hold the face standing')),
     ('N', 'WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c', 'OPEN',
      ("the record's (write_cypher W0-W4, WZ, C1-C4): carrying the corridor, lasting the write and keeping (Z) never "
       "occur together on eq. (17)'s computed cells")),

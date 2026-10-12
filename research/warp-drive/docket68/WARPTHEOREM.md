@@ -64,9 +64,8 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The corridor's length is the difference of the trajectories.
 
 **Where it stands.** At the small end, where the example README sits, five lemmas stay OPEN: **B3, B4d, FAR, ARRIVAL
-and CLOSE**. Three rows rest on a named reading of the board's:
-- O3s and WRITEs rest on **H-HOLD-IS-THE-FACE**, which is put to you below.
-- Z3bs rests on item 318's reading.
+and CLOSE**. One row rests on a named reading of the board's: Z3bs, on item 318's reading. O3s and WRITEs rested on
+H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-HOLD-IS-THE-FACE); they are now derived.
 
 The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x and WRITE.
 
@@ -88,7 +87,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
-| O | O3s the corridor survives its hold at the small end: the face standing through the write (158 (2) with 160) | reading | WRITEs | o3_hold.py |
+| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing through the write (158 (2) with 160; M-HOLD-IS-THE-FACE, 334) | derived | WRITEs | o3_hold.py |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | **OPEN** | WRITE ARRIVAL | o3_write (the record's) |
 | Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
 | Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading | proved | M1s M1 | rows_small.py, passage5d.py |
@@ -132,12 +131,12 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
 | N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
-| N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | reading | -- | write_cypher.py |
+| N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room | **OPEN** | -- | 284 (d), 285 (d) |
 | N | CLOSE the closing: ending the faces when the write is done | **OPEN** | -- | c5_oneway U11 (7); i_oneway I5 |
 
-59 rows, 50 lemmas and 9 inputs: 20 proved, 21 derived, 3 under a named reading of the board's, 5 definitions, 10 OPEN.
+59 rows, 50 lemmas and 9 inputs: 20 proved, 23 derived, 1 under a named reading of the board's, 5 definitions, 10 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -164,12 +163,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   - **CLOSE:** ending the faces when the write is done. The horizon is not extremal, so the area theorem binds, and
     Hawking emission alone closes the face only after the hole's life, 1.28e10 times the write.
 - **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3 and Z3b.
-- **For you:** confirm or overrule **H-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
-  - The reading: 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor
-    and the opening are the same object). It is not how long the README stays within the horizon.
-  - Under it, 158 (2) and 163 both hold. The face stands at least 66,980 clocks while the write runs, and each part of
-    the README is within the horizon for at most its stay, three clocks.
-  - Read the other way, they conflict. That is the C5 verifier's point (317, outside (c)).
+- **Confirmed by you (item 334): M-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
+  - 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor and the
+    opening are the same object). It is not how long the README stays within the horizon.
+  - So 158 (2) and 163 hold together. The face stands at least 66,980 clocks while the write runs, and each part of the
+    README is within the horizon for at most its stay, three clocks. The C5 verifier's point (317 (c)) is answered.
 - **Gravitational perturbations of the hole:** the record holds only Ishibashi–Kodama's mode stability. Schlue's
   uniform boundedness (READ) covers the scalar wave.
 
@@ -182,10 +180,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - H-CONTENT-REBUILT, H-ROOM-BY-DISPLACEMENT, H-ROOM-STAYS and H-POSITIVE-WHERE-IT-LANDS (284).
 - H-EXACT-COPY, H-NEW-WHOLE and H-POSITIVE-WHERE-RELEVANT (285).
 - M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
-- M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331).
+- M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334).
 
 **The board's, to be overruled by you at any point:**
-- **H-HOLD-IS-THE-FACE** (331). The hold is the face standing in advanced time, under H-HOLD-FRAME's first gloss.
+- ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
 - **318's reading.** 183 governs every classical ray, and the passage's negative inside the quantum region is 177's
   appearance.
 - **H-ONE-INTERIOR** (270 (b)).
@@ -2276,7 +2274,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/12, items 248–333: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/12, items 248–334: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2343,7 +2341,7 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
     READ for the scalar wave. S1–S5b are kept as statements about eq. (17).
   - **`o3_hold.py` O3e.** The hold is the write at the small end, within the life, and survives for the scalar model.
   - **`write_cypher.py` W5.** The README's localized hole is coded beside the main cells. T_WRITE and T_O3 become
-    data. 158 (2) against 163 is read as the face standing (H-HOLD-IS-THE-FACE, put to you).
+    data. 158 (2) against 163 is read as the face standing (H-HOLD-IS-THE-FACE, put to you; confirmed at 334).
   - **`ledger.py` E3s.** The small end's ledger, as in **Energy at both ends** above.
   - **`close_object.py`.** Its O2 premise is marked as eq. (17)'s.
   - **`warptheorem.py`.** `LEMMAS_NOW` is the current register, 59 rows. O2 is non-extremal, PROVED. O1c and B5a are
@@ -2357,6 +2355,10 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   (`gb_cone.py` C10, `sgb_cone.py` S9, and notes) and carried by O1c, B5a and C8.
 - **333.** "You have a rogue background agent": the C9 verifier's leftover script was stopped. It had written nothing in
   the repository.
+- **334, the hold is the face standing.** You confirmed the reading put to you at 331: M-HOLD-IS-THE-FACE. 158 (2) and
+  163 hold together, and the C5 verifier's 317 (c) is answered. O3s and WRITEs move from a reading of the board's to
+  derived (`warptheorem.py` `LEMMAS_NOW`). `write_cypher.py` W5 (b) gains a check on your words, and `o3_hold.py` O3e a
+  note. Z3bs is now the register's only row on a reading of the board's.
 
 **Not re-run, and said.** The instruments that pin the item-247 register keep reading it:
 - `chain_cypher.py`, `belongs_cypher.py`, `m1_bulk.py`, `theorem_p2.py` and `f1_audit.py` (the chain's tallies, the

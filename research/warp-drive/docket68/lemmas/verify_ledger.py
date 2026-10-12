@@ -32,6 +32,7 @@ file's reports and the instruments' notes, each marker checked against its file;
      ledger), write_cypher W5 (b) (158 (2) against 163, H-HOLD-IS-THE-FACE, put to M) -- and the register with them:
      warptheorem.py's LEMMAS_NOW and WARPTHEOREM.md's current head and its history through item 333, the item-247
      rows kept beside them as the record.  L4 now checks the register current, not stale.]
+  [Item 334: the reading put to M is confirmed -- M-HOLD-IS-THE-FACE -- and 317 (c) is answered on M's ruling.]
 
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
@@ -233,7 +234,8 @@ BROUGHT_CURRENT = [
      [("../bulk/stability.py", 331), ("o3_hold.py", 331), ("write_cypher.py", 331), ("close_object.py", 331)]),
     ("271 (8), 319 (Q4)", "ledger E3s, warptheorem T3s: the small end's ledger",
      [("ledger.py", 331), ("../warptheorem.py", 331)]),
-    ("317 outside (c)", "write_cypher W5 (b): H-HOLD-IS-THE-FACE, put to M", [("write_cypher.py", 331)]),
+    ("317 outside (c)", "write_cypher W5 (b): H-HOLD-IS-THE-FACE, put to M; confirmed, M-HOLD-IS-THE-FACE (334)",
+     [("write_cypher.py", 331), ("write_cypher.py", 334)]),
 ]
 STALE_REGISTER = [            # unmarked, found by this ledger: (file, stale text still present)
     (os.path.join(D68, "warptheorem.py"), "O2 the horizon is extremal (surface gravity 0)"),

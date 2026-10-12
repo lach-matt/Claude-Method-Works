@@ -66,6 +66,8 @@ states, NOT bits (p.2).
        e-fold per four clocks of m/c on our face, and Schlue's n = 3 covers it; the write there is the record's
        199,702.19 clocks (o3_write), and the large end's open period on position 2's face is not computed -- OPEN with
        M1 there.
+       [Item 334: "the hold is the write", read as the face standing through the write, is M's (M-HOLD-IS-THE-FACE,
+       confirmed): O3e rests on no reading of the board's; its scope is Wall E's scalar wave, as stated.]
 Imports copy/exactE.py, bulk/stability.py, lemmas/b4_static.py and lemmas/hold_small.py by path.  Stdlib + sympy.
 python3 o3_hold.py [--selftest | --mutants]
 """
