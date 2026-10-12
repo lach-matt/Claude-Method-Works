@@ -36,6 +36,10 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      the README-only hole -- 273's "README only", nothing else carried inside (c5_oneway U12 (Q4)) -- so the bulk's
      content, never absent, adds nothing to it and enters at the order of what it adds; Z2's bounds are open conditions,
      Tdot^2 >= 1 for timelike geodesics and the null bound > 0, so any small addition leaves them standing (deduced).]
+     [Items 324-328: "classical GR there" (273) is no longer only M's choice.  Relativity holds for everything that can
+     exist (relativity.py U1-U6), and the one constant it left the bulk, the Gauss-Bonnet coupling, is zero -- gravity
+     itself keeps the light cone (gb_cone.py C7; 328, M-ONE-LIGHT-CONE) -- so Einstein's law is the bulk's exactly and
+     this interior is Tangherlini's, not Boulware and Deser's (deduced; claim C9, at its verifier).]
   Z2b (READ; computed; deduced where marked) The README's own region.  On the object the README is within the hole when
      the faces begin (c5_oneway U11 (1)-(3), U12 (Q4)), and in the construction M chose (273) it is Haggard and
      Rovelli's matter (arXiv:1407.0989, READ): "Spherical shell of null matter: We disregard the thickness of this
@@ -60,6 +64,9 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      space inside the emerging shell: a future-directed geodesic of position 2's trapped region may cross that outgoing
      shell into it, and then stays in flat space: complete (deduced).  So every causal geodesic of the README's region,
      and every one that enters or leaves it, runs in finite affine parameter between its boundaries.
+     [Item 328, M-ONE-LIGHT-CONE: every front keeps the one light cone, gravity's own included, so the causal curves
+     of Z2b and Z5 bound every signal there is -- the monotone v and the white hole's unreachable face hold for
+     gravitational fronts too, which with a Gauss-Bonnet coupling they would not (gb_cone.py C4-C5; deduced).]
   Z3 (READ; computed; deduced where marked) The quantum region.  Completeness there is M's ruling, not a result of this
      row: 273 chose the bounce "One-way, complete, README only" -- "complete" being b_interior B6's cell, "no
      singularity on the way", set for every bounce and chosen by M -- and gives up "classical GR there", so inside it no

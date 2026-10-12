@@ -51,7 +51,10 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      whose offset exceeds -sigma/4 - delta sigma_1/2: every positive plane (226), and 139 (1)'s plane when its own offset
      does, which no ruling gives -- the one question put to M.  [Item 322: M sent the board to the vacuum decay boundary
      and the Higgs mass; the offset is derived, x+ = d1/2 - 3 d1^2/(2 sigma) = 2.625e-10 J/m^3 from the one induced
-     metric (p2_offset V5-V6), so B5a holds for 139 (1)'s plane too, to be overruled by M.]  Where the README lands its
+     metric (p2_offset V5-V6), so B5a holds for 139 (1)'s plane too, to be overruled by M.]  [Items 323-328: the
+     derivation's premises are proved (p2_assume Q0-Q7; relativity U1-U6) and the Gauss-Bonnet coupling is zero
+     (gb_cone C7, at its verifier as claim C9), so x+ = 2.625e-10 J/m^3 is exact and B5a holds for 139 (1)'s plane
+     with nothing left to M; the question put to M is answered.]  Where the README lands its
      density exceeds sigma/4 (E7) and only adds.  B5a does not turn on tau or on which side carries what: 310 (7) is
      closed for it.  On position 2's side it holds on every ray of the plane, not only where the README lands (b5a_oneway
      B2), because the side total carries sigma/2 > 0 of tension (tau_share T4).
@@ -87,6 +90,11 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      side's bulk empty, the board's limit and never M's configuration (320, as 184 made matter-free results limits),
      recorded as a computation about that carrier.  The board's earlier report of position 2's bulk as non-empty only
      "unless our sheet's rho - 3p is twice position 2's" was that limit's reading; M's 320 is the case.
+     [Items 324-328: the two Gauss equations and Israel's jump are the bulk's law exactly, not its two-derivative
+     order -- relativity U1-U6, and the Gauss-Bonnet coupling zero (gb_cone C7, claim C9 at its verifier).  And A3's
+     field of position 2's own is a canonical scalar, minimally coupled, so it keeps the one light cone 328 confirms
+     (sgb_cone S2: with no curvature coupling every front is null); a scalar coupled to the Gauss-Bonnet density would
+     not (sgb_cone S4) and is not what A3 uses (deduced).]
   A4 (computed) B5a's question through the calculator, in the form C4's (f) stands in (c4_residue R9, R12): the clause
      "positive on every ray, on every reading" realized per class from its law by witnesses -- tension: 139 (1)'s
      -1/4, any other value of position 2's (-1/8, -10, -1/100, +1/2); matter: the README above sigma/4 (1/2, 20), other
