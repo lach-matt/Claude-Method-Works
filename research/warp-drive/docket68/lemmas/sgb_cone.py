@@ -63,7 +63,7 @@ What this does not claim.
     more; at strong coupling a cosmology's tensor cone can stop being a cone at all (c_T^2 < 0 at 8 H f. = 1/2,
     computed), which RTW and Reall name as a loss of hyperbolicity.
   - A reading, stated: U6's "keeps the light cone" is read as in item 326, one light cone for every front at every
-    point of every background that can exist; M's to overrule.
+    point of every background that can exist; M's to overrule.  [Item 328: confirmed by M (M-ONE-LIGHT-CONE).]
 
 Imports nothing from the record but the text of the rulings file, relativity.py, currency.py and doors.py.
 Stdlib + sympy.  python3 sgb_cone.py [--selftest | --mutants]

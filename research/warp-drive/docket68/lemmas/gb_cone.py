@@ -84,7 +84,8 @@ What this does not claim.
     statement, not measured.
   - A reading, stated: 324's "subject to relativity" is read as U6 words it, the one light cone keeping every front
     at every point of every background that can exist, gravity's included; M's to overrule.  Read only as causality
-    seen from far away (C6's asymptotic causality), the record's content gives the same.
+    seen from far away (C6's asymptotic causality), the record's content gives the same.  [Item 328: the reading is
+    confirmed by M (M-ONE-LIGHT-CONE).]
   - That no world could hold an infinite tower of higher spins: only that the record holds none.
   - The four-dimensional scalar-Gauss-Bonnet branch of currency.py and doors.py: a scalar coupled to the
     Gauss-Bonnet density, another theory, not evaluated here; the same test applies to it and is not run.
