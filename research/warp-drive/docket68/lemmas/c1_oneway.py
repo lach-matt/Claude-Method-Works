@@ -35,7 +35,19 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      the README crosses, as information" (replaced by K3's one-way route), and H5's regularity of the bridge's slice
      and of a past interior on our side.  The verifier's qualification (3) -- the minimal sphere pinching off, the
      second exterior only in the eternal solution -- is moot: what it qualified is dropped.
-  K6 (the cypher NOT-RUN, stated) K1-K5 are a construction re-posed, not cells to choose among: no index, no run.
+  K6 (computed; the cypher, roster 1173, audited; item 283) The passage's causal order as an index.  Its seven
+     regions in the order the passage runs -- our exterior, our face, our future interior, the quantum region, position
+     2's past interior, position 2's face, position 2's exterior -- from j_readings J1's chart graph, each face inserted
+     where its chart edge crosses U = 0 and the quantum region on the bounce.  The reachable pairs (from, to) are 28,
+     exactly those with from <= to in the passage's order, none the other way; but a two-coordinate index is
+     degenerate -- statistics is silent, "needs more than 2 coordinates at order 2 (reg 1175)", 6 of 10 pairs -- so the
+     cypher runs on the order's routes: each cell a triple (from, through, to), "through" reachable from "from" and
+     "to" from "through" -- 84 cells, exactly from <= through <= to.  The five operator-bearing languages agree at E = 0
+     (10 of 10 pairs), the run is not degenerate, K.langclose holds and index_audit is clean: the one-way order, and
+     every route through it, is a closed index in every language.  A two-way passage would hold the whole box of 343,
+     which is closed too: the cypher's agreement certifies the order as an index, not its direction -- the direction is
+     the held set itself, the 84 forward routes and none back (K3, and this check).
+     (First written as NOT-RUN, a construction with no cells; M, item 283: "Run the cypher on it".)
 
 What this does not show.
   - The bounce's quantum region as a metric (b_bounce's "does not show"); K3 uses its join, not its interior.
@@ -48,6 +60,7 @@ python3 c1_oneway.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
+import itertools
 import io
 import os
 import sys
@@ -57,7 +70,12 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(D68)))
 MUT = {}
+OPTS = {"statistics_order": 2, "algebra_budget": 10 ** 6}
+FIVE = ["order", "algebra", "geometry", "information", "statistics"]
+REGIONS = ["our exterior", "our face", "our future interior", "the quantum region", "position 2's past interior",
+           "position 2's face", "position 2's exterior"]
 M282 = "Re-pose them one-way (Recommended)"
 
 
@@ -127,9 +145,66 @@ def regular(k):
                 far=far)
 
 
+def order_index(rt):
+    """K6: the seven regions' reachability, from the chart graph; the cypher on the (from, to) pairs"""
+    face = {("our exterior", "our future interior"): "our face",
+            ("position 2's past interior", "position 2's exterior"): "position 2's face"}
+    edges = set()
+    for a, b in rt["edges"]:
+        mid = face.get((a, b)) or ("the quantum region" if (a, b) == ("our future interior",
+                                                                      "position 2's past interior") else None)
+        if mid:
+            edges |= {(a, mid), (mid, b)}
+        else:
+            edges.add((a, b))
+    if MUT.get("reverse_edge"):
+        edges.add(("position 2's exterior", "our exterior"))   # the mutant puts a way back
+    reach = {x: {x} for x in REGIONS}
+    changed = True
+    while changed:
+        changed = False
+        for a, b in edges:
+            for x in REGIONS:
+                if a in reach[x] and b not in reach[x]:
+                    reach[x].add(b)
+                    changed = True
+    idx = {x: i for i, x in enumerate(REGIONS)}
+    pairs = sorted((idx[x], idx[y]) for x in REGIONS for y in reach[x])
+    held = sorted((idx[x], idx[y], idx[z]) for x in REGIONS for y in reach[x] for z in reach[y])
+    cy = _load_path(os.path.join(ROOT, "tools", "cypher.py"), "c1o_cy")
+    ia = _load("index_audit.py", "c1o_ia")
+    coords = ["from", "through", "to"]
+    runs = {}
+    for tag, cells, cs in (("pairs", pairs, ["from", "to"]), ("routes", held, coords)):
+        ix = cy.Index("c1_oneway_" + tag, cs, [list(c) for c in cells], value_order={c: list(range(7)) for c in cs})
+        runs[tag] = cy.run(ix, "1173", dict(OPTS))
+    run = runs["routes"]
+    return dict(pairs=pairs, held=held,
+                upper=pairs == sorted(c for c in itertools.product(range(7), repeat=2) if c[0] <= c[1]),
+                chains=held == sorted(c for c in itertools.product(range(7), repeat=3) if c[0] <= c[1] <= c[2]),
+                pairs_degenerate=runs["pairs"]["degenerate"], degenerate=run["degenerate"],
+                E={v["language"]: v["E"] for v in run["verdicts"]}, langclose=run["langclose_holds"],
+                agreeing=run["pairs_agreeing"], audit=ia.audit_index(coords, held))
+
+
+def _load_path(path, key):
+    spec = importlib.util.spec_from_file_location(key, path)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[key] = mod
+    saved = list(sys.path)
+    sys.path[:0] = [os.path.dirname(path)]
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            spec.loader.exec_module(mod)
+    finally:
+        sys.path[:] = saved
+    return mod
+
+
 def compute():
     k = kept()
-    return dict(k=k, f=faces(), rt=route(), rg=regular(k))
+    rt = route()
+    return dict(k=k, f=faces(), rt=rt, rg=regular(k), oi=order_index(rt))
 
 
 def report(o):
@@ -147,6 +222,11 @@ def report(o):
                                                        rt["crossing"]))
     rg = o["rg"]
     print("K4 Kretschmann at the faces %s, falling with r: %s, far away %s" % (rg["at_face"], rg["falls"], rg["far"]))
+    oi = o["oi"]
+    print("K6 %d reachable pairs of 49, the upper triangle: %s (degenerate as an index: %s); %d routes of 343, from <= "
+          "through <= to: %s" % (len(oi["pairs"]), oi["upper"], oi["pairs_degenerate"], len(oi["held"]), oi["chains"]))
+    print("   E %s; degenerate %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
+        oi["E"], oi["degenerate"], oi["langclose"], oi["agreeing"], oi["audit"]["keys"], oi["audit"]["onehot"]))
 
 
 def checks(o):
@@ -168,12 +248,19 @@ def checks(o):
     ok = sp.simplify(rg["at_face"] - 72 / k["rh"] ** 4) == 0 and rg["falls"] and rg["far"] == 0
     add("K4 curvature finite on both exteriors and faces (72/r_h^4 at most, at the faces), its divergence only inside, "
         "where the quantum region stands", ok)
+    oi = o["oi"]
+    ok = oi["upper"] and len(oi["pairs"]) == 28 and oi["pairs_degenerate"] and oi["chains"] and len(oi["held"]) == 84
+    ok &= [oi["E"][L] for L in FIVE] == [0] * 5 and oi["langclose"] and oi["agreeing"] == 10 and not oi["degenerate"]
+    ok &= not oi["audit"]["keys"] and not oi["audit"]["onehot"]
+    add("K6 the passage's causal order is the 28 pairs from <= to, none back; its 84 routes from <= through <= to; the "
+        "five languages agree at E = 0, not degenerate, langclose holds, audit clean", ok)
     return res
 
 
 MUTANTS = {"opens_at_bifurcation": "our face opened at U = V = 0",
            "white_open_long": "position 2's face kept open for ever",
-           "slice_route": "the eternal slice's join of the exteriors restored"}
+           "slice_route": "the eternal slice's join of the exteriors restored",
+           "reverse_edge": "a way back from position 2's exterior to ours"}
 
 
 def selftest():
