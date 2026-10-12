@@ -6,11 +6,11 @@ as the reverse passage and an infinite past (281 (6)).  It is kept as written wi
 one-way form, after C1, C4, C5 and C7.  Worked in the conversation (computed with sympy, exact where marked; READ where
 marked; deduced where marked; not verified by a separate session; not seated); 2026-10-12.
 
-  Z0 (read) The words the row rests on, verbatim in the rulings file: M's 282 (1), "Re-pose them one-way
-     (Recommended)", with the board's reading (c) that O1c and B5a are re-posed the same way; M's 273, "One-way,
-     complete, README only" and "and classical GR there"; and 261 (3), the C3 verifier's report (not M's words): "the
-     large end is four-dimensional Schwarzschild on the plane with corrections O(ell^2/r0^2)" and "surface gravity
-     1/(4M), non-extremal".
+  Z0 (read) The words the row rests on, verbatim in the rulings file: M's 282 (1), "Re-pose them one-way (Recommended)",
+     with the board's reading (c) that O1c and B5a are re-posed the same way; M's 273, "One-way, complete, README only"
+     and "and classical GR there"; M's 320, "no bulk is ever empty"; and 261 (3), the C3 verifier's report (not M's
+     words): "the large end is four-dimensional Schwarzschild on the plane with corrections O(ell^2/r0^2)" and "surface
+     gravity 1/(4M), non-extremal".
   Z1 (computed, exact; READ where marked) Eq. (17) at r0 = 2m is not the corridor's geometry at either end.  Its g^rr
      has a double zero at r = 2m and its surface gravity, (1/2)|d_r g_tt| sqrt(g^rr/(-g_tt)) on the horizon, is 0
      (computed).  The small end is Tangherlini near the hole, kappa = 1/r_h (computed; rows_small O2s), and the large end
@@ -24,15 +24,18 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      -E~ and the angular momentum L conserved, every causal geodesic there has Tdot^2 = eps + E~^2/G + L^2/R^2, eps = 1
      timelike and 0 null (computed), so T is monotone along it.  Between the horizon and any R_c > 0 T spans less than
      r_h, the E~ = 0 fall (computed); timelike geodesics take less proper time than that, and null ones have Tdot^2 >=
-     E~^2 R_c^2/(r_h^2 - R_c^2) + L^2/r_h^2 > 0 (computed; E~ and L are not both zero on a null geodesic, whose
-     tangent would then vanish), a finite affine length.  A radial body entering our face
-     reaches the core in at most r_h/(1 + E~) of proper time (computed; c5_oneway U1).  So every causal geodesic in our
-     interior reaches the quantum region in finite affine parameter, and every one in position 2's past interior leaves
-     it, in finite affine parameter, by one of its boundaries (deduced).  Those entering by our face have E~ > 0: in our
-     exterior d_t is future timelike, so every future causal momentum has p . d_t < 0 (deduced).  Those with E~ <= 0 do
-     not come from our exterior but from what opened the hole -- among them the E~ = 0 T-lines, which on the eternal
-     hole ran from bifurcation sphere to bifurcation sphere (c4_residue R6's item-310 note) -- and are covered the same.
-     This carries c5_oneway U11 (4), verified at item 317, from the core to the whole interior.
+     E~^2 R_c^2/(r_h^2 - R_c^2) + L^2/r_h^2 > 0 (computed; E~ and L are not both zero on a null geodesic, whose tangent
+     would then vanish), a finite affine length.  A radial body entering our face reaches the core in at most r_h/(1 +
+     E~) of proper time (computed; c5_oneway U1).  So every causal geodesic in our interior reaches the quantum region
+     in finite affine parameter, and every one in position 2's past interior leaves it, in finite affine parameter, by
+     one of its boundaries (deduced).  Those entering by our face have E~ > 0: in our exterior d_t is future timelike,
+     so every future causal momentum has p . d_t < 0 (deduced).  Those with E~ <= 0 do not come from our exterior but
+     from what opened the hole -- among them the E~ = 0 T-lines, which on the eternal hole ran from bifurcation sphere
+     to bifurcation sphere (c4_residue R6's item-310 note) -- and are covered the same.  This carries c5_oneway U11 (4),
+     verified at item 317, from the core to the whole interior.  [Item 320, "no bulk is ever empty": this interior is
+     the README-only hole -- 273's "README only", nothing else carried inside (c5_oneway U12 (Q4)) -- so the bulk's
+     content, never absent, adds nothing to it and enters at the order of what it adds; Z2's bounds are open conditions,
+     Tdot^2 >= 1 for timelike geodesics and the null bound > 0, so any small addition leaves them standing (deduced).]
   Z2b (READ; computed; deduced where marked) The README's own region.  On the object the README is within the hole when
      the faces begin (c5_oneway U11 (1)-(3), U12 (Q4)), and in the construction M chose (273) it is Haggard and
      Rovelli's matter (arXiv:1407.0989, READ): "Spherical shell of null matter: We disregard the thickness of this
@@ -42,18 +45,21 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      construction's ingoing Eddington form -f dv^2 + 2 dv dr + r^2 dOmega_3^2 a future causal vector X has g(X, -d_r) =
      -X^v <= 0 (computed), so v never decreases along a future causal curve, and a point inside the shell (v < v_o) is
      outside the shell's causal future -- as for any converging null shell, an achronal null hypersurface, the side it
-     has not yet swept (deduced) -- in the domain of dependence of the space the README converges on -- undisturbed,
-     nothing else carried in (273, "README only"), flat at flat order as M1 is (deduced).  There every causal geodesic
-     is a straight line, its affine parameter linear in the coordinates: complete (deduced).  A causal geodesic meets
-     the thin null shell at one point and continues across it, the metric continuous and the gluing of tangent spaces
-     fixed by the induced metrics (READ: "if the induced 3-metrics on the boundaries agree it turns out that it is not
-     necessary to impose further conditions", citing Barrabes and Israel).  By the same monotone v, a future-directed
-     geodesic in our trapped region (v > v_o) never re-enters the flat region and reaches the quantum region (Z2); READ:
-     "The trapped region is bounded by the incoming shell trajectory, the null r = 2m horizon in the region II, and the
-     boundary between region II and region III".  On position 2's side the reflected region is flat space inside the
-     emerging shell: a future-directed geodesic of position 2's trapped region may cross that outgoing shell into it,
-     and then stays in flat space: complete (deduced).  So every causal geodesic of the README's region, and every one
-     that enters or leaves it, runs in finite affine parameter between its boundaries.
+     has not yet swept (deduced) -- in the domain of dependence of the space the README converges on -- the bulk as it
+     was, undisturbed, with its own content (320: "no bulk is ever empty") and nothing carried in (273, "README only").
+     In the empty-bulk limit it is flat at flat order, every causal geodesic a straight line with its affine parameter
+     linear in the coordinates, crossing the region's late part -- bounded, inside the shell between the opening and the
+     quantum region -- in finite affine parameter (deduced); that is an open condition, so the bulk's own content leaves
+     it standing to its order, as item 320 (c) reads the vacuum figures of the verified claims (deduced).  A causal
+     geodesic meets the thin null shell at one point and continues across it, the metric continuous and the gluing of
+     tangent spaces fixed by the induced metrics (READ: "if the induced 3-metrics on the boundaries agree it turns out
+     that it is not necessary to impose further conditions", citing Barrabes and Israel).  By the same monotone v, a
+     future-directed geodesic in our trapped region (v > v_o) never re-enters the flat region and reaches the quantum
+     region (Z2); READ: "The trapped region is bounded by the incoming shell trajectory, the null r = 2m horizon in the
+     region II, and the boundary between region II and region III".  On position 2's side the reflected region is flat
+     space inside the emerging shell: a future-directed geodesic of position 2's trapped region may cross that outgoing
+     shell into it, and then stays in flat space: complete (deduced).  So every causal geodesic of the README's region,
+     and every one that enters or leaves it, runs in finite affine parameter between its boundaries.
   Z3 (READ; computed; deduced where marked) The quantum region.  Completeness there is M's ruling, not a result of this
      row: 273 chose the bounce "One-way, complete, README only" -- "complete" being b_interior B6's cell, "no
      singularity on the way", set for every bounce and chosen by M -- and gives up "classical GR there", so inside it no
@@ -129,7 +135,7 @@ RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
 MUT = {}
 M282 = "Re-pose them one-way (Recommended)"
 M282C = "theorem rows O1c and B5a, marked at 281, are re-posed the same way"
-M273 = ("One-way, complete, README only", "and classical GR there")
+M273 = ("One-way, complete, README only", "and classical GR there", "no bulk is ever empty")
 V261 = ("the large end is four-dimensional Schwarzschild on the plane with corrections O(ell^2/r0^2)",
         "surface gravity 1/(4M), non-extremal")
 CITED = (("c7_oneway.py", "never reaches its white-hole face U' = 0"),                      # Z5
@@ -141,7 +147,8 @@ CITED = (("c7_oneway.py", "never reaches its white-hole face U' = 0"),          
          ("pair_math.py", "Outside the quantum region every ray segment keeps 183"),        # Z6
          ("pair_math.py", "the negative is confined to the quantum region"),                # Z6
          ("c7_oneway.py", "It is carried by rays that never meet the face"),                # Z5, item 319
-         ("c7_oneway.py", "claims about the construction's single chart"))                  # Z4, item 319
+         ("c7_oneway.py", "claims about the construction's single chart"),                  # Z4, item 319
+         ("c5_oneway.py", "b_interior's readme_only (nothing else carried inside)"))         # Z2, Z2b, item 320
 _MOD = {}
 
 
@@ -326,7 +333,7 @@ def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     rul = " ".join(open(RULINGS, encoding="utf-8").read().split())
-    add("Z0 282 (1) and its reading (c), 273's two phrases and 261 (3)'s two verbatim in the rulings file",
+    add("Z0 282 (1) and its reading (c), 273's two phrases, 320's, and 261 (3)'s two verbatim in the rulings file",
         all(w in rul for w in (M282, M282C) + M273 + V261))
     a = o["z1"]
     r_h, M = sp.symbols("r_h M", positive=True)
