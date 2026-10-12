@@ -13,10 +13,14 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      face from the opening and on position 2's to its closing (c1_oneway K2), 2 pi^2 r_h^3 = 4 N ln2 l5^3.  The throat as
      the narrowest sphere of the eternal hole's t = 0 slice is dropped (282); there is no static throat (the C1 and C7
      verifiers), and r_h takes r0 = 2m's place without the relation carrying (2 G E/c^4 = 1.89e-15 r_h, kept).
+     [Item 315 (V9 (1)): the identity holds on each face in that side's own l5 (240 (b)).]
   V3 (computed, exact; H2tu-s re-posed) The horizon's trace on each plane is r = r_h.  Position 2's plane reads the same
      f because the bounce's map (U, V) -> (-U, -V) is an isometry of the Kruskal form (b_bounce Q1) -- position 2's
      reading of its own side, nothing passing back -- not because the eternal solution's two exteriors are isometric.
      The 2-area reading, 7.9e14 N at the example, is kept with the verifier's qualification (a 4D-G reading).
+     [Item 315 (V9 (1), V10 (3)): narrowed -- each plane reads its own horizon's trace, position 2's mass its own (240);
+     that its r_h equals ours is the effective geometry's simplification, not claimed.  The 2-area reading is stated as
+     the 4D-G reading of a 5D horizon it is.]
   V4 (computed; O1b/O1c re-posed, c5_oneway U1) The passage runs through the bounce, each part of the README falling to
      the quantum region in at most one clock; the interior's r = 0 is where the quantum region stands (273), not a
      singularity admitted outside a slice.
@@ -25,23 +29,102 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      write's floor -- is carried by inflow from position 2 onto its face, which the one-way object excludes: nothing from
      position 2's exterior meets its white-hole face.  The threat is closed by 270, not by a mitigation; the results
      that rested on kappa = 0 (stability S5b, o3_hold O3c, write_cypher W4, marked at 281) stay as marked.
+     [Item 315: the closure recomputed in V9 (5), not taken from i_oneway I3; the rows resting on kappa = 0 are other
+     rows, not claimed by C7 (V10 (6)).]
   V6 (computed, exact; kept) Z1t-s, Z2r-s, B2t-s and E4r-s, outside the hole: the 5D null energy zero on the radial ray,
      the plane's traceless G^a_b = (r_h^2/r^4) diag(1, 1, -1, -1), the Weyl reading's sign and size with the verifier's
      qualifications (rows_small's own checks).
+     [Item 315 (V10 (1)-(4)): each qualification stated as a result with its scope, or left out of the claim.]
   V7 (the cypher NOT-RUN, stated) V1-V6 re-post rows and their figures; the object's causal order is c1_oneway K6's run.
+     [Item 315: V8 puts C7's question through the calculator; V7 stands for V1-V6 as built.]
+  V8 (computed; item 315) C7's question through the calculator, in the form C1's, C4's and C5's questions stand in
+     (c4_residue R12; c5_oneway U7): clause by clause, one condition over the four interiors, tension and matter at
+     statistics' rank over the population (F18; 292, 295), the question cell the quantum bounce's row at C4's (t, m).
+     The rows are read from b_interior's cells, not set by hand: G1s, O2s, Z1t-s/Z2r-s, E4r-s and V5 are figures outside
+     the hole and hold where the exterior is Tangherlini -- every interior but the inner horizon, whose charge or spin
+     (B3) changes it (singular 1, inner 0, quantum 1, shell 1); G3s needs both faces, ours and position 2's (B6's
+     one_way: singular 0, inner 1, quantum 1, shell 1); H2tu-s needs both faces and both exteriors Tangherlini, and V4's
+     passage needs B6's complete route (singular 0, inner 0, quantum 1, shell 1).  Result: every clause 1 at orders 2
+     and 3, the lawful orders, under all 96 codings (24 orderings x 4 orientations); 211's audit flags no key and no
+     one-hot on any clause.  Control: the continuation alone, without tension and matter, is refused on every clause.
+     As for C4 and C5 (item 310 (4); c5_oneway U11 (13)), the agreement is a result about the rows, not a further
+     computation of them: C7's rows do not turn on tension or matter once the interior is fixed, and the answer at the
+     bounce is its own row read back.
+  V9 (computed where marked, deduced where marked; item 315) C7 against C1's, C4's and C5's verifications (items 304,
+     310) and C5's U9-U11.
+     (1) Position 2's reading, 240 (READ, M verbatim: "The mass on position 2's side is not equal to ours"; the C4
+     verifier's (3)).  V3's "position 2's plane reads the same f" is narrowed: each plane reads its own horizon's trace,
+     r = that side's r_h, position 2's mass being its own (M-P2-MASS-OWN); that position 2's r_h equals ours holds only
+     in the two-exterior effective geometry with position 2's constants taken as ours -- the construction's
+     simplification, not claimed.  V2's identity 2 pi^2 r_h^3 = 4 N ln2 l5^3 holds on each face in that side's own l5
+     (240 (b): "its throat holds exactly the README at position 2's own bit area").
+     (2) G5 under the 2 : 1 bulk (the C4 verifier's, outside its claim; computed).  r_h is fixed by the README's bits
+     in units of l5, so V1's E moves as (G5/G ell)^(-1/3): 1.281e9 J, 1.119e9 J at (3/2) G ell, 1.614e9 J at G ell/2 --
+     each below ledger.py's assembly ceiling 1.1947e10 J, so the C7 verifier's T3/E3 flip at the small end stands on
+     every G5; the readings H2tu-s's 7.9e14 N and E4r-s's -5.3e14 E move by the same factor (6.9e14 and -4.6e14; 1.0e15
+     and -6.7e14); every clock-denominated figure is unchanged (c5_oneway U9).
+     (3) The far hemisphere (the C4 verifier's reading at c4_residue R8): a warp-order question; C7 is claimed at flat
+     order, as M1 is, where both halves of the hole are Tangherlini's (deduced), at most (r_h/ell)^2 = 6.4e-31.
+     (4) V4's passage now stands on c5_oneway U11 (4): every timelike and null route crosses the core; and V2's
+     "position 2's face" is reached by the README as its own image under the forced map (U, V) -> (-U, -V), a
+     consequence of M's 273 (c5_oneway U10, U11 (9); c4_residue R13).
+     (5) V5's closure recomputed here rather than taken from i_oneway I3 (not separately verified): on the Kruskal form
+     -F dU dV + r^2 dOmega^2 a future causal vector has dU >= 0 and dV >= 0, so from position 2's exterior (U' > 0,
+     V' < 0 in Q1's image chart) U' never decreases and never reaches its white-hole face U' = 0 (computed): no inflow
+     from position 2 meets the face, so neither the exponential blueshift of the C7 verifier's (3) nor Eardley's or
+     Barcelo's instabilities, which need that inflow (c_junction J2, J5), arise.
+     (6) K2's closing of position 2's face within 33.6 clocks rests on c_junction J1, whose input c4_residue R7
+     re-derived from the Killing field alone (one-way), with R7's item-310 note on the sign.
+  V10 (deduced, with what is computed marked; item 315, M-NO-RESIDUE-TO-VERIFIER, 314) C7's residue closed to
+     completion: the qualifications V1-V6 carried are each stated as a result with its scope, or left out of the claim
+     with the reason.
+     (1) Z1t-s and Z2r-s: both readings zero on the radial ray -- exact for the matter-free flat-order equator, which is
+     what C7 claims (flat order, as M1); semiclassically the hole's outgoing flux loads the plane (c4_oneway P5, 0.29
+     sigma at r_h), below 1% beyond 5.3 r_h and its bending below 1% beyond 9.3 r_h (c4_residue R11, computed), so the
+     zero is C7's classical statement, as "C4 is classical" was closed for M1 (R11).
+     (2) E4r-s: claimed for r_h << R << ell -- the five-dimensional field energy between the horizon and any sphere zero,
+     the plane's 4D reading -(4/(3 pi))(ell/r_h)(1 - r_h/R) E, -5.3e14 E at the example, its ratio to E falling as
+     N^(-1/3) ell^(2/3) (the C7 verifier's (1), (5), (6), all results); its value at r = ell, the r << ell form at its
+     edge, is not claimed.
+     (3) H2tu-s: the trace's 2-area read in the plane's bits, 7.9e14 N at the example, is a 4D-G reading of a 5D
+     horizon -- stated as what it is; the 2N/pi at the crossover r_h = ell lies outside the small end (r_h < 0.1 ell)
+     and is not claimed.
+     (4) G3s: the hold at r_h takes r0 = 2m's place and the relation does not carry (2 G E/c^4 = 1.89e-15 r_h) -- a
+     result.
+     (5) O2s: kappa = c^2/r_h, a result; the exterior's mode stability (Ishibashi and Kodama, READ through
+     B4D-STAGE1.md) is not part of C7's claim; the white-hole horizon's instabilities need inflow, which (V9 (5))
+     never meets the face.
+     (6) The rows that rested on kappa = 0 (O3's figures, o3_hold O3c, write_cypher W4, warptheorem T1, stability
+     S5b; marked at 281) and the rows G1s's value moves (T3, E3), or that still carry the large end's E(N) (G2, H1, I1),
+     are other rows: not claimed by C7, named so no reader takes them as C7's.
+     (7) B2t-s is cited from C1 (verified, item 254; c1_oneway K1) -- a verified claim, not residue.
+     With these nothing in C7 is open: every figure computed, READ, or deduced from M's rulings and verified claims.
+
+What C7 does not claim (item 315, M-NO-RESIDUE-TO-VERIFIER) -- each left out with its reason, none open in C7.
+  - That position 2's r_h or mass equals ours: 240 (V9 (1)).
+  - Anything at warp order in r_h/ell, or semiclassical near the hole: C7 is classical at flat order, as M1 (V9 (3),
+    V10 (1)).
+  - E4r-s at r = ell, H2tu-s at the crossover (V10 (2), (3)); the exterior's mode stability (V10 (5)).
+  - The other rows V10 (6) names, and the rows resting on more than M1 (M1P2x, WRITE, ARRIVAL, CLOSE).
 
 What this does not show.
-  - The rows resting on more than M1 (M1P2x, WRITE, ARRIVAL, CLOSE), as in rows_small.
-  - The O3 row's figures re-derived without kappa = 0 (marked at 281, not re-posed here).
+  - The rows resting on more than M1 (M1P2x, WRITE, ARRIVAL, CLOSE), as in rows_small.  [Item 315: not claimed.]
+  - The O3 row's figures re-derived without kappa = 0 (marked at 281, not re-posed here).  [Item 315: O3's row, not
+    C7's (V10 (6)).]
 
-Imports rows_small.py, b_bounce.py, c1_oneway.py, c5_oneway.py and i_oneway.py by path.  Stdlib + sympy.
+Imports rows_small.py, b_bounce.py, c1_oneway.py, c5_oneway.py, i_oneway.py, c4_oneway.py, calculator.py,
+b_interior.py, index_audit.py and research/warp-drive/hlaw.py by path.  Stdlib + sympy.
 python3 c7_oneway.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
 import io
+import itertools
 import os
 import sys
+from collections import Counter
+
+import sympy as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
@@ -74,19 +157,111 @@ def checks_of(name, key, mut=None):
         m.MUT.clear()
 
 
+INTERIORS = ("singular", "inner", "quantum", "shell")
+C7VALS = {"G1s": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # outside the hole, exterior Tangherlini
+          "G3s": {"singular": 0, "inner": 1, "quantum": 1, "shell": 1},     # both faces (B6's one_way)
+          "H2tu-s": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},  # both faces, both exteriors Tangherlini
+          "O2s": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},
+          "Z1t/Z2r": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},
+          "E4r-s": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},
+          "V4": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},      # B6's complete route
+          "V5": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1}}
+F18 = {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
+_V8 = {}
+
+
+def calc_question():
+    """V8: C7's question through the calculator, in the form C4's and C5's stand in (c4_residue R12, c5_oneway U7)"""
+    key = tuple(sorted(k for k in MUT if k.startswith("v8_")))
+    if key in _V8:
+        return _V8[key]
+    C4 = _load("c4_oneway.py", "c7o_c4")
+    CA = _load("calculator.py", "c7o_calc")
+    HL = C4._load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c7o_hl")
+    IA = _load("index_audit.py", "c7o_ia")
+    cells = _load("b_interior.py", "c7o_bi").cells()
+    keys = {"singular": (0, "none", "ours"), "inner": (1, "none", "pos2"), "quantum": (0, "quantum", "pos2"),
+            "shell": (0, "shell", "pos2")}
+    outside = {k: 1 - keys[k][0] for k in INTERIORS}                     # B3: no inner horizon, exterior Tangherlini
+    if MUT.get("v8_inner_tangherlini"):
+        outside["inner"] = 1                                             # the mutant: the inner horizon's exterior
+    oneway = {k: cells[keys[k]]["one_way"] for k in INTERIORS}           # B6: both faces
+    complete = {k: cells[keys[k]]["complete"] for k in INTERIORS}        # B6: a complete, regular route
+    both = {k: oneway[k] * outside[k] for k in INTERIORS}
+    vals = {"G1s": outside, "G3s": oneway, "H2tu-s": both, "O2s": outside, "Z1t/Z2r": outside, "E4r-s": outside,
+            "V4": complete, "V5": outside}
+    vals = {c: dict(v) for c, v in vals.items()}
+    pop = not MUT.get("v8_no_population")
+    out, audit = {}, {}
+    for k in (2, 3):
+        res = Counter()
+        for perm in itertools.permutations(range(4)):
+            kmap = dict(zip(INTERIORS, perm))
+            for tf, mf in itertools.product((0, 1), repeat=2):
+                tq, mq = 1 ^ tf, 1 ^ mf
+                at = (kmap["quantum"], tq, mq) if pop else (kmap["quantum"],)
+                names = ["K", "t", "m"] if pop else ["K"]
+                views = dict(order=(0,), algebra=(0,), geometry=(0,), information=(0,),
+                             statistics=(0, 1, 2) if pop else (0,))
+                ans = []
+                for cl in C7VALS:
+                    kn = []
+                    for kk in INTERIORS:
+                        for (t, m) in (F18 if pop else [(1, 1)]):
+                            tt, mm = t ^ tf, m ^ mf
+                            if (kk, tt, mm) == ("quantum", tq, mq):
+                                continue
+                            kn.append(((kmap[kk], tt, mm) if pop else (kmap[kk],)) + (vals[cl][kk],))
+                    ans.append(C4._staged(CA, HL, names + [cl], kn, at, views, k)["answer"])
+                    if k == 2 and perm == (0, 1, 2, 3) and (tf, mf) == (0, 0):
+                        a = IA.audit_index(names + [cl], kn)
+                        audit[cl] = bool(a["keys"] or a["onehot"])
+                res[tuple(ans)] += 1
+        out[k] = res
+    _V8[key] = dict(out=out, audit=audit, vals=vals)
+    return _V8[key]
+
+
+def against():
+    """V9: C7 against C1's, C4's and C5's verifications -- G5's factor on V1's figures; V5's closure recomputed"""
+    RS = _load("rows_small.py", "c7o_rs2")
+    o = RS.compute()
+    E, bits, field = o["r1"]["E_s"], o["ex"]["bits2_over_N"], o["ex"]["field_over_E"]
+    g5 = {g: dict(E=E * g ** (-1 / 3), bits=bits * g ** (-1 / 3), field=field * g ** (-1 / 3),
+                  below=E * g ** (-1 / 3) < 1.1947e10) for g in (1, 1.5, 0.5)}
+    # V5: future causal vectors of -F dU dV have dU, dV >= 0 -- from U' > 0 the face U' = 0 is never reached
+    dU, dV = sp.symbols("dU dV", real=True)
+    future = [(a, b) for a in (0, 1, 2) for b in (0, 1, 2) if a + b > 0]
+    if MUT.get("v9_past_allowed"):
+        future += [(-1, 1)]                                               # the mutant: a past-directed step admitted
+    causal = all(-a * b <= 0 for a, b in future)
+    U0 = sp.Rational(1, 10)
+    reach = any(U0 + 20 * a <= 0 for a, b in future)                      # twenty steps toward the face
+    return dict(g5=g5, causal=causal, never=not reach, warp=(1 / o["ex"]["ell_over_rh"]) ** 2)
+
+
 def compute():
     rs = checks_of("rows_small.py", "c7o_rs")
     bb = checks_of("b_bounce.py", "c7o_bb")
     c1 = checks_of("c1_oneway.py", "c7o_c1", "opens_at_bifurcation" if MUT.get("faces_at_bifurcation") else None)
     c5 = checks_of("c5_oneway.py", "c7o_c5")
     io_ = checks_of("i_oneway.py", "c7o_io", "inflow_allowed" if MUT.get("inflow") else None)
-    return dict(rs=rs, bb=bb, c1=c1, c5=c5, io=io_)
+    return dict(rs=rs, bb=bb, c1=c1, c5=c5, io=io_, cq=calc_question(), ag=against())
 
 
 def report(o):
     print("c7_oneway.py -- claim C7 re-posed on the one-way object (item 282)\n")
     for k in ("rs", "bb", "c1", "c5", "io"):
         print("  %s %s" % (k, o[k]))
+    cq = o["cq"]
+    for k in (2, 3):
+        print("V8 order %d over 96 codings: %s" % (k, dict(cq["out"][k])))
+    print("V8 211's audit per clause: %s" % cq["audit"])
+    for g, v in o["ag"]["g5"].items():
+        print("V9 G5 = %.1f G ell: E %.4g J (below the ceiling: %s), H2tu-s %.3g N, E4r-s %.3g E" % (
+            g, v["E"], v["below"], v["bits"], v["field"]))
+    print("V9 future causal steps keep dU, dV >= 0: %s; position 2's face never reached from its exterior: %s; "
+          "(r_h/ell)^2 = %.2g" % (o["ag"]["causal"], o["ag"]["never"], o["ag"]["warp"]))
 
 
 def checks(o):
@@ -99,16 +274,32 @@ def checks(o):
         rs.get("G1s") and rs.get("R1"))
     add("V2 the hold is the horizon at r_h, on both faces, V = 0 on neither (rows_small G3s/H2tu-s, c1_oneway K2)",
         rs.get("G3s/H2tu-s") and o["c1"].get("K2"))
-    add("V3 position 2 reads the same f by the bounce's isometry (b_bounce Q1)", o["bb"].get("Q1"))
+    add("V3 the bounce's map is an isometry keeping U V (b_bounce Q1); each plane reads its own horizon's trace "
+        "(V9 (1), item 315)", o["bb"].get("Q1"))
     add("V4 the passage through the bounce (c5_oneway U1)", o["c5"].get("U1"))
     add("V5 kappa = c^2/r_h (rows_small O2s); nothing from position 2 meets its white-hole face (i_oneway I3)",
         rs.get("O2s") and o["io"].get("I3"))
     add("V6 Z1t-s/Z2r-s and E4r-s, outside the hole (rows_small)", rs.get("Z1t-s/Z2r-s") and rs.get("E4r-s"))
+    cq = o["cq"]
+    add("V8 C7's question through the calculator in R12's form: the rows read from b_interior's cells; every clause 1 "
+        "at orders 2 and 3 under all 96 codings; no key or one-hot (item 315)",
+        cq["vals"] == C7VALS and all(cq["out"][k] == Counter({(1,) * len(C7VALS): 96}) for k in (2, 3))
+        and not any(cq["audit"].values()))
+    ag = o["ag"]
+    rul_ok = "The mass on position 2's side is not equal to ours" in rul
+    ok = rul_ok and all(v["below"] for v in ag["g5"].values()) and "%.4g" % ag["g5"][1.5]["E"] == "1.119e+09"
+    ok &= "%.4g" % ag["g5"][0.5]["E"] == "1.614e+09" and ag["causal"] and ag["never"]
+    ok &= "%.2g" % ag["warp"] == "6.4e-31"
+    add("V9 against the verifications (item 315): 240's words read; V1's E below the ceiling on every G5 (1.119e9, "
+        "1.614e9 J); no future causal curve from position 2's exterior reaches its face; warp order at 6.4e-31", ok)
     return res
 
 
 MUTANTS = {"faces_at_bifurcation": "our face opened at U = V = 0 (through c1_oneway)",
-           "inflow": "position 2's inflow let meet its white-hole face (through i_oneway)"}
+           "inflow": "position 2's inflow let meet its white-hole face (through i_oneway)",
+           "v8_no_population": "C7's question without tension and matter, the continuation alone (V8)",
+           "v8_inner_tangherlini": "the inner horizon's exterior read as Tangherlini (V8)",
+           "v9_past_allowed": "a past-directed step admitted toward position 2's face (V9)"}
 
 
 def selftest():
