@@ -268,6 +268,23 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      entered as the question returns its own answers (the singular interior and the inner horizon 1, 0, 1, the shell
      0, 1, 1, the quantum bounce 1, 1, 1), so the reading decides from what the cells hold, not toward 1.  The operator's
      own order-4 verdict stays beside it, unrepaired.
+  P21 (deduced; item 303) The residue, from the record.
+     (1) C1 first: C4's P2 and P3 rest on c1_oneway K1-K4, and C1 one-way is not verified -- its verifier was stopped
+         (298's audit) -- and its question is owed through the calculator; 282 (b) puts C1 before C4.
+     (2) Conditional: the kink through the faces, on KTN's profile being analytic at the horizon (P15); tau = 3/4
+         where the sheets coincide, not at the corridor, and no single number with matter on position 2's plane (P19).
+     (3) Estimates: the outgoing flux, 0.29 sigma at r_h (P5); its bending, 0.86 of the tension's, a static-frame
+         junction component, not the plane's solved shape (P14).
+     (4) The board's readings, M's to overrule, on which the cypher's agreement rests: tension and matter read at
+         statistics' rank (P13); the continuation as one condition (P17) or as its own two clauses (P20); the object's
+         density scaling with position 2's own tension (P18); the channel reading of a binary communication (P20).
+         The operator alone still refuses (a) and (b)/(e) at order 4 under the two clauses, and 2 of the 24 codes
+         leave (b)/(e) open at order 2 (P20).
+     (5) Not computed: the quantum region's duration (b_bounce Q3 is the two-way object's, 277); KTN's profile; the
+         plane's shape under the flux.
+     (6) Standing qualification: C4 is classical -- near the hole the plane's quantum load is of the tension's order
+         (P5, P14).
+     (7) Nothing in P1-P20 is verified by a separate session.
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
