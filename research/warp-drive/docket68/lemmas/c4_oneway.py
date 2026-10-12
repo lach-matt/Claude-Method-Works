@@ -159,6 +159,8 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      deduction tested where it could fail: with geometry also reading tension and matter, or every language but
      information, the cypher agrees in all 96; with information reading them it refuses in P10's 42.  Information's
      reading alone carried the refusals.
+     [Item 299, P17: the order-2 agreement is the finite index's -- with 295's population, where a relative tension can
+     outweigh the README, order 2 leaves (f) open, and the cypher agrees at order 3.]
   P14 (computed, exact where marked; estimate where marked) The outgoing flux's back-reaction on P1, owed since P5.
      The flux is a null fluid on the plane, S_ab = rho k_a k_b, traceless (exact).  Israel on P1 (m1_small N4's
      method), K_ab = -(kappa^2/2)(S_ab - S h_ab/3): the flux puts (kappa^2/2) rho into K_tt in the hole's static frame
@@ -185,6 +187,35 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      readiness: the form (P13); the kink through the faces derived (P15, conditional on analyticity at the horizon);
      the flux's back-reaction sized (P14, warp order); C4 classical carried as the verifier's qualification (5), with
      its size.  So C4 is ready for M's finalization (249) and one verifier.
+     [Item 299, P17: the order at which the cypher agrees is 3, with the population of tensions and matters entered and
+     the continuation one condition -- not the protocol's 2, at which (f) is open once the population is entered.]
+  P17 (computed, exact where marked; deduced where marked; item 299) The higher orders, solved.
+     The top order (deduced; checked exactly, 36 of 36): on d coordinates statistics' highest order is d - 1, and a
+     cell is admitted there iff each of its (d-1)-projections is seen.  Leaving out the answer gives C4's conditions,
+     seen in the question's own cell; leaving out condition i asks for a known configuration that differs from C4 in i
+     alone and carries the answer.  So at the top order C4's answer a is admitted iff every condition, changed alone,
+     can keep a, and a clause that hinges at C4 on a binary coordinate is refused there -- its one change flips the
+     answer.
+     Less information.  P12's order 4 existed because the continuation, one condition with three values, was entered
+     as two coordinates, and changing one bit reaches one other code: one continuation, or none.  For (a) both of the
+     quantum bounce's one-bit neighbours would have to be vacuum, for (b)/(e) both complete -- the shell one bit from it
+     in both bits at once -- so order 4 refuses them in every code (computed: 24 of 24; (f) in the 16 where the unused
+     code is a neighbour).  Entered as one condition, the continuation changes to either other continuation, d = 4,
+     and the top order is 3; order 4 is silent ("needs more than 4 coordinates", reg 1175).  The fourth order was the
+     code's.
+     More information.  With infinite relative tensions and matter (295), (f)'s law, f = [tau + rho/sigma > 0],
+     realizes over the classes t (139 (1)'s tau = -1/4, or any other) and m (the README's rho = R sigma/4, R = 5.9e15,
+     or any other matter) (computed, exact; a witness inside each class for each answer): (-1/4, the README) 1 only;
+     every other class both -- the quantum bounce at -sigma/4 holds other matter above sigma/4 (1) and below it (0), and
+     the README meets relative tensions below -R/4 = -1.5e15 (0).  The finite index has none of these, which is why
+     order 3 refused (f): it asked for the quantum bounce at -sigma/4 holding (f) without the README.
+     Solved, the continuation one condition and the population entered: at order 3, (a), (b)/(e) and (f) each 1 under
+     all 6 orderings of the continuation's values -- and, as two bits, all 24 codes -- and logic joins 1: M1 holds.  The
+     hierarchy law's containments hold at orders 2-4; extensive.  Order 2 leaves (f) open: its law is the sign of
+     tension plus matter, a three-way interaction of (t, m, f), which pairwise marginals cannot hold once both range
+     freely.  So order 3 is at once (f)'s own order and the question's top order, and there the cypher agrees.  The
+     continuation as one condition with three values is the board's reading of 286's "binary form" -- the question and
+     its answer binary, a condition one coordinate -- named as such (192).
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
@@ -712,9 +743,107 @@ def faces():
                 sads_simple=bool(sp.diff(fa, r).is_positive), bounce_keeps=sp.expand((-U) * (-V) - U * V) == 0)
 
 
+_P17 = {}
+NAMES3 = ["inner", "quantum", "shell"]
+
+
+def population(R):
+    """P17: the support of (f)'s law, f = [tau + rho/sigma > 0], over the classes t (1: 139 (1)'s tau = -1/4, 0: any
+    other relative tension) and m (1: the README, rho = R sigma/4, 0: any other matter, rho >= 0) -- the answers each
+    class realizes, exact, by witnesses inside the class; with infinite relative tensions and matter (295)"""
+    tau, rho = sp.symbols("tau rho", real=True)
+    law = lambda T, P: bool(T + P > 0)
+    rR = sp.Rational(1, 4) * R
+    lo = -R if not MUT.get("bounded_tension") else sp.Integer(-1)   # the mutant keeps tension within [-1, 1]
+    wit = {(1, 1): [(-sp.Rational(1, 4), rR)],
+           (1, 0): [(-sp.Rational(1, 4), 0), (-sp.Rational(1, 4), 1)],
+           (0, 1): [(0, rR), (lo, rR)],
+           (0, 0): [(0, 0), (1, 0)]}
+    out, inside = {}, True
+    for (t, m), ws in wit.items():
+        for T, P in ws:
+            inside &= (T == -sp.Rational(1, 4)) == bool(t) and (P == rR) == bool(m) and P >= 0
+        out[(t, m)] = {int(law(T, P)) for T, P in ws}
+    return out, inside
+
+
+def higher():
+    """P17 (item 299): the higher statistics orders solved -- the one-flip rule at the top order, the population of
+    tensions and matters (more information), the continuation as one condition (less information)"""
+    key = tuple(sorted(k for k in MUT if k in ("bounded_tension", "finite_grid", "two_bits")))
+    if key in _P17:
+        return _P17[key]
+    CA = _load("calculator.py", "c4o_calc")
+    HL = _load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c4o_hl")
+    EP = _load("e_positive.py", "c4o_ep5")
+    R = sp.Float(EP.example()["R_rh"] ** 3, 20)
+    F, inside = population(R)
+    if MUT.get("finite_grid"):
+        F = {(t, m): {int(m == 1 or t == 0)} for t in (0, 1) for m in (0, 1)}   # the index's four cells only
+    A = {"inner": 1, "quantum": 1, "shell": 0}
+    BE = {"inner": 0, "quantum": 1, "shell": 1}
+
+    def known(cl, enc):
+        rows = []
+        for k in NAMES3:
+            for t, m in itertools.product((0, 1), repeat=2):
+                if (k, t, m) == ("quantum", 1, 1):
+                    continue
+                for v in ({A[k]} if cl == "a" else {BE[k]} if cl == "be" else F[(t, m)]):
+                    rows.append(enc(k) + (t, m, v))
+        return rows
+
+    one, bits = {}, {}
+    flip_ok, flip_n, lawful, extensive = True, 0, {}, True
+    for k in (1, 2, 3, 4):
+        res, law_k = Counter(), True
+        for perm in itertools.permutations(range(3)):
+            kmap = dict(zip(NAMES3, perm))
+            if MUT.get("two_bits"):
+                cm = dict(zip(NAMES3, [(1, 1), (0, 0), (0, 1)]))
+                enc, names = (lambda kk: cm[kk]), ["c1", "c2", "t", "m"]
+                views = dict(order=(0, 1), algebra=(0, 1), geometry=(0, 1), information=(0, 1), statistics=(0, 1, 2, 3))
+            else:
+                enc, names = (lambda kk: (kmap[kk],)), ["K", "t", "m"]
+                views = dict(order=(0,), algebra=(0,), geometry=(0,), information=(0,), statistics=(0, 1, 2))
+            at = enc("quantum") + (1, 1)
+            ans = []
+            for cl, _, _ in CLAUSES:
+                kn = known(cl, enc)
+                r = _staged(CA, HL, names + [cl], kn, at, views, k)
+                ans.append(r["answer"])
+                law_k &= r["lawful"]
+                if k == 3 and not MUT.get("two_bits"):
+                    st = CA.closure(names + [cl], kn + [at + (CA.U,)], "statistics", 3)
+                    for a in (0, 1):     # the one-flip rule: admitted at the top order iff every condition alone
+                        rule = all(any(all(x[j] == at[j] for j in range(3) if j != i) and x[i] != at[i] and x[3] == a
+                                       for x in kn) for i in range(3))   # can change, the answer kept at a
+                        flip_ok &= ((at + (a,)) in st) == rule
+                        flip_n += 1
+                        stx = CA.closure(names + [cl], kn + [at + (a,)], "statistics", 3)
+                        extensive &= (at + (a,)) in stx
+            res[tuple(ans)] += 1
+        one[k], lawful[k] = res, law_k
+    for k in (2, 3, 4):
+        res = Counter()
+        for code in itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 3):
+            cm = dict(zip(NAMES3, code))
+            at = cm["quantum"] + (1, 1)
+            views = dict(order=(0, 1), algebra=(0, 1), geometry=(0, 1), information=(0, 1), statistics=(0, 1, 2, 3))
+            res[tuple(_staged(CA, HL, ["c1", "c2", "t", "m", cl], known(cl, lambda kk: cm[kk]), at, views, k)["answer"]
+                      for cl, _, _ in CLAUSES)] += 1
+        bits[k] = res
+    silent4 = CA.closure(["K", "t", "m", "f"], known("f", lambda kk: (NAMES3.index(kk),)) +
+                         [(1, 1, 1, CA.U)], "statistics", 4) is None
+    _P17[key] = dict(F=F, inside=inside, one=one, bits=bits, flip_ok=flip_ok, flip_n=flip_n, lawful=lawful,
+                     extensive=extensive, silent4=silent4)
+    return _P17[key]
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
-                wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces())
+                wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces(),
+                hi=higher())
 
 
 def report(o):
@@ -769,6 +898,15 @@ def report(o):
     fc = o["fc"]
     print("P15 kappa %s; d(UV)/dr at r_h %s (r analytic in UV across the faces: %s); SAdS root simple %s; the bounce "
           "keeps UV %s" % (fc["kappa"], fc["dUV"], fc["analytic"], fc["sads_simple"], fc["bounce_keeps"]))
+    hi = o["hi"]
+    print("P17 the population's (f) over (t, m): %s (witnesses inside their classes: %s)" % (hi["F"], hi["inside"]))
+    for k in (1, 2, 3, 4):
+        print("P17 the continuation one condition, order %d, its 6 orderings: %s; lawful %s%s" % (
+            k, dict(hi["one"][k]), hi["lawful"][k], "; statistics silent" if k == 4 and hi["silent4"] else ""))
+    for k in (2, 3, 4):
+        print("P17 the continuation as two bits, order %d, 24 codes: %s" % (k, dict(hi["bits"][k])))
+    print("P17 the one-flip rule at the top order: %s on %d cases; extensive %s" % (hi["flip_ok"], hi["flip_n"],
+                                                                                  hi["extensive"]))
     rk = o["rk"]
     for pl in PLACES:
         for k in (1, 2, 3, 4):
@@ -895,6 +1033,17 @@ def checks(o):
     add("P15 the horizon is non-extremal (kappa = 1/r_h; SAdS's root simple), d(UV)/dr = -e^2/(2 r_h) at r_h: r is "
         "analytic in UV across both faces; the bounce's map keeps UV", fc["analytic"] and fc["ok_rstar"]
         and fc["sads_simple"] and fc["bounce_keeps"] and str(fc["kappa"]) == "1/r_h")
+    hi = o["hi"]
+    ok = hi["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {0, 1}, (0, 0): {0, 1}} and hi["inside"]
+    ok &= hi["one"][3] == Counter({(1, 1, 1): 6}) and hi["one"][2] == Counter({(1, 1, "both"): 6})
+    ok &= hi["one"][4] == Counter({(1, 1, "both"): 6}) and hi["silent4"]
+    ok &= hi["bits"][3] == Counter({(1, 1, 1): 24}) and hi["bits"][2] == Counter({(1, 1, "both"): 24})
+    ok &= hi["bits"][4] == Counter({("refused",) * 3: 16, ("refused", "refused", 1): 8})
+    ok &= hi["flip_ok"] and hi["flip_n"] == 36 and hi["extensive"] and all(hi["lawful"][k] for k in (2, 3, 4))
+    add("P17 the higher orders: with the population of tensions and matters (295) the cypher agrees at order 3, 1, 1, 1, "
+        "under every ordering and every two-bit code; order 2 leaves (f) open, its law three-way; with the continuation "
+        "one condition the top order is 3, order 4 silent; as two bits order 4 refuses, by the one-flip rule (exact on "
+        "36 cases); lawful at 2-4", ok)
     return res
 
 
@@ -912,7 +1061,10 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "given_by_tension": "the given fixed by the tension alone, the matter varying (P12)",
            "info_reads_order": "information let read tension and matter in the form (P13)",
            "flux_as_tension": "the flux's Israel term taken with the tension's factor (P14)",
-           "extremal": "the horizon taken extremal, a double root (P15)"}
+           "extremal": "the horizon taken extremal, a double root (P15)",
+           "bounded_tension": "relative tension kept within [-1, 1], no tension outweighing the README (P17)",
+           "finite_grid": "the index's four (t, m) cells, not the population (P17)",
+           "two_bits": "the continuation entered as two bits in the solved form (P17)"}
 
 
 def selftest():
