@@ -24,6 +24,9 @@ session; not seated); 2026-10-12.
      nothing exits the face (item 277's check), so it is not a reverse passage.
   U4 (computed; kept, hold_small L4 against write_small S3) The hold is the write: the hole outlives the write's floor,
      66,980 clocks, 1.28e10-fold (i_oneway I5: 3.9e-11 of E lost over the floor), on reading (i) of items 264 and 267.
+     [Item 312 (U10): on the object M's 162, 163, 273 and 282 (2) describe -- the README all in when the faces begin, at
+     the fixed size -- this comparison stands with the hole's E the README's, not 2E: 1.28e10.  On reading (ii), which
+     162 excludes, the binding margin would be the growing hole's 4.8 at the Planck-size seed (estimate).]
   U5 (deduced) The C5 verifier's qualification (5), "the most serious" -- the lifetime is an evaporating,
      collapse-formed hole's with no second exterior, while the eternal hole carrying the bridge loses no mass, so L1's
      bridge and L3/L4's life described different spacetimes -- resolves on the one-way object: it opens (270 (c)), so
@@ -119,6 +122,45 @@ session; not seated); 2026-10-12.
      So C5 has changed in one place: on reading (i), where U4's margin holds, the face by which the README's parts
      emerge is conditional on the quantum region's form; on reading (ii), where the README leaves as its own image by
      the face named, U4's verified comparison does not apply.  Every figure and U7's result stand.
+     [Item 312 (U10): the change found here is reading (i)'s, a hole standing before the README is in, which M's 273
+     ("README only") and 282 (2) ("no horizons" before the opening) exclude; reading (ii), the hole growing as the README
+     comes in, M's 162 excludes ("the throat doesn't change size").  On the object those rulings leave -- the README all
+     in when the faces begin, at the fixed size -- nothing of the README crosses a hole already standing, and C5 stands
+     on C4's condition alone (U10).]
+  U10 (item 312; computed where marked, deduced where marked, estimates marked) U9's change worked against M's rulings.
+     The readings of where the write sits (o3_write W4): (i) inside a static hold -- a hole of E standing while the
+     README of E arrives (264 (1)'s open 2E question); (ii) the write is the opening -- the README forms the hole as it
+     arrives, the size growing (ingoing Vaidya; 198, M's guess: "the size growing as it comes in ... and fixed once the
+     whole README is in").  Against M's rulings (deduced): 273 chose the object whose option text reads "README only",
+     and 282 (2) chose "Before the opening the positions are joined through the bulk with no horizons; the corridor's
+     faces begin at the opening" -- so no hole stands before the README is in, and none of E that is not the README's:
+     reading (i) is excluded, its 2E question answered against it.  162 rules "The throat doesn't change size because
+     the whole chain object only every takes on the size that contains the README upon opening" (H-FIXED-SIZE; the
+     record's reading there, "any ramp of m(v) give[s] way") -- so reading (ii)'s growing hole is excluded too, 198
+     being a guess.  What the rulings leave, the board's reading: the README carried in by the inflow (115 (c)) with no horizon, and the faces beginning
+     at the opening at the size that holds it, the README within -- held "once and at once", as one whole (162, 163).
+     The face (computed; the board's reading where marked).  On that object the README is the whole of the hole's
+     collapsing matter, enclosed at the opening, and in Haggard and Rovelli's construction the collapse is glued to its
+     image: each part of the README, entering our face at V = V0 > 0, leaves as its own image, which under b_bounce
+     Q1's map is V' = -V0 and meets U' = 0 at V' < 0 -- position 2's face as named, onto Q1's image of our exterior --
+     for every V0.  They construct it for a thin null shell (b_interior B4, READ); carried to the README as a whole,
+     the board's reading.  Nothing of the README crosses a hole already standing, so item 310's (1) bears on nothing of
+     it; the face rests on a quantum region of that kind -- C4's condition (c4_residue R13) -- and on nothing further.
+     The hold (U4).  The hole's E is the README's (273), so U4's comparison stands as verified, with E and not 2E: the
+     hole, open at its size from the opening, outlives the write's floor 1.28e10-fold; each part of the README crosses
+     in at most two of its own clocks while the face stands open (i_oneway I2, I5), the parts entering together.
+     Reading (ii) for the record, M's guess against M's ruling (computed; estimates marked).  Were the hole to grow as
+     the write feeds it, at E/t_w, evaporating at P(E)/f with the fraction f of E (5D: E ~ r_h^2, P ~ r_h^-2; species
+     and greybody as hold_small's; P(E) = E/(2 life)), the feed would outrun the evaporation above f* = t_w/(2 life) =
+     3.91e-11 (t_w the floor).  The smallest semiclassical hole, r_h = l5, holds f_P = (l5/r_h)^2 = 1.89e-10 -- 4.8 f* --
+     so the hole would only grow from there, the margin rising to 2.6e10 at full size, the README radiating f*
+     ln(1/f_P) = 8.7e-10 of E over the write (estimates: a uniform feed; g* = 106.75 and greybody 0.93 held at the
+     seed's 2.0e8 GeV, 72,762 times the completed hole's temperature); the margin would close for a write past 4.8
+     floors or species at 2.0e8 GeV above 4.8 times the Standard Model's (H-SPECIES-FINITE).
+     So C5, on the object M's rulings describe, has not changed beyond C4's own condition: the face rests on a quantum
+     region of Haggard and Rovelli's kind, as C4's does, the hold's margin is U4's 1.28e10, and every figure and U7's
+     result stand.  U9's change belongs to reading (i), which the rulings exclude.  The cypher NOT-RUN on the choice
+     of reading, stated: M's 162, 273 and 282 (2) decide it, read and deduced, not a configuration among others.
 
 What this does not show.
   - The quantum region's duration and the order-one coefficient of any bounce time (b_bounce Q3 is the two-way
@@ -131,7 +173,9 @@ What this does not show.
     [Item 311: computed in U9 -- the clock figures and the margins are unchanged; only r_h, the life in seconds and E
     move, by (G5/G ell)^(+-1/3).]
   - [Item 311] Which face the README's parts emerge by on reading (i), where U4's margin holds (U9): the quantum
-    region's form.
+    region's form.  [Item 312: reading (i) is excluded by M's 273 and 282 (2) (U10).]
+  - [Item 312] Haggard and Rovelli's gluing for the README as a whole rather than a thin shell (U10, the board's
+    reading); the reading of where the write sits, read from M's 162, 163, 273 and 282 (2), the board's (U10).
   - Species beyond the Standard Model (H-SPECIES-FINITE), as in hold_small.
 
 Imports hold_small.py, i_oneway.py, c1_oneway.py, c4_oneway.py, c4_residue.py, calculator.py, b_interior.py,
@@ -314,9 +358,34 @@ def against_c4():
     return dict(g5=g5, bound=bound, later=later, forming=forming, audit=au)
 
 
+def reading_two():
+    """U10 (item 312): the README's image on the object M's rulings leave; reading (ii)'s growing hole, for the record"""
+    H = _load("hold_small.py", "c5o_hs4")
+    WS = _load("write_small.py", "c5o_ws2")
+    l5c = H.l5_checks()
+    life, tw = l5c["life_clocks"], WS.head_clocks()
+    if MUT.get("u10_slow_write"):
+        tw = 10 * tw                     # the mutant: a write ten floors long
+    fstar = tw / (2 * life)              # the feed E/t_w meets the evaporation P(E)/f, P(E) = E/(2 life), at f*
+    rl5 = (2 * H.N_EX * math.log(2) / math.pi ** 2) ** (1 / 3)
+    fP = rl5 ** -2                       # the smallest semiclassical hole, r_h = l5
+    # each ingoing shell V = V0 > 0 of the README, near our face (U = eps), and its image under the gluing map
+    V0, eps = sp.symbols("V0 eps", positive=True)
+    m = (lambda u, v: (-v, -u)) if MUT.get("u10_time_reflection") else (lambda u, v: (-u, -v))
+    a, b = m(eps, V0)
+    face = None
+    if sp.limit(a, eps, 0) == 0 and bool(b < 0):
+        face = "U'=0, V'<0"              # position 2's face as named, onto Q1's image of our exterior
+    elif sp.limit(b, eps, 0) == 0 and bool(a < 0):
+        face = "V'=0, U'<0"
+    return dict(fstar=fstar, fP=fP, ratio=fP / fstar, full=1 / fstar, radiated=fstar * math.log(1 / fP),
+                seed_T=rl5, longest=fP / fstar, face=face)
+
+
 def compute():
     h = hold()
-    return dict(h=h, x=crossing_agrees(h), rt=route(), cq=calc_question(), rs=residue(), ag=against_c4())
+    return dict(h=h, x=crossing_agrees(h), rt=route(), cq=calc_question(), rs=residue(), ag=against_c4(),
+                r2=reading_two())
 
 
 def report(o):
@@ -333,6 +402,7 @@ def report(o):
         print("U7 order %d over 96 codings (24 orderings x 4 orientations): %s" % (k, dict(cq["out"][k])))
     print("U7 211's audit (keys or one-hot) per clause: %s" % cq["audit"])
     _report_u9(o)
+    _report_u10(o)
     rs = o["rs"]
     print("U8 the core crossed in %.2g clocks; the passage at most %.7f clocks; the hold over the floor %.3g-fold -- "
           "%.3g with every greybody 1; species could multiply %.3g-fold before the floor is reached" % (
@@ -347,6 +417,14 @@ def _report_u9(o):
     print("U9 Tdot^2 = 1 + E~^2/G + L^2/R^2 in the core: %s; a later part through R6's core leaves toward the image of "
           "%s, the README as its own image (reading (ii)) onto the image of %s; audit %s" % (ag["bound"], ag["later"],
                                                                                    ag["forming"], ag["audit"]))
+
+
+def _report_u10(o):
+    r2 = o["r2"]
+    print("U10 the README's image leaves by %s; reading (ii) for the record: the feed outruns the evaporation above "
+          "f* = %.3g of E; the smallest semiclassical hole holds %.3g, %.2f f*; %.2g at full size; %.2g of E radiated "
+          "over the write; the seed %.0f times the completed hole's temperature" % (
+              r2["face"], r2["fstar"], r2["fP"], r2["ratio"], r2["full"], r2["radiated"], r2["seed_T"]))
 
 
 def checks(o):
@@ -385,6 +463,13 @@ def checks(o):
         "moving by the cube root; every timelike route crosses the core within the E~ = 0 time; a part crossing a "
         "standing hole leaves R6's core toward the far side, the README as its own image by position 2's face; the "
         "face a function of the core's form alone (one-hot, 211)", ok)
+    r2 = o["r2"]
+    add("U10 on the object M's rulings leave every part of the README leaves as its own image by U' = 0, V' < 0; and on "
+        "reading (ii), for the record, the feed would outrun the evaporation from the smallest semiclassical hole by "
+        "4.8 (f* 3.91e-11, f_P 1.89e-10), 2.6e10 at full size, 8.7e-10 of E radiated (item 312)",
+        r2["face"] == "U'=0, V'<0" and "%.3g" % r2["fstar"] == "3.91e-11" and "%.3g" % r2["fP"] == "1.89e-10"
+        and "%.2g" % r2["ratio"] == "4.8" and r2["ratio"] > 1 and "%.2g" % r2["full"] == "2.6e+10"
+        and "%.2g" % r2["radiated"] == "8.7e-10")
     return res
 
 
@@ -394,7 +479,9 @@ MUTANTS = {"eternal": "the hole read as eternal, losing no mass",
            "u7_inner_outside_kept": "the inner horizon's exterior read as Tangherlini (U7)",
            "u8_no_margin": "a hold shorter than the write's floor (U8)",
            "u9_rh_in_metres": "r_h held in metres while G5 changes, not fixed by the README's bits (U9)",
-           "u9_parts_as_image": "every part of the README read as leaving by its own image through R6's core (U9)"}
+           "u9_parts_as_image": "every part of the README read as leaving by its own image through R6's core (U9)",
+           "u10_slow_write": "a write ten floors long (U10)",
+           "u10_time_reflection": "the README's image taken under the time reflection, not Q1 (U10)"}
 
 
 def selftest():

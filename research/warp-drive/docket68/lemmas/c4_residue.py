@@ -181,6 +181,9 @@ seated); 2026-10-12.
      collapses and bounces (b_bounce Q5).  On reading (i), the hole standing at its size through the write, its parts
      are bodies crossing the core of a hole already standing (i_oneway I2, I5), and the first half of this section
      applies to them.]
+     [Item 312 (c5_oneway U10): M's 273 ("README only") and 282 (2) ("no horizons" before the opening) exclude reading
+     (i), and 162 ("the throat doesn't change size") reading (ii); on the object they leave the README is all in when
+     the faces begin, and the critic's scope covers it whole.]
 
 Imports c4_oneway.py, tau_share.py, calculator.py, b_interior.py, hold_small.py, p2_gravity.py, e_positive.py and
 research/warp-drive/hlaw.py by path.  Stdlib + sympy.  python3 c4_residue.py [--selftest | --mutants]
