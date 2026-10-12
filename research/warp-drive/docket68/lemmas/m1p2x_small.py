@@ -6,6 +6,11 @@ small end the corridor is the localized hole, our plane its equator in exterior 
 exterior (C1 H4).  Worked in the conversation (computed with sympy, exact where marked; deduced where marked; the
 cypher run and audited; not verified by a separate session; not seated); 2026-10-11.
 
+[M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
+half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
+reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as
+the record of the two-way reading, its computations (the junction's law, the crossing share, the sweeps) standing.]
+
   X0 (read) M's words, verbatim in the rulings file: 139 "1 - yes" (to "whether position 2's plane is the negative-
      tension one, a quarter of ours, with ours positive", the board's question); 200 (1) "1 - Once: k_R = k_L/2".
   X1 (computed, exact) Position 2's side reads the other leg.  The Kruskal form -F(r) dU dV has r a function of UV

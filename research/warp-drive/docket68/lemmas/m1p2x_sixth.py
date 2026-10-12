@@ -5,6 +5,11 @@ index repopulated and the cypher run.  M: "Yes, tension plus matter".  Worked in
 sympy, exact where marked; deduced where marked; the cypher run and audited; not verified by a separate session; not
 seated); 2026-10-11.
 
+[M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
+half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
+reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as
+the record of the two-way reading, its computations (the junction's law, the crossing share, the sweeps) standing.]
+
   W0 (read) M's item-268 words, verbatim in the rulings file.
   W1 (computed, exact) A ray crossing a plane of total surface energy e and pressure P at angle a picks up e sin a + (e
      + P) cos^2 a / sin a, non-negative on every ray iff e >= 0 and e + P >= 0 (m1x_cypher X2's condition, here for an

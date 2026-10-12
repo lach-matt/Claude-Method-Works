@@ -4,6 +4,11 @@ order, each added to the index, the index repopulated and the cypher run every t
 Worked in the conversation (computed with sympy and mpmath, exact where marked; deduced where marked; the cypher run
 and audited; not verified by a separate session; not seated); 2026-10-11.
 
+[M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
+half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
+reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as
+the record of the two-way reading, its computations (the junction's law, the crossing share, the sweeps) standing.]
+
   Z0 (read) M's item-266 words, verbatim in the rulings file.
   F1 (computed, exact) The junction's starting null energy over the finite hold.  An observer of Killing energy E~
      falling across a junction at Kruskal U sees the surface energy mu E~/(kappa U) (the delta(V) integral of S_ab u^a

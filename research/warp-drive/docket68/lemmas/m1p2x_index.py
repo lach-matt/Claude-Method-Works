@@ -7,6 +7,11 @@ plane stands apart in exterior II at -sigma/4 (apart).  Ours, on exterior I, is 
 conversation (computed with sympy, exact where marked; deduced where marked; the cypher run and audited; not verified
 by a separate session; not seated); 2026-10-11.
 
+[M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
+half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
+reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as
+the record of the two-way reading, its computations (the junction's law, the crossing share, the sweeps) standing.]
+
   Y0 (read) M's item-265 words, verbatim in the rulings file.
   Y1 (computed, exact) The junction's law.  Where the plane's tension changes across a horizon of the plane (V = 0 in
      the Kruskal form -F(UV) dU dV + r(UV)^2 dOmega^2, generator k = d/dU), conservation of the plane's stress -- its
