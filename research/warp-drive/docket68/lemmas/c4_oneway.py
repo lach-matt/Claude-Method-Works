@@ -189,6 +189,8 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      its size.  So C4 is ready for M's finalization (249) and one verifier.
      [Item 299, P17: the order at which the cypher agrees is 3, with the population of tensions and matters entered and
      the continuation one condition -- not the protocol's 2, at which (f) is open once the population is entered.]
+     [Item 300, P18: with survivability built in the cypher agrees at orders 2 and 3, every lawful order the question
+     has.]
   P17 (computed, exact where marked; deduced where marked; item 299) The higher orders, solved.
      The top order (deduced; checked exactly, 36 of 36): on d coordinates statistics' highest order is d - 1, and a
      cell is admitted there iff each of its (d-1)-projections is seen.  Leaving out the answer gives C4's conditions,
@@ -216,6 +218,29 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      freely.  So order 3 is at once (f)'s own order and the question's top order, and there the cypher agrees.  The
      continuation as one condition with three values is the board's reading of 286's "binary form" -- the question and
      its answer binary, a condition one coordinate -- named as such (192).
+     [M, item 300: survivability is built in -- the (the README, f = 0) cells at relative tensions below -R/4 entered
+     the object unadapted.  P18 corrects them, and order 2 agrees as well.]
+  P18 (computed, exact where marked; deduced where marked; item 300) Survivability built in.  P17 entered the README as
+     position 1's object carried unchanged into every position 2, so a relative tension below -R/4 outweighed it and
+     (the README, f = 0) was realized -- the error M named.  The object is built from the bulk at position 2 as an exact
+     copy under that position's laws (240, 285), and its survival there is built in (300).  Deduced (the board's
+     reading 300 (b)): built under a position's laws, its density at the face scales with that position's own tension,
+     rho = (R/4)|tau| sigma, so where it lands P2's total is tau + (R/4)|tau| -- positive for tau > 0 and, R being
+     above 4, for tau < 0 (computed, exact); at tau = 0 P2 carries no tension and the total is the object's own
+     density, positive.  So the class (any other relative tension, the object) realizes 1 only.  With it, the
+     continuation one condition and the population of other matter (295), the cypher agrees at orders 2 and 3 -- 1, 1,
+     1 under all 6 orderings, and as two bits under all 24 codes -- and logic joins 1: M1 holds at every order the law
+     admits (order 1 is outside it, P12).  P13's order-2 agreement stands again, the population entered.  The refusals
+     that came from position 2's conditions are admitted.  Those left are the two-bit code's at order 4 -- (a) and
+     (b)/(e) in every code, (f) in the 16 where the unused code neighbours the quantum bounce -- each a one-bit change
+     reaching a continuation with another answer, or a code no continuation has: the route and the bulk, not the
+     object.  Survivability is a condition on the object in position 2 (240 (c)) and does not reach them; with the
+     continuation one condition there is no order 4 (P17).
+     Contrast (computed): entered instead as a varying condition -- the object so built, or not so equipped (241's
+     means of mitigation) -- survivability gives the question a fourth condition and a top order 4, where the cypher
+     agrees (1, 1, 1, all 6 orderings) as it does at order 3; but order 2 reopens (f), whose law turns three-way in (the
+     object, survivability, the answer).  Built in, survivability is not a variable, and every lawful order from 2
+     agrees.
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
@@ -767,10 +792,30 @@ def population(R):
     return out, inside
 
 
-def higher():
+def relative(R):
+    """P18 (item 300): the object built under each position 2's laws -- its density at the face scales with that
+    position's own tension, rho = (R/4) |tau| sigma, so where it lands P2's total is tau + (R/4)|tau| (in sigma)"""
+    tau = sp.Symbol("tau", real=True)
+    scale = (lambda T: R / 4 * abs(T)) if not MUT.get("absolute_readme") else (lambda T: R / 4)
+    tot = tau + R / 4 * sp.Abs(tau)
+    pos_side = sp.simplify(tot.subs(tau, sp.Symbol("u", positive=True))).is_positive
+    neg_side = sp.simplify(tot.subs(tau, -sp.Symbol("u", positive=True))).is_positive
+    # the class (any other relative tension, the object): every tau realizes 1; and 0 only if some tau fails
+    witnesses = [sp.Integer(1), -sp.Rational(1, 4) * 3, -R, -R ** 2, sp.Integer(10) ** 30]
+    realized = {int(bool(T + scale(T) > 0)) for T in witnesses}
+    # tau = 0: P2 carries no tension and its total is the object's own density, which is matter -- positive
+    rho0 = sp.Symbol("rho_obj", positive=True)
+    zero = bool((0 + rho0).is_positive)
+    realized |= {int(zero)}
+    return dict(pos_side=bool(pos_side), neg_side=bool(neg_side), zero=zero, realized=realized)
+
+
+def higher(survive=False):
     """P17 (item 299): the higher statistics orders solved -- the one-flip rule at the top order, the population of
-    tensions and matters (more information), the continuation as one condition (less information)"""
-    key = tuple(sorted(k for k in MUT if k in ("bounded_tension", "finite_grid", "two_bits")))
+    tensions and matters (more information), the continuation as one condition (less information).  P18 (item 300):
+    survive=True enters the object built under each position 2's laws, its survival there built in"""
+    key = tuple(sorted(k for k in MUT if k in ("bounded_tension", "finite_grid", "two_bits", "absolute_readme"))) + (
+        survive,)
     if key in _P17:
         return _P17[key]
     CA = _load("calculator.py", "c4o_calc")
@@ -778,6 +823,10 @@ def higher():
     EP = _load("e_positive.py", "c4o_ep5")
     R = sp.Float(EP.example()["R_rh"] ** 3, 20)
     F, inside = population(R)
+    if survive:
+        rel = relative(R)
+        F = dict(F)
+        F[(0, 1)] = rel["realized"]                       # the object at any other relative tension
     if MUT.get("finite_grid"):
         F = {(t, m): {int(m == 1 or t == 0)} for t in (0, 1) for m in (0, 1)}   # the index's four cells only
     A = {"inner": 1, "quantum": 1, "shell": 0}
@@ -840,10 +889,57 @@ def higher():
     return _P17[key]
 
 
+_P18 = {}
+
+
+def as_condition():
+    """P18's contrast: survivability entered as a varying condition s (the object built under position 2's laws, 1, or
+    not so equipped, 0 -- item 241's means of mitigation), read at statistics' rank with tension and matter"""
+    key = tuple(sorted(k for k in MUT if k in ("absolute_readme",)))
+    if key in _P18:
+        return _P18[key]
+    CA = _load("calculator.py", "c4o_calc")
+    HL = _load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c4o_hl")
+    EP = _load("e_positive.py", "c4o_ep7")
+    R = sp.Float(EP.example()["R_rh"] ** 3, 20)
+    F, _ = population(R)                                    # s = 0: the object as P17 entered it
+    rel = relative(R)["realized"]                           # s = 1: built in
+    F3 = {}
+    for (t, m), v in F.items():
+        F3[(t, m, 0)] = v
+        F3[(t, m, 1)] = (rel if t == 0 else {1}) if m == 1 else v
+    A = {"inner": 1, "quantum": 1, "shell": 0}
+    BE = {"inner": 0, "quantum": 1, "shell": 1}
+    out, law = {}, {}
+    for k in (2, 3, 4):
+        res, lk = Counter(), True
+        for perm in itertools.permutations(range(3)):
+            kmap = dict(zip(NAMES3, perm))
+            at = (kmap["quantum"], 1, 1, 1)
+            views = dict(order=(0,), algebra=(0,), geometry=(0,), information=(0,), statistics=(0, 1, 2, 3))
+            ans = []
+            for cl, _, _ in CLAUSES:
+                kn = []
+                for kk in NAMES3:
+                    for t, m, sv in itertools.product((0, 1), repeat=3):
+                        if (kk, t, m, sv) == ("quantum", 1, 1, 1):
+                            continue
+                        for v in ({A[kk]} if cl == "a" else {BE[kk]} if cl == "be" else F3[(t, m, sv)]):
+                            kn.append((kmap[kk], t, m, sv, v))
+                r = _staged(CA, HL, ["K", "t", "m", "s", cl], kn, at, views, k)
+                ans.append(r["answer"])
+                lk &= r["lawful"]
+            res[tuple(ans)] += 1
+        out[k], law[k] = res, lk
+    _P18[key] = dict(out=out, lawful=law)
+    return _P18[key]
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
                 wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces(),
-                hi=higher())
+                hi=higher(), sv=higher(survive=True), rl=relative(sp.Float(_load("e_positive.py", "c4o_ep6").example()[
+                    "R_rh"] ** 3, 20)), ac=as_condition())
 
 
 def report(o):
@@ -907,6 +1003,15 @@ def report(o):
         print("P17 the continuation as two bits, order %d, 24 codes: %s" % (k, dict(hi["bits"][k])))
     print("P17 the one-flip rule at the top order: %s on %d cases; extensive %s" % (hi["flip_ok"], hi["flip_n"],
                                                                                   hi["extensive"]))
+    rl, sv, ac = o["rl"], o["sv"], o["ac"]
+    print("P18 the object built under each position 2's laws: P2's total tau + (R/4)|tau| positive for tau > 0 %s and "
+          "tau < 0 %s; at any other relative tension it realizes %s" % (rl["pos_side"], rl["neg_side"], rl["realized"]))
+    for k in (2, 3, 4):
+        print("P18 survivability built in, order %d: one condition %s%s; two bits %s" % (
+            k, dict(sv["one"][k]), " (statistics silent)" if k == 4 and sv["silent4"] else "", dict(sv["bits"][k])))
+    for k in (2, 3, 4):
+        print("P18 contrast, survivability a varying condition, order %d: %s; lawful %s" % (k, dict(ac["out"][k]),
+                                                                                         ac["lawful"][k]))
     rk = o["rk"]
     for pl in PLACES:
         for k in (1, 2, 3, 4):
@@ -1044,6 +1149,20 @@ def checks(o):
         "under every ordering and every two-bit code; order 2 leaves (f) open, its law three-way; with the continuation "
         "one condition the top order is 3, order 4 silent; as two bits order 4 refuses, by the one-flip rule (exact on "
         "36 cases); lawful at 2-4", ok)
+    rl, sv, ac = o["rl"], o["sv"], o["ac"]
+    ok = rl["pos_side"] and rl["neg_side"] and rl["zero"] and rl["realized"] == {1}
+    ok &= sv["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
+    ok &= all(sv["one"][k] == Counter({(1, 1, 1): 6}) for k in (2, 3)) and sv["silent4"]
+    ok &= all(sv["bits"][k] == Counter({(1, 1, 1): 24}) for k in (2, 3))
+    ok &= sv["bits"][4] == Counter({("refused",) * 3: 16, ("refused", "refused", 1): 8})
+    ok &= sv["flip_ok"] and sv["extensive"] and all(sv["lawful"][k] for k in (2, 3, 4))
+    add("P18 survivability built in (300): the object's total positive at every relative tension, exact; the cypher "
+        "agrees at orders 2 and 3, 1, 1, 1, under every ordering and every two-bit code; the order-4 refusals left are the "
+        "two-bit code's alone; lawful, extensive", ok)
+    ok = all(ac["out"][k] == Counter({(1, 1, 1): 6}) for k in (3, 4)) and ac["out"][2] == Counter({(1, 1, "both"): 6})
+    ok &= all(ac["lawful"][k] for k in (2, 3, 4))
+    add("P18 contrast: survivability a varying condition gives a fourth order that agrees, with order 3, and reopens (f) "
+        "at order 2", ok)
     return res
 
 
@@ -1064,7 +1183,8 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "extremal": "the horizon taken extremal, a double root (P15)",
            "bounded_tension": "relative tension kept within [-1, 1], no tension outweighing the README (P17)",
            "finite_grid": "the index's four (t, m) cells, not the population (P17)",
-           "two_bits": "the continuation entered as two bits in the solved form (P17)"}
+           "two_bits": "the continuation entered as two bits in the solved form (P17)",
+           "absolute_readme": "the object's density kept at ours in every position 2, not scaled (P18)"}
 
 
 def selftest():
