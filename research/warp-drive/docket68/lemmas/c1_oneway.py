@@ -13,18 +13,26 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      Ricci scalar 0, a 1/r^2 pull for r_h << r << ell (H3 with qualification (2)); the horizon's chart -- surface
      gravity 1/r_h, Kruskal F = r_h^2 (r + r_h)^2 e^(-2r/r_h)/r^2 finite and positive at r_h, pulling back to the static
      metric (H4's first half); the example (H6) and the kink at order r_h/ell (H7).
-  K2 (computed, exact) The faces, not the bridge.  Our black-hole face is U = 0 from the opening, V >= V_open > 0
+  K2 (computed, exact) [Item 304 (9): deduced; c_junction J1 computed.] The faces, not the bridge.  Our black-hole face is U = 0 from the opening, V >= V_open > 0
      (270 (c): the faces begin at the opening); position 2's white-hole face is U = 0 from V_s < 0 to its closing,
      V_close = V_s e^(-Delta tau_2) with Delta tau_2 <= 33.6 clocks at the small-end example (c_junction J1; ln(1 +
      (pi/10)(ell/r_h)), finite at every r_h, which is all K2 needs), so V_close = V_s e^(-33.6) < 0.
      V = 0 -- the bifurcation sphere U = V = 0 and the reverse passage -- lies on neither face.  Our plane, the
      equator, is untouched by the chart, so it runs on our side up to our face and, the same surface, on position 2's
      side from its face: not "through the bifurcation sphere".
+     [Item 304 (2): the 33.6 clocks are at the small-end example, C2's R1 (255, 258): r_h = 1.120e-20 m, E = 1.281e9 J;
+     at H6's r_h (4.854e-17 m, the large end's 4D-count energy placed in a 5D hole) J1's form gives 25.2.  K2 needs only
+     finiteness; its check pins the example's figure.]
   K3 (computed; j_readings J1, i_oneway I2) The README's route.  Our exterior reaches position 2's exterior only
      through our future interior, the bounce (H-BOUNCE-TO-P2) and position 2's past interior; no chart of the object
      joins the two exteriors directly -- the eternal solution's t = 0 slice, which did, is not a part of it.  The README
      crosses along that route, each part in at most one of its own clocks to the quantum region and as long again out
      -- one way, the information it carries (251) crossing with it -- not along a slice no causal curve follows.
+     [Item 304 (7)-(8): "only through our future interior" rests on j_readings' single glue edge between the sheets and
+     is now tested by the cut (removing our future interior, our exterior reaches nothing of position 2's).  Each part
+     crosses our future interior in r_h/(1 + eps) < r_h/c on a radial geodesic of Killing energy eps > 0, and in at
+     most r_h/c on any timelike path; it crosses position 2's past interior in at most r_h/c again, exactly as long if
+     the bounce returns its Killing energy (273 (a)).]
   K4 (computed, exact) Regularity on the object: Kretschmann 72 r_h^4/r^8 falls with r, so it is finite on both
      exteriors and both faces (r >= r_h), at most 72/r_h^4 at the faces, and tends to 0 far away.  Its divergence at
      r = 0 lies in the interiors, where the bounce's quantum region stands (b_bounce Q4: the classical equations do not
@@ -35,6 +43,11 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      the README crosses, as information" (replaced by K3's one-way route), and H5's regularity of the bridge's slice
      and of a past interior on our side.  The verifier's qualification (3) -- the minimal sphere pinching off, the
      second exterior only in the eternal solution -- is moot: what it qualified is dropped.
+     [Item 304 (1): kept is H7's first half only -- the tension enters near the corridor at order r_h/ell, and at flat
+     order the plane is the exact equator; dropped with H4's continuation is H7's "rides on that surface through the
+     bridge ... out the other side".  The kink through the faces is c4_oneway P15's, conditional on KTN's profile being
+     analytic at the horizon.  In K1, "(H7)" reads "(H7, outside the hole)"; K1's label covers H6 (numerical) and H7
+     (deduced).]
   K6 (computed; the cypher, roster 1173, audited; item 283) The passage's causal order as an index.  Its seven
      regions in the order the passage runs -- our exterior, our face, our future interior, the quantum region, position
      2's past interior, position 2's face, position 2's exterior -- from j_readings J1's chart graph, each face inserted
@@ -71,6 +84,22 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      clauses do not follow from the other three interiors' -- what decides them is the quantum bounce's own other
      configurations, which the population of tensions and matters supplies (293: they stay in the question).  So the
      cypher agrees, in C4's form, at every lawful order -- the condition 283 set for the verifier.
+     [Item 304, the verifier's qualifications (3)-(6), seated: (3) the operator agrees at orders 2 and 3 -- 1, 1, 1 in
+     the own code; across the 24 codes in 22 at order 2 and 24 at order 3; at order 4, the top order, it never decides
+     all three (all refused in the own code; across the codes all three refused in 8, one clause 1 with two refused in
+     16), and 1, 1, 1 there is the channel reading's alone (302 (b), c4_oneway P20).  (4) K7's 1, 1, 1 is b_interior's
+     own row for the quantum bounce (no classical bulk stress, opens into position 2, complete), entered at the three
+     other (tension, matter) classes, on which C1's clauses do not depend; entered with any other value there it
+     returns that value.  On 211's audit of the known cells, tension and matter add nothing to C1's clauses, and K3-K4
+     is the complement of NEC in every known cell (Penrose's theorem in the index, b_interior B6).  K7 is C4's settled
+     form agreeing on C1, not a further computation of K1-K4; the two-exterior bounce's completeness stays b_interior
+     B4's "named, not constructed".  (5) (B) the bulk vacuum is read as no classical stress on the route: the shell's
+     Israel stress counts (B5); the quantum region's effective stress, where the classical equations do not hold (273,
+     b_bounce Q4), does not -- the board's reading (192).  Read as Ricci-flat on the whole route, the bounce's (B) is 0
+     and the calculator returns 0.  The outside-the-hole figures hold for the singular interior, the bounce and the
+     shell; the inner horizon's charge or spin (B3) changes the exterior.  (6) The singular interior, entered from
+     b_interior's cell (0, none, ours) -- no white hole, the exit label vacuous, nothing exits -- is no reverse passage;
+     it decides nothing at orders 2 and 3, and the channel reading's order-4 1, 1, 1 requires it.]
 
 What this does not show.
   - The bounce's quantum region as a metric (b_bounce's "does not show"); K3 uses its join, not its interior.
@@ -155,10 +184,21 @@ def route():
     direct = ("our exterior", "position 2's exterior") in edges or ("position 2's exterior", "our exterior") in edges
     chain = [("our exterior", "our future interior"), ("our future interior", "position 2's past interior"),
              ("position 2's past interior", "position 2's exterior")]
+    if MUT.get("ext_to_p2past"):
+        edges.add(("our exterior", "position 2's past interior"))   # the mutant: the quantum region outside our horizon
+    # item 304 (7): the cut -- with our future interior removed, our exterior reaches nothing of position 2's
+    reach, front = {"our exterior"}, ["our exterior"]
+    while front:
+        a = front.pop()
+        for x, y in edges:
+            if x == a and y != "our future interior" and y not in reach:
+                reach.add(y)
+                front.append(y)
+    cut = not ({"position 2's past interior", "position 2's exterior"} & reach)
     IO = _load("i_oneway.py", "c1o_io")
     cr = IO.crossing()
     return dict(edges=sorted(edges), direct=direct, chain=all(e in edges for e in chain),
-                p2_back=c["reach_p2"], crossing=cr["closed"] and cr["max_one"])
+                p2_back=c["reach_p2"], crossing=cr["closed"] and cr["max_one"], cut=cut)
 
 
 def regular(k):
@@ -343,9 +383,9 @@ def checks(o):
     add("K2 our face begins at V_open > 0 and position 2's closes at V_s e^(-33.6) < 0: V = 0 is on neither face",
         f["ours"] and f["theirs"] and "%.1f" % f["t_full"] == "33.6")
     rt = o["rt"]
-    add("K3 no chart joins the exteriors; the README's route runs through the bounce; nothing returns from position 2's "
-        "exterior; each part crosses in at most a clock", not rt["direct"] and rt["chain"] and
-        rt["p2_back"] == ["position 2's exterior"] and rt["crossing"])
+    add("K3 no chart joins the exteriors; the README's route runs through the bounce, and only through our future "
+        "interior (the cut, item 304); nothing returns from position 2's exterior; each part crosses in at most a clock",
+        not rt["direct"] and rt["chain"] and rt["cut"] and rt["p2_back"] == ["position 2's exterior"] and rt["crossing"])
     rg = o["rg"]
     ok = sp.simplify(rg["at_face"] - 72 / k["rh"] ** 4) == 0 and rg["falls"] and rg["far"] == 0
     add("K4 curvature finite on both exteriors and faces (72/r_h^4 at most, at the faces), its divergence only inside, "
@@ -381,7 +421,8 @@ MUTANTS = {"opens_at_bifurcation": "our face opened at U = V = 0",
            "reverse_edge": "a way back from position 2's exterior to ours",
            "k7_no_population": "C1's question without tension and matter, the continuation alone (K7)",
            "k7_singular_opens": "the singular interior given a face in position 2 (K7)",
-           "k7_channel_off": "the continuation bits held to the one-flip rule (K7)"}
+           "k7_channel_off": "the continuation bits held to the one-flip rule (K7)",
+           "ext_to_p2past": "our exterior joined to position 2's past interior (item 304 (7))"}
 
 
 def selftest():

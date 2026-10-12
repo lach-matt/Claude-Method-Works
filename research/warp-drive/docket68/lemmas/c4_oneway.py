@@ -268,6 +268,11 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      entered as the question returns its own answers (the singular interior and the inner horizon 1, 0, 1, the shell
      0, 1, 1, the quantum bounce 1, 1, 1), so the reading decides from what the cells hold, not toward 1.  The operator's
      own order-4 verdict stays beside it, unrepaired.
+     [Item 304 (the C1 verifier's qualification (4), checked here by the critic): on 211's audit of the known cells,
+     (b)/(e) under the two clauses is the complement of NEC in every interior -- index_audit flags (c1, be), b_interior
+     B6's Penrose flag -- so (b)/(e)'s verdict here is that row read back, void as evidence; under P17's one-condition
+     coding nothing is flagged.  And the 1, 1, 1 at the other (tension, matter) classes is the quantum bounce's own row:
+     the form agreeing, not a further computation.]
   P21 (deduced; item 303) The residue, from the record.
      (1) C1 first: C4's P2 and P3 rest on c1_oneway K1-K4, and C1 one-way is not verified -- its verifier was stopped
          (298's audit) -- and its question is owed through the calculator; 282 (b) puts C1 before C4.
@@ -285,6 +290,10 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      (6) Standing qualification: C4 is classical -- near the hole the plane's quantum load is of the tension's order
          (P5, P14).
      (7) Nothing in P1-P20 is verified by a separate session.
+     [Item 304: (1) is closed -- C1 one-way is CONFIRMED with qualifications.  Added by the C1 verifier's (4): under
+     P20's two clauses (b)/(e) is the complement of NEC in every known cell (211), void as evidence there; and in every
+     form the quantum bounce's clauses at the other (tension, matter) classes are its own row read back.  And (B) / (a)
+     is read as no classical stress on the route; read as Ricci-flat on the whole route, the bounce's is 0.]
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
