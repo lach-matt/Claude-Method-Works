@@ -14,10 +14,18 @@ sympy, exact where marked; deduced where marked; not verified by a separate sess
      within 2.0e-15 m), so the share on rays crossing it there is positive for every tau in [0, 1]: tau sigma >= 0 only
      adds.  Positivity is owed there (284).
      [Item 301: tau = 3/4, tau_share.py T2; the share at that value is positive (T5).]
+     [Item 282 (c), under 316 (b5a_residue.py A1, A2): with matter on position 2's plane the junction fixes its side
+     total S1 + 2 S2, not tau S1 + S2 (310 (7)); on it, and on the summed stress, the share is positive on every ray of
+     the plane, not only where the README lands -- the side carries sigma/2 of tension -- given each universe's matter
+     with rho + p >= 0 and rho > -sigma/6.  B2's term w1 c2/s also omits position 2's own rho + p, which b5a_residue
+     A2 carries.]
   B3 (deduced) B5'a's composite condition, (lambda_sum + rho_1 + rho_2) k_y^2 + sum (rho + p) |k_space|^2 >= 0, is the
      chi = 1 reading -- one junction both sheets act on -- and is the record of the two-way reading.  Its null-stress
      expression is direction-neutral (the auditing agent's note); what was two-way is the junction.  The one-way form of
      B5a is B1 and B2: our sheet positive alone, position 2's positive where the README lands.
+
+[Item 282 (c), under 316: brought level in b5a_residue.py -- A1 the side total, A2 positivity on every reading, A3 the
+shared induced metric (310's note; outside the row's claim, recorded), A4 the calculator.]
 
 What this does not show.
   - B5c's pin (no radion at coincidence): not re-read here.
