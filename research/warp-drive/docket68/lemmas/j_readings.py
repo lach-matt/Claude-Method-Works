@@ -5,6 +5,10 @@ position 2's carries ours, received, and its own; (ii) 139 (3)'s expansion read 
 conversation (computed with sympy, exact where marked; deduced where marked; estimates marked; not verified by a
 separate session; not seated); 2026-10-12.
 
+[M, item 284: 139 (2)'s positivity is owed where the README lands and the corridor's rays cross position 2's plane
+("Where it lands").  J2's tau floor and J3-J4 (the whole-sheet route) are not needed for 139 (2) and are kept as the
+record of it; J1-J2's chi = 0 stands.]
+
 [M, item 279: an expansion can also be added to one already under way ("or add to an already expanding state, which
 may cost less").  J3's premise -- that a trigger starts an expansion, so position 2 was not expanding before -- is
 too narrow: an expanding position 2 takes more from the README exactly when F'(S2) = (kappa^4/18)(tau sigma + S2)

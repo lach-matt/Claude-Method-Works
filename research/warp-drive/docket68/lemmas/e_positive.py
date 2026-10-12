@@ -5,6 +5,10 @@ you have to prove it".  Worked in the conversation (computed with sympy, exact w
 estimates marked; deduced where marked; the cypher run and audited; not verified by a separate session; not seated);
 2026-10-12.
 
+[M, item 284: 139 (2)'s positivity is owed where the README lands and the corridor's rays cross position 2's plane
+("Where it lands").  E7 carries it: the README's own density is above sigma/4 within 2.0e-15 m of the face, where
+those rays cross; owed item (e) is closed on E7.]
+
 [Auditing agent, item 281 (the reverse passage, 270/276): written after 270 and missed by item 277: E6's counter-case
 is a static slab between the planes (W5; f_slab, 275), and its does-not-show cites the summed-stress junction (W4,
 b5_positive B5a).  Kept as written.]

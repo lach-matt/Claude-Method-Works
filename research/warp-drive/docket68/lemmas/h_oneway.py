@@ -5,6 +5,9 @@ received, and its own.  Worked in the conversation (computed with sympy, exact w
 standard values marked; deduced where marked; the cypher run and audited; not verified by a separate session; not
 seated); 2026-10-12.
 
+[M, item 284: 139 (2)'s positivity is owed where the README lands and the corridor's rays cross position 2's plane
+("Where it lands").  The whole-sheet route here (H3-H4) is not needed for 139 (2) and is kept as the record of it.]
+
 [M, item 277: "You are forgetting that the passage is one-way only".  H6 populated two-way rows, half its index, after 276; repopulated one-way only in i_oneway.py I6.
 H3's "exactly when S2 > 0" overstates: with S2 = 0 and a bulk mass C2 > 0 the expansion is unbounded too (i_oneway
 I6).  Kept as written.]
