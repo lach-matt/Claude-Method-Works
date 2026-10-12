@@ -86,12 +86,37 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      that keep 0 open.  So adding cells (289) cannot decide C4's question in this encoding.  Under P8's control every
      language admits 0 now, so it stays admitted under any widening (deduced: the languages are closure operators,
      monotone in their cells, as measured here on the board's index): the control gives 0 or both, never 1.
+  P10 (computed; calculator.py, items 290-291; the encoding the board's, 192) C4's question clause by clause (291).
+     Each clause of M1 that varies is its own question -- (a) vacuum (b_interior B5), (b)/(e) a complete route (B6),
+     (f) P2 positive where relevant (285) -- over the construction's choices: the continuation (inner horizon, quantum
+     bounce, classical shell), P2's tension, P2's matter.  The eleven other configurations are known with each clause's
+     answer; C4's (the quantum bounce, -sigma/4, the README) enters with it open.  The board's coding: the continuation
+     by b_interior's own properties nec and classical (inner horizon 11, quantum bounce 00, classical shell 01), the
+     tension by keeps 139 (1) and the matter by the README, 1 where present -- P7's coding, fixed before this run.
+     Broadest first, each clause comes back 1 by statistics: (a) and (b)/(e) with order and algebra leaving both open
+     and geometry, information and statistics 1; (f) 1 in every closure language; analysis both binaries, (f) at +15.8
+     decades for 1 (E7), (a) and (b)/(e) declaring no law.  Logic joins (1, 1, 1) by M1's own conjunction (291 (a)):
+     M1 holds.  Extensive both ways, the hierarchy law's containments holding, no key or one-hot (211).  What the answer
+     depends on, run under every coding (291 (b)):
+       - the continuation's code: not at all -- all 24 two-bit codes give 1, 1, 1 under the board's coding;
+       - the orientation of the tension and matter coordinates: over all 96 codings 54 give 1, 1, 1 and 42 are refused
+         on all three, exactly where C4's row is not the join of the known rows below it -- information's regrowth,
+         a join, cannot reach it.  In the board's coding C4's row is the join of the quantum bounce keeping 139 (1)
+         without the README and the quantum bounce carrying the README at +sigma: C4's configuration is those two
+         choices combined.  Statistics and geometry, which a coordinate's orientation does not change, give 1 alone on
+         every clause in every coding;
+       - the statistics order: orders 1 and 2 (2 the cypher's default and register 1174's order on Lambda) give 1, 1,
+         1 in all 24 codes; order 3 refuses (f) in 16 and gives 1, 1, 1 in 8; order 4 refuses all three, a new
+         configuration's every 4-projection not having been seen.
+     In no coding and at no order is any clause 0 or undecided: the alternative to 1 is refusal.  P8 and P9 stand as
+     the record of the conjunction's form (290).
 
 What this does not show.
   - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
   - The flux's back-reaction on P1 (P5 is the load's size, not the bending computed).
 
-Imports m1_small.py, c1_oneway.py, e_positive.py and hold_small.py by path.  Stdlib + sympy.
+Imports m1_small.py, c1_oneway.py, e_positive.py, hold_small.py, p2_gravity.py, b_interior.py, index_audit.py,
+calculator.py and tools/cypher.py by path.  Stdlib + sympy.
 python3 c4_oneway.py [--selftest | --mutants]
 """
 import contextlib
@@ -304,9 +329,70 @@ def widen():
     return o
 
 
+_P10 = {}
+CONTS = [(1, "none"), (0, "quantum"), (0, "shell")]          # the inner horizon, the quantum bounce, the classical shell
+NAMED = {(1, "none"): (1, 1), (0, "quantum"): (0, 0), (0, "shell"): (0, 1)}   # b_interior's nec, classical
+CLAUSES = (("a", "vacuum (b_interior B5)", ["b_interior B5", "273"]),
+           ("be", "a complete route (b_interior B6)", ["b_interior B6", "273", "c1_oneway K3"]),
+           ("f", "P2 positive where relevant (285)", ["139 (1)", "268", "284", "285", "e_positive E7"]))
+
+
+def clauses():
+    """P10 (item 291): C4's question clause by clause, the construction's choices as attributes, logic joining"""
+    key = tuple(sorted(k for k in MUT if k in ("readme_thin", "no_readme_coordinate", "shell_continuation")))
+    if key in _P10:
+        return _P10[key]
+    CA = _load("calculator.py", "c4o_calc")
+    IA = _load("index_audit.py", "c4o_ia2")
+    BI = _load("b_interior.py", "c4o_bi4")
+    EP = _load("e_positive.py", "c4o_ep3")
+    ratio = 0.5 if MUT.get("readme_thin") else EP.example()["R_rh"] ** 3
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    cfg = {}
+    for (inner, bounce, _), p in cells.items():
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            cfg[((inner, bounce), t, m)] = dict(a=int(bounce != "shell"), be=p["complete"], f=int(m == 1 or t == "+sigma"))
+    q = ((0, "shell") if MUT.get("shell_continuation") else (0, "quantum"), "-sigma/4", 1)
+    attrs_names = ["c1", "c2", "t"] if MUT.get("no_readme_coordinate") else ["c1", "c2", "t", "m"]
+
+    def run(cm, tf, mf, full=False, k=2):
+        def enc(k):
+            row = cm[k[0]] + (int(k[1] == "-sigma/4") ^ tf, k[2] ^ mf)
+            return row[:len(attrs_names)]
+        at = enc(q)
+        out = {}
+        for cl, desc, cites in CLAUSES:
+            known = [enc(k) + (r[cl],) for k, r in cfg.items() if k != q]
+            an = {"witness": "e_positive E7: (R/r_h)^3", "magnitude": ratio, "threshold": 1.0} if cl == "f" else None
+            r = CA.ask(attrs_names + [cl], known, at, analysis=an, citations=cites, k=k)
+            aud = IA.audit_index(attrs_names + [cl], known + [at + (CA.U,)])
+            r["void"] = bool(aud["keys"] or aud["onehot"])
+            if full:
+                ctl = CA.controls(attrs_names + [cl], known, at)
+                r["extensive"], r["lawful"] = ctl["extensive"], ctl["lawful"]
+            out[cl] = r
+        ans = [out[cl]["answer"] for cl, _, _ in CLAUSES]
+        join = 1 if all(a == 1 for a in ans) else 0 if 0 in ans and "refused" not in ans else "not binary"
+        rows = [enc(k) for k in cfg if k != q]
+        below = [x for x in rows if all(a <= b for a, b in zip(x, at))]
+        reach = bool(below) and tuple(map(max, *below)) == at if len(below) > 1 else below == [at]
+        return dict(out=out, ans=tuple(ans), join=join, reach=reach)
+
+    named = run(NAMED, 0, 0, full=True)
+    sweep = {}
+    for code in itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 3):
+        for tf, mf in itertools.product((0, 1), repeat=2):
+            sweep[(code, tf, mf)] = run(dict(zip(CONTS, code)), tf, mf)
+    orders = {k: [run(dict(zip(CONTS, code)), 0, 0, k=k)["ans"]
+                  for code in itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 3)] for k in (1, 3, 4)}
+    orders[2] = [v["ans"] for (cd, tf, mf), v in sweep.items() if (tf, mf) == (0, 0)]
+    _P10[key] = dict(named=named, sweep=sweep, ratio=ratio, orders=orders)
+    return _P10[key]
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
-                wd=widen())
+                wd=widen(), cl=clauses())
 
 
 def report(o):
@@ -329,6 +415,21 @@ def report(o):
     print("P9 widenings %d of 2^%d: both at every language and statistics order 1-3 %s, monotone %s; order 4: %s; "
           "C4's attributes known with M1 by %s; each clause seen failing alone %s" % (
               w["n"], w["extra"], w["both"], w["mono"], w["k4"], w["positives"], w["alone"]))
+    c = o["cl"]
+    for cl, desc, _ in CLAUSES:
+        r = c["named"]["out"][cl]
+        print("P10 %s %s: answer %s by %s; %s; magnitudes %s; extensive %s, lawful %s, void %s" % (
+            cl, desc, r["answer"], r["by"], "; ".join("%s %s" % (t[0], t[1]) for t in r["trace"] if t[0] != "documentary"),
+            r["magnitudes"], r["extensive"], r["lawful"], r["void"]))
+    print("P10 logic joins %s -> %s" % (c["named"]["ans"], c["named"]["join"]))
+    from collections import Counter
+    for tf, mf in itertools.product((0, 1), repeat=2):
+        print("P10 tension coded %s, matter coded %s, 24 continuation codes: %s" % (
+            "+sigma = 1" if tf else "keeps 139 (1) = 1", "none = 1" if mf else "README = 1",
+            dict(Counter(v["ans"] for (cd, a, b), v in c["sweep"].items() if (a, b) == (tf, mf)))))
+    for k in (1, 2, 3, 4):
+        print("P10 statistics order %d, the board's coding, 24 continuation codes: %s" % (
+            k, dict(Counter(c["orders"][k]))))
     ch = o["ch"]
     print("P7 %d rows; held %s; all four by %s; E %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
         ch["n"], ch["held"], ch["holders"], ch["E"], ch["langclose"], ch["agreeing"], ch["audit"]["keys"],
@@ -373,6 +474,34 @@ def checks(o):
     add("P9 every widening of the known cells (1024, the encoding's whole ambient) leaves both answers open in every "
         "closure language at statistics orders 1-3, each monotone; order 4 refused (reg 1175); 1 open by extensivity "
         "(the quantum bounce at +sigma), 0 because each clause is seen failing alone", ok)
+    c = o["cl"]
+    nm = c["named"]
+    ok = nm["ans"] == (1, 1, 1) and nm["join"] == 1
+    for cl, _, _ in CLAUSES:
+        r = nm["out"][cl]
+        tr = dict((t[0], t[1]) for t in r["trace"])
+        ok &= r["by"] == "statistics" and tr["statistics"] == [1] and tr["geometry"] == [1] and tr["analysis"] == "both"
+        ok &= r["extensive"] and r["lawful"] and not r["void"] and tr["documentary"] == "citations"
+    ok &= "%.3g" % nm["out"]["f"]["magnitudes"][1] == "15.8" and nm["out"]["a"]["magnitudes"][1] is None
+    add("P10 clause by clause, b_interior's code, keeps 139 (1) = 1, README = 1: (a), (b)/(e) and (f) each 1 by "
+        "statistics, geometry 1 alone, (f) at +15.8 decades; logic joins 1 -- M1 holds; extensive, lawful, no key or "
+        "one-hot", ok)
+    sw = c["sweep"].values()
+    conv = [v for (cd, tf, mf), v in c["sweep"].items() if (tf, mf) == (0, 0)]
+    ok = len(conv) == 24 and all(v["ans"] == (1, 1, 1) for v in conv)
+    ok &= sum(v["ans"] == (1, 1, 1) for v in sw) == 54 and sum(v["ans"] == ("refused",) * 3 for v in sw) == 42
+    ok &= all(v["reach"] == (v["ans"] == (1, 1, 1)) for v in sw) and not any(r["void"] for v in sw
+                                                                             for r in v["out"].values())
+    ok &= not any(a in (0, "both") for v in sw for a in v["ans"])
+    add("P10 every code: with the board's coding all 24 continuation codes give 1, 1, 1; over all 96 codings 54 give "
+        "1, 1, 1 and 42 are refused, exactly where C4's row is not a join of the rows below it (information); no clause "
+        "is ever 0 or undecided; none voided", ok)
+    od = c["orders"]
+    ok = all(a == (1, 1, 1) for k in (1, 2) for a in od[k]) and all(a == ("refused",) * 3 for a in od[4])
+    ok &= sum(a == (1, 1, "refused") for a in od[3]) == 16 and sum(a == (1, 1, 1) for a in od[3]) == 8
+    ok &= not any(x in (0, "both") for k in od for a in od[k] for x in a)
+    add("P10 by statistics order, the board's coding: orders 1 and 2 give 1, 1, 1 in all 24 codes; order 3 refuses (f) "
+        "in 16 and gives 1, 1, 1 in 8; order 4 refuses all three; never 0 or undecided", ok)
     return res
 
 
@@ -381,7 +510,9 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "readme_thin": "the README's density at the face put below sigma/4",
            "bath_kept": "the Hartle-Hawking bath's ingoing half kept",
            "fails_alone_dropped": "the known cells where (a) alone fails removed (P9)",
-           "m1_or": "M1 read as any one clause holding, not all (P9)"}
+           "m1_or": "M1 read as any one clause holding, not all (P9)",
+           "no_readme_coordinate": "P2's matter dropped from the attributes (P10)",
+           "shell_continuation": "C4's continuation read as the classical shell (P10)"}
 
 
 def selftest():
