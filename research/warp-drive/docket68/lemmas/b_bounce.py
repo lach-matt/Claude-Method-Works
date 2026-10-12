@@ -17,6 +17,12 @@ clocks is that object's time, not the one-way object's.  Kept as written; the on
      white hole -- lies in position 2's exterior: the black hole seen from our side and the white hole seen from position
      2's are images of one another under an isometry of the solution, "different views of the same object" (132).  The
      surface the map fixes, T = 0, is the bridge's slice through the throat, where the README crosses (251).
+     [Item 310, from the C4 verifier: (U, V) -> (-U, -V) carries T = 0 to itself but fixes only U = V = 0 pointwise;
+     the time reflection (U, V) -> (-V, -U) fixes T = 0 pointwise.  The map carries xi = kappa (V d_V - U d_U) to xi,
+     the time reflection to -xi (computed), so a body crossing a t-independent core leaves the white hole by the face
+     opposite the map's image of our face, onto the image of the second exterior; the README as the matter that bounces
+     (Q5) leaves as its own image, by U = 0, V < 0 of the image chart, through a quantum region of Haggard and Rovelli's
+     kind (c4_residue R13).]
   Q2 (computed, exact; Haggard-Rovelli's rule carried to 5D) Where quantum effects first reach outside the horizon.
      Their classicality parameter grows as the curvature times a power b of the bounce time, the time dominated by the
      logarithm near the horizon; maximising over radius gives R_q = r_h sqrt(1 + b/4) in five dimensions -- 1.118 r_h at
@@ -40,6 +46,9 @@ clocks is that object's time, not the one-way object's.  Kept as written; the on
      9/e -- the README outweighs it whenever e <= 1.155 r_h, by (4/3)(r_h/e)^2.  At the five-dimensional Planck density
      (G5 rho = 1/l5^2, the radius e = (3/(4 pi))^(1/4) (r_h l5)^(1/2); an estimate of where the bounce sits) the margin is
      2.0e5 at the example README.  So under 183 the README itself is the bounce's pair, per ray, where it passes.
+     [Item 310, from the C4 verifier: two core scales stand as estimates -- e = 2.9e-23 m here and c4_residue R6's r_q
+     = 6.4e-24 m; the README's pairing margin (4/3)(r_h/e)^2 is 2.0e5 at the first and 4.0e6 at the second (computed);
+     both pair.]
   Q6 (named, not computed) What Q5 leaves.  Haggard and Rovelli's quantum region also leaks outside the horizon, to R_q
      (Q2), over the long time of Q3 -- the part that undoes the trapping.  Rays through that part, near the horizon, do
      not cross the README deep inside; whether their null energy is negative there, and what pairs it, is not computed:

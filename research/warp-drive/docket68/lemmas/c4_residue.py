@@ -21,6 +21,14 @@ seated); 2026-10-12.
      regular horizon but its asymptotic expansion in the mass also contains half integer powers."  That is the
      literature's, for the warp-order kink only; it would close with a matched expansion in r_h/ell on a
      positive-tension brane.
+     [Item 310, the C4 verifier's (8), accepted: Theorem 5.2 is interior regularity -- its proof reads "Equation (5.1)
+     is quasi-linear elliptic in harmonic coordinates ... all of its solutions are real analytic" -- so it makes a
+     static brane hole's bulk metric analytic away from the brane, given existence and a C^2 bolt.  The brane is a
+     junction where the metric is not C^2 (K = -h/ell), and P15 uses analyticity at the brane-bolt corner: that needs a
+     boundary-regularity result for Israel's condition (Morrey-Nirenberg's complementing condition for Einstein's
+     equations in harmonic gauge with that boundary condition), cited and not checked.  And analyticity at r_h
+     continues the profile within its domain of analyticity, not "until r reaches the quantum region".  At flat order
+     the kink clause holds vacuously, as above; its warp-order half is carried, conditional on existence and that step.]
   R2 (P21 (2): tau's domain) Closed: no gap.  tau is defined where the sheets coincide (j_readings J2: "away from the
      corridor, where the sheets coincide"); at the corridor what position 2 receives is what passes, the README, whose
      density at its plane is E7's.  With matter on position 2's plane what it receives is determined in full -- the
@@ -31,6 +39,9 @@ seated); 2026-10-12.
      (rho/sigma)(r_h/ell), so it vanishes at flat order with r_h/ell (computed, exact) -- warp order, like the kink, and
      falling as (r_h/r)^2: the plane's solved shape under the flux is a warp-order correction outside M1's flat-order
      claim, bounded here.
+     [Item 310, the C4 verifier's (9) and (10): greybody 1 is not strictly the bound -- the scalar's factor is 1.003 --
+     and P5's 0.29 includes the bulk graviton's 0.6%, which does not land on P1; both under 1%.  The check was one-sided
+     (K_max < 7.5e-16) and passed with Israel's factor 3 dropped; it now pins K_max = 7.4e-16 per r_h, with that mutant.]
   R4 (P21 (4): the board's readings) Each reduced to a ruling, a computation or a derivation.  (i) The density scaling
      (P18) realizes M's 300 and nothing more: the cells it gives are those of "survival built in" itself, (the README,
      any tension) -> 1 (computed).  (ii) The channel reading (P20) carries no weight in the one-condition form: there the
@@ -47,6 +58,11 @@ seated); 2026-10-12.
      stress is classical stress in the bulk; inside the quantum region the classical equations do not hold (273, b_bounce
      Q4), so Ricci-flatness there has no classical meaning.  Under the other classical reading -- (a) outside the hole,
      K1's scope -- the shell's (a) is 1 too and the quantum bounce's stays 1 (computed): every classical reading gives 1.
+     [Item 310, the C4 verifier's (5): R6 carries (b)/(e) through an effective core whose Einstein tensor is not zero
+     (the null energy negative).  Read on that metric -- the one the residue uses for (b)/(e) -- the route is not
+     Ricci-flat, and with the quantum bounce's (a) entered 0 the calculator returns 0 in 96/96 (304 (5)).  So (a) at the
+     bounce is 1 on the reading that the core is outside classical geometry; on R6's effective metric (a) over the whole
+     route is 0.  "Every classical reading gives 1" holds for the two readings named here, not for R6's.]
   R5 (P21 note: the inner horizon's exterior) Closed by recomputation.  The inner horizon needs charge or spin (b_interior
      B3), so its exterior carries Maxwell stress or rotation: its (a) is 0 and the outside clauses kept from C1 ((c), (d),
      N1) fail there.  Entered so -- (a) at the inner horizon 0, and the outside clauses as a fourth clause, 0 there and
@@ -54,6 +70,10 @@ seated); 2026-10-12.
      interiors (302), all 24 orderings (computed).  Over the three of P17-P18 alone the top order refuses (a): the
      quantum bounce would be the only vacuum interior, every change of the continuation flipping (a); the fourth, the
      singular interior, vacuum too, keeps it -- so the form is the one condition over four interiors.
+     [Item 310, the C4 verifier's (6): a rotating (Myers-Perry) exterior is Ricci-flat, so "its (a) is 0" holds for
+     charge only.  The fourth interior is needed for (a) at the top order only when the inner horizon is charged; if it
+     spins, its (a) is 1, three interiors agree (P18), and the four-interior result stays 1, 1, 1, 1 (96/96 at orders 2
+     and 3, the verifier computed).  The outside clauses still fail there: a spinning exterior is not Tangherlini.]
   R6 (P21 (8): the bounce named, not constructed; P21 (5): the quantum region's duration) Constructed, as an effective
      metric.  The interior in its own time T: ds^2 = -dT^2 + G(T) dt^2 + R(T)^2 dOmega_3^2, G = r_h^2/R^2 - 1.  Its
      Einstein tensor vanishes exactly where R'^2 = r_h^2/R^2 - 1 (Tangherlini's interior, computed, exact): with R(T)
@@ -65,19 +85,47 @@ seated); 2026-10-12.
      (computed, exact to first order in r_q/r_h); with the core at the scale (r_h l5^2)^(1/3) (an estimate, the effective
      loop-quantum scaling) that is 1.6e-7 of a clock.  The core's own profile is a model; the two-exterior bounce now
      exists as a smooth effective metric, and its quantum-gravitational form stays beyond any computation here.
+     [Item 310, the C4 verifier's (2), accepted: R6 constructs less than "the two-exterior bounce now exists".
+     "Tangherlini for T < 0" cannot hold literally -- Tangherlini reaches R = 0 at finite T -- so R6 is Tangherlini for
+     |T| >= T_c, a smooth even R(T) with a minimum r_min > 0 between, vacuum exactly outside the core; no R(T) is given.
+     The route check Gamma^a_TT = 0 is the curves of fixed (t, angles), the E~ = 0 geodesics, which run from bifurcation
+     sphere to bifurcation sphere, the sphere 282 drops; for E~ != 0 completeness through the core follows from Tdot^2 =
+     eps + E~^2/G with G > 0 (deduced), not computed.  The 1.6e-7 clocks (1.646e-7) is an E~ = 0 observer's proper time
+     over Tangherlini's r_q to 0, r_q an estimate; the check, which a core twice as large passed, now pins 1.6e-7, with
+     that mutant.  Locally this is Haggard and Rovelli's geometry; which exterior the white hole opens on is fixed by the
+     identification (273) and, for the README itself, by the quantum region's form (R13), not by this metric.]
   R7 (P21 (9): J1's source marked two-way) Closed: J1's one input from m1p2x_fifth F1 -- the junction's energy seen by
      matter emerging across position 2's face, mu E~/(kappa |V|) -- follows from the Kruskal Killing field alone: xi =
      kappa (V d_V - U d_U), on the face U = 0 xi = kappa V d_V, so the emerging matter's momentum along the face's
      generator is p_V = E~/(kappa |V|) (computed, exact), with nothing from position 2 reaching ours.  With the junction's
      rise from m1p2x_oneway O3 (one-way), J1's 33.6 clocks reproduce (computed).
+     [Item 310, the C4 verifier's (1): "E~ = |p . xi|" hides the sign -- matter crossing U = 0, V < 0 outward has p . xi
+     > 0, while a route entering our face keeps p . xi = -E~ through a t-independent core and cannot leave by U = 0, V <
+     0 of b_bounce Q1's image chart (R13).  33.6 clocks is the magnitude at that face, standing where the README does
+     emerge there.]
   R8 (P21 (10): tau's 2 : 1 bulk at warp order) Carried.  With position 2's side at curvature k/2 (P19, our side at its
      own k), position 2's exterior at warp order is Schwarzschild-AdS5 of radius 2 ell: at a shared horizon its mass
      parameter r_h^2 (1 + r_h^2/ell_2^2) differs from ours by -(3/4)(r_h/ell)^2 = -4.8e-31 (computed).  P1's "position 2
      reads the same mass" is exact at flat order and holds to 5e-31 at warp order.
+     [Item 310, the C4 verifier's (3), accepted: item 240 (READ, M verbatim): "The mass on position 2's side is not
+     equal to ours" -- M-P2-MASS-OWN, the board's m2 = m overruled there, 240 (a) re-reading 203's "read the same from
+     both sides" as the README's encoding, not equal energies in SI.  P1 asserted SI equality through the isometry, and
+     neither c4_oneway, this file nor m1_small cited 240 for it.  Seated: position 2 reads from its own exterior the mass
+     it assembles under its own laws (240); in the two-exterior effective geometry, with position 2's G5 and bulk taken
+     as ours, that equals ours at flat order -- the construction's simplification, not a claim; and -(3/4)(r_h/ell)^2 is
+     the mass-parameter difference at an assumed common r_h, the isometry this section itself breaks at warp order.
+     Recorded as the verifier's reading of how 275 and P19 combine (deduced, not computed here): identifying position
+     2's side of the coincident junction (P19's k/2 bulk) with the region beyond the white-hole face would put the far
+     hemisphere of our hole in position 2's bulk, which our full-sphere Komar reading (N1) integrates over -- an
+     influence of position 2's bulk on ours at order (r_h/ell)^2, against 276 (a); neither P19 nor this section
+     addresses it.]
   R9 (P21 (11): the population's binary classes) Closed: the classes carry no weight.  Refined -- tension: 139 (1)'s
      -1/4, any other negative, any positive; matter: the README, other matter above sigma/4, other below or none -- with
      (f) realized per class from its law and survival built in, the cypher gives 1, 1, 1 at orders 2 and 3 under all 24
      orderings of the four interiors (computed).
+     [Item 310, the C4 verifier's (9): the class (other negative tension, other matter below sigma/4 or none) was
+     realized {0} by the witnesses chosen; tau = -1/100 with rho/sigma = 1/5 gives 1.  The witnesses now include them,
+     the class realized {0, 1}, and the cypher still gives 1, 1, 1 at orders 2 and 3 under all 24 orderings.]
   R10 (P21 (12): the singular interior's (f)) Closed: read instead as vacuous -- nothing of its route lands, so
      positivity where relevant holds nowhere-relevant -- or left out of (f)'s question, C4's (f) is unchanged (computed);
      and the one-condition form (P17-P18) has no singular interior.
@@ -85,6 +133,9 @@ seated); 2026-10-12.
      = 0.29 (r_h/r)^2: below 1% beyond 5.3 r_h and below 0.1% beyond 17 r_h (computed), so clause (d) -- no matter stress
      on P1 -- holds semiclassically there, and M1's far reading (c), r_h << r << ell, lies wholly beyond; near the hole
      the plane's quantum load is of the tension's order, and M1 is classical there, as the qualification says.
+     [Item 310, the C4 verifier's (9): 5.3 r_h is where the load rho/sigma falls below 1%; by P14's own Israel ratio
+     the bending is 3 rho/sigma, below 1% only beyond 9.3 r_h and below 0.1% beyond 29 r_h.  Seated: the load below 1%
+     beyond 5.3 r_h, the bending below 1% beyond 9.3 r_h.]
   R12 (deduced) The ledger.  Closed: (2) both halves, (3), (4), (6), (8) (as an effective metric), (9), (10), (11), (12),
      the inner horizon's exterior, the vacuum reading.  Stated, not closable by the board: small brane holes' existence
      at r_h/ell = 8.0e-16, for the warp-order kink only (R1, the literature's); the quantum region's quantum-gravitational
@@ -93,6 +144,39 @@ seated); 2026-10-12.
      stands in: clause by clause, the continuation one condition over four interiors, tension and matter at statistics'
      rank over the population, survival built in -- 1 on every clause at every lawful order (2 and 3, the top), every
      ordering and orientation.
+     [Item 310: C4 one-way CONFIRMED with qualifications by its verifier.  By the verifier's (4), in this form the
+     operator alone gives 1, 1, 1 at orders 2 and 3 under all 96 codings, and on every clause that is the entered value
+     read back -- (a) and (b)/(e) the quantum bounce's own row at the other (tension, matter) classes (entered 0 there,
+     the calculator returns 0), (f) C4's own class at the other continuations at order 3 (E7) and the README column at
+     order 2 (300 (b)).  Each clause depends only on the continuation or only on (tension, matter), so statistics at
+     order >= 2 cannot but return the entered value.  The agreement rests on statistics' rank (peers 60/96), survival
+     built in ((f) open at order 2 without it), the population ((f) refused at order 3 without it) and the fourth
+     interior given the inner horizon's (a) = 0; it adds nothing to E7, to 300 (b), to the vacuum reading or to
+     b_interior B6.  211's audit: the full indices are clean; the (K, answer) projection on which order, geometry or
+     information decide (a) and (b)/(e) (32/32/32 of 96) is keyed by K on the known cells, and the verdict logic takes
+     is statistics', on the clean index.  Seated in R1, R3-R9, R11, R13 and here; the record is item 310.]
+  R13 (item 310, the C4 verifier's (1); computed, exact; deduced where marked) The face the route leaves by.  R6's
+     metric does not depend on t and its gluing (T, t) -> (-T, t) keeps d_t, so a route's p . d_t is conserved through
+     the core and dt/dlambda = p_t/G with G > 0 there: t is monotone along it (deduced).  With xi = kappa (V d_V - U d_U),
+     b_bounce Q1's (U, V) -> (-U, -V) carries xi to xi' and Haggard and Rovelli's time reflection (U, V) -> (-V, -U)
+     carries it to -xi' (computed).  A route entering our face with Killing energy E~ > 0 (p . d_t = -E~) leaves into
+     the exterior where the continued d_t is future-directed: under either map M that is M's image of the second
+     exterior, through the face opposite M's image of our face -- the image chart's V' = 0 under Q1, U' = 0, V' < 0
+     under the time reflection -- never M's image of ours (computed).  So the face P1, R6, R7 and b_bounce Q1 assign
+     position 2 -- U' = 0, V' < 0 of Q1's image chart, onto Q1's image of our exterior -- is out of reach of any body
+     crossing a t-independent core: it is reached with the time reflection's map, or through a core that reverses the
+     Killing energy, which nothing here constructs.  The board's critic (deduced): the verifier's further clause, that
+     the exterior reached is "locally the one Haggard and Rovelli reconnect to ours", holds under Q1 (the image chart's
+     region I, where the time reflection places ours) and not under the time reflection, where a t-independent core
+     sends the route to its image of the second exterior, opposite their reconnection.  And the README is not such a
+     body on b_bounce Q5's reading: it is the matter that collapses and bounces (115 (c)), and in Haggard and Rovelli's
+     construction the collapsing matter leaves as its own image under the gluing map, through a quantum region that is
+     not t-independent (their region III, an ansatz, b_bounce Q6), its Killing energy reversed against the continued
+     d_t.  Under Q1 that image leaves by U' = 0, V' < 0 onto Q1's image of our exterior (computed) -- the face the
+     record names.  So the record's face stands for the README on Q5's reading with a quantum region of Haggard and
+     Rovelli's kind, which R6 does not model along the README; R6 and this section concern bodies that cross a
+     t-independent core after it.  Which exterior is position 2's is M's identification (273); P1 and P15 hold with
+     either map, both keeping U V.
 
 Imports c4_oneway.py, tau_share.py, calculator.py, b_interior.py, hold_small.py, p2_gravity.py, e_positive.py and
 research/warp-drive/hlaw.py by path.  Stdlib + sympy.  python3 c4_residue.py [--selftest | --mutants]
@@ -170,7 +254,8 @@ def r3():
     rh = (2 * 2742570311524972 * math.log(2) / math.pi ** 2) ** (1 / 3) * l5
     x, q = sp.symbols("x q", positive=True)                  # x = r_h/ell, q = rho/sigma
     K = 3 * q * x
-    return dict(gamma=g, ratio=s["ratio"], ratio_max=ratio_max, K_max=3 * ratio_max * rh / PG.ELL_MAX,
+    israel = 1 if MUT.get("israel_one") else 3              # item 310 (10): the mutant drops Israel's factor 3
+    return dict(gamma=g, ratio=s["ratio"], ratio_max=ratio_max, K_max=israel * ratio_max * rh / PG.ELL_MAX,
                 flat=sp.limit(K, x, 0) == 0)
 
 
@@ -304,6 +389,8 @@ def r6():
     l5 = (PG.HBAR * PG.G * PG.ELL_MAX / PG.C ** 3) ** (1 / 3)
     rhv = (2 * 2742570311524972 * math.log(2) / math.pi ** 2) ** (1 / 3) * l5
     rqv = (rhv * l5 ** 2) ** (1 / 3)
+    if MUT.get("core_x2"):
+        rqv = 2 * rqv                                      # item 310 (10): the mutant doubles the core
     clock = rhv / PG.C
     t_core = float(exact.subs({rh: rhv, rq: rqv})) / PG.C
     return dict(vac=vac, neg=neg, geod=geod, finite=finite, first=sp.simplify(first - rq ** 2 / (2 * rh)) == 0,
@@ -340,8 +427,9 @@ def r8():
 def r9():
     # tension classes: 0 C4's -1/4, 1 other negative, 2 positive; matter: 0 the README, 1 other above sigma/4, 2 other
     # below sigma/4 or none; f = [tau + rho/sigma > 0], the README surviving in every position 2 (300)
-    wit_t = {0: [-sp.Rational(1, 4)], 1: [-sp.Rational(1, 8), -sp.Integer(10)], 2: [sp.Rational(1, 2)]}
-    wit_m = {1: [sp.Rational(1, 2), sp.Integer(20)], 2: [sp.Integer(0), sp.Rational(1, 10)]}
+    wit_t = {0: [-sp.Rational(1, 4)], 1: [-sp.Rational(1, 8), -sp.Integer(10), -sp.Rational(1, 100)],
+             2: [sp.Rational(1, 2)]}                         # item 310 (9): -1/100 with 1/5 realizes (1, 2) -> 1
+    wit_m = {1: [sp.Rational(1, 2), sp.Integer(20)], 2: [sp.Integer(0), sp.Rational(1, 10), sp.Rational(1, 5)]}
     F = {}
     for ti, ts in wit_t.items():
         F[(ti, 0)] = {1}                                     # the README: survival built in
@@ -387,12 +475,40 @@ def r10():
 
 def r11():
     q0 = c4().state()["ratio"]
-    return dict(q0=q0, r1=math.sqrt(q0 / 0.01), r01=math.sqrt(q0 / 0.001))
+    return dict(q0=q0, r1=math.sqrt(q0 / 0.01), r01=math.sqrt(q0 / 0.001), b1=math.sqrt(3 * q0 / 0.01),
+                b01=math.sqrt(3 * q0 / 0.001))                # item 310 (9): the bending is 3 rho/sigma (P14)
+
+
+def r13():
+    """item 310 (1): the face a route with conserved Killing energy leaves the white-hole interior by"""
+    U, V, k, Up, Vp = sp.symbols("U V kappa Up Vp", real=True)
+    xi, xip = sp.Matrix([-k * U, k * V]), sp.Matrix([-k * Up, k * Vp])       # components along d_U, d_V
+    maps = {"Q1": (sp.Matrix([[-1, 0], [0, -1]]), {U: -Up, V: -Vp}, lambda u, v: (-u, -v)),
+            "HR": (sp.Matrix([[0, -1], [-1, 0]]), {U: -Vp, V: -Up}, lambda u, v: (-v, -u))}
+    coords = {"I'": (-1, 1), "III'": (1, -1)}             # the image chart's exteriors; U', V' increase to the future
+    face_to = {"I'": "V'=0", "III'": "U'=0"}               # the white-hole interior U', V' < 0 meets I' on V' = 0
+    out = {}
+    for nm, (J, sub, f) in maps.items():
+        w = sp.simplify((J * xi).subs(sub))
+        sign = 1 if sp.simplify(w - xip) == sp.zeros(2, 1) else -1 if sp.simplify(w + xip) == sp.zeros(2, 1) else 0
+        if MUT.get("exit_reversed"):
+            sign = -sign                                   # the mutant: a core reversing the Killing energy read as R6's
+        # p . d_t = -E~ < 0 conserved: the body leaves where the continued d_t = sign xi' is future-directed
+        fut = [reg for reg, (u, v) in coords.items() if sign * -u > 0 and sign * v > 0]
+        img = {"I": f(-1, 1), "III": f(1, -1)}
+        exit_ = [n for n, c in img.items() if c == coords[fut[0]]][0] if len(fut) == 1 else None
+        ours = f(0, 1)                                     # the image of our face U = 0, V > 0
+        ours_face = "U'=0" if ours[0] == 0 else "V'=0"
+        out[nm] = dict(sign=sign, exit=exit_, face=face_to[fut[0]] if fut else None,
+                       opposite=bool(fut) and face_to[fut[0]] != ours_face, mirror_face=ours_face,
+                       mirror_exit=[n for n, c in img.items() if face_to[[r for r, cc in coords.items() if cc == c][0]]
+                                    == ours_face][0])
+    return out
 
 
 def compute():
     return dict(r1=r1(), r2=r2(), r3=r3(), r4=r4(), r5=r5(), r6=r6(), r7=r7(), r8=r8(), r9=r9(), r10=r10(),
-                r11=r11())
+                r11=r11(), r13=r13())
 
 
 def report(o):
@@ -422,8 +538,12 @@ def report(o):
     print("R9 refined classes: order 2 %s, order 3 %s" % (dict(o["r9"]["out"][2]), dict(o["r9"]["out"][3])))
     print("R10 the singular interior's (f): %s" % o["r10"])
     r11 = o["r11"]
-    print("R11 flux load %.2f (r_h/r)^2: below 1%% beyond %.1f r_h, below 0.1%% beyond %.0f r_h" % (r11["q0"], r11["r1"],
-                                                                                                   r11["r01"]))
+    print("R11 flux load %.2f (r_h/r)^2: below 1%% beyond %.1f r_h, below 0.1%% beyond %.0f r_h; the bending 3 rho/sigma "
+          "below 1%% beyond %.1f r_h, 0.1%% beyond %.0f r_h" % (r11["q0"], r11["r1"], r11["r01"], r11["b1"], r11["b01"]))
+    for nm, v in o["r13"].items():
+        print("R13 %s: xi -> %+d xi'; a body crossing a t-independent core leaves by %s onto the image of %s (opposite the "
+              "image of our face: %s); the README as its own image leaves by %s onto the image of %s" % (
+                  nm, v["sign"], v["face"], v["exit"], v["opposite"], v["mirror_face"], v["mirror_exit"]))
 
 
 def checks(o):
@@ -434,9 +554,9 @@ def checks(o):
     add("R1 M1's flat-order plane is the exact equator in every chart (P2): the kink is warp order", o["r1"]["flat_exact"])
     add("R2 what position 2 receives is determined in full: S1 + S2 (tau_share T3)", o["r2"]["T3"])
     r3 = o["r3"]
-    add("R3 the flux at most %.2f sigma with every greybody 1 (0.29 at gamma_eff); its bending at most 7.5e-16 per r_h, "
-        "zero at flat order" % r3["ratio_max"], r3["gamma"] < 1 and "%.2f" % r3["ratio"] == "0.29" and r3["ratio_max"] < 0.32
-        and r3["K_max"] < 7.5e-16 and r3["flat"])
+    add("R3 the flux at most %.2f sigma with every greybody 1 (0.29 at gamma_eff); its bending at most 7.4e-16 per r_h "
+        "(pinned, item 310), zero at flat order" % r3["ratio_max"], r3["gamma"] < 1 and "%.2f" % r3["ratio"] == "0.29"
+        and r3["ratio_max"] < 0.32 and "%.2g" % r3["K_max"] == "7.4e-16" and r3["flat"])
     r4 = o["r4"]
     ok = r4["density"] and r4["one3"] == Counter({(1, 1, 1): 6}) and r4["bits3"] == Counter({(1, 1, 1): 24})
     ok &= r4["mc3"] == Counter({(1, 1, 1): 24}) and all(r4["stat"][k] == Counter({(1, 1, 1): 96}) for k in (2, 3))
@@ -451,8 +571,9 @@ def checks(o):
         and r5["three"][3] == Counter({"refused": 6}))
     r6 = o["r6"]
     add("R6 the bounce as an effective metric: vacuum exactly on Tangherlini's interior, null energy negative at the "
-        "bounce, the route a geodesic through it, finite there; the core crossed in under 1e-6 of a clock",
-        r6["vac"] and r6["neg"] and r6["geod"] and r6["finite"] and r6["first"] and r6["core_clocks"] < 1e-6)
+        "bounce, the E~ = 0 route a geodesic through it, finite there; the core crossed in 1.6e-7 of a clock (pinned, "
+        "item 310)", r6["vac"] and r6["neg"] and r6["geod"] and r6["finite"] and r6["first"]
+        and "%.2g" % r6["core_clocks"] == "1.6e-07")
     add("R7 J1's seen energy from the Killing field alone, p_V = E~/(kappa |V|); 33.6 clocks reproduce",
         o["r7"]["pV"] and "%.1f" % o["r7"]["dtau"] == "33.6")
     add("R8 position 2's mass at warp order differs by -(3/4)(r_h/ell)^2 = -4.8e-31",
@@ -465,8 +586,17 @@ def checks(o):
         all(r10["vacuous"][k] == 1 for k in (2, 3, "channel")) and all(r10["left_out"][k] == 1 for k in (2, 3))
         and r10["left_out"]["channel"] == "refused")
     r11 = o["r11"]
-    add("R11 the flux load below 1% beyond 5.3 r_h, below 0.1% beyond 17 r_h", "%.1f" % r11["r1"] == "5.3"
-        and "%.0f" % r11["r01"] == "17")
+    add("R11 the flux load below 1% beyond 5.3 r_h, below 0.1% beyond 17 r_h; the bending below 1% beyond 9.3 r_h, "
+        "0.1% beyond 29 r_h (item 310)", "%.1f" % r11["r1"] == "5.3" and "%.0f" % r11["r01"] == "17"
+        and "%.1f" % r11["b1"] == "9.3" and "%.0f" % r11["b01"] == "29")
+    r13 = o["r13"]
+    add("R13 through a t-independent core a body leaves by the face opposite the map's image of ours, onto the image of "
+        "the second exterior, under Q1 (V' = 0) and the time reflection (U' = 0) alike; the README as its own image "
+        "leaves by U' = 0, V' < 0 under Q1, onto the image of ours (item 310)",
+        r13["Q1"]["sign"] == 1 and r13["HR"]["sign"] == -1 and all(r13[m]["exit"] == "III" and r13[m]["opposite"]
+                                                                  for m in ("Q1", "HR"))
+        and r13["Q1"]["face"] == "V'=0" and r13["HR"]["face"] == "U'=0" and r13["Q1"]["mirror_face"] == "U'=0"
+        and r13["Q1"]["mirror_exit"] == "I")
     return res
 
 
@@ -476,7 +606,10 @@ MUTANTS = {"greybody_ignored": "the greybody bound dropped (R3)",
            "wrong_killing": "the Killing field's V component made constant (R7)",
            "same_bulk": "position 2's side at our curvature (R8)",
            "readme_can_fail": "the README failing at some other negative tension (R9)",
-           "singular_fails": "the singular interior's (f) read as failing (R10)"}
+           "singular_fails": "the singular interior's (f) read as failing (R10)",
+           "israel_one": "Israel's factor 3 dropped from the bending (R3, item 310)",
+           "core_x2": "the core twice as large (R6, item 310)",
+           "exit_reversed": "a core reversing the Killing energy read as R6's (R13, item 310)"}
 
 
 def selftest():

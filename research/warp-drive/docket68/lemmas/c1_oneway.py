@@ -33,6 +33,12 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      crosses our future interior in r_h/(1 + eps) < r_h/c on a radial geodesic of Killing energy eps > 0, and in at
      most r_h/c on any timelike path; it crosses position 2's past interior in at most r_h/c again, exactly as long if
      the bounce returns its Killing energy (273 (a)).]
+     [Item 310, the C4 verifier's (1) with the critic's scope (c4_residue R13): a body crossing a t-independent core
+     (R6) keeps its Killing energy and leaves the white-hole interior by the face opposite the gluing map's image of our
+     face -- under b_bounce Q1's map not position 2's face as named here; the README on b_bounce Q5's reading, the
+     matter that collapses and bounces, leaves as its own image by that face, through a quantum region of Haggard and
+     Rovelli's kind, which R6 does not model.  The route stands for the README on that reading; 304 (8)'s "returns its
+     Killing energy" is the same condition, met by the image, not by a t-independent core.]
   K4 (computed, exact) Regularity on the object: Kretschmann 72 r_h^4/r^8 falls with r, so it is finite on both
      exteriors and both faces (r >= r_h), at most 72/r_h^4 at the faces, and tends to 0 far away.  Its divergence at
      r = 0 lies in the interiors, where the bounce's quantum region stands (b_bounce Q4: the classical equations do not

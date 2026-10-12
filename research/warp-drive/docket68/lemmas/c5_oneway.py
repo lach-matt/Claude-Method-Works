@@ -45,18 +45,29 @@ session; not seated); 2026-10-12.
      row -- the mutant that reads the inner horizon's exterior as Tangherlini returns the same 96/96, and is caught
      only by the rows' read from b_interior.  The five clauses carry two distinct rows (U1 = U5, U2 = U3 = U4).
      U7 rests on R12's form; the verdict of C4's verifier on that form carries to U7.
+     [Item 310: it did -- by the C4 verifier's (4), in R12's form each clause is the entered value read back, the
+     agreement adding nothing to its inputs; here those are b_interior's rows and the population's constancy, as (i)
+     and (ii) say.]
   U8 (computed, with the estimates marked; item 309) C5's residue, listed and closed as C4's was.
      (1) The core: c4_residue R6's effective bounce metric, ds^2 = -dT^2 + (r_h^2/R^2 - 1) dt^2 + R(T)^2 dOmega_3^2,
      vacuum where R'^2 = r_h^2/R^2 - 1, the core at (r_h l5^2)^(1/3) (estimate) -- crossed in 1.6e-7 of a clock along
      the T-geodesics, so the passage takes at most 2 clocks plus that, 2.0000002: in, through, out.  The order-one
      coefficient of the core's size is not shown.
+     [Item 310, the C4 verifier's (2): the T-geodesics are the E~ = 0 family, from bifurcation sphere to bifurcation
+     sphere (282 drops it); 1.6e-7 is that observer's proper time over Tangherlini's r_q to 0, r_q an estimate.  For
+     E~ != 0, and for the README on b_bounce Q5's reading, it is the core's scale, not computed.  The check now pins it.]
      (2) Species: the life goes as 1/(degrees of freedom), so the hold's 1.28e10 margin over the write's floor admits a
      1.28e10-fold multiplication of the radiated species before the floor is reached (estimate; H-SPECIES-FINITE).
      (3) Greybody: with every greybody factor set to 1, the most the hole can radiate, the margin is 1.19e10.
+     [Item 310, the C4 verifier's (9): greybody 1 is not strictly the most -- the scalar's factor is 1.003 -- a change
+     under 1%; the margin stands at 1.19e10 to that.]
      (4) The inner horizon: U2-U4's figures hold for the singular interior, the bounce and the shell, not the inner
      horizon (U7's rows) -- the C1 verifier's (5), carried.
      (5) The crossing: the passage is the README's route through the interior and the bounce (U1), not information
      across the bridge's slice; the slice's join is the mutant slice_passage.
+     [Item 310 (c4_residue R13): a body crossing a t-independent core leaves the white hole opposite the gluing map's
+     image of our face; the README, on b_bounce Q5's reading the matter that bounces, leaves as its own image by
+     position 2's face as named, through a quantum region of Haggard and Rovelli's kind, not modeled here.]
      (6) The bounce as constructed: R6's metric, NEC negative at the bounce, paired per ray by the README (b_bounce
      Q5, 183), its T-lines geodesics -- C4's residue (6), read here, not rebuilt.
 
@@ -66,6 +77,8 @@ What this does not show.
     clock, an estimate; its order-one coefficient and the region's quantum-gravitational form stay open.]
   - That a small brane hole at r_h/l = 8e-16 exists as a static solution: the literature's (item 261), as for C4.
   - Verification: U7-U8 wait for M's finalization and a verifier after C4's (249).
+  - [Item 310, outside the C4 claim, its verifier's] G5 under the 2 : 1 bulk (tau_share T4's note): G5 = (3/2) G ell
+    over both sides, or G ell/2 over ours alone, not G ell -- an O(1) change in r_h and in the life and margins here.
   - Species beyond the Standard Model (H-SPECIES-FINITE), as in hold_small.
 
 Imports hold_small.py, i_oneway.py, c1_oneway.py, c4_oneway.py, c4_residue.py, calculator.py, b_interior.py,
@@ -256,8 +269,9 @@ def checks(o):
         cq["vals"] == C5VALS and all(cq["out"][k] == Counter({(1,) * 5: 96}) for k in (2, 3))
         and not any(cq["audit"].values()))
     rs = o["rs"]
-    add("U8 the residue: the core crossed in under 1e-6 of a clock, the passage under 2 clocks and that; the hold over the "
-        "floor 1.28e10-fold, above 1.1e10 with every greybody 1", rs["core"] < 1e-6 and rs["passage_max"] < 2.000001
+    add("U8 the residue: the core crossed in 1.6e-7 of a clock (pinned, item 310), the passage under 2 clocks and that; "
+        "the hold over the floor 1.28e10-fold, above 1.1e10 with every greybody 1", "%.2g" % rs["core"] == "1.6e-07"
+        and rs["passage_max"] < 2.000001
         and "%.3g" % rs["over"] == "1.28e+10" and rs["greybody_over"] > 1.1e10 and rs["gamma"] < 1)
     return res
 

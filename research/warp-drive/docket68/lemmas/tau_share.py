@@ -22,6 +22,12 @@ seated); 2026-10-12.
      is a tension, and then tau = 1 + lambda_2/lambda_1.  With 139 (1)'s lambda_1 = +4/3 and lambda_2 = -1/3 of the
      Randall-Sundrum value: tau = 3/4, exact.  So tau sigma = lambda_RS: position 2 receives exactly the summed tension
      the coincidence fixes -- the one-plane Randall-Sundrum value, 3/4 of ours.
+     [Item 310, the C4 verifier's (7), accepted: this pins J2's split, Sigma+ = tau S1 + S2, position 2's own stress
+     counted once; split as tau S1 + 2 S2 -- as T3 itself describes the side, "ours and its own twice" -- the same
+     junction gives tau = 1.  For tensions S1 and S2 are proportional, so the split is a convention, and what the
+     junction fixes is position 2's side total, Sigma+ = S1 + 2 S2, 2/3 lambda_RS, positive: that and the 2 : 1 bulk are
+     the physical content.  tau uses only 139 (1)'s ratio, which is M's; "tau sigma = lambda_RS" and T4's units use its
+     sum +4/3 - 1/3 = 1, multiplane M4's normalization (276 (c), a two-way record, the value standing as M's).]
   T3 (computed, exact) With matter on position 2's plane no single number serves: what position 2 receives is the
      summed stress S1 + S2 itself, a tensor, of which tau = 3/4 is the tension part; its side carries S1 + 2 S2 -- ours
      and its own twice, the share of its own that a two-way junction would have put on our side carried on its side.
@@ -32,6 +38,13 @@ seated); 2026-10-12.
      static).  Were both sides at the one curvature k, ours would carry 4/3 of critical and inflate, H^2/c^2 = 7/9 k^2,
      and position 2's 2/3 and sit below flat, -5/9 k^2 (computed): not our universe.  In j_readings' normalization,
      our side at its own k (sigma = 6k/kappa^2), position 2's side needs k/2: the same 2 : 1.
+     [Item 310, outside the C4 claim, from its verifier (deduced): one surface carries one induced metric, so the
+     coincident sheets share one Hubble rate (Israel's first condition) -- "both sides at the one curvature k: 7/9 and
+     -5/9" describes two rates on one surface, which the coincidence forbids -- and that shared induced metric is itself
+     a geometric channel between the sheets (for instance 284's displacement where the README lands), which 276's
+     one-way junction does not address.  With the bulk 2 : 1 the zero mode gives 1/G4 = (ell_1 + ell_2)/(2 G5): G5 =
+     (3/2) G ell over both sides, or G ell/2 over ours alone (if position 2's bulk is not to act on our gravity, 276
+     (a)), not G ell -- an O(1) change at flat order in r_h, E and c4_oneway P5's 0.29; M1's clauses are unaffected.]
   T5 (computed) C4's P4 and b5a_oneway's B2 at the value: position 2's share on a ray crossing its plane where the
      README lands, (tau sigma + S2) sin a + (rho + p) cos^2 a / sin a, is positive at tau = 3/4 (it was for every tau
      in [0, 1]; now at the one value).

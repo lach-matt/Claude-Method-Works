@@ -10,6 +10,11 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      term at warp order, the hemisphere's first law, N4).  Position 2 reads the same mass from its own exterior because
      the bounce's map (U, V) -> (-U, -V) is an isometry of the form (b_bounce Q1) -- position 2's reading of its side,
      nothing passing back; the eternal solution's two isometric exteriors are no longer the reason.
+     [Item 310, the C4 verifier's (3), accepted: "position 2 reads the same mass" is the construction's simplification,
+     not a claim -- position 2 reads from its own exterior the mass it assembles under its own laws (240,
+     M-P2-MASS-OWN: "The mass on position 2's side is not equal to ours"), equal to ours at flat order only with
+     position 2's G5 and bulk taken as ours (c4_residue R8's note).  The isometry holds under either gluing map; which
+     face a body or the README leaves the white-hole interior by is c4_residue R13's (the verifier's (1)).]
   P2 (computed, exact) The plane on the object.  In the Kruskal form -F(UV) dU dV + r(UV)^2 (dchi^2 + sin^2 chi dOmega_2)
      the equator chi = pi/2 has extrinsic curvature 0 for any F and r -- computed for that general form -- so it is
      totally geodesic in every chart of the object: our exterior, our face, our future interior, position 2's past
@@ -30,6 +35,9 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      + (e + P) cos^2 a / sin a >= 0 for e > 0 and e + P >= 0 (m1p2x_sixth W1, a direction-neutral share).  The
      earlier (f) -- the same positive tension, within one universe (L7) -- is set aside: between universes 139 (1)
      puts -sigma/4 on P2.
+     [Item 310, the C4 verifier's (7): with tau_share's junction, position 2's side carries +sigma/2 > 0 with no matter
+     at all (P19), while P4 and P18 read P2's tension for (f) as 139 (1)'s own -sigma/4; on the side total (f) is
+     positive a fortiori, and the verdict at C4 is unchanged.]
   P5 (estimate) The state.  The one-way object opens -- it is formed, not eternal -- so its quantum state is the
      collapse-formed one, outgoing Hawking flux without the Hartle-Hawking bath's ingoing half; m1_small N4's bath
      (rho/sigma = 0.305, bending P1 0.92 as much as the tension) is the eternal manifold's and is dropped.  The outgoing
@@ -181,6 +189,10 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      quantum region (273).  The bounce's map (U, V) -> (-U, -V) keeps U V, so position 2's side carries the same
      profile, position 2 reading its own side (b_bounce Q1).  Conditional on KTN's exterior profile being analytic at
      the horizon; their solution is numerical and disputed (item 261), as the C1 and C4 verifiers recorded.
+     [Item 310, the C4 verifier's (8) (c4_residue R1's note): DeTurck-Kazdan is interior regularity; analyticity up to
+     the brane, where this continuation starts, is a cited, unchecked boundary step for Israel's condition; and
+     analyticity at r_h continues the profile within its domain of analyticity, not "until r reaches the quantum
+     region".  Both maps keep U V, so position 2's side carries the profile under either.]
   P16 (deduced) C4's case, by the record.  The form of its question settled by the cypher (P13, under 291-298): clause
      by clause, tension and matter in every clause and read at statistics' rank, 1, 1, 1 under every coding at the
      protocol's order, logic joining -- M1 holds; P8-P12 the record of the forms before it.  The items 297 listed against
@@ -241,6 +253,9 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      agrees (1, 1, 1, all 6 orderings) as it does at order 3; but order 2 reopens (f), whose law turns three-way in (the
      object, survivability, the answer).  Built in, survivability is not a variable, and every lawful order from 2
      agrees.
+     [Item 310, the C4 verifier's (9): rho = (R/4)|tau| sigma gives R sigma/16 at tau = -1/4, while P17 and E7 use R
+     sigma/4 there; the consistent normalization is rho = R |tau| sigma.  Positivity is unaffected (R >> 4), and so are
+     the cells.]
      [M, item 302: the order-4 refusals are not the code's artefacts -- a one-bit change landing on a continuation with
      another answer is a binary communication, and a code no continuation holds means more continuation clauses.  P20.]
   P19 (computed, exact; item 301) tau, calculated before the verifier (tau_share.py).  The coincidence fixes only the
@@ -248,6 +263,10 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      tau = 1 + lambda_2/lambda_1 = 3/4 of our tension -- exactly the summed tension, lambda_RS -- and its side carries
      sigma/2 = 2/3 lambda_RS, positive.  P4's crossing share is positive at tau = 3/4 (tau_share T5; it was for every
      tau in [0, 1]).  With matter on position 2's plane, what it receives is the summed stress itself (T3).
+     [Item 310, the C4 verifier's (7), accepted: the one-way coincidence fixes position 2's side total, Sigma+ = S1 + 2
+     S2 (2/3 lambda_RS for tensions, positive).  tau = 3/4 is J2's split, position 2's own stress counted once; counted
+     twice, as tau_share T3 describes the side ("ours and its own twice"), tau = 1.  The physical content is Sigma+ and
+     the 2 : 1 bulk.]
   P20 (computed; the board's reading where marked; item 302) More continuation clauses; binary communication.  The
      continuation's two bits are its own clauses, b_interior's binary properties that separate the interiors: NEC
      holding (no bounce) and README-only (nothing else carried inside).  The three interiors that open into position 2
@@ -318,11 +337,21 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      R0-R12, imported; its own selftest and mutants run there.  The form C4's question now stands in: clause by clause,
      the continuation one condition over four interiors, tension and matter read at statistics' rank over the population,
      survival built in -- 1 on every clause at every lawful order (2 and 3, the top), every ordering and orientation.
+     [Item 310: C4 one-way verified -- CONFIRMED with qualifications.  Seated in c4_residue (R1, R3-R9, R11, R12, and
+     R13, the face a route leaves by), here at P1, P4, P15, P18 and P19, in tau_share (T2, T4) and b_bounce (Q1, Q5);
+     the record is item 310.  The verifier's (4) on this form: on every clause the agreement is the entered value read
+     back, adding nothing to E7, to 300 (b), to the vacuum reading or to b_interior B6 (c4_residue R12's note).]
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
   - The plane's solved shape under the flux: P14 is the junction's static-frame component.
   - The quantum region's duration (b_bounce Q3 is the two-way object's; item 277), as c5_oneway.
+  - [Item 310] Which face the README leaves the white-hole interior by: a body crossing R6's t-independent core leaves
+    opposite the gluing map's image of our face; the README on b_bounce Q5's reading leaves as its own image, through a
+    quantum region of Haggard and Rovelli's kind, which nothing here models (c4_residue R13).
+  - [Item 310, outside the claim, the verifier's] G5 under the 2 : 1 bulk: the zero mode gives 1/G4 = (ell_1 +
+    ell_2)/(2 G5), so G5 = (3/2) G ell over both sides, or G ell/2 over ours alone (276 (a)), not G ell -- an O(1)
+    change at flat order in r_h, E and P5's 0.29, which R8 does not carry; M1's clauses are unaffected.
 
 Imports m1_small.py, c1_oneway.py, e_positive.py, hold_small.py, p2_gravity.py, b_interior.py, index_audit.py,
 calculator.py, tau_share.py, c4_residue.py, research/warp-drive/hlaw.py and tools/cypher.py by path.  Stdlib + sympy.
@@ -1359,7 +1388,7 @@ def checks(o):
     ok &= all(g == t for g, t in mc["control"].values())
     add("P20 the channel reading (302 (b)): the top order 1, 1, 1 under every code; each interior as the question returns "
         "its own answers", ok)
-    add("P22 the residue closed (c4_residue R0-R11, item 307)", len(o["rs"]["checks"]) == 12 and
+    add("P22 the residue closed (c4_residue R0-R11, item 307; R13, item 310)", len(o["rs"]["checks"]) == 13 and
         all(o["rs"]["checks"].values()))
     return res
 
