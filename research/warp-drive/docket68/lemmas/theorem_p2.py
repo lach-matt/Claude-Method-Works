@@ -42,6 +42,8 @@ conversation by three lenses; not verified by a separate session; not seated bey
        reached by a law.  139 (1)'s plane: 2m and 2N on the per-sheet count.
      - B5px's normal half at the pin, (summed tension) + delta sigma_2 + rho1 + rho2 >= 0: met by every positive
        candidate (summed tension +2 sigma, offset ours, matter ordinary); undecided for 139's plane, offset unstated.
+       [Item 322: 139 (1)'s plane's offset is derived in p2_offset V5-V6 -- 2.625e-10 J/m^3, half ours, from the one
+       induced metric of the coincidence; summed tension +3 sigma/4 there, so this half is met too.  Kept as written.]
   TD (computed; M's answer, item 226) Position 2's plane.
      - Seven theorem rows rest on 139 (1)'s negative plane (found in the instrument's own text): H2tx, O3, B4d, B5px,
        B6, M1P2x, FAR.  O3's and B4d's are plane-carried stage readings, set aside for M's configuration by item 179.

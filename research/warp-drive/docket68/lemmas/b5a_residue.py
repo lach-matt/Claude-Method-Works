@@ -48,10 +48,12 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      positive if and only if delta sigma_2 > -sigma/4 - delta sigma_1/2 = -3.7e52 J/m^3, the strictest of the four
      (computed; the summed reading needs delta sigma_2 > -3 sigma/4 - delta sigma_1).  So B5a holds for every position 2
      whose offset exceeds -sigma/4 - delta sigma_1/2: every positive plane (226), and 139 (1)'s plane when its own offset
-     does, which no ruling gives -- the one question put to M.  Where the README lands its density exceeds sigma/4 (E7)
-     and only adds.  B5a does not turn on tau or on which side carries what: 310 (7) is closed for it.  On position 2's
-     side it holds on every ray of the plane, not only where the README lands (b5a_oneway B2), because the side total
-     carries sigma/2 > 0 of tension (tau_share T4).
+     does, which no ruling gives -- the one question put to M.  [Item 322: M sent the board to the vacuum decay boundary
+     and the Higgs mass; the offset is derived, x+ = d1/2 - 3 d1^2/(2 sigma) = 2.625e-10 J/m^3 from the one induced
+     metric (p2_offset V5-V6), so B5a holds for 139 (1)'s plane too, to be overruled by M.]  Where the README lands its
+     density exceeds sigma/4 (E7) and only adds.  B5a does not turn on tau or on which side carries what: 310 (7) is
+     closed for it.  On position 2's side it holds on every ray of the plane, not only where the README lands (b5a_oneway
+     B2), because the side total carries sigma/2 > 0 of tension (tau_share T4).
   A3 (computed, exact; READ where marked; deduced where marked) The one-way reading on one induced metric (310's note).
      On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our lone plane's,
      H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 =
