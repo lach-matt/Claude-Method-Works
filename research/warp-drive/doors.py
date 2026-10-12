@@ -25,6 +25,16 @@ DOOR ONE -- OUTSIDE GR.  INVESTIGATED.
 apply.py could only say "f(R), noncommutative geometry".  Here is what is
 actually there, and it is more than the tree assumed.
 
+[Item 327, docket68/lemmas/sgb_cone.py -- a finding recorded, nothing here
+repaired.  Einstein-dilaton-Gauss-Bonnet fails relativity's light-cone test
+(docket68 relativity.py U6): for every coupling with f' != 0 -- the dilaton's
+e^(-phi) has f' != 0 everywhere -- a plane gravitational wave, an exact
+solution, carries one graviton-scalar front outside the light cone, for
+either sign of f'.  The Kanti-Kleihaus-Kunz wormholes below live in that
+theory.  f(R)'s field equations are fourth order, outside U4's law
+(Lovelock: Einstein's alone in four dimensions).  The rows below stand as
+found.]
+
   THE SOLUTIONS EXIST AND THEY NEED NO EXOTIC MATTER.
   Kanti, Kleihaus & Kunz (PRL 107, 271101; arXiv:1108.3003) construct
   traversable wormholes in FOUR-DIMENSIONAL Einstein-dilaton-Gauss-Bonnet
@@ -195,6 +205,8 @@ LANGUAGES = ("order", "geometry", "algebra", "information", "statistics")
 
 # ------------------------------------------------ door one: outside GR
 
+# [Item 327: EdGB fails relativity's light-cone test for every f' != 0
+#  (docket68/lemmas/sgb_cone.py); the citations are left as found.]
 EDGB_SOLUTIONS = ("1108.3003", "Kanti, Kleihaus & Kunz: 4D traversable "
                                "wormholes with NO exotic matter")
 EDGB_INSTABILITY = ("1804.11170", "Cuyubamba, Konoplya & Zhidenko: unstable "

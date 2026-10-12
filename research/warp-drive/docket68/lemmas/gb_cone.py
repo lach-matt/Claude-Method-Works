@@ -88,6 +88,7 @@ What this does not claim.
   - That no world could hold an infinite tower of higher spins: only that the record holds none.
   - The four-dimensional scalar-Gauss-Bonnet branch of currency.py and doors.py: a scalar coupled to the
     Gauss-Bonnet density, another theory, not evaluated here; the same test applies to it and is not run.
+    [Item 327: run in sgb_cone.py -- it fails, for every coupling with f' != 0.]
   - RTW's hyperbolicity results beyond the cones used.
 
 Imports nothing from the record but the rulings file and relativity.py's text.  Stdlib + sympy.
