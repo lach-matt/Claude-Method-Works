@@ -7,6 +7,13 @@ half-horizons as if the corridor ran both ways; this instrument populates the on
 conversation (computed with sympy, exact where marked; deduced where marked; the cypher run and audited; not verified by
 a separate session; not seated); 2026-10-11.
 
+[Item 272's owed items, worked 2026-10-12 after M's "Not yet, we have to close everything that is still owed": (b) the
+interior's continuation -- b_interior.py (Penrose) and, under item 273's quantum bounce, b_bounce.py; (c) the junction's
+ends and (a) the white-hole blueshift -- c_junction.py (position 2's face open at most 33.6 clocks; the bounce
+asymmetric); (d) eternal versus evaporating -- d_evap.py (the hole bounces 4.4e7-1.2e10 times sooner than it
+evaporates); (e) the proof 139 (2) orders -- e_positive.py (positive with expansion only where the warp decays on every
+side; with like sides, rho_m > sigma/4).  O6 and the list below are kept as written.]
+
   O0 (read) M's item-270 and item-132 words, verbatim in the rulings file.
   O1 (computed, exact) The one object is one null surface.  With U = -e^(-kappa (t - r*)), V = e^(kappa (t + r*)) the
      Killing field is xi = kappa (-U d_U + V d_V); on U = 0 it is kappa V d_V.  So U = 0 carries both of O1a's views:
