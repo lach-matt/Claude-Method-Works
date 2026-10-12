@@ -52,6 +52,25 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      board's question that followed ("Put the question to me again"), and returned no verdict -- C1 one-way is not
      verified.  And K6 is the index reading item 286 set aside: C1's question is owed through the calculator, as C4's
      was (c4_oneway P8-P13).]
+  K7 (computed; calculator.py, items 286-302; the encoding the board's, 192, in the form C4's question settled,
+     c4_oneway P13-P20) C1's question through the calculator: does C1 hold on the one-way object as built -- the
+     quantum bounce, P2 at -sigma/4, the README where it lands?  Clause by clause (291's form), the clauses of C1 that
+     vary across the configurations: (B) the bulk vacuum (b_interior B5; C4's (a), kept from C1), K2 the one-way faces
+     -- the interior opening into position 2 (b_interior's one_way) -- and K3-K4 a complete, regular route (B6; C4's
+     (b)/(e)).  The rest (H2-H7, outside the hole) hold in every configuration and vary with none.  The conditions: the
+     continuation by its own two clauses, NEC holding and README-only, all four interiors entered (c4_oneway P20); P2's
+     tension and matter in every clause, read at statistics' rank (P13), over the population (295) -- C1's clauses
+     depend on neither, so every (tension, matter) class carries each interior's own answers.  By interior, (B, K2,
+     K3-K4): the singular (1, 0, 0), the inner horizon (1, 1, 0), the quantum bounce (1, 1, 1), the shell (0, 1, 1).
+     Orders 2 and 3: each clause 1, lawful, and logic joins 1 -- C1 holds.  Under all 24 codes order 3 decides 1, 1, 1
+     in every one and order 2 in 22 (the other 2 put the quantum bounce and the shell on a diagonal, leaving K3-K4
+     open).  Order 4: the operator refuses all three, each a binary communication (302) -- (B) carried by README-only
+     (the shell its neighbour), K2 and K3-K4 by NEC (the singular interior its neighbour); under the channel reading
+     (c4_oneway P20) 1, 1, 1 in every code, and each interior entered as the question returns its own three clauses.
+     The continuation alone, without tension and matter, refuses all three at orders 1 and 2: the quantum bounce's
+     clauses do not follow from the other three interiors' -- what decides them is the quantum bounce's own other
+     configurations, which the population of tensions and matters supplies (293: they stay in the question).  So the
+     cypher agrees, in C4's form, at every lawful order -- the condition 283 set for the verifier.
 
 What this does not show.
   - The bounce's quantum region as a metric (b_bounce's "does not show"); K3 uses its join, not its interior.
@@ -59,11 +78,13 @@ What this does not show.
     region, c_junction J3).
   - C4, C5 and C7 re-posed: the next instruments, in that order (282 (b)).
 
-Imports localized_hole.py, j_readings.py, c_junction.py and i_oneway.py by path.  Stdlib + sympy.
+Imports localized_hole.py, j_readings.py, c_junction.py, i_oneway.py, and for K7 c4_oneway.py, calculator.py,
+b_interior.py and research/warp-drive/hlaw.py, by path.  Stdlib + sympy.
 python3 c1_oneway.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
+from collections import Counter
 import itertools
 import io
 import os
@@ -205,10 +226,77 @@ def _load_path(path, key):
     return mod
 
 
-def compute():
+_K7 = {}
+CLAUSES1 = ("B", "K2", "K34")
+INTERIORS = ["singular", "inner", "quantum", "shell"]
+
+
+def calc_question():
+    """K7: C1's question through the calculator, in the form C4's question settled (c4_oneway P13-P20)"""
+    key = tuple(sorted(k for k in MUT if k.startswith("k7_")))
+    if key in _K7:
+        return _K7[key]
+    C4 = _load("c4_oneway.py", "c1o_c4")
+    if MUT.get("k7_channel_off"):
+        C4.MUT["channel_off"] = True                        # the mutant: continuation bits held to the one-flip rule
+    CA = _load("calculator.py", "c1o_calc")
+    HL = _load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c1o_hl")
+    BI = _load("b_interior.py", "c1o_bi")
+    cells = BI.cells()
+    inter = {"singular": cells[(0, "none", "ours")], "inner": cells[(1, "none", "pos2")],
+             "quantum": cells[(0, "quantum", "pos2")], "shell": cells[(0, "shell", "pos2")]}
+    vals = {"B": {k: int(k != "shell") for k in INTERIORS},         # the bulk vacuum (b_interior B5; C4's (a))
+            "K2": {k: inter[k]["one_way"] for k in INTERIORS},       # the interior opens into position 2
+            "K34": {k: inter[k]["complete"] for k in INTERIORS}}     # a complete, regular route (B6; C4's (b)/(e))
+    if MUT.get("k7_singular_opens"):
+        vals["K2"]["singular"] = 1                          # the mutant: the singular interior given a face in position 2
+    own = {k: (inter[k]["nec"], inter[k]["readme_only"]) for k in INTERIORS}
+    pop = not MUT.get("k7_no_population")
+    views = dict(order=(0, 1), algebra=(0, 1), geometry=(0, 1), information=(0, 1),
+                 statistics=(0, 1, 2, 3) if pop else (0, 1))
+
+    def known(cl, cm, q):
+        rows = []
+        for kk in INTERIORS:
+            for t, m in (itertools.product((0, 1), repeat=2) if pop else [(1, 1)]):
+                if (kk, t, m) == q:
+                    continue
+                rows.append(cm[kk] + ((t, m) if pop else ()) + (vals[cl][kk],))
+        return rows
+
+    def run(code, k, q="quantum", rule=False):
+        cm = dict(zip(INTERIORS, code))
+        at = cm[q] + ((1, 1) if pop else ())
+        names = ["c1", "c2", "t", "m"] if pop else ["c1", "c2"]
+        if rule:
+            return tuple(C4._channel_rule(known(cl, cm, (q, 1, 1)), at) for cl in CLAUSES1), True
+        rs = [C4._staged(CA, HL, names + [cl], known(cl, cm, (q, 1, 1)), at, views, k) for cl in CLAUSES1]
+        return tuple(r["answer"] for r in rs), all(r["lawful"] for r in rs)
+
+    ownc = tuple(own[k] for k in INTERIORS)
+    codes = list(itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 4))
+    out = dict(vals=vals, own=own, ownrun={k: run(ownc, k) for k in (1, 2, 3, 4)},
+               all={k: Counter(run(c, k)[0] for c in codes) for k in (2, 3, 4)},
+               rule=run(ownc, 4, rule=True)[0], allrule=Counter(run(c, 4, rule=True)[0] for c in codes),
+               control={q: (run(ownc, 4, q=q, rule=True)[0], tuple(vals[cl][q] for cl in CLAUSES1)) for q in INTERIORS})
+    C4.MUT.clear()
+    # the continuation alone, no tension or matter: what the cypher can say of the quantum bounce from the other three
+    v3 = dict(order=(0, 1), algebra=(0, 1), geometry=(0, 1), information=(0, 1), statistics=(0, 1))
+    cm = dict(zip(INTERIORS, ownc))
+    out["alone"] = {k: tuple(C4._staged(CA, HL, ["c1", "c2", cl], [cm[kk] + (vals[cl][kk],) for kk in INTERIORS
+                                                                   if kk != "quantum"], cm["quantum"], v3, k)["answer"]
+                             for cl in CLAUSES1) for k in (1, 2)}
+    _K7[key] = out
+    return out
+
+
+def compute(light=False):
     k = kept()
     rt = route()
-    return dict(k=k, f=faces(), rt=rt, rg=regular(k), oi=order_index(rt))
+    o = dict(k=k, f=faces(), rt=rt, rg=regular(k), oi=order_index(rt))
+    if not light:
+        o["cq"] = calc_question()                           # instruments that cite K1-K4 alone may skip it
+    return o
 
 
 def report(o):
@@ -231,6 +319,16 @@ def report(o):
           "through <= to: %s" % (len(oi["pairs"]), oi["upper"], oi["pairs_degenerate"], len(oi["held"]), oi["chains"]))
     print("   E %s; degenerate %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
         oi["E"], oi["degenerate"], oi["langclose"], oi["agreeing"], oi["audit"]["keys"], oi["audit"]["onehot"]))
+    if "cq" in o:
+        cq = o["cq"]
+        print("K7 C1's varying clauses by interior: %s; the continuation's own clauses (NEC holds, README-only): %s" % (
+            cq["vals"], cq["own"]))
+        for k in (1, 2, 3, 4):
+            print("K7 order %d, own code: %s (lawful %s)%s" % (k, cq["ownrun"][k][0], cq["ownrun"][k][1],
+                                                            "; all 24 codes %s" % dict(cq["all"][k]) if k > 1 else ""))
+        print("K7 the channel reading at order 4: own %s; all 24 %s; control %s" % (cq["rule"], dict(cq["allrule"]),
+                                                                                  cq["control"]))
+        print("K7 the continuation alone, orders 1-2: %s" % cq["alone"])
 
 
 def checks(o):
@@ -258,13 +356,32 @@ def checks(o):
     ok &= not oi["audit"]["keys"] and not oi["audit"]["onehot"]
     add("K6 the passage's causal order is the 28 pairs from <= to, none back; its 84 routes from <= through <= to; the "
         "five languages agree at E = 0, not degenerate, langclose holds, audit clean", ok)
+    if "cq" not in o:
+        return res
+    cq = o["cq"]
+    ok = cq["vals"] == {"B": {"singular": 1, "inner": 1, "quantum": 1, "shell": 0},
+                        "K2": {"singular": 0, "inner": 1, "quantum": 1, "shell": 1},
+                        "K34": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}}
+    ok &= cq["ownrun"][2] == ((1, 1, 1), True) and cq["ownrun"][3] == ((1, 1, 1), True)
+    ok &= cq["all"][3] == Counter({(1, 1, 1): 24}) and cq["all"][2] == Counter({(1, 1, 1): 22, (1, 1, "both"): 2})
+    ok &= cq["alone"][1] == cq["alone"][2] == ("refused",) * 3
+    add("K7 C1's question through the calculator, clause by clause in C4's settled form: (B), K2 and K3-K4 each 1 at "
+        "orders 2 and 3, logic joining 1 -- C1 holds; lawful; the continuation alone refuses -- the quantum bounce's "
+        "own other configurations decide", ok)
+    ok = cq["ownrun"][4] == (("refused",) * 3, True) and cq["rule"] == (1, 1, 1)
+    ok &= cq["allrule"] == Counter({(1, 1, 1): 24}) and all(g == t for g, t in cq["control"].values())
+    add("K7 at order 4 the operator refuses all three, each a binary communication; the channel reading (302) gives 1, "
+        "1, 1 under every code, and each interior as the question returns its own clauses", ok)
     return res
 
 
 MUTANTS = {"opens_at_bifurcation": "our face opened at U = V = 0",
            "white_open_long": "position 2's face kept open for ever",
            "slice_route": "the eternal slice's join of the exteriors restored",
-           "reverse_edge": "a way back from position 2's exterior to ours"}
+           "reverse_edge": "a way back from position 2's exterior to ours",
+           "k7_no_population": "C1's question without tension and matter, the continuation alone (K7)",
+           "k7_singular_opens": "the singular interior given a face in position 2 (K7)",
+           "k7_channel_off": "the continuation bits held to the one-flip rule (K7)"}
 
 
 def selftest():

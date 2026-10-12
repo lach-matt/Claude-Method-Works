@@ -358,7 +358,7 @@ def equator():
 
 def c1_parts():
     C1 = _load("c1_oneway.py", "c4o_c1")
-    res = {n.split()[0]: ok for n, ok in C1.checks(C1.compute())}
+    res = {n.split()[0]: ok for n, ok in C1.checks(C1.compute(light=True))}
     return {k: res[k] for k in ("K1", "K2", "K3", "K4")}
 
 
