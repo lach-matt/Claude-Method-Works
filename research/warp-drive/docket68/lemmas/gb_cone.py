@@ -10,6 +10,9 @@ where marked; not verified by a separate session; not seated); 2026-10-12.
   C0 (read) The words this rests on: M's item 326 and the caveat it quotes, verbatim in the rulings file; 256, "The
      corridor is the brane hole whose horizon holds N bits"; 254, the record's hole verified Ricci-flat with
      "Kretschmann 72 r_h^4/r^8"; and relativity.py U6, where "gravity itself" "keeps the light cone in every frame".
+     [Item 332 (C10 (Q1)): the two U6 fragments are one sentence's, spliced. What U6 proves of gravity's cone is U2's --
+     flat space's boost invariance and GW170817's near-flat one speed -- not that a curved background's characteristic
+     cones are g's null cone; that is M's M-ONE-LIGHT-CONE (328), on which C7 rests.]
   C1 (computed, exact) The instrument.  The Lovelock tensors written with the generalised Kronecker delta in a
      five-dimensional orthonormal frame: Einstein's G = -(1/4) delta^(3) R, Gauss-Bonnet's H = -(1/8) delta^(5) R R,
      the bulk's law E = G + Lambda + alpha H.  Checked against the record and the literature before it is used: the
@@ -24,6 +27,7 @@ where marked; not verified by a separate session; not seated); 2026-10-12.
      the test is the vanishing of a determinant, computed here as a polynomial in xi_0.  It does not depend on which
      complement of the gauge directions carries it: transversality without its trace term gives every cone unchanged
      (computed, the instrument's first mutant run, which that change did not fail).
+     [Item 332 (C10 (Q9)): transversality, RTW's eq. (3.11), is their section 3.1, not 3.3.]
   C2 (computed, exact; READ) Einstein's law: gravity keeps the light cone.  At alpha = 0 the determinant vanishes only
      at xi_0^2 = |xi|^2 -- null fronts, on any background.  RTW (READ): "For the Einstein equation, a hypersurface is
      characteristic if, and only if, it is null: 'gravity travels at the speed of light'".
@@ -50,6 +54,10 @@ where marked; not verified by a separate session; not seated); 2026-10-12.
      least one positive omega_I and so this outermost cone lies outside the light cone", READ).  On the bulk's AdS
      (computed pointwise): the wave solves the law with Lambda = -6 k^2 (1 - 2 alpha k^2), and every omega is divided
      by 1 - 4 alpha k^2, positive throughout relativity U4's range -- the same fan.
+     [Item 332 (C10 (Q3)): positive on U4's open range only. On the stable branch 1 - 4 alpha k^2 = sqrt(1 - 8 alpha
+     k_CD^2) (computed, C10), which vanishes at U4's endpoint 8 alpha k1^2 = 1, where the linearised graviton
+     degenerates; the Boulware-Deser route needs m > 0 and the exterior to exist, and at s = 0 gives A = 0, c_T = 3,
+     still above 1. "For either sign" holds for every alpha != 0 in the existence range.]
   C6 (READ) The same from scattering.  Camanho, Edelstein, Maldacena and Zhiboedov (arXiv:1407.5597, READ: abstract,
      sections 1, 2.4, 4.4 and 8; the rest not read): a graviton crossing a shock wave in Gauss-Bonnet theory gets a
      time advance -- "by choosing different polarizations we can get time advance for b^2 ~ |lambda_GB| for any sign
@@ -59,6 +67,11 @@ where marked; not verified by a separate session; not seated); 2026-10-12.
      The record holds no such tower: what can exist is relativity U1's list -- particles, scalar and gauge fields,
      vacuum, tension, geometry, information (read) -- and a tower would take the bulk's law outside Lovelock's
      premises (local, second order), which U4 used (deduced).
+     [Item 332 (C10 (Q2)): CEMZ constrain alpha >> l_p^2 only -- "For alpha >> l_p^2, we will show that the theory is
+     not causal"; of order-one coefficients "we have nothing to say" -- and at tree level ("mended only by" dropped it).
+     U4's estimate puts alpha at the five-dimensional Planck scale, outside their reach, and RTW's plane-wave fronts are
+     local, not an asymptotic-causality violation. So C6 corroborates for |alpha| >> l_P5^2 only; C4, C5 and C7 do not
+     use it.]
   C7 (deduced) The object, and alpha.  Relativity U6 (item 324, M's statement proved): everything that can exist,
      gravity itself included, keeps the light cone.  The bulk can carry gravity's own waves (U6; bulkwarp W7's bulk
      gravitational waves) and holds the record's hole (256; 254's Kretschmann is not zero, so its Weyl is not).  On
@@ -66,6 +79,10 @@ where marked; not verified by a separate session; not seated); 2026-10-12.
      alpha = 0 keeps every front null (C2).  So alpha = 0 exactly, from relativity, without B6' and without 201.
      Item 325's caveat dissolves: B6' and k_R = k_L/2, written in Einstein's theory, are written in the bulk's law, and
      gb_alpha.py's B2-B3 become a second route to the same value -- 201's definitions agree with relativity.
+     [Item 332 (C10 (Q1), (Q4)): "from relativity" reads "from relativity under M-ONE-LIGHT-CONE (328)" -- with 328 the
+     deduction is valid, without it U6 does not reach curved backgrounds. And the split is computed on the families used
+     (the static pair-diagonal bulks, the type N waves) and is generic (RTW: "generically non-null"), not proved
+     wherever the Weyl curvature is not zero; the record's hole and gravity's own wave are both in those families.]
   C8 (read; deduced) The other candidates, and why each is not the object.  B6''s coefficient (gb_alpha B2): exact
      only as 201's definition.  k_R = k_L/2: the ratio is item 200's count ("Once: k_R = k_L/2"), but the flatness
      relation that turns it into a curvature is the junction's, which moves with the law (gb_alpha B3).  Clause (H)'s
@@ -74,9 +91,23 @@ where marked; not verified by a separate session; not seated); 2026-10-12.
      spherical horizon -- standard, not READ).  GW170817's one speed (relativity U2) is measured on our plane, which
      no bulk front of C4 or C5 crosses, and bounds rather than fixes.  The holographic bounds on lambda_GB (RTW's refs
      [4]-[8], NAMED-NOT-READ) assume a dual field theory the record does not have, and bound.
+     [Item 332 (C10 (Q9)): "which no bulk front of C4 or C5 crosses" is unsupported -- bulkwarp W7 has bulk waves
+     reaching the plane through E; nothing rests on it.]
   C9 (the cypher NOT-RUN, stated) Which object fixes alpha is a theorem about the law, not a choice among
      configurations; an index of candidates over (exact, free of Einstein's theory, in the record) would carry the
      answer as the conjunction of its own columns, a key (211), as gb_alpha B6 found.  Not run, and said.
+  C10 (item 332; the C9 verifier's report -- CONFIRMED with qualifications, no sub-claim refuted -- checked by the
+     critic in conversation and seated; computed where marked, READ where marked). Every formula and figure of C1-C5
+     re-derived with independent code (the Lanczos tensor in Ricci and Riemann contractions, Boulware-Deser solving the
+     law at kappa = 1 and 0 with 2 alpha and -alpha failing, the symbol from the explicit E_ab in a temporal gauge, the
+     tensor cone by direct linearisation, the pp-wave's and Siklos AdS wave's omegas -- the latter divided by 1 - 4
+     alpha k^2 exactly, stronger than C5's pointwise check); RTW's and CEMZ's quotations verbatim. (Q1) C7's "from
+     relativity" is "under M-ONE-LIGHT-CONE (328)"; C0 splices U6. (Q2) C6 holds for |alpha| >> l_P5^2 only, at tree
+     level. (Q3) C5's divisor is sqrt(1 - 8 alpha k_CD^2) on the stable branch, zero at U4's endpoint (computed below).
+     (Q4) The split is proved on the families computed and generic per RTW, not wherever the Weyl curvature is non-zero.
+     (Q5) Item 327's "every f' != 0" holds where V(phi_0) = V'(phi_0) = 0 -- V = 0 covers both cited theories; carried
+     in sgb_cone. (Q9) C8's crossing remark unsupported; RTW's eq. (3.11) is section 3.1; 327's "symmetric about it" is
+     true of omega, equivalently 1/xi_0^2, not of xi_0^2. alpha = 0 stands, under 328.
 
 What this does not claim.
   - That gravity has been seen to leave the light cone, or not, in a bulk: the effect at alpha != 0 near a hole is
@@ -86,10 +117,13 @@ What this does not claim.
     at every point of every background that can exist, gravity's included; M's to overrule.  Read only as causality
     seen from far away (C6's asymptotic causality), the record's content gives the same.  [Item 328: the reading is
     confirmed by M (M-ONE-LIGHT-CONE).]
+    [Item 332 (C10 (Q2)): "the record's content gives the same" overstates -- under asymptotic causality alone (CEMZ,
+    alpha >> l_p^2, tree level) alpha = 0 is not established for smaller |alpha|; under 328's reading it is.]
   - That no world could hold an infinite tower of higher spins: only that the record holds none.
   - The four-dimensional scalar-Gauss-Bonnet branch of currency.py and doors.py: a scalar coupled to the
     Gauss-Bonnet density, another theory, not evaluated here; the same test applies to it and is not run.
     [Item 327: run in sgb_cone.py -- it fails, for every coupling with f' != 0.]
+    [Item 332 (C10 (Q5)): on backgrounds with V(phi_0) = V'(phi_0) = 0, which V = 0 -- both cited theories -- gives.]
   - RTW's hyperbolicity results beyond the cones used.
 
 Imports nothing from the record but the rulings file and relativity.py's text.  Stdlib + sympy.
@@ -341,8 +375,25 @@ def typeN(ads):
     return dict(solves=solves, omegas=om)
 
 
+def c10():
+    """C10 (item 332 (Q3)): C5's divisor on the stable branch, against relativity U4's range -3/8 < alpha k^2 <= 1/8"""
+    a, kc = sp.symbols("alpha k_CD", positive=True)
+    s = sp.sqrt(1 - 8 * a * kc ** 2)
+    q = (1 - s) / (4 * a)                                           # the bulk's curvature squared (gb_alpha B1)
+    div = sp.simplify(1 - 4 * a * q - s)                            # 1 - 4 alpha k^2 against sqrt(1 - 8 alpha k_CD^2)
+    lam = sp.simplify(-6 * q * (1 - 2 * a * q) + 6 * kc ** 2)       # C5's Lambda = -6 k^2 (1 - 2 alpha k^2) = -6 k_CD^2
+    x = sp.Symbol("x", real=True)                                   # x = alpha k_CD^2
+    sv = sp.sqrt(1 - 8 * x)
+    inside = [sp.Rational(-3, 8) + sp.Rational(1, 100), sp.Rational(-1, 10), sp.Rational(1, 20), sp.Rational(1, 8)
+              - sp.Rational(1, 1000)]
+    if MUT.get("endpoint_open"):
+        inside.append(sp.Rational(1, 8))                            # the mutant: U4's endpoint counted as positive
+    return dict(div=div, lam=lam, positive=all(sv.subs(x, v) > 0 for v in inside),
+                at_end=sv.subs(x, sp.Rational(1, 8)))
+
+
 def compute():
-    return dict(hole=hole(), wave=typeN(False), wave_ads=typeN(True))
+    return dict(hole=hole(), wave=typeN(False), wave_ads=typeN(True), c10=c10())
 
 
 def report(o):
@@ -397,13 +448,18 @@ def checks(o):
         any(sp.simplify(p[0] - v / (1 - 4 * al * k ** 2)) == 0 and p[1] == mu for p in wa["omegas"])
         for v, mu in ((8 * al * eps, 1), (4 * al * eps, 2), (-8 * al * eps, 2)))
     add("C5 on the bulk's AdS the wave solves the law and each omega is divided by 1 - 4 alpha k^2", wa_ok)
+    c = o["c10"]
+    add("C10 (item 332 (Q3)): on the stable branch 1 - 4 alpha k^2 = sqrt(1 - 8 alpha k_CD^2), Lambda = -6 k_CD^2; "
+        "positive on U4's open range, zero at its endpoint alpha k_CD^2 = 1/8 (the graviton degenerate there)",
+        c["div"] == 0 and c["lam"] == 0 and c["positive"] and c["at_end"] == 0)
     return res
 
 
 MUTANTS = {"gb_double": "the Gauss-Bonnet term of the symbol doubled against the field equation (C1)",
            "riem_sign": "the radial tidal curvature K1 with the wrong sign (C3)",
            "einstein_half": "Einstein's part of the symbol halved against the Gauss-Bonnet part (C1)",
-           "ads_sign": "the bulk's AdS curvature given de Sitter's sign (C5)"}
+           "ads_sign": "the bulk's AdS curvature given de Sitter's sign (C5)",
+           "endpoint_open": "U4's endpoint alpha k^2 = 1/8 counted inside C5's positive range (C10; item 332 (Q3))"}
 
 
 def selftest():

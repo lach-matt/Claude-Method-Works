@@ -53,6 +53,11 @@ constant f being topological in four dimensions.  The pure-curvature
 branch's theories have field equations beyond second order in four
 dimensions, outside U4's law, and the five-dimensional Gauss-Bonnet coupling
 is zero (item 326, gb_cone.py).  The gates below stand as found.]
+[Item 332, the C9 verifier (docket68 gb_cone C10, sgb_cone S9): "for every
+coupling with f' != 0" holds on backgrounds with V(phi_0) = V'(phi_0) = 0
+-- every point when V = 0, which this branch's theory has (arXiv:1904.13091,
+no potential); the test on curved backgrounds rests on M-ONE-LIGHT-CONE
+(item 328).]
 
 THE ESCAPE IS THE SAME ESCAPE.  alpha ~ l_P^2 is an EFT EXPECTATION, NOT A
 THEOREM, and it fails exactly for a UV-complete theory with no cutoff to

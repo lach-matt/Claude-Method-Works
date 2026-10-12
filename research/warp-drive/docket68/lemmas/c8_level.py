@@ -94,6 +94,8 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      (326, gb_cone C7; claim C9 at its verifier), so the junction law and Israel's condition are the bulk's law
      exactly; and every front keeps the one light cone (328), so V5 (a)'s causal statement holds for every front --
      which, by 319 (Q1), is not what limits the blueshift: the face's open period is (V5 (a)).
+     [Item 332: C9 verified, CONFIRMED with qualifications (gb_cone C10): alpha = 0 under M-ONE-LIGHT-CONE (328) (Q1);
+     nothing else in its verdict bears on C8.]
   V8 (computed) C8's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the attributes the construction's choices -- position 2's tension (139 (1)'s -1/4, or any other: -1/8,
      -10, -1/100, +1/2) and its matter (the README, or any other: 1/2, 20, 0, 1/10, 1/5) -- and each clause of C8 that

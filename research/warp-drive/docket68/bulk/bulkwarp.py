@@ -99,6 +99,7 @@ DEDUCTIONS (each from the premises named)
      bulk, an asymmetric (non-Z2) embedding, and a plane density near |lambda| (the pi term).  Each is OPEN, not a
      result.  [Item 325: the Gauss-Bonnet door is closed on 201's definitions -- alpha = 0 exactly in both bulks,
      lemmas/gb_alpha.py B2-B3.]  [Item 326: closed by relativity itself, lemmas/gb_cone.py C7.]
+     [Item 332 (gb_cone C10 (Q1)): under M-ONE-LIGHT-CONE (328) -- U6 alone does not reach curved backgrounds.]
      NOT doors: the hidden plane's matter and bulk gravitational waves reach our plane only through E
      (Shiromizu-Koyama eq. 33) and drop out of the trace; bounded time-dependent matter (W3).
 

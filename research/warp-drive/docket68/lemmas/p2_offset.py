@@ -85,6 +85,7 @@ separate session; not seated); 2026-10-12.
      positive for every alpha with a bulk vacuum and a positive Newton constant (relativity U4); d1/2 is its value at
      alpha = 0.]  [Item 325: alpha = 0 exactly (gb_alpha.py B2-B3, on 201's B6'), so x+ above is exact as stated, with
      no Gauss-Bonnet factor.]  [Item 326: alpha = 0 also from relativity alone (gb_cone.py C7), without 201.]
+     [Item 332 (gb_cone C10 (Q1)): under M-ONE-LIGHT-CONE (328) -- U6 alone does not reach curved backgrounds.]
   V7 (computed; deduced) The readings M named, against V5.
      (a) Position 2's plane in the Higgs potential's deeper vacuum (across the decay boundary): its offset would lie at
          or below -2.0e108 J/m^3 if the Standard Model holds to the Planck scale -- no root of B = 0, and far below

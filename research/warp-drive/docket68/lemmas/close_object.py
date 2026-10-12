@@ -16,6 +16,12 @@ for a degenerate or non-outer horizon.
      horizons have non-decreasing area form") does not bind it.  Within one universe it is no event horizon (close_flux
      K3), so the area theorem does not bind it either, and positive focusing from theta = 0 shrinks it (K2, computed).
      So the one-universe closing needs no negative null flux: F8's objection is answered
+     [Item 331 (M-UPDATE-STALE-NOW): this O2 is the record's -- eq. (17) at r0 = 2m, warptheorem.py's register through
+     item 247. The corridor's horizon is not extremal (251; rows_small O2s, C7 verified; warptheorem LEMMAS_NOW O2), so
+     the degeneracy this answer rests on is absent: our face is a future outer trapping horizon, Hayward's law binds it,
+     and its closing needs a negative null flux into it -- which Hawking emission supplies, closing the face after the
+     hole's life, 8.57e14 clocks, 1.28e10 times the write (c5_oneway U11 (7)). K3's "no event horizon within one
+     universe" is not re-read here. The CLOSE row's, OPEN (warptheorem LEMMAS_NOW CLOSE). Kept as written.]
   O3 (READ, secondary; the board's reading H-MOUTH-FLUX; computed bookkeeping) the wormhole mouth-mass rule: "if a mass
      M passes through a wormhole mouth, the entrance mouth has its mass increased by M, and the exit mouth has its mass
      reduced by" M (J. Cramer, Analog/Alternate View 69, npl.washington.edu/av/altvw69.html, search excerpt -- the
@@ -168,8 +174,9 @@ def checks(d):
     add = lambda n, ok: res.append((n, bool(ok)))
     add("O1 M's words verbatim in the rulings file: 115 (a) 'It ends; energy moved', 109, 132", all(d["words"].values()))
     g = d["deg"]
-    add("O2 warptheorem O2 is PROVED (extremal, surface gravity 0): degenerate, so Hayward's outer-horizon law does not "
-        "bind; within one universe no event horizon, and positive focusing shrinks the area (close_flux K2, K3)",
+    add("O2 the record's warptheorem O2 (eq. (17), the register through item 247; not the corridor's, item 331) is "
+        "PROVED (extremal, surface gravity 0): degenerate, so Hayward's outer-horizon law does not bind; within one "
+        "universe no event horizon, and positive focusing shrinks the area (close_flux K2, K3)",
         g["o2"] == "PROVED" and g["shrinks"] and not g["one_universe_event"]["event_horizon"]
         and not g["one_universe_event"]["needs_negative"])
     mo = d["mouths"]

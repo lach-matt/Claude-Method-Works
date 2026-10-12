@@ -74,6 +74,10 @@ where marked; estimates labelled; not verified by a separate session; not seated
      fails for alpha != 0 -- gravity's waves then travel on cones split from the light cone wherever the Weyl
      curvature is not zero, one outside it for either sign of alpha (gb_cone.py C4-C5) -- so U6 itself fixes the one
      constant U4 left: alpha = 0, and the law in five dimensions is Einstein's exactly.]
+     [Item 332 (gb_cone C10 (Q1), (Q4); the C9 verifier): what this U6 proves of gravity's cone is U2's -- boost
+     invariance in flat space and GW170817's near-flat one speed; that a curved background's characteristic cones are
+     g's null cone is M's M-ONE-LIGHT-CONE (328), on which alpha = 0 rests. And the split is computed on the static
+     pair-diagonal bulks and type N waves and generic per RTW, not shown wherever the Weyl curvature is not zero.]
   U7 (the cypher NOT-RUN, stated) Universality is proved kind by kind; an index of (kind, Lorentz, couples, falls
      alike) rows would carry 1 in every cell -- a constant column on every axis, from which no language can measure
      anything, and the answer as its own column, a key (211).  Not run, and said.
@@ -84,6 +88,7 @@ What this does not prove.
   - The value of alpha: U4 computes its effect and shows no sign turns on it; the 4e-39 is an estimate.
     [Item 325: evaluated, alpha = 0 exactly on 201's definitions (gb_alpha.py B2-B3); the estimate is withdrawn.]
     [Item 326: and from U6 alone, without 201: gb_cone.py C7.]
+    [Item 332 (gb_cone C10 (Q1)): under M-ONE-LIGHT-CONE (328) -- U6 alone does not reach curved backgrounds.]
   - A kind of thing with no energy and momentum at all: it would act on nothing and carry nothing, and the record admits
     none -- information is energy (101) and the bulk always holds information or matter (320).
 

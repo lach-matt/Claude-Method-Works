@@ -40,6 +40,9 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      exist (relativity.py U1-U6), and the one constant it left the bulk, the Gauss-Bonnet coupling, is zero -- gravity
      itself keeps the light cone (gb_cone.py C7; 328, M-ONE-LIGHT-CONE) -- so Einstein's law is the bulk's exactly and
      this interior is Tangherlini's, not Boulware and Deser's (deduced; claim C9, at its verifier).]
+     [Item 332: C9 verified, CONFIRMED with qualifications, nothing refuted (gb_cone C10). alpha = 0 stands under
+     M-ONE-LIGHT-CONE (328) -- "relativity alone" reads so (Q1) -- and this interior is Tangherlini's as stated; the
+     other qualifications (CEMZ's regime, U4's endpoint, the families computed, sgb's potential) bear on nothing here.]
   Z2b (READ; computed; deduced where marked) The README's own region.  On the object the README is within the hole when
      the faces begin (c5_oneway U11 (1)-(3), U12 (Q4)), and in the construction M chose (273) it is Haggard and
      Rovelli's matter (arXiv:1407.0989, READ): "Spherical shell of null matter: We disregard the thickness of this

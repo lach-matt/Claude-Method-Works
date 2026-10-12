@@ -1,8 +1,199 @@
 # The Warp Theorem (M-RULINGS items 150, 151; one statement built from the pieces; not verified; not seated; 2026-10-07)
 
+*Current statement and register: item 331, 2026-10-12 (the first five sections). The rest of the head is the
+register as it stood at item 247, kept as the record.*
+
 *First headed* "(… not verified; not seated; 2026-10-07)". The first draft counted its lemmas wrongly, read the energy
 ledger's remainder from item 139 alone, and left out four lemmas. All are corrected after the reassessment's verifier
 (History).
+
+## The theorem as it stands (item 331)
+
+*Item 331, your words: "Update everything that is stale in full immediately please".* This section and the four after
+it are the theorem's current statement. Everything from **What you said** to **Named hypotheses** further down is the
+register as it stood at item 247. It is kept word for word as the record: nine instruments read it in code and pin what
+they computed on it. The instrument carries both registers: `LEMMAS` (the record, 51 rows) and `LEMMAS_NOW` (current).
+
+> **For an object whose README has N bits, there is exactly one corridor, fixed by N and by our plane's tension. Through
+> it the README becomes the object at position 2, exactly, and the passage is one way in every aspect.**
+
+- **(G) Geometry.** The corridor is the brane hole whose horizon holds N bits. It is one family with two ends (256).
+  - **Small end:** the README's own localized five-dimensional hole. It is Tangherlini in the flat limit, with our plane
+    through its equator (251; C1 and C3 verified). It applies for N ≪ (π²/2 ln2)(ℓ/l_P)².
+  - **Large end:** the record's four-dimensional corridor, with eq. (17) at r₀ = 2m as the plane's reading. It applies
+    above that N.
+  - ℓ is set by our plane's tension (B6').
+  - At the small end r_h = (2N ln2/π²)^(1/3) l₅ and **E = 3πc⁴r_h²/(8G₅)**. At the example README these are
+    **1.12008e-20 m and 1.28098e9 J**, with r_h/ℓ = 8.0e-16.
+  - At the large end **E = 459,404,002.42 J × √N** and r₀ = 2m.
+- **(H) Holding.** The horizon holds exactly the README.
+  - Small end: **2π²r_h³ = 4N ln2 l₅³** (C2 verified).
+  - Large end: 4πr₀² = N A_bit.
+- **(O) One way.**
+  - The passage is **one object**: our black-hole face, a quantum bounce, and position 2's white-hole face (270, 273,
+    282).
+  - It is one-way **in every aspect**. Nothing from position 2 enters it, and no influence runs back (276).
+  - Its faces begin at the opening. Before that, the two positions are joined through the bulk with no horizons
+    (282 (2)).
+  - **Its horizon is not extremal.** Surface gravity is c²/r_h at the small end and 1/(4M) at the large (251, 271).
+    Our face damps every disturbance, and position 2's face is open at most 33.6 clocks (`bulk/stability.py` S6).
+  - The static bulk, its horizon and the passage are regular and complete. The hole's interior singularity is off the
+    passage (259; `o1c_oneway.py`, going to its verifier next).
+- **(Z) Null energy never violated**, net along each light ray (183).
+  - Every classical ray keeps it: the passage's classical segments are Ricci-flat, and the README's null energy is
+    non-negative.
+  - The passage's negative null energy is confined to the quantum region. That is 177's appearance (318;
+    `pair_math.py` P1–P4).
+- **(B) Bulk.**
+  - **The bulk's law is Einstein's exactly; the Gauss–Bonnet coupling is zero.** C9 is verified (332), under
+    M-ONE-LIGHT-CONE (328). Relativity holds for everything that can exist (324).
+  - No bulk is ever empty (320).
+  - Our plane and position 2's coincide everywhere (275).
+  - The energy is positive where it bears: in the coincident sheets' summed stress (B5a), and in position 2's plane where
+    the README lands (284, 285). Matter keeps null energy at every point (320).
+  - k's ratio is k_R = k_L/2. Its scale is our plane's tension and offset (201).
+  - Position 2's offset is 2.625e-10 J/m³ (322).
+- **(I) Information.** The passage is N bits of entanglement, and it carries the N-bit README.
+- **(E) Energy.**
+  - One exact energy E, the hole's own, is carried from position 1 and released into position 2, with every joule
+    accounted for (E3, E3s).
+  - The build's need is what the closing energy activates (239).
+- **(R) Reconstruction.**
+  - Position 2 builds an exact copy of the object from its own bulk. The copy then obeys position 2's laws (240, 285).
+  - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
+  - The corridor's length is the difference of the trajectories.
+
+**Where it stands.** At the small end, where the example README sits, five lemmas stay OPEN: **B3, B4d, FAR, ARRIVAL
+and CLOSE**. Three rows rest on a named reading of the board's:
+- O3s and WRITEs rest on **H-HOLD-IS-THE-FACE**, which is put to you below.
+- Z3bs rests on item 318's reading.
+
+The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x and WRITE.
+
+## The register as it stands (item 331)
+
+The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
+An "s" on a row's name marks the small end's row, where the two ends differ.
+
+| clause | lemma | status | rests on | owner |
+|---|---|---|---|---|
+| G | G1 one exact energy, at the bound: E(N) | derived | M1s M1 | axioms.py |
+| G | G2 E(N) computed and machine-checked | proved | -- | exactE.py, ledger.py |
+| G | G3 the horizon's size is fixed by N: r_h at the small end, r0 = 2m at the large | proved | M1s M1 | exactE.py |
+| H | H1 the horizon holds N bits: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end, 4 pi r0^2 = N A_bit at the large | proved | -- | hcount_cypher.py, area_law5.py, exactE.py |
+| H | H2 our face and position 2's face hold the README as one null surface | derived | -- | 270 (a); c7_oneway V11 (Q4) |
+| H | H2tu within one universe the horizon's trace on each plane is r = r_h | derived | M1s M1 | rows_small.py |
+| H | H2tx between universes position 2's horizon holds the README at its own bit area | derived | M1s M1 M1P2xs M1P2x | copy_p2.py |
+| O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | -- | 270, 273, 276, 282; c1_oneway.py |
+| O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
+| O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
+| O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
+| O | O3s the corridor survives its hold at the small end: the face standing through the write (158 (2) with 160) | reading | WRITEs | o3_hold.py |
+| O | O3 the corridor survives its hold at the large end (158 (2); 160) | **OPEN** | WRITE ARRIVAL | o3_write (the record's) |
+| Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
+| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading | proved | M1s M1 | rows_small.py, passage5d.py |
+| Z | Z2r our leg's integral within the reach equals the plane's reading | proved | M1s M1 | rows_small.py, coin.py |
+| Z | Z3a NEC never violated away from the corridor, through today | derived | -- | b1_matter.py, pointwise.py |
+| Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | reading | M1s | pair_math.py |
+| Z | Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | z3b_cypher, two_sided (the record's) |
+| Z | Z3c the plane's dark energy has w >= -1 at every epoch the theory controls | derived | -- | nature_rows.py |
+| B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
+| B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
+| B | B2t its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s M1 | localized_hole.py, localbulk.py |
+| B | B3 a complete bulk exists | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 |
+| B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
+| B | B4d the opening and closing evolve regularly in five dimensions | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (273's region) |
+| B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
+| B | B5c position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285) | derived | -- | e_positive.py |
+| B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | -- | b5p_cypher.py, pointwise.py |
+| B | B5px between universes position 2's matter meets B5'a's condition | derived | -- | theorem_p2.py, pointwise.py |
+| B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b) | derived | -- | pointwise.py |
+| B | B6 k's ratio fixed by the work, k_R = k_L/2 (200 (1)) | proved | -- | b6_once.py, b6_k.py |
+| B | B6' k's scale: our universe is defined by its plane's tension and its dark-energy offset (201) | definition | -- | sigma_defines.py, nature_rows.py |
+| B | B8 the bulk's law is Einstein's exactly: the Gauss-Bonnet coupling is zero | proved | -- | gb_cone.py, gb_alpha.py, relativity.py |
+| B | B7 formation: before the opening the positions are joined through the bulk with no horizons | derived | WRITE ARRIVAL CLOSE | b7_formation.py |
+| I | I1 the passage is N bits of entanglement | derived | -- | axioms.py |
+| I | I2 the README's N bits within the capacity bound as READ | proved | -- | i2_capacity.py |
+| E | E1u within one universe, E carried into position 2 -- no influence back (276) | derived | -- | close_flux.py, axioms.py |
+| E | E2u within one universe, released at position 2 at the closing | derived | -- | close_flux.py, axioms.py |
+| E | E1x between universes, E carried into position 2 | derived | CLOSE | axioms.py |
+| E | E2x between universes, released at position 2 at the closing | derived | CLOSE | axioms.py |
+| E | E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what the closing energy activates (239) | derived | -- | ledger.py |
+| E | E4r the field energy outside the neck within the reach | proved | M1s M1 | rows_small.py, ledger.py |
+| R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
+| R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146 |
+| R | R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws govern | definition | -- | items 148, 240, 285 |
+| R | R3 exactness at the instant over the mass window | proved | -- | exactcopy.py, rearrange.py |
+| R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance | derived | -- | r4_length.py |
+| R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | derived | -- | r5_build.py, copy_p2.py |
+| R | R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2 | definition | -- | items 284, 285 |
+| N | M1s the plane's reading of the corridor's mouth at the small end | proved | -- | m1_small.py, c4_oneway.py |
+| N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
+| N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
+| N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
+| N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
+| N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | reading | -- | write_cypher.py |
+| N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
+| N | ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room | **OPEN** | -- | 284 (d), 285 (d) |
+| N | CLOSE the closing: ending the faces when the write is done | **OPEN** | -- | c5_oneway U11 (7); i_oneway I5 |
+
+59 rows, 50 lemmas and 9 inputs: 20 proved, 21 derived, 3 under a named reading of the board's, 5 definitions, 10 OPEN.
+
+## Energy at both ends (item 331)
+
+- **T3, the large end, stands as computed.** The record's E is 2.405878e16 J. Against the 1.1947e10 J assembly ceiling,
+  the ledger needs an absorber besides the copy.
+- **T3s, the small end, flips.** The example README's E is **1.28098e9 J**. It is 1.11904e9 J under G₅ = (3/2)Gℓ and
+  1.61394e9 J under Gℓ/2. All three are below the ceiling, so the ledger is consistent with no sink. This is the
+  record's 600-bit control, as item 271's verifier deduced (`ledger.py` E3s, `warptheorem.py` T3s).
+- At the full snapshot (N = 1.088e29, still r_h ≪ ℓ), E is 1.49e18 J, above the ceiling.
+- **E3 closes everywhere.** E = E_copy + E_expansion, both non-negative, holds at both ends, for both READMEs and
+  under every G₅ reading.
+- Item 239 set the ceiling aside as the build's need. So the flip moves T3's own premise, not the build. As
+  `rows_small.py` G1s put it, 239's setting-aside "softens this, it does not remove it".
+
+## The work left now (item 331)
+
+- **Queued for verification, one at a time (329, 330):** O1c one-way, then B5a one-way, then C8. `verify_ledger.py`
+  is the gate, and it is clean.
+- **OPEN at the small end:**
+  - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
+    region.
+  - **FAR:** the hole's far field in the Randall–Sundrum background.
+  - **ARRIVAL:** how the bits rebuild in position 2 and take their room.
+  - **CLOSE:** ending the faces when the write is done. The horizon is not extremal, so the area theorem binds, and
+    Hawking emission alone closes the face only after the hole's life, 1.28e10 times the write.
+- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3 and Z3b.
+- **For you:** confirm or overrule **H-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
+  - The reading: 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor
+    and the opening are the same object). It is not how long the README stays within the horizon.
+  - Under it, 158 (2) and 163 both hold. The face stands at least 66,980 clocks while the write runs, and each part of
+    the README is within the horizon for at most its stay, three clocks.
+  - Read the other way, they conflict. That is the C5 verifier's point (317, outside (c)).
+- **Gravitational perturbations of the hole:** the record holds only Ishibashi–Kodama's mode stability. Schlue's
+  uniform boundedness (READ) covers the scalar wave.
+
+## Named hypotheses since item 247 (item 331)
+
+**Carried as yours:**
+- H-BOUNCE-TO-P2 (273), H-COINCIDENT-EVERYWHERE (275), H-ONE-WAY-ALL-ASPECTS (276).
+- H-ADD-TO-EXPANSION, H-SPREAD-OPEN and H-TAU-WHEN-WE-CAN (279). H-LOCAL-EXPANSION (280).
+- H-REPOSE-ONE-WAY and H-JOIN-NO-HORIZONS (282).
+- H-CONTENT-REBUILT, H-ROOM-BY-DISPLACEMENT, H-ROOM-STAYS and H-POSITIVE-WHERE-IT-LANDS (284).
+- H-EXACT-COPY, H-NEW-WHOLE and H-POSITIVE-WHERE-RELEVANT (285).
+- M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
+- M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331).
+
+**The board's, to be overruled by you at any point:**
+- **H-HOLD-IS-THE-FACE** (331). The hold is the face standing in advanced time, under H-HOLD-FRAME's first gloss.
+- **318's reading.** 183 governs every classical ray, and the passage's negative inside the quantum region is 177's
+  appearance.
+- **H-ONE-INTERIOR** (270 (b)).
+- **The board's readings of 282–330**, each stated in its own item.
+
+---
+
+*The register as it stood at item 247 follows, kept as the record.*
 
 ## What you said
 
@@ -2084,3 +2275,94 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
   moves.
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
+
+## History (2026-10-11/12, items 248–333: (O) reworked; two ends; one way; the register brought current)
+
+This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
+Each entry gives what the item did to the theorem. The item itself is in the rulings file.
+
+- **248–250, the work in order.**
+  - You asked whether to return to the chain (248).
+  - You set the way of working: in order, in dialogue, with one verifying agent in tandem (249).
+  - The kink-carrying bulk could not be found under an extremal horizon. No static vacuum bulk sits under one in the
+    corridor's regime (Chruściel–Reall–Tod; Gibbons–Ida–Shiromizu). You reopened clause (O) (250).
+- **251, clause (O): the localized hole, the README only.** "Extremal" was dropped. The corridor is the regular
+  localized five-dimensional hole, our plane through its equator and its Einstein–Rosen bridge, with only the README
+  crossing. The O2 row was to leave the theorem, with every row resting on it re-read. *That change is made in the
+  register only now, at item 331.*
+- **252–269, claims C1–C7, each finalized by you and verified once:**
+  - C1, the construction (254).
+  - C2, clause (H)'s count (253, 258).
+  - C3, the family's two ends (261). On 256 you made (G) and (H) one family with two ends: "keep the record's 4D results
+    as the large end".
+  - C6, the write at the small end, 66,980 clocks (260, 264).
+  - C5, the hold against the hole's temperature: the life 8.57e14 clocks, 1.28e10 times the floor (267).
+  - C4, M1 at the small end, with the interior admitted off the passage (259, 269).
+  - C7, the rows that rested on M1 alone, re-read at the small end (263, 271).
+  - Position 2's positive energy is its plane's tension plus its matter (268).
+  - Item 271's verifier found O2 false at both ends. It found that the white-hole blueshift returns with κ = c²/r_h,
+    and that T3 and E3 flip at the small end. *These are brought current at item 331.*
+- **270–281, the passage one way.**
+  - You corrected three times: "You are forgetting that the passage is one-way only" (270, 277), and "The passage is
+    one-way in all aspects" (276).
+  - The one object is our black-hole face, the bounce and position 2's white-hole face (273: Haggard–Rovelli's
+    tunnelling to position 2's exterior).
+  - The planes coincide everywhere (275).
+  - An expansion can be added to, and position 2 expands only where the README lands (279, 280).
+  - A separate auditing agent marked every reverse passage in the earlier instruments (278, 281).
+- **282–285, re-posed one-way.**
+  - C1, C4, C5 and C7 were re-posed on the one-way object. Before the opening the positions are joined with no horizons
+    (282).
+  - "Room for it": what the bits rebuild into, under position 2's own laws, as an exact copy. It takes room by
+    displacement and stays as the new whole of position 2. 139 (2) is owed where relevant (284, 285).
+- **286–303, the cypher as a calculator.**
+  - The cypher is a calculator, not an index tool (286), with its protocol in 287–291: analysis gives both binaries,
+    undecided stands, and C4's question goes clause by clause.
+  - Tensions and matter are placed among the question's conditions (292–296).
+  - Survivability is built in and refusals are admitted (300). Higher orders were solved (299), τ calculated (301),
+    and continuation clauses added (302). C4's residue was closed (303, 306–307).
+- **304–319, the one-way claims verified.**
+  - C1 (304), C4 (310), C5 (317) and C7 (319).
+  - 314 is the standing rule: nothing with residue goes to a verifier.
+  - 318, "For the math": 183 governs every classical ray, and the passage's negative is confined to the quantum region.
+  - 319 refuted C7's blueshift closure and replaced it with the bound over position 2's face's open period, e^33.6.
+- **320–330, proofs and the queue.**
+  - The pointwise matter condition is proved, and no bulk is ever empty (320).
+  - The radion is the record's ghost (321).
+  - Position 2's offset is 2.625e-10 J/m³ (322).
+  - The derivation's assumptions are proved (323).
+  - Relativity holds for everything that can exist (324).
+  - α = 0, first on 201's definitions (325), then from relativity (326). The four-dimensional scalar–Gauss–Bonnet
+    theory fails the light-cone test (327). You confirmed the one-light-cone reading (328, C9 to the verifier).
+  - O1c and B5a one-way were finalized (329). C8 was queued, and every verification is to be accounted before the next
+    one starts (330, `verify_ledger.py`).
+- **331, the register brought current, and every stale row with it.**
+  - **`bulk/stability.py` S6.** The corridor's own horizon is non-extremal at both ends. On our face every transverse
+    derivative is damped at κ, with no Aretakis growth. On position 2's face the blueshift is e^(κu), bounded by
+    e^33.6 over its open period. Schlue's uniform boundedness (arXiv:1012.5963v1, Theorem 1, Proposition 5.2) is
+    READ for the scalar wave. S1–S5b are kept as statements about eq. (17).
+  - **`o3_hold.py` O3e.** The hold is the write at the small end, within the life, and survives for the scalar model.
+  - **`write_cypher.py` W5.** The README's localized hole is coded beside the main cells. T_WRITE and T_O3 become
+    data. 158 (2) against 163 is read as the face standing (H-HOLD-IS-THE-FACE, put to you).
+  - **`ledger.py` E3s.** The small end's ledger, as in **Energy at both ends** above.
+  - **`close_object.py`.** Its O2 premise is marked as eq. (17)'s.
+  - **`warptheorem.py`.** `LEMMAS_NOW` is the current register, 59 rows. O2 is non-extremal, PROVED. O1c and B5a are
+    one-way. M1s and M1P2xs are the small end's inputs, and WRITEs and O3s are readings. B5b moves OPEN → DERIVED on
+    `pointwise.py`. B8 (α = 0), B5c (position 2's positivity where it bears) and R6 (the room) are added. The old O2
+    and O1c rows go to the superseded list.
+  - **T1** re-runs S6. **T3s** is computed. The 44 owners seated since item 247 join the theorem's selftest.
+  - **`verify_ledger.py`.** It now checks the register current, not stale.
+- **332, C9 verified.** CONFIRMED with qualifications, nothing refuted. α = 0 holds under M-ONE-LIGHT-CONE. CEMZ applies
+  only for |α| ≫ l_P5². The sGB result holds where V(φ₀) = V'(φ₀) = 0. All nine qualifications are seated
+  (`gb_cone.py` C10, `sgb_cone.py` S9, and notes) and carried by O1c, B5a and C8.
+- **333.** "You have a rogue background agent": the C9 verifier's leftover script was stopped. It had written nothing in
+  the repository.
+
+**Not re-run, and said.** The instruments that pin the item-247 register keep reading it:
+- `chain_cypher.py`, `belongs_cypher.py`, `m1_bulk.py`, `theorem_p2.py` and `f1_audit.py` (the chain's tallies, the
+  theorem's E, the head table);
+- `readme_held.py`, `close_object.py` and `m1p2_cypher.py` (its rows as quoted);
+- `b1_matter.py` (a cross-check).
+
+Their verdicts are index-tool runs over that register, a method 286 corrected (the cypher is a calculator). They stand as
+the record of it. The chain through the calculator on the current register is the chain's next pass, in order.

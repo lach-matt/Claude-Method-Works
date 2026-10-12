@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """verify_ledger.py -- item 330: "before anything enters verification, the previous verification results need to be
 full accounted so the next object being verified is not left stale by outstanding corrections" (M-ACCOUNT-BEFORE-
-VERIFY).  The ledger of every verification so far -- the verifiers' reports of items 254, 258, 261, 264, 267, 269, 271,
-304, 310, 317 and 319, and the auditing agent's of 281 -- one row per accepted qualification and per note outside a
-claim: where it is seated, and for each object still queued for verification (O1c, B5a, C8; 329-330) whether it is
-carried there, does not bear (with the reason), or is outstanding.  What is outstanding for rows outside the queue is
-listed, not repaired.  The gate for every hand-off from now on: run it before each verifier is sent; a queued object
-with an outstanding row does not go.  Worked in the conversation (the dispositions deduced from the rulings file's
-reports and the instruments' notes, each marker checked against its file; not verified by a separate session);
+VERIFY). The ledger of every verification so far -- the verifiers' reports of items 254, 258, 261, 264, 267, 269, 271,
+304, 310, 317, 319 and 332 [item 332 added], and the auditing agent's of 281 -- one row per accepted qualification and
+per note outside a claim: where it is seated, and for each object still queued for verification (O1c, B5a, C8; 329-330)
+whether it is carried there, does not bear (with the reason), or is outstanding. What is outstanding for rows outside
+the queue is listed, not repaired. The gate for every hand-off from now on: run it before each verifier is sent; a
+queued object with an outstanding row does not go. Worked in the conversation (the dispositions deduced from the rulings
+file's reports and the instruments' notes, each marker checked against its file; not verified by a separate session);
 2026-10-12.
 
   L0 (read) M's item-330 words, verbatim in the rulings file, and each report's header there.
@@ -25,6 +25,13 @@ reports and the instruments' notes, each marker checked against its file; not ve
      verifications, before that row is verified.
   L5 (stated) C9 (items 325-327) is at its verifier; its verdict is accounted here on return, before O1c goes (330
      (a)).
+     [Item 332: returned, CONFIRMED with qualifications; its nine rows are entered above, carried by O1c, B5a and C8
+     where they bear (Q1; B5a also Q5), and the ledger is clean for O1c.]
+  [Item 331 (M-UPDATE-STALE-NOW): L4's three rows outside the queue are brought current -- stability S6, o3_hold O3e
+     and write_cypher W5 (the corridor's own non-extremal horizon), ledger E3s and warptheorem T3s (the small end's
+     ledger), write_cypher W5 (b) (158 (2) against 163, H-HOLD-IS-THE-FACE, put to M) -- and the register with them:
+     warptheorem.py's LEMMAS_NOW and WARPTHEOREM.md's current head and its history through item 333, the item-247
+     rows kept beside them as the record.  L4 now checks the register current, not stale.]
 
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
@@ -49,7 +56,8 @@ QUEUED = {"O1c": "o1c_oneway.py", "B5a": "b5a_residue.py", "C8": "c8_level.py"}
 HEADERS = {254: "254. **Claim C1 verified", 258: "258. **Claim C2 verified", 261: "261. **Claim C3 verified",
            264: "264. **Claim C6 verified", 267: "267. **Claim C5 verified", 269: "269. **Claim C4 verified",
            271: "271. **Claim C7 verified", 281: "281. **The audit before 270", 304: "304. **C1 one-way verified",
-           310: "310. **C4 one-way verified", 317: "317. **C5 one-way verified", 319: "319. **C7 one-way verified"}
+           310: "310. **C4 one-way verified", 317: "317. **C5 one-way verified", 319: "319. **C7 one-way verified",
+           332: "332. **C9 verified"}
 NA = "n/a"
 
 
@@ -190,6 +198,28 @@ ROWS = [
     (319, "outside", "pair_math: P0's attributions, P1's example, P2's 'keeps 183', P3 conditional, P4's name",
      [("pair_math.py", 319)], N("O1c takes P2 and P4's confinement, not P4's name"), NO_B,
      N("C8's (b) takes the confinement, not the name")),
+    # item 332: the C9 verifier's report (items 325-327)
+    (332, "Q1", "alpha = 0 under M-ONE-LIGHT-CONE (328), not U6 alone; C0 and S0 splice U6",
+     [("gb_cone.py", 332), ("relativity.py", 332), ("gb_alpha.py", 332), ("sgb_cone.py", 332),
+      ("../bulk/bulkwarp.py", 332), ("p2_offset.py", 332)],
+     C(O, "alpha = 0 stands under M-ONE-LIGHT-CONE (328)"), C(B, "alpha = 0 under M-ONE-LIGHT-CONE (328), so x+"),
+     C(E, "alpha = 0 under M-ONE-LIGHT-CONE (328) (Q1)")),
+    (332, "Q2", "CEMZ only for alpha >> l_P5^2, at tree level", [("gb_cone.py", 332)],
+     N("O1c rests on C7 under 328, not on C6"), N("B5a rests on C7, not on C6"), N("C8 rests on C7, not on C6")),
+    (332, "Q3", "C5's divisor zero at U4's endpoint; positive on the open range (C10)", [("gb_cone.py", 332)],
+     NO_O, NO_B, NO_E),
+    (332, "Q4", "the split on the families computed, generic per RTW", [("gb_cone.py", 332), ("relativity.py", 332),
+                                                                       ("gb_alpha.py", 332)], NO_O, NO_B, NO_E),
+    (332, "Q5", "sgb: every f' != 0 where V(phi_0) = V'(phi_0) = 0", [("sgb_cone.py", 332), ("../../currency.py", 332),
+                                                                     ("../../doors.py", 332)],
+     NO_O, C(B, "sgb's potential condition (Q5) concerns the coupled scalar"), NO_E),
+    (332, "Q6-Q7", "S3's sign a reflection; S1's cosmology blind to the Weyl part", [("sgb_cone.py", 332)],
+     NO_O, N("B5a uses S2's minimal coupling, not S3 or S1's check"), NO_E),
+    (332, "Q8", "gb_alpha B2-B5 an evaluation of definitions; B0's gloss of 226; B5 vacuous", [("gb_alpha.py", 332)],
+     N("O1c takes alpha from C7"), N("B5a takes alpha from C7"), N("C8 takes alpha from C7")),
+    (332, "Q9", "minor: C8's crossing remark, RTW section 3.1, the symmetry of omega", [("gb_cone.py", 332),
+                                                                                       ("sgb_cone.py", 332)],
+     NO_O, NO_B, NO_E),
 ]
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
@@ -197,10 +227,27 @@ OUTSIDE_QUEUE = [
     ("271 (8), 319 (Q4)", "T3's and E3's flip at the small end", [("rows_small.py", 271)]),
     ("317 outside (c)", "the WRITE row: 158 (2) against 163 within a horizon", [("c5_oneway.py", 317)]),
 ]
+# [Item 331] each brought current: (label, what, [(file, item)] where the current statement is written)
+BROUGHT_CURRENT = [
+    ("271 (3)", "stability S6, o3_hold O3e, write_cypher W5: the corridor's own non-extremal horizon",
+     [("../bulk/stability.py", 331), ("o3_hold.py", 331), ("write_cypher.py", 331), ("close_object.py", 331)]),
+    ("271 (8), 319 (Q4)", "ledger E3s, warptheorem T3s: the small end's ledger",
+     [("ledger.py", 331), ("../warptheorem.py", 331)]),
+    ("317 outside (c)", "write_cypher W5 (b): H-HOLD-IS-THE-FACE, put to M", [("write_cypher.py", 331)]),
+]
 STALE_REGISTER = [            # unmarked, found by this ledger: (file, stale text still present)
     (os.path.join(D68, "warptheorem.py"), "O2 the horizon is extremal (surface gravity 0)"),
     (os.path.join(D68, "WARPTHEOREM.md"), "O2 the horizon is extremal (surface gravity 0)"),
     (os.path.join(D68, "WARPTHEOREM.md"), "O1c geodesic completeness | proved | M1 | o1c_complete.py"),
+]
+# [Item 331] the stale texts stay as the record (LEMMAS, the item-247 head); the register's current statement must be
+# present beside them
+CURRENT_REGISTER = [
+    (os.path.join(D68, "warptheorem.py"), "LEMMAS_NOW = ["),
+    (os.path.join(D68, "warptheorem.py"), "O2 the horizon is not extremal: surface gravity c^2/r_h at the small end"),
+    (os.path.join(D68, "WARPTHEOREM.md"), "## The register as it stands (item 331)"),
+    (os.path.join(D68, "WARPTHEOREM.md"), "| O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small"),
+    (os.path.join(D68, "WARPTHEOREM.md"), "| O | O1cs every causal route of the passage complete at the small end |"),
 ]
 
 
@@ -238,7 +285,15 @@ def compute():
     wt = open(os.path.join(D68, "WARPTHEOREM.md"), encoding="utf-8").read()
     reg_hist = re.findall(r"^## History \(.*?items? (\d+)", wt, re.M)
     stale = [(os.path.basename(f), s, has_text(f, s)) for f, s in STALE_REGISTER]
-    return dict(stale=stale, reg_last=max(int(x) for x in reg_hist) if reg_hist else None, rows=rows, seated=seated,
+    # [item 331] the last item any History heading names, ranges included (three-digit item numbers)
+    heads = re.findall(r"^## History \((.*?)\)?$", wt, re.M)
+    if MUT.get("register_stale"):
+        heads = [h for h in heads if "248" not in h]                      # the mutant: the 248-333 history withheld
+    nums = [int(x) for h in heads for x in re.findall(r"(?<!\d)(\d{3})(?!\d)", h)]
+    current = [(os.path.basename(f), s, has_text(f, s)) for f, s in CURRENT_REGISTER]
+    brought = [(lab, f, n, has_item(os.path.join(HERE, f), n)) for lab, _, seats in BROUGHT_CURRENT for f, n in seats]
+    return dict(stale=stale, reg_now=max(nums) if nums else None, current=current, brought=brought,
+                reg_last=max(int(x) for x in reg_hist) if reg_hist else None, rows=rows, seated=seated,
                 carried=carried, outstanding=outstanding, outside=outside,
                 words=all(w in rul for w in WORDS), headers={k: v in rul for k, v in HEADERS.items()})
 
@@ -256,34 +311,42 @@ def report(o):
     print("L2 carried corrections found in the queued objects: %d of %d%s" % (
         len(o["carried"]) - len(bad_c), len(o["carried"]), "" if not bad_c else "; missing %s" % bad_c))
     print("L3 outstanding for a queued object: %s" % (o["outstanding"] or "none"))
-    print("L4 outstanding outside the queue, owed to its own row:")
+    print("L4 outstanding outside the queue, owed to its own row (as found at item 330; brought current, item 331):")
     for lab, what, seats in o["outside"]:
         print("   %-18s %s (marked: %s)" % (lab, what, ", ".join("%s %s" % (f, ok) for f, n, ok in seats)))
     print("   the Warp Theorem's register: last history at item %s; stale rows still present: %s" % (
         o["reg_last"], [(f, s[:44], ok) for f, s, ok in o["stale"]]))
-    print("L5 C9 (items 325-327): at its verifier; accounted here on return, before O1c goes")
+    print("   [item 331] brought current: %s; the register's history now reaches item %s; its current statement "
+          "present: %s" % (", ".join("%s %s %s" % (lab, f, ok) for lab, f, n, ok in o["brought"]), o["reg_now"],
+                           all(ok for _, _, ok in o["current"])))
+    print("L5 C9 (items 325-327): verified, item 332 -- its nine rows above, carried where they bear; O1c next")
 
 
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("L0 M's item-330 words and the twelve reports' headers verbatim in the rulings file",
+    add("L0 M's item-330 words and the thirteen reports' headers verbatim in the rulings file",
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
     add("L3 no queued object (O1c, B5a, C8) has an outstanding row", not o["outstanding"])
     add("L4 the outstanding rows outside the queue are each marked in their own instruments",
         all(ok for _, _, seats in o["outside"] for _, _, ok in seats))
-    add("L4 the Warp Theorem's register: no history after item 247, its O2 and O1c rows unmarked -- recorded here as "
-        "outstanding, owed to the register update", o["reg_last"] == 247 and all(ok for _, _, ok in o["stale"]))
+    add("L4 (item 331) the Warp Theorem's register brought current: its history reaches item 331 or later, its current "
+        "statement (LEMMAS_NOW, the current head and table) present beside the record's stale rows, kept as the record",
+        o["reg_now"] is not None and o["reg_now"] >= 331 and all(ok for _, _, ok in o["current"])
+        and all(ok for _, _, ok in o["stale"]))
+    add("L4 (item 331) the three rows outstanding outside the queue each brought current, marked in their instruments",
+        all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
-    add("L4 every report of the twelve has its rows in the ledger", reps == set(HEADERS))
+    add("L4 every report of the thirteen has its rows in the ledger", reps == set(HEADERS))
     return res
 
 
 MUTANTS = {"c8_stale": "C8 carrying the refuted blueshift closure instead of 319 (Q1)'s bound (L2)",
            "outstanding": "an uncarried correction left for a queued object (L3)",
-           "wrong_item": "a seated correction looked for under the wrong item (L1)"}
+           "wrong_item": "a seated correction looked for under the wrong item (L1)",
+           "register_stale": "the register's 248-333 history withheld (L4; item 331)"}
 
 
 def selftest():

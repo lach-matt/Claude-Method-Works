@@ -34,6 +34,10 @@ either sign of f'.  The Kanti-Kleihaus-Kunz wormholes below live in that
 theory.  f(R)'s field equations are fourth order, outside U4's law
 (Lovelock: Einstein's alone in four dimensions).  The rows below stand as
 found.]
+[Item 332, the C9 verifier (docket68 sgb_cone S9): "every f' != 0" holds
+where V(phi_0) = V'(phi_0) = 0 -- every point for the massless dilaton of
+Kanti, Kleihaus and Kunz (standard, not READ); the test rests on
+M-ONE-LIGHT-CONE (item 328).]
 
   THE SOLUTIONS EXIST AND THEY NEED NO EXOTIC MATTER.
   Kanti, Kleihaus & Kunz (PRL 107, 271101; arXiv:1108.3003) construct

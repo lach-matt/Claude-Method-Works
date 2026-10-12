@@ -10,6 +10,14 @@ file's own coding rule, and statistics' refusal of WRITE moves from order 4 to o
 the white-hole surface -- inflow from position 2 (W3), excluded on the one-way object (i_oneway I3).  Kept as
 written.]
 
+[Item 331 (M-UPDATE-STALE-NOW): this file asked its question of eq. (17)'s bulks, the record's four-dimensional end.
+Since item 251 the corridor's small end is the README's own localized five-dimensional hole, and since item 271 O2
+("extremal") is false at both ends.  W4 is eq. (17)'s (stability S1-S5b, kappa = 0) and does not bear on the corridor;
+">= 2.0e5 clocks" is the record's floor (o3_write), 66,980 clocks of r_h/c at the small end (write_small S3, C6
+verified); W3's hole (r_h ~ 582 m, sized to the reach) is not the README's.  W0-W4, WZ, C1-C4 and the board's reading
+below are kept as written: they are the record's end, where WRITE stays OPEN.  The current statement at the small end
+is W5, and with it 158 (2) against 163 (317 outside (c)).]
+
 WHAT IS ASKED.  Among the holds and bulks the board has computed, is there a bulk held through the whole write -- one
 that carries the corridor, stands static, stays regular on the crossing's causal past for >= 2.0e5 clocks, keeps
 seated clause (Z), in a configuration M's words leave standing -- or does any language admit one?  And for O3, the
@@ -78,6 +86,31 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
      a reading and is not used): keeps_Z 0 by the coding rule, as R1's y*-pieces are coded -- not 1 (it had been
      entered 1, citing only F6's regularity, J3 and 166, none of which bears on (Z)) and not U (the pointwise sign is
      computed).
+  W5 (item 331; computed, imported; READ where marked) The small end -- the README's own localized hole, which item
+     251 made the corridor (rows_small G3s: its least sphere is the horizon; r_h = 1.12e-20 m at the example README,
+     r_h/ell = 8.0e-16).  Coded beside the main cells, never in place of them: corridor 1 (251); static 1 (Tangherlini,
+     static; over C6's floor its E falls 3.9e-11 and r_h 1.95e-11, computed from hold_small's life -- 162's fixed size
+     held to that); lasts 1 (the life, 8.57e14 clocks of r_h/c, outlasts the floor, 66,980, 1.28e10-fold: C5 U4,
+     verified, item 317); keeps_Z 1 (a vacuum bulk -- Tangherlini, Ricci-flat, the plane totally geodesic at flat order,
+     C1 H1-H2, verified -- coded as eq17-static-flat is; the bounce's negative null energy sits in the quantum region at
+     the core, outside the bulk held through the write: pair_math P2, 318's reading); survives 1 (bulk/stability.py S6:
+     our face damps every transverse derivative at kappa = 1/r_h; Schlue's uniform boundedness READ for the scalar wave,
+     arXiv:1012.5963v1 Prop. 5.2; position 2's face bounded by e^33.6 over its open period, c7_oneway V12 (Q1) -- the
+     scalar model, as W3's hole is coded on Ishibashi-Kodama; gravitational perturbations hold mode stability only);
+     stands 1 (251; 162 held to 1.95e-11; 166's both planes -- the hole's trace is r = r_h on each, rows_small H2tu-s);
+     ell 1 (r_h << ell, the flat limit).  With it T_WRITE and T_O3 are each a computed cell, admitted as data by all
+     five languages and by statistics at every order 2-6 (computed below): at the small end WRITE is met, and O3 is met
+     for the scalar model (READ + computed).  The main table stands as the record's end.
+     (b) 158 (2) against 163 (the C5 verifier, 317 outside (c)).  163's "the write lasts at least ~200,000 clocks" is the
+     board's option text carrying the record's floor; at the small end the floor is 66,980 clocks (write_small S3).
+     Read within the horizon -- the hold as how long the README is held there -- 158 (2) cannot meet it: no part stays
+     more than its stay, at most three clocks (C5 U11 (1)-(3), U12 (Q4), verified), against 66,980.  Read as the
+     corridor standing -- 160, "the corridor and the opening are the same object", so the hold is the opening's, our
+     face open, in advanced time (H-HOLD-FRAME's first gloss, which write_small S3 carries) -- both hold: the face
+     stands while the write runs, 66,980 clocks or more, the hole standing 1.28e10 times longer, and each part of the
+     README is within for at most its stay.  That is the verified reading -- "The write's floor bounds how long the face
+     stands, not how long the README is held" (C5 U12 (Q4)); "V2's \"hold\" is the face standing" (C7 V11 (Q4),
+     verified with C7) -- and the board takes it (H-HOLD-IS-THE-FACE), to be confirmed or overruled by M (331 (d)).
   Other cells (each cited in cells()): the window hold (o3_hold O3b/O3c), the closing plane (b4d_stage1 D3, b4d_stage5
      F5, b4d_stage6 J4: real matter with rho + p_r < 0), the negative-tension plane (b4d_stage5 F6: regular on the
      evidence, lasts 1; keeps_Z 0 by WZ), both planes (b4d_stage7 K4: every small-separation branch decays, singular),
@@ -161,7 +194,8 @@ the cells are an enumeration of what the board computed, not a classification of
 whether a partner for the README's stress squares with 195 is not needed for this verdict, since no pairing is
 computed.
 Imports o3_write.py, b4_static.py, r1_cover.py (and through it sim2_passage.py), b4d_stage1.py, p2_full.py,
-bulk/stability.py and tools/cypher.py by path.  Stdlib + sympy (+ mpmath, through p2_full.py).  ~30 s.
+bulk/stability.py, hold_small.py and tools/cypher.py by path.  Stdlib + sympy (+ mpmath, through
+p2_full.py).  ~40 s.
 python3 write_cypher.py [--selftest | --mutants]
 """
 import contextlib
@@ -475,7 +509,35 @@ def compute(sweep=True):
     d["vzneg_write"], d["vzneg_block"] = stat_profile(vz, T_WRITE), {k: blocking(vz, T_WRITE, k) for k in (3, 4)}
     d["vbp"] = {z: (stat_profile(recode(cs, "both-planes", keeps_Z=z), T_WRITE),          # the recorded finding
                     stat_profile(recode(cs, "both-planes", keeps_Z=z), T_O3)) for z in (0, U)}
+    se = small_end()                                                      # W5 (item 331): beside the main cells
+    cse = cs + [("small-end-hole", se["cell"], se["why"])]
+    d["se"] = se
+    d["se_in"] = (sorted(i for i, c, _ in cse if hit(c, T_WRITE)), sorted(i for i, c, _ in cse if hit(c, T_O3)))
+    d["se_langs"] = {lang: (answer(cse, T_WRITE, lang), answer(cse, T_O3, lang)) for lang in LANGS}
+    d["se_stat"] = (stat_profile(cse, T_WRITE), stat_profile(cse, T_O3))
     return d
+
+
+def small_end():
+    """W5 (item 331): the README's own localized hole at the small end, coded from verified instruments"""
+    st = _load(os.path.join(D68, "bulk", "stability.py"), "wc_stability_s6")
+    if MUT.get("se_extremal"):
+        st.MUT["extremal_reading"] = True                                 # mutant: eq. (17)'s kappa = 0 kept here
+    try:
+        x = st.nonextremal()
+    finally:
+        st.MUT.clear()
+    H = _load(os.path.join(HERE, "hold_small.py"), "wc_hold_small")
+    life = H.l5_checks()["life_clocks"]
+    floor = x["floor"]
+    dE = floor / (2 * life)                                               # E^2 falls linearly: dE/E = t/(2 life)
+    damped = sp.simplify(x["bh"]["damp"] + x["bh"]["syms"][0]) == 0      # our face: -kappa (S6)
+    survives = 1 if damped and "%.1f" % x["open_clocks"] == "33.6" else U   # + Schlue (READ); position 2's bounded
+    cell = (1, 1, 1 if life > floor else 0, 1, survives, 1, 1)
+    why = ("item 251 (the corridor's small end); Tangherlini static, dE/E %.2g over the floor; life/floor %.3g (C5 "
+           "U4); vacuum bulk (C1 H1-H2); stability S6 + Schlue Prop. 5.2 (READ), e^33.6 on position 2's face"
+           % (dE, life / floor))
+    return dict(cell=cell, why=why, life=life, floor=floor, dE=dE, dr=dE / 2, damped=damped)
 
 
 def checks(d):
@@ -509,8 +571,9 @@ def checks(d):
     add("W3 the localized hole: no 1/r tail (4D Schwarzschild's -2m the control), surface gravity 1/r_h, r_h = 582 m >> "
         "r0 = 2 m -- not the corridor", t["one_over_r"] == 0 and sp.simplify(t["ctl"] + 2 * m) == 0
         and sp.simplify(t["kappa"] - 1 / rh) == 0 and 575 < s["rh"] < 590 and cs["localized-hole"][IX["corridor"]] == 0)
-    add("W4 Wall E: the horizon is extremal (D' = 0); over the write T/4 = 4.99e4 natural sizes and (1 + T/8)^2 = "
-        "6.23e8; at the window's top 2.82 and 5.8 (O3c's bound 6.5): survival certified in the window only",
+    add("W4 Wall E on eq. (17) (not the corridor's horizon, item 331: W5): its horizon is extremal (D' = 0); over the "
+        "write T/4 = 4.99e4 natural sizes and (1 + T/8)^2 = 6.23e8; at the window's top 2.82 and 5.8 (O3c's bound "
+        "6.5): survival certified in the window only",
         s["D1"] == 0 and abs(s["s4"](T) - T / 4) < 1e-6 * T and 4.98e4 < s["s4"](T) < 5.0e4
         and 6.22e8 < s["s5b"](T) < 6.24e8 and abs(s["s4"](s["window"]) - 2.819) < 0.01
         and abs(s["s5b"](s["window"]) - 5.80) < 0.01 and s["s5b"](s["window"]) < 6.5
@@ -578,10 +641,28 @@ def checks(d):
         and d["vzneg_block"] == {3: [], 4: [("corridor", "lasts", "keeps_Z", "stands")]})
     add("C4 the recorded finding: both planes' keeps_Z read 0 or U moves no statistics verdict on either target",
         all(d["vbp"][z] == (d["stat_write"], d["stat_o3"]) for z in (0, U)))
+    se = d["se"]
+    q = lambda s: " ".join(s.split())
+    c5t, c7t = q(open(os.path.join(HERE, "c5_oneway.py")).read()), q(open(os.path.join(HERE, "c7_oneway.py")).read())
+    add("W5 (item 331) the small end beside the main cells: the README's localized hole is (1, 1, 1, 1, 1, 1, 1) -- "
+        "life/floor 1.28e10, dE/E 3.9e-11 and r_h 1.95e-11 over the floor, our face damped (S6); T_WRITE and T_O3 are "
+        "then data, admitted by all five languages and by statistics at orders 2-6; the main table untouched",
+        se["cell"] == (1, 1, 1, 1, 1, 1, 1) and "%.3g" % (se["life"] / se["floor"]) == "1.28e+10"
+        and "%.2g" % se["dE"] == "3.9e-11" and "%.3g" % se["dr"] == "1.95e-11"
+        and d["se_in"] == (["small-end-hole"], ["small-end-hole"])
+        and all(a and b for a, b in d["se_langs"].values())
+        and all(d["se_stat"][0].values()) and all(d["se_stat"][1].values()) and not d["in_cells_write"])
+    add("W5 (b) 158 (2) against 163: the verified readings quoted -- the floor bounds the face's standing, not the "
+        "README's hold (C5 U12 (Q4)); V2's hold is the face standing (C7 V11 (Q4)); a stay of at most three clocks "
+        "against the floor's 66,980",
+        "The write's floor bounds how long the face stands, not how long the README is held" in c5t
+        and "V2's \"hold\" is the face standing, which the write's floor bounds" in c7t
+        and "stay = 3" in c5t and round(se["floor"]) == 66980 and 3 < se["floor"])
     return res
 
 
-MUTANTS = {"seat_write": "a bulk held through the write seated as data",
+MUTANTS = {"se_extremal": "the small end read with eq. (17)'s extremal horizon (W5; item 251)",
+           "seat_write": "a bulk held through the write seated as data",
            "short_floor": "O3a's 1/(2 xi) = 0.05 clocks in place of the write's floor",
            "decide_166": "the lone negative-tension plane read as standing (166 decided away in code)",
            "f5_granted": "F5's pairing decided in code (R1's pointwise breaks read net-kept)",

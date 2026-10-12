@@ -11,6 +11,8 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      k_L/2"; 202, "the same definitions as we do"; 226, "its plane's tension and offset among them"; and 127 (2), "The
      coefficient value is the difference of that value in a counterfactual universe and its value in our current
      universe, added to the value of our current universe".
+     [Item 332 (gb_cone C10; the C9 verifier, (Q8)): "its plane's tension and offset among them" is the board's carried
+     gloss of 226; M's own words there are "Its own values".]
   B1 (READ; computed, exact) The Gauss-Bonnet relations.  Charmousis and Dufaux (hep-th/0202107, READ): the tension
      that keeps the plane flat, T = [(1 - s)/alpha]^(1/2) (2 + s) (their eq. (25), units M^3 = 1), the Planck mass on
      it, m_Pl^-2 = M^-3 (1 - s)^(1/2)/(2 sqrt(alpha) (2 - s)) (eq. (27)), and the bulk's curvature from its vacuum
@@ -44,6 +46,9 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      d1^2/(2 sigma) + ... = 2.625e-10 J/m^3 (p2_offset V6), its estimated shift (4e-39) withdrawn.
   B5 (deduced) 127 (2)'s rule, applied to alpha: its value in our current universe is 0 (B2), in the counterfactual one
      (position 2, B3) 0; the coefficient is 0 + (0 - 0) = 0.
+     [Item 332 (Q8): B2-B5 are exact as an evaluation of definitions -- B6''s ell read as the Gauss-Bonnet bulk's own
+     radius, k_R = k_L/2 as an exact curvature ratio -- and B5 is vacuous, both its values coming from the same
+     definitions. The value alpha = 0 stands on gb_cone C7 under 328.]
   B6 (the cypher NOT-RUN, stated) alpha is the root of exact equations the record fixes, not a choice among
      configurations; an index of (alpha, meets B6', meets k_R = k_L/2) rows would carry the answer as its own column, a
      key (211), as p2_offset V8 and p2_assume Q7 found.  Not run, and said.
@@ -56,6 +61,8 @@ What this does not claim.
     keeps the light cone, which Gauss-Bonnet gravity breaks for either sign of alpha wherever the Weyl curvature is
     not zero (gb_cone.py C4-C7).  B6' and k_R = k_L/2 are exact because Einstein's law is the bulk's law, and B2-B3
     are a second route to the value relativity gives.]
+    [Item 332 (gb_cone C10 (Q1), (Q4)): relativity under M-ONE-LIGHT-CONE (328); and the cones split on the families
+    computed and generically (RTW), not proved wherever the Weyl curvature is not zero.]
   - That alpha = 0 is measured: B6' and k_R = k_L/2 were written in Einstein's theory and 201 made them definitions;
     alpha = 0 is what those definitions entail, exactly -- an evaluation of the record's coefficients, which item 325
     asked for, not a measurement of the bulk.

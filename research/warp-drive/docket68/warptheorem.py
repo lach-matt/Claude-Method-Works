@@ -5,7 +5,50 @@ M, item 150: "stop piecing together theorems to fit my theory, instead we need t
 the pieces that defines the warp theory as a single statement".  So the board's separate results become lemmas of one
 statement, and what is not yet proved is a named lemma of it -- never a separate theorem fitted to a part.
 
-THE WARP THEOREM.  For an object whose README -- its one fixed exact encoding, labels and values, written in what every
+THE WARP THEOREM, AS IT STANDS (item 331, M-UPDATE-STALE-NOW; the register LEMMAS_NOW below).  For an object whose
+README -- its one fixed exact encoding, labels and values, written in what every universe shares -- has N bits, there is
+exactly one corridor, fixed by N and by our plane's tension, and through it the README becomes, one way in every aspect
+and exactly, the object at position 2:
+
+  (G) GEOMETRY   the corridor is the brane hole whose horizon holds N bits, one family with two ends (256): small, the
+                 README's own localized five-dimensional hole -- Tangherlini in the flat limit, our plane through its
+                 equator (251; C1, C3 verified) -- for N << (pi^2/2 ln2)(ell/l_P)^2; large, the record's
+                 four-dimensional corridor (eq. (17) at r0 = 2m as the plane's reading) above it; ell set by our
+                 plane's tension (B6').  At the small end r_h = (2 N ln2/pi^2)^(1/3) l5 and E = 3 pi c^4 r_h^2/(8 G5),
+                 1.12008e-20 m and 1.28098e9 J at the example README (r_h/ell = 8.0e-16); at the large end
+                 E = 459,404,002.42 J x sqrt(N), r0 = 2m;
+  (H) HOLDING    its horizon holds exactly the README: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end (C2 verified),
+                 4 pi r0^2 = N A_bit at the large;
+  (O) ONE WAY    the passage is one object -- our black-hole face, a quantum bounce, position 2's white-hole face (270,
+                 273, 282) -- one-way in every aspect: nothing from position 2 enters it and no influence runs back
+                 (276); its faces begin at the opening, the positions joined before it through the bulk with no
+                 horizons (282 (2)); its horizon is not extremal -- surface gravity c^2/r_h at the small end, 1/(4M)
+                 at the large (251, 271) -- our face damping every disturbance and position 2's face open at most 33.6
+                 clocks (stability S6); the static bulk, its horizon and the passage regular and complete, the hole's
+                 interior singularity off the passage (259; o1c_oneway, at its verifier next);
+  (Z) NULL ENERGY NEVER VIOLATED   net along each light ray (183): every classical ray keeps it -- the passage's
+                 classical segments are Ricci-flat and the README's null energy non-negative -- and the passage's
+                 negative is confined to the quantum region, 177's appearance (318; pair_math P1-P4);
+  (B) BULK       the bulk's law is Einstein's exactly, the Gauss-Bonnet coupling zero (C9 verified, 332, under
+                 M-ONE-LIGHT-CONE, 328), relativity holding for everything that can exist (324); no bulk is ever
+                 empty (320); our plane and position 2's coincide everywhere (275); the energy positive where it bears
+                 -- the coincident sheets' summed stress (B5a) and position 2's where the README lands (284, 285) --
+                 matter keeping null energy at every point (320); k's ratio k_R = k_L/2 and its scale our plane's
+                 tension and offset (201); position 2's offset 2.625e-10 J/m^3 (322);
+  (I) INFORMATION  the passage is N bits of entanglement, and carries the N-bit README;
+  (E) ENERGY     one exact energy E, the hole's own, is carried from position 1 and released into position 2, every
+                 joule accounted for (E3, E3s); the build's need is what the closing energy activates (239);
+  (R) RECONSTRUCTION  position 2 builds from its own bulk an exact copy of the object, which then obeys position 2's
+                 laws (240, 285), taking its room by displacing what is there and keeping it as the new whole of
+                 position 2 (284, 285); the corridor's length is the difference of the trajectories.
+
+At the small end, where the example README sits, five lemmas stay OPEN -- B3, B4d, FAR, ARRIVAL, CLOSE -- and three
+rows stand on a named reading of the board's: O3s and WRITEs on H-HOLD-IS-THE-FACE (put to M), Z3bs on 318's.  The
+large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE.
+
+THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
+one family with two ends, and 270-330 re-read the rest, as stated above).
+For an object whose README -- its one fixed exact encoding, labels and values, written in what every
 universe shares -- has N bits (the user's input), there is exactly one corridor, fixed by N alone, and through it the
 README becomes, one way and exactly, the object at position 2:
 
@@ -39,7 +82,9 @@ lemmas/axioms.py), DEFINITION (M's definition of a term, shown consistent with t
 measurement fixes), or OPEN.  The theorem is proved exactly when no lemma is OPEN.
 
   T1  the PROVED lemmas are re-run: exactE.py's identities (z3), passage5d.py's identity and Q, localbulk.py's Gauss
-      condition, stability.py's surface gravity, coin.py's passage reading
+      condition, stability.py's surface gravity, coin.py's passage reading.  [Item 331: stability.py's S1 re-run is
+      the record's O2 (eq. (17), extremal); the current O2 is S6's, kappa = 1/r_h and 1/(4M), also re-run.  And the
+      owners seated since item 247 -- 44 instruments -- join the lemma selftests.]
   T2  (STRUCTURAL) the theorem follows from all its lemmas, and from no proper subset that drops an OPEN one: each OPEN
       lemma is needed.  So the OPEN list is exactly what stands between the statement and a proof
   T3  (genuine) the energy ledger, clause (E), at the example README: with the copy's composition exact (146) and its
@@ -49,7 +94,14 @@ measurement fixes), or OPEN.  The theorem is proved exactly when no lemma is OPE
       position 2's universe (136 G, 136 answer 6, 139 (3)).  Control: at N = 600 bits, E < assembly, consistent with
       none.  First written reading the remainder from item 139 alone, as a sink outside the build; that over-read 139,
       whose words concern the trigger, and set the sink against 111 (a)
-Imports copy/exactE.py, copy/coin.py, bulk/passage5d.py, bulk/localbulk.py, bulk/stability.py by path.
+      [Item 331: T3 is the large end's.  At the small end the example README's E is 1.28098e9 J (1.11904e9 and
+      1.61394e9 J under the G5 readings), below the ceiling: consistent with no sink -- T3's verdict flips there
+      (T3s, ledger.py E3s), as item 271's verifier deduced, and item 239 set the ceiling aside as the build's need, so
+      the flip moves T3's premise, not the build.]
+  T2  [Item 331: run on the current register; the record's register (LEMMAS, through item 247) is kept byte for byte
+      and re-run beside it.]
+Imports copy/exactE.py, copy/coin.py, bulk/passage5d.py, bulk/localbulk.py, bulk/stability.py, lemmas/ledger.py by
+path, and every lemma owner for its selftest.
 Stdlib + sympy + z3 (pip install z3-solver).  python3 warptheorem.py [--selftest]   (~10 min since item 206's owners, mostly loading them)
 """
 import contextlib
@@ -184,6 +236,239 @@ SUPERSEDED = [
 SUPERSEDED_RESTS = {'B4c': 'FAR', 'B4b': 'M1 WRITE'}
 SUPERSEDED_BY = {'B4c': 'B4d', 'B4b': 'B4d'}
 
+# Item 331 (M-UPDATE-STALE-NOW): THE REGISTER AS IT STANDS.  LEMMAS, RESTS_ON and SUPERSEDED above are the register
+# through item 247, kept byte for byte as the record: nine instruments read them in code (chain_cypher, belongs_cypher,
+# m1_bulk, theorem_p2, f1_audit, readme_held, close_object, b1_matter, m1p2_cypher) and pin what they computed on
+# them; nine more name the file.  The register below is the theorem's current statement: the corridor is one family with two ends (256) -- the
+# small end the README's own localized five-dimensional hole (251), the large end the record's four-dimensional corridor
+# -- the passage one object, one-way in every aspect (270, 273, 276, 282), its horizon not extremal (251, 271), the
+# bulk's law Einstein's exactly (C9, 332).  A row whose two ends differ is split: 's' marks the small end's row.  The
+# report, T1, T2 and T3 run on this register.
+LEMMAS_NOW = [
+    ('G', 'G1 one exact energy, at the bound: E(N)', 'DERIVED',
+     ("small end: the hole's Komar mass, E = 3 pi c^4 r_h^2/(8 G5), r_h = (2 N ln2/pi^2)^(1/3) l5 -- 1.28098e9 J at "
+      'the example README (rows_small G1s; C4 N1; C7 verified, 271, 319), 1.11904e9 and 1.61394e9 J under G5 = (3/2) '
+      'G ell and G ell/2 (ledger E3s); large end: lemmas/axioms.py from 101 answer 6, 132, 131/133 and the bit area, '
+      'E = 459,404,002.42 J x sqrt(N)')),
+    ('G', 'G2 E(N) computed and machine-checked', 'PROVED',
+     'copy/exactE.py (large end); lemmas/ledger.py E3s, c7_oneway V12 (Q2) (small end, the G5 readings)'),
+    ('G', "G3 the horizon's size is fixed by N: r_h at the small end, r0 = 2m at the large", 'PROVED',
+     ("small end: r_h from C2 R1's count (verified, 258); the throat as the bridge's least sphere (rows_small G3s) "
+      'dropped on the one-way object (282 (1)); large end: copy/exactE.py r0 = 2m')),
+    ('H',
+     'H1 the horizon holds N bits: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end, 4 pi r0^2 = N A_bit at the large',
+     'PROVED',
+     'lemmas/hcount_cypher.py, area_law5.py (C2 verified, 258); copy/exactE.py identity'),
+    ('H', "H2 our face and position 2's face hold the README as one null surface", 'DERIVED',
+     ("270 (a): the one object is U = 0, our black-hole face and position 2's white-hole face; the README is held on "
+      "the horizon's 3-sphere as C2 R1's count, not a duration (c7_oneway V11 (Q4))")),
+    ('H', "H2tu within one universe the horizon's trace on each plane is r = r_h", 'DERIVED',
+     ("lemmas/rows_small.py H2tu-s (C7 verified): the plane's 2-area read with 4D G is 7.9e14 N at the example, "
+      'moving as (G5/G ell)^(2/3) (c7_oneway V12 (Q2)); large end r = 2m, area N A_bit')),
+    ('H', "H2tx between universes position 2's horizon holds the README at its own bit area", 'DERIVED',
+     ("lemmas/copy_p2.py C1 (240, overruling 239's note); at the small end position 2's figures are the "
+      "construction's single chart, and under position 2's own laws only the face's existence and the finiteness of "
+      'its closing carry (c7_oneway V12 (Q3))')),
+    ('O',
+     ("O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's "
+      'white-hole face'),
+     'DERIVED',
+     ("270, 276, 277 (M's: one-way only, in all aspects); 273 (the quantum bounce to position 2); 282 (1)-(2): "
+      're-posed one-way, the faces beginning at the opening, the positions joined through the bulk with no horizons '
+      'before it; lemmas/c1_oneway.py (C1 one-way verified, 304)')),
+    ('O', 'O1bs no curvature singularity on the passage at the small end', 'PROVED',
+     ('259 (the interior singularity outside the passage); the static bulk, horizon and faces regular (c1_oneway); '
+      "the bounce's curvature finite (c4_residue R6); lemmas/o1c_oneway.py (finalized by M, 329; at its verifier "
+      'next, 330)')),
+    ('O', 'O1cs every causal route of the passage complete at the small end', 'PROVED',
+     'lemmas/o1c_oneway.py Z1-Z7 (one-way, 282 (c); finalized 329; carries C9, 332; at its verifier next)'),
+    ('O', 'O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large', 'PROVED',
+     ('lemmas/rows_small.py O2s (C7 verified, 271, 319); C3 F5 (the large end four-dimensional Schwarzschild, '
+      'verified, 261); bulk/stability.py S6 (item 331): our face damps every transverse derivative at kappa, the '
+      "white-hole face's blueshift bounded by e^33.6 over its open period (c_junction J5, c7_oneway V12 (Q1))")),
+    ('O',
+     'O3s the corridor survives its hold at the small end: the face standing through the write (158 (2) with 160)',
+     'READING',
+     ("lemmas/o3_hold.py O3e: the hold is the write, at least C6's 66,980 clocks (write_small S3, verified 264), "
+      "within the life 8.57e14 clocks (C5 verified, 267, 317); our face damped (stability S6) and Schlue's uniform "
+      "boundedness READ for the scalar wave; position 2's face bounded by e^33.6.  Under the board's "
+      'H-HOLD-IS-THE-FACE (write_cypher W5 (b), put to M) and the scalar model; gravitational perturbations hold '
+      "Ishibashi-Kodama's mode stability only")),
+    ('O', 'O3 the corridor survives its hold at the large end (158 (2); 160)', 'OPEN',
+     ("the record's: the write >= 199,702.19 clocks of m/c (o3_write); eq. (17)'s static window and its kappa = 0 "
+      "figures (o3_hold O3a-O3d) are eq. (17)'s, not the large end's Schwarzschild; the large end's open period is "
+      'not computed')),
+    ('Z',
+     ('Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 '
+      'pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1'),
+     'PROVED',
+     "lemmas/f1_audit.py B5, B6 (Gauss and Israel's Z2 junction, standard-not-READ); the bulk's law exactly (C9, 332)"),
+    ('Z',
+     "Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading",
+     'PROVED',
+     ('lemmas/rows_small.py Z1t-s: Ricci-flat, G^t_t = G^r_r, zero on every radial null ray; the tangential reading '
+      "-2 r_h^2/r^4 the bulk's Weyl term (C1 verifier, 254); large end bulk/passage5d.py P2")),
+    ('Z', "Z2r our leg's integral within the reach equals the plane's reading", 'PROVED',
+     ("lemmas/rows_small.py Z2r-s: both zero at flat order, to M1-c's order in our matter (271 (4)); large end "
+      'passage5d P3, coin.py')),
+    ('Z', 'Z3a NEC never violated away from the corridor, through today', 'DERIVED',
+     'lemmas/b1_matter.py C1-C3; items 117, 120; matter keeps it pointwise (pointwise.py P1-P4, 320)'),
+    ('Z',
+     ("Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's "
+      'negative confined to the quantum region'),
+     'READING',
+     ("lemmas/pair_math.py P1-P4 (318, 'For the math'): outside the quantum region every segment keeps 183 "
+      "(Tangherlini Ricci-flat, the README's T_kk >= 0); the negative inside the region 273 marks is 177's appearance"
+      " -- the board's reading under 318, to be overruled by M; the record's ring does not arise at the small end "
+      '(m1_small (d))')),
+    ('Z', 'Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class', 'OPEN',
+     ("the record's (z3b_cypher, ring_consistent, open_mouth, two_sided): waits on the bulk carrying the warp's kink "
+      'into the corridor (232)')),
+    ('Z', "Z3c the plane's dark energy has w >= -1 at every epoch the theory controls", 'DERIVED',
+     'lemmas/nature_rows.py Z1-Z3; item 200 (3)'),
+    ('B',
+     "B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320)",
+     'PROVED',
+     ("lemmas/b1_matter.py (B1', SMS READ); bulk/localbulk.py L1-L2; every empty-bulk figure the board's limit (320 "
+      '(b))')),
+    ('B', "B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2')", 'PROVED',
+     "lemmas/b1_matter.py B2' (Dahia-Romero READ); bulk/localbulk.py L4"),
+    ('B', 'B2t its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic', 'PROVED',
+     'C1 H1-H2 (localized_hole.py, verified 254; c1_oneway, verified 304); large end bulk/localbulk.py L3-L4'),
+    ('B', 'B3 a complete bulk exists', 'OPEN',
+     ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
+      "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
+      'spacetime, read cell by cell (247)')),
+    ('B',
+     ("B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk "
+      'with no horizons until the opening'),
+     'PROVED',
+     'lemmas/b4_global.py 6/6; 282 (2): B4a stands about the join'),
+    ('B', 'B4d the opening and closing evolve regularly in five dimensions', 'OPEN',
+     ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
+      'and end -- are not evolved; B4b and B4c superseded (210)')),
+    ('B',
+     ("B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one"
+      ' way'),
+     'DERIVED',
+     ('lemmas/b5a_oneway.py, b5a_residue.py A1-A3 (282 (c), 275, 276; finalized 329; at its verifier after O1c); x+ ='
+      ' 2.625e-10 J/m^3 exact (322; alpha = 0, C9 verified 332); the matter condition proved (pointwise.py, 320)')),
+    ('B',
+     ("B5c position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's "
+      'plane (139 (2); 284 (4), 285)'),
+     'DERIVED',
+     ("lemmas/e_positive.py E7: the README carries position 2's plane past sigma/4 within 2.0e-15 m of the face (284 "
+      '(a), 285 (a))')),
+    ('B', "B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition", 'DERIVED',
+     'lemmas/b5p_cypher.py (b1_matter C3, C4); pointwise.py P5'),
+    ('B', "B5px between universes position 2's matter meets B5'a's condition", 'DERIVED',
+     "lemmas/theorem_p2.py TC (229); pointwise.py P6 (any of position 2's laws, 202, 284 (1))"),
+    ('B', "B5b a smooth wall carrying matter keeps null energy at every point (B5'b)", 'DERIVED',
+     ('lemmas/pointwise.py P1-P6 (320): every kind of matter the record holds -- particles, scalar and gauge fields '
+      "-- keeps the null condition at every point, under any of position 2's values; a positive tension adds a "
+      'non-negative crossing share (TS) -- deduced; no wall profile is computed')),
+    ('B', "B6 k's ratio fixed by the work, k_R = k_L/2 (200 (1))", 'PROVED',
+     "lemmas/b6_once.py, b6_k.py; exact as a curvature ratio in Einstein's law, the bulk's law exactly (C9)"),
+    ('B',
+     "B6' k's scale: our universe is defined by its plane's tension and its dark-energy offset (201)",
+     'DEFINITION',
+     ("lemmas/sigma_defines.py T1-T4; nature_rows.py B1-B3; position 2's offset x+ = 2.625e-10 J/m^3 (p2_offset V6, "
+      '322)')),
+    ('B', "B8 the bulk's law is Einstein's exactly: the Gauss-Bonnet coupling is zero", 'PROVED',
+     ("lemmas/gb_cone.py C7, C10 under M-ONE-LIGHT-CONE (328); gb_alpha.py B2-B3, 201's definitions; relativity.py "
+      'U1-U6 (324) -- C9 verified, CONFIRMED with qualifications (332)')),
+    ('B', 'B7 formation: before the opening the positions are joined through the bulk with no horizons', 'DERIVED',
+     'lemmas/b7_formation.py; 282 (2) (H-JOIN-NO-HORIZONS): B7 stands about the join'),
+    ('I', 'I1 the passage is N bits of entanglement', 'DERIVED',
+     "lemmas/axioms.py: 137 (1) with H1; at the small end H1 is the horizon's 3-sphere (C2)"),
+    ('I', "I2 the README's N bits within the capacity bound as READ", 'PROVED',
+     'lemmas/i2_capacity.py; relativistic causality carries no signal faster than light (relativity U5)'),
+    ('E', 'E1u within one universe, E carried into position 2 -- no influence back (276)', 'DERIVED',
+     'lemmas/close_flux.py K3; lemmas/axioms.py (E1)'),
+    ('E', 'E2u within one universe, released at position 2 at the closing', 'DERIVED',
+     'lemmas/close_flux.py; lemmas/axioms.py (E2)'),
+    ('E', 'E1x between universes, E carried into position 2', 'DERIVED',
+     "lemmas/axioms.py (E1); position 2's mass-energy its own (240, copy_p2 C1)"),
+    ('E', 'E2x between universes, released at position 2 at the closing', 'DERIVED',
+     'lemmas/axioms.py (E2)'),
+    ('E',
+     ('E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what '
+      'the closing energy activates (239)'),
+     'DERIVED',
+     ('lemmas/ledger.py E3, E3s (item 331): closes at both ends and both READMEs under reading (a) (M, 155); at the '
+      "small end the example's E lies below the assembly ceiling, which 239 set aside as the build's need")),
+    ('E', 'E4r the field energy outside the neck within the reach', 'PROVED',
+     ("lemmas/rows_small.py E4r-s: zero in five dimensions (Komar the same at every r); the plane's 4D reading "
+      'negative, -5.3e14 E at the example, moving as (G5/G ell)^(2/3); large end ledger.py E4')),
+    ('R',
+     'R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README',
+     'DEFINITION',
+     'items 70, 101 answer 8, 115 (c), 130 (2)'),
+    ('R', 'R1 exact reconstruction, no tolerance', 'DEFINITION',
+     'items 145, 146'),
+    ('R',
+     ("R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws "
+      'govern'),
+     'DEFINITION',
+     "items 148, 240 (the copy built under position 2's laws, its mass position 2's), 285 (H-EXACT-COPY)"),
+    ('R', 'R3 exactness at the instant over the mass window', 'PROVED',
+     'bulk/exactcopy.py, rearrange.py (verified)'),
+    ('R', "R4 the corridor's length as the trajectory difference, given a measure -- not a distance", 'DERIVED',
+     'lemmas/r4_length.py (H-LENGTH-IN-BITS, M, item 155)'),
+    ('R',
+     "R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240)",
+     'DERIVED',
+     'lemmas/r5_build.py; lemmas/copy_p2.py'),
+    ('R',
+     'R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2',
+     'DEFINITION',
+     ('284 (2)-(3), 285 (H-ROOM-BY-DISPLACEMENT, H-NEW-WHOLE): no new space; a pure-metal copy fills (a0_2/a0_1)^3 of'
+      ' its volume (285 (b), computed in conversation, not seated)')),
+    ('N', "M1s the plane's reading of the corridor's mouth at the small end", 'PROVED',
+     'lemmas/m1_small.py (C4 verified, 269); lemmas/c4_oneway.py (C4 one-way verified, 310)'),
+    ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'OPEN',
+     "the record's (m1_bulk, d_minus): the kink-carrying bulk under eq. (17)'s reading, 203, (e)"),
+    ('N', "M1P2xs position 2's side at the small end, on the one-way object", 'PROVED',
+     ('lemmas/c8_level.py V0-V9 (275-330; finalized 330, queued for its verifier after B5a); m1p2x_oneway kept as '
+      'written')),
+    ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
+     "the record's (m1p2_cypher, m1p2_junction, theorem_p2)"),
+    ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166', 'OPEN',
+     ("the record's (far_cypher, far_bridge); at the small end the hole's far field is the Randall-Sundrum "
+      "background's, not computed")),
+    ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'READING',
+     ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
+      'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
+      'data; with 158 (2) read against 163 as the face standing (H-HOLD-IS-THE-FACE, W5 (b), put to M)')),
+    ('N', 'WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c', 'OPEN',
+     ("the record's (write_cypher W0-W4, WZ, C1-C4): carrying the corridor, lasting the write and keeping (Z) never "
+      "occur together on eq. (17)'s computed cells")),
+    ('N',
+     "ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room",
+     'OPEN',
+     "284 (d), 285 (d): the room's size waits on how the bits rebuild in position 2; formation in the bulk (179)"),
+    ('N', 'CLOSE the closing: ending the faces when the write is done', 'OPEN',
+     ('the horizon is not extremal, so the area theorem binds and the face closes only with a negative flux into it; '
+      'Hawking emission supplies one and closes it after the life, 8.57e14 clocks -- 1.28e10 times the write '
+      "(c5_oneway U11 (7)); a mechanism closing it when the write is done is not found (i_oneway I5; README-HELD's "
+      'open item)')),
+]
+RESTS_ON_NOW = {'G1': 'M1s M1', 'G3': 'M1s M1', 'H2tu': 'M1s M1', 'H2tx': 'M1s M1 M1P2xs M1P2x', 'O1bs': 'M1s',
+                'O1cs': 'M1s', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL', 'Z1t': 'M1s M1', 'Z2r': 'M1s M1',
+                'Z3bs': 'M1s', 'Z3b': 'M1 FAR WRITE ARRIVAL CLOSE', 'B2t': 'M1s M1', 'B3': 'M1 FAR WRITE ARRIVAL CLOSE',
+                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'B7': 'WRITE ARRIVAL CLOSE', 'E1x': 'CLOSE', 'E2x': 'CLOSE',
+                'E4r': 'M1s M1'}
+# Rows set aside since item 247, kept on record with the status and record they were seated with.
+SUPERSEDED_NOW = SUPERSEDED + [
+    ('O', 'O2 the horizon is extremal (surface gravity 0)', 'PROVED',
+     ("bulk/stability.py S1 (eq. (17) at r0 = 2m) -- superseded by item 251 (M: the localized hole; 'extremal' "
+      "dropped) and found false at both ends by item 271's verifier; the current O2 is non-extremal")),
+    ('O', 'O1c geodesic completeness', 'PROVED',
+     ("lemmas/o1c_complete.py (eq. (17)) -- superseded by 259 (the hole's interior off the passage) and 282 (c) "
+      '(re-posed one-way): the current O1cs is lemmas/o1c_oneway.py')),
+]
+SUPERSEDED_NOW_BY = dict(SUPERSEDED_BY, O2='O2 (non-extremal)', O1c='O1cs')
+
 
 def _load(path, key):
     saved = list(sys.path)
@@ -213,13 +498,19 @@ def t1():
     lb = _load(os.path.join(HERE, "bulk", "localbulk.py"), "wt_localbulk")
     st = _load(os.path.join(HERE, "bulk", "stability.py"), "wt_stability")
     m = sp.Symbol("m", positive=True)
-    d1, _ = st.D_derivatives(2 * m, 2 * m)
+    d1, _ = st.D_derivatives(2 * m, 2 * m)                          # the record's O2: eq. (17) at r0 = 2m (item 247)
+    s6 = st.nonextremal()                                           # item 331: the corridor's own horizon, both ends
+    rh, M_ = sp.Symbol("r_h", positive=True), sp.Symbol("M", positive=True)
+    kap = s6["bh"]["syms"][0]
     return {"E_per_sqrt_bit": ex.e_per_sqrt_bit(),
             "H1_G3_O1": all(ids[k][1] == "proved" for k in want),
             "Z1": sp.simplify(tid["n_kk"] + tid["R4_kk"]) == 0,
             "Z2": abs(Q + 2 * coin.anec_closed(1, 2)) < 1e-12,
             "B1": lb.gauss_rhs(-1 / lb.ell, -6 / lb.ell**2) == 0,
-            "O2": d1 == 0}
+            "O2": d1 == 0,                                          # the record's row (eq. (17)), kept as its re-run
+            "O2_now": sp.simplify(s6["ends"]["small"]["kappa"] - 1 / rh) == 0
+            and sp.simplify(s6["ends"]["large"]["kappa"] - 1 / (4 * M_)) == 0
+            and sp.simplify(s6["bh"]["damp"] + kap) == 0 and "%.1f" % s6["open_clocks"] == "33.6"}
 
 
 def lemma_selftests():
@@ -289,20 +580,31 @@ def lemma_selftests():
               # item 246
               "unit_cell.py",
               # item 247
-              "open_index.py"):
+              "open_index.py",
+              # items 251-331 (added on item 331: every owner seated since item 247)
+              "localized_hole.py", "hcount_cypher.py", "area_law5.py", "corridor_family.py", "m1_small.py",
+              "write_small.py", "hold_small.py", "rows_small.py", "m1p2x_small.py", "m1p2x_index.py", "m1p2x_fifth.py",
+              "m1p2x_sixth.py", "b_interior.py", "b_bounce.py", "c_junction.py", "d_evap.py", "e_positive.py",
+              "f_slab.py", "g_coincide.py", "h_oneway.py", "i_oneway.py", "j_readings.py", "c1_oneway.py",
+              "calculator.py", "c4_oneway.py", "c4_residue.py", "c5_oneway.py", "c7_oneway.py", "pair_math.py",
+              "pointwise.py", "tau_share.py", "p2_offset.py", "p2_assume.py", "relativity.py", "gb_alpha.py",
+              "gb_cone.py", "sgb_cone.py", "o1c_oneway.py", "b5a_oneway.py", "b5a_residue.py", "m1p2x_oneway.py",
+              "c8_level.py", "verify_ledger.py", "write_cypher.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
     return out
 
 
-def t2():
-    """The theorem from its lemmas: T <-> every lemma.  Entailed with all; each OPEN lemma necessary (STRUCTURAL)."""
+def t2(rows=None):
+    """The theorem from its lemmas: T <-> every lemma.  Entailed with all; each OPEN lemma necessary (STRUCTURAL).
+    [Item 331: run on the current register, LEMMAS_NOW, unless the record's is passed.]"""
     import z3
-    v = {name: z3.Bool(name) for _, name, _, _ in LEMMAS}
+    rows = LEMMAS_NOW if rows is None else rows
+    v = {name: z3.Bool(name) for _, name, _, _ in rows}
     T = z3.And(*v.values())
-    known = [v[n] for _, n, s, _ in LEMMAS if s != "OPEN"]       # PROVED, DERIVED, READING, DEFINITION, NATURE
-    opens = [n for _, n, s, _ in LEMMAS if s == "OPEN"]
+    known = [v[n] for _, n, s, _ in rows if s != "OPEN"]         # PROVED, DERIVED, READING, DEFINITION, NATURE
+    opens = [n for _, n, s, _ in rows if s == "OPEN"]
     s = z3.Solver()
     s.add(known + [v[n] for n in opens] + [z3.Not(T)])
     entailed = s.check() == z3.unsat
@@ -327,37 +629,48 @@ def t3(E_per_sqrt_bit):
         return s.check() == z3.sat
     E_ex = z3.RealVal(repr(E_per_sqrt_bit * EXAMPLE_N ** 0.5))
     E_small = z3.RealVal(repr(E_per_sqrt_bit * 600 ** 0.5))
+    lg = _load(os.path.join(HERE, "lemmas", "ledger.py"), "wt_ledger")   # item 331: E3s, the small end's E
+    E_s = {g: lg.e_small(EXAMPLE_N, g)[0] for g in lg.G5_READINGS}
     return {"E_example": E_per_sqrt_bit * EXAMPLE_N ** 0.5, "no_sink": ledger(E_ex, False),
             "with_sink": ledger(E_ex, True), "control_small_N": ledger(E_small, False),
-            "E_small": E_per_sqrt_bit * 600 ** 0.5}
+            "E_small": E_per_sqrt_bit * 600 ** 0.5, "E_s": E_s,
+            "no_sink_s": {g: ledger(z3.RealVal(repr(e)), False) for g, e in E_s.items()}}
 
 
 def compute():
     a = t1()
-    return {"t1": a, "t2": t2(), "t3": t3(a["E_per_sqrt_bit"]), "lemmas": lemma_selftests()}
+    return {"t1": a, "t2": t2(), "t2_record": t2(LEMMAS), "t3": t3(a["E_per_sqrt_bit"]), "lemmas": lemma_selftests()}
 
 
 def report(d):
-    print("warptheorem.py -- the warp theory as one theorem (M-RULINGS item 150)\n")
+    print("warptheorem.py -- the warp theory as one theorem (M-RULINGS item 150); the register as it stands (item "
+          "331)\n")
     for clause in "GHOZBIERN":
-        for c, name, status, where in LEMMAS:
+        for c, name, status, where in LEMMAS_NOW:
             if c == clause:
                 print("  (%s) %-6s %s  [%s]" % (c, status, name, where))
     a, b, c = d["t1"], d["t2"], d["t3"]
-    counts = {k: sum(1 for l in LEMMAS if l[2] == k) for k in ("DERIVED", "DEFINITION", "PROVED", "READING", "NATURE",
-                                                                 "OPEN")}
+    counts = {k: sum(1 for l in LEMMAS_NOW if l[2] == k) for k in ("DERIVED", "DEFINITION", "PROVED", "READING",
+                                                                     "NATURE", "OPEN")}
     print("\n%d lemmas: %d PROVED, %d DERIVED from your more basic rulings, %d PROVED under a named board READING, "
-          "%d your DEFINITIONS, %d NATURE, %d OPEN" % (len(LEMMAS), counts["PROVED"], counts["DERIVED"],
+          "%d your DEFINITIONS, %d NATURE, %d OPEN" % (len(LEMMAS_NOW), counts["PROVED"], counts["DERIVED"],
                                                        counts["READING"], counts["DEFINITION"], counts["NATURE"],
                                                        counts["OPEN"]))
-    print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 %s"
-          % (a["E_per_sqrt_bit"], a["H1_G3_O1"], a["Z1"], a["Z2"], a["B1"], a["O2"]))
+    print("   the record's register through item 247 (LEMMAS, kept): %d rows, %d OPEN; superseded since: %s"
+          % (len(LEMMAS), len(d["t2_record"]["open"]), ", ".join(r[1].split()[0] for r in SUPERSEDED_NOW)))
+    print("T1 proved lemmas re-run: E = %.8f J x sqrt(N); H1/G3/O1 %s; Z1 %s; Z2 %s; B1 %s; O2 (the record's, eq. "
+          "(17)) %s; O2 now (kappa = 1/r_h, 1/(4M); stability S6) %s"
+          % (a["E_per_sqrt_bit"], a["H1_G3_O1"], a["Z1"], a["Z2"], a["B1"], a["O2"], a["O2_now"]))
     print("T2 the theorem follows from its lemmas: %s; each OPEN lemma needed: %s" % (b["entailed"],
                                                                                       all(b["needed"].values())))
     print("   OPEN (%d): %s" % (len(b["open"]), "; ".join(o.split(" ", 1)[0] for o in b["open"])))
     print("T3 energy ledger at the example README (E = %.6e J, assembly <= %.4e J): consistent with no sink: %s; with "
           "an absorber besides the copy (the board's reading (a)): %s; control N = 600 (E = %.4e J), no sink: %s"
           % (c["E_example"], ASSEMBLY_MAX_J, c["no_sink"], c["with_sink"], c["E_small"], c["control_small_N"]))
+    print("T3s (item 331) at the small end, the example README: E = %s J under G5 = 1, 3/2, 1/2 G ell -- consistent "
+          "with no sink: %s (the ceiling set aside as the build's need by 239)"
+          % (", ".join("%.5e" % c["E_s"][g] for g in sorted(c["E_s"], key=lambda x: -1 if x == 1 else x)),
+             all(c["no_sink_s"].values())))
 
 
 def selftest():
@@ -374,14 +687,28 @@ def selftest():
     chk("T1: E = 459,404,002.42 J x sqrt(N) (exactE.py)", abs(a["E_per_sqrt_bit"] - 459404002.42356985) < 1e-3)
     chk("T1: H1, G3, O1 proved by exactE.py's z3 identities", a["H1_G3_O1"])
     chk("T1: Z1, R5(n,k,n,k) = -R4(k,k) (passage5d.py); Z2, Q = -2 x coin.py's per-leg reading", a["Z1"] and a["Z2"])
-    chk("T1: B1, the Gauss condition with K = -g/ell (localbulk.py); O2, surface gravity zero (stability.py)",
-        a["B1"] and a["O2"])
+    chk("T1: B1, the Gauss condition with K = -g/ell (localbulk.py); the record's O2, eq. (17)'s surface gravity zero "
+        "(stability.py S1)", a["B1"] and a["O2"])
+    chk("T1 (item 331): O2 now -- the corridor's horizon not extremal, kappa = 1/r_h at the small end and 1/(4M) at "
+        "the large; our face damped, position 2's open 33.6 clocks (stability.py S6)", a["O2_now"])
     chk("T1: the lemma instruments' selftests pass (%s)" % ", ".join(d["lemmas"]), all(d["lemmas"].values()))
     chk("T2 (STRUCTURAL): the theorem follows from its lemmas, and each OPEN lemma is needed",
         b["entailed"] and all(b["needed"].values()))
     chk("T3: the ledger is inconsistent unless the build has an absorber besides the copy, consistent with one",
         (not c["no_sink"]) and c["with_sink"])
     chk("T3 control: at N = 600 bits E is below the assembly ceiling and needs no sink", c["control_small_N"])
+    chk("T3s (item 331): at the small end the example README's E (1.28098e9 J; 1.11904e9 and 1.61394e9 J under the "
+        "G5 readings) is below the ceiling and needs no sink -- T3's verdict flips there, as 271's verifier deduced",
+        all(c["no_sink_s"].values()) and "%.5e" % c["E_s"][1] == "1.28098e+09")
+    b0 = d["t2_record"]
+    chk("T2 (record): the register through item 247 kept byte for byte -- 51 rows, its OPEN lemmas each needed",
+        len(LEMMAS) == 51 and b0["entailed"] and all(b0["needed"].values()))
+    names = [n.split()[0] for _, n, _, _ in LEMMAS_NOW]
+    chk("T2 (item 331): the current register -- no name twice, every RESTS_ON input an N row, the superseded O2 and "
+        "O1c on record", len(names) == len(set(names)) and all(x in [n for c_, n0, _, _ in LEMMAS_NOW if c_ == "N"
+                                                                    for n in [n0.split()[0]]]
+                                                         for v in RESTS_ON_NOW.values() for x in v.split())
+        and all(k in names for k in RESTS_ON_NOW) and {"O2", "O1c"} <= {r[1].split()[0] for r in SUPERSEDED_NOW})
     print("selftest: %d/%d" % (ok, n))
     return ok == n
 

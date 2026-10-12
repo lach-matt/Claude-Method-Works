@@ -10,12 +10,18 @@ sympy, exact; READ where marked; deduced where marked; not verified by a separat
   S0 (read) The words this rests on: M's item 327 and the line it quotes, verbatim in the rulings file; relativity.py
      U6, "gravity itself" "keeps the light cone in every frame"; currency.py's "THE SCALAR-GAUSS-BONNET BRANCH ESCAPES
      IT" and doors.py's wormholes "in FOUR-DIMENSIONAL Einstein-dilaton-Gauss-Bonnet".
+     [Item 332 (S9 (Q1)): U6's two fragments are one sentence's, spliced; the cone test on curved backgrounds rests on
+     M-ONE-LIGHT-CONE (328), not on U6 alone.]
   S1 (computed, exact) The field equations, derived and checked before use.  Varying the action: the metric equation
      G^a_b + 2 delta^{a c d e}_{b g h k} (nabla_c nabla^g f) R_de^hk = T^a_b (the Gauss-Bonnet density varied with f
      inside, integrated by parts twice; Bianchi's identity removes the rest; computed), the scalar equation box phi - V'
      + f' L_GB = 0.  Checked against the reduced action of a cosmology, -N^2 dt^2 + a^2 dx^2, varied in N, a and phi:
      the Euler-Lagrange equations are -a^3, -3 a^2 and a^3 times the covariant ones, for every f (computed) -- so the
      Gauss-Bonnet term's factor and sign are the action's.  The Friedmann equation: 3 H^2 (1 + 8 H f.) = phi.^2/2 + V.
+     [Item 332 (S9 (Q7)): a cosmology is conformally flat, so this check is blind to the Weyl part S4 rests on, and S2's
+     gauge and divergence checks ran on the cosmology only; the verifier's static-spherical reduction (c = -8 from both
+     the tt and rr equations), its Bianchi identity at c = -8 (failing at -4 and -16) and its own wave symbol close the
+     gap.]
   S2 (computed, exact) The principal symbol of the coupled system (metric perturbation t, scalar perturbation psi): the
      metric row -(1/2) delta^(3) xi xi t + 2 delta^(4)[-f' xi xi psi R + (nabla nabla f) 2 xi xi t], the scalar row -xi^2
      psi + f' delta^(4) xi xi t R; gauge invariant, divergence-free, and symmetric as an action's must be -- the scalar
@@ -29,6 +35,10 @@ sympy, exact; READ where marked; deduced where marked; not verified by a separat
      Friedmann equation holding exactly, H. and phi.. from the other two; 8 |H f.| = 1/25), c_T^2 = 537/461 at both,
      above 1 for either sign of f' (computed): in a weakly coupled cosmology gravity's waves outrun light.  Our
      plane's measured one speed (GW170817, relativity U2) bounds 8 (f.. - H f.) today and does not fix f.
+     [Item 332 (S9 (Q6)): "either sign of f'" is a reflection -- the two points are mirror images under phi -> -phi, f'
+     -> -f', with f. = -1/200 at both; the sign of c_T^2 - 1 = 8(f.. - H f.)/(1 + 8 H f.) is set by f.. and f., not by
+     f'. Of the weak coupling, 8 |H f.| = 1/25 is the smaller term; 8 f.. = 1363/11525 = 0.118 (computed), still below
+     1.]
   S4 (computed, exact) On gravity's own wave -- the decisive case. A plane gravitational wave (type N, profile diag(1,
      -1) eps) with phi constant solves the theory exactly for every f with V(phi_0) = V'(phi_0) = 0, the branch's
      massless scalar (computed: the metric equation vanishes and L_GB = 0, so the scalar equation does). On it the purely
@@ -36,6 +46,11 @@ sympy, exact; READ where marked; deduced where marked; not verified by a separat
      Weyl curvature -- are characteristic at xi_0^2 = |xi|^2/(1 -+ 8 sqrt(2) f' eps): symmetric about the light cone, so
      one lies outside it for either sign of f' (computed). Every f' != 0 is reached: phi_0 is any point where f' != 0,
      which the branch's wormholes need.
+     [Item 332 (S9 (Q5), (Q9)): "symmetric about the light cone" is true of omega, equivalently 1/xi_0^2, not of xi_0^2.
+     And "every f' != 0" is every f' != 0 at a phi_0 with V(phi_0) = V'(phi_0) = 0, where this background exists --
+     every point when V = 0, which both cited theories have (arXiv:1904.13091, READ by the verifier: no potential; the
+     Kanti-Kleihaus-Kunz dilaton massless, standard, not READ); not shown for, e.g., V = m^2 phi^2/2 with f = lambda
+     phi^2.]
   S5 (READ) The same from scattering.  Serra, Serra, Trincherini and Trombetta (arXiv:2205.08551, which currency.py
      itself cites; READ: abstract, section 1, section 2's eqs. (11)-(13), the rest not read): around a heavy source the
      scalar-graviton mixing gives eigenmodes delayed by 2 r_s (log(b_0/b) +- sqrt(2) |alpha|/b^2), "one of the
@@ -49,6 +64,8 @@ sympy, exact; READ where marked; deduced where marked; not verified by a separat
      scalar-Gauss-Bonnet branch and doors.py's door-one Einstein-dilaton-Gauss-Bonnet solutions rest on a theory
      relativity excludes; their own findings (DEADLINE OPEN, the instability, the bounds) stand as findings about that
      theory and are not repaired.
+     [Item 332 (S9 (Q5)): for every f' != 0 where V(phi_0) = V'(phi_0) = 0 -- for every f' != 0 with V = 0, the case of
+     both theories named.]
   S7 (deduced; NOT-RUN) The rest of those instruments' modified gravity, named.  Einsteinian cubic gravity and f(R)
      (currency.py's pure-curvature branch, doors.py's f(R) review) have field equations beyond second order in four
      dimensions, outside relativity U4's law (Lovelock: Einstein's alone, READ there); and the five-dimensional
@@ -56,6 +73,17 @@ sympy, exact; READ where marked; deduced where marked; not verified by a separat
   S8 (the cypher NOT-RUN, stated) Whether a theory keeps the light cone is computed from its law, not chosen among
      configurations; an index of theories over (keeps the cone, holds the wormhole) would carry the answer as a key
      (211).  Not run, and said.
+  S9 (item 332; the C9 verifier's report -- CONFIRMED with qualifications, no sub-claim refuted -- checked by the critic
+     in conversation and seated). The field equations re-derived independently (E = G - T + c P nabla nabla f, P the
+     double dual; a static-spherical reduced action fixing c = -8 from the tt and rr equations for arbitrary f and V,
+     the scalar equation matching; the Bianchi identity at c = -8 to 1e-138 on a generic metric, failing at -4 and -16);
+     the symbol gauge-invariant and divergence-free on the cosmology and the type N wave, the coupling ratio -1/2;
+     c_T^2, c_S^2 and S3's exact points reproduced (f' = -+1/480, H. = -1421/461, phi.. = -+16356/2305, 537/461,
+     212137/212521); on the wave omega = +-8 sqrt(2) f' eps, also analytically -- P = -C on a Ricci-flat background,
+     (xi^2)^2 = 64 f'^2 M.M, M.M = 2 eps^2 (l.xi)^4. Reall's eq. (91), SSTT's eq. (12) and quotation verbatim. (Q1) S0
+     splices U6; the test rests on 328. (Q5) S4 and S6 hold where V(phi_0) = V'(phi_0) = 0 -- for V = 0, both cited
+     theories. (Q6) S3's two points are one by reflection; the sign is f.. and f.'s. (Q7) S1's cosmology is blind to the
+     Weyl part; closed by the verifier's checks. (Q9) the symmetry is omega's.
 
 What this does not claim.
   - That such a front has been seen: the record's measurement (GW170817) is of one speed on our plane, near-flat.

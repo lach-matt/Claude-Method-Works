@@ -54,10 +54,11 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      metric (p2_offset V5-V6), so B5a holds for 139 (1)'s plane too, to be overruled by M.]  [Items 323-328: the
      derivation's premises are proved (p2_assume Q0-Q7; relativity U1-U6) and the Gauss-Bonnet coupling is zero
      (gb_cone C7, at its verifier as claim C9), so x+ = 2.625e-10 J/m^3 is exact and B5a holds for 139 (1)'s plane
-     with nothing left to M; the question put to M is answered.]  Where the README lands its
-     density exceeds sigma/4 (E7) and only adds.  B5a does not turn on tau or on which side carries what: 310 (7) is
-     closed for it.  On position 2's side it holds on every ray of the plane, not only where the README lands (b5a_oneway
-     B2), because the side total carries sigma/2 > 0 of tension (tau_share T4).
+     with nothing left to M; the question put to M is answered.]  [Item 332: C9 verified, CONFIRMED with
+     qualifications (gb_cone C10): alpha = 0 under M-ONE-LIGHT-CONE (328), so x+ stays exact.]  Where the README
+     lands its density exceeds sigma/4 (E7) and only adds.  B5a does not turn on tau or on which side carries what:
+     310 (7) is closed for it.  On position 2's side it holds on every ray of the plane, not only where the README
+     lands (b5a_oneway B2), because the side total carries sigma/2 > 0 of tension (tau_share T4).
   A3 (computed, exact; READ where marked; deduced where marked) The one-way reading on one induced metric (310's note).
      On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our lone plane's,
      H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 =
@@ -95,6 +96,8 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      field of position 2's own is a canonical scalar, minimally coupled, so it keeps the one light cone 328 confirms
      (sgb_cone S2: with no curvature coupling every front is null); a scalar coupled to the Gauss-Bonnet density would
      not (sgb_cone S4) and is not what A3 uses (deduced).]
+     [Item 332: C9 verified (gb_cone C10, sgb_cone S9): the law is the bulk's exactly under 328 (Q1); sgb's potential
+     condition (Q5) concerns the coupled scalar, which A3 does not use.]
   A4 (computed) B5a's question through the calculator, in the form C4's (f) stands in (c4_residue R9, R12): the clause
      "positive on every ray, on every reading" realized per class from its law by witnesses -- tension: 139 (1)'s
      -1/4, any other value of position 2's (-1/8, -10, -1/100, +1/2); matter: the README above sigma/4 (1/2, 20), other
