@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """b7_formation.py -- Warp Theorem lemma B7: the corridor's opening and closing between static planes (derived).
 
+[M, item 282: the pre-existing bridge is a join through the bulk with no horizons until the opening; the corridor's
+faces begin at the opening (270 (c)).  B7 stands as written about the join.]
+
 Your rulings: "likely made" (86 answer 3); "a corridor can be made under the same conditions used to make one larger"
 (101 answer 1, H-MADE-AS-WIDENED); everything everywhere always entangled (100, 140); the ER = EPR restriction applies to
 physical matter (122 (4)); one mouth cannot be made without the other, opening position 1 opens position 2 (136 A);

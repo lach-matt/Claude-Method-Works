@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """b4_global.py -- Warp Theorem lemma B4, steps 1-3: the global bulk's topology, its persistence, and the far boundary.
 
+[M, item 282: the pre-existing bridge is a join through the bulk with no horizons until the opening; the corridor's
+faces begin at the opening (270 (c)).  B4a stands as written about the join.]
+
 M, item 152 (1): "two separate positions connected by/reached through a dimension."  Item 152 (2): B4 as a brief forward
 evolution of the bulk, "an option ... check it" (H-BRIEF-EVOLUTION, an option, not a ruling).
 
