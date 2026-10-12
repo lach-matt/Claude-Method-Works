@@ -108,6 +108,9 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      paired per ray under 183)", and by Raychaudhuri's identity no matter on a ray the bounce turns brings its net to
      zero.  That conflict is put to M (c5_oneway U12 (Q1)); until M rules, C7's V2 and V4 rest on a premise with an open
      question, so under 314 and 316 C7 waits for that ruling before its verifier.
+     [Item 318: M, "For the math"; closed in pair_math.py -- "183 everywhere" is excluded by M's own rulings (P3), and on
+     the readings that remain the negative is confined to the quantum region, every classical ray keeping 183 (P2, P4).
+     273 stands, and with it C7's V2 and V4; the premise has no open question left.]
      (Q3) V9 (4)'s "the README as its own image" is the time symmetry of the construction M chose (273; Haggard and
      Rovelli's assumption (iii)), deduced from M's ruling, not READ.
      (Q6) V8's "C7's rows do not turn on tension or matter once the interior is fixed" is the entered constancy read

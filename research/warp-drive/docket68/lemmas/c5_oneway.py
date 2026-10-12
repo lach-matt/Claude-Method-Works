@@ -256,7 +256,9 @@ session; not seated); 2026-10-12.
      and the integral is -integral theta^2/3 d lambda < 0.  So 273's "(to be paired per ray under 183)" cannot be met on
      those rays wherever they are classical, against 183's "zero net null energy along each light ray": put to M (149),
      the one item reasoning cannot settle, since it sets M's rulings against an identity.  None of C5's figures uses the
-     pairing.
+     pairing.  [Item 318: M, "For the math" -- worked in pair_math.py: "183 everywhere" would leave no complete,
+     README-only passage into position 2, against 273, 270 and 276; on the other two readings the negative is confined
+     to the quantum region and every classical ray keeps 183.  273 stands; the README pairs nothing.]
      (Q2) The species cap is parametric.  Dvali and Redi (READ, section 3.1): "The fact that the lifetime becomes
      comparable to the size of the BH implies that they cannot be treated as semi-classical"; van de Heisteeg, Vafa,
      Wiesner and Wu (READ, 5D): "we did not fix this exact O(1) coefficient".  C5 is claimed for every species count at
