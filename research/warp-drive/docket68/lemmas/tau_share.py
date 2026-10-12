@@ -54,6 +54,8 @@ seated); 2026-10-12.
 
 What this does not show.
   - The bulk curvatures themselves: T4's 4/3 k and 2/3 k are what flat, static planes need, not computed from the bulk.
+    [Item 323: the curvatures are proved in p2_assume Q3 -- each side flat at zero offset by 201, 202 and 226,
+    k2 = k1/2 as 201 carries; kept as written.]
   - tau at the corridor, where the causal structure separates the sheets (J1) and J2's coincidence does not apply.
   - Position 2's matter's received part beyond the tension (T3 states it; nothing here uses it).
 

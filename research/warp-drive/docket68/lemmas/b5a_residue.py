@@ -15,12 +15,13 @@ marked; not verified by a separate session; not seated); 2026-10-12.
   A1 (computed, exact) What the junction fixes.  At the coincidence there is one surface (275).  With each side's
      extrinsic curvature K^-+ = +-(kappa^2/2)(Sigma^-+ - Sigma^-+ h/3), Sigma^-+ the stress that side carries, Israel's
      jump [K] = -kappa^2 (S - S h/3), S = S1 + S2, holds if and only if Sigma^- + Sigma^+ = 2 (S1 + S2) -- computed for
-     general symmetric surface stresses, the map X -> X - tr(X) h/3 being invertible in four dimensions (its trace is
-     -tr X/3).  One way, our side carries ours alone, Sigma^- = S1 (the board's reading (a) of 276, M's words "one-way
-     in all aspects"; b5a_oneway B1), and then Sigma^+ = S1 + 2 S2, fixed for any stress, matter included. tau is a
-     convention for splitting it (310 (7); tau_share T2's note): j_readings J2's tau S1 + S2 at tau = 3/4 and S1 + 2 S2
-     agree on tensions and part only in how position 2's matter is counted (computed: their difference is S1/4 + S2,
-     zero for tensions alone).
+     general symmetric surface stresses, the map X -> X - tr(X) h/3 being invertible in four dimensions (its trace is -tr
+     X/3).  One way, our side carries ours alone, Sigma^- = S1 (the board's reading (a) of 276, M's words "one-way in all
+     aspects"; b5a_oneway B1) [item 323: proved from 276 -- our side carries what it would without position 2, and with
+     our bulk mirrored Israel gives S1 (p2_assume Q2)], and then Sigma^+ = S1 + 2 S2, fixed for any stress, matter
+     included. tau is a convention for splitting it (310 (7); tau_share T2's note): j_readings J2's tau S1 + S2 at tau =
+     3/4 and S1 + 2 S2 agree on tensions and part only in how position 2's matter is counted (computed: their difference
+     is S1/4 + S2, zero for tensions alone).
   A2 (computed, exact) Positivity on every ray, on every reading.  A bulk null ray k crossing a surface that carries a
      tension lambda and matter (rho, p) gathers S(k, k)/|k_y| -- j_readings J2's sin a form -- with S(k, k) = (lambda +
      rho) k_y^2 + (rho + p) |k_space|^2 (computed from S_ab = -lambda h_ab + (rho + p) u_a u_b + p h_ab with h(k, k) =

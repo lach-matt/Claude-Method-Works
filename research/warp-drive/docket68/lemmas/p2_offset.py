@@ -52,29 +52,30 @@ separate session; not seated); 2026-10-12.
      with lambda < 0 all the way, the Standard Model has no second minimum below M_Pl, and where one lies is physics
      beyond it.  B5a's bound in the same units is -(6.49 TeV)^4: above the electroweak scale, far below the instability
      scale.
-  V5 (computed, exact; deduced where marked) What the record fixes.  At the coincidence the two sides share one
-     induced metric (275; 310's note), each with its own Gauss equation (b5a_residue A3): H^2 = (kappa^2 Sigma^-/6)^2 -
-     k1^2 + C1/a^4 and H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 = kappa^2 sigma/6 and k2 = kappa^2 sigma/12 (the
-     flat static planes of 139 (1)'s background), with our side ours alone, Sigma^- = S1, and position 2's side the
-     total the junction fixes, Sigma^+ = S1 + 2 S2 (276, the board's reading (a); b5a_residue A1).  An offset enters as
-     tension does (S = -delta sigma h, b5a_residue A2).  With the sheets' vacuum parts alone, C2 - C1 = a^4 (kappa^2/6)^2
-     B, B = sigma (d1 - 2 x) - 4 x (d1 + x), d1 = our offset and x = position 2's (computed, exact, from A3's formula).
-     B is constant and the mass parameters of a vacuum bulk are constants (Bowcock, Charmousis and Gregory, READ in
-     A3), so as a grows B = 0.  The bulk is never empty (320), and its content does not change this, because offsets
-     are constants and the matter on the sheets dilutes.  A vacuum energy has Sigma + Pi = 0, so the Codazzi identity
-     gives it no flux (A3, computed); our matter is conserved (276), so C1 stays constant; and for a null-dust carrier
-     A3's own pair relation makes the flux position 2's bulk must carry proportional to H a^4 Q, Q = 4 B at late times
-     -- a flux growing as a^4 without end, which drives C2 negative (a negative-mass bulk, against 139 (2)'s
-     "positive", the board's reading) if B < 0 and breaks the null condition in position 2's bulk (Q > 0, against 117)
-     if B > 0 (deduced).  For a scalar carrier (A3), a constant part of its stress at the sheet is a bulk vacuum
-     energy, which enters as offset (V6).  So B = 0: 4 x^2 + (4 d1 + 2 sigma) x - sigma d1 = 0, two roots (computed,
-     exact):
-       x+ = d1/2 - 3 d1^2/(2 sigma) + ... = 2.625e-10 J/m^3, half ours;
-       x- = -sigma/2 - 3 d1/2 + ... = -7.41e52 J/m^3.
-     x- turns position 2's side total negative (tension part -sigma/2 - 2 d1): every ray crossing on its side would
-     gather negative null energy, against 117, and it does not vanish with our offset, so it is not an offset of 139
-     (1)'s background but a different one.  So x+ (deduced).  On position 2's side the effective coupling follows the
-     side's tension, sigma/2, so the side total d1 + 2 x+ = 2 d1 at half the coupling gives the one H (computed).
+  V5 (computed, exact; deduced where marked) What the record fixes.  At the coincidence the two sides share one induced
+     metric (275; 310's note), each with its own Gauss equation (b5a_residue A3): H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 +
+     C1/a^4 and H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 = kappa^2 sigma/6 and k2 = kappa^2 sigma/12 (the flat
+     static planes of 139 (1)'s background), with our side ours alone, Sigma^- = S1, and position 2's side the total the
+     junction fixes, Sigma^+ = S1 + 2 S2 (276, the board's reading (a); b5a_residue A1).  An offset enters as tension
+     does (S = -delta sigma h, b5a_residue A2).  With the sheets' vacuum parts alone, C2 - C1 = a^4 (kappa^2/6)^2 B, B =
+     sigma (d1 - 2 x) - 4 x (d1 + x), d1 = our offset and x = position 2's (computed, exact, from A3's formula). B is
+     constant and the mass parameters of a vacuum bulk are constants (Bowcock, Charmousis and Gregory, READ in A3), so as
+     a grows B = 0.  The bulk is never empty (320), and its content does not change this, because offsets are constants
+     and the matter on the sheets dilutes.  A vacuum energy has Sigma + Pi = 0, so the Codazzi identity gives it no flux
+     (A3, computed); our matter is conserved (276), so C1 stays constant; and for a null-dust carrier A3's own pair
+     relation makes the flux position 2's bulk must carry proportional to H a^4 Q, Q = 4 B at late times -- a flux
+     growing as a^4 without end, which drives C2 negative (a negative-mass bulk, against 139 (2)'s "positive", the
+     board's reading) if B < 0 and breaks the null condition in position 2's bulk (Q > 0, against 117) if B > 0
+     (deduced).  For a scalar carrier (A3), a constant part of its stress at the sheet is a bulk vacuum energy, which
+     enters as offset (V6).  So B = 0: 4 x^2 + (4 d1 + 2 sigma) x - sigma d1 = 0, two roots (computed, exact): x+ = d1/2
+     - 3 d1^2/(2 sigma) + ... = 2.625e-10 J/m^3, half ours; x- = -sigma/2 - 3 d1/2 + ... = -7.41e52 J/m^3. x- turns
+     position 2's side total negative (tension part -sigma/2 - 2 d1): every ray crossing on its side would gather
+     negative null energy, against 117, and it does not vanish with our offset, so it is not an offset of 139 (1)'s
+     background but a different one.  So x+ (deduced).  [Item 323: M ordered the assumptions proved.  The one-way split,
+     Sigma^- = S1 and Sigma^+ = S1 + 2 S2, is proved from 276 (p2_assume Q2), the curvatures k1 and k2 from 201, 202 and
+     226 (Q3), the summed reading excluded by 276 (Q4); B = 0 rests on pointwise P4 and 120/137 (Q5), the appeal to 139
+     (2) and to Q > 0 kept as corroboration.]  On position 2's side the effective coupling follows the side's tension,
+     sigma/2, so the side total d1 + 2 x+ = 2 d1 at half the coupling gives the one H (computed).
   V6 (deduced) The answer.  139 (1)'s plane's offset is x+ = 2.625e-10 J/m^3 (d1/2 to one part in 10^62),
      positive, position 2's own vacuum energy (226) fixed by ours through the one induced metric -- a de Sitter offset
      of (1.88 meV)^4 against our (2.24 meV)^4.  B5a holds: A2's bound, -3.7e52 J/m^3, is negative and 62 orders larger
