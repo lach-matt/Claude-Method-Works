@@ -52,6 +52,18 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      continuation the cell with P2 neither keeping 139 (1) nor positive, which the index cannot hold, its only other
      tension being +sigma, positive always; K.langclose holds (4 of 10 pairs agreeing), audit clean.  Not widened to
      make it agree.  The object's causal order is c1_oneway K6's run, which agreed.  (First written NOT-RUN.)
+     [M, item 286: the cypher is a calculator, not an index tool -- P7 reads the languages' agreement on E, the index
+     reading; kept as its record.  P8 is the question through the calculator.]
+  P8 (computed; calculator.py, items 286-287; the encoding the board's, 192) C4's question in binary form: does M1
+     hold?  Its coordinates are the clauses of M1 that vary across P7's twelve configurations -- (a) vacuum (the
+     classical shell carries stress in the bulk, b_interior B5), (b)/(e) a complete route (B6), (f) P2 positive where
+     relevant (285) -- and the answer M1, computed for the other eleven; C4's configuration enters with its answer
+     open.  Analysis carries (f)'s continuous law, the README's density at the face over sigma/4, (R/r_h)^3 = 5.9e15
+     against 1 (e_positive E7).  Broadest first: order and algebra leave 0 and 1 open, analysis says 1, geometry,
+     information and statistics keep 1 -- logic returns 1, M1 holds on C4's one-way configuration, by statistics; the
+     hierarchy law's seven containments hold on the run.  Control (named): with 139 (1) entered as a fourth coordinate
+     -- a ruling M1's clauses do not contain -- statistics admits only 0 and the answer is refused, because no other
+     configuration keeps 139 (1) and holds M1: the AND limit (calculator C6), C4's -sigma/4 case resting on E7 alone.
 
 What this does not show.
   - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
@@ -188,8 +200,37 @@ def _load_path(path, key):
     return mod
 
 
+def calc():
+    """P8: C4's question through the calculator, the board's encoding and the named control"""
+    CA = _load("calculator.py", "c4o_calc")
+    BI = _load("b_interior.py", "c4o_bi2")
+    EP = _load("e_positive.py", "c4o_ep2")
+    ratio = EP.example()["R_rh"] ** 3
+    if MUT.get("readme_thin"):
+        ratio = 0.5                                        # the mutant puts the README's density below sigma/4
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    rows = {}
+    for (inner, bounce, _), p in cells.items():
+        vac = int(bounce != "shell")
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            pos = int(m == 1 or t == "+sigma")
+            rows[(inner, bounce, t, m)] = dict(vac=vac, complete=p["complete"], p2pos=pos, keeps=int(t == "-sigma/4"),
+                                               m1=int(vac and p["complete"] and pos))
+    q = (0, "quantum", "-sigma/4", 1)
+    out = {}
+    for tag, coords in (("board", ["vac", "complete", "p2pos"]), ("with139", ["vac", "complete", "p2pos", "keeps"])):
+        known = [tuple(r[c] for c in coords) + (r["m1"],) for k, r in rows.items() if k != q]
+        attrs = tuple(rows[q][c] for c in coords)
+        r = CA.ask(coords + ["m1"], known, attrs,
+                   analysis={"witness": "e_positive E7: (R/r_h)^3", "magnitude": ratio, "threshold": 1.0},
+                   citations=["273", "139 (1)", "268", "276", "282", "284", "285"])
+        r["lawful"] = CA.controls(coords + ["m1"], known, attrs)["lawful"]
+        out[tag] = r
+    return dict(ratio=ratio, **out)
+
+
 def compute():
-    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices())
+    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc())
 
 
 def report(o):
@@ -203,6 +244,10 @@ def report(o):
     s = o["st"]
     print("P5 luminosity %.3g W (life %.3g s); outgoing flux on P1 at r_h: %.2g sigma (m1_small N4's bath: 0.305)" % (
         s["P"], s["life"], s["ratio"]))
+    ca = o["ca"]
+    for tag in ("board", "with139"):
+        print("P8 %s: answer %s by %s; %s; lawful %s" % (tag, ca[tag]["answer"], ca[tag]["by"],
+              "; ".join("%s %s" % (t[0], t[1]) for t in ca[tag]["trace"] if t[0] != "documentary"), ca[tag]["lawful"]))
     ch = o["ch"]
     print("P7 %d rows; held %s; all four by %s; E %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
         ch["n"], ch["held"], ch["holders"], ch["E"], ch["langclose"], ch["agreeing"], ch["audit"]["keys"],
@@ -232,11 +277,19 @@ def checks(o):
     ok &= not ch["audit"]["keys"] and not ch["audit"]["onehot"]
     add("P7 the all-four cell only by the quantum bounce with P2 at -sigma/4 and the README where it lands; E 3, 3, 0, "
         "0, 0, langclose holds, audit clean", ok)
+    ca = o["ca"]
+    tb = dict((t[0], t[1]) for t in ca["board"]["trace"])
+    ok = ca["board"]["answer"] == 1 and ca["board"]["by"] == "statistics" and tb["order"] == [0, 1]
+    ok &= tb["analysis"] == [1] and tb["statistics"] == [1] and ca["board"]["lawful"] and "%.2g" % ca["ratio"] == "5.9e+15"
+    ok &= ca["with139"]["answer"] == "refused" and ca["with139"]["lawful"]
+    add("P8 through the calculator, broadest first: logic returns 1 (M1 holds), by statistics, analysis 5.9e15 >= 1; "
+        "the control with 139 (1) as a coordinate refused (the AND limit); the law's containments hold", ok)
     return res
 
 
 MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular metric",
            "p2_free_positive": "P2 taken positive at -sigma/4 without the README",
+           "readme_thin": "the README's density at the face put below sigma/4",
            "bath_kept": "the Hartle-Hawking bath's ingoing half kept"}
 
 
