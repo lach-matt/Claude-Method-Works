@@ -48,6 +48,10 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      which is closed too: the cypher's agreement certifies the order as an index, not its direction -- the direction is
      the held set itself, the 84 forward routes and none back (K3, and this check).
      (First written as NOT-RUN, a construction with no cells; M, item 283: "Run the cypher on it".)
+     [Item 298, the board's audit: the one verifier sent on C1 under 283 was stopped mid-run, when M interrupted the
+     board's question that followed ("Put the question to me again"), and returned no verdict -- C1 one-way is not
+     verified.  And K6 is the index reading item 286 set aside: C1's question is owed through the calculator, as C4's
+     was (c4_oneway P8-P13).]
 
 What this does not show.
   - The bounce's quantum region as a metric (b_bounce's "does not show"); K3 uses its join, not its interior.

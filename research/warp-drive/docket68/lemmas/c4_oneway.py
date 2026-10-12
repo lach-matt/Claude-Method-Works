@@ -141,10 +141,55 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      about order 2 and above).  So the order-1 runs here, in P10 and in P9 are outside the law.  No clause is 0 in any
      placement, coding or order.  Information shown tension and matter at statistics' rank brings P10's dependence back
      (the info_sees_all mutant): the refusals of P10 were information's, seeing all three at once.
+  P13 (computed; deduced where marked; item 298) The form of C4's question, settled by the cypher.  Why information
+     refused (deduced; P10's reach test, 96 of 96): information admits C4's cell with an answer only as the join of
+     known cells below it -- its regrowth is the join-closure of the join-irreducibles, and the question's own cell
+     carries the open answer, the top.  Among the eleven, C4's continuation is seen (three quantum-bounce
+     configurations) and its P2 state is seen (the inner horizon and the classical shell at -sigma/4 with the README),
+     but never the two together: C4 is the one configuration combining them.  Whether that combination is a join
+     depends on which tension and which matter count as "more" -- with keeps 139 (1) = 1 and README = 1 it is the join
+     of the quantum bounce at -sigma/4 without the README and at +sigma with it; flipped, it can fail.  P2's tension read
+     relative to ours and its matter across infinite universes (295) supply no such order, so information's verdict on
+     them is the coding's, not the configurations'.  Statistics reads co-occurrence, unchanged by relabelling a
+     condition's values: the combination's plausibility from its parts (292).  And the continuation (the hole's
+     interior) and P2's state (the plane's tension and matter) are independent choices, which is order-2 max-entropy's
+     own assumption, no interaction above pairs.  So tension and matter stay in every clause (293), read at
+     statistics' rank (292).  Computed: the cypher agrees -- 1, 1, 1 in all 96 codings at the protocol's order, (a) and
+     (b)/(e) decided by geometry from the continuation, (f) by statistics -- and logic joins them: M1 holds.  The
+     deduction tested where it could fail: with geometry also reading tension and matter, or every language but
+     information, the cypher agrees in all 96; with information reading them it refuses in P10's 42.  Information's
+     reading alone carried the refusals.
+  P14 (computed, exact where marked; estimate where marked) The outgoing flux's back-reaction on P1, owed since P5.
+     The flux is a null fluid on the plane, S_ab = rho k_a k_b, traceless (exact).  Israel on P1 (m1_small N4's
+     method), K_ab = -(kappa^2/2)(S_ab - S h_ab/3): the flux puts (kappa^2/2) rho into K_tt in the hole's static frame
+     against the tension's (kappa^2/6) sigma = 1/ell -- 3 rho/sigma (exact), 0.86 at r = r_h on P5's rho = 0.29 sigma
+     (estimate): K r_h = 6.9e-16 against the tension's 8.0e-16, falling as (r_h/r)^2, 0.0086 at 10 r_h.  Warp order:
+     P1 stays the equator to a part in 10^15, the flux bending it as much as the tension's own kink does near the hole
+     and falling away across clause (c)'s window r_h << r << ell.  The flux's K lies along its null direction, so
+     K_ab K^ab vanishes and 0.86 is the static frame's component, the frame P5's rho is defined in; the formed hole's
+     ingoing negative flux at the face (c5_oneway U3) is of the same size (estimate).  C4's qualification (5), "C4 is
+     classical", stands as the verifier seated it, its bending now sized.
+  P15 (computed, exact; deduced where marked) The kink through the faces, owed since P6.  KTN solve the brane condition
+     outside the horizon only.  The horizon is non-extremal (kappa = 1/r_h at flat order; at warp order
+     Schwarzschild-AdS5's root is simple, f' > 0 there), and U V = -e^{2 kappa r*} = -e^{2 r/r_h} (r - r_h)/(r + r_h)
+     has d(UV)/dr = -e^2/(2 r_h), not zero, at r_h: r is an analytic function of U V across U = 0 and V = 0.  Deduced:
+     a static brane profile psi(r) analytic at the horizon is an analytic function of U V; the brane condition's
+     coefficients are analytic in (U, V), so psi(r(UV)) satisfies it wherever it did outside and continues through our
+     black-hole face and position 2's white-hole face into both interiors (the identity theorem), until r reaches the
+     quantum region (273).  The bounce's map (U, V) -> (-U, -V) keeps U V, so position 2's side carries the same
+     profile, position 2 reading its own side (b_bounce Q1).  Conditional on KTN's exterior profile being analytic at
+     the horizon; their solution is numerical and disputed (item 261), as the C1 and C4 verifiers recorded.
+  P16 (deduced) C4's case, by the record.  The form of its question settled by the cypher (P13, under 291-298): clause
+     by clause, tension and matter in every clause and read at statistics' rank, 1, 1, 1 under every coding at the
+     protocol's order, logic joining -- M1 holds; P8-P12 the record of the forms before it.  The items 297 listed against
+     readiness: the form (P13); the kink through the faces derived (P15, conditional on analyticity at the horizon);
+     the flux's back-reaction sized (P14, warp order); C4 classical carried as the verifier's qualification (5), with
+     its size.  So C4 is ready for M's finalization (249) and one verifier.
 
 What this does not show.
-  - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
-  - The flux's back-reaction on P1 (P5 is the load's size, not the bending computed).
+  - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
+  - The plane's solved shape under the flux: P14 is the junction's static-frame component.
+  - The quantum region's duration (b_bounce Q3 is the two-way object's; item 277), as c5_oneway.
 
 Imports m1_small.py, c1_oneway.py, e_positive.py, hold_small.py, p2_gravity.py, b_interior.py, index_audit.py,
 calculator.py and tools/cypher.py by path.  Stdlib + sympy.
@@ -583,9 +628,93 @@ def placements():
     return out
 
 
+_P13 = {}
+
+
+def form():
+    """P13 (item 298): which language's reading of tension and matter carries the refusals -- the form of C4's
+    question settled by the cypher's agreement, at the protocol's order (2)"""
+    key = tuple(sorted(k for k in MUT if k in ("info_reads_order",)))
+    if key in _P13:
+        return _P13[key]
+    CA = _load("calculator.py", "c4o_calc")
+    HL = _load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c4o_hl")
+    BI = _load("b_interior.py", "c4o_bi7")
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    cfg = {}
+    for (inner, bounce, _), p in cells.items():
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            cfg[((inner, bounce), t, m)] = dict(a=int(bounce != "shell"), be=p["complete"], f=int(m == 1 or t == "+sigma"))
+    q = ((0, "quantum"), "-sigma/4", 1)
+    others = [x for x in cfg if x != q]
+    every, cont = (0, 1, 2, 3), (0, 1)
+    tests = {"form": dict(order=cont, algebra=cont, geometry=cont, information=cont, statistics=every),
+             "geometry too": dict(order=cont, algebra=cont, geometry=every, information=cont, statistics=every),
+             "all but information": dict(order=every, algebra=every, geometry=every, information=cont,
+                                         statistics=every),
+             "information too": dict(order=cont, algebra=cont, geometry=cont, information=every, statistics=every)}
+    if MUT.get("info_reads_order"):
+        tests["form"]["information"] = every               # the mutant lets information read tension and matter
+    out = {t: Counter() for t in tests}
+    seen = {"cont": True, "pstate": True, "combo": False}
+    for code in itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 3):
+        cm = dict(zip(CONTS, code))
+        for tf, mf in itertools.product((0, 1), repeat=2):
+            enc = lambda x: cm[x[0]] + (int(x[1] == "-sigma/4") ^ tf, x[2] ^ mf)
+            for t, v in tests.items():
+                out[t][tuple(_staged(CA, HL, ["c1", "c2", "t", "m", cl], [enc(x) + (cfg[x][cl],) for x in others],
+                                     enc(q), v, 2)["answer"] for cl, _, _ in CLAUSES)] += 1
+    # what is seen of C4: its continuation alone, its P2 state alone, and the combination
+    seen["cont"] = any(x[0] == q[0] for x in others)
+    seen["pstate"] = any(x[1:] == q[1:] for x in others)
+    seen["combo"] = any(x == q for x in others)
+    _P13[key] = dict(out=out, seen=seen)
+    return _P13[key]
+
+
+def flux_bend():
+    """P14: the outgoing flux's bending of P1 at r = r_h against the tension's, by Israel (m1_small N4's method)"""
+    s = state()
+    PG = _load("p2_gravity.py", "c4o_pg2")
+    l5 = (PG.HBAR * PG.G * PG.ELL_MAX / PG.C ** 3) ** (1 / 3)
+    rh = (2 * 2742570311524972 * math.log(2) / math.pi ** 2) ** (1 / 3) * l5
+    k2, sig, rho = sp.symbols("kappa2 sigma rho", positive=True)
+    h = sp.diag(-1, 1, 1, 1)
+    kv = sp.Matrix([1, 1, 0, 0])                            # outgoing radial null, static orthonormal frame
+    S_flux = rho * kv * kv.T                                 # S_ab = rho k_a k_b (lowered: k_t = -1 -> same outer product)
+    S_flux[0, 1] = S_flux[1, 0] = -rho
+    trace = sum(h[i, i] * S_flux[i, i] for i in range(4))
+    fac = sp.Rational(1, 2) if not MUT.get("flux_as_tension") else sp.Rational(1, 6)
+    K_flux_tt = sp.simplify(fac * k2 * (S_flux[0, 0] - trace * h[0, 0] / 3))
+    K_tens = sp.simplify(sp.Rational(1, 2) * k2 * ((-sig * h)[1, 1] - (-4 * sig) * h[1, 1] / 3))
+    ratio_sym = sp.simplify(K_flux_tt / K_tens)              # 3 rho / sigma
+    ratio = float(ratio_sym.subs({rho: s["ratio"], sig: 1}))
+    return dict(traceless=trace == 0, ratio_sym=ratio_sym, ratio=ratio, K_flux=ratio * rh / PG.ELL_MAX,
+                K_tension=rh / PG.ELL_MAX, at10=ratio / 100)
+
+
+def faces():
+    """P15: r as a function of U V across a non-extremal horizon; the bounce's map keeps U V"""
+    r, rh, ell, U, V = sp.symbols("r r_h ell U V", positive=True)
+    f = 1 - rh ** 2 / r ** 2
+    if MUT.get("extremal"):
+        f = (1 - rh ** 2 / r ** 2) ** 2                    # the mutant: a double root, kappa = 0
+    kappa = sp.simplify(sp.diff(f, r).subs(r, rh) / 2)
+    rstar = r + rh / 2 * sp.log((r - rh) / (r + rh))         # int dr / f for 1 - r_h^2/r^2
+    ok_rstar = sp.simplify(sp.diff(rstar, r) - 1 / (1 - rh ** 2 / r ** 2)) == 0
+    if kappa == 0:
+        return dict(kappa=kappa, dUV=0, analytic=False, ok_rstar=ok_rstar, sads_simple=False, bounce_keeps=True)
+    UV = -sp.exp(2 * kappa * r) * (r - rh) / (r + rh)        # -e^{2 kappa r*}
+    ok_uv = sp.simplify(UV + sp.exp(2 * kappa * rstar)) == 0
+    dUV = sp.simplify(sp.diff(UV, r).subs(r, rh))
+    fa = 1 - rh ** 2 / r ** 2 + r ** 2 / ell ** 2            # warp order: Schwarzschild-AdS5
+    return dict(kappa=kappa, dUV=dUV, analytic=bool(dUV != 0) and ok_uv, ok_rstar=ok_rstar,
+                sads_simple=bool(sp.diff(fa, r).is_positive), bounce_keeps=sp.expand((-U) * (-V) - U * V) == 0)
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
-                wd=widen(), cl=clauses(), rk=ranks(), pl=placements())
+                wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces())
 
 
 def report(o):
@@ -629,6 +758,17 @@ def report(o):
             print("P12 %-16s order %d, 96 codings: %s; lawful %d of 96; known configurations %s" % (
                 sc, k, dict(Counter((x["ans"], x["join"]) for x in v)), sum(x["lawful"] for x in v),
                 sorted({x["known"] for x in v})))
+    fm = o["fm"]
+    for t, c_ in fm["out"].items():
+        print("P13 tension and matter read by %-20s 96 codings at order 2: %s" % (t + ":", dict(c_)))
+    print("P13 seen among the eleven: C4's continuation %s, C4's P2 state %s, the combination %s" % (
+        fm["seen"]["cont"], fm["seen"]["pstate"], fm["seen"]["combo"]))
+    fb = o["fb"]
+    print("P14 the flux's bending against the tension's: %s = %.3g at r_h (K r_h %.2g against %.2g), %.2g at 10 r_h" % (
+        fb["ratio_sym"], fb["ratio"], fb["K_flux"], fb["K_tension"], fb["at10"]))
+    fc = o["fc"]
+    print("P15 kappa %s; d(UV)/dr at r_h %s (r analytic in UV across the faces: %s); SAdS root simple %s; the bounce "
+          "keeps UV %s" % (fc["kappa"], fc["dUV"], fc["analytic"], fc["sads_simple"], fc["bounce_keeps"]))
     rk = o["rk"]
     for pl in PLACES:
         for k in (1, 2, 3, 4):
@@ -739,6 +879,22 @@ def checks(o):
         "1, (f) refused in 64 at order 3, all refused at order 4; as the given (2 configurations) refused but for 8 "
         "codings at orders 1-2; P10's placement 54, 54, 22, 0; the law's containments hold at orders 2-4 and fail at "
         "order 1 in every placement; never 0", ok)
+    fm = o["fm"]["out"]
+    ok = fm["form"] == Counter({(1, 1, 1): 96}) and fm["geometry too"] == fm["form"]
+    ok &= fm["all but information"] == fm["form"]
+    ok &= fm["information too"] == Counter({(1, 1, 1): 54, ("refused",) * 3: 42})
+    ok &= o["fm"]["seen"] == {"cont": True, "pstate": True, "combo": False}
+    add("P13 the form: tension and matter in every clause, read at statistics' rank -- the cypher agrees, 1, 1, 1 in all "
+        "96 codings at order 2; it agrees too with geometry or every language but information reading them, and refuses "
+        "in 42 whenever information does; C4's continuation and its P2 state are each seen, their combination not", ok)
+    fb = o["fb"]
+    add("P14 the outgoing flux is traceless; by Israel it bends P1 3 rho/sigma = 0.86 as much as the tension at r_h "
+        "(K r_h 6.9e-16 against 8.0e-16), falling as (r_h/r)^2", fb["traceless"] and str(fb["ratio_sym"]) == "3*rho/sigma"
+        and "%.2f" % fb["ratio"] == "0.86" and "%.2g" % fb["K_flux"] == "6.9e-16" and "%.2g" % fb["K_tension"] == "8e-16")
+    fc = o["fc"]
+    add("P15 the horizon is non-extremal (kappa = 1/r_h; SAdS's root simple), d(UV)/dr = -e^2/(2 r_h) at r_h: r is "
+        "analytic in UV across both faces; the bounce's map keeps UV", fc["analytic"] and fc["ok_rstar"]
+        and fc["sads_simple"] and fc["bounce_keeps"] and str(fc["kappa"]) == "1/r_h")
     return res
 
 
@@ -753,7 +909,10 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "tm_with_continuation": "tension and matter put back beside the continuation on its own rank (P11)",
            "c4_without_readme": "C4's configuration read without the README (P11)",
            "info_sees_all": "information shown tension and matter at statistics' rank (P12)",
-           "given_by_tension": "the given fixed by the tension alone, the matter varying (P12)"}
+           "given_by_tension": "the given fixed by the tension alone, the matter varying (P12)",
+           "info_reads_order": "information let read tension and matter in the form (P13)",
+           "flux_as_tension": "the flux's Israel term taken with the tension's factor (P14)",
+           "extremal": "the horizon taken extremal, a double root (P15)"}
 
 
 def selftest():
