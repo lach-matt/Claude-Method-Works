@@ -29,6 +29,10 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      stands (273): there the classical equations and pointwise null energy give way, every ray through it carrying net
      negative null energy, paired by the README crossing it (183).  Item 259's admission of the singularity was the
      classical interior's; on the bounce it is replaced.
+     [Item 317 (the C5 verifier's Q1, accepted): withdrawn -- by Raychaudhuri's identity, integral R_kk d lambda =
+     theta_in - theta_out - integral theta^2/3 d lambda < 0 on every ray the bounce turns, and R_kk counts the README's
+     null energy too; no matter on the ray brings its net to zero.  The part was set against the total it belongs to.
+     273's "paired per ray under 183" against 183's zero net per ray is put to M (c5_oneway U12 (Q1)).]
   P4 (computed; e_positive E7, item 284) Clause (f) re-posed: P2 carries 139 (1)'s tension -sigma/4 and its own matter
      (268), positive where the README lands -- the README's density above sigma/4 within 2.0e-15 m = 1.8e5 r_h of the
      face (E7) -- which is where the corridor's rays cross P2 (284).  A ray crossing P2 there at angle a picks up e sin a

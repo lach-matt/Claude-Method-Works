@@ -49,7 +49,7 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      one-hot on any clause.  Control: the continuation alone, without tension and matter, is refused on every clause.
      As for C4 and C5 (item 310 (4); c5_oneway U11 (13)), the agreement is a result about the rows, not a further
      computation of them: C7's rows do not turn on tension or matter once the interior is fixed, and the answer at the
-     bounce is its own row read back.
+     bounce is its own row read back.  [Item 317 (V11 (Q6)): the first half is the entered constancy read back.]
   V9 (computed where marked, deduced where marked; item 315) C7 against C1's, C4's and C5's verifications (items 304,
      310) and C5's U9-U11.
      (1) Position 2's reading, 240 (READ, M verbatim: "The mass on position 2's side is not equal to ours"; the C4
@@ -57,7 +57,7 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      r = that side's r_h, position 2's mass being its own (M-P2-MASS-OWN); that position 2's r_h equals ours holds only
      in the two-exterior effective geometry with position 2's constants taken as ours -- the construction's
      simplification, not claimed.  V2's identity 2 pi^2 r_h^3 = 4 N ln2 l5^3 holds on each face in that side's own l5
-     (240 (b): "its throat holds exactly the README at position 2's own bit area").
+     (the board's reading 240 (b), carried: "its throat holds exactly the README at position 2's own bit area").
      (2) G5 under the 2 : 1 bulk (the C4 verifier's, outside its claim; computed).  r_h is fixed by the README's bits
      in units of l5, so V1's E moves as (G5/G ell)^(-1/3): 1.281e9 J, 1.119e9 J at (3/2) G ell, 1.614e9 J at G ell/2 --
      each below ledger.py's assembly ceiling 1.1947e10 J, so the C7 verifier's T3/E3 flip at the small end stands on
@@ -65,9 +65,11 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      and -6.7e14); every clock-denominated figure is unchanged (c5_oneway U9).
      (3) The far hemisphere (the C4 verifier's reading at c4_residue R8): a warp-order question; C7 is claimed at flat
      order, as M1 is, where both halves of the hole are Tangherlini's (deduced), at most (r_h/ell)^2 = 6.4e-31.
+     [Item 317 (V11 (Q8)): at O(r_h/ell) = 8.0e-16, not its square.]
      (4) V4's passage now stands on c5_oneway U11 (4): every timelike and null route crosses the core; and V2's
      "position 2's face" is reached by the README as its own image under the forced map (U, V) -> (-U, -V), a
-     consequence of M's 273 (c5_oneway U10, U11 (9); c4_residue R13).
+     consequence of M's 273 (c5_oneway U10, U11 (9); c4_residue R13).  [Item 317 (V11 (Q3), (Q7)): forced on 270 (a)'s
+     single chart; the README's image is the time symmetry of M's construction, deduced.]
      (5) V5's closure recomputed here rather than taken from i_oneway I3 (not separately verified): on the Kruskal form
      -F dU dV + r^2 dOmega^2 a future causal vector has dU >= 0 and dV >= 0, so from position 2's exterior (U' > 0,
      V' < 0 in Q1's image chart) U' never decreases and never reaches its white-hole face U' = 0 (computed): no inflow
@@ -99,9 +101,30 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      are other rows: not claimed by C7, named so no reader takes them as C7's.
      (7) B2t-s is cited from C1 (verified, item 254; c1_oneway K1) -- a verified claim, not residue.
      With these nothing in C7 is open: every figure computed, READ, or deduced from M's rulings and verified claims.
+  V11 (item 317, under 316; deduced, with what is computed marked) C7 against C5's verification -- CONFIRMED with
+     qualifications, its pairing sub-claim refuted (c5_oneway U12).
+     (Q1) C7 asserts no pairing: no V entry claims that the README, or anything, pairs the bounce's negative null
+     energy per ray.  But V2's faces and V4's passage rest on M's 273, whose option text promised the bounce "(to be
+     paired per ray under 183)", and by Raychaudhuri's identity no matter on a ray the bounce turns brings its net to
+     zero.  That conflict is put to M (c5_oneway U12 (Q1)); until M rules, C7's V2 and V4 rest on a premise with an open
+     question, so under 314 and 316 C7 waits for that ruling before its verifier.
+     (Q3) V9 (4)'s "the README as its own image" is the time symmetry of the construction M chose (273; Haggard and
+     Rovelli's assumption (iii)), deduced from M's ruling, not READ.
+     (Q6) V8's "C7's rows do not turn on tension or matter once the interior is fixed" is the entered constancy read
+     back (C7 replicates each row over every class), not a result of the calculator; that the bounce's answer does not
+     turn on the inner horizon's row is one.
+     (Q7) V9 (4)'s map (U, V) -> (-U, -V) is forced on 270 (a)'s single Kruskal chart, a board reading.
+     (Q8) V9 (3): warp-order corrections enter at O(r_h/ell) = 8.0e-16 (m1_small's item-269 note), not (r_h/ell)^2
+     (computed below); negligible either way, and C7 is claimed at flat order.
+     (Q4) V1's "the README is held on the horizon's 3-sphere" is C2 R1's count -- the horizon's area holding N bits --
+     not a duration: nothing within the horizon lasts more than its stay (c5_oneway U12 (Q4)); V2's "hold" is the face
+     standing, which the write's floor bounds.
+     The rest of C5's verdict -- the species bound in t_b, E~ < 1, the seed, the attributions -- bears on nothing C7
+     uses.
 
 What C7 does not claim (item 315, M-NO-RESIDUE-TO-VERIFIER) -- each left out with its reason, none open in C7.
   - That position 2's r_h or mass equals ours: 240 (V9 (1)).
+  - [Item 317] That anything pairs the bounce's negative null energy per ray (V11 (Q1)).
   - Anything at warp order in r_h/ell, or semiclassical near the hole: C7 is classical at flat order, as M1 (V9 (3),
     V10 (1)).
   - E4r-s at r = ell, H2tu-s at the crossover (V10 (2), (3)); the exterior's mode stability (V10 (5)).
@@ -237,7 +260,8 @@ def against():
     causal = all(-a * b <= 0 for a, b in future)
     U0 = sp.Rational(1, 10)
     reach = any(U0 + 20 * a <= 0 for a, b in future)                      # twenty steps toward the face
-    return dict(g5=g5, causal=causal, never=not reach, warp=(1 / o["ex"]["ell_over_rh"]) ** 2)
+    return dict(g5=g5, causal=causal, never=not reach, warp=(1 / o["ex"]["ell_over_rh"]) ** 2,
+                warp1=1 / o["ex"]["ell_over_rh"])               # [item 317 (Q8)] warp order enters at O(r_h/ell)
 
 
 def compute():
@@ -261,7 +285,8 @@ def report(o):
         print("V9 G5 = %.1f G ell: E %.4g J (below the ceiling: %s), H2tu-s %.3g N, E4r-s %.3g E" % (
             g, v["E"], v["below"], v["bits"], v["field"]))
     print("V9 future causal steps keep dU, dV >= 0: %s; position 2's face never reached from its exterior: %s; "
-          "(r_h/ell)^2 = %.2g" % (o["ag"]["causal"], o["ag"]["never"], o["ag"]["warp"]))
+          "r_h/ell = %.2g (warp order, item 317), its square %.2g" % (o["ag"]["causal"], o["ag"]["never"],
+                                                                      o["ag"]["warp1"], o["ag"]["warp"]))
 
 
 def checks(o):
@@ -289,9 +314,10 @@ def checks(o):
     rul_ok = "The mass on position 2's side is not equal to ours" in rul
     ok = rul_ok and all(v["below"] for v in ag["g5"].values()) and "%.4g" % ag["g5"][1.5]["E"] == "1.119e+09"
     ok &= "%.4g" % ag["g5"][0.5]["E"] == "1.614e+09" and ag["causal"] and ag["never"]
-    ok &= "%.2g" % ag["warp"] == "6.4e-31"
+    ok &= "%.2g" % ag["warp"] == "6.4e-31" and "%.2g" % ag["warp1"] == "8e-16"
     add("V9 against the verifications (item 315): 240's words read; V1's E below the ceiling on every G5 (1.119e9, "
-        "1.614e9 J); no future causal curve from position 2's exterior reaches its face; warp order at 6.4e-31", ok)
+        "1.614e9 J); no future causal curve from position 2's exterior reaches its face; warp order at O(r_h/ell) = "
+        "8.0e-16 (item 317)", ok)
     return res
 
 

@@ -49,6 +49,10 @@ clocks is that object's time, not the one-way object's.  Kept as written; the on
      [Item 310, from the C4 verifier: two core scales stand as estimates -- e = 2.9e-23 m here and c4_residue R6's r_q
      = 6.4e-24 m; the README's pairing margin (4/3)(r_h/e)^2 is 2.0e5 at the first and 4.0e6 at the second (computed);
      both pair.]
+     [Item 317 (the C5 verifier's Q1, accepted): withdrawn -- by Raychaudhuri's identity, integral R_kk d lambda =
+     theta_in - theta_out - integral theta^2/3 d lambda < 0 on every ray the bounce turns, and R_kk counts the README's
+     null energy too; no matter on the ray brings its net to zero.  The part was set against the total it belongs to.
+     273's "paired per ray under 183" against 183's zero net per ray is put to M (c5_oneway U12 (Q1)).]
   Q6 (named, not computed) What Q5 leaves.  Haggard and Rovelli's quantum region also leaks outside the horizon, to R_q
      (Q2), over the long time of Q3 -- the part that undoes the trapping.  Rays through that part, near the horizon, do
      not cross the README deep inside; whether their null energy is negative there, and what pairs it, is not computed:

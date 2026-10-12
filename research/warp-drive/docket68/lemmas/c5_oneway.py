@@ -13,6 +13,8 @@ session; not seated); 2026-10-12.
      hold_small's own tau and i_oneway's closed form agreeing; the README emerges through position 2's interior in as
      long again.  The interior's r = 0, admitted by item 259 as the classical interior outside the passage, is where
      the bounce's quantum region stands (273): the passage runs through it, paired per ray by the README (b_bounce Q5).
+     [Item 317 (U12 (Q1)): "paired per ray by the README" withdrawn -- by Raychaudhuri's identity the total null energy
+     on every ray the bounce turns is negative, the README's included; put to M.]
      [Item 311 (U9): "as long again" holds through c4_residue R6's core with the Killing energy kept -- the continuation
      past the bounce is the incoming half's image under (T, t) -> (-T, 2 t_0 - t), an isometry; the face, for the
      README's parts on reading (i), joins the quantum region's form.]
@@ -66,6 +68,7 @@ session; not seated); 2026-10-12.
      E~ != 0, and for the README on b_bounce Q5's reading, it is the core's scale, not computed.  The check pins it.]
      [Item 311 (U9), computed: in the core Tdot^2 = 1 + E~^2/G + L^2/R^2 >= 1 (G > 0), so no timelike route crosses
      it in more proper time than the E~ = 0 observer -- 1.6e-7 per half bounds them all.]
+     [Item 317 (U12 (Q9)): (2) used the fixed floor and is superseded by U12 (Q2).]
      (2) Species: the life goes as 1/(degrees of freedom), so the hold's 1.28e10 margin over the write's floor admits a
      1.28e10-fold multiplication of the radiated species before the floor is reached (estimate; H-SPECIES-FINITE).
      (3) Greybody: with every greybody factor set to 1, the most the hole can radiate, the margin is 1.19e10.
@@ -131,7 +134,8 @@ session; not seated); 2026-10-12.
      The readings of where the write sits (o3_write W4): (i) inside a static hold -- a hole of E standing while the
      README of E arrives (264 (1)'s open 2E question); (ii) the write is the opening -- the README forms the hole as it
      arrives, the size growing (ingoing Vaidya; 198, M's guess: "the size growing as it comes in ... and fixed once the
-     whole README is in").  Against M's rulings (deduced): 273 chose the object whose option text reads "README only",
+     whole README is in").  [Item 317 (U12 (Q10)): those words are the board's option (a) at 198; M's are "My guess
+     would be 1."]  Against M's rulings (deduced): 273 chose the object whose option text reads "README only",
      and 282 (2) chose "Before the opening the positions are joined through the bulk with no horizons; the corridor's
      faces begin at the opening" -- so no hole stands before the README is in, and none of E that is not the README's:
      reading (i) is excluded, its 2E question answered against it.  162 rules "The throat doesn't change size because
@@ -215,7 +219,8 @@ session; not seated); 2026-10-12.
      future interior onto a past one -- (U, V) -> (-U, -V) and (U, V) -> (-V, -U), each up to a boost -- the time
      reflection carries our exterior onto itself, a white hole facing us, the reverse passage 270 and 276 rule out;
      only (U, V) -> (-U, -V) carries it to another exterior.  So 273 (a) is a deduction, and the face by which the
-     README leaves is a consequence of M's ruling.  The pairing (b_bounce Q5, its flat model): a ray through a core of
+     README leaves is a consequence of M's ruling.  [Item 317 (U12 (Q7), (Q1)): forced on 270 (a)'s single chart; the
+     pairing sentence that follows is withdrawn.]  The pairing (b_bounce Q5, its flat model): a ray through a core of
      radius e needs net negative null energy 6/e plus the focusing integral F (Q4), and F <= 6/e for |theta| <= 3/e along
      the chord of length 2e, while the README gives it 12 r_h^2/e^3 -- so the README pairs every core with e <= r_h
      (computed), i.e. every core inside the horizon, where the quantum region lies (i_oneway I4): independent of the
@@ -236,13 +241,73 @@ session; not seated); 2026-10-12.
      which every figure of C5 holds.
      With these nothing in C5 is open: every figure is computed, READ, or deduced from M's rulings, and the estimates
      still in the record -- R6's core value, U10's reading (ii) -- are not part of what C5 claims.
+     [Item 317 (U12): this line did not stand -- (9)'s pairing sentence is refuted and withdrawn, and (8)'s range is
+     parametric; U12 seats both, and (1)-(3), (5), (6), (7), (10), (12) and (13) as corrected there.]
 
+  U12 (item 317; the C5 verifier's report -- CONFIRMED with qualifications, one sub-claim refuted -- checked by the
+     critic in conversation and seated; computed where marked, READ where marked, deduced where marked).
+     (Q1, refuted and withdrawn) U11 (9)'s pairing sentence, and U1's and U8 (6)'s "paired per ray by the README
+     (b_bounce Q5)".  Raychaudhuri's identity for the radial null congruence, d theta/d lambda = -theta^2/3 - R_kk
+     (shear only adds focusing), gives integral R_kk d lambda = theta_in - theta_out - integral theta^2/3 d lambda < 0 on
+     every ray the bounce turns from converging to diverging, and R_kk = 8 pi G5 T_kk counts all the null energy on the
+     ray, the README's included -- so no matter on the ray brings its net to zero (computed: the identity's sign; the
+     verifier computed integral R_kk = -15.04 on R6's family with theta = -/+3.39).  b_bounce Q5 set the README's share
+     against the total it is part of.  On a whole radial ray from our exterior to position 2's, theta -> 0 at both ends
+     and the integral is -integral theta^2/3 d lambda < 0.  So 273's "(to be paired per ray under 183)" cannot be met on
+     those rays wherever they are classical, against 183's "zero net null energy along each light ray": put to M (149),
+     the one item reasoning cannot settle, since it sets M's rulings against an identity.  None of C5's figures uses the
+     pairing.
+     (Q2) The species cap is parametric.  Dvali and Redi (READ, section 3.1): "The fact that the lifetime becomes
+     comparable to the size of the BH implies that they cannot be treated as semi-classical"; van de Heisteeg, Vafa,
+     Wiesner and Wu (READ, 5D): "we did not fix this exact O(1) coefficient".  C5 is claimed for every species count at
+     which the hole's life exceeds the README's stay, N < 106.75 x 8.57e14/(2 + t_b), t_b the bounce's proper time in
+     clocks -- 4.58e16 at t_b = 0, 3.05e16 at t_b = 1 (computed, exact as a function of t_b); the cap (r_h/l5)^3 =
+     3.85e14 lies inside at coefficient 1.  Beyond the bound the hole is at semiclassicality's edge and C5 is not
+     claimed; U11 (8)'s "over the whole range" held at coefficient 1 only.
+     (Q3) That the README leaves as its own image is the time symmetry of the construction M chose (273, Haggard and
+     Rovelli's tunnelling; their assumption (iii), "the process is invariant under time reversal", READ), carried to the
+     map and to a whole body -- deduced from M's ruling, not READ; both sources are four-dimensional and two-way.  The
+     bounce's proper time at the light-crossing order is an estimate carried to 5D (273 (b)'s label), so C5 states its
+     dependence on t_b exactly (Q2) instead.  "(Birkhoff)" in U11 (6) is withdrawn: 5D Birkhoff needs SO(4) symmetry,
+     and matter on the plane has SO(3).  The Rovelli-Vidotto sentence U11 (6) quotes continues ", but extremely long
+     seen from the outside, because of the huge gravitational time dilation."
+     (Q4) The placements.  160, "the corridor and the opening are the same object", already dissolved "a hold after the
+     corridor stands"; and nothing within the horizon lasts more than its stay before reaching the core (U1), so on any
+     placement the README is in our hole for at most its stay, which the hole outlasts 2.9e14-fold.  The 2E case is
+     excluded by 162 with the mass accounting, not by "README only", which is b_interior's readme_only (nothing else
+     carried inside); 282 (2) does not exclude the Vaidya growth, 162 does.  The write's floor bounds how long the face
+     stands, not how long the README is held; U11's "does outlast any write up to its life" is withdrawn, a tautology.
+     (Q5) U11 (5)'s E~ >= 1 is an assumption; for E~ < 1 the advanced time grows as ln(1/E~) + O(1) -- 0.232 clocks from
+     rest at 2 r_h, 1.49 at E~ = 0.1, 26.6 at E~ = 1e-12 (computed) -- and the emission's share stays below 1.6e-14 of E:
+     the conclusion stands for every E~ > 0.
+     (Q6) U11 (13) is corrected: U7 (i), that C5's clauses do not turn on tension or matter, is the entered constancy
+     read back (entered 0 at the other classes, the calculator returns 0 in 96/96, the verifier computed); only (ii),
+     the bounce's answer not turning on the inner horizon's row, is a result of the calculator.
+     (Q7) (U, V) -> (-U, -V) is forced on 270 (a)'s single Kruskal chart, a board reading; in Haggard and Rovelli's
+     double cover the time reflection opens the white hole on another sheet unless the sheets are identified outside
+     the horizon.
+     (Q8) Warp-order corrections enter at O(r_h/ell) = 8.0e-16 (m1_small's item-269 note: "the deviation first order in
+     rho_h/ell"), not (r_h/ell)^2 = 6.4e-31; negligible either way.
+     (Q9) U10's smallest semiclassical hole holding the Standard Model's 106.75 species is r_h = 106.75^(1/3) l5 = 4.74
+     l5, not l5, which moves reading (ii)'s seed margin from 4.8 to 109 (computed); U8 (2)'s species factor used the
+     fixed floor and is superseded by Q2; U8's pinned 2.0000002 is R6's model figure.
+     (Q10) The words U10 quotes under 198 are the board's option (a); M's words are "My guess would be 1."  U11 (12):
+     the C5 verifier of item 267 computed the greybody factors and Harris and Kanti's table agreed.  U12's check reads
+     every M quotation C5 relies on.
+     Outside C5, recorded: (a) the pairing's withdrawal reaches b_bounce Q5, b_interior's option text, i_oneway I4 and
+     c4_oneway P3 (item-317 notes there); (b) C7 (item 316): Q1, Q3, Q6, Q7 and Q8 carry; (c) 158 (2) with 163's "held
+     ... the write lasts at least ~200,000 clocks" cannot both hold within a horizon, where the hold is at most the stay
+     -- the WRITE row's, or M's; (d) the one-way test in closed_314 now reads the image of a region, not of a point, so
+     a boosted time reflection is no longer counted one-way.
 What C5 does not claim (item 314, M-NO-RESIDUE-TO-VERIFIER) -- each left out with its reason, none open in C5.
   - When our face closes: the CLOSE row's (U11 (11)).
   - A number for the bounce's proper time: the light-crossing order is READ and C5 needs only that it is far below the
     hole's life (U11 (7)); R6's 1.6e-7 is R6's.
   - Anything at warp order in r_h/ell: C5 is a flat-order claim, as M1 is (U11 (10)).
   - Reading (ii)'s growing hole (U10): excluded by 162, its margin recorded, not claimed.
+  - [Item 317] That the README pairs the bounce's negative null energy per ray: withdrawn (U12 (Q1)), put to M.
+  - [Item 317] Species counts beyond N = 106.75 x 8.57e14/(2 + t_b), where the hole is at semiclassicality's edge
+    (U12 (Q2)).
 
 What this does not show.
   - The quantum region's duration and the order-one coefficient of any bounce time (b_bounce Q3 is the two-way
@@ -503,7 +568,9 @@ def closed_314():
     maps = {"(-U,-V)": lambda u, v: (-u, -v), "(-V,-U)": lambda u, v: (-v, -u), "(V,U)": lambda u, v: (v, u),
             "(U,V)": lambda u, v: (u, v)}
     to_past = [m for m, f in maps.items() if all(x < 0 for x in f(1, 1))]
-    one_way = [m for m in to_past if maps[m](-1, 1) != (-1, 1)]          # our exterior carried to another exterior
+    # [item 317 (d)] our exterior's image read by region (sign pattern), not by a point: (+, -) is another exterior
+    sgn = lambda pt: tuple(1 if x > 0 else -1 for x in pt)
+    one_way = [m for m in to_past if sgn(maps[m](-1, 1)) == (1, -1)]
     if MUT.get("u11_time_reflection_allowed"):
         one_way = to_past
     # b_bounce Q5's pairing, focusing at its worst: 12 r_h^2/e^3 >= 6/e + F, F <= (3/e)^2/3 * 2e = 6/e  <=>  e <= r_h
@@ -517,10 +584,54 @@ def closed_314():
                 warp=(H.lifetime()["rows"][PG.ELL_MAX]["rh"] / PG.ELL_MAX) ** 2)
 
 
+def verdict_317():
+    """U12 (item 317): the C5 verifier's qualifications -- Raychaudhuri's sign, the species bound in t_b, E~ < 1,
+    the seed at the species scale, boosted maps by region, M's words read"""
+    H = _load("hold_small.py", "c5o_hs6")
+    WS = _load("write_small.py", "c5o_ws4")
+    l5c = H.l5_checks()
+    life, tw, N = l5c["life_clocks"], WS.head_clocks(), H.N_EX
+    # (Q1) on a ray the bounce turns, theta_in = -a < 0 < theta_out = b, focusing F >= 0:
+    a, b, F, rd = sp.symbols("a b F readme", positive=True)
+    net = -a - b - F                                     # integral R_kk = theta_in - theta_out - F, the README inside it
+    if MUT.get("u12_pair_by_part"):
+        net = rd - (a + b + F)                           # the mutant: the README's share set against the total (Q5's)
+    raych = bool(sp.ask(sp.Q.negative(net), sp.Q.positive(a) & sp.Q.positive(b) & sp.Q.positive(F)))
+    # (Q2) the species bound as a function of the bounce's proper time t_b
+    nstay = {tb: 106.75 * life / (2 + tb) for tb in (0, 1)}
+    # (Q5) advanced time inside for E~ < 1: dv/dr = 1/(s (E + s)), s = sqrt(E^2 - 1 + 1/r^2), r_h = 1
+    import mpmath as mp
+    def dvq(E):                          # the peak sits within ~E^2 of the horizon: breakpoints there, 50 digits
+        with mp.workdps(50):
+            E = mp.mpf(E)
+            s_ = lambda r: mp.sqrt(E ** 2 - 1 + 1 / r ** 2)
+            pts = [0, mp.mpf("0.5")] + [1 - mp.mpf(10) ** -k for k in (4, 8, 12, 16, 20, 24, 28)] + [1]
+            return float(mp.quad(lambda r: 1 / (s_(r) * (E + s_(r))), pts))
+    dv = {"rest at 2 r_h": dvq("0.8660254037844386"), "0.1": dvq("0.1"), "1e-12": dvq("1e-12")}
+    share = max(dv.values()) / (2 * life)
+    # (Q9) the seed at the species scale: r_h = 106.75^(1/3) l5
+    rl5 = (2 * N * math.log(2) / math.pi ** 2) ** (1 / 3)
+    seed = (106.75 ** (1 / 3) / rl5) ** 2 / (tw / (2 * life))
+    # (d) a boosted time reflection, read by region
+    sgn = lambda pt: tuple(1 if x > 0 else -1 for x in pt)
+    boosted = {"(-2U,-V/2)": lambda u, v: (-2 * u, -v / 2), "(-2V,-U/2)": lambda u, v: (-2 * v, -u / 2)}
+    if MUT.get("u12_point_test"):
+        bw = [m for m, f in boosted.items() if f(-1, 1) != (-1, 1)]    # the mutant: the old point test
+    else:
+        bw = [m for m, f in boosted.items() if sgn(f(-1, 1)) == (1, -1)]
+    rul = " ".join(open(RULINGS, encoding="utf-8").read().split())
+    words = ["The throat doesn't change size", "All together, one whole", "README only",
+             "Before the opening the positions are joined through the bulk with no horizons",
+             "My guess would be 1.", "the corridor and the opening are the same object",
+             "Quantum bounce to pos 2 (Recommended)"]
+    return dict(raych=raych, nstay=nstay, dv=dv, share=share, seed=seed, boosted_oneway=bw,
+                words=all(w in rul for w in words))
+
+
 def compute():
     h = hold()
     return dict(h=h, x=crossing_agrees(h), rt=route(), cq=calc_question(), rs=residue(), ag=against_c4(),
-                r2=reading_two(), cl=closed_314())
+                r2=reading_two(), cl=closed_314(), vd=verdict_317())
 
 
 def report(o):
@@ -539,6 +650,7 @@ def report(o):
     _report_u9(o)
     _report_u10(o)
     _report_u11(o)
+    _report_u12(o)
     rs = o["rs"]
     print("U8 the core crossed in %.2g clocks; the passage at most %.7f clocks; the hold over the floor %.3g-fold -- "
           "%.3g with every greybody 1; species could multiply %.3g-fold before the floor is reached" % (
@@ -577,6 +689,15 @@ def _report_u11(o):
         c["to_past"], c["one_way"], c["pair_edge"], c["warp"]))
 
 
+def _report_u12(o):
+    v = o["vd"]
+    print("U12 Raychaudhuri: the net null energy on a turned ray negative, the README's included: %s; species bound "
+          "%.3g (t_b = 0), %.3g (t_b = 1); advanced time for E~ < 1 %s, share at most %.2g of E; seed margin at the "
+          "species scale %.0f; boosted maps one-way by region %s; M's words read %s" % (
+              v["raych"], v["nstay"][0], v["nstay"][1], {k: round(x, 3) for k, x in v["dv"].items()}, v["share"],
+              v["seed"], v["boosted_oneway"], v["words"]))
+
+
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
@@ -597,7 +718,8 @@ def checks(o):
         cq["vals"] == C5VALS and all(cq["out"][k] == Counter({(1,) * 5: 96}) for k in (2, 3))
         and not any(cq["audit"].values()))
     rs = o["rs"]
-    add("U8 the residue: the core crossed in 1.6e-7 of a clock (pinned, item 310), the passage under 2 clocks and that; "
+    add("U8 the residue: the core crossed in 1.6e-7 of a clock (R6's model figure, pinned, item 310), the passage "
+        "under 2 clocks and that; "
         "the hold over the floor 1.28e10-fold, above 1.1e10 with every greybody 1", "%.2g" % rs["core"] == "1.6e-07"
         and rs["passage_max"] < 2.000001
         and "%.3g" % rs["over"] == "1.28e+10" and rs["greybody_over"] > 1.1e10 and rs["gamma"] < 1)
@@ -629,11 +751,20 @@ def checks(o):
     ok &= c["o1"] and k["dv1"] == sp.log(2) - sp.Rational(1, 2) and k["dv2"] < float(k["dv1"])
     ok &= "%.2g" % k["loss"] == "1.1e-16" and "%.3g" % k["dr"] == "1.95e-11" and "%.2g" % k["bits"] == "1.6e+05"
     ok &= c["to_past"] == ["(-U,-V)", "(-V,-U)"] and c["one_way"] == ["(-U,-V)"]
-    ok &= c["pair_edge"] == 1 and "%.2g" % c["warp"] == "6.4e-31"
+    ok &= "%.2g" % c["warp"] == "6.4e-31"                 # [item 317 (Q1): pair_edge no longer read as a pairing]
     add("U11 C5's residue closed (item 314): the hold outlasts the stay and the floor on every admitted placement and "
         "at every species count a semiclassical hole admits; O1b/O1c regular and complete through the core, timelike "
-        "and null; the README inside at most ln2 - 1/2 clocks of advanced time; the gluing map forced to (-U, -V); "
-        "the pairing for every core inside the horizon, focusing at its worst; warp order at 6.4e-31", ok)
+        "and null; the README inside at most ln2 - 1/2 clocks of advanced time; the gluing map forced to (-U, -V) "
+        "(on 270 (a)'s chart); (r_h/ell)^2 at 6.4e-31 [item 317: the pairing withdrawn, warp order O(r_h/ell)]", ok)
+    v = o["vd"]
+    ok = v["raych"] and "%.3g" % v["nstay"][0] == "4.58e+16" and "%.3g" % v["nstay"][1] == "3.05e+16"
+    ok &= "%.3g" % v["dv"]["rest at 2 r_h"] == "0.232" and "%.3g" % v["dv"]["0.1"] == "1.49"
+    ok &= "%.3g" % v["dv"]["1e-12"] == "26.6" and v["share"] < 1.6e-14 and "%.0f" % v["seed"] == "109"
+    ok &= v["boosted_oneway"] == ["(-2U,-V/2)"] and v["words"]
+    add("U12 the C5 verifier's qualifications seated (item 317): the net null energy on every ray the bounce turns "
+        "negative, the README's included (the pairing withdrawn); the species bound in t_b, 4.58e16 / 3.05e16; for "
+        "E~ < 1 the advanced time 0.232, 1.49, 26.6 clocks, the share under 1.6e-14; the seed margin 109 at the "
+        "species scale; a boosted time reflection not one-way; M's words read", ok)
     return res
 
 
@@ -650,7 +781,8 @@ MUTANTS = {"eternal": "the hole read as eternal, losing no mass",
            "u11_null_stalls": "a null route stalled in the core (U11)",
            "u11_slow_infall": "the README entering at E~ = 1/10, not from outside (U11)",
            "u11_time_reflection_allowed": "the time reflection admitted as one-way (U11)",
-           "u11_focusing_dropped": "the pairing taken without the focusing integral (U11)"}
+           "u12_pair_by_part": "the README's share set against the bounce's total, b_bounce Q5's logic (U12)",
+           "u12_point_test": "the one-way test read at a point, so a boosted time reflection passes (U12)"}
 
 
 def selftest():

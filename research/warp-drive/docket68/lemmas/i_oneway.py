@@ -27,6 +27,10 @@ estimates marked; the cypher run and audited; not verified by a separate session
      quantum region does not reach outside our horizon, and b_bounce Q6's near-horizon leak -- the two-way object's way
      of turning a black hole into a white hole in one exterior -- does not arise.  Q4-Q5 stand: every ray through the
      quantum region carries net negative null energy, and the README crossing it pairs it (183).
+     [Item 317 (the C5 verifier's Q1, accepted): withdrawn -- by Raychaudhuri's identity, integral R_kk d lambda =
+     theta_in - theta_out - integral theta^2/3 d lambda < 0 on every ray the bounce turns, and R_kk counts the README's
+     null energy too; no matter on the ray brings its net to zero.  The part was set against the total it belongs to.
+     273's "paired per ray under 183" against 183's zero net per ray is put to M (c5_oneway U12 (Q1)).]
   I5 (computed) Owed item (d) re-closed.  On the one-way object the hold is the write: our face is open at least the
      write's floor, 66,980 clocks (write_small S3), while each part of the README crosses in at most two clocks (I2).
      The hole radiates on our side by negative energy going in -- nothing leaves the face -- with a life of 8.57e14

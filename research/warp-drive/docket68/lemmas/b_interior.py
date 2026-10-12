@@ -53,6 +53,10 @@ passage.  Kept as written, those cells the record of the two-way reading; the on
      the quantum bounce into position 2's exterior: one_way, gh, complete, readme_only; it gives up pointwise null
      energy in the quantum region (to be paired per ray, 183) and classicality.  The classical shell into position 2's
      exterior gives up nec and readme_only.
+     [Item 317 (the C5 verifier's Q1, accepted): withdrawn -- by Raychaudhuri's identity, integral R_kk d lambda =
+     theta_in - theta_out - integral theta^2/3 d lambda < 0 on every ray the bounce turns, and R_kk counts the README's
+     null energy too; no matter on the ray brings its net to zero.  The part was set against the total it belongs to.
+     273's "paired per ray under 183" against 183's zero net per ray is put to M (c5_oneway U12 (Q1)).]
 
 What this does not show.
   - The two-exterior bounce's construction (B4), its null energy per ray and what pairs it (183), and its time: Haggard
