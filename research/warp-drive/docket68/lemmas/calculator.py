@@ -14,12 +14,15 @@ only; logic takes the last language's answer, the earlier ones narrowing what it
      documentary -- broadest first in the hierarchy law's partial order (287 (a)).
   C3 The languages.  Each closure language (tools/cypher.py's operators, imported) admits the question's attributes with
      answer 0, 1, both or neither under its closure of the cells; narrowing (287 (b)): it chooses only among the
-     answers the languages before it left open.  Analysis, declared (287): with a witness and a magnitude against a
-     threshold where the question carries a continuous law, returning 1 or 0; silent -- the finding -- where none
-     exists.  Documentary returns citations only, no binary.  A silent closure language leaves the answers open and its
+     answers the languages before it left open.  Analysis gives both binaries (288): it never narrows; where the
+     question carries a continuous law, declared with its witness, each binary carries a signed magnitude -- log10 of
+     the magnitude over its threshold, positive on the binary the law supports, negative on the other (item 25's
+     "negative and positive" magnitudes); none where it carries no law.  [First built (287) with analysis returning one
+     binary and narrowing to it -- M, item 288: "I said the analysis gives both binaries."]  Documentary returns
+     citations only, no binary.  A silent closure language leaves the answers open and its
      silence is the finding.
-  C4 Logic.  The answer is what the last language to give a binary leaves: 1 or 0 when one answer remains, "both" when
-     two (undecided), "refused" when none.  Every language's output is kept in the trace.
+  C4 Logic.  The answer is what the last closure language leaves: 1 or 0 when one answer remains, "both" when two
+     (undecided -- then analysis's magnitudes rank the two, 288 (c)), "refused" when none.  Every language's output is kept in the trace.
   C5 The controls.  (i) The question entered both ways -- its cell with answer 0, then with answer 1 -- every language
      admits the cell it was handed (extensivity), so a refusal is the question's, not the index's (ring_cypher R7).
      (ii) The hierarchy law's seven lawful containments (research/warp-drive/hlaw.py's LAWFUL, imported) checked on the
@@ -28,7 +31,9 @@ only; logic takes the last language's answer, the earlier ones narrowing what it
      order, algebra, geometry and information leave both answers open, statistics decides 'not matter') and R4 (the
      ring as computed -- refused), reproduced through the protocol; beside them an OR fixture (answer 1, learnable) and
      an AND fixture whose one positive is the question itself, never seen -- answer 0: the calculator cannot learn a
-     positive it was never shown, which any question's encoding must carry in mind.
+     positive it was never shown, which any question's encoding must carry in mind; and a narrowing fixture (found by
+     search over small indexes, computed) where statistics alone would admit 0 but information, before it, admits
+     neither -- refused: narrowing decides.
 
 What this does not do.
   - Choose a question's encoding: the instrument that asks names its own.
@@ -40,6 +45,7 @@ Imports tools/cypher.py and research/warp-drive/hlaw.py by path.  Stdlib.  pytho
 import contextlib
 import importlib.util
 import io
+import math
 import os
 import sys
 
@@ -103,15 +109,17 @@ def ask(coords, known, attrs, analysis=None, citations=(), k=2):
             trace.append((lang, "citations", list(citations)))
             continue
         if lang == "analysis":
+            # item 288: analysis gives both binaries, each with a signed magnitude where a continuous law is declared
             if analysis is None:
-                trace.append((lang, "silent", "no continuous law declared -- the finding"))
-                continue
-            b = int(analysis["magnitude"] >= analysis["threshold"])
-            said = {b} & open_
-            if not MUT.get("no_narrowing"):
-                open_ = said
-            trace.append((lang, sorted(said), analysis["witness"]))
-            last = lang
+                mags = {0: None, 1: None}
+                note = "both binaries; no continuous law declared, no magnitudes"
+            else:
+                L = math.log10(analysis["magnitude"] / analysis["threshold"])
+                mags = {1: L, 0: -L}
+                note = "both binaries; %s: 1 at %+.3g, 0 at %+.3g decades" % (analysis["witness"], L, -L)
+            if MUT.get("analysis_narrows") and analysis is not None:
+                open_ = {int(analysis["magnitude"] >= analysis["threshold"])} & open_    # the item-287 build
+            trace.append((lang, "both", note + "; open after it: %s" % sorted(open_)))
             continue
         cl = closure(coords, cells, lang, k)
         if cl is None:
@@ -126,7 +134,11 @@ def ask(coords, known, attrs, analysis=None, citations=(), k=2):
             trace.append((lang, sorted(open_), "of %s admitted" % sorted(said)))
         last = lang
     ans = {(0,): 0, (1,): 1, (0, 1): "both", (): "refused"}[tuple(sorted(open_))]
-    return dict(answer=ans, by=last, trace=trace)
+    mags = locals().get("mags", {0: None, 1: None})
+    ranked = None
+    if ans == "both" and mags[1] is not None:
+        ranked = 1 if mags[1] > mags[0] else 0 if mags[0] > mags[1] else None
+    return dict(answer=ans, by=last, trace=trace, magnitudes=mags, ranked=ranked)
 
 
 def controls(coords, known, attrs, k=2):
@@ -164,13 +176,17 @@ def compute():
     r_and = ask(coords, AND, (1, 1))
     an_lo = ask(coords, OR, (1, 1), analysis={"witness": "a fixture's magnitude below threshold", "magnitude": 0.5,
                                               "threshold": 1.0}, citations=["fixture"])
-    return dict(ring=ring(), r_or=r_or, r_and=r_and, an_lo=an_lo, ctl=controls(coords, OR, (1, 1)))
+    # a fixture where narrowing decides (found by search, computed): statistics alone admits 0, information neither
+    NARROW = [(0, 0, 0, 0), (0, 0, 0, 1), (0, 1, 0, 0), (0, 1, 1, 0), (1, 0, 1, 0)]
+    r_nar = ask(["x", "y", "z", "ans"], NARROW, (0, 0, 1))
+    return dict(ring=ring(), r_or=r_or, r_and=r_and, an_lo=an_lo, r_nar=r_nar, ctl=controls(coords, OR, (1, 1)))
 
 
 def report(o):
     print("calculator.py -- the cypher as a calculator (items 286-287)\n")
     rows = [("ring R5 (the fold)", o["ring"]["reading"]), ("ring R4 (computed)", o["ring"]["computed"]),
-            ("OR fixture", o["r_or"]), ("AND fixture", o["r_and"]), ("OR, analysis below threshold", o["an_lo"])]
+            ("OR fixture", o["r_or"]), ("AND fixture", o["r_and"]), ("OR, analysis below threshold", o["an_lo"]),
+            ("narrowing fixture", o["r_nar"])]
     for tag, r in rows:
         print("  %s: answer %s (by %s)" % (tag, r["answer"], r["by"]))
         print("      " + "; ".join("%s %s" % (t[0], t[1]) for t in r["trace"]))
@@ -192,17 +208,22 @@ def checks(o):
     add("C3 the corpus's recorded decisions reproduced: ring_cypher R5 -- the broad languages leave both open, "
         "statistics decides 'not matter' (0); R4 -- refused", ok)
     la = dict((t[0], t[1]) for t in o["an_lo"]["trace"])
-    ok = o["r_or"]["answer"] == 1 and o["r_and"]["answer"] == 0 and o["an_lo"]["answer"] == "refused"
-    ok &= la["analysis"] == [] and dict((t[0], t[1]) for t in o["r_or"]["trace"])["analysis"] == "silent"
-    ok &= la["documentary"] == "citations"
-    add("C4 logic takes what the last binary leaves: the OR fixture 1, the AND fixture 0 (its positive never seen), and "
-        "an analysis below its threshold narrows the OR's 1 to refused; documentary citations only", ok)
+    ok = o["r_or"]["answer"] == 1 and o["r_and"]["answer"] == 0 and o["an_lo"]["answer"] == 1
+    ok &= la["analysis"] == "both" and o["an_lo"]["magnitudes"][1] < 0 < o["an_lo"]["magnitudes"][0]
+    ok &= dict((t[0], t[1]) for t in o["r_or"]["trace"])["analysis"] == "both" and la["documentary"] == "citations"
+    tn = dict((t[0], t[1]) for t in o["r_nar"]["trace"])
+    ok &= o["r_nar"]["answer"] == "refused" and tn["information"] == [] and tn["geometry"] == [0, 1]
+    add("C4 logic takes what the last closure language leaves: the OR fixture 1, the AND fixture 0 (its positive never "
+        "seen); analysis gives both binaries, never narrowing -- below its threshold it signs them, 1 negative, 0 "
+        "positive, and the OR's 1 stands; documentary citations only; narrowing decides where information excludes what "
+        "statistics alone would admit (refused, not 0)", ok)
     add("C5 the controls: extensive both ways; the hierarchy law's seven containments hold on the run",
         o["ctl"]["extensive"] and o["ctl"]["lawful"])
     return res
 
 
 MUTANTS = {"tightest_first": "the order reversed, tightest first",
+           "analysis_narrows": "analysis returning one binary and narrowing (the item-287 build)",
            "no_narrowing": "each language deciding afresh, not narrowing"}
 
 
