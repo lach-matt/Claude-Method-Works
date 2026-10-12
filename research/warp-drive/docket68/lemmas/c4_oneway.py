@@ -122,6 +122,25 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      [M, item 293: "I did not say to remove them, I said place them elsewhere in the conditions of the question" --
      all three places take tension and matter out of the questions of (a) and (b)/(e).  P11 is kept as the record of
      that reading; it does not answer 292.]
+  P12 (computed; calculator.py's protocol with each language's conditions named, items 293-294) Tension and matter
+     kept in every clause's question (293), placed three ways (294), beside P10's placement (peers: every closure
+     language sees the continuation, tension and matter), all 96 codings, statistics orders 1-4, logic joining:
+       - at statistics' rank: order, algebra, geometry and information see the continuation, statistics all three.
+         Order 2: 1, 1, 1 in all 96 codings -- (a) and (b)/(e) decided by geometry, (f) by statistics alone.  Order 1:
+         (f) undecided in all 96.  Order 3: (f) refused in 64, 1, 1, 1 in 32.  Order 4: all refused;
+       - at the broad ranks: the reverse.  Order 2: 1, 1, 1 in all 96 -- (f) decided from order on, (a) and (b)/(e)
+         by statistics alone.  Order 1: (a) and (b)/(e) undecided in all 96.  Orders 3 and 4 as at statistics' rank;
+       - as the question's given: each clause asked among the configurations with C4's tension and matter, which are
+         two -- the inner horizon and the classical shell at -sigma/4 with the README, neither with C4's continuation.
+         Refused in 88 of 96 codings at orders 1-2 (at order 2 the other 8 decide (f) alone) and in all 96 at orders
+         3-4;
+       - peers (P10): 54, 54, 22 and 0 codings deciding 1, 1, 1 at orders 1-4.
+     The hierarchy law's containments, checked on each admitted set lifted to all four conditions (294 (c)), hold at
+     orders 2-4 in every placement and fail at order 1 in every placement, P10's included: statistics at order 1
+     admits more than order, algebra and geometry, which the law puts above it (G.3 and section 6d are statements
+     about order 2 and above).  So the order-1 runs here, in P10 and in P9 are outside the law.  No clause is 0 in any
+     placement, coding or order.  Information shown tension and matter at statistics' rank brings P10's dependence back
+     (the info_sees_all mutant): the refusals of P10 were information's, seeing all three at once.
 
 What this does not show.
   - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
@@ -133,6 +152,7 @@ python3 c4_oneway.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
+from collections import Counter
 import io
 import itertools
 import math
@@ -472,9 +492,100 @@ def ranks():
     return _P11[key]
 
 
+_P12 = {}
+SCEN = ("peers", "statistics' rank", "broad ranks", "given")
+
+
+def _staged(CA, HL, names, known, attrs, views, k, analysis=None, citations=()):
+    """calculator.ask's protocol -- roster 1173's order, narrowing, analysis both binaries, documentary citations,
+    logic taking the last closure language -- with each closure language seeing the conditions views[lang] names
+    (indices into attrs) and the answer; the law's containments checked on the admitted sets lifted to all
+    conditions, a language admitting every value of a condition it does not see"""
+    cells = list(known) + [tuple(attrs) + (CA.U,)]
+    open_, last, trace, lifted, mags = {0, 1}, None, [], {}, {0: None, 1: None}
+    for lang in CA.ORDER:
+        if lang == "documentary":
+            trace.append((lang, "citations", list(citations)))
+            continue
+        if lang == "analysis":
+            if analysis is not None:
+                L = math.log10(analysis["magnitude"] / analysis["threshold"])
+                mags = {1: L, 0: -L}
+            trace.append((lang, "both", "open after it: %s" % sorted(open_)))
+            continue
+        v = views[lang]
+        cl = CA.closure([names[i] for i in v] + [names[-1]], [tuple(c[i] for i in v) + (c[-1],) for c in cells], lang, k)
+        if cl is None:
+            trace.append((lang, "silent", ""))
+            lifted[lang] = None
+            continue
+        said = {a for a in (0, 1) if tuple(attrs[i] for i in v) + (a,) in cl}
+        open_ &= said
+        trace.append((lang, sorted(open_), "of %s admitted" % sorted(said)))
+        last, lifted[lang] = lang, (v, cl)
+    ans = {(0,): 0, (1,): 1, (0, 1): "both", (): "refused"}[tuple(sorted(open_))]
+    vals = [sorted({c[i] for c in cells}) for i in range(len(attrs) + 1)]
+    amb = list(itertools.product(*vals))
+    up = {lang: None if lifted[lang] is None else
+          {x for x in amb if tuple(x[i] for i in lifted[lang][0]) + (x[-1],) in lifted[lang][1]} for lang in lifted}
+    lawful = all(up[a] is None or up[b] is None or up[a] <= up[b] for a, b in HL.LAWFUL)
+    return dict(answer=ans, by=last, trace=trace, magnitudes=mags, lawful=lawful)
+
+
+def placements():
+    """P12 (items 293-294): tension and matter kept in every clause's question, placed at statistics' rank, as the
+    question's given, or at the broad ranks; beside P10's placement, every coding, statistics orders 1-4"""
+    key = tuple(sorted(k for k in MUT if k in ("info_sees_all", "given_by_tension")))
+    if key in _P12:
+        return _P12[key]
+    CA = _load("calculator.py", "c4o_calc")
+    HL = _load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c4o_hl")
+    BI = _load("b_interior.py", "c4o_bi6")
+    EP = _load("e_positive.py", "c4o_ep4")
+    ratio = EP.example()["R_rh"] ** 3
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    cfg = {}
+    for (inner, bounce, _), p in cells.items():
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            cfg[((inner, bounce), t, m)] = dict(a=int(bounce != "shell"), be=p["complete"], f=int(m == 1 or t == "+sigma"))
+    q = ((0, "quantum"), "-sigma/4", 1)
+    others = [x for x in cfg if x != q]
+    broad = ("order", "algebra", "geometry", "information")
+    every = (0, 1, 2, 3)                                    # c1, c2 (the continuation), t, m
+    views = {"peers": {L: every for L in broad + ("statistics",)},
+             "statistics' rank": dict({L: (0, 1) for L in broad}, statistics=every),
+             "broad ranks": dict({L: (2, 3) for L in broad}, statistics=every)}
+    if MUT.get("info_sees_all"):
+        views["statistics' rank"]["information"] = every   # the mutant lets information see tension and matter
+    views["given"] = views["peers"]
+    out = {s: {} for s in SCEN}
+    for code in itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 3):
+        cm = dict(zip(CONTS, code))
+        for tf, mf in itertools.product((0, 1), repeat=2):
+            enc = lambda x: cm[x[0]] + (int(x[1] == "-sigma/4") ^ tf, x[2] ^ mf)
+            at = enc(q)
+            fixed = (lambda x: enc(x)[2] == at[2]) if MUT.get("given_by_tension") else (lambda x: enc(x)[2:] == at[2:])
+            for k in (1, 2, 3, 4):
+                for s in SCEN:
+                    rows = [x for x in others if fixed(x)] if s == "given" else others
+                    res = []
+                    for cl, desc, cites in CLAUSES:
+                        an = {"witness": "e_positive E7: (R/r_h)^3", "magnitude": ratio, "threshold": 1.0} \
+                            if cl == "f" else None
+                        res.append(_staged(CA, HL, ["c1", "c2", "t", "m", cl], [enc(x) + (cfg[x][cl],) for x in rows],
+                                           at, views[s], k, analysis=an, citations=cites))
+                    ans = tuple(r["answer"] for r in res)
+                    join = 1 if all(a == 1 for a in ans) else 0 if 0 in ans and "refused" not in ans else "not binary"
+                    out[s][(code, tf, mf, k)] = dict(ans=ans, join=join, lawful=all(r["lawful"] for r in res),
+                                                     by=tuple(r["by"] for r in res),
+                                                     known=len(rows), mag=res[2]["magnitudes"][1])
+    _P12[key] = out
+    return out
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
-                wd=widen(), cl=clauses(), rk=ranks())
+                wd=widen(), cl=clauses(), rk=ranks(), pl=placements())
 
 
 def report(o):
@@ -504,7 +615,6 @@ def report(o):
             cl, desc, r["answer"], r["by"], "; ".join("%s %s" % (t[0], t[1]) for t in r["trace"] if t[0] != "documentary"),
             r["magnitudes"], r["extensive"], r["lawful"], r["void"]))
     print("P10 logic joins %s -> %s" % (c["named"]["ans"], c["named"]["join"]))
-    from collections import Counter
     for tf, mf in itertools.product((0, 1), repeat=2):
         print("P10 tension coded %s, matter coded %s, 24 continuation codes: %s" % (
             "+sigma = 1" if tf else "keeps 139 (1) = 1", "none = 1" if mf else "README = 1",
@@ -512,6 +622,13 @@ def report(o):
     for k in (1, 2, 3, 4):
         print("P10 statistics order %d, the board's coding, 24 continuation codes: %s" % (
             k, dict(Counter(c["orders"][k]))))
+    pl_ = o["pl"]
+    for sc in SCEN:
+        for k in (1, 2, 3, 4):
+            v = [x for kk, x in pl_[sc].items() if kk[3] == k]
+            print("P12 %-16s order %d, 96 codings: %s; lawful %d of 96; known configurations %s" % (
+                sc, k, dict(Counter((x["ans"], x["join"]) for x in v)), sum(x["lawful"] for x in v),
+                sorted({x["known"] for x in v})))
     rk = o["rk"]
     for pl in PLACES:
         for k in (1, 2, 3, 4):
@@ -602,6 +719,26 @@ def checks(o):
     add("P11 with P2's tension and matter at each place among M1's clauses, 96 codings x orders 1-4: beside the "
         "continuation (P10) 54, 54, 22, 0 decided; on (f)'s own rank, or ranked first, 1, 1, 1 in every coding at every "
         "order; ranked last, 1, 1, 1 at orders 1-3 and (f) refused at order 4; never 0 or undecided", ok)
+    pl_ = o["pl"]
+    tally = lambda sc, k: Counter((x["ans"], x["join"]) for kk, x in pl_[sc].items() if kk[3] == k)
+    R3, B2 = ("refused",) * 3, ("both", "both", 1)
+    ok = [tally("peers", k)[((1, 1, 1), 1)] for k in (1, 2, 3, 4)] == [54, 54, 22, 0]
+    for sc, first in (("statistics' rank", (1, 1, "both")), ("broad ranks", B2)):
+        ok &= tally(sc, 1) == Counter({(first, "not binary"): 96}) and tally(sc, 2) == Counter({((1, 1, 1), 1): 96})
+        ok &= tally(sc, 3) == Counter({((1, 1, "refused"), "not binary"): 64, ((1, 1, 1), 1): 32})
+        ok &= tally(sc, 4) == Counter({(R3, "not binary"): 96})
+    ok &= tally("given", 1) == Counter({(R3, "not binary"): 88, ((1, 1, 1), 1): 8})
+    ok &= tally("given", 2) == Counter({(R3, "not binary"): 88, (("refused", "refused", 1), "not binary"): 8})
+    ok &= all(tally("given", k) == Counter({(R3, "not binary"): 96}) for k in (3, 4))
+    ok &= all(x["known"] == 2 for kk, x in pl_["given"].items())
+    ok &= all(x["lawful"] == (kk[3] != 1) for sc in SCEN for kk, x in pl_[sc].items())
+    ok &= not any(0 in x["ans"] for sc in SCEN for x in pl_[sc].values())
+    ok &= all("%.3g" % x["mag"] == "15.8" for sc in SCEN for x in pl_[sc].values())
+    add("P12 tension and matter kept in every clause, 96 codings x orders 1-4: at statistics' rank or at the broad ranks "
+        "1, 1, 1 in every coding at order 2, undecided on the clause whose conditions enter only at statistics at order "
+        "1, (f) refused in 64 at order 3, all refused at order 4; as the given (2 configurations) refused but for 8 "
+        "codings at orders 1-2; P10's placement 54, 54, 22, 0; the law's containments hold at orders 2-4 and fail at "
+        "order 1 in every placement; never 0", ok)
     return res
 
 
@@ -614,7 +751,9 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "no_readme_coordinate": "P2's matter dropped from the attributes (P10)",
            "shell_continuation": "C4's continuation read as the classical shell (P10)",
            "tm_with_continuation": "tension and matter put back beside the continuation on its own rank (P11)",
-           "c4_without_readme": "C4's configuration read without the README (P11)"}
+           "c4_without_readme": "C4's configuration read without the README (P11)",
+           "info_sees_all": "information shown tension and matter at statistics' rank (P12)",
+           "given_by_tension": "the given fixed by the tension alone, the matter varying (P12)"}
 
 
 def selftest():
