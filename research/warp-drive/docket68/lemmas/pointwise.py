@@ -33,12 +33,22 @@ a separate session; not seated); 2026-10-12.
      (computed).
   P5 (deduced) Ours.  Our sheet's matter is the record's: P4 holds for it at every point.  Our vacuum's energy is the
      offset, 5.25e-10 J/m^3 (201), plane structure entering B5a with the tension (b5a_residue A2).
-  P6 (deduced) Position 2's.  202 gives every plane "the same definitions as we do, perhaps different values", and the
-     README reconstitutes "under position 2's own laws" (284 (1)).  P1-P3 use no value: masses, charges, couplings,
-     the number of species and the potential's shape are left general and enter no sign (computed: every symbol
-     general).  What would break them is a kinetic term of the other sign -- a ghost, a different definition, not a
-     different value (the mutants ghost_scalar and ghost_gauge) -- so P4 holds for every position 2, the README's
-     rebuilt matter included.
+  P6 (deduced; computed where marked; corrected at item 321) Position 2's.  202 gives every plane "the same
+     definitions as we do, perhaps different values", and the README reconstitutes "under position 2's own laws" (284
+     (1)).  P1-P3 use no value: masses, charges, couplings, the number of species and the potential's shape are left
+     general and enter no sign (computed: every symbol general).  What would break them is a kinetic term of the other
+     sign (the mutants ghost_scalar and ghost_gauge).  [M, item 321: "don't we already have such a defined term?"  The
+     board had written that such a term is "a ghost, a different definition, not a different value".  The record
+     holds one whose sign is a value -- position 2's plane's displacement, whose inertia is the plane's tension (P10)
+     -- and that sentence is withdrawn.]  So it turns on which kinetic coefficients are values.  A fundamental field's
+     is not: rescaling the field folds its size into the potential and the couplings, which P1-P3 leave general, and
+     leaves its sign (computed) -- a gauge field's size is 1/e^2, positive for every real charge -- so its size is no
+     value of its own, the measured values being the couplings it is folded into, and no value carries its sign: the
+     sign is the definition, which 202 gives position 2 as ours.  A derived one is: the inertia of what moves is its
+     energy.  For matter -- nuclei, atoms, molecules -- that is a bound system's rest energy (von Laue's theorem,
+     standard, not READ), its constituents' energy, >= 0 by P1-P3, so its momentum is future causal as P1 takes it.
+     For a plane it is the tension, a value, negative for 139 (1)'s; that ghost is plane structure, not matter, and the
+     record holds it at zero (P10).  So P4 holds for every position 2, the README's rebuilt matter included.
   P7 (READ; deduced) Quantum states.  A quantum state can show negative local energy; M's 120: "the NEC only ever
      appears to break, but never does" -- such a show is an appearance, and what is is P4's.  The negative 183's pairs
      concern lies in the quantum region inside the hole (pair_math P2, P4), not on the sheets.
@@ -49,15 +59,43 @@ a separate session; not seated); 2026-10-12.
   P9 (the cypher NOT-RUN, stated) The condition is an identity of each kind of matter, not a choice among
      configurations: an index of (kind, condition) rows would carry the answer as its own column, a key (211), as
      tau_share T6 found for tau.  Not run, and said.
-
+  P10 (READ via multiplane.py and STATIC.md; computed; DERIVED in b5_positive B5c; item 321) The ghost the record
+     defines, and its hold.  Position 2's plane displaced from ours by r carries the radion; in the Lykken-Randall
+     background the board uses (H-LR-PAIR) its kinetic coefficient at r = 0 is C_r = (24 M^3)^2/tau2
+     (Pilo-Rattazzi-Zaffaroni eq. 2.16, READ via multiplane.py; g_coincide G2): with 139 (1)'s quarter, tau2 = -tau1/4
+     and C_r = -96 (M = k_L = 1), the ghost POSITIVITY.md Q1 records at the coinciding planes (verified once).  PRZ p.2
+     say why (READ in STATIC.md): "the kinetic coefficient of the radion is proportional to the brane tension, which is
+     negative".  The flat form computes it: a sheet of tension tau displaced by f has the Nambu-Goto Lagrangian -tau
+     sqrt(1 + (d f)^2) (the action standard, not READ), to second order -tau - (tau/2)(d f)^2 -- P2's form with the
+     sign tau -- so its displacement's T(k, k) = tau (k . d f)^2: a sheet's inertia is its tension, its sign a value's.
+     Two sheets of 4/3 and -1/3 of the one-plane value have the velocity terms (tau1 + tau2)/2 = +1/2 moved together
+     and tau1 tau2/(2 (tau1 + tau2)) = -2/9 for their separation (computed; the flat form, an illustration: in the
+     Lykken-Randall bulk ours sits at the mirror plane and only position 2's sheet moves).  It is not matter: it is the
+     planes' separation, in no sheet's T_ab of P1-P3 and not in B5a's surface stress, which carries the tension and
+     not its motion (b5a_residue A2).  And the record holds it -- not by a restoring force, which would not cure a
+     ghost (STATIC.md S3, PRZ p.9 READ there), but by identity of position: the planes coincide in the extra dimension
+     everywhere and not only while the corridor exists (127, 275) and are static, not moving relative to each other
+     (141, the form of 140's entangled pin).  So the separation is no degree of freedom and there is no radion, no
+     field for the ghost to live in (b5_positive B5c, DERIVED from 127 and 141; static and face to face the pair is one
+     Randall-Sundrum plane at long range, STATIC.md S2); 275 removes the forming and dissolving through r > 0 that
+     POSITIVITY.md left live.  What remains in the flat form, the pair moved together, has +1/2 (computed).  The marks
+     on g_coincide (276, 277) and b5_positive (281) concern how the two tensions enter the junction one-way; the hold
+     acts on the separation however they enter.  The record's other value-set sign, Newton's constant on a plane of
+     negative tension (Shiromizu-Maeda-Sasaki, "the wrong sign of G_N if lambda < 0": G2 = -G/4, g2_between G1, the
+     one-plane law superseded there by the per-sheet count), is a coupling, not a kinetic term, and enters no T_ab.
 What this does not prove.
   - The sign of a plane's offset: it is the vacuum's energy, plane structure (201), not matter; b5a_residue A2 carries
     it with the tension.
   - Anything of a matter that is not built of particles, scalar fields and gauge fields: none is in the record, and
     202 gives position 2 our definitions.
+  - That position 2's plane's displacement is healthy: it is a ghost (P10).  What is shown is that the record holds
+    it at zero (127, 141, 275), so it is no degree of freedom; a configuration with the planes apart is not M's.
 
 Stdlib + sympy.  python3 pointwise.py [--selftest | --mutants]
 """
+import contextlib
+import importlib.util
+import io
 import os
 import sys
 
@@ -72,7 +110,29 @@ WORDS = ("The matter condition was misattributed. - prove the pointwise conditio
          "different values though", "The N bits reconstitute under position 2's own laws",
          "the NEC only ever appears to break, but never does", "Our universe is defined by its plane's tension and its "
          "dark-energy offset")
+W321 = ("don't we already have such a defined term?", "Which is position 2's plane? - entangled",
+        "I suggest the planes are static", "Coincident everywhere")
+CITED = {os.path.join(HERE, "b5_positive.py"):
+         "A separation held at zero is not a degree of freedom, so there is no radion",
+         os.path.join(D68, "bulk", "POSITIVITY.md"): "It is a ghost at the coinciding planes too",
+         os.path.join(D68, "bulk", "STATIC.md"):
+         "the kinetic coefficient of the radion is proportional to the brane tension, which is negative",
+         os.path.join(HERE, "b1_matter.py"): "the wrong sign of G_N if lambda < 0"}
 ETA = sp.diag(-1, 1, 1, 1)
+
+
+def _load(path, key):
+    spec = importlib.util.spec_from_file_location(key, path)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[key] = mod
+    saved = list(sys.path)
+    sys.path[:0] = [os.path.dirname(path)]
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            spec.loader.exec_module(mod)
+    finally:
+        sys.path[:] = saved
+    return mod
 
 
 def p1():
@@ -139,6 +199,63 @@ def p3():
     return dict(wec=wec, nec=nec)
 
 
+def p6():
+    """a fundamental field's kinetic coefficient Z: phi = chi/sqrt|Z| takes its size into V and leaves its sign"""
+    d = sp.Matrix(sp.symbols("c0:4", real=True))           # d_a chi
+    z = sp.Symbol("z", positive=True)
+    chi = sp.Symbol("chi", real=True)
+    V = sp.Function("V")
+    kin = (d.T * ETA.inv() * d)[0]
+    out = {}
+    for sgn in (1, -1):
+        Z = sgn * z
+        L = -(Z / 2) * kin / z - V(chi / sp.sqrt(z))       # -(Z/2)(d phi)^2 - V(phi) at phi = chi/sqrt(z)
+        if MUT.get("rescale_flips"):
+            L = -(z / 2) * kin / z - V(chi / sp.sqrt(z))    # the mutant: the rescaling read as taking the sign too
+        kin_coeff = sp.simplify(sp.diff(L, d[0], 2) / 2)   # chidot^2's coefficient: sgn/2 if the sign stays
+        out[sgn] = kin_coeff
+    return dict(size_gone=all(z not in v.free_symbols for v in out.values()),
+                sign_kept=out[1] == sp.Rational(1, 2) and out[-1] == sp.Rational(-1, 2))
+
+
+def p10():
+    """the record's ghost: a sheet's displacement carries its tension as inertia; PRZ's C_r at r = 0; the hold"""
+    tau, eps = sp.Symbol("tau", real=True), sp.Symbol("epsilon", positive=True)
+    fd = sp.Matrix(sp.symbols("f0:4", real=True))          # d_a f
+    gi = ETA.inv()
+    kin = (fd.T * gi * fd)[0]
+    sheet = sp.Abs(tau) if MUT.get("inertia_abs") else tau  # the mutant: a sheet's inertia read as |tension|
+    lag = -sheet * sp.sqrt(1 + eps ** 2 * kin)             # Nambu-Goto on the induced metric eta + eps^2 d f d f
+    L2 = sp.expand(sp.series(lag, eps, 0, 3).removeO().coeff(eps, 2))
+    s_ = sp.simplify(-2 * L2 / kin)                        # L2 = -(s/2)(d f)^2: P2's form with the sign s
+    G = sp.Matrix(4, 4, sp.symbols("G0:16", real=True))    # g^ab, varied
+    Lg = -(s_ / 2) * (fd.T * G * fd)[0]
+    T = sp.Matrix(4, 4, lambda a, b: -2 * sp.diff(Lg, G[a, b]) + ETA[a, b] * Lg).subs(
+        {G[a, b]: gi[a, b] for a in range(4) for b in range(4)})
+    kx, ky, kz = sp.symbols("k_x k_y k_z", real=True)
+    k = sp.Matrix([sp.sqrt(kx ** 2 + ky ** 2 + kz ** 2), kx, ky, kz])
+    Tkk = sp.simplify((k.T * T * k)[0])
+    nambu = sp.simplify(Tkk - tau * (k.T * fd)[0] ** 2) == 0  # T(k, k) = tau (k . d f)^2, its sign the tension's
+    t1, t2 = sp.Rational(4, 3), sp.Rational(-1, 3)         # 139 (1): ours and position 2's, one-plane units
+    v1, v2, vF, vr = sp.symbols("v1 v2 vF vr", real=True)
+    K = t1 * v1 ** 2 / 2 + t2 * v2 ** 2 / 2
+    Ks = sp.expand(K.subs({v1: vF - t2 * vr / (t1 + t2), v2: vF + t1 * vr / (t1 + t2)}))
+    together, apart = Ks.coeff(vF, 2), Ks.coeff(vr, 2)
+    cross = Ks.coeff(vF, 1).coeff(vr, 1)
+    MP = _load(os.path.join(D68, "bulk", "multiplane.py"), "pw_mp")
+    d = MP.lr()
+    tau2 = -d["tau2"] if MUT.get("prz_tau_sign") else d["tau2"]  # the mutant: position 2's tension read reversed
+    Cr0 = sp.simplify(d["Cr"].subs(MP.r, 0))
+    rel = sp.simplify(Cr0 * tau2 - (24 * MP.M ** 3) ** 2)
+    q = {MP.kR: sp.Rational(3, 4) * MP.kL}
+    quarter = sp.simplify(Cr0.subs(q).subs({MP.M: 1, MP.kL: 1}))
+    t2q = sp.simplify((tau2 / d["tau1"]).subs(q))
+    modes = {"together": together, "apart": apart}          # 127, 275: coincident; 141: static, the separation held
+    held = {m: c for m, c in modes.items() if m != "apart" or MUT.get("radion_free")}  # the mutant: the separation free
+    return dict(nambu=nambu, s=s_, together=together, apart=apart, cross=cross, rel=rel, Cr_quarter=quarter,
+                tau2_over_tau1=t2q, held=held)
+
+
 def fluid():
     """a perfect fluid: rho + p = T(k, k)/(k . u)^2 for k = u + e"""
     rho, p = sp.symbols("rho p", real=True)
@@ -150,7 +267,7 @@ def fluid():
 
 
 def compute():
-    return dict(p1=p1(), p2=p2(), p3=p3(), fluid=fluid())
+    return dict(p1=p1(), p2=p2(), p3=p3(), fluid=fluid(), p6=p6(), p10=p10())
 
 
 def report(o):
@@ -161,6 +278,14 @@ def report(o):
           "vacuum a sum of squares %s" % (o["p2"]["nec"], o["p2"]["wec_form"], o["p2"]["above_nonneg"]))
     print("P3 gauge: T(u, u) = (E^2 + B^2)/2 %s; T(k, k) = |E_perp + n x B|^2 %s" % (o["p3"]["wec"], o["p3"]["nec"]))
     print("P4 a perfect fluid's rho + p = T(k, k)/(k . u)^2: %s" % o["fluid"])
+    print("P6 a fundamental field rescaled: its size gone %s, its sign kept %s" % (o["p6"]["size_gone"],
+          o["p6"]["sign_kept"]))
+    t = o["p10"]
+    print("P10 a sheet displaced: L2 = -(s/2)(d f)^2 with s = %s; T(k, k) = tau (k . d f)^2 %s" % (t["s"], t["nambu"]))
+    print("    two sheets (4/3, -1/3): together %s, apart %s, cross %s; PRZ C_r tau2 - (24 M^3)^2 = %s; "
+          "quarter: C_r = %s, tau2/tau1 = %s" % (t["together"], t["apart"], t["cross"], t["rel"], t["Cr_quarter"],
+                                                 t["tau2_over_tau1"]))
+    print("    held (127, 141, 275): the modes that remain %s" % t["held"])
 
 
 def checks(o):
@@ -174,12 +299,29 @@ def checks(o):
         o["p2"]["nec"] and o["p2"]["wec_form"] and o["p2"]["above_nonneg"])
     add("P3 gauge fields: T(u, u) = (E^2 + B^2)/2 and T(k, k) = |E_perp + n x B|^2", o["p3"]["wec"] and o["p3"]["nec"])
     add("P4 a perfect fluid's rho + p is T(k, k)/(k . u)^2, so P1-P3 give rho >= 0 and rho + p >= 0", o["fluid"])
+    add("P6 a fundamental field's kinetic coefficient: rescaling takes its size and keeps its sign",
+        o["p6"]["size_gone"] and o["p6"]["sign_kept"])
+    t = o["p10"]
+    cited = all(" ".join(c.split()) in " ".join(open(f, encoding="utf-8").read().split()) for f, c in CITED.items())
+    add("P10 the record's ghost: 321, 140, 141, 275 verbatim; B5c, POSITIVITY Q1, PRZ p.2 and SMS's sign cited verbatim",
+        all(w in rul for w in W321) and cited)
+    add("P10 a sheet's inertia is its tension: s = tau, T(k, k) = tau (k . d f)^2; the separation -2/9, together +1/2",
+        t["nambu"] and t["s"] == sp.Symbol("tau", real=True) and t["apart"] == sp.Rational(-2, 9)
+        and t["together"] == sp.Rational(1, 2) and t["cross"] == 0)
+    add("P10 PRZ: C_r tau2 = (24 M^3)^2 at r = 0; 139 (1)'s quarter gives tau2 = -tau1/4 and C_r = -96",
+        t["rel"] == 0 and t["Cr_quarter"] == -96 and t["tau2_over_tau1"] == sp.Rational(-1, 4))
+    add("P10 held (127, 141, 275): the separation is no degree of freedom; every mode that remains has positive inertia",
+        "apart" not in t["held"] and len(t["held"]) > 0 and all(c > 0 for c in t["held"].values()))
     return res
 
 
 MUTANTS = {"negative_weight": "a species of negative number (P1)",
            "ghost_scalar": "a scalar's kinetic term of the other sign (P2)",
-           "ghost_gauge": "a gauge field's sign reversed (P3)"}
+           "ghost_gauge": "a gauge field's sign reversed (P3)",
+           "rescale_flips": "a rescaling read as taking a field's sign too (P6)",
+           "inertia_abs": "a sheet's inertia read as its tension's size (P10)",
+           "prz_tau_sign": "position 2's tension read with its sign reversed (P10)",
+           "radion_free": "the separation read as a free degree of freedom (P10)"}
 
 
 def selftest():
@@ -202,7 +344,7 @@ def mutants():
             failed = ["raised %s" % type(ex_).__name__]
         MUT.clear()
         caught += bool(failed)
-        print("  mutant %-16s %-46s %s" % (kk, desc, "caught by " + ", ".join(failed) if failed else "NOT CAUGHT"))
+        print("  mutant %-16s %-56s %s" % (kk, desc, "caught by " + ", ".join(failed) if failed else "NOT CAUGHT"))
     print("mutants: %d/%d caught" % (caught, len(MUTANTS)))
     return caught == len(MUTANTS)
 

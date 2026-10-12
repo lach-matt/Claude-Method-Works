@@ -39,17 +39,19 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      coupling and potential left general, so ours does and, by 202's "the same definitions as we do, perhaps different
      values", every position 2's, the README's rebuilt matter included -- rho >= 0 above the vacuum and rho + p >= 0,
      the bound never approached.  [Item 320: the condition was named B5'a's and not M's at item 319's audit; M ordered
-     it proved, and it is.] Each plane's vacuum energy, its offset (201), enters every reading as a tension does (S =
-     -delta sigma h): ours, 5.25e-10 J/m^3 > 0 (201), only adds; position 2's is its own (226) -- ours for 2a, 2b and
-     2c, positive planes -- and for 139 (1)'s plane unstated (theorem_p2 TC: "undecided for 139's plane, offset
-     unstated").  With the offsets the side reading's tension part is sigma/2 + delta sigma_1 + 2 delta sigma_2,
+     it proved, and it is.]  [Item 321: the fields' kinetic signs are their definitions, which 202 gives position 2 as
+     ours; the ghost the record defines, position 2's plane's displacement, is plane structure, not matter, held at zero
+     by 127, 141 and 275 (pointwise P6, P10).]  Each plane's vacuum energy, its offset (201), enters every reading as a
+     tension does (S = -delta sigma h): ours, 5.25e-10 J/m^3 > 0 (201), only adds; position 2's is its own (226) -- ours
+     for 2a, 2b and 2c, positive planes -- and for 139 (1)'s plane unstated (theorem_p2 TC: "undecided for 139's plane,
+     offset unstated").  With the offsets the side reading's tension part is sigma/2 + delta sigma_1 + 2 delta sigma_2,
      positive if and only if delta sigma_2 > -sigma/4 - delta sigma_1/2 = -3.7e52 J/m^3, the strictest of the four
      (computed; the summed reading needs delta sigma_2 > -3 sigma/4 - delta sigma_1).  So B5a holds for every position 2
-     whose offset exceeds -sigma/4 - delta sigma_1/2: every positive plane (226), and 139 (1)'s plane when its own
-     offset does, which no ruling gives -- the one question put to M.  Where the README lands its density exceeds
-     sigma/4 (E7) and only adds.  B5a does not turn on tau or on which side carries what: 310 (7) is closed for it.  On
-     position 2's side it holds on every ray of the plane, not only where the README lands (b5a_oneway B2), because the
-     side total carries sigma/2 > 0 of tension (tau_share T4).
+     whose offset exceeds -sigma/4 - delta sigma_1/2: every positive plane (226), and 139 (1)'s plane when its own offset
+     does, which no ruling gives -- the one question put to M.  Where the README lands its density exceeds sigma/4 (E7)
+     and only adds.  B5a does not turn on tau or on which side carries what: 310 (7) is closed for it.  On position 2's
+     side it holds on every ray of the plane, not only where the README lands (b5a_oneway B2), because the side total
+     carries sigma/2 > 0 of tension (tau_share T4).
   A3 (computed, exact; READ where marked; deduced where marked) The one-way reading on one induced metric (310's note).
      On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our lone plane's,
      H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 =
