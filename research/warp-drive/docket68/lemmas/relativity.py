@@ -69,7 +69,11 @@ where marked; estimates labelled; not verified by a separate session; not seated
      information only so (U5); the one metric obeys Einstein's law in four dimensions and Einstein's law with at most
      one constant more in five (U4), whose effect on the record is computed and changes no sign.  General relativity in
      the bulk is therefore not assumed: the record's Israel and Gauss-Codazzi conditions are its law at the
-     two-derivative order, exact if alpha = 0 and correct to the fraction alpha k^2 otherwise.
+     two-derivative order, exact if alpha = 0 and correct to the fraction alpha k^2 otherwise.  [Item 326, a finding
+     recorded: this statement's two halves hold together only at alpha = 0.  "Gravity itself ... keeps the light cone"
+     fails for alpha != 0 -- gravity's waves then travel on cones split from the light cone wherever the Weyl
+     curvature is not zero, one outside it for either sign of alpha (gb_cone.py C4-C5) -- so U6 itself fixes the one
+     constant U4 left: alpha = 0, and the law in five dimensions is Einstein's exactly.]
   U7 (the cypher NOT-RUN, stated) Universality is proved kind by kind; an index of (kind, Lorentz, couples, falls
      alike) rows would carry 1 in every cell -- a constant column on every axis, from which no language can measure
      anything, and the answer as its own column, a key (211).  Not run, and said.
@@ -79,6 +83,7 @@ What this does not prove.
     like); Lovelock's and Deser's theorems are exact on their premises (locality, second order, consistency).
   - The value of alpha: U4 computes its effect and shows no sign turns on it; the 4e-39 is an estimate.
     [Item 325: evaluated, alpha = 0 exactly on 201's definitions (gb_alpha.py B2-B3); the estimate is withdrawn.]
+    [Item 326: and from U6 alone, without 201: gb_cone.py C7.]
   - A kind of thing with no energy and momentum at all: it would act on nothing and carry nothing, and the record admits
     none -- information is energy (101) and the bulk always holds information or matter (320).
 

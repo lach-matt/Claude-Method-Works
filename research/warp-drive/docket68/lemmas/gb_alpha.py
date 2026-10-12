@@ -52,6 +52,10 @@ What this does not claim.
   - That alpha = 0 without 201: it follows from B6''s coefficient being exact, as 201 made it; were B6' replaced by its
     Gauss-Bonnet form, alpha would be free again, and the record holds no other relation that fixes it (KDERIVE: the
     ratio of curvatures comes from the same junction, the scale from nothing yet).
+    [Item 326: dissolved.  The record holds the relation that fixes alpha without 201: relativity U6, gravity itself
+    keeps the light cone, which Gauss-Bonnet gravity breaks for either sign of alpha wherever the Weyl curvature is
+    not zero (gb_cone.py C4-C7).  B6' and k_R = k_L/2 are exact because Einstein's law is the bulk's law, and B2-B3
+    are a second route to the value relativity gives.]
   - That alpha = 0 is measured: B6' and k_R = k_L/2 were written in Einstein's theory and 201 made them definitions;
     alpha = 0 is what those definitions entail, exactly -- an evaluation of the record's coefficients, which item 325
     asked for, not a measurement of the bulk.
