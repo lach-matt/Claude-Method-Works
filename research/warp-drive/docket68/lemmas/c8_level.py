@@ -28,7 +28,11 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      corridor's rays cross position 2's plane), where the README supplies it within (3E/(pi sigma))^(1/3) = 2.0e-15 m
      of the face whatever the plane's sides (e_positive E7, recomputed here; the C4 verifier's 2.0211e-15 m); at the
      coincidence B5a's readings are positive on every ray (b5a_residue A2, finalized at 329).  So 274's caveat is
-     closed, as 275 (a) and 284 (a) read it, and on the computed rows.
+     closed, as 275 (a) and 284 (a) read it, and on the computed rows.  [Item 330: the reading of 226 confirmed by M
+     (M-P2-OWN-G).  And E7's distance under the 2 : 1 bulk's G5 readings (310, outside the claim): E moves as
+     (G5/G ell)^(-1/3) (319 (Q2)), so R = (3E/(pi sigma))^(1/3) as (G5/G ell)^(-1/9) -- 1.93e-15 m at (3/2) G ell and
+     2.18e-15 m at G ell/2 (computed), sigma independent of G5; the README still carries the plane past sigma/4 within
+     1e5 r_h of the face.]
   V2 (computed; the cypher, roster 1173, audited) C8's index under 275.  m1p2x_oneway O5 populated 16 cells over
      (s2, s_in, apart, m2); 275 leaves apart = 0, 8 cells.  The key cell -- position 2's plane at 139 (1)'s -sigma/4,
      the object's interior at our tension, position 2's own matter emerging -- holds all five properties (keeps139,
@@ -51,21 +55,36 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      begin at the opening (O3; 270 (c)); the eternal manifold's falling jump (O2b) lies on position 2's future horizon,
      which the glued object does not have, and O2b's dependence on the interior's continuation is closed by 273's
      bounce.  No slice crossing, bifurcation sphere, past interior or throat enters O3-O5 or this instrument.
-  V5 (deduced; READ where marked) The owed items of 272, closed one-way.  (a) The white-hole blueshift: no future
-     causal curve from position 2's exterior reaches its white-hole face (i_oneway I3; c7_oneway V9 (5)), so the inflow
-     Eardley's instability and Barcelo's suffocation need never meets it.  (b) The continuation: the quantum bounce
+  V5 (deduced; READ where marked) The owed items of 272, closed one-way.  (a) The white-hole blueshift, as the C7
+     verifier left it (319 (Q1); c7_oneway V12 (Q1)): no future causal curve from position 2's exterior reaches its
+     white-hole face, but that is true of every white hole and does not exclude the threat, which rides on position-2
+     rays that hug the face and never meet it, gathering one e-fold per clock.  What limits it is the face's open
+     period: at most e^33.6 = 3.9e14 over it (c_junction J5), and a blackbody bath of position 2 from 3 K to 1e10 K
+     delivers 3.6e-57 to 4.4e-19 J onto the face's sphere, 65 and 27 orders below Barcelo's 0.28 E (c7_oneway V12,
+     computed there); the face's stability against position 2's other ambient fields is position 2's variances (240),
+     not claimed.  [Item 330: this replaces the first form of (a), which closed the threat by causal reach alone -- the
+     form 319 (Q1) refuted for C7.]  (b) The continuation: the quantum bounce
      M chose (273), its negative null energy confined to the quantum region and every classical ray keeping 183
      (pair_math P1-P4, 318).  (c) The junction's ends: position 2's face opens where the bounce releases the white hole
-     and is open at most 33.6 of its clocks (c_junction J4; the C4 verifier reproduced 33.601 at R7).  (d) Eternal
+     and is open at most 33.6 of its clocks (c_junction J4, J1 using m1p2x_fifth F1 as outflow -- 304, outside; the C4
+     verifier reproduced 33.601 at R7); 33.47 and 33.83 under the 2 : 1 bulk's G5 readings (319 (Q2), computed here),
+     and the bound of (a) e^33.83 = 4.9e14 at most, its margin still 27 orders.  (d) Eternal
      versus evaporating: the hold is the write, our face open at least the write's floor of 66,980 clocks while the
-     hole's life is 8.57e14, 1.28e10 times longer (i_oneway I5; C5, verified at 317).  (e) 139 (2): owed where it is
+     hole's life is 8.57e14, 1.28e10 times longer (i_oneway I5; C5, verified at 317) -- on reading (i), the hole
+     standing at its size through the write (264 (1)); the floor a lower bound, outliving it necessary and not
+     sufficient (267 (6)); the life exceeding the stay within the species cap, which is parametric (317 (Q2)).  (e)
+     139 (2): owed where it is
      relevant (284, 285) and supplied there by the README (V1).
   V6 (deduced) The verifications that bear on C8.  The C4 verifier's (1): a body crossing a t-independent core leaves
      by the map's image of the second exterior; the README leaves by position 2's face as the construction's time
-     symmetry (c5_oneway U12 (Q3)), which is O4's "what emerges is the README".  Its (3) and C7's: each plane reads its
-     own horizon (240); the junction's sign in V3 does not turn on r_h.  Its (7): V3.  The C5 verifier's Q1: the
+     symmetry (c5_oneway U12 (Q3)), which is O4's "what emerges is the README" -- conditional on a quantum region of
+     Haggard and Rovelli's kind, which R6 does not model, which exterior is position 2's staying M's identification
+     (273; the critic's scope at 310 (ii)).  Its (3) and C7's: each plane reads its own horizon (240), and C8's
+     position-2 figures are the construction's single chart (319 (Q3)); the junction's sign in V3 does not turn on
+     r_h.  Its (7): V3.  The C5 verifier's Q1: the
      pairing withdrawn, the negative the quantum region's (318); Q7: the gluing map forced on the one chart; Q8: warp
-     order enters at O(r_h/ell) = 8.0e-16, C8 being a flat-order claim like C5 and C7.
+     order enters at O(r_h/ell) = 8.0e-16, C8 being a flat-order claim like C5 and C7 -- 9.2e-16 and 6.4e-16 under the
+     G5 readings (computed), r_h moving as (G5/G ell)^(1/3).
   V7 (computed; deduced) Items 320-328.  Position 2's offset (322) adds to its plane's tension: x+ = 2.625e-10 J/m^3
      against sigma/4 = 3.7e52 J/m^3 at the example, a ratio of 7.1e-63 (computed), so s2 stays -sigma/4 to that order
      and V3's signs stand.  The pointwise condition (320, pointwise.py) is what z_net's emerging matter meets.  The
@@ -73,7 +92,8 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      (320): V3's mu' > 0 and B5a's positivity are strict inequalities, open conditions, so the bulk's content leaves
      them standing to its order (deduced).  Relativity holds for everything (324) and the Gauss-Bonnet coupling is zero
      (326, gb_cone C7; claim C9 at its verifier), so the junction law and Israel's condition are the bulk's law
-     exactly; and every front keeps the one light cone (328), so V5 (a)'s causal argument bounds every signal there is.
+     exactly; and every front keeps the one light cone (328), so V5 (a)'s causal statement holds for every front --
+     which, by 319 (Q1), is not what limits the blueshift: the face's open period is (V5 (a)).
   V8 (computed) C8's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the attributes the construction's choices -- position 2's tension (139 (1)'s -1/4, or any other: -1/8,
      -10, -1/100, +1/2) and its matter (the README, or any other: 1/2, 20, 0, 1/10, 1/5) -- and each clause of C8 that
@@ -109,6 +129,7 @@ import contextlib
 import importlib.util
 import io
 import itertools
+import math
 import os
 import sys
 from collections import Counter
@@ -202,6 +223,18 @@ def v7(quarter):
     return dict(read=("x+ = 2.625e-10 J/m^3" in txt), ratio=XPLUS / quarter)
 
 
+def g5_readings():
+    """310 (outside) and 319 (Q2): g = G5/(G ell) in {3/2, 1/2}; r_h ~ g^(1/3), E ~ g^(-1/3), R ~ g^(-1/9)"""
+    rh_ell = 8.02117e-16
+    out = {}
+    for g in (1.0, 1.5, 0.5):
+        ge = 1.0 if MUT.get("g5_ignored") else g                # the mutant: the G5 readings not carried
+        r = rh_ell * ge ** (1 / 3)
+        clocks = math.log(1 + (math.pi / 10) / r)
+        out[g] = dict(rh_ell=r, clocks=clocks, bound=math.exp(clocks), R=2.0211e-15 * ge ** (-1 / 9))
+    return out
+
+
 WIT_T = {1: [NEG], 0: [-sp.Rational(1, 8), -sp.Integer(10), -sp.Rational(1, 100), sp.Rational(1, 2)]}
 WIT_M0 = [sp.Rational(1, 2), sp.Integer(20), sp.Integer(0), sp.Rational(1, 10), sp.Rational(1, 5)]
 
@@ -256,7 +289,7 @@ def v8():
 def compute():
     a = v1()
     b = v2()
-    return dict(v1=a, v2=b, v3=v3(b["law"]), v7=v7(a["quarter"]), v8=v8())
+    return dict(v1=a, v2=b, v3=v3(b["law"]), v7=v7(a["quarter"]), v8=v8(), g5=g5_readings())
 
 
 def report(o):
@@ -274,6 +307,9 @@ def report(o):
         print("V3 %-26s s2 = %-5s mu' = %-5s rising %s; a junction on our face %s" % (
             name, r["s2"], r["mu_prime"], r["rising"], r["ours"]))
     print("V7 x+ read in p2_offset %s; x+ / (sigma/4) = %.2g" % (d["read"], d["ratio"]))
+    for g, r in o["g5"].items():
+        print("V5-V6 G5 = %.1f G ell: r_h/ell %.3g, the face open %.4g clocks, bound e^clocks %.3g, E7's R %.4g m" % (
+            g, r["rh_ell"], r["clocks"], r["bound"], r["R"]))
     for name in ("rising", "z_net", "conjunction"):
         r = e[name]
         print("V8 %-11s population %s; order 2 %s, order 3 %s; audit flagged %s" % (
@@ -298,6 +334,12 @@ def checks(o):
     add("V3 the face's junction rises on every reading (5 sigma/4, sigma/2, sigma/2); no junction on our face",
         [r["mu_prime"] for r in c.values()] == [sp.Rational(5, 4), sp.Rational(1, 2), sp.Rational(1, 2)]
         and all(r["rising"] and not r["ours"] for r in c.values()))
+    g5 = o["g5"]
+    gs = (1.0, 1.5, 0.5)
+    add("V5-V6 the G5 readings (310, 319 (Q2)): 33.60, 33.47, 33.83 clocks; bound at most 4.9e14; r_h/ell 8.0, 9.2, "
+        "6.4e-16; E7's R 2.02, 1.93, 2.18e-15 m", [round(g5[g]["clocks"], 2) for g in gs] == [33.6, 33.47, 33.83]
+        and max(r["bound"] for r in g5.values()) < 5e14 and [round(g5[g]["rh_ell"] * 1e16, 1) for g in gs]
+        == [8.0, 9.2, 6.4] and [round(g5[g]["R"] * 1e15, 2) for g in gs] == [2.02, 1.93, 2.18])
     add("V7 position 2's offset x+ (read in p2_offset) is 7.1e-63 of sigma/4: s2's sign and V3 stand",
         d["read"] and 1e-63 < d["ratio"] < 1e-62)
     ones = Counter({(1,): 96})
@@ -313,7 +355,8 @@ def checks(o):
 MUTANTS = {"slab_kept": "275 not applied: e_positive's slab rows kept (V1)",
            "apart_kept": "275 not applied: C8's separated plane kept (V2)",
            "side_as_full": "position 2's side total read as the full 5 sigma/4 instead of S1 + 2 S2 (V3)",
-           "v8_readme_can_fail": "the README's class allowed to fail the clause (V8)"}
+           "v8_readme_can_fail": "the README's class allowed to fail the clause (V8)",
+           "g5_ignored": "the 2 : 1 bulk's G5 readings not carried into the figures (V5-V6; 310, 319 (Q2))"}
 
 
 def selftest():

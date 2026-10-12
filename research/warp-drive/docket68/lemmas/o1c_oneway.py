@@ -106,6 +106,9 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      gives up is confined to it (pair_math P2, P4).  At the small end -- the corridor's, the README fixing r_h at 72,762
      l5, r_h/ell = 8.0e-16 (c5_oneway U9, U12 (Q8)) -- at flat order, warp order entering at O(r_h/ell) = 8.0e-16.  It
      rests on M1 (C4, verified at the small end) and on 273.
+     [Item 330, accounting before verification (the C4 verifier's note outside its claim at 310, and 319 (Q2)): under
+     the 2 : 1 bulk's G5 readings r_h moves as (G5/G ell)^(1/3), so r_h/ell is 9.2e-16 at (3/2) G ell and 6.4e-16 at
+     G ell/2 (c8_level, computed); warp order still enters below 1e-15, and no bound of Z2-Z6 turns on the value.]
   Z7 (computed) The row's question through the calculator, in the form C4's, C5's and C7's stand in (c4_residue R12):
      the clause "complete through the passage" read from b_interior's cells (B6's complete: singular 0, inner 0,
      quantum 1, shell 1) -- 1 at orders 2 and 3 under all 96 codings; 211's audit clean.  As for C4, C5 and C7 the
