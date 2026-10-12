@@ -110,6 +110,18 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
          configuration's every 4-projection not having been seen.
      In no coding and at no order is any clause 0 or undecided: the alternative to 1 is refusal.  P8 and P9 stand as
      the record of the conjunction's form (290).
+  P11 (computed; calculator.py, item 292, reading (c)) P2's tension and matter at three places among M1's clauses,
+     under all 96 codings and statistics orders 1-4, beside P10's place (peers: each clause over all three choices).
+     Own rank: (a) and (b)/(e) over the continuation alone, (f) over tension and matter alone.  First: (f) over
+     tension and matter, then (a) and (b)/(e) over the continuation and (f)'s answer.  Last: (a) and (b)/(e) over the
+     continuation, then (f) over tension, matter and their answers.  Peers: decided 1, 1, 1 in 54, 54, 22 and 0
+     codings at orders 1-4.  Own rank and first: 1, 1, 1 in every coding at every order (on the own rank statistics
+     is silent at orders 3-4, its three coordinates too few, and information answers).  Last: 1, 1, 1 at orders 1-3,
+     (f) refused at order 4.  Never 0 or undecided.  So the coding's dependence comes from tension and matter sitting
+     beside the continuation in the questions of (a) and (b)/(e).
+     [M, item 293: "I did not say to remove them, I said place them elsewhere in the conditions of the question" --
+     all three places take tension and matter out of the questions of (a) and (b)/(e).  P11 is kept as the record of
+     that reading; it does not answer 292.]
 
 What this does not show.
   - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
@@ -390,9 +402,79 @@ def clauses():
     return _P10[key]
 
 
+_P11 = {}
+PLACES = ("peers", "own", "first", "last")
+
+
+def ranks():
+    """P11 (item 292): the cypher with P2's tension and matter at each place among M1's clauses"""
+    key = tuple(sorted(k for k in MUT if k in ("tm_with_continuation", "c4_without_readme")))
+    if key in _P11:
+        return _P11[key]
+    CA = _load("calculator.py", "c4o_calc")
+    BI = _load("b_interior.py", "c4o_bi5")
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    cfg = {}
+    for (inner, bounce, _), p in cells.items():
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            cfg[((inner, bounce), t, m)] = dict(a=int(bounce != "shell"), be=p["complete"], f=int(m == 1 or t == "+sigma"))
+    q = ((0, "quantum"), "-sigma/4", 1)
+    others = [x for x in cfg if x != q]
+    q_read = ((0, "quantum"), "-sigma/4", 0) if MUT.get("c4_without_readme") else q   # the mutant drops the README
+    out = {pl: {} for pl in PLACES}
+    by = {pl: {} for pl in PLACES}
+    for code in itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 3):
+        cm = dict(zip(CONTS, code))
+        for tf, mf in itertools.product((0, 1), repeat=2):
+            C = lambda x: cm[x[0]]
+            TM = lambda x: (int(x[1] == "-sigma/4") ^ tf, x[2] ^ mf)
+            for k in (1, 2, 3, 4):
+                seen = {pl: [] for pl in PLACES}
+
+                def one(pl, names, rows, at):
+                    r = CA.ask(names, rows, at, k=k)
+                    seen[pl].append(r["by"])
+                    return r["answer"]
+
+                def joined(ans):
+                    return 1 if all(a == 1 for a in ans) else 0 if 0 in ans and "refused" not in ans else "not binary"
+
+                # peers: each clause over all three choices, as P10
+                pe = tuple(one("peers", ["c1", "c2", "t", "m", cl], [C(x) + TM(x) + (cfg[x][cl],) for x in others],
+                               C(q_read) + TM(q_read)) for cl in ("a", "be", "f"))
+                # own: each clause over the choices it depends on -- the continuation for (a) and (b)/(e), P2's
+                # tension and matter for (f); the mutant puts tension and matter back beside the continuation
+                cont = (lambda x: C(x) + TM(x)) if MUT.get("tm_with_continuation") else C
+                cn = ["c1", "c2", "t", "m"] if MUT.get("tm_with_continuation") else ["c1", "c2"]
+                a = one("own", cn + ["a"], [cont(x) + (cfg[x]["a"],) for x in others], cont(q_read))
+                b = one("own", cn + ["be"], [cont(x) + (cfg[x]["be"],) for x in others], cont(q_read))
+                f = one("own", ["t", "m", "f"], [TM(x) + (cfg[x]["f"],) for x in others], TM(q_read))
+                ow = (a, b, f)
+                # first: (f) over tension and matter, then (a) and (b)/(e) over the continuation and (f)'s answer
+                if f in (0, 1):
+                    fi = (one("first", ["c1", "c2", "fv", "a"], [C(x) + (cfg[x]["f"], cfg[x]["a"]) for x in others],
+                              C(q_read) + (f,)),
+                          one("first", ["c1", "c2", "fv", "be"], [C(x) + (cfg[x]["f"], cfg[x]["be"]) for x in others],
+                              C(q_read) + (f,)), f)
+                else:
+                    fi = ("after (f)", "after (f)", f)
+                # last: (a) and (b)/(e) over the continuation, then (f) over tension, matter and their answers
+                if a in (0, 1) and b in (0, 1):
+                    la = (a, b, one("last", ["t", "m", "av", "bv", "f"],
+                                    [TM(x) + (cfg[x]["a"], cfg[x]["be"], cfg[x]["f"]) for x in others],
+                                    TM(q_read) + (a, b)))
+                else:
+                    la = (a, b, "after (a), (b)/(e)")
+                for pl, ans in (("peers", pe), ("own", ow), ("first", fi), ("last", la)):
+                    out[pl][(code, tf, mf, k)] = (ans, joined(ans))
+                    by[pl][(code, tf, mf, k)] = tuple(seen[pl])
+    _P11[key] = dict(out=out, by=by)
+    return _P11[key]
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
-                wd=widen(), cl=clauses())
+                wd=widen(), cl=clauses(), rk=ranks())
 
 
 def report(o):
@@ -430,6 +512,13 @@ def report(o):
     for k in (1, 2, 3, 4):
         print("P10 statistics order %d, the board's coding, 24 continuation codes: %s" % (
             k, dict(Counter(c["orders"][k]))))
+    rk = o["rk"]
+    for pl in PLACES:
+        for k in (1, 2, 3, 4):
+            cells_ = {kk: v for kk, v in rk["out"][pl].items() if kk[3] == k}
+            bys = Counter(b for kk, v in rk["by"][pl].items() if kk[3] == k for b in v)
+            print("P11 %-5s order %d, 96 codings: %s; answered by %s" % (
+                pl, k, dict(Counter(v[1] for v in cells_.values())), dict(bys)))
     ch = o["ch"]
     print("P7 %d rows; held %s; all four by %s; E %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
         ch["n"], ch["held"], ch["holders"], ch["E"], ch["langclose"], ch["agreeing"], ch["audit"]["keys"],
@@ -502,6 +591,17 @@ def checks(o):
     ok &= not any(x in (0, "both") for k in od for a in od[k] for x in a)
     add("P10 by statistics order, the board's coding: orders 1 and 2 give 1, 1, 1 in all 24 codes; order 3 refuses (f) "
         "in 16 and gives 1, 1, 1 in 8; order 4 refuses all three; never 0 or undecided", ok)
+    rk = o["rk"]["out"]
+    at = lambda pl, k: [v for kk, v in rk[pl].items() if kk[3] == k]
+    n1 = lambda pl, k: sum(v[1] == 1 for v in at(pl, k))
+    ok = [n1("peers", k) for k in (1, 2, 3, 4)] == [54, 54, 22, 0]
+    ok &= all(n1(pl, k) == 96 for pl in ("own", "first") for k in (1, 2, 3, 4))
+    ok &= [n1("last", k) for k in (1, 2, 3, 4)] == [96, 96, 96, 0]
+    ok &= all(v[0] == (1, 1, "refused") for v in at("last", 4))
+    ok &= not any(a in (0, "both") for pl in PLACES for v in rk[pl].values() for a in v[0])
+    add("P11 with P2's tension and matter at each place among M1's clauses, 96 codings x orders 1-4: beside the "
+        "continuation (P10) 54, 54, 22, 0 decided; on (f)'s own rank, or ranked first, 1, 1, 1 in every coding at every "
+        "order; ranked last, 1, 1, 1 at orders 1-3 and (f) refused at order 4; never 0 or undecided", ok)
     return res
 
 
@@ -512,7 +612,9 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "fails_alone_dropped": "the known cells where (a) alone fails removed (P9)",
            "m1_or": "M1 read as any one clause holding, not all (P9)",
            "no_readme_coordinate": "P2's matter dropped from the attributes (P10)",
-           "shell_continuation": "C4's continuation read as the classical shell (P10)"}
+           "shell_continuation": "C4's continuation read as the classical shell (P10)",
+           "tm_with_continuation": "tension and matter put back beside the continuation on its own rank (P11)",
+           "c4_without_readme": "C4's configuration read without the README (P11)"}
 
 
 def selftest():
