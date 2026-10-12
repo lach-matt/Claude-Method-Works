@@ -42,8 +42,16 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      the bounce, (e) with the quantum region, (f) between universes, the state.  Dropped (282): P2 on the eternal hole's
      second exterior, the bridge's slice in (e), the Hartle-Hawking bath.  So M1 holds at the small end on the one-way
      object on (a)-(f) at flat order in classical GR, with the quantum flux of P5 near the hole.
-  P7 (the cypher NOT-RUN, stated) C4's clauses over the object's regions form a two-coordinate table, degenerate for
-     the cypher's statistics (reg 1175); the object's own causal order is c1_oneway K6's run, which C4 shares.
+  P7 (computed; the cypher, roster 1173, audited) C4's construction choices as an index: the interior's continuation
+     -- b_interior B6's own one-way cells, those exiting into position 2 (inner horizon, quantum bounce, classical
+     shell) -- x P2's tension (139 (1)'s -sigma/4, or +sigma) x P2's own matter (none, or the README where it lands): 12
+     rows, each with complete (no singularity on the route, B6), readme_only (B6), keeps139 and p2pos (clause (f),
+     positive where relevant, 285).  The all-four cell is reached by one row only: the quantum bounce, P2 at -sigma/4,
+     the README where it lands -- C4's one-way form (273, 139 (1), 284).  The languages split: geometry, information
+     and statistics admit exactly the nine held cells (E = 0); order and algebra add three (E = 3) -- for each
+     continuation the cell with P2 neither keeping 139 (1) nor positive, which the index cannot hold, its only other
+     tension being +sigma, positive always; K.langclose holds (4 of 10 pairs agreeing), audit clean.  Not widened to
+     make it agree.  The object's causal order is c1_oneway K6's run, which agreed.  (First written NOT-RUN.)
 
 What this does not show.
   - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
@@ -55,6 +63,7 @@ python3 c4_oneway.py [--selftest | --mutants]
 import contextlib
 import importlib.util
 import io
+import itertools
 import math
 import os
 import sys
@@ -64,7 +73,11 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(D68)))
 MUT = {}
+OPTS = {"statistics_order": 2, "algebra_budget": 10 ** 6}
+FIVE = ["order", "algebra", "geometry", "information", "statistics"]
+PROPS = ["complete", "readme_only", "keeps139", "p2pos"]
 M282 = "Re-pose them one-way (Recommended)"
 
 
@@ -139,8 +152,44 @@ def state():
     return dict(P=P, ratio=rho / sigma, life=life)
 
 
+def choices():
+    """P7: b_interior's one-way continuations x P2's tension x P2's matter; the cypher"""
+    BI = _load("b_interior.py", "c4o_bi")
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    rows = {}
+    for (inner, bounce, _), p in cells.items():
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            pos = int(m == 1 or t == "+sigma")
+            if MUT.get("p2_free_positive") and t == "-sigma/4":
+                pos = 1                                    # the mutant takes P2 positive without the README
+            rows[(inner, bounce, t, m)] = dict(complete=p["complete"], readme_only=p["readme_only"],
+                                               keeps139=int(t == "-sigma/4"), p2pos=pos)
+    held = sorted({tuple(p[c] for c in PROPS) for p in rows.values()})
+    cy = _load_path(os.path.join(ROOT, "tools", "cypher.py"), "c4o_cy")
+    ia = _load("index_audit.py", "c4o_ia")
+    run = cy.run(cy.Index("c4_oneway", PROPS, [list(c) for c in held], value_order={c: [0, 1] for c in PROPS}), "1173",
+                 dict(OPTS))
+    return dict(n=len(rows), held=held, E={v["language"]: v["E"] for v in run["verdicts"]},
+                langclose=run["langclose_holds"], agreeing=run["pairs_agreeing"], audit=ia.audit_index(PROPS, held),
+                holders=sorted(k for k, p in rows.items() if tuple(p[c] for c in PROPS) == (1, 1, 1, 1)))
+
+
+def _load_path(path, key):
+    spec = importlib.util.spec_from_file_location(key, path)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[key] = mod
+    saved = list(sys.path)
+    sys.path[:0] = [os.path.dirname(path)]
+    try:
+        with contextlib.redirect_stdout(io.StringIO()):
+            spec.loader.exec_module(mod)
+    finally:
+        sys.path[:] = saved
+    return mod
+
+
 def compute():
-    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state())
+    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices())
 
 
 def report(o):
@@ -154,6 +203,10 @@ def report(o):
     s = o["st"]
     print("P5 luminosity %.3g W (life %.3g s); outgoing flux on P1 at r_h: %.2g sigma (m1_small N4's bath: 0.305)" % (
         s["P"], s["life"], s["ratio"]))
+    ch = o["ch"]
+    print("P7 %d rows; held %s; all four by %s; E %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
+        ch["n"], ch["held"], ch["holders"], ch["E"], ch["langclose"], ch["agreeing"], ch["audit"]["keys"],
+        ch["audit"]["onehot"]))
 
 
 def checks(o):
@@ -173,10 +226,17 @@ def checks(o):
     s = o["st"]
     add("P5 the collapse-formed state's outgoing flux on P1 at r_h is 0.29 sigma, the order of N4's bath",
         "%.2f" % s["ratio"] == "0.29")
+    ch = o["ch"]
+    ok = ch["n"] == 12 and len(ch["held"]) == 9 and ch["holders"] == [(0, "quantum", "-sigma/4", 1)]
+    ok &= [ch["E"][L] for L in FIVE] == [3, 3, 0, 0, 0] and ch["langclose"] and ch["agreeing"] == 4
+    ok &= not ch["audit"]["keys"] and not ch["audit"]["onehot"]
+    add("P7 the all-four cell only by the quantum bounce with P2 at -sigma/4 and the README where it lands; E 3, 3, 0, "
+        "0, 0, langclose holds, audit clean", ok)
     return res
 
 
 MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular metric",
+           "p2_free_positive": "P2 taken positive at -sigma/4 without the README",
            "bath_kept": "the Hartle-Hawking bath's ingoing half kept"}
 
 
