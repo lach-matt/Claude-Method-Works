@@ -18,6 +18,11 @@ a separate session; not seated); 2026-10-11.
      the face's future affine extent from any point V_open is |V_open|, finite.
   O2 (deduced; H-ONE-INTERIOR, the board's reading of 132's "different views of the same object") The interior is one
      object, seen as a black hole from our side and as a white hole from position 2's: one tension, s_in.
+  O2b (computed; item 272) What O2 rests on.  The index below holds on the glued object -- our exterior and its future
+     interior continuing into position 2's past interior and exterior, no V = 0 border.  On the eternal Kruskal
+     manifold the regions beside V = 0 still exist, and the key cell (s2 = -sigma/4, interior at our tension) carries a
+     jump on position 2's future horizon whose null energy falls (m1p2x_index's cell (-1/4, 1, 1, 0), recomputed here).
+     So the result rests on owed item (b), the interior's continuation.
   O3 (computed, exact; m1p2x_index Y1's law mu' = -[lambda]) The faces begin at the corridor's opening, not in an
      infinite past.  On our face [lambda] = s_in - sigma, so mu' = sigma - s_in >= 0 for every s_in <= sigma: a junction
      there only rises, kept from any non-negative start.  On position 2's face [lambda] = s2 - s_in, mu' = s_in - s2:
@@ -148,8 +153,9 @@ def compute():
     rows = populate(law)
     two_way = MI.populate(law)
     excl_two_way = not any(p["d_ours"] and p["nec_kept"] for p in two_way.values() if p["keeps139"] and p["reads_leg"])
+    eternal_key = two_way[(NEG, POS, POS, 0)]["junctions"]
     return dict(fl=flows(), rows=rows, c5=cypher(rows, PROPS, "five"), c4=cypher(rows, PROPS[:4], "four"),
-                excl_two_way=excl_two_way)
+                excl_two_way=excl_two_way, eternal_key=eternal_key)
 
 
 def report(o):
@@ -192,6 +198,10 @@ def checks(o):
     ok &= c4["reached"] and (NEG, POS, 0, 0) in c4["holders"] and o["excl_two_way"]
     add("O5 all five properties reached: position 2 at -sigma/4, the interior at ours, its matter emerging; the four "
         "without z_net with or without matter; the two-way exclusivity was the two-way reading's", ok)
+    ek = o["eternal_key"]
+    name = "position 2's future horizon (V = 0, U > 0)"
+    add("O2b on the eternal manifold the key cell carries a falling jump on position 2's future horizon: the result "
+        "rests on the interior's continuation", name in ek and not ek[name]["kept"])
     return res
 
 
