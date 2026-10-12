@@ -137,8 +137,9 @@ session; not seated); 2026-10-12.
      reading (i) is excluded, its 2E question answered against it.  162 rules "The throat doesn't change size because
      the whole chain object only every takes on the size that contains the README upon opening" (H-FIXED-SIZE; the
      record's reading there, "any ramp of m(v) give[s] way") -- so reading (ii)'s growing hole is excluded too, 198
-     being a guess.  What the rulings leave, the board's reading: the README carried in by the inflow (115 (c)) with no horizon, and the faces beginning
-     at the opening at the size that holds it, the README within -- held "once and at once", as one whole (162, 163).
+     being a guess.  What the rulings leave, the board's reading: the README carried in by the inflow (115 (c)) with
+     no horizon, and the faces beginning at the opening at the size that holds it, the README within -- held "once and
+     at once", as one whole (162, 163).
      The face (computed; the board's reading where marked).  On that object the README is the whole of the hole's
      collapsing matter, enclosed at the opening, and in Haggard and Rovelli's construction the collapse is glued to its
      image: each part of the README, entering our face at V = V0 > 0, leaves as its own image, which under b_bounce
