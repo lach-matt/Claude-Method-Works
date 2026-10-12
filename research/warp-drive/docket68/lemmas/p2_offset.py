@@ -76,11 +76,14 @@ separate session; not seated); 2026-10-12.
      226 (Q3), the summed reading excluded by 276 (Q4); B = 0 rests on pointwise P4 and 120/137 (Q5), the appeal to 139
      (2) and to Q > 0 kept as corroboration.]  On position 2's side the effective coupling follows the side's tension,
      sigma/2, so the side total d1 + 2 x+ = 2 d1 at half the coupling gives the one H (computed).
-  V6 (deduced) The answer.  139 (1)'s plane's offset is x+ = 2.625e-10 J/m^3 (d1/2 to one part in 10^62),
-     positive, position 2's own vacuum energy (226) fixed by ours through the one induced metric -- a de Sitter offset
-     of (1.88 meV)^4 against our (2.24 meV)^4.  B5a holds: A2's bound, -3.7e52 J/m^3, is negative and 62 orders larger
-     in size.  Position 2's bulk vacuum, were it to differ from the background's, would shift k2 and enter here as
-     offset, so x+ counts position 2's plane's offset together with any such shift (deduced).
+  V6 (deduced) The answer.  139 (1)'s plane's offset is x+ = 2.625e-10 J/m^3 (d1/2 to one part in 10^62), positive,
+     position 2's own vacuum energy (226) fixed by ours through the one induced metric -- a de Sitter offset of (1.88
+     meV)^4 against our (2.24 meV)^4.  B5a holds: A2's bound, -3.7e52 J/m^3, is negative and 62 orders larger in size.
+     Position 2's bulk vacuum, were it to differ from the background's, would shift k2 and enter here as offset, so x+
+     counts position 2's plane's offset together with any such shift (deduced).  [Item 324: with the one constant
+     relativity leaves the five-dimensional bulk, the Gauss-Bonnet coupling alpha, x+ = (d1/2)(1 - 4 alpha k1^2 + ...),
+     positive for every alpha with a bulk vacuum and a positive Newton constant (relativity U4); d1/2 is its value at
+     alpha = 0.]
   V7 (computed; deduced) The readings M named, against V5.
      (a) Position 2's plane in the Higgs potential's deeper vacuum (across the decay boundary): its offset would lie at
          or below -2.0e108 J/m^3 if the Standard Model holds to the Planck scale -- no root of B = 0, and far below

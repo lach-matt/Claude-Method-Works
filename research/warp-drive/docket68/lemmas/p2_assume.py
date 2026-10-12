@@ -78,6 +78,9 @@ not verified by a separate session; not seated); 2026-10-12.
 What this does not prove.
   - General relativity in the bulk (Einstein's equations, Israel's condition, Gauss and Codazzi): the framework of the
     whole record, taken as given.
+    [Item 324: M ordered it proved; it is, in relativity.py U1-U6 -- everything that can exist couples to one metric,
+    whose law is Einstein's in four dimensions and Einstein's with one constant more in five (U4), that constant
+    computed through to item 322's offset.]
   - That "all aspects" admits no other reading: Q2 reads it as including position 2's presence, since a presence that
     changed ours would be position 2 acting on ours.
   - Anything before late times: Q5's limit is the expanding universe of two positive offsets, a growing without end.
