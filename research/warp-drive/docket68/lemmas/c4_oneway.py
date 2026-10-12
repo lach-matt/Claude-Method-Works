@@ -307,6 +307,17 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      295's unbounded range.  (12) The singular interior's (f) is read from P2's state though nothing of its route
      lands.  (13) Clean: on 211's audit the one-condition indices of P17-P18 flag nothing for (a), (b)/(e) or (f); the
      flag on (b)/(e) is the two-clause coding's alone (P20).]
+     [Item 307: closed in c4_residue.py (P22) -- (2) by scope and a theorem (R1) and in full (R2); (3) by bound and
+     order (R3); (4) each reading reduced (R4), the placement at statistics' rank the one still bearing weight, derived
+     (P13, 292); the inner horizon's exterior by recomputation (R5), which makes the form the one condition over four
+     interiors; (5) and (8) by an effective bounce metric (R6); (9) from the Killing field (R7); (10) carried (R8);
+     (11) refined (R9); (12) read as vacuous (R10); (6) as a computed scope (R11).  Not closable by the board: small brane
+     holes' existence at r_h/ell = 8.0e-16, for the warp-order kink only (R1, the literature's); the quantum region's
+     quantum-gravitational form (R6); (7), a separate session's verification, after M's finalization (249).]
+  P22 (computed; item 307) The residue, addressed and closed where reasoning and computation close it -- c4_residue.py
+     R0-R12, imported; its own selftest and mutants run there.  The form C4's question now stands in: clause by clause,
+     the continuation one condition over four interiors, tension and matter read at statistics' rank over the population,
+     survival built in -- 1 on every clause at every lawful order (2 and 3, the top), every ordering and orientation.
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
@@ -314,7 +325,7 @@ What this does not show.
   - The quantum region's duration (b_bounce Q3 is the two-way object's; item 277), as c5_oneway.
 
 Imports m1_small.py, c1_oneway.py, e_positive.py, hold_small.py, p2_gravity.py, b_interior.py, index_audit.py,
-calculator.py, tau_share.py, research/warp-drive/hlaw.py and tools/cypher.py by path.  Stdlib + sympy.
+calculator.py, tau_share.py, c4_residue.py, research/warp-drive/hlaw.py and tools/cypher.py by path.  Stdlib + sympy.
 python3 c4_oneway.py [--selftest | --mutants]
 """
 import contextlib
@@ -1081,12 +1092,24 @@ def more_continuations():
     return out
 
 
+_P22 = {}
+
+
+def residue():
+    """P22 (item 307): the residue closed (c4_residue.py), run once per process -- it loads its own copy of this file"""
+    if "o" not in _P22:
+        CR = _load("c4_residue.py", "c4o_cr")
+        o = CR.compute()
+        _P22["o"] = dict(checks={n.split()[0]: ok for n, ok in CR.checks(o)})
+    return _P22["o"]
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
                 wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces(),
                 hi=higher(), sv=higher(survive=True), rl=relative(sp.Float(_load("e_positive.py", "c4o_ep6").example()[
                     "R_rh"] ** 3, 20)), ac=as_condition(), tc=tau_check(),
-                mc=more_continuations())
+                mc=more_continuations(), rs=residue())
 
 
 def report(o):
@@ -1159,6 +1182,7 @@ def report(o):
     for k in (2, 3, 4):
         print("P18 contrast, survivability a varying condition, order %d: %s; lawful %s" % (k, dict(ac["out"][k]),
                                                                                          ac["lawful"][k]))
+    print("P22 c4_residue's checks: %s" % o["rs"]["checks"])
     mc = o["mc"]
     print("P20 the continuation's own clauses (NEC holds, README-only): %s" % mc["own"])
     for k in (2, 3, 4):
@@ -1335,6 +1359,8 @@ def checks(o):
     ok &= all(g == t for g, t in mc["control"].values())
     add("P20 the channel reading (302 (b)): the top order 1, 1, 1 under every code; each interior as the question returns "
         "its own answers", ok)
+    add("P22 the residue closed (c4_residue R0-R11, item 307)", len(o["rs"]["checks"]) == 12 and
+        all(o["rs"]["checks"].values()))
     return res
 
 
