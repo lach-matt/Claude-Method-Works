@@ -66,6 +66,26 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      admits only 0 and logic returns 0, because no other configuration keeps 139 (1) and holds M1: the AND limit
      (calculator C6).  [First run on the item-287 build, analysis returning one binary and narrowing to it: logic 1,
      the control refused -- M, item 288: "you built the calculator wrong".  Rerun on the rebuilt calculator.]
+  P9 (computed; calculator.py, item 289; deduced where marked) Widening, checked before it is done (289's reading).
+     The board's coordinates are binary, so every cell that could be added is one of the sixteen in {0,1}^3 x {0,1};
+     the eleven known configurations occupy six, and the 2^10 = 1024 supersets of them are every widening there is,
+     computed configurations or not.  On all 1024, at every admissible statistics order -- 1, 2 and 3; order 4 is
+     refused, the order needing fewer coordinates than the index has (reg 1175) -- order, algebra, geometry,
+     information and statistics each admit both 0 and 1 at C4's cell, so logic returns both on every widening.  Each
+     language is monotone on all 1024 (its admitted set over the known cells lies inside its set over every widening):
+     added cells only widen.  Why both are open already: 1 by extensivity -- C4's attributes (1, 1, 1) are a known
+     cell with M1 holding, the quantum bounce with P2 at +sigma, with and without the README; 0 because each clause is
+     seen failing alone -- (0, 1, 1) the classical shell, (1, 0, 1) the inner horizon, (1, 1, 0) the quantum bounce at
+     -sigma/4 without the README -- so every projection of (1, 1, 1, 0) of order 3 or less is seen (with the shell's
+     cells removed, order 3 excludes 0: the fails_alone_dropped mutant).  Deduced, in general: at any order below the
+     coordinate count, each projection of a conjunction's corner with answer 0 leaves out a coordinate, and is seen in
+     the cell where that clause fails alone, or, on the attributes alone, in the question's own cell -- so statistics
+     admits 0 at the corner of any conjunction whose clauses have each been seen failing alone, and so do order,
+     algebra and geometry, which contain it (hlaw.py's LAWFUL); only information, which does not contain it, could
+     exclude 0, and on C4's index it does not on any widening.  The cells that show each clause matters are the cells
+     that keep 0 open.  So adding cells (289) cannot decide C4's question in this encoding.  Under P8's control every
+     language admits 0 now, so it stays admitted under any widening (deduced: the languages are closure operators,
+     monotone in their cells, as measured here on the board's index): the control gives 0 or both, never 1.
 
 What this does not show.
   - The kink through the faces and the interiors (deduced from KTN's exterior, not computed).
@@ -231,8 +251,62 @@ def calc():
     return dict(ratio=ratio, **out)
 
 
+_P9 = {}
+
+
+def widen():
+    """P9: every widening of the known cells in the board's encoding, at every admissible statistics order"""
+    CA = _load("calculator.py", "c4o_calc")
+    BI = _load("b_interior.py", "c4o_bi3")
+    cells = {k: v for k, v in BI.cells().items() if k[2] == "pos2"}
+    rows = {}
+    for (inner, bounce, _), p in cells.items():
+        vac = int(bounce != "shell")
+        for t, m in itertools.product(("-sigma/4", "+sigma"), (0, 1)):
+            pos = int(m == 1 or t == "+sigma")
+            hold = int(vac or p["complete"] or pos) if MUT.get("m1_or") else int(vac and p["complete"] and pos)
+            rows[(inner, bounce, t, m)] = dict(attrs=(vac, p["complete"], pos), m1=hold)
+    q = (0, "quantum", "-sigma/4", 1)
+    attrs = rows[q]["attrs"]
+    known = {k: r for k, r in rows.items() if k != q}
+    if MUT.get("fails_alone_dropped"):
+        known = {k: r for k, r in known.items() if r["attrs"] != (0, 1, 1)}   # the mutant: vac never fails alone
+    base = sorted({r["attrs"] + (r["m1"],) for r in known.values()})
+    coords = ["vac", "complete", "p2pos", "m1"]
+    key = (tuple(base), attrs)
+    if key not in _P9:
+        amb = [a + (m,) for a in itertools.product((0, 1), repeat=3) for m in (0, 1)]
+        extra = [c for c in amb if c not in base]
+        qc = attrs + (CA.U,)
+        langs = [(L, 2) for L in ("order", "algebra", "geometry", "information")] + [("statistics", k) for k in (1, 2, 3)]
+        said = lambda cl: sorted(a for a in (0, 1) if cl is not None and attrs + (a,) in cl)
+        at_base = {lk: CA.closure(coords, base + [qc], *lk) for lk in langs}
+        n, both, mono = 0, True, True
+        for r_ in range(len(extra) + 1):
+            for add in itertools.combinations(extra, r_):
+                cs = base + list(add) + [qc]
+                for lk in langs:
+                    cl = CA.closure(coords, cs, *lk)
+                    both &= said(cl) == [0, 1]
+                    mono &= cl is not None and at_base[lk] <= cl
+                n += 1
+                if not (both and mono):
+                    break
+            if not (both and mono):
+                break
+        k4 = CA.ask(coords, base, attrs, k=4)
+        _P9[key] = dict(n=n, extra=len(extra), both=both, mono=mono,
+                        k4=dict((t[0], t[1]) for t in k4["trace"])["statistics"], k4_answer=k4["answer"])
+    o = dict(_P9[key])
+    o["positives"] = sorted(k for k, r in known.items() if r["attrs"] == attrs and r["m1"] == 1)
+    o["alone"] = [any(r["attrs"] == tuple(int(i != j) for i in range(3)) and r["m1"] == 0 for r in known.values())
+                  for j in range(3)]
+    return o
+
+
 def compute():
-    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc())
+    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
+                wd=widen())
 
 
 def report(o):
@@ -251,6 +325,10 @@ def report(o):
         print("P8 %s: answer %s by %s, ranked %s, magnitudes %s; %s; lawful %s" % (
             tag, ca[tag]["answer"], ca[tag]["by"], ca[tag]["ranked"], ca[tag]["magnitudes"],
             "; ".join("%s %s" % (t[0], t[1]) for t in ca[tag]["trace"] if t[0] != "documentary"), ca[tag]["lawful"]))
+    w = o["wd"]
+    print("P9 widenings %d of 2^%d: both at every language and statistics order 1-3 %s, monotone %s; order 4: %s; "
+          "C4's attributes known with M1 by %s; each clause seen failing alone %s" % (
+              w["n"], w["extra"], w["both"], w["mono"], w["k4"], w["positives"], w["alone"]))
     ch = o["ch"]
     print("P7 %d rows; held %s; all four by %s; E %s; langclose %s, %d of 10 pairs agreeing; audit keys %s one-hot %s" % (
         ch["n"], ch["held"], ch["holders"], ch["E"], ch["langclose"], ch["agreeing"], ch["audit"]["keys"],
@@ -289,13 +367,21 @@ def checks(o):
     add("P8 through the calculator, broadest first: logic returns both (undecided), by statistics, analysis ranking 1 "
         "at +15.8 decades over 0; the control with 139 (1) as a coordinate 0 (the AND limit); the law's containments "
         "hold", ok)
+    w = o["wd"]
+    ok = w["n"] == 1024 and w["extra"] == 10 and w["both"] and w["mono"] and w["k4"] == "silent"
+    ok &= w["positives"] == [(0, "quantum", "+sigma", 0), (0, "quantum", "+sigma", 1)] and all(w["alone"])
+    add("P9 every widening of the known cells (1024, the encoding's whole ambient) leaves both answers open in every "
+        "closure language at statistics orders 1-3, each monotone; order 4 refused (reg 1175); 1 open by extensivity "
+        "(the quantum bounce at +sigma), 0 because each clause is seen failing alone", ok)
     return res
 
 
 MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular metric",
            "p2_free_positive": "P2 taken positive at -sigma/4 without the README",
            "readme_thin": "the README's density at the face put below sigma/4",
-           "bath_kept": "the Hartle-Hawking bath's ingoing half kept"}
+           "bath_kept": "the Hartle-Hawking bath's ingoing half kept",
+           "fails_alone_dropped": "the known cells where (a) alone fails removed (P9)",
+           "m1_or": "M1 read as any one clause holding, not all (P9)"}
 
 
 def selftest():

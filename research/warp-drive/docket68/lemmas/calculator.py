@@ -37,7 +37,9 @@ only; logic takes the last language's answer, the earlier ones narrowing what it
 
 What this does not do.
   - Choose a question's encoding: the instrument that asks names its own.
-  - Pick a statistics order beyond the cypher's default (2); the trace gives the higher orders beside it.
+  - Pick a statistics order beyond the cypher's default (2); the trace gives the higher orders beside it.  [Item 289:
+    the trace does not -- ask() runs the one order it is handed; c4_oneway P9 runs orders 1-3 for C4's question,
+    order 4 refused at four coordinates (reg 1175).]
 
 Imports tools/cypher.py and research/warp-drive/hlaw.py by path.  Stdlib.  python3 calculator.py [--selftest |
 --mutants]
