@@ -7,18 +7,19 @@ item-319 note.  Worked in the conversation (computed with sympy, exact where mar
 marked; not verified by a separate session; not seated); 2026-10-12.
 
   A0 (read) The words the row rests on, verbatim in the rulings file: 282's reading (c), that O1c and B5a are re-posed
-     the same way; M's 276, "The passage is one-way in all aspects"; M's 275, "Coincident everywhere"; M's 117, "An NEC
-     is never violated"; 284's "Where it lands"; M's 202, "any plane has its own structure"; and the C4 verifier's at
-     310 (not M's words): "the junction fixes position 2's side total S1 + 2 S2, not tau" and "one surface carries one
-     induced metric".
+     the same way; 139 (1)'s "+4/3 and -1/3 of the one-plane value"; M's 276, "The passage is one-way in all aspects";
+     M's 275, "Coincident everywhere"; M's 117, "An NEC is never violated"; 284's "Where it lands"; M's 202, "any plane
+     has its own structure"; and the C4 verifier's at 310 (not M's words): "the junction fixes position 2's side total
+     S1 + 2 S2, not tau" and "one surface carries one induced metric".
   A1 (computed, exact) What the junction fixes.  At the coincidence there is one surface (275).  With each side's
      extrinsic curvature K^-+ = +-(kappa^2/2)(Sigma^-+ - Sigma^-+ h/3), Sigma^-+ the stress that side carries, Israel's
      jump [K] = -kappa^2 (S - S h/3), S = S1 + S2, holds if and only if Sigma^- + Sigma^+ = 2 (S1 + S2) -- computed for
      general symmetric surface stresses, the map X -> X - tr(X) h/3 being invertible in four dimensions (its trace is
-     -tr X/3).  One way, our side carries ours alone, Sigma^- = S1 (276; b5a_oneway B1), and then Sigma^+ = S1 + 2 S2,
-     fixed for any stress, matter included.  tau is a convention for splitting it (310 (7); tau_share T2's note):
-     j_readings J2's tau S1 + S2 at tau = 3/4 and S1 + 2 S2 agree on tensions and part only in how position 2's matter
-     is counted (computed: their difference is S1/4 + S2, zero for tensions alone).
+     -tr X/3).  One way, our side carries ours alone, Sigma^- = S1 (the board's reading (a) of 276, M's words "one-way
+     in all aspects"; b5a_oneway B1), and then Sigma^+ = S1 + 2 S2, fixed for any stress, matter included. tau is a
+     convention for splitting it (310 (7); tau_share T2's note): j_readings J2's tau S1 + S2 at tau = 3/4 and S1 + 2 S2
+     agree on tensions and part only in how position 2's matter is counted (computed: their difference is S1/4 + S2,
+     zero for tensions alone).
   A2 (computed, exact) Positivity on every ray, on every reading.  A bulk null ray k crossing a surface that carries a
      tension lambda and matter (rho, p) gathers S(k, k)/|k_y| -- j_readings J2's sin a form -- with S(k, k) = (lambda +
      rho) k_y^2 + (rho + p) |k_space|^2 (computed from S_ab = -lambda h_ab + (rho + p) u_a u_b + p h_ab with h(k, k) =
@@ -30,35 +31,46 @@ marked; not verified by a separate session; not seated); 2026-10-12.
        position 2's side S1 + 2 S2 -- (sigma/2 + rho1 + 2 rho2) k_y^2 + (w1 + 2 w2) |k_space|^2;
        J2's split at tau = 3/4 -- (sigma/2 + 3 rho1/4 + rho2) k_y^2 + (3 w1/4 + w2) |k_space|^2;
      w = rho + p.  Each tension part is positive and each matter weight positive (computed), so each reading is positive
-     on every ray when each universe's matter has rho + p >= 0 -- 117 and 120, "never violated", outside the quantum
-     region (pair_math P2 with its item-319 note) -- and rho > -sigma/6, the weakest of the four bounds -3 sigma/8,
-     -sigma, -sigma/6, -2 sigma/7 (computed): sigma/6 = 2.5e52 J/m^3 at the example (computed; e_positive E7's sigma/4
-     = 3.7e52).  Where the README lands its density exceeds sigma/4 (E7) and only adds.  So B5a does not turn on tau or
-     on which side carries what: 310 (7) is closed for it.  The row stays the conditional the theorem table names
-     (warptheorem B5a: "a conditional"), B5'a's condition (b1_matter C4) made numerical; on position 2's side it now
-     holds on every ray of the plane, not only where the README lands (b5a_oneway B2), because the side total carries
-     sigma/2 > 0 of tension (tau_share T4).
-  A3 (computed, exact; READ where marked; deduced where marked; outside B5a's claim, recorded) The shared induced metric
-     (310's note).  On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our
-     lone plane's, H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 +
-     C2/a^4, k1 = kappa^2 sigma/6 and k2 = kappa^2 sigma/12 (the flat static planes, tau_share T4).  Both hold if and
-     only if C2 - C1 = a^4 (kappa^2/6)^2 [sigma (rho1 - 2 rho2) - 4 rho2 (rho1 + rho2)] (computed).  A vacuum bulk with
-     the cosmological symmetries has a constant mass parameter (Bowcock, Charmousis and Gregory, hep-th/0007177, READ,
-     abstract: "The cosmology is indeed a boundary of a (class II) Schwarzschild-AdS spacetime"; their mu "an
-     integration constant", eq. (17)).  With matter conserved, d(a^4 rho)/dt = a^4 H (rho - 3p) (computed), so both bulks
-     vacuum would need (rho1 - 3p1) = 2 (rho2 - 3p2) at first order in rho/sigma -- dust counting rho, vacuum energy 4
-     rho, radiation 0.  Otherwise the one-way coincidence on one induced metric needs position 2's bulk mass to change:
-     position 2's bulk is not vacuum (deduced).  By 276 nothing of position 2's enters our side's equation, and
-     position 2's bulk is its own (202: "any plane has its own structure ... perhaps different values"), so position 2's
-     side carries it (deduced).  For a null-dust carrier, in either direction, Vaidya-AdS5 with kappa^2 T = +-3 C'/(2
-     r^3) on the dust's null direction (computed), the brane's Codazzi identity on position 2's side is d Sigma/d tau +
-     3 H (Sigma + Pi) = -(3/(kappa^2 a^3)) w dC2/d tau, w the brane's dv/d tau or du/d tau (computed, exact), and with
-     the two Gauss equations H cancels: 117/120 in position 2's bulk hold if and only if Q <= 0, Q = 4 (Sigma^-^2 -
-     Sigma^+^2 - 3 sigma^2/4) + 6 Sigma^+ (Sigma^+ + Pi^+) - 6 Sigma^- (Sigma^- + Pi^-), at first order sigma [(rho1 -
-     3p1) - 2 (rho2 - 3p2)] (computed): position 2's sheet must carry at least half our rho - 3p.  A carrier with a
-     potential (a bulk field of position 2's own) is not constrained by this and is not computed.  Recorded for M with
-     the report: it bears on 275 and 276 together, not on B5a, whose positivity A2 holds on the summed stress whatever
-     carries the induced metric.
+     on every ray when each universe's matter on the sheets has rho + p >= 0 and rho > -sigma/6.  The first is B5'a's
+     condition and is needed pointwise: a ray grazing a sheet (k_y -> 0) gathers rho + p alone, and 183's net per ray,
+     to which 117 and 120 were re-read (pair_math P2's item-319 note: net >= 0), does not supply it; 117 and 120 read
+     pointwise would.  The second is the weakest of the four bounds -3 sigma/8, -sigma, -sigma/6, -2 sigma/7 (computed):
+     sigma/6 = 2.5e52 J/m^3 at the example (computed; e_positive E7's sigma/4 = 3.7e52).  Where the README lands its
+     density exceeds sigma/4 (E7) and only adds.  So B5a does not turn on tau or on which side carries what: 310 (7) is
+     closed for it.  The row stays the conditional the theorem table names (warptheorem B5a: "a conditional"), B5'a's
+     condition (b1_matter C4) made numerical; on position 2's side it now holds on every ray of the plane, not only
+     where the README lands (b5a_oneway B2), because the side total carries sigma/2 > 0 of tension (tau_share T4).
+  A3 (computed, exact; READ where marked; deduced where marked) The one-way reading on one induced metric (310's note).
+     On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our lone plane's,
+     H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 =
+     kappa^2 sigma/6 and k2 = kappa^2 sigma/12 (the flat static planes, tau_share T4).  Both hold if and only if C2 - C1
+     = a^4 (kappa^2/6)^2 [sigma (rho1 - 2 rho2) - 4 rho2 (rho1 + rho2)] (computed).  A vacuum bulk with the cosmological
+     symmetries has a constant mass parameter (Bowcock, Charmousis and Gregory, hep-th/0007177, READ, abstract: "The
+     cosmology is indeed a boundary of a (class II) Schwarzschild-AdS spacetime"; their mu "an integration constant",
+     eq. (17)).  With matter conserved, d(a^4 rho)/dt = a^4 H (rho - 3p) (computed), so both bulks vacuum would need
+     (rho1 - 3p1) = 2 (rho2 - 3p2) at first order in rho/sigma -- dust counting rho, vacuum energy 4 rho, radiation 0.
+     Otherwise the one-way coincidence on one induced metric needs position 2's bulk mass to change: position 2's bulk
+     is not vacuum (deduced).  By 276 nothing of position 2's enters our side's equation, and position 2's bulk is its
+     own (202: "any plane has its own structure ... perhaps different values"), so position 2's side carries it
+     (deduced).  A field of position 2's own suffices: for a canonical scalar, T_ab = d_a phi d_b phi - g_ab ((1/2)(d
+     phi)^2 + V), on position 2's sheet in its rest frame the Codazzi flux is T_un = phidot d_n phi and the Gauss normal
+     stress T_nn = (1/2)(d_n phi)^2 + (1/2) phidot^2 - V (computed), which take any values, the flux through d_n phi and
+     the stress through V, position 2's own (202) (deduced); its null energy is T_kk = (k . d phi)^2 >= 0 for every null
+     k and every V (computed), within 117 and 120; and with them position 2's bulk exists near the sheet: Anderson,
+     Dahia, Lidsey and Romero (gr-qc/0111094, Theorem 1, READ) give "a local isometric and analytic embedding ... in an
+     (n+1)-dimensional space sourced by any arbitrary scalar field" exactly when the surface's metric, its extrinsic
+     curvature and the field's data on it satisfy the Codazzi and Gauss constraints, their (15) and (16) -- here the
+     induced metric ours fixes, K^+ from Sigma^+, and the flux and stress just chosen (deduced, for analytic data).  So
+     the one-way reading exists on one induced metric, and A2's per-side readings are readings of it (deduced).  For a
+     null-dust carrier instead, in either direction, Vaidya-AdS5 with kappa^2 T = +-3 C'/(2 r^3) on the dust's null
+     direction (computed), the brane's Codazzi identity on position 2's side is d Sigma/d tau + 3 H (Sigma + Pi) =
+     -(3/(kappa^2 a^3)) w dC2/d tau, w the brane's dv/d tau or du/d tau (computed, exact), and with the two Gauss
+     equations H cancels: 117/120 in position 2's bulk hold if and only if Q <= 0, Q = 4 (Sigma^-^2 - Sigma^+^2 - 3
+     sigma^2/4) + 6 Sigma^+ (Sigma^+ + Pi^+) - 6 Sigma^- (Sigma^- + Pi^-), at first order sigma [(rho1 - 3p1) - 2 (rho2
+     - 3p2)] (computed): with null dust alone position 2's sheet must carry at least half our rho - 3p -- a finding
+     about that carrier, recorded.  Reported to M with the row, as a consequence of 275 with 276 and not a condition on
+     B5a: on the one-way coincidence position 2's bulk is not vacuum unless our sheet's rho - 3p is twice position 2's
+     (at first order) -- so whenever dust or vacuum energy on either sheet is unmatched.
   A4 (computed) B5a's question through the calculator, in the form C4's (f) stands in (c4_residue R9, R12): the clause
      "positive on every ray, on every reading" realized per class from its law by witnesses -- tension: 139 (1)'s
      -1/4, any other value of position 2's (-1/8, -10, -1/100, +1/2); matter: the README above sigma/4 (1/2, 20), other
@@ -69,13 +81,16 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      nothing to A2.
   A5 (deduced) The row, one way: at the coincidence, on every reading of the junction -- the summed stress Israel fixes,
      our side's S1 and position 2's S1 + 2 S2, J2's split -- the null stress on every ray crossing the sheets is
-     positive, given each universe's matter with rho + p >= 0 (117, 120) and rho > -sigma/6 (A2).  The one-way
-     element is our side's share, ours alone (276); what the junction fixes on position 2's side follows (A1).  It
-     rests on 139 (1)'s tensions (M's) and on 275.
+     positive, given each universe's matter on the sheets with rho + p >= 0 and rho > -sigma/6 (A2, B5'a's condition).
+     The one-way element is our side's share, ours alone (the board's reading (a) of 276); what the junction fixes on
+     position 2's side follows (A1), and the reading exists on one induced metric (A3).  It rests on 139 (1)'s tensions
+     (M's), on 275 and on 276.
 
 What this row does not claim -- each left out with its reason, none open in it (314).
-  - The bulk on either side beyond the surface: A3's finding is recorded, not claimed -- position 2's bulk content is
-    its own (202), and whether it is null dust, which A3 conditions, or a field, which A3 does not, is not B5a's.
+  - The bulk away from the sheets: A3 shows the one-way reading exists near them, with a field of position 2's own
+    (gr-qc/0111094's embedding is local); position 2's bulk beyond is its own (202), its global form not B5a's.
+  - That the sheets' matter meets the null energy condition pointwise: it is the row's condition (A2), as the theorem
+    table's "a conditional" says; M's rulings, read per ray at 183, do not fix it pointwise.
   - B5c's pin (no radion at the coincidence): its own row.
   - Position 2's matter's laws: A2 states the condition its matter meets, not the matter.
   - The corridor: there the causal structure separates the sheets (j_readings J1; tau_share's "does not show").
@@ -100,7 +115,7 @@ MUT = {}
 WORDS = ("theorem rows O1c and B5a, marked at 281, are re-posed the same way", "The passage is one-way in all aspects",
          "Coincident everywhere", "An NEC is never violated", "Where it lands",
          "the junction fixes position 2's side total S1 + 2 S2, not tau", "one surface carries one induced metric",
-         "any plane has its own structure")
+         "any plane has its own structure", "+4/3 and -1/3 of the one-plane value")
 _MOD = {}
 
 
@@ -213,7 +228,22 @@ def a3():
     sol = sp.solve([e1, e2], [Hd, X], dict=True)[0][X]
     Qs = 4 * (Sm_ ** 2 - Sp_ ** 2 - 3 * sig ** 2 / 4) + 6 * Sp_ * (Sp_ + Pp_) - 6 * Sm_ * (Sm_ + Pm_)
     pair = sp.simplify(sol - H * a ** 4 * c * Qs / (1 + 2 * c * a ** 4 * Sp_ * gam)) == 0
-    return dict(gap=gap == 0, trace_id=trace_id, Q=Q, first=first, pair=pair, codazzi=_vaidya())
+    # a canonical scalar of position 2's own: its null energy for every V, and the two components on the sheet
+    a0, a1_, a2_, a3_, a4_, Vp = sp.symbols("phidot phi_x phi_y phi_z phi_n V", real=True)
+    eta = sp.diag(-1, 1, 1, 1, 1)
+    dphi = sp.Matrix([a0, a1_, a2_, a3_, a4_])                       # d_a phi in an orthonormal frame
+    sgn = -1 if MUT.get("a3_scalar_ghost") else 1                   # the mutant: a ghost, the kinetic sign reversed
+    Tsc = sgn * (dphi * dphi.T - eta * ((dphi.T * eta.inv() * dphi)[0] / 2)) - eta * Vp
+    kx, ky = sp.symbols("k_x k_n", real=True)
+    kv = sp.Matrix([sp.sqrt(kx ** 2 + ky ** 2), kx, 0, 0, ky])
+    Tkk = sp.simplify((kv.T * Tsc * kv)[0])
+    nec = sp.simplify(Tkk - (kv.T * dphi)[0] ** 2) == 0
+    home = {a1_: 0, a2_: 0, a3_: 0}                                  # homogeneous on the sheet, at rest
+    Tun = sp.simplify(Tsc[0, 4].subs(home))
+    Tnn = sp.simplify(Tsc[4, 4].subs(home))
+    comps = sp.simplify(Tun - a0 * a4_) == 0 and sp.simplify(Tnn - (a4_ ** 2 / 2 + a0 ** 2 / 2 - Vp)) == 0
+    return dict(gap=gap == 0, trace_id=trace_id, Q=Q, first=first, pair=pair, codazzi=_vaidya(), scalar_nec=nec,
+                scalar_comps=comps)
 
 
 _V = {}
@@ -344,7 +374,8 @@ def report(o):
               b["null"], b["tension"], b["pos"], b["bounds"], b["weakest"], b["sigma6"], b["sigma4"]))
     c = o["a3"]
     print("A3 C2 - C1 formula: %s; d(a^4 rho)/dt = a^4 H (rho - 3p): %s; Q at first order sigma [(rho1 - 3p1) - "
-          "2 (rho2 - 3p2)]: %s; Cdot from the Gauss pair: %s" % (c["gap"], c["trace_id"], c["first"], c["pair"]))
+          "2 (rho2 - 3p2)]: %s; Cdot from the Gauss pair: %s; scalar carrier: T_kk = (k . d phi)^2 %s, T_un and T_nn "
+          "%s" % (c["gap"], c["trace_id"], c["first"], c["pair"], c["scalar_nec"], c["scalar_comps"]))
     for s, d in c["codazzi"].items():
         print("   %s: kappa^2 T = +-3 C'/(2 r^3): %s; Codazzi ratio %s; static K^x_x %s; Gauss-pair factor %s; NEC iff "
               "Q <= 0: %s" % ("ingoing" if s == 1 else "outgoing", d["Tvv"], d["ratio"], d["static"], d["denom"],
@@ -358,7 +389,7 @@ def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     rul = " ".join(open(RULINGS, encoding="utf-8").read().split())
-    add("A0 282 (c), 276, 275, 117, 284, 202 and the C4 verifier's two at 310 verbatim in the rulings file",
+    add("A0 282 (c), 276, 275, 117, 284, 202, 139 (1) and the C4 verifier's two at 310 verbatim in the rulings file",
         all(w in rul for w in WORDS))
     add("A1 the junction fixes Sigma^+ = S1 + 2 S2 for general stresses given Sigma^- = S1; J2's split agrees on "
         "tensions", o["a1"]["fixed"] and o["a1"]["tensions_agree"])
@@ -372,11 +403,12 @@ def checks(o):
     add("A2 every reading -- summed, ours, position 2's side, J2's split -- positive on every ray for rho + p >= 0 and "
         "rho > -sigma/6 = -2.5e52 J/m^3", ok)
     c = o["a3"]
-    ok = c["gap"] and c["trace_id"] and c["first"] and c["pair"]
+    ok = c["gap"] and c["trace_id"] and c["first"] and c["pair"] and c["scalar_nec"] and c["scalar_comps"]
     ok &= all(d["Tvv"] and d["ratio"] == 1 and sp.simplify(d["static"] + sp.Symbol("k", positive=True)) == 0
               and d["factor"] and d["nec_if_Q_neg"] for d in c["codazzi"].values())
-    add("A3 (outside the claim) one induced metric: C2 - C1 as computed; both bulks vacuum only if (rho1 - 3p1) = "
-        "2 (rho2 - 3p2); a null-dust carrier keeps 117/120 iff Q <= 0, ingoing and outgoing", ok)
+    add("A3 the one-way reading on one induced metric: C2 - C1 as computed; both bulks vacuum only if (rho1 - 3p1) = "
+        "2 (rho2 - 3p2); a scalar of position 2's own carries it with T_kk = (k . d phi)^2 >= 0; null dust keeps "
+        "117/120 iff Q <= 0, ingoing and outgoing", ok)
     z = o["a4"]
     ok = z["F"] == {(1, 1): {1}, (1, 0): {1}, (0, 1): {0, 1}, (0, 0): {0, 1}}
     ok &= all(z["out"][k] == Counter({(1,): 96}) for k in (2, 3)) and not z["audit"]
@@ -389,6 +421,7 @@ MUTANTS = {"a1_composite": "one junction both sheets act on, Sigma^- = S1 + S2 (
            "a2_minus_sigma": "position 2's tension read as -sigma (A2)",
            "a3_tau_split": "position 2's matter counted once on its side (A3)",
            "a3_nec_sign": "the null dust's energy sign reversed (A3)",
+           "a3_scalar_ghost": "the scalar carrier a ghost, its kinetic sign reversed (A3)",
            "a4_readme_can_fail": "M's class with the README realized {0, 1} (A4)"}
 
 

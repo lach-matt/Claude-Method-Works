@@ -24,7 +24,8 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      -E~ and the angular momentum L conserved, every causal geodesic there has Tdot^2 = eps + E~^2/G + L^2/R^2, eps = 1
      timelike and 0 null (computed), so T is monotone along it.  Between the horizon and any R_c > 0 T spans less than
      r_h, the E~ = 0 fall (computed); timelike geodesics take less proper time than that, and null ones have Tdot^2 >=
-     E~^2 R_c^2/(r_h^2 - R_c^2) + L^2/r_h^2 > 0 (computed), a finite affine length.  A radial body entering our face
+     E~^2 R_c^2/(r_h^2 - R_c^2) + L^2/r_h^2 > 0 (computed; E~ and L are not both zero on a null geodesic, whose
+     tangent would then vanish), a finite affine length.  A radial body entering our face
      reaches the core in at most r_h/(1 + E~) of proper time (computed; c5_oneway U1).  So every causal geodesic in our
      interior reaches the quantum region in finite affine parameter, and every one in position 2's past interior leaves
      it, in finite affine parameter, by one of its boundaries (deduced).  Those entering by our face have E~ > 0: in our
@@ -32,8 +33,30 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      not come from our exterior but from what opened the hole -- among them the E~ = 0 T-lines, which on the eternal
      hole ran from bifurcation sphere to bifurcation sphere (c4_residue R6's item-310 note) -- and are covered the same.
      This carries c5_oneway U11 (4), verified at item 317, from the core to the whole interior.
+  Z2b (READ; computed; deduced where marked) The README's own region.  On the object the README is within the hole when
+     the faces begin (c5_oneway U11 (1)-(3), U12 (Q4)), and in the construction M chose (273) it is Haggard and
+     Rovelli's matter (arXiv:1407.0989, READ): "Spherical shell of null matter: We disregard the thickness of this
+     shell" (assumption (ii)); "The in-falling shell splits spacetime into a region interior to the shell, indicated as
+     I in the Figure and an exterior part"; "The first region, inside the shell, must be flat"; and "The upper region
+     will simply be the time reflection of the lower".  Inside the shell the geometry is fixed by causality: on the
+     construction's ingoing Eddington form -f dv^2 + 2 dv dr + r^2 dOmega_3^2 a future causal vector X has g(X, -d_r) =
+     -X^v <= 0 (computed), so v never decreases along a future causal curve, and a point inside the shell (v < v_o) is
+     outside the shell's causal future -- as for any converging null shell, an achronal null hypersurface, the side it
+     has not yet swept (deduced) -- in the domain of dependence of the space the README converges on -- undisturbed,
+     nothing else carried in (273, "README only"), flat at flat order as M1 is (deduced).  There every causal geodesic
+     is a straight line, its affine parameter linear in the coordinates: complete (deduced).  A causal geodesic meets
+     the thin null shell at one point and continues across it, the metric continuous and the gluing of tangent spaces
+     fixed by the induced metrics (READ: "if the induced 3-metrics on the boundaries agree it turns out that it is not
+     necessary to impose further conditions", citing Barrabes and Israel).  By the same monotone v, a future-directed
+     geodesic in our trapped region (v > v_o) never re-enters the flat region and reaches the quantum region (Z2); READ:
+     "The trapped region is bounded by the incoming shell trajectory, the null r = 2m horizon in the region II, and the
+     boundary between region II and region III".  On position 2's side the reflected region is flat space inside the
+     emerging shell: a future-directed geodesic of position 2's trapped region may cross that outgoing shell into it,
+     and then stays in flat space: complete (deduced).  So every causal geodesic of the README's region, and every one
+     that enters or leaves it, runs in finite affine parameter between its boundaries.
   Z3 (READ; computed; deduced where marked) The quantum region.  Completeness there is M's ruling, not a result of this
-     row: 273 chose the bounce "One-way, complete, README only" and gives up "classical GR there", so inside it no
+     row: 273 chose the bounce "One-way, complete, README only" -- "complete" being b_interior B6's cell, "no
+     singularity on the way", set for every bounce and chosen by M -- and gives up "classical GR there", so inside it no
      classical geodesic equation holds to be integrated.  The ruling is realized classically by c4_residue R6's core (R6
      run here): the same metric with R(T) smooth and even, R >= r_min > 0, G = r_h^2/R^2 - 1 > 0 throughout -- vacuum
      exactly outside the core, the null energy negative at the bounce, the curvature finite there (computed).  The first
@@ -44,10 +67,11 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      completeness, with the README's passage through it, rests on 273.
   Z4 (computed, c4_residue R13 run here; deduced where marked) The boundary a geodesic leaves by.  A body crossing a
      t-independent core keeps its Killing energy and, under the gluing map (U, V) -> (-U, -V) (forced on 270 (a)'s
-     single chart, a board reading: c5_oneway U11 (9), U12 (Q7)), leaves position 2's past interior by V' = 0,
-     opposite U' = 0, the map's image of our face (computed) -- toward the map's image of what opened the hole, which
-     on the one-way object is not an exterior (c5_oneway U9).  The README, the matter that bounces, leaves as its own
-     image by U' = 0, position 2's face, into position 2's exterior, the map's image of ours -- the time symmetry of
+     single chart, a board reading: c5_oneway U11 (9), U12 (Q7)), leaves position 2's past interior by V' = 0, opposite
+     U' = 0, the map's image of our face (computed) -- toward the map's image of what opened the hole, which on the
+     one-way object is not an exterior (c5_oneway U9): in the construction M chose it is the flat region inside the
+     emerging shell, which the body enters across the shell (Z2b).  The README, the matter that bounces, leaves as its
+     own image by U' = 0, position 2's face, into position 2's exterior, the map's image of ours -- the time symmetry of
      the construction M chose (c5_oneway U12 (Q3), deduced from 273).  The row does not turn on which boundary: either
      way the geodesic leaves the hole in finite affine parameter (Z2).  The passage, the README's, is by position 2's
      face, as 273 names it and the board's index at 283 orders it.
@@ -62,11 +86,12 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      which the positions are joined through the bulk with no horizons (282 (2)).  The E~ = 0 lines' bifurcation sphere
      is dropped by 282; on the one-way object they come from what opened the hole (Z2).
   Z6 (deduced) The row, one way: no causal geodesic ends in the hole.  Every one that enters our face, or lies in our
-     interior, crosses the classical interior in finite affine parameter (Z2); the quantum region is complete by M's
-     ruling and on its classical realization (Z3); and every one leaves position 2's past interior in finite affine
-     parameter (Z2), the README by position 2's face into position 2's exterior (Z4).  The null energy the region gives
-     up is confined to it (pair_math P2, P4).  At the small end -- the corridor's, the README fixing r_h at 72,762 l5,
-     r_h/ell = 8.0e-16 (c5_oneway U9, U12 (Q8)) -- at flat order, warp order entering at O(r_h/ell) = 8.0e-16.  It
+     interior, crosses the classical interior and the README's region in finite affine parameter (Z2, Z2b); the quantum
+     region is complete by M's ruling and on its classical realization (Z3); and every one leaves position 2's past
+     interior in finite affine parameter (Z2), the README by position 2's face into position 2's exterior and a body
+     crossing a t-independent core into flat space inside the emerging shell (Z4, Z2b).  The null energy the region
+     gives up is confined to it (pair_math P2, P4).  At the small end -- the corridor's, the README fixing r_h at 72,762
+     l5, r_h/ell = 8.0e-16 (c5_oneway U9, U12 (Q8)) -- at flat order, warp order entering at O(r_h/ell) = 8.0e-16.  It
      rests on M1 (C4, verified at the small end) and on 273.
   Z7 (computed) The row's question through the calculator, in the form C4's, C5's and C7's stand in (c4_residue R12):
      the clause "complete through the passage" read from b_interior's cells (B6's complete: singular 0, inner 0,
@@ -77,10 +102,9 @@ What this row does not claim -- each left out with its reason, none open in it (
   - The quantum region's own form.  Completeness inside it is 273's, realized classically by R6's core (Z3); the
     region's quantum-gravitational form is beyond any computation here (c4_residue R12).
   - Anything outside the hole.  The exteriors are C1's and C4's outside-the-hole figures, which 282 keeps; before the
-    opening is the join, about which B7 and B4a stand (282 (2)), and beyond V' = 0 the map's image of what opened the
-    hole, which stands with that region; our face's closing is the CLOSE row's (c5_oneway U11 (11)).  O1c is the
-    passage's row -- O1, one way and nonsingular -- and the trapped interior, where Penrose's theorem bites (b_interior
-    B1, B2), is where it is decided.
+    opening is the join, about which B7 and B4a stand (282 (2)); our face's closing is the CLOSE row's (c5_oneway U11
+    (11)).  O1c is the passage's row -- O1, one way and nonsingular -- and the trapped interior, where Penrose's theorem
+    bites (b_interior B1, B2), is where it is decided.
   - Corrections beyond flat order (Z6), as for C5 (c5_oneway U11 (10)).
   - The large end.  The corridor is at the small end (Z6); the large end enters only to show that eq. (17) at r0 = 2m
     is the geometry of neither end (Z1), and its interior is not computed here.
@@ -224,6 +248,17 @@ def z4():
     return q
 
 
+def z2b():
+    """Z2b: on the ingoing Eddington form a future causal vector has g(X, -d_r) = -X^v, so v never decreases"""
+    f, Xv, Xr = sp.symbols("f X_v X_r", real=True)
+    gvr = -1 if MUT.get("z2b_v_decreases") else 1           # the mutant: the outgoing form read as the ingoing one
+    g = sp.Matrix([[-f, gvr], [gvr, 0]])
+    minus_dr = sp.Matrix([0, -1])                            # the ingoing null direction, future-directed
+    val = sp.simplify((sp.Matrix([Xv, Xr]).T * g * minus_dr)[0])
+    null = (minus_dr.T * g * minus_dr)[0] == 0
+    return dict(val=val, null=null, monotone=null and sp.simplify(val + Xv) == 0)
+
+
 _Z7 = {}
 
 
@@ -264,7 +299,7 @@ def z7():
 
 
 def compute():
-    return dict(z1=z1(), zc=zc(), z4=z4(), z7=z7())
+    return dict(z1=z1(), zc=zc(), z2b=z2b(), z4=z4(), z7=z7())
 
 
 def report(o):
@@ -276,6 +311,8 @@ def report(o):
     print("Z2 Tangherlini's interior: vacuum where R'^2 = G %s, only there %s; first integrals %s; fall r_h/(1+E~): %s; "
           "T span from R_c: %s; null bound E~^2 R_c^2/(r_h^2 - R_c^2) + L^2/r_h^2: %s, positive %s"
           % (b["i5"]["vac"], b["i5"]["iff"], b["first"], b["tau5"], b["span5"], b["form"], b["null"]))
+    print("Z2b g(X, -d_r) = %s on the ingoing Eddington form, -d_r null %s: v monotone along future causal curves %s"
+          % (o["z2b"]["val"], o["z2b"]["null"], o["z2b"]["monotone"]))
     print("Z3 R6's core (run here): %s" % b["r6"])
     c = o["z4"]
     print("Z4 R13 under (U, V) -> (-U, -V): a t-independent core's body leaves by %s, opposite the image %s of our "
@@ -302,6 +339,8 @@ def checks(o):
         "r_h/(1 + E~); T spans sqrt(r_h^2 - R_c^2) < r_h; the null bound positive", b["i5"]["vac"] and b["i5"]["iff"]
         and b["first"] and sp.simplify(b["tau5"] - rh / (1 + Et)) == 0
         and sp.simplify(b["span5"] - sp.sqrt(rh ** 2 - Rc ** 2)) == 0 and b["form"] and b["null"])
+    add("Z2b the README's region: on the ingoing Eddington form g(X, -d_r) = -X^v, so v never decreases along a future "
+        "causal curve and the region inside the shell lies outside its causal future", o["z2b"]["monotone"])
     add("Z3 R6's core, run here: vacuum outside it, the null energy negative at the bounce, the curvature finite",
         all(b["r6"].values()))
     c = o["z4"]
@@ -321,6 +360,7 @@ MUTANTS = {"extremal_small": "the small end read as extremal (Z1)",
            "wrong_vacuum_5": "Tangherlini's vacuum condition shifted (Z2)",
            "null_stalls": "a null route stalled in the interior (Z2)",
            "no_core": "the quantum region removed, R_c -> 0: the singular interior (Z2)",
+           "z2b_v_decreases": "the outgoing Eddington form read as the ingoing one (Z2b)",
            "exit_mirror": "a t-independent core's body read as leaving by position 2's face (Z4)",
            "cite_moved": "V9 (5) cited with the wrong face (Z5/Z6)",
            "z7_singular_complete": "the singular interior read as complete (Z7)"}
