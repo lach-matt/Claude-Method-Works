@@ -177,6 +177,10 @@ seated); 2026-10-12.
      Rovelli's kind, which R6 does not model along the README; R6 and this section concern bodies that cross a
      t-independent core after it.  Which exterior is position 2's is M's identification (273); P1 and P15 hold with
      either map, both keeping U V.
+     [Item 311 (c5_oneway U9): "the README" in the critic's scope is the README on reading (ii), one whole body that
+     collapses and bounces (b_bounce Q5).  On reading (i), the hole standing at its size through the write, its parts
+     are bodies crossing the core of a hole already standing (i_oneway I2, I5), and the first half of this section
+     applies to them.]
 
 Imports c4_oneway.py, tau_share.py, calculator.py, b_interior.py, hold_small.py, p2_gravity.py, e_positive.py and
 research/warp-drive/hlaw.py by path.  Stdlib + sympy.  python3 c4_residue.py [--selftest | --mutants]

@@ -13,6 +13,9 @@ session; not seated); 2026-10-12.
      hold_small's own tau and i_oneway's closed form agreeing; the README emerges through position 2's interior in as
      long again.  The interior's r = 0, admitted by item 259 as the classical interior outside the passage, is where
      the bounce's quantum region stands (273): the passage runs through it, paired per ray by the README (b_bounce Q5).
+     [Item 311 (U9): "as long again" holds through c4_residue R6's core with the Killing energy kept -- the continuation
+     past the bounce is the incoming half's image under (T, t) -> (-T, 2 t_0 - t), an isometry; the face, for the
+     README's parts on reading (i), joins the quantum region's form.]
   U2 (computed, exact; kept, hold_small L2) The capture radius for the plane's fields: photon sphere at sqrt2 r_h,
      critical impact parameter 2 r_h, cross-section 4 pi r_h^2 -- outside the hole, unchanged.
   U3 (estimate, kept; hold_small L3/L5 with the C5 verifier's figures) The hole radiates mainly into the plane's own
@@ -26,6 +29,8 @@ session; not seated); 2026-10-12.
      bridge and L3/L4's life described different spacetimes -- resolves on the one-way object: it opens (270 (c)), so
      it is formed and evaporates, and the same formed hole carries the passage, through its interior and the bounce,
      with no second exterior of the eternal kind.  The lifetime and the passage now describe one spacetime.
+     [Item 311 (U9): one spacetime stands for formation and evaporation; on reading (i) the passage of the README's
+     parts through position 2's face is conditional on the quantum region reversing their Killing energy.]
   U6 (the cypher NOT-RUN, stated) U1-U5 re-post a construction and its figures; the object's causal order is
      c1_oneway K6's run.  [item 309: U7 puts C5's question through the calculator; U6 stands for U1-U5 as built.]
   U7 (computed; item 309) C5's question through the calculator, in the form C4's question stands in (c4_residue
@@ -55,7 +60,9 @@ session; not seated); 2026-10-12.
      coefficient of the core's size is not shown.
      [Item 310, the C4 verifier's (2): the T-geodesics are the E~ = 0 family, from bifurcation sphere to bifurcation
      sphere (282 drops it); 1.6e-7 is that observer's proper time over Tangherlini's r_q to 0, r_q an estimate.  For
-     E~ != 0, and for the README on b_bounce Q5's reading, it is the core's scale, not computed.  The check now pins it.]
+     E~ != 0, and for the README on b_bounce Q5's reading, it is the core's scale, not computed.  The check pins it.]
+     [Item 311 (U9), computed: in the core Tdot^2 = 1 + E~^2/G + L^2/R^2 >= 1 (G > 0), so no timelike route crosses
+     it in more proper time than the E~ = 0 observer -- 1.6e-7 per half bounds them all.]
      (2) Species: the life goes as 1/(degrees of freedom), so the hold's 1.28e10 margin over the write's floor admits a
      1.28e10-fold multiplication of the radiated species before the floor is reached (estimate; H-SPECIES-FINITE).
      (3) Greybody: with every greybody factor set to 1, the most the hole can radiate, the margin is 1.19e10.
@@ -68,8 +75,50 @@ session; not seated); 2026-10-12.
      [Item 310 (c4_residue R13): a body crossing a t-independent core leaves the white hole opposite the gluing map's
      image of our face; the README, on b_bounce Q5's reading the matter that bounces, leaves as its own image by
      position 2's face as named, through a quantum region of Haggard and Rovelli's kind, not modeled here.]
+     [Item 311 (U9): leaving as its own image is the README on reading (ii), one whole body that collapses and
+     bounces; on reading (i), where U4's margin holds, its parts are bodies crossing the core of a hole already
+     standing, and through a t-independent core they leave toward the far side.]
      (6) The bounce as constructed: R6's metric, NEC negative at the bounce, paired per ray by the README (b_bounce
      Q5, 183), its T-lines geodesics -- C4's residue (6), read here, not rebuilt.
+  U9 (item 311; computed where marked, deduced where marked) C5 against C4's verification (item 310), each finding put
+     to U0-U8 because M asked that C5 be shown unchanged.
+     Unchanged (deduced): (3) C5 reads no mass of position 2's; (4) U7 is the entered rows read back, as its (i) says;
+     (5) and (8) bear on clauses C5 does not carry (the vacuum, the brane's analyticity); (6) U2-U4's inner horizon 0
+     holds for spin as for charge, a Myers-Perry exterior being vacuum but not Tangherlini; (7) C5 uses no tau; (9) the
+     scalar's greybody 1.003 lifts the all-species maximum to 1.000112 (each factor at the larger of 1 and its own), so
+     U8 (3)'s 1.19e10 is 1.1890e10 against 1.1891e10, a change of 0.01% (computed); the two core-scale estimates both
+     pair the README (U1's pairing; b_bounce Q5's note).
+     Closed further (computed): (2) the core's crossing for every timelike route -- with p_t = -E~ and the angular
+     momentum L conserved, Tdot^2 = 1 + E~^2/G + L^2/R^2 >= 1 where G > 0, so U8 (1)'s 1.6e-7 per half bounds every
+     route, not the E~ = 0 one alone; and the half past the bounce is the incoming half's image under (T, t) -> (-T,
+     2 t_0 - t), so "as long again" holds with the Killing energy kept (deduced from the isometry and uniqueness).
+     Outside C4's claim (computed): G5 under the 2 : 1 bulk leaves every clock figure of C5 unchanged -- r_h is fixed by
+     the README's bits in units of l5 (r_h/l5 = 72,762), so the life in clocks, 8.573e14, and its margin over the
+     write's floor, 1.28e10, are functions of N alone; only the SI figures move, r_h and the life by (G5/G ell)^(1/3)
+     and E by its inverse (1.282e-20 m, 3.667e-14 s, 1.119e9 J at (3/2) G ell; 8.89e-21 m, 2.542e-14 s, 1.614e9 J at
+     G ell/2).
+     Changed (deduced): item 310's (1) with the critic's scope.  U1, U4 and U5 hold the README as parts crossing a hole
+     that stands open through the write -- each part in at most two clocks while the face is open at least 66,980
+     (i_oneway I2, I5) -- on reading (i), the hole standing at its size through the write, the one reading U4's margin
+     is verified on (264 (1)).  Those parts are bodies crossing the core of a hole already standing, which (1) is about.
+     The critic's scope -- the README as the matter that collapses and bounces, leaving as its own image (b_bounce Q5,
+     d_evap D1) -- is reading (ii)'s, where the README is one whole body (163) and the hold runs from formation to the
+     bounce, so U4's verified comparison is not the one that applies (264 (1); b_bounce's "does not show").  So the face
+     the record names and the margin U4 verifies rest on different readings.  Through R6's t-independent core each
+     part on reading (i) keeps its Killing energy and moves past the bounce toward the far side of the white-hole
+     interior, where t runs to -infinity (c4_residue R13: under Q1 the image of the second exterior's side) -- away
+     from position 2's face as named.  On the one-way object, whose faces begin at the opening (270 (c)) and which has
+     no eternal second exterior (282), that side is Q1's image of what opened the hole, not an exterior.  A part
+     reaches position 2's face only if the quantum region reverses its Killing energy against the continued d_t,
+     as Haggard and Rovelli's region does for the collapsing matter; for matter crossing a hole already standing nothing
+     in the record, or in the literature read here, constructs that.  So U1's "as long again" stands, and its face, for
+     the README's parts on reading (i), joins the quantum region's form among what the board cannot close; U5's one
+     spacetime stands for formation and evaporation, the parts' passage conditional in the same way.  The cypher on it,
+     stated: over (the part forms the hole, the core reverses the Killing energy) the answer is the second coordinate
+     itself -- index_audit flags the pair one-hot -- so 211 voids any verdict, and none is taken.
+     So C5 has changed in one place: on reading (i), where U4's margin holds, the face by which the README's parts
+     emerge is conditional on the quantum region's form; on reading (ii), where the README leaves as its own image by
+     the face named, U4's verified comparison does not apply.  Every figure and U7's result stand.
 
 What this does not show.
   - The quantum region's duration and the order-one coefficient of any bounce time (b_bounce Q3 is the two-way
@@ -79,6 +128,10 @@ What this does not show.
   - Verification: U7-U8 wait for M's finalization and a verifier after C4's (249).
   - [Item 310, outside the C4 claim, its verifier's] G5 under the 2 : 1 bulk (tau_share T4's note): G5 = (3/2) G ell
     over both sides, or G ell/2 over ours alone, not G ell -- an O(1) change in r_h and in the life and margins here.
+    [Item 311: computed in U9 -- the clock figures and the margins are unchanged; only r_h, the life in seconds and E
+    move, by (G5/G ell)^(+-1/3).]
+  - [Item 311] Which face the README's parts emerge by on reading (i), where U4's margin holds (U9): the quantum
+    region's form.
   - Species beyond the Standard Model (H-SPECIES-FINITE), as in hold_small.
 
 Imports hold_small.py, i_oneway.py, c1_oneway.py, c4_oneway.py, c4_residue.py, calculator.py, b_interior.py,
@@ -88,6 +141,7 @@ index_audit.py and hlaw.py by path.  Stdlib + sympy.  python3 c5_oneway.py [--se
 import contextlib
 import importlib.util
 import itertools
+import math
 from collections import Counter
 import io
 import os
@@ -152,7 +206,7 @@ def route():
 INTERIORS = ("singular", "inner", "quantum", "shell")
 # C5's clauses that vary across the configurations, by interior (b_interior's cells; the inner horizon's charge or spin,
 # B3, changes the exterior every outside figure of C5 is computed for -- the C1 verifier's qualification (5))
-C5VALS = {"U1": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},     # the route through to position 2 (c1_oneway K34)
+C5VALS = {"U1": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},     # the route to position 2 (c1_oneway K34)
           "U2": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # capture: Tangherlini's photon sphere
           "U3": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # emission and life of a neutral 5D hole
           "U4": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # that life against the write's floor
@@ -225,9 +279,44 @@ def residue():
                 gamma=g, dof=l5["dof"])
 
 
+def against_c4():
+    """U9 (item 311): C5 put against C4's verification (item 310)"""
+    H = _load("hold_small.py", "c5o_hs3")
+    PG = _load("p2_gravity.py", "c5o_pg")
+    WS = _load("write_small.py", "c5o_ws")
+    l5c = H.l5_checks()
+    gam, bulk = l5c["gamma_eff"], l5c["bulk"]
+    G, c, hb, kB, sSB = PG.G, PG.C, PG.HBAR, 1.380649e-23, 5.670374419e-8
+    wc = WS.head_clocks()
+    g5, rh0 = {}, None
+    for g in (1, 1.5, 0.5):              # G5 over G ell: ours; both sides of the 2 : 1 bulk; our side alone (item 310)
+        G5 = g * G * PG.ELL_MAX
+        l5 = (hb * G5 / c ** 3) ** (1 / 3)
+        rh = (2 * H.N_EX * math.log(2) / math.pi ** 2) ** (1 / 3) * l5
+        if MUT.get("u9_rh_in_metres"):
+            rh0 = rh0 or rh
+            rh = rh0                     # the mutant: r_h held in metres, not fixed by the README's bits
+        E = 3 * math.pi * c ** 4 * rh ** 2 / (8 * G5)
+        T = hb * c / (2 * math.pi * kB * rh)
+        P = (H.G_STAR / 2) * sSB * 4 * (4 * math.pi * rh ** 2) * T ** 4
+        life = E / (2 * P) / (gam * (1 + bulk))
+        g5[g] = dict(rh=rh, E=E, life=life, clocks=life / (rh / c), over=life / (wc * rh / c), rl5=rh / l5)
+    Gs, Rs, Es, Ls, X = sp.symbols("G R E L X", positive=True)
+    td2 = sp.solve(sp.Eq(-X + Gs * (Es / Gs) ** 2 + Rs ** 2 * (Ls / Rs ** 2) ** 2, -1), X)[0]
+    bound = sp.simplify(td2 - 1 - Es ** 2 / Gs - Ls ** 2 / Rs ** 2) == 0     # Tdot^2 - 1 = E~^2/G + L^2/R^2 >= 0
+    r13 = _load("c4_residue.py", "c5o_cr3").r13()
+    later = r13["Q1"]["exit"]            # a part crossing R6's t-independent core: toward the image of 'III''s side
+    forming = r13["Q1"]["mirror_exit"]   # the part that forms the hole, leaving as its own image: the image of ours
+    if MUT.get("u9_parts_as_image"):
+        later = forming                  # the mutant: the critic's scope stretched to every part
+    au = _load("index_audit.py", "c5o_ia3").audit_index(["forms", "reverses", "named_face"],
+                                                         [(f, r, r) for f in (0, 1) for r in (0, 1)])
+    return dict(g5=g5, bound=bound, later=later, forming=forming, audit=au)
+
+
 def compute():
     h = hold()
-    return dict(h=h, x=crossing_agrees(h), rt=route(), cq=calc_question(), rs=residue())
+    return dict(h=h, x=crossing_agrees(h), rt=route(), cq=calc_question(), rs=residue(), ag=against_c4())
 
 
 def report(o):
@@ -243,10 +332,21 @@ def report(o):
     for k in (2, 3):
         print("U7 order %d over 96 codings (24 orderings x 4 orientations): %s" % (k, dict(cq["out"][k])))
     print("U7 211's audit (keys or one-hot) per clause: %s" % cq["audit"])
+    _report_u9(o)
     rs = o["rs"]
     print("U8 the core crossed in %.2g clocks; the passage at most %.7f clocks; the hold over the floor %.3g-fold -- "
           "%.3g with every greybody 1; species could multiply %.3g-fold before the floor is reached" % (
               rs["core"], rs["passage_max"], rs["over"], rs["greybody_over"], rs["species_factor"]))
+
+
+def _report_u9(o):
+    ag = o["ag"]
+    for g, v in ag["g5"].items():
+        print("U9 G5 = %.1f G ell: r_h %.4g m, E %.4g J, life %.4g s = %.4g clocks, over the floor %.3g, r_h/l5 %.0f" % (
+            g, v["rh"], v["E"], v["life"], v["clocks"], v["over"], v["rl5"]))
+    print("U9 Tdot^2 = 1 + E~^2/G + L^2/R^2 in the core: %s; a later part through R6's core leaves toward the image of "
+          "%s, the README as its own image (reading (ii)) onto the image of %s; audit %s" % (ag["bound"], ag["later"],
+                                                                                   ag["forming"], ag["audit"]))
 
 
 def checks(o):
@@ -273,6 +373,18 @@ def checks(o):
         "the hold over the floor 1.28e10-fold, above 1.1e10 with every greybody 1", "%.2g" % rs["core"] == "1.6e-07"
         and rs["passage_max"] < 2.000001
         and "%.3g" % rs["over"] == "1.28e+10" and rs["greybody_over"] > 1.1e10 and rs["gamma"] < 1)
+    ag = o["ag"]
+    g5 = ag["g5"]
+    ok = all("%.4g" % v["clocks"] == "8.573e+14" and "%.3g" % v["over"] == "1.28e+10" and "%.0f" % v["rl5"] == "72762"
+             for v in g5.values())
+    ok &= abs(g5[1.5]["rh"] / g5[1]["rh"] - 1.5 ** (1 / 3)) < 1e-12
+    ok &= abs(g5[0.5]["E"] / g5[1]["E"] - 2 ** (1 / 3)) < 1e-12
+    ok &= ag["bound"] and ag["later"] == "III" and ag["forming"] == "I"
+    ok &= ("reverses", "named_face") in ag["audit"]["onehot"]
+    add("U9 C5 against C4's verification (item 311): the clock figures unchanged under the 2 : 1 bulk's G5, the SI ones "
+        "moving by the cube root; every timelike route crosses the core within the E~ = 0 time; a part crossing a "
+        "standing hole leaves R6's core toward the far side, the README as its own image by position 2's face; the "
+        "face a function of the core's form alone (one-hot, 211)", ok)
     return res
 
 
@@ -280,7 +392,9 @@ MUTANTS = {"eternal": "the hole read as eternal, losing no mass",
            "slice_passage": "the passage restored to the slice's join of the exteriors",
            "u7_no_population": "C5's question without tension and matter, the continuation alone (U7)",
            "u7_inner_outside_kept": "the inner horizon's exterior read as Tangherlini (U7)",
-           "u8_no_margin": "a hold shorter than the write's floor (U8)"}
+           "u8_no_margin": "a hold shorter than the write's floor (U8)",
+           "u9_rh_in_metres": "r_h held in metres while G5 changes, not fixed by the README's bits (U9)",
+           "u9_parts_as_image": "every part of the README read as leaving by its own image through R6's core (U9)"}
 
 
 def selftest():
