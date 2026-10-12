@@ -7,6 +7,9 @@ half-horizons as if the corridor ran both ways; this instrument populates the on
 conversation (computed with sympy, exact where marked; deduced where marked; the cypher run and audited; not verified by
 a separate session; not seated); 2026-10-11.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  O6 (a)'s "not position 2's ambient fields" let them reach the white-hole face -- a passage from
+position 2 into the corridor.  Kept as written; i_oneway.py I3.]
+
 [Item 272's owed items, worked 2026-10-12 after M's "Not yet, we have to close everything that is still owed": (b) the
 interior's continuation -- b_interior.py (Penrose) and, under item 273's quantum bounce, b_bounce.py; (c) the junction's
 ends and (a) the white-hole blueshift -- c_junction.py (position 2's face open at most 33.6 clocks; the bounce

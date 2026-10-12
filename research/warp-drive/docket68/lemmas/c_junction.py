@@ -5,6 +5,10 @@ seen by what emerges, grows as e^(clocks), and so does any inflow's.  Worked in 
 exact where marked; READ where marked; estimates marked; deduced where marked; not verified by a separate session; not
 seated); 2026-10-12.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  J2's perturbations and J5's inflow onto the white-hole face are a passage from position 2 into the
+corridor, item 270's own example; J1 (what emerges sees the junction) is outflow and stands.  Kept as written; the
+one-way re-closure is i_oneway.py.]
+
   J0 (read) M's item-273 words, verbatim in the rulings file.
   J1 (computed, exact) The junction seen on position 2's face.  The face is U = 0, V < 0, generator d_V; position 2's
      forward time runs V = -|V_s| e^(-(tau_2 - tau_s)) toward 0 (m1p2x_oneway O1).  Matter emerging across the face at V

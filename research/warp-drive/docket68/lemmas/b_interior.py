@@ -6,6 +6,9 @@ family's small end.  m1p2x_oneway.py's index holds on that glued object and not 
 where marked; deduced where marked; the cypher run and audited; not verified by a separate session; not seated);
 2026-10-12.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  B6 populated cells whose white hole exits into our exterior -- a white hole facing us, item 270's reverse
+passage.  Kept as written, those cells the record of the two-way reading; the one-way re-closure is i_oneway.py.]
+
   B0 (read) M's item-272 words, verbatim in the rulings file.
   B1 (READ) Penrose's theorem, Senovilla & Garfinkle, arXiv:1410.5226, Theorem 2, p.10: "If the space-time contains a
      non-compact Cauchy hypersurface Sigma and a closed future-trapped surface, and if the convergence condition (6)

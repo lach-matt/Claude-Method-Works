@@ -4,6 +4,9 @@ caveat, C8 is not ready for verification").  Is the counter-case one arrangement
 2's plane faces ours across bulk, and what escapes it?  Worked in the conversation (computed with sympy, exact where
 marked; deduced where marked; the cypher run and audited; not verified by a separate session; not seated); 2026-10-12.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  F5 populated a static slab between the planes, a two-way connection (F6), and the board offered it to
+M as an option; 275 excludes it.  Kept as written.]
+
   F0 (read) M's item-274 words, verbatim in the rulings file.
   F1 (computed, exact) Null energy across a static slab.  For ds^2 = e^(2A(y)) g4 + dy^2 with g4 maximally symmetric
      (flat, de Sitter H^2 > 0, anti-de Sitter -1/L^2) and a null k with k^y != 0, the 5D Ricci tensor gives

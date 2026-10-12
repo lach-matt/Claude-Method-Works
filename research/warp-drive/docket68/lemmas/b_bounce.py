@@ -5,6 +5,10 @@ null energy any bounce must carry, and 183's pairing.  Worked in the conversatio
 marked; READ where marked; estimates marked; deduced where marked; not verified by a separate session; not seated);
 2026-10-12.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  Q2, Q3 and Q6 carried Haggard and Rovelli's quantum region outside our horizon and their exterior time
+m^2/l_P -- a black hole turning into a white hole in the same exterior, a white hole facing us; Q3's 7.3e4-2.0e7
+clocks is that object's time, not the one-way object's.  Kept as written; the one-way re-closure is i_oneway.py.]
+
   Q0 (read) M's item-273 words, verbatim in the rulings file.
   Q1 (computed, exact) The one object, two views.  The Kruskal form -F(UV) dU dV + r(UV)^2 dOmega^2 is invariant under
      (U, V) -> (-U, -V), which carries our exterior (U < 0 < V) onto position 2's (V < 0 < U), the future interior onto

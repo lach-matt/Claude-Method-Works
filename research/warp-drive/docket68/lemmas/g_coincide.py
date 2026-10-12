@@ -6,6 +6,9 @@ sheets at one point.  Worked in the conversation (computed with sympy, exact whe
 values marked; deduced where marked; the cypher run and audited; not verified by a separate session; not seated);
 2026-10-12.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  G2-G4 acted from position 2 onto ours (recorded at 276).  Kept as written; h_oneway.py and
+i_oneway.py follow it.]
+
   G0 (read) M's item-275 words, verbatim in the rulings file.
   G1 (computed; f_slab F3) No slab of bulk lies between the planes anywhere, so f_slab's static slab -- and with it
      e_positive E6's counter-case, in which 139 (2) and 139 (3) conflict -- exists nowhere.  Item 274's caveat is

@@ -5,6 +5,10 @@ second exterior; the eternal hole that carries the bridge sits in a bath and los
 (computed, exact where marked; estimates marked; deduced where marked; not verified by a separate session; not seated);
 2026-10-12.
 
+[M, item 277: "You are forgetting that the passage is one-way only".  D2-D4 rest on b_bounce Q3's two-way time.  The evaporation itself stands: Hawking emission lowers the
+hole's mass by negative energy going in, nothing exiting our face.  Kept as written; the one-way re-closure is
+i_oneway.py.]
+
   D0 (read) M's item-273 words, verbatim in the rulings file.
   D1 (deduced) On the bounce the two spacetimes are no longer needed together.  Our side is the collapse-formed black
      hole -- the README forming it (115 (c); b_bounce Q5) -- which evaporates and has no second exterior of its own;
