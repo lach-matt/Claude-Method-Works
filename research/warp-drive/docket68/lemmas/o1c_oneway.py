@@ -51,12 +51,16 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      the construction M chose (c5_oneway U12 (Q3), deduced from 273).  The row does not turn on which boundary: either
      way the geodesic leaves the hole in finite affine parameter (Z2).  The passage, the README's, is by position 2's
      face, as 273 names it and the board's index at 283 orders it.
+     [Item 319 (c7_oneway V12 (Q3)): the map and the faces it names are the construction's single chart, where
+     position 2's r_h is ours; under position 2's own laws Z2's bounds hold with its own r_h, and the row's claim -- the
+     geodesic leaves the hole -- does not turn on the chart.]
   Z5 (deduced) Dropped, as 270 and 282 require.  The bound geodesics that turned "at V = 0 on each side" crossed back
      from position 2's side -- the reverse passage: from position 2's exterior no future causal curve reaches its
-     white-hole face (c7_oneway V9 (5)).  The generators "over all Killing time" ran into an infinite past the object
-     does not have: its faces begin at the opening (270 (c)), before which the positions are joined through the bulk
-     with no horizons (282 (2)).  The E~ = 0 lines' bifurcation sphere is dropped by 282; on the one-way object they
-     come from what opened the hole (Z2).
+     white-hole face (c7_oneway V9 (5); a fact of every white hole, c7_oneway V12 (Q1), and what excluding the reverse
+     passage needs -- not a bound on position 2's fields, which act within position 2 (240)).  The generators "over all
+     Killing time" ran into an infinite past the object does not have: its faces begin at the opening (270 (c)), before
+     which the positions are joined through the bulk with no horizons (282 (2)).  The E~ = 0 lines' bifurcation sphere
+     is dropped by 282; on the one-way object they come from what opened the hole (Z2).
   Z6 (deduced) The row, one way: no causal geodesic ends in the hole.  Every one that enters our face, or lies in our
      interior, crosses the classical interior in finite affine parameter (Z2); the quantum region is complete by M's
      ruling and on its classical realization (Z3); and every one leaves position 2's past interior in finite affine
@@ -111,7 +115,9 @@ CITED = (("c7_oneway.py", "never reaches its white-hole face U' = 0"),          
          ("c5_oneway.py", "r_h/(c (1 + E~))"),                                              # Z2
          ("c5_oneway.py", "r_h/l5 = 72,762"), ("c5_oneway.py", "O(r_h/ell) = 8.0e-16"),     # Z6
          ("pair_math.py", "Outside the quantum region every ray segment keeps 183"),        # Z6
-         ("pair_math.py", "the negative is confined to the quantum region"))                # Z6
+         ("pair_math.py", "the negative is confined to the quantum region"),                # Z6
+         ("c7_oneway.py", "It is carried by rays that never meet the face"),                # Z5, item 319
+         ("c7_oneway.py", "claims about the construction's single chart"))                  # Z4, item 319
 _MOD = {}
 
 

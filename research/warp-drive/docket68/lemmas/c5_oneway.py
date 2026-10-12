@@ -285,6 +285,9 @@ session; not seated); 2026-10-12.
      (Q6) U11 (13) is corrected: U7 (i), that C5's clauses do not turn on tension or matter, is the entered constancy
      read back (entered 0 at the other classes, the calculator returns 0 in 96/96, the verifier computed); only (ii),
      the bounce's answer not turning on the inner horizon's row, is a result of the calculator.
+     [Item 319 (the C7 verifier's (7 e), outside C7; c7_oneway V12): that too is the quantum row read back -- with the
+     other three interiors' rows flipped every clause still returns 1 in 96/96 (computed) -- so nothing in U7 is a
+     result beyond the entered row.]
      (Q7) (U, V) -> (-U, -V) is forced on 270 (a)'s single Kruskal chart, a board reading; in Haggard and Rovelli's
      double cover the time reflection opens the white hole on another sheet unless the sheets are identified outside
      the horizon.

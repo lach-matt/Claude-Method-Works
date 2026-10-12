@@ -43,6 +43,15 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      board's words -- is corrected to "the negative confined to the quantum region, every classical ray keeping 183, the
      passage's net negative 177's appearance".  The README pairs nothing; b_bounce Q5's comparison stays withdrawn
      (item 317).  C1, C4, C5 and C7 stand on 273 as before; C7's one open premise (c7_oneway V11 (Q1)) is closed.
+     [Item 319, the C7 verifier's, outside C7, accepted by the critic: (1) P0's 177 string is the board's question and
+     its 183 string the "Carried as M's" restatement -- M's option text reads "zero net along each light ray"; (2) P1's
+     example has R6's metric form with an R(T) that is nowhere Tangherlini (R_kk < 0 over the whole segment, -4.31 to
+     -3.03): it illustrates P1's identity, not P2's confinement; (3) P2's "keeps 183" means net >= 0, 117/120's "never
+     violated" -- a classical ray crossing the README carries net > 0, not 183's zero, which holds on vacuum segments;
+     (4) P3 holds with 273, 270 and 276 fixed, as it says; (5) P4's "no figure, clause or claim ... turns on which of the
+     two names" overstates: 117/120 ("the NEC only ever appears to break, but never does") hold under 177's appearance
+     and fail under "183 governs classical rays only"; the board's reading takes the consistent name; (6) Friedman,
+     Schleich and Witt's spacetime is "(M, g_ab)", not "(M,g,b)".  Recorded, not repaired.]
 
 What this does not show.
   - The quantum region's own form: P1 says only what any metric through it must do.
