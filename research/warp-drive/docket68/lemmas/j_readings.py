@@ -5,6 +5,12 @@ position 2's carries ours, received, and its own; (ii) 139 (3)'s expansion read 
 conversation (computed with sympy, exact where marked; deduced where marked; estimates marked; not verified by a
 separate session; not seated); 2026-10-12.
 
+[M, item 279: an expansion can also be added to one already under way ("or add to an already expanding state, which
+may cost less").  J3's premise -- that a trigger starts an expansion, so position 2 was not expanding before -- is
+too narrow: an expanding position 2 takes more from the README exactly when F'(S2) = (kappa^4/18)(tau sigma + S2)
+> 0, S2 > -tau sigma, so J4 holds for a static start and an expansion already unbounded, not for one already under
+way and bounded.  Kept as written.]
+
   J0 (read) M's item-278 words and 139 (3)'s, verbatim in the rulings file.
   J1 (computed, exact) Reading (i) at the corridor, from the one-way object's causal structure.  Its charts: our
      exterior (U < 0 < V) and our future interior (U, V > 0) on our sheet of the double cover; position 2's past
