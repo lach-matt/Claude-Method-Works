@@ -53,6 +53,11 @@ b5_positive B5a).  Kept as written.]
      of our plane's 3 k_L/kappa^2 on its one side (139 (1)'s quarter, in M4's count); positive only if the slab carries
      more bulk mass than the far side, C_L - C_R > (k_L^2 - k_R^2) a^4 = (7/16) k_L^2 a^4, and then it contracts.  There
      139 (2) and 139 (3) conflict (E3), and 127 is what excludes it.
+     [Item 329, c8_level V1, a finding recorded: "the one counter-case" is one of three.  On this index at the
+     coincidence (275, no finite slab) two rows also pair expansion with a negative total -- (-1, +1, 1, none) and
+     (+1, -1, 2, none), opposite sides with the growing one of infinite extent -- excluded here only by the like-sides
+     reading.  They carry no four-dimensional gravity of position 2's own (E4's test, computed), each position 2
+     carries its own values (226), and positivity is owed only where it is relevant (284, 285), where E7 supplies it.]
   E7 (computed) At the example (ell = 13.964 um, E = 1.281e9 J): sigma/4 = 3.7e52 J/m^3; near the face the emerging
      README alone carries the plane past sigma/4 within R <= (3E/(pi sigma))^(1/3) = 2.0e-15 m = 1.8e5 r_h.  Beyond it
      the excess rho_b is the bulk's (E6), of the plane's own scale -- with like sides of position 2's own ell2, static

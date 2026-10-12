@@ -17,6 +17,11 @@ asymmetric); (d) eternal versus evaporating -- d_evap.py (the hole bounces 4.4e7
 evaporates); (e) the proof 139 (2) orders -- e_positive.py (positive with expansion only where the warp decays on every
 side; with like sides, rho_m > sigma/4).  O6 and the list below are kept as written.]
 
+[Item 329: C8 brought level with items 275-328 and audited to completion in c8_level.py V0-V9 -- the index under
+275 (apart = 0), the face's junction on every reading of position 2's side (310 (7)), 274's caveat closed on the
+computed rows, every owed item one-way, and the question through the calculator clause by clause (291).  O5-O6 and
+the list below are kept as written.]
+
   O0 (read) M's item-270 and item-132 words, verbatim in the rulings file.
   O1 (computed, exact) The one object is one null surface.  With U = -e^(-kappa (t - r*)), V = e^(kappa (t + r*)) the
      Killing field is xi = kappa (-U d_U + V d_V); on U = 0 it is kappa V d_V.  So U = 0 carries both of O1a's views:
