@@ -13,6 +13,7 @@ sympy, exact where marked; deduced where marked; not verified by a separate sess
      its own stress, -sigma/4 plus its matter.  Where the README lands its own total is positive (E7: above sigma/4
      within 2.0e-15 m), so the share on rays crossing it there is positive for every tau in [0, 1]: tau sigma >= 0 only
      adds.  Positivity is owed there (284).
+     [Item 301: tau = 3/4, tau_share.py T2; the share at that value is positive (T5).]
   B3 (deduced) B5'a's composite condition, (lambda_sum + rho_1 + rho_2) k_y^2 + sum (rho + p) |k_space|^2 >= 0, is the
      chi = 1 reading -- one junction both sheets act on -- and is the record of the two-way reading.  Its null-stress
      expression is direction-neutral (the auditing agent's note); what was two-way is the junction.  The one-way form of

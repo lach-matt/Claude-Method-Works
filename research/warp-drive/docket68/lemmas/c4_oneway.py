@@ -241,6 +241,11 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      agrees (1, 1, 1, all 6 orderings) as it does at order 3; but order 2 reopens (f), whose law turns three-way in (the
      object, survivability, the answer).  Built in, survivability is not a variable, and every lawful order from 2
      agrees.
+  P19 (computed, exact; item 301) tau, calculated before the verifier (tau_share.py).  The coincidence fixes only the
+     summed stress at the one junction (275), and our side carries ours alone (chi = 0, 276), so position 2 receives
+     tau = 1 + lambda_2/lambda_1 = 3/4 of our tension -- exactly the summed tension, lambda_RS -- and its side carries
+     sigma/2 = 2/3 lambda_RS, positive.  P4's crossing share is positive at tau = 3/4 (tau_share T5; it was for every
+     tau in [0, 1]).  With matter on position 2's plane, what it receives is the summed stress itself (T3).
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
@@ -248,7 +253,7 @@ What this does not show.
   - The quantum region's duration (b_bounce Q3 is the two-way object's; item 277), as c5_oneway.
 
 Imports m1_small.py, c1_oneway.py, e_positive.py, hold_small.py, p2_gravity.py, b_interior.py, index_audit.py,
-calculator.py and tools/cypher.py by path.  Stdlib + sympy.
+calculator.py, tau_share.py, research/warp-drive/hlaw.py and tools/cypher.py by path.  Stdlib + sympy.
 python3 c4_oneway.py [--selftest | --mutants]
 """
 import contextlib
@@ -935,11 +940,24 @@ def as_condition():
     return _P18[key]
 
 
+def tau_check():
+    """P19 (item 301): tau, calculated (tau_share.py)"""
+    TS = _load("tau_share.py", "c4o_ts")
+    if MUT.get("tau_two_way"):
+        TS.MUT["two_way"] = True                            # the mutant: one junction both sheets act on
+    try:
+        o = TS.compute()
+        res = {n.split()[0]: ok for n, ok in TS.checks(o)}
+    finally:
+        TS.MUT.clear()
+    return dict(tau=o["tv"]["tau"], side2=o["cq"].get("side2"), checks=res)
+
+
 def compute():
     return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
                 wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces(),
                 hi=higher(), sv=higher(survive=True), rl=relative(sp.Float(_load("e_positive.py", "c4o_ep6").example()[
-                    "R_rh"] ** 3, 20)), ac=as_condition())
+                    "R_rh"] ** 3, 20)), ac=as_condition(), tc=tau_check())
 
 
 def report(o):
@@ -1012,6 +1030,9 @@ def report(o):
     for k in (2, 3, 4):
         print("P18 contrast, survivability a varying condition, order %d: %s; lawful %s" % (k, dict(ac["out"][k]),
                                                                                          ac["lawful"][k]))
+    tc = o["tc"]
+    print("P19 tau = %s (tau_share.py); position 2's side carries %s lambda_RS; tau_share's checks %s" % (
+        tc["tau"], tc["side2"], tc["checks"]))
     rk = o["rk"]
     for pl in PLACES:
         for k in (1, 2, 3, 4):
@@ -1163,6 +1184,10 @@ def checks(o):
     ok &= all(ac["lawful"][k] for k in (2, 3, 4))
     add("P18 contrast: survivability a varying condition gives a fourth order that agrees, with order 3, and reopens (f) "
         "at order 2", ok)
+    tc = o["tc"]
+    add("P19 tau calculated before the verifier (tau_share.py): 3/4, position 2 receiving the summed tension lambda_RS; "
+        "P4's crossing share positive at it (T5)", tc["tau"] == sp.Rational(3, 4) and tc["side2"] == sp.Rational(2, 3)
+        and all(tc["checks"].values()))
     return res
 
 
@@ -1184,7 +1209,8 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "bounded_tension": "relative tension kept within [-1, 1], no tension outweighing the README (P17)",
            "finite_grid": "the index's four (t, m) cells, not the population (P17)",
            "two_bits": "the continuation entered as two bits in the solved form (P17)",
-           "absolute_readme": "the object's density kept at ours in every position 2, not scaled (P18)"}
+           "absolute_readme": "the object's density kept at ours in every position 2, not scaled (P18)",
+           "tau_two_way": "tau read from one junction both sheets act on (through tau_share) (P19)"}
 
 
 def selftest():

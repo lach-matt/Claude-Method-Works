@@ -9,6 +9,10 @@ separate session; not seated); 2026-10-12.
 ("Where it lands").  J2's tau floor and J3-J4 (the whole-sheet route) are not needed for 139 (2) and are kept as the
 record of it; J1-J2's chi = 0 stands.]
 
+[Item 301: tau calculated -- tau_share.py T2: the coincidence fixes only the summed stress, our side carries ours
+alone, so tau = 1 + lambda_2/lambda_1 = 3/4 at 139 (1)'s +4/3, -1/3; J2's conclusion, which held for every tau, holds
+at it.]
+
 [M, item 279: an expansion can also be added to one already under way ("or add to an already expanding state, which
 may cost less").  J3's premise -- that a trigger starts an expansion, so position 2 was not expanding before -- is
 too narrow: an expanding position 2 takes more from the README exactly when F'(S2) = (kappa^4/18)(tau sigma + S2)
