@@ -97,7 +97,9 @@ DEDUCTIONS (each from the premises named)
      grow without bound (radiation, escaping matter), a thick brane; and, NAMED-NOT-READ, an induced-gravity brane term
      M^2 G_mn (which makes the trace relation tau_tr = -R (1/(8 pi G_N) + M^2) and can flip its sign), a Gauss-Bonnet
      bulk, an asymmetric (non-Z2) embedding, and a plane density near |lambda| (the pi term).  Each is OPEN, not a
-     result.  NOT doors: the hidden plane's matter and bulk gravitational waves reach our plane only through E
+     result.  [Item 325: the Gauss-Bonnet door is closed on 201's definitions -- alpha = 0 exactly in both bulks,
+     lemmas/gb_alpha.py B2-B3.]
+     NOT doors: the hidden plane's matter and bulk gravitational waves reach our plane only through E
      (Shiromizu-Koyama eq. 33) and drop out of the trace; bounded time-dependent matter (W3).
 
 NAMED HYPOTHESES

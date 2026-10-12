@@ -83,7 +83,8 @@ separate session; not seated); 2026-10-12.
      counts position 2's plane's offset together with any such shift (deduced).  [Item 324: with the one constant
      relativity leaves the five-dimensional bulk, the Gauss-Bonnet coupling alpha, x+ = (d1/2)(1 - 4 alpha k1^2 + ...),
      positive for every alpha with a bulk vacuum and a positive Newton constant (relativity U4); d1/2 is its value at
-     alpha = 0.]
+     alpha = 0.]  [Item 325: alpha = 0 exactly (gb_alpha.py B2-B3, on 201's B6'), so x+ above is exact as stated, with
+     no Gauss-Bonnet factor.]
   V7 (computed; deduced) The readings M named, against V5.
      (a) Position 2's plane in the Higgs potential's deeper vacuum (across the decay boundary): its offset would lie at
          or below -2.0e108 J/m^3 if the Standard Model holds to the Planck scale -- no root of B = 0, and far below

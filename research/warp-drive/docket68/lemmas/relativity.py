@@ -54,7 +54,9 @@ where marked; estimates labelled; not verified by a separate session; not seated
      and Dufaux) and our Newton constant is positive (alpha k1^2 > -3/8: below it our side's response (6 - 3 s)/sqrt(q)
      turns negative, gravity repelling) (computed; on a 400-point grid of that range) -- so B5a holds whatever alpha
      is, and d1/2 holds to the fraction 4 alpha k1^2, about 4e-39 if alpha is set by the five-dimensional Planck length
-     the record's ell implies (estimate).
+     the record's ell implies (estimate).  [Item 325: the estimate is withdrawn.  alpha is evaluated exactly in
+     gb_alpha.py: B6''s coefficient 3/(4 pi), exact as 201 made it, reads (2 + s)/(4 pi (2 - s)) with alpha, so s = 1 and
+     alpha = 0 in our bulk, and 201's k_R = k_L/2 with flatness gives alpha = 0 in position 2's; the factor here is 1.]
   U5 (READ; deduced) Information is subject to relativity.  Peres and Terno (READ): "relativistic causality cannot be
      violated by quantum measurements", and entanglement transmits nothing faster than light.  140's universal
      entanglement therefore signals nothing on its own; the README passes through the corridor's geometry, the bulk's
@@ -76,6 +78,7 @@ What this does not prove.
   - Anything beyond the experiments' reach: U2's and U3's tests bound departures to their precision (1e-15 and the
     like); Lovelock's and Deser's theorems are exact on their premises (locality, second order, consistency).
   - The value of alpha: U4 computes its effect and shows no sign turns on it; the 4e-39 is an estimate.
+    [Item 325: evaluated, alpha = 0 exactly on 201's definitions (gb_alpha.py B2-B3); the estimate is withdrawn.]
   - A kind of thing with no energy and momentum at all: it would act on nothing and carry nothing, and the record admits
     none -- information is energy (101) and the bulk always holds information or matter (320).
 
