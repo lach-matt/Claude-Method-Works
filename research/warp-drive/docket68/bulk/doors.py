@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """doors.py -- wall D worked as mathematics after M's rulings 139-149.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): K1's face-to-face composite, summed tension +1, puts
+position 2's tension in our junction (W4).  Kept as written.]
+
 First written claiming a white-hole allowance, that "any 5D censorship theorem whose global premises hold forbids the
 passage", and that only global premises remain; the verifier showed the first has no source in a nonsingular corridor,
 the second is unsupported by the theorems READ, and generic-condition and smoothness premises also remain

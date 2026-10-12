@@ -6,6 +6,9 @@ small end the corridor is the localized hole, our plane its equator in exterior 
 exterior (C1 H4).  Worked in the conversation (computed with sympy, exact where marked; deduced where marked; the
 cypher run and audited; not verified by a separate session; not seated); 2026-10-11.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): the item-270 mark omits X3's README crossing at the
+bifurcation sphere (C1 H4) and X1's time-symmetric isometry exchanging exteriors I and II.  Kept as written.]
+
 [M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
 half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
 reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as

@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 """o3_hold.py -- Warp Theorem lemma O3: the hold's window in the corridor's clocks, and that the corridor survives any hold in it.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): O3c bounds stability S5b's power-law blueshift, carried by
+side-2 rays along the white-hole surface -- inflow from position 2 (W3), which the one-way object excludes (i_oneway
+I3); excluding it strengthens O3c rather than weakens it.  Kept as written.]
+
 READ (through bulk/crossing.py, P-ML): Margolus & Levitin, quant-ph/9710043v2 -- at least h/(4E) to reach one orthogonal
 state (eq. 4, p.4); energies of non-interacting subsystems add, and so do their rates (p.8); the bound is on orthogonal
 states, NOT bits (p.2).

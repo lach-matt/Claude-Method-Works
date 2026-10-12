@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """stability.py -- wall E (stability), worked as mathematics (M-RULINGS item 149: "work the math now").
 
+[Auditing agent, item 281 (the reverse passage, 270/276): S5/S5b follow side-2 rays along the white-hole surface --
+inflow from position 2 (W3), which the one-way object excludes (i_oneway I3); S1 is unaffected.  Kept as written.]
+
 First written quoting Aretakis's extremal-Kerr Theorem 3 (tau^(k-1)) as if general and using an asymptotic bound for
 early times; corrected (STABILITY.md History).  The finite-time result now comes from an exact horizon identity.
 

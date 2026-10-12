@@ -5,6 +5,10 @@ index repopulated and the cypher run.  M: "Yes, tension plus matter".  Worked in
 sympy, exact where marked; deduced where marked; the cypher run and audited; not verified by a separate session; not
 seated); 2026-10-11.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): the item-270 mark omits W2's "falls through position 2's
+horizons" -- which 270 itself names -- and W4's m2 = 1, matter that falls, by which its all-four cell was reached,
+with the question whether position 2's infalling matter pairs the junction.  Kept as written.]
+
 [M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
 half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
 reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as

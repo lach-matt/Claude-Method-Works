@@ -4,6 +4,10 @@ order, each added to the index, the index repopulated and the cypher run every t
 Worked in the conversation (computed with sympy and mpmath, exact where marked; deduced where marked; the cypher run
 and audited; not verified by a separate session; not seated); 2026-10-11.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): the item-270 mark omits F1's README laid on the junction on
+position 2's future horizon, and the pairing of infalling rays through position 2's plane -- a passage from 2 into the
+corridor.  Kept as written.]
+
 [M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
 half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
 reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as

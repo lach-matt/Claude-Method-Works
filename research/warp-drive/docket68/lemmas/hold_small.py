@@ -5,6 +5,9 @@ marked; verified once -- item 267, CONFIRMED with qualifications, all seated bel
 (205/206); not seated); 2026-10-11.  First headed "... not verified by a separate session ...".  L4 re-read on item 260
 against the write's count redone at the small end (write_small.py); first written with the record's 4D count.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): L1's passage along the bridge's slice is localized_hole H4's
+eternal bridge (C1); put to M with it.  Kept as written.]
+
   L0 (read) M's item-259 words, verbatim in the rulings file.
   L1 (computed, exact; item 259) O1b/O1c at the small end: the static bulk, its horizon and the bridge's slice are
      regular (C1 H4-H5, verified, item 254) and the passage -- the README crossing as information across the bridge's

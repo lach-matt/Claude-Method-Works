@@ -5,6 +5,11 @@ equator and through its Einstein-Rosen bridge, the README crossing as informatio
 the conversation (computed with sympy, exact where marked; deduced where marked; not verified by a separate session;
 not seated); 2026-10-11.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): H4/H5 carry the eternal two-sided bridge -- our plane
+"through the bifurcation sphere (U = V = 0) into the second exterior", the README crossing on the bridge's slice --
+whose crossing point lies on V = 0, no face of the one-way object (270 (a), 272).  The bridge stands in options M
+chose (251, 259), so C1's conflict with 270/276 is put to M.  Kept as written.]
+
 The flat limit is the record's regime (B4D-STAGE1 D1: the corridor far smaller than ell): near the corridor the bulk is
 five-dimensional vacuum, the plane's tension a correction of order r_h/ell.
 

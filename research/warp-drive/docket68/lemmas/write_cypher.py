@@ -6,6 +6,10 @@ CLASSIFIES, it derives nothing.  Not verified by a separate session; not seated;
 critic's finding: the negative-tension plane's keeps_Z had been entered 1 with no source; p2_full.py TS gives 0 by this
 file's own coding rule, and statistics' refusal of WRITE moves from order 4 to order 3 (WZ, C1-C4 below).
 
+[Auditing agent, item 281 (the reverse passage, 270/276): W4's 6.23e8 bound rests on stability S5b's side-2 rays along
+the white-hole surface -- inflow from position 2 (W3), excluded on the one-way object (i_oneway I3).  Kept as
+written.]
+
 WHAT IS ASKED.  Among the holds and bulks the board has computed, is there a bulk held through the whole write -- one
 that carries the corridor, stands static, stays regular on the crossing's causal past for >= 2.0e5 clocks, keeps
 seated clause (Z), in a configuration M's words leave standing -- or does any language admit one?  And for O3, the

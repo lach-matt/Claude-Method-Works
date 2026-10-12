@@ -2,6 +2,10 @@
 """o1c_complete.py -- lemma O1c: eq. (17) at r0 = 2m is geodesically complete (computed; one standard-not-READ fact;
 not verified by a separate session; not seated; 2026-10-10).
 
+[Auditing agent, item 281 (the reverse passage, 270/276): C3/C4/C6 follow geodesics through the maximal extension --
+bound ones turning at V = 0 on each side, generators over all Killing time: the reverse passage and an infinite past
+(270).  Theorem row O1c keeps its status until M rules.  Kept as written.]
+
 O1 ("one way, 1 -> 2, nonsingular") was split by the F1 audit into O1a (DERIVED from 132 with 130), O1b (no curvature
 singularity: M1's regularity clause) and O1c, geodesic completeness, OPEN: "It was never computed even for eq. (17)
 (plane.py P1: 'Geodesic completeness is not computed: OPEN')".  This computes it.

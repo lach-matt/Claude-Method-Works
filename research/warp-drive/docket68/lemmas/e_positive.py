@@ -5,6 +5,10 @@ you have to prove it".  Worked in the conversation (computed with sympy, exact w
 estimates marked; deduced where marked; the cypher run and audited; not verified by a separate session; not seated);
 2026-10-12.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): written after 270 and missed by item 277: E6's counter-case
+is a static slab between the planes (W5; f_slab, 275), and its does-not-show cites the summed-stress junction (W4,
+b5_positive B5a).  Kept as written.]
+
   E0 (read) M's words, verbatim in the rulings file: 139 (2) and (3), 184, 268.
   E1 (computed, exact) Israel's condition, contracted with the plane's own time u: rho_b = -(1/kappa5^2) [sum over the
      sides of theta_s], theta_s the spatial trace of K for the normal pointing into that side.  So at every point the

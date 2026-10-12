@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """static.py -- M's static planes with moving surfaces (M-RULINGS item 141).
 
+[Auditing agent, item 281 (the reverse passage, 270/276): S2/S2b/S4 set our zero mode and gamma by position 2's plane
+and the composite pair (W4).  Kept as written.]
+
 M (item 141): "If planes are constantly in motion around each other, a stable throat cannot form. I suggest the planes
 are static, but their surfaces contain their own movements from within their own contained dimensions / Imagine two
 rubiks cubes solving so that their facing sides match".  This instrument asks what that configuration does to the

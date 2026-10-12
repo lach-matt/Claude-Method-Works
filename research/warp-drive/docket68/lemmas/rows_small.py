@@ -7,6 +7,11 @@ computed for f = 1 - r_h^2/r^2 on the plane and the Tangherlini bulk beneath it.
 qualifications, all seated below in [Verifier, item 271] notes (205/206); not seated); 2026-10-11.  First headed "...
 not verified by a separate session ...".
 
+[Auditing agent, item 281 (the reverse passage, 270/276): G3s's throat as the bridge's least sphere exists on the
+eternal hole's t = 0 slice (C1 H4; G1s with it).  O2s's verifier qualification, the white-hole blueshift e^66980, is
+carried by inflow from position 2 -- a passage from 2 into the corridor (270) -- closed by i_oneway I3.  Kept as
+written.]
+
   R0 (read) M's item-263 words ("Ready, verify it", C7 finalized), inside item 263's entry of the rulings file.  [First
      checked item 262's words, which finalized C6, C5 and C4 -- verifier, item 271.]
   G1s (computed, exact) One exact energy, at the bound.  The record's three steps carry: capacity exactly N (101.6),

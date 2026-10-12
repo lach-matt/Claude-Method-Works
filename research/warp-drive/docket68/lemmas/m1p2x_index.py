@@ -7,6 +7,10 @@ plane stands apart in exterior II at -sigma/4 (apart).  Ours, on exterior I, is 
 conversation (computed with sympy, exact where marked; deduced where marked; the cypher run and audited; not verified
 by a separate session; not seated); 2026-10-11.
 
+[Auditing agent, item 281 (the reverse passage, 270/276): the item-270 mark omits that Y1 is derived on V = 0, the
+reverse surface (it carries to U = 0 by relabelling), and that Y4's candidate puts the README on a junction on
+position 2's horizons.  Kept as written.]
+
 [M, item 270: "You are forgetting that the passage is one-way only".  This instrument populated the eternal hole's
 half-horizons as if the corridor ran both ways -- position 2's future horizon and our past horizon (V = 0) are the
 reverse passage, and its past horizons were stretched to an infinite past.  Superseded by m1p2x_oneway.py; kept as

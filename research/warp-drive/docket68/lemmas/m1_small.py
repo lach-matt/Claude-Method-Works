@@ -8,6 +8,10 @@ mouth (eq. (17) on the record; the hole's equator here); (d) no added matter on 
 qualifications, all seated below in [Verifier, item 269] notes (205/206); not seated); 2026-10-11.  First headed "...
 not verified by a separate session ...".
 
+[Auditing agent, item 281 (the reverse passage, 270/276): N2 (b), (e), (f) place P2 on the eternal hole's second
+exterior (C1 H4), and N4's Hartle-Hawking bath is a state of the eternal manifold, its outgoing half from our past
+horizon; put to M with C1.  Kept as written.]
+
   N0 (read) M's item-256 words, verbatim in the rulings file.
   N1 (computed, exact) 203 -- the corridor's own energy.  The hole's Komar mass, with the timelike Killing vector of the
      static region and the five-dimensional normalisation (D - 2)/(16 pi G5 (D - 3)), integrated over the 3-sphere at

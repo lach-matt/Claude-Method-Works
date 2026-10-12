@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """multiplane.py -- can a bulk of more than one plane give the corridor's far field?  (M-RULINGS item 138)
 
+[Auditing agent, item 281 (the reverse passage, 270/276): M3/M4's gamma = 5/4 on our plane comes from position 2's
+plane acting on our propagator (W4; recorded at 276 (c)); 139 (1)'s quarter stands as M's.  Kept as written.]
+
 M (item 138): "the problem is that you assume the bulk is contained to a single plain. It is not. I keep saying, it is
 multi-universal."  The corridor's far field (eq. 17 at r0 = 2m) has gamma = beta = 5/4 (kscale.py P; Casadio-Fabbri-
 Mazzacurati eq. 8).  One Randall-Sundrum II plane gives gamma = 1 (Maartens-Koyama eq. 155).

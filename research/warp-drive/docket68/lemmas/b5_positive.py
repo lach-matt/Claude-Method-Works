@@ -2,6 +2,10 @@
 """b5_positive.py -- Warp Theorem lemma B5: positivity for the entangled pin, at every point (item 139 (2),
 M-PROVE-POSITIVE: "positive, and you have to prove it").
 
+[Auditing agent, item 281 (the reverse passage, 270/276): B5a's composite junction, (4/3 - 1/3) lambda_RS, puts
+position 2's tension in our junction, against 276 (a) and j_readings J2 (chi = 0).  Theorem row B5a keeps its status
+until M rules.  Kept as written.]
+
 Your rulings: position 2's plane negative, a quarter of ours, ours positive (139 (1)); static (141); entangled (140); the
 planes coincide, the extra dimension included (127).  The board's composite (STATIC.md S4): the sheets' tensions sum to
 +1 of the Randall-Sundrum value, +4/3 and -1/3.

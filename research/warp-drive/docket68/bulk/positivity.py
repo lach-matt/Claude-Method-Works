@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 """positivity.py -- is the energy positive on M's coinciding planes?  (M-RULINGS item 139, answer 2)
 
+[Auditing agent, item 281 (the reverse passage, 270/276): Q3/Q5 read the composite pair's summed tension as our
+junction's (W4).  Kept as written.]
+
 M (item 139): position 2's plane has negative tension, a quarter of ours, ours positive (answer 1); "positive, and you
 have to prove it" (answer 2).  This instrument tries, and reports what holds and what does not.
 
