@@ -27,18 +27,55 @@ session; not seated); 2026-10-12.
      it is formed and evaporates, and the same formed hole carries the passage, through its interior and the bounce,
      with no second exterior of the eternal kind.  The lifetime and the passage now describe one spacetime.
   U6 (the cypher NOT-RUN, stated) U1-U5 re-post a construction and its figures; the object's causal order is
-     c1_oneway K6's run.
+     c1_oneway K6's run.  [item 309: U7 puts C5's question through the calculator; U6 stands for U1-U5 as built.]
+  U7 (computed; item 309) C5's question through the calculator, in the form C4's question stands in (c4_residue
+     R12): clause by clause, one condition over the four interiors, tension and matter at statistics' rank over the
+     population (F18; 292, 295), the question cell the quantum bounce's row at C4's (t, m).  The clauses' rows are
+     read from b_interior's cells, not set by hand: U1 (the route through to position 2) and U5 (one spacetime --
+     formed, evaporating, passing) are B6's complete, regular route, c1_oneway K34's row (singular 0, inner 0,
+     quantum 1, shell 1); U2-U4 (capture, emission and life, that life against the floor) are computed outside the
+     hole and hold where the exterior is Tangherlini -- every interior but the inner horizon, whose charge or spin
+     (B3) changes it (the C1 verifier's qualification (5)): singular 1, inner 0, quantum 1, shell 1.  Result: each of
+     U1-U5 is 1 at orders 2 and 3, the lawful orders, under all 96 codings (24 orderings x 4 orientations); 211's audit
+     flags no key and no one-hot on any clause.  Control: the continuation alone, without tension and matter, is
+     refused on every clause at both orders, and the audit flags every clause -- the population is what the admission
+     rests on, as in C4.  Two qualifications, stated: (i) the answer is read back from the quantum bounce's own rows
+     at the other tensions and matters -- the calculator says C5's clauses do not turn on tension or matter once the
+     interior is fixed, which is the content; (ii) the answer at the bounce does not depend on the inner horizon's
+     row -- the mutant that reads the inner horizon's exterior as Tangherlini returns the same 96/96, and is caught
+     only by the rows' read from b_interior.  The five clauses carry two distinct rows (U1 = U5, U2 = U3 = U4).
+     U7 rests on R12's form; the verdict of C4's verifier on that form carries to U7.
+  U8 (computed, with the estimates marked; item 309) C5's residue, listed and closed as C4's was.
+     (1) The core: c4_residue R6's effective bounce metric, ds^2 = -dT^2 + (r_h^2/R^2 - 1) dt^2 + R(T)^2 dOmega_3^2,
+     vacuum where R'^2 = r_h^2/R^2 - 1, the core at (r_h l5^2)^(1/3) (estimate) -- crossed in 1.6e-7 of a clock along
+     the T-geodesics, so the passage takes at most 2 clocks plus that, 2.0000002: in, through, out.  The order-one
+     coefficient of the core's size is not shown.
+     (2) Species: the life goes as 1/(degrees of freedom), so the hold's 1.28e10 margin over the write's floor admits a
+     1.28e10-fold multiplication of the radiated species before the floor is reached (estimate; H-SPECIES-FINITE).
+     (3) Greybody: with every greybody factor set to 1, the most the hole can radiate, the margin is 1.19e10.
+     (4) The inner horizon: U2-U4's figures hold for the singular interior, the bounce and the shell, not the inner
+     horizon (U7's rows) -- the C1 verifier's (5), carried.
+     (5) The crossing: the passage is the README's route through the interior and the bounce (U1), not information
+     across the bridge's slice; the slice's join is the mutant slice_passage.
+     (6) The bounce as constructed: R6's metric, NEC negative at the bounce, paired per ray by the README (b_bounce
+     Q5, 183), its T-lines geodesics -- C4's residue (6), read here, not rebuilt.
 
 What this does not show.
   - The quantum region's duration and the order-one coefficient of any bounce time (b_bounce Q3 is the two-way
-    object's; item 277).
+    object's; item 277).  [item 309: U8 (1) gives the core's crossing on c4_residue R6's effective metric, 1.6e-7 of a
+    clock, an estimate; its order-one coefficient and the region's quantum-gravitational form stay open.]
+  - That a small brane hole at r_h/l = 8e-16 exists as a static solution: the literature's (item 261), as for C4.
+  - Verification: U7-U8 wait for M's finalization and a verifier after C4's (249).
   - Species beyond the Standard Model (H-SPECIES-FINITE), as in hold_small.
 
-Imports hold_small.py, i_oneway.py and c1_oneway.py by path.  Stdlib + sympy.  python3 c5_oneway.py [--selftest |
+Imports hold_small.py, i_oneway.py, c1_oneway.py, c4_oneway.py, c4_residue.py, calculator.py, b_interior.py,
+index_audit.py and hlaw.py by path.  Stdlib + sympy.  python3 c5_oneway.py [--selftest |
 --mutants]
 """
 import contextlib
 import importlib.util
+import itertools
+from collections import Counter
 import io
 import os
 import sys
@@ -94,14 +131,90 @@ def route():
     C1 = _load("c1_oneway.py", "c5o_c1")
     if MUT.get("slice_passage"):
         C1.MUT["slice_route"] = True                       # the mutant restores the slice's join of the exteriors
-    res = {n.split()[0]: ok for n, ok in C1.checks(C1.compute())}
+    res = {n.split()[0]: ok for n, ok in C1.checks(C1.compute(light=True))}
     C1.MUT.clear()
     return dict(K3=res["K3"], K4=res["K4"])
 
 
+INTERIORS = ("singular", "inner", "quantum", "shell")
+# C5's clauses that vary across the configurations, by interior (b_interior's cells; the inner horizon's charge or spin,
+# B3, changes the exterior every outside figure of C5 is computed for -- the C1 verifier's qualification (5))
+C5VALS = {"U1": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},     # the route through to position 2 (c1_oneway K34)
+          "U2": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # capture: Tangherlini's photon sphere
+          "U3": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # emission and life of a neutral 5D hole
+          "U4": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # that life against the write's floor
+          "U5": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}}     # one spacetime: formed, evaporating, passing
+F18 = {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
+_U7 = {}
+
+
+def calc_question():
+    """U7: C5's question through the calculator, in the form C4's question stands in (c4_residue R12)"""
+    key = tuple(sorted(k for k in MUT if k.startswith("u7_")))
+    if key in _U7:
+        return _U7[key]
+    C4 = _load("c4_oneway.py", "c5o_c4")
+    CA = _load("calculator.py", "c5o_calc")
+    HL = C4._load_path(os.path.join(os.path.dirname(D68), "hlaw.py"), "c5o_hl")
+    IA = _load("index_audit.py", "c5o_ia")
+    BI = _load("b_interior.py", "c5o_bi")
+    cells = BI.cells()
+    keys = {"singular": (0, "none", "ours"), "inner": (1, "none", "pos2"), "quantum": (0, "quantum", "pos2"),
+            "shell": (0, "shell", "pos2")}
+    route_ = {k: cells[keys[k]]["complete"] for k in INTERIORS}          # B6: a complete, regular route (c1_oneway K34)
+    outside = {k: 1 - keys[k][0] for k in INTERIORS}                     # B3: no inner horizon, the exterior Tangherlini
+    vals = {"U1": dict(route_), "U2": dict(outside), "U3": dict(outside), "U4": dict(outside), "U5": dict(route_)}
+    if MUT.get("u7_inner_outside_kept"):
+        for c in ("U2", "U3", "U4"):
+            vals[c]["inner"] = 1                           # the mutant: the inner horizon's exterior read as Tangherlini
+    pop = not MUT.get("u7_no_population")
+    out, audit = {}, {}
+    for k in (2, 3):
+        res = Counter()
+        for perm in itertools.permutations(range(4)):
+            kmap = dict(zip(INTERIORS, perm))
+            for tf, mf in itertools.product((0, 1), repeat=2):
+                tq, mq = 1 ^ tf, 1 ^ mf
+                at = (kmap["quantum"], tq, mq) if pop else (kmap["quantum"],)
+                names = ["K", "t", "m"] if pop else ["K"]
+                views = dict(order=(0,), algebra=(0,), geometry=(0,), information=(0,),
+                             statistics=(0, 1, 2) if pop else (0,))
+                ans = []
+                for cl in C5VALS:
+                    kn = []
+                    for kk in INTERIORS:
+                        for (t, m) in (F18 if pop else [(1, 1)]):
+                            tt, mm = t ^ tf, m ^ mf
+                            if (kk, tt, mm) == ("quantum", tq, mq):
+                                continue
+                            kn.append(((kmap[kk], tt, mm) if pop else (kmap[kk],)) + (vals[cl][kk],))
+                    ans.append(C4._staged(CA, HL, names + [cl], kn, at, views, k)["answer"])
+                    if k == 2 and perm == (0, 1, 2, 3) and (tf, mf) == (0, 0):
+                        a = IA.audit_index(names + [cl], kn)
+                        audit[cl] = bool(a["keys"] or a["onehot"])
+                res[tuple(ans)] += 1
+        out[k] = res
+    _U7[key] = dict(out=out, audit=audit, vals=vals)
+    return _U7[key]
+
+
+def residue():
+    """U8: C5's residue -- the passage's time through the core, the species and greybody margins of the hold"""
+    H = _load("hold_small.py", "c5o_hs2")
+    l5 = H.l5_checks()
+    CR = _load("c4_residue.py", "c5o_cr")
+    core = CR.r6()["core_clocks"]
+    over = l5["over_floor"]
+    g = l5["gamma_eff"]
+    if MUT.get("u8_no_margin"):
+        over = 0.5                                          # the mutant: a hold shorter than the floor
+    return dict(core=core, passage_max=2 + core, over=over, species_factor=over, greybody_over=over * g,
+                gamma=g, dof=l5["dof"])
+
+
 def compute():
     h = hold()
-    return dict(h=h, x=crossing_agrees(h), rt=route())
+    return dict(h=h, x=crossing_agrees(h), rt=route(), cq=calc_question(), rs=residue())
 
 
 def report(o):
@@ -112,6 +225,15 @@ def report(o):
     print("U2-U4 hold_small's own checks %s" % h["checks"])
     print("U3/U4 life %.3g s = %.3g clocks; the write's floor outlived %.3g-fold" % (h["life"], h["life_clocks"],
                                                                                     h["over"]))
+    cq = o["cq"]
+    print("U7 C5's clauses by interior %s" % C5VALS)
+    for k in (2, 3):
+        print("U7 order %d over 96 codings (24 orderings x 4 orientations): %s" % (k, dict(cq["out"][k])))
+    print("U7 211's audit (keys or one-hot) per clause: %s" % cq["audit"])
+    rs = o["rs"]
+    print("U8 the core crossed in %.2g clocks; the passage at most %.7f clocks; the hold over the floor %.3g-fold -- "
+          "%.3g with every greybody 1; species could multiply %.3g-fold before the floor is reached" % (
+              rs["core"], rs["passage_max"], rs["over"], rs["greybody_over"], rs["species_factor"]))
 
 
 def checks(o):
@@ -128,11 +250,23 @@ def checks(o):
     add("U4 the hole outlives the write's floor 1.28e10-fold (hold_small L4)",
         h["checks"].get("L3/L4", False) and "%.3g" % h["over"] == "1.28e+10")
     add("U5 the object's regularity outside, where the life is computed (c1_oneway K4)", o["rt"]["K4"])
+    cq = o["cq"]
+    add("U7 C5's question through the calculator, clause by clause in C4's settled form: the clauses' rows read from "
+        "b_interior's cells; U1-U5 each 1 at orders 2 and 3 under all 96 codings; no key or one-hot",
+        cq["vals"] == C5VALS and all(cq["out"][k] == Counter({(1,) * 5: 96}) for k in (2, 3))
+        and not any(cq["audit"].values()))
+    rs = o["rs"]
+    add("U8 the residue: the core crossed in under 1e-6 of a clock, the passage under 2 clocks and that; the hold over the "
+        "floor 1.28e10-fold, above 1.1e10 with every greybody 1", rs["core"] < 1e-6 and rs["passage_max"] < 2.000001
+        and "%.3g" % rs["over"] == "1.28e+10" and rs["greybody_over"] > 1.1e10 and rs["gamma"] < 1)
     return res
 
 
 MUTANTS = {"eternal": "the hole read as eternal, losing no mass",
-           "slice_passage": "the passage restored to the slice's join of the exteriors"}
+           "slice_passage": "the passage restored to the slice's join of the exteriors",
+           "u7_no_population": "C5's question without tension and matter, the continuation alone (U7)",
+           "u7_inner_outside_kept": "the inner horizon's exterior read as Tangherlini (U7)",
+           "u8_no_margin": "a hold shorter than the write's floor (U8)"}
 
 
 def selftest():
