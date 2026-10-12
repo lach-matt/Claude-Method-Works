@@ -266,7 +266,7 @@ What this does not show.
     hole's own semiclassicality (Dvali and Redi, READ).]
 
 Imports hold_small.py, i_oneway.py, c1_oneway.py, c4_oneway.py, c4_residue.py, calculator.py, b_interior.py,
-index_audit.py and hlaw.py by path.  Stdlib + sympy.  python3 c5_oneway.py [--selftest |
+index_audit.py, p2_gravity.py, write_small.py and hlaw.py by path.  Stdlib + sympy.  python3 c5_oneway.py [--selftest |
 --mutants]
 """
 import contextlib
