@@ -293,7 +293,10 @@ marked; estimates marked; deduced where marked; not verified by a separate sessi
      [Item 304: (1) is closed -- C1 one-way is CONFIRMED with qualifications.  Added by the C1 verifier's (4): under
      P20's two clauses (b)/(e) is the complement of NEC in every known cell (211), void as evidence there; and in every
      form the quantum bounce's clauses at the other (tension, matter) classes are its own row read back.  And (B) / (a)
-     is read as no classical stress on the route; read as Ricci-flat on the whole route, the bounce's is 0.]
+     is read as no classical stress on the route; read as Ricci-flat on the whole route, the bounce's is 0.  And by the
+     C1 verifier's (5): the outside-the-hole clauses kept from C1 -- (c), (d), N1 -- hold for the singular interior, the
+     quantum bounce and the shell; the inner horizon needs charge or spin (b_interior B3), which changes the exterior,
+     so P7-P20's inner-horizon configurations carry C4's outside clauses as the board's simplification.]
 
 What this does not show.
   - KTN's profile itself: P15 continues it through the faces, conditional on its analyticity at the horizon.
