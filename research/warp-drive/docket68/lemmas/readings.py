@@ -160,6 +160,30 @@ goes to M; the board does not rule on M's meaning.
      Outside this proof: eq. (16) is the far field's leading form, with corrections O(ell^2/d^2) (their eq. (15)); the
      source's compactness, O(r0/d); and the two-sided pair's per-side amplitude, L9 (d)'s estimate. On T_E, d >= U, so
      each is O(m/U) or smaller.
+  Q24 (computed, exact where marked; READ; deduced) H-HOLE-IN-WARP -- every conclusion FARs draws from its test form
+     holds in the exact linear field of the README's mass on the warped bulk, near zone and far (FARs; far_small F4, F5).
+     (a) Exact: Tangherlini's static slice is conformally flat, dr^2/(1 - mu/r^2) + r^2 dOmega_3^2 = psi^2 (d rho^2 +
+     rho^2 dOmega_3^2) with r = rho psi, psi = 1 + mu/(4 rho^2) (computed) -- the test form is that slice under the warp,
+     (ell/Z)^2 psi^2 delta. (b) The exact linear field, every zone. Garriga and Tanaka's eq. (11), static and mode by
+     mode e^(ik.x), is Bessel's equation of order 2 in Z on each side, and their junction fixes the decaying solution:
+     G_k(Z) = -K_2(kZ)/(2k K_1(k ell)) (computed, exact), so G = -(1/(4 pi^2 r)) int_0^oo sin(kr) K_2(kZ)/K_1(k ell) dk;
+     its small-k limit is 2 ell/Z^2, eq. (16)'s zero mode. With eq. (12) at every depth (Q23 (a)) and m ell = (3 pi/8) mu
+     (F5 (c)) this is the hole's linear field in the RS gauge at every distance (computed by quadrature): near the hole
+     h00 = (mu/rho^2)(1 + O(rho/ell)) -- Tangherlini's, the brane's tension entering at first order in rho/ell, the
+     coefficient about 2.7 -- and far away Q23's closed forms, matched to 1e-3. (c) theta+ on T_E in that field, to first
+     order (computed, sampled at U/ell from 1e-3 to 1e3, W/U = 1, 1.5^(1/2), 3^(1/2), w >= 0.02 U and u >= 1e-3 U, the
+     rim by continuity): its relative lowering never exceeds 5 mu/min(U, ell)^2. In the near zone it is about 0.7 mu/U^2,
+     the test form's own figure 0.75 to 0.89; far out the elongated surface's falls as m/U and the round tip's tends to
+     2m/ell, Q23 (b)'s. (d) At every README of the small end the parameter is max((r_h/U)^2, (r_h/ell)^2): 5.05e-11 at
+     the example, so theta+ moves by at most 2.5e-10 of itself, and 0.012 at N = 1e3 (U = 9.0 r_h), at most 0.06.
+     Position 2's side, with its own face's mu up to 4^(2/3) r_h^2 (V6), scales by at most 2.52. Smaller READMEs, with U
+     near r_h, are outside linear theory; there F5 (a)'s exact spherical result holds (a round sphere untrapped exactly
+     while mu < r^2), with corrections O(U/ell) from the warp. (e) The wall's bending: xi5 = m ell/(3r) = (pi/8) mu/r
+     (eq. (22)), so beta = (pi/8)(mu/U^2)(1 + 1/K), and rounding the kink over eps = U beta^(1/2) costs at most
+     beta^(1/2)/(2 + 1/K) of the rim's margin -- 2.2e-6 at the example (Q23 (d)'s argument). So the test form carries no
+     weight of its own: any field of the size (b) computes gives FARs's conclusions, nine orders inside the margin at the
+     example.  The field is the Z2-symmetric wall's; on the two-sided pair each side's differs by a factor of order one
+     (far_large L9 (d)'s estimate), which those nine orders absorb.
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -178,7 +202,7 @@ What this does not claim.
   - Any proof for the entries still marked "to prove" or "through SOURCE".
 
 Imports nothing from the instruments; reads the rulings file, and for Q21 the register (LEMMAS_NOW, parsed as a literal)
-and three instruments' texts, by path.  Stdlib + sympy.
+and three instruments' texts, by path.  Stdlib + sympy; numpy and scipy for Q24's quadratures.
 python3 readings.py [--selftest | --mutants]
 """
 import ast
@@ -315,7 +339,7 @@ INVENTORY = (
     ("RSHELL", 337, "the README as Haggard and Rovelli's thin null shell", "O1cs O1bs", "model",
      "to prove: whether O1c's conclusions hold for any README matter inside the region; else through SOURCE"),
     ("RHOLE", 349, "H-HOLE-IN-WARP: the hole's isotropic factor under the warp", "FARs", "form",
-     "to prove: exact Tangherlini spatial slice plus a first-order bound on the warp's correction"),
+     "proved here (Q24)"),
     ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form", "proved here (Q23)"),
     ("RCOVER", 349, "the record's cover U = 1.05 R_reach", "FARs FAR", "choice",
      "to prove: FAR at every enclosing U from the write's reach"),
@@ -572,10 +596,95 @@ def q21():
     return dict(cites=cites, texts=texts)
 
 
+# ---------------------------------------------------------------------------------- Q24 the hole's exact linear field
+def _rs_field(r, Z, flat=False):
+    """the exact linear RS field of a brane point mass at (r, Z), mu = ell = 1: A, C, A_r, A_Z, C_r, C_Z, v"""
+    import numpy as np
+    from scipy import integrate, special
+    w = Z - 1.0
+    if flat:                                                           # the mutant: flat five-dimensional space
+        f = lambda k: math.exp(-k * w)
+        fZ = lambda k: -k * math.exp(-k * w)
+    else:
+        f = lambda k: special.kve(2, k * Z) / special.kve(1, k) * math.exp(-k * w)
+        fZ = lambda k: (k * (-special.kve(1, k * Z) - 2 / (k * Z) * special.kve(2, k * Z)) / special.kve(1, k)
+                        * math.exp(-k * w))
+
+    def s_(k):
+        x = k * r
+        return k * r ** 3 / 3 * (1 - x * x / 10) if x < 1e-3 else (math.sin(x) - x * math.cos(x)) / k ** 2
+    a = 40.0 / max(r, w)
+    q = lambda g: integrate.quad(g, 0, a, limit=800, epsabs=0, epsrel=1e-10)[0]
+    qf = lambda g, kind: integrate.quad(g, a, np.inf, weight=kind, wvar=r, limlst=400)[0]
+    J0 = q(lambda k: f(k) * math.sin(k * r)) + qf(f, "sin")
+    J1 = q(lambda k: k * f(k) * math.cos(k * r)) + qf(lambda k: k * f(k), "cos")
+    Jz = q(lambda k: fZ(k) * math.sin(k * r)) + qf(fZ, "sin")
+    I0 = q(lambda k: f(k) * s_(k)) + qf(lambda k: f(k) / k ** 2, "sin") - r * qf(lambda k: f(k) / k, "cos")
+    Iz = q(lambda k: fZ(k) * s_(k)) + qf(lambda k: fZ(k) / k ** 2, "sin") - r * qf(lambda k: fZ(k) / k, "cos")
+    c = -3 / 8                                                         # V/a^2 = -(m ell/pi) Z^2 J0/r, m ell = 3 pi/8
+    v, v_r, v_Z = c * Z ** 2 * J0 / r, c * Z ** 2 * (J1 / r - J0 / r ** 2), c * (2 * Z * J0 + Z ** 2 * Jz) / r
+    I, I_r, I_Z = c * Z ** 2 * I0, r ** 2 * v, c * (2 * Z * I0 + Z ** 2 * Iz)
+    A, A_r, A_Z = -8 * I / (3 * r ** 3), -8 * I_r / (3 * r ** 3) + 8 * I / r ** 4, -8 * I_Z / (3 * r ** 3)
+    C = -4 / 3 * v + 4 * I / (3 * r ** 3)
+    C_r = -4 / 3 * v_r + 4 * I_r / (3 * r ** 3) - 4 * I / r ** 4
+    C_Z = -4 / 3 * v_Z + 4 * I_Z / (3 * r ** 3)
+    return A, C, A_r, A_Z, C_r, C_Z, v
+
+
+def q24():
+    rho, mu, k, Zs, ell = sp.symbols("rho mu k Z ell", positive=True)
+    psi = 1 + mu / (4 * rho ** 2)
+    rr = rho * psi
+    slice_ok = sp.simplify(sp.diff(rr, rho) ** 2 / (1 - mu / rr ** 2) - psi ** 2) == 0
+    G = sp.besselk(2, k * Zs)
+    mode_ok = sp.simplify(Zs ** 2 * sp.diff(G, Zs, 2) + Zs * sp.diff(G, Zs) - k ** 2 * Zs ** 2 * G - 4 * G) == 0
+    jump = 2 * sp.diff(G, Zs).subs(Zs, ell) + 4 * G.subs(Zs, ell) / ell + 2 * k * sp.besselk(1, k * ell)
+    jump_ok = abs(sp.N(jump.subs({k: 0.9, ell: 1.7}))) < 1e-12 and abs(sp.N(jump.subs({k: 3.1, ell: 0.4}))) < 1e-12
+    zero_mode = sp.limit(sp.besselk(2, k * Zs) / sp.besselk(1, k * ell) * k, k, 0) == 2 * ell / Zs ** 2
+    flat = bool(MUT.get("flat_green"))
+    # the field: near the hole against Tangherlini's h00, far away against Q23's closed forms
+    v = _rs_field(1e-3, 1.001, flat)[6]
+    near = -8 / 3 * v * 2e-6                                           # h00 rho^2/mu at rho^2 = 2e-6 ell^2
+    m = 3 * math.pi / 8
+    A, C = _rs_field(1000.0, 400.0, flat)[:2]
+    d = math.hypot(1000.0, 400.0)
+    far = max(abs(A / (4 * m / (3 * d)) - 1), abs(C / (2 * m * (2 * 400.0 ** 2 + 1e6) / (3 * d ** 3)) - 1))
+    # theta+ on T_E: the generic first-order H with A, h_ZZ = 0, C and their first derivatives (ell = 1)
+    u, w, U, W, eps = sp.symbols("u w U W epsilon", positive=True)
+    sy = sp.symbols("a0 c0 au aw cu cw")
+    Af, Cf = sp.Function("A")(u, w), sp.Function("C")(u, w)
+    Om2 = (1 / (1 + w)) ** 2
+    guu, gww, goo = Om2 * (1 + eps * Af), Om2, Om2 * u ** 2 * (1 + eps * Cf)
+    F = u ** 2 / U ** 2 + w ** 2 / W ** 2
+    Fu, Fw = sp.diff(F, u), sp.diff(F, w)
+    nrm = sp.sqrt(Fu ** 2 / guu + Fw ** 2 / gww)
+    sq = sp.sqrt(guu * gww) * goo
+    H = (sp.diff(sq * Fu / guu / nrm, u) + sp.diff(sq * Fw / gww / nrm, w)) / sq
+    H0 = H.subs(eps, 0).doit()
+    H1 = sp.diff(H, eps).subs(eps, 0).doit().subs({sp.Derivative(Af, u): sy[2], sp.Derivative(Af, w): sy[3],
+                                                    sp.Derivative(Cf, u): sy[4], sp.Derivative(Cf, w): sy[5]})
+    H1 = H1.subs({Af: sy[0], Cf: sy[1]})
+    f0 = sp.lambdify((u, w, U, W), H0, "math")
+    f1 = sp.lambdify((u, w, U, W) + sy, H1, "math")
+    table = {}
+    for Uv in (1e-3, 0.1, 1.0, 10.0, 1e3):
+        for Kv in (1.0, 1.5, 3.0):
+            Wv, worst = math.sqrt(Kv) * Uv, 0.0
+            for i in range(41):
+                t = (math.pi / 2) * i / 40
+                uu, ww = max(Uv * math.sin(t), 1e-3 * Uv), max(Wv * math.cos(t), 0.02 * Uv)
+                A, C, Ar, AZ, Cr, CZ, v = _rs_field(uu, 1.0 + ww, flat)
+                worst = max(worst, -f1(uu, ww, Uv, Wv, A, C, Ar, AZ, Cr, CZ) / f0(uu, ww, Uv, Wv))
+            table[(Uv, Kv)] = worst * min(Uv, 1.0) ** 2                # in units of mu/min(U, ell)^2
+    beta_ex = (math.pi / 8) * 5.05e-11 * (1 + 1 / 1.5)
+    return dict(slice_ok=slice_ok, mode_ok=mode_ok, jump_ok=jump_ok, zero_mode=zero_mode, near=near, far=far,
+                table=table, smax=max(table.values()), example=5 * 5.05e-11, bend=math.sqrt(beta_ex) / (2 + 1 / 1.5))
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24())
 
 
 def report(o):
@@ -605,6 +714,12 @@ def report(o):
           "positive: %s; least ratio at the record's cover %.6f; bending angle %s, cost %.2g of the rim's margin"
           % (g["from_sigma"], g["forms"], g["ratio"], g["marg"], g["u_nl"], g["tip_exact"], g["worst"], g["worst_q"],
              g["positive"], g["cover"], g["beta_ok"], g["cost"]))
+    h = o["q24"]
+    print("Q24 Tangherlini's slice conformally flat: %s; the mode K_2(kZ)/(2k K_1(k ell)): %s, junction %s, zero mode "
+          "%s; near zone h00 rho^2/mu = %.4f; far zone off Q23 by %.1e; lowering on T_E at most %.2f mu/min(U, ell)^2 "
+          "(%s); at the example at most %.1e; bending %.1e of the rim's margin"
+          % (h["slice_ok"], h["mode_ok"], h["jump_ok"], h["zero_mode"], h["near"], h["far"], h["smax"],
+             ", ".join("%g/%g %.3f" % (a, b, c) for (a, b), c in sorted(h["table"].items())), h["example"], h["bend"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -650,6 +765,13 @@ def checks(o):
             "m", positive=True)] and "%.2f" % g["u_nl"] == "1.04" and g["tip_exact"] and g["worst"] < 2
         and g["worst_q"] < 2.25 and g["positive"] and g["cover"] > 0.99998 and g["beta_ok"]
         and "%.2g" % g["cost"] == "6.3e-07")
+    h = o["q24"]
+    add("Q24 H-HOLE-IN-WARP: Tangherlini's slice conformally flat; the exact linear field from eqs. (11)-(12), "
+        "Tangherlini's near the hole and Garriga-Tanaka's far away; theta+ on T_E lowered by at most 5 "
+        "mu/min(U, ell)^2, the round tip far out by 2m/ell; at the example 2.5e-10",
+        h["slice_ok"] and h["mode_ok"] and h["jump_ok"] and h["zero_mode"] and abs(h["near"] - 1) < 0.01
+        and h["far"] < 1e-3 and h["smax"] < 5 and abs(h["table"][(1e3, 1.0)] / (3 * math.pi / 4) - 1) < 0.01
+        and h["table"][(1e-3, 1.0)] < 0.75 and "%.1e" % h["example"] == "2.5e-10" and "%.1e" % h["bend"] == "2.2e-06")
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -663,7 +785,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "mixed_readme": "the README taken as a mixture of two strings (Q15)",
            "face_at_ours": "position 2's energy taken as (G5/G5_2)^1, one r_h (Q16)",
            "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)",
-           "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)"}
+           "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)",
+           "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)"}
 
 
 def selftest():
