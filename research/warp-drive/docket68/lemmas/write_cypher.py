@@ -114,6 +114,9 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
      [Item 334: confirmed by M, verbatim "For you — one reading to confirm or overrule - confirmed" -- seated as
      M-HOLD-IS-THE-FACE: the hold of 158 (2) is the corridor standing, our face open in advanced time through the write;
      158 (2) and 163 hold together, and the C5 verifier's 317 (c) is answered. WRITEs is no longer a reading.]
+     [Item 336, M-ENERGY-STAYS (M: "I think it is B"): the face closes by Hawking emission after the hole's life, so 158
+     (2) no longer times the hold -- the face stands the life, 1.28e10 times the write -- and 163's floor alone bounds
+     the write. W5's cell is unchanged: the hole lasts the write (lasts 1) and more.]
   Other cells (each cited in cells()): the window hold (o3_hold O3b/O3c), the closing plane (b4d_stage1 D3, b4d_stage5
      F5, b4d_stage6 J4: real matter with rho + p_r < 0), the negative-tension plane (b4d_stage5 F6: regular on the
      evidence, lasts 1; keeps_Z 0 by WZ), both planes (b4d_stage7 K4: every small-separation branch decays, singular),

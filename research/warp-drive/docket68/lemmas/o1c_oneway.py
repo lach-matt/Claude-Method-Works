@@ -11,6 +11,8 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      and "and classical GR there"; M's 320, "no bulk is ever empty"; and 261 (3), the C3 verifier's report (not M's
      words): "the large end is four-dimensional Schwarzschild on the plane with corrections O(ell^2/r0^2)" and "surface
      gravity 1/(4M), non-extremal".
+     [Item 337 (Z8 (Q9)): "One-way, complete, README only" and "and classical GR there" are the option text M chose at
+     273, not M's own words (318; 304's outside note).]
   Z1 (computed, exact; READ where marked) Eq. (17) at r0 = 2m is not the corridor's geometry at either end.  Its g^rr
      has a double zero at r = 2m and its surface gravity, (1/2)|d_r g_tt| sqrt(g^rr/(-g_tt)) on the horizon, is 0
      (computed).  The small end is Tangherlini near the hole, kappa = 1/r_h (computed; rows_small O2s), and the large end
@@ -36,13 +38,24 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      the README-only hole -- 273's "README only", nothing else carried inside (c5_oneway U12 (Q4)) -- so the bulk's
      content, never absent, adds nothing to it and enters at the order of what it adds; Z2's bounds are open conditions,
      Tdot^2 >= 1 for timelike geodesics and the null bound > 0, so any small addition leaves them standing (deduced).]
+     [Item 337 (Z8 (Q5)): "adds nothing to it" is not supported -- b_interior's readme_only excludes charge, spin and a
+     shell, not ambient bulk content crossing our face after the opening; and Tdot^2 >= 1 is a closed bound, not an open
+     condition. What is stable is the finite crossing, for perturbations that keep the T-gradient uniformly timelike.
+     The vacuum interior is the README-only, empty-bulk limit (320 (b)), holding to the order of the content (320 (c)),
+     which is not computed.]
      [Items 324-328: "classical GR there" (273) is no longer only M's choice.  Relativity holds for everything that can
      exist (relativity.py U1-U6), and the one constant it left the bulk, the Gauss-Bonnet coupling, is zero -- gravity
      itself keeps the light cone (gb_cone.py C7; 328, M-ONE-LIGHT-CONE) -- so Einstein's law is the bulk's exactly and
      this interior is Tangherlini's, not Boulware and Deser's (deduced; claim C9, at its verifier).]
+     [Item 337 (Z8 (Q3), (Q4)): the quotation's sense is reversed -- 273's option text gives up "classical GR there",
+     inside the quantum region; that Einstein's law holds outside it is what is derived. And "the bulk's exactly" holds
+     on Lovelock's premises (local, second order): exact at the two-derivative order (324; relativity.py "What this does
+     not prove"), the interior Tangherlini's at flat order, Lambda5 and the brane entering at warp order.]
      [Item 332: C9 verified, CONFIRMED with qualifications, nothing refuted (gb_cone C10). alpha = 0 stands under
      M-ONE-LIGHT-CONE (328) -- "relativity alone" reads so (Q1) -- and this interior is Tangherlini's as stated; the
      other qualifications (CEMZ's regime, U4's endpoint, the families computed, sgb's potential) bear on nothing here.]
+     [Item 337 (Z8 (Q11)): 332 (Q4) does bear, on Z2b's item-328 counterfactual: the cone split holds on the hole's
+     region (C4's Boulware-Deser hole), not inside the shell, where the Weyl curvature is zero.]
   Z2b (READ; computed; deduced where marked) The README's own region.  On the object the README is within the hole when
      the faces begin (c5_oneway U11 (1)-(3), U12 (Q4)), and in the construction M chose (273) it is Haggard and
      Rovelli's matter (arXiv:1407.0989, READ): "Spherical shell of null matter: We disregard the thickness of this
@@ -67,6 +80,13 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      space inside the emerging shell: a future-directed geodesic of position 2's trapped region may cross that outgoing
      shell into it, and then stays in flat space: complete (deduced).  So every causal geodesic of the README's region,
      and every one that enters or leaves it, runs in finite affine parameter between its boundaries.
+     [Item 337 (Z8 (Q2), (Q7), (Q8)): the trapped-region quotation describes Haggard and Rovelli's region III, outside r
+     = 2m and outside the trapped region -- the two-way geometry 277 (2) marks -- and "the time reflection of the lower"
+     is their reflection, which 273 (a)'s map replaces; neither carries Z2b, which stands on the monotone v and Z2. That
+     the README is their thin null shell is the board's reading (c5_oneway U10; 317 (Q3)), not READ, and the SO(4)
+     Eddington form a carry (matter on the plane has SO(3)); Z2b's causal argument needs neither. And a causal geodesic
+     meets the shell at one point except the shell's own generators, the README's radial ingoing null worldlines, which
+     reach the quantum region in finite affine parameter, r affine along them (computed by the verifier).]
      [Item 328, M-ONE-LIGHT-CONE: every front keeps the one light cone, gravity's own included, so the causal curves
      of Z2b and Z5 bound every signal there is -- the monotone v and the white hole's unreachable face hold for
      gravitational fronts too, which with a Gauss-Bonnet coupling they would not (gb_cone.py C4-C5; deduced).]
@@ -81,6 +101,8 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      every causal geodesic crossing it; it does not model the README's route, which reverses its Killing energy against
      the continued d_t (c4_residue R13; Z4).  So the classical realization is complete, and the region's own
      completeness, with the README's passage through it, rests on 273.
+     [Item 337 (Z8 (Q10)): R6's core uses one r_h; with position 2's own r_h (240) it does not join the two interiors.
+     The deduction carries for any t-independent core with G(T) and R(T) bounded and positive.]
   Z4 (computed, c4_residue R13 run here; deduced where marked) The boundary a geodesic leaves by.  A body crossing a
      t-independent core keeps its Killing energy and, under the gluing map (U, V) -> (-U, -V) (forced on 270 (a)'s
      single chart, a board reading: c5_oneway U11 (9), U12 (Q7)), leaves position 2's past interior by V' = 0, opposite
@@ -112,10 +134,29 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      [Item 330, accounting before verification (the C4 verifier's note outside its claim at 310, and 319 (Q2)): under
      the 2 : 1 bulk's G5 readings r_h moves as (G5/G ell)^(1/3), so r_h/ell is 9.2e-16 at (3/2) G ell and 6.4e-16 at
      G ell/2 (c8_level, computed); warp order still enters below 1e-15, and no bound of Z2-Z6 turns on the value.]
+     [Item 337 (Z8 (Q1), (Q6)): Z6 holds for causal geodesics through the open interiors and the README's region; the
+     faces' own null generators (E~ = 0, on U = 0 and U' = 0) are not claimed -- whether they extend is the CLOSE row's
+     (CLOSEs since 336: our face's generators end where it closes by Hawking emission, after the hole's life) and, on
+     position 2's side, its face's closing within 33.6 clocks (c1_oneway K2, c_junction J1). And the row rests besides
+     on the board's readings it names elsewhere: 270 (a)'s single chart and 273 (a)'s map, the README as Haggard and
+     Rovelli's thin null shell (c5_oneway U10, b_bounce Q5 with 115 (c)), 320 (b)-(c)'s limit reading, and
+     M-ONE-LIGHT-CONE (328) through C9.]
   Z7 (computed) The row's question through the calculator, in the form C4's, C5's and C7's stand in (c4_residue R12):
      the clause "complete through the passage" read from b_interior's cells (B6's complete: singular 0, inner 0,
      quantum 1, shell 1) -- 1 at orders 2 and 3 under all 96 codings; 211's audit clean.  As for C4, C5 and C7 the
      agreement is the quantum bounce's own row read back, the clause replicated over every class of tension and matter.
+     [Item 337 (outside): the audit runs on the first coding only -- harmless, the audit being invariant across codings,
+     all 96 clean (the verifier's run).]
+  Z8 (item 337; the O1c verifier's report -- CONFIRMED with qualifications, no sub-claim refuted -- checked by the
+     critic in conversation and seated; computed where marked). Every computed statement re-derived with independent
+     code (eq. (17)'s double zero and zero surface gravity; Tangherlini's 1/r_h and Schwarzschild's 1/(4M) from the
+     Killing gradient; G_TT, the first integrals, the T-span and the fall time; 24 integrated geodesics; g(X, -d_r) =
+     -X^v; at any bounce the radial null energy -3R''/r_min < 0 and the full Kretschmann finite; Z4's map and E~; Z6's
+     figures; Z7 with its own protocol, 96/96); Haggard and Rovelli, Bronnikov and Kim and Abdolrahimi et al. read in
+     full. (Q1) the faces' generators -- not claimed, now listed (residue under 314, closed by 336's CLOSEs and
+     c1_oneway K2); (Q2), (Q7), (Q8) Z2b's READs and the shell's own generators; (Q3), (Q4) the 324-328 note; (Q5) the
+     320 note; (Q6) Z6's readings; (Q9) Z0's attribution; (Q10) R6's one r_h; (Q11) 332 (Q4) bears on Z2b's
+     counterfactual. Its check pins (Q1)'s two ends: our face's after the life, position 2's within the open period.
 
 What this row does not claim -- each left out with its reason, none open in it (314).
   - The quantum region's own form.  Completeness inside it is 273's, realized classically by R6's core (Z3); the
@@ -124,6 +165,9 @@ What this row does not claim -- each left out with its reason, none open in it (
     opening is the join, about which B7 and B4a stand (282 (2)); our face's closing is the CLOSE row's (c5_oneway U11
     (11)).  O1c is the passage's row -- O1, one way and nonsingular -- and the trapped interior, where Penrose's theorem
     bites (b_interior B1, B2), is where it is decided.
+  - [Item 337 (Q1)] The faces' own null generators (E~ = 0, on U = 0 and U' = 0): where they end is the CLOSE row's --
+    CLOSEs since 336, our face closing by Hawking emission after the hole's life -- and, on position 2's side, its
+    face's closing within 33.6 clocks (c1_oneway K2, c_junction J1); not O1c's.
   - Corrections beyond flat order (Z6), as for C5 (c5_oneway U11 (10)).
   - The large end.  The corridor is at the small end (Z6); the large end enters only to show that eq. (17) at r0 = 2m
     is the geometry of neither end (Z1), and its interior is not computed here.
@@ -318,8 +362,17 @@ def z7():
     return _Z7[key]
 
 
+def z8():
+    """Z8 (item 337 (Q1)): where the faces' own generators end -- not O1c's, but pinned: our face after the hole's life
+    (CLOSEs, 336; hold_small), position 2's face within its open period (c_junction J1)"""
+    H = _load("hold_small.py", "o1co_hold")
+    life = float("inf") if MUT.get("z8_face_eternal") else H.l5_checks()["life_clocks"]   # the mutant: no closing
+    CJ = _load("c_junction.py", "o1co_cj")
+    return dict(life=life, open2=CJ.example(CJ.seen())["t_full"])
+
+
 def compute():
-    return dict(z1=z1(), zc=zc(), z2b=z2b(), z4=z4(), z7=z7())
+    return dict(z1=z1(), zc=zc(), z2b=z2b(), z4=z4(), z7=z7(), z8=z8())
 
 
 def report(o):
@@ -340,6 +393,9 @@ def report(o):
     z = o["z7"]
     print("Z7 the row %s; order 2 %s, order 3 %s; audit flagged: %s" % (z["row"], dict(z["out"][2]), dict(z["out"][3]),
                                                                         z["audit"]))
+    e = o["z8"]
+    print("Z8 (item 337) the faces' generators end where the faces close: ours after %.3g clocks, position 2's within "
+          "%.2f" % (e["life"], e["open2"]))
 
 
 def checks(o):
@@ -373,6 +429,10 @@ def checks(o):
     add("Z7 the row's question through the calculator in R12's form: 1 at orders 2 and 3 under all 96 codings; audit "
         "clean", z["row"] == {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}
         and all(z["out"][k] == Counter({1: 96}) for k in (2, 3)) and not z["audit"])
+    e = o["z8"]
+    add("Z8 (item 337 (Q1)) the faces' own generators, not claimed, end where the faces close: ours after the hole's "
+        "life, 8.57e14 clocks (CLOSEs, 336); position 2's within its open period, 33.6 clocks",
+        "%.3g" % e["life"] == "8.57e+14" and "%.1f" % e["open2"] == "33.6" and "I think it is B" in rul)
     return res
 
 
@@ -383,7 +443,8 @@ MUTANTS = {"extremal_small": "the small end read as extremal (Z1)",
            "z2b_v_decreases": "the outgoing Eddington form read as the ingoing one (Z2b)",
            "exit_mirror": "a t-independent core's body read as leaving by position 2's face (Z4)",
            "cite_moved": "V9 (5) cited with the wrong face (Z5/Z6)",
-           "z7_singular_complete": "the singular interior read as complete (Z7)"}
+           "z7_singular_complete": "the singular interior read as complete (Z7)",
+           "z8_face_eternal": "our face read as never closing, its generators unended (Z8; item 337 (Q1))"}
 
 
 def selftest():

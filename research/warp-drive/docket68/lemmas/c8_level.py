@@ -96,6 +96,9 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      which, by 319 (Q1), is not what limits the blueshift: the face's open period is (V5 (a)).
      [Item 332: C9 verified, CONFIRMED with qualifications (gb_cone C10): alpha = 0 under M-ONE-LIGHT-CONE (328) (Q1);
      nothing else in its verdict bears on C8.]
+     [Item 337 (the O1c verifier's (Q4), accounted before the next verification, 330): "exactly" holds on Lovelock's
+     premises -- local, second order -- the law exact at the two-derivative order (324; relativity.py "What this does
+     not prove"); "the bulk's law exactly" reads so. Nothing here turns on the difference.]
   V8 (computed) C8's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the attributes the construction's choices -- position 2's tension (139 (1)'s -1/4, or any other: -1/8,
      -10, -1/100, +1/2) and its matter (the README, or any other: 1/2, 20, 0, 1/10, 1/5) -- and each clause of C8 that

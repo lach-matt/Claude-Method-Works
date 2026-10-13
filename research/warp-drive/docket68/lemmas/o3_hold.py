@@ -68,6 +68,10 @@ states, NOT bits (p.2).
        M1 there.
        [Item 334: "the hold is the write", read as the face standing through the write, is M's (M-HOLD-IS-THE-FACE,
        confirmed): O3e rests on no reading of the board's; its scope is Wall E's scalar wave, as stated.]
+       [Item 336, M-ENERGY-STAYS (M: "I think it is B"): our face closes by Hawking emission over the hole's life, its
+       energy staying in our universe, so the hold -- the face standing -- lasts the life, 8.57e14 clocks, not exactly
+       the write: 158 (2)'s timing is given up. O3e's survival already covers it: the forced part bounded for all
+       advanced time (S6, Schlue READ).]
 Imports copy/exactE.py, bulk/stability.py, lemmas/b4_static.py and lemmas/hold_small.py by path.  Stdlib + sympy.
 python3 o3_hold.py [--selftest | --mutants]
 """

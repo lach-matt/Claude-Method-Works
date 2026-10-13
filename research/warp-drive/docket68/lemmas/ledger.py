@@ -30,6 +30,11 @@ build -- is M's (H-EXPANSION-IS-BUILD).  E3 is derived from M's rulings.
       closes at both ends and both READMEs.  Item 239 (M-NEED-IS-ACTIVATION) set the ceiling aside as the build's need,
       so the flip moves T3's verdict for its own premise only, not the build: 239's setting-aside "softens this, it does
       not remove it" (rows_small G1s), and the large end's figures stand as computed above.
+      [Item 336, M-ENERGY-STAYS (M: "I think it is B"): our face's energy E stays in our universe, radiated over the
+      hole's life; nothing of it crosses. E3's E is read as what 110 and 111 (a) name -- the energy plane 2 read while
+      position 2's face held, released into position 2 when that face closes, position 2's own (240) -- the one value
+      read from two sides being the README (111 (b), 240). The z3 sums are unchanged; what E3 no longer says is that our
+      E travels.]
 Imports copy/exactE.py and lemmas/p2_gravity.py by path.  Stdlib + sympy + z3.
 python3 ledger.py [--selftest | --mutants]
 """

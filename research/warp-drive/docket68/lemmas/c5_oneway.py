@@ -230,6 +230,9 @@ session; not seated); 2026-10-12.
      is a warp-order question, entering C5's figures at most at (r_h/ell)^2 = 6.4e-31.
      (11) Our face's closing is the CLOSE row's, not claimed here: C5 claims that the hole lasts at least the README's
      stay and the write, not when it closes.
+     [Item 336, M-ENERGY-STAYS (M: "I think it is B"): the CLOSE row at the small end is closed on M's ruling -- our
+     face closes by Hawking emission over the hole's life, U3's 8.57e14 clocks, its energy staying in our universe
+     (close_small K9). C5's claim is unchanged.]
      (12) U3's life is labelled an estimate for its spectrum (a geometric-optics cross-section with the greybody
      factors the C5 verifier computed from Harris and Kanti, READ).  No conclusion of C5 rests on its order-one
      precision: the smallest margins anywhere are 54 (the floor) and 79 (the stay), at the species cap of (8), and

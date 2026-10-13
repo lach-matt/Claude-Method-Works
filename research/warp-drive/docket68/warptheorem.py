@@ -25,7 +25,9 @@ and exactly, the object at position 2:
                  horizons (282 (2)); its horizon is not extremal -- surface gravity c^2/r_h at the small end, 1/(4M)
                  at the large (251, 271) -- our face damping every disturbance and position 2's face open at most 33.6
                  clocks (stability S6); the static bulk, its horizon and the passage regular and complete, the hole's
-                 interior singularity off the passage (259; o1c_oneway, at its verifier next);
+                 interior singularity off the passage (259; o1c_oneway, verified 337); our face closes by Hawking
+                 emission over the hole's life, 8.57e14 clocks, its energy staying in our universe (336), position
+                 2's face within its open period;
   (Z) NULL ENERGY NEVER VIOLATED   net along each light ray (183): every classical ray keeps it -- the passage's
                  classical segments are Ricci-flat and the README's null energy non-negative -- and the passage's
                  negative is confined to the quantum region, 177's appearance (318; pair_math P1-P4);
@@ -36,16 +38,18 @@ and exactly, the object at position 2:
                  matter keeping null energy at every point (320); k's ratio k_R = k_L/2 and its scale our plane's
                  tension and offset (201); position 2's offset 2.625e-10 J/m^3 (322);
   (I) INFORMATION  the passage is N bits of entanglement, and carries the N-bit README;
-  (E) ENERGY     one exact energy E, the hole's own, is carried from position 1 and released into position 2, every
-                 joule accounted for (E3, E3s); the build's need is what the closing energy activates (239);
+  (E) ENERGY     one exact energy E, the hole's own, holds our face and returns to our universe as radiation over the
+                 hole's life (336); position 2's face, closing, releases position 2's own energy into position 2,
+                 which the build uses exactly (110, 111 (a), 240) -- the need what it activates (239); what crosses
+                 is the README, the one value read from two sides (111 (b), 240);
   (R) RECONSTRUCTION  position 2 builds from its own bulk an exact copy of the object, which then obeys position 2's
                  laws (240, 285), taking its room by displacing what is there and keeping it as the new whole of
                  position 2 (284, 285); the corridor's length is the difference of the trajectories.
 
-At the small end, where the example README sits, five lemmas stay OPEN -- B3, B4d, FAR, ARRIVAL, CLOSE -- and one
-row stands on a named reading of the board's: Z3bs, on 318's.  [Item 334: O3s and WRITEs stood on H-HOLD-IS-THE-FACE,
-which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVED.]  The large end keeps the record's OPEN rows: O3, Z3b, M1,
-M1P2x, WRITE.
+At the small end, where the example README sits, four lemmas stay OPEN -- B3, B4d, FAR, ARRIVAL -- CLOSE closed there on
+M's 336 (CLOSEs), and one row stands on a named reading of the board's: Z3bs, on 318's. [Item 334: O3s and WRITEs stood
+on H-HOLD-IS-THE-FACE, which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVED.] The large end keeps the record's
+OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE.
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -280,23 +284,25 @@ LEMMAS_NOW = [
       'before it; lemmas/c1_oneway.py (C1 one-way verified, 304)')),
     ('O', 'O1bs no curvature singularity on the passage at the small end', 'PROVED',
      ('259 (the interior singularity outside the passage); the static bulk, horizon and faces regular (c1_oneway); '
-      "the bounce's curvature finite (c4_residue R6); lemmas/o1c_oneway.py (finalized by M, 329; at its verifier "
-      'next, 330)')),
+      "the bounce's curvature finite (c4_residue R6; the full Kretschmann scalar finite, the O1c verifier); "
+      'lemmas/o1c_oneway.py, verified, CONFIRMED with qualifications (337)')),
     ('O', 'O1cs every causal route of the passage complete at the small end', 'PROVED',
-     'lemmas/o1c_oneway.py Z1-Z7 (one-way, 282 (c); finalized 329; carries C9, 332; at its verifier next)'),
+     ('lemmas/o1c_oneway.py Z1-Z8 (one-way, 282 (c); finalized 329; verified, CONFIRMED with qualifications, 337): '
+      "every causal geodesic through the open interiors and the README's region; the faces' own generators end where "
+      'the faces close (CLOSEs; c1_oneway K2), not claimed')),
     ('O', 'O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large', 'PROVED',
      ('lemmas/rows_small.py O2s (C7 verified, 271, 319); C3 F5 (the large end four-dimensional Schwarzschild, '
       'verified, 261); bulk/stability.py S6 (item 331): our face damps every transverse derivative at kappa, the '
       "white-hole face's blueshift bounded by e^33.6 over its open period (c_junction J5, c7_oneway V12 (Q1))")),
     ('O',
-     ("O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing through the "
-      'write (158 (2) with 160; M-HOLD-IS-THE-FACE, 334)'),
+     ("O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the "
+      "opening through the hole's life (334, 336)"),
      'DERIVED',
-     ("lemmas/o3_hold.py O3e: the hold is the write, at least C6's 66,980 clocks (write_small S3, verified 264), "
-      "within the life 8.57e14 clocks (C5 verified, 267, 317); our face damped (stability S6) and Schlue's uniform "
-      "boundedness READ for the scalar wave; position 2's face bounded by e^33.6.  The hold read as the face standing"
-      " is M's (334, confirming write_cypher W5 (b)); gravitational perturbations hold Ishibashi-Kodama's mode "
-      "stability only, outside the row's scope")),
+     ("lemmas/o3_hold.py O3e: the hold, the face standing (M-HOLD-IS-THE-FACE, 334), lasts the hole's life, 8.57e14 "
+      "clocks (M-ENERGY-STAYS, 336: 158 (2)'s timing given up), within which the write's floor, 66,980 clocks, runs "
+      '(write_small S3, verified 264; C5 verified, 267, 317); our face damped for all advanced time (stability S6) '
+      "and Schlue's uniform boundedness READ for the scalar wave; position 2's face bounded by e^33.6; gravitational "
+      "perturbations hold Ishibashi-Kodama's mode stability only, outside the row's scope")),
     ('O', 'O3 the corridor survives its hold at the large end (158 (2); 160)', 'OPEN',
      ("the record's: the write >= 199,702.19 clocks of m/c (o3_write); eq. (17)'s static window and its kappa = 0 "
       "figures (o3_hold O3a-O3d) are eq. (17)'s, not the large end's Schwarzschild; the large end's open period is "
@@ -386,20 +392,30 @@ LEMMAS_NOW = [
      "lemmas/axioms.py: 137 (1) with H1; at the small end H1 is the horizon's 3-sphere (C2)"),
     ('I', "I2 the README's N bits within the capacity bound as READ", 'PROVED',
      'lemmas/i2_capacity.py; relativistic causality carries no signal faster than light (relativity U5)'),
-    ('E', 'E1u within one universe, E carried into position 2 -- no influence back (276)', 'DERIVED',
-     'lemmas/close_flux.py K3; lemmas/axioms.py (E1)'),
-    ('E', 'E2u within one universe, released at position 2 at the closing', 'DERIVED',
-     'lemmas/close_flux.py; lemmas/axioms.py (E2)'),
-    ('E', 'E1x between universes, E carried into position 2', 'DERIVED',
-     "lemmas/axioms.py (E1); position 2's mass-energy its own (240, copy_p2 C1)"),
-    ('E', 'E2x between universes, released at position 2 at the closing', 'DERIVED',
-     'lemmas/axioms.py (E2)'),
     ('E',
-     ('E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what '
-      'the closing energy activates (239)'),
+     'E1u within one universe, our E holds our face and returns to our universe as radiation -- no influence back',
      'DERIVED',
-     ('lemmas/ledger.py E3, E3s (item 331): closes at both ends and both READMEs under reading (a) (M, 155); at the '
-      "small end the example's E lies below the assembly ceiling, which 239 set aside as the build's need")),
+     ("M-ENERGY-STAYS (336): the face closes by Hawking emission over the hole's life; lemmas/close_small.py K5, K9; "
+      "lemmas/close_flux.py K3's class (no event horizon within one universe) no longer decides it (Hayward)")),
+    ('E', "E2u within one universe, position 2's face releases its own energy at its closing", 'DERIVED',
+     '110, 111 (a), 240; c_junction J1 (the face open at most 33.6 clocks); lemmas/close_small.py K9'),
+    ('E',
+     ("E1x between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README "
+      'crosses'),
+     'DERIVED',
+     ("M-ENERGY-STAYS (336); 240 (the copy built from position 2's bulk, its mass position 2's); 111 (b) and 230 read"
+      ' as the one value, the README (240); lemmas/close_small.py K9')),
+    ('E',
+     "E2x between universes, position 2's face releases position 2's own energy at its closing, which the build uses",
+     'DERIVED',
+     '110, 111 (a), 240; c_junction J1; lemmas/close_small.py K9'),
+    ('E',
+     ("E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it "
+      '(111 (a)); the need is what it activates (239)'),
+     'DERIVED',
+     ('lemmas/ledger.py E3, E3s: closes at both ends and both READMEs under reading (a) (M, 155); its E read since '
+      "336 as position 2's own closing energy (110, 111 (a), 240), our E radiated into our universe; at the small end"
+      " the example's E lies below the assembly ceiling, which 239 set aside as the build's need")),
     ('E', 'E4r the field energy outside the neck within the reach', 'PROVED',
      ("lemmas/rows_small.py E4r-s: zero in five dimensions (Komar the same at every r); the plane's 4D reading "
       'negative, -5.3e14 E at the example, moving as (G5/G ell)^(2/3); large end ledger.py E4')),
@@ -442,7 +458,7 @@ LEMMAS_NOW = [
     ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
-      'data; 158 (2) and 163 held together by M-HOLD-IS-THE-FACE (334), the hold the face standing')),
+      "data; the hold the face standing (334), lasting the life (336), 163's floor bounding the write")),
     ('N', 'WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c', 'OPEN',
      ("the record's (write_cypher W0-W4, WZ, C1-C4): carrying the corridor, lasting the write and keeping (Z) never "
       "occur together on eq. (17)'s computed cells")),
@@ -450,17 +466,22 @@ LEMMAS_NOW = [
      "ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room",
      'OPEN',
      "284 (d), 285 (d): the room's size waits on how the bits rebuild in position 2; formation in the bulk (179)"),
-    ('N', 'CLOSE the closing: ending the faces when the write is done', 'OPEN',
-     ("lemmas/close_small.py K1-K7 (item 335): our face is future outer (Hayward's second law, READ) and cannot "
-      "shrink under non-negative null energy; ending it at the write's end needs a null shell of exactly -E crossing "
-      'it, which by the flux law must already be in our exterior -- from our past, before the opening at large radii '
-      "-- paired along each glued ray with position 2's +E release (183); otherwise the energy stays ours and the "
-      'face ends by Hawking emission after 8.57e14 clocks, 1.28e10 times the write.  Put to M (335)')),
+    ('N',
+     ("CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; "
+      "position 2's face within its open period"),
+     'DERIVED',
+     ("M-ENERGY-STAYS (336) on lemmas/close_small.py K1-K9: our face is future outer (Hayward's second law, READ) and"
+      " cannot shrink under non-negative null energy except by the emission's own negative influx; it closes after "
+      "8.57e14 clocks, 1.28e10 times the write (hold_small, C5 U4); position 2's past outer face closes within 33.6 "
+      'clocks (c_junction J1), releasing its own energy')),
+    ('N', 'CLOSE the closing at the large end', 'OPEN',
+     ("the record's (close_cypher, close_object, CLOSE-FLUX): M-ENERGY-STAYS was answered at the small end; the large"
+      " end's closing is not computed")),
 ]
 RESTS_ON_NOW = {'G1': 'M1s M1', 'G3': 'M1s M1', 'H2tu': 'M1s M1', 'H2tx': 'M1s M1 M1P2xs M1P2x', 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL', 'Z1t': 'M1s M1', 'Z2r': 'M1s M1',
                 'Z3bs': 'M1s', 'Z3b': 'M1 FAR WRITE ARRIVAL CLOSE', 'B2t': 'M1s M1', 'B3': 'M1 FAR WRITE ARRIVAL CLOSE',
-                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'B7': 'WRITE ARRIVAL CLOSE', 'E1x': 'CLOSE', 'E2x': 'CLOSE',
+                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'B7': 'WRITE ARRIVAL CLOSE', 'E2x': 'CLOSEs', 'E2u': 'CLOSEs',
                 'E4r': 'M1s M1'}
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [

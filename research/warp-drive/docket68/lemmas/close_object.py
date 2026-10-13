@@ -22,6 +22,8 @@ for a degenerate or non-outer horizon.
      and its closing needs a negative null flux into it -- which Hawking emission supplies, closing the face after the
      hole's life, 8.57e14 clocks, 1.28e10 times the write (c5_oneway U11 (7)). K3's "no event horizon within one
      universe" is not re-read here. The CLOSE row's, OPEN (warptheorem LEMMAS_NOW CLOSE). Kept as written.]
+     [Item 336, M-ENERGY-STAYS (M: "I think it is B"): the CLOSE row at the small end is closed on M's ruling -- our
+     face closes by Hawking emission over the hole's life, the energy ours; close_small K9.]
   O3 (READ, secondary; the board's reading H-MOUTH-FLUX; computed bookkeeping) the wormhole mouth-mass rule: "if a mass
      M passes through a wormhole mouth, the entrance mouth has its mass increased by M, and the exit mouth has its mass
      reduced by" M (J. Cramer, Analog/Alternate View 69, npl.washington.edu/av/altvw69.html, search excerpt -- the

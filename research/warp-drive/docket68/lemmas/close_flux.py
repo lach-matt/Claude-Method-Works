@@ -7,6 +7,11 @@ need the horizon's area to shrink, "which classical positive energy forbids (the
 This instrument asks what that theorem needs, and finds the demand splits by M's two trajectory classes (167, 168:
 "two positions, one universe", then between universes).
 
+[Item 336, M-ENERGY-STAYS (M: "I think it is B"): at the small end, on the one-way object, the demand is met by Hawking
+emission -- its negative influx at our face, its positive energy radiated into our universe -- over the hole's life;
+nothing of E crosses. lemmas/close_small.py K1-K9: our face is future outer (Hayward, READ), so the split of K3 does not
+reach Hayward's law; the class split stands as the record of the event-horizon argument.]
+
   K1 (computed, sympy) the two views of one mass loss.  Ingoing Vaidya, m(v) decreasing: the flux along the horizon's
      generators is T_vv = m'(v)/(4 pi r^2) < 0 (a negative influx -- the black-hole side's shrink).  Outgoing Vaidya,
      m(u) decreasing: T_uu = -m'(u)/(4 pi r^2) > 0 (a positive outflow -- a white hole releasing).  132 reads position 2's

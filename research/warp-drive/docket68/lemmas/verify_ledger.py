@@ -58,7 +58,7 @@ HEADERS = {254: "254. **Claim C1 verified", 258: "258. **Claim C2 verified", 261
            264: "264. **Claim C6 verified", 267: "267. **Claim C5 verified", 269: "269. **Claim C4 verified",
            271: "271. **Claim C7 verified", 281: "281. **The audit before 270", 304: "304. **C1 one-way verified",
            310: "310. **C4 one-way verified", 317: "317. **C5 one-way verified", 319: "319. **C7 one-way verified",
-           332: "332. **C9 verified"}
+           332: "332. **C9 verified", 337: "337. **O1c one-way verified"}
 NA = "n/a"
 
 
@@ -210,7 +210,8 @@ ROWS = [
     (332, "Q3", "C5's divisor zero at U4's endpoint; positive on the open range (C10)", [("gb_cone.py", 332)],
      NO_O, NO_B, NO_E),
     (332, "Q4", "the split on the families computed, generic per RTW", [("gb_cone.py", 332), ("relativity.py", 332),
-                                                                       ("gb_alpha.py", 332)], NO_O, NO_B, NO_E),
+                                                                       ("gb_alpha.py", 332)],
+     C(O, "332 (Q4) does bear, on Z2b's item-328 counterfactual"), NO_B, NO_E),   # [item 337 (Q11)]
     (332, "Q5", "sgb: every f' != 0 where V(phi_0) = V'(phi_0) = 0", [("sgb_cone.py", 332), ("../../currency.py", 332),
                                                                      ("../../doors.py", 332)],
      NO_O, C(B, "sgb's potential condition (Q5) concerns the coupled scalar"), NO_E),
@@ -221,6 +222,22 @@ ROWS = [
     (332, "Q9", "minor: C8's crossing remark, RTW section 3.1, the symmetry of omega", [("gb_cone.py", 332),
                                                                                        ("sgb_cone.py", 332)],
      NO_O, NO_B, NO_E),
+    # item 337: the O1c verifier's report
+    (337, "Q1", "the faces' own generators not covered: listed as not claimed; CLOSEs and c1_oneway K2 end them",
+     [("o1c_oneway.py", 337)], C(O, "The faces' own null generators (E~ = 0, on U = 0 and U' = 0)"),
+     N("B5a does not use the faces' generators"), N("C8 does not use the faces' generators")),
+    (337, "Q2, Q7, Q8", "Z2b's READs two-way, the shell a reading, the shell's own generators", [("o1c_oneway.py", 337)],
+     C(O, "Item 337 (Z8 (Q2), (Q7), (Q8))"), NO_B, NO_E),
+    (337, "Q3, Q4", "classical GR given up inside the region; exact at the two-derivative order",
+     [("o1c_oneway.py", 337), ("b5a_residue.py", 337), ("c8_level.py", 337)], C(O, "Item 337 (Z8 (Q3), (Q4))"),
+     C(B, "the O1c verifier's (Q4), accounted before the next verification"),
+     C(E, "the O1c verifier's (Q4), accounted before the next verification")),
+    (337, "Q5, Q6", "the 320 note overstated; Z6's readings named", [("o1c_oneway.py", 337)],
+     C(O, "Item 337 (Z8 (Q5))"), N("B5a's 320 reading is b5a_residue A3's, not O1c's note"), NO_E),
+    (337, "Q9-Q11", "Z0's attribution; R6's one r_h; 332 (Q4) on Z2b", [("o1c_oneway.py", 337)],
+     C(O, "Item 337 (Z8 (Q10))"), NO_B, NO_E),
+    (337, "outside", "c4_residue R6's sample point; Z7's audit on one coding; 336 bears on (Q1)",
+     [("o1c_oneway.py", 337)], C(O, "Item 337 (outside)"), NO_B, NO_E),
 ]
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
@@ -321,13 +338,13 @@ def report(o):
     print("   [item 331] brought current: %s; the register's history now reaches item %s; its current statement "
           "present: %s" % (", ".join("%s %s %s" % (lab, f, ok) for lab, f, n, ok in o["brought"]), o["reg_now"],
                            all(ok for _, _, ok in o["current"])))
-    print("L5 C9 (items 325-327): verified, item 332 -- its nine rows above, carried where they bear; O1c next")
+    print("L5 C9 verified, item 332; O1c verified, item 337 -- their rows above, carried where they bear; B5a next")
 
 
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("L0 M's item-330 words and the thirteen reports' headers verbatim in the rulings file",
+    add("L0 M's item-330 words and the fourteen reports' headers verbatim in the rulings file",
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
@@ -341,7 +358,7 @@ def checks(o):
     add("L4 (item 331) the three rows outstanding outside the queue each brought current, marked in their instruments",
         all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
-    add("L4 every report of the thirteen has its rows in the ledger", reps == set(HEADERS))
+    add("L4 every report of the fourteen has its rows in the ledger", reps == set(HEADERS))
     return res
 
 

@@ -37,6 +37,9 @@ estimates marked; the cypher run and audited; not verified by a separate session
      clocks (hold_small L5); over the floor it loses 1 - sqrt(1 - floor/life) = 3.9e-11 of E (5D: E^2 falls linearly).
      So our side's hole is neither eternal (it closes) nor ended by a white hole facing us; the life outlasts the floor
      1.28e10-fold (C5).  d_evap D2-D3's comparison with a bounce time is the two-way reading.
+     [Item 336, M-ENERGY-STAYS (M: "I think it is B"): I5's closing is now M's: the face closes by this emission over
+     the life, the energy radiated into our universe, nothing of it crossing (close_small K9). "The hold is the write"
+     reads since 334 and 336 as the face standing, which lasts the life.]
   I6 (computed; the cypher, roster 1173, audited) h_oneway's index, one-way only: rho_m in {0, sigma/8, sigma/4,
      sigma/2} x position 2's bulk mass C2 (0, > 0) -- 8 rows, each with expands_now (H2^2 > 0 somewhere), unbounded
      (H2^2 > 0 for all a beyond) and positive (S2 > 0).  The held cells form one chain.  Unbounded expansion needs S2 >=

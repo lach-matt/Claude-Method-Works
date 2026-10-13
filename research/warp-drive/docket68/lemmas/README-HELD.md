@@ -460,6 +460,8 @@ and the control's flips. The YES on T_FORMS_CROSSING and T_PAIR is extensivity.
   - The NEC forbids that: the area theorem, standard-not-READ. Equivalently, θ < 0 needs R(k,k) < 0 on the generators,
     which is Lemma S's bulk form run in reverse.
   - A negative null flux, or a non-classical mechanism, is demanded there.
+  - [Item 336, M-ENERGY-STAYS (M: "I think it is B"): at the small end the demand is met by Hawking emission over the
+    hole's life, the energy staying in our universe (`close_small.py` K1–K9).]
   - On (a) the demand moves from the inflow to the closing. On (b) both are demanded.
 - **warptheorem rows:** statuses unchanged. R0 fits (a); E1 and E2 are "(a) with OPEN"; H2 holds of the end state; I1
   holds on either reading.

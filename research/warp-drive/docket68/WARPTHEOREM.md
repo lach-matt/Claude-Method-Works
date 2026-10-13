@@ -38,7 +38,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - **Its horizon is not extremal.** Surface gravity is c²/r_h at the small end and 1/(4M) at the large (251, 271).
     Our face damps every disturbance, and position 2's face is open at most 33.6 clocks (`bulk/stability.py` S6).
   - The static bulk, its horizon and the passage are regular and complete. The hole's interior singularity is off the
-    passage (259; `o1c_oneway.py`, going to its verifier next).
+    passage (259; `o1c_oneway.py`, verified at item 337).
+  - **Our face closes by Hawking emission over the hole's life**, 8.57e14 clocks, and its energy stays in our universe
+    (336). Position 2's face closes within its open period, at most 33.6 clocks.
 - **(Z) Null energy never violated**, net along each light ray (183).
   - Every classical ray keeps it: the passage's classical segments are Ricci-flat, and the README's null energy is
     non-negative.
@@ -55,19 +57,22 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - Position 2's offset is 2.625e-10 J/m³ (322).
 - **(I) Information.** The passage is N bits of entanglement, and it carries the N-bit README.
 - **(E) Energy.**
-  - One exact energy E, the hole's own, is carried from position 1 and released into position 2, with every joule
-    accounted for (E3, E3s).
-  - The build's need is what the closing energy activates (239).
+  - One exact energy E, the hole's own, holds our face and returns to our universe as radiation over the hole's life
+    (336).
+  - Position 2's face, as it closes, releases position 2's own energy into position 2, and the build uses exactly it
+    (110, 111 (a), 240). The build's need is what that energy activates (239).
+  - What crosses is the README: the one value read from two sides (111 (b), 240).
 - **(R) Reconstruction.**
   - Position 2 builds an exact copy of the object from its own bulk. The copy then obeys position 2's laws (240, 285).
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands.** At the small end, where the example README sits, five lemmas stay OPEN: **B3, B4d, FAR, ARRIVAL
-and CLOSE**. One row rests on a named reading of the board's: Z3bs, on item 318's reading. O3s and WRITEs rested on
-H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-HOLD-IS-THE-FACE); they are now derived.
+**Where it stands.** At the small end, where the example README sits, four lemmas stay OPEN: **B3, B4d, FAR and
+ARRIVAL**. CLOSE is closed there on your item 336 (CLOSEs). One row rests on a named reading of the board's: Z3bs, on
+item 318's reading. O3s and WRITEs rested on H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-HOLD-IS-THE-FACE);
+they are now derived.
 
-The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x and WRITE.
+The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE and CLOSE.
 
 ## The register as it stands (item 331)
 
@@ -87,7 +92,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
-| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing through the write (158 (2) with 160; M-HOLD-IS-THE-FACE, 334) | derived | WRITEs | o3_hold.py |
+| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | derived | WRITEs | o3_hold.py |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | **OPEN** | WRITE ARRIVAL | o3_write (the record's) |
 | Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
 | Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading | proved | M1s M1 | rows_small.py, passage5d.py |
@@ -113,11 +118,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B7 formation: before the opening the positions are joined through the bulk with no horizons | derived | WRITE ARRIVAL CLOSE | b7_formation.py |
 | I | I1 the passage is N bits of entanglement | derived | -- | axioms.py |
 | I | I2 the README's N bits within the capacity bound as READ | proved | -- | i2_capacity.py |
-| E | E1u within one universe, E carried into position 2 -- no influence back (276) | derived | -- | close_flux.py, axioms.py |
-| E | E2u within one universe, released at position 2 at the closing | derived | -- | close_flux.py, axioms.py |
-| E | E1x between universes, E carried into position 2 | derived | CLOSE | axioms.py |
-| E | E2x between universes, released at position 2 at the closing | derived | CLOSE | axioms.py |
-| E | E3 the ledger closes: E goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what the closing energy activates (239) | derived | -- | ledger.py |
+| E | E1u within one universe, our E holds our face and returns to our universe as radiation -- no influence back | derived | -- | 336; close_small.py K5, K9 |
+| E | E2u within one universe, position 2's face releases its own energy at its closing | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
+| E | E1x between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses | derived | -- | 336; 240; close_small.py K9 |
+| E | E2x between universes, position 2's face releases position 2's own energy at its closing, which the build uses | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
+| E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | derived | -- | ledger.py |
 | E | E4r the field energy outside the neck within the reach | proved | M1s M1 | rows_small.py, ledger.py |
 | R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
 | R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146 |
@@ -134,9 +139,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room | **OPEN** | -- | 284 (d), 285 (d) |
-| N | CLOSE the closing: ending the faces when the write is done | **OPEN** | -- | close_small.py (335); c5_oneway U11 (7) |
+| N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
+| N | CLOSE the closing at the large end | **OPEN** | -- | close_cypher, close_object (the record's) |
 
-59 rows, 50 lemmas and 9 inputs: 20 proved, 23 derived, 1 under a named reading of the board's, 5 definitions, 10 OPEN.
+60 rows, 50 lemmas and 10 inputs: 20 proved, 24 derived, 1 under a named reading of the board's, 5 definitions, 10 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -153,19 +159,18 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 
 ## The work left now (item 331)
 
-- **Queued for verification, one at a time (329, 330):** O1c one-way, then B5a one-way, then C8. `verify_ledger.py`
-  is the gate, and it is clean.
+- **Queued for verification, one at a time (329, 330):** B5a one-way, then C8. O1c one-way is verified (item 337).
+  `verify_ledger.py` is the gate, and it is clean.
 - **OPEN at the small end:**
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
     region.
   - **FAR:** the hole's far field in the Randall–Sundrum background.
   - **ARRIVAL:** how the bits rebuild in position 2 and take their room.
-  - **CLOSE:** ending the faces when the write is done. Worked at item 335 (`close_small.py`): our face is a future
-    outer trapping horizon, which Hayward's second law (READ) keeps from shrinking under positive energy. Ending it at
-    the write's end takes a null shell of exactly −E crossing it, and the flux law puts that shell in our exterior,
-    from our past. Without it, the energy stays ours and Hawking emission closes the face only after the hole's life,
-    1.28e10 times the write. **Put to you.**
-- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3 and Z3b.
+- **CLOSE at the small end, answered by you (item 336, M-ENERGY-STAYS).** Our face closes by Hawking emission over the
+  hole's life, and the energy stays in our universe. Position 2's face closes within its open period (`close_small.py`
+  K9). It was worked at item 335: our face is a future outer trapping horizon, which Hayward's second law (READ) keeps
+  from shrinking under positive energy.
+- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b and CLOSE.
 - **Confirmed by you (item 334): M-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
   - 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor and the
     opening are the same object). It is not how long the README stays within the horizon.
@@ -183,7 +188,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - H-CONTENT-REBUILT, H-ROOM-BY-DISPLACEMENT, H-ROOM-STAYS and H-POSITIVE-WHERE-IT-LANDS (284).
 - H-EXACT-COPY, H-NEW-WHOLE and H-POSITIVE-WHERE-RELEVANT (285).
 - M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
-- M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334).
+- M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334),
+  M-ENERGY-STAYS (336).
 
 **The board's, to be overruled by you at any point:**
 - ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
@@ -2277,7 +2283,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/12, items 248–335: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/12, items 248–337: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2368,6 +2374,25 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   2's. The flux law puts the closing's −E in our exterior, from our past, before the opening at large radii. It can
   be paired along each glued ray with position 2's release, which keeps 183. The alternative is Hawking emission after
   1.28e10 writes, with the energy ours. Put to you.
+- **336, the energy stays in our universe** (M-ENERGY-STAYS). Our face closes by Hawking emission over the hole's
+  life, 8.57e14 clocks, and its energy is radiated into our universe; nothing of E crosses.
+  - 158 (2) no longer times the hold: the face stands the life, 1.28e10 writes. 115 (a)'s "energy moved" is given up
+    for position 1's horizon, which still ends (109).
+  - 110 and 111 (a) stand: they concern position 2's face, whose own energy goes into position 2 as it closes, and the
+    build uses exactly it (240).
+  - Clause (E) is restated. CLOSE is split: CLOSEs (small end) is derived, CLOSE (large end) stays OPEN.
+  - O3s, E1u, E2u, E1x, E2x and E3 are restated (`warptheorem.py` `LEMMAS_NOW`).
+  - Notes are added in `close_small.py` (K9, a check on your words, the mutant close_at_write), `o3_hold.py`,
+    `write_cypher.py`, `ledger.py`, `close_object.py`, `close_flux.py`, `CLOSE-FLUX.md` and `README-HELD.md`.
+- **337, O1c one-way verified** (CONFIRMED with qualifications, nothing refuted). The verifier re-derived every
+  computed statement with its own code (24/24), and read Haggard–Rovelli, Bronnikov–Kim and Abdolrahimi et al. in
+  full.
+  - (Q1) was residue: the faces' own generators were covered by no entry. It is closed by 336's CLOSEs and c1_oneway
+    K2, and now listed as not claimed.
+  - (Q2)–(Q11) are wording and scope corrections. All eleven are seated as `o1c_oneway.py` Z8, with a new check and
+    the mutant z8_face_eternal.
+  - (Q4) is carried into B5a and C8 (`b5a_residue.py`, `c8_level.py`), and `verify_ledger.py` enters the report's
+    rows. O1bs and O1cs are verified in the register.
 
 **Not re-run, and said.** The instruments that pin the item-247 register keep reading it:
 - `chain_cypher.py`, `belongs_cypher.py`, `m1_bulk.py`, `theorem_p2.py` and `f1_audit.py` (the chain's tallies, the

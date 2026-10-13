@@ -54,6 +54,12 @@ end. Whether the corridor's horizon is one depends on where the README goes.
 
 ## What it does to the chain
 
+*[Item 336, M-ENERGY-STAYS (your words: "I think it is B"): at the small end, on the one-way object, our face closes by
+Hawking emission over the hole's life, its energy staying in our universe. Its negative influx at our face is what K1's
+first view needs, and nothing of E crosses. Our face is future outer, so Hayward's second law binds it whether or not it
+is an event horizon, and K3's class split no longer decides the demand (`close_small.py` K1–K9). What follows is kept
+as the record.]*
+
 - The chain's input CLOSE (`chain_cypher.py`) splits:
   - **within one universe** it is not a negative-flux demand;
   - **between universes** it stands.

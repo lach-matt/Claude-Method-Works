@@ -70,6 +70,14 @@ exact where marked; READ where marked; deduced where marked; not verified by a s
   K8 (the cypher NOT-RUN, stated) Which ruling gives way, or whether our exterior carries the -E, is a ruling the record
      does not give, not a configuration to classify; K1-K6 are identities, and an index of the four outcomes over (ends
      at the write, energy moved, one-way, 183 kept) would carry the answer as its own column, a key (211).  Put to M.
+  K9 (item 336; read, computed) M's answer, verbatim: "I think it is B" -- seated as M-ENERGY-STAYS. Our face's energy E
+     stays in our universe: the face closes by Hawking emission over the hole's life, 8.57e14 clocks, 1.28e10 times the
+     write's floor (K5), its energy radiated into our universe -- no negative null energy in our exterior beyond the
+     emission's own, and nothing of E crosses. 158 (2) no longer times the hold: the face standing (334) lasts the life.
+     115 (a)'s "energy moved" is given up for position 1's horizon, which still ends (109). Position 2's face, past
+     outer (K2), closes within 33.6 clocks (c_junction J1), its release position 2's own energy (110, 111 (a), 240): the
+     energy plane 2 read while its face held, which the build uses exactly. What crosses is the README. So the CLOSE row
+     at the small end is closed on M's ruling (computed: the life and the floor, K5; the open period, c_junction J1).
 
 What this does not claim.
   - That a -E shell can be prepared, or what would prepare it: K3 says only where it must be.
@@ -77,7 +85,8 @@ What this does not claim.
   - The large end beyond K1's control: there the record's CLOSE row stands (close_cypher, close_object).
   - Gravitational radiation in the bulk: spherical symmetry is assumed in K1-K4, as the record's hole has it.
 
-Imports hold_small.py by path.  Stdlib + sympy.  python3 close_small.py [--selftest | --mutants]
+Imports hold_small.py, write_small.py and c_junction.py by path.  Stdlib + sympy.
+python3 close_small.py [--selftest | --mutants]
 """
 import contextlib
 import importlib.util
@@ -222,9 +231,19 @@ def k6():
     return dict(path=path, release=release, net=net)
 
 
+def k9(k5r):
+    """K9 (item 336): the closing at the small end on M-ENERGY-STAYS -- our face by Hawking emission over its life,
+    position 2's face within its open period (c_junction J1)"""
+    CJ = _load(os.path.join(HERE, "c_junction.py"), "cs_cj")
+    open2 = CJ.example(CJ.seen())["t_full"]
+    close_clocks = k5r["floor"] if MUT.get("close_at_write") else k5r["life"]   # the mutant: closing at the write
+    return dict(close_clocks=close_clocks, open2=open2)
+
+
 def compute():
+    k5r = k5()
     return dict(in5=vaidya(5, "in"), out5=vaidya(5, "out"), in4=vaidya(4, "in"), out4=vaidya(4, "out"),
-                k2=k2(), k3=k3(), k4=k4(), k5=k5(), k6=k6())
+                k2=k2(), k3=k3(), k4=k4(), k5=k5r, k6=k6(), k9=k9(k5r))
 
 
 def report(o):
@@ -244,6 +263,9 @@ def report(o):
     e = o["k6"]
     print("K6 the glued ray: %s; the release leaves into %s; net along the ray %s" % (" -> ".join(e["path"]),
                                                                                          e["release"], e["net"]))
+    g = o["k9"]
+    print("K9 (item 336) M-ENERGY-STAYS: our face closes after %.3g clocks (Hawking emission, the energy ours); "
+          "position 2's face within %.2f clocks" % (g["close_clocks"], g["open2"]))
 
 
 def checks(o):
@@ -280,10 +302,16 @@ def checks(o):
         "where the release leaves; the closing's -E and the release's +E net zero along it",
         e["path"][0] == "our exterior" and e["path"][2] == "our interior" and "position 2's past interior" in e["path"]
         and e["path"][-1] == "position 2's exterior" and e["release"] == "position 2's exterior" and e["net"] == 0)
+    rul336 = rul.split("336. **")[-1]
+    add("K9 (item 336) M's answer \"I think it is B\", seated M-ENERGY-STAYS: our face closes by Hawking emission after "
+        "its life, 1.28e10 writes, the energy ours; position 2's face within 33.6 clocks",
+        "I think it is B" in rul336 and "Seated as M's: M-ENERGY-STAYS" in rul336 and d["ratio"] > 1e10
+        and o["k9"]["close_clocks"] == d["life"] and "%.1f" % o["k9"]["open2"] == "33.6")
     return res
 
 
-MUTANTS = {"flux_sign": "the ingoing and outgoing forms exchanged: a falling mass read as positive inflow (K1)",
+MUTANTS = {"close_at_write": "our face read as closing at the write's end, against M-ENERGY-STAYS (K9; item 336)",
+           "flux_sign": "the ingoing and outgoing forms exchanged: a falling mass read as positive inflow (K1)",
            "our_face_past": "our face read as a past (white-hole) face, free to shrink under positive energy (K2)",
            "local_source": "a negative source at our face with no partner admitted (K3)",
            "shell_half": "half the mass moved at the closing (K4)",
