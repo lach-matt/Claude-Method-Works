@@ -119,11 +119,12 @@ goes to M; the board does not rule on M's meaning.
      B5c's, proved at Q12.  RT5, sigma_defines T5's flag: B5pu holds on both decisions -- b5p_cypher (5), "were it
      decided the other way, the variant W139 ... still meets B5'a's condition with margin" -- and B6' rests on
      sigma_defines T1-T4, not T5 (its row): proved on both branches.  RE6, 139 (3) read as position 2's expansion
-     raised: B5c rests on e_positive E7 (its row), where the emerging README alone carries the plane past sigma/4
+     raised: B5cs rests on e_positive E7 (its row), where the emerging README alone carries the plane past sigma/4
      (computed); E7's "beyond it ... (E6)" lies outside where positivity is owed (284, 285), and there Q12's pointwise
      route holds without E6.  RO3H, o3_hold's mapping and locally analytic class: O3s rests on O3e (its row), and "O3e
      rests on no reading of the board's" (o3_hold, item 334); the mapping is O3a's, the class O3a''s (withdrawn), and
-     "O3b's static window is eq. (17)'s and does not bound it".  None is a premise of any row.
+     "O3b's static window is eq. (17)'s and does not bound it".  None is a premise of any row.  [Item 356: B5c is split
+     by end; E7 is the small end's row, B5cs, and B5c at the large end is OPEN on another route.]
   Q22 (deduced) 148's reading (i) -- position 2's electron mass is ours (R5; R5b).  The question M answered carried its
      two options inside item 148: "No: position 2 only where everything the README contains measures exactly as ours;
      Yes: then item 146 or 147 must change".  M answered "No, BUT, matter at position 2 can rearrange to accommodate
@@ -473,8 +474,8 @@ INVENTORY = (
      "bears on no row's claim (Q28)"),
     ("RPOS2", 231, "H-POSITIVE-ON-P2: 139 (2) as the board reads it", "B5pu", "words", "bears on no row's claim (Q21)"),
     ("RT5", 231, "sigma_defines T5's flag decided under 149", "B5pu B6'", "choice", "proved on both branches (Q21)"),
-    ("RE6", 268, "139 (3) read as position 2's expansion raised by the README's energy", "B5c", "words",
-     "bears on no row's claim (Q21)"),
+    ("RE6", 268, "139 (3) read as position 2's expansion raised by the README's energy", "B5cs", "words",
+     "bears on no row's claim (Q21)"),                     # [item 356: B5c split by end; E7 is B5cs's]
     ("R148", 149, "148's reading (i): position 2's electron mass ours", "R5", "words",
      "proved here (Q22); M's since 155 (3)"),
     ("RO3H", 334, "o3_hold's mapping and its locally analytic class", "O3s", "choice", "bears on no row's claim (Q21)"),
@@ -615,7 +616,7 @@ def _register_rows():
 
 Q21_ROWS = (("B5pu", "lemmas/b5p_cypher.py (b1_matter C3, C4); pointwise.py P5", "H-POSITIVE-ON-P2"),
             ("B6'", "lemmas/sigma_defines.py T1-T4;", "T5"),
-            ("B5c", "lemmas/e_positive.py E7:", "E6"),
+            ("B5cs", "lemmas/e_positive.py E7:", "E6"),          # [item 356: the small end's row since the split]
             ("O3s", "lemmas/o3_hold.py O3e:", "O3a"))
 Q21_TEXTS = (("b5p_cypher.py", "(6) H-POSITIVE-ON-P2 (139 (2) as the board reads it) is a different condition"),
              ("b5p_cypher.py", "were it decided the other way, the variant W139 (t2 = -1/4 > -1 - 2 eps) still meets "
@@ -708,7 +709,7 @@ def q21():
     reg = _register_rows()
     rows = list(Q21_ROWS)
     if MUT.get("e6_borne"):
-        rows[2] = ("B5c", "lemmas/e_positive.py E6", "E7")          # the mutant: B5c read as resting on E6
+        rows[2] = ("B5cs", "lemmas/e_positive.py E6", "E7")         # the mutant: B5cs read as resting on E6
     cites = [(k, w in reg.get(k, ""), bad not in reg.get(k, "").split(w, 1)[-1][:60]) for k, w, bad in rows]
     texts = [(f, t, t in _flat(os.path.join(HERE, f))) for f, t in Q21_TEXTS]
     return dict(cites=cites, texts=texts)
@@ -1044,7 +1045,7 @@ def checks(o):
         o["q17"]["exact"] and "%.2g" % o["q17"]["at_hole"] == "6.4e-31")
     add("Q20 our face 8.57e14 clocks against position 2's 33.60: a factor 2.6e13",
         "%.2g" % o["q20"]["factor"] == "2.6e+13")
-    add("Q21 RPOS2, RT5, RE6 and RO3H bear on no row: B5pu, B6', B5c and O3s cite their own entries, not the "
+    add("Q21 RPOS2, RT5, RE6 and RO3H bear on no row: B5pu, B6', B5cs and O3s cite their own entries, not the "
         "reading's, and the instruments' words are found", all(a and b for _, a, b in o["q21"]["cites"])
         and all(ok for _, _, ok in o["q21"]["texts"]))
     g = o["q23"]
@@ -1106,9 +1107,12 @@ def checks(o):
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
-    add("the inventory closed: no reading left to prove -- each proved, M's, bearing on no row's claim, or through "
-        "SOURCE (M-SOURCE-LAST)", all(not r[5].startswith("to prove") for r in INVENTORY)
-        and all(("Q" in r[5]) or "SOURCE" in r[5] or r[5].startswith("M's") for r in INVENTORY))
+    owed = sorted(r[0] for r in INVENTORY if "through SOURCE" in r[5])
+    add("the inventory accounted: each proved, M's, bearing on no row's claim, or through SOURCE (M-SOURCE-LAST); "
+        "under 356 (b) the three through SOURCE are owed, not done: RBITS, RDUST, RSHELL",       # [item 356]
+        all(not r[5].startswith("to prove") for r in INVENTORY)
+        and all(("Q" in r[5]) or "SOURCE" in r[5] or r[5].startswith("M's") for r in INVENTORY)
+        and owed == ["RBITS", "RDUST", "RSHELL"])
     return res
 
 
@@ -1118,7 +1122,7 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "time_reflection": "Haggard and Rovelli's time reflection kept beside (-U, -V) (Q8)",
            "mixed_readme": "the README taken as a mixture of two strings (Q15)",
            "face_at_ours": "position 2's energy taken as (G5/G5_2)^1, one r_h (Q16)",
-           "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)",
+           "e6_borne": "B5cs read as resting on e_positive E6, not E7 (Q21)",
            "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)",
            "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)",
            "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)",

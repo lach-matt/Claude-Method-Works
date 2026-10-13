@@ -220,7 +220,7 @@ CELLS = (("before the opening", "B7", "DERIVED"), ("the global shape", "B4a", "P
          ("the opening", "ARRIVALs", "READING"), ("the hold", "O3s", "DERIVED"), ("the write", "WRITEs", "DERIVED"),
          ("the interior", "O1cs", "PROVED"), ("no singularity on the passage", "O1bs", "PROVED"),
          ("our face's closing", "CLOSEs", "DERIVED"), ("the far boundary", "FARs", "DERIVED"),   # [item 354]
-         ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2t", "PROVED"))
+         ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2ts", "PROVED"))   # [item 356: split by end]
 
 
 def _item(n):

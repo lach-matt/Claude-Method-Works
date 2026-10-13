@@ -173,6 +173,32 @@ Two findings for the rows:
   holds at every species count a semiclassical hole allows (up to 3.85×10¹⁴), but the number falls with more species,
   to 4.37 clocks at that cap.
 
+**Since item 356: the open objects, end by end, and the readings that remain.** You asked why rows still rest on M1 and
+B4d. At the small end both are addressed: M1s is verified (C4, 269; one-way, 310), and B4ds is worked (351, 352) and
+rests on readings. The large end was never re-posed on the one-way object after your 251 and 256. C3 (verified 261)
+fixed what the large end is: the large brane hole, whose plane reads four-dimensional Schwarzschild with corrections of
+order ℓ²/r₀² (Figueras and Wiseman; Abdolrahimi et al., READ). M1 at the large end has been OPEN since your 232 (the
+kink, 203, (e)). Several rows claimed both ends while only their small half had been re-derived.
+
+- **Split by end.** Every such row now has a small row, which keeps its status, and an OPEN large row, in the register's
+  own "s" convention: Z1t, Z2r, E4r and B2t on M1; H2tx and B5c on M1P2x; E1u, E1x, E2u and E2x on CLOSE. B5c's
+  mechanism, E7's, is the small end's: at the large end the README's mean density inside r₀ is 2ℓ²/r₀² of σ/4
+  (computed), far below it, so position 2's side total +σ/2 is the route, with M1P2x.
+- **Entered.** O1b and O1c at the large end, the passage's regularity and completeness. The small end's are proved
+  (O1bs, O1cs), and the large hole's interior is not computed.
+- **Stand at both ends.** G1, G3 and H2tu rest on C3 at the large end, not on the record's M1. B7 is end-independent: it
+  follows from your rulings and what is READ.
+- **The count.** 78 rows: 20 proved, 27 derived, 3 readings, 5 definitions, 23 OPEN (SOURCEs and SOURCE deferred by
+  you). Nothing that was green has moved; the twelve OPEN rows are what was always owed at the large end, now visible.
+
+**The readings.** RGAS, the free-gas carrier, is proved (`readings.py` Q31). Zero-error reading of N bits needs
+orthogonal states (Helstrom). The gas floor moves as (1 + δ)^(−1/3) under any interaction that shifts the pressure by δ.
+Thermal QCD's own perturbative and lattice results (Kajantie et al.; Borsanyi et al., READ) keep δ within about a fifth,
+so the write's floor carries. Three readings remain: the radial null dust, H-BITS-WITH-ENERGY, and the thin shell, which
+adds nothing to the dust. All three model how the README comes in onto the face, and that is SOURCEs's definition. Your
+M-SOURCE-LAST (345) puts SOURCEs after every other row, and your 356 asks every reading proved. Whether to bring SOURCEs
+forward is put to you.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -180,51 +206,63 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 
 | clause | lemma | status | rests on | owner |
 |---|---|---|---|---|
-| G | G1 one exact energy, at the bound: E(N) | derived | M1s M1 | axioms.py |
+| G | G1 one exact energy, at the bound: E(N) | derived | M1s | axioms.py |
 | G | G2 E(N) computed and machine-checked | proved | -- | exactE.py, ledger.py |
-| G | G3 the horizon's size is fixed by N: r_h at the small end, r0 = 2m at the large | proved | M1s M1 | exactE.py |
+| G | G3 the horizon's size is fixed by N: r_h at the small end, r0 = 2m at the large | proved | M1s | exactE.py |
 | H | H1 the horizon holds N bits: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end, 4 pi r0^2 = N A_bit at the large | proved | -- | hcount_cypher.py, area_law5.py, exactE.py |
 | H | H2 our face and position 2's face hold the README as one null surface | derived | -- | 270 (a); c7_oneway V11 (Q4) |
-| H | H2tu within one universe the horizon's trace on each plane is r = r_h | derived | M1s M1 | rows_small.py |
-| H | H2tx between universes position 2's horizon holds the README at its own bit area | derived | M1s M1 M1P2xs M1P2x | copy_p2.py |
+| H | H2tu within one universe the horizon's trace on each plane is r = r_h | derived | M1s | rows_small.py |
+| H | H2txs between universes position 2's horizon holds the README at its own bit area, at the small end | derived | M1s M1P2xs | copy_p2.py C1; c7_oneway V12 (Q3) |
+| H | H2tx between universes position 2's horizon holds the README at its own bit area, at the large end | **OPEN** | M1P2x | copy_p2.py C1; M1P2x not re-posed |
 | O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | -- | 270, 273, 276, 282; c1_oneway.py |
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
+| O | O1b no curvature singularity on the passage at the large end | **OPEN** | M1 | Figueras-Wiseman exterior (READ); interior not computed |
+| O | O1c every causal route of the passage complete at the large end | **OPEN** | M1 | interior not computed (356) |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
 | O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | derived | WRITEs | o3_hold.py |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | **OPEN** | WRITE ARRIVAL | o3_write (the record's) |
 | Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
-| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading | proved | M1s M1 | rows_small.py, passage5d.py |
-| Z | Z2r our leg's integral within the reach equals the plane's reading | proved | M1s M1 | rows_small.py, coin.py |
+| Z | Z1ts along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the small end | proved | M1s | rows_small.py |
+| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the large end | **OPEN** | M1 | passage5d.py P2 (the record's, eq. (17)) |
+| Z | Z2rs our leg's integral within the reach equals the plane's reading, at the small end | proved | M1s | rows_small.py |
+| Z | Z2r our leg's integral within the reach equals the plane's reading, at the large end | **OPEN** | M1 | passage5d.py P3, coin.py (the record's, eq. (17)) |
 | Z | Z3a NEC never violated away from the corridor, through today | derived | -- | b1_matter.py, pointwise.py |
 | Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1s | pair_math.py, readings.py |
 | Z | Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | z3b_cypher, two_sided (the record's) |
 | Z | Z3c the plane's dark energy has w >= -1 at every epoch the theory controls | derived | -- | nature_rows.py |
 | B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
-| B | B2t its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s M1 | localized_hole.py, localbulk.py |
+| B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
+| B | B2t its instance beneath the corridor at the large end: the large hole's bulk | **OPEN** | M1 | Figueras-Wiseman (READ, C3); localbulk.py L3-L4 |
 | B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); M-PLANCK-ENDS |
 | B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's) |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
 | B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D18 (351-355); M-PLANCK-ENDS |
 | B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's) |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
-| B | B5c position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285) | derived | -- | e_positive.py |
+| B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | derived | -- | e_positive.py E7 |
+| B | B5c position 2's positivity where it bears, at the large end | **OPEN** | M1P2x | E7 fails at this end (356); tau_share +sigma/2 with M1P2x |
 | B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | -- | b5p_cypher.py, pointwise.py |
 | B | B5px between universes position 2's matter meets B5'a's condition | derived | -- | theorem_p2.py, pointwise.py |
 | B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b) | derived | -- | pointwise.py |
 | B | B6 k's ratio fixed by the work, k_R = k_L/2 (200 (1)) | proved | -- | b6_once.py, b6_k.py |
 | B | B6' k's scale: our universe is defined by its plane's tension and its dark-energy offset (201) | definition | -- | sigma_defines.py, nature_rows.py |
 | B | B8 the bulk's law is Einstein's exactly: the Gauss-Bonnet coupling is zero | proved | -- | gb_cone.py, gb_alpha.py, relativity.py |
-| B | B7 formation: before the opening the positions are joined through the bulk with no horizons | derived | WRITE ARRIVAL CLOSE | b7_formation.py |
+| B | B7 formation: before the opening the positions are joined through the bulk with no horizons | derived | -- | b7_formation.py |
 | I | I1 the passage is N bits of entanglement | derived | -- | axioms.py |
 | I | I2 the README's N bits within the capacity bound as READ | proved | -- | i2_capacity.py |
-| E | E1u within one universe, our E holds our face and returns to our universe as radiation -- no influence back | derived | -- | 336; close_small.py K5, K9 |
-| E | E2u within one universe, position 2's face releases its own energy at its closing | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
-| E | E1x between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses | derived | -- | 336; 240; close_small.py K9 |
-| E | E2x between universes, position 2's face releases position 2's own energy at its closing, which the build uses | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
+| E | E1us within one universe, our E holds our face and returns to our universe as radiation -- no influence back, at the small end | derived | -- | 336; close_small.py K5, K9 |
+| E | E1u within one universe, our E returns to our universe as radiation -- no influence back, at the large end | **OPEN** | CLOSE | 336 (yours); CLOSE not computed |
+| E | E2us within one universe, position 2's face releases its own energy at its closing, at the small end | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
+| E | E2u within one universe, position 2's face releases its own energy at its closing, at the large end | **OPEN** | CLOSE | 110, 111 (a), 240 (yours); CLOSE not computed |
+| E | E1xs between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses, at the small end | derived | -- | 336; 240; close_small.py K9 |
+| E | E1x between universes, nothing of our E crosses; the README crosses, at the large end | **OPEN** | CLOSE | 336, 240 (yours); CLOSE not computed |
+| E | E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build uses, at the small end | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
+| E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | **OPEN** | CLOSE | 110, 111 (a), 240 (yours); CLOSE not computed |
 | E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | derived | -- | ledger.py |
-| E | E4r the field energy outside the neck within the reach | proved | M1s M1 | rows_small.py, ledger.py |
+| E | E4rs the field energy outside the neck within the reach, at the small end | proved | M1s | rows_small.py |
+| E | E4r the field energy outside the neck within the reach, at the large end | **OPEN** | M1 | ledger.py E4 (the record's, eq. (17)) |
 | R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
 | R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146 |
 | R | R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws govern | definition | -- | items 148, 240, 285 |
@@ -236,8 +274,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
-| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355; derived 354 |
-| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | derived | -- | far_large.py L0-L11 (350-355); verified 355; derived 354 |
+| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355 |
+| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | derived | -- | far_large.py L0-L11 (350-355); verified 355 |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
@@ -247,7 +285,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-66 rows, 52 lemmas and 14 inputs: 20 proved, 27 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN.
+78 rows, 64 lemmas and 14 inputs: 20 proved, 27 derived, 3 under a named reading of the board's, 5 definitions, 23 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -379,6 +417,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   from shrinking under positive energy.
 - **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL. *Item 350: FAR at the large
   end is worked and seated as a reading (below); it was never on this list, which counted the record's rows.*
+  - *Item 356: B3 and B4d belong on this list too, and twelve more rows join it: the large halves of Z1t, Z2r, E4r, B2t,
+    H2tx, B5c, E1u, E1x, E2u and E2x, and O1b and O1c, entered. Twenty-one OPEN in all, to be re-posed on C3's large
+    brane hole, M1 first.*
 - **After the current board is cleared (item 344): SOURCE.** The README is written on our plane, so its source is a
   gas of the plane's fields, not null dust. Defining how that gas comes in onto the face is part of the warp travel
   theorem. It is worked once every other row is decided, so that the completed theorem names what it must supply.
@@ -2750,6 +2791,10 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   4 bearing on no current row, 4 through SOURCEs. Garriga and Tanaka's RS-gauge field is derived in closed form at every
   depth (A = 4m/(3d), C = 2m(2Z² + u²)/(3d³), h₅₅ = 0), and the README's exact linear field from their eq. (11), mode by
   mode. FARs and FAR become derived (66 rows: 27 derived, 3 readings, 11 OPEN).
+- **356.** You asked for the open objects and every reading proved. The rows whose large half was never re-posed are
+  split by end (Z1t, Z2r, E4r, B2t, H2tx, B5c, E1u, E1x, E2u, E2x), O1b and O1c are entered at the large end, and G1, G3
+  and H2tu rest on C3 there. RGAS is proved (`readings.py` Q31): 28 readings proved, 3 left, each a model of how the
+  README comes in, SOURCEs's question (78 rows: 27 derived, 3 readings, 23 OPEN).
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.
