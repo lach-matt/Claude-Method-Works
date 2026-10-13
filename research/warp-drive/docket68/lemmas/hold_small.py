@@ -52,6 +52,12 @@ eternal bridge (C1); put to M with it.  Kept as written.]
      outlived by 4e9 -- M, item 260: "The write's clock count is still the record's 4D derivation. Redoing it at the
      small end belongs to the WRITE row."  The record's write in its own 4D clock, 1.3e-31 s, is printed for
      comparison.]
+     [Item 338 (with item 340), seated after C8's verdict (its verifier loaded this file): on reading (ii), which 340's
+     math gives (arrival_small V11), the hole is completed at the README's arrival, compact within 4.79 clocks, and the
+     lifetime bounds that completed hole -- 8.57e14 clocks against the README's crossing and fall, 4.79 + 1 clocks,
+     1.48e14 times (c8_level V10); the write's 66,980 clocks are the README's approach, before the face. The verifier's
+     most serious note stands and is now the case: the hole is formed by collapse, its second exterior position 2's
+     through the bounce (273), not an eternal manifold's.]
 
 What this does not show.
   - Species beyond the Standard Model (H-SPECIES-FINITE).  [First written "the evaporation's greybody factors ...;

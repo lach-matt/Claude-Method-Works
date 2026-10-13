@@ -38,6 +38,14 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      vacuum's basin, quantum states read under 120 (pointwise P7; b5a_residue's item-339 note on A2). Since item 336
      (M-ENERGY-STAYS) the energy at position 2's face is position 2's own, the one value read from two sides, so "the
      README supplies it" is stale wording; E7's figures stand.]
+     [Item 341, the C8 verifier's report (CONFIRMED with qualifications, nothing refuted), (Q4) and (Q10): the
+     G5-reading figures here and in V5 (c)/V6 rest on two conventions. This note holds sigma fixed while E moves as
+     g^(-1/3) (g = G5/(G ell)), which gives R = 1.93e-15 and 2.18e-15 m; V5 (c) moved only r_h inside J1's logarithm,
+     whose prefactor (10/pi)(r_h/ell) has G5 = G ell built into E. With sigma fixed the open period is 33.06 and 34.53
+     clocks, the bound at most e^34.53 = 9.9e14; with sigma = 3 c^4/(4 pi G5 ell) it is 33.47 and 33.83 clocks but R =
+     2.21e-15 and 1.73e-15 m (V10, computed). The record does not fix how sigma moves with G5, and every conclusion
+     stands under both, the margins 65 and 27 orders. And E ~ g^(-1/3) is c7_oneway V12 (Q2)'s computation, not 319
+     (Q2)'s text.]
   V2 (computed; the cypher, roster 1173, audited) C8's index under 275.  m1p2x_oneway O5 populated 16 cells over
      (s2, s_in, apart, m2); 275 leaves apart = 0, 8 cells.  The key cell -- position 2's plane at 139 (1)'s -sigma/4,
      the object's interior at our tension, position 2's own matter emerging -- holds all five properties (keeps139,
@@ -63,6 +71,9 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      begin at the opening (O3; 270 (c)); the eternal manifold's falling jump (O2b) lies on position 2's future horizon,
      which the glued object does not have, and O2b's dependence on the interior's continuation is closed by 273's
      bounce.  No slice crossing, bifurcation sphere, past interior or throat enters O3-O5 or this instrument.
+     [Item 341 (Q7): "no ... past interior" is overstated -- position 2's white-hole interior is the Kruskal past
+     interior, the s_in side of position 2's face. What is absent is its border with our exterior (V = 0, U < 0): no
+     past interior facing us.]
   V5 (deduced; READ where marked) The owed items of 272, closed one-way.  (a) The white-hole blueshift, as the C7
      verifier left it (319 (Q1); c7_oneway V12 (Q1)): no future causal curve from position 2's exterior reaches its
      white-hole face, but that is true of every white hole and does not exclude the threat, which rides on position-2
@@ -90,6 +101,22 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      and position 2's face still closes within 33.6 of its clocks (c_junction J1), releasing position 2's own energy
      (110, 111 (a), 240). (d) stays conditional on reading (i), the hole standing at its size through the write (264
      (1)), which the ARRIVAL row's reading (ii) bears on.]
+     [Item 341, the C8 verifier's (Q1), (Q3), (Q8), (Q9), (Q10) on V5. (a) (Q3): its bound comes from c_junction J5 (the
+     bath onto the face's sphere) and J2 (Barcelo's 0.28 E), which item 277 (3) and c_junction's item-277 note marked a
+     passage from position 2 into the corridor; the C7 verifier's critic re-admitted J5's bound under 240 (319), as an
+     upper bound on what rays hugging the face, never crossing it, deliver to what emerges, and 330 seated it -- a board
+     reading, not M's. Barcelo's 0.28 M (their eq. (25)) is a threshold on accreted, unblueshifted mass for white-hole
+     horizons lasting about 2 r_s; at the 33.6-e-fold face their eqs. (17) and (20) give about 1e-15 E, and the
+     unblueshifted bath, 9.1e-72 to 1.1e-33 J, sits 65 and 27 orders below that, the same margins. (b) (Q9): "every
+     classical ray keeping 183" is pair_math P2's uncorrected wording; its item-319 note corrects it -- classical
+     segments keep net >= 0, zero only on vacuum segments, and a ray crossing the README carries net > 0. (c) (Q4): see
+     V1's item-341 note and V10. (d) (Q1): closed on reading (i), as stated; and since item 340 the board reads the
+     arrival as reading (ii), compact (arrival_small V11): our face forms as the README arrives and stands the hole's
+     life, 8.57e14 clocks, against the README's crossing within 4.79 clocks and its fall within one -- 1.48e14 times
+     (V10, computed) -- the hole the evaporating one formed by the README's collapse, its second exterior position 2's
+     through the bounce (273), not an eternal manifold's. So (d) closes on both readings. (e) (Q8): "supplied there by
+     the README" is stale since 336 -- the energy at position 2's face is position 2's own (V1's item-339 note). And the
+     item-336 note's "releasing position 2's own energy" is 336 (a), the board's reading (Q10).]
   V6 (deduced) The verifications that bear on C8.  The C4 verifier's (1): a body crossing a t-independent core leaves
      by the map's image of the second exterior; the README leaves by position 2's face as the construction's time
      symmetry (c5_oneway U12 (Q3)), which is O4's "what emerges is the README" -- conditional on a quantum region of
@@ -100,6 +127,9 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      pairing withdrawn, the negative the quantum region's (318); Q7: the gluing map forced on the one chart; Q8: warp
      order enters at O(r_h/ell) = 8.0e-16, C8 being a flat-order claim like C5 and C7 -- 9.2e-16 and 6.4e-16 under the
      G5 readings (computed), r_h moving as (G5/G ell)^(1/3).
+     [Item 341 (Q10): "each plane reads its own horizon" is 226's and 330's (M-P2-OWN-G), not 240's, which is about
+     mass; and the two faces' unequal durations beside the construction's time symmetry rest on c_junction J3's
+     H-ASYMMETRIC-BOUNCE, the board's, named now.]
   V7 (computed; deduced) Items 320-328.  Position 2's offset (322) adds to its plane's tension: x+ = 2.625e-10 J/m^3
      against sigma/4 = 3.7e52 J/m^3 at the example, a ratio of 7.1e-63 (computed), so s2 stays -sigma/4 to that order
      and V3's signs stand.  The pointwise condition (320, pointwise.py) is what z_net's emerging matter meets.  The
@@ -118,6 +148,11 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      1.9e-69 J/m^3, its series d1/2 - 3 d1^2/(2 sigma) + ... truncated; and p2_assume Q5's "C1 is constant" omits our
      bulk's normal stress at our sheet (the item-339 notes there and in p2_offset). The verifier found no effect on x+,
      and V7 uses x+ only to keep s2 at -sigma/4, which any |x+| far below sigma/4 does (deduced).]
+     [Item 341 (Q6): the item-339 note's "the quadratic's root to 1.9e-69 J/m^3" is wrong -- the root is d1/2 - 2.79e-72
+     J/m^3, that is 3 d1^2/(2 sigma), the series' second term, and the two-term series is exact to 6 d1^3/sigma^2 =
+     4.0e-134 J/m^3 (V10, computed at 200 digits); 1.9e-69 came from 339 (Q7)'s report, an exponent slip for d1^2/sigma
+     = 1.86e-72. Nothing turns on it. (Q10): "the pointwise condition" carries 339 (Q4)'s scope, as V1's item-339 note
+     does -- the null condition classically for every V, rho >= 0 inside the offset's basin, quantum states under 120.]
   V8 (computed) C8's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the attributes the construction's choices -- position 2's tension (139 (1)'s -1/4, or any other: -1/8,
      -10, -1/100, +1/2) and its matter (the README, or any other: 1/2, 20, 0, 1/10, 1/5) -- and each clause of C8 that
@@ -137,12 +172,30 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      and z_net each come back 1 in 60 of 96 codings and refused in 36, at orders 2 and 3, and the conjunction "both" in
      24, 1 in 36 and refused in 36 at order 2, 1 in 60 and refused in 36 at order 3, as 310 (4) found for C4. "Adding
      nothing to V2-V3" stands.]
+     [Item 341 (Q5): the item-339 note's "each 1 is statistics' read-back of the t = 1 row" holds for rising and is
+     wrong for z_net (F18): there what excludes 0 is the m = 1 column, (0, 1) = {1}, the README's survival built in
+     (300) -- set (1, 0) to {0} and z_net still returns 1 at order 2; set (0, 1) to {0} or {0, 1} and it returns "both".
+     Entering 0 at M's class returns "both" or refused, not 0. The note's counts stand.]
   V9 (deduced) The row, one way.  At the small end, on the glued one-way object: position 2's plane at 139 (1)'s
      -sigma/4, coincident with ours everywhere (275); the object's interior at our tension, so no junction on our face;
      the one junction on position 2's white-hole face, rising from the opening on every reading of position 2's side
      (V3); position 2's matter -- the README -- emerging at that face and carrying it past sigma/4 where the rays cross
      (V1, 284); every owed item closed one-way (V5); at flat order, warp order entering at 8.0e-16 (V6).  It rests on 139
      (1)'s tensions, 273, 275 and 276, and on the verified C4, C5 and C7 for the figures V5 imports.
+     [Item 341, the C8 verifier's (Q1), (Q2), (Q8), residue under 314. (Q1) "every owed item closed one-way (V5)" drops
+     (d)'s condition: (d) closes on reading (i) (264 (1)), and on reading (ii) since 340 (V5's item-341 note). (Q2) The
+     row rests also on 226 with M-P2-OWN-G (330); on 284 and 285; on 291 and 300; on 240; on 264 (1); on 318; on 334 and
+     336; on 320-328 with 332 and 337; on 310 (7) with b5a_residue A1 and A6, and B5a as verified at 339; on c_junction
+     J1's use of m1p2x_fifth F1 (304); and on the board's readings 270 (a)-(c), 273 (a), 275 (a), 284 (a), 319's
+     re-reading of J5 and 336 (a). (Q8) "the README ... carrying it past sigma/4" is stale since 336: the energy at
+     position 2's face is position 2's own.]
+  V10 (item 341; computed) The C8 verifier's figures, computed here. (a) J1's open period under the G5 readings g =
+     G5/(G ell) = 3/2, 1/2, with sigma fixed (V1's convention): ln(1 + (pi/10)(ell/r_h)/g), r_h ~ g^(1/3) -- 33.06 and
+     34.53 clocks, the bound at most e^34.53 = 9.9e14; with sigma = 3 c^4/(4 pi G5 ell) the record's 33.47 and 33.83,
+     and E7's R as g^(2/9), 2.21e-15 and 1.73e-15 m. (b) x+ as the root of 4 x^2 + (4 d1 + 2 sigma) x - sigma d1 = 0 at
+     200 digits: d1/2 - x+ = 2.79e-72 J/m^3 = 3 d1^2/(2 sigma), the two-term series exact to 4.0e-134. (c) V5 (d) on
+     reading (ii) (340): the hole's life, 8.57e14 clocks, against the README's crossing and fall, 4.79 + 1 clocks
+     (arrival_small V2; hold_small L1, L5) -- 1.48e14 times.
 
 What C8 does not claim -- each left out with its reason, none open in it (314).
   - The quantum region's own form: 273's, realized classically by c4_residue R6's core (o1c_oneway Z3).
@@ -151,6 +204,8 @@ What C8 does not claim -- each left out with its reason, none open in it (314).
   - How the bits rebuild and the room they take: the ARRIVAL row (284 (d), 285 (d)).
   - Corrections beyond flat order (V6), and the large end.
   - The bulk away from the face: B5a's (A3) and position 2's own (202).
+  - [Item 341 (Q1)] Position 2's ambient fields beyond the blackbody bound: their variances are position 2's (240),
+    which V5 (a) leaves out inline.
 
 Imports m1p2x_oneway.py (and through it m1p2x_index.py), e_positive.py, c4_residue.py (its population machinery) and
 index_audit.py by path.  Stdlib + sympy.  python3 c8_level.py [--selftest | --mutants]
@@ -316,10 +371,30 @@ def v8():
     return res
 
 
+def v10(quarter):
+    """item 341: the C8 verifier's figures -- the open period under both G5 conventions, x+ exactly, V5 (d) on (ii)"""
+    rh_ell = 8.02117e-16
+    conv = {}
+    for g in (1.5, 0.5):
+        r = rh_ell * g ** (1 / 3)
+        fixed = r if MUT.get("v10_only_rh") else r * g            # the mutant: only r_h moved, sigma's G5 dropped
+        conv[g] = dict(sigma_fixed=math.log(1 + (math.pi / 10) / fixed), sigma_g5=math.log(1 + (math.pi / 10) / r),
+                       R_sigma_g5=2.0211e-15 * g ** (2 / 9))
+    sig = sp.Float(4 * quarter, 200)
+    d1 = sp.Float("5.25e-10", 200)
+    bq = 4 * d1 + 2 * sig
+    x = 2 * sig * d1 / (bq + sp.sqrt(bq ** 2 + 16 * sig * d1))      # the root, in the form free of cancellation
+    gap = sp.N(d1 / 2 - x, 30)
+    series = sp.N(d1 / 2 - 3 * d1 ** 2 / (2 * sig) - x, 30)
+    life, crossing = 8.57e14, 4.7857 + 1.0                          # hold_small L5; arrival_small V2, hold_small L1
+    return dict(conv=conv, gap=float(gap), second=float(3 * d1 ** 2 / (2 * sig)), series=abs(float(series)),
+                ratio=life / crossing)
+
+
 def compute():
     a = v1()
     b = v2()
-    return dict(v1=a, v2=b, v3=v3(b["law"]), v7=v7(a["quarter"]), v8=v8(), g5=g5_readings())
+    return dict(v1=a, v2=b, v3=v3(b["law"]), v7=v7(a["quarter"]), v8=v8(), g5=g5_readings(), v10=v10(a["quarter"]))
 
 
 def report(o):
@@ -379,6 +454,14 @@ def checks(o):
         and e["z_net"]["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
         and all(e[c]["out"][k] == ones and not e[c]["flagged"] for c in ("rising", "z_net") for k in (2, 3))
         and e["join"] == 1 and e["conjunction"]["out"][2] != ones)
+    q = o["v10"]
+    add("V10 (item 341) J1's open period with sigma fixed 33.06 and 34.53 clocks (bound < 1e15), with sigma's G5 33.47 "
+        "and 33.83; d1/2 - x+ = 3 d1^2/(2 sigma) = 2.79e-72 J/m^3, the two-term series exact to < 1e-133; V5 (d) on "
+        "reading (ii): the life 1.48e14 times the crossing",
+        [round(q["conv"][g]["sigma_fixed"], 2) for g in (1.5, 0.5)] == [33.06, 34.53]
+        and [round(q["conv"][g]["sigma_g5"], 2) for g in (1.5, 0.5)] == [33.47, 33.83]
+        and math.exp(q["conv"][0.5]["sigma_fixed"]) < 1e15 and abs(q["gap"] / 2.790235e-72 - 1) < 1e-5
+        and abs(q["gap"] / q["second"] - 1) < 1e-9 and q["series"] < 1e-133 and q["ratio"] > 1e14)
     return res
 
 
@@ -386,7 +469,8 @@ MUTANTS = {"slab_kept": "275 not applied: e_positive's slab rows kept (V1)",
            "apart_kept": "275 not applied: C8's separated plane kept (V2)",
            "side_as_full": "position 2's side total read as the full 5 sigma/4 instead of S1 + 2 S2 (V3)",
            "v8_readme_can_fail": "the README's class allowed to fail the clause (V8)",
-           "g5_ignored": "the 2 : 1 bulk's G5 readings not carried into the figures (V5-V6; 310, 319 (Q2))"}
+           "g5_ignored": "the 2 : 1 bulk's G5 readings not carried into the figures (V5-V6; 310, 319 (Q2))",
+           "v10_only_rh": "J1's open period with only r_h moved under sigma fixed (V10, item 341 (Q4))"}
 
 
 def selftest():

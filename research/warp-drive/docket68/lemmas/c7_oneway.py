@@ -164,6 +164,11 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      (2/pi)(G5/G)/r_h and E4r-s, their ratio -2/3 -- as g^(+2/3): 1.04e15 N and -6.93e14 E at (3/2) G ell, 5.00e14 N and
      -3.33e14 E at G ell/2 (computed).  K2's 33.6 clocks, ln(1 + (pi/10)(ell/r_h)), moves to 33.47 and 33.83 (computed);
      its finiteness is unaffected.  E moves as g^(-1/3), as stated.
+     [Item 341 (the C8 verifier's (Q4), outside C8): "K2's 33.6 clocks ... moves to 33.47 and 33.83" moves only r_h
+     inside the logarithm, whose prefactor (pi/10)(ell/r_h) has G5 = G ell built into E. With sigma fixed and E as
+     g^(-1/3), as stated here, the prefactor carries 1/g as well -- 33.06 and 34.53 clocks, the bound e^34.53 = 9.9e14;
+     with sigma = 3 c^4/(4 pi G5 ell), 33.47 and 33.83 stand (c8_level V10, computed). The record does not fix how sigma
+     moves with G5; the finiteness is unaffected either way.]
      (Q3) C7's position-2 statements -- V2's face and its 33.6 clocks, V3's trace, V4's emergence, V9 (4)'s image -- are
      claims about the construction's single chart, where the map (U, V) -> (-U, -V) fixes one r_h on both faces and V2's
      identity then fixes position 2's l5 at ours (deduced).  Under 240 what carries to position 2's own laws is the

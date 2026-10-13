@@ -75,6 +75,11 @@ First headed "... not verified by a separate session ...".
      With the same Z in the evaporation (life as 1/Z, floor as Z^(-1/3)) the head, V2, V4 and V5 fit at every Z --
      the head's floor reaches zero first (computed over Z to 3.2e16; V2, V4, V5 lie below the head) -- and V3 only for
      Z < 6.8e12 (S5).]
+     [Item 338 (with item 340), seated after C8's verdict (its verifier loaded this file through hold_small): reading
+     (ii) is computed -- arrival_small V1-V5: the README's own E forms the face, one E, so reading (i)'s 2E does not
+     arise; this floor carries unchanged, its 66,980 clocks the README's approach in our exterior and the arrival onto
+     the face compact, within 4.79 clocks. On 340's "for the math", with M's guess A, the math gives reading (ii),
+     compact (arrival_small V11), the board's reading.]
 
 What this does not show.
   - Whether the hole stands before the README arrives (items 162, 163: fixed size, one whole) or forms as it arrives

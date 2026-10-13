@@ -30,6 +30,11 @@ one-way re-closure is i_oneway.py.]
      different exteriors whose Killing times are joined only through the quantum region (m1p2x_oneway O1).  A strictly
      time-symmetric bounce (Haggard and Rovelli's) would open position 2's white hole for as long as our hold: J1's
      junction would outweigh the README e^66980-fold and J2's instability would close it.
+     [Item 338 (with item 340), seated after C8's verdict (its verifier loaded this file): since 336 our face stands the
+     hole's life, 8.57e14 clocks; since 340 the board reads the README's arrival as compact, within 4.79 clocks
+     (arrival_small V2, V11), so even a bounce that kept the span would carry the README's crossing within position 2's
+     33.6-clock open period -- the asymmetry is not needed for the crossing (arrival_small V8 (3)). It stays for the
+     faces' durations, ours the life and position 2's at most 33.6 clocks (the board's, named at 341 (Q10)).]
   J4 (computed) The junction's ends.  Start: position 2's face opens where the quantum region releases the white
      hole; any mu_0 >= 0 serves, the junction only rising.  End: the closing, within J1's 33.6 clocks; at J2's short
      duration (about two clocks) the junction's seen energy is (10/pi)(r_h/ell)(e^2 - 1) E~ E = 1.6e-14 E~ E -- what
@@ -41,6 +46,12 @@ one-way re-closure is i_oneway.py.]
      which took the face open for the write's floor.  J2's short-scale threshold is an inflow of 0.28 E; position 2's
      ambient radiation onto the face's sphere over the open period, as blackbody flux, is 9.1e-72 J at 3 K and 1.1e-33 J
      at 1e10 K -- 80 and 41 orders of magnitude below it at the example (E = 1.281e9 J; clock 3.74e-29 s).
+     [Item 341 (the C8 verifier's (Q3)): J5's inflow was marked at item 277 a passage from position 2 into the corridor
+     (this file's item-277 note); the C7 verifier's critic re-admitted its bound at 319, as what rays hugging the face,
+     never crossing it, could deliver to what emerges, and 330 seated it -- a board reading, not M's. Barcelo's 0.28 M
+     (their eq. (25)) is a threshold for white-hole horizons lasting about 2 r_s; at the 33.6-e-fold face their eqs.
+     (17) and (20) give about 1e-15 E, which the unblueshifted bath still clears by 65 and 27 orders. Under the G5
+     readings with sigma fixed the bound is e^34.53 = 9.9e14 (c8_level V10).]
 
 What this does not show.
   - The asymmetric bounce as a metric (J3 names it); the quantum region's near-horizon part (b_bounce Q6).

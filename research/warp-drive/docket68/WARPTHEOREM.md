@@ -163,9 +163,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 
 ## The work left now (item 331)
 
-- **Queued for verification, one at a time (329, 330):** C8 next. O1c one-way is verified (item 337), and B5a one-way
-  (item 339).
-  `verify_ledger.py` is the gate, and it is clean.
+- **Verification queue (329, 330): empty.** O1c one-way is verified (item 337), B5a one-way (item 339) and C8 one-way
+  (item 341). `verify_ledger.py` stays the gate for the next object sent, and it is clean.
 - **OPEN at the small end:**
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
     region.
@@ -2304,7 +2303,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–340: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–341: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2432,6 +2431,18 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   - A compact arrival changes the face's size over at most 5.39 clocks, 8.0e-5 of the write (162 and 163).
   - `write_cypher.py` W5 (b) gets a note: the face stands from the README's arrival through the life. ARRIVALs stays a
     reading, now on 340.
+- **341, C8 one-way verified** (CONFIRMED with qualifications, nothing refuted). The verifier re-derived every computed
+  statement with its own code. It read Barcelo–Carballo-Rubio–Garay and Haggard–Rovelli in the pages it names.
+  - Two qualifications were residue. V5 (d) was closed only on reading (i) (Q1), and V9's dependencies were unnamed
+    (Q2). Both are seated. A new entry, V10, closes (d) on reading (ii) since 340: the hole lives 1.48e14 times the
+    README's crossing.
+  - (Q4): the figures under the G5 readings mixed two conventions for sigma. With sigma fixed, the open period is
+    33.06 and 34.53 clocks, not 33.47 and 33.83. Every conclusion stands under both conventions.
+  - (Q6): the figure "1.9e-69" was wrong, an exponent slip in 339 (Q7)'s report. The root sits 2.79e-72 J/m^3 below
+    d1/2, and the two-term series is exact to 4.0e-134. It is corrected in the three notes that carried it.
+  - The rest are wording and pointers. All ten are seated in `c8_level.py`, with V10's check and a mutant.
+  - The three ARRIVAL notes owed since 338 are seated: `c_junction.py` J3, `write_small.py` S4 and `hold_small.py`
+    L4. The verification queue is empty.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

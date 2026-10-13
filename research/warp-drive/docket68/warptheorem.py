@@ -452,8 +452,8 @@ LEMMAS_NOW = [
     ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'OPEN',
      "the record's (m1_bulk, d_minus): the kink-carrying bulk under eq. (17)'s reading, 203, (e)"),
     ('N', "M1P2xs position 2's side at the small end, on the one-way object", 'PROVED',
-     ("lemmas/c8_level.py V0-V9 (275-330; finalized 330; B5a's verdict carried, 339; at its verifier next); "
-      "m1p2x_oneway kept as written")),
+     ("lemmas/c8_level.py V0-V10 (275-341; finalized 330; verified, CONFIRMED with qualifications (341); V5 (d) on "
+      "both readings of the arrival, V10); m1p2x_oneway kept as written")),
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
      "the record's (m1p2_cypher, m1p2_junction, theorem_p2)"),
     ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166', 'OPEN',

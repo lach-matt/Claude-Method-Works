@@ -82,6 +82,10 @@ separate session; not seated); 2026-10-12.
      five-dimensional coupling, which holds for 139 (1)'s plane as derived (339 (Q5)); A1's side total needs none
      (b5a_residue A6). And x+ = 2.625e-10 J/m^3 is the quadratic's root to 1.9e-69 J/m^3, d1/2 - 3 d1^2/(2 sigma) + ...
      its truncated series (339 (Q7)).]
+     [Item 341 (the C8 verifier's (Q6), outside C8): "the quadratic's root to 1.9e-69 J/m^3" is wrong -- the root is
+     d1/2 - 2.79e-72 J/m^3, 3 d1^2/(2 sigma), and the two-term series is exact to 6 d1^3/sigma^2 = 4.0e-134 J/m^3
+     (c8_level V10, computed at 200 digits); 339 (Q7)'s 1.9e-69 was an exponent slip for d1^2/sigma = 1.86e-72. Nothing
+     turns on it.]
   V6 (deduced) The answer.  139 (1)'s plane's offset is x+ = 2.625e-10 J/m^3 (d1/2 to one part in 10^62), positive,
      position 2's own vacuum energy (226) fixed by ours through the one induced metric -- a de Sitter offset of (1.88
      meV)^4 against our (2.24 meV)^4.  B5a holds: A2's bound, -3.7e52 J/m^3, is negative and 62 orders larger in size.

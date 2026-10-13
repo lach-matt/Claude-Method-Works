@@ -85,6 +85,10 @@ note -- its notes are headed "Item 282 (c), under 316". (Q5)'s open point is clo
      "Exactly" in the item-332 and 323-328 notes is on Lovelock's premises, as the item-337 note says. Code-only, from
      the same report: a2 enters J2's offset as d1 + d2 where J2's split gives tau d1 + d2, the strictest bound either
      way unchanged.]
+     [Item 341 (the C8 verifier's (Q6), outside C8): the item-339 note's "the difference 1.9e-69 J/m^3" is wrong -- the
+     root is d1/2 - 2.79e-72 J/m^3, 3 d1^2/(2 sigma), and the two-term series is exact to 6 d1^3/sigma^2 = 4.0e-134
+     J/m^3 (c8_level V10, computed at 200 digits); 339 (Q7)'s 1.9e-69 was an exponent slip for d1^2/sigma = 1.86e-72.
+     Nothing turns on it.]
   A3 (computed, exact; READ where marked; deduced where marked) The one-way reading on one induced metric (310's note).
      On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our lone plane's,
      H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 =
