@@ -238,6 +238,20 @@ goes to M; the board does not rule on M's meaning.
      fortiori on the side total (read in the file, checked).  The protocols decide how the calculator is asked (P7-P20);
      its agreement is the standing check beside the proof -- every question through the calculator or stated NOT-RUN --
      not a premise of it.  The register's M1s row rests on m1_small and c4_oneway, both verified (269, 310).
+  Q29 (computed, exact; READ; deduced) RSHELL -- the README as Haggard and Rovelli's thin null shell (O1cs, O1bs) --
+     carries no weight beyond RDUST, the README as radial null dust: the thin shell is that model's step profile, and
+     O1c's conclusions hold on every profile. Computed, on the ingoing Vaidya form -(1 - mu(v)/r^2) dv^2 + 2 dv dr + r^2
+     dOmega_3^2 with mu(v) arbitrary: the Ricci tensor is R_vv = (3/2) mu'/r^3 alone, so R = R_ab R^ab = 0, and the
+     Kretschmann scalar is exactly 72 mu^2/r^8, with no term in mu'. The README's energy is positive (ARRIVALs V1), so
+     mu' >= 0 and mu <= r_h^2: every profile's curvature is at most the finished hole's at the same r, and reaches the
+     five-dimensional Planck scale only at r_c = 72^(1/8) (r_h l5)^(1/2) = 7.09e-23 m, where 273's region begins (B4ds
+     D4). Deduced: the geodesic equations' coefficients are bounded away from r = 0 for bounded mu and mu' -- a step, the
+     thin shell, is crossed with the metric continuous (Barrabes and Israel, as o1c_oneway Z2b READs them) -- so a causal
+     geodesic can end only by reaching r_c, the quantum region, complete by 273. And Z2b's causal argument -- v never
+     decreasing along a future causal curve, the region the README has not yet swept the undisturbed bulk -- holds for
+     any converging matter, as o1c_oneway's item-337 note records (Z8 (Q2), (Q7), (Q8)): "Z2b's causal argument needs
+     neither". So the shell carries nothing RDUST does not; the README's true form, a gas of our plane's fields (344), is
+     SOURCEs's to define, and RSHELL goes through SOURCE with RDUST (M-SOURCE-LAST).
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -402,7 +416,7 @@ INVENTORY = (
     ("RBITS", 338, "H-BITS-WITH-ENERGY: the bits come in with the energy", "ARRIVALs", "model",
      "through SOURCE (M-SOURCE-LAST)"),
     ("RSHELL", 337, "the README as Haggard and Rovelli's thin null shell", "O1cs O1bs", "model",
-     "to prove: whether O1c's conclusions hold for any README matter inside the region; else through SOURCE"),
+     "no weight beyond RDUST (Q29); through SOURCE with it (M-SOURCE-LAST)"),
     ("RHOLE", 349, "H-HOLE-IN-WARP: the hole's isotropic factor under the warp", "FARs", "form",
      "proved here (Q24)"),
     ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form", "proved here (Q23)"),
@@ -812,10 +826,43 @@ def q28():
                 row_ok="lemmas/m1_small.py (C4 verified, 269); lemmas/c4_oneway.py (C4 one-way verified, 310)" in row)
 
 
+# ---------------------------------------------------------------------------------- Q29 every null-dust profile
+def q29():
+    v, r, a, b, c = sp.symbols("v r theta1 theta2 theta3", positive=True)
+    mu = sp.Function("mu")(v, r) if MUT.get("mass_in_r") else sp.Function("mu")(v)    # the mutant: mu depends on r
+    X, n = [v, r, a, b, c], 5
+    g = sp.zeros(5)
+    g[0, 0], g[0, 1], g[1, 0] = -(1 - mu / r ** 2), 1, 1
+    g[2, 2], g[3, 3], g[4, 4] = r ** 2, r ** 2 * sp.sin(a) ** 2, r ** 2 * sp.sin(a) ** 2 * sp.sin(b) ** 2
+    gi = g.inv()
+    Gam = [[[sp.simplify(sum(gi[i, l] * (sp.diff(g[l, j], X[k]) + sp.diff(g[l, k], X[j]) - sp.diff(g[j, k], X[l]))
+                             for l in range(n)) / 2) for k in range(n)] for j in range(n)] for i in range(n)]
+
+    def riem(i, j, k, l):                                              # R^i_jkl
+        e = sp.diff(Gam[i][j][l], X[k]) - sp.diff(Gam[i][j][k], X[l])
+        return sp.simplify(e + sum(Gam[i][k][m] * Gam[m][j][l] - Gam[i][l][m] * Gam[m][j][k] for m in range(n)))
+    R = [[[[riem(i, j, k, l) for l in range(n)] for k in range(n)] for j in range(n)] for i in range(n)]
+    Ric = sp.Matrix(n, n, lambda j, l: sp.simplify(sum(R[i][j][i][l] for i in range(n))))
+    Rs = sp.simplify(sum(gi[j, l] * Ric[j, l] for j in range(n) for l in range(n)))
+    RR = sp.simplify(sum(Ric[i, j] * gi[i, p] * gi[j, q] * Ric[p, q] for i in range(n) for j in range(n)
+                         for p in range(n) for q in range(n)))
+    Rl = [[[[sp.simplify(sum(g[i, m] * R[m][j][k][l] for m in range(n))) for l in range(n)] for k in range(n)]
+           for j in range(n)] for i in range(n)]
+    nz = [(i, j, k, l) for i in range(n) for j in range(n) for k in range(n) for l in range(n) if Rl[i][j][k][l] != 0]
+    K = sp.simplify(sum(Rl[i][j][k][l] * sum(gi[i, p] * gi[j, q] * gi[k, s_] * gi[l, t] * Rl[p][q][s_][t]
+                                             for p, q, s_, t in nz) for i, j, k, l in nz))
+    others = [(i, j) for i in range(n) for j in range(n) if (i, j) != (0, 0) and Ric[i, j] != 0]
+    ricci_ok = not others and sp.simplify(Ric[0, 0] - sp.Rational(3, 2) * sp.diff(mu, v) / r ** 3) == 0
+    rc = 72 ** 0.125 * math.sqrt(1.12008e-20 * 1.53937e-25)           # where 72 mu^2/r^8 = l5^-4 at mu = r_h^2
+    z2b = "Z2b's causal argument needs neither" in _flat(os.path.join(HERE, "o1c_oneway.py"))
+    return dict(ricci_ok=ricci_ok, R0=Rs == 0 and RR == 0, K_ok=sp.simplify(K - 72 * mu ** 2 / r ** 8) == 0, rc=rc,
+                z2b=z2b)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27(), q28=q28())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27(), q28=q28(), q29=q29())
 
 
 def report(o):
@@ -869,6 +916,9 @@ def report(o):
     k = o["q28"]
     print("Q28 c4_oneway P1-P6 against the protocols: %s (P18 only beside P4's own reading: %s); P6's conclusion "
           "found: %s; M1s's row on m1_small and c4_oneway: %s" % (k["proto"], k["p18_beside"], k["concl"], k["row_ok"]))
+    q = o["q29"]
+    print("Q29 ingoing Vaidya, any mu(v): Ricci only R_vv = (3/2) mu'/r^3: %s; R = R_ab R^ab = 0: %s; K = 72 mu^2/r^8: "
+          "%s; Planckian at r_c = %.3g m for every profile" % (q["ricci_ok"], q["R0"], q["K_ok"], q["rc"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -947,9 +997,16 @@ def checks(o):
         "beside P4's own reading; P6 concludes M1 from P1-P5",
         k["proto"]["P13"] == k["proto"]["P17"] == k["proto"]["P20"] == 0 and k["proto"]["P18"] == 1
         and k["p18_beside"] and k["concl"] and k["row_ok"])
+    q = o["q29"]
+    add("Q29 RSHELL: on every radial null-dust profile mu(v) -- the thin shell one of them -- the Ricci tensor is "
+        "R_vv = (3/2) mu'/r^3 alone, its invariants zero, and K = 72 mu^2/r^8, Planckian only at r_c = 7.09e-23 m",
+        q["ricci_ok"] and q["R0"] and q["K_ok"] and "%.3g" % q["rc"] == "7.09e-23" and q["z2b"])
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
+    add("the inventory closed: no reading left to prove -- each proved, M's, bearing on no row's claim, or through "
+        "SOURCE (M-SOURCE-LAST)", all(not r[5].startswith("to prove") for r in INVENTORY)
+        and all(("Q" in r[5]) or "SOURCE" in r[5] or r[5].startswith("M's") for r in INVENTORY))
     return res
 
 
@@ -965,7 +1022,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)",
            "clock_weighs": "the life in seconds set against the floor in clocks (Q26)",
            "floor_fixed": "the write's floor held at the Standard Model's species while the life falls (Q27)",
-           "calc_premise": "c4_oneway's calculator runs P7-P13 read among M1s's premises (Q28)"}
+           "calc_premise": "c4_oneway's calculator runs P7-P13 read among M1s's premises (Q28)",
+           "mass_in_r": "the Vaidya mass taken to depend on r as well as v (Q29)"}
 
 
 def selftest():
