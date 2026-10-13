@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""arrival_small.py -- items 338, 340, 343: the ARRIVAL row at the family's small end, on the one-way object. M:
+"""arrival_small.py -- items 338, 340, 343, 344: the ARRIVAL row at the family's small end, on the one-way object. M:
 "Continue" (to the board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then ARRIVAL
 and FAR, with B3 and B4d resting on them). The row: "the README forms the corridor as it comes in (198, M's guess); how
 the bits rebuild and take their room" (284 (d), 285 (d)). Its first half was computed only at the large end, in four
@@ -173,6 +173,26 @@ seated); 2026-10-13.
      X3, bulk5_index's five-dimensional couplings and pointwise; on the board's H-BITS-WITH-ENERGY, H-BITS-ARE-STATES
      and H-FREE-GAS; and on the board's readings -- the fine count of 136 (5), 240 (b) governing the faces' radii, and
      340's compact arrival.
+  V13 (item 344; computed where marked; deduced) What the accounting before the hand-off found bearing (330,
+     verify_ledger): earlier corrections that bear on ARRIVAL and were not yet written here -- ten of the ledger's rows,
+     in five findings, (1)-(5) -- and M's 344, (6). (1) The floor is the write's least time (267 (Q6)): 66,980 clocks is
+     the least the approach takes, so a compact arrival's span is at most 8.0e-5 of the write (V11), and V10's "the
+     write's 66,980 clocks are the approach" means at least that long. (2) Position 2's face open at most 33.6 of its
+     clocks (V8 (3); c_junction J1) is 33.47 and 33.83 under the 2 : 1 bulk's G5 readings with sigma = 3 c^4/(4 pi G5
+     ell), and 33.06 and 34.53 with sigma fixed (319 (Q2), 341 (Q4); c8_level V10) -- each at least 6.9 times the
+     compact width 4.79 (computed) -- and position 2's clock r_h2/c is no shorter than ours at any destination under 240
+     (b), r_h2/r_h = (G5_2/G5)^(1/3) >= 1 (V6, computed): V8 (3)'s comparison stands on every reading the record
+     carries. The floor and the thresholds carry no G5: the floor is (3/2)(5 N ln2/Z)^(1/3) - 1 clocks, its only symbols
+     N and Z (write_small S3, computed), and V2-V4 run in units of r_h. (3) V1-V4 are a two-derivative, flat-order
+     computation: the bulk's law Einstein's, the Gauss-Bonnet coupling zero under M-ONE-LIGHT-CONE (328; 332 (Q1)), the
+     results exact at that order (337 (Q4)); the warp enters at O(r_h/ell) = 8.0e-16 (computed), first order and not its
+     square (317 (Q8)). (4) 211's audit in V9 ran on each question's canonical coding, as O1c's Z7 did (337, outside);
+     run here under all 96 codings of each of the four questions -- every ordering of K's four values with each flip of
+     t and m, 384 indexes -- none is flagged (computed). (5) V12 (e)'s rests-on, completed -- 341 (Q2)'s finding for C8
+     holds here too: V6's destinations' own G5 rest on M-P2-OWN-VALUES (226) and M-P2-OWN-G (330), and V1-V4 on 328, as
+     in (3). (6) The README's process on our plane -- its source a gas of the plane's fields confined to the plane (V12
+     (a)) -- is a row of the warp travel theorem's map, SOURCE, worked after the current board is cleared, the completed
+     theorem saying what it requires (344, M-SOURCE-IN-THE-MAP); nothing in V0-V12 rests on it (V12 (b)-(c)).
 
 What this does not claim.
   - That a carrier of the README's states can converge compactly: V5's choreography is allowed by causality, its state
@@ -180,7 +200,8 @@ What this does not claim.
   - The arrival beyond spherical symmetry and radial null dust, or in the bulk away from r_h << ell: the hole is
     Tangherlini at the small end (C1-C3), R/ell = 5.4e-11 at the write's start (write_small S3).
   - [Item 343] A plane-confined arrival -- the README's actual source, a gas on our plane: V12 names what carries
-    without it and what is the radial model's own.
+    without it and what is the radial model's own.  [Item 344: now a row of the warp travel theorem's map, SOURCE,
+    worked after the current board is cleared (V13 (6)).]
   - Which count of the second law governs: V4 computes both; the fine count is the board's reading of 136 (5).
   - The mechanism by which bits become matter (V8 (4)-(8)): M's statements, named.
   - The large end: there the record's ARRIVAL stands (arrival_cypher, README-HELD.md).
@@ -495,8 +516,42 @@ def v11():
     return dict(wstar=wstar, span=span, frac=max(span.values()) / floor)
 
 
+def v13():
+    """item 344: what the accounting before the hand-off found bearing (330) -- J1's open period under the G5
+    readings against the compact width, position 2's clock under 240 (b), the floor's symbols, the warp's order, and
+    211's audit under every coding"""
+    WS = _load("write_small.py", "arr_ws")
+    sec = WS.seconds()
+    row = sec["rows"][sec["ell_max"]]
+    rh_ell = row["rh"] / row["ell"]
+    per = {}
+    for g in (1.5, 0.5):
+        r = rh_ell if MUT.get("g5_dropped") else rh_ell * g ** (1 / 3)   # the mutant: the G5 readings not carried
+        fixed = r if MUT.get("g5_dropped") else r * g
+        per[(g, "sigma fixed")] = math.log(1 + (math.pi / 10) / fixed)
+        per[(g, "sigma by G5")] = math.log(1 + (math.pi / 10) / r)
+    CR = _load("c4_residue.py", "arr_cr")
+    IA = _load("index_audit.py", "arr_ia")
+    Q = v9()                                                         # V9's own questions, their populations as asked
+    asked = flagged = 0
+    codings = [(0, 0)] if MUT.get("audit_one_coding") else list(itertools.product((0, 1), repeat=2))
+    for name in ("f1", "f2"):
+        for cell in ((1, 1), (0, 1)):
+            for tf, mf in codings:
+                Ff = {(t ^ tf, m ^ mf): v for (t, m), v in Q[(name, cell)]["F"].items()}
+                for perm in itertools.permutations(range(4)):
+                    kn = CR._cells("f", dict(zip(CR.NAMES4, perm)), Ff, ("quantum", cell[0] ^ tf, cell[1] ^ mf),
+                                   CR.A4, CR.CD4)
+                    au = IA.audit_index(["K", "t", "m", "f"], kn)
+                    asked += 1
+                    flagged += bool(au["keys"] or au["onehot"])
+    return dict(per=per, per0=math.log(1 + (math.pi / 10) / rh_ell), wstar=v11()["wstar"], warp=rh_ell,
+                clock2={n: r["r_M"] for n, r in v6().items()},
+                floor_syms=sorted(str(x) for x in WS.s3()["t3"].free_symbols), asked=asked, flagged=flagged)
+
+
 def compute():
-    return dict(v1=v1(), v2=v2(), v3=v3(), v4=v4(), v6=v6(), v7=v7(), v9=v9(), v11=v11())
+    return dict(v1=v1(), v2=v2(), v3=v3(), v4=v4(), v6=v6(), v7=v7(), v9=v9(), v11=v11(), v13=v13())
 
 
 def report(o):
@@ -533,6 +588,11 @@ def report(o):
     q = o["v11"]
     print("V11 (item 340) the compact arrival's width %.4f clocks changes the face's size over %s clocks, %.2g of the "
           "write" % (q["wstar"], {n: round(x, 3) for n, x in q["span"].items()}, q["frac"]))
+    u = o["v13"]
+    print("V13 (item 344) J1's open period %.2f clocks; under the G5 readings %s, at least %.2f times the compact "
+          "width; position 2's clock over ours >= %.4f; the floor's symbols %s; r_h/ell %.2g; the audit flagged %d of "
+          "%d codings" % (u["per0"], {k: round(v, 2) for k, v in u["per"].items()}, min(u["per"].values()) / u["wstar"],
+                       min(u["clock2"].values()), u["floor_syms"], u["warp"], u["flagged"], u["asked"]))
 
 
 def checks(o):
@@ -603,6 +663,16 @@ def checks(o):
     add("V11 (item 340) for the math: a compact arrival (w = 4.79 clocks) changes the face's size over at most 5.39 "
         "clocks, 8.0e-5 of the write's 66,980 -- 162's throat that does not change size and 163's one whole",
         abs(q["wstar"] - 4.7857) < 1e-3 and 5.3 < max(q["span"].values()) < 5.45 and q["frac"] < 1e-4)
+    u = o["v13"]
+    pr = {k: round(v, 2) for k, v in u["per"].items()}
+    add("V13 (item 344) the accounting before the hand-off: J1's 33.60 clocks, 33.06 and 34.53 with sigma fixed, 33.47 "
+        "and 33.83 with sigma by G5, each at least 6.9 times the compact width; position 2's clock no shorter than ours "
+        "under 240 (b); the floor's only symbols N and Z; r_h/ell = 8.0e-16; the audit clean under all 384 codings",
+        round(u["per0"], 2) == 33.60 and pr == {(1.5, "sigma fixed"): 33.06, (1.5, "sigma by G5"): 33.47,
+                                                 (0.5, "sigma fixed"): 34.53, (0.5, "sigma by G5"): 33.83}
+        and min(u["per"].values()) / u["wstar"] >= 6.9 and min(u["clock2"].values()) >= 1 - 1e-12
+        and u["floor_syms"] == ["N", "Z"] and "%.1e" % u["warp"] == "8.0e-16" and u["asked"] == 384
+        and u["flagged"] == 0)
     return res
 
 
@@ -614,7 +684,9 @@ MUTANTS = {"capacity_linear": "the face's capacity linear in r (a four-dimension
            "release_4d": "position 2's release with the large end's exponent (V6)",
            "room_inverted": "the copy's volume ratio inverted (V7)",
            "readme_spread_ok": "the spread README's onset counted always hidden (V9)",
-           "spread_counted_compact": "a spread arrival taken for compact (V11, item 340)"}
+           "spread_counted_compact": "a spread arrival taken for compact (V11, item 340)",
+           "g5_dropped": "the G5 readings not carried into J1's open period (V13; 319 (Q2), 341 (Q4))",
+           "audit_one_coding": "211's audit run on one coding of each question (V13; 337, outside)"}
 
 
 def selftest():

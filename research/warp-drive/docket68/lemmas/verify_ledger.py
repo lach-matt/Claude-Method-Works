@@ -41,6 +41,14 @@ file's reports and the instruments' notes, each marker checked against its file;
   above, every one seated in c8_level (V10 a new entry with a check) or outside it, and the 1.9e-69 figure 339 (Q7)
   carried into three notes is corrected there. O1c, B5a and C8 are verified (337, 339, 341): the queue of 329-330 is
   empty, and this gate stands for the next object sent.]
+  [Item 344: M finalized ARRIVAL at the small end ("ARRIVAL is ready for the verifier"), and it is queued. Its column
+  (ARRIVAL_BEAR) accounts it against every row of the sixteen reports, beside the record's three: 26 carried, each
+  marker found in arrival_small, and 69 not bearing, each with its reason (the two-way rows among them). Ten of the
+  carried rows, in five findings, were not yet written there when the gate first ran -- 267 (Q6), the floor a least
+  time; 310 (outside G5), 319 (Q2) and 341 (Q4), J1's open period under the G5 readings; 332 (Q1), 337 (Q3, Q4) and 317
+  (Q8), the coupling zero under 328, exactness at the two-derivative order and the warp's first order; 337 (outside),
+  the audit on one coding; 341 (Q2) and (Q10), the rests-on incomplete (226, 330) -- and are carried by arrival_small
+  V13 (item 344), with a check and two mutants, before the verifier starts. L6 checks the column complete.]
 
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
@@ -316,6 +324,113 @@ ROWS = [
       ("write_small.py", 338), ("hold_small.py", 338)], NO_O, C(B, "Item 341 (the C8 verifier's (Q6), outside C8)"),
      C(E, "(d) (Q1): closed on reading (i), as stated; and since item 340")),
 ]
+# [Item 344] ARRIVAL queued -- M: "ARRIVAL is ready for the verifier" -- and accounted against every row, beside the
+# record's three columns (O1c, B5a and C8, verified at 337, 339 and 341): carried, with its marker in arrival_small, or
+# not bearing, with the reason
+A = "arrival_small.py"
+NO_A = N("not used by ARRIVAL")
+QUEUED_FILES["ARRIVAL"] = (A,)
+ARRIVAL_BEAR = {
+    (254, "Q1"): N("ARRIVAL computes the bulk's G_vv about the hole (V1), not the plane's tangential reading"),
+    (254, "Q2"): N("ARRIVAL works at r ~ r_h, the Tangherlini region, and uses no 1/r^2 pull"),
+    (254, "Q3"): N("ARRIVAL's hole is formed by the arrival (V1-V2): no bridge, no second exterior; the passage is the "
+                   "bounce's (273; O1c, 337)"),
+    (258, "Q1"): N("ARRIVAL takes E from close_small K4's identity (V1)"),
+    (258, "Q2"): N("the small end only"),
+    (261, "Q1-Q2"): N("the small end only"),
+    (261, "Q3"): N("the large end not claimed"),
+    (264, "Q1"): C(A, "the README crossing it (S4; 264)"),
+    (264, "Q2,Q5"): N("ARRIVAL carries S3's floor at Z = 106.75, not the variants"),
+    (264, "Q3,Q4,Q6"): N("ARRIVAL counts in clocks of r_h/c and takes S3's floor at R1 (C2's count, named in S3), as C8 "
+                         "does -- not the variants, not the large end's m/c"),
+    (267, "Q1"): N("ARRIVAL takes the fall within a clock (hold_small L1), which r_h/(c(1 + E~)) meets for every "
+                   "E~ >= 0"),
+    (267, "Q2-Q4"): N("ARRIVAL uses no greybody factor and no life figure"),
+    (267, "Q5"): N("ARRIVAL's hole is collapse-formed by construction: the arrival forms it (V1-V2)"),
+    (267, "Q6"): C(A, "The floor is the write's least time (267 (Q6))"),
+    (269, "Q1-Q5,Q8"): TWO_WAY,
+    (269, "Q6"): N("ARRIVAL claims no completeness; it rests on O1c's (337)"),
+    (269, "Q7"): N("ARRIVAL's null energy is the bulk's G_vv about the hole, not a plane-crossing ray's"),
+    (269, "Q9"): TWO_WAY,
+    (271, "Q1,Q2,Q4-Q7,Q9"): TWO_WAY,
+    (271, "Q3"): N("ARRIVAL takes J1's open period, computed on kappa = c^2/r_h, and no blueshift bound"),
+    (271, "Q8"): N("ARRIVAL uses neither T3 nor E3"),
+    (281, "#6"): N("ARRIVAL rests on O1c one-way (337), not o1c_complete"),
+    (281, "#7"): N("ARRIVAL rests on B5a one-way (339), its side total by A6"),
+    (281, "marks"): N("ARRIVAL cites m1p2x_oneway O4, which excludes m1p2x_sixth W2's \"falls through\""),
+    (281, "outside"): N("ARRIVAL uses no slab and no junction stress"),
+    (304, "Q1"): N("ARRIVAL uses no continuation through a bridge"),
+    (304, "Q2"): C(A, "33.6 of its clocks"),
+    (304, "Q3,Q4,Q6"): C(A, "the 1s add nothing to V1-V3"),
+    (304, "Q5"): N("ARRIVAL uses neither (B) at the bounce nor an inner horizon"),
+    (304, "Q7"): N("ARRIVAL makes no \"only through our future interior\" claim"),
+    (304, "Q8"): C(A, "even a bounce that kept the span would fit it"),
+    (304, "Q9"): N("ARRIVAL cites c_junction J1 directly, not K2"),
+    (304, "outside"): N("a note let stand, not a correction; ARRIVAL takes J1's figure"),
+    (310, "Q1+critic"): N("ARRIVAL takes the README's route from O1c and C8 (337, 341), which carry 310 (Q1)"),
+    (310, "Q2"): N("ARRIVAL uses no R6"),
+    (310, "Q3"): C(A, "240 governs"),
+    (310, "Q4"): C(A, "the 1s add nothing to V1-V3"),
+    (310, "Q5,Q6"): N("ARRIVAL uses neither R4 nor R5"),
+    (310, "Q7"): N("ARRIVAL uses no tau"),
+    (310, "Q8"): N("ARRIVAL cites no DeTurck-Kazdan step"),
+    (310, "Q9"): N("ARRIVAL calls c4_residue's calculator, corrected there"),
+    (310, "Q10"): N("c4_residue's mutants, tightened there"),
+    (310, "outside G5"): C(A, "33.47 and 33.83 under the 2 : 1 bulk's G5 readings"),
+    (310, "outside metric"): N("ARRIVAL uses no plane's induced metric"),
+    (310, "outside map"): C(A, "the glued object read as one Kruskal geometry"),
+    (317, "Q1"): N("ARRIVAL has no pairing: mu' >= 0, nothing to pair (V1)"),
+    (317, "Q2"): N("ARRIVAL quotes the floor at Z = 106.75 and uses no species cap"),
+    (317, "Q3"): C(A, "c5_oneway U12 (Q3)"),
+    (317, "Q4"): N("ARRIVAL places nothing within the horizon beyond its fall, within a clock (V8 (1))"),
+    (317, "Q5"): N("ARRIVAL uses no advanced time; its fall is hold_small L1's, at most r_h/c for every E~ >= 0"),
+    (317, "Q6,Q9,Q10"): C(A, "\"My guess would be 1.\" (the board's option (a)"),
+    (317, "Q7"): C(A, "the isometric gluing is the case G5_2 = G5"),
+    (317, "Q8"): C(A, "first order and not its square (317 (Q8))"),
+    (317, "outside"): C(A, "M-HOLD-IS-THE-FACE's core"),
+    (319, "Q1"): N("ARRIVAL uses no white-hole blueshift bound"),
+    (319, "Q2"): C(A, "(319 (Q2), 341 (Q4); c8_level V10)"),
+    (319, "Q3"): C(A, "one r_h for both faces"),
+    (319, "Q4"): N("ARRIVAL uses neither T3 nor E3"),
+    (319, "Q5-Q7"): N("ARRIVAL uses no matter-free equator and no C7 closing line"),
+    (319, "outside"): N("ARRIVAL uses no pair_math attribution or example: no pairing (V1)"),
+    (332, "Q1"): C(A, "zero under M-ONE-LIGHT-CONE (328; 332 (Q1))"),
+    (332, "Q2"): N("ARRIVAL rests on 328 (V13 (3)), not on C6"),
+    (332, "Q3"): NO_A,
+    (332, "Q4"): NO_A,
+    (332, "Q5"): N("ARRIVAL has no coupled scalar"),
+    (332, "Q6-Q7"): NO_A,
+    (332, "Q8"): N("ARRIVAL takes the coupling zero from 328, not from gb_alpha"),
+    (332, "Q9"): NO_A,
+    (337, "Q1"): N("ARRIVAL traces the face's generators itself (V2), not through O1c's completeness"),
+    (337, "Q2, Q7, Q8"): N("ARRIVAL uses no Z2b READ and no shell"),
+    (337, "Q3, Q4"): C(A, "the results exact at that order (337 (Q4))"),
+    (337, "Q5, Q6"): C(A, "with 339 (Q4)'s scope"),
+    (337, "Q9-Q11"): C(A, "337 (Q10)"),
+    (337, "outside"): C(A, "as O1c's Z7 did (337, outside)"),
+    (339, "Q1"): N("ARRIVAL uses no crossing share"),
+    (339, "Q2"): N("ARRIVAL cites A6, not A1's wording"),
+    (339, "Q3"): NO_A,
+    (339, "Q4"): C(A, "339 (Q4)'s scope"),
+    (339, "Q5"): C(A, "(b5a_residue A6, 339 (Q5))"),
+    (339, "Q6"): N("ARRIVAL uses no E7"),
+    (339, "Q7"): N("ARRIVAL uses no x+"),
+    (339, "Q8"): N("ARRIVAL's V9 counts its own answers under all 96 codings (V9's check)"),
+    (339, "Q9"): NO_A,
+    (339, "outside"): N("ARRIVAL takes no constancy of C1"),
+    (341, "Q1"): N("ARRIVAL is where 340 is worked (V11); C8's V5 (d) carries it"),
+    (341, "Q2"): C(A, "341 (Q2)'s finding for C8 holds here too"),
+    (341, "Q3"): N("ARRIVAL uses J1 only, not J5 or J2"),
+    (341, "Q4"): C(A, "33.06 and 34.53 with sigma fixed"),
+    (341, "Q5"): NO_A,
+    (341, "Q6"): N("ARRIVAL uses no x+"),
+    (341, "Q7"): N("ARRIVAL makes no past-interior claim"),
+    (341, "Q8"): N("ARRIVAL carries no \"past sigma/4\" wording"),
+    (341, "Q9"): N("ARRIVAL calls on no 183 pairing: nothing to pair (V1)"),
+    (341, "Q10"): C(A, "M-P2-OWN-VALUES (226) and M-P2-OWN-G (330)"),
+    (341, "outside"): N("the notes owed to ARRIVAL since 338 are seated outside it (c_junction J3, write_small S4, "
+                        "hold_small L4); the G5 convention is carried at (Q4)"),
+}
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
      [("o3_hold.py", 281), ("write_cypher.py", 281)]),
@@ -366,11 +481,16 @@ def compute():
         rows = rows + [(319, "Qx", "an uncarried correction", [("c7_oneway.py", 319)], NO_O, NO_B,
                         ("outstanding", "not carried"))]
     seated, carried, outstanding = [], [], []
+    abear = dict(ARRIVAL_BEAR)                                      # [item 344] the queued ARRIVAL's column
+    if MUT.get("arrival_stale"):
+        abear[(341, "Q4")] = C(A, "33.6 clocks on every reading")          # the mutant: the G5 readings not carried
+    if MUT.get("arrival_unaccounted"):
+        del abear[(267, "Q6")]                                             # the mutant: a row left unaccounted
     for rep, q, gist, seats, *bear in rows:
         for f, n in seats:
             item = n if not MUT.get("wrong_item") else n + 1000
             seated.append(((rep, q), f, item, has_item(os.path.join(HERE, f), item)))
-        for obj, b in zip(QUEUED, bear):
+        for obj, b in list(zip(QUEUED, bear)) + [("ARRIVAL", abear.get((rep, q), ("outstanding", "not accounted")))]:
             if b[0] == "carried":
                 # [item 339] the marker must sit in one of the object's own files (QUEUED_FILES)
                 carried.append(((rep, q), obj, b[1], b[2], has_text(os.path.join(HERE, b[1]), b[2])
@@ -390,7 +510,9 @@ def compute():
     nums = [int(x) for h in heads for x in re.findall(r"(?<!\d)(\d{3})(?!\d)", h)]
     current = [(os.path.basename(f), s, has_text(f, s)) for f, s in CURRENT_REGISTER]
     brought = [(lab, f, n, has_item(os.path.join(HERE, f), n)) for lab, _, seats in BROUGHT_CURRENT for f, n in seats]
-    return dict(stale=stale, reg_now=max(nums) if nums else None, current=current, brought=brought,
+    arr_rows = {(r[0], r[1]) for r in rows} == set(abear)
+    return dict(stale=stale, reg_now=max(nums) if nums else None, current=current, brought=brought, arr_rows=arr_rows,
+                abear=abear,
                 reg_last=max(int(x) for x in reg_hist) if reg_hist else None, rows=rows, seated=seated,
                 carried=carried, outstanding=outstanding, outside=outside,
                 words=all(w in rul for w in WORDS), headers={k: v in rul for k, v in HEADERS.items()})
@@ -398,10 +520,12 @@ def compute():
 
 def report(o):
     print("verify_ledger.py -- every verification accounted against the queued objects (item 330)\n")
-    print("%-5s %-16s %-6s %-6s %-6s  %s" % ("item", "qualification", "O1c", "B5a", "C8", "gist"))
+    print("%-5s %-16s %-6s %-6s %-6s %-7s  %s" % ("item", "qualification", "O1c", "B5a", "C8", "ARRIVAL", "gist"))
     for rep, q, gist, seats, *bear in o["rows"]:
         tag = lambda b: "carry" if b[0] == "carried" else "-" if b[0] == NA else "OUT"
-        print("%-5d %-16s %-6s %-6s %-6s  %s" % (rep, q, tag(bear[0]), tag(bear[1]), tag(bear[2]), gist[:70]))
+        ab = o["abear"].get((rep, q), ("outstanding",))
+        print("%-5d %-16s %-6s %-6s %-6s %-7s  %s" % (rep, q, tag(bear[0]), tag(bear[1]), tag(bear[2]), tag(ab),
+                                                     gist[:62]))
     bad_s = [s for s in o["seated"] if not s[3]]
     bad_c = [c for c in o["carried"] if not c[4]]
     print("\nL1 seated markers found: %d of %d%s" % (len(o["seated"]) - len(bad_s), len(o["seated"]),
@@ -419,6 +543,9 @@ def report(o):
                            all(ok for _, _, ok in o["current"])))
     print("L5 C9 verified, item 332; O1c, item 337; B5a, item 339; C8, item 341 -- their rows above, carried where they "
           "bear; the queue of 329-330 is empty")
+    print("L6 (item 344) ARRIVAL queued: every row accounted for it: %s; carried %d, not bearing %d" % (
+        o["arr_rows"], sum(b[0] == "carried" for b in o["abear"].values()),
+        sum(b[0] == NA for b in o["abear"].values())))
 
 
 def checks(o):
@@ -428,7 +555,7 @@ def checks(o):
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
-    add("L3 no queued object (O1c, B5a, C8) has an outstanding row", not o["outstanding"])
+    add("L3 no queued object (O1c, B5a, C8; ARRIVAL, item 344) has an outstanding row", not o["outstanding"])
     add("L4 the outstanding rows outside the queue are each marked in their own instruments",
         all(ok for _, _, seats in o["outside"] for _, _, ok in seats))
     add("L4 (item 331) the Warp Theorem's register brought current: its history reaches item 331 or later, its current "
@@ -439,13 +566,17 @@ def checks(o):
         all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
     add("L4 every report of the sixteen has its rows in the ledger", reps == set(HEADERS))
+    add("L6 (item 344) the queued ARRIVAL accounted against every row of the sixteen reports, each carried in "
+        "arrival_small or not bearing with its reason", o["arr_rows"])
     return res
 
 
 MUTANTS = {"c8_stale": "C8 carrying the refuted blueshift closure instead of 319 (Q1)'s bound (L2)",
            "outstanding": "an uncarried correction left for a queued object (L3)",
            "wrong_item": "a seated correction looked for under the wrong item (L1)",
-           "register_stale": "the register's 248-333 history withheld (L4; item 331)"}
+           "register_stale": "the register's 248-333 history withheld (L4; item 331)",
+           "arrival_stale": "ARRIVAL carrying 33.6 clocks on every reading, not the G5 readings (L2; item 344)",
+           "arrival_unaccounted": "a row left unaccounted for ARRIVAL (L3, L6; item 344)"}
 
 
 def selftest():
