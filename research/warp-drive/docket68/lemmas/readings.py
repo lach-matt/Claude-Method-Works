@@ -252,6 +252,19 @@ goes to M; the board does not rule on M's meaning.
      any converging matter, as o1c_oneway's item-337 note records (Z8 (Q2), (Q7), (Q8)): "Z2b's causal argument needs
      neither". So the shell carries nothing RDUST does not; the README's true form, a gas of our plane's fields (344), is
      SOURCEs's to define, and RSHELL goes through SOURCE with RDUST (M-SOURCE-LAST).
+  Q30 (computed, exact; deduced; estimate where marked) FARs rests on neither of the two readings the inventory listed
+     for it that go through SOURCE.  (a) RGAS, the carrier a free gas, enters FARs only through the write's floor T,
+     which sets the reach the cover must enclose; FARs holds at every U past the reach whatever T is (Q25).  (b) RDUST,
+     the README as radial null dust, enters through F5 (a), and F5 (a) does not need it: on every spherically symmetric
+     metric, -e^(2 Phi)(1 - mu/r^2) dt^2 + dr^2/(1 - mu/r^2) + r^2 dOmega_3^2 with mu and Phi functions of t and r, g^ab
+     d_a r d_b r = 1 - mu/r^2 and G^t_t = -(3/(2 r^3)) d_r mu (computed, exact), so the README's positive energy gives
+     d_r mu = (2 kappa/3) r^3 rho >= 0 and mu <= r_h^2 outside the face, its E the only energy (Q26 (e)) -- every round
+     sphere outside r_h untrapped at every stage, for every spherical README, null dust or a gas or anything else.  A
+     README that is not spherical -- written on our plane, SO(3) -- is F5 (b)'s: inside the reach, it lies at least U -
+     (1 + T) r_h = 0.52 U from T_E at the write's start and only further after, so its field there is at most 3.64 times
+     the centred field's scale (computed), and by Q24's bound it moves theta+ by about 10 mu/U^2 x 3.64, 2e-9 at the
+     example (estimate: the constant for an off-centre source taken as twice the centred one's).  So every reading FARs
+     rests on is proved or M's.
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -411,7 +424,7 @@ INVENTORY = (
     ("R152", 152, "152 (1) as CENSOR5D's escape (a), one end", "B4a", "words", "proved here (Q19)"),
     ("RASYM", 338, "H-ASYMMETRIC-BOUNCE: our face the life, position 2's at most 33.6 clocks",
      "M1P2xs CLOSEs B4ds", "choice", "proved here (Q20)"),
-    ("RDUST", 338, "the README arriving as radial null dust", "ARRIVALs B4ds FARs", "model",
+    ("RDUST", 338, "the README arriving as radial null dust", "ARRIVALs B4ds", "model",              # [Q30] not FARs
      "through SOURCE (M-SOURCE-LAST): SOURCEs replaces it"),
     ("RBITS", 338, "H-BITS-WITH-ENERGY: the bits come in with the energy", "ARRIVALs", "model",
      "through SOURCE (M-SOURCE-LAST)"),
@@ -424,7 +437,8 @@ INVENTORY = (
     ("RONPLANE", 264, "H-README-ON-PLANE: the README written in our plane's fields", "WRITEs O3s FARs ARRIVALs",
      "model", "M's since 344 (\"The README is really written on our plane\")"),
     ("RGAS", 264, "H-FREE-GAS, H-BITS-ARE-STATES: the carrier a free gas holding 2^N states",
-     "WRITEs O3s FARs ARRIVALs", "model", "through SOURCE (M-SOURCE-LAST): the plane's gas is SOURCE's to define"),
+     "WRITEs O3s ARRIVALs", "model",                                                                 # [Q30] not FARs
+     "through SOURCE (M-SOURCE-LAST): the plane's gas is SOURCE's to define"),
     # [Q26] write_small's mappings, once one entry (RMAP), each its own
     ("RWIA", 264, "H-WRITE-IS-ARRIVAL: the write done when the README is in", "WRITEs O3s FARs", "choice",
      "proved here (Q26 (a))"),
@@ -859,10 +873,39 @@ def q29():
                 z2b=z2b)
 
 
+# ---------------------------------------------------------------------------------- Q30 FARs rests on no SOURCE reading
+def q30():
+    t, r, a, b, c = sp.symbols("t r theta1 theta2 theta3", positive=True)
+    mu, Ph = sp.Function("mu")(t, r), sp.Function("Phi")(t, r)
+    X, n = [t, r, a, b, c], 5
+    f = 1 - mu / r ** 2
+    g = sp.diag(-sp.exp(2 * Ph) * f, 1 / f, r ** 2, r ** 2 * sp.sin(a) ** 2, r ** 2 * sp.sin(a) ** 2 * sp.sin(b) ** 2)
+    gi = g.inv()
+    Gam = [[[sp.simplify(sum(gi[i, l] * (sp.diff(g[l, j], X[k]) + sp.diff(g[l, k], X[j]) - sp.diff(g[j, k], X[l]))
+                             for l in range(n)) / 2) for k in range(n)] for j in range(n)] for i in range(n)]
+
+    def ric(j, l):
+        e = sum(sp.diff(Gam[i][j][l], X[i]) - sp.diff(Gam[i][j][i], X[l]) for i in range(n))
+        e += sum(Gam[i][i][m] * Gam[m][j][l] - Gam[i][l][m] * Gam[m][j][i] for i in range(n) for m in range(n))
+        return sp.simplify(e)
+    Ric = sp.Matrix(n, n, lambda j, l: ric(j, l))
+    Rs = sp.simplify(sum(gi[j, l] * Ric[j, l] for j in range(n) for l in range(n)))
+    Gtt = sp.simplify((gi * (Ric - Rs * g / 2))[0, 0])                 # G^t_t
+    k_ms = sp.Rational(1, 2) if MUT.get("ms_4d") else sp.Rational(3, 2)  # the mutant: the four-dimensional coefficient
+    ms_ok = sp.simplify(Gtt + k_ms * sp.diff(mu, r) / r ** 3) == 0
+    gab_rr = sp.simplify(gi[1, 1]) == sp.simplify(f)                  # g^ab d_a r d_b r = 1 - mu/r^2
+    # a README off the centre: T_E at U = 1.05 (1 + 2T) r_h, the README within (1 + T) r_h at the write's start
+    T = 66980
+    U, R0 = 1.05 * (1 + 2 * T), 1 + T
+    near = (U / (U - R0)) ** 2                                          # its field's scale at T_E against the centre's
+    return dict(ms_ok=ms_ok, gab_rr=gab_rr, near=near, offc=10 * near / U ** 2)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27(), q28=q28(), q29=q29())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27(), q28=q28(), q29=q29(),
+                q30=q30())
 
 
 def report(o):
@@ -919,6 +962,10 @@ def report(o):
     q = o["q29"]
     print("Q29 ingoing Vaidya, any mu(v): Ricci only R_vv = (3/2) mu'/r^3: %s; R = R_ab R^ab = 0: %s; K = 72 mu^2/r^8: "
           "%s; Planckian at r_c = %.3g m for every profile" % (q["ricci_ok"], q["R0"], q["K_ok"], q["rc"]))
+    x = o["q30"]
+    print("Q30 G^t_t = -(3/(2 r^3)) d_r mu for every spherical metric: %s; g^ab d r d r = 1 - mu/r^2: %s; a README "
+          "off the centre at T_E: %.2f times the centre's scale, at most about %.1e of theta+"
+          % (x["ms_ok"], x["gab_rr"], x["near"], x["offc"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -1001,6 +1048,11 @@ def checks(o):
     add("Q29 RSHELL: on every radial null-dust profile mu(v) -- the thin shell one of them -- the Ricci tensor is "
         "R_vv = (3/2) mu'/r^3 alone, its invariants zero, and K = 72 mu^2/r^8, Planckian only at r_c = 7.09e-23 m",
         q["ricci_ok"] and q["R0"] and q["K_ok"] and "%.3g" % q["rc"] == "7.09e-23" and q["z2b"])
+    x = o["q30"]
+    add("Q30 FARs rests on neither RDUST nor RGAS: F5 (a) holds for every spherical README by the Misner-Sharp "
+        "identity, d_r mu = (2 kappa/3) r^3 rho >= 0; a README off the centre moves theta+ by about 1e-9; the floor "
+        "carries no weight (Q25)", x["ms_ok"] and x["gab_rr"] and "%.2f" % x["near"] == "3.64"
+        and "%.0e" % x["offc"] == "2e-09")
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -1023,7 +1075,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "clock_weighs": "the life in seconds set against the floor in clocks (Q26)",
            "floor_fixed": "the write's floor held at the Standard Model's species while the life falls (Q27)",
            "calc_premise": "c4_oneway's calculator runs P7-P13 read among M1s's premises (Q28)",
-           "mass_in_r": "the Vaidya mass taken to depend on r as well as v (Q29)"}
+           "mass_in_r": "the Vaidya mass taken to depend on r as well as v (Q29)",
+           "ms_4d": "the Misner-Sharp coefficient taken as four-dimensional, 1/2 not 3/2 (Q30)"}
 
 
 def selftest():
