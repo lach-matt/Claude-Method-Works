@@ -98,6 +98,11 @@ reaches into the bulk (Garriga–Tanaka, READ). A far surface deeper than it is 
 untrapped at every ℓ: U ≥ (9/4) m K/(K − 1), K = W²/U². A round one is trapped at its tip. FARs and FAR go to you
 together for finalization.
 
+**Since item 351: you finalized FAR at both ends, and it is at its verifier.** Every earlier verification is accounted
+against it first (`verify_ledger.py` L7: 104 rows, 42 carried, 62 not bearing). Fourteen rows that bore on FAR and
+were not yet written in it are carried by `far_small.py` F10 and `far_large.py` L10. The board moves on to B3 and B4d
+at the small end.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -159,8 +164,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
-| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F9 (347, 349) |
-| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | reading | -- | far_large.py L0-L9 (350) |
+| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F10 (347-351); at its verifier |
+| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | reading | -- | far_large.py L0-L10 (350, 351); at its verifier |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
@@ -216,7 +221,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   - Its use in a censorship theorem, with that theorem's pointwise null-energy premise and global hyperbolicity, is
     B4's and B4d's, and not claimed.
   - *Item 350: held at this state, not finalized and not sent to a verifier; it goes to you with the large end.*
-- **FAR at the large end, worked (item 350; `far_large.py` L0–L9). Finalized, with FARs?**
+- **FAR at the large end, worked (item 350; `far_large.py` L0–L9). Finalized, with FARs?** *Item 351: yes, both
+  ends together; at its verifier, every earlier verification accounted against it (F10, L10; `verify_ledger.py` L7).*
   - The question is FARs', at the large end. The bulk is the same coincident sheets' two-sided bulk, so FARs' background
     carries over unchanged: every side AdS, and every surface at least as deep as it is wide untrapped with no hole.
   - The hole is now the record's four-dimensional corridor, r₀ = 2m with r₀ ≫ ℓ, and its field reaches into the bulk.
@@ -2394,7 +2400,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–350: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–351: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2583,6 +2589,12 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   four-dimensional hole in the same two-sided bulk, a round far surface is trapped at its tip and an elongated one,
   past (9/4) m K/(K − 1), is strictly untrapped at every ℓ. FAR is seated as a reading on H-GT-IN-WARP (64 rows: 4
   readings, 11 OPEN) and drawn on the map.
+- **351, "FAR both ends is now ready for the verifier. Let's move on".** The gate ran first (item 330): FAR's column in
+  `verify_ledger.py` accounts it against all 104 rows of the seventeen reports. Fourteen rows bore on FAR and were not
+  yet written in it, among them 267 (Q6) (the floor a least time), 271 (Q3) with 319 (Q1) (position 2's white-hole face
+  and J5's bound), 310 (Q3) (position 2 reading its own mass), 341 (Q4) (both conventions for σ) and 348 (Q2) (a lossy
+  collapse). They are carried in `far_small.py` F10 and `far_large.py` L10, each with a check and a mutant, and FAR
+  went to one verifier. The board moves on to B3 and B4d at the small end, in item 338's order.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

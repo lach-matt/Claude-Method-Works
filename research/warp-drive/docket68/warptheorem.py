@@ -62,7 +62,8 @@ reading (far_small F0-F9): every far surface at least as deep as it is wide is s
 hole at every ell; at the small end B3 and B4d stay OPEN.] [Item 350: FAR at the large end worked and seated, a
 reading on H-GT-IN-WARP (far_large L0-L9): around the record's four-dimensional hole a far surface deeper than it is
 wide, and large enough, is strictly untrapped at every ell, while a round one is trapped at its tip; FARs and FAR go
-to M together.]
+to M together.] [Item 351: M finalized FAR at both ends, and it is at its verifier, every earlier verification
+accounted against it (verify_ledger L7); the board moves on to B3 and B4d at the small end.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -478,7 +479,8 @@ LEMMAS_NOW = [
       "H-HOLE-IN-WARP and the write, arrival and emission leaving it untrapped, every correction at least nine orders "
       "below the margin (F4, F5); (Z), (G), 139 (1) under 226 and 166 under 275 (F6); the calculator deciding neither "
       "clause (F7) -- a reading on H-HOLE-IN-WARP, Z3bs's reading of 318 and 320 (b)'s limit (F9); its use in a "
-      "censorship theorem B4's and B4d's")),
+      "censorship theorem B4's and B4d's; finalized by M with FAR (351), accounted before its verifier (F10; "
+      "verify_ledger L7), at its verifier")),
     # [item 350] FAR at the large end worked: a reading on H-GT-IN-WARP (far_large L0-L9)
     ('N',
      ("FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's "
@@ -493,7 +495,8 @@ LEMMAS_NOW = [
       "419,377, every K >= 1 + 5.4e-6 serves, the hole lowering the least theta+ U by 5.1e-6 (L5, L9); (Z), (G), "
       "139 (1) and 166 as at the small end (L7); the calculator deciding neither clause (L8) -- a reading on "
       "H-GT-IN-WARP and the record's cover (L9); the rays meeting the corridor Z3b's, OPEN; its use in a censorship "
-      "theorem B4's and B4d's")),
+      "theorem B4's and B4d's; finalized by M with FARs (351), accounted before its verifier (L10; verify_ledger L7), "
+      "at its verifier")),
     ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
