@@ -124,6 +124,42 @@ goes to M; the board does not rule on M's meaning.
      route holds without E6.  RO3H, o3_hold's mapping and locally analytic class: O3s rests on O3e (its row), and "O3e
      rests on no reading of the board's" (o3_hold, item 334); the mapping is O3a's, the class O3a''s (withdrawn), and
      "O3b's static window is eq. (17)'s and does not bound it".  None is a premise of any row.
+  Q22 (deduced) 148's reading (i) -- position 2's electron mass is ours (R5; R5b).  The question M answered carried its
+     two options inside item 148: "No: position 2 only where everything the README contains measures exactly as ours;
+     Yes: then item 146 or 147 must change".  M answered "No, BUT, matter at position 2 can rearrange to accommodate
+     the README".  Alternative, the electron's mass differing at position 2 -- excluded: that is the "Yes" option, which
+     M did not give, and the "BUT" concerns how matter fits the README, not its constants.  The electron's mass is among
+     what the README's values measure (144: the relative laws act "on the electron's mass"), so position 2 is only where
+     it is ours -- survives; and 155 (3) carried it as M's with H-ACTIVATION-IS-TRIGGER ("R5b's reading, with item 148's
+     reading (i), now M's").  240's "The mass on position 2's side is not equal to ours" is the face's energy (Q16),
+     not the electron's.
+  Q23 (READ; computed, exact where marked; deduced) H-GT-IN-WARP -- every conclusion FAR draws from its test form holds
+     in Garriga and Tanaka's own field (FAR; far_large L4, L11 (a)). (a) The field in the bulk, in their RS gauge. Their
+     eq. (12), h = -2 kappa int G_R Sigma, with Sigma_00 = (2/3) rho and Sigma_ij = (1/3) rho delta_ij + 2 kappa^-1
+     xi5,ij, traceless by their eq. (4), gives at every depth h00 = -(8/3) V and h_rr = -(8/(3 r^3)) int_0^r r'^2 V dr'
+     with V taken at that depth (deduced: h_ij = -(4/3) V delta_ij - 4 d_i d_j W, lap W = -V/3) -- their eq. (21) is its
+     case on the wall. With their eq. (16) for G and m = kappa M/(8 pi ell) from eqs. (22)-(23), in conformal depth Z and
+     d^2 = u^2 + Z^2 (computed, exact): h_uu/a^2 = A = 4m/(3d), h_angular/(a^2 u^2) = C = 2m (2 Z^2 + u^2)/(3 d^3), h_ZZ
+     = 0 (h55 = 0), traceless against h00/a^2 = (4/3) m (2 u^2 + 3 Z^2)/d^3; on the axis A = C = 4m/(3Z). The test form
+     put Phi = m (2 u^2 + 3 Z^2)/d^3 in all three. The slice is static and time-symmetric, so theta+ is the mean
+     curvature and the lapse does not enter. (b) The round tip (computed, exact): GT's first-order pull is 4 (3U + 2
+     ell)/(9 (U + ell)) times the test form's, and the tip is trapped when 3 ell (U + ell) < 2m (3U + 2 ell) -- the
+     marginal ell 2m at large U, against 3m/2 (the verifier's figures, reproduced). At N_L, ell/m = (8/pi)^(1/2) < 2, so
+     in GT's field the round tip is trapped there for every U > 1.04 m (first order; the range is U >> m): 355 (Q14)'s N
+     > 1.13 N_L is the test form's, not GT's. (c) The elongated surface (computed: exact at the tip, sampled elsewhere).
+     To first order theta+ > 0 at every point of T_E once U > c(K) m, counting every first-order term; at the tip, as
+     ell/U -> 0, c (K - 1)/K = 2 (2K + 1)/(3 K^(3/2)), which is 2 at K = 1 and falls with K (exact); over the surface,
+     sampled at K from 1.001 to 1e4 and ell/U from 1e-12 to 1e-1, it never reaches 2. So GT's field needs U > 2 m K/(K -
+     1), inside L4 (b)'s (9/4) m K/(K - 1). Cross-check: the test form's gradient part needs about 1.51 m K/(K - 1), so
+     L4 (b) is sufficient there too; its conformal factor f^(-1/2) scales theta+ and lowers it without changing its sign.
+     (d) The wall's bending (READ; computed; deduced). In the RS gauge the wall sits displaced by xi5 = m ell/(3r) (eq.
+     (22)), so T_E meets it at beta = (m ell/(3 U^2)) (1 + 1/K) off the perpendicular, whichever sign: the closed
+     two-sided surface has a kink of 2 beta. Rounding it over a proper width eps, with m ell/U << eps << U (eps = (m
+     ell)^(1/2) meets both when (m ell)^(1/2) << U), costs at most beta/eps of theta+, a fraction (m ell)^(1/2) (1 +
+     1/K)/(3U (2 + 1/K)) of the rim's margin (2 + 1/K)/U -- 6.3e-7 at the record's cover, ell/m at most (8/pi)^(1/2). (e)
+     Outside this proof: eq. (16) is the far field's leading form, with corrections O(ell^2/d^2) (their eq. (15)); the
+     source's compactness, O(r0/d); and the two-sided pair's per-side amplitude, L9 (d)'s estimate. On T_E, d >= U, so
+     each is O(m/U) or smaller.
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -168,6 +204,14 @@ WORDS = {
     "136.1": (136, "H-EXACT-ENERGY-AT-BOUND becomes M's: the one exact energy is E(N) at the bound"),
     "136.5": (136, "5 - one fixed exact encoding"),
     "136.G": (136, "G - the README is the energy, not separate"),
+    "148.no": (148, '"No, BUT, matter at position 2 can rearrange to accommodate the README'),
+    "148.q": (148, "No: position 2 only where everything the README contains measures exactly as ours; Yes: then item "
+                   "146 or 147 must change"),
+    "144": (144, "the relative laws of physics by which another universe's elements differ from ours act on the "
+                 "nucleus -- its mass, its size, which nuclei are stable -- and on the electron's mass"),
+    "155.3": (155, "H-ACTIVATION-IS-TRIGGER (the Higgs field's value is unchanged; the README triggers the "
+                   "rearrangement, by electromagnetism and the nuclear forces -- R5b's reading, with item 148's reading "
+                   "(i), now M's)"),
     "152": (152, '"two separate positions connected by/reached through a dimension."'),
     "162": (162, "It is and always will be only the size that is needed to hold the object once and at once"),
     "163": (163, '"All together, one whole"'),
@@ -227,6 +271,10 @@ EXCLUSIONS = {
             ("no classical stress where classical GR is given up", None, "survives")],
     "Q19": [("two separate ends of the bulk", "152", "connected by/reached through a dimension"),
             ("one end, joined through the extra dimension", None, "survives")],
+    "Q22": [("position 2's electron mass differing from ours", "148.no",
+             "M answered 'No' over 'Yes: then item 146 or 147 must change' (148.q)"),
+            ("position 2 only where the README's values, the electron's mass among them (144), measure as ours", None,
+             "survives; carried as M's at 155 (3)")],
 }
 
 # the inventory: (id, item, reading, rows, kind, state)
@@ -268,8 +316,7 @@ INVENTORY = (
      "to prove: whether O1c's conclusions hold for any README matter inside the region; else through SOURCE"),
     ("RHOLE", 349, "H-HOLE-IN-WARP: the hole's isotropic factor under the warp", "FARs", "form",
      "to prove: exact Tangherlini spatial slice plus a first-order bound on the warp's correction"),
-    ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form",
-     "to prove: Garriga-Tanaka's RS-gauge spatial part and the brane bending as gauge (READ)"),
+    ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form", "proved here (Q23)"),
     ("RCOVER", 349, "the record's cover U = 1.05 R_reach", "FARs FAR", "choice",
      "to prove: FAR at every enclosing U from the write's reach"),
     ("RONPLANE", 264, "H-README-ON-PLANE: the README written in our plane's fields", "WRITEs O3s FARs ARRIVALs",
@@ -286,7 +333,8 @@ INVENTORY = (
     ("RT5", 231, "sigma_defines T5's flag decided under 149", "B5pu B6'", "choice", "proved on both branches (Q21)"),
     ("RE6", 268, "139 (3) read as position 2's expansion raised by the README's energy", "B5c", "words",
      "bears on no row's claim (Q21)"),
-    ("R148", 149, "148's reading (i): position 2's electron mass ours", "R5", "words", "to prove"),
+    ("R148", 149, "148's reading (i): position 2's electron mass ours", "R5", "words",
+     "proved here (Q22); M's since 155 (3)"),
     ("RO3H", 334, "o3_hold's mapping and its locally analytic class", "O3s", "choice", "bears on no row's claim (Q21)"),
 )
 
@@ -436,6 +484,84 @@ Q21_TEXTS = (("b5p_cypher.py", "(6) H-POSITIVE-ON-P2 (139 (2) as the board reads
              ("o3_hold.py", "O3b's static window is eq. (17)'s and does not bound it"))
 
 
+# ---------------------------------------------------------------------------------- Q23 Garriga-Tanaka's own field
+def _theta(Om2, a, b, c, uu, ww, U, W, eps):
+    guu, gww, goo = Om2 * (1 + eps * a), Om2 * (1 + eps * b), Om2 * uu ** 2 * (1 + eps * c)
+    F = uu ** 2 / U ** 2 + ww ** 2 / W ** 2
+    Fu, Fw = sp.diff(F, uu), sp.diff(F, ww)
+    nrm = sp.sqrt(Fu ** 2 / guu + Fw ** 2 / gww)
+    sq = sp.sqrt(guu * gww) * goo
+    H = (sp.diff(sq * Fu / guu / nrm, uu) + sp.diff(sq * Fw / gww / nrm, ww)) / sq
+    return H.subs(eps, 0), sp.diff(H, eps).subs(eps, 0)
+
+
+def q23():
+    u, w, U, W, ell, m, eps, K, r, s_ = sp.symbols("u w U W ell m epsilon K r s", positive=True)
+    Zs = sp.Symbol("Z", positive=True)
+    # (a) the bulk field from eq. (12) with eq. (16)'s G: V/a^2 at depth Z
+    v = -(m / 2) * (2 * s_ ** 2 + 3 * Zs ** 2) / (s_ ** 2 + Zs ** 2) ** sp.Rational(3, 2)
+    I = sp.integrate(s_ ** 2 * v, (s_, 0, r))
+    vr = v.subs(s_, r)
+    A = sp.simplify(-8 * I / (3 * r ** 3))
+    C = sp.simplify(-sp.Rational(4, 3) * vr + 4 * I / (3 * r ** 3))
+    h00 = sp.simplify(-sp.Rational(8, 3) * vr)
+    W1 = -I / (3 * r ** 2)                                             # W' from lap W = -V/3
+    from_sigma = (sp.simplify(-sp.Rational(4, 3) * vr - 4 * (-vr / 3 - 2 * W1 / r) - A) == 0
+                  and sp.simplify(-sp.Rational(4, 3) * vr - 4 * W1 / r - C) == 0)
+    dd = sp.sqrt(r ** 2 + Zs ** 2)
+    forms = (sp.simplify(A - 4 * m / (3 * dd)) == 0
+             and sp.simplify(C - 2 * m * (2 * Zs ** 2 + r ** 2) / (3 * dd ** 3)) == 0
+             and sp.simplify(-h00 + A + 2 * C) == 0 and sp.limit(A, r, 0) == sp.limit(C, r, 0) == 4 * m / (3 * Zs))
+    # the surface's theta+ in the field: GT (A, h_ZZ = 0, C) against the test form (Phi in all three)
+    Z = ell + w
+    d = sp.sqrt(u ** 2 + Z ** 2)
+    Ab, Cb = A.subs({r: u, Zs: Z}), C.subs({r: u, Zs: Z})
+    Bb = Cb if MUT.get("h55_kept") else sp.Integer(0)                 # the mutant: h_ZZ kept, not GT's h55 = 0
+    Phi = m * (2 * u ** 2 + 3 * Z ** 2) / d ** 3
+    H0, Hg = _theta((ell / Z) ** 2, Ab, Bb, Cb, u, w, U, W, eps)
+    _, Ht = _theta((ell / Z) ** 2, Phi, Phi, Phi, u, w, U, W, eps)
+    tip = lambda e, Wv: sp.simplify(sp.limit(e.subs(W, Wv).subs(w, Wv), u, 0))
+    # (b) the round tip
+    h0, g1, t1 = tip(H0, U), tip(Hg, U), tip(Ht, U)
+    ratio = sp.simplify(g1 / t1 - 4 * (3 * U + 2 * ell) / (9 * (U + ell))) == 0
+    marg = [sp.limit(x, U, sp.oo) for x in sp.solve(sp.Eq(h0 + g1, 0), ell)]
+    lnl = math.sqrt(8 / math.pi)
+    u_nl = lnl * (3 * lnl - 4) / (6 - 3 * lnl)                         # 3 l (U + l) = 2 (3U + 2 l), m = 1
+    # (c) the elongated tip, exact, and the surface sampled
+    ct = sp.limit(sp.simplify(-tip(Hg, sp.sqrt(K) * U) / tip(H0, sp.sqrt(K) * U) * U / m), ell, 0)
+    ctk = sp.simplify(ct * (K - 1) / K)
+    tip_exact = (sp.simplify(ctk - 2 * (2 * K + 1) / (3 * K ** sp.Rational(3, 2))) == 0
+                 and sp.limit(ctk, K, 1) == 2
+                 and sp.simplify(sp.diff(ctk, K) + (2 * K + 3) / (3 * K ** sp.Rational(5, 2))) == 0)
+    args = (u, w, U, W, ell, m)
+    f0, fg = sp.lambdify(args, H0, "math"), sp.lambdify(args, Hg, "math")
+    fq = sp.lambdify(args, Ht + Phi / 2 * H0, "math")                  # the test form without its f^(-1/2)
+    worst, worst_q, positive = 0.0, 0.0, True
+    for Kv in (1.001, 1.01, 1.1, 1.3, 1.5, 2.0, 3.0, 5.0, 10.0, 100.0, 1e4):
+        for lu in (1e-12, 1e-6, 1e-3, 1e-1):
+            UU, WW = 1e6, math.sqrt(Kv) * 1e6
+            for i in range(601):
+                t = (math.pi / 2) * i / 600
+                uu, ww = UU * math.sin(t) + 1e-9 * UU, WW * math.cos(t)
+                a0 = f0(uu, ww, UU, WW, lu * UU, 1.0)
+                positive = positive and a0 > 0
+                worst = max(worst, -fg(uu, ww, UU, WW, lu * UU, 1.0) / a0 * UU * (Kv - 1) / Kv)
+                worst_q = max(worst_q, -fq(uu, ww, UU, WW, lu * UU, 1.0) / a0 * UU * (Kv - 1) / Kv)
+    # the record's cover, K = 1.5: theta+ (1 + first order)/theta+ at its least
+    UU, Kv = 419377.0, 1.5
+    cover = min((f0(UU * math.sin(t) + 1e-9, math.sqrt(Kv) * UU * math.cos(t), UU, math.sqrt(Kv) * UU, 1e-6, 1.0)
+                 + fg(UU * math.sin(t) + 1e-9, math.sqrt(Kv) * UU * math.cos(t), UU, math.sqrt(Kv) * UU, 1e-6, 1.0))
+                / f0(UU * math.sin(t) + 1e-9, math.sqrt(Kv) * UU * math.cos(t), UU, math.sqrt(Kv) * UU, 1e-6, 1.0)
+                for t in [(math.pi / 2) * i / 400 for i in range(401)])
+    # (d) the wall's bending: the angle off the perpendicular, and its cost at the record's cover
+    wb = m * ell / (3 * u)
+    beta = sp.simplify((U * wb / W ** 2 - sp.diff(wb, u)).subs({u: U, W: sp.sqrt(K) * U}))
+    beta_ok = sp.simplify(beta - (m * ell / (3 * U ** 2)) * (1 + 1 / K)) == 0
+    cost = math.sqrt(lnl) * (1 + 1 / Kv) / (3 * UU * (2 + 1 / Kv))
+    return dict(from_sigma=from_sigma, forms=forms, ratio=ratio, marg=marg, u_nl=u_nl, tip_exact=tip_exact,
+                worst=worst, worst_q=worst_q, positive=positive, cover=cover, beta_ok=beta_ok, cost=cost)
+
+
 def q21():
     reg = _register_rows()
     rows = list(Q21_ROWS)
@@ -449,7 +575,7 @@ def q21():
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21())
+                q20=q20(), q21=q21(), q23=q23())
 
 
 def report(o):
@@ -472,6 +598,13 @@ def report(o):
                                                                                 o["q20"]["factor"]))
     print("Q21 the rows' own citations: %s; the instruments' words found: %s"
           % (["%s %s" % (k, a and b) for k, a, b in o["q21"]["cites"]], [ok for _, _, ok in o["q21"]["texts"]]))
+    g = o["q23"]
+    print("Q23 GT's field from eq. (12) at every depth: %s; closed forms A = 4m/(3d), C = 2m(2Z^2 + u^2)/(3d^3): %s; "
+          "round tip GT/test = 4(3U + 2 ell)/(9(U + ell)): %s, marginal ell %s; at N_L trapped for U > %.2f m; "
+          "elongated c(K-1)/K exact at the tip: %s, sampled at most %.4f (test form's gradient part %.4f); theta+ "
+          "positive: %s; least ratio at the record's cover %.6f; bending angle %s, cost %.2g of the rim's margin"
+          % (g["from_sigma"], g["forms"], g["ratio"], g["marg"], g["u_nl"], g["tip_exact"], g["worst"], g["worst_q"],
+             g["positive"], g["cover"], g["beta_ok"], g["cost"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -481,7 +614,7 @@ def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     add("Q0 354's words and every premise verbatim, each inside its own item", all(o["words"].values()))
-    add("Q1-Q4, Q6, Q13, Q16, Q18, Q19 exactly one alternative survives each, every exclusion a quoted premise or "
+    add("Q1-Q4, Q6, Q13, Q16, Q18, Q19, Q22 exactly one alternative survives each, every exclusion a quoted premise or "
         "a named computation",
         all(len(v) == 1 for v in o["surv"].values())
         and all(p is None or p in WORDS or p.startswith("computed: ") for v in o["ex"].values() for _, p, _ in v))
@@ -509,6 +642,14 @@ def checks(o):
     add("Q21 RPOS2, RT5, RE6 and RO3H bear on no row: B5pu, B6', B5c and O3s cite their own entries, not the "
         "reading's, and the instruments' words are found", all(a and b for _, a, b in o["q21"]["cites"])
         and all(ok for _, _, ok in o["q21"]["texts"]))
+    g = o["q23"]
+    add("Q23 H-GT-IN-WARP: GT's own field (A = 4m/(3d), C = 2m(2Z^2 + u^2)/(3d^3), h55 = 0, from eq. (12) at every "
+        "depth); the round tip 4(3U + 2 ell)/(9(U + ell)) of the test form's, marginal ell 2m; the elongated surface "
+        "untrapped once U > 2 m K/(K - 1), inside L4 (b); the bending 6.3e-7 of the rim's margin",
+        g["from_sigma"] and g["forms"] and g["ratio"] and [x for x in g["marg"] if x.is_finite] == [2 * sp.Symbol(
+            "m", positive=True)] and "%.2f" % g["u_nl"] == "1.04" and g["tip_exact"] and g["worst"] < 2
+        and g["worst_q"] < 2.25 and g["positive"] and g["cover"] > 0.99998 and g["beta_ok"]
+        and "%.2g" % g["cost"] == "6.3e-07")
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -521,7 +662,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "time_reflection": "Haggard and Rovelli's time reflection kept beside (-U, -V) (Q8)",
            "mixed_readme": "the README taken as a mixture of two strings (Q15)",
            "face_at_ours": "position 2's energy taken as (G5/G5_2)^1, one r_h (Q16)",
-           "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)"}
+           "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)",
+           "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)"}
 
 
 def selftest():
