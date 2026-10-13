@@ -66,6 +66,9 @@ states, NOT bits (p.2).
        e-fold per four clocks of m/c on our face, and Schlue's n = 3 covers it; the write there is the record's
        199,702.19 clocks (o3_write), and the large end's open period on position 2's face is not computed -- OPEN with
        M1 there.
+       [Item 362: both are now computed -- M1 at the large end (m1_large.py, 356 (b)) and position 2's open period
+       there (close_large.py L4: at most one e-fold at its own sigma, 6.7e-4 e-folds on 139 (1)'s quarter at r0 = 10
+       ell); O3 at the large end is o3_large.py, resting on WRITE as O3s rests on WRITEs.]
        [Item 334: "the hold is the write", read as the face standing through the write, is M's (M-HOLD-IS-THE-FACE,
        confirmed): O3e rests on no reading of the board's; its scope is Wall E's scalar wave, as stated.]
        [Item 336, M-ENERGY-STAYS (M: "I think it is B"): our face closes by Hawking emission over the hole's life, its

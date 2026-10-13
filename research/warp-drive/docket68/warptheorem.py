@@ -308,8 +308,8 @@ LEMMAS_NOW = [
       "construction's single chart, and under position 2's own laws only the face's existence and the finiteness of "
       'its closing carry (c7_oneway V12 (Q3)); item 356: split by end')),
     ('H', "H2tx between universes position 2's horizon holds the README at its own bit area, at the large end", 'OPEN',
-     ("copy_p2 C1 (240) holds at its own bit area; position 2's side at the large end is not re-posed one-way "
-      "(M1P2x, the record's m1p2_cypher and theorem_p2) -- item 356: split by end")),
+     ("copy_p2 C1 (240) holds at its own bit area, capacity N in every position 2 (m1p2x_large Y8, item 362); it rests "
+      "on M1P2x, whose one remaining part is the README's emergence, ARRIVAL's (358 (c))")),
     ('O',
      ("O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's "
       'white-hole face'),
@@ -345,10 +345,12 @@ LEMMAS_NOW = [
       '(write_small S3, verified 264; C5 verified, 267, 317); our face damped for all advanced time (stability S6) '
       "and Schlue's uniform boundedness READ for the scalar wave; position 2's face bounded by e^33.6; gravitational "
       "perturbations hold Ishibashi-Kodama's mode stability only, outside the row's scope")),
-    ('O', 'O3 the corridor survives its hold at the large end (158 (2); 160)', 'OPEN',
-     ("the record's: the write >= 199,702.19 clocks of m/c (o3_write); eq. (17)'s static window and its kappa = 0 "
-      "figures (o3_hold O3a-O3d) are eq. (17)'s, not the large end's Schwarzschild; the large end's open period is "
-      'not computed')),
+    ('O', 'O3 the corridor survives its hold at the large end (158 (2); 160)', 'DERIVED',
+     ("lemmas/o3_large.py Q1-Q4 (item 362), re-posed as O3s: the hold, the face standing (334), lasts the large hole's "
+      "life, 3.3e10 times the write's floor at the example README (close_large L3, 336), the write within it "
+      "(write_large); our face damped one e-fold per four clocks (stability S6 at kappa = 1/(4M)), Schlue's n = 3 READ "
+      "for the scalar wave on the plane; Figueras-Wiseman's static family stable (READ); position 2's face bounded by "
+      "e (own sigma) or 1.0007 (139 (1)'s quarter); o3_hold O3e's large-end paragraph closed (its item-362 note)")),
     ('Z',
      ('Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 '
       'pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1'),
@@ -500,16 +502,17 @@ LEMMAS_NOW = [
       "lemmas/close_flux.py K3's class (no event horizon within one universe) no longer decides it (Hayward); "
       'item 356: split by end')),
     ('E', 'E1u within one universe, our E returns to our universe as radiation -- no influence back, at the large end',
-     'OPEN',
-     ("M-ENERGY-STAYS (336) is M's at both ends; its mechanism, the face closing by Hawking emission over the large "
-      "hole's life, is the large end's CLOSE, not computed -- item 356: split by end")),
+     'DERIVED',
+     ("M-ENERGY-STAYS (336): the face closes by Hawking emission over the large hole's life, at least 2.417 N clocks, "
+      "its energy radiated into our universe; lemmas/close_large.py L3, L5 (item 362)")),
     ('E', "E2us within one universe, position 2's face releases its own energy at its closing, at the small end",
      'DERIVED',
      ('110, 111 (a), 240; c_junction J1 (the face open at most 33.6 clocks); lemmas/close_small.py K9; '
       'item 356: split by end')),
-    ('E', "E2u within one universe, position 2's face releases its own energy at its closing, at the large end", 'OPEN',
-     ("110, 111 (a), 240 are M's; position 2's face's open period and closing at the large end (c_junction J1 is the "
-      "small end's) are the large end's CLOSE -- item 356: split by end")),
+    ('E', "E2u within one universe, position 2's face releases its own energy at its closing, at the large end",
+     'DERIVED',
+     ("110, 111 (a), 240; position 2's face closes within its open period at the large end -- <= 4 clocks at its own "
+      "sigma, <= 2.7e-3 clocks at r0 = 10 ell on 139 (1)'s quarter; lemmas/close_large.py L4, L5 (item 362)")),
     ('E',
      ("E1xs between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README "
       'crosses, at the small end'),
@@ -517,15 +520,19 @@ LEMMAS_NOW = [
      ("M-ENERGY-STAYS (336); 240 (the copy built from position 2's bulk, its mass position 2's); 111 (b) and 230 read"
       ' as the one value, the README (240); lemmas/close_small.py K9; item 356: split by end')),
     ('E', "E1x between universes, nothing of our E crosses; the README crosses, at the large end", 'OPEN',
-     ("M-ENERGY-STAYS (336) and 240 are M's at both ends; the large end's closing is not computed (CLOSE) -- "
-      'item 356: split by end')),
+     ("nothing of our E crosses: M-ENERGY-STAYS (336) with lemmas/close_large.py L3 (item 362); the README's crossing "
+      "is M's (111 (b), 230, 240), but at the large end its timing against position 2's open period (close_large L4: "
+      "<= 4 clocks at its own sigma, <= 2.7e-3 clocks at r0 = 10 ell on 139 (1)'s quarter) is ARRIVAL's, which rests "
+      "on SOURCE -- reported under 358 (c), not forced green")),
     ('E',
      ("E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build "
       'uses, at the small end'),
      'DERIVED',
      '110, 111 (a), 240; c_junction J1; lemmas/close_small.py K9; item 356: split by end'),
-    ('E', "E2x between universes, position 2's face releases its own energy at its closing, at the large end", 'OPEN',
-     "110, 111 (a), 240 are M's; the large end's closing is not computed (CLOSE) -- item 356: split by end"),
+    ('E', "E2x between universes, position 2's face releases its own energy at its closing, at the large end",
+     'DERIVED',
+     ("110, 111 (a), 240; position 2's face closes within its open period at the large end; lemmas/close_large.py L4, "
+      "L5 (item 362)")),
     ('E',
      ("E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it "
       '(111 (a)); the need is what it activates (239)'),
@@ -576,7 +583,12 @@ LEMMAS_NOW = [
      ("lemmas/c8_level.py V0-V10 (275-341; finalized 330; verified, CONFIRMED with qualifications (341); V5 (d) on "
       "both readings of the arrival, V10); m1p2x_oneway kept as written")),
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
-     "the record's (m1p2_cypher, m1p2_junction, theorem_p2)"),
+     ("lemmas/m1p2x_large.py Y1-Y9 (item 362), c8_level carried to the large hole: the glued object's isometry (m1_large "
+      "M6); position 2's face's junction rising on every reading, none on ours (c8_level V3); its blueshift at most e "
+      "(own sigma) or 1.0007 (139 (1)'s quarter), the bath 72 orders below Barcelo's 0.28 E; (d) on reading (i), 3.3e10 "
+      "writes; (e) on the side total; warp order 6.2e-4 at r0 = 10 ell. What remains is the README's emergence within "
+      "position 2's open period -- at most 4 clocks at its own sigma, 2.7e-3 on 139 (1)'s quarter -- ARRIVAL's, which "
+      "rests on SOURCE: reported under 358 (c)")),
     # [item 349] FAR at the small end worked and seated as FARs; FAR stays the large end's
     # [item 354] FARs and FAR READING -> DERIVED: every board reading each rested on proved (readings Q23-Q25, Q30)
     ('N',
@@ -621,9 +633,12 @@ LEMMAS_NOW = [
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
       "data; the hold the face standing (334), lasting the life (336), 163's floor bounding the write")),
-    ('N', 'WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c', 'OPEN',
-     ("the record's (write_cypher W0-W4, WZ, C1-C4): carrying the corridor, lasting the write and keeping (Z) never "
-      "occur together on eq. (17)'s computed cells")),
+    ('N', 'WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c', 'DERIVED',
+     ("lemmas/write_large.py X1-X3 (item 362): the large brane hole is static (Figueras-Wiseman, READ; dM/M 1.0e-11 "
+      "over the floor), lasts 3.3e10 times the floor at the example README (close_large L3), keeps (Z) as a vacuum bulk "
+      "(m1_large M1, M2), survives (stability S6 at kappa = 1/(4M); Figueras-Wiseman's 'dynamically stable', READ) and "
+      "stands -- T_WRITE and T_O3 data in all five languages and statistics 2-6; the hold the face standing (334), "
+      "lasting the life (336); the record's eq. (17) cells stand as its end")),
     ('N',
      ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
       "at position 2 under its laws and take their room"),
@@ -650,9 +665,15 @@ LEMMAS_NOW = [
       " cannot shrink under non-negative null energy except by the emission's own negative influx; it closes after "
       "8.57e14 clocks, 1.28e10 times the write (hold_small, C5 U4); position 2's past outer face closes within 33.6 "
       'clocks (c_junction J1), releasing its own energy')),
-    ('N', 'CLOSE the closing at the large end', 'OPEN',
-     ("the record's (close_cypher, close_object, CLOSE-FLUX): M-ENERGY-STAYS was answered at the small end; the large"
-      " end's closing is not computed")),
+    # [item 362] the large end's CLOSE and the E rows resting on it alone, worked beside the interior (360 (a))
+    ('N', 'CLOSE the closing at the large end', 'DERIVED',
+     ("lemmas/close_large.py L1-L5 on M-ENERGY-STAYS (336): our face non-degenerate (kappa^2 = 1/(16 M^2)), future "
+      "outer, the null energy zero in the bulk and on the plane, so only the emission's own negative influx ends it; "
+      "it closes by Hawking emission over the large hole's life, at least 2.417 N clocks -- 6.63e15 at the example "
+      "README, 3.3e10 times the write's floor (Z = 108.75 blackbody species through 27 pi M^2, an upper bound on the "
+      "power; the bulk's gravitons <= 6.3e-5; Figueras-Wiseman's static large holes, READ); position 2's past outer "
+      "face closes within its open period: <= 4 clocks at position 2's own sigma (Barcelo's short scale, c_junction "
+      "J2), <= 2.7e-3 clocks at r0 = 10 ell on 139 (1)'s quarter (J1 at the large end, 15 (r0/ell)^2)")),
     # [item 344] M-SOURCE-IN-THE-MAP, split by end at item 346 (M-SOURCE-BY-END); both worked last (M-SOURCE-LAST, 345)
     ('N',
      ("SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not "
@@ -670,13 +691,14 @@ LEMMAS_NOW = [
       "defined for its own end (M-SOURCE-BY-END, 346); until then no row rests on it -- the large end's ARRIVAL and "
       "WRITE are open, README-HELD.md's four-dimensional models the record's")),
 ]
-RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'O1bs': 'M1s',
-                'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL',
+RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'ARRIVAL',
+                'O1bs': 'M1s',
+                'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
                 'Z1ts': 'M1s', 'Z1t': 'M1', 'Z2rs': 'M1s', 'Z2r': 'M1', 'Z3bs': 'M1s',
                 'Z3b': 'M1 FAR WRITE ARRIVAL CLOSE',
                 'B2ts': 'M1s', 'B2t': 'M1', 'B3': 'M1 FAR WRITE ARRIVAL CLOSE',
                 'B3s': 'M1s FARs WRITEs ARRIVALs CLOSEs', 'B4ds': 'M1s FARs WRITEs ARRIVALs CLOSEs',
-                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'E1u': 'CLOSE', 'E1x': 'CLOSE',
+                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'E1u': 'CLOSE', 'E1x': 'CLOSE ARRIVAL',
                 'E2us': 'CLOSEs', 'E2u': 'CLOSE', 'E2xs': 'CLOSEs', 'E2x': 'CLOSE', 'E4rs': 'M1s', 'E4r': 'M1'}
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
@@ -820,7 +842,11 @@ def lemma_selftests():
               # item 351
               "b4d_small.py",
               # item 354
-              "readings.py"):
+              "readings.py",
+              # item 356
+              "m1_large.py", "rows_large.py",
+              # item 362
+              "close_large.py", "write_large.py", "m1p2x_large.py", "o3_large.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
