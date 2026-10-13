@@ -470,9 +470,10 @@ LEMMAS_NOW = [
      ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
       "at position 2 under its laws and take their room"),
      'READING',
-     ("lemmas/arrival_small.py V0-V11 (338, 340): for the math with M's guess A (340), the math on M's statements "
+     ("lemmas/arrival_small.py V0-V12 (338, 340, 343): for the math with M's guess A (340), the math on M's statements "
       "giving reading (ii), compact -- G_vv >= 0, no partner, one E (V1); the face born before the onset and the coarse "
-      "second law kept only for an arrival within 4.79 clocks (V2-V4); reading (i) against 136 (1), 136 G, 162 and 109, "
+      "second law kept only for an arrival within 4.79 clocks, the radial model's figure, its scale what carries "
+      "(V2-V4, V12); reading (i) against 136 (1), 136 G, 162 and 109, "
       "and a compact arrival's face changing size over 5.39 clocks, 8.0e-5 of the write, for 162 and 163 (V11); the "
       "write's floor carried, its 66,980 clocks the approach (V5); position 2's release E2/E = (G5/G5_2)^(1/3) under "
       "240 (b) (V6); the room, 285 (b)'s figures (V7); the rebuild's steps M's (V8) -- the board's reading of 340")),

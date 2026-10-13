@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""arrival_small.py -- items 338, 340: the ARRIVAL row at the family's small end, on the one-way object. M: "Continue"
-(to the board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then ARRIVAL and FAR, with
-B3 and B4d resting on them). The row: "the README forms the corridor as it comes in (198, M's guess); how the bits
-rebuild and take their room" (284 (d), 285 (d)). Its first half was computed only at the large end, in four dimensions
-(README-HELD.md 2-3, readme_held.py). At the small end write_small's verifier recorded it as not computed: "reading (ii)
-is not computed" (264). Worked in the conversation (computed with sympy and a Dormand-Prince integrator written here,
-exact where marked; READ where marked; deduced where marked; not verified by a separate session; not seated);
-2026-10-13.
+"""arrival_small.py -- items 338, 340, 343: the ARRIVAL row at the family's small end, on the one-way object. M:
+"Continue" (to the board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then ARRIVAL
+and FAR, with B3 and B4d resting on them). The row: "the README forms the corridor as it comes in (198, M's guess); how
+the bits rebuild and take their room" (284 (d), 285 (d)). Its first half was computed only at the large end, in four
+dimensions (README-HELD.md 2-3, readme_held.py). At the small end write_small's verifier recorded it as not computed:
+"reading (ii) is not computed" (264). Worked in the conversation (computed with sympy and a Dormand-Prince integrator
+written here, exact where marked; READ where marked; deduced where marked; not verified by a separate session; not
+seated); 2026-10-13.
 
   V0 (read) The words the row rests on, verbatim in the rulings file: 198, "My guess would be 1." (the board's option
      (a): the README comes in while the corridor forms, with no partner, the size growing as it comes in and fixed once
@@ -147,12 +147,40 @@ exact where marked; READ where marked; deduced where marked; not verified by a s
      from the README's arrival through the hole's life" (336), the write's 66,980 clocks its approach;
      M-HOLD-IS-THE-FACE's core -- the hold is the face standing, not how long the README stays within the horizon -- is
      unchanged. 198's option text, "the size growing as it comes in", holds over the arrival's few clocks.
+  V12 (item 343, the residue pass before finalization, 314; deduced, and computed where marked) What carries beyond the
+     arrival's model, and what the row rests on. (a) V2-V4, V9 and V11 compute in one model: the README's energy
+     arriving as radial null dust, spherically symmetric about the hole in the five-dimensional bulk. The README is
+     written on our plane (write_small S3's H-README-ON-PLANE, the count V5 carries), so in the bulk its source is
+     confined to the plane -- symmetric about the hole within the plane and by reflection across it, not over the whole
+     3-sphere -- and is a gas of the plane's fields, not null dust: the two entries describe one README two ways. (b)
+     What carries without the model: the one E (V1) -- the hole's energy after the arrival is the README's by energy
+     conservation for any carrier, its end state C2's localized hole, Tangherlini at r_h << ell (C1-C3) -- and with it
+     V11 (a), reading (i) against M's four statements; no partner and (Z) kept, for any carrier meeting the null
+     condition, which pointwise proves classically for matter of particles, scalar fields and gauge fields (320, with
+     339 (Q4)'s scope) -- the README's carrier is the plane's own fields; the write's floor (V5, S3's own count, already
+     on the plane); V6-V8, which do not use the arrival's model; and the two arguments that use only the face's
+     teleology -- a face born before the README's first part crosses hides the onset, and at 136 (1)'s exact energy the
+     coarse total rises and falls whenever the face forms ahead of the matter (V4). (c) What is the model's own: the
+     thresholds' values -- 4.79 clocks, and 4.83, 5.75, 5.28 and 4.82 for the coarse count (computed, pinned by the
+     check); the onset orders and lambda <= 1/27, radial null dust's shell focusing, which a gas with pressure or a
+     non-radial flow need not share; the trapping horizon's e^(3/2) N, a spherical apparent horizon; and V11's 5.39
+     clocks. Their scale -- a few of the hole's clocks r_h/c against the write's 66,980 -- is what the row uses (V11
+     (b), with 162 and 163); a plane-confined arrival is not computed (does not claim). (d) Wording: V2's "before the
+     README's first part arrives" means before it crosses the face (v = 0), the face then holding (|v_born|/2)^3 N. (e)
+     The row rests on M's 94, 109, 136 (1), (2), (5), (6), G and H, 158 (2), 162, 163, 198, 239, 240, 284, 285, 336 and
+     340, with 110, 111 (a), 273 and 334; on the verified C1-C3 (the hole), C5 (hold_small L1, L5), O1c (337), B5a (339)
+     and C8 (341, c_junction J1); on write_small S1 and S3, close_small K1 and K4, copy_p2 C1 and C2, p2_matter X2 and
+     X3, bulk5_index's five-dimensional couplings and pointwise; on the board's H-BITS-WITH-ENERGY, H-BITS-ARE-STATES
+     and H-FREE-GAS; and on the board's readings -- the fine count of 136 (5), 240 (b) governing the faces' radii, and
+     340's compact arrival.
 
 What this does not claim.
   - That a carrier of the README's states can converge compactly: V5's choreography is allowed by causality, its state
     count is not computed.
   - The arrival beyond spherical symmetry and radial null dust, or in the bulk away from r_h << ell: the hole is
     Tangherlini at the small end (C1-C3), R/ell = 5.4e-11 at the write's start (write_small S3).
+  - [Item 343] A plane-confined arrival -- the README's actual source, a gas on our plane: V12 names what carries
+    without it and what is the radial model's own.
   - Which count of the second law governs: V4 computes both; the fine count is the board's reading of 136 (5).
   - The mechanism by which bits become matter (V8 (4)-(8)): M's statements, named.
   - The large end: there the record's ARRIVAL stands (arrival_cypher, README-HELD.md).
@@ -565,6 +593,12 @@ def checks(o):
     add("V9 the calculator: f1 (forms, no partner, (Z), its own E) 1 at orders 2 and 3 for the README compact or "
         "spread; f2 (the onset behind the face or regular) 1 for the compact README, and for the spread \"both\" at "
         "order 2, its population {0, 1} computed; audits clean", ok)
+    b2 = o["v2"]
+    add("V12 (item 343) the radial model's figures as quoted: the coarse count kept to 4.83, 5.75, 5.28, 4.82 clocks at "
+        "orders 1-4, the face born before the onset to 5.27 and 4.79 at orders 3-4, the least 4.79",
+        [round(b2["gsl"][n], 2) for n in ORDERS] == [4.83, 5.75, 5.28, 4.82]
+        and [round(b2["born"][n], 2) for n in (3, 4)] == [5.27, 4.79]
+        and round(min(list(b2["gsl"].values()) + list(b2["born"].values())), 2) == 4.79)
     q = o["v11"]
     add("V11 (item 340) for the math: a compact arrival (w = 4.79 clocks) changes the face's size over at most 5.39 "
         "clocks, 8.0e-5 of the write's 66,980 -- 162's throat that does not change size and 163's one whole",

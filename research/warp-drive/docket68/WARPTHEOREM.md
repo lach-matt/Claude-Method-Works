@@ -174,6 +174,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     the hole's energy is the README's one E. The face is born about a clock before the README's first part crosses.
   - The arrival must be compact, within 4.79 clocks. Then the onset stays behind our face, and the second law, counted
     over the README's thermodynamic states, never falls below its start. A spread arrival keeps neither.
+  - The 4.79 is the figure of the model used, radial null dust in the bulk. The README is written on our plane, so
+    the residue pass (item 343, V12) names what carries without the model: the one E, no partner, (Z) kept, the write's
+    floor, the release, the room, and an arrival compact on the hole's own clock.
+  - **Finalized?** The residue pass is done. ARRIVAL waits on your finalization to go to its verifier (342, 343).
   - The write's 66,980 clocks are the README's approach in our exterior; the floor carries unchanged.
   - Position 2's release at the small end is E2/E = (G5/G5_2)^(1/3): 1, 0.891, 0.707 or 0.630 by destination. The
     room is 285 (b)'s figures. The rebuild's steps are your statements, named one by one.
@@ -2303,7 +2307,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–341: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–343: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2443,6 +2447,9 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   - The rest are wording and pointers. All ten are seated in `c8_level.py`, with V10's check and a mutant.
   - The three ARRIVAL notes owed since 338 are seated: `c_junction.py` J3, `write_small.py` S4 and `hold_small.py`
     L4. The verification queue is empty.
+- **342–343, ARRIVAL to the verifier.** You asked whether ARRIVAL waits for FAR. It does not: it rests on no FAR result.
+  It goes after one residue pass and your finalization, and you agreed. The pass is `arrival_small.py` V12: it names
+  what carries beyond the radial null-dust model and what the row rests on, with a check pinning the model's figures.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.
