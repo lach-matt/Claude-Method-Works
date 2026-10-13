@@ -275,3 +275,14 @@ Files: `gen_gauge5_fw.py`, `interior_gauge5.py`, `gauge5_run.py` (the one-functi
 [rtol ramp kap_driven mode]), `g5_profile.py`, `analyze_gauge5.py`, `old_tau.py`, `hr_sleg.py` (the damped s-leg
 alone). `interior_gauge.py`'s `run_steps` now reports a driver class's own phi~. `cheb_tail_gauge.py` also prints where
 phi~ peaks.
+
+**C3. Literature (item 366).** `LITERATURE-366.md` records what a search found before any further run, each finding
+READ, search summary or deduced. Four findings change the approach.
+- The only dynamical RSII evolution (Wang and Choptuik) met our brane constraint violation, non-convergent with
+  resolution. They cured it by imposing every constraint component at the brane.
+- Harmonic time is marginally singularity-avoiding and reaches the singularity as its time goes to infinity
+  (Garfinkle; Alcubierre). B6's chart instead collapses the lapse while the volume stays finite, through the reference
+  metric's pull.
+- An exact brane-localised hole interior (the AdS4 C-metric) exists to validate against.
+- Our lapse driver is Pretorius's, which was built to stop the lapse collapsing, not to reach a singularity.
+Proposed order (nothing run): new brane rows, then pure harmonic time, then the C-metric test.
