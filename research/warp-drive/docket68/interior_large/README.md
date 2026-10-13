@@ -286,3 +286,74 @@ READ, search summary or deduced. Four findings change the approach.
 - An exact brane-localised hole interior (the AdS4 C-metric) exists to validate against.
 - Our lapse driver is Pretorius's, which was built to stop the lapse collapsing, not to reach a singularity.
 Proposed order (nothing run): new brane rows, then pure harmonic time, then the C-metric test.
+
+**C4. Item 367, steps 1 and 2 (2026-10-13).** Both steps follow item 366's literature proposals, at bt = 1 from the
+damped runs at s1 ~ -0.50, kap = 4. phi~ is the largest |g(xi~, xi~)| over x.
+
+*Step 1: every constraint component at the brane* (`interior_cb.py`; Wang and Choptuik's cure, LITERATURE-366 L1).
+The brane rows for T, S, A, B stay as they were. Substituting F = F_s = 0 removes F_x from every one of them (checked).
+The remaining component is now imposed too: xi~^s = xi^s - h^s = 0 at x = 1. On the brane xi^s is affine in F_x, with
+coefficient s (1 - s)^3/(8 A B bt^2) and no x-derivative of T, S, A, B (checked), so the row fixes the brane slope of F.
+F(1) = 0 is kept by writing F = (1 - x) p(x).
+
+Checks before any run (computed):
+- On the old undriven run the row's slope matches the old interpolant's to about 1e-3 relative (`cb_t0.py`).
+- The representation reproduces exact derivatives to 8e-15.
+
+Two numerical faults were found and fixed before any result was trusted:
+- The row's s-derivative, taken by finite difference, carried the brane solve's noise. It made an apparent mode
+  growing at 16 per unit s, an artefact; with the noise removed every variant matches the old rows' 1.05
+  (`cb_diag.py`, `cb_diag2.py`). F_s now keeps its plain interpolant (`fs_mode = "plain"`). Near the brane the term it
+  feeds is multiplied by g^sx, which vanishes there with F.
+- Radau stalls on the new right-hand side, taking steps of 1e-6 to 2e-4 even with a fixed-step Jacobian. RK45 steps
+  the same interval at 5e-3, so the solution carries no fast dynamics (`cb_diag3.py`, `cb_diag4.py`). The runs use
+  DOP853 (`run_steps(method=...)`). An old-row control under DOP853 collapses exactly where its Radau run did (-1.624).
+
+The results (computed; s in brackets, then where each run ends):
+
+| run | rows | phi~ along the run | ends |
+|---|---|---|---|
+| mu = 50, Nx = 28 | new | 9.8e-4 (-0.78), 6.5e-3 (-0.99), 130 (-1.33) | stalls at -1.434 |
+| mu = 50, Nx = 28 | old (DOP853) | 1.5e-3 (-0.80), 0.41 (-1.11), 300 (-1.46) | -1.624 |
+| mu = 50, Nx = 40 | new | 1.9e-4 (-0.79), 2.0e-3 (-0.92), 39 (-1.17) | -1.32 |
+| one-function, mu = 5, Nx = 28 | new | 4.1e-3 (-1.79), 0.13 (-2.14), 32 (-2.49) | -2.797 (old rows -2.713) |
+| one-function, mu = 5, Nx = 40 | new | 5.6e-4 (-1.79), 2.4e-2 (-2.18), 1.5 (-2.36) | -2.673 (old rows -2.870) |
+| undriven, Nx = 28 | new | <= 8e-5 to -2.05, 1.8e-4 (-2.70), 0.15 (-3.50) | 9.7 at -4.00 (old rows 1.68 at -4.53) |
+
+The step fails its test: the mu = 50 violation does not converge with Nx. With the brane node now held exactly, the
+violation peaks at the node next to it (x = 0.997) and oscillates there: 2.1e-3, then 4.4e-4, then 2.2e-2 across
+s = -0.71 to -0.91 (`cb_profile.py`). It then moves inward. So it is a high-frequency mode in the boundary layer, not a
+constraint mode let in by the boundary (deduced). In this code the new rows are no better than the old, and somewhat
+worse past s ~ -2.
+
+*Step 2: pure harmonic time* (`gen_harm_fw.py`, the `HarmCB` and `HarmOld` classes; LITERATURE-366 L2-L3). The source
+is h^s = -R(s) Fbar^s, so once R = 1, xi~^s = -box s; it is ramped in over Delta s = 0.5. The reference metric's pull on
+the slicing is gone; the x-gauge keeps it. First, a check on the old chart (computed, `harm_check.py`, along coordinate
+lines): from s = -0.1 to -2.03, N/sqrt(gamma) falls 500 times near the axis, 170 mid-bulk and 32 on the brane. Harmonic
+slicing would keep it constant. The shift is large (|beta|/N up to 0.97), so this suggests rather than proves that the
+DeTurck time is not harmonic.
+
+The runs (computed, `hm_analyze.py`):
+- *The constraint through the switch.* phi~ stays at its switch value, about 7e-5, through the whole ramp at Nx = 28
+  and 40. The drivers had lost it by s ~ -0.62.
+- *The lapse.* The lapse per unit lambda rises after the switch instead of collapsing (mid-bulk 0.24 to 0.47).
+  N/sqrt(gamma) settles roughly constant mid-bulk (0.43-0.50) and on the brane (0.69-0.80), the harmonic relation. Near
+  the axis it does not, where the coordinate-line reading is least faithful.
+- *Past the old chart's end.* At s = -1.60, Nx = 40, phi~ is 5.9e-5 and the proper time since the horizon is 0.2769
+  near the axis, 0.5349 mid-bulk and 1.0756 on the brane. That is beyond the old chart's totals everywhere (0.2658,
+  0.5185, 1.0723). At s = -1.90, with phi~ 8.5e-3, the margins are 0.034, 0.065 and 0.060: further than the mu = 5
+  driver near the axis and mid-bulk (0.009, 0.027), less on the brane (0.089). The brane's area radius falls to 0.711.
+- *The failure.* It is the same as everywhere else: loss mid-bulk and near the axis (x ~ 0.07-0.76) from s ~ -1.75,
+  blow-up by -2.0 to -2.07. Old rows and new behave alike at Nx = 40 (-2.065, -2.067). At Nx = 28 the old rows fail
+  earlier (4.3e-3 at -1.63).
+
+Across gauges the loss sets in at about the same mid-bulk proper time: tau_mid ~ 0.55-0.56 for the mu = 5 driver and
+for harmonic time. That points to the solution at that place and time, not to the slicing (deduced). In harmonic time
+the mid-bulk curvature climbs from 450 to 2500 ell^-4 between s = -1.75 and -1.90. If that is Kasner's K proportional to
+(tau_s - tau)^-4, the singularity is near tau_mid ~ 0.63 (estimate, from two points). Step 3, an exact interior to test
+against, is what can tell a real approach to the singularity from a numerical failure.
+
+Files: `interior_cb.py` (the CB mixin; DampedCB, GaugeCB, Gauge5CB, HarmCB, HarmOld; `fd_jac`), `cb_run.py` (modes
+damped, gauge3, gauge5, harm, harmold; DOP853), `cb_t0.py`, `cb_diag.py` to `cb_diag4.py`, `cb_profile.py`,
+`gen_harm_fw.py`, `hm_analyze.py`, `harm_check.py`. `interior_gauge.py`'s `run_steps` takes `jac=` and `method=`, or the
+environment variable RUN_METHOD.

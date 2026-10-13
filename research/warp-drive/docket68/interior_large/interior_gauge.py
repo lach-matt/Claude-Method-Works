@@ -83,13 +83,18 @@ def phi_tilde(I, s, Y):
     return gss * xt ** 2 + 2 * gsx * xt * xx_ + gxx * xx_ ** 2
 
 
-def run_steps(I, Y_s, s_start, lam_end, rtol=1e-8, every=25, save=None, meta=None):
+def run_steps(I, Y_s, s_start, lam_end, rtol=1e-8, every=25, save=None, meta=None, jac=None, method="Radau"):
     """lambda-time evolution stepped by hand (Radau), printing lambda, s, the step and the brane lapse every `every`
     steps and pickling the trajectory so far, so a long run can be followed and resumed"""
     from scipy.integrate import Radau
     m = I.m; f0 = 1.0 - s_start
     Z0 = np.concatenate([Y_s[:5 * m], -f0 * Y_s[5 * m:]])
-    sol = Radau(lambda l, z: IF.rhs_lambda(I, l, z), np.log(f0), Z0, lam_end, rtol=rtol, atol=rtol * 1e-2)
+    fl = lambda l, z: IF.rhs_lambda(I, l, z); method = os.environ.get("RUN_METHOD", method)
+    if method == "Radau":
+        sol = Radau(fl, np.log(f0), Z0, lam_end, rtol=rtol, atol=rtol * 1e-2, jac=jac(I, fl) if jac else None)
+    else:                                     # an explicit stepper (interior_cb.py's rows stall Radau)
+        from scipy.integrate import DOP853, RK45
+        sol = {"DOP853": DOP853, "RK45": RK45}[method](fl, np.log(f0), Z0, lam_end, rtol=rtol, atol=rtol * 1e-2)
     ts, ys = [sol.t], [sol.y.copy()]
     t0 = time.time(); k = 0
     while sol.status == "running":
