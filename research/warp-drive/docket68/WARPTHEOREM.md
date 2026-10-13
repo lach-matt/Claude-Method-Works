@@ -81,6 +81,9 @@ The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE and
 plane's fields rather than null dust, is now a row of the theorem at both ends: **SOURCE**, OPEN, deferred by you until
 the current board is cleared, because the completed theorem says what it must supply (M-SOURCE-IN-THE-MAP). Until then
 no row rests on it. A row that needs the README's arrival is worked in a model and says what is the model's own.
+*Since items 345–346:* SOURCE is worked after every other open row, the large end's included (M-SOURCE-LAST), and it is
+two rows, one per end (M-SOURCE-BY-END). **SOURCEs** is the gas coming in onto the README's own five-dimensional hole,
+and **SOURCE** is the gas coming in onto the four-dimensional corridor.
 
 ## The register as it stands (item 331)
 
@@ -150,9 +153,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess) | **OPEN** | -- | arrival_cypher, README-HELD.md (the record's) |
 | N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
 | N | CLOSE the closing at the large end | **OPEN** | -- | close_cypher, close_object (the record's) |
-| N | SOURCE the README's source on our plane: written there as a gas of the plane's fields, not null dust, and coming in onto the face -- the process the write and the arrival are worked in models of (344) | **OPEN** | -- | deferred by M until the board is cleared (344) |
+| N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
+| N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-62 rows, 50 lemmas and 12 inputs: 20 proved, 24 derived, 2 under a named reading of the board's, 5 definitions, 11 OPEN.
+63 rows, 50 lemmas and 13 inputs: 20 proved, 24 derived, 2 under a named reading of the board's, 5 definitions, 12 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -206,6 +210,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   theorem. It is worked once every other row is decided, so that the completed theorem names what it must supply.
   Today ARRIVALs models it as radial null dust, and WRITEs as `write_small.py` S3's free gas. `arrival_small.py` V12
   names what carries without that model.
+  - *Since item 346:* two rows, SOURCEs at the small end and SOURCE at the large, each defined for its own end.
+  - Owed after ARRIVAL's verifier: an item-346 note in `arrival_small.py` V13 (6), which names SOURCE as one row.
 - **Confirmed by you (item 334): M-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
   - 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor and the
     opening are the same object). It is not how long the README stays within the horizon.
@@ -228,7 +234,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
 - M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334),
   M-ENERGY-STAYS (336), M-ARRIVAL-FOR-THE-MATH (340), with your guess A (H-ARRIVAL-FORMS-THE-FACE),
-  M-SOURCE-IN-THE-MAP (344), M-SOURCE-LAST (345).
+  M-SOURCE-IN-THE-MAP (344), M-SOURCE-LAST (345), M-SOURCE-BY-END (346).
 
 **The board's, to be overruled by you at any point:**
 - ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
@@ -242,6 +248,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   cleared" is after every other open row is decided. SOURCE is one row at both ends.
   *Item 345: the first two confirmed by you (M-SOURCE-LAST: SOURCE is worked after every other open row, the large
   end's included). The third, one row rather than a pair SOURCEs and SOURCE, is put to you again, explained.*
+  *Item 346: you chose the pair -- SOURCEs and SOURCE, one per end (M-SOURCE-BY-END).*
 
 ---
 
@@ -2328,7 +2335,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–345: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–346: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2488,6 +2495,9 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
 - **345, two of 344's readings confirmed.** The map is the chain map with its register, and SOURCE is worked after
   every other open row, the large end's included (M-SOURCE-LAST). The third reading, SOURCE as one row at both ends, is
   explained and put to you again.
+- **346, SOURCE split by end.** You chose two rows: SOURCEs, the gas coming in onto the README's own hole, and SOURCE,
+  the gas coming in onto the four-dimensional corridor (M-SOURCE-BY-END). The register has 63 rows; the map's Source
+  station carries both.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

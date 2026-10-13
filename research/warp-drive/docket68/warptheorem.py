@@ -54,7 +54,8 @@ on H-HOLD-IS-THE-FACE, which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVE
 OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL. [Item 344: M finalized ARRIVALs, now at its verifier; and the
 README's source on our plane -- a gas of the plane's fields, not null dust -- is a row of the theorem at both ends,
 SOURCE, OPEN and deferred by M until the current board is cleared, the completed theorem saying what it requires
-(M-SOURCE-IN-THE-MAP).]
+(M-SOURCE-IN-THE-MAP).] [Item 346: split by M into two rows, SOURCEs at the small end and SOURCE at the large
+(M-SOURCE-BY-END), both worked after every other open row (M-SOURCE-LAST, 345).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -497,16 +498,22 @@ LEMMAS_NOW = [
     ('N', 'CLOSE the closing at the large end', 'OPEN',
      ("the record's (close_cypher, close_object, CLOSE-FLUX): M-ENERGY-STAYS was answered at the small end; the large"
       " end's closing is not computed")),
-    # [item 344] M-SOURCE-IN-THE-MAP: a row of the theorem now, worked after the current board is cleared
+    # [item 344] M-SOURCE-IN-THE-MAP, split by end at item 346 (M-SOURCE-BY-END); both worked last (M-SOURCE-LAST, 345)
     ('N',
-     ("SOURCE the README's source on our plane: written there as a gas of the plane's fields, not null dust, and "
-      "coming in onto the face -- the process the write and the arrival are worked in models of (344)"),
+     ("SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not "
+      "null dust, and coming in onto the README's own five-dimensional hole (344, 346)"),
      'OPEN',
-     ("deferred by M (344, M-SOURCE-IN-THE-MAP): worked after the current board is cleared, the completed theorem "
-      "saying what it requires; until then no row rests on it, and a row that needs the README's arrival is worked in "
-      "a model and says what is the model's own (arrival_small V12, V13 (6)); at both ends -- at the small end "
-      "ARRIVALs models it as radial null dust and WRITEs as write_small S3's free gas on the plane "
-      "(H-README-ON-PLANE); at the large end ARRIVAL and WRITE are open")),
+     ("deferred by M (344, M-SOURCE-IN-THE-MAP): worked after every other open row is decided (M-SOURCE-LAST, 345), "
+      "defined for its own end (M-SOURCE-BY-END, 346); until then no row rests on it -- ARRIVALs models it as radial "
+      "null dust in the bulk and WRITEs as write_small S3's free gas on the plane (H-README-ON-PLANE), arrival_small "
+      "V12 naming what carries without the model")),
+    ('N',
+     ("SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not "
+      "null dust, and coming in onto the four-dimensional corridor (344, 346)"),
+     'OPEN',
+     ("deferred by M (344, M-SOURCE-IN-THE-MAP): worked after every other open row is decided (M-SOURCE-LAST, 345), "
+      "defined for its own end (M-SOURCE-BY-END, 346); until then no row rests on it -- the large end's ARRIVAL and "
+      "WRITE are open, README-HELD.md's four-dimensional models the record's")),
 ]
 RESTS_ON_NOW = {'G1': 'M1s M1', 'G3': 'M1s M1', 'H2tu': 'M1s M1', 'H2tx': 'M1s M1 M1P2xs M1P2x', 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL', 'Z1t': 'M1s M1', 'Z2r': 'M1s M1',
