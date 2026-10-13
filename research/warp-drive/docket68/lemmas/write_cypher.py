@@ -117,6 +117,13 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
      [Item 336, M-ENERGY-STAYS (M: "I think it is B"): the face closes by Hawking emission after the hole's life, so 158
      (2) no longer times the hold -- the face stands the life, 1.28e10 times the write -- and 163's floor alone bounds
      the write. W5's cell is unchanged: the hole lasts the write (lasts 1) and more.]
+     [Item 340 (M: "C, but my guess is A" -- the README's arrival for the math, M's guess the board's option A;
+     arrival_small V11): on M's statements the math gives reading (ii) with a compact arrival -- the README's own E
+     forms our face as it arrives, within 4.79 clocks, the face born about a clock before it crosses -- so "the face
+     stands while the write runs, 66,980 clocks or more" is re-read as the face standing from the README's arrival
+     through the hole's life (336), the write's 66,980 clocks its approach in our exterior; M-HOLD-IS-THE-FACE's core,
+     the hold the face standing and not how long the README stays within, is unchanged (the board's reading, to be
+     overruled by M at any point). W5's cell is unchanged: the hole lasts the write and more.]
   Other cells (each cited in cells()): the window hold (o3_hold O3b/O3c), the closing plane (b4d_stage1 D3, b4d_stage5
      F5, b4d_stage6 J4: real matter with rho + p_r < 0), the negative-tension plane (b4d_stage5 F6: regular on the
      evidence, lasts 1; keeps_Z 0 by WZ), both planes (b4d_stage7 K4: every small-separation branch decays, singular),

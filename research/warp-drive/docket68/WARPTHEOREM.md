@@ -70,8 +70,8 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
 **Where it stands.** At the small end, where the example README sits, three lemmas stay OPEN: **B3, B4d and FAR**.
 CLOSE is closed there on your item 336 (CLOSEs). Two rows rest on named readings:
 - Z3bs, on item 318's reading;
-- ARRIVALs (item 338), on your 198 guess read as the README forming our face as it arrives. Where that reading parts
-  from item 334's wording is put to you.
+- ARRIVALs (items 338, 340), on the board's reading of your item 340, "for the math", with your guess A. On your
+  statements the math gives that guess: the README forms our face as it arrives, compactly.
 
 O3s and WRITEs rested on H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-HOLD-IS-THE-FACE); they are now derived.
 
@@ -178,8 +178,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   - The write's 66,980 clocks are the README's approach in our exterior; the floor carries unchanged.
   - Position 2's release at the small end is E2/E = (G5/G5_2)^(1/3): 1, 0.891, 0.707 or 0.630 by destination. The
     room is 285 (b)'s figures. The rebuild's steps are your statements, named one by one.
-  - **For you:** on that reading the face is not standing through most of the write, as item 334's wording has it. On
-    334's wording as written, a face of the README's size stands through the write, and the hole ends with 2E.
+  - **You answered "C, but my guess is A" (item 340).** The math, on your own statements, gives A (`arrival_small.py`
+    V11). Reading (i)'s 2E and its face of 2.83 N run against 136 (1), 136 G, 162 and 109. A compact arrival changes
+    the face's size over only 5.39 clocks, 8.0e-5 of the write, which fits 162 ("The throat doesn't change size") and
+    163 ("All together, one whole"). This is the board's reading of your answer, yours to overrule.
 - **CLOSE at the small end, answered by you (item 336, M-ENERGY-STAYS).** Our face closes by Hawking emission over the
   hole's life, and the energy stays in our universe. Position 2's face closes within its open period (`close_small.py`
   K9). It was worked at item 335: our face is a future outer trapping horizon, which Hayward's second law (READ) keeps
@@ -190,6 +192,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     opening are the same object). It is not how long the README stays within the horizon.
   - So 158 (2) and 163 hold together. The face stands at least 66,980 clocks while the write runs, and each part of the
     README is within the horizon for at most its stay, three clocks. The C5 verifier's point (317 (c)) is answered.
+  - Since item 340 the board reads "the face stands while the write runs" as the face standing from the README's
+    arrival through the hole's life (336). The write's 66,980 clocks are the README's approach. The core of 334 is
+    unchanged.
 - **Gravitational perturbations of the hole:** the record holds only Ishibashi–Kodama's mode stability. Schlue's
   uniform boundedness (READ) covers the scalar wave.
 
@@ -203,7 +208,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - H-EXACT-COPY, H-NEW-WHOLE and H-POSITIVE-WHERE-RELEVANT (285).
 - M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
 - M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334),
-  M-ENERGY-STAYS (336).
+  M-ENERGY-STAYS (336), M-ARRIVAL-FOR-THE-MATH (340), with your guess A (H-ARRIVAL-FORMS-THE-FACE).
 
 **The board's, to be overruled by you at any point:**
 - ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
@@ -211,6 +216,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   appearance.
 - **H-ONE-INTERIOR** (270 (b)).
 - **The board's readings of 282–330**, each stated in its own item.
+- **340's reading.** The math gives your guess A with a compact arrival, and 334's "while the write runs" is re-read
+  as the face standing from the README's arrival.
 
 ---
 
@@ -2297,7 +2304,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–339: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–340: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2419,6 +2426,12 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   - Position 2's release at the small end carries G5 alone. On 240 (b) the faces' radii differ at nine of the twelve
     destinations; the isometric gluing holds where position 2's G5 equals ours.
   - The fork between reading (ii) and item 334's wording is put to you.
+- **340, "C, but my guess is A".** The arrival is for the math, with your guess A. On your statements the math gives
+  A with a compact arrival (`arrival_small.py` V11).
+  - Reading (i) runs against 136 (1), 136 G, 162 and 109.
+  - A compact arrival changes the face's size over at most 5.39 clocks, 8.0e-5 of the write (162 and 163).
+  - `write_cypher.py` W5 (b) gets a note: the face stands from the README's arrival through the life. ARRIVALs stays a
+    reading, now on 340.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

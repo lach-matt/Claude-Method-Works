@@ -47,8 +47,9 @@ and exactly, the object at position 2:
                  position 2 (284, 285); the corridor's length is the difference of the trajectories.
 
 At the small end, where the example README sits, three lemmas stay OPEN -- B3, B4d, FAR -- CLOSE closed there on
-M's 336 (CLOSEs), and two rows stand on named readings: Z3bs, on 318's, and ARRIVALs (item 338), on 198's guess read
-as the README forming our face as it arrives, the fork against 334's wording put to M. [Item 334: O3s and WRITEs stood
+M's 336 (CLOSEs), and two rows stand on named readings: Z3bs, on 318's, and ARRIVALs (items 338, 340), on the board's
+reading of M's 340 -- for the math, M's guess A -- the math giving the README forming our face as it arrives, compact
+(arrival_small V11). [Item 334: O3s and WRITEs stood
 on H-HOLD-IS-THE-FACE, which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVED.] The large end keeps the record's
 OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL.
 
@@ -469,11 +470,12 @@ LEMMAS_NOW = [
      ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
       "at position 2 under its laws and take their room"),
      'READING',
-     ("lemmas/arrival_small.py V0-V10 (338): on 198 (M's guess) read as reading (ii) -- G_vv >= 0, no partner, one E "
-      "(V1); the face born before the onset and the coarse second law kept only for an arrival within 4.79 clocks "
-      "(V2-V4); the write's floor carried, its 66,980 clocks the approach (V5); position 2's release E2/E = "
-      "(G5/G5_2)^(1/3) under 240 (b) (V6); the room, 285 (b)'s figures (V7); the rebuild's steps M's (V8) -- the fork "
-      "against 334's wording, reading (i)'s 2E, put to M (V10)")),
+     ("lemmas/arrival_small.py V0-V11 (338, 340): for the math with M's guess A (340), the math on M's statements "
+      "giving reading (ii), compact -- G_vv >= 0, no partner, one E (V1); the face born before the onset and the coarse "
+      "second law kept only for an arrival within 4.79 clocks (V2-V4); reading (i) against 136 (1), 136 G, 162 and 109, "
+      "and a compact arrival's face changing size over 5.39 clocks, 8.0e-5 of the write, for 162 and 163 (V11); the "
+      "write's floor carried, its 66,980 clocks the approach (V5); position 2's release E2/E = (G5/G5_2)^(1/3) under "
+      "240 (b) (V6); the room, 285 (b)'s figures (V7); the rebuild's steps M's (V8) -- the board's reading of 340")),
     ('N',
      "ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess)",
      'OPEN',

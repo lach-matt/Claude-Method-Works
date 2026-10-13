@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""arrival_small.py -- item 338: the ARRIVAL row at the family's small end, on the one-way object.  M: "Continue" (to the
-board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then ARRIVAL and FAR, with B3 and
-B4d resting on them).  The row: "the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and
-take their room" (284 (d), 285 (d)).  Its first half was computed only at the large end, in four dimensions
-(README-HELD.md 2-3, readme_held.py).  At the small end write_small's verifier recorded it as not computed: "reading
-(ii) is not computed" (264).  Worked in the conversation (computed with sympy and a Dormand-Prince integrator written
-here, exact where marked; READ where marked; deduced where marked; not verified by a separate session; not seated);
+"""arrival_small.py -- items 338, 340: the ARRIVAL row at the family's small end, on the one-way object. M: "Continue"
+(to the board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then ARRIVAL and FAR, with
+B3 and B4d resting on them). The row: "the README forms the corridor as it comes in (198, M's guess); how the bits
+rebuild and take their room" (284 (d), 285 (d)). Its first half was computed only at the large end, in four dimensions
+(README-HELD.md 2-3, readme_held.py). At the small end write_small's verifier recorded it as not computed: "reading (ii)
+is not computed" (264). Worked in the conversation (computed with sympy and a Dormand-Prince integrator written here,
+exact where marked; READ where marked; deduced where marked; not verified by a separate session; not seated);
 2026-10-13.
 
   V0 (read) The words the row rests on, verbatim in the rulings file: 198, "My guess would be 1." (the board's option
@@ -129,6 +129,24 @@ here, exact where marked; READ where marked; deduced where marked; not verified 
      clocks while the write runs" (W5 (b)) as the write's arrival.  On reading (i) -- 334's wording as written -- a face
      of the README's size stands through the write, the README crossing it part by part, and the hole carries 2E.
      Which holds is M's: the record carries 198 as a guess and 334 as confirmed, and they part here.
+     [Item 340, M's answer, verbatim: "C, but my guess is A" -- for the math, M's guess the board's option (A). Worked
+     in V11.]
+  V11 (item 340; computed; deduced) For the math, M's guess A. (a) Reading (i) against M's statements: its 2E against
+     one exact energy, E(N) at the bound (136 (1)) and the README as the energy, not separate (136 G); its face holding
+     2^(3/2) N = 2.83 N against "only the size that is needed to hold the object" (162; V1, computed); and a face
+     standing before the object it needs (109). Reading (ii) meets all four (V1). So the math, on M's statements, gives
+     reading (ii), M's guess A (deduced). (b) Within (ii), compact against spread. 162, "The throat doesn't change
+     size": a compact arrival -- the widest that keeps the onset behind the face and the coarse count at every order, w
+     = 4.79 clocks -- changes the face's size over at most w - v_born = 5.39 clocks (order 1; 5.07, 4.90 and 4.79 at
+     orders 2-4), 8.0e-5 of the write's 66,980 (computed), and a spread one over the whole write. 163, "All together,
+     one whole": a compact arrival crosses within 4.79 clocks, a spread one over the write, part after part. The second
+     law: the fine count (136 (5), the README a definite state) does not decide; the coarse count gives compact (V4).
+     Censorship admits a spread arrival only at onset orders 1 and 4 and above (V3). So the math, on 162 and 163, gives
+     A with a compact arrival (deduced) -- the board's reading, to be overruled by M at any point. (c) What it re-reads:
+     334's W5 (b) consequence, "the face stands at least 66,980 clocks while the write runs", becomes "the face stands
+     from the README's arrival through the hole's life" (336), the write's 66,980 clocks its approach;
+     M-HOLD-IS-THE-FACE's core -- the hold is the face standing, not how long the README stays within the horizon -- is
+     unchanged. 198's option text, "the size growing as it comes in", holds over the arrival's few clocks.
 
 What this does not claim.
   - That a carrier of the README's states can converge compactly: V5's choreography is allowed by causality, its state
@@ -166,7 +184,8 @@ WORDS = ("My guess would be 1.", "The corridor is a single channel that grows in
          "G - the README is the energy, not separate", "1 - yes",
          "the object is built from the bulk at position 2 as an exact copy under the laws and conditions of position 2",
          "It is an exact copy of the object of position 1, but it now obeys laws of position 2",
-         "Exactly as long as the write needs", "I think it is B", '"Continue"')
+         "Exactly as long as the write needs", "I think it is B", '"Continue"', "C, but my guess is A",
+         "The throat doesn't change size")
 ORDERS = (1, 2, 3, 4)                        # the arrival's onset orders: s ~ x^n at the start
 WIDTHS = (0.5, 1, 2, 4, 8, 16, 64, 1000)     # the arrival's width, clocks of r_h/c
 _MOD = {}
@@ -434,8 +453,22 @@ def v9():
     return res
 
 
+def v11():
+    """item 340: for the math -- within reading (ii), how long a compact arrival changes the face's size"""
+    o2 = v2()
+    wstar = min(list(o2["gsl"].values()) + list(o2["born"].values()))
+    if MUT.get("spread_counted_compact"):                         # the mutant: a spread arrival taken for compact
+        wstar = 1000.0
+    span = {}
+    for n in ORDERS:
+        b = arrival(wstar, n)["born"]
+        span[n] = wstar - (b if b is not None else 0.0)
+    floor = v4()["floor"]
+    return dict(wstar=wstar, span=span, frac=max(span.values()) / floor)
+
+
 def compute():
-    return dict(v1=v1(), v2=v2(), v3=v3(), v4=v4(), v6=v6(), v7=v7(), v9=v9())
+    return dict(v1=v1(), v2=v2(), v3=v3(), v4=v4(), v6=v6(), v7=v7(), v9=v9(), v11=v11())
 
 
 def report(o):
@@ -469,6 +502,9 @@ def report(o):
     for (name, cell), r in o["v9"].items():
         print("V9 %s at %s: population %s; order 2 %s, order 3 %s; audit flagged %s" % (
             name, cell, r["F"], dict(r["out"][2]), dict(r["out"][3]), r["flagged"]))
+    q = o["v11"]
+    print("V11 (item 340) the compact arrival's width %.4f clocks changes the face's size over %s clocks, %.2g of the "
+          "write" % (q["wstar"], {n: round(x, 3) for n, x in q["span"].items()}, q["frac"]))
 
 
 def checks(o):
@@ -529,6 +565,10 @@ def checks(o):
     add("V9 the calculator: f1 (forms, no partner, (Z), its own E) 1 at orders 2 and 3 for the README compact or "
         "spread; f2 (the onset behind the face or regular) 1 for the compact README, and for the spread \"both\" at "
         "order 2, its population {0, 1} computed; audits clean", ok)
+    q = o["v11"]
+    add("V11 (item 340) for the math: a compact arrival (w = 4.79 clocks) changes the face's size over at most 5.39 "
+        "clocks, 8.0e-5 of the write's 66,980 -- 162's throat that does not change size and 163's one whole",
+        abs(q["wstar"] - 4.7857) < 1e-3 and 5.3 < max(q["span"].values()) < 5.45 and q["frac"] < 1e-4)
     return res
 
 
@@ -539,7 +579,8 @@ MUTANTS = {"capacity_linear": "the face's capacity linear in r (a four-dimension
            "kretsch_r6": "the curvature along the escaping ray with r^-6 (V3)",
            "release_4d": "position 2's release with the large end's exponent (V6)",
            "room_inverted": "the copy's volume ratio inverted (V7)",
-           "readme_spread_ok": "the spread README's onset counted always hidden (V9)"}
+           "readme_spread_ok": "the spread README's onset counted always hidden (V9)",
+           "spread_counted_compact": "a spread arrival taken for compact (V11, item 340)"}
 
 
 def selftest():
