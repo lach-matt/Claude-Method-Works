@@ -42,3 +42,8 @@ for eps in epss:
               eps, N, nr, SF.phimax(G, U, eps), Uf[0].min() - 1, Uf[0].max() - 1, Uf[4].min(), Uf[4].max(),
               np.nanmax(dK[inner]), np.nanmax(np.abs(xc[br])), G["S"][s0], np.nanmin(r[near]) / E.mu,
               np.nanmax(r[near]) / E.mu), flush=True)
+    for smax in (0.9, 0.5):
+        w = inner[G["S"][inner] <= smax]; j = w[np.nanargmax(dK[w])]; wb = w[np.abs(G["X"][w] - 1) < 1e-14]
+        jb = wb[np.nanargmax(np.abs(xc[wb]))]
+        print("    s <= %.1f: max|K/Kex-1| %.1e at (s %.3f, x %.3f); max|xc(brane)| %.1e at s %.3f" % (
+            smax, dK[j], G["S"][j], G["X"][j], abs(xc[jb]), G["S"][jb]), flush=True)

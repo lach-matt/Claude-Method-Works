@@ -357,3 +357,32 @@ Files: `interior_cb.py` (the CB mixin; DampedCB, GaugeCB, Gauge5CB, HarmCB, Harm
 damped, gauge3, gauge5, harm, harmold; DOP853), `cb_t0.py`, `cb_diag.py` to `cb_diag4.py`, `cb_profile.py`,
 `gen_harm_fw.py`, `hm_analyze.py`, `harm_check.py`. `interior_gauge.py`'s `run_steps` takes `jac=` and `method=`, or the
 environment variable RUN_METHOD.
+
+**C5. Item 367 step 3, the AdS4 C-metric test, and a proper-time correction (2026-10-13; items 367-373).**
+LITERATURE-366 L9's exact brane-localised hole, Emparan, Horowitz and Myers' flat-brane AdS4 C-metric, is put in the
+RSII chart one dimension down (`gen_eqs_cm.py`): f = mu/r = 1 - s, tau = t/mu, xc = x1 (1 - x^2), phi = 2 psi/P1, so
+the exact metric is Dl^-2 [s dtau^2 + ds^2/(f^4 s) + c0 (dx^2/p + x^2 p dpsi^2)/f^2] with Dl = 1/mu + xc/f -- FW's
+ansatz with S^2 -> S^1, axis x = 0, brane x = 1. Here x1 = 2/3, mu = 15/8 (the brane horizon's radius 0.978 ell, near
+bt = 1's 1.13). The reference is this metric deformed by eps (p and Dl multiplied by factors 1 + eps w x^2-type, w =
+2f/(1 + f)); eps = 0 is the exact chart. The environment variable PROB selects the pickles, so `core_fw.py`,
+`interior_fw.py`, `interior_damp.py`, `interior_cb.py` and `solver_fw.py` run the C-metric unchanged; the RSII path
+was checked bit-identical after that switch (computed).
+- The generator against the exact solution (`cm_exact.py --selftest`, 46/46): at eps = 0 the exact chart solves every
+  Einstein-DeTurck row and the brane rows to 1e-12 (Israel K_ab = +h_ab, as for the RSII brane); the generated
+  Kretschmann is 24 + 12 mu^2 (1 + xc r)^6/r^6, the closed form. Both Killing norms are invariants (tau and psi fixed
+  by regularity), so each computed point maps to its exact (r, xc), and the computed curvature is compared there.
+- The exact-reference interior (eps = 0, Nx = 16, kap = 4, DeTurck slicing, Radau to s = -0.5 with `fd_jac`, then
+  DOP853 in lambda; `cm_run.py`, `cm_analyze.py`): to lambda = 3 (s = -19.1) phi stays below 2.2e-16; at every node
+  r/mu falls to 0.0498 and the computed K reaches 9.2e7, agreeing with the exact K to 9e-11 to 3e-9; the brane's xc
+  stays at 0 to 1e-13; proper time from the horizon agrees with the exact chart's to 1e-4 at the axis, mid-bulk and
+  brane (1.5573, 1.7555, 2.9311 against totals to r = 0 of 1.5708, 1.7692, 2.9452). So with a reference that is the
+  solution's own chart, the pipeline -- brane rows, damping, both steppers -- carries the interior to r = 0.05 mu with
+  no growth of the constraint (computed). That is the stability half of the test; the deformed reference is the half
+  that probes the gauge.
+- **A correction the test exposed (computed).** The proper times quoted for the RSII interior in B5-C4 start at s0 =
+  -0.002 and omit the stretch from the horizon, where N ~ |s|^(-1/2): it is 2 |s0| N(s0) = 0.0192 (near-axis node),
+  0.0342 (mid) and 0.0766 (brane) at bt = 1, Nx = 28; the trapezoid's own error is below 1e-4. Every RSII tau in this
+  file is low by those amounts: the old chart's totals become about 0.285, 0.553 and 1.149, the harmonic run's tau at
+  s = -1.60 about 0.296, 0.569 and 1.152, the loss onset tau_mid ~ 0.55-0.56 about 0.58-0.59, and the Kasner estimate
+  tau_s ~ 0.63 about 0.66. Comparisons between runs, which share s0, do not move. `cm_analyze.py` now adds the stretch
+  and integrates in sqrt|s|. The figures above are kept as written; this line corrects them.

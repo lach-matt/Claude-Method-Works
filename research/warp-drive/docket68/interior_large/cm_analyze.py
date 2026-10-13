@@ -1,6 +1,7 @@
 """Along a cm_run.py checkpoint, the computed C-metric interior against the exact one.  At each requested lambda:
 phi~ (DeTurck or harmonic), the lapse N(1 - s), proper time since the horizon along the coordinate lines (the shift
-reported), and at every node the exact point (r, xc) recovered from the two Killing norms (cm_exact.py), with the
+reported; from the horizon, the stretch s = 0 to s0 by 2 |s0| N(s0), the rest by the trapezoid in sqrt|s|), and at
+every node the exact point (r, xc) recovered from the two Killing norms (cm_exact.py), with the
 computed Kretschmann scalar (X_ss from the evolution equations) against the exact one there.  The decisive numbers:
 r/mu where the run fails (r = 0 is the singularity), and how far K_num departs from K_exact before then.
 Arguments: checkpoint lambda1 lambda2 ..."""
@@ -39,17 +40,18 @@ print("cm %s Nx %d kap %g s1 %g: mu %.4f x1 %.4f; exact tau to r = 0 along xc = 
 for k in range(len(P["t"]) - 1):                                # the Radau phase, for proper time and the brane solve
     s, Y = P["t"][k], P["y"][:, k]
     Xf, Vf = I.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
-    N = geo(s, Xf)[0]
-    if prev is not None:
-        tau += 0.5 * (N + prev[1]) * abs(s - prev[0])
-    prev = (s, N)
+    N = geo(s, Xf)[0]; u = abs(s) ** 0.5
+    if prev is None:
+        tau = 2 * abs(s) * N                                  # s = 0 to s0: N ~ 1/sqrt|s|, so 2 u N is smooth in u
+    else:
+        tau += (u * N + prev[2] * prev[1]) * (u - prev[2])   # trapezoid in u = sqrt|s| on 2 u N
+    prev = (s, N, u)
 for k in range(len(P["lt"])):
     s, Y = IF.state_s(I, P["lt"][k], P["ly"][:, k])
     Xf, Vf = I.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
-    N = geo(s, Xf)[0]
-    if prev is not None:
-        tau += 0.5 * (N + prev[1]) * abs(s - prev[0])
-    prev = (s, N)
+    N = geo(s, Xf)[0]; u = abs(s) ** 0.5
+    tau += (u * N + prev[2] * prev[1]) * (u - prev[2])
+    prev = (s, N, u)
     if targets and (P["lt"][k] >= targets[0] or k == len(P["lt"]) - 1):
         targets.pop(0); keep = I.lastbr.copy()
         ph = np.abs(I.phi_t(s, Y)); j = 1 + int(np.nanargmax(ph[1:]))
