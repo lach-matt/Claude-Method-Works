@@ -118,3 +118,23 @@ still regular (a gauge source may change in time without disturbing xi = 0, if i
 Files added: `analyze_fw.py`, `curv_march.py`, `reanalyze.py`, `lam_run.py`, `phi_march.py` (B5 diagnostics);
 `gen_damp_fw.py`, `interior_damp.py`, `xi_check.py`, `analyze_damp.py` (damping; proper time, Kasner exponents and the
 brane against four-dimensional Schwarzschild), `eig_brane.py`, `cheb_tail.py`, `profile.py`.
+
+**B7. Damping and resolution together (Nx = 28).** Damped (kap = 4, tilt 0.5) at Nx = 28, the run to s = -1 keeps
+phi <= 9.6e-5 everywhere -- no brane growth -- and agrees with Nx = 20 near the axis (K 2505 against 2509 at s = -1)
+while correcting the brane's K by 4 per cent (93.5 against 90.1). Figueras and Wiseman state the brane condition the
+B5 analysis found (READ, 1105.2558): "Furthermore they imply d_n xi^r = (2/ell) xi^r on the brane ... which is
+compatible with obtaining an Einstein solution with xi = 0 everywhere. Note that imposing the Israel vacuum condition
+and both xi^r = 0 and xi^x = 0 on the brane does not give a regular elliptic system."
+
+## Stage C: past the chart's end (2026-10-13, item 362)
+
+The DeTurck chart's slices freeze: their lapse falls as |s|^-2.1 and s = -infinity lies at finite proper time with
+finite curvature over the trusted range (B6). That is harmonic slicing's collapse of the lapse with the volume element,
+here at a place that is not the singularity. A gauge source may be any function of the coordinates and the metric (no
+derivatives) without touching the principal part or the constraint system's homogeneity, so the slicing can be steered.
+The lapse driver (`gen_gauge_fw.py`, `interior_gauge.py`, `gauge_run.py`): xi~ = xi - h with h^s = -Fbar^s + mu (Nst
+c(s) - N)/N^3 and h^x = 0, where N = 1/sqrt(-g^ss), Fbar^s = g^cd Gammabar^s_cd is the reference's pull on the slicing,
+and c(s) = (1 - s1)/(1 - s) holds the lapse per unit lambda = ln(1 - s) near Nst. Then dN/d(-s) = mu (Nst c - N) + K N^2
+(computed from box s), so the slices keep advancing in proper time. Switched on at s1 with Nst = N + Fbar^s N^3/mu, xi~
+equals xi on the switch slice (8.2e-5 at s1 = -0.503 from the Nx = 28 run), and the constraint keeps zero from there as
+it would for any gauge source. The brane rows are unchanged (h^x = 0).
