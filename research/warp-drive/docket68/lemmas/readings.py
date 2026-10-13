@@ -228,6 +228,16 @@ goes to M; the board does not rule on M's meaning.
      is the floor at the Standard Model's 106.75, the species lighter than the gas's 5.6 TeV (write_small S3), and it
      falls to 4.37 clocks at the cap -- the row's figure is the Standard Model's, its claim (the bulk held through the
      write) holds at every count.  Recorded for the row, not repaired here.
+  Q28 (read; deduced) RCALC -- c4_oneway's calculator protocols, P13 (the form of C4's question), P17 (the continuation
+     as one condition), P18 (the README's density scaling with position 2's tension) and P20 (the channel reading of a
+     binary communication) -- carry no weight on M1s.  M1s's claim is P6's: "So M1 holds at the small end on the one-way
+     object on (a)-(f) at flat order in classical GR", concluded from P1-P5 -- the Komar mass (P1, m1_small N1, verified
+     269), the totally geodesic equator in every chart (P2, exact), clause (e) on both faces (P3), clause (f) between
+     universes (P4, e_positive E7 and P19's tau_share, exact), and the state (P5).  None of P1-P6 cites P13, P17 or P20;
+     P18 appears once, beside P4's own reading of position 2's tension, which the verifier's (7) found positive a
+     fortiori on the side total (read in the file, checked).  The protocols decide how the calculator is asked (P7-P20);
+     its agreement is the standing check beside the proof -- every question through the calculator or stated NOT-RUN --
+     not a premise of it.  The register's M1s row rests on m1_small and c4_oneway, both verified (269, 310).
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -414,7 +424,7 @@ INVENTORY = (
     ("RSPEC", 264, "H-SPECIES-FINITE: finitely many species above the Standard Model", "WRITEs O3s B4ds", "model",
      "replaced by a READ bound; proved here (Q27)"),
     ("RCALC", 310, "c4_oneway's calculator protocols (P13, P17, P18, P20)", "M1s", "protocol",
-     "to prove: M1s's claims without the calculator's agreement"),
+     "bears on no row's claim (Q28)"),
     ("RPOS2", 231, "H-POSITIVE-ON-P2: 139 (2) as the board reads it", "B5pu", "words", "bears on no row's claim (Q21)"),
     ("RT5", 231, "sigma_defines T5's flag decided under 149", "B5pu B6'", "choice", "proved on both branches (Q21)"),
     ("RE6", 268, "139 (3) read as position 2's expansion raised by the README's energy", "B5c", "words",
@@ -788,10 +798,24 @@ def q27():
                 stay_ratio=life(cap) / 3, fail_stay=fail_stay, fail_floor=fail_floor, d6_left=2.2e-3 * Z0 / cap)
 
 
+# ---------------------------------------------------------------------------------- Q28 the protocols carry no weight
+def q28():
+    src = open(os.path.join(HERE, "c4_oneway.py"), encoding="utf-8").read()
+    doc = src.split('"""')[1]
+    end = "\n  P14 " if MUT.get("calc_premise") else "\n  P7 "        # the mutant: the calculator's runs as premises
+    block = " ".join(doc[doc.index("\n  P1 "):doc.index(end)].split())
+    proto = {t: len(re.findall(r"\b%s\b" % t, block)) for t in ("P13", "P17", "P18", "P20")}
+    p18_beside = "while P4 and P18 read P2's tension for (f) as 139 (1)'s own -sigma/4" in block
+    concl = "So M1 holds at the small end on the one-way object on (a)-(f) at flat order in classical GR" in block
+    row = _register_rows().get("M1s", "")
+    return dict(proto=proto, p18_beside=p18_beside, concl=concl,
+                row_ok="lemmas/m1_small.py (C4 verified, 269); lemmas/c4_oneway.py (C4 one-way verified, 310)" in row)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27(), q28=q28())
 
 
 def report(o):
@@ -842,6 +866,9 @@ def report(o):
           "106.75), ratio %.1f, %.0f stays; the conclusions fail only past %.3g and %.3g species"
           % (g["cap"], g["life_cap"], g["head_cap"], g["head_sm"], g["ratio"], g["stay_ratio"], g["fail_stay"],
              g["fail_floor"]))
+    k = o["q28"]
+    print("Q28 c4_oneway P1-P6 against the protocols: %s (P18 only beside P4's own reading: %s); P6's conclusion "
+          "found: %s; M1s's row on m1_small and c4_oneway: %s" % (k["proto"], k["p18_beside"], k["concl"], k["row_ok"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -915,6 +942,11 @@ def checks(o):
         "%.3g" % g["cap"] == "3.85e+14" and round(g["life_cap"]) == 238 and "%.2f" % g["head_cap"] == "4.37"
         and round(g["ratio"]) == 54 and round(g["stay_ratio"]) == 79 and "%.3g" % g["fail_stay"] == "3.05e+16"
         and "%.3g" % g["fail_floor"] == "1.55e+17" and round(g["head_sm"] - 1) == 66980)
+    k = o["q28"]
+    add("Q28 c4_oneway's calculator protocols carry no weight on M1s: P1-P6 cite none of P13, P17, P20, and P18 only "
+        "beside P4's own reading; P6 concludes M1 from P1-P5",
+        k["proto"]["P13"] == k["proto"]["P17"] == k["proto"]["P20"] == 0 and k["proto"]["P18"] == 1
+        and k["p18_beside"] and k["concl"] and k["row_ok"])
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -932,7 +964,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)",
            "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)",
            "clock_weighs": "the life in seconds set against the floor in clocks (Q26)",
-           "floor_fixed": "the write's floor held at the Standard Model's species while the life falls (Q27)"}
+           "floor_fixed": "the write's floor held at the Standard Model's species while the life falls (Q27)",
+           "calc_premise": "c4_oneway's calculator runs P7-P13 read among M1s's premises (Q28)"}
 
 
 def selftest():
