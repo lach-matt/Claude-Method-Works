@@ -57,7 +57,9 @@ SOURCE, OPEN and deferred by M until the current board is cleared, the completed
 (M-SOURCE-IN-THE-MAP).] [Item 346: split by M into two rows, SOURCEs at the small end and SOURCE at the large
 (M-SOURCE-BY-END), both worked after every other open row (M-SOURCE-LAST, 345).] [Item 348: ARRIVALs verified,
 CONFIRMED with qualifications; one sentence refuted -- at onset orders 3 and 4 a spread arrival shows its singular
-onset -- which strengthens the compact reading.]
+onset -- which strengthens the compact reading.] [Item 349: FAR at the small end worked and seated as FARs, a
+reading (far_small F0-F9): every far surface at least as deep as it is wide is strictly untrapped around the README's
+hole at every ell; at the small end B3 and B4d stay OPEN.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -462,9 +464,20 @@ LEMMAS_NOW = [
       "both readings of the arrival, V10); m1p2x_oneway kept as written")),
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
      "the record's (m1p2_cypher, m1p2_junction, theorem_p2)"),
-    ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166', 'OPEN',
-     ("the record's (far_cypher, far_bridge); at the small end the hole's far field is the Randall-Sundrum "
-      "background's, not computed")),
+    # [item 349] FAR at the small end worked and seated as FARs; FAR stays the large end's
+    ('N',
+     ("FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the "
+      "README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life"),
+     'READING',
+     ("lemmas/far_small.py F0-F9 (347, 349): each side of the pair AdS, position 2's radius from the junction -- 2 "
+      "ell at 139 (1)'s quarter, ell/6 to ell/3 at the twelve (F2); every far surface with W >= U strictly untrapped "
+      "at every ell, theta+ >= U/W^2 + 2/U, the round one at 3/U (F3); the hole's near field in the board's test form "
+      "H-HOLE-IN-WARP and the write, arrival and emission leaving it untrapped, every correction at least nine orders "
+      "below the margin (F4, F5); (Z), (G), 139 (1) under 226 and 166 under 275 (F6); the calculator deciding neither "
+      "clause (F7) -- a reading on H-HOLE-IN-WARP, Z3bs's reading of 318 and 320 (b)'s limit (F9); its use in a "
+      "censorship theorem B4's and B4d's")),
+    ('N', 'FAR a far boundary at the large end consistent with (Z), (G), 139 (1), 166', 'OPEN',
+     ("the record's (far_cypher, far_bridge); the small end in FARs (far_small, 347, 349)")),
     ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
@@ -658,7 +671,7 @@ def lemma_selftests():
               # item 335
               "close_small.py",
               # item 338
-              "arrival_small.py"):
+              "arrival_small.py", "far_small.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

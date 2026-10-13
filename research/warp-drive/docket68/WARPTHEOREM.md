@@ -87,6 +87,11 @@ no row rests on it. A row that needs the README's arrival is worked in a model a
 two rows, one per end (M-SOURCE-BY-END). **SOURCEs** is the gas coming in onto the README's own five-dimensional hole,
 and **SOURCE** is the gas coming in onto the four-dimensional corridor.
 
+**Since item 349: FAR at the small end is worked and seated as FARs, a reading** (`far_small.py` F0–F9). On the
+coincident sheets' two-sided bulk, every far surface at least as deep as it is wide is strictly untrapped around the
+README's hole at every ℓ, and stays so through the write, the arrival and the hole's life. At the small end B3 and B4d
+stay OPEN. FAR stays the large end's, OPEN.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -148,7 +153,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
-| N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
+| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F9 (347, 349) |
+| N | FAR a far boundary at the large end consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
@@ -158,7 +164,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-63 rows, 50 lemmas and 13 inputs: 20 proved, 24 derived, 2 under a named reading of the board's, 5 definitions, 12 OPEN.
+64 rows, 50 lemmas and 14 inputs: 20 proved, 24 derived, 3 under a named reading of the board's, 5 definitions, 12 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -187,7 +193,22 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - **OPEN at the small end:**
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
     region.
-  - **FAR:** the hole's far field in the Randall–Sundrum background.
+  - **FAR:** the hole's far field in the Randall–Sundrum background. *Since item 349: worked and seated as FARs, a
+    reading, and put to you for finalization (below).*
+- **FAR at the small end, worked (items 347, 349; `far_small.py` F0–F9). Finalized?**
+  - The question, re-posed for the one-way object: on the coincident sheets' two-sided bulk, with the README's hole at
+    its centre, is there a far surface enclosing the hole that stays strictly untrapped at every ℓ, through the write,
+    the arrival and the hole's life?
+  - Each side of the sheets is AdS. Position 2's side takes its radius from the junction: 2ℓ at 139 (1)'s quarter
+    (your k_R = k_L/2 again, from the junction alone), and ℓ/6 to ℓ/3 at the twelve destinations.
+  - On it, every far surface at least as deep as it is wide is strictly untrapped at every ℓ: θ₊ ≥ U/W² + 2/U, exact,
+    the key inequality machine-checked. The record's √3 came from its throat column. A round surface has θ₊ = 3/U.
+  - The hole's near field, the write, the arrival and the emission leave it untrapped. Every correction is at least
+    nine orders of magnitude below the margin at the example.
+  - The residue pass (item 349, F9) named what the row rests on: the board's test form for the hole's field
+    (H-HOLE-IN-WARP), Z3bs's reading of 318, and 320 (b)'s empty-bulk limit. Hence a reading.
+  - Its use in a censorship theorem, with that theorem's pointwise null-energy premise and global hyperbolicity, is
+    B4's and B4d's, and not claimed.
 - **ARRIVAL at the small end, worked (item 338, `arrival_small.py`); one fork put to you.**
   - On your 198 guess, the README's own energy forms our face as it arrives. The flux is positive, with no partner, and
     the hole's energy is the README's one E. The face is born about a clock before the README's first part crosses.
@@ -249,6 +270,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - **The board's readings of 282–330**, each stated in its own item.
 - **340's reading.** The math gives your guess A with a compact arrival, and 334's "while the write runs" is re-read
   as the face standing from the README's arrival.
+- **349's readings.** H-HOLE-IN-WARP (the hole's isotropic factor under the warp, a test form exact as ρ/ℓ → 0);
+  "both planes at once" (166) read under 275 as the coincident pair; the record's cover U = 1.05 R_reach.
 - **344's readings.** "The map" is the Warp Chain Map and the register it is drawn from. "After the current board is
   cleared" is after every other open row is decided. SOURCE is one row at both ends.
   *Item 345: the first two confirmed by you (M-SOURCE-LAST: SOURCE is worked after every other open row, the large
@@ -2340,7 +2363,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–348: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–349: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2518,6 +2541,11 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
     (Q7); what V4 takes from Bousso (Q8); the coarse count's integrated form (Q9); 109 (Q10); minor pointers (Q11).
   - All are seated in `arrival_small.py` as item-348 notes and a new entry V14, with a check and two mutants. Notes
     outside it go in `c8_level.py` and `README-HELD.md`, and the gate's bearings are corrected in `verify_ledger.py`.
+- **349, "Continue with FAR".** FAR's residue pass (F9) found eleven things to state: the quotations checked
+  each inside its own item, the empty-bulk limit behind "the only energy", the G₅ readings, the near zone's reach, the
+  matter condition's scope, the cover as the record's choice, 166 under 275 as the board's reading, the sheets' own
+  matter, the rests-on completed, what carries without the test form, and the censorship use left to B4 and B4d.
+  FARs is seated as a reading (64 rows) and drawn on the map; FAR is put to you for finalization.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

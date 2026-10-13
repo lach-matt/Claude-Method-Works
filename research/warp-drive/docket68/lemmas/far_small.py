@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""far_small.py -- items 347-: the FAR row at the family's small end, on the one-way object.  M: "Let's start FAR"
+"""far_small.py -- items 347, 349: the FAR row at the family's small end, on the one-way object.  M: "Let's start FAR"
 (347), after 343's "Yes, agreed" set FAR beside ARRIVAL's verification.  The row: "FAR a far boundary consistent with
 (Z), (G), 139 (1), 166" -- the record's (far_cypher, far_bridge, b4c_far), posed before 226, 251, 275 and 320; at the
 small end "the hole's far field is the Randall-Sundrum background's, not computed" (warptheorem.py).  Worked in the
@@ -111,6 +111,33 @@ session; not seated); 2026-10-13.
      life) and B5a (the coincidence, 339); on write_small S3, arrival_small V1 and V6, b4c_far's level-set theta+ and
      X2-X3, bulk5_index's destinations, pointwise and Z3bs's reading of 318; and on the board's H-HOLE-IN-WARP.
 
+  F9 (item 349, the residue pass before finalization, 314; deduced, and computed where marked) What F0-F8 claim without
+     establishing, or rest on without naming. (a) F0's words are checked inside the item each is cited to, not anywhere
+     in the file (the ARRIVAL verifier's 348 (Q11) finding, applied here). (b) F5 (a)'s "the README's E is the only
+     energy" is exact in 320 (b)'s limit, an empty bulk apart from the README; with the bulk's content F5 (d)'s
+     criterion governs. The emission's quantum negative influx lies inside our face (273, 318) and only lowers mu, never
+     raising it at T_E. (c) F4's figures are at G5 = G ell. mu/U^2 carries no G5, since U is counted in clocks of r_h
+     and the floor carries only N and Z (write_small S3); U/ell moves as g^(1/3), to 1.29e-10 and 8.95e-11 (computed);
+     m/U moves by a factor of order one (F5 (c)). (d) F4's test form holds in the near zone, U << ell, which is ell >>
+     140,660 r_h (the example has ell = 1.25e15 r_h). For r_h < ell <~ 1.4e5 r_h the far surface lies beyond ell, and F5
+     (c)'s order of magnitude replaces the test form: F4's "at every ell > r_h" is the test form's statement, not the
+     hole's. F3 holds at every ell regardless. (e) F6's matter condition is pointwise's: classical, rho >= 0 relative to
+     the offset inside its vacuum's basin, the quantum case read under 120 (339 (Q4)). (f) The cover U = 1.05 R_reach is
+     the record's choice (b4c_far), the board's. FAR needs a surface outside r_h that encloses the write's region, and
+     F3-F5 hold for any larger U in the near zone. (g) "Both planes at once" (166) read as the coincident pair is the
+     board's reading of 166 under 275: the record's 166 had a slab between the planes, which 275 removed. (h) Where T_E
+     crosses the pair, the sheets carry our plane's dark energy beside the tension, 3.6e-63 of sigma (computed), and our
+     matter likewise far below it: the pair's junction moves by that fraction. (i) The rests-on, completed: F8 (c) with
+     276 and 323 (b5a_residue A1's our side carrying S1), A2 and A6; 328 and B8 (each side Einstein, the Gauss-Bonnet
+     coupling zero); 184; 232 (2); 210 (B4d rests on FAR); the verified C6 (264: the floor) and arrival_small V1 and V6
+     (verified, 348); and the board's readings -- H-HOLE-IN-WARP, the record's cover, 166 under 275 as in (g), Z3bs's
+     reading of 318, and 320 (b)'s limit. (j) What carries and what is the test form's own. F2, F3 and F6 are exact on
+     the two-sided AdS background at every ell on either side; F5 (a) is exact in spherical symmetry; F5 (d) is the
+     content's own criterion. F4's figures are the test form's, and F5 (b)-(c) are orders of magnitude. The row uses
+     only their size, at least nine orders below the margin at the example. (k) Nothing in F0-F8 uses T_E in a
+     censorship theorem: that use, with its pointwise NEC premise and global hyperbolicity, stays B4's and B4d's (the
+     does-not list).
+
 What this does not claim.
   - The exact localized hole on the two-sided bulk: known only numerically for one plane (Kudoh-Tanaka-Nakamura's
     construction, named in B3), and with different couplings on the two sides not computed; F4 is the board's test
@@ -140,12 +167,15 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
 MUT = {}
-WORDS = ('M, verbatim: "1 - yes 2 - positive, and you have to prove it.', 'M chose: "Both planes at once"',
-         'M chose: "Yes: never violated as a pair"', '"1 - Once: k_R = k_L/2', 'M chose: "Its own values"',
-         "FAR's stated obstruction goes but FAR must be recomputed", '"Localized hole, README only"',
-         '"Quantum bounce to pos 2 (Recommended)"', 'verbatim: "Coincident everywhere"',
-         '"A consequence of 275 with 276 - no bulk is ever empty. It will always contain something wether it is '
-         'information or matter."', '"I think it is B"', '"Let\'s start FAR"')
+# [item 349 (a)] each phrase checked inside the item it is cited to
+WORDS = ((139, 'M, verbatim: "1 - yes 2 - positive, and you have to prove it.'), (166, 'M chose: "Both planes at once"'),
+         (183, 'M chose: "Yes: never violated as a pair"'), (200, '"1 - Once: k_R = k_L/2'),
+         (226, 'M chose: "Its own values"'), (226, "FAR's stated obstruction goes but FAR must be recomputed"),
+         (251, '"Localized hole, README only"'), (273, '"Quantum bounce to pos 2 (Recommended)"'),
+         (275, 'verbatim: "Coincident everywhere"'),
+         (320, '"A consequence of 275 with 276 - no bulk is ever empty. It will always contain something wether it is '
+               'information or matter."'), (336, '"I think it is B"'), (347, '"Let\'s start FAR"'),
+         (349, '"Continue with FAR"'))
 C_LIGHT, G_N = 299792458.0, 6.67430e-11
 COVER = 1.05
 _MOD = {}
@@ -166,6 +196,14 @@ def _load(name, key):
         sys.path[:] = saved
     _MOD[key] = mod
     return mod
+
+
+def _item(n):
+    """item n's text in the rulings file, spacing normalized"""
+    import re
+    txt = open(RULINGS, encoding="utf-8").read()
+    m = re.search(r"^%d\. .*?(?=^\d{3}\. |\Z)" % n, txt, re.M | re.S)
+    return " ".join(m.group(0).split()) if m else ""
 
 
 def BF():
@@ -418,8 +456,18 @@ def f7():
     return res
 
 
+def f9():
+    """item 349: the residue pass's computed figures -- U/ell under the G5 readings, the sheets' dark energy beside
+    sigma"""
+    ex = example()
+    u_ell = ex["U"] * ex["rh"] / ex["ell"]
+    sigma = 3 * C_LIGHT ** 4 / (4 * math.pi * G_N * ex["ell"] ** 2)
+    return dict(u_ell_g5=[u_ell * g ** (1 / 3) for g in (1.5, 0.5)], de_sigma=5.3e-10 / sigma, ell_rh=1 / (
+        ex["rh"] / ex["ell"]))
+
+
 def compute():
-    return dict(f2=f2(), f3=f3(), f4=f4(), f5=f5(), f6=f6(), f7=f7())
+    return dict(f2=f2(), f3=f3(), f4=f4(), f5=f5(), f6=f6(), f7=f7(), f9=f9())
 
 
 def report(o):
@@ -452,9 +500,9 @@ def report(o):
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    rul = " ".join(open(RULINGS, encoding="utf-8").read().split())
-    add("F0 139 (1), 166, 183, 200 (1), 226, 251, 273, 275, 320, 336 and 347 verbatim in the rulings file",
-        all(" ".join(w.split()) in rul for w in WORDS))
+    words = [(n + 1 if MUT.get("word_wrong_item") and n == 275 else n, w) for n, w in WORDS]   # the mutant: misfiled
+    add("F0 139 (1), 166, 183, 200 (1), 226, 251, 273, 275, 320, 336, 347 and 349 verbatim, each inside its own item "
+        "(item 349 (a))", all(" ".join(w.split()) in _item(n) for n, w in words))
     a = o["f2"]
     ok = sp.simplify(a["inv_ell"] - a["kap"] ** 2 * a["lam"] / 6) == 0 and a["ratio_139"] == 2
     ok &= len(a["dest"]) == 12 and all(d["sigma_plus"] > 0 and d["summed"] > 0 for d in a["dest"].values())
@@ -503,6 +551,11 @@ def checks(o):
         and z["f1"]["out_all"][2] == Counter({("both",): 24, (1,): 36, ("refused",): 36})
         and z["f2"]["out_all"][2] == Counter({(1,): 60, ("refused",): 36})
         and all(z[n]["out_all"][3] == Counter({("refused",): 96}) for n in ("f1", "f2")))
+    q = o["f9"]
+    add("F9 (item 349) the residue pass's figures: U/ell 1.29e-10 and 8.95e-11 under the G5 readings; the sheets' "
+        "dark energy 3.6e-63 of sigma; ell = 1.25e15 r_h at the example, far above the near zone's 140,660 r_h",
+        ["%.3g" % v for v in q["u_ell_g5"]] == ["1.29e-10", "8.95e-11"] and "%.2g" % q["de_sigma"] == "3.6e-63"
+        and "%.3g" % q["ell_rh"] == "1.25e+15")
     return res
 
 
@@ -510,7 +563,8 @@ MUTANTS = {"sigma_plus_summed": "position 2's side carrying S1 + S2, not S1 + 2 
            "column_back": "the record's throat column put back into the far model (F3)",
            "hole_sign": "the hole's term in theta+ with the wrong sign (F4)",
            "ms_4d": "the Misner-Sharp falloff taken four-dimensional (F5)",
-           "calc_spread": "the two-sided cell of f1 left undecided (F7)"}
+           "calc_spread": "the two-sided cell of f1 left undecided (F7)",
+           "word_wrong_item": "275's words looked for in item 276 (F0; item 349 (a))"}
 
 
 def selftest():
