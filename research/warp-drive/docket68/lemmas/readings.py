@@ -184,6 +184,20 @@ goes to M; the board does not rule on M's meaning.
      weight of its own: any field of the size (b) computes gives FARs's conclusions, nine orders inside the margin at the
      example.  The field is the Z2-symmetric wall's; on the two-sided pair each side's differs by a factor of order one
      (far_large L9 (d)'s estimate), which those nine orders absorb.
+  Q25 (deduced; computed) RCOVER -- the record's cover U = 1.05 R_reach carries no weight: FARs and FAR hold on every far
+     surface enclosing the write's reach (FARs F4; FAR L5, L9).  (a) What the cover must do is causal: T_E keeps
+     coordinate distance at least U from the origin, and no signal from the corridor or the README's own matter -- inside
+     R_core + T when the write began, spreading at most T further by the closing -- reaches it before the closing once U
+     >= R_reach = R_core + 2T (b4c_far's reach, the model's cones), R_core = r_h at the small end and 2m at the large;
+     the factor 1.05 is the record's margin on that, not a requirement.  (b) The small end: F3 is exact at every U, F4's
+     round margin mu/(4U^2) + mu/(2U ell) < 1 holds at every U > r_h, and Q24's bound 5 mu/min(U, ell)^2 falls as U grows
+     -- at the reach itself, U = 133,961 r_h at the example, mu/U^2 = 5.57e-11 and theta+ moves by at most 2.8e-10 of
+     itself, against 5.05e-11 and 2.5e-10 at the cover (computed).  (c) The large end: at every U past the reach an
+     elongation serves -- Q23's bound in Garriga and Tanaka's field needs K > U/(U - 2m), L4 (b)'s in the test form K >=
+     4U/(4U - 9m) -- and at the reach itself, U = 399,406.38 m, these are K - 1 > 5.0e-6 and 5.6e-6, against 4.8e-6 and
+     5.4e-6 at the cover (computed).  Each bound loosens as U grows (computed), so any U >= R_reach serves, the cover
+     among them; the round surface's failure at the large end does not depend on the cover either, its threshold U > 2
+     ell (ell + 3m)/(3m - 2 ell) lying far inside R_reach.
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -341,8 +355,7 @@ INVENTORY = (
     ("RHOLE", 349, "H-HOLE-IN-WARP: the hole's isotropic factor under the warp", "FARs", "form",
      "proved here (Q24)"),
     ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form", "proved here (Q23)"),
-    ("RCOVER", 349, "the record's cover U = 1.05 R_reach", "FARs FAR", "choice",
-     "to prove: FAR at every enclosing U from the write's reach"),
+    ("RCOVER", 349, "the record's cover U = 1.05 R_reach", "FARs FAR", "choice", "proved here (Q25)"),
     ("RONPLANE", 264, "H-README-ON-PLANE: the README written in our plane's fields", "WRITEs O3s FARs ARRIVALs",
      "model", "M's since 344 (\"The README is really written on our plane\")"),
     ("RGAS", 264, "H-FREE-GAS, H-BITS-ARE-STATES: the carrier a free gas holding 2^N states",
@@ -681,10 +694,27 @@ def q24():
                 table=table, smax=max(table.values()), example=5 * 5.05e-11, bend=math.sqrt(beta_ex) / (2 + 1 / 1.5))
 
 
+# ---------------------------------------------------------------------------------- Q25 every cover past the reach
+def q25():
+    T_s, T_l = 66980, 199702.19                                         # the writes' floors (write_small S3, o3_write)
+    small = {}
+    for lab, U in (("reach", 1 + 2 * T_s), ("cover", 1.05 * (1 + 2 * T_s))):
+        small[lab] = dict(U=U, mu_U2=1 / U ** 2, bound=5 / U ** 2,     # Q24's bound, mu/min(U, ell)^2 with U << ell
+                          round_ok=1 / (4 * U ** 2) + 1 / (2 * U * 1.25e15) < 1)     # F4's round margin, ell/r_h
+    large = {}
+    for lab, U in (("reach", 2 + 2 * T_l), ("cover", 1.05 * (2 + 2 * T_l))):
+        Ug = U if not MUT.get("cover_needed") else 1.0                  # the mutant: the cover read as the reach itself
+        large[lab] = dict(U=U, k_gt=2 / (Ug - 2), k_test=9 / (4 * Ug - 9))     # K - 1 above which each bound holds
+    # each bound loosens as U grows: d/dU of mu/U^2, 2/(U - 2) and 9/(4U - 9) all negative
+    Us = sp.Symbol("U", positive=True)
+    monotone = all(sp.simplify(sp.diff(e, Us)).subs(Us, 10) < 0 for e in (1 / Us ** 2, 2 / (Us - 2), 9 / (4 * Us - 9)))
+    return dict(small=small, large=large, monotone=monotone)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23(), q24=q24())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25())
 
 
 def report(o):
@@ -720,6 +750,12 @@ def report(o):
           "(%s); at the example at most %.1e; bending %.1e of the rim's margin"
           % (h["slice_ok"], h["mode_ok"], h["jump_ok"], h["zero_mode"], h["near"], h["far"], h["smax"],
              ", ".join("%g/%g %.3f" % (a, b, c) for (a, b), c in sorted(h["table"].items())), h["example"], h["bend"]))
+    c = o["q25"]
+    print("Q25 small end: mu/U^2 %.3e at the reach, %.3e at the cover, Q24's bound %.2e and %.2e; large end: K - 1 "
+          "above %.3e (GT) and %.3e (test form) at the reach, %.3e and %.3e at the cover; each loosens with U: %s"
+          % (c["small"]["reach"]["mu_U2"], c["small"]["cover"]["mu_U2"], c["small"]["reach"]["bound"],
+             c["small"]["cover"]["bound"], c["large"]["reach"]["k_gt"], c["large"]["reach"]["k_test"],
+             c["large"]["cover"]["k_gt"], c["large"]["cover"]["k_test"], c["monotone"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -772,6 +808,14 @@ def checks(o):
         h["slice_ok"] and h["mode_ok"] and h["jump_ok"] and h["zero_mode"] and abs(h["near"] - 1) < 0.01
         and h["far"] < 1e-3 and h["smax"] < 5 and abs(h["table"][(1e3, 1.0)] / (3 * math.pi / 4) - 1) < 0.01
         and h["table"][(1e-3, 1.0)] < 0.75 and "%.1e" % h["example"] == "2.5e-10" and "%.1e" % h["bend"] == "2.2e-06")
+    c = o["q25"]
+    add("Q25 the cover's 1.05 carries no weight: at the reach itself the small end's hole moves theta+ by at most "
+        "2.8e-10 (mu/U^2 = 5.57e-11) and the large end needs only K > 1 + 5.0e-6 (GT) or 1 + 5.6e-6 (test form); "
+        "every bound loosens as U grows",
+        ["%.3g" % c["small"][x]["mu_U2"] for x in ("reach", "cover")] == ["5.57e-11", "5.05e-11"]
+        and "%.2g" % c["small"]["reach"]["bound"] == "2.8e-10" and c["small"]["reach"]["round_ok"]
+        and ["%.2g" % c["large"]["reach"][x] for x in ("k_gt", "k_test")] == ["5e-06", "5.6e-06"]
+        and "%.2g" % c["large"]["cover"]["k_test"] == "5.4e-06" and c["monotone"])
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -786,7 +830,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "face_at_ours": "position 2's energy taken as (G5/G5_2)^1, one r_h (Q16)",
            "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)",
            "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)",
-           "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)"}
+           "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)",
+           "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)"}
 
 
 def selftest():
