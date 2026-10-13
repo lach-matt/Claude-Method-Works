@@ -163,6 +163,9 @@ not verified by a separate session; not seated); 2026-10-13.
      (b)).  Residue: the Planck criterion K l5^4 = 1 is an order-of-magnitude rule, and its figures move with it (2.91 l5
      as its fourth root); the bath is the cosmic background's, and a hotter environment scales as T^4; (c) presumes 317
      (Q3)'s time symmetry; g* is held at 106.75.
+     [Item 353: M, verbatim, "I propose one reading for you to confirm. - confirmed" -- H-PLANCK-ENDS is M's,
+     M-PLANCK-ENDS.  B3s and B4ds rest on it as M's and on the board's readings that remain (340's compact arrival, the
+     radial null-dust model, J5's bound, FARs), so each becomes a READING, not DERIVED, once FAR's verdict is accounted.]
 
 What this does not claim.
   - The evolution inside 273's region: its form is the board's reading of Haggard and Rovelli's construction (273 (a)),
@@ -197,7 +200,8 @@ WORDS = ((152, '"I had not considered this yet. It could very well be possible, 
          (270, '"You are forgetting that the passage is one-way only"'),
          (273, 'verbatim: "Quantum bounce to pos 2 (Recommended)"'), (276, '"The passage is one-way in all aspects"'),
          (320, 'no bulk is ever empty'), (336, '"I think it is B"'), (340, '"C, but my guess is A"'),
-         (351, "Let's move on"), (352, '"For each place, which do you want? - 3"'))
+         (351, "Let's move on"), (352, '"For each place, which do you want? - 3"'),
+         (353, '"I propose one reading for you to confirm. - confirmed"'))
 # the example README at the small end (C2 R1, verified 258; C7's verifier for r_h/ell, 319; C5 U3, verified 317)
 RH, L5, RH_ELL = 1.12008e-20, 1.53937e-25, 8.02117e-16
 N_EX, LIFE = 2742570311524972, 8.573276e14
@@ -410,7 +414,8 @@ def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     words = [(n + 1 if MUT.get("word_wrong_item") and n == 273 else n, w) for n, w in WORDS]   # the mutant: misfiled
-    add("D0 152 (2), 161, 210, 251, 270, 273, 276, 320, 336, 340, 351 and 352 verbatim, each inside its own item",
+    add("D0 152 (2), 161, 210, 251, 270, 273, 276, 320, 336, 340, 351, 352 and 353 verbatim, each inside its own "
+        "item",
         all(" ".join(w.split()) in _item(n) for n, w in words))
     a = o["d2"]
     add("D2 the onset's escape exactly when lambda <= 1/27 (2x^3 - x^2 least -1/27 at x = 1/3), checked on both sides; "

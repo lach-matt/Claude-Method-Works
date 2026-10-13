@@ -69,7 +69,7 @@ classical GR is kept, with three Planck-scale places 273 does not name put to M 
 over the life after position 2's face closes, and position 2's face's own end.] [Item 352: M chose "for the math" at
 all three. They are one fact: a face shrinking to zero ends in a Planck-scale region about 2.91 l5 across, where the
 interior's core meets it; each is located and bounded (b4d_small D13-D18), and B3s and B4ds become READINGs on the
-board's H-PLANCK-ENDS once FAR's verdict is accounted.]
+board's H-PLANCK-ENDS once FAR's verdict is accounted.] [Item 353: M confirmed it -- M-PLANCK-ENDS.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -372,7 +372,7 @@ LEMMAS_NOW = [
       "face, the closing CLOSEs, the far boundary FARs -- the static localized hole known only numerically for one "
       "plane (Kudoh-Tanaka-Nakamura, read at 254; Figueras-Wiseman's branch, 261) and at the example through its "
       "first-order deviation; open: B4ds's fork (D11), worked for the math at 352 (D13-D18) -- every cell located, the "
-      "Planck-scale ones bounded; READING on H-PLANCK-ENDS once FAR's verdict is accounted")),
+      "Planck-scale ones bounded; READING on M-PLANCK-ENDS (353) once FAR's verdict is accounted")),
     ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
@@ -396,7 +396,7 @@ LEMMAS_NOW = [
       "l5 across where the core meets it (D13): our face's end open to our universe, at most 2.05 J and 176 bits, "
       "complete evaporation or a remnant on M's rulings (D14); the core keeping what enters after 33.6 clocks, none "
       "of it crossing (D15); position 2's face's end open to position 2, the mirror of our face's birth (D16) -- "
-      "READING on the board's H-PLANCK-ENDS once FAR's verdict is accounted (D18)")),
+      "READING on H-PLANCK-ENDS, confirmed by M as M-PLANCK-ENDS (353), once FAR's verdict is accounted (D18)")),
     ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
       "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351)")),

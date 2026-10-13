@@ -121,7 +121,8 @@ interior's core meets it.
 - The core keeps what enters our face after 33.6 clocks; none of it crosses.
 - Position 2's face's end is open to position 2: the time mirror of our face's birth, which the compact arrival hides.
 
-B3s and B4ds become readings on the board's H-PLANCK-ENDS once FAR's verdict is accounted.
+B3s and B4ds become readings on the board's H-PLANCK-ENDS once FAR's verdict is accounted. *Item 353: you confirmed
+it -- M-PLANCK-ENDS.*
 
 ## The register as it stands (item 331)
 
@@ -357,7 +358,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
 - M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334),
   M-ENERGY-STAYS (336), M-ARRIVAL-FOR-THE-MATH (340), with your guess A (H-ARRIVAL-FORMS-THE-FACE),
-  M-SOURCE-IN-THE-MAP (344), M-SOURCE-LAST (345), M-SOURCE-BY-END (346).
+  M-SOURCE-IN-THE-MAP (344), M-SOURCE-LAST (345), M-SOURCE-BY-END (346), M-PLANCK-ENDS (353).
 
 **The board's, to be overruled by you at any point:**
 - ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
@@ -369,9 +370,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   as the face standing from the README's arrival.
 - **349's readings.** H-HOLE-IN-WARP (the hole's isotropic factor under the warp, a test form exact as ρ/ℓ → 0);
   "both planes at once" (166) read under 275 as the coincident pair; the record's cover U = 1.05 R_reach.
-- **352's reading.** **H-PLANCK-ENDS**: B4d's "regular in five dimensions" is asked where classical GR holds, below
-  the five-dimensional Planck curvature (273 (b)'s rule). At a Planck-scale place the row needs the math's bounds and
-  your constraints, not an evolution. On it B4ds and B3s become readings once FAR's verdict is accounted.
+- ~~**352's reading.** H-PLANCK-ENDS~~ (352), confirmed by you as **M-PLANCK-ENDS** (353): B4d's "regular in five
+  dimensions" is asked where classical GR holds, below the five-dimensional Planck curvature (273 (b)'s rule). At a
+  Planck-scale place the row needs the math's bounds and your constraints, not an evolution. B4ds and B3s still rest
+  on the board's readings that remain (340's compact arrival, the null-dust model, J5's bound, FARs), so they become
+  readings, not derived, once FAR's verdict is accounted.
 - **351's readings.** The gate (330) runs before FAR's verifier, which reads only FAR's files. "Move on" means B3 and
   B4d at the small end, next in item 338's order, worked beside the verification. B3 and B4d are split by end, as FAR
   and CLOSE were.
@@ -2470,7 +2473,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–352: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–353: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2673,6 +2676,8 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   about 2.91 l₅ across. Our face's end and position 2's are each open to their own universe and bounded (2.05 J, 176
   bits), and the core keeps what enters after 33.6 clocks. B3s and B4ds stay OPEN until FAR's verdict is accounted,
   then become readings on H-PLANCK-ENDS.
+- **353, "I propose one reading for you to confirm. - confirmed".** H-PLANCK-ENDS is yours: M-PLANCK-ENDS. B3s and B4ds
+  rest on it and on the board's readings that remain, so they become readings once FAR's verdict is accounted.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.
