@@ -198,6 +198,23 @@ goes to M; the board does not rule on M's meaning.
      5.4e-6 at the cover (computed).  Each bound loosens as U grows (computed), so any U >= R_reach serves, the cover
      among them; the round surface's failure at the large end does not depend on the cover either, its threshold U > 2
      ell (ell + 3m)/(3m - 2 ell) lying far inside R_reach.
+  Q26 (deduced; computed where marked) write_small S3's five mappings, on which the write's floor of 66,980 clocks rests
+     (WRITEs, O3s, FARs's reach).  (a) H-WRITE-IS-ARRIVAL -- the write is done when the README has crossed onto the
+     horizon.  The option M chose at 163 says what the write is: "the README carried in by the inflow, 115 (c), and held
+     as a single whole, not bit by bit, at the fixed size".  Alternatives: the write done before the README arrives, a
+     transport after it -- excluded: the write is the carrying in; the write still running after the README is in, part
+     by part -- excluded by "held as a single whole, not bit by bit"; the write is done when the README is in --
+     survives, and on 340's compact arrival (Q2) being in is the arrival that forms the face.  (b) H-SMALL-CLOCK -- the
+     clock r_h/c.  A unit: every comparison a row draws is a ratio in one clock, the life 1.28e10 floors in any
+     (computed); in seconds the floor is 2.5e-24 s at the example.  (c) H-HOLD-FRAME -- advanced time.  M's since 334:
+     M-HOLD-IS-THE-FACE seats the hold as "our face open, in advanced time, through the write".  (d) H-FLAT-START -- the
+     plane and the bulk flat at the write's start.  On 340's reading (ii) no hole stands during the approach -- the
+     README forms the face as it arrives -- so the only fields are the README's own: (r_h/R)^2 = 2.2e-10 at the start and
+     R/ell = 5.4e-11 (computed), reaching order one only within the arrival's last 4.79 clocks (Q2's width), 7.2e-5 of
+     the floor (computed).  (e) H-README-ALONE -- the gas carries only the README's E.  Alternative, a carrier with more
+     energy than E, up to the collapse ('t Hooft's eq. (8), S3 V4) -- excluded by 136 G, "the README is the energy, not
+     separate", and 136 (1), the one exact energy E(N): the carrier's energy is the README's, E.  So the floor rests on
+     M's rulings, Q2 and two computed bounds; S3's own derivation is C6's, verified (264).
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -254,6 +271,9 @@ WORDS = {
     "162": (162, "It is and always will be only the size that is needed to hold the object once and at once"),
     "163": (163, '"All together, one whole"'),
     "163.no": (163, '"Instantaneously"'),
+    "163.opt": (163, "the README carried in by the inflow, 115 (c), and held as a single whole, not bit by bit, at the "
+                     "fixed size"),
+    "334.frame": (334, "our face open, in advanced time, through the write"),
     "166": (166, 'M chose: "Both planes at once"'),
     "166.ours": (166, '"No, ours"'),
     "166.p2": (166, '"Yes, position 2\'s plane"'),
@@ -313,6 +333,14 @@ EXCLUSIONS = {
              "M answered 'No' over 'Yes: then item 146 or 147 must change' (148.q)"),
             ("position 2 only where the README's values, the electron's mass among them (144), measure as ours", None,
              "survives; carried as M's at 155 (3)")],
+    "Q26a": [("the write done before the README arrives, a transport after it", "163.opt",
+              "the write is the carrying in"),
+             ("the write running on after the README is in, part by part", "163.opt",
+              "held as a single whole, not bit by bit"),
+             ("the write done when the README is in", None, "survives; on 340's compact arrival (Q2), the arrival")],
+    "Q26e": [("a carrier with more energy than E, up to the collapse (S3 V4)", "136.G",
+              "the README is the energy, not separate; one exact energy, 136 (1)"),
+             ("the carrier's energy the README's, E", None, "survives")],
 }
 
 # the inventory: (id, item, reading, rows, kind, state)
@@ -360,8 +388,16 @@ INVENTORY = (
      "model", "M's since 344 (\"The README is really written on our plane\")"),
     ("RGAS", 264, "H-FREE-GAS, H-BITS-ARE-STATES: the carrier a free gas holding 2^N states",
      "WRITEs O3s FARs ARRIVALs", "model", "through SOURCE (M-SOURCE-LAST): the plane's gas is SOURCE's to define"),
-    ("RMAP", 264, "H-WRITE-IS-ARRIVAL, H-SMALL-CLOCK, H-HOLD-FRAME, H-FLAT-START, H-README-ALONE", "WRITEs O3s FARs",
-     "choice", "to prove: each from M's rulings (334, 336, 273's 'README only') or computed (H-FLAT-START)"),
+    # [Q26] write_small's mappings, once one entry (RMAP), each its own
+    ("RWIA", 264, "H-WRITE-IS-ARRIVAL: the write done when the README is in", "WRITEs O3s FARs", "choice",
+     "proved here (Q26 (a))"),
+    ("RCLOCK", 264, "H-SMALL-CLOCK: the clock r_h/c", "WRITEs O3s FARs", "choice", "a unit; proved here (Q26 (b))"),
+    ("RFRAME", 264, "H-HOLD-FRAME: the write in advanced time", "WRITEs O3s FARs", "choice",
+     "M's since 334, M-HOLD-IS-THE-FACE (Q26 (c))"),
+    ("RFLAT", 264, "H-FLAT-START: the plane and the bulk flat at the write's start", "WRITEs O3s FARs", "model",
+     "proved here (Q26 (d))"),
+    ("RALONE", 264, "H-README-ALONE: the gas carries only the README's E", "WRITEs O3s FARs", "model",
+     "proved here (Q26 (e))"),
     ("RSPEC", 264, "H-SPECIES-FINITE: finitely many species above the Standard Model", "WRITEs O3s B4ds", "model",
      "to prove: bound what the figures need of g*"),
     ("RCALC", 310, "c4_oneway's calculator protocols (P13, P17, P18, P20)", "M1s", "protocol",
@@ -711,10 +747,24 @@ def q25():
     return dict(small=small, large=large, monotone=monotone)
 
 
+# ---------------------------------------------------------------------------------- Q26 write_small's five mappings
+def q26():
+    floor, life, arrival = 66980.0, 8.573276e14, 4.79                   # clocks of r_h/c (S3; C5 U4; Q2's width)
+    clock_s = 1.12008e-20 / 299792458.0                                 # r_h/c at the example, s
+    # H-SMALL-CLOCK: the comparison is a ratio, the same in every clock; in seconds the floor is 2.5e-24 s
+    ratio, ratio_s = life / floor, (life * clock_s) / (floor * clock_s)
+    if MUT.get("clock_weighs"):
+        ratio_s = (life * clock_s) / floor                              # the mutant: two clocks mixed
+    # H-FLAT-START: the README's own gravity at the start, and the warp; at most the arrival's width against the floor
+    R = (1 + floor)                                                     # the ball's radius at the start, r_h
+    return dict(ratio=ratio, ratio_same=abs(ratio_s / ratio - 1) < 1e-12, floor_s=floor * clock_s,
+                selfgrav=1 / R ** 2, warp=R * 8.02117e-16, shift=arrival / floor)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26())
 
 
 def report(o):
@@ -756,6 +806,10 @@ def report(o):
           % (c["small"]["reach"]["mu_U2"], c["small"]["cover"]["mu_U2"], c["small"]["reach"]["bound"],
              c["small"]["cover"]["bound"], c["large"]["reach"]["k_gt"], c["large"]["reach"]["k_test"],
              c["large"]["cover"]["k_gt"], c["large"]["cover"]["k_test"], c["monotone"]))
+    e = o["q26"]
+    print("Q26 the life over the floor %.3g in every clock (%s), the floor %.2g s; at the write's start (r_h/R)^2 = "
+          "%.2g, R/ell = %.2g; the arrival's width %.1e of the floor" % (e["ratio"], e["ratio_same"], e["floor_s"],
+                                                                  e["selfgrav"], e["warp"], e["shift"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -765,8 +819,8 @@ def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     add("Q0 354's words and every premise verbatim, each inside its own item", all(o["words"].values()))
-    add("Q1-Q4, Q6, Q13, Q16, Q18, Q19, Q22 exactly one alternative survives each, every exclusion a quoted premise or "
-        "a named computation",
+    add("Q1-Q4, Q6, Q13, Q16, Q18, Q19, Q22, Q26 exactly one alternative survives each, every exclusion a quoted "
+        "premise or a named computation",
         all(len(v) == 1 for v in o["surv"].values())
         and all(p is None or p in WORDS or p.startswith("computed: ") for v in o["ex"].values() for _, p, _ in v))
     a = o["q5"]
@@ -816,6 +870,12 @@ def checks(o):
         and "%.2g" % c["small"]["reach"]["bound"] == "2.8e-10" and c["small"]["reach"]["round_ok"]
         and ["%.2g" % c["large"]["reach"][x] for x in ("k_gt", "k_test")] == ["5e-06", "5.6e-06"]
         and "%.2g" % c["large"]["cover"]["k_test"] == "5.4e-06" and c["monotone"])
+    e = o["q26"]
+    add("Q26 write_small's five mappings: the write ends at the arrival (163, Q2); the clock a unit, the life 1.28e10 "
+        "floors in every clock; advanced time M's (334); the start flat to 2.2e-10 and 5.4e-11, the arrival's 4.79 "
+        "clocks 7.2e-5 of the floor; the README alone (136 G, 136 (1))",
+        "%.3g" % e["ratio"] == "1.28e+10" and e["ratio_same"] and "%.2g" % e["floor_s"] == "2.5e-24"
+        and "%.2g" % e["selfgrav"] == "2.2e-10" and "%.2g" % e["warp"] == "5.4e-11" and "%.2g" % e["shift"] == "7.2e-05")
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -831,7 +891,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)",
            "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)",
            "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)",
-           "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)"}
+           "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)",
+           "clock_weighs": "the life in seconds set against the floor in clocks (Q26)"}
 
 
 def selftest():
