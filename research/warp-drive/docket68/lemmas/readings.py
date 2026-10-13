@@ -265,6 +265,24 @@ goes to M; the board does not rule on M's meaning.
      the centred field's scale (computed), and by Q24's bound it moves theta+ by about 10 mu/U^2 x 3.64, 2e-9 at the
      example (estimate: the constant for an off-centre source taken as twice the centred one's).  So every reading FARs
      rests on is proved or M's.
+  Q31 (item 356; deduced; READ; computed) RGAS -- H-BITS-ARE-STATES and H-FREE-GAS, the carrier of write_small S3
+     (WRITEs, O3s, ARRIVALs) -- proved.  (a) H-BITS-ARE-STATES, N bits need e^S >= 2^N.  Every README of N bits carries
+     the one energy E(N) (136 (1), a function of N alone), and the rebuild has "no tolerance at all" (146): each of the
+     2^N READMEs must be told from every other with zero error.  Two pure states are told apart with zero error only if
+     they are orthogonal -- the least error at equal priors is (1 - (1 - |<psi|phi>|^2)^(1/2))/2, zero only at overlap
+     zero (computed, exact) -- and 2^N mutually orthogonal states need a space of dimension 2^N (computed).  So the
+     carrier's states at energy E in the volume it fills number at least 2^N: e^S(E, V) >= 2^N, S the microcanonical
+     entropy.  (b) H-FREE-GAS, those states at most the free gas's.  The carrier is M's since 344: "its true source is a
+     gas of the plane's fields".  At the gas's temperature, 5.6 TeV (S3), every Standard Model species is relativistic,
+     and the free massless gas has S = (4/3) a^(1/4) V^(1/4) E^(3/4).  Interactions shift it.  READ: Kajantie, Laine,
+     Rummukainen and Schroder (hep-ph/0211321) eqs. (6.4)-(6.7), p_QCD = (8 pi^2/45) T^4 [sum p_i (alpha_s/pi)^(i/2)]
+     with p0 = 1 + 21 N_f/32 and p2 = -(15/4)(1 + 5 N_f/12), the first correction negative -- with their caution that the
+     series "could well converge only very slowly, requiring perhaps something like T >> TeV" -- and Borsanyi et al.
+     (1309.5258) find the continuum pressure below "the Stefan-Boltzmann value of 5.209" at every temperature they reach.
+     Whatever the sign beyond leading order, a shift delta in the pressure moves the ball's radius, and so the floor, by
+     (1 + delta)^(-1/3) exactly (computed): by at most 6% and 8% for |delta| <= 0.2.  So the free gas bounds the carrier
+     to leading order and the floor of 66,980 clocks stands within that band; the number of species it uses is the
+     Standard Model's (Q27).
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -438,7 +456,7 @@ INVENTORY = (
      "model", "M's since 344 (\"The README is really written on our plane\")"),
     ("RGAS", 264, "H-FREE-GAS, H-BITS-ARE-STATES: the carrier a free gas holding 2^N states",
      "WRITEs O3s ARRIVALs", "model",                                                                 # [Q30] not FARs
-     "through SOURCE (M-SOURCE-LAST): the plane's gas is SOURCE's to define"),
+     "proved here (Q31; item 356)"),
     # [Q26] write_small's mappings, once one entry (RMAP), each its own
     ("RWIA", 264, "H-WRITE-IS-ARRIVAL: the write done when the README is in", "WRITEs O3s FARs", "choice",
      "proved here (Q26 (a))"),
@@ -901,11 +919,33 @@ def q30():
     return dict(ms_ok=ms_ok, gab_rr=gab_rr, near=near, offc=10 * near / U ** 2)
 
 
+# ---------------------------------------------------------------------------------- Q31 the carrier's states
+def q31():
+    # (a) zero error between two pure states needs them orthogonal: the least error, equal priors (Helstrom)
+    c = sp.Symbol("c", nonnegative=True)                               # |<psi|phi>|
+    perr = (1 - sp.sqrt(1 - c ** 2)) / 2
+    zero_only_orth = sp.solve(sp.Eq(perr, 0), c) == [0]
+    if MUT.get("tolerance"):
+        zero_only_orth = sp.solve(sp.Eq(perr, sp.Rational(1, 100)), c) == [0]   # the mutant: an error allowed
+    # 2^N mutually orthogonal states need dimension 2^N: the Gram matrix of orthonormal vectors has full rank
+    rank_ok = all(sp.eye(2 ** n).rank() == 2 ** n for n in range(1, 5))
+    # (b) the free gas at fixed E, V and the floor's response to an interaction shift delta in the pressure
+    a, V, E, N, d = sp.symbols("a V E N delta", positive=True)
+    S = sp.Rational(4, 3) * a ** sp.Rational(1, 4) * V ** sp.Rational(1, 4) * E ** sp.Rational(3, 4)
+    Vmin = sp.solve(sp.Eq(S, N * sp.log(2)), V)[0]
+    R_ratio = sp.simplify((Vmin.subs(a, a * (1 + d)) / Vmin) ** sp.Rational(1, 3))    # the ball's radius, so the floor
+    exact = sp.simplify(R_ratio - (1 + d) ** sp.Rational(-1, 3)) == 0
+    nf = 6                                                              # every quark below 5.6 TeV
+    p0, p2 = 1 + sp.Rational(21, 32) * nf, -sp.Rational(15, 4) * (1 + sp.Rational(5, 12) * nf)   # KLRS eqs. (6.5), (6.7)
+    return dict(zero_only_orth=zero_only_orth, rank_ok=rank_ok, exact=exact,
+                band=[float(R_ratio.subs(d, x)) for x in (-0.2, 0.2)], p0=p0, p2=p2)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
                 q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27(), q28=q28(), q29=q29(),
-                q30=q30())
+                q30=q30(), q31=q31())
 
 
 def report(o):
@@ -966,6 +1006,10 @@ def report(o):
     print("Q30 G^t_t = -(3/(2 r^3)) d_r mu for every spherical metric: %s; g^ab d r d r = 1 - mu/r^2: %s; a README "
           "off the centre at T_E: %.2f times the centre's scale, at most about %.1e of theta+"
           % (x["ms_ok"], x["gab_rr"], x["near"], x["offc"]))
+    y = o["q31"]
+    print("Q31 zero error only between orthogonal states: %s; 2^N orthonormal states need dimension 2^N: %s; the floor "
+          "moves as (1 + delta)^(-1/3): %s, %.3f to %.3f for delta from -0.2 to 0.2; KLRS at N_f = 6: p0 = %s, p2 = %s"
+          % (y["zero_only_orth"], y["rank_ok"], y["exact"], y["band"][0], y["band"][1], y["p0"], y["p2"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -1053,6 +1097,12 @@ def checks(o):
         "identity, d_r mu = (2 kappa/3) r^3 rho >= 0; a README off the centre moves theta+ by about 1e-9; the floor "
         "carries no weight (Q25)", x["ms_ok"] and x["gab_rr"] and "%.2f" % x["near"] == "3.64"
         and "%.0e" % x["offc"] == "2e-09")
+    y = o["q31"]
+    add("Q31 RGAS: N bits with no tolerance need 2^N orthogonal states at one E (zero error only for orthogonal "
+        "states; rank 2^N); the plane's gas within the free gas's states up to its interactions, the floor moving as "
+        "(1 + delta)^(-1/3), 1.077 to 0.941 for |delta| <= 0.2; QCD's first correction negative",
+        y["zero_only_orth"] and y["rank_ok"] and y["exact"] and ["%.3f" % x for x in y["band"]] == ["1.077", "0.941"]
+        and y["p2"] < 0 and y["p0"] == sp.Rational(79, 16))
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -1076,7 +1126,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "floor_fixed": "the write's floor held at the Standard Model's species while the life falls (Q27)",
            "calc_premise": "c4_oneway's calculator runs P7-P13 read among M1s's premises (Q28)",
            "mass_in_r": "the Vaidya mass taken to depend on r as well as v (Q29)",
-           "ms_4d": "the Misner-Sharp coefficient taken as four-dimensional, 1/2 not 3/2 (Q30)"}
+           "ms_4d": "the Misner-Sharp coefficient taken as four-dimensional, 1/2 not 3/2 (Q30)",
+           "tolerance": "an error of 1% allowed in telling READMEs apart, against 146's no tolerance (Q31)"}
 
 
 def selftest():
