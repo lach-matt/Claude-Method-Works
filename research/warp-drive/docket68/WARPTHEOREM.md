@@ -124,6 +124,19 @@ interior's core meets it.
 B3s and B4ds become readings on the board's H-PLANCK-ENDS once FAR's verdict is accounted. *Item 353: you confirmed
 it -- M-PLANCK-ENDS.*
 
+**Since item 354: every board reading in force is being proved** (`readings.py`). There are 36 in the inventory, each
+with where it was seated, the rows that use it, and its kind. So far:
+- 19 are proved here, by deduction from your verbatim words (every alternative reading excluded by a ruling quoted in
+  its own item) or by computation.
+- 4 were already yours or already proved: 270 (c) by 282, 273 (b) by 353, 276 (a) at 323, and H-README-ON-PLANE by your
+  344.
+- 4 can only be proved through SOURCEs, which you placed last: the null-dust arrival, H-BITS-WITH-ENERGY, and the
+  free-gas carrier.
+- The rest are being worked: the two test forms, the cover, the README as a thin shell, write_small's mappings, the
+  species bound, the calculator protocols, and five older rows' readings.
+
+318's reading is proved, so **Z3bs is now derived**.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -148,7 +161,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading | proved | M1s M1 | rows_small.py, passage5d.py |
 | Z | Z2r our leg's integral within the reach equals the plane's reading | proved | M1s M1 | rows_small.py, coin.py |
 | Z | Z3a NEC never violated away from the corridor, through today | derived | -- | b1_matter.py, pointwise.py |
-| Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | reading | M1s | pair_math.py |
+| Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1s | pair_math.py, readings.py |
 | Z | Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | z3b_cypher, two_sided (the record's) |
 | Z | Z3c the plane's dark energy has w >= -1 at every epoch the theory controls | derived | -- | nature_rows.py |
 | B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
@@ -198,7 +211,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-66 rows, 52 lemmas and 14 inputs: 20 proved, 24 derived, 4 under a named reading of the board's, 5 definitions, 13 OPEN.
+66 rows, 52 lemmas and 14 inputs: 20 proved, 25 derived, 3 under a named reading of the board's, 5 definitions, 13 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -362,8 +375,12 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 
 **The board's, to be overruled by you at any point:**
 - ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
-- **318's reading.** 183 governs every classical ray, and the passage's negative inside the quantum region is 177's
-  appearance.
+- ~~**318's reading.**~~ 183 governs every classical ray, and the passage's negative inside the quantum region is
+  177's appearance. *Proved at 354 (`readings.py` Q1); Z3bs is derived.*
+- *Item 354: every reading below is inventoried and being proved in `readings.py`. Proved there: H-ONE-INTERIOR (Q6),
+  340's compact arrival (Q2), 166 under 275 (Q3), 226's tension (Q4), 270 (a)'s faces (Q5), 273 (a)'s isometry (Q8),
+  275 (a) (Q10), 284 (a) (Q12), 336 (a) (Q13), J5's bound (Q14), the fine count (Q15), 240 (b) (Q16), 320 (b)-(c) (Q17),
+  c1_oneway's (B) (Q18), 152 (1) (Q19) and H-ASYMMETRIC-BOUNCE (Q20).*
 - **H-ONE-INTERIOR** (270 (b)).
 - **The board's readings of 282–330**, each stated in its own item.
 - **340's reading.** The math gives your guess A with a compact arrival, and 334's "while the write runs" is re-read
@@ -2473,7 +2490,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–353: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–354: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2678,6 +2695,10 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   then become readings on H-PLANCK-ENDS.
 - **353, "I propose one reading for you to confirm. - confirmed".** H-PLANCK-ENDS is yours: M-PLANCK-ENDS. B3s and B4ds
   rest on it and on the board's readings that remain, so they become readings once FAR's verdict is accounted.
+- **354, "Prove all board readings".** `readings.py` (selftest 10/10, mutants 6/6) inventories the 36 board readings in
+  force. 19 are proved by deduction from your words or by computation; 4 were already yours or proved; 4 run through
+  SOURCEs, which you placed last; the rest are being worked. 318's reading is proved, so Z3bs is derived (66 rows: 3
+  readings, 13 OPEN).
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

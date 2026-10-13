@@ -69,7 +69,9 @@ classical GR is kept, with three Planck-scale places 273 does not name put to M 
 over the life after position 2's face closes, and position 2's face's own end.] [Item 352: M chose "for the math" at
 all three. They are one fact: a face shrinking to zero ends in a Planck-scale region about 2.91 l5 across, where the
 interior's core meets it; each is located and bounded (b4d_small D13-D18), and B3s and B4ds become READINGs on the
-board's H-PLANCK-ENDS once FAR's verdict is accounted.] [Item 353: M confirmed it -- M-PLANCK-ENDS.]
+board's H-PLANCK-ENDS once FAR's verdict is accounted.] [Item 353: M confirmed it -- M-PLANCK-ENDS.] [Item 354: M, "Prove all
+board readings": the readings in force are inventoried and proved one by one (lemmas/readings.py); 318's is proved, so
+Z3bs is DERIVED.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -345,11 +347,13 @@ LEMMAS_NOW = [
     ('Z',
      ("Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's "
       'negative confined to the quantum region'),
-     'READING',
+     'DERIVED',
      ("lemmas/pair_math.py P1-P4 (318, 'For the math'): outside the quantum region every segment keeps 183 "
       "(Tangherlini Ricci-flat, the README's T_kk >= 0); the negative inside the region 273 marks is 177's appearance"
       " -- the board's reading under 318, to be overruled by M; the record's ring does not arise at the small end "
-      '(m1_small (d))')),
+      "(m1_small (d)); item 354: the reading proved (lemmas/readings.py Q1) -- every other reading of 273 against 183 "
+      "excluded by M's 273 and by pair_math P1, the one left the reading -- so DERIVED from M's rulings and computed "
+      "results; pair_math's own note owed after FAR's verdict")),
     ('Z', 'Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class', 'OPEN',
      ("the record's (z3b_cypher, ring_consistent, open_mouth, two_sided): waits on the bulk carrying the warp's kink "
       'into the corridor (232)')),
@@ -725,7 +729,9 @@ def lemma_selftests():
               # item 350
               "far_large.py",
               # item 351
-              "b4d_small.py"):
+              "b4d_small.py",
+              # item 354
+              "readings.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
