@@ -199,6 +199,34 @@ adds nothing to the dust. All three model how the README comes in onto the face,
 M-SOURCE-LAST (345) puts SOURCEs after every other row, and your 356 asks every reading proved. Whether to bring SOURCEs
 forward is put to you.
 
+**Since item 356 (b): M1 at the large end is worked** (`lemmas/m1_large.py` M0–M10, selftest 12/12, mutants 7/7). It is
+posed on C3's large brane hole as Figueras and Wiseman (1105.2558) and Abdolrahimi et al. (1206.0708) construct it, both
+read in full. On the one-way object:
+- (a) The bulk is Einstein with R_AB = −(4/ℓ²) g_AB, not a Ricci soliton (READ), so the five-dimensional null energy is
+  zero on every ray. That is warp order, stronger than the small end's flat order.
+- (d) and the kink. The plane carries exactly our tension σ and nothing else: Israel's condition with zero brane matter
+  gives K_mn = γ_mn/ℓ (computed). The warp's kink follows the plane in a real five-dimensional construction, as your 232
+  asked.
+- (c) The plane reads four-dimensional Schwarzschild with r₀ = 2GM/c². From Abdolrahimi et al.'s brane metric: R = 0 to
+  first order, ADM mass M, surface gravity 1/(4M), the area 0.779ℓ² above 4π(2M)² (computed). This is non-extremal,
+  unlike eq. (17)'s throat.
+- The plane's own reading outside the horizon is slightly negative, O((ℓ/r₀)²), and its radial reading is zero on the
+  horizon. That is the bulk's Weyl term, the appearance.
+- (e) The horizon is smooth and non-degenerate (READ, computed). The static bulk under the hole is Figueras and
+  Wiseman's whole domain, with no singular surface, so 232 (c) holds there. The Hawking flux loads the plane by at most
+  1.2×10⁻⁹ σ, so the plane stays classical.
+- 203 holds by the ADM mass: the corridor's energy is the bulk's own. (b) The bounce's map is an isometry of the large
+  hole's Kruskal form (computed).
+- (f) The README alone does not make position 2's plane positive at this end: its density is 2ℓ²/r₀² of σ/4. It is not
+  needed. A crossing ray picks up position 2's side total σ/2 with no matter (tau_share T4, from your 275, 276 and 139
+  (1)). The C4 verifier accepted that route at 310 (7).
+- Narrowed openly: to first order in (ℓ/r₀)²; to Figueras and Wiseman's construction beyond 20ℓ, on their stated
+  regular-perturbation assumption; to a classical bulk, ℓ ≥ 22.4 l_P (w ≤ 189.9). The interiors are O1b's and O1c's.
+- With M1, `lemmas/rows_large.py` (5/5, mutants 2/2) derives Z1t, Z2r (equal to M1-c's order, the plane's integral
+  −0.0064 (ℓ/r₀)²/r₀), E4r (−0.031 (ℓ/r₀)² E) and B2t at the large end. M8 derives B5c there.
+- 78 rows: 20 proved, 33 derived, 3 readings, 5 definitions, 17 OPEN, two of them deferred. M1 at the large end goes to
+  you for finalization, then to its verifier.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -224,9 +252,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | **OPEN** | WRITE ARRIVAL | o3_write (the record's) |
 | Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
 | Z | Z1ts along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the small end | proved | M1s | rows_small.py |
-| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the large end | **OPEN** | M1 | passage5d.py P2 (the record's, eq. (17)) |
+| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the large end | derived | M1 | rows_large.py Z1t; m1_large M1, M4 |
 | Z | Z2rs our leg's integral within the reach equals the plane's reading, at the small end | proved | M1s | rows_small.py |
-| Z | Z2r our leg's integral within the reach equals the plane's reading, at the large end | **OPEN** | M1 | passage5d.py P3, coin.py (the record's, eq. (17)) |
+| Z | Z2r our leg's integral within the reach equals the plane's reading, at the large end | derived | M1 | rows_large.py Z2r |
 | Z | Z3a NEC never violated away from the corridor, through today | derived | -- | b1_matter.py, pointwise.py |
 | Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1s | pair_math.py, readings.py |
 | Z | Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | z3b_cypher, two_sided (the record's) |
@@ -234,7 +262,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
 | B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
-| B | B2t its instance beneath the corridor at the large end: the large hole's bulk | **OPEN** | M1 | Figueras-Wiseman (READ, C3); localbulk.py L3-L4 |
+| B | B2t its instance beneath the corridor at the large end: the large hole's bulk | derived | M1 | rows_large.py B2t; Figueras-Wiseman (READ) |
 | B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); M-PLANCK-ENDS |
 | B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's) |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
@@ -242,7 +270,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's) |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
 | B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | derived | -- | e_positive.py E7 |
-| B | B5c position 2's positivity where it bears, at the large end | **OPEN** | M1P2x | E7 fails at this end (356); tau_share +sigma/2 with M1P2x |
+| B | B5c position 2's positivity where it bears, at the large end | derived | -- | m1_large.py M8; tau_share T4 |
 | B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | -- | b5p_cypher.py, pointwise.py |
 | B | B5px between universes position 2's matter meets B5'a's condition | derived | -- | theorem_p2.py, pointwise.py |
 | B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b) | derived | -- | pointwise.py |
@@ -262,7 +290,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | **OPEN** | CLOSE | 110, 111 (a), 240 (yours); CLOSE not computed |
 | E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | derived | -- | ledger.py |
 | E | E4rs the field energy outside the neck within the reach, at the small end | proved | M1s | rows_small.py |
-| E | E4r the field energy outside the neck within the reach, at the large end | **OPEN** | M1 | ledger.py E4 (the record's, eq. (17)) |
+| E | E4r the field energy outside the neck within the reach, at the large end | derived | M1 | rows_large.py E4r |
 | R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
 | R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146 |
 | R | R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws govern | definition | -- | items 148, 240, 285 |
@@ -271,7 +299,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | derived | -- | r5_build.py, copy_p2.py |
 | R | R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2 | definition | -- | items 284, 285 |
 | N | M1s the plane's reading of the corridor's mouth at the small end | proved | -- | m1_small.py, c4_oneway.py |
-| N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
+| N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | derived | -- | m1_large.py M0-M10 (356) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
 | N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355 |
@@ -285,7 +313,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-78 rows, 64 lemmas and 14 inputs: 20 proved, 27 derived, 3 under a named reading of the board's, 5 definitions, 23 OPEN.
+78 rows, 64 lemmas and 14 inputs: 20 proved, 33 derived, 3 under a named reading of the board's, 5 definitions, 17 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -2795,6 +2823,8 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   split by end (Z1t, Z2r, E4r, B2t, H2tx, B5c, E1u, E1x, E2u, E2x), O1b and O1c are entered at the large end, and G1, G3
   and H2tu rest on C3 there. RGAS is proved (`readings.py` Q31): 28 readings proved, 3 left, each a model of how the
   README comes in, SOURCEs's question (78 rows: 27 derived, 3 readings, 23 OPEN).
+- **356 (b).** M1 at the large end worked on Figueras and Wiseman's large brane hole (`m1_large.py`), and with it Z1t,
+  Z2r, E4r, B2t (`rows_large.py`) and B5c on position 2's side total (78 rows: 33 derived, 3 readings, 17 OPEN).
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

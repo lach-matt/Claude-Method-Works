@@ -363,15 +363,16 @@ LEMMAS_NOW = [
     ('Z',
      ("Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, "
       'at the large end'),
-     'OPEN',
-     ("the record's bulk/passage5d.py P2, eq. (17) as the plane's metric -- superseded at the large end by C3's large "
-      'hole (verified 261), on which it is to be re-derived with M1 -- item 356: split by end')),
+     'DERIVED',
+     ("lemmas/rows_large.py Z1t (item 356): the bulk Einstein, R_AB k^A k^B = 0 on every null ray (m1_large M1); the "
+      "plane's radial reading zero on the horizon and negative outside, O((ell/r0)^2), its tangential negative -- FW's "
+      "dual stress, the bulk's Weyl term (m1_large M4 (v)); the record's passage5d P2 was eq. (17)'s, superseded")),
     ('Z', "Z2rs our leg's integral within the reach equals the plane's reading, at the small end", 'PROVED',
      ("lemmas/rows_small.py Z2r-s: both zero at flat order, to M1-c's order in our matter (271 (4)); "
       'item 356: split by end')),
-    ('Z', "Z2r our leg's integral within the reach equals the plane's reading, at the large end", 'OPEN',
-     ("the record's passage5d P3 and coin.py, eq. (17)'s -- to be re-derived on C3's large hole with M1 -- " 
-      'item 356: split by end')),
+    ('Z', "Z2r our leg's integral within the reach equals the plane's reading, at the large end", 'DERIVED',
+     ("lemmas/rows_large.py Z2r (item 356): both zero where the plane reads Schwarzschild; the plane's radial integral "
+      "-0.00643 (ell/r0)^2/r0 against the bulk's zero -- equal to M1-c's order, the row's own tag")),
     ('Z', 'Z3a NEC never violated away from the corridor, through today', 'DERIVED',
      'lemmas/b1_matter.py C1-C3; items 117, 120; matter keeps it pointwise (pointwise.py P1-P4, 320)'),
     ('Z',
@@ -399,9 +400,9 @@ LEMMAS_NOW = [
     ('B', 'B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic',
      'PROVED',
      'C1 H1-H2 (localized_hole.py, verified 254; c1_oneway, verified 304); item 356: split by end'),
-    ('B', "B2t its instance beneath the corridor at the large end: the large hole's bulk", 'OPEN',
-     ("the record's bulk/localbulk.py L3-L4, beneath eq. (17); at the large end the bulk is Figueras-Wiseman's "
-      'numerical one (READ, C3 verified 261), to be taken up with M1 -- item 356: split by end')),
+    ('B', "B2t its instance beneath the corridor at the large end: the large hole's bulk", 'DERIVED',
+     ("lemmas/rows_large.py B2t (item 356): Figueras-Wiseman's bulk, Einstein and not a Ricci soliton (READ; m1_large "
+      "M1, M3), the plane umbilic with the RS kink K_mn = gamma_mn/ell carrying our tension alone (m1_large M2)")),
     # [item 351] B3 and B4d split by end: the small end's worked on the one-way object (b4d_small), the large end's
     # the record's
     # [item 355] FAR's verdict accounted: B3s and B4ds OPEN -> READING (353 (a))
@@ -461,10 +462,11 @@ LEMMAS_NOW = [
      'DERIVED',
      ("lemmas/e_positive.py E7: the README carries position 2's plane past sigma/4 within 2.0e-15 m of the face (284 "
       '(a), 285 (a)); item 356: split by end')),
-    ('B', "B5c position 2's positivity where it bears, at the large end", 'OPEN',
-     ("E7's mechanism is the small end's: at the large end the README's mean density inside r0 is 2 ell^2/r0^2 of "
-      "sigma/4 (computed, item 356), far below it; position 2's side total, +sigma/2 with no matter (tau_share, the "
-      "C4 verifier's (7)), is the route to work with M1P2x -- item 356: split by end")),
+    ('B', "B5c position 2's positivity where it bears, at the large end", 'DERIVED',
+     ("lemmas/m1_large.py M8 (item 356): E7's mechanism is the small end's -- the README's mean density inside r0 is "
+      "2 ell^2/r0^2 of sigma/4 -- but not needed: a ray crossing position 2's plane picks up the side total sigma/2 = "
+      "(2/3) lambda_RS > 0 with no matter (tau_share T4, from 275, 276 and 139 (1); the C4 verifier's (7), 310), its "
+      "crossing share positive at every angle")),
     ('B', "B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition", 'DERIVED',
      'lemmas/b5p_cypher.py (b1_matter C3, C4); pointwise.py P5'),
     ('B', "B5px between universes position 2's matter meets B5'a's condition", 'DERIVED',
@@ -534,8 +536,10 @@ LEMMAS_NOW = [
     ('E', 'E4rs the field energy outside the neck within the reach, at the small end', 'PROVED',
      ("lemmas/rows_small.py E4r-s: zero in five dimensions (Komar the same at every r); the plane's 4D reading "
       'negative, -5.3e14 E at the example, moving as (G5/G ell)^(2/3); item 356: split by end')),
-    ('E', 'E4r the field energy outside the neck within the reach, at the large end', 'OPEN',
-     "the record's ledger.py E4, eq. (17)'s -- to be re-derived on C3's large hole with M1 -- item 356: split by end"),
+    ('E', 'E4r the field energy outside the neck within the reach, at the large end', 'DERIVED',
+     ("lemmas/rows_large.py E4r (item 356): no stress in the bulk outside the horizon; the plane's Misner-Sharp "
+      "reading between the horizon and infinity -F(1) lambda/(8M) = -0.031 (ell/r0)^2 E, negative and negligible, the "
+      "dual stress's energy; the record's ledger E4 was eq. (17)'s")),
     ('R',
      'R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README',
      'DEFINITION',
@@ -562,8 +566,12 @@ LEMMAS_NOW = [
       ' its volume (285 (b), computed in conversation, not seated)')),
     ('N', "M1s the plane's reading of the corridor's mouth at the small end", 'PROVED',
      'lemmas/m1_small.py (C4 verified, 269); lemmas/c4_oneway.py (C4 one-way verified, 310)'),
-    ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'OPEN',
-     "the record's (m1_bulk, d_minus): the kink-carrying bulk under eq. (17)'s reading, 203, (e)"),
+    ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'DERIVED',
+     ("lemmas/m1_large.py M0-M10 (item 356): on C3's large brane hole (Figueras-Wiseman, AFPY, READ), one-way -- (a) "
+      "at warp order, (c) 4D Schwarzschild with r0 = 2GM/c^2 and kappa = 1/(4M), (d) and the kink, (e) on the static "
+      "bulk and through the faces, 203 by the ADM mass, (b) through the bounce's map, (f) on the side total; narrowed "
+      "to first order in (ell/r0)^2, FW's construction beyond 20 ell, the classical bulk (ell >= 22.4 l_P); the "
+      "interiors are O1b's and O1c's; the record's m1_bulk and d_minus were eq. (17)'s; to M for finalization")),
     ('N', "M1P2xs position 2's side at the small end, on the one-way object", 'PROVED',
      ("lemmas/c8_level.py V0-V10 (275-341; finalized 330; verified, CONFIRMED with qualifications (341); V5 (d) on "
       "both readings of the arrival, V10); m1p2x_oneway kept as written")),
@@ -668,7 +676,7 @@ RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 
                 'Z3b': 'M1 FAR WRITE ARRIVAL CLOSE',
                 'B2ts': 'M1s', 'B2t': 'M1', 'B3': 'M1 FAR WRITE ARRIVAL CLOSE',
                 'B3s': 'M1s FARs WRITEs ARRIVALs CLOSEs', 'B4ds': 'M1s FARs WRITEs ARRIVALs CLOSEs',
-                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'B5c': 'M1P2x', 'E1u': 'CLOSE', 'E1x': 'CLOSE',
+                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'E1u': 'CLOSE', 'E1x': 'CLOSE',
                 'E2us': 'CLOSEs', 'E2u': 'CLOSE', 'E2xs': 'CLOSEs', 'E2x': 'CLOSE', 'E4rs': 'M1s', 'E4r': 'M1'}
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
