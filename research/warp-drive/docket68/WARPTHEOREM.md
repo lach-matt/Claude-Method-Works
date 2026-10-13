@@ -159,7 +159,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 
 ## The work left now (item 331)
 
-- **Queued for verification, one at a time (329, 330):** B5a one-way, then C8. O1c one-way is verified (item 337).
+- **Queued for verification, one at a time (329, 330):** C8 next. O1c one-way is verified (item 337), and B5a one-way
+  (item 339).
   `verify_ledger.py` is the gate, and it is clean.
 - **OPEN at the small end:**
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
@@ -2283,7 +2284,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/12, items 248–337: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–339: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2393,6 +2394,21 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
     the mutant z8_face_eternal.
   - (Q4) is carried into B5a and C8 (`b5a_residue.py`, `c8_level.py`), and `verify_ledger.py` enters the report's
     rows. O1bs and O1cs are verified in the register.
+- **338, "Continue".** The board goes on in item 335's order: ARRIVAL next, then FAR, with B3 and B4d resting on them.
+  B5a's verification ran beside it. The ARRIVAL work is recorded where it is seated.
+- **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
+  re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
+  Lidsey–Romero in the sections it names.
+  - Nine qualifications, all seated in `b5a_residue.py` and `b5a_oneway.py`. Most are wording: a wrong citation (Q1),
+    a false descriptive clause (Q2), "weakest" for "strictest" (Q3), stale wording since 336 (Q6), a truncated series
+    written as an equality (Q7), an imprecise description of the calculator's answer (Q8), and record pointers (Q9).
+  - (Q4) narrows what pointwise proves: the null condition classically for every potential, and rho >= 0 relative to
+    the offset inside its vacuum's basin. Quantum states are read under 120.
+  - (Q5) was residue: the row's dependencies were unnamed, and it assumed one five-dimensional coupling on both sides.
+    A new entry, A6, removes that assumption. With each side's own coupling, the side total S1 + 2 S2 holds for every
+    pair of couplings, so B5a holds whatever position 2's G5.
+  - (Q4)–(Q8) are carried into C8 (`c8_level.py`). `verify_ledger.py` now names each queued object's files, which
+    closes the gap the verifier found outside B5a. B5a is verified in the register, and C8 goes next.
 
 **Not re-run, and said.** The instruments that pin the item-247 register keep reading it:
 - `chain_cypher.py`, `belongs_cypher.py`, `m1_bulk.py`, `theorem_p2.py` and `f1_audit.py` (the chain's tallies, the

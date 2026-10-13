@@ -68,6 +68,11 @@ not verified by a separate session; not seated); 2026-10-12.
      constant is 0.  So B = 0 (deduced), on a ruling and a proof; p2_offset V5's appeal to 139 (2) and to Q > 0 stays as
      corroboration.  A field carrier is no way round: a constant part of its stress at the sheet is bulk vacuum, inside
      Q3's k2, and its flux sources position 2's matter through the same Codazzi identity (A3) (deduced).
+     [Item 339 (the B5a verifier's note outside B5a): "our matter is conserved -- so C1 is constant" omits the bulk's
+     normal stress at our sheet. The verifier derived Cdot1 = -(2 kappa^2/3) a^4 H T_nn - (kappa^4/18) a^4 eps J (its
+     derivation, not re-derived by the board): with no flux C1 is constant only if our bulk's T_nn vanishes at our
+     sheet, which 320 makes a limit, so the step is incomplete. It found no effect on x+, B being a property of the
+     offsets alone (the verifier's reading, recorded).]
   Q6 (deduced) The three are derived, not assumed: 1 from 276 with Israel's condition; 2 from 201, 202 and 226 with
      Israel and Gauss (and 201's B6' agreeing); 3 excluded by 276.  Item 322's answer stands on M's rulings and general
      relativity: 139 (1)'s plane's offset is 2.625e-10 J/m^3.

@@ -33,6 +33,11 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      (G5/G ell)^(-1/3) (319 (Q2)), so R = (3E/(pi sigma))^(1/3) as (G5/G ell)^(-1/9) -- 1.93e-15 m at (3/2) G ell and
      2.18e-15 m at G ell/2 (computed), sigma independent of G5; the README still carries the plane past sigma/4 within
      1e5 r_h of the face.]
+     [Item 339 (the B5a verifier's (Q4), (Q6), accounted before the next verification, 330): B5a's readings are positive
+     on every ray with the null condition proved classically for every V and rho >= 0 relative to the offset inside its
+     vacuum's basin, quantum states read under 120 (pointwise P7; b5a_residue's item-339 note on A2). Since item 336
+     (M-ENERGY-STAYS) the energy at position 2's face is position 2's own, the one value read from two sides, so "the
+     README supplies it" is stale wording; E7's figures stand.]
   V2 (computed; the cypher, roster 1173, audited) C8's index under 275.  m1p2x_oneway O5 populated 16 cells over
      (s2, s_in, apart, m2); 275 leaves apart = 0, 8 cells.  The key cell -- position 2's plane at 139 (1)'s -sigma/4,
      the object's interior at our tension, position 2's own matter emerging -- holds all five properties (keeps139,
@@ -49,6 +54,9 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      verdict unchanged as 310 (7) found for C4 (computed).  On our face there is no junction: the interior carries our
      tension (d_ours).  And at the corridor nothing of position 2's is in the causal past of our sheet's junction while
      ours is in position 2's (j_readings J1): the one junction is on position 2's side, as 276 has it (h_oneway H8).
+     [Item 339 (the B5a verifier's (Q5)): the side total S1 + 2 S2 needs no single five-dimensional coupling -- Israel's
+     condition with each side's own kappa fixes Sigma^- + Sigma^+ = 2 (S1 + S2) for every pair (b5a_residue A6) -- so
+     V3's readings, and mu' = sigma/2 > 0, hold whatever position 2's G5.]
   V4 (deduced) The re-posing of 282, checked element by element.  C8's faces are U = 0 of the glued object -- our
      black-hole face (V > 0) and position 2's white-hole face (V < 0) on the double cover joined by the bounce (b_bounce
      Q1; 273) -- not the eternal manifold's: V = 0, the reverse passage, carries no face (m1p2x_oneway O1); the faces
@@ -75,6 +83,13 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      sufficient (267 (6)); the life exceeding the stay within the species cap, which is parametric (317 (Q2)).  (e)
      139 (2): owed where it is
      relevant (284, 285) and supplied there by the README (V1).
+     [Item 336, M-ENERGY-STAYS (M: "I think it is B"), found unmarked here at item 339 and brought current before C8
+     goes to its verifier (330, 331): our face, the hold standing (334), now lasts the hole's life -- it closes by
+     Hawking emission after 8.57e14 clocks, its energy ours (close_small K5, K9; i_oneway I5's item-336 note) -- so
+     (d)'s "the hold is the write" reads as the write lying within the hold, its floor of 66,980 clocks a lower bound;
+     and position 2's face still closes within 33.6 of its clocks (c_junction J1), releasing position 2's own energy
+     (110, 111 (a), 240). (d) stays conditional on reading (i), the hole standing at its size through the write (264
+     (1)), which the ARRIVAL row's reading (ii) bears on.]
   V6 (deduced) The verifications that bear on C8.  The C4 verifier's (1): a body crossing a t-independent core leaves
      by the map's image of the second exterior; the README leaves by position 2's face as the construction's time
      symmetry (c5_oneway U12 (Q3)), which is O4's "what emerges is the README" -- conditional on a quantum region of
@@ -99,6 +114,10 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      [Item 337 (the O1c verifier's (Q4), accounted before the next verification, 330): "exactly" holds on Lovelock's
      premises -- local, second order -- the law exact at the two-derivative order (324; relativity.py "What this does
      not prove"); "the bulk's law exactly" reads so. Nothing here turns on the difference.]
+     [Item 339 (the B5a verifier's (Q7) and its note outside B5a): x+ = 2.625e-10 J/m^3 is the quadratic's root to
+     1.9e-69 J/m^3, its series d1/2 - 3 d1^2/(2 sigma) + ... truncated; and p2_assume Q5's "C1 is constant" omits our
+     bulk's normal stress at our sheet (the item-339 notes there and in p2_offset). The verifier found no effect on x+,
+     and V7 uses x+ only to keep s2 at -sigma/4, which any |x+| far below sigma/4 does (deduced).]
   V8 (computed) C8's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the attributes the construction's choices -- position 2's tension (139 (1)'s -1/4, or any other: -1/8,
      -10, -1/100, +1/2) and its matter (the README, or any other: 1/2, 20, 0, 1/10, 1/5) -- and each clause of C8 that
@@ -112,6 +131,12 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      answers are the populations read back at M's class, adding nothing to V2-V3.  Asked as one conjunction, the
      question comes back "both" at order 2 and 1 at order 3 (computed): the conjunction's corner keeps 0 open at
      order 2, as 290 found for C4 -- the reason 291's form is the one used.
+     [Item 339 (the B5a verifier's (Q8), carried since V8 uses the same words): "the populations read back at M's class"
+     is imprecise. Each 1 is statistics' read-back of the t = 1 row, order, algebra, geometry and information leaving
+     both answers open. With every language seeing every condition (recomputed in the conversation at item 339), rising
+     and z_net each come back 1 in 60 of 96 codings and refused in 36, at orders 2 and 3, and the conjunction "both" in
+     24, 1 in 36 and refused in 36 at order 2, 1 in 60 and refused in 36 at order 3, as 310 (4) found for C4. "Adding
+     nothing to V2-V3" stands.]
   V9 (deduced) The row, one way.  At the small end, on the glued one-way object: position 2's plane at 139 (1)'s
      -sigma/4, coincident with ours everywhere (275); the object's interior at our tension, so no junction on our face;
      the one junction on position 2's white-hole face, rising from the opening on every reading of position 2's side

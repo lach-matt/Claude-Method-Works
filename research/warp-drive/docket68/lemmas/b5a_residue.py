@@ -6,6 +6,10 @@ through the calculator (196, 286) and audits the row to completion (314).  b5a_o
 item-319 note.  Worked in the conversation (computed with sympy, exact where marked; READ where marked; deduced where
 marked; not verified by a separate session; not seated); 2026-10-12.
 
+[Item 339, the B5a verifier's report (CONFIRMED with qualifications, nothing refuted; every qualification seated here
+and in b5a_oneway, each beside the text it corrects, which is kept as the record). (Q9): b5a_oneway carries no item-319
+note -- its notes are headed "Item 282 (c), under 316". (Q5)'s open point is closed by A6, a new entry.]
+
   A0 (read) The words the row rests on, verbatim in the rulings file: 282's reading (c), that O1c and B5a are re-posed
      the same way; 139 (1)'s "+4/3 and -1/3 of the one-plane value"; M's 276, "The passage is one-way in all aspects";
      M's 275, "Coincident everywhere"; M's 117, "An NEC is never violated"; 284's "Where it lands"; M's 202, "any plane
@@ -22,6 +26,9 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      included. tau is a convention for splitting it (310 (7); tau_share T2's note): j_readings J2's tau S1 + S2 at tau =
      3/4 and S1 + 2 S2 agree on tensions and part only in how position 2's matter is counted (computed: their difference
      is S1/4 + S2, zero for tensions alone).
+     [Item 339 (the B5a verifier's (Q2)): "part only in how position 2's matter is counted" is false as worded. S1/4 +
+     S2 carries rho1/4 + rho2, so our matter is counted differently too -- rho1 against 3 rho1/4, as position 2's 2 rho2
+     against rho2; A2's own readings show it. Nothing turns on it.]
   A2 (computed, exact) Positivity on every ray, on every reading.  A bulk null ray k crossing a surface that carries a
      tension lambda and matter (rho, p) gathers S(k, k)/|k_y| -- j_readings J2's sin a form -- with S(k, k) = (lambda +
      rho) k_y^2 + (rho + p) |k_space|^2 (computed from S_ab = -lambda h_ab + (rho + p) u_a u_b + p h_ab with h(k, k) =
@@ -60,6 +67,24 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      Where the README lands its density exceeds sigma/4 (E7) and only adds.  B5a does not turn on tau or on which side
      carries what: 310 (7) is closed for it.  On position 2's side it holds on every ray of the plane, not only where
      the README lands (b5a_oneway B2), because the side total carries sigma/2 > 0 of tension (tau_share T4).
+     [Item 339, the B5a verifier's (Q1), (Q3), (Q4), (Q6), (Q7). (Q1) "j_readings J2's sin a form" is a wrong citation:
+     J2 computes chi = 0 and the late-time sign for every tau, and holds no ray share. The crossing share is m1p2x_sixth
+     W1's and c4_oneway P4's (verified at 310); S(k, k)/|k_y| is the thin-shell integral of T_kk, and positivity needs
+     only the sign of S(k, k). (Q3) -sigma/6 is the strictest of the four bounds, the binding one, not the weakest (the
+     code's name "weakest" kept); each density above -sigma/6 on its own suffices. (Q4) "Both are proved ... rho >= 0
+     above the vacuum" claims more than pointwise proves. The null condition, rho + p >= 0, is proved classically for
+     every V. rho >= 0 is proved above the potential's least value (pointwise P2), so relative to the plane's offset,
+     which is what A2 needs, it holds inside the offset vacuum's basin: our vacuum is metastable, with a deeper region
+     at or below -2.0e108 J/m^3 beyond the barrier (p2_offset, item 322), 56 orders past -sigma/6 -- a change of vacuum,
+     not matter, and outside this row. "Every potential" needs V bounded below. Quantum states are read under M's 120,
+     pointwise P7's reading, a dependency named now. (Q6) Since item 336 (M-ENERGY-STAYS) the energy at position 2's
+     face is position 2's own, the one value read from two sides: "the README's density" is stale wording, E7's number
+     stands -- 2.0e-15 m, 1.93e-15 and 2.18e-15 m under the 2 : 1 bulk's G5 readings (c8_level V1) -- and A2's every-ray
+     result does not use E7. (Q7) x+ is the root of the quadratic 4 x^2 + (4 d1 + 2 sigma) x - sigma d1 = 0; d1/2 - 3
+     d1^2/(2 sigma) is its series truncation ("+ ...", as items 322 and 325 write), the difference 1.9e-69 J/m^3.
+     "Exactly" in the item-332 and 323-328 notes is on Lovelock's premises, as the item-337 note says. Code-only, from
+     the same report: a2 enters J2's offset as d1 + d2 where J2's split gives tau d1 + d2, the strictest bound either
+     way unchanged.]
   A3 (computed, exact; READ where marked; deduced where marked) The one-way reading on one induced metric (310's note).
      On a homogeneous slice each side obeys its own Gauss equation with the one Hubble rate H: ours, our lone plane's,
      H^2 = (kappa^2 Sigma^-/6)^2 - k1^2 + C1/a^4, and position 2's, H^2 = (kappa^2 Sigma^+/6)^2 - k2^2 + C2/a^4, k1 =
@@ -110,12 +135,32 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      cell the quantum bounce's at M's tension and the README.  Result: 1 at orders 2 and 3 under all 96 codings; 211's
      audit flags no key and no one-hot.  As for C4's (f), the answer is the population's read-back at M's class: it adds
      nothing to A2.
+     [Item 339 (the B5a verifier's (Q8)): "read-back at M's class" is imprecise. The 1 is statistics' read-back of the t
+     = 1 row: order, algebra, geometry and information leave both answers open, and flipping M's class alone to {0}
+     gives "both" at order 2 and refused at order 3. With every language seeing every condition the answer is 1 in 60 of
+     96 codings and refused in 36 (recomputed in the conversation at item 339), as 310 (4) found for C4. "Adds nothing
+     to A2" stands; the verifier's own audit is clean on all 96 codings (A4 audits one, 337 (outside)).]
   A5 (deduced) The row, one way: at the coincidence, on every reading of the junction -- the summed stress Israel fixes,
      our side's S1 and position 2's S1 + 2 S2, J2's split -- the null stress on every ray crossing the sheets is
      positive, each universe's matter satisfying the weak and null conditions at every point (pointwise.py, proved), for
      every position 2 whose offset exceeds -sigma/4 - delta sigma_1/2 (A2).  The one-way element is our side's share,
      ours alone (the board's reading (a) of 276); what the junction fixes on position 2's side follows (A1), and the
      reading exists on one induced metric (A3).  It rests on 139 (1)'s tensions (M's), on 275 and on 276.
+     [Item 339 (the B5a verifier's (Q5), residue under 314): "It rests on 139 (1)'s tensions, on 275 and on 276" omits
+     what A1-A3 use. It rests also on p2_assume Q2 for Sigma^- = S1 (the mirrored one-plane configuration, B6',
+     323-324); on 202 and 226 for every position 2 ("offset among its own values" the board's gloss of M's "Its own
+     values", 332 (Q8)); on 201 for our offset; on 320 through pointwise, and on 120 through pointwise P7; on 322-328
+     and 332 for 139 (1)'s offset (p2_offset V5-V6, p2_assume, relativity, gb_cone C7 under M-ONE-LIGHT-CONE); and,
+     unstated until now, on one five-dimensional coupling on both sides of the coincident surface -- which A6 removes.]
+  A6 (item 339 (Q5); computed, exact; the junction for two couplings deduced from an action with each side's own
+  Einstein-Hilbert and boundary terms, standard-not-READ) Each position 2's own G sits in its own G5 (226; bulk5_index:
+  2b's G5 is 2^(1/2) of ours, 2P's 2^(3/2), 2b + 2P's 4). With each side's own coupling Israel's condition is the jump
+  of (K_ab - K h_ab)/kappa^2, which is K^+/kappa_+^2 - K^-/kappa_-^2 = -(S - S h/3) on a four-dimensional surface; with
+  each side's K^-+ = +-(kappa_-+^2/2)(Sigma^-+ - Sigma^-+ h/3), it gives Sigma^- + Sigma^+ = 2 (S1 + S2) for every pair
+  of couplings (computed for general symmetric stresses). So A1's side total S1 + 2 S2, and A2's four readings with it,
+  hold whatever position 2's G5: the verifier's "the sign still survives" made exact, and one five-dimensional kappa is
+  not needed. Written as a jump in K alone with one coupling (the mutant), the side total moves with
+  kappa_+^2/kappa_-^2.
 
 What this row does not claim -- each left out with its reason, none open in it (314).
   - The bulk away from the sheets: A3 shows the one-way reading exists near them, with a field of position 2's own
@@ -123,6 +168,8 @@ What this row does not claim -- each left out with its reason, none open in it (
   - B5c's pin (no radion at the coincidence): its own row.
   - Position 2's matter's laws: A2 proves the condition its matter meets (pointwise.py), not which matter it holds.
   - The corridor: there the causal structure separates the sheets (j_readings J1; tau_share's "does not show").
+  - [Item 339 (Q4)] A vacuum beyond our offset's basin: a region past the barrier (p2_offset, at or below -2.0e108
+    J/m^3) is a change of vacuum, not matter, and not this row's.
 
 Imports c4_residue.py (its population machinery, which loads c4_oneway.py, calculator.py and hlaw.py), index_audit.py,
 p2_gravity.py and pointwise.py by path.  Stdlib + sympy.  python3 b5a_residue.py [--selftest | --mutants]
@@ -399,8 +446,46 @@ def a4():
     return _A4[key]
 
 
+def a6():
+    """item 339 (Q5): Israel's condition with each side's own coupling -- the jump of (K - K h)/kappa^2 -- fixes
+    Sigma^- + Sigma^+ = 2 (S1 + S2) for every pair of couplings"""
+    h = sp.diag(-1, 1, 1, 1)
+    hi = h.inv()
+
+    def sym(name):
+        s = sp.symbols(name + "_0:10")
+        it = iter(s)
+        M = sp.zeros(4)
+        for i in range(4):
+            for j in range(i, 4):
+                M[i, j] = M[j, i] = next(it)
+        return M, list(s)
+    S1, _ = sym("t1")
+    S2, _ = sym("t2")
+    Sp, up = sym("tp")
+    tr = lambda X: sum(hi[i, j] * X[i, j] for i in range(4) for j in range(4))
+    P = lambda X: X - tr(X) * h / 3
+    km, kp = sp.symbols("kappa_m kappa_p", positive=True)
+    Km = (km ** 2 / 2) * P(S1)                                        # our side, Sigma^- = S1 (A1, p2_assume Q2)
+    Kp = -(kp ** 2 / 2) * P(Sp)
+    if MUT.get("a6_one_coupling"):                                    # the mutant: a jump in K alone, one coupling
+        lhs = (Kp - Km) / km ** 2
+    else:
+        lhs = Kp / kp ** 2 - Km / km ** 2
+    eqs = [sp.expand(e) for e in (lhs + P(S1 + S2))]
+    sol = sp.solve(eqs, up, dict=True)
+    Sp_sol = Sp.subs(sol[0]) if sol else None
+    free = Sp_sol is not None and sp.simplify(Sp_sol - (S1 + 2 * S2)) == sp.zeros(4)
+    # the same condition from its (K - K h) form: trace-reversing the jump gives back -S
+    lhs2 = (Kp - tr(Kp) * h) / kp ** 2 - (Km - tr(Km) * h) / km ** 2
+    form = sp.simplify((lhs2 + (S1 + S2)).subs({e: v for e, v in zip(up, [Sp_sol[i, j] for i in range(4)
+                                                                         for j in range(i, 4)])})) == sp.zeros(4) \
+        if Sp_sol is not None else False
+    return dict(free=free, form=form)
+
+
 def compute():
-    return dict(a1=a1(), a2=a2(), a3=a3(), a4=a4())
+    return dict(a1=a1(), a2=a2(), a3=a3(), a4=a4(), a6=a6())
 
 
 def report(o):
@@ -422,6 +507,8 @@ def report(o):
     z = o["a4"]
     print("A4 population %s; order 2 %s, order 3 %s; audit flagged %s" % (z["F"], dict(z["out"][2]), dict(z["out"][3]),
                                                                            z["audit"]))
+    print("A6 (item 339 (Q5)) two couplings: Sigma^+ = S1 + 2 S2 whatever kappa_-, kappa_+: %s; the (K - K h)/kappa^2 "
+          "form agrees: %s" % (o["a6"]["free"], o["a6"]["form"]))
 
 
 def checks(o):
@@ -456,6 +543,9 @@ def checks(o):
     ok &= all(z["out"][k] == Counter({(1,): 96}) for k in (2, 3)) and not z["audit"]
     add("A4 B5a's question through the calculator: the clause realized per class from its law; 1 at orders 2 and 3 "
         "under all 96 codings; audit clean", ok)
+    add("A6 (item 339 (Q5)) Israel's condition with each side's own coupling: Sigma^- + Sigma^+ = 2 (S1 + S2) for every "
+        "pair of five-dimensional couplings, so A1's side total and A2's readings need no single kappa",
+        o["a6"]["free"] and o["a6"]["form"])
     return res
 
 
@@ -465,7 +555,8 @@ MUTANTS = {"a1_composite": "one junction both sheets act on, Sigma^- = S1 + S2 (
            "a3_tau_split": "position 2's matter counted once on its side (A3)",
            "a3_nec_sign": "the null dust's energy sign reversed (A3)",
            "a3_scalar_ghost": "the scalar carrier a ghost, its kinetic sign reversed (A3)",
-           "a4_readme_can_fail": "M's class with the README realized {0, 1} (A4)"}
+           "a4_readme_can_fail": "M's class with the README realized {0, 1} (A4)",
+           "a6_one_coupling": "two couplings written as a jump in K alone with one coupling (A6, item 339)"}
 
 
 def selftest():

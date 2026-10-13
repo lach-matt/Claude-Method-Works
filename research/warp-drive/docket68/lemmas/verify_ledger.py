@@ -33,6 +33,10 @@ file's reports and the instruments' notes, each marker checked against its file;
      warptheorem.py's LEMMAS_NOW and WARPTHEOREM.md's current head and its history through item 333, the item-247
      rows kept beside them as the record.  L4 now checks the register current, not stale.]
   [Item 334: the reading put to M is confirmed -- M-HOLD-IS-THE-FACE -- and 317 (c) is answered on M's ruling.]
+  [Item 339: B5a one-way returned, CONFIRMED with qualifications; its nine rows and its note outside B5a are entered
+  above, carried by C8 where they bear ((Q4)-(Q8)), and the ledger is clean for C8. The note outside B5a found QUEUED
+  mapping B5a to b5a_residue alone, so a correction carried in b5a_oneway escaped L2's check: QUEUED_FILES now names
+  each object's files, and L2 requires the marker in one of them.]
 
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
@@ -54,11 +58,14 @@ MUT = {}
 WORDS = ("Remember, before anything enters verification, the previous verification results need to be full accounted "
          "so the next object being verified is not left stale by outstanding corrections",)
 QUEUED = {"O1c": "o1c_oneway.py", "B5a": "b5a_residue.py", "C8": "c8_level.py"}
+# [item 339, the B5a verifier's note outside B5a: QUEUED maps B5a to b5a_residue alone, so b5a_oneway escaped L2] the
+# files each queued object's carried corrections may sit in
+QUEUED_FILES = {"O1c": ("o1c_oneway.py",), "B5a": ("b5a_residue.py", "b5a_oneway.py"), "C8": ("c8_level.py", "m1p2x_oneway.py")}
 HEADERS = {254: "254. **Claim C1 verified", 258: "258. **Claim C2 verified", 261: "261. **Claim C3 verified",
            264: "264. **Claim C6 verified", 267: "267. **Claim C5 verified", 269: "269. **Claim C4 verified",
            271: "271. **Claim C7 verified", 281: "281. **The audit before 270", 304: "304. **C1 one-way verified",
            310: "310. **C4 one-way verified", 317: "317. **C5 one-way verified", 319: "319. **C7 one-way verified",
-           332: "332. **C9 verified", 337: "337. **O1c one-way verified"}
+           332: "332. **C9 verified", 337: "337. **O1c one-way verified", 339: "339. **B5a one-way verified"}
 NA = "n/a"
 
 
@@ -238,6 +245,41 @@ ROWS = [
      C(O, "Item 337 (Z8 (Q10))"), NO_B, NO_E),
     (337, "outside", "c4_residue R6's sample point; Z7's audit on one coding; 336 bears on (Q1)",
      [("o1c_oneway.py", 337)], C(O, "Item 337 (outside)"), NO_B, NO_E),
+    # item 339: the B5a verifier's report
+    (339, "Q1", "the crossing share's citation: m1p2x_sixth W1 and c4_oneway P4, not j_readings J2",
+     [("b5a_residue.py", 339), ("b5a_oneway.py", 339)], N("O1c verified at 337; it uses no crossing share"),
+     C(B, "(Q1) \"j_readings J2's sin a form\" is a wrong citation"),
+     N("C8 cites m1p2x_index Y1 and b5a_residue A1, not J2's form")),
+    (339, "Q2", "A1's 'part only in how position 2's matter is counted' false as worded", [("b5a_residue.py", 339)],
+     NO_O, C(B, "Item 339 (the B5a verifier's (Q2))"),
+     N("C8 uses A1's side total on tensions alone, where the readings agree")),
+    (339, "Q3", "-sigma/6 the strictest of the four bounds, not the weakest", [("b5a_residue.py", 339)], NO_O,
+     C(B, "(Q3) -sigma/6 is the strictest of the four bounds"), NO_E),
+    (339, "Q4", "rho >= 0 relative to the offset inside its vacuum's basin; classical, quantum read under 120",
+     [("b5a_residue.py", 339), ("pointwise.py", 339), ("c8_level.py", 339)],
+     N("O1c verified at 337; its 320 note corrected there (Q5)"),
+     C(B, "(Q4) \"Both are proved ... rho >= 0 above the vacuum\" claims more than pointwise proves"),
+     C(E, "Item 339 (the B5a verifier's (Q4), (Q6), accounted before the next verification, 330)")),
+    (339, "Q5", "A5's dependencies unnamed (residue, 314); one kappa unstated -- A6: none needed",
+     [("b5a_residue.py", 339), ("c8_level.py", 339), ("p2_offset.py", 339)], N("O1c verified at 337; no junction"),
+     C(B, "A6 (item 339 (Q5); computed, exact"),
+     C(E, "Item 339 (the B5a verifier's (Q5)): the side total S1 + 2 S2 needs no single five-dimensional coupling")),
+    (339, "Q6", "E7's wording stale under 336; its figure under the G5 readings",
+     [("b5a_residue.py", 339), ("b5a_oneway.py", 339), ("c8_level.py", 339)], N("O1c verified at 337; E7 not used"),
+     C("b5a_oneway.py", "(Q6) Since item 336 (M-ENERGY-STAYS)"), C(E, "so \"the README supplies it\" is stale wording")),
+    (339, "Q7", "x+ the quadratic's root, its series truncated; 'exactly' on Lovelock's premises",
+     [("b5a_residue.py", 339), ("p2_offset.py", 339), ("c8_level.py", 339)], NO_O,
+     C(B, "(Q7) x+ is the root of the quadratic"), C(E, "Item 339 (the B5a verifier's (Q7) and its note outside B5a)")),
+    (339, "Q8", "'read-back at M's class' imprecise: 1 in 60/96, refused in 36/96 with every language",
+     [("b5a_residue.py", 339), ("c8_level.py", 339)], NO_O, C(B, "Item 339 (the B5a verifier's (Q8))"),
+     C(E, "Item 339 (the B5a verifier's (Q8), carried since V8 uses the same words)")),
+    (339, "Q9", "record pointers: b5a_oneway's notes; 'direction-neutral' the board's own; a does-not superseded",
+     [("b5a_residue.py", 339), ("b5a_oneway.py", 339)], NO_O,
+     C("b5a_oneway.py", "(Q9) B3's \"direction-neutral (the auditing agent's note)\""), NO_E),
+    (339, "outside", "p2_assume Q5 / p2_offset V5: C1's constancy omits the bulk's normal stress; QUEUED's scope",
+     [("p2_assume.py", 339), ("p2_offset.py", 339), ("verify_ledger.py", 339)], NO_O,
+     N("B5a's A3 computes C2 - C1 and names the non-vacuum case; it does not take C1 constant"),
+     C(E, "p2_assume Q5's \"C1 is constant\" omits")),
 ]
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
@@ -295,7 +337,9 @@ def compute():
             seated.append(((rep, q), f, item, has_item(os.path.join(HERE, f), item)))
         for obj, b in zip(QUEUED, bear):
             if b[0] == "carried":
-                carried.append(((rep, q), obj, b[1], b[2], has_text(os.path.join(HERE, b[1]), b[2])))
+                # [item 339] the marker must sit in one of the object's own files (QUEUED_FILES)
+                carried.append(((rep, q), obj, b[1], b[2], has_text(os.path.join(HERE, b[1]), b[2])
+                                and b[1] in QUEUED_FILES[obj]))
             elif b[0] == "outstanding":
                 outstanding.append(((rep, q), obj, b[1]))
     outside = [(lab, what, [(f, n, has_item(os.path.join(HERE, f), n)) for f, n in seats])
@@ -338,13 +382,14 @@ def report(o):
     print("   [item 331] brought current: %s; the register's history now reaches item %s; its current statement "
           "present: %s" % (", ".join("%s %s %s" % (lab, f, ok) for lab, f, n, ok in o["brought"]), o["reg_now"],
                            all(ok for _, _, ok in o["current"])))
-    print("L5 C9 verified, item 332; O1c verified, item 337 -- their rows above, carried where they bear; B5a next")
+    print("L5 C9 verified, item 332; O1c verified, item 337; B5a verified, item 339 -- their rows above, carried where "
+          "they bear; C8 next")
 
 
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("L0 M's item-330 words and the fourteen reports' headers verbatim in the rulings file",
+    add("L0 M's item-330 words and the fifteen reports' headers verbatim in the rulings file",
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
@@ -358,7 +403,7 @@ def checks(o):
     add("L4 (item 331) the three rows outstanding outside the queue each brought current, marked in their instruments",
         all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
-    add("L4 every report of the fourteen has its rows in the ledger", reps == set(HEADERS))
+    add("L4 every report of the fifteen has its rows in the ledger", reps == set(HEADERS))
     return res
 
 

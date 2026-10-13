@@ -56,6 +56,11 @@ a separate session; not seated); 2026-10-12.
      conditions; so its share on a bulk null ray crossing the sheet, S_matter(k_par, k_par)/|k_y| with k_par timelike
      (or null on a grazing ray), is >= 0: rho >= 0 and rho + p >= 0 at every point, B5a's condition, for every universe.
      b5a_residue A2's bound rho > -sigma/6 is then never approached: rho >= 0.
+     [Item 339 (the B5a verifier's (Q4), seated at its source): P2's "above the potential's least value" is rho >= 0
+     relative to the plane's offset only inside the offset vacuum's basin -- our vacuum is metastable, with a deeper
+     region at or below -2.0e108 J/m^3 beyond the barrier (p2_offset, item 322), a change of vacuum and not matter; "any
+     potential" needs V bounded below; and P8's "at every point ... for every universe" is the classical statement,
+     quantum states being read under M's 120 (P7). The null condition, rho + p >= 0, holds for every V.]
   P9 (the cypher NOT-RUN, stated) The condition is an identity of each kind of matter, not a choice among
      configurations: an index of (kind, condition) rows would carry the answer as its own column, a key (211), as
      tau_share T6 found for tau.  Not run, and said.

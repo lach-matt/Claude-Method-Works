@@ -76,6 +76,12 @@ separate session; not seated); 2026-10-12.
      226 (Q3), the summed reading excluded by 276 (Q4); B = 0 rests on pointwise P4 and 120/137 (Q5), the appeal to 139
      (2) and to Q > 0 kept as corroboration.]  On position 2's side the effective coupling follows the side's tension,
      sigma/2, so the side total d1 + 2 x+ = 2 d1 at half the coupling gives the one H (computed).
+     [Item 339 (the B5a verifier's note outside B5a): "our matter is conserved (276), so C1 stays constant" omits the
+     bulk's normal stress at our sheet -- with no flux C1 is constant only if our bulk's T_nn vanishes there, which 320
+     makes a limit (p2_assume's item-339 note); the verifier found no effect on x+. The Gauss pair here uses one
+     five-dimensional coupling, which holds for 139 (1)'s plane as derived (339 (Q5)); A1's side total needs none
+     (b5a_residue A6). And x+ = 2.625e-10 J/m^3 is the quadratic's root to 1.9e-69 J/m^3, d1/2 - 3 d1^2/(2 sigma) + ...
+     its truncated series (339 (Q7)).]
   V6 (deduced) The answer.  139 (1)'s plane's offset is x+ = 2.625e-10 J/m^3 (d1/2 to one part in 10^62), positive,
      position 2's own vacuum energy (226) fixed by ours through the one induced metric -- a de Sitter offset of (1.88
      meV)^4 against our (2.24 meV)^4.  B5a holds: A2's bound, -3.7e52 J/m^3, is negative and 62 orders larger in size.

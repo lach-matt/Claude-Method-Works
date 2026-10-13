@@ -23,6 +23,16 @@ sympy, exact where marked; deduced where marked; not verified by a separate sess
      chi = 1 reading -- one junction both sheets act on -- and is the record of the two-way reading.  Its null-stress
      expression is direction-neutral (the auditing agent's note); what was two-way is the junction.  The one-way form of
      B5a is B1 and B2: our sheet positive alone, position 2's positive where the README lands.
+     [Item 339, the B5a verifier's report (CONFIRMED with qualifications, nothing refuted). (Q1) B1's "j_readings J2" is
+     a wrong citation for the ray share: J2 computes chi = 0 and the late-time sign, and the share is m1p2x_sixth W1's
+     and c4_oneway P4's; shares() enters the formula and does not derive it, and the verifier re-derived it (positive in
+     any fluid frame, since (u . k)^2 >= k_y^2). (Q6) Since item 336 (M-ENERGY-STAYS) the energy at position 2's face is
+     position 2's own, the one value read from two sides, so "the README carries position 2's plane past sigma/4" is
+     stale wording; E7's figure stands, 2.0e-15 m, and is 1.93e-15 or 2.18e-15 m under the 2 : 1 bulk's G5 readings
+     (c8_level V1). (Q9) B3's "direction-neutral (the auditing agent's note)": the phrase is in neither item 281 nor
+     b5_positive's item-281 note -- it is the board's own (c4_oneway P4). And "What this does not show: position 2's
+     sheet away from the landing" is superseded by b5a_residue A2, positive on every ray of the plane. b5a_residue
+     carries the rest (A1, A2, A4, A5, A6).]
 
 [Item 282 (c), under 316: brought level in b5a_residue.py -- A1 the side total, A2 positivity on every reading, A3 the
 shared induced metric (310's note; outside the row's claim, recorded), A4 the calculator.]

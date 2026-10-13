@@ -360,8 +360,10 @@ LEMMAS_NOW = [
      ("B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one"
       ' way'),
      'DERIVED',
-     ('lemmas/b5a_oneway.py, b5a_residue.py A1-A3 (282 (c), 275, 276; finalized 329; at its verifier after O1c); x+ ='
-      ' 2.625e-10 J/m^3 exact (322; alpha = 0, C9 verified 332); the matter condition proved (pointwise.py, 320)')),
+     ('lemmas/b5a_oneway.py, b5a_residue.py A1-A3, A6 (282 (c), 275, 276; finalized 329; verified, CONFIRMED with '
+      'qualifications (339): the side total needs no single kappa, A6); x+ = 2.625e-10 J/m^3, the quadratic\'s root '
+      '(322; alpha = 0, C9 verified 332); the matter condition proved classically, rho >= 0 inside the offset\'s basin '
+      '(pointwise.py, 320; 339 (Q4))')),
     ('B',
      ("B5c position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's "
       'plane (139 (2); 284 (4), 285)'),
@@ -448,8 +450,8 @@ LEMMAS_NOW = [
     ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'OPEN',
      "the record's (m1_bulk, d_minus): the kink-carrying bulk under eq. (17)'s reading, 203, (e)"),
     ('N', "M1P2xs position 2's side at the small end, on the one-way object", 'PROVED',
-     ('lemmas/c8_level.py V0-V9 (275-330; finalized 330, queued for its verifier after B5a); m1p2x_oneway kept as '
-      'written')),
+     ("lemmas/c8_level.py V0-V9 (275-330; finalized 330; B5a's verdict carried, 339; at its verifier next); "
+      "m1p2x_oneway kept as written")),
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
      "the record's (m1p2_cypher, m1p2_junction, theorem_p2)"),
     ('N', 'FAR a far boundary consistent with (Z), (G), 139 (1), 166', 'OPEN',
