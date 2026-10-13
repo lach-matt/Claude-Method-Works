@@ -55,7 +55,9 @@ OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL. [Item 344: M finalized ARR
 README's source on our plane -- a gas of the plane's fields, not null dust -- is a row of the theorem at both ends,
 SOURCE, OPEN and deferred by M until the current board is cleared, the completed theorem saying what it requires
 (M-SOURCE-IN-THE-MAP).] [Item 346: split by M into two rows, SOURCEs at the small end and SOURCE at the large
-(M-SOURCE-BY-END), both worked after every other open row (M-SOURCE-LAST, 345).]
+(M-SOURCE-BY-END), both worked after every other open row (M-SOURCE-LAST, 345).] [Item 348: ARRIVALs verified,
+CONFIRMED with qualifications; one sentence refuted -- at onset orders 3 and 4 a spread arrival shows its singular
+onset -- which strengthens the compact reading.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -474,14 +476,15 @@ LEMMAS_NOW = [
      ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
       "at position 2 under its laws and take their room"),
      'READING',
-     ("lemmas/arrival_small.py V0-V13 (338, 340, 343, 344): for the math with M's guess A (340), the math on M's "
+     ("lemmas/arrival_small.py V0-V14 (338, 340, 343, 344, 348): for the math with M's guess A (340), the math on M's "
       "statements giving reading (ii), compact -- G_vv >= 0, no partner, one E (V1); the face born before the onset and"
       " the coarse second law kept only for an arrival within 4.79 clocks, the radial model's figure, its scale what "
       "carries (V2-V4, V12); reading (i) against 136 (1), 136 G, 162 and 109, and a compact arrival's face changing "
       "size over 5.39 clocks, 8.0e-5 of the write, for 162 and 163 (V11); the write's floor carried, its 66,980 clocks "
       "the approach (V5); position 2's release E2/E = (G5/G5_2)^(1/3) under 240 (b) (V6); the room, 285 (b)'s figures "
       "(V7); the rebuild's steps M's (V8) -- the board's reading of 340; finalized by M and accounted before its "
-      "verifier (V13, 344), at its verifier")),
+      "verifier (V13, 344); verified, CONFIRMED with qualifications (348) -- V11 (b)'s censorship sentence refuted at "
+      "order 4, the compact reading strengthened, the qualifications seated in item-348 notes and V14")),
     ('N',
      "ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess)",
      'OPEN',

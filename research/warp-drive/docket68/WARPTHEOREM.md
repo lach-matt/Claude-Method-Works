@@ -77,7 +77,9 @@ O3s and WRITEs rested on H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-
 
 The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE and ARRIVAL.
 
-**Since item 344.** You finalized ARRIVALs, and it is at its verifier. The README's source on our plane, a gas of the
+**Since item 344.** You finalized ARRIVALs, and it is at its verifier. *Item 348: verified, CONFIRMED with
+qualifications. One sentence was refuted: at onset orders 3 and 4 a spread arrival shows its singular onset to us, which
+only strengthens the compact reading.* The README's source on our plane, a gas of the
 plane's fields rather than null dust, is now a row of the theorem at both ends: **SOURCE**, OPEN, deferred by you until
 the current board is cleared, because the completed theorem says what it must supply (M-SOURCE-IN-THE-MAP). Until then
 no row rests on it. A row that needs the README's arrival is worked in a model and says what is the model's own.
@@ -149,7 +151,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
-| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V13 (338-344); at its verifier |
+| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
 | N | ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess) | **OPEN** | -- | arrival_cypher, README-HELD.md (the record's) |
 | N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
 | N | CLOSE the closing at the large end | **OPEN** | -- | close_cypher, close_object (the record's) |
@@ -179,6 +181,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   verifier"). Before the hand-off the gate was run with ARRIVAL queued, its own column against all 95 rows. 26 rows are
   carried and 69 do not bear. Ten of the carried rows, in five findings, were not yet written in the file, and V13
   carries them (item 344).
+  - *Item 348: verified, CONFIRMED with qualifications; the queue is empty again.* Eleven qualifications are seated in
+    `arrival_small.py` (item-348 notes and V14), with notes outside it in `c8_level.py` and `README-HELD.md`. Six of
+    the gate's own ARRIVAL bearings are corrected in `verify_ledger.py`.
 - **OPEN at the small end:**
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
     region.
@@ -2335,7 +2340,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–346: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–348: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2498,6 +2503,21 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
 - **346, SOURCE split by end.** You chose two rows: SOURCEs, the gas coming in onto the README's own hole, and SOURCE,
   the gas coming in onto the four-dimensional corridor (M-SOURCE-BY-END). The register has 63 rows; the map's Source
   station carries both.
+- **347, FAR started** at the small end, beside ARRIVAL's verification (`far_small.py`, being worked).
+- **348, ARRIVAL at the small end verified** (CONFIRMED with qualifications; one sentence refuted). The verifier
+  re-derived every computed statement with its own code, including its own integrator, and read Bousso and Wall in the
+  sections it names.
+  - (Q1), the refuted sentence: V11 (b) said censorship admits a spread arrival at onset order 4. It does not. Once the
+    face is born at the onset, rays just outside it leave the onset along the trapping horizon, where the curvature
+    diverges, at orders 3 and 4 alike. Reproduced here; the compact reading is strengthened, not moved.
+  - Four were residue (314). The figures V2–V4 give belong to an event horizon presumed static from the arrival on (Q3).
+    V8 uses the model's 4.79 clocks against J1's period, not only against the write (Q2). The calculator's 96/96 is
+    one protocol, and with every language it is 1 in 60/96 (Q4, reproduced). The rests-on still lacked three board
+    readings, the empty-bulk limit and J1's use of F1 (Q5).
+  - The rest: J1 at each destination's own face, 32.60–34.53 clocks (Q6, computed); 158 (2) consonant, not a premise
+    (Q7); what V4 takes from Bousso (Q8); the coarse count's integrated form (Q9); 109 (Q10); minor pointers (Q11).
+  - All are seated in `arrival_small.py` as item-348 notes and a new entry V14, with a check and two mutants. Notes
+    outside it go in `c8_level.py` and `README-HELD.md`, and the gate's bearings are corrected in `verify_ledger.py`.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

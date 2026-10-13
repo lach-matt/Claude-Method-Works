@@ -320,6 +320,11 @@ Compact inflow, w = 1 m; area as a fraction of N A_bit when a fraction f of E is
   - Under 174 (1)'s strict rule this counts against the corridor.
   - It is a profile artefact. The C² quintic (M ∝ v³) keeps K = 4.84×10⁻²⁷ along the same ray (ratio 1.00003). The
     quintic is now the instrument's default.
+  - *Item 348, outside ARRIVAL (the ARRIVAL verifier's note; recorded, not repaired -- the large end's ARRIVAL is
+    OPEN):* "a profile artefact" rests on one ray family, the ray from (v₀, v₀/2). The verifier's own four-dimensional
+    quintic run at w = 100 finds the face born at the onset hugging r = 2m, rays escaping, and K = 48 m²/r⁶ = 3/(4m⁴)
+    diverging as m → 0 along it; it was not run at this note's own parameters. At the small end the same holds at onset
+    orders 3 and 4 (`arrival_small.py` V14 (a)).
 
 ## THE CYPHER RUN
 

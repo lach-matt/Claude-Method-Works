@@ -49,6 +49,13 @@ file's reports and the instruments' notes, each marker checked against its file;
   (Q8), the coupling zero under 328, exactness at the two-derivative order and the warp's first order; 337 (outside),
   the audit on one coding; 341 (Q2) and (Q10), the rests-on incomplete (226, 330) -- and are carried by arrival_small
   V13 (item 344), with a check and two mutants, before the verifier starts. L6 checks the column complete.]
+  [Item 348: ARRIVAL returned, CONFIRMED with qualifications, one sentence refuted. Its report's rows are entered above,
+  each carried in arrival_small (item-348 notes and V14) and, where it bears, in c8_level (Q6) and README-HELD.md
+  (outside). Six of ARRIVAL's own bearings are corrected: (339, Q8) and (304, outside) bear, and are carried; (310,
+  Q2)'s reason is restated; (337, Q5/Q6), (341, Q10) and (310, outside G5) were carried through markers belonging to
+  other points, and are re-pointed. The verifier's note stands as this gate's limit: L2 finds a correction's marker in
+  the object, not whether the text there carries its substance -- that is a critic's reading, and a verifier's. The
+  queue is empty.]
 
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
@@ -80,7 +87,8 @@ HEADERS = {254: "254. **Claim C1 verified", 258: "258. **Claim C2 verified", 261
            310: "310. **C4 one-way verified", 317: "317. **C5 one-way verified", 319: "319. **C7 one-way verified",
            332: "332. **C9 verified", 337: "337. **O1c one-way verified",
            339: "339. **B5a one-way verified",
-           341: "341. **C8 one-way verified"}
+           341: "341. **C8 one-way verified",
+           348: "348. **ARRIVAL at the small end verified"}
 NA = "n/a"
 
 
@@ -323,6 +331,26 @@ ROWS = [
      [("c7_oneway.py", 341), ("p2_offset.py", 341), ("b5a_residue.py", 341), ("c_junction.py", 338),
       ("write_small.py", 338), ("hold_small.py", 338)], NO_O, C(B, "Item 341 (the C8 verifier's (Q6), outside C8)"),
      C(E, "(d) (Q1): closed on reading (i), as stated; and since item 340")),
+    # item 348: the ARRIVAL verifier's report
+    (348, "Q1", "V11 (b)'s censorship refuted at order 4: the onset's rays escape along the trapping horizon",
+     [("arrival_small.py", 348)], NO_O, NO_B, NO_E),
+    (348, "Q2", "V12 (b)-(c): V8 (1), (3) use the model's 4.79; the one E only for a lossless collapse",
+     [("arrival_small.py", 348)], NO_O, NO_B, NO_E),
+    (348, "Q3", "V2-V4's figures belong to an event horizon presumed static from v = w", [("arrival_small.py", 348)],
+     NO_O, NO_B, NO_E),
+    (348, "Q4", "V9's 96/96 the statistics-rank protocol; with every language 1 in 60/96, refused 36",
+     [("arrival_small.py", 348), ("verify_ledger.py", 348)], NO_O, NO_B,
+     C(E, "and z_net each come back 1 in 60 of 96 codings and refused in 36")),
+    (348, "Q5", "the rests-on: 270 (a), 273 (a), 336 (a), 320 (b)-(c), J1's use of F1; two ledger markers",
+     [("arrival_small.py", 348), ("verify_ledger.py", 348)], NO_O, NO_B, C(E, "m1p2x_fifth F1 as outflow")),
+    (348, "Q6", "J1 at our face's r_h, not each destination's; the G5 readings of r_h/ell and R/ell",
+     [("arrival_small.py", 348), ("c8_level.py", 348)], NO_O, NO_B, C(E, "Item 348 (Q6), outside C8")),
+    (348, "Q7-Q10", "158 (2) consonant; Bousso's (2.22) premises; the coarse count's integrated form; 109",
+     [("arrival_small.py", 348)], NO_O, NO_B, NO_E),
+    (348, "Q11", "minor: two board passages as quotations; w = 8; the (310, Q2) reason; S3's list; the fine count",
+     [("arrival_small.py", 348), ("verify_ledger.py", 348)], NO_O, NO_B, NO_E),
+    (348, "outside", "README-HELD's profile artefact; the item-346 note; L2 tests a marker, not its substance",
+     [("README-HELD.md", 348), ("arrival_small.py", 346), ("verify_ledger.py", 348)], NO_O, NO_B, NO_E),
 ]
 # [Item 344] ARRIVAL queued -- M: "ARRIVAL is ready for the verifier" -- and accounted against every row, beside the
 # record's three columns (O1c, B5a and C8, verified at 337, 339 and 341): carried, with its marker in arrival_small, or
@@ -366,9 +394,10 @@ ARRIVAL_BEAR = {
     (304, "Q7"): N("ARRIVAL makes no \"only through our future interior\" claim"),
     (304, "Q8"): C(A, "even a bounce that kept the span would fit it"),
     (304, "Q9"): N("ARRIVAL cites c_junction J1 directly, not K2"),
-    (304, "outside"): N("a note let stand, not a correction; ARRIVAL takes J1's figure"),
+    (304, "outside"): C(A, "c_junction J1's use of m1p2x_fifth F1 as outflow (304, outside)"),   # [item 348 (Q5)]
     (310, "Q1+critic"): N("ARRIVAL takes the README's route from O1c and C8 (337, 341), which carry 310 (Q1)"),
-    (310, "Q2"): N("ARRIVAL uses no R6"),
+    (310, "Q2"): N("V6 cites 337 (Q10), R6's one r_h, for its one-r_h reading; R6 constructing less than the "
+                   "two-exterior bounce moves no ARRIVAL figure (item 348 (Q11))"),
     (310, "Q3"): C(A, "240 governs"),
     (310, "Q4"): C(A, "the 1s add nothing to V1-V3"),
     (310, "Q5,Q6"): N("ARRIVAL uses neither R4 nor R5"),
@@ -376,7 +405,7 @@ ARRIVAL_BEAR = {
     (310, "Q8"): N("ARRIVAL cites no DeTurck-Kazdan step"),
     (310, "Q9"): N("ARRIVAL calls c4_residue's calculator, corrected there"),
     (310, "Q10"): N("c4_residue's mutants, tightened there"),
-    (310, "outside G5"): C(A, "33.47 and 33.83 under the 2 : 1 bulk's G5 readings"),
+    (310, "outside G5"): C(A, "9.18e-16 and 6.37e-16 under the G5 readings"),          # [item 348 (Q6)]
     (310, "outside metric"): N("ARRIVAL uses no plane's induced metric"),
     (310, "outside map"): C(A, "the glued object read as one Kruskal geometry"),
     (317, "Q1"): N("ARRIVAL has no pairing: mu' >= 0, nothing to pair (V1)"),
@@ -405,7 +434,7 @@ ARRIVAL_BEAR = {
     (337, "Q1"): N("ARRIVAL traces the face's generators itself (V2), not through O1c's completeness"),
     (337, "Q2, Q7, Q8"): N("ARRIVAL uses no Z2b READ and no shell"),
     (337, "Q3, Q4"): C(A, "the results exact at that order (337 (Q4))"),
-    (337, "Q5, Q6"): C(A, "with 339 (Q4)'s scope"),
+    (337, "Q5, Q6"): C(A, "V1-V5 an empty bulk apart from the README, the board's limit"),   # [item 348 (Q5)]
     (337, "Q9-Q11"): C(A, "337 (Q10)"),
     (337, "outside"): C(A, "as O1c's Z7 did (337, outside)"),
     (339, "Q1"): N("ARRIVAL uses no crossing share"),
@@ -415,7 +444,7 @@ ARRIVAL_BEAR = {
     (339, "Q5"): C(A, "(b5a_residue A6, 339 (Q5))"),
     (339, "Q6"): N("ARRIVAL uses no E7"),
     (339, "Q7"): N("ARRIVAL uses no x+"),
-    (339, "Q8"): N("ARRIVAL's V9 counts its own answers under all 96 codings (V9's check)"),
+    (339, "Q8"): C(A, "f2 for the compact README are 1 in 60/96 and refused in 36"),         # [item 348 (Q4)]
     (339, "Q9"): NO_A,
     (339, "outside"): N("ARRIVAL takes no constancy of C1"),
     (341, "Q1"): N("ARRIVAL is where 340 is worked (V11); C8's V5 (d) carries it"),
@@ -427,9 +456,19 @@ ARRIVAL_BEAR = {
     (341, "Q7"): N("ARRIVAL makes no past-interior claim"),
     (341, "Q8"): N("ARRIVAL carries no \"past sigma/4\" wording"),
     (341, "Q9"): N("ARRIVAL calls on no 183 pairing: nothing to pair (V1)"),
-    (341, "Q10"): C(A, "M-P2-OWN-VALUES (226) and M-P2-OWN-G (330)"),
+    (341, "Q10"): C(A, "(5) uses the board's 336 (a), named at 341 (Q10)"),                    # [item 348 (Q5)]
     (341, "outside"): N("the notes owed to ARRIVAL since 338 are seated outside it (c_junction J3, write_small S4, "
                         "hold_small L4); the G5 convention is carried at (Q4)"),
+    # [item 348] ARRIVAL's own report, each carried in arrival_small
+    (348, "Q1"): C(A, "is REFUTED at order 4"),
+    (348, "Q2"): C(A, "carries for a lossless collapse"),
+    (348, "Q3"): C(A, "presume the face static from v = w on"),
+    (348, "Q4"): C(A, "the 96/96 is the statistics-rank protocol"),
+    (348, "Q5"): C(A, "the row rests also on the board's readings 270 (a)"),
+    (348, "Q6"): C(A, "32.60-34.53 of position 2's clocks"),
+    (348, "Q7-Q10"): C(A, "158 (2) is consonant, not a premise"),
+    (348, "Q11"): C(A, "is the grid's first point above 5.27 and 4.79"),
+    (348, "outside"): C(A, "the model ARRIVALs uses stands in for SOURCEs"),
 }
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
@@ -541,9 +580,9 @@ def report(o):
     print("   [item 331] brought current: %s; the register's history now reaches item %s; its current statement "
           "present: %s" % (", ".join("%s %s %s" % (lab, f, ok) for lab, f, n, ok in o["brought"]), o["reg_now"],
                            all(ok for _, _, ok in o["current"])))
-    print("L5 C9 verified, item 332; O1c, item 337; B5a, item 339; C8, item 341 -- their rows above, carried where they "
-          "bear; the queue of 329-330 is empty")
-    print("L6 (item 344) ARRIVAL queued: every row accounted for it: %s; carried %d, not bearing %d" % (
+    print("L5 C9 verified, item 332; O1c, item 337; B5a, item 339; C8, item 341; ARRIVAL, item 348 -- their rows "
+          "above, carried where they bear; the queue is empty")
+    print("L6 (item 344) ARRIVAL (verified, item 348): every row accounted for it: %s; carried %d, not bearing %d" % (
         o["arr_rows"], sum(b[0] == "carried" for b in o["abear"].values()),
         sum(b[0] == NA for b in o["abear"].values())))
 
@@ -551,7 +590,7 @@ def report(o):
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("L0 M's item-330 words and the sixteen reports' headers verbatim in the rulings file",
+    add("L0 M's item-330 words and the seventeen reports' headers verbatim in the rulings file",
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
@@ -565,8 +604,8 @@ def checks(o):
     add("L4 (item 331) the three rows outstanding outside the queue each brought current, marked in their instruments",
         all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
-    add("L4 every report of the sixteen has its rows in the ledger", reps == set(HEADERS))
-    add("L6 (item 344) the queued ARRIVAL accounted against every row of the sixteen reports, each carried in "
+    add("L4 every report of the seventeen has its rows in the ledger", reps == set(HEADERS))
+    add("L6 (item 344) ARRIVAL accounted against every row of the seventeen reports, each carried in "
         "arrival_small or not bearing with its reason", o["arr_rows"])
     return res
 

@@ -117,6 +117,10 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      through the bounce (273), not an eternal manifold's. So (d) closes on both readings. (e) (Q8): "supplied there by
      the README" is stale since 336 -- the energy at position 2's face is position 2's own (V1's item-339 note). And the
      item-336 note's "releasing position 2's own energy" is 336 (a), the board's reading (Q10).]
+     [Item 348 (Q6), outside C8 (the ARRIVAL verifier): J1 is evaluated at our face's r_h. At each destination's own
+     face -- its own ell_2 and r_h2 under 240 (b), the G5 readings in both conventions -- the open period is 32.60-34.53
+     of position 2's clocks (arrival_small V14 (c)); (c)'s "33.6 of its clocks" and V10's bound e^34.53 = 9.9e14 cover
+     it.]
   V6 (deduced) The verifications that bear on C8.  The C4 verifier's (1): a body crossing a t-independent core leaves
      by the map's image of the second exterior; the README leaves by position 2's face as the construction's time
      symmetry (c5_oneway U12 (Q3)), which is O4's "what emerges is the README" -- conditional on a quantum region of

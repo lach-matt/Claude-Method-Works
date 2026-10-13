@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""arrival_small.py -- items 338, 340, 343, 344: the ARRIVAL row at the family's small end, on the one-way object. M:
-"Continue" (to the board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then ARRIVAL
-and FAR, with B3 and B4d resting on them). The row: "the README forms the corridor as it comes in (198, M's guess); how
-the bits rebuild and take their room" (284 (d), 285 (d)). Its first half was computed only at the large end, in four
-dimensions (README-HELD.md 2-3, readme_held.py). At the small end write_small's verifier recorded it as not computed:
-"reading (ii) is not computed" (264). Worked in the conversation (computed with sympy and a Dormand-Prince integrator
-written here, exact where marked; READ where marked; deduced where marked; not verified by a separate session; not
-seated); 2026-10-13.
+"""arrival_small.py -- items 338, 340, 343, 344, 348: the ARRIVAL row at the family's small end, on the one-way object.
+M: "Continue" (to the board's report of items 336-337, which named ARRIVAL next in item 335's order: CLOSE, then
+ARRIVAL and FAR, with B3 and B4d resting on them). The row: "the README forms the corridor as it comes in (198, M's
+guess); how the bits rebuild and take their room" (284 (d), 285 (d)). Its first half was computed only at the large
+end, in four dimensions (README-HELD.md 2-3, readme_held.py). At the small end write_small's verifier recorded it as
+not computed: "reading (ii) is not computed" (264). Worked in the conversation (computed with sympy and a
+Dormand-Prince integrator written here, exact where marked; READ where marked; deduced where marked; not verified by
+a separate session; not seated); 2026-10-13. [Item 348: verified by one separate session, CONFIRMED with
+qualifications, one sentence refuted (V11 (b), with V3 behind it); the qualifications are seated in item-348 notes and
+V14.]
 
   V0 (read) The words the row rests on, verbatim in the rulings file: 198, "My guess would be 1." (the board's option
      (a): the README comes in while the corridor forms, with no partner, the size growing as it comes in and fixed once
@@ -19,6 +21,11 @@ seated); 2026-10-13.
      not separate"; 158 (2), "Exactly as long as the write needs"; 240, "the object is built from the bulk at position
      2 as an exact copy under the laws and conditions of position 2"; 285, "It is an exact copy of the object of
      position 1, but it now obeys laws of position 2"; 336, "I think it is B"; 338, "Continue".
+     [Item 348 (Q7, Q11 (a)), the verifier: 158 (2) as quoted here stops before M's "I should think", which 158's record
+     keeps ("Exactly as long as the write needs I should think"). Two board passages shown as quotations are not
+     verbatim at the source cited: "the face stands at least 66,980 clocks while the write runs" (V10, V11 (c)) is the
+     board's 340 question, write_cypher W5 (b) reading "...while the write runs, 66,980 clocks or more"; and "reading
+     (ii) is not computed" (the header) is write_small S3's item-264 note, not item 264's text.]
   V1 (computed, exact) The flux, the one E, the curvature.  On our side's five-dimensional ingoing form the only
      Einstein component is G_vv = 3 mu'(v)/(2 r^3) (close_small K1, re-run): an arrival that only adds energy, mu' >=
      0, has non-negative null energy on every ray, so it forms our face with no partner and keeps (Z) classically --
@@ -37,6 +44,11 @@ seated); 2026-10-13.
      The trapping horizon r^2 = mu holds e^(3/2) N at a fraction e of E -- short of the e N that have come in by
      e^(1/2), so it holds the README only whole (computed, exact): 163's "all together, one whole", the record's
      H-WHOLE-AS-G1, here in five dimensions (README-HELD 3 found f^(3/2) N by deduction).
+     [Item 348 (Q3, Q11 (b)), the verifier: "born before the onset" and V2-V4's thresholds belong to an event horizon
+     traced back from r_h at v = w, so they presume the face static from v = w on -- nothing else crossing it, 336's
+     evaporation neglected. As numbers they stand: a disturbance Delta v clocks later moves the face at the arrival by
+     about e^(-Delta v), the evaporation by about 1e-15; but matter crossing within a few clocks would move both, and no
+     bulk is ever empty (320). "From w = 8" is the grid's first point above 5.27 and 4.79.]
   V3 (computed, exact) The centre at the onset, for radial null dust. Self-similar onset mu = lambda v^2: outgoing rays
      r = x v obey 2 x^3 - x^2 + lambda = 0, with a positive root, an escaping ray from the singular onset, iff lambda <=
      1/27 (the four-dimensional 1/16's counterpart). The order-2 smoothstep has lambda = 3/w^2: naked from w = 9. Order
@@ -47,6 +59,11 @@ seated); 2026-10-13.
      (273) stays inside our face. Born at the onset, an order-2 arrival from w = 9 or an order-3 arrival shows the onset
      to our exterior (deduced: the escaping ray r ~ v/2 runs outside the face, which leaves the onset as r ~ mu^(1/2),
      v^(3/2) at order 3).
+     [Item 348 (Q1), the verifier, reproduced here (V14 (a)): "Order 4: K bounded along it" holds only along r ~ v/2.
+     Once the face is born at the onset, rays just outside it escape, and traced back they leave the onset hugging the
+     trapping horizon r^2 ~ mu, where K = 72/mu^2 diverges, at every order n >= 3: at orders 3 and 4 every arrival born
+     at the onset shows a curvature-singular onset to our exterior. The code's onset test (onset_hidden) is corrected;
+     V9's populations do not change.]
   V4 (READ; computed) The second law along the arrival.  READ: Bousso, hep-th/0203101v2, sec. II.A.3, eq. (2.3),
      Bekenstein's generalized second law, "dS_total >= 0", the total "black hole entropy and matter entropy"; sec. II.C.1
      (the Susskind process), "the initial entropy must not exceed the final entropy", whence S_matter <= A/4 (2.22); and
@@ -70,6 +87,14 @@ seated); 2026-10-13.
          instant for no arrival at 136 (1)'s exact energy, only as a limit (deduced, and so in every run: a face born
          before the onset lifts the total above its start, and it must come back to it at the end; one born at the onset
          holds e^(3/2) N < e N from the first).
+     [Item 348 (Q3, Q7, Q8, Q11 (e)), the verifier: V2's teleology note holds here. The exact start at the floor's ball
+     follows from the saturated bound alone: 158 (2) is consonant, not a premise, and since 336 it no longer times the
+     hold (write_cypher W5's item-336 note). Bousso's (2.22) is for a stable, near-spherical system collapsed by an
+     added shell, nothing radiated or ejected (his footnote 7), premises the README's own collapse from 66,981 r_h does
+     not meet: what V4 uses is (2.3) from start to end with the final face's area, carrying footnote 7's no-loss
+     assumption -- so "the Susskind bound saturates" reads "(2.3) saturates at the final face's area, nothing lost".
+     VII.B.3 concerns matter collapsing through an existing hole, which bears on reading (i), not on formation. The fine
+     count is the board's reading of 136 (5) here, as V12 (e) names it.]
   V5 (deduced) The write on reading (ii).  write_small S3's floor, 66,980 clocks at Z = 106.75 (imported), rests on
      H-WRITE-IS-ARRIVAL, H-FLAT-START, H-README-ALONE, H-FREE-GAS and H-BITS-ARE-STATES, not on S4's standing hole.  On
      reading (ii) the start is flat exactly (no face stands before the README) and the README's E is the only energy
@@ -78,6 +103,10 @@ seated); 2026-10-13.
      both the onset behind the face and the coarse total at or above its start, at every order computed).  A converging
      carrier can arrive together from a ball of radius (1 + T) r_h if its inner parts wait (moving at most at c, the
      outer parts take T clocks); the state count of such a converging flow is not computed (does not claim).
+     [Item 348 (Q5, Q11 (d)), the verifier: "the only energy exactly" is exact in 320 (b)'s limit, an empty bulk apart
+     from the README -- the board's limit, not M's configuration; with the bulk's content it holds to that content's
+     order (320 (c)). S3's hypotheses also include H-SMALL-CLOCK, H-HOLD-FRAME, H-README-ON-PLANE and the R1 count;
+     under R2 the 8.0e-5 is 1.6e-4, the scale unchanged.]
   V6 (computed, exact) Position 2's release at the small end.  At the small end E and the face's capacity carry G5
      alone, no ell (C3 F4; write_small S3): E = 3 pi r_h^2/(8 G5), N ln2 = 2 pi^2 r_h^3/(4 G5).  Each destination's own
      G5 (bulk5_index: 2^(1/2) of ours at 2b and 2c, 2^(3/2) at 2P and 2a + 2P, 4 at 2b + 2P and 2c + 2P, ours at 2a):
@@ -92,6 +121,7 @@ seated); 2026-10-13.
      the two faces' radii differ and the bounce joins them through the quantum region, which gives up classical GR
      there (273); the isometric gluing is the case G5_2 = G5.  B5a's side total needs no single kappa (b5a_residue A6,
      339 (Q5)); this is the faces', not the planes'.
+     [Item 348 (Q5): the one-r_h reading rests on the board's 273 (a), the Kruskal isometry (b_bounce Q1), named now.]
   V7 (computed from banked numbers) The room.  The copy has the original's atoms (285 (b): an exact copy), so a
      pure-metal object's copy fills (a0_law/a0_ours)^3 of its volume (p2_matter X3, PBE, the law RECONSTRUCTED): copper
      0.9387 / 0.8837, silver 0.8127 / 0.7106, gold 0.9898 / 0.9677, chromium 1.0469 / 1.0627 under position 2a's min /
@@ -114,6 +144,11 @@ seated); 2026-10-13.
      (7) It takes its room (V7) and stays.  (8) The rebuild "likely instantaneous" (136 (6)) -- M's, with 94's
      H-INSTANTANEOUS.  How bits become matter is M's statement, not a configuration: the cypher NOT-RUN for it (an index
      of steps would carry the answer as a key, 211); copy_p2 C5 already ran the destinations' variances through it.
+     [Item 348 (Q2, Q5, Q6), the verifier: (1)'s "compact" and (3)'s comparison use the model's 4.79 clocks against J1's
+     33.06-34.53, a margin of about 6.9, so (3) and its "J3's asymmetry is not needed" rest on the model's value (V12's
+     item-348 note). (5) uses the board's 336 (a), named at 341 (Q10). And J1 is evaluated at our face's r_h: at each
+     destination's own face, with its own ell and the G5 readings, the period is 32.60-34.53 of position 2's clocks (V14
+     (c); the verifier's convention gives 31.2-34.1), at least 6.91 w* in our clocks -- the comparison stands.]
   V9 (computed) ARRIVAL's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the classes t, the arrival compact (within V4's widths) or spread, and m, the README or other matter --
      no arrival, a README on a standing face (reading (i)), the README with 183's exact partner (README-HELD 2: no face
@@ -123,6 +158,10 @@ seated); 2026-10-13.
      (0, 0): {0, 1}} from V2-V3 -- 1 at orders 2 and 3 for the compact README; for the spread, "both" at order 2 and 1 at
      order 3, the order-3 answer a read-back of the other cells, the spread's own population {0, 1} computed and
      deciding.  211's audit clean on every question.  As for C4, B5a and C8, the 1s add nothing to V1-V3.
+     [Item 348 (Q4), the verifier, reproduced here (V14 (b)): the 96/96 is the statistics-rank protocol, statistics
+     alone seeing every condition. With every language seeing every condition, f1 at both cells and f2 for the compact
+     README are 1 in 60/96 and refused in 36, and f2 for the spread at order 2 is "both" in 36, refused in 36, 1 in 24
+     -- 310 (Q4)'s "(peers 60/96)" bears here as it did for C8. The 1s still add nothing to V1-V3.]
   V10 (put to M) The fork that remains.  On reading (ii) -- 198, M's guess -- the README's own E forms our face as it
      arrives, one energy, compact, the face born about a clock before the README crosses and standing for the hole's
      life after (336); the write's 66,980 clocks are the approach.  That reads 334's "the face stands at least 66,980
@@ -147,6 +186,15 @@ seated); 2026-10-13.
      from the README's arrival through the hole's life" (336), the write's 66,980 clocks its approach;
      M-HOLD-IS-THE-FACE's core -- the hold is the face standing, not how long the README stays within the horizon -- is
      unchanged. 198's option text, "the size growing as it comes in", holds over the arrival's few clocks.
+     [Item 348 (Q1, Q9, Q10), the verifier: (b)'s "Censorship admits a spread arrival only at onset orders 1 and 4 and
+     above (V3)" is REFUTED at order 4 (V3's item-348 note, V14 (a)). Correct: among the orders computed, censorship
+     admits a spread arrival only at order 1, and at order 2 below 9 clocks; at orders 3 and 4 every arrival wider than
+     5.27 and 4.79 clocks shows a curvature-singular onset to our exterior. The conclusion is strengthened, not moved.
+     (b)'s "the coarse count gives compact": read instant by instant, as (2.3) puts it, the coarse count admits no
+     arrival at the exact energy (V4); compact arrivals pass only its integrated necessary form, never below the start,
+     which spread arrivals fail. (a): 109 counts against reading (i) only with the README read as the standing face's
+     object; on reading (i) that face has its own E (264 (1)), so 109 is not independent of 136 (1) and 136 G; the
+     conclusion stands. The fine count is the board's reading here as in V4.]
   V12 (item 343, the residue pass before finalization, 314; deduced, and computed where marked) What carries beyond the
      arrival's model, and what the row rests on. (a) V2-V4, V9 and V11 compute in one model: the README's energy
      arriving as radial null dust, spherically symmetric about the hole in the five-dimensional bulk. The README is
@@ -173,6 +221,15 @@ seated); 2026-10-13.
      X3, bulk5_index's five-dimensional couplings and pointwise; on the board's H-BITS-WITH-ENERGY, H-BITS-ARE-STATES
      and H-FREE-GAS; and on the board's readings -- the fine count of 136 (5), 240 (b) governing the faces' radii, and
      340's compact arrival.
+     [Item 348 (Q2, Q5, Q7), the verifier: (b) overstates. V8 (1) and (3) do use the model's 4.79 clocks (V8's item-348
+     note); and "the one E by energy conservation for any carrier" holds only for a lossless collapse, nothing radiated
+     or ejected -- radial dust meets that, a plane-confined gas, not SO(4)-symmetric in the bulk, need not. Correct: the
+     contrast with reading (i)'s 2E carries for any carrier; the exact equality of the hole's E with the README's
+     carries for a lossless collapse. (c): the row uses the model's scale also against J1's period, a margin of 6.9, not
+     only against the write's 66,980. (e), completed again: the row rests also on the board's readings 270 (a) (the one
+     object's faces at U = 0), 273 (a) (the Kruskal isometry: V6's one-r_h reading and V8 (2)) and 336 (a) (V8 (5)); on
+     320 (b)-(c), V1-V5 an empty bulk apart from the README, the board's limit; and on c_junction J1's use of
+     m1p2x_fifth F1 as outflow (304, outside). 158 (2) is consonant, not rested on, since 336 (V4's item-348 note).]
   V13 (item 344; computed where marked; deduced) What the accounting before the hand-off found bearing (330,
      verify_ledger): earlier corrections that bear on ARRIVAL and were not yet written here -- ten of the ledger's rows,
      in five findings, (1)-(5) -- and M's 344, (6). (1) The floor is the write's least time (267 (Q6)): 66,980 clocks is
@@ -193,6 +250,21 @@ seated); 2026-10-13.
      in (3). (6) The README's process on our plane -- its source a gas of the plane's fields confined to the plane (V12
      (a)) -- is a row of the warp travel theorem's map, SOURCE, worked after the current board is cleared, the completed
      theorem saying what it requires (344, M-SOURCE-IN-THE-MAP); nothing in V0-V12 rests on it (V12 (b)-(c)).
+     [Item 348 (Q4, Q5, Q6): (4)'s audit is clean, and V9's counts depend on the protocol (V9's item-348 note); (5) is
+     completed in V12's item-348 note; (3)'s r_h/ell = 8.0e-16, like the does-not list's R/ell = 5.4e-11, is at G5 = G
+     ell -- 9.18e-16 and 6.37e-16 under the G5 readings, R/ell 6.15e-11 and 4.26e-11 (V14 (d)). Item 346
+     (M-SOURCE-BY-END): (6)'s SOURCE is now two rows, and the model ARRIVALs uses stands in for SOURCEs, the small
+     end's.]
+  V14 (item 348; computed) The verifier's points, computed here. (a) Q1: at orders 3 and 4, with the face born at the
+     onset (w = 8, 16 and 64 clocks), a ray leaving the face at v = w by 1e-6 r_h escapes (r above 150 r_h by v = w +
+     400), and traced back it reaches r < 1e-6 r_h near the onset with r^2/mu within 1% of 1 and K = 72 mu^2/r^8 above
+     1e25: the onset shows itself to our exterior. (b) Q4: V9's questions under both protocols -- statistics alone
+     seeing every condition, 96/96 as V9 states; every language seeing every condition, 1 in 60/96 and refused in 36,
+     the spread's f2 at order 2 "both" 36, refused 36, 1 in 24. (c) Q6: J1, ln(1 + (pi/10) (ell_2/r_h2)), at each
+     destination's own face -- its own ell_2 = ell 2^(-(g+s)/2) (bulk5_index), its face r_h2 = r_h (G5_2/G5)^(1/3) under
+     240 (b) (V6), at G5 = G ell and under both G5 readings in both conventions for sigma (c8_level V10): 32.60-34.53 of
+     position 2's clocks, at least 6.91 times the compact width in ours. (d) r_h/ell and R/ell under the G5 readings,
+     r_h moving as g^(1/3): 9.18e-16 and 6.37e-16, 6.15e-11 and 4.26e-11.
 
 What this does not claim.
   - That a carrier of the README's states can converge compactly: V5's choreography is allowed by causality, its state
@@ -458,14 +530,26 @@ def v7():
     return dict(ratio=ratio, dest=dest)
 
 
+def onset_hidden(n, w, o2, o3):
+    """the onset behind the face or regular (V2-V3; item 348 (Q1)): born before the onset at any order; at order 1 no
+    ray leaves the onset; at order 2 regular below w = 9; at orders 3 and 4, born at the onset, the escaping rays leave
+    it along the trapping horizon, where K = 72/mu^2 diverges -- shown (the item-348 correction of n = 4)"""
+    if o2["grid"][(n, w)]["born"] is not None or n == 1:
+        return True
+    if n == 2:
+        return w < float(o3["w_c"])
+    if MUT.get("onset4_ok"):                                       # the mutant: the record's order-4 reading restored
+        return bool(o3["expo"][n] >= 0)
+    return False
+
+
 def populations():
     """the clauses per class from the runs: t, the arrival compact (within the thresholds) or spread; m, the README or
     other.  f1: forms our face with no partner, (Z) kept, its own one E.  f2: the onset behind the face or regular."""
     o2, o3 = v2(), v3()
     comp = [w for w in WIDTHS if w <= min(list(o2["gsl"].values()) + list(o2["born"].values()))]
     spread = [w for w in WIDTHS if w > max(o2["gsl"].values())]
-    onset_ok = lambda n, w: bool(o2["grid"][(n, w)]["born"] is not None or n == 1
-                                 or (n == 2 and w < float(o3["w_c"])) or (n >= 3 and bool(o3["expo"][n] >= 0)))
+    onset_ok = lambda n, w: onset_hidden(n, w, o2, o3)
     f2_c = {int(onset_ok(n, w)) for n in ORDERS for w in comp}
     f2_s = {int(onset_ok(n, w)) for n in ORDERS for w in spread}
     if MUT.get("readme_spread_ok"):
@@ -550,8 +634,59 @@ def v13():
                 floor_syms=sorted(str(x) for x in WS.s3()["t3"].free_symbols), asked=asked, flagged=flagged)
 
 
+_V14 = {}
+
+
+def v14():
+    """item 348: the verifier's points computed here -- (a) the onset's escaping rays at orders 3 and 4, (b) V9 under
+    both protocols, (c) J1 at each destination's own face, (d) the G5 readings of r_h/ell and R/ell"""
+    key = (bool(MUT.get("onset4_ok")), bool(MUT.get("stat_only")))
+    if key in _V14:
+        return _V14[key]
+    rays = {}
+    for n in (3, 4):
+        for w in (8.0, 16.0, 64.0):
+            s_, _ = profile(n)
+            mu = lambda v, s_=s_, w=w: s_(v / w)
+            f = lambda v, r, mu=mu: 0.5 * (1.0 - mu(v) / max(r, 1e-12) ** 2)
+            fwd = dopri(f, w, 1.0 + 1e-6, w + 400.0, hmax=1.0)
+            back = dopri(f, w, 1.0 + 1e-6, 1e-12, hmax=w / 2000.0, rtol=1e-12, atol=1e-15, stop=lambda v, r: r < 1e-6)
+            vb, rb = back[-1]
+            rays[(n, w)] = dict(escape=fwd[-1][1], r_end=rb, ratio=rb * rb / mu(vb), K=72 * mu(vb) ** 2 / rb ** 8,
+                                hidden=onset_hidden(n, w, v2(), v3()) if w in WIDTHS else None)
+    CR = _load("c4_residue.py", "arr_cr")
+    P = populations()
+    vk = "stat" if MUT.get("stat_only") else "all"               # the mutant: every-language counts not taken
+    counts = {}
+    for name in ("f1", "f2"):
+        for cell in ((1, 1), (0, 1)):
+            counts[(name, cell)] = {k: sum((CR._ask_one(("f",), P[name], k, views_kind=vk, tf=tf, mf=mf, c4row=cell)
+                                            for tf, mf in itertools.product((0, 1), repeat=2)), Counter())
+                                    for k in (2, 3)}
+    WS = _load("write_small.py", "arr_ws")
+    sec = WS.seconds()
+    row = sec["rows"][sec["ell_max"]]
+    rh_ell = row["rh"] / row["ell"]
+    B5 = _load("bulk5_index.py", "arr_b5")
+    per = []
+    for n, d in B5.five_d().items():
+        l2, r2 = 2.0 ** (float(d["e"]["ell2"]) / 2), 2.0 ** (float(d["e"]["G5"]) / 3)
+        for g in (1.0, 1.5, 0.5):
+            r = rh_ell * r2 / l2 * g ** (1 / 3)
+            for fixed in (r, r * g):
+                p_ = math.log(1 + (math.pi / 10) / fixed)
+                per.append((p_, p_ * r2))
+    wstar = v11()["wstar"]
+    R_ell = WS.compute()["ex"]["R_over_ell"]
+    out = dict(rays=rays, counts=counts, per2=(min(p for p, _ in per), max(p for p, _ in per)),
+               ratio=min(q for _, q in per) / wstar, g5=[rh_ell * g ** (1 / 3) for g in (1.5, 0.5)],
+               R_ell=[R_ell * g ** (1 / 3) for g in (1.5, 0.5)])
+    _V14[key] = out
+    return out
+
+
 def compute():
-    return dict(v1=v1(), v2=v2(), v3=v3(), v4=v4(), v6=v6(), v7=v7(), v9=v9(), v11=v11(), v13=v13())
+    return dict(v1=v1(), v2=v2(), v3=v3(), v4=v4(), v6=v6(), v7=v7(), v9=v9(), v11=v11(), v13=v13(), v14=v14())
 
 
 def report(o):
@@ -593,6 +728,12 @@ def report(o):
           "width; position 2's clock over ours >= %.4f; the floor's symbols %s; r_h/ell %.2g; the audit flagged %d of "
           "%d codings" % (u["per0"], {k: round(v, 2) for k, v in u["per"].items()}, min(u["per"].values()) / u["wstar"],
                        min(u["clock2"].values()), u["floor_syms"], u["warp"], u["flagged"], u["asked"]))
+    x = o["v14"]
+    print("V14 (item 348) escaping rays (n, w): %s; V9 with every language: %s; J1 at each destination's face %.2f-%.2f "
+          "position-2 clocks, %.2f w*; G5 readings r_h/ell %s, R/ell %s" % (
+              {k: (round(r["escape"]), "%.4f" % r["ratio"], "%.2g" % r["K"]) for k, r in x["rays"].items()},
+              {"%s %s" % k: {o_: dict(c) for o_, c in v.items()} for k, v in x["counts"].items()}, x["per2"][0],
+              x["per2"][1], x["ratio"], ["%.3g" % v for v in x["g5"]], ["%.3g" % v for v in x["R_ell"]]))
 
 
 def checks(o):
@@ -673,6 +814,21 @@ def checks(o):
         and min(u["per"].values()) / u["wstar"] >= 6.9 and min(u["clock2"].values()) >= 1 - 1e-12
         and u["floor_syms"] == ["N", "Z"] and "%.1e" % u["warp"] == "8.0e-16" and u["asked"] == 384
         and u["flagged"] == 0)
+    x = o["v14"]
+    c60 = Counter({(1,): 60, ("refused",): 36})
+    ok = all(r["escape"] > 150 and r["r_end"] < 1e-6 and abs(r["ratio"] - 1) < 1e-2 and r["K"] > 1e25
+             for r in x["rays"].values())
+    ok &= all(r["hidden"] is False for r in x["rays"].values() if r["hidden"] is not None)
+    ok &= all(x["counts"][(nm, c)][k] == c60 for nm, c in (("f1", (1, 1)), ("f1", (0, 1)), ("f2", (1, 1)))
+              for k in (2, 3))
+    ok &= x["counts"][("f2", (0, 1))][2] == Counter({("both",): 36, ("refused",): 36, (1,): 24})
+    ok &= "%.2f" % x["per2"][0] == "32.60" and "%.2f" % x["per2"][1] == "34.53" and x["ratio"] >= 6.9
+    ok &= ["%.3g" % v for v in x["g5"]] == ["9.18e-16", "6.37e-16"] and ["%.3g" % v for v in x["R_ell"]] == [
+        "6.15e-11", "4.26e-11"]
+    add("V14 (item 348) the verifier's points: at orders 3 and 4 born at the onset, rays escape from the onset along "
+        "the trapping horizon, K diverging; V9 with every language 1 in 60/96, refused 36 (the spread's f2 both 36, "
+        "refused 36, 1 in 24); J1 at each destination's face 32.60-34.53 position-2 clocks, at least 6.9 w*; the G5 "
+        "readings of r_h/ell and R/ell", ok)
     return res
 
 
@@ -686,7 +842,9 @@ MUTANTS = {"capacity_linear": "the face's capacity linear in r (a four-dimension
            "readme_spread_ok": "the spread README's onset counted always hidden (V9)",
            "spread_counted_compact": "a spread arrival taken for compact (V11, item 340)",
            "g5_dropped": "the G5 readings not carried into J1's open period (V13; 319 (Q2), 341 (Q4))",
-           "audit_one_coding": "211's audit run on one coding of each question (V13; 337, outside)"}
+           "audit_one_coding": "211's audit run on one coding of each question (V13; 337, outside)",
+           "onset4_ok": "the order-4 onset counted hidden when born at the onset (V14; 348 (Q1))",
+           "stat_only": "V9's counts taken under the statistics-rank protocol only (V14; 348 (Q4))"}
 
 
 def selftest():
