@@ -113,6 +113,17 @@ goes to M; the board does not rule on M's meaning.
      J3; M1P2xs; CLOSEs K9; B4ds D5).  Our face's duration is the life, 8.57e14 clocks, by 336 (M's); position 2's is at
      most 33.60 clocks by J1 (computed).  So the bounce is asymmetric by a factor of at least 2.6e13 -- a consequence,
      not a reading.
+  Q21 (read; deduced) Four readings the inventory carried bear on no current row's claim, each read in its file and the
+     register by path.  RPOS2, H-POSITIVE-ON-P2: B5pu rests on b5p_cypher and pointwise P5 (its row), whose claim is
+     B5'a's condition; b5p_cypher (6) says H-POSITIVE-ON-P2 "is a different condition", and 139 (2) where it bears is
+     B5c's, proved at Q12.  RT5, sigma_defines T5's flag: B5pu holds on both decisions -- b5p_cypher (5), "were it
+     decided the other way, the variant W139 ... still meets B5'a's condition with margin" -- and B6' rests on
+     sigma_defines T1-T4, not T5 (its row): proved on both branches.  RE6, 139 (3) read as position 2's expansion
+     raised: B5c rests on e_positive E7 (its row), where the emerging README alone carries the plane past sigma/4
+     (computed); E7's "beyond it ... (E6)" lies outside where positivity is owed (284, 285), and there Q12's pointwise
+     route holds without E6.  RO3H, o3_hold's mapping and locally analytic class: O3s rests on O3e (its row), and "O3e
+     rests on no reading of the board's" (o3_hold, item 334); the mapping is O3a's, the class O3a''s (withdrawn), and
+     "O3b's static window is eq. (17)'s and does not bound it".  None is a premise of any row.
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -130,9 +141,11 @@ What this does not claim.
     is not in it.
   - Any proof for the entries still marked "to prove" or "through SOURCE".
 
-Imports nothing from the instruments; reads the rulings file by path.  Stdlib + sympy.
+Imports nothing from the instruments; reads the rulings file, and for Q21 the register (LEMMAS_NOW, parsed as a literal)
+and three instruments' texts, by path.  Stdlib + sympy.
 python3 readings.py [--selftest | --mutants]
 """
+import ast
 import math
 import os
 import re
@@ -143,6 +156,7 @@ import sympy as sp
 HERE = os.path.dirname(os.path.abspath(__file__))
 D68 = os.path.dirname(HERE)
 RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
+REGISTER = os.path.join(D68, "warptheorem.py")
 MUT = {}
 
 # the premises, verbatim, each checked inside its own item
@@ -268,11 +282,12 @@ INVENTORY = (
      "to prove: bound what the figures need of g*"),
     ("RCALC", 310, "c4_oneway's calculator protocols (P13, P17, P18, P20)", "M1s", "protocol",
      "to prove: M1s's claims without the calculator's agreement"),
-    ("RPOS2", 231, "H-POSITIVE-ON-P2: 139 (2) as the board reads it", "B5pu", "words", "to prove"),
-    ("RT5", 231, "sigma_defines T5's flag decided under 149", "B5pu B6'", "choice", "to prove"),
-    ("RE6", 268, "139 (3) read as position 2's expansion raised by the README's energy", "B5c", "words", "to prove"),
+    ("RPOS2", 231, "H-POSITIVE-ON-P2: 139 (2) as the board reads it", "B5pu", "words", "bears on no row's claim (Q21)"),
+    ("RT5", 231, "sigma_defines T5's flag decided under 149", "B5pu B6'", "choice", "proved on both branches (Q21)"),
+    ("RE6", 268, "139 (3) read as position 2's expansion raised by the README's energy", "B5c", "words",
+     "bears on no row's claim (Q21)"),
     ("R148", 149, "148's reading (i): position 2's electron mass ours", "R5", "words", "to prove"),
-    ("RO3H", 334, "o3_hold's mapping and its locally analytic class", "O3s", "choice", "to prove"),
+    ("RO3H", 334, "o3_hold's mapping and its locally analytic class", "O3s", "choice", "bears on no row's claim (Q21)"),
 )
 
 
@@ -394,10 +409,47 @@ def q20():
     return dict(life=8.573276e14, open=j1, factor=8.573276e14 / j1)
 
 
+# ---------------------------------------------------------------------------------- Q21 four that bear on no row
+def _flat(path):
+    with open(path, encoding="utf-8") as f:
+        return " ".join(f.read().split())
+
+
+def _register_rows():
+    tree = ast.parse(open(REGISTER, encoding="utf-8").read())
+    for node in tree.body:
+        if isinstance(node, ast.Assign) and any(getattr(t, "id", "") == "LEMMAS_NOW" for t in node.targets):
+            return {r[1].split()[0]: " ".join(r[3].split()) for r in ast.literal_eval(node.value)}
+    return {}
+
+
+Q21_ROWS = (("B5pu", "lemmas/b5p_cypher.py (b1_matter C3, C4); pointwise.py P5", "H-POSITIVE-ON-P2"),
+            ("B6'", "lemmas/sigma_defines.py T1-T4;", "T5"),
+            ("B5c", "lemmas/e_positive.py E7:", "E6"),
+            ("O3s", "lemmas/o3_hold.py O3e:", "O3a"))
+Q21_TEXTS = (("b5p_cypher.py", "(6) H-POSITIVE-ON-P2 (139 (2) as the board reads it) is a different condition"),
+             ("b5p_cypher.py", "were it decided the other way, the variant W139 (t2 = -1/4 > -1 - 2 eps) still meets "
+                               "B5'a's condition with margin (P3, P7)"),
+             ("e_positive.py", "near the face the emerging README alone carries the plane past sigma/4 within R <= "
+                               "(3E/(pi sigma))^(1/3) = 2.0e-15 m"),
+             ("o3_hold.py", "O3e rests on no reading of the board's"),
+             ("o3_hold.py", "O3b's static window is eq. (17)'s and does not bound it"))
+
+
+def q21():
+    reg = _register_rows()
+    rows = list(Q21_ROWS)
+    if MUT.get("e6_borne"):
+        rows[2] = ("B5c", "lemmas/e_positive.py E6", "E7")          # the mutant: B5c read as resting on E6
+    cites = [(k, w in reg.get(k, ""), bad not in reg.get(k, "").split(w, 1)[-1][:60]) for k, w, bad in rows]
+    texts = [(f, t, t in _flat(os.path.join(HERE, f))) for f, t in Q21_TEXTS]
+    return dict(cites=cites, texts=texts)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20())
+                q20=q20(), q21=q21())
 
 
 def report(o):
@@ -418,6 +470,8 @@ def report(o):
     print("Q17 content's share of mu: %s; at the hole (r_h/ell)^2 = %.2g" % (o["q17"]["rel"], o["q17"]["at_hole"]))
     print("Q20 our face %.3g clocks, position 2's at most %.2f: a factor %.2g" % (o["q20"]["life"], o["q20"]["open"],
                                                                                 o["q20"]["factor"]))
+    print("Q21 the rows' own citations: %s; the instruments' words found: %s"
+          % (["%s %s" % (k, a and b) for k, a, b in o["q21"]["cites"]], [ok for _, _, ok in o["q21"]["texts"]]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -452,6 +506,9 @@ def checks(o):
         o["q17"]["exact"] and "%.2g" % o["q17"]["at_hole"] == "6.4e-31")
     add("Q20 our face 8.57e14 clocks against position 2's 33.60: a factor 2.6e13",
         "%.2g" % o["q20"]["factor"] == "2.6e+13")
+    add("Q21 RPOS2, RT5, RE6 and RO3H bear on no row: B5pu, B6', B5c and O3s cite their own entries, not the "
+        "reading's, and the instruments' words are found", all(a and b for _, a, b in o["q21"]["cites"])
+        and all(ok for _, _, ok in o["q21"]["texts"]))
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -463,7 +520,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "faces_swapped": "the faces taken as the past of I and the future of III (Q5)",
            "time_reflection": "Haggard and Rovelli's time reflection kept beside (-U, -V) (Q8)",
            "mixed_readme": "the README taken as a mixture of two strings (Q15)",
-           "face_at_ours": "position 2's energy taken as (G5/G5_2)^1, one r_h (Q16)"}
+           "face_at_ours": "position 2's energy taken as (G5/G5_2)^1, one r_h (Q16)",
+           "e6_borne": "B5c read as resting on e_positive E6, not E7 (Q21)"}
 
 
 def selftest():
