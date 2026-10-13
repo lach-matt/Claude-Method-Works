@@ -66,6 +66,12 @@ file's reports and the instruments' notes, each marker checked against its file;
   two-derivative order; 337 (Q9), the options M chose; 341 (Q4), both conventions for sigma; 348 (Q2), a lossy
   collapse; 341 (Q2) and 348 (Q5), the rests-on -- and are carried by far_small F10 and far_large L10 (item 351), each
   with a check and a mutant, before the verifier starts. L7 checks the column complete.]
+  [Item 355: FAR returned, CONFIRMED with qualifications, nothing refuted. Its fourteen rows and its note outside FAR
+  are entered above (eighteen reports now), each seated in far_small (item-355 notes and F11), far_large (L11), this
+  ledger (Q12) or readings.py (outside), and accounted against the verified ARRIVAL's column (none bears: ARRIVAL makes
+  none of the claims they qualify). Q12 corrects FAR's own column: (319, outside)'s reason restated; (304, outside),
+  (310, outside map), (317, Q7), (341, Q3) and (261, Q3) re-pointed to the texts that carry their substance; (341, Q2)
+  and (348, Q5)'s rests-on completed in far_small F11 (k). The queue is empty.]
 
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
@@ -98,7 +104,8 @@ HEADERS = {254: "254. **Claim C1 verified", 258: "258. **Claim C2 verified", 261
            332: "332. **C9 verified", 337: "337. **O1c one-way verified",
            339: "339. **B5a one-way verified",
            341: "341. **C8 one-way verified",
-           348: "348. **ARRIVAL at the small end verified"}
+           348: "348. **ARRIVAL at the small end verified",
+           355: "355. **FAR at both ends verified"}
 NA = "n/a"
 
 
@@ -361,6 +368,35 @@ ROWS = [
      [("arrival_small.py", 348), ("verify_ledger.py", 348)], NO_O, NO_B, NO_E),
     (348, "outside", "README-HELD's profile artefact; the item-346 note; L2 tests a marker, not its substance",
      [("README-HELD.md", 348), ("arrival_small.py", 346), ("verify_ledger.py", 348)], NO_O, NO_B, NO_E),
+    # item 355: the FAR verifier's report
+    (355, "Q1", "F10 (b): mu at T_E not above the total enclosed, given spherical symmetry and positive energy",
+     [("far_small.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q2", "F10 (b), F9 (i): 319's J5 re-reading unlabelled; J1's F1 and H-ASYMMETRIC-BOUNCE unnamed",
+     [("far_small.py", 355)], NO_O, NO_B, N("C8 names 319's re-reading of J5 and J1's use of F1 (341 (Q2))")),
+    (355, "Q3", "F10 (k): 273 (a) misdescribed; 270 (a), 273 (a), 336 (a) unlabelled; the map used through V6",
+     [("far_small.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q4", "F9 (b): the Hawking negative ingoing flux near the horizon, partly outside it", [("far_small.py", 355)],
+     NO_O, NO_B, NO_E),
+    (355, "Q5", "F9 (i): B4d resting on FAR is the register's reading, not 210's words", [("far_small.py", 355)],
+     NO_O, NO_B, NO_E),
+    (355, "Q6", "F4's margin for mu = r_h^2 only; position 2's side needs U and ell+ above mu^(1/2)",
+     [("far_small.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q7", "L3, L4, L9: GT's RS-gauge tensor structure; the round failure and the elongated success survive",
+     [("far_large.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q8", "L5: Figueras and Wiseman's Poincare horizon far away is their assumption", [("far_large.py", 355)],
+     NO_O, NO_B, NO_E),
+    (355, "Q9", "L6: the content's bound an estimate by analogy, not deduced", [("far_large.py", 355)], NO_O, NO_B,
+     NO_E),
+    (355, "Q10", "L9 (d), L10: position 2's own mass at the large end, m2/m up to 2", [("far_large.py", 355)], NO_O,
+     NO_B, NO_E),
+    (355, "Q11", "L9 (e): a collimated pulse", [("far_large.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q12", "FAR_BEAR: (319, outside)'s reason; incomplete carries at 304, 341, 348 and 261",
+     [("far_small.py", 355), ("verify_ledger.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q13", "L9 (i): 226 with tension and 320 (b) omitted", [("far_large.py", 355)], NO_O, NO_B, NO_E),
+    (355, "Q14", "L4 (a): every round surface trapped only for N > 1.13 N_L", [("far_large.py", 355)], NO_O, NO_B,
+     NO_E),
+    (355, "outside", "item 354's inventory bears on Q2, Q3, Q7 and Q13; L4 (a) backs F5 (c) at the small end",
+     [("far_large.py", 355), ("readings.py", 355)], NO_O, NO_B, NO_E),
 ]
 # [Item 344] ARRIVAL queued -- M: "ARRIVAL is ready for the verifier" -- and accounted against every row, beside the
 # record's three columns (O1c, B5a and C8, verified at 337, 339 and 341): carried, with its marker in arrival_small, or
@@ -479,6 +515,22 @@ ARRIVAL_BEAR = {
     (348, "Q7-Q10"): C(A, "158 (2) is consonant, not a premise"),
     (348, "Q11"): C(A, "is the grid's first point above 5.27 and 4.79"),
     (348, "outside"): C(A, "the model ARRIVALs uses stands in for SOURCEs"),
+    # [item 355] the FAR verifier's report, against the verified ARRIVAL
+    (355, "Q1"): N("ARRIVAL makes no claim on mu at a far surface"),
+    (355, "Q2"): N("ARRIVAL carries J1's use of F1 (304, outside) and uses no J5 bound"),
+    (355, "Q3"): N("ARRIVAL names 273 (a) as the Kruskal isometry (348 (Q5))"),
+    (355, "Q4"): N("ARRIVAL places no Hawking flux"),
+    (355, "Q5"): N("ARRIVAL cites no 210"),
+    (355, "Q6"): N("ARRIVAL uses no far-surface margin"),
+    (355, "Q7"): N("the large end not claimed"),
+    (355, "Q8"): N("the large end not claimed"),
+    (355, "Q9"): N("the large end not claimed"),
+    (355, "Q10"): N("the large end not claimed"),
+    (355, "Q11"): N("the large end not claimed"),
+    (355, "Q12"): N("FAR's own column"),
+    (355, "Q13"): N("the large end not claimed"),
+    (355, "Q14"): N("the large end not claimed"),
+    (355, "outside"): N("item 354's inventory is readings.py's; ARRIVAL's readings stand in it"),
 }
 # [Item 351] FAR at both ends queued -- M: "FAR both ends is now ready for the verifier." -- and accounted against every
 # row: carried, with its marker in far_small or far_large, or not bearing, with the reason
@@ -495,7 +547,8 @@ FAR_BEAR = {
                    "form of E"),
     (258, "Q2"): C(FL_, "the horizon is pancake-like"),
     (261, "Q1-Q2"): C(FL_, "is the two-end construct's switch, a convention"),
-    (261, "Q3"): C(FL_, "C3 F5, verified 261"),
+    (261, "Q3"): C(FL_, "the large end is four-dimensional Schwarzschild on the plane with corrections "
+                         "O(ell^2/r0^2), non-extremal"),                                   # [item 355 (Q12)]
     (264, "Q1"): N("FAR takes write_small S3's floor and weak field, not S4"),
     (264, "Q2,Q5"): N("FAR takes S3's head floor at Z = 106.75 for its cover, not the variants"),
     (264, "Q3,Q4,Q6"): N("FAR counts its cover in clocks of r_h/c with S3's floor at R1 (F4, F9 (c)), the large end's "
@@ -523,7 +576,7 @@ FAR_BEAR = {
     (304, "Q7"): N("FAR makes no \"only through our future interior\" claim"),
     (304, "Q8"): N("FAR uses no crossing time"),
     (304, "Q9"): N("FAR cites no K2"),
-    (304, "outside"): C(FS_, "names the potential's fall-off"),
+    (304, "outside"): C(FS_, "which uses m1p2x_fifth F1 as outflow (304, outside)"),          # [item 355 (Q12)]
     (310, "Q1+critic"): N("FAR traces no route through the faces; T_E lies outside both"),
     (310, "Q2"): N("FAR uses no R6"),
     (310, "Q3"): C(FS_, "position 2 reads its own mass (240)"),
@@ -535,7 +588,7 @@ FAR_BEAR = {
     (310, "Q10"): N("FAR calls c4_residue's calculator, its mutants tightened there"),
     (310, "outside G5"): C(FS_, "U/ell moves as g^(1/3), to 1.29e-10 and 8.95e-11"),
     (310, "outside metric"): C(FS_, "the pair is curved (B5a's offset)"),
-    (310, "outside map"): N("FAR uses no gluing map: its two sides are the coincident pair's (275)"),
+    (310, "outside map"): C(FS_, "uses that map through arrival_small V6's readings"),        # [item 355 (Q3)]
     (317, "Q1"): N("FAR uses no pairing; a ray meeting the corridor is Z3bs's reading of 318 (F6)"),
     (317, "Q2"): N("FAR uses no species cap and no life figure"),
     (317, "Q3"): C(FS_, "neither is spherical"),
@@ -543,7 +596,7 @@ FAR_BEAR = {
     (317, "Q5"): N("FAR uses no advanced time"),
     (317, "Q6,Q9,Q10"): N("FAR quotes no 198 option text and uses no U7 or U10; its own read-back is F7's f2, flagged "
                           "void"),
-    (317, "Q7"): N("FAR uses no gluing map; its position-2 mu is arrival_small V6's readings (verified, 348)"),
+    (317, "Q7"): C(FS_, "uses that map through arrival_small V6's readings"),                 # [item 355 (Q3)]
     (317, "Q8"): C(FS_, "warp order enters the hole's near field at first order in rho/ell"),
     (317, "outside"): N("(c) is the WRITE row's; FAR uses no pairing and no one-way test by point"),
     (319, "Q1"): C(FS_, "bounded over the face's open period by c_junction J5"),
@@ -551,7 +604,8 @@ FAR_BEAR = {
     (319, "Q3"): C(FS_, "within V6's readings r_h^2 to 4^(2/3)"),
     (319, "Q4"): N("FAR uses neither T3 nor E3"),
     (319, "Q5-Q7"): C(FS_, "the sheets carry our plane's dark energy beside the tension"),
-    (319, "outside"): N("FAR uses no pair_math"),
+    (319, "outside"): N("F6 rests on Z3bs's reading of 318 (pair_math P2-P4), since proved (readings Q1); 319's "
+                        "corrections to pair_math bear on that reading, not on FAR's far region (355 (Q12))"),
     (332, "Q1"): C(FS_, "328 and B8 (each side Einstein, the Gauss-Bonnet coupling zero)"),
     (332, "Q2"): N("FAR rests on B8 under 328 (C7, C10), not on C6"),
     (332, "Q3"): NO_F,
@@ -580,7 +634,7 @@ FAR_BEAR = {
     (339, "outside"): N("FAR takes no constancy of C1"),
     (341, "Q1"): N("FAR uses no V5 (d)"),
     (341, "Q2"): C(FS_, "M-P2-OWN-G (330) with 226"),
-    (341, "Q3"): C(FS_, "Barcelo's threshold read at the face (341 (Q3))"),
+    (341, "Q3"): C(FS_, "J5's re-reading at 319 is a board reading"),                          # [item 355 (Q12)]
     (341, "Q4"): C(FS_, "hold under both conventions for sigma"),
     (341, "Q5"): N("FAR's f1 and f2 populations are F7's own, not V8's columns"),
     (341, "Q6"): N("FAR uses no x+"),
@@ -601,6 +655,22 @@ FAR_BEAR = {
     (348, "Q11"): C(FS_, "F0's words are checked inside the item each is cited to"),
     (348, "outside"): N("FAR uses no README-HELD profile; the ledger's limit, a marker and not its substance, "
                         "stands for this gate too"),
+    # [item 355] FAR's own report, each carried in far_small F11 or far_large L11
+    (355, "Q1"): C(FS_, "not above the total energy enclosed, given classical positive energy"),
+    (355, "Q2"): C(FS_, "J5's re-reading at 319 is a board reading"),
+    (355, "Q3"): C(FS_, "uses that map through arrival_small V6's readings"),
+    (355, "Q4"): C(FS_, "the Hawking negative ingoing flux of the Unruh state lies near the horizon"),
+    (355, "Q5"): C(FS_, "is the register's reading (its B4d row and SUPERSEDED_RESTS)"),
+    (355, "Q6"): C(FS_, "it needs U and ell+ above mu^(1/2)"),
+    (355, "Q7"): C(FL_, "Phi has Garriga and Tanaka's shape, not their tensor structure"),
+    (355, "Q8"): C(FL_, "it is their boundary condition, not their result"),
+    (355, "Q9"): C(FL_, "is an estimate by analogy, not a deduction"),
+    (355, "Q10"): C(FL_, "m2/m = (G2/G)^(1/2) = 1, 1.41 or 2"),
+    (355, "Q11"): C(FL_, "a collimated pulse focuses locally"),
+    (355, "Q12"): C(FS_, "Q12, the gate's carries corrected in verify_ledger's FAR column"),
+    (355, "Q13"): C(FL_, "L9 (i)'s rests-on, completed"),
+    (355, "Q14"): C(FL_, "holds for N > 1.13 N_L"),
+    (355, "outside"): C(FL_, "L4's exact result backs F5 (c)'s far-zone order"),
 }
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
@@ -721,12 +791,13 @@ def report(o):
     print("   [item 331] brought current: %s; the register's history now reaches item %s; its current statement "
           "present: %s" % (", ".join("%s %s %s" % (lab, f, ok) for lab, f, n, ok in o["brought"]), o["reg_now"],
                            all(ok for _, _, ok in o["current"])))
-    print("L5 C9 verified, item 332; O1c, item 337; B5a, item 339; C8, item 341; ARRIVAL, item 348 -- their rows "
-          "above, carried where they bear; the queue holds FAR at both ends (item 351)")
+    print("L5 C9 verified, item 332; O1c, item 337; B5a, item 339; C8, item 341; ARRIVAL, item 348; FAR at both ends, "
+          "item 355 -- their rows above, carried where they bear; the queue is empty")
     print("L6 (item 344) ARRIVAL (verified, item 348): every row accounted for it: %s; carried %d, not bearing %d" % (
         o["arr_rows"], sum(b[0] == "carried" for b in o["abear"].values()),
         sum(b[0] == NA for b in o["abear"].values())))
-    print("L7 (item 351) FAR at both ends (queued): every row accounted for it: %s; carried %d, not bearing %d" % (
+    print("L7 (item 351) FAR at both ends (verified, item 355): every row accounted for it: %s; carried %d, not "
+          "bearing %d" % (
         o["far_rows"], sum(b[0] == "carried" for b in o["fbear"].values()),
         sum(b[0] == NA for b in o["fbear"].values())))
 
@@ -734,7 +805,7 @@ def report(o):
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("L0 M's item-330 words and the seventeen reports' headers verbatim in the rulings file",
+    add("L0 M's item-330 words and the eighteen reports' headers verbatim in the rulings file",
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
@@ -749,10 +820,10 @@ def checks(o):
     add("L4 (item 331) the three rows outstanding outside the queue each brought current, marked in their instruments",
         all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
-    add("L4 every report of the seventeen has its rows in the ledger", reps == set(HEADERS))
-    add("L6 (item 344) ARRIVAL accounted against every row of the seventeen reports, each carried in "
+    add("L4 every report of the eighteen has its rows in the ledger", reps == set(HEADERS))
+    add("L6 (item 344) ARRIVAL accounted against every row of the eighteen reports, each carried in "
         "arrival_small or not bearing with its reason", o["arr_rows"])
-    add("L7 (item 351) FAR at both ends accounted against every row of the seventeen reports, each carried in far_small "
+    add("L7 (item 351) FAR at both ends accounted against every row of the eighteen reports, each carried in far_small "
         "or far_large or not bearing with its reason", o["far_rows"])
     return res
 

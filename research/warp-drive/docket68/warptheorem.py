@@ -71,7 +71,9 @@ all three. They are one fact: a face shrinking to zero ends in a Planck-scale re
 interior's core meets it; each is located and bounded (b4d_small D13-D18), and B3s and B4ds become READINGs on the
 board's H-PLANCK-ENDS once FAR's verdict is accounted.] [Item 353: M confirmed it -- M-PLANCK-ENDS.] [Item 354: M, "Prove all
 board readings": the readings in force are inventoried and proved one by one (lemmas/readings.py); 318's is proved, so
-Z3bs is DERIVED.]
+Z3bs is DERIVED.] [Item 355: FAR verified at both ends, CONFIRMED with qualifications, nothing refuted; its fourteen
+carried (far_small F11, far_large L11, verify_ledger, readings).  FAR's verdict accounted, B3s and B4ds become READINGs
+(353 (a)), resting as M's on M-PLANCK-ENDS and on the board's readings that remain.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -370,13 +372,16 @@ LEMMAS_NOW = [
      'C1 H1-H2 (localized_hole.py, verified 254; c1_oneway, verified 304); large end bulk/localbulk.py L3-L4'),
     # [item 351] B3 and B4d split by end: the small end's worked on the one-way object (b4d_small), the large end's
     # the record's
-    ('B', "B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247)", 'OPEN',
+    # [item 355] FAR's verdict accounted: B3s and B4ds OPEN -> READING (353 (a))
+    ('B', "B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247)", 'READING',
      ("lemmas/b4d_small.py D10 (351): every cell a row computed, derived, verified or M's -- before the opening B7 "
       "and B4a, the opening ARRIVALs, the hold O3s and WRITEs, the interior O1cs and O1bs, 273's region, position 2's "
       "face, the closing CLOSEs, the far boundary FARs -- the static localized hole known only numerically for one "
       "plane (Kudoh-Tanaka-Nakamura, read at 254; Figueras-Wiseman's branch, 261) and at the example through its "
       "first-order deviation; open: B4ds's fork (D11), worked for the math at 352 (D13-D18) -- every cell located, the "
-      "Planck-scale ones bounded; READING on M-PLANCK-ENDS (353) once FAR's verdict is accounted")),
+      "Planck-scale ones bounded; READING on M-PLANCK-ENDS (353) once FAR's verdict is accounted -- accounted at 355: "
+      "a READING, resting as M's on M-PLANCK-ENDS and on the board's readings that remain (readings.py: the radial "
+      "null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover)")),
     ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
@@ -389,7 +394,7 @@ LEMMAS_NOW = [
     ('B',
      ("B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is "
       "kept, and data beyond the opening's causal future join the untouched exterior"),
-     'OPEN',
+     'READING',
      ("lemmas/b4d_small.py D0-D12 (351): the opening regular outside our face on 340's compact reading, the onset's "
       "escape exactly at lambda <= 1/27 (D2); the hold O3s's (D3); the interior classical down to r_c = 7.09e-23 m, "
       "273's region below it (D4); position 2's face open at most 33.60 clocks (D5); the closing semiclassical until "
@@ -400,7 +405,10 @@ LEMMAS_NOW = [
       "l5 across where the core meets it (D13): our face's end open to our universe, at most 2.05 J and 176 bits, "
       "complete evaporation or a remnant on M's rulings (D14); the core keeping what enters after 33.6 clocks, none "
       "of it crossing (D15); position 2's face's end open to position 2, the mirror of our face's birth (D16) -- "
-      "READING on H-PLANCK-ENDS, confirmed by M as M-PLANCK-ENDS (353), once FAR's verdict is accounted (D18)")),
+      "READING on H-PLANCK-ENDS, confirmed by M as M-PLANCK-ENDS (353), once FAR's verdict is accounted (D18) -- "
+      "accounted at 355: a READING, resting as M's on M-PLANCK-ENDS and on the board's readings that remain "
+      "(readings.py: the radial null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and "
+      "cover)")),
     ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
       "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351)")),
@@ -514,7 +522,9 @@ LEMMAS_NOW = [
       "below the margin (F4, F5); (Z), (G), 139 (1) under 226 and 166 under 275 (F6); the calculator deciding neither "
       "clause (F7) -- a reading on H-HOLE-IN-WARP, Z3bs's reading of 318 and 320 (b)'s limit (F9); its use in a "
       "censorship theorem B4's and B4d's; finalized by M with FAR (351), accounted before its verifier (F10; "
-      "verify_ledger L7), at its verifier")),
+      "verify_ledger L7); verified, CONFIRMED with qualifications, nothing refuted (355), each carried in F11 -- "
+      "among them F4's margin taken for mu = r_h^2 only, position 2's side needing U and ell+ above mu^(1/2) (Q6), "
+      "and the Hawking negative ingoing flux near the horizon, partly outside it (Q4)")),
     # [item 350] FAR at the large end worked: a reading on H-GT-IN-WARP (far_large L0-L9)
     ('N',
      ("FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's "
@@ -529,8 +539,10 @@ LEMMAS_NOW = [
       "419,377, every K >= 1 + 5.4e-6 serves, the hole lowering the least theta+ U by 5.1e-6 (L5, L9); (Z), (G), "
       "139 (1) and 166 as at the small end (L7); the calculator deciding neither clause (L8) -- a reading on "
       "H-GT-IN-WARP and the record's cover (L9); the rays meeting the corridor Z3b's, OPEN; its use in a censorship "
-      "theorem B4's and B4d's; finalized by M with FARs (351), accounted before its verifier (L10; verify_ledger L7), "
-      "at its verifier")),
+      "theorem B4's and B4d's; finalized by M with FARs (351), accounted before its verifier (L10; verify_ledger L7); "
+      "verified, CONFIRMED with qualifications, nothing refuted (355), each carried in L11 -- Phi Garriga and "
+      "Tanaka's shape, not their RS-gauge tensor structure, the round failure and the elongated success surviving "
+      "it (Q7); every round surface trapped only for N > 1.13 N_L (Q14); position 2's own mass m2/m up to 2 (Q10)")),
     ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '

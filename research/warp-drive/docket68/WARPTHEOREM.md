@@ -137,6 +137,20 @@ with where it was seated, the rows that use it, and its kind. So far:
 
 318's reading is proved, so **Z3bs is now derived**.
 
+**Since item 355: FAR is verified at both ends** (CONFIRMED with qualifications, nothing refuted). The verifier
+re-derived the figures with its own code and read Garriga and Tanaka's equations. All fourteen qualifications are
+accepted and seated in `far_small.py` F11, `far_large.py` L11, `verify_ledger.py` and `readings.py`. Three of them
+change what the rows say:
+- At the large end, Garriga and Tanaka's own gauge reshapes the field FAR used: the round surface still fails at its
+  tip, and the elongated one still holds (Q7).
+- "Every round surface trapped" holds only for N above 1.13 N_L, since at the large end's start ℓ/m = 1.596 (Q14).
+- At the small end, F4's margin was taken for μ = r_h²; position 2's side needs U and ℓ₊ above μ^(1/2) (Q6).
+
+FAR's verdict is accounted (`verify_ledger.py` L7, selftest 10/10, mutants 8/8), so **B3s and B4ds are now readings**
+(353 (a)). Each rests on your M-PLANCK-ENDS and on the board's readings that remain: the null-dust model, which
+SOURCEs replaces, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover. 340's compact arrival and J5's bound, also named at 353,
+were proved at item 354.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -167,10 +181,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
 | B | B2t its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s M1 | localized_hole.py, localbulk.py |
-| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | **OPEN** | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351) |
+| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); M-PLANCK-ENDS |
 | B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's) |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
-| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | **OPEN** | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D12 (351); fork to M |
+| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D18 (351-355); M-PLANCK-ENDS |
 | B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's) |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
 | B | B5c position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285) | derived | -- | e_positive.py |
@@ -200,8 +214,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
-| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F10 (347-351); at its verifier |
-| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | reading | -- | far_large.py L0-L10 (350, 351); at its verifier |
+| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F11 (347-355); verified 355 |
+| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | reading | -- | far_large.py L0-L11 (350-355); verified 355 |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
@@ -211,7 +225,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-66 rows, 52 lemmas and 14 inputs: 20 proved, 25 derived, 3 under a named reading of the board's, 5 definitions, 13 OPEN.
+66 rows, 52 lemmas and 14 inputs: 20 proved, 25 derived, 5 under a named reading of the board's, 5 definitions, 11 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -281,7 +295,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     - **Where B4ds stands.** Regular in five dimensions wherever the curvature is below the Planck scale. Five
       Planck-scale places are each located: the arrival's onset (hidden), the bounce (yours, 273), the core (inside our
       face), and the two faces' ends (open, bounded). On the board's reading H-PLANCK-ENDS, B4ds and B3s become readings
-      once FAR's verdict is accounted.
+      once FAR's verdict is accounted. *Item 355: accounted; both are readings.*
   - **FAR:** the hole's far field in the Randall–Sundrum background. *Since item 349: worked and seated as FARs, a
     reading, and put to you for finalization (below).*
 - **FAR at the small end, worked (items 347, 349; `far_small.py` F0–F9). Finalized?**
@@ -301,6 +315,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   - *Item 350: held at this state, not finalized and not sent to a verifier; it goes to you with the large end.*
 - **FAR at the large end, worked (item 350; `far_large.py` L0–L9). Finalized, with FARs?** *Item 351: yes, both
   ends together; at its verifier, every earlier verification accounted against it (F10, L10; `verify_ledger.py` L7).*
+  *Item 355: verified, CONFIRMED with qualifications; the fourteen are seated (F11, L11) and the queue is empty.*
   - The question is FARs', at the large end. The bulk is the same coincident sheets' two-sided bulk, so FARs' background
     carries over unchanged: every side AdS, and every surface at least as deep as it is wide untrapped with no hole.
   - The hole is now the record's four-dimensional corridor, r₀ = 2m with r₀ ≫ ℓ, and its field reaches into the bulk.
@@ -2490,7 +2505,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–354: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–355: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2699,6 +2714,12 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   force. 19 are proved by deduction from your words or by computation; 4 were already yours or proved; 4 run through
   SOURCEs, which you placed last; the rest are being worked. 318's reading is proved, so Z3bs is derived (66 rows: 3
   readings, 13 OPEN).
+- **355, FAR at both ends verified** (CONFIRMED with qualifications, nothing refuted). Fourteen qualifications, all
+  accepted by a critic in conversation and seated: in `far_small.py` F11 and its item-355 notes (selftest 10/10,
+  mutants 8/8), `far_large.py` L11 (selftest 10/10, mutants 6/6), `verify_ledger.py` (FAR's own column corrected,
+  Q12) and `readings.py` (the note outside FAR). The most consequential is Q7: Garriga and Tanaka's RS gauge moves the
+  marginal ℓ of a round surface from 3m/2 to 2m, and the round failure and the elongated success both survive it.
+  FAR's verdict is accounted, so B3s and B4ds become readings (353 (a)) (66 rows: 5 readings, 11 OPEN).
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

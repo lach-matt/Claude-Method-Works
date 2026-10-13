@@ -115,6 +115,29 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      corrections O(ell^2/r0^2), non-extremal; L4 uses only its monopole m.  (d) 310 (outside G5): the large end's figures
      are in m and ell; G5 enters only through each side's amplitude, L9 (d)'s factor of order one.  (e) 337 (Q9), 348
      (Q11): L0's 256, 273 and 275 are the options M chose, their texts the board's.
+  L11 (item 355, the verifier's report -- CONFIRMED with qualifications, nothing refuted; deduced, and computed where
+     marked) (a) Q7: Phi has Garriga and Tanaka's shape, not their tensor structure.  In their RS gauge (eqs. (12) and
+     (21), READ) h00/a^2 = (4/3) m (2 r^2 + 3 Z^2)/d^3, 8m/(3r) on the wall; the brane-parallel spatial part is
+     traceless, h_rr from eq. (21); h55 = 0; the bending term (19) makes the wall's 2m/r.  At the round tip GT's own
+     field pulls 4 (3U + 2 ell)/(9 (U + ell)) times the test form's, 4/3 for U >> ell (the verifier's computation,
+     reproduced in readings), so the round failure survives in GT's own field, its marginal ell moving from 3m/2 to 2m
+     (computed).  L4 (a)'s exact threshold is the test form's, and "round" is a coordinate shape at O(m/U) in AdS
+     units.  The elongated success survives too: away from the rim its margin is (K - 1) O(1/ell) against perturbations
+     O(m/U) O(1/ell), near the rim O(m/U^2) against (2 + 1/K)/U -- L9 (c)'s "c of order one".  (b) Q8: Figueras and
+     Wiseman assume the metric tends to the Poincare horizon far away (their p. 2, "We assume ..."); it is their
+     boundary condition, not their result.  (c) Q9: L6's statement on the bulk's content is an estimate by analogy, not a
+     deduction: content spread through the bulk has neither the brane field's shape nor its gradient bound.  (d) Q10: at
+     the large end position 2's face carries its own mass (240; 310 (Q3)), m2/m = (G2/G)^(1/2) = 1, 1.41 or 2 at the
+     twelve (computed); with L9 (d)'s factor of at most 2 the bound moves by about 4 at most, against 6.2e4.  (e) Q11: L9
+     (e)'s estimate holds for emission spread over T_E, as Hawking emission is; a collimated pulse focuses locally by
+     about 8 pi G E_p/(c^4 A) and would reach the margin only through a cross-section below about 8 pi (E_p/E) m U.  (f)
+     Q13: L9 (i)'s rests-on, completed: 226 read to include each position 2's tension, and 320 (b)'s limit, both used
+     through L1 and L2, and both since proved (readings Q4, Q17).  (g) Q14: at the large end's start, N = N_L, ell/m =
+     (8/pi)^(1/2) = 1.596 > 3/2 (computed), so the round tip is untrapped there; L4 (a)'s "every round surface trapped"
+     holds for N > 1.13 N_L, and L4 (c)'s "a round one is not" reads as "not at every ell".  (h) Q12: the gate's (261,
+     Q3) is carried by L10 (c), not L1's citation.  Outside FAR, the verifier's note: at the small end m/ell = (3
+     pi/8)(r_h/ell)^2 << 1, so L4 (a)'s ell < 3m/2 never holds there, and L4's exact result backs F5 (c)'s far-zone
+     order.
 
 What this does not claim.
   - The exact large hole on the two-sided bulk: Figueras-Wiseman's construction is numerical, Z2-symmetric and
@@ -359,6 +382,16 @@ def checks(o):
         if "  L10 (item 351" in doc else ""
     add("L10 (item 351) the gate: every row carried at the large end named in L10",
         all(g in l10 for g in ("261 (Q1)-(Q2)", "267 (Q6)", "261 (Q3)", "310 (outside G5)", "337 (Q9)")))
+    # [item 355] the verifier's qualifications at the large end, each named in L11 (the mutant: L11 left unwritten)
+    doc = __doc__ if not MUT.get("verdict_unwritten") else __doc__.split("  L11 (item 355")[0]
+    l11 = " ".join(doc.split("  L11 (item 355")[1].split("What this does not claim")[0].split()) \
+        if "  L11 (item 355" in doc else ""
+    lm_start = math.sqrt(8 / math.pi)                                # ell/m at N = N_L
+    add("L11 (item 355) the verifier's Q7-Q11, Q13, Q14 carried; ell/m = 1.596 at N_L, the round tip trapped for N > "
+        "1.13 N_L; m2/m = 1, 1.41, 2; GT's own field moving the marginal ell from 3m/2 to 2m",
+        all("Q%d" % k in l11 for k in (7, 8, 9, 10, 11, 13, 14)) and "%.4g" % lm_start == "1.596"
+        and "%.3g" % ((lm_start / 1.5) ** 2) == "1.13" and 1.5 * 4 / 3 == 2.0
+        and ["%.3g" % math.sqrt(g) for g in (1, 2, 4)] == ["1", "1.41", "2"])
     return res
 
 
@@ -366,7 +399,8 @@ MUTANTS = {"profile_wall_only": "the far field's gradient taken at the wall's co
            "field_sign": "the hole's pull on the far surface taken outward (L4)",
            "profile_isotropic": "the far field taken as four-dimensional 2m/d, not Garriga-Tanaka's profile (L4)",
            "cover_reach": "the cover taken on the write's gas ball (2 + T) m, not R_reach = (2 + 2T) m (L5)",
-           "gate_unwritten": "the verifications' rows that bear at the large end left uncarried (L10; item 351)"}
+           "gate_unwritten": "the verifications' rows that bear at the large end left uncarried (L10; item 351)",
+           "verdict_unwritten": "the verifier's qualifications at the large end left unseated (L11; item 355)"}
 
 
 def selftest():

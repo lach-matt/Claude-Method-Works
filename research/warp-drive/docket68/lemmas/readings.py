@@ -119,6 +119,12 @@ reading of M's words), form (a physical test form), model (a model of what a def
 construction the board chose), protocol (how the calculator is asked) -- and its state: proved here (the Q-entry),
 proved before, M's (the item that made it so), to prove (the route), or through SOURCE (M-SOURCE-LAST).
 
+[Item 355: FAR's verifier found this inventory bearing on four of its qualifications, each carried in far_small F11 or
+far_large L11 -- (Q2), 319's re-reading of J5, J1's use of F1 and H-ASYMMETRIC-BOUNCE unlabelled there: here RJ5 (Q14)
+and RASYM (Q20); (Q3), 273 (a) misdescribed and 270 (a), 273 (a), 336 (a) unlabelled: here Q5, Q8 and Q13; (Q7),
+Garriga and Tanaka's RS-gauge tensor structure: RGT, whose proof is that gauge's own; (Q13), 226 with tension and 320
+(b) omitted from L9 (i)'s rests-on: here Q4 and Q17.  The inventory's entries stand as written.]
+
 What this does not claim.
   - That the inventory is closed beyond the rows' own instruments: a reading named only in an instrument no row cites
     is not in it.

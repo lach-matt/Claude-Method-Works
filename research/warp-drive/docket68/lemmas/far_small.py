@@ -166,6 +166,28 @@ session; not seated); 2026-10-13.
      with 226, F2's kappa+ being position 2's own coupling; 270 (a) (the one object's two faces, ours and position 2's
      white-hole face), 273 (a) (the bounce opening on position 2's exterior) and 336 (a) (position 2's energy its own),
      through F4's position-2 side and V6; and 320 (b)-(c) (the empty bulk and the vacuum readings, limits).
+  F11 (item 355, the verifier's report -- CONFIRMED with qualifications, nothing refuted; deduced, and computed where
+     marked) (a) Q1: F10 (b)'s "redistributes but does not raise" holds given spherical symmetry, so that the
+     Misner-Sharp mu is defined, as in F5 (a), and classical positive energy for position 2's fields outside its face,
+     which keeps mu monotone and bounded by the energy enclosed.  A collision of hugging and outgoing flux (Dray-'t
+     Hooft-Redmount; Eardley's white-hole conversion) can raise mu inside T_E, never above the total enclosed, so any
+     trapped sphere lies at r <= mu_tot^(1/2) << U.  Correct statement: "not above the total energy enclosed, given
+     classical positive energy for position 2's fields outside its face".  (b) Q2: J5's re-reading at 319 is a board
+     reading -- since proved (readings Q14) -- and e^33.6 rests on c_junction J1, which uses m1p2x_fifth F1 as outflow
+     (304, outside), and on J3's H-ASYMMETRIC-BOUNCE, since proved (readings Q20).  None is load-bearing here: the mu
+     argument does not use the bound's size.  (c) Q3: 273 (a) is the board's reading of the bounce as Haggard and
+     Rovelli's with the Kruskal isometry (U, V) -> (-U, -V); the white hole opening on position 2's exterior is the
+     option text M chose at 273.  F4's position-2 side uses that map through arrival_small V6's readings.  270 (a), 273
+     (a) and 336 (a) were board readings when F10 (k) named them; each is since proved (readings Q5, Q8, Q13).  (d) Q4:
+     F9 (b)'s emission -- the Hawking negative ingoing flux of the Unruh state lies near the horizon, partly outside it,
+     not inside our face; it lies deep inside T_E and only lowers the energy T_E encloses, so the conclusion stands.  (e)
+     Q5: that B4d rests on FAR is the register's reading (its B4d row and SUPERSEDED_RESTS), not 210's words.  (f) Q6:
+     F4's "at every ell > r_h for any U > r_h, the margin at least 1/4" holds for mu = r_h^2.  On position 2's side, with
+     mu up to 4^(2/3) r_h^2 and its own ell+, it needs U and ell+ above mu^(1/2): at U = ell = r_h mu/(4U^2) + mu/(2 U
+     ell) reaches 1.89 (computed).  At the example the margin is unchanged.  (g) Q12, the gate's carries corrected in
+     verify_ledger's FAR column: (319, outside) -- F6 rests on Z3bs's reading of 318, pair_math P2-P4, since proved
+     (readings Q1); (310, outside map) and (317, Q7) -- FAR uses the gluing map through V6, carried at (c); (304,
+     outside), (341, Q2), (348, Q5) and (341, Q3) -- J1's use of F1 and the board's re-reading of J5, carried at (b).
 
 What this does not claim.
   - The exact localized hole on the two-sided bulk: known only numerically for one plane (Kudoh-Tanaka-Nakamura's
@@ -595,6 +617,13 @@ def checks(o):
     add("F10 (item 351) the gate: every row carried here named in F10; the blueshift bound e^33.6 = 3.9e14, and "
         "e^34.53 = 9.9e14 under the G5 readings", all(g in f10 for g in gate)
         and "%.2g" % math.exp(33.6) == "3.9e+14" and "%.2g" % math.exp(34.53) == "9.9e+14")
+    # [item 355] the verifier's qualifications, each named in F11 (the mutant: F11 left unwritten)
+    doc = __doc__ if not MUT.get("verdict_unwritten") else __doc__.split("  F11 (item 355")[0]
+    f11 = " ".join(doc.split("  F11 (item 355")[1].split("What this does not claim")[0].split()) \
+        if "  F11 (item 355" in doc else ""
+    mu2 = 4 ** (2 / 3)
+    add("F11 (item 355) the verifier's Q1-Q6 and Q12 carried; position 2's side reaching 1.89 at U = ell = r_h",
+        all("Q%d" % k in f11 for k in (1, 2, 3, 4, 5, 6, 12)) and "%.3g" % (mu2 / 4 + mu2 / 2) == "1.89")
     return res
 
 
@@ -604,7 +633,8 @@ MUTANTS = {"sigma_plus_summed": "position 2's side carrying S1 + S2, not S1 + 2 
            "ms_4d": "the Misner-Sharp falloff taken four-dimensional (F5)",
            "calc_spread": "the two-sided cell of f1 left undecided (F7)",
            "word_wrong_item": "275's words looked for in item 276 (F0; item 349 (a))",
-           "gate_unwritten": "the verifications' rows that bear left uncarried (F10; item 351)"}
+           "gate_unwritten": "the verifications' rows that bear left uncarried (F10; item 351)",
+           "verdict_unwritten": "the verifier's qualifications left unseated (F11; item 355)"}
 
 
 def selftest():

@@ -166,6 +166,10 @@ not verified by a separate session; not seated); 2026-10-13.
      [Item 353: M, verbatim, "I propose one reading for you to confirm. - confirmed" -- H-PLANCK-ENDS is M's,
      M-PLANCK-ENDS.  B3s and B4ds rest on it as M's and on the board's readings that remain (340's compact arrival, the
      radial null-dust model, J5's bound, FARs), so each becomes a READING, not DERIVED, once FAR's verdict is accounted.]
+     [Item 355: FAR verified at both ends, CONFIRMED with qualifications, and its verdict accounted (verify_ledger L7):
+     the register's B3s and B4ds are READINGs, D10 checks them so.  Of the readings 353 names, item 354 has since proved
+     340's compact arrival and J5's bound (readings.py Q2, Q14); the null-dust model (SOURCEs) and FARs's own
+     H-HOLE-IN-WARP and cover remain, with H-SPECIES-FINITE behind D6's g*.]
 
 What this does not claim.
   - The evolution inside 273's region: its form is the board's reading of Haggard and Rovelli's construction (273 (a)),
@@ -285,7 +289,8 @@ def d10():
     if MUT.get("cell_status"):
         cells[2] = ("the opening", "ARRIVALs", "DERIVED")         # the mutant: ARRIVALs' reading read as derived
     return dict(found=[(s, r, st, reg.get(r)) for s, r, st in cells],
-                ok=all(reg.get(r) == st for _, r, st in cells), b3=reg.get("B3"), b4d=reg.get("B4d"))
+                ok=all(reg.get(r) == st for _, r, st in cells), b3=reg.get("B3"), b4d=reg.get("B4d"),
+                b3s=reg.get("B3s"), b4ds=reg.get("B4ds"))                       # [item 355] READINGs
 
 
 # ---------------------------------------------------------------------------------- D13-D16 the three places (352)
@@ -394,7 +399,8 @@ def report(o):
     print("D6 the horizon's curvature %.2g Planck units now; Planckian at r = %.3g l5, %.0f bits, %.2g clocks "
           "left (%.2g of the life)" % (d["k_now"], d["r_star_l5"], d["bits"], d["left"], d["frac"]))
     e = o["d10"]
-    print("D10 the cells against the register: %s (B3 %s, B4d %s)" % (e["ok"], e["b3"], e["b4d"]))
+    print("D10 the cells against the register: %s (B3 %s, B4d %s; B3s %s, B4ds %s, item 355)"
+          % (e["ok"], e["b3"], e["b4d"], e["b3s"], e["b4ds"]))
     for s, r, st, now in e["found"]:
         print("    %-30s %-9s %-9s register: %s" % (s, r, st, now))
     f = o["d13"]
@@ -436,8 +442,8 @@ def checks(o):
         "%.2g" % d["k_now"] == "2.6e-18" and "%.3g" % d["r_star_l5"] == "2.91" and round(d["bits"]) == 176
         and "%.2g" % d["left"] == "0.0022" and "%.2g" % d["frac"] == "2.6e-18")
     e = o["d10"]
-    add("D10 every cell's row in the register with the status stated; B3 and B4d OPEN there", e["ok"]
-        and e["b3"] == "OPEN" and e["b4d"] == "OPEN")
+    add("D10 every cell's row in the register with the status stated; B3 and B4d OPEN there; B3s and B4ds READINGs "
+        "(item 355)", e["ok"] and e["b3"] == "OPEN" and e["b4d"] == "OPEN" and e["b3s"] == e["b4ds"] == "READING")
     f = o["d13"]
     add("D13 (item 352) the Vaidya Kretschmann exactly 72 mu^2/r^8, no term in mu'; 72/mu^2 on r^2 = mu; Planckian at "
         "2.91 l5; the core 6.3e-3 of the face at the example", f["exact"] and f["trap"]
