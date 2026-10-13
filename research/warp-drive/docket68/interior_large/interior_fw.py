@@ -45,7 +45,10 @@ class Interior:
         Jb = np.array([(self._r(s, xb + h * np.eye(4)[k], Xi) - r0) / h for k in range(4)]).T
         dr_in = (self._r(s, xb, Xi + h * Vi) - r0) / h
         dr_s = (self._r(s + h, xb, Xi) - r0) / h
-        vb = np.linalg.solve(Jb, -(dr_in + dr_s))
+        try:
+            vb = np.linalg.solve(Jb, -(dr_in + dr_s))
+        except np.linalg.LinAlgError:
+            vb = np.linalg.lstsq(Jb, -(dr_in + dr_s), rcond=None)[0]
         Xf = self._full(xb, Xi)
         Nx = self.Nx; Vf = np.zeros((5, Nx + 1)); Vf[:, 1:Nx] = Vi; Vf[:4, Nx] = vb; Vf[4, Nx] = 0
         self.axis(Vf)
@@ -107,8 +110,33 @@ if __name__ == "__main__":
     static = dict(file="fw_bt%g_%d_%d.npy" % (b, Ns_st, Nx_st), Ns=Ns_st, Nx=Nx_st)
     I, sol = run(Nx, b, static, s0, s1, rtol=rtol)
     m = I.m
+    pickle.dump(dict(t=sol.t, y=sol.y, Nx=Nx, b=b, s0=s0), open("ifw_%d_%g_%g_%g.pkl" % (Nx, b, s0, s1), "wb"))
     for sv in np.linspace(s0, sol.t[-1], 9):
         Y = sol.sol(sv); Xf, Vf = I.brane_values(sv, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
         print("s=%9.4f  T(ax)=%.6f T(brane)=%.6f minT=%.3e  max|V|=%.2e  max|phi|=%.2e" %
               (sv, Xf[0, 0], Xf[0, -1], Xf[0].min(), np.abs(Vf).max(), np.nanmax(np.abs(phi_at(I, sv, Y)))), flush=True)
     pickle.dump(dict(t=sol.t, y=sol.y, Nx=Nx, b=b, s0=s0), open("ifw_%d_%g_%g_%g.pkl" % (Nx, b, s0, s1), "wb"))
+
+
+def rhs_lambda(I, lam, Z):
+    """lambda = log(1 - s): state (X, W = X_lambda = -(1 - s) X_s); X' = W, W' = W + (1 - s)^2 X_ss"""
+    m = I.m; s = 1.0 - np.exp(lam); f = 1.0 - s
+    X = Z[:5 * m]; W = Z[5 * m:]
+    Y = np.concatenate([X, -W / f])
+    d = I.rhs(s, Y)
+    Xss = d[5 * m:]
+    return np.concatenate([W, W + f * f * Xss])
+
+def run_lambda(I, Y_s, s_start, lam_end, rtol=1e-8, method="Radau", events=None):
+    m = I.m; f0 = 1.0 - s_start
+    Z0 = np.concatenate([Y_s[:5 * m], -f0 * Y_s[5 * m:]])
+    t0 = time.time()
+    sol = solve_ivp(lambda l, z: rhs_lambda(I, l, z), (np.log(f0), lam_end), Z0, method=method, rtol=rtol,
+                    atol=rtol * 1e-2, dense_output=True, events=events)
+    print("lambda-run: %.4f -> %.4f status %d (%s), %d steps, %.0f s" % (np.log(f0), sol.t[-1], sol.status, sol.message,
+                                                                    len(sol.t), time.time() - t0), flush=True)
+    return sol
+
+def state_s(I, lam, Z):
+    m = I.m; s = 1.0 - np.exp(lam); f = 1.0 - s
+    return s, np.concatenate([Z[:5 * m], -Z[5 * m:] / f])

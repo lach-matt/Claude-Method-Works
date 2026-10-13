@@ -71,3 +71,50 @@ growth); T stays positive (axis 0.186 -> 0.111, brane 0.740 -> 0.603): no inner 
 Files added: `gen_eqs_sy.py`, `core_sy.py`, `solver_sy.py`, `gen_eqs_syw.py`, `gen_eqs_sx.py`, `core_sx.py`,
 `solver_sx.py`, `interior2.py`, `short_run.py`, `eig_diag.py` (B1-B2); `gen_eqs_fw.py`, `core_fw.py`, `solver_fw.py`,
 `fw_scan.py`, `fw_eval.py`, `interior_fw.py`, `phi_start.py`, `gen_kretsch_fw.py` (B3-B4).
+
+## Stage B, continued (2026-10-13, item 362)
+
+**B5. The deep interior at bt = 1, and what limits it.** Run to s = -3 at Nx = 16 and 20, the brane solve marched in
+order from the static brane values (warm-starting it from a later state finds another root: T(brane) = 39.8, K ~ 1e45,
+garbage). The DeTurck norm phi = g_ab xi^a xi^b, zero for an Einstein metric, is the test:
+
+| s | phi_max, Nx = 16 | phi_max, Nx = 20 | where |
+|---|---|---|---|
+| -0.002 | 7.6e-6 | 7.6e-6 | near the axis |
+| -1.0 | 3.6e-3 | 7.6e-4 | brane (16), axis (20) |
+| -1.6 | 3.8e-2 | 9.5e-4 | brane |
+| -2.2 | 3.9e-1 | 4.2e-2 | brane |
+| -3.0 | 2.9e+1 | 7.6e-1 | brane |
+
+The metric functions agree between the two resolutions at s = -3 (T on the axis 1.3675e-2 against 1.3676e-2, on the
+brane 0.17151 against 0.17156; A on the axis and B on the brane differ by 4 and 2 per cent), but the brane's
+Kretschmann scalar does not (591 against 92.5 at s = -1.1): the growth at the brane is not physics. The linearised
+right-hand side has no fast brane mode (its most negative Re mu, growth toward decreasing s, is -1.0 to -1.5, an F mode
+near the axis; `eig_brane.py`); the fields' Chebyshev tails in x rise from 1e-6 at s = -0.3 to 5e-5 at s = -1.6 and
+1e-3 at s = -3 (`cheb_tail.py`). The blow-up is loss of x-resolution, delayed by resolution. Trusted range at Nx = 20:
+s >= -1.6.
+
+Constraint damping (`gen_damp_fw.py`, `interior_damp.py`): kap [n_(a xi_b) - (1/3) g_ab n.xi] with n unit, future
+directed (decreasing s) and tilted toward the bulk so that Codazzi's Robin condition on xi_s at the brane falls below
+the threshold of the brane-bound zero mode (in RS-AdS that mode is exactly the brane's translation Killing vector, a
+static solution of the constraint system satisfying xi^x = 0 and Codazzi's condition). 1 + rho = 2/3 makes the
+principal constraint system triangular and damped in five dimensions. At kap = 4, tilt 0.5, Nx = 16: phi at s = -0.3
+is 9.3e-5 against 5.5e-4 undamped (the bulk is damped), but the brane growth starts as before (1.5e-2 at s = -1.24).
+xi from the new generator equals eqs_fw's phi to 7e-16 (`xi_check.py`).
+
+**B6. The chart ends before the singularity.** Across every x the lapse of the s-slices falls as |s|^-2.1 (brane
+0.144 at s = -1, 0.0138 at s = -3; near the axis 0.0354 and 0.00334), so s = -infinity lies at finite proper time from
+the bifurcation surface: about 0.26 ell near the axis and about 1.07 ell on the brane (estimate, from the power law).
+Over the trusted range the curvature there is finite and slowly varying (near the axis 2.2e3 -> 2.7e3, at x = 0.5
+3.2e2 -> 3.0e2, on the brane 74 -> 130, ell^-4), and the brane's area radius levels off (1.128 at the horizon, 0.817
+at s = -1.6, 0.790 at s = -3) where four-dimensional Schwarzschild would go to zero. So the DeTurck chart's
+s = -infinity is a coordinate boundary, not the singularity: the fields approach power laws in u = 1/(1 - s) -- A and
+T ~ u, S and B ~ u^-2, F ~ u^-1 (fitted over the trusted range) -- under which the bulk metric in (u, x) stays
+nondegenerate at u = 0 (g_uu ~ u^2 but g_ux finite), while the reference metric (T = A = B = S = 1, F = 0) degenerates
+there. Reaching the singularity, and 273's region, needs the evolution continued past s = -infinity: a new time u, the
+fields rescaled by those powers, and a reference metric regular across u = 0, blended in smoothly while the old one is
+still regular (a gauge source may change in time without disturbing xi = 0, if it changes smoothly).
+
+Files added: `analyze_fw.py`, `curv_march.py`, `reanalyze.py`, `lam_run.py`, `phi_march.py` (B5 diagnostics);
+`gen_damp_fw.py`, `interior_damp.py`, `xi_check.py`, `analyze_damp.py` (damping; proper time, Kasner exponents and the
+brane against four-dimensional Schwarzschild), `eig_brane.py`, `cheb_tail.py`, `profile.py`.
