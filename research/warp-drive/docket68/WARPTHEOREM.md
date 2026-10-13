@@ -151,6 +151,28 @@ FAR's verdict is accounted (`verify_ledger.py` L7, selftest 10/10, mutants 8/8),
 SOURCEs replaces, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover. 340's compact arrival and J5's bound, also named at 353,
 were proved at item 354.
 
+**Item 354, completed: every board reading is proved or placed** (`readings.py` Q21–Q30; selftest 20/20, mutants
+15/15). The inventory closed at 40 readings, with write_small's five mappings counted one by one:
+- 27 proved here, by deduction from your verbatim words or by computation.
+- 4 yours (270 (c), 273 (b), H-README-ON-PLANE, and H-HOLD-FRAME by your 334), and 1 proved before (276 (a), at 323).
+- 4 that bear on no current row's claim: H-POSITIVE-ON-P2, 139 (3)'s reading, o3_hold's mapping, and c4_oneway's
+  calculator protocols. T5's flag holds on both of its branches.
+- 4 that only SOURCEs can settle, which you placed last: the null-dust arrival, H-BITS-WITH-ENERGY, the free-gas
+  carrier, and the README as a thin shell, which carries nothing the null-dust model does not.
+
+The two test forms are proved against the exact fields. In Garriga and Tanaka's own field, derived at every depth, the
+elongated far surface needs only U > 2mK/(K − 1), inside FAR's (9/4)mK/(K − 1). In the exact linear field of the
+README's mass, solved mode by mode, the hole moves θ₊ on the far surface by at most 5μ/min(U, ℓ)² at every distance:
+2.5×10⁻¹⁰ at the example. **FARs and FAR are now derived**, since every reading each rested on is proved. ARRIVALs, B3s
+and B4ds stay readings, on the null-dust model.
+
+Two findings for the rows:
+- In Garriga and Tanaka's own field a round far surface is trapped at its tip whenever ℓ < 2m, which includes the large
+  end's start (ℓ/m = 1.596). The verifier's N > 1.13 N_L (355, Q14) is the test form's bound, not the field's.
+- WRITEs' 66,980 clocks is the floor at the Standard Model's species. The row's claim, the bulk held through the write,
+  holds at every species count a semiclassical hole allows (up to 3.85×10¹⁴), but the number falls with more species,
+  to 4.37 clocks at that cap.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -214,8 +236,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | **OPEN** | -- | m1_bulk, d_minus (the record's) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
-| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F11 (347-355); verified 355 |
-| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | reading | -- | far_large.py L0-L11 (350-355); verified 355 |
+| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355; derived 354 |
+| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | derived | -- | far_large.py L0-L11 (350-355); verified 355; derived 354 |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
@@ -225,7 +247,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-66 rows, 52 lemmas and 14 inputs: 20 proved, 25 derived, 5 under a named reading of the board's, 5 definitions, 11 OPEN.
+66 rows, 52 lemmas and 14 inputs: 20 proved, 27 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -396,6 +418,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   340's compact arrival (Q2), 166 under 275 (Q3), 226's tension (Q4), 270 (a)'s faces (Q5), 273 (a)'s isometry (Q8),
   275 (a) (Q10), 284 (a) (Q12), 336 (a) (Q13), J5's bound (Q14), the fine count (Q15), 240 (b) (Q16), 320 (b)-(c) (Q17),
   c1_oneway's (B) (Q18), 152 (1) (Q19) and H-ASYMMETRIC-BOUNCE (Q20).*
+- *Item 354, completed: 148's reading (i) (Q22), H-GT-IN-WARP (Q23), H-HOLE-IN-WARP (Q24), the record's cover (Q25) and
+  write_small's five mappings (Q26) are proved; H-SPECIES-FINITE is replaced by the hole's own species bound (Q27);
+  four readings bear on no current row (Q21, Q28); FARs rests on no SOURCE-bound reading (Q30). What stays the board's
+  is the null-dust arrival, H-BITS-WITH-ENERGY, the free-gas carrier and the thin shell, all through SOURCEs.*
 - **H-ONE-INTERIOR** (270 (b)).
 - **The board's readings of 282–330**, each stated in its own item.
 - **340's reading.** The math gives your guess A with a compact arrival, and 334's "while the write runs" is re-read
@@ -2720,6 +2746,10 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   Q12) and `readings.py` (the note outside FAR). The most consequential is Q7: Garriga and Tanaka's RS gauge moves the
   marginal ℓ of a round surface from 3m/2 to 2m, and the round failure and the elongated success both survive it.
   FAR's verdict is accounted, so B3s and B4ds become readings (353 (a)) (66 rows: 5 readings, 11 OPEN).
+- **354, completed.** `readings.py` Q21–Q30 close the inventory at 40 readings: 27 proved, 4 yours, 1 proved before,
+  4 bearing on no current row, 4 through SOURCEs. Garriga and Tanaka's RS-gauge field is derived in closed form at every
+  depth (A = 4m/(3d), C = 2m(2Z² + u²)/(3d³), h₅₅ = 0), and the README's exact linear field from their eq. (11), mode by
+  mode. FARs and FAR become derived (66 rows: 27 derived, 3 readings, 11 OPEN).
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

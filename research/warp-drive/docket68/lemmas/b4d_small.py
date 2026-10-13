@@ -170,6 +170,10 @@ not verified by a separate session; not seated); 2026-10-13.
      the register's B3s and B4ds are READINGs, D10 checks them so.  Of the readings 353 names, item 354 has since proved
      340's compact arrival and J5's bound (readings.py Q2, Q14); the null-dust model (SOURCEs) and FARs's own
      H-HOLE-IN-WARP and cover remain, with H-SPECIES-FINITE behind D6's g*.]
+     [Item 354, completed: H-SPECIES-FINITE is replaced by the hole's own species bound (readings Q27; D6's place,
+     2.91 l5 and 176 bits, moves with no count, its 2.2e-3 clocks as 1/Z), and FARs is DERIVED (Q24, Q25, Q30) -- D10
+     checks the far boundary's cell so.  Of the board's readings B3s and B4ds rest on, only the radial null-dust model
+     remains, the opening's onset in D2, through SOURCE (Q29).]
 
 What this does not claim.
   - The evolution inside 273's region: its form is the board's reading of Haggard and Rovelli's construction (273 (a)),
@@ -215,7 +219,7 @@ COMPACT, SPREAD3, SPREAD4 = 4.79, 5.27, 4.79    # arrival_small V2, V11 (verifie
 CELLS = (("before the opening", "B7", "DERIVED"), ("the global shape", "B4a", "PROVED"),
          ("the opening", "ARRIVALs", "READING"), ("the hold", "O3s", "DERIVED"), ("the write", "WRITEs", "DERIVED"),
          ("the interior", "O1cs", "PROVED"), ("no singularity on the passage", "O1bs", "PROVED"),
-         ("our face's closing", "CLOSEs", "DERIVED"), ("the far boundary", "FARs", "READING"),
+         ("our face's closing", "CLOSEs", "DERIVED"), ("the far boundary", "FARs", "DERIVED"),   # [item 354]
          ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2t", "PROVED"))
 
 

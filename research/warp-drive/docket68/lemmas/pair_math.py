@@ -53,6 +53,11 @@ marked; not verified by a separate session; not seated); 2026-10-12.
      and fail under "183 governs classical rays only"; the board's reading takes the consistent name; (6) Friedman,
      Schleich and Witt's spacetime is "(M, g_ab)", not "(M,g,b)".  Recorded, not repaired.]
 
+  [Item 354 (owed until FAR's verdict, 355, was accounted): 318's reading, the one P4 states -- 183 on every
+  classical ray, the region's negative 177's appearance -- is proved in readings.py Q1, each alternative excluded:
+  183 on every ray by 273 (P3), a partner bringing each ray to zero by P1's Raychaudhuri identity.  Z3bs, which
+  stood on it, is DERIVED.]
+
 What this does not show.
   - The quantum region's own form: P1 says only what any metric through it must do.
   - Which of P4's two names M prefers; the board's reading is given.

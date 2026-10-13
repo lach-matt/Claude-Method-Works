@@ -73,7 +73,10 @@ board's H-PLANCK-ENDS once FAR's verdict is accounted.] [Item 353: M confirmed i
 board readings": the readings in force are inventoried and proved one by one (lemmas/readings.py); 318's is proved, so
 Z3bs is DERIVED.] [Item 355: FAR verified at both ends, CONFIRMED with qualifications, nothing refuted; its fourteen
 carried (far_small F11, far_large L11, verify_ledger, readings).  FAR's verdict accounted, B3s and B4ds become READINGs
-(353 (a)), resting as M's on M-PLANCK-ENDS and on the board's readings that remain.]
+(353 (a)), resting as M's on M-PLANCK-ENDS and on the board's readings that remain.] [Item 354, completed: every board
+reading in force is proved, M's, bearing on no row's claim, or through SOURCE (lemmas/readings.py Q1-Q30, the inventory
+closed at 40).  FARs and FAR become DERIVED, every reading each rested on proved; ARRIVALs, B3s and B4ds stay READINGs
+on the radial null-dust model, and ARRIVALs on the plane's gas too, which only SOURCEs can replace.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -381,7 +384,9 @@ LEMMAS_NOW = [
       "first-order deviation; open: B4ds's fork (D11), worked for the math at 352 (D13-D18) -- every cell located, the "
       "Planck-scale ones bounded; READING on M-PLANCK-ENDS (353) once FAR's verdict is accounted -- accounted at 355: "
       "a READING, resting as M's on M-PLANCK-ENDS and on the board's readings that remain (readings.py: the radial "
-      "null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover)")),
+      "null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover); since 354, "
+      "H-SPECIES-FINITE replaced by the hole's own species bound (readings Q27) and FARs DERIVED (Q24, Q25, Q30), so "
+      "of the board's readings only the null-dust model remains, through SOURCE (Q29)")),
     ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
@@ -408,7 +413,8 @@ LEMMAS_NOW = [
       "READING on H-PLANCK-ENDS, confirmed by M as M-PLANCK-ENDS (353), once FAR's verdict is accounted (D18) -- "
       "accounted at 355: a READING, resting as M's on M-PLANCK-ENDS and on the board's readings that remain "
       "(readings.py: the radial null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and "
-      "cover)")),
+      "cover); since 354, H-SPECIES-FINITE replaced (readings Q27) and FARs DERIVED (Q24, Q25, Q30), so of the "
+      "board's readings only the null-dust model remains -- the opening's onset (D2) -- through SOURCE (Q29)")),
     ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
       "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351)")),
@@ -511,10 +517,11 @@ LEMMAS_NOW = [
     ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
      "the record's (m1p2_cypher, m1p2_junction, theorem_p2)"),
     # [item 349] FAR at the small end worked and seated as FARs; FAR stays the large end's
+    # [item 354] FARs and FAR READING -> DERIVED: every board reading each rested on proved (readings Q23-Q25, Q30)
     ('N',
      ("FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the "
       "README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life"),
-     'READING',
+     'DERIVED',
      ("lemmas/far_small.py F0-F9 (347, 349): each side of the pair AdS, position 2's radius from the junction -- 2 "
       "ell at 139 (1)'s quarter, ell/6 to ell/3 at the twelve (F2); every far surface with W >= U strictly untrapped "
       "at every ell, theta+ >= U/W^2 + 2/U, the round one at 3/U (F3); the hole's near field in the board's test form "
@@ -524,12 +531,15 @@ LEMMAS_NOW = [
       "censorship theorem B4's and B4d's; finalized by M with FAR (351), accounted before its verifier (F10; "
       "verify_ledger L7); verified, CONFIRMED with qualifications, nothing refuted (355), each carried in F11 -- "
       "among them F4's margin taken for mu = r_h^2 only, position 2's side needing U and ell+ above mu^(1/2) (Q6), "
-      "and the Hawking negative ingoing flux near the horizon, partly outside it (Q4)")),
+      "and the Hawking negative ingoing flux near the horizon, partly outside it (Q4); item 354: every reading it "
+      "rested on proved -- H-HOLE-IN-WARP in the exact linear field (readings Q24), 318's (Q1), 320 (b)'s limit (Q17), "
+      "the cover (Q25), 226 and 166 (Q4, Q3) -- and the null-dust model and the free gas carrying no weight on it "
+      "(Q30): DERIVED")),
     # [item 350] FAR at the large end worked: a reading on H-GT-IN-WARP (far_large L0-L9)
     ('N',
      ("FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's "
       "four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell"),
-     'READING',
+     'DERIVED',
      ("lemmas/far_large.py L0-L9 (350): the background FARs' (far_small F2, F3); the large hole's far field in the "
       "bulk from Garriga-Tanaka (READ), relative perturbation m (2 r^2 + 3 Z^2)/d^3, 2m/r on the wall and 3m/Z down "
       "the axis, |grad Phi| <= 3m/d^2 (L3); a round far surface trapped at its tip exactly when ell < 3m/2 and U > "
@@ -542,7 +552,10 @@ LEMMAS_NOW = [
       "theorem B4's and B4d's; finalized by M with FARs (351), accounted before its verifier (L10; verify_ledger L7); "
       "verified, CONFIRMED with qualifications, nothing refuted (355), each carried in L11 -- Phi Garriga and "
       "Tanaka's shape, not their RS-gauge tensor structure, the round failure and the elongated success surviving "
-      "it (Q7); every round surface trapped only for N > 1.13 N_L (Q14); position 2's own mass m2/m up to 2 (Q10)")),
+      "it (Q7); every round surface trapped only for N > 1.13 N_L (Q14); position 2's own mass m2/m up to 2 (Q10); "
+      "item 354: H-GT-IN-WARP proved in Garriga and Tanaka's own field (readings Q23 -- the elongated surface "
+      "untrapped once U > 2m K/(K - 1), the round tip trapped for ell < 2m, so at N_L too, Q14's bound the test "
+      "form's), the cover (Q25), 166 and 226 (Q3, Q4): DERIVED")),
     ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
