@@ -14,6 +14,10 @@ marked; not verified by a separate session; not seated); 2026-10-11.
      x 1/2; 2a: both ours.  The record's trip (p2_gravity.trip, theorem_p2 TC) held one E between the universes (203):
      m2 / m = G2 / G and a capacity (G2 / G) N -- the reading 240 (a) withdraws; matched to the README the capacity at
      position 2 is N exactly.
+     [Item 338: this is the large end's. At the small end E and the face's capacity carry G5 alone, no ell, so matched
+     to the README at position 2's own bit area r_h2/r_h = (G5_2/G5)^(1/3) and E2/E = (G5/G5_2)^(1/3): 1, 0.891, 0.707
+     and 0.630 at ours and 2a, 2b and 2c, 2P and 2a + 2P, 2b + 2P and 2c + 2P (arrival_small V6). The glued object's one
+     r_h agrees with that matching only where G5_2 = G5.]
   C2 (computed) The copy's own mass under position 2's laws.  Rest masses are the shared SI's; the matter law moves an
      atom's mass only through binding, by at most 3.7e-11 (Ag, mirror; p2_matter); G moves none.  So what position 2
      "accounts for as it assembles" is chiefly the closing energy's difference -- E2 - E = -29.3 % at 2b, 2c and 2P, -50

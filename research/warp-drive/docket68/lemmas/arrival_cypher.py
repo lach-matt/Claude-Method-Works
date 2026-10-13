@@ -4,6 +4,11 @@ comes in, with (Z) kept, no partner, and its size fixed once the whole README is
 READ through the owner notes; the cypher classifies, it does not derive; not verified by a separate session; not
 seated; 2026-10-10)
 
+[Item 338: at the small end, on the one-way object, ARRIVAL is worked in arrival_small.py V0-V10 and seated as ARRIVALs:
+the README's own E forms our face as it arrives (reading (ii), 198), compact -- within 4.79 clocks the onset stays
+behind the face -- with no partner and one E; the fork against 334's wording is put to M. This instrument stays the
+record of the large end's index-tool run, a method 286 corrected (the cypher a calculator).]
+
 WHAT IS ASKED.  chain_cypher.py's input ARRIVAL, verbatim (check A1): "the README forms the corridor as it comes in, no
 partner (198, M's guess; README-HELD's 4D models; formation in the bulk OPEN, 179)".  Target T = (forms 1, in_bulk 1,
 z_kept 1, partner_free 1, fixed_once_in 1): the board's option (a) of 198, which M guessed, placed where 179/180 and

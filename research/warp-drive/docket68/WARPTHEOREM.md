@@ -67,12 +67,15 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands.** At the small end, where the example README sits, four lemmas stay OPEN: **B3, B4d, FAR and
-ARRIVAL**. CLOSE is closed there on your item 336 (CLOSEs). One row rests on a named reading of the board's: Z3bs, on
-item 318's reading. O3s and WRITEs rested on H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-HOLD-IS-THE-FACE);
-they are now derived.
+**Where it stands.** At the small end, where the example README sits, three lemmas stay OPEN: **B3, B4d and FAR**.
+CLOSE is closed there on your item 336 (CLOSEs). Two rows rest on named readings:
+- Z3bs, on item 318's reading;
+- ARRIVALs (item 338), on your 198 guess read as the README forming our face as it arrives. Where that reading parts
+  from item 334's wording is put to you.
 
-The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE and CLOSE.
+O3s and WRITEs rested on H-HOLD-IS-THE-FACE until you confirmed it (item 334: M-HOLD-IS-THE-FACE); they are now derived.
+
+The large end keeps the record's OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE and ARRIVAL.
 
 ## The register as it stands (item 331)
 
@@ -138,11 +141,12 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | FAR a far boundary consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
-| N | ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room | **OPEN** | -- | 284 (d), 285 (d) |
+| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V10 (338) |
+| N | ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess) | **OPEN** | -- | arrival_cypher, README-HELD.md (the record's) |
 | N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
 | N | CLOSE the closing at the large end | **OPEN** | -- | close_cypher, close_object (the record's) |
 
-60 rows, 50 lemmas and 10 inputs: 20 proved, 24 derived, 1 under a named reading of the board's, 5 definitions, 10 OPEN.
+61 rows, 50 lemmas and 11 inputs: 20 proved, 24 derived, 2 under a named reading of the board's, 5 definitions, 10 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -166,12 +170,21 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
     region.
   - **FAR:** the hole's far field in the Randall–Sundrum background.
-  - **ARRIVAL:** how the bits rebuild in position 2 and take their room.
+- **ARRIVAL at the small end, worked (item 338, `arrival_small.py`); one fork put to you.**
+  - On your 198 guess, the README's own energy forms our face as it arrives. The flux is positive, with no partner, and
+    the hole's energy is the README's one E. The face is born about a clock before the README's first part crosses.
+  - The arrival must be compact, within 4.79 clocks. Then the onset stays behind our face, and the second law, counted
+    over the README's thermodynamic states, never falls below its start. A spread arrival keeps neither.
+  - The write's 66,980 clocks are the README's approach in our exterior; the floor carries unchanged.
+  - Position 2's release at the small end is E2/E = (G5/G5_2)^(1/3): 1, 0.891, 0.707 or 0.630 by destination. The
+    room is 285 (b)'s figures. The rebuild's steps are your statements, named one by one.
+  - **For you:** on that reading the face is not standing through most of the write, as item 334's wording has it. On
+    334's wording as written, a face of the README's size stands through the write, and the hole ends with 2E.
 - **CLOSE at the small end, answered by you (item 336, M-ENERGY-STAYS).** Our face closes by Hawking emission over the
   hole's life, and the energy stays in our universe. Position 2's face closes within its open period (`close_small.py`
   K9). It was worked at item 335: our face is a future outer trapping horizon, which Hayward's second law (READ) keeps
   from shrinking under positive energy.
-- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b and CLOSE.
+- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL.
 - **Confirmed by you (item 334): M-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
   - 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor and the
     opening are the same object). It is not how long the README stays within the horizon.
@@ -2395,7 +2408,17 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   - (Q4) is carried into B5a and C8 (`b5a_residue.py`, `c8_level.py`), and `verify_ledger.py` enters the report's
     rows. O1bs and O1cs are verified in the register.
 - **338, "Continue".** The board goes on in item 335's order: ARRIVAL next, then FAR, with B3 and B4d resting on them.
-  B5a's verification ran beside it. The ARRIVAL work is recorded where it is seated.
+  B5a's verification ran beside it.
+  - ARRIVAL at the small end is worked in `arrival_small.py` V0–V10 and seated as ARRIVALs, a reading. The large end's
+    ARRIVAL stays the record's, OPEN.
+  - On reading (ii), your 198 guess, the README's E alone forms our face: one energy, no partner, (Z) kept. Reading (i)
+    ends with 2E, a face of 2^(1/2) r_h holding 2.83 N.
+  - The face is born before the onset only for a compact arrival. The second law's coarse count gives the same bound,
+    4.79 clocks across every onset order computed. On the fine count, with the README one definite state, the law is
+    the area theorem, which every run keeps.
+  - Position 2's release at the small end carries G5 alone. On 240 (b) the faces' radii differ at nine of the twelve
+    destinations; the isometric gluing holds where position 2's G5 equals ours.
+  - The fork between reading (ii) and item 334's wording is put to you.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

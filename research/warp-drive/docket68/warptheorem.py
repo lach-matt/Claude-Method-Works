@@ -46,10 +46,11 @@ and exactly, the object at position 2:
                  laws (240, 285), taking its room by displacing what is there and keeping it as the new whole of
                  position 2 (284, 285); the corridor's length is the difference of the trajectories.
 
-At the small end, where the example README sits, four lemmas stay OPEN -- B3, B4d, FAR, ARRIVAL -- CLOSE closed there on
-M's 336 (CLOSEs), and one row stands on a named reading of the board's: Z3bs, on 318's. [Item 334: O3s and WRITEs stood
+At the small end, where the example README sits, three lemmas stay OPEN -- B3, B4d, FAR -- CLOSE closed there on
+M's 336 (CLOSEs), and two rows stand on named readings: Z3bs, on 318's, and ARRIVALs (item 338), on 198's guess read
+as the README forming our face as it arrives, the fork against 334's wording put to M. [Item 334: O3s and WRITEs stood
 on H-HOLD-IS-THE-FACE, which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVED.] The large end keeps the record's
-OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE.
+OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL.
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -465,9 +466,19 @@ LEMMAS_NOW = [
      ("the record's (write_cypher W0-W4, WZ, C1-C4): carrying the corridor, lasting the write and keeping (Z) never "
       "occur together on eq. (17)'s computed cells")),
     ('N',
-     "ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room",
+     ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
+      "at position 2 under its laws and take their room"),
+     'READING',
+     ("lemmas/arrival_small.py V0-V10 (338): on 198 (M's guess) read as reading (ii) -- G_vv >= 0, no partner, one E "
+      "(V1); the face born before the onset and the coarse second law kept only for an arrival within 4.79 clocks "
+      "(V2-V4); the write's floor carried, its 66,980 clocks the approach (V5); position 2's release E2/E = "
+      "(G5/G5_2)^(1/3) under 240 (b) (V6); the room, 285 (b)'s figures (V7); the rebuild's steps M's (V8) -- the fork "
+      "against 334's wording, reading (i)'s 2E, put to M (V10)")),
+    ('N',
+     "ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess)",
      'OPEN',
-     "284 (d), 285 (d): the room's size waits on how the bits rebuild in position 2; formation in the bulk (179)"),
+     ("the record's (arrival_cypher, README-HELD.md, four-dimensional): 284 (d), 285 (d); formation in the bulk (179); "
+      "the small end in ARRIVALs (338)")),
     ('N',
      ("CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; "
       "position 2's face within its open period"),
@@ -618,7 +629,9 @@ def lemma_selftests():
               "gb_cone.py", "sgb_cone.py", "o1c_oneway.py", "b5a_oneway.py", "b5a_residue.py", "m1p2x_oneway.py",
               "c8_level.py", "verify_ledger.py", "write_cypher.py",
               # item 335
-              "close_small.py"):
+              "close_small.py",
+              # item 338
+              "arrival_small.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

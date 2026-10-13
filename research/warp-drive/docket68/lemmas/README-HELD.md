@@ -196,6 +196,12 @@ either one.
 
 ## 2. When it comes in: (a) forming, against (b) a horizon of fixed size (computed; deduced)
 
+*[Item 338: the small end's counterpart is computed in five dimensions in `arrival_small.py` V1-V4. There (a) gives one
+E and (b) without a partner 2E, a face of 2^(1/2) r_h holding 2^(3/2) N = 2.83 N. The trapping horizon holds f^(3/2) N,
+now computed exactly. The face is born before the onset only for an arrival within 4.79 clocks; the cubic onset's
+visible singularity has its five-dimensional counterpart at order 3, and order 4 is regular. What follows is kept as the
+record of the large end.]*
+
 | configuration | end area (N A_bit) | end mass (E) | README's share | θ during the inflow | partner asked |
 |---|---|---|---|---|---|
 | (a) forming, no partner | 1 | 1 | 1 | > 0 (5.8×10⁻⁴ compact; 6.8×10⁻⁷ spread) | none |
