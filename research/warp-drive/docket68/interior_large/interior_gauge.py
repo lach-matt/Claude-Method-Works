@@ -99,7 +99,8 @@ def run_steps(I, Y_s, s_start, lam_end, rtol=1e-8, every=25, save=None, meta=Non
             s, Y = IF.state_s(I, sol.t, sol.y)
             keep = I.lastbr.copy()
             try:
-                ph = phi_tilde(I, s, Y) if hasattr(I, "Nst") else IF.phi_at(I, s, Y)
+                ph = (I.phi_t(s, Y) if hasattr(I, "phi_t") else
+                      phi_tilde(I, s, Y) if hasattr(I, "Nst") else IF.phi_at(I, s, Y))
                 phm = float(np.nanmax(np.abs(ph[1:])))
             except Exception:
                 phm = float("nan")

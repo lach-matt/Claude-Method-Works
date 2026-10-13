@@ -26,7 +26,8 @@ for k in range(len(P["lt"])):
     s, Y = IF.state_s(I, P["lt"][k], P["ly"][:, k])
     Xf, _ = I.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
     if tg and s <= tg[0]:
-        t = tg.pop(0); ph = np.nanmax(np.abs(IG.phi_tilde(I, s, Y)[1:]))
-        print("s %.3f driven   phi~ %.1e  last-3 max |c_k|/max: %s" % (s, ph, tails(Xf)))
+        t = tg.pop(0); pa = np.abs(IG.phi_tilde(I, s, Y)); j = 1 + int(np.nanargmax(pa[1:])); ph = pa[j]
+        print("s %.3f driven   phi~ %.1e at x %.2f (brane %.1e)  last-3 max |c_k|/max: %s" % (
+            s, ph, I.xn[j], pa[-1], tails(Xf)))
         if t in und:
             print("s %.3f undriven phi  %.1e  last-3 max |c_k|/max: %s" % (und[t][0], und[t][2], und[t][1]))
