@@ -137,6 +137,35 @@ session; not seated); 2026-10-13.
      only their size, at least nine orders below the margin at the example. (k) Nothing in F0-F8 uses T_E in a
      censorship theorem: that use, with its pointwise NEC premise and global hyperbolicity, stays B4's and B4d's (the
      does-not list).
+  F10 (item 351, M-ACCOUNT-BEFORE-VERIFY's gate, 330; deduced, and computed where marked) The verifications so far,
+     carried where they bear on FAR (verify_ledger's FAR column; far_large L10 carries the large end's).  (a) 267 (Q6):
+     the floor is the write's least time.  A longer write reaches further and the cover grows with it, U = 1.05 (1 + 2T)
+     r_h at the write's own T: F3 holds at every U, F4-F5 at any larger U in the near zone, and F5 (c)'s order beyond
+     it.  (b) 271 (Q3), 319 (Q1), 341 (Q3): position 2's face is a white-hole face with kappa = c^2/r_h, and position 2's
+     own fields hugging it are blueshifted one e-fold per clock, bounded over the face's open period by c_junction J5 --
+     at most e^33.6 = 3.9e14, e^34.53 = 9.9e14 under the G5 readings (computed; c8_level V10), J5 re-admitted at 319 and
+     Barcelo's threshold read at the face (341 (Q3)).  The Misner-Sharp mu at T_E counts the energy inside T_E, which a
+     blueshift at the face redistributes but does not raise, so F4's position-2 mu stands.  (c) 304 (outside): F4's "the
+     1/r^2 pull" (254 (Q2)'s words) names the potential's fall-off, mu/(4 rho^2) in psi; the force goes as r_h^2/rho^3,
+     which is what F4's term 3 z mu/(2 rho^4 psi) carries.  F5 (c)'s 1/r law beyond ell is READ, Garriga and Tanaka's
+     (far_large L3; 254 (Q2)'s 1/r tail), not standard-not-READ.  (d) 310 (Q3) with 276 (a): position 2 reads its own
+     mass (240).  F4 gives position 2's side its own face's mu within V6's readings, r_h^2 to 4^(2/3) r_h^2, which bounds
+     either identification of that side -- our hole's far hemisphere (mu = r_h^2) or position 2's own face -- and each
+     side's T_E is computed on that side alone (F3), so nothing in F3-F5 runs from position 2's side back onto ours.  (e)
+     317 (Q8): warp order enters the hole's near field at first order in rho/ell (m1_small's item-269 note), not its
+     square: at T_E that is U/ell = 1.13e-10 at the example, inside F4's margin of at least 1/4.  (f) 332 (Q8): 226's
+     "Its own values" read to include each position 2's tension -- F2's destinations, bulk5_index's sigma x 2^s -- is
+     the board's reading of M's words, as gb_alpha B0's was; the option M chose said FAR must be recomputed.  (g) 337
+     (Q3), (Q4): each side Einstein (F6) holds on Lovelock's premises, at the two-derivative order (324, 328); classical
+     GR is given up only inside 273's quantum region, inside our face, which T_E encloses.  (h) 337 (Q9), 348 (Q11): F0's
+     273 and 275 are the options M chose, their texts the board's.  (i) 341 (Q4): U/ell's 1.29e-10 and 8.95e-11 hold
+     under both conventions for sigma, r_h/ell moving as g^(1/3) in each (c8_level V10); mu/U^2 carries no G5, and m/U's
+     factor of order one (F5 (c)) is the conventions'.  (j) 348 (Q2): arrival_small's one E holds for a lossless
+     collapse.  A lossy one radiates part of E outward, which lowers mu inside T_E and crosses T_E outgoing and positive
+     (F5 (a)'s outgoing form), so mu <= r_h^2 stands.  (k) 341 (Q2), 348 (Q5): the rests-on, completed: M-P2-OWN-G (330)
+     with 226, F2's kappa+ being position 2's own coupling; 270 (a) (the one object's two faces, ours and position 2's
+     white-hole face), 273 (a) (the bounce opening on position 2's exterior) and 336 (a) (position 2's energy its own),
+     through F4's position-2 side and V6; and 320 (b)-(c) (the empty bulk and the vacuum readings, limits).
 
 What this does not claim.
   - The exact localized hole on the two-sided bulk: known only numerically for one plane (Kudoh-Tanaka-Nakamura's
@@ -557,6 +586,15 @@ def checks(o):
         "dark energy 3.6e-63 of sigma; ell = 1.25e15 r_h at the example, far above the near zone's 140,660 r_h",
         ["%.3g" % v for v in q["u_ell_g5"]] == ["1.29e-10", "8.95e-11"] and "%.2g" % q["de_sigma"] == "3.6e-63"
         and "%.3g" % q["ell_rh"] == "1.25e+15")
+    # [item 351] the gate's rows, each named in F10 (the mutant: F10 left unwritten)
+    doc = __doc__ if not MUT.get("gate_unwritten") else __doc__.split("  F10 (item 351")[0]
+    f10 = " ".join(doc.split("  F10 (item 351")[1].split("What this does not claim")[0].split()) \
+        if "  F10 (item 351" in doc else ""
+    gate = ("267 (Q6)", "271 (Q3)", "319 (Q1)", "341 (Q3)", "304 (outside)", "310 (Q3)", "317 (Q8)", "332 (Q8)",
+            "337 (Q3)", "337 (Q9)", "348 (Q11)", "341 (Q4)", "348 (Q2)", "341 (Q2)", "348 (Q5)")
+    add("F10 (item 351) the gate: every row carried here named in F10; the blueshift bound e^33.6 = 3.9e14, and "
+        "e^34.53 = 9.9e14 under the G5 readings", all(g in f10 for g in gate)
+        and "%.2g" % math.exp(33.6) == "3.9e+14" and "%.2g" % math.exp(34.53) == "9.9e+14")
     return res
 
 
@@ -565,7 +603,8 @@ MUTANTS = {"sigma_plus_summed": "position 2's side carrying S1 + S2, not S1 + 2 
            "hole_sign": "the hole's term in theta+ with the wrong sign (F4)",
            "ms_4d": "the Misner-Sharp falloff taken four-dimensional (F5)",
            "calc_spread": "the two-sided cell of f1 left undecided (F7)",
-           "word_wrong_item": "275's words looked for in item 276 (F0; item 349 (a))"}
+           "word_wrong_item": "275's words looked for in item 276 (F0; item 349 (a))",
+           "gate_unwritten": "the verifications' rows that bear left uncarried (F10; item 351)"}
 
 
 def selftest():

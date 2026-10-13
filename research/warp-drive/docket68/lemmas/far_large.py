@@ -104,6 +104,17 @@ marked; deduced where marked; not verified by a separate session; not seated); 2
      and L4 (a)'s tip and threshold are exact given the test form; L4 (c) is sampled; L5's depth, L6, (d) and (e) are
      orders of magnitude.  (k) Nothing in L0-L8 uses T_E in a censorship theorem: that use stays B4's and B4d's (the
      does-not list).
+  L10 (item 351, M-ACCOUNT-BEFORE-VERIFY's gate, 330; deduced) The verifications so far, carried where they bear at the
+     large end (verify_ledger's FAR column; far_small F10 carries the rest, F2-F7 being the background here too).  (a)
+     261 (Q1)-(Q2): the large end's start, N = (pi^2/2 ln2)(ell/l_P)^2 (L1), is the two-end construct's switch, a
+     convention, and the construct jumps there (its E by x1.88), while the physical family is one smooth branch
+     (Figueras-Wiseman).  L4's bound holds at every ell and at every U past it, so the switch moves no conclusion; L1's
+     28-bit end at 2 l_P is a Planck-scale extrapolation outside semiclassical control (261 (Q2)), as the does-not list
+     says.  (b) 267 (Q6): the record's floor is the write's least time; a longer write's cover is larger, and L4 (b)'s
+     bound loosens as U grows.  (c) 261 (Q3): the large end is four-dimensional Schwarzschild on the plane with
+     corrections O(ell^2/r0^2), non-extremal; L4 uses only its monopole m.  (d) 310 (outside G5): the large end's figures
+     are in m and ell; G5 enters only through each side's amplitude, L9 (d)'s factor of order one.  (e) 337 (Q9), 348
+     (Q11): L0's 256, 273 and 275 are the options M chose, their texts the board's.
 
 What this does not claim.
   - The exact large hole on the two-sided bulk: Figueras-Wiseman's construction is numerical, Z2-symmetric and
@@ -342,13 +353,20 @@ def checks(o):
     add("L9 the residue's figures: the least theta+ U over T_E at the rim, 2 + 1/K with no hole, lowered by 5.1e-6 at "
         "the record's cover; the bound's spare factor 6.2e4 at K = 1.5", r_["at"] == 0 and abs(r_["bare"] - 8 / 3.0)
         < 1e-4 and "%.2g" % r_["low"] == "5.1e-06" and "%.2g" % d["spare"] == "6.2e+04")
+    # [item 351] the gate's rows at the large end, each named in L10 (the mutant: L10 left unwritten)
+    doc = __doc__ if not MUT.get("gate_unwritten") else __doc__.split("  L10 (item 351")[0]
+    l10 = " ".join(doc.split("  L10 (item 351")[1].split("What this does not claim")[0].split()) \
+        if "  L10 (item 351" in doc else ""
+    add("L10 (item 351) the gate: every row carried at the large end named in L10",
+        all(g in l10 for g in ("261 (Q1)-(Q2)", "267 (Q6)", "261 (Q3)", "310 (outside G5)", "337 (Q9)")))
     return res
 
 
 MUTANTS = {"profile_wall_only": "the far field's gradient taken at the wall's coefficient, not the axis's (L3)",
            "field_sign": "the hole's pull on the far surface taken outward (L4)",
            "profile_isotropic": "the far field taken as four-dimensional 2m/d, not Garriga-Tanaka's profile (L4)",
-           "cover_reach": "the cover taken on the write's gas ball (2 + T) m, not R_reach = (2 + 2T) m (L5)"}
+           "cover_reach": "the cover taken on the write's gas ball (2 + T) m, not R_reach = (2 + 2T) m (L5)",
+           "gate_unwritten": "the verifications' rows that bear at the large end left uncarried (L10; item 351)"}
 
 
 def selftest():
