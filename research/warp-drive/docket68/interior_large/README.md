@@ -138,3 +138,65 @@ and c(s) = (1 - s1)/(1 - s) holds the lapse per unit lambda = ln(1 - s) near Nst
 (computed from box s), so the slices keep advancing in proper time. Switched on at s1 with Nst = N + Fbar^s N^3/mu, xi~
 equals xi on the switch slice (8.2e-5 at s1 = -0.503 from the Nx = 28 run), and the constraint keeps zero from there as
 it would for any gauge source. The brane rows are unchanged (h^x = 0).
+
+**C1. The lapse driver loses the constraint by s ~ -1, through x-resolution (2026-10-13, item 362).** Every run is
+bt = 1, switched on at s1 ~ -0.50 from a damped run (kap = 4, tilt 0.5). On the switch slice the lapse is 0.1065 near the
+axis and 0.4326 on the brane, and phi = phi~ = 8.3e-5 (Nx = 16) or 8.1e-5 (Nx = 28). The variants, in order (computed;
+phi~ is the largest |g(xi~, xi~)| over x):
+
+| run | what changed | phi~ | outcome |
+|---|---|---|---|
+| `gauge_16` | wF = 1, no ramp: h^s jumps on at s1 | -- | NaN in the first steps |
+| `gauge_16c` | wF = 1, C^1 ramp R(s) over 0.3, mu = 5 | 4.4 by s = -0.67 | step size to 2e-8 at s = -1.771 |
+| `gauge3_16` | wF = 0 (reference pull kept), mu = 50, kap = 4 acting on xi | 0.79 at -0.617 | collapse at -1.281 |
+| `gauge3_16_k0` | damping off (damping on xi is wrong; see below) | 0.17 at -0.761, 4.0 at -1.053 | collapse at -1.254 |
+| `gauge4_16_k0` | h^s tapered by (1 - x^2), zero on the brane | 3.0e-2 at -0.822, 13 at -1.044 | collapse at -1.200 |
+| `gauge3_28_k0` | Nx = 28, damping off | 1.1e-3 at -0.747, 0.20 at -1.064, 1.2e3 at -1.565 | stopped |
+| `gauge3_28_k4` | Nx = 28, kap = 4 on xi~ | 1.5e-3 at -0.751, 0.66 at -1.200, 1.1e4 at -1.618 | collapse at -1.624 |
+
+The third row was a fault: under the driver the constraint is xi~ = xi - h, so damping built from xi feeds an h-sized
+term into it. `gen_damph_fw.py` removes it (computed: the damping term on h, subtracted). With that fixed, damping makes
+no difference: at Nx = 28 the runs with and without it agree within a factor 1.5 at every s. The violation appears
+first on the brane (6.6e-4 there at s = -0.55, Nx = 16) and spreads inward. Tapering h to zero at the brane does not
+help. Resolution helps but does not stop it: Nx = 28 is 150 times lower than Nx = 16 at s ~ -0.75 and 20 times lower
+at s ~ -1.06.
+
+The brane's boundary conditions are not the cause (deduced). Israel's condition K_ab = gamma_ab/ell makes the
+Codazzi side vanish, so G(n, e_b) = 0 on the brane for every tangential e_b. The field equation carries xi~, so this
+reads grad_(n xi~_b) = 0. Given xi~_n proportional to xi~^x = xi^x - h^x = 0, that is Figueras and Wiseman's Robin
+condition for xi~ instead of xi. The driver leaves the constraint's brane conditions as they were.
+
+The Chebyshev tails in x locate the problem (computed, `cheb_tail_gauge.py`). Each figure below is the largest of the
+last three |c_k|/max, at Nx = 28, with damping on xi~:
+
+| s | phi~ driven | phi undriven | B tail, driven | B tail, undriven | A tail, driven | A tail, undriven |
+|---|---|---|---|---|---|---|
+| -0.55 | 8.1e-5 | 8.1e-5 | 6.7e-7 | 3.3e-7 | 1.2e-6 | 1.1e-6 |
+| -0.65 | 3.0e-4 | 7.9e-5 | 2.9e-6 | 6.3e-7 | 1.9e-6 | 1.7e-6 |
+| -0.75 | 1.5e-3 | 7.8e-5 | 2.5e-5 | 4.5e-7 | 1.6e-5 | 2.4e-6 |
+| -0.90 | 8.5e-3 | 8.3e-5 | 5.6e-5 | 5.6e-7 | 5.3e-5 | 1.3e-6 |
+| -0.99 | 6.8e-3 | 8.3e-5 | 3.7e-4 | 8.8e-7 | 3.0e-5 | 3.3e-6 |
+| -1.20 | 0.66 | -- | 8.4e-4 | -- | 1.1e-3 | -- |
+| -1.40 | 37 | -- | 9.8e-3 | -- | 7.4e-3 | -- |
+
+The undriven run holds its tails near 1e-6 and phi at 8e-5 to s = -1. The driven run's tails rise with phi~, 420
+times the undriven B tail by s = -0.99. The driver drives x-structure into the fields faster than 28 points resolve
+it. The violation is that structure going unresolved, as in B5, and not an instability of the constraint system.
+A driver acting pointwise in x with mu = 50 relaxes each x on its own, at a rate set by that x's extrinsic curvature,
+so the lapse target pins differences across x that the free evolution would smooth (estimate; not separated from
+other causes by a run). What would test it: a driver steering one function of s (the lapse at one x, or its x-mean),
+which is still a gauge source algebraic in g. Or a lower mu, or more points in x. None of these has been run.
+
+**The old gauge's own reach at Nx = 28 (computed, `hr_resume.py`, `lam_phi.py`).** The damped Nx = 28 run continued in
+lambda = ln(1 - s) without a driver keeps phi near 7e-5 to s ~ -2.07. Then phi rises: 3.2e-4 at s = -2.76 (largest
+at x = 0.109), 3.2e-3 at -3.66 (x = 0.556), 1.68 at -4.53, 4.8e10 at -6.03. The peak is mid-bulk (x ~ 0.44 to 0.56),
+not on the brane. The old gauge's trusted range at Nx = 28, damped, is s >= -2.1, beyond B5's -1.6 at Nx = 20.
+Stage C's driver currently does worse than that, so O1b and O1c at the large end stay open on the interior.
+
+Files added or changed: `gen_gauge3_fw.py` (the driver with the wF weight and the ramp), `gen_gauge4_fw.py` (the same,
+tapered at the brane), `gen_damph_fw.py` (the damping term on h, to be subtracted), `interior_gauge.py` (the driver
+class; `GAUGE_PKL` picks the generator's output; `run_steps` steps the Radau solver by hand and writes a checkpoint
+every 25 steps), `gauge_run.py` (switch on at s1; arguments src s1 mu lam_end [rtol ramp kap_driven]),
+`analyze_gauge.py`, `phit_profile.py` (phi~ and N (1 - s) across x), `hr_resume.py` (the restartable lambda leg),
+`lam_phi.py` (phi along it), `cheb_tail_gauge.py` and `cheb_tail_fn.py` (tails, driven against undriven). The generated
+`.pkl` and checkpoint files are not committed (sizes 1.7 to 3.9 MB each); every one is regenerated by the scripts above.

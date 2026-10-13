@@ -9,7 +9,9 @@ I0 = ID.Damped(Nx, b, st, P["kap"], P["at"]); I0.lastbr = ID.static_brane(b); m 
 for k in range(len(P["t"])):
     s, Y = P["t"][k], P["y"][:, k]
     I0.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
-I = IG.Gauge(Nx, b, st, P["kap"], P["at"], P["mu"], P["s1"], P["Nst"]); I.lastbr = I0.lastbr.copy()
+I = IG.Gauge(Nx, b, st, P.get("kap_driven", P["kap"]), P["at"], P["mu"], P["s1"], P["Nst"], P.get("ramp", 0.3),
+             P.get("wF", 0.0))
+I.lastbr = I0.lastbr.copy()
 
 def fields_full(I, s, Y):
     Xf, Vf = I.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
@@ -20,7 +22,8 @@ def fields_full(I, s, Y):
     bc = lambda L: np.array([np.broadcast_to(np.asarray(r, dtype=float), (k,)) for r in L])
     with np.errstate(all="ignore"):
         rest = bc(IF.f_rest(np.full(k, s), xs, I.b, *a)) + bc(ID.f_damp(np.full(k, s), xs, I.b, I.kap, I.at, *a))
-        rest = rest + bc(IG.f_gauge(np.full(k, s), xs, I.b, I.mu, I.s1, I.Nst[idx], I.Nst_x[idx], *a))
+        R, Rs = I.R(s)
+        rest = rest + bc(IG.f_gauge(np.full(k, s), xs, I.b, I.mu, I.s1, I.wF, I.Nst[idx], I.Nst_x[idx], R, Rs, *a))
     co = IF.f_coef(np.full(k, s), xs, I.b, *a)
     M = np.empty((k, 5, 5))
     for e in range(5):
