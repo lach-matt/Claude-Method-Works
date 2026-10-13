@@ -21,7 +21,7 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - **Small end:** the README's own localized five-dimensional hole. It is Tangherlini in the flat limit, with our plane
     through its equator (251; C1 and C3 verified). It applies for N ≪ (π²/2 ln2)(ℓ/l_P)².
   - **Large end:** the record's four-dimensional corridor, with eq. (17) at r₀ = 2m as the plane's reading. It applies
-    above that N.
+    above that N, up to the Earth's crossover N* = 1.3651 × 10⁶⁶, the largest corridor the theorem must prove (372).
   - ℓ is set by our plane's tension (B6').
   - At the small end r_h = (2N ln2/π²)^(1/3) l₅ and **E = 3πc⁴r_h²/(8G₅)**. At the example README these are
     **1.12008e-20 m and 1.28098e9 J**, with r_h/ℓ = 8.0e-16.
@@ -264,6 +264,32 @@ mutants 4/4; `interior_large/README.md` B5–B6). Worked beside the interior's b
   trusted range. So the chart ends before the singularity. Reaching your 273 region needs the evolution continued past
   it; a run at Nx = 28 in log-time is deciding what that surface is.
 - 78 rows: 20 proved, 39 derived, 3 readings, 5 definitions, 11 OPEN, two of them deferred.
+
+**Since item 372: the large end ends at the Earth** (`lemmas/earth_cap.py` K0–K7, selftest 8/8, mutants 6/6). You chose
+(B): the largest corridor the theorem must prove is the one whose one E is the Earth's rest energy (M-EARTH-CAP). Only
+one README ever crosses, so for the Earth it holds every README of the Earth as one; it is finite, lies within (B), and
+in practice is (A) (M-ONE-README).
+- **The cap (computed).** It is item 108's crossover for the Earth: N* = 8π²GM²/(hc ln2) = 1.3651 × 10⁶⁶ bits (the same
+  formula gives the record's 1.875 × 10²⁰ for 70 kg). Its horizon is the Earth-mass Schwarzschild horizon, r₀ = 8.870 mm,
+  and its one E, E₁√N, is the Earth's rest energy, 5.3675 × 10⁴¹ J. It is 8.6 × 10⁻⁵⁷ of the Nariai cap, the old top.
+- **The large end is now finite.** It runs from its start (ℓ/m = 1.596) to N*. With ℓ at its ceiling, 13.964 μm, that
+  is 1.178 × 10²² kg (r₀ = 1.253ℓ) to the Earth's mass, a factor of 507, and r₀/ℓ from 1.25 to 635. The cap stays at
+  the large end for every ℓ below 7.08 mm.
+- **The offset leaves the large end.** At the cap r₀²Λ₄ = 8.6 × 10⁻⁵⁷, so the flat-plane solutions the interior is
+  computed on hold across the whole large end to that order. The Nariai end, where the offset entered, is outside the
+  goal.
+- **(A), the Earth's one README (estimate).** Item 108's full atomic snapshot scaled to the Earth's mass is 9.3 × 10⁵¹
+  bits, 6.8 × 10⁻¹⁵ of N*, so it appears negative in item 108's sense. It sits at the small end for every ℓ above
+  5.84 × 10⁻¹⁰ m and at the large end below. The board's reading (labelled, withdrawn if you correct it): (B) does not
+  depend on ℓ and covers (A) wherever ℓ falls, so the large end proved up to N* proves the Earth's corridor at either
+  end.
+- **What the cap supplies the interior: a calibrated target (estimate).** At the top the plane reads four-dimensional
+  Schwarzschild to ℓ²/r₀² ≤ 2.48 × 10⁻⁶, and inside the horizon it reads the Schwarzschild interior until the curvature
+  radius reaches ℓ: 99.87 % of the proper time to r = 0 at r₀ = 635ℓ, 95.8 % at 20ℓ (the largest static hole computed),
+  none at 1.13ℓ, where the interior runs sit. A run at r₀ ≈ 20ℓ against that interior is the calibration this gives.
+- **What it does not supply: ℓ.** At the cap r₀/ℓ runs from 635 (ceiling) to 2.45 × 10³¹ (the floor, 22.4 l_P). The
+  Earth's own gravity cannot see ℓ: the correction at its surface is 3.2 × 10⁻²⁴ (MK's 2ℓ²/(3r²)).
+- No row's status moves. O1b and O1c at the large end stay OPEN; their family is now finite.
 
 ## The register as it stands (item 331)
 
