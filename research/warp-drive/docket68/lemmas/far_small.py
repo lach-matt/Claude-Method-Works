@@ -147,7 +147,8 @@ What this does not claim.
     and B4d's, not FAR's.
   - The far zone (U >~ ell) beyond F5 (c)'s order of magnitude.
   - The README's source on the plane (SOURCEs, deferred, 344-346) beyond F5 (b)'s weak-field bound.
-  - The large end: there the record's FAR stands (far_cypher, far_bridge, b4c_far), OPEN.
+  - The large end: there the record's FAR stands (far_cypher, far_bridge, b4c_far), OPEN.  [Item 350: worked in
+    far_large.py L0-L9 and seated as a reading; nothing here moved.]
 
 Imports b4c_far.py, bulk5_index.py, write_small.py, c4_residue.py and index_audit.py by path.
 Stdlib + sympy + z3.  python3 far_small.py [--selftest | --mutants]

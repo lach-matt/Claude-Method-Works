@@ -92,6 +92,12 @@ coincident sheets' two-sided bulk, every far surface at least as deep as it is w
 README's hole at every ℓ, and stays so through the write, the arrival and the hole's life. At the small end B3 and B4d
 stay OPEN. FAR stays the large end's, OPEN.
 
+**Since item 350: FAR at the large end is worked and seated, a reading** (`far_large.py` L0–L9). The bulk is the same
+coincident sheets' two-sided bulk, and the hole is the record's four-dimensional one, larger than ℓ, so its field
+reaches into the bulk (Garriga–Tanaka, READ). A far surface deeper than it is wide, and large enough, is strictly
+untrapped at every ℓ: U ≥ (9/4) m K/(K − 1), K = W²/U². A round one is trapped at its tip. FARs and FAR go to you
+together for finalization.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -154,7 +160,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | **OPEN** | -- | m1p2_cypher, m1p2_junction (the record's) |
 | N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | reading | -- | far_small.py F0-F9 (347, 349) |
-| N | FAR a far boundary at the large end consistent with (Z), (G), 139 (1), 166 | **OPEN** | -- | far_cypher, far_bridge (the record's) |
+| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | reading | -- | far_large.py L0-L9 (350) |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
@@ -164,7 +170,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-64 rows, 50 lemmas and 14 inputs: 20 proved, 24 derived, 3 under a named reading of the board's, 5 definitions, 12 OPEN.
+64 rows, 50 lemmas and 14 inputs: 20 proved, 24 derived, 4 under a named reading of the board's, 5 definitions, 11 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -209,6 +215,26 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     (H-HOLE-IN-WARP), Z3bs's reading of 318, and 320 (b)'s empty-bulk limit. Hence a reading.
   - Its use in a censorship theorem, with that theorem's pointwise null-energy premise and global hyperbolicity, is
     B4's and B4d's, and not claimed.
+  - *Item 350: held at this state, not finalized and not sent to a verifier; it goes to you with the large end.*
+- **FAR at the large end, worked (item 350; `far_large.py` L0–L9). Finalized, with FARs?**
+  - The question is FARs', at the large end. The bulk is the same coincident sheets' two-sided bulk, so FARs' background
+    carries over unchanged: every side AdS, and every surface at least as deep as it is wide untrapped with no hole.
+  - The hole is now the record's four-dimensional corridor, r₀ = 2m with r₀ ≫ ℓ, and its field reaches into the bulk.
+    Garriga and Tanaka (READ) give it: a relative perturbation m(2r² + 3Z²)/d³, 2m/r along the wall and 3m/Z down the
+    axis. Its gradient is at most 3m/d², on the axis (computed).
+  - **A round far surface fails at the large end.** It is trapped at its tip exactly when ℓ < 3m/2 and
+    U > 2ℓ(ℓ + 3m)/(3m − 2ℓ) (computed). At the large end that is every round surface the test form covers, however
+    large. In AdS a round surface's tip is nearly marginal, and the hole's pull there does not shrink with ℓ.
+  - **An elongated far surface holds.** With W > U it is strictly untrapped at every point and every ℓ once
+    U ≥ (9/4) m K/(K − 1), K = W²/U² (deduced from FARs' exact inequality, checked over 1,470 sampled points). On
+    eq. (17)'s reading of the mouth (M1, open at the large end) the bound is (45/16) m K/(K − 1).
+  - It encloses the hole's bulk horizon, which Figueras and Wiseman (READ) find pancake-like, its tip at a depth of
+    order the hole's radius. At the record's cover, U/m = 419,377, every K ≥ 1 + 5.4 × 10⁻⁶ serves. The hole lowers
+    the surface's least expansion, at its rim on the sheets, by 5.1 × 10⁻⁶ of itself (computed).
+  - The calculator decides neither clause, as at the small end. The rays that meet the corridor are Z3b's, still OPEN.
+  - The residue pass (L9) names what it rests on: the board's test form H-GT-IN-WARP (Garriga–Tanaka's field placed
+    under the warp, for one Z2-symmetric wall) and the record's cover. On the two-sided pair the field differs per side
+    by a factor of order one, and the bound has a factor 6.2 × 10⁴ to spare at the record's cover. Hence a reading.
 - **ARRIVAL at the small end, worked (item 338, `arrival_small.py`); one fork put to you.**
   - On your 198 guess, the README's own energy forms our face as it arrives. The flux is positive, with no partner, and
     the hole's energy is the README's one E. The face is born about a clock before the README's first part crosses.
@@ -230,7 +256,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   hole's life, and the energy stays in our universe. Position 2's face closes within its open period (`close_small.py`
   K9). It was worked at item 335: our face is a future outer trapping horizon, which Hayward's second law (READ) keeps
   from shrinking under positive energy.
-- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL.
+- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL. *Item 350: FAR at the large
+  end is worked and seated as a reading (below); it was never on this list, which counted the record's rows.*
 - **After the current board is cleared (item 344): SOURCE.** The README is written on our plane, so its source is a
   gas of the plane's fields, not null dust. Defining how that gas comes in onto the face is part of the warp travel
   theorem. It is worked once every other row is decided, so that the completed theorem names what it must supply.
@@ -272,6 +299,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   as the face standing from the README's arrival.
 - **349's readings.** H-HOLE-IN-WARP (the hole's isotropic factor under the warp, a test form exact as ρ/ℓ → 0);
   "both planes at once" (166) read under 275 as the coincident pair; the record's cover U = 1.05 R_reach.
+- **350's readings.** H-GT-IN-WARP: Garriga–Tanaka's linear far field, its falloff and angular profile, placed in a
+  conformally flat spatial metric under the warp. It is a test form for one Z2-symmetric wall, valid where d ≫ m and
+  d ≫ ℓ. The record's cover U = 1.05 R_reach at the large end. And 350 (a): FARs is not finalized by 350, and the two
+  ends of FAR go to you together.
 - **344's readings.** "The map" is the Warp Chain Map and the register it is drawn from. "After the current board is
   cleared" is after every other open row is decided. SOURCE is one row at both ends.
   *Item 345: the first two confirmed by you (M-SOURCE-LAST: SOURCE is worked after every other open row, the large
@@ -2363,7 +2394,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–349: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–350: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2546,6 +2577,12 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   matter condition's scope, the cover as the record's choice, 166 under 275 as the board's reading, the sheets' own
   matter, the rests-on completed, what carries without the test form, and the censorship use left to B4 and B4d.
   FARs is seated as a reading (64 rows) and drawn on the map; FAR is put to you for finalization.
+- **350, "We need to settle FAR at the large end".** Read as (a) FARs held at its item-349 state, unfinalized and not
+  sent to a verifier, the two ends going to you together. FAR at the large end is worked in `far_large.py` L0–L9
+  (selftest 8/8, mutants 4/4), with the residue pass of 314 applied from the start (L9). On the record's
+  four-dimensional hole in the same two-sided bulk, a round far surface is trapped at its tip and an elongated one,
+  past (9/4) m K/(K − 1), is strictly untrapped at every ℓ. FAR is seated as a reading on H-GT-IN-WARP (64 rows: 4
+  readings, 11 OPEN) and drawn on the map.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

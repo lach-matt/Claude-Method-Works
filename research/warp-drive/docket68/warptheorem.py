@@ -59,7 +59,10 @@ SOURCE, OPEN and deferred by M until the current board is cleared, the completed
 CONFIRMED with qualifications; one sentence refuted -- at onset orders 3 and 4 a spread arrival shows its singular
 onset -- which strengthens the compact reading.] [Item 349: FAR at the small end worked and seated as FARs, a
 reading (far_small F0-F9): every far surface at least as deep as it is wide is strictly untrapped around the README's
-hole at every ell; at the small end B3 and B4d stay OPEN.]
+hole at every ell; at the small end B3 and B4d stay OPEN.] [Item 350: FAR at the large end worked and seated, a
+reading on H-GT-IN-WARP (far_large L0-L9): around the record's four-dimensional hole a far surface deeper than it is
+wide, and large enough, is strictly untrapped at every ell, while a round one is trapped at its tip; FARs and FAR go
+to M together.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -476,8 +479,21 @@ LEMMAS_NOW = [
       "below the margin (F4, F5); (Z), (G), 139 (1) under 226 and 166 under 275 (F6); the calculator deciding neither "
       "clause (F7) -- a reading on H-HOLE-IN-WARP, Z3bs's reading of 318 and 320 (b)'s limit (F9); its use in a "
       "censorship theorem B4's and B4d's")),
-    ('N', 'FAR a far boundary at the large end consistent with (Z), (G), 139 (1), 166', 'OPEN',
-     ("the record's (far_cypher, far_bridge); the small end in FARs (far_small, 347, 349)")),
+    # [item 350] FAR at the large end worked: a reading on H-GT-IN-WARP (far_large L0-L9)
+    ('N',
+     ("FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's "
+      "four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell"),
+     'READING',
+     ("lemmas/far_large.py L0-L9 (350): the background FARs' (far_small F2, F3); the large hole's far field in the "
+      "bulk from Garriga-Tanaka (READ), relative perturbation m (2 r^2 + 3 Z^2)/d^3, 2m/r on the wall and 3m/Z down "
+      "the axis, |grad Phi| <= 3m/d^2 (L3); a round far surface trapped at its tip exactly when ell < 3m/2 and U > "
+      "2 ell (ell + 3m)/(3m - 2 ell) -- at the large end every one in the test form's range -- and an elongated one, "
+      "W > U, strictly untrapped at every point and every ell once U >= (9/4) m K/(K - 1), (45/16) on eq. (17)'s "
+      "reading (L4); it encloses Figueras-Wiseman's pancake horizon (READ), and at the record's cover, U/m = "
+      "419,377, every K >= 1 + 5.4e-6 serves, the hole lowering the least theta+ U by 5.1e-6 (L5, L9); (Z), (G), "
+      "139 (1) and 166 as at the small end (L7); the calculator deciding neither clause (L8) -- a reading on "
+      "H-GT-IN-WARP and the record's cover (L9); the rays meeting the corridor Z3b's, OPEN; its use in a censorship "
+      "theorem B4's and B4d's")),
     ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
@@ -671,7 +687,9 @@ def lemma_selftests():
               # item 335
               "close_small.py",
               # item 338
-              "arrival_small.py", "far_small.py"):
+              "arrival_small.py", "far_small.py",
+              # item 350
+              "far_large.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
