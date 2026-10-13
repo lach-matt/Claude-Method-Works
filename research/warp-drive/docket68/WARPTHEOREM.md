@@ -228,7 +228,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 - M-PROVE-POINTWISE and M-NO-EMPTY-BULK (320).
 - M-ONE-LIGHT-CONE (328), M-ACCOUNT-BEFORE-VERIFY (330), M-UPDATE-STALE-NOW (331), M-HOLD-IS-THE-FACE (334),
   M-ENERGY-STAYS (336), M-ARRIVAL-FOR-THE-MATH (340), with your guess A (H-ARRIVAL-FORMS-THE-FACE),
-  M-SOURCE-IN-THE-MAP (344).
+  M-SOURCE-IN-THE-MAP (344), M-SOURCE-LAST (345).
 
 **The board's, to be overruled by you at any point:**
 - ~~H-HOLD-IS-THE-FACE~~ (331), confirmed by you as M-HOLD-IS-THE-FACE (334).
@@ -240,6 +240,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   as the face standing from the README's arrival.
 - **344's readings.** "The map" is the Warp Chain Map and the register it is drawn from. "After the current board is
   cleared" is after every other open row is decided. SOURCE is one row at both ends.
+  *Item 345: the first two confirmed by you (M-SOURCE-LAST: SOURCE is worked after every other open row, the large
+  end's included). The third, one row rather than a pair SOURCEs and SOURCE, is put to you again, explained.*
 
 ---
 
@@ -2326,7 +2328,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–344: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–345: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2483,6 +2485,9 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
     - the rests-on is completed with 226 and 330.
   - SOURCE enters the register as an OPEN row at both ends (62 rows), and the Warp Chain Map is redrawn from the current
     register with SOURCE as a station of its own.
+- **345, two of 344's readings confirmed.** The map is the chain map with its register, and SOURCE is worked after
+  every other open row, the large end's included (M-SOURCE-LAST). The third reading, SOURCE as one row at both ends, is
+  explained and put to you again.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.
