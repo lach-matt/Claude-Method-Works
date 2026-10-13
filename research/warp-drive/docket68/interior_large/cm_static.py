@@ -19,9 +19,12 @@ for eps in epss:
     if os.path.exists(C.static_file(eps, N, N)):
         U = np.load(C.static_file(eps, N, N)); nr = np.abs(SF.residual_and_jac(G, U, eps, False)[0]).max()
     else:
-        U, nr = SF.newton(G, U, eps)
+        U0 = U.copy(); U, nr = SF.newton(G, U, eps)
         if nr < 1e-8:
             np.save(C.static_file(eps, N, N), U)
+        else:
+            print("eps %.3f: Newton did not converge (|R| %.1e); stopping the continuation" % (eps, nr), flush=True)
+            break
     vals = SF.dv(G, U)
     with np.errstate(all="ignore"):
         gt, gp = [np.asarray(v, dtype=float) * np.ones(n) for v in fg(G["S"], G["X"], eps, *vals[0::6])]

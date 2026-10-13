@@ -14,11 +14,13 @@ b, Nx = P["b"], P["Nx"]; st = dict(file=C.static_file(b, P["Ns"], P["Nxs"]), Ns=
 I = CB.HarmOld(Nx, b, st, P["kap"], P["at"], P["s1"], P["ramp"]); I.lastbr = P["lastbr0"].copy(); m = I.m
 E = M.Exact(P["tag"]); mid = Nx // 2; x = I.xn
 NM = [sp.Symbol(n) for n in C.names]
-fg = sp.lambdify([C.s, C.x] + NM, [C.ev(C._raw["metric"][k]) for k in ("gtt", "gss", "gsx", "gxx", "gpp")], "numpy")
-fK = sp.lambdify([C.s, C.x] + C.VARS, C.ev(pickle.load(open("kretsch_%s.pkl" % P["tag"], "rb"))), "numpy", cse=True)
+fg = sp.lambdify([C.s, C.x, C.bt] + NM, [C.ev(C._raw["metric"][k]) for k in ("gtt", "gss", "gsx", "gxx", "gpp")],
+                 "numpy")
+fK = sp.lambdify([C.s, C.x, C.bt] + C.VARS, C.ev(pickle.load(open("kretsch_%s.pkl" % P["tag"], "rb"))), "numpy",
+                 cse=True)
 
 def geo(s, Xg):
-    gtt, gss, gsx, gxx, gpp = [np.asarray(v, dtype=float) * np.ones(Nx + 1) for v in fg(s, x, *Xg)]
+    gtt, gss, gsx, gxx, gpp = [np.asarray(v, dtype=float) * np.ones(Nx + 1) for v in fg(s, x, b, *Xg)]
     with np.errstate(all="ignore"):
         N = 1 / np.sqrt(-gxx / (gss * gxx - gsx ** 2))
         return N, gtt, gpp, np.abs(gsx) / np.sqrt(np.abs(gss) * gxx)
@@ -60,7 +62,7 @@ for k in range(len(P["lt"])):
         for e in range(5):
             a += [Xg[e], Vg[e], DX[e], Xss[e], DXX[e], DV[e]]
         with np.errstate(all="ignore"):
-            K = np.asarray(fK(np.full(Nx + 1, s), x, *a), dtype=float) * np.ones(Nx + 1)
+            K = np.asarray(fK(np.full(Nx + 1, s), x, b, *a), dtype=float) * np.ones(Nx + 1)
         I.lastbr = keep
         N, gtt, gpp, sh = geo(s, Xg)
         r = np.empty(Nx + 1); xc = np.empty(Nx + 1)
