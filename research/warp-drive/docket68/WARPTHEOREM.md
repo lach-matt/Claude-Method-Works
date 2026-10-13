@@ -134,7 +134,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | **OPEN** | -- | the record's (write_cypher W0-W4, WZ, C1-C4): carr |
 | N | ARRIVAL the README forms the corridor as it comes in (198, M's guess); how the bits rebuild and take their room | **OPEN** | -- | 284 (d), 285 (d) |
-| N | CLOSE the closing: ending the faces when the write is done | **OPEN** | -- | c5_oneway U11 (7); i_oneway I5 |
+| N | CLOSE the closing: ending the faces when the write is done | **OPEN** | -- | close_small.py (335); c5_oneway U11 (7) |
 
 59 rows, 50 lemmas and 9 inputs: 20 proved, 23 derived, 1 under a named reading of the board's, 5 definitions, 10 OPEN.
 
@@ -160,8 +160,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     region.
   - **FAR:** the hole's far field in the Randall–Sundrum background.
   - **ARRIVAL:** how the bits rebuild in position 2 and take their room.
-  - **CLOSE:** ending the faces when the write is done. The horizon is not extremal, so the area theorem binds, and
-    Hawking emission alone closes the face only after the hole's life, 1.28e10 times the write.
+  - **CLOSE:** ending the faces when the write is done. Worked at item 335 (`close_small.py`): our face is a future
+    outer trapping horizon, which Hayward's second law (READ) keeps from shrinking under positive energy. Ending it at
+    the write's end takes a null shell of exactly −E crossing it, and the flux law puts that shell in our exterior,
+    from our past. Without it, the energy stays ours and Hawking emission closes the face only after the hole's life,
+    1.28e10 times the write. **Put to you.**
 - **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3 and Z3b.
 - **Confirmed by you (item 334): M-HOLD-IS-THE-FACE** (`write_cypher.py` W5 (b)).
   - 158 (2)'s hold is the corridor standing, meaning our face is open in advanced time (160: the corridor and the
@@ -2274,7 +2277,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/12, items 248–334: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/12, items 248–335: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2359,6 +2362,12 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   163 hold together, and the C5 verifier's 317 (c) is answered. O3s and WRITEs move from a reading of the board's to
   derived (`warptheorem.py` `LEMMAS_NOW`). `write_cypher.py` W5 (b) gains a check on your words, and `o3_hold.py` O3e a
   note. Z3bs is now the register's only row on a reading of the board's.
+- **335, CLOSE worked at the small end** (`close_small.py`, selftest 7/7, mutants 6/6). Our face is future outer
+  (Hayward's second law, READ: quasi-local, so event horizon or not), so it cannot shrink under positive energy. The
+  five-dimensional fluxes make the one loss of mass a negative inflow at our face and a positive release at position
+  2's. The flux law puts the closing's −E in our exterior, from our past, before the opening at large radii. It can
+  be paired along each glued ray with position 2's release, which keeps 183. The alternative is Hawking emission after
+  1.28e10 writes, with the energy ours. Put to you.
 
 **Not re-run, and said.** The instruments that pin the item-247 register keep reading it:
 - `chain_cypher.py`, `belongs_cypher.py`, `m1_bulk.py`, `theorem_p2.py` and `f1_audit.py` (the chain's tallies, the

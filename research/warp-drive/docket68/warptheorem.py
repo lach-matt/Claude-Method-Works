@@ -451,10 +451,11 @@ LEMMAS_NOW = [
      'OPEN',
      "284 (d), 285 (d): the room's size waits on how the bits rebuild in position 2; formation in the bulk (179)"),
     ('N', 'CLOSE the closing: ending the faces when the write is done', 'OPEN',
-     ('the horizon is not extremal, so the area theorem binds and the face closes only with a negative flux into it; '
-      'Hawking emission supplies one and closes it after the life, 8.57e14 clocks -- 1.28e10 times the write '
-      "(c5_oneway U11 (7)); a mechanism closing it when the write is done is not found (i_oneway I5; README-HELD's "
-      'open item)')),
+     ("lemmas/close_small.py K1-K7 (item 335): our face is future outer (Hayward's second law, READ) and cannot "
+      "shrink under non-negative null energy; ending it at the write's end needs a null shell of exactly -E crossing "
+      'it, which by the flux law must already be in our exterior -- from our past, before the opening at large radii '
+      "-- paired along each glued ray with position 2's +E release (183); otherwise the energy stays ours and the "
+      'face ends by Hawking emission after 8.57e14 clocks, 1.28e10 times the write.  Put to M (335)')),
 ]
 RESTS_ON_NOW = {'G1': 'M1s M1', 'G3': 'M1s M1', 'H2tu': 'M1s M1', 'H2tx': 'M1s M1 M1P2xs M1P2x', 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL', 'Z1t': 'M1s M1', 'Z2r': 'M1s M1',
@@ -592,7 +593,9 @@ def lemma_selftests():
               "calculator.py", "c4_oneway.py", "c4_residue.py", "c5_oneway.py", "c7_oneway.py", "pair_math.py",
               "pointwise.py", "tau_share.py", "p2_offset.py", "p2_assume.py", "relativity.py", "gb_alpha.py",
               "gb_cone.py", "sgb_cone.py", "o1c_oneway.py", "b5a_oneway.py", "b5a_residue.py", "m1p2x_oneway.py",
-              "c8_level.py", "verify_ledger.py", "write_cypher.py"):
+              "c8_level.py", "verify_ledger.py", "write_cypher.py",
+              # item 335
+              "close_small.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
