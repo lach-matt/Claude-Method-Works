@@ -215,6 +215,19 @@ goes to M; the board does not rule on M's meaning.
      energy than E, up to the collapse ('t Hooft's eq. (8), S3 V4) -- excluded by 136 G, "the README is the energy, not
      separate", and 136 (1), the one exact energy E(N): the carrier's energy is the README's, E.  So the floor rests on
      M's rulings, Q2 and two computed bounds; S3's own derivation is C6's, verified (264).
+  Q27 (READ; computed) H-SPECIES-FINITE -- finitely many species above the Standard Model (WRITEs, O3s, B4ds) -- is
+     replaced by a bound the hole sets itself.  READ, as C5 U11 (8) reads them (verified with C5, 317): Dvali and Redi,
+     "black-holes smaller than Lambda_G^{-1} are already no longer semi-classical", and in D dimensions "M_D^{D-2} >~ N
+     Lambda^{D-2}"; so a five-dimensional hole of radius r_h is semiclassical, as every figure here assumes, only for at
+     most (r_h/l5)^3 = 3.85e14 species (computed).  What the rows draw on, at every count up to that cap (computed; the
+     life as 1/Z, the floor's 1 + T as Z^(-1/3)): the hole's life against the write's floor -- 238 clocks against 4.37 at
+     the cap, 54 times, the conclusions failing only past 1.55e17 species; the life against the README's three-clock stay
+     -- 79 times at the cap, failing only past 3.05e16; and B4ds D6's place -- the curvature Planckian at 2.91 l5 with
+     176 bits, which no count moves, the time left there 2.2e-3 clocks at 106.75 and shorter as 1/Z.  So no row's
+     conclusion needs the species finite beyond what its own hole imposes.  One number does move: WRITEs' "66,980 clocks"
+     is the floor at the Standard Model's 106.75, the species lighter than the gas's 5.6 TeV (write_small S3), and it
+     falls to 4.37 clocks at the cap -- the row's figure is the Standard Model's, its claim (the bulk held through the
+     write) holds at every count.  Recorded for the row, not repaired here.
 
 The inventory (INVENTORY below): every board reading in force, its item, the rows it bears on, its kind -- words (a
 reading of M's words), form (a physical test form), model (a model of what a deferred row will define), choice (a
@@ -399,7 +412,7 @@ INVENTORY = (
     ("RALONE", 264, "H-README-ALONE: the gas carries only the README's E", "WRITEs O3s FARs", "model",
      "proved here (Q26 (e))"),
     ("RSPEC", 264, "H-SPECIES-FINITE: finitely many species above the Standard Model", "WRITEs O3s B4ds", "model",
-     "to prove: bound what the figures need of g*"),
+     "replaced by a READ bound; proved here (Q27)"),
     ("RCALC", 310, "c4_oneway's calculator protocols (P13, P17, P18, P20)", "M1s", "protocol",
      "to prove: M1s's claims without the calculator's agreement"),
     ("RPOS2", 231, "H-POSITIVE-ON-P2: 139 (2) as the board reads it", "B5pu", "words", "bears on no row's claim (Q21)"),
@@ -761,10 +774,24 @@ def q26():
                 selfgrav=1 / R ** 2, warp=R * 8.02117e-16, shift=arrival / floor)
 
 
+# ---------------------------------------------------------------------------------- Q27 species bounded by the hole
+def q27():
+    N, rh, l5, Z0, life0 = 2742570311524972, 1.12008e-20, 1.53937e-25, 106.75, 8.573276e14
+    cap = (rh / l5) ** 3                                                # Dvali-Redi: N_species <~ (r_h/l5)^3 in 5D
+    life = lambda Z: life0 * Z0 / Z                                     # the life as 1/Z (hold_small)
+    head = lambda Z: 1.5 * (5 * N * math.log(2) / Z) ** (1 / 3)         # 1 + T, write_small S3's head
+    if MUT.get("floor_fixed"):
+        head = lambda Z: 1.5 * (5 * N * math.log(2) / Z0) ** (1 / 3)    # the mutant: the floor held at the SM's count
+    fail_stay = life0 * Z0 / 3                                          # the life down to the three-clock stay
+    fail_floor = (life0 * Z0 / (1.5 * (5 * N * math.log(2)) ** (1 / 3))) ** 1.5    # the life down to the floor
+    return dict(cap=cap, life_cap=life(cap), head_cap=head(cap), head_sm=head(Z0), ratio=life(cap) / head(cap),
+                stay_ratio=life(cap) / 3, fail_stay=fail_stay, fail_floor=fail_floor, d6_left=2.2e-3 * Z0 / cap)
+
+
 def compute():
     surv, ex = survivors()
     return dict(words=words_ok(), surv=surv, ex=ex, q5=q5(), q8=q8(), q14=q14(), q15=q15(), q16=q16(), q17=q17(),
-                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26())
+                q20=q20(), q21=q21(), q23=q23(), q24=q24(), q25=q25(), q26=q26(), q27=q27())
 
 
 def report(o):
@@ -810,6 +837,11 @@ def report(o):
     print("Q26 the life over the floor %.3g in every clock (%s), the floor %.2g s; at the write's start (r_h/R)^2 = "
           "%.2g, R/ell = %.2g; the arrival's width %.1e of the floor" % (e["ratio"], e["ratio_same"], e["floor_s"],
                                                                   e["selfgrav"], e["warp"], e["shift"]))
+    g = o["q27"]
+    print("Q27 species cap (r_h/l5)^3 = %.3g; there the life %.0f clocks, the floor's 1 + T %.2f (%.0f at the SM's "
+          "106.75), ratio %.1f, %.0f stays; the conclusions fail only past %.3g and %.3g species"
+          % (g["cap"], g["life_cap"], g["head_cap"], g["head_sm"], g["ratio"], g["stay_ratio"], g["fail_stay"],
+             g["fail_floor"]))
     print("\nthe inventory: %d readings" % len(INVENTORY))
     for rid, item, text, rows, kind, state in INVENTORY:
         print("  %-8s %-4d %-8s %-58s %s" % (rid, item, kind, text[:58], state))
@@ -876,6 +908,13 @@ def checks(o):
         "clocks 7.2e-5 of the floor; the README alone (136 G, 136 (1))",
         "%.3g" % e["ratio"] == "1.28e+10" and e["ratio_same"] and "%.2g" % e["floor_s"] == "2.5e-24"
         and "%.2g" % e["selfgrav"] == "2.2e-10" and "%.2g" % e["warp"] == "5.4e-11" and "%.2g" % e["shift"] == "7.2e-05")
+    g = o["q27"]
+    add("Q27 H-SPECIES-FINITE replaced by the hole's own semiclassicality: at most 3.85e14 species, where the life is "
+        "238 clocks, 54 times the floor and 79 stays; failure only past 3.05e16 and 1.55e17; the floor's 66,980 the "
+        "Standard Model's, 4.37 at the cap",
+        "%.3g" % g["cap"] == "3.85e+14" and round(g["life_cap"]) == 238 and "%.2f" % g["head_cap"] == "4.37"
+        and round(g["ratio"]) == 54 and round(g["stay_ratio"]) == 79 and "%.3g" % g["fail_stay"] == "3.05e+16"
+        and "%.3g" % g["fail_floor"] == "1.55e+17" and round(g["head_sm"] - 1) == 66980)
     add("the inventory: every reading with an item, rows, a kind and a state; the proved ones point at their entry",
         all(len(r) == 6 and r[4] in ("words", "form", "model", "choice", "protocol") for r in INVENTORY)
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
@@ -892,7 +931,8 @@ MUTANTS = {"word_wrong_item": "275's words looked for in item 276 (Q0)",
            "h55_kept": "Garriga-Tanaka's h_ZZ kept equal to the angular part, not their h55 = 0 (Q23)",
            "flat_green": "the hole's field taken in flat five-dimensional space, no warp (Q24)",
            "cover_needed": "the large end's bound evaluated at U = m, as if the cover were not past the reach (Q25)",
-           "clock_weighs": "the life in seconds set against the floor in clocks (Q26)"}
+           "clock_weighs": "the life in seconds set against the floor in clocks (Q26)",
+           "floor_fixed": "the write's floor held at the Standard Model's species while the life falls (Q27)"}
 
 
 def selftest():
