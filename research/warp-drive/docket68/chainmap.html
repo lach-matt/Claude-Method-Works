@@ -2,7 +2,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;800&family=IBM+Plex+Sans:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
-/* Layout: a transit line. Eight stations run down a spine; each station carries the Warp Theorem lemmas that decide it. */
+/* Layout: a transit line. Nine stations run down a spine; each carries the register rows that decide it, at both ends of the family. */
 :root {
   --bg: #f3f5f8;
   --surface: #ffffff;
@@ -50,12 +50,13 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 
 /* tally */
 .tally { margin-top: 16px; display: grid; gap: 10px; }
-.cells { display: grid; grid-template-columns: repeat(34, minmax(0, 1fr)); gap: 3px; }
+.cells { display: grid; grid-template-columns: repeat(31, minmax(0, 1fr)); gap: 3px; }
 .cell { height: 22px; border-radius: 3px; }
 .c-ok { background: var(--pass); }
 .c-read { background: var(--gap); }
 .c-nat { background: var(--line); }
 .c-open { background: var(--wall); }
+.c-def { background: repeating-linear-gradient(135deg, var(--line) 0 3px, var(--line-bg) 3px 6px); }
 .key { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 0; padding: 0; list-style: none; font-size: 13.5px; }
 .key li { display: flex; align-items: center; gap: 8px; }
 .key .sw { width: 12px; height: 12px; border-radius: 3px; flex: none; }
@@ -63,7 +64,7 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 
 /* overview strip */
 .strip-box { overflow-x: auto; margin-top: 22px; background: var(--surface); border: 1px solid var(--rule); border-radius: 10px; padding: 18px 18px 14px; }
-.strip { display: grid; grid-template-columns: repeat(8, minmax(92px, 1fr)); min-width: 760px; position: relative; }
+.strip { display: grid; grid-template-columns: repeat(9, minmax(88px, 1fr)); min-width: 820px; position: relative; }
 .strip::before { content: ""; position: absolute; left: 6%; right: 6%; top: 11px; height: 4px; background: var(--line); border-radius: 2px; }
 .stop { position: relative; text-align: center; padding: 0 4px; }
 .stop a { color: inherit; text-decoration: none; display: block; }
@@ -72,10 +73,14 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 .dot.green { border-color: var(--pass); background: var(--pass); }
 .dot.amber { border-color: var(--gap); }
 .dot.red { border-color: var(--wall); }
+.dot.def { border-color: var(--line); border-style: dashed; }
 .stop .n { font-family: var(--f-mono); font-size: 11px; color: var(--muted); margin-top: 6px; }
-.stop .t { font-family: var(--f-display); font-weight: 700; font-size: 13.5px; line-height: 1.2; }
+.stop .t { font-family: var(--f-display); font-weight: 700; font-size: 13.5px; line-height: 1.2; min-height: 2.4em; }
 .stop .v { font-family: var(--f-mono); font-size: 11px; margin-top: 2px; }
-.v.green { color: var(--pass); } .v.amber { color: var(--gap); } .v.red { color: var(--wall); }
+.v.green { color: var(--pass); } .v.amber { color: var(--gap); } .v.red { color: var(--wall); } .v.def { color: var(--line); }
+.lp { display: inline-block; margin-top: 4px; font-family: var(--f-mono); font-size: 10.5px; padding: 1px 6px; border-radius: 3px; }
+.lp.green { background: var(--pass-bg); color: var(--pass); } .lp.amber { background: var(--gap-bg); color: var(--gap); }
+.lp.red { background: var(--wall-bg); color: var(--wall); } .lp.def { background: var(--line-bg); color: var(--line); }
 .strip-note { font-size: 13px; color: var(--muted); margin: 12px 0 0; max-width: 90ch; }
 
 /* stations */
@@ -92,6 +97,9 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 .verdict.green { background: var(--pass-bg); color: var(--pass); }
 .verdict.amber { background: var(--gap-bg); color: var(--gap); }
 .verdict.red { background: var(--wall-bg); color: var(--wall); }
+.verdict.def { background: var(--line-bg); color: var(--line); }
+.pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.pills .verdict { margin-top: 0; }
 
 .body { display: grid; gap: 12px; min-width: 0; }
 .lemmas { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
@@ -101,15 +109,20 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 .chip.read { background: var(--gap-bg); color: var(--gap); }
 .chip.nat { background: var(--line-bg); color: var(--line); }
 .chip.open { background: var(--wall-bg); color: var(--wall); }
+.chip.def { background: var(--line-bg); color: var(--line); border: 1px dashed var(--line); }
 .lm .what { font-size: 14px; }
 .lm .what b { font-family: var(--f-mono); font-weight: 500; font-size: 13px; margin-right: 6px; }
 .lm .how { grid-column: 2; font-size: 12.8px; color: var(--muted); }
 .lm .left { grid-column: 2; font-size: 12.8px; margin-top: 2px; padding: 6px 10px; border-radius: 6px; }
 .lm.r .left { background: var(--gap-bg); }
 .lm.o .left { background: var(--wall-bg); }
-.lm.n .left { background: var(--line-bg); }
+.lm.n .left, .lm.d .left { background: var(--line-bg); }
+.lm.d { border-style: dashed; border-color: var(--line); }
+.lm.shared { background: transparent; border-style: dotted; }
+.lm.shared .what { color: var(--muted); }
+.lm .end { font-family: var(--f-mono); font-size: 10.5px; color: var(--muted); border: 1px solid var(--rule); border-radius: 3px; padding: 0 5px; margin-right: 8px; white-space: nowrap; }
 .left b { font-family: var(--f-display); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; margin-right: 6px; }
-.lm.r .left b { color: var(--gap); } .lm.o .left b { color: var(--wall); } .lm.n .left b { color: var(--line); }
+.lm.r .left b { color: var(--gap); } .lm.o .left b { color: var(--wall); } .lm.n .left b, .lm.d .left b { color: var(--line); }
 
 .walls { background: var(--surface); border: 1px dashed var(--rule); border-radius: 8px; padding: 10px 14px; }
 .walls .lbl, .mq .lbl { font-family: var(--f-display); font-weight: 700; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin: 0 0 6px; }
@@ -118,7 +131,7 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 .walls .st { font-family: var(--f-mono); font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.04em; margin-right: 4px; }
 .st.ok { color: var(--pass); } .st.read { color: var(--gap); } .st.open { color: var(--wall); }
 .mq { padding: 8px 12px; border-left: 3px solid var(--line); background: var(--surface); border-radius: 0 6px 6px 0; }
-.mq p { margin: 0; font-size: 13.5px; }
+.mq p { margin: 0 0 4px; font-size: 13.5px; }
 .mq .qq { font-family: var(--f-display); font-weight: 700; font-size: 14.5px; color: var(--line); margin-bottom: 3px; }
 
 /* panels */
@@ -128,7 +141,7 @@ h1 { font-size: clamp(28px, 4.4vw, 42px); font-weight: 800; letter-spacing: -0.0
 .panel p { margin: 0 0 10px; }
 .panel ol, .panel ul { margin: 6px 0 0; padding-left: 22px; }
 .panel li { margin-bottom: 8px; font-size: 14px; }
-.panel.lead { border-left: 4px solid var(--wall); margin-top: 18px; }
+.panel.lead { border-left: 4px solid var(--line); margin-top: 18px; }
 .nums { font-family: var(--f-mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
 .tbl-box { overflow-x: auto; margin-top: 8px; }
 table { border-collapse: collapse; font-size: 13px; min-width: 520px; }
@@ -162,229 +175,239 @@ td.n { font-family: var(--f-mono); font-variant-numeric: tabular-nums; white-spa
   <header>
     <div class="eyebrow">Warp-drive research board · docket 68</div>
     <h1>The warp chain, start to finish</h1>
-    <p class="lede">Each station of a trip, now decided by the lemmas of one theorem (item 150). A station is green only when every lemma it rests on is proved, derived from your rulings, or a definition of yours shown consistent, with nothing left on a board reading or open. Every status below is the one <span class="id">warptheorem.py</span> reports.</p>
-    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py · 2026-10-07 · rulings through item 155 · readings worked and confirmed · B4 steps 1–5 verified once, the others not yet · nothing seated</div>
+    <p class="lede">Each station of a trip, decided by the rows of one theorem (item 150), at both ends of the corridor's family. A station is green at an end only when every row it rests on there is proved, derived from your rulings, or a definition of yours shown consistent. Nothing may be left on a board reading or open. Every status below is the one <span class="id">warptheorem.py</span> reports in its current register.</p>
+    <div class="meta">Read from WARPTHEOREM.md and warptheorem.py (LEMMAS_NOW, 62 rows) · 2026-10-13 · rulings through item 344 · ARRIVAL at its verifier · nothing seated</div>
   </header>
 
   <section class="thm" aria-label="The Warp Theorem">
-    <div class="eyebrow">The Warp Theorem · item 150</div>
-    <blockquote>For an object whose README has N bits, there is exactly one corridor, fixed by N alone, and through it the README becomes, one way and exactly, the object at position 2.</blockquote>
-    <p class="sub">E = √(N h c⁵ ln2 / 8π²G) = 459,404,002.42 J × √N &nbsp;·&nbsp; m = GE/c⁴ &nbsp;·&nbsp; r₀ = 2m &nbsp;·&nbsp; throat area = N × 4 ln2 Planck areas. The theorem is proved exactly when no lemma is open (item 151).</p>
-    <div class="tally" aria-label="34 lemmas by status">
-      <div class="cells" role="img" aria-label="28 green, 2 on a reading, 1 nature, 3 open">
-        <span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span><span class="cell c-ok"></span>
-        <span class="cell c-read"></span><span class="cell c-read"></span>
-        <span class="cell c-nat"></span>
-        <span class="cell c-open"></span><span class="cell c-open"></span><span class="cell c-open"></span>
+    <div class="eyebrow">The Warp Theorem · as it stands (items 331–344)</div>
+    <blockquote>For an object whose README has N bits, there is exactly one corridor, fixed by N and by our plane's tension. Through it the README becomes the object at position 2, exactly, and the passage is one way in every aspect.</blockquote>
+    <p class="sub">Small end, where the example README sits: the README's own localized five-dimensional hole, r_h = 1.12008×10⁻²⁰ m, E = 3πc⁴r_h²/(8G₅) = 1.28098×10⁹ J, r_h/ℓ = 8.0×10⁻¹⁶. Large end: the record's four-dimensional corridor, E = 459,404,002.42 J × √N, r₀ = 2m. The theorem is proved exactly when no row is open (item 151).</p>
+    <div class="tally" aria-label="62 rows by status">
+      <div class="cells" role="img" aria-label="49 green, 2 on a reading, 10 open, 1 deferred">
+        <span class="cell c-ok" title="G1"></span><span class="cell c-ok" title="G2"></span><span class="cell c-ok" title="G3"></span><span class="cell c-ok" title="H1"></span><span class="cell c-ok" title="H2"></span><span class="cell c-ok" title="H2tu"></span><span class="cell c-ok" title="H2tx"></span><span class="cell c-ok" title="O1a"></span><span class="cell c-ok" title="O1bs"></span><span class="cell c-ok" title="O1cs"></span><span class="cell c-ok" title="O2"></span><span class="cell c-ok" title="O3s"></span><span class="cell c-ok" title="Z1q"></span><span class="cell c-ok" title="Z1t"></span><span class="cell c-ok" title="Z2r"></span><span class="cell c-ok" title="Z3a"></span><span class="cell c-ok" title="Z3c"></span><span class="cell c-ok" title="B1"></span><span class="cell c-ok" title="B2"></span><span class="cell c-ok" title="B2t"></span><span class="cell c-ok" title="B4a"></span><span class="cell c-ok" title="B5a"></span><span class="cell c-ok" title="B5c"></span><span class="cell c-ok" title="B5pu"></span><span class="cell c-ok" title="B5px"></span><span class="cell c-ok" title="B5b"></span><span class="cell c-ok" title="B6"></span><span class="cell c-ok" title="B6&#x27;"></span><span class="cell c-ok" title="B8"></span><span class="cell c-ok" title="B7"></span><span class="cell c-ok" title="I1"></span><span class="cell c-ok" title="I2"></span><span class="cell c-ok" title="E1u"></span><span class="cell c-ok" title="E2u"></span><span class="cell c-ok" title="E1x"></span><span class="cell c-ok" title="E2x"></span><span class="cell c-ok" title="E3"></span><span class="cell c-ok" title="E4r"></span><span class="cell c-ok" title="R0"></span><span class="cell c-ok" title="R1"></span><span class="cell c-ok" title="R2"></span><span class="cell c-ok" title="R3"></span><span class="cell c-ok" title="R4"></span><span class="cell c-ok" title="R5"></span><span class="cell c-ok" title="R6"></span><span class="cell c-ok" title="M1s"></span><span class="cell c-ok" title="M1P2xs"></span><span class="cell c-ok" title="WRITEs"></span><span class="cell c-ok" title="CLOSEs"></span><span class="cell c-read" title="Z3bs"></span><span class="cell c-read" title="ARRIVALs"></span><span class="cell c-open" title="O3"></span><span class="cell c-open" title="Z3b"></span><span class="cell c-open" title="B3"></span><span class="cell c-open" title="B4d"></span><span class="cell c-open" title="M1"></span><span class="cell c-open" title="M1P2x"></span><span class="cell c-open" title="FAR"></span><span class="cell c-open" title="WRITE"></span><span class="cell c-open" title="ARRIVAL"></span><span class="cell c-open" title="CLOSE"></span><span class="cell c-def" title="SOURCE"></span>
       </div>
       <ul class="key">
-        <li><span class="sw c-ok"></span><b>28</b> green: 14 proved, 11 derived from your rulings, 3 your definitions</li>
+        <li><span class="sw c-ok"></span><b>49</b> green: 20 proved, 24 derived from your rulings, 5 your definitions</li>
         <li><span class="sw c-read"></span><b>2</b> rest on a board reading</li>
-        <li><span class="sw c-nat"></span><b>1</b> a measurement</li>
-        <li><span class="sw c-open"></span><b>3</b> open</li>
+        <li><span class="sw c-open"></span><b>10</b> open</li>
+        <li><span class="sw c-def"></span><b>1</b> deferred by you: SOURCE, until the board is cleared</li>
       </ul>
     </div>
   </section>
 
   <div class="strip-box" role="navigation" aria-label="Stations of the chain">
     <div class="strip">
-      <div class="stop"><a href="#demand"><div class="dot green"></div><div class="n">1</div><div class="t">Demand</div><div class="v green">green</div></a></div>
-      <div class="stop"><a href="#supply"><div class="dot amber"></div><div class="n">2</div><div class="t">Supply</div><div class="v amber">measure</div></a></div>
-      <div class="stop"><a href="#formation"><div class="dot red"></div><div class="n">3</div><div class="t">Formation</div><div class="v red">open</div></a></div>
-      <div class="stop"><a href="#address"><div class="dot red"></div><div class="n">4</div><div class="t">Address</div><div class="v red">open</div></a></div>
-      <div class="stop"><a href="#holding"><div class="dot red"></div><div class="n">5</div><div class="t">Holding</div><div class="v red">open</div></a></div>
-      <div class="stop"><a href="#crossing"><div class="dot green"></div><div class="n">6</div><div class="t">Crossing</div><div class="v green">green</div></a></div>
-      <div class="stop"><a href="#information"><div class="dot green"></div><div class="n">7</div><div class="t">Information route</div><div class="v green">green</div></a></div>
-      <div class="stop"><a href="#arrival"><div class="dot green"></div><div class="n">8</div><div class="t">Arrival</div><div class="v green">green</div></a></div>
+      <div class="stop"><a href="#demand"><div class="dot amber"></div><div class="n">1</div><div class="t">Demand</div><div class="v amber">reading</div><div class="lp red">L · open</div></a></div>
+      <div class="stop"><a href="#supply"><div class="dot green"></div><div class="n">2</div><div class="t">Supply</div><div class="v green">passes</div><div class="lp green">L · passes</div></a></div>
+      <div class="stop"><a href="#source"><div class="dot def"></div><div class="n">3</div><div class="t">Source</div><div class="v def">deferred</div><div class="lp def">L · deferred</div></a></div>
+      <div class="stop"><a href="#formation"><div class="dot red"></div><div class="n">4</div><div class="t">Formation</div><div class="v red">open</div><div class="lp red">L · open</div></a></div>
+      <div class="stop"><a href="#address"><div class="dot red"></div><div class="n">5</div><div class="t">Address</div><div class="v red">open</div><div class="lp red">L · open</div></a></div>
+      <div class="stop"><a href="#holding"><div class="dot green"></div><div class="n">6</div><div class="t">Holding</div><div class="v green">passes</div><div class="lp red">L · open</div></a></div>
+      <div class="stop"><a href="#crossing"><div class="dot green"></div><div class="n">7</div><div class="t">Crossing</div><div class="v green">passes</div><div class="lp red">L · open</div></a></div>
+      <div class="stop"><a href="#information"><div class="dot green"></div><div class="n">8</div><div class="t">Information route</div><div class="v green">passes</div><div class="lp green">L · passes</div></a></div>
+      <div class="stop"><a href="#arrival"><div class="dot green"></div><div class="n">9</div><div class="t">Arrival</div><div class="v green">passes</div><div class="lp green">L · passes</div></a></div>
     </div>
-    <p class="strip-note">Filled green: passes with no residue. Amber ring: every lemma there is proved or derived except one resting on the board's reading, a caveat, or a measurement. Red ring: an open lemma. Four stations are green: Demand, Crossing, the information route and Arrival. Supply waits only on measuring k's scale, by your ruling. The three red ones all wait on B4d, the opening and closing as a five-dimensional evolution: Formation and Address directly, and Holding because the write lasts far longer than the static bulk is verified for.</p>
+    <p class="strip-note">The dot is the small end, where the example README sits; the tag beneath is the large end (L). Filled green: passes. Amber ring: everything there is proved, derived or defined except a row on the board's reading. Red ring: an open row. Dashed: deferred by your ruling. At the small end five stations pass: Supply, Holding, Crossing, the information route and Arrival. Demand rests on one reading (Z3bs). Formation waits on B3, B4d and FAR, and Address on B4d. At the large end the record's seven open rows keep five stations red. Source is new: the README written on our plane, deferred by you until the rest is decided (item 344).</p>
   </div>
 
   <section class="line" aria-label="The chain">
 
     <article class="station" id="demand">
-      <div class="head"><div class="dot green"></div><div><div class="n">Station 1</div><h2>Demand</h2><div class="q">What the geometry asks for</div><span class="verdict green">Passes</span></div></div>
+      <div class="head"><div class="dot amber"></div><div><div class="n">Station 1</div><h2>Demand</h2><div class="q">What the geometry asks for</div><div class="pills"><span class="verdict amber">Small end · On a reading</span><span class="verdict red">Large end · Open lemma</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B1</b>The plane is free of matter (R = 0) and meets Gauss and Codazzi.</div><div class="how">bulk/localbulk.py L1–L2, verified</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>E4</b>The field energy outside the neck, E/4, is the bulk's Weyl field read on the plane: positive, and not the plane's own energy. M(R) = m + (m/4)(1 − m/(2R − 3m)).</div><div class="how">lemmas/ledger.py; Maartens–Koyama eq. 143</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>Z3</b>Null energy is never violated, in five dimensions: the vacuum bulk gives R(k,k) = 0 for every null k, the passage gives 0, and the composite plane gives λ f(y) k_y² ≥ 0 at every depth.</div><div class="how">lemmas/axioms.py; the composite step is your 117/120, shown consistent (B5)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B1</b>Each plane carries its own universe&#x27;s matter and meets Gauss and Codazzi. No bulk is ever empty (320).</div><div class="how">lemmas/b1_matter.py; bulk/localbulk.py L1–L2</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z1q</b>For a plane of tension q σ_RS bounding the vacuum bulk, q 8πG τ(k,k) + κ₅⁴ π(k,k) = R₄(k,k) + R₅(n,k,n,k), and R₅(k,k) = 0 in the bulk. Our plane is q = 1.</div><div class="how">lemmas/f1_audit.py B5, B6; the bulk&#x27;s law exactly (C9, 332)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z1t</b>Along the mouth&#x27;s radial ray the five-dimensional null energy is zero. The plane&#x27;s tangential reading, −2r_h²/r⁴, is the bulk&#x27;s Weyl term.</div><div class="how">lemmas/rows_small.py Z1t-s (C1&#x27;s verifier, 254); large end bulk/passage5d.py P2</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z2r</b>Our leg&#x27;s integral within the reach equals the plane&#x27;s reading. At the small end both are zero at flat order.</div><div class="how">rows_small.py Z2r-s; large end passage5d.py P3, coin.py</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>Z3a</b>Null energy is never violated away from the corridor, through today. Matter keeps it at every point (320).</div><div class="how">lemmas/b1_matter.py C1–C3; pointwise.py P1–P4</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>Z3bs</b><span class="end">small end</span>Rays that meet the corridor keep (Z) at the small end. Every classical ray keeps 183, and the passage&#x27;s negative is confined to the quantum region, as 177&#x27;s appearance.</div><div class="how">lemmas/pair_math.py P1–P4 (318)</div><div class="left"><b>Reading</b>The board&#x27;s reading of your 318, yours to overrule.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>Z3b</b><span class="end">large end</span>Rays that meet the corridor keep (Z) at the large end: the across-the-ring class.</div><div class="how">the record&#x27;s z3b_cypher.py, two_sided.py</div><div class="left"><b>Left</b>Waits on the bulk carrying the warp&#x27;s kink into the corridor (232).</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>Z3c</b>The plane&#x27;s dark energy has w ≥ −1 at every epoch the theory controls.</div><div class="how">lemmas/nature_rows.py Z1–Z3; item 200 (3)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>E4r</b>The field energy outside the neck, within the reach, is zero in five dimensions. The plane&#x27;s four-dimensional reading is negative: −5.3×10¹⁴ E at the example README.</div><div class="how">rows_small.py E4r-s; large end ledger.py E4</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>M1s</b><span class="end">small end</span>The plane&#x27;s reading of the corridor&#x27;s mouth at the small end.</div><div class="how">lemmas/m1_small.py (C4 verified, 269); c4_oneway.py (C4 one-way verified, 310)</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>M1</b><span class="end">large end</span>The plane&#x27;s reading of the corridor&#x27;s mouth at the large end.</div><div class="how">the record&#x27;s m1_bulk.py, d_minus.py</div><div class="left"><b>Left</b>The kink-carrying bulk under eq. (17)&#x27;s reading (203, 232).</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>D5, negative energy on the path: in five dimensions there is none. The plane's deficit is the bulk's pull (Z1, Z3). <span class="id">D5</span></li>
-          <li><span class="st ok">answered</span>D1–D4, negative enclosed mass: the corridor's mass m = GE/c⁴ is positive (G1); those rows exclude a throat by their own scope. <span class="id">D1–D4, D11</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">Must a warp contain negative energy, or only appear to?</p><p>M: it must appear to contain it. <span class="id">item 86</span></p></div>
       </div>
     </article>
 
     <article class="station" id="supply">
-      <div class="head"><div class="dot amber"></div><div><div class="n">Station 2</div><h2>Supply</h2><div class="q">The one energy, and what carries it</div><span class="verdict amber">Measurement left</span></div></div>
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 2</div><h2>Supply</h2><div class="q">The one energy, and what carries it</div><div class="pills"><span class="verdict green">Both ends · Passes</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>G1</b>One exact energy, at the bound: E(N). From no more and no less (101 answer 6), both holding it (132) and the pull (131, 133).</div><div class="how">lemmas/axioms.py</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>G2</b>E(N) computed and machine-checked: 459,404,002.42 J × √N.</div><div class="how">copy/exactE.py, seated</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>G3</b>Both holds at least size give r₀ = 2m.</div><div class="how">copy/exactE.py; items 106, 132</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>H1</b>4πr₀² = N × A_bit, with A_bit = 4 ln2 Planck areas.</div><div class="how">copy/exactE.py</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E1</b>E is carried through three holds into position 2. One way, nothing held indefinitely, and conservation force it; without either premise it is not forced.</div><div class="how">lemmas/axioms.py, z3 with controls</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B6</b>k's ratio is fixed by the work, k_R = 3k_L/4, and every clause it checks is free of k's scale. The bulk series carries ℓ; the passage's pull does not, so its absence is a result. Not B4: its depth and far boundary depend on ℓ.</div><div class="how">lemmas/b6_k.py; bulk/kderive.py K3</div></li>
-          <li class="lm n"><span class="chip nat">Nature</span><div class="what"><b>B6′</b>k's scale.</div><div class="how">item 136 answer 8: "leave it to measurement"</div><div class="left"><b>Left</b>A measurement, by your ruling. It stays a named premise of nature, not a gap in the proof.</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B5</b>Energy positive at every point for the entangled pin. Null energy at every point is your ruling (117, 120): "the NEC only ever appears to break, but never does". It is shown consistent: at one place (127) the sheets' summed tension is +λ_RS, and a smooth wall keeping null energy at every point exists. The pin carries no negative energy: the separation is held at zero (127, 141), so there is no radion.</div><div class="how">lemmas/b5_positive.py, 5/5; first written on two board readings, now your 117/120 and 127/141</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>G1</b>One exact energy, at the bound. Small end: E = 3πc⁴r_h²/(8G₅), 1.28098×10⁹ J at the example README (1.11904×10⁹ and 1.61394×10⁹ J under the G₅ readings). Large end: 459,404,002.42 J × √N.</div><div class="how">rows_small G1s (C7 verified, 271, 319); ledger.py E3s; lemmas/axioms.py</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>G2</b>E(N) computed and machine-checked.</div><div class="how">copy/exactE.py (large end); ledger.py E3s (small end)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>G3</b>The horizon&#x27;s size is fixed by N: r_h = (2N ln2/π²)^⅓ l₅ at the small end, r₀ = 2m at the large.</div><div class="how">C2 R1&#x27;s count (verified, 258); copy/exactE.py</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>H1</b>The horizon holds N bits: 2π²r_h³ = 4N ln2 l₅³ at the small end, 4πr₀² = N A_bit at the large.</div><div class="how">hcount_cypher.py, area_law5.py (C2 verified, 258); copy/exactE.py</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B6</b>k&#x27;s ratio is fixed by the work: k_R = k_L/2 (200 (1)), exact in Einstein&#x27;s law.</div><div class="how">lemmas/b6_once.py, b6_k.py</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>B6&#x27;</b>k&#x27;s scale: our universe is defined by its plane&#x27;s tension and its dark-energy offset (201). Position 2&#x27;s offset is 2.625×10⁻¹⁰ J/m³ (322).</div><div class="how">sigma_defines.py T1–T4; nature_rows.py; p2_offset.py V6</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B5a</b>Positivity at the coincidence, one way: the coincident sheets&#x27; summed stress meets B5′a&#x27;s condition. The side total needs no single coupling.</div><div class="how">b5a_oneway.py, b5a_residue.py (B5a one-way verified, 339)</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B5b</b>Every kind of matter the record holds keeps the null condition at every point, under any of position 2&#x27;s values (320).</div><div class="how">lemmas/pointwise.py P1–P6</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E1u</b>Within one universe our E holds our face and returns to our universe as radiation over the hole&#x27;s life (336).</div><div class="how">close_small.py K5, K9 (M-ENERGY-STAYS)</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E1x</b>Between universes nothing of our E crosses. Our E stays ours, position 2&#x27;s energy is its own, and the README crosses.</div><div class="how">items 336, 240; close_small.py K9</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>No mechanism supplies negative mass: none is needed. The supply is E(N), positive (G1, Z3). <span class="id">S1–S10</span></li>
-          <li><span class="st ok">answered</span>"No ladder, so no number": the balance now has one number, E(N), and the ledger closes on it (E3, station 8). <span class="id">B1–B4</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">Must the energy exist in our space at all?</p><p>M: it can sit somewhere we do not see, observable only through its interactions with what we can. <span class="id">item 86</span></p></div>
       </div>
     </article>
 
-    <article class="station" id="formation">
-      <div class="head"><div class="dot red"></div><div><div class="n">Station 3</div><h2>Formation</h2><div class="q">Bringing the corridor into existence</div><span class="verdict red">Open lemma</span></div></div>
+    <article class="station" id="source">
+      <div class="head"><div class="dot def"></div><div><div class="n">Station 3</div><h2>Source</h2><div class="q">The README written on our plane, coming in</div><div class="pills"><span class="verdict def">Both ends · Deferred by you</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B2</b>A local vacuum bulk exists, unique among analytic ones.</div><div class="how">bulk/localbulk.py L4, verified</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B7</b>Formation is the widening of a bridge already there: no change of topology, consistent and causally safe, no singularity forced. Everything is always entangled (100, 140); for matter, entanglement is a bridge (122 (4)); no bridge forms without one already there (Maldacena–Susskind p.17, READ); made is widened (101 answer 1).</div><div class="how">lemmas/b7_formation.py, 3/3; first written as the board's H-BRIDGE-PREEXISTS</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>Two separate positions reached through a dimension (item 152) are one end of the bulk, so the censorship theorem is escaped and the passage deforms through the bulk (CGS Thm 3.5). The topology is fixed before the opening: B7's bridge.</div><div class="how">lemmas/b4_global.py, 6/6, STRUCTURAL; Aké Hau–Flores–Sánchez, READ</div><div class="left"><b>Given</b>The bulk inside the far boundary regular: B4b within the hold, B4d for the opening and closing. Controls: joined only at the throat, or with excised regions, no deformation.</div></li>
-          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B4c</b>The far boundary is strictly untrapped. In the board's model its expansion over the throat has the sign of ℓ − 2R, so it exists beyond the hold's reach only if ℓ &gt; about 23 m in corridor units: met easily for ℓ near its measured bound. Radiation after the closing cannot trap it (Raychaudhuri, margin about 5), and eq. (17) holds only within the hold's reach (causality): both derived.</div><div class="how">lemmas/b4_global.py; a → 0 gives CENSOR5D C1's 3/R</div><div class="left"><b>Left</b>The model itself, H-FAR-MODEL: the bridge's geometry deep in the bulk, where the far boundary crosses it.</div></li>
-          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>B4b</b>The bulk is regular within every admissible hold's double cone. With eq. (17) held on the plane the static bulk is forced there, and it is regular and Padé-stable for any hold below ~11.3 clocks (curvature at most 2.7). Longer holds reach the surface about 2.5 m above the throat where its curvature diverges, from about 18 clocks.</div><div class="how">lemmas/b4_static.py, 9/9: exact series to order 80, Padé continuation, the full double cone converged; flat limit</div><div class="left"><b>Left</b>Computed, but resting on the board's locally analytic class near the hold and on agreement between Padé orders, a heuristic.</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4d</b>The corridor stays regular while the README passes: a write of at least 2.0×10⁵ clocks at fixed size (items 161–163), across both planes at once (item 166). With eq. (17) on a plane, a side where the warp falls away turns singular within 8–16 clocks, and a side where it grows stays regular on the evidence. Across both planes, every arrangement at small separation leaves a bulk beyond one of the planes falling away, and so singular. No flat, matter-free plane at position 2 can hold its tension. Run as a simulation in phases (items 167–168): phase 1 shows eq. (17) is no four-dimensional end state, so the bulk must supply it; phase 2, two positions in one universe, finds that two matter-free pieces of our plane cannot face each other across the extra dimension (a facing piece would read another universe's negative tension). With the README's stress on position 2's piece, a reading put to you, they can face only near the object's throat.</div><div class="how">lemmas/sim2_facing.py 16/16 (verified, re-verified), sim1_transition.py 8/8, b4d_stage7.py 7/7, b4d_stage6.py 9/9, b4d_stage5.py 11/11</div><div class="left"><b>Left</b>Within one universe: the passage through the horizon to the far end of our plane (next), a bulk that changes during the hold, motion inside the planes, nearest approaches far out. Between universes: phase 3. Recorded: item 139's −1/3 counts position 2's plane twice; one sheet is −1/6.</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B3</b>A complete bulk exists. The local bulk is B2; the complete one is B4a to B4d, so B3 closes with B4d.</div><div class="how">lemmas/axioms.py</div></li>
+          <li class="lm d"><span class="chip def">Deferred</span><div class="what"><b>SOURCE</b>The README&#x27;s source on our plane. It is written there as a gas of the plane&#x27;s fields, not null dust, and comes in onto the face. Defining that process is part of the warp travel theorem.</div><div class="how">item 344 (M-SOURCE-IN-THE-MAP); at both ends</div><div class="left"><b>Deferred</b>Deferred by you. It is worked after the current board is cleared, because the completed theorem says what it must supply. Until then no row rests on it. Today ARRIVALs models it as radial null dust, and WRITEs as write_small S3&#x27;s free gas on the plane. arrival_small V12 names what carries without the model: the one E, no partner, (Z) kept, the write&#x27;s floor, the release and the room. The 4.79-clock threshold is the model&#x27;s own, and SOURCE replaces the model.</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered (B7)</span>Creating a throat changes topology and Geroch–Borde force a loop: a widening is not a change of topology. <span class="id">D24</span></li>
-        </ul></div>
+        <div class="mq"><p class="qq">How does the README reach the face?</p><p>M: “this is a process we will have to defines as part of the over all warp travel theorem, please build it into the map. We will work on it after the current board is cleared because we need the completed warp theorem to tell us what is required.” <span class="id">item 344</span></p></div>
+      </div>
+    </article>
+
+    <article class="station" id="formation">
+      <div class="head"><div class="dot red"></div><div><div class="n">Station 4</div><h2>Formation</h2><div class="q">Bringing the corridor into existence</div><div class="pills"><span class="verdict red">Both ends · Open lemma</span></div></div></div>
+      <div class="body">
+        <ul class="lemmas">
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B7</b>Before the opening, the positions are joined through the bulk with no horizons.</div><div class="how">lemmas/b7_formation.py; 282 (2)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>The global bulk&#x27;s shape: the plane&#x27;s two ends are one end of the bulk, and the positions are joined through it with no horizons until the opening.</div><div class="how">lemmas/b4_global.py 6/6; 282 (2)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B2</b>A local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1.</div><div class="how">b1_matter.py B2′ (Dahia–Romero, READ); bulk/localbulk.py L4</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B2t</b>Its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic.</div><div class="how">localized_hole.py (C1 verified, 254; one-way, 304); localbulk.py L3–L4</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B8</b>The bulk&#x27;s law is Einstein&#x27;s exactly: the Gauss–Bonnet coupling is zero.</div><div class="how">gb_cone.py C7, C10 under M-ONE-LIGHT-CONE (328); C9 verified, 332</div></li>
+          <li class="lm r"><span class="chip read">Reading</span><div class="what"><b>ARRIVALs</b><span class="end">small end</span>The README forms our face as it arrives: one E, no partner, (Z) kept, compact. The face is born before the onset, and the coarse second law holds, only for an arrival within 4.79 clocks. The bits rebuild at position 2 under its laws: the release E2/E = (G₅/G₅₂)^⅓ by destination, and the room is 285 (b)&#x27;s figures.</div><div class="how">lemmas/arrival_small.py V0–V13 (338–344); finalized by you, at its verifier (344)</div><div class="left"><b>Reading</b>The board&#x27;s reading of your 340: for the math, with your guess A. Its thresholds are the radial null-dust model&#x27;s, which SOURCE will replace.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>ARRIVAL</b><span class="end">large end</span>The README forms the corridor as it comes in (198, your guess), at the large end.</div><div class="how">the record&#x27;s arrival_cypher.py, README-HELD.md</div><div class="left"><b>Left</b>Computed only in four dimensions; formation in the bulk is open (179).</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>FAR</b>A far boundary consistent with (Z), (G), 139 (1) and 166.</div><div class="how">the record&#x27;s far_cypher.py, far_bridge.py</div><div class="left"><b>Left</b>At the small end, the hole&#x27;s far field in the Randall–Sundrum background is not yet computed. It is next, worked beside ARRIVAL&#x27;s verification.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4d</b>The opening and closing evolve regularly in five dimensions.</div><div class="how">B4b and B4c superseded (210)</div><div class="left"><b>Left</b>The one-way object&#x27;s opening and closing are not evolved: the bounce&#x27;s quantum region (273), and the faces&#x27; beginning and end.</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B3</b>A complete bulk exists. It is equivalent to B4: the local bulk is proved (B2), and the complete one is B4a–B4d.</div><div class="how">lemmas/axioms.py</div><div class="left"><b>Left</b>At the small end the warp-order bulk is Kudoh–Tanaka–Nakamura&#x27;s numerical construction, named, not computed. B3 closes with B4d, read cell by cell (247).</div></li>
+        </ul>
         <div class="mq"><p class="qq">Is a corridor made, or found and widened?</p><p>M: likely made; and a corridor can be made under the same conditions used to make one larger. <span class="id">items 86, 101</span></p></div>
       </div>
     </article>
 
     <article class="station" id="address">
-      <div class="head"><div class="dot red"></div><div><div class="n">Station 4</div><h2>Address</h2><div class="q">Choosing where it goes</div><span class="verdict red">Open lemma</span></div></div>
+      <div class="head"><div class="dot red"></div><div><div class="n">Station 5</div><h2>Address</h2><div class="q">Choosing where it goes</div><div class="pills"><span class="verdict red">Both ends · Open lemma</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>R4</b>The corridor's length is the difference between the two trajectories, in bits (item 155): not a distance (101 answer 7, 136 answer 3, 139 (4)).</div><div class="how">lemmas/r4_length.py, 4/4</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>Shared with formation: two separate positions, joined through the extra dimension, are one end of the bulk.</div><div class="how">lemmas/b4_global.py, given B4b</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>B4d</b>Shared with formation and holding: the bulk that joins them stays regular through the write. On a positive-tension plane it does not; on item 139's negative-tension plane it does, on the evidence.</div><div class="how">lemmas/b4d_stage5.py; lemmas/o3_write.py</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>R4</b>The corridor&#x27;s length is the difference of the two trajectories, given a measure: not a distance.</div><div class="how">lemmas/r4_length.py (item 155)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>M1P2xs</b><span class="end">small end</span>Position 2&#x27;s side at the small end, on the one-way object.</div><div class="how">lemmas/c8_level.py V0–V10 (C8 one-way verified, 341); m1p2x_oneway.py</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>M1P2x</b><span class="end">large end</span>Position 2&#x27;s side reads eq. (17)&#x27;s other leg at the large end.</div><div class="how">the record&#x27;s m1p2_cypher.py, m1p2_junction.py, theorem_p2.py</div><div class="left"><b>Left</b>The record&#x27;s, not re-posed one-way.</div></li>
+          <li class="lm shared"><span class="chip ok">Proved</span><div class="what"><b>B4a</b>Shared with formation: the global bulk&#x27;s shape: the plane&#x27;s two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening.</div></li>
+          <li class="lm shared"><span class="chip open">Open</span><div class="what"><b>B4d</b>Shared with formation: the opening and closing evolve regularly in five dimensions.</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>A static, round device has no parameter for a destination: the second position is an input the device requires, exact to the input. <span class="id">D14; items 86 answer 4, 119</span></li>
-          <li><span class="st open">on B4d</span>Whether a second plane exists, and a geometry that brings the destination near. <span class="id">BULK-O1, BULK-O3</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">How does a corridor know where it is going?</p><p>M: the second position is an input; entanglement plus trajectory triangulation give the action. <span class="id">item 86</span></p><p>M: two separate positions connected by, reached through, a dimension. <span class="id">item 152</span></p></div>
       </div>
     </article>
 
     <article class="station" id="holding">
-      <div class="head"><div class="dot red"></div><div><div class="n">Station 5</div><h2>Holding</h2><div class="q">Holding the README, and surviving the hold</div><span class="verdict red">Open lemma</span></div></div>
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 6</div><h2>Holding</h2><div class="q">Holding the README, and surviving the hold</div><div class="pills"><span class="verdict green">Small end · Passes</span><span class="verdict red">Large end · Open lemma</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O2</b>The horizon is extremal: surface gravity 0.</div><div class="how">bulk/stability.py S1, verified</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>H2</b>The horizons hold the README as well as the throat: the horizon at r = 2m sits on the throat and its area is N × A_bit.</div><div class="how">lemmas/axioms.py</div></li>
-          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>O3</b>The corridor survives its hold, which lasts exactly as long as the write needs (item 158). The corridor and the opening are the same object (item 160), held all together as one whole (item 163): at least 2.0×10⁵ clocks (1.3×10⁻³¹ s). The write's energy is settled (item 164): the held README is an exact energy state, and the write needs a spread of only 5.2×10⁻²⁰ of E.</div><div class="how">lemmas/o3_write.py 12/12, lemmas/o3_ground.py 9/9, each verified once</div><div class="left"><b>Left</b>Whether the bulk stays regular through the write. That is B4d.</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>H2</b>Our face and position 2&#x27;s face hold the README as one null surface (270 (a)).</div><div class="how">c7_oneway.py V11 (Q4)</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>H2tu</b>Within one universe the horizon&#x27;s trace on each plane is r = r_h.</div><div class="how">rows_small.py H2tu-s (C7 verified)</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>H2tx</b>Between universes position 2&#x27;s horizon holds the README at its own bit area (240).</div><div class="how">copy_p2.py C1; c7_oneway.py V12 (Q3)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O2</b>The horizon is not extremal: surface gravity c²/r_h at the small end, 1/(4M) at the large. Our face damps every disturbance; position 2&#x27;s face is open at most 33.6 clocks.</div><div class="how">rows_small O2s (C7 verified); C3 F5; bulk/stability.py S6</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>O3s</b><span class="end">small end</span>The corridor survives its hold at the small end. The face stands from the opening through the hole&#x27;s life, 8.57×10¹⁴ clocks, and the write&#x27;s floor of 66,980 clocks runs within it.</div><div class="how">o3_hold.py O3e (334, 336); Schlue&#x27;s boundedness, READ, for the scalar wave</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>O3</b><span class="end">large end</span>The corridor survives its hold at the large end.</div><div class="how">the record&#x27;s o3_write.py</div><div class="left"><b>Left</b>The write takes at least 199,702.19 clocks of m/c; the large end&#x27;s open period is not computed.</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>WRITEs</b><span class="end">small end</span>The bulk is held through the whole write at the small end, at least 66,980 clocks of r_h/c. The README&#x27;s hole is static and lasts 1.28×10¹⁰ times the floor.</div><div class="how">write_cypher.py W5; write_small.py S3 (C6 verified, 264)</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>WRITE</b><span class="end">large end</span>The static bulk held through the whole write at the large end, at least 199,702.19 clocks of m/c.</div><div class="how">the record&#x27;s write_cypher.py</div><div class="left"><b>Left</b>Carrying the corridor, lasting the write and keeping (Z) never occur together on eq. (17)&#x27;s computed cells.</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>The duration quantum inequality bounds how long a quantum field's negative energy lasts. The corridor holds none: the plane is matter-free (B1), null energy is never violated (Z3), and the plane's apparent deficit is the bulk's Weyl field (E4, Z1). Deduced. <span class="id">D7</span></li>
-          <li><span class="st read">on B4d</span>Stability past the classical modes: linear within the static window, computed; over the write's ~2×10⁵ clocks linear growth is not certified (factors 5.0×10⁴ and 6.2×10⁸), so it is B4d's. <span class="id">D26, O5</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">How long must a corridor last?</p><p>M: however long the travel dictates; probably incredibly short, maybe immeasurable, but not zero. <span class="id">item 86</span></p><p>M: instantaneous or near instantaneous. <span class="id">item 136 E</span></p><p>M: exactly as long as the write needs, I should think. <span class="id">item 158</span></p></div>
       </div>
     </article>
 
     <article class="station" id="crossing">
-      <div class="head"><div class="dot green"></div><div><div class="n">Station 6</div><h2>Crossing</h2><div class="q">Entering, traversing, leaving</div><span class="verdict green">Passes</span></div></div>
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 7</div><h2>Crossing</h2><div class="q">Entering, traversing, leaving</div><div class="pills"><span class="verdict green">Small end · Passes</span><span class="verdict red">Large end · Open lemma</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O1</b>One way, from position 1 to position 2, nonsingular.</div><div class="how">copy/plane.py P1, seated; exactE.py one-way check</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z1</b>Along the passage, a null geodesic of the five-dimensional geometry (not light, item 90), the null energy is zero; the plane's deficit is the bulk's pull. R₅(n,k,n,k) = 2r″/r = (m/2)/((r − 3m/2)² r).</div><div class="how">bulk/passage5d.py P2, verified</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>Z2</b>The integral equals the plane's reading on both legs: Q = 8/3 − (4/3√3) artanh(√3/2) = 1.652872/m, exactly −2 × coin.py's per-leg value.</div><div class="how">bulk/passage5d.py P3; copy/coin.py</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>O1a</b>One way in every aspect, 1 → 2. The passage is one object: our black-hole face, the bounce, and position 2&#x27;s white-hole face (270, 273, 276).</div><div class="how">c1_oneway.py (C1 one-way verified, 304); 282</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O1bs</b><span class="end">small end</span>No curvature singularity on the passage at the small end. The hole&#x27;s interior singularity is off it (259).</div><div class="how">c1_oneway.py; c4_residue.py R6; o1c_oneway.py (verified, 337)</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>O1cs</b><span class="end">small end</span>Every causal route of the passage is complete at the small end.</div><div class="how">o1c_oneway.py Z1–Z8 (O1c one-way verified, 337)</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>CLOSEs</b><span class="end">small end</span>Our face closes by Hawking emission over the hole&#x27;s life, 8.57×10¹⁴ clocks, and the energy is ours. Position 2&#x27;s face closes within its open period, 33.6 clocks.</div><div class="how">close_small.py K1–K9 (336, M-ENERGY-STAYS)</div></li>
+          <li class="lm o"><span class="chip open">Open</span><div class="what"><b>CLOSE</b><span class="end">large end</span>The closing at the large end.</div><div class="how">the record&#x27;s close_cypher.py, close_object.py</div><div class="left"><b>Left</b>Not computed at the large end.</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>What crosses: information, by the throat (131, 132, 143). <span class="id">BULK-O2</span></li>
-          <li><span class="st ok">answered (B7)</span>Closed loops in a braneworld: causal safety is entailed for the widening, under B7's reading. <span class="id">O3</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">What actually goes through?</p><p>M: information. <span class="id">item 86</span></p></div>
       </div>
     </article>
 
     <article class="station" id="information">
-      <div class="head"><div class="dot green"></div><div><div class="n">Station 7</div><h2>Information route</h2><div class="q">Send the specification, not the mass</div><span class="verdict green">Passes</span></div></div>
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 8</div><h2>Information route</h2><div class="q">Send the specification, not the mass</div><div class="pills"><span class="verdict green">Both ends · Passes</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>I2</b>The README's N bits sit within the capacity bound as READ: the holding bound is N, the interaction bound is met with equality, the channel bound N/2 ≤ N.</div><div class="how">lemmas/i2_capacity.py, 4/4; Maldacena–Stanford–Yang p.4, p.12</div></li>
-          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R0</b>The read: the corridor takes the README as its inflow at the opening; N is read from the object. Consistent: the interaction bound is met with equality exactly because the inflow is the README.</div><div class="how">items 70, 101 answer 8, 115 (c), 130 (2)</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>I1</b>The passage is N bits of entanglement: your item 137 (1), with the throat's area N × A_bit (H1). Maldacena–Susskind p.5 and Strominger–Vafa (READ) agree.</div><div class="how">lemmas/axioms.py; the extremal-entropy step it first needed is no longer load-bearing</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>I1</b>The passage is N bits of entanglement (137 (1), with H1). At the small end H1 is the horizon&#x27;s 3-sphere.</div><div class="how">lemmas/axioms.py</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>I2</b>The README&#x27;s N bits sit within the capacity bound as READ. No signal travels faster than light.</div><div class="how">lemmas/i2_capacity.py; relativity.py U5</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R0</b>The read: the corridor takes the README as its inflow at the opening, and N is read from the README.</div><div class="how">items 70, 101 answer 8, 115 (c), 130 (2)</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>Information cannot outrun its carrier: it does not. The README runs a null geodesic of the five-dimensional geometry (Z1). <span class="id">D13</span></li>
-          <li><span class="st ok">answered (B7)</span>The first trip: a bridge already there needs no first traversal. <span class="id">D23</span></li>
-          <li><span class="st read">in part</span>The port between plane and bulk: the read is your definition (R0) and what it carries is bounded (I2); no Lagrangian for the coupling is written. <span class="id">O6</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">If only information travels, what arrives?</p><p>M: information, like a software patch presented as a README file, telling position 2 what to construct with what it has. <span class="id">item 86</span></p></div>
       </div>
     </article>
 
     <article class="station" id="arrival">
-      <div class="head"><div class="dot green"></div><div><div class="n">Station 8</div><h2>Arrival</h2><div class="q">Release, rearrangement, the exact copy</div><span class="verdict green">Passes</span></div></div>
+      <div class="head"><div class="dot green"></div><div><div class="n">Station 9</div><h2>Arrival</h2><div class="q">Release, rebuild, the exact copy</div><div class="pills"><span class="verdict green">Both ends · Passes</span></div></div></div>
       <div class="body">
         <ul class="lemmas">
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E2</b>E is released at position 2 at the closing: held on position 2's horizon until it ends with the corridor.</div><div class="how">lemmas/axioms.py; items 106, 109, 115 (b)</div></li>
-          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R1</b>Exact reconstruction, no tolerance. Consistent with R3 and R5.</div><div class="how">items 145, 146</div></li>
-          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R2</b>Position 2 rearranges to the README, then its laws govern. Consistent with rearrange.py and E3.</div><div class="how">item 148</div></li>
-          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>R3</b>Exactness at the instant holds across the mass window.</div><div class="how">bulk/exactcopy.py, rearrange.py, verified</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>R5</b>The build's mechanism is yours (91 (b), 101 answer 8, 136 B, 139 (3), 148), and so is what "activates" means: a trigger, the Higgs field's value unchanged, the rearrangement by electromagnetism and the nuclear forces (item 155). An exact README gives E ≥ 3.76×10²² J, above the worst nuclear rearrangement, 5.94×10¹⁶ J.</div><div class="how">lemmas/r5_build.py, 3/3</div></li>
-          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E3</b>The ledger closes: E goes into position 2 (110), the build uses exactly it (111 (a)), the copy exact (146), its matter reorganized (137). E's remainder is absorbed as position 2's expansion, part of the build (139 (3); item 155). Closes at the example and the full snapshot.</div><div class="how">lemmas/ledger.py, 5/5</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E2u</b>Within one universe, position 2&#x27;s face releases its own energy at its closing.</div><div class="how">items 110, 111 (a), 240; c_junction.py J1; close_small.py K9</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E2x</b>Between universes, position 2&#x27;s face releases position 2&#x27;s own energy at its closing, and the build uses it.</div><div class="how">items 110, 111 (a), 240; c_junction.py J1; close_small.py K9</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>E3</b>The ledger closes: position 2&#x27;s closing energy goes into position 2 (110), and the build uses exactly it (111 (a)). The need is what it activates (239).</div><div class="how">ledger.py E3, E3s</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R1</b>Exact reconstruction, no tolerance.</div><div class="how">items 145, 146</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R2</b>Position 2 builds an exact copy of the object from its own bulk, under position 2&#x27;s laws; then its laws govern.</div><div class="how">items 148, 240, 285</div></li>
+          <li class="lm"><span class="chip ok">Proved</span><div class="what"><b>R3</b>Exactness at the instant, over the mass window.</div><div class="how">bulk/exactcopy.py, rearrange.py (verified)</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>R5</b>The build&#x27;s mechanism: what the closing energy activates (239), and the copy under position 2&#x27;s laws (240).</div><div class="how">lemmas/r5_build.py; copy_p2.py</div></li>
+          <li class="lm"><span class="chip ok">Definition</span><div class="what"><b>R6</b>The room: the copy takes room by displacing what is there, and stays as the new whole of position 2.</div><div class="how">items 284, 285; the figures in arrival_small.py V7</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B5c</b>Position 2&#x27;s positivity where it bears: where the README lands, and where the corridor&#x27;s rays cross position 2&#x27;s plane.</div><div class="how">lemmas/e_positive.py E7</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B5pu</b>Within one universe position 2&#x27;s matter is ours (202), and it meets B5′a&#x27;s condition.</div><div class="how">b5p_cypher.py; pointwise.py P5</div></li>
+          <li class="lm"><span class="chip ok">Derived</span><div class="what"><b>B5px</b>Between universes position 2&#x27;s matter meets B5′a&#x27;s condition, under any of its laws.</div><div class="how">theorem_p2.py TC; pointwise.py P6</div></li>
         </ul>
-        <div class="walls"><p class="lbl">Walls of the earlier map</p><ul>
-          <li><span class="st ok">answered</span>The stock at the destination: multi-universal (136 H). <span class="id">D25, W3-O3</span></li>
-          <li><span class="st ok">answered</span>The read, by definition (R0); whether one is physically possible waits for the device (135). <span class="id">S1C-O1</span></li>
-          <li><span class="st ok">answered</span>Identity completeness and tolerance: exact, labels and values (145–147). <span class="id">COPY-O1</span></li>
-        </ul></div>
         <div class="mq"><p class="qq">Is what arrives the same as what left?</p><p>M: yes in principle; if the original matter did not travel, a copy. <span class="id">item 86</span></p></div>
       </div>
     </article>
   </section>
 
-  <section class="panel lead" aria-label="Where B4 stands">
-    <div class="eyebrow">The decisive open lemma</div>
-    <h2>Where B4 stands</h2>
-    <p>Worked to the end of what the board's tools reach (item 153), and verified. The shape is settled: your two separate positions, reached through a dimension, are one end of the bulk (B4a). Within the hold, the board took the static bulk past its series, with exact arithmetic to order 80 and Padé continuation, and computed the hold's full double cone on a refined, converged grid. The static bulk has a curvature singularity about 2.5 m above the throat, so the bulk caps the hold.</p>
+  <section class="panel lead" aria-label="Where the board stands">
+    <div class="eyebrow">Where the board stands · item 344</div>
+    <h2>The small end, claim by claim</h2>
+    <p>The board reworked clause (O) from item 251: the corridor is a localized hole, and the passage is one object, read one way (270–282). Each claim was finalized by you and checked once by its own verifier. Before each hand-off every earlier verifier's corrections are accounted against it (330, <span class="id">verify_ledger.py</span>).</p>
     <div class="tbl-box"><table>
-      <thead><tr><th>hold (corridor clocks)</th><th>its double cone</th></tr></thead>
+      <thead><tr><th>claim</th><th>what it settles</th><th>verified</th></tr></thead>
       <tbody>
-        <tr><td class="n">below 11.3</td><td>entirely in verified bulk, curvature at most 2.7: <b>regular and Padé-stable</b></td></tr>
-        <tr><td class="n">from 14.9</td><td>reaches curvature 100 times the plane's: finite, not a failure</td></tr>
-        <tr><td class="n">about 18</td><td>reaches the singular surface (y ≈ 2.49–2.50 m at r = 2.15m, K ∝ (y_b − y)^−p, p ≈ 2.5–3)</td></tr>
-        <tr><td class="n">28.48 (the per-bit hold)</td><td>withdrawn</td></tr>
-        <tr><td class="n">2.0×10⁵ (the write, item 158)</td><td>the least time the README needs to arrive at the example README (o3_write.py): past every row above, so the bulk is not still through the write</td></tr>
+        <tr><td class="n">C1</td><td>the construction: the localized hole, our plane through its equator</td><td class="n">254; one-way 304</td></tr>
+        <tr><td class="n">C2</td><td>clause (H)'s count: 2π²r_h³ = 4N ln2 l₅³</td><td class="n">258</td></tr>
+        <tr><td class="n">C3</td><td>the family's two ends</td><td class="n">261</td></tr>
+        <tr><td class="n">C4</td><td>the plane's reading of the mouth (M1s)</td><td class="n">269; one-way 310</td></tr>
+        <tr><td class="n">C5</td><td>the hold and the hole's life</td><td class="n">267; one-way 317</td></tr>
+        <tr><td class="n">C6</td><td>the write at the small end, 66,980 clocks</td><td class="n">264</td></tr>
+        <tr><td class="n">C7</td><td>the eq. (17) rows at the small end</td><td class="n">271; one-way 319</td></tr>
+        <tr><td class="n">C9</td><td>the bulk's law Einstein's exactly (B8)</td><td class="n">332</td></tr>
+        <tr><td class="n">O1c</td><td>every causal route of the passage complete (O1cs)</td><td class="n">337</td></tr>
+        <tr><td class="n">B5a</td><td>positivity at the coincidence, one way</td><td class="n">339</td></tr>
+        <tr><td class="n">C8</td><td>position 2's side at the small end (M1P2xs)</td><td class="n">341</td></tr>
+        <tr><td class="n">ARRIVAL</td><td>the README forms our face as it arrives (ARRIVALs)</td><td>at its verifier (344)</td></tr>
       </tbody>
     </table></div>
-    <p style="margin-top:10px"><b>Stage 1 (lemmas/b4d_stage1.py):</b> the opening forces the flat limit through B4c's far model; the black string is unstable (computed from Gregory–Laflamme's equation, matched to a second source), and a plane closing eq. (17)'s static bulk would need matter that breaks the null energy condition (ρ + p_r = y_w·R⁽⁴⁾_kk &lt; 0). The one bulk that stands is a 5D hole, not the corridor.</p>
-    <p style="margin-top:10px"><b>What is left: B4d.</b> Whether the corridor's bulk stays regular through the write. Across both planes (item 166), every small-separation arrangement leaves a bulk beyond one plane falling away, and so singular. Within one universe (phase 2), two matter-free pieces of our plane cannot face each other across the extra dimension; the passage through the horizon is next, then the phases between universes.</p>
+    <p style="margin-top:10px"><b>Open at the small end:</b> B3 and B4d, the opening and closing of the one-way object in five dimensions, including the bounce's quantum region; and FAR, the hole's far field in the Randall–Sundrum background. <b>At the large end:</b> the record's O3, Z3b, M1, M1P2x, WRITE, CLOSE and ARRIVAL.</p>
   </section>
 
   <section class="breaks" aria-label="What turns the map green">
     <div class="panel">
-      <div class="eyebrow">Readings · green when derived</div>
-      <h2>Two lemmas wait on board readings</h2>
+      <div class="eyebrow">Readings · green when you confirm or the math decides</div>
+      <h2>Two rows rest on board readings</h2>
       <ul>
-                <li><b>B4c</b> H-FAR-MODEL <span class="id">formation</span></li>
-        <li><b>B4b</b> the locally analytic class and Padé continuation, computed <span class="id">formation</span></li>
+        <li><b>Z3bs</b> 318's reading: every classical ray keeps 183, and the passage's negative inside the quantum region is 177's appearance. <span class="id">demand</span></li>
+        <li><b>ARRIVALs</b> the board's reading of your 340: for the math, with your guess A, the README forms our face as it arrives, compactly. At its verifier. <span class="id">formation</span></li>
       </ul>
-      <p style="margin-top:8px">Each is labelled and is withdrawn if you correct it. Under your item 154, B5, B7 and I1 left this list as derivations; under item 155 you confirmed E3, R4 and R5. Both were calibrated to the static window's 11.3-clock reach, which the write exceeds, so both are re-read with B4d. O3 left this list for open under item 158. What remains is mathematics, not a reading of your words.</p>
+      <p style="margin-top:8px">Each is labelled, and each is withdrawn if you correct it.</p>
     </div>
     <div class="panel">
-      <div class="eyebrow">Still to do on the board's side</div>
-      <h2>Residue the board can clear</h2>
+      <div class="eyebrow">The board's order · yours to change</div>
+      <h2>What comes next</h2>
       <ol>
-        <li>The opening and closing as a five-dimensional evolution. <span class="id">B3, B4d</span></li>
-                        <li>One verifier each over the nine earlier lemma instruments, axioms.py and warptheorem.py. B4's five steps have had one each.</li>
+        <li>ARRIVAL's verification; its verdict is accounted in full before anything else is sent. <span class="id">344</span></li>
+        <li>FAR at the small end, worked beside it. <span class="id">FAR</span></li>
+        <li>The opening and closing in five dimensions. <span class="id">B3, B4d</span></li>
+        <li>The large end's seven open rows. <span class="id">O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL</span></li>
+        <li>SOURCE, once the rest is decided, so the completed theorem names what it must supply. <span class="id">344</span></li>
       </ol>
-      <p style="margin-top:8px">B6′, k's scale, stays with measurement by your ruling.</p>
     </div>
   </section>
 
   <footer class="foot">
-    <p>Status words: <b>proved</b>, computed or machine-checked; <b>derived</b>, from your more basic rulings, proved lemmas and physics; <b>definition</b>, your words for what the theory means, shown consistent with the rest; <b>reading</b>, the board's, labelled; <b>open</b>, not yet shown. An asterisk marks a derivation that inherits a reading or an unread source.</p>
-    <p>Sources: research/warp-drive/docket68/WARPTHEOREM.md, warptheorem.py (selftest 8/8) and lemmas/. Nothing on this page is seated in ledger.py; that waits on your word.</p>
+    <p>Status words: <b>proved</b>, computed or machine-checked; <b>derived</b>, from your more basic rulings, proved rows and physics; <b>definition</b>, your words for what the theory means, shown consistent with the rest; <b>reading</b>, the board's, labelled; <b>open</b>, not yet shown; <b>deferred</b>, open and set aside by your ruling until the rest is decided. Rows ending in s are the small end's; their unsuffixed partners are the large end's.</p>
+    <p>Sources: research/warp-drive/docket68/WARPTHEOREM.md, warptheorem.py (LEMMAS_NOW, 62 rows; the item-247 register is kept beside it as the record) and lemmas/. The earlier map's walls and their answers are in the record and WARPTHEOREM.md's history.</p>
   </footer>
 </div>

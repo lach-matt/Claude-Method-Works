@@ -51,7 +51,10 @@ M's 336 (CLOSEs), and two rows stand on named readings: Z3bs, on 318's, and ARRI
 reading of M's 340 -- for the math, M's guess A -- the math giving the README forming our face as it arrives, compact
 (arrival_small V11). [Item 334: O3s and WRITEs stood
 on H-HOLD-IS-THE-FACE, which M confirmed -- M-HOLD-IS-THE-FACE -- and are DERIVED.] The large end keeps the record's
-OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL.
+OPEN rows: O3, Z3b, M1, M1P2x, WRITE, CLOSE, ARRIVAL. [Item 344: M finalized ARRIVALs, now at its verifier; and the
+README's source on our plane -- a gas of the plane's fields, not null dust -- is a row of the theorem at both ends,
+SOURCE, OPEN and deferred by M until the current board is cleared, the completed theorem saying what it requires
+(M-SOURCE-IN-THE-MAP).]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -470,13 +473,14 @@ LEMMAS_NOW = [
      ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
       "at position 2 under its laws and take their room"),
      'READING',
-     ("lemmas/arrival_small.py V0-V12 (338, 340, 343): for the math with M's guess A (340), the math on M's statements "
-      "giving reading (ii), compact -- G_vv >= 0, no partner, one E (V1); the face born before the onset and the coarse "
-      "second law kept only for an arrival within 4.79 clocks, the radial model's figure, its scale what carries "
-      "(V2-V4, V12); reading (i) against 136 (1), 136 G, 162 and 109, "
-      "and a compact arrival's face changing size over 5.39 clocks, 8.0e-5 of the write, for 162 and 163 (V11); the "
-      "write's floor carried, its 66,980 clocks the approach (V5); position 2's release E2/E = (G5/G5_2)^(1/3) under "
-      "240 (b) (V6); the room, 285 (b)'s figures (V7); the rebuild's steps M's (V8) -- the board's reading of 340")),
+     ("lemmas/arrival_small.py V0-V13 (338, 340, 343, 344): for the math with M's guess A (340), the math on M's "
+      "statements giving reading (ii), compact -- G_vv >= 0, no partner, one E (V1); the face born before the onset and"
+      " the coarse second law kept only for an arrival within 4.79 clocks, the radial model's figure, its scale what "
+      "carries (V2-V4, V12); reading (i) against 136 (1), 136 G, 162 and 109, and a compact arrival's face changing "
+      "size over 5.39 clocks, 8.0e-5 of the write, for 162 and 163 (V11); the write's floor carried, its 66,980 clocks "
+      "the approach (V5); position 2's release E2/E = (G5/G5_2)^(1/3) under 240 (b) (V6); the room, 285 (b)'s figures "
+      "(V7); the rebuild's steps M's (V8) -- the board's reading of 340; finalized by M and accounted before its "
+      "verifier (V13, 344), at its verifier")),
     ('N',
      "ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess)",
      'OPEN',
@@ -493,6 +497,16 @@ LEMMAS_NOW = [
     ('N', 'CLOSE the closing at the large end', 'OPEN',
      ("the record's (close_cypher, close_object, CLOSE-FLUX): M-ENERGY-STAYS was answered at the small end; the large"
       " end's closing is not computed")),
+    # [item 344] M-SOURCE-IN-THE-MAP: a row of the theorem now, worked after the current board is cleared
+    ('N',
+     ("SOURCE the README's source on our plane: written there as a gas of the plane's fields, not null dust, and "
+      "coming in onto the face -- the process the write and the arrival are worked in models of (344)"),
+     'OPEN',
+     ("deferred by M (344, M-SOURCE-IN-THE-MAP): worked after the current board is cleared, the completed theorem "
+      "saying what it requires; until then no row rests on it, and a row that needs the README's arrival is worked in "
+      "a model and says what is the model's own (arrival_small V12, V13 (6)); at both ends -- at the small end "
+      "ARRIVALs models it as radial null dust and WRITEs as write_small S3's free gas on the plane "
+      "(H-README-ON-PLANE); at the large end ARRIVAL and WRITE are open")),
 ]
 RESTS_ON_NOW = {'G1': 'M1s M1', 'G3': 'M1s M1', 'H2tu': 'M1s M1', 'H2tx': 'M1s M1 M1P2xs M1P2x', 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL', 'Z1t': 'M1s M1', 'Z2r': 'M1s M1',
