@@ -93,9 +93,7 @@ class CB:
             xs_, xx_ = [np.asarray(v, dtype=float) * np.ones(n) for v in ID.f_xi(np.full(n, s), self.xn, self.b, 0, 0,
                                                                                     *a)]
         xt = xs_ - self.hs_full(s, Xg, Vg, a)
-        f = 1 - s; Dl = 1 / self.b + (1 - self.xn ** 2) / f; g = 2 - self.xn ** 2
-        gss = Xg[2] / (f ** 4 * s) / Dl ** 2; gxx = 4 * Xg[3] / (f ** 2 * g) / Dl ** 2
-        gsx = self.xn * Xg[4] / (2 * f ** 3) / Dl ** 2
+        gss, gsx, gxx = C.metric_sx(s, self.xn, self.b, Xg)
         return gss * xt ** 2 + 2 * gsx * xt * xx_ + gxx * xx_ ** 2
 
 class DampedCB(CB, ID.Damped):
@@ -157,7 +155,7 @@ class Gauge5CB(CB, G5.Gauge5):
 
 import pickle as _pk, sympy as _sp
 _kap, _at, _R, _Rs = _sp.symbols("kap at", real=True) + (_sp.Symbol("R"), _sp.Symbol("R_s"))
-_rawh = _pk.load(open("harm_fw.pkl", "rb"))
+_rawh = _pk.load(open("harm_%s.pkl" % C.PROB, "rb"))
 _HA = [C.s, C.x, C.bt, _R, _Rs] + C.VARS
 fh_gauge = _sp.lambdify(_HA, [C.ev(_rawh["D"][k]) for k in C.ORDER], "numpy", cse=True)
 fh_damph = _sp.lambdify([C.s, C.x, C.bt, _kap, _at, _R] + C.VARS, [C.ev(_rawh["DH"][k]) for k in C.ORDER], "numpy",

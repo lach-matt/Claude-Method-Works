@@ -115,4 +115,4 @@ if __name__ == "__main__":
     U = np.concatenate([np.ones(4 * n), np.zeros(n)])
     U, nr = newton(G, U, b, verbose=True)
     print("bt=%g Ns=%d Nx=%d |R|=%.2e phi_max=%.2e R4/ell=%.5f" % (b, Ns, Nx, nr, phimax(G, U, b), R4(G, U, b)))
-    np.save("fw_bt%g_%d_%d.npy" % (b, Ns, Nx), U)
+    np.save(C.static_file(b, Ns, Nx), U)

@@ -7,15 +7,18 @@ import numpy as np, sympy as sp, pickle
 import core_fw as C, interior_fw as IF, interior_damp as ID
 mu_ = sp.Symbol("mu", real=True); kap_, at_ = sp.symbols("kap at", real=True)
 EE, EES, RR, RRS = sp.Symbol("E"), sp.Symbol("E_s"), sp.Symbol("R"), sp.Symbol("R_s")
-_raw = pickle.load(open("gauge5_fw.pkl", "rb"))
+import os
 ARGS = [C.s, C.x, C.bt, mu_, EE, EES, RR, RRS] + C.VARS
-f_gauge = sp.lambdify(ARGS, [C.ev(_raw["D"][k]) for k in C.ORDER], "numpy", cse=True)
-f_damph = sp.lambdify([C.s, C.x, C.bt, kap_, at_, mu_, EE, RR] + C.VARS, [C.ev(_raw["DH"][k]) for k in C.ORDER],
-                      "numpy", cse=True)
-AX = {k: C.ev(v) for k, v in _raw["aux"].items()}
-f_hs = sp.lambdify(ARGS, AX["hs"], "numpy", cse=True)
-f_N = sp.lambdify(ARGS, AX["N"], "numpy", cse=True)
-f_Ns = sp.lambdify(ARGS, AX["N_s"], "numpy", cse=True)
+f_gauge = f_damph = f_hs = f_N = f_Ns = None              # absent for a problem without gauge5_<PROB>.pkl
+if C.PROB == "fw" or os.path.exists("gauge5_%s.pkl" % C.PROB):
+    _raw = pickle.load(open("gauge5_%s.pkl" % C.PROB, "rb"))
+    f_gauge = sp.lambdify(ARGS, [C.ev(_raw["D"][k]) for k in C.ORDER], "numpy", cse=True)
+    f_damph = sp.lambdify([C.s, C.x, C.bt, kap_, at_, mu_, EE, RR] + C.VARS, [C.ev(_raw["DH"][k]) for k in C.ORDER],
+                          "numpy", cse=True)
+    AX = {k: C.ev(v) for k, v in _raw["aux"].items()}
+    f_hs = sp.lambdify(ARGS, AX["hs"], "numpy", cse=True)
+    f_N = sp.lambdify(ARGS, AX["N"], "numpy", cse=True)
+    f_Ns = sp.lambdify(ARGS, AX["N_s"], "numpy", cse=True)
 
 def cc_weights(Nx):
     """Clenshaw-Curtis weights on lobatto01(Nx) (x in [0, 1], ascending), normalised to sum 1"""

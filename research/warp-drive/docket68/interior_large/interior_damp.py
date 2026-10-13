@@ -3,7 +3,7 @@ import numpy as np, sympy as sp, sys, time, pickle
 import core_fw as C, interior_fw as IF
 from scipy.integrate import solve_ivp
 kap_, at_ = sp.symbols("kap at", real=True)
-_raw = pickle.load(open("damp_fw.pkl", "rb"))
+_raw = pickle.load(open("damp_%s.pkl" % C.PROB, "rb"))
 DMP = [C.ev(_raw["D"][k]) for k in C.ORDER]
 AUX = {k: C.ev(v) for k, v in _raw["aux"].items()}
 f_damp = sp.lambdify([C.s, C.x, C.bt, kap_, at_] + C.VARS, DMP, "numpy", cse=True)
@@ -41,7 +41,7 @@ def xi_at(I, s, Y):
         return [np.asarray(v, dtype=float) * np.ones(I.Nx + 1) for v in f_xi(np.full(I.Nx + 1, s), I.xn, I.b, 0, 0, *a)]
 
 def static_brane(b, Ns=24, Nx=24):
-    U = np.load("fw_bt%g_%d_%d.npy" % (b, Ns, Nx)); n = (Ns + 1) * (Nx + 1); sn = C.radau01(Ns)
+    U = np.load(C.static_file(b, Ns, Nx)); n = (Ns + 1) * (Nx + 1); sn = C.radau01(Ns)
     return np.array([C.bary_interp(sn, U[e * n:(e + 1) * n].reshape(Ns + 1, Nx + 1), [0.0])[0][-1] for e in range(4)])
 
 if __name__ == "__main__":

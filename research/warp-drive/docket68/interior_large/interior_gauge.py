@@ -7,19 +7,23 @@ from scipy.integrate import solve_ivp
 mu_, s1_, wF_ = sp.symbols("mu s1 wF", real=True)
 NS, NSX, RR, RRS = sp.Symbol("Nst"), sp.Symbol("Nst_x"), sp.Symbol("R"), sp.Symbol("R_s")
 import os
-_raw = pickle.load(open(os.environ.get("GAUGE_PKL", "gauge3_fw.pkl"), "rb"))
-GG = [C.ev(_raw["D"][k]) for k in C.ORDER]
-AX = {k: C.ev(v) for k, v in _raw["aux"].items()}
+_gp = os.environ.get("GAUGE_PKL", "gauge3_%s.pkl" % C.PROB)
 ARGS = [C.s, C.x, C.bt, mu_, s1_, wF_, NS, NSX, RR, RRS] + C.VARS
-f_gauge = sp.lambdify(ARGS, GG, "numpy", cse=True)
-f_hs = sp.lambdify(ARGS, AX["hs"], "numpy", cse=True)
-f_N = sp.lambdify(ARGS, AX["N"], "numpy", cse=True)
-f_Fb = sp.lambdify(ARGS, AX["Fbar_s"], "numpy", cse=True)
+f_gauge = f_hs = f_N = f_Fb = f_damph = None           # a problem without the lapse driver's pickles (PROB != fw)
+if C.PROB == "fw" or os.path.exists(_gp):
+    _raw = pickle.load(open(_gp, "rb"))
+    GG = [C.ev(_raw["D"][k]) for k in C.ORDER]
+    AX = {k: C.ev(v) for k, v in _raw["aux"].items()}
+    f_gauge = sp.lambdify(ARGS, GG, "numpy", cse=True)
+    f_hs = sp.lambdify(ARGS, AX["hs"], "numpy", cse=True)
+    f_N = sp.lambdify(ARGS, AX["N"], "numpy", cse=True)
+    f_Fb = sp.lambdify(ARGS, AX["Fbar_s"], "numpy", cse=True)
 # the damping must act on xi~ = xi - h: subtract its action on h (gen_damph_fw.py; the untapered driver, wF = 0)
-_rh = pickle.load(open("damph_fw.pkl", "rb"))
-DH = [C.ev(_rh["D"][k]) for k in C.ORDER]
-f_damph = sp.lambdify([C.s, C.x, C.bt, sp.Symbol("kap", real=True), sp.Symbol("at", real=True), mu_, s1_, NS, RR]
-                      + C.VARS, DH, "numpy", cse=True)
+if C.PROB == "fw" or os.path.exists("damph_%s.pkl" % C.PROB):
+    _rh = pickle.load(open("damph_%s.pkl" % C.PROB, "rb"))
+    DH = [C.ev(_rh["D"][k]) for k in C.ORDER]
+    f_damph = sp.lambdify([C.s, C.x, C.bt, sp.Symbol("kap", real=True), sp.Symbol("at", real=True), mu_, s1_, NS, RR]
+                          + C.VARS, DH, "numpy", cse=True)
 
 class Gauge(ID.Damped):
     def __init__(self, Nx, b, static, kap, at, mu, s1, Nst, ramp=0.3, wF=0.0):
