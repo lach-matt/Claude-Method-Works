@@ -113,6 +113,16 @@ one-way object the evolution is regular in five dimensions wherever classical GR
 Three Planck-scale places remain that 273 does not name, and they are put to you (below). B3s and B4ds stay OPEN until
 you rule, and neither moves before FAR's verdict is accounted.
 
+**Since item 352: you chose "for the math" at all three places, and they are worked** (`b4d_small.py` D13–D18). They
+are one fact seen three ways: a face shrinking to zero ends in a Planck-scale region about 2.91 l₅ across, where the
+interior's core meets it.
+- Our face's end is open to our universe. At most 2.05 J and 176 bits pass through it, and on your rulings it is
+  complete evaporation or a remnant.
+- The core keeps what enters our face after 33.6 clocks; none of it crosses.
+- Position 2's face's end is open to position 2: the time mirror of our face's birth, which the compact arrival hides.
+
+B3s and B4ds become readings on the board's H-PLANCK-ENDS once FAR's verdict is accounted.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -237,6 +247,27 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     does not say where anything entering our face after 33.6 clocks goes. (c) Position 2's face's own end, if it
     closes by shrinking to zero. Each can be read as 273's region extended to it, left open as not claimed, or worked
     for the math.
+  - *Item 352: you chose "for the math" at all three (`b4d_small.py` D13–D18).*
+    - **What the three share.** On either Vaidya form the curvature is exactly 72μ²/r⁸, with no term in μ′ (computed
+      from the metric). So any face whose μ goes to zero reaches the Planck curvature at a radius of 2.91 l₅, however
+      it shrinks, and the interior's Planck core meets the face there.
+    - **(a) Our face's end.** An outgoing ray outside the trapping surface stays outside and escapes (exact), so the
+      end is open to our universe. At most 2.05 J (1.6×10⁻⁹ of E) and 176 bits pass through it. Your rulings decide
+      what can complete it: the energy stays in our universe (336), no white hole may face us (270, 276), and nothing
+      crosses to position 2. That leaves complete evaporation or a remnant of at most 2.05 J; which one needs the
+      quantum region's own law.
+    - **(b) The core over the life.** What enters our face after 33.6 clocks is the Hawking partners' negative energy,
+      which takes the mass inside from E to zero, plus at most 6.3×10⁻⁵⁸ J from the cosmic background. None of it
+      crosses: only the README does (336), position 2's release is its own (240), and the corridor is one for one
+      README (162). The core keeps what enters and meets the face at (a).
+    - **(c) Position 2's face's end.** Every point of the outgoing form lies on a ray reaching position 2's future
+      infinity (exact), so the end is open to position 2. It is the time mirror of our face's birth, which our compact
+      arrival hides. It is Planck-scale for the last 1.6×10⁻⁹ to 6.3×10⁻³ of the release (orders 1–4), and it is
+      position 2's own (240).
+    - **Where B4ds stands.** Regular in five dimensions wherever the curvature is below the Planck scale. Five
+      Planck-scale places are each located: the arrival's onset (hidden), the bounce (yours, 273), the core (inside our
+      face), and the two faces' ends (open, bounded). On the board's reading H-PLANCK-ENDS, B4ds and B3s become readings
+      once FAR's verdict is accounted.
   - **FAR:** the hole's far field in the Randall–Sundrum background. *Since item 349: worked and seated as FARs, a
     reading, and put to you for finalization (below).*
 - **FAR at the small end, worked (items 347, 349; `far_small.py` F0–F9). Finalized?**
@@ -338,6 +369,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   as the face standing from the README's arrival.
 - **349's readings.** H-HOLE-IN-WARP (the hole's isotropic factor under the warp, a test form exact as ρ/ℓ → 0);
   "both planes at once" (166) read under 275 as the coincident pair; the record's cover U = 1.05 R_reach.
+- **352's reading.** **H-PLANCK-ENDS**: B4d's "regular in five dimensions" is asked where classical GR holds, below
+  the five-dimensional Planck curvature (273 (b)'s rule). At a Planck-scale place the row needs the math's bounds and
+  your constraints, not an evolution. On it B4ds and B3s become readings once FAR's verdict is accounted.
 - **351's readings.** The gate (330) runs before FAR's verifier, which reads only FAR's files. "Move on" means B3 and
   B4d at the small end, next in item 338's order, worked beside the verification. B3 and B4d are split by end, as FAR
   and CLOSE were.
@@ -2436,7 +2470,7 @@ Superseded, kept in the instrument for the record: B4c (by B4d); B4b (by B4d).
 - `unit_cell.py`'s "not shown" now carries M's ruling.
 - `open_index.py`: selftest 3/3, mutants 3/3.
 
-## History (2026-10-11/13, items 248–351: (O) reworked; two ends; one way; the register brought current)
+## History (2026-10-11/13, items 248–352: (O) reworked; two ends; one way; the register brought current)
 
 This history was not written when these items were seated. Item 330's ledger found it missing, and item 331 wrote it.
 Each entry gives what the item did to the theorem. The item itself is in the rulings file.
@@ -2634,6 +2668,11 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   - *(b)* B3 and B4d are split by end. B3s and B4ds are worked on the one-way object in `b4d_small.py` D0–D12
     (selftest 6/6, mutants 5/5): regular in five dimensions wherever classical GR is kept, with three Planck-scale
     places your 273 does not name put to you. Both are seated OPEN (66 rows: 4 readings, 13 OPEN) and drawn on the map.
+- **352, "For each place, which do you want? - 3".** All three places are worked for the math in `b4d_small.py`
+  D13–D18 (selftest 10/10, mutants 9/9). They are one fact: a face shrinking to zero ends in a Planck-scale region
+  about 2.91 l₅ across. Our face's end and position 2's are each open to their own universe and bounded (2.05 J, 176
+  bits), and the core keeps what enters after 33.6 clocks. B3s and B4ds stay OPEN until FAR's verdict is accounted,
+  then become readings on H-PLANCK-ENDS.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.

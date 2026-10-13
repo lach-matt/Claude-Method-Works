@@ -66,7 +66,10 @@ to M together.] [Item 351: M finalized FAR at both ends, and it is at its verifi
 accounted against it (verify_ledger L7); the board moves on to B3 and B4d at the small end.] [Item 351 (b): B3 and
 B4d split by end; B3s and B4ds worked on the one-way object (b4d_small D0-D12): regular in five dimensions wherever
 classical GR is kept, with three Planck-scale places 273 does not name put to M -- our face's last instant, the core
-over the life after position 2's face closes, and position 2's face's own end.]
+over the life after position 2's face closes, and position 2's face's own end.] [Item 352: M chose "for the math" at
+all three. They are one fact: a face shrinking to zero ends in a Planck-scale region about 2.91 l5 across, where the
+interior's core meets it; each is located and bounded (b4d_small D13-D18), and B3s and B4ds become READINGs on the
+board's H-PLANCK-ENDS once FAR's verdict is accounted.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -368,7 +371,8 @@ LEMMAS_NOW = [
       "and B4a, the opening ARRIVALs, the hold O3s and WRITEs, the interior O1cs and O1bs, 273's region, position 2's "
       "face, the closing CLOSEs, the far boundary FARs -- the static localized hole known only numerically for one "
       "plane (Kudoh-Tanaka-Nakamura, read at 254; Figueras-Wiseman's branch, 261) and at the example through its "
-      "first-order deviation; open: B4ds's fork (D11)")),
+      "first-order deviation; open: B4ds's fork (D11), worked for the math at 352 (D13-D18) -- every cell located, the "
+      "Planck-scale ones bounded; READING on H-PLANCK-ENDS once FAR's verdict is accounted")),
     ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
@@ -387,7 +391,12 @@ LEMMAS_NOW = [
       "273's region below it (D4); position 2's face open at most 33.60 clocks (D5); the closing semiclassical until "
       "r = 2.91 l5, its last 2.2e-3 clocks Planck-scale at our face (D6); the core over the life after position 2's "
       "face closes not given by the record (D7); the gluing on our side, our exterior classical (D8); the calculator "
-      "NOT-RUN (D9) -- worked, and a fork put to M: three Planck-scale places 273 does not name (D11)")),
+      "NOT-RUN (D9) -- worked, and a fork put to M: three Planck-scale places 273 does not name (D11); M: for the math "
+      "at all three (352) -- one fact seen three ways, a face shrinking to zero ending in a Planck-scale region 2.91 "
+      "l5 across where the core meets it (D13): our face's end open to our universe, at most 2.05 J and 176 bits, "
+      "complete evaporation or a remnant on M's rulings (D14); the core keeping what enters after 33.6 clocks, none "
+      "of it crossing (D15); position 2's face's end open to position 2, the mirror of our face's birth (D16) -- "
+      "READING on the board's H-PLANCK-ENDS once FAR's verdict is accounted (D18)")),
     ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
       "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351)")),

@@ -106,6 +106,63 @@ not verified by a separate session; not seated); 2026-10-13.
      premises only to locate where 273 gives them up.  (g) The fork's three places are each stated with the condition
      under which they arise: D6's at fixed g*, D7's for the life after 33.6 clocks, D5's if position 2's face closes by
      shrinking to zero.
+  D13 (item 352; read; computed, exact) M's answer to the fork, verbatim: "For each place, which do you want? - 3" --
+     each place worked for the math.  What the three share.  On either Vaidya form, ingoing or outgoing, the Kretschmann
+     scalar is exactly 72 mu^2/r^8, with no term in mu' (computed from the metric), so on the trapping surface r^2 = mu
+     it is 72/mu^2 whatever the profile: a face whose mu goes to zero passes through the Planck curvature when its radius
+     is 72^(1/4) l5 = 2.91 l5, however it shrinks.  D4's core, r_c = 72^(1/8) (r_h l5)^(1/2), lies inside the face while
+     r_h > 2.91 l5, r_c/r_h = (2.91 l5/r_h)^(1/2) -- 6.3e-3 at the example -- and reaches it there, by its definition the
+     moment the face's own curvature is Planckian.  So the three places are one fact seen three ways: a face shrinking to
+     zero ends in a Planck-scale region about 2.91 l5 across, where the core meets it.  The classical evolution cannot
+     cross such a region; the math bounds it, and M's rulings constrain what completes it.
+  D14 (computed; deduced) (a) Our face's end.  (i) Open to our universe: on the evaporating ingoing form (mu' <= 0) an
+     outgoing ray outside the trapping surface stays outside, since d(r^2 - mu)/dv = r (1 - mu/r^2) - mu' = q/r - mu' > 0
+     there (q = r^2 - mu > 0), and so escapes (computed, exact).  The points of r^2 = mu as mu -> 0, where K = 72/mu^2
+     diverges, are seen from our exterior: in the classical model the evaporation ends in a curvature singularity open to
+     our universe, Planck-scale for its last 2.2e-3 clocks (D6).  (ii) Bounded: what passes through it is at most E(2.91
+     l5) = (3 pi/8) 72^(1/2) hbar c/l5 = 2.05 J, 1.6e-9 of E, with the face's capacity there of 176 bits
+     (computed).  (iii) Constrained by M's rulings: whatever completes it -- the hole evaporating entirely, a remnant, or
+     the hole turning into a white hole -- keeps that energy in our universe (336), opens no white hole facing us (270,
+     276: that is the reverse passage), and sends nothing to position 2, where only the README crosses (336, 240)
+     (deduced).  So the end is complete evaporation or a remnant of at most 2.05 J; a black hole turning white in our own
+     exterior, as in Haggard and Rovelli's two-way construction, is excluded on M's rulings (deduced).  Which of the two,
+     the math does not decide: both need the quantum region's own law.
+  D15 (computed; deduced) (b) The core over the life.  (i) What enters our face after position 2's face closes: the
+     Hawking partners' negative energy, which takes the Misner-Sharp mass inside our face from E to zero over the life
+     (close_small K3's flux law; 336), and whatever our universe sends in -- at most 6.3e-58 J over the life from a
+     2.725 K bath on the capture cross-section pi (2 r_h)^2 (267's b_c = 2 r_h; the bath's temperature
+     standard-not-READ; computed), 4.9e-67 of E.  (ii) Where it goes: none of it crosses.  Only the README crosses (336);
+     position 2's release is position 2's own energy (240); the passage is one corridor for one README, of the size that
+     holds it once (162).  So the core keeps what enters, the mass inside the face falling from E to zero as the partners
+     arrive, and our universe's infall leaves again in the Hawking emission (336) (deduced).  (iii) Its size: 273's
+     region continued in the evaporating interior, r_c(v) = 72^(1/8) (r_h(v) l5)^(1/2), inside the face until r_h = 2.91
+     l5, where it meets the face (D13): (b)'s core and (a)'s end close together.  The core needs no exit after 33.6
+     clocks: the gluing (273 (a)) carried the README across while position 2's face was open, and 336 keeps the rest in
+     our universe (deduced).
+  D16 (computed; deduced) (c) Position 2's face's end.  (i) Open to position 2: on the outgoing form -(1 - mu(u)/r^2)
+     du^2 - 2 du dr + r^2 dOmega_3^2 the radial direction d_r is null with g(d_r, d_u) = -1, so future-directed
+     (computed, exact), and every point lies on an outgoing ray u = const that reaches position 2's future null
+     infinity: the face's end, where K = 72/mu^2 on r^2 = mu diverges as mu -> 0, is seen from position 2's
+     exterior.  (ii) It is the time mirror of our face's birth (the construction's time symmetry, 317 (Q3)): our compact
+     arrival hides its onset behind our face (D2), while a white hole's interior always lies in its exterior's causal
+     past, so its end is seen.  (iii) Bounded: Planck-scale while mu < (2.91 l5)^2 -- the last (1.6e-9)^(1/n) of a
+     release of width w ending as x^n, that is 1.6e-9 w, 4.0e-5 w, 1.2e-3 w and 6.3e-3 w clocks at orders 1-4 (computed,
+     at position 2a's values, ours by 218); at most 2.05 J of position 2's own energy there.  (iv) Constrained: position
+     2's own (240), its release a positive outflow, G_uu = -3 mu'/(2 r^3) > 0 (close_small K1).  Whether the release ends
+     as x^n at all, or by the asymmetric bounce c_junction J3 names, the math does not decide.
+  D17 (the calculator NOT-RUN, stated) At (a) each completion is decided by M's rulings directly (336, 270, 276, 240),
+     leaving no open cell to ask; (b) and (c) are computations and M's rulings, not classifications.
+  D18 (deduced) Where B4ds stands, and the residue.  The math gives: regular in five dimensions wherever the curvature is
+     below the Planck scale, and five Planck-scale places, each located -- the arrival's onset, hidden inside our face
+     (D2); the bounce, 273's (M's); the core over the life, inside our face (D15); our face's end, open to our universe
+     and bounded (D14); position 2's face's end, open to position 2 and bounded (D16).  None can be evolved classically;
+     each is bounded, and M's rulings constrain what completes it.  The board's reading, to be overruled by M at any
+     point: H-PLANCK-ENDS -- B4d's "regular in five dimensions" is asked where classical GR holds, below the
+     five-dimensional Planck curvature (273 (b)'s rule), and at a Planck-scale place the row needs the math's bounds and
+     M's constraints, not an evolution.  On it, B4ds and B3s become READINGs once FAR's verdict is accounted (351
+     (b)).  Residue: the Planck criterion K l5^4 = 1 is an order-of-magnitude rule, and its figures move with it (2.91 l5
+     as its fourth root); the bath is the cosmic background's, and a hotter environment scales as T^4; (c) presumes 317
+     (Q3)'s time symmetry; g* is held at 106.75.
 
 What this does not claim.
   - The evolution inside 273's region: its form is the board's reading of Haggard and Rovelli's construction (273 (a)),
@@ -140,7 +197,7 @@ WORDS = ((152, '"I had not considered this yet. It could very well be possible, 
          (270, '"You are forgetting that the passage is one-way only"'),
          (273, 'verbatim: "Quantum bounce to pos 2 (Recommended)"'), (276, '"The passage is one-way in all aspects"'),
          (320, 'no bulk is ever empty'), (336, '"I think it is B"'), (340, '"C, but my guess is A"'),
-         (351, "Let's move on"))
+         (351, "Let's move on"), (352, '"For each place, which do you want? - 3"'))
 # the example README at the small end (C2 R1, verified 258; C7's verifier for r_h/ell, 319; C5 U3, verified 317)
 RH, L5, RH_ELL = 1.12008e-20, 1.53937e-25, 8.02117e-16
 N_EX, LIFE = 2742570311524972, 8.573276e14
@@ -227,8 +284,95 @@ def d10():
                 ok=all(reg.get(r) == st for _, r, st in cells), b3=reg.get("B3"), b4d=reg.get("B4d"))
 
 
+# ---------------------------------------------------------------------------------- D13-D16 the three places (352)
+HBAR, C_L, E_EX = 1.054571817e-34, 299792458.0, 1.28098e9
+T_BATH, A_RAD = 2.725, 7.5657e-16                 # the cosmic background (standard-not-READ); the radiation constant
+
+
+def vaidya_K():
+    """the Kretschmann scalar of the ingoing Vaidya form, from the metric (five dimensions; the mutant: four)"""
+    v, r, t1, t2, t3 = sp.symbols("v r theta1 theta2 theta3", positive=True)
+    mu = sp.Function("mu")(v)
+    if MUT.get("dim4"):                                          # the mutant: the four-dimensional form
+        xs = [v, r, t1, t2]
+        g = sp.diag(0, 0, r ** 2, r ** 2 * sp.sin(t1) ** 2)
+        g[0, 0], g[0, 1], g[1, 0] = -(1 - mu / r), 1, 1          # mu standing for 2m, so r^2 = mu reads r = 2m
+    else:
+        xs = [v, r, t1, t2, t3]
+        g = sp.diag(0, 0, r ** 2, r ** 2 * sp.sin(t1) ** 2, r ** 2 * sp.sin(t1) ** 2 * sp.sin(t2) ** 2)
+        g[0, 0], g[0, 1], g[1, 0] = -(1 - mu / r ** 2), 1, 1
+    n = len(xs)
+    gi = g.inv()
+    gam = [[[sp.simplify(sum(gi[a, d] * (sp.diff(g[d, b], xs[c]) + sp.diff(g[d, c], xs[b]) - sp.diff(g[b, c], xs[d]))
+                             for d in range(n)) / 2) for c in range(n)] for b in range(n)] for a in range(n)]
+    rie = {}
+    for a in range(n):
+        for b in range(n):
+            for c in range(n):
+                for d in range(n):
+                    x = (sp.diff(gam[a][b][d], xs[c]) - sp.diff(gam[a][b][c], xs[d])
+                         + sum(gam[a][c][e] * gam[e][b][d] - gam[a][d][e] * gam[e][b][c] for e in range(n)))
+                    x = sp.simplify(x)
+                    if x != 0:
+                        rie[(a, b, c, d)] = x
+    low = {}
+    for (a, b, c, d), x in rie.items():
+        for e in range(n):
+            if g[e, a] != 0:
+                low[(e, b, c, d)] = low.get((e, b, c, d), 0) + g[e, a] * x
+    K = 0
+    for (a, b, c, d), x in low.items():
+        for e in range(n):
+            for f in range(n):
+                for h in range(n):
+                    for k in range(n):
+                        if gi[a, e] != 0 and gi[b, f] != 0 and gi[c, h] != 0 and gi[d, k] != 0:
+                            y = low.get((e, f, h, k))
+                            if y is not None:
+                                K += x * gi[a, e] * gi[b, f] * gi[c, h] * gi[d, k] * y
+    K = sp.simplify(K)
+    return K, sp.simplify(K.subs(r, sp.sqrt(mu))), mu, r
+
+
+def d13():
+    K, Ktrap, mu, r = vaidya_K()
+    rs = 72 ** 0.25 * L5
+    return dict(K=K, Ktrap=Ktrap, exact=sp.simplify(K - 72 * mu ** 2 / r ** 8) == 0,
+                trap=sp.simplify(Ktrap - 72 / mu ** 2) == 0, rs_l5=rs / L5, core_ratio=(rs / RH) ** 0.5)
+
+
+def d14():
+    r, q, p = sp.symbols("r q p", positive=True)
+    mu = r ** 2 - q                                              # outside the trapping surface: q = r^2 - mu > 0
+    rate = sp.simplify(r * (1 - mu / r ** 2) - (-p))             # d(r^2 - mu)/dv with mu' = -p <= 0
+    rs = 72 ** 0.25 * L5
+    power = 1 if MUT.get("planck_energy_linear") else 2          # the mutant: E taken as growing like r
+    e_star = (3 * math.pi / 8) * (rs / L5) ** power * HBAR * C_L / L5
+    return dict(rate=rate, outward=bool(rate.is_positive), e_star=e_star, frac=e_star / E_EX,
+                bits=N_EX * (rs / RH) ** 3)
+
+
+def d15():
+    b = RH if MUT.get("bath_rh") else 2 * RH                     # the mutant: the capture radius taken as r_h
+    power = C_L * A_RAD * T_BATH ** 4 * math.pi * b ** 2
+    joules = power * LIFE * RH / C_L
+    return dict(power=power, joules=joules, frac=joules / E_EX)
+
+
+def d16():
+    u, r = sp.symbols("u r", positive=True)
+    mu = sp.Function("mu")(u)
+    g = sp.Matrix([[-(1 - mu / r ** 2), -1], [-1, 0]])             # the (u, r) block of the outgoing form
+    dr, du = sp.Matrix([0, 1]), sp.Matrix([1, 0])
+    null = sp.simplify((dr.T * g * dr)[0]) == 0
+    cross = sp.simplify((dr.T * g * du)[0])
+    q = (72 ** 0.25 * L5 / RH) ** 2
+    fr = [q ** n if MUT.get("mirror_power") else q ** (1 / n) for n in (1, 2, 3, 4)]   # the mutant: q^n
+    return dict(null=null, cross=cross, fractions=fr)
+
+
 def compute():
-    return dict(d2=d2(), d4=d4(), d5=d5(), d6=d6(), d10=d10())
+    return dict(d2=d2(), d4=d4(), d5=d5(), d6=d6(), d10=d10(), d13=d13(), d14=d14(), d15=d15(), d16=d16())
 
 
 def report(o):
@@ -249,13 +393,24 @@ def report(o):
     print("D10 the cells against the register: %s (B3 %s, B4d %s)" % (e["ok"], e["b3"], e["b4d"]))
     for s, r, st, now in e["found"]:
         print("    %-30s %-9s %-9s register: %s" % (s, r, st, now))
+    f = o["d13"]
+    print("D13 (item 352) the Vaidya Kretschmann %s, on r^2 = mu %s; Planckian at %.3g l5; the core at %.2g of the "
+          "face now" % (f["K"], f["Ktrap"], f["rs_l5"], f["core_ratio"]))
+    g = o["d14"]
+    print("D14 (a) d(r^2 - mu)/dv = %s > 0: %s; at most %.3g J (%.2g of E), %.0f bits through our face's end"
+          % (g["rate"], g["outward"], g["e_star"], g["frac"], g["bits"]))
+    h = o["d15"]
+    print("D15 (b) the bath's infall over the life %.2g J, %.2g of E" % (h["joules"], h["frac"]))
+    k = o["d16"]
+    print("D16 (c) d_r null %s, g(d_r, d_u) = %s; the Planck fraction of the release at orders 1-4: %s"
+          % (k["null"], k["cross"], ", ".join("%.2g" % x for x in k["fractions"])))
 
 
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
     words = [(n + 1 if MUT.get("word_wrong_item") and n == 273 else n, w) for n, w in WORDS]   # the mutant: misfiled
-    add("D0 152 (2), 161, 210, 251, 270, 273, 276, 320, 336, 340 and 351 verbatim, each inside its own item",
+    add("D0 152 (2), 161, 210, 251, 270, 273, 276, 320, 336, 340, 351 and 352 verbatim, each inside its own item",
         all(" ".join(w.split()) in _item(n) for n, w in words))
     a = o["d2"]
     add("D2 the onset's escape exactly when lambda <= 1/27 (2x^3 - x^2 least -1/27 at x = 1/3), checked on both sides; "
@@ -278,6 +433,23 @@ def checks(o):
     e = o["d10"]
     add("D10 every cell's row in the register with the status stated; B3 and B4d OPEN there", e["ok"]
         and e["b3"] == "OPEN" and e["b4d"] == "OPEN")
+    f = o["d13"]
+    add("D13 (item 352) the Vaidya Kretschmann exactly 72 mu^2/r^8, no term in mu'; 72/mu^2 on r^2 = mu; Planckian at "
+        "2.91 l5; the core 6.3e-3 of the face at the example", f["exact"] and f["trap"]
+        and "%.3g" % f["rs_l5"] == "2.91" and "%.2g" % f["core_ratio"] == "0.0063")
+    g = o["d14"]
+    add("D14 (a) outgoing rays outside the trapping surface stay outside and escape (d(r^2 - mu)/dv = q/r + p > 0); at "
+        "most 2.05 J, 1.6e-9 of E, and 176 bits through our face's end", g["outward"]
+        and sp.simplify(g["rate"] - (sp.Symbol("q", positive=True) / sp.Symbol("r", positive=True)
+                                     + sp.Symbol("p", positive=True))) == 0
+        and "%.3g" % g["e_star"] == "2.05" and "%.2g" % g["frac"] == "1.6e-09" and round(g["bits"]) == 176)
+    h = o["d15"]
+    add("D15 (b) the 2.725 K bath sends at most 6.3e-58 J into our face over the life, 4.9e-67 of E",
+        "%.2g" % h["joules"] == "6.3e-58" and "%.2g" % h["frac"] == "4.9e-67")
+    k = o["d16"]
+    add("D16 (c) on the outgoing form d_r null and future-directed (g(d_r, d_u) = -1); the release Planck-scale for "
+        "its last 1.6e-9, 4.0e-5, 1.2e-3 and 6.3e-3 at orders 1-4", k["null"] and k["cross"] == -1
+        and ["%.2g" % x for x in k["fractions"]] == ["1.6e-09", "4e-05", "0.0012", "0.0063"])
     return res
 
 
@@ -285,7 +457,11 @@ MUTANTS = {"cubic_4d": "the onset's threshold taken as the four-dimensional 1/16
            "curv_4d": "the interior's curvature taken as four-dimensional Schwarzschild's (D4, D6)",
            "life_cubic": "the remaining life taken as r^3, not r^4 (D6)",
            "cell_status": "ARRIVALs' reading counted as derived (D10)",
-           "word_wrong_item": "273's words looked for in item 274 (D0)"}
+           "word_wrong_item": "273's words looked for in item 274 (D0)",
+           "dim4": "the Vaidya curvature computed in four dimensions (D13; item 352)",
+           "planck_energy_linear": "the energy at the Planck radius taken as growing like r (D14; item 352)",
+           "bath_rh": "the capture radius taken as r_h, not 2 r_h (D15; item 352)",
+           "mirror_power": "the release's Planck fraction taken as q^n, not q^(1/n) (D16; item 352)"}
 
 
 def selftest():
