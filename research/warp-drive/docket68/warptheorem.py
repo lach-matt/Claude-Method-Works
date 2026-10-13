@@ -63,7 +63,10 @@ hole at every ell; at the small end B3 and B4d stay OPEN.] [Item 350: FAR at the
 reading on H-GT-IN-WARP (far_large L0-L9): around the record's four-dimensional hole a far surface deeper than it is
 wide, and large enough, is strictly untrapped at every ell, while a round one is trapped at its tip; FARs and FAR go
 to M together.] [Item 351: M finalized FAR at both ends, and it is at its verifier, every earlier verification
-accounted against it (verify_ledger L7); the board moves on to B3 and B4d at the small end.]
+accounted against it (verify_ledger L7); the board moves on to B3 and B4d at the small end.] [Item 351 (b): B3 and
+B4d split by end; B3s and B4ds worked on the one-way object (b4d_small D0-D12): regular in five dimensions wherever
+classical GR is kept, with three Planck-scale places 273 does not name put to M -- our face's last instant, the core
+over the life after position 2's face closes, and position 2's face's own end.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -358,18 +361,36 @@ LEMMAS_NOW = [
      "lemmas/b1_matter.py B2' (Dahia-Romero READ); bulk/localbulk.py L4"),
     ('B', 'B2t its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic', 'PROVED',
      'C1 H1-H2 (localized_hole.py, verified 254; c1_oneway, verified 304); large end bulk/localbulk.py L3-L4'),
-    ('B', 'B3 a complete bulk exists', 'OPEN',
+    # [item 351] B3 and B4d split by end: the small end's worked on the one-way object (b4d_small), the large end's
+    # the record's
+    ('B', "B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247)", 'OPEN',
+     ("lemmas/b4d_small.py D10 (351): every cell a row computed, derived, verified or M's -- before the opening B7 "
+      "and B4a, the opening ARRIVALs, the hold O3s and WRITEs, the interior O1cs and O1bs, 273's region, position 2's "
+      "face, the closing CLOSEs, the far boundary FARs -- the static localized hole known only numerically for one "
+      "plane (Kudoh-Tanaka-Nakamura, read at 254; Figueras-Wiseman's branch, 261) and at the example through its "
+      "first-order deviation; open: B4ds's fork (D11)")),
+    ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
-      'spacetime, read cell by cell (247)')),
+      'spacetime, read cell by cell (247); the small end in B3s (b4d_small, 351)')),
     ('B',
      ("B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk "
       'with no horizons until the opening'),
      'PROVED',
      'lemmas/b4_global.py 6/6; 282 (2): B4a stands about the join'),
-    ('B', 'B4d the opening and closing evolve regularly in five dimensions', 'OPEN',
+    ('B',
+     ("B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is "
+      "kept, and data beyond the opening's causal future join the untouched exterior"),
+     'OPEN',
+     ("lemmas/b4d_small.py D0-D12 (351): the opening regular outside our face on 340's compact reading, the onset's "
+      "escape exactly at lambda <= 1/27 (D2); the hold O3s's (D3); the interior classical down to r_c = 7.09e-23 m, "
+      "273's region below it (D4); position 2's face open at most 33.60 clocks (D5); the closing semiclassical until "
+      "r = 2.91 l5, its last 2.2e-3 clocks Planck-scale at our face (D6); the core over the life after position 2's "
+      "face closes not given by the record (D7); the gluing on our side, our exterior classical (D8); the calculator "
+      "NOT-RUN (D9) -- worked, and a fork put to M: three Planck-scale places 273 does not name (D11)")),
+    ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
-      'and end -- are not evolved; B4b and B4c superseded (210)')),
+      "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351)")),
     ('B',
      ("B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one"
       ' way'),
@@ -553,6 +574,7 @@ LEMMAS_NOW = [
 RESTS_ON_NOW = {'G1': 'M1s M1', 'G3': 'M1s M1', 'H2tu': 'M1s M1', 'H2tx': 'M1s M1 M1P2xs M1P2x', 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE ARRIVAL', 'Z1t': 'M1s M1', 'Z2r': 'M1s M1',
                 'Z3bs': 'M1s', 'Z3b': 'M1 FAR WRITE ARRIVAL CLOSE', 'B2t': 'M1s M1', 'B3': 'M1 FAR WRITE ARRIVAL CLOSE',
+                'B3s': 'M1s FARs WRITEs ARRIVALs CLOSEs', 'B4ds': 'M1s FARs WRITEs ARRIVALs CLOSEs',
                 'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'B7': 'WRITE ARRIVAL CLOSE', 'E2x': 'CLOSEs', 'E2u': 'CLOSEs',
                 'E4r': 'M1s M1'}
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
@@ -692,7 +714,9 @@ def lemma_selftests():
               # item 338
               "arrival_small.py", "far_small.py",
               # item 350
-              "far_large.py"):
+              "far_large.py",
+              # item 351
+              "b4d_small.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

@@ -103,6 +103,16 @@ against it first (`verify_ledger.py` L7: 104 rows, 42 carried, 62 not bearing). 
 were not yet written in it are carried by `far_small.py` F10 and `far_large.py` L10. The board moves on to B3 and B4d
 at the small end.
 
+**Since item 351 (b): B3 and B4d are split by end, and the small end's are worked** (`b4d_small.py` D0–D12). On the
+one-way object the evolution is regular in five dimensions wherever classical GR is kept:
+- the opening, outside our face, on 340's compact reading;
+- the hold, and the interior down to the Planck curvature at r_c = 7.09×10⁻²³ m, where your 273's region begins;
+- position 2's face over its 33.6 clocks;
+- our face's evaporation until its last 2.2×10⁻³ clocks.
+
+Three Planck-scale places remain that 273 does not name, and they are put to you (below). B3s and B4ds stay OPEN until
+you rule, and neither moves before FAR's verdict is accounted.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -133,9 +143,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
 | B | B2t its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s M1 | localized_hole.py, localbulk.py |
-| B | B3 a complete bulk exists | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 |
+| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | **OPEN** | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351) |
+| B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's) |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
-| B | B4d the opening and closing evolve regularly in five dimensions | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (273's region) |
+| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | **OPEN** | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D12 (351); fork to M |
+| B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's) |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
 | B | B5c position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285) | derived | -- | e_positive.py |
 | B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | -- | b5p_cypher.py, pointwise.py |
@@ -175,7 +187,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-64 rows, 50 lemmas and 14 inputs: 20 proved, 24 derived, 4 under a named reading of the board's, 5 definitions, 11 OPEN.
+66 rows, 52 lemmas and 14 inputs: 20 proved, 24 derived, 4 under a named reading of the board's, 5 definitions, 13 OPEN.
 
 ## Energy at both ends (item 331)
 
@@ -203,7 +215,28 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
     the gate's own ARRIVAL bearings are corrected in `verify_ledger.py`.
 - **OPEN at the small end:**
   - **B3/B4d:** the opening and closing of the one-way object in five dimensions, including the bounce's quantum
-    region.
+    region. *Item 351 (b): split by end, and B3s and B4ds worked; one fork put to you (below).*
+- **B3s and B4ds at the small end, worked (item 351; `b4d_small.py` D0–D12). One fork, yours.**
+  - Re-posed on the one-way object: is the one evolution regular in five dimensions wherever classical GR is kept, and
+    is everything outside the opening's causal future the untouched bulk? The record's B4d stages evolved eq. (17)'s
+    corridor and do not bear on it.
+  - **The opening.** A ray escapes the arrival's singular onset exactly when λ ≤ 1/27 (exact). On your guess A, with
+    340's compact arrival, the face is born before the onset at every order computed, so the opening is regular
+    outside our face.
+  - **The interior.** It is classical down to r_c = 72^(1/8) (r_h l₅)^(1/2) = 7.09×10⁻²³ m, where the curvature
+    reaches the five-dimensional Planck scale. Both of the record's estimates of where the bounce sits lie inside r_c.
+  - **Position 2's face** is open at most 33.60 clocks, with its blueshift bounded by e^33.6 = 3.9×10¹⁴.
+  - **Our face's closing** is semiclassical through all but its end: the horizon's curvature is 2.6×10⁻¹⁸ Planck
+    units now and reaches 1 at r = 2.91 l₅, when the face holds 176 bits and has 2.2×10⁻³ clocks left.
+  - **The gluing.** Our exterior is determined classically everywhere: 273's region lies inside our face, and its
+    causal future on our side stays there.
+  - **B3s** is that spacetime read cell by cell (247). Every cell is a row that is computed, derived, verified or
+    yours, except the three places below.
+  - **The fork: three Planck-scale places your 273 does not name.** (a) Our face's last 2.2×10⁻³ clocks, which are on
+    the face and open to our exterior. (b) The core over the hole's life once position 2's face has closed: the record
+    does not say where anything entering our face after 33.6 clocks goes. (c) Position 2's face's own end, if it
+    closes by shrinking to zero. Each can be read as 273's region extended to it, left open as not claimed, or worked
+    for the math.
   - **FAR:** the hole's far field in the Randall–Sundrum background. *Since item 349: worked and seated as FARs, a
     reading, and put to you for finalization (below).*
 - **FAR at the small end, worked (items 347, 349; `far_small.py` F0–F9). Finalized?**
@@ -305,6 +338,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   as the face standing from the README's arrival.
 - **349's readings.** H-HOLE-IN-WARP (the hole's isotropic factor under the warp, a test form exact as ρ/ℓ → 0);
   "both planes at once" (166) read under 275 as the coincident pair; the record's cover U = 1.05 R_reach.
+- **351's readings.** The gate (330) runs before FAR's verifier, which reads only FAR's files. "Move on" means B3 and
+  B4d at the small end, next in item 338's order, worked beside the verification. B3 and B4d are split by end, as FAR
+  and CLOSE were.
 - **350's readings.** H-GT-IN-WARP: Garriga–Tanaka's linear far field, its falloff and angular profile, placed in a
   conformally flat spatial metric under the warp. It is a test form for one Z2-symmetric wall, valid where d ≫ m and
   d ≫ ℓ. The record's cover U = 1.05 R_reach at the large end. And 350 (a): FARs is not finalized by 350, and the two
@@ -2595,6 +2631,9 @@ Each entry gives what the item did to the theorem. The item itself is in the rul
   and J5's bound), 310 (Q3) (position 2 reading its own mass), 341 (Q4) (both conventions for σ) and 348 (Q2) (a lossy
   collapse). They are carried in `far_small.py` F10 and `far_large.py` L10, each with a check and a mutant, and FAR
   went to one verifier. The board moves on to B3 and B4d at the small end, in item 338's order.
+  - *(b)* B3 and B4d are split by end. B3s and B4ds are worked on the one-way object in `b4d_small.py` D0–D12
+    (selftest 6/6, mutants 5/5): regular in five dimensions wherever classical GR is kept, with three Planck-scale
+    places your 273 does not name put to you. Both are seated OPEN (66 rows: 4 readings, 13 OPEN) and drawn on the map.
 - **339, B5a one-way verified** (CONFIRMED with qualifications, no load-bearing sub-claim refuted). The verifier
   re-derived every computed statement with its own code, and read Bowcock–Charmousis–Gregory and Anderson–Dahia–
   Lidsey–Romero in the sections it names.
