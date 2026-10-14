@@ -18,6 +18,9 @@ and estimate where marked; not verified by a separate session); 2026-10-14.
      sqrt N).  Every condition the record puts on ell is an inequality: positivity ell > 2.0 l_P (197); the bulk below
      the Planck curvature, ell > 4.0 l_P; the board's 1 % floor, ell >= 22.4 l_P; the table-top, ell <= 13.964 um.
      Even from the board's floor the window spans 28.6 decades, and nothing in it picks a point.
+  [Item 381 (ell_positivity Y1-Y5): the positivity floor ell > 8.5415 m1 = 2.0 l_P is item 197's, for position 2's
+     plane held at a depth; under 275 the planes coincide everywhere, the floor has no premise and is withdrawn, and
+     B5a holds at every ell.  Kept as written; the window's change is put to M.]
   X3 (computed) The theory's two given scales, at coefficient one.  A tie to the dark energy gives 21.5 to 116 um (379
      D6), above the ceiling in every form tried.  A tension at a Planck density -- the plane's vacuum energy at its own
      cutoff -- gives ell = 0.117 l_P (the five-dimensional density), 0.489 l_P (the four-dimensional) or 12.3 l_P (the

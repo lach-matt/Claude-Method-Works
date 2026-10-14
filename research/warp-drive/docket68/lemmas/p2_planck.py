@@ -205,7 +205,7 @@ MEMBERS = {"ours": ("ours", 1, F(1)), "2a-min": ("min", 1, F(1)), "2a-mirror": (
            "2P": ("ours",) + P2P, "2a+2P-min": ("min",) + P2P, "2a+2P-mirror": ("mirror",) + P2P,
            "2b+2P": ("ours", 4, F(1, 4)), "2c+2P-min": ("min", 4, F(1, 4)), "2c+2P-mirror": ("mirror", 4, F(1, 4))}
 S0 = PG.SIGMA_WINDOW[0]
-ELL_MIN_OVER_M1 = 8.5415
+ELL_MIN_OVER_M1 = 8.5415                 # [item 381: item 197's floor, withdrawn under 275 (ell_positivity)]
 
 
 def sector(gf, sf):

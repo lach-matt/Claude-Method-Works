@@ -436,6 +436,9 @@ withdraws its own word "free": ℓ is not yet fixed, which is a statement about 
 - **No row can fix it (computed; deduced).** The theorem is stated in N and ℓ, and its invariants do not move with ℓ.
   Every condition on ℓ in the record is an inequality: positivity ℓ > 2.0 l_P, the bulk below the Planck curvature
   ℓ > 4.0 l_P, the board's 1 % floor 22.4 l_P, and the table-top ℓ ≤ 13.964 μm.
+  *[Item 381: the positivity floor is withdrawn. It was item 197's, for position 2's plane held at a depth; under
+  275 the planes coincide and B5a holds at every ℓ (`ell_positivity.py`). The two values below "below positivity" lie
+  below the Planck curvature too.]*
 - **The theory's two given scales, at coefficient one (computed).** The dark-energy ties all land above the ceiling
   (21.5–116 μm, 379). A tension at a Planck density gives ℓ = 0.117 l_P, 0.489 l_P or 12.3 l_P, depending on which
   Planck density is taken (five-dimensional, four-dimensional, or reduced). The first two lie below positivity. The
@@ -469,6 +472,34 @@ withdraws its own word "free": ℓ is not yet fixed, which is a statement about 
 - **Where that leaves ℓ (deduced).** Under your 380 the theorem is missing one object, and no row can supply it. Of the
   no-coefficient values, one stands: the reduced Planck tension. The integer kind points to the same end. Both are
   option 2's end of the window, where the interior comes within the runs' reach.
+
+**Item 381, first step: positivity's floor** (`lemmas/ell_positivity.py` Y0–Y6, selftest 6/6, mutants 3/3). You chose
+an equality from relativity, by means of the Higgs tie, and asked first for a proof that positivity requires ℓ > 2.0 l_P.
+It cannot be proved in the theorem as it stands, because its premise is gone. What does hold is proved instead.
+- **Where the floor came from (computed, reproduced).** Item 197's facing configuration has position 2's plane held at
+  a depth y₂ between our plane and the singular depth. With its tension at your 139 (1)'s quarter, the energy left on it
+  is positive at some depth exactly when 2m/ℓ < 0.23415, i.e. ℓ > 8.5415 m. For the one-bit README that is 2.006 l_P.
+- **At the coincidence it fails at every ℓ (computed).** As y₂ → 0 that plane becomes the RS1 sheet, and the energy
+  left on it tends to −3/4 at every ℓ computed. The floor was a statement about a plane held apart.
+- **Your 275 removes the premise (deduced).** The planes coincide everywhere, and no slab lies between them. The
+  floor's configuration exists nowhere, so the floor is withdrawn.
+- **What positivity requires now (machine-checked, z3).** The positivity row is B5a at the coincidence, one way
+  (b5a_residue A1–A2, verified at 339). z3 proves all four of its readings strictly positive on every crossing ray, for
+  every σ > 0, given matter with ρ + p ≥ 0 and ρ > −σ/6 (both proved pointwise, 320). The four readings are the summed
+  stress, our side, position 2's side and the split at τ = 3/4. Every ℓ gives σ > 0, so positivity sets no floor on ℓ.
+  The guards hold: the hypotheses are satisfiable, and two broken readings each return a counterexample.
+- **What the floor becomes (computed; deduced).**
+  - The bulk reaches the Planck curvature at ℓ = 3.99 l_P. That is where classical GR stops applying (your 353), not a
+    positivity bound, and it is an order of magnitude, not a sharp line.
+  - The board's own 1 % threshold sits at 22.4 l_P.
+  - The seated σ window's top, 2.75×10¹¹² J/m³ (sigma_cypher W1), is the withdrawn floor's; at the Planck curvature it
+    would be 6.95×10¹¹¹.
+  - The places that carry the floor are noted, not changed: sigma_cypher, p2_planck, corridor_family, ell_map,
+    ell_fix and items 378 and 380 here. The window is seated (209), so its change is yours.
+- **For your route (deduced).** The floor was an inequality, so no equality was coming from it. The Higgs tie's range,
+  0.024–9.6 nm within the top mass's 1σ, lies far above every floor, so it is untouched. As an equality the tie says
+  λ(E₅) = 0: the Higgs quartic vanishes at the bulk's Planck energy. The next step is the object in relativity that
+  forces it.
 
 ## The register as it stands (item 331)
 

@@ -10,6 +10,9 @@ ell^2 = 3c^4/(4 pi G sigma) (b6p_scale.py B6''a0, SMS (19) READ); 139 (1) and 20
   W1 (computed) the window: sigma >= 1.48e53 J/m^3 (table-top, ell <= 13.964 um, B6P-SCALE) and sigma <= 2.75e112 J/m^3
      (ITEM197's positivity on P2 at the quarter tension, ell > 8.5415 m, for a 1-bit README): energy scales
      sigma^(1/4) from 9.18e3 GeV to 6.03e18 GeV
+  [Item 381 (ell_positivity Y1-Y5): the positivity floor ell > 8.5415 m1 = 2.0 l_P is item 197's, for position 2's
+     plane held at a depth; under 275 the planes coincide everywhere, the floor has no premise and is withdrawn, and
+     B5a holds at every ell.  Kept as written; the window's change is put to M.]
   C1 (computed; cypher) the index of what the theory fixes -- measured G and Lambda4, the README N, its energy E(N) --
      with sigma: information reports sigma as an axis (removing it merges cells) while E adds nothing (fixed by N).
      Logic's binary "is sigma fixed by what the theory fixes?": NO in every operator-bearing language, forced by the

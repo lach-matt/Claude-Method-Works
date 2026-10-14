@@ -20,6 +20,9 @@ conversation (computed, exact where marked; verified once -- item 261, CONFIRMED
      branch (Figueras-Wiseman: R4/ell 0.07-20, one negative mode, no zero modes); its E(N) through the crossover is
      published in neither paper read, so "settles" points to numbers not in hand.  E_s/E_l = (3/4) 2^(2/3) pi^(1/6)
      x^(1/6), x = N ln2 l_P^2/ell^2: the 1.88 gap spans a factor ~44 in N.]
+  [Item 381 (ell_positivity Y1-Y5): the positivity floor ell > 8.5415 m1 = 2.0 l_P is item 197's, for position 2's
+     plane held at a depth; under 275 the planes coincide everywhere, the floor has no premise and is withdrawn, and
+     B5a holds at every ell.  Kept as written; the window's change is put to M.]
   F3 (computed) ell is set by our plane's tension: ell^2 = 3 c^4 / (4 pi G (sigma - 2 delta sigma)) (p2_planck), so
      with our tension at S0 x 2^w, ell = 13.964 um x 2^(-w/2) up to the offset's 2^-206 -- 13.964 um at the window's
      floor, 8.5415 m1 = 3.24e-35 m at its top -- and the crossover N moves as 2^-w: 5.31e60 bits at the floor, 28.7 at the

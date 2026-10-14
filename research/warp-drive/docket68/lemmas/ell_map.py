@@ -19,6 +19,9 @@ separate session); 2026-10-14.
      Adelberger et al. and Maartens-Koyama (41), READ in b6p_scale); at least 22.4 l_P for a classical bulk (m1_large,
      w <= 189.9), and 8.5415 m1 = 2.0 l_P on positivity (item 197, sigma_cypher W1).  sigma^(1/4) runs from 9.18e3 GeV at
      the ceiling to 1.80e18 GeV at the classical floor; N runs from 1.08e30 to 28.
+  [Item 381 (ell_positivity Y1-Y5): the positivity floor ell > 8.5415 m1 = 2.0 l_P is item 197's, for position 2's
+     plane held at a depth; under 275 the planes coincide everywhere, the floor has no premise and is withdrawn, and
+     B5a holds at every ell.  Kept as written; the window's change is put to M.]
   E4 (computed) The theorem's headline small-end numbers take ell at its ceiling.  For the identity-core README
      (N = 2.7426e15): r_h = 1.12008e-20 m x (ell/ceiling)^(1/3), E = 1.2810e9 J x (ell/ceiling)^(-1/3), r_h/ell =
      8.0e-16 x (ell/ceiling)^(-2/3), the classical core r_c = 7.09e-23 m x (ell/ceiling)^(1/3).  No row's status turns
