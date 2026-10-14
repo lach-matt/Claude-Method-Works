@@ -798,3 +798,97 @@ from the joining nodes.
     times the jump: a coefficient offsetting what the representation holds there. Evaluated exactly
     (`deturck_exact.py`), both copies' own DeTurck vectors grow over the last stretch, and phi is itself a lumped
     number whose coefficient is the lapse squared. See "Item 404" below.]*
+
+## Item 404: the DeTurck norm, exact at each point (2026-10-14; read from the saved steps, no run)
+
+M, 404: the DeTurck norm is a coefficient, and coefficients credit a debt downstream; what contributes to it is to be
+evaluated to its exact value at each point. `deturck_exact.py` (selftest 6/6, mutants 4/4) does that for the fifth
+attempt's saved steps.
+- **The vector, from the record's own construction.** xi^m = g^pq (Gamma^m_pq - Gammabar^m_pq) is derived from the
+  record's metric and reference metric (gen_eqs_fw.py's construction, not its pickle). xi^tau, xi^theta and xi^phi
+  vanish identically (K1); xi^s and xi^x remain.
+- **Every term.** Each of xi^s and xi^x is split exactly into a part carrying no derivative and one term per field and
+  slope: T, S, A, B, F, each by d/ds and d/dx -- eleven terms, none identically zero, the split recomposing the
+  component to 4e-50 (K2).
+- **phi, two ways.** As the record writes it, g_ss (xi^s)^2 + 2 g_sx xi^s xi^x + g_xx (xi^x)^2, which is the record's
+  PHI to 3e-50 (K3). And split by the s-slices, exactly: with the lapse N^2 = -g_ss + g_sx^2/g_xx (= c^2 g_xx) and the
+  shift b = g_sx/g_xx, xi = xi^s N n + (xi^x + b xi^s) d_x, so
+  phi = xi_par^2 - xi_perp^2, xi_perp = N xi^s, xi_par = sqrt(g_xx) (xi^x + b xi^s)   (K6, 6e-51),
+  two squares of fixed and opposite sign.
+- **Exact at each point.** Every term is evaluated at 50 digits from each part's own interpolating polynomial: the
+  x-slopes are its exact derivative, the s-slopes the evolved X_s. At a joining both copies are reported, each from
+  its own part, with no penalty and no averaging, and the representation's own jump is reported beside them. Exact
+  means exact for the saved representation, the stored doubles read as exact numbers.
+- Tables: `DETURCK-EXACT.tsv` (s = -1.504, -1.849, -2.006; 250 points each, nodes and between, every term and piece),
+  `DETURCK-TRACK.tsv` (eleven steps over the half, at the nodes), `DETURCK-JUMPS.tsv` (each joining's jumps).
+
+**What contributes, computed.**
+
+1. **The vector is not small; phi is small because its coefficient is.** The DeTurck vector is mostly normal to the
+   slices: away from the joining endpoints |xi_perp| is at most 8.2e-3, largest at the axis and falling toward the
+   brane (1e-5 to 3e-4 for x > 0.88); |xi_par| is at most 2.6e-3; phi < 0 at 241-245 of the 250 points of each slice. For
+   x < 0.02, xi_par^2 is at most 0.27 % of xi_perp^2, so phi = -xi_perp^2 there. Over the half the lapse at the axis
+   falls twelve times while the coordinate component grows eleven times, and their product holds:
+
+   | s | N, axis | xi^s, axis | xi_perp = N xi^s, axis | phi, axis |
+   |---|---|---|---|---|
+   | -0.503 | 0.1061 | -0.0852 | -9.04e-3 | -8.2e-5 |
+   | -0.788 | 0.0537 | -0.1643 | -8.82e-3 | -7.8e-5 |
+   | -1.129 | 0.0283 | -0.3014 | -8.53e-3 | -7.3e-5 |
+   | -1.532 | 0.0154 | -0.5304 | -8.16e-3 | -6.7e-5 |
+   | -1.849 | 0.0103 | -0.7761 | -7.99e-3 | -6.4e-5 |
+   | -2.006 | 0.0086 | -0.9224 | -7.92e-3 | -6.3e-5 |
+
+   So "phi <= 1e-4" reads |xi_perp| <= 1e-2: it lets the coordinate vector grow as 1/N. The half began at
+   xi_perp = -9.0e-3, nine tenths of that allowance, at its very first step.
+2. **Each component is a remainder.** The largest term building xi^s is, at every point, at least 2.2e3 times the
+   sum at the half's first step and at least 1.8e4 times it at its end (medians 6e4 to 1.7e5 over the three tabled
+   slices); for xi^x at least 6.9e3 to 1.35e4. The largest are dA/ds, dF/ds and dB/ds, with the no-derivative part,
+   dF/dx and dS/ds among the three largest at some points (in xi^x the x-slopes of A, B and S as well). At x = 1/8,
+   s = -2.006, left copy: xi^s = -1.474 from +71,450 (dF/ds) - 64,390 (dA/ds)
+   - 40,100 (dB/ds) + 22,320 (no derivative) and the rest. The terms grow as the lapse falls (they carry g^ss), so a
+   fixed relative imbalance among the slopes becomes a growing coordinate vector. And phi is itself a remainder where
+   g_sx is not small: at the same point 0.002281 - 0.005133 + 0.002631 = -0.000221.
+3. **The growth at x = 1/8 is at the joining's two endpoints, and only there.** xi_perp at the nodes beside the
+   joining and at its two copies:
+
+   | s | node x = 0.1239 | left copy | right copy | node x = 0.1272 |
+   |---|---|---|---|---|
+   | -1.504 | -5.53e-3 | -4.29e-3 | -4.89e-3 | -5.44e-3 |
+   | -1.849 | -5.34e-3 | -8.97e-3 | -7.35e-3 | -5.12e-3 |
+   | -2.006 | -5.28e-3 | -1.49e-2 | -1.04e-2 | -4.98e-3 |
+
+   Between the nodes of the left part's last intervals the polynomial now oscillates (-5.96e-3 at x = 0.1196,
+   -4.27e-3 at 0.1223, s = -2.006), where at s = -1.5 it was smooth (-5.58e-3, -5.67e-3). Every joining's endpoints
+   depart from their neighbours' trend -- at x = 1/16 (-5.39e-3 and -3.16e-3 against -6.96e-3 and -7.15e-3) and at
+   x = 1/4, where phi is positive at both copies at the end -- but only x = 1/8's has grown.
+4. **The copies differ through the coefficients.** The jumps the representation carries at x = 1/8 are 3e-10 to
+   8e-6 in the fields and up to 2.4e-5 in their s-slopes (DETURCK-JUMPS.tsv); the terms they enter are of size 1e4 to
+   7e4 there, and xi^s differs between the copies by 0.44 at the end (left minus right), its largest contributions
+   dF/ds -0.92, dA/ds +0.92, dF/dx -0.56, dB/ds +0.53.
+5. **Item 403 read again.** The penalised derivative's value at the joining node is each part's own slope less
+   1/(2H) times the jump, 1/(2H) being 1,680 at the left copy and 1,088 at the right: a coefficient that offsets
+   what each part holds at its endpoint. That is why the penalised phi looked level there (6.45e-5 at the end) while
+   both copies' own vectors grew. Item 403's reading -- that on the scheme's own derivative the fifth attempt meets
+   the criterion -- is withdrawn beside its text.
+6. **Where the half's starting vector came from** (`deturck_exact.py --trusted`, the trusted run's single grid). The
+   initial data, at s = -0.002, already carry xi_perp = -2.8e-3 next to the axis (phi -7.6e-6; the lapse there is
+   4.8). B7's damped run takes it to -9.0e-3 by s = -0.503, 3.3 times, while xi^s grows 150 times and the lapse
+   falls 45 times. The single grid and the fifth attempt's mesh agree on it at the hand-over (-9.04e-3 both). So the
+   debt is carried from the start: present in the initial data, grown over B7's run, held near the axis over the
+   half, and grown at x = 1/8's endpoints in the half's last stretch.
+
+**What is left for M.**
+- **The criterion.** "phi <= 1e-4" is a lumped number whose coefficient on the normal part is N^2; under 404 the half
+  is to be read from xi_perp and xi_par at every point, the joining endpoints included. What those are to be held to
+  is M's: the solution's own DeTurck vector is zero, and any threshold set on it would be another coefficient. The
+  board can give, at each point, every term and what is left of them after they cancel.
+- **The endpoints.** The only growth is at x = 1/8's two endpoints, and the joinings are where the construction
+  carries its coefficients: the penalty 1/(2H) and the jump damping (gk = 0.5). Under M-COEFF (98) and 404 a joining
+  whose parts agree at the node exactly, with no penalty, is the direction the exact values point to. The nearest
+  thing tried was a scratch probe on the model during item 397, recorded here for the first time: shared joining
+  nodes, one derivative taking there the weighted mean of the two parts' one-sided slopes -- itself a coefficient --
+  and it grew near the axis. Any such joining would be posed and checked on the model before any half is run.
+- **The initial data.** xi_perp = -2.8e-3 at s = -0.002 is in the data the evolution starts from; making them
+  DeTurck-exact is a question about the record's static solution and its series start, before any evolution.
+- No run was made for this item, and none is proposed until M rules on the three above.

@@ -170,3 +170,22 @@ derivative the scheme evolves with stays <= 6.7e-5 over the fifth attempt's last
 2.2e-4 is the plain one-sided derivative at the joining node x = 1/8, which reads the scheme's jump over a tiny end
 weight. The same holds for the fourth attempt (3.48e-3 plain, 6.50e-5 penalised). On the scheme's own derivative the
 fifth attempt meets the criterion. Which measure defines it on a joined mesh is for M.
+*[Item 404, beside the text: withdrawn. The penalised value at the joining node is each part's own slope less a
+coefficient, 1/(2H) = 1,680 at the left copy, times the jump; it offsets what the representation holds there.]*
+
+**Item 404: the DeTurck norm evaluated exactly, at each point** (`interior_large/README.md`, "Item 404";
+`deturck_exact.py`, selftest 6/6, mutants 4/4; no run). M: the norm is a coefficient that credits a debt downstream.
+- **What contributes.** xi^s and xi^x, each eleven exact terms (the five fields' s- and x-slopes and a part with no
+  derivative), every one evaluated at 50 digits from each part's own polynomial, both copies of a joining apart; and
+  phi = xi_par^2 - xi_perp^2 exactly, with xi_perp = N xi^s normal to the slices.
+- **The vector is not small; phi is small because its coefficient is.** Near the axis xi_perp holds at 9.0e-3 to
+  7.9e-3 over the whole half while the lapse falls 12 times and xi^s grows 11 times. "phi <= 1e-4" is |xi_perp| <= 1e-2
+  there, and lets the coordinate vector grow as 1/N.
+- **Every component is a remainder**: its largest term is at least 2.2e3 times it at the half's first step and
+  1.8e4 times it at the end (dA/ds, dF/ds, dB/ds and the no-derivative part chiefly).
+- **The growth at x = 1/8 is at the joining's two endpoints alone** (1.49e-2 and 1.04e-2 at the end, against
+  5.3e-3 and 5.0e-3 at the nodes beside them), where the joining carries its coefficients.
+- **The debt is carried from the start**: xi_perp is 2.8e-3 in the initial data at s = -0.002 and 9.0e-3 at the
+  restart, s = -0.503.
+- **For M:** how the half is to be judged on exact pointwise values; a joining without coefficients (posed and
+  checked on the model first); the initial data's own DeTurck vector.

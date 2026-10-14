@@ -19,6 +19,7 @@ Exact means: exact for the saved representation (the stored doubles, read as exa
 python3 deturck_exact.py [pickle] [s ...]   -- the table at the steps nearest each s (default: the fifth attempt's
                                                zeno_half_dsem5_10.pkl at s = -1.5, -1.85, -2.006); DETURCK-EXACT.tsv
 python3 deturck_exact.py --track              -- the half followed at its nodes, eleven steps; DETURCK-TRACK.tsv
+python3 deturck_exact.py --trusted            -- the same on the trusted run's single grid, at its start and its end
 python3 deturck_exact.py --selftest | --mutants
 """
 import sys, pickle
@@ -301,6 +302,29 @@ def track(path="zeno_half_dsem5_10.pkl", svals=TRACK_S):
     return out
 
 
+def trusted_read():
+    """the same exact evaluation on the trusted run's single grid (B7's damped Nx = 28 run, zeno_trusted_28.pkl), at
+    its initial data (s = -0.002) and at its end (s = -0.503), where the halves restart; the axis node is skipped
+    (0/0 in the exact expressions; the folded meshes have none)"""
+    import zeno_run as Z
+    E = Exact(); T = pickle.load(open(Z.TRUSTED, "rb"))
+    I = Z.ID.Damped(28, Z.B, Z.STATIC, Z.KAP, Z.AT); I.lastbr = Z.ID.static_brane(Z.B); m = I.m
+    Y0 = I.initial(Z.S0, 2)
+    Xf0, Vf0 = I.brane_values(Z.S0, Y0[:5 * m].reshape(5, m), Y0[5 * m:].reshape(5, m))
+    nodes = [mp.mpf(float(v)) for v in I.xn]; w = bary_w(nodes); out = []
+    for lab, sv, Xf, Vf in (("initial data", Z.S0, Xf0, Vf0), ("trusted end", T["s"], T["Xf"], T["Vf"])):
+        part = dict(nodes=nodes, w=w, vals={n: [mp.mpf(float(v)) for v in Xf[e]] for e, n in enumerate(NAMES)},
+                    ds={n: [mp.mpf(float(v)) for v in Vf[e]] for e, n in enumerate(NAMES)})
+        print("%s, s = %.4f (single grid, %d nodes)" % (lab, sv, len(nodes)))
+        for xv in I.xn:
+            if xv == 0:
+                continue
+            o = evaluate(E, part, sv, Z.B, float(xv)); pr = o["proper"]; phi = sum(o["phi"].values())
+            out.append((lab, float(sv), float(xv), o["xi^s"][0], pr["N"], pr["xi_perp"], pr["xi_par"], phi))
+            print("  x %.4f  xi^s %11.4e  N %.4e  xi_perp %11.4e  xi_par %11.4e  phi %11.4e" % out[-1][2:])
+    return out
+
+
 # ---------------------------------------------------------------------------------------------- selftest / mutants
 def selftest(quiet=False):
     ok = []
@@ -368,6 +392,8 @@ if __name__ == "__main__":
         sys.exit(0 if mutants() else 1)
     elif "--track" in sys.argv:
         track()
+    elif "--trusted" in sys.argv:
+        trusted_read()
     else:
         args = [a for a in sys.argv[1:]]
         path = args[0] if args and args[0].endswith(".pkl") else "zeno_half_dsem5_10.pkl"

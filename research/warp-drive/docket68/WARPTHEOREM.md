@@ -793,6 +793,15 @@ state was rebuilt first.
 - **Item 403, the cause** (read from the saved steps): the 2.2e-4 is the measure, at one joining node. With the
   derivative the scheme evolves with, the norm is 6.45e-5 at the end and never above 6.7e-5; on that measure the
   fifth attempt meets the criterion. Which measure defines it on a joined mesh is yours to rule.
+  *[Item 404, beside the text: withdrawn -- that value is each part's own slope less a coefficient, 1/(2H) = 1,680,
+  times the jump.]*
+- **Item 404, the norm evaluated exactly at each point** (`deturck_exact.py`; no run). The DeTurck vector is not small
+  and phi hides it: its normal part holds at 8e-3 to 9e-3 near the axis over the half while its coordinate component
+  grows as the lapse falls, phi's coefficient being the lapse squared. Each component is a remainder: its largest
+  term is at least 2.2e3 times it at the half's start and 1.8e4 times at the end. The growth is only at the two
+  endpoints of the joining x = 1/8 (1.5e-2 and 1.0e-2 at the end), and the vector was already 2.8e-3 in the initial
+  data and 9.0e-3 at the restart. Yours to rule: how the half is judged on exact pointwise values, a joining without
+  coefficients, and the initial data's own vector.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
