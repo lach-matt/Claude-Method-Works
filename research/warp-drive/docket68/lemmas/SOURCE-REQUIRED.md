@@ -60,6 +60,12 @@ M, 387: "it should carry its own σ." That answers the fork below. What follows 
 - New, and the math's to answer: with no junction, M's rulings carry nothing that closes position 2's face. The
   record's only bound on the open period is J2, which is READ. A bound from the theorem itself would replace it.
 
+## Item 389: the rows that wait on it
+
+M, 389: "this can only be determined once the source is determined". ARRIVAL, M1P2x, E1x and H2tx at the large end are
+not finalized, as readings or otherwise, until SOURCE is determined. They stay open, reported under 358 (c), and wait on
+this specification. SOURCE stays last (345, 358).
+
 ## Corrected at item 388: the theorem, not the example
 
 M, 388: "we do need to compute this. You're basing your decision off an applied simplified example of the warp

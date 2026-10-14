@@ -651,6 +651,11 @@ in general:
 - **Still open.** What closes the face where no junction binds (J2 is READ), and what supplies a falling junction's
   start (F1's reading, not a ruling).
 
+**Item 389: the rows on SOURCE wait for the source.** You answered that whether ARRIVAL, M1P2x, E1x and H2tx at the
+large end are finalized "can only be determined once the source is determined". They stay open, reported under 358
+(c), and wait on SOURCE's specification (`SOURCE-REQUIRED.md`). SOURCE stays last. Next in the order you approved at
+384 is the part that does not rest on SOURCE: the interior, worked from your rulings.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
