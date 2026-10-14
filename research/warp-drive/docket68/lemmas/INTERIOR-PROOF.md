@@ -44,6 +44,14 @@ t-invariant. In this setting it comes in two kinds:
   be derived: the brane's boundary term (sigma > 0 is expected to give it a sign), and a region between the horizons in
   two coordinates. Controls, before it is believed: Reissner-Nordstrom-AdS must keep its inner horizon, and
   Schwarzschild-AdS and Schwarzschild-de Sitter must come out right.
+  *[Preliminary, before P2 (estimate): for one coordinate the identity is Q(r_out) - Q(r_in) = (4/ell^2) x volume, with Q
+  the horizon's surface gravity times area. An inner horizon needs Q < 0 at r_in. In a vacuum at Lambda < 0 the volume
+  term has the sign that allows this, not the one that forbids it: Schwarzschild-AdS has no inner horizon only because
+  its solution keeps Q > 0 to r = 0. On the brane, the bulk's Lambda term and the tension's term cancel at leading order
+  (that is why the plane's own Lambda is zero; on the 4D stretch Q is constant and positive, so it has no inner horizon,
+  exactly). So the sign that decides (b1) sits in the O(ell^2/r^2) corrections, which are of order one in the 5D
+  stretch. The Komar route may not close by signs alone there; P2 decides, with the black string as a further
+  control.]*
 - **(b2) A non-Killing inner horizon.** In two coordinates there is a second kind, which one coordinate cannot have: a
   null curve in the (s, x) plane, swept along the static time and the sphere, ending the development at some x before
   others. Status: **open; no theorem known to the board.** It would appear exactly where the clock fails, where N^2 =
