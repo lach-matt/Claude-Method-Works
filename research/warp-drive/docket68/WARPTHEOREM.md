@@ -843,6 +843,12 @@ state was rebuilt first.
   core, the computation's two questions. (c1) proved under four named premises (`quantum_onset.py`): only l5^2 R of the
   two dimensionless numbers carries hbar, so classical GR fails where x = l5^2 sqrt(K) reaches one, I2's placement; the
   long-time criterion cannot act inside.
+- **Items 416-419** (the hole is the README's; nothing falls in, retracted: whatever falls in is the README; continue):
+  the passage is the README's parts, through geometry they make (`focusing_parts.py`). Each part's ray is affine with
+  theta = -(D - 2)/r. Any part with README mass inside reaches 273's region with curvature finite (exact, 4D and 5D),
+  and every part reaches its focus in finite affine parameter (Raychaudhuri, any dimension). The earliest parts are
+  hidden if the face is born first: on the plane, an arrival within 8, 4.75, 4.44, 4.31 clocks of r_h/c at orders 1-4,
+  a new requirement on SOURCE at our sigma. The register's O1b and O1c at the large end are not yet changed: to M.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

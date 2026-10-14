@@ -196,6 +196,10 @@ selftest 12/12, mutants 6/6):
   written; 387's "about 2 clocks" and 388's "J2 binds everywhere" are withdrawn. Computed.
 - **Large end**: 388's junction figures stand where sigma2 differs from ours (1.57e-3 clocks at 2P at r0 = 10 ell).
   The 4 clocks at our sigma (close_large L4 (a), arrival_large A4, 387) is withdrawn: no bound there. Computed.
+  *[Item 419, beside the text: a bound returns at our sigma from the passage's own rows. Under 418 every route is a
+  README part, and O1b and O1c hold for the earliest parts only if our face is born before the README's first part.
+  On the plane that needs an arrival within 7.94 (exact 8), 4.75, 4.44 and 4.31 clocks of r_h/c at onset orders 1-4
+  (16 to 8.6 of GM/c^3; lemmas/focusing_parts.py F5-F6, computed). Where a junction binds, its bound is far tighter.]*
 - The open question 387 named -- what closes position 2's face with no junction -- is answered from M's 109 and 273,
   not from another's model.
 

@@ -147,3 +147,38 @@ still only every part of the one README from position 1" (H-ALL-IS-README).
   For collapsing null flux that is a known question (slow arrivals can leave the centre visible). The arrival's width
   is an open SOURCE fork (SOURCE-REQUIRED), and it ties to the read, which is queued (399, 417).
 
+## Item 419: the focusing proof, written and machine-checked (`focusing_parts.py`, selftest F1-F6, mutants 2/2)
+
+The README's parts fall as radial null flux, ds^2 = -f dv^2 + 2 dv dr + r^2 dOmega^2, f = 1 - mu(v)/r^(D-3) - lam r^2,
+mu(v) the README's own mass function. D = 4 is the large end's plane, D = 5 the record's form.
+- **F1 (computed, exact).** G_ab + Lambda g_ab has one component, (D - 2) mu'/(2 r^(D-2)) on dv dv: the README's flux and
+  nothing else, with null energy >= 0 on every ray iff mu' >= 0.
+- **F2 (computed, exact).** Each part rides v = const, an affinely parametrized null geodesic with expansion
+  theta = -(D - 2)/r. Raychaudhuri holds on it with R_kk = 0, and r is its affine parameter, so the distance from our
+  face to the centre is finite.
+- **F3 (computed, exact).** K = 12 mu^2/r^6 (4D) and 72 mu^2/r^8 (5D), mu' entering nowhere. Any part with README mass
+  inside it (mu > 0) reaches x = 1, 273's region, at a finite distance before the centre, with curvature finite all the
+  way. **O1b and O1c hold for that part.**
+- **F4 (computed, exact; deduced).** Without symmetry: theta0 < 0 and R_kk >= 0 bring theta to -infinity by
+  lambda = (D - 2)/|theta0|. On null k, Lambda and the plane's tension give zero and the README gives >= 0. So in any
+  dimension, including the large end's 5D core, every part reaches its focus in finite affine parameter. The core's
+  curvature law is exact only on the spherical forms; there F4 carries completeness, not the curvature growth.
+- **F5 (computed).** The earliest parts are hidden if our face is born before the README's first part arrives. Event
+  horizon traced back for the smoothstep arrival of onset order n, width w in clocks of r_h/c:
+  - 5D control: before the onset for w <= 4 at every order (1.76 to 0.26 clocks), as arrival_small V2 recorded;
+    order 1 always; orders 2, 3, 4 at the onset from w = 8.96 (V3's exact 9), 5.27 and 4.79 (the record's).
+  - **4D, the large end's plane (new):** the face is born before the onset for w below **7.94 (exact 8), 4.75, 4.44,
+    4.31** at orders 1-4. That is 16, 9.5, 8.9 and 8.6 clocks of GM/c^3. As w -> 0 the face is born 2 r_s/c ahead,
+    arrival_large A3's exact figure.
+- **F6 (computed, exact).** 4D's self-similar onset mu = lam v has an escaping ray iff lam <= 1/8 (1/16 in m). That
+  is the order-1 threshold's exact value, w = 8.
+
+**What it establishes.** Under 418, O1b and O1c at the large end hold for every README part whenever the README arrives
+fast enough for our face to be born before its first part. Then 273's region stays inside our face for every part.
+- Where position 2's sigma differs from ours, a junction binds the arrival to about 1e-3 clocks (SOURCE-REQUIRED),
+  far inside these widths: met.
+- At a destination at our sigma, no junction binds and nothing bounded the arrival (the 4 clocks withdrawn there).
+  These widths are a **new requirement on SOURCE**: arrive within 4.31 to 8 clocks of r_h/c, by onset order.
+- **Not proved:** the large end's 5D core is crossed with completeness by F4, but its curvature growth is not computed
+  there. And the horizon is traced with the face static from v = w on (348 (Q3)).
+
