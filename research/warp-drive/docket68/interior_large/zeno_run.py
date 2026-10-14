@@ -24,7 +24,8 @@ P_EXP = np.array([1.0, -2.0, 1.0, -2.0, -1.0])            # B6: T, A ~ u; S, B ~
 STATIC = dict(file=C.static_file(B, 24, 24), Ns=24, Nx=24)
 TRUSTED = "zeno_trusted_28.pkl"
 WALL = 20 * 60.0
-SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)        # item 394: the axis part and the brane part given more points
+SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)
+GAM_SIGN = -1.0     # the jump damping acts along the evolution, toward decreasing s (spectrum check, item 395)        # item 394: the axis part and the brane part given more points
 
 
 class Halving(ID.Damped):
@@ -190,7 +191,7 @@ class FoldedSAT(ID.Damped):
             (idL, DL, _, wL, _), (idR, DR, _, wR, _) = self.blk[j], self.blk[j + 1]
             iL, iR = idL[-1], idR[0]; hL, hR = wL[-1], wR[0]
             aa = 0.5 * (-gss[iL] / gxx[iL] - gss[iR] / gxx[iR]); bb = 0.5 * (gsx[iL] / gxx[iL] + gsx[iR] / gxx[iR])
-            tau = 1.2 * aa * (hL + hR) / (4 * hL * hR); gam = 0.5 * np.sqrt(aa)
+            tau = 1.2 * aa * (hL + hR) / (4 * hL * hR); gam = GAM_SIGN * 0.5 * np.sqrt(aa)
             Ju = Xf[:, iL] - Xf[:, iR]; Jv = Vf[:, iL] - Vf[:, iR]; Jp = DX[:, iL] - DX[:, iR]
             Xss[:, iL] += (-(aa / 2) * Jp - tau * Ju - (bb + gam) * Jv) / hL
             Xss[:, iR] += (-(aa / 2) * Jp + tau * Ju - (bb - gam) * Jv) / hR
