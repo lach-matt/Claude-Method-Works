@@ -729,6 +729,19 @@ considered in Zeno's form.
   - In the hole's size: sampling by doubling r₀.
 - **One first run is proposed**, with its question, criterion and a 20-minute stop. It is not run until you approve.
 
+**Item 393: the first Zeno half, run -- it failed its criterion** (`interior_large/zeno_run.py`;
+`interior_large/README.md`, "Item 393"). You approved one half. The generated files had not been kept, so the trusted
+state was rebuilt first.
+- **The rebuild.** The static hole gave R₄/ℓ = 1.12926. The damped run to s = −0.503 gave a DeTurck norm of 8.2×10⁻⁵
+  and lapses of 0.1061 and 0.4313, against the record's 8.1×10⁻⁵, 0.1065 and 0.4326.
+- **The half reached s = −2.0** in 335 s. Its norm stayed at or below 10⁻⁴ to s = −0.8, then reached 1.6×10⁻⁴ at −1.1,
+  7.8×10⁻² at −1.5 and 6.4 at −2.0. **Fail** against the criterion of 10⁻⁴, so the second half is not run.
+- **What it located.** At the brane, where the record's runs failed, the halving mesh held: the norm there stayed at or
+  below 5×10⁻⁴. The error grew at the first part boundary, x = ½, and in the axis part. That part was under-resolved from
+  the start, where the curvature is largest.
+- **The board's own error, corrected.** The first evaluation solved the brane from the end state and found the spurious
+  root the record warns of. Re-assessed by marching it in order, with no rerun.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.

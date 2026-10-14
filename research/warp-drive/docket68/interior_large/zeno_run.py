@@ -168,23 +168,46 @@ def half(n=12):
         print("half: stopped at 20 minutes", flush=True)
         pickle.dump(dict(status=status, msg=msg, took=took), open("zeno_half_%d.pkl" % n, "wb"))
         return
-    for lam in [lam1] + marks:
-        Z = sol.sol(lam); f = np.exp(lam); s = 1 - f; e = np.exp(-P * lam)
-        X = e * Z[:5 * m]; Xs = -(e * (Z[5 * m:] - P * Z[:5 * m])) / f
-        Y = np.concatenate([X, Xs])
-        Xf, Vf = I.brane_values(s, X.reshape(5, m), Xs.reshape(5, m))
-        phi = np.nanmax(np.abs(IF.phi_at(I, s, Y)))
-        tl = I.tails(Xf); lp = lapse_of(I, s, Xf)
-        u = 1 / (1 - s)
-        log.append(dict(lam=lam, s=s, u=u, phi=phi, tail=tl, lapse_ax=lp[0], lapse_br=lp[-1], T_ax=Xf[0, 0],
-                        T_br=Xf[0, -1], Tu_ax=Xf[0, 0] / u, Su2_br=Xf[1, -1] * u * u))
-        print("lam %.4f s %8.4f u %.4f: phi_max %.2e  tail %.2e  lapse ax %.4f br %.4f  T/u ax %.4f  S u^2 br %.4f"
-              % (lam, s, u, phi, tl, lp[0], lp[-1], Xf[0, 0] / u, Xf[1, -1] * u * u), flush=True)
-    ok = log[-1]["phi"] <= 1e-4 and log[-1]["tail"] <= 1e-6
+    I.lastbr = T["br"].copy()                                  # march the brane root from the restart, in order
+    log = assess_steps(I, sol.t, sol.y, [lam1] + marks, P)
+    ok = bool(log) and log[-1]["phi"] <= 1e-4 and log[-1]["tail"] <= 1e-6
     print("half: status %d (%s), %d steps, %d evaluations, %.0f s; pass: %s" % (status, msg, len(sol.t), state["n"],
                                                                            took, ok), flush=True)
     pickle.dump(dict(status=status, msg=msg, took=took, log=log, ok=ok, n=n, t=sol.t, y=sol.y),
                 open("zeno_half_%d.pkl" % n, "wb"))
+
+
+def assess_steps(I, ts, ys, marks, P):
+    """the brane root marched along every step in order (warm-starting from a later state finds a spurious root:
+    README B5); at each mark (the nearest step at or past it) the DeTurck norm, the tails and the lapse"""
+    m = I.m; log = []; todo = list(marks)
+    for k in range(len(ts)):
+        lam = ts[k]; Z = ys[:, k]; f = np.exp(lam); s = 1 - f; e = np.exp(-P * lam)
+        X = e * Z[:5 * m]; Xs = -(e * (Z[5 * m:] - P * Z[:5 * m])) / f
+        Xf, Vf = I.brane_values(s, X.reshape(5, m), Xs.reshape(5, m))
+        if todo and lam >= todo[0] - 1e-12:
+            todo.pop(0)
+            Y = np.concatenate([X, Xs])
+            phi = np.nanmax(np.abs(IF.phi_at(I, s, Y)))
+            tl = I.tails(Xf); lp = lapse_of(I, s, Xf); u = 1 / (1 - s)
+            log.append(dict(lam=lam, s=s, u=u, phi=phi, tail=tl, lapse_ax=lp[0], lapse_br=lp[-1], T_ax=Xf[0, 0],
+                            T_br=Xf[0, -1], Tu_ax=Xf[0, 0] / u, Su2_br=Xf[1, -1] * u * u))
+            print("lam %.4f s %8.4f u %.4f: phi_max %.2e  tail %.2e  lapse ax %.4f br %.4f  T/u ax %.4f  "
+                  "S u^2 br %.4f" % (lam, s, u, phi, tl, lp[0], lp[-1], Xf[0, 0] / u, Xf[1, -1] * u * u), flush=True)
+    return log
+
+
+def reassess(n=12):
+    """the saved half re-assessed with the brane root marched in order (no rerun)"""
+    T = pickle.load(open(TRUSTED, "rb")); R = pickle.load(open("zeno_half_%d.pkl" % n, "rb"))
+    I = Halving(n, B, STATIC, KAP, AT); I.lastbr = T["br"].copy()
+    P = np.repeat(P_EXP, I.m); ts = R["t"]
+    marks = list(np.linspace(ts[0], ts[-1], 5))
+    log = assess_steps(I, ts, R["y"], marks, P)
+    ok = bool(log) and log[-1]["phi"] <= 1e-4 and log[-1]["tail"] <= 1e-6
+    print("re-assessed: %d steps marched; pass: %s" % (len(ts), ok), flush=True)
+    R.update(log=log, ok=ok, reassessed=True)
+    pickle.dump(R, open("zeno_half_%d.pkl" % n, "wb"))
 
 
 if __name__ == "__main__":
@@ -192,3 +215,5 @@ if __name__ == "__main__":
         trusted()
     elif sys.argv[1] == "half":
         half(int(sys.argv[2]) if len(sys.argv) > 2 else 12)
+    elif sys.argv[1] == "reassess":
+        reassess(int(sys.argv[2]) if len(sys.argv) > 2 else 12)

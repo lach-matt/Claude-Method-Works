@@ -422,3 +422,53 @@ directory's two limits: the loss of x-resolution at the brane (B5, C1), and the 
 
 The plan and the first run's question, criterion and time are in `../lemmas/INTERIOR-REQUIRED.md`, "Item 392". Nothing
 is run until M approves.
+
+## Item 393: the first Zeno half, run (2026-10-14) -- it failed its criterion
+
+Approved at item 393: one rescaled restart at bt = 1 from the trusted state near s = -0.5, over one halving of
+u = 1/(1 - s), at one fixed resolution per mesh part. It passes if the DeTurck norm phi <= 1e-4 and the Chebyshev
+tails <= 1e-6 at the half's end, and it stops at 20 minutes. `zeno_run.py`.
+
+**Rebuilt first.** The generated files had not been kept: `gen_eqs_fw.py` 320 s, `gen_damp_fw.py` 224 s and
+`gen_eqs_sy.py` 65 s. The static hole (`solver_fw.py 1 24 24`) gave R4/ell = 1.12926, phi_max 1.9e-7, against B3's
+1.1293. The trusted state, B7's damped Nx = 28 run from s = -0.002 to -0.503 (660 steps, 353 s), gave at s = -0.503:
+- phi_max 8.24e-5 (C1: 8.1e-5);
+- lapse 0.1061 at the axis and 0.4313 at the brane (C1: 0.1065 and 0.4326).
+
+**The half.** On a halving mesh of four parts, [0, 1/2], [1/2, 3/4], [3/4, 7/8] and [7/8, 1], with 12 Lobatto intervals
+each and x-derivative continuity at the interfaces. Evolved in lambda = ln(1 - s), with B6's rescaling. The mesh's
+algebra was checked on cos 3x + x^4: axis and interface values to 4e-16, derivatives at inner nodes to 1e-13. The run
+went from s = -0.503 to -2.006: status 0, 327 steps, 335 s.
+
+**The first evaluation was wrong, and the error was the board's.** After the run, the brane root was solved starting from
+the end state. That finds B5's spurious root (phi 1e39 even at the restart slice). Re-assessed with the root marched in
+order along the saved steps, as `rescaled.py` does (`zeno_run.py reassess`, no rerun):
+
+| s | phi_max | where | phi at the brane | worst tail, by part |
+|---|---|---|---|---|
+| -0.503 | 8.2e-5 | x = 0.009 | 1.9e-10 | 3.4e-5, 2.8e-7, 2.2e-9, 1.3e-6 |
+| -0.789 | 7.7e-5 | x = 0.034 | 3.3e-8 | 1.1e-4, 2.6e-6, 9.2e-8, 8.4e-8 |
+| -1.131 | 1.6e-4 | x = 0.125 | 6.6e-9 | 1.4e-4, 4.0e-5, 6.4e-7, 2.2e-7 |
+| -1.539 | 7.8e-2 | x = 0.500 | 5.9e-9 | 1.2e-4, 5.7e-4, 6.6e-5, 1.4e-6 |
+| -2.006 | 6.4 | x = 0.500 | 4.7e-4 | 3.4e-4, 4.4e-3, 3.3e-3, 2.7e-4 |
+
+**Verdict: FAIL** (phi 6.4 > 1e-4; tails up to 4.4e-3 > 1e-6). So the second half is not run (item 393).
+
+What the failure locates (computed from the saved run):
+- **The brane is resolved.** phi there stays at or below 5e-4 through s = -2, where B5's single grids grew. The halving
+  toward the brane did what it was for.
+- **The error grows at the first interface, x = 1/2, and in the axis part.** From s = -1.5 phi peaks at the interface
+  node itself.
+- **The axis part was under-resolved from the start** (tail 3.4e-5 at the restart). The axis region carries the
+  largest curvature (B6: about 2.5e3 against about 1e2 at the brane, ell^-4), and the mesh gave it the fewest points
+  per unit length.
+
+The joining of parts by derivative continuity alone is the weak point. Characteristic or penalty coupling is the usual
+treatment of a hyperbolic system across interfaces; it is not used here.
+
+What a second attempt at the same half would change, for M to approve or not:
+- halve toward both ends -- the axis as well as the brane;
+- give the axis part more points;
+- couple the parts by penalty rather than by derivative continuity.
+
+The same question, criterion and stop.

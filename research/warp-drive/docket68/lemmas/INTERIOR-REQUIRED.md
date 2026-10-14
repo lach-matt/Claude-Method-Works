@@ -110,3 +110,13 @@ both, three ways:
 - **Cost:** small next to the runs at 365-367.
 
 Its result decides whether the second half is run.
+
+**Item 393: run, and it failed its criterion** (`interior_large/README.md`, "Item 393").
+- **The trusted state was rebuilt** and matches the record to 0.4 per cent.
+- **The half reached s = -2.0** in 335 s, but phi rose to 6.4, against a criterion of 1e-4.
+- **The brane, where the record's runs failed, stayed resolved** (phi <= 5e-4 there).
+- **The error grew at the first interface, x = 1/2, and in the axis part.** That part was under-resolved from the start,
+  where the curvature is largest.
+
+The second half is not run. A second attempt at the same half would halve toward both ends, give the axis part more
+points, and couple the parts by penalty. It is for M to approve.
