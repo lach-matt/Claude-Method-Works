@@ -540,6 +540,38 @@ It cannot be proved in the theorem as it stands, because its premise is gone. Wh
   far stronger. It becomes the top once its literature step is computed for the record's own holes. The seated window
   and its dependents change once, when that is settled; until then the top is the Planck curvature.
 
+**Item 384: prove yours; the order; no tests; the two questions for the math.** You approved the order, dropped the
+paused tests (the C-metric gauge half and the bt = 10 interior run, closed), and left two questions to the theorem's
+own math. Its answers, and the first step in the order.
+- **The Planck convention (decided by H1, proved).** The theorem counts bits with A_bit = 4 ln2 ħG/c³ at the large end,
+  and with 2π²r_h³ = 4N ln2 l₅³, l₅³ = l_P²ℓ (G₅ = Gℓ), at the small end. Its Planck lengths are l_P = (ħG/c³)^(1/2)
+  and that l₅, with no 8π. A reduced length would change every bit count by 8π and break H1. So E₅ = ħc/l₅, ℓ_H =
+  0.588 nm, and the factor-25 alternative is excluded (`ell_higgs.py`, item-384 note).
+- **Asymptotic safety (decided by B8, proved).** The bulk's law is Einstein's exactly; the theorem holds no running of
+  couplings and no quantum fixed point. Asymptotic safety is not among its objects, and your 384 forbids putting
+  another's model in its place, so it is withdrawn as the equality's object. λ(E₅) = 0 has no object in the theorem
+  yet. The bound ℓ ≥ ℓ_H stands on the decay rate for the theorem's own holes, to be computed when it is needed.
+- **ARRIVAL at the large end, from your rulings** (`lemmas/arrival_large.py` A0–A6, selftest 6/6, mutants 2/2; no
+  tests run).
+  - **Flux and one E (computed, exact).** On the plane's ingoing form the only Einstein component is G_vv = 2m′/r². An
+    arrival that only adds energy has non-negative null energy on every ray, forms our face with no partner (198), and
+    leaves one E (G1; 136 G).
+  - **Held only whole (computed, exact).** At a fraction e of E the face holds e²N bits, short of the eN that have come
+    in, for every e < 1: your 163, "All together, one whole".
+  - **The face before the README, the onset hidden (computed, exact).** A thin arrival's face is born 4 clocks before
+    the README's first part. A linear arrival shows its onset only if it lasts 16 clocks or more; at 0.0027, 1 and 4
+    clocks the face is born before the onset.
+  - **What the README must fit (computed).** Position 2's face at the large end is open at most 2.67×10⁻³ clocks at
+    r₀ = 10ℓ on your 139 (1)'s quarter, falling as (ℓ/r₀)², or 4 clocks at its own σ (close_large L4).
+  - **What the rulings fix and what they leave (deduced).** Every arrival width that open period allows meets the
+    three results above, so they are consistent, not vacuous. But the width itself is how the README comes in. Your
+    163 rules it one whole, not an instant, and nothing in the rulings or the geometry sets it. It is SOURCE's. So
+    ARRIVAL at the large end relies on SOURCE through one number, the arrival's width below position 2's open period.
+    Under your 358 (c) it is reported so, not forced green.
+  - **The rows that wait only on it (deduced).** M1P2x, E1x and H2tx rely on SOURCE through that one number alone and
+    reach the small end's state with ARRIVAL: readings on SOURCE, once you finalize. Z3b, B3 and B4d rest on ARRIVAL and
+    on work of their own, next in the order.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.

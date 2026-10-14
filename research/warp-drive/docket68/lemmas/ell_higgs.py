@@ -23,6 +23,10 @@ and estimate where marked; not verified by a separate session); 2026-10-14.
      at m_t -+ 0.29 GeV.  E5 = E_I at ell_H = 0.588 nm (0.024 to 9.6 nm within 1 sigma); with the reduced Planck length
      ell_H is 8 pi smaller (0.023 nm).  Beyond the zero the potential falls fast: V = lambda mu^4/4 is -8.7e39 GeV^4 at
      2 E_I and -2.8e47 at 100 E_I.
+     [Item 384, the convention decided by the theorem's own math: H1 (proved) counts bits with A_bit = 4 ln2 hbar G/c^3
+     at the large end and 2 pi^2 r_h^3 = 4 N ln2 l5^3, l5^3 = l_P^2 ell (G5 = G ell), at the small: the theorem's Planck
+     lengths are l_P = (hbar G/c^3)^(1/2) and that l5, with no 8 pi.  A reduced length would change every bit count by
+     8 pi and break H1.  So E5 = hbar c/l5 as used here, ell_H = 0.588 nm, and the factor-25 alternative is excluded.]
   H4 (computed; deduced) B5a on the plane's own Higgs.  B5a holds for matter with rho > -sigma/6 (b5a_residue A2); its
      pointwise proof holds inside our vacuum's basin (pointwise P8, item 339's note).  With ell below ell_H the
      instability lies inside the plane's matter theory (E_I < E5).  There the deepest potential within it, at E5, is
@@ -42,6 +46,11 @@ and estimate where marked; not verified by a separate session); 2026-10-14.
      gravity becomes five-dimensional and strong at E5, so k_tr = E5 and lambda(E5) ~ 0: the Higgs tie, sitting exactly
      on H5's bound -- the corridor-safe region's edge.  It rests on asymptotic safety with A_lambda > 0, a property of
      gravity's quantum running: gravity's own, as 326's alpha was, but not classical relativity.
+     [Item 384, decided by the theorem's own math: B8 (proved) makes the bulk's law Einstein's exactly, and the theorem
+     holds no running of couplings and no quantum-gravity fixed point.  Asymptotic safety is not among its objects, and
+     384 forbids putting another's model in its place: it is withdrawn as the equality's object.  The equality
+     lambda(E5) = 0 has no object in the theorem yet; H5's bound stands on the decay rate for the theorem's own holes,
+     still to be computed when it is needed.]
   H7 (computed) What the equality fixes, given it: ell = 0.588 nm (0.024 to 9.6 nm within the top mass's 1 sigma, a
      further factor 25 with the convention for "Planck").  There N_L = 9.4e51 bits -- the Earth's README (372 K5,
      9.3e51): item 380's coincidence is this equality seen from the Earth.  The interior's Planck span is 1e68; the
