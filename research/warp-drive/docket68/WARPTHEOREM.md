@@ -811,6 +811,15 @@ state was rebuilt first.
 - **Item 406, the corner** (`corner_analysis.py`): where the far end meets the brane the record's equations reduce, in
   w = (2 - s - x^2)/(1 - s), to an Euler system with exact exponents 2 +- 2 sqrt 3, 0, 4, -1, 5; forced at t^3, the
   record's solution follows the analytic part there (-0.453 against -5/11 on the brane). The next order is open.
+  *[Through t^4 the corner forces nothing; the static solver's near-null direction (smallest equilibrated singular value
+  about N^-4.8) has its rows at this corner and its fields F through the bulk (406, continued; 407).]*
+- **Item 407, the horizon on the grid** (`horizon_fw.py`): a static solver with a node at s = 0 and the equations' own
+  exact limits there (T = A, then each equation's regular part), no coefficients. It failed both counts: the
+  near-null direction is unchanged to three digits (6.73e-9 at N = 32), and xi holds at 5e-5 to 7e-5. The missing
+  horizon node is not the cause.
+- **Items 408-409** (your questions): the context of the interior work, and the accuracy the chain needs. O1b and
+  O1c ask yes or no of the interior (a forward clock, no inner horizon, curvature finite); a computation settles each
+  where its error lies inside that property's margin. The margins are not yet measured (405-3).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

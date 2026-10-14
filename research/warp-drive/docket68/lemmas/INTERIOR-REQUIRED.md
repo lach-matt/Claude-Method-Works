@@ -206,3 +206,17 @@ order an Euler system in w, independent of the power of t; its exponents are exa
 T + 2S + A), 0 and 4 (the differences), -1 and 5 (F). The reference's residual forces it at t^3; the record's solution
 follows the analytic particular solution there (on the brane (B - 1)/t^3 = -0.453 against -5/11), the irrational mode
 not excited. The next order, t^4, is where the non-analytic term must enter, if it is at the corner.
+
+*[Items 406-407: the corner forces nothing through t^4. The static solver's Newton Jacobian has a near-null direction
+whose smallest equilibrated singular value falls as about N^-4.8; its rows are those next to this corner, its fields
+F through the bulk. So the corner is implicated, though not by a term it forces.]*
+
+**Item 407: the horizon put on the grid with its exact rows** (`interior_large/README.md`, "Item 407";
+`horizon_fw.py`, selftest 5/5, mutants 3/3; `HORIZON-FW.tsv`). The record's equations, expanded exactly in s about the
+horizon, lose every 1/s under the one condition T = A. The rows there are T - A, R_tt + R_ss, R_thth, R_xx and E_sx's
+own limit, with no coefficient. The tt equation's limit, not imposed, holds to 1e-11. **It failed its criterion on both
+counts:** the near-null direction is unchanged (6.73e-9 at N = 32 against the record's 6.72e-9), and xi holds at 5e-5
+to 7e-5 from N = 20 to 32. The missing horizon node is not the cause. The rows that nearly depend are the brane's K_tt
+and K_thth and the interior tt and thth beside them, at the far end's corner; taken alone they are not degenerate.
+What accuracy O1b and O1c need (405-3) is not yet derived; requirements (a)-(c) are yes or no, settled where the error
+lies inside each margin.

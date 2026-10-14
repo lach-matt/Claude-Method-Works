@@ -1017,6 +1017,9 @@ that keeps the static solution's DeTurck vector from converging must enter there
   -- implied by the other rows at this order. So through t^4 the corner admits the irrational modes with free
   amplitudes and forces none; the record's solution gives b_ = 0.000 +- 0.004. **The corner is not shown to be the
   source.**
+  *[Item 407: the near-null pair's left vector -- the rows that nearly depend -- is the T and S rows in the cell next to
+  this corner, at every N from 16 to 28. The corner is implicated, though those four rows taken alone are not
+  degenerate (smallest singular value 0.19 at every N).]*
 - **The solutions disagree everywhere but the far end** (N = 28 against 32, fields on a 57 x 41 grid): largest at the
   horizon on the axis (S, B 2.3e-3 at (0, 0); F 8.6e-3 at (0.01, 0)), as large through the middle (2e-3 to 7e-3), small
   where the solver fixes the fields (1e-4 near s = 1), and growing from (24, 28) to (28, 32).
@@ -1036,6 +1039,83 @@ that keeps the static solution's DeTurck vector from converging must enter there
   the discretisation's: the scheme grows more nearly singular in it as N grows, and whatever error it makes is
   amplified into F, and through the coupling into S and B, near the horizon on the axis. That is why the static
   solution's DeTurck vector does not converge, and why N = 32 is the worst.
+  *[Item 407: the place named here is the right vector's, the field direction. The rows it fails are at the far end's
+  corner with the brane (the left vector). A node on the horizon with exact rows leaves the singular value unchanged to
+  two or three digits. The table's equilibration used a norm not recorded; with rows then columns scaled to unit
+  2-norm the record's smallest values are 1.89e-7, 6.56e-8, 2.73e-8, 1.29e-8, 6.72e-9 at N = 16 to 32.]*
 - The record's solver has no node at the horizon (its Radau nodes in s exclude s = 0) and imposes the horizon's
   regularity only through the equations' degeneration; the axis rows (F_x = 0 among them) meet the horizon at that
   corner. The horizon's exponents (T + A, S, B: 0, 0; T - A: +1, -1; F: 0, -1) say what an exact horizon row is.
+  *[Item 407: put to the test -- the missing horizon node is not the cause.]*
+
+## Item 407: the horizon put on the grid with its exact rows (2026-10-14) -- it failed its criterion
+
+M, 407: "Proposed next step, yours to approve - approved". The proposal was a static solver with a node on the horizon
+s = 0 and exact regularity rows from the horizon's own analysis, with no coefficients, as a new instrument beside
+`solver_fw.py`. **Question:** does the near-null F direction disappear, and does xi then fall steadily with resolution?
+**Criterion:** the smallest scaled singular value stops shrinking with N, and xi falls geometrically. **Cost:** about
+30 minutes, no data download. Instrument: `horizon_fw.py` (selftest H1-H5, mutants 3/3); table `HORIZON-FW.tsv`.
+
+**The rows at the horizon** (computed, exact). Each of the record's five equations is expanded in s about s = 0 as a
+truncated Laurent series over its own expression tree, the fields and their slopes held as symbols:
+s E_e = S_e + R_e s + O(s^2). Substituting s = 0 into the equations directly gives 0 times infinity (a factor such as
+(T bt^2 s^3 - 2 T bt^2 s^2 + T bt^2 s)^-2 hides s^-2), which is why the expansion walks the tree.
+- S_thth = S_xx = 0 identically.
+- S_tt = (T - A) Dl0^2 / (4 A T), with Dl0 = 1/bt + 1 - x^2 (Dl at s = 0), and S_ss = -S_tt.
+- S_sx = (A - T)(bt x^2 - bt - 1)(T_x (bt x^2 - bt - 1) - 4 T bt x) / (4 T^2 bt^2). It is not zero, but it too carries
+  the factor (A - T).
+
+So the one condition T = A removes every 1/s. The rows at s = 0 (0 < x < 1) are:
+- T: T - A = 0;
+- A: R_tt + R_ss (the 1/s parts cancel identically, and so do their s-derivatives);
+- S: R_thth; B: R_xx;
+- F: R_sx + sum_q dS_sx/dq D_s q, E_sx's own limit when T = A.
+
+The tt equation's own limit, C_tt = R_tt + sum_q dS_tt/dq D_s q, is carried as a check, not a row. The brane's rows
+have no 1/s, so the corner (0, 1) takes their exact s^0 coefficient; the corner (0, 0) takes the record's axis rows.
+Selftest H4 checks that the rows are the equations' own limits. On a smooth configuration with T = A at s = 0 and
+T_s != A_s, each equation at s = 1e-4 and then 1e-5 approaches its row with the error falling exactly tenfold.
+
+**The run** (computed; Lobatto in s and x; N = 16 to 28 solved from ones and regridded upward in a first run, which
+was stopped at the background limit during N = 32; the rerun re-measured them from their saved solutions and solved
+N = 32 from N = 28 regridded). The record's solver is measured the same way in the same instrument (`--record`).
+
+| N | Newton | smallest eq. singular value | record's | max \|xi^s\|, s > 0 | record's | C_tt at s = 0 | R4 |
+|---|---|---|---|---|---|---|---|
+| 16 | 8.6e-11, 15 steps | 1.86e-7 | 1.89e-7 | 1.18e-4 | 3.94e-4 | 4.6e-12 | 1.129310 |
+| 20 | 2.2e-11, 3 | 6.50e-8 | 6.56e-8 | 4.82e-5 | 2.52e-4 | 3.1e-12 | 1.128639 |
+| 24 | 8.1e-11, 3 | 2.72e-8 | 2.73e-8 | 6.98e-5 | 1.19e-4 | 8.9e-12 | 1.129359 |
+| 28 | 8.1e-11, 7 | 1.29e-8 | 1.29e-8 | 5.95e-5 | 7.85e-5 | 1.3e-11 | 1.129147 |
+| 32 | 1.5e-10, 59 | 6.73e-9 | 6.72e-9 | 5.47e-5 | 1.60e-3 | 6.1e-12 | 1.129118 |
+
+"Equilibrated" here is rows, then columns, scaled to unit 2-norm. The record's xi column is item 405's run (the record's
+solver, unchanged), at the same nineteen points. At N = 32 Newton stopped at its 60-step limit with |R| = 1.5e-10,
+just above its 1e-10 tolerance. Continued to s = -0.002, max |xi^s| is 1.4e-5, 6.5e-6, 1.2e-5, 2.3e-5 and 5.9e-5.
+
+**Verdict: FAIL on both counts.**
+- **The near-null direction does not disappear.** The smallest equilibrated singular value falls as about N^-4.8
+  (a factor 27.6 from N = 16 to 32), and equals the record's solver's to two or three digits at every N. A node on the
+  horizon with exact rows changes nothing in it.
+- **xi does not fall geometrically.** It is lower than the record's at N = 16 and 20, then holds at 5e-5 to 7e-5 from
+  N = 20 to 32. The continued value grows from N = 20 on.
+- **What does hold:** C_tt stays at 1e-11 or below. The tt equation's horizon limit is satisfied without being imposed,
+  so the horizon's regularity as derived is consistent with the solution.
+
+**Where the near-null pair lives** (computed, `horizon_fw.py --modes`, from the saved solutions).
+- **The right vector (which fields):** F, spread over the interior (0.34 to 0.38 of the weight) and along the axis (0.13
+  to 0.17), with S and B beside it. Its largest single nodes are near the horizon on the axis, none above 0.07.
+- **The left vector (which rows nearly depend):** the T and S rows in the cell next to the corner (s, x) = (1, 1), at
+  the last s-node before the far end (s = 0.9904, 0.9938, 0.9957, 0.9969 at N = 16 to 28). These are the brane's K_tt
+  and K_thth and the interior tt and thth equations at the neighbouring x-node. The weights are 0.34, 0.25, 0.16 and
+  0.14 at every N. The second pair's left vector sits there too, on the A and S rows.
+- **Those four rows alone are not degenerate.** Their smallest singular value, rows scaled, is 0.19 at every N, in
+  both solvers. So the dependence is global: the discrete system as a whole leaves one combination of the corner's rows
+  almost unreachable, and the F direction is its partner.
+
+So item 406's corner is implicated after all. Its text is corrected beside it. What the corner needs is not yet known.
+
+**Not yet known, and the hinge (405-3).** What accuracy O1b and O1c require of the interior. Their requirements
+(INTERIOR-REQUIRED (a)-(c)) are yes or no: a forward clock with its rate bounded below, no inner horizon, curvature
+finite to 273's region. A computed answer settles each when its error lies inside that property's margin. The 1e-4
+of item 392 was the board's own number and was never derived. Whether xi near 5e-5 is too much depends on margins not
+yet measured.
