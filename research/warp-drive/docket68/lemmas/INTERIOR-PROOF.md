@@ -97,3 +97,29 @@ proof cannot answer, and its approach is put to M before it runs (414).
   proof closes, state the open core exactly, with what the computation must show.
 - **P4.** (c1) written exactly, with 273's boundary as M confirms it; (c2) stated with its measure.
 - **P5.** The proven parts machine-checked (sympy, and Z3 where finite), seated as a lemma with selftest and mutants.
+
+## Item 416: the hole is the README's -- what that settles, and what it leaves (read from the record)
+
+M, 416: "isn't the black hole only ever just large enough to contain the README within it? And if so, can't we build
+the computations we need from the README itself in any circumstance?"
+- **The size is the README's, by M's own rulings.** 162 (H-FIXED-SIZE): "It is and always will be only the size that is
+  needed to hold the object once and at once". 133 (H-ONE-EXACT-ENERGY): one exact energy per README, which the board
+  identified as E(N), the energy at which the horizon holds exactly the README's N bits, "every quantity fixed by the
+  input N". 136 G: "the README is the energy". So r_h is a function of N alone, given the position's constants.
+- **The README's own passage is already built from the README, exactly** (INTERIOR-REQUIRED item 9; `interior_large.py`
+  I3). It is flat inside its shell, its generators reach 273's region in finite affine length, it holds at every
+  dimension, and it does not depend on the 5D stretch's interior. On that route O1b (no curvature) and O1c (complete)
+  hold with no grid and no error (deduced).
+- **What the README alone does not settle exactly**: the vacuum region that forms behind it inside the horizon, which
+  only something else entering while the object is open would cross (320's bulk content; the C8/O1c verifier's
+  qualification at 337). Its geometry is still the README's: the vacuum solution at r_h(N)/ell, one parameter. So any
+  computation of it is built from the README too, at the README's own size.
+- **A correction the question exposes** (computed: the record's runs): every interior run (B7, items 393-411) used
+  bt = 1, a hole of brane radius 1.13 ell, the large end's start. None used a size set by a README. The large end's
+  README holes have r_h far above ell. INTERIOR-REQUIRED's plan to sample bt = 1 to 16 and take the limit is the route
+  to the README's size, and was not yet taken.
+- **The scope question, M's**: whether O1b and O1c at the large end are about the README's passage (settled exactly
+  above) or about every route through the object while it is open (then the region behind the README is needed, at the
+  README's size). The board's recommendation: the README's passage, under 273's "README only" and 162's "hold the object
+  once and at once", with what else may enter the open object carried as its own row.
+
