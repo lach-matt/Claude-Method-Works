@@ -18,6 +18,7 @@ Exact means: exact for the saved representation (the stored doubles, read as exa
 
 python3 deturck_exact.py [pickle] [s ...]   -- the table at the steps nearest each s (default: the fifth attempt's
                                                zeno_half_dsem5_10.pkl at s = -1.5, -1.85, -2.006); DETURCK-EXACT.tsv
+python3 deturck_exact.py --track              -- the half followed at its nodes, eleven steps; DETURCK-TRACK.tsv
 python3 deturck_exact.py --selftest | --mutants
 """
 import sys, pickle
@@ -108,6 +109,11 @@ class Exact:
         xs, xx = out["xi^s"][0], out["xi^x"][0]
         sgn = -1 if "phisign" in MUT else 1
         out["phi"] = {"gss xs^2": gss * xs * xs, "2 gsx xs xx": sgn * 2 * gsx * xs * xx, "gxx xx^2": gxx * xx * xx}
+        # the same phi split by the s-slices, exactly: N^2 = -g_ss + g_sx^2/g_xx (= c^2 g_xx), shift b = g_sx/g_xx;
+        # xi = xi^s N n + (xi^x + b xi^s) d_x, so phi = xi_par^2 - xi_perp^2, two squares of fixed sign
+        N2 = -gss + gsx * gsx / gxx; N = mp.sqrt(N2) if N2 > 0 else mp.nan
+        bsh = gsx / gxx if "shift" not in MUT else 0
+        out["proper"] = {"N": N, "xi_perp": N * xs, "xi_par": mp.sqrt(gxx) * (xx + bsh * xs)}
         return out
 
 
@@ -185,6 +191,7 @@ def load_steps(path, svals):
 def report(path="zeno_half_dsem5_10.pkl", svals=(-1.5, -1.85, -2.006), per_part=24):
     E = Exact(); I, steps, bv = load_steps(path, svals)
     cols = (["s", "part", "x", "where"] + ["xi^s", "xi^x", "phi"] + ["gss xs^2", "2 gsx xs xx", "gxx xx^2"]
+            + ["N", "xi_perp", "xi_par"]
             + ["xi^%s %s" % (c, t) for c in ("s", "x") for t in ["rest"] + ["d%s/d%s" % (n, v) for n in NAMES
                                                                            for v in ("s", "x")]])
     rows = []; jumps = []
@@ -206,6 +213,7 @@ def report(path="zeno_half_dsem5_10.pkl", svals=(-1.5, -1.85, -2.006), per_part=
                 phi = sum(o["phi"].values())
                 row = [ss, k, xv, where, o["xi^s"][0], o["xi^x"][0], phi] + [o["phi"][c] for c in
                                                                               ("gss xs^2", "2 gsx xs xx", "gxx xx^2")]
+                row += [o["proper"][c] for c in ("N", "xi_perp", "xi_par")]
                 for c in ("s", "x"):
                     terms = o["xi^" + c][1]
                     row += [terms["rest"]] + [terms["d%s/d%s" % (n, v)] for n in NAMES for v in ("s", "x")]
@@ -246,6 +254,52 @@ def summary(cols, rows, jumps=()):
                                                         " ".join(mp.nstr(v, 3) for v in j[7:12])))
 
 
+TRACK_S = (-0.503, -0.65, -0.788, -0.95, -1.129, -1.3, -1.533, -1.7, -1.849, -1.95, -2.006)
+
+
+def track(path="zeno_half_dsem5_10.pkl", svals=TRACK_S):
+    """the half followed at its nodes only (both copies of every joining): per step the largest coordinate
+    components, the largest proper components, phi, and the lapse; DETURCK-TRACK.tsv"""
+    E = Exact(); I, steps, bv = load_steps(path, svals); out = []
+    for ss, X, Xs in steps:
+        pts = []
+        for k, part in enumerate(parts_of(I, X, Xs)):
+            for j, xv in enumerate(part["node_x"]):
+                o = evaluate(E, part, ss, bv, xv); pr = o["proper"]
+                cop = "L" if (j == len(part["node_x"]) - 1 and k < len(I.blk) - 1) else ("R" if j == 0 and k else "")
+                big = max(abs(v) for v in o["xi^s"][1].values())
+                pts.append(dict(x=xv, cop=cop, xs=o["xi^s"][0], xx=o["xi^x"][0], phi=sum(o["phi"].values()),
+                                N=pr["N"], perp=pr["xi_perp"], par=pr["xi_par"], canc=big / abs(o["xi^s"][0])))
+        arg = lambda key: max(pts, key=lambda q: abs(q[key]))
+        ax = min(pts, key=lambda q: q["x"]); j8 = {q["cop"]: q for q in pts if abs(q["x"] - 0.125) < 1e-12}
+        row = dict(s=ss, N_axis=ax["N"], xs_axis=ax["xs"], perp_axis=ax["perp"], par_axis=ax["par"])
+        for key in ("xs", "xx", "perp", "par", "phi"):
+            q = arg(key); row["max|%s|" % key] = abs(q[key]); row["x(%s)" % key] = q["x"]
+        row["max|xi|E"] = max(mp.sqrt(q["perp"] ** 2 + q["par"] ** 2) for q in pts)
+        row["min canc"] = min(q["canc"] for q in pts); row["max canc"] = max(q["canc"] for q in pts)
+        for c in ("L", "R"):
+            row["perp 1/8 %s" % c] = j8[c]["perp"]; row["par 1/8 %s" % c] = j8[c]["par"]
+            row["phi 1/8 %s" % c] = j8[c]["phi"]
+        out.append(row)
+    cols = list(out[0].keys())
+    with open("DETURCK-TRACK.tsv", "w") as fh:
+        fh.write("\t".join(cols) + "\n")
+        for r in out:
+            fh.write("\t".join(mp.nstr(r[c], 17) if isinstance(r[c], mp.mpf) else repr(r[c]) for c in cols) + "\n")
+    print("     s   N(axis)  xi^s(axis) xi_perp(axis) | max|xi^s| (x)     max|xi_perp| (x)   max|xi_par| (x)    "
+          "max|phi| (x)       | cancel min-max")
+    for r in out:
+        print("%7.3f %9.3e %10.4f %11.3e | %8.4f (%.3f)  %9.3e (%.3f)  %9.3e (%.3f)  %9.3e (%.3f) | %.1e-%.1e" % (
+            r["s"], r["N_axis"], r["xs_axis"], r["perp_axis"], r["max|xs|"], r["x(xs)"], r["max|perp|"],
+            r["x(perp)"], r["max|par|"], r["x(par)"], r["max|phi|"], r["x(phi)"], r["min canc"], r["max canc"]))
+    print("  at x = 1/8:  s      xi_perp L    xi_par L     phi L       | xi_perp R    xi_par R     phi R")
+    for r in out:
+        print("            %7.3f  %11.4e %11.4e %11.4e | %11.4e %11.4e %11.4e" % (
+            r["s"], r["perp 1/8 L"], r["par 1/8 L"], r["phi 1/8 L"], r["perp 1/8 R"], r["par 1/8 R"],
+            r["phi 1/8 R"]))
+    return out
+
+
 # ---------------------------------------------------------------------------------------------- selftest / mutants
 def selftest(quiet=False):
     ok = []
@@ -253,7 +307,7 @@ def selftest(quiet=False):
     z = [sp.simplify(xi[m]) == 0 for m in (0, 3, 4)]
     ok.append(("K1 xi^tau, xi^theta, xi^phi vanish identically", all(z)))
     import random
-    rnd = random.Random(7); worst2 = mp.mpf(0); worst3 = mp.mpf(0)
+    rnd = random.Random(7); worst2 = mp.mpf(0); worst3 = mp.mpf(0); worst6 = mp.mpf(0)
     import core_fw as C
     PHI = sp.lambdify([C.s, C.x, C.bt] + [sp.Symbol(n + t) for n in NAMES for t in C.tags], C.PHI, "mpmath")
     E = Exact((xi, Gs))
@@ -270,6 +324,8 @@ def selftest(quiet=False):
             args += [vals[n], ds[n], dx[n], 0, 0, 0]
         ref = PHI(sv, xv, bv, *args); mine = sum(o["phi"].values())
         worst3 = max(worst3, abs(mine - ref) / abs(ref))
+        pr = o["proper"]; big = max(abs(v) for v in o["phi"].values())
+        worst6 = max(worst6, abs(pr["xi_par"] ** 2 - pr["xi_perp"] ** 2 - mine) / big)
     ok.append(("K2 each component recomposes exactly from its terms (worst %s)" % mp.nstr(worst2, 3), worst2 < 1e-40))
     ok.append(("K3 phi recomposes the record's PHI (eqs_fw.pkl) (worst %s)" % mp.nstr(worst3, 3), worst3 < 1e-30))
     one = {n: mp.mpf(1) for n in NAMES}; one["F"] = mp.mpf(0); zero = {n: mp.mpf(0) for n in NAMES}
@@ -283,6 +339,8 @@ def selftest(quiet=False):
     e5 = max(abs(poly_at(nodes, w, f, mp.mpf(t))[1] - (15 * mp.mpf(t) ** 4 - 3 * mp.mpf(t) ** 2 + 2))
              for t in ("0.13", "0.27", "0.9"))
     ok.append(("K5 the polynomial's slope is exact, at a node and between (%s)" % mp.nstr(e5, 3), e5 < 1e-40))
+    ok.append(("K6 phi = xi_par^2 - xi_perp^2 on the s-slices, exactly (worst %s)" % mp.nstr(worst6, 3),
+               worst6 < 1e-40))
     if not quiet:
         for name, good in ok:
             print("%s  %s" % ("PASS" if good else "FAIL", name))
@@ -292,7 +350,7 @@ def selftest(quiet=False):
 def mutants():
     caught = []
     for mname, what in (("ref", "reference metric with F = 1"), ("dropterm", "one reference Christoffel dropped"),
-                        ("phisign", "the cross term's sign flipped")):
+                        ("phisign", "the cross term's sign flipped"), ("shift", "the shift left out of xi_par")):
         MUT.clear(); MUT.add(mname)
         good, ok = selftest(quiet=True)
         caught.append((what, not good, [n.split()[0] for n, g in ok if not g]))
@@ -307,6 +365,8 @@ if __name__ == "__main__":
         good, _ = selftest(); print("selftest: %s" % ("PASS" if good else "FAIL")); sys.exit(0 if good else 1)
     elif "--mutants" in sys.argv:
         sys.exit(0 if mutants() else 1)
+    elif "--track" in sys.argv:
+        track()
     else:
         args = [a for a in sys.argv[1:]]
         path = args[0] if args and args[0].endswith(".pkl") else "zeno_half_dsem5_10.pkl"
