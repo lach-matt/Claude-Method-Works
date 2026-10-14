@@ -302,13 +302,28 @@ def half(n=12, mesh="sat"):
         return np.concatenate([Wt, np.exp(P * lam) * Xll + 2 * P * Wt - P * P * Xt])
 
     marks = list(np.linspace(lam1, lam2, 5)[1:])
-    log = []
+    # stepped one step at a time, so the history survives a failure (item 395: a NaN inside the Jacobian otherwise
+    # ends solve_ivp with nothing saved)
+    from scipy.integrate import Radau
+    from types import SimpleNamespace
+
+    def rhs_guarded(lam, Z):
+        d = rhs(lam, Z)
+        if not np.all(np.isfinite(d)):
+            raise FloatingPointError("non-finite right-hand side at lambda = %.6f" % lam)
+        return d
+    y0 = np.concatenate([Xt0, Wt0]); ts, ys = [lam1], [y0.copy()]
+    status, msg = 0, "reached the end"
     try:
-        sol = solve_ivp(rhs, (lam1, lam2), np.concatenate([Xt0, Wt0]), method="Radau", rtol=1e-8, atol=1e-10,
-                        dense_output=True)
-        status, msg = sol.status, sol.message
-    except TimeoutError as ex:
-        sol, status, msg = None, -9, str(ex)
+        solver = Radau(rhs_guarded, lam1, y0, lam2, rtol=1e-8, atol=1e-10)
+        while solver.status == "running":
+            err = solver.step()
+            if solver.status == "failed":
+                status, msg = -1, str(err); break
+            ts.append(solver.t); ys.append(solver.y.copy())
+    except (TimeoutError, FloatingPointError, ValueError, np.linalg.LinAlgError) as ex:
+        status, msg = -9 if isinstance(ex, TimeoutError) else -2, "%s: %s" % (type(ex).__name__, ex)
+    sol = SimpleNamespace(t=np.array(ts), y=np.array(ys).T)
     took = time.time() - t0
     if sol is None:
         print("half: stopped at 20 minutes", flush=True)
