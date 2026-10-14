@@ -62,6 +62,15 @@ t-invariant. In this setting it comes in two kinds:
 - **(c1)** If 273's region is the set where curvature reaches the bulk's Planck value, curvature is below that value in
   D by definition, and the development's only other ending, a Cauchy horizon, is excluded by (b). Status:
   **definitional, given (b)** (deduced), once 273's boundary is fixed as that set. That definition is M's to confirm.
+  *[Item 415, beside the text: the board put a question of physics to M as a definition. M: "how am I supposed to know
+  this? It's a conjecture. If it is the likely solution, then let's prove that it is." Derived in `quantum_onset.py`
+  (selftest S1-S5, mutants 3/3). Buckingham's theorem on {G5, hbar, c, ell, curvature} leaves exactly two dimensionless
+  numbers, l5^2 R and ell^2 R (computed, exact). Only the first carries hbar. So under P1-P3 (the bulk's constants;
+  Einstein's law exact at two derivatives, 324-328; decoupling from ell) every quantum correction is a function of
+  x = l5^2 sqrt(K) alone, vanishing at x = 0, and classical GR fails exactly where x reaches order one (deduced). With no
+  coefficient (405) the boundary is x = 1. That reproduces I2's placement (r_q = 4.95e-14 R_5 on the 4D form). Haggard
+  and Rovelli's second, long-time criterion cannot act inside: the interior lasts 2 pi l_P/r0 of their time, below
+  1e-29 (computed). So (c1) holds given (b): **proved under P1-P4**, with nature's order-one factor not derived.]*
 - **(c2)** That the Planck set is reached at the centre, after the README, and nowhere off the shell earlier. Status:
   **open as a theorem**: a statement about the solution, not about definitions. Measurable: curvature's growth per
   Zeno halving (5D Kasner predicts 2^8 per halving; the 4D stretch's 2^6 is exact, item 392).

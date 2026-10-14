@@ -838,6 +838,11 @@ state was rebuilt first.
   the classical centre is a future moment, not a place to pass; a slingshot past a singularity needs a rotating or
   charged hole and an inner horizon, which your 273 excludes. In your theory the README meets no singularity: it goes
   through 273's quantum region, the bounce, not past it.
+- **Items 414-415** (proof first; the region's boundary to be proved): the proof scoped (`lemmas/INTERIOR-PROOF.md`):
+  (a) reduces to (b); (b1) by a Komar identity, which may not close by signs on the brane; (b2) and (c2) are the open
+  core, the computation's two questions. (c1) proved under four named premises (`quantum_onset.py`): only l5^2 R of the
+  two dimensionless numbers carries hbar, so classical GR fails where x = l5^2 sqrt(K) reaches one, I2's placement; the
+  long-time criterion cannot act inside.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
