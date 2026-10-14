@@ -1,0 +1,21 @@
+T1 y-x>1 => x < floor(x)+1 < y (z3; expect unsat)          unsat
+T2 width>1 => floor(mid) or ceil(mid) in interval (z3; unsat) unsat
+T2c control width=1/2 admits a miss (z3; expect sat)       sat
+T2d control width=1 exactly admits a miss (z3; expect sat) sat
+T3 w>0, q=floor(1/w)+1 => q*w > 1 (z3 nonlinear; unsat)    unsat
+T3b q(b-a)>1, p=floor(qa)+1 => qa < p < qb (unsat)         unsat
+T4 R(eps): p/q - eps -> p/q > 0 as eps->0+ (no rational below eps) P/Q
+T5a Q(m,n) - n^2 q(m/n) == 0 (sympy)                       0
+T5b root width^2 == 4(H^2-AC)/A^2 (sympy)                  0
+T5c q(vertex=-H/A) == (AC-H^2)/A (sympy)                   0
+T5d Q(m,0) == A m^2 (n=0 excluded when A>0)                A*m**2
+T6 census: exact timelike (m,n), n!=0, of 400              400
+T6 max q_return / (floor(1/width)+1) over census (<=1 ok)  1.0
+T6 separating witness e1,e2 -> (m,n)                       (4, 1)
+T7a witness vertex -H/A (rational), q(vertex)<0            (Fraction(81, 19), True)
+T8 input: A, H^2-AC, nrm(g1)>0, nrm(g2)>0                  (Fraction(1, 1), Fraction(1, 4), True, True)
+T8 exact: integer m=M, n=1 gives Q<0 (density/vertex holds) True
+T8 capped copy of owner loop, q <= 200000 ->               (1747900000000000131072, 17479)
+T8 returned q vs docstring bound 'q > 2/width' (=q 3) and exact bound 2 (17479, 'exceeds')
+T8 |p - q*M| vs half-width q/2 (exact)                     (Fraction(8719, 1), Fraction(17479, 2))
+T8 owner timelike_vector (10 s)                            (1747900000000000131072, 17479)

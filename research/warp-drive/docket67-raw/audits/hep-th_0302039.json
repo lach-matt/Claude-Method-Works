@@ -1,0 +1,91 @@
+{
+ "key": "hep-th/0302039",
+ "name": "Popov (B1)-(B3): independent second printing of the AHS source term at xi = 1/6, m = 0",
+ "source": {
+  "located": "A. A. Popov, 'Analytical approximation of the stress-energy tensor of a quantized scalar field in static spherically symmetric spacetimes', arXiv:hep-th/0302039, Phys. Rev. D 67, 044021 (2003). Bibliographic data only from a WebSearch listing (arxiv.org/pdf/hep-th/0302039, journals.aps.org PRD 67 044021, osti.gov ETDEWEB 20505756). The comparison partner HPS gr-qc/9701064v1 WAS read, from the cached alphaXiv text layer d67/src/hps/_flat0.txt (fetched earlier in DOCKET 67, 14:09).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Popov's text was NOT opened this run. alphaXiv: get_paper_content(fullText) x1, answer_pdf_queries x2, discover_papers x1 -> every call 'alphaXiv assistant quota exceeded'. curl arxiv.org/pdf/hep-th/0302039v2 -> 'CONNECT tunnel failed, response 403'; ar5iv.labs.arxiv.org, ar5iv.org, scholar.archive.org, web.archive.org, xxx.lanl.gov -> no connection (proxy recentRelayFailures also list arxiv.org, export.arxiv.org, www.alphaxiv.org, inspirehep.net, api.semanticscholar.org as CONNECT 403). No Popov text is cached in d67/src (src/popov holds only the two sibling audit JSONs) or in research/warp-drive (grep '0302039' hits only hpscentre.py). The two sibling DOCKET 67 audits of this key (audits/hep-th_0302039_seciv.json, _domain.json) record the same blockage and are both NAMED-NOT-READ / OPEN. The tree's DOCKET-64 'READ' of Popov (hpscentre.py:118-121) is the tree's record and is NOT re-attested here. What WAS read at source: HPS eqs. (5)-(7), K^2 = 1/(5760 pi), 'conformally coupled scalar (xi = 1/6)', footnote [20] 'We have also set the scalar mass and temperature to zero: m = kappa = 0 ... mu ... can be absorbed into the definition of f', ref. [18] = AHS PRD 51 4337, and the author list 'David Hochberg, Arkadiy Popov and Sergey V. Sushkov' (Kazan)."
+ },
+ "published_statement": "NOT READ AT SOURCE (Popov). Only a search-engine paraphrase of the abstract was reached: analytical approximations for <phi^2> and <T^mu_nu> of a quantized scalar field in static spherically symmetric spacetimes, massive and massless, arbitrary coupling xi, zero-temperature vacuum state -- a paraphrase, not a quotation. Appendix B (B1)-(B3), the sentence after eq. (67) identifying (T)^(4) with the AHS analytic approximation, and the ln|4u0^2/(m_DS^2 r^2)| notation are known here ONLY through the tree's transcription (hpscentre.py:118-121, 139-155, 394-420). The HPS half of the comparison IS read: HPS (5)-(7) at xi = 1/6, m = kappa = 0, K^2 = 1/(5760 pi), ln-f brackets carrying '+16 f'^2 f''/f^3' (tt), '-4 f'^2 r'^2/(f^2 r)' (ll) and '+21 f'^4/f^4' (thth).",
+ "published_hypotheses": [
+  "Popov (per the WebSearch paraphrase, not read): static spherically symmetric spacetime; quantized scalar field, massive or massless; arbitrary coupling xi; zero-temperature vacuum state. Anything further (the DeWitt-Schwinger/WKB order, the region of validity, asymptotic flatness -- see the sibling audit hep-th_0302039_domain.json) is NAMED-NOT-READ.",
+  "HPS (read): metric ds^2 = -f(l)dt^2 + dl^2 + r^2(l) dOmega^2 (eq. 2); conformally coupled scalar xi = 1/6; scalar mass and temperature zero, m = kappa = 0 (footnote [20]); the AHS renormalisation scale mu absorbed into the definition of f (footnote [20]); units hbar = c = G = 1, MTW signs (ref. [19]); source term = AHS analytic approximation, ref. [18]."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED (over-representation in the tree's favour, of corroboration): 'independent second printing' (hpscentre.py:120-121, and 'transcribed INDEPENDENTLY' :139). The HPS text layer (read) lists Arkadiy Popov as a co-author of HPS; the 2003 paper is by Arkady A. Popov (search listing), same Kazan group. The two printings are independent TYPESETTINGS, not independent DERIVATIONS: a common error in the terms both printings share would pass the comparison. Mitigation computed here (rederive checks D): the shared non-log part has exactly the conformal-anomaly trace and the full conserved reading is conserved -- but conservation + trace do not fix a stress tensor uniquely (identically conserved traceless tensors can be added), so agreement of the shared terms is corroborated, not proved.",
+  "ADDED (legitimate): the specialisation xi = 1/6, m = 0 (hpscentre.py:139, 394 'the (xi-1/6)^2 brackets drop'). Popov's result is general xi and m; HPS's is xi = 1/6, m = kappa = 0 (footnote [20], read). At xi = 1/6 exactly, dropping (xi-1/6)^1 and (xi-1/6)^2 brackets is exact algebra, so the specialisation is sound; it is named because the tree's comparison says nothing about Popov away from xi = 1/6, m = 0.",
+  "NOT CHECKABLE HERE: M3 'Popov's -21 r^8 f'^4 is printed INSIDE the (xi-1/6)^2 bracket' (hpscentre.py:150-151). The tree's own transcription drops that bracket (:394), so the placement is not visible even in the tree's data; what IS computed (check E) is that the tree's Popov B3 at xi = 1/6 lacks exactly +21 f'^4/f^4 against the conserved reading, and (check C) that such a B3 is not conserved. Per M's rule this is a DISCREPANCY in a printing, not a refutation of Popov's result.",
+  "NOT CHECKABLE HERE: the log mapping 'Popov's ln|4u0^2/(m_DS^2 r^2)| = ln(4 w0^2/(m_DS^2 f)), so HPS's ln f coefficient is MINUS Popov's' (hpscentre.py:140-141). It rests on Popov's variable definitions (u0, w0, m_DS), which are NAMED-NOT-READ. Consistency computed (check E): with the sign flip, the tree's Popov log brackets B1 and B2 equal the conserved reading EXACTLY and B3 differs by exactly the M3 term. HPS footnote [20] (read) says mu 'can be absorbed into the definition of f', which is consistent with a pure ln f coefficient.",
+  "NOT CHECKABLE HERE: 'Popov states his (T)^(4) IS the AHS analytic approximation (after eq. (67))' (hpscentre.py:119-120). AHS itself is NOT-REACHED per the tree (hpscentre.py:130-133) and per audits/ahs-1995-prd51-4337.json.",
+  "NAMED, already in the tree: M1 and M2 are located in the arXiv v1 TEXT LAYER of HPS; the PRL journal text was not read (hpscentre.py:115-117). Confirmed here at source for the text layer (checks A); whether the journal version carries 16 / (f^2 r) is NOT read. Per fluctuation.py's precedent they MUST NOT be quoted as errors of the journal version."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "K^2 = 1/(5760 pi) (HPS normalisation, hbar=c=G=1)",
+   "value_then": "1/(5760 pi) (HPS 1997, read)",
+   "value_now": "unchanged -- a pure number fixed by the one-loop coefficient 1/(2880 pi^2) and the 8 pi of G = 8 pi T; no measured input",
+   "source_now": "computed here: 8 pi/(46080 pi^2) = 1/(5760 pi) and 16 K^2/(8 pi) = 1/(2880 pi^2) (rederive checks)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "conformal-anomaly coefficients alpha = beta = 1/(2880 pi^2) for the conformal scalar (the trace fixture)",
+   "value_then": "1/(2880 pi^2) (AHL gr-qc/9504019 eq. (6), per the tree; standard since the 1970s)",
+   "value_now": "unchanged (theory constant, not a measurement)",
+   "source_now": "computed here: trace of HPS's printed non-log part == 16 K^2 [C^2 + (R_ab R^ab - R^2/3) + box R] identically for arbitrary f(l), r(l)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "M1 slot: coefficient of ln f * f'^2 f''/f^3 in the tt component",
+   "value_then": "16 (HPS text layer, read) vs 116 (Popov B1, tree transcription, not read)",
+   "value_now": "116 is the unique conserving value (computed, slots as unknowns)",
+   "source_now": "rederive check C",
+   "moves_conclusion": "no -- it is decided by conservation, not by a datum"
+  },
+  {
+   "quantity": "M2 slot: power of r in ln f * (-4 f'^2 r'^2/(f^2 r^p)) in the ll component",
+   "value_then": "p = 1 (HPS text layer, read) vs p = 2 (Popov B2, tree transcription)",
+   "value_now": "p = 2: p = 1 admits NO conserving (a_tt, a_th) and is the only non-length^-4 term",
+   "source_now": "rederive check C",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "M3 slot: ln f * f'^4/f^4 in the thth component at xi = 1/6",
+   "value_then": "+21 (HPS text layer, read) vs absent at xi = 1/6 (Popov B3, tree transcription)",
+   "value_now": "+21 is the unique conserving value",
+   "source_now": "rederive check C",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-th_0302039.py",
+  "outcome": "31 checks, 0 FAIL (output: rederive/hep-th_0302039.out). A: HPS (5)-(7) parsed INDEPENDENTLY by a token parser from the cached text layer (tt 18+19 terms, ll 13+18, thth 14+19); the three printed slots read off the source are 16, -4/(f^2 r) with no /(f^2 r^2) term, and +21 -- the HPS side of M1, M2, M3 confirmed at source; the tree's HPS transcription (hpscentre.build) equals the parse in all six brackets. B: Christoffels, Riemann, Einstein tensor of ds^2 = -f dt^2 + dl^2 + r^2 dOmega^2 computed from the metric reproduce HPS's printed left sides; nabla_mu T^mu_l written from those Christoffels (not imported) annihilates G. C: with a_tt, a_th as UNKNOWNS, conservation at ll power 2 has the unique solution {a_tt: 116, a_th: 21}; at the printed power 1 it has none; of the four readings (16|116) x (0|21) only (116, 21) conserves. D: under (116, 21, r^2) the ln f part is traceless, under the printed reading it is not; the non-log trace equals 16 K^2 [C^2 + (R_ab R^ab - R^2/3) + box R], i.e. the conformal-scalar anomaly with coefficient 1/(2880 pi^2), identically. E: the tree's Popov transcription: non-log parts equal the parsed HPS exactly in all three components; sign-flipped log parts equal the conserved reading exactly in B1 and B2, and B3 differs by exactly -21 f'^4/f^4. So the tree's computed statements ('all three non-log parts agree EXACTLY', 'three disagreements', 'conservation decides all three', '(116, 21) unique', 'traceless', 'alpha = beta = 1/2880 pi^2') are reproduced; what E checks is the tree's internal consistency, NOT Popov's printing. A parser bug (a joining '+' before 'ln f (' read as a constant term) was found and fixed during the run; a constant passes the conservation check (it cancels in every difference) but fails the trace check, which is how it was caught.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (alphaXiv)",
+   "effect": "contested",
+   "what": "NOT RUN: 'alphaXiv assistant quota exceeded'. No later-literature search was possible through the mandated tool; the 'contested' tag is a schema placeholder meaning 'not assessed', not a finding.",
+   "read_status": "NOT-READ (tool quota)"
+  },
+  {
+   "ref": "arXiv:2606.01980, 'Stress-energy tensor of quantized scalar fields in thermal states on a zero-tidal wormhole' (2026), surfaced by WebSearch",
+   "effect": "extends",
+   "what": "Title only: later work on quantized-scalar stress tensors on static wormholes; whether it uses, checks or corrects Popov's (B1)-(B3) is unknown. arxiv.org is EGRESS_BLOCKED.",
+   "read_status": "NAMED-NOT-READ (title in a search listing)"
+  },
+  {
+   "ref": "arXiv:hep-th/0109166, 'Stress-energy of a quantized scalar field in static wormhole spacetimes', surfaced by WebSearch",
+   "effect": "extends",
+   "what": "Title only; earlier (2001) related work on the same class of backgrounds. Not read.",
+   "read_status": "NAMED-NOT-READ (title in a search listing)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result as used. The result is a printed closed-form expression and a comparison of two printings; its conclusion depends on NO measured datum. The inputs are pure numbers (1/(5760 pi), 1/(2880 pi^2)) fixed by one-loop QFT, and the three disputed coefficients are decided by conservation of T^mu_nu, which is an identity every correctly derived <T_mu_nu> satisfies; that decision (116, r^2, 21) is reproduced here from the source text layer with the slots as unknowns. What the authors lacked is not data but typesetting redundancy: the two printings share an author, so their agreement on the shared terms is weaker corroboration than 'independent' suggests, and the shared terms are checked here only by conservation and the anomaly trace (both pass), which do not determine T uniquely. Evidence the other way -- that something missing in 1997/2003 would move the conclusion -- none found: no later datum enters. The physics limitation that DOES move with information is the approximation's domain (AHS/Popov's hypotheses, e.g. asymptotic flatness and the region where the analytic approximation tracks the exact T), which is the sibling key hep-th/0302039_domain and is OPEN for the same blockage.",
+ "grade": "OPEN",
+ "grade_evidence": "The source (Popov, hep-th/0302039) could not be read by any route this run (alphaXiv quota exceeded on all four calls; arxiv.org and all mirrors CONNECT 403; no cached copy), so the three claims that are claims ABOUT Popov's printing -- B1 carries 116, B2 carries /(f^2 r^2), B3 prints -21 r^8 f'^4 inside the (xi-1/6)^2 bracket, plus the ln-mapping sign and the 'after eq. (67)' AHS identification -- are NAMED-NOT-READ and cannot be graded STANDS or WRONG. Everything checkable here agrees with the tree: the HPS side of M1/M2/M3 is confirmed at source (text layer); the tree's HPS transcription equals an independent parse; conservation with the slots as unknowns gives the unique (116, 21) at r^2 and nothing at the printed r^1; the conserved log part is traceless; the non-log trace is the conformal anomaly with 1/(2880 pi^2); and the tree's Popov transcription is internally consistent with its three stated differences (31/31 checks). One named over-representation: 'independent' printing -- same author (A. Popov) on both, so independent typesetting, not independent derivation. No moved datum. If Popov is later read and the transcription confirmed, the expected grade is STANDS with the 'independent' wording narrowed to 'separately typeset'; the adjudication itself (conservation decides) does not depend on Popov at all.",
+ "what_would_change_the_grade": "Reading Popov hep-th/0302039 v2 Appendix B (B1)-(B3), the sentence after eq. (67) and the definitions of u0, w0, m_DS at source: if the printed coefficients match the tree's transcription (hpscentre.py:395-420) -> STANDS (with 'independent' narrowed to 'separately typeset by an overlapping author'); if Popov's B1/B2 do not carry 116 and r^2, or B3 carries +21 f'^4 at xi = 1/6 after all -> the tree's M-count and 'M3 is in Popov' are a transcription discrepancy (WRONG as a statement about Popov, though the conservation adjudication of HPS stands unchanged); reading the PRL journal text of HPS could remove M1/M2 as journal-version discrepancies. A counterexample to conservation-uniqueness would need an error in the terms both printings share, which check D constrains but does not exclude.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 hep-th_0302039.py   # expect '31 checks, 0 FAIL', exit 0 (~2-5 min); reads d67/src/hps/_flat0.txt and imports research/warp-drive/hpscentre.py read-only with dont_write_bytecode",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hep-th_0302039.json"
+}

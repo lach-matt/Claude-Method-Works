@@ -13,6 +13,7 @@ session repeats the search.
 | Lean 4 | **NOT available.** `elan` needs github; the proxy answers 403 to CONNECT |
 | Coq | **NOT available.** `opam` needs github, same refusal |
 | pandoc / LaTeX | not installed (PDFs render through headless Chromium — see `render_pdf.py`) |
+| numpy, scipy | **AVAILABLE** (numpy 2.4.6, scipy 1.17.1), from pypi like Z3. Outside the sympy / mpmath / z3 set: `hpscentre.py` (DOCKET 64) needs them for its ODE integrations (`scipy.integrate.solve_ivp`, DOP853 / Radau / LSODA) and imports them inside functions only, so its import stays stdlib-only |
 
 `pypi.org` and `files.pythonhosted.org` sit in the proxy's `noProxy` list, which is why the Python
 route works when the others do not. Check the current state with:

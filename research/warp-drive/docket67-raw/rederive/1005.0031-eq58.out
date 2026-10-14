@@ -1,0 +1,36 @@
+[A1] PASS  orthonormal reading of (58): -u + p_r + 2 p_t = 0 at order eps^-3 (traceless)
+[A2] INFO  TEXT-LAYER coordinate reading diag(2/a,0,a,a sin^2 th) (contravariant) has trace A*(a**4*(sin(theta)**4 + 1) - 2)/(a*epsilon**3) != 0 -> the alphaXiv text layer has lost the typography of (58) (entries must be 1/a^3, 1/(a^3 sin^2 th) for 'properly traceless'); DISCREPANCY, not refutation
+[A3] PASS  reading with T^thth = A/(a^3 eps^3) is traceless at r = a
+[B-exterior] PASS  exterior: conservation forces p_r = -A/a**2/eps^2 (tree: -A/(a^2 eps^2))
+[B-interior] PASS  interior: conservation forces p_r = -A/a**2/eps^2 (tree: -A/(a^2 eps^2))
+[B-u-int] PASS  interior u from the odd continuation: -2*A/(a*epsilon**3) (tree: -hbar c/(30 pi^2 a eps^3) at A=1/(60pi^2))
+[C1] PASS  Saharian 0708.1187 (14.21) interior eps = -1/(30pi^2 a (a-r)^3), p = -1/(60pi^2 a^2 (a-r)^2) == tree's u, p_r with A_EM = 1/(60 pi^2) EXACTLY
+[C2] PASS  Saharian convention T^k_i = diag(eps,-p,-pperp,-pperp): eps - p - 2 pperp = -p at eps^-3 order (i.e. traceless at eps^-3, p enters at eps^-2) -- consistent
+[C3] PASS  Saharian (16.24) interior cylinder T^0_0 = -1/(60 pi^2 a (a-r)^3) = 1/2 sphere: coefficient proportional to kappa1+kappa2 (Deutsch-Candelas structure)
+[C4] PASS  Milton (58) with A_D = 1/(720 pi^2) reproduces Milton (130) u ~ 1/(360 pi^2 a (r-a)^3): internal consistency
+[D1] PASS  leading m(r) = -a*hbar/(15*pi*c*epsilon**2) (tree: -(hbar a)/(15 pi c eps^2))
+[D2] PASS  chi = 2G|m|/(a c^2) = 2*l_P**2/(15*pi*epsilon**2)
+[D3] PASS  V16 re-run: lim eps->0 |delta| 15 pi eps^2/l_P^2 = -1 (delta -> chi/2 at leading order)
+[D4] PASS  crossover coefficient K_SF/A_EM = 15*sqrt(2)*pi/32 = 2.082601; a_c/skin = 0.480169
+[D5] PASS  chi(137.8 nm) = 5.83862e-58 (tree banked 5.84e-58, recomputed 5.8386e-58)
+[D6] PASS  delta(l_P) = 0.021221; delta = 1 at eps = 0.1456731 l_P
+[D7] INFO  every tree magnitude built on A_EM (u, p_r, m, chi, delta) is linear in A; crossover coefficient ~ 1/A; signs independent of A (tolman.py:1059-1060 says the same)
+[E0] PASS  Debye(u3,v3) vs scipy at nu=40, x=35: [11.090504197, -15.756818348, 1.512451484, -1.524839785] vs [11.090504202, -15.756818344, np.float64(1.512451471), np.float64(-1.524839773)]
+[E1] PASS  eps(r=1e-3 a) = -0.03807 a^-4 (published eps(0) = -0.0381 a^-4)
+[E1b] PASS  centre equation of state eps(0) = 3 p(0): -0.03807 vs 3*-0.01269
+   delta=0.2    eps*d^3=-0.00510392  p*d^2=-0.00275619  l_max=80
+   delta=0.15   eps*d^3=-0.00458271  p*d^2=-0.00246557  l_max=107
+   delta=0.12   eps*d^3=-0.00430137  p*d^2=-0.00229960  l_max=135
+   delta=0.1    eps*d^3=-0.00412588  p*d^2=-0.00219219  l_max=162
+   delta=0.08   eps*d^3=-0.00395952  p*d^2=-0.00208723  l_max=203
+   delta=0.065  eps*d^3=-0.00384049  p*d^2=-0.00201003  l_max=250
+   delta=0.05   eps*d^3=-0.00372620  p*d^2=-0.00193407  l_max=324
+   delta=0.04   eps*d^3=-0.00365256  p*d^2=-0.00188409  l_max=404
+   delta=0.03   eps*d^3=-0.00358090  p*d^2=-0.00183460  l_max=535
+   fit deg 2: c0(eps*d^3) = -0.00338502 (target -0.00337737, ratio 1.00226);  c0(p*d^2) = -0.00169147 (target -0.00168869, ratio 1.00165)
+   fit deg 3: c0(eps*d^3) = -0.00337696 (target -0.00337737, ratio 0.99988);  c0(p*d^2) = -0.00168908 (target -0.00168869, ratio 1.00023)
+   fit deg 4: c0(eps*d^3) = -0.00337741 (target -0.00337737, ratio 1.00001);  c0(p*d^2) = -0.00168895 (target -0.00168869, ratio 1.00016)
+[E2] PASS  exact EM mode sum, interior: lim (a-r)^3 eps = -0.0033770 vs -1/(30 pi^2) = -0.0033774 (ratio 0.99988) -> A_EM = 1.6884780e-03 vs 1/(60 pi^2) = 1.6886864e-03
+[E3] PASS  exact EM mode sum, interior: lim (a-r)^2 p_r = -0.0016891 vs -1/(60 pi^2) = -0.0016887 (ratio 1.00023)
+[E4] INFO  A extracted vs alternatives: 1/(30pi^2) [factor 2]: ratio 0.500; 1/(120pi^2) [factor 1/2]: ratio 2.000; 1/(720pi^2) [Dirichlet]: ratio 11.999
+OVERALL: ALL PASS

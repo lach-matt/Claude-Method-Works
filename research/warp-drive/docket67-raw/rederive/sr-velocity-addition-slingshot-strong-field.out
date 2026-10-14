@@ -1,0 +1,46 @@
+A  full reversal from rest
+  [PASS] v_f = -2U/(1+U^2) (magnitude 2U/(1+U^2)) -2*U/(U**2 + 1)
+  [PASS] U = 0.35 -> 0.6236080 0.623608018
+B  rapidity additivity for arbitrary incoming w
+  [PASS] head-on: rapidity gain = 2 artanh U for every w max dev 4.61e-14
+  [PASS] tail-on: theta_f = 2 artanh U - theta_w for every w > U (speed rapidity falls by 2 artanh U while theta_w >= 2 artanh U) max dev 2.89e-15
+C  exact time reverse
+  [PASS] incoming 2U/(1+U^2), deflector receding at U -> final speed 0 identically final = 0
+D  the unconditioned reading of slingshot_dv(U, head_on=False)
+    w=0.8660000 U=0.35: tail-on final velocity -0.5269901, change in SPEED = -0.3390099 vs -2U/(1+U^2) = -0.6236080
+    w=0.8000000 U=0.20: tail-on final velocity -0.6000000, change in SPEED = -0.2000000 vs -2U/(1+U^2) = -0.3846154
+    w=0.6236080 U=0.35: tail-on final velocity +0.0000000, change in SPEED = -0.6236080 vs -2U/(1+U^2) = -0.6236080
+  [PASS] speed change is NOT -2U/(1+U^2) when w != 2U/(1+U^2) (w=0.866,U=0.35) 
+E  full reversal head-on is the ceiling (2D scan)
+  [PASS] s0=0.0000 U=0.35 scan max 0.623608018 <= full-reversal 0.623608018 
+  [PASS] s0=0.3000 U=0.20 scan max 0.613793103 <= full-reversal 0.613793103 
+  [PASS] s0=0.6236 U=0.35 scan max 0.897996787 <= full-reversal 0.897996787 
+F  braking 0.866 c by reverse passes
+    U=0.04 c: rapidity per pass 0.08004, passes to shed 0.866 c = 16.452
+    U=0.10 c: rapidity per pass 0.20067, passes to shed 0.866 c = 6.562
+    U=0.20 c: rapidity per pass 0.40547, passes to shed 0.866 c = 3.248
+    U=0.35 c: rapidity per pass 0.73089, passes to shed 0.866 c = 1.802
+    single-pass deflector speed = tanh(artanh(0.866)/2) = 0.577316 c (= gamma*beta/(1+gamma) = 0.577316)
+  [PASS] single-pass speed identity 
+G  cross-check against Zhang's 50% at 0.2 c and THE-ENGINE's 1.7 passes
+    ultrarelativistic full-reversal gamma ratio (1+U)/(1-U) at U=0.2 = 1.500000
+    from-rest full-reversal gamma after one pass (1+U^2)/(1-U^2)  = 1.083333
+  [PASS] Zhang's 50%% equals the ultrarelativistic full-reversal ceiling 
+    kinematic minimum passes to gamma=2 from rest at U=0.2: 3.248 ; THE-ENGINE table: 1.710
+    ceiling gamma after 2 passes from rest at U=0.2: 1.34722  (50%/pass would give 2.250)
+  [PASS] 50%%/pass from gamma0=1 exceeds the full-reversal kinematic ceiling (discrepancy for the gain-law key) 
+H  Schwarzschild: impact parameter for deflection exactly pi at v_inf = 0.35 (G=c=M=1)
+    capture threshold b_crit = 12.0476037063 M
+    b(chi = pi) = 13.1782703822 M   periapsis r_min = 5.603760054 M   dchi/db = -0.984349 rad/M
+    window b - b_crit = 1.13067 M  (fraction 0.0938499 of b_crit)
+    |db| holding chi within 0.01 rad of pi: 0.01016 M
+  [PASS] deflection pi exists outside the horizon (r_min > 2M) 
+  [PASS] weak field cannot reach pi: chi(40 M) < pi/4 chi(40M)=0.519577
+  [PASS] large-b check chi -> 2(1+v^2)/(v^2 b) ratio 1.0000433
+I  finite deflector mass (exact, 1D, COM frame)
+    m/M = 1e-03 : exact 0.623151629195 vs test-particle 0.623608017817  (diff -4.564e-04)
+    m/M = 1e-06 : exact 0.623607561154 vs test-particle 0.623608017817  (diff -4.567e-07)
+    m/M = 1e-30 : exact 0.623608017817 vs test-particle 0.623608017817  (diff 0.000e+00)
+  [PASS] test-particle formula is the m/M -> 0 limit 
+
+OVERALL PASS

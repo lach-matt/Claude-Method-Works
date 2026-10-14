@@ -1,0 +1,44 @@
+PASS NIST table file is the scipy 1.17.1 copy  [f65f9f0ee37f0d491374f1c629019d55]
+PASS CODATA 2018 e = typed E_CHARGE_EXACT, (exact)  [1.602 176 634 e-19 (exact)]
+PASS CODATA 2018 c = typed C_SI, (exact)  [299 792 458 (exact)]
+PASS CODATA 2018 h = 6.626 070 15e-34, (exact)  [6.626 070 15 e-34 (exact)]
+PASS CODATA 2018 hbar printed 1.054 571 817... (exact, display truncated)  [1.054 571 817... e-34 (exact)]
+PASS CODATA 2018 G = typed G_SI = 6.674 30(15)e-11  [6.674 30 e-11 +- 0.000 15 e-11]
+PASS CODATA 2022 e = typed E_CHARGE_EXACT, (exact)  [1.602 176 634 e-19 (exact)]
+PASS CODATA 2022 c = typed C_SI, (exact)  [299 792 458 (exact)]
+PASS CODATA 2022 h = 6.626 070 15e-34, (exact)  [6.626 070 15 e-34 (exact)]
+PASS CODATA 2022 hbar printed 1.054 571 817... (exact, display truncated)  [1.054 571 817... e-34 (exact)]
+PASS CODATA 2022 G = typed G_SI = 6.674 30(15)e-11  [6.674 30 e-11 +- 0.000 15 e-11]
+PASS CODATA 2014 (pre-SI-2019) e was MEASURED, not exact  [1.602 176 6208 e-19 +- 0.000 000 0098 e-19]
+PASS typed hbar = h/2pi truncated at 10 s.f.  [rel -6.127e-10]
+PASS d ln Mbar/d ln (hbar, c, G, e) = (1/2, 5/2, -1/2, -1)  [{hbar: 1/2, c: 5/2, G: -1/2, e: -1}]
+PASS non-reduced / reduced = sqrt(8 pi) exactly
+   Mbar (typed constants)     = 2.435323459e+27 eV
+   Mbar (exact hbar = h/2pi)  = 2.435323460e+27 eV  rel 3.06e-10
+PASS Mbar = 2.435323e27 eV (the tree elsewhere pins 2.435323e18 GeV, higgs.py:610)  [2.435323459e+27]
+PASS CODATA 2018 m_P c^2 / sqrt(8 pi) agrees with Mbar within its own u  [rel -1.05e-07 vs u_r 1.15e-05]
+PASS CODATA 2022 m_P c^2 / sqrt(8 pi) agrees with Mbar within its own u  [rel -1.05e-07 vs u_r 1.15e-05]
+PASS tree modules import read-only
+PASS achievable HBAR, C_SI, G_SI and linstab E_CHARGE_EXACT equal the typed values
+PASS linstab.reduced_planck_ev() = independent re-typing (bit-level)  [2.4353234593382037e+27]
+   m(1/64pi^2) = 7.88484e-03 eV  (+1.09 % vs printed)
+   m((64pi)^-1)= 5.92250e-03 eV  (-24.07 % vs printed)
+PASS tree gmmps_mass_ev reproduces the independent inversion
+PASS selftest 2%% window holds at the typed constants
+PASS selftest >20%% typo verdict holds at the typed constants
+   convention control: non-reduced Planck mass gives m = 3.9529e-02 eV (+407 %)
+PASS reduced convention is load-bearing (non-reduced misses by > 100%)
+PASS no (convention, alpha) cross-combination rescues (64 pi)^-1 into the 2% window  [nonreduced+typo 2.9691e-02]
+PASS G at +1 sigma: both verdicts unchanged (m moves -1.12e-05 rel)
+PASS G at -1 sigma: both verdicts unchanged (m moves 1.12e-05 rel)
+PASS G at +1e-3: both verdicts unchanged (m moves -5.00e-04 rel)
+PASS G at -1e-3: both verdicts unchanged (m moves 5.00e-04 rel)
+PASS pre-2019 e (CODATA 2014, measured) moves Mbar by < 1e-8 (~1.35 x its own 2014 u_r)  [rel 8.24e-09, 2014 u_r 6.12e-09]
+PASS tree path: d ln m/d ln G = -1/2 (printed Lambda held in M_P^2 units)
+PASS physical path: d ln m/d ln G = -1/4 (Lambda held in eV^2, Lambda/Mbar^2 re-formed)
+   G would have to move by +0.064 or -0.018 (relative) to leave the 2% window
+PASS window flip needs |dG/G| > 1e-2, i.e. > 450 CODATA sigma
+   top-level float-with-exponent assignments outside GMMPS_* READ figures: [323]
+PASS 'the only constant this file adds' -- only line 323 carries an SI constant
+
+0 FAIL

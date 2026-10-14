@@ -191,13 +191,29 @@ own note for the row reads *"saturated by black holes"*.
    neither a G nor an area. Nothing in the slot's definition mentions derivation
    or provenance.
 2. **Bousso says so in print** (hep-th/0402058): the bound *"does not contain
-   Newton's constant"* and *"remains nontrivial when gravity is turned off
-   completely"*.
+   Newton's constant"* and is *"independent of the strength of gravity, G, in
+   its regime of validity"* — any *"weakly gravitating matter system"*,
+   M << R/G (eq. 2.3) — so that it *"remains nontrivial when gravity is turned
+   off completely (G = 0)"* (sec. 2.2). That holds for the ħ-form
+   S ≤ 2πMR/ħ the file codes, with ħ held fixed: written as Bousso's eq. (3.2),
+   S ≲ MR/(l_Pl²/G), G appears, and with l_Pl held fixed G → 0 sends the bound
+   to 0. The G = 0 coding is a statement about that form, which is the form the
+   slot tests.
 3. **SATURATION ALREADY HAS ITS OWN SLOT, AND BEKENSTEIN IS IN IT.** `K = 0` is
    the saturated flag — zero, ANEC, Ford–Roman and Bekenstein all carry it. So
    *"saturated by black holes"* is recorded in `K`. Coding `G = 1` for the same
    reason **double-counts one fact across two coordinates**, which is exactly
    the fault that makes a coordinate stop being a coordinate.
+
+   *Corrected on M's ruling (DOCKET 67).* Argument 2 first quoted Bousso
+   without *"in its regime of validity"* and without naming the ħ-form as the
+   hypothesis. And the black-hole saturation argument 3 relies on sits outside
+   the regime argument 2 quotes: a Schwarzschild hole has M/(R/G) = 1/2, and at
+   G = 0 no black hole exists. Inside the regime Bousso calls a precisely
+   saturating example *"an important outstanding problem"* (p.10), and he
+   says the bound's formulation is still *"quite sensitive to the precise
+   definition of the entropy"* (p.8). This bears on why `K = 0` was chosen,
+   not on the `G` coordinate; the ruling below and the bounds pins do not move.
 
 ### THE RULING
 

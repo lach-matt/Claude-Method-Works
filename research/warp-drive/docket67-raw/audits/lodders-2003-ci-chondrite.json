@@ -1,0 +1,93 @@
+{
+ "key": "lodders-2003-ci-chondrite",
+ "name": "Lodders (2003), ApJ 591, 1220 -- CI chondrite bulk composition (as used by stockgate.py CHONDRITE and stock.py CHONDRITE)",
+ "source": {
+  "located": "K. Lodders, 'Solar System Abundances and Condensation Temperatures of the Elements', ApJ 591, 1220-1247 (2003), doi:10.1086/375492, Table 3 ('Elemental Abundances in CI Chondrites', p.1225). There is no arXiv copy.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "THIS AGENT DID NOT READ THE PRIMARY. Every alphaXiv call (answer_pdf_queries on the title, on the IOP PDF URL and on 0901.1149; get_paper_content on 2502.10575; discover_papers) returned 'alphaXiv assistant quota exceeded'. WebFetch and curl to arxiv.org, iopscience.iop.org, ui.adsabs.harvard.edu, link.springer.com and ntrs.nasa.gov were refused by the egress proxy (403 / EGRESS_BLOCKED). What was used instead, with its status kept: (a) L03 Table 3 values as transcribed by the sibling DOCKET-67 audit audits/lodders-2003-apj-591-1220.json, which records reading p.1225 at source through alphaXiv earlier the same day. Here they are CARRIED-FROM-SIBLING-AUDIT, not READ. (b) Two independent CI compilations READ as data files from the pypi package pyrolite 0.3.7 (data/geochem/refcomp/): McDonough & Sun 1995, Chem. Geol. 120, 223 (CH_McDonoughSun1995.csv) and Palme & O'Neill 2014, Treatise on Geochemistry 2nd ed. 3, 1 (CH_PalmeONeill2014.csv). These are package transcriptions, not the papers. The MS95 file prints N as '3.18 ppm' and P as '1.08 ppm' next to C '3.5 %', a units anomaly. It is read here as 3180 and 1080 ppm and flagged, because 3.18 ppm N would sit about 1000 times below every other CI value. The PON14 comment column repeats primitive-mantle notes and is not relied on. (c) Lodders, Bergemann & Palme 2025 (SSRv 221, 23; arXiv:2502.10575) N 1965 ppm. It is CARRIED from the sibling audit (+-970) and also appears in a WebSearch result snippet (+-447). Neither is a read."
+ },
+ "published_statement": "NOT QUOTED VERBATIM: the primary was not read by this agent. As carried from the sibling audit's at-source reading of L03 Table 3 (p.1225), the CI group weighted means in ppm are H 21015, C 35180, N 2940 +- 20, O 458200, Na 5010, Mg 95870, Al 8500, Si 106500, P 920 +- 100, S 54100, Cl 704, K 530, Ca 9070, Fe 182800, Ni 10640, Zn 310, As 1.73 +- 0.06, Li 1.46. The same relay says these are means over the Alais, Ivuna, Orgueil, Revelstoke and Tonk analyses available by 2003, with parenthesised outliers excluded. This agent confirms none of it independently.",
+ "published_hypotheses": [
+  "H1 (carried, sibling audit H7): the CI value for each element is a weighted mean over the analyses available by 2003 of five CI falls (Alais, Ivuna, Orgueil, Revelstoke, Tonk), with outliers excluded. So it is an average for a meteorite group, not a measurement of any asteroid.",
+  "H2 (carried): each element has its own uncertainty, P +-100 ppm (about 11%) and N +-20 ppm. Compilations disagree on how uncertain N is: MS95 labels N 'F2' (a factor of 2, READ from the pyrolite file); PON14 gives 2 sigma = 885 ppm (READ from the pyrolite file); LBP25 gives +-970 (carried) or +-447 (search snippet).",
+  "H3 (standard in the CI literature, NOT READ in L03 here): CI chondrites match the solar photosphere for the condensable elements, but are depleted in the most volatile ones (H, C, N, O, noble gases) and differ for Li. The CI/solar ratios computed from the tree's own tables (section 7 of the re-derivation) agree: N x0.0285, C x0.092, H x0.0002, P x1.11.",
+  "H4: the numbers are mass fractions of bulk meteorite, including water and organics. The table is a composition, and says nothing on whether that composition is accessible, how much of it there is, or where it sits in the Solar System."
+ ],
+ "hypothesis_drift": [
+  "ATTRIBUTION DISCREPANCY (in the tree, not in Lodders). stockgate.py:284-285 SOURCES['L03'] and stock.py:195 SOURCES['chondrite'] credit the CHONDRITE table (stockgate.py:395-414; stock.py:216-219) to L03, but the table is not L03 Table 3. Against the carried L03 values, only 7 of 39 elements agree within 0.5% (Si, S, Ca, Na, F, Ga, Ag). Against McDonough & Sun 1995 (READ), 19 of 58 agree within 0.5% (Si, Mg, S, C, Al, N, Cr, Pb, Ba, Rb, Li, Mo, Ag, Cs, Sb, Au, Tl, Bi, In), and MS95 is the nearest source for 32 elements. Against Palme & O'Neill 2014 (READ), 13 of 60 agree (Si, Ca, Cl, Co, Ti, V, Ge, Sc, Ce, Ag, Tl, Bi, Th). The tree's As = 18.5 ppm (stockgate.py:402) is exactly 10.000 times MS95's 1.85 ppm, which reads as a decimal slip made while transcribing MS95. The tree's N = 3180 ppm is exactly MS95's value; its P = 1040 ppm matches none of the three (L03 920, PON14 985, MS95 1080). So the table is a blend drawn mainly from MS95 and PON14, labelled L03. This is recorded, not repaired.",
+  "NORMALISATION (tree): stockgate.CHONDRITE sums to 1.006899 and is used without renormalising (stockgate.py:395-414, :545 DESTS 'CI chondrite': lambda: CHONDRITE). The effect on the factor is below 0.7%.",
+  "DROPPED: H2, the uncertainties. The tree carries each CI value as a point with no error (stockgate.py:395-414, stock.py:216-219), yet its binder conclusion ('binds on PHOSPHORUS, not nitrogen', stock.py:107-110; D25 via ledger.py:671-683) turns on CI N versus a crossover at N = P_CI*h_N/h_P = 2400 ppm at the tree's P. That crossover lies inside the 2-sigma band PON14 prints (2065-3835 ppm) and inside MS95's factor-of-2 band (1590-6360 ppm).",
+  "WEAKENED / OVERSTATED by the tree: stockgate.py:175-177 'A CI chondrite retained its volatiles, so like a star it binds on the least abundant required element'. The tree's own tables (stockgate.CHONDRITE against stockgate.solar_hybrid, per Si, by number) show CI N depleted 35 times, C 11 times and H about 5900 times relative to solar, while P, S and Zn sit near solar. What a CI chondrite retained is its moderately volatile elements; it lost most of its most-volatile ones. The binder argument needs only CI N/P (by mass) > payload N/P = 2.308. The tree values give 3.06, carried L03 gives 3.20, PON14 gives 2.99 and carried LBP25 gives 1.99. The last one fails.",
+  "ADDED by the tree (not a hypothesis of L03): 'CI composition represents the accessible stock of an asteroid destination' (stock.py:112 'THE OPTIMAL ARRIVAL NODE IS AN ASTEROID, NOT A PLANET'; stock.py:131-133). L03 averages five meteorite falls. That the bulk of a C-type asteroid has this composition and is accessible is a separate empirical claim. The obvious test (Ryugu and Bennu returned samples) could not be read here and is OPEN in this audit.",
+  "KEPT (qualitative): stock.py:107-108 'A chondrite never differentiated, so it still holds C, N, H, P and S together' matches the standard reading of CI chondrites as undifferentiated. The CI meteorites are aqueously altered, and Orgueil in particular is terrestrially weathered. That is not named in the tree, and its effect on H, S and N was not quantified here.",
+  "SUBSET (stock.py): stock.py:216-219 carries 16 of stockgate's 59 elements with identical values (checked). stock.py's factor 10.70096 (749.07 kg) differs from stockgate's 10.70115 (749.08 kg) only through the payload tables, not the chondrite."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "CI P (sets the processing factor and the 0.749 t figure)",
+   "value_then": "L03: 920 +- 100 ppm (carried). The tree uses 1040 ppm, attributed to L03.",
+   "value_now": "PON14 985 +- 158 (2 sigma, READ from pyrolite); MS95 1080 +-15% (READ); LBP25 989 +- 89 (carried)",
+   "source_now": "pyrolite 0.3.7 CH_PalmeONeill2014.csv / CH_McDonoughSun1995.csv; Lodders, Bergemann & Palme 2025, arXiv:2502.10575 (carried)",
+   "moves_conclusion": "It moves the figure, not the verdict. With P binding, the factor spans 10.305 to 12.097 (721 to 847 kg per 70 kg) against the tree's 10.701 (749 kg). The comparisons move with it: against cosmic, 146 to 185 times instead of 178.5; against crust, 33 to 42 times instead of 40 (computed)."
+  },
+  {
+   "quantity": "CI N (decides whether the binder is P or N)",
+   "value_then": "L03: 2940 +- 20 ppm (carried). The tree uses 3180 ppm, which equals MS95.",
+   "value_now": "LBP25: 1965 ppm, uncertainty +-970 (carried from the sibling audit) or +-447 (search snippet), unsettled between the relays. PON14: 2950 +- 885 at 2 sigma (READ). MS95: 3180, factor-2 uncertainty (READ).",
+   "source_now": "arXiv:2502.10575 Table 4 (carried, not read here); pyrolite CH_PalmeONeill2014.csv, CH_McDonoughSun1995.csv (read)",
+   "moves_conclusion": "YES for the binder label. N binds whenever N_CI < P_CI*h_N/h_P, a sympy closed form giving 2400 ppm at the tree's P, 2123 at L03's, 2273 at PON14's and 2282 at LBP25's. Under LBP25 the binder is N at factor 13.070 (914.9 kg), and stockgate's regime_of would label the CI chondrite VOLATILITY-LIMITED (T_c(N) = 123 K < 500 K) instead of ABUNDANCE-LIMITED. Even without the carried datum, PON14's own 2-sigma band (READ) spans the crossover. The verdicts do not move: 'the stock need not travel' (stock.py:124-138), 'the asteroid beats the planet' and 'a site criterion, not a barrier' hold under every compilation."
+  },
+  {
+   "quantity": "CI Ta (the craft's binder at a chondrite)",
+   "value_then": "The tree uses 10 ppb (stockgate.py:411). The L03 Ta row was not in the carried transcription (H..Ag only).",
+   "value_now": "MS95 13.6 ppb +-15%; PON14 15 ppb +- 3 (2 sigma), both READ",
+   "source_now": "pyrolite CH_McDonoughSun1995.csv, CH_PalmeONeill2014.csv",
+   "moves_conclusion": "It moves the figure, not the binder. The craft factor falls from 9.008e4 to 6.62e4 (MS95) or 6.00e4 (PON14). The binder stays Ta. The tree's 10 ppb is 0.67 to 0.74 times both compilations. The craft verdict (stockgate.py:273-274, about 19 orders below the shell mass, a site criterion) does not move."
+  },
+  {
+   "quantity": "CI As",
+   "value_then": "L03 1.73 +- 0.06 ppm (carried); the tree uses 18.5 ppm",
+   "value_now": "MS95 1.85, PON14 1.74, LBP25 1.75 (carried) ppm",
+   "source_now": "pyrolite files; arXiv:2502.10575 (carried)",
+   "moves_conclusion": "No conclusion rests on As. It is recorded as a transcription discrepancy: the tree's value is exactly 10 times MS95."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lodders-2003-ci-chondrite.py",
+  "outcome": "ALL 10 CHECKS PASS, exit 0; output in rederive/lodders-2003-ci-chondrite.out. (1) The tree's figures reproduce by import: stockgate binding_under('as-composed 59','CI chondrite') = ('P', 10.701153); stock.binding_element = ('P', 10.700962), 749.07 kg; the runner-up is N at 8.0763 (margin 1.325); stock.CHONDRITE equals stockgate.CHONDRITE on all 16 shared elements; CHONDRITE sums to 1.006899. (2) Attribution: within 0.5% the tree matches carried L03 on 7 of 39 elements, MS95 on 19 of 58 and PON14 on 13 of 60. As is exactly 10.000 times MS95. (3) Binder under each compilation, substituted into the tree table: TREE P 10.701, L03 P 12.097, MS95 P 10.305, PON14 P 11.299, LBP25 N 13.070. (4) sympy closed form: N binds iff N_CI < P_CI*h_N/h_P, which reproduces the 2400 ppm crossover at the tree's P. PON14's N 2-sigma band (2065-3835) spans the crossover. (5) The factor with P binding spans 10.305 to 12.097. (6) The craft binder stays Ta with a factor from 6.00e4 to 9.01e4. (7) From the tree's own tables, CI/solar per Si is N 0.0285, C 0.092, H 0.0002 and P 1.11, so 'retained its volatiles' overstates it.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Lodders, Bergemann & Palme 2025, 'Solar System Elemental Abundances from the Solar Photosphere and CI-Chondrites', Space Sci. Rev. 221, 23; arXiv:2502.10575",
+   "effect": "narrows",
+   "what": "A revised CI composition by the same author lineage. As carried: N 1965 ppm (well below L03's 2940), P 989 +- 89, C 37813, H 18598. Under it the tree's CI binder flips from P to N. The quoted N uncertainty differs between relays (+-970 in the sibling audit, +-447 in a search snippet), so it is unsettled.",
+   "read_status": "NAMED-NOT-READ by this agent (alphaXiv quota exceeded; arxiv/springer/ntrs egress-blocked). Values carried from audits/lodders-2003-apj-591-1220.json, which records a read of pp.1, 22-23, 33, 70-71, 75."
+  },
+  {
+   "ref": "Palme & O'Neill 2014, Treatise on Geochemistry 2nd ed. vol. 3, ch. 1 (CI column)",
+   "effect": "confirms",
+   "what": "An independent CI compilation. N 2950 +- 885 (2 sigma), P 985 +- 158, H 1.97%, C 3.48%, Ta 15 ppb. The binder stays P (factor 11.299), but the N band spans the crossover.",
+   "read_status": "READ as the data file pyrolite 0.3.7 data/geochem/refcomp/CH_PalmeONeill2014.csv (a package transcription, not the chapter)"
+  },
+  {
+   "ref": "McDonough & Sun 1995, Chem. Geol. 120, 223 (CI column)",
+   "effect": "contested",
+   "what": "Earlier than L03. It is the nearest identifiable source of the tree's table (19 exact matches, including N 3180, C 3.5%, Mg 9.65%, Li 1.5 ppm, Au 140 ppb), and it prints N and C with a factor-2 uncertainty. It is 'contested' only in the sense that it shows where the tree's numbers actually came from.",
+   "read_status": "READ as the data file pyrolite 0.3.7 CH_McDonoughSun1995.csv; N and P units anomaly flagged"
+  },
+  {
+   "ref": "Ryugu (Hayabusa2) and Bennu (OSIRIS-REx) returned-sample bulk compositions, and 'H-N budgets and isotopic signatures of Oued Chebeika 002 and CI reservoir heterogeneity' (Geochem. Persp. Lett., seen as a search title)",
+   "effect": "contested",
+   "what": "The direct test of the tree's added hypothesis that asteroid stock has CI composition, and of whether CI N is heterogeneous. Not read.",
+   "read_status": "NAMED-NOT-READ (discover_papers quota exceeded; titles only from WebSearch)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. In 2003 Lodders lacked the post-2003 CI analyses: the revised N budget that LBP25 carries, modern ICP-MS/ID data, and the uncontaminated Ryugu and Bennu samples. EVIDENCE THAT THE MISSING DATA MOVE THINGS: CI N, the one datum the tree's binder label rests on, has moved from 2940 ppm (L03, carried) to 1965 ppm (LBP25, carried). That crosses the computed 2123-2400 ppm crossover and flips the tree's CI binder from P to N (factor 13.07, 914.9 kg, VOLATILITY-LIMITED). Independently, and using only data read here, PON14's 2014 2-sigma band for N (2065-3835 ppm) already spanned the crossover, and MS95 in 1995 flagged N as uncertain by a factor of 2. So the fragility was visible in the data, and it is the tree that dropped the uncertainty. EVIDENCE THAT THEY DO NOT: P moves by at most about 17% across four compilations (920-1080 ppm) and the rock-forming elements by about 3% or less. No verdict the tree draws (the stock need not travel; a primitive asteroid beats a planet by 33 to 42 times and cosmic gas by 146 to 185 times; the craft binds on Ta about 19 orders below the shell) moves under any compilation. Net: no datum Lodders lacked refutes the 2003 table. The most volatile element, N, was the least certain then and has moved since. The tree's binder label (P, ABUNDANCE-LIMITED) is sensitive to it, and the tree's table is not L03's in the first place.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "(i) This agent did not read L03 (NAMED-NOT-READ). So this audit neither confirms nor refutes any L03 number, and it makes no claim that Lodders is wrong. (ii) The tree's use of it is a CITED point table. That table is not L03 Table 3: against the carried L03 values 7 of 39 elements agree within 0.5%, against MS95 (READ) 19 of 58, and As is exactly 10 times MS95. This is an attribution and transcription discrepancy in the tree, and it is not a refutation. (iii) The conclusion the tree draws from the table, the CI binder = P at 10.70, moves with CI N. The sympy closed form puts the crossover at N_CI = P_CI*h_N/h_P, 2123 to 2492 ppm across compilations. PON14's own 2-sigma band (READ, no carried value used) spans it, MS95's factor-2 band spans it, and the 2025 value (carried, 1965 ppm) lies below it, flipping the binder to N at 13.07 and the regime label to VOLATILITY-LIMITED. A conclusion that moves with a moved and contested datum is DATA-DEPENDENT. (iv) It is not WRONG: no contradiction was computed against the source. It is not NARROWED as the primary grade, because every verdict (stock need not travel; asteroid over planet; site criterion, not a barrier) holds under all five compositions tested. (v) The tree's added hypothesis, that asteroid stock is CI-like and accessible, remains OPEN here because Ryugu and Bennu data could not be read.",
+ "what_would_change_the_grade": "To STANDS: a settled CI N above about 2500 ppm with a band that clears the crossover. It would also need the tree to cite the composition it actually uses (MS95 and PON14 blend, not L03) and to carry the uncertainties. Toward NARROWED or re-graded: a read of the L03 primary (alphaXiv quota) confirming or correcting the carried Table 3 values. A read of LBP25's N uncertainty (+-970 vs +-447), which decides whether the flip is inside 1 sigma. Ryugu and Bennu bulk N and P, which bear on whether an asteroid destination is CI-like at all. To WRONG: only a computed contradiction in L03 at its own hypotheses, and none is claimed.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/lodders-2003-ci-chondrite.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/lodders-2003-ci-chondrite.json"
+}

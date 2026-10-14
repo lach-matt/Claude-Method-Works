@@ -1,0 +1,114 @@
+{
+ "key": "gr-qc/9305017",
+ "name": "Topological censorship (Friedman-Schleich-Witt): a traversable wormhole requires ANEC violation",
+ "source": {
+  "located": "J.L. Friedman, K. Schleich, D.M. Witt, 'Topological Censorship', PRL 71 1486 (1993), arXiv:gr-qc/9305017v2 (9 Jun 1995): abstract; p.3 ANEC definition and Theorem 1; pp.4-5 Lemmas 1-2 and proofs; pp.5-7 proof of Theorem 1 and the Penrose-Sorkin-Woolgar alternate proof; pp.8-9 withdrawn v1 Theorem 2 (Burnett gr-qc/9504012) and the semiclassical remark.",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true) on arxiv.org/abs/gr-qc/9305017 -- whole v2 text read. Cross-read at source: Galloway-Schleich-Witt-Woolgar gr-qc/9902061 pp.1,3-6,8-11 (Thm 2.1, 2.2 and remark); Graham-Olum 0705.3193 pp.1-8 (whole); Schleich-Witt gr-qc/9903061 pp.1-12 (whole). Galloway CQG 12 L99 (1995), Borde CQG 4 343 (1987), Tipler PRD 17 2521 (1978) are NAMED-NOT-READ (known here only through GSWW/FSW/Graham-Olum restatements)."
+ },
+ "published_statement": "FSW v2 p.3: 'A spacetime satisfies ANEC if the integral of T_ab k^a k^b is nonnegative along every inextendible null geodesic with affine parameter lambda and corresponding tangent k^a: INT dlambda T_ab k^a k^b >= 0.' 'Theorem 1. If an asymptotically flat, globally hyperbolic spacetime (M, g_ab) satisfies the averaged null energy condition, then every causal curve from J- to J+ is deformable to gamma_0 rel J' (gamma_0: a timelike curve from J- to J+ lying in a simply connected neighbourhood U of J). Abstract states it with the (pointwise) null energy condition. Lemma 2 proof, p.5: 'ANEC and theta < 0 imply that every outward null geodesic from the outer trapped surface T has a conjugate point within finite affine parameter length.' p.8: 'any energy condition which implies that outward directed null congruences with theta < 0 have conjugate points will suffice'; semiclassical validity left open (citing Wald-Yurtsever: ANEC violated by renormalized free fields in generic spacetimes). p.4: 'If the Poincare conjecture is false, the theorem does not prevent one from probing fake 3-spheres.'",
+ "published_hypotheses": [
+  "H1 asymptotic flatness: conformal completion with Omega vanishing on J, nonvanishing null gradient; J = J+ U J-, each S^2 x R with complete null generators (completeness in the future direction not required) (p.2)",
+  "H2 global hyperbolicity: M = D(Sigma) for a Cauchy surface Sigma (p.2)",
+  "H3 ANEC on EVERY inextendible null geodesic, INT T_ab k^a k^b dlambda >= 0 (p.3); abstract: pointwise NEC",
+  "H4 (implicit) Einstein equations, so the condition on T_ab is a condition on R_ab k^a k^b (made explicit in GSWW gr-qc/9902061 p.8)",
+  "H5 (implicit, from the proof) the conjugate-point step needs the integral along the HALF-geodesic from the trapped surface -- stated in that form by Galloway 1995 and GSWW Thm 2.1(iii): 'for any future complete null geodesic ... INT_0^inf Ric(eta',eta') ds >= 0'; GSWW call it 'a modified form of the ANEC' and say FSW holds 'ultimately, in the modified form used below -- see [6]'",
+  "H6 classical: the source is a classical T_ab (FSW p.8: semiclassical extension is a question, not a result)",
+  "Conclusion is about ACTIVE censorship only (causal curves from J- to J+); passive detection is allowed (RP^3 geon); the v1 Theorem 2 (K(pi,1) factors hidden) is withdrawn in v2 as false (Burnett)",
+  "Fake-3-sphere caveat conditional on the Poincare conjecture (open in 1993-95)"
+ ],
+ "hypothesis_drift": [
+  "higgs.py:124 ('A WORMHOLE NEEDS ANEC, by topological censorship') DROPS H1 asymptotic flatness and H2 global hyperbolicity; names no energy-condition form (FSW full-line H3 vs the half-line form H5 the proof needs, or full-line + null generic condition); and states it without H4 -- in its own context (nonminimal xi phi^2 R, Barcelo-Visser) the condition that enters the proof is on the EFFECTIVE R_kk, which is what Barcelo-Visser eq. (2.6) computes, so the drift is silent rather than harmful there. The contrapositive gives ANEC failure on SOME null geodesic (half-line form: some future-complete ray near J), not on the radial throat geodesic Barcelo-Visser integrate; the higgs.py conclusion there rests on Barcelo-Visser read at source, not on FSW.",
+  "anecscope.py:32-33 ('it is what the topological-censorship and no-wormhole results actually use') and anecscope.py:170 ('Graham & Olum's hypothesis; what topological censorship actually uses'): FSW 1993 does NOT use achronal ANEC -- H3 is over every inextendible null geodesic. The achronal form is Graham-Olum 0705.3193 Theorem 1, which ADDS two hypotheses the tree drops: (a) the spacetime is SIMPLY CONNECTED, so 'the wormholes we rule out are only those which connect one asymptotically flat region to another, not those which connect a region to itself' (p.5), with Ford's counterexample (throat longer than the exterior mouth separation makes every through-throat fastest path chronal, p.5-6); (b) the NULL GENERIC CONDITION (needed for Lemma 1: ANEC gives conjugate points on complete null geodesics only with it). Plus self-consistency (semiclassical Einstein equation with the full stress tensor). anecscope also drops H1, H2.",
+  "necindex.py:242 ('Graham-Olum; topological censorship uses it') -- same attribution drift as anecscope.py:170 (not a canonical owner; recorded).",
+  "index3.py:61 ('topological censorship: ANEC forbids any shortcut, so no portal either') -- 'any shortcut' over-reaches: needs H1, H2; in the achronal form it does not cover same-universe shortcuts (Graham-Olum p.5). Not a canonical owner; recorded.",
+  "TARGET-1-RESULT.md:174 ('geodesic-integrated ANEC positive for every source-prescribed shell ... That is the condition topological censorship actually uses') -- names no geodesic class; the corrected theorem needs the half-line integral on every future-complete null geodesic near J (GSWW Thm 2.1(iii)) or full-line ANEC on every complete null geodesic plus the generic condition, not ANEC on a sampled family. Not a canonical owner; recorded, not graded.",
+  "launcher.py:249-256 restates FSW correctly (AF, GH, averaged NEC, homotopy to a trivial curve) and argues pointwise NEC => averaged: that implication holds for BOTH the full-line and half-line forms, so this use is robust to the H5 correction. cosmo.py:11 names 'asympt. flat + glob. hyp.' correctly. No drift at either (recorded as evidence the other way)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Poincare conjecture (only simply connected closed 3-manifold is S^3)",
+   "value_then": "open (FSW p.4 carve out 'fake 3-spheres')",
+   "value_now": "proved (Perelman 2002-03, Ricci flow with surgery)",
+   "source_now": "Perelman arXiv math/0211159, math/0303109, math/0307245 -- NAMED-NOT-READ here; status taken as the standard mathematical record, not re-read",
+   "moves_conclusion": "No for Theorem 1 (active censorship of pi_1 never depended on it); it removes FSW's fake-3-sphere caveat, so the corollary 'cannot probe the topology' becomes unconditional within H1-H6. Extends, does not move."
+  },
+  {
+   "quantity": "ANEC status of quantum (renormalized) stress tensors",
+   "value_then": "Wald-Yurtsever 1991: ANEC violated by free fields in generic curved spacetimes (cited by FSW p.9); FSW leave semiclassical validity open",
+   "value_now": "ANEC violated in curved space (e.g. Visser 1996 Schwarzschild/Boulware; compactified Minkowski) as recorded by Graham-Olum 0705.3193 p.3 (READ); achronal ANEC on null lines derived from the GSL for minimally coupled fields (Wall 0910.5751, abstract only via discover_papers); self-consistent achronal ANEC remains a conjecture (Graham-Olum p.2 'We conjecture')",
+   "source_now": "0705.3193 (READ); 0910.5751 (abstract only)",
+   "moves_conclusion": "Does not move the theorem, which is a conditional; it moves its REACH over quantum matter, which is OPEN in exactly the form the tree marks OPEN (anecscope.py:170)."
+  },
+  {
+   "quantity": "v1 Theorem 2 (K(pi,1) prime factors passively censored)",
+   "value_then": "asserted in PRL 71 1486 (v1)",
+   "value_now": "false -- Burnett gr-qc/9504012 counterexample; withdrawn by the authors in v2 pp.8-9 (READ)",
+   "source_now": "FSW v2 (READ); Burnett NAMED-NOT-READ",
+   "moves_conclusion": "No for the tree: no owner uses Theorem 2; Theorem 1 (active censorship) is untouched."
+  },
+  {
+   "quantity": "numerical inputs",
+   "value_then": "none -- the result is a theorem with no measured parameter",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "n/a"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9305017.py",
+  "outcome": "exit 0; output /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9305017.out. (A) sympy: R_kk=0, theta0<0 gives theta = theta0/(1+theta0 lam/2), residual 0, focal length 2/|theta0|. (B) 400/400 random profiles obeying the HALF-line condition (running integral of R_kk >= 0) focus before 2/|theta0| (max ratio 0.981) -- sampling, confirming the Tipler/Borde/Galloway lemma, not a proof. (C) COUNTEREXAMPLE TO THE INFERENCE STEP OF FSW LEMMA 2 AS WORDED: theta = -c e^{-lam} on lam>=0 needs R_kk = -c e^{-lam} - (c^2/2) e^{-2lam}, half-line integral -c(c+4)/4 < 0; a continuous lam<0 branch R_kk(0) e^{lam} + K lam^2 e^{lam} with K = 3c^2/8 + c + delta/2 makes the FULL-line integral = delta >= 0; the congruence from the trapped surface (theta0 = -c < 0) never focuses (RK4 to lam = 60, theta -> 0). So FSW's full-line ANEC (H3) does not by itself give the conjugate point Lemma 2 claims; the literature's half-line form (Galloway 1995; GSWW Thm 2.1(iii)) or full-line + generic condition does. This is an ODE-level gap in the written proof, not a spacetime counterexample to Theorem 1, and no counterexample to the (corrected) theorem is known. z3 confirms the construction for every c>0, delta>=0 (negation unsat). (D) Minkowski null line: ANEC integral 0, theta0 = 0, no focusing -- non-strict ANEC alone cannot forbid a null line, so the null-line route needs the generic condition. (E) z3: 0<d<L => the through-throat exit event is in the chronological future of the entry via the exterior (negation unsat), and L<=d => it is not (negation unsat): Ford's same-universe wormhole is outside achronal-ANEC censorship.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Galloway, Schleich, Witt, Woolgar, 'Topological censorship and higher genus black holes', PRD 60 104039 (1999), arXiv:gr-qc/9902061",
+   "effect": "narrows",
+   "what": "States FSW holds 'ultimately, in the modified form' of ANEC; Thm 2.1/2.2 use (iii) the half-line integral INT_0^inf Ric >= 0 on future complete null geodesics near scri; remark: alternatively full-line ANEC + generic condition, via a null line (globally achronal null geodesic). Extends to timelike scri (asymptotically locally AdS) and to fundamental-group surjectivity pi_1(scri) -> pi_1(DOC); shows the condition is on Ric(k,k), insensitive to Lambda.",
+   "read_status": "READ (pp.1,3-6,8-11 at alphaXiv)"
+  },
+  {
+   "ref": "Graham & Olum, 'Achronal averaged null energy condition', PRD 76 064001 (2007), arXiv:0705.3193",
+   "effect": "extends",
+   "what": "Topological censorship from self-consistent achronal ANEC -- but only with simple connectivity (inter-universe wormholes only) and the null generic condition added; Ford's counterexample shows same-universe wormholes with long throats escape. Also: half-achronal ANEC fails for quantum fields in flat space (Dirichlet plate), so the achronal replacement works only on the complete-geodesic (null-line) route.",
+   "read_status": "READ (whole paper)"
+  },
+  {
+   "ref": "Schleich & Witt, 'Topological censorship', arXiv:gr-qc/9903061 (1999)",
+   "effect": "confirms",
+   "what": "Authors' review restates the theorem with the NULL energy condition and says it 'can be rigorously proven' under ANEC (citing Borde); notes the AF hypothesis is used to make large spheres outer trapped and can be generalised.",
+   "read_status": "READ (whole)"
+  },
+  {
+   "ref": "Galloway, CQG 12 L99 (1995)",
+   "effect": "narrows",
+   "what": "Source of the modified (half-line) ANEC form and DOC simple connectivity, per GSWW p.3 and ref [6].",
+   "read_status": "NAMED-NOT-READ (restated in gr-qc/9902061)"
+  },
+  {
+   "ref": "Burnett, gr-qc/9504012 (1995)",
+   "effect": "contradicts",
+   "what": "Counterexample to FSW v1 Theorem 2 (passive censorship of K(pi,1) factors); the authors withdraw it in v2. Not used by the tree.",
+   "read_status": "NAMED-NOT-READ (restated in FSW v2 pp.8-9, READ)"
+  },
+  {
+   "ref": "Wall, 'Proving the achronal averaged null energy condition from the generalized second law', arXiv:0910.5751 (2009)",
+   "effect": "extends",
+   "what": "ANEC on null lines for minimally coupled quantum fields in semiclassical gravity, from the GSL -- supports the premise of the Graham-Olum route.",
+   "read_status": "abstract only (discover_papers listing)"
+  },
+  {
+   "ref": "Topological censorship in spacetimes compatible with Lambda > 0, arXiv:2107.11915 (2021)",
+   "effect": "extends",
+   "what": "A topological censorship theorem for Lambda > 0 settings.",
+   "read_status": "abstract only (discover_papers listing)"
+  }
+ ],
+ "lacked_data": "What FSW lacked, and whether it moves the conclusion. (1) The Poincare conjecture (proved 2002-03, NAMED-NOT-READ here): removes their own fake-3-sphere caveat; Theorem 1 never depended on it -- extends, does not move. (2) The correct form of the energy condition for their Lemma 2 step: their H3 is over whole inextendible geodesics, and the rederivation (C) exhibits a profile with full-line ANEC >= 0 whose trapped congruence never focuses; the half-line form was supplied by Galloway (1995) and adopted by GSWW (with two of the same authors). This is a hypothesis-form discrepancy in the published proof, repaired in the literature -- evidence FOR M's suspicion that a published statement was incomplete, but the repair preserves the conclusion (no counterexample to the corrected theorem is known, and none is shown here). (3) Semiclassical energy-condition data: FSW already knew ANEC fails for renormalized fields (Wald-Yurtsever 1991) and left the quantum reach open; later data (flat-space ANEC proofs, achronal ANEC from the GSL for minimal coupling, Graham-Olum's still-unproven self-consistent achronal ANEC) move the theorem's APPLICABILITY to quantum matter, not its truth as a conditional. Evidence against M's hypothesis for this result: the conclusion has been re-proved under weaker/alternative hypotheses (half-line ANEC; full ANEC + generic; achronal ANEC + simple connectivity + generic; timelike scri; weak cosmic censorship in place of GH) and no datum enters it. Net: incomplete as published in one hypothesis, not wrong; no missing datum overturns it.",
+ "grade": "NARROWED",
+ "grade_evidence": "(i) Source vs its own proof: FSW state ANEC over every inextendible null geodesic (p.3) but Lemma 2 needs the half-line integral from the trapped surface; rederivation (C) shows the inference fails from the full-line form alone (sympy + z3, exit 0); the literature's repair (GSWW gr-qc/9902061 Thm 2.1(iii), 'modified form of the ANEC'; or full ANEC + generic condition) keeps the conclusion -- a discrepancy, not WRONG. (ii) Tree vs source: higgs.py:124 drops asymptotic flatness and global hyperbolicity; anecscope.py:32-33,170 attribute achronal ANEC to topological censorship, which is true only of Graham-Olum's version (0705.3193 Thm 1), and that version adds simple connectivity -- excluding same-universe wormholes (Ford's counterexample, z3 check E) -- and the null generic condition (needed: check D), both dropped by the tree. So the result holds on a smaller class than the tree's wording claims. No datum moves it (it has no numerical input). The downstream conclusions are not overturned: higgs.py section 3 rests on Barcelo-Visser read at source, and anecscope's scope finding (its ANEC-violating rays are non-achronal) does not depend on FSW; launcher.py:249-256 restates FSW correctly and its pointwise-NEC premise satisfies both the full- and half-line forms.",
+ "what_would_change_the_grade": "-> STANDS if the owners restate the result with its named hypotheses: asymptotically flat + globally hyperbolic; the half-line ANEC form (Galloway/GSWW) or full-line ANEC + null generic condition; and, for the achronal attribution, Graham-Olum's added simple connectivity (inter-universe wormholes only) + generic condition + self-consistency. -> WRONG only on a spacetime satisfying the corrected hypotheses with a causal curve J- -> J+ not deformable to infinity (none known; none shown here). -> the source-discrepancy item (i) would dissolve if a reading of FSW's Lemma 2 were shown to need only full-line ANEC (the rederivation C says it cannot by focusing alone).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9305017.py  # exit 0; asserts A-E. Source: alphaXiv get_paper_content(url='https://arxiv.org/abs/gr-qc/9305017', fullText=true) p.3 (ANEC def, Theorem 1), p.5 (Lemma 2 step); answer_pdf_queries('gr-qc/9902061') p.3, p.8 Thm 2.1(iii), p.11 remark; answer_pdf_queries('0705.3193') p.3 Lemma 1, p.5 Theorem 1 + Ford counterexample. Owner sites: grep -n 'topological' /home/user/Claude-Method-Works/research/warp-drive/{higgs,anecscope,necindex,index3,launcher,cosmo}.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9305017.json"
+}

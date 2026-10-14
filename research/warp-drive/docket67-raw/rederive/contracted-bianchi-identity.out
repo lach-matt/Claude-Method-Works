@@ -1,0 +1,58 @@
+A1. GENERIC 4D METRIC (10 random rational cubic components), EXACT AT THE POINT
+  [ok] seed 1: nabla_mu G^{mu nu}(0) = 0 for all four nu  -> [0, 0, 0, 0]
+  [ok] seed 1: non-vacuous (G(0) != 0 and dG(0) != 0)  -> (True, True)
+  [ok] seed 2: nabla_mu G^{mu nu}(0) = 0 for all four nu  -> [0, 0, 0, 0]
+  [ok] seed 2: non-vacuous (G(0) != 0 and dG(0) != 0)  -> (True, True)
+  [ok] seed 3: nabla_mu G^{mu nu}(0) = 0 for all four nu  -> [0, 0, 0, 0]
+  [ok] seed 3: non-vacuous (G(0) != 0 and dG(0) != 0)  -> (True, True)
+
+A2. GENERAL SPHERICALLY SYMMETRIC TIME-DEPENDENT METRIC, ARBITRARY FUNCTIONS
+  [ok] nabla_mu G^mu_nu = 0 identically (Phi, Lam, R arbitrary)  -> [0, 0, 0, 0]
+  [ok] non-vacuous: G^t_t is not identically zero  -> True
+
+A3. FLRW, ARBITRARY a(t), k: THE t-COMPONENT IS THE CONTINUITY EQUATION
+  [ok] 8 pi G rho = 3(adot^2 + k)/a^2 (Friedmann constraint)  -> 0
+  [ok] isotropy G^r_r = G^th_th = G^ph_ph  -> (0, 0)
+  [ok] rhodot + 3H(rho + p) = 0 identically in a(t), k  -> 0
+  [ok] full divergence nabla_mu G^mu_nu = 0 (FLRW)  -> [0, 0, 0, 0]
+
+B1. CONTROL: ALGEBRAIC RIEMANN SYMMETRIES ALONE DO NOT GIVE div G = 0
+  [ok] phi(x)(g_ac g_bd - g_ad g_bc) has all algebraic Riemann symmetries (incl. first Bianchi)  -> True
+  [ok] its contraction G_ab = -3 phi eta_ab  -> Matrix([[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
+  [ok] div G = -3 d_b phi != 0 unless phi const (Schur) -> identity needs the DIFFERENTIAL Bianchi  -> True
+
+B2. CONTROLS: DROP LEVI-CIVITA -- (i) torsion, metric-compatible; (ii) torsion-free, non-metric
+  [ok] (i) connection is metric-compatible (nabla eta = 0) with non-zero torsion  -> (True, True)
+  [ok] (i) torsion: nabla_mu G^{mu nu} != 0  -> True
+     nabla_mu G^{mu 0} = 2*z0**3*z1**2
+  [ok] (ii) connection is torsion-free and NOT metric-compatible  -> (True, False)
+  [ok] (ii) non-metricity: nabla_mu G^{mu nu} != 0  -> True
+     nabla_mu G^{mu 0} = -21*z0**2*z1**2*z2**2/2 - 10*z0*z1*z2 + 26*z0*z2**2 + 21*z1**6/2 - 21*z1**2*z3**2/2 - 27*z1**2/2 - 2
+
+B3. permute.py SECTION 5 (read-only import): WHAT THE RK4 'MEASUREMENT' MEASURES
+  [ok] continuity_residual(a, adot, k, w) == 0 as an ALGEBRAIC identity (no trajectory)  -> 0
+  [ok] scaled residual (tree's own scaling, /3H rho) at 1000 random points OFF any trajectory < 1e-13  -> True
+     max scaled |residual| at random (a, adot, k, w): 2.696e-15
+  [ok] tree's fixture: residual < 1e-13 at all 12 (w, k) -- reproduced  -> True
+     worst scaled residual over the 12 cases: 7.204e-16
+     steps 500/2000/8000: ['6.033e-16', '5.676e-16', '5.875e-16']
+  [ok] tree's residual_is_step_independent() returns True -- reproduced  -> True
+  [ok] POSITIVE CONTROL: a wrong acceleration law (3w -> 2w) gives |residual| = |w|/3 = 1/9 at w=1/3  -> True
+
+C1. hpscentre.py divergence() FORMULA, STATIC SPHERICAL, DIAGONAL T(l)
+  [ok] l-component equals hpscentre's formula (with T^ph_ph = T^th_th)  -> 0
+  [ok] t- and phi-components vanish identically  -> (0, 0)
+  [ok] theta-component = cot(theta)(T^th_th - T^ph_ph): needs T^ph_ph = T^th_th  -> 0
+  [ok] nabla_mu G^mu_nu = 0 on this metric (the check at hpscentre.py:1235)  -> [0, 0, 0, 0]
+
+C2. hpscentre.py:1401 -- 'thth follows once tt, ll vanish (Bianchi)' NEEDS r' != 0
+  [ok] with E^t_t = E^l_l = 0 the identity reads -(2 r'/r) E^th_th = 0  -> 0
+  [ok] CONTROL: at r' = 0 (throat) the identity imposes nothing on E^th_th  -> 0
+  [ok] at a regular centre (r ~ x) the forcing is 2(e0/x + ...) -> e0 = e2 = 0 once it must vanish  -> {e0: 0, e2: 0}
+
+31/31 checks pass
+
+real	7m11.648s
+user	4m47.787s
+sys	0m1.648s
+EXIT 0

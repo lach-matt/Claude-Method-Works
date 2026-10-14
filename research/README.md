@@ -2832,7 +2832,7 @@ theorem rather than by engineering.
 |---|---|
 | Casimir between boundaries | **measured** |
 | squeezed vacuum | **measured** — LIGO uses it |
-| dynamical Casimir | **measured** — Wilson 2011, superconducting circuit |
+| dynamical Casimir | **observed** — Wilson 2011, superconducting circuit: photon generation and two-mode squeezing from an effective circuit boundary; **no energy density measured** *(corrected, DOCKET 67: listed as "measured" in this census of negative energy density)* |
 | Hawking / Unruh flux | analogue-measured |
 | vacuum polarisation | **measured** via the Lamb shift |
 
@@ -4943,7 +4943,10 @@ Einstein's equation (with a reasonable source)."*
 
 ### 4. Borde's three escapes — all leave Lorentzian GR
 
-drop causal compactness → Tipler's singularity **or a point at infinity** (*"highly undesirable"*);
+drop causal compactness → in the closed-universe case, and under Tipler's further assumptions
+(unnamed in Borde, Tipler 1977 not read), a singularity **or a point at infinity** (*"highly
+undesirable"*) *(corrected, DOCKET 67: the closed-universe case and the additional assumptions
+had been dropped)*;
 weaken the curvature constraints → an alteration of Einstein's equation that *"would have to be fairly
 severe"*; Euclidean path integral → abandons the Lorentzian framework.
 
@@ -10179,14 +10182,16 @@ in every way except the only one that counts.
 > wrong way: a gradient makes `T_kk` *strictly* positive.
 
 **BUT THE MAGNITUDE IS THERE, AND IT IS THE FIRST OVERSHOOT IN THE THREAD.** `V_min = −m_h²v²/8 =
--1.187857e+08 GeV⁴` = **`2.476937e+45 J/m³`** against `pressure.py`'s `2.073325e+42 Pa` — **1195× more than the
+-1.186529e+08 GeV⁴` = **`2.474168e+45 J/m³`** at the READ `m_h = 125.13 GeV` against `pressure.py`'s `2.073325e+42 Pa` — **1193× more than the
 throat needs**, with the sign of `ρ` right as well. `amps.py` fell short by seventeen orders,
 `kugelblitz.py` by fifty-six, `persist.py` by sixty-nine. **This one overshoots.**
 
 Two caveats, neither small: the **absolute normalisation of `V` is not measured** — the figure is the
 electroweak contribution to `Λ` under `V(0)=0`, exceeding the observed vacuum energy by **54.62 orders,
-which is the cosmological constant problem**; and **it is uniform**, so it does not localise. **A resource
-you cannot put somewhere is not a resource.**
+which is the cosmological constant problem**; and **it is uniform where nothing sources it** (P-UNIFORM, a named premise: `massform.P_UNIFORM_STATUS`) — it can be
+displaced in one place only by filling that place with a source carrying about `2/ε` times the field energy it
+buys (`excite.py`; the first wording, "it does not localise", was false as written). **A resource you can put
+somewhere only by putting something far larger there is not a resource.**
 
 **THE ESCAPE IS ξ, AND THE GATE ON IT IS THE HIERARCHY PROBLEM.** Barceló–Visser find *"an entire branch of
 traversable wormholes for every ξ > 0"* — but pointwise NEC violation is cheap and **ANEC is not**: their
@@ -12412,3 +12417,977 @@ comparison so the finding is re-measurable rather than narrated.
   accepted a label in its point tuple and **silently dropped it**, so a caption promising labelled
   dots would have shipped with none. `render/mi-plate.html` is kept as the record of what the master
   index looked like when it was the nine. See DOCKET 19.
+
+## `nucbands.py` — the route `subpop.py` declared closed, reopened by the corpus's own navigation law
+
+**DOCKET 35.** `subpop.py` §4 named nuclear rotational bands as a candidate index and then shut it:
+four searches for a level scheme returned nothing, and the file concluded *"THE STONE IS TURNED AND
+THERE IS NOTHING UNDER IT THIS ENVIRONMENT CAN REACH."* **That was false, and this project had
+already written down why.**
+
+`NAVIGATION.md` §3 is a retrieval law derived from the three-body index, not a search habit:
+**navigate by join, never by meet.** Measured on the triangle form, meet failures run
+12 → 111 → 477 → … → 90,705 by cap; **join failures are 0 at every cap.** *"Certainty survives
+upward and dies downward. Brackets combine; they do not refine."* All four failed searches were
+**meets** — ENSDF ∧ API, nuclear-data ∧ pypi, corpus ∧ level-scheme. Run as a **join** over the
+paper database, the route opens immediately. `curl` to arxiv.org returns **403** through the egress
+proxy, exactly as ENSDF does; the connector is a different bracket, and the join reached what the
+direct fetch could not.
+
+### The capture, and why its totality is provable
+
+`nbcapture.py` parses `captures/arxiv-2303.13849.txt` (Teng & Ma, *Magnetic and antimagnetic
+rotational bands data tables*, submitted to Atomic Data and Nuclear Data Tables), seated in the tree
+so the capture reproduces **with no network at all**. The totality argument is not "the queries
+looked complete" — it is the paper's own census, reproduced exactly and independently for the two
+tables:
+
+| table | the paper states | the parse finds |
+|---|---|---|
+| A, magnetic rotation | 252 bands in 123 nuclei | **252 / 123** |
+| B, antimagnetic rotation | 38 bands in 27 nuclei | **38 / 27** |
+
+**And a count fixture cannot catch a parser that reads the right number of wrong things**, so the
+second check is the physics each paper states as the *defining* property of its bands:
+
+- **AMR is ΔI = 2 — and 213 of 213 consecutive steps are.** 100 %.
+- **MR is ΔI = 1 — and 1,758 of 1,762 are.**
+
+The four exceptions are two bands and **neither is the parser's**. `85Zr` band 1 steps
+31/2 → 35/2 → 39/2: the source prints exactly that, two ΔI = 2 steps at the top of the band carrying
+only E2 energies and no M1 — a band crossing, real physics. `133Pr` band 3 prints **(57/2⁻) between
+(45/2⁻) and (49/2⁻)**; the energies 6323.6 / 6824.6 / 7372.8 run in order and the E2 cascade is
+unbroken, so the level is 47/2 and **the 5 is a typo in the published table**. Captured as printed,
+named in `SOURCE_FAULTS`, **recorded and not repaired**.
+
+### The index, and two refusals on the criterion
+
+`nucbands.py` seats **2,145 nuclear excited states on (2I, parity)** — 121 cells, cell **(2, 63, 2)**.
+A level is the quantum object, carrying I and π exactly as a particle carries J and P. Two groups are
+**refused on the criterion rather than dropped**, and counted apart because they are different facts
+about the source: **27 bands the source prints with no I^π column at all** (energies relative to an
+unknown bandhead — `200Pb 1 X`, then 100.6+X, 223.9+X), and **93 levels with a spin but no parity**.
+
+The **band** chart — 67 cells, same channel — is measured and **not** seated. A band is a *family* of
+levels; seating both the tower and its rungs would be two vertices for one subject, which is the
+over-representation the register exists to prevent.
+
+### The K2 is the free one, and the file says so
+
+The index closes in `{statistics}` — channel K2. **It would be a lie to bank that as a closure.**
+`kdet` opens `if k >= d: return True`, so at arity 2 statistics closes for nothing, and this tree has
+measured 105 of 105 arity-2 charts closing it. **The nuclear band index closes in nothing**; its real
+content is K0, where `mesons` and `baryons` also sit. And no third coordinate rescues it — every
+superset **loses** the channel:
+
+| K | cells | cell | coordinates |
+|---|---|---|---|
+| **K2** | 121 | (2, 63, 2) | 2I, π |
+| K0 | 194 | (0, 64, 4) | 2I, π, ΔI |
+| K0 | 997 | (0, 85, 34) | 2I, π, Z |
+| K0 | 1,247 | (0, 83, 42) | 2I, π, N |
+| K0 | 1,054 | (0, 85, 42) | 2I, π, ΔI, Z |
+| K0 | 1,307 | (0, 80, 55) | 2I, π, ΔI, N |
+| K0 | 1,672 | (0, 61, 74) | 2I, π, Z, N |
+| K0 | 1,715 | (0, 59, 81) | 2I, π, ΔI, Z, N |
+
+**All seven supersets are measured and every one loses the channel.** The last row had to wait for
+the CPU: `mi.K` runs five closure operators over every pair of coordinates and that chart is the
+largest here, so it timed out at 40 minutes. It was carried as `UNMEASURED` in the instrument, on
+the plate and here — **named rather than filled in from the six K0 rows above**, with a fixture
+asserting exactly that — until a 90-minute run returned `K0, 1,715 cells, (0, 59, 81)`. **The guess
+would have been right and withholding it was still correct:** a pattern in six is not a measurement
+of the seventh, and the only way to know which it was is to spend the CPU.
+
+### The second paper is captured and **not** parsed
+
+The same join returned **arXiv:2508.05447** — two-quasiparticle bands in **deformed** odd-odd nuclei,
+which is the object `subpop.py` actually named, and a *different mechanism* from the shears rotation
+of near-spherical nuclei above. Its text is seated in `captures/`. **It is not indexed — and `deformed.py` (DOCKET 36)
+now records a RETRACTION, because the first answer I gave was wrong.**
+
+Four forward parses came up short — 154, 176, 160, 195 entries against the stated 234 — and each fix
+was a better guess at the line shapes that moved the number without explaining the gap. That is
+fitting a parser to a target, which is the fault DOCKET 23 refused. **Working backwards explains all
+four at once.** The paper's own *Explanation of Table 3* states its delimiter:
+
+> *"A single blank row separates the entries for each band. The number in the first column indicates
+> the band number."*
+
+**The delimiter is a blank row, and it is not in this file.** 234 entries over 24 nuclide sections
+need **210** separators; the extraction holds **71** blank lines and **none** is one — 50 sit at a
+page boundary and 21 sit *inside* a nuclide header (A / Z / blank / N / symbol; 21 not 24 because
+three headers print Z and N on one line). Checked directly at the 156-Ho entry 1 → 2 boundary, where
+the specification requires a blank row: **there is none.**
+
+**And then I over-concluded, which an adversarial audit caught.** From "the delimiter the *document
+defines* is absent" I wrote "no regex recovers a delimiter that is not there … a fifth parse would
+fail too". That is a claim about every possible parse and it was never measured. **A fifth parse
+succeeds.** A sequence-with-reset rule on the band number — take the next expected integer, or a `1`
+that opens a new nuclide, and nothing else — recovers **233 of the 234 entries**, in **24 blocks
+matching the 24 nuclide sections**, every block contiguous 1..n. The four earlier attempts failed
+because they *relaxed* the sequence constraint; **tightening it is what works**, and once the scan
+seeks one value at a time the band number's ambiguity with page numbers stops mattering (692
+candidate lines, 459 of them noise, none chosen).
+
+An earlier claim here that the proxy's bypass list is "package registries only" was also wrong, and
+is withdrawn: `storage.googleapis.com` and `github.com` both tunnel. It is moot anyway — the
+boundaries come out of the text already in hand.
+
+What *is* recoverable is not nothing: the **24 nuclide sections** resolve cleanly with Z and N for
+every one (Ho ×8, Tm ×11, Lu ×5), and the level rows come out once the wrapped parity is rejoined and
+*relative* energies are admitted — this table writes bandheads as `A+134.27` and `1135.7+y`, which no
+absolute-energy token matches. But **which levels belong to which band is exactly what the lost
+delimiter carried**, and the census that would show a capture total is a census of bands. So nothing
+is seated.
+
+**What remains is one entry of the 234**, and the totality argument that follows from finding it.
+Nothing is seated, and the reason is no longer impossibility — it is that 233 is not 234. **The
+docket is open on one missing entry, not on an input.**
+`python3 research/warp-drive/deformed.py --selftest` — the retraction, as fixtures.
+
+**Reproduce:** `python3 research/warp-drive/nbcapture.py --selftest` (12 fixtures, the paper's own
+census and its own selection rule), `python3 research/warp-drive/nucbands.py --selftest`,
+`python3 research/warp-drive/nucbands.py --sweep`.
+
+**Two plates, and the first one in this tree with no 3-D view.** `render/build_particle_plates.py`
+now builds `spin4-plate.html` and `nucbands-plate.html` — DOCKET 34's index had never had a
+rendering either, which is a gap this pass closes. The spin-4 plate carries the usual swept 3-D
+view, because that chart is arity 3. **The nucbands plate does not, and cannot**: the seated index
+is arity 2, and the only way to give it a third axis is to chart `(2I, π, ΔI)`, `(2I, π, Z)` or
+`(2I, π, N)` — **each of which is a different chart at K0**, measured and tabled on the plate
+itself. So the earlier claim *"every seated index now has a rendering, and every rendering has a
+3-D view"* holds in its first half and **no longer holds in its second**. Drawing a third axis that
+the index does not have would have been a picture of a chart nobody seated.
+
+## `bonds.py`, `predict.py`, `ghosts.py` — what the register predicts, and the law that decides how much of it is real
+
+Three passes, asked in three sentences, and the third one turned into a theorem that governs the
+other two.
+
+### `bonds.py` — DOCKET 37: can a bond be indexed? Three readings, three noes, three grounds
+
+M: *"Can we also derive an index or indexes of chemical, atomic, and particle bonds?"* The criterion
+in `registry.py` is that **a member must carry quantum numbers of its own**, and a bond is measured
+three ways here, each refused on its own measured ground and none on the criterion twice:
+
+- **the chemical bond** — σ/π/δ is the *symmetry* of a molecular orbital, so what carries the quantum
+  numbers is the orbital, not the bond; `sigma_terms_from_pi2()` measures the classic π² → (³Σ⁻, ¹Δ,
+  ¹Σ⁺) decomposition and the terms belong to the *configuration*.
+- **the nuclear/atomic bond** — binding energy is a magnitude, not a quantum number, and
+  `basis_spread()` shows the candidate coordinates are basis-set artefacts (5 → 10 → 110).
+- **the scattering channel** — `partial_waves(3)` gives 14 channels at J ≤ 3 and they are *already*
+  the (J, P) index; charting them again is the overlap ruling's second ground, a relabelling.
+
+`channels_exhausted()` closes it: all eight lawful channels are already occupied, so even a chart
+that survived the criterion would earn no position. **14 fixtures, stdlib only.**
+`python3 research/warp-drive/bonds.py --selftest`
+
+### `predict.py` — DOCKET 38: E per seated index, and why E is an upper bound
+
+§25.6 says the number of predictions an index can make is E(X). `demand.py` computed E for the
+*figure*; it had never been computed for the seated indexes. Measured over all twenty-two that close
+(`gravity`, at 914 cells, does not and is named rather than dropped): **3,206 cells the register's own
+join-closure demands and no member occupies**, led by baryons 1,012, readrezayi 678, channels 367.
+Sixteen indexes predict; six are complete. The split is exact — every E = 0 index closes under
+INFORMATION and every E > 0 index does not — and that is near-definitional, so it is stated as such
+and not as a result.
+
+The result is the second half. **An E cell is not a prediction until it is adjudicated**, and the
+first cell examined was neither forbidden nor open: `(2J, P, 2I, Q3) = (2, −1, 0, 3)` is the D_s slot,
+and **D_s\*(2112)+ exists** — the capture simply carries it with no parity. So E splits three ways:
+FORBIDDEN (a bound rules it out), **UNPLACED** (the object exists and the *source* gives it no
+coordinates), OPEN (a real prediction). `python3 research/warp-drive/predict.py --selftest`
+
+### `ghosts.py` — DOCKET 39: the bound per index, UNPLACED separated from OPEN, and seven laws
+
+M: *"Do the bound per index and separate UNPLACED from OPEN. Derive all you can, including proofs,
+theorems, and laws."* Both halves are done. The first half came back **mostly negative, and the
+reason is a theorem rather than a shortage of physics.**
+
+**LAW 1 — PROJECTION.** π_i(J(X)) = π_i(X): the join is componentwise max, and max(a,b) ∈ {a,b}, so
+the demand never invents a coordinate value. **No single-coordinate bound can forbid anything.**
+Measured: of 1,012 demanded baryon cells, **zero** carry an even 2J.
+
+**LAW 2 — MAX-STABILITY.** If X ⊆ B and B is closed under componentwise max then J(X) ⊆ B. J(X) is
+the least max-closed set containing X.
+
+**LAW 3 — MONOTONE VACUITY.** A bound `x_i ≤ f(x_j…)` with f non-decreasing is max-closed, hence
+forbids nothing. *Proof:* c_i = max(a_i,b_i) = a_i ≤ f(a_j) ≤ f(c_j). **This is the finding.** Every
+atomic and nuclear bound in this tree has exactly that shape — ℓ ≤ n−1 (the radial node count
+n−ℓ−1 ≥ 0), k ≤ 2(2ℓ+1) (Pauli), q ≤ k, ℓ = 0 ⇒ σ = +1 (j = ℓ ± ½ and j ≥ 0), occ ≤ Pauli-through-S_a
+— all five are real theorems, all five hold on **every** seated member with zero violations, and
+**all five forbid nothing**. A sixth was sought at the largest of the undecided indexes and found:
+Russell–Saunders gives a singlet one level, so `mult = 1 ⇒ the term is not SHORT` on `terms`. It is
+monotone too. Not "nothing was found": nothing *can* be found. `max_closed()` verifies
+the hypothesis by exhaustion over each index's own product box rather than reading it off the algebra.
+
+**LAW 4 — WHAT CAN FORBID.** Only a bound that is antitone somewhere, or carries a congruence. **One
+qualifies in this tree and it qualifies twice over: Gell-Mann–Nishijima on the baryons**, which has
+an absolute value *and* a mod-2 congruence. It forbids **593 of the 1,012** demanded baryon cells —
+**58.6 % of the largest prediction set in the register, emptied by theorem.**
+
+**LAW 5 — COORDINATE EXPRESSIBILITY.** A bound B(c, v) on a cell and a hidden variable forbids c iff
+*no* v satisfies it. Worked both ways:
+
+> **Theorem.** Every (J, P) with J a non-negative integer and P = ±1 is realised by some qq̄ (L, S).
+> *Proof, four cases.* P = −1 needs L even: J even → (L,S) = (J,0); J odd → (J−1, 1); J = 0 forces
+> L = S, and L = S = 0 gives 0⁻. P = +1 needs L odd: J odd → (J,0); J even ≥ 2 → (J−1,1); J = 0 gives
+> L = S = 1, i.e. 0⁺. ∎
+
+So **the quark model forbids no cell of the meson index.** The famous exotics — 0⁻⁻, 0⁺⁻, 1⁻⁺, 2⁺⁻ —
+are forbidden in J^PC, and **C is not a coordinate**: `mesons.py` refused it for totality, 168 of 250
+mesons carrying no C at all. The refusal was right and it has a price, and this is the first time the
+price is measured. **A coordinate refused for totality is adjudication power given up.**
+
+**LAW 6 — ADJUDICATION IS RELATIVE TO THE OPERATOR, and this corrects DOCKET 38.** `predict.py` cited
+the element layer's "E = 36, split 25 forbidden + 11 deferred" as the precedent without saying that
+the 36 is an **order** deficit while all 3,206 are **join** deficits — `tools/cypher.py`'s own fixture
+reads `("periodic table 2-D", {"order": 36})`. Measured on those same 90 cells: **E_join = 0,
+E_order = 36**, and ℓ ≤ n−1 forbids **25** of the order ghosts and **0** of the join ghosts. Law 3 says
+it could never have been otherwise. The three bins survive intact; the precedent is re-attributed,
+and the note is recorded inside `predict.py` rather than tidied away.
+
+**LAW 7 — FORBIDDING POWER IS A PROPERTY OF THE CHART, NOT THE BOUND.** The same ℓ ≤ n−1 forbids 25
+cells on (period, group), 0 on (n, ℓ, k) and 0 on (n+ℓ, ℓ, k). **And the caution is sharper than the
+law:** DOCKET 2 *withdrew* the 2-D layout as over-representation, and it is exactly the chart on which
+the bound has teeth. A chart that can forbid is not thereby a better chart.
+
+#### Gell-Mann–Nishijima is not assumed here — it is measured off the quark strings
+
+`gmn_from_quarks()` rebuilds all three legs from the capture's own quark content, importing no
+textbook value: charge from the quark charges, I₃ = (n_u − n_d)/2, and the identity Q − I₃ = Y/2.
+**Baryons: 292 rows, 292 parse, 292/292 on all three legs, no exception.** Mesons: 250 rows, **191
+parse** (59 are flavour mixtures — which is exactly *why* `mesons.py` could not chart S, C and B, and
+therefore why the bound is inexpressible there), charge 191/191, identity 191/191, **and the isospin
+weight fails twice.**
+
+> **A fault in the capture, found by a bound rather than by re-reading the source.**
+> `B(s2)*(5840)0` and its antiparticle carry quark content `sB` with I2 = 1, while the *same* content
+> on `B(s)0` and `B(s)*0` carries I2 = 0 in the same file (`captures/PDG-2026.tsv` lines 370–372,
+> 452–454). An s-b̄ pair holds no u or d, so I₃ = 0 and I = ½ has no weight to sit on.
+> **Recorded, not repaired** — and `bs2_consequence()` measures what it costs: with I2 = 0 on both
+> rows the meson index is 66 cells, E = 15, cell (0, 10, 14) — *identical* before and after, because
+> both (4,1,1,0) and (4,1,0,0) are already occupied. The fault is real and demonstrably inconsequential
+> here, and neither half of that is asserted without the number.
+
+#### UNPLACED separated from OPEN, and the separator is a rule
+
+> A demanded cell **c** is **UNPLACED** iff the index's own source holds a row the module declined to
+> chart which supplies **arity − 1** of the coordinates and agrees with c on every one of them.
+
+The strength condition is the whole rule: a row missing one coordinate names a line and pins each
+cell on it; a row missing two names a plane and pins nothing. Without it, four thousand unparsed NIST
+term labels would "explain" every empty cell in `terms`.
+
+| index | E | FORBIDDEN | UNPLACED | OPEN | what pins |
+|---|---|---|---|---|---|
+| baryons | 1012 | **593** | 8 | 411 | 14 rows with no P (Ξ, Ω) |
+| readrezayi | 678 | 0 | 0 | 678 | source gapless |
+| channels | 367 | 0 | **23** | 344 | 25 rows with a non-integer B |
+| ions | 296 | 0 | 0 | 296 | source gapless |
+| laws | 254 | 0 | 0 | 254 | 13 dropped, none pins a cell |
+| fibred | 140 | 0 | 0 | 140 | source gapless |
+| probability | 112 | 0 | 0 | 112 | source gapless |
+| terms | 98 | 0 | — | — | **UNDECIDED** |
+| fqh | 71 | 0 | 0 | 71 | source gapless |
+| observed | 56 | 0 | 0 | 56 | source gapless |
+| fundamental | 46 | 0 | 0 | 46 | source gapless |
+| inversion | 24 | 0 | 0 | 24 | source gapless |
+| madrule | 18 | 0 | 0 | 18 | source gapless |
+| mesons | 15 | 0 | **3** | 12 | 8 rows with no P (D, D_s) |
+| nucshell | 14 | 0 | 0 | 14 | source gapless |
+| nucbands | 5 | 0 | **2** | 3 | 93 levels with no parity |
+| **TOTAL** | **3,206** | **593** | **36** | **2,479** | **+ 98 UNDECIDED** |
+
+"Source gapless" is measured, not assumed: `gapless()` re-counts source rows against rows charted for
+all ten and requires equality. **Three UNPLACED meson cells are pinned by two objects, not three** —
+D_s2\*(2573)+ lacks only P, so it pins both (4,−1,0,3) and (4,+1,0,3) and will fill exactly one;
+`unplaced_objects()` counts objects beside cells so the two are never confused.
+
+**`terms` is the one refusal and its reason is exact.** 4,033 of 16,624 NIST rows carry a bracketed
+jK/jj/Racah label, which supplies neither `mult` nor `L` — two of four coordinates — so none can pin
+a cell. But `terms._load()` discards a refused row *without banking its term key*, so the tree cannot
+ask the one question that would settle it: **is there a term all of whose level rows were refused?**
+Such a term would supply mult, L and parity and lack only `completeness` — exactly strength
+arity − 1. **What would settle it: have the loader bank the refused rows' keys.** Until then 98 cells
+are UNDECIDED and are counted as neither.
+
+**What this refuses.** To call 2,479 a count of undiscovered objects. For the seven indexes with a
+derived bound the OPEN figure is **final against every monotone bound, by Law 3** — that is a proof,
+not a survey. For the eight with none derived it is open against nothing at all, and a bound found
+tomorrow may empty any of them. The two situations are different and are not summed into one
+adjective.
+
+**Reproduce:** `python3 research/warp-drive/ghosts.py --selftest` (the whole table is re-measured from
+the tree, not sampled) and `python3 research/warp-drive/ghosts.py` for the reading.
+
+## The master-index paper, brought current — and the eight channels are all occupied
+
+`paper/THE-MASTER-INDEX.md` had gone stale by nine vertices. *(The paper is now `paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md`, renamed to match its own title; the old name is kept in this sentence because it is what the file was called when the sentence was true.)* It was generated on **14** seated
+indexes and the registry now holds **23**; every figure in it is substituted from an instrument at
+build time, so the staleness was in the *file* and not in the generator. Regenerating it changed the
+vertex count, the seating table, the self-chart, the arity census and the channel occupancy line. Of
+those, one is a result and one was a bug.
+
+**The result: every one of the eight lawful channels is now occupied by a seated index.** Theorem 1
+proves at most 8 of the 32 subsets of the five closure languages can occur and characterises them as
+the down-sets of the hierarchy law; its converse half was proved *by exhibition* — a set of cells
+built for each down-set. That is now superseded by something stronger: **each down-set is realised by
+a chart of real atomic, nuclear or particle data whose members carry quantum numbers.** The bound is
+tight from nature, not only by construction.
+
+| channel | closes | held by |
+|---|---|---|
+| K0 | — | ions, channels, laws, gravity, terms, observed, mesons, baryons, fqh, readrezayi |
+| K1 | information | gravity_bound |
+| K2 | statistics | probability, inversion, madrule, fundamental, nucbands |
+| K3 | geometry, statistics | fibred, nucshell |
+| K4 | information, statistics | **spin4** |
+| K5 | geometry, information, statistics | baryon_isomultiplet |
+| K6 | order, algebra, information, statistics | madelung_slot |
+| K7 | all five | madelung, bosonqp |
+
+**And K4 fell in the way that makes it a measurement.** §6's Theorem 2 — 2-determinacy is vacuous at
+arity 2, so statistics closes *every* arity-2 chart — is why K4 was the hard channel: the law protects
+K5 and K6 from the free pass (geometry closing forces statistics, and so does the order/algebra
+block), while K4 = {information, statistics} has no such protection, so its extra content is exactly
+the bit an arity-2 chart is given. For a long stretch the only charts reaching K4 were arity 2.
+**`spin4` is arity 3** — (P, 2I, Q3) — where 2-determinacy is not vacuous and statistics has to be
+earned. The section's heading changes from *"why one channel stays empty"* to *"why one channel was
+the last to fall"*, and the explanation survives as an explanation of the difficulty rather than of
+an absence.
+
+**The bug: with no empty channels the sentence rendered as `K0…K7. &nbsp; are empty.`** A template
+that could not say "none" said nothing and left the verb. Fixed at the source, and §5 now prints the
+occupancy table above.
+
+**Two claims were inaccurate and are corrected rather than quietly dropped.** §1 said *"the subject is
+the periodic elements"*; the subject was widened by ruling to quantum objects generally, and the
+seated set now includes mesons, baryons, quasiparticles and nuclear excited states. The subtitle said
+the paper settles *"why one channel has proved unreachable"*; no channel is unreachable.
+
+**A new §9 carries DOCKET 39 in full** — the demand per seated index, Theorems 3, 4 and 5 with their
+proofs, Gell-Mann–Nishijima re-derived from the source's own quark strings, the capture fault it
+found, the operator-relativity correction, and the FORBIDDEN / UNPLACED / OPEN table. Sections 9–11
+renumber to 10–12.
+
+**The substitution guard is now a test rather than a record.** `mipaper.py`'s selftest forbids a
+four-digit literal surviving in the prose, and its allow-list was hand-kept — a list of numbers
+someone had noticed, which grows every time a figure is added and never catches anything again. It
+now admits a numeral only if **some instrument actually produced it**: every integer reachable in the
+`facts()` dict is collected recursively and compared against the rendered text. A typed number no
+instrument computes is still caught, and a real one no longer needs to be remembered.
+
+**Reproduce:** `python3 research/warp-drive/paper/mipaper.py --selftest`, then `--md` and `--pdf`.
+
+## DOCKET 36 closed — the 234th entry was one line with a full stop on it
+
+`deformed.py` had the capture at **233 of the paper's 234** entries and two entries carrying a
+falling spin sequence. Splitting both would have given 235, so the gap was left open rather than
+forced. It is now closed, and the missing entry was not subtle.
+
+**At 164-Ho the band-number line is printed `6. `**, and the segmentation regex
+`SEG = ^(\d{1,3})(\s|$)` refuses it — after the `6` comes a period, not whitespace. Every other band
+number in the table is bare.
+
+**It is a band number and not a comment marker, and none of the four reasons is the count:**
+
+- its value is exactly the one the scan was expecting at that moment (the previous entry is band 5);
+- the comment numbering **restarts at 1** immediately below it — `1. π7/2[523]ν11/2[505]`, which is
+  what comment 1 of an entry always is. A comment marker `6.` followed by comment `1.` is not a
+  reading anyone would defend;
+- the energy offset changes from `+x` to `+y`, and a band has **one** bandhead;
+- a new reference, `2005LI63`, opens under it.
+
+**The shape is admitted narrowly, and that matters more than the find.** The obvious repair — let the
+band-number regex take an optional period — is wrong and measurably so: the comment column is itself
+numbered `1. `, `2. `, `3. `, so the candidate pool jumps 692 → 1,032 and the rule returns **380**
+boundaries against 234. `SEGDOT` therefore matches a bare integer with a period *and nothing else on
+the line*. **Exactly one line in the whole table region has that shape.** Pool 692 → 693, noise
+rejected unchanged at 459.
+
+### The capture is total against the paper's own census
+
+| | paper | captured | |
+|---|---|---|---|
+| entries | 234 | **234** | EXACT |
+| bands (≥2 levels) | 173 | **173** | EXACT |
+| bandhead states | 61 | **61** | EXACT |
+| levels attached | — | 1,964 | |
+
+**Three independent numbers, and the third was already exact before the 234th entry was found** —
+which is what made the search well-posed. A split adds one entry *and* one band and leaves bandheads
+alone, so only a split could close the gap, and only one split could. Two structural checks hold
+beside them: **24 blocks against 24 nuclide sections, every block contiguous 1..n.**
+
+**The paper's other four figures are not validators, and were checked rather than passed over.** 63 GM
+doublets, 76 with signature splitting, 29 with inversion, 10 band crossings are counts the paper
+makes *in prose* about its dataset, not censuses of a table column: the comment text yields 73, 25
+and 10 for the last three and **nothing at all** for GM doublets, a phrase the table never prints. A
+capture is not validated against a number its source does not tabulate.
+
+### One discontinuity remains, and it is the source's
+
+**164-Lu band 4** runs (23⁺) (24⁺) (25⁺) then (16⁻) (18⁻) (20⁻) (22⁻) — the spin falls and the parity
+flips, neither of which a rotational band does. It is **not** a missed boundary, and the same four
+tests that convicted `6. ` acquit it: no integer line of any shape at the break, the comment
+numbering runs 1, 2, 3 straight across, the offset stays `+z`, no new reference opens — and the
+transition energies are **one smooth cascade** across it: 344.4, 411.4, 472.1, 519.7, 553.9, 584.4.
+The paper prints it as one entry and the capture takes it as one. Whether the printed spins are right
+is the paper's business. **Recorded, not repaired.**
+
+### Measured, not seated
+
+On (2I, parity) — `nucbands.py`'s coordinates — these levels give **96 cells, K2, cell (2, 49, 2)**,
+from **1,907** levels carrying both quantum numbers and **56** carrying no parity. *(Those two
+figures read 1,904 and 60 when this section was written, and both moved under later audits — see
+DOCKET 36b and the audit section below. The cell and the channel did not move.)* That cell is held by no
+seated index, and the member set is a new one: deformed odd-odd nuclei at 156 ≤ A ≤ 168, not the
+near-spherical shears bands `nucbands` already seats. **So it is a seating candidate.** A capture is
+not an index, seating is a ruling, and `deformed.py` does not make it — `docket36_chart()` reports
+the numbers so the question can be asked with them in hand.
+
+**None of the three blocked routes was needed.** No second extraction, no mirror, no external level
+scheme — the whole of it came out of the text already in hand. **The docket is closed on the capture
+and open on seating.**
+
+**Reproduce:** `python3 research/warp-drive/deformed.py --selftest` (29 fixtures), then `--write`.
+
+## DOCKET 36b — the deformed two-quasiparticle levels, seated as the 24th index
+
+The capture closed; the seating is a separate ruling and this is it. `deformedbands.py` charts
+`deformed.entries()` on **(2I, parity)** and the result is **96 cells, channel K2, cell (2, 49, 2)**,
+from **1,907 levels** carrying both quantum numbers. **56 levels carry a spin and no parity and are
+refused apart** — refused, not dropped, and counted where anyone can see them.
+
+**The cell was held by nobody**, and that is the whole of the novelty argument. The other three
+grounds of the overlap ruling are not argued, because Lemma 7.1 of `paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md`
+says they have no subject here:
+this member set shares **zero nuclides** with `nucbands`, the only other index on those two
+coordinate names, so there is no parent to coarsen and "strictly fewer cells than its parent" is
+undefined. **Sharing a coordinate's name is not sharing information.**
+
+### What is refused, each against a number
+
+| candidate coordinate | measured | verdict |
+|---|---|---|
+| band number | 234 distinct over 234 entries, ratio **1.0000** | a row label, refused |
+| energy | a magnitude, and 61 bandheads are printed against an unknown offset | refused |
+| Z and N | the **host nuclide's**, not the level's — Lemma 2.1 | refused, and charted anyway: 853 cells, K0, (0, 52, 40) |
+
+The Z/N refusal paid for itself. A later audit found **35 of 234 entries booked to the wrong
+nuclide**; because Z and N were not coordinates, the defect could not reach the chart. A refusal
+that costs nothing is not evidence; one that catches a real defect is.
+
+**Its K2 is the free one.** Arity 2, so `kdet` is vacuous by Theorem 2 and this index really closes
+in nothing — stated rather than left for a reader to infer from the channel.
+
+**Reproduce:** `python3 research/warp-drive/deformedbands.py --selftest`, then the plain run for
+the reading.
+
+## DOCKET 40 — no coefficients, exact calculations only
+
+A standing rule arrived mid-project: *no coefficients, exact calculations only, now that we have the
+ability to calculate and machine check any coefficient.* `exact.py` discharges it over the warp
+tree's own numbers. **Sixteen closed forms, none disagreeing with the decimal the tree quotes.**
+
+**The two the provenance census graded `MEASURED` are surds, and nothing was fitted:**
+
+```
+X       = 20000*sqrt(2501)/2501          = 399.920023992
+Lambda  = -2 + log(400000000/2501)       =   9.98252917419
+```
+
+They looked like coefficients because they had been *written* as coefficients. **Three quantities
+have no closed form and may not be used as numbers** — `xi` (the framework needs ξ > 0 and fixes no
+value), `l_UV` (an EFT cutoff nothing pins), and `0.0218 c`, which is `FITTED`: a least-squares zero
+of the null minimum, a measurement with a spread and never a derived number.
+
+### What exactness buys: the design derivatives
+
+```
+dLambda/dR_s = 2/R_s                = 1/100     at the seat
+dLambda/da   = -2a/(a^2 + b^2)      = -100/2501 at the seat
+dLambda/db   = -2b/(a^2 + b^2)      = -5000/2501 at the seat
+```
+
+**The ray parameter b is the strongest lever on the bill, by exactly 500000/2501 over R_s and
+exactly 50 over a.** Those are ratios of exact rationals, not a numerical comparison. And the sign
+threshold is a monotonicity argument rather than a scan: `dLambda/dX = 2/X > 0`, so Λ > 0 **iff**
+`R_s / sqrt(b^2 + a^2) > e/2`, and the seat sits at X = 399.92, strictly above.
+
+### A tolerance is itself a coefficient
+
+The census had quoted `3/(32π²)` as **0.009495**; the true value is **0.00949886**, wrong in the
+fourth significant digit, and the tolerance that should have caught it was a decade too loose.
+Tightening it then rejected three *correct* roundings — wrong in both directions. It was replaced by
+a comparison of **significant digits**, with no free parameter at all.
+
+**Reproduce:** `python3 research/warp-drive/exact.py --selftest`, then plain for the reading, or
+`--json` for the website's calculator. Needs `sympy`.
+
+## DOCKET 41 — the asserted 2 is a theorem, and the census flagged the wrong digit
+
+`A = 2(p·p′)² − p²p′²` carried an asserted **2**. It is not asserted. `propagator.py` builds the de
+Donder numerator in general D,
+
+```
+P = 1/2 ( eta_ma eta_nb + eta_mb eta_na - 2/(D-2) eta_mn eta_ab )
+```
+
+contracts `p^m p^n P p'^a p'^b` over all 4⁴ index assignments, and the explicit sum minus the closed
+form is **0**. **The leading 2 is the two pairings of a symmetric rank-2 source** — a count, not a
+fit, and the same in every dimension.
+
+**And the census flagged the wrong digit.** Writing `A = α(p·p′)² + β p²p′²`, the propagator fixes
+`β/α = -1/(D-2)` and Newton fixes the scale; solving gives **(α, β) = (2, −1), unique**. The 2 is
+dimension-free. **The silent 1 on `p²p′²` is `2/(D−2)`, and it is 1 only at D = 4.** A coefficient
+hides best when it is written as a 1 and therefore not written at all.
+
+| source | test | ratio in D | D = 4 |
+|---|---|---|---|
+| mass | mass | 1 | 1 |
+| mass | photon | (D−2)/(D−3) | **2** |
+| photon | photon ∥ | 0 | **0** |
+| photon | photon anti-∥ | 4(D−2)/(D−3) | **8** |
+
+**The zero is a theorem in every dimension** — co-propagating nulls have p·p′ = 0 identically and
+both squares vanish. **The 2 and the 8 are statements about four dimensions**: at D = 5 they are 3/2
+and 6, at D = 11 they are 9/8 and 9/2. What is removed is the impression that 8 falls out of the
+algebra alone; it falls out of the algebra *and* the dimension.
+
+**Machine-checked over the reals.** z3 returns `unsat` on both identities — no counterexample exists,
+which is stronger than a sample. It is a check on the **algebra**, not the physics: that the de
+Donder numerator is the right propagator and that a point source is `p^m p^n` are inputs, cited and
+not proved here.
+
+**Reproduce:** `python3 research/warp-drive/propagator.py --selftest`, then the plain run for the
+reading. Needs `sympy` and, for the machine-check leg, `z3-solver` — `machine_check()` imports z3
+directly and raises without it rather than reporting a pass it did not earn.
+
+## The audits, and what they found in this work
+
+Two adversarial passes were run over the seating and the paper. They found real defects and every
+one is fixed with a regression fixture, so they are listed here rather than smoothed over.
+
+**In the captures.** 35 of 234 entries were booked to the wrong nuclide. A table header was parsed as
+a nuclear level. **A printed parity that shared its line with the next row's isotope number was
+dropped at three sites** — `+ 164`, `+ 167`, `- 167` — so three parities were lost and their levels
+were counted among the refusals; that moved the seated member count 1,904 → **1,907** and the refusal
+count 59 → **56**. The split is admitted narrowly: exactly three lines in the table have the shape
+*sign, whitespace, content*, and an energy like `+x` has no whitespace and is untouched.
+
+**In the checks — the instructive half.** Two fixtures were **tautologies**: one recomputed its
+right-hand side the same way it computed the left and passed with three quarters of its capture
+deleted; another grepped the file's own source and was satisfied by a docstring. A third read a key
+its subject does not carry, so it compared two empty sets and was **vacuously true**. All three now
+test behaviour — shrink the capture and the index must shrink — and the vacuous one asserts both sets
+are non-empty before comparing them.
+
+**In the prose.** A quoted decimal was wrong in its fourth significant digit (DOCKET 40 above). A
+**false ground was given for a true claim**: the two nuclear indexes were said to occupy disjoint
+mass ranges, when in fact one spans A 58–205 and *contains* the other's 156–174 entirely. The zero
+overlap is a fact about which nuclides each source happens to tabulate, not about where they sit. The
+weaker, true ground replaces the stronger, false one — **and the claim it supported did not change.**
+
+**And a source overclaims its own title.** arXiv:2508.05447 is titled for `156 ≤ A ≤ 168`; its table
+runs to **A = 174**, with **132 levels above the claimed ceiling**. Recorded, not repaired.
+
+**Reproduce:** the fixtures are in the instruments they defend —
+`python3 research/warp-drive/deformed.py --selftest`, `deformedbands.py --selftest`,
+`exact.py --selftest`, and `paper/mipaper.py --selftest` for the paper's own figures.
+
+---
+
+## `nspin.py` — magnetic resonance: not a drive, but a datum
+
+Two questions were asked together and they have opposite answers.
+
+**As propulsion, a resonant rotating electromagnet fails by eighteen orders of magnitude.** Gravity
+couples to stress-energy, so a rotating field drags frames exactly as hard as its stored energy
+*weighs* — and at the world continuous-field record of **45 T** a half-metre rig stores **422 MJ**
+whose mass-equivalent is **4.7 nanograms**. Its gravitomagnetic field is **1.04 × 10⁻¹⁸ of Earth's**,
+and a test mass moving at 1 m/s inside it feels **3.6 × 10⁻³³ g**. Resonance is the right instinct and
+it is not enough: a cavity multiplies stored energy by Q, so the shortfall *is* a Q requirement, and
+it is **9.6 × 10¹⁷**. The idea also has a falsification on the record — Tajmar and de Matos predicted
+an enhanced gravitomagnetic London moment from a rotating superconductor and reported a signal;
+**Graham *et al.* (2008) got a null result within 1σ**, bounding any effect at ≥ 21× smaller than
+predicted. And `ROTATING-SHELL.md` already says the shape is wrong: a *single* rotating shell carries
+ADM angular momentum, so its exterior is Kerr, which destroys the exactly-Schwarzschild exterior the
+Fuchs construction is built on. Counter-rotation sets J = 0 exactly.
+
+**As index data, a ground-state nuclear-spin table is a real input, and it makes the gravity bound
+stronger.** `gravity.py` §8 refuses to call 2Jₑ the member's spin — *"the nuclear part is not
+banked"* — and that refusal names the missing datum. Nuclear spin I enters the chart today through
+one function, `forced(A, Ne) = (A + Ne) % 2`, which reads I's **parity** and never its value; the X
+axis is built from Jₑ alone. Read X from the total **F = Jₑ + I** instead:
+
+| | now (Jₑ only) | with I seated |
+|---|---|---|
+| image | **1,416** cells | **1,088** — 328 lost, **none gained** |
+| demanded 1,550 | FORBIDDEN 1,080, OPEN 470 | FORBIDDEN **1,208**, OPEN **342** |
+
+**Nothing is gained, which is the strongest form the answer could take.** The I-image is a *strict
+subset* of the present one, so seating I can only forbid — no adjudication already recorded can be
+reversed by it. One parity fact does the work: F = 1 means exactly one of I and Jₑ is
+half-odd-integer, so their sum cannot vanish, so **(F = 1, X = 0) leaves the image entirely**. 755
+seated members move off X = 0. `vanishes()`, which today rests on the pairing rule that
+`PAIRING_RULE_STATUS` marks an empirical rule and not a theorem, becomes **READ**.
+
+**Nothing is seated.** I is a *model* here — parity fixed by A, 2I to 16 — and the file says so. 168
+currently-seated cells fall outside the I-image and **every one of them reads X = 0**, which is the
+signature of a re-chart rather than a contradiction: X = 0 is precisely the reading a seated I
+replaces. A bound may not be swapped under a chart built without the datum the bound uses.
+
+**One defect, caught by the fixtures rather than by reading.** The first sweep let 2Jₑ range free of
+Nₑ's parity, when 2Jₑ is odd exactly when Nₑ is odd — the same fact `forced()` uses. That admitted
+2F = 0 at 34 cells the parity forbids and **understated the effect by 86 demanded cells** (reported
++42 where the true figure is +128). The fixture that caught it is kept.
+
+**Reproduce:** `python3 research/warp-drive/nspin.py --selftest` — 18 fixtures, stdlib only.
+
+---
+
+## The phonon index, seated — and what it did to the master index
+
+`phonondex.py` is now **registry row 25**, cell **(0, 12, 16)** — K0, height 12,
+width 16. 1,120 site-symmetry types over all 230 space groups, every number
+computed: spglib for the operations, transformed to the primitive basis;
+**Burnside's class-algebra method** for the character tables, validated before
+use; `χ(R,t) = N_fixed·tr(R)` decomposed by orthogonality. **No textbook
+character table and no Wyckoff table is read** — which is `bosonqp.py`'s ruling
+applied to a new index.
+
+**A member is (space group, site-symmetry type), not a material.** A material's
+Γ content is the *sum* over its occupied site orbits, so this is the generating
+table from which every material follows by addition — finite, exhaustive, no
+database. Verified six for six: diamond T2g+T1u, rocksalt 2T1u, zincblende 2T2,
+fluorite T2g+2T1u, perovskite 4T1u+T2u, CsCl 2T1u.
+
+**The granularity was forced, not chosen.** ITA lists P-1's eight inversion
+centres as 1a…1h; all eight contribute identically, so seating them separately
+would be over-representation. This index seats P-1 with **two** members, and the
+coarsening is a finding: the phonon representation cannot see the difference.
+
+**Seating it moved the master index, which is the point.** `figure.py` measures
+how well each coordinate resolves the seated indexes. At 24 rows height and
+width were **tied** at 17 distinct apiece, 17/24 = 0.7083. The 25th row breaks
+the tie — height now resolves 18 of 25, width still 17, so **0.72 against
+0.68**. Both pins were repinned with the reason recorded beside them.
+
+**Reproduce:** `python3 research/warp-drive/phonondex.py --selftest` — 24
+fixtures, stdlib against the banked capture; `--derive` rebuilds it and needs
+numpy and spglib, neither vendored.
+
+One pre-existing failure is *not* this index's: `index3.py` reports `STATE.md`
+has no cell, and it had none before this pass. Verified by stashing. Recorded,
+not repaired.
+
+---
+
+## The k-point extension, seated — and the bug the cross-check earned its keep by finding
+
+`kpointdex.py` is **registry row 26**, cell **(0, 7, 5)** — **870 isolated
+high-symmetry k-stars** over the 162 space groups that have any (68 have none).
+It discharges the refusal `phonondex.py` section 5 wrote down verbatim: *"at a
+general k the little group's representations are PROJECTIVE for non-symmorphic
+groups, which is a different computation."* It is a different computation, and
+it is now done.
+
+**The enumeration is the reciprocal-space analogue of a Wyckoff position.**
+A star is kept when its stabiliser fixes no direction — the analogue of a
+position with no free parameter — and k is taken modulo a reciprocal lattice
+vector, which direct space never had to handle. `kpoint_derive.py` finds them
+**grid-free**: k is isolated iff the stacked matrix `[R − I : R ∈ G_k]` has rank
+3, so some subset of size ≤ 3 already does, and each such subset's lattice is
+enumerated exactly by Hermite normal form. No k-point table is read.
+
+**Two independent implementations, and they do not share code.**
+`captures/kpoint_derive.py` writes `KPOINTS-HIGHSYM.tsv`;
+`captures/phonon_kpoints_derive.py` writes `PHONON-KPOINTS.tsv` from a 1/12 mesh
+instead of the HNF argument. Both were run to completion and compared, never
+merged.
+
+### THE CROSS-CHECK FOUND A REAL BUG, AND THREE WRONG DIAGNOSES BEFORE THE RIGHT ONE
+
+The second implementation first left **eighteen members UNRESOLVED** in nine
+cubic non-symmorphic groups. Commit `a4175cb` reported that as a convergence
+failure of Burnside's randomised eigenvector search, with a deterministic
+Dixon–Schneider diagonalisation as the remedy. **All of that is withdrawn.**
+
+| diagnosis | verdict |
+|---|---|
+| "the randomised eigenvector search does not converge" | **withdrawn** — reseeding did nothing |
+| "a real random combination cannot split a conjugate pair" | **withdrawn** — a complex one did nothing either |
+| "Dixon–Schneider is the remedy" | **withdrawn** — written, and it failed *identically* |
+
+Dixon–Schneider recovered **fewer irreps than conjugacy classes**, which is
+impossible for a finite group. That impossibility is what pointed at the input
+rather than the algorithm. The multiplier was `g = R₁⁻ᵀk − k`, which *is* a
+reciprocal lattice vector for R₁ in the little group — so every integrality
+check it met passed — but **is not a 2-cocycle**. Tested against
+`φ(a,b) + φ(ab,c) ≡ φ(b,c) + φ(a,bc) (mod 1)` at space groups 199, 212 and 230
+it deviates by **exactly 1/2**, and the "central extension" it built was not a
+group: associativity and inverses both fail, measured directly.
+
+| convention | 2-cocycle | worst deviation |
+|---|---|---|
+| `g = R₁⁻ᵀk − k` | **no** | **0.5** |
+| `K = k − R₁ᵀk` | yes | 0 |
+| `K = R₁ᵀk − k` | yes | 0 |
+| `g = k − R₁⁻ᵀk` | **no** | **0.5** |
+
+Burnside was correctly refusing malformed input. Corrected to `K₁ = k − R₁ᵀk`
+— which is the convention `kpoint_derive.py` had reached independently — every
+extension tests as a valid group and **all 870 resolve, with Σd² = |G_k| on
+every row of both files.**
+
+### CORRECTED, THE AGREEMENT IS TOTAL
+
+|  | measured |
+|---|---|
+| members | 870 and 870 |
+| UNRESOLVED | 0 and 0 |
+| (space group, \|G_k\|, star) multisets | identical |
+| dimension buckets | **314 of 314 agree** |
+| diamond at \|G_k\| = 16 | 2+2+2+2 from both |
+
+**A second figure is withdrawn with it.** This tree once reported "445 of 447
+buckets agree". That came from keying the comparison bucket on the multiplier's
+order — the one quantity the two are known to report differently — so wherever
+they disagreed the keys failed to intersect and those rows fell *out* of the
+comparison rather than into it. Keyed on `(space group, |G_k|, star)`, which is
+what a bucket should be, the agreement is total.
+
+### THE ONE REMAINING DIFFERENCE IS A GAUGE CHOICE, AND IT CORROBORATES
+
+At four hexagonal screw groups — 178, 179, 180, 181 — at one star each,
+k = (½,½,½) with |G_k| = 4 and 3 arms, the reported multiplier order differs by
+exactly three: **6 against 2** at 178/179, **3 against 1** at 180/181. Every
+other bucket in those groups agrees exactly. The order of ω's values is **not an
+invariant**: rescaling Γ(R) → λ(R)Γ(R) multiplies ω by a coboundary, which can
+change the values' order while leaving the cohomology class fixed. The class is
+the invariant, and the two agree on it everywhere — at 180/181 `kpoint_derive`'s
+z3 test already reports `nontrivial_multiplier = 0`, and the other
+implementation's n = 1 says the same in the sharpest form available: it landed
+in a gauge where ω is identically 1, **confirming the coboundary verdict without
+a solver**. Recorded as a difference in what is being counted; neither file is
+changed to match the other.
+
+**Reproduce:** `python3 research/warp-drive/kpointdex.py --selftest` — stdlib
+against the banked captures. `python3 captures/phonon_kpoints_derive.py
+--selftest` runs the cocycle test above at sg199/212/230 and a direct
+group-axiom test on every extension; `--check` rebuilds the capture and asserts
+it byte-identical (**verified: 870 rows, 0 failures, IDENTICAL**). Both
+derivations need numpy and spglib, neither vendored, and both **import**
+`phonon_derive` rather than copying it.
+
+---
+
+## The time-reversal extension, seated — the obstruction no unitary check can see
+
+`corepdex.py` is **registry row 27**, cell **(0, 6, 3)** — **3,529
+corepresentations** over kpointdex's own 870 isolated high-symmetry k-stars.
+
+`kpointdex` discharged the **projective** obstruction. Its own derivation wrote
+down why that is not the end of it, and the last clause is the whole difficulty:
+
+> *"Discharging the projective refusal is NECESSARY AND NOT SUFFICIENT. A second,
+> independent obstruction — TIME REVERSAL, via Herring's criterion — degenerates
+> levels at 126 space groups' TRIMs against the projective mechanism's 108, and
+> 56 space groups are touched by the antiunitary obstruction ALONE. An
+> implementation that discharges only the projective refusal is wrong at those 56
+> **and its integrality checks do not notice.**"*
+
+They cannot. The unitary answer is internally consistent — Σd² = |G_k| holds, the
+character table is orthogonal, every dimension is an integer — and simply
+incomplete. Time reversal is **antiunitary**: it is not an element of the little
+group, and no amount of care with the little group will find it.
+
+### THE MEMBER IS A LEVEL, NOT A STAR
+
+That is why this is an extension and not a recharting. kpointdex's member is a
+k-star; this one's is a single degenerate level at a star — a corepresentation,
+the physically irreducible object, what a spectrum shows as one multiplet.
+
+| | measured |
+|---|---|
+| corepresentations | **3,529** |
+| small representations behind them | 3,908 |
+| case (a) real / (b) pseudoreal / (c) complex pair / (x) | 3,138 / 12 / 297 / 82 |
+| **levels DOUBLED at k by time reversal** | **309** (8.8%) |
+| space groups carrying one | **86** |
+| stars where −k is outside its own star (type x) | 42, in 21 conjugate pairs |
+| distinct chart cells | 13 |
+
+594 case-(c) small reps fuse in conjugate pairs at one k into 297 levels, and 164
+type-(x) reps fuse across *conjugate* k into 82: **3,908 − 297 − 82 = 3,529**, and
+that is the whole accounting. **Case (b) is rare and not redundant:** twelve levels
+in the whole crystallographic catalogue double by pairing an irrep *with itself*.
+Under a T-breaking field a case-(b) level splits into two copies of the same
+character, a case-(c) level into two conjugate ones.
+
+### AN ADVERSARIAL REVIEW CAUGHT THIS INDEX OVER-REPRESENTING, AND IT WAS RIGHT
+
+A first version seated **3,611** members on a **37-cell, arity-4** chart. Both
+figures are withdrawn, for two separate faults a judge panel found and I then
+measured myself:
+
+- **A type-(x) corepresentation was seated twice.** It is `D^{*k} ⊕ (D^{*−k})^*` —
+  *one* object spanning the star of k **and** the star of −k, and both stars are
+  seated here. Measured: the 42 type-(x) stars form exactly **21 conjugate pairs**,
+  none self-conjugate, none with an unseated partner — so 164 rows named **82**
+  objects. Now emitted once, at the lexicographically smaller star, with the
+  partner in a `k2` column. This is `phonondex`'s P-1 ruling applied again.
+- **`little_order` was a coordinate and should not have been.** It is **constant on
+  every one of the 870 stars** (measured: 0 stars carry two values), so it is the
+  star's property, not the level's — and it is already `kpointdex.index()`'s first
+  coordinate. The first version excluded `factor_order` and `n_smallreps` on exactly
+  that ground and then carried `little_order` anyway.
+
+Correcting the second fault also fixed a caveat the first version had to write: with
+type (x) counted as containing **two** small reps (it does — one at each conjugate
+star, exactly as case (c) contains two at one k), the three remaining coordinates
+determine the reality type with **no exception at all**:
+
+| | corep_dim | small_dim | n_small |
+|---|---|---|---|
+| (a) real | d | d | 1 |
+| (b) pseudoreal | 2d | d | 1 |
+| (c) complex pair | 2d | d | 2 |
+| (x) conjugate stars | d | d | 2 |
+
+### IT SITS ON kpointdex's OWN STARS, AND THAT IS PROVED SET-WISE
+
+Not assumed and not merely counted: the 1/12 mesh this derivation sweeps and
+`kpoint_derive.candidates`'s grid-free Hermite-normal-form enumeration give
+**identical sets of fractional k-vectors on 230 of 230 space groups**. A side
+effect worth keeping — that upgrades the mesh from "converged" to *proved*, which
+is more than either file claimed before.
+
+### FIVE INDEPENDENT VALIDATIONS, NONE OF THEM THE CODE CHECKING ITSELF
+
+**(i) A signed sum rule, derived rather than quoted.** The textbook twisted
+Frobenius–Schur rule `Σ d_r ν_r = #{a ∈ A : a² = e}` is **false here**, and that
+was found by measuring, not by reading: the unsigned count gives 4 where the
+truth is −2 at the R point of sg 19, and 10 against 4 at P in sg 230. Summing the
+central extension's own twisted indicator over a central-character-ζ sector brings
+in `Σ_c ζ^{2c}`, which vanishes for n > 2. Derived directly from the ω-twisted
+regular character instead:
+
+```
+Σ_r d_r W_r  ==  Σ over q ∈ Q with R_q² = I of  exp(−2πi k·(R_q T_q + T_q))
+```
+
+The right-hand side **touches no character table** — it is pure space-group
+arithmetic, which is what makes it a check and not a restatement. **Holds on all
+828 stars** that have an antiunitary coset.
+
+**(ii) The case-(c) pairing is fixed-point-free** — every case-(c) rep has exactly
+one partner and never itself; every (a) and (b) rep is its own. 0 failures on 828.
+
+**(iii) Against an implementation sharing no convention.** `phonon_kpoint_derive`
+computes the same indicator in the *row* convention, on a cell built by spglib's
+`standardize_cell` rather than `hnf_basis`, through Herring's Ĝ rather than a
+central extension. Compared over the 7 non-Γ TRIMs of all 230 space groups, as
+multisets per group: **230 of 230 agree.**
+
+**(iv) Against the published literature, including a measured spectrum.**
+
+| sg | k | published | agrees |
+|---|---|---|---|
+| 19 | R | case (b), 2→4 — a charge-2 Dirac point (Yu et al., *Sci. Bull.* **67**, 375) | ✓ |
+| 19 | X, Y, Z | the *same* 2-dim irrep, case (a), no doubling | ✓ |
+| 230 | P | "two inequivalent 2-dim irreps stuck with time-reversal symmetry" beside a 4-dim irrep that needs none — **observed at 15.3 kHz** in a 3D-printed phononic crystal (Cai et al., *Light Sci. Appl.* **9**, 38) | ✓ |
+| 227 | X | diamond: four 2-fold levels, **none** doubled — the discriminator | ✓ |
+| 144, 76 | Γ | the classic ¹E/²E pair of vibrational spectroscopy | ✓ |
+
+**(v) Against an actual spectrum, with time reversal as the control.** No
+character theory on this route at all: a random force-constant tensor is projected
+onto the space-group-invariant subspace, the dynamical matrix diagonalised, and
+the degeneracies read off the eigenvalues. Then again with a **complex Hermitian**
+tensor, which keeps every unitary symmetry and breaks only time reversal.
+
+| sg | small | corep | Φ real (T on) | Φ Hermitian (T off) |
+|---|---|---|---|---|
+| 19 | 1 | 2 | 6×**2** | 12×**1** |
+| 19 | 2 | 4 | 3×**4** | 6×**2** |
+| 198 | 2 | 4 | 9×**4** | 18×**2** |
+| 198 | 1 | 2 | 18×**2** | 36×**1** |
+| 11, 212, 213 | = | = | unchanged | unchanged |
+
+**21 stars, 0 mismatches.** The control is what makes the first column evidence:
+the unitary group is identical in both runs, so the difference is time reversal's
+and nothing else's. sg 198, 212 and 213 are primitive cubic and non-symmorphic —
+three of the nine groups whose small representations were hardest to get right.
+
+### ONE REPAIR IT FORCED IN kpointdex
+
+`kpointdex.index()` documented `max_dim` as *"the largest small-rep dimension, i.e.
+the maximum DEGENERACY symmetry forces at that k"*. The second clause is **false**
+wherever time reversal doubles a level: measured against this index, at **118** of
+kpointdex's (space group, |G_k|, star) groups over **93** space groups the true
+maximum degeneracy exceeds `max_dim`. The coordinate is unchanged and correct — it
+is the largest small-rep dimension, which is what it computes. Only the gloss is
+struck.
+
+### WHAT IT REFUSES
+
+**Half-integer spin.** Everything here is T² = +1. For a spinor the whole sum
+changes sign and (a) and (b) exchange their physical readings — and two standard
+references put that sign in different places, so they **disagree in print** for
+double-valued irreps. Bilbao's own worked pair pins it: the double-valued P̄₇ of
+Ia-3 (206) is *real* and doubles, while the double-valued P̄₇ of I4₁32 (214) is
+*pseudoreal* and does not. Nothing here may be quoted for electrons with
+spin–orbit coupling. Also refused: magnetic space groups, any claim that a
+degeneracy is *observed* rather than symmetry-forced, the symmetry lines and
+planes, and frequencies.
+
+### WHAT SEATING IT DID TO THE MASTER INDEX
+
+The figure's own cell moves for the first time in three rows, **(0, 6, 11) →
+(0, 7, 11)**, and is still unoccupied. Resolutions: K 8/27, height **18/27**,
+width **17/27** — both fall, because `corepdex`'s cell (0, 6, 3) contributes
+*neither* a new height nor a new width; the figure already held 6 and 3. The
+height/width tie, broken at 25, stays broken.
+
+**And one property of the figure stopped being true.** `shifts.py` asserted
+*"the figure is sparse — most slices hold one cell"* (`occ[1] >= len(G)`), which
+held from eleven vertices to twenty-six. At twenty-seven it is **26 against 27**:
+the vertex count rose and the singleton-slice count did not, for exactly the same
+reason the two resolutions fell. Nothing is wrong — a true claim stopped being
+true — so the measured relation is pinned in its place and the transition is
+recorded rather than the fixture loosened.
+
+*An intermediate reading of row 27 said height 0.7037 and is withdrawn:* it was
+measured against the over-representing version whose cell was (0, 11, 6). That is
+the **second** time a resolution here was read against a candidate that was not
+what got seated — the lesson `figure.py` already wrote at row 26 is to measure
+after seating, never before.
+
+### FOUR FAULTS FOUND IN THE NEIGHBOURING IMPLEMENTATION, RECORDED NOT REPAIRED
+
+`phonon_kpoint_derive.herring()` itself was attacked four ways and **not broken**.
+Around it: `sectors()` picks the ω = −1 sector, right only for N = 2 and silently
+wrong for N ≥ 3 (unreachable from `main()`, so no capture is affected); there is
+**no integrality guard on W anywhere**; `PHONON-KGROUND.tsv`'s header claims a
+cross-validation of its antiunitary columns that the file does not perform (the
+claim is true — checked externally at 1610/1610 — but the file does not establish
+it); and `W is None` is flattened to `W = +1` by both callers, live in the capture
+at chiral α-quartz. See `corepdex.py` §6b.
+
+Separately: `overlaprule.coords()` raises for `phonondex` and `kpointdex`, which
+declare neither a COORDS entry nor `NAMES` — so `overlaprule --selftest` fails that
+fixture and `particlesweep --selftest` **crashes outright**. Measured as
+pre-existing by running HEAD in a detached worktree: identical there, and
+overlaprule's five failing fixtures are the same five before and after this pass.
+`corepdex` declares `NAMES` so it does not join them. Repairing the other two
+moves other indexes' figures and is a separate pass.
+
+**Reproduce:** `python3 research/warp-drive/corepdex.py --selftest` — stdlib
+against the banked capture. `python3 captures/corep_derive.py --selftest` runs the
+sum rule, the pairing, the published rows and the dynamical-matrix check;
+`--check` rebuilds the capture and asserts it byte-identical. Both need numpy and
+spglib, neither vendored, and the derivation **imports** `phonon_derive` and
+`phonon_kpoints_derive` rather than copying them.

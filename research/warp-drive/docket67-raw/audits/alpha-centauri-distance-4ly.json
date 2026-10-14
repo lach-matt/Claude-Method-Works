@@ -1,0 +1,74 @@
+{
+ "key": "alpha-centauri-distance-4ly",
+ "name": "Distance to Alpha Centauri taken as 4 light years",
+ "source": {
+  "located": "A measurement, not a theorem. The candidate primary sources are the Gaia DR3 parallax of Proxima Centauri (768.0665 +/- 0.0499 mas as quoted by a search snippet; Gaia Collaboration 2022/2023) and the alpha Cen AB parallax 747.17 mas (quoted by a search snippet; attributed there to Kervella et al. 2016, whose A&A 594 A107 / arXiv:1610.06079 is the paper this stage tried to read -- the snippet's own summary conflated it with the title of Pourbaix & Boffin 2016, arXiv:1601.01636, so the attribution itself is unverified). None of these was READ at source in this stage.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "alphaXiv answer_pdf_queries(1610.06079), answer_pdf_queries('Gaia DR3 summary') and get_paper_content(1610.06079, fullText) all returned 'alphaXiv assistant quota exceeded'; a later retry was refused by the session's permission classifier and was not pursued. arxiv.org, export.arxiv.org, alphaxiv.org, aanda.org, iopscience.iop.org and en.wikipedia.org are refused by the egress proxy (403 CONNECT / EGRESS_BLOCKED). Only two WebSearch result summaries were obtained; they are search-engine text, not the source, and are used here ONLY as labelled candidate inputs to a sensitivity computation, never as READ values. The tree's own constant PROXIMA_LY = 4.2465 ('Gaia DR3 parallax distance', nonstatic.py:257) is an owner claim, also not a source read."
+ },
+ "published_statement": "NOT READ. Candidate published values as relayed by search snippets only: Proxima Centauri parallax (Gaia DR3) 768.0665 +/- 0.0499 mas, i.e. 4.2465 ly; alpha Cen AB parallax 747.17 mas, i.e. 4.365 ly (both conversions computed here, R4a/R4b). No sentence of any source was read verbatim.",
+ "published_hypotheses": [
+  "NOT READ. Generic to any trigonometric parallax distance (named, not read from the source): d = 1/parallax with the parallax zero-point and the astrometric model of the catalogue; for alpha Cen AB, an orbital model of the binary fitted jointly with the parallax; a distance at a stated epoch (the system has a radial velocity, value NAMED-NOT-READ here)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- which body. phase1.py:180-183 and :552-553 say 'Alpha Centauri' (the AB system by name) while the number used, 4.0 ly (phase1.py:329, 338, 472-481, 507-510), matches neither AB (~4.365-4.37 ly) nor Proxima (4.2465 ly, the tree's own constant). The owner states no target and no rounding.",
+  "ADDED (rounding, direction) -- 4.0 ly lies BELOW both candidate distances, by 6.2 % (Proxima) and 9.1-9.25 % (AB). Every L-linear figure in phase1 (the 1 % and 50 % prices, the establishment time L/2c, the amortised share L/2Nc) is therefore understated by that fraction: the device reads 6-9 % CHEAPER than at the named star's distance. That is a small misstatement in M's favour, recorded as a discrepancy in the printed digits (2.6e10 -> 2.7e10 Proxima, 2.8e10 AB; 1.28e12 -> 1.36e12 / 1.40e12), not a refutation: the order of magnitude and the sentence 'a galaxy of negative mass' are unchanged (R5a).",
+  "INTERNAL INCONSISTENCY in the tree -- phase1.py:213/329 use 4.0 ly; nonstatic.py:257 ('PROXIMA_LY = 4.2465  # ly, Gaia DR3 parallax distance'), oneway.py:63, foliation.py:583, closeout.py:71, perception.py:119 (4.246), driven.py:772 (span 4.017499195e16 m = 4.2465 ly) and mouth.py:80 ('4.2465 ly x 1.348948e26') use Proxima at 4.2465. The same corridor is priced at two distances in one tree.",
+  "WEAKENED (constant) -- phase1.py:213 LIGHT_YEAR = 9.4607e15 m, against the IAU light-year c x 365.25 d x 86400 s = 9.4607304725808e15 m (exact given c): relative -3.2e-6 (R3). Truncation, far below the 4.0-ly rounding; moves nothing.",
+  "DROPPED (epoch) -- the distance is treated as static; no epoch is stated. The drift is below the rounding for any mission time the tree considers, but its rate was NOT read here and is not quantified."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "L, corridor length to 'Alpha Centauri' (phase1.py:329 default; 180-183, 507-510, 552-553)",
+   "value_then": "4.0 ly = 3.78428e16 m (phase1's own LIGHT_YEAR)",
+   "value_now": "Proxima 4.2465 ly (768.0665 mas, Gaia DR3 -- search snippet, NOT READ; equals the tree's own nonstatic.py:257 constant); alpha Cen AB 4.365 ly (747.17 mas -- search snippet, NOT READ)",
+   "source_now": "NOT READ at source: WebSearch summaries only (alphaXiv quota exhausted; arXiv/A&A/IOP/Wikipedia blocked by egress proxy)",
+   "moves_conclusion": "Price and establishment figures scale exactly as L (R1c): +6.16 % (Proxima) / +9.13 % (AB). 1 % price 2.5666e10 -> 2.7248e10 / 2.8010e10 Msun; 50 % price 1.2833e12 -> 1.3624e12 / 1.4005e12 Msun; L/2c 2.000 -> 2.123 / 2.183 yr. Printed 2-s.f. digits move (discrepancy); the order of magnitude (1e10 Msun, 'a galaxy') does not. Theorem 4's 1.5 ratio and beats_light == False do not depend on L at all (R1a, R1b, R2e over L = 1 m to 1e25 m)."
+  },
+  {
+   "quantity": "LIGHT_YEAR (phase1.py:213)",
+   "value_then": "9.4607e15 m",
+   "value_now": "9.4607304725808e15 m (IAU definition: c x Julian year; computed, exact given c = 299792458 m/s)",
+   "source_now": "definition, computed in R3 (not a literature read)",
+   "moves_conclusion": "No: relative -3.2e-6."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/alpha-centauri-distance-4ly.py",
+  "outcome": "ALL PASS, 18 checks. R1 (sympy): Theorem-4 ratio (L/2c + L/c)/(L/c) = 3/2 with L cancelled; the price M = f L c^2/(G Lambda) is linear in L; L/(2Nc) -> 0 for every L. R2: phase1 reproduced by read-only import -- Lambda = 9.982529, 1.34895e26 kg/m, 1 % of 4.0 ly = 2.56662e10 Msun (phase1.py:508 fixture 2.5667e10), 50 % = 1.28331e12 (fixture 1.2833e12), L/2c = 6.3115e7 s = 2.0000 yr, '2.6e10' at :552 is that value to 2 s.f.; beats_light False and penalty 1.5 at L = 1 m, 4.2465 ly, 4.37 ly, 1e25 m. R3: LIGHT_YEAR truncation -3.2e-6. R4: 768.0665 mas -> 4.2465 ly and 747.17 mas -> 4.3652 ly (via 1 pc = 648000/pi au, au = 149597870700 m). R5: 1 % price stays in the 1e10-Msun decade for L in [4.0, 4.37] ly; max shift +9.25 %; printed digits would read 2.7e10 (Proxima) or 2.8e10 (AB) rather than 2.6e10. The arithmetic phase1 performs on 4.0 ly is correct; what cannot be checked here is the distance itself at source.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Gaia Collaboration, Gaia DR3 (2022/2023), Proxima Centauri parallax 768.0665 +/- 0.0499 mas",
+   "effect": "narrows",
+   "what": "If as relayed: fixes the Proxima distance at 4.2465 ly -- the value the rest of the tree already uses -- so phase1's 4.0 is a 6.2 % under-rounding of it.",
+   "read_status": "NAMED-NOT-READ (value only from a WebSearch summary citing SIMBAD/Wikipedia)"
+  },
+  {
+   "ref": "Kervella, Mignard, Merand, Thevenin 2016, A&A 594 A107, arXiv:1610.06079 (alpha Cen AB parallax 747.17 mas as relayed)",
+   "effect": "narrows",
+   "what": "If as relayed: alpha Cen AB at 4.365 ly, 9.1 % beyond phase1's 4.0 ly; the 'Alpha Centauri' named in phase1's prose.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org and aanda.org blocked; the snippet's attribution conflated this paper with Pourbaix & Boffin 2016's title)"
+  },
+  {
+   "ref": "Pourbaix & Boffin 2016, 'Parallax and masses of alpha Centauri revisited', A&A, arXiv:1601.01636",
+   "effect": "narrows",
+   "what": "An independent AB parallax; its value was NOT obtained here, so whether it agrees with 747.17 mas is unknown to this stage.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Akeson et al. 2021, 'Precision Millimeter Astrometry of the alpha Centauri AB System', AJ (ALMA)",
+   "effect": "narrows",
+   "what": "A further AB parallax; value NOT obtained here.",
+   "read_status": "NAMED-NOT-READ (iopscience blocked); the discover_papers call was not made -- alphaXiv quota exhausted and a retry refused by the permission classifier"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite here in the direction it proposes. phase1 did not lack data: the tree itself holds the better distance (PROXIMA_LY = 4.2465, 'Gaia DR3 parallax distance', nonstatic.py:257, and five other owners) and phase1 simply used a round 4.0 with no target named. The parallax measurements (Hipparcos-era and Gaia-era, and an ALMA AB parallax) are milliarcsecond-level or better, so any residual measurement uncertainty is orders of magnitude below the 6-9 % rounding (a 0.05 mas error on 768 mas is 7e-5 relative, if the snippet value is right). Evidence either way: (a) against a conclusion change -- R1a/R1b show Theorem 4's refusal (1.5 L/c > L/c) is independent of L, so no distance datum, however revised, can move it; R5a shows the price stays 'a galaxy' (1e10 Msun) across every candidate; (b) for a digit change -- at the named star the printed figures are 6-9 % low, i.e. the rounding flatters the device slightly. No datum that has moved or is contested moves any conclusion; the only move is the tree's own rounding.",
+ "grade": "OPEN",
+ "grade_evidence": "OPEN because the measurement itself could not be READ at source in this stage (alphaXiv quota exhausted, retry refused; arXiv, A&A, IOP and Wikipedia blocked by the egress proxy) -- the candidate distances come only from search-engine summaries and the tree's own constant, and a claim that cannot be checked here is not flattened to STANDS. What WAS computed (rederive script, 18/18 PASS): (1) phase1's arithmetic on 4.0 ly is exact to its fixtures; (2) Theorem 4 and its 1.5 ratio are L-independent (sympy), so they stand whatever the distance; (3) every L-linear figure moves by exactly L/4.0 ly -- +6.16 % at 4.2465 ly (the tree's own Proxima constant) and +9.13 % at 4.365 ly (AB, if 747.17 mas) -- which changes printed digits (2.6e10 -> 2.7e10 / 2.8e10 Msun) and not the order of magnitude. Recorded discrepancies, not refutations: the unnamed target and the downward rounding (in M's favour by 6-9 %), the tree's internal 4.0 vs 4.2465 inconsistency, and the -3.2e-6 LIGHT_YEAR truncation. Nothing is WRONG: no computed contradiction exists, and none of the discrepancies reaches a conclusion.",
+ "what_would_change_the_grade": "Reading the Gaia DR3 Proxima parallax and an alpha Cen AB parallax (Kervella et al. 2016 arXiv:1610.06079, Pourbaix & Boffin 2016 arXiv:1601.01636, or Akeson et al. 2021) at source. If they give 768.07 mas and ~747-751 mas, the grade becomes NARROWED -- the conclusions stand on L-independence and order of magnitude, but the tree drops the target and rounds 6-9 % low, and phase1's printed prices hold for L = 4.0 ly, not for 'Alpha Centauri'. STANDS would require phase1 to name its target and round to it (e.g. 4.2465 ly, matching nonstatic.py:257). WRONG is unreachable by any distance datum for Theorem 4 (R1a); for the price it would need a distance an order of magnitude from 4 ly, which no candidate approaches.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/alpha-centauri-distance-4ly.py  # 18 checks, exits 0 on ALL PASS; then read Gaia DR3 (Proxima, source_id 5853498713190525696) and arXiv:1610.06079 / 1601.01636 at source when alphaXiv quota or egress allows",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/alpha-centauri-distance-4ly.json"
+}

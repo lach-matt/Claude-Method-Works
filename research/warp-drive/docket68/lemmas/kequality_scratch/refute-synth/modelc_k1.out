@@ -1,0 +1,27 @@
+per-sheet M4 (-1/8, 4ell/3)                ratio=-1/8  ell_2=4/3    admissible solutions: 1  (non-admissible real: 0)
+   ell_s=2.11473369241 mu=0.922222933103 r_h=0.885763990337 R1=1.11337199089 R2=2.50379910811
+   max unsquared residual=2.33e-61 ; ours lam1=2 vs critical 1/ell_s+1/ell_1=1.47287278 ; pos2 lam2=-1/4 vs critical -0.27712722
+KDERIVE/b6_k PRZ (-1/4, 4ell/3)            ratio=-1/4  ell_2=4/3    admissible solutions: 0  (non-admissible real: 1)
+stage 6 J3 (-1/3, 3ell)                    ratio=-1/3  ell_2=3      admissible solutions: 0  (non-admissible real: 1)
+stage 7 K5 route (-1/6, 6ell)              ratio=-1/6  ell_2=6      admissible solutions: 0  (non-admissible real: 1)
+K5 one sheet at J3's ell_2 (-1/6, 3ell)    ratio=-1/6  ell_2=3      admissible solutions: 0  (non-admissible real: 1)
+hybrid (-1/4, ell)                         ratio=-1/4  ell_2=1      admissible solutions: 1  (non-admissible real: 0)
+   ell_s=2.31786300534 mu=0.867440619933 r_h=0.871748461759 R1=1.08591697114 R2=1.97236962984
+   max unsquared residual=3.11e-61 ; ours lam1=2 vs critical 1/ell_s+1/ell_1=1.431431883 ; pos2 lam2=-1/2 vs critical -0.5685681174
+hybrid (-1/8, ell)                         ratio=-1/8  ell_2=1      admissible solutions: 1  (non-admissible real: 0)
+   ell_s=1.34322964955 mu=1.83159621373 r_h=1.06173599906 R1=1.48585755251 R2=3.88963675043
+   max unsquared residual=2.33e-61 ; ours lam1=2 vs critical 1/ell_s+1/ell_1=1.744474335 ; pos2 lam2=-1/4 vs critical -0.2555256651
+K4 ell_1-unit row (-1/3, ell_1/3)          ratio=-1/3  ell_2=1/3    admissible solutions: 0  (non-admissible real: 0)
+K4 ell_1-unit row (-1/6, 3ell_1/10)        ratio=-1/6  ell_2=3/10   admissible solutions: 0  (non-admissible real: 0)
+(-1/4, 3ell)                               ratio=-1/4  ell_2=3      admissible solutions: 0  (non-admissible real: 1)
+(-1/4, 6ell)                               ratio=-1/4  ell_2=6      admissible solutions: 0  (non-admissible real: 2)
+(-1/8, 3ell)                               ratio=-1/8  ell_2=3      admissible solutions: 0  (non-admissible real: 1)
+(-1/8, 6ell)                               ratio=-1/8  ell_2=6      admissible solutions: 0  (non-admissible real: 1)
+(-1/3, 4ell/3)                             ratio=-1/3  ell_2=4/3    admissible solutions: 0  (non-admissible real: 1)
+(-1/6, 4ell/3)                             ratio=-1/6  ell_2=4/3    admissible solutions: 1  (non-admissible real: 0)
+   ell_s=2.86785075605 mu=0.784675762111 r_h=0.849352563516 R1=1.04269668141 R2=2.05205975701
+   max unsquared residual=7.78e-62 ; ours lam1=2 vs critical 1/ell_s+1/ell_1=1.34869318 ; pos2 lam2=-1/3 vs critical -0.40130682
+(-1/3, ell)                                ratio=-1/3  ell_2=1      admissible solutions: 0  (non-admissible real: 1)
+(-1/6, ell)                                ratio=-1/6  ell_2=1      admissible solutions: 1  (non-admissible real: 0)
+   ell_s=1.53400729011 mu=1.34664348583 r_h=0.978389712725 R1=1.30290506942 R2=2.92229991861
+   max unsquared residual=5.45e-61 ; ours lam1=2 vs critical 1/ell_s+1/ell_1=1.651887384 ; pos2 lam2=-1/3 vs critical -0.3481126156

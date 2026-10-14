@@ -1,0 +1,91 @@
+{
+ "key": "entanglement-distribution-requires-prior-transit",
+ "name": "A Bell pair spanning D must first be distributed by something crossing D at <= c (entanglement cannot be created by LOCC)",
+ "source": {
+  "located": "Primary theorem: Horodecki^4, 'Quantum entanglement', RMP 81, 865 (2009), arXiv:quant-ph/0702225v2 (20 Apr 2007): p.4, p.9, p.12 (Sec. III.D entanglement swapping), pp.39-40 (Sec. XI LOCC), p.45 eqs.(110)-(111), p.51. The LOCC paradigm's origin, Bennett-DiVincenzo-Smolin-Wootters PRA 54, 3824 (1996), quant-ph/9604024, and Werner PRA 40, 4277 (1989) are NAMED-NOT-READ (cited through the review). Counter-class sources: Reznik, 'Entanglement from the vacuum', arXiv:quant-ph/0212044v2 (2003), READ pp.1-13; Pozas-Kerstjens & Martin-Martinez, 'Harvesting correlations from the quantum vacuum', arXiv:1506.03081v7, READ pp.1-2, 8-13; Gao & Klco, arXiv:2410.04162v2 (2025), READ pp.1-6, 14-19. Zukowski et al. PRL 71, 4287 (1993), Summers & Werner Phys. Lett. 110A, 257 (1985) and Valentini (1991) NAMED-NOT-READ (restated in Horodecki p.12 and Reznik p.2-3 / Pozas-Kerstjens p.1).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries (page text) on quant-ph/0702225, quant-ph/0212044, 1506.03081, 2410.04162. The tree's owner cites no source for the sentence (transit.py:46-49); the theorem it needs is read at source in the Horodecki review. Classics as marked above."
+ },
+ "published_statement": "Horodecki p.51: 'In bipartite states we cannot transform separable state into entangled one by LOCC at all.' p.45: 'Since LOCC operations can only transform separable state into another separable state, (i.e. the set of separable states is closed under LOCC operations)', proved via eqs.(110)-(111): rho_out = sum_i A_i (x) B_i rho A_i^dag (x) B_i^dag, whose partial transpose is sum_i A_i (x) (B_i^dag)^T rho^Gamma ... , positive if rho^Gamma was. p.40: 'No transfer of quantum systems between the labs is allowed ... classical bits cannot convey quantum information and cannot create entanglement so that entanglement remains a resource that can be only manipulated.' p.4: entanglement 'can not be increased on average when systems are not in direct contact but distributed in spatially separated regions.' p.9: entangled states 'appear usually as a result of direct physical interactions. However, the entanglement can be also generated indirectly by application of the projection postulate (entanglement swapping).' p.12 (III.D): 'Usually quantum entanglement originates in certain direct interaction between two particles placed close together. Is it possible to get entangled ... some two particles which have never interacted in the past? The answer is positive ... If Alice and Bob will get to know the outcome, they can perform local rotation, to obtain entangled state Phi+_AD ... particles of Alice and David are entangled although they never interacted directly.' COUNTER-CLASS (read): Reznik abstract: 'a pair of causally disconnected probes interact with the field ... even when the probes are initially non-entangled, they can wind up to a final entangled state ... entanglement persists between disconnected regions in the vacuum. However the probe entanglement, unlike correlations, vanishes once the regions become sufficiently separated'; p.3 'since entanglement cannot be produced locally'; p.12 inertial probes, window T < L/c: entanglement 'extends up to L/T < 1.1'. Pozas-Kerstjens p.10: 'Since the detectors cannot exchange information, spacelike entanglement is the result of the harvesting of only preexisting correlations in the quantum vacuum ... for smooth Gaussian switching it is always possible to obtain spacelike entanglement harvesting if the internal energy gap ... is increased ... paying the price that the larger the value of Omega, the smaller (but finite) the amount'. Gao-Klco abstract/p.5: 'entanglement resources in the massive field are demonstrated to be available at all distances', N ~ exp(-(m r)^2) at large separation.",
+ "published_hypotheses": [
+  "H1 (theorem) bipartite system A|B; the operation is LOCC (class C3), or more generally separable (C4, product Kraus operators) -- Horodecki p.40, inclusion C1 < C2 < C3 < C4 < C5",
+  "H2 (theorem) the INITIAL state is separable: the statement is closure of the separable set, not a prohibition on entanglement that already exists; 'entanglement remains a resource that can be only manipulated' (p.40)",
+  "H3 (theorem) 'No transfer of quantum systems between the labs is allowed' (p.40): the conclusion 'a quantum carrier must pass' is the contrapositive given H1-H2",
+  "H4 (swapping, p.12) the parties may already share entanglement with intermediaries; A and D 'never interacted', and the outcome must reach Alice/Bob for the local rotation",
+  "H5 (harvesting, Reznik/Pozas-Kerstjens) the probes couple locally to a relativistic field in its (entangled) vacuum; the field is a shared system present at both sites, so the vacuum is NOT a separable initial state across the two regions; perturbative (O(lambda^2)) Unruh-DeWitt detectors; Gaussian switching has non-compact support, so 'spacelike' is approximate (Pozas-Kerstjens use d > 7T/sqrt2); Reznik uses a compact cos^2 window"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H2 (separable initial state), transit.py:46-49 and :251-258 ('A Bell pair spanning distance D required something to cross D at <= c beforehand') and ledger.py D23 :600-601 ('a channel spanning D required something to cross D at <= c beforehand'): the theorem forbids CREATING entanglement from a separable start by LOCC; it says nothing against entanglement already present between the sites. A relativistic field's vacuum is entangled across spacelike regions and that entanglement can be transferred to initially unentangled local probes with no carrier crossing (Reznik 2003; Pozas-Kerstjens 2015; Gao-Klco 2024 'at all distances'), re-derived here in C4. The tree's owner hypothesis (canonical entry) 'entanglement between A and B arises only from a carrier that interacted locally and then travelled' is not the theorem; it is false for the vacuum class.",
+  "ADDED/STRENGTHENED 'something crossed D', transit.py:46-49, :154 comment '# it is MOVED EARLIER', :251-254, ledger.py D23 :600-601, specthm.py R11 :1191 ('The channel must be traversed at <= c to exist'): what the theorem plus relativistic causality actually require is a COMMON CAUSAL PAST (an event whose future cone holds both ends), not a traversal of D. A pre-positioned midpoint source reaches both ends at t - t_E = D/(2c) with no carrier displaced more than D/2 (z3, C3a-b); entanglement swapping likewise has no particle cross D. The tree's D/c figure is recovered only under the extra hypothesis that every resource originates at one end (z3, C3c) -- the S5 scenario ledger.py D23 :607-609 states separately ('the fabricator, the stock survey and the receiver all had to reach the destination at <= c').",
+  "DROPPED H4's classical step: swapping needs the Bell-measurement outcome delivered (outcome-averaged state is I/4, separable -- sympy, C2); the tree does not discuss swapping at all, so this is an omission, not a contradiction; it does not help the tree's opponents either (the outcome travels at <= c).",
+  "WEAKENED/UNSTATED 'Bell pair': the tree's sentence is about a Bell (maximally entangled) pair; harvested vacuum entanglement at spacelike separation is small (computed here: best N(2) = 1.7e-9, 3.5e-12, 9.4e-19 lambda^2 at d/T = 5, 6, 8) and whether it can be distilled into a near-maximal Bell pair spanning a macroscopic D without any causal-chain crossing is not established by anything read here (Pozas-Kerstjens p.1 cite 'entanglement farming' [17], NAMED-NOT-READ). So the tree's sentence restricted to HIGH-FIDELITY Bell pairs is not refuted here; it is unproved on that class too.",
+  "UNSOURCED/DECLARED: TRAVERSAL_IS_REMOVED = False (transit.py:154) is a constant with no function behind it; transit.py:349 chk() compares the constant to itself (chk('traversal is MOVED EARLIER, not removed', TRAVERSAL_IS_REMOVED, False)). ledger.py D23 owner ('transit','TRAVERSAL_IS_REMOVED') (:617) and specthm.py R11 owners (:1176) cite it as evidence."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none in the theorem (a statement about completely positive maps)",
+   "value_then": "n/a",
+   "value_now": "n/a",
+   "source_now": "n/a",
+   "moves_conclusion": "no -- the theorem has no numerical input"
+  },
+  {
+   "quantity": "Proxima distance used by D23 as minimum setup (foliation.py:583 PROXIMA_LY = 4.2465; transit.py DISTANCES 4.0175e16 m)",
+   "value_then": "4.2465 ly = 4.0175e16 m = 1.30198 pc (equivalent parallax 768.06 mas, computed here)",
+   "value_now": "not re-read at source in this audit; ledger.py:333 attributes it to the Gaia DR3 parallax",
+   "source_now": "NOT READ here (Gaia DR3 not opened); the value is the tree's own",
+   "moves_conclusion": "no -- the zero advantage over light is D/c - D/c at every D; the setup time scales with D and no plausible revision of the 5th digit changes 'setup ~ light time'"
+  },
+  {
+   "quantity": "harvested spacelike negativity vs separation (the datum the tree's hypothesis lacked)",
+   "value_then": "not considered by the tree",
+   "value_now": "computed here from Reznik's Wightman function: best N(2)/lambda^2 = 3.4e-2 (d/T=1), 5.9e-5 (3), 1.7e-9 (5), 3.5e-12 (6), 9.4e-19 (8); gap needed Omega T ~ d/T",
+   "source_now": "rederive script C4; Pozas-Kerstjens 1506.03081 Fig.1 (qualitative agreement: spacelike harvesting for large Omega T); Gao-Klco 2410.04162 N ~ exp(-(m r)^2)",
+   "moves_conclusion": "moves the literal 'must be traversed to exist' (false for the vacuum class) but not BEATS_LIGHT = False: at Proxima, spacelike harvesting needs switching width T < 4.247/4.95 = 0.858 yr and the yield is exponentially small, and any use for teleportation still needs 2 classical bits at <= c"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/entanglement-distribution-requires-prior-transit.py",
+  "outcome": "ALL PASS (13 checks, ~16 s). C1 (sympy exact + numeric): the Horodecki eq.(110)-(111) identity [(A(x)B)rho(A(x)B)^dag]^Gamma = (A(x)B*)rho^Gamma(A(x)B*)^dag holds on generic symbols; 2000 random separable 2x2 states under random product-Kraus maps stay PPT (min PT eigenvalue +2.0e-3), Bell control NPT at -1/2 -- the theorem STANDS. C2 (sympy exact): swapping |phi+>_AC|phi+>_BD with a Bell measurement on (C,B): each outcome p = 1/4, (A,D) maximally entangled on each, outcome-average exactly I/4 (separable) -- A and D never interact, yet no LOCC violation, and the outcome must be sent. C3 (z3 over reals, c = 1): a common causal past for both ends is sat at t - t_E = D/2 with a midpoint source and unsat for t - t_E < D/2; no carrier is displaced more than D/2 (unsat); with all resources originating at A=(0,0), t < D is unsat and t = D is sat -- the tree's D/c holds only under that origin hypothesis. C4 (mpmath, from Reznik's printed Wightman function D+ = -1/(4 pi^2((t'-t-i eps)^2 - |x'-x|^2)), p.9, pointlike Unruh-DeWitt detectors, chi = exp(-t^2/T^2), massless 3+1, O(lambda^2); L from the k-integral, M from the Feynman principal-value + delta decomposition, N(2) = |M| - L (Pozas-Kerstjens eq.68)): N(2) > 0 at d/T = 5, 6, 8, beyond the 7T/sqrt2 = 4.95T light-cone estimate, falling 3.6e16-fold from d/T = 1 to 8; the minimum gap is Omega T = 5.75, 7.75, 10.0 at d/T = 6, 8, 10 (linear). Caveats named: Gaussian switching has non-compact support (spacelike only up to tails of ~exp(-(d/T)^2)); perturbative; the L and M derivations are this script's, cross-checked only qualitatively against Pozas-Kerstjens Fig.1 (their switching convention differs, so absolute numbers are not compared).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Reznik, 'Entanglement from the vacuum', arXiv:quant-ph/0212044 (Found. Phys. 33, 167 (2003))",
+   "effect": "narrows",
+   "what": "Initially unentangled, causally disconnected probes become entangled by local coupling to the vacuum; no carrier crosses. Narrows the tree's 'must be traversed to exist' to initially separable systems; confirms the LOCC theorem ('entanglement cannot be produced locally', p.3). Inertial probes: entanglement up to L/T < 1.1 for the cos^2 window.",
+   "read_status": "READ pp.1-13"
+  },
+  {
+   "ref": "Pozas-Kerstjens & Martin-Martinez, 'Harvesting correlations from the quantum vacuum', arXiv:1506.03081 (PRD 92, 064042 (2015))",
+   "effect": "extends",
+   "what": "Gaussian switching: spacelike harvesting always possible by raising the gap, at an ever smaller amount; 'spacelike entanglement is the result of the harvesting of only preexisting correlations'; cites distillation into Bell pairs ('entanglement farming', ref.[17], NAMED-NOT-READ).",
+   "read_status": "READ pp.1-2, 8-13"
+  },
+  {
+   "ref": "Gao & Klco, 'Detecting spacelike vacuum entanglement at all distances ...', arXiv:2410.04162v2 (2025)",
+   "effect": "extends",
+   "what": "Free scalar vacuum: spacelike entanglement accessible to a pair of single-mode detectors at all separations in the continuum limit, negativity N ~ exp(-(m r)^2) at large separation, access limited by detector spatial resolution.",
+   "read_status": "READ pp.1-6, 14-19"
+  },
+  {
+   "ref": "Horodecki^4, RMP 81, 865 (2009), quant-ph/0702225",
+   "effect": "confirms",
+   "what": "Closure of the separable set under LOCC (p.45, eqs.110-111; p.51); swapping entangles particles that never interacted (p.12), requiring the outcome to be communicated.",
+   "read_status": "READ pp.1, 4, 9, 12, 39-40, 45, 48, 51"
+  },
+  {
+   "ref": "discover_papers 2026 harvesting results (2609.28621 most-entangled modes; 2609.14401; 2608.13449; 2604.06303 optimisation to second order)",
+   "effect": "extends",
+   "what": "Active 2026 literature on harvesting optimisation; titles/abstracts only surfaced, nothing found that contradicts the LOCC theorem.",
+   "read_status": "NAMED-NOT-READ (abstract snippets only)"
+  }
+ ],
+ "lacked_data": "The theorem (LOCC cannot turn a separable state into an entangled one) is mathematical and used no data; nothing later moves it, and it re-derives here exactly (C1). The data the TREE's use lacked is not experimental but structural: that a relativistic field's vacuum is itself an entangled resource across spacelike regions (Summers-Werner 1985, NAMED-NOT-READ; Reznik 2003 and Gao-Klco 2024, READ). With it, the literal claim 'a Bell pair spanning D required something to cross D' fails for the vacuum class (no carrier crosses) and for a pre-positioned midpoint source (nothing crosses more than D/2, setup D/(2c)). Evidence the other way: (i) the harvested amount at spacelike separation is exponentially small (computed: 9.4e-19 lambda^2 at d/T = 8), so for a HIGH-FIDELITY Bell pair across a macroscopic D the tree's sentence is not refuted, only unproved; (ii) nothing here changes BEATS_LIGHT = False or the zero advantage in D23 -- those rest on the no-communication theorem and the two classical bits (teleportation-two-classical-bits), not on prior transit; (iii) D23's 'minimum setup of the light time' is recovered under the origin-at-Earth hypothesis D23 itself states for S5 (z3, C3c). So the missing datum changes the scope of the sentence, not the direction of any downstream verdict.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external theorem the tree names STANDS and is re-derived (sympy identity eqs.110-111 of quant-ph/0702225; 2000-sample PPT check). The tree's sentence (transit.py:46-49, :251-258; ledger.py D23 :600-601; specthm.py R11 :1191) uses it on a larger class than the theorem supports, dropping two hypotheses: (1) separable initial state -- the vacuum class is a counter-class, READ in Reznik/Pozas-Kerstjens/Gao-Klco and computed here (N(2) > 0 at d/T = 5, 6, 8, beyond the 4.95T light-cone estimate, no carrier crossing); (2) 'crossing D' is stronger than the common-causal-past requirement -- z3 shows a midpoint source spans D at t - t_E = D/(2c) with no carrier displaced more than D/2. Not WRONG: the tree's scenario (teleportation of a specification with every resource sent from Earth, D23/S5) satisfies the origin hypothesis, where z3 recovers t >= D/c, and harvested entanglement at macroscopic spacelike separation is exponentially small, so no high-fidelity Bell pair across D is exhibited without a causal chain. TRAVERSAL_IS_REMOVED = False remains a declared constant (transit.py:154) whose check (transit.py:349) compares it to itself; nothing in this audit repairs it.",
+ "what_would_change_the_grade": "To STANDS: restate the tree's sentence with its hypotheses -- 'for systems initially in a separable state, with every resource originating at one end, a Bell pair spanning D requires a causal chain from that end, hence setup >= D/c' -- which this audit's C1+C3c re-derive. To WRONG (for the tree's own use): a protocol, read at source, that yields a near-maximal (distillable to fidelity near 1) Bell pair across a macroscopic D from the vacuum or any pre-existing resource with setup time << D/c after the decision to lay the channel, starting from Earth-origin resources -- nothing read here provides one; entanglement farming (NAMED-NOT-READ) is the literature to read. To OPEN: none -- the theorem is checkable and checked.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/entanglement-distribution-requires-prior-transit.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/entanglement-distribution-requires-prior-transit.json"
+}

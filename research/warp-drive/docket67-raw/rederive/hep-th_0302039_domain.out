@@ -1,0 +1,22 @@
+C1  sympy: unit map
+  [ok] 8 pi / (46080 pi^2) == 1/(5760 pi)                                     0
+  [ok] 46080 / 8 == 5760                                                      5760
+C2  z3: scope of 'the AHS approximation' vs the tree's own Sec. IV reading
+  [ok] vacuity guard: tree_secIV alone                                        sat
+  [ok] tree_secIV & R1 (expression derived only under AF)                     unsat
+  [ok] tree_secIV & R2 (approximation established only under AF)              sat
+  [ok] control: drop 'not HF_needs_AF' -> R1 becomes consistent               sat
+C3  text consistency of the domain clause
+  [ok] hpscentre.py carries the clause                                        True
+  [ok] LEDGER.md carries the clause                                           True
+  [ok] ledger.py builds the O5 row from hpscentre (imports it)                True
+C4  the tree's side: recorded selftest output
+  [ok] hpscentre --selftest ended OK                                          True
+  [ok] M_NEGATIVE_FOUND_INSIDE_DOMAIN is a RECORD pin, value False            True
+  [ok] record pins are 'printed, not counted'                                 True
+  [ok] nonlinear non-flatness checked only at c3 K^2 = 1e-4, x <= 300 K       True
+  [ok] NONLINEAR_CENTRE_ASYMPTOTICS recorded OPEN                             True
+  [ok] HPS text layer: 'the metric as a whole is not asymptotically flat'     True
+  [ok] HPS text layer, fn [20]: scalar mass and temperature set to zero       True
+
+REDERIVE AGREES

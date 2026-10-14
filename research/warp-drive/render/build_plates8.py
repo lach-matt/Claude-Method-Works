@@ -1,10 +1,69 @@
 #!/usr/bin/env python3
-"""Write the spectra, entropy and octad plates."""
-import json
+r"""
+build_plates8.py -- the channel, entropy and octad plates.
 
-STYLE = open('style.css').read()
-W3D = open('w3d.js').read()
-D = json.load(open('oct_pts.json'))
+Write the spectra, entropy and octad plates.
+
+    python3 build_plates8.py             writes spx.html, ent.html, oct.html
+    python3 build_plates8.py --selftest  fixtures
+
+===============================================================================
+0. IT COULD NOT RUN AT ALL, AND THE THREE INPUTS ARE RESTORED BY EXTRACTION
+===============================================================================
+
+**THIS FILE RAISED `FileNotFoundError` AT IMPORT.**  `style.css`, `w3d.js` and
+`oct_pts.json` were never committed and nothing in the tree said so.  They are
+RECOVERABLE, because `page()` INLINES all three into the plate it writes.
+`build_plates.py` section 0 records the full search -- git history has never
+held any of them, and the one `style.css` on disk (`recovered/style.css`, 700
+bytes, an unrelated print stylesheet) is not this one.  Read that section for
+the extraction rule; it is the same shape, and `style.css` is byte-identical
+across all seven plates here.
+
+THIS FILE'S OWN RECOVERY has one part the sibling does not: the octad's
+`edges` array.  It is the second JSON literal in `oct.html`'s single
+`scatter3d(...)` call, and `oct_pts.json` therefore holds `octad` as
+`{"pts": [...], "edges": [...]}` while `spectra` and `entropy` are plain
+lists -- which is what `D[key]['pts'] if extra else D[key]` already expected.
+
+===============================================================================
+1. `w3d.js` IS RE-PINNED TO `w3d-r2.js`, THE LATER OF THE TWO GENERATIONS
+===============================================================================
+
+**ONE NAME HELD TWO CONTENTS, AND THESE PLATES PIN THE SECOND.**  Measured off
+the plates:
+
+    generation   bytes   md5                                inlined by
+    r1           5,753   f9348be9b963d26e2c63240fc974e060   ion, axs, rid
+    r2           6,542   4154dde8161ec3e0dc154fadab88e7dd   spx, ent, oct, hexad
+    scatter3d.js 7,975   07ceeb670663d6228b839648f4c915f4   every later plate
+
+r2 is r1 plus the `opts.edges` pass and the hollow-point branch -- which is
+why the octad, alone among the six, can draw its 28 threads.  A plate built
+against r1 would silently lose them, and one built against `scatter3d.js`
+would differ in the axis paint.  `scatter3d.js` is the living runtime and is
+NOT a substitute here.
+
+RE-PINNED, NOT LOOSENED: this file reads `w3d-r2.js`, the sibling reads
+`w3d-r1.js`, and the ambiguous name is retired.  All three pages written here
+are BYTE-IDENTICAL to the plates in the tree (`spx.html` == `spectra-plate.html`
+and so on); the selftest rebuilds them in memory and compares md5s.
+
+INPUTS RESOLVE AGAINST THIS FILE'S OWN DIRECTORY, not the working directory.
+Outputs are unchanged and still land in the working directory.
+"""
+import hashlib
+import json
+import os
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+
+STYLE = open(os.path.join(HERE, 'style.css')).read()
+# RE-PINNED from 'w3d.js' -- see section 1.  That name held two generations of
+# the widget and these three plates inline the second, the one with edges.
+W3D = open(os.path.join(HERE, 'w3d-r2.js')).read()
+D = json.load(open(os.path.join(HERE, 'oct_pts.json')))
 COL = ("colour:p=>['--statistics','--geometry','--information',"
        "'--algebra','--order'][p.l]")
 
@@ -385,14 +444,25 @@ OCTAD = """
 </footer>
 """
 
-for fn, title, body, sid, key, xl, yl, zl, r, lab, extra in (
+PLATES = (
     ('spx.html', 'The Channel Index', SPECTRA, 'sp3d', 'spectra',
      'B', 'multiplicity', 'ℓ', 3.6, False, None),
     ('ent.html', 'The Entropy Index', ENTROPY, 'en3d', 'entropy',
      'H_max', 'H_min', 'H_joint', 8, True, None),
     ('oct.html', 'The Octad', OCTAD, 'oc3d', 'octad',
      'height', 'width', 'K', 8, True, 'edges'),
-):
+)
+
+# THE PLATE EACH ONE IS THE SOURCE OF, under the name the tree keeps it by.
+# The rename happened outside this program; the selftest pins the pairing.
+ARCHIVED = {'spx.html': 'spectra-plate.html',
+            'ent.html': 'entropy-plate.html',
+            'oct.html': 'octad-plate.html'}
+
+
+def render(spec):
+    """Build one plate in memory.  Returns (filename, page text)."""
+    fn, title, body, sid, key, xl, yl, zl, r, lab, extra = spec
     src = D[key]
     pts = src['pts'] if extra else src
     js = ("scatter3d({id:'%s',points:%s,%sxlab:'%s',ylab:'%s',zlab:'%s',"
@@ -403,5 +473,66 @@ for fn, title, body, sid, key, xl, yl, zl, r, lab, extra in (
              xl, yl, zl, r,
              ("stroke:true,labels:true," if lab else ""),
              ("colour:p=>p.c" if extra else COL)))
-    open(fn, 'w').write(page(title, body, js))
-    print("wrote", fn)
+    return fn, page(title, body, js)
+
+
+def build():
+    for spec in PLATES:
+        fn, out = render(spec)
+        open(fn, 'w').write(out)
+        print("wrote", fn)
+
+
+def md5(b):
+    return hashlib.md5(b if isinstance(b, bytes) else b.encode()).hexdigest()
+
+
+def selftest():
+    """Every figure here was MEASURED by running this file, never chosen."""
+    ok = True
+
+    def chk(lab, got, want):
+        nonlocal ok
+        good = got == want
+        ok &= good
+        print("  [%s] %-52s %s" % ("ok" if good else "XX", lab,
+                                   got if good else "%s != %s" % (got, want)))
+
+    # THE INPUTS, pinned by md5.  style.css is the same file the sibling reads
+    # and carries the same hash; that is the claim, not a coincidence.
+    for name, want, size in (('style.css', 'bfec0696c0e551145759a290ad5d500a', 7280),
+                             ('w3d-r2.js', '4154dde8161ec3e0dc154fadab88e7dd', 6542),
+                             ('oct_pts.json', '604eb92e920b965623cc531e11fdbb08', 8544)):
+        b = open(os.path.join(HERE, name), 'rb').read()
+        chk("%s is present, %d bytes" % (name, size), len(b), size)
+        chk("%s md5" % name, md5(b), want)
+
+    chk("style.css ends without a newline", STYLE.endswith('\n'), False)
+    chk("w3d-r2.js ends with one", W3D.endswith('\n'), True)
+
+    # r2 IS THE GENERATION WITH EDGES, and the octad is why this file needs it.
+    chk("w3d-r2.js carries the edges pass", 'opts.edges' in W3D, True)
+    chk("and is not the r1 the sibling pins",
+        md5(W3D) == 'f9348be9b963d26e2c63240fc974e060', False)
+
+    # THE POINT SETS, measured off the restored file.
+    chk("spectra points", len(D['spectra']), 209)
+    chk("entropy points", len(D['entropy']), 9)
+    chk("octad points", len(D['octad']['pts']), 17)
+    chk("octad edges", len(D['octad']['edges']), 28)
+
+    # THE WHOLE CLAIM: each page is byte-identical to the plate in the tree.
+    for spec in PLATES:
+        fn, out = render(spec)
+        want = open(os.path.join(HERE, ARCHIVED[fn]), 'rb').read()
+        chk("%s reproduces %s byte for byte" % (fn, ARCHIVED[fn]),
+            (len(out.encode()), md5(out)), (len(want), md5(want)))
+
+    print("build_plates8 selftest: %s" % ("PASS" if ok else "FAIL"))
+    return ok
+
+
+if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        sys.exit(0 if selftest() else 1)
+    build()

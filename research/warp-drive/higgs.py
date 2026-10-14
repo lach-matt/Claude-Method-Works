@@ -13,9 +13,17 @@ WHICH IS A FIRST FOR THIS THREAD.
                 the NEC IDENTICALLY, for ANY potential, and a CONSTANT field --
                 which is exactly what a VEV is -- SATURATES it at exactly zero.
     THE ESCAPE  xi.  Barcelo-Visser prove a traversable wormhole branch for
-                EVERY xi > 0, and the Higgs is the one Standard Model field
-                whose xi is not optional.  AND THE GATE THEY STATE IS THE
-                HIERARCHY PROBLEM, EXACTLY.
+                EVERY xi > 0 FOR A MASSLESS SCALAR, and the Higgs is the one
+                Standard Model field whose xi is not optional.  AND THE GATE
+                THEY STATE IS THE HIERARCHY, SQUARED, EXACTLY.
+                CORRECTED (DOCKET 67): first written without 'for a massless
+                scalar' and as 'THE HIERARCHY PROBLEM, EXACTLY'.  The Higgs has
+                a potential, so only BV's gate carries over to it, not their
+                existence result (section 3); the branch is unstable for every
+                xi > 0 (Bronnikov-Grinyok gr-qc/0201083) and its effective
+                Newton constant changes sign between the mouths.  The gate is
+                the hierarchy v/M_red, squared; the hierarchy PROBLEM is
+                something else (section 4).
 
 ===============================================================================
 1. A MINIMALLY COUPLED SCALAR SATISFIES THE NEC IDENTICALLY.  THE POTENTIAL
@@ -62,11 +70,12 @@ minimally-coupled configuration anywhere between "useless" and "worse".
 2. THE MAGNITUDE, AND IT IS THE FIRST OVERSHOOT IN THE THREAD
 ===============================================================================
 
-The Standard Model Higgs potential at its minimum:
+The tree-level Standard Model Higgs potential at its minimum:
 
         V_min = -lambda v^4/4 = -m_h^2 v^2/8
 
-With v from the Fermi constant and m_h from the PDG this is about
+With v from the Fermi constant (the tree-level, on-shell G_mu-scheme
+definition), m_h from the PDG and the SM self-couplings this is about
 -1.19e8 GeV^4, and in SI about 2.48e45 J/m^3 in magnitude.  pressure.py's
 throat needs TAU_0 = 2.073325e42 Pa.
 
@@ -78,6 +87,17 @@ category.  THIS ONE OVERSHOOTS.  And the SIGN of rho is right too -- the
 electroweak vacuum sits BELOW the symmetric point, so it carries genuinely
 NEGATIVE potential energy density.
 
+CORRECTED (DOCKET 67): the paragraph above was first written without
+'tree-level', without naming the scheme of v, and without the self-coupling
+hypothesis.  The data fix only v and V''(v) = m_h^2.  The quartic shape between
+0 and v is a model assumption: the trilinear kappa_lambda is bounded only to
+(-1.2, 7.5) (CMS, as quoted by 2503.11548) and the quartic is unmeasured.  On
+potentials with the same v and m_h the depth is (m_h^2 v^2/8)(3 - kappa_lambda)/2,
+so its SIGN holds for SM self-couplings (kappa_lambda = 1, consistent with the
+data) and flips for kappa_lambda > 3, inside the allowed interval.  At one loop
+the depth moves by +6.6 %, inside the selftest's (1e2, 1e4) band.  The MS-bar
+vev differs from the G_F value by 0.155 %.
+
 TWO CAVEATS, AND THEY ARE NOT SMALL.
 
   (a) THE ABSOLUTE NORMALISATION OF V IS NOT MEASURED.  In flat-space QFT only
@@ -87,10 +107,24 @@ TWO CAVEATS, AND THEY ARE NOT SMALL.
       some fifty-four orders, and that excess IS THE COSMOLOGICAL CONSTANT
       PROBLEM.  So the magnitude is real as a contribution and is cancelled, by
       something nobody has identified, down to a number we do measure.
-  (b) IT IS UNIFORM.  It is the same inside the throat as outside it, so it
-      does not localise, cannot be switched on in one place, and is already
-      included in whatever Lambda is.  A resource you cannot put somewhere is
-      not a resource.
+  (b) IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise:
+      massform.P_UNIFORM_STATUS).  The paper's caveat (b) (paper/CLAIMS.md,
+      H92b) was qualified the same way on M's ruling M-D65-4, and its ruling
+      id added on M-D65-5 (ledger.py).
+      It is the same inside the throat as
+      outside it, and it is already included in whatever Lambda is.
+      IT CAN BE DISPLACED IN ONE PLACE ONLY BY FILLING THAT PLACE WITH A SOURCE
+      WHOSE REST ENERGY IS 2/eps TIMES THE FIELD ENERGY IT BUYS.  A resource
+      you can put somewhere only by putting something far larger there is not
+      a resource.
+
+      CORRECTED (DOCKET 63, ruling F3).  The first draft said the vev "does not
+      localise, cannot be switched on in one place".  AS WRITTEN THAT IS FALSE:
+      a source does displace it locally -- address.py section 3 prices exactly
+      that, and its source_to_field_ratio(eps) -> 2/eps is asked by this file's
+      selftest, not retyped.  What survives is the price, not the prohibition.
+      Kept as CAVEAT_B_AS_FIRST_WRITTEN with CANNOT_BE_SWITCHED_ON_IN_ONE_PLACE
+      = False; nothing is deleted.
 
 ===============================================================================
 3. THE ESCAPE IS xi, AND THE HIGGS IS THE ONE FIELD THAT MUST HAVE IT
@@ -105,41 +139,103 @@ inflation exists at all.
 BARCELO-VISSER (gr-qc/0003025, READ FROM SOURCE) SETTLE WHAT xi BUYS:
 
   - eq. (2.6): NEC = [phi'^2 - xi (phi^2)''] / (kappa - xi phi^2).  For xi > 0
-    and |phi| small, ANY LOCAL MAXIMUM OF phi^2 VIOLATES THE POINTWISE NEC.
-    POINTWISE NEC VIOLATION IS CHEAP.
+    and |phi| small, ANY LOCAL MINIMUM OF phi^2 VIOLATES THE POINTWISE NEC.
+    POINTWISE NEC VIOLATION IS CHEAP.  (CORRECTED, DOCKET 67: first written
+    'MAXIMUM', inherited from BV's prose beside eq. (2.6); their own (2.6)
+    gives +2 xi b0 at a maximum and -2 xi b0 at a minimum, as FFK 2309.10848
+    eq. (18) states.  'Cheap' survives the swap.)
   - BUT A WORMHOLE NEEDS ANEC, by topological censorship, AND ANEC IS NOT
     CHEAP.  Their case 2: for xi > 0 with phi^2 < kappa/xi everywhere, "the
     integrand appearing above is again positive and ANEC is satisfied".  Only
     their case 3, phi^2 > kappa/xi SOMEWHERE, admits ANEC violation.
+    HYPOTHESES, NAMED (DOCKET 67; first left unnamed): topological censorship
+    (Friedman-Schleich-Witt) assumes asymptotic flatness and global
+    hyperbolicity, and the energy condition its proof needs is the half-line
+    integral (or whole-line ANEC with the null generic condition); its
+    contrapositive puts the failure on SOME null geodesic, not specifically
+    the radial one BV integrate.  BV's ANEC is that of the effective T_eff
+    (their 2.3), not of T, and their case-2 positivity is over a COMPLETE null
+    geodesic with sufficiently smooth asymptotic behaviour: a case-2 profile
+    (phi = 0.05 lam, xi = 1) integrates to -0.0025 over the finite segment
+    [0, 1].  The censorship context supplies complete geodesics, so the
+    verdict does not move.
   - and they find "an entire branch of traversable wormholes for every xi > 0",
     gated by exactly that condition, which they state as: "In all these
     solutions the scalar field has to reach absolute values above ~ m_p/sqrt(xi)
     ... either the scalar field acquires trans-Planckian values or the curvature
     coupling constant xi must become disturbingly large."
+    SCOPE, NAMED (DOCKET 67): that existence result is for a MASSLESS (V = 0),
+    static, spherically symmetric scalar; with a potential BV call the problem
+    'analytically intractable'.  The gate half carries over to the Higgs (V
+    drops out of T_eff k k, and the case 1-2 positivity does not depend on V);
+    the existence half does not.  BV leave stability unaddressed, and the
+    branch was later found unstable for every xi > 0 (Bronnikov-Grinyok
+    gr-qc/0201083).
 
 THE DISTINCTION MATTERS AND IS THE KIND THAT GETS FLATTENED: POINTWISE NEC
 VIOLATION IS AVAILABLE TO THE HIGGS AT ANY xi > 0.  ANEC VIOLATION IS NOT.
 
 ===============================================================================
-4. AND THE GATE IS THE HIERARCHY PROBLEM.  EXACTLY, NOT BY ANALOGY
+4. AND THE GATE IS THE HIERARCHY, SQUARED.  EXACTLY, NOT BY ANALOGY
 ===============================================================================
+
+(CORRECTED, DOCKET 67: this heading first read 'THE GATE IS THE HIERARCHY
+PROBLEM'.)
 
 Put the Higgs VEV into their condition.  ANEC violation needs
 
         phi > M_reduced / sqrt(xi)        i.e.   xi > (M_reduced/v)^2
+
+-- for a field that stays at its VEV.  HYPOTHESES, NAMED (DOCKET 67): BV's gate
+is on the largest |phi| reached anywhere on the geodesic, not on a vacuum
+value, and BV do not address local excursions above v.  And kappa = M_red^2 is
+taken from the measured G while phi = v: under BV's eq. (5.51) the measured G
+belongs to kappa - xi v^2, so case 3 reads phi^2 > v^2 + M_red^2/xi, and the
+vacuum lies below that at EVERY xi > 0.  The two readings agree to 8.7e-29 at
+xi = 1.7e4 and differ at O(1) only for xi ~ 1e30-1e33; xi_required =
+(M_red/v)^2 is the induced-gravity point.
 
 M_reduced = M_Planck/sqrt(8 pi) = 2.4e18 GeV and v = 246.22 GeV, so
 
         v / M_reduced  =  1.01e-16
         xi required    =  9.8e31
 
-Higgs inflation runs at xi ~ 1.7e4 (Bezrukov-Shaposhnikov, NAMED-NOT-READ),
-TWENTY-EIGHT ORDERS BELOW.  And the reason the gate fails is not an accident of
-this calculation: BARCELO-VISSER'S THRESHOLD IS THE PLANCK SCALE, AND THE
-HIERARCHY PROBLEM IS THE STATEMENT THAT v SITS SIXTEEN ORDERS BELOW IT.
+Higgs inflation runs at |xi| ~ 1.7e4, TWENTY-EIGHT ORDERS BELOW IN MAGNITUDE --
+AND ON THE OTHER SIDE OF ZERO.  And the reason the gate fails is not an
+accident of this calculation: BARCELO-VISSER'S THRESHOLD IS THE (REDUCED)
+PLANCK SCALE, AND v SITS SIXTEEN ORDERS BELOW IT -- THAT RATIO IS THE
+HIERARCHY.
 
-    THE SINGLE MOST FAMOUS FINE-TUNING IN PARTICLE PHYSICS IS EXACTLY THE
-    QUANTITY STANDING BETWEEN THE HIGGS AND A TRAVERSABLE THROAT.
+    THE QUANTITY STANDING BETWEEN THE HIGGS AND A TRAVERSABLE THROAT IS THE
+    HIERARCHY SQUARED, EXACTLY: xi_required = (M_red/v)^2.
+
+CORRECTED (DOCKET 67).  First written: 'Higgs inflation runs at xi ~ 1.7e4
+(Bezrukov-Shaposhnikov, NAMED-NOT-READ), TWENTY-EIGHT ORDERS BELOW', 'THE
+HIERARCHY PROBLEM IS THE STATEMENT THAT v SITS SIXTEEN ORDERS BELOW IT', and
+'THE SINGLE MOST FAMOUS FINE-TUNING IN PARTICLE PHYSICS IS EXACTLY THE
+QUANTITY'.  What was read and computed:
+  * Bezrukov-Shaposhnikov 0710.3755, now READ, print a function, xi =
+    49000 sqrt(lambda) (eq. 13), not a number; 1.7e4 is that function at the
+    READ m_h and TREE-LEVEL lambda (17,608, truncated).  With SM running and
+    the measured top mass, later work gives xi ~ 1500 down to O(10) (Rubio
+    1807.02376; Masina-Quiros 2412.03284).
+  * B-S's conformal coupling is -1/6 (footnote 1) and BV's +1/6, so
+    xi_BV = -xi_BS: Higgs inflation sits at xi_BV ~ -1.76e4, BV's CASE 1,
+    where ANEC holds at every field value and there is no gate.  'Twenty-eight
+    orders below' compares magnitudes across a sign flip, which strengthens
+    the refusal.  During inflation the Higgs reaches h ~ 9.4 M_P/sqrt(xi),
+    above the gate's magnitude; it is the sign, not the field value, that
+    keeps Higgs inflation out of case 3.
+  * The inflation-scale xi is compared with a gate at the electroweak vev; at
+    xi(M_W) ~ xi(M_P)/2 ~ 8.8e3 the gap is 28.05 orders, not 27.76.
+  * 'Sixteen orders' is against the reduced Planck mass (15.995); against
+    G_N^-1/2 it is 16.70.
+  * The hierarchy PROBLEM, as its sources define it (Giudice, Craig, Koren),
+    is the radiative/UV instability of the Higgs mass, not the smallness of
+    v/M_Pl.  The gate depends on the measured ratio alone: solving the
+    problem would leave xi_required at 9.78e31.  The fine-tuning
+    |delta m_h^2|/m_h^2 is 4.9e32 at a cutoff M_Pl and 1.95e31 at M_red,
+    against 9.78e31: the same order of magnitude, not the same number.
 
 Squared, because the gate is on xi and the field enters squared: sixteen orders
 of hierarchy become thirty-two orders of xi.
@@ -153,6 +249,30 @@ violates the NEC at every gradient.  It is exhibited below AS A NEGATIVE
 CONTROL, and it is not the Higgs: the Higgs kinetic term's sign is measured
 every time the particle propagates.  Naming the thing that works, and that we
 do not have, is part of not overclaiming the thing that does not.
+
+===============================================================================
+6. m_h IS NOW THE READ ONE (DOCKET 63, ruling F2 -- SWITCHED ON M'S RULING)
+===============================================================================
+
+M_HIGGS was pinned at 125.20, NAMED-NOT-READ (CORRECTED, DOCKET 67: the label
+understated it -- 125.20 +- 0.11 GeV is the readable PDG 2024 and 2025 average;
+the pin came from an older edition, and the value was not a mistake; on M's
+"ok, update" the constant's label is now READ, still WITHDRAWN), while
+the tree's own capture of
+the 2026 Review of Particle Physics, captures/PDG-2026.tsv (the H0 row, pdgid
+25), READs 125.13.  DOCKET 63 recorded the disagreement and did not switch it,
+because it cascades into the paper.  M ruled: apply it.  M_HIGGS is now the
+READ value, imported through pdgcapture.read() -- never retyped -- and the old
+pin is kept as M_HIGGS_PIN_WITHDRAWN so the switch has an object.
+
+THE DRIFT GUARD IS INVERTED, NOT REMOVED.  M_HIGGS_IS_READ is now True and the
+selftest asserts it, so re-pinning M_HIGGS to anything but the capture breaks
+the selftest.  read_mass_moves() now records the move that was MADE, from the
+withdrawn pin to the READ mass, and the selftest checks that every figure
+moved by exactly the power of m_h its formula carries (lambda and V_min as
+m_h^2, lambda_h as 1/m_h) and that the xi gate, which has no m_h, did not move
+at all.  Every figure moved by about a tenth of a percent; NO VERDICT MOVED.
+The paper's H92b table (paper/CLAIMS.md) was updated on the same ruling.
 
 NOTHING IS REPAIRED.
 """
@@ -172,34 +292,154 @@ GEV_IN_J = 1.602176634e-10           # SI-EXACT (elementary charge is exact)
 HBAR_C = HBAR * c                    # J m
 
 # Measured inputs.  STATUS IS PART OF THE VALUE.
-G_FERMI = 1.1663788e-5               # GeV^-2, PDG          NAMED-NOT-READ
-M_HIGGS = 125.20                     # GeV, PDG             NAMED-NOT-READ
-XI_HIGGS_INFLATION = 1.7e4           # Bezrukov-Shaposhnikov NAMED-NOT-READ
+# CORRECTED (DOCKET 67 follow-up, on M's ruling "ok, update"): the three
+# status words below first read NAMED-NOT-READ; DOCKET 67 READ all three
+# (audit keys pdg-g_fermi / fermi-constant-g_f-and-tree-level-vev,
+# withdrawn-pin-125.20-and-orchestrator-125.25, 0710.3755-bezrukov-
+# shaposhnikov).  No value moved.  STATUS_D67 carries them for the selftest.
+G_FERMI = 1.1663788e-5               # GeV^-2   READ (DOCKET 67): PDG 2024 Table
+                                     # 1.1, "1.166 378 8(6) x 10^-5 GeV^-2, 510
+                                     # ppb" -- identical to the typed digits.
+                                     # G_F = G_mu from muon decay (MuLan), V-A
+                                     # assumed, W-propagator term included.
+                                     # First labelled "NAMED-NOT-READ as typed".
+M_HIGGS_PIN_WITHDRAWN = 125.20       # GeV -- the old pin, READ (DOCKET 67): PDG
+                                     # 2024 Higgs listing p.1, 125.20 +- 0.11,
+                                     # the 2024/2025 average.  WITHDRAWN on M's
+                                     # ruling (DOCKET 63 F2) all the same: M_HIGGS
+                                     # below is the READ 2026 capture value.
+                                     # First labelled "NAMED-NOT-READ".
+XI_HIGGS_INFLATION = 1.7e4           # Bezrukov-Shaposhnikov 0710.3755, READ
+                                     # (DOCKET 67).  The source prints NO number:
+                                     # eq. (13) is xi ~ 49000 sqrt(lambda).  1.7e4
+                                     # is that function at the READ m_h and tree-
+                                     # level lambda, COMPUTED as XI_EQ13_AT_READ_MH
+                                     # below (17,608), quoted truncated -- the
+                                     # audit's "a later evaluation attributed to
+                                     # the paper", not an error.  B-S's sign
+                                     # convention; -1.76e4 in BV's (section 4).
+                                     # First labelled "NAMED-NOT-READ as typed".
+XI_EQ13_COEFFICIENT = 49000.0        # READ  0710.3755 eq. (13): xi ~ 49000 sqrt(lambda)
+STATUS_D67 = {
+    "G_FERMI": "READ",
+    "M_HIGGS_PIN_WITHDRAWN": "READ",            # and WITHDRAWN (DOCKET 63 F2)
+    "XI_HIGGS_INFLATION": "COMPUTED from READ eq. (13), quoted truncated",
+}
 RHO_LAMBDA_OBS = 6.0e-10             # J/m^3, order          ORDER
 
 BV_READ_FROM_SOURCE = True           # gr-qc/0003025
 MINIMAL_SCALAR_SATISFIES_NEC = True
 VEV_SATURATES_NEC = True
 POINTWISE_NEC_IS_CHEAP = True        # BV sect. 2.2, xi > 0
-ANEC_IS_NOT = True                   # BV sect. 2.3, cases 2 and 3
+ANEC_IS_NOT = True                   # BV sect. 2.3, cases 2 and 3 -- the ANEC of
+                                     # T_eff on a complete null geodesic with BV's
+                                     # asymptotic fall-off (DOCKET 67, named)
 HIGGS_IS_NOT_A_PHANTOM = True
 NOTHING_IS_REPAIRED = True
+
+# ---------------------------------------------- DOCKET 63, ruling F3: caveat (b)
+#: The sentence as first written, kept verbatim so the withdrawal has an object.
+CAVEAT_B_AS_FIRST_WRITTEN = ("IT IS UNIFORM.  It is the same inside the throat "
+                             "as outside it, so it does not localise, cannot be "
+                             "switched on in one place, and is already included "
+                             "in whatever Lambda is.")
+CANNOT_BE_SWITCHED_ON_IN_ONE_PLACE = False   # WITHDRAWN (DOCKET 63 F3)
+CAVEAT_B_WITHDRAWAL_REASON = (
+    "False as written: it can be displaced in one place only by filling that "
+    "place with a source whose rest energy is 2/eps times the field energy it "
+    "buys (address.source_to_field_ratio, asked in the selftest).  The price "
+    "survives; the prohibition does not.")
+
+
+# ------------------------------------------------ DOCKET 63, ruling F2: m_h READ
+def _capture_row(pdgid):
+    """The captured PDG-2026 row for one particle.  pdgcapture.read() is the
+    stdlib read path of captures/PDG-2026.tsv; nothing is retyped here."""
+    import pdgcapture
+    rows = [r for r in pdgcapture.read() if int(r["pdgid"]) == pdgid]
+    if len(rows) != 1:
+        raise LookupError("capture holds %d rows for pdgid %d" % (len(rows), pdgid))
+    return rows[0]
+
+
+PDGID_HIGGS = 25
+M_HIGGS_READ_GEV = float(_capture_row(PDGID_HIGGS)["mass_MeV"]) / 1000.0   # READ
+GAMMA_HIGGS_READ_GEV = float(_capture_row(PDGID_HIGGS)["width_MeV"]) / 1000.0  # READ
+#: DOCKET 67: Gamma_h is READ under the PDG's hypothesis of equal on- and
+#: off-shell effective couplings (PDG p.8; CMS 2409.13663, no new virtual
+#: particles in production), and carries +1.5/-0.7 MeV the capture drops.
+#: m_h, READ.  The value every figure in this file and its importers uses.
+M_HIGGS = M_HIGGS_READ_GEV
+#: THE DRIFT FLAG, INVERTED.  True, and the selftest asserts True: re-pinning
+#: M_HIGGS to anything but the capture breaks it.
+M_HIGGS_IS_READ = (M_HIGGS == M_HIGGS_READ_GEV)
+#: Fractional move of the switch, READ over the withdrawn pin.  COMPUTED.
+M_HIGGS_READ_SHIFT = M_HIGGS / M_HIGGS_PIN_WITHDRAWN - 1.0
 
 
 # ------------------------------------------------------------------- the SM
 def vev():
-    """v = (sqrt(2) G_F)^(-1/2), in GeV."""
+    """v = (sqrt(2) G_F)^(-1/2), in GeV.
+
+    The tree-level, on-shell (G_mu-scheme) definition: the source relation
+    carries (1 + Delta r), and the MS-bar vev differs by 0.155 % (DOCKET 67,
+    named).
+    """
     return 1.0 / math.sqrt(math.sqrt(2.0) * G_FERMI)
 
 
-def lam():
-    """lambda = m_h^2 / (2 v^2)."""
-    return M_HIGGS ** 2 / (2.0 * vev() ** 2)
+def lam(m_h=None):
+    """lambda = m_h^2 / (2 v^2), at LEADING ORDER (tree level).  m_h defaults to
+    M_HIGGS, READ.  DOCKET 67: the MS-bar NNLO lambda(M_t) is 0.9757 of this LO
+    value (Buttazzo Table 3); the digits here are LO digits."""
+    m_h = M_HIGGS if m_h is None else m_h
+    return m_h ** 2 / (2.0 * vev() ** 2)
 
 
-def v_min_gev4():
-    """V at the minimum of the Mexican hat, with V(0) = 0.  NEGATIVE."""
-    return -lam() * vev() ** 4 / 4.0
+
+def xi_eq13_at_read_mh():
+    """Bezrukov-Shaposhnikov eq. (13), READ: xi ~ 49000 sqrt(lambda), at the
+    READ m_h and the TREE-LEVEL lambda = m_h^2/(2 v^2) (lam()).  HYPOTHESIS,
+    NAMED: tree-level lambda, no running to the inflationary scale (B-S H6);
+    with SM running and the measured top mass later work gives xi ~ 1500 down
+    to O(10) (section 4).  DOCKET 67 follow-up: this is the computation behind
+    the typed 1.7e4."""
+    return XI_EQ13_COEFFICIENT * math.sqrt(lam())
+
+def v_min_gev4(m_h=None):
+    """V at the minimum of the tree-level Mexican hat, with V(0) = 0.  NEGATIVE
+    for SM self-couplings (kappa_lambda = 1).  An LO object (DOCKET 67)."""
+    return -lam(m_h) * vev() ** 4 / 4.0
+
+
+def compton_length_m(m_gev):
+    """hbar c / (m c^2), metres -- lambda_h when m is the Higgs mass."""
+    return HBAR_C / (m_gev * GEV_IN_J)
+
+
+def read_mass_moves():
+    """[(figure, at the withdrawn pin, at M_HIGGS (READ), relative move)].
+
+    DOCKET 63 F2, switched on M's ruling: this records the move that was made,
+    for every figure this file states that depends on m_h, plus one CONTROL
+    that must not move (the xi gate, which contains v and M_red but no m_h).
+    """
+    tau = pressure.throat_tension(pressure.R_MOUTH)
+    out = []
+    for name, f in (
+            ("lambda = m_h^2/2v^2", lam),
+            ("V_min (GeV^4)", v_min_gev4),
+            ("|V_min| (J/m^3)", lambda m: abs(gev4_to_si(v_min_gev4(m)))),
+            ("|V_min| / TAU_0 (the surplus)",
+             lambda m: abs(gev4_to_si(v_min_gev4(m))) / tau),
+            ("log10 |V_min|/rho_Lambda (CC orders)",
+             lambda m: math.log10(abs(gev4_to_si(v_min_gev4(m)))
+                                  / RHO_LAMBDA_OBS)),
+            ("lambda_h = hbar/(m_h c) (m)", compton_length_m),
+            ("CONTROL xi_required(v) (no m_h)", lambda m: xi_required(vev()))):
+        a, b = f(M_HIGGS_PIN_WITHDRAWN), f(M_HIGGS)
+        out.append((name, a, b, b / a - 1.0))
+    return out
 
 
 def gev4_to_si(x):
@@ -310,7 +550,7 @@ def report():
     tau = pressure.throat_tension(pressure.R_MOUTH)
     print("  the Standard Model Higgs")
     print("      %-38s %20.6f GeV" % ("v, from G_F", v))
-    print("      %-38s %20.6f GeV" % ("m_h (PDG, NAMED-NOT-READ)", M_HIGGS))
+    print("      %-38s %20.6f GeV" % ("m_h (PDG-2026, READ)", M_HIGGS))
     print("      %-38s %20.9f" % ("lambda = m_h^2/2v^2", lam()))
     print("      %-38s %20.6e GeV^4" % ("V at the minimum", Vm))
     print("      %-38s %20.6e J/m^3" % ("  |V_min| in SI", Vsi))
@@ -377,21 +617,42 @@ def report():
     print("      %-38s %20.2f" % ("  orders short",
                                   math.log10(xi_required(v)
                                              / XI_HIGGS_INFLATION)))
+    print("      (|xi| only: in BV's convention Higgs inflation is xi ~ -1.76e4,")
+    print("      their case 1, with no gate; and 28.05 orders at xi(M_W).)")
     print()
-    print("  and the gate IS the hierarchy problem")
+    print("  and the gate IS the hierarchy, squared")
     print("      %-38s %20.6e" % ("v / M_reduced", hierarchy()))
     print("      %-38s %20.2f" % ("  orders of hierarchy",
                                   -math.log10(hierarchy())))
     print("      %-38s %20.2f" % ("  doubled, because xi takes phi^2",
                                   math.log10(xi_required(v))))
     print()
+    print("  m_h switched to the READ value on M's ruling (DOCKET 63 F2)")
+    print("      %-38s %20.6f GeV" % ("M_HIGGS_PIN_WITHDRAWN (READ PDG 2024)", M_HIGGS_PIN_WITHDRAWN))
+    print("      %-38s %20.6f GeV" % ("captures/PDG-2026.tsv H0, READ",
+                                      M_HIGGS_READ_GEV))
+    print("      %-38s %20.6e" % ("  the switch moved m_h by",
+                                  M_HIGGS_READ_SHIFT))
+    print("      %-36s %14s %14s %11s" % ("figure", "at old pin", "at READ",
+                                          "moved by"))
+    for name, a, b, rel in read_mass_moves():
+        print("      %-36s %14.7g %14.7g %+11.3e" % (name, a, b, rel))
+    print()
+    print("  caveat (b), corrected (DOCKET 63 F3)")
+    print("      'cannot be switched on in one place' is WITHDRAWN:")
+    import textwrap
+    for ln in textwrap.wrap(CAVEAT_B_WITHDRAWAL_REASON, 66):
+        print("      %s" % ln)
+    print()
     print("=" * 79)
     print("VERDICT")
     print("=" * 79)
     print()
     print("  Right object, right magnitude -- the first overshoot in the")
-    print("  thread -- and the wrong side of a line the field cannot leave.")
-    print("  The escape is xi, and the gate on xi is the hierarchy problem.")
+    print("  thread -- and the wrong side of a line a classical, canonical,")
+    print("  minimally coupled field cannot leave (this file's premise,")
+    print("  section 1, not Barcelo-Visser's).  The escape is xi, and the gate")
+    print("  on xi is the hierarchy, squared -- not the hierarchy problem.")
     print()
 
 
@@ -476,11 +737,19 @@ def selftest():
 
     # ------------------------------------------------------- the Standard Model
     chkrel("v from G_F", vev(), 246.2196, 1e-5)
-    chkrel("lambda", lam(), 0.129280575661, 1e-10)
+    # FIXTURE at the READ mass.  And the switch is checked against the fixture it
+    # replaced: the old pin's 0.129280575661, rescaled by (m_read/m_pin)^2, must
+    # land on the new value -- it would not if anything but m_h had moved.
+    chkrel("lambda (READ m_h)", lam(), 0.129136053130, 1e-10)
+    chkrel("  = the withdrawn pin's 0.129280575661 x (m_read/m_pin)^2",
+           lam(), 0.129280575661 * (M_HIGGS / M_HIGGS_PIN_WITHDRAWN) ** 2, 1e-10)
     chk("V_min is negative", v_min_gev4() < 0.0, True)
     # the two closed forms for V_min must agree
     chkrel("V_min = -m_h^2 v^2/8", v_min_gev4(),
            -M_HIGGS ** 2 * vev() ** 2 / 8.0, 1e-12)
+    # DOCKET 67 (codata-2018-constants): G is the CODATA 2018 point value, u_r
+    # 2.2e-5, so the Planck masses are physically good to about 4-5 figures; the
+    # seventh figure here pins arithmetic reproducibility, not knowledge of G.
     chkrel("Planck mass in GeV", planck_mass_gev(), 1.220890e19, 1e-5)
     chkrel("reduced Planck mass", reduced_planck_gev(), 2.435323e18, 1e-5)
 
@@ -508,19 +777,84 @@ def selftest():
         abs(anec_gate_field_gev(1.0) - reduced_planck_gev()) < 1e3, True)
     chk("the Higgs VEV is below the gate at Higgs-inflation xi",
         vev() < anec_gate_field_gev(XI_HIGGS_INFLATION), True)
+    # DOCKET 67: a comparison of MAGNITUDES -- in BV's sign convention Higgs
+    # inflation sits at xi ~ -1.76e4 (case 1, no gate), which strengthens it.
     xr = xi_required(vev())
-    chkrel("xi required at the VEV", xr, 9.7829068836e31, 1e-9)
+    # DOCKET 67 (codata-2018-constants): eleven figures through G (u_r 2.2e-5)
+    # are arithmetic reproducibility only; physically the figure holds to ~4-5.
+    # RE-PINNED (DOCKET 67 follow-up): first 9.7829068836e31, computed with the
+    # typed, truncated hbar; with the exact h/2pi (via ladder.HBAR) it is
+    # 9.7829068896e31 (+6.13e-10, hbar's own shift).  The old pin passed only
+    # because its tolerance, 1e-9, exceeds that shift.
+    chkrel("xi required at the VEV", xr, 9.7829068896e31, 1e-10)
     chk("which is more than 1e27 above Higgs inflation",
         xr / XI_HIGGS_INFLATION > 1e27, True)
+    # DOCKET 67 follow-up: the statuses follow what DOCKET 67 READ, and the
+    # typed 1.7e4 is the 2-s.f. truncation of eq. (13) COMPUTED at the READ m_h.
+    chk("G_F, the 125.20 pin and B-S's xi are READ / COMPUTED, not NAMED-NOT-READ",
+        sorted(STATUS_D67.values()),
+        ["COMPUTED from READ eq. (13), quoted truncated", "READ", "READ"])
+    chkrel("B-S eq. (13) at the READ m_h, tree lambda", xi_eq13_at_read_mh(),
+           17608.0, 1e-4)
+    chk("  and 1.7e4 is its 2-s.f. truncation (not its rounding, 1.8e4)",
+        (math.floor(xi_eq13_at_read_mh() / 1e3) / 10.0 * 1e4 == XI_HIGGS_INFLATION,
+         round(xi_eq13_at_read_mh(), -3) == XI_HIGGS_INFLATION), (True, False))
 
     # ------------------------------------------ and the gate IS the hierarchy
     h = hierarchy()
-    chkrel("v/M_reduced", h, 1.0110346504e-16, 1e-9)
+    # RE-PINNED (DOCKET 67 follow-up): first 1.0110346504e-16 (truncated
+    # hbar); M_red carries sqrt(hbar), so the exact h/2pi moves it -3.06e-10.
+    chkrel("v/M_reduced", h, 1.0110346501e-16, 1e-10)
     # THE IDENTITY: xi_required is exactly the hierarchy squared.  Not an
     # analogy -- the same number, because xi couples phi^2.
     chkrel("xi_required = (v/M_red)^-2 exactly", xr, 1.0 / h ** 2, 1e-12)
     chk("sixteen orders of hierarchy, thirty-two of xi",
         round(math.log10(xr) / -math.log10(h), 6), 2.0)
+
+    # ------------------------------ DOCKET 63 F2: the READ m_h, beside the pin
+    # FIXTURE 125.13 GeV / 3 MeV: captures/PDG-2026.tsv's H0 row, reproduced
+    # by _capture_row() through pdgcapture.read(), never typed into the code.
+    chk("m_h READ from captures/PDG-2026.tsv (pdgid 25)", M_HIGGS_READ_GEV, 125.13)
+    chk("Gamma_h READ from the same row", GAMMA_HIGGS_READ_GEV, 0.003)
+    # DRIFT GUARD, INVERTED on M's ruling: it now FIRES if M_HIGGS is ever
+    # re-pinned to anything but the capture.
+    chk("DRIFT GUARD: M_HIGGS IS the READ value", M_HIGGS_IS_READ, True)
+    chk("  M_HIGGS is 125.13, READ", M_HIGGS, 125.13)
+    chk("  and the withdrawn pin is kept as a record, 125.20", M_HIGGS_PIN_WITHDRAWN, 125.20)
+    chkrel("  offset of the pin from the READ value", M_HIGGS_READ_SHIFT,
+           -5.5910543e-4, 1e-6)
+    moves = {n: rel for n, _, _, rel in read_mass_moves()}
+    chkrel("|V_min| moved by (m_read/m_pin)^2 - 1",
+           moves["|V_min| (J/m^3)"], (1 + M_HIGGS_READ_SHIFT) ** 2 - 1, 1e-9)
+    chkrel("lambda_h moved by m_pin/m_read - 1",
+           moves["lambda_h = hbar/(m_h c) (m)"],
+           1.0 / (1 + M_HIGGS_READ_SHIFT) - 1, 1e-9)
+    chkrel("lambda_h at the withdrawn pin (record)",
+           compton_length_m(M_HIGGS_PIN_WITHDRAWN), 1.576094e-18, 1e-6)
+    # DOCKET 67: a regression pin on the arithmetic.  The datum (m_h +- 0.11
+    # GeV) supports lambda_h to +-8.8e-4 relative, not to 7 figures.
+    chkrel("lambda_h at M_HIGGS, READ (DOCKET 63 A.2)",
+           compton_length_m(M_HIGGS), 1.576976e-18, 1e-6)
+    chk("no figure here moves by more than 0.2 per cent",
+        all(abs(r) < 2e-3 for r in moves.values()), True)
+    # CONTROL THAT MUST NOT MOVE: the xi gate contains no m_h.
+    chk("CONTROL the xi gate does not move at all",
+        moves["CONTROL xi_required(v) (no m_h)"], 0.0)
+    # CONTROL THAT MUST FIRE: a figure that does depend on m_h does move.
+    chk("CONTROL the surplus does move", moves["|V_min| / TAU_0 (the surplus)"]
+        != 0.0, True)
+
+    # ----------------------------- DOCKET 63 F3: caveat (b), withdrawn not deleted
+    chk("caveat (b) 'cannot be switched on in one place' is WITHDRAWN",
+        CANNOT_BE_SWITCHED_ON_IN_ONE_PLACE, False)
+    chk("  and the first wording is kept verbatim",
+        "cannot be switched on in one place" in CAVEAT_B_AS_FIRST_WRITTEN, True)
+    # THE REPLACEMENT, ASKED OF ITS OWNER.  address.py prices the local
+    # displacement; its source/field ratio times eps must tend to 2.
+    import address
+    for e in (1e-6, 1e-9, 1e-12):
+        chkrel("source rest energy / field energy -> 2/eps at eps=%g" % e,
+               address.source_to_field_ratio(e) * e, 2.0, 1e-5)
 
     chk("nothing is repaired", NOTHING_IS_REPAIRED, True)
 

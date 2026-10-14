@@ -1,0 +1,79 @@
+{
+ "key": "clamped-beam-eigenproblem",
+ "name": "Clamped-beam (Euler-Bernoulli) fundamental: g'''' = mu^4 g, clamped ends, cos(mu) cosh(mu) = 1, INT (g'')^2 = mu_1^4 INT g^2",
+ "source": {
+  "located": "Classic: the clamped-clamped Euler-Bernoulli beam frequency equation cos(mu)cosh(mu) = 1 (Rayleigh, Theory of Sound, 1877; no arXiv copy) -- NAMED-NOT-READ. The form the tree relies on is restated in C.J. Fewster, 'Lectures on quantum energy inequalities', arXiv:1208.5399v1 (2012), pp.10-11, Eq. (3)-(4) and footnote 7, with the rigorous Sobolev backing in Fewster & Teo, gr-qc/9908073 (PRD 61, 084012, 2000), Thm 3.2 / Lemma 3.1 / footnote 7.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "The page text of 1208.5399 pp.10-11 and gr-qc/9908073 pp.1-4,7,12-16 was returned by alphaXiv answer_pdf_queries to the sister audits of this pass (audits/1208.5399.json, audits/1208.5399-w22-remark.json); the quotations below are taken from those records. In THIS stage all three alphaXiv calls (answer_pdf_queries x2, get_paper_content) and discover_papers were refused ('assistant quota exceeded') and a direct arxiv.org fetch was refused by the egress proxy (403), so nothing was re-queried here. The restatement prints only 'C ~ 3.17': the frequency equation cos mu cosh mu = 1, the root 4.7300..., sigma and the mode shape are printed at NO source read here, and are established below by derivation, not by reading."
+ },
+ "published_statement": "1208.5399 p.10: 'INT <T00>_w(t,x) g(t)^2 dt >= -(1/16pi^2) INT |g''(t)|^2 dt. (3)' ... 'The bound is known not to be optimal.' ... 'it remains valid if one take g to be an element of the Sobolev space W^{2,2}(R)'. p.11: 'Suppose that <T00>_w < rho for some interval t in [t0, t0+tau] of time. Then, for any g in C0^oo((t0,t0+tau)) ... <g|g''''>/<g|g> >= -16pi^2 rho ... the left-hand side can be minimized over g, to give the minimum eigenvalue of the operator d^4/dt^4 on [t0,t0+tau], with boundary conditions at each end corresponding to vanishing of the function and its first derivative. The upshot is that rho >= -C/tau^4, (4) where the numerical constant C ~ 3.17.' Classic content (not read, derived here): the clamped eigenfunctions of d^4/dt^4 on [0,1] are g = cosh(mu t) - cos(mu t) - sigma (sinh(mu t) - sin(mu t)), sigma = (cosh mu - cos mu)/(sinh mu - sin mu), with eigenvalue mu^4, mu a positive root of cos mu cosh mu = 1; the least is mu_1 = 4.73004...",
+ "published_hypotheses": [
+  "S1 operator d^4/dt^4 on a bounded interval (length tau; [0,1] after scaling), self-adjoint realisation with clamped conditions g = g' = 0 at both ends (1208.5399 p.11: 'vanishing of the function and its first derivative'; gr-qc/9908073 Thm 3.2: form domain W^{2,2}_0(I))",
+  "S2 the minimisation is over g in C0^oo of the OPEN interval (p.11); the infimum is the least eigenvalue and is NOT attained in C0^oo (the minimiser has g''(0) = 2 mu^2 != 0); attaining it needs W^{2,2}_0 (p.10 remark; gr-qc/9908073 Lemma 3.1: C0^oo(I) a form core)",
+  "S3 real-valued g (Eq. (3) written with g(t)^2; the Parseval step uses evenness of |ghat|^2 -- 2301.01698 eq. (1.4) as quoted in parseval-plancherel.json)",
+  "S4 the constant C is the optimum sampler of an inequality that is itself 'known not to be optimal' (p.10): C is not a sharp QEI constant",
+  "S5 (classic) Euler-Bernoulli (fourth-order) operator; no Timoshenko shear or rotary-inertia terms -- irrelevant here, since the tree uses the pure eigenproblem as mathematics, not a physical beam"
+ ],
+ "hypothesis_drift": [
+  "SCOPE (not narrowing): fewsterteo.py:41-42 and :165 call C_F 'the Fewster-Teo family's constant at the OPTIMAL COMPACTLY SUPPORTED sampler'. Fewster's Eq. (4) minimises over C0^oo((t0,t0+tau)), where the infimum mu_1^4 is not attained; the optimal sampler exists only in W^{2,2}_0 (checked A6: g''(0) = 2 mu^2). The tree's use of the mode itself as sampler (fewsterteo.py:224-230 _sampler) therefore rests on the W^{2,2} remark (p.10) / F&T Thm 3.2, audited STANDS in audits/1208.5399-w22-remark.json. The constant C_F is the same infimum either way, so the drift changes no number; the word 'compactly supported' must be read as 'W^{2,2}_0, compact support', not 'smooth'.",
+  "IMPLICIT (supplied here, not in the tree's derivation): the IBP identity at fewsterteo.py:49-51 and :411-415 only computes the Rayleigh quotient OF the mode (= mu^4 for any clamped eigenfunction); that mu_1^4 is the MINIMUM over the form domain is the spectral statement, which the tree takes from Fewster Eq. (4) (achievable.py:338-340) and its hypothesis 'first positive root mu_1'. fewsterteo's selftest does not itself check that no smaller eigenvalue exists; this audit does (B1 determinant = 2 mu^2 (1 - cos mu cosh mu), so the positive spectrum is exactly the roots; B2/C1 exclude lambda <= 0; D1-D5 prove no root in (0, mu_1); G1-G3 Ritz upper bounds 504 -> 500.5639017404 from above).",
+  "NAMED, not dropped: Fewster p.10 'The bound is known not to be optimal' -- C_F is the optimal-sampler constant of a non-sharp inequality. The tree does not claim sharpness of -C/tau^4 at fewsterteo.py:41-54; no drift, recorded so that 'optimal sampler' is never read as 'optimal bound'.",
+  "REALITY of g: the Parseval step fewsterteo.py:46-48 ('INT_0^oo ... = pi INT (g'')^2') needs |ghat| even, i.e. g real. The tree's exponential form (fewsterteo.py:224-230) is complex-coefficient but sums to the real mode to 4.9e-15 (F3). Satisfied, not dropped.",
+  "Hypothesis 'the 41-digit agreement is two evaluations of one closed form' (fewsterteo.py:52-54, C_F_AGREEMENT_IS_INDEPENDENT = False, :167): CONFIRMED -- achievable.FEWSTER_C is computed as FEWSTER_MU1**4/(16 pi^2) (E5, equality exact in double). An INDEPENDENT check is supplied here: Fourier-side quadrature of (1/16 pi^3) INT_0^oo u^4 |ghat|^2 du returns 3.1698582830 against 3.1698579383, rel 1.1e-7 (H1)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "mu_1, first positive root of cos mu cosh mu = 1 (a mathematical constant, no empirical input)",
+   "value_then": "tree: 4.730040744862704 (achievable.FEWSTER_MU1, bisection in double); Fewster 2012 prints only C ~ 3.17",
+   "value_now": "4.7300407448627040260240481008338848198983418 (mpmath findroot, 50 dps, this audit)",
+   "source_now": "computed: rederive/clamped-beam-eigenproblem.py E1/E4",
+   "moves_conclusion": "no -- agreement to < 2e-15; a mathematical constant cannot move"
+  },
+  {
+   "quantity": "C_F = mu_1^4/(16 pi^2)",
+   "value_then": "tree pin 3.169857938310467 (achievable.py:487; double 3.1698579383104675); Fewster 'C ~ 3.17'",
+   "value_now": "3.16985793831046816654176154858602714939702127 (50 dps)",
+   "source_now": "computed: E2/E3",
+   "moves_conclusion": "no -- the double differs from the 50-digit value by ~1.2e-15 (about 1.5 ulp from rounding mu^4 and pi^2), far inside every tolerance the tree uses (1e-12)"
+  },
+  {
+   "quantity": "sigma = (cosh mu - cos mu)/(sinh mu - sin mu) at mu_1",
+   "value_then": "tree formula fewsterteo.py:227",
+   "value_now": "same formula; g(1) = 0 by construction and g'(1) = 0 iff cos mu cosh mu = 1 (sympy A4/A5)",
+   "source_now": "derived: A4, A5, F2 (boundary residual 3.4e-29 at 30 dps)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/clamped-beam-eigenproblem.py",
+  "outcome": "31 PASS, 0 FAIL (exit 0; log rederive/clamped-beam-eigenproblem.out, ~35 s). A (sympy): the tree's mode solves g'''' = mu^4 g; g(0) = g'(0) = g(1) = 0 identically; g'(1)(sinh mu - sin mu)/mu = 2(cos mu cosh mu - 1) identically, so clamped IFF cos mu cosh mu = 1; g''(0) = 2 mu^2. B: the 4x4 clamped determinant of A cosh + B sinh + C cos + D sin equals exactly 2 mu^2 (1 - cos mu cosh mu), so the positive spectrum is exactly {mu_n^4}; lambda = 0 admits only the zero cubic; lambda < 0 excluded by C1 (IBP identity, boundary terms clamped to zero). D: mu_1 is the SMALLEST positive root -- proof: cos x cosh x - 1 = sum_{k>=1} (-4)^k x^{4k}/(4k)! (coefficients checked to x^24) is an alternating series with decreasing terms from a negative first term for x^4 < 420, so f < 0 on (0, 9/2]; cos < 0 on [9/2, 3pi/2] gives f < -1; on (3pi/2, 2pi) f' = cos sinh - sin cosh > 0 with f(3pi/2) = -1, f(2pi) > 0, so exactly one root there; cross-checked by rigorous mpmath interval enclosures (12,400 adaptive cells, 0 unresolved, on [0.05, 4.7300]). E: mu_1 = 4.73004074486270402602404810083... agrees with achievable.FEWSTER_MU1 (imported read-only) to < 2e-15; C = 3.16985793831046816654... agrees with the pin to 1.2e-15 and rounds to Fewster's 3.17; achievable.FEWSTER_C == FEWSTER_MU1^4/(16 pi^2) exactly (the 41-digit agreement is not independent, as the tree says). F: Rayleigh quotient INT g''^2/INT g^2 = 500.56390174043259597 = mu_1^4 to 1e-25; fewsterteo._sampler's exponential sum reproduces the mode to 4.9e-15. G: Ritz in the H^2_0 basis t^2(1-t)^2 t^k: 504 (exact, n = 1), 500.5847 (n = 3), 500.563908 (n = 6), 500.56390174 (n = 10, within 2.1e-13 of mu_1^4), non-increasing, all >= mu_1^4; C-infinity bump quotient 1472.36 > mu_1^4. H: independent Fourier-side route (1/16 pi^3) INT_0^oo u^4|ghat|^2 du = 3.1698582830 vs 3.1698579383 (rel 1.1e-7; quadrature to U = 4000 + averaged (g''(0)^2 + g''(1)^2)/U tail). CONTROLS bite: second root 7.8532 gives quotient 3803.537 = mu_2^4; mu = 4.8 leaves g'(1) = 0.671 (not clamped); unclamped box function makes the Fourier integral grow ~U^3 (doubling ratio 7.95). Process note: the first run had 3 FAILs that were THIS script's own tolerances, not the result -- non-adaptive interval cells too wide near 0 and near the root (fixed by adaptive bisection), a 1e-15 tolerance tighter than a 16-digit print of a double (1.2e-15 observed; widened to 2e-15), and a '>10x' threshold on the second quotient (true ratio 7.6; replaced by '= mu_2^4').",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Fewster & Teo, gr-qc/9908073, PRD 61 (2000) 084012, 'Quantum inequalities and quantum interest as eigenvalue problems'",
+   "effect": "confirms",
+   "what": "QI-compatibility on I is positivity of (-1)^m D^{2m} + c_m rho on L^2(I) with the function and first m-1 derivatives vanishing on the boundary (Thm 3.2), c_2 = 16 pi^2 in 4D; form domain W^{2,2}_0(I), C0^oo(I) a form core -- the clamped boundary conditions and the attainment of the infimum in W^{2,2}_0",
+   "read_status": "READ by sister audits of this pass (pp.1-4,7,12-16,18, per audits/1208.5399.json); not re-read in this stage (alphaXiv quota)"
+  },
+  {
+   "ref": "Fewster & Thompson, arXiv:2301.01698 (2023), eq. (1.4)",
+   "effect": "confirms",
+   "what": "the Parseval form -(1/16 pi^2) INT |g''|^2 for real compactly supported g along an inertial worldline, the identity the tree's Parseval route uses",
+   "read_status": "READ by sister audits of this pass (audits/1208.5399.json, parseval-plancherel.json); not re-read here"
+  },
+  {
+   "ref": "discover_papers search for later work on the clamped-beam fundamental / optimal QEI samplers",
+   "effect": "contested",
+   "what": "NOT RUN: the call was refused ('alphaXiv assistant quota exceeded'). No later literature was searched in this stage; the effect label is a schema placeholder meaning 'unknown', not a finding of contest.",
+   "read_status": "NOT-SEARCHED (quota refusal)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not have purchase here, and the evidence is exhibited rather than presumed. The result is a closed-form eigenproblem with no empirical input: its only 'datum' is the root mu_1, a mathematical constant, recomputed here to 50 digits and agreeing with the tree to < 2e-15. Nothing the 19th-century beam theorists (Rayleigh 1877, NAMED-NOT-READ) or Fewster (2012) could have lacked would change it: the spectrum is fixed exactly by the determinant 2 mu^2 (1 - cos mu cosh mu) (B1), and minimality is proved (D) and bracketed variationally (G). Where incompleteness could hide, it is in the APPLICATION, not the eigenproblem: (i) Eq. (3) is 'known not to be optimal' (Fewster p.10), so a sharper QEI -- a mathematical, not a data, advance -- could lower the demanded bound below C_F/tau^4; the tree's refusals that use C_F as the flat floor are conservative in the sense that a sharper inequality would only make negative energy harder, not easier; (ii) the physical hypotheses of Eq. (3) (free minimally coupled scalar, Minkowski, inertial, Hadamard) belong to the 1208.5399 audit, not to this one.",
+ "grade": "STANDS",
+ "grade_evidence": "Every mathematical claim the tree makes at fewsterteo.py:46-54, 165-167, 224-230, 407-419, 497-504 re-derived and passes (31/31, controls biting): the mode solves the ODE and is clamped iff cos mu cosh mu = 1 (sympy identity); the clamped spectrum is exactly {mu_n^4} (determinant = 2 mu^2 (1 - cos mu cosh mu)); mu_1 = 4.730040744862704 is the least positive root (series + monotonicity proof, interval-arithmetic cross-check); INT g''^2 = mu_1^4 INT g^2 (1e-25); C_F = mu_1^4/(16 pi^2) = 3.169857938310468 matches Fewster's printed 'C ~ 3.17'; the Parseval route gives C_F independently by Fourier quadrature (1.1e-7). The tree's own caveat that the 41-digit agreement is not independent is confirmed. No datum moves. Drift found is one of scope wording ('compactly supported' sampler = W^{2,2}_0, not C0^oo), which changes no number and is covered by the W^{2,2} remark audited STANDS elsewhere in this pass. Source status is READ-VIA-RESTATEMENT (Fewster 2012 page text as captured by sister audits); the classic itself is NAMED-NOT-READ, which does not lower the grade because the classic's content is fully re-derived here rather than taken on trust.",
+ "what_would_change_the_grade": "NARROWED if the tree used the clamped mode as a SMOOTH (C0^oo) sampler somewhere the W^{2,2} extension is not licensed (e.g. a smooth-only bound such as a higher-order or massive QEI requiring more regularity than W^{2,2}), or if a caller used a different boundary condition (simply supported, free) with the clamped constant. WRONG only if a clamped eigenfunction with mu < 4.7300407 were exhibited (excluded by D1-D5 and B1) or if a re-read of Fewster Eq. (4) showed a different normalisation than 1/(16 pi^2) (the page text quoted by the sister audits shows 16 pi^2). A re-read at source of 1208.5399 p.11 and gr-qc/9908073 in this stage (blocked by quota) would lift read_status to READ without changing the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/clamped-beam-eigenproblem.py   # expect '31 PASS, 0 FAIL', exit 0; tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 fewsterteo.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/clamped-beam-eigenproblem.json"
+}

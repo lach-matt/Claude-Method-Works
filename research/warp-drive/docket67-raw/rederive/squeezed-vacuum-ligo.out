@@ -1,0 +1,18 @@
+PASS A1 <:X_theta^2:> = sinh^2 r - sinh r cosh r cos(2theta-phi)
+PASS A2 min Var(X) = e^{-2r}/2 (squeezing dB = 20 r log10 e)   exp(-2*r)/2
+PASS A3 loss (beam-splitter with vacuum) scales <:X^2:> by eta, sign kept
+PASS B1 <:T00:> < 0 at phase theta  <=>  Var(X_theta) below vacuum (plane-wave single mode)
+PASS B2 negative fraction of each cycle < 1/2 for every r>0 (->1/2 as r->0)   [0.4997, 0.3923, 0.3019, 0.112]
+PASS C1 min_r [s^2 - q s sqrt(1+s^2)] = -(1 - sqrt(1-q^2))/2 (stationary point u = atanh q)   (-q**2 - sqrt(1 - q**2) + 1)/(2*sqrt(1 - q**2))
+PASS C2 exact single-mode minimum >= Ford-Roman finite-V bound -q/2 for all q in [0,1]   min[sqrt(1-q^2)-(1-q)] = 0.000e+00
+PASS C3 equality only at q in {0,1} (bound approached, never crossed)
+PASS D1 negativity survives Lorentzian averaging only below t0* (sub-fs at 1064 nm)   {3.0: '3.112e-16 s', 4.0: '2.380e-16 s', 5.8: '1.521e-16 s', 15.0: '1.787e-17 s'}
+PASS D2 optical period at 1064 nm   3.549e-15 s
+PASS E1 at LIGO band f=10 Hz (t0=1.59e-02 s): q=0.0e+00, rho_hat = +K sinh^2 r > 0
+PASS E1 at LIGO band f=100 Hz (t0=1.59e-03 s): q=0.0e+00, rho_hat = +K sinh^2 r > 0
+PASS E1 at LIGO band f=5000 Hz (t0=3.18e-05 s): q=0.0e+00, rho_hat = +K sinh^2 r > 0
+PASS F1 largest |negative rho_hat| / Ford-Roman EM bound over the box is <= 1e-10   max log10 ratio = -13.00
+PASS G1 20 log10(1.6) vs snippet 4.0 dB   4.082 dB
+PASS G2 20 log10(1.9) vs snippet 5.8 dB (discrepancy recorded, not a finding: 5.8 dB = factor 1.950)   5.575 dB
+
+RESULT: ALL PASS

@@ -1,0 +1,10 @@
+T1 k=+1 resultant degree 24 admissible-range roots: []
+T1 k=-1 resultant degree 24 admissible-range roots: []
+T1 0 k = 0: a mirrored plane in SAdS5 with mu != 0 has F' = -2 mu u != 0: no static ours at any tension
+T2 k=+1 resultant degree 24 admissible-range roots: [1.01910193624]
+     {'w=tau1*ell': 1.0191019362395775, 'mu/ell^2': 6.481930532084541, 'u1': 0.07713751289451164, 'u2': -0.21727420698992103, 's2': 0.6904536850979452, 't2': 0.18090271697815646} not admissible
+     {'w=tau1*ell': 1.0191019362395775, 'mu/ell^2': 6.481930532084541, 'u1': 0.07713751289451164, 'u2': -0.2172742069899209, 's2': 0.6904536850979456, 't2': 0.18090271697815682} not admissible
+T2 k=-1 resultant degree 24 admissible-range roots: [0.885143002734]
+     {'w=tau1*ell': 0.8851430027345258, 'mu/ell^2': -1.1546178042329134, 'u1': 0.4330437294202146, 'u2': -0.2666379916093512, 's2': 1.1613468429096332, 't2': 0.7187753415423704} not admissible
+     {'w=tau1*ell': 0.8851430027345258, 'mu/ell^2': -1.1546178042329134, 'u1': 0.4330437294202146, 'u2': -0.2666379916093512, 's2': 1.1613468429096332, 't2': 0.7187753415423704} not admissible
+T2 0 k = 0: a mirrored plane in SAdS5 with mu != 0 has F' = -2 mu u != 0: no static ours at any tension

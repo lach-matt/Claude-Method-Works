@@ -33,8 +33,8 @@ sit in L4, the only link of overturn.py's chain that touches the bill.
 
 provenance.py sorted the project's CLAIMS by how they were come by.  It never
 sorted the NUMBERS, and a number is where an unearned assumption hides best,
-because a number does not look like an assertion.  Twenty-five coefficients
-carry the framework.  Sorted by status:
+because a number does not look like an assertion.  Twenty-six coefficients
+carry the framework -- twenty-five, and the one DOCKET 41 found hiding as a 1.  Sorted by status:
 
     LAW           fixed by a symmetry or a limit; it could not be otherwise
     GEOMETRIC     a dimension or solid-angle factor
@@ -50,13 +50,16 @@ M asks for LAW and settles for THEOREM.  The census says how far that got:
 
     LAW            1     8 pi, fixed by the Newtonian limit
     GEOMETRIC      1     4 pi, the solid angle in dm/dr = 4 pi r^2 rho
-    THEOREM        7     8, 4, 120 degrees, 1/2, Ford-Roman, Casimir, sqrt(L)
+    THEOREM        9     8, 4, 120 degrees, 1/2, Ford-Roman, Casimir, sqrt(L),
+                         and DOCKET 41's two: the 2 in A, and the 1 it hid
     IDENTITY       3     2/Lambda, Lambda/2, E_Planck/Lambda
-    MEASURED       2     the two sub-Planckian crossovers
+    MEASURED       2     the two crossovers (sub-Planckian with Ford-Roman read
+                         at t0 = R/c; the FR one is 5.625229 l_P on the
+                         duration bound, above l_P -- DOCKET 67, "Carry both")
     EMPIRICAL      3     G, c, hbar
     MODEL-PARAM    4     a, R_s, b, m -- the ansatz's free inputs
     MODEL          1     LAMBDA ITSELF, and the exchange rate inherits it
-    ASSERTED       1     the 2 in A = 2(p.p')^2 - p^2 p'^2
+    ASSERTED       0     DOCKET 41 settled the one that was here
     UNDEFINED      2     xi and l_UV
 
     -- AND THE TWO UNDEFINED ONES ARE BOTH IN L4.
@@ -224,6 +227,7 @@ GEOMETRIC = "GEOMETRIC"
 THEOREM = "THEOREM"
 IDENTITY = "IDENTITY"
 MEASURED = "MEASURED"
+CROSSOVER_FR_NOTE_AS_FIRST_WRITTEN = "solved here, sub-Planckian"
 EMPIRICAL = "EMPIRICAL"
 MODEL_PARAM = "MODEL-PARAM"
 MODEL = "MODEL"
@@ -247,7 +251,7 @@ COEFFICIENTS = [
      "2 s^2 (3 - 2 s) = 0 at s = 3/2, exact in Fraction arithmetic"),
     ("1/2", "0.5", THEOREM, "teardown.py",
      "the CTC window tau/loop = R/(2D) <= 1/2"),
-    ("3/(32 pi^2)", "0.009495", THEOREM, "candidates.py",
+    ("3/(32 pi^2)", "0.0094989", THEOREM, "candidates.py",
      "Ford-Roman, cited: |rho| <= 3 hbar c/(32 pi^2 L^4)"),
     ("pi^2/720", "0.013708", THEOREM, "candidates.py",
      "Casimir, cited: pi^2 hbar c/(720 d^4)"),
@@ -262,7 +266,11 @@ COEFFICIENTS = [
      "the Planck cell, 195.95 MJ -- an identity wearing joules"),
 
     ("crossover FR", "0.307933 l_P", MEASURED, "candidates.py",
-     "solved here, sub-Planckian"),
+     "solved here, sub-Planckian on the t0 = R/c reading; 5.625229 l_P "
+     "(l_P sqrt(C Lambda)) on achievable.duration_bound, above l_P"),
+    # CORRECTED (DOCKET 67, on M's ruling "Carry both"): the FR row first read
+    # "solved here, sub-Planckian" (CROSSOVER_FR_NOTE_AS_FIRST_WRITTEN), true on
+    # the t0 = R/c reading only.  The row count and status are unchanged.
     ("crossover Cas", "0.369917 l_P", MEASURED, "candidates.py",
      "solved here, sub-Planckian"),
 
@@ -284,9 +292,24 @@ COEFFICIENTS = [
      "integral along the corridor for the CHOSEN Phi.  c^4/(G Lambda) "
      "inherits this and so does every joule in the tree"),
 
-    ("2 in A", "2", ASSERTED, "factor8.py",
-     "the structure of A = 2(p.p')^2 - p^2 p'^2, taken on four confirming "
-     "cases; provenance.py flagged it and it is still flagged"),
+    # DOCKET 41 SETTLED THIS ROW AND SHOWED THE CENSUS HAD FLAGGED THE WRONG
+    # DIGIT.  propagator.py contracts the de Donder graviton propagator against
+    # two point sources: the leading 2 is the number of index pairings of a
+    # symmetric rank-2 source, the same in every dimension, and (alpha, beta)
+    # = (2, -1) is UNIQUE given that ratio and the Newtonian normalisation.
+    # The contingent digit is the SILENT 1 on p^2 p'^2 -- it is 2/(D-2), and
+    # equals 1 only at D = 4 -- so a second row is added for it rather than
+    # leaving it uncounted.  A coefficient written as a 1 is not written.
+    ("2 in A", "2", THEOREM, "propagator.py",
+     "the two index pairings of a symmetric rank-2 source against the "
+     "symmetric graviton propagator; dimension-independent, and z3 finds no "
+     "counterexample to the identity over the reals"),
+
+    ("1 on p^2 p'^2", "2/(D-2) = 1 at D=4", THEOREM, "propagator.py",
+     "the graviton propagator's trace term.  NOT dimension-free: light "
+     "bending is (D-2)/(D-3) and the antiparallel prediction 4(D-2)/(D-3), so "
+     "the 2 and the 8 this tree quotes are statements about FOUR dimensions "
+     "and the co-propagating zero is the only one that is not"),
 
     ("xi", "UNDEFINED", UNDEFINED, "candidates.py / L4",
      "non-minimal coupling.  The framework needs xi > 0 -- Fewster-"
@@ -433,18 +456,33 @@ def selftest():
     chk("every row is (symbol, value, status, where, what fixes it)", shape, [])
     chk("no duplicate symbols",
         len({r[0] for r in COEFFICIENTS}), len(COEFFICIENTS))
-    chk("coefficients censused", len(COEFFICIENTS), 25)
+    chk("coefficients censused", len(COEFFICIENTS), 26)
 
     c = census_counts()
     chk("LAW", c.get(LAW, 0), 1)
     chk("GEOMETRIC", c.get(GEOMETRIC, 0), 1)
-    chk("THEOREM", c.get(THEOREM, 0), 7)
+    chk("THEOREM", c.get(THEOREM, 0), 9)
     chk("IDENTITY", c.get(IDENTITY, 0), 3)
     chk("MEASURED", c.get(MEASURED, 0), 2)
+    # DOCKET 67, M's ruling "Carry both": the FR row carries both readings,
+    # each against candidates.py's computed crossover.
+    import candidates as _cand
+    _fr = dict((r[0], r) for r in COEFFICIENTS)["crossover FR"]
+    chk("FR row value is candidates' t0 = R/c crossover",
+        _fr[1], "%.6f l_P" % _cand.crossover_ford_roman_closed())
+    chk("  and its note quotes the duration-bound crossover, computed",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in _fr[4], True)
+    chk("  sub-Planckian only on t0 = R/c",
+        (_cand.crossover_is_sub_planckian(), _cand.crossover_duration_is_sub_planckian()),
+        (True, False))
+    chk("  RECORD: the note as first written is the t0 = R/c clause",
+        _fr[4].startswith(CROSSOVER_FR_NOTE_AS_FIRST_WRITTEN), True)
     chk("EMPIRICAL", c.get(EMPIRICAL, 0), 3)
     chk("MODEL-PARAM", c.get(MODEL_PARAM, 0), 4)
     chk("MODEL", c.get(MODEL, 0), 1)
-    chk("ASSERTED", c.get(ASSERTED, 0), 1)
+    # DOCKET 41: the one ASSERTED row became a THEOREM, and a second THEOREM
+    # row was added for the digit the census had never counted.
+    chk("ASSERTED", c.get(ASSERTED, 0), 0)
     chk("UNDEFINED", c.get(UNDEFINED, 0), 2)
     chk("the census is exhaustive", sum(c.values()), len(COEFFICIENTS))
 

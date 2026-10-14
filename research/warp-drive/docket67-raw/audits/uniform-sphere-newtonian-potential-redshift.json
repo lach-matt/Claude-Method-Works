@@ -1,0 +1,110 @@
+{
+ "key": "uniform-sphere-newtonian-potential-redshift",
+ "name": "Interior Newtonian potential of a uniform sphere, Phi(0) = -(3/2)GM/R, and weak-field gravitational redshift Delta Phi/c^2",
+ "source": {
+  "located": "Three sources, one per part of the result. (a) Exact GR parent: K. Schwarzschild, 'On the gravitational field of a sphere of incompressible fluid according to Einstein's theory', Sitzungsber. Preuss. Akad. Wiss. Berlin 1916, 424-434 (communicated 24 Feb 1916), English translation S. Antoci, arXiv:physics/9912033v1 (16 Dec 1999): eqs (2), (10), (29)-(30), (35), (40), sec. 7 remarks 2 and 4, pp.1-9. (b) Weak-field redshift: C.M. Will, 'The Confrontation between General Relativity and Experiment', arXiv:1403.7377v1 (Living Rev. Relativ. 17 (2014) 4), sec. 2.1.3 eqs (5)-(6) p.12, eq (30) p.28. (c) The Newtonian interior field itself is Newton's shell theorem (Principia, 1687) -- NAMED-NOT-READ; READ-VIA-RESTATEMENT in A.R. Klotz, arXiv:1308.1342v1 eq (1) p.2 (interior force -Gm(4/3 pi rho r^3)/r^2 'due to the shell theorem'). The potential form Phi(r) = -GM(3R^2 - r^2)/(2R^3) is printed in none of the three; it is DERIVED here from (c) by sympy dsolve with regularity and C^1 matching (N1), and cross-checked as the O(x) limit of (a) (G2).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries: physics/9912033 (all 9 pages returned verbatim), 1403.7377 (pp.1-2, 6-7, 12-14, 17, 19, 28, 31 verbatim), 1308.1342 (all 8 pages verbatim), 2409.03787 (CODATA 2022, pp.1-2, 5, 44-47, 50-51, 60, 64 verbatim). Newton 1687 itself not read (NAMED-NOT-READ, restated by Klotz eq (1))."
+ },
+ "published_statement": "Schwarzschild 1916 (physics/9912033) p.1: 'I have calculated the gravitational field of a homogeneous sphere of finite radius, which consists of incompressible fluid. The addition \"of incompressible fluid\" is necessary, since in the theory of relativity gravitation depends not only on the quantity of matter, but also on its energy'; eq (29) f4 = ((3cos chi_a - cos chi)/2)^2 (g_44 inside); eq (30) rho0 + p = rho0 * 2cos chi_a/(3cos chi_a - cos chi); eq (40) alpha/P_o = sin^2 chi_a; p.8 remark 2: 'with the small value thus resulting for chi_a and chi (< chi_a), all our equations coincide with the equations of Newton's theory apart from the known second order Einstein's effects'; remark 4: the light speed 'grows from the value 1/cos chi_a at the surface to the value 2/(3cos chi_a - 1) at the center'. Will 2014 (1403.7377) p.12: 'The iconic gravitational redshift experiment measures the frequency or wavelength shift Z = Delta nu/nu = -Delta lambda/lambda between two identical frequency standards (clocks) placed at rest at different heights in a static gravitational field ... The result is a shift Z = Delta U/c^2 (5), where Delta U is the difference in the Newtonian gravitational potential between the receiver and the emitter. If LPI is not valid, then ... Z = (1 + alpha) Delta U/c^2 (6)'. Klotz 2013 (1308.1342) eq (1): 'Under this approximation [uniform density rho], the force of gravity F_G acting on a test mass m at radial position r comes from the mass of the sphere below the object, due to the shell theorem: F_G(r) = -Gm(4/3 pi rho r^3)/r^2'.",
+ "published_hypotheses": [
+  "Schwarzschild: constant density rho0 (homogeneous sphere), incompressible perfect fluid at rest with isotropic pressure p (eq 2), p = 0 at the surface",
+  "Schwarzschild: static, spherically symmetric; regular (finite, non-zero f4 and finite positive pressure) at the centre (fixes lambda = 0, sec. 5)",
+  "Schwarzschild: C^1 junction to the exterior mass-point solution at the surface",
+  "Schwarzschild: Newtonian agreement only for small chi_a (weak field), 'apart from the known second order Einstein's effects'; existence only for cos chi_a > 1/3 (R > 9/8 alpha)",
+  "Will: two identical clocks, both AT REST, in a STATIC gravitational field",
+  "Will: Einstein equivalence principle / local position invariance (alpha = 0); Z = Delta U/c^2 is first order in the potential",
+  "Will: U is the Newtonian potential sourced by rho (eq 30), zero at infinity",
+  "Klotz/Newton: uniform density, spherical symmetry, Newtonian gravity (shell theorem)"
+ ],
+ "hypothesis_drift": [
+  "WEAK FIELD not written in owner prose -- excite.py:175-180 (and 'EXACTLY sqrt(3)' at excite.py:179-180, SURFACE_TWIN_FACTOR excite.py:872, selftest excite.py:1554-1555 to 1e-15). The canonical entry lists it, the owner text does not. Computed here (G2): the exact Schwarzschild-interior ratio of centre-vs-infinity to centre-vs-surface fractional rate deficits is 3*sqrt(1 - x), x = 2GM/(Rc^2), not 3; the crossover factor is sqrt(3)*(1-x)^(1/4). 'EXACTLY' is exact for the Newtonian coefficients 2 pi and (2/3) pi (which is what the code computes), not in GR. At the tree's crossover x = 1.33e-18 the difference is 3.3e-19 relative -- WEAKENED IN PROSE, moves no number.",
+  "CLOCK AT CENTRE weakened in prose -- excite.py:175-176 says 'a clock carried inside the region picks up ... 2 pi G rho R^2/c^2'; that value holds only at r = 0 (the docstring excite.py:864-866 and V12b excite.py:1860 do say Phi(0)). Computed (N4): at radius r the deficit vs infinity is 2 pi G rho (R^2 - r^2/3), falling to (4/3) pi G rho R^2 = GM/R at the surface, so an off-centre clock's crossover is up to sqrt(3/2) = 1.22 larger. The stated 2 pi G rho R^2 is the MAXIMUM over the interior; the direction of S6 ('dominated by own source') is unchanged, the crossover lengths are for the centre only.",
+  "CLOCKS AT REST (Will eq 5) vs 'a clock carried' (excite.py:175, the courier) -- the potential term is a static-clock statement; the kinematic term of transport (v^2/2c^2 and path integration) is not part of this result and is carried by address.eps_detectable_transported (address.py:746), outside this audit. ADDED context, no number of this result depends on it.",
+  "LOCAL POSITION INVARIANCE (Will eq 6, alpha) dropped at excite.py:175-177. Z = (1+alpha)Delta U/c^2 would move R* by (1+alpha)^(-1/2); alpha is bounded at the 1e-5 level (Galileo eccentric-orbit tests, Delva et al. / Herrmann et al. PRL 121 (2018), as cited in 2207.07145 p.12 -- the PRLs themselves NAMED-NOT-READ) and alpha = 0.13 +/- 0.23 at mm-cm scale (2207.07145, READ). Moves R* by < 1e-5 at the space-test bound. DROPPED, moves nothing.",
+  "ISOLATED SOURCE / Phi(infinity) = 0 / superposition unnamed at excite.py:175-178 ('the source's own interior redshift ... against a twin at infinity'). Any ambient potential (e.g. Earth surface GM/(Rc^2) ~ 7e-10, far above eps = 1e-18) adds linearly in the weak field and is not the source's; the statement is correct only as the source's OWN additive contribution, which is what the owner says ('own'). Unnamed, not contradicted.",
+  "PRESSURE / incompressible-fluid qualification (Schwarzschild p.1: 'The addition \"of incompressible fluid\" is necessary') dropped: a static uniform sphere needs internal pressure, which gravitates in GR. Computed (G3): p_c/(rho c^2) = x/4 + O(x^2) = 3.3e-19 at the crossover. DROPPED, moves nothing.",
+  "The tree's own V12 (excite.py:1854-1865) verifies that the stated Phi solves Poisson and has the stated values, but not regularity at r = 0 or C^1 matching to -GM/r at R, i.e. that it is THE interior potential rather than A solution. Not a fault in the result (N1 here derives it by dsolve with both conditions and finds the same form); recorded as a gap in the tree's check, not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G, Newtonian constant (enters R* = sqrt(eps c^2/(k pi G rho)) as G^-1/2)",
+   "value_then": "tree: 6.67430e-11 m^3 kg^-1 s^-2 (ladder.py:54, via higgs.G -> excite.G, excite.py:338) = CODATA 2018",
+   "value_now": "6.67430(15)e-11, u_r 2.2e-5, CODATA 2022 identical to 2018 ('there is no new value ... the 2022 and 2018 recommended values of G are therefore identical'); 16 inputs span 6.67191 to 6.67559 (spread 5.5e-4) with expansion factor 3.9",
+   "source_now": "Mohr, Newell, Taylor, Tiesinga, arXiv:2409.03787v1 Table XXXII p.50, Table XXX p.45, sec. I.B.11 p.5, sec. XV.A p.47 (READ)",
+   "moves_conclusion": "No. u_r moves R* by 1.1e-5; the full 16-input spread moves R* by 2.8e-4 relative (computed, D1), inside the selftest tolerance 2e-3 (excite.py:1556-1559) and nowhere near the order-of-magnitude statements S6 rests on."
+  },
+  {
+   "quantity": "c, speed of light",
+   "value_then": "2.99792458e8 m/s exact (ladder.py:53)",
+   "value_now": "299 792 458 m/s exact (CODATA 2022 Table XXXII)",
+   "source_now": "arXiv:2409.03787v1 p.50 (READ)",
+   "moves_conclusion": "No (exact by definition)."
+  },
+  {
+   "quantity": "coefficients 2 pi and (2/3) pi of G rho R^2 (centre vs infinity, centre vs surface)",
+   "value_then": "Fraction(2), Fraction(2,3) in units of pi (excite.py:863-869, selftest excite.py:1552-1553)",
+   "value_now": "2 pi and (2/3) pi exactly (N2, sympy); GR: (3/4)x + (3/16)x^2 and x/4 + (3/16)x^2 with x = 2GM/(Rc^2) (G2)",
+   "source_now": "re-derived here (rederive script N2, G2) from Klotz eq (1)/Newton and Schwarzschild eq (29)",
+   "moves_conclusion": "No. Pure numbers; the GR O(x^2) terms are 1e-18 relative at the crossover."
+  },
+  {
+   "quantity": "crossovers R* at eps = 1e-18 (m propto phi, H1, H2)",
+   "value_then": "3.118e-2, 1.617e-2, 0.764e-2 m (excite.py:1556-1559, tolerance 2e-3)",
+   "value_now": "3.119529e-2, 1.617616e-2, 7.641253e-3 m as computed by the tree today (read-only import, D1); the densities rho they use (2.20e11, 8.19e11, 3.67e12 kg/m^3) come from address.py / the Higgs results, NOT from this result, and are audited elsewhere",
+   "source_now": "rederive script D1 (imports excite.py read-only; md5 a866f2f7745baca63aad910aeeb20a69)",
+   "moves_conclusion": "Not by this result: given rho, the formula is exact at O(G rho R^2/c^2). Any move in rho moves R* as rho^-1/2 -- a datum outside this audit."
+  },
+  {
+   "quantity": "LPI violation parameter alpha (Will eq 6)",
+   "value_then": "tree: implicitly 0",
+   "value_now": "space tests ~1e-5 level (Delva 2018 / Herrmann 2018, cited not read); lab mm-cm scale alpha = 0.13 +/- 0.23 (2207.07145, READ)",
+   "source_now": "arXiv:2207.07145v2 p.12; arXiv:1403.7377 p.14 (|alpha| < 2e-4 GPA)",
+   "moves_conclusion": "No: R* moves by (1+alpha)^(-1/2), < 1e-5 at the space bound."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/uniform-sphere-newtonian-potential-redshift.py",
+  "outcome": "ALL PASS (exit 0), 25 checks. N1: dsolve of (1/r^2)(r^2 Phi')' = 4 pi G rho, regular at 0, joined to -GM/r at R, gives Phi = -GM(3R^2 - r^2)/(2R^3) with Phi' continuous (derived, not assumed). N2: Phi(0) = -(3/2)GM/R = -2 pi G rho R^2; Phi(R)-Phi(0) = GM/(2R) = (2/3) pi G rho R^2. N3: ratio 3, crossover factor sqrt(3), exact in the Newtonian reading. N4: off-centre clock 2 pi G rho (R^2 - r^2/3); surface-vs-infinity crossover factor sqrt(3/2). G1: the full Einstein tensor computed from ds^2 = -((3sqrt(1-x) - sqrt(1-x r^2/R^2))/2)^2 dt^2 + dr^2/(1 - x r^2/R^2) + r^2 dOmega^2 equals 8 pi T for constant rho and Schwarzschild's eq (30) pressure (G^t_t, G^r_r, G^th_th residuals 0), p(R) = 0, A(R) = 1 - x; matches Schwarzschild eq (29). G2: 1 - sqrt(A(0)) = 3x/4 + 3x^2/16 + O(x^3), 1 - sqrt(A(0)/A(R)) = x/4 + 3x^2/16 + O(x^3): leading terms equal the tree's 2 pi G rho R^2/c^2 and GM/(2Rc^2); exact GR ratio = 3 sqrt(1 - x) (not 3). G3: at x = 1.33e-18 the crossover factor is sqrt(3)(1 - 3.3e-19); p_c/(rho c^2) = 3.3e-19. D1: tree uses CODATA G and exact c; G spread moves R* 2.8e-4 < 2e-3. K1 (side note): Klotz 1308.1342 printed eq (8)-(9), which use M(r)/r as the interior potential, give a centre speed 11.19 km/s for Earth, sqrt(2) above the 7.91 km/s that N1 gives and that Klotz's own text quotes ('near 8 km/s') -- a discrepancy in that restatement's printed equation, recorded only; it is not the source for anything used here and MUST NOT be quoted as an error in the journal version until that is read.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Zheng, Dolde, Cambria, Lim, Kolkowitz, 'A lab-based test of the gravitational redshift with a miniature clock network', arXiv:2207.07145v2 (2023)",
+   "effect": "confirms",
+   "what": "Blinded measurement of Z = g Delta h/c^2 over 1 cm: gradient [-12.4 +/- 0.7(stat) +/- 2.5(sys)]e-19/cm against expected -10.9e-19/cm; alpha = 0.13 +/- 0.23 at mm-cm scale. The weak-field redshift formula the tree uses is confirmed at exactly the 1e-18-per-cm, cm-length regime of the tree's crossovers (R* = 0.76-3.1 cm at eps = 1e-18), in Earth's field (not inside a source's interior).",
+   "read_status": "READ (pp.1-7, 11-17, 21-24, 26-27, 50, 52-53 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Will, arXiv:1403.7377 (2014), sec. 2.1.3",
+   "effect": "confirms",
+   "what": "Z = Delta U/c^2 for static clocks is a consequence of EEP, common to every metric theory; GPA |alpha| < 2e-4; null-redshift bounds ~1e-6.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Delva et al. PRL 121 231101 (2018); Herrmann et al. PRL 121 231102 (2018) (Galileo eccentric satellites)",
+   "effect": "confirms",
+   "what": "Strongest bounds on alpha, 'at the 10^-5 level' as restated by 2207.07145 p.12.",
+   "read_status": "NAMED-NOT-READ (restated in 2207.07145)"
+  },
+  {
+   "ref": "arXiv:2204.07869 (2022), 'Gravitational time dilation in extended quantum systems: the case of light clocks in Schwarzschild spacetime'",
+   "effect": "extends",
+   "what": "Per abstract: clocks resolving time dilation on scales below their own extension need a description beyond point clocks. Bears on a courier clock of finite size inside a cm-scale source; not read, no claim taken from it.",
+   "read_status": "abstract only (discover_papers)"
+  },
+  {
+   "ref": "arXiv:2606.19433 (2026), 'Exact Solution of the Non-minimally Coupled Klein-Gordon Equation in the Schwarzschild Star'",
+   "effect": "extends",
+   "what": "Per abstract: uses the uniform-density Schwarzschild interior as background; no bearing on the weak-field coefficients. Not read.",
+   "read_status": "abstract only (discover_papers)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the authors had: Newton's shell theorem (1687) needs only the inverse-square law; Schwarzschild (Feb 1916) had Einstein's Nov 1915 field equations and derived the exact interior with no empirical input beyond k^2 (G). The weak-field redshift Z = Delta U/c^2 (Einstein 1907/1911) rested on the equivalence principle, then untested. What came later: Pound-Rebka-Snider (1960-65, 1%), GPA (1976, 2e-4), Galileo satellites (2018, ~1e-5), and mm-cm-scale lab clocks (2022-23, 2207.07145) -- all confirm Z = Delta U/c^2; CODATA G inputs (1982-2019) spread 5.5e-4 but CODATA 2022 G is unchanged from 2018. Does it change the conclusion? No, evidence either way: (i) the coefficients 2 pi and (2/3) pi are pure mathematics given inverse-square gravity and uniform density -- no datum enters; (ii) the one datum, G, moves R* by at most 2.8e-4 across all 16 measurements; (iii) the only physics the Newtonian reading omits (pressure, O(x^2) GR terms, LPI violation) is computed here at 3.3e-19, 1e-18 and < 1e-5 relative. The regime the tree uses (cm, 1e-18) is exactly where 2207.07145 later measured the redshift gradient and found agreement within 1 sigma -- though in Earth's exterior field, not inside a source, so the interior-potential step remains a theorem (Poisson + shell theorem), not a measurement. Where M's suspicion has purchase here is not the outside math but the tree's prose: the unqualified 'EXACTLY sqrt(3)' is exact only in the Newtonian reading (GR: sqrt(3)(1-x)^(1/4)), and 'inside the region' should read 'at the centre'. Neither is a lack of data by the original authors.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement: Phi(0) = -(3/2)GM/R = -2 pi G rho R^2, Phi(R) - Phi(0) = GM/(2R), ratio 3, crossover factor sqrt(3) -- derived here by sympy dsolve with regularity and C^1 matching (N1-N3), and recovered as the O(x) limit of Schwarzschild's exact 1916 interior, whose metric was checked against the full Einstein tensor (G1-G2). Redshift Delta Phi/c^2: READ in Will 2014 eq (5) and confirmed at the tree's own cm/1e-18 regime by 2207.07145. The hypotheses the canonical entry carries (uniform density, weak field, twin at infinity or surface) match the sources. Drifts in owner PROSE are recorded, each computed and none moving a number: weak field unwritten at excite.py:175-180 while 'EXACTLY sqrt(3)' is exact only for the Newtonian coefficients (GR ratio 3 sqrt(1-x); 3.3e-19 at the crossover); 'inside the region' where the value is the centre's (off-centre crossover up to sqrt(3/2) larger; S6's direction unchanged); LPI and pressure dropped (< 1e-5 and 3.3e-19). Data: G (CODATA 2022 = 2018) and c exact; G spread moves R* 2.8e-4 < 2e-3 tolerance. The crossover values themselves also depend on densities from address.py / Higgs results, which are not this result and are not graded here.",
+ "what_would_change_the_grade": "NARROWED if the tree's 'EXACTLY sqrt(3)' (excite.py:179-180) or '2 pi G rho R^2 inside the region' (excite.py:175-176) is used as a GR-exact or position-independent statement outside the weak field or off the centre -- e.g. applied to a compact source with GM/(Rc^2) not << 1, where the ratio is 3 sqrt(1 - 2GM/(Rc^2)) and existence needs R > (9/4)GM/c^2. DATA-DEPENDENT only if a future G determination moved by more than ~4e-3 relative (to shift R* past the 2e-3 selftest tolerance) -- no current measurement is within an order of magnitude of that. WRONG would need a failure of the inverse-square law or of LPI at the cm, 1e-18 scale at the level of the signal itself; 2207.07145 bounds the latter at alpha = 0.13 +/- 0.23 there, and nothing here shows either.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/uniform-sphere-newtonian-potential-redshift.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 excite.py --verify | grep V12 && python3 excite.py --selftest | grep -E 'redshift|sqrt\\(3\\)|courier crossover|SELFTEST')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/uniform-sphere-newtonian-potential-redshift.json"
+}

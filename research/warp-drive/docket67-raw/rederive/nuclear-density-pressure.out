@@ -1,0 +1,42 @@
+constants: CODATA-2018 via scipy 1.17.1  c=299792458 G=6.67430e-11  1 MeV/fm^3 = 1.602177e+32 Pa
+
+1. T_COEFF = 9.505325e+43 Pa m^2 ; tkk_required(100 km) = 9.505325e+33 Pa = 59.33 MeV/fm^3
+  [PASS] T_COEFF matches tree 9.50536e43 to 1e39 -> True
+  [PASS] tkk(1e5) matches canonical data_used 9.5054e33 -> True
+
+2. the tree's 1e35 Pa = 624.2 MeV/fm^3
+   saturation energy density eps0 = n0 (m_N c^2 + E/A), m_N = 938.9188 MeV, E/A = -16 MeV
+       n0      eps0 (Pa)   rho0 (kg/m3)    1e35/eps0    tkk100/eps0
+    0.145     2.1441e+34     2.4270e+17        4.664          0.443
+    0.150     2.2180e+34     2.5107e+17        4.509          0.429
+    0.155     2.2920e+34     2.5944e+17        4.363          0.415
+    0.160     2.3659e+34     2.6780e+17        4.227          0.402
+    0.165     2.4398e+34     2.7617e+17        4.099          0.390
+    0.170     2.5138e+34     2.8454e+17        3.978          0.378
+   tree's own rho=2.3e17 kg/m^3 -> eps = 2.0671e+34 Pa ; 1e35/eps = 4.838 ; tkk100/eps = 0.460
+  [PASS] 1e35 Pa exceeds saturation energy density for every scanned n0 (overstated) -> True
+  [PASS] 1e35 overstates eps0 by a factor between 3.9 and 4.7 over the scan -> True
+  [PASS] 1e35 is 4.84x the tree's own 2.3e17 kg/m^3 (internal inconsistency) -> True
+  [PASS] VERDICT with tree's 1e35: tkk(100 km) < 1e35 -> True
+  [PASS] VERDICT with every scanned n0: tkk(100 km) < eps0 -> True
+  [PASS] VERDICT with tree's own 2.3e17 kg/m^3: tkk(100 km) < rho c^2 -> True
+   break-even n0 (conclusion flips below it) = 0.0643 fm^-3 = 0.40 of 0.16
+  [PASS] break-even n0 < 0.10 fm^-3 (far below any quoted saturation density) -> True
+   margin at 100 km: 1e35 gives x10.52 ; eps0(0.16) gives x2.49 ; tree 2.3e17 gives x2.17
+   crossover l* = sqrt(T_COEFF/eps) for 1e35 Pa          =   30.8 km
+   crossover l* = sqrt(T_COEFF/eps) for eps0(n0=0.16)    =   63.4 km
+   crossover l* = sqrt(T_COEFF/eps) for eps0(n0=0.15)    =   65.5 km
+   crossover l* = sqrt(T_COEFF/eps) for eps0(n0=0.17)    =   61.5 km
+   crossover l* = sqrt(T_COEFF/eps) for tree 2.3e17 c^2  =   67.8 km
+  [PASS] true crossover lies in 60-70 km for all scanned n0 (tree's 1e35 implies 30.8 km) -> True
+  [PASS] 100 km lies beyond the crossover in every case -> True
+
+5. perfect fluid: T_kk = w**2*(epsilon + p)  (k^0 = w in the fluid frame)
+  [PASS] T_kk = (eps + p) w^2 -- equals eps only if p=0 and w=1 (named normalisation) -> True
+   uniform ball of DIAMETER l at threshold: 2GM/(Rc^2) = pi**2/6 = 1.6449340668482264
+  [PASS] ball compactness pi^2/6 > 1 for EVERY l (beyond Buchdahl 8/9) -- a geometry hypothesis -> True
+   thin rod radius a, length l: G mu/c^2 = pi**2*a**2/(4*l**2) (small when a << l)
+  [PASS] rod G mu/c^2 = pi^2 a^2/(4 l^2) -> True
+   illustrative NS 1.4 Msun, R 12 km: <eps> = 3.457e+34 Pa = 1.46 x eps0(0.16); threshold at l=2R = 1.650e+35; Sturm ratio = 0.209
+
+SELFTEST OK

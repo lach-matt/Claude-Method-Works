@@ -1,0 +1,76 @@
+{
+  "key": "misner-sharp-1964-mass-function",
+  "name": "Misner-Sharp mass function and the tt Einstein equation dm/dr = 4 pi r^2 rho in areal-radius form (dl = dr/sqrt(1-2m/r)); base of certify.py's 'ansatz-free THEOREM'",
+  "source": {
+    "located": "C. W. Misner & D. H. Sharp, Phys. Rev. 136, B571 (1964), 'Relativistic equations for adiabatic, spherically symmetric gravitational collapse' -- no arXiv copy. Read via S. A. Hayward, 'Gravitational energy in spherical symmetry', Phys. Rev. D 53, 1938 (1996), arXiv gr-qc/9408002v2, which restates MS exactly: eq.(4) E = (r/2)(1 - g^{-1}(dr,dr)); eq.(27) 1 - 2E/r = e^{-lambda}(r')^2 - rdot^2, 'which is the form actually given by Misner & Sharp [4]'; eq.(31)-(33) the MS perfect-fluid setting, E' = 4 pi r^2 rho r' (comoving), E = int_0 4 pi r^2 rho r' dchi 'if Sigma has a regular centre'; eq.(28a) general-matter E' = 4 pi r^2 (T00 r' - T01 rdot). Cross-read: Maeda & Nozawa arXiv 0709.1199 eq.(2.7) and ref.[6] = Misner-Sharp 1964.",
+    "read_status": "READ-VIA-RESTATEMENT",
+    "via": "alphaXiv answer_pdf_queries on gr-qc/9408002 (pp.1-2,4-7,9-10,12-13,16-17,19,21) and 0709.1199 (pp.1-3,8-12). Misner-Sharp 1964 itself NAMED-NOT-READ. Re-verified 2026-09-26 (continuation pass): alphaXiv re-read of gr-qc/9408002v2 pp.1-2,4-5,7,9-10,12-13 confirms eq.(4), Prop.1, regular-centre E=O(r^3), eq.(27) 'the form actually given by Misner & Sharp', eq.(28a), eq.(31)-(33), Prop.6 verbatim; rederive script re-run, ALL PASS exit 0; certify.py:113-184, 196-215, 360-390 and specthm.py:525,646 re-read and match the cited lines."
+  },
+  "published_statement": "Hayward's restatement of MS (gr-qc/9408002 p.4, eq.4; p.12, eq.27): 'The Misner-Sharp spherically symmetric gravitational energy ... may be defined in units G = 1 by E = (1/2) r (1 - g^{-1}(dr,dr))'; 'Note that E is an invariant.' In MS's own comoving form, 1 - 2E/r = e^{-lambda}(r')^2 - rdot^2. MS perfect fluid (p.12-13, eq.32a-33): E' = 4 pi r^2 rho r', and with a regular centre E(chi) = int_0^chi 4 pi r^2 rho r' dchi. General matter (eq.28a): E' = 4 pi r^2 (T00 r' - T01 rdot). Proposition 1: 'A metric sphere is trapped iff E > r/2, marginal iff E = r/2, untrapped iff E < r/2.' Regular centre: g^{-1}(dr,dr) - 1 = O(r^2), 'Then E = O(r^3) at a regular centre.' Proposition 6 (positivity): DEC on an untrapped spatial hypersurface with regular centre => E >= 0 (Maeda-Nozawa 0709.1199 p.9 note that Hayward's proof needs an extra lemma for completion).",
+  "published_hypotheses": [
+    "spherical symmetry (Hayward p.2: 'assumed implicitly in the Propositions')",
+    "r is the areal radius, r = sqrt(A/4pi); E is defined on metric spheres as a function of r and g^{ab} d_a r d_b r (definition needs no coordinate choice)",
+    "units G = 1 (c = 1)",
+    "for dE/dr = 4 pi r^2 rho: the Einstein equations G = 8 pi T with no cosmological constant (Hayward eq.10-11; Maeda-Nozawa p.1 note the Lambda-generalised mass is a different function)",
+    "MS 1964 original setting: time-dependent perfect fluid (T = (rho+p) u u + p g), comoving coordinates, adiabatic collapse",
+    "for E = volume integral of rho: a regular centre (E = O(r^3), i.e. E(0) = 0)",
+    "for positivity (not used by the tree): dominant energy condition, untrapped hypersurface, regular centre"
+  ],
+  "hypothesis_drift": [
+    "BROADENED, and supported: MS's perfect fluid in comoving coordinates -> certify.py:113-121 arbitrary static matter in areal coordinates. Re-derived here (C2): for ds^2 = -e^{2Phi}dt^2 + dr^2/(1-2m/r) + r^2 dOmega^2, G^t_t = -2m'/r^2 exactly for ANY Phi and any anisotropic T, so m' = 4 pi r^2 rho with rho = -T^t_t; agrees with Hayward eq.(28a) at T01 = 0 (static). No harm.",
+    "ADDED and named: 'static' (certify.py:181, THEOREM_SCOPE at certify.py:386). Load-bearing: re-derived here (C5) that open FRW dust on its comoving slice has E = (4pi/3) rho R^3 > 0 while dl/dR = 1/cosh(chi) < 1, i.e. contraction with POSITIVE MS mass once rdot != 0 (Hayward eq.27 gives dl/dR = 1/sqrt(1 - 2E/R + rdot^2)). The tree's scope restriction is therefore correct and necessary; certify.py:139-141 already records that nonstatic.py relocates the content to 'stationary areal radii'.",
+    "DROPPED, unstated: 'the areal radius is a good radial coordinate' (certify.py:113-114 'Every static spherically symmetric spacetime can be written with an areal radius'). False where d r = 0 on the slice (wormhole throats, Nariai / Bertotti-Robinson type r = const factors). Where r IS a coordinate in a static region, r is a function on the static slice so g^{rr} = h^{ij} d_i r d_j r >= 0: the untrapped condition 1 - 2m/r > 0 that the owner leaves unstated is then automatic (strict wherever dr != 0). z3 (C3c) shows it is load-bearing for the literal code test contracts(g_rr) = g_rr < 1, which would misfire at g_rr < 0; the code only samples g_rr > 0 (certify.py:370).",
+    "DROPPED AT ONE USE SITE, shown: certify.py:376-382 conformastatic_forces_negative_mass() feeds enclosed_mass_from_grr(e^{-2Phi(rho)}, rho) with rho the ISOTROPIC coordinate of the conformastatic metric (certify.py:207-214: ds^2 = -e^{2Phi}dt^2 + e^{-2Phi}(dx^2+dy^2+dz^2)). The areal radius there is R = rho e^{-Phi}, and the invariant MS mass is E = (R/2) rho Phi' (2 - rho Phi') (sympy C6b), not (rho/2)(1 - e^{2Phi}). Demonstrated not to be the MS mass: on Schwarzschild in isotropic coordinates the proxy gives 0.5904 at M = 1, rho = 2 while the invariant E = M (C6a); and for Phi = m/sqrt(rho^2+a^2) - 1 the proxy is +0.430 where the true E is -0.0538 (C6c, opposite sign). At the SEATED metric and the five sampled radii the true MS mass is negative, so the recorded conclusion 'm < 0 at every sampled radius' (specthm.py:646-647) survives; magnitudes differ (true/proxy = 0.0075, 0.465, 0.975, 1.05, 2.0 at rho = 0.005, 0.05, 1, 10, 100). The docstring criterion 'Phi > 0 gives g_rr < 1 everywhere, hence m(r) < 0 everywhere' (certify.py:381) is the wrong criterion (the MS sign follows Phi', not Phi) and 'everywhere' is false beyond R_s = 200 (true E ~ +3e-10 at rho = 201, proxy also positive); specthm.py:646 already qualifies to 'every sampled radius'. A discrepancy at the use site, not a refutation: no recorded verdict moves.",
+    "UNSTATED: no cosmological constant. With Lambda, the tt equation becomes m' = 4 pi r^2 rho + Lambda r^2/2 (sympy C2b), i.e. rho in certify.py:119 must include vacuum energy for the stated form to hold. The THEOREM (definitional, C3) is unaffected; only the COROLLARY's reading of m as 'enclosed energy of matter' shifts.",
+    "UNSTATED: general relativity. In Einstein-Gauss-Bonnet / Lovelock theories the quantity obeying the same variation law is a generalised mass (Maeda-Nozawa 0709.1199 eq.2.7, 5.3), not (r/2)(1 - (Dr)^2); in 4D GR the GB term is topological, so no drift for the tree's 4D GR scope.",
+    "NAMED by owner and consistent with source: regular centre m(0) = 0 for the COROLLARY only (certify.py:132-141); matches Hayward 'E = O(r^3) at a regular centre' and eq.(33). Reissner-Nordstrom counterexample to the corollary without it re-derived here (C4: m(1/4) = -1 at M = Q = 1 with rho = Q^2/(8 pi r^4) > 0)."
+  ],
+  "data_at_publication": [
+    {
+      "quantity": "numerical inputs to the result's conclusion",
+      "value_then": "none: MS 1964 is a geometric definition plus an identity of the Einstein tensor in G = c = 1 units; no measured constant enters",
+      "value_now": "none",
+      "source_now": "n/a (definition and exact identity; re-derived symbolically, script C1-C2)",
+      "moves_conclusion": "no -- there is no datum to move. The only physical input is the hypothesis that GR (G = 8 pi T, Lambda = 0) governs; it is carried as a named hypothesis, not a datum, and its experimental status was not read here."
+    },
+    {
+      "quantity": "tree-side inputs: seated metric m = 0.02, a = 0.02, R_s = 200; sampled radii 0.005, 0.05, 1, 10, 100; g_rr samples 0.25..4.0 at r = 1",
+      "value_then": "certify.py:200, 370, 380",
+      "value_now": "unchanged (model parameters, not measurements)",
+      "source_now": "certify.py (read-only import in the rederive script)",
+      "moves_conclusion": "no -- true invariant MS mass recomputed at every sampled radius is negative (-1.11e-4, -1.28e-2, -1.98e-2, -2.00e-2, -2.00e-2)."
+    }
+  ],
+  "rederivation": {
+    "method": "sympy",
+    "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-1964-mass-function.py",
+    "outcome": "ALL PASS (exit 0), sympy + z3 + numeric. C1: invariant E = (r/2)(1 - g^{ab}d_a r d_b r) = m(r) in areal form. C2: G^t_t = -2m'/r^2 exactly, Phi-free, so m' = 4 pi r^2 rho for any static anisotropic matter; with Lambda, m' = 4 pi r^2 rho + Lambda r^2/2. C3: z3 UNSAT for the negation of [r>0, 1-2m/r>0 => (g_rr<1 <=> m<0)], vacuity guard SAT; C3c: without the untrapped hypothesis the literal g_rr<1 test has a counterexample. C4: RN m = M - Q^2/2r obeys m' = 4 pi r^2 rho with rho>0 yet m<0 for r<Q^2/2M (corollary needs regular centre). C5: open FRW dust, comoving slice: E = (4pi/3) rho R^3 > 0 with dl/dR = 1/cosh(chi) < 1 (static hypothesis load-bearing). C6: enclosed_mass_from_grr on a non-areal coordinate is not the MS mass (Schwarzschild isotropic proxy 0.5904 vs E = M = 1; a potential with opposite signs shown), but at certify's seated metric and sampled radii the true MS mass is negative, so the recorded result stands at those radii.",
+    "agrees_with_source": "yes"
+  },
+  "later_literature": [
+    {
+      "ref": "S. A. Hayward, Phys. Rev. D 53, 1938 (1996), arXiv gr-qc/9408002",
+      "effect": "confirms",
+      "what": "Invariant definition of the MS energy for any spherically symmetric spacetime (static or not, any matter); general variation law eq.(28a); regular-centre E = O(r^3); positivity only under DEC + untrapped + regular centre, and 'the energy can be negative if the above assumptions do not hold'. Confirms both halves the tree uses and the regular-centre hypothesis the tree added to its corollary.",
+      "read_status": "READ (pp.1-2,4-7,9-10,12-13,16-17,19,21 via alphaXiv)"
+    },
+    {
+      "ref": "H. Maeda & M. Nozawa, arXiv 0709.1199v4 (2008; journal reference not read here)",
+      "effect": "extends",
+      "what": "Generalised MS mass with Lambda and Gauss-Bonnet (eq.2.7), reducing to MS in 4D GR with Lambda = 0; same variation formulae (2.18)-(2.19). Notes (p.9) that Hayward's positivity proof needs an extra lemma (Lemma 2) -- a proof gap, conclusion unchanged. Establishes that the m' = 4 pi r^2 rho form is specific to 4D GR without Lambda, the scope the tree implicitly uses.",
+      "read_status": "READ (pp.1-3,8-12 via alphaXiv)"
+    },
+    {
+      "ref": "discover_papers hits 1406.0577 (MS mass in n-dim f(R)), 1502.00069 (MS mass in massive gravity), 2506.04469 (f(R,G)), 2512.17526 (MS hydrodynamics in scalar-tensor)",
+      "effect": "extends",
+      "what": "Modified-gravity generalisations of the MS mass; none contradicts the GR result. Not relevant to the tree's GR scope.",
+      "read_status": "NAMED-NOT-READ (abstracts only from discover_papers)"
+    }
+  ],
+  "lacked_data": "M's hypothesis tested: Misner and Sharp (1964) worked with a perfect fluid in comoving coordinates for adiabatic collapse; their mass function is a geometric definition and the tt equation is an identity of the Einstein tensor. No measured quantity enters, so there is no datum they could have lacked that would change the conclusion. What came later is generality, not data: Hayward (1996) showed the definition is an invariant valid for arbitrary spherically symmetric matter, static or dynamic, and Maeda-Nozawa (2008) showed its form is tied to 4D GR with Lambda = 0. Evidence against M's hypothesis for THIS result: the tree's two uses re-derive exactly (sympy C1-C3). Evidence of incompleteness that is NOT a data gap: the static hypothesis is load-bearing (C5), the areal-coordinate hypothesis is unstated in certify.py:113-114 and dropped at the conformastatic use site (C6), and Lambda is unstated. None of these moves a recorded verdict in the tree.",
+  "grade": "NARROWED",
+  "grade_evidence": "The source result itself STANDS: the MS mass definition and m' = 4 pi r^2 rho re-derive exactly (sympy C1-C2, any static anisotropic matter), and the THEOREM 'contraction iff m < 0' is z3-proved under r > 0 and 1 - 2m/r > 0 (C3). It is graded NARROWED because the tree uses it on a larger class than the one it holds on at one site and leaves three hypotheses unstated: (i) certify.py:376-382 applies enclosed_mass_from_grr to the conformastatic ISOTROPIC coordinate, where it is not the MS mass (Schwarzschild-isotropic proxy 0.5904 vs 1; opposite-sign case shown) -- recomputed with the invariant mass, the sampled-radius conclusion survives (true E < 0 at all five radii), so this is a discrepancy, not a refutation; the docstring 'everywhere' is false beyond R_s = 200; (ii) areal radius as coordinate (fails where dr = 0) unstated at certify.py:113-114; (iii) Lambda = 0 and GR unstated (with Lambda, m' gains Lambda r^2/2). The static hypothesis is named and shown necessary (C5). No moved datum exists.",
+  "what_would_change_the_grade": "To STANDS: certify.py computes the conformastatic enclosed mass with the areal radius R = rho e^{-Phi} (E = (R/2) rho Phi'(2 - rho Phi')) and names the areal-coordinate, GR and Lambda = 0 hypotheses beside THEOREM_SCOPE. To WRONG: a static spherically symmetric metric with an areal coordinate and 1 - 2m/r > 0 where g_rr < 1 but m >= 0 -- z3 shows none exists (C3). A reading of Misner-Sharp 1964 at source contradicting Hayward's restatement would reopen the source status (currently READ-VIA-RESTATEMENT).",
+  "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/misner-sharp-1964-mass-function.py",
+  "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/misner-sharp-1964-mass-function.json"
+}

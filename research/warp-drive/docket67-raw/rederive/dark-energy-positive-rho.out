@@ -1,0 +1,79 @@
+C1  Lambda stress tensor, arbitrary boost (sympy)
+  T_ab u^a u^b = rho for every boost (b2<1)                                ok
+  T_ab k^a k^b = 0 for every null k (NEC saturated)                        ok
+  p = -rho                                                                 ok
+  rho + 3p = -2 rho < 0 (SEC violated; this is the acceleration)           ok
+  rho >= |p| (DEC holds, with equality)                                    ok
+
+C2  perfect fluid, boosted observer (sympy)
+  T_ab u^a u^b = rho[gamma^2(1+w) - w]                                     ok
+
+C3  z3: observer-independent positivity <=> w >= -1
+  w>=-1, rho>0, gamma^2>=1, rho_obs<0 : UNSAT                              ok
+  w<-1 admits an observer with rho_obs<0 : SAT                             ok
+       witness: [G = 2, R = 1, W = -3]
+  vacuity guard: hypotheses of the UNSAT query are satisfiable             ok
+
+C4  magnitudes (Planck 2018 VI eq.(14)-(15), READ; DESI DR2 Table V, READ)
+       Lambda = 1.0891e-52 m^-2 = 4.2409e-66 eV^2 (Planck prints 4.24 +- 0.11 e-66)
+       rho_Lambda c^2 = 5.2447e-10 J/m^3
+  reproduces Planck's 4.24e-66 eV^2 within its 0.11 error                  ok
+  rho_Lambda > 0                                                           ok
+       Omega_L / sigma = 93.8 (Planck TT,TE,EE+lowE+lensing, flat LCDM)
+  LCDM DESI              Omega_DE = 0.7025, rho_DE c^2 = 5.381e-10 J/m^3 > 0 ok
+  LCDM DESI+CMB          Omega_DE = 0.6973, rho_DE c^2 = 5.470e-10 J/m^3 > 0 ok
+  LCDM+OK DESI+CMB       Omega_DE = 0.6966, rho_DE c^2 = 5.518e-10 J/m^3 > 0 ok
+  wCDM DESI+CMB          Omega_DE = 0.7073, rho_DE c^2 = 5.769e-10 J/m^3 > 0 ok
+  w0wa DESI+CMB          Omega_DE = 0.6470, rho_DE c^2 = 4.418e-10 J/m^3 > 0 ok
+  w0wa DESI+CMB+P+       Omega_DE = 0.6886, rho_DE c^2 = 5.298e-10 J/m^3 > 0 ok
+  w0wa DESI+CMB+U3       Omega_DE = 0.6725, rho_DE c^2 = 4.932e-10 J/m^3 > 0 ok
+  w0wa DESI+CMB+DESY5    Omega_DE = 0.6809, rho_DE c^2 = 5.120e-10 J/m^3 > 0 ok
+
+C5  CPL fits of DESI DR2 Table V (w0, wa, Omega_m), READ
+  rho_DE(a) = a^-3(1+w0+wa) exp(-3wa(1-a)) solves d ln rho/d ln a = -3(1+w) ok
+  rho_DE(a)/rho_DE0 is a product of a positive power and an exp: > 0 for all a>0 ok
+   DESI+CMB
+       w0=-0.420 wa=-1.75 : phantom (w<-1) for z > 0.496 ; w(z=1)=-1.295 ; w(z->inf)=-2.170
+       gamma for a boosted observer to see rho_DE<0: z=1 -> 2.095 (v=0.8787 c); z->inf -> 1.362
+       min over past of w_tot = w_de*Omega_de : -0.4408  (> -1: total NEC holds)
+  DESI+CMB: w_de < -1 somewhere in the past (component phantom)            ok
+  DESI+CMB: w_tot > -1 at all past a (total NEC, total WEC hold)           ok
+       (rho+p)_DE at z=1 = -1.772e-10 J/m^3 ; gamma^2 to reach 1.806e46 Pa ~ 1.02e+56
+   DESI+CMB+P+
+       w0=-0.838 wa=-0.62 : phantom (w<-1) for z > 0.354 ; w(z=1)=-1.148 ; w(z->inf)=-1.458
+       gamma for a boosted observer to see rho_DE<0: z=1 -> 2.785 (v=0.9333 c); z->inf -> 1.784
+       min over past of w_tot = w_de*Omega_de : -0.5770  (> -1: total NEC holds)
+  DESI+CMB+P+: w_de < -1 somewhere in the past (component phantom)         ok
+  DESI+CMB+P+: w_tot > -1 at all past a (total NEC, total WEC hold)        ok
+       (rho+p)_DE at z=1 = -7.634e-11 J/m^3 ; gamma^2 to reach 1.806e46 Pa ~ 2.37e+56
+   DESI+CMB+U3
+       w0=-0.667 wa=-1.09 : phantom (w<-1) for z > 0.440 ; w(z=1)=-1.212 ; w(z->inf)=-1.757
+       gamma for a boosted observer to see rho_DE<0: z=1 -> 2.391 (v=0.9083 c); z->inf -> 1.523
+       min over past of w_tot = w_de*Omega_de : -0.4882  (> -1: total NEC holds)
+  DESI+CMB+U3: w_de < -1 somewhere in the past (component phantom)         ok
+  DESI+CMB+U3: w_tot > -1 at all past a (total NEC, total WEC hold)        ok
+       (rho+p)_DE at z=1 = -1.161e-10 J/m^3 ; gamma^2 to reach 1.806e46 Pa ~ 1.56e+56
+   DESI+CMB+DESY5
+       w0=-0.752 wa=-0.86 : phantom (w<-1) for z > 0.405 ; w(z=1)=-1.182 ; w(z->inf)=-1.612
+       gamma for a boosted observer to see rho_DE<0: z=1 -> 2.548 (v=0.9198 c); z->inf -> 1.623
+       min over past of w_tot = w_de*Omega_de : -0.5229  (> -1: total NEC holds)
+  DESI+CMB+DESY5: w_de < -1 somewhere in the past (component phantom)      ok
+  DESI+CMB+DESY5: w_tot > -1 at all past a (total NEC, total WEC hold)     ok
+       (rho+p)_DE at z=1 = -9.659e-11 J/m^3 ; gamma^2 to reach 1.806e46 Pa ~ 1.87e+56
+   Caldwell-Linder best fit (w0=-0.7, wa=-1, Om=0.3)
+       w0=-0.700 wa=-1.00 : phantom (w<-1) for z > 0.429 ; w(z=1)=-1.200 ; w(z->inf)=-1.700
+       gamma for a boosted observer to see rho_DE<0: z=1 -> 2.449 (v=0.9129 c); z->inf -> 1.558
+       min over past of w_tot = w_de*Omega_de : -0.5228  (> -1: total NEC holds)
+  Caldwell-Linder best fit: w_de < -1 somewhere in the past (component phantom) ok
+  Caldwell-Linder best fit: w_tot > -1 at all past a (total NEC, total WEC hold) ok
+  Caldwell-Linder's printed 'w_tot > -0.53' reproduced (min -0.5228)       ok
+       (rho+p)_DE at z=1 = -1.121e-10 J/m^3 ; gamma^2 to reach 1.806e46 Pa ~ 1.61e+56
+
+C7  internal wording (read-only check of the owner file)
+  achievable.py:49 heading says 'TWO THINGS'                               ok
+  achievable.py:549 selftest prints 'TWO THINGS'                           ok
+  achievable.py:552-553 selftest asserts three entries                     ok
+       -> heading/printout 'TWO' vs asserted count 3: an internal wording discrepancy,
+          not a finding about the external result (dark energy is one entry of three).
+
+RESULT: ALL CHECKS PASS

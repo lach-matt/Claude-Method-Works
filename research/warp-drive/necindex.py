@@ -92,7 +92,9 @@ Ask of every escape route this tree has found: WHICH SLOT DOES IT MOVE?
         currency.py's modified gravity      moves T,  0 -> 2/3
         necladder.py's rung grading         moves M,  0 -> 1/2
         anecscope.py's achronal scope       moves M,  2 -> 3
-        anec.py's QNEC                      moves B,  0 -> 2
+        anec.py's QNEC                      moves B,  0 -> 2   (proved only on
+                                            fixed flat or stationary-horizon
+                                            backgrounds, for quantum states)
         persist.py / Ford-Roman             moves B,  0 -> 1
 
     NOT ONE OF THEM MOVES THE ORDER RELATION.  Nothing anywhere relaxes ">=".
@@ -213,6 +215,11 @@ def pinned_index(cells, name="the energy-condition family"):
     return cypher.Index(name, COORDS, sorted(set(cells)), value_order=VALUE_ORDER)
 
 # (name, T, V, M, Q, B, A, where it is named)
+# CORRECTED (DOCKET 67), notes only, no cell moved: AANEC's note read 'the one
+# with teeth' as if it were Graham-Olum's (theirs is the self-consistent row);
+# semiclassical-AANEC's read 'topological censorship uses it' (FSW assume ANEC
+# on every inextendible null geodesic; G&O's achronal form adds simple
+# connectivity and the null generic condition); QNEC carried no background.
 # A is the ARITY coordinate, added after the cell below was found MIS-NAMED:
 #   0  QUADRATIC, one direction used twice:  T_mn v^m v^n  >= B
 #   1  BILINEAR, an ordered pair:            T_mn v^m w^n  >= B
@@ -235,15 +242,24 @@ FAMILY = [
     ("Einstein-NEC",        2, 0, 0, 0, 0, 0, "G_kk >= 0; same cell content as NCC"),
     ("BV-effective-NEC",    1, 0, 0, 0, 0, 0, "Barcelo-Visser eq. (2.6), READ"),
     ("ANEC",                0, 0, 2, 0, 0, 0, "averaged, all complete null geodesics"),
-    ("AANEC",               0, 0, 3, 0, 0, 0, "achronal; anecscope.py, the one with teeth"),
+    ("AANEC",               0, 0, 3, 0, 0, 0, "achronal, fixed background; anecscope.py's "
+                                              "'one with teeth' -- Graham-Olum's "
+                                              "condition is the self-consistent row"),
     ("BV-effective-ANEC",   1, 0, 2, 0, 0, 0, "Barcelo-Visser sect. 2.3, READ"),
     ("semiclassical-NEC",   0, 0, 0, 1, 0, 0, "FALSE -- Casimir, measured"),
     ("semiclassical-ANEC",  0, 0, 2, 1, 0, 0, "flat space; Faulkner-Leigh-Parrikar-Wang"),
-    ("semiclassical-AANEC", 0, 0, 3, 1, 0, 0, "Graham-Olum; topological censorship uses it"),
+    ("semiclassical-AANEC", 0, 0, 3, 1, 0, 0, "Graham-Olum 0705.3193, self-consistent; "
+                                              "sufficient against wormholes joining "
+                                              "disconnected regions (adds simple "
+                                              "connectivity, null generic). FSW's "
+                                              "topological censorship assumes ANEC "
+                                              "on every inextendible null geodesic"),
     ("SNEC",                0, 0, 1, 1, 1, 0, "smeared null; nullbound.py, anec.py"),
     ("QEI-Ford-Roman",      0, 1, 1, 1, 1, 0, "persist.py"),
     ("QEI-Fewster-Osterbrink", 0, 1, 1, 1, 1, 0, "qei.py -- THE SAME CELL as Ford-Roman"),
-    ("QNEC",                0, 0, 0, 1, 2, 0, "anec.py; entropy variation"),
+    ("QNEC",                0, 0, 0, 1, 2, 0, "anec.py; entropy variation; proved on "
+                                              "fixed flat or stationary-horizon "
+                                              "backgrounds (1509.02542, BFKW, CF)"),
     ("semiclassical-WEC",   0, 1, 0, 1, 0, 0, "FALSE -- Casimir; DEMANDED by the "
                                               "index before it was seated"),
 ]

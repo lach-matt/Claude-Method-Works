@@ -1,0 +1,84 @@
+{
+ "key": "einstein-vlasov-limit-2-3",
+ "name": "Einstein-Vlasov limit x = 2/3 and the wall's own tangential-pressure limit x = 4/5",
+ "source": {
+  "located": "Attributed in the tree (warpshell.py:5-6, 86-89, and its selftest fixtures at warpshell.py:295-297) to An T. Le, 'Steering a warp drive without exotic matter', arXiv:2606.22531 v2 (30 June 2026). wall.py does not name a source for either number. The physics both numbers are re-derived from here is the Einstein cluster (Einstein 1939, Ann. Math. 40, 922; p_r = 0, every particle on a circular geodesic). The general Einstein-Vlasov compactness limit 2M/R -> 8/9 (Andreasson; Ames-Andreasson-Logg numerics arXiv:1603.05404, 1803.11224) is READ-VIA-RESTATEMENT in Dadhich, arXiv:2504.00064v2 (14 May 2025), p.7.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Le arXiv:2606.22531 could NOT be read in this stage: every alphaXiv call (answer_pdf_queries x2, get_paper_content x2, discover_papers x1) returned 'assistant quota exceeded', and arxiv.org / export.arxiv.org / alphaxiv.org / api.semanticscholar.org are refused by the egress proxy (curl 403 CONNECT rejected; WebFetch EGRESS_BLOCKED). No cached copy of 2606.22531 exists under scratchpad/d67/src. Einstein 1939 and Andreasson's sharp-bound theorem (gr-qc/0702137) are NAMED-NOT-READ. READ at source text: Dadhich arXiv:2504.00064v2, held at scratchpad/d67/src/casmag/all/2504.00064v2.txt (lines 266-292, p.7): 'as the limiting compactness M/R -> 4/9 is approached, the shell becomes infinitely thin with rho, p_r, p_t all diverging, however, in the limit, p_r/rho -> 0 and 2p_t/rho -> 1 ... particle velocity attains the value, v^2 = 8/9. All these are, however, numerical results.' The tree's rendering of Le's statements is the tree's own restatement, not a read of Le, and is treated as such."
+ },
+ "published_statement": "NOT READ AT SOURCE (Le, arXiv:2606.22531, unreadable here). As the tree restates it (warpshell.py:86-89): 'x < 24/25 static thin shell, surface dec strict; x < 4/5 tangential-pressure wall, dec across its whole width; x < 2/3 Einstein-Vlasov (collisionless) realization exists; x + 2 lambda < 4/5 the operative window for the realized radiating wall'. The underlying classical result the two numbers match exactly (re-derived here, not read): for an Einstein cluster, the anisotropic TOV equation with p_r = 0 gives p_T = rho m/(2(r-2m)); the circular-orbit speed v^2 = 2p_T/rho = m/(r-2m) is < 1 iff 2m/r < 2/3 (r > 3m, the photon sphere), and the dominant energy condition p_T <= rho holds iff 2m/r <= 4/5. The general Einstein-Vlasov (not cluster) limit is 2M/R -> 8/9, approached by infinitely thin shells (Dadhich 2025 p.7, READ, restating numerics).",
+ "published_hypotheses": [
+  "(as restated by the tree, Le not read) x = 2m/R the compactness of a spherically symmetric static shell with Minkowski interior and Schwarzschild exterior",
+  "(re-derived Einstein-cluster reading of 2/3) collisionless matter with ZERO radial pressure: every particle on a circular timelike geodesic of the local metric; the bound is pointwise on the LOCAL compactness 2m(r)/r, so it bounds 2M/R only through sup_r 2m(r)/r >= 2M/R",
+  "(re-derived Einstein-cluster reading of 4/5) same p_r = 0 matter, dominant energy condition p_T <= rho imposed pointwise across the finite width",
+  "(restated general Einstein-Vlasov limit 8/9) static spherically symmetric Einstein-Vlasov solutions with p_r >= 0 and p_r + 2p_T <= rho; approached only by infinitely thin shells; the approach is numerical (Dadhich p.7: 'All these are, however, numerical results')"
+ ],
+ "hypothesis_drift": [
+  "wall.py:29 labels x = 2/3 the 'Einstein-Vlasov limit' and wall.py:553 calls x < 2/3 'the Vlasov window'; the tree's own source line warpshell.py:88 says only that a collisionless realization EXISTS for x < 2/3 (an existence/sufficiency statement), and the re-derived origin of 2/3 is the Einstein-CLUSTER bound (p_r = 0, circular geodesics). DROPPED: the p_r = 0 / circular-orbit hypothesis. The general Einstein-Vlasov static class reaches 8/9 (Dadhich 2025 p.7, READ-VIA-RESTATEMENT), so 'the Einstein-Vlasov limit' is 8/9, not 2/3.",
+  "Internal to wall.py: its own counter-rotating (Einstein-Vlasov) thin shell 'expires at v = 1, which is x = 8/9' (wall.py:83), while its header calls 2/3 the Einstein-Vlasov limit (wall.py:29). Computed here (rederive B1-B6): the Lanczos thin shell is EXACTLY the thin limit of an Einstein cluster (sigma and p reproduced to 1e-12 and symbolically); wall.py's single speed v^2 = 2p/sigma = (1-s)/(2s) is the proper-length-averaged speed, which reaches 1 at 8/9, whereas the outermost circular-geodesic particle of the thin-limit cluster reaches v = 1 already at x = 2/3. Both numbers are right for their own matter model; the file uses both under one name. A discrepancy of labelling, not an arithmetic error.",
+  "wall.py:37, 552, 683 and restatus.py:155 apply the FINITE-WIDTH tangential-pressure window x < 4/5 ('the wall's own limit', 'every window the wall is realizable in') as the realizability domain of beta^2_crit, which is computed for an INFINITELY THIN Lanczos shell (wall.py:227-236, statics at wall.py:249-256). The thin shell's own windows are 24/25 (surface dec; wall.py:554 records 24/25 > x*) and 8/9 (single-speed counter-rotating matter, wall.py:83). ADDED (implicitly): that the thin-shell stability problem is realizable only where the finite-width wall is. wall.py limitation 3 (wall.py:201-203) names the thin-shell/finite-thickness proxy for beta^2 but not for the window.",
+  "wall.py:196: 'Anisotropic elastic matter on 2/3 < x < 4/5 is not treated here, and by the table above that is exactly the range where this model fails' -- the table at wall.py:89-96 shows the counter-rotating model failing from x = 0.46898 upward, so 2/3 < x < 4/5 is a sub-range of the failure range, not 'exactly' it. Discrepancy of wording, recorded, not repaired.",
+  "x = 4/5 as 'dec across its whole width' (warpshell.py:87): the Einstein-cluster reading makes it a POINTWISE bound on local 2m(r)/r; it bounds the outer x only when sup_r 2m(r)/r is attained at the outer edge (true for a uniform-density shell, rederive E; not in general when rho -> 0 at the outer edge). Whether Le's 4/5 is this bound or a different derivation (the tree says Le's realized wall is Bowers-Liang, wall.py:195) is OPEN: Le not read."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "X_VLASOV (Einstein-cluster circular-orbit limit, as used)",
+   "value_then": "2/3 (exact)",
+   "value_now": "2/3 (exact; re-derived here, rederive A3/B6)",
+   "source_now": "sympy re-derivation from the anisotropic TOV equation with p_r = 0 (this audit)",
+   "moves_conclusion": "No -- an exact rational, not a measurement. What moves the conclusion is the CLASS: for general Einstein-Vlasov matter the limit is 8/9 = 0.8889 > x* = 0.843742, and wall.py:553's 'so is the Vlasov window below x*' flips to false (rederive D7)."
+  },
+  {
+   "quantity": "X_TANGENTIAL (tangential-pressure wall dec window, as used)",
+   "value_then": "4/5 (exact)",
+   "value_now": "4/5 (exact; reproduced as Einstein-cluster pointwise DEC, rederive A4; Le's own derivation unread)",
+   "source_now": "sympy re-derivation (this audit)",
+   "moves_conclusion": "No datum; 4/5 < x* = 0.8437418926 holds (rederive D6). The conclusion 'strict stability available everywhere the wall is realizable' depends on 4/5 being the realizability ceiling of the thin-shell problem, which it is not (thin-shell windows 8/9, 24/25 both exceed x*)."
+  },
+  {
+   "quantity": "General Einstein-Vlasov compactness limit (not used by the tree)",
+   "value_then": "not cited by the tree",
+   "value_now": "2M/R -> 8/9 (M/R -> 4/9), thin-shell limit, numerical",
+   "source_now": "Dadhich arXiv:2504.00064v2 p.7 (READ from cached text), restating Ames-Andreasson-Logg arXiv:1603.05404, 1803.11224 and Andreasson Living Rev. Rel. 14:4 (2011)",
+   "moves_conclusion": "Yes, for the auxiliary check wall.py:553 only: 8/9 > x*. The main conclusion (wall.py:552, restatus.py:155) is untouched because it is stated for x < 4/5."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/einstein-vlasov-limit-2-3.py",
+  "outcome": "ALL 26 checks PASS. (A) Anisotropic TOV with p_r = 0 gives p_T = rho m/(2(r-2m)); circular-orbit v^2 = x/(2(1-x)) = 1 at x = 2/3 (= photon sphere r = 3m); DEC p_T = rho at x = 4/5 -- both of the tree's numbers are reproduced exactly as Einstein-cluster bounds. (B) The thin limit of an Einstein cluster reproduces the Lanczos shell exactly (sigma = (1-s)/(4 pi R), p = (1-s)^2/(16 pi R s)); single-speed v = 1 at x = 8/9, surface DEC at x = 24/25, outermost geodesic particle v = 1 at x = 2/3. (C) Andreasson-form bound ((1+2 Om)^2-1)/(1+2 Om)^2 gives 8/9 at Om = 1 and 24/25 at Om = 2 (formula NAMED-NOT-READ, used only as arithmetic). (D) wall.py's arithmetic confirmed: beta^2_crit(2/3) = (sqrt3-1)/2, beta^2_crit(4/5) = sqrt5 - 3/2 symbolically; beta^2_crit = 1 iff 15s^3+3s^2-s-1 = 0; x* = 0.843741892629416; 2/3 < x*, 4/5 < x*, but 8/9 > x* (beta^2_crit = 3/2) and 24/25 > x* (beta^2_crit = 19/4). (E) uniform-density cluster shell 1 < r < 1.2: sup local x at the outer edge; outer x = 0.7 has v_max^2 = 1.1667 (not timelike).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "N. Dadhich, 'Relativistic Virial Theorem, Limiting Compactness, and the end state of gravitational collapse', arXiv:2504.00064v2 (2025), p.7",
+   "effect": "narrows",
+   "what": "Restates the Einstein-Vlasov thin-shell numerics: limiting compactness M/R -> 4/9 (2M/R -> 8/9) with p_r/rho -> 0, 2p_t/rho -> 1, v^2 = 8/9, 'All these are, however, numerical results.' So the Einstein-Vlasov limit is 8/9; 2/3 is the narrower Einstein-cluster (circular-orbit) limit.",
+   "read_status": "READ (cached source text scratchpad/d67/src/casmag/all/2504.00064v2.txt, lines 266-292)"
+  },
+  {
+   "ref": "H. Andreasson, 'Sharp bounds on 2m/r of general spherically symmetric static objects', gr-qc/0702137 (J. Diff. Eq. 2008)",
+   "effect": "extends",
+   "what": "Bound 2m/r <= ((1+2 Om)^2-1)/(1+2 Om)^2 under p + 2p_T <= Om rho, sharp for thin shells: 8/9 for Vlasov (Om = 1), 24/25 for p = 0 with DEC (Om = 2) -- the thin-shell counterparts of 2/3 and 4/5.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org egress-blocked); formula checked only as arithmetic"
+  },
+  {
+   "ref": "E. Ames, H. Andreasson, A. Logg, arXiv:1603.05404 (CQG 33, 155008, 2016) and arXiv:1803.11224 (PRD 99, 024012, 2019)",
+   "effect": "extends",
+   "what": "Numerical Einstein-Vlasov thin shells approaching 8/9, as cited by Dadhich [11,12].",
+   "read_status": "NAMED-NOT-READ (READ-VIA-RESTATEMENT in Dadhich p.7)"
+  },
+  {
+   "ref": "discover_papers search for later work on Einstein-cluster / Einstein-Vlasov compactness",
+   "effect": "contested",
+   "what": "NOT RUN: discover_papers returned 'alphaXiv assistant quota exceeded'. No claim is made about later literature beyond the one cached paper above; this row records the gap, not a contest.",
+   "read_status": "NOT-RUN"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for THIS result: the two numbers are exact consequences of a matter model, not of measured data, so no dataset exists that the authors (Einstein 1939 for the cluster bounds; Le 2026 as the tree's source) could have lacked; no PDG-type input enters. Evidence against 'lacked data': both 2/3 and 4/5 are re-derived exactly here from the anisotropic TOV equation (rederive A3, A4), and wall.py's arithmetic on them is confirmed symbolically (D1-D6). What the numerical record adds since Einstein 1939 is not data about 2/3 but about the WIDER class: Einstein-Vlasov thin shells reach 8/9 (Andreasson; Ames-Andreasson-Logg 2016/2019, restated in Dadhich 2025 p.7) -- and that datum does move one auxiliary claim in the tree (wall.py:553, 'the Vlasov window x < 2/3 is below x*' becomes false for the general Einstein-Vlasov window 8/9 > x* = 0.8437). It does not refute 2/3; it shows the tree named a class-specific bound as a class-general one. Whether Le himself states 2/3 as a cluster bound or as an existence window cannot be settled here (source unread).",
+ "grade": "NARROWED",
+ "grade_evidence": "(1) Both numbers re-derived exactly (sympy, 26/26 PASS) as Einstein-CLUSTER bounds: v < 1 on circular geodesics iff 2m/r < 2/3; DEC p_T <= rho iff 2m/r <= 4/5. No misprint, no arithmetic error, no moved datum; wall.py's closed forms beta^2_crit(2/3) = (sqrt3-1)/2, beta^2_crit(4/5) = sqrt5-3/2 and x* = 0.8437418926 all confirmed. (2) The tree uses 2/3 as 'the Einstein-Vlasov limit' (wall.py:29) and 'the Vlasov window' (wall.py:553), dropping the p_r = 0 / circular-orbit hypothesis; the general Einstein-Vlasov limit is 8/9 (Dadhich 2025 p.7, READ; restating numerics), and wall.py's own counter-rotating thin shell runs to 8/9 (wall.py:83). On that class wall.py:553's check flips (8/9 > x*). (3) The 4/5 finite-width window is applied as the realizability domain of an infinitely-thin-shell stability criterion whose own windows (8/9, 24/25) both exceed x*; so 'strict stability is available everywhere the wall is realizable' (wall.py:37-40, 683; restatus.py:155) holds under the NAMED hypothesis that realizability = the finite-width tangential-pressure window x < 4/5, and not on the thin-shell class the criterion is computed for (which wall.py:554 itself records for 24/25). Not WRONG: nothing refutes 2/3 or 4/5 for the class they belong to, and the main inequality 4/5 < x* stands. Caveat: Le arXiv:2606.22531 is NAMED-NOT-READ, so whether Le's own statement carries the narrower hypothesis (drift located in wall.py only) or not is OPEN; the NARROWED grade rests on computation and the READ restatement, not on Le's text.",
+ "what_would_change_the_grade": "To STANDS: reading Le arXiv:2606.22531 and finding that (a) his 2/3 is stated for a class the tree's wording legitimately covers (e.g. he defines 'Einstein-Vlasov realization' as the circular-orbit cluster AND the tree's 'Vlasov window' is read with that definition), and (b) he proves the thin-shell idealisation is realizable only where the finite-width wall is (x < 4/5). To OPEN: if Le's derivation of 4/5 turns out to rest on a matter model (e.g. Bowers-Liang, wall.py:195) whose realizability window cannot be checked here. To WRONG: only a computed contradiction -- e.g. an explicit static Einstein-cluster (p_r = 0, circular geodesics) solution with 2M/R >= 2/3, which rederive A shows cannot exist since v^2 = x/(2(1-x)) >= 1 there. Also relevant: a reading of Andreasson gr-qc/0702137 and Ames-Andreasson-Logg at source to upgrade the 8/9 from READ-VIA-RESTATEMENT.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/einstein-vlasov-limit-2-3.py && sed -n 266,292p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2504.00064v2.txt && grep -n '2/3\\|4/5\\|8/9\\|24/25' /home/user/Claude-Method-Works/research/warp-drive/wall.py /home/user/Claude-Method-Works/research/warp-drive/warpshell.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/einstein-vlasov-limit-2-3.json"
+}

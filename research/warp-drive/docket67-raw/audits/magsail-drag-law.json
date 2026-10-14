@@ -1,0 +1,104 @@
+{
+ "key": "magsail-drag-law",
+ "name": "Magnetic-sail drag F = rho v^2 A against the ISM (magsail concept, Zubrin-Andrews 1991, uncited by owner; drag coefficient taken as 1, effective area A)",
+ "source": {
+  "located": "Primary attribution Zubrin R.M. & Andrews D.G., 'Magnetic sails and interplanetary travel', J. Spacecraft Rockets 28(2):197-203 (1991) -- no arXiv copy. Read instead: Gros C., 'Universal scaling relation for magnetic sails: momentum braking in the limit of dilute interstellar media', arXiv:1707.02801v3 (J. Phys. Commun. 2017; v3 dated 9 May 2018), full text from the docket's cached extraction d67/src/casmag/all/1707.02801v3.txt (alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers, and arxiv.org is refused by the egress proxy with 403 -- so the cached text was read). ISM ion density READ at Crawford, arXiv:1010.4823v1 (Acta Astronautica 2011) Table 4.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Gros 2017 restates Zubrin-Andrews only partly: the bow-shock pressure balance (his eq. (31), citing [13]), 'a powerlaw scaling [13] such as A_V ~ (v/c)^alpha', the Andrews-Zubrin 1990 axial value A(v)~75 vs Gros 18 at the same parameters, and Z-A's 'I = 159e3 A and v = c/10' case. Zubrin-Andrews 1991's own drag formula and coefficient are NAMED-NOT-READ here; nothing in this report quotes them. Gros's own momentum-braking law (eqs (1),(8)-(14),(16),(19),(20)) is READ in full."
+ },
+ "published_statement": "Gros 2017 (READ): eq. (1) 'd/dt(m_tot v) = -(A(v) n_p v)(2 m_p v)' for fully reflected incoming particles; eq. (8) 'A(v) = A_c [log(I/(beta I_c))]^3, v < (cI)/I_c' with A_c = 0.081 pi R^2 and I_c = 1.55e6 A, fitted to non-relativistic Lorentz-force trajectory integrations (eq. (4)) 'over two orders of magnitude'; A(v) 'vanishes altogether when I < beta I_c' ('we cannot resolve numerically whether A(v) really vanishes ... or drops to finite but exceedingly small values'); eq. (11) finite stopping distance x_max = (1/0.081) log^-2(v0 I_c/(cI)) m_tot/(4 m_p n_p pi R^2); eq. (19) at optimal current x_max = 3.1 m_tot/(m_p n_p pi R^2). On Zubrin-Andrews: 'previous estimates [13] ... have been rather on the optimistic side'; 'a powerlaw scaling [13] such as A_V ~ (v/c)^alpha would be inconsistent with the existence of a critical current I_c'; Z-A's I = 159e3 A at v = c/10 'would be right on the point where protons are not reflected at all'. Restated Z-A bow-shock pressure balance (Gros eq. (31)): n_p m_p v^2/2 = (2B)^2/(2 mu0) ~ 2 B0^2 R^6/(mu0 z^6), 'clearly only a rough estimate'.",
+ "published_hypotheses": [
+  "Gros: momentum transfer to CHARGED particles only -- 'reflecting the H+ ions of the interstellar medium'; n_p is the ionized-proton density, 0.05-0.20 cm^-3 in the warm local clouds and ~0.005 cm^-3 in the Local Bubble (Sect. 2.1)",
+  "Gros: limit of independent particles (low density); bow-shock formation only touched in Appendix B and found 'only marginally compatible'",
+  "Gros: non-relativistic Lorentz force m_p dv/dt = q v x B (eq. 4); results scale with v/I",
+  "Gros: axial configuration (loop field parallel to v); idealized sail; thermal motion of ISM protons neglected (effective area shrinks when thermal and craft speeds are comparable)",
+  "Gros: full reflection factor 2 m_p v per reflected proton (eq. 1); effective area defined by eq. (7) A = 2 pi int (1-S(r))/2 r dr",
+  "Gros: A(v) velocity dependent, zero above beta = I/I_c; equals the bare loop area only at I/beta = 15.6e6 A",
+  "Z-A 1991 as restated by Gros: plasma-fluid (MHD) bow shock with magnetic/kinetic pressure balance; a power-law effective area A ~ (v/c)^alpha (exponent not given in the restatement)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED velocity dependence of the effective area: arrival.py:14-15, 41-52 use a constant A; every READ magsail law has A = A(v) -- pressure balance (Gros eq. 31, restating Z-A) gives standoff z ~ v^(-1/3), area ~ v^(-2/3), drag ~ v^(4/3) (derived, rederive section 4); Gros eq. (8) gives A = A_c log^3(I/(beta I_c)) with a hard cutoff",
+  "CHANGED coefficient: arrival.py:42,47 take F = rho v^2 A (coefficient 1, momentum absorbed); Gros eq. (1) has 2 rho v^2 A(v) for full reflection. A convention absorbed into A, but it moves the 'floor' comparison by x2 (rederive section 5)",
+  "DROPPED 'charged particles only': arrival.py:26-27 set N_ISM = 1 cm^-3 labelled 'warm neutral medium' and use rho = N m_p as the drag medium; the magsail couples to ions only (Gros Sect. 2, 'H+ ions'); READ local ion density 0.05-0.21 cm^-3 (Crawford Table 4), 0.005-0.04 in the Local Bubble -- the density half is audited separately under ism-density-1-per-cc (NARROWED)",
+  "EXTENDED beyond every source's domain: arrival.py:147,151-152 and shipspec.py:143 apply the law at 0.866 c; Gros integrates the non-relativistic Lorentz force and finds A(v) = 0 unless I > beta I_c = 1.34e6 A at 0.866 c; the tree specifies no current",
+  "DROPPED the sail's current/field as a hypothesis: the tree's A is a free number labelled by a length ('100 km','1000 km','10,000 km', arrival.py:145); Gros: the initial effective area is 0.081 pi R^2 a^3 (a = log(cI/(v0 I_c))), i.e. 8.1% of the bare loop area at the optimal current, so identifying A with the geometric size is itself a hypothesis",
+  "READING drift inside the tree: arrival.py:41-50 correctly label L a floor, but arrival.py:150-152,159 read it as a brake-to-rest distance ('brakes ... inside 810 AU', 'Closed'); under the tree's own constant-A law no finite distance brings the ship to rest and at x = L the ship still has v/v0 = e^(-1/2) = 0.607 (rederive section 2)",
+  "OWNER-ACKNOWLEDGED omission: relativistic drag correction (ship-frame ram flux gamma n v, momentum gamma m_p v, F = gamma^2 rho v^2 A); computed in rederive section 3 -- the floor still holds with it (0.866c->0.0476c needs 3.19-4.19 m/(rho A) against the tree's 1.333)",
+  "ATTRIBUTION: the owner cites no source for the magsail (canonical entry 'uncited by owner'); not a hypothesis change, recorded for the ledger",
+  "DISCREPANCY RECORDED, NOT GRADED (tree-internal): prose 810 AU and 2.6 ly (arrival.py:150-152,159; index3.py:86; shipspec.py:143) vs the owner's own table/selftest 2001.64 AU and 0.084 ly at A = 1e12 m^2; the two prose figures require different areas (2.47e12 vs 3.24e10 m^2, ratio 76); '2.6 ly' matches A = pi (100 km)^2 to 3% (a radius reading of the 100 km row) -- a discrepancy, not a refutation"
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "ISM density entering rho (drag medium)",
+   "value_then": "tree: n = 1 cm^-3 total protons ('warm neutral medium', arrival.py:26)",
+   "value_now": "ions only: n_e = 0.07+-0.02 (CHISM), 0.12+-0.04 (LIC), suggested 0.05-0.21 cm^-3; Local Bubble 0.005-0.04 cm^-3 (Crawford 2011 Table 4, READ); Gros 2017: n_p 0.05-0.20 (warm clouds), 0.005 (Local Bubble)",
+   "source_now": "arXiv:1010.4823v1 Table 4; arXiv:1707.02801v3 Sect. 2.1",
+   "moves_conclusion": "YES in magnitude: distance scales 1/n, so x5-x200 (audited under ism-density-1-per-cc). With Gros's law at a=1, 1e6 kg, bare area 1e12 m^2, 0.0476 c: 12,335 AU at n=1, 123,348 AU (~1.95 ly) at 0.1, 2.47e6 AU at 0.005 -- 'comfortably within a target system' fails at every READ ion density"
+  },
+  {
+   "quantity": "effective-area law A(v)",
+   "value_then": "tree: constant A (no source); Z-A 1991 as restated: power law A ~ (v/c)^alpha from an MHD bow-shock model",
+   "value_now": "Gros 2017: A = 0.081 pi R^2 log^3(I/(beta I_c)), cutoff at beta = I/I_c; Gros finds A = 18 where Andrews-Zubrin 1990 found 75 at identical parameters and calls the source of the discrepancy 'unclear'",
+   "source_now": "arXiv:1707.02801v3 eq. (8) and Sect. 3",
+   "moves_conclusion": "YES for the 'floor' label, depending on how the tree's A is read: with A = A(v0), true stopping distance x_max = (a/2) L_tree -- floor FAILS for a<2 (half the 'floor' at Gros's optimum a=1); with A = bare area pi R^2, x_max = 6.17/a^2 L_tree -- floor HOLDS for a<2.48. Under pressure balance (v^4/3) the true distance is 3 L (floor holds)"
+  },
+  {
+   "quantity": "critical current I_c",
+   "value_then": "not in the tree; Z-A case I = 159e3 A at c/10",
+   "value_now": "I_c = 1.55e6 A (numerical fit); reflection requires I > beta I_c",
+   "source_now": "arXiv:1707.02801v3 eq. (8)",
+   "moves_conclusion": "YES for the 0.87 c row: needs I > 1.34e6 A just to reflect, optimum 3.6e6 A, and the model behind it is non-relativistic -- the 0.87 c figures (0.084 ly, prose 2.6 ly) are outside every READ model's domain; the tree's own verdict 'ISM braking is a low-beta technology' (arrival.py:153) is consistent with this"
+  },
+  {
+   "quantity": "proton mass m_p",
+   "value_then": "1.67262192e-27 kg (arrival.py:25)",
+   "value_now": "CODATA 2022 1.67262192595e-27 kg (audited separately under codata-proton-mass)",
+   "source_now": "CODATA 2022 (per the docket's codata-proton-mass audit)",
+   "moves_conclusion": "no (3.6e-9 relative)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/magsail-drag-law.py",
+  "outcome": "25/25 checks ok, exit 0 (output in rederive/magsail-drag-law.out). (1) Tree's arithmetic reproduced: 2001.638 AU; table 8.42/0.08/0.00 ly; the prose pair (810 AU, 2.6 ly) needs two areas 76x apart -- discrepancy recorded. (2) Constant-A v^2 drag solved exactly: v = v0 exp(-rho A x/m); no finite distance to rest; at the tree's L the ship keeps 60.7% of its speed (37% of KE); 0.0476 c -> 100 km/s needs 19,826 AU = 9.9x the floor. So 'floor' is true under the tree's own hypothesis. (3) Relativistic constant-A, closed forms verified by differentiation: with the tree's force (gamma^3/beta) or the covariant ram drag (gamma/beta), 0.866c->0.0476c needs 4.19 or 3.19 m/(rho A) vs the tree's 1.333; both diverge at beta->0 -- floor holds. (4) Pressure balance (Gros eq. 31): z ~ v^(-1/3), F ~ v^(4/3), finite stopping distance = exactly 3x the energy/initial-drag estimate. (5) Gros eq. (10) verified to solve eqs (1)+(8) symbolically; x_max/L_tree = a/2 (A read as A(v0)) or 6.17/a^2 (A read as bare area); Gros's own printed numbers reproduce: eq.(13) 0.91/0.98, eq.(14) tau = 1.840 and 5.246 (printed 1.84, 5.2), eq.(16) 4.2e6, eq.(19) 3.1, eq.(20) 0.37 and 8.44 ly. (6) Gros law on the tree's case: 12,335 AU at n=1; the 0.866c row needs I > 1.34e6 A and lies outside the non-relativistic model; Z-A's I = 159 kA at c/10 sits within 3% of Gros's cutoff (1.55e5 A), as Gros states. One transcription error of MINE (sign of the x term of Gros eq. (10)) failed the first run and was corrected against the source's '(x0 - x)'; not a source error.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Gros C., arXiv:1707.02801 (J. Phys. Commun. 1, 045007, 2017; v3 2018)",
+   "effect": "narrows",
+   "what": "Single-particle Biot-Savart simulations for dilute media: effective area velocity dependent (log^3 law) with a hard critical-current cutoff; finite stopping distance; Z-A's estimates 'rather on the optimistic side' (A = 18 vs Andrews-Zubrin's 75 at identical parameters, source of discrepancy 'unclear'); Z-A's c/10, 159 kA case sits at the no-reflection point. Narrows the tree's constant-A law and excludes the 0.87 c row absent ~MA currents; does not refute momentum braking.",
+   "read_status": "READ (cached full text of v3; alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "Crawford I.A., arXiv:1010.4823 (Acta Astronautica 2011), Table 4",
+   "effect": "narrows",
+   "what": "Local ion density 0.05-0.21 cm^-3, Local Bubble 0.005-0.04; recommends assuming 'the lowest likely density' for magsail braking designs -- the tree uses 1 cm^-3 total protons",
+   "read_status": "READ (cached full text)"
+  },
+  {
+   "ref": "Zubrin R.M. & Andrews D.G., J. Spacecraft Rockets 28:197 (1991); Andrews & Zubrin, JBIS 43:265 (1990)",
+   "effect": "contested",
+   "what": "Original magsail drag and interstellar-braking analyses; only Gros's restatement is read here, and Gros disputes their effective-area scaling. Their own formula and coefficient are not quoted.",
+   "read_status": "NAMED-NOT-READ (restated in Gros 2017)"
+  },
+  {
+   "ref": "Ashida Y. et al., J. Propulsion and Power 30:233 (2013), 2D particle-in-cell magsail simulation (cited by Gros [32])",
+   "effect": "extends",
+   "what": "Kinetic (beyond-MHD) treatment of the magnetosphere; Gros says bow-shock formation needs such methods",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for post-2018 magsail work",
+   "effect": "extends",
+   "what": "Not run: alphaXiv returned 'assistant quota exceeded' on the discover_papers call; later work (e.g. Perakis & Hein 2016, cited by Gros as [24]) is unread here",
+   "read_status": "NOT-RUN"
+  }
+ ],
+ "lacked_data": "What Zubrin-Andrews (1990/1991) lacked, as far as READ here: (i) particle-level simulations of proton reflection by a current loop in the dilute (independent-particle) limit -- supplied by Gros 2017, which finds a velocity-dependent area with a critical-current cutoff and an area 4x smaller than Andrews-Zubrin's at identical parameters, and says the source of the discrepancy is 'unclear'; (ii) the current census of the local ISM ion density (Crawford 2011: 0.05-0.21 cm^-3 locally, 0.005-0.04 in the Local Bubble). Does having it change the conclusion? Evidence either way: it does NOT overturn the momentum-braking framework -- Gros reaches finite stopping distances and a feasible 1.5 t slow Trappist-1 mission with it; it DOES change the magnitudes: a constant-A, n = 1 cm^-3, coefficient-1 floor (the tree's) is not a brake distance, and with Gros's law at the tree's own mass and speed the full stop takes 12,335 AU at n=1 and ~123,000 AU (1.95 ly) at the LIC's n_p = 0.1 -- against the tree's printed 810 AU. At 0.87 c the later data cut the other way from M's hypothesis: no source model covers it at all (non-relativistic, cutoff), so the tree's high-beta row is unsupported rather than refuted, and its own verdict 'ISM braking is a low-beta technology' survives. The Z-A-vs-Gros effective-area disagreement is a live model discrepancy, not a refutation of Z-A (whose paper is unread here).",
+ "grade": "NARROWED",
+ "grade_evidence": "The tree's law F = rho v^2 A (coefficient 1, constant A, total proton density) is a generic ram-drag form, internally correct for its stated hypotheses: its arithmetic reproduces (2001.638 AU), and its 'floor' label is TRUE under its own constant-A hypothesis (exact solution v = v0 e^(-rho A x/m): no finite stop; relativistic forms also diverge) and under the pressure-balance scaling (true distance = 3L). But every READ magsail law holds on a smaller class than the tree uses: the effective area is velocity dependent (Gros eq. 8; pressure balance z ~ v^-1/3), momentum transfer is to ions only (0.05-0.21 cm^-3 locally, not 1), full reflection carries a factor 2, and the physics is non-relativistic with A = 0 unless I > beta*1.55e6 A -- so the 0.87 c row is outside every source's domain. Under Gros's law the 'floor' label itself depends on reading A: it holds if A is the bare loop area (x_max = 6.17 L at a=1) and fails if A is the initial effective area (x_max = 0.5 L at a=1). Not WRONG: no published statement is refuted and no computed contradiction of the tree's formula under its own hypotheses exists; the 810 AU / 2.6 ly vs 2001.64 AU / 0.084 ly mismatch is a tree-internal discrepancy, recorded not graded. Not DATA-DEPENDENT: the ion density has not moved since 2011 (the tree drops the hypothesis rather than using a superseded datum), and Z-A-vs-Gros is a model disagreement the tree does not use.",
+ "what_would_change_the_grade": "To STANDS: a READ source giving magsail drag with constant effective area and coefficient 1 against total (neutral+ion) density, valid to 0.87 c -- none found. To WRONG: a computed contradiction of the tree's floor under its OWN hypotheses (none: the constant-A floor is proven to hold), or a READ result showing momentum braking cannot stop a craft at 0.048 c at any area. To OPEN: if the cached 1707.02801v3 text were shown not to be the published text. Reading Zubrin-Andrews 1991 directly (its drag formula and coefficient) and a post-2018 relativistic/kinetic magsail study (e.g. PIC) could narrow further or shift the coefficient; a relativistic reflection model would decide the 0.87 c row, which no READ source covers.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/magsail-drag-law.py; for s in 'optimistic side' 'not reflected at all' '0.081' 'reflecting the H'; do printf '%s: ' \"$s\"; grep -c \"$s\" /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/gros_flat.txt; done; grep -o 'CHISM electron density (n e  = 0.07' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/crawford_flat.txt; sed -n '26,27p;41,52p;141,159p' /home/user/Claude-Method-Works/research/warp-drive/arrival.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/magsail-drag-law.json"
+}

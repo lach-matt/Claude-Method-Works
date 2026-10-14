@@ -23,13 +23,25 @@ and the horizon sits at r_+ = M + sqrt(M^2 - Q^2).  Comparing them:
         0.99     0.49005            1.14107          YES
         1.00     0.50000            1.00000          YES
 
-    THE POSITIVE-POTENTIAL REGION IS INSIDE THE HORIZON AT EVERY CHARGE.  At
-    extremal it is r < M/2 against a horizon at r = M, and it only gets worse
-    below extremal.  And the POSITIVE ENERGY THEOREM FOR EINSTEIN-MAXWELL
-    (Gibbons & Hull; Witten) forces Q <= M, so there is no charged
-    configuration anywhere with a VACUUM region of positive potential.  A
+    THE POSITIVE-POTENTIAL REGION IS INSIDE THE HORIZON AT EVERY CHARGE UP TO
+    EXTREMAL (inside the inner horizon, in fact).  At extremal it is r < M/2
+    against a horizon at r = M, and it only gets worse below extremal.  Under
+    static spherical symmetry with a regular centre and rho >= 0 there is no
+    VACUUM region of positive potential at any Q (Hayward Prop. 6).  A
     horizonless charged body must have matter out past where the horizon would
     be, so the r < Q^2/2M region is inside its matter, not in a corridor.
+      CORRECTED (DOCKET 67): first written 'the POSITIVE ENERGY THEOREM FOR
+      EINSTEIN-MAXWELL (Gibbons & Hull; Witten) forces Q <= M, so there is no
+      charged configuration anywhere with a VACUUM region of positive
+      potential'.  As written that is false: bare superextremal RN (Q > M) has
+      a vacuum Phi > 0 region and no horizon, and only the regular centre
+      excludes it.  The charged bound Q <= M holds for complete, asymptotically
+      flat data whose matter density dominates its charge density (the charged
+      DEC); ordinary matter violates that (1 kg carrying 1 nC has Q/M = 11.6),
+      and so does a static Israel shell of positive rest mass at Q/M = 16.67.
+      The charged theorem is Gibbons & Hull's; Witten's is the uncharged one.
+      positive_region_is_hidden() returns False for every Q > M, because there
+      is no horizon there; the selftest samples only Q <= M.
 
 WHAT CHARGE DOES BUY FOR THE LEAD is a REDUCTION of the delay, never a
 reversal -- at extremal Q = M, 25 % at r = 2M, 10 % at 5M, 5 % at 10M, and
@@ -66,8 +78,17 @@ and by the magnetic route, using fields that EXIST:
     u = 2.9e2 Pa against a requirement of 4.0e27 Pa.  Short by twenty-five
     orders.  A MAGNETAR DOES NOT SEAT.
 
-    Worse, the Sturm route cannot work for anything: any region satisfying it
-    is inside its own Schwarzschild radius by 2 pi^2/3 = 6.579, at every scale.
+    Worse, for pressureless matter -- T_kk = u along the ray -- on a radius
+    chord the Sturm route cannot work: any such region satisfying it is inside
+    its own Schwarzschild radius by 2 pi^2/3 = 6.579, at every scale.
+      CORRECTED (DOCKET 67, seated S-2 follow-on; M ruled 'Seat all four'):
+      first written 'cannot work for anything ... at every scale', without the
+      T_kk = u condition.  The ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2)
+      (specthm.sturm_ratio): 6.5797 on a radius and 1.6449 on a diameter for
+      pressureless matter, 1.2337 for radiation, 0.8225 for T_kk = 2u, and it
+      falls to <= 1 on a diameter for w >= pi^2/6 - 1 = 0.644934 (radius chords
+      would need w > 5.58, beyond the DEC).  Over H_ball as written class S-2 is
+      therefore OPEN in specthm (sturm_over_ball, sr2_certified).
 
     WHAT SURVIVES from this file is the SIGN argument, which is untouched: EM
     stress-energy is ordinary, T_kk >= 0, so a field contributes RICCI focusing
@@ -143,6 +164,10 @@ def field_for_seating(l):
 
 
 def magnetic_energy_density(B):
+    """u = B^2/2 mu0.  DOCKET 67: seats_beyond() compares this u with a T_kk
+    threshold.  For a pure magnetic field and a null k at angle theta to B,
+    T_kk = 2u sin^2(theta), from 0 to 2u; it equals u only at sin^2 = 1/2.
+    The orientation average is caveat 1 of the docstring."""
     return B * B / (2.0 * MU0)
 
 
@@ -153,7 +178,19 @@ def seats_beyond(B):
 
 
 def em_is_ordinary():
-    """rho > 0, p_r = -rho, p_t = +rho: NEC, WEC and DEC all hold."""
+    """rho > 0, p_r = -rho, p_t = +rho: NEC, WEC and DEC all hold.
+
+    A check of the canonical form, with the values held fixed: it cannot fail.
+    DOCKET 67: that form is general for every NON-NULL classical Maxwell field
+    (the eigenvalues of T^a_b are {-L, -L, +L, +L}, and the conditions are
+    homogeneous in rho), and the null field, which it omits, satisfies the
+    conditions too.  It is a statement about CLASSICAL, linear Maxwell
+    stress-energy: the quantized field violates the WEC (Casimir), and FIELDS
+    below reaches 22.7 B_crit (B_crit = 4.4e9 T), where one-loop
+    Euler-Heisenberg was computed by DOCKET 67 still to satisfy NEC, WEC and
+    DEC (conditional on an unread one-loop form).  It is not a check of lens
+    matter or of the matter that confines a field.
+    """
     rho = 1.0
     p_r, p_t = -rho, rho
     nec = (rho + p_r >= 0) and (rho + p_t >= 0)
@@ -195,9 +232,9 @@ def selftest():
         True)
     near("at extremal it is r < M/2 against a horizon at M",
          positive_below(1.0, 1.0), 0.5, 1e-12)
-    print("       And Q <= M is the positive energy theorem for Einstein-Maxwell")
-    print("       (Gibbons & Hull; Witten), so there is no charged configuration")
-    print("       anywhere with a VACUUM region of positive potential.")
+    print("       Q <= M (Gibbons & Hull) holds under the charged DEC, and with a")
+    print("       regular centre and rho >= 0 there is no VACUUM region of positive")
+    print("       potential at any Q.  Bare superextremal RN has one (DOCKET 67).")
 
     print("\n   What charge does buy: a REDUCTION, never a reversal")
     for r in (2.0, 5.0, 10.0, 100.0):
@@ -271,9 +308,11 @@ def report():
     print("  energy conditions and matter that violates them.")
     print("\n  The turn needs T_kk > 0 and a magnetar's field clears the universal")
     print("  seating threshold beyond 155,000 km -- observed physics, not")
-    print("  hypothetical.  The lead needs Phi > 0 in vacuum, and Q <= M puts")
-    print("  that region inside the horizon at every charge, while negative")
-    print("  energy is 65 orders short.  Two independent theorems, one answer.")
+    print("  hypothetical.  The lead needs Phi > 0 in vacuum, and that region is")
+    print("  inside the horizon at every charge up to extremal, and absent from")
+    print("  vacuum at any charge with a regular centre and rho >= 0, while")
+    print("  negative energy is 65 orders short.  Two independent theorems, one")
+    print("  answer.")
     print("\n  SO A FUTURE PHYSICS WOULD HAVE TO CHANGE NOT THE ABILITY TO FOCUS,")
     print("  ONLY THE SIGN OF THE POTENTIAL.  That is the ask, stated exactly.")
     return 0

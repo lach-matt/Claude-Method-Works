@@ -1,0 +1,78 @@
+{
+ "key": "codata-proton-mass",
+ "name": "Proton mass (CODATA)",
+ "source": {
+  "located": "CODATA 2018 adjustment (Tiesinga, Mohr, Newell, Taylor; Rev. Mod. Phys. 93, 025010 (2021)) -- the value the tree carries; superseded by the CODATA 2022 adjustment (Mohr, Newell, Taylor, Tiesinga; Rev. Mod. Phys. 97 (2025), arXiv id believed 2409.03787 -- id NOT verified here). Neither paper was opened: alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers; arxiv.org, export.arxiv.org, alphaxiv.org, physics.nist.gov and pdg.lbl.gov are refused by the egress proxy (403). pypi is reachable, so the NIST CODATA ASCII tables were READ as restated in scipy 1.17.1 (scipy/constants/_codata.py, txt2018 lines 1178ff: 'proton mass 1.672 621 923 69 e-27 0.000 000 000 51 e-27 kg' at line 1454; txt2022 lines 1631ff: 'proton mass 1.672 621 925 95 e-27 0.000 000 000 52 e-27 kg' at line 1908) and, independently for 2018, in astropy 7.1.0 astropy/constants/codata2018.py:47 ('m_p', 'Proton mass', 1.67262192369e-27, 'kg', 0.00000000051e-27).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "scipy 1.17.1 _codata.py (NIST allascii tables for 2018 and 2022, installed locally) and astropy 7.1.0 codata2018.py (wheel fetched from pypi into d67/pkgs/). The CODATA papers themselves are NAMED-NOT-READ; the adjustment's internal hypotheses (least-squares method, input-data selection, expansion factors) are therefore not read at source."
+ },
+ "published_statement": "CODATA 2018 recommended value: proton mass m_p = 1.672 621 923 69(51) x 10^-27 kg, relative standard uncertainty 3.0e-10 (READ via scipy txt2018 line 1454 and astropy codata2018.py:47). Current (CODATA 2022): m_p = 1.672 621 925 95(52) x 10^-27 kg (READ via scipy txt2022 line 1908; scipy's current set is 'CODATA 2022').",
+ "published_hypotheses": [
+  "The value is the rest mass of a single free proton (the table entry 'proton mass'); it is not a mean mass per nucleon or per baryon of bound matter.",
+  "The quoted (51) is a one-standard-deviation standard uncertainty of a least-squares adjustment output; the value is correlated with other adjusted constants (READ as the table format; the adjustment method itself NAMED-NOT-READ).",
+  "In the tables m_p is not independent: it equals A_r(p) m_u with m_u = m_e / A_r(e) and m_e = 2 h R_inf /(c alpha^2), h and c exact in the 2019 SI -- verified numerically for both 2018 and 2022 in the rederive script (agreement to 0.007 sigma and 0.042 sigma).",
+  "A recommended value is valid until superseded by the next adjustment (2018 set superseded by 2022)."
+ ],
+ "hypothesis_drift": [
+  "ADDED, warpfolder.py:81 and :334-335 (printed at :401, pinned at :553): the tree uses m_p as the mass per baryon of 'ordinary matter' ('100 kg of ordinary matter is 5.98e28 baryons'; baryons_in = mass / M_PROTON). CODATA's m_p is a free-proton mass. Computed from CODATA 2022 relative atomic masses: mass per baryon is 1.007825 u for 1H atoms, 1.000651 u for 4He atoms, 1.000000 u for 12C (exact by definition); m_p is 1.007276 u. Counting every baryon at m_p undercounts 12C matter by 0.728% and 4He matter by 0.662%, and overcounts atomic hydrogen by 0.054%. 100 kg of carbon is 6.02e28 baryons, not 5.98e28. The canonical entry names this hypothesis ('every baryon counted at the proton mass'); the printed sentence at warpfolder.py:81 does not carry it.",
+  "WEAKENED (precision), arrival.py:25 (copied at gate1.py:16, stock.py:234, stockgate.py:419): M_P = 1.67262192e-27 is the 2018 value truncated to 9 s.f., relative difference -2.21e-9 (= -7.2 sigma_2018). No status word or source is attached at arrival.py:25.",
+  "SUPERSEDED DATUM, warpfolder.py:190 (and wavecorridor.py:196): the literal is the CODATA 2018 value; the current recommended value is CODATA 2022. warpfolder.py:190 marks it 'CODATA NAMED-NOT-READ', which is accurate for the tree; the year is not stated.",
+  "ADDED, arrival.py:26-27: RHO_ISM = N_ISM * M_P treats the ISM mass density as (number of protons) x m_p -- i.e. the mean mass per particle equals m_p. CODATA says nothing about the ISM; whether a mean-mass factor (e.g. helium) belongs there is a separate astrophysical datum and is NOT audited here (no source read for it)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_p (warpfolder.py:190, wavecorridor.py:196)",
+   "value_then": "1.67262192369e-27 kg +- 5.1e-37 (CODATA 2018)",
+   "value_now": "1.67262192595e-27 kg +- 5.2e-37 (CODATA 2022); shift +2.260e-36 kg = +1.351e-9 relative = 4.43 sigma_2018 = 4.35 sigma_2022",
+   "source_now": "CODATA 2022 NIST table as restated in scipy 1.17.1 _codata.py txt2022 line 1908 (READ-VIA-RESTATEMENT)",
+   "moves_conclusion": "No. baryons_in(100 kg) = 5.978637e28 under both (change 1.35e-9 relative); warpfolder chkrel 5.979e28 @1e-3 holds; BLUEPRINT_SOURCES_BARYON_NUMBER = False does not depend on m_p at all."
+  },
+  {
+   "quantity": "M_P (arrival.py:25, gate1.py:16, stock.py:234, stockgate.py:419)",
+   "value_then": "1.67262192e-27 kg (2018 value truncated)",
+   "value_now": "1.67262192595e-27 kg (CODATA 2022); tree literal is 3.6e-9 relative low",
+   "source_now": "scipy txt2022 line 1908",
+   "moves_conclusion": "No. Magsail distance scales as 1/m_p: 2001.638202 AU (tree) vs 2001.638195 AU (2022), rel -3.6e-9; arrival.py selftest pin 2001.64 @1e-4 holds."
+  },
+  {
+   "quantity": "fine-structure constant alpha (the datum that moved m_p)",
+   "value_then": "7.2973525693e-3 (2018)",
+   "value_now": "7.2973525643e-3 (2022), rel -6.852e-10",
+   "source_now": "scipy txt2018 / txt2022",
+   "moves_conclusion": "Computed: elasticity of m_p to alpha is -2, contributing +1.370e-9 of the observed +1.351e-9 shift (R_inf, A_r(e), A_r(p) contribute -2.7e-13, +3.8e-11, -4.2e-11). The shift is immaterial to every tree number. Which measurements moved alpha is NOT read here."
+  },
+  {
+   "quantity": "mass per baryon of ordinary matter (the tree's added use)",
+   "value_then": "taken = m_p = 1.007276 u",
+   "value_now": "1.007825 u (1H atom), 1.000651 u (4He atom), 1.000000 u (12C, exact)",
+   "source_now": "computed from CODATA 2022 A_r(p), A_r(e), A_r(alpha) (scipy txt2022); electron binding energies (< 1e-7 u per baryon) neglected",
+   "moves_conclusion": "Moves the printed count by up to +0.73% (5.98e28 -> 6.02e28 for 100 kg of carbon); does NOT move the conclusion that a blueprint does not source baryon number, which is independent of the count."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-proton-mass.py",
+  "outcome": "REDERIVE OK, exit 0, all 20 checks pass. (1) warpfolder.py:190 == CODATA 2018 exactly; astropy codata2018 m_p == scipy txt2018 m_p; arrival.py:25 == 2018 truncated to 9 s.f. (rel -2.21e-9). (2) 2018->2022 shift +1.351e-9 rel, 4.43 sigma_2018. (3) m_p re-derived from A_r(p)*2hR_inf/(c alpha^2 A_r(e)) reproduces the tabulated value to -0.007 sigma (2018) and +0.042 sigma (2022); sympy log-derivative decomposition reproduces the shift to 1.1% and attributes it to alpha. (4) Every tree number resting on m_p moves by <= 3.6e-9 relative; all tree pins hold under 2022. (5) Counting baryons at m_p: 12C undercount 0.728%, 4He 0.662%, 1H overcount 0.054%. (6) Discrepancy found in passing, recorded not repaired: arrival.py's prose (lines 150-152, 159) states the 1000 km (A = 1e12 m^2) magsail brakes 1000 t from 0.048 c 'inside 810 AU' and needs '2.6 ly' from 0.87 c, while arrival.py's own function and table (and its selftest pin at :94-95, 2001.64 AU) give 2002 AU and 0.084 ly; the density factors that would reconcile them (2.471 and 0.0324) are mutually inconsistent and would require m_p to move by >100%, so the CODATA datum is not the cause.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "CODATA 2022 adjustment (Mohr, Newell, Taylor, Tiesinga; Rev. Mod. Phys. 97 (2025); arXiv 2409.03787 believed, not verified)",
+   "effect": "narrows",
+   "what": "Supersedes the 2018 value: m_p = 1.67262192595(52)e-27 kg, +1.351e-9 relative (4.4 sigma_2018), uncertainty essentially unchanged; computed to be driven by the recommended alpha. Statement kept as a narrowing of the datum, not of any tree conclusion.",
+   "read_status": "READ-VIA-RESTATEMENT (scipy 1.17.1 txt2022, NIST table); paper NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers for later proton-mass / A_r(p) measurements (Penning trap, HD+ spectroscopy)",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: alphaXiv returned 'assistant quota exceeded'. No later measurement paper was read; nothing is claimed about post-2022 determinations. (effect field forced by schema; the true status is OPEN.)",
+   "read_status": "NOT READ -- tool quota exhausted"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this datum. The 2018 authors lacked data that the 2022 adjustment had, and it moved the value: +1.351e-9 relative, 4.43 of the 2018 standard uncertainties -- the 2018 uncertainty did not cover the move, which is evidence FOR the general form of M's suspicion at the metrological level (a recommended value can be off by more than its quoted error). Computed decomposition: essentially all of the move comes through alpha (elasticity -2, contribution +1.370e-9), i.e. through the chain m_p = A_r(p) m_e / A_r(e), m_e = 2hR_inf/(c alpha^2); the specific measurements that moved alpha are NOT read here. Evidence AGAINST the hypothesis mattering here: every tree quantity built on m_p (baryons_in, RHO_ISM, magsail distances, wavecorridor/gate1/stock copies) moves by <= 3.6e-9 relative, eight or more orders of magnitude below the tree's own tolerances (1e-3, 1e-4) and far below anything that could change a refusal. The larger inaccuracy in the tree's use is not missing data but an added hypothesis (m_p as mass per baryon of ordinary matter), worth up to 0.73%, which also changes no conclusion. A discrepancy of a different kind (arrival.py prose 810 AU / 2.6 ly vs computed 2002 AU / 0.084 ly) is internal to the tree and not caused by the datum.",
+ "grade": "NARROWED",
+ "grade_evidence": "The CODATA datum itself stands as a measurement: the tree's literal is the CODATA 2018 value exactly (READ via two independent restatements), it re-derives from its constituent constants to 0.007 sigma, and its 2022 supersession (+1.35e-9 relative, 4.4 sigma_2018, driven by alpha -- computed) moves no tree number by more than 3.6e-9 and no conclusion at all. The grade is NARROWED, not STANDS, because the tree applies the datum to a larger class than it covers: warpfolder.py:81/334-335/401/553 counts every baryon of 'ordinary matter' at the free-proton mass, which holds to the printed 3 s.f. (5.98e28 per 100 kg) only for hydrogen-dominated matter; computed from CODATA 2022, 100 kg of 12C is 6.02e28 baryons (+0.728%), of 4He 6.02e28 (+0.662%). Not WRONG: no refusal depends on it (BLUEPRINT_SOURCES_BARYON_NUMBER = False is independent of the count), and a sub-percent approximation is a discrepancy, not a refutation. Secondary, recorded: arrival.py:25 truncates the 2018 value (-2.2e-9 rel, no source word); arrival.py:26-27's use of m_p as ISM mean mass per particle is outside this datum and unaudited; arrival.py:150-152,159 prose figures (810 AU, 2.6 ly) disagree with arrival.py's own computed 2002 AU and 0.084 ly -- a discrepancy found in passing, not attributable to m_p. The source papers were not opened (alphaXiv quota, egress 403), which bounds this audit to the NIST tables as restated in scipy/astropy.",
+ "what_would_change_the_grade": "To STANDS: the tree restating its use as 'baryons at the proton mass (hydrogen-like matter; up to +0.7% for heavier nuclei)' or computing baryon count from atomic mass per nucleon, with the CODATA year named. To DATA-DEPENDENT: a future adjustment moving m_p by more than ~1e-4 relative (the tightest tree tolerance) -- 5 orders of magnitude beyond any historical CODATA-to-CODATA move of m_p seen in the scipy tables (2006: 1.672621637, 2010: 1.672621777, 2014: 1.672621898, 2018: 1.67262192369, 2022: 1.67262192595 e-27 kg). To OPEN: if the NIST tables restated in scipy/astropy were shown not to match the published CODATA papers (reading arXiv 2409.03787 and the 2018 RMP paper at source would close this).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-proton-mass.py  # expects 'REDERIVE OK', exit 0; needs scipy>=1.15 (CODATA 2022 table) and sympy; astropy check uses d67/pkgs/astropy/constants/codata2018.py (pip download --no-deps astropy==7.1.0 && unzip). Tree side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 warpfolder.py --selftest | grep baryon && python3 arrival.py | sed -n '/Magnetic sail/,/Closed/p'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/codata-proton-mass.json"
+}

@@ -16,9 +16,14 @@ Measurement record. Drivers: `octave/run_axial.m`, `octave/run_torus.m`, `octave
 
 `residue.py` reduced the gate to two architectures and killed one:
 
-- **Sealed gate** — the payload is boosted *relative to the shell*, crosses the 4.9 km bay in
-  2.69 dynamical times, and must then transit 8.49 km of wall. A bore closes in 5.78e-06 s
-  against a 5.95e-04 s transit. **Egress is impossible.**
+- **Sealed gate** — the payload is boosted *relative to the shell*, crosses the 4.54 km bay in
+  2.69 dynamical times, and must then transit 7.87 km of wall. A bore closes in 5.78e-06 s
+  against a 5.52e-04 s transit. **Egress is impossible.**
+  (Corrected on M's "Re-size to 4544 m", DOCKET 67: first a 4.9 km bay, 8.49 km of wall and a
+  5.95e-04 s transit, on GATE 1 at R1 = 4,902 m. GATE 1 is now sized at `drivespec.py`'s
+  nuclear-density radius on `address.RHO_NUCLEAR`, R1 = 4,544 m, and `residue.py` computes each
+  figure there. The 2.69 dynamical times and the 1 km bore's 5.78e-06 s do not move: the first is
+  scale-free and the second does not depend on R1. The verdict does not move.)
 - **Open gate** — a torus whose bore is part of the equilibrium. The only survivor, and the
   subject of this file.
 
@@ -66,8 +71,8 @@ has nothing to sit in, and it reverts to the Natário case that SSV forbids.
 
 The physics of the launcher is not what failed — TARGET-1 verified the boosted flat interior
 frame-independently, and it stands. What fails is that a payload can neither enter nor leave
-it. Every route in or out is either 8.5 km of nuclear matter or a hole where the shift cannot
-terminate.
+it. Every route in or out is either 7.9 km of nuclear matter or a hole where the shift cannot
+terminate. (Corrected on M's "Re-size to 4544 m", DOCKET 67: first 8.5 km, the wall at R1 = 4,902 m.)
 
 ## A failed construction, recorded
 

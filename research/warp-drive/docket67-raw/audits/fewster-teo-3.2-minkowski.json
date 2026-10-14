@@ -1,0 +1,86 @@
+{
+ "key": "fewster-teo-3.2-minkowski",
+ "name": "Fewster & Teo printed Minkowski form (3.2)",
+ "source": {
+  "located": "C. J. Fewster & E. Teo, 'Bounds on negative energy densities in static space-times', arXiv:gr-qc/9812032v2 (16 Feb 1999; DAMTP-1998-160; Phys. Rev. D 59 (1999) 104016). Sec. 2 eqs (2.1)-(2.13), (2.18); Sec. 3 eqs (3.1)-(3.5) and the closing '9/64 of Ford and Roman' sentence (pp. 3, 5, 6, 7).",
+  "read_status": "READ",
+  "via": "alphaXiv page text of gr-qc/9812032v2, all 23 pages, as returned VERBATIM by alphaXiv answer_pdf_queries in earlier workflow runs of this same session (transcript subagents/workflows/wf_2008cce3-a18/agent-af3fbf232d06d747c.jsonl line 81), recovered by script into scratchpad/d67/src/gr-qc_9812032.cached.txt -- same precedent as the 1404.3565 audit. At THIS stage alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded', and arxiv.org is refused at the egress proxy (CONNECT 403, not retried or routed around). The PDF text layer drops EVERY pi glyph (e.g. '(2)^n' for (2 pi)^n on the same line as (3.2), '32 ^2 t0^4' for 32 pi^2 t0^4 in (1.2)); the pi's are restored below by argument and the restoration is machine-checked (rederive T6) and corroborated by two later papers that print the pi legibly (math-ph/0501073 eq. 7, gr-qc/0702056 eq. 88)."
+ },
+ "published_statement": "p.6, Sec. 3: 'The mode functions for a free scalar field of mass mu are U_k(x) = [(2 pi)^n 2 w_k]^{-1/2} e^{ik.x}, w_k = sqrt(|k|^2+mu^2) (3.1) ... The quantum inequality (2.12) becomes  rho-bar >= -(1/2pi) INT_0^oo dw INT d^n k/(2 pi)^n w_k |(f^{1/2})^(w + w_k)|^2 = -(C_n/2pi) INT_0^oo dw INT_mu^oo dw' w'^2 (w'^2-mu^2)^{n/2-1} |(f^{1/2})^(w+w')|^2 (3.2), where C_n is equal to the area of the unit n-1-sphere divided by (2 pi)^n, i.e. C_n = 1/(2^{n-1} pi^{n/2} Gamma(n/2)) (3.3).' [pi's restored; text layer shows '1/2', '(2)^n', 'C_n/2'.] With (2.12) (p.5): rho-bar >= -(1/pi) INT_0^oo dw SUM_lambda (w_lambda^2/|g_tt| + (1/4) grad_i grad^i)|U_lambda|^2 |(f^{1/2})^(w+w_lambda)|^2, and (2.9) f^(w) = INT dt f(t) e^{-iwt}. p.7: (3.4) rho-bar >= -(C_n/(2pi(n+1))) INT_mu^oo du |(f^{1/2})^(u)|^2 u^{n+1} Q_n(u/mu); 'massless fields in ... four dimensions with the sampling function (1.1) ... the present bound is 9/64 of Ford and Roman's result.'",
+ "published_hypotheses": [
+  "n+1-dimensional globally static spacetime, ds^2 = -|g_tt(x)| dt^2 + g_ij dx^i dx^j, timelike Killing vector d_t (p.3, (2.1)); for (3.2) specifically Minkowski space, |g_tt| = 1",
+  "free, real scalar field of mass mu >= 0 (p.3, (2.2)); (3.2) holds for any mu >= 0 and any spatial dimension n",
+  "a complete orthonormal set of positive-frequency modes f_lambda = U_lambda e^{-i w_lambda t} (p.3, (2.3)); in Minkowski the plane waves (3.1) with normalisation [(2 pi)^n 2 w_k]^{-1/2}",
+  "sampling function f: smooth, non-negative, sufficiently rapid decay, NOT necessarily even (p.3); the sampler enters as |(f^{1/2})^(w+w_k)|^2 integrated over w in (0,oo), with f^ as in (2.9)",
+  "the bounded quantity is the time-averaged NORMAL-ORDERED energy density, in the Fock space built on the static vacuum, measured by a static observer (p.3)"
+ ],
+ "hypothesis_drift": [
+  "PREFACTOR DROPPED (discrepancy, text-layer origin): the tree quotes the printed (3.2) as '-(1/2) INT d^n k/(2 pi)^n w_k |fhat|^2' (fewsterteo.py:29-30) and 'The printed (3.2) is -(1/2) INT d^n k/(2 pi)^n w_k S_k' (fewsterteo.py:465). The printed leading factor is 1/(2 pi): the text layer drops the pi glyph, exactly as it drops it from '(2 pi)^n' on the same line. PROOF, not presumption: the paper's own legible '9/64 of Ford and Roman' (p.7) is reproduced with 1/(2 pi) and fails (gives 9 pi/64 = 0.4418) with 1/2 (rederive T6b/T6c); and the tree's OWN section 1(b) uses 1/(16 pi^3) = C_3/(2 pi (n+1)) (fewsterteo.py:401, rederive T7), i.e. the pi-bearing (3.2). The tree is internally inconsistent here, but only in the quotation.",
+  "CONSEQUENCE FOR 'PREFACTOR IS EXACTLY 1' (fewsterteo.py:23, :153 PREFACTOR_212 = 1; ledger.py:1806 'Its prefactor is exactly %d'; LEDGER.md:109): route 2 reads (2.12) as '-P INT ...' and solves P against (3.2). Against the printed -(1/(2 pi)) it returns P = 1/pi (rederive T2a), which IS the printed literal prefactor of (2.12) (legible as '1 / [pi]' in the text layer). Route 1 reads (2.10) as '-1/2' where it is printed -(1/(2 pi)); restored, it too returns 1/pi (T2b). Both routes drop the SAME pi, so their agreement stands and P_tree = pi x P_printed on both (T2c): '1' is exact as the normalisation of (2.12) RELATIVE to (2.10) and (3.2) with the common 1/pi stripped, not as the literal printed prefactor. fewsterteo.py:34-35 says 'The PDF text layer drops the prefactor; nothing here trusts the text layer' -- but the (3.2) and (2.10) it solves against are themselves text-layer readings with pi dropped. Recorded, not repaired. No number in the tree moves: PREFACTOR_212 is used only as a printed string (ledger.py:1816); every numeric use of the F&T family (fewsterteo.py:401 (b), (5.6) at C=0 as 1/(16 pi^3)) carries the pi.",
+  "SAMPLER FACTOR RE-WRITTEN: the tree writes S_k = |fhat|^2 (fewsterteo.py:30, 461). Printed: INT_0^oo dw |(f^{1/2})^(w + w_k)|^2 -- the transform of f^{1/2}, not of f, at the shifted argument w + w_k, integrated over w. Common to both sides of the route-2 solve, so P is unaffected; as a quotation it names a different quantity.",
+  "WEIGHT PLACEMENT: the tree reads (2.12) as '-P INT ... [w_k^2|U_k|^2 + (1/4) grad^2|U_k|^2] / |g_tt|^e' (fewsterteo.py:459-460), dividing the WHOLE bracket; printed (2.12) has w_lambda^2/|g_tt| on the first term only. Inert at this site: (3.2) has |g_tt| = 1, and for plane waves grad^2|U_k|^2 = 0 (computed, T1a).",
+  "SPECIALISED (within published scope, not a drift against the tree's favour): the tree uses massless, n = 3 (canonical hypotheses); published (3.2) holds for mu >= 0 and general n (T3 checks the radial reduction for n = 1..6).",
+  "NOT CARRIED AT THIS SITE: the sampler class (smooth, non-negative, rapid decay) and the normal-ordered / static-vacuum-Fock-space nature of the bound. The latter IS carried elsewhere in the tree (LEDGER.md:199, O5 'Fewster & Teo bound the NORMAL-ORDERED density'). The former matters to the owner's wider use, not to route 2 (which is sampler-free): fewsterteo.py sec. 1(c)/2 evaluate the family on the clamped-beam g, which is C^1 at its endpoints (g'' jumps), not smooth; F&T p.3 requires smooth f. Whether the bound extends to that g by density was NOT READ here -- recorded as a named hypothesis, OPEN, outside this key's grade."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "mode normalisation factor in (3.1), [(2 pi)^n 2 w_k]^{-1/2}",
+   "value_then": "2 (printed, p.6 (3.1))",
+   "value_now": "2 -- a convention fixed by the canonical commutation relations [a,a^dag] = delta, not a datum",
+   "source_now": "gr-qc/9812032v2 p.6 as READ; the tree's control norm=1 -> P=1/2 reproduced (rederive T1b)",
+   "moves_conclusion": "no -- nothing measured; the factor is a derivational convention and is what the tree used"
+  },
+  {
+   "quantity": "leading factor of (3.2)",
+   "value_then": "1/(2 pi) (printed; pi glyph lost in text layer)",
+   "value_now": "1/(2 pi); restated as 1/(16 pi^3) = C_3/(2 pi 4) by Fewster math-ph/0501073 eq.(7) (2005) and Fewster-Smith gr-qc/0702056 eq.(88) (2007), pi legible",
+   "source_now": "src/fewster-teo-later-restatements.cached.txt; rederive T6/T7/T8",
+   "moves_conclusion": "not a moved datum: a transcription discrepancy in the tree's quotation (tree has 1/2); the route-2 ratio is invariant, the literal P becomes 1/pi"
+  },
+  {
+   "quantity": "Ford-Roman massless 4D Lorentzian bound (the 9/64 comparator)",
+   "value_then": "3/(32 pi^2 t0^4) (p.2 (1.2))",
+   "value_now": "unchanged (a theorem constant)",
+   "source_now": "gr-qc/9812032v2 p.2; tree fewsterteo.py:402",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fewster-teo-3.2-minkowski.py",
+  "outcome": "13/13 PASS (~35 s). T1 the tree's route 2 reproduced exactly: P = 1 against (3.2) read as -(1/2), grad^2|U_k|^2 = 0 computed, control norm=1 -> 1/2. T2 the same solve against the pi-restored -(1/(2 pi)) gives P = 1/pi; route 1 with (2.10) restored also 1/pi; P_tree/P_printed = pi on both routes. T3 (3.2)'s second equality (radial reduction) and (3.3) C_n = area(S^{n-1})/(2 pi)^n, symbolically, n = 1..6. T4 (3.4)/(3.5) change of variables, 30-dps quadrature (n=3, mu=1): agree to <1e-20. T5 (2.18) |(f^{1/2})^|^2 = (4 t0/pi) K0(t0|w|)^2 for the Lorentzian re-derived (rel 3e-31). T6 THE DISCRIMINATOR: INT x^4 K0^2 = 27 pi^2/512; massless n=3 Lorentzian bound / Ford-Roman = 9/64 exactly with (3.2)'s factor 1/(2 pi) (the paper's printed claim), = 9 pi/64 with the tree's quoted 1/2. T7 the tree's own (b) factor 1/(16 pi^3) = C_3/(2 pi (n+1)). T8 the later restatements -(1/16 pi^3) INT u^4|g^|^2 (math-ph/0501073, gr-qc/0702056) and -(1/16 pi^2) INT g''^2 (2003.01815 eq.61) agree via Parseval (Gaussian g, <1e-20).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C. J. Fewster, 'Energy inequalities in quantum field theory', arXiv:math-ph/0501073v1 (2005), eq. (7)",
+   "effect": "confirms",
+   "what": "Restates the Fewster-Eveson Minkowski bound for mass m >= 0 in four dimensions as -(1/16 pi^3) INT_m^oo du |g^(u)|^2 u^4 Q_3(u/m) -- exactly F&T (3.4) at n = 3 with g = f^{1/2}, pi legible; fixes (3.2)'s leading factor at 1/(2 pi).",
+   "read_status": "READ (p.4, verbatim alphaXiv page text from an earlier run of this session, cached at src/fewster-teo-later-restatements.cached.txt)"
+  },
+  {
+   "ref": "C. J. Fewster & C. J. Smith, 'Absolute quantum energy inequalities in curved spacetime', arXiv:gr-qc/0702056v3 (Ann. H. Poincare 9 (2008) 425), eq. (88)",
+   "effect": "confirms",
+   "what": "The absolute QEI's flat massless limit is -(1/16 pi^3) INT_R+ d eta |f^(eta)|^2 eta^4, 'the same as the QEI for the massless field in Minkowski spacetime obtained in [9]' (Fewster-Eveson); extends the Minkowski form to an absolute (state-independent-reference) bound on any 4D globally hyperbolic spacetime -- the tree's RIGHT_INSTRUMENT.",
+   "read_status": "READ (p.24, verbatim alphaXiv page text, cached)"
+  },
+  {
+   "ref": "E.-A. Kontou & K. Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815v2 (2020), eq. (61)",
+   "effect": "confirms",
+   "what": "Minkowski massless 4D QWEI <:rho:>(f^2) >= -(1/16 pi^2) INT |f''|^2 dt for all Hadamard states; Fewster-Eveson extended it to all compactly supported samplers. Equal to the 1/(16 pi^3) form by Parseval (rederive T8). Extends the state class to Hadamard states.",
+   "read_status": "READ (p.21, verbatim alphaXiv page text, cached)"
+  },
+  {
+   "ref": "discover_papers for later work narrowing/contradicting F&T",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: the single discover_papers call returned 'alphaXiv assistant quota exceeded'. No erratum to gr-qc/9812032 was searched for; none is claimed absent. The three confirmations above are what the session already held, not a survey.",
+   "read_status": "NAMED-NOT-READ (search refused by quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for (3.2): there is NO empirical datum in this result. (3.2) is a theorem of free scalar QFT in Minkowski space (canonical commutation relations + convolution theorem + a pointwise inequality (A.2)); its only inputs are the mode normalisation (a convention fixed by the CCR) and the sampler class. In 1998 the authors lacked later FRAMEWORK results -- Hadamard-state generality, the absolute QEI (Fewster-Smith 2007), local covariance (Fewster-Pfenning 2006) -- and every one of these, READ here at the two/three restating sites, reproduces the same Minkowski form with the same 1/(16 pi^3) (math-ph/0501073 eq.7, gr-qc/0702056 eq.88) or its Parseval equivalent (2003.01815 eq.61). Evidence therefore runs AGAINST 'lacked data changes the conclusion' for this result: nothing moved, and the one discrepancy found (a factor pi) is the TREE's transcription loss from a PDF text layer, not an error in the 1999 paper -- the paper's own 9/64 claim is reproduced exactly with its printed factor.",
+ "grade": "STANDS",
+ "grade_evidence": "F&T (3.2), READ at source (alphaXiv page text, pp.3-7), is re-derived from (3.1)+(2.12): radial reduction and C_n symbolic for n = 1..6 (T3), change of variables to (3.4)/(3.5) numerically (T4), (2.18) re-derived (T5), and the paper's printed '9/64 of Ford and Roman' reproduced exactly (T6b); three later papers restate the same form (T8). Hypotheses as the tree uses them (massless, n = 3, plane waves with norm 2) are a specialisation inside the published scope, and the tree's route-2 solve returns the correct RATIO (2.12)/(3.2). RECORDED DISCREPANCY, NOT A REFUTATION OF ANYTHING: the tree's quotation of (3.2) as '-(1/2) INT ...' (fewsterteo.py:29-30, 465) drops a 1/pi lost from the PDF text layer; with the printed 1/(2 pi) the same solve gives P = 1/pi, the printed literal prefactor of (2.12). So PREFACTOR_212 = 1 (fewsterteo.py:23, 153; ledger.py:1806) is exact only as the pi-relative normalisation both routes share (T2c), and the sentence 'nothing here trusts the text layer' (fewsterteo.py:34-35) is not true of the (3.2)/(2.10) readings. No downstream number moves -- PREFACTOR_212 is only printed, and every numeric use of the family carries the pi (T7). Not NARROWED: no published hypothesis the tree's route 2 needs is dropped (the smooth-sampler hypothesis bears on the owner's OTHER uses, sec. 1(c)/2, and is recorded as OPEN there). Not WRONG: the external result is reproduced, and a transcription loss is a discrepancy. Nothing depends on a moved datum.",
+ "what_would_change_the_grade": "(1) An erratum or journal-version (PRD 59 104016) difference in (3.1)-(3.5) or the 9/64 sentence -- NOT searched (discover_papers refused by quota); would move to DATA-DEPENDENT or NARROWED depending on content. (2) A page image showing (3.2)'s leading factor is literally 1/2 (not 1/(2 pi)) -- would make the paper's own 9/64 internally inconsistent (T6c) and would be a misprint in the source, a discrepancy, not WRONG. (3) If the tree ever USES PREFACTOR_212 numerically as the literal (2.12) coefficient (e.g. multiplying a mode sum by 1 instead of 1/pi), that use would be off by a factor pi and should be audited then; today it is only printed. (4) For the owner's wider use: a READ statement that F&T's bound does NOT extend to the C^1 clamped-beam sampler would narrow fewsterteo.py sec. 1(c)/2, not this key.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/fewster-teo-3.2-minkowski.py   # expect 13/13 PASS, exit 0 (~35 s, sympy+mpmath). Source: sed -n '/<page num=\"5\">/,/<page num=\"8\">/p' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/gr-qc_9812032.cached.txt  (pi glyphs absent throughout the text layer). Tree side, read-only: cd /home/user/Claude-Method-Works/research/warp-drive && sed -n '23,35p;153p;456,481p' fewsterteo.py && python3 fewsterteo.py --selftest. When alphaXiv quota returns: answer_pdf_queries(paper='gr-qc/9812032', queries=['exact leading factor of (3.2) and of (2.12), with pi', 'hypotheses on the sampling function']) and discover_papers(['Fewster','Teo','static space-times','erratum']).",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/fewster-teo-3.2-minkowski.json"
+}

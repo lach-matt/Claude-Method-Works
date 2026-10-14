@@ -1,0 +1,100 @@
+{
+ "key": "rudnick-gao-2003-continental-crust",
+ "name": "Rudnick & Gao (2003), Treatise on Geochemistry 3, 1-64 -- bulk continental crust composition",
+ "source": {
+  "located": "Rudnick, R.L., Gao, S. (2003) 'Composition of the Continental Crust', Treatise on Geochemistry vol. 3, pp. 1-64, DOI 10.1016/B0-08-043751-6/03016-4. Not on arXiv. The chapter itself was NOT reached: alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers; academia.edu, researchgate, ADS, semanticscholar, arxiv.org, uvic dspace and springeropen were all refused by the egress proxy (403, organization policy -- not retried or routed around).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "pyrolite 0.3.7 (pip download from pypi, the allowlisted host) ships machine-readable transcriptions of R&G's tables: pyrolite/data/geochem/refcomp/BCC_RudnickGao2003.csv (md5 e01631fe8a352f899c5661afc797a7ce), UCC_RudnickGao2003.csv (545acc8ddbee2bba4829882bb996c23f), LCC_RudnickGao2003.csv, plus the 2014 second-edition files; extracted to d67/src/pyrolite_refcomp/. This is a third-party restatement, not an arXiv paper, and it carries one visible transcription fault: the BCC file's N row is empty and a row labelled 'Na, 56, ppm' sits among the traces although Na is a major (Na2O 3.1 %) -- read here as N = 56 ppm (the UCC file carries N 83 ppm in its N row). Major oxides in the restatement are given to 1 decimal (bulk SiO2 60.6, Al2O3 15.9, FeO 6.7, MgO 4.7, CaO 6.4, Na2O 3.1, K2O 1.8, TiO2 0.7, P2O5 0.1, MnO 0.1 wt%); whether the chapter prints more digits could not be READ. Later literature (Johnson & Goldblatt 2015, arXiv:1505.03813) is NAMED-NOT-READ."
+ },
+ "published_statement": "As restated (pyrolite BCC_RG2003, 'ModelType Calculation', 'Reservoir BulkContinentalCrust'): a recommended composition of the present-day bulk continental crust -- ten major oxides in wt% and ~70 trace elements in ppm/ppb, among them N 56 ppm (row mislabelled 'Na' in the restatement), S 404, Cl 244, F 553, Li 16, Zn 72, Cu 27, Cr 135, Ni 59, Co 26.6, Ba 456, Sr 320, Zr 132, V 138, Ta 0.7 ppm, Au 1.3 ppb, Ag 56 ppb; and a separate upper-crust (UCC) column with N 83 ppm, P2O5 0.15 %, TiO2 0.64 %, Zn 67, Cr 92, Ni 47, Co 17.3, As 4.8, Br 1.6, Y 21 ppm, Ag 53 ppb, Au 1.5 ppb. The restated table carries NO values for O, H, C (the O, H, C and N element rows are empty; H2O/CO2 are not among the oxides). The chapter's own wording and stated uncertainties were not READ.",
+ "published_hypotheses": [
+  "Scope: the CONTINENTAL crust of the present-day EARTH only -- not oceanic crust, not the atmosphere/hydrosphere/biosphere, not any other body (reservoir label 'BulkContinentalCrust', title of the chapter).",
+  "The bulk value is a CALCULATION (restatement 'ModelType Calculation') combining separate upper, middle and lower crust estimates; the mixing proportions and the seismological model behind them were not READ here.",
+  "Volatiles: no H, C or O values are given; H2O and CO2 are not among the tabulated oxides (restatement). N, S, Cl, F are tabulated as traces.",
+  "Upper-crust and bulk-crust values are different quantities (e.g. N 83 vs 56 ppm; P2O5 0.15 vs 0.1 %; Zn 67 vs 72 ppm).",
+  "Uncertainties per element: NOT READ (the restatement's unc_2sigma column is empty for every row)."
+ ],
+ "hypothesis_drift": [
+  "ADDED -- scope extended from Earth's continental crust to 'a planet' / 'a rocky crust' destination: stock.py:4 ('a carbonaceous chondrite beats a planet'), stock.py:103-104 ('a planet differentiates'), stock.py:112 ('THE OPTIMAL ARRIVAL NODE IS AN ASTEROID, NOT A PLANET'), stockgate.py:26 ('An asteroid beats a planet. All of that stands'). R&G's quantity is one reservoir of one planet; it excludes the atmosphere, which holds most of Earth's surface-accessible nitrogen (78 % N2 by volume -- common knowledge, not READ here in a paper). The crust datum supports 'Earth's continental crust is a poor N stock'; it does not by itself support 'a planet is a poor destination'.",
+  "ADDED -- interpretive hypothesis that the crust's N scarcity is caused by differentiation/outgassing ('a silicate residue that outgassed its volatiles', stock.py:103-104; test label stock.py:499-500; 'Earth's crust outgassed', stockgate.py:177; the D25 conjunct 'primitive rather than devolatilised', stockgate.py:233, :802). R&G tabulate a concentration; the causal reading is the tree's and is not in the restated table. The CHECK at stock.py:499 only tests CRUST['N'] < CRUST['P'].",
+  "DRIFT IN THE NUMBERS ATTRIBUTED TO R&G, stock.py CRUST (stock.py:193-194 cites R&G, table at :211-214): of 16 entries only 5 (Si, Al, Na via oxide stoichiometry; Zn, Li as traces; each within 3 %) match R&G bulk; 8 match neither the bulk nor the upper-crust column (Fe 0.0563 vs 0.0521; Ca 0.0415 vs 0.0457; Mg 0.0233 vs 0.0283; K 0.0209 vs 0.0149; P 0.00105 vs 0.000436 bulk / 0.000655 upper; S 0.00035 vs 0.000404; Cl 0.00017 vs 0.000244; N 0.00006 vs 0.000056); 3 (O 0.461, C 0.002, H 0.0014) are values R&G do not tabulate at all. (The majors O 46.1, Si 28.2, Al 8.23, Fe 5.63, Ca 4.15, Na 2.36, Mg 2.33, K 2.09, H 0.14, P 0.105 % have the shape of a handbook crustal-abundance table, but that source was NOT READ here, so no attribution is made.)",
+  "DRIFT IN THE NUMBERS ATTRIBUTED TO R&G, stockgate.py CRUST (stockgate.py:286-287 SOURCES['RG03'] says 'bulk continental crust'; table :377-393): 41 entries equal R&G BULK, 10 equal R&G UPPER crust (Ti 0.0038, P 0.000655, Cr 9.2e-5, Zn 6.7e-5, Ni 4.7e-5, Y 2.1e-5, Co 1.75e-5, As 4.7e-6, Br 1.6e-6, Ag 5.3e-8), 5 match neither (Fe, Ca, Mg, K as above; I 0.7 ppm equals the 2014 edition's bulk value, absent from the 2003 restatement), 4 are not R&G quantities (O 0.461, C 0.00199, H 0.0014, Te 5 ppb). The table is a bulk/upper mixture labelled 'bulk'. stockgate.py:270 'Every one is CITED' is true of the citation, not of the value.",
+  "DROPPED -- the bulk-vs-upper distinction: an arrival that mines a crust reaches the upper crust; the tree uses the bulk figure for N (56 ppm) but upper-crust figures for P, Ti, Zn, Cr, Ni, Co in stockgate.py:377-393. Under R&G's upper-crust N (83 ppm) the crust factor is 309.4, not 458.6 (rederive section 3).",
+  "DROPPED -- the dependence of 'crust binds on N' on carbon, which R&G do not tabulate: N binds only while crust C > 8.889 x crust N (C > 498 ppm at N = 56 ppm; > 738 ppm at N = 83). The tree's C (0.002 in stock.py:213, 0.00199 in stockgate.py:379) carries the R&G citation but is not an R&G number."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "bulk continental crust N (mass fraction)",
+   "value_then": "R&G 2003 (restated): 56 ppm; tree: stockgate 0.000056, stock.py 0.00006 (rounded, 7.1 % high)",
+   "value_now": "R&G 2014 second edition (restated): 56 ppm bulk / 83 ppm upper, unchanged. Johnson & Goldblatt 2015 (arXiv:1505.03813): upper crust 150 +/- 22 ppm -- figure seen only in a web-search summary, NAMED-NOT-READ",
+   "source_now": "pyrolite BCC/UCC_RudnickGao2014.csv (READ-VIA-RESTATEMENT); Johnson & Goldblatt 2015 (NAMED-NOT-READ)",
+   "moves_conclusion": "Moves the MAGNITUDE, not the binding element or the ranking: factor 458.6 (56 ppm) / 428.05 (60) / 309.4 (83) / 171.2 (150 ppm); crust/chondrite 42.9 / 40.0 / 28.9 / 16.0. N still binds at 150 ppm (runner-up C at 114.1); N would stop binding only above 225 ppm (C-limit at the tree's C). stock.py's printed '30.0 tonnes' and '40.0x' rest on the rounded 60 ppm; R&G's 56 ppm gives 32.10 t and 42.86x (which stockgate prints)."
+  },
+  {
+   "quantity": "bulk continental crust P (mass fraction)",
+   "value_then": "R&G 2003 bulk P2O5 0.1 wt% (restated, 1 decimal) -> P 436 ppm; upper P2O5 0.15 -> 655 ppm. Tree: stock.py 0.00105 (neither), stockgate 0.000655 (= upper)",
+   "value_now": "R&G 2014 restatement unchanged",
+   "source_now": "pyrolite refcomp CSVs",
+   "moves_conclusion": "Moves stock.py's claim 'crust N is 40.4x the crust's own P' (stock.py:105-107, check :506-508): under R&G's P it is 17.98 (bulk P) or 18.20 (upper P, upper N). The binding element (N) and the P < N factor order do not move. A DISCREPANCY in the value attributed to R&G, recorded, not a refutation of stock.py's arithmetic (which reproduces from its own table: 40.386)."
+  },
+  {
+   "quantity": "crust C (mass fraction)",
+   "value_then": "not tabulated by R&G (restated table has no C row value)",
+   "value_now": "not tabulated in the 2014 restatement either",
+   "source_now": "pyrolite refcomp CSVs",
+   "moves_conclusion": "Conditionally. The tree's 0.002/0.00199 carries the R&G citation without being an R&G value. If crust C were below 498 ppm (N = 56) the binding element would flip to C (at C = 200 ppm: C binds at 1141). Whether any accepted crustal C estimate lies below that threshold was NOT READ here -- recorded as the one datum that could flip a qualitative claim, not asserted."
+  },
+  {
+   "quantity": "crust Au (craft payload binding, stockgate.py:145)",
+   "value_then": "R&G bulk 1.3 ppb (tree 1.3e-9, = bulk)",
+   "value_now": "R&G 2014 restatement: 1.3 ppb bulk, 1.5 ppb upper",
+   "source_now": "pyrolite refcomp CSVs",
+   "moves_conclusion": "No: craft still binds on Au, 2.6948e5 (bulk) or 2.335e5 (upper)."
+  },
+  {
+   "quantity": "major elements O, Fe, Ca, Mg, K",
+   "value_then": "R&G bulk oxides (restated): Fe 5.21 %, Ca 4.57 %, Mg 2.83 %, K 1.49 %, O 46.4 % by stoichiometry; tree O 46.1, Fe 5.63, Ca 4.15, Mg 2.33, K 2.09 %",
+   "value_now": "unchanged in 2014 restatement",
+   "source_now": "pyrolite refcomp CSVs",
+   "moves_conclusion": "No: none of these is near binding for the human payload (factors < 1); a provenance discrepancy only."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/rudnick-gao-2003-continental-crust.py",
+  "outcome": "(1) The owners' own numbers reproduce exactly from their own tables: stock.py crust binds N at 4.2805e2, N/P factor ratio 40.386, crust/chondrite 40.001; stockgate crust binds N at 4.5862e2; craft at crust binds Au at 2.6948e5. (2) Provenance against the restated R&G tables: stock.py CRUST 5 = R&G bulk, 8 match neither bulk nor upper, 3 not R&G quantities; stockgate CRUST 41 = bulk, 10 = upper, 5 neither, 4 not R&G quantities; R&G oxide stoichiometry gives O = 0.4641 vs tree 0.461. (3) Substituting R&G values: binding element stays N in both owners (bulk: 458.6, 32.10 t per 70 kg; upper: 309.4); chondrite still beats crust (42.86x bulk, 28.92x upper); craft still binds Au (2.695e5 / 2.335e5); stock.py's '40.4x N over P' becomes 17.98 (DISCREPANCY). (4) Thresholds: N stops binding above 225 ppm (C-limit) / 360 ppm (H-limit) at the tree's C, H; with N = 56 ppm, C would take over below 498 ppm crust C. (5) At the later upper-crust N of 150 ppm (NAMED-NOT-READ) N still binds at 171.2, crust/chondrite 16.0.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Rudnick & Gao (2014), Treatise on Geochemistry 2nd ed., vol. 4, DOI 10.1016/B978-0-08-095975-7.00301-6",
+   "effect": "confirms",
+   "what": "Restated bulk column is identical to 2003 except two added traces (Br 0.88, I 0.7 ppm); N 56 ppm bulk, 83 ppm upper unchanged. stockgate's I 0.7 ppm is the 2014 value.",
+   "read_status": "READ-VIA-RESTATEMENT (pyrolite BCC/UCC_RudnickGao2014.csv, diffed against the 2003 files)"
+  },
+  {
+   "ref": "Johnson, B. & Goldblatt, C. (2015) 'The Nitrogen Budget of Earth', Earth-Science Reviews; arXiv:1505.03813",
+   "effect": "contested",
+   "what": "Reported (search summary only) to estimate upper-crust N at 150 +/- 22 ppm against R&G's 83 ppm, i.e. a higher crustal N. If so, the crust's N factor falls to 171.2 and crust/chondrite to 16.0; binding element and ranking unchanged.",
+   "read_status": "NAMED-NOT-READ (arXiv and the uvic copy egress-blocked; alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "Johnson & Goldblatt (2017) 'A secular increase in continental crust nitrogen during the Precambrian', Geochem. Persp. Lett.; arXiv:1709.02412; and Johnson & Goldblatt (2018) 'EarthN', arXiv:1805.00893",
+   "effect": "contested",
+   "what": "Titles indicate crustal N is time-dependent and model-dependent; not read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "McLennan (2001) bulk continental crust (pyrolite BCC_McLennan2001.csv)",
+   "effect": "narrows",
+   "what": "An independent compilation differing from R&G by factors up to ~2 in traces (e.g. Ba 250 vs 456, Cr 185 vs 135, Ni 128 vs 59 ppm) and carrying no N: crust compositions are compilation-dependent at the tens-of-percent level. None of these elements binds the human payload.",
+   "read_status": "READ-VIA-RESTATEMENT (pyrolite CSV, values only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What R&G had in 2003: crustal N rests on sparse data (the chapter's own N discussion could not be READ here); what came later: R&G's own 2014 revision left N at 56/83 ppm, and Johnson & Goldblatt (2015; NAMED-NOT-READ) reportedly put upper-crust N at ~150 ppm, ~1.8x R&G's upper value. Does having that datum change the conclusion? COMPUTED here: it changes the magnitude (crust N factor 458.6 -> 171.2; crust/chondrite 42.9 -> 16.0) and not the binding element or the destination ranking -- N keeps binding until crust N exceeds 225 ppm. So on this result M's hypothesis is supported only in the weak sense that a datum moved; the tree's qualitative conclusion does not rest on the missing data. Evidence the other way: the larger inaccuracies found are not in R&G at all but in the tree's USE of it -- values labelled R&G that R&G do not print (stock.py P, C, H, O and four majors; stockgate's bulk/upper mixture), and the extension of a crust datum to 'a planet'. Those are drift, not a lack of data by the 2003 authors.",
+ "grade": "NARROWED",
+ "grade_evidence": "Evidence FOR: from the restated R&G tables the tree's qualitative claims reproduce -- the continental crust binds a human payload on N (bulk 458.6, upper 309.4), a CI chondrite beats it (42.9x bulk, 28.9x upper), a craft payload binds on Au there (2.695e5) -- and they survive the one later datum found (N 150 ppm: still N, 16.0x). Evidence AGAINST 'STANDS': (a) the tree uses the result on a wider class than the source covers -- 'a planet' (stock.py:4, :103-104, :112; stockgate.py:26) where R&G describe Earth's continental crust only, excluding the atmosphere; (b) the N-binding claim carries an unstated hypothesis on crust C > 8.889 x crust N (> 498 ppm), and C is not an R&G quantity; (c) stock.py's '40.4x N over P' (stock.py:105-107, :506-508) does not reproduce from R&G's P (17.98) -- a discrepancy in the value attributed to R&G, recorded, not a refutation; (d) 8 of stock.py's 16 and 5 of stockgate's 60 crust values match neither R&G column, and stockgate mixes 10 upper-crust values into a table labelled 'bulk'. The source itself was READ only through a third-party machine transcription with one mislabelled row (N as 'Na'); no claim here says R&G are wrong. Not WRONG (nothing refuted), not OPEN (the table was readable by restatement and the arithmetic is checkable), and the magnitude is DATA-DEPENDENT on crustal N (contested 56/83/150 ppm) -- NARROWED is chosen because the binding consequences hold only under a hypothesis (crust-only destination, crust C above threshold) the tree does not state.",
+ "what_would_change_the_grade": "Toward STANDS: the tree restricting the claim to 'Earth's continental crust' (not 'a planet'), stating the crust-C hypothesis with a READ crustal C value above 498 ppm, and re-citing or replacing the non-R&G values. Toward DATA-DEPENDENT: a READ crustal N above 225 ppm (C-limit at the tree's C) or a READ crustal C below 498 ppm would flip the binding element. Toward OPEN: if the chapter, READ at source, prints values differing from the pyrolite transcription beyond rounding. Reading the chapter (Table of recommended compositions) and Johnson & Goldblatt 2015 at source are the two outstanding reads.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/rudnick-gao-2003-continental-crust.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/rudnick-gao-2003-continental-crust.json"
+}

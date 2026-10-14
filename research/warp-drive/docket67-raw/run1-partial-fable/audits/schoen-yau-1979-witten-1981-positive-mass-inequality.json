@@ -1,0 +1,140 @@
+{
+ "key": "schoen-yau-1979-witten-1981-positive-mass-inequality",
+ "name": "The positive mass (positive energy) theorem: M_ADM >= 0",
+ "source": {
+  "located": "Schoen & Yau, Comm. Math. Phys. 65 (1979) 45-76 [time-symmetric, n=3]; Schoen & Yau, Comm. Math. Phys. 79 (1981) 231-260 [spacetime E>=0, n=3, Jang equation]; Witten, Comm. Math. Phys. 80 (1981) 381-402 [E>=|P|, spinor proof, n=3; Parker-Taubes 1982 completes it]. All three pre-arXiv, no arXiv copy: NAMED-NOT-READ as originals.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Eichmair-Huang-Lee-Schoen arXiv:1110.2087 (Theorem 1 p.1; history p.2-3; Definition 3 (initial data, mu, J, DEC) and the ADM E,P formulas with decay type (p,q,q0,alpha) p.5-6; rigidity status p.2-3: 'Our main theorem does not include a characterization of the equality case', rigidity 'already known to hold for spin manifolds' via Beig-Chru\u015bciel 1996 (n=3) and Chru\u015bciel-Maerten 2006); Schoen-Yau arXiv:1704.05490 (Theorem 1.1 / Theorem 5.3 p.4, p.40-41: AF with g_ij = delta_ij + O(|x|^-p), p > (n-2)/2, |R| = O(|x|^-q), q > n, R >= 0 => m >= 0, and m = 0 => isometric to R^n, all dimensions, no spin); Jaracz arXiv:2206.12951 p.4 restating Schoen-Yau 1981 verbatim with fall-off (1.5): |D^l(g_ij - delta_ij)| <= C r^{-1-|l|}, |D^l R| <= C r^{-4-|l|}, |D^l k_ij| <= C r^{-2-|l|}, |Tr k| <= C r^{-3}, |l| <= 2, DEC, finitely many ends, no boundary => E_k >= 0 for each end."
+ },
+ "published_statement": "RIEMANNIAN / TIME-SYMMETRIC (Schoen-Yau 1979, restated 1704.05490 Thm 1.1, 5.3): Let (M^n, g) be a complete asymptotically flat Riemannian manifold, g_ij = delta_ij + O(|x|^-p), |x||dg| + |x|^2|d^2 g| = O(|x|^-p), p > (n-2)/2, |R| = O(|x|^-q), q > n, with scalar curvature R >= 0. Then the ADM mass m = (1/(4(n-1) omega_{n-1})) lim int_{S_sigma} (g_ij,i - g_ii,j) nu^j is >= 0 for each end, and if any mass is zero then (M,g) is isometric to R^n. SPACETIME (Schoen-Yau 1981 E >= 0 n=3; Witten 1981 E >= |P| n=3 spin; EHLS 2016 Thm 1 E >= |P| for 3 <= n < 8 no spin): Let (M,g,k) be a complete asymptotically flat initial data set (g - delta in W^{2,p}_{-q}, k in W^{1,p}_{-1-q}, q in ((n-2)/2, n-2), mu, J in C^{0,alpha}_{-n-q0}) satisfying the dominant energy condition mu >= |J|_g, where 2 mu = R - |k|^2 + (tr k)^2 and J = div k - d(tr k). Then E >= |P|. Rigidity (E = |P| => E = P = 0 and (M,g,k) embeds in Minkowski): proven for spin manifolds (Beig-Chru\u015bciel 1996 n=3; Chru\u015bciel-Maerten 2006 all n), and R^3 is spin, so in the n = 3 case the tree uses it is a theorem; EHLS 2016 p.2 records it as conjectural for non-spin n > 3 at that date. In the STATIC case the tree seats (k = 0): P = 0, E = M_ADM, J = 0, and the DEC reduces to mu >= 0, i.e. R >= 0 -- the weak energy condition and the DEC coincide there.",
+ "published_hypotheses": [
+  "H1 completeness: (M,g) complete, no boundary (or boundary handled separately); finitely many ends allowed.",
+  "H2 asymptotic flatness with stated decay: g - delta = O(|x|^-p), p > (n-2)/2 (n=3: p > 1/2), derivatives one order faster each; scalar curvature / mu, J integrable (|R| = O(|x|^-q), q > n). Without this the ADM integral is undefined or coordinate-dependent.",
+  "H3 energy condition: DEC mu >= |J| for initial data; R >= 0 in the time-symmetric case. This is the only hypothesis about matter, and it is pointwise.",
+  "H4 dimension / topology: originally n = 3 (Schoen-Yau 1979/1981) or spin (Witten 1981); 3 <= n < 8 (Schoen 1989, EHLS 2016); all n without spin (Schoen-Yau 2017, Lohkamp 2016).",
+  "H5 regularity: g in C^2_loc, k in C^1_loc (EHLS Def. 3); later relaxed (continuous metrics 2606.19123, distributional 2606.23272 -- not read).",
+  "Conclusion is about the TOTAL quantity E (or m) at spatial infinity only; the theorem says nothing about the sign of any local density or of the enclosed mass at finite radius."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H3 (DEC) at certify.py:161-164 and :487-489 ('m(r) < 0 locally is compatible with M_ADM >= 0 ... the positive mass theorem is not violated and was never in danger') -- the owner reports the DEC VIOLATED at every sampled radius (certify.py:84-85, :453) and never connects that to the theorem it names; 'not violated' is true only because the theorem does not apply.",
+  "DROPPED H3 (DEC) at overturn.py:196 ('The positive mass theorem does not forbid this -- total mass is positive') and :207, :649-650: the two-zone profile has rho = -b < 0 in the core (:191-194), so it is outside the theorem's hypotheses; the reason the theorem is silent is the failed hypothesis, not the positive total. The owner's numbers are right (m(R) = +39.793507 rederived); the attribution is not.",
+  "DROPPED H3 and ADDED an inference the theorem does not give, phase1.py:397-399 ('bare negative mass ... forbidden by the positive mass theorem') and :195-197, :537-539 ('no positive-mass theorem is violated by D1-D5 with M_ADM = 0'): the theorem forbids M_ADM < 0 ONLY under the DEC. A bare negative mass with regular centre has rho < 0 somewhere (certify.py's own Misner-Sharp reading, m(r) = int rho dV), so it violates the DEC and the theorem says nothing about it -- exactly as it says nothing about the M_ADM = 0 corridor, which violates the DEC at every radius. The two candidates stand in the SAME relation to the theorem; phase1.ranked() excludes one and admits the other on a distinction the theorem does not draw. Jaracz 2022 Thm 1.2 (AF R^3, WEC, E_ADM < 0, no horizons) and Hao et al. 2023 (negative-ADM-mass phantom wormholes) exhibit negative ADM mass once H3 is dropped.",
+  "DROPPED H3 at concentric.py:7-8 ('a BARE negative mass violates the positive mass theorem') and :49-50 ('M_ADM = 0 EXACTLY and the positive mass theorem's INEQUALITY is satisfied'), :271-273, :352-354 -- PARTLY RECOVERED by the same owner at :51-53 and :126-133 (rigidity: 'M_ADM = 0 with the DEC would force Minkowski, so the DEC fails here of necessity') and by pair.py:103-108, :306-308, which state all three hypotheses. The tree already holds the correct reading in pair.py; three owners quote the theorem without it.",
+  "DROPPED H1/H2 (completeness, asymptotic flatness, decay) by every owner except pair.py:308; concentric.py:164, :178 identifies M_ADM with the 1/r coefficient of a LINEARISED Newtonian potential rather than the ADM integral of an initial data set. For the conformastatic metric g_ij = e^{-2 Phi} delta_ij this agrees (M_ADM = -lim r Phi, rederived symbolically = 0), so no numerical consequence; the identification is unstated.",
+  "WEAKENED by name only: every owner says 'M_ADM'; the source's quantity is the ADM ENERGY E, and 'positive mass theorem' in EHLS's usage is E >= |P|. In the static case k = 0 the two coincide (P = 0), so no drift in content.",
+  "NO DRIFT on H4/H5: all owners work in n = 3, smooth; R^3 is spin, so both the inequality and the rigidity clause the tree uses (pair.py:307) are proven theorems in that setting."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the theorem",
+   "value_then": "none -- the theorem is a statement of pure differential geometry with no empirical datum",
+   "value_now": "none",
+   "source_now": "1110.2087 Thm 1; 1704.05490 Thm 1.1",
+   "moves_conclusion": "no: there is no datum to move. M's hypothesis (see lacked_data) can only bear on whether real matter obeys the DEC, which is the theorem's named hypothesis H3, not a hidden input."
+  },
+  {
+   "quantity": "overturn.py:178 m(r0) two-zone",
+   "value_then": "-4.188790",
+   "value_now": "-4.1887902 = -(4/3) pi (rederived)",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/schoen-yau-1979-witten-1981-positive-mass-inequality.py section A",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "overturn.py:180 m(R) two-zone",
+   "value_then": "+39.793507",
+   "value_now": "+39.7935069 = (4/3) pi 9.5 (rederived)",
+   "source_now": "same script, section A",
+   "moves_conclusion": "no; m(R) > 0 confirms 'm(r) < 0 locally is compatible with total mass > 0' -- a fact of arithmetic that needs no theorem"
+  },
+  {
+   "quantity": "concentric.py:268 Phi(1) at m = 5e-3, a = 0.02, R_s = 200",
+   "value_then": "4.9750e-3",
+   "value_now": "4.9740e-3 (within the owner's 1e-6 tolerance)",
+   "source_now": "same script, section A",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "concentric.py:50-51 header: Phi(1000) = -6.2e-13 against Phi(1) = +4.4e-3",
+   "value_then": "-6.2e-13 / +4.4e-3 (no m stated)",
+   "value_now": "at the seated pins m = 5e-3: Phi(1) = 4.974e-3, Phi(1000) = -1.0e-15 (= -m a^2/(2 r^3)); the header's Phi(1) needs m = 4.423e-3, at which Phi(1000) = -8.8e-16, so the two header figures are not reproduced together by any m at the seated a, R_s",
+   "source_now": "same script, section A",
+   "moves_conclusion": "no -- a DISCREPANCY in the owner's prose (recorded, not repaired, per fluctuation.py's precedent); the selftest pins at :268-270 are reproduced and M_ADM = 0 is exact regardless of m"
+  },
+  {
+   "quantity": "M_ADM of the seated potential Phi = m/sqrt(r^2+a^2) - m/max(r,R_s)",
+   "value_then": "0 EXACTLY (concentric.py:49, budget.py:145-146)",
+   "value_now": "0 exactly: for r >= R_s, Phi = -m a^2/(2 r^3) + O(r^-5), no 1/r term (sympy)",
+   "source_now": "same script, section B",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "DEC status of the seated core (time-symmetric: rho >= 0)",
+   "value_then": "VIOLATED at every sampled radius (certify.py:84-85)",
+   "value_now": "rho(r < R_s) = -3 m a^2 / (4 pi (r^2+a^2)^{5/2}) < 0 for every r (sympy, linearised); total core mass -m",
+   "source_now": "same script, section C",
+   "moves_conclusion": "no; it confirms that H3 fails for the seated device, so the theorem is vacuous for it in BOTH directions"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/schoen-yau-1979-witten-1981-positive-mass-inequality.py",
+  "outcome": "The theorem itself is an infinite-dimensional geometric statement and is not re-provable here; what is finite was checked. (A) numeric: every owner datum reproduced (two-zone masses, chord, selftest Phi pins, Error-1 witness) EXCEPT the concentric.py:50-51 header pair, recorded as a discrepancy. (B) sympy: the far-field series of the seated potential is -m a^2/(2 r^3), no 1/r term, so M_ADM = 0 exactly, agreeing with concentric/budget/phase1. (C) sympy: the linearised core density is -3 m a^2/(4 pi (r^2+a^2)^{5/2}) < 0 everywhere and integrates to -m, agreeing with certify.py's DEC VIOLATED. (D/E) z3, propositional shape PMT := (AF & DEC & complete) -> (M >= 0 & (M = 0 -> Minkowski)): (i) PMT & AF & complete & not DEC & M < 0 is SAT (model M = -1) -- the theorem does not forbid a DEC-violating bare negative mass; (ii) with DEC it is UNSAT; (iii) DEC & M = 0 & not Minkowski UNSAT (rigidity, as pair.py reads it); (iv) not DEC & M = 0 & not Minkowski SAT -- the seated device's actual situation, on which the theorem is silent. Exit 0, SUMMARY OK. Sympy 1.14.0, z3 5.1.0, python 3.11.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Eichmair, Huang, Lee, Schoen, arXiv:1110.2087 (J. Eur. Math. Soc. 2016), 'The spacetime positive mass theorem in dimensions less than eight'",
+   "effect": "extends",
+   "what": "E >= |P| for all AF initial data with DEC, 3 <= n < 8, no spin assumption; density theorem reducing to harmonic asymptotics and strict DEC. Records (p.2-3) that the equality case E = |P| is NOT characterised by their proof and is known only for spin manifolds (Beig-Chru\u015bciel 1996 n=3, Chru\u015bciel-Maerten 2006) -- for the tree's n = 3 that is enough, R^3 being spin.",
+   "read_status": "READ (pages 1-7, 10-12, 17, 30-32, 36, 42-45)"
+  },
+  {
+   "ref": "Schoen, Yau, arXiv:1704.05490 (2017), 'Positive scalar curvature and minimal hypersurface singularities'",
+   "effect": "extends",
+   "what": "Riemannian PMT in all dimensions without spin (Thm 1.1/5.3), with the exact decay hypotheses and the rigidity clause m = 0 => isometric to R^n; and the exact form of the original's hypotheses as its authors state them today.",
+   "read_status": "READ (pages 1-4, 40-43)"
+  },
+  {
+   "ref": "Jaracz, arXiv:2206.12951 (2022), 'Spherically symmetric counter examples to the Penrose inequality and the positive mass theorem under the assumption of the weak energy condition'",
+   "effect": "narrows",
+   "what": "Thm 1.2: an AF initial data set on R^3 with the Schoen-Yau 1981 fall-off (1.5), satisfying the WEC mu >= 0 (mu = 0 identically, by prescribing R < 0 on a compact annulus and k_b = sqrt(|R|/2)), with E_ADM < 0, no minimal surfaces and no apparent horizons. The DEC hypothesis H3 cannot be weakened to the WEC: the theorem is sharp in the hypothesis the tree drops. Note the counterexample needs k != 0; in the tree's static (k = 0) case DEC = WEC = R >= 0 and the seated devices fail that directly (certify.py:84-85).",
+   "read_status": "READ (pages 1-18)"
+  },
+  {
+   "ref": "Hao, Huang, Su, Wang, arXiv:2312.03800 (2023), 'Emergence of Negative Mass in General Relativity'",
+   "effect": "extends",
+   "what": "Static spherically symmetric phantom-field + nonlinear-electrodynamics wormholes with negative ADM (Komar) mass, e.g. M = -4.6614 at r0 = 0.12, q = 1.325, s = 1; NEC and all other energy conditions violated. An explicit solution of the full field equations with M_ADM < 0 once H3 is dropped -- a 'bare negative mass' the theorem does not forbid, contra phase1.py:397-399 and concentric.py:7-8 as worded.",
+   "read_status": "READ (pages 1-5); numerical, not independently reproduced here"
+  },
+  {
+   "ref": "Beig & Chru\u015bciel, J. Math. Phys. 37 (1996) 1939; Chru\u015bciel & Maerten, J. Math. Phys. 47 (2006) 022502",
+   "effect": "confirms",
+   "what": "Rigidity E = |P| => Minkowski for spin initial data (n = 3 and all n respectively) -- the source of pair.py:307's 'if and only if'.",
+   "read_status": "NAMED-NOT-READ (via 1110.2087 p.3)"
+  },
+  {
+   "ref": "Lohkamp, arXiv:1612.07505 (2016), 'The Higher Dimensional Positive Mass Theorem II'",
+   "effect": "extends",
+   "what": "Independent all-dimensions proof.",
+   "read_status": "NAMED-NOT-READ (via 1704.05490 p.4)"
+  },
+  {
+   "ref": "arXiv:2609.01540 (2026) 'Stability of the Riemannian positive mass theorem in all dimensions'; arXiv:2604.17599 (2026) 'Geometric Stability of the Schoen-Yau Zero Mass Theorem'; arXiv:2606.19123 (2026) 'A Positive Mass Theorem for Continuous Metrics'; arXiv:2606.23272 (2026) distributional scalar curvature",
+   "effect": "extends",
+   "what": "Stability (near-zero mass => near-flat in a suitable sense) and low-regularity extensions; none narrows the inequality or the n = 3 rigidity.",
+   "read_status": "NAMED-NOT-READ (discover_papers listing only)"
+  },
+  {
+   "ref": "arXiv:2607.04291 (2026) 'Rigidity and the interpretation of mass with a positive cosmological constant'",
+   "effect": "contested",
+   "what": "Counterexample to rigidity with Lambda > 0 -- a different theorem (asymptotically de Sitter, not AF); named so that it is not mistaken for a counterexample to the AF theorem the tree uses.",
+   "read_status": "NAMED-NOT-READ (listing only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis -- that the authors lacked data -- tested for THIS result: the positive mass theorem takes no datum. Its inputs are a manifold, a metric, a symmetric tensor and the inequality mu >= |J|; nothing measured between 1979 and 2026 enters it, so no later measurement can move its conclusion. Evidence: the statement in 1110.2087 Thm 1 and 1704.05490 Thm 1.1 contains no physical constant, and the only external 'fact' it rests on -- that matter satisfies the DEC -- is not assumed silently but NAMED as hypothesis H3. What the authors 'lacked' in the sense M means is therefore not data but scope: (a) the dimension/spin restriction, since lifted (Schoen-Yau 2017, Lohkamp 2016) -- the theorem got LARGER, not smaller; (b) the sharpness of H3, settled by Jaracz 2022: WEC is not enough, so the hypothesis is load-bearing, not a convenience; (c) whether quantum matter violates the DEC -- known in 1979 (Epstein-Glaser-Jaffe 1965, Casimir) and not a lacuna of the proof: a theorem with a named hypothesis is not refuted by matter that fails the hypothesis, it is silent about it. Conclusion: having any later datum does not change the theorem; it changes only whether the theorem APPLIES, and on the warp board it does not apply to any seated configuration -- the tree's own certify.py reports every one outside H3. That silence cuts both ways and the tree currently uses it in one direction only (the M_ADM = 0 corridor 'not forbidden', the bare negative mass 'forbidden'). M's hypothesis is not confirmed for this result: the mathematics is not incomplete or wrong; the board's reading of which hypothesis carries the weight is.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem as PUBLISHED stands and has only widened since 1979-81 (all dimensions, no spin; rigidity proven for the n = 3 spin case the tree uses); no counterexample within its hypotheses exists and the rederivation reproduces every owner datum but one recorded discrepancy. The tree's USE holds on a smaller class than the tree states: (1) the DEC hypothesis H3 is dropped at certify.py:161-164/:487-489, overturn.py:196/:207/:649-650, phase1.py:195-197/:397-399/:537-539, concentric.py:7-8/:49-50 -- named only in pair.py:103-108/:306-308 and conceded in concentric.py:51-53/:126-133; (2) phase1.py:397-399 and concentric.py:7-8 infer from the theorem a prohibition on a bare negative mass that the theorem does not give once H3 fails -- z3 (script section D, case i) shows the inference is not derivable, Jaracz 2022 Thm 1.2 and Hao et al. 2023 show negative ADM mass is realised when H3 is dropped, and the tree's own certify.py shows the corridor phase1 admits fails H3 exactly as the candidate it excludes does; (3) 'not violated / never in danger / has nothing to object to' (certify.py:163-164, concentric.py:271-273, :352-354) are true statements whose truth is vacuous -- the theorem does not apply to a DEC-violating configuration in either direction. Not WRONG: nothing is refuted and the one numerical mismatch (concentric.py:50-51 header) is a discrepancy, not a refutation. Not STANDS: a hypothesis the tree drops is load-bearing (Jaracz 2022). Not DATA-DEPENDENT: no datum. Not OPEN: the statement was read at source via exact restatements and the finite parts were machine-checked.",
+ "what_would_change_the_grade": "To STANDS: each of the four owners states H3 (and H1/H2) at the point of use, and phase1.py:397-399 / concentric.py:7-8 are reworded from 'forbidden by the positive mass theorem' to 'excluded IF the DEC is imposed -- which no candidate on this board satisfies', with phase1.ranked() then excluding or admitting the bare-negative-mass and M_ADM = 0 candidates on the same criterion (a text repair; under the chat-67 hold it needs M's ruling, and this audit does not make it). To WRONG: a complete AF initial data set with the DEC and E < 0, or with E = 0 not Minkowski in n = 3 -- this would overturn four independent proofs (Schoen-Yau minimal surfaces, Witten spinors, Jang equation, MOTS) and nothing in the literature read here suggests one. To DATA-DEPENDENT: not reachable; the theorem has no datum. To OPEN: only if the restatements read here were shown to misquote the originals -- the three restatements agree with one another on every hypothesis.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/schoen-yau-1979-witten-1981-positive-mass-inequality.py && cd /home/user/Claude-Method-Works/research/warp-drive && grep -n 'positive mass theorem\\|positive-mass theorem\\|M_ADM' certify.py overturn.py phase1.py concentric.py pair.py budget.py | grep -n -i 'forbid\\|never in danger\\|satisfied\\|nothing to object\\|does not forbid\\|dominant' ; sed -n 103,108p /home/user/Claude-Method-Works/research/warp-drive/pair.py; sed -n 306,308p /home/user/Claude-Method-Works/research/warp-drive/pair.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/schoen-yau-1979-witten-1981-positive-mass-inequality.json"
+}

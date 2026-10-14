@@ -1,0 +1,95 @@
+{
+ "key": "icrp-reference-adult-and-ci-chondrite",
+ "name": "ICRP reference adult composition; CI chondrite and stellar photosphere abundances (composite, as D25 uses them)",
+ "source": {
+  "located": "(a) ICRP Publication 23 (1975), Drive 1BZAg4Dncc5sTu00aTRPr7uBUvtT5awH- -- Drive file 'P_023_1975_Report_on_the_Task_Group_on_Reference_Man_rev0.pdf' (26,505,556 bytes). Its title page reads: 'INTERNATIONAL COMMISSION ON RADIOLOGICAL PROTECTION No. 23 Report of the Task Group on Reference Man A REPORT PREPARED BY A TASK GROUP OF COMMITTEE 2 ... ADOPTED BY THE COMMISSION IN OCTOBER, 1974 W. S. Snyder Chairman M. J. Cook E.S. Nasset L. R. Karhausen G. Parry Howells I. H. Tipton ... PERGAMON PRESS ... First edition 1975 Reprinted 1992'. It is the cited work (a 1992 reprint of the 1975 first edition). (b) Lodders 2003, ApJ 591, 1220, Drive 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N -- title page 'SOLAR SYSTEM ABUNDANCES AND CONDENSATION TEMPERATURES OF THE ELEMENTS', 'Katharina Lodders', 'The Astrophysical Journal, 591:1220–1247, 2003 July 10'. (c) Asplund et al. 2009 (photosphere): not supplied by M; carried from audits/0909.0948.json.",
+  "read_status": "MIXED: L03 READ (M-retrieved, Google Drive 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N), Table 3 in full; ICRP 23 PARTIAL -- READ (M-retrieved, Google Drive 1BZAg4Dncc5sTu00aTRPr7uBUvtT5awH-) pp.1-61 only, elemental Chapter 2 NAMED-NOT-READ; A09 CARRIED from sibling audit (READ there); LBP25 READ this session (alphaXiv).",
+  "via": "Drive read_file_content on both files; alphaXiv answer_pdf_queries on 2502.10575. The first audit of this key read none of the three primaries."
+ },
+ "pages_read": "L03: full extraction, closely pp.1220-1226, 1231, 1234, 1236-1245 (Tables 3 and 8 complete). ICRP 23: PARTIAL. mcp__Google_Drive__read_file_content returned 151,684 characters that END at report p.61; mcp__Google_Drive__download_file_content refused ('File too large for download, over limit of 10 MB'); the file is private, so no other route was tried. READ: title page and imprint; Contents pp.v-xix (including the Chapter 2 entry 'GROSS AND ELEMENTAL CONTENT OF REFERENCE MAN I. Introduction 273 II. Physical Properties, Blood Content, and Gross and Elemental Content of Reference Man 274 Addendum I. Weights of Organs and Tissues of Reference Man 325 Addendum II. Variation of Elemental Concentration with Age 329 References 331'); Introduction pp.1-7 (definition of Reference Man, p.4; chapter responsibilities, p.6); Chapter 1 pp.8-61 (total-body weight p.13; adult gross composition p.24; figure and table pages from ~p.56 on are OCR-garbled). NOT READ: pp.62-480 -- in particular ALL of Chapter 2 (pp.273-334), which holds the whole-body elemental content the tree cites (P, N, K, Li, O, C and every other gram value), Chapter 3 (pp.335-420, intake/excretion incl. 'Summary of Model Values for Daily Balance of Elements'), and the appendices. No elemental mass in the tree is checked against ICRP 23 in this re-audit. LBP25: pp.1, 22-23, 29, 33, 70, 73, 75.",
+ "published_statement": "L03 Table 3 (pp.1225-1226): 'P (1200 ) (1) (760) (1) 924 100 8 ... (480) (1) 920 100 1'; 'N 2900 1 ... 2948 535 5 ... ... 2940 20 2' (group mean, 1 sigma, N_met) | L03 p.1234: 'the meteoritic value is only based on the P abundance in the Orgueil meteorite, for which a concentration of 920 ± 100 ppm is derived ... P analyses of other CI chondrites ... range from 500 to 1800 ppm' | p.4: 'Reference Man is defined as being between 20-30 years of age, weighing 70 kg, is 170 cm in height, and lives in a climate with an average temperature of from 10° to 20° He is a Caucasian and is a Western European or North American in habitat and custom.' (OCR renders '170 cn-i' and the degree signs as '\\~') | p.13: 'The data of Stoudt et al. ... for the adult are as follows: Male: mean = 71.7 kg; SD = ±10 kg. Female: mean = 56.7 kg; SD = ±8.6 kg.' ... 'Weight of total body for reference adult male: 70 kg female: 58 kg' | p.4: 'Because of the wide range of individual variation and the fact that characteristics of Reference Man are chosen within those limits with some degree of arbitrariness and because estimates of intake to produce a specified dose commitment, or equivalent MPAIs, are often only specified to one significant figure, it is clear that minor changes in the definition to bring it into precise agreement with national or regional averages are not warranted.' | A09 (carried): photospheric log eps(P) 5.41 +- 0.03, log eps(Li) 1.05 +- 0.10 | TREE (ledger.py:674-677): 'A reference adult (ICRP) against a CI chondrite binds on %s at %.4g kg of feedstock per kg; the same payload against a stellar photosphere binds on %s at %.4g kg per kg' -> P 10.70, P 1911",
+ "published_hypotheses": [
+  "ICRP 23 (READ p.4, p.13): a defined reference adult MALE, 70 kg, 20-30 y, 170 cm; a separate reference adult female of 58 kg; characteristics chosen 'with some degree of arbitrariness', not an average or median.",
+  "ICRP 23 elemental content: Chapter 2 NOT READ; no hypothesis attached to the gram values can be quoted.",
+  "L03 (READ): CI group means weighted by analyses over five falls; P from Orgueil alone (N_met 1), other CI P 500-1800 ppm; N from two meteorites (Orgueil 1 sigma 535 ppm); CI 'severely altered mineralogically' (p.1221).",
+  "A09 (carried): present-day solar photosphere; Li depleted 2.21 dex vs meteorites; Li +-0.10, P +-0.03."
+ ],
+ "hypothesis_drift": [
+  "DROPPED 'male', CONFIRMED AT SOURCE: ledger.py:674 'A reference adult (ICRP)'; ICRP 23 p.13 assigns 70 kg to the reference adult male and 58 kg to the female.",
+  "DROPPED the source's own precision caveat (ICRP 23 p.4) while printing the binder identity to 4 figures (ledger.py:675-677) at an 8-9 % flip margin.",
+  "ATTRIBUTION DISCREPANCY, CONFIRMED AT SOURCE: stockgate.py:284/:395 attribute the CI table to L03; the full L03 Table 3 matches it within 0.5 % for 9 of 60 elements; P 1040 vs 920 +- 100, N 3180 vs 2940 +- 20, As x10.69, Ta x0.694.",
+  "DROPPED UNCERTAINTIES on all three tables; newly read: L03's P is a one-meteorite value with older CI analyses spanning 500-1800 ppm (a range that contains a CI binder flip: N binds at P 1800), and L03's N +-20 hides Orgueil's +-535.",
+  "WIDENED ATTRIBUTION: '(ICRP)' covers the 34 incidental elements incl. Li 7 mg; whether ICRP 23 prints Li at all is NOT READ (Chapter 2).",
+  "ADDED: destination = bulk CI, all accessible (tree names this open at ledger.py:706-709); 'a stellar photosphere' generalises A09's present-day Sun (carried)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "CI N (decides CI binder N vs P)",
+   "value_then": "tree 3180; L03 2940 +- 20, Orgueil 2948 +- 535 (READ)",
+   "value_now": "LBP25 1965, SD 970, quality D (Table 4) / +-447 (text p.29) (READ)",
+   "source_now": "arXiv:2502.10575",
+   "moves_conclusion": "YES for the label: crossover 2282 ppm at LBP25 P; N binds at 13.070. Contested (band spans the crossover)."
+  },
+  {
+   "quantity": "CI P",
+   "value_then": "tree 1040; L03 920 +- 100, N_met 1 (READ)",
+   "value_now": "LBP25 989, SD 89 / +-63 (READ)",
+   "source_now": "arXiv:2502.10575",
+   "moves_conclusion": "Figure only: P binds at 10.70 (tree), 12.10 (L03), 11.25 (LBP25 P with tree N)."
+  },
+  {
+   "quantity": "photospheric Li (decides photosphere binder)",
+   "value_then": "A09 1.05 +- 0.10 (carried)",
+   "value_now": "AAG21 0.96 +- 0.06 (carried; exojax data file in the first audit)",
+   "source_now": "CARRIED",
+   "moves_conclusion": "YES (first audit): Li binds at 2138.5 under AAG21."
+  },
+  {
+   "quantity": "payload P and Li",
+   "value_then": "780 g, 7 mg (tree; ICRP 23 value NOT READ)",
+   "value_now": "ICRP 110 bulk P 0.813 %; Emsley fraction column Li 2.17 mg (carried)",
+   "source_now": "CARRIED from icrp-23-reference-man first audit",
+   "moves_conclusion": "YES: flips at P < 715.7 g / Li > 7.629 mg (photosphere), P < 588.7 g (CI) -- reproduced here."
+  },
+  {
+   "quantity": "payload body mass",
+   "value_then": "70 kg reference adult male (ICRP 23 p.13, READ)",
+   "value_now": "n/a",
+   "source_now": "n/a",
+   "moves_conclusion": "No for per-kg factors; confirms the object is the male."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders2003_reaudit.py ; /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/icrp23_reaudit.py",
+  "outcome": "Both exit 0. From L03 read at source: tree CI binder P 10.70115 (749.08 kg); L03 rows P 12.097 (846.79 kg); crossover 2123 (L03 P) / 2282 (LBP25 P) / 2400 (tree P); LBP25 N+P -> N 13.070; P at 1800 ppm (L03's older CI range) -> N 8.736. From the tree payload: photosphere P 1910.9 (Li 1753.4, 91.76 %); flips Li > 7.6288 mg, P < 715.7 g (photosphere), P < 588.7 g (CI); 59-row total 70,085.9 g = ICRP 23 male 70 kg. The first audit's AAG21 and ICRP 110 substitutions and its z3 principal-ideal check are not re-run.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Lodders, Bergemann & Palme 2025, arXiv:2502.10575",
+   "effect": "contested",
+   "what": "CI N 1965 (SD 970 in Table 4; +-447 in text p.29; quality D, -33 %), P 989. Moves the CI binder to N.",
+   "read_status": "READ this session (alphaXiv; Table 4 p.70, pp.29, 33)"
+  },
+  {
+   "ref": "Asplund, Amarsi & Grevesse 2021, arXiv:2105.01661",
+   "effect": "narrows",
+   "what": "Photospheric Li 0.96 +- 0.06; moves the photosphere binder to Li.",
+   "read_status": "CARRIED from the first audit (package data file)"
+  },
+  {
+   "ref": "ICRP 89 (2002); ICRP 110 via arXiv:1508.00226",
+   "effect": "contested",
+   "what": "Amends P23; ICRP 110 bulk moves both binders (different population).",
+   "read_status": "CARRIED from icrp-23-reference-man first audit; ICRP 89 NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "Each source, read at source where possible, already states the looseness the tree dropped: ICRP 23 that Reference Man is a defined, arbitrary-within-limits male not an average (p.4, p.13); L03 that CI P is one meteorite with others at 500-1800 ppm and that halogens and Hg are uncertain. What they lacked: ICRP 89/110 and in vivo female data; LBP25's CI N; AAG21's Li. FOR: each later datum, substituted alone, flips a binder D25 prints. AGAINST: no datum refutes a measurement as defined; magnitudes stay within 1752-2157 (photosphere) and 9.0-13.1 (CI) kg/kg; D25's OPEN verdict and R11 do not depend on the binder identity.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "(1) L03 now read at source confirms the carried CI values (P 920 +- 100, N 2940 +- 20) and adds that P rests on Orgueil alone; the tree's CI table is not L03's. (2) ICRP 23 read at source confirms the payload is a defined 70 kg MALE and states its own arbitrariness; its elemental chapter was not returned, so P 780 g / Li 7 mg remain unverified against it. (3) The binder identities D25 prints sit 8-9 % (photosphere) and 24.5 % / the N crossover (CI) from a flip, and data that have moved or are contested (LBP25 N, read; AAG21 Li and ICRP 110, carried) cross them. DATA-DEPENDENT, unchanged. Not WRONG; not STANDS; OPEN only for the unread ICRP 23 Chapter 2 and the carried A09/AAG21 leg.",
+ "what_would_change_the_grade": "To STANDS for the labels: settled photospheric Li with eps_Li - eps_P >= -4.397, settled CI N >= ~2280 ppm at P 989, and ICRP 23 Chapter 2 (pp.273-334) read showing P >= 716 g and Li < 7.63 mg for the 70 kg male; or the tree printing 'P or Li / P or N within the data's spread'. To WRONG: a computed contradiction of a measurement as defined; none approached.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders2003_reaudit.py && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/icrp23_reaudit.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/icrp-reference-adult-and-ci-chondrite.json",
+ "supersedes_grade": "DATA-DEPENDENT"
+}

@@ -1,0 +1,113 @@
+{
+ "key": "1508.07161",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The audit graded this OPEN for one reason: the source could not be read. That reason is gone. I READ 1508.07161v1 at source this pass (alphaXiv answer_pdf_queries returned pp.1-5 and 7-10), and I also READ 1404.3565v1 (pp.1-5). All three verifiers' reads are confirmed at source.\n\nWhat the source says, READ:\n(1) Abstract, p.1, verbatim as the tree quotes it: 'width of only ~ 5 GeV ... maximum of the susceptibility of the Higgs condensate, with the result T_c = 159.5 +/- 1.5 GeV'.\n(2) Sec. VII, p.8, verbatim: 'T_c = 159.6 +/- 0.1 +/- 1.5 GeV, where the first error is due to the statistical accuracy of the lattice computation and the second one is the estimated uncertainty of the effective theory approach [16, 26]'. The tree drops only the citation bracket.\n(3) Footnote 1, p.1, is verbatim.\n(4) Eq.(15), p.4, defines the pseudocritical temperature as the maximum of the susceptibility. Eq.(16), p.5, gives the continuum value T_c = 159.58 +/- 0.06 GeV. The crossover region is 157-162 GeV (pp.2, 7, 8).\n\nThe hypotheses, checked at source:\n- H1 CONFIRMED: a smooth cross-over at the physical Higgs mass.\n- H2 CONFIRMED (p.2): a 3d SU(2)xU(1)+Higgs effective theory. Its inputs are (alpha_S(M_W), G_F, M_Higgs, M_W, M_Z, M_top), matched through '1- and 2-loop matching relations', with accuracy '~1% level'.\n- H3 CONFIRMED (p.2): the 1.5 GeV is 'a conservative estimate of the uncertainty of the effective theory description'. 1% of 159.6 is 1.60 GeV.\n- H4 CONFIRMED: eq.(15), and the paper calls T_c 'pseudocritical'.\n- H5 PARTLY: the inputs are named, but only m_H gets a number: 125 GeV, with ATLAS+CMS 125.1 +/- 0.3 cited on p.1. The values of m_t, M_W and M_Z are not printed, so they remain a NAMED hypothesis.\n\nThe audit's own test for STANDS was that the source confirm the abstract value, the Sec. VII value, the susceptibility definition and the input masses. It is met, except that m_t, M_W and M_Z are not printed. NARROWED would apply if the value were stated only for inputs materially different from today's. It is not: m_H = 125 GeV is 0.13 GeV from RPP 2026.\n\nRe-runs (copies in adjudicate/run/):\n- The audit script: 0 failures in 12 checks.\n- The refute script: it reproduces the 0.08 GeV gap between the abstract and eq.16, and the 10.1 sigma margin.\n- The vacuity script: 15 PASS, plus its one FAIL, which is intended.\n- The data-lens script: it reproduces the m_H shifts.\n\nMy own check (adj_check.py):\n- 159.5 GeV = 1.85092064e15 K with the SI-exact e and k_B.\n- The abstract and Sec. VII values differ by 0.067 sigma. 159.5 +/- 1.5 against 159 +/- 1 differs by 0.277 sigma.\n- The tree's predicate at :2190 is 131.7 < min(159.5, 159.0) = True. It binds on 159.0, not on 159.5. The margin is 27.3 GeV, which is 10.9 sigma using both READ errors (T*'s +/-2.3 and the 159's +/-1). On 159.5 alone it is 10.1 sigma. The predicate flips only if T_c drops to 131.7 GeV or below.\n\nNo datum that has moved changes the conclusion. The m_H moves shift T_c by 0.03-0.11 GeV; that sensitivity is RECONSTRUCTED from a one-loop estimate, not READ. Later higher-loop matching work is unread. That leaves a residual OPEN point, and it cannot move any verdict in the tree short of a drop of about 28 GeV.\n\nWhy not the other grades:\n- Not WRONG: no contradiction is shown. The two mismatches inside the source (abstract against body, and the citation of the earlier paper) are discrepancies.\n- Not DATA-DEPENDENT: no datum has been shown to move T_c outside its band.\n- Not NARROWED for the tree's use: the tree's DR-Tc and DRT-vev entries carry the crossover, the pseudocritical definition and the effective-theory systematic. Where the use sites drop them, it is a wording drift that no computation depends on.\n\nSo the evidence supports the three verifiers' STANDS. They proposed it unanimously; the refute lens marked refuted=true, and the other two lenses agreed on the grade.",
+ "scope": "STANDS covers how the tree uses the result. The result is T_c = 159.5 +/- 1.5 GeV (abstract), or 159.6 +/- 0.1 +/- 1.5 GeV (Sec. VII). It is the susceptibility-maximum pseudocritical temperature of the SM electroweak crossover, which is about 5 GeV wide (157-162 GeV). It comes from a 3d SU(2)xU(1)+Higgs effective theory with 1-2 loop matching at about 1% accuracy, at m_H = 125 GeV. The tree uses it in three ways: as a regime label (above or below T_c), in the GeV-to-K print, and as the non-binding side of T* < min(T_c, 159.0).\n\nThe grade does NOT cover:\n(a) the numerical m_t, M_W and M_Z used in the matching. They are not printed, so they are a NAMED hypothesis.\n(b) the input-mass sensitivity. It comes from a RECONSTRUCTED one-loop estimate (T_0 = 139.8 GeV, 22.3 GeV below the paper's own y=0 point at 162.1 GeV) and was never READ.\n(c) whether later higher-loop matching or 4d lattice work shifts the SM T_c. 2505.14335 and Gould et al. 2022 are unread. This is a residual OPEN point, and it cannot move any verdict in the tree unless T_c drops by about 28 GeV.\n(d) whether the published PRL version of 1404.3565 prints 159.5 +/- 1.5. The v2 fetch failed, so this is OPEN.\n(e) 2609.07467. The data verifier read it; I did not confirm it at source.\n(f) any reading of T_c as a sharp threshold. The source does not support one.",
+ "corrections_to_record": [
+  "The audit's read_status NAMED-NOT-READ is superseded. 1508.07161v1 was READ at source this pass (alphaXiv, pp.1-5 and 7-10). It confirms the tree's DR-Tc quotation verbatim: the abstract (p.1), Sec. VII (p.8) and footnote 1 (p.1). The only omission is the citation bracket '[16, 26]'.",
+  "The audit describes the 0.067 sigma gap as 'the size of a rounding'. That is wrong as a description. The paper's own continuum value is 159.58 +/- 0.06 GeV (eq.16, p.5), which rounds to 159.6 (Sec. VII and p.2), not to the abstract's 159.5. The abstract's 159.5 +/- 1.5 is the same figure the paper attributes to ref. [20] (p.1, p.9). This is a 0.08 GeV discrepancy inside the source, not a refutation.",
+  "There is a citation discrepancy in the source. 1508.07161 says on p.1 that ref. [20], 1404.3565, reported 'T_c = 159.5 +/- 1.5 GeV', and on p.9 that its central value was 159.5 GeV. But 1404.3565v1 prints (159 +/- 1) GeV in its abstract (p.1), its body (p.3) and its conclusions (p.4). The PRL version was not read: the fetch of 1404.3565v2 failed. Whether the published version carries 159.5 is therefore OPEN.",
+  "'T* < T_c holds by 18.5 sigma' overstates the margin, because it omits T*'s READ +/-2.3 GeV (1404.3565, abstract and p.4). With that error included it is 10.1 sigma.",
+  "The tree's predicate at massform.py:2190 is T_FREEZE_GEV < min(T_C_GEV, BROKEN_FIT_HIGH_GEV = 159.0), not T* < T_c. So 159.5 does not bind. The binding margin is 27.3 GeV, which is 10.9 sigma with both READ errors. The predicate flips only if T_c drops to 131.7 GeV or below.",
+  "The later-literature entry '1404.3565 confirms' should read 'consistent, not independent'. It is the same group using the same effective theory and matching. It estimates T_c from v^2(T) (p.3), not from the susceptibility maximum. And 1508.07161 p.9 calls the agreement 'partly coincidental'.",
+  "The m_H value_then is now READ: 'physical Higgs mass of 125 GeV', citing ATLAS+CMS 125.1 +/- 0.3 GeV (p.1). Moving from 125.1 shifts T_c by +0.03 GeV to RPP 2026 and by +0.11 GeV to RPP 2024 (RECONSTRUCTED elasticity).",
+  "m_t, M_W and M_Z are named as matching inputs (p.2) but their values are not printed. value_then stays NOT READ, and they are a NAMED hypothesis.",
+  "The data row for v is an artefact. The paper's input is G_F (p.2), not v, and v = 246.22 GeV both then and now. So the audit's 246.0 -> 246.22 move, which accounts for about 0.125 GeV of its +0.54 GeV total, is not a data move.",
+  "The one-loop estimate gives T_0 = 139.8 GeV, which is 22.3 GeV (13.7%) below the paper's own y=0 point at 162.1 GeV (p.2). The audit's bound of about 0.5 GeV from m_t holds only if the estimate's elasticities are right to within about 2.6x. This sensitivity is RECONSTRUCTED, never READ.",
+  "H3 is refined at source. The paper calls the 1.5 GeV 'a conservative estimate of the uncertainty of the effective theory description' (p.2), which is consistent with its ~1% accuracy. The statistical error is 0.06 GeV (eq.16). Including the U(1) field shifts T_c by at most about 0.5 GeV (p.9).",
+  "A limit of the vacuity check: the 4-significant-figure GeV-to-K check fixes the tree's rounding, not the constants. A non-SI k_B = 1.38e-23 still prints 1.851e15.",
+  "The audit's S11 site, massform.py:2957-2958, is now stale by one line. The text is at 2956-2957 at commit 4841aaf.",
+  "2505.14335 and Gould et al. 2022 remain NAMED-NOT-READ. 2609.07467 was read by the data verifier only and is not confirmed at source in this pass."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:544",
+   "finding": "'ABOVE T_c = 159.5 +/- 1.5 GeV (... abstract, READ)' treats T_c as a sharp threshold and cites only the abstract. Two things the source states are dropped at this use site: T_c is the pseudocritical temperature of a crossover about 5 GeV wide, and the 1.5 GeV is the effective-theory systematic. The tree carries both at :1116-1136 and :858. No computation depends on the wording.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/massform.py:545",
+   "finding": "1.851e15 K is the correct conversion (1.85092064e15 K). But +/-1.5 GeV is +/-1.74e13 K, so the 4th significant figure is finer than the source supports.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:556-560",
+   "finding": "The broken-phase fit is bounded by 1404.3565's own (159 +/- 1) GeV, which I READ at source. This is correct.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:706",
+   "finding": "'above T_c and in the broken-phase window' uses the same sharp-threshold wording as :544. No computation depends on it.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:858",
+   "finding": "Refusal 5, of an exact zero for the vev above T_c, is consistent with the source's smooth crossover and footnote 1.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1116-1125",
+   "finding": "The DR-Tc quotations are verbatim at source, and the page refs (p.1 and p.8) are correct. The tree omits the citation bracket '[16, 26]'. It also does not note two discrepancies inside the source: the abstract against eq.16, and the attribution of 159.5 to 1404.3565.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1126-1136",
+   "finding": "The DRT-vev quotations are confirmed at source: footnote 1 of 1508.07161, and 1404.3565 p.1 and p.3.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1441",
+   "finding": "('DR-Tc', '159.5 +/- 1.5', 159.5) matches the abstract.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1478",
+   "finding": "T_C_GEV = 159.5, the abstract's figure, is confirmed at source. The input masses are not stated at this constant.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1484",
+   "finding": "BROKEN_FIT_HIGH_GEV = 159.0 is confirmed against 1404.3565v1.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:2190",
+   "finding": "The predicate 131.7 < min(159.5, 159.0) is True. T_C_GEV does not bind. The margin is 27.3 GeV (10.9 sigma), and the predicate flips only if T_c drops to 131.7 GeV or below.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:2956-2957",
+   "finding": "S11 'unsuppressed above T_c ... below T_c down to T*' has the same sharp-threshold wording. The audit cited it at :2957-2958, which is now stale by one line.",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/massform.py:3094",
+   "finding": "T_c is printed in kelvin as 1.851e15 K. The conversion is correct.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:4651",
+   "finding": "'%.4e K' prints 1.8509e15 K: 5 significant figures against an uncertainty of +/-1.7e13 K, finer than the source's precision.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/massform.py:5454,5468",
+   "finding": "The mutation guard and the pinned value 159.5 are consistent with the abstract.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (print the full packet in/1508.07161.json)",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1508.07161', 8 queries) -> 1508.07161v1 pp.1-5, 7-10",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1404.3565', 3 queries) -> v1 pp.1-5",
+  "mcp__alphaXiv__answer_pdf_queries(paper='https://arxiv.org/abs/1404.3565v2') -> Failed to fetch PDF",
+  "git log -1 -- massform.py (4841aaf); grep -n and sed -n over the T_c sites in massform.py (read only)",
+  "copied the audit and verifier scripts to adjudicate/run and ran each with python3: audit 0 failures/12; refute OK; vacuity 15 PASS + 1 intended FAIL; data-lens OK",
+  "python3 adjudicate/run/adj_check.py (independent conversion, sigma and predicate checks)",
+  "python3 adjudicate/run/write_report.py (writes out/1508.07161.json)"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/adj_check.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/rederive_1508.07161.py  # then alphaXiv answer_pdf_queries(paper='1508.07161', ['abstract T_c','Sec. VII error budget','eq.(16)','inputs and matching order','ref [20] attribution p.1/p.9']) and answer_pdf_queries(paper='1404.3565', ['abstract T_c and T*']); compare with massform.py:544-545,1116-1136,1478,1484,2190,2956-2957,4651",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/1508.07161.json"
+}

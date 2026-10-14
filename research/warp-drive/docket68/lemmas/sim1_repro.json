@@ -1,0 +1,9 @@
+{
+ "what": "Independent reproduction of sim1_transition.py's family by a separate agent with its own code (2026-10-08): polar-areal, flux form, 4th-order differences, numba, constraints re-solved each RK stage, 6th-order dissipation; same physics and initial data (phi = p exp(-((r-20)/3)^2), ingoing). Its scratch code is not kept; these are its reported numbers.",
+ "flat_control": "p = 1e-6, error vs exact: 4th order (3.8-4.01) down to h = 0.025; at p = 1e-8 order 4.00-4.01 at every level",
+ "p_star": {"dr_0.01": 0.0168798, "dr_0.005": 0.01688247, "criterion": "max 2m/r >= 0.99 by t = 100, or not dispersed (alpha(0) > 0.9 and max 2m/r < 0.05 on r < 10 at t >= 50)", "note": "agree on p* = 0.01688 to 4 significant figures; the 5th digit is resolution-dependent; classifier non-monotone below ~1e-6 relative"},
+ "masses_first_AH_0.99": {"k": [1, 1.5, 2, 2.5, 3], "dr_0.01": [0.559359, 0.361352, 0.237603, 0.143550, 0.089100], "dr_0.005": [0.556877, 0.361350, 0.230177, 0.150978, 0.099000], "p": "p*(1 + 10^-k)"},
+ "gamma": {"dr_0.01": 0.399, "dr_0.005": 0.376, "error_bar": 0.03, "readout_0.95": [0.389, 0.394], "readout_0.90": [0.403, 0.390]},
+ "convergence_p_0.8pstar": "4th order (factor ~16) except Phi near the origin during the bounce (order ~3.3) and late at the outer boundary",
+ "unresolved": ["dr = 0.0025 not completed", "masses beyond k = 3", "masses at k >= 2.5 not converged", "a NaN in the 2m/r scan is counted as a black hole (one run, above the bracket; p* unaffected)"]
+}

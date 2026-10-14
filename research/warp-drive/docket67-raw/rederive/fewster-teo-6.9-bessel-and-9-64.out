@@ -1,0 +1,28 @@
+     T1 per-alpha max rel err: {'0.5': '1.6e-20', '1': '2.3e-41', '1.7': '2.3e-41', '2': '0', '3': '2.3e-41', '4': '2.3e-41', '5': '3.8e-36', '7.3': '2.3e-41', '10': '2.3e-41'}
+PASS T1 (6.9) = quadrature, alpha_paper in {0.5..10}, t0 in {0.37,1,3}  max rel err 1.63e-20
+PASS T1c tree's own check points alpha_paper = 2, 3, 5 (tree a = 1, 3/2, 5/2) at < 1e-20  max 3.79e-36
+PASS T1b (6.9) needs Re alpha > 0: integrand u^(alpha-1) log^2 u not integrable at 0 for alpha=0  (hypothesis named: alpha > 0; flat case alpha = 5 inside)
+PASS T2a Mellin M[K0](0.8) = 2^(z-2) Gamma(z/2)^2 by quadrature
+PASS T2a Mellin M[K0](3.0) = 2^(z-2) Gamma(z/2)^2 by quadrature
+PASS T2b Mellin-Parseval contour at Re z = s/2 reproduces (6.9), alpha_paper = 2.0  rel 0.0
+PASS T2b Mellin-Parseval contour at Re z = s/2 reproduces (6.9), alpha_paper = 5.0  rel 2.3e-41
+PASS T2b Mellin-Parseval contour at Re z = s/2 reproduces (6.9), alpha_paper = 3.3  rel 0.0
+PASS T3 (2.18) |FT f^1/2|^2 = (4t0/pi) K0(t0 w)^2 at t0=1.0 w=0.3
+PASS T3 (2.18) |FT f^1/2|^2 = (4t0/pi) K0(t0 w)^2 at t0=1.0 w=2.0
+PASS T3 (2.18) |FT f^1/2|^2 = (4t0/pi) K0(t0 w)^2 at t0=0.5 w=0.3
+PASS T3 (2.18) |FT f^1/2|^2 = (4t0/pi) K0(t0 w)^2 at t0=0.5 w=2.0
+PASS T4a C_3/(2 pi (n+1)) = 1/(16 pi^3)  1/(16*pi**3)
+PASS T4b F&T flat massless Lorentzian bound = 27/(2048 pi^2 t0^4)  27/(2048*pi**2*t0**4)
+PASS T4c ratio to Ford-Roman 3/(32 pi^2 t0^4) = 9/64 exactly  9/64
+PASS T4d tree's I69 at a=5/2 equals paper's (6.9) at alpha=5
+PASS T4e tree form == paper form with alpha = 2a (symbolic in a)
+PASS T5a g^2 is the Lorentzian (1.1), unit area
+PASS T5b INT (g'')^2 dt = 27/(128 t0^4)  27/(128*t0**4)
+PASS T5c real-space bound / Ford-Roman = 9/64 (no (6.9), no (2.18) used)  9/64
+PASS T5d Parseval: INT_0^oo u^4|ghat|^2 = pi INT (g'')^2 (t0=1)
+PASS T6 (6.10)/(6.11) -> 9/64 as t0/alpha -> 0
+PASS T7 label control: paper's (6.9) at alpha=5/2 != flat case (alpha=5); tree means a=alpha/2  paper(5/2)=0.35903198 vs paper(5)=0.52046742
+PASS T8 control: dropping the pi of 1/(2 pi) gives 9 pi/64, not the printed 9/64  9*pi/64
+
+log10(64/9) = 0.851937464545
+ALL PASS

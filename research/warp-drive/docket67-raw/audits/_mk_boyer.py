@@ -1,0 +1,119 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67"
+SCRIPT = D + "/rederive/boyer-casimir-real-mirror-sign.py"
+R = {
+ "key": "boyer-casimir-real-mirror-sign",
+ "name": "Casimir sign inversion for real mirrors (S2; DOCKET 54, Boyer problem)",
+ "source": {
+  "located": "A COMPOSITE, kind 'computation': the tree's own juxtaposition (tolman.py:1459-1527, V17 at tolman.py:1775-1778) of three external results. (1) T. H. Boyer, Phys. Rev. 174, 1764 (1968) -- the TOTAL self-stress of a perfectly conducting spherical shell, +0.04618 hbar c/a, repulsive; no arXiv copy. (2) Deutsch-Candelas near-wall EM stress for a curved perfect conductor, A_EM = 1/(60 pi^2), via Milton arXiv:1005.0031 eq. (58) (interior form = Saharian arXiv:0708.1187 eq. 14.21). (3) Sopova & Ford arXiv:quant-ph/0504143 eq. (15), planar plasma-model transverse coefficient K = sqrt2 omega_p/(128 pi), origin quant-ph/0204125 eq. (37). The spherical plasma prefactor p_r = +K/(a eps^2) is the tree's RECONSTRUCTION (tolman.py:1057-1060, 1157).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv returned 'assistant quota exceeded' on answer_pdf_queries, get_paper_content and discover_papers, and arxiv.org is refused by the egress proxy (403), so every source was READ from full-text arXiv extractions already cached in this docket's scratchpad (d67/src/1005.0031.txt, d67/src/casmag/all/*.txt). Boyer 1968 is NAMED-NOT-READ: read via its restatements in Milton arXiv:1005.0031 (p.2: 'the self-stress on a perfectly conducting spherical shell of negligible thickness was calculated by Boyer in 1968 [15], who found a repulsive self-stress'; Table 1 'EM +0.04618'; eq. (117) S_EM = 0.04618/a^2; eq. (119) S_TE + S_TM + pi/(48 a^2) = 0.0462/a^2) and Milton arXiv:hep-th/0406024 Sec. 1 ('Boyer's result was a surprise: The zero-point force was repulsive for the case of a sphere'). Sopova-Ford quant-ph/0204125 read directly (Secs. 3.4-3.5). Milton eq. (58) and Sopova-Ford eq. (15) were also READ at source by the sibling audits 1005.0031-eq58 and quant-ph_0504143 of this pass; their findings are used, not repeated."
+ },
+ "published_statement": "Boyer (via Milton 1005.0031 eq. 117 and Table 1): the Casimir self-stress of a perfectly conducting spherical shell of negligible thickness is S_EM = +0.04618/a^2 (energy +0.04618 hbar c/a), repulsive. Milton 1005.0031 eq. (58): near a sphere, for conformal fields, <T^{mu nu}> = (A/eps^3) diag(2/a, 0, a, a sin^2 theta) with A = 1/(60 pi^2) for EM with perfect-conductor boundary conditions ('properly traceless'; no cubic divergence in T^rr). Sopova-Ford quant-ph/0504143 eq. (15): 'T_xx ~ (1/2) U ~ (sqrt2 omega_p/(128 pi)) (1/z^3), as z -> 0' for a plasma-model half-space, with T_zz z-independent. Sopova-Ford quant-ph/0204125 Sec. 3.4: 'the inclusion of dispersion in the calculation reduces the power in z up to two orders, but it does not remove the singularity'; Sec. 3.5: only in the limit eps -> infinity does one recover '<E^2> ~ 3/(16 pi^2 z^4)'; 'The divergence of U is not considered to be physical, but as resulting from the idealization of the wall as a perfectly smooth surface.' THE TREE'S COMPOSITE (ledger.py:1547-1552): 'The sign INVERTS for any real mirror at a_c = 0.480 x skin depth, materials-independent'; ledger.py:2130-2133 B3: 'm(r) > 0 near the wall for every real mirror'; specthm.py:1244-1245: 'S2 because the Casimir sign inverts for real mirrors'. No external paper states the composite; it is the tree's derivation, and it is what is graded.",
+ "published_hypotheses": [
+  "Boyer: perfect conductor (all frequencies reflected), infinitesimally thin shell, interior + exterior modes summed so that surface divergences cancel, zero temperature, flat space; a TOTAL (global) quantity, not a local one",
+  "Deutsch-Candelas / Milton eq. (58): conformal field, IDEAL boundary condition, leading eps^-3 surface divergence only, eps << a; perfect reflection at the frequencies ~c/eps that dominate the near-wall sum, i.e. for a plasma mirror eps >> c/omega_p",
+  "Sopova-Ford eq. (15): planar, collisionless plasma model eps = 1 - omega_p^2/omega^2, SHARP step boundary (named by the authors as the cause of the divergence), omega_p z << 1, T = 0, local isotropic non-magnetic medium",
+  "Tree's reconstruction: the planar transverse term K/eps^3 carries over unchanged to the concave side of a sphere and p_r = o(eps^-3); conservation p_r' + 2(p_r - p_t)/r = 0 then fixes p_r = +K/(a eps^2) inside (RECONSTRUCTED, 'sign and order only', tolman.py:1057-1060)",
+  "Tree's identity: m(r) c^2 = 4 pi r^3 p_r(r) for a traceless conserved static source with regular centre, test-field reading, on a ball strictly inside the cavity (tolman.py sections 0 and 1; pointwise_test refuses a ball containing a mirror)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- DISJOINT VALIDITY DOMAINS. tolman.py:1517-1527 (crossover_coefficient, crossover_radius) and V17 at tolman.py:1775-1778 form |p_r^real|/|p_r^ideal| = (K/(a eps^2))/(A/(a^2 eps^2)) 'with eps CANCELLING EXACTLY', i.e. they treat the ideal term and the plasma term as coexisting at one eps. The ideal (Deutsch-Candelas) asymptote needs the mirror to reflect perfectly at frequencies ~c/eps, i.e. eps >> lambdabar_p = c/omega_p; the plasma asymptote needs omega_p eps/c << 1. Computed on the exact planar one-interface plasma integrals (rederive C4a-C4e): <E^2> reaches the ideal 3/(16 pi^2 z^4) only for omega_p z >> 1 (0.9984 at 1000, 0.00074 at 1e-3) and the plasma sqrt2 omega_p/(32 pi z^3) only for omega_p z << 1 (0.99918 at 1e-3, 0.00135 at 1000); an ADDITIVE ideal term would make exact/plasma = 1351.5 at omega_p z = 1e-3 against a measured 0.99918 -- near the wall the ideal term is REPLACED, not out-competed; at the point where the two asymptotes are equated (omega_p z* = 6/(sqrt2 pi) = 1.3505) the exact value is 0.4841 of both. Sopova-Ford 0204125 Sec. 3.4 say the same in words. Consequence for the sphere (argued from this planar computation and from Graham-Quandt-Weigel 1305.5144 p.1, 'the cutoff must be at scales shorter than the plasma wavelength, at which the material no longer acts as a perfect conductor'; NOT computed for a sphere here): for a <~ lambdabar_p the ideal asymptote has an EMPTY domain (it would need lambdabar_p << eps << a), and a_c = 0.480 lambdabar_p lies in that case. a_c is the equality point of two asymptotes each taken outside its domain, not a physical threshold radius.",
+  "WIDENED 'near the wall' -- ledger.py:2130-2133 B3 'm(r) > 0 near the wall for every real mirror' and ledger.py:1547-1549. Under the tree's own reconstruction, p_r > 0 (so m > 0 by the identity) holds where the plasma asymptote holds, eps <~ lambdabar_p (gold 21.93 nm at 9.0 eV), for EVERY radius -- not only for a > a_c. For a macroscopic mirror (a >> lambdabar_p) the band lambdabar_p << eps << a is governed by the ideal asymptote p_r = -hbar c/(60 pi^2 a^2 eps^2) < 0, so m(r) < 0 there. The inversion is a statement about the innermost ~skin depth, not about 'near the wall' at large. (Band sign argued from the planar regime computation and the ideal-limit reading; a spherical plasma-model computation is not held.)",
+  "STATUS FLATTENED -- ledger.py:1547-1552 states 'a_c = 0.480 x skin depth, materials-independent' with no mention that the spherical plasma prefactor is RECONSTRUCTED (tolman.py:1057-1060, FIGURE_STATUS tolman.py:1157) and that tolman.py refuses to quote magnitudes from it; specthm.py:1244-1245 carries no hypothesis at all ('hypotheses': [] in the canonical entry). The reconstruction's SIGN is well supported: sympy (C1a-C1e) shows conservation forces p_r = +K/(a eps^2) inside given p_t = K/eps^3 and p_r = o(eps^-3), excludes a log term, and reproduces the tree's ideal p_r exactly by the same step.",
+  "WIDENED 'materials-independent' (ledger.py:1549; tolman.py:1525, 3041, 3265 'FOR EVERY CONDUCTOR'). SPLIT RESULT: the SIGN of the near-wall material coefficient is independent of material for every passive, local, sharp-boundary medium -- K = I/(32 pi^2), I = INT_0^inf (eps(i zeta)-1)/(eps(i zeta)+1) d zeta, and eps(i zeta) > 1 gives an integrand in (0,1) (z3 unsat, guard sat, C3d; Drude and Drude+Lorentz I > 0, C3b-C3c). The NUMBER 0.480 is plasma-model only: Drude damping moves I by -0.1747 %; an ILLUSTRATIVE interband Lorentz term (30 eV^2, 3 eV, 1 eV -- not a fit to any sample) moves it by +14.67 %, which would put a_c at 0.4187 lambdabar_p.",
+  "DROPPED -- sharp boundary (Sopova-Ford's named cause of the 1/z^3 divergence) and the atomic scale: no owner site names them (also recorded by the quant-ph_0504143 audit). They bound the inversion zone from below: the zone is roughly (surface-profile / atomic scale) <~ eps <~ lambdabar_p.",
+  "UNNAMED SIDE -- ledger.py:2130-2133 B3 does not say INTERIOR. By the same conservation step the plasma term gives p_r = -K/(a eps^2) OUTSIDE the sphere (C1b), the opposite sign. The tree's use is interior (tolman.py's pointwise test is inside the cavity), so this is a scope to name, not an error.",
+  "LABEL DISCREPANCY (a discrepancy, not a refutation) -- the S2 row is named 'Casimir between ideal plates' (ledger.py:1546) while its note argues a sign inversion for curved REAL mirrors. For a single flat plasma plate the normal stress T_zz has no near-wall divergence at all (Sopova-Ford 0504143 eq. 13; recorded by the quant-ph_0504143 audit), so there is no near-plate p_r to invert: the inversion is a curvature effect of order 1/a.",
+  "NAME vs CONTENT -- the key says 'Boyer', and Boyer's result is a TOTAL. The tree's claim is LOCAL (near-wall p_r and m(r)). The two must not be read into each other: whether the TOTAL self-stress changes sign for real shells is separately and CONTESTED in the literature (Bordag-Khusnutdinov 0801.2062: Boyer's value recovered for Omega R >> 1, attractive for R <~ 1/Omega; Graham-Quandt-Weigel 1305.5144: attractive for a Drude shell, the material term overcoming the traditional repulsion 'at large radii and plasma frequencies'). No owner site claims the total inverts, so this is recorded, not charged."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "omega_p of gold (sets lambdabar_p and the nm value of a_c; cancels from a_c/lambdabar_p)",
+   "value_then": "9.0 eV ('the ruling's', tolman.py:1142; the Lambrecht-Reynaud free-electron estimate); Sopova-Ford's own illustration used 14.8 eV (aluminium)",
+   "value_now": "measured evaporated gold films 6.82-8.38 eV (Svetovoy et al. arXiv:0801.1384 Table II, cached and read by the quant-ph_0504143 audit)",
+   "source_now": "arXiv:0801.1384 Table II",
+   "moves_conclusion": "NO for the ratio a_c/lambdabar_p = 0.4801687020 and NO for any sign. YES for the pinned nm figures: gold lambdabar_p 21.9252 -> 23.5474 -> 28.9336 nm and a_c 10.5278 -> 11.3067 -> 13.8930 nm at 9.0 / 8.38 / 6.82 eV (rederive C6). Given the first drift, a_c is not a physical threshold in any case; the physical scale of the inversion zone is lambdabar_p itself, which moves by up to 32 %."
+  },
+  {
+   "quantity": "A_EM = 1/(60 pi^2) (ideal near-wall coefficient)",
+   "value_then": "1/(60 pi^2) (Deutsch-Candelas 1979 via Milton 2010)",
+   "value_now": "unchanged; a pure number with no datum in it (sibling audit 1005.0031-eq58: STANDS, re-derived from Saharian's exact interior mode sum)",
+   "source_now": "arXiv:1005.0031 eq. (58); arXiv:0708.1187 eq. (14.21)",
+   "moves_conclusion": "NO"
+  },
+  {
+   "quantity": "K = sqrt2 omega_p/(128 pi) (planar transverse plasma coefficient)",
+   "value_then": "plasma model, no damping, sharp boundary",
+   "value_now": "for a general passive medium K = I/(32 pi^2); Drude damping (35 meV) -0.1747 %; real interband structure NOT computed here (no tabulated eps(i zeta) held); an illustrative Lorentz term +14.67 %",
+   "source_now": "rederive C3a-C3c; sibling audit quant-ph_0504143",
+   "moves_conclusion": "Sign: NO (positive for every passive local medium, C3d). Coefficient 0.480: YES in principle, magnitude for real gold OPEN."
+  },
+  {
+   "quantity": "hbar, c, e (convert omega_p in eV to lambdabar_p)",
+   "value_then": "CODATA 2018 hbar = 1.054571817e-34 J s; c exact; e exact",
+   "value_now": "exact by definition in the 2019 SI (hbar via h), so unchanged",
+   "source_now": "SI definitions (not re-read at source here)",
+   "moves_conclusion": "NO"
+  },
+  {
+   "quantity": "l_P (enters only the compactness chi, not the sign)",
+   "value_then": "1.616255e-35 m (CODATA 2018, tolman.py:1128)",
+   "value_now": "not re-read at source in this pass",
+   "source_now": "n/a",
+   "moves_conclusion": "NO: chi = (2/15 pi)(l_P/eps)^2 = 2.306e-56 at eps = lambdabar_p(gold), where the ideal (m < 0) band begins (C6b); any CODATA revision is at the 1e-5 level."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": SCRIPT,
+  "outcome": "ALL CHECKS PASS (exit 0, ~40 s; sympy + scipy + mpmath + z3). C1 (sympy): conservation turns p_t = K/eps^3 into p_r = +K/(a eps^2) inside and -K/(a eps^2) outside; the same step on the ideal interior u = -1/(30 pi^2 a eps^3) gives the tree's p_r = -1/(60 pi^2 a^2 eps^2); a ln(eps)/eps^2 term is excluded; leading u = 2K/eps^3 = Sopova-Ford's U = 2 T_xx. C2 (exact): K_SF/A_EM = 60 sqrt2 pi/128 = 2.0826013773, a_c/lambdabar_p = 0.4801687020 -- the tree's arithmetic stands. C3: plasma I = pi omega_p/(2 sqrt2) (K reproduced); Drude I shift -0.1747 %; ILLUSTRATIVE Drude+Lorentz +14.67 % (a_c/lambdabar_p would be 0.4187); z3: eps > 1 => 0 < (eps-1)/(eps+1) < 1 (unsat; guard sat) -- the near-wall material SIGN is universal for passive local media. C4 (exact planar plasma integrals, 2-D quadrature): <E^2>/ideal = 0.00074, 0.0073, 0.068, 0.41, 0.87, 0.984, 0.9984 at omega_p z = 1e-3 ... 1e3; <E^2>/plasma-asymptote = 0.99918 ... 0.00135; an additive ideal term would give 1351.5 at 1e-3 against 0.99918 measured; at the asymptote-equality point omega_p z* = 1.3505 exact = 0.4841 x either asymptote; U/plasma = 0.99880 at 1e-3 and z^4 U = 2.0e-5 at 1e3 (ideal U coefficient 0). C5 Boyer: E a = 3/64 + remainder = 0.046177 (target 0.04618; 3/64 = 0.046875, remainder -0.000698, l <= 40 exact plus fitted 1/nu^2 tail -1.3e-5) -- Boyer's total reproduced, positive. C6: tree pins 21.9252 / 10.5278 nm (gold) and 12.8972 / 6.19283 nm (Al) reproduced; chi at eps = lambdabar_p(gold) = 2.306e-56.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "N. Graham, M. Quandt, H. Weigel, arXiv:1305.5144 (PRL 2013), 'Attractive Electromagnetic Casimir Stress on a Spherical Dielectric Shell'",
+   "effect": "contested",
+   "what": "For a Drude dielectric shell (smooth sech profile, renormalised by comparing shells of equal INT p^2) the TOTAL self-stress is attractive: 'the additional contribution due to the energy dependence of the dielectric ... is attractive. In total, the contribution from the additional term overcomes the standard repulsion'. States the order of limits the first drift turns on: 'the cutoff must be at scales shorter than the plasma wavelength, at which the material no longer acts as a perfect conductor ... fluctuations at the scale of the cutoff should always see the material as transparent.' Supports 'the sign differs for real mirrors' for the TOTAL; says nothing about the local near-wall p_r the tree uses.",
+   "read_status": "READ (cached arXiv full text, pp.1-5)"
+  },
+  {
+   "ref": "M. Bordag, N. Khusnutdinov, arXiv:0801.2062 (PRD 77, 085026, 2008), 'On the vacuum energy of a spherical plasma shell'",
+   "effect": "contested",
+   "what": "Delta-function plasma shell (Barton model) with renormalisation absorbed into a breathing-mode classical model: the renormalised energy 'for large Omega tends to the ideal conductor limit' (Boyer) and 'for small radii, R <~ Omega^-1, it becomes attractive', E ~ -0.0589 sqrt(Omega R). A total-energy crossover at R ~ 1/Omega, in tension with 1305.5144 at large R -- the two differ in model and renormalisation, which is why the TOTAL is marked contested.",
+   "read_status": "READ (cached arXiv full text, abstract, Figs. 1-2, Sec. V)"
+  },
+  {
+   "ref": "N. Graham, R. L. Jaffe, V. Khemani, M. Quandt, M. Scandurra, H. Weigel, arXiv:hep-th/0207205 (2003), 'Casimir Energies in Light of Quantum Field Theory'",
+   "effect": "confirms",
+   "what": "'A real material cannot constrain modes of the field with wavelengths much smaller than the typical length scale of its interactions'; the ideal-boundary Casimir energy of a surface 'cannot be defined independently of the details of the coupling', while 'the energy density away from the surface ... [is] finite and independent of these complications'. Confirms that near-surface quantities of an ideal mirror do not carry to a real one -- the direction of the tree's claim -- and the order-of-limits point behind the first drift.",
+   "read_status": "READ (cached arXiv full text, abstract and introduction)"
+  },
+  {
+   "ref": "V. Sopova, L. H. Ford, arXiv:quant-ph/0204125 (PRD 66, 045026, 2002)",
+   "effect": "confirms",
+   "what": "Dispersion 'reduces the power in z up to two orders' (z^-4 -> z^-3) near the wall; the perfect-conductor z^-4 values return only as eps -> infinity; plasma-model energy density near the interface is positive (Fig. 1); the divergence is attributed to the sharp boundary and 'not considered to be physical'. Reproduced numerically here (C4).",
+   "read_status": "READ (cached arXiv full text, Secs. 3.3-3.5)"
+  },
+  {
+   "ref": "Yang Li, arXiv:2411.07911 (2024); Parashar, Milton et al., arXiv:1804.04045 (2018)",
+   "effect": "narrows",
+   "what": "Li: spherical near-surface stresses equal the planar ones at leading order plus an O(1/a) radial term (non-dispersive; confirms the conservation step, no plasma-sphere computation). Parashar et al.: edge singularities depend on the permittivity profile; for a continuous plasma-model profile the normal-normal singularity disappears -- the sharp-boundary hypothesis is load-bearing.",
+   "read_status": "READ by the sibling quant-ph_0504143 audit of this pass; NOT re-read here"
+  },
+  {
+   "ref": "discover_papers search (the one later-literature call)",
+   "effect": "extends",
+   "what": "Not performed: alphaXiv returned 'assistant quota exceeded'. The later literature above comes from this docket's cached arXiv texts, so the search for work newer than 2013 on the LOCAL near-wall stress of a dispersive sphere is not exhaustive. No explicit spherical plasma-model near-wall stress computation was found in the cache.",
+   "read_status": "NOT-RUN (tool quota)"
+  }
+ ],
+ "lacked_data": "BOYER (1968) lacked any material model: his perfect conductor reflects every frequency. Later work that has one finds the TOTAL self-stress sign depends on the material and on the renormalisation: Bordag-Khusnutdinov 2008 recover Boyer's value only for Omega R >> 1 and get attraction for R <~ 1/Omega; Graham-Quandt-Weigel 2013 get attraction for a Drude shell. For the TOTAL this is evidence FOR M's hypothesis in its fair form: an idealisation that left out material data gives a sign real materials need not share. It is NOT evidence that Boyer's mathematics is wrong: within its hypotheses the result re-derives here (E a = 0.046177 against 0.04618, C5). THE TREE'S LOCAL COMPOSITE is not data-starved. Its inputs are pure numbers (A_EM, sqrt2/128pi) and one material scale (omega_p) that cancels from a_c/lambdabar_p. The one datum that has moved -- measured gold omega_p 6.82-8.38 eV against the 9.0 eV used -- moves only the nm figures (a_c 10.53 -> 11.31-13.89 nm), never a sign (C6). What limits the composite is not missing data but a missing hypothesis: the ideal and plasma asymptotes hold in disjoint eps ranges (computed on the planar analogue, C4e), and the tree's own step compares them at one eps. The data that would decide the spherical case -- an explicit near-wall stress for a plasma-model or Drude sphere -- does not exist in any source read here. Net: M's hypothesis is supported for Boyer's TOTAL as applied to real shells (the sign is contested once materials enter), and NOT supported as the reason the tree's LOCAL claim needs narrowing.",
+ "grade": "NARROWED",
+ "grade_evidence": "(1) The external inputs stand within their hypotheses. Boyer's +0.04618 re-derives (0.046177, C5). A_EM and K reproduce, and the tree's arithmetic 60 sqrt2 pi/128 = 2.0826013773 and a_c/lambdabar_p = 0.4801687020 is exact (C2). The reconstructed interior sign p_r = +K/(a eps^2) follows from conservation given p_r = o(eps^-3) (C1). The near-wall material SIGN is universal for passive local sharp-boundary media (z3, C3d). So the direction of the tree's refusal -- a real mirror does not give the ideal negative p_r at the wall -- is supported, and holds for every radius, not only a > a_c. (2) The composite as used is broader than that support. (a) It compares the ideal and plasma asymptotes at a common eps (tolman.py:1517-1527, V17). On the exact planar analogue the ideal term is absent near the wall, not out-competed: an additive ideal term would make exact/plasma = 1351.5 at omega_p z = 1e-3, and 0.99918 is measured (C4e). At the asymptote-equality point, exact = 0.4841 x either asymptote (C4c). So a_c = 0.480 lambdabar_p is not a physical threshold, and for a <~ lambdabar_p the ideal asymptote has no domain at all. (b) B3's 'm(r) > 0 near the wall for every real mirror' (ledger.py:2130-2133) holds only for eps <~ lambdabar_p (gold ~22 nm, bounded below by the sharp-boundary/atomic scale). For a >> lambdabar_p the band lambdabar_p << eps << a carries the ideal negative p_r, so m < 0 there. This is argued from the planar computation and the ideal-limit reading, not computed for a sphere. (c) 'materials-independent' holds for the sign, not for 0.480: Drude -0.17 %, illustrative interband +14.7 % (C3). (d) The ledger and specthm drop the RECONSTRUCTED status and every hypothesis. Not WRONG: no refuting counterexample to the sign in the inversion zone exists here. The band where m < 0 is argued, not computed, for the sphere. The refusal S2 survives in that band on its independent magnitude ground: chi = 2.306e-56 at eps = lambdabar_p (C6b), with 2G|m|/(ac^2) a-independent. Not DATA-DEPENDENT: the one moved datum (gold omega_p) moves nm pins, not the conclusion. This is a statement about the tree's composite. Boyer's result itself STANDS within its hypotheses.",
+ "what_would_change_the_grade": "To WRONG for B3/a_c as stated: an explicit near-wall stress computation for a plasma-model or Drude SPHERE with a >> lambdabar_p showing p_r ~ -A hbar c/(a^2 eps^2) < 0 in lambdabar_p << eps << a. That would be a computed m < 0 'near the wall' of a real mirror, and it would also fix where the sign change sits, which a_c does not. Back to STANDS for the sign clause only: the same computation showing the ideal curvature term suppressed at every eps once a real dispersion is used, i.e. no ideal band at all. To DATA-DEPENDENT for the magnitude of K: tabulated eps(i zeta) for real gold, putting I far enough from the plasma value to matter anywhere the tree quotes 0.480. To OPEN: a failure to reproduce C4 (the planar regime separation) at higher quadrature precision.",
+ "reverify_command": "python3 " + SCRIPT + "   # exit 0 = all checks; prints C1-C6 (about 40 s; needs sympy, scipy, mpmath, z3-solver)",
+ "report_path": D + "/audits/boyer-casimir-real-mirror-sign.json"
+}
+json.dump(R, open(R["report_path"], "w"), indent=1, ensure_ascii=False)
+print("written", R["report_path"])

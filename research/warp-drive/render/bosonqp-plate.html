@@ -1,0 +1,154 @@
+<title>The Boson Sublattice</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,600;0,800;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --ground:#F4F6F8; --panel:#FFFFFF; --sunk:#EDF0F4;
+  --ink:#12161C; --body:#2C3440; --muted:#66717F; --faint:#98A2AF;
+  --rule:#D9DFE7; --rule-hard:#B6C0CC; --accent:#1B4B78;
+  --order:#7A3E9D; --algebra:#B03A64; --geometry:#137A69;
+  --information:#B86A12; --statistics:#2456A0;
+  --bound:#B86A12; --free:#137A69; --undet:#7C8796;
+  --hue7:#8A6D3B; --hue8:#4A5A8C; --hue9:#9C4A6E;
+  --shadow:0 1px 2px rgba(18,22,28,.05),0 8px 24px -12px rgba(18,22,28,.16);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+    --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+    --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+    --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+    --information:#E0A557; --statistics:#79A9EE;
+    --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+    --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1117; --panel:#141A22; --sunk:#1B222C;
+  --ink:#EEF2F7; --body:#C3CCD8; --muted:#8994A3; --faint:#5F6A79;
+  --rule:#262F3B; --rule-hard:#394453; --accent:#7FB2E5;
+  --order:#C08FE0; --algebra:#E88AA8; --geometry:#4CC6AF;
+  --information:#E0A557; --statistics:#79A9EE;
+  --bound:#E0A557; --free:#4CC6AF; --undet:#7C8796;
+  --hue7:#CBA96B; --hue8:#8FA3D9; --hue9:#E08AAE;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px -14px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--body);
+  font-family:Spectral,Georgia,serif;font-size:17px;line-height:1.62;
+  padding-block:0;padding-left:20px;padding-right:20px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:920px;margin:0 auto;padding-block:56px 96px}
+h1,h2,h3{color:var(--ink);text-wrap:balance;margin:0}
+h1{font-size:clamp(2.05rem,5.4vw,3rem);font-weight:800;line-height:1.08;letter-spacing:-.022em}
+h2{font-size:clamp(1.28rem,3vw,1.6rem);font-weight:600;line-height:1.2;letter-spacing:-.012em}
+h3{font-size:1.06rem;font-weight:600;margin:34px 0 12px;letter-spacing:-.006em}
+p{margin:0 0 1.05em}
+p.after{margin-top:18px}
+.mono{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}
+.sm{font-size:.82em}
+.eqn{font-size:1.16rem;color:var(--ink);background:var(--sunk);border:1px solid var(--rule);
+  border-radius:3px;padding:15px 18px;letter-spacing:.02em;margin:0 0 22px;overflow-x:auto}
+.hot{color:var(--algebra)}
+.mast{border-bottom:2px solid var(--ink);padding-bottom:26px}
+.eyebrow{font-family:'IBM Plex Mono',monospace;font-size:.7rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 16px}
+.dek{font-size:1.15rem;color:var(--muted);margin:16px 0 0;max-width:62ch;font-style:italic}
+.stamp{display:flex;flex-wrap:wrap;gap:0 30px;margin-top:22px;
+  font-family:'IBM Plex Mono',monospace;font-size:.74rem;color:var(--faint);letter-spacing:.04em}
+.stamp b{color:var(--body);font-weight:500}
+section{margin-top:60px}
+.shead{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+.snum{font-family:'IBM Plex Mono',monospace;font-size:.78rem;font-weight:600;
+  color:var(--accent);letter-spacing:.1em;flex:none;padding-top:.28em}
+.sub{color:var(--muted);font-size:.97rem;margin:0 0 26px;max-width:66ch}
+.tablewrap{overflow-x:auto;border:1px solid var(--rule);border-radius:3px;background:var(--panel);box-shadow:var(--shadow)}
+.tablewrap.tall{max-height:560px;overflow-y:auto}
+.tablewrap.tall thead th{position:sticky;top:0;background:var(--panel);z-index:1}
+table{border-collapse:collapse;width:100%;min-width:620px}
+caption{caption-side:bottom;text-align:left;padding:12px 16px;font-size:.83rem;color:var(--muted);border-top:1px solid var(--rule)}
+th,td{padding:9px 14px;text-align:left;border-bottom:1px solid var(--rule)}
+thead th{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+  border-bottom:1px solid var(--rule-hard);white-space:nowrap}
+tbody tr:last-child td{border-bottom:none}
+td.name{font-weight:600;color:var(--ink);white-space:nowrap}
+td.num,td.cell{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+td.num{text-align:right}
+th.num{text-align:right}
+td.cell{color:var(--ink)}
+td.mono{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:.68rem;
+  font-weight:600;letter-spacing:.05em;padding:1px 7px;border-radius:2px;border:1px solid currentColor;line-height:1.5}
+.chip.b0{color:var(--free)} .chip.b1{color:var(--bound)} .chip.b2{color:var(--undet)}
+.yes{color:var(--geometry);font-weight:600} .no{color:var(--muted);font-weight:600}
+figure{margin:0}
+.plate{background:var(--panel);border:1px solid var(--rule);border-radius:3px;
+  padding:26px 22px 18px;box-shadow:var(--shadow)}
+figcaption{font-size:.85rem;color:var(--muted);margin-top:16px;padding-top:14px;border-top:1px solid var(--rule)}
+figcaption b{color:var(--ink);font-weight:600}
+svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:'IBM Plex Mono',monospace}
+rect.b0{fill:var(--free)} rect.b1{fill:var(--bound)} rect.b2{fill:var(--undet)}
+.key{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:14px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.key span{display:flex;align-items:center;gap:7px}
+.key i.k{width:11px;height:11px;border-radius:2px;display:block;flex:none}
+.key i.b0{background:var(--free)} .key i.b1{background:var(--bound)} .key i.b2{background:var(--undet)}
+svg text.tb0{fill:var(--free)} svg text.tb1{fill:var(--bound)} svg text.tb2{fill:var(--undet)}
+.note{border-left:3px solid var(--accent);background:var(--sunk);
+  padding:16px 20px;margin:26px 0;border-radius:0 3px 3px 0}
+.note p:last-child{margin-bottom:0}
+.note .lab{font-family:'IBM Plex Mono',monospace;font-size:.66rem;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:7px}
+.note.warn{border-left-color:var(--algebra)} .note.warn .lab{color:var(--algebra)}
+.note.good{border-left-color:var(--geometry)} .note.good .lab{color:var(--geometry)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.kv>div{background:var(--panel);padding:14px 16px}
+.kv dt{font-family:'IBM Plex Mono',monospace;font-size:.63rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+.kv dd{margin:0;font-family:'IBM Plex Mono',monospace;font-size:1.2rem;font-weight:500;color:var(--ink);line-height:1.15}
+.kv dd.hot{color:var(--algebra)}
+.kv dd small{display:block;font-size:.68rem;font-weight:400;color:var(--faint);margin-top:5px;letter-spacing:.04em;line-height:1.4}
+ul.tight{margin:0 0 1.05em;padding-left:1.15em}
+ul.tight li{margin-bottom:.7em}
+ul.refuse li b{color:var(--ink)}
+.foot{margin-top:72px;padding-top:22px;border-top:1px solid var(--rule);font-size:.83rem;color:var(--faint)}
+.foot code{font-family:'IBM Plex Mono',monospace;color:var(--muted);font-size:.95em}
+.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.duo{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:720px){.trio,.duo{grid-template-columns:1fr}}
+.per{border:1px solid var(--rule);border-radius:3px;background:var(--panel);padding:17px 18px;box-shadow:var(--shadow)}
+.per .who{font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:9px}
+.per .what{font-size:1.12rem;color:var(--ink);font-weight:600;margin-bottom:4px;line-height:1.25}
+.per .co{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--accent);margin-bottom:10px}
+.per .obj{font-size:.88rem;color:var(--muted);line-height:1.45}
+.v3d{position:relative}
+.v3d canvas{display:block;width:100%;border-radius:2px;background:transparent}
+.v3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;margin-top:12px;
+  font-family:'IBM Plex Mono',monospace;font-size:.72rem;color:var(--muted)}
+.v3dbar button{font:inherit;color:var(--accent);background:var(--sunk);
+  border:1px solid var(--rule);border-radius:2px;padding:3px 10px;cursor:pointer}
+.v3dbar button:hover{border-color:var(--accent)}
+.v3dbar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.v3dbar .hint{color:var(--faint)}
+.v3dbar .dims{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.v3dbar .dims button{padding:3px 8px;min-width:30px}
+.v3dbar .dims button.on{background:var(--accent);color:var(--panel);border-color:var(--accent)}
+.v3dbar .now{color:var(--ink);font-weight:600;font-variant-numeric:tabular-nums}
+.v3dkey{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v3dkey span{display:flex;align-items:center;gap:6px}
+.v3dkey i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+@media (prefers-reduced-motion: reduce){.v3d canvas{}}
+</style>
+<div class="wrap">
+<header class="mast"><p class="eyebrow">Research plate · an index of quantum objects · DOCKET 31</p><h1>The Boson&nbsp;Sublattice</h1><p class="dek">The bosonic excitations of condensed matter &mdash; Cooper pairs, excitons, phonons, magnons &mdash; placed in the frame the tree&rsquo;s own bosons already live in, and asked whether they sit inside it closed.</p><div class="stamp"><span>instrument <b>bosonqp.py</b></span><span>members <b>15</b></span><span>rules <b>3 derivations</b></span><span>cells <b>5</b></span><span>cell <b>(7,&nbsp;4,&nbsp;2)</b></span><span>extends the bosons by <b>2 cells</b></span></div></header>
+<div class="note warn"><span class="lab">Two rulings, and the second threw out the first draft</span><p>M, first: <em>&ldquo;almost nothing &mdash; but not nothing, which means measurable ... it is a sub index/sublattice of bosons.&rdquo;</em> That corrected DOCKET 28, which wrote &ldquo;almost nothing&rdquo; and then treated it as nothing.</p><p style="margin-bottom:0">M, second: <em>&ldquo;Do not add declared. Nothing less than computed or measured. Declared still requires proof.&rdquo;</em> The first draft listed eleven kinds with their spins and charges written out from textbook knowledge, and <span class="mono">registry.py</span> had grown a whole provenance category &mdash; DECLARED &mdash; to let that pass its own guard. <b>Both are gone.</b> Every number on this plate comes out of one of the three rules below.</p></div>
+<section><div class="shead"><span class="snum">01</span><h2>Three derivation rules, and nothing outside them</h2></div><p class="sub">The inputs are what a thing is made of, which symmetry it breaks, and what it mixes &mdash; each the definition of the object rather than a measurement of it.</p><div class="kv"><div><dt>composition</dt><dd>charge adds; spin combines<small>the electron (2J&nbsp;=&nbsp;1, Q3&nbsp;=&nbsp;&minus;3) and photon (2,&nbsp;0) are READ from the seated fundamental index</small></dd></div><div><dt>broken symmetry</dt><dd>2J = 2 &times; the generator&rsquo;s rank<small>and Q3 = 0 when it commutes with charge</small></dd></div><div><dt>hybridisation</dt><dd>inherit what the constituents share<small>and RAISE when they disagree</small></dd></div></div><div class="note good"><span class="lab">The second rule corrected this file on its first use</span><p style="margin-bottom:0">The first draft wrote the phonon down as spin&nbsp;0. The phonon is the Goldstone mode of <b>broken translation</b>, whose generator is the momentum P &mdash; a VECTOR &mdash; so the rule returns <b>2J&nbsp;=&nbsp;2</b>. The rule is right and the draft was wrong: three broken translations in three dimensions give the three acoustic branches, which a scalar mode could not. <b>A derivation that can contradict what you would have written down is the only kind worth having.</b></p></div></section>
+<section><div class="shead"><span class="snum">02</span><h2>Every member, and which rule produced it</h2></div><div class="tablewrap"><table><thead><tr><th>rule</th><th>member</th><th class="num">2J</th><th class="num">Q3</th></tr></thead><tbody><tr><td>composite</td><td class="mono">Cooper pair</td><td class="num">0</td><td class="num">-6</td></tr><tr><td>composite</td><td class="mono">Cooper pair</td><td class="num">2</td><td class="num">-6</td></tr><tr><td>composite</td><td class="mono">exciton</td><td class="num">0</td><td class="num">0</td></tr><tr><td>composite</td><td class="mono">exciton</td><td class="num">2</td><td class="num">0</td></tr><tr><td>composite</td><td class="mono">biexciton</td><td class="num">0</td><td class="num">0</td></tr><tr><td>composite</td><td class="mono">biexciton</td><td class="num">2</td><td class="num">0</td></tr><tr><td>composite</td><td class="mono">biexciton</td><td class="num">4</td><td class="num">0</td></tr><tr><td>broken symmetry</td><td class="mono">phonon</td><td class="num">2</td><td class="num">0</td></tr><tr><td>broken symmetry</td><td class="mono">magnon</td><td class="num">2</td><td class="num">0</td></tr><tr><td>broken symmetry</td><td class="mono">plasmon</td><td class="num">0</td><td class="num">0</td></tr><tr><td>broken symmetry</td><td class="mono">phason</td><td class="num">0</td><td class="num">0</td></tr><tr><td>broken symmetry</td><td class="mono">roton</td><td class="num">0</td><td class="num">0</td></tr><tr><td>broken symmetry</td><td class="mono">amplitude (Higgs) mode</td><td class="num">0</td><td class="num">0</td></tr><tr><td>hybrid</td><td class="mono">polariton</td><td class="num">2</td><td class="num">0</td></tr><tr><td>hybrid</td><td class="mono">magnon-polaron</td><td class="num">2</td><td class="num">0</td></tr></tbody></table><caption>15 members on 5 cells. The eight collective modes add members but <b>no new cells</b>.</caption></div><div class="note"><span class="lab">The trion excludes itself</span><p style="margin-bottom:0">Two electrons and a hole compose to 2J in {1,&nbsp;3} &mdash; half-integer, a <b>fermion</b> &mdash; and a sublattice of the bosons holds none. Nothing here decides that; the addition rule returns it. And <span class="mono">hybrid()</span> raises on constituents that disagree, so the third rule has a failure mode too.</p></div></section>
+<section><div class="shead"><span class="snum">03</span><h2>The index, drawn flat</h2></div><p class="sub">Two coordinates, so this is the index ITSELF and not a projection of it &mdash; nothing is collapsed, summarised or dropped.</p><div class="fig"><svg viewBox="0 0 614 360" role="img" aria-label="the boson lattice and the excitations in it" style="max-width:100%;height:auto"><line x1="92" y1="18" x2="92" y2="298" stroke="var(--rule)" stroke-width="1"/><text x="92" y="322" text-anchor="middle" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">-6</text><line x1="166" y1="18" x2="166" y2="298" stroke="var(--rule)" stroke-width="1"/><text x="166" y="322" text-anchor="middle" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">-3</text><line x1="240" y1="18" x2="240" y2="298" stroke="var(--rule)" stroke-width="1"/><text x="240" y="322" text-anchor="middle" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">0</text><line x1="314" y1="18" x2="314" y2="298" stroke="var(--rule)" stroke-width="1"/><text x="314" y="322" text-anchor="middle" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">3</text><line x1="74" y1="34" x2="332" y2="34" stroke="var(--rule)" stroke-width="1"/><text x="62" y="39" text-anchor="end" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">8</text><line x1="74" y1="96" x2="332" y2="96" stroke="var(--rule)" stroke-width="1"/><text x="62" y="101" text-anchor="end" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">6</text><line x1="74" y1="158" x2="332" y2="158" stroke="var(--rule)" stroke-width="1"/><text x="62" y="163" text-anchor="end" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">4</text><line x1="74" y1="220" x2="332" y2="220" stroke="var(--rule)" stroke-width="1"/><text x="62" y="225" text-anchor="end" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">2</text><line x1="74" y1="282" x2="332" y2="282" stroke="var(--rule)" stroke-width="1"/><text x="62" y="287" text-anchor="end" font-size="13" font-family="IBM Plex Mono,monospace" fill="var(--muted)">0</text><circle cx="166" cy="34" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="34" r="9" fill="var(--rule-hard)"/><circle cx="314" cy="34" r="9" fill="var(--rule-hard)"/><circle cx="166" cy="96" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="96" r="9" fill="var(--rule-hard)"/><circle cx="314" cy="96" r="9" fill="var(--rule-hard)"/><circle cx="166" cy="158" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="158" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="158" r="15" fill="none" stroke="var(--geometry)" stroke-width="3.5"/><circle cx="314" cy="158" r="9" fill="var(--rule-hard)"/><circle cx="92" cy="220" r="15" fill="none" stroke="var(--algebra)" stroke-width="3.5"/><circle cx="92" cy="220" r="23" fill="none" stroke="var(--algebra)" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="166" cy="220" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="220" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="220" r="15" fill="none" stroke="var(--geometry)" stroke-width="3.5"/><circle cx="314" cy="220" r="9" fill="var(--rule-hard)"/><circle cx="92" cy="282" r="15" fill="none" stroke="var(--algebra)" stroke-width="3.5"/><circle cx="92" cy="282" r="23" fill="none" stroke="var(--algebra)" stroke-width="1.5" stroke-dasharray="3 3"/><circle cx="166" cy="282" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="282" r="9" fill="var(--rule-hard)"/><circle cx="240" cy="282" r="15" fill="none" stroke="var(--geometry)" stroke-width="3.5"/><circle cx="314" cy="282" r="9" fill="var(--rule-hard)"/><text x="203" y="344" text-anchor="middle" font-size="12" letter-spacing="1.4" font-family="IBM Plex Mono,monospace" fill="var(--muted)">Q3 &#8212; CHARGE IN THIRDS</text><text transform="translate(22,158) rotate(-90)" text-anchor="middle" font-size="12" letter-spacing="1.4" font-family="IBM Plex Mono,monospace" fill="var(--muted)">2J</text><circle cx="360" cy="34" r="7" fill="var(--rule-hard)"/><text x="378" y="38" font-size="12.5" fill="var(--body)">the tree&rsquo;s bosons</text><circle cx="360" cy="60" r="9" fill="none" stroke="var(--geometry)" stroke-width="3"/><text x="378" y="64" font-size="12.5" fill="var(--body)">the excitations</text><circle cx="360" cy="86" r="9" fill="none" stroke="var(--algebra)" stroke-width="3"/><text x="378" y="90" font-size="12.5" fill="var(--body)">outside the bosons</text></svg></div><p class="cap">The tree&rsquo;s fifteen boson cells, the five the excitations occupy, and the two that fall outside the frame altogether. <b>Both are the Cooper pair</b>, at a charge no meson and no gauge boson reaches.</p></section>
+<section><div class="shead"><span class="snum">04</span><h2>The finding is the relation, not the chart</h2></div><div class="tablewrap"><table><thead><tr><th></th><th class="num">cells</th><th>sublattice?</th></tr></thead><tbody><tr><td>the tree&rsquo;s own bosons on (2J, Q3)</td><td class="num">15</td><td><span class="yes">yes</span></td></tr><tr><td>the bosonic excitations</td><td class="num">5</td><td><span class="yes">yes</span></td></tr><tr><td>the union</td><td class="num">17</td><td><span class="yes">yes</span></td></tr></tbody></table><caption>But the second is <b>NOT a subset</b> of the first.</caption></div><div class="note good"><span class="lab">The Cooper pair carries &minus;2e and nothing else in the tree does</span><p style="margin-bottom:0">Every meson and every gauge boson is charged &minus;1, 0 or +1. Two electrons bound in a metal reach a charge no elementary or composite boson here reaches &mdash; in <b>both</b> spin states, the triplet being helium-3&rsquo;s p-wave pairing. So the excitations are a sublattice of the bosons only once the lattice is <b>extended to hold them</b>, and the extension is <b>2 cells wide</b>: [(0, -6), (2, -6)].</p></div></section>
+<section><div class="shead"><span class="snum">05</span><h2>The channel, and why it is not free this time</h2></div><p class="sub">The chart closes all five languages &mdash; K7. The first draft was a three-cell CHAIN, and a chain closes almost everything by being one.</p><p><b>This chart is not a chain.</b> It is 5 cells at width 2, and the measurement changes with it: over the box this chart lives in, only <b>31 of 57</b> subsets close all five, and of the <b>6</b> subsets its own size only <b>2</b> do. So the K7 is earned by two-thirds of the alternatives failing, not handed over by shape.</p><div class="note"><span class="lab">z3, pointed at this file&rsquo;s own result</span><p style="margin-bottom:0"><span class="mono">--prove</span> runs four claims over every subset of the box: that every chain there is closed (so a chain&rsquo;s K7 <em>is</em> free), a vacuity guard that chains exist, a contrast that some subset is not closed, and finally that <b>THIS chart is not a chain</b> &mdash; so the free pass does not reach it. It is still five cells, and section 04 is the finding.</p></div></section>
+<div class="foot"><p>Every figure on this plate is read from the instrument at build time, not retyped. Re-verify with:</p><p><code>python3 research/warp-drive/bosonqp.py --selftest</code> &mdash; 37 fixtures<br><code>python3 research/warp-drive/bosonqp.py</code> &mdash; the reading<br><code>python3 research/warp-drive/render/build_particle_plates.py bosonqp</code> &mdash; this plate</p></div>
+</div>

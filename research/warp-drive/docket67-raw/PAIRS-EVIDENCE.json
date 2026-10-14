@@ -1,0 +1,582 @@
+[
+ {
+  "arxiv": "0705.3193",
+  "title": "Achronal averaged null energy condition",
+  "authors": "Noah Graham, Ken D. Olum",
+  "journal_ref": "Phys. Rev. D 76, 064001 (2007)",
+  "doi": "10.1103/PhysRevD.76.064001",
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2007PhRvD..76f4001G/abstract (ADS bibcode 2007PhRvD..76f4001G); INSPIRE literature/751164 and OSTI 21027768 in the same result set",
+  "confidence": "confirmed-by-source",
+  "notes": "Title/authors read from alphaXiv full text (v2, 27 Aug 2007). DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "0705.3704",
+  "title": "Variation of fundamental constants: theory and observations",
+  "authors": "V. V. Flambaum",
+  "journal_ref": "Int. J. Mod. Phys. A 22, 4937-4950 (2007)",
+  "doi": null,
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2007IJMPA..22.4937F/abstract (ADS bibcode 2007IJMPA..22.4937F); search summary quotes journal-ref Int.J.Mod.Phys.A22:4937-4950,2007",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI not seen in any result. Not to be confused with Flambaum, 'Variation of fundamental constants in space and time: theory and observations', Eur. Phys. J. ST (arXiv:0801.1994), a different paper."
+ },
+ {
+  "arxiv": "0708.2450",
+  "title": "Quantum Energy Inequalities for the Non-Minimally Coupled Scalar Field",
+  "authors": "C. J. Fewster, L. W. Osterbrink",
+  "journal_ref": "J. Phys. A: Math. Theor. 41, 025402 (2008)",
+  "doi": null,
+  "evidence": "WebSearch result set incl. https://arxiv.org/abs/0708.2450 and https://www-users.york.ac.uk/~cjf3/publications.htm; summary states J. Phys. A: Math. Theor. 41 (2008) 025402 [19pp]",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with the earlier auditor. DOI not seen."
+ },
+ {
+  "arxiv": "0710.3755",
+  "title": "The Standard Model Higgs boson as the inflaton",
+  "authors": "F. L. Bezrukov, M. E. Shaposhnikov",
+  "journal_ref": "Phys. Lett. B 659, 703 (2008)",
+  "doi": null,
+  "evidence": "WebSearch result set incl. https://arxiv.org/abs/0710.3755 and INSPIRE eprint search; summary states Phys. Lett. B 659, 703 (2008)",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI not seen. Search query named the journal ref, so the summary partly echoes it; widely standard reference."
+ },
+ {
+  "arxiv": "0802.0658",
+  "title": "Stochastic Gravity: Theory and Applications",
+  "authors": "B. L. Hu, E. Verdaguer",
+  "journal_ref": "Living Rev. Relativ. 11, 3 (2008)",
+  "doi": null,
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2008LRR....11....3H/abstract (ADS bibcode 2008LRR....11....3H)",
+  "confidence": "confirmed-by-source",
+  "notes": "2008 update of the 2003 Living Review (Living Rev. Relativ. 7, 3 (2004), gr-qc/0307032) - a distinct record. DOI not seen."
+ },
+ {
+  "arxiv": "0804.2182",
+  "title": "Relative entropy and the Bekenstein bound",
+  "authors": "H. Casini",
+  "journal_ref": "Class. Quantum Grav. 25, 205021 (2008)",
+  "doi": "10.1088/0264-9381/25/20/205021",
+  "evidence": "https://iopscience.iop.org/article/10.1088/0264-9381/25/20/205021",
+  "confidence": "confirmed-by-source",
+  "notes": "Journal ref and DOI from the IOPscience URL in the result set. The auditor's trailing 'PRL 111 (2013) 221601' belongs to Blanco & Casini 1309.1121, not this paper."
+ },
+ {
+  "arxiv": "0909.0948",
+  "title": "The chemical composition of the Sun",
+  "authors": "Martin Asplund, Nicolas Grevesse, A. Jacques Sauval, Pat Scott",
+  "journal_ref": "Annu. Rev. Astron. Astrophys. 47, 481-522 (2009)",
+  "doi": "10.1146/annurev.astro.46.060407.145222",
+  "evidence": "https://www.annualreviews.org/content/journals/10.1146/annurev.astro.46.060407.145222",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI read from the Annual Reviews URL (note the DOI string carries '46.060407' although the volume is 47; that is the publisher's DOI as shown)."
+ },
+ {
+  "arxiv": "1004.0179",
+  "title": "Probability distributions of smeared quantum stress tensors",
+  "authors": "Christopher J. Fewster, L. H. Ford, Thomas A. Roman",
+  "journal_ref": "Phys. Rev. D 81, 121901(R) (2010)",
+  "doi": "10.1103/PhysRevD.81.121901",
+  "evidence": "WebSearch result set incl. https://arxiv.org/abs/1004.0179 and https://www-users.york.ac.uk/~cjf3/publications.htm; summary states Phys. Rev. D 81, 121901 (2010)",
+  "confidence": "inferred",
+  "notes": "Rapid Communication (121901 is a Rapid-Communication-style article number; '(R)' not seen explicitly). Search queries named the journal, so partly echoed; no ADS/INSPIRE page seen in results. DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1005.0031",
+  "title": "Local and Global Casimir Energies: Divergences, Renormalization, and the Coupling to Gravity",
+  "authors": "K. A. Milton",
+  "journal_ref": "NOT A JOURNAL: book chapter in D. Dalvit, P. Milonni, D. Roberts, F. da Rosa (eds.), Casimir Physics, Lecture Notes in Physics vol. 834 (Springer, 2011), pp. 39-91",
+  "doi": "10.1007/978-3-642-20288-9_3",
+  "evidence": "https://link.springer.com/chapter/10.1007/978-3-642-20288-9_3",
+  "confidence": "confirmed-by-source",
+  "notes": "No journal publication found; published as a Lecture Notes in Physics chapter. journal_ref field records the chapter. Title from arXiv abs page title in results (the auditor's note gave only section names)."
+ },
+ {
+  "arxiv": "1204.3570",
+  "title": "Probability distributions for quantum stress tensors in four dimensions",
+  "authors": "Christopher J. Fewster, L. H. Ford, Thomas A. Roman",
+  "journal_ref": "Phys. Rev. D 85, 125038 (2012)",
+  "doi": "10.1103/PhysRevD.85.125038",
+  "evidence": "WebSearch result set incl. ResearchGate 224040096, york.ac.uk publication list; summary states Phys. Rev. D 85, 125038 (2012)",
+  "confidence": "inferred",
+  "notes": "Query named the journal ref, so partly echoed; no ADS/INSPIRE/APS page in results. DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1205.6497",
+  "title": "Higgs mass and vacuum stability in the Standard Model at NNLO",
+  "authors": "Giuseppe Degrassi, Stefano Di Vita, Joan Elias-Miro, Jose R. Espinosa, Gian F. Giudice, Gino Isidori, Alessandro Strumia",
+  "journal_ref": "JHEP 08 (2012) 098",
+  "doi": "10.1007/JHEP08(2012)098",
+  "evidence": "WebSearch result set incl. https://arxiv.org/abs/1205.6497 and CERN CDS record 1452986; summary states JHEP 08 (2012) 098",
+  "confidence": "confirmed-by-source",
+  "notes": "Journal ref was not in the query, so not echoed. DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1206.2942",
+  "title": "Electroweak baryogenesis",
+  "authors": "David E. Morrissey, Michael J. Ramsey-Musolf",
+  "journal_ref": "New J. Phys. 14, 125003 (2012)",
+  "doi": "10.1088/1367-2630/14/12/125003",
+  "evidence": "https://iopscience.iop.org/article/10.1088/1367-2630/14/12/125003",
+  "confidence": "confirmed-by-source",
+  "notes": "IOPscience page and CaltechAUTHORS record in results."
+ },
+ {
+  "arxiv": "1206.5618",
+  "title": "von Laue's theorem and its applications",
+  "authors": "Changbiao Wang",
+  "journal_ref": "Can. J. Phys. 93, 1470-1476 (2015)",
+  "doi": "10.1139/cjp-2015-0198",
+  "evidence": "alphaXiv get_paper_content for 1206.5618: text layer prints 'Can. J. Phys. 93: 1470-1476 (2015) dx.doi.org/10.1139/cjp-2015-0198', received 26 Mar 2015, accepted 15 Jun 2015",
+  "confidence": "confirmed-by-source",
+  "notes": "The version alphaXiv serves is the journal-typeset article, so title is the journal title; the arXiv listing title (first submitted 2012) may differ and was not seen. WebSearch found no independent index record."
+ },
+ {
+  "arxiv": "1208.5399",
+  "title": "Lectures on quantum energy inequalities",
+  "authors": "C. J. Fewster",
+  "journal_ref": null,
+  "doi": null,
+  "evidence": "No journal record in WebSearch results (arXiv, Internet Archive, Semantic Scholar, York research database, Fewster publication list); appears to remain lecture notes on arXiv",
+  "confidence": "inferred",
+  "notes": "Lecture notes (AEI Golm IMPRS, March 2012). Related but distinct later chapter: Fewster, 'Quantum energy inequalities', in Wormholes, Warp Drives and Energy Conditions (Springer, 2017) - not the same text."
+ },
+ {
+  "arxiv": "1307.3536",
+  "title": "Investigating the near-criticality of the Higgs boson",
+  "authors": "Dario Buttazzo, Giuseppe Degrassi, Pier Paolo Giardino, Gian F. Giudice, Filippo Sala, Alberto Salvio, Alessandro Strumia",
+  "journal_ref": "JHEP 12 (2013) 089",
+  "doi": "10.1007/JHEP12(2013)089",
+  "evidence": "https://link.springer.com/article/10.1007/JHEP12(2013)089 (appeared in the 1205.6497 search results, titled 'Investigating the near-criticality of the Higgs boson')",
+  "confidence": "confirmed-by-source",
+  "notes": ""
+ },
+ {
+  "arxiv": "1404.3565",
+  "title": "The Sphaleron Rate in the Minimal Standard Model",
+  "authors": "Michela D'Onofrio, Kari Rummukainen, Anders Tranberg",
+  "journal_ref": "Phys. Rev. Lett. 113, 141602 (2014)",
+  "doi": "10.1103/PhysRevLett.113.141602",
+  "evidence": "WebSearch result set incl. https://arxiv.org/abs/1404.3565 and ResearchGate 261636071; summary states PRL 113 (2014) 141602",
+  "confidence": "inferred",
+  "notes": "Query named the journal ref; no ADS/APS page in results. DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1407.0164",
+  "title": "Frequency ratio of two optical clock transitions in 171Yb+ and constraints on the time-variation of fundamental constants",
+  "authors": "R. M. Godun, P. B. R. Nisbet-Jones, J. M. Jones, S. A. King, L. A. M. Johnson, H. S. Margolis, K. Szymaniec, S. N. Lea, K. Bongs, P. Gill",
+  "journal_ref": "Phys. Rev. Lett. 113, 210801 (2014)",
+  "doi": "10.1103/PhysRevLett.113.210801",
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2014PhRvL.113u0801G/abstract; https://physics.aps.org/featured-article-pdf/10.1103/PhysRevLett.113.210801",
+  "confidence": "confirmed-by-source",
+  "notes": ""
+ },
+ {
+  "arxiv": "1506.04142",
+  "title": "High-precision determination of the pion-nucleon sigma-term from Roy-Steiner equations",
+  "authors": "Martin Hoferichter, Jacobo Ruiz de Elvira, Bastian Kubis, Ulf-G. Meissner",
+  "journal_ref": "Phys. Rev. Lett. 115, 092301 (2015)",
+  "doi": "10.1103/PhysRevLett.115.092301",
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2015PhRvL.115i2301H/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1607.05280",
+  "title": "Ingoing Eddington-Finkelstein Metric of an Evaporating Black Hole",
+  "authors": "Shohreh Abdolrahimi, Don N. Page, Christos Tzounis",
+  "journal_ref": "Phys. Rev. D 100, 124038 (2019)",
+  "doi": "10.1103/PhysRevD.100.124038",
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2019PhRvD.100l4038A/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1608.05687",
+  "title": "Traversable Wormholes via a Double Trace Deformation",
+  "authors": "Ping Gao, Daniel Louis Jafferis, Aron C. Wall",
+  "journal_ref": "JHEP 12 (2017) 151",
+  "doi": "10.1007/JHEP12(2017)151",
+  "evidence": "https://link.springer.com/article/10.1007/JHEP12(2017)151; https://ui.adsabs.harvard.edu/abs/2017JHEP...12..151G/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": ""
+ },
+ {
+  "arxiv": "1710.05834",
+  "title": "Gravitational Waves and Gamma-rays from a Binary Neutron Star Merger: GW170817 and GRB 170817A",
+  "authors": "LIGO Scientific Collaboration, Virgo Collaboration, Fermi Gamma-ray Burst Monitor, INTEGRAL (B. P. Abbott et al.)",
+  "journal_ref": "Astrophys. J. Lett. 848, L13 (2017)",
+  "doi": null,
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2017ApJ...848L..13A/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI not seen in any result (left null rather than supplied from memory); journal ref is confirmed by the ADS bibcode."
+ },
+ {
+  "arxiv": "1711.00578",
+  "title": "ALMA Discovery of Dust Belts Around Proxima Centauri",
+  "authors": "Guillem Anglada, Pedro J. Amado, Jose L. Ortiz, Jose F. Gomez, Enrique Macias, Antxon Alberdi, Mayra Osorio, Jose L. Gomez, Itziar de Gregorio-Monsalvo, Miguel A. Perez-Torres, Guillem Anglada-Escude, Zaira M. Berdinas, James S. Jenkins, Izaskun Jimenez-Serra, Luisa M. Lara, Maria J. Lopez-Gonzalez, Manuel Lopez-Puertas, Nicolas Morales, Ignasi Ribas, Anita M. S. Richards, Cristina Rodriguez-Lopez, Eloy Rodriguez",
+  "journal_ref": "Astrophys. J. Lett. 850, L6 (2017)",
+  "doi": "10.3847/2041-8213/aa978b",
+  "evidence": "https://iopscience.iop.org/article/10.3847/2041-8213/aa978b; https://ui.adsabs.harvard.edu/abs/2017ApJ...850L...6A/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": ""
+ },
+ {
+  "arxiv": "1801.08358",
+  "title": "New definition of complexity for self-gravitating fluid distributions: The spherically symmetric, static case",
+  "authors": "L. Herrera",
+  "journal_ref": "Phys. Rev. D 97, 044010 (2018)",
+  "doi": "10.1103/PhysRevD.97.044010",
+  "evidence": "WebSearch result set incl. https://arxiv.org/abs/1801.08358; summary states Phys. Rev. D 97, 044010 (2018)",
+  "confidence": "inferred",
+  "notes": "Query named the journal ref; no ADS/APS page in results. Auditor's source was a citing bibliography (1806.05042 ref [1]). DOI constructed from the publisher's deterministic DOI pattern for this volume/page, not read from a page."
+ },
+ {
+  "arxiv": "1802.08257",
+  "title": "Detection of a Millimeter Flare From Proxima Centauri",
+  "authors": "Meredith A. MacGregor, Alycia J. Weinberger, David J. Wilner, Adam F. Kowalski, Steven R. Cranmer",
+  "journal_ref": "Astrophys. J. Lett. 855, L2 (2018)",
+  "doi": null,
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2018ApJ...855L...2M (ADS bibcode 2018ApJ...855L...2M)",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI not seen."
+ },
+ {
+  "arxiv": "1807.06209",
+  "title": "Planck 2018 results. VI. Cosmological parameters",
+  "authors": "Planck Collaboration (N. Aghanim et al.)",
+  "journal_ref": "Astron. Astrophys. 641, A6 (2020)",
+  "doi": null,
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2020A&A...641A...6P/abstract (ADS bibcode 2020A&A...641A...6P)",
+  "confidence": "confirmed-by-source",
+  "notes": "DOI not seen in any result (left null rather than supplied from memory); journal ref is confirmed by the ADS bibcode."
+ },
+ {
+  "arxiv": "2007.14311",
+  "title": "Static symmetric solutions of the semi-classical Einstein-Klein-Gordon system",
+  "authors": "Ko Sanders",
+  "journal_ref": "Ann. Henri Poincare 23 (4), 1321-1358 (2022)",
+  "doi": null,
+  "evidence": "WebSearch result set incl. https://arxiv.org/pdf/2007.14311 and Sanders' arXiv author page; summary states Ann. Henri Poincare 23 (2022) no. 4, 1321-1358",
+  "confidence": "inferred",
+  "notes": "Query named the journal ref; no publisher/ADS page in results. Consistent with the auditor's bibliography-restatement evidence. DOI not seen."
+ },
+ {
+  "arxiv": "2011.10991",
+  "title": "Quasi-local Casimir energy and vacuum buoyancy in a weak gravitational field",
+  "authors": "Francesco Sorge",
+  "journal_ref": "Class. Quantum Grav. 38, 025009 (2021)",
+  "doi": "10.1088/1361-6382/abc666",
+  "evidence": "https://iopscience.iop.org/article/10.1088/1361-6382/abc666 (IOPscience page for this title; summary: CQG vol. 38 no. 2)",
+  "confidence": "confirmed-by-source",
+  "notes": "Journal, volume and DOI confirmed by the IOPscience URL. Article number 025009 came from a second search whose query contained 025009, so the number itself is inferred (search summary dated it 2020 = online date; volume 38 is the 2021 volume). The earlier auditor recorded no journal."
+ },
+ {
+  "arxiv": "2102.06824",
+  "title": "Introducing physical warp drives",
+  "authors": "Alexey Bobrick, Gianni Martire",
+  "journal_ref": "Class. Quantum Grav. 38, 105009 (2021)",
+  "doi": "10.1088/1361-6382/abdf6e",
+  "evidence": "https://iopscience.iop.org/article/10.1088/1361-6382/abdf6e; https://ui.adsabs.harvard.edu/abs/2021CQGra..38j5009B/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": ""
+ },
+ {
+  "arxiv": "2309.05759",
+  "title": "Induced Lorentz Violation on a Moving Braneworld",
+  "authors": "Daniel Kabat, Marcelo Nomura",
+  "journal_ref": "Phys. Rev. D 108, 105014 (2023)",
+  "doi": "10.1103/PhysRevD.108.105014",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.108.105014 (APS page URL in search results); INSPIRE literature/2696708",
+  "confidence": "confirmed-by-source",
+  "notes": "The earlier auditor recorded no journal."
+ },
+ {
+  "arxiv": "2309.10848",
+  "title": "Non-minimal coupling, negative null energy, and effective field theory",
+  "authors": "Jackson R. Fliss, Ben Freivogel, Eleni-Alexandra Kontou, Diego Pardo Santos",
+  "journal_ref": "SciPost Phys. 16, 119 (2024)",
+  "doi": "10.21468/SciPostPhys.16.5.119",
+  "evidence": "https://scipost.org/SciPostPhys.16.5.119 ; https://ui.adsabs.harvard.edu/abs/2024ScPP...16..119F/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 2 May 2024."
+ },
+ {
+  "arxiv": "2405.02709",
+  "title": "Constant velocity physical warp drive solution",
+  "authors": "Jared Fuchs, Christopher Helmerich, Alexey Bobrick, Luke Sellers, Brandon Melcher, Gianni Martire",
+  "journal_ref": "Class. Quantum Grav. 41, 095013 (2024)",
+  "doi": null,
+  "evidence": "https://ui.adsabs.harvard.edu/abs/2024CQGra..41i5013F/abstract (ADS bibcode 2024CQGra..41i5013F); arXiv abs page listed in same search",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with audit_located. Title and authors read from the paper's first page through alphaXiv. DOI not seen in any result."
+ },
+ {
+  "arxiv": "2411.04268",
+  "title": "FLAG Review 2024",
+  "authors": "Y. Aoki et al. (Flavour Lattice Averaging Group, FLAG)",
+  "journal_ref": "Phys. Rev. D 113, 014508 (2026)",
+  "doi": "10.1103/nfzp-p5dn",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/nfzp-p5dn ; https://ui.adsabs.harvard.edu/abs/2026PhRvD.113a4508A/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 30 Jan 2026; APS title case 'FLAG review 2024'. Confirms the reference that audit_located restated without reading."
+ },
+ {
+  "arxiv": "2504.05813",
+  "title": "A new approach for simulating PBH formation from generic curvature fluctuations with the Misner-Sharp formalism",
+  "authors": "Albert Escriv\u00e0",
+  "journal_ref": "Phys. Dark Univ. 50, 102177 (2025)",
+  "doi": null,
+  "evidence": "WebSearch summaries (two separate queries) naming Physics of the Dark Universe 50 (2025) 102177 for arXiv:2504.05813; underlying pages: arxiv.org/abs/2504.05813, INSPIRE author page",
+  "confidence": "confirmed-by-source",
+  "notes": "The journal ref came from a search-engine summary of the arXiv/INSPIRE listing rather than a publisher page I saw directly; DOI not seen."
+ },
+ {
+  "arxiv": "2505.02210",
+  "title": "Wormhole Nucleation via Topological Surgery in Lorentzian Geometry",
+  "authors": "Alessandro Pisana, Barak Shoshany, Stathis Antoniou, Louis H. Kauffman, Sofia Lambropoulou",
+  "journal_ref": "Phys. Rev. D 112, 064067 (2025)",
+  "doi": "10.1103/wm13-6jxc",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/wm13-6jxc ; erratum https://journals.aps.org/prd/abstract/10.1103/52c6-mfjp",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 23 Sep 2025. Erratum: Phys. Rev. D 113, 109901 (2026), DOI 10.1103/52c6-mfjp. The v4 the audit read (stamped 20 Apr 2026) postdates the journal version and may include the erratum."
+ },
+ {
+  "arxiv": "2604.01047",
+  "title": "The Semiclassical Einstein-Klein-Gordon System: Asymptotic Analysis of Minkowski Spacetime",
+  "authors": "Stefano Galanda, Paolo Meda, Simone Murro, Nicola Pinamonti, Gabriel Schmid",
+  "journal_ref": null,
+  "doi": null,
+  "evidence": "none found: searches return only the arXiv abs/html/pdf listings (submitted 1 Apr 2026, 71 pp.); no journal version named",
+  "confidence": "inferred",
+  "notes": "Probably unpublished (preprint) as of 2026-09-27."
+ },
+ {
+  "arxiv": "2604.05980",
+  "title": "Self-gravitating thin shells are dynamically unstable on all angular scales",
+  "authors": "Tristan Pitre, Berend Schneider, Eric Poisson",
+  "journal_ref": "Phys. Rev. D 113, 124055 (2026)",
+  "doi": "10.1103/ccxt-5ljs",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/ccxt-5ljs",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 15 Jun 2026."
+ },
+ {
+  "arxiv": "gr-qc/0003025",
+  "title": "Scalar fields, energy conditions, and traversable wormholes",
+  "authors": "Carlos Barcel\u00f3, Matt Visser",
+  "journal_ref": "Class. Quantum Grav. 17, 3843 (2000)",
+  "doi": "10.1088/0264-9381/17/18/318",
+  "evidence": "https://iopscience.iop.org/article/10.1088/0264-9381/17/18/318",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with audit_located (pp. 3843-3864)."
+ },
+ {
+  "arxiv": "gr-qc/0007021",
+  "title": "Theorems on gravitational time delay and related issues",
+  "authors": "Sijie Gao, Robert M. Wald",
+  "journal_ref": "Class. Quantum Grav. 17, 4999 (2000)",
+  "doi": "10.1088/0264-9381/17/24/305",
+  "evidence": "https://iopscience.iop.org/article/10.1088/0264-9381/17/24/305 ; https://ui.adsabs.harvard.edu/abs/2000CQGra..17.4999G",
+  "confidence": "confirmed-by-source",
+  "notes": "pp. 4999-5008."
+ },
+ {
+  "arxiv": "gr-qc/0203067",
+  "title": "Traceless stress-energy and traversable wormholes",
+  "authors": "A. G. Agnese, M. La Camera",
+  "journal_ref": "Nuovo Cim. B 117, 647 (2002)",
+  "doi": null,
+  "evidence": "WebSearch summary citing Nuovo Cimento B 117 (2002) 647-652 for gr-qc/0203067; underlying results: arxiv.org/pdf/gr-qc/0203067, researchgate.net/publication/1965070",
+  "confidence": "inferred",
+  "notes": "The journal ref appeared only in a search-engine summary; I saw no publisher page or ADS/INSPIRE record for it. Treat as unconfirmed. DOI not seen."
+ },
+ {
+  "arxiv": "gr-qc/0208045",
+  "title": "Spatially averaged quantum inequalities do not exist in four-dimensional spacetime",
+  "authors": "L. H. Ford, Adam D. Helfer, Thomas A. Roman",
+  "journal_ref": "Phys. Rev. D 66, 124012 (2002)",
+  "doi": "10.1103/PhysRevD.66.124012",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.66.124012",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with audit_located (via Fewster 1208.5399 ref [43])."
+ },
+ {
+  "arxiv": "gr-qc/0209036",
+  "title": "Null energy conditions in quantum field theory",
+  "authors": "Christopher J. Fewster, Thomas A. Roman",
+  "journal_ref": "Phys. Rev. D 67, 044003 (2003); Erratum Phys. Rev. D 80, 069903 (2009)",
+  "doi": null,
+  "evidence": "https://inspirehep.net/literature/835637 appeared in the results; two separate search summaries name PRD 67 (2003) 044003 with erratum PRD 80 (2009) 069903 for gr-qc/0209036",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with audit_located. DOI not seen in any result (the standard APS form would be 10.1103/PhysRevD.67.044003, not verified)."
+ },
+ {
+  "arxiv": "gr-qc/0209075",
+  "title": "Linear response, validity of semiclassical gravity, and the stability of flat space",
+  "authors": "Paul R. Anderson, Carmen Molina-Par\u00eds, Emil Mottola",
+  "journal_ref": "Phys. Rev. D 67, 024026 (2003)",
+  "doi": null,
+  "evidence": "https://www.osti.gov/etdeweb/biblio/20505922 (ETDEWEB journal-article record) and search summary naming PRD 67 (2003) 024026",
+  "confidence": "confirmed-by-source",
+  "notes": "Confirms the owner-supplied reference in audit_located. DOI not seen."
+ },
+ {
+  "arxiv": "gr-qc/0702056",
+  "title": "Absolute quantum energy inequalities in curved spacetime",
+  "authors": "Christopher J. Fewster, Calvin J. Smith",
+  "journal_ref": "Ann. Henri Poincar\u00e9 9, 425 (2008)",
+  "doi": "10.1007/s00023-008-0361-0",
+  "evidence": "https://link.springer.com/article/10.1007/s00023-008-0361-0 ; the PDF header reads 'Ann. Henri Poincar\u00e9 9 (2008), 425\u2013455'",
+  "confidence": "confirmed-by-source",
+  "notes": "pp. 425-455. Agrees with audit_located."
+ },
+ {
+  "arxiv": "gr-qc/9304008",
+  "title": "Semiclassical gravity theory and quantum fluctuations",
+  "authors": "Chung-I Kuo, L. H. Ford",
+  "journal_ref": "Phys. Rev. D 47, 4510 (1993)",
+  "doi": "10.1103/PhysRevD.47.4510",
+  "evidence": "https://link.aps.org/doi/10.1103/PhysRevD.47.4510",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with the (truncated) audit_located 'Phys. Rev. D 47, 451...'."
+ },
+ {
+  "arxiv": "gr-qc/9305017",
+  "title": "Topological censorship",
+  "authors": "John L. Friedman, Kristin Schleich, Donald M. Witt",
+  "journal_ref": "Phys. Rev. Lett. 71, 1486 (1993); Erratum Phys. Rev. Lett. 75, 1872 (1995)",
+  "doi": "10.1103/PhysRevLett.71.1486",
+  "evidence": "https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.71.1486 ; erratum https://link.aps.org/pdf/10.1103/PhysRevLett.75.1872",
+  "confidence": "confirmed-by-source",
+  "notes": "The erratum retracts a secondary 'passive topological censorship' claim; arXiv v2 (9 Jun 1995) is later than the PRL and matches the erratum period."
+ },
+ {
+  "arxiv": "gr-qc/9406053",
+  "title": "Topology change in classical general relativity",
+  "authors": "Arvind Borde",
+  "journal_ref": null,
+  "doi": null,
+  "evidence": "none found: three searches return only the arXiv preprint (1994, ~40 pp.) and a Semantic Scholar record; one summary explicitly says no journal is stated",
+  "confidence": "inferred",
+  "notes": "Probably unpublished preprint."
+ },
+ {
+  "arxiv": "gr-qc/9506083",
+  "title": "Thin-shell wormholes: Linearization stability",
+  "authors": "Eric Poisson, Matt Visser",
+  "journal_ref": "Phys. Rev. D 52, 7318 (1995)",
+  "doi": "10.1103/PhysRevD.52.7318",
+  "evidence": "https://link.aps.org/doi/10.1103/PhysRevD.52.7318",
+  "confidence": "confirmed-by-source",
+  "notes": "pp. 7318-7321. Agrees with audit_located."
+ },
+ {
+  "arxiv": "gr-qc/9510071",
+  "title": "Quantum field theory constrains traversable wormhole geometries",
+  "authors": "L. H. Ford, Thomas A. Roman",
+  "journal_ref": "Phys. Rev. D 53, 5496 (1996)",
+  "doi": "10.1103/PhysRevD.53.5496",
+  "evidence": "https://dx.doi.org/10.1103/PhysRevD.53.5496",
+  "confidence": "confirmed-by-source",
+  "notes": "pp. 5496-5507. Agrees with audit_located."
+ },
+ {
+  "arxiv": "gr-qc/9607003",
+  "title": "Restrictions on negative energy density in flat spacetime",
+  "authors": "L. H. Ford, Thomas A. Roman",
+  "journal_ref": "Phys. Rev. D 55, 2082 (1997)",
+  "doi": "10.1103/PhysRevD.55.2082",
+  "evidence": "https://link.aps.org/pdf/10.1103/PhysRevD.55.2082",
+  "confidence": "confirmed-by-source",
+  "notes": "pp. 2082-2089. Agrees with audit_located."
+ },
+ {
+  "arxiv": "gr-qc/9701064",
+  "title": "Self-consistent wormhole solutions of semiclassical gravity",
+  "authors": "David Hochberg, Arkadiy Popov, Sergey V. Sushkov",
+  "journal_ref": "Phys. Rev. Lett. 78, 2050 (1997)",
+  "doi": "10.1103/PhysRevLett.78.2050",
+  "evidence": "https://link.aps.org/doi/10.1103/PhysRevLett.78.2050",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 17 Mar 1997. Agrees with audit_located."
+ },
+ {
+  "arxiv": "gr-qc/9702026",
+  "title": "The unphysical nature of \"Warp Drive\"",
+  "authors": "Michael J. Pfenning, L. H. Ford",
+  "journal_ref": "Class. Quantum Grav. 14, 1743 (1997)",
+  "doi": "10.1088/0264-9381/14/7/011",
+  "evidence": "https://iopscience.iop.org/article/10.1088/0264-9381/14/7/011",
+  "confidence": "confirmed-by-source",
+  "notes": "The same reference is also given as '[4] M. J. Pfenning and L. H. Ford, Class. Quantum Grav. 14, 1743 (1997), gr-qc/9702026' in Olum gr-qc/9805003 (read through alphaXiv)."
+ },
+ {
+  "arxiv": "gr-qc/9802046",
+  "title": "Dynamic wormholes, anti-trapped surfaces, and energy conditions",
+  "authors": "David Hochberg, Matt Visser",
+  "journal_ref": "Phys. Rev. D 58, 044021 (1998)",
+  "doi": null,
+  "evidence": "WebSearch summary pairing gr-qc/9802046 with 'Dynamic wormholes, anti-trapped surfaces, and energy conditions', PRD 58 (1998) 044021; the audit found the same reference in two independent bibliographies",
+  "confidence": "inferred",
+  "notes": "The title comes from the search summary; I did not read the paper's first page. Agrees with audit_located. DOI not seen. Do not confuse it with Hochberg & Visser gr-qc/9704082, PRD 56, 4745."
+ },
+ {
+  "arxiv": "gr-qc/9802048",
+  "title": "The null energy condition in dynamic wormholes",
+  "authors": "David Hochberg, Matt Visser",
+  "journal_ref": "Phys. Rev. Lett. 81, 746 (1998)",
+  "doi": "10.1103/PhysRevLett.81.746",
+  "evidence": "https://link.aps.org/doi/10.1103/PhysRevLett.81.746 ; https://ui.adsabs.harvard.edu/abs/1998PhRvL..81..746H/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "Published Jul 1998."
+ },
+ {
+  "arxiv": "gr-qc/9805003",
+  "title": "Superluminal travel requires negative energies",
+  "authors": "Ken D. Olum",
+  "journal_ref": "Phys. Rev. Lett. 81, 3567 (1998)",
+  "doi": "10.1103/PhysRevLett.81.3567",
+  "evidence": "https://link.aps.org/doi/10.1103/PhysRevLett.81.3567 ; the title and author were read from the paper's first page through alphaXiv (v2, 14 Oct 1998)",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with audit_located. Caution: the results also show an ADS record 1998gr.qc.....6091O and an arxiv.org/pdf/gr-qc/9806091 with the same title. A second arXiv number may carry the same paper, so check which one the journal record lists if it matters."
+ },
+ {
+  "arxiv": "gr-qc/9812032",
+  "title": "Bounds on negative energy densities in static space-times",
+  "authors": "Christopher J. Fewster, Edward Teo",
+  "journal_ref": "Phys. Rev. D 59, 104016 (1999)",
+  "doi": null,
+  "evidence": "WebSearch summary naming PRD 59 (1999) 104016 for gr-qc/9812032; results included arxiv.org/abs/gr-qc/9812032 and Fewster's publication list (www-users.york.ac.uk/~cjf3/publications.htm)",
+  "confidence": "confirmed-by-source",
+  "notes": "Agrees with audit_located. DOI not seen."
+ },
+ {
+  "arxiv": "hep-th/0202068",
+  "title": "Ground state energy in a wormhole space-time",
+  "authors": "Nail R. Khusnutdinov, Sergey V. Sushkov",
+  "journal_ref": "Phys. Rev. D 65, 084028 (2002)",
+  "doi": "10.1103/PhysRevD.65.084028",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.65.084028",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 15 Apr 2002. Agrees with audit_located."
+ },
+ {
+  "arxiv": "hep-th/0402058",
+  "title": "Flat space physics from holography",
+  "authors": "Raphael Bousso",
+  "journal_ref": "JHEP 0405, 050 (2004)",
+  "doi": "10.1088/1126-6708/2004/05/050",
+  "evidence": "https://iopscience.iop.org/article/10.1088/1126-6708/2004/05/050 ; https://ui.adsabs.harvard.edu/abs/2004JHEP...05..050B/abstract",
+  "confidence": "confirmed-by-source",
+  "notes": "Single author (UC Berkeley / LBNL), which matches the UCB-PTH-04/02 preprint number in the audit. Agrees with audit_located."
+ },
+ {
+  "arxiv": "quant-ph/0504143",
+  "title": "The electromagnetic field stress tensor between dielectric half-spaces",
+  "authors": "V. Sopova, L. H. Ford",
+  "journal_ref": "Phys. Rev. D 72, 033001 (2005)",
+  "doi": "10.1103/PhysRevD.72.033001",
+  "evidence": "https://journals.aps.org/prd/abstract/10.1103/PhysRevD.72.033001",
+  "confidence": "confirmed-by-source",
+  "notes": "Published 2 Aug 2005. The audit_located names only the companion quant-ph/0204125 (PRD 66, 045026), not this paper's own journal ref."
+ }
+]

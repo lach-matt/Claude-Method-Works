@@ -1,0 +1,30 @@
+PASS Q0a fluctuation.py:114-116 carries a quotation
+PASS Q0b the quotation occurs verbatim in the source text (saved note)
+PASS Q0c the source sentence is time-indexed ('has not yet been developed')
+PASS Q0d the source restricts the remark to normal-ordered quartic products and names averaging as the route 'without invoking normal ordering'
+PASS Q0e ledger.py D22_DOCKET62 applies the remark to the SMEARED price
+PASS Q0f ledger.py D22_DOCKET62 drops the time index ('said did not exist')
+PASS Q1 Var(A + c 1) == Var(A) for generic A, generic unit-trace rho
+PASS Q1' but <(A + c1)^2> != <A^2> (the shift is NOT invisible in a 2nd moment)
+PASS sanity :a a+:_vac == a+ a
+PASS sanity <:X1X2:_ref>_ref == 0
+PASS sanity <:X1X2X1X2:_ref>_ref == 0
+PASS Q2a quadratic: :X1X2:_vac - :X1X2:_ref is a pure c-number
+PASS Q2b quartic: :X1X2X1X2:_vac - :...:_ref has operator-valued part
+PASS Q2c ...and that part is QUADRATIC only (lower Wick power, c-number coeffs)
+PASS Q3 Var_psi(:X1X2:_vac) == Var_psi(:X1X2:_ref) identically
+PASS Q2d <:A^2:>_psi shift depends on the STATE psi (not a constant)
+   Q4 one quadrature, psi=S(1/2): vac ref Delta=0.666667 ; S(-1/5) ref Delta=0.666667
+PASS Q4a vacuum-ordered Delta, zero-mean Gaussian single mode == 2/3 (KF/tree value)
+PASS Q4b RECORD (against over-reading): with ONE quadrature the reference change is INVISIBLE in Delta (<:X^4:> = 3<:X^2:>^2 for any Gaussian pair)
+   Q4 two quadratures, psi=S(1/2): vac ref <T>=0.543081 Delta=0.850360 ; S(-1/5) ref <T>=0.462008 Delta=0.927451
+PASS Q4c with TWO quadratures KF's Delta CHANGES with the reference state
+   Q4 Var(T): vac ref 2.762195691 ; S(-1/5) ref 2.762195691
+PASS Q4d ...while the variance does NOT
+PASS Q5a :x^4:_g == x^4 - 6 g x^2 + 3 g^2
+PASS Q5b :x^4:_s - :x^4:_t == -6(s-t) :x^2:_t + 3(s-t)^2
+22/22 PASS
+
+real	0m2.012s
+user	0m1.109s
+sys	0m0.042s

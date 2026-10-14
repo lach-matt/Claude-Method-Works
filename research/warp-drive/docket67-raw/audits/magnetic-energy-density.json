@@ -1,0 +1,70 @@
+{
+ "key": "magnetic-energy-density",
+ "name": "Magnetic energy density u = B^2/(2 mu_0)",
+ "source": {
+  "located": "Classical electrodynamics: Maxwell's field energy density (Maxwell 1865/1873; standard restatements Jackson Classical Electrodynamics sec. 6.7, Landau-Lifshitz vol. 2 sec. 31-33). Intended arXiv restatements for the vacuum-QED limit: Dunne, 'Heisenberg-Euler effective Lagrangians: basics and extensions', hep-th/0406216; CODATA 2022, arXiv:2409.03787, for mu_0.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ AT SOURCE: every alphaXiv call (answer_pdf_queries on hep-th/0406216 and 2409.03787, get_paper_content fullText on both, discover_papers) returned 'alphaXiv assistant quota exceeded' on 2026-09-26; direct arxiv.org and export.arxiv.org fetches returned proxy 403 (recorded in $HTTPS_PROXY/__agentproxy/status recentRelayFailures). In place of a read: (i) the formula was DERIVED here in sympy from the SI Maxwell action by metric variation (rederive script part A) -- that derivation takes the Maxwell action S = INT sqrt(-g)(-1/(4 mu0)) F_ab F^ab as its input; (ii) the CODATA 2018 and 2022 mu_0 values were READ from the NIST tables bundled verbatim in scipy 1.17.1 scipy/constants/_codata.py (txt2018 line 1527, txt2022 line 1981), a data read, not an arXiv read."
+ },
+ "published_statement": "NOT QUOTED FROM SOURCE (unread, see source.via). The statement as derived here from the Maxwell action: T_00 = (eps0 E^2 + B^2/mu0)/2 in J/m^3, hence for E = 0 the field energy density u = B^2/(2 mu0); the magnetic stress is T_ij = (1/mu0)(delta_ij B^2/2 - B_i B_j) (tension B^2/2mu0 along B, pressure B^2/2mu0 across it).",
+ "published_hypotheses": [
+  "classical (non-quantised) Maxwell theory: linear vacuum electrodynamics, no vacuum polarisation -- valid for B << B_c = m_e^2 c^2/(e hbar) = 4.414e9 T (computed here from CODATA 2022)",
+  "vacuum (mu = mu0); in a linear medium the field energy is B.H/2, not B^2/2mu0",
+  "SI units with x^0 = ct; u is the 00 component of the stress-energy tensor -- the energy density measured by a static observer -- NOT a null contraction T_kk",
+  "flat background (or local inertial frame); minimal coupling"
+ ],
+ "hypothesis_drift": [
+  "ADDED -- u identified with T_kk. spec.py:156 (seating_invariant = sqrt(2 mu0 T_COEFF), i.e. B^2/2mu0 := T_kk), spec.py:271-276 (WITHDRAWN 2 compares u_far to seatindex.tkk_required), spec.py:303-304 (consistency check energy_density(1e11) vs tkk_required(1.5456e8)); seatindex.py:209-211 defines the threshold on T_kk. Machine-checked here (part B): for E = 0 and null k = (1,n), T_kk = (B^2/mu0) sin^2(theta) = 2u sin^2(theta), ranging over [0, 2u]; it equals u only at sin^2(theta) = 1/2. The source's u is T_00, not T_kk. Same identification in charge.py:145-152 (magnetic_energy_density fed to seats_beyond), not a listed owner.",
+  "DROPPED -- B << B_c (classical vacuum). spec.py:140-146 FIELDS lists 1e11 T and 1e12 T (22.7 and 227 B_c) and spec.py:304 evaluates the classical u at 1e11 T. One-loop Euler-Heisenberg, computed here (part D), changes u by -9.57e-4 relative at 1e11 T; inside the 1e-3 tolerance of spec.py:303-304, and irrelevant at the 2.7e-2 T far field (-1.9e-27).",
+  "KEPT but unstated -- vacuum. spec.py:143-145 lists 'theoretical material limit' and 'magnetar interior (est.)'; energy_density is only evaluated at 1e11 T (vacuum magnetosphere) and at the far field, and engineering_gap (spec.py:182-184) uses only the ratio (B_t/B_h)^2, so no in-medium value is computed. No drift in computed use; the canonical entry's hypothesis 'vacuum, SI units' matches the source."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "mu_0 (vacuum magnetic permeability)",
+   "value_then": "1.25663706212(19)e-6 N/A^2 = CODATA 2018 (spec.py:135; scipy _codata.py txt2018 line 1527). Pre-2019 SI: exactly 4 pi e-7.",
+   "value_now": "1.25663706127(20)e-6 N/A^2 (CODATA 2022)",
+   "source_now": "CODATA 2022 as bundled in scipy 1.17.1 scipy/constants/_codata.py txt2022 line 1981 (arXiv:2409.03787 not readable here: quota)",
+   "moves_conclusion": "No. u moves by +6.76e-10 relative (computed, part C); every tree comparison is at 1e-3 tolerance or orders-of-magnitude."
+  },
+  {
+   "quantity": "B_c = m_e^2 c^2/(e hbar), the field above which the classical formula acquires QED corrections",
+   "value_then": "not used by the tree",
+   "value_now": "4.4140e9 T (computed from CODATA 2022 m_e = 9.1093837139e-31 kg, e and hbar exact)",
+   "source_now": "scipy 1.17.1 _codata.py txt2022",
+   "moves_conclusion": "No. At 1e11 T (b = 22.655) the one-loop correction is du/u = -9.57e-4; at the WITHDRAWN-2 far field (2.708e-2 T) it is -1.9e-27."
+  },
+  {
+   "quantity": "u(1e11 T) as used in spec.py:304",
+   "value_then": "3.978873575e27 Pa (tree MU0)",
+   "value_now": "3.978873578e27 Pa (2022 MU0); ~3.975e27 Pa with one-loop EH",
+   "source_now": "computed, rederive part C/D",
+   "moves_conclusion": "No: tkk_required(1.5456e8) = 3.978989e27, ratio-1 = 2.9e-5 (tree) and ~9.9e-4 with EH; both inside the 1e-3 tolerance. The check is internal (the 1.5456e8 m was itself defined from u)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/magnetic-energy-density.py",
+  "outcome": "ALL CHECKS OK (exit 0, ~3 s). (A) Hilbert stress tensor from the SI Maxwell action by differentiating sqrt(-g)L w.r.t. g^ab: T_00 = (eps0 E^2 + B^2/mu0)/2 exactly; E=0 gives B^2/(2 mu0) = spec.py:178-179; trace zero. (B) E=0, null k=(1,n): T_kk = 2u sin^2(theta), NOT u. (C) tree invariant 1.54562e19 T m reproduced; with T_kk = 2u (B across path) it would be 1.09292e19 (factor 1/sqrt2). WITHDRAWN 2: u-as-T_kk gives 7.34e-26 (25.13 orders short); T_kk = 2u gives 1.47e-25 (24.83 orders); T_kk = 0 along the axis -- the withdrawal holds under every orientation. Seat/collapse with T_kk = 2u would be pi^2/3 = 3.29 instead of 2pi^2/3 = 6.58, still > 1 (context only; WITHDRAWN 1 is posed for generic u). (D) one-loop EH (Schwinger proper-time representation, NAMED-NOT-READ, integrand validated only to reproduce its own weak-field -alpha b^2/45pi): du/u = -9.57e-4 at 1e11 T; approaches -(alpha/3pi)(ln b - 2.29) at large b (checked b = 1e4..1e8); far field -1.9e-27.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Heisenberg & Euler 1936; Schwinger 1951 (proper-time one-loop effective Lagrangian); review Dunne hep-th/0406216",
+   "effect": "narrows",
+   "what": "Quantum vacuum polarisation makes B^2/2mu0 the leading term of u = -L_eff(B); the correction is O(alpha b^2) below B_c and logarithmic above it. Computed here numerically: -9.57e-4 at 1e11 T. Narrows the formula's validity to B << B_c at the 1e-3 level; does not move any tree conclusion.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; the proper-time integral used in the rederivation was written from the standard form, not read at source)"
+  },
+  {
+   "ref": "discover_papers (Euler-Heisenberg / magnetar / energy density), 2026-09-26",
+   "effect": "contested",
+   "what": "The one permitted discovery call returned 'alphaXiv assistant quota exceeded'; no later literature was retrieved. Recorded so the absence is a failed read, not a finding that none exists. (Effect field forced by schema; no contest is claimed.)",
+   "read_status": "NOT RUN -- quota"
+  }
+ ],
+ "lacked_data": "What classical electrodynamics lacked: (1) quantum vacuum polarisation (Heisenberg-Euler 1936) and any observed field near B_c = 4.414e9 T -- magnetar-class fields (~1e11 T) are the exact regime the tree evaluates at spec.py:304. Having that data changes u by -9.57e-4 at 1e11 T (computed), inside the tree's 1e-3 tolerance, and by -1.9e-27 at the far field where WITHDRAWN 2 is decided; no conclusion moves. (2) The post-2019 SI makes mu_0 measured rather than exact; the tree already uses the measured CODATA 2018 value, and the 2022 update moves u by 6.8e-10. Evidence against M's hypothesis for this result: the classical formula is exact within its stated hypotheses and follows from the action (machine-checked). Evidence for a narrowing: it is a vacuum, classical, T_00 statement -- the substantive gap is not missing data but the tree's identification of T_00 with T_kk (factor 2 sin^2(theta)), which is a use-site drift, not a defect of the external result.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external formula u = B^2/(2 mu0) is re-derived exactly from the SI Maxwell action (sympy, part A) and the mu_0 move (2018->2022, 6.8e-10) moves nothing -- as a statement it stands. It is graded NARROWED because the tree uses it on a larger class than it holds: (i) the tree treats u as the null contraction T_kk (spec.py:156, 271-276, 303-304; seatindex.py:209-211), while for a pure magnetic field T_kk = 2u sin^2(theta) in [0, 2u] (machine-checked, part B); (ii) the tree drops B << B_c and evaluates at 1e11 T = 22.7 B_c, where one-loop QED shifts u by -9.57e-4 (computed, part D). NEITHER MOVES A TREE CONCLUSION: WITHDRAWN 2 stays > 24.8 orders short under every orientation (and infinitely short along the axis); the withdrawn B*l invariant would read 1.09292e19 rather than 1.54562e19 T m if B lay across the path -- a numerical discrepancy in an already-withdrawn figure, recorded not repaired; the spec.py:303-304 consistency check passes with or without the EH shift. Caveat carried: the source was NOT read at source (alphaXiv quota, arxiv 403) -- the grade rests on the in-environment derivation from the Maxwell action and on CODATA read from scipy's bundled NIST table.",
+ "what_would_change_the_grade": "To STANDS: the tree restricting its use to T_00 (or writing T_kk = 2u sin^2(theta) with the path orientation declared) and stating B << B_c (or carrying the EH correction) where it evaluates at magnetar fields. To OPEN-flagged re-audit: a read at source (Jackson/L&L restatement on arXiv, Dunne hep-th/0406216, CODATA 2409.03787) that disagreed with the sympy derivation -- not expected, but the read has not happened. Nothing on record would make it WRONG: no counterexample to the formula within its hypotheses exists here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/magnetic-energy-density.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 spec.py --selftest | tail -8",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/magnetic-energy-density.json"
+}

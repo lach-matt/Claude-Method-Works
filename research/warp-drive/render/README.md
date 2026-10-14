@@ -37,8 +37,23 @@ One plate per seated index, all on the shared scaffold in `plate.py`, so the sty
 measured axis choice, the swept camera and the inlined runtime are one implementation rather than
 one per plate.
 
+> **WITHDRAWN, and then re-earned.** That first sentence was *false* when it was written and stayed
+> false for four registry rows: the register held 27 rows and **23 of them had a rendering**.
+> `deformedbands` (row 24), `phonondex` (25), `kpointdex` (26) and `corepdex` (27) had **none at
+> all**. Rows 13, 14 and 18 are the `overlaprule` sub-charts and *are*
+> rendered, in `overlaprule-plate.html`, under the chart's own name — `gravity (B, F, X)`,
+> `madelung (n+l, k)`, `baryons (2I, Q3)` — rather than under the registry key, which is why a grep
+> for `gravity_bound` finds nothing there. With the four below built, the sentence is true: **27
+> rows, 27 renderings.**
+
     python3 build_index_plates.py              the periodic-element indexes
-    python3 build_particle_plates.py           DOCKET 27's three particle indexes
+    python3 build_particle_plates.py           DOCKET 27's three particle indexes,
+                                               and DOCKET 30/31/32/34/35/36b's
+    python3 build_crystal_plates.py            the crystal-symmetry chain:
+                                               phonondex, kpointdex, corepdex
+    python3 build_particle_plates.py nucbands  one of the two plates with NO 3-D
+                                               view: its index is arity 2, and every
+                                               third axis is a DIFFERENT chart at K0
     python3 build_particle_plates.py mesons    just one
 
 **Every figure on a plate is read from its instrument at build time.** Nothing is retyped, and each
@@ -58,3 +73,61 @@ that plate states as a finding, showing up in the rendering.
 Each particle plate also carries a provenance block read from `registry.sources()`: the declared
 `SOURCE` beside the code that reads the data, the file it names, its size and its md5. A provenance
 held only in prose has to be recovered later.
+
+`build_crystal_plates.py` writes `phonondex-plate.html`, `kpointdex-plate.html` and
+`corepdex-plate.html`. They are **one chain and not three unrelated indexes**, and each plate names
+the refusal the next one discharges: `phonondex` declines k ≠ Γ because the little group's
+representations are projective there, `kpointdex` discharges exactly that and records a second
+obstruction it does not repair, and `corepdex` discharges that one. **All three are arity 3, so
+each 3-D view is the index itself** — nothing projected, nothing collapsed, and
+`plate.exactness()` says so in the caption. The phonon plate's camera sweep finds no angle
+satisfying every constraint and falls back to the house default, printing that it did; three
+earlier plates already do the same.
+
+`build_particle_plates.py deformedbands` writes the fourth. Its index is arity 2, so like
+`nucbands` it gets **no 3-D view and none is padded into one**: `parity_ladder_svg()` draws the
+(2I, parity) chart flat, one square per cell, with the six positions in the box that the chart does
+*not* hold drawn open and dashed. Those six are not scattered — both parities are held at every 2I
+from 0 to 88, and above that a single parity survives at each spin, alternating. The picture is
+read from `deformedbands.index()`; the caption's counts are recomputed from it at build time.
+
+## The two legacy builders, and the inputs that were missing
+
+`build_plates.py` and `build_plates8.py` predate `plate.py` and are **not** on the shared scaffold:
+each inlines its own frozen copy of the pre-`scatter3d.js` widget. Both **raised
+`FileNotFoundError` at import** — they read `style.css`, `w3d.js` and a points file at module level
+and none of the four had ever been committed. Nothing in the tree said so.
+
+    python3 build_plates.py              ion.html, axs.html, rid.html
+    python3 build_plates8.py             spx.html, ent.html, oct.html
+    python3 build_plates.py  --selftest  14 fixtures
+    python3 build_plates8.py --selftest  17 fixtures
+
+**The inputs were RECOVERABLE, and are restored by extraction from the plates themselves** — a
+plate inlines its stylesheet, its widget and its points, so it is a complete record of what built
+it. Git history has never held any of the four (`--diff-filter=D` and `--diff-filter=A` both
+empty); the two other `style.css` the search turns up were each checked and neither is this one —
+`recovered/style.css`, on disk, is 700 bytes of unrelated DejaVu print CSS, and `public/style.css`,
+in history only, is the website's own sheet, whose 16 committed versions were hashed and none
+matches.
+
+| file | bytes | md5 | recovered from |
+|---|---|---|---|
+| `style.css` | 7,280 | `bfec0696c0e551145759a290ad5d500a` | identical in all seven plates here |
+| `w3d-r1.js` | 5,753 | `f9348be9b963d26e2c63240fc974e060` | `ions`, `axes`, `rindex` plates |
+| `w3d-r2.js` | 6,542 | `4154dde8161ec3e0dc154fadab88e7dd` | `spectra`, `entropy`, `octad`, `hexad` |
+| `new_pts.json` | 4,715 | `7b827facb5d6d2dc9a0c63293034c159` | the three `scatter3d(...)` calls |
+| `oct_pts.json` | 8,544 | `604eb92e920b965623cc531e11fdbb08` | the three calls, plus the octad's 28 edges |
+
+**`w3d.js` is re-pinned to two files because one name held two contents.** `plate.py` records the
+count from the other side — "three generations have since diverged" — and these are those three:
+r1, r2 (r1 plus the `opts.edges` pass and the hollow-point branch, which is why only the octad can
+draw its threads) and `scatter3d.js` at 7,975 bytes. The ambiguous name is retired rather than
+given one of its two meanings, and `scatter3d.js` is **not** a substitute: a plate built against it
+is a different plate.
+
+**All six rebuilt pages are byte-identical to the plates in the tree** — `ion.html` ==
+`ions-plate.html` and so on, the `-plate` names being a rename that happened outside these
+programs. Each selftest rebuilds its three in memory and compares md5s, so the pairing cannot
+quietly stop holding. Inputs now resolve against the file's own directory; outputs still land in
+the working directory, unchanged.

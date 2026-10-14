@@ -1,0 +1,12 @@
+PASS R1   k null (k.k=0); R_kk - kappa T_kk = 0 (trace term and Lambda both drop)
+PASS R2   Raychaudhuri(theta=2G'/G) == 2*[G''/G + (S - W + R_kk)/2]; W=0 is Gao-Wald eq.(13)
+PASS R3   R_kk/2 = (8 pi G/c^4) T_kk / 2 = (4 pi G/c^4) T_kk; units of q: m**(-2)
+PASS R4   point data: first zero pi/sqrt(q) (tree's figure); parallel data: pi/(2 sqrt q)
+PASS R5   60 random profiles q>=q0=1, S>=0: every first zero <= pi/sqrt(q0)=3.141593 (max seen 2.151364); equality case q=q0,S=0 gives 3.141593 (bound is sharp)
+PASS R6   q<=0, S=0: no zero on [0,20] in 30 profiles; q>0 only on [0,1.6] with int q = -914 < 0 still focuses at 1.57080 = pi/2
+PASS R7   R_kk = -1/5 < 0 (T_kk < 0) yet det J = 0 at pi/sqrt(w-e) = 3.311529; eq.(13) residual max 7.6e-124 along it
+PASS R7b  plane wave H=-(w-e)x^2+(w+e)y^2: R_uu = -1/5 (= -2e < 0), tidal R^i_uju = [9/10, 0, 0, -11/10] -- R7 is an exact GR spacetime (T_uu = R_uu/8pi < 0 null dust + a gravitational-wave Weyl part); geodesic x=y=0 with affine u
+PASS R8   dust T_kk=rho; fluid T_kk=rho+p; magnetic T_kk=2u sin^2(alpha) (=2u perpendicular, 0 along B). spec.py:304 sets T_kk=u: withdrawn ratio 2pi^2/3=6.5797 -> pi^2/3=3.2899 at perpendicular incidence, still >1
+PASS R9   water rho=1000: q=9.3320e-24 m^-2, pi/sqrt(q)=1.0284e+12 m = 6.87 AU (point-to-point, constant q, shear-free); G rel. unc. 2.2e-05 -> length rel. 1.1e-05; sign condition G-independent
+
+10/10 checks passed

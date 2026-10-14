@@ -1,0 +1,33 @@
+  [ok] J0: K from Christoffels = eta f'/(2 sqrt f), eta sqrt f/a for k = 1, 0, -1
+  [ok] J1: rho = -(3/kappa^2) Phi and p = (a Phi' + 3 Phi)/kappa^2 exactly (owner israel per side)
+  [ok] J1 control: mirrored flat AdS keeping R < a gives +sigma_RS = 6/(kappa^2 ell), p = -sigma_RS
+  [ok] J1 mutation (owner israel's trace_from = 1, the spatial trace only): the RS control fails -- the check can fail
+  [ok] J2: Kraus eq. (14) reproduces his eq. (18) exactly (READ source, computed check)
+  [ok] C0: pure AdS5, flat: Phi' = 0 identically for all four orientations (a flat plane balances anywhere)
+  [ok] C0: at the RS value a mirrored flat plane balances at every a; at tau = 0.9, 1.1 at none
+  [ok] C0b: owner t5c/lemma_t give s2 = -1 at s1 = 1, and this junction gives -1 for a mirrored plane keeping R > a
+  [ok] L1: a mirrored plane at the RS value has no static position for mu != 0 (k = 1, 0, -1): only mu = 0 or none
+  [ok] L1 proof: F(u*) - 1 = k^2/(4 mu) at u* = k/(2 mu)
+  [ok] C1 control: off RS (tau = 11/10, k = 1) one static position, a^2 = 2 mu, mu = 25/21 (an equality appears)
+  [ok] L2: two-sided at RS, any masses: k = 1 forces u = -2(t - 1)^2 <= 0 (no plane); k = 0 forces t = s = 1, mu = 0
+  [ok] L2: far side corridor-free: k = 1 none, k = 0 only mu = 0 (the control), k = -1 only mu = -27/8, u = 8/9 (a^2 = 9 ell^2/8); below -1/4: no horizon
+  [ok] L2: the k = -1 family (Kraus eq. 18) at Delta = 4 satisfies both junctions to 1e-35, with mu_p = 0.110 > 0 (a horizon on the slab side) and mu_m = -3.890 < -1/4 (a naked far side)
+  [ok] L2 sign filter: at Delta = 1/10 eq. (18)'s static point has a negative root (spurious: a side not decaying)
+  [ok] owner multiplane M4: k_R = 3 k_L/4, tensions +4/3, -1/3 of the outer one-plane value (T1's input)
+  [ok] T1 flat control: ours (mirrored, RS) and position 2's single sheet (-1/8 = PRZ's -1/4) balance at every a
+  [ok] T1d control: the -1/4 placed on the single sheet with k_R = 3k_L/4 fails the flat control (K5's count matters)
+  [ok] T2/T3/T4 and the four STAGE7 K4 rows pass the flat control (the rows rebuilt from the flat junction reproduce K4's curvatures)
+  [ok] E: under every repository convention (T1-T4, STAGE7 K4's rows), k = 1, 0, -1: no admissible two-plane solution with the corridor
+  [ok] E: the board's non-mirrored variant, all 16 orientations, k = 1, 0, -1: no admissible solution
+  [ok] E: every positive-dimensional case forces the corridor to vanish (mu u1 in the ideal): the k = 0 modulus
+  [ok] E control: the flat (k = 0) modulus is admissible exactly where the flat control passes (T1, T2, T3, T4, and the variant's LR orientation (-1,-1,+1,-1))
+  [ok] L2: the k = -1 family's static point is a maximum of Kraus's V: V'' = -(3/4) D^2/R^8 (unstable equilibrium)
+  [ok] Q: charged, mirrored at RS: only k = 1 with mu = 2q, u = 1/q (k = 0, -1 none)
+  [ok] Q: that charged bulk (k = 1, mu = 2q) has no horizon: f = (1 - q/R^2)^2 + R^2 > 0
+  [ok] Q: charged, ours mirrored at RS (k = 1, mu = 2q, a1^2 = q), position 2 under T1 or T2, outer charge q or 0: no admissible solution
+  [ok] R_h: Kraus eq. (9) solves f(R_h) = 0 for k = 1, 0, -1
+  [ok] M184: with matter on our flat plane at the RS tension every a balances; a corridor of positive mass needs rho_m < 0 and rho_m + p_m < 0 there (NEC broken on the plane), mu < 0 gives both > 0, mu = 0 gives 0
+  [ok] owner b6_k B6a: k_R/k_L = 3/4 and the tension ratio -1/4 (kderive K3)
+selftest: 30/30
+exit 0
+done

@@ -1,0 +1,104 @@
+{
+ "key": "2309.10848",
+ "name": "Fliss, Freivogel, Kontou & Pardo Santos 2023: NMC null energy inequalities -- Thm IV.1 eq.(72) (curved, state-dependent) and the Minkowski DSNEC/SNEC forms eqs.(80)-(96) on states with bounded field values; tree's |rho| ~ hbar c/(l_UV^2 delta^2)",
+ "source": {
+  "located": "J.R. Fliss, B. Freivogel, E.-A. Kontou, D. Pardo Santos, 'Non-minimal coupling, negative null energy, and effective field theory', arXiv:2309.10848v1 [hep-th], 19 Sep 2023 (dated 21 Sep 2023), 31+ pp.; journal version SciPost Phys. 16, 119 (2024) (citation as given in 2512.04934 ref.[85]) NOT read.",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true), whole v1 text read sequentially (78,727 chars, Secs. I-VI incl. eqs. (1)-(122)); saved at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.txt (raw) and .flat/.fold. Only v1 read; the tree's precedent (fluctuation.py) applies: the discrepancies below are NOT to be quoted against the SciPost version until it is read."
+ },
+ "published_statement": "(a) THEOREM IV.1 (Sec. IV.B, eq. 72): 'Let f be any real-valued test function compactly supported in a small sampling domain. Let l^mu be a null vector field defined in the neighbourhood of support of f. Then, for all Hadamard states psi, <:rho_n:(f^2)>_psi >= -2 INT_D d^n alpha/(2pi)^n ((Q x Q)W_0)_kappa(fbar_alpha, f_alpha) - xi <:phi^2:(Q[f])>_psi', Q = l^mu nabla_mu, Q[f] = nabla_mu nabla_nu(l^mu l^nu f^2) + (1/2) R_mn l^m l^n f^2 (69b); 'the QEI derived holds for any value of the coupling constant xi'; 'as this bound is derived by discarding positive terms we do not expect it to be optimal'. (b) MINKOWSKI forms (Sec. IV.C-D, reference state the Minkowski vacuum): 'We can make progress if we focus on the class of states obeying <:phi^2:>_psi <= phi^2_max (79)'; DSNEC (85)/(86) '>= -N~_n[gamma, xi, phi~^2_max]/((delta+)^((n-2)/2) (delta-)^((n+2)/2))'; SNEC limit delta+ -> 0, delta+ delta- -> l_UV^2: 'INT dx- f-(x-)^2 <T_--(x+ = beta, x-)>_psi >= - N_n[gamma, xi, phi~^2_max]/(l_UV^(n-2) (delta-)^2)' (91); massless explicit form (93): '>= - p_n/l_UV^(n-2) INT dx- (d_- f)^2 - |xi| phi~^2_max/l_UV^(n-2) INT dx- (d_-^2 (f^2))', p_n = 4(n-2)^-1 pi^(-n/2) Gamma((n-2)/2)^-1; Q_0 = l_UV^-n (p_n/2 + 2|xi|phi~^2_max), Q_2 = l_UV^-(n-4)(p_n/2 + 2|xi|phi~^2_max) (96); 'If we take the EFT approach as before, and consider phi^2_max ~ M^(n-2)_cutoff ~ l_UV^-(n-2), then phi~_max is of order 1.' (c) Sec. V: 'suggest that phi^2_max <~ (8 pi G_N |xi|)^-1'; conservative conclusion 'when viewed as an EFT with field values bounded by |8 pi G_N xi phi^2| << 1, the mapping from Jordan frame to Einstein frame can also be done in the quantum theory'. (d) Sec. II.C: 'so far it seems that it is impossible to construct traversable wormholes in the Jordan frame without unphysical field values.'",
+ "published_hypotheses": [
+  "H1 (Thm IV.1) free massive scalar, V = m^2 phi^2/2, NON-minimal coupling xi R phi^2, any real xi; algebraic quantisation on a globally hyperbolic time-oriented M",
+  "H2 (Thm IV.1) Hadamard state psi AND a reference Hadamard state psi_0 with two-point function W_0: a DIFFERENCE QEI, left side <T^ren>_psi - <T^ren>_psi0 (59)",
+  "H3 (Thm IV.1) f real, compactly supported in a SMALL SAMPLING DOMAIN (open set in a globally hyperbolic convex normal neighbourhood, one hyperbolic chart, bounded coordinate speed of light (66)); l^mu a null vector field near supp f",
+  "H4 (Thm IV.1) the bound is STATE-DEPENDENT through -xi <:phi^2:(Q[f])>_psi; not optimal (positive terms discarded)",
+  "H5 (eqs. 75-96) MINKOWSKI spacetime, reference state the (massless or massive) Minkowski vacuum; smearing restricted to the two null directions, f^2 = f(x+,x-)^2 delta^(n-2)(y) (76)",
+  "H6 (eqs. 79-96) the STATE CLASS: <:phi^2:>_psi <= phi^2_max (79) as printed; Sec. V restates it as |<:phi^2:>_psi| < phi^2_max -- the bound is state-independent only on this class",
+  "H7 (eq. 91) SNEC limit: delta+ -> 0 with delta+ delta- -> l_UV^2, factorised smearing (90); the smearing is ALONG ONE NULL GEODESIC x+ = beta in the null coordinate x- = t - x^1, of width delta-",
+  "H8 (eqs. 82, 93, 95-96) massless field and factorised test function (81) for the explicit coefficient p_n",
+  "H9 (EFT identification) a single cutoff: k^2_max ~ phi^(4/(n-2))_max ~ M^2_cutoff (2), phi^2_max ~ l_UV^-(n-2), giving phi~^2_max = O(1); 'a different bound might be imposed for phi_max as in Ref. [26]'",
+  "H10 (Sec. V) the EFT bound phi^2_max <~ (8 pi G_N |xi|)^-1 is ARGUED (constrained instantons, Jordan frame) for xi > 0 only; for xi < 0 'there is no natural reason to associate this field cutoff with the Planck scale'; the Jacobian of the field redefinition is not computed ('beyond the scope of this work')",
+  "H11 one scalar field: 'multiple scalar fields simply add, leading to an overall factor of the number of fields in the bound'",
+  "H12 units hbar = c = 1, signature (-,+,...,+), null derivative d_- = (d_t - d_1)/2 (eq. 5 conventions)"
+ ],
+ "hypothesis_drift": [
+  "CHANGED (component), candidates.py:185-188 and 413-415 ('|T_--| <~ ... In four dimensions and SI units that is |rho| ~ hbar c/(l_UV^2 delta^2)'; nmc_allowed docstring 'Their Eq. 91/96 at n = 4'), overturn.py:291-292 ('the EFT bound is |rho| ~ ...'): FFKP bound the smeared NULL-NULL component T_-- (H5,H7), not the energy density rho. With the paper's l_- = d_- = (d_t - d_x)/2, T_-- = (T_tt - 2T_tx + T_xx)/4 (sympy G1): for a static source with only T_tt, T_-- = rho/4, a factor 4 the identification drops (moves the crossover by a factor 2 in l_UV); and structurally a null bound does NOT bound rho at all -- rho = -A, p_x = +A gives T_-- = 0 for every A (sympy G2). The tree's requirement rho_needed = c^4/(G Lambda R^2) (candidates.py:336-338) is an energy density, so the comparison is valid only under an unnamed hypothesis that the requirement's negative energy is negative NULL energy of the same magnitude.",
+  "CHANGED (smearing geometry), candidates.py:418-419 (nmc_shortfall(l_uv, R) = rho_needed(R)/nmc_allowed(l_uv, R), i.e. delta := R): FFKP's delta- is the width of a smearing along a single null geodesic x+ = beta in the null coordinate x- (H7), with the transverse directions delta-function localised (76); the tree sets it equal to the corridor's spatial size R. The exponent match (delta^-2 vs R^-2) survives this identification; the O(1) factor does not have a derivation.",
+  "DROPPED (background), candidates.py:180-243, 407-441 and overturn.py:291-307: eqs. (80)-(96) are proved in MINKOWSKI spacetime only (H5); nothing in candidates.py or overturn.py names flat space for this bound (grep: no 'Minkowski'/'curved' in candidates.py). The curved-spacetime result is Thm IV.1, which is state-dependent and needs W_0 and <:phi^2:>. qeihps.py:119-124 does name this ('FFKP's DSNEC/SNEC forms (75)-(93) are MINKOWSKI ... REFUSED on HPS'), and overturn.py:298-301 asks for a curved-spacetime NMC QEI as WHAT WOULD BE NEEDED -- so the drop is in the magnitude arithmetic, not in the owners' status words.",
+  "DROPPED (field count), candidates.py:413-415: the bound is for ONE scalar; N_f fields multiply it by N_f (H11), moving the crossover by sqrt(N_f). Not named in the tree.",
+  "WEAKENED/OVERSTATED (coefficient), candidates.py:239-241 ('N_n[gamma, xi, phi_max] is left schematic in the source') and candidates.py:410 / 609 (NMC_COEFFICIENT_STATUS 'N_n is schematic in the source, set to 1 here'): N_n in (91) is not written out, but the massless form (93) gives it explicitly (p_n and INT|d_-^2(f^2)|) for any chosen smearing. Computed here for unit-L2 Gaussian smearing at n = 4: N_4 = 1/pi^2 + K|xi|phi~^2_max, K = 4 sqrt(2/pi) e^-1/2 = 1.935766 (rederive E2). The tree's N = 1 is the value at |xi|phi~^2_max = 0.4642 (E3); over |xi|phi~^2_max in [0, 1] the crossover sqrt(N_4 Lambda) l_P runs 1.005705 -> 4.509466 l_P (E table). The tree's own statement that a coefficient moves the crossover by sqrt(N) and not the orders is CONFIRMED; 'schematic' is a discrepancy of description, not of number.",
+  "DROPPED (the paper's own field bound), candidates.py:220-222 cites 'phi^2_max <~ (8 pi G_N |xi|)^-1' but the arithmetic uses phi^2_max ~ l_UV^-2 (H9) with l_UV free. Under the paper's Sec. V bound written as 8 pi G|xi|phi^2_max = eps, the xi-term becomes eps K c^4/(8 pi G delta^2), independent of l_UV and of xi (sympy F1); against rho_needed it closes by itself only for eps >= 8 pi/(K Lambda) = 1.3006 (F2), i.e. past the critical value (8 pi G xi)^-1 at which Sec. V.B puts semiclassical breakdown (xi > 0); with eps = 0.01 / 0.1 / 0.5 the minimal-coupling term must carry the rest and closure needs l_UV <= 1.0096 / 1.0468 / 1.2818 l_P. This STRENGTHENS the tree's qualitative 'the cutoff that would work is the one the EFT excludes' (candidates.py:219-225) and makes its 3.159514 an N = 1 artefact of the l_UV parametrisation. Holds for xi > 0 only (H10).",
+  "ADDED (sign), candidates.py:185 '|T_--| <~': FFKP give a ONE-SIDED lower bound on smeared T_-- (negative side only). Benign for the tree's use (the negative-energy supply), recorded because |.| would falsely bound positive T_-- too.",
+  "SLIGHTLY OVERSTATED, candidates.py:229-231 ('the effective ANEC ... IS OBEYED both classically and semiclassically once field values are bounded'): the classical result is for the EFFECTIVE ANEC (20) (non-negative for xi < 0, xi > 1/4, and for 0 < xi < 1/4 when 8 pi xi(1-4xi) G phi^2 < 1); the quantum result (89) is ANEC for the improved T_-- in MINKOWSKI spacetime 'for any coupling', not an effective ANEC in curved space. The paper's abstract says 'the average null energy condition ... is obeyed both classically and in the context of quantum field theory'. Minor.",
+  "FAITHFUL, candidates.py:227-229 / 407-408: the verdict quote 'it seems that it is impossible to construct traversable wormholes in the Jordan frame without unphysical field values' is verbatim (source prefixes 'so far'); eq. numbers 91 and 96 are correct; eq. (3)'s factor exp(-2(8 pi G xi)phi^2/(n-2)) is quoted correctly (candidates.py:235-236).",
+  "FAITHFUL, specthm.py:2158-2160 / qeihps.py:94-124 (via hpscentre.py:305): Thm IV.1 eq. (72) is quoted with its hypotheses (any xi, small sampling domain, null l, Hadamard psi, reference W_0, difference-type) exactly as printed; qeihps's FFKP_XI_RANGE = None ('any value') matches the source."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "hbar, c, G (the tree's SI conversion and l_P)",
+   "value_then": "tree: hbar = 1.054571817e-34 J s, c = 299792458 m/s, G = 6.67430e-11 (CODATA 2018); FFKP use hbar = c = 1 and carry G_N symbolically",
+   "value_now": "CODATA 2022 (scipy 1.17.1): hbar, c exact and identical; G = 6.67430(15)e-11 unchanged; l_P = 1.616255e-35 m",
+   "source_now": "CODATA 2022 via scipy.constants 1.17.1 (rederive check 1)",
+   "moves_conclusion": "NO. And structurally none can: hbar c/l_P^2 = c^4/G identically (rederive A2), so the shortfall (l_UV/l_P)^2/Lambda and the crossover in units of l_P contain no measured constant; G enters only when l_UV is quoted in metres (e.g. 1e-18 m -> 3.83477e32)."
+  },
+  {
+   "quantity": "Lambda (the tree's model coefficient)",
+   "value_then": "9.982529174194637 (overturn.py:397; phase1.lam)",
+   "value_now": "same -- internal to the tree, not external data",
+   "source_now": "overturn.py:397",
+   "moves_conclusion": "not an external datum; out of scope for this audit. The crossover scales as sqrt(Lambda)."
+  },
+  {
+   "quantity": "xi (non-minimal coupling)",
+   "value_then": "free parameter in FFKP (any real xi for Thm IV.1)",
+   "value_now": "still free in the source; the tree's coefficients.py lists xi as UNDEFINED",
+   "source_now": "FFKP v1 text; coefficients.py:70, 312 (tree)",
+   "moves_conclusion": "No datum exists in the paper to move. Under the Sec. V field bound the xi-dependence of the NMC term cancels (rederive F1)."
+  },
+  {
+   "quantity": "phi^2_max / l_UV (EFT cutoff)",
+   "value_then": "assumed: phi^2_max ~ l_UV^-(n-2) (phi~ = O(1)) or <~ (8 pi G|xi|)^-1 (xi > 0)",
+   "value_now": "no measurement; still an assumption (H9, H10)",
+   "source_now": "FFKP v1 Secs. IV.D, V",
+   "moves_conclusion": "The conclusion is conditional on this assumption, which is a named hypothesis, not a datum."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2309.10848.py",
+  "outcome": "REDERIVE PASS (all checks). A: the tree's arithmetic is exact -- shortfall = (l_UV/l_P)^2/Lambda identically, R cancels; 0.100175 (l_P), 10.0175 (10 l_P), 1.00175e5 (1e3 l_P), 3.83477e32 (1e-18 m), crossover sqrt(Lambda) = 3.159514 l_P reproduced. B: hbar c/(L^2 L^2) is J/m^3, the SI conversion of (91) at n = 4 is right. C: eq. (94) and the assembly of Q_0, Q_2 in eq. (96) re-derived exactly (sympy); (94) verified numerically on three test functions; p_4 = 2/pi^2. D: DISCREPANCY in the source -- the xi-term of (80) and (93) as printed, INT d_-^2(f^2) dx-, is identically 0 for decaying f (sympy); the bound requires INT |d_-^2(f^2)| and the state class requires |<:phi^2:>| <= phi^2_max (as Sec. V states, not as (79) prints). (96) is consistent with the absolute-value reading. A misprint, not a refutation; v1 only. E: N_4 computed (Gaussian): 1/pi^2 + 1.935766 |xi|phi~^2_max; tree's N = 1 <-> |xi|phi~^2 = 0.4642; crossover 1.005705 l_P (minimal term only) to 4.509466 l_P (|xi|phi~^2 = 1). F: under Sec. V's 8 pi G|xi|phi^2_max = eps the NMC term is eps K c^4/(8 pi G delta^2), l_UV- and xi-free; closure by it alone needs eps >= 1.3006 (> 1, past the xi > 0 breakdown value); for eps = 0.01/0.1/0.5 closure needs l_UV <= 1.0096/1.0468/1.2818 l_P. G: T_-- = (T_tt - 2T_tx + T_xx)/4; rho = -A, p = +A gives T_-- = 0 (a null bound does not bound rho); static T_tt-only gives T_-- = rho/4. Thm IV.1 itself is an existence-type inequality whose right side needs W_0 and <:phi^2:> on a given background: not evaluable here (the tree's qeihps.py reaches the same NOT-FOUND).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Yu, Zhu & Cai, arXiv:2512.04934 (PRD 113, 063540 (2026)), 'Constraints on Genesis Cosmology from the Smeared Null Energy Condition'",
+   "effect": "extends",
+   "what": "Cites FFKP as SciPost Phys. 16 (2024) 119 among SNEC applications [85]; uses the Freivogel-Krommydas SNEC CONJECTURE form E_sigma[<T_kk>] >= -8 pi B M_P^2/sigma^2 with benchmark B = 1/(32 pi), 'B is yet to be determined in principle', for 'locally flat regions'. Does not use the NMC field-cutoff bound; does not narrow or contradict FFKP. Relevant context: the conjectured SNEC has the same sigma^-2 shape with G in place of l_UV^2, i.e. the l_UV-free form rederive F finds from FFKP's own Sec. V bound.",
+   "read_status": "READ (pp. 1-2, 4-7, 12-16, 20-24, refs via answer_pdf_queries)"
+  },
+  {
+   "ref": "Yu & Cai, arXiv:2606.08003 (2026), 'Does Eternal Inflation Violate the Smeared Null Energy Condition?'",
+   "effect": "extends",
+   "what": "Applies the SNEC conjecture (B/(G sigma^2) form, B = 1/(32 pi)) to stochastic eternal inflation; canonical minimally coupled inflaton only; does not use or test FFKP's NMC bound; states the limitation that non-canonical/multi-field or quantum-gravity regimes are not covered.",
+   "read_status": "READ (full, 6 pp., via answer_pdf_queries)"
+  },
+  {
+   "ref": "Fliss, Freivogel, Kontou & Pardo Santos, arXiv:2412.10618, 'How negative can null energy be in large N CFTs?' (SciPost Phys. 19, 087 (2025))",
+   "effect": "extends",
+   "what": "Same authors' follow-up on null energy bounds (large-N CFTs); known only from 2512.04934's reference list [86]; not read, so no claim about its content is made.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers (one call, 2023-09 onward: 'non-minimal coupling', 'smeared null energy condition', 'quantum energy inequality')",
+   "effect": "confirms",
+   "what": "Returned no paper that narrows, contradicts or supersedes FFKP's NMC results (hits: 2606.08003, 2512.04934, 2601.18860 INEC, 2510.26247 QNEIs from QNEC, 2608.01814 QDEC, 2608.11817 QIs from the second law). Absence in one search is not proof of absence; recorded as NOT-FOUND, not as confirmation of the theorem.",
+   "read_status": "search results only (titles/abstract lines)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. FFKP's conclusions are theorem-type (a QFT derivation: Thm IV.1, the Minkowski DSNEC/SNEC/ANEC) plus a NAMED EFT assumption (bounded field values), not an extrapolation from measurement. The only numbers in the tree's use are hbar, c, G -- unchanged from CODATA 2018 to CODATA 2022, and structurally unable to move the crossover in Planck units because hbar c/l_P^2 = c^4/G identically (rederive A2) -- and Lambda, which is internal. What the authors lacked is not data but two unfixed parameters: xi for any physical scalar and the field cutoff phi_max; the paper says so ('It would be of interest ... to know what values of the non-minimal coupling can arise from a consistent UV theory'; 'a different bound might be imposed for phi_max as in Ref. [26]'). Having them would move N_n and hence the crossover by sqrt(N) -- and rederive F shows that under the paper's own Sec. V bound the xi and l_UV dependence of the NMC term cancels altogether, so even a measured xi would not move that term. Evidence the other way: the paper's own Sec. V argument is for xi > 0 only, and it does not compute the path-integral Jacobian; those are acknowledged gaps of derivation, not missing data. No evidence found that any datum the authors lacked changes the conclusion.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source READ in full (v1). The tree's arithmetic re-derived exactly (rederive A: 0.100175, 10.0175, 3.159514, 3.83477e32; shortfall = (l_UV/l_P)^2/Lambda and R-free, sympy), its SI conversion checked (B), and the source's own algebra for (94)/(96) re-derived (C). No moved datum (CODATA 2022 = tree values; the crossover is constant-free in l_P units). But the result holds on a SMALLER CLASS than the tree's magnitude arithmetic uses: (i) eqs. (80)-(96) are Minkowski-only and candidates.py/overturn.py never name flat space; (ii) they bound the null-null component T_-- smeared along ONE NULL GEODESIC, while the tree compares an energy density rho over a spatial corridor size R -- T_-- = rho/4 for a static rho-only source, and a null bound does not bound rho at all (rho = -A, p = +A, T_-- = 0; sympy G1-G3); (iii) one free scalar (N_f fields multiply the bound); (iv) states with |<:phi^2:>| <= phi^2_max. The tree's owners already mark the number a SCALING ESTIMATE and L4 OPEN, so this is not an over-claim of derivation; the exponent match (delta^-2) is faithful to (91). Discrepancies recorded, none quoted as errors: the printed xi-term INT d_-^2(f^2) vanishes identically (needs |.|; source v1 misprint, sympy D2); the tree's 'N_n is schematic in the source' overstates -- (93) makes it computable (N_4 = 1/pi^2 + 1.935766|xi|phi~^2 for Gaussian smearing). Not WRONG: no counterexample to FFKP was found or constructed; not DATA-DEPENDENT: no datum enters.",
+ "what_would_change_the_grade": "To STANDS: a derived bound on smeared ENERGY DENSITY (or a derivation that the corridor's requirement is a negative NULL energy of magnitude c^4/(G Lambda R^2) along a null geodesic of affine width ~R) for a non-minimally coupled scalar in the curved corridor background, with a stated state class -- i.e. the curved, rho-type NMC QEI that overturn.py:298-301 itself names as WHAT WOULD BE NEEDED. Toward WRONG (for the tree's use, not the paper): the SciPost version or later work showing the Minkowski SNEC (91) fails, or that the xi-term scales other than delta^-2. Reading the SciPost Phys. 16, 119 version could remove the D2 discrepancy (absolute value) or confirm it. A different field cutoff (FFKP's Ref. [26]) would change N_n and the crossover by sqrt(N), not the exponent.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2309.10848.py   # expect 'REDERIVE PASS'; source text: grep -o 'Theorem IV.1.\\{0,600\\}' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.flat ; grep -o '.\\{200\\}(91).\\{50\\}' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.flat ; grep -n 'Minkowski\\|curved' /home/user/Claude-Method-Works/research/warp-drive/candidates.py   # expect no hits",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2309.10848.json"
+}

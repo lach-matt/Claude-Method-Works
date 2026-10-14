@@ -171,7 +171,14 @@ source–vacuum transition. This project measured the same geography.
 
 **What survives regardless.** Le finds a geodesic-integrated **ANEC positive for every
 source-prescribed shell**, so the pointwise boundary failures do not appear in the average.
-That is the condition topological censorship actually uses, so §NO-PORTAL is unaffected.
+Topological censorship (Friedman–Schleich–Witt) uses an averaged condition of that kind, but
+not on a sampled family: on an asymptotically flat, globally hyperbolic spacetime its proof
+needs the half-line integral on every future-complete null geodesic (Galloway; Galloway et al.
+gr-qc/9902061), or whole-line ANEC on every inextendible null geodesic with the null generic
+condition. So the pointwise failures do not disturb §NO-PORTAL, and Le's ANEC result is
+consistent with its hypothesis rather than a check of it. *(Corrected, DOCKET 67: this said
+"That is the condition topological censorship actually uses, so §NO-PORTAL is unaffected",
+without saying on which geodesics the theorem needs it.)*
 
 **Status:** the warp state is measured physical for Eulerian observers, at two resolutions,
 including the transition band. It is **not certified frame-independently**, and that

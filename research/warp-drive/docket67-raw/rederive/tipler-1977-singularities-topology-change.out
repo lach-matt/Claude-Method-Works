@@ -1,0 +1,60 @@
+PASS C1 verbatim: there is the theorem of Tipler (ref. [8], Theorem 5)...
+PASS C1 verbatim: (in the closed universe case) that if topology change...
+PASS C1 verbatim: occurs via a non-compact interpolating spacetime, then it co...
+PASS C1 verbatim: That it is a singularity that must occur may be inferred onl...
+PASS C1 verbatim: the singularity may be pushed to infinity...
+PASS C1 verbatim: the presence of points at infinity is still a highly undesir...
+PASS C1 verbatim: Compactness assumptions are not made in this theorem, and to...
+PASS C1 verbatim: F.J. Tipler, Ann. of Physics (NY), 108, 1 (1977)...
+PASS C1 section: 'Dropping causal compactness' sits under IX, not VIII -- VIII@76527 IX@82057 IX.A@85428 -> tree's 'section VIII.A' (specthm.py:587, 1850) is a citation discrepancy for IX.A
+PASS C1 tree keeps the disjunction (create.py ESCAPES[0])
+PASS C1 tree scopes to the closed case only in specthm (H_closed) -- create.py:81-84 omits 'closed universe'; specthm.py:586-589 restores it
+PASS C1 status drift recorded: specthm.py claims Tipler READ -- specthm.py:1133-1134 lists Tipler among papers READ; the 1977 paper is NAMED-NOT-READ (only Borde's restatement is READ)
+PASS C2 vacuity guard: premises & closed & mild & created & ~cc satisfiable
+PASS C2 tree fact BORDE-ESCAPES follows under H_closed (= closed & mild)
+PASS C2 ... and follows WITHOUT the 'nongr' disjunct (the disjunct is slack, a weakening, harmless)
+PASS C2 closed-universe hypothesis is load-bearing (countermodel without it) -- countermodel: [nongr = False,
+ sing = False,
+ compact = False,
+ closed = False,
+ created = True,
+ cc = False,
+ ubound = False,
+ mild = True,
+ pinf = False]
+PASS C2 Tipler's 'mild additional assumptions' are load-bearing -- countermodel: [nongr = False,
+ sing = False,
+ compact = False,
+ created = True,
+ closed = True,
+ cc = False,
+ mild = False,
+ pinf = False]
+PASS C2 the step ~cc => ~compact (Borde II.C) is load-bearing: Theorem 5 is stated for NON-COMPACT M, the tree for NOT CAUSALLY COMPACT M -- countermodel without CPT_CC: [nongr = False,
+ sing = False,
+ compact = True,
+ created = True,
+ closed = True,
+ cc = False,
+ mild = True,
+ pinf = False]
+PASS C3 'singularity' alone is NOT forced without the upper-bound assumption -- countermodel: [sing = False,
+ closed = True,
+ created = True,
+ compact = False,
+ cc = False,
+ ubound = False,
+ mild = True,
+ pinf = True]
+PASS C3 ... and IS forced once Borde's 'significant additional assumption' holds
+PASS C4 CONDITIONAL: if Theorem 5 carries an energy condition, a source that violates it is not forced into a pathology -- countermodel: [sing = False,
+ EC = False,
+ compact = False,
+ created = True,
+ closed = True,
+ cc = False,
+ mild = True,
+ pinf = False]  -- NOT asserted: whether EC is among Tipler's hypotheses is unread here
+PASS C4 ... with the energy condition in force the fact is recovered
+
+RESULT: 0 failure(s)

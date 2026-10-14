@@ -1,0 +1,118 @@
+{
+ "key": "address-domination-theorem",
+ "name": "Gravity out-reads the Higgs displacement: r/d grows as sqrt(rho) against ln(rho) (address.py section 9)",
+ "source": {
+  "located": "INTERNAL result: research/warp-drive/address.py section 9 (prose :306-325, code :792-813 higgs_range/newton_range/domination_ratio, selftest :1571-1600), used by excite.py:52-54, 173-174, 1560-1577. Its external underpinnings, READ at source: (i) linear Higgs response to matter and its Yukawa range 1/m_h -- Burrage-Copeland-Millington-Spannowsky arXiv:1804.07180v3 eqs (39),(60)-(72) and Brax-Burrage arXiv:2101.10693v2 eqs (10),(58)-(67); (ii) the nucleon coupling f_N = 2/9 + 7/9 sum_{u,d,s} f_q (= the tree's H1) -- Shifman-Vainshtein-Zakharov, Phys. Lett. 78B (1978) 443, NAMED-NOT-READ, READ-VIA-RESTATEMENT in Cline-Kainulainen-Scott-Weniger arXiv:1306.4710v5 eqs (10)-(15) and 1804.07180 eqs (67)-(72); (iii) m_h -- ATLAS arXiv:2308.04775v2.",
+  "read_status": "READ",
+  "via": "Read the tree file itself (address.py, excite.py at the lines cited). alphaXiv answer_pdf_queries: 1804.07180 (pp.1,5-6,11,13-15,19-24), 1306.4710 (pp.1,7-9), 2308.04775 (pp.1-7), 2101.10693 (pp.1,3-7,9,13-17,19-22), 1908.02159 (pp.1-3,5-9,11-12), 2107.04206 (pp.1-3,13-15). SVZ 1978 itself NOT read (restated only)."
+ },
+ "published_statement": "address.py:306-325: 'Put a source of mean density rho in a sphere of radius R. HIGGS RANGE d = lambda_h ln(eps_0/eps_det), eps_0 proportional to rho, so d grows as ln rho. NEWTON RANGE r = sqrt(G M/a_floor), M proportional to rho, so r grows as sqrt(rho). THEOREM. r/d grows without bound as sqrt(rho)/ln(rho). NO SOURCE STRENGTH CLOSES THE GAP, AND EVERY INCREASE IN THE SOURCE WIDENS IT. That is not a comparison of two numbers ... It is a comparison of two FUNCTIONS, and it is monotone. ... ROLE 1 IS REFUTED, NOT PRICED. There is no source, no detector and no budget for which a displaced vev addresses a region better than weighing it.' As used, excite.py:173-174: 'The same source is read farther by GRAVITY: address.py section 9, r/d grows without bound (sqrt(rho) against ln(rho)).' excite.py:1563-1571 checks: monotone from 1e14, dom[0] > dom[1] just above threshold, min > 1e20 over rho = 1e12..1e22 (R = 1 m, H1, S = 0.06, eps_det = 1e-18). External statements it rests on, as published: 1804.07180 eq (39) V(r) ~ -(y^2/4pi) e^{-m_h r}/r for Higgs exchange, eq (72) nucleon coupling m_N eta with eta = f_Ts(1-2N_H/3B) + 2N_H/3B ~ 0.33; 1306.4710 eq (15) 'f_N = 2/9 + 7/9 sum_{q=u,d,s} f_q', f_N = 0.30 +/- 0.01 (Gaussian sigma_s) / 0.30 +/- 0.03 (top-hat); 2101.10693 eq (67) linear exterior h ~ v - (M sin^2 theta/4 pi v r) e^{-sqrt(y_-)(r-R)}.",
+ "published_hypotheses": [
+  "address.py own: linear regime (eps = -rho_H c^2/(8|V_min|), coarse-grained mean density, address.py:297-304), static, source scale R >> lambda_h (excite.py:1083 D16), SM quartic potential (V_min from higgs.py)",
+  "address.py own: Newton range = sqrt(G M/a_floor) with a_floor = 1e-9 m/s^2 (ORDER, address.py:445), absolute field detected against no background",
+  "address.py own: eps_det a clock threshold (1e-18 ORDER fixture in excite; 2.86e-24 Th-229 in address); f = d ln m_p/d ln v under H1 (2/9 + 7S/9) or H2 (S), S scanned 0.0096/0.06/0.09",
+  "1804.07180 / 2101.10693: tree-level, non-relativistic limit (t = -Q^2), linear perturbation about the vacuum, heavy-quark expansion with N_H = 3 heavy quarks for the gluon/trace-anomaly coupling; 2101.10693 linear case assumes sqrt(y_+) R >> 1 (source larger than the Higgs Compton wavelength)",
+  "1306.4710 eq (15): heavy-quark (c,b,t) matrix elements from the trace anomaly at leading order (SVZ); inputs z = 1.49, sigma_l = 58 +/- 9 MeV, sigma_s = 43 +/- 8 MeV or < 70 MeV, light-quark masses of Cheng-Chiang"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED IN THE SOURCE PROSE (computed counterexample, not a misprint): address.py:316-317 'EVERY INCREASE IN THE SOURCE WIDENS IT' and :320 'it is monotone'. d/drho [sqrt(rho)/ln(B rho)] has the sign of ln(B rho) - 2 (sympy, C3), so r/d FALLS on eps_det < eps0 < e^2 eps_det: address.domination_ratio(9.83e11) = 1.82e24 > domination_ratio(2.46e12) = 4.78e23 (1 m, H1, S = 0.06, eps_det = 1e-18). Monotone only for eps0 > e^2 eps_det. The owner excite.py:1563-1569 ALREADY RECORDS the regime ('just above threshold ... d -> 0 there', dom[0] > dom[1]); address.py's selftest :1580 passes only because its decade grid (Th-229 eps_det) does not sample the window.",
+  "DISCREPANCY IN THE HIGGS-RANGE FORMULA (conservative for the theorem): address.py:793-798 higgs_range and :697-722 detection_standoff start the exterior tail at eps0 at the surface. The linear sharp-edge solution for R >> lambda_h has exterior amplitude eps0/2 (sympy, C2), so d is overstated by lambda_h ln 2 = 1.09e-18 m and the threshold density doubles (8.19e11 -> 1.64e12 kg/m^3 at eps_det 1e-18). excite's scan point rho = 1e12 (excite.py:1561) is then sub-threshold (Higgs range 0, ratio infinite); every excite check (:1566-1577) still passes. Favours the Higgs, so it cannot rescue Role 1.",
+  "DROPPED (domain): 'grows without bound' (address.py:316, excite.py:174) at fixed R = 1 m tacitly needs the weak field; 2GM/(Rc^2) = 1 at rho = 1.61e26 kg/m^3, before eps = 1 (rho = 8.2e29). On the whole physical domain the ratio stays > 1e20 (1.29e29 at the collapse density), so the verdict holds; 'without bound' is a property of the formula, not of a realisable source.",
+  "UNNAMED HYPOTHESIS (the static solution is the perturbative branch): the tree's linear-regime criterion is eps << 1 (address.py:297-304, excite.py:1083). Shi arXiv:2107.04206 (real Z2 phi^4, source held fixed) finds additional finite-energy static configurations ('1210 phase', light horizons of radius ~ R sqrt(ln(3 R S0/2))) above M_c ~ 2.7e14 a^2 kg with valence-quark coupling (p.15), i.e. ~1.1e13 a^2 kg with the tree's f -- a uniform 1 m sphere at rho ~ 2.6e12 kg/m^3, where eps ~ 3e-18 << 1. So eps << 1 does not exclude it. The branch is CONTESTED for the SM: it is a real-scalar, fixed-source toy (Shi notes 'additional effects due to the non-abelian group', p.14), and the tree already restricts real-Z2 kink statements to the toy (excite.py:1093 KINK_IS_Z2_TOY_ONLY). If it applied, the Higgs reach would scale as R sqrt(ln), not lambda_h ln rho -- the functional claim would fail -- but gravity would still out-read it by ~1e6-1e10 at excite's scan points (order-of-magnitude, C8).",
+  "NOT DRIFT (agrees with source): the tree's H1 f = 2/9 + 7S/9 (address.py:504-510 with dln_lambda_dln_v = 2/9) is exactly SVZ as restated in 1306.4710 eq (15); the linear response eps = -rho_H c^2/(m_h^2 v^2) = -rho_H c^2/(8|V_min|) agrees with 1908.02159 p.1 ('<phi> ~ v - f<psi-bar psi>/u^2') and 2101.10693 eqs (10),(33)-(34). Only the curvature m_h^2 enters, not the unmeasured trilinear (C1)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_h (sets lambda_h = hbar/(m_h c) and 8|V_min| = m_h^2 v^2)",
+   "value_then": "125.13 GeV (tree's PDG-2026 capture, higgs.py:250 READ; old pin 125.20 withdrawn)",
+   "value_now": "125.11 +/- 0.11 GeV (ATLAS Run1+Run2, arXiv:2308.04775v2 p.1, READ); CMS 125.38 +/- 0.14 (2002.06398, as quoted by 2308.04775 p.2)",
+   "source_now": "arXiv:2308.04775v2",
+   "moves_conclusion": "No. lambda_h moves 1.6e-4 fractionally; min r/d over the scan unchanged at 3 significant figures (C5)."
+  },
+  {
+   "quantity": "v (Higgs vev)",
+   "value_then": "246.2196 GeV from G_F (higgs.py:209, NAMED-NOT-READ)",
+   "value_now": "246.2 GeV (1306.4710 p.1, READ)",
+   "source_now": "arXiv:1306.4710v5",
+   "moves_conclusion": "No (enters eps0 inside a logarithm)."
+  },
+  {
+   "quantity": "f = d ln m_N/d ln v (Higgs-nucleon coupling)",
+   "value_then": "H1 0.269 at S = 0.06 (scan 0.230-0.292); H2 = S",
+   "value_now": "f_N = 0.30 +/- 0.01 (Gaussian sigma_s) or 0.30 +/- 0.03 (1306.4710 p.8); eta ~ 0.22-0.33 (1804.07180 p.22)",
+   "source_now": "arXiv:1306.4710v5, 1804.07180v3",
+   "moves_conclusion": "No. Scanned S 0.0096-0.106 under H1 and H2: worst min r/d 8.1e20 (C5). Current lattice sigma-term averages were NOT read here."
+  },
+  {
+   "quantity": "G",
+   "value_then": "6.6743e-11 m^3 kg^-1 s^-2 (tree's ladder.G)",
+   "value_now": "not re-read in this audit (CODATA value not opened)",
+   "source_now": "NAMED-NOT-READ",
+   "moves_conclusion": "No: r scales as sqrt(G); a percent move changes r/d by half a percent."
+  },
+  {
+   "quantity": "gravimeter floor a_floor",
+   "value_then": "1e-9 m/s^2 (ORDER, address.py:445)",
+   "value_now": "no measurement read; scanned 1e-11 .. 1e-6",
+   "source_now": "scan (C5)",
+   "moves_conclusion": "No: worst case (1e-6) still min r/d 8.1e20."
+  },
+  {
+   "quantity": "eps_det",
+   "value_then": "1e-18 (excite ORDER fixture) / 2.86e-24 (address Th-229 H1)",
+   "value_now": "scanned 2.86e-24 .. 1e-15",
+   "source_now": "scan (C5)",
+   "moves_conclusion": "No (enters d inside a logarithm)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/address-domination-theorem.py",
+  "outcome": "17 PASS, 0 FAIL (output saved beside the script as .out). C1: m_h^2 v^2 = 8|V_min| and eps = -rho_H c^2/(m_h^2 v^2) re-derived in sympy. C2: sharp-edge exterior amplitude is eps0/2 (address uses eps0) -- discrepancy, conservative. C3: lim sqrt(rho)/ln(B rho) = oo; derivative sign = ln(B rho) - 2 -> r/d decreases for eps0/eps_det in (1, e^2); numeric counterexample with address.domination_ratio (1.82e24 at 9.83e11 vs 4.78e23 at 2.46e12). C4: independent recomputation of excite's scan agrees with the tree to 1e-9; min r/d 6.98e23 > 1e20; monotone from 1e14; dom[0] > dom[1]. C5: worst case over m_h x S x {H1,H2} x floor x eps_det, min r/d 8.1e20. C6: collapse density 1.61e26 (R = 1 m) reached before eps = 1; r/d there 1.29e29. C7: point sources -- Newton range beats the linear Yukawa range for the proton (x166) and electron (x4.5, where a classical point source is itself outside its validity); crossover at 3.6e-32 kg. C8: Shi's toy-model phase boundary rescaled to the tree's f falls inside excite's scan; gravity still ahead by ~1e6-1e10 on that branch (order of magnitude).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Burrage, Copeland, Millington, Spannowsky, arXiv:1804.07180 (PRD 2018)",
+   "effect": "confirms",
+   "what": "Higgs exchange between nucleons is Yukawa with range 1/m_h (eq 39); nucleon coupling via trace anomaly with 2N_H/3B = 2/9 for N_H = 3 (eq 72) -- the tree's H1 structure and the ln-range of a screened field.",
+   "read_status": "READ (alphaXiv, pp.1,5-6,11,13-15,19-24)"
+  },
+  {
+   "ref": "Cline, Kainulainen, Scott, Weniger, arXiv:1306.4710v5 (PRD 2013)",
+   "effect": "confirms",
+   "what": "f_N = 2/9 + 7/9 sum f_q (eq 15, SVZ restated) and f_N = 0.30 +/- 0.01; the tree's f range 0.23-0.29 sits at or below it, and the conclusion does not move across it.",
+   "read_status": "READ (alphaXiv, pp.1,7-9)"
+  },
+  {
+   "ref": "Brax, Burrage, arXiv:2101.10693 (2021)",
+   "effect": "extends",
+   "what": "Linear exterior Higgs profile h ~ v - (M sin^2 theta/4 pi v r) e^{-m r} around a uniform sphere (eqs 58-67); screening arises only through mixing with a LIGHT scalar -- outside the tree's SM-only premise, and noted as such.",
+   "read_status": "READ (alphaXiv, pp.1,3-7,9,13-17,19-22)"
+  },
+  {
+   "ref": "Shi, arXiv:2107.04206 (2021)",
+   "effect": "contested",
+   "what": "In a real-scalar phi^4 with a FIXED external source, static finite-energy configurations are non-unique above M_c ~ 2.7e14 a^2 kg (valence coupling; ~1.1e13 a^2 kg with the tree's f) and can carry 'light horizons' at radius ~ R sqrt(ln) -- scale R, not lambda_h. Would break 'd grows as ln rho' inside excite's scan if it applied to the SM doublet with self-consistent fermions, which the paper does not show (p.14). Even granting it, gravity out-reads the Higgs by ~1e6-1e10 (C8, order of magnitude).",
+   "read_status": "READ (alphaXiv, pp.1-3,13-15)"
+  },
+  {
+   "ref": "Shi, arXiv:1908.02159 (2021)",
+   "effect": "contested",
+   "what": "Restates the linear shift <phi> ~ v - f<psi-bar psi>/u^2 (significant only at ~1e29 kg/m^3, agreeing with the tree's eps = 1 at 8.2e29 for H1) and cites 2107.04206 for rho_c ~ 1e14/R_m kg/m^3.",
+   "read_status": "READ (alphaXiv, pp.1-3,5-9,11-12)"
+  },
+  {
+   "ref": "ATLAS, arXiv:2308.04775 (PRL 131, 251802, 2023)",
+   "effect": "confirms",
+   "what": "m_H = 125.11 +/- 0.11 GeV; lambda_h moves by 1.6e-4 against the tree's 125.13.",
+   "read_status": "READ (alphaXiv, pp.1-7)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The result is internal (DOCKET 63, 2026) and was built with the data now available: m_h measured (2012; 125.11-125.13 now), f_N constrained by lattice/ChPT (0.30 +/- 0.01 per 1306.4710), G and the clock thresholds. Evidence AGAINST 'lacked data' moving it: every numerical input enters either inside a logarithm (eps0, eps_det, v, f) or as a square root (G, a_floor, M), and the scan over all of them (C5) leaves min r/d >= 8.1e20. Even with m_h unknown (pre-2012), lambda_h <= ~1.7e-18 m for any m_h >= 114 GeV, so the conclusion did not wait on the measurement. Evidence FOR something missing is not data but structure: (a) whether the static Higgs configuration around a macroscopic source is the perturbative branch -- Shi 2107.04206 finds other branches in the real-scalar fixed-source model at densities inside the scan; whether they exist for the SM doublet with self-consistent fermion sources is not established in anything read here, and it is not a datum anyone measures; (b) Newton's law is tested at the relevant ranges (1e5-1e10 m, planetary), so no gravity datum is missing. Having more data would not change the conclusion that gravity out-reads the Higgs; the sqrt-vs-ln functional form is what rests on the unnamed branch hypothesis.",
+ "grade": "NARROWED",
+ "grade_evidence": "The result AS EXCITE USES IT stands on re-derivation: excite's scan recomputed independently agrees with address.domination_ratio to 1e-9, min r/d = 6.98e23 > 1e20, monotone from 1e14, near-threshold regime recorded (C4); no moved datum moves it (worst case 8.1e20, C5); ROLE1_DOMINATED_BY_OWN_SOURCE (S6) is not threatened by anything computed or read. But the theorem as PRINTED in address.py section 9, which excite cites, holds on a smaller class than stated: (1) 'EVERY INCREASE IN THE SOURCE WIDENS IT' / 'it is monotone' (address.py:316-317, :320) is false on eps_det < eps0 < e^2 eps_det -- sympy derivative sign ln(B rho) - 2 and a computed counterexample with the tree's own function (1.82e24 -> 4.78e23 as rho grows 2.5x); (2) 'without bound' at fixed R needs the weak-field domain rho < 1.6e26 (R = 1 m); (3) 'd grows as ln rho' needs the perturbative static branch, a hypothesis the tree does not name and whose alternative (Shi 2107.04206, contested for the SM) sets in inside the scan; (4) the exterior amplitude is eps0/2, not eps0 (sympy) -- a discrepancy, conservative, not a refutation. None of these is WRONG for the verdict: the refutation of Role 1 survives each of them on computation.",
+ "what_would_change_the_grade": "To STANDS: address.py section 9 restated as 'r/d diverges as rho -> oo and increases for eps0 > e^2 eps_det, on the perturbative branch, below collapse' (a restatement the tree would have to make; this audit repairs nothing). To WRONG (for the verdict S6): a demonstration that the SM Higgs doublet with self-consistent fermion sources admits a static configuration around a macroscopic body whose displacement reaches farther than the body's gravimetric range sqrt(GM/a_floor) -- nothing read or computed here shows that; Shi's contested branch reaches ~R, still 1e6-1e10 short. To DATA-DEPENDENT: an input entering outside a logarithm moving by >1e17 -- none exists.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/address-domination-theorem.py   # exit 0, 17 PASS; the FINDING lines carry the counterexample, the eps0/2 edge factor and the Shi-branch estimate. Tree side: cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 -c \"import address as a;f=a.higgs_fraction(0.06,'H1');print(a.domination_ratio(9.828e11,1,f,1e-18),a.domination_ratio(2.457e12,1,f,1e-18))\"",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/address-domination-theorem.json"
+}

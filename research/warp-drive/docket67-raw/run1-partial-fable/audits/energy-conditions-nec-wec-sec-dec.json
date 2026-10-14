@@ -1,0 +1,103 @@
+{
+ "key": "energy-conditions-nec-wec-sec-dec",
+ "name": "The pointwise energy conditions NEC, WEC, SEC, DEC over timelike/null observers, and 'the DEC requires the WEC'",
+ "source": {
+  "located": "Hawking & Ellis 1973, The Large Scale Structure of Space-Time, sec. 4.3 (pp. 88-96): the pointwise conditions and the Hawking-Ellis type classification. READ through two arXiv restatements that quote the definitions exactly: Curiel 2014, 'A Primer on Energy Conditions', arXiv:1405.0403 p. 5-8 (geometric/physical/effective forms of NEC, WEC, SEC, DEC, SDEC; follows Hawking-Ellis 1973 p. 89, Visser 1996 ch. 12, Malament 2012); Kontou & Sanders 2020, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815 sec. 2.1, eqs (18)-(27), Table 1, Figure 2, Props 2.1-2.2 (Tipler 1978). Cross-read: Fliss 2026 Modave lectures arXiv:2605.18964 Lecture 1 (eqs 1.5-1.18).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1405.0403 (pages 1-2, 5-9, 12-13, 30, 32), 2003.01815 (pages 1-3, 5-6, 8-11, 14-15, 49), 2605.18964 (pages 1-10, 16-17, 20, 24, 45, 48). Hawking-Ellis 1973 itself is pre-arXiv and NAMED-NOT-READ; Curiel p. 5 cites it by page (p. 89) for the type-I classification and both restatements give the four definitions in identical form."
+ },
+ "published_statement": "Curiel 2014 p. 6 (physical forms): NEC -- for any null vector k^a, T_mn k^m k^n >= 0; WEC -- for any timelike vector xi^a, T_mn xi^m xi^n >= 0; SEC -- for any timelike xi^a, (T_mn - (1/2) T g_mn) xi^m xi^n >= 0; DEC -- (1) for any timelike xi^a, T_mn xi^m xi^n >= 0, AND T^a_n xi^n is causal; equivalently (2) for any two co-oriented timelike xi^a, eta^a, T_mn xi^m eta^n >= 0. Effective (type-I) forms, same page: NEC rho + p_i >= 0 each i; WEC rho >= 0 and rho + p_i >= 0; SEC rho + sum p_i >= 0 and rho + p_i >= 0; DEC rho >= 0 and |p_i| <= rho. Curiel p. 8: 'the SDEC implies the DEC, which implies the WEC'; p. 7: 'the WEC implies the NEC'; p. 8: 'The SEC does not imply the WEC ... The SEC does, however, imply the NEC.' Kontou-Sanders 2020 eq. (23) and p. 10: the DEC 'is equivalent to the WEC (18), with the additional requirement that -T^a_b t^b is a future-pointing causal vector field'; eq. (20): SEC in n dimensions is (T_ab - T g_ab/(n-2)) t^a t^b >= 0; eq. (24): DEC <=> in any orthonormal frame T_00 >= |T_mu nu|; Table 1 and Figure 2 give the implications DEC => WEC => NEC and SEC => NEC.",
+ "published_hypotheses": [
+  "Pointwise: each condition is imposed at a spacetime point on the stress tensor T_ab picked out by the Einstein field equation (Curiel fn. 1); the geometric forms (R_ab k^a k^b >= 0 etc.) are equivalent to the physical forms only when the field equation holds (Curiel p. 5).",
+  "The vectors quantified over are ALL null (NEC) or ALL timelike (WEC, SEC, DEC) vectors at the point, co-oriented (future-pointing) for the DEC's two-vector form (Curiel p. 6; K-S eq. 23).",
+  "The effective (rho, p_i) forms presuppose a Hawking-Ellis type-I (diagonalisable) stress tensor, 'no serious restriction' for known classical fields except a null fluid (Curiel p. 5 and fn. 10); for DEC vs SDEC the effective forms coincide only for type I (Curiel p. 6).",
+  "SEC's 1/2 is the four-dimensional value of 1/(n-2) (K-S eq. 20; Fliss eq. 1.13).",
+  "The conditions are normalisation-free for the NEC (scale invariance, K-S Prop. 2.1); for WEC/SEC/DEC on unit timelike vectors a finite lower bound need not be zero, but any finite lower bound already implies the NEC (Tipler 1978; K-S Prop. 2.2, proved without the type-I assumption).",
+  "Physical standing, not part of the definition: the sources state the conditions are violated by non-minimally coupled scalars classically (K-S sec. 2.3, Table 2) and by every quantum field theory pointwise (K-S p. 3, Fliss Lecture 3), and that the SEC is violated by a positive cosmological constant / dark energy and by inflation (Curiel p. 30, 32)."
+ ],
+ "hypothesis_drift": [
+  "NONE for certify.py's definitions: NEC/WEC/SEC forms at certify.py:336-350 match Curiel p. 6 exactly (SEC as T(V,V) + T/2 with trace = eta^mn T_mn, verified equal to (T_ab - T g_ab/2)V^aV^b for unit V); 'DEC requires the WEC' (certify.py:85, 353-355) is the source's DEC clause (1) read in the direction not-WEC => not-DEC; V = gamma(1, s u) is unit timelike (checked).",
+  "ADDED (owner-named, not a drift against the source): certify.py:326-350 samples 200 null directions and 10 speeds s <= 10/11, so a reported violation is a witness and a reported satisfaction a floor; further, when the NEC fails the true WEC/SEC infimum over unit timelike observers is -infinity (K-S Prop. 2.2 contrapositive; shown in rederive section D), so the 'WEC min'/'SEC min' columns at certify.py:76-82 are grid-dependent sample values, not invariants. The NEC column is invariant up to sampling (exact min(rho+p_r, rho+p_T) at r = 1 is -8.8138e-4 against the sampled -8.7348e-4).",
+  "certify.py:96, :456 (prose and selftest pin) state T_00(r=1) = -4.8455e-4 and 'a ratio of 1.21'; the file's own table at :80 and the exact closed form T_{tt} = e^{2Phi}(2 Lap Phi - |grad Phi|^2) both give -4.6564e-4 (ratio 1.165). near() at :409-411 is tol*max(1,|want|) = 1e-3 ABSOLUTE there, so the pin passes without discriminating. A discrepancy, recorded, not a refutation: sign and conclusion unchanged.",
+  "bounds.py:43, 94-95, 295 'zero (the NEC's RHS) ... saturated by the vacuum and by EM': the vacuum saturates for every null k (T = 0); the electromagnetic field does NOT -- T_ab k^a k^b = |F_ab k^b|^2 >= 0 with equality only when k is a principal null direction of F (Coulomb: E^2(1 - n_x^2), zero only along +-E; plane wave: A^2(1 - n_x)^2, zero only along the wave). The only EM field with T_kk = 0 for every null k is F = 0. Neither source says EM saturates the NEC; K-S eq. (36)-(38) say the Maxwell field SATISFIES NEC/WEC/DEC/SEC (sum of squares) and is traceless in n = 4. The row's coding S = 0 'known saturated' is over-broad as worded; the trace-free condition, not the NEC, is what EM saturates.",
+  "phase1.py:195-197, 537-539 'No energy condition ... is violated by D1-D5 with M_ADM = 0' is asserted, not computed, and is contradicted by the tree's own results under the definition as read: certify.py:84-85 computes every condition violated at every sampled radius of the seated ansatz, and certify.py:110-125's ansatz-free theorem (dm/dr = 4 pi r^2 rho, contraction iff m(r) < 0) with phase1.py:203-204, 558-559 'every line needs M < 0' forces rho < 0 somewhere, i.e. T(u,u) < 0 for the static observer -- a pointwise WEC failure and hence (DEC => WEC) a DEC failure. M_ADM = 0 does not rescue a pointwise condition. This is the one in-tree statement that drops a hypothesis of the source (pointwise, all observers) by reading the condition as a statement about total mass.",
+  "nonstatic.py:324-325, 351-355: k_rad's nullness is a checked identity, k_trn = (e^-Phi, 0, 1/R, 0)'s is not; verified null here (section E), and T(k_trn,k_trn) = rho + p_T, T(k_rad,k_rad) = rho + p_r - 2j with j = T^{t r} (outward flux) reproduced. No drift; one unchecked identity now checked.",
+  "formation.py:169-197 uses the NEC pointwise along a family and then integrates T_kk over Eulerian proper time; the integrated quantity is an in-tree construct (owner's THEOREM F2), not an averaged energy condition of the source -- neither ANEC (affine parameter along a complete null geodesic) nor a QEI. Not a drift in the definition; the owner's word THEOREM covers only its own residual-checked identity.",
+  "latticectc.py:84-90, 150 evaluates the NEC on a stress tensor read off a hand-written 5-D metric's Einstein tensor. The definition is dimension-free for the NEC (K-S Table 1), so no drift; note only that a 5-D SEC would need T/3 not T/2 (K-S eq. 20) -- the tree does not use SEC there.",
+  "seatindex.py:93-94, 376-377 and dichotomy.py:155-156 identify T_kk > 0 with 'energy-condition-satisfying matter': correct as a necessary condition (NEC along that k) and as the sign the seating threshold needs; it is not a claim that the WEC/DEC hold, and the owners do not make one."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "measured inputs to the definitions themselves",
+   "value_then": "none -- the four conditions are definitions with a zero right-hand side and no empirical constant",
+   "value_now": "none",
+   "source_now": "Curiel 2014 p. 6; Kontou-Sanders 2020 Table 1",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "Omega_Lambda (bearing on the SEC's physical standing, not its definition)",
+   "value_then": "1973: Lambda taken as zero or unknown; Hawking-Ellis list the SEC among 'physically reasonable' conditions (Curiel p. 30 fn. 72 cites H-E sec. 4.3 pp. 90-91)",
+   "value_now": "0.6847 +/- 0.0073 (68 %, TT,TE,EE+lowE+lensing), w_0 = -1.028 +/- 0.031 with SNe+BAO",
+   "source_now": "Planck 2018 VI, arXiv:1807.06209 eq. (15), eq. (50), Table 2",
+   "moves_conclusion": "no for the tree: certify.py's conclusion is that every condition FAILS on the seated ansatz, which does not depend on the SEC being physically obligatory; yes for the SEC's standing as a matter assumption -- it is violated on cosmological scales today (Curiel p. 32), which the tree nowhere relies on"
+  },
+  {
+   "quantity": "certify.py table row r = 1 (T_00, NEC min, WEC min, SEC min)",
+   "value_then": "-4.6564e-04, -8.7348e-04, -4.6251e-03, -4.1844e-03 (certify.py:80)",
+   "value_now": "recomputed identically to 0.2 % at r = 0.2, 1, 10 by importing certify; exact closed-form T_00(r=1) = -4.65637e-04, exact NEC min -8.8138e-04",
+   "source_now": "rederive script sections G",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "certify.py selftest pin T_00(r=1) and ratio to -|grad Phi|^2",
+   "value_then": "-4.8455e-4, ratio 1.21 (certify.py:96-97, 455-456)",
+   "value_now": "-4.6564e-4 exact, ratio 1.165; -|grad Phi|^2 = -3.99520e-4 agrees with the pin",
+   "source_now": "rederive script section G (sympy closed form); certify --selftest passes only because near()'s tolerance is 1e-3 absolute",
+   "moves_conclusion": "no -- a 4 % misprint-class discrepancy in a pinned figure; sign and verdict unchanged"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/energy-conditions-nec-wec-sec-dec.py",
+  "outcome": "40 checks, 0 failed (sympy 1.14, z3 5.1, numeric via import of certify.py). A: z3 proves on type-I effective forms DEC => WEC, WEC => NEC, SEC => NEC, DEC => NEC and not-WEC => not-DEC; witnesses for WEC =/=> SEC (rho=1/2, p=-1/2,-1/2,0), SEC =/=> WEC (rho=-1/4, p=1/4), NEC =/=> WEC, WEC =/=> DEC. B: z3 (nonlinear real, quantified) proves WEC_phys <=> (rho>=0, rho+p_i>=0) and NEC_phys <=> (rho+p_i>=0) for a diagonal tensor. C: sympy: (T_ab - T g_ab/2)V^aV^b == T(V,V) + T/2 for unit V, certify's V is unit timelike, 1/(n-2) = 1/2 at n=4. D: T(V,V) = (rho + s^2 sum p_i u_i^2)/(1-s^2) and the WEC infimum is -oo when the NEC fails. E: k_rad and k_trn null; T(k_rad,k_rad) = rho + p_r - 2j; T(k_trn,k_trn) = rho + p_T; k = u + n with -u.k = 1. F: EM T_kk = |F_ab k^b|^2; Coulomb and plane-wave witnesses show EM does not saturate the NEC for all k. G: certify's table rows r = 0.2, 1, 10 reproduced to 0.2 %; closed form T_tt = e^{2Phi}(2 Lap Phi - |grad Phi|^2) derived from the conformastatic metric and evaluated exactly at r = 1: -4.65637e-4 (matches the table, not the selftest pin -4.8455e-4 -- recorded); rho < 0 at r = 1 so WEC fails for the static observer alone. H: m(r1) < 0 with dm/dr = 4 pi r^2 rho forces rho < 0 somewhere, which with DEC => WEC contradicts phase1.py:195-197 as worded.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Kontou & Sanders 2020, arXiv:2003.01815 (Class. Quantum Grav. 37, 193001)",
+   "effect": "extends",
+   "what": "Restates the four conditions in n dimensions (SEC with T/(n-2)), proves Tipler's two propositions without the type-I assumption (Props 2.1-2.2), gives Table 2 of classical fields: Maxwell/Proca satisfy all four, non-minimally coupled scalars violate all four on-shell, minimally coupled scalar with V >= 0 violates only the SEC; all pointwise conditions violated by every QFT; AANEC as the candidate universal condition.",
+   "read_status": "READ (pages 1-3, 5-6, 8-11, 14-15, 49 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Curiel 2014, arXiv:1405.0403 (Towards a Theory of Spacetime Theories, 2017)",
+   "effect": "narrows",
+   "what": "The definitions as the tree uses them, plus the catalogue of violations (Curiel p. 30-32): WEC violated necessarily by traversable wormholes and 'hyper-fast' travel (Alcubierre 1994, Krasnikov 1998, Olum 1998); SEC violated necessarily by inflation and by dark energy; NEC violated classically by scalar-field models. Narrows the conditions' standing as universal matter constraints, not their definitions.",
+   "read_status": "READ (pages 1-2, 5-9, 12-13, 30, 32)"
+  },
+  {
+   "ref": "Fliss 2026, Modave lectures, arXiv:2605.18964",
+   "effect": "confirms",
+   "what": "Lecture 1 eqs (1.5)-(1.18) restate WEC, DEC (as two-vector form, equivalent to WEC plus t^mu t^nu T^alpha_mu T_alpha nu <= 0), SEC with 1/(d-2), NEC; shows Yang-Mills (hence Maxwell) satisfies all four with T_kk = tr(F_AB F^AB)/2g^2 >= 0 (eq. 1.37) -- satisfied, not saturated; Lecture 3: every QFT violates every pointwise condition and smeared expectation values are unbounded below (Witten's scaling argument); ANEC proven for all Minkowski QFTs, AANEC needed on compact directions.",
+   "read_status": "READ (pages 1-10, 16-17, 20, 24, 45, 48)"
+  },
+  {
+   "ref": "Hollands, Longo & Morsella 2026, 'A Quantum Dominant Energy Condition', arXiv:2608.01814",
+   "effect": "extends",
+   "what": "States the classical DEC as T_mn k^m u^n >= 0 for future-pointing causal u, k, 'implies the NEC as a special case'; notes the DEC fails arbitrarily badly at a point for suitable QFT states; proposes a QDEC (information-energy tradeoff) proven for Rindler wedges, reducing for coherent states of a free scalar to the classical DEC of the underlying solution. Quantum replacement of the DEC, as QNEC is of the NEC.",
+   "read_status": "READ (pages 1-3, 5, 7-9, 11, 14, 17-18, 20-21, 23)"
+  },
+  {
+   "ref": "Fewster & Kontou 2020, arXiv:1907.13604; Fewster & Galloway 2011, arXiv:1012.6038; Bousso et al. 2015, arXiv:1506.02669 (QFC); Hollands-Longo-Morsella 2025 arXiv:2503.04651 (QNEC proof); Engelhardt-Nagar 2026 arXiv:2605.05326",
+   "effect": "extends",
+   "what": "Singularity theorems re-proved from weakened (averaged, smeared, semiclassical) energy hypotheses and quantum focusing; a 2026 semiclassical singularity theorem without the null energy condition. The pointwise conditions remain the classical special case.",
+   "read_status": "NAMED-NOT-READ (from the discover_papers listing; titles and abstracts only)"
+  }
+ ],
+ "lacked_data": "What Hawking and Ellis (1973) lacked: the accelerated expansion (1998; Planck 2018 Omega_Lambda = 0.6847 +/- 0.0073, w_0 = -1.028 +/- 0.031), which shows the SEC violated on cosmological scales today (Curiel p. 32 says Visser predicted this on SEC grounds in 1997 before the data); the systematic classical NEC violations of non-minimally coupled scalars (Barcelo-Visser and later, K-S sec. 2.3); the general ANEC proofs in Minkowski QFT (2016) and the QNEC/QDEC programme (2015-2026). Pointwise quantum violations were already known in 1965 (Epstein-Glaser-Jaffe), so the 1973 authors did not lack that. Does having the data change the conclusion? For the DEFINITIONS -- no: they are definitions, and every implication among them re-derives unchanged (z3, section A-B). For their PHYSICAL AUTHORITY -- yes, and in a specific direction: the literature since 1973 has demoted the pointwise conditions from universal matter constraints to a classical special case, with averaged/quantum conditions (ANEC/AANEC, QEIs, QNEC, QDEC) as the ones expected to bind. Evidence for M's hypothesis: the tree's 'refused currency' (latticectc.py:84-87) treats a pointwise NEC failure as decisive, while Fliss 2026 and K-S 2020 say every QFT violates every pointwise condition, so a pointwise failure alone is not the physically binding fact. Evidence against M's hypothesis: certify.py's refusal rests on a COMPUTED violation of magnitude six orders above the noise floor across all radii of a fixed classical metric, and no later datum reverses a computation on a fixed metric; the tree also already seats the averaged/quantum family beside the pointwise one (bounds.py, necindex), so it has not been misled by the demotion. The unresolved question the data raise -- whether the seated ansatz's violation survives the QEI/ANEC bounds -- belongs to the Ford-Roman / ANEC rows, not to this one.",
+ "grade": "STANDS",
+ "grade_evidence": "The statement and hypotheses as used in certify.py:336-355 are the source's exactly (Curiel p. 6; K-S Table 1): NEC over null k, WEC over timelike V, SEC as T(V,V) + T/2 (verified equal to the (T_ab - T g_ab/2) form for unit V in n = 4), and 'DEC requires the WEC' is DEC clause (1) by definition in both restatements (K-S p. 10: 'equivalent to the WEC with the additional requirement'); z3 proves DEC => WEC and the non-implications the sources state. nonstatic.py's contractions T_kk = rho + p_r -/+ 2j and rho + p_T re-derive exactly, and k_trn's nullness (unchecked by the owner) is verified here. certify's table rows are reproduced to 0.2 % by import and the T_00 closed form derived independently agrees with the table. No numerical datum enters the definitions; Omega_Lambda moves only the SEC's standing as a matter assumption, which no owner relies on. Three in-tree discrepancies are recorded against owners, none against the external result: certify.py:96/:456's pin -4.8455e-4 vs its own table -4.6564e-4 (misprint-class, non-discriminating tolerance); bounds.py:43/295's 'saturated by EM' (EM satisfies, and saturates only along principal null directions -- computed); phase1.py:195-197's 'no energy condition is violated' (contradicted by the tree's own M < 0 requirement under the definition as read -- computed in section H). The last is the drift a reader of phase1 must know: it does not narrow the external result, it misstates it in one owner.",
+ "what_would_change_the_grade": "NARROWED if an owner is found relying on the SEC (or the DEC) as a physical constraint on admissible matter rather than as a computed classification -- none does now. WRONG only if a counterexample to DEC => WEC, WEC => NEC or SEC => NEC were exhibited, which z3 rules out on type I and the sources' vector-form proofs (Curiel p. 7-8, K-S Fig. 2) rule out generally; or if certify's energy_conditions() were shown to mis-evaluate a condition (it does not: the exact NEC minimum brackets the sampled one). The grade does not depend on the in-tree discrepancies; repairing or not repairing them leaves STANDS. Hawking-Ellis 1973 sec. 4.3 read at source would move read_status from READ-VIA-RESTATEMENT to READ but cannot move the grade, since both restatements agree verbatim on the four definitions.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 energy-conditions-nec-wec-sec-dec.py   # expects '40 checks, 0 failed', exit 0; also: cd /home/user/Claude-Method-Works/research/warp-drive && python3 certify.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/energy-conditions-nec-wec-sec-dec.json"
+}

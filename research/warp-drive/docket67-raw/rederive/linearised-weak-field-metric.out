@@ -1,0 +1,40 @@
+[R1] O(M) part of Ricci of the linearised metric, all 16 components: ALL ZERO
+[R1] O(M^2) part of R_tt of the linearised metric: -2/(x**4 + 2*x**2*y**2 + 2*x**2*z**2 + y**4 + 2*y**2*z**2 + z**4)  (nonzero: the form is not an exact vacuum solution)
+[R1] exact isotropic Schwarzschild: -g_tt = 2*M**2/r**2 - 2*M/r + 1 + O(M^3);  g_ii = 3*M**2/(2*r**2) + 2*M/r + 1 + O(M^3)
+[R1] O(M) coefficients equal the linearised metric's (-2/r, +2/r): True; dropped O(M^2): g_tt -2/r**2, g_ii 3/(2*r**2)
+[R1] exact isotropic Schwarzschild, M=-0.04, Ricci diagonal at a sample point: [0, 0, 0, 0]  (vacuum for M<0 as for M>0)
+[R2] composite's fixed-point tidal (k=(1,1,0,0), coordinate e_y,e_z, linearised metric, M=-2e-3, b=0.3), EXACT: T_yy=-2.232364e-01 T_zz=2.232232e-01 |trace|/max=5.9001e-05  (composite prints 1.6e-4 residue, tolerance 5e-4)
+[R2] same point with a TRUE null k and an orthonormal screen: |trace|/max=8.6926e-03;  R_kk (exact, linearised metric)=-2.0020e-03; Weyl scale 3|M|/b^3=2.2222e-01; ratio R_kk/max|T| = 8.6926e-03
+[R2] exact Schwarzschild, null k, orthonormal screen: |trace|/max=0.000e+00 (vacuum: exactly traceless)
+[R3] linearised M +0: (alpha - 4M/b)/(M/b)^2 at M/b=1e-3, 5e-4 -> 12.625341, 12.59578  (15pi/4=11.780972)
+[R3] linearised M -0: (alpha - 4M/b)/(M/b)^2 at M/b=1e-3, 5e-4 -> 12.508004, 12.537112  (15pi/4=11.780972)
+[R3] exact      M +0: (alpha - 4M/b)/(M/b)^2 at M/b=1e-3, 5e-4 -> 11.82381, 11.802348  (15pi/4=11.780972)
+[R3] exact      M -0: (alpha - 4M/b)/(M/b)^2 at M/b=1e-3, 5e-4 -> 11.738475, 11.759682  (15pi/4=11.780972)
+[R3] M=-0.04 b=0.3: deflection linearised -0.39326146 rad, exact Schwarzschild -0.39043187 rad, 4M/b -0.53333333; lin/exact-1 = 0.007247
+[R3] M=-0.01 b=0.3: deflection linearised -0.12122789 rad, exact Schwarzschild -0.12163938 rad, 4M/b -0.13333333; lin/exact-1 = -0.003383
+[R3] M=-0.002 b=0.3: deflection linearised -0.026124969 rad, exact Schwarzschild -0.026155383 rad, 4M/b -0.026666667; lin/exact-1 = -0.001163
+[R4]         M | linearised: conj, t-|dx|     | exact Schw.: conj, t-|dx|    | composite printed
+[R4]   2.0e-03 |  55.21 +5.12275e-02          |  55.25 +5.11961e-02          | (55.17, 0.051227)
+[R4]  -5.0e-04 |   none -1.06158e-02          |   none -1.06162e-02          | (None, -0.010616)
+[R4]  -2.0e-03 |  56.57 -3.76176e-02          |  56.51 -3.76125e-02          | (56.5, -0.037618)
+[R4]  -1.0e-02 |  42.86 -7.96775e-02          |  42.85 -7.89325e-02          | (42.83, -0.07968)
+[R4]  -2.0e-02 |  41.54 +4.11155e-02          |  41.55 +4.26862e-02          | None
+[R4]  -4.0e-02 |  40.82 +6.16039e-01          |  40.88 +5.93837e-01          | (40.83, 0.61601)
+[R4] linearised: window lower edge (seats within lam) |M|=1.2380e-03, upper edge (delay changes sign) |M|=1.7684e-02; Phi(b) at upper edge = 0.059
+[R4] exact Schwarzschild (isotropic): window lower edge (seats within lam) |M|=1.2361e-03, upper edge (delay changes sign) |M|=1.7580e-02; Phi(b) at upper edge = 0.059
+[R4] edge shift exact/linearised: lower 0.9985, upper 0.9941
+[R5] concentric m=5e-03: Phi at core centre 0.2500 (m/a - m/R_s); max |Phi| along the b=1 corridor ray 4.9740e-03
+[R5] concentric m=4e-02: Phi at core centre 1.9998 (m/a - m/R_s); max |Phi| along the b=1 corridor ray 3.9792e-02
+[R6] concentric: g_ii = 1-2Phi vanishes at the core centre once m >= 0.010001 (Phi(0)=1/2); its stated window runs 5e-3 to 4e-2
+[R6]   m=5e-03: Phi(0)=0.2500, g_ii(0)=0.500 (Lorentzian, |Phi| not small)
+[R6]   m=1e-02: Phi(0)=0.5000, g_ii(0)=0.000 (Lorentzian, |Phi| not small)
+[R6]   m=2e-02: Phi(0)=0.9999, g_tt(0)=-3.000, g_ii(0)=-1.000 -> spatial metric NEGATIVE inside r*=0.0346 (ray at b=1 never enters)
+[R6]   m=4e-02: Phi(0)=1.9998, g_tt(0)=-5.000, g_ii(0)=-3.000 -> spatial metric NEGATIVE inside r*=0.0774 (ray at b=1 never enters)
+[R2b] composite.riemann_lower step h=3e-03: |trace|/max = 9.8812e-04  (exact limit, R2: 5.9001e-05)
+[R2b] composite.riemann_lower step h=1e-03: |trace|/max = 1.6229e-04  (exact limit, R2: 5.9001e-05)
+[R2b] composite.riemann_lower step h=3e-04: |trace|/max = 6.8298e-05  (exact limit, R2: 5.9001e-05)
+[R2b] composite.riemann_lower step h=1e-04: |trace|/max = 6.0014e-05  (exact limit, R2: 5.9001e-05)
+[R2b] composite.survey(2e-3) along-ray traceless_ratio = 9.2899e-03  (R2 proper-null-frame O(Phi^2) Ricci ratio at closest approach: 8.6926e-03)
+
+DONE
+EXIT 0

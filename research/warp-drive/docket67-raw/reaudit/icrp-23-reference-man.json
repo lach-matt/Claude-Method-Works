@@ -1,0 +1,83 @@
+{
+ "key": "icrp-23-reference-man",
+ "name": "ICRP Publication 23 (Reference Man) / Emsley, Nature's Building Blocks -- elemental composition of a 70 kg reference adult",
+ "source": {
+  "located": "ICRP Publication 23 (1975), Report of the Task Group on Reference Man, Pergamon; M-retrieved scan on Google Drive 1BZAg4Dncc5sTu00aTRPr7uBUvtT5awH-. Drive file 'P_023_1975_Report_on_the_Task_Group_on_Reference_Man_rev0.pdf' (26,505,556 bytes). Its title page reads: 'INTERNATIONAL COMMISSION ON RADIOLOGICAL PROTECTION No. 23 Report of the Task Group on Reference Man A REPORT PREPARED BY A TASK GROUP OF COMMITTEE 2 ... ADOPTED BY THE COMMISSION IN OCTOBER, 1974 W. S. Snyder Chairman M. J. Cook E.S. Nasset L. R. Karhausen G. Parry Howells I. H. Tipton ... PERGAMON PRESS ... First edition 1975 Reprinted 1992'. It is the cited work (a 1992 reprint of the 1975 first edition). Emsley, Nature's Building Blocks (2011) p.83: not supplied, not read.",
+  "read_status": "PARTIAL -- READ (M-retrieved, Google Drive 1BZAg4Dncc5sTu00aTRPr7uBUvtT5awH-) for front matter, Introduction and Chapter 1 pp.1-61 only; the elemental-content chapter (pp.273-334) was NOT returned by the Drive text tool and is NAMED-NOT-READ. Emsley NAMED-NOT-READ.",
+  "via": "mcp__Google_Drive__read_file_content (truncated at p.61, 151,684 chars; saved to scratchpad reaudit/icrp23.txt). download_file_content refused over 10 MB. First-audit context kept where not contradicted: ICRP's own web page says P23 'is supplemented and amended by ICRP Publication 89' (READ by the first audit); ICRP 110 whole-body bulk from Kanematsu arXiv:1508.00226 Table I (READ by the first audit); Emsley via the Wikipedia restatement (tertiary, READ by the first audit)."
+ },
+ "pages_read": "PARTIAL. mcp__Google_Drive__read_file_content returned 151,684 characters that END at report p.61; mcp__Google_Drive__download_file_content refused ('File too large for download, over limit of 10 MB'); the file is private, so no other route was tried. READ: title page and imprint; Contents pp.v-xix (including the Chapter 2 entry 'GROSS AND ELEMENTAL CONTENT OF REFERENCE MAN I. Introduction 273 II. Physical Properties, Blood Content, and Gross and Elemental Content of Reference Man 274 Addendum I. Weights of Organs and Tissues of Reference Man 325 Addendum II. Variation of Elemental Concentration with Age 329 References 331'); Introduction pp.1-7 (definition of Reference Man, p.4; chapter responsibilities, p.6); Chapter 1 pp.8-61 (total-body weight p.13; adult gross composition p.24; figure and table pages from ~p.56 on are OCR-garbled). NOT READ: pp.62-480 -- in particular ALL of Chapter 2 (pp.273-334), which holds the whole-body elemental content the tree cites (P, N, K, Li, O, C and every other gram value), Chapter 3 (pp.335-420, intake/excretion incl. 'Summary of Model Values for Daily Balance of Elements'), and the appendices. No elemental mass in the tree is checked against ICRP 23 in this re-audit.",
+ "published_statement": "p.4: 'Reference Man is defined as being between 20-30 years of age, weighing 70 kg, is 170 cm in height, and lives in a climate with an average temperature of from 10° to 20° He is a Caucasian and is a Western European or North American in habitat and custom.' (OCR renders '170 cn-i' and the degree signs as '\\~') | p.13: 'The data of Stoudt et al. ... for the adult are as follows: Male: mean = 71.7 kg; SD = ±10 kg. Female: mean = 56.7 kg; SD = ±8.6 kg.' ... 'Weight of total body for reference adult male: 70 kg female: 58 kg' | p.4: 'Because of the wide range of individual variation and the fact that characteristics of Reference Man are chosen within those limits with some degree of arbitrariness and because estimates of intake to produce a specified dose commitment, or equivalent MPAIs, are often only specified to one significant figure, it is clear that minor changes in the definition to bring it into precise agreement with national or regional averages are not warranted.' | p.4: '(c) The Task Group agreed that it was not feasible to define Reference Man as an \"average\" or a \"median\" individual of a specified population group ... The available data certainly do not represent a random sample of any specified population. ... Only a very few individuals of any population will have characteristics which approximate closely those of Reference Man, however he is defined.' | p.6: 'Chapter 2: data relating to elemental composition of tissues and the whole body' ... 'Chapter 2, I. H. Tipton' | p.24 '(2) Adult. Water: Protein: Fat: Carbohydrate: Ash: Mineral: Blood: 60 % W (see pp. 27-29). 15-20% W (...). 19 % W (see pp. 40-42). 0.6% W (ref. 857, p. 381). 4.8-5.8 % W (...). 5.8 % W (ref. 129, p. 122). 7.9 % W (see p. 33).' (OCR separates labels from values; paired in printed order) | ICRP 23's own whole-body gram table (Chapter 2) NOT READ; no gram value is quoted from it.",
+ "published_hypotheses": [
+  "H1 (READ p.4) Reference Man is one DEFINED individual: 20-30 y, 70 kg, 170 cm, Caucasian, Western European / North American habitat, 10-20 °C climate.",
+  "H2 (READ p.13) 70 kg is the reference adult MALE; ICRP 23 defines a reference adult FEMALE at 58 kg. The 70 kg was chosen against data 'Male: mean = 71.7 kg; SD = ±10 kg'.",
+  "H3 (READ p.4) Reference Man is NOT an average or median of any population; the data 'do not represent a random sample'; characteristics are chosen 'with some degree of arbitrariness'; derived intakes are 'often only specified to one significant figure'.",
+  "H4 (READ p.24) adult gross composition: water 60 % W, fat 19 % W, protein 15-20 % W, ash 4.8-5.8 % W -- the elemental masses in Chapter 2 belong to this body.",
+  "H5 (NOT READ) whatever uncertainty, age dependence (Chapter 2 Addendum II 'Variation of Elemental Concentration with Age', p.329) or per-element provenance Chapter 2 attaches to each element."
+ ],
+ "hypothesis_drift": [
+  "DROPPED 'male', now CONFIRMED AT SOURCE. stockgate.py:288-289 and :345 say 'reference 70 kg adult'; stock.py:196-197 'reference adult'; ledger.py:674 'A reference adult (ICRP)'. ICRP 23 p.13 prints 'Weight of total body for reference adult male: 70 kg female: 58 kg', so the 70 kg body is the male; 'adult' is a wider class than the source's 70 kg object.",
+  "DROPPED the source's precision statement (H3, READ). stockgate.py:53-55 reports Li at '91.758 %' of P's factor and calls it 'Nine per cent from flipping the answer'; the computed flip margins are +8.98 % (Li) and -8.24 % (P). The source says Reference Man's characteristics are chosen 'with some degree of arbitrariness' from a population with SD ±10 kg in body mass alone, and are not an average of anyone. A 9 % margin is finer than the definition claims to be.",
+  "WEAKENED: 'measured' (stockgate.py:36 'a reference adult has measured quantities of 59'). The source says its values are selected, not averaged or median, from non-random data (p.4). Whether Chapter 2 prints all 59 elements, and which, is NOT READ.",
+  "WEAKENED: attribution. stockgate.py:288/:345 and stock.py:196 cite 'ICRP 23 / Emsley' as one table; per-element provenance is not given. Still uncheckable: Chapter 2 not read, Emsley not supplied.",
+  "CORRECTION to the first audit's citation: the definition it quoted as 'ICRP 23 p.335' (via Wikipedia) is on p.4 of the report itself; p.335 is the start of Chapter 3 ('PHYSIOLOGICAL DATA FOR REFERENCE MAN ... 335' in Contents).",
+  "DROPPED currency (carried, not re-read): ICRP's page says P23 'is supplemented and amended by ICRP Publication 89'; no owner names it.",
+  "TRIVIAL: stock.HUMAN is normalised over 70,085.9 g, so K at 70 kg is 139.83 g, not exactly 140 (stock.py:472-473)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Reference body mass",
+   "value_then": "70 kg, reference adult MALE (p.13, READ); female 58 kg (p.13, READ)",
+   "value_now": "ICRP 89 revises the reference male (per the first audit, via restatement: +3 kg); ICRP 89 NOT READ",
+   "source_now": "icrp.org page (first audit)",
+   "moves_conclusion": "No for per-kg processing factors. The tree's 59-row total 70,085.9 g matches the male. A 58 kg female payload would need 620.7 kg at the tree's CI factor (not a tree figure)."
+  },
+  {
+   "quantity": "Total-body P, N, K, Li, O, C (the binder and runners-up)",
+   "value_then": "NOT READ in ICRP 23 (Chapter 2 not returned). The tree carries P 780 g, N 1800 g, K 140 g, Li 0.007 g.",
+   "value_now": "first audit: ICRP 110 whole body P 0.813 %, N 2.40 %, C 31.6 % (Kanematsu arXiv:1508.00226, READ there); Emsley restatement's fraction column P 0.5-0.7 %, Li 2.17 mg (tertiary)",
+   "source_now": "CARRIED from the first audit",
+   "moves_conclusion": "YES (first audit, reproduced here): the photosphere binder passes P -> Li below P 715.7 g or above Li 7.629 mg; the CI binder passes P -> N below P 588.7 g. ICRP 110 bulk makes Li (photosphere) and C (CI) bind."
+  },
+  {
+   "quantity": "Adult gross composition",
+   "value_then": "water 60 % W, fat 19 % W, protein 15-20 % W, ash 4.8-5.8 % W (p.24, READ)",
+   "value_now": "not re-read",
+   "source_now": "n/a",
+   "moves_conclusion": "Context only: states the body whose elements Chapter 2 tabulates; the first audit's note that ICRP 110 prices a different (50/50 M/F) body stands."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/icrp23_reaudit.py",
+  "outcome": "exit 0, 4/4 checks pass (reaudit/icrp23_reaudit.out). The tree's 59-row total 70,085.9 g equals ICRP 23's reference adult MALE mass (p.13) to 0.12 %; stock.HUMAN equals the 59-row fractions to 6 dp; CI binds P 10.701 (N 8.0763), photosphere P 1910.9 (Li 1753.4); flip thresholds reproduce: Li > 7.6288 mg (x1.0898), photosphere P < 715.7 g (x0.9176), CI P < 588.7 g (x0.7547). No ICRP 23 elemental value could be compared (Chapter 2 not read).",
+  "agrees_with_source": "partly (body-mass hypothesis matches the male; elemental values unchecked)"
+ },
+ "later_literature": [
+  {
+   "ref": "ICRP Publication 89 (2002)",
+   "effect": "narrows",
+   "what": "Supplements and amends P23 (ICRP page, first audit). A WebSearch this session found that it gives body content of 13 elements, but no numeric value was read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Kanematsu 2015, arXiv:1508.00226 (ICRP 110 tissues)",
+   "effect": "contested",
+   "what": "Whole-body P 0.813 %, N 2.40 %, C 31.6 % (computed by the first audit); a different reference population.",
+   "read_status": "CARRIED from the first audit (READ there)"
+  },
+  {
+   "ref": "Emsley 2011 via Wikipedia 'Composition of the human body'",
+   "effect": "contested",
+   "what": "Mass column matches the tree in 54/56 rows; its fraction column gives P 0.5-0.7 % and Li 2.17 mg.",
+   "read_status": "CARRIED from the first audit (tertiary)"
+  }
+ ],
+ "lacked_data": "Read at source, ICRP 23 states its own limits: a single defined male chosen 'with some degree of arbitrariness' from non-random, Western data, 'not ... an average or median', to about one significant figure for derived intakes (p.4), with a separate 58 kg female (p.13). What it lacked (per the first audit, not re-read): in vivo data for women and other populations (Ellis 1990), the ICRP 89 revision, ICRP 110 tissues. FOR the hypothesis that later data move the tree: ICRP 110 bulk and the Emsley fraction column each flip a binder. AGAINST: magnitudes move by at most ~1.2x, and part of the move is a change of reference body, not a correction of ICRP 23. The elemental values themselves could not be checked against ICRP 23.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "(1) New at source: the 70 kg body is ICRP 23's reference adult MALE (p.13), defined, not averaged, and selected with 'some degree of arbitrariness' (p.4). The tree drops 'male' and treats a defined individual's element masses as fixed to better than 9 %. (2) The tree's arithmetic reproduces exactly; the binder at the photosphere sits +8.98 % (Li) / -8.24 % (P) from a flip, at CI -24.5 % (P). (3) Data that have moved or are contested (ICRP 110 bulk; Emsley's own fraction column; carried from the first audit) cross those margins. A tree conclusion (the printed binder) rests on values that are contested: DATA-DEPENDENT, unchanged. (4) Not WRONG: nothing read contradicts ICRP 23. (5) The ICRP 23 component that would settle the P and Li values -- Chapter 2 -- remains NAMED-NOT-READ; this re-audit could not move the grade toward STANDS or NARROWED on the elemental values.",
+ "what_would_change_the_grade": "Read ICRP 23 Chapter 2 (pp.273-334; the text tool truncated at p.61 and the 10 MB download cap blocked the file -- M could split the PDF or place pp.273-334 as a separate file) and Emsley p.83. If ICRP 23 prints P >= 716 g and Li < 7.63 mg for the 70 kg male, the photosphere binder holds for Reference Man and the grade becomes NARROWED (true for the defined male, not for 'an adult'). If ICRP 23 prints P < 716 g or Li > 7.63 mg, D25's printed photosphere binder is contradicted for the tree's own cited source (recorded, not repaired).",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/icrp23_reaudit.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/icrp-23-reference-man.json",
+ "supersedes_grade": "DATA-DEPENDENT"
+}

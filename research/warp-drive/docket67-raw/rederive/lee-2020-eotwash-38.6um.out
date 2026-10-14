@@ -1,0 +1,43 @@
+[1] GLP eq. (39) as restated: coth form, image sum, Yukawa alpha and lambda
+PASS coth(x) == 1 + 2 sum_k exp(-2kx) for x > 0 (sympy, geometric form)  -- 0
+PASS alpha = lim (coth - 1)/exp(-r/lambda) with lambda = L/(2 pi)  -- alpha = 2
+PASS image sum sum_n 1/(r^2+n^2L^2) == pi/(rL) coth(pi r/L) at r/L=0.3  -- ratio-1 = -1.78e-12
+PASS image sum sum_n 1/(r^2+n^2L^2) == pi/(rL) coth(pi r/L) at r/L=1.0  -- ratio-1 = -7.93e-12
+PASS image sum sum_n 1/(r^2+n^2L^2) == pi/(rL) coth(pi r/L) at r/L=2.5  -- ratio-1 = -1.99e-11
+    => the restated eq. (39) is the circle image sum of a 5D Newtonian (scalar)
+       Green's function; at r >> lambda it is Newton x (1 + 2 exp(-r/lambda)),
+       lambda = gamma L/(2 pi): a Yukawa of STRENGTH alpha = 2, not |alpha| = 1.
+       (A spin-2 KK graviton would carry an extra 4/3: alpha = 8/3.  Not read here.)
+
+[2] branelink.sme_coefficient at the tree's r and at Lee's 30 um
+PASS tree's |c| at r = 38.6 um, beta = 1 reproduces 6.37e-64  -- 6.372236e-64
+    |c|(38.6 um) = 6.3722e-64   orders short = 42.1957
+    |c|(30.0 um) = 1.0549e-63   orders short = 41.9768
+PASS scaling |c| ~ r^-2: c(30)/c(38.6) == (38.6/30)^2  -- 1.655511 vs 1.655511
+PASS round(orders short) is 42 at BOTH radii -- the r-choice does not move O7's null
+
+[3] the direction of the datum: r <= 38.6 um is a FLOOR on |c|, not a ceiling
+    at beta = 1 the 1e-21 lab bound bites only for r < 3.0813e-26 m
+    = 3.803e+08 reduced Planck lengths
+PASS r_bite reproduces c = 1e-21
+    => 'at the maximal r' is the LEAST constraining point of the Eot-Wash-allowed
+       interval; the null holds for r in [3.08e-26 m, 38.6e-6 m] at beta <= 1.
+
+[4] the tree's own clause EOTWASH_BOUNDS = 'gamma*L, not L (GLP eq. 39)' applied inside the SME estimate
+    (CONDITIONAL: that K&N eq. 76-77's r is the circle radius and its only velocity
+     dependence is the beta^2 branelink codes -- K&N NOT re-read in this stage)
+    floor |c| >= 6.3722e-64 (beta gamma)^2 ; lab bound bites at beta*gamma = 1.25272e+21
+    at GW170817's beta = 3.741657e-08: floor |c| = 8.9211e-79, 57.05 orders below 1e-21
+    at beta = 1 exactly, gamma = inf and the clause forces r -> 0: r = 38.6 um and
+    beta = 1 are NOT jointly admissible under the tree's own gamma*L clause.
+PASS the self-consistent SME bound (beta*gamma <= 1.253e+21) is vacuous next to GW170817 (gamma-1 <= 7e-16)
+
+[5] what the alpha drift can and cannot move (no exclusion curve in hand)
+    CONDITIONAL (curve shape NOT READ): if Lee's 95% CL bound alpha_max(lambda)
+    is decreasing through its |alpha| = 1 crossing, a Yukawa of alpha = 2 is excluded
+    down to a SMALLER lambda, so lambda_max(alpha = 2) < 38.6 um.  NOT computed here;
+    Lee's own extra-dimension figure (30 um, alpha convention NOT READ) brackets it
+    only if that figure's alpha >= 2.  Every tree conclusion checked above moves by
+    < 0.25 orders over r in [30, 38.6] um and none changes sign or rounding.
+
+ALL CHECKS PASS

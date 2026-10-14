@@ -1,0 +1,63 @@
+{
+ "key": "frobenius-theorem-hypersurface-orthogonality",
+ "name": "Frobenius theorem: a unit timelike field with u_[a d_b u_c] = 0 is hypersurface orthogonal (the normal of a foliation)",
+ "source": {
+  "located": "Frobenius, 'Ueber das Pfaffsche Problem', J. Reine Angew. Math. 82 (1877) 230-315 -- pre-arXiv, NAMED-NOT-READ; Wald (1984) App. B Thms B.3.1/B.3.2 -- book, NAMED-NOT-READ. Read via restatement: (i) Yao, arXiv:2004.07288 (2020, v4 2023) Prop 1.1 p.1-2: the classical theorem exactly, smooth involutive subbundle => LOCAL regular parametrisation near each p; 'a similar theorem also holds for the C^1-subbundles'; Prop 1.11 p.4 Lipschitz version (Simic 1996, Rampazzo 2007); p.30 'Clearly V is involutive because it has rank 1'. (ii) Ellis & van Elst, gr-qc/9812046 (Cargese 1998) Sec 2.4 p.12: 'When the vorticity vanishes: The fluid flow is hypersurface-orthogonal, and there exists a cosmic time function t such that u_a = -g(x^b) nabla_a t'; p.9 eq (27) non-zero vorticity => 'no 3-surfaces orthogonal to the fluid flow'. (iii) Gourgoulhon, gr-qc/0703035 p.23 (Frobenius for the tangent distribution of a hypersurface, cites Wald Thm B.3.1), p.44 (hypersurface-orthogonal => vanishing vorticity). (iv) Carroll, gr-qc/9712019 p.78 ('known as Frobenius's Theorem ... Let's just take it for granted') and pp.164-165 (closing commutators => integral submanifolds).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2004.07288, gr-qc/9812046, gr-qc/0703035, gr-qc/9712019. No arXiv source was found that prints the twist form u_[a nabla_b u_c] = 0 verbatim; the equivalence of the twist form with (a) involutivity of ker u and (b) the Ellis-van Elst zero-vorticity form is MACHINE-CHECKED here (C4) rather than read."
+ },
+ "published_statement": "Yao arXiv:2004.07288 Prop 1.1 (restating Frobenius 1877): 'Let M be an n-dimensional smooth manifold and let V be a smooth subbundle of TM with rank r ... Suppose V is involutive. Then for any p in M there is a neighborhood Omega ... and a smooth regular parameterization Phi(u,v): Omega -> M such that Phi(0)=p, and ... dPhi/du^1 ... dPhi/du^r form a basis of V_Phi(u,v)'; 'a similar theorem also holds for the C^1-subbundles with C^1-regular parameterization'. Ellis-van Elst gr-qc/9812046 p.12: 'When the vorticity vanishes: 1. The fluid flow is hypersurface-orthogonal, and there exists a cosmic time function t such that u_a = -g(x^b) nabla_a t'. For V = ker(u) of a nowhere-zero 1-form u, involutivity <=> u ^ du = 0 <=> u_[a nabla_b u_c] = 0 (C2, C4 here).",
+ "published_hypotheses": [
+  "u (equivalently the codimension-1 distribution ker u) nowhere vanishing -- automatic for a unit timelike field",
+  "REGULARITY: smooth (Frobenius 1877 as restated), or C^1 (classical extension), or Lipschitz with a.e./set-valued involutivity (Simic 1996, Rampazzo 2007, restated in 2004.07288 Prop 1.11); log-Lipschitz with distributional involutivity (Yao 2020 Thm 1.4)",
+  "LOCALITY: the conclusion is a neighbourhood of each point (u = f d tau on that neighbourhood); a global time function whose level sets are the leaves is NOT asserted",
+  "manifold C^1,1 or smoother; torsion-free connection when the condition is written with nabla (so nabla may be replaced by partial derivatives)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- REGULARITY. foliation.py:105 'For ANY rapidity field w(t,r)', :111 'w arbitrary', :113 'SO EVERY SPHERICALLY SYMMETRIC UNIT TIMELIKE FIELD IS HYPERSURFACE ORTHOGONAL', :116 'Each such u' is the normal of a foliation', and V5's label :671 'w(t,r) ARBITRARY'. The source needs w (hence u') C^1, or at least Lipschitz. SHOWN here (C7): w with tanh w = sgn(t) sqrt|t| (continuous, not Lipschitz at t=0; |t|<1/4) gives a spherically symmetric unit timelike u' (u'.u' = -1) whose orthogonal line field has THREE distinct integral curves through (t=0, r=c): t=0 and t=+-(r-c)^2/4 (r>c), each a solution with residual 0. Every leaf through a t>0 point, followed to smaller r, reaches t=0 and must merge there, so no foliation has this u' as its normal. The sympy computation itself treats w as a differentiable Function, so the in-file proof carries the C^1 hypothesis implicitly; the prose sentences state it as unrestricted.",
+  "DROPPED -- LOCALITY (mild). foliation.py:116-118 'Each such u' is the normal of a foliation, and in the chart adapted to it the metric is again -e^{2Phi'}dt'^2 + e^{2Lambda'}dr'^2 + R^2 dOmega^2' is stated without 'locally'. Frobenius gives a neighbourhood of each point. C8 shows that with smooth metric -dt^2 + e^{2t^2}dr^2 + r^2 dOmega^2 and smooth w = 1, the leaf through (0,1) reaches only r* = 1 + (sqrt(pi)/2)/tanh 1 = 2.1636 as t -> infinity, and the leaf through (0,3.5) never meets r = 1, so the obvious 'intercept at r0' time function is undefined outside a neighbourhood. This does NOT show that no global foliation exists: for a C^1 nowhere-zero line field on the 2-D quotient the maximal integral curves still partition the domain. It shows only that the adapted chart (t', r') is local, as the source states.",
+  "NOT A DRIFT, CHECKED: foliation.py:113 'EVERY spherically symmetric unit timelike field' vs the computation, which covers only fields in the (t,r) plane with components depending on (t,r). Spherical symmetry forces this: a tangent vector on S^2 fixed by the isotropy rotations is zero (C5), and w depending on theta gives a nonzero twist (C3b), so 'spherically symmetric' is load-bearing and is correctly stated in the tree.",
+  "NOT A DRIFT, CHECKED: V5 (:658-672) uses partial derivatives, not nabla; for any 1-form the antisymmetrised forms agree (torsion-free), checked for an arbitrary 1-form with arbitrary dependence on a warped product with off-diagonal (t,r) block (C2).",
+  "NOT A DRIFT, CHECKED: the parenthetical at :114-116 ('in the 2-dimensional (t,r) quotient a 1-form's twist 3-form has nowhere to live') is a correct proof and is more general than V5: ANY 1-form A(t,r)dt + B(t,r)dr on ANY warped product h_AB(t,r) + R^2 dOmega^2 has u^du = 0 identically (C2). It matches the source's own remark that a rank-1 distribution is automatically involutive (2004.07288 p.30).",
+  "USE IN DEPENDENTS DOES NOT REACH THE DROPPED HYPOTHESES: :144 'EVERY VALUE IN IT IS REALISED BY A FOLIATION' needs, for each value psi at a point, ONE smooth w with that value there (e.g. constant w = psi - psi_0), and only a local foliation; the 'Gamma > 1 in every foliation if m < 0' direction holds for every unit timelike field and does not use Frobenius at all. So ledger D2, specthm D2/K0/R1 rest only on the smooth, local theorem, which holds."
+ ],
+ "data_at_publication": [],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/frobenius-theorem-hypersurface-orthogonality.py",
+  "outcome": "14 checks, 0 FAIL (exit 0, ~2.5 s). C1: V5 re-run exactly as the tree gives 0 of 64 nonzero components with w(t,r) free, and V6 residual 0. C2: any 1-form A dt + B dr on any warped product (off-diagonal (t,r) block) has zero twist; nabla-form = partial-form for an arbitrary 1-form. C3 vacuity guards: -dt + f(r)dphi gives 6 nonzero components, and the tree's u' with w(t,r,theta) gives 6, so the detector is live. C4: for unit timelike u (3 exact boosts), ker(F -> u^F) = ker(F -> hFh), both of dimension 3: twist form <=> zero vorticity. C5: the S^2 isotropy fixes only the zero tangent vector. C6: Frobenius's conclusion BUILT numerically for smooth w on the Schwarzschild exterior (M=1): tau with d tau ∝ u' (relative residual 1.4e-10), rho with d rho ∝ n' (7.0e-10), g^-1(d tau, d rho) = 0 (8.4e-10), and |d tau ^ d rho| >= 0.25, so the adapted chart is diagonal as foliation.py:116-118 says. C7: the regularity counterexample (three integral curves through one point). C8: the locality example (r* = 2.1636472241 numeric = exact).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Yao, arXiv:2004.07288 (2020; v4 2023), The Frobenius Theorem for Log-Lipschitz Subbundles",
+   "effect": "extends",
+   "what": "Frobenius holds for log-Lipschitz subbundles with distributional involutivity, giving a C^{0,1-eps} parametrisation, and the regularity is sharp (Prop 6.3, X = (1, y log|y|)). Restates the classical smooth/C^1 theorem and the Lipschitz one (Simic 1996, Rampazzo 2007) and leaves the Osgood case open (Problems 6.5-6.7). It confirms that the conclusion is local and that a regularity hypothesis is part of the theorem.",
+   "read_status": "READ (pp.1-5, 18-19, 29-33 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Simic, Proc. AMS 124 (1996) 1869; Rampazzo, J. Diff. Eq. 243 (2007) 270",
+   "effect": "extends",
+   "what": "Lipschitz Frobenius (a.e. or set-valued involutivity => bi-Lipschitz local parametrisation).",
+   "read_status": "NAMED-NOT-READ (restated in 2004.07288 Prop 1.11, p.4)"
+  },
+  {
+   "ref": "arXiv:2607.01569 (2026), Complete Integrability for Piecewise-Smooth Distributions",
+   "effect": "extends",
+   "what": "Sufficient integrability criteria for piecewise-C^1, possibly discontinuous distributions (abstract only).",
+   "read_status": "abstract only (discover_papers)"
+  },
+  {
+   "ref": "arXiv:2510.21478 (2025), A general Frobenius' Theorem via the Transport of Currents",
+   "effect": "extends",
+   "what": "Commuting flows <=> vanishing bracket under weaker regularity (abstract only).",
+   "read_status": "abstract only (discover_papers)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: Frobenius's theorem (1877; Deahna 1840 and Clebsch 1866 earlier) is a theorem of differential topology. It has NO numerical input and NO measured datum, so there is nothing its authors could have lacked in M's sense, and nothing that could later have moved. Evidence either way: (a) later work (Simic 1996, Rampazzo 2007, Yao 2020, the 2025-26 papers) only EXTENDS the theorem to weaker regularity. None of it contradicts the smooth/C^1 statement, and the log-Lipschitz sharpness result (Yao Prop 6.3) marks where regularity starts to matter; (b) the one place the tree outruns the source is not missing data but a dropped regularity hypothesis ('w arbitrary'), SHOWN here by the non-Lipschitz counterexample (C7). That hypothesis does not reach any dependent. So having every datum now available leaves the conclusion as used unchanged.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem, in the form the dependents use, STANDS. (1) Twist condition: re-derived. V5's 0/64 reproduces, and it generalises to any 1-form of (t,r) on any warped product. (2) Twist form <=> zero vorticity <=> involutive ker u: machine-checked (C4). (3) Frobenius's conclusion, tau with d tau ∝ u' and a diagonal adapted chart: constructed numerically for smooth w on Schwarzschild to about 1e-9. The grade is NARROWED and not STANDS only because the tree's prose drops two of the source's hypotheses. REGULARITY: 'For ANY rapidity field w(t,r)' (:105), 'w arbitrary' (:111), 'EVERY SPHERICALLY SYMMETRIC UNIT TIMELIKE FIELD' (:113) is false for continuous non-Lipschitz w. C7 exhibits a spherically symmetric unit timelike u' that is the normal of no foliation, because three leaves pass through (0, c). The true class is w in C^1, or Lipschitz. LOCALITY: :116-118 omits 'locally', and C8 exhibits the adapted chart failing to extend. The narrowing does NOT move any dependent. Ledger D2, specthm D2/K0/R1 and the 'every value realised by a foliation' at :144 need one smooth w per point value and a local foliation, which the theorem provides. This is recorded as a discrepancy of scope in the prose, not an error in the tree's computation, which is itself C^1 (sympy Function). Nothing was repaired.",
+ "what_would_change_the_grade": "-> STANDS: foliation.py's sentences at :105/:111/:113/:116 read as restricted to C^1 (or Lipschitz) w and to a neighbourhood of each point. The in-file computation already assumes this. -> WRONG: a C^1 spherically symmetric unit timelike field with nonzero twist, or one that is not locally a foliation normal. C2 proves none exists (the twist vanishes identically for every differentiable A(t,r)dt + B(t,r)dr), and classical Frobenius then gives the local foliation. -> OPEN: none; the result is checkable here and was checked.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/frobenius-theorem-hypersurface-orthogonality.py  # expect 14 PASS, 'SUMMARY: 0 FAIL', exit 0",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/frobenius-theorem-hypersurface-orthogonality.json"
+}

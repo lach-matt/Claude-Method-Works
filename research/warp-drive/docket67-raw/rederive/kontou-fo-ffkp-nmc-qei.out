@@ -1,0 +1,20 @@
+PASS  N1 (9)_ll - (13)_printed == 2 xi R_ll phi^2  2*R_ll*phi**2*xi
+PASS  N1b (9)_ll == (13) with -1/2 R_ll  
+PASS  N2 FFKP (9) conserved off-shell on FRW  residual 1.36e-166
+PASS  N2b (12)/(13) Ricci sign NOT conserved on FRW  residual 1.446e-01
+PASS  N3a l = d_t + a^-1 d_x is null  
+PASS  N3b Q_true = nabla nabla(l l f^2) - R_ll f^2: identity holds pointwise  max residual 4.34e-165
+PASS  N3c printed Q (+1/2 R_ll f^2) fails the identity  max residual 1.410e-01
+PASS  N3d printed-Q residual is exactly -(3/2) xi R_ll f^2 phi^2  1.09e-165
+PASS  N4 R_ll != 0 on FRW (a = e^{t/3} + t^2/5)  R_ll(t=0.7) = -0.263474008923872 ; closed form 2*(-5*t**2*exp(t/3) + 18*t**2 + 60*t*exp(t/3) - 90*exp(t/3))/(9*(t**4 + 10*t**2*exp(t/3) + 25*exp(2*t/3)))
+PASS  N5 positive part f^2 (l.dphi)^2 contains no curvature coefficient  
+PASS  F1a z3: bracket >= 0 on xi in [0,1/4] (negation UNSAT)  
+PASS  F1b z3: bracket can be < 0 outside [0,1/4] (SAT)  
+PASS  F2 xi_c(4) = 1/6 in [0,1/4]  
+PASS  T1a KONTOU_REQUESTED_TEST_ON_HPS = FO OPEN, FFKP OPEN  FO Thm 4.2 OPEN and FFKP Thm IV.1 (eq. 72) OPEN -- both apply in form to HPS's xi = 1/6 fi
+PASS  T1b both statuses computed OPEN from HYPOTHESES  
+PASS  T1c FORM_TAGS[FO] has no global-hyperbolicity/domain tag (dropped FO P3)  {'geodesic', 'xi'}
+PASS  T1d qeihps.py displays FFKP Q[f] with +(1/2) R_mn l^m l^n f^2  
+PASS  T1e the tree never evaluates FFKP Q[f]: every 'Q[f]'/'R_ll' is in the docstring display (lines 98-99)  lines [98, 99]
+PASS  T1f toggling the blockers flips both to EVALUABLE (verdict is computed, not declared)  
+19 PASS, 0 FAIL

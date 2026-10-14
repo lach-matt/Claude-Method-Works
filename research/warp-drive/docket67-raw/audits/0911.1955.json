@@ -1,0 +1,86 @@
+{
+ "key": "0911.1955",
+ "name": "CMB monopole temperature T_0 = 2.7255 K (Fixsen 2009), as permute.T_CMB",
+ "source": {
+  "located": "D. J. Fixsen, 'The Temperature of the Cosmic Microwave Background', arXiv:0911.1955 = ApJ 707, 916-920 (2009), DOI 10.1088/0004-637X/707/2/916. Located by WebSearch (arxiv.org/abs/0911.1955, IOPscience, ADS, OSTI all listed).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT reached. alphaXiv answer_pdf_queries, get_paper_content(fullText) and discover_papers each returned 'alphaXiv assistant quota exceeded' this stage. curl and WebFetch to arxiv.org, export.arxiv.org, ui.adsabs.harvard.edu, iopscience.iop.org, osti.gov and pdg.lbl.gov were all EGRESS_BLOCKED / CONNECT 403. The only text seen is a WebSearch engine summary of the abstract: 'The FIRAS data are independently recalibrated using the WMAP data to obtain a CMB temperature of 2.7260 +/- 0.0013. Measurements of the temperature of the cosmic microwave background are reviewed. The determination from the measurements from the literature is cosmic microwave background temperature of 2.72548 +/- 0.00057 K.' A search summary is not a verbatim read at source, so none of this is marked READ. A pypi route was tried too: the astropy 8.0.1 wheel's cosmology data files carry Tcmb0 only as a Planck input and do not restate Fixsen."
+ },
+ "published_statement": "NOT READ AT SOURCE. As restated by the WebSearch summary of the abstract (unverified): combined literature value T_0 = 2.72548 +/- 0.00057 K; FIRAS recalibrated against WMAP alone gives 2.7260 +/- 0.0013 K. The same search summary attributes to the paper a non-FIRAS compilation T_0 = 2.729 +/- 0.004 K. That is a second-hand attribution, read neither in the paper nor in the restating paper.",
+ "published_hypotheses": [
+  "NOT READ. The hypotheses below are only what the restated abstract implies, and are unverified:",
+  "the CMB spectrum is a blackbody, so one temperature describes it",
+  "WMAP's dipole-based calibration is a valid absolute reference for recalibrating FIRAS",
+  "the reviewed literature measurements are independent and their quoted errors can be combined (weighting method NOT READ)",
+  "systematic-error treatment NOT READ"
+ ],
+ "hypothesis_drift": [
+  "ADDED DEPENDENCE THE ARITHMETIC DOES NOT HAVE (tree-side, not a source defect). permute.py:66-68 says 'Measured, from the CMB temperature alone: T_rec / T_0 = 2973.3 K / 2.7255 K = 1090.92 = 1 + z', and permute.py:238-239 says 'Measured independently of any model of a(t)'. The code computes temperature_at = T0*(1+z) with z = Z_REC = 1089.92 labelled 'Planck 2018' (permute.py:179, 234-240), so T_rec/T_0 = 1+z identically. sympy gives d/dT0 = 0, and permute.ratio_from_temperature gives 1090.920000000000 at T0 = 2 K and at T0 = 3 K (rederive R1, R1c). T_rec = 2973.3 K is computed, not measured. The number 1090.92 rests on Planck's z_*, not on Fixsen's T_0, and the permute.py:430 check near('ratio from the CMB temperature alone', ...) is a tautology. The same sentence is inherited at obstruct.py:278 ('read off T_rec/T_0').",
+  "UNNAMED HYPOTHESIS (tree-side). permute.py:239 says 'T scales as 1/a' and uses it as model-free. It is a model statement: FLRW redshift of a photon gas that is not heated and whose photon number is not changed after decoupling. It is not a Fixsen result and is not named as a hypothesis in permute.py.",
+  "Z_REC IS A MODEL-FIT PARAMETER (tree-side). permute.py:179 takes 1089.92 from Planck 2018. That this Planck z_* is a LambdaCDM-fit derived quantity with T_0 held fixed at the FIRAS value is general knowledge and was NOT READ here. If so, 'independently of any model of a(t)' (permute.py:239) overstates what the input is.",
+  "UNCERTAINTY DROPPED. permute.py:178 holds 2.7255 with no error bar. round(2.72548, 4) = 2.7255, an offset of 0.035 sigma (R3), which does not matter for any conclusion.",
+  "DIGITS BEYOND THE INPUT'S PRECISION (discrepancy of digits, not physics). massform.py:457 prints 2.4120e41 bits. At Fixsen's unrounded 2.72548 the count is 2.412058e41, which prints as 2.4121e41. The 1-sigma band is 2.4116e41 to 2.4126e41 (+/-0.021 %). The fifth significant figure is therefore not supported by T_0 (R4c).",
+  "CHECKED, NOT A DRIFT. massform.py:906-911 records the value as CITED, not READ. This audit likewise could not READ it, so that status stands. 'the ratio of section 3 moves linearly with T' (massform.py:910-911) refers to massform's own section-3 ratio 2 pi R k_B T/(hbar c) (massform.py:830, 2025-2029). sympy confirms it is linear in T (R5), so the sentence is correct as written. It does NOT refer to permute's section 3, whose ratio does not move with T at all."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "T_0, CMB monopole temperature",
+   "value_then": "2.72548 +/- 0.00057 K (combined), with 2.7260 +/- 0.0013 K from FIRAS recalibrated to WMAP. Both from the abstract as restated by a search summary, NOT READ.",
+   "value_now": "NOT READ here. PDG 2024, Planck and ADS were all egress-blocked. The one web search run found no superseding absolute spectral measurement, only anisotropy-based and T(z) re-analyses, all NAMED-NOT-READ.",
+   "source_now": "none read. Candidates named: PDG 2024 CMB review (pdg.lbl.gov, blocked), arXiv:2005.10656, arXiv:2404.05037.",
+   "moves_conclusion": "No. permute's 1090.92 does not depend on T_0 at all (R1). The Landauer count in massform N-INFO scales as 1/T_0: +0.0007 % at 2.72548, +/-0.021 % across Fixsen's 1-sigma band, -0.13 % at the 2.729 non-FIRAS figure (R4). massform.py:451 says no verdict rests on N-INFO. The obstruct/permute verdict needs only 1+z != 1. With T_rec held, any T_0 in [2.4, 3.0] K gives 1+z in [991, 1239] (R7)."
+  },
+  {
+   "quantity": "z_rec = 1089.92 (Planck 2018). Not Fixsen's datum, but the one the tree's 1090.92 actually rests on.",
+   "value_then": "1089.92, as held at permute.py:179",
+   "value_now": "not re-read in this audit (outside this key)",
+   "source_now": "Planck 2018 VI, not read here",
+   "moves_conclusion": "It moves the printed 1090.92 one for one. The verdict (ratio != 1) is unaffected by any plausible shift (R7)."
+  },
+  {
+   "quantity": "k_B (Landauer note)",
+   "value_then": "1.380649e-23 J/K",
+   "value_now": "1.380649e-23 J/K, exact by the 2019 SI definition",
+   "source_now": "SI definition (not re-read here)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0911.1955.py",
+  "outcome": "ALL PASS (exit 0; output in rederive/0911.1955.out). R1: T0(1+z)/T0 - (1+z) = 0 and d/dT0 = 0, so permute's 1090.92 is T_0-independent. R1b: if T_rec is instead held by atomic physics, dln(1+z)/dlnT0 = -1 (inverse, not linear). R1c: permute.ratio_from_temperature is identical at T0 = 2 K and 3 K. R2: 2.7255 x 1090.92 = 2973.3025 K, matching the printed 2973.3. R3: 2.72548 rounds to 2.7255 (0.035 sigma). R4a: k_B T ln2 = 2.608284e-23 J, matching nopath and the printed 2.608e-23. R4b: Mc^2 = 6.291286e18 J (M = 70 kg), bits = 2.412040e41, matching the printed 2.4120e41. R4c: at 2.72548 the count prints 2.4121e41, so the fifth digit is below the input's precision. R5: massform's section-3 ratio is linear in T, as massform.py:910-911 says. R7: the verdict survives T_0 in [2.4, 3.0] K. The measurement itself cannot be re-derived. It is a data combination, and the source was not readable here.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Ivanov, Ali-Haimoud, Lesgourgues, 'H0 tension or T0 tension?', arXiv:2005.10656 (Phys. Rev. D 102, 063515)",
+   "effect": "contested",
+   "what": "Per the WebSearch summary only: Planck combined with SH0ES gives a T_0 about 3 sigma from FIRAS, while Planck with BAO agrees with FIRAS. The H0 tension persists without the FIRAS T_0 prior. This does not bear on any tree conclusion (R1, R7).",
+   "read_status": "NAMED-NOT-READ (search summary; alphaXiv quota exhausted, arXiv egress-blocked)"
+  },
+  {
+   "ref": "'The role of T0 in CMB anisotropy measurements', arXiv:2011.09616",
+   "effect": "extends",
+   "what": "Title only: the degeneracy of T_0 with anisotropy-derived parameters.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "'Current and future cosmological impact of microwave background temperature measurements', arXiv:2404.05037",
+   "effect": "extends",
+   "what": "Title only.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "'Estimation of the CMB temperature from atomic C i and molecular CO lines', arXiv:2106.00119; 'Revisiting the temperature evolution law of the CMB with gaussian processes', arXiv:2505.24543",
+   "effect": "extends",
+   "what": "Titles only: tests of T(z) = T_0(1+z), the tree's unnamed 'T scales as 1/a' hypothesis (permute.py:239).",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What Fixsen had, per the restated abstract only: FIRAS spectra, WMAP calibration and literature ground/balloon measurements. Later data: Planck anisotropy fits, which constrain T_0 only through degeneracies with H0 and other parameters, and T(z) probes (SZ, C I/CO absorption). All of these are NAMED-NOT-READ. Whether an absolute spectrometer measurement has superseded FIRAS could not be READ here. Does any of it change the conclusion AS THE TREE USES IT? No, and this is computed, not presumed. T_0 cancels identically in permute's 1090.92 (R1, R1c). In the Landauer note the count moves as 1/T_0, by 0.13 % at most across the values named, and no verdict rests on that note (massform.py:451). Even a T_0 tension of several percent leaves 1+z of order 1000 (R7). Evidence against M's hypothesis for this key: none of the later values named contradicts 2.7255 at the precision the tree uses. Evidence for it: the SH0ES-combined T_0 tension exists as a claim in the literature (restated only), but it is model-dependent and is not a direct measurement. Neither side is READ at source here, so M's hypothesis stays untested for this key.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be READ. The alphaXiv quota was exhausted on all three tools, and arXiv, ADS, IOP, OSTI and PDG were egress-blocked. Per the rules, a claim not checkable here is OPEN and is not flattened to STANDS. What WAS checked: every piece of arithmetic the tree performs with T_0 re-derives exactly (R2, R4a, R4b). The tree's 2.7255 equals the restated 2.72548 rounded, within 0.035 sigma (R3). No conclusion in the tree turns on T_0: permute's 1090.92 is T_0-independent (R1), and the Landauer note carries no verdict. Two tree-side findings are recorded, and neither is a fault of the source. (i) permute.py:66-68, 238-239 and obstruct.py:278 call 1090.92 'measured from the CMB temperature alone'. The arithmetic is T0(1+z)/T0 with Planck's z, so T_0 cancels and the check is tautological. (ii) massform.py:457's fifth significant figure is below T_0's precision. Recorded, not repaired.",
+ "what_would_change_the_grade": "Reading arXiv:0911.1955 at source (alphaXiv quota reset or arXiv egress), and confirming 2.72548 +/- 0.00057 K with its hypotheses (blackbody, WMAP calibration, combination method), would grade the value as used STANDS: re-derivation agrees and no moved datum moves a tree conclusion. Drift (i) would stay recorded against the tree, not the source. The grade would become DATA-DEPENDENT only if a verdict-bearing tree use were found whose conclusion scales with T_0 and the model-dependent Planck+SH0ES T_0 were adopted over FIRAS. No such use exists in permute, obstruct or massform (R1, R5, R7).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/0911.1955.py ; sed -n 66,68p /home/user/Claude-Method-Works/research/warp-drive/permute.py ; sed -n 178,179p /home/user/Claude-Method-Works/research/warp-drive/permute.py ; sed -n 234,240p /home/user/Claude-Method-Works/research/warp-drive/permute.py ; sed -n 906,911p /home/user/Claude-Method-Works/research/warp-drive/massform.py ; then, when reachable: alphaXiv answer_pdf_queries(paper='0911.1955', queries=['final T0 and uncertainty','measurements combined and weighting','assumptions'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/0911.1955.json"
+}

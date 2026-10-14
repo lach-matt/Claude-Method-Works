@@ -1,0 +1,107 @@
+{
+ "key": "lodders-2003-apj-591-1220",
+ "name": "Lodders 2003: CI chondrite abundances and 50% condensation temperatures at 1e-4 bar",
+ "source": {
+  "located": "Lodders K. (2003) ApJ 591, 1220-1247, doi:10.1086/375492; M-retrieved PDF on Google Drive 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N. Drive file title 'SOLAR SYSTEM ABUNDANCES AND CONDENSATION TEMPERATURES OF THE ELEMENTS.pdf' (280,145 bytes). Its own p.1 prints 'SOLAR SYSTEM ABUNDANCES AND CONDENSATION TEMPERATURES OF THE ELEMENTS', 'Katharina Lodders', 'Received 2003 January 22; accepted 2003 March 21', and the running line 'The Astrophysical Journal, 591:1220–1247, 2003 July 10'. It is the cited work. PDF page n = journal page 1219+n (PDF p.2 footer '1221').",
+  "read_status": "READ (M-retrieved, Google Drive 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N)",
+  "via": "mcp__Google_Drive__read_file_content on 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N. The first audit read the IOP PDF through alphaXiv; every value it quoted from Tables 3 and 8 and from pp.1236, 1238, 1242-1243 is confirmed against this copy, and Table 3 is now read in full (rows after Ag were not read before)."
+ },
+ "pages_read": "Whole Drive text extraction (168,561 chars, 28 PDF pages = journal pp.1220-1247) received; read closely: p.1220 (abstract), p.1221 (sec.2.2 CI chondrites), p.1224 (CI group-mean method), pp.1225-1226 (Table 3, all rows H..U), p.1231 (sec.2.3.2.1 Be), p.1234 (sec.2.3.3 P), p.1236 (sec.3, pressure choice), p.1238 (sec.3.1-3.2 equilibrium, host phases, 10 K composition offset), pp.1239-1240 (Table 8, complete), p.1241 (Table 9 head), p.1242 (sec.3.3.3 Be 1421 K), p.1243 (pressure dependence Te/Pb; Hg; sec.3.3.8 halogens), pp.1244-1245 (sec.3.4 O, C, N condensation). Table 3 and Table 8 are rotated tables whose extraction splits digits with spaces (e.g. '2101 5' = 21015) and renders some decimal points as ':'; each value used was reconstructed from the row and is quoted as extracted. Ambiguous in extraction: Be group sigma/N_met, Ti group sigma/N_met, Th and U group sigma.",
+ "published_statement": "p.1236: 'The condensation temperatures and the 50% condensation temperatures are calculated for all elements at a total pressure of 10-4 bar. This pressure was chosen because it is characteristic for the total pressure near 1 AU in the solar nebula (see Fegley 2000).' | p.1238: 'For calculating standard condensation temperatures, condensates remain in equilibrium with the gas as temperature drops. ... This scenario applies to physical settings such as the solar nebula, protostellar and protoplanetary disks, and stellar outflows ... However, this condensation sequence does not apply to giant planetary, brown dwarf, or cool stellar atmospheres, in which gravitational settling removes primary condensates into cloud layers' | p.1234: 'the meteoritic value is only based on the P abundance in the Orgueil meteorite, for which a concentration of 920 ± 100 ppm is derived (mainly from data by Wolf & Palme 2001). The P abundances of other CI chondrites are much more uncertain; for Ivuna, one reliable P analysis of 760 ppm exists (Wolf & Palme 2001), whereas P analyses of other CI chondrites date back several decades to almost a century, and range from 500 to 1800 ppm (see Mason 1963).' | N row: 'N 2900 1 ... 2948 535 5 ... ... 2940 20 2' -> Alais 2900 (1 analysis), Orgueil 2948 +- 535 (5), group 2940 +- 20, N_met 2 | P row: 'P (1200 ) (1) (760) (1) 924 100 8 ... (480) (1) 920 100 1' -> Orgueil 924 +- 100 (8), group 920 +- 100, N_met 1 (Alais, Ivuna, Tonk excluded) | As row: 'As 1.82 0.04 2 1.77 0.21 3 1.70 0.23 18 ... 1.95 1 1 .73 0.06 4' -> group 1.73 +- 0.06, N_met 4 | Table 8 note (p.1240): 'Note.—At 10 4 bar total pressure. Solar system abundances from Table 2. a 22.75% of oxygen is condensed into rock before water ice condensation. b Major condensed reservoir of element.' ('10 4' is the extraction of 10^-4) | 'P 1248 Fe3P 1229 Schreibersite' ; 'N 131 NH3H2O 123 NH3H2O' ; 'H 182 H2O ice ... ...' ; 'He <3 He ice ... ...' ; 'O 182 Water icea 180 rock + water ice'",
+ "published_hypotheses": [
+  "H1 total pressure 1e-4 bar, 'characteristic for the total pressure near 1 AU in the solar nebula' (p.1236, READ)",
+  "H2 solar-system (protosolar, Table 2) composition for Table 8; photospheric Table 9 'about 10 K' lower (p.1238, READ)",
+  "H3 full equilibrium; 'does not apply to giant planetary, brown dwarf, or cool stellar atmospheres' (p.1238, READ)",
+  "H4 trace elements in chosen host phases; T50 'independent of their total solar system abundance' (p.1238, READ)",
+  "H5 2003 thermodynamic data; halogens 'among the more uncertain' (p.1243, READ); Hg 'problematic' (p.1243)",
+  "H6 pressure dependence of metal vs troilite hosts (p.1243, READ)",
+  "H7 CI values are N-weighted means of meteorite means over the five falls; parenthesised values excluded; P from Orgueil alone (N_met 1), N from two meteorites (p.1224, p.1234, Table 3, READ)"
+ ],
+ "hypothesis_drift": [
+  "KEPT, exact: H1. formation.py:501 LODDERS_PRESSURE_BAR = 1.0e-4 and stockgate.py:284-285 SOURCES['L03'] '... 50% condensation temperatures at 1e-4 bar'. formation.py:271-274 calls them 'nebular'; the source's reason (p.1236) supports that, and ties the pressure to ~1 AU.",
+  "DROPPED H2: stockgate.py:330 does not name the solar-system composition; the values are Table 8, not Table 9 (checked: 61/63 equal Table 8). No effect on D25, since formation refuses T_c at the destination.",
+  "DROPPED H3/H4 at stockgate.py:166-184 and :735-751 (labels, snow-line selector, Jupiter labelled despite H3's exclusion of giant-planet atmospheres). See lodders-2003-condensation-temperatures.",
+  "DISCREPANCY (label): TCOND H = 182 and He = 3 are appearance values; Table 8 prints '...' in the 50% column for both.",
+  "DISCREPANCY (attribution), confirmed on the full Table 3: stockgate.CHONDRITE is not L03 Table 3 -- 9 of 60 within 0.5%; As x10.69, Ta x0.694, N x1.082, Rb x1.080, Se x1.076 all beyond 3 sigma; P x1.130 (+1.2 sigma). Sum 1.006899, not renormalised.",
+  "DROPPED H7: L03's P is one meteorite, and L03 says other CI P analyses 'range from 500 to 1800 ppm' (p.1234); N's +-20 is the spread of two meteorite means while Orgueil's own 1 sigma is 535 (Table 3).",
+  "ADDED by the tree: formation.py:271-277 requires the formation-epoch disc T(a), P(a) to turn 'primitive' into a radius -- consistent with H1/H6 and LFME 2024 p.28.",
+  "INTERNAL to the source: p.1242 Be 50% 'at 1421 K' vs Table 8 1452 K (confirmed on this copy)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "total pressure",
+   "value_then": "1e-4 bar (p.1236, READ)",
+   "value_now": "'model specific'; tabulated 1e-2..1e-8 bar (LFME 2024 p.28, Table 1, READ)",
+   "source_now": "arXiv:2411.01362",
+   "moves_conclusion": "No. A hypothesis carried correctly; its dependence (P 1421/1273/1142/1029 K) strengthens formation's refusal."
+  },
+  {
+   "quantity": "50% T_c of P",
+   "value_then": "1229 K (READ)",
+   "value_now": "1273 K (READ)",
+   "source_now": "arXiv:2411.01362 Table 1",
+   "moves_conclusion": "No; far above 500 K."
+  },
+  {
+   "quantity": "50% T_c of Cl, Br",
+   "value_then": "948, 546 K (READ)",
+   "value_now": "418, 423 K (READ)",
+   "source_now": "arXiv:2411.01362 Table 1",
+   "moves_conclusion": "Cross the cut; no regime label changes; Finding G moves in the 4th figure."
+  },
+  {
+   "quantity": "50% T_c of N",
+   "value_then": "123 K (READ)",
+   "value_now": "124 K (READ)",
+   "source_now": "arXiv:2411.01362 Table 1",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "CI P (sets 749.08 kg)",
+   "value_then": "L03 920 +- 100 ppm, N_met 1 (READ). Tree uses 1040, attributed to L03.",
+   "value_now": "989, SD 89 (Table 4) / +-63 (p.33) (READ)",
+   "source_now": "arXiv:2502.10575",
+   "moves_conclusion": "The figure, not a verdict: 749.08 (tree) / 846.79 (L03) / 787.7 kg (LBP25)."
+  },
+  {
+   "quantity": "CI N",
+   "value_then": "L03 2940 +- 20 (N_met 2; Orgueil 2948 +- 535) (READ). Tree uses 3180.",
+   "value_now": "1965, SD 970, quality D (Table 4) / +-447 (p.29) (READ)",
+   "source_now": "arXiv:2502.10575",
+   "moves_conclusion": "YES for stockgate's CI label: binder N at 13.07 (914.9 kg), VOLATILITY-LIMITED; the datum is contested (its band spans the 2282 ppm crossover). D25's OPEN verdict does not move."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders2003_reaudit.py",
+  "outcome": "exit 0, all checks pass (reaudit/lodders2003_reaudit.out). Pressure constant and SOURCES as p.1236; TCOND 61/63 = Table 8; CHONDRITE vs full Table 3 9/60 within 0.5%, 5 beyond 3 sigma; tree binder P 10.70115 (749.08 kg); L03 rows P 12.097 (846.79 kg); crossover 2123/2282/2400 ppm; LBP25 N binder 13.070; regime labels and condensed_budget reproduced; craft Ta 90,082 -> 62,557 under L03.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Lodders, Fegley, Mezger & Ebel 2024, arXiv:2411.01362",
+   "effect": "extends",
+   "what": "Updated T50 at four pressures; 1e-4 bar model specific.",
+   "read_status": "READ this session. Lodders, Fegley, Mezger & Ebel 2024, arXiv:2411.01362, READ this session via alphaXiv (pp.1-2, 4-5, 28-29, 34-35, 39). Table 1 p.5 at log P = -2/-4/-6/-8: 'P 1421 1273 1142 1029', 'N 139 124 111 101', 'Cl 460 418 383 354', 'Br 466 423 387 357', 'Li 1319 1152 1003 891', 'H 10.6 7.4 5.7 4.6', 'O 210 182 160 143'. p.28: '(3) Although widely assumed, a total pressure of 10-4 bar is model specific. Temperature and pressure varied with radial distance from the proto-Sun, height above the nebular midplane, and with temporal evolution'. p.29: 'There is no fundamental reason to expect a relationship between 50% condensation temperatures at any single total pressure and elemental abundances in the BSE or any meteorite parent body.' Abstract (5): 'volatility trends ... are qualitative indicators'. p.2: 'At 10-4 bar total pressure, refractory elements condense at T > 1300 – 1360 K, moderately volatile elements condense between 1300 and 660 K, and highly volatile elements condense below 660 K.'"
+  },
+  {
+   "ref": "Lodders, Bergemann & Palme 2025, arXiv:2502.10575",
+   "effect": "narrows",
+   "what": "Revised CI: N 1965 (quality D), P 989.",
+   "read_status": "READ this session. Lodders, Bergemann & Palme 2025, arXiv:2502.10575 (Space Sci. Rev., accepted 7 Feb 2025), READ this session via alphaXiv answer_pdf_queries (pp.1, 22-23, 29, 33, 35, 70, 73, 75). Table 4 p.70: 'N 1965 970 49 22 206 10.5 428 37000 18200 D -33 ...' (1 SD 970, %SD 49, n 22, SE 206, quality D, -33% vs P14); 'P 989 89 9.1 32 16 1.6 32 8410 760 B 0.4 ...'. Text p.29: 'All selected values provide the grand average N = 1965 ± 447 ppm for CI-chondrites.' Text p.33: 'The recommended concentration of P = 989 ± 63 ppm from 24 analyses'. Abstract: 'the CI-abundances of Hg and N are now significantly lower.' Both N uncertainties (970 and 447) are printed in the paper itself: Table 4's SD against the text's; this settles the relay disagreement recorded by the first audits."
+  },
+  {
+   "ref": "Lodders & Fegley 2023, arXiv:2301.03674",
+   "effect": "narrows",
+   "what": "Halogen T_c revision.",
+   "read_status": "NAMED-NOT-READ here (values via LFME 2024 Table 1)"
+  }
+ ],
+ "lacked_data": "As the first audit: post-2003 CI analyses (LBP25's N and P), revised halogen thermodynamics, returned samples. Read at source, L03 already flags the weak points it lacked data for: one-meteorite P, 'much more uncertain' other CI P values, halogens 'among the more uncertain', kinetics of C/N. FOR: CI N moved enough to flip the tree's CI binder (contested, quality D); Cl/Br T50 fell by 530/123 K. AGAINST: rock-forming T50 moved <= 44 K; every regime label holds; CI P moved 920 -> 989. No datum refutes the 2003 result; one tree label rests on a moved, contested datum.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "Confirmed on the primary. CONDENSATION TEMPERATURES: Table 8 transcribed 61/63; 1e-4 bar carried exactly; D25's refusal (formation.py:271-279) is consistent with p.1236 ('near 1 AU') and p.1243 (pressure dependence). That half STANDS for D25 (see lodders-2003-condensation-temperatures, NARROWED, for stockgate's snow-line prose). CI CHONDRITE: the tree's table is not L03's (full Table 3 now read); under L03's own values the CI factor is 12.10 not 10.70, binder unchanged. The CI binder label moves with CI N, which LBP25 (read) places below the crossover at quality D. A tree conclusion moves with a datum that has moved and is contested: DATA-DEPENDENT. Not WRONG.",
+ "what_would_change_the_grade": "To STANDS: a settled CI N above ~2400 ppm, and the tree citing the composition it actually uses. To WRONG: a demonstrated error in L03 under its hypotheses; none found.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders2003_reaudit.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders-2003-apj-591-1220.json",
+ "supersedes_grade": "DATA-DEPENDENT"
+}

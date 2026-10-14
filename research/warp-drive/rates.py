@@ -18,12 +18,20 @@ denominations, closes here for the WHOLE SPACE by a different argument.
 nopath.py's dimensional drift is a warped braneworld, which is an
 extra-dimensional theory -- DOOR ONE, outside general relativity.  spectra.py's
 optimised spectral currency is a black hole, which is dichotomy.py's RICCI route
-inside the DEC branch apply.py already exhausted.
+inside the COLLAPSE sub-case of apply.py's DEC branch.
+    CORRECTED (DOCKET 67 follow-up): first "inside the DEC branch apply.py
+    already exhausted".  apply.py now computes that branch exhausted only where
+    (T_kk/u)(s/l)^2 < 2 pi^2/3 (COLLAPSE) and OPEN beyond it
+    (apply.DEC_BRANCH_OPEN_OUTSIDE_THE_DOORS).  The sentence now claims only
+    the COLLAPSE sub-case; the branch as a whole is not exhausted.
 
     THE DOOR COUNT HAS BEEN STABLE ACROSS FIVE PASSES, and two of those passes
     were built specifically on new principles of M's rather than on the device.
     That is worth more than any single closure: the list is not growing because
-    nobody has thought hard enough about it.
+    nobody has thought hard enough about it.  (CORRECTED, DOCKET 67 follow-up:
+    "the door count" is the three doors apply.DOORS holds.  The DEC branch's
+    OPEN sub-case is none of them, and whether it is a fourth door is OPEN in
+    apply.py -- no witness built, its lead not examined.)
 
 ===============================================================================
 2. BUT DOOR THREE GAINED A THIRD INDEPENDENT ARRIVAL
@@ -97,13 +105,27 @@ pattern is now visible and it is not a coincidence:
         Lambda   9.982529    DETERMINED by the geometry, saturating to nine
                              digits, and O(10).  A number that size cannot buy
                              orders whatever it is.
-        kappa    free        THE ONE GENUINE LEVER IN THE WHOLE TABLE, and
-                             scale.py owns it: kappa_GJW = pi/360 = 8.7266e-3,
+        kappa    free        THE ONE PLACE IN THE TABLE A MECHANISM CAN ENTER,
+                             and scale.py owns it: kappa_GJW = pi/90 = 3.4907e-2,
                              and the kappa needed at 1 m is 3.8281e69.
+                             (CORRECTED, DOCKET 67 follow-ups: first "THE ONE
+                             GENUINE LEVER".  On a given model kappa is not a
+                             dial: on gjw.py's single-length model pi/90 is a
+                             dimensional identity, "not an independent route"
+                             (gjw.py); it moves only with the model -- field
+                             species, ~2 orders, or a second length whose
+                             ratio enters it (scale.py, SINGLE-LENGTH, NOT-RUN).)
+                             (CORRECTED, DOCKET 67 follow-up: first pi/360 =
+                             8.7266e-3, gjw.py's T_kk threshold against an
+                             energy density; pi/90 is against the winding
+                             T_kk, H-WIND.)
 
     SO THE CLOSURE IS NOT "FIVE DENOMINATIONS FAILED".  IT IS THAT THE
     CONVERSION TABLE HAS NO FREE PARAMETER IN IT EXCEPT ONE, AND THAT ONE IS
-    MEASURED AND INSUFFICIENT.  A sixth denomination would have to enter
+    INSUFFICIENT ON EVERY MODEL THE TREE HAS COMPUTED (CORRECTED, DOCKET 67
+    follow-ups: first "MEASURED AND INSUFFICIENT"; it is computed on four
+    named models, each single-length or at fixed length ratios, and a model
+    with a free second length is NOT-RUN in scale.py).  A sixth denomination would have to enter
     through kappa or through the base, and the base is door one.
 
 ===============================================================================
@@ -383,14 +405,21 @@ def selftest():
     print("     the two dimensionless numbers in the table:")
     near("  Lambda", lambda_value(), 9.982529, 1e-6)
     chk("  can a number that size buy orders", lambda_can_buy_orders(), False)
-    near("  kappa_GJW", kappa_gjw(), math.pi / 360.0, 1e-12)
+    # CORRECTED (DOCKET 67 follow-up): scale.kappa_gjw() is now pi/90 (winding
+    # T_kk); the first-written pi/360 is scale.KAPPA_GJW_AS_FIRST_WRITTEN.
+    near("  kappa_GJW", kappa_gjw(), math.pi / 90.0, 1e-12)
     near("  kappa needed at 1 m", kappa_needed(), 3.8281e69)
     chk("  does kappa close the gap", kappa_closes_the_gap(), False)
     chk("kappa is the only free dimensionless number in the table",
         kappa_is_the_only_free_dimensionless(), True)
     print("       A CONSTANT OF NATURE IS NOT A DISCOUNT.  The closure is not")
     print("       'five denominations failed' -- it is that the table has no")
-    print("       free parameter but kappa, and kappa is measured and short.")
+    print("       free parameter but kappa, and kappa is short on every model")
+    print("       computed (first 'measured and short': four single-length")
+    print("       models, not a measurement -- CORRECTED, DOCKET 67 follow-ups).")
+    import scale as _scale
+    chk("  and whether a second length closes it is (scale.py)",
+        _scale.SECOND_LENGTH, "NOT-RUN")
 
     print("\n5. AND ONE DOOR HAS A COST YOU CAN ACTUALLY PAY")
     for door, kind, why in DOOR_COSTS:
@@ -421,8 +450,9 @@ def report():
 
   NEITHER PASS ADDS A DOOR, AND THAT IS THE HEADLINE.  Dimensional
   drift is a warped braneworld, which is door one; the optimised
-  spectral currency is a black hole, which is inside the DEC branch
-  apply.py exhausted.  FIVE PASSES, STILL THREE DOORS -- and two of the
+  spectral currency is a black hole, which is inside the COLLAPSE
+  sub-case of apply.py's DEC branch (exhausted only there; OPEN where
+  (T_kk/u)(s/l)^2 >= 2 pi^2/3).  FIVE PASSES, STILL THREE DOORS -- two of the
   five were built on M's principles rather than on the device, so the
   list is not staying short for want of anybody thinking about it.
 
@@ -461,8 +491,11 @@ def report():
   OF NATURE IS NOT A DISCOUNT.  The table holds exactly two
   dimensionless numbers: Lambda, determined by the geometry, saturating
   to nine digits and O(10), which cannot buy orders whatever it is; and
-  kappa, the one genuine lever, which scale.py owns and has measured at
-  pi/360 against the 3.8281e69 that would be needed.  A SIXTH
+  kappa, the one place a mechanism can enter, which scale.py owns and
+  computes at pi/90 on gjw.py's single-length model -- a dimensional
+  identity there, not a dial -- against the 3.8281e69 that would be
+  needed (CORRECTED, DOCKET 67 follow-ups: first "the one genuine lever,
+  which scale.py ... has measured"; a second length is NOT-RUN).  A SIXTH
   DENOMINATION WOULD HAVE TO ENTER THROUGH KAPPA OR THROUGH THE BASE,
   AND THE BASE IS DOOR ONE.
 

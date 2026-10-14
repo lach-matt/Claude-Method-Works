@@ -44,27 +44,42 @@ FINDINGS = [
  # model at all.  TARGET-1 is Eulerian and metric-first, so its verdict is not yet
  # frame-independent.  This cell records the gap, not a refutation.
  ("NOT-CERTIFIED", 0, -1,  0, "TARGET-1-RESULT.md",
-  "no frame-independent Hawking-Ellis certification: Eulerian is not sufficient"),
+  "no frame-independent Hawking-Ellis certification: Eulerian is not sufficient (DOCKET 67, on M's ruling \"Unify to 0\": OPEN -- the ruling's move, Y to 0, would seat this row at (0,0,0), the null cell this index declares not a finding (NULL-CAUGHT), and would move pathmetric.py's fixture; held at its first cell under OPEN-AT-NULL-HELD, for M -- its -1 on Y is not a bound)"),
  ("TRANSITION",   +1,  0, +1, "TARGET-1-RESULT.md",
   "the source-vacuum transition band is clean and converged; outer negatives fall 8x"),
  ("AXIAL-TERM",   0, -1,  0, "gatespec.py",
-  "the shift must taper to zero along the bore axis, in vacuum: unchecked"),
+  "the shift must taper to zero along the bore axis, in vacuum: unchecked (DOCKET 67, on M's ruling \"Unify to 0\": OPEN -- the ruling's move, Y to 0, would seat this row at (0,0,0), the null cell this index declares not a finding (NULL-CAUGHT), and would move pathmetric.py's fixture; held at its first cell under OPEN-AT-NULL-HELD, for M -- its -1 on Y is not a bound)"),
  # The hoop bound stands as a necessary condition and is not sufficient: the ring
  # can hold its hole open, and the hole cannot hold a shift.
+ # DOCKET 67, on M's ruling "Re-size to 4544 m": torus.py now takes R0 and the mass from gate1.py
+ #   (R1 = 4544 m, drivespec's nuclear-density radius); the 5.89x stands on the named hypothesis
+ #   TORUS-ASPECT-HELD (a/R0 = 1600/4902 held, the margin scale-free); a held at 1600 m gives 6.04x.
  ("OPEN-GATE",   +1, -1, +1, "torus.py",
-  "hoop tension holds the bore open (5.89x) but the bore cannot carry a shift"),
+  "hoop tension holds the bore open (5.89x, on GATE 1 re-sized to 4544 m under TORUS-ASPECT-HELD; 6.04x with the tube radius held at 1600 m instead) but the bore cannot carry a shift"),
  ("RELAX-OK",     0, +1, +1, "residue.py",
   "relaxation permits the flow and the switching: launch is 0.256 dynamical times"),
+ # CORRECTED (DOCKET 67, on M's ruling "Re-size to 4544 m"): first written 'a bore closes 100x
+ #   over' -- residue.py's traverse / 1 km bore closure was 102.98 at R1 = 4902 m and is 95.47 on
+ #   GATE 1 re-sized to 4544 m (wall at address.RHO_NUCLEAR).  The cell does not move.
  ("NO-BORE",       0, -1, -1, "residue.py",
-  "a bore closes 100x over before a payload crosses: the gate cannot be loaded"),
+  "a 1 km bore closes ~95x over (95.47, on GATE 1 re-sized to 4544 m) before a payload crosses: the gate cannot be loaded (DOCKET 67, on M's ruling \"Re-size to 4544 m\": first '100x over', 102.98 at R1 = 4902 m)"),
+# CORRECTED (DOCKET 67): first written 'ANEC forbids any shortcut' -- the theorem's hypotheses and
+#   its same-universe exception were dropped (gr-qc/9305017 audit).
  ("NO-PORTAL",   -1, -1,  0, "launcher.py",
-  "topological censorship: ANEC forbids any shortcut, so no portal either"),
+  "topological censorship: ANEC, with asymptotic flatness and global hyperbolicity, forbids a shortcut between asymptotic regions -- its achronal form does not cover a shortcut back into the same universe -- so no portal of that kind either"),
  ("SSV-NOGO",    -1, -1,  0, "WARP-DRIVE.md",
   "Santiago-Schuster-Visser: M_ADM = 0 warp drives violate the NEC"),
+# CORRECTED (DOCKET 67 follow-ups, M: "repair all figures"): SCALE first read 'nuclear matter at
+#   4.9 km, 1.11 Msun' and CIRCULATION '4.4x stress margin' -- THE-DRIVE.md's point design on a
+#   recalled 2.3e17 kg/m^3.  drivespec.py now sizes it on address.RHO_NUCLEAR (2.676e17,
+#   DERIVED-FROM-ORDER): R1 = 4544 m (4.54 km), 1.03 Msun, wall stress 2.62e33 Pa, margin 3.8x.
+#   DOCKET 67, on M's ruling "Re-size to 4544 m": GATE 1 (gate1.py) is now sized to this same
+#   point, R1 = drivespec's nuclear-density radius on address.RHO_NUCLEAR; its first R1 = 4902 m
+#   is kept there as R1_AS_FIRST_WRITTEN and GATE1-SIZED-ON-RECALLED-DENSITY is discharged.
  ("SCALE",       +1,  0, +1, "THE-DRIVE.md",
-  "M ~ R and rho ~ 1/R^2: nuclear matter at 4.9 km, 1.11 Msun"),
+  "M ~ R and rho ~ 1/R^2: nuclear matter (address.RHO_NUCLEAR, 2.676e17 kg/m^3) at 4.54 km, 1.03 Msun (drivespec.py; first 4.9 km, 1.11 Msun on a recalled 2.3e17)"),
  ("CIRCULATION", +1,  0, +1, "THE-DRIVE.md",
-  "mechanism is internal circulation at 0.330 c, geared 6.94:1, 4.4x stress margin"),
+  "mechanism is internal circulation at 0.330 c, geared 6.94:1, 3.8x stress margin (first 4.4x, on the 2.3e17 design)"),
  ("COUPLING",    +1, +1,  0, "COUPLING.md",
   "the drive is a coupling: energy borrowed, ADM silent on falling, so it is possible"),
  # Seated because the index PREDICTED it: join(SSV-NOGO, T2-ADM) = (0,-1,0) was
@@ -82,8 +97,12 @@ FINDINGS = [
   "non-saturating gain, 50%/pass at 0.2c: 0.87 c in 11 min at 1 g, zero propellant"),
  ("NAVIGATE",     0, +1, +1, "NAVIGATION.md",
   "Law 4: no trajectory exists; fly a braid word; 25:1 binary, stable L4/L5"),
+# CORRECTED (DOCKET 67): first written 'magsail 810 AU' (arrival.py's prose; its own function
+#   gives 2001.64 AU) and 'reverse pass free' (prices propellant only).
+#   DOCKET 67 follow-up D: then 'magsail 2001.64 AU' -- a FLOOR, not a distance to rest (arrival.py);
+#   the 0.87c floor arrival.py now pins, 0.084 ly, carried beside it.
  ("ARRIVAL",      0, +1, +1, "arrival.py",
-  "braking priced: magsail 810 AU at 0.048c; M0/M1 = 3.73 at 0.87c; reverse pass free"),
+  "braking priced: magsail floor 2001.64 AU at 0.048c (arrival.py's function, A = 1e12 m^2, constant-area ram drag; a floor, not a distance to rest; from 0.87c the floor is 0.084 ly); M0/M1 = 3.73 at 0.87c; reverse pass free of propellant (braking 0.866c takes 1.80-3.25 passes at U = 0.35-0.2c, or one deflector at 0.577c; steering needs |db| ~ 0.01 M)"),
  ("SWIMMER",      0, -1, -1, "THE-ENGINE.md",
   "curvature swimmer bounded by A*a_tide/c^2 ~ 1e-15 m per cycle: a dead engine"),
  # --- Seated late, and their absence is why this project LOOPED. The index only
@@ -357,8 +376,10 @@ FINDINGS = [
  ("AREA-OVER-THICK",+1, -1, +1, "warpenergy.py",
   "M ~ -v_s^2 R^2/(36 G D): the bill is area over thickness, so the wall is the whole cost and R is not the lever"),
  # DIRECTIVE 2's stated obstacle, and it is the wrong instrument.
+# CORRECTED (DOCKET 67): first written 'Register 5537: ... in 4D' -- the Register seats 1-1792 and
+#   '5537' was not located; the field and Minkowski hypotheses were dropped.
  ("NO-NULL-QI",     +1, +1, +1, "nullbound.py",
-  "Register 5537: there are no quantum inequalities along null geodesics in 4D, so the timelike bound on the wall is the wrong instrument"),
+  "Fewster-Roman (gr-qc/0209036): for a free massless minimally coupled scalar in 4D MINKOWSKI space there are no quantum inequalities along null geodesics, so the timelike bound on the wall is the wrong instrument"),
  ("D-CANCELS",      +1, +1, +1, "nullbound.py",
   "required and allowed both go as 1/(G D^2), so thickness and G cancel: the ratio is v_s^2/(288 pi B), constant over 32 orders in D"),
  ("V-IS-BOUNDED",    0, +1, +1, "nullbound.py",
@@ -371,19 +392,29 @@ FINDINGS = [
  ("GAP-NOT-BOUND",   0, +1, +1, "designpoint.py",
   "the remaining 2.3e42 to a Casimir source is a gap in capability with no theorem in it, which is a different situation"),
  # The objection that replaces the one nullbound.py removed.
- ("TYPE-IV",        +1, -1, -1, "typefour.py",
-  "the Alcubierre wall is Hawking-Ellis Type IV at 7/7 points, |Im|/||T|| from 0.14 to 0.69, stable to six figures in h"),
+ # CORRECTED (DOCKET 67, on M's ruling "Unify to 0" -- an OPEN row reads 0 on Y and Z): first
+ #   written at (+1,-1,-1), read as 'unbuildable BECAUSE identified'.  The objection's owner holds it
+ #   OPEN -- obstruct.py's TYPE-IV row, status OPEN, 'Not forbidden -- unknown'; typefour.py: 'It is
+ #   unknown ... no theorem forbids it' -- so Y and Z read 0 and X keeps +1 for the measurement.
+ #   TYPE_IV_CELL_AS_FIRST_WRITTEN keeps the cell; the controls reproduce the pins it gave.
+ ("TYPE-IV",        +1,  0,  0, "typefour.py",
+  "the Alcubierre wall is Hawking-Ellis Type IV at 7/7 points, |Im|/||T|| from 0.14 to 0.69, stable to six figures in h -- and whether matter with no rest frame can source it is OPEN (obstruct.py's TYPE-IV row: 'Not forbidden -- unknown'; typefour.py: no theorem forbids it), so Y and Z read 0 (DOCKET 67, on M's ruling \"Unify to 0\": first at (+1,-1,-1), the open objection read as a bound)"),
  ("KIND-NOT-SIZE",  +1, -1,  0, "typefour.py",
   "every energy condition bounds a CONTRACTION of T; Type IV is about its eigenvectors, so no energy-condition result reaches it"),
  ("THE-TRADE",      +1, -1, +1, "typefour.py",
   "Alcubierre has a tractable budget and Type IV matter; the warpshell has Type I matter and the l>=2 instability. Neither has both"),
  # QNEC asked properly, and it withdraws this session's headline.
+# CORRECTED (DOCKET 67): first written 'negative on every ray, -0.081 to -0.344: ANEC is violated
+#   and QNEC, a theorem, integrates to it' (alcubierre-1994-metric,
+#   anec-definition, qnec-* audits).
  ("ANEC-VIOLATED",  +1, -1, -1, "anec.py",
-  "INT T_kk dx is negative on every ray, -0.081 to -0.344: ANEC is violated and QNEC, a theorem, integrates to it"),
+  "INT T_kk dx is negative on every ray measured -- five forward fixed-y lines at one parameter point (sigma = 8, R = 1, v_s = 0.5), -0.081 to -0.344 in a non-affine measure, not ANEC values. Only y = 0 is a null geodesic; its affine integral is negative (-0.0524), so ANEC is violated on one genuine geodesic (the opposite-directed axis ray is positive). QNEC, proved for quantum states on flat or stationary-horizon fixed backgrounds, integrates to ANEC when [S'] = 0, which anec.py asserts rather than computes; on this curved metric the step is outside the proofs"),
+# CORRECTED (DOCKET 67): the curvature-radius scope of SNEC was dropped (snec-freivogel-krommydas).
  ("SNEC-RETRACTED",  0, -1,  0, "anec.py",
-  "SNEC must hold for EVERY sampling function; nullbound.py used one, the loosest, and it fails above w ~ 0.93 bubble radii"),
+  "SNEC must hold for EVERY sampling function; nullbound.py used one, the loosest, and it fails above w ~ 0.93 bubble radii -- tau = 1.40 curvature radii, outside FK 2018's tau << L domain (inside w <= 0.5 the configuration satisfies SNEC); FKK 2012.11569 argued from two examples, without proof, that the bound extends there"),
+# CORRECTED (DOCKET 67): first written 'the 10^62 kg', dropping R = 100 m and v_b (gr-qc/9702026).
  ("D-IRRELEVANT",   +1, -1,  0, "anec.py",
-  "the thickness really does drop out -- into prohibition, not permission: ANEC is violated at every D, so the 10^62 kg was the wrong statement"),
+  "the thickness really does drop out -- into prohibition, not permission: ANEC is violated at every D, so Pfenning-Ford's -6.2e62 v_b kg (R = 100 m, wall at their bound, scaling as R^2/Delta) was the wrong statement"),
  # The inversion: not which element, but which state.
  ("STATE-NOT-ELEMENT",+1, +1, +1, "universal.py",
   "Type IV is realized by a quantum STATE -- the Unruh vacuum, Type IV outside the horizon -- which belongs to no element and to every element's fields"),
@@ -392,7 +423,7 @@ FINDINGS = [
  ("TWIST-IS-WHY",    +1,  0, +1, "universal.py",
   "one reason for all four: twist = 0 gives Minkowski (BBV) and Type I (MMV), so Type IV is forced by the same property that makes it transport"),
  ("SELF-CONSISTENT-OPEN", 0, -1,  0, "universal.py",
-  "whether a Type IV solution can SOURCE its own geometry is unsettled: MMV's list is explicitly not exhaustive, and no construction exhibits one"),
+  "whether a Type IV solution can SOURCE its own geometry is unsettled: MMV's list is explicitly not exhaustive, and no construction exhibits one (DOCKET 67, on M's ruling \"Unify to 0\": OPEN -- the ruling's move, Y to 0, would seat this row at (0,0,0), the null cell this index declares not a finding (NULL-CAUGHT), and would move pathmetric.py's fixture; held at its first cell under OPEN-AT-NULL-HELD, for M -- its -1 on Y is not a bound)"),
  # ANSWERED, at first order, and the status is not flattened: the row above
  # stays as it was asked, and these four say what came back.
  ("SOURCES-ITSELF", +1, +1,  0, "selfconsistent.py",
@@ -402,17 +433,31 @@ FINDINGS = [
  ("CONFIG-UNMATCHED", 0, -1, -1, "selfconsistent.py",
   "the hole's Type IV is a spherically symmetric RADIAL flux and the bubble needs a twisted one: same type, same strength, different shape, and a magnitude match is not a construction"),
  ("EXACT-ORDER-OPEN", 0, -1,  0, "selfconsistent.py",
-  "APT compute <T> on the UNPERTURBED background and do not iterate to a fixed point; MMV's theorems are about exact solutions, so neither refutes the other and exact order stays open"),
+  "APT compute <T> on the UNPERTURBED background and do not iterate to a fixed point; MMV's theorems are about exact solutions, so neither refutes the other and exact order stays open (DOCKET 67, on M's ruling \"Unify to 0\": OPEN -- the ruling's move, Y to 0, would seat this row at (0,0,0), the null cell this index declares not a finding (NULL-CAUGHT), and would move pathmetric.py's fixture; held at its first cell under OPEN-AT-NULL-HELD, for M -- its -1 on Y is not a bound)"),
  # The order language, run on the ANEC obstruction.  It closes the escape
  # I proposed, and it closes it against us -- which is still an answer.
- ("ACHRONAL",       +1, -1, -1, "achronal.py",
-  "every ANEC-violating ray of the bubble is ACHRONAL: 25 violating rays over v_s = 0.3/0.5/0.8 c and ZERO escapes, so Graham-Olum's hypothesis is met"),
- ("DEFOCUS-PROTECTS",+1, -1,  0, "achronal.py",
-  "the anti-correlation is Raychaudhuri itself -- u'' = -4 pi T_kk u, so negative T_kk defocuses and defocusing is what prevents the conjugate point: you cannot buy achronality-failure with ANEC violation"),
+ # CORRECTED (DOCKET 67 follow-up; M: "state the correct reason it is still closed-negative.
+ #   If there is none, it is open" -- obstruct.py's ACHRONALITY row, now OPEN).  First written
+ #   at (+1,-1,-1): 'every ANEC-violating ray of the bubble is ACHRONAL: 25 violating rays over
+ #   v_s = 0.3/0.5/0.8 c and ZERO escapes, so Graham-Olum's hypothesis is met' -- the converse
+ #   of the conjugate-point theorem, which is false.  What achronal.py computed is NO CONJUGATE
+ #   POINT in the shear-dropped reduction; achronality is computed by no instrument here.  So Y
+ #   and Z read 0 (undecided -- the house's NU-OPEN reading) and X keeps +1 for the measurement.
+ #   The cell as first written is ACHRONAL_CELL_AS_FIRST_WRITTEN, checked by the selftest.
+ ("ACHRONAL",       +1,  0,  0, "achronal.py",
+  "the 25 ANEC-violating rays of the bubble over v_s = 0.3/0.5/0.8 c carry NO CONJUGATE POINT in the shear-dropped scalar reduction -- and that does not make them achronal: the converse of the conjugate-point theorem is false (a flat-cylinder null geodesic has none and is chronal), and dropping shear overstates achronality. Whether the bubble is inside Graham-Olum's hypothesis is OPEN (obstruct.py's ACHRONALITY row): neither achronality nor an escape is computed for these rays"),
+ # CORRECTED (DOCKET 67 follow-up): first written as DEFOCUS-PROTECTS at (+1,-1,0), ending
+ #   'defocusing is what prevents the conjugate point: you cannot buy achronality-failure with
+ #   ANEC violation' -- the struck ANEC-protects-achronality claim (anecscope.py; obstruct.py's
+ #   ACHRONALITY row, now OPEN).  Scoped to what was computed, it bounds no build: Y reads 0.
+ ("DEFOCUS-NO-CONJUGATE-POINT",+1, 0, 0, "achronal.py",
+  "the anti-correlation is Raychaudhuri itself in the shear-dropped reduction -- u'' = -4 pi T_kk u, so negative T_kk defocuses and defocusing prevents the conjugate point there. That is all it shows: no conjugate point is not achronality (OPEN), and with shear restored anecscope.py measures the corridor's ANEC-violating rays NON-achronal by an internal conjugate point (one planar ray family)"),
  ("ACHRONAL-LEMMA", +1,  0,  0, "achronal.py",
   "PROVED where T_kk <= 0 throughout: u convex with u(0)=0, u'(0)=1 gives u >= lambda > 0, no zero, no conjugate point. Exact on the axial ray; measured where the signs are mixed"),
+# CORRECTED (DOCKET 67): first written 'unproven for nineteen years', flattening the restricted
+#   proofs and dropping G&O's sub-Planckian-curvature condition.
  ("UNPROVEN-LOAD",   0, -1,  0, "achronal.py",
-  "with no configurational dodge left, the prohibition rests ENTIRELY on the achronal ANEC in 4D CURVED spacetime -- unproven for nineteen years, and now load-bearing rather than a footnote"),
+  "IF the 25 rays are achronal -- OPEN, obstruct.py's ACHRONALITY row (DOCKET 67 follow-up: first written 'with no configurational dodge left', on the false converse) -- the prohibition rests ENTIRELY on the self-consistent achronal ANEC in 4D CURVED spacetime at curvature well below the Planck scale (Graham-Olum 0705.3193) -- unproven in general for nineteen years, restricted proofs aside (Kontou-Olum on curved backgrounds obeying the NEC; Wall from the GSL for small perturbations of stationary horizons), and now load-bearing rather than a footnote (DOCKET 67, on M's ruling \"Unify to 0\": OPEN -- the ruling's move, Y to 0, would seat this row at (0,0,0), the null cell this index declares not a finding (NULL-CAUGHT), and would move pathmetric.py's fixture; held at its first cell under OPEN-AT-NULL-HELD, for M -- its -1 on Y is not a bound)"),
  ("LANGUAGE-BOUNDARY",0, -1, 0, "achronal.py",
   "register 1173: analysis returns a magnitude, the prohibition is a binary. anec.py's verdict crossed a language boundary with the ORDER half NOT-RUN -- a sixth instance of register 1172's fault, in our own tree"),
  # M's three-part structure -- travel > turn > seat -- made runnable, and
@@ -443,7 +488,7 @@ FINDINGS = [
  ("WEYL-IS-SIGNBLIND",+1,+1, +1, "composite.py",
   "Ricci focusing is LINEAR in the source and needs positive energy; WEYL focusing is QUADRATIC and does not. A negative mass shears a congruence exactly as hard as a positive one"),
  ("SEATS-AND-EARLY", +1, +1, +1, "composite.py",
-  "MEASURED: M = -2e-3 gives a conjugate point at lambda 56.5 AND arrives early (-3.76e-2), while +2e-3 seats at 55.2 and arrives late. Both signs seat; only the arrival flips. TRUE AT ITS OWN BASELINE and not beyond it: the same bare mass at b=1 turns LATE past X ~ 350"),
+  "MEASURED: M = -2e-3 gives a conjugate point at lambda 56.5 AND arrives early (-3.76e-2), while +2e-3 seats at 55.2 and arrives late (composite.survey's default n = 900; converged at n = 3600, 56.56 and 55.21 -- DOCKET 67 follow-ups: first given at n = 900 alone). Both signs seat; only the arrival flips. TRUE AT ITS OWN BASELINE and not beyond it: the same bare mass at b=1 turns LATE past X ~ 350"),
  ("THE-WINDOW",      +1, +1, +1, "composite.py",
   "bounded on both sides: below, the focal length exceeds the run and it does not seat; above, the M^2 path lengthening beats the linear Shapiro. About a decade wide at b=0.3, L=75. A THIRD BOUND was found later and it is on RANGE, not on mass -- chronology.py's LOG-AGAINST-LINEAR"),
  ("DROPPED-TERM",     0, -1, +1, "composite.py",
@@ -472,9 +517,13 @@ FINDINGS = [
  ("ZERO-ADM-DEVICE",+1, +1, +1, "concentric.py",
   "a compact NEGATIVE core inside a POSITIVE shell of equal magnitude: the monopoles cancel so M_ADM = 0 EXACTLY, and the positive mass theorem has no objection to the configuration"),
  ("DEVICE-SEATS-LEADS",+1,-1,+1, "concentric.py",
-  "MEASURED AND THEN WITHDRAWN AS A GLOBAL CLAIM: the seating stands (conjugate point 228.45 +- 0.04 over a sixfold refinement) but the LEAD was measured with both endpoints INSIDE the shell at R_s = 200, where the metric is not asymptotically flat. Push them out and the sign reverses at X ~ 277. It survives as a bounded short-range statement, 200 < X < 277, and as nothing wider"),
- ("THEOREM-IS-FREE", +1, +1, +1, "concentric.py",
-  "respecting the positive mass theorem costs almost nothing: shell delay/core advance ~ (L/R_s)/(2 ln(L/a)) = 8%, because the core's advance carries a logarithm of its compactness and the shell's delay does not"),
+  "MEASURED AND THEN WITHDRAWN AS A GLOBAL CLAIM: the seating stands (conjugate point 228.65 +- 0.05 over a sixfold refinement, n = 1500 to 9000, on eq. (11)'s Jacobi sign; DOCKET 67 follow-up: first written 228.45 +- 0.04, with the opposite sign) but the LEAD was measured with both endpoints INSIDE the shell at R_s = 200, where the metric is not asymptotically flat. Push them out and the sign reverses at X ~ 277. It survives as a bounded short-range statement, 200 < X < 277, and as nothing wider"),
+ # CORRECTED (DOCKET 67 follow-up): first written as THEOREM-IS-FREE, 'respecting the positive
+ #   mass theorem costs almost nothing: shell delay/core advance ~ (L/R_s)/(2 ln(L/a)) = 8%,
+ #   because the core's advance carries a logarithm of its compactness' -- the core radius a in
+ #   the logarithm where the first-order advance carries b (concentric.py: b-form 0.1315).
+ ("SHELL-DELAY-IS-13-PERCENT", +1, +1, +1, "concentric.py",
+  "respecting the positive mass theorem costs the shell's delay, 13.1 % of the core's first-order advance at concentric.py's geometry (L = 300, R_s = 200, b = 1): shell delay/core advance ~ (L/R_s)/(2 ln(L/b)) = 0.1315, because the core's advance carries a logarithm of L/b and the shell's delay does not -- so PUT THE SHELL FAR, and the share falls as R_s grows"),
  ("SHELL-THEOREM-SPLIT",+1,+1,+1, "concentric.py",
   "Newton's shell theorem does the division of labour: the shell contributes to g_tt and NOTHING to the tidal field, so all focusing is the core's Weyl term and the shell is pure delay"),
  ("VACUUM-NEEDS-COMPACT", 0, 0, +1, "concentric.py",
@@ -507,24 +556,49 @@ FINDINGS = [
  ("LOG-COORDINATE",  +1, +1, +1, "core.py",
   "section 9's practice -- replace a multiplicative quantity by its additive coordinate -- applied: Phi = (1/2)ln(-g_tt) IS a logarithm, e^{2Phi} never changes sign, and the flip at Phi=1 was the TRUNCATION"),
  ("LIMIT-DISSOLVES", +1, +1, +1, "core.py",
-  "re-run on the exponential completion the device is identical to four figures -- conj 228.5, delay -8.4240e-2 against -8.4239e-2 -- because the rays live where Phi ~ 0.02 and the metrics differ at O(Phi^2)"),
+  "re-run on the exponential completion the device gives the same verdict on every row -- at m = 5e-3 conj 228.60 (linear) against 228.72 (exponential), one integration step (h = 0.12), and delay -8.4239e-2 against -8.4240e-2, 1e-5 relative (2e-3 at m = 2e-2, 5 % at 8e-2; seat / lead / late identical in every row) -- because the rays live where Phi ~ 0.02 and the metrics differ at O(Phi^2). (DOCKET 67 follow-ups: first 'identical to four figures -- conj 228.5', a run made before concentric.py's eq. (11) Jacobi-sign correction, and a four-figure claim the delay column never supported at 2e-2 or 8e-2; core.py has re-run both metrics on the corrected sign and states the measured agreement)"),
+# CORRECTED (DOCKET 67 follow-ups, M: "repair all figures"): first '2.175x there and 218x at
+#   1000 km', on a recalled 2.3e17 kg/m^3; core.py now uses address.RHO_NUCLEAR (2.676e17,
+#   DERIVED-FROM-ORDER): 2.530x at 100 km, 253x at 1000 km, crossing 1 at 62.9 km (first 67.8 km).
  ("MAGNITUDE-REACHED",+1,+1, +1, "core.py",
-  "nuclear saturation EXCEEDS the universal seating threshold beyond ~100 km, by 2.175x there and 218x at 1000 km: the density scale is one nature already builds, in neutron stars"),
+  "nuclear saturation (address.RHO_NUCLEAR, 2.676e17 kg/m^3) EXCEEDS the universal seating threshold beyond ~100 km -- the margin crosses 1 at 62.9 km -- by 2.530x at 100 km and 253x at 1000 km (first 2.175x and 218x on a recalled 2.3e17): the density scale is one nature already builds, in neutron stars"),
  ("SIGN-NOT-PHASE",   0, -1, +1, "core.py",
   "and no phase change reaches it: rho c^2 is dominated by rest mass, positive in every solid, liquid, plasma and degenerate state. Mercury and lead fall 13 orders short AND have the wrong sign"),
  ("VACUUM-NOT-MATERIAL",+1,+1,+1, "core.py",
   "negative energy density occurs relative to a VACUUM ground state -- Casimir, squeezed vacuum, Hawking flux -- so the identification phase is a vacuum-state problem wearing a materials name"),
- # M demanded an achievable core.  There is none, and the gap is a theorem.
+ # M demanded an achievable core.  There is none -- and the gap is NOT a theorem (DOCKET 55).
+ # CORRECTED (DOCKET 67 follow-ups; M: "stale figures and statements -- including what DOCKET 55
+ #   withdrew -- address/repair/correct", and "the verdict must rest on a correct, stated ground;
+ #   where none exists it is OPEN").  achievable.py withdrew these rows' grounds IN PLACE under
+ #   DOCKET 55 and index3 never recorded it.  As first written:
+ #   NO-ACHIEVABLE-CORE  'every known negative energy density obeys Ford-Roman |rho| <~ hbar c/L^4,
+ #                       and the core needs 65 ORDERS more at metre scale: available/required =
+ #                       1.09e-65'
+ #   GAP-WIDENS          'required falls as 1/b^2 and available as 1/b^4, so GOING BIGGER LOSES BY
+ #                       TWO POWERS -- closing the escape ...'
+ #   PLANCK-THIRD-TIME   (+1,+1,+1) 'the curves cross at a core size of 4.09 PLANCK LENGTHS -- a third
+ #                       independent route to the Planck scale after corridor.py's Unruh and
+ #                       Casimir crossings, about a different object'
+ #   NOT-EXCEPTIONS      'dark energy has negative PRESSURE and positive energy density; effective
+ #                       negative mass in BECs and metamaterials is a dispersion curvature, not
+ #                       T_00, and does not gravitate' (achievable.py's DOCKET 67 corrections)
+ #   DEVICE-NOT-RETRACTED '... and that this is a theorem and not a budget'
+ #   NO-ACHIEVABLE-CORE, GAP-WIDENS, NOT-EXCEPTIONS and DEVICE-NOT-RETRACTED keep their cells: each
+ #   verdict stands on the ground achievable.py now states (the duration bound, a SURVEY under named
+ #   hypotheses).  PLANCK-THIRD-TIME's ground is gone -- one of its two curves is the withdrawn
+ #   "available", and its crossing is the identity L = l_P/sqrt(K) -- so it is renamed
+ #   PLANCK-CROSSING-IS-AN-IDENTITY and moves to (+1,0,0): X keeps +1 for the computed value, Y and
+ #   Z read 0 (the house's NU-OPEN reading).  PLANCK_THIRD_CELL_AS_FIRST_WRITTEN keeps the cell.
  ("NO-ACHIEVABLE-CORE",+1,-1,-1, "achievable.py",
-  "every known negative energy density obeys Ford-Roman |rho| <~ hbar c/L^4, and the core needs 65 ORDERS more at metre scale: available/required = 1.09e-65"),
+  "there is no achievable core, and the reason is a DURATION: a corridor must hold its contraction for at least one light-crossing, T = b/c, or it transmits nothing, and the worldline QEI's duration bound rho >= -C hbar/(c^3 T^4) (C = 3.1699, Fewster) refuses that by 71.256 ORDERS at b = 1 m, widening as b^2 -- under H-MMCS (massless minimally coupled free scalar), H-HADAMARD and H-FLAT, so NO-IN-PRACTICE for that field: a SURVEY of proven limits (achievable.VERDICT_KIND), not a theorem about all matter. (DOCKET 55: first 'every known negative energy density obeys Ford-Roman |rho| <~ hbar c/L^4, and the core needs 65 ORDERS more at metre scale: available/required = 1.09e-65' -- Ford-Roman bounds a TIME average at one point, with a coefficient 3/(32 pi^2) that figure dropped; 1.09e-65 is kept in achievable.py as a ratio of two densities, not a shortfall, and '65 orders' must not be quoted)"),
  ("GAP-WIDENS",     +1, -1, -1, "achievable.py",
-  "required falls as 1/b^2 and available as 1/b^4, so GOING BIGGER LOSES BY TWO POWERS -- closing the escape seatindex.py's 1/l saving and concentric.py's far shell both used"),
- ("PLANCK-THIRD-TIME",+1,+1, +1, "achievable.py",
-  "the curves cross at a core size of 4.09 PLANCK LENGTHS -- a third independent route to the Planck scale after corridor.py's Unruh and Casimir crossings, about a different object"),
+  "the duration shortfall grows EXACTLY as b^2 (2.000000 orders per decade; 71.256 at 1 m, 77.256 at 1 km) because the hold time T = b/c is FORCED by the transit: required falls as 1/b^2 and the duration bound's allowance as 1/T^4, so GOING BIGGER LOSES BY TWO POWERS -- closing the escape seatindex.py's 1/l saving and concentric.py's far shell both used, under the same H-MMCS, H-HADAMARD and H-FLAT; overturn.py's L3 closes it a second way with no quantum input (the strong field returns 0.833 of the distance per unit |m| at |m| = 1, 0.0035 at 1e4). (DOCKET 55: first 'required falls as 1/b^2 and available as 1/b^4' -- that 1/b^4 existed only because a spatial sampling length 0.02 b was CHOSEN, and Ford-Helfer-Roman prove no spatially averaged QI over a bounded region exists for that field; the trend survived, its reason did not)"),
+ ("PLANCK-CROSSING-IS-AN-IDENTITY",+1,0, 0, "achievable.py",
+  "the two original curves cross at a core size of 4.09 PLANCK LENGTHS, and that is a DIMENSIONAL IDENTITY, not a route to the Planck scale: hbar c/L^4 = K c^4/(G L^2) gives L = l_P/sqrt(K) for ANY dimensionless K, and this crossing is l_P/0.244301 = 4.0933 l_P, derived not measured. It is FRAGILE as well as circular: one of its curves is the DOCKET 55-withdrawn 'available', not a bound; at Ford-Roman's sourced sampling fractions (f = 0.1 and 0.01, their 3/(32 pi^2) included) the crossing core moves to 39.9 or 3989 l_P, and the duration bound's crossing sits at 2.9e-3 l_P. X keeps +1 for the computed value; Y and Z read 0 -- the ground for both ('when three unrelated estimates land at the Planck scale, that is where the physics is') is withdrawn, and scale.py refuses any such crossing as a design target. (DOCKET 55, recorded here in the DOCKET 67 follow-ups: first written as PLANCK-THIRD-TIME at (+1,+1,+1), 'a third independent route to the Planck scale after corridor.py's Unruh and Casimir crossings, about a different object')"),
  ("NOT-EXCEPTIONS",  0,  0, +1, "achievable.py",
-  "dark energy has negative PRESSURE and positive energy density; effective negative mass in BECs and metamaterials is a dispersion curvature, not T_00, and does not gravitate. Named so they are not reached for later"),
+  "dark energy as a cosmological constant (w = -1) has negative PRESSURE and positive energy density, and a phantom w < -1 is negative only for a boosted observer, never comoving in any fit read; effective negative mass m* in BECs is a dispersion curvature, not T_00 -- m* does not gravitate, the quasiparticle's energy does, as E/c^2; a negative-index metamaterial is about the refractive index, not the energy density (under the dispersive, Brillouin, form in a low-loss band). Three things, named so they are not reached for later (DOCKET 67: first 'dark energy has negative PRESSURE and positive energy density', w = -1 unstated, and 'effective negative mass in BECs and metamaterials is a dispersion curvature, not T_00, and does not gravitate', true of m* and false of the quasiparticle -- achievable.py's corrections)"),
  ("DEVICE-NOT-RETRACTED",+1,+1,+1, "achievable.py",
-  "the device stands: seats and leads, M_ADM = 0, ordinary stable shell, Type I core. What is settled is that the CORE is not buildable with known physics, and that this is a theorem and not a budget"),
+  "the device stands: seats and leads (the lead a bounded short-range statement, 200 < X < 277 -- DEVICE-SEATS-LEADS), M_ADM = 0, ordinary stable shell, Type I core. What is settled is that the CORE is not buildable with known physics -- NO-IN-PRACTICE, not NO-BY-THEOREM: a SURVEY whose binding limb is the duration bound, 71.256 orders at 1 m under H-MMCS, H-HADAMARD and H-FLAT (achievable.VERDICT_IS_A_THEOREM is False). (DOCKET 55: first '... and that this is a theorem and not a budget' -- no theorem of the right shape caps the ball integral, and Ford-Helfer-Roman prove none can exist over a bounded region for the massless minimally coupled free scalar in 4D Minkowski)"),
  # M's charge state: it supplies the seat and not the lead.
  ("CHARGE-NO-LEAD",  +1, -1, -1, "charge.py",
   "Phi > 0 iff r < Q^2/2M and the horizon is at M + sqrt(M^2-Q^2): the positive-potential region is INSIDE THE HORIZON at every charge, and Q <= M is the Einstein-Maxwell positive energy theorem"),
@@ -539,8 +613,10 @@ FINDINGS = [
  # M's scoping: drop the lead, keep the seat.  The spec becomes achievable.
  ("SCOPE-DROPS-LEAD",+1, +1, +1, "spec.py",
   "M's correction -- the matter must exist at both ends under the same physics, nothing more -- removes the requirement every blocking theorem was attached to. Olum, Ford-Roman and Q<=M all forbid a LEAD that is no longer asked for"),
+# CORRECTED (DOCKET 67): the T_kk = u condition on the collapse factor was unstated
+#   (sturm-comparison-theorem, seated S-2 follow-on).
  ("ONE-INVARIANT",   0, -1, +1, "spec.py",
-  "WITHDRAWN AS A SPECIFICATION: B*l = 1.5456e19 T m is arithmetically right and describes a region inside its own Schwarzschild radius by 2 pi^2/3. Kept executable so the retraction is checkable"),
+  "WITHDRAWN AS A SPECIFICATION: B*l = 1.5456e19 T m is arithmetically right and, for T_kk = u along the ray on a radius chord, describes a region inside its own Schwarzschild radius by 2 pi^2/3. Kept executable so the retraction is checkable"),
  ("CROSS-ROUTE",    +1,  0, +1, "spec.py",
   "verified by a route sharing no formula: q = (4 pi G/c^4)T_kk gives pi/sqrt(q) = 1.5456e8 m at B = 1e11 T, and seatindex.py's threshold gives the same"),
  ("GAP-IS-ENGINEERING", 0,-1,+1, "spec.py",
@@ -548,14 +624,17 @@ FINDINGS = [
  ("KERR-HALTED",     0, -1,  0, "spec.py",
   "Kerr-Newman metric built and validated (a=0 gives Schwarzschild exactly, ergosphere at x=sqrt(4+a^2)) then HALTED by scoping when the integrator hit the ring: it was a hunt for a lead. NOT-RUN with a reason, and the one untested door if the lead reopens"),
  # The retraction, and the theorem it turned up.
+# CORRECTED (DOCKET 67): first written 'any region satisfying the universal seating condition is
+#   inside its own Schwarzschild radius by exactly 2 pi^2/3' -- true for
+#   T_kk = u on a radius only (seated S-2 follow-on; M ruled 'Seat all four').
  ("STURM-IMPLIES-COLLAPSE",+1,-1,+1, "spec.py",
-  "any region satisfying the universal seating condition is inside its own Schwarzschild radius by exactly 2 pi^2/3 = 6.579, CONSTANT at every scale from 1 m to 1e11 m: the Sturm route describes a black hole, not a device"),
+  "for pressureless matter (T_kk = u along the ray) on a radius chord, any region satisfying the universal seating condition is inside its own Schwarzschild radius by exactly 2 pi^2/3 = 6.579, CONSTANT at every scale from 1 m to 1e11 m: on that matter the Sturm route describes a black hole, not a device. Over H_ball as written the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2) -- 1.6449 on a diameter, 1.2337 for radiation, 0.8225 for T_kk = 2u -- and falls to <= 1 on a diameter for w >= pi^2/6 - 1 = 0.644934 (radius chords need w > 5.58, beyond the DEC), so class S-2 is OPEN in specthm (sturm_over_ball)"),
  ("PEAK-NOT-SUSTAINED", 0, -1, +1, "spec.py",
   "the magnetar claim compared a dipole's PEAK energy density against the threshold for a length it does not sustain -- r^-3 falloff gives 2.9e2 Pa where 4.0e27 Pa was needed. WITHDRAWN in spec.py and charge.py"),
  ("LENSING-IS-THE-SEAT",+1,+1,+1, "spec.py",
   "what composite.py actually measured is CUMULATIVE weak-field lensing, f = b^2 c^2/(4 G M), validated against the solar gravitational lens at 547.6 AU where the published focus is ~550"),
  ("SEAT-IS-NOT-NEW",   0, -1, +1, "spec.py",
-  "so the seat is gravitational lensing, ordinary and known since 1919, and the Sun already does it. What is new is the sign structure, the split, reversal invariance, the achronality anti-correlation and the 65-order gap -- none of it a warp drive"),
+  "so the seat is gravitational lensing, ordinary and known since 1919, and the Sun already does it. What is new is the sign structure, the split, reversal invariance, the achronality anti-correlation and the persistence gap (71.256 orders at 1 m on achievable.py's duration bound; DOCKET 67 follow-ups: first 'the 65-order gap', the census DOCKET 55 withdrew) -- none of it a warp drive"),
  # M's reframing: measured in the right quantity, and three negatives verified.
  ("PROPER-IS-THE-QUANTITY",+1,+1,+1, "transition.py",
   "the warp quantity is PROPER DISTANCE, INT e^{-Phi} dl, not arrival time INT e^{-2Phi} dl. Not a faster trip, a SHORTER one -- and only the second was ever measured before"),
@@ -582,27 +661,45 @@ FINDINGS = [
  ("ENTANGLEMENT-IS-IT",+1,+1,+1, "entangle.py",
   "M is right: negative energy density IS an entanglement phenomenon and there is no other kind. QNEC states the requirement exactly -- <T_kk> >= (hbar c/2pi)S'', so it needs entropy CONCAVE along the ray"),
  ("TWENTY-NOT-65-ORDERS",+1,+1,+1, "entangle.py",
-  "in entanglement language the requirement is 2 pi^2 = 19.74x the HOLOGRAPHIC bound, constant at every scale -- not the 1e65 of Ford-Roman. The two gaps differ by 63.7 orders and measure different things"),
+  "in entanglement language the requirement is 2 pi^2 = 19.74x the HOLOGRAPHIC bound, constant at every scale -- not the 1e65 achievable.py first priced against a misread Ford-Roman. The two gaps differ by 63.7 orders on that figure (entangle.py) and measure different things. (DOCKET 67 follow-ups: first 'the 1e65 of Ford-Roman'; DOCKET 55 withdrew that figure -- Ford-Roman bounds a time average at one point -- and what holds against what can be made is the duration bound's 71.256 orders at 1 m, a SURVEY under H-MMCS, H-HADAMARD and H-FLAT)"),
+# CORRECTED (DOCKET 67): the collapse factor's T_kk = u, radius-chord condition was unstated.
  ("TWO-CONSTANTS-AGREE",+1,+1,+1, "entangle.py",
-  "cross-checked against spec.py's collapse factor 2 pi^2/3 = 6.5797, derived from gravitational collapse rather than entropy: the two differ by EXACTLY 3"),
+  "cross-checked against spec.py's collapse factor 2 pi^2/3 = 6.5797 (the T_kk = u, radius-chord figure), derived from gravitational collapse rather than entropy: the two differ by EXACTLY 3"),
  ("PRINCIPLED-VS-BUILDABLE",+1,+1,+1, "entangle.py",
-  "so there are two gaps: 20x against what physics PERMITS, 1e65 against what can be MADE. The first is the meaningful one and it is far smaller than this project thought"),
+  "so there are two gaps: 20x against what physics PERMITS, and against what can be MADE the duration bound's 71.256 orders at 1 m (a SURVEY under H-MMCS, H-HADAMARD and H-FLAT; DOCKET 67 follow-ups: first '1e65', the census DOCKET 55 withdrew). The first is the meaningful one and it is far smaller than this project thought"),
  ("NO-CHARGE-LOOPHOLE", 0, -1, +1, "entangle.py",
   "but QNEC is STATE-INDEPENDENT -- it holds for every state, entangled or not, charged or not, and charge appears nowhere in it. And Gao-Jafferis-Wall's traversable wormhole, which does use entanglement, is SLOWER than the outside route"),
  # GJW read properly.  Their escape mechanism is one achronal.py could not find.
  ("EXTERNAL-PATH-ESCAPE",+1,+1,+1, "gjw.py",
-  "GJW break achronality by ADDING AN EXTERNAL CAUSAL PATH -- coupling the boundaries changes the chronology relation itself. achronal.py proved you cannot break it through the MATTER; this is not a matter-side escape at all, and it is the only known way past Graham-Olum"),
+  "GJW break achronality by ADDING AN EXTERNAL CAUSAL PATH -- coupling the boundaries changes the chronology relation itself, and this is not a matter-side escape at all. It is ONE way past Graham-Olum, not the only known one: achronal.py's 25 rays and 0 escapes are a shear-dropped no-conjugate-point count and show no achronality (obstruct.py's ACHRONALITY row, OPEN), and anecscope.py measures the corridor's ANEC-violating rays NON-achronal by an internal conjugate point (one planar ray family). (DOCKET 67 follow-up: first written 'achronal.py proved you cannot break it through the MATTER ... it is the only known way past Graham-Olum' -- the false converse, struck in obstruct.py's GRAHAM-OLUM-ESCAPE row the same way)"),
  ("BANK-LOAN-THEOREM", +1, -1, -1, "gjw.py",
   "and the same move forbids faster: traversability requires non-achronality, non-achronality requires an existing outside causal path, so you could have gone that way. GJW's own words -- a loan you can only get if you are rich enough not to need it"),
  ("GJW-FLAT-COST",    +1,  0, +1, "gjw.py",
-  "their flat-space version is left as a remark; quantified it needs amplification 4.387e71 * D^2, RISING as D^2 exactly over six decades, so bigger separation is HARDER"),
- ("PLANCK-FOURTH-TIME",+1,+1,+1, "gjw.py",
-  "and that gain reaches unity at 0.0934 PLANCK LENGTHS -- a fourth independent route to the Planck scale after corridor.py's two and achievable.py's one, about a different geometry again"),
+  "their flat-space version is left as a remark; quantified on gjw.py's one-scalar flat 2D-cycle model it needs amplification 1.097e71 * D^2 against T_kk along the winding null direction (H-WIND; along a transverse null direction the cycle's T_kk is 0 and no gain suffices), RISING as D^2 exactly over six decades, so bigger separation is HARDER. (DOCKET 67 follow-up: first written 4.387e71 * D^2, the energy-density gain, 4x the T_kk one)"),
+# CORRECTED (DOCKET 67 follow-ups, identity pass; M: 'a verdict stays only on a correct stated
+#   ground -- if there is none, it is open', and 'stale statements, including what DOCKET 55
+#   withdrew -- address/repair/correct').  PLANCK-FOURTH-TIME kept (+1,+1,+1) under corrected
+#   text (docket67-raw/CLOSE.md sec. 4 item 2).  Its Y and Z rested on 'a fourth independent route
+#   to the Planck scale', which gjw.py withdrew in place: the model has ONE length, so unity at
+#   sqrt(pi/90) l_P is forced by dimensional analysis -- the same identity L = l_P/sqrt(K) that
+#   moved PLANCK-CROSSING-IS-AN-IDENTITY.  No other Y/Z ground is stated by gjw.py (its own
+#   selftest calls the landing 'sub-Planckian, so never in the regime the framework covers', and
+#   scale.py refuses any such crossing as a design target), so it is renamed and moves to
+#   (+1,0,0); PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN keeps the cell.  The row as it stood:
+#   and that gain reaches unity at 0.187 PLANCK LENGTHS, sqrt(pi/90) l_P on H-WIND (DOCKET 67
+#   follow-up: first written 0.0934, sqrt(pi/360), on the energy-density gain) -- a landing FORCED
+#   by gjw.py's single-length model, 90 D^2/(pi l_P^2) by dimensional analysis alone, and NOT an
+#   independent route to the Planck scale (gjw.py); corridor.py's two landings and achievable.py's
+#   4.09 l_P are values beside it, not corroboration. (DOCKET 67 follow-ups: first 'a fourth
+#   independent route to the Planck scale after corridor.py's two and achievable.py's one' -- gjw.py
+#   withdrew it, and DOCKET 55 had withdrawn achievable.py's, PLANCK-CROSSING-IS-AN-IDENTITY)
+ ("GJW-LANDING-IS-AN-IDENTITY",+1,0, 0, "gjw.py",
+  "the required gain reaches unity at 0.187 PLANCK LENGTHS, sqrt(pi/90) l_P on H-WIND, and that landing is a DIMENSIONAL IDENTITY, not a route to the Planck scale: gjw.py's model has ONE length, D, so the gain is 90 D^2/(pi l_P^2) exactly and unity falls at sqrt(pi/90) l_P by dimensional analysis alone (gjw.py: 'NOT AN INDEPENDENT ROUTE TO THE PLANCK SCALE'; Butcher 1405.1283 p.1 fn. 2: the system 'need not be characterised by a single length'). corridor.py's two landings and achievable.py's 4.09 l_P are values beside it, not corroboration, and the landing is sub-Planckian, outside the regime the framework covers. X keeps +1 for the computed value; Y and Z read 0 -- the ground for both, an independent landing at the Planck scale, is withdrawn as PLANCK-CROSSING-IS-AN-IDENTITY's was, and scale.py refuses any such crossing as a design target (crossing_is_a_design_target() is False). (DOCKET 67 follow-ups, identity pass: first written as PLANCK-FOURTH-TIME at (+1,+1,+1), 'a fourth independent route to the Planck scale after corridor.py's two and achievable.py's one' -- gjw.py withdrew it, and DOCKET 55 had withdrawn achievable.py's; and first 0.0934, sqrt(pi/360), on the energy-density gain)"),
  ("GJW-IS-EXISTENCE-PROOF",+1,+1,+1, "gjw.py",
   "under M's scoping, where the lead is dropped, GJW is an EXISTENCE PROOF: a traversable connection from entanglement plus a coupling, no exotic matter postulated, the negative energy DERIVED. UV-complete and published"),
  # M's structure: binary -> hierarchy -> binary.  I had not been writing it.
  ("ANALYSIS-ALL-ALONG", 0, -1, +1, "expand.py",
-  "every headline number this project produced -- 65 orders, 2 pi^2, 4.387e71 D^2 -- is an ANALYSIS answer, a magnitude, and by register 1173 analysis earns NO ROW because logic cannot get a binary back from it"),
+  "every headline number this project produced -- 65 orders, 2 pi^2, 4.387e71 D^2 (as first produced; two no longer stand as printed, DOCKET 67 follow-ups, as in expand.py: '65 orders' is the census DOCKET 55 withdrew, achievable.py's duration bound being what holds, and 4.387e71 D^2 is gjw.py's energy-density gain, on T_kk 1.097e71 D^2) -- is an ANALYSIS answer, a magnitude, and by register 1173 analysis earns NO ROW because logic cannot get a binary back from it"),
  ("THREE-ROWS-ADMIT",  +1, +1, +1, "expand.py",
   "expanded properly: ORDER admits (GJW's external causal path), GEOMETRY admits (no throat, no horizon, M_ADM=0), ALGEBRA admits (junction closes, DEC holds, stable at beta^2=0). Three of four"),
  ("DISSENT-IS-VALUE",  +1, +1, +1, "expand.py",
@@ -669,12 +766,27 @@ FINDINGS = [
   "THE EQUATION: Delta d = (G/c^2) M Lambda with Lambda = 2[ln(2R_s/b) - 1] = 9.9825. Contraction SATURATES (identical to nine digits over a fiftyfold baseline), is LINEAR in mass (9.975 to 9.864 per unit m over sixteenfold), and closed form agrees with measurement to 0.08%"),
  ("NO-GEOMETRY-LEFT",   +1, -1, +1, "phase1.py",
   "and there is no free parameter remaining: Lambda improves only LOGARITHMICALLY, so reaching Lambda = 20 needs R_s/b = 2.99e4 and Lambda = 100 needs 7.05e21. The contraction is proportional to mass with a coefficient fixed by c^2/G and a logarithm, and nothing in the geometry is left to optimise"),
+# CORRECTED (DOCKET 67): the 1% and 50% figures carried no weak-field qualifier
+#   (weak-field-isotropic-metric-and-newtonian-limit).
+# CORRECTED (DOCKET 67 follow-up, M: "repair all figures"): first priced at a round 4.0 ly 'off
+#   Alpha Centauri', 2.57e10 and 1.28e12 solar masses; re-based on phase1.L_PROXIMA (Gaia DR3,
+#   4.2465 ly), the figures phase1 now pins.  The peak-potential and ansatz ratios are functions
+#   of the fraction contracted, not of L, and stand.
  ("EXCHANGE-RATE",      +1, -1, +1, "phase1.py",
-  "THE PRICE: 1.349e26 kg per metre contracted. One solar mass buys 14.7 km; one percent off Alpha Centauri is 2.57e10 solar masses; half of it is 1.28e12. A galaxy of negative mass to shave one percent, and it is not improvable by cleverness in this architecture"),
- ("ONLY-ENTRY",          0, -1, +1, "phase1.py",
-  "the ranking on 'fastest operator, lowest cost' returns ONE candidate -- the static concentric corridor -- and it wins by being the only entry that is both reusable and permitted. GJW is per-use, Alcubierre fails D4, charge gives zero contraction, Casimir is 4.39e71 short, and a bare negative mass is strictly better physics and forbidden. A weak kind of winning, stated as the weak kind"),
+  "THE PRICE: 1.349e26 kg per metre contracted, on the first-order (weak-field) law. One solar mass buys 14.7 km; one percent off the road to Proxima (4.2465 ly, Gaia DR3) is 2.72477e10 solar masses -- 2.79e10 to 2.82e10 at alpha Cen AB's READ orbital parallaxes -- where the peak potential is 0.399 at R_s/b = 200 and the exact ansatz contraction is 0.944 of the linear law; half of it is 1.36238e12 on that law, outside its domain (Phi_max >= 1.85 for any shell geometry; exact ansatz 0.403 of it; GR there OPEN). A galaxy of negative mass to shave one percent, and it is not improvable by cleverness in this architecture -- the corridor; the bare negative mass, ranked first at the cost of D2, prices the same 1 % at 0.833 of it with the shell spanning the baseline, still a galaxy (phase1)"),
+ # CORRECTED (DOCKET 67 follow-up, M: "include it"): first written as ONLY-ENTRY, 'the ranking
+ #   ... returns ONE candidate -- the static concentric corridor -- and it wins by being the only
+ #   entry that is both reusable and permitted ... Casimir is 4.39e71 short, and a bare negative
+ #   mass is strictly better physics and forbidden'.  The positive mass theorem forbids a
+ #   negative ADM mass only under the DEC, which both entries violate; phase1 now ranks it
+ #   (ranked(), the_winner(), the_winner_keeping_d2()).  Cell unchanged: neither entry is
+ #   buildable without M < 0.
+ ("ONLY-ENTRY-KEEPING-D2", 0, -1, +1, "phase1.py",
+  "the ranking on 'fastest operator, lowest cost' returns TWO rankable entries, and the BARE NEGATIVE MASS RANKS FIRST: cheapest, Lambda 21.19 at phase1's window X = 20000 b, above the corridor's 9.98 at every X > 73.6 b. It wins at the cost of D2 (M_ADM = -|M|, felt at every distance) and of the WEC and DEC, which the corridor's core violates too, so the DEC does not separate them; its radial stability is not computed. The static concentric corridor is the ONLY ENTRY THAT KEEPS D2. GJW's 2016 pulsed protocol is per-use (this tree's inference), Alcubierre fails D4, charge gives zero contraction up to extremal Q, and the Casimir corridor is reusable but 5e70 to 3.5e72 short at a metre on every variant computed. A weak kind of winning, stated as the weak kind"),
+# CORRECTED (DOCKET 67): first written 'is not forbidden' without saying why
+#   (energy-conditions-and-chronology-theorems).
  ("PHASE-1-CLOSES",     +1, -1, +1, "phase1.py",
-  "PHASE 1 IS FINISHED AS MATHEMATICS. The transition is defined, is not propulsion, is not forbidden, is never a lead, is worth only what amortisation makes it worth, and costs 1.349e26 kg/m. What remains needs M < 0 and is not a mathematics problem"),
+  "PHASE 1 IS FINISHED AS MATHEMATICS. The transition is defined, is not propulsion, is not forbidden by the chronology or positive-mass theorems (because it violates the energy conditions they assume: the seated device fails NEC, WEC, SEC and DEC throughout its core), is never a lead, is worth only what amortisation makes it worth, and costs 1.349e26 kg/m. What remains needs M < 0 and is not a mathematics problem"),
  # supply.py -- converting the cost into something suppliable.
  ("CONVERSION-IS-DONE", +1, -1, +1, "supply.py",
   "G/c^4 = (G/c^2)/c^2, so E = mc^2 is NOT something applied to the transition equation -- it is already inside the coupling. Paying in joules rather than kilograms is the same bill in another currency at a rate already applied: 1.2124e43 J per metre, which is 22.6 EARTH MASS-ENERGIES PER METRE"),
@@ -689,22 +801,60 @@ FINDINGS = [
  ("BINDING-BOUNDED",     0, -1, +1, "supply.py",
   "binding energy is genuinely negative and still cannot: 1e-9 chemical, 1e-2 nuclear, 0.42 for Kerr accretion, every one of them a FRACTION of a positive rest mass brought. The net stays positive, and that is the positive mass theorem restated rather than an accident of the examples"),
  ("EFFICIENCY-CANNOT",  +1, -1, +1, "supply.py",
-  "and no conversion efficiency rescues it: against the world's annual energy production eta would have to exceed 1 by 36 orders -- more negative energy out than energy in. At a perfect eta = 1 the requirement is still 4.588e57 J, the mass-energy of 2.57e10 suns. EFFICIENCY IS NOT THE PROBLEM; c^4/G IS"),
+  "and no conversion efficiency rescues it: against the world's annual energy production eta would have to exceed 1 by 36 orders -- more negative energy out than energy in. At a perfect eta = 1 the requirement is still 4.871e57 J, the mass-energy of 2.72e10 suns -- 1 % of the road to Proxima, phase1's own price (eta > 8.1e36). EFFICIENCY IS NOT THE PROBLEM; c^4/G IS. (DOCKET 67 follow-up: first 4.588e57 J and 2.57e10 suns, on a round 4.0 ly; supply.py now imports phase1.L_PROXIMA)"),
  ("GAP-IS-THE-LEVER",   +1, -1, +1, "supply.py",
   "what is left is the GAP: the requirement for a fractional contraction falls as 1/b^2 while the Casimir density rises as 1/b^4, so the ratio closes -- 3.57e-69 at a metre, unity at b = 5.98e-35 m = 3.70 PLANCK LENGTHS"),
- ("THREE-CROSSINGS-AGREE",+1,+1,+1, "supply.py",
-  "AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE: this contraction at 3.70 l_P, corridor.py's Casimir seat at 0.132 l_P, gjw.py's unity coupling separation at 0.0934 l_P. A contraction, a seat and a coupling, all within two orders of the Planck length, computed by three routes sharing no formula"),
+# CORRECTED (DOCKET 67 follow-ups, identity pass; M's rulings as above).  THREE-CROSSINGS-AGREE
+#   kept (+1,+1,+1) under corrected text (CLOSE.md sec. 4 item 2).  Its Y and Z rested on the
+#   convergence being INDEPENDENT; supply.py withdrew that in place ('INDEPENDENT overstates the
+#   agreement ... three values of kappa, not three corroborations'), and scale.py proves the
+#   landing is forced: L = l_P/sqrt(kappa) for any kappa.  The agreement itself is computed and
+#   true (supply.three_routes_agree(): all within two orders), so the id stays; but agreement by
+#   identity carries no Y or Z, and scale.py refuses the crossing as a design target.  So it
+#   moves to (+1,0,0); THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN keeps the cell.  The row as it stood:
+#   AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE: this contraction at 3.70 l_P,
+#   corridor.py's Casimir seat at 0.132 l_P, gjw.py's unity coupling separation at 0.187 l_P (on the
+#   winding-direction T_kk, H-WIND; DOCKET 67 follow-up: first 0.0934, the energy-density figure). A
+#   contraction, a seat and a coupling, all within two orders of the Planck length -- and NOT
+#   independently: each is a crossover of hbar c/L^4 against c^4/(G L^2), so each lands at l_P times
+#   an O(1) number by dimensional identity (scale.py's theorem; supply.py: 'INDEPENDENT overstates
+#   the agreement'). (DOCKET 67 follow-ups: first 'computed by three routes sharing no formula')
+ ("THREE-CROSSINGS-AGREE",+1,0, 0, "supply.py",
+  "THREE DIFFERENT QUANTITIES CROSS WITHIN TWO ORDERS OF THE PLANCK LENGTH: this contraction at 3.70 l_P, corridor.py's Casimir seat at 0.132 l_P, gjw.py's unity coupling separation at 0.187 l_P (on the winding-direction T_kk, H-WIND) -- a contraction, a seat and a coupling, and NOT independently: each is a crossover of hbar c/L^4 against c^4/(G L^2), so each lands at l_P/sqrt(kappa), l_P times an O(1) number by dimensional identity (scale.py's theorem; supply.py: three values of kappa, not three corroborations). X keeps +1 for the three computed crossings; Y and Z read 0 -- the ground for both was the convergence as independent evidence, and it is one identity counted three times; scale.py refuses any such crossing as a design target, since five approximations fail there. (DOCKET 67 follow-ups, identity pass: first at (+1,+1,+1) as 'AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE', and earlier 'computed by three routes sharing no formula'; gjw.py's separation first 0.0934 l_P, the energy-density figure)"),
  # scale.py -- following the Planck-crossing instinct, and deflating it.
  ("SCALE-THEOREM",     +1, +1, +1, "scale.py",
-  "PROVED: the ratio of what the quantum vacuum supplies to what GR demands is kappa (l_P/L)^2 and can be nothing else, because hbar c/L^4 over c^4/GL^2 IS hbar G/c^3 L^2 and those are the only constants available. The crossing is at l_P by DIMENSIONAL NECESSITY -- l_P is defined as where the two meet"),
- ("THEOREM-REPRODUCES",+1, +1, +1, "scale.py",
-  "and it is not hand-waving: kappa = pi/360 in closed form predicts gjw.py's gain_coefficient 4.3866e71 and its unity separation 1.5098e-36 m TO FIVE DIGITS, and gjw.py computes both from the Casimir formula sharing no algebra. achievable.py's kappa is measured IDENTICAL TO SIX DIGITS across six decades of length, which is the theorem's signature"),
+  "PROVED under SINGLE-LENGTH (the problem has one length L): the ratio of what the quantum vacuum supplies to what GR demands is kappa (l_P/L)^2 and can be nothing else, because hbar c/L^4 over c^4/GL^2 IS hbar G/c^3 L^2 and those are the only constants available; with a second length their ratio enters kappa itself (achievable.py's kappa goes as 1/((a/b)(m/b)), scale.py computes it). (DOCKET 67 follow-ups: SINGLE-LENGTH first unstated, so 'can be nothing else' read as unconditional.) The crossing is at l_P by DIMENSIONAL NECESSITY -- l_P is defined as where the two meet"),
+# CORRECTED (DOCKET 67 follow-ups, identity pass; M's rulings as above).  THEOREM-REPRODUCES kept
+#   (+1,+1,+1) under corrected text (CLOSE.md sec. 4 item 2).  Its Y and Z rested on the scale
+#   theorem being REPRODUCED by a second computation ('IT REPRODUCES A NUMBER THE TREE COMPUTED
+#   ANOTHER WAY', 'sharing no algebra').  scale.py withdrew that in place: the match is one
+#   expression twice (GJW_MATCH_IS_INDEPENDENT = False), 'a consistency check of shared inputs
+#   ... it supports the arithmetic, not the theorem'.  A check of shared inputs is a real check
+#   on the NUMBER (X) and states nothing on Y or Z; the theorem's own cell is SCALE-THEOREM's,
+#   on its own ground (dimensional analysis under SINGLE-LENGTH), and does not move here.  The
+#   id asserted the withdrawn claim, so it is renamed (scale.py's selftest: 'one expression,
+#   twice') and moves to (+1,0,0); THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN keeps the cell.
+#   The row as it stood:
+#   and the closed form matches: kappa = pi/90 gives gjw.py's gain_coefficient 1.0967e71 and its
+#   unity separation 3.0197e-36 m, equal to 2e-16 relative, against the winding-direction T_kk
+#   (H-WIND; DOCKET 67 follow-up: first kappa = pi/360 predicting 4.3866e71 and 1.5098e-36 m, the
+#   energy-density figures, which scale.KAPPA_GJW_AS_FIRST_WRITTEN still reproduces). The match is a
+#   CONSISTENCY CHECK, not a second route: gjw.amplification_needed is seatindex's threshold over
+#   the same winding-direction Casimir T_kk, both 90 D^2/(pi l_P^2) exactly
+#   (scale.GJW_MATCH_IS_INDEPENDENT is False) -- a real check, the one that exposed the pi/360
+#   factor, supporting the arithmetic and not the theorem. achievable.py's kappa is IDENTICAL TO SIX
+#   DIGITS across six decades of length, which is what SINGLE-LENGTH predicts at fixed a/b and m/b:
+#   no hidden scale, not independent evidence. (DOCKET 67 follow-ups: first 'it is not hand-waving
+#   ... TO FIVE DIGITS ... and gjw.py computes both from the Casimir formula sharing no algebra',
+#   and the six-digit invariance read as 'the theorem's signature')
+ ("GJW-MATCH-IS-ONE-EXPRESSION",+1,0, 0, "scale.py",
+  "the closed form matches gjw.py: kappa = pi/90 gives gjw.py's gain_coefficient 1.0967e71 and its unity separation 3.0197e-36 m, equal to 2e-16 relative, against the winding-direction T_kk (H-WIND) -- and the match is an IDENTITY OF SHARED INPUTS, a CONSISTENCY CHECK, not a second route: gjw.amplification_needed is seatindex's threshold over the same winding-direction Casimir T_kk, both 90 D^2/(pi l_P^2) exactly (scale.GJW_MATCH_IS_INDEPENDENT is False) -- a real check, the one that exposed the pi/360 factor, supporting the arithmetic and not the theorem. achievable.py's kappa is IDENTICAL TO SIX DIGITS across six decades of length, which is what SINGLE-LENGTH predicts at fixed a/b and m/b: no hidden scale, not independent evidence. X keeps +1 for the computed match; Y and Z read 0 -- the ground for both was the theorem reproduced by an independent computation, and the match is the same expression twice; the theorem's own cell is SCALE-THEOREM's, on dimensional analysis under SINGLE-LENGTH. (DOCKET 67 follow-ups, identity pass: first written as THEOREM-REPRODUCES at (+1,+1,+1). DOCKET 67 follow-up: first kappa = pi/360 predicting 4.3866e71 and 1.5098e-36 m, the energy-density figures, which scale.KAPPA_GJW_AS_FIRST_WRITTEN still reproduces. DOCKET 67 follow-ups: first 'it is not hand-waving ... TO FIVE DIGITS ... and gjw.py computes both from the Casimir formula sharing no algebra', and the six-digit invariance read as 'the theorem's signature')"),
  ("OUTLIER-RECONCILES", 0,  0, +1, "scale.py",
-  "the census reads 0.0934, 0.1320, 3.7013 and 204.67 l_P -- but achievable.py's length is the CORRIDOR RADIUS while the others measure the gap carrying the energy, and its core sits at a/b = 0.02, giving 4.0933 l_P, which that file already prints itself. On the energy-carrying scale all four lie between 0.093 and 4.09 l_P, a factor of 44"),
+  "the census reads 0.1868, 0.1320, 3.6992 and 204.67 l_P -- but achievable.py's length is the CORRIDOR RADIUS while the others measure the gap carrying the energy, and its core sits at a/b = 0.02, giving 4.0933 l_P, which that file already prints itself. On the energy-carrying scale all four lie between 0.132 and 4.09 l_P, a factor of 31. (DOCKET 67 follow-up: first 'reads 0.0934, 0.1320, 3.7013 ... between 0.093 and 4.09 l_P, a factor of 44' -- the 0.0934 on gjw.py's energy-density kappa pi/360, and the 3.7013 scale.py's CENSUS typing supply.py's kappa as 1.369937e1, where supply.py computes 1.368384e1, 3.6992 l_P; the census is scale.py's as it now prints, checked there against supply.py)"),
  ("ONE-OBSTACLE",      +1, -1, +1, "scale.py",
-  "SO THE PROJECT'S OBSTACLES UNIFY: 65 orders, 69 orders and 71 orders are not three findings but (L/l_P)^2 divided by three prefactors at three lengths. ONE OBSTACLE COUNTED THREE TIMES, and the identity is checked rather than asserted"),
+  "SO THE PROJECT'S OBSTACLES UNIFY: 65 orders, 69 orders and 71 orders are not three findings but (L/l_P)^2 divided by three prefactors at three lengths (the 65 is achievable.py's ratio of two densities, which DOCKET 55 withdrew as a shortfall; the identity is about the ratio, under SINGLE-LENGTH -- DOCKET 67 follow-ups). ONE OBSTACLE COUNTED THREE TIMES, and the identity is checked rather than asserted"),
  ("KAPPA-IS-THE-ONLY-LEVER",+1,-1,+1,"scale.py",
-  "and the shortfall is (1/kappa)(L/l_P)^2, so THE EXPONENT IS 2 AND THE BASE IS l_P AND NO MECHANISM CHANGES EITHER -- a mechanism changes only kappa, which is dimensionless and can be large only if the problem holds a large dimensionless number. The honest list has one entry worth two orders: N ~ 100 field species"),
+  "and the shortfall is (1/kappa)(L/l_P)^2, so THE EXPONENT IS 2 AND THE BASE IS l_P AND NO MECHANISM CHANGES EITHER within 4D GR with QFT at fixed length ratios -- a mechanism changes only kappa, which is dimensionless and can be large only if the problem holds a large dimensionless number. The honest list has one entry worth two orders, N ~ 100 field species, and one NOT-RUN: a SECOND LENGTH, whose ratio enters kappa (SINGLE-LENGTH); a lower fundamental Planck scale changes the base, in another theory (EXTRA-DIMENSIONS). (DOCKET 67 follow-ups: first 'NO MECHANISM CHANGES EITHER' unscoped, with the second length omitted)"),
  ("EXTRA-DIMENSIONS",   0,  0, +1, "scale.py",
   "the one lever that changes the BASE rather than kappa is a lower fundamental Planck scale: at the collider bound M_* ~ 3 TeV, l_* = 6.578e-20 m and the metre-scale shortfall falls from 3.83e69 to 2.31e38 -- 31.2 ORDERS FOR FREE AND STILL 38 SHORT. Whether the demand side rescales the same way in a braneworld is a different calculation in a different theory: NOT-RUN, named rather than guessed"),
  ("CROSSING-IS-NOT-A-TARGET",0,-1,+1,"scale.py",
@@ -713,7 +863,7 @@ FINDINGS = [
   "so the correct closing statement is narrower than 'you need Planck scale': EVERY ROUTE THIS PROJECT CAN EVALUATE REMAINS SHORT AT EVERY SCALE WHERE THE EVALUATION IS VALID, and the extrapolation to where it would not be short runs off the edge of the map"),
  # currency.py -- is there a cheaper currency?  Partly yes, and structurally.
  ("PLANCK-FACTOR-CANCELS",+1,+1,+1, "currency.py",
-  "M'S INSTINCT IS RIGHT AND THE REASON IS STRUCTURAL: every ENERGY comparison carries hbar G/c^3 exactly once and uncancelled, which IS the 65-to-71 orders. In the ENTROPY channel both sides carry (L/l_P)^2 -- QNEC gives S_req = (pi^2/2)(L/l_P)^2 and holography gives (1/4)(L/l_P)^2 -- so it CANCELS EXACTLY and the ratio is 2 pi^2 at every scale, measured scale-free across ten decades"),
+  "M'S INSTINCT IS RIGHT AND THE REASON IS STRUCTURAL: every ENERGY comparison carries hbar G/c^3 exactly once and uncancelled, which IS the 65-to-71 orders (the 65 as first priced; DOCKET 55 withdrew it as a shortfall -- DOCKET 67 follow-ups). In the ENTROPY channel both sides carry (L/l_P)^2 -- QNEC gives S_req = (pi^2/2)(L/l_P)^2 and holography gives (1/4)(L/l_P)^2 -- so it CANCELS EXACTLY and the ratio is 2 pi^2 at every scale, measured scale-free across ten decades"),
  ("ENTROPY-IS-PLANCK-DENOMINATED",+1,+1,+1,"currency.py",
   "and the reason it cancels is that entropy is ALREADY denominated in Planck areas: the holographic bound measures S in units of l_P^2, so stating the requirement as an entropy automatically divides out the factor that kills every energy-denominated route. A real feature of the problem, not a hopeful estimate"),
  ("SEAT-VS-CONTRACTION", +1, +1, +1, "currency.py",
@@ -722,8 +872,10 @@ FINDINGS = [
   "which corrects entangle.py in place: reading 2 pi^2 as 'the best news this project has produced' is too generous, because the holographic bound is the most entropy a region can hold BY ANY MEANS and exceeding it is impossible rather than twenty times hard. THE FACTOR MEASURES HOW BADLY, NOT HOW NEARLY"),
  ("PERMISSION-NOT-DISCOUNT",+1,-1,+1,"currency.py",
   "BUT THE CURRENCY BUYS PERMISSION, NOT DISCOUNT. Bekenstein's bound read backwards, E >= S hbar c/2 pi R, converts the seat's entropy requirement into (pi/4) L c^4/G = 9.5053e43 J at a metre -- EXACTLY seatindex.py's T_COEFF, by a route sharing no algebra. Changing denomination changes what can be SAID about the requirement and not what must be PAID, and that is a theorem"),
+# CORRECTED (DOCKET 67): first written 'a region that seats a conjugate point is a black hole'
+#   (holds for T_kk = u on a radius; S-2 is OPEN over H_ball as written).
  ("THREE-ARE-ONE",       +1, -1, +1, "currency.py",
-  "and three coincidences reconcile: entangle.py's 2 pi^2, spec.py's 2 pi^2/3, and 'the seating region is inside its own Schwarzschild radius'. They differ by EXACTLY 3, and the 3 is the 3 in M = (4/3) pi R^3 rho -- volume against area. All three say one thing: a region that seats a conjugate point is a black hole"),
+  "and three coincidences reconcile: entangle.py's 2 pi^2, spec.py's 2 pi^2/3, and 'the seating region is inside its own Schwarzschild radius'. They differ by EXACTLY 3, and the 3 is the 3 in M = (4/3) pi R^3 rho -- volume against area. All three say one thing: a region that seats a conjugate point by the Sturm route, with T_kk = u along a radius, is a black hole"),
  ("SHAPING-IS-NOT-RUN",   0,  0, +1, "currency.py",
   "and one question in this neighbourhood stays open honestly: Bekenstein bounds the entropy a region can HOLD given its energy, but whether a state can be PREPARED whose S'' is negative where wanted, at a cost below that floor, in a vacuum ALREADY carrying area-law entanglement, is a different question. NOT-RUN -- the only place a cheaper currency could still be hiding"),
  # shaping.py -- currency.py's last open door, pursued and CLOSED.
@@ -746,25 +898,30 @@ FINDINGS = [
   "measured on the static corridor: I = -2.46486e-06 gives a predicted w_crit = 1.0116e4, and the numerical scan crosses at exactly that width (LHS/RHS = 1.0000). This GENERALISES nullbound.py's withdrawal from the Alcubierre wall -- which phase1 excluded by D4 -- to every ANEC-violating configuration, the static corridor included"),
  ("ANEC-CROSS-CHECKED", +1, +1, +1, "smearing.py",
   "and it re-confirms achronal.py by a route sharing no algebra: achronal.py measured ANEC violation on 25 rays by integrating R_kk along geodesics, this file gets I < 0 from a closed-form line integral of the source density. Different computation, same sign"),
+# CORRECTED (DOCKET 67): first written 'QEIs and SNEC are STATE-INDEPENDENT theorems over all
+#   Hadamard states' (snec-freivogel-krommydas).
  ("NONGAUSSIAN-CLOSED",  0,  0, +1, "smearing.py",
-  "NOT-RUN 1 CLOSED: shaping.py's mode-counting bound was derived over Gaussian states, which limits THAT derivation and not the conclusion -- QEIs and SNEC are STATE-INDEPENDENT theorems over all Hadamard states, as nullbound.py already records. A non-Gaussian state cannot evade a bound never conditioned on the state"),
+  "NOT-RUN 1 CLOSED: shaping.py's mode-counting bound was derived over Gaussian states, which limits THAT derivation and not the conclusion -- QEIs are STATE-INDEPENDENT bounds over all Hadamard states in their proved classes, and SNEC is state-independent where it is proved (holographic induced gravity; a free or super-renormalizable Minkowski field with a UV cutoff -- without one the finite null average is unbounded below). A non-Gaussian state cannot evade a bound never conditioned on the state"),
  ("NONMINIMAL-CLOSED",   0, -1, +1, "smearing.py",
   "NOT-RUN 2 CLOSED CONDITIONALLY, and it was the live one: non-minimal coupling xi R phi^2 is the standard example of CLASSICAL energy-condition violation. Fliss, Freivogel, Kontou & Pardo Santos (arXiv:2309.10848) find ANEC obeyed both classically and in QFT under an EFT assumption, their section III.C titled 'Large negative null energies require large field values'. THE CONDITION IS THE EFT ASSUMPTION and is named, not buried"),
+# CORRECTED (DOCKET 67): first written 'unproven for nineteen years' with G&O's sub-Planckian
+#   condition and the restricted proofs dropped.
  ("SELF-CONSISTENT-OPEN",0,  0, +1, "smearing.py",
-  "NOT-RUN 3 STAYS OPEN and is not new: QEIs are proved on FIXED curved backgrounds, but matter that curves the spacetime it is bounded in is not covered. That is obstruct.py's ANEC row, and the corpus's note that self-consistent achronal ANEC in 4D has been unproven for nineteen years"),
+  "NOT-RUN 3 STAYS OPEN and is not new: QEIs are proved on FIXED curved backgrounds, but matter that curves the spacetime it is bounded in is not covered. That is obstruct.py's ANEC row, and the corpus's note that self-consistent achronal ANEC in 4D, at curvature well below the Planck scale, has been unproven in general for nineteen years (restricted proofs aside: Kontou-Olum; Wall from the GSL)"),
  ("ONE-NAME-AGAIN",     +1, -1, +1, "smearing.py",
   "SO THE OBSTACLE HAS ONE NAME AGAIN. SNEC was the last energy condition weak enough to look like a door and it closes whenever ANEC does; every route this project has evaluated is bounded by ANEC alone, and ANEC violation is precisely what the corridor requires and what achronal.py measured"),
  # anecscope.py -- the ANEC row, and a lemma in this tree that was inverted.
  ("SHEAR-CLAIM-INVERTED",+1, +1, +1, "anecscope.py",
   "achronal.py closed the achronality escape against us with SHEAR DROPPED, on the stated ground at its line 53 that dropping shear is conservative. THE DIRECTION IS INVERTED: shear helps focusing, focusing makes conjugate points sooner or where there were none, and a conjugate point is exactly what REMOVES achronality. Dropping shear understates focusing and therefore OVERSTATES achronality"),
  ("VACUUM-DEMONSTRATION",+1, +1, +1, "anecscope.py",
-  "demonstrated rather than argued, in the cleanest case: in VACUUM R_kk = 0 exactly, achronal.py's lemma_applies() fires, and the scalar equation gives u = lambda with no zero ever -- while the full matrix finds a conjugate point at 56.50 (M = -2e-3) and 47.17 (M = -4e-3). The lemma T_kk <= 0 => no conjugate point is valid ONLY in the shear-free reduction, because Weyl is traceless and focuses one eigendirection whatever the sign of the source"),
+  "demonstrated rather than argued, in the cleanest case: in VACUUM R_kk = 0 exactly, achronal.py's lemma_applies() fires, and the scalar equation gives u = lambda with no zero ever -- while the full matrix finds a conjugate point at 56.50 (M = -2e-3) and 47.17 (M = -4e-3) at composite.survey's default n = 900, 56.56 and 47.17 converged at n = 3600 (DOCKET 67 follow-ups: first given at n = 900 alone). The lemma T_kk <= 0 => no conjugate point is valid ONLY in the shear-free reduction, because Weyl is traceless and focuses one eigendirection whatever the sign of the source"),
  ("NO-ACHRONAL-VIOLATOR",+1, +1, +1, "anecscope.py",
-  "and with that corrected, scanning impact parameter: ANEC violation ceases at b = 2.378288 (bisected) while conjugate points persist well past it, so the ANEC-VIOLATING SET IS STRICTLY CONTAINED IN THE NON-ACHRONAL SET. NO RAY OF THIS CORRIDOR IS BOTH ANEC-VIOLATING AND ACHRONAL, and the containment is nowhere marginal along the scan"),
+  "and with that corrected, scanning impact parameter over ONE PLANAR RAY FAMILY (planar, +x-directed, one source strength; other families NOT-RUN): ANEC violation ceases at b = 2.378288 (bisected) while conjugate points persist well past it, so on that family the ANEC-VIOLATING SET IS STRICTLY CONTAINED IN THE NON-ACHRONAL SET. NO RAY OF THE SCANNED FAMILY IS BOTH ANEC-VIOLATING AND ACHRONAL, and the containment is nowhere marginal along the scan; the corridor-wide claim is not shown. (DOCKET 67 follow-ups, M: verdicts rest on a correct stated ground -- first 'NO RAY OF THIS CORRIDOR', broader than the one family anecscope.py and obstruct.py compute)"),
  ("SEAT-IS-THE-ESCAPE",  +1, +1, +1, "anecscope.py",
   "and the containment is structural, not lucky: the same negative core that makes INTEGRAL T_kk dl negative is the thing that focuses, through Weyl, which is sign-blind. ONE OBJECT PRODUCES BOTH, so the seat and the escape cannot come apart. Where GJW make their geodesics non-achronal with an EXTERNAL causal path, the corridor does it with an INTERNAL conjugate point it already needed"),
+# CORRECTED (DOCKET 67): first written 'unproven for nineteen years' (0705.3193).
  ("OUTSIDE-NOT-REFUTED",  0, -1, +1, "anecscope.py",
-  "SO THE CORRIDOR IS OUTSIDE ACHRONAL ANEC'S SCOPE -- and that is a SCOPE finding, not a refutation. Self-consistent achronal ANEC stands exactly where it stood, unproven for nineteen years, and being outside a conjecture's reach is not defeating it. NOT ONE ORDER OF MAGNITUDE MOVED: c^4/G untouched, 1.349e26 kg/m untouched, rho < 0 still required"),
+  "SO ON THE SCANNED RAY FAMILY THE CORRIDOR IS OUTSIDE ACHRONAL ANEC'S SCOPE (one planar family; others NOT-RUN -- DOCKET 67 follow-ups: first 'THE CORRIDOR IS OUTSIDE', unscoped) -- and that is a SCOPE finding, not a refutation. Self-consistent achronal ANEC stands exactly where it stood, unproven in general for nineteen years (restricted proofs aside: Kontou-Olum; Wall from the GSL), and being outside a conjecture's reach is not defeating it. NOT ONE ORDER OF MAGNITUDE MOVED: c^4/G untouched, 1.349e26 kg/m untouched, rho < 0 still required"),
  ("ANEC-RELOCATES",      +1, -1, +1, "anecscope.py",
   "and the ledger changes rather than the physics: obstruct.py's ANEC row has been OPEN throughout and does NOT close, because ANEC violation is still required and still measured. It RELOCATES -- the requirement is no longer answerable by a prohibition, so it becomes a magnitude question like everything else. THE OBSTACLE STILL HAS ONE NAME AND IT IS NO LONGER ANEC: IT IS c^4/G"),
  # dichotomy.py -- "so we need a miniature contained black hole?"  No.
@@ -776,21 +933,23 @@ FINDINGS = [
   "and the black-hole result prices the STURM seat, which is a RICCI statement: q l^2 >= pi^2 with q = 4 pi T_kk requires q > 0, positive energy, and seatindex's tkk_required is positive by construction. Our corridor's core T_kk is NEGATIVE -- it does not meet Sturm, is not trying to, and the collapse result does not reach it"),
  ("CORRIDOR-NOT-A-BH",  +1, +1, +1, "dichotomy.py",
   "MEASURED: the corridor seats a conjugate point at lambda = 165.36 with has_throat False, has_horizon False, and M_ADM residual -4.000e-15 -- zero to fifteen digits. It focuses through WEYL, quadratic and sign-blind, which carries no density requirement at all. It seats and it is not a black hole"),
+# CORRECTED (DOCKET 67): the T_kk = u condition on 'exceeds collapse by 2 pi^2/3' was unstated.
  ("THE-DICHOTOMY",      +1, -1, +1, "dichotomy.py",
-  "SO THERE ARE TWO ROUTES WITH TWO DIFFERENT BLOCKERS, and this is the cleanest structure the project has. RICCI: ordinary matter, needs the Sturm density, exceeds collapse by 2 pi^2/3 at every scale, closes inside its own Schwarzschild radius -- BLOCKED BY COLLAPSE, and on that route 'you need a black hole' is true as a PROHIBITION rather than a recipe. WEYL: negative mass, no density requirement, no horizon, M_ADM = 0 -- BLOCKED BY THE SOURCE. A collapse problem exchanged for a source problem, and this project is on the second"),
+  "SO THERE ARE TWO ROUTES WITH TWO DIFFERENT BLOCKERS, and this is the cleanest structure the project has. RICCI: ordinary matter, needs the Sturm density, and for pressureless matter (T_kk = u) exceeds collapse by 2 pi^2/3 on a radius at every scale and closes inside its own Schwarzschild radius -- BLOCKED BY COLLAPSE on that matter (with pressure a diameter chord falls to <= 1 for w >= 0.644934; specthm S-2 OPEN), and on that route 'you need a black hole' is true as a PROHIBITION rather than a recipe. WEYL: negative mass, no density requirement, no horizon, M_ADM = 0 -- BLOCKED BY THE SOURCE. A collapse problem exchanged for a source problem, and this project is on the second"),
  ("ONE-STATEMENT-FIXED", 0,  0, +1, "dichotomy.py",
   "and the question forced a correction: currency.py asserted flatly that 'a region that seats a conjugate point is a black hole', and OUR OWN CORRIDOR IS THE COUNTEREXAMPLE. The hypothesis is now attached in place there -- BY RICCI FOCUSING. The over-broad version had stood untested against the device this tree itself built"),
  # reverse.py -- the dichotomy read backwards, per M's own reversal rule.
  ("SIGNBLIND-BOTH-ENDS",+1, +1, +1, "reverse.py",
   "M's reversal rule applied to the DICHOTOMY rather than to a ray: the invariant visible from both ends is that WEYL IS SIGN-BLIND. Forward it says a negative mass escapes the Sturm density and so escapes collapse; backward it says a POSITIVE mass does too, for the same reason. Same binary chain, other end"),
  ("BOTH-SIGNS-SEAT-FREE",+1, +1, +1, "reverse.py",
-  "MEASURED: -2e-3 seats at 56.50 and +2e-3 at 55.17, within 2.4% of the same affine parameter, and NEITHER is anywhere near its own Schwarzschild radius -- the region is 75 times r_s. Only the ARRIVAL flips sign. composite.py recorded that and nobody read it backwards"),
+  "MEASURED: -2e-3 seats at 56.50 and +2e-3 at 55.17 (composite.survey's default n = 900; 56.56 and 55.21 converged at n = 3600 -- DOCKET 67 follow-ups), within 2.4% of the same affine parameter (relative to the -M value: 2.35% at n = 900, 2.39% converged), and NEITHER is anywhere near its own Schwarzschild radius -- the region is 75 times r_s. Only the ARRIVAL flips sign. composite.py recorded that and nobody read it backwards"),
  ("SEAT-IS-OBSERVED",   +1, +1, +1, "reverse.py",
   "and the positive-mass seat is not hypothetical: the solar gravitational focus is f = b^2c^2/4GM = 547.6 AU against a published ~550. THE SUN HAS SEATED A CONJUGATE POINT FOR FOUR AND A HALF BILLION YEARS, violating no energy condition, collapsing nothing, and requiring no engineering"),
  ("DEVICE-SPLITS",      +1, -1, +1, "reverse.py",
   "SO THE DEVICE HAS TWO HALVES AND THEY DO NOT COST THE SAME. THE SEAT IS FREE -- ordinary matter, every energy condition satisfied, no collapse, an existing example. THE CONTRACTION CARRIES ALL OF IT -- it needs Phi > 0 hence rho < 0, and ordinary matter gives a proper ratio of 1.003076, which is LONGER. The obstacle was never 'the device'; it was always one half of it"),
+# CORRECTED (DOCKET 67): the collapse's T_kk = u condition was unstated.
  ("FOCUS-DESCRIPTION-STANDS",+1,+1,+1,"reverse.py",
-  "which vindicates one description: 'a controlled gravitational focus at a chosen range, addressed by declaring both endpoints, built from fields that satisfy every energy condition' survives everything. What spec.py withdrew was the B*l invariant -- the STURM route to the seat, the one that collapses -- and the tree kept quoting that withdrawal as though it had taken the seat with it. It had not"),
+  "which vindicates one description: 'a controlled gravitational focus at a chosen range, addressed by declaring both endpoints, built from fields that satisfy every energy condition' survives everything. What spec.py withdrew was the B*l invariant -- the STURM route to the seat, the one that collapses for T_kk = u -- and the tree kept quoting that withdrawal as though it had taken the seat with it. It had not"),
  ("LENS-IS-NOT-TRANSITION",0,-1,+1,"reverse.py",
   "and it changes NO NUMBER. A free seat is not a free transition: the seat alone is a LENS, it focuses light at a range, carries no payload and shortens nothing. Every figure in phase1, supply.py, scale.py, currency.py and shaping.py prices the CONTRACTION and not one moves. 1.349e26 kg per metre stands exactly where it was. A LENS IS NOT A TRANSITION, AND THE SUN IS NOT A WARP DRIVE"),
  # contain.py -- what must be contained in miniature, and what that buys.
@@ -812,7 +971,7 @@ FINDINGS = [
  ("SUPERSESSION-SWEEP", +1, +1, +1, "reversal.py",
   "THE PATTERN, NOW FOUR DEEP: when a file corrects another, the corrected file's DEPENDENTS are never swept. composite.py restored shear and three files had dropped it -- achronal.py, transit.py, seatindex.py -- and only achronal.py was ever corrected. NEITHER OF THE OTHER TWO MENTIONS SHEAR AT ALL, which is worse than wrong because nothing signals the scope. Swept deliberately here"),
  ("LYAPUNOV-STRUCK",     0, -1, +1, "reversal.py",
-  "seatindex.py's 'Lyapunov's condition is universal the other way: below it nothing seats, ever' is FALSE with shear, and the counterexample was already in the tree: vacuum has q = 4 pi T_kk = 0 identically, so lyapunov_excluded() returns True -- 'excludes seating for ANY shape' -- while composite.py MEASURES A CONJUGATE POINT AT 56.50 in that same vacuum. Struck and narrowed to 'by RICCI focusing alone'. THIRD instance of a Ricci-only result asserted universally, after currency.py's ONE_STATEMENT and achronal.py's lemma"),
+  "seatindex.py's 'Lyapunov's condition is universal the other way: below it nothing seats, ever' is FALSE with shear, and the counterexample was already in the tree: vacuum has q = 4 pi T_kk = 0 identically, so lyapunov_excluded() returns True -- 'excludes seating for ANY shape' -- while composite.py MEASURES A CONJUGATE POINT AT 56.50 (n = 900; 56.56 converged at n = 3600) in that same vacuum. Struck and narrowed to 'by RICCI focusing alone'. THIRD instance of a Ricci-only result asserted universally, after currency.py's ONE_STATEMENT and achronal.py's lemma"),
  ("MATRIX-REVERSAL-NOT-RUN",0,0,+1, "reversal.py",
   "and transit.py's reversal theorem -- M's own prediction, gating part 1 against part 3 -- was proven on the SCALAR equation. Attempted with the full matrix on a deliberately asymmetric ray: the FORWARD conjugate point converges cleanly (116.117 -> 116.194, settling near 116.20) and THE GAP DOES NOT, sitting near 1.6% and not falling over an EIGHTFOLD refinement in h"),
  ("INSTRUMENT-LIMIT",   +1, +1, +1, "reversal.py",
@@ -827,7 +986,7 @@ FINDINGS = [
  ("QNEC-IS-THE-MEETING",+1, +1, +1, "entsym.py",
   "and where they DO meet is a theorem rather than an analogy: QNEC, <T_kk> >= (hbar c/2 pi) S'', whose left side is exactly what drives the Jacobi equation and whose right side is entanglement curvature along the ray. Already in this tree -- entangle.py inverted it for the corridor's entropy requirement"),
  ("QNEC-HAS-NO-WEYL",   +1, -1, +1, "entsym.py",
-  "BUT QNEC BOUNDS T_kk AND CONTAINS NO WEYL TERM AT ALL. In vacuum T_kk = 0 identically, QNEC reads S'' <= 0 and IS SATISFIED, and composite.py seats a conjugate point at 56.50 in that same vacuum -- pure Weyl, with the entanglement bound indifferent to it. THE ENTANGLEMENT BOUND IS SILENT ABOUT THE CHANNEL THAT SEATS"),
+  "BUT QNEC BOUNDS T_kk AND CONTAINS NO WEYL TERM AT ALL. In vacuum T_kk = 0 identically, QNEC reads S'' <= 0 and IS SATISFIED, and composite.py seats a conjugate point at 56.50 (n = 900; 56.56 converged at n = 3600) in that same vacuum -- pure Weyl, with the entanglement bound indifferent to it. THE ENTANGLEMENT BOUND IS SILENT ABOUT THE CHANNEL THAT SEATS"),
  ("LANDS-ON-FREE-HALF", +1, -1, +1, "entsym.py",
   "so it lands on the half that was never the problem: QNEC is SILENT on the seat (no Weyl term) and BINDING on the contraction (the core's T_kk is exactly what it bounds, entangle.py's 2 pi^2). Entanglement's symmetric relation is absent from the half that costs and superfluous on the half that is free -- reverse.py's split, reached from the entanglement side"),
  ("THREE-WANT-A-THROAT",+1, -1, +1, "entsym.py",
@@ -835,8 +994,14 @@ FINDINGS = [
  ("THE-FORK",            0,  0, +1, "entsym.py",
   "which puts a FORK to M rather than an answer: 'don't associate my theory with worm holes' is what makes the corridor throatless, and throatlessness is exactly what denies entanglement its bipartition. A throat would supply the two systems and would make the object a wormhole. A choice about architecture, not a fact about physics, and entsym.py states it and does not choose it"),
  # wormhole.py -- THE FORK, TAKEN.  M chose the throat.
+ # DOCKET 67 follow-up: first written 'against the corridor's 2.567e10 solar masses for 1% of
+ #   Alpha Centauri: 15.0 ORDERS'.  Re-based on phase1.L_PROXIMA; the orders gap is computed by
+ #   wormhole.advantage_at at that distance (15.005) and at wormhole.py's own 4 ly (14.979).
+ #   DOCKET 67 follow-ups (residue): the row then said wormhole.py's own text still priced a round
+ #   4 ly; wormhole.py is now re-based on phase1.L_PROXIMA (2.725e10 solar masses, 1.0115e15 =
+ #   15.0 orders) and keeps the 4.0 ly figures as DD_AS_FIRST_WRITTEN, checked as a record.
  ("COST-STOPS-SCALING", +1, +1, +1, "wormhole.py",
-  "THE WIN, AND IT IS STRUCTURAL: a throat's cost is proportional to the THROAT RADIUS and to nothing else -- M ~ r_0 c^2/(8 pi G), independent of how far apart the mouths are. A ONE-METRE THROAT COSTS ~9 EARTH MASSES WHETHER THE MOUTHS ARE A METRE OR FOUR LIGHT YEARS APART, against the corridor's 2.567e10 solar masses for 1% of Alpha Centauri: 15.0 ORDERS, and the ratio grows without limit with distance. phase1's complaint that a saving which does not scale with the journey is not a faster journey is EXACTLY what the throat fixes"),
+  "THE WIN, AND IT IS STRUCTURAL: a throat's cost is proportional to the THROAT RADIUS and to nothing else -- M ~ r_0 c^2/(8 pi G), independent of how far apart the mouths are. A ONE-METRE THROAT COSTS ~9 EARTH MASSES WHETHER THE MOUTHS ARE A METRE OR FOUR LIGHT YEARS APART, against the corridor's 2.72e10 solar masses for 1 % of the road to Proxima (phase1's price at 4.2465 ly, which wormhole.py now imports; first 2.567e10 on a round four light years 'of Alpha Centauri', kept there as DD_AS_FIRST_WRITTEN): 15.0 ORDERS either way (wormhole.advantage_at, 1.0115e15 = 15.005 at Proxima, 14.979 at 4 ly), and the ratio grows without limit with distance. phase1's complaint that a saving which does not scale with the journey is not a faster journey is EXACTLY what the throat fixes"),
  ("THROAT-WANTS-LARGE", +1, -1, +1, "wormhole.py",
   "BUT IT REVERSES contain.py: the throat tension is c^4/(8 pi G r_0^2) and DIVERGES as the throat shrinks -- 4.8155e42 Pa at a metre, reaching neutron-star central pressure only near 3 km. Kuhfittig's own figures reproduce (4.8155e41 dyn/cm^2 at 10 m; 5.35e35 Pa at 3 km) and his conclusion is 'Morris-Thorne wormholes could only exist on very large scales'. contain.py's 'miniature is forced' was the CORRIDOR's answer -- THE TWO ARCHITECTURES WANT OPPOSITE SIZES"),
  ("SAME-2PI2-AGAIN",    +1, +1, +1, "wormhole.py",
@@ -874,14 +1039,21 @@ FINDINGS = [
  ("ONLY-MODE-THREE-OPEN",0,  0, +1, "bothways.py",
   "and only the third mode is open: past D/c, Kim & Thorne (the Cauchy-horizon divergence is cut off at the Planck scale) against Hawking (it is not, and the machine is destroyed as it forms) has been unresolved since 1991. scale.py already carries it NOT-RUN. THE SHIFTED MODE NEVER ENTERS THAT REGIME, so nothing here rests on it"),
  # create.py -- sweeping phase1's dependents; CREATE is not CONTAIN.
- ("GATE-FAILS-D2",      +1, +1, +1, "create.py",
-  "SWEEPING phase1's DEPENDENTS AFTER THE ARCHITECTURE CHANGE, per reversal.py's lesson: the wormhole gate FAILS phase1's own D2. R^3 is simply connected and a wormhole is not, and no continuous deformation of a metric on a FIXED MANIFOLD bridges that at ANY support -- it fails on TOPOLOGY, not size. A throat was never in phase1's candidate ranking either, so 'PHASE 1 IS FINISHED AS MATHEMATICS' was finished about an architecture the project has left. Scoped in place there"),
+ # CORRECTED (DOCKET 67 follow-up, on M's ruling): first written as GATE-FAILS-D2, 'the wormhole
+ #   gate FAILS phase1's own D2. R^3 is simply connected and a wormhole is not'.  For a handle the
+ #   clause violated is phase1's FIXED-MANIFOLD preamble; D2 (compact support) is met, the handle
+ #   confined to a ball (create.which_fails() = ['FIXED-MANIFOLD']).  A Morris-Thorne
+ #   inter-universe section R x S^2 is simply connected.  Cell unchanged.
+ ("GATE-FAILS-FIXED-MANIFOLD", +1, +1, +1, "create.py",
+  "SWEEPING phase1's DEPENDENTS AFTER THE ARCHITECTURE CHANGE, per reversal.py's lesson: the wormhole gate FAILS phase1's own definition -- its FIXED-MANIFOLD clause, not D2, which a handle confined to a ball meets. R^3 is simply connected and a handle wormhole is not, and no continuous deformation of a metric on a FIXED MANIFOLD bridges that at ANY support -- it fails on TOPOLOGY, not size. A throat was never in phase1's candidate ranking either, so 'PHASE 1 IS FINISHED AS MATHEMATICS' was finished about an architecture the project has left. Scoped in place there"),
  ("CREATE-IS-NOT-CONTAIN",+1,+1,+1, "create.py",
   "which separates two problems the phrase 'create and contain a stable wormhole' runs together: CONTAIN is a METRIC problem and this tree has worked on it for thirty passes (concentric, stability, core, wormhole, gate); CREATE is a TOPOLOGY problem and the tree had never once looked at it"),
  ("CREATION-IGNORES-SOURCE",+1,-1,+1,"create.py",
   "and creation has its own theorem, harsher IN KIND than the source problem. Geroch, Tipler and Borde (gr-qc/9406053): topology change forces causality violations, and the argument is PURELY KINEMATICAL -- 'neither Geroch's original theorem, nor its mild generalization, assume anything about the energy-momentum tensor, or indeed about a field equation'. SO EXOTIC MATTER CANNOT HELP. Every other wall in this project was about SOURCING something; this one does not care what the source is"),
+# CORRECTED (DOCKET 67): first written 'accepting a singularity does NOT buy topology change',
+#   carried by the kinematic quote; that conclusion is Theorem 3's.
  ("SINGULARITY-NO-ESCAPE",+1,-1,+1, "create.py",
-  "and the escape I expected fails: accepting a singularity does NOT buy topology change. Borde -- 'as long as the causal compactness condition is met, causality violations have to occur when the topology changes, EVEN IF INCOMPLETE GEODESICS ARE ADMITTED'. Dynamically worse: in d >= 3 causally compact topology-changing spacetimes cannot satisfy Einstein's equation with a reasonable source"),
+  "and the escape I expected fails. Kinematically, accepting a singularity does NOT AVOID the causality violation: Borde -- 'as long as the causal compactness condition is met, causality violations have to occur when the topology changes, EVEN IF INCOMPLETE GEODESICS ARE ADMITTED' -- so topology change can still be had, at the price of a CTC. That it does NOT BUY topology change at all is dynamical, Borde's Theorem 3, which adds dimension >= 3, the null generic condition and the null convergence condition: then causally compact topology-changing spacetimes cannot satisfy Einstein's equation with a reasonable source"),
  ("CREATION-ESCAPES-LEAVE-GR",0,-1,+1,"create.py",
   "Borde's three escapes all leave Lorentzian GR or accept a pathology: dropping causal compactness gives Tipler's singularity or A POINT AT INFINITY ('a highly undesirable feature'); weakening the curvature constraints needs an alteration of Einstein's equation that 'would have to be fairly severe'; the Euclidean path integral abandons the Lorentzian framework. Same shape as wormhole.py's scope warning, and his own caution is kept verbatim: the theorems' value is to 'pinpoint what modifications we have to make', not to rule it out"),
  ("ENLARGE-DONT-CREATE",+1, +1, +1, "create.py",
@@ -950,8 +1122,12 @@ FINDINGS = [
   "THE FINDING. Balance pushed through the positive mass theorem gives not (+E,-E) but M_ADM = 0 -- which IS concentric.py, measured -4.000e-15 -- and then the theorem's SECOND half fires, the RIGIDITY clause this tree had never used: M_ADM = 0 under the DEC implies the spacetime is MINKOWSKI. The device is not Minkowski. THEREFORE ITS MATTER CANNOT SATISFY THE DEC. Negative energy is not an assumption of this design, it is DERIVED from the design's own M_ADM = 0, by a theorem, with no appeal to any magnitude. concentric.py caution 1 said ASSUMED and is superseded in place"),
  ("BALANCE-PROVES-THE-BILL",+1,-1,+1,"pair.py",
   "which inverts what the principle looked like it bought. The closed index admits no defect and the positive mass theorem AGREES -- then charges for it: THE ONLY BALANCED, NON-TRIVIAL CONFIGURATION IS ONE THAT VIOLATES THE DOMINANT ENERGY CONDITION. Balance does not remove the exotic-matter bill. IT IS THE PROOF THAT THE BILL IS UNAVOIDABLE"),
- ("CLOSED-ENERGY-UNDEFINED", 0, -1, +1, "pair.py",
-  "and at cosmological scale the principle is true and EMPTY. ADM mass is a surface integral at spatial infinity and a spatially closed universe has none, so the total energy of a closed universe is not zero -- it is UNDEFINED. A quantity that does not exist cannot be out of balance, and cannot pair two objects inside the universe either. A definitional refusal, filed as one and not as a measurement"),
+ # CORRECTED (DOCKET 67 follow-up, M: "make it computed"): first written as
+ #   CLOSED-ENERGY-UNDEFINED, 'the total energy of a closed universe is not zero -- it is
+ #   UNDEFINED' -- true of the ADM energy only.  pair.py now computes the total CONTESTED (ADM
+ #   UNDEFINED, minisuperspace Hamiltonian 0).  Cell unchanged: on either reading it is no lever.
+ ("CLOSED-ENERGY-CONTESTED", 0, -1, +1, "pair.py",
+  "and at cosmological scale the principle is true and EMPTY. ADM mass is a surface integral at spatial infinity and a spatially closed universe has none: its ADM ENERGY IS UNDEFINED, computed (pair.py: under H_AF an asymptotically flat end has unbounded volume, while the round S^3 of H_S3 has 2 pi^2 a^3). Its TOTAL energy is CONTESTED, not undefined: the closed-FRW minisuperspace Hamiltonian (H_HAM, a chosen prescription) is 0 on shell, and the ADT/Killing and pseudotensor zeros are READ, not computed. On neither reading can it be out of balance -- undefined, or zero by a constraint -- so it cannot pair two objects inside the universe either. A definitional refusal, filed as one and not as a measurement"),
  ("SIGNBLIND-PAIRS",     +1, +1, +1, "pair.py",
   "and what survives is one line worth keeping: A SIGN-BLIND QUANTITY PAIRS; A SIGN-COMMITTED ONE DOES NOT. Charge pairs because it is sign-symmetric, energy does not because the positive mass theorem commits it -- and that is dichotomy.py's split arriving from a completely different direction, Weyl focusing sign-blind with both signs seating against Ricci focusing sign-committed with only one. TWO INDEPENDENT ROUTES TO THE SAME DISCRIMINATOR"),
  # permute.py -- is the expansion a permutation of a closed index?
@@ -966,9 +1142,11 @@ FINDINGS = [
  ("BIANCHI-IS-THE-SELF-DEFENCE",+1,+1,+1,"permute.py",
   "and 'self-defending' is not a figure of speech: it is the CONTRACTED BIANCHI IDENTITY. grad_mu G^mu-nu == 0 holds for EVERY metric with no field equation assumed, following from the Riemann symmetries alone, and coupling it to Einstein's equation FORCES grad_mu T^mu-nu = 0 -- you cannot write down a source that violates conservation. MEASURED: integrate the constraint and the acceleration equation and never impose continuity, and continuity holds at 1e-16 for four fluids at three curvatures. AND THE RESIDUAL DOES NOT FALL WITH STEP SIZE, flat from 500 to 8,000 steps: a truncation error shrinks, an identity is already exact. The flatness is the evidence"),
  ("CLOSURE-FORCES-ZERO-CHARGE",+1,+1,+1,"permute.py",
-  "and a closed index DOES constrain exactly one quantity. Gauss's law on a manifold with no boundary: the integral of a divergence vanishes, so IN A SPATIALLY CLOSED UNIVERSE THE TOTAL ELECTRIC CHARGE IS EXACTLY ZERO -- forced by topology, not by observation. No counterpart for energy, which pair.py showed is not defined there, nor for baryon number, which is not forced at all. THIRD INDEPENDENT ARRIVAL AT THE SIGN-BLIND SPLIT, after Wheeler's charge-without-charge and Weyl-against-Ricci"),
+  "and a closed index DOES constrain exactly one quantity. Gauss's law on a manifold with no boundary: the integral of a divergence vanishes, so IN A SPATIALLY CLOSED UNIVERSE THE TOTAL ELECTRIC CHARGE IS EXACTLY ZERO -- forced by topology, not by observation. For energy the counterpart is CONTESTED: pair.py computes its ADM form UNDEFINED there and the closed-FRW Hamiltonian, a chosen prescription, 0 on shell; baryon number is not forced at all. SO THIS IS A THIRD ARRIVAL AT THE SIGN-BLIND SPLIT ON THE ADM READING, after Wheeler's charge-without-charge and Weyl-against-Ricci, and CONTESTED on the Hamiltonian one. (DOCKET 67 follow-up: first written 'No counterpart for energy, which pair.py showed is not defined there' and 'THIRD INDEPENDENT ARRIVAL', unqualified)"),
+# CORRECTED (DOCKET 67): the conservation hypothesis H3 was dropped
+#   (unimodular-gravity-classical-equivalence).
  ("UNIMODULAR-IS-EQUIVALENT", 0, -1, +1, "permute.py",
-  "and the picture has a real formulation: UNIMODULAR GRAVITY fixes det g and varies only the volume-preserving part of the metric -- a literally closed index. It is CLASSICALLY EQUIVALENT to general relativity, no observation separating them, and what changes is what Lambda IS: an integration constant rather than a Lagrangian parameter. Filed as EQUIVALENT, not better, and specifically NOT as a solution to the cosmological constant problem, which it reframes rather than removes"),
+  "and the picture has a real formulation: UNIMODULAR GRAVITY fixes det g and varies only the volume-preserving part of the metric -- a literally closed index. For conserved stress-energy (nabla.T = 0, an additional hypothesis in the restatement 2603.14718, automatic for matter from a diffeomorphism-invariant action) it is CLASSICALLY EQUIVALENT to general relativity, no observation separating them, and what changes is what Lambda IS: an integration constant rather than a Lagrangian parameter. Filed as EQUIVALENT, not better, and specifically NOT as a solution to the cosmological constant problem, which it reframes rather than removes"),
  ("CUBE-SCORED",         +1, -1, +1, "permute.py",
   "scored the way unified.py scored EIGHT: the cube conserves the COUNT (54 stickers, every move) and the SCALE; the universe conserves the COUNT and NOT the scale. EXACT ON ONE AXIS AND ABSENT ON THE OTHER -- and the scale is the axis we observe. The cube's 43,252,003,274,489,856,000 states are a permutation group: closed, measure-preserving, theta = 0"),
  # apply.py -- what the three passes do to the transition project.
@@ -978,8 +1156,20 @@ FINDINGS = [
   "and it starts with a correction to pair.py's own phrasing. Letting the shell mass float free of the core's -- Phi = m_a/sqrt(r^2+a^2) - m_s/max(r,R_s), M_ADM = m_s - m_a -- on concentric.py's own machinery: M_ADM = 0, +5.0e-3 and +1.5e-2 ALL SEAT AND ALL LEAD, while a POSITIVE core, ordinary matter throughout, SEATS AND ARRIVES LATE. M_ADM IS A FREE PARAMETER OF THE DESIGN AND NOT A REQUIREMENT OF THE MECHANISM. THE SEAT IS FREE; THE LEAD IS THE WHOLE COST, and it is local"),
  ("RIGIDITY-IS-A-SECOND-PROOF",+1,-1,+1,"apply.py",
   "which narrows what rigidity did. pair.py said the exotic matter is derived from the design's own M_ADM = 0 -- true, and it invites the false reading that a BOOKKEEPING CHOICE created the requirement and another could remove it. It could not: the requirement is Phi > 0 needs rho < 0, pointwise, whatever the ADM mass. Rigidity is a SECOND AND INDEPENDENT proof on the M_ADM = 0 branch, tightening nothing, removing only the hope that bookkeeping could dodge it. pair.py and concentric.py narrowed in place"),
- ("DEC-BRANCH-EXHAUSTED", +1, +1, +1, "apply.py",
-  "and it makes dichotomy.py EXHAUSTIVE rather than enumerated. The whole DEC-respecting space: M_ADM < 0 FORBIDDEN by the positive mass theorem's inequality; M_ADM = 0 is MINKOWSKI by its rigidity clause; M_ADM > 0 seats by Ricci and COLLAPSES, exceeding the bound by 2 pi^2/3. UNDER THE DOMINANT ENERGY CONDITION THERE IS NO SEAT-AND-LEAD -- a statement about every case rather than about the ones somebody thought to try, and the strongest negative result the project holds"),
+# CORRECTED (DOCKET 67): first written 'M_ADM > 0 seats by Ricci and COLLAPSES' for the whole DEC
+#   space; the collapse holds for T_kk = u (seated S-2 follow-on).  The row's
+#   cell is unchanged; whether apply.py's DEC_BRANCH verdict moves is OPEN.
+# CORRECTED AGAIN (DOCKET 67 follow-up; M: "the verdict must rest on a correct, stated ground;
+#   where none exists it is OPEN"): apply.py now COMPUTES the branch, and it moves.  First
+#   written as DEC-BRANCH-EXHAUSTED at (+1,+1,+1): 'it makes dichotomy.py EXHAUSTIVE rather than
+#   enumerated ... UNDER THE DOMINANT ENERGY CONDITION AND T_kk = u THERE IS NO SEAT-AND-LEAD --
+#   a statement about every case ... the strongest negative result the project holds', with
+#   'whether this branch's verdict moves is OPEN -- no verifier computed it'.  Its Y was read on
+#   that exhaustiveness; the branch is now computed NOT exhaustive with an OPEN sub-case, so Y
+#   reads 0 (undecided, the house's NU-OPEN reading).  X and Z keep +1: the branch is classified
+#   by a computed ratio and its threshold is a number.  DEC_BRANCH_CELL_AS_FIRST_WRITTEN keeps it.
+ ("DEC-BRANCH-SPLIT",  +1,  0, +1, "apply.py",
+  "and it makes dichotomy.py EXHAUSTIVE ON ONE SUB-CASE ONLY, computed. The whole DEC-respecting space: M_ADM < 0 FORBIDDEN by the positive mass theorem's inequality; M_ADM = 0 is MINKOWSKI by its rigidity clause; M_ADM > 0 seats by Ricci and SPLITS on the Sturm ratio (apply.dec_branch, from specthm.sturm_ratio): COLLAPSE where (T_kk/u)(s/l)^2 < 2 pi^2/3 -- dust on a radius 6.5797, dust on a diameter 1.6449, radiation on a diameter 1.2337 -- on H_ball and H_sturm (Sturm-certified seating, a sufficient condition); OPEN where it is >= 2 pi^2/3 -- T_kk = 2u on a diameter gives 0.8225, a w = 1 fluid or a ball magnetised across the ray, both within the DEC -- with no witness built and the lead not examined there. So the dichotomy is NOT exhaustive (apply.dichotomy_is_exhaustive() is False; True on the T_kk = u members alone). UNDER THE DOMINANT ENERGY CONDITION NO CASE HAS A DEMONSTRATED SEAT-AND-LEAD, and one sub-case -- inside GR, in none of the three doors -- has no ground either way"),
  ("SIGN-COMMITMENT-CLOSES-A-CLASS",+1,-1,+1,"apply.py",
   "and one line closes five proposed routes at once. A sign-blind quantity pairs, balances and is constrained by closure; a sign-committed one is not; ENERGY IS SIGN-COMMITTED by the positive mass theorem. So balance (pair.py), closure (permute.py), permutation (permute.py), entanglement symmetry (entsym.py) and the binary chain's geometry (chain.py) all die -- NOT case by case, but because the class of quantity they act on does not include energy. Three independent arrivals at the discriminator this session"),
  ("ORDER-IS-THE-SURVIVOR", +1, +1, +1, "apply.py",
@@ -987,16 +1177,16 @@ FINDINGS = [
  ("CONTAINMENT-IS-A-BOUNDARY",+1,+1,+1,"apply.py",
   "and containment stopped being a risk. Earnshaw permits no stable static configuration of point masses whatever their signs, and its one escape -- constant potential -- is exactly what Newton's shell theorem hands the device. NEUTRAL IS OPTIMAL, so drift to contact is the NEWTONIAN CEILING rather than a defect on a list. The item moves from an unbounded worry to a boundary, and what remains is one named NOT-RUN about whether GR moves it"),
  ("THREE-DOORS",         +1, -1, +1, "apply.py",
-  "and what is left is three doors and only three, with the OPEN list taken from obstruct.py's ledger rather than typed. OUTSIDE GR -- f(R), noncommutative geometry, where the DEC and the positive mass theorem are not the governing theorems and the scope decision is still M's and still unchosen. NOT AN ENERGY QUESTION -- order, causal structure, chronology protection. A RELIC RATHER THAN A CONSTRUCTION -- where create.py's topology theorems and detect.py's search already agree. EVERY OTHER ROUTE IS NOW CLOSED BY A THEOREM RATHER THAN BY A MAGNITUDE, which is a better place to stand and not a better answer"),
+  "and what is left is three doors -- the three apply.DOORS holds -- with the OPEN list taken from obstruct.py's ledger rather than typed. OUTSIDE GR -- f(R), noncommutative geometry, where the DEC and the positive mass theorem are not the governing theorems and the scope decision was MADE by M on 2026-09-11: modified gravity counts (wormhole.SCOPE_CHOSEN_HERE). NOT AN ENERGY QUESTION -- order, causal structure, chronology protection. A RELIC RATHER THAN A CONSTRUCTION -- where create.py's topology theorems and detect.py's search already agree. EVERY OTHER ROUTE IS NOW CLOSED BY A THEOREM RATHER THAN BY A MAGNITUDE -- except the DEC branch's OPEN sub-case (M_ADM > 0, (T_kk/u)(s/l)^2 >= 2 pi^2/3: closed by no theorem and in none of the doors; whether it is a fourth is OPEN) and obstruct.py's OPEN rows, TYPE-IV and ACHRONALITY -- which is a better place to stand and not a better answer. (DOCKET 67 follow-up: first written 'three doors and only three', 'the scope decision is still M's and still unchosen' and 'EVERY OTHER ROUTE', unqualified; apply.py corrected the same three)"),
  # nopath.py -- pricing "the point at which no path is needed".
  ("NO-PATH-IS-THE-MAXIMUM",+1,-1,+1,"nopath.py",
-  "the cost intuition is EXACTLY INVERTED and the project's own equation inverts it. Delta-d = (G/c^2) M Lambda is LINEAR in the contraction, so there is no economy of scale and no cheap far end: making two points ONE means contracting the WHOLE separation, 5.1048e42 kg at four light years = 2.5666e12 SOLAR MASSES, against 5.1048e40 kg for a 1% contraction and 1.3489e26 kg for one metre. 'NO PATH NEEDED' IS THE MAXIMUM OF THE COST CURVE, NOT THE CHEAP CORNER OF IT"),
+  "the cost intuition is EXACTLY INVERTED and the project's own equation inverts it. Delta-d = (G/c^2) M Lambda is LINEAR in the contraction, so there is no economy of scale and no cheap far end: making two points ONE means contracting the WHOLE separation, 5.4193e42 kg at Proxima (phase1.L_PROXIMA, 4.2465 ly) = 2.7248e12 SOLAR MASSES, against 5.4193e40 kg for a 1% contraction and 1.3489e26 kg for one metre (DOCKET 67 follow-ups: first 5.1048e42 kg = 2.5666e12 at a round four light years; nopath.py now imports phase1's distance and keeps the 4 ly figures as a record). 'NO PATH NEEDED' IS THE MAXIMUM OF THE COST CURVE, NOT THE CHEAP CORNER OF IT"),
  ("FIND-IT-FROM-THE-FRONT",+1,+1,+1,"nopath.py",
   "but the OTHER reading of the same sentence is not on that curve at all: two points ALREADY one is a wormhole mouth pair, nothing is contracted and nothing is paid for contracting. That is create.py's FIND ONE AND ENLARGE IT and apply.py's door three -- reached here from the INDEX PICTURE instead of from the topology theorems. TWO INDEPENDENT ROUTES TO THE SAME DOOR, which is worth more than either"),
  ("BITS-ARE-THE-MASS",   +1, -1, +1, "nopath.py",
-  "and information is priced for the first time and is NOT a second currency. The required configuration holds 9.9736e101 bits, and the holographic (A/4 l_P^2) and Bekenstein (2 pi R E/hbar c) routes AGREE TO SIX DIGITS because the bound is saturated at the horizon -- and that agreement IS the finding. Bekenstein bounds S BY E: you cannot hold the bits without the energy to hold them in, so S <= 2 pi R E/(hbar c) runs the WRONG WAY for the trade. THE BITS ARE THE MASS IN OTHER UNITS, converted by hbar"),
+  "and information is priced for the first time and is NOT a second currency. The required configuration holds 1.1241e102 bits at Proxima (first 9.9736e101 at a round 4 ly -- DOCKET 67 follow-ups), and the holographic (A/4 l_P^2) and Bekenstein (2 pi R E/hbar c) routes AGREE TO SIX DIGITS because the bound is saturated at the horizon -- and that agreement IS the finding. Bekenstein bounds S BY E: you cannot hold the bits without the energy to hold them in, so S <= 2 pi R E/(hbar c) runs the WRONG WAY for the trade. THE BITS ARE THE MASS IN OTHER UNITS, converted by hbar"),
  ("LANDAUER-IS-THE-WEAKER-HALF",0,-1,+1,"nopath.py",
-  "and manipulating those bits costs MORE than the mass they encode: Landauer at the CMB gives 2.6014e79 J against Mc^2 = 4.5880e59 J, 19.75 ORDERS WORSE, breaking even only at 4.8068e-20 K -- the CMB being 5.67e19 times warmer than the coldest place that would make information merely AS expensive as mass. FLAGGED AS THE WEAKER HALF and recorded as one: Landauer prices IRREVERSIBLE operations and a reversible computation costs nothing in principle. The argument is Bekenstein, which is static and survives reversibility entirely"),
+  "and manipulating those bits costs MORE than the mass they encode: Landauer at the CMB gives 2.9319e79 J against Mc^2 = 4.8707e59 J, 19.78 ORDERS WORSE, breaking even only at 4.5279e-20 K -- the CMB being 6.02e19 times warmer (at Proxima; first 2.6014e79 J, 4.5880e59 J, 19.75 orders, 4.8068e-20 K and 5.67e19 at a round 4 ly -- DOCKET 67 follow-ups) than the coldest place that would make information merely AS expensive as mass. FLAGGED AS THE WEAKER HALF and recorded as one: Landauer prices IRREVERSIBLE operations and a reversible computation costs nothing in principle. The argument is Bekenstein, which is static and survives reversibility entirely"),
  ("EMBEDDING-IS-FREE",   +1, -1, +1, "nopath.py",
   "and 'step walking through dimensions' cannot be the mechanism, by a theorem. CAMPBELL-MAGAARD: any analytic n-dimensional pseudo-Riemannian manifold embeds LOCALLY in an (n+1)-dimensional RICCI-FLAT one -- every 4D spacetime, ours included, always, unconditionally. A THING TRUE OF EVERY SPACETIME DISTINGUISHES NONE OF THEM, so the existence of the higher dimension carries no information. If there is a mechanism it is in the bulk's GEOMETRY, not in its existence"),
  ("DRIFT-IS-DOOR-ONE",   +1, -1, +1, "nopath.py",
@@ -1013,14 +1203,14 @@ FINDINGS = [
  ("REFINEMENT-NAMES-THE-VARIABLE",+1,+1,+1,"spectra.py",
   "and the carrier named is EXACTLY what the bound counts. Bekenstein's S <= 2 pi R E/(hbar c) bounds the number of DISTINGUISHABLE QUANTUM STATES of a system of energy E confined to radius R -- it counts SPECTRAL MULTIPLICITY and says nothing whatever about charge. The prediction has independently identified the bound's own variable, which is a point in its favour and not against it. What it does not do is change the direction of the inequality"),
  ("A-SPECTRUM-IS-A-LOGARITHM",+1,-1,+1,"spectra.py",
-  "and that is where it fails, on arithmetic rather than principle. One hydrogenic charge holds 385 states to n = 10, 338,350 to n = 100 and 333,833,500 to n = 1000 -- 8.589, 18.368 and 28.315 BITS. TEN TIMES THE LEVELS BUYS TEN BITS. Reaching nopath.py's 9.9736e101 bits at n_max = 100 takes 5.4298e100 atoms massing 9.0870e73 kg, against 5.1048e42 kg for simply supplying it: 31.25 ORDERS WORSE, or 1.0976e28 bits/kg against 1.9538e59"),
+  "and that is where it fails, on arithmetic rather than principle. One hydrogenic charge holds 385 states to n = 10, 338,350 to n = 100 and 333,833,500 to n = 1000 -- 8.589, 18.368 and 28.315 BITS. TEN TIMES THE LEVELS BUYS TEN BITS. Reaching nopath.py's 1.1241e102 bits at n_max = 100 takes 6.1196e100 atoms massing 1.0241e74 kg, against 5.4193e42 kg for simply supplying it: 31.28 ORDERS WORSE (31.276), or 1.0976e28 bits/kg against 2.0742e59 -- at Proxima (DOCKET 67 follow-ups: first 9.9736e101 bits, 5.4298e100 atoms, 9.0870e73 kg, 5.1048e42 kg, 31.25 orders and 1.9538e59 bits/kg at a round 4 ly; spectra.py now imports phase1's distance through nopath.py)"),
  ("OPTIMAL-SPECTRUM-IS-A-HORIZON",+1,+1,+1,"spectra.py",
   "and the 31-order gap is NOT a fact about hydrogen -- it is the distance from any ordinary matter to the bound, and the bound is saturated by exactly one object. Black-hole bits go as M^2 (verified: doubling the mass quadruples the count) so information-per-kilogram RISES with mass and the optimum at every scale is a HORIZON. 'PAY IN SPECTRA', OPTIMISED, IS 'BUILD A BLACK HOLE' -- which dichotomy.py's RICCI route closed by COLLAPSE. THREE DENOMINATIONS OF ONE ROUTE: mass, information and spectra are not three routes, and the route ends in a horizon"),
  ("REFINEMENT-LEAVES-H14",0,-1,+1,"spectra.py",
   "and it moves nothing in charge.py. H14 says a charge state supplies THE SEAT and not THE LEAD, with the boundary at the energy-condition line. A spectrum is a MULTIPLICITY OF STATES and a multiplicity HAS NO SIGN, while the split turns on the sign of rho -- enriching the spectrum of a charge does not make its energy density negative. The seat stays free and the lead stays the whole cost, exactly as apply.py measured. Score: RIGHT about the carrier, RIGHT about the variable, WRONG about the direction"),
  # rates.py -- the two passes applied back; the currency closed by exhaustion.
  ("DOOR-COUNT-IS-STABLE", 0, -1, +1, "rates.py",
-  "FIVE PASSES, STILL THREE DOORS, and that is the headline. nopath.py's dimensional drift is a warped braneworld = DOOR ONE; spectra.py's optimised spectral currency is a black hole = dichotomy.py's RICCI route, inside the DEC branch apply.py exhausted. Neither adds a door. And two of the five passes were built on M's principles rather than on the device, so the list is not staying short for want of anybody thinking about it"),
+  "FIVE PASSES, STILL THREE DOORS, and that is the headline. nopath.py's dimensional drift is a warped braneworld = DOOR ONE; spectra.py's optimised spectral currency is a black hole = dichotomy.py's RICCI route, inside the COLLAPSE sub-case of apply.py's DEC branch (exhausted only there; OPEN where (T_kk/u)(s/l)^2 >= 2 pi^2/3, a sub-case in none of the three doors, whether it is a fourth OPEN -- DOCKET 67 follow-up: first written 'inside the DEC branch apply.py exhausted'). Neither adds a door. And two of the five passes were built on M's principles rather than on the device, so the list is not staying short for want of anybody thinking about it"),
  ("DOOR-THREE-HAS-THREE-ARRIVALS",+1,+1,+1,"rates.py",
   "and door three gained a THIRD INDEPENDENT ARRIVAL. create.py reached 'find one, do not make one' from the topology theorems (Geroch/Tipler/Borde, kinematically); detect.py reached it from the search side (the target sits in a catalogue that already exists); nopath.py reached it from M's INDEX PICTURE, where two points already one is a mouth pair and NOTHING IS CONTRACTED SO NOTHING IS PAID FOR CONTRACTING. Three starting points, one conclusion -- the best-supported thing in the project"),
  ("DOOR-ONE-IS-A-NUMBER", +1, +1, +1, "rates.py",
@@ -1028,7 +1218,7 @@ FINDINGS = [
  ("NO-FREE-CONVERSION-RATE",+1,+1,+1,"rates.py",
   "and the currency question closes BY EXHAUSTION rather than case by case. currency.py closed it in three stages by TRYING three denominations and two more have closed since; the reason is now visible. EVERY DENOMINATION IS TIED TO MASS-ENERGY BY A MONOMIAL IN G, c, hbar AND k -- c^4/G = 1.21026e44 N, G/c^4, hbar G/c^3, 2 pi/(hbar c ln2), k ln2, each reconstructed here from the constants alone -- OR BY A BOUND THAT RUNS AGAINST THE TRADE: Bekenstein bounds information BY energy, Landauer bounds energy BELOW by information. A CONSTANT OF NATURE IS NOT A DISCOUNT"),
  ("ONE-LEVER-IN-THE-TABLE",+1,-1,+1,"rates.py",
-  "and the table holds exactly TWO dimensionless numbers, both accounted. Lambda = 9.982529 is DETERMINED by the geometry, saturates to nine digits and is O(10) -- a number that size cannot buy orders whatever it is. kappa is THE ONE GENUINE FREE LEVER IN THE WHOLE TABLE, and scale.py owns it: kappa_GJW = pi/360 = 8.7266e-3 against the 3.8281e69 needed at one metre. SO A SIXTH DENOMINATION WOULD HAVE TO ENTER THROUGH KAPPA OR THROUGH THE BASE, AND THE BASE IS DOOR ONE"),
+  "and the table holds exactly TWO dimensionless numbers, both accounted. Lambda = 9.982529 is DETERMINED by the geometry, saturates to nine digits and is O(10) -- a number that size cannot buy orders whatever it is. kappa is THE ONE PLACE IN THE TABLE A MECHANISM CAN ENTER, and scale.py owns it -- not a dial on a given model: on gjw.py's single-length model pi/90 is a dimensional identity, and it moves only with the model (field species, ~2 orders, or a second length, NOT-RUN), short on every model computed (DOCKET 67 follow-ups, rates.py: first 'THE ONE GENUINE FREE LEVER IN THE WHOLE TABLE'): kappa_GJW = pi/90 = 3.4907e-2 against the 3.8281e69 needed at one metre (DOCKET 67 follow-up: first pi/360 = 8.7266e-3, gjw.py's T_kk threshold against an energy density; pi/90 is against the winding T_kk, H-WIND). SO A SIXTH DENOMINATION WOULD HAVE TO ENTER THROUGH KAPPA OR THROUGH THE BASE, AND THE BASE IS DOOR ONE"),
  ("ONE-DOOR-IS-PAYABLE",  +1, +1, +1, "rates.py",
   "and pricing the doors by what their cost is DENOMINATED IN -- a different question from how large it is -- exactly one is payable. DOOR ONE is THEORY-DEPENDENT and cannot be priced until the scope is chosen. DOOR TWO is UNKNOWN, GJW being an existence proof nobody has costed. DOOR THREE IS A SEARCH: a 1193 km throat ringing at 100 Hz is 32.13 solar masses, in the LIGO band, discriminator applied to a catalogue that already exists. Not a proof that door three is right -- THE OBSERVATION THAT IT IS THE ONLY ONE ANYBODY COULD START ON THIS WEEK"),
  # doors.py -- each door investigated, then all three reduced on one index.
@@ -1039,13 +1229,15 @@ FINDINGS = [
  ("FROZEN-COORDINATE-TWICE",+1,+1,+1,"doors.py",
   "AND THE REASON THE ORIGINAL PAPER SAW STABILITY IS THIS TREE'S OWN FAULT, MET INDEPENDENTLY IN A DIFFERENT LITERATURE. Kanti et al. imposed a boundary condition FIXING THE THROAT SIZE (delta-r = 0), which their critics call nonphysical and say 'effectively disconnected the two regions'; let the throat breathe and it is unstable at whatever small alpha. stability.py measured the RADIAL mode with THE CORE'S POSITION HELD FIXED and flagged l >= 2; negmass.py let it move and found l = 1 had never been posed. TWO STABILITY CLAIMS, TWO LITERATURES, ONE FAULT: A COORDINATE WAS FROZEN AND THE MODE THAT USES IT WAS NEVER ASKED. Neither was found by looking for it, and it is the most transferable thing in the pass"),
  ("DOOR-TWO-IS-THE-REFUSED-ONE",+1,-1,+1,"doors.py",
-  "and door two, which apply.py called THE SURVIVOR, is the one actually refused. GJW is real and is the only known way past Graham-Olum -- non-achronality by an EXTERNAL causal path, which achronal.py proved unreachable through matter at 25 rays and 0 escapes. But the same move FORBIDS SPEED: non-achronality needs an EXISTING outside path, so the wormhole never beats it. State the binary carefully -- 'a non-achronal connection THAT IS ALSO A SHORTCUT' -- and ORDER refuses it structurally, by gjw.py's bank-loan theorem"),
+  "and door two, which apply.py called THE SURVIVOR, is the one actually refused. GJW is real and is A way past Graham-Olum -- non-achronality by an EXTERNAL causal path. (DOCKET 67 follow-up: first written 'the only known way past Graham-Olum ... which achronal.py proved unreachable through matter at 25 rays and 0 escapes' -- the false converse: those are a shear-dropped no-conjugate-point count and show no achronality, obstruct.py's ACHRONALITY row is OPEN, and anecscope.py measures the corridor's rays non-achronal by an internal conjugate point, on one planar ray family.) But the same move FORBIDS SPEED: non-achronality needs an EXISTING outside path, so the wormhole never beats it. State the binary carefully -- 'a non-achronal connection THAT IS ALSO A SHORTCUT' -- and ORDER refuses it structurally, by gjw.py's bank-loan theorem"),
  ("CONTESTED-IS-A-FIFTH-STATUS",+1,+1,+1,"doors.py",
   "and a FIFTH STATUS was needed, whose existence is itself a finding. Door one's ALGEBRA row is neither admission nor refusal: EdGB says unstable for every alpha, f(R) claims stable non-exotic solutions under a vanishing-sound-speed condition, and the dispute is LIVE. CONTESTED is not NOT-RUN -- it has been RUN, TWICE, WITH OPPOSITE ANSWERS. And by register 1173 a contested row returns no binary, so it earns no row, WHICH MEANS DOOR ONE CANNOT BE REDUCED AT ALL: its E is UNDEFINED, not 1. Door one is not refused, it is UNDECIDABLE ON THE PRESENT LITERATURE"),
  ("THREE-DOORS-THREE-LANGUAGES",+1,+1,+1,"doors.py",
   "THE COMPARISON IS THE RESULT. Run on the corpus's own index -- register 1173's binary/language/binary, register 1176's E = 0 iff the languages agree, section 33.2's silent language naming the kind -- NO TWO DOORS ARE DECIDED BY THE SAME LANGUAGE. Door one by ALGEBRA and it is CONTESTED; door two by ORDER and it REFUSES; door three by STATISTICS and it is SILENT. Only ONE of the three is actually refused. That is register 1176 across the doors: they do not agree, E is not zero, AND THE DISAGREEMENT IS THE MAP -- not three degrees of hopelessness but one REFUSED, one UNDECIDABLE, one merely UNASKED"),
+# CORRECTED (DOCKET 67): the published abundance bounds were not named
+#   (no-observed-wormhole).
  ("DECIDER-NAMES-THE-KIND", +1, +1, +1, "doors.py",
-  "and section 33.2 then names what each door IS. ALGEBRA deciding makes door one a STABILITY object, which wants a STABILITY CALCULATION and not a magnitude. ORDER deciding makes door two a CAUSAL-STRUCTURE object, which wants nothing because it is closed by a theorem. STATISTICS deciding makes door three a SEARCH object, which wants A NUMBER DENSITY -- the expected count of relic wormholes and whether the existing catalogue covers enough volume to have seen one. NOBODY IN THIS PROJECT HAS EVER ESTIMATED ONE. So the answer to 'which door' is not the cheapest: IT IS THE ONE WHOSE DECIDING LANGUAGE IS MERELY SILENT RATHER THAN CONTESTED OR REFUSED"),
+  "and section 33.2 then names what each door IS. ALGEBRA deciding makes door one a STABILITY object, which wants a STABILITY CALCULATION and not a magnitude. ORDER deciding makes door two a CAUSAL-STRUCTURE object, which wants nothing because it is closed by a theorem. STATISTICS deciding makes door three a SEARCH object, which wants A NUMBER DENSITY -- the expected count of relic wormholes and whether the existing catalogue covers enough volume to have seen one. NOBODY IN THIS PROJECT HAS EVER ESTIMATED ONE -- and the published null searches (1303.1301, 1302.7170) bound abundance only for Ellis throats of ~10 pc to 10 kpc; none reaches the 1193 km target, 11.4 orders below the SQLS window, so it is unpriced there and not in general. So the answer to 'which door' is not the cheapest: IT IS THE ONE WHOSE DECIDING LANGUAGE IS MERELY SILENT RATHER THAN CONTESTED OR REFUSED"),
  ("DOOR-THREE-E-IS-BOOKKEEPING",0,-1,+1,"doors.py",
   "and door three's E = 0 is NOT AN ADMISSION, which has to be said or the index over-claims. Its four held rows do agree -- more than either other door manages -- but index3.py's standing caution governs exactly here: E(X) = 0 over an INCOMPLETE X measures the BOOKKEEPING, NOT THE KNOWLEDGE, and the row that DECIDES this door is precisely the silent one. Door three is not admitted. It is UNASKED, which is a different and better thing to be"),
  # compress.py -- compression is not density, and door two is not short of it.
@@ -1172,22 +1364,59 @@ FINDINGS = [
   "and the first candidate fails at the FIRST gate, which is the one most likely to be mistaken for a pass. Negative-mass exciton polaritons are real, measured and switchable -- dissipative light-matter coupling in an atomically thin semiconductor inverts the lower polariton branch and the propagation direction is opposite to the momentum (arXiv:2204.04041, Nature Communications), with negative-mass effects also seen in spin-orbit-coupled BECs (arXiv:1801.04779). AND IT IS THE WRONG QUANTITY, WHICH NO ENGINEERING FIXES: effective mass m* = hbar^2/(d^2 E/dk^2) is a property of the DISPERSION RELATION, the curvature of a band, and it is NOT T_00. A quasiparticle with m* < 0 still carries POSITIVE energy; what is inverted is how its group velocity responds to momentum. IT VIOLATES NO ENERGY CONDITION AT ALL, and lattice.py's theorem does not even engage with it, because the gravitational source is the full stress-energy of the cavity, the excitons and the field, and that is positive. A NEGATIVE-MASS POLARITON WOULD NOT BEND SPACETIME THE WRONG WAY. 'Negative mass' is one phrase for two different things and only one of them is exotic"),
  ("SQUEEZED-PASSES-TWO-GATES", +1, -1, +1, "candidates.py",
   "and of the three only squeezed vacuum passes both QUALITATIVE gates, which is why the pass did not stop at the first candidate. CASIMIR passes KIND -- rho = -pi^2 hbar c/(720 d^4) is a real negative energy density, 4.334e4 J/m^3 at 10 nm and 4.334e8 at 1 nm, measured in the laboratory -- and FAILS THE DEADLINE, because switching it off means MOVING THE PLATES, which is mechanical and therefore slower than c, and the negative region is anchored to plates whose own mass-energy is hugely positive and does not go anywhere. SQUEEZED VACUUM passes KIND, being the standard state in which the energy density at a spacetime point is genuinely negative, AND passes the DEADLINE, since killing the pump clears it at c with nothing to remove. SO TWO INDEPENDENT ROUTES SELECT THE SAME CANDIDATE: lightbuild.py's OPEN row already said lattice.py's theorem covers only the CLASSICAL Maxwell stress tensor and squeezed vacuum is precisely the exception, and teardown.py's deadline independently demands a lead that clears at c. That convergence is the finding; the verdict is in the third gate"),
+# CORRECTED (DOCKET 67 follow-ups, re-adjudicated against DOCKET 55; CLOSE.md sec. 4 item 4).
+#   The row read Ford-Roman as bounding |rho| 'over sampling length L', the wording candidates.py
+#   already corrected in place under DOCKET 67 (its sec. 4 and its CORRECTED list): the source
+#   bounds a Lorentzian TIME average along one inertial worldline, from below, in flat space, and
+#   t0 = R/c is the tree's choice -- the spatial-length-as-time move DOCKET 55 withdrew in
+#   achievable.py, which candidates.py names as such.  The OWNER states a correct sampled QI and
+#   is left as it is; index3 had not carried its correction, and now does.  The cell stands:
+#   the magnitude refusal is computed on the inequality as stated, under its scope.  The row as
+#   it stood:
+#   AND THE THIRD GATE IS STRUCTURAL RATHER THAN NUMERICAL, WHICH IS THE RESULT. Quantum field
+#   theory does not give negative energy away: the FORD-ROMAN inequality (massless scalar, 4D)
+#   bounds |rho| <= 3 hbar c/(32 pi^2 L^4) over sampling length L = c tau, and the Casimir law pi^2
+#   hbar c/(720 d^4) has the same shape. NOW NOTICE THE EXPONENTS: what is ALLOWED goes as L^-4,
+#   what is NEEDED goes as R^-2. SO THE SHORTFALL GOES AS R^2 AND SHRINKING ALWAYS HELPS -- M's
+#   'small and contained' is quantitatively the right direction and the ONLY direction that helps at
+#   all. It is still 52.6 ORDERS SHORT AT A NANOMETRE and 70.6 at a metre (Casimir 2.798e52 and
+#   2.798e70), the same order of shortfall lightbuild.py found for the kugelblitz block, arrived at
+#   from a completely different direction. AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE POINT:
+#   setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4) gives R = l_P sqrt(3 Lambda/(32 pi^2)) =
+#   0.307933 l_P, and for Casimir R = l_P pi sqrt(Lambda/720) = 0.369917 l_P. THE BOUND MEETS THE
+#   REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of one, and a third again. THE FRAMEWORK
+#   FAILS BEFORE THE BOUND DOES: this is not 'very hard' but OUTSIDE THE DOMAIN OF THE THEORY
+#   STATING IT, and Lambda -- M's own constant -- sits in both closed forms
  ("BOUNDS-FALL-FASTER-THAN-NEED", +1, -1, +1, "candidates.py",
-  "AND THE THIRD GATE IS STRUCTURAL RATHER THAN NUMERICAL, WHICH IS THE RESULT. Quantum field theory does not give negative energy away: the FORD-ROMAN inequality (massless scalar, 4D) bounds |rho| <= 3 hbar c/(32 pi^2 L^4) over sampling length L = c tau, and the Casimir law pi^2 hbar c/(720 d^4) has the same shape. NOW NOTICE THE EXPONENTS: what is ALLOWED goes as L^-4, what is NEEDED goes as R^-2. SO THE SHORTFALL GOES AS R^2 AND SHRINKING ALWAYS HELPS -- M's 'small and contained' is quantitatively the right direction and the ONLY direction that helps at all. It is still 52.6 ORDERS SHORT AT A NANOMETRE and 70.6 at a metre (Casimir 2.798e52 and 2.798e70), the same order of shortfall lightbuild.py found for the kugelblitz block, arrived at from a completely different direction. AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE POINT: setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4) gives R = l_P sqrt(3 Lambda/(32 pi^2)) = 0.307933 l_P, and for Casimir R = l_P pi sqrt(Lambda/720) = 0.369917 l_P. THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of one, and a third again. THE FRAMEWORK FAILS BEFORE THE BOUND DOES: this is not 'very hard' but OUTSIDE THE DOMAIN OF THE THEORY STATING IT, and Lambda -- M's own constant -- sits in both closed forms"),
+  "AND THE THIRD GATE IS STRUCTURAL RATHER THAN NUMERICAL, WHICH IS THE RESULT. Quantum field theory does not give negative energy away: the FORD-ROMAN inequality (gr-qc/9607003 Eq. (1): a free massless minimally coupled scalar, 4D Minkowski, no boundaries) bounds from BELOW the Lorentzian TIME average of <T_00>, width t0, along one inertial worldline at one spatial point -- with L = c t0, the sampled average is >= -3 hbar c/(32 pi^2 L^4) -- and the ideal-plate Casimir law pi^2 hbar c/(720 d^4) has the same shape. candidates.py reads it at t0 = R/c, a spatial size used as a temporal width: its own modelling choice, not the source's, and the move DOCKET 55 withdrew in achievable.py, which candidates.py names as such; for a STATIC density Eq. (1) at every t0 excludes it outright. NOW NOTICE THE EXPONENTS: what is ALLOWED goes as L^-4, what is NEEDED goes as R^-2. SO THE SHORTFALL GOES AS R^2 AND SHRINKING ALWAYS HELPS -- M's 'small and contained' is quantitatively the right direction and the ONLY direction that helps at all. It is still 52.6 ORDERS SHORT AT A NANOMETRE and 70.6 at a metre ON FORD-ROMAN READ AT t0 = R/c -- and 50.083 and 68.083 on the DURATION BOUND (achievable.duration_bound with the density held for one light-crossing, T = R/c: candidates.shortfall_duration under H_DURATION_HOLD_ONE_CROSSING), which allows 333.709 times more, Fewster's C = 3.16986 against 3/(32 pi^2) -- (Casimir 2.798e52 and 2.798e70, the ideal-plate formula below its validity range d >> lambda_p, so an upper bound on |rho| and a floor on that shortfall), the same order of shortfall lightbuild.py found for the kugelblitz block, arrived at from a completely different direction. AND THE CROSSOVER HAS A CLOSED FORM, WHICH IS THE POINT: setting c^4/(G Lambda R^2) = 3 hbar c/(32 pi^2 R^4) gives R = l_P sqrt(3 Lambda/(32 pi^2)) = 0.307933 l_P, and for Casimir R = l_P pi sqrt(Lambda/720) = 0.369917 l_P; on the duration bound the Ford-Roman crossover is R = l_P sqrt(C Lambda) = 5.625229 l_P (candidates.crossover_duration_closed), ABOVE the Planck length. ON FORD-ROMAN READ AT t0 = R/c THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH -- a third of one, and a third again -- AND ON THAT READING THE FRAMEWORK FAILS BEFORE THE BOUND DOES -- status AN ESTIMATE: the sources place the loss of semiclassical control 'of the order of' l_P (H_DOMAIN_BOUNDARY_IS_ORDER_L_P), and on t0 = R/c the crossovers stay sub-Planckian in every Planck convention candidates.py tried. ON THE DURATION BOUND the crossover sits above l_P in every convention tried (5.6252, 2.2441, 1.1221 l_P), inside the order-l_P band, so which fails first is NOT ESTABLISHED there (candidates.which_fails_first). THE REFUSAL ON Y STANDS ON BOTH READINGS -- 68.083 orders at a metre is a refusal -- and Lambda, M's own constant, sits in every closed form here. (DOCKET 67, on M's ruling \"Carry both\": first written on the t0 = R/c reading alone -- 'THE FRAMEWORK FAILS BEFORE THE BOUND DOES', the shortfalls 52.6 / 70.6 alone and 'the crossovers stay sub-Planckian in every Planck convention', with no duration-bound reading beside them.) (DOCKET 67 follow-ups: first 'the FORD-ROMAN inequality (massless scalar, 4D) bounds |rho| <= 3 hbar c/(32 pi^2 L^4) over sampling length L = c tau' -- candidates.py corrected that wording in place under DOCKET 67 and index3 had not carried it; and 'THE BOUND MEETS THE REQUIREMENT ONLY BELOW THE PLANCK LENGTH' with no sampling choice and no status word, and the Casimir column without its validity range)"),
  ("DEADLINE-IS-FREE", +1, +1, +1, "candidates.py",
-  "and one constraint that looked as though it would compound turned out not to, which is worth recording because it is the only consolation in the pass. The quantum inequality says a deeper negative energy must be BRIEFER: |rho| <= 3 hbar c/(32 pi^2 (c tau)^4) grows without limit as tau falls. The teardown deadline says the lead must be brief. SO THE DEADLINE IS EXACTLY THE REGIME THE INEQUALITY IS MOST GENEROUS IN -- the two constraints POINT THE SAME WAY rather than fighting. teardown.py's new requirement therefore costs NOTHING against the quantum inequality: switchability is FREE, and it is the direction the inequality already wanted. That rescues nothing, because the failure is on magnitude and magnitude fails by fifty-two orders in the best case. But a requirement that turns out to be free is worth knowing, and if anything ever does supply the magnitude, THE SWITCHABILITY WILL NOT BE WHAT STOPS IT. NOT CLAIMED: that the list is exhaustive -- three candidates were named and three were run, and a fourth may exist that this file does not speak to"),
+  "and one constraint that looked as though it would compound turned out not to, which is worth recording because it is the only consolation in the pass. The quantum inequality says a deeper negative energy must be BRIEFER: |rho| <= 3 hbar c/(32 pi^2 (c tau)^4) grows without limit as tau falls. The teardown deadline says the lead must be brief. SO THE DEADLINE IS EXACTLY THE REGIME THE INEQUALITY IS MOST GENEROUS IN -- the two constraints POINT THE SAME WAY rather than fighting. teardown.py's new requirement therefore costs NOTHING against the quantum inequality: switchability is FREE, and it is the direction the inequality already wanted. That rescues nothing, because the failure is on magnitude and magnitude fails by fifty-two orders in the best case (52.6 at a nanometre on Ford-Roman read at t0 = R/c; 50.1 on the duration bound -- DOCKET 67, on M's ruling \"Carry both\"). But a requirement that turns out to be free is worth knowing, and if anything ever does supply the magnitude, THE SWITCHABILITY WILL NOT BE WHAT STOPS IT. NOT CLAIMED: that the list is exhaustive -- three candidates were named and three were run, and a fourth may exist that this file does not speak to"),
  # candidates.py 4b/4c -- the fourth candidate, and it fails DIFFERENTLY.
+ # CORRECTED (DOCKET 67), as in candidates.py 4b: first written "violates the
+ #   NEC and WEC AT THE CLASSICAL LEVEL", "Given any bounded region O" and
+ #   "WHAT REPLACES IT IS A STATE-DEPENDENT BOUND" without FO's massless,
+ #   4D-Minkowski and xi in [0, 1/4] hypotheses (nmc-classical-nec-violation,
+ #   0708.2450).
  ("NO-STATE-INDEPENDENT-QEI", +1, -1, +1, "candidates.py",
-  "and the fourth candidate does not behave like the first three, which is why the search was worth repeating. A scalar coupled to curvature by delta L = xi R phi^2 violates the NEC and WEC AT THE CLASSICAL LEVEL, and quantum mechanically FEWSTER & OSTERBRINK (arXiv:0708.2450) prove something stronger than an evasion: FOR xi > 0 THERE IS NO STATE-INDEPENDENT QEI AT ALL. Given any bounded region O and any rho_0 > 0 they CONSTRUCT a Hadamard state whose expected energy density is below -rho_0 throughout O, so local averages of the energy density are UNBOUNDED FROM BELOW on Hadamard states. KIND passes, more cleanly than squeezed vacuum, and the Ford-Roman gate does not apply because there is no such bound to apply. WHAT REPLACES IT IS A STATE-DEPENDENT BOUND, AND THE COST DOES NOT VANISH -- IT MOVES. Their H-bounds: Q(f) can be bounded by any power of the Hamiltonian greater than 2 while rho(f) cannot be bounded by powers less than 3, so in their words 'negative energy effects with large magnitude, while possible over large regions, require MORE ENERGY to achieve than positive energy densities of the same magnitude, and the energy budget for these two effects will grow with a DIFFERENT POWER'. TWO CANDIDATES NOW PASS BOTH QUALITATIVE GATES, and both then fail on MAGNITUDE"),
+  "and the fourth candidate does not behave like the first three, which is why the search was worth repeating. A scalar coupled to curvature by delta L = xi R phi^2 CAN violate the effective NEC and WEC of the Jordan-frame metric AT THE CLASSICAL LEVEL (Barcelo-Visser; the Einstein frame obeys the NEC), and quantum mechanically FEWSTER & OSTERBRINK (arXiv:0708.2450) prove something stronger than an evasion: FOR xi > 0 THERE IS NO STATE-INDEPENDENT QEI AT ALL, for a massless field in 4D Minkowski space. Given any bounded subset O of Minkowski space and any rho_0 > 0 they CONSTRUCT a Hadamard state whose expected energy density is below -rho_0 throughout O, so local averages of the energy density are UNBOUNDED FROM BELOW on Hadamard states. KIND passes, more cleanly than squeezed vacuum, and the Ford-Roman gate does not apply because there is no such bound to apply. WHAT REPLACES IT, FOR xi IN [0, 1/4] (geodesic, difference type), IS A STATE-DEPENDENT BOUND, AND THE COST DOES NOT VANISH -- IT MOVES. Their H-bounds (fixed smearing, 4D Minkowski, q >= 3 shown on one state family): Q(f) can be bounded by any power of the Hamiltonian greater than 2 while rho(f) cannot be bounded by powers less than 3, so in their words 'negative energy effects with large magnitude, while possible over large regions, require MORE ENERGY to achieve than positive energy densities of the same magnitude, and the energy budget for these two effects will grow with a DIFFERENT POWER'. TWO CANDIDATES NOW PASS BOTH QUALITATIVE GATES, and both then fail on MAGNITUDE"),
+ # CORRECTED (DOCKET 67), as in candidates.py 4b: first written "|T_--| <~
+ #   ... which in four dimensions and SI units is |rho| ~ ..." and "N_n is left
+ #   schematic in the source" (2309.10848).
  ("EXPONENTS-MATCH", +1, -1, +1, "candidates.py",
-  "AND THIS IS THE MOST CONSEQUENTIAL MEASUREMENT IN THE LIGHT THREAD, BECAUSE IT CHANGES THE KIND OF FAILURE RATHER THAN ITS SIZE. FLISS, FREIVOGEL, KONTOU & PARDO SANTOS (arXiv:2309.10848) treat non-minimal coupling as the first term of an EFT with a cutoff on FIELD VALUES as well as momenta and derive a SNEC-type smeared null energy bound, |T_--| <~ N_n/(l_UV^(n-2) delta^2) with phi^2_max ~ l_UV^-(n-2), which in four dimensions and SI units is |rho| ~ hbar c/(l_UV^2 delta^2). PUT THAT AGAINST THE REQUIREMENT: allowed goes as delta^-2 and needed as R^-2. THE EXPONENTS MATCH AND THE R-DEPENDENCE CANCELS. Measured at R = 1e-9, 1 and 1e6 metres with l_UV = 10 l_P the shortfall is 10.017501 at all three, identical to eight digits. SO THE SHORTFALL IS A PURE NUMBER, (l_UV/l_P)^2/Lambda, NOT FIFTY-TWO ORDERS AND NOT A FUNCTION OF HOW BIG YOU BUILD IT -- against the first three, whose bounds went as L^-4 against a need of R^-2 and were 52.6 orders short at a nanometre and 70.6 at a metre. IT CLOSES AT l_UV = sqrt(Lambda) l_P = 3.159514 l_P: shortfall 0.1002 at l_P (would PASS), 1.0000 at 3.1595 l_P, 10.018 at 10 l_P, 3.83e32 at an LHC-scale cutoff. STATUS: SCALING ESTIMATE, NOT A DERIVATION -- N_n is left schematic in the source and set to 1 here, and a true coefficient of 10 or 1/10 moves the crossover by sqrt(10) in the CUTOFF and by nothing in the orders. THAT IS WHY THE FINDING IS THE EXPONENT MATCH AND NOT THE NUMBER"),
+  "AND THIS IS THE MOST CONSEQUENTIAL MEASUREMENT IN THE LIGHT THREAD, BECAUSE IT CHANGES THE KIND OF FAILURE RATHER THAN ITS SIZE. FLISS, FREIVOGEL, KONTOU & PARDO SANTOS (arXiv:2309.10848) treat non-minimal coupling as the first term of an EFT with a cutoff on FIELD VALUES as well as momenta and derive a SNEC-type smeared null energy bound, one-sided, <T_--> >~ -N_n/(l_UV^(n-2) delta^2) with phi^2_max ~ l_UV^-(n-2), for one free scalar in Minkowski spacetime, which candidates.py READS in four dimensions and SI units as |rho| ~ hbar c/(l_UV^2 delta^2) with delta set to R -- a null bound does not by itself bound rho. PUT THAT AGAINST THE REQUIREMENT: allowed goes as delta^-2 and needed as R^-2. THE EXPONENTS MATCH AND THE R-DEPENDENCE CANCELS. Measured at R = 1e-9, 1 and 1e6 metres with l_UV = 10 l_P the shortfall is 10.017501 at all three, identical to eight digits. SO THE SHORTFALL IS A PURE NUMBER, (l_UV/l_P)^2/Lambda, NOT FIFTY-TWO ORDERS AND NOT A FUNCTION OF HOW BIG YOU BUILD IT -- against the first three, whose bounds went as L^-4 against a need of R^-2 and were 52.6 orders short at a nanometre and 70.6 at a metre on Ford-Roman read at t0 = R/c (50.1 and 68.1 on the duration bound). IT CLOSES AT l_UV = sqrt(Lambda) l_P = 3.159514 l_P: shortfall 0.1002 at l_P (would PASS), 1.0000 at 3.1595 l_P, 10.018 at 10 l_P, 3.83e32 at an LHC-scale cutoff. STATUS: SCALING ESTIMATE, NOT A DERIVATION -- N_n is set to 1 here (FFKP's Eq. (93) gives it for a chosen smearing: N_4 = 1/pi^2 + 1.935766 |xi| phi~^2_max for a Gaussian), and a true coefficient of 10 or 1/10 moves the crossover by sqrt(10) in the CUTOFF and by nothing in the orders. THAT IS WHY THE FINDING IS THE EXPONENT MATCH AND NOT THE NUMBER (DOCKET 67, on M's ruling \"Carry both\": first the t0 = R/c shortfalls 52.6 / 70.6 alone)"),
+# CORRECTED (DOCKET 67): first written with the verdict's head and scope cut, 'the effective ANEC --
+#   the thing that must be violated -- IS OBEYED both classically and
+#   semiclassically', 'the theory breaks', and 'The exotic behaviour is a
+#   frame artefact everywhere the EFT is valid' (2309.10848-verdict-anec,
+#   -frame-map; the eft-breakdown wording corrected with it, as in
+#   candidates.py).
  ("EFT-EXCLUDES-ITS-OWN-CUTOFF", +1, -1, +1, "candidates.py",
-  "and it still fails, for reasons that are the authors' own rather than mine. THE CUTOFF THAT WOULD WORK IS THE ONE THE EFT EXCLUDES: Fliss et al. put phi^2_max <~ (8 pi G_N |xi|)^-1, and at that field value the theory breaks -- a tower of irrelevant interactions turns on in the Einstein frame and the gravity path integral loses semi-classical control in the Jordan frame. AN EFT WHOSE CUTOFF SITS AT A FEW PLANCK LENGTHS IS NOT AN EFT RESULT AT ALL; IT IS A STATEMENT THAT YOU NEED QUANTUM GRAVITY. Their verdict, quoted rather than paraphrased: 'it seems that it is impossible to construct traversable wormholes in the Jordan frame without unphysical field values'. They also show the EFFECTIVE ANEC -- the thing that must be violated -- IS OBEYED both classically and semiclassically once field values are bounded. AND THE FRAME QUESTION IS NOT A LOOPHOLE: a conformal transformation plus field redefinition maps the Jordan frame to the Einstein frame where the NEC is obeyed classically, and under the EFT assumption the two metrics differ by exp(-2(8 pi G xi phi^2)/(n-2)), which is CLOSE TO ONE. The exotic behaviour is a frame artefact everywhere the EFT is valid"),
+  "and it still fails, partly for the authors' reasons and decided by a premise of candidates.py's. THE CUTOFF THAT WOULD WORK IS THE ONE THAT PREMISE EXCLUDES: Fliss et al. suggest phi^2_max <~ (8 pi G_N |xi|)^-1 and argue (Jacobian not computed) that at that field value a tower of irrelevant interactions turns on in the Einstein frame and, for xi > 0, the gravity path integral loses semi-classical control in the Jordan frame. The field bound alone does not exclude closure (closure points with 8 pi G|xi| phi^2_max < 1 exist at l_UV 1.0057-2.0919 l_P); candidates.py's premise does -- AN EFT WHOSE CUTOFF SITS AT A FEW PLANCK LENGTHS IS NOT AN EFT RESULT AT ALL; IT IS A STATEMENT THAT YOU NEED QUANTUM GRAVITY -- and FFKP do not share it. Their verdict, quoted rather than paraphrased, head included: 'This point requires further consideration, but so far it seems that it is impossible to construct traversable wormholes in the Jordan frame without unphysical field values', after 'While there is no relevant theorem' and for asymptotically flat regions only. They also show the EFFECTIVE ANEC IS OBEYED CLASSICALLY over a complete null geodesic once field values are bounded (that a wormhole must violate it is a theorem only for short, causality-violating ones); semiclassically they show the ORDINARY ANEC of a free scalar in MINKOWSKI spacetime. THE FRAME QUESTION IS NOT A LOOPHOLE FOR THAT AVERAGED OBSTRUCTION: a conformal transformation plus field redefinition maps the Jordan frame to the Einstein frame where the NEC is obeyed classically, and the two metrics differ by (1 - 8 pi G xi phi^2)^(2/(n-2)), approximately exp(-2(8 pi G xi phi^2)/(n-2)), CLOSE TO ONE under the EFT assumption. That does not make the exotic behaviour a frame artefact: FFKP call the frames 'evidently not equivalent in terms of classical energy conditions', show Jordan-frame effective-NEC violations at small field values, and say the Einstein frame has 'no known state-independent bounds in n > 2'"),
  ("PLANCK-IS-THE-GATE", +1, -1, +1, "candidates.py",
-  "AND THE STRUCTURAL RESULT IS STRONGER THAN ANY INDIVIDUAL VERDICT, BECAUSE THE THREE CROSSOVERS SIT ON TOP OF EACH OTHER. Ford-Roman closes at 0.307933 l_P, Casimir at 0.369917 l_P and non-minimal coupling at 3.159514 l_P. THREE MECHANISMS WITH NOTHING IN COMMON -- a sampling inequality, a boundary-condition vacuum, and a curvature coupling inside an effective field theory -- ALL RUNNING OUT WITHIN ONE ORDER OF MAGNITUDE OF THE PLANCK LENGTH, and Lambda sitting in all three closed forms. THE OBSTRUCTION IS THEREFORE NOT A LIMITATION OF ANY ONE MECHANISM: every known negative-energy source runs out exactly where the theory that states the requirement runs out. THE MAGNITUDE GATE AND THE PLANCK SCALE ARE THE SAME GATE. That is a finding about the framework rather than about any candidate, and it is the reason a fifth candidate inside the same framework should not be expected to behave differently"),
+  "AND THE STRUCTURAL RESULT IS STRONGER THAN ANY INDIVIDUAL VERDICT, BECAUSE THE THREE CROSSOVERS SIT ON TOP OF EACH OTHER. Ford-Roman closes at 0.307933 l_P read at t0 = R/c and at 5.625229 l_P on the duration bound, Casimir at 0.369917 l_P and non-minimal coupling at 3.159514 l_P. THREE MECHANISMS WITH NOTHING IN COMMON -- a sampling inequality, a boundary-condition vacuum, and a curvature coupling inside an effective field theory -- ALL RUNNING OUT WITHIN ONE ORDER OF MAGNITUDE OF THE PLANCK LENGTH, on either Ford-Roman reading, and Lambda sitting in every closed form. THE OBSTRUCTION IS THEREFORE NOT A LIMITATION OF ANY ONE MECHANISM: every known negative-energy source runs out within an order-one factor of where the theory that states the requirement runs out -- 'of the order of' l_P, candidates.py's corrected wording. ON FORD-ROMAN READ AT t0 = R/c THE MAGNITUDE GATE AND THE PLANCK SCALE ARE THE SAME GATE, to that precision; on the duration bound the Ford-Roman crossing is above l_P and which fails first is NOT ESTABLISHED (candidates.which_fails_first), so on that reading the two are not shown to be one gate. The refusal on Y stands on both readings. On t0 = R/c that is a finding about the framework rather than about any candidate, and it is the reason a fifth candidate inside the same framework should not be expected to behave differently (DOCKET 67, on M's ruling \"Carry both\": first 'Ford-Roman closes at 0.307933 l_P', 'runs out exactly where the theory that states the requirement runs out' and 'THE MAGNITUDE GATE AND THE PLANCK SCALE ARE THE SAME GATE', on the t0 = R/c reading alone; the row id is kept, since within one order of l_P holds on both readings)"),
  # planckcell.py -- the framework, asked to specify itself, answers.
  ("GATES-NAME-ONE-LENGTH", +1, +1, +1, "planckcell.py",
-  "and M's move was the right one: 'the solution is to not find another framework, but instead build it from what this current framework says it needs to be'. candidates.py found three unrelated mechanisms all running out within one order of the Planck length and read it as an OBSTRUCTION. READ AS A SPECIFICATION IT IS AN INSTRUCTION. Every gate that file imposed is a statement about ONE LENGTH -- KIND is supplied by non-minimal coupling with no state-independent QEI to forbid it, DEADLINE says tau ~ R/c, and MAGNITUDE says the shortfall is (l_UV/l_P)^2/Lambda and closes at l_UV <~ 3.16 l_P. EVERY PREVIOUS PASS PICKED AN R -- a nanometre, a metre -- AND WATCHED THE GATES FAIL. Solving for R instead gives R = l_P = 1.616255e-35 m, tau = l_P/c = 5.391246e-44 s (one Planck time), and E = E_Planck/Lambda = 1.959505e8 J. AND THAT ENERGY IS 195.95 MEGAJOULES: 54.43 kilowatt-hours, the chemical energy of 46.8 kg of TNT, the rest mass of 2.18 nanograms. After seventy orders of shortfall, the framework's own specification comes in at a number a laboratory could write a purchase order for"),
+  "and M's move was the right one: 'the solution is to not find another framework, but instead build it from what this current framework says it needs to be'. candidates.py found three unrelated mechanisms all running out within one order of the Planck length and read it as an OBSTRUCTION. READ AS A SPECIFICATION IT IS AN INSTRUCTION. Every gate that file imposed is a statement about ONE LENGTH -- KIND is supplied by non-minimal coupling with no state-independent QEI to forbid it, DEADLINE says tau ~ R/c, and MAGNITUDE says the shortfall is (l_UV/l_P)^2/Lambda and closes at l_UV <~ 3.16 l_P. EVERY PREVIOUS PASS PICKED AN R -- a nanometre, a metre -- AND WATCHED THE GATES FAIL. Solving for R instead gives R = l_P = 1.616255e-35 m, tau = l_P/c = 5.391246e-44 s (one Planck time), and E = E_Planck/Lambda = 1.959505e8 J. AND THAT ENERGY IS 195.95 MEGAJOULES: 54.43 kilowatt-hours, the chemical energy of 46.8 kg of TNT, the rest mass of 2.18 nanograms. After seventy orders of shortfall (70.6 at a metre on Ford-Roman read at t0 = R/c, 68.1 on the duration bound -- DOCKET 67, on M's ruling \"Carry both\"), the framework's own specification comes in at a number a laboratory could write a purchase order for"),
  ("EVERY-GATE-PASSES", +1, +1, +1, "planckcell.py",
   "AND IT PASSES ALL THREE, WHICH NOTHING IN THIS PROJECT HAS DONE BEFORE. MAGNITUDE: the shortfall at R = l_UV = l_P is 1/Lambda = 0.100175, so it passes with a factor of Lambda = 9.98 in hand. DEADLINE: tau is one Planck time against a CTC loop transit of 2R/c = 1.078e-43 s, so teardown.py's window is cleared and closure.py's state-splitting NEVER ARISES -- the array cannot host a closed timelike curve at any separation. KIND: supplied by candidate D, the only candidate whose shortfall was a pure number rather than orders, and at this R that pure number is below one. AND IT SITS EXACTLY WHERE THE COLLAPSE IDENTITY SAYS IT SHOULD: lightbuild.py's E_transition/E_kugelblitz = 2/Lambda at every d, measured here at d = l_P as 0.200350028, with the design margin Lambda/2 = 4.9913 intact. NOTHING WAS TUNED TO MAKE THAT HAPPEN -- it is the same identity evaluated at the length the gates chose. The framework is self-consistent at this scale and only at this scale"),
  ("TILING-IS-NEUTRAL", +1, -1, +1, "planckcell.py",
@@ -1202,7 +1431,7 @@ FINDINGS = [
  ("LIGHT-IS-TOO-GRANULAR", +1, -1, +1, "planckcell.py",
   "and the ring laser re-tested AT THIS SCALE fails a NEW way, which is why the question was worth re-running rather than restating -- the old refutation was about Mallett's MACROSCOPIC claim. GATE 1 IS UNCHANGED AND SCALE-FREE: lattice.py's theorem has no length in it, T_munu k^mu k^nu = V.V >= 0 for every classical EM field measured identical in D = 3..26, so shrinking a ring laser changes nothing. AND THEN THE NEW ONE. A photon localised in the cell needs reduced wavelength lambdabar <= l_P, so its energy is at least hbar c/l_P -- WHICH IS E_Planck BY DEFINITION -- while the cell's entire budget is E_Planck/Lambda. ONE PHOTON THAT FITS OVERSHOOTS THE WHOLE CELL BY EXACTLY Lambda = 9.9825. Run it the other way and the photon the cell can AFFORD has lambdabar = Lambda l_P = 1.613431e-34 m, TEN TIMES THE CELL, so it is not in the cell at all. A PHOTON THAT FITS COSTS Lambda TIMES THE BUDGET; A PHOTON YOU CAN AFFORD IS Lambda TIMES TOO BIG TO FIT. LIGHT IS TOO COARSE TO PAY FOR A PLANCK CELL -- not too weak, TOO GRANULAR. The hardware is 25 orders short as well, a ring of 1.6e-35 m against atoms at 1e-10 m. AND ONE OBSTRUCTION LIFTS, recorded because it is true: the 2024 kugelblitz/Schwinger block runs 1e-29 m to 1e8 m and l_P sits BELOW that floor, so it does NOT apply here -- it rescues nothing, since gates 1 and 3 are each decisive alone, but the ledger records the lift rather than pretending it still bites"),
  ("HEADLINE-IS-A-MODEL", +1, -1, +1, "provenance.py",
-  "AND THE EPISTEMIC AUDIT RETURNS ONE UNCOMFORTABLE ANSWER THAT NO INDIVIDUAL PASS COULD SEE. M asked for everything to be classified -- theorem, proof, law, conjecture, heuristic, assertion. Sorted that way, THE TRANSITION EQUATION IS A MODEL AND NOT A THEOREM. Delta d = (G/c^2) M Lambda comes from a CHOSEN POTENTIAL in a CHOSEN metric form -- isotropic, g_tt = -e^{2Phi} and g_ij = e^{-2Phi}, with Phi a Plummer core minus a shell -- and Lambda = 2[ln(2 R_s/sqrt(b^2+a^2)) - 1] is a closed form derived from THAT POTENTIAL and validated against ITS OWN INTEGRAL to 0.08 percent. THAT VALIDATION IS INTERNAL: it shows the closed form matches the ansatz, NOT that the ansatz solves G_munu = 8 pi T_munu for any specified matter model. index3.py has carried NOT-CERTIFIED since the Le pass for exactly this reason, and core.py records the sharper version -- Phi_max = m/a runs 0.25 to 1.0 across the seated window and at Phi = 1 the linearised spatial metric (1 - 2 Phi) HAS FLIPPED SIGN, so the core is intrinsically a strong-field object that no weak-field description will do for. SO THE HEADLINE, c^4/(G Lambda) = 1.2123737e43 J/m, IS MODEL -- and the seventy orders, the Planck cell, the 196 MJ, the tiling neutrality and the scale-invariance ALL INHERIT IT, because all of them are Lambda wearing different clothes"),
+  "AND THE EPISTEMIC AUDIT RETURNS ONE UNCOMFORTABLE ANSWER THAT NO INDIVIDUAL PASS COULD SEE. M asked for everything to be classified -- theorem, proof, law, conjecture, heuristic, assertion. Sorted that way, THE TRANSITION EQUATION IS A MODEL AND NOT A THEOREM. Delta d = (G/c^2) M Lambda comes from a CHOSEN POTENTIAL in a CHOSEN metric form -- isotropic, g_tt = -e^{2Phi} and g_ij = e^{-2Phi}, with Phi a Plummer core minus a shell -- and Lambda = 2[ln(2 R_s/sqrt(b^2+a^2)) - 1] is a closed form derived from THAT POTENTIAL and validated against ITS OWN INTEGRAL to 0.08 percent. THAT VALIDATION IS INTERNAL: it shows the closed form matches the ansatz, NOT that the ansatz solves G_munu = 8 pi T_munu for any specified matter model. index3.py has carried NOT-CERTIFIED since the Le pass for exactly this reason, and core.py records the sharper version -- Phi_max = m/a runs 0.25 to 1.0 across the seated window and at Phi = 1 the linearised spatial metric (1 - 2 Phi) HAS FLIPPED SIGN, so the core is intrinsically a strong-field object that no weak-field description will do for. SO THE HEADLINE, c^4/(G Lambda) = 1.2123737e43 J/m, IS MODEL -- and the seventy orders (70.6 on Ford-Roman read at t0 = R/c, 68.1 on the duration bound -- DOCKET 67, on M's ruling \"Carry both\"), the Planck cell, the 196 MJ, the tiling neutrality and the scale-invariance ALL INHERIT IT, because all of them are Lambda wearing different clothes"),
  ("NO-IS-BETTER-SUPPORTED-THAN-YES", +1, -1, +1, "provenance.py",
   "and sorting by status makes an asymmetry fall out that is the real result of the audit: EVERY OBSTRUCTION THIS PROJECT TRUSTS IS A THEOREM AND EVERY POSITIVE CONSTRUCTION IT OFFERS IS A MODEL. Ten obstructions against five constructions, and the split is clean. The refusals are proved -- the Maxwell NEC theorem and the null-dust identity HERE, PMT rigidity (Schoen-Yau, Witten) and Ford-Roman and Fewster-Osterbrink CITED from proofs, the [0,pi] orientation topology and the complete Deutsch fixed-point set and the classical grandfather condition all solved in full here. The construction -- the corridor, Lambda, the rate, the cell -- is an ansatz never certified against a matter model. THAT IS EXACTLY THE SHAPE A NEGATIVE RESULT SHOULD HAVE AND EXACTLY THE WRONG SHAPE FOR A POSITIVE ONE. The project's NO is much better supported than its YES ever was, AND THAT SHOULD BE STATED IN ANY PAPER RATHER THAN DISCOVERED BY A REFEREE"),
  ("THREE-IDENTITIES-ARE-ONE-DEFINITION", +1, -1, +1, "provenance.py",
@@ -1220,10 +1449,46 @@ FINDINGS = [
   "M asked what mathematics would reverse the verdict, and the FIRST LINK ATTACKED CLOSED AGAINST US. The verdict is a chain -- the theorem\'s SCOPE, the identification of geometric mass with matter energy, the RATE at which negative mass buys distance, and the MAGNITUDE demanded -- and breaking any one link reverses it. THE RATE WAS THE LINK MOST LIKELY TO GIVE, because Delta d = |m| ln(r2/r1) was derived in the weak field where 1/sqrt(1-2m/r) ~ 1 + m/r, and the obvious hope was that a strong field returns MORE per unit mass. Measured ansatz-free by integrating the proper-length deficit int (1 - 1/sqrt(1-2m/r)) dr directly -- not by differencing two lengths, which loses every digit in the weak field and reports a spurious gain -- over r1=1, r2=200: the weak field returns the logarithm to 1.000000 at |m| = 1e-8 and 1e-6, 0.999972 at 1e-4, 0.997206 at 1e-2, SO THE LOGARITHM IS EXACT IN THE LIMIT AND ANSATZ-FREE. And the strong field returns 0.833100 of it at |m| = 1, 0.504993 at 10, 0.174544 at 100, 0.029831 at 1e3, 0.003505 at 1e4, MONOTONICALLY FALLING, because the integrand is bounded above by 1 and so Delta d SATURATES at the coordinate gap -- 93.3% of it already at |m| = 1e4. THE WEAK-FIELD LOGARITHM IS NOT A LIMITATION OF THE DERIVATION, IT IS THE BEST CASE, and every extra unit of |m| buys strictly less than the one before it. The exchange rate c^4/(G Lambda) is therefore a FLOOR on the cost and not an artefact of a weak-field expansion"),
  ("BALL-AND-CHORD-INDEPENDENT", 0, +1, 0, "overturn.py",
   "AND AGAINST THAT, A DOOR, AND IT CHANGES WHICH NO-GO IS DOING THE WORK. The theorem puts the requirement on a BALL integral, int_ball rho dV < 0, while EVERY averaged energy condition bounds a WORLDLINE integral, int_line rho dl -- two different functionals of the same rho, and whether one constrains the other is answerable by arithmetic. IT DOES NOT. A two-zone profile, rho = -b inside r0 and +a in the shell r0..R, with r0=1, R=2, b=1, a=1.5, has m(r0) = -(4/3) pi b r0^3 = -4.188790 NEGATIVE so the theorem gives contraction at r0, m(R) = +39.793507 POSITIVE so it is ADM-safe, and an ANEC-analogue holding on EVERY chord: the deepest one, straight through the negative core at p = 0, integrates to 2[a(R-r0) - b r0] = +1.000000, and the minimum over all impact parameters is zero attained only by a GRAZING chord that misses the body. AND THE MARGIN DOES NOT SHRINK UNDER SCALING: hold a = 1.5 b and raise b, and m(r0) runs to MINUS infinity while every chord integral runs to PLUS infinity, both exactly linear in b. THE CHORD INTEGRAL DOES NOT BOUND THE BALL INTEGRAL BELOW AT ALL. Scope stated tightly because this is easy to over-read: it is flat-space kinematics, a statement about two integrals as functionals of a density, NOT a solution of the field equations, the chords are straight rather than geodesics, and rho < 0 in the core means the POINTWISE weak energy condition fails there -- as it must, since that is what is being asked for"),
+# CORRECTED (DOCKET 67 follow-ups, re-adjudicated against DOCKET 55; CLOSE.md sec. 4 item 4).
+#   The row said the sampled bounds 'bound |rho| itself over a sampling region'; overturn.py had
+#   already corrected that in place under DOCKET 67 as 'the substitution the tree's own DOCKET 55
+#   withdrawal records' and now states a time average along a timelike worldline over a finite
+#   sampling time -- a correct sampled QI, so the OWNER is left as it is.  The row also carried
+#   five other phrases overturn.py corrected under DOCKET 67 (the positive mass theorem as
+#   'total mass', ANEC for its dust analogue, Fliss's NULL bound read as a rho bound without
+#   saying so, Fewster-Osterbrink unscoped, and the L2 scope flag as undecided, which M decided
+#   on 2026-09-11).  Each is carried from the owner.  The cell stands: overturn.py's verdict --
+#   the sampled bound is the sole load-bearing obstruction -- holds on the corrected reading.
+#   The row as it stood:
+#   and the consequence is a NARROWING of the obstruction, which is worth more than it sounds. THE
+#   POSITIVE MASS THEOREM DOES NOT FORBID THIS -- the two-zone profile has positive total mass. ANEC
+#   DOES NOT FORBID THIS -- it is satisfied on every chord and it is not even the right SHAPE of
+#   constraint, since averaging along a line and integrating over a ball are independent
+#   functionals. So of the three obstructions usually cited against negative energy, two are not
+#   obstructions here, and THE WHOLE WEIGHT IS CARRIED BY THE LOCAL SAMPLED BOUND: Ford-Roman and
+#   its descendants, which bound |rho| itself over a sampling region. That is candidates.py's
+#   magnitude gate and it is Pfenning-Ford's 1997 result, and this pass's contribution is to show it
+#   is load-bearing ALONE. THREE LINKS STAY OPEN AND NONE OF THEM IS ENGINEERING. L1 SCOPE: a
+#   quasi-local mass for a closed 2-surface reducing to Misner-Sharp on round spheres and
+#   controlling proper distance the same way -- Hawking mass gives requirement (a), Geroch
+#   monotonicity under inverse mean curvature flow with R >= 0 is the closest existing thing to (b),
+#   Bartnik mass is the right variational object and is not computable; open in the LITERATURE, not
+#   merely here, and NOT ATTEMPTED HERE. L2 SOURCE: in f(R), scalar-tensor or higher-curvature
+#   gravity the field equations rearrange to G = 8 pi T_matter + T_effective and an effective term
+#   can be negative where the matter term is not, which is wormhole.py's SCOPE_CHOSEN_HERE = None, a
+#   flag that has stood unchanged for the whole project because it is M's scope decision and not
+#   mine. L4 MAGNITUDE: the requirement goes as R^-2 while Ford-Roman and Casimir go as L^-4, so the
+#   shortfall GROWS and the crossovers sit sub-Planckian -- but Fliss et al. (arXiv:2309.10848) give
+#   an EFT bound going as delta^-2, THE SAME EXPONENT, and Fewster-Osterbrink (arXiv:0708.2450) show
+#   no state-independent QEI exists for a scalar with xi > 0, so candidate D's shortfall collapses
+#   to the pure number (l_UV/l_P)^2 / Lambda and closes at sqrt(Lambda) l_P = 3.159514 l_P. A factor
+#   of three in the UV cutoff, not twenty orders. NO MEASUREMENT AND NO POWER SOURCE REVERSES THIS
+#   -- three theorems do, and the cheapest of the three is a decision M has been holding rather than
+#   a discovery anyone has to make
  ("QI-CARRIES-THE-WHOLE-WEIGHT", -1, -1, 0, "overturn.py",
-  "and the consequence is a NARROWING of the obstruction, which is worth more than it sounds. THE POSITIVE MASS THEOREM DOES NOT FORBID THIS -- the two-zone profile has positive total mass. ANEC DOES NOT FORBID THIS -- it is satisfied on every chord and it is not even the right SHAPE of constraint, since averaging along a line and integrating over a ball are independent functionals. So of the three obstructions usually cited against negative energy, two are not obstructions here, and THE WHOLE WEIGHT IS CARRIED BY THE LOCAL SAMPLED BOUND: Ford-Roman and its descendants, which bound |rho| itself over a sampling region. That is candidates.py\'s magnitude gate and it is Pfenning-Ford\'s 1997 result, and this pass\'s contribution is to show it is load-bearing ALONE. THREE LINKS STAY OPEN AND NONE OF THEM IS ENGINEERING. L1 SCOPE: a quasi-local mass for a closed 2-surface reducing to Misner-Sharp on round spheres and controlling proper distance the same way -- Hawking mass gives requirement (a), Geroch monotonicity under inverse mean curvature flow with R >= 0 is the closest existing thing to (b), Bartnik mass is the right variational object and is not computable; open in the LITERATURE, not merely here, and NOT ATTEMPTED HERE. L2 SOURCE: in f(R), scalar-tensor or higher-curvature gravity the field equations rearrange to G = 8 pi T_matter + T_effective and an effective term can be negative where the matter term is not, which is wormhole.py\'s SCOPE_CHOSEN_HERE = None, a flag that has stood unchanged for the whole project because it is M\'s scope decision and not mine. L4 MAGNITUDE: the requirement goes as R^-2 while Ford-Roman and Casimir go as L^-4, so the shortfall GROWS and the crossovers sit sub-Planckian -- but Fliss et al. (arXiv:2309.10848) give an EFT bound going as delta^-2, THE SAME EXPONENT, and Fewster-Osterbrink (arXiv:0708.2450) show no state-independent QEI exists for a scalar with xi > 0, so candidate D\'s shortfall collapses to the pure number (l_UV/l_P)^2 / Lambda and closes at sqrt(Lambda) l_P = 3.159514 l_P. A factor of three in the UV cutoff, not twenty orders. NO MEASUREMENT AND NO POWER SOURCE REVERSES THIS -- three theorems do, and the cheapest of the three is a decision M has been holding rather than a discovery anyone has to make"),
+  "and the consequence is a NARROWING of the obstruction, which is worth more than it sounds. THE POSITIVE MASS THEOREM DOES NOT FORBID THIS -- the integral of rho over the two-zone profile is positive (a Euclidean integral of rho, not an ADM mass: overturn.py solves no field equation), and it could not be in danger, since rho < 0 in the core already violates the dominant energy condition the theorem assumes; true, and it separates nothing. ANEC'S DUST ANALOGUE DOES NOT FORBID THIS -- it is satisfied on every chord, and it is not even the right SHAPE of constraint, since averaging along a line and integrating over a ball are independent functionals. So of the three obstructions usually cited against negative energy, two are not obstructions here, and THE WHOLE WEIGHT IS CARRIED BY THE SAMPLED BOUND OF FINITE WIDTH: Ford-Roman and its descendants, which bound a TIME average of rho along a timelike worldline (Ford-Roman's at one spatial point) over a finite sampling time, rather than an integral along a complete line. That is candidates.py's magnitude gate and it is Pfenning-Ford's result, and this pass's contribution is to show it is load-bearing ALONE. THREE LINKS STAY OPEN AND NONE OF THEM IS ENGINEERING. L1 SCOPE: a quasi-local mass for a closed 2-surface reducing to Misner-Sharp on round spheres and controlling proper distance the same way -- Hawking mass gives requirement (a), Geroch monotonicity under inverse mean curvature flow of a CONNECTED surface with R >= 0 (Huisken-Ilmanen's weak flow) is, in overturn.py's judgement, the closest existing thing to (b), Bartnik mass is the right variational object and is not computable; open in the LITERATURE, not merely here, and NOT ATTEMPTED HERE. L2 SOURCE: in f(R), scalar-tensor or higher-curvature gravity the field equations rearrange to G = 8 pi T_matter + T_effective and an effective term can be negative where the matter term is not; wormhole.py carried SCOPE_CHOSEN_HERE = None until M chose the scope on 2026-09-11 ('modified gravity counts', every result under it CONDITIONAL), and no L2 result has been derived under it (DOCKET 52's Reissner-Nordstrom break of L2 is EMPTY). L4 MAGNITUDE: the requirement goes as R^-2 while Ford-Roman (read at L = c t0 = R) and Casimir go as L^-4, so the shortfall GROWS and, with Ford-Roman read at t0 = R/c, the crossovers sit sub-Planckian (on the duration bound the Ford-Roman crossover is 5.625229 l_P, above l_P, and the shortfall still grows as R^2 -- DOCKET 67, on M's ruling \"Carry both\": first 'the crossovers sit sub-Planckian', unscoped) -- but Fliss et al. (arXiv:2309.10848) give an EFT bound on the smeared NULL component going as delta^-2, THE SAME EXPONENT when read as a bound on |rho|, a step overturn.py takes and the source does not, and Fewster-Osterbrink (arXiv:0708.2450) show no state-independent QEI exists for a MASSLESS scalar with xi > 0 in 3+1 Minkowski space, so candidate D's shortfall collapses to the pure number (l_UV/l_P)^2 / Lambda and closes at sqrt(Lambda) l_P = 3.159514 l_P. A factor of three in the UV cutoff, not twenty orders. NO MEASUREMENT AND NO POWER SOURCE REVERSES THIS -- three theorems do, none known to be false, and the cheapest of the three waited on a decision rather than a discovery, which M made on 2026-09-11 (wormhole.py); what remains there is a derivation under that scope, which no one has made. (DOCKET 67 follow-ups: first 'THE WHOLE WEIGHT IS CARRIED BY THE LOCAL SAMPLED BOUND: Ford-Roman and its descendants, which bound |rho| itself over a sampling region' -- overturn.py corrected it in place under DOCKET 67 and index3 had not carried it; likewise first 'the two-zone profile has positive total mass', 'ANEC DOES NOT FORBID THIS', 'SCOPE_CHOSEN_HERE = None, a flag that has stood unchanged for the whole project because it is M's scope decision and not mine', 'the cheapest of the three is a decision M has been holding rather than a discovery anyone has to make', with the Fliss bound read as a rho bound and Fewster-Osterbrink's massless 4D Minkowski scope unstated)"),
  ("TWO-UNDEFINED-BOTH-IN-L4", +1, 0, 0, "coefficients.py",
-  "M: \'the clues lay in the undefined/underived coefficients... knowing what a coefficient is allows us to know the inputs, what is interchangeable\'. provenance.py sorted the project\'s CLAIMS by how they were come by and NEVER SORTED THE NUMBERS, and a number is where an unearned assumption hides best because a number does not look like an assertion. TWENTY-FIVE COEFFICIENTS CARRY THIS FRAMEWORK: 1 LAW (8 pi, fixed by the Newtonian limit), 1 GEOMETRIC (4 pi, the solid angle in dm/dr = 4 pi r^2 rho), 7 THEOREM (8, 4, 120 degrees, the 1/2 CTC window, Ford-Roman, Casimir, sqrt(Lambda)), 3 IDENTITY (2/Lambda, Lambda/2, E_Planck/Lambda), 2 MEASURED (the two sub-Planckian crossovers), 3 EMPIRICAL (G, c, hbar), 4 MODEL-PARAM (a, R_s, b, m -- the ansatz\'s free inputs), 1 MODEL (LAMBDA ITSELF, and the exchange rate inherits it), 1 ASSERTED (the 2 in A = 2(p.p\')^2 - p^2 p\'^2, still flagged) and EXACTLY TWO UNDEFINED. THE TWO ARE xi AND l_UV AND BOTH SIT IN L4, the only link of overturn.py\'s reversal chain that touches the bill. xi is the non-minimal coupling the framework needs positive -- Fewster-Osterbrink give no state-independent QEI there, which is candidate D\'s entire hope -- and nothing here fixes a value; l_UV is the EFT cutoff in Fliss et al., the one bound whose exponent matches, and the shortfall is the pure number (l_UV/l_P)^2/Lambda closing at sqrt(Lambda) l_P. M\'S FIRST CLAIM LANDS, and not mystically: an undefined coefficient IS a free parameter, and a free parameter is exactly where a no-go can fail to bind"),
+  "M: \'the clues lay in the undefined/underived coefficients... knowing what a coefficient is allows us to know the inputs, what is interchangeable\'. provenance.py sorted the project\'s CLAIMS by how they were come by and NEVER SORTED THE NUMBERS, and a number is where an unearned assumption hides best because a number does not look like an assertion. TWENTY-FIVE COEFFICIENTS CARRY THIS FRAMEWORK: 1 LAW (8 pi, fixed by the Newtonian limit), 1 GEOMETRIC (4 pi, the solid angle in dm/dr = 4 pi r^2 rho), 7 THEOREM (8, 4, 120 degrees, the 1/2 CTC window, Ford-Roman, Casimir, sqrt(Lambda)), 3 IDENTITY (2/Lambda, Lambda/2, E_Planck/Lambda), 2 MEASURED (the two crossovers, sub-Planckian with Ford-Roman read at t0 = R/c; the Ford-Roman one is 5.625229 l_P on the duration bound -- DOCKET 67, on M's ruling \"Carry both\": first 'the two sub-Planckian crossovers'), 3 EMPIRICAL (G, c, hbar), 4 MODEL-PARAM (a, R_s, b, m -- the ansatz\'s free inputs), 1 MODEL (LAMBDA ITSELF, and the exchange rate inherits it), 1 ASSERTED (the 2 in A = 2(p.p\')^2 - p^2 p\'^2, still flagged) and EXACTLY TWO UNDEFINED. THE TWO ARE xi AND l_UV AND BOTH SIT IN L4, the only link of overturn.py\'s reversal chain that touches the bill. xi is the non-minimal coupling the framework needs positive -- Fewster-Osterbrink give no state-independent QEI there, which is candidate D\'s entire hope -- and nothing here fixes a value; l_UV is the EFT cutoff in Fliss et al., the one bound whose exponent matches, and the shortfall is the pure number (l_UV/l_P)^2/Lambda closing at sqrt(Lambda) l_P. M\'S FIRST CLAIM LANDS, and not mystically: an undefined coefficient IS a free parameter, and a free parameter is exactly where a no-go can fail to bind"),
  ("DISTANCE-IS-NOT-AN-ENDPOINT-DIFFERENCE", -1, -1, 0, "coefficients.py",
   "and M\'s central prediction -- \'the difference between two locations in spacetime is the difference in the coefficients of each endpoint of the corridor\' -- IS EXACTLY HALF TRUE, AND THE HALF THAT FAILS IS THE HALF THIS PROJECT BUYS. A static spacetime has two independent metric coefficients and the rule holds for one and fails for the other. TIME: the redshift between two static observers is 1 + z = sqrt(g_tt(r2)/g_tt(r1)) = e^{Phi(r2) - Phi(r1)}, a DIFFERENCE OF THE POTENTIAL AT THE TWO ENDPOINTS depending on nothing in between -- three Phi profiles agreeing only at their ends and disagreeing wildly between give identical redshift to machine precision. M IS RIGHT ABOUT TIME AND RIGHT FOR HIS OWN REASON, because g_tt enters the observable as an ENDPOINT RATIO. SPACE: proper contraction is int (1 - 1/sqrt(1 - 2m(r)/r)) dr, a LINE INTEGRAL, and the map from endpoint coefficients to Delta d IS NOT EVEN WELL DEFINED -- two mass profiles with m_A(r1) = m_B(r1) = -1 and m_A(r2) = m_B(r2) = -1, Phi held equal so EVERY metric coefficient at EVERY endpoint is identical, return Delta d = 4.414026389 and 5.540580582, A 25.5 PERCENT DIFFERENCE. Kinematic: a statement about metrics, not a claim that either profile solves the field equations with a sensible matter model"),
  ("LAMBDA-EXISTS-BECAUSE-C5-FAILS", +1, 0, 0, "coefficients.py",
@@ -1235,7 +1500,7 @@ FINDINGS = [
  ("TIME-CURRENCY-DOES-NOT-TRANSPORT", +1, -1, 0, "magnitude.py",
   "and the honest other half of the same finding, stated so the first half cannot be over-read. TIME DILATION CHANGES ELAPSED PROPER TIME AND NOT POSITION. It is a genuine second axis, it is payable with ordinary matter in one direction, and it gets you nowhere: \'both planes travelled simultaneously\' is exact as a statement about INPUTS -- the two metric coefficients are independent and both may be driven at once -- and is NOT a statement about arriving anywhere sooner. The two denominations also scale OPPOSITELY in corridor size, distance being R-independent and time linear in R, SO NO SINGLE CORRIDOR SIZE OPTIMISES BOTH. There is a trade here and not a free lunch, and the trade is the reason a design cannot simply buy both"),
  ("THE-AREA-LAW", -1, -1, +1, "magnitude.py",
-  "M asked for \'the math that controls magnitude... so price/size of transition state corridor can scale under control\', AND IT IS AN EXPONENT. Fix the architecture and scale R: in REGIME A, holding Delta d fixed, mass and energy are CONSTANT, required rho falls as R^-3, permitted rho falls as R^-4 and the SHORTFALL GROWS AS R^+1; in REGIME B, holding Delta d/R fixed, energy grows as R, required rho falls as R^-2 -- candidates.py\'s seated gate -- and the SHORTFALL GROWS AS R^+2. Both exponents positive, so small is the only direction in both, and A is strictly better than B. Setting required equal to permitted in regime A gives the boundary in CLOSED FORM AND IT IS A HYPERBOLA: R * Delta d <= k l_P^2, with k = 3 Lambda/(32 pi^2) = 0.094823 from Ford-Roman and pi^2 Lambda/720 = 0.136838 from Casimir -- TWO COMPLETELY UNRELATED BOUNDS GIVING THE SAME PLANCK AREA TO WITHIN 44 PERCENT. CORRIDOR LENGTH TIMES DISTANCE BOUGHT IS BOUNDED BY A PLANCK AREA, so you may have a long corridor or a large contraction and not both. AND THE LAW IS VALIDATED RATHER THAN ASSERTED: its diagonal Delta d = R gives sqrt(k) = 0.307933 l_P and 0.369917 l_P, WHICH ARE candidates.py\'S TWO SEATED CROSSOVERS TO SIX DECIMALS. They were two points; this is the curve they sit on, so the law is a strict generalisation of a result already in the tree and not a new claim on new assumptions. Delta d = 1 m allows R <= 2.4770e-71 m. NO NOVELTY IS CLAIMED -- a Planck-area bound on a product is the shape of Pfenning-Ford, and the resemblance to a Bekenstein-type area bound is NOTED AND NOT ASSERTED, since nothing here derives it from entropy"),
+  "M asked for \'the math that controls magnitude... so price/size of transition state corridor can scale under control\', AND IT IS AN EXPONENT. Fix the architecture and scale R: in REGIME A, holding Delta d fixed, mass and energy are CONSTANT, required rho falls as R^-3, permitted rho falls as R^-4 and the SHORTFALL GROWS AS R^+1; in REGIME B, holding Delta d/R fixed, energy grows as R, required rho falls as R^-2 -- candidates.py\'s seated gate -- and the SHORTFALL GROWS AS R^+2. Both exponents positive, so small is the only direction in both, and A is strictly better than B. Setting required equal to permitted in regime A gives the boundary in CLOSED FORM AND IT IS A HYPERBOLA: R * Delta d <= k l_P^2, with k = 3 Lambda/(32 pi^2) = 0.094823 from Ford-Roman read at t0 = R/c, pi^2 Lambda/720 = 0.136838 from Casimir, and k_dur = C Lambda = 31.643199 from the duration bound (magnitude.K_DUR, C = achievable.FEWSTER_C) -- ON THE t0 = R/c READING TWO COMPLETELY UNRELATED BOUNDS GIVE THE SAME PLANCK AREA TO WITHIN 44 PERCENT; on the duration bound k is 333.709 times k_FR and 231.245 times k_Cas, so that agreement belongs to the t0 = R/c reading. CORRIDOR LENGTH TIMES DISTANCE BOUGHT IS BOUNDED BY k PLANCK AREAS -- under one on t0 = R/c, 31.6 on the duration bound -- so you may have a long corridor or a large contraction and not both. AND THE LAW IS VALIDATED RATHER THAN ASSERTED: its diagonal Delta d = R gives sqrt(k) = 0.307933 l_P and 0.369917 l_P, WHICH ARE candidates.py\'S TWO SEATED t0 = R/c CROSSOVERS TO SIX DECIMALS, and sqrt(k_dur) = 5.625229 l_P, its duration-bound crossover (magnitude.py checks all three). They were points; this is the curve they sit on, so the law is a strict generalisation of a result already in the tree and not a new claim on new assumptions. Delta d = 1 m allows R <= 2.4770e-71 m (8.2661e-69 m on the duration bound; every Delta d of a femtometre or more leaves R sub-Planckian on both readings). NO NOVELTY IS CLAIMED -- a Planck-area bound on a product is the shape of Pfenning-Ford, and the resemblance to a Bekenstein-type area bound is NOTED AND NOT ASSERTED, since nothing here derives it from entropy (DOCKET 67, on M's ruling \"Carry both\": first on the Ford-Roman t0 = R/c and Casimir k alone -- 'THE SAME PLANCK AREA TO WITHIN 44 PERCENT', 'BOUNDED BY A PLANCK AREA', 'TWO SEATED CROSSOVERS')"),
  ("CANDIDATE-D-INVERTS-THE-AREA-LAW", 0, +1, 0, "magnitude.py",
   "and there is exactly ONE place in the framework where the exponent on size goes to zero. Every bound in the area law falls as R^-4; Fliss et al. (arXiv:2309.10848) fall as R^-2, the one exponent matching the requirement\'s own. Redo the same calculation with it and THE INEQUALITY REVERSES: R >= Delta d * (l_UV/l_P)^2 / Lambda, A MINIMUM ON R RATHER THAN A MAXIMUM, AND THE PLANCK AREA CANCELS OUT ENTIRELY -- l_P^2 is gone from the statement. The controlling quantity is the pure number (l_UV/l_P)^2/Lambda, which is EXACTLY THE SHORTFALL overturn.py computed, now carrying a meaning it did not have: THE SHORTFALL IS THE MINIMUM RATIO OF CORRIDOR LENGTH TO DISTANCE BOUGHT. At the closing value l_UV = sqrt(Lambda) l_P it is R >= 1.000000 Delta d to twelve digits -- which is the KINEMATIC bound overturn.py\'s L3 already proved for free, since Delta d saturates at r2 - r1. THE QUANTUM CONSTRAINT BECOMES VACUOUS AND SIZE STOPS MATTERING. THIS IS NOT A SECOND DERIVATION OF sqrt(Lambda) l_P and must not be read as one: the same dimensionless group appears in both places because it is the same calculation seen from two sides, and what is gained is an interpretation rather than corroboration. And it rests entirely on l_UV, one of the exactly two coefficients coefficients.py found that nothing here fixes -- at l_UV = l_P the bound is R >= 0.100175 Delta d, already weaker than the kinematic one; at 10 l_P it is R >= 10.0175 Delta d, real but mild. NOTHING HERE SAYS WHICH. Third independent arrival at the same L4"),
  ("SPIN-2-STRUCTURE-DERIVED", +1, 0, 0, "solve.py",
@@ -1299,7 +1564,7 @@ FINDINGS = [
  ("EM-HAS-ONE-NONTRIVIAL-INVARIANT", +1, 0, 0, "cubic.py",
   "and the room is empty FOR A REASON SPECIFIC TO LIGHT, which is the part of the pass that survives as an explanation the tree lacked. A GENERAL traceless T has a FREELY SIGNED cube-sum -- eigenvalues (2,-1,-1,0) give +6, (-2,1,1,0) give -6, (-3,2,1,0) give -18 -- SO THE VANISHING IS A PROPERTY OF ELECTROMAGNETISM IN FOUR DIMENSIONS AND NOT OF CUBES. T^2 proportional to the identity is special to EM, and it is WHY lattice.py\'s theorem has felt so rigid throughout this project: scale-free, dimension-free, holding in D = 3..26 over 200,000 random fields. THE ELECTROMAGNETIC STRESS TENSOR HAS ALMOST NO ALGEBRAIC FREEDOM -- ITS TRACE VANISHES AND ITS CUBE VANISHES -- SO IT HAS EXACTLY ONE NON-TRIVIAL INVARIANT AND IT IS THE ONE THAT CANNOT GO NEGATIVE. AND EVEN GRANTING A NEGATIVE CUBIC INVARIANT IT WOULD NOT REACH THE OBSTRUCTION, which has to be said because conflating them is the fault this tree exists to catch: the NEC is T_munu k^mu k^nu < 0 for a NULL k, A CONTRACTION WITH A DIRECTION asking what an observer on a null ray measures, while Tr(T^3) is a scalar built from T alone and asks nothing about any direction. A negative Tr(T^3) would not violate the NEC and a positive one would not save it, AND THERE IS NO CUBIC NEC TO WRITE DOWN -- T_munu is already quadratic in the field, and contracting it with two null vectors is what MAKES it an energy density. Whether some other matter model has a usefully negative cubic invariant is NOT COMPUTED HERE and is not closed by this pass. No novelty is claimed for the identity"),
  ("CONSTANTS-SET-SCALE-GEOMETRY-SETS-SHAPE", +1, 0, 0, "invariance.py",
-  "M, applying first principles: \'physics only applies because it makes a geometric shape observable, thus physics are the interchangeable coefficient.\' THE TWO HALVES NEED DIFFERENT ANSWERS. The first is FOUNDATIONAL AND UNTESTABLE -- a claim about why physics exists, with no observable and forbidding no measurement, RECORDED rather than adjudicated in the same register as the 9-14 claim and \'zero cannot exist\'. THE SECOND IS TESTABLE AGAINST THIS TREE\'S OWN CENSUS AND IT LANDS. Recompute fourteen headline quantities under G x 2, c / 2 and hbar x 10: TEN ARE INVARIANT AND FOUR MOVE, AND THE LINE FALLS EXACTLY ON DIMENSIONLESSNESS -- not approximately. Untouched: Lambda, 2/Lambda, k_FR = 0.0948226567, k_Cas = 0.136838353, sqrt(k_FR) = 0.307932877, the amplitude ratio 8, the bisector 4, cos(value bisector) = -0.414213562, the shortfall 0.100175014 and the QEI coefficient 0.00369400149. Moved: l_P, the exchange rate, the Planck cell energy and the area-law bound in square metres. (The exchange rate not moving under hbar is correct rather than an exception -- c^4/(G Lambda) contains no hbar.) AND THE GEOMETRY DOES THE OPPOSITE: leave the constants alone and vary X = 2 R_s/sqrt(b^2+a^2), and Lambda itself moves -- 7.210340372 at X = 100, 9.982529174 at the seated 399.920024, 11.815510558 at X = 1000 -- carrying k_FR and everything built on Lambda with it. coefficients.py listed G, c and hbar as EMPIRICAL and never said what that category DOES; this pass says it. IT CONVERTS. THE CORRECTION THAT SHARPENS THE CLAIM: they are interchangeable in that NO DIMENSIONLESS CONCLUSION DEPENDS ON THEM, and NOT interchangeable in that THEY FIX WHERE THE WALL IS -- the area law is R Delta d <= k l_P^2 with k invariant and l_P^2 carrying every constant, so changing hbar leaves the shape and moves the size. THE CONSTANTS SET THE SCALE; THE GEOMETRY SETS THE SHAPE. No novelty is claimed: this is Buckingham pi, a century old, and what is new is only that this tree had never checked it"),
+  "M, applying first principles: \'physics only applies because it makes a geometric shape observable, thus physics are the interchangeable coefficient.\' THE TWO HALVES NEED DIFFERENT ANSWERS. The first is FOUNDATIONAL AND UNTESTABLE -- a claim about why physics exists, with no observable and forbidding no measurement, RECORDED rather than adjudicated in the same register as the 9-14 claim and \'zero cannot exist\'. THE SECOND IS TESTABLE AGAINST THIS TREE\'S OWN CENSUS AND IT LANDS. Recompute fourteen headline quantities under G x 2, c / 2 and hbar x 10: TEN ARE INVARIANT AND FOUR MOVE, AND THE LINE FALLS EXACTLY ON DIMENSIONLESSNESS -- not approximately. Untouched: Lambda, 2/Lambda, k_FR = 0.0948226567, k_Cas = 0.136838353, sqrt(k_FR) = 0.307932877, the amplitude ratio 8, the bisector 4, cos(value bisector) = -0.414213562, the shortfall 0.100175014 and the QEI coefficient 0.00369400149 (k_FR and sqrt(k_FR) are Ford-Roman read at t0 = R/c; on the duration bound k_dur = C Lambda = 31.643199 and sqrt(k_dur) = 5.625229, dimensionless by construction, are not among invariance.py\'s fourteen -- DOCKET 67, on M's ruling \"Carry both\"). Moved: l_P, the exchange rate, the Planck cell energy and the area-law bound in square metres. (The exchange rate not moving under hbar is correct rather than an exception -- c^4/(G Lambda) contains no hbar.) AND THE GEOMETRY DOES THE OPPOSITE: leave the constants alone and vary X = 2 R_s/sqrt(b^2+a^2), and Lambda itself moves -- 7.210340372 at X = 100, 9.982529174 at the seated 399.920024, 11.815510558 at X = 1000 -- carrying k_FR and everything built on Lambda with it. coefficients.py listed G, c and hbar as EMPIRICAL and never said what that category DOES; this pass says it. IT CONVERTS. THE CORRECTION THAT SHARPENS THE CLAIM: they are interchangeable in that NO DIMENSIONLESS CONCLUSION DEPENDS ON THEM, and NOT interchangeable in that THEY FIX WHERE THE WALL IS -- the area law is R Delta d <= k l_P^2 with k invariant and l_P^2 carrying every constant, so changing hbar leaves the shape and moves the size. THE CONSTANTS SET THE SCALE; THE GEOMETRY SETS THE SHAPE. No novelty is claimed: this is Buckingham pi, a century old, and what is new is only that this tree had never checked it"),
  ("THE-OBSTRUCTION-IS-IN-THE-SHAPE-HALF", -1, -1, 0, "invariance.py",
   "and the consequence is the one worth having, because it explains four earlier failures in one line each. THE OBSTRUCTION IS contraction at r IF AND ONLY IF m(r) < 0, WHICH IS A SIGN -- DIMENSIONLESS -- so it sits entirely in the SHAPE half and NO CHANGE TO ANY PHYSICAL CONSTANT CAN TOUCH IT. That is why every route this project tried that changed physics rather than geometry was doomed before it was tried: dimension.py, changing D leaves the biconditional EXACT in every D; codimension.py, changing the source\'s codimension moves the RATE and not the SIGN; qei.py, changing xi moves a floor by 22 percent and the shortfall stays; solve.py, fixing l_UV moves a NUMBER and the STATUS does not follow. EVERY ONE OF THOSE CHANGED A COEFFICIENT AND LEFT THE SHAPE ALONE. THE PASS NARROWS AND OPENS NOTHING, which is worth having and is not encouragement. AND A SEVENTH FAULT, THE FIRST THAT IS A TEST RATHER THAN A MEASUREMENT: the first run of this audit reported l_P AND the area-law bound as INVARIANT, which is false since l_P = sqrt(hbar G/c^3) moves under all three. The bug was the tolerance, abs(a-b) > 1e-12 * max(1.0, abs(v)), whose max(1.0, ...) IS AN ABSOLUTE FLOOR -- and for l_P at 1.6e-35 and the area bound at 2.5e-71 every possible difference is below 1e-12, so both were reported unchanged NO MATTER WHAT THEY DID, inflating the invariant count from ten to twelve. A RELATIVE TEST WITH AN ABSOLUTE FLOOR GIVES FALSE INVARIANCE FOR SMALL QUANTITIES, and this tree works at 1e-35 and 1e-71 routinely. Both forms are kept in the file so the fault is visible rather than described. A BAD MEASUREMENT REPORTS A WRONG NUMBER; A BAD TEST REPORTS A WRONG VERDICT"),
  ("EM-SWITCHES-AND-GRAVITY-IS-BLIND", -1, -1, 0, "switch.py",
@@ -1317,7 +1582,7 @@ FINDINGS = [
  ("THE-EIGHT-COLLAPSES-TO-TWO", 0, -1, 0, "threads.py",
   "and M\'s accompanying count -- \'8 knob settings: on, off, time 2 way, space 2 way, both 2 way, 1+1+2+2+2=8\' -- is arithmetically right and names A DIFFERENT EIGHT FROM THE TREE\'S. There are two in play. (A) THREE THREADS EACH CARRYING A SIGN gives 2^3 = 8, THE CUBE\'S VERTICES, which is the tree\'s own eight and the one cubic.py found sums to zero as four antipodal pairs. (B) M\'S PARTITION selects 8 states out of the 3^3 = 27 trit-states over {-,0,+} -- off, all-on, and three two-way channels. Both are eight and they are not the same eight. AND THE PHYSICAL TEST SETTLES WHICH MATTERS. Vary all three signs at M = 1, r = 0.3, a = 0.99 and watch g_rr: EIGHT STATES, TWO DISTINCT VALUES -- 0.191449 for the four m > 0 rows and 0.053889 for the four m < 0 rows. PHI\'S SIGN DOES NOT ENTER g_rr AT ALL, which is coefficients.py\'s time/space split again: the time thread does not touch radial distance. A\'S SIGN DOES NOT ENTER EITHER, because only a^2 appears, SO THE INTERSECTION THREAD IS SIGN-BLIND and contributes a magnitude rather than a direction. ONLY m\'S SIGN CHANGES ANYTHING. THE EIGHT-KNOB PICTURE IS RIGHT ABOUT THE STATE SPACE AND WRONG ABOUT THE CONTROL SPACE: there are eight configurations and TWO KNOBS THAT DO ANYTHING TO RADIAL CONTRACTION, the sign of m and the magnitude of a. And both m > 0 rows contract here anyway, because a^2 = 0.9801 exceeds 2 M r = 0.6 -- the rotation finding showing up inside the table"),
  ("THE-ONLY-CONJECTURE-GAP-IS-THEIRS", 0, +1, 0, "gaps.py",
-  "M: \'the one known counterexample to our central theorem is hidden by something unproven -- conclusions are drawn across gaps, and our gap is much smaller\'. THE CLAIM SURVIVES BEING MADE PRECISE, and the way to make it precise is to stop asking how BIG a gap is and ask WHAT WOULD CLOSE IT. Sorted by kind -- CONJECTURE, COMPUTATION, SEARCH, DECISION, MEASUREMENT -- the census is: THEIRS one CONJECTURE (cosmic censorship, Penrose 1969, hiding threads.py\'s Kerr counterexample, OPEN FIFTY-SEVEN YEARS) and one COMPUTATION (Pfenning-Ford apply a FLAT-SPACE quantum inequality to a CURVED metric, the exact treatment being one their own paper calls \'exceptionally difficult\'); OURS three COMPUTATIONS (evaluate Fewster-Osterbrink Thm 4.2 for a SPECIFIED STATE -- the theorem EXISTS and COVERS xi = 1/6; redo magnitude.py\'s area law for p-brane sources; solve the Israel junction conditions membrane.py flagged), one SEARCH (does ANY EXPOSED stationary configuration contract with M > 0, newly posed by threads.py) and one DECISION (f(R) and scalar-tensor scope, M\'s, open the whole project and asserted None in wormhole.py\'s own selftest so nobody can quietly decide it). THE ONLY CONJECTURE-GRADE GAP IN THE PICTURE IS ON THE SIDE THAT HIDES THE COUNTEREXAMPLE FROM US. NOT ONE GAP ON OUR SIDE WAITS ON AN UNPROVEN CONJECTURE. WHAT THAT BUYS IS TESTABILITY AND NOT CORRECTNESS: a computation can be done this year by someone who decides to and a conjecture open since 1969 cannot be scheduled, which is millennium.py\'s reason for preferring an open question in geometric analysis to a prize problem. AND THE CENSORSHIP GAP, EVEN BREAKING OUR WAY, WOULD NOT SUPPLY A ROUTE -- over-extremal Kerr has no known formation process, sub-extremal has no return, and neither is a corridor BETWEEN TWO PLACES. Epistemically interesting, operationally empty. This file is provenance.py\'s sequel: that one classified CLAIMS by how they were come by, this one classifies GAPS by what would close them"),
+  "M: \'the one known counterexample to our central theorem is hidden by something unproven -- conclusions are drawn across gaps, and our gap is much smaller\'. THE CLAIM SURVIVES BEING MADE PRECISE, and the way to make it precise is to stop asking how BIG a gap is and ask WHAT WOULD CLOSE IT. Sorted by kind -- CONJECTURE, COMPUTATION, SEARCH, DECISION, MEASUREMENT -- the census is: THEIRS one CONJECTURE (cosmic censorship, Penrose 1969, hiding threads.py\'s Kerr counterexample, OPEN FIFTY-SEVEN YEARS) and one COMPUTATION (Pfenning-Ford apply a FLAT-SPACE quantum inequality to a CURVED metric, the exact treatment being one their own paper calls \'exceptionally difficult\'); OURS three COMPUTATIONS (evaluate Fewster-Osterbrink Thm 4.2 for a SPECIFIED STATE -- the theorem EXISTS and COVERS xi = 1/6, for a Hadamard state in a globally hyperbolic neighbourhood (qeihps.FORM_TAGS, DOCKET 67 follow-up; on HPS's state, not established Hadamard, it is REFUSED); redo magnitude.py\'s area law for p-brane sources; solve the Israel junction conditions membrane.py flagged), one SEARCH (does ANY EXPOSED stationary configuration contract with M > 0, newly posed by threads.py) and one DECISION (f(R) and scalar-tensor scope, M\'s, open the whole project and asserted None in wormhole.py\'s own selftest so nobody can quietly decide it -- since DECIDED by M on 2026-09-11, modified gravity counts, wormhole.SCOPE_CHOSEN_HERE, so that gap is closed; DOCKET 67 follow-up). THE ONLY CONJECTURE-GRADE GAP IN THE PICTURE IS ON THE SIDE THAT HIDES THE COUNTEREXAMPLE FROM US. NOT ONE GAP ON OUR SIDE WAITS ON AN UNPROVEN CONJECTURE. WHAT THAT BUYS IS TESTABILITY AND NOT CORRECTNESS: a computation can be done this year by someone who decides to and a conjecture open since 1969 cannot be scheduled, which is millennium.py\'s reason for preferring an open question in geometric analysis to a prize problem. AND THE CENSORSHIP GAP, EVEN BREAKING OUR WAY, WOULD NOT SUPPLY A ROUTE -- over-extremal Kerr has no known formation process, sub-extremal has no return, and neither is a corridor BETWEEN TWO PLACES. Epistemically interesting, operationally empty. This file is provenance.py\'s sequel: that one classified CLAIMS by how they were come by, this one classifies GAPS by what would close them"),
  ("FOUR-OF-FIVE-CLOSURES-WENT-AGAINST-US", 0, -1, 0, "gaps.py",
   "AND THE SCORECARD IS IN THE SAME FILE SO THAT THE CENSUS CANNOT BE QUOTED ALONE. Of the five gaps this session actually closed, FOUR WENT AGAINST US: L3 the rate (the logarithm is the BEST case and the strong field returns strictly less), L4 the QEI exponent (the PROVED bound carries tau^-4, not R^-2 -- the R^-2 lives in an estimate), the L2 extra-dimension branch (the biconditional is exact in every D and the rate is worse in every D above four), and Casimir as a route (already priced by candidates.py and magnitude.py, same sub-Planckian wall). ONE WENT FOR US: L1, rotation -- threads.py showing Kerr contracts with M > 0 and certify.py\'s biconditional is static-only. CLOSABLE IS NOT THE SAME AS FAVOURABLE, and this tree keeps the two apart on purpose. TWO THINGS QUALIFY THE COUNT WITHOUT OVERTURNING IT: the one that went FOR us is THE NEWEST, which is a fact about direction of travel and not only about a tally; and it is the only one that weakened a THEOREM rather than a bound, the other four having tightened or confirmed limits. THE HONEST SUMMARY OF THE SESSION IS THAT THE BOUNDS GOT TIGHTER AND THE THEOREM GOT WEAKER, AND THOSE PULL IN OPPOSITE DIRECTIONS. NO GAP IS CLOSED BY THIS PASS -- naming what would close something is not closing it, and a census is not a result"),
  ("BOYER-LINDQUIST-G-RR-IS-NOT-CONTRACTION", 0, -1, 0, "expose.py",
@@ -1358,20 +1623,27 @@ FINDINGS = [
   "AND THE DEEPEST FORM OF THE OBSTRUCTION IS THE FIRST RESULT TURNED AROUND, WHICH IS WHY THIS FILE IS WORTH MORE THAN A NEGATIVE. OPENING A THROAT REQUIRES w > 1 -- measured here, the Simpson-Visser throat is traversable only above a = 2M where w exceeds one. LINEAR MINIMALLY-COUPLED ELECTRODYNAMICS DELIVERS EXACTLY 1, ALWAYS, AND IT IS PINNED THERE BY A SYMMETRY OF THE FIELD RATHER THAN BY ANY BOUND ANYONE IMPOSED. THE FIELD SITS PRECISELY ON THE LINE IT WOULD HAVE TO CROSS. That is switch.py\'s finding sharpened past recognition: that file measured |T(F) - T(-F)| = 0.000e+00 exactly and concluded the switch does nothing; THIS SAYS WHY, and the why is not that the field is far from the boundary but that IT IS ON IT, held there by the same t-r boost invariance that makes it electromagnetism. A mechanism cannot be nudged past a threshold it saturates identically. THE ONE PUBLISHED ROUTE PAST IS NON-MINIMAL COUPLING: arXiv:2608.08208 sources a black bounce with NON-MINIMALLY COUPLED linear electrodynamics and a canonical scalar, and non-minimal means xi =/= 0, coupling to curvature, OUTSIDE GENERAL RELATIVITY -- which is wormhole.py\'s SCOPE_CHOSEN_HERE = None, gaps.py\'s single DECISION-grade gap, and M\'s. THIRD ASSERTION IN A ROW TO LAND ON THAT ONE FLAG, and this time arriving from the equation of state rather than from geometry or from direction. AND THE ENTANGLEMENT CLAUSE THE TREE ALREADY HOLDS: ER = EPR pairs a two-sided black hole with entanglement and THE BRIDGE IT GIVES IS NOT TRAVERSABLE -- entanglement alone opens nothing -- while gjw.py holds the version that does, a DIRECT COUPLING between the boundaries, which is an EXTERNAL CAUSAL PATH and is priced there. \'Entangled wormhole\' is a real object and it is not an open one"),
  ("A-FAULT-IN-THE-TEST-NOT-THE-CODE", 0, -1, 0, "emtension.py",
   "AND A FOURTEENTH FAULT WAS CAUGHT IN THIS PASS, IN THE TEST RATHER THAN IN THE MEASUREMENT, WHICH MAKES IT THE SECOND OF ITS KIND AND THE MORE DANGEROUS KIND. The stress formula used here covers the class g_tt g_rr = -1. The first validation fed it f = 1 - b0/r with R = r and CALLED IT MORRIS-THORNE -- but that metric IS SCHWARZSCHILD with M = b0/2, because zero-tidal-force Morris-Thorne has g_tt = -1 and g_rr = 1/(1 - b0/r), TWO DIFFERENT FUNCTIONS, and is therefore OUTSIDE the class the formula covers. The code returned exactly zero because THE INPUT WAS VACUUM, and the mismatch was entirely in the expected value. HAD I TRUSTED THE FAILING TEST I WOULD HAVE BROKEN WORKING CODE -- which is the characteristic danger of a bad test as against a bad measurement: a wrong measurement gives a wrong answer, a wrong test corrupts a right one. Replaced with Reissner-Nordstrom, which is INSIDE the class, is NOT vacuum, and has an exact closed-form answer, reproducing rho = Q^2/8 pi r^4 to fourteen digits at r = 1.5, 3 and 10. AND THE REPLACEMENT VALIDATION HANDED SECTION 1 ITS RESULT, because the metric that was available to validate against IS THE ELECTROMAGNETIC ONE: rho + p_r = 0 identically in Reissner-Nordstrom, at every radius and every charge, which is w = 1 before the flat-space derivation was even run. The fix for the fault produced the finding"),
+# CORRECTED (DOCKET 67): first written 'under FORTY random unitaries ... the worst deviation ...
+#   is 1.110e-16'; 1.110e-16 is the report's six draws, the selftest's forty
+#   give 2.220e-16 (no-communication-theorem).
  ("FOUR-CLAUSES-AND-ALL-FOUR-ARE-EXACT", +1, 0, +1, "transit.py",
-  "M: \'not traversable -- correct, at least not in the sense we normally think of for traversal. It is an extension. Two sides read to each other and then collapsed the moment they touch. The object in transition transits, but does so without traversal\'. FOUR CLAUSES AND ALL FOUR ARE EXACTLY RIGHT, WHICH HAS NOT HAPPENED BEFORE IN THIS PROJECT. The mechanism has a name -- QUANTUM STATE TELEPORTATION, gravitationally the Gao-Jafferis-Wall protocol gjw.py already holds -- and M reached its four defining properties by reasoning without naming it. CLAUSE ONE, the two sides read to each other AND THE READING CARRIES NOTHING ALONE: a Bell pair puts B at diag(0.500000, 0.500000) with entanglement entropy exactly 1.000000000 bit, and under FORTY random unitaries applied at A the worst deviation in B\'s reduced state is 1.110e-16. That is the no-communication theorem measured rather than cited, and it is simultaneously what makes the two sides read to each other and what stops the reading from signalling. CLAUSE TWO, IT TRANSITS WITHOUT TRAVERSAL, AND EXACTLY: fidelity 1.000000000000000 on all four Bell outcomes, each at p = 0.25, across twelve trials on random states -- and NO WORLDLINE CROSSES ANYTHING, the state ceases at A and appears at B. \'Transit without traversal\' is not a loose description of this, IT IS THE PRECISE ONE, and physics has no better phrase for it"),
+  "M: \'not traversable -- correct, at least not in the sense we normally think of for traversal. It is an extension. Two sides read to each other and then collapsed the moment they touch. The object in transition transits, but does so without traversal\'. FOUR CLAUSES AND ALL FOUR ARE EXACTLY RIGHT, WHICH HAS NOT HAPPENED BEFORE IN THIS PROJECT. The mechanism has a name -- QUANTUM STATE TELEPORTATION, gravitationally the Gao-Jafferis-Wall protocol gjw.py already holds -- and M reached its four defining properties by reasoning without naming it. CLAUSE ONE, the two sides read to each other AND THE READING CARRIES NOTHING ALONE: a Bell pair puts B at diag(0.500000, 0.500000) with entanglement entropy exactly 1.000000000 bit, and under random unitaries applied at A the worst deviation in B\'s reduced state is 1.110e-16 over the report\'s six draws (the selftest\'s forty give 2.220e-16 and print only a boolean). That is the no-communication theorem measured rather than cited, and it is simultaneously what makes the two sides read to each other and what stops the reading from signalling. CLAUSE TWO, IT TRANSITS WITHOUT TRAVERSAL, AND EXACTLY: fidelity 1.000000000000000 on all four Bell outcomes, each at p = 0.25, across twelve trials on random states -- and NO WORLDLINE CROSSES ANYTHING, the state ceases at A and appears at B. \'Transit without traversal\' is not a loose description of this, IT IS THE PRECISE ONE, and physics has no better phrase for it"),
  ("THE-CHANNEL-COLLAPSES-BY-CONSERVATION-NOT-DESIGN", +1, 0, +1, "transit.py",
   "CLAUSE THREE IS THE ONE WORTH THE MOST AND IT IS EXACT: \'collapsed the moment they touch\'. Channel entanglement BEFORE the Bell measurement is 1.000000000 bit at purity 0.500000000; AFTER it is 0.000000000 bit at purity 1.000000000. ONE PAIR, ONE TRANSIT -- THE CHANNEL IS DESTROYED BY BEING USED. AND THAT IS A CONSERVATION LAW RATHER THAN A DESIGN CHOICE, which is a different and stronger thing than anything the tree has had: teardown.py made closability a property to engineer and membrane.py made it a consequence of tension running out -- \'the corridor is open only as long as tension lasts\' -- but here THERE IS NO TENSION TO RUN OUT AND THE ACT OF TRANSITING IS THE ACT OF CLOSING. You could not hold it open if you wanted to. M asked long ago for a corridor whose off-switch was in the mechanism rather than bolted on; this is the only object in the project where the off-switch is not even a switch. CLAUSE FOUR, \'the object in transition TRANSITS\', is the right verb and not a loose one: after the Bell measurement A\'s qubit is MAXIMALLY MIXED at S = 1.000000000 bit and holds no trace of what it carried. IT IS A MOVE AND NOT A COPY, with no-cloning enforced BY the protocol rather than imposed ON it. What was here is no longer here"),
+# CORRECTED (DOCKET 67): first written 'PROVABLY SO, because the no-communication theorem is a
+#   theorem' -- proved for linear, completely positive dynamics only.
  ("ZERO-ADVANTAGE-AND-IT-IS-PROVABLE", 0, -1, 0, "transit.py",
-  "AND THE PROJECT\'S OWN STANDING CONSTRAINT KILLS IT WITH NO AMBIGUITY WHATEVER, WHICH IS WHY ALL FOUR CLAUSES BEING RIGHT IS COMPATIBLE WITH THE ANSWER BEING NO. M\'s rule for this thread has been \'if we can\'t do it faster and cheap then there is no point\'. WITHHOLD THE TWO CLASSICAL BITS AND B HAS NOTHING: averaged over the four equiprobable outcomes with corrections not applied, rho_B = [[+0.500000000, +0.000000000], [+0.000000000, +0.500000000]] -- MAXIMALLY MIXED, deviation from I/2 of 1.110e-16, ZERO INFORMATION -- across three independent random input states. THE STATE DOES NOT EXIST AT THE FAR END UNTIL TWO CLASSICAL BITS ARRIVE THROUGH ORDINARY SPACE AT <= c. Measured against light over four distances -- Earth-Moon 1.282 s, Earth-Mars at minimum 182.126 s, Earth-Proxima 4.246 yr, a Milky Way crossing 99984.675 yr -- THE ADVANTAGE IS 0.000, 0.000, 0.000, 0.000. NOT SMALL AND NOT HARD: IDENTICAL, AND PROVABLY SO, because the no-communication theorem is a theorem. This is the only route in the entire project whose failure is proved rather than bounded -- every other door closed on a magnitude, a sub-Planckian crossover or an unresolved conjecture, and this one closes on an identity"),
+  "AND THE PROJECT\'S OWN STANDING CONSTRAINT KILLS IT WITH NO AMBIGUITY WHATEVER, WHICH IS WHY ALL FOUR CLAUSES BEING RIGHT IS COMPATIBLE WITH THE ANSWER BEING NO. M\'s rule for this thread has been \'if we can\'t do it faster and cheap then there is no point\'. WITHHOLD THE TWO CLASSICAL BITS AND B HAS NOTHING: averaged over the four equiprobable outcomes with corrections not applied, rho_B = [[+0.500000000, +0.000000000], [+0.000000000, +0.500000000]] -- MAXIMALLY MIXED, deviation from I/2 of 1.110e-16, ZERO INFORMATION -- across three independent random input states. THE STATE DOES NOT EXIST AT THE FAR END UNTIL TWO CLASSICAL BITS ARRIVE THROUGH ORDINARY SPACE AT <= c. Measured against light over four distances -- Earth-Moon 1.282 s, Earth-Mars at minimum 182.126 s, Earth-Proxima 4.246 yr, a Milky Way crossing 99984.675 yr -- THE ADVANTAGE IS 0.000, 0.000, 0.000, 0.000. NOT SMALL AND NOT HARD: IDENTICAL, AND PROVABLY SO for linear, completely positive, non-selective quantum dynamics on tensor-product subsystems with no closed causal loops, because inside that class the no-communication theorem is a theorem (a nonlinear local map does signal: Gisin; Simon-Buzek-Gisin). This is the only route in the entire project whose failure is proved, within those hypotheses, rather than bounded -- every other door closed on a magnitude, a crossover (sub-Planckian with Ford-Roman read at t0 = R/c, 5.625229 l_P on the duration bound -- DOCKET 67, on M's ruling \"Carry both\") or an unresolved conjecture, and this one closes on an identity"),
  ("THE-CORRIDOR-MUST-BE-TRAVERSED-TO-EXIST", 0, -1, 0, "transit.py",
   "AND THE DEEPEST PART IS THAT THE TRAVERSAL IS NOT REMOVED, IT IS MOVED EARLIER, which is a genuinely new shape of obstruction for this tree. A Bell pair spanning distance D REQUIRED SOMETHING TO CROSS D AT <= c BEFOREHAND. THE CORRIDOR MUST BE TRAVERSED IN ORDER TO EXIST. You pay the full light-speed trip ONCE, in advance, to lay the channel; after that every transit is GENUINELY traversal-free -- M is right about that and it is not a technicality -- and still arrives at exactly light speed. So the mechanism does exactly what M says and the accounting defeats it at a step his description does not mention, the step BEFORE the transit rather than during it. AND IT CARRIES STATE, NOT SUBSTANCE: teleportation writes a quantum state onto matter ALREADY AT THE DESTINATION, moving no mass and no energy, so for \'the object in transition\' to arrive an identical stock of matter must already be there -- and that had to travel too. THREE THINGS ARE TRUE TOGETHER AND ALL THREE HAVE TO BE SAID: THE MECHANISM IS REAL, THE DESCRIPTION OF IT IS CORRECT IN ALL FOUR CLAUSES, AND IT IS NOT FASTER. A correct description of a real mechanism that does not do the job is a different outcome from a wrong description, and the tree records it as one"),
  ("THE-LIGHT-CONE-IS-THE-AXIS-NOT-A-PERCEPTION", 0, -1, 0, "axis.py",
   "M: \'c is also an observational perception by another object viewing it, and my method theory says all perceptions are a definition of a singular whole definition viewed from a different axis or plane or dimension position\'. THE METHOD THEORY IS EXACTLY RIGHT ABOUT THE SHAPE AND THE SHAPE SETTLES c AGAINST IT, which is the strongest form a theory can be tested in -- by its own machinery rather than against it. A LORENTZ BOOST IS LITERALLY A DIFFERENT AXIS POSITION: a rotation in the t-x plane, parameterised by a rapidity instead of an angle. Rotate and every perception moves -- at v = 0.999999, rapidity 7.2543, LENGTH contracts to 0.001414, DURATION and ENERGY dilate to 707.106958, FREQUENCY Dopplers to 0.000707 -- factors of 707 and 1400 across the table. AND c READS 1.000000000000000 IN EVERY FRAME, TO THE LAST DIGIT, at v = 0, 0.1, 0.5, 0.9, 0.99, 0.999999 and at negative velocities too. THE REASON IS M\'S OWN THEORY AT ITS SHARPEST AND IT IS AN EIGENVALUE STATEMENT: a boost of rapidity eta is [[cosh eta, -sinh eta], [-sinh eta, cosh eta]] and THE TWO NULL DIRECTIONS (1,+1) AND (1,-1) ARE ITS EIGENVECTORS, with eigenvalues e^-eta and e^+eta -- verified at eta = 0.25, 0.5, 1.0, 2.5 and 5.0 to 1e-12. THE LIGHT CONE IS THE FIXED LINE OF THE ROTATION. A boost RESCALES it and CANNOT TURN IT, because the light cone IS the axis everything else is rotating about. So all perceptions ARE one whole viewed from different axis positions -- that half is not a metaphor, it is the definition of Minkowski geometry -- and c IS NOT ONE OF THE PERCEPTIONS. AND THE SINGULAR WHOLE HAS A NAME AND A VALUE: s^2 = -c^2 t^2 + x^2, measured at -5.000000000000 across six frames while t and x themselves range over 70x"),
  ("TWO-SPEEDS-OF-LIGHT-AND-ONE-IS-A-PERCEPTION", +1, 0, +1, "axis.py",
   "AND THERE ARE TWO SPEEDS OF LIGHT, WHICH IS WHERE M\'S INTUITION HAS REAL PURCHASE AND WHERE definitions.py\'s WHOLE DISCIPLINE RETURNS: two things share a name and only one of them is invariant. THE LOCAL PROPER SPEED -- what an observer AT the event measures with their own ruler and clock -- is always exactly c, section 1 above. THE COORDINATE SPEED dr/dt IN A CHOSEN CHART IS NOT, and it moves freely: in Schwarzschild the radial null ray has dr/dt = 1 - 2M/r, measured at 0.000050, 0.200000, 0.333333, 0.666667, 0.900000 and 0.999800 for r/M = 2.0001, 2.5, 3, 6, 20 and 1e4. IT FALLS TO ZERO AT THE HORIZON WHILE THE LOCAL SPEED NEVER BUDGES. M IS RIGHT THAT ONE OF THESE IS AN OBSERVATIONAL PERCEPTION -- it is the coordinate one, and it is a perception OF THE CHART rather than of a viewer, which is a sharper thing than he claimed and a true one. This is the eleventh entry in definitions.py\'s census reached independently: \'the speed of light\' names two quantities, the literature uses both correctly, and which one you mean decides whether the question has an answer"),
+# CORRECTED (DOCKET 67): first written 'provably, exactly ... because the no-communication theorem
+#   is a theorem' -- proved for linear, completely positive dynamics only.
  ("THE-CORRIDOR-NEVER-CLOSED-ON-C", 0, -1, 0, "axis.py",
-  "AND THE COORDINATE SPEED IS EXACTLY WHAT THIS PROJECT HAS BEEN EXPLOITING SINCE THE FIRST INSTRUMENT, WHICH MAKES THE TWO CLOSURES DIFFERENT IN KIND -- and that distinction is this file\'s result rather than its framing. Delta_d = (G/c^2) M Lambda WAS NEVER A PLAN TO CHANGE c. Light crosses the corridor at exactly c; THERE IS SIMPLY LESS CORRIDOR TO CROSS. So: transit.py\'s route CLOSES ON c -- provably, exactly, advantage 0.000 at Earth-Moon, Earth-Mars, Earth-Proxima and a galactic crossing, because the no-communication theorem is a theorem. THE CORRIDOR ROUTE DOES NOT CLOSE ON c AT ALL. It closes on MAGNITUDE, c^4/(G Lambda) = 1.212374e43 J per metre -- 6.782e-05 solar rest masses to shorten ONE METRE, 2.607e+04 to shorten Earth-Moon, 2.725e+12 to shorten Earth-Proxima -- and on needing m < 0, which certify.py proved necessary in the static case and expose.py failed to find outside a horizon over 3.5 million sampled points. \'ONLY AS FAST AS c\' IS PRECISELY RIGHT ABOUT TELEPORTATION AND PRECISELY WRONG ABOUT THE CORRIDOR: the corridor never promised to beat c locally and its failure has nothing to do with c. NOTHING IN THIS PROJECT HAS EVER NEEDED c TO BE A PERCEPTION. IT NEEDED DISTANCE TO BE ONE, AND DISTANCE IS. That is not a consolation and it is not a reopening -- it is the reason the two dead ends are not the same dead end: ONE IS CLOSED BY A THEOREM AND THE OTHER BY A BILL, and only one of those is the kind of thing that can ever be paid"),
+  "AND THE COORDINATE SPEED IS EXACTLY WHAT THIS PROJECT HAS BEEN EXPLOITING SINCE THE FIRST INSTRUMENT, WHICH MAKES THE TWO CLOSURES DIFFERENT IN KIND -- and that distinction is this file\'s result rather than its framing. Delta_d = (G/c^2) M Lambda WAS NEVER A PLAN TO CHANGE c. Light crosses the corridor at exactly c; THERE IS SIMPLY LESS CORRIDOR TO CROSS. So: transit.py\'s route CLOSES ON c -- provably for linear, completely positive quantum dynamics, exactly, advantage 0.000 at Earth-Moon, Earth-Mars, Earth-Proxima and a galactic crossing, because in that class the no-communication theorem is a theorem. THE CORRIDOR ROUTE DOES NOT CLOSE ON c AT ALL. It closes on MAGNITUDE, c^4/(G Lambda) = 1.212374e43 J per metre -- 6.782e-05 solar rest masses to shorten ONE METRE, 2.607e+04 to shorten Earth-Moon, 2.725e+12 to shorten Earth-Proxima -- and on needing m < 0, which certify.py proved necessary in the static case and expose.py failed to find outside a horizon over 3.5 million sampled points. \'ONLY AS FAST AS c\' IS PRECISELY RIGHT ABOUT TELEPORTATION AND PRECISELY WRONG ABOUT THE CORRIDOR: the corridor never promised to beat c locally and its failure has nothing to do with c. NOTHING IN THIS PROJECT HAS EVER NEEDED c TO BE A PERCEPTION. IT NEEDED DISTANCE TO BE ONE, AND DISTANCE IS. That is not a consolation and it is not a reopening -- it is the reason the two dead ends are not the same dead end: ONE IS CLOSED BY A THEOREM AND THE OTHER BY A BILL, and only one of those is the kind of thing that can ever be paid"),
  ("THE-EXTRA-DIMENSION-VALUE-IS-RAPIDITY", +1, 0, +1, "perception.py",
   "M: \'distance is measurable by the speed(s) of light but it is still a perception... us viewing c or c viewing the corridor. Or the corridor viewing c, which could be us viewing c with an extra dimension value\'. THREE CLAIMS AND ALL THREE LAND. FIRST, \'c VIEWING THE CORRIDOR\': there is NO SUCH FRAME -- a photon\'s rapidity diverges -- BUT THE LIMIT IS EXACT AND IT IS ZERO. Perceived distance to Proxima falls 3.677473, 1.850954, 0.599026, 0.060051, 0.006005 ly as v/c climbs through 0.5, 0.9, 0.99, 0.9999, 0.999999, and along a null geodesic proper time and proper length are EXACTLY zero. THE CORRIDOR, VIEWED FROM c, HAS NO LENGTH AT ALL -- not shortened, none. SECOND AND BIGGEST, \'US VIEWING c WITH AN EXTRA DIMENSION VALUE\': THE VALUE EXISTS AND IT HAS A NAME. It is RAPIDITY, eta = arctanh(v/c). VELOCITY IS THE BOUNDED PERCEPTION AND RAPIDITY IS THE UNBOUNDED COORDINATE -- v/c has saturated at 1.000000000000000 by eta = 20 while eta = 50 gives gamma = 2.592353e+21 and is perfectly ordinary. AND RAPIDITIES ADD LINEARLY WHERE VELOCITIES DO NOT: eta 3 composed with eta 4 is 7.000000000005 exactly, while v = 0.995054754 composed with 0.999329300 gives 0.999998337 rather than their sum. IN RAPIDITY THERE IS NO SPEED LIMIT. THE LIMIT IS A PROJECTION ARTIFACT, IN EXACTLY THE SENSE M\'S METHOD THEORY PREDICTS -- and axis.py\'s own boost table already carried the rapidity column one pass earlier and did not read it"),
  ("THE-CHEAP-ROUTE-WAS-IN-THE-SAME-EQUATIONS", 0, -1, 0, "perception.py",
@@ -1394,8 +1666,12 @@ FINDINGS = [
   "THE SCOPE DECISION IS MADE. 2026-09-11. SCOPE_CHOSEN_HERE = \'modified gravity counts\', chosen by M. That flag was None from the day wormhole.py was written and ASSERTED None IN ITS OWN SELFTEST so that nobody -- me included -- could resolve it quietly by letting an instrument drift into f(R) and calling the result proven. gaps.py classified it as THE SINGLE DECISION-GRADE GAP IN THE WHOLE CENSUS: the one gap that was not a computation, a search or a conjecture, and the only one that was M\'s rather than anyone\'s to calculate. THREE ASSERTIONS IN A ROW LANDED ON IT BEFORE IT WAS MADE -- orient.py finding black bounces as VACUUM solutions of metric theories in four and higher dimensions (arXiv:2608.02771), a throat inside a horizon with NO exotic matter but not in GR; emtension.py finding one sourced by NON-MINIMALLY COUPLED linear electrodynamics (arXiv:2608.08208); and emtension.py\'s reason, that linear minimally-coupled EM is PINNED at w = 1 by a symmetry so nothing inside GR can cross it. WHAT THE DECISION DOES: IT TURNS THE CORRIDOR FROM A PROHIBITION INTO A BILL. Inside GR certify.py\'s m < 0 is a theorem and expose.py found no exposed positive-mass instance in 3.5e6 sampled points; outside GR the same geometry is a VACUUM SOLUTION and there is no exotic matter to buy, so the question becomes what CONSTRUCTION costs and nobody has computed that. WHAT IT DOES NOT DO, recorded in the file as three explicit flags: it makes NOTHING PROVEN, since every result derived under it is CONDITIONAL ON IT and must say so; a scope choice is A DECLARATION ABOUT WHAT WILL BE ARGUED, not evidence; and it LICENSES NOTHING ALREADY SEATED, since findings recorded before this date were derived in GR and stay GR"),
  ("FIVE READINGS-OF-MANY-C-AND-FIVE-DIFFERENT-REASONS", 0, -1, 0, "manyc.py",
   "M: \'I am going to assert the many speeds of light hypothesis\'. IT HAS FIVE DISTINCT READINGS WITH FIVE DIFFERENT STATUSES, and none of them buys transit time -- the content is that THE FIVE REASONS DIFFER, which is definitions.py\'s discipline applied to the newest assertion rather than a verdict on it. (1) c IN A MEDIUM is TRUE AND USELESS: phase velocity exceeds c routinely and so can group velocity in anomalous dispersion, and NEITHER SIGNALS -- the wavefront is always exactly c. (2) THE ONE-WAY SPEED is TRUE AND EMPTY, and it is roundtrip.py\'s own result one pass earlier: a convention settable anywhere in (0, infinity) with the round trip 2D/c regardless. (3) DIFFERENT c PER FIELD is MEASURED AND BOUNDED. (4) ENERGY-DEPENDENT c is BOUNDED HARDER AND WRONG-SIGNED: linear LIV from GRB time-of-flight pushes E_QG to or past the Planck energy 1.22e19 GeV, and the GENERIC correction DELAYS the high-energy photon rather than advancing it, while superluminal corrections carry the extra penalty of VACUUM CHERENKOV RADIATION, which drains a superluminal particle in flight -- so the very property that would make it useful is the property that stops it arriving. (5) A COSMOLOGICALLY VARYING c IS NOT AN OBSERVABLE AT ALL. FIVE READINGS, FIVE STATUSES, ONE VERDICT, AND THE VERDICT WAS NEVER THE INTERESTING PART"),
+# CORRECTED (DOCKET 67): first written '|c_gw - c_gamma|/c ~ 4.226e-16, AGREEING TO ONE PART IN
+#   2.4e15' (the tree's own lag ratio, not a published figure) and 'a field
+#   running 3e-15 fast saves 4.02e-07 s ... 2.46e-03 s ... 0.24 SECONDS' (the
+#   slow-side magnitude used as a fast speed, overstating the saving 4.29x).
  ("GW170817-BOUNDS-THE-ONE-READING-THE-SCOPE-OPENED", 0, -1, 0, "manyc.py",
-  "AND READING 3 IS THE LIVE ONE PRECISELY BECAUSE OF THE SCOPE DECISION MADE IN THE SAME BREATH, WHICH IS AN UNCOMFORTABLE COINCIDENCE WORTH STATING PLAINLY: bimetric and scalar-tensor theories with c_gw =/= c_gamma ARE MODIFIED GRAVITY, so yesterday they were out of scope and today they are in it -- AND THEY ARE THE READING WITH THE TIGHTEST EXPERIMENTAL BOUND IN THE ENTIRE SET. GW170817: a binary neutron star merger at 40 Mpc sent gravitational waves and gamma rays across 130 MILLION YEARS of light travel and they arrived 1.74 SECONDS APART. |c_gw - c_gamma|/c ~ 4.226e-16, AGREEING TO ONE PART IN 2.4e15, with the published two-sided bound at -3e-15 <= (v_gw - c)/c <= +7e-16 (arXiv:1710.05834, verified this session). WHOLE CLASSES OF SCALAR-TENSOR THEORY DIED ON THAT ONE MEASUREMENT. AND EVEN AT THE VERY EDGE OF THE SURVIVING BAND IT BUYS NOTHING: a field running 3e-15 fast saves 4.02e-07 s to Proxima, 2.46e-03 s to the galactic centre, and 0.24 SECONDS ON A CROSSING OF ANDROMEDA -- two and a half million years of travel to save under a minute, and that is THE ENTIRE BUDGET the tightest surviving reading has. The scope decision opened exactly one door and the door was already measured shut to fifteen decimal places"),
+  "AND READING 3 IS THE LIVE ONE PRECISELY BECAUSE OF THE SCOPE DECISION MADE IN THE SAME BREATH, WHICH IS AN UNCOMFORTABLE COINCIDENCE WORTH STATING PLAINLY: bimetric and scalar-tensor theories with c_gw =/= c_gamma ARE MODIFIED GRAVITY, so yesterday they were out of scope and today they are in it -- AND THEY ARE THE READING WITH THE TIGHTEST EXPERIMENTAL BOUND IN THE ENTIRE SET. GW170817: a binary neutron star merger at 40 Mpc sent gravitational waves and gamma rays across 130 MILLION YEARS of light travel and they arrived 1.74 SECONDS APART -- one part in 2.4e15 of the light time, this tree\'s own ratio (4.226e-16) -- with the published two-sided bound at -3e-15 <= (v_GW - v_EM)/v_EM <= +7e-16 (arXiv:1710.05834, verified this session; the upper edge assumes simultaneous emission and D = 26 Mpc, one line of sight). WHOLE CLASSES OF SCALAR-TENSOR THEORY DIED ON THAT ONE MEASUREMENT. AND EVEN AT THE VERY EDGE OF THE SURVIVING BAND IT BUYS NOTHING: a field running at the fast edge, +7e-16, saves 9.38e-08 s to Proxima, 5.74e-04 s to the galactic centre, and 0.055 SECONDS ON A CROSSING OF ANDROMEDA -- two and a half million years of travel to save under a minute, and that is THE ENTIRE BUDGET the tightest surviving reading has. The scope decision opened exactly one door and the door was already measured shut to fifteen decimal places"),
  ("THE-TREE-PROVED-DUFFS-THEOREM-BEFORE-CITING-IT", +1, 0, 0, "manyc.py",
   "AND READING 5 IS THE ONE THAT MATTERS, BECAUSE THIS TREE ALREADY PROVED IT WITHOUT KNOWING THAT IS WHAT IT WAS DOING. A VARYING DIMENSIONFUL CONSTANT IS NOT A MEASURABLE QUANTITY: c, G and hbar are unit conventions, and only dimensionless ratios such as alpha can be observed to change. That is Duff\'s argument, and three citations were VERIFIED against the paper database in this session rather than recalled -- arXiv:1412.2040 \'How fundamental are fundamental constants?\', stating that the laws of physics should be independent of one\'s choice of units and must be framed in dimensionless numbers; arXiv:physics/0209016, that ONLY dimensionless fundamental constants have experimental consequences; and arXiv:2406.02556, a varying-speed-of-light review whose OWN ABSTRACT concedes that hbar, c, G, e and k are \'merely human constructs whose values and units vary depending on the chosen system of measurement\'. AND invariance.py DERIVED THIS FROM THE CORPUS\'S OWN NUMBERS BEFORE ANYONE HERE HAD READ DUFF: double G, halve c, multiply hbar by ten, over FOURTEEN quantities -- TEN INVARIANT, FOUR MOVED, AND THE SPLIT FALLS EXACTLY ON DIMENSIONLESSNESS, every dimensionless row untouched and every dimensionful row moved, with no exceptions. Its summary line reads \'THE CONSTANTS SET THE SCALE. THE GEOMETRY SETS THE SHAPE.\' THAT SENTENCE IS DUFF\'S THEOREM, WRITTEN FROM MEASUREMENT RATHER THAN FROM CITATION. A varying c changes the SCALE and cannot touch the SHAPE, AND THE OBSTRUCTION HAS ALWAYS BEEN IN THE SHAPE -- invariance.py said exactly that in its own conclusion and nobody read it as a bound on varying-c models, because nobody had asserted one yet. The tree answered this question before it was asked and did not know it held the answer"),
  ("THREE-NEGATIONS-MEASURE-A-BOUNDARY", +1, 0, +1, "triangulate.py",
@@ -1407,7 +1683,7 @@ FINDINGS = [
  ("THE-PROSE-CHANNEL-IS-NOT-CROSS-CHECKED", 0, -1, +1, "triangulate.py",
   "AND AN EIGHTEENTH FAULT WAS COMMITTED IN THIS FILE, ON THIS SUBJECT, WHICH IS WHY IT IS WORTH MORE THAN THE OTHER SEVENTEEN. The first draft of the fault census wrote \'ELEVEN of seventeen\' with the computed table PRINTING 13 THREE LINES ABOVE IT. That is the THIRD INSTANCE of asserting a number beside the computation that refutes it -- after ASSERTED-WITHOUT-ACCESS, where the Clay Institute page was described from recall with a tool available to check it, and after u*v = 1, where the loop threshold was recalled and the very next table disproved it. AND BY THIS FILE\'S OWN SUBJECT, THREE INSTANCES TRIANGULATE. What they intersect at is specific and fixable: A NUMBER WRITTEN IN PROSE WHILE THE COMPUTED VALUE SAT ADJACENT AND UNCONSULTED. THE PROSE CHANNEL AND THE COMPUTED CHANNEL ARE NOT CROSS-CHECKED. That is a mechanism rather than a character flaw, and naming it is exactly what three instances buy that one cannot -- one instance is carelessness, two is a coincidence, THREE IS A CHANNEL. AND THE FIX IS MECHANICAL AND IS ALREADY APPLIED: section 4 of the file interpolates c[\'domain\'] into its own sentence instead of typing a digit, so the prose cannot disagree with the table because the prose IS the table. The claim under test caught its own author using the claim, and then supplied the repair"),
  ("THE-MISSING-CANDIDATE-IS-SPECIFIED-NOT-FOUND", 0, -1, +1, "unidentified.py",
-  "M: \'not about our method, about the work -- three clause failures means an unidentified candidate\'. THE CONFIGURATION IS REAL AND IT WAS ALREADY IN THE TREE, in the opening lines of candidates.py: \'All three fail, they fail at DIFFERENT PLACES, and the way they fail is more informative than the verdict.\' Four candidates against three gates, and the failures hit ALL THREE: negative effective mass FAILS KIND because m* is band curvature and not T_00; Casimir FAILS DEADLINE, because switching it means MOVING PLATES -- mechanical, slower than c, anchored to positive-mass plates -- and MAGNITUDE besides; squeezed vacuum FAILS MAGNITUDE by 52.6 orders at 1 nm; non-minimal coupling FAILS MAGNITUDE BY A PURE NUMBER RATHER THAN BY ORDERS. TRIANGULATE THE THREE AND THE MISSING CANDIDATE IS SPECIFIED: it must supply a GENUINE T_00 < 0 (from the KIND failure), it must have FIELD-THEORETIC switching (from the DEADLINE failure), and it must carry a UV cutoff l_UV <= sqrt(Lambda) l_P = 3.159514 l_P (from the MAGNITUDE failures), since the shortfall is (l_UV/l_P)^2/Lambda and closes at exactly one there. AND THE THIRD CLAUSE IS THE WHOLE MOVEMENT: the live obstruction is not 52.6 ORDERS, it is A FACTOR OF 3.16 IN A LENGTH. WHAT THIS DOES NOT DO IS NAME A CANDIDATE. A SPECIFICATION IS NOT A CANDIDATE. A cutoff at or below ~3 l_P demands a theory valid essentially AT the Planck scale, which is where effective field theory stops being the right description at all, and whether any programme sits there is NOT RESOLVED HERE and is explicitly not resolved from memory -- ANYTHING_KNOWN_MEETS_IT = None, asserted in the selftest so it cannot be filled in quietly"),
+  "M: \'not about our method, about the work -- three clause failures means an unidentified candidate\'. THE CONFIGURATION IS REAL AND IT WAS ALREADY IN THE TREE, in the opening lines of candidates.py: \'All three fail, they fail at DIFFERENT PLACES, and the way they fail is more informative than the verdict.\' Four candidates against three gates, and the failures hit ALL THREE: negative effective mass FAILS KIND because m* is band curvature and not T_00; Casimir FAILS DEADLINE, because switching it means MOVING PLATES -- mechanical, slower than c, anchored to positive-mass plates -- and MAGNITUDE besides; squeezed vacuum FAILS MAGNITUDE by 52.6 orders at 1 nm on Ford-Roman read at t0 = R/c (50.1 on the duration bound -- DOCKET 67, on M's ruling \"Carry both\"); non-minimal coupling FAILS MAGNITUDE BY A PURE NUMBER RATHER THAN BY ORDERS. TRIANGULATE THE THREE AND THE MISSING CANDIDATE IS SPECIFIED: it must supply a GENUINE T_00 < 0 (from the KIND failure), it must have FIELD-THEORETIC switching (from the DEADLINE failure), and it must carry a UV cutoff l_UV <= sqrt(Lambda) l_P = 3.159514 l_P (from the MAGNITUDE failures), since the shortfall is (l_UV/l_P)^2/Lambda and closes at exactly one there. AND THE THIRD CLAUSE IS THE WHOLE MOVEMENT: the live obstruction is not 52.6 ORDERS (50.1 on the duration bound), it is A FACTOR OF 3.16 IN A LENGTH. WHAT THIS DOES NOT DO IS NAME A CANDIDATE. A SPECIFICATION IS NOT A CANDIDATE. A cutoff at or below ~3 l_P demands a theory valid essentially AT the Planck scale, which is where effective field theory stops being the right description at all, and whether any programme sits there is NOT RESOLVED HERE and is explicitly not resolved from memory -- ANYTHING_KNOWN_MEETS_IT = None, asserted in the selftest so it cannot be filled in quietly"),
  ("A-GAP-AND-A-DEGENERACY-BOTH-CALLED-UNDEFINED", +1, 0, +1, "unidentified.py",
   "AND M\'S FOLDED CLAIM -- \'a gap in a complete math chain can be triangulated and answered by ANY three other identified data points\' -- IS TRUE FOR GAPS AND FALSE FOR FREE PARAMETERS, WITH THE CORRIDOR\'S OWN CHAIN CONTAINING ONE OF EACH. Demonstrated both ways: a DETERMINED chain d = ab + c gives up any hidden term to the other three, recovering 22.000000, 7.000000, 5.000000, 3.000000 as each in turn is hidden; a DEGENERATE chain where two quantities enter only as their product NEVER separates them -- six different (a,b) pairs at the same product give ONE distinct value of d, at any precision, ever. SO \'ANY THREE\' IS THE ONE WORD IN THE ASSERTION THAT DOES NOT SURVIVE, and the failure mode is exact rather than a caveat. THE CORRIDOR HAS BOTH, AND NO PASS HAD SEPARATED THEM. coefficients.py censused 25 coefficients and found EXACTLY TWO UNDEFINED, xi and l_UV, both in L4 -- AND THEY ARE UNDEFINED IN DIFFERENT SENSES. l_UV IS A GAP: it enters the magnitude gate ALONE, with xi absent from the shortfall entirely, and the chain closes it at sqrt(Lambda) l_P. xi IS A FREE PARAMETER AND A THEOREM SAYS SO: Fewster-Osterbrink proves NO STATE-INDEPENDENT QEI EXISTS for xi > 0, so the bound is state-dependent and THE STATE IS NOT IN THE CHAIN -- qei.py\'s numerator 3 - 4 xi takes 3.000000, 2.333333 and 2.000000 at minimal, conformal and the FO upper limit, and EVERY xi IN (0, 1/4] IS CONSISTENT WITH EVERYTHING THE CORRIDOR SAYS. It is the product degeneracy in a different dress: not unknown, UNDETERMINED. A CENSUS THAT CALLS BOTH \'UNDEFINED\' IS RIGHT AND IS HIDING THE DISTINCTION THAT DECIDES WHETHER MORE WORK WOULD HELP -- one gap rewards effort and one cannot"),
  ("THE-TREE-INDEXES-BY-PROVENANCE-NOT-APPLICABILITY", 0, -1, +1, "unidentified.py",
@@ -1417,7 +1693,7 @@ FINDINGS = [
  ("WHAT-IS-LEFT-IS-A-ONE-PARAMETER-FAMILY-OF-WIDTH-1-5", 0, -1, +1, "oneobject.py",
   "AND WHAT IS LEFT AFTER SOLVING EVERYTHING SOLVABLE IS NOT ONE OBJECT BUT A ONE-PARAMETER FAMILY, WHICH IS THE PRECISE ANSWER TO THE CLAIM RATHER THAN A HEDGE ON IT. coefficients.py: 25 coefficients, 23 PINNED, 2 UNDEFINED. unidentified.py separated those two -- l_UV is a GAP closing at sqrt(Lambda) l_P = 3.159514 l_P, xi is a FREE PARAMETER that no chain can close because Fewster-Osterbrink proves no state-independent QEI exists for xi > 0. So the complete chain is a CURVE, of dimension exactly ONE, parameterised by xi. AND THE FAMILY IS NARROW, WHICH IS MEASURED AND NOT ASSERTED: Q_A carries xi as (3 - 4 xi), taking 3.000000, 2.666667, 2.333333, 2.200000 and 2.000000 at xi = 0, 1/12, 1/6, 0.2 and 0.25, so THE WIDEST RATIO ACROSS THE ENTIRE ALLOWED RANGE OF THE ONLY FREE PARAMETER IN THE CHAIN IS EXACTLY 1.500000. NOT ORDERS -- FIFTY PERCENT. And xi does not enter the magnitude shortfall at all, which is (l_UV/l_P)^2/Lambda with no xi in it. THE CHAIN IS ONE OBJECT TO WITHIN A FACTOR OF 1.5 ON THE QEI SIDE AND EXACTLY ONE OBJECT ON THE MAGNITUDE SIDE. M is right in form; the chain delivers a curve rather than a point, by exactly one dimension, and that dimension is narrower than most of the numbers this project has had to quote"),
  ("THE-COLLAPSE-NAMES-THE-OBSTRUCTION-IT-DOES-NOT-PAY-IT", 0, -1, +1, "oneobject.py",
-  "AND THE PART THAT HAS TO BE SAID LAST: COLLAPSING THE CHAIN DOES NOT MOVE THE PRICE. Lambda collapsed the entire geometry into one number and the exchange rate is STILL c^4/(G Lambda) = 1.212374e43 J per metre. That is invariance.py\'s split arriving one more time -- THE CONSTANTS SET THE SCALE AND THE GEOMETRY SETS THE SHAPE -- and a collapse is a change in the DESCRIPTION while every route in this project has closed on the shape. Rewriting the pieces as one object rewrites the pieces. BUT WHAT IT BUYS IS REAL AND IT IS WHY THE COEFFICIENT PROGRAMME WAS RIGHT TO RUN: ONE OBJECT MEANS ONE QUESTION. A chain in pieces must be attacked piece by piece, and the tree holds the evidence in its own record. THE MAGNITUDE GATE AS PIECES WAS \'SQUEEZED VACUUM, 52.6 ORDERS SHORT\'. THE SAME GATE COLLAPSED IS \'l_UV <= 3.159514 l_P\'. BOTH ARE TRUE AND THEY ARE THE SAME STATEMENT. What changed is that one of them CAN BE WORKED and the other cannot: 52.6 orders is a wall you describe, and a factor of 3.16 in a length is a number you go and find out about. THE COLLAPSE DOES NOT MAKE IT CHEAPER; IT MAKES THE REMAINING OBSTRUCTION NAMEABLE, AND ONLY A NAMED OBSTRUCTION HAS A NEXT STEP. That is the whole return on the programme M started with \'solve for ALL coefficients\', and it is the difference between a project that is stuck and one that knows what it is waiting for"),
+  "AND THE PART THAT HAS TO BE SAID LAST: COLLAPSING THE CHAIN DOES NOT MOVE THE PRICE. Lambda collapsed the entire geometry into one number and the exchange rate is STILL c^4/(G Lambda) = 1.212374e43 J per metre. That is invariance.py\'s split arriving one more time -- THE CONSTANTS SET THE SCALE AND THE GEOMETRY SETS THE SHAPE -- and a collapse is a change in the DESCRIPTION while every route in this project has closed on the shape. Rewriting the pieces as one object rewrites the pieces. BUT WHAT IT BUYS IS REAL AND IT IS WHY THE COEFFICIENT PROGRAMME WAS RIGHT TO RUN: ONE OBJECT MEANS ONE QUESTION. A chain in pieces must be attacked piece by piece, and the tree holds the evidence in its own record. THE MAGNITUDE GATE AS PIECES WAS \'SQUEEZED VACUUM, 52.6 ORDERS SHORT (t0 = R/c; 50.1 ON THE DURATION BOUND)\' (oneobject.PIECEWISE_MAGNITUDE_GATE; DOCKET 67, on M's ruling \"Carry both\": first \'SQUEEZED VACUUM, 52.6 ORDERS SHORT\'). THE SAME GATE COLLAPSED IS \'l_UV <= 3.159514 l_P\'. BOTH ARE TRUE AND THEY ARE THE SAME STATEMENT. What changed is that one of them CAN BE WORKED and the other cannot: 52.6 orders (50.1 on the duration bound) is a wall you describe, and a factor of 3.16 in a length is a number you go and find out about. THE COLLAPSE DOES NOT MAKE IT CHEAPER; IT MAKES THE REMAINING OBSTRUCTION NAMEABLE, AND ONLY A NAMED OBSTRUCTION HAS A NEXT STEP. That is the whole return on the programme M started with \'solve for ALL coefficients\', and it is the difference between a project that is stuck and one that knows what it is waiting for"),
  ("THE-BILL-CHANGES-CURRENCY-FROM-JOULES-TO-A-LENGTH", +1, 0, +1, "currency.py",
   "M chose the scope -- MODIFIED GRAVITY COUNTS -- and \'continue, the bill is the target\', so the bill is re-derived in the scope rather than carried across it. AND THE TREE\'S ENTIRE COST APPARATUS WAS BUILT FOR A CURRENCY THE DECISION RETIRED, WHICH NOBODY HAD NOTICED: the exchange rate c^4/(G Lambda) = 1.212374e43 J per metre, the quantum inequality, the shortfall and candidates.py\'s three gates ALL PRICE A MATTER SOURCE INSIDE GENERAL RELATIVITY, and in a modified-gravity vacuum wormhole THERE IS NO SOURCE TO PRICE. The literature is real and was READ rather than recalled: arXiv:2410.13996 gives a VACUUM wormhole in Einsteinian cubic gravity with no matter at all; arXiv:1904.13091 gives Einstein-scalar-Gauss-Bonnet wormholes that \'do not demand any exotic matter\'; arXiv:0909.5539 constructs f(R) wormholes whose matter SATISFIES the energy conditions; arXiv:2405.05476 reviews the family. THE NEC VIOLATION IS CARRIED BY THE HIGHER-CURVATURE TERMS OF THE ACTION RATHER THAN BY MATTER. SO THE BILL IS NOT IN JOULES, IT IS IN A LENGTH: a higher-curvature term competes with the Einstein term only when its coupling matches the curvature scale, so THE THROAT RADIUS *IS* THE COUPLING SCALE -- Gauss-Bonnet [alpha] = L^2 with r_0 ~ sqrt(alpha), cubic [lambda] = L^4 with r_0 ~ lambda^(1/4). A one-metre throat needs alpha = 1.0000e+00 m^2, a kilometre throat 1.0000e+06 m^2, and sqrt(alpha) round-trips the radius at every scale tested"),
  ("THE-SCOPE-MOVED-THE-BILL-BY-EXACTLY-LAMBDA-THE-WRONG-WAY", 0, -1, +1, "currency.py",
@@ -1431,7 +1707,7 @@ FINDINGS = [
  ("THE-EXPOSURE-CONDITION-IS-M-LESS-THAN-ITS-OWN-FIELD-ENERGY", 0, -1, +1, "voltage.py",
   "AND THE EXPOSURE CONDITION SOLVES TO AN IDENTITY NOBODY IN THIS PROJECT HAD WRITTEN DOWN. The contraction radius in SI is r_c = r_Q^2/(2 r_M) = Q^2/(8 pi eps0 M c^2), the two forms agreeing to 1e-9 at three widely separated (Q, M). So exposure -- the contracted region clearing the object\'s surface -- requires r_c > R, that is M < Q^2/(8 pi eps0 R c^2). AND THAT RIGHT-HAND SIDE IS EXACTLY THE ELECTROSTATIC SELF-ENERGY IN MASS UNITS, U/c^2. THE EXPOSURE CONDITION IS M < U/c^2: THE TOTAL MASS MUST BE LESS THAN THE FIELD\'S OWN ENERGY. Set M to the field energy alone, the lightest a charged object can possibly be, and r_c/R = 1.0000000 EXACTLY -- verified at (Q, R) = (1414 C, 0.1 m), (14.14, 0.01), (0.1414, 1e-3), (1e6, 1.0) and (1.0, 1e-6), spanning SEVEN ORDERS IN CHARGE AND SIX IN RADIUS. THE CONTRACTED REGION REACHES THE SURFACE AND STOPS THERE. It is not close and not a coincidence: the massless-shell limit SATURATES the condition identically, and a shell is the MINIMUM self-energy for given Q and R -- a uniformly charged solid sphere carries 6/5 of it -- so this is the most favourable case physics allows and it comes out exactly marginal. Any real object carries mass besides its field, so M > U/c^2 strictly and r_c < R strictly. The exposure coefficient 8 pi eps0 c^2 = 2.000000e7 matches the numerically measured one to 0.0000 percent"),
  ("A-NO-GO-BY-IDENTITY-RATHER-THAN-BY-MAGNITUDE", 0, -1, +1, "voltage.py",
-  "AND THE THIRD CLAUSE IS RIGHT ABOUT THE TENSION AND THE TENSION IS WHAT DEFEATS IT, WHICH IS A KIND OF CLOSURE THIS PROJECT HAS NOT PRODUCED BEFORE. M: \'the greater the voltage the higher the tension pulling the singularity apart\'. THE TENSION DOES GROW AS Q^2 -- emtension.py measured the field\'s radial tension as rho = Q^2/(8 pi r^4) and proved it is forced by the t-r boost invariance of a radial field. AND THE MASS IT ADDS GROWS AS Q^2 TOO, AT PRECISELY THE RATE THAT KEEPS THE CONTRACTED REGION BURIED. Both sides scale identically and the ratio is ONE. It is not a bound imposed from outside: IT IS THE FIELD\'S OWN ENERGY DOING IT, and the thing that creates the contraction is the thing that hides it, at the same order in Q. A NO-GO BY IDENTITY RATHER THAN BY MAGNITUDE. EVERY OTHER CLOSURE IN THIS PROJECT HAS BEEN A NUMBER -- 43 orders for the exchange rate, 52.6 for squeezed vacuum, a factor of 15.8 for the material-body bound, 3.16 for the UV cutoff -- AND THIS ONE IS AN EQUALITY, which is much harder to argue with than an exponent. AND IT NEVER REACHES THE SCHWINGER FIELD: the marginal case sits at 1.270840e15 V/m at EVERY scale tested, against E_S = 1.3233e18, A FACTOR OF 1041 BELOW. The identical field at every scale was the signature that gave the identity away. THE VACUUM-BREAKDOWN WALL IS NOT WHAT STOPS THIS -- CONSERVATION IS -- and that matters practically, because it means NO ADVANCE IN FIELD ENGINEERING MOVES THE ANSWER"),
+  "AND THE THIRD CLAUSE IS RIGHT ABOUT THE TENSION AND THE TENSION IS WHAT DEFEATS IT, WHICH IS A KIND OF CLOSURE THIS PROJECT HAS NOT PRODUCED BEFORE. M: \'the greater the voltage the higher the tension pulling the singularity apart\'. THE TENSION DOES GROW AS Q^2 -- emtension.py measured the field\'s radial tension as rho = Q^2/(8 pi r^4) and proved it is forced by the t-r boost invariance of a radial field. AND THE MASS IT ADDS GROWS AS Q^2 TOO, AT PRECISELY THE RATE THAT KEEPS THE CONTRACTED REGION BURIED. Both sides scale identically and the ratio is ONE. It is not a bound imposed from outside: IT IS THE FIELD\'S OWN ENERGY DOING IT, and the thing that creates the contraction is the thing that hides it, at the same order in Q. A NO-GO BY IDENTITY RATHER THAN BY MAGNITUDE. EVERY OTHER CLOSURE IN THIS PROJECT HAS BEEN A NUMBER -- 43 orders for the exchange rate, 52.6 for squeezed vacuum (on Ford-Roman read at t0 = R/c; 50.1 on the duration bound -- DOCKET 67, on M's ruling \"Carry both\"), a factor of 15.8 for the material-body bound, 3.16 for the UV cutoff -- AND THIS ONE IS AN EQUALITY, which is much harder to argue with than an exponent. AND IT NEVER REACHES THE SCHWINGER FIELD: the marginal case sits at 1.270840e15 V/m at EVERY scale tested, against E_S = 1.3233e18, A FACTOR OF 1041 BELOW. The identical field at every scale was the signature that gave the identity away. THE VACUUM-BREAKDOWN WALL IS NOT WHAT STOPS THIS -- CONSERVATION IS -- and that matters practically, because it means NO ADVANCE IN FIELD ENGINEERING MOVES THE ANSWER"),
  ("CLASSICALLY-THE-SIGN-HAS-NO-FREQUENCY-TO-TUNE", 0, -1, +1, "frequency.py",
   "M: \'I bet the inequality\'s sign can change entirely using voltage frequency magnitudes\'. CLASSICALLY IT CANNOT, AT ANY FREQUENCY, AND IT IS A THEOREM RATHER THAN A SURVEY. The null contraction of the Maxwell stress tensor is A PERFECT SQUARE: T_munu k^mu k^nu = |E_perp + khat x B|^2, verified to better than 1e-12 over TWENTY THOUSAND random configurations. A SQUARE HAS NO SIGN TO CHANGE. And the reason frequency cannot enter is structural rather than numerical: E AND B ENTER AT TIME t AND NOTHING ELSE DOES -- THERE IS NO dF/dt ANYWHERE IN THE STRESS TENSOR, so there is no frequency in the inequality to tune. However fast the field is driven, T_kk at each instant is the square of whatever the field is AT THAT INSTANT. Swept with arbitrary four-mode superpositions -- random amplitudes, phases, polarisations and directions -- over 24000 samples and TWENTY-TWO DECADES from static through 1 kHz, 1 GHz, optical, gamma at 1e22 Hz and a twelve-decade mixture, the global minimum is +1.749771e-04. This is lattice.py\'s theorem re-derived as an explicit square and then stress-tested across the whole spectrum, which no previous pass had done"),
  ("THE-BET-IS-RIGHT-AND-THE-FREQUENCY-IS-5-87E42-HZ", +1, 0, +1, "frequency.py",
@@ -1550,8 +1826,12 @@ FINDINGS = [
   "BUT THREE THINGS IN THE SENTENCE ARE WRONG AND EACH CORRECTION IS SHARPER THAN THE ERROR. (1) THE SIGN. TAU = -p_r, so the wall must be PULLED OUTWARD, not pushed inward -- and squeezing is not merely useless, IT IS QUADRATICALLY SELF-DEFEATING, which no earlier pass could have found because it needs persist.py\'s R^2 law. A static source gravitates as the Tolman/Komar combination rho + 3p, SO APPLIED PRESSURE GRAVITATES: raising p raises the effective mass, which raises r_s, and the shortfall goes as R^2. Hence GAP -> GAP x (1 + 3p/rho c^2)^2 -- squeeze at radiation stiffness and the deficit is 4.0 TIMES WORSE, squeeze at the causal limit p = rho c^2 and it is 16.0 TIMES WORSE. COMPRESSION IS THE OPERATION THAT MAKES A BLACK HOLE, which is the opposite of the operation being asked for. (2) THERE IS NO SINGULARITY TO APPLY IT TO. Morris-Thorne\'s conditions require Phi finite everywhere (no horizon) and b(r0) = r0 at finite curvature (no singularity): A TRAVERSABLE THROAT IS DEFINED BY THE ABSENCE OF THE THING THE QUESTION WOULD SQUEEZE. A Schwarzschild object of the same mass has its singularity at r = 0 and its horizon AT r0, and converting the second into a throat is exactly the step that costs the exotic material. You are not opening a singularity; you are building a wall where a horizon would be, out of a material that does not exist. AND THE EXOTIC CONDITION IS ONE INEQUALITY, NOT TWO: rho_0 c^2 = b\'(r0) TAU_0, so rho_0 c^2 + p_r = (b\'(r0) - 1) TAU_0 < 0 for every b\'(r0) < 1, WHICH IS THE FLARE-OUT CONDITION ITSELF -- verified as an iff against b\' > 1 as a negative control. (3) NO ATMOSPHERE, AND THE MAGNITUDE IS NOT WHAT FAILS: at b\'(r0) = -1 the required tension equals the magnitude of the wall\'s own energy density exactly, to 1e-15, so the demand sits ON the causal boundary |p| <= rho c^2 and not past it. THE SIGN OF rho IS WHAT IS EXOTIC, NOT THE SIZE OF p. Yes as a pressure; no as compression, no as a singularity, and no as any atmosphere"),
  ("A-MINIMAL-SCALAR-SATISFIES-THE-NEC-IDENTICALLY-AND-A-VEV-SATURATES-IT", +0, -1, +1, "higgs.py",
   "M: \'the higgs boson. We need to build a higgs field.\' THE INSTINCT LANDS ON THE RIGHT OBJECT AND THE FIRST HALF OF THE ANSWER IS A FIRST FOR THIS THREAD. A MINIMALLY COUPLED SCALAR SATISFIES THE NEC IDENTICALLY AND THE POTENTIAL DOES NOT ENTER: contracting T_mn = d_m phi d_n phi - g_mn[(1/2)(grad phi)^2 + V] with a null k kills the whole bracket, because g_mn k^m k^n IS ZERO BY DEFINITION OF NULL, leaving T_kk = (k^m d_m phi)^2 >= 0. THE MEXICAN HAT IS IRRELEVANT -- its depth, its sign, its shape. VERIFIED OVER EXACT RATIONALS, proofs.py\'s house method: 4000 random rational gradients against random potentials up to 1e15 on twelve exactly-null directions built from Pythagorean quadruples, T_kk == (k.grad phi)^2 with ZERO mismatches and zero negatives, and V from -1e30 to +1e30 changing the answer NOT AT ALL rather than to twelve places. Barcelo-Visser\'s own eq. (2.6) says it in one clause, READ FROM SOURCE: \'This condition is clearly satisfied by minimally coupled scalars.\' AND A CONSTANT FIELD SATURATES IT AT EXACTLY ZERO -- and a VEV IS a constant field, so rho = V, p = -V, w = -1 EXACTLY, rho + p = 0 EXACTLY. w = -1 IS A GENUINE ISOTROPIC TENSION and it is precisely what M is reaching for; it beats electromagnetism\'s w = +1 in every way except the only one that counts. THE FIELD SITS PRECISELY ON THE LINE IT WOULD HAVE TO CROSS -- emtension.py\'s sentence, and THIS IS THE SECOND FIELD TO LAND ON IT, for the same structural reason by two different mechanisms: EM saturates because a radial field is boost-invariant in the t-r plane, the scalar because a VEV has no gradient. AND EVERY KNOB TURNS THE WRONG WAY: give the field a gradient and T_kk becomes STRICTLY positive, further from the line rather than nearer. There is no minimally-coupled configuration between useless and worse"),
- ("THE-FIRST-OVERSHOOT-IN-THE-THREAD-AND-IT-CANNOT-BE-LOCALISED", +0, +0, +1, "higgs.py",
-  "BUT THE MAGNITUDE IS THERE, AND IT IS THE FIRST OVERSHOOT IN THE ENTIRE THREAD. The Standard Model Higgs potential at its minimum is V_min = -lambda v^4/4 = -m_h^2 v^2/8, and with v = 246.219640 GeV computed from the Fermi constant and m_h = 125.20 GeV that is -1.187857e+08 GeV^4 -- 2.476937e+45 J/m^3 in magnitude against pressure.py\'s required TAU_0 = 2.073325e+42 Pa. THE HIGGS VACUUM CARRIES 1.194669e+03 TIMES WHAT THE THROAT NEEDS, a surplus of 1195. EVERY OTHER CANDIDATE FELL SHORT -- amps.py by seventeen orders, kugelblitz.py by fifty-six, persist.py by sixty-nine, antigravity.py by a category -- AND THIS ONE OVERSHOOTS. The sign of rho is right too: the electroweak vacuum sits BELOW the symmetric point, so it carries genuinely NEGATIVE potential energy density. TWO CAVEATS AND NEITHER IS SMALL. (a) THE ABSOLUTE NORMALISATION OF V IS NOT MEASURED -- in flat-space QFT only differences of V are observable and the additive constant is free; the figure above is the electroweak contribution to the cosmological constant under the convention V(0) = 0, and it exceeds the observed vacuum energy by 54.62 ORDERS, WHICH IS THE COSMOLOGICAL CONSTANT PROBLEM. The magnitude is real as a contribution and is cancelled, by something nobody has identified, down to a number we do measure. (b) IT IS UNIFORM -- the same inside the throat as outside, so it does not localise, cannot be switched on in one place, and is already inside whatever Lambda is. A RESOURCE YOU CANNOT PUT SOMEWHERE IS NOT A RESOURCE"),
+ # RENAMED from ...-AND-IT-CANNOT-BE-LOCALISED: that label repeated the claim
+ # DOCKET 63 F3 withdrew; the id now matches the corrected text and H92b's own
+ # heading.  TRIPLE_DIGEST was re-read after the rename (the cell is (0,0,+1),
+ # not on all three axes, so the roster it digests did not move).
+ ("THE-FIRST-OVERSHOOT-IN-THE-THREAD-AND-IT-LOCALISES-ONLY-INSIDE-ITS-OWN-SOURCE", +0, +0, +1, "higgs.py",
+  "BUT THE MAGNITUDE IS THERE, AND IT IS THE FIRST OVERSHOOT IN THE ENTIRE THREAD. The Standard Model Higgs potential at its minimum is V_min = -lambda v^4/4 = -m_h^2 v^2/8, and with v = 246.219640 GeV computed from the Fermi constant and m_h = 125.13 GeV (READ, captures/PDG-2026.tsv) that is -1.186529e+08 GeV^4 -- 2.474168e+45 J/m^3 in magnitude against pressure.py\'s required TAU_0 = 2.073325e+42 Pa. THE HIGGS VACUUM CARRIES 1.193334e+03 TIMES WHAT THE THROAT NEEDS, a surplus of 1193. EVERY OTHER CANDIDATE FELL SHORT -- amps.py by seventeen orders, kugelblitz.py by fifty-six, persist.py by sixty-nine, antigravity.py by a category -- AND THIS ONE OVERSHOOTS. The sign of rho is right too: the electroweak vacuum sits BELOW the symmetric point, so it carries genuinely NEGATIVE potential energy density. TWO CAVEATS AND NEITHER IS SMALL. (a) THE ABSOLUTE NORMALISATION OF V IS NOT MEASURED -- in flat-space QFT only differences of V are observable and the additive constant is free; the figure above is the electroweak contribution to the cosmological constant under the convention V(0) = 0, and it exceeds the observed vacuum energy by 54.62 ORDERS, WHICH IS THE COSMOLOGICAL CONSTANT PROBLEM. The magnitude is real as a contribution and is cancelled, by something nobody has identified, down to a number we do measure. (b) IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise: massform.P_UNIFORM_STATUS) -- the same inside the throat as outside, and already inside whatever Lambda is. It can be displaced in one place only by filling that place with a source whose rest energy is 4(1-eps)^2/(eps(2-eps)), about 2/eps, times the field energy it buys (excite.py; the first wording, cannot be switched on in one place, was false as written). A RESOURCE YOU CAN PUT SOMEWHERE ONLY BY PUTTING SOMETHING FAR LARGER THERE IS NOT A RESOURCE"),
  ("THE-GATE-ON-XI-IS-THE-HIERARCHY-PROBLEM-EXACTLY", +0, -1, +1, "higgs.py",
   "AND THE ESCAPE IS xi, THE HIGGS IS THE ONE STANDARD MODEL FIELD THAT MUST HAVE IT, AND THE GATE ON IT IS THE HIERARCHY PROBLEM -- EXACTLY, NOT BY ANALOGY. xi phi^2 R is a dimension-four operator forbidden by no symmetry and generated radiatively in curved space even if set to zero, which is why it is standard to carry it and why Higgs inflation exists at all; recorded as ELEMENTARY, no source read for it here. BARCELO-VISSER, gr-qc/0003025, READ FROM SOURCE, settle what it buys and the distinction they draw is the kind that gets flattened. POINTWISE NEC VIOLATION IS CHEAP: for xi > 0 and small |phi| any local maximum of phi^2 violates it. BUT A WORMHOLE NEEDS ANEC, by topological censorship, AND ANEC IS NOT CHEAP -- their case 2 is that for xi > 0 with phi^2 < kappa/xi everywhere \'the integrand appearing above is again positive and ANEC is satisfied\', and only case 3, phi^2 > kappa/xi SOMEWHERE, admits violation. They find \'an entire branch of traversable wormholes for every xi > 0\' gated by exactly that, and state the gate in their own words: \'the scalar field has to reach absolute values above ~ m_p/sqrt(xi) ... either the scalar field acquires trans-Planckian values or the curvature coupling constant xi must become disturbingly large.\' PUT THE HIGGS VEV IN IT. With M_reduced = 2.435323e+18 GeV and v = 246.2196 GeV, the gate at Higgs inflation\'s xi ~ 1.7e+04 stands at 1.867808e+16 GeV, and closing it needs xi > (M_reduced/v)^2 = 9.782907e+31 -- 27.76 ORDERS ABOVE THE VALUE HIGGS INFLATION USES. AND THE REASON IS NOT AN ACCIDENT OF THIS CALCULATION: BARCELO-VISSER\'S THRESHOLD IS THE PLANCK SCALE, AND v/M_reduced = 1.011035e-16 IS SIXTEEN ORDERS, WHICH IS THE HIERARCHY PROBLEM. Squared, because xi couples phi^2, sixteen orders of hierarchy become 16 x 2 = thirty-two orders of xi -- verified as an exact identity, xi_required = (v/M_red)^-2 to 1e-12, not a resemblance. THE SINGLE MOST FAMOUS FINE-TUNING IN PARTICLE PHYSICS IS EXACTLY THE QUANTITY STANDING BETWEEN THE HIGGS AND A TRAVERSABLE THROAT. What DOES violate the NEC is a PHANTOM, wrong-sign kinetic term, T_kk = -(k.grad phi)^2 <= 0 at every gradient -- exhibited as a negative control so the test can be seen to detect one, and it is not the Higgs, whose kinetic sign is measured every time the particle propagates. TWO FAULTS WERE CAUGHT BUILDING THIS AND BOTH WERE THE SAME KIND: sign.py\'s catastrophic cancellation, in a TEST rather than an integrand. Sin-and-cos null vectors are null only to 1e-16, so a potential of 1e12 turned rounding into a 1e-4 residual that LOOKED like V-dependence, and the float report PRINTED \'VIOLATED\' for a constant field. Exact nulls plus exact rationals removed both. AND THE EXACT IDENTITY CAUGHT A THIRD: the contraction used k_m where T_mn k^m k^n needs k^m. Both are perfect squares so the physics survived the slip and only the exactness found it"),
  ("THE-FAMILY-IS-AN-INDEX-AND-STATISTICS-IS-THE-LANGUAGE-THAT-CLOSES-IT", +0, +0, +1, "necindex.py",
@@ -1571,7 +1851,7 @@ FINDINGS = [
  ("THE-WITNESS-IS-THE-LAW-SO-THE-CYPHER-IS-DOWNSTREAM-OF-THE-ANSWER", +0, +0, +1, "hierarchy.py",
   "AND THE ONE LANGUAGE THAT WOULD ANSWER IT HAS NO OPERATOR, WHICH IS THE FINDING. tools/cypher.py, immediately after the ADMISSION table, verbatim: \'analysis is not an admission operator: it asks whether a continuous law exists, which is answered by a fit or by the absence of a derivative, and must be declared with a witness\' -- DECLARED_ONLY = {analysis: \'IS THERE A CONTINUOUS LAW HERE? declare with a witness (an R^2, or a reason none exists -- e.g. a finite set of surds has no derivative)\'}. THAT QUESTION IS THE HIERARCHY PROBLEM STATED EXACTLY, and it belongs to the one language roster 1173 names as OPERATOR-BEARING for which the tree supplies NO OPERATOR AT ALL. Measured: analysis is absent from ADMISSION\'s 6 entries, present in DECLARED_ONLY, and declared operator-bearing -- while the other four declared languages (order, algebra, geometry, information) all have operators and STATISTICS RUNS WITHOUT BEING DECLARED. THAT SWAP IS ALREADY IN THE CORPUS, MEASURED ON A DIFFERENT INDEX: CLAUDE.md records from Lambda that \'statistics returns a binary and is in; analysis does not and is out\', and necindex.py then found on the ENERGY-CONDITION index that statistics is the language that closes it and analysis the one that cannot run. SAME SWAP, SECOND INDEX, INDEPENDENTLY, AND IT WAS NOT SOUGHT. AND THE DECISIVE POINT IS WHAT A WITNESS IS: the corpus says an R^2 -- a continuous law the data sits on -- or a reason none exists. SO THE WITNESS FOR ANALYSIS IS THE CONTINUOUS LAW ITSELF. You cannot obtain one by running the cypher because you must supply one to run it. THE CYPHER IS DOWNSTREAM OF THE ANSWER, NOT UPSTREAM OF IT: it records a law, it does not find one. Third time this thread has caught its own instruments being RECORDERS rather than PRODUCERS -- necindex.py\'s index enumerates CITATIONS and not truths, licensed.py\'s closure hands back CANDIDATES and not objects, and here a cypher REGISTERS a law and does not derive one. Not an accident of three files: a closure operator is by construction a map from what you have to what you are committed to, and being committed to something is not having found it"),
  ("THE-FIT-WAS-RUN-SO-IT-COULD-BE-REFUSED-WITH-A-NUMBER", +0, -1, +1, "hierarchy.py",
-  "AND THE FIT IS NOT AVAILABLE EITHER, WHICH WAS MEASURED SO IT COULD BE REFUSED WITH A NUMBER RATHER THAN A PRINCIPLE. 412608 expressions of the form b1^e1 b2^e2 b3^e3 over {Lambda, pi, e, 2, 3, 5, 7} with exponents in [-8, 8] were run against v/M_reduced = 1.0110346504e-16. 1 lands within one per cent; 0 within a tenth of a per cent. THE SINGLE NEAR-MISS IS (10 Lambda)^-8 = 1.0140871864e-16 at relative error 3.019e-03 -- AND IT IS REFUTED BY THE DATA\'S OWN PRECISION. v is known from the Fermi constant to under a part per million; M_reduced goes as G^(-1/2) and G is the worst-measured constant in physics at 2.247e-05 relative, so the target is known to 1.125e-05. THE BEST FIT IN FOUR HUNDRED THOUSAND IS 268 TIMES WORSE THAN THE MEASUREMENT IT WOULD HAVE TO EXPLAIN. (10 Lambda)^-8 IS NAMED HERE SO THAT IT IS ON RECORD AS REFUSED: it is exactly the shape that gets written up as a discovery -- a single clean expression, the only near-miss in a large family, in the corpus\'s own constant -- and it has no derivation behind it and misses by 268 widths. NAMING A TRAP IS WORTH MORE THAN THE FIT WOULD HAVE BEEN. The sweep is shown able to find a true target when one is planted, so the empty result is a measurement and not a broken search; and the absence is over ONE declared finite family and is recorded as a WEAK negative witness, not as absence everywhere. WHAT WOULD ACTUALLY BE NEEDED IS NAMED AND LEFT OPEN: someone must declare a witness for analysis -- a continuous law landing 1.0110e-16, or a reason no derivative exists. Which languages there are and what they admit is DOCKET 20x-04/20x-09, open and unruled, and CLAUDE.md is explicit that it not be resolved in code. WHAT IS DISCHARGED IS THE TARGET: 1.0110e-16, and squared, the xi >= 9.7829e+31 that Barcelo-Visser\'s ANEC gate demands at the electroweak vacuum. A UNITS SLIP WAS CAUGHT BUILDING THIS and it is the typed-digit channel again in a new disguise: G\'s uncertainty was entered as 1.5e-4 against a value of 6.6743e-11, giving a RELATIVE uncertainty of 2.2e6 -- above one, nonsense on its face -- and the fixture caught it where the prose did not"),
+  "AND THE FIT IS NOT AVAILABLE EITHER, WHICH WAS MEASURED SO IT COULD BE REFUSED WITH A NUMBER RATHER THAN A PRINCIPLE. 412608 expressions of the form b1^e1 b2^e2 b3^e3 over {Lambda, pi, e, 2, 3, 5, 7} with exponents in [-8, 8] were run against v/M_reduced = 1.0110346501e-16 (DOCKET 67: first 1.0110346504e-16, on ladder\'s truncated HBAR; hierarchy.TARGET_AS_FIRST_WRITTEN). 1 lands within one per cent; 0 within a tenth of a per cent. THE SINGLE NEAR-MISS IS (10 Lambda)^-8 = 1.0140871864e-16 at relative error 3.019e-03 -- AND IT IS REFUTED BY THE DATA\'S OWN PRECISION. v is known from the Fermi constant to under a part per million; M_reduced goes as G^(-1/2) and G is the worst-measured constant in physics at 2.247e-05 relative, so the target is known to 1.125e-05. THE BEST FIT IN FOUR HUNDRED THOUSAND IS 268 TIMES WORSE THAN THE MEASUREMENT IT WOULD HAVE TO EXPLAIN. (10 Lambda)^-8 IS NAMED HERE SO THAT IT IS ON RECORD AS REFUSED: it is exactly the shape that gets written up as a discovery -- a single clean expression, the only near-miss in a large family, in the corpus\'s own constant -- and it has no derivation behind it and misses by 268 widths. NAMING A TRAP IS WORTH MORE THAN THE FIT WOULD HAVE BEEN. The sweep is shown able to find a true target when one is planted, so the empty result is a measurement and not a broken search; and the absence is over ONE declared finite family and is recorded as a WEAK negative witness, not as absence everywhere. WHAT WOULD ACTUALLY BE NEEDED IS NAMED AND LEFT OPEN: someone must declare a witness for analysis -- a continuous law landing 1.0110e-16, or a reason no derivative exists. Which languages there are and what they admit is DOCKET 20x-04/20x-09, open and unruled, and CLAUDE.md is explicit that it not be resolved in code. WHAT IS DISCHARGED IS THE TARGET: 1.0110e-16, and squared, the xi >= 9.7829e+31 that Barcelo-Visser\'s ANEC gate demands at the electroweak vacuum. A UNITS SLIP WAS CAUGHT BUILDING THIS and it is the typed-digit channel again in a new disguise: G\'s uncertainty was entered as 1.5e-4 against a value of 6.6743e-11, giving a RELATIVE uncertainty of 2.2e6 -- above one, nonsense on its face -- and the fixture caught it where the prose did not"),
  ("BINARY-IS-THE-ADMISSION-CRITERION-NOT-THE-FIRST-RUNG", +0, +0, +1, "alpha.py",
   "M: \'the hierarchy exists, but it runs the opposite direction from what is expected ... binary is the alpha language, top of the hierarchy because it both starts and ends the hierarchy.\' THE FIRST CLAUSE IS THE CORPUS\'S OWN ADMISSION CRITERION AND M REACHED IT INDEPENDENTLY. Why is a language in the hierarchy at all? The corpus answers in two places with the same answer. documentary, from cypher.py\'s ADMISSION table verbatim: \'register 1173 -- RETURNS A CITATION, NOT A BINARY\' -- and it is SILENT, no closure mechanism exists. analysis, from CLAUDE.md verbatim: \'analysis has one but RETURNS A MAGNITUDE RATHER THAN A CELL DECISION\' -- DECLARED_ONLY, NOT-RUN. statistics, from CLAUDE.md verbatim: \'statistics RETURNS A BINARY AND IS IN\' -- and it is in DESPITE roster 1173 not declaring it operator-bearing, which is measured here. MEMBERSHIP IN THE HIERARCHY IF AND ONLY IF THE LANGUAGE RETURNS A BINARY. So the instinct lands harder than it was stated: BINARY IS NOT THE FIRST STEP OF THE LADDER, IT IS THE TEST FOR BEING ON THE LADDER AT ALL. Every language that is in is in for exactly one reason and it is the same reason. AND THE SECOND CLAUSE IS MEASURED AND HOLDS: each operator takes a set of cells and returns a set of cells, and a set of cells IS a binary -- one membership bit per cell of the ambient box. Verified by type across all five: input a collection of tuples, output a set of tuples, no operator changing the type of its argument. DOMAIN = CODOMAIN = THE BINARY. THE LADDER IS NOT A SEQUENCE OF TYPED LEVELS; it is a family of SELF-MAPS ON ONE OBJECT, and \'it both starts and ends the hierarchy\' is exactly that. THERE IS NOWHERE TO CLIMB TO"),
  ("EACH-LANGUAGE-COLLAPSES-THE-LADDER-OF-THEM-DOES-NOT", +0, +0, +1, "alpha.py",
@@ -1674,9 +1954,150 @@ FINDINGS = [
   "The paper is reconstructed at refs/QUEYRANNE-TARDELLA-2008.md, partial -- Sections 1-3 and the start of 4, from screenshot OCR through the Drive connector because every publisher route is egress-blocked; the header carries the fidelity warning and two displayed formulas are marked form-uncertain. THE MATCH IS EXACT: their PROPOSITION 1, projections and sublattice hulls commute with pi_J LQ = L pi_J Q, is our L4; their THEOREM 9(ii), that for factors which are CHAINS the two-dimensional sublattice hull equals the proper boundary epigraph intersected with its transpose, is our L3; their THEOREM 11, LQ = intersection of Cyl_ij E_ij Q, is our T1; and their EXAMPLE 10, where equality fails off the chains on the five-element lattice {0,a,b,c,1} with a meet b = 0 and a join b = c < 1, is our N2. Their delta^Q_ij(h) = join of x_i over x in Q with x_j <= h IS our phi_ij. AND THEIR *PROPER* BOUNDARY EPIGRAPH -- k >= delta where the value is attained, k > delta where it is not -- IS EXACTLY THE ATTAINMENT CASE OUR OBSERVED-ALPHABET HYPOTHESIS WAS INVENTED TO AVOID. They handled by construction what we handled by hypothesis, which is why their theorem needs no such hypothesis and ours did, and H110c\'s order-convexity was a weaker patch on a problem their formulation does not have. Behind them: Topkis [16, Thm 1] for sublattices of finite products and Veinott [18, Cor 11] for products of chains. THREE DEEP"),
  ("WHAT-IS-OURS-IS-C-AND-D-AND-THE-LADDER-IS-THE-CLAUSE-THAT-IS-FALSE", 0, 0, +1, "law.py",
   "C: every x in X is a join of join-irreducibles, by induction on the number of elements of X strictly below x -- if x is join-irreducible it is its own seed, otherwise it is the join of the elements strictly below it, each a join of seeds. So op_information(X) = J(X), and a sublattice is join-closed, so J(X) subset <X>: INFORMATION SUBSET ALGEBRA IS A THEOREM AND NOT A TENDENCY, verified 200 of 200. D: if L(X) = {x in Box : (x_i,x_j) in C_ij for all i<j} then pi_ij(L(X)) subset C_ij, so the rebuild from its own projections sits inside L(X) and the reverse is free -- TWO LINES. op_order, op_geometry and op_statistics are each defined in that shape, so their 2-determinacy is free and THIS THREAD\'S MEASUREMENT OF IT WAS MEASURING NOTHING; op_algebra is not pair-defined and its 2-determinacy is exactly Theorem 11; op_information is neither and fails on X = {(0,0,0), (0,1,1), (1,0,1)}, whose join-closure adds (1,1,1) and stops at 4 while the pairwise rebuild INVENTS (0,0,1), with all four others 2-determined on the same X. The reason is structural: A JOIN-SEMILATTICE HAS NO MAJORITY TERM, so nothing in the Baker-Pixley family reaches it. E: THE LADDER IS THE ONE CLAUSE THAT IS FALSE -- induce.py found 14 distinct orderings over 400 random worlds, the energy-condition index\'s ordering fourth most common at 42, statistics the MAXIMUM in 128 against the minimum in 106, and two indexes the corpus itself seats already disagreeing, the NEC index putting geometry inside information and periodic-3-D the reverse. AND THE LAW DOES NOT ADVANCE THE CORRIDOR, nor can any version of it, because it is a statement about closure operators on a finite index while the obstruction is persist.py\'s 69.03 orders and higgs.py\'s xi >= 9.782907e31. What it gives is a licence the thread did not have: the cypher\'s verdicts are now backed by a published theorem rather than by agreement across five operators, two of which turned out to be one operator. THAT MAKES THE CYPHER CITABLE. IT DOES NOT MAKE THE CORRIDOR CLOSER"),
+ # CORRECTED (DOCKET 67 follow-up, on M's ruling): first written 'THIRTY-THREE closed negative,
+ #   nine conditional, ONE open' -- ACHRONALITY moved CLOSED-NEGATIVE -> OPEN in obstruct.py
+ #   (obstruct.by_status()), its only ground having been the false converse.
  ("LEDGER",          0, -1,  0, "obstruct.py",
-  "of fifty-three obstructions six dissolved, FOUR relocated, THIRTY-THREE closed negative, nine conditional, ONE open and none untested"),
+  "of fifty-three obstructions six dissolved, FOUR relocated, THIRTY-TWO closed negative, nine conditional, TWO open (TYPE-IV and ACHRONALITY) and none untested"),
+ # LEDGER.md -- the board of the warp result, generated by ledger.py --md and
+ # re-asked by --check.  It entered the tree at f6dff52 and sat in no cell, so
+ # the coverage guard was red.  It cannot be excused in NULL_PAPERS: it speaks
+ # to energy, to device verdicts and to lengths, so its measurement is not
+ # NULL, and a NULL_PAPERS row that is not NULL excuses nothing.  Read in full;
+ # the coordinates are THE LEDGER'S OWN VERDICT on each axis as this file's
+ # docstring defines them, and ledger_md_reading() re-derives them from the
+ # file at every selftest, so a regenerated ledger that moves one fires here.
+ #   X = +1  what warp energy is and how much.  D1 and D2 are THEOREM
+ #           (contraction <=> negative enclosed Misner-Sharp mass, in every
+ #           foliation) and D11 is MEASURED (the exchange rate, printed as
+ #           c^2/(G Lambda) in kg per metre).  House precedent: EXCHANGE-RATE
+ #           (phase1.py) reads the same price +1 on X.  RATE-SATURATES reads -1
+ #           on X, but for the rate's SATURATION, which the ledger does not
+ #           print; it prints the rate MEASURED.
+ #   Y = -1  every row of the balance reads REFUSED, because no mechanism
+ #           supplies negative enclosed mass.  This is a BOUND in P8's sense,
+ #           on what is established so far -- the ledger says itself that
+ #           COMPLETE is not claimed -- and its OPEN rows are its own list of
+ #           what could move it.  It is not 0: the house reads 0 for a
+ #           question left UNDECIDED (NU-OPEN), and the ledger does not leave
+ #           the balance undecided -- it prints REFUSED in every gap.  S5, the
+ #           first priced row, is OPEN and is not a transport route (D23);
+ #           DOCKET 65's priced S11-S13 price atomic mass formed or restored
+ #           at a seat (S13 forms no baryons), not negative enclosed mass, so
+ #           they move no balance row and not Y.
+ #   Z = +1  the demand column prints the specification the supply would have
+ #           to meet: kg per metre, and kg for the Proxima span.  The gap
+ #           column's 'no number' refuses a DIFFERENCE, for want of a supply
+ #           to take it against -- that is Y's refusal, not a refusal of the
+ #           spec.  House precedent: EXCHANGE-RATE and SPEC-SHEET read +1 on Z
+ #           for a requirement stated in numbers that nothing can build.
+ # So (+1, -1, +1), an occupied cell: the index gains a finding, not a cell,
+ # and E(X) does not move.  The text QUOTES the file; every quotation and the
+ # census are checked against LEDGER.md by the selftest, never typed as results.
+ ("LEDGER-BALANCE-REFUSED", +1, -1, +1, "LEDGER.md",
+  "the board of the warp result, and its own verdict sits on all three axes. X: the demand is identified -- D1 and D2 THEOREM, contraction requires negative enclosed Misner-Sharp mass in every foliation -- and priced, D11 MEASURED at '1.348948e+26 kg per metre'. Y: every balance row reads '**REFUSED** -- no ladder, so no number', because 'no mechanism supplies negative enclosed mass at all'; S5, 'THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE ONLY ONE UNTIL DOCKET 65 SEATED S11-S13', is OPEN and D23 makes it 'an AMORTISATION SCHEME, not a transport route'; DOCKET 65's priced rows price atomic mass formed or restored at a seat (S13 forms no baryons), not negative enclosed mass, and no balance row moves. Z: the demand column prints the specification the supply would have to meet, '5.4194e+42 kg (2.72551e+12 solar masses)' for the Proxima span. Status census: THEOREM 20, THEOREM-NARROWED 1, MEASURED 3, SURVEY 2, OPEN 14, WITHDRAWN 13, REFUSED 10. A bound on what is established so far and not a completeness claim: '`COMPLETE` is not claimed and is not claimable'"),
+ # ----- DOCKET 68, wave 1 (docket68/), seated on M's ruling "1 then 2 then 3 then 4" -----
+ # Three rows, each a verified result of its instrument, each in an OCCUPIED cell, so the
+ # index gains findings and no cell: E(X), the closure counts and pathmetric.py's fixture do
+ # not move.  The house reading, applied to every one: an OPEN result reads 0 (M's "Unify to
+ # 0"); a NOT-BOUND is not a removal; a REMOVED-IF on named premises nothing has shown is
+ # OPEN, so Y reads 0; Z = +1 only for a requirement an owner states in numbers; and a row
+ # never claims more than its owner.  Each text TYPES its owner's current computed values
+ # (this file is stdlib-only and cannot ask a z3/numpy instrument); ledger.py's selftest asks
+ # the owners and checks every typed number and support against them
+ # (ledger.d68_index3_faults; CORRECTED: first cited as 'ledger.D68_INDEX3', which does not
+ # exist).  The rows' qualitative claims -- "at most one ... in any consistent account",
+ # "removed by no member in any consistent variant", the D-CTC route's "at most 1", N_CORR's
+ # clash with N_QTOPO -- are CITED from their owners (combine.py's full screen, B-combine.md
+ # sections 3 and 5), not checked here or there.  Every quotation of M is checked verbatim
+ # against the tree's copy (ledger.d68_quote_faults).  O-SEAT's priced route has one row:
+ # one question, one row.  O-MAKE-DIST (OPEN via N_VAC) and the NOT-BOUND-IF entries under
+ # ITB have no non-null reading on the three directives and are carried on the ledger (O9),
+ # not here: a null cell is not a finding.  REMOVED (DOCKET 68 residuals): the fourth row,
+ # D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS, kept as D68_ROW_REMOVED --
+ # its Z = +1 rested on 'the substrate-free count the R-INDEX reading is priced in', and
+ # R-INDEX is a carried reading (M-D68-C5), Q-1 LEAVES-ALL, with no numeric requirement
+ # stated by any owner; at Z = 0 it sits on the null cell, so Q-1 and Q-1s are carried on
+ # O9 only, as the ledger's section 7 already said a row would over-represent them.
+ ("D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL", 0, 0, +1, "docket68/combine.py",
+  "DOCKET 68 (combine.py, z3 over 8,191 variants: M's seven hypotheses in every combination and every reading): the hypotheses themselves remove AT MOST ONE obstruction in any consistent account, and it is O-BITS, the two classical bits -- and only REMOVED-IF. By H-SETTLE W2 x H-FRAME F1 jointly (alone, each gives LEFT), on two supports: {W2, F1; N_EPS}, ADMISSIBLE given W_W2R = {H-MAP, H-TRANSFER, H-SPIN, H-DILUTION} at 1 ly, N = 7 -- not excluded, not found: since D68 wave 2 the four Weinberg-family limits are READ (abstract) at the publisher's public pages, each an upper bound measured consistent with zero -- and EXCLUDED given W_W2R at 1 AU, N = 7 (at 1 AU, N = 1e3 under reading A also given H-SAME-EPS), where support 2 carries the removal; and {W2, F1; N_W2ANC}, zero-error, its window UNEVALUATED; or by clause 2b's D-CTC, {F2b; N_DCTC}, with O-LOOP reintroduced and no CTC shown to exist. Y reads 0: every support rests on named premises nothing has shown, and an OPEN removal is not a removal. Z: the route states in numbers what a device would have to show -- 2/(log2 d - 1) pairs per teleported qubit for the zero-error member (1, 2/3, 1/2 at d = 8, 16, 32; no positive floor computed), the D-CTC route at most 1 with its minimum OPEN, and, at the READ limit, a midpoint-source first read at 0.50153 of the light time at 1 ly, conditional on N_EPS, H-C2, F1 and H-BLOCK. O-SEAT and O-MAKE-DIST are removed by no member in any consistent variant"),
+ ("D68-EXACT-FRW-ADMITS-ONLY-EQUAL-COSMIC-TIME-CORRIDORS", 0, 0, +1, "docket68/frame.py",
+  "in the spatially flat expanding universe ds^2 = -dt^2 + a(t)^2 |dx|^2 with a > 0, every nonzero causal vector has v_t != 0 (frame.py, z3: the claim unsat, the vacuity guard sat, the control a >= 0 sat): cosmic time is a global time function on the quotient by comoving translations, so no closed causal curve exists at any rank for any a(t) > 0. The corridor form of O-LOOP is therefore removed by the GEOMETRY, credited to no hypothesis -- REMOVED-IF {N_CORR, N_FRW} in combine.py -- and only in accounts that treat a corridor as a Lorentzian quotient (N_CORR clashes with H-IT's N_QTOPO), while clause 2b's message into the cosmic past undoes it. Y reads 0: exact FRW is an idealisation, and perturbations break even the translations. Z: the admissible identifications are specified -- equal cosmic time only, the expanding universe itself selecting the frame H-FRAME asks for"),
+ ("D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE", 0, 0, +1, "docket68/measure.py",
+  "M ruled that what arrives is information and the substance comes 'from the seat' (H-INFO-SHAPE), so O-MATTER is relocated to O-SEAT, the supply at the seat -- and nothing removes it by assertion. Under H-SEAT-S5, which M adopted ('S5 counts (Recommended)'), O-SEAT is OPEN via N_S5: removed only if S5's reconstruction from destination stock is shown and the D25 stock gate holds, and neither is (LEDGER S5 and D25 OPEN; measure.py, and combine.py in every consistent variant); given H-SEAT-ROUTES (S10 and S13 only, the alternative on record) it is LEFT. S13 forms no baryons (C3, under H-C3), so every baryon must already be at the seat; the share already there is about 0.99828 at first order (H-LINEAR), an estimate and not a bound. Y reads 0. Z: the seat's supply is priced in stock -- the 70 kg payload needs 749.1 kg of CI chondrite or 1.338e5 kg of stellar photosphere in the arrival aperture (stockgate.feedstock_kg); S5's price per reconstruction is not re-derivable (DOCKET 56's instrument owed). At Proxima (seat.py, D68 wave 2) the gate's binder at a CI-like body is P, 10.70 kg per kg of payload, measured in no Proxima-system star or body in the sources read, so the composition conjunct cannot be evaluated at its binder"),
 ]
+
+# The fragments of LEDGER-BALANCE-REFUSED's text that quote LEDGER.md.  The
+# selftest asserts each occurs VERBATIM in LEDGER.md and in the cell's text, and
+# that the census the text prints is the census the file prints.
+LEDGER_CELL = "LEDGER-BALANCE-REFUSED"
+LEDGER_QUOTES = (
+    "1.348948e+26 kg per metre",
+    "**REFUSED** -- no ladder, so no number",
+    "no mechanism supplies negative enclosed mass at all",
+    "THE FIRST ROW ON THIS LEDGER WITH A PRICE RATHER THAN A REFUSAL, AND THE ONLY ONE UNTIL DOCKET 65 SEATED S11-S13",
+    "an AMORTISATION SCHEME, not a transport route",
+    "forms no baryons",
+    "5.4194e+42 kg (2.72551e+12 solar masses)",
+    "`COMPLETE` is not claimed and is not claimable",
+)
+
+def _md_table(text, heading):
+    """Rows of the first pipe table under a '## heading' in a Markdown file,
+    header and separator dropped, each row split into stripped cells."""
+    import re
+    lines = text.splitlines()
+    try:
+        i = lines.index("## " + heading)
+    except ValueError:
+        return None
+    rows = []
+    for ln in lines[i + 1:]:
+        if ln.startswith("## "):
+            break
+        if ln.startswith("|"):
+            # split on UNESCAPED pipes only: B4's |E_Cas| is written \|E_Cas\|
+            cells = re.split(r"(?<!\\)\|", ln.strip())[1:-1]
+            rows.append([c.strip() for c in cells])
+        elif rows:
+            break
+    return [r for r in rows[2:]] if len(rows) >= 2 else []
+
+def ledger_md_reading(path):
+    """The ledger's own verdict on each directive, read off LEDGER.md by the
+    rule the LEDGER-BALANCE-REFUSED comment states.  Returns (coords, census,
+    why); an axis whose rule does not hold reads None -- the reading must be
+    redone, not defaulted.
+
+      X +1  iff D1 and D2 are THEOREM and D11 is MEASURED, and the exchange
+            rate prints c^2/(G Lambda) in kg per metre.
+      Y -1  iff the balance has rows and every gap is REFUSED.
+      Z +1  iff every balance row whose demand is a figure prints it in kg,
+            and at least one does.
+    """
+    import re
+    with open(path) as fh:
+        text = fh.read()
+    demand = {r[0]: r[1] for r in (_md_table(text, "Left -- the demand") or [])
+              if len(r) >= 2}
+    rate = {r[0]: r[1] for r in (_md_table(text, "The exchange rate") or [])
+            if len(r) >= 2}
+    balance = [r for r in (_md_table(text, "The balance") or []) if len(r) >= 5]
+    census = {r[0]: int(r[1]) for r in (_md_table(text, "Status census") or [])
+              if len(r) >= 2 and r[1].isdigit()}
+    fig = re.compile(r"^[0-9.]+e[+-]?[0-9]+ kg\b")
+    x_ok = (demand.get("D1") == "**THEOREM**" and demand.get("D2") == "**THEOREM**"
+            and demand.get("D11") == "**MEASURED**"
+            and rate.get("c^2/(G Lambda)", "").endswith("kg per metre"))
+    y_ok = bool(balance) and all(r[4].startswith("**REFUSED**") for r in balance)
+    figs = [r[2] for r in balance if re.match(r"^[0-9.]+e", r[2])]
+    z_ok = bool(figs) and all(fig.match(d) for d in figs)
+    why = {"X": (demand.get("D1"), demand.get("D2"), demand.get("D11"),
+                 rate.get("c^2/(G Lambda)")),
+           "Y": [r[4].split(" -- ")[0] for r in balance],
+           "Z": figs}
+    return ((+1 if x_ok else None, -1 if y_ok else None, +1 if z_ok else None),
+            census, why)
 
 # Support points: they correct or enable other cells but answer no directive.
 # Kept out of the index deliberately -- a method note is not a finding.
@@ -1724,15 +2145,291 @@ SUPPORT = [
  ("NO-MAINFRAME","millennium.py",   "a claimed prior solution held in cross-session infrastructure was checked against primary sources and against architecture; there is no such store, and the claim's real kernel -- Claude's part in the Buckmaster-Alpoge blowup proofs -- is not the Clay problem"),
  ("READ-DONT-CITE","millennium.py", "H44c was built on a one-line summary of Fewster-Osterbrink; the paper's own Theorem 4.2 contradicts the summary. A survey of famous problems found no key and found this, which is what reading primary sources is for"),
  ("CENSUS-PAID-OFF","solve.py",      "naming a coefficient ASSERTED is what got it derived: provenance.py flagged the 2, coefficients.py counted it, solve.py derived it, and the derivation corrected a seated dimensional claim. A census is not bookkeeping"),
- ("DIAGONAL-CHECK","magnitude.py",   "the area law is believable only because its diagonal reproduces two numbers computed another way: sqrt(k) = 0.307933 and 0.369917 l_P against candidates.py's seated crossovers, six decimals. A scaling chain is pinned where it touches a number it did not produce"),
+ ("DIAGONAL-CHECK","magnitude.py",   "the area law is believable only because its diagonal reproduces numbers computed another way: sqrt(k) = 0.307933 (Ford-Roman read at t0 = R/c) and 0.369917 l_P (Casimir) against candidates.py's seated crossovers, and sqrt(k_dur) = 5.625229 l_P against its duration-bound crossover, six decimals (DOCKET 67, on M's ruling \"Carry both\": first the two t0 = R/c and Casimir numbers alone). A scaling chain is pinned where it touches a number it did not produce"),
  ("SWEEP-CAUGHT","pathmetric.py",   "overturn.py's new cell moved a fixture in a file it never edited: pathmetric.py counts condition mismatches over index3's LIVE cells, 15^3 -> 16^3, and 252 -> 310. The only such fixture outside index3.py, and only the full sweep finds it"),
  ("CHAIN-OF-FOUR","overturn.py",    "a verdict is not one claim but a chain; enumerate the links before attacking one, because reversal needs exactly one of them and the cheapest is rarely the one attacked first"),
  ("DIFFERENCE-CAUGHT","overturn.py", "the rate was first measured by differencing two proper lengths ~199 apart, which lost every digit in the weak field and reported a spurious 63x gain at |m|=1e-6; integrating the deficit directly gives 1.000000"),
  ("DUP-ID-CAUGHT","obstruct.py",     "this pass's obstruction row was first written as LIGHT-AS-THE-SOURCE, a name the ledger already held for light.py's row. Every count assertion passed and the report printed the name twice, because nothing in the file keyed on the id. Renamed LIGHT-AS-THE-SUPPLY -- light.py closes light as the LEAD by a theorem, lightbuild.py closes it as the SUPPLY by a number -- and a uniqueness assert added"),
 ]
 
-TRIPLE_COUNT, TRIPLE_DIGEST = 289, '7026e44abbd4'
-AFFIRM_COUNT, AFFIRM_DIGEST = 171, 'b2318da70e64'
+# -- Documents MEASURED on the three directives and found silent on all three --
+#
+# A .md in this tree that no cell cites is one of two things: a findings paper
+# nobody seated -- the fault the coverage guard exists to catch -- or a
+# document that bears on none of the three directives.  The second kind is
+# MEASURED here rather than named on an exemption list.  Each row carries the
+# triple that reading the document returns, axis by axis, and the row excuses
+# that document ONLY BECAUSE THE TRIPLE IS NULL.  Put a non-zero coordinate in
+# one of these rows and it stops excusing anything: it has become a finding and
+# must be seated in FINDINGS.  The selftest enforces that, so the exemption is
+# conditioned on the measurement and not on the filename.
+#
+# THESE ARE NOT FINDINGS AND THEY ARE NOT IN THE LATTICE.  NULL is the lattice
+# bottom -- defect() excludes it by declaration -- so a row seated at NULL in
+# FINDINGS would make "this document bears on nothing" a claim the index holds,
+# and this index holds claims about spacetime.  Measuring a document at NULL and
+# seating a finding at NULL are different acts and only the first is done here.
+#
+# WITHDRAWN: the note this table replaces said that "giving them (0, 0, 0) to
+# satisfy this guard would assert a bearing they do not have."  THAT REASON IS
+# FALSE.  (0, 0, 0) asserts NO bearing on any axis -- that is what a zero is
+# for, and the index carried 671 of them when this was written, measured (685 at the
+# DOCKET 67 close, after TYPE-IV's move -- the count moves with every cell).  The conclusion it was
+# offered for stands and only its evidence falls: what a row in FINDINGS
+# asserts is that the document holds A FINDING, and that is the thing these
+# documents do not.  The corrected reason is the paragraph above.
+#
+# (document, x, y, z, what it is, why each axis reads zero)
+NULL_PAPERS = [
+ ("HLAW.md", 0, 0, 0,
+  "instrument documentation: the hierarchy law as a thing you can point at an index",
+  "it documents a TOOL.  It identifies no warp energy, decides no drive and "
+  "derives no spec; the law it runs is about indexes, not about spacetime"),
+ ("PROOF-ASSISTANT.md", 0, 0, 0,
+  "instrument documentation: the Z3 route, its two encodings and its two guards",
+  "it documents a TOOL, and a general-purpose one -- how to machine-check a "
+  "finite claim here.  It makes no claim about warp energy, a drive or a spec"),
+ ("REFUSAL.md", 0, 0, 0,
+  "instrument documentation: the refusal index, seated as an extension of the master index",
+  "it documents a TOOL whose members are refusals.  A refusal is a record of "
+  "what was not concluded, so it answers no directive by construction"),
+ ("DOCKET.md", 0, 0, 0,
+  "governance: this tree's open questions and the rulings on them",
+  "it documents DECISIONS.  A docket states a question and what would settle "
+  "it; the settlement, when it comes, is seated as a finding in its own paper"),
+ # STATE.md.  Measured 2026-09-20 rather than excused, because it is not the
+ # same kind of document as the four above: it is neither a tool note nor a
+ # ruling but a findings report -- of a DIFFERENT project, on DIFFERENT axes.
+ # The master-index work shares this directory and shares nothing else, and
+ # sharing a directory is not sharing a subject.  Read in full; the three
+ # readings below are what the reading returned.
+ ("STATE.md", 0, 0, 0,
+  "the generated current state of the MASTER INDEX work, written by state.py",
+  "its subject is which charts of atomic, nuclear and particle data are "
+  "first-order indexes: 23 vertices, eight occupied channels, a docket table "
+  "and a retraction list.  X = 0: it names no energy and no stress tensor.  "
+  "Y = 0: every verdict in it decides whether a member set is an index, never "
+  "whether a device can be built.  Z = 0: its numbers are cells, channels and "
+  "member counts -- not one length, mass, speed or field of any object.  Its "
+  "one crossing into this project's subject runs the OTHER WAY -- DOCKET 33 "
+  "APPLIES NAVIGATION.md's retrieval law to a literature search, which spends "
+  "a warp finding rather than making one.  All 8 occurrences of 'warp' in it "
+  "are the string 'research/warp-drive' in a provenance column, measured"),
+]
+
+# RE-PINNED 289 -> 290 and 7026e44abbd4 -> 2664ab2e9ac1 when LEDGER-BALANCE-REFUSED
+# was seated at (+1,-1,+1), both values read off this file's own count and
+# roster_digest after the seating, not typed from outside.
+# RE-PINNED (DOCKET 67 follow-up) 290 -> 288 and 2664ab2e9ac1 -> 486c81b16da0, and
+# 171 -> 170 and b2318da70e64 -> e7fcbec3c3b0, read off this file's own count and
+# roster_digest after the owners' verdicts moved: ACHRONAL leaves (+1,-1,-1) for
+# (+1,0,0) (obstruct.py's ACHRONALITY row, OPEN), DEC-BRANCH-SPLIT leaves (+1,+1,+1)
+# for (+1,0,+1) (apply.py's DEC branch, computed not exhaustive), and three rows on
+# the triple were renamed (ROW_IDS_AS_FIRST_WRITTEN).  The selftest re-derives the
+# first-written pins from the first-written cells and ids, so the move is exactly
+# these changes and nothing else.
+# RE-PINNED AGAIN (DOCKET 67 follow-ups, residue pass) 288 -> 287 and 486c81b16da0 ->
+# 58bdfd7a73c0, and 170 -> 169 and e7fcbec3c3b0 -> d20423b2a8c1, read off this file's own
+# count and roster_digest after the one further cell move: PLANCK-THIRD-TIME, whose ground
+# achievable.py withdrew in place under DOCKET 55 ('a third independent route to the Planck
+# scale'; the crossing is the identity L = l_P/sqrt(K) against a withdrawn curve), is renamed
+# PLANCK-CROSSING-IS-AN-IDENTITY and leaves (+1,+1,+1) for (+1,0,0).  The selftest re-derives
+# BOTH earlier pins -- the first-written one and the integration pass's 288/170 -- from the
+# cells and ids as they then stood, so each move is exactly the changes named and nothing else.
+# RE-PINNED AGAIN (DOCKET 67 follow-ups, identity pass; CLOSE.md sec. 4 item 2) 287 -> 284 and
+# 58bdfd7a73c0 -> 4ed8f1a34c5d, and 169 -> 166 and d20423b2a8c1 -> e4c831b58976, read off this
+# file's own count and roster_digest after three further cell moves, each (+1,+1,+1) -> (+1,0,0)
+# on the reading applied to PLANCK-CROSSING-IS-AN-IDENTITY: THREE-CROSSINGS-AGREE (supply.py:
+# 'three values of kappa, not three corroborations'), PLANCK-FOURTH-TIME renamed
+# GJW-LANDING-IS-AN-IDENTITY (gjw.py: 'NOT AN INDEPENDENT ROUTE TO THE PLANCK SCALE'), and
+# THEOREM-REPRODUCES renamed GJW-MATCH-IS-ONE-EXPRESSION (scale.GJW_MATCH_IS_INDEPENDENT = False).
+# The selftest re-derives all three earlier pins -- first-written 290/171, integration 288/170 and
+# the residue pass's 287/169 -- from the cells and ids as they then stood.
+# RE-PINNED AGAIN (DOCKET 67 close, on M's ruling "Unify to 0") 284 -> 283 and 4ed8f1a34c5d ->
+# 6748b1798e4c, read off this file's own count and roster_digest after the one cell move the ruling
+# makes on the triple: TYPE-IV leaves (+1,-1,-1) for (+1,0,0), its objection OPEN in obstruct.py.
+# The affirmative pin does not move (TYPE-IV was never (+1,+1,+1)): 166 and e4c831b58976 are
+# re-read, not retyped.  The selftest re-derives all four earlier pins -- first-written 290/171,
+# integration 288/170, residue pass 287/169 and the identity pass's 284/166 -- from the cells and
+# ids as they then stood, so the move is exactly that one and nothing else.
+TRIPLE_COUNT, TRIPLE_DIGEST = 283, '6748b1798e4c'
+AFFIRM_COUNT, AFFIRM_DIGEST = 166, 'e4c831b58976'
+TRIPLE_AS_FIRST_WRITTEN = (290, '2664ab2e9ac1')
+AFFIRM_AS_FIRST_WRITTEN = (171, 'b2318da70e64')
+#: the integration pass's pins (426418a), before the residue pass's move; kept and re-derived
+TRIPLE_AS_OF_INTEGRATION = (288, '486c81b16da0')
+AFFIRM_AS_OF_INTEGRATION = (170, 'e7fcbec3c3b0')
+#: the residue pass's pins (c9ae0c7), before the identity pass's moves; kept and re-derived
+TRIPLE_AS_OF_RESIDUE_PASS = (287, '58bdfd7a73c0')
+AFFIRM_AS_OF_RESIDUE_PASS = (169, 'd20423b2a8c1')
+#: the identity pass's pins (7dc11f2), before the DOCKET 67 close's move; kept and re-derived
+TRIPLE_AS_OF_IDENTITY_PASS = (284, '4ed8f1a34c5d')
+AFFIRM_AS_OF_IDENTITY_PASS = (166, 'e4c831b58976')
+#: DOCKET 68 wave 1 (M: "1 then 2 then 3 then 4"): four rows, each in an occupied cell with a
+#: zero on X and Y, so NEITHER PIN MOVES -- 283/6748b1798e4c and 166/e4c831b58976 are re-read,
+#: not retyped.  The as-of control computes the pins on FINDINGS without these rows and finds
+#: them equal to the pins above, and the count 747 as the DOCKET 67 close left it.
+#: REMOVED (DOCKET 68 residuals): D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS
+#: leaves FINDINGS (751 -> 750).  Its Z = +1 had no numeric requirement stated by an owner -- the
+#: house meaning of Z = +1 (LEDGER-BALANCE-REFUSED's comment: 'a requirement stated in numbers')
+#: -- and at Z = 0 it sits on the null cell (0,0,0), which is not a finding, so Q-1 and Q-1s are
+#: carried on the ledger's O9 only.  The pins do not move: the row was at (0,0,+1), never on all
+#: three axes nor on (+1,+1,+1), and (0,0,+1) stays occupied by the other D68 rows.
+D68_ROWS = ("D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL",
+            "D68-EXACT-FRW-ADMITS-ONLY-EQUAL-COSMIC-TIME-CORRIDORS",
+            "D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE")
+#: The rows as wave 1 first seated them (four), kept as history and re-derived by the selftest.
+D68_ROWS_AS_FIRST_SEATED = ("D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL",
+                            "D68-EXACT-FRW-ADMITS-ONLY-EQUAL-COSMIC-TIME-CORRIDORS",
+                            "D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS",
+                            "D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE")
+#: The removed row exactly as first seated (id, x, y, z, source, text) -- history, not a finding.
+D68_ROW_REMOVED = ('D68-SIGNED-ENTROPY-IS-RE-H-PLUS-N-OVER-SEPARABLE-FUNCTIONALS', 0, 0, 1, 'docket68/signed.py', "Q-1s, the entropy of a quasi-probability (sum p = 1, some p < 0), computed (signed.py): Re H = -sum p ln|p|, branch-free; Im H = pi N on the principal branch, N the total negative weight; M = ln sum|p|, product-additive and 0 exactly when no entry is negative. Re H can be NEGATIVE -- at p = (1.5, -0.5) it is -0.954771 nats, with Im H = 1.570796 and M = 0.693147 -- read, not explained away. Over every continuous SEPARABLE functional, Baez-Fritz-Leinster's functoriality, convex linearity and continuity carried to signed measures give X = c Re H + b N (a 14-function separable basis leaves a null space of dimension 2, span{Re H, N}; 13 without the convex-linearity rows); product additivity leaves Re H alone; BFL's codomain [0, inf) forces c = 0, so no separable functional extends Shannon and keeps it. Uniqueness over NON-separable functionals is OPEN (H-SEPARABLE names the gap). On The Method's closed index Q-1 counts log2 976 = 9.930737 bits per cell of Lambda (measure.py), and Q-1 removes no obstruction (LEAVES-ALL). M's two weightings both stay carried. X and Y read 0: a measure identifies no warp energy and builds nothing; Z: it is the substrate-free count the R-INDEX reading is priced in")
+#: DOCKET 68 WAVE 2: the one sentence of D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL that wave 2
+#: made stale, AS WAVE 1 SEATED IT -- kept as history, never a finding.  Wave 2 READ the four
+#: Weinberg-family limits (abstracts, public pages), so support 1's window premises are W_W2R
+#: (named hypotheses only) and the 1 AU cells are EXCLUDED given W_W2R; the row was re-typed in
+#: place and ledger.d68_index3_needles asks the new values of settle.window_read and combine.
+#: The O-SEAT row was extended (seat.py's binder), not replaced.  No cell moved and no row was
+#: added: wave 2 moved no grade a row here reads (O-BITS stays REMOVED-IF on named premises,
+#: O-SEAT and O-MAKE-DIST stay OPEN), and its new prices -- the vacuum route's window-free floor,
+#: the vacuum's harvested-pair figures -- are carried on the ledger's O9 and D23 note (ledger.py
+#: docstring section 7b), with whether the vacuum route earns a row of its own left to M.
+D68_TEXT_AS_WAVE1 = {
+    "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL": ('{W2, F1; N_EPS}, admissible given W_W2 at 1 ly, N = 7 (flagged, not settled: the Weinberg-family value is NAMED-NOT-READ), and {W2, F1; N_W2ANC}, zero-error, its window UNEVALUATED;', 'and, at the unread limit, a midpoint-source first read at 0.50153'),
+}
+#: DOCKET 66, WAVE 1 (docket66/; ledger.py docstring section 8, H-NO-D66-ROW): NO ROW IS ADDED
+#: and no cell moves.  H-NO-D66-ROW is a named READING, not a fact: under it DOCKET 66's answer reads
+#: (0, 0, 0) in the house reading -- its hypotheses remove nothing (combine66.py: no D66 literal
+#: load-bearing in any removal or non-binding, so Y = 0) and identify no warp energy (X = 0), and
+#: Z = 0 is the reading itself, which counts as the docket's own only a requirement on a route the
+#: docket shows; a null cell is not a finding.  Its owners DO state requirements in numbers (A2's
+#: throat at the A/4 ceiling, r_fit and M_sat, IF {H-CAP-AT-THROAT, H-NECK-DOGMA, H-COUNT-IS-ENTROPY};
+#: A3's QET injection bound; MMP's N_f at r_fit), each a price of an OPEN or LEFT route.  They are kept
+#: on the ledger's O9 and S5's note by M's precedent for the vacuum route (M-RULINGS-2026-10-03.md item
+#: 18, "No, keep on O9 (Recommended)") -- a precedent, not a ruling on DOCKET 66 -- and whether any
+#: earns a row here (which could read Z = +1) is put to M; no cell moves unless M rules.
+#: ledger.d66_index3_faults checks that no row here cites docket66/ (with a planted-row control).
+#: CORRECTED (R-seat, from D66-repro's FIX-SEAT-RESULT result.v): first written 'state no requirement
+#: in numbers of their own (Z = 0)' as a fact, followed by 'The requirements its owners do state in
+#: numbers' -- the two sentences contradicted each other.  M's DOCKET 66 rulings (M-RULINGS items
+#: 26-28; ledger M-D68-26..28) move no row or cell here either: the paper's Gott bound, spec.py's TURN
+#: and the D68 re-grade of O-MAKE-TOPO (OPEN via N_WNCC, never removed) touch nothing a row reads.
+FINDINGS_AS_OF_DOCKET67_CLOSE = 747
+FINDINGS_AS_OF_D68_WAVE1_SEATING = 751
+
+#: CORRECTED (DOCKET 67 follow-up): cells and ids as first written, kept as history
+#: and checked.  A cell moved only where its owner's verdict moved.
+ACHRONAL_CELL_AS_FIRST_WRITTEN = (+1, -1, -1)
+DEFOCUS_CELL_AS_FIRST_WRITTEN = (+1, -1, 0)
+DEC_BRANCH_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+#: CORRECTED (DOCKET 67 follow-ups, residue pass; M: "stale figures and statements --
+#: including what DOCKET 55 withdrew -- address/repair/correct"): PLANCK-THIRD-TIME's
+#: ground was withdrawn in achievable.py by DOCKET 55 and index3 never recorded it.
+PLANCK_THIRD_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+#: CORRECTED (DOCKET 67 follow-ups, identity pass; M: "a verdict stays only on a correct stated
+#: ground -- if there is none, it is open"): three rows kept (+1,+1,+1) under corrected text whose
+#: Y/Z ground was an independent convergence on the Planck scale that is one dimensional identity.
+THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN = (+1, +1, +1)
+#: CORRECTED (DOCKET 67 close, on M's ruling "Unify to 0": an OPEN row reads 0 on Y and Z, and older
+#: OPEN rows that read -1 move to 0): TYPE-IV's objection is OPEN in its owner (obstruct.py).
+TYPE_IV_CELL_AS_FIRST_WRITTEN = (+1, -1, -1)
+#: OPEN-AT-NULL-HELD -- a NAMED limitation of the close, for M.  These OPEN rows read -1 on Y with
+#: X = 0 and Z = 0, so the ruling's move seats them at (0,0,0): the null cell, which this index
+#: declares not a finding (defect() excludes it; NULL-CAUGHT refused NO-EVIDENCE there), and a
+#: seventeenth occupied cell, which moves pathmetric.py's fixture (310 printed-condition mismatches
+#: over index3's live cells), a file outside this pass.  They are HELD at their cells, each text
+#: marked OPEN with its -1 said not to be a bound; the selftest computes that the move lands on
+#: NULL for each, and that nothing else holds them.  {(id, source): why the row is OPEN}
+#: RULED BY M (DOCKET 68, M-RULINGS-2026-10-03.md item 4; ledger.py M-D68-4): "Keep held, noted
+#: (Recommended)" -- they stay as they are, each text saying its -1 is not a bound.  Their texts
+#: still read 'for M', as written before the ruling: M ruled they stay as they are, so they are
+#: not rewritten, and the ruling is recorded here and on the ledger.
+OPEN_AT_NULL_HELD = {
+    ("NOT-CERTIFIED", "TARGET-1-RESULT.md"):
+        "records the certification gap, not a refutation (its own comment)",
+    ("AXIAL-TERM", "gatespec.py"):
+        "gatespec.py: 'nothing in this project has checked whether a profile exists'",
+    ("SELF-CONSISTENT-OPEN", "universal.py"):
+        "universal.py: 'the warp case is UNSETTLED rather than excluded'",
+    ("EXACT-ORDER-OPEN", "selfconsistent.py"):
+        "selfconsistent.py: 'STILL OPEN AT EXACT ORDER'",
+    ("UNPROVEN-LOAD", "achronal.py"):
+        "obstruct.py's ACHRONALITY row, status OPEN",
+}
+#: {id now: id as first written}
+ROW_IDS_AS_FIRST_WRITTEN = {
+    "DEFOCUS-NO-CONJUGATE-POINT": "DEFOCUS-PROTECTS",
+    "SHELL-DELAY-IS-13-PERCENT": "THEOREM-IS-FREE",
+    "ONLY-ENTRY-KEEPING-D2": "ONLY-ENTRY",
+    "CLOSED-ENERGY-CONTESTED": "CLOSED-ENERGY-UNDEFINED",
+    "DEC-BRANCH-SPLIT": "DEC-BRANCH-EXHAUSTED",
+    "GATE-FAILS-FIXED-MANIFOLD": "GATE-FAILS-D2",
+    "PLANCK-CROSSING-IS-AN-IDENTITY": "PLANCK-THIRD-TIME",
+    "GJW-LANDING-IS-AN-IDENTITY": "PLANCK-FOURTH-TIME",
+    "GJW-MATCH-IS-ONE-EXPRESSION": "THEOREM-REPRODUCES",
+}
+#: first-written cells by CURRENT id, for the re-derivation control
+CELLS_AS_FIRST_WRITTEN = {
+    "ACHRONAL": ACHRONAL_CELL_AS_FIRST_WRITTEN,
+    "DEFOCUS-NO-CONJUGATE-POINT": DEFOCUS_CELL_AS_FIRST_WRITTEN,
+    "DEC-BRANCH-SPLIT": DEC_BRANCH_CELL_AS_FIRST_WRITTEN,
+    "PLANCK-CROSSING-IS-AN-IDENTITY": PLANCK_THIRD_CELL_AS_FIRST_WRITTEN,
+    "THREE-CROSSINGS-AGREE": THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN,
+    "GJW-LANDING-IS-AN-IDENTITY": PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN,
+    "GJW-MATCH-IS-ONE-EXPRESSION": THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN,
+    "TYPE-IV": TYPE_IV_CELL_AS_FIRST_WRITTEN,
+}
+#: the residue pass's moves alone -- the subset of the two maps above made after the
+#: integration pass (426418a) and before the identity pass -- for the controls below
+RESIDUE_PASS_ROW_IDS = {"PLANCK-CROSSING-IS-AN-IDENTITY": "PLANCK-THIRD-TIME"}
+RESIDUE_PASS_CELLS = {"PLANCK-CROSSING-IS-AN-IDENTITY": PLANCK_THIRD_CELL_AS_FIRST_WRITTEN}
+#: the identity pass's moves alone -- the subset made after the residue pass (c9ae0c7)
+IDENTITY_PASS_ROW_IDS = {"GJW-LANDING-IS-AN-IDENTITY": "PLANCK-FOURTH-TIME",
+                         "GJW-MATCH-IS-ONE-EXPRESSION": "THEOREM-REPRODUCES"}
+IDENTITY_PASS_CELLS = {"THREE-CROSSINGS-AGREE": THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN,
+                       "GJW-LANDING-IS-AN-IDENTITY": PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN,
+                       "GJW-MATCH-IS-ONE-EXPRESSION": THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN}
+#: the DOCKET 67 close's moves alone (M's "Unify to 0") -- the subset made after the identity
+#: pass (7dc11f2); no id was renamed by it
+CLOSE_PASS_ROW_IDS = {}
+CLOSE_PASS_CELLS = {"TYPE-IV": TYPE_IV_CELL_AS_FIRST_WRITTEN}
+
+def _put_back(cells, ids):
+    out = []
+    for f in FINDINGS:
+        c = cells.get(f[0], coords(f))
+        out.append((ids.get(f[0], f[0]),) + tuple(c) + tuple(f[4:]))
+    return out
+
+def findings_before_d68():
+    """FINDINGS as the DOCKET 67 close left them: the DOCKET 68 rows taken out,
+    nothing else changed (the DOCKET 68 seating moved no cell and renamed no id)."""
+    return [f for f in FINDINGS if f[0] not in D68_ROWS]
+
+def findings_as_first_written():
+    """FINDINGS with the DOCKET 67 follow-up's moved cells and renamed ids put
+    back as first written (texts kept as they now stand)."""
+    return _put_back(CELLS_AS_FIRST_WRITTEN, ROW_IDS_AS_FIRST_WRITTEN)
+
+def findings_as_of_integration():
+    """FINDINGS with the residue, identity and close passes' moves put back: the
+    index as the integration pass (426418a) left it, cell for cell and id for id."""
+    return _put_back(dict(RESIDUE_PASS_CELLS, **IDENTITY_PASS_CELLS, **CLOSE_PASS_CELLS),
+                     dict(RESIDUE_PASS_ROW_IDS, **IDENTITY_PASS_ROW_IDS, **CLOSE_PASS_ROW_IDS))
+
+def findings_as_of_residue_pass():
+    """FINDINGS with the identity and close passes' moves put back: the index as
+    the residue pass (c9ae0c7) left it, cell for cell and id for id."""
+    return _put_back(dict(IDENTITY_PASS_CELLS, **CLOSE_PASS_CELLS),
+                     dict(IDENTITY_PASS_ROW_IDS, **CLOSE_PASS_ROW_IDS))
+
+def findings_as_of_identity_pass():
+    """FINDINGS with only the DOCKET 67 close's moves put back: the index as the
+    identity pass (7dc11f2) left it, cell for cell and id for id."""
+    return _put_back(CLOSE_PASS_CELLS, CLOSE_PASS_ROW_IDS)
 
 AXES = ("X: identify warp energy", "Y: drive possible", "Z: specs derivable")
 
@@ -1825,7 +2522,12 @@ def selftest():
     chk("every finding is (id, x, y, z, source, claim)", shape, [])
     bad = [f[0] for f in FINDINGS if any(v not in (-1,0,1) for v in coords(f))]
     chk("cells with an out-of-range coordinate", bad, [])
-    chk("number of findings indexed", len(FINDINGS), 746)
+    # RE-PINNED 746 -> 747: LEDGER-BALANCE-REFUSED (LEDGER.md), counted here.
+    # RE-PINNED 747 -> 751 by DOCKET 68 wave 1: its four rows (D68_ROWS), each in an
+    # occupied cell; the as-of control in the DOCKET 68 block re-derives the 747.
+    # RE-PINNED 751 -> 750 by the DOCKET 68 residuals: the signed-entropy row removed
+    # (D68_ROW_REMOVED); the as-of control re-derives the 751 with it put back.
+    chk("number of findings indexed", len(FINDINGS), 750)
     chk("distinct occupied cells", len({coords(f) for f in FINDINGS}), 16)
     # TYPE-IV opened (+1,-1,-1) -- identified, and unbuildable BECAUSE identified.
     # 130 findings had never occupied it; it is the cell for a positive answer on
@@ -1838,10 +2540,323 @@ def selftest():
     # IDENTIFIED, and what identifies it is what forbids the build and the spec.
     # The two newest are about the core, not about ANEC, and they landed here
     # anyway.
-    chk("the cell TYPE-IV opened holds every hard objection, old and new",
+    # CORRECTED (DOCKET 67 close, on M's ruling "Unify to 0"): TYPE-IV itself left the cell it
+    # opened -- its objection is OPEN in obstruct.py ('Not forbidden -- unknown'), and an OPEN row
+    # reads 0 on Y and Z.  The cell keeps every hard objection whose ground stands; as the identity
+    # pass left it, it also held TYPE-IV, and the control re-derives that.
+    chk("the cell TYPE-IV opened holds every hard objection whose ground stands",
         sorted(f[0] for f in FINDINGS if coords(f) == (1, -1, -1)),
+        ['ANEC-VIOLATED', 'BANK-LOAN-THEOREM', 'CHARGE-NO-LEAD', 'GAP-WIDENS', 'NO-ACHIEVABLE-CORE'])
+    chk("  as the identity pass left it, it also held TYPE-IV (control)",
+        sorted(f[0] for f in findings_as_of_identity_pass() if coords(f) == (1, -1, -1)),
+        ['ANEC-VIOLATED', 'BANK-LOAN-THEOREM', 'CHARGE-NO-LEAD', 'GAP-WIDENS', 'NO-ACHIEVABLE-CORE', 'TYPE-IV'])
+    # CORRECTED (DOCKET 67 follow-up): ACHRONAL left this cell -- its only ground
+    # was the false converse, and obstruct.py now holds ACHRONALITY OPEN.  As
+    # first written the cell held it; the control re-derives that.
+    chk("  as first written it also held ACHRONAL (control)",
+        sorted(f[0] for f in findings_as_first_written() if coords(f) == (1, -1, -1)),
         ['ACHRONAL', 'ANEC-VIOLATED', 'BANK-LOAN-THEOREM', 'CHARGE-NO-LEAD', 'GAP-WIDENS', 'NO-ACHIEVABLE-CORE', 'TYPE-IV'])
     chk("cells possible in {-1,0,1}^3", 3**3, 27)
+
+    print("\nDOCKET 67 follow-up -- cells and ids moved with their owners, history kept")
+    by_id = {f[0]: f for f in FINDINGS}
+    chk("ACHRONAL: Y and Z undecided (obstruct.py ACHRONALITY is OPEN)",
+        coords(by_id["ACHRONAL"]), (1, 0, 0))
+    chk("  and not the first-written cell", coords(by_id["ACHRONAL"])
+        != ACHRONAL_CELL_AS_FIRST_WRITTEN, True)
+    chk("  its text no longer asserts achronality ('is ACHRONAL', 'is met')",
+        ("is ACHRONAL" in by_id["ACHRONAL"][5],
+         "hypothesis is met" in by_id["ACHRONAL"][5]), (False, False))
+    chk("DEC-BRANCH-SPLIT: Y undecided (apply.py: not exhaustive, one sub-case OPEN)",
+        coords(by_id["DEC-BRANCH-SPLIT"]), (1, 0, 1))
+    chk("  and it names both sub-cases",
+        ("COLLAPSE where" in by_id["DEC-BRANCH-SPLIT"][5],
+         "OPEN where" in by_id["DEC-BRANCH-SPLIT"][5],
+         "NOT exhaustive" in by_id["DEC-BRANCH-SPLIT"][5]), (True, True, True))
+    chk("no withdrawn id is still a row",
+        sorted(set(ROW_IDS_AS_FIRST_WRITTEN.values()) & set(by_id)), [])
+    chk("every renamed id is a row",
+        sorted(set(ROW_IDS_AS_FIRST_WRITTEN) - set(by_id)), [])
+    chk("the struck converse is asserted by no row",
+        sorted(f[0] for f in FINDINGS
+               if "the only known way past Graham-Olum" in f[5].split("(DOCKET 67")[0]
+               or "you cannot buy achronality-failure" in f[5]
+               or "proved unreachable through matter" in f[5].split("(DOCKET 67")[0]), [])
+    _t0 = [f[0] for f in findings_as_first_written() if on_all_three(f)]
+    _a0 = [f[0] for f in findings_as_first_written() if coords(f) == (1, 1, 1)]
+    chk("CONTROL: first-written cells and ids give the first-written triple pin",
+        (len(_t0), roster_digest(_t0)), TRIPLE_AS_FIRST_WRITTEN)
+    chk("CONTROL: and the first-written affirmative pin",
+        (len(_a0), roster_digest(_a0)), AFFIRM_AS_FIRST_WRITTEN)
+    _t1 = [f[0] for f in findings_as_of_integration() if on_all_three(f)]
+    _a1 = [f[0] for f in findings_as_of_integration() if coords(f) == (1, 1, 1)]
+    chk("CONTROL: the integration pass's cells and ids give its triple pin (288)",
+        (len(_t1), roster_digest(_t1)), TRIPLE_AS_OF_INTEGRATION)
+    chk("CONTROL: and its affirmative pin (170)",
+        (len(_a1), roster_digest(_a1)), AFFIRM_AS_OF_INTEGRATION)
+    chk("the residue pass's maps are a subset of the first-written maps",
+        (all(ROW_IDS_AS_FIRST_WRITTEN.get(k) == v for k, v in RESIDUE_PASS_ROW_IDS.items()),
+         all(CELLS_AS_FIRST_WRITTEN.get(k) == v for k, v in RESIDUE_PASS_CELLS.items())),
+        (True, True))
+    # DOCKET 67 follow-ups, identity pass: the residue pass's own pins, re-derived by putting
+    # back only the identity pass's three moves -- so that pass is exactly those and nothing else.
+    _t2 = [f[0] for f in findings_as_of_residue_pass() if on_all_three(f)]
+    _a2 = [f[0] for f in findings_as_of_residue_pass() if coords(f) == (1, 1, 1)]
+    chk("CONTROL: the residue pass's cells and ids give its triple pin (287)",
+        (len(_t2), roster_digest(_t2)), TRIPLE_AS_OF_RESIDUE_PASS)
+    chk("CONTROL: and its affirmative pin (169)",
+        (len(_a2), roster_digest(_a2)), AFFIRM_AS_OF_RESIDUE_PASS)
+    chk("the identity pass's maps are a subset of the first-written maps",
+        (all(ROW_IDS_AS_FIRST_WRITTEN.get(k) == v for k, v in IDENTITY_PASS_ROW_IDS.items()),
+         all(CELLS_AS_FIRST_WRITTEN.get(k) == v for k, v in IDENTITY_PASS_CELLS.items())),
+        (True, True))
+    chk("  and share no row with the residue pass's",
+        (sorted(set(IDENTITY_PASS_ROW_IDS) & set(RESIDUE_PASS_ROW_IDS)),
+         sorted(set(IDENTITY_PASS_CELLS) & set(RESIDUE_PASS_CELLS))), ([], []))
+    # DOCKET 67 close: the close pass's maps join the subtraction; the integration pass's own
+    # moves are still exactly 6 ids and 3 cells.
+    chk("  and together with it and the close pass's make up every move after the integration pass",
+        (len(ROW_IDS_AS_FIRST_WRITTEN) - len(RESIDUE_PASS_ROW_IDS) - len(IDENTITY_PASS_ROW_IDS)
+         - len(CLOSE_PASS_ROW_IDS),
+         len(CELLS_AS_FIRST_WRITTEN) - len(RESIDUE_PASS_CELLS) - len(IDENTITY_PASS_CELLS)
+         - len(CLOSE_PASS_CELLS)),
+        (6, 3))
+    # DOCKET 67 close, on M's ruling "Unify to 0": the identity pass's own pins, re-derived by
+    # putting back only the close pass's move -- so the close is exactly that move and nothing else.
+    _t3 = [f[0] for f in findings_as_of_identity_pass() if on_all_three(f)]
+    _a3 = [f[0] for f in findings_as_of_identity_pass() if coords(f) == (1, 1, 1)]
+    chk("CONTROL: the identity pass's cells and ids give its triple pin (284)",
+        (len(_t3), roster_digest(_t3)), TRIPLE_AS_OF_IDENTITY_PASS)
+    chk("CONTROL: and its affirmative pin (166)",
+        (len(_a3), roster_digest(_a3)), AFFIRM_AS_OF_IDENTITY_PASS)
+    chk("the close pass's maps are a subset of the first-written maps",
+        (all(ROW_IDS_AS_FIRST_WRITTEN.get(k) == v for k, v in CLOSE_PASS_ROW_IDS.items()),
+         all(CELLS_AS_FIRST_WRITTEN.get(k) == v for k, v in CLOSE_PASS_CELLS.items())),
+        (True, True))
+    chk("  and share no row with the residue or identity pass's",
+        sorted(set(CLOSE_PASS_CELLS) & (set(RESIDUE_PASS_CELLS) | set(IDENTITY_PASS_CELLS))), [])
+
+    print("\nDOCKET 67 follow-ups, residue pass -- DOCKET 55's withdrawals recorded, figures re-quoted")
+    chk("PLANCK-CROSSING-IS-AN-IDENTITY: Y and Z undecided (achievable.py: identity, not a route)",
+        coords(by_id["PLANCK-CROSSING-IS-AN-IDENTITY"]), (1, 0, 0))
+    chk("  and not the first-written cell", coords(by_id["PLANCK-CROSSING-IS-AN-IDENTITY"])
+        != PLANCK_THIRD_CELL_AS_FIRST_WRITTEN, True)
+    # identity pass (CLOSE.md sec. 4 item 2): the same reading, applied to the three rows whose
+    # Y/Z ground was an 'independent' Planck-scale convergence that is one identity.
+    _live_text = lambda t: t.split("(DOCKET 55")[0].split("(DOCKET 67")[0]   # as _live below
+    for _k, _c0, _why in (("THREE-CROSSINGS-AGREE", THREE_CROSSINGS_CELL_AS_FIRST_WRITTEN,
+                           "supply.py: three values of kappa"),
+                          ("GJW-LANDING-IS-AN-IDENTITY", PLANCK_FOURTH_CELL_AS_FIRST_WRITTEN,
+                           "gjw.py: single-length identity"),
+                          ("GJW-MATCH-IS-ONE-EXPRESSION", THEOREM_REPRODUCES_CELL_AS_FIRST_WRITTEN,
+                           "scale.py: one expression, twice")):
+        chk("%s: Y and Z undecided (%s)" % (_k, _why), coords(by_id[_k]), (1, 0, 0))
+        chk("  and not the first-written cell", coords(by_id[_k]) != _c0, True)
+        chk("  and its live text names the identity and the 0 on Y and Z",
+            ("identity" in _live_text(by_id[_k][5]).lower(), "Y and Z read 0" in _live_text(by_id[_k][5])),
+            (True, True))
+    # a row's LIVE text is what precedes its history note; the note quotes what was withdrawn
+    _live = lambda t: t.split("(DOCKET 55")[0].split("(DOCKET 67")[0]
+    _withdrawn55 = ("needs 65 ORDERS more", "available/required = 1.09e-65",
+                    "a theorem and not a budget", "third independent route",
+                    "fourth independent route", "obeys Ford-Roman |rho| <~ hbar c/L^4")
+    chk("no row asserts a DOCKET 55-withdrawn clause outside its history note",
+        sorted(f[0] for f in FINDINGS for w in _withdrawn55 if w in _live(f[5])), [])
+    _as_first = ("every known negative energy density obeys Ford-Roman |rho| <~ hbar c/L^4, "
+                 "and the core needs 65 ORDERS more at metre scale: available/required = "
+                 "1.09e-65; ... and that this is a theorem and not a budget; a third "
+                 "independent route to the Planck scale; a fourth independent route")
+    chk("  CONTROL: the texts as first written are caught",
+        sorted(w for w in _withdrawn55 if w in _live(_as_first)), sorted(_withdrawn55))
+    # identity pass and the DOCKET 55 re-adjudication (CLOSE.md sec. 4 items 2 and 4): phrases the
+    # owners (supply.py, scale.py, candidates.py, overturn.py) corrected in place, which index3's
+    # rows still carried.  Case-sensitive: 'NOT AN INDEPENDENT ROUTE' is the correction, not this.
+    _withdrawn_owned = ("THREE INDEPENDENT QUANTITIES", "IT REPRODUCES A NUMBER",
+                        "bound |rho| itself over a sampling region",
+                        "over sampling length L = c tau", "LOCAL SAMPLED BOUND",
+                        "has positive total mass", "a decision M has been holding",
+                        "has stood unchanged for the whole project")
+    chk("no row asserts a phrase its owner corrected, outside its history note",
+        sorted(f[0] for f in FINDINGS for w in _withdrawn_owned if w in _live(f[5])), [])
+    _as_first_owned = ("AND THREE INDEPENDENT QUANTITIES CROSS IN THE SAME PLACE; IT REPRODUCES A "
+                       "NUMBER THE TREE COMPUTED ANOTHER WAY; bounds |rho| <= 3 hbar c/(32 pi^2 "
+                       "L^4) over sampling length L = c tau; THE WHOLE WEIGHT IS CARRIED BY THE "
+                       "LOCAL SAMPLED BOUND: Ford-Roman and its descendants, which bound |rho| "
+                       "itself over a sampling region; the two-zone profile has positive total "
+                       "mass; a flag that has stood unchanged for the whole project; a decision "
+                       "M has been holding")
+    chk("  CONTROL: the texts as they stood are caught, every phrase",
+        sorted(w for w in _withdrawn_owned if w in _live(_as_first_owned)), sorted(_withdrawn_owned))
+    chk("the two Ford-Roman rows state a worldline TIME average, as their owners do",
+        sorted(k for k in ("BOUNDS-FALL-FASTER-THAN-NEED", "QI-CARRIES-THE-WHOLE-WEIGHT")
+               if "TIME average" in _live(by_id[k][5]) and "worldline" in _live(by_id[k][5])),
+        ["BOUNDS-FALL-FASTER-THAN-NEED", "QI-CARRIES-THE-WHOLE-WEIGHT"])
+    chk("  and keep their cells (the owners' verdicts did not move)",
+        (coords(by_id["BOUNDS-FALL-FASTER-THAN-NEED"]), coords(by_id["QI-CARRIES-THE-WHOLE-WEIGHT"])),
+        ((1, -1, 1), (-1, -1, 0)))
+    chk("  and the t0 = R/c reading is named as the tree's choice, not the source's",
+        "t0 = R/c" in _live(by_id["BOUNDS-FALL-FASTER-THAN-NEED"][5])
+        and "not the source's" in _live(by_id["BOUNDS-FALL-FASTER-THAN-NEED"][5]), True)
+    chk("the achievable.py rows rest on the duration bound, under named hypotheses",
+        sorted(k for k in ("NO-ACHIEVABLE-CORE", "GAP-WIDENS", "DEVICE-NOT-RETRACTED")
+               if "71.256" in _live(by_id[k][5]) and "H-MMCS" in _live(by_id[k][5])),
+        ["DEVICE-NOT-RETRACTED", "GAP-WIDENS", "NO-ACHIEVABLE-CORE"])
+    chk("NO-ACHRONAL-VIOLATOR is scoped to the scanned family, not the corridor",
+        ("NO RAY OF THE SCANNED FAMILY" in _live(by_id["NO-ACHRONAL-VIOLATOR"][5]),
+         "NO RAY OF THIS CORRIDOR" in _live(by_id["NO-ACHRONAL-VIOLATOR"][5])), (True, False))
+    # figures stage OWN moved: none may stand in a row's live text, only in a 'first' note
+    _stale = ("at 4.9 km, 1.11 Msun", "4.4x stress margin", "by 2.175x", "5.1048e42 kg at four",
+              "holds 9.9736e101 bits", "gives 2.6014e79 J", "takes 5.4298e100",
+              "identical to four figures", "still prices 1 % of a round",
+              "ONE GENUINE FREE LEVER", "TO FIVE DIGITS")
+    _owned = {"SCALE", "CIRCULATION", "MAGNITUDE-REACHED", "NO-PATH-IS-THE-MAXIMUM",
+              "BITS-ARE-THE-MASS", "LANDAUER-IS-THE-WEAKER-HALF", "A-SPECTRUM-IS-A-LOGARITHM",
+              "LIMIT-DISSOLVES", "COST-STOPS-SCALING", "ONE-LEVER-IN-THE-TABLE",
+              "GJW-MATCH-IS-ONE-EXPRESSION"}   # first THEOREM-REPRODUCES (identity pass rename)
+    _strip = lambda t: t.split("(first ")[0].split("(DOCKET 67")[0].split("(at Proxima")[0]
+    chk("no row quotes, as current, a figure stage OWN moved",
+        sorted(f[0] for f in FINDINGS for w in _stale if w in _strip(f[5])), [])
+    chk("  CONTROL: the eleven re-quoted rows are all rows",
+        sorted(_owned - set(by_id)), [])
+    _old = ("nuclear matter at 4.9 km, 1.11 Msun; 6.94:1, 4.4x stress margin; by 2.175x there; "
+            "5.1048e42 kg at four light years; holds 9.9736e101 bits; gives 2.6014e79 J; "
+            "takes 5.4298e100 atoms; identical to four figures; still prices 1 % of a round "
+            "four light years; THE ONE GENUINE FREE LEVER; TO FIVE DIGITS")
+    chk("  CONTROL: the rows' texts as they stood are caught, every fragment",
+        sorted(w for w in _stale if w in _strip(_old)), sorted(_stale))
+
+    print("\nDOCKET 67 close -- M's three rulings, each move recorded")
+    # (3) "Unify to 0": an OPEN row reads 0 on Y and Z.
+    chk("TYPE-IV: Y and Z read 0 (obstruct.py's TYPE-IV row is OPEN: 'Not forbidden -- unknown')",
+        coords(by_id["TYPE-IV"]), (1, 0, 0))
+    chk("  and not the first-written cell", coords(by_id["TYPE-IV"]) != TYPE_IV_CELL_AS_FIRST_WRITTEN,
+        True)
+    chk("  and its live text names the objection OPEN and the 0 on Y and Z",
+        ("is OPEN" in _live(by_id["TYPE-IV"][5]), "Y and Z read 0" in _live(by_id["TYPE-IV"][5])),
+        (True, True))
+    _held = [f for f in FINDINGS if (f[0], f[4]) in OPEN_AT_NULL_HELD]
+    chk("OPEN-AT-NULL-HELD: every held row is a row, once",
+        sorted((f[0], f[4]) for f in _held), sorted(OPEN_AT_NULL_HELD))
+    chk("  each reads (0,-1,0): X = 0 and Z = 0, so the ruling's move lands on NULL (computed)",
+        sorted(set((coords(f), (f[1], 0, f[3]) == NULL) for f in _held)), [((0, -1, 0), True)])
+    chk("  each text marks it OPEN, held, its -1 not a bound (in its history note)",
+        [f[0] for f in _held if "OPEN-AT-NULL-HELD" not in f[5] or "is not a bound" not in f[5]], [])
+    chk("  the one move the ruling makes elsewhere lands off NULL",
+        sorted(k for k, c in CLOSE_PASS_CELLS.items()
+               if (c[0], 0 if c[1] == -1 else c[1], 0 if c[2] == -1 else c[2]) == NULL), [])
+    _moved = {coords(f) for f in FINDINGS if (f[0], f[4]) not in OPEN_AT_NULL_HELD} | {
+        (f[1], 0, f[3]) for f in _held}
+    chk("  CONTROL: seating the held rows at their moved cells occupies NULL, a 17th cell",
+        (NULL in _moved, len(_moved), NULL in {coords(f) for f in FINDINGS}), (True, 17, False))
+    # (1) "Carry both": wherever the t0 = R/c crossover or its shortfalls are quoted as current,
+    # the duration-bound figures stand beside them, and the headlines are scoped to t0 = R/c.
+    _rows = [(f[0], f[5]) for f in FINDINGS] + [(s_[0], s_[2]) for s_ in SUPPORT]
+    _cb_pairs = (("0.307933", "5.625229"), ("52.6", "50.1"), ("70.6", "68.1"))
+    _cb_miss = lambda rows: sorted(set(k for k, t in rows for a, b in _cb_pairs
+                                       if a in _live(t) and b not in _live(t)
+                                       and b.replace(".1", ".083") not in _live(t)))
+    chk("\"Carry both\": every live quote of 0.307933 / 52.6 / 70.6 carries 5.625229 / 50.1 / 68.1",
+        _cb_miss(_rows), [])
+    _heads = ("SAME GATE", "FAILS BEFORE THE BOUND DOES")
+    chk("  and every live 'SAME GATE' / 'FAILS BEFORE THE BOUND DOES' is scoped to t0 = R/c",
+        sorted(k for k, t in _rows for h in _heads if h in _live(t) and "t0 = R/c" not in _live(t)), [])
+    _cb_first = [("BOUNDS-FALL-FASTER-THAN-NEED", "It is still 52.6 ORDERS SHORT AT A NANOMETRE and "
+                  "70.6 at a metre ... = 0.307933 l_P ... THE FRAMEWORK FAILS BEFORE THE BOUND DOES"),
+                 ("PLANCK-IS-THE-GATE", "Ford-Roman closes at 0.307933 l_P ... THE MAGNITUDE GATE "
+                  "AND THE PLANCK SCALE ARE THE SAME GATE"),
+                 ("DIAGONAL-CHECK", "sqrt(k) = 0.307933 and 0.369917 l_P")]
+    chk("  CONTROL: the texts as they stood are caught, by both checks",
+        (_cb_miss(_cb_first),
+         sorted(set(k for k, t in _cb_first for h in _heads if h in t and "t0 = R/c" not in t))),
+        (["BOUNDS-FALL-FASTER-THAN-NEED", "DIAGONAL-CHECK", "PLANCK-IS-THE-GATE"],
+         ["BOUNDS-FALL-FASTER-THAN-NEED", "PLANCK-IS-THE-GATE"]))
+    chk("  the refusal on Y stands on both readings: the Ford-Roman rows keep their cells",
+        (coords(by_id["BOUNDS-FALL-FASTER-THAN-NEED"]), coords(by_id["PLANCK-IS-THE-GATE"]),
+         coords(by_id["THE-AREA-LAW"])), ((1, -1, 1), (1, -1, 1), (-1, -1, 1)))
+    # (2) "Re-size to 4544 m": GATE 1's quoted figures moved with gate1.py / residue.py / torus.py.
+    chk("\"Re-size to 4544 m\": NO-BORE quotes residue.py's 95.47, not the first '100x', as current",
+        ("95.47" in _live(by_id["NO-BORE"][5]), "100x" in _live(by_id["NO-BORE"][5]),
+         "100x" in by_id["NO-BORE"][5]), (True, False, True))
+    chk("  OPEN-GATE's 5.89x names TORUS-ASPECT-HELD and the other reading's 6.04x",
+        ("TORUS-ASPECT-HELD" in by_id["OPEN-GATE"][5], "6.04x" in by_id["OPEN-GATE"][5]),
+        (True, True))
+    chk("  CONTROL: NO-BORE as it stood is caught",
+        "100x" in _live("a bore closes 100x over before a payload crosses: the gate cannot be loaded"),
+        True)
+    chk("  and the GATE 1 rows keep their cells",
+        (coords(by_id["NO-BORE"]), coords(by_id["OPEN-GATE"])), ((0, -1, -1), (1, -1, 1)))
+
+    print("\nDOCKET 68 wave 1 -- three rows (four as first seated), no new cell, no pin moved")
+    _d68 = [f for f in FINDINGS if f[0] in D68_ROWS]
+    chk("each DOCKET 68 row is seated once, citing its docket68/ instrument",
+        sorted((f[0], f[4].split("/")[0]) for f in _d68),
+        sorted((k, "docket68") for k in D68_ROWS))
+    chk("  each reads (0,0,+1): an OPEN result reads 0 on Y, and a conditional route, "
+        "a geometric lemma or an open seat route identifies no warp energy",
+        sorted(set(coords(f) for f in _d68)), [(0, 0, 1)])
+    chk("  each text says its Y reads 0", [f[0] for f in _d68 if "Y read" not in f[5]], [])
+    import re as _re
+    _bare = _re.compile(r"\bREMOVED\b(?!-IF)")
+    chk("  no row claims more than its owner: no bare REMOVED (only REMOVED-IF), and "
+        "a NOT-BOUND is never a removal",
+        ([f[0] for f in _d68 if _bare.search(f[5])],
+         [f[0] for f in _d68 if "NOT-BOUND" in f[5] and "not a removal" not in f[5]]),
+        ([], []))
+    chk("  CONTROL: 'O-BITS is REMOVED by W2 x F1' planted in a row is caught",
+        bool(_bare.search(_d68[0][5] + " O-BITS is REMOVED by W2 x F1")), True)
+    chk("  CONTROL: a row moved to (0,+1,+1) leaves the (0,0,+1) reading",
+        sorted(set([coords(f) for f in _d68[1:]] + [(0, 1, 1)])) == [(0, 0, 1)], False)
+    chk("  O-SEAT's row shows both seat-route readings (OPEN via N_S5; LEFT given "
+        "H-SEAT-ROUTES), and the O-BITS row both supports",
+        ([("OPEN via N_S5" in f[5], "H-SEAT-ROUTES" in f[5] and "it is LEFT" in f[5])
+          for f in _d68 if f[0] == "D68-O-SEAT-OPEN-VIA-S5-AND-THE-D25-GATE"],
+         [("{W2, F1; N_EPS}" in f[5], "{W2, F1; N_W2ANC}" in f[5])
+          for f in _d68 if f[0] == "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL"]),
+        ([(True, True)], [(True, True)]))
+    _b = findings_before_d68()
+    chk("AS-OF CONTROL: without the DOCKET 68 rows the index is the DOCKET 67 close's -- "
+        "747 findings, the same 16 cells, and the SAME pins",
+        (len(_b), len({coords(f) for f in _b}),
+         (len([f[0] for f in _b if on_all_three(f)]),
+          roster_digest([f[0] for f in _b if on_all_three(f)])),
+         (len([f[0] for f in _b if coords(f) == (1, 1, 1)]),
+          roster_digest([f[0] for f in _b if coords(f) == (1, 1, 1)]))),
+        (FINDINGS_AS_OF_DOCKET67_CLOSE, len({coords(f) for f in FINDINGS}),
+         (TRIPLE_COUNT, TRIPLE_DIGEST), (AFFIRM_COUNT, AFFIRM_DIGEST)))
+    chk("  and no DOCKET 68 row sits on all three axes or on (+1,+1,+1)",
+        [f[0] for f in _d68 if on_all_three(f) or coords(f) == (1, 1, 1)], [])
+    _w1 = FINDINGS + [D68_ROW_REMOVED]
+    chk("AS-OF CONTROL (wave 1 as first seated): with the removed row put back the index is "
+        "751 findings, its four rows the ones first seated, the same 16 cells and the SAME pins",
+        (len(_w1), sorted(f[0] for f in _w1 if f[0] in D68_ROWS_AS_FIRST_SEATED),
+         len({coords(f) for f in _w1}),
+         (len([f[0] for f in _w1 if on_all_three(f)]),
+          roster_digest([f[0] for f in _w1 if on_all_three(f)])),
+         (len([f[0] for f in _w1 if coords(f) == (1, 1, 1)]),
+          roster_digest([f[0] for f in _w1 if coords(f) == (1, 1, 1)]))),
+        (FINDINGS_AS_OF_D68_WAVE1_SEATING, sorted(D68_ROWS_AS_FIRST_SEATED),
+         len({coords(f) for f in FINDINGS}),
+         (TRIPLE_COUNT, TRIPLE_DIGEST), (AFFIRM_COUNT, AFFIRM_DIGEST)))
+    _w1t = D68_TEXT_AS_WAVE1["D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL"]
+    _w1r = [f for f in FINDINGS if f[0] == "D68-ONE-MEMBER-REMOVAL-AND-IT-IS-CONDITIONAL"][0]
+    chk("DOCKET 68 wave 2: the row's stale wave-1 sentences are kept as history and gone "
+        "from the row, which types the READ windows (EXCLUDED at 1 AU; H-SAME-EPS named) "
+        "and the READ limit; no row added, no cell moved, the count unchanged",
+        ([t in _w1r[5] for t in _w1t], ["NAMED-NOT-READ" in _w1t[0], "unread" in _w1t[1]],
+         ["EXCLUDED given W_W2R at 1 AU, N = 7" in _w1r[5], "H-SAME-EPS" in _w1r[5],
+          "at the READ limit" in _w1r[5]], coords(_w1r), len(FINDINGS)),
+        ([False, False], [True, True], [True, True, True], (0, 0, 1), 750))
+    chk("  CONTROL: the wave-1 sentence put back is detected in the row",
+        _w1t[0] in _w1r[5].replace(_w1r[5][_w1r[5].index("{W2, F1; N_EPS}"):
+                                          _w1r[5].index("its window UNEVALUATED;")
+                                          + len("its window UNEVALUATED;")], _w1t[0]), True)
+    chk("  the removed row: absent from FINDINGS; first seated at (0,0,+1) on 'the "
+        "substrate-free count the R-INDEX reading is priced in', no numeric requirement; "
+        "at Z = 0 it lands on the null cell, which is not a finding (defect() excludes it)",
+        ([f[0] for f in FINDINGS if f[0] == D68_ROW_REMOVED[0]], coords(D68_ROW_REMOVED),
+         "R-INDEX reading is priced in" in D68_ROW_REMOVED[5],
+         (D68_ROW_REMOVED[1], D68_ROW_REMOVED[2], 0) == NULL),
+        ([], (0, 0, 1), True, True))
 
     print("\nThe corpus's own Law 3 prediction, tested on this index")
     print("  K_3 needs strong 3-consistency; the closure operator delivers 2, so")
@@ -1857,12 +2872,12 @@ def selftest():
     chk("cells sitting on all three axes -- count", len(triple), TRIPLE_COUNT)
     chk("  and their digest", roster_digest(triple), TRIPLE_DIGEST)
     _ = sorted(triple) == sorted([
-                "A-CANCELS","A-SPECTRUM-IS-A-LOGARITHM","ABSORB-VS-TRANSMIT","ACHRONAL","ADM-IS-A-FREE-PARAMETER","ALREADY-LARGE-ENOUGH","ANEC-CROSS-CHECKED","ANEC-RELOCATES","ANEC-VIOLATED","AREA-OVER-THICK","BALANCE-PROVES-THE-BILL","BANK-LOAN-THEOREM","BH-IS-WRONG-SIGN","BIANCHI-IS-THE-SELF-DEFENCE","BIGGER-THROAT-FAILS-FASTER","BINARY-IS-A-FUNCTION","BITS-ARE-THE-MASS","BITS-SPEND-ON-ONE-DOOR","BOTH-SIGNS-SEAT-FREE","BOUND-IS-POST-COMPRESSION","BUILT-SOURCE","CANONICAL-VERSUS-CHOSEN-THRESHOLD","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CHARGE-PAIRS-MASS-DOESNT","CITATION-NOT-BINARY","CLASSICAL-WINS","CLOSABILITY-IS-A-PROPERTY","CLOSURE-FORCES-ZERO-CHARGE","CODEBOOK-CANCELS","COLLAPSE-BINDS-RICCI","COMOVING-IS-THE-CLOSED-INDEX","CONCENTRIC-BEATS-BONDI","CONTAINER-IS-SOLVED","CONTAINMENT-IS-A-BOUNDARY","CONTESTED-IS-A-FIFTH-STATUS","CONTRACTION-LAW","CONVERSION-IS-DONE","CORE-IS-TYPE-I","CORES-REPRODUCE-RATE","CORRIDOR-NOT-A-BH","COSMIC-STRING-ROUTE-CLOSED","COUPLING-IS-THE-CHORD","COST-DOES-NOT-CLOSE-IT","COST-IS-ONE-NUMBER","COST-STOPS-SCALING","COUNTING-CLOSES-IT","CREATE-IS-NOT-CONTAIN","CREATION-IGNORES-SOURCE","CUBE-SCORED","CYLINDER-WAS-NEVER-THE-PROBLEM","D-CANCELS","DAMPING-READS-B-PRIME","DEC-BRANCH-EXHAUSTED","DECIDER-NAMES-THE-KIND","DENSITY-IS-THE-WRONG-KIND","DENSITY-SETS-THE-BITS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DEVICE-SPLITS","DIAL-MOVES-THE-ANNOUNCEMENT","DIPOLE-BOUNDS-NEGMASS","DISSENT-IS-VALUE","DOOR-ONE-IS-A-NUMBER","DOOR-ONE-IS-NOT-A-HOPE","DOOR-THREE-HAS-THREE-ARRIVALS","DOOR-TWO-IS-THE-REFUSED-ONE","DRIFT-IS-DOOR-ONE","EARNSHAW-CLOSES-L1","EC-TAKEN","EFFICIENCY-CANNOT","EM-GAP","EM-IS-ORDINARY","EMBEDDING-IS-FREE","EMITTER-IS-THE-HOLE","ENLARGE-DONT-CREATE","ENTANGLEMENT-IS-IT","ENTROPY-IS-PLANCK-DENOMINATED","ENTROPY-STABILITY-ISNT-DYNAMICAL","ER-BRIDGE-IS-THE-PICTURE","ESCAPES-LEAVE-GR","ESCAPES-TYPE-I","EVERY-EM-FIELD-OBEYS-NEC","EVIDENCE-IS-THE-SAVING","EXCHANGE-RATE","EXTERNAL-PATH-ESCAPE","FIND-IT-FROM-THE-FRONT","FINITE-VERSION-IS-CLOSED","FIVE-SIGMA-IS-NOT-ENOUGH","FLYBY","FOCUS-DESCRIPTION-STANDS","FORD-ROMAN-DERIVED","FROZEN-COORDINATE-TWICE","GAIN-SATURATES","GAP-IS-THE-LEVER","GAP-WIDENS","GATE-FAILS-D2","GATE-IS-A-RETURN-TICKET","GATE-WINS","GEOMETRY-NOT-PERMISSION","GJW-IS-EXISTENCE-PROOF","INDEX-EARNED-ITS-KEEP","INSTRUMENT-LIMIT","INVARIANT-IS-THE-ANGLE","KAPPA-IS-THE-ONLY-LEVER","KERR-FLYBY","KNOBS-DECOUPLE","LANDS-ON-FREE-HALF","LAUNCHER","LEAD-IS-INTERIOR","LEAD-MUST-BE-SWITCHABLE","LENSING-IS-THE-SEAT","LIGHT-IS-NOT-CHEAPER","LIGHT-IS-SEAT-NOT-LEAD","LIGHT-IS-WHAT-BREAKS-IT","LIGHT-LANDS-ON-TWO-ROWS","LIMIT-DISSOLVES","LOG-AGAINST-LINEAR","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","MALLETT-CTC-REFUTED","MARGIN-DEGRADES-BY-SQRT","MOVEMENT-IS-THE-COST","NARROWER-CLOSING","NEUTRAL-IS-THE-CEILING","NO-ACHIEVABLE-CORE","NO-ACHRONAL-VIOLATOR","NO-BUCHDAHL","NO-EXOTIC","NO-FREE-CONVERSION-RATE","NO-GEOMETRY-LEFT","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-PATH-IS-THE-MAXIMUM","NO-PHOTON-SPHERE","NO-SECOND-FORM","NO-THROAT","NOT-BIGGER-INSIDE","NOT-POWERED","NOTHING-STRUCTURAL","NULL-DUST-SATURATES-NEC","OBJ-CEILING","OBSERVED-ENGINE","ONE-AXIS-FLAT","ONE-DOOR-IS-PAYABLE","ONE-LEVER-IN-THE-TABLE","ONE-NAME-AGAIN","ONE-OBSTACLE","ONE-SIGN-EXOTIC","ONLY-STATISTICS-HAS-A-DIAL","OPEN-GATE","OPTIMAL-SPECTRUM-IS-A-HORIZON","ORDER-IS-THE-SURVIVOR","ORDER-MOVED","ORDINARY-MATTER","OUR-CASE-IS-M-ZERO","PACKAGING-IS-FREE","PERMISSION-NOT-DISCOUNT","PHASE-1-CLOSES","PLANCK-FACTOR-CANCELS","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","POWER-MAKES-IT-WORSE","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-ACT","PROPER-IS-THE-QUANTITY","QNEC-HAS-NO-WEYL","QNEC-IS-THE-MEETING","RATIO-CANNOT-BE-RELABELLED","REFINEMENT-NAMES-THE-VARIABLE","RELAXATION-IS-THE-OTHER-TERM","RELIC-NOT-CONSTRUCTION","RIGIDITY-DERIVES-THE-EXOTIC","RIGIDITY-IS-A-SECOND-PROOF","SAFE-MEANS-INVISIBLE","SAME-2PI2-AGAIN","SAVING-DOESNT-SCALE","SCALE-THEOREM","SCOPE-DROPS-LEAD","SEARCH-NEEDS-NO-DETECTOR","SEAT-IS-OBSERVED","SEAT-IS-THE-ESCAPE","SEAT-VS-CONTRACTION","SEATS-AND-EARLY","SECOND-COSTS-1E4-SUNS","SHEAR-CLAIM-INVERTED","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SHIFTED-MODE","SHORTCUT-NOT-ROOM","SIGN-COMMITMENT-CLOSES-A-CLASS","SIGN-IS-THE-ONLY-QUESTION","SIGN-NOT-POWER","SIGN-STRUCTURE-3","SIGNBLIND-BOTH-ENDS","SIGNBLIND-PAIRS","SINGULARITY-NO-ESCAPE","SLINGSHOT","SMALLER-HOLDS-MORE","SNEC-INHERITS-ANEC","SPACE-TIME-ONE","SPECTRUM-IS-THE-ONLY-CARRIER","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STATIC-IS-THE-SPLIT","STIFF-WALL","STIFFNESS-IS-THE-COST","STURM-IMPLIES-COLLAPSE","SUPERSESSION-SWEEP","SYMMETRY-BEATS-CODE","TARGET-ISNT-DESIGN","THE-ANSWER-IS-A-GATE","THE-DICHOTOMY","THE-DOOR","THE-LATTICE-WAS-NEVER-NEEDED","THE-PAPER-REFUTES-THE-USE","THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-IS-FREE","THEOREM-REPRODUCES","THETA-FALSIFIES-PERMUTATION","THREE-ARE-ONE","THREE-CROSSINGS-AGREE","THREE-DOORS","THREE-DOORS-THREE-LANGUAGES","THREE-ROWS-ADMIT","THREE-WANT-A-THROAT","THROAT-IS-A-BOTTLENECK","THROAT-WANTS-LARGE","THUE-MORSE-IS-THE-CODE","TIME-CHEAPER-METRIC","TIME-HALF-IS-FREE","TRANSITION-DEFINED","TRANSITION-EQUATION","TWENTY-NOT-65-ORDERS","TWENTY-THREE-ORDERS-FOR-1HZ","TWO-CONSTANTS-AGREE","TWO-INSTRUMENTS-LOCKED","TWO-ROUTES-AGREE","TWO-SYMMETRIES","TYPE-IV","UNCLOSABLE-IS-THE-CTC-PRECONDITION","UNIVERSAL-SEAT","VACUUM-DEMONSTRATION","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","VACUUM-SATURATES-QNEC","VALUE-IS-AMORTISED","WEYL-IS-SIGNBLIND","WINDOW-GROWS","ZERO-ADM-DEVICE","ZERO-POINT-IS-THE-FLOOR","ZERO-SEPARATION-IS-ONE-FACT"])
+                "A-CANCELS","A-SPECTRUM-IS-A-LOGARITHM","ABSORB-VS-TRANSMIT","ADM-IS-A-FREE-PARAMETER","ALREADY-LARGE-ENOUGH","ANEC-CROSS-CHECKED","ANEC-RELOCATES","ANEC-VIOLATED","ANSATZ-VIOLATES-EVERYWHERE","AREA-OVER-THICK","BALANCE-PROVES-THE-BILL","BANK-LOAN-THEOREM","BH-IS-WRONG-SIGN","BIANCHI-IS-THE-SELF-DEFENCE","BIGGER-THROAT-FAILS-FASTER","BINARY-IS-A-FUNCTION","BITS-ARE-THE-MASS","BITS-SPEND-ON-ONE-DOOR","BOTH-SIGNS-SEAT-FREE","BOUND-IS-POST-COMPRESSION","BOUNDS-FALL-FASTER-THAN-NEED","BUILT-SOURCE","CANONICAL-VERSUS-CHOSEN-THRESHOLD","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-NO-LEAD","CHARGE-PAIRS-MASS-DOESNT","CITATION-NOT-BINARY","CLASSICAL-WINS","CLOSABILITY-IS-A-PROPERTY","CLOSURE-FORCES-ZERO-CHARGE","CODEBOOK-CANCELS","COLLAPSE-BINDS-RICCI","COMOVING-IS-THE-CLOSED-INDEX","CONCENTRIC-BEATS-BONDI","CONTAINER-IS-SOLVED","CONTAINMENT-IS-A-BOUNDARY","CONTESTED-IS-A-FIFTH-STATUS","CONTRACTION-IFF-NEGATIVE-ENCLOSED-MASS","CONTRACTION-LAW","CONVERSION-IS-DONE","CORE-IS-TYPE-I","CORES-REPRODUCE-RATE","CORRIDOR-NOT-A-BH","COSMIC-STRING-ROUTE-CLOSED","COST-DOES-NOT-CLOSE-IT","COST-IS-ONE-NUMBER","COST-STOPS-SCALING","COUNTING-CLOSES-IT","COUPLING-IS-THE-CHORD","CREATE-IS-NOT-CONTAIN","CREATION-IGNORES-SOURCE","CUBE-SCORED","CYLINDER-WAS-NEVER-THE-PROBLEM","D-CANCELS","D4-ALLOWS-ONLY-A-POINT-SOURCE","DAMPING-READS-B-PRIME","DEADLINE-IS-FREE","DECIDER-NAMES-THE-KIND","DENSITY-IS-THE-WRONG-KIND","DENSITY-SETS-THE-BITS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DEVICE-SEATS-LEADS","DEVICE-SPLITS","DIAL-MOVES-THE-ANNOUNCEMENT","DIPOLE-BOUNDS-NEGMASS","DISSENT-IS-VALUE","DOOR-ONE-IS-A-NUMBER","DOOR-ONE-IS-NOT-A-HOPE","DOOR-THREE-HAS-THREE-ARRIVALS","DOOR-TWO-IS-THE-REFUSED-ONE","DRIFT-IS-DOOR-ONE","EARNSHAW-CLOSES-L1","EC-TAKEN","EFFECTIVE-MASS-IS-NOT-T00","EFFICIENCY-CANNOT","EFT-EXCLUDES-ITS-OWN-CUTOFF","EM-GAP","EM-IS-ORDINARY","EMBEDDING-IS-FREE","EMITTER-IS-THE-HOLE","ENLARGE-DONT-CREATE","ENTANGLEMENT-IS-IT","ENTROPY-IS-PLANCK-DENOMINATED","ENTROPY-STABILITY-ISNT-DYNAMICAL","ER-BRIDGE-IS-THE-PICTURE","ESCAPES-LEAVE-GR","ESCAPES-TYPE-I","EVERY-DECADE-ADDS-LN-TEN","EVERY-EM-FIELD-OBEYS-NEC","EVERY-GATE-PASSES","EVIDENCE-IS-THE-SAVING","EXCHANGE-RATE","EXPONENTS-MATCH","EXTERNAL-PATH-ESCAPE","FIND-IT-FROM-THE-FRONT","FINITE-VERSION-IS-CLOSED","FIVE-SIGMA-IS-NOT-ENOUGH","FLYBY","FOCUS-DESCRIPTION-STANDS","FORD-ROMAN-DERIVED","FROZEN-COORDINATE-TWICE","GAIN-SATURATES","GAP-IS-THE-LEVER","GAP-WIDENS","GATE-FAILS-FIXED-MANIFOLD","GATE-IS-A-RETURN-TICKET","GATE-WINS","GATES-NAME-ONE-LENGTH","GEOMETRY-NOT-PERMISSION","GJW-IS-EXISTENCE-PROOF","HEADLINE-IS-A-MODEL","INDEX-EARNED-ITS-KEEP","INSTRUMENT-LIMIT","INVARIANT-IS-THE-ANGLE","KAPPA-IS-THE-ONLY-LEVER","KERR-FLYBY","KNOBS-DECOUPLE","LAMBDA-IS-LOGARITHMICALLY-STIFF","LANDS-ON-FREE-HALF","LAUNCHER","LEAD-IS-INTERIOR","LEAD-MUST-BE-SWITCHABLE","LEDGER-BALANCE-REFUSED","LENSING-IS-THE-SEAT","LIGHT-IS-NOT-CHEAPER","LIGHT-IS-SEAT-NOT-LEAD","LIGHT-IS-TOO-GRANULAR","LIGHT-IS-WHAT-BREAKS-IT","LIGHT-LANDS-ON-TWO-ROWS","LIMIT-DISSOLVES","LOG-AGAINST-LINEAR","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","MALLETT-CTC-REFUTED","MARGIN-DEGRADES-BY-SQRT","MOVEMENT-IS-THE-COST","NARROWER-CLOSING","NEUTRAL-IS-THE-CEILING","NO-ACHIEVABLE-CORE","NO-ACHRONAL-VIOLATOR","NO-BUCHDAHL","NO-EXOTIC","NO-FREE-CONVERSION-RATE","NO-GEOMETRY-LEFT","NO-HORIZON","NO-IS-BETTER-SUPPORTED-THAN-YES","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-PATH-IS-THE-MAXIMUM","NO-PHOTON-SPHERE","NO-SECOND-FORM","NO-STATE-INDEPENDENT-QEI","NO-THROAT","NOT-BIGGER-INSIDE","NOT-POWERED","NOTHING-STRUCTURAL","NULL-DUST-SATURATES-NEC","OBJ-CEILING","OBSERVED-ENGINE","OBSTRUCTION-WAS-NEVER-THE-MECHANISM","ONE-AXIS-FLAT","ONE-DOOR-IS-PAYABLE","ONE-LEVER-IN-THE-TABLE","ONE-NAME-AGAIN","ONE-OBSTACLE","ONE-SIGN-EXOTIC","ONLY-STATISTICS-HAS-A-DIAL","OPEN-GATE","OPTIMAL-SPECTRUM-IS-A-HORIZON","ORDER-IS-THE-SURVIVOR","ORDER-MOVED","ORDINARY-MATTER","OUR-CASE-IS-M-ZERO","PACKAGING-IS-FREE","PERMISSION-NOT-DISCOUNT","PHASE-1-CLOSES","PLANCK-FACTOR-CANCELS","PLANCK-FOURTH-TIME","PLANCK-IS-THE-GATE","POWER-MAKES-IT-WORSE","PRESSURE-CAPPED","PRICE-OF-A-PLANCK-LENGTH","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-ACT","PROPER-IS-THE-QUANTITY","QNEC-HAS-NO-WEYL","QNEC-IS-THE-MEETING","RATE-SATURATES","RATIO-CANNOT-BE-RELABELLED","REFINEMENT-NAMES-THE-VARIABLE","RELAXATION-IS-THE-OTHER-TERM","RELIC-NOT-CONSTRUCTION","RIGIDITY-DERIVES-THE-EXOTIC","RIGIDITY-IS-A-SECOND-PROOF","SAFE-MEANS-INVISIBLE","SAME-2PI2-AGAIN","SAVING-DOESNT-SCALE","SCALE-THEOREM","SCOPE-DROPS-LEAD","SEARCH-NEEDS-NO-DETECTOR","SEAT-IS-OBSERVED","SEAT-IS-THE-ESCAPE","SEAT-VS-CONTRACTION","SEATS-AND-EARLY","SECOND-COSTS-1E4-SUNS","SHEAR-CLAIM-INVERTED","SHELL-DELAY-IS-13-PERCENT","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SHIFTED-MODE","SHORTCUT-NOT-ROOM","SIGN-COMMITMENT-CLOSES-A-CLASS","SIGN-IS-THE-ONLY-QUESTION","SIGN-NOT-POWER","SIGN-STRUCTURE-3","SIGNBLIND-BOTH-ENDS","SIGNBLIND-PAIRS","SINGULARITY-NO-ESCAPE","SLINGSHOT","SMALLER-HOLDS-MORE","SNEC-INHERITS-ANEC","SPACE-TIME-ONE","SPECTRUM-IS-THE-ONLY-CARRIER","SQUEEZED-PASSES-TWO-GATES","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STATIC-IS-THE-SPLIT","STIFF-WALL","STIFFNESS-IS-THE-COST","STURM-IMPLIES-COLLAPSE","SUPERSESSION-SWEEP","SYMMETRY-BEATS-CODE","TARGET-ISNT-DESIGN","THE-ANSWER-IS-A-GATE","THE-AREA-LAW","THE-DICHOTOMY","THE-DOOR","THE-LATTICE-WAS-NEVER-NEEDED","THE-PAPER-REFUTES-THE-USE","THE-SPLIT","THE-TRADE","THE-WINDOW","THEOREM-REPRODUCES","THETA-FALSIFIES-PERMUTATION","THREE-ARE-ONE","THREE-CROSSINGS-AGREE","THREE-DOORS","THREE-DOORS-THREE-LANGUAGES","THREE-GATES-ON-THE-LEAD","THREE-IDENTITIES-ARE-ONE-DEFINITION","THREE-ROWS-ADMIT","THREE-WANT-A-THROAT","THROAT-IS-A-BOTTLENECK","THROAT-WANTS-LARGE","THUE-MORSE-IS-THE-CODE","TILING-IS-NEUTRAL","TIME-CHEAPER-METRIC","TIME-HALF-IS-FREE","TRANSITION-DEFINED","TRANSITION-EQUATION","TWENTY-NOT-65-ORDERS","TWENTY-THREE-ORDERS-FOR-1HZ","TWO-CONSTANTS-AGREE","TWO-INSTRUMENTS-LOCKED","TWO-ROUTES-AGREE","TWO-SYMMETRIES","TYPE-IV","UNCLOSABLE-IS-THE-CTC-PRECONDITION","UNIVERSAL-SEAT","VACUUM-DEMONSTRATION","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","VACUUM-SATURATES-QNEC","VALUE-IS-AMORTISED","WEYL-IS-SIGNBLIND","WINDOW-GROWS","ZERO-ADM-DEVICE","ZERO-POINT-IS-THE-FLOOR","ZERO-SEPARATION-IS-ONE-FACT"])
     aff = [f[0] for f in FINDINGS if coords(f) == (1,1,1)]
     chk("cells affirmative on all three -- count", len(aff), AFFIRM_COUNT)
     chk("  and their digest", roster_digest(aff), AFFIRM_DIGEST)
     _ = sorted(aff) == sorted([
-                "ABSORB-VS-TRANSMIT","ADM-IS-A-FREE-PARAMETER","ALREADY-LARGE-ENOUGH","ANEC-CROSS-CHECKED","BH-IS-WRONG-SIGN","BIANCHI-IS-THE-SELF-DEFENCE","BINARY-IS-A-FUNCTION","BITS-SPEND-ON-ONE-DOOR","BOTH-SIGNS-SEAT-FREE","BOUND-IS-POST-COMPRESSION","BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-PAIRS-MASS-DOESNT","CLASSICAL-WINS","CLOSABILITY-IS-A-PROPERTY","CLOSURE-FORCES-ZERO-CHARGE","CODEBOOK-CANCELS","COLLAPSE-BINDS-RICCI","COMOVING-IS-THE-CLOSED-INDEX","CONCENTRIC-BEATS-BONDI","CONTAINER-IS-SOLVED","CONTAINMENT-IS-A-BOUNDARY","CONTESTED-IS-A-FIFTH-STATUS","CONTRACTION-LAW","CORE-IS-TYPE-I","CORES-REPRODUCE-RATE","CORRIDOR-NOT-A-BH","COST-DOES-NOT-CLOSE-IT","COST-IS-ONE-NUMBER","COST-STOPS-SCALING","CREATE-IS-NOT-CONTAIN","D-CANCELS","DAMPING-READS-B-PRIME","DEC-BRANCH-EXHAUSTED","DECIDER-NAMES-THE-KIND","DENSITY-IS-THE-WRONG-KIND","DENSITY-SETS-THE-BITS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DISSENT-IS-VALUE","DOOR-ONE-IS-A-NUMBER","DOOR-ONE-IS-NOT-A-HOPE","DOOR-THREE-HAS-THREE-ARRIVALS","EARNSHAW-CLOSES-L1","EC-TAKEN","EM-IS-ORDINARY","ENLARGE-DONT-CREATE","ENTANGLEMENT-IS-IT","ENTROPY-IS-PLANCK-DENOMINATED","ESCAPES-TYPE-I","EVERY-EM-FIELD-OBEYS-NEC","EVIDENCE-IS-THE-SAVING","EXTERNAL-PATH-ESCAPE","FIND-IT-FROM-THE-FRONT","FLYBY","FOCUS-DESCRIPTION-STANDS","FORD-ROMAN-DERIVED","FROZEN-COORDINATE-TWICE","GATE-FAILS-D2","GATE-WINS","GJW-IS-EXISTENCE-PROOF","INDEX-EARNED-ITS-KEEP","INSTRUMENT-LIMIT","KERR-FLYBY","KNOBS-DECOUPLE","LENSING-IS-THE-SEAT","LIGHT-IS-WHAT-BREAKS-IT","LIGHT-LANDS-ON-TWO-ROWS","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","MOVEMENT-IS-THE-COST","NEUTRAL-IS-THE-CEILING","NO-ACHRONAL-VIOLATOR","NO-BUCHDAHL","NO-EXOTIC","NO-FREE-CONVERSION-RATE","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-PHOTON-SPHERE","NO-SECOND-FORM","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","NULL-DUST-SATURATES-NEC","OBSERVED-ENGINE","ONE-DOOR-IS-PAYABLE","ONE-SIGN-EXOTIC","ONLY-STATISTICS-HAS-A-DIAL","OPTIMAL-SPECTRUM-IS-A-HORIZON","ORDER-IS-THE-SURVIVOR","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FACTOR-CANCELS","PLANCK-FOURTH-TIME","PLANCK-THIRD-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-ACT","PROPER-IS-THE-QUANTITY","QNEC-IS-THE-MEETING","RATIO-CANNOT-BE-RELABELLED","REFINEMENT-NAMES-THE-VARIABLE","RELIC-NOT-CONSTRUCTION","RIGIDITY-DERIVES-THE-EXOTIC","SAME-2PI2-AGAIN","SCALE-THEOREM","SCOPE-DROPS-LEAD","SEARCH-NEEDS-NO-DETECTOR","SEAT-IS-OBSERVED","SEAT-IS-THE-ESCAPE","SEAT-VS-CONTRACTION","SEATS-AND-EARLY","SHEAR-CLAIM-INVERTED","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SHIFTED-MODE","SHORTCUT-NOT-ROOM","SIGN-IS-THE-ONLY-QUESTION","SIGN-STRUCTURE-3","SIGNBLIND-BOTH-ENDS","SIGNBLIND-PAIRS","SLINGSHOT","SMALLER-HOLDS-MORE","SPACE-TIME-ONE","SPECTRUM-IS-THE-ONLY-CARRIER","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STATIC-IS-THE-SPLIT","STIFF-WALL","SUPERSESSION-SWEEP","THE-ANSWER-IS-A-GATE","THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-IS-FREE","THEOREM-REPRODUCES","THREE-CROSSINGS-AGREE","THREE-DOORS-THREE-LANGUAGES","THREE-ROWS-ADMIT","THUE-MORSE-IS-THE-CODE","TIME-CHEAPER-METRIC","TIME-HALF-IS-FREE","TRANSITION-DEFINED","TRANSITION-EQUATION","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-INSTRUMENTS-LOCKED","TWO-ROUTES-AGREE","TWO-SYMMETRIES","UNIVERSAL-SEAT","VACUUM-DEMONSTRATION","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","VACUUM-SATURATES-QNEC","VALUE-IS-AMORTISED","WEYL-IS-SIGNBLIND","WINDOW-GROWS","ZERO-ADM-DEVICE","ZERO-SEPARATION-IS-ONE-FACT"])
+                "ABSORB-VS-TRANSMIT","ADM-IS-A-FREE-PARAMETER","ALREADY-LARGE-ENOUGH","ANEC-CROSS-CHECKED","BH-IS-WRONG-SIGN","BIANCHI-IS-THE-SELF-DEFENCE","BINARY-IS-A-FUNCTION","BITS-SPEND-ON-ONE-DOOR","BOTH-SIGNS-SEAT-FREE","BOUND-IS-POST-COMPRESSION","BUILT-SOURCE","CASIMIR-ROUTE","CATALOGUE","CHANGE-OF-KIND","CHARGE-PAIRS-MASS-DOESNT","CLASSICAL-WINS","CLOSABILITY-IS-A-PROPERTY","CLOSURE-FORCES-ZERO-CHARGE","CODEBOOK-CANCELS","COLLAPSE-BINDS-RICCI","COMOVING-IS-THE-CLOSED-INDEX","CONCENTRIC-BEATS-BONDI","CONTAINER-IS-SOLVED","CONTAINMENT-IS-A-BOUNDARY","CONTESTED-IS-A-FIFTH-STATUS","CONTRACTION-LAW","CORE-IS-TYPE-I","CORES-REPRODUCE-RATE","CORRIDOR-NOT-A-BH","COST-DOES-NOT-CLOSE-IT","COST-IS-ONE-NUMBER","COST-STOPS-SCALING","CREATE-IS-NOT-CONTAIN","D-CANCELS","DAMPING-READS-B-PRIME","DEADLINE-IS-FREE","DECIDER-NAMES-THE-KIND","DENSITY-IS-THE-WRONG-KIND","DENSITY-SETS-THE-BITS","DESIGN-EQUATION","DEVICE-IS-CLASSICAL","DEVICE-NOT-RETRACTED","DISSENT-IS-VALUE","DOOR-ONE-IS-A-NUMBER","DOOR-ONE-IS-NOT-A-HOPE","DOOR-THREE-HAS-THREE-ARRIVALS","EARNSHAW-CLOSES-L1","EC-TAKEN","EM-IS-ORDINARY","ENLARGE-DONT-CREATE","ENTANGLEMENT-IS-IT","ENTROPY-IS-PLANCK-DENOMINATED","ESCAPES-TYPE-I","EVERY-EM-FIELD-OBEYS-NEC","EVERY-GATE-PASSES","EVIDENCE-IS-THE-SAVING","EXTERNAL-PATH-ESCAPE","FIND-IT-FROM-THE-FRONT","FLYBY","FOCUS-DESCRIPTION-STANDS","FORD-ROMAN-DERIVED","FROZEN-COORDINATE-TWICE","GATE-FAILS-FIXED-MANIFOLD","GATE-WINS","GATES-NAME-ONE-LENGTH","GJW-IS-EXISTENCE-PROOF","INDEX-EARNED-ITS-KEEP","INSTRUMENT-LIMIT","KERR-FLYBY","KNOBS-DECOUPLE","LENSING-IS-THE-SEAT","LIGHT-IS-WHAT-BREAKS-IT","LIGHT-LANDS-ON-TWO-ROWS","LIMIT-DISSOLVES","LOG-COORDINATE","LONG-AND-WEAK","LOOP-OBSERVABLE","MAGNITUDE-REACHED","MOVEMENT-IS-THE-COST","NEUTRAL-IS-THE-CEILING","NO-ACHRONAL-VIOLATOR","NO-BUCHDAHL","NO-EXOTIC","NO-FREE-CONVERSION-RATE","NO-HORIZON","NO-MOMENTUM-FLUX","NO-NULL-QI","NO-PHOTON-SPHERE","NO-SECOND-FORM","NO-THROAT","NOT-POWERED","NOTHING-STRUCTURAL","NULL-DUST-SATURATES-NEC","OBSERVED-ENGINE","ONE-DOOR-IS-PAYABLE","ONE-SIGN-EXOTIC","ONLY-STATISTICS-HAS-A-DIAL","OPTIMAL-SPECTRUM-IS-A-HORIZON","ORDER-IS-THE-SURVIVOR","ORDER-MOVED","ORDINARY-MATTER","PLANCK-FACTOR-CANCELS","PLANCK-FOURTH-TIME","PRESSURE-CAPPED","PRINCIPLED-VS-BUILDABLE","PROPER-IS-THE-ACT","PROPER-IS-THE-QUANTITY","QNEC-IS-THE-MEETING","RATIO-CANNOT-BE-RELABELLED","REFINEMENT-NAMES-THE-VARIABLE","RELIC-NOT-CONSTRUCTION","RIGIDITY-DERIVES-THE-EXOTIC","SAME-2PI2-AGAIN","SCALE-THEOREM","SCOPE-DROPS-LEAD","SEARCH-NEEDS-NO-DETECTOR","SEAT-IS-OBSERVED","SEAT-IS-THE-ESCAPE","SEAT-VS-CONTRACTION","SEATS-AND-EARLY","SHEAR-CLAIM-INVERTED","SHELL-DELAY-IS-13-PERCENT","SHELL-IS-ORDINARY","SHELL-THEOREM-SPLIT","SHIFTED-MODE","SHORTCUT-NOT-ROOM","SIGN-IS-THE-ONLY-QUESTION","SIGN-STRUCTURE-3","SIGNBLIND-BOTH-ENDS","SIGNBLIND-PAIRS","SLINGSHOT","SMALLER-HOLDS-MORE","SPACE-TIME-ONE","SPECTRUM-IS-THE-ONLY-CARRIER","STABLE-FOR-FREE","STANDING-COUPLING","STATE-NOT-ELEMENT","STATIC-IS-THE-SPLIT","STIFF-WALL","SUPERSESSION-SWEEP","THE-ANSWER-IS-A-GATE","THE-DOOR","THE-SPLIT","THE-WINDOW","THEOREM-REPRODUCES","THREE-CROSSINGS-AGREE","THREE-DOORS-THREE-LANGUAGES","THREE-ROWS-ADMIT","THUE-MORSE-IS-THE-CODE","TIME-CHEAPER-METRIC","TIME-HALF-IS-FREE","TRANSITION-DEFINED","TRANSITION-EQUATION","TWENTY-NOT-65-ORDERS","TWO-CONSTANTS-AGREE","TWO-INSTRUMENTS-LOCKED","TWO-ROUTES-AGREE","TWO-SYMMETRIES","UNIVERSAL-SEAT","VACUUM-DEMONSTRATION","VACUUM-FORCES-WEYL","VACUUM-NOT-MATERIAL","VACUUM-PATH","VACUUM-SATURATES-QNEC","VALUE-IS-AMORTISED","WEYL-IS-SIGNBLIND","WINDOW-GROWS","ZERO-ADM-DEVICE","ZERO-SEPARATION-IS-ONE-FACT"])
     shell = [f[0] for f in FINDINGS if f[0] in ("T1-STATE","SCALE","CIRCULATION")]
     chk("shell family is silent on Y", {coords(f)[1] for f in FINDINGS
         if f[0] in shell}, {0})
@@ -1870,31 +2885,104 @@ def selftest():
     print("\nCoverage -- the guard against looping")
     here = os.path.dirname(os.path.abspath(__file__))
     cited = {f[4] for f in FINDINGS} | {s[1] for s in SUPPORT}
-    # INSTRUMENT DOCUMENTATION AND GOVERNANCE, not findings papers, and
-    # therefore not cells. Every other .md here reports a result that bears on
-    # one of the three axes. These document a TOOL or a DECISION: HLAW.md is the
-    # hierarchy law as a runnable instrument, PROOF-ASSISTANT.md is the Z3 route
-    # and its two guards, REFUSAL.md is the refusal index instrument, and
-    # DOCKET.md is this tree's open questions and the rulings on them. None
-    # identifies warp energy, says whether a drive is possible, or derives a
-    # spec, so none has a cell -- and giving them (0, 0, 0) to satisfy this
-    # guard would assert a bearing they do not have. Exempted BY NAME so the
-    # guard still fires on any findings paper that goes unindexed.
+    # A .md here is accounted for in exactly one of two ways: a cell cites it,
+    # or NULL_PAPERS carries its measurement on the three directives and that
+    # measurement is NULL.  There is no third way and no list of names -- the
+    # exemption is the MEASUREMENT, so a row that stops reading (0, 0, 0) stops
+    # excusing its document and the guard fires again.
     #
-    # THE GUARD CAUGHT THESE TWO LATE AND THAT IS THE GUARD WORKING. REFUSAL.md
-    # and DOCKET.md were both written after this list was fixed, and index3
+    # THE GUARD CAUGHT REFUSAL.md AND DOCKET.md LATE AND THAT IS THE GUARD
+    # WORKING. Both were written after the exemption list was fixed, and index3
     # went unrun between; the first full sweep of the tree's selftests failed
-    # here. The exemption is the right answer and the delay is recorded, not
+    # here. The exemption was the right answer and the delay is recorded, not
     # tidied away: a guard that only fires when someone runs it is only as good
     # as the sweep.
-    NOT_FINDINGS_PAPERS = {"HLAW.md", "PROOF-ASSISTANT.md",
-                           "REFUSAL.md", "DOCKET.md"}
+    #
+    # AND IT CAUGHT STATE.md, WHICH SAT FAILING. research/README.md recorded it
+    # as "a pre-existing failure ... Recorded, not repaired" and it is repaired
+    # here by MEASUREMENT: read in full, STATE.md returns (0, 0, 0), which is
+    # NULL, which is declared not a finding. The reason is in its NULL_PAPERS
+    # row and the row is what excuses it. Nothing was special-cased and no cell
+    # was invented to make a guard go quiet.
+    measured = {n: (x, y, z) for n, x, y, z, _k, _w in NULL_PAPERS}
+    silent = {n for n, c in measured.items() if c == NULL}
     papers = sorted(os.path.basename(q) for q in glob.glob(os.path.join(here, "*.md")))
-    uncited = [d for d in papers if d not in cited and d not in NOT_FINDINGS_PAPERS]
+    uncited = [d for d in papers if d not in cited and d not in silent]
     ok &= (uncited == [])
     print("  %-58s %14s" % ("papers with no cell (must be empty)", uncited if uncited else "[]"))
     print("  %-58s %14s %14s  %s" % ("every paper is indexed", not uncited, True,
                                      "ok" if not uncited else "FAIL"))
+    # The exemption has to be earned, and these are the tests that make it so.
+    notnull = sorted(n for n, c in measured.items() if c != NULL)
+    chk("a NULL_PAPERS row that is not NULL excuses nothing", notnull, [])
+    chk("no document is both cited and measured silent",
+        sorted(set(measured) & cited), [])
+    chk("every measured-silent document is a file here",
+        sorted(n for n in measured if n not in papers), [])
+    chk("every row says what the document is and why each axis is zero",
+        [n for n, _x, _y, _z, k, w in NULL_PAPERS if not k.strip() or not w.strip()], [])
+    chk("documents measured silent on all three", len(NULL_PAPERS), 5)
+    # RE-PINNED: 4 -> 5. STATE.md was the fifth and was not measured at all --
+    # it was the standing failure of this guard, not an exemption. The four
+    # before it are tool notes and a docket; STATE.md is the generated state of
+    # the master-index work, a findings report of another project on other axes.
+    # RE-PINNED 27 -> 28 and 22 -> 23, to what this function counts: LEDGER.md,
+    # generated by ledger.py since f6dff52, is the 28th top-level .md and is now
+    # cited by LEDGER-BALANCE-REFUSED.  It is NOT in NULL_PAPERS -- it speaks to
+    # energy, device verdicts and lengths, so its measurement is not NULL.
+    chk("papers in the tree", len(papers), 28)
+    chk("  cited by a cell", len([d for d in papers if d in cited]), 23)
+    chk("  measured and silent", len([d for d in papers if d in silent]), 5)
+
+    # LEDGER.md's cell is the ledger's OWN verdict, so it is re-read, not trusted.
+    # Each row below is computed from the file and can fail: regenerate the
+    # ledger with a priced gap, a moved census or a reworded refusal and it fires.
+    lpath = os.path.join(here, "LEDGER.md")
+    lcell = [f for f in FINDINGS if f[0] == LEDGER_CELL]
+    chk("LEDGER.md is cited by exactly one cell, its own", 
+        [(f[0], f[4]) for f in FINDINGS if f[4] == "LEDGER.md"],
+        [(LEDGER_CELL, "LEDGER.md")])
+    if os.path.exists(lpath) and len(lcell) == 1:
+        lc = lcell[0]
+        lread, lcensus, _lwhy = ledger_md_reading(lpath)
+        chk("LEDGER.md: the cell is the file's own verdict (X, Y, Z)",
+            coords(lc), lread)
+        with open(lpath) as fh:
+            ltext = fh.read()
+        chk("LEDGER.md: every quotation occurs verbatim in the file",
+            [q for q in LEDGER_QUOTES if q not in ltext], [])
+        chk("LEDGER.md: every quotation occurs in the cell's text",
+            [q for q in LEDGER_QUOTES if q not in lc[5]], [])
+        lcen = ", ".join("%s %d" % kv for kv in lcensus.items())
+        chk("LEDGER.md: the census the cell prints is the file's",
+            ("Status census: " + lcen + ".") in lc[5], True)
+        chk("  CONTROL: a fragment LEDGER.md does not carry is caught",
+            [q for q in LEDGER_QUOTES + ("forms baryons at the seat",)
+             if q not in ltext], ["forms baryons at the seat"])
+        _s13 = ("price atomic mass formed or restored at a seat (S13 forms no "
+                "baryons), not negative enclosed mass")
+        chk("LEDGER.md: the cell says DOCKET 65's priced rows price mass formed OR "
+            "restored (S13 forms no baryons), not negative enclosed mass",
+            _s13 in lc[5], True)
+        chk("  CONTROL: the cell as it stood ('formed at a seat', overstating S13) "
+            "is caught",
+            _s13 in lc[5].replace("formed or restored at a seat (S13 forms no baryons)",
+                                  "formed at a seat"), False)
+    else:
+        chk("LEDGER.md present and its cell seated once", False, True)
+    _ov = [f for f in FINDINGS if f[0].startswith("THE-FIRST-OVERSHOOT")]
+    chk("H92b's finding id matches its corrected text ('localises only inside its "
+        "own source'), not the withdrawn 'cannot be localised'",
+        ([f[0] for f in _ov], [f[0] for f in FINDINGS if "CANNOT-BE-LOCALISED" in f[0]]),
+        (["THE-FIRST-OVERSHOOT-IN-THE-THREAD-AND-IT-LOCALISES-ONLY-INSIDE-ITS-OWN-SOURCE"],
+         []))
+    _pu = ("IT IS UNIFORM WHERE NOTHING SOURCES IT (P-UNIFORM, a named premise: "
+           "massform.P_UNIFORM_STATUS)")
+    chk("  and its caveat (b) names P-UNIFORM as the premise DOCKET 65 seats it as",
+        _pu in _ov[0][5], True)
+    chk("  CONTROL: caveat (b) as it stood, naming no premise, is caught",
+        _pu in _ov[0][5].replace(" (P-UNIFORM, a named premise: "
+                                 "massform.P_UNIFORM_STATUS)", ""), False)
     print("""  A finding the index does not hold cannot be predicted by its own closure.
   E(X) = 0 over an incomplete X measures the bookkeeping, not the knowledge --
   which is exactly how ROTATING-SHELL's J result was walked past and rederived.""")
@@ -1978,6 +3066,12 @@ def report():
     print("\n-- Support points (correct other cells; answer no directive) ----------------")
     for s in SUPPORT:
         print("   %-12s %s" % (s[0], s[2]))
+
+    print("\n-- Documents measured on the three directives and found NULL ----------------")
+    print("   Not findings: NULL is the lattice bottom, and a document measured at the")
+    print("   bottom is excused from the coverage guard BY THAT MEASUREMENT, not by name.")
+    for n, x, y, z, kind, _why in NULL_PAPERS:
+        print("   %-20s (%+d,%+d,%+d)  %s" % (n, x, y, z, kind))
     return 0
 
 if __name__ == "__main__":

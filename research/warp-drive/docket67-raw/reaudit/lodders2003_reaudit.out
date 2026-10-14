@@ -1,0 +1,105 @@
+=== 1. stockgate.TCOND vs L03 Table 8 (read)
+  61 TCOND element entries equal Table 8's 50% T_C (Ne 9.1 -> 9)
+  DISC ('H', 182, "Table 8 50% T_C '...'; appearance T_C = 182")
+  DISC ('He', 3, "Table 8 50% T_C '...'; appearance T_C = <3")
+  DISC ('Ni_', 0, 'sentinel key, not an element')
+  PASS 61 of 63 element entries match; H, He are not 50% values
+
+=== 2. stockgate.CHONDRITE vs L03 Table 3 (read, all rows the tree carries)
+  As tree        18.5  L03        1.73 +- 0.06     Nmet 4    ratio 10.6936  z 279.5
+  Ta tree        0.01  L03      0.0144 +- 0.0001   Nmet 2    ratio 0.6944  z -44.0
+  Be tree        0.02  L03      0.0252 +- 0.005    Nmet None ratio 0.7937  z -1.0
+  U  tree        0.01  L03      0.0084 +- None     Nmet None ratio 1.1905  z -
+  P  tree        1040  L03         920 +- 100      Nmet 1    ratio 1.1304  z 1.2
+  B  tree         0.8  L03       0.713 +- 0.072    Nmet 2    ratio 1.1220  z 1.2
+  Mo tree         0.9  L03        1.02 +- 0.11     Nmet 2    ratio 0.8824  z -1.1
+  I  tree        0.43  L03        0.48 +- 0.16     Nmet 1    ratio 0.8958  z -0.3
+  N  tree        3180  L03        2940 +- 20       Nmet 2    ratio 1.0816  z 12.0
+  Rb tree         2.3  L03        2.13 +- 0.02     Nmet 2    ratio 1.0798  z 8.5
+  Sb tree        0.14  L03       0.152 +- 0.009    Nmet 3    ratio 0.9211  z -1.3
+  Se tree        21.2  L03        19.7 +- 0.4      Nmet 4    ratio 1.0761  z 3.8
+  Nb tree        0.25  L03       0.265 +- 0.016    Nmet 2    ratio 0.9434  z -0.9
+  K  tree         555  L03         530 +- 24       Nmet 4    ratio 1.0472  z 1.0
+  Au tree        0.14  L03       0.146 +- 0.002    Nmet 2    ratio 0.9589  z -3.0
+  Ba tree         2.4  L03        2.31 +- 0.03     Nmet 2    ratio 1.0390  z 3.0
+  H  tree    2.02e+04  L03   2.102e+04 +- 1770     Nmet 4    ratio 0.9612  z -0.5
+  Pb tree        2.47  L03        2.56 +- 0.03     Nmet 2    ratio 0.9648  z -3.0
+  Sm tree        0.15  L03       0.145 +- 0.002    Nmet 4    ratio 1.0345  z 2.5
+  La tree        0.24  L03       0.232 +- 0.01     Nmet 4    ratio 1.0345  z 0.8
+  Te tree         2.4  L03        2.33 +- 0.18     Nmet 3    ratio 1.0300  z 0.4
+  Th tree        0.03  L03      0.0309 +- None     Nmet None ratio 0.9709  z -
+  Li tree         1.5  L03        1.46 +- 0.03     Nmet 2    ratio 1.0274  z 1.3
+  Cs tree        0.19  L03       0.185 +- 0.002    Nmet 3    ratio 1.0270  z 2.5
+  Cr tree        2650  L03        2590 +- 80       Nmet 4    ratio 1.0232  z 0.8
+  Cd tree        0.69  L03       0.675 +- 0.006    Nmet 3    ratio 1.0222  z 2.5
+  Co tree         513  L03         502 +- 17       Nmet 3    ratio 1.0219  z 0.6
+  Tl tree        0.14  L03       0.143 +- 0.002    Nmet 3    ratio 0.9790  z -1.5
+  Sr tree         7.9  L03        7.74 +- 0.1      Nmet 2    ratio 1.0207  z 1.6
+  Br tree         3.5  L03        3.43 +- 0.75     Nmet 3    ratio 1.0204  z 0.1
+  Y  tree         1.5  L03        1.53 +- 0.12     Nmet 2    ratio 0.9804  z -0.3
+  Ge tree        32.6  L03        33.2 +- 0.3      Nmet 3    ratio 0.9819  z -2.0
+  V  tree        54.7  L03        55.7 +- 1.3      Nmet 3    ratio 0.9820  z -0.8
+  Ti tree         447  L03         440 +- None     Nmet None ratio 1.0159  z -
+  In tree        0.08  L03      0.0788 +- 0.002    Nmet 3    ratio 1.0152  z 0.6
+  Zr tree         3.9  L03        3.96 +- 0.11     Nmet 2    ratio 0.9848  z -0.5
+  Hg tree        0.31  L03       0.314 +- 0.029    Nmet 2    ratio 0.9873  z -0.1
+  O  tree    4.64e+05  L03   4.582e+05 +- 5750     Nmet 2    ratio 1.0127  z 1.0
+  Fe tree    1.85e+05  L03   1.828e+05 +- 1470     Nmet 4    ratio 1.0120  z 1.5
+  Sn tree         1.7  L03        1.68 +- 0.04     Nmet 3    ratio 1.0119  z 0.5
+  Al tree        8600  L03        8500 +- 130      Nmet 3    ratio 1.0118  z 0.8
+  W  tree        0.09  L03       0.089 +- 0.007    Nmet 1    ratio 1.0112  z 0.1
+  Mn tree        1930  L03        1910 +- 40       Nmet 3    ratio 1.0105  z 0.5
+  Cl tree         698  L03         704 +- 10       Nmet 2    ratio 0.9915  z -0.6
+  Cu tree         126  L03         127 +- 6        Nmet 4    ratio 0.9921  z -0.2
+  Mg tree    9.65e+04  L03   9.587e+04 +- 780      Nmet 3    ratio 1.0066  z 0.8
+  Nd tree        0.46  L03       0.457 +- 0.011    Nmet 3    ratio 1.0066  z 0.3
+  Zn tree         312  L03         310 +- 12       Nmet 4    ratio 1.0065  z 0.2
+  Ni tree    1.07e+04  L03   1.064e+04 +- 210      Nmet 3    ratio 1.0056  z 0.3
+  Sc tree         5.8  L03        5.83 +- 0.06     Nmet 4    ratio 0.9949  z -0.5
+  C  tree     3.5e+04  L03   3.518e+04 +- 4810     Nmet 5    ratio 0.9949  z -0.0
+  Ag tree         0.2  L03       0.201 +- 0.004    Nmet 3    ratio 0.9950  z -0.3
+  Si tree    1.07e+05  L03   1.065e+05 +- 1250     Nmet 2    ratio 1.0047  z 0.4
+  Ca tree        9110  L03        9070 +- 20       Nmet 3    ratio 1.0044  z 2.0
+  F  tree        60.4  L03        60.6 +- 4.1      Nmet 2    ratio 0.9967  z -0.0
+  Na tree        5000  L03        5010 +- 33       Nmet 3    ratio 0.9980  z -0.3
+  Ce tree        0.62  L03       0.621 +- 0.022    Nmet 3    ratio 0.9984  z -0.0
+  Ga tree         9.5  L03        9.51 +- 0.31     Nmet 4    ratio 0.9989  z -0.0
+  S  tree    5.41e+04  L03    5.41e+04 +- 3650     Nmet 5    ratio 1.0000  z 0.0
+  Bi tree        0.11  L03        0.11 +- 0.003    Nmet 2    ratio 1.0000  z 0.0
+  compared 60; within 0.5%: 9; within 1 sigma: 33; beyond 3 sigma: 5
+  beyond 3 sigma: [('N', 12.0), ('Se', 3.8), ('As', 279.5), ('Rb', 8.5), ('Ta', -44.0)]
+  stock.CHONDRITE subset equal to stockgate: True
+  sum(stockgate.CHONDRITE) = 1.006899
+
+=== 3. Binder under the tree payload ('as-composed 59')
+  tree CHONDRITE: P 10.701153 -> 749.08 kg per 70 kg
+  PASS tree binder P at 10.7012 (749.08 kg)
+  P -> 920 (L03)           binder P 12.0970  -> 846.79 kg
+  P -> 1020 (L03 +1s)      binder P 10.9110  -> 763.77 kg
+  P -> 820 (L03 -1s)       binder P 13.5722  -> 950.05 kg
+  all L03 Table 3 rows     binder P 12.0970  -> 846.79 kg
+  PASS under all L03 rows the binder is P
+  payload N/P mass ratio = 2.3077
+  crossover CI N (N binds below) at CI P 1040 ppm: 2400.0 ppm
+  crossover CI N (N binds below) at CI P 920 ppm: 2123.1 ppm
+  crossover CI N (N binds below) at CI P 989 ppm: 2282.3 ppm
+  L03 N 2940 +- 20 (group, Nmet 2): (2940-2123)/20 = 40.8 sigma above crossover
+  Orgueil N 2948 +- 535 (5 analyses): (2948-2123)/535 = 1.54 sigma above crossover
+  L03 rows with P at 500 ppm (L03's quoted older range): binder P 22.258
+  L03 rows with P at 1800 ppm (L03's quoted older range): binder N 8.736
+  L03 rows + LBP25 N 1965, P 989: binder N 13.070 (914.9 kg)
+  LBP25 N: (1965-2282)/970 = -0.33 SD (Table 4); /447 = -0.71 (text p.29); /206 = -1.54 SE
+
+=== 4. Regime labels (T_c alone) with L03 Table 8 as read
+  stellar photosphere  P 1911  T_c 1229 (Table 8: 1229) ABUNDANCE-LIMITED
+  Jupiter (3x solar)   P 654  T_c 1229 (Table 8: 1229) ABUNDANCE-LIMITED
+  CI chondrite         P 10.7  T_c 1229 (Table 8: 1229) ABUNDANCE-LIMITED
+  Earth cont. crust    N 458.6  T_c 123 (Table 8: 123) VOLATILITY-LIMITED
+  PASS P T_c 1229 and N T_c 123 as Table 8 prints
+  condensed_budget: refractory 3.2498e-03 rock 4.9690e-03 rock+ice 9.4877e-03 gas 0.990512
+
+=== 5. Craft (DECLARED) binder: Ta, tree 10 ppb vs L03 14.4 +- 0.1 ppb
+  tree: Ta 90082 ; all L03 rows: Ta 62557 (x0.6944)
+  PASS craft binder stays Ta under L03 rows
+
+FAILS: []

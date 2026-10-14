@@ -1,0 +1,45 @@
+1. the tree's c and G are the current CODATA values
+  c (tree) == CODATA 2022 exact                                          ok 
+  G (tree) == CODATA 2022 = CODATA 2018                                  ok 
+  float constants in phase1 equal the rationals                          ok 
+
+2. the year: 3.15576e7 s is the Julian year exactly (arithmetic on the definition)
+  365.25 x 86400 == 3.15576e7 exactly                                    ok (31557600)
+
+3. the light year: 9.4607e15 m is a 5-figure truncation of c x Julian year
+  c x 365.25 x 86400 == 9460730472580800 m exactly                       ok 
+  tree LIGHT_YEAR relative offset = -3.2219e-6                           ok (-3.220954e-06)
+
+4. the solar mass: 1.98892e30 kg against (GM)^N/G with the tree's own G
+  B3 App. A reproduced: GMN/G_2006 -> 1.988416e30                        ok (1.9884158e+30)
+  B3 App. A reproduced: GMN/G_2014 -> 1.988475e30                        ok (1.9884754e+30)
+  GMN/G_2022 = 1.988409871e30 +- 4.47e25 kg                              ok (1.988409871e+30 +- 4.469e+25)
+  DISCREPANCY: tree M_sun is +2.5655e-4 relative high = 11.42 sigma of G ok (2.56551e-04, 11.42 sigma)
+  DISCREPANCY: tree product G*M_sun = 1.327464e20 vs (GM)^N 1.3271244e20 (+2.565e-4) ok (1.32746488e+20)
+  G that would make 1.98892e30 consistent with (GM)^N: 6.672588e-11      ok (6.6725881e-11)
+    1.98892e30 = GMN/G_1986 (6.67259e-11) rounded to 6 figures (provenance by MATCH, not READ) ok (1.9889194e+30)
+    the implied G lies inside the span of CODATA 2022's 16 G inputs [6.67191, 6.67559] ok 
+    span of GMN/G over the 16 inputs = 5.51e-4 relative (tree offset is inside it) ok (5.515e-04)
+
+5. what rests on it: the phase1 price figures
+  Lambda = 9.982529 (geometry, no constant)                              ok (9.982529174)
+  tree: one solar mass buys 1.4742e4 m (owner's pin)                     ok (1.474423e+04)
+  DISCREPANCY: owner's pin 1.4742e4 is -1.5e-4 from its own function's 1.47442e4 (rounds to 1.4744e4) ok (-1.5153e-04)
+  GM_N : one solar mass buys 1.47405e4 m -> still '14.7 km'              ok (1.474045e+04)
+  1/100 of 4 ly: tree 2.56662e+10, GM_N & exact ly 2.56728e+10 M_sun     ok (shift 2.598e-04; printed '2.57e10' unchanged)
+  1/2 of 4 ly: tree 1.28331e+12, GM_N & exact ly 1.28364e+12 M_sun       ok (shift 2.598e-04; printed '1.28e12' unchanged)
+  exchange rate c^2/(G Lambda) = 1.34894e26 kg/m does not contain M_sun or ly ok (1.348948e+26)
+    and moves by u_r(G) = 2.2e-5 at 1 sigma (5th figure)                 ok (2.25e-05)
+
+6. what rests on it: Theorem 4 establishment time
+  tree establishment_time(4 ly) = 6.3114997e7 s                          ok (6.3114997e+07)
+  exact (ly = c x Julian yr): 4 ly/(2c) = 2 Julian yr = 6.31152e7 s exactly ok 
+  DISCREPANCY: owner's pin 6.3113e7 is -3.2e-5 from the tree's own 6.3115e7 (last figure) ok (pin passes only because its rtol is 1e-3; a misprint-class discrepancy, not a refutation)
+  tree years = 2*(1-3.22e-6) = 1.9999936                                 ok (1.99999356)
+  Theorem 4's conclusion is constant-free: penalty == 3/2 exactly for ANY L, c ok 
+  owner's own functions agree                                            ok 
+
+7. sensitivity of every verdict to the moved data
+  price figures move by +2.565e-4 (M_sun choice) and -3.2e-6 (ly truncation): no printed 3-figure value changes, no verdict depends on them ok 
+
+FAILURES: 0

@@ -1,0 +1,60 @@
+literals read from owner: {'c': (21, '299792458.0'), 'AU': (22, '1.495978707e11'), 'LY': (23, '9.4607304726e15'), 'PC': (24, '3.0856775815e16')}
+
+R1 c
+  PASS c literal == 299792458 exactly   299792458
+  PASS float(c literal) represents it exactly
+
+R2 au
+  PASS AU literal == 149597870700 exactly   149597870700
+  PASS float(AU literal) represents it exactly
+
+R3 ly
+  c x Julian year = 9460730472580800 m
+  PASS ly_J == 9460730472580800 exactly
+  PASS LY literal = ly_J rounded to 11 s.f. (|diff| <= half-unit 5e4 m)   diff = 19200 m, rel = 2.029e-12
+  PASS LY literal == round(ly_J, 11 s.f.)   9.4607304726e+15
+
+R4 pc
+  648000/pi au = 30856775814913672.7891393795780 m
+  PASS PC literal = 648000/pi au rounded to 11 s.f. (last s.f. is 1e6 m; |diff| <= 5e5 m)   diff = 86327.211 m, rel = 2.79767437072595e-12
+  PASS 1605.09788 p.8 printed digits 3.085 677 581 491... agree
+  PASS identity au / (1 arcsec in rad) == 648000/pi au (symbolic)
+  PASS pc/au is irrational (pi): not rational
+  PASS PC literal == round(648000/pi au, 11 s.f.)   3.0856775815e+16
+
+R5 PC usage
+  PASS PC appears on no line other than its definition   other lines: []
+
+R6 propagation of literal offsets to printed outputs
+  100 km     AU tree 200163.820203 exact 200163.820203 | ly tree 8.424911150824 exact 8.424911150841
+  PASS   100 km printed AU (%11.0f) unchanged
+  PASS   100 km printed ly (%15.2f) unchanged
+  PASS   100 km ly relative shift = -rel_ly
+  1000 km    AU tree 2001.638202 exact 2001.638202 | ly tree 0.084249111508 exact 0.084249111508
+  PASS   1000 km printed AU (%11.0f) unchanged
+  PASS   1000 km printed ly (%15.2f) unchanged
+  PASS   1000 km ly relative shift = -rel_ly
+  10,000 km  AU tree 20.016382 exact 20.016382 | ly tree 0.000842491115 exact 0.000842491115
+  PASS   10,000 km printed AU (%11.0f) unchanged
+  PASS   10,000 km printed ly (%15.2f) unchanged
+  PASS   10,000 km ly relative shift = -rel_ly
+  PASS selftest pin 2001.64 AU reproduced within its tol 1e-4 (exact constants)   2001.638202
+  PASS c cancels identically in the magsail floor L
+
+R7 alternative year definitions (hypothesis: ly = Julian year x c) -- SENSITIVITY, not a pass/fail on the tree
+  100 km row exact value 8.424911151 ly; distance below the %.2f rounding boundary 8.425: 8.885e-05 ly (rel 1.055e-05)
+  Gregorian 365.2425   rel -2.053e-05  printed ly column ['8.43', '0.08', '0.00'] (Julian: ['8.42', '0.08', '0.00'])  <-- 100 km row flips
+  tropical 365.24219   rel -2.138e-05  printed ly column ['8.43', '0.08', '0.00'] (Julian: ['8.42', '0.08', '0.00'])  <-- 100 km row flips
+  sidereal 365.25636   rel +1.741e-05  printed ly column ['8.42', '0.08', '0.00'] (Julian: ['8.42', '0.08', '0.00'])
+  PASS the 8.42 edge row does NOT flip under CODATA 2022 m_p (context, other key)   8.424911121
+  PASS trip_time in years = d_ly/b is independent of which year defines the ly (units cancel)
+
+R8 prose vs code (arrival.py:151-152, 159) -- a discrepancy in the owner, not in the constants
+  code: 1000 km sail from 0.048 c = 2001.64 AU (prose: 810 AU); from 0.87 c = 0.0842 ly (prose: 2.6 ly)
+  AU that would give 810 AU: 3.6968e+11 m (x2.471 of IAU au); LY that would give 2.6 ly: 3.0656e+14 m (x0.0324 of ly_J)
+  PASS prose '810 AU' NOT reproduced by the code (differs by > 1%)
+  PASS prose '2.6 ly' NOT reproduced by the code (differs by > 1%)
+  PASS no admissible au/ly value reconciles them (required change > 1e-6 relative)
+  code/prose ratios: AU column 2.4712, ly column prose/code 30.8609 -- not a single common factor
+
+RESULT: ALL PASS (0 fail)

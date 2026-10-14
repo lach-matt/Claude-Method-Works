@@ -1,0 +1,113 @@
+R1 -- optical tidal matrix of the linearised metric (sympy, first order)
+  T_yy = epsilon*(Derivative(Phi(x, y, z), (x, 2)) + 2*Derivative(Phi(x, y, z), (y, 2)))
+  T_zz = epsilon*(Derivative(Phi(x, y, z), (x, 2)) + 2*Derivative(Phi(x, y, z), (z, 2)))
+  T_yz = 2*epsilon*Derivative(Phi(x, y, z), y, z)
+  trace T = 2 eps nabla^2 Phi (so traceless in vacuum, R_kk = 0)           ok trace=2*epsilon*(Derivative(Phi(x, y, z), (x, 2)) + Derivative(Phi(x, y, z), (y, 2)) + Derivative(Phi(x, y, z), (z, 2)))
+  T - 2 eps Hess_perp(Phi) = Matrix([[epsilon*Derivative(Phi(x, y, z), (x, 2)), 0], [0, epsilon*Derivative(Phi(x, y, z), (x, 2))]])
+
+R2 -- integrated transverse powers along the straight ray y = b (Phi = -M/r)
+  P_yy (radial)    = -4*M_n/b**2
+  P_zz (azimuthal) = 4*M_n/b**2
+  P_yz             = 0
+  azimuthal power = +4 M/b^2 (the alpha/b of the 4M/b deflection)          ok 
+  radial power = -4 M/b^2 (-d alpha/db): astigmatic, trace 0               ok 
+  radial power equals -d(alpha)/db, azimuthal equals alpha/b               ok 
+  M sign +1: the focusing direction's power = 4|M|/b^2                     ok 4*M/b**2
+  M sign -1: the focusing direction's power = 4|M|/b^2                     ok 4*M/b**2
+  Born ray-map form 2 Hess_perp(Phi) integrates to the same P (infinite line) ok 
+
+R3 -- thin-lens conjugate relation and the 'no real image inside f' criterion
+  1/D_s + 1/D_i = 1/f  =>  D_i = f D_s/(D_s - f)                           ok 
+  D_i > 0 iff D_s > f  (D_s < f: D_i < 0, virtual; D_s = f: D_i = infinity) ok 
+  design point b = 0.3, M = 2e-3: f = 45/4 = 11.25 exactly                 ok 45/4
+  D_s = 40: D_i = 360/23 = 15.6522 ; lambda_conj (from source) = 55.6522
+  composite.py:52-53 prints lambda = 55.16 (M=+2e-3) and 56.52 (M=-2e-3)
+  offsets from thin lens: -0.492 and +0.868 ; their mean +0.188
+  D_s = 5 < f = 11.25: D_i < 0, no real conjugate point at ANY run length  ok D_i=-9
+
+R4 -- independent numeric Jacobi integration (not composite.py's code)
+  Born M=+2.0e-03  source 40 (lam 75): conj 55.866   source 5 (lam 60): conj none
+  Born M=-2.0e-03  source 40 (lam 75): conj 55.866   source 5 (lam 60): conj none
+  bent M=+2.0e-03  source 40 (lam 75): conj 55.273   source 5 (lam 60): conj none
+  bent M=-2.0e-03  source 40 (lam 75): conj 56.479   source 5 (lam 60): conj none
+  Born M=+2e-03: source 40 seats within 1.5 of thin-lens 55.65             ok 55.866
+  Born M=+2e-03: source 5 (inside f) does not seat in lambda = 60          ok 
+  Born M=-2e-03: source 40 seats within 1.5 of thin-lens 55.65             ok 55.866
+  Born M=-2e-03: source 5 (inside f) does not seat in lambda = 60          ok 
+  bent M=+2e-03: source 40 seats within 1.5 of thin-lens 55.65             ok 55.273
+  bent M=+2e-03: source 5 (inside f) does not seat in lambda = 60          ok 
+  bent M=-2e-03: source 40 seats within 1.5 of thin-lens 55.65             ok 56.479
+  bent M=-2e-03: source 5 (inside f) does not seat in lambda = 60          ok 
+  bent-ray split between signs: 1.206 vs composite's 56.52-55.16 = 1.36
+  bent ray reproduces the sign ordering of composite.py (M<0 conjugate later than M>0) ok 
+
+  sweep: source distance D_s across f = 11.25 (Born, M=+2e-3, run to 4000 past lens)
+    D_s=  8.0  numeric D_i=none(<=4000)  thin-lens D_i=virtual
+    D_s= 10.0  numeric D_i=none(<=4000)  thin-lens D_i=virtual
+    D_s= 11.0  numeric D_i=none(<=4000)  thin-lens D_i=virtual
+    D_s= 11.5  numeric D_i=927.6  thin-lens D_i=517.5
+    D_s= 12.0  numeric D_i=212.8  thin-lens D_i=180.0
+    D_s= 13.0  numeric D_i=90.0  thin-lens D_i=83.6
+    D_s= 15.0  numeric D_i=46.8  thin-lens D_i=45.0
+    D_s= 20.0  numeric D_i=26.3  thin-lens D_i=25.7
+  no conjugate point for D_s <= 11.0; first appears in (11.0, 11.5] (thin lens: 11.25) ok 
+
+R4b -- the fixed-b qualifier: the SAME point source at D_s = 5 seen through a smaller b
+  b = 0.15: f = 2.8125 < D_s = 5 ; thin-lens D_i = 6.429 ; numeric conj at lambda = 10.949
+  a source inside b^2/4M at b = 0.3 DOES form a real conjugate point through b = 0.15 ok 
+  => 'a source inside f forms no real image' holds for the rays at THAT b, not for the lens
+
+R6 -- the only physical datum: PPN gamma in alpha = 2(1+gamma)M/b  => f = b^2/(2(1+gamma)M)
+  VLBI, Barcelo-Visser gr-qc/0003025 eq.5.52 (as restated there): |df/f| <= |gamma-1|/2 + 3 sigma/2 = 4.9e-04
+  gamma at its measured value moves f = 11.25 by < 0.01 (source-5 margin is 6.25) ok 5.57e-03
+  composite.py's metric is GR by construction (gamma = 1): no datum enters its focal length
+
+R5 -- composite.selftest(), read-only
+VALIDATION 1 -- light deflection reproduces 4M/b
+  b=0.1: bend / (4M/b)                                                1.00283              1  ok
+  b=0.2: bend / (4M/b)                                                1.00028              1  ok
+
+VALIDATION 2 -- the tidal matrix is TRACELESS: vacuum, so pure Weyl
+  static, at closest approach: |trace| / |max component|          0.000162286              0  ok
+       h-independent at 1.6e-4 over an order of magnitude in step size,
+       so this residue is the metric's own O(Phi^2), not the difference.
+  along the ray, with Euler screen transport, the leak stays under 2 %           True           True  ok
+       leak = 9.290e-03.  Ricci focusing is OFF here; what focuses is shear.
+
+VALIDATION 3 -- the antisymmetric delay is the analytic Shapiro
+  antisymmetric part vs 2M ln[(x1+r1)/(x0+r0)]                        1.00608              1  ok
+  and a POSITIVE symmetric residue remains (path lengthening, ~M^2)           True           True  ok
+       antisym +4.44225e-02   analytic +4.41540e-02   sym residue +6.80482e-03
+
+THE HEADLINE -- both signs seat, only the arrival flips
+              M    conjugate       t - |dx| verdict
+       +2.0e-03        55.17    +5.1227e-02 seats, late
+       -2.0e-03        56.50    -3.7618e-02 SEATS + EARLY
+  the positive mass seats                                                True           True  ok
+  the negative mass seats TOO -- Weyl focusing is sign-blind             True           True  ok
+  and at nearly the same place (quadratic in M)                       1.02417              1  ok
+  the positive mass arrives late                                        False          False  ok
+  THE NEGATIVE MASS SEATS AND ARRIVES EARLY                              True           True  ok
+
+THE WINDOW -- bounded below by seating, above by the M^2 penalty
+            |M|    conjugate       t - |dx| verdict
+        5.0e-04         none    -1.0616e-02 early, no seat
+        2.0e-03        56.50    -3.7618e-02 *** SEATS + EARLY ***
+        1.0e-02        42.83    -7.9680e-02 *** SEATS + EARLY ***
+        4.0e-02        40.83    +6.1601e-01 seats, LATE
+  below the window: early but does not seat                     (False, True)  (False, True)  ok
+  inside the window: both                                        (True, True)   (True, True)  ok
+  still inside an order of magnitude up                          (True, True)   (True, True)  ok
+  above the window: seats, but the M^2 penalty wins             (True, False)  (True, False)  ok
+  so the window is bounded on BOTH sides                                 True           True  ok
+
+The error that cost two runs, kept as a test
+  focal length b^2/4M at the design point                               11.25          11.25  ok
+  a source INSIDE the focal length forms no image                       False          False  ok
+  the same mass with the source outside it does                          True           True  ok
+       Nothing about the physics changed between those two lines.
+
+  SELFTEST OK
+  composite.selftest() exits 0                                             ok 
+
+ALL CHECKS PASS

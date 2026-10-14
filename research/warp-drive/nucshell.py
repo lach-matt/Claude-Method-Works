@@ -10,9 +10,23 @@ shell model, to the 126 closure.
 0. WHY IT IS A DIFFERENT INDEX AND NOT A RE-CHART
 ===============================================================================
 
-Every other index seated here has ATOMIC members: electrons, subshells of the
+**THE SENTENCE "EVERY OTHER INDEX SEATED HERE HAS ATOMIC MEMBERS" IS
+WITHDRAWN.**  It stood here, it was TRUE WHEN WRITTEN -- registry.py still
+records this index as "the exception that proved the old subject too narrow"
+-- and it was falsified by two LATER, CORRECT seatings: `nucbands` (DOCKET 35,
+2,145 nuclear excited states in magnetic and antimagnetic rotational bands)
+and `deformedbands` (DOCKET 36b, 1,907 excited states in two-quasiparticle
+rotational bands of deformed odd-odd nuclei).  **BOTH ARE GENUINELY NUCLEAR.**
+Neither is a re-chart of this index, and the withdrawal costs section 0
+nothing, because what section 0 needs was never nuclear EXCLUSIVITY -- see the
+restatement in `member_types()`.
+
+The other seated indexes have ATOMIC members: electrons, subshells of the
 electron cloud, transitions between ionisation stages, spectroscopic channels,
-Rydberg series, nuclides in charge states.  **THESE MEMBERS ARE NUCLEAR.**
+Rydberg series, nuclides in charge states.  **THESE MEMBERS ARE NUCLEONS IN A
+MEAN FIELD**, which is the distinction the two band indexes do not cross: a
+band level is a state of the WHOLE nucleus carrying (2I, parity) at arity 2,
+and each of the two shares ZERO members with these 22 subshells.
 
     NO SEATED INDEX CARRIES A SINGLE-PARTICLE HALF-INTEGER j ANYWHERE.
     `gravity` carries 2Je, which is the whole electron cloud's angular momentum
@@ -22,6 +36,13 @@ Rydberg series, nuclides in charge states.  **THESE MEMBERS ARE NUCLEAR.**
     is EMPTY, and the five (n, l) pairs it shares with `probability` are
     homographs -- an electronic 2s and a nuclear 2s are different objects that
     print the same.
+
+    [THE EMPTINESS CLAUSE IS SUPERSEDED, and `cell_homographs()` records why:
+    the tree has grown from those eight seated indexes to 27 registry rows, and
+    TEN of them now share full-arity cell tuples with this one.  The
+    half-integer-j claim stands -- 2I is a whole-nucleus quantum number, not a
+    single-particle j -- and it is homographs, not emptiness, that carry the
+    argument.]
 
 So the criterion is met in the strongest way available: not a new chart over
 seated members, a new KIND of member.  `n`, `l` and `j` are quantum numbers of
@@ -433,6 +454,51 @@ def registry_index(name):
     return registry.index_of(name)
 
 
+def nuclear_member_sets():
+    """[(index, what one member is)] for every registry row whose members are
+    NUCLEAR -- this index included.
+
+    The detector is a word match on the registry's own member description with
+    `nuclide` carved out, because a nuclide-charge state is an ATOM in a charge
+    state and not a nucleon in a mean field: `gravity` and
+    `overlaprule.gravity_bound` are both of those.  A word match over prose can
+    only OVER-include, which makes a property tested against it stricter rather
+    than weaker, and that is the direction a guard may err in.
+    """
+    import registry
+    return [(nm, w) for nm, _mo, _a, _me, w, _q in registry.rows()
+            if "nucl" in w.lower() and "nuclide" not in w.lower()]
+
+
+def nuclear_collisions():
+    """The restated STRONG test: colliding indexes whose members are nuclear.
+
+    Empty is the claim.  `cell_homographs()` is the weak test and finds ten
+    indexes sharing full-arity cell tuples with this one; if a nuclear index
+    were among them, a collision could be a shared MEMBER and this index would
+    be a re-chart rather than a new member set.  None is -- the two nuclear
+    indexes the tree has since gained are arity 2 and cannot reach the weak
+    test at all.
+    """
+    hom = cell_homographs()
+    return sorted(nm for nm, _w in nuclear_member_sets() if nm in hom)
+
+
+def nuclear_duplicates():
+    """Other nuclear indexes that hold one of THESE 22 members.  Empty.
+
+    The second half of the restatement, and the half that still bites: unlike
+    the withdrawn word match, this fires only on an index that actually holds
+    single-particle subshells, which is the duplication the strong test exists
+    to refuse.
+    """
+    import overlaprule
+    X = index()
+    return sorted(nm for nm, _w in nuclear_member_sets()
+                  if not overlaprule.holds_members_of(nm, "nucshell")
+                  and frozenset(registry_index(nm)) & X)
+
+
 def member_types():
     """[(index, what one member is)] -- the STRONG test, from the registry.
 
@@ -448,6 +514,36 @@ def member_types():
     OTHER MEMBER SET here is nuclear.  `overlaprule.holds_members_of` answers
     that, and the fixture is unweakened -- a genuinely new nuclear index would
     still fire it.
+
+    **AND A GENUINELY NEW NUCLEAR INDEX DULY FIRED IT.  THAT FORM OF THE CLAIM
+    IS NOW WITHDRAWN.**  The fixture read "no OTHER MEMBER SET here is nuclear
+    -- the STRONG test", asserted [], and today measures
+    `['nucbands.index', 'deformedbands.index']`.  It was not loosened to an
+    inequality and it was not quietly deleted: it was fired by two CORRECT
+    additions to the registry -- `nucbands` (DOCKET 35) and `deformedbands`
+    (DOCKET 36b), both genuinely nuclear, both seated after this file was last
+    touched.  nucshell.py is byte-unchanged since 519cd55; registry.py is what
+    moved.
+
+    WHAT IT WAS GUARDING WAS NEVER "NO NUCLEAR INDEX EXISTS ANYWHERE".  Read it
+    beside `cell_homographs()`, which is the only thing that calls on it: the
+    WEAK test finds numerically equal cell tuples, and the STRONG test has to
+    rule out that such a collision is a SHARED MEMBER -- that this index is a
+    duplicate of an atomic one wearing different coordinate names.  The word
+    "nuclear" was standing in for "these members".  That proxy was sound while
+    this index was the tree's only nuclear one, and the tree has outgrown it.
+    Restated as what it was actually asserting, and MEASURED:
+
+        every index whose cell tuples collide with this one has
+        NON-nuclear members                      10 of 10, `nuclear_collisions()`
+        no OTHER nuclear index holds one of
+        these 22 members                         0 shared, both band indexes
+                                                 being arity 2 on (2I, parity)
+
+    Both halves are PROPERTIES, not pinned name lists -- the mistake logged
+    below at the DOCKET 22 fixture -- so a further correct nuclear seating
+    cannot fire them, while a nuclear index that DID hold these subshells still
+    would.
     """
     import registry
     import overlaprule
@@ -569,7 +665,21 @@ def report():
     print("   What one member is, in each seated index:")
     for nm, w in member_types():
         print("      %-20s %s" % (nm, w))
-    print("   NOT ONE IS NUCLEAR. That is the strong test, and it settles it.")
+    print("   NONE OF THEM HOLDS A NUCLEON IN A MEAN FIELD. That is the strong")
+    print("   test, and it settles it.")
+    print()
+    print("   (\"NOT ONE IS NUCLEAR\" stood here and is WITHDRAWN. It was true")
+    print("   when written and two LATER, CORRECT seatings falsified it:")
+    for nm, w in nuclear_member_sets():
+        if nm == "nucshell.index":
+            continue
+        print("      %-20s %s" % (nm, w.split(";")[0].split(" -- ")[0]))
+    print("   Both ARE nuclear. Neither is a re-chart of this index: they are")
+    print("   arity 2 on (2I, parity), a WHOLE-NUCLEUS quantum number, they")
+    print("   share %d members with these 22, and no colliding index above is"
+          % len(nuclear_duplicates()))
+    print("   nuclear -- %s. That is what the test was guarding.)"
+          % (nuclear_collisions() or "none of the %d" % len(cell_homographs())))
     print()
     hom = cell_homographs()
     print("   Numerically equal CELL TUPLES, which is the weak test:")
@@ -681,9 +791,35 @@ def selftest():
     chk("delta's status is not flattened to PINNED", DELTA_STATUS, "MEASURED")
 
     # -- the member type is new, measured against the registry
-    chk("no OTHER MEMBER SET here is nuclear -- the STRONG test",
-        [nm for nm, w in member_types()
-         if "nucl" in w.lower() and "nuclide" not in w.lower()], [])
+    #
+    # WITHDRAWN.  This fixture read
+    #     chk("no OTHER MEMBER SET here is nuclear -- the STRONG test",
+    #         [nm for nm, w in member_types()
+    #          if "nucl" in w.lower() and "nuclide" not in w.lower()], [])
+    # asserting [], and it today measures ['nucbands.index',
+    # 'deformedbands.index'].  IT WAS FIRED BY TWO CORRECT ADDITIONS, not by a
+    # fault: nucbands (DOCKET 35, nuclear excited states) and deformedbands
+    # (DOCKET 36b, deformed odd-odd rotational bands) are BOTH GENUINELY
+    # NUCLEAR and were both seated after this file was last touched --
+    # nucshell.py is byte-unchanged since 519cd55 and registry.py is what
+    # moved.  The claim was true when written; registry.py still records this
+    # index as "the exception that proved the old subject too narrow", and the
+    # word "nuclear" was standing in for "these members" while that held.
+    #
+    # It is RESTATED, not loosened, as the two things it was actually
+    # guarding -- that a cell-tuple collision here cannot be a shared member.
+    # Both are properties over the registry rather than pinned name lists, so
+    # a further correct nuclear seating cannot fire them either.  See
+    # member_types() and nuclear_collisions().
+    chk("the STRONG test, restated: no index whose CELL TUPLES COLLIDE with "
+        "this one is nuclear", nuclear_collisions(), [])
+    chk("...and no OTHER nuclear index holds ONE of these 22 members -- which "
+        "a nuclear index that duplicated them still would fire",
+        nuclear_duplicates(), [])
+    chk("...the two that falsified the original are nuclear, seated, and "
+        "arity 2 on (2I, parity) -- so they cannot reach the weak test",
+        sorted(len(next(iter(registry_index(nm)))) for nm, _w in
+               nuclear_member_sets() if nm != "nucshell.index"), [2, 2])
     # A PROPERTY, NOT A PIN.  This asserted two excluded rows while the overlap
     # ruling's coarsening of this index was seated; DOCKET 22 unseated it, and
     # a pinned list of names fired on a CORRECT removal.  What must hold is

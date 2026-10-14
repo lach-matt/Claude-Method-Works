@@ -1,0 +1,27 @@
+PASS B0 (15)/(16) denominator 1 - 8 pi G xi phi^2 forces T_ll ⊃ s xi R_ll phi^2 with s = +1 (the paper's (9)) -- s = [1]
+PASS A  from (9) [+xi G_mn phi^2]: coefficient of (l.grad phi)^2 is 1 for every xi -- coeff = 1
+     -> rho_n(f) = X - xi*phi^2[ grad grad (l l f) + (-1) R_ll f ]
+PASS A  from (13) as extracted [-2xi(... + 1/2 R_ll phi^2)]: coefficient of (l.grad phi)^2 is 1 for every xi -- coeff = 1
+     -> rho_n(f) = X - xi*phi^2[ grad grad (l l f) + (1) R_ll f ]
+PASS A  from (61) as extracted [-2xi(... + phi^2 R_ll)]: coefficient of (l.grad phi)^2 is 1 for every xi -- coeff = 1
+     -> rho_n(f) = X - xi*phi^2[ grad grad (l l f) + (2) R_ll f ]
+     printed (64)/(69b): + (1/2) R_ll f   (k = 1/2)
+PASS B1 the paper's own (9) gives Q[f] = grad grad(l l f^2) - R_ll f^2 (k = -1)
+PASS B2 DISCREPANCY RECORDED: no reading of (9)/(13)/(61) yields the printed k = 1/2 -- k from (9),(13),(61) = [-1, 1, 2]
+PASS B3 step (61)->(64) is convention-free algebra: from (61) as extracted k = 2 vs printed 1/2 (and (13) gives k = 1) -- k(61) = 2
+     coherent-state reduction: printed (72) would need INT f^2 (l.grad Phi)^2 >= (-3/2) xi INT R_ll f^2 Phi^2 for every solution Phi -- a claim the proof does not make
+PASS C1 g(l,l) = 0 for l = F^(-1/2) d_t + d_l (radial null)
+PASS C2 G_ll = R_ll for this null l (the g_mn R term drops)
+PASS D1 R_ll = F'r'/(F r) - 2 r''/r  (= qeihps.throat()'s 8 pi (rho + p_l) form) -- R_ll = (-2*F(l)*Derivative(r(l), (l, 2)) + Derivative(F(l), l)*Derivative(r(l), l))/(F(l)*r(l))
+PASS C3 (63): f l l grad grad Phi - Phi grad grad (f l l) is an exact divergence (so the smeared identity holds)
+PASS D2 R_ll = 0 exactly AT the throat under HPS data (9) (f', r', r'' = 0)
+     qeihps.throat(): R_ll = nec2 * l^2 + O(l^3), nec2(L) = 129600*pi**2*(L**2 - 2)/(L**2*(3*L + 4)) ; at ln f(0) = -2/3: nec2 = -2.23843e+06 l_P^-4, r0 = 0.0242789 l_P
+PASS D3 R_ll is NOT zero off the throat (nec2 != 0 at the plotted solution) -> Q[f]'s curvature term matters on any open supp f
+PASS D4 r0 agrees with the tree's CURVATURE_RADIUS_LP -- 0.0242789 vs 0.0242789
+PASS E1 time orientation / d_t timelike at the throat: F(0) = e^(-2/3) = 0.513417 > 0
+PASS E2 r(0) = 0.0242789 l_P > 0 (non-degenerate)
+PASS E3 (66) at the throat chart (t,l,theta,phi), theta away from the poles: c^2 = 1 + (1 + r^2 + r^2 sin^2)/F bounds every causal covector -- c(theta = pi/2) = 1.717565
+PASS E4 numeric: 10499 random causal covectors at the throat (theta = pi/2), none violates (66)
+PASS F1 ((QxQ)W_0)(fbar_a, f_a) >= 0 at 12 sampled alpha (min 9.306e-14): the self-reference instance is vacuous
+
+REDERIVE PASS (all checks)

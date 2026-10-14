@@ -1,0 +1,45 @@
+C1 tree CI factors, top 4: [('P', 10.701), ('N', 8.0764), ('C', 6.5226), ('H', 4.9444)]
+ok   C1 binder at CI chondrite is P                                         got='P' want='P'
+ok   C1 factor 10.70 (4 s.f.)                                               got=10.7 want=10.7
+ok   C1 factor = HUMAN[P]/CHONDRITE[P]                                      got=True want=True
+ok   C1 stock_need_not_travel() returns the same number                     got=True want=True
+C1 runner-up N factor 8.0764, margin P/N 1.3250
+ok   C2 n=2: P_one AND CLAIM is UNSAT (one site refutes)                    got='unsat' want='unsat'
+ok   C2 n=2: P_every AND CLAIM is UNSAT                                     got='unsat' want='unsat'
+ok   C2 n=2: P_every -> P_one (valid)                                       got='unsat' want='unsat'
+ok   C2 n=2: P_one -/-> P_every (P_one strictly weaker, sat)                got='sat' want='sat'
+ok   C2 n=2: vacuity guard, CLAIM alone is SAT                              got='sat' want='sat'
+ok   C2 n=3: P_one AND CLAIM is UNSAT (one site refutes)                    got='unsat' want='unsat'
+ok   C2 n=3: P_every AND CLAIM is UNSAT                                     got='unsat' want='unsat'
+ok   C2 n=3: P_every -> P_one (valid)                                       got='unsat' want='unsat'
+ok   C2 n=3: P_one -/-> P_every (P_one strictly weaker, sat)                got='sat' want='sat'
+ok   C2 n=3: vacuity guard, CLAIM alone is SAT                              got='sat' want='sat'
+ok   C2 n=6: P_one AND CLAIM is UNSAT (one site refutes)                    got='unsat' want='unsat'
+ok   C2 n=6: P_every AND CLAIM is UNSAT                                     got='unsat' want='unsat'
+ok   C2 n=6: P_every -> P_one (valid)                                       got='unsat' want='unsat'
+ok   C2 n=6: P_one -/-> P_every (P_one strictly weaker, sat)                got='sat' want='sat'
+ok   C2 n=6: vacuity guard, CLAIM alone is SAT                              got='sat' want='sat'
+C3 P stops binding when the destination P is +0.1222 dex above solar CI (N unchanged)
+ok   C3 D* = log10(fP/fN)                                                   got=True want=True
+ok   C3 D* = 0.122 dex (3 s.f.)                                             got=0.122 want=0.122
+C3/C4 sweep: D dex | binder | factor | kg per 70 kg | orders below Fuchs shell
+   -1.00 | P  |  107.010 |    7490.7 | 23.8
+   -0.50 | P  |   33.839 |    2368.8 | 24.3
+   -0.30 | P  |   21.351 |    1494.6 | 24.5
+   -0.10 | P  |   13.472 |     943.0 | 24.7
+   +0.00 | P  |   10.701 |     749.1 | 24.8
+   +0.10 | P  |    8.500 |     595.0 | 24.9
+   +0.20 | N  |    8.076 |     565.3 | 24.9
+   +0.30 | N  |    8.076 |     565.3 | 24.9
+ok   C3 at D=-1 dex the factor is 107.0 (P binds)                           got=('P', 107.0) want=('P', 107.0)
+ok   C4 at D=-1 dex still > 20 orders below the Fuchs shell                 got=True want=True
+ok   C3 at D=+0.2 dex the binder flips to N                                 got='N' want='N'
+C5 CI P carried from sibling audits (ppm): L03 920, PON14 985, LBP25 989, MS95 1080; tree 1040
+   P  920 ppm -> P 12.097  (846.8 kg)
+   P  985 ppm -> P 11.298  (790.9 kg)
+   P  989 ppm -> P 11.253  (787.7 kg)
+   P 1040 ppm -> P 10.701  (749.1 kg)
+   P 1080 ppm -> P 10.305  (721.3 kg)
+ok   C5 at L03 920 ppm factor 12.10                                         got=12.1 want=12.1
+
+0 failure(s)

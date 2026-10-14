@@ -1,0 +1,164 @@
+{
+ "key": "codata-2018-constants",
+ "name": "Physical constants: c (SI exact), G (CODATA 2018), nominal solar mass (IAU 2015), light year (IAU), Proxima Centauri distance (Gaia DR3 parallax) -- and the CODATA 2018 hbar, e, k_B, alpha, mu_0, eps_0, m_e, m_p, u, a_0, E_h, l_P the merged owners carry",
+ "source": {
+  "located": "(1) Mohr, Newell, Taylor, Tiesinga, 'CODATA Recommended Values of the Fundamental Physical Constants: 2022', arXiv:2409.03787 (RMP 97, 025002, 2025) -- READ at source: Table XXXII/XXXIII (all 2022 values), Sec. I.B.11 and XIV/XV.A (G: 16 inputs, expansion factor 3.9, '2022 and 2018 recommended values of G are therefore identical'), Table XXXVIII (2022-2018 shifts in units of u(2018)). (2) The CODATA 2018 adjustment itself (Tiesinga et al., RMP 93, 025010, 2021) has NO arXiv copy: a title query resolved to Pavese arXiv:1512.03668 instead. Its values are READ-VIA-RESTATEMENT: Fayet arXiv:1906.05123 Eqs. (4),(5),(3) restate alpha^-1 = 137.035 999 084(21), mu_0 = 12.566 370 6212(19)e-7, eps_0 = 8.854 187 8128(13)e-12 as '2018 recommended values'; the 2022 paper's Table XXXVIII fixes every other 2018 literal the tree types through its printed D_r (machine-checked in the script, section 5b). (3) 2019-SI exact values h, e, k, N_A: Pavese 1512.03668 p.5 restating Newell et al. 2018 Metrologia 55 L13, and 2022 Table XXXII ('exact'). (4) IAU 2015 Resolution B3: Prsa et al. arXiv:1605.09788 -- READ at source, Table 1 ((GM)_sun^N = 1.327 124 4e20 m^3 s^-2 exact), recommendation 5 (SI mass = (GM)/G with G to be specified), Appendix (M_sun^N = 1.988416e30 with G_2006, 1.988475(92)e30 with G_2014), IAU 2012 au = 149 597 870 700 m and pc = 648000/pi au. (5) Gaia DR3 Proxima parallax: Gaia DR3 summary arXiv:2208.00211 (astrometry identical to EDR3; quasar parallax bias -17 uas) does not list the star; the catalogue value is READ-VIA-RESTATEMENT from Libralato, Bedin, Burgasser arXiv:2512.08533 Table 2: 'Gaia DR3 value  varpi [mas] 768.067 +0.050/-0.050'. Lindegren et al. arXiv:2012.01742 READ for the zero-point (Z5 ranges -94..+36 uas; features at G <~ 9 'ignored because the number of sources is too small').",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 2409.03787, 1605.09788, 2208.00211, 2012.01742, 2512.08533, 2202.05188, 1905.09551, 2608.26020; title queries for the 2018 and 2017 CODATA papers resolved to 1512.03668 and 1906.05123 (restatements). Classic/primary items with no arXiv copy: CODATA 2018 (Tiesinga 2021) NAMED-NOT-READ except through the restatements above; the Gaia DR3 catalogue row itself NAMED-NOT-READ (read through 2512.08533); IAU 2012 B2 / 2015 B2 (au, pc) read through Prsa 2016."
+ },
+ "published_statement": "2022 paper, Table XXXII: c = 299 792 458 m s^-1 exact; G = 6.674 30(15)e-11 m^3 kg^-1 s^-2, u_r = 2.2e-5; h = 6.626 070 15e-34 exact, hbar = 1.054 571 817 ...e-34 exact; e = 1.602 176 634e-19 exact; k = 1.380 649e-23 exact; mu_0 = 1.256 637 061 27(20)e-6; eps_0 = 8.854 187 8188(14)e-12; m_e = 9.109 383 7139(28)e-31; m_p = 1.672 621 925 95(52)e-27; m_p/m_e = 1836.152 673 426(32) u_r 1.7e-11; alpha^-1 = 137.035 999 177(21); a_0 = 5.291 772 105 44(82)e-11; E_h = 4.359 744 722 2060(48)e-18; l_P = 1.616 255(18)e-35 u_r 1.1e-5; u = 1.660 539 068 92(52)e-27. Sec. I.B.11: 'the 16 values of G ... Since there is no new value, the same 3.9 expansion factor applied ... in 2018 ... is also used in 2022; the 2022 and 2018 recommended values of G are therefore identical.' Sec. XVI.A: alpha decreased 'by 4.5 times its 2018 uncertainty', moving 15 of 43 listed constants. Prsa 2016 Table 1: (GM)_sun^N = 1.327 124 4e20 m^3 s^-2, 'by definition exact ... conversion factors only'; rec. 5: 'if SI masses are explicitly needed, they should be expressed in terms of (GM)_object/G, where the estimate of G should be specified'. Libralato 2025 Table 2: Gaia DR3 parallax of Proxima 768.067 +- 0.050 mas.",
+ "published_hypotheses": [
+  "c, h (hence hbar), e, k, N_A are exact by the 2019 SI definition; their 'values' carry no uncertainty (2022 Table XXXII, Pavese p.5)",
+  "G is the weighted mean of 16 mutually inconsistent laboratory determinations (Table XXX, 1982-2019) with uncertainties expanded by 3.9 so that every normalised residual is <= 2; u_r = 2.2e-5 is that expanded figure (Sec. XV.A: chi^2 = 12.9 for 15 d.o.f. after expansion; BIPM-14 and JILA-18 residuals 7.75 and -6.80 before it)",
+  "alpha and everything tied to it (mu_0, eps_0, m_e, a_0, u, m_p) come from the least-squares adjustment of 133 input data with expansion factors 1.7 and 2.5 on subsets; the 2018 alpha rested on the 2011 LKB h/m(Rb) datum later found to carry uncorrectable systematics (Sec. XVI.C.1)",
+  "IAU 2015 B3 nominalises (GM)_sun, R_sun, L_sun, T_sun -- NOT M_sun in kg; a kg solar mass is (GM)^N/G and inherits G's uncertainty and G's CODATA year",
+  "the light year is not an IAU-defined unit in Prsa 2016; it is c x one Julian year (365.25 d) by convention -- exact given c and the Julian year",
+  "Gaia DR3 astrometry is the EDR3 solution (34 months), with a magnitude/colour/latitude-dependent parallax zero point of order -17 to -40 uas that is NOT applied in the catalogue value, and poorly mapped for G <~ 9 (Proxima G ~ 8.98)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (all owners): no uncertainty is carried on any measured constant. G's u_r = 2.2e-5 is the only one that could matter and it is named nowhere the value is used (foliation.py:580, nonstatic.py:254, candidates.py:315, achievable.py:302, seatindex.py:129, spec.py:136, wall.py:441, ladder.py:54); ledger.py:331 annotates 'CODATA 2018' only. Consequence computed in the script: every G-bearing figure (EXCHANGE_RATE, Proxima demand, gauge bill, T_COEFF, Mbar4, l_P) moves by 2.2e-5 (l_P, Mbar4 by 1.1e-5) per sigma -- below every owner pin (1e-4..1e-3) and 10+ orders below every margin.",
+  "ADDED (ledger.py:332, nonstatic.py:255): 'IAU nominal' attached to M_SUN = 1.98840e30 kg. IAU 2015 B3 nominalises (GM)_sun only (Prsa 2016 Table 1, rec. 5); the kg figure is (GM)^N/G and is 1.988410e30 with G_2018, 1.988475e30 with G_2014, 1.988416e30 with G_2006. The tree's 1.98840e30 is (GM)^N/G_2018 to 5 figures (script section 2) -- the number is right, the label is loose: it is DERIVED from the nominal GM and CODATA 2018 G, not itself nominal.",
+  "INTERNAL DISCREPANCY (recorded, not repaired): three solar masses in the tree -- foliation/nonstatic 1.98840e30 (= (GM)^N/G_2018), wall.py:648-653 1.98847e30 (= (GM)^N/G_2014, Prsa's Appendix figure 1.988475e30), phase1.py:213 1.98892e30 (matches no IAU/CODATA pairing; +2.6e-4 relative to foliation's). phase1's own selftest fixture 'one solar mass buys 1.4742e4 m' (phase1.py:508) passes only with its own value: with foliation's it is 1.47404e4 m, -1.1e-4, inside phase1's 1e-3 tolerance but a different number. No ledger row rests on phase1's SOLAR_MASS (D11 rests on foliation's constants through ledger.py:330-341).",
+  "INTERNAL DISCREPANCY: light-year literals differ across owners -- exact 9460730472580800 m (foliation.py:582, nonstatic.py:256, ledger.py:335, driven), 9.4607304726e15 (arrival.py:23, 11-figure rounding), 9.4607e15 (phase1.py:213, rel 3.2e-6), 9.461e15 (achievable.py:539, rel 2.8e-5). Julian year 3.15576e7 s (phase1.py:474, exact) vs 3.156e7 (transit.py:244, rel 7.6e-6). Reporting-only sites.",
+  "DROPPED (foliation.py:583, nonstatic.py:257, ledger.py:333): the Proxima distance 4.2465 ly is the DR3 central value with neither its 6.5e-5 parallax uncertainty nor the un-applied zero point (-17 to -40 uas, i.e. 2-5e-5, sign making the true distance slightly SMALLER since the bias is subtracted from the catalogue parallax) carried; Faria et al. 2022 (arXiv:2202.05188 Table 1) still use the Gaia DR1 parallax 768.50 +- 0.20 mas (1.3012 pc = 4.2441 ly), so the literature holds a 5.6e-4 spread the tree does not name. Nothing rests on the fifth figure.",
+  "ADDED (tolman.py:1122-1133 'CITED CODATA 2018'; address.py:429 'CODATA NAMED-NOT-READ'; massform.py:1011 'NAMED-NOT-READ'; warpfolder.py:202 'NAMED-NOT-READ'): the 2018 literals typed there -- mu_0 1.25663706212e-6, m_e 9.1093837015e-31, a_0 5.29177210903e-11, E_h 4.3597447222071e-18, alpha^-1 137.035999084, u 1.66053906660e-27, m_p 1.67262192369e-27, eps_0 8.8541878128e-12 -- are confirmed CODATA 2018 values (Fayet restatement for alpha, mu_0, eps_0; Table XXXVIII shift check for the rest, script 5b) but are all SUPERSEDED by CODATA 2022 at the 7e-10 .. 1.4e-9 level (alpha moved 4.4 sigma_2018). No owner pins anything at 1e-9 that depends on them; the tree's status words are honest ('NAMED-NOT-READ').",
+  "ADDED (drivensource.py:278 EPS0 'CODATA 2018'; spec.py:135 MU0): the 2018 measured eps_0/mu_0 are used where the pre-2019 exact 4 pi 1e-7 would have given X per C^2 = 5e-8 exactly; the owner's pin 5.0e-08 at rel 1e-9 (drivensource.py:541) holds at 5.0000000027e-08 (rel 5.4e-10) -- a pin that would fail at 1e-10 under either the 2018 or 2022 value. Recorded as a near-tolerance pin, not a fault.",
+  "DROPPED (arrival.py:25, stock.py:234): m_p typed as 1.67262192e-27, the 2018 value truncated at 9 figures (rel -2.2e-9); warpfolder.py:202 keeps the full 1.67262192369e-27. Both are now 1.35e-9 below the 2022 value. Nothing rests on the tenth figure.",
+  "NOT DRIFTED: c, hbar, e, k_B, GEV_IN_J are typed at their exact SI values (hbar as CODATA's printed truncation 1.054 571 817 ..., rel 6e-10, which candidates/achievable/ladder all share); the light year, AU, parsec and Julian year are exact as typed in the ledger/foliation/arrival owners; l_P = sqrt(hbar G/c^3) reproduces CODATA's 1.616255e-35 to 1.5e-8, inside its 1.1e-5 uncertainty, as tolman.py:2769-2774 claims."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G (m^3 kg^-1 s^-2)",
+   "value_then": "6.67430(15)e-11, u_r 2.2e-5 (CODATA 2018; tree literal everywhere)",
+   "value_now": "6.67430(15)e-11 -- IDENTICAL (CODATA 2022 Sec. I.B.11, XV.A: 'no new value' through 31 Dec 2022; 2026 literature still cites 2.2e-5)",
+   "source_now": "arXiv:2409.03787 Table XXXII, Sec. XV.A; arXiv:2608.26020 Sec. 1 and 9.3 citing RMP 97 025002 (2025)",
+   "moves_conclusion": "no: value unchanged. Script section 5: even the full 2.2e-5 sigma moves EXCHANGE_RATE 1.348948e26, the 5.4194e42 kg Proxima demand, the 2.720744289e13 M_sun gauge bill and T_COEFF by 2.2e-5 relative, l_P and Mbar4 by 1.1e-5 -- below every pin tolerance and far below every margin (the coarsest claim resting on them is a ~10-order shortfall). Even BIPM-14's outlier 6.67554e-11 (+1.9e-4) would move nothing."
+  },
+  {
+   "quantity": "alpha^-1",
+   "value_then": "137.035999084(21) (CODATA 2018; address.py:429, excite D18 selftest)",
+   "value_now": "137.035999177(21), a +6.8e-10 relative move = 4.4 sigma_2018 (the LKB 2020 Rb-recoil datum replaced a 2011 one with uncorrectable systematics)",
+   "source_now": "arXiv:2409.03787 Table XXXII and XVI.A, XVI.C.1",
+   "moves_conclusion": "no: D18's dilation theorem holds for any alpha (excite.py:194-204); the value enters only rational selftest fixtures at ratio 2. It DOES show a CODATA recommended value moving by more than 4 of its stated sigmas -- the datum-lacking case M asks about, realised, and harmless here."
+  },
+  {
+   "quantity": "eps_0 (F/m)",
+   "value_then": "8.8541878128(13)e-12 (drivensource.py:278)",
+   "value_now": "8.8541878188(14)e-12 (+6.8e-10)",
+   "source_now": "arXiv:2409.03787 Table XXXII; Fayet 1906.05123 Eq.(3),(7) for the 2018 value",
+   "moves_conclusion": "no: X per C^2 moves by -6.8e-10 (script 5); OVERTURN_L2's bound is unit-free algebra (drivensource.py:539-540)."
+  },
+  {
+   "quantity": "mu_0 (N/A^2)",
+   "value_then": "1.25663706212(19)e-6 (tolman.py:1125, spec.py:135)",
+   "value_now": "1.25663706127(20)e-6 (-6.8e-10)",
+   "source_now": "arXiv:2409.03787 Table XXXIII; Fayet Eq.(5) for 2018",
+   "moves_conclusion": "no: spec.py's selftest tolerances are 1e-3..1e-12 on ratios in which mu_0 enters at 1e-9 at most; no ledger row pins mu_0 to better than 1e-9."
+  },
+  {
+   "quantity": "m_e, a_0, E_h (kg, m, J)",
+   "value_then": "9.1093837015(28)e-31, 5.29177210903(80)e-11, 4.3597447222071(85)e-18 (tolman.py:1127-1129)",
+   "value_now": "9.1093837139(28)e-31 (+1.4e-9), 5.29177210544(82)e-11 (-6.8e-10), 4.3597447222060(48)e-18 (-2.5e-13)",
+   "source_now": "arXiv:2409.03787 Table XXXIII; shifts cross-checked in script 5b against Table XXXVIII",
+   "moves_conclusion": "no: tolman's atomic ceiling 2.9421e13 Pa and the derived deltas are quoted to 4-7 figures."
+  },
+  {
+   "quantity": "m_p (kg) and u (kg)",
+   "value_then": "1.67262192369(51)e-27 (warpfolder.py:202); 1.67262192e-27 truncated (arrival.py:25, stock.py:234); u = 1.66053906660(50)e-27 (gravity.py:479)",
+   "value_now": "1.67262192595(52)e-27 (+1.35e-9); u = 1.66053906892(52)e-27 (+1.4e-9)",
+   "source_now": "arXiv:2409.03787 Table XXXII",
+   "moves_conclusion": "no: baryons_in(100 kg) = 5.9786e28 moves by -1.35e-9; massform's shares 'INHERIT NAMED-NOT-READ' and are quoted to 4-5 figures; the 0.62 % neutron/binding excess (massform.py:483) dwarfs it by 6 orders."
+  },
+  {
+   "quantity": "m_p/m_e relative uncertainty",
+   "value_then": "~1e-11 (address.py:340-342, NAMED-NOT-READ, unused)",
+   "value_now": "1836.152673426(32), u_r 1.7e-11 (2022; 2018 was 6.0e-11 -- the 2022 uncertainty ratio 3.47)",
+   "source_now": "arXiv:2409.03787 Table XXXII, XXXVIII item 25",
+   "moves_conclusion": "no: address.py names it only to say the clock channel beats it by 10^4.5 and does not use it; '~1e-11' is the right order for 2022 and slightly optimistic for 2018 (6e-11)."
+  },
+  {
+   "quantity": "l_P (m)",
+   "value_then": "1.616255e-35 (achievable.py:303, tolman.py:1133)",
+   "value_now": "1.616255(18)e-35 -- unchanged; sqrt(hbar G/c^3) from the tree's constants = 1.616255024e-35 (rel 1.5e-8)",
+   "source_now": "arXiv:2409.03787 Table XXXIII; script section 4",
+   "moves_conclusion": "no: the Planck-unit crossovers 0.307933/0.369917/3.159514 l_P and the 4.09 l_P crossing move by 1.1e-5 per sigma of G; the 'sub-Planckian' claim is a factor-3 statement."
+  },
+  {
+   "quantity": "M_sun (kg)",
+   "value_then": "1.98840e30 'IAU nominal' (foliation:581); 1.98847e30 (wall.py); 1.98892e30 (phase1.py:213)",
+   "value_now": "IAU 2015 B3 defines only (GM)^N = 1.3271244e20 exact; (GM)^N/G_2018 = 1.988410e30 (+-4.4e25 from G); /G_2014 = 1.988475e30; /G_2006 = 1.988416e30",
+   "source_now": "arXiv:1605.09788 Table 1, rec. 5, Appendix; script section 2",
+   "moves_conclusion": "no: the gauge bill 2.7207e13 M_sun and H83d's 2.7254e12 M_sun are compared at 1 order; a 2.6e-4 spread in the unit is invisible. Recorded: the label 'nominal' on a kg value is loose, and phase1's 1.98892e30 is a discrepancy (misprint-class, not refutation)."
+  },
+  {
+   "quantity": "Proxima Centauri distance",
+   "value_then": "4.2465 ly (foliation:583) = Gaia DR3 parallax 768.067 +- 0.050 mas -> 1.30197 pc -> 4.24646 ly (script section 3)",
+   "value_now": "same (DR3 = EDR3 astrometry, no later Gaia release yet; HST 2025 gives 768.373 +0.194/-0.162 mas, 1.2 sigma from Gaia); un-applied zero point -17..-40 uas (2..5e-5); older literature still carries DR1's 768.50 +- 0.20 (4.2441 ly)",
+   "source_now": "arXiv:2512.08533 Table 2; arXiv:2208.00211 Sec. 3.3; arXiv:2012.01742; arXiv:2202.05188 Table 1",
+   "moves_conclusion": "no: D23's '4.2465 years at Proxima' and the 5.4194e42 kg demand are quoted at 5 figures; a 6.5e-5 uncertainty touches the last digit only and no verdict."
+  },
+  {
+   "quantity": "light year, AU, parsec, Julian year, g_n",
+   "value_then": "9.4607304725808e15 m; 1.495978707e11 m; 3.0856775815e16 m; 3.15576e7 s; 9.80665 m/s^2",
+   "value_now": "exact: c x 31 557 600 s = 9 460 730 472 580 800 m (integer, script 1); au = 149 597 870 700 m (IAU 2012 B2); pc = 648000/pi au = 3.0856775814913...e16 m; g_n = 9.80665 (CGPM 1901, Prsa Sec. 2)",
+   "source_now": "arXiv:1605.09788 Sec. 4-5 and technical remark 2",
+   "moves_conclusion": "no: all exact and correctly typed at the ledger/foliation/arrival sites; phase1/achievable/transit carry 4-5 figure roundings at reporting-only sites."
+  }
+ ],
+ "rederivation": {
+  "method": "by-hand-checked-numerically",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-2018-constants.py",
+  "outcome": "ALL MUST CHECKS PASS (python3 + sympy, exit 0; log beside it in run.log). (1) LY = c x Julian year is the exact integer 9460730472580800 m = the tree's 9.4607304725808e15 bit-for-bit; arrival's 11-figure and phase1's 5-figure literals are roundings of it; pc = 648000/pi au matches arrival's 3.0856775815e16 to 11 figures; hbar = h/2pi = 1.054571817646e-34, the tree's 1.054571817e-34 being CODATA's printed truncation (rel 6e-10); GEV_IN_J = e x 1e9 exact. (2) (GM)_sun^N/G_2018 = 1.988410e30 reproduces foliation's 1.98840e30 to 5 figures, /G_2014 reproduces wall.py's 1.98847e30, and phase1's 1.98892e30 matches no pairing (+2.6e-4). (3) 1000/768.0665 mas = 1.301971 pc = 4.24646 ly reproduces PROXIMA_LY = 4.2465; span 4.017499195e16 m reproduced. (4) sqrt(hbar G/c^3) = 1.616255024e-35, rel 1.5e-8 from CODATA, inside u_r 1.1e-5; tolman's 'gap below 1e-4 and above 1e-9' both true. (5) With foliation's constants and LAMBDA = 9.982529174194637: EXCHANGE_RATE = 1.348947644e26 (ledger pin 1.348948 at 7 figures OK), Proxima demand 5.419396e42 kg (pin 5.4194 OK), gauge bill 2.720744289e13 M_sun (pin at 1e-9 OK), T_COEFF 9.505325e43 (pin 9.50536e43 +-1e39 OK), X per C^2 5.0000000027e-8 (pin 5.0e-8 at 1e-9 OK, rel 5.4e-10), baryons_in(100) 5.9786e28 (5.979e28 OK), phase1 'one M_sun buys 1.4742e4 m' OK with phase1's own M_sun. Re-evaluated under CODATA 2022 every figure moves <= 1.4e-9 (alpha/eps_0/m_p family) and G-bearing figures move 0; under G +-1 sigma they move 2.2e-5 (1.1e-5 for square roots). (5b) The tree's 2018 literals for alpha^-1, mu_0, eps_0, a_0, m_e, u, E_h reproduce the 2022 paper's Table XXXVIII D_r (+4.5/-4.5/+4.5/-4.5/+4.5/+4.6/-0.3) within the table's rounding, so each is the CODATA 2018 value.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga, CODATA 2022, arXiv:2409.03787 (RMP 97, 025002, 2025)",
+   "effect": "extends",
+   "what": "Supersedes CODATA 2018: G identical (no new datum through 2022, same 3.9 expansion); alpha moved -4.5 sigma_2018 and with it mu_0, eps_0, a_0, m_e, u (+-4.5 sigma) and r_p; m_p/m_e uncertainty 3.5x smaller. Every 2018 literal in the tree is now a superseded value at the 1e-9 level; no tree figure moves.",
+   "read_status": "READ (Tables XXX, XXXII, XXXIII, XXXVIII; Secs. I.B, XV.A, XVI)"
+  },
+  {
+   "ref": "Merkatas, Toman, Possolo, Schlamminger, 'Shades of Dark Uncertainty and Consensus Value for the Newtonian Constant of Gravitation', arXiv:1905.09551 (2019)",
+   "effect": "contested",
+   "what": "From the same 16 results (with JILA corrected and HUST-18 added) a Bayesian mixture model gives G = 6.67408(24)e-11 against CODATA's 6.67429(15)e-11 by the Birge/MTE route; the spread across 14 statistical methods is 78 % of the median u(G). The recommended value is method-dependent at the 3e-5 level; Cochran's Q = 198 on 15 d.o.f. -- the inputs are inconsistent.",
+   "read_status": "READ (abstract, Sec. 3, Table 1, Table 4)"
+  },
+  {
+   "ref": "Mohanta and Shikano, 'Atmospheric Newtonian noise in torsion-balance measurements of G', arXiv:2608.26020 (Aug 2026)",
+   "effect": "confirms",
+   "what": "Cites the current recommended G with u_r 2.2e-5 (RMP 97 025002, 2025) -- i.e. no post-2022 adjustment has moved G -- and finds atmospheric Newtonian noise 'not large enough to account for the present scatter in published G values'.",
+   "read_status": "READ (Secs. 1, 9.3, refs)"
+  },
+  {
+   "ref": "Libralato, Bedin, Burgasser, ARES I, arXiv:2512.08533 (Dec 2025)",
+   "effect": "confirms",
+   "what": "Independent HST astrometry of Proxima: parallax 768.373 +0.194/-0.162 mas, 1.19 sigma from Gaia DR3's 768.067 +- 0.050; PM agreement within 20 uas/yr. Validates the DR3 value the tree carries.",
+   "read_status": "READ (Table 2, Sec. 3.3, 5)"
+  },
+  {
+   "ref": "Faria et al., arXiv:2202.05188 (2022)",
+   "effect": "narrows",
+   "what": "Uses Gaia DR1 768.50 +- 0.20 mas (1.3012 pc); shows the literature's Proxima distance spread is 5.6e-4, the tree's 'Gaia DR3' choice being the tighter and later one.",
+   "read_status": "READ (Table 1)"
+  },
+  {
+   "ref": "Lindegren et al., Gaia EDR3 parallax bias, arXiv:2012.01742",
+   "effect": "narrows",
+   "what": "Catalogue parallaxes carry an un-applied bias Z5 of -94..+36 uas depending on G, colour, latitude; for G <~ 9 the mapping is explicitly unreliable ('ignored because the number of sources is too small'). Proxima (G ~ 9, very red) sits where Z5 is least known: a 2-5e-5 relative distance systematic the tree does not name.",
+   "read_status": "READ (Secs. 1, 3, 8)"
+  },
+  {
+   "ref": "Prsa et al., IAU 2015 B3, arXiv:1605.09788",
+   "effect": "narrows",
+   "what": "There is no IAU nominal solar MASS; only (GM)^N. 'if SI masses are explicitly needed ... (GM)/G where the estimate of G should be specified.' The ledger's 'IAU nominal' label on a kg value therefore names a derivation, not a definition.",
+   "read_status": "READ (Table 1, recs. 1-6, Appendix)"
+  }
+ ],
+ "lacked_data": "Tested for this result. What the CODATA 2018 task group had: 16 G determinations to 2019 (Table XXX), the 2011 LKB and 2018 Berkeley atom-recoil data for alpha, and the 2019-SI exact h, e, k, N_A. What came later: (a) for G, NOTHING -- no new determination entered the 2022 adjustment, and the 2026 literature still cites 2.2e-5; the latent problem is not missing data but mutually inconsistent data (Q = 198/15 d.o.f.; BIPM-14 at +7.75 sigma before expansion), so the 'true' G could differ from 6.67430e-11 by a few 1e-5 and by 1.9e-4 if BIPM is right; (b) for alpha, YES -- the 2020 LKB Rb-recoil measurement exposed 'significant systematic effects in the earlier LKB experiment that could not be corrected retroactively' and moved the recommended alpha by 4.5 of its stated 2018 sigmas, dragging mu_0, eps_0, m_e, a_0, u, m_p with it. So M's hypothesis is CONFIRMED in kind for this result: a published recommended value did move by more than its stated uncertainty when a datum the authors lacked arrived. Whether it changes any conclusion: NO, computed -- the moves are 7e-10..1.4e-9 relative (script 5), the largest possible G move ~2e-4, and the board's claims resting on these constants are pinned at 1e-4..1e-3 and argued at margins of 10 to 42 orders (branelink's SME null, achievable's 71.256 orders, throatmass's 32.31 orders). For the Proxima distance, later data (HST 2025) agree at 1.2 sigma; the un-applied Gaia zero point (2-5e-5) is the only named systematic and it too touches the fifth figure only. Evidence against a larger effect: the 2022 adjustment's Table XXXVIII lists no constant the tree uses that moved by more than 5 sigma or by more than 1.4e-9 relative.",
+ "grade": "STANDS",
+ "grade_evidence": "Every constant the 32 owner sites type is the value its cited source gives (c, hbar, e, k_B exact per 2019 SI; G, alpha, mu_0, eps_0, m_e, m_p, u, a_0, E_h, l_P per CODATA 2018 as restated by Fayet 1906.05123 and fixed by the 2022 paper's Table XXXVIII, script 5b; (GM)^N per IAU 2015 B3; LY, au, pc, Julian year exact; Proxima 768.067 mas per Gaia DR3 as restated by 2512.08533). Every derived figure the ledger and selftests pin is reproduced from those constants (script sections 1-5, all MUST checks pass). No moved datum moves a conclusion: G is unchanged 2018->2022 and its full sigma moves G-bearing figures by 2.2e-5; the CODATA 2022 shifts move alpha-family figures by <= 1.4e-9; both are below every owner tolerance and 10+ orders below every margin. The discrepancies found are misprint-class and recorded, not refutations: three solar-mass literals (1.98840 / 1.98847 / 1.98892e30, spread 2.6e-4) with the 'IAU nominal' label naming a G-dependent derivation; four light-year roundings; a truncated m_p; no uncertainty carried anywhere; a drivensource pin at 1e-9 that holds at 5.4e-10. The tree's own status words are honest where they exist ('NAMED-NOT-READ' at address, massform, warpfolder) and absent where a bare literal is used.",
+ "what_would_change_the_grade": "NARROWED if any owner is found to pin a physical claim (not a reproducibility fixture) at better than 2.2e-5 in a G-bearing quantity or 1.4e-9 in an alpha-bearing one -- none was found among the 32 sites. DATA-DEPENDENT if a future CODATA adjustment moved G by more than ~1e-3 (i.e. beyond phase1's coarsest tolerance), which the 16-datum spread (max outlier +1.9e-4) makes implausible, or if Gaia DR4 (Dec 2026) moved Proxima's parallax by more than 5e-4 (HST 2025 already bounds it at 4e-4). WRONG only if a typed literal were shown not to be its source's value -- checked and excluded for every site except phase1's 1.98892e30, which is a stale textbook value, a discrepancy and not a refutation of anything resting on it. The label 'IAU nominal' on M_SUN and phase1's solar mass are the two items a repair pass could name; this audit repairs nothing.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/codata-2018-constants.py  # exit 0, 'ALL MUST CHECKS PASS'; sources: alphaXiv 2409.03787 (Tables XXXII/XXXIII/XXXVIII, Sec. I.B.11), 1605.09788 (Table 1, rec. 5, Appendix), 2512.08533 (Table 2), 1906.05123 (Eqs. 3-5)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/codata-2018-constants.json"
+}

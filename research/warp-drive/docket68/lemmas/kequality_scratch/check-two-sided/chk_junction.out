@@ -1,0 +1,15 @@
+Route 1, K^t_t - f'/(2 sqrt f), K^psi_psi - sqrt f/r, K^th_th - sqrt f/r  (normal +r): {'k=1': (0, 0, 0), 'k=0': (0, 0, 0)}
+Route 1: TENSION lam R = sum eps sqrt f and kappa^2(rho+p) = B/R hold for k in {0,1,-1}, all eps: OK
+Route 2: d/dR of energy equation at X=0 and lam=lam_static equals -B/R: OK (static <=> B=0)
+RS control (k=0, mu=0, both decaying): kappa^2 rho = 6/ell  kappa^2(rho+p) = 0
+Mutation (one side flipped): kappa^2 rho = 0  kappa^2(rho+p) = 0
+Flat mirrored bridge side: kappa^2(rho+p) = -4*ell*mu/(R**2*sqrt(R**4 - ell**2*mu))
+Flat two-sided (outer AdS decaying): kappa^2(rho+p) = -2*ell*mu/(R**2*sqrt(R**4 - ell**2*mu))
+Flat two-sided (outer AdS growing): kappa^2(rho+p) = -2*ell*mu/(R**2*sqrt(R**4 - ell**2*mu))
+Flat mirrored at RS tension lam=2/ell: Rdot^2 = [mu/R**2]
+Flat mirrored, momentarily at rest, pure tension: Rddot = [-2*mu/R**3]
+Mirrored k=1: B = 2*ell*(R**2 - 2*mu)/(R*sqrt(R**4 + R**2*ell**2 - ell**2*mu))
+Mirrored k=0: B = -4*ell*mu/(R*sqrt(R**4 - ell**2*mu))
+Mirrored k=-1: B = -2*ell*(R**2 + 2*mu)/(R*sqrt(R**4 - R**2*ell**2 - ell**2*mu))
+Mirrored k=1 at mu=R^2/2: (lam/2)^2 = ell**(-2) + 1/(2*R**2)
+V''(R) at mu=R^2/2: -4/R**2

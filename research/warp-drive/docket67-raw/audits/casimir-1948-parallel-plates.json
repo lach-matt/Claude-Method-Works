@@ -1,0 +1,123 @@
+{
+ "key": "casimir-1948-parallel-plates",
+ "name": "Casimir (1948) ideal-parallel-plate result: E/A = -pi^2 hbar c/(720 d^3), F/A = -pi^2 hbar c/(240 d^4); the uniform local energy density rho = -pi^2 hbar c/(720 d^4) between the plates (Brown-Maclay 1969); merged: casimir-energy-density, casimir-parallel-plate-density",
+ "source": {
+  "located": "Casimir, Proc. K. Ned. Akad. Wet. 51, 793 (1948) -- no arXiv copy. Read via restatement in: quant-ph/0106045 (Bordag, Mohideen, Mostepanenko, Phys. Rep. 353, 1 (2001)) pp.23-25 eqs (2.27)-(2.37), pp.78-79 eqs (4.25)-(4.31), pp.146, 154-156 eqs (5.25), (5.53)-(5.60), pp.199, 209, 220; quant-ph/0204125 (Sopova & Ford 2002) pp.1-2, 10-15 eqs (50)-(57) [restating Brown & Maclay, Phys. Rev. 184, 1272 (1969), for the local energy density]; measurement: quant-ph/0203002 (Bressi, Carugno, Onofrio, Ruoso, PRL 88, 041804 (2002)) pp.1-6, 10; later: 2104.01460 (Mostepanenko 2021) pp.1-3, 12-14, 23-24, 31.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries page text for all four arXiv papers. Casimir 1948 and Brown-Maclay 1969 are NAMED-NOT-READ; their formulas are taken from the review's eqs (2.36)-(2.37), (4.31) and Sopova-Ford eq (52), and Mostepanenko 2021 eqs (1)-(2), which agree with each other."
+ },
+ "published_statement": "As restated (quant-ph/0106045 p.25 eqs 2.36-2.37): for two perfectly conducting parallel plates of area S -> oo at separation a, the renormalised vacuum energy (Minkowski contribution in the gap subtracted) is E0ren(a) = -(c hbar pi^2/(720 a^3)) S and the force F(a) = -dE/da = -(pi^2/240)(hbar c/a^4) S. Mostepanenko 2021 p.1-2: 'two parallel, electrically neutral ideal metal plates at zero temperature spaced in vacuum at a distance a attract each other ... F_IM(a) = -pi^2 hbar c/(240 a^4) ... E_IM(a) = -pi^2 hbar c/(720 a^3). This is the Casimir energy per unit area of the plates.' The LOCAL energy density is not Casimir's 1948 statement but Brown-Maclay 1969, restated in Sopova-Ford p.1: 'Brown and Maclay showed that for perfectly conducting plates, one has a constant negative vacuum energy density', and eq (52): 'In the limit omega_p -> oo ... we get the familiar result U = -pi^2/(720 a^4)' (hbar = c = 1).",
+ "published_hypotheses": [
+  "perfect (ideal) conductors: E_t|S = H_n|S = 0 on both plates, i.e. reflection of every frequency (review p.23 eq 2.27; p.154: 'The original Casimir result (1.3) is valid only for perfect conductors of infinitely high conductivity ... for sufficiently high frequency any metal becomes transparent')",
+  "infinite plane-parallel plates, S -> oo (review eq 2.29)",
+  "zero temperature (Mostepanenko 2021 p.1; review p.79: thermal effect 'negligible for a << hbar c/(k_B T)')",
+  "free quantised electromagnetic field in the gap, two polarisations; energy renormalised by subtracting the Minkowski vacuum in the same volume (review eq 2.33)",
+  "for the LOCAL density (Brown-Maclay via Sopova-Ford): perfect conductivity again; with a dispersive (plasma-model) wall the density acquires a positive position-dependent term, diverges at the interface, and is negative at the midpoint only for omega_p a > ~99 (Sopova-Ford eqs 50-51, p.13: 'a > a_c = 99/omega_p = 1.3 um (14.8 eV/omega_p)')",
+  "validity of the ideal limit for real metals requires a >> lambda_p (review p.155-156: plasma-model perturbation in delta0/a works for a >= lambda_p); below a few nm the Casimir force IS the non-retarded van der Waals force (Mostepanenko 2021 p.2; review eq 4.27, F = -H/(6 pi a^3))"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- validity range a >> lambda_p (~100-136 nm for Al/Au, review p.220): achievable.py:124-141 and 532-547 evaluate the ideal formula at 10 nm and 0.1 nm; candidates.py:129-135 at R = d = 1 nm; overturn.py:280-283 and candidates.py:141-144 at d = 0.37 l_P. Computed here (plasma model, review eqs 4.26/5.53): real/ideal interaction energy eta_E(Au) = 0.111 at 10 nm, 0.0130 at 1 nm, 0.00132 at 0.1 nm; the owner's numbers are the ideal-plate curve, not the Casimir energy of any real plates at those gaps.",
+  "ADDED -- 'MEASURED' as a status of the energy density: achievable.py:31 'CASIMIR between boundaries MEASURED. rho = -pi^2 hbar c/(720 d^4)'; achievable.py:417-419 'The measured effect, at plate separation `gap`'; candidates.py:73-74 'measured in the laboratory'. What is measured is the FORCE (pressure) or its gradient, parallel plates only in 0.5-3.0 um at 15% (Bressi 2002 p.1, K_C = (1.22 +- 0.18)e-27 N m^2 vs pi h c/480 = 1.300e-27, pull -0.45 sigma), sphere-plate via PFA down to ~120-223 nm; Sopova-Ford p.15-16: 'no clear way has been found to directly observe the local energy density'. The energy density is a QFT inference from the ideal-plate model, and 10 nm / 0.1 nm lie outside every measured range read here.",
+  "WEAKENED -- sign (KIND): candidates.py:78 'KIND: PASSES. This is a real rho < 0'. For real (plasma-model) plates the midpoint density is negative only for omega_p a > ~97-99 (reproduced here: root 96.6; Al a_c = 1.29 um); at the tree's gaps it is positive (Al, a^4 U(mid) = +0.0575 at 10 nm, +0.0082 at 1 nm vs ideal -0.01371). KIND survives on the smaller class a >~ 1.3 um (physically realisable per Sopova-Ford p.15), not at the gaps the tree prices.",
+  "ADDED -- plate gap identified with bubble radius, d = R: candidates.py:363-364 shortfall(R, bound) with bound = casimir (candidates.py:568) and crossover_casimir (candidates.py:388-394); overturn.py:278-283. Not a hypothesis of the source; it is the tree's comparison of formula shapes. The owner itself says the crossover is 'outside the domain of the theory being used to state it' (candidates.py:148-149).",
+  "DROPPED (owner-stated elsewhere) -- 'ideal plates': overturn.py:278 and achievable.py:31, 417-419 carry no 'ideal'/'perfect conductor' qualifier; candidates.py:73 and 351-353 do state 'ideal plates'.",
+  "DROPPED -- zero temperature and infinite plates: not stated by any owner; computed irrelevant at the tree's gaps (thermal (1/3)(T/T_eff)^4 = 1.6e-11 at 10 nm, 300 K).",
+  "ATTRIBUTION -- no owner cites a source; the local energy density rho = -pi^2 hbar c/(720 d^4) is Brown-Maclay 1969, while Casimir 1948 gave the energy per unit area and the force. E/(A d) equals the Brown-Maclay T00 exactly (checked), so the numeric value is unaffected.",
+  "UNSUPPORTED by sources read -- achievable.py:126,134 '10 nm (state of the art)' as a Casimir gap: the measurements read here reach 0.5 um (parallel) and ~120 nm (sphere-plate); a discrepancy of label, not a moved conclusion."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "coefficient pi^2/720 (energy/area) and pi^2/240 (pressure)",
+   "value_then": "pi^2/720, pi^2/240 (Casimir 1948 as restated)",
+   "value_now": "same; re-derived symbolically (zeta and Abel-Plana routes, Lifshitz ideal limit)",
+   "source_now": "quant-ph/0106045 eqs 2.36-2.37, 4.31; 2104.01460 eqs 1-2; this script sections A-B",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "hbar",
+   "value_then": "Casimir used h; tree HBAR = 1.054571817e-34",
+   "value_now": "h exact since SI 2019; hbar = 1.0545718176e-34 (scipy.constants); tree value rel. diff -6.1e-10",
+   "source_now": "scipy.constants (CODATA); prior D67 audit codata-2018-constants",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "c",
+   "value_then": "2.99792458e8",
+   "value_now": "exact 299792458 m/s",
+   "source_now": "SI definition via scipy.constants",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "G (crossover only)",
+   "value_then": "6.67430e-11",
+   "value_now": "6.67430(15)e-11",
+   "source_now": "scipy.constants CODATA",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "measured parallel-plate coefficient K_C",
+   "value_then": "none in 1948 (Sparnaay 1958 'do not contradict')",
+   "value_now": "(1.22 +- 0.18)e-27 N m^2, 0.5-3.0 um, Cr surfaces; theory 1.300e-27 (pull -0.45 sigma)",
+   "source_now": "quant-ph/0203002 p.6 eq (4)",
+   "moves_conclusion": "no -- confirms the force law at 15% where measured; says nothing at 10 nm or 0.1 nm"
+  },
+  {
+   "quantity": "plasma wavelength / frequency of real plate metals (sets where the ideal limit holds)",
+   "value_then": "not an input of the ideal result (perfect conductor = lambda_p -> 0)",
+   "value_now": "lambda_p(Au) = 136 nm, lambda_p(Al) ~ 100 nm (review p.220); hbar omega_p(Al) = 14.8 eV (Sopova-Ford eq 51)",
+   "source_now": "quant-ph/0106045 p.220; quant-ph/0204125 p.13",
+   "moves_conclusion": "yes for the tree's use: at the tree's gaps eta_E(Au) = 0.111 (10 nm), 0.0130 (1 nm), 0.00132 (0.1 nm) -- the ideal formula overstates |E| 9x to 760x; the direction only ENLARGES the tree's shortfalls (x76.7 at 1 nm -> 2.15e54) and corridors (x3.0 at 10 nm, x27.6 at 0.1 nm)"
+  },
+  {
+   "quantity": "tree internal: Lambda = phase1.lam()",
+   "value_then": "9.982529174194637",
+   "value_now": "same (internal constant)",
+   "source_now": "candidates.py:325-327",
+   "moves_conclusion": "no; crossover 0.369917 l_P = 5.978797e-36 m reproduced"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/casimir-1948-parallel-plates.py",
+  "outcome": "ALL PASS (39 checks), exit 0, ~15 s. (A) zeta route: transverse integral continued to s=-1/2 is -m^3/(6 pi); 2 polarisations x zeta(-3) = 1/120 gives E/A = -pi^2/(720 a^3). (B) review eq 2.36 closed form and F = -dE/da = -pi^2/(240 a^4); Bose integrals by sympy series cross-checked by mpmath quadrature; Lifshitz formulas reduce to both in the ideal limit. (C) Brown-Maclay: (E/A)/a = -pi^2/(720 a^4); Sopova-Ford (56)+(57) sum to the z-independent -pi^2/(720 a^4) while <E^2> alone diverges at the plate; tensor traceless and p_z = -pi^2/(240 a^4) is the pressure. (D) tree numbers reproduced from its constants: casimir(1e-8) = 4.333753e4, casimir(1e-9) = 4.333753e8 J/m^3, crossover pi sqrt(Lambda/720) = 0.369917 l_P = 5.9787970e-36 m, 720/pi^2 = 72.9513, sqrt = 8.541. (E) constants agree with scipy CODATA; Bressi K_C pull -0.45 sigma. (F) numeric Lifshitz plasma model: eta_F(Au, 1 um) = 0.8950 matches review eq 5.60 (0.8950) and the '10-20% at 1 um' statement; eta_E(Au) = 0.972, 0.920, 0.529, 0.111, 0.0130, 0.00132 at 3 um, 1 um, 100 nm, 10 nm, 1 nm, 0.1 nm (Al similar); small-gap ratio scaling 9.90 per decade (non-retarded a^-3). One scipy IntegrationWarning at 1 nm; the value sits on the 1/10-per-decade line between its neighbours. (G) Sopova-Ford eq 50 midpoint density: a^4 U = +0.0114, -0.0003, -0.0069, -0.0130 at omega_p a = 50, 99, 200, 2000, -> -0.01364 at 2e4 (ideal -0.01371); sign change at omega_p a = 96.6 (paper ~99; Al a_c = 1.29 um vs paper 1.3 um); at Al 10 nm / 1 nm / 0.1 nm the midpoint density is POSITIVE. (H) thermal correction 1.6e-11 at 10 nm. (I) real-plate correction only enlarges the tree's shortfalls/corridors; the non-retarded-law crossover lies at 2.9e-29 l_P, deeper than 0.369917 l_P (continuum model invalid there as well).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "quant-ph/0204125 Sopova & Ford 2002, 'The Energy Density in the Casimir Effect'",
+   "effect": "narrows",
+   "what": "With dispersive (plasma-model) walls the gap energy density = negative constant (Casimir) term + positive position-dependent term diverging at the interface; midpoint negative only for omega_p a > ~99 (a > 1.3 um for 14.8 eV); recovers -pi^2/(720 a^4) as omega_p -> oo. 'The existence of an attractive Casimir force is not an indicator of whether the energy density at the center of the plates is actually negative or not.' Reproduced numerically here.",
+   "read_status": "READ (pp.1-17 page text)"
+  },
+  {
+   "ref": "quant-ph/0203002 Bressi et al. 2002, PRL 88, 041804",
+   "effect": "confirms",
+   "what": "Only parallel-plate measurement read: force coefficient K_C = (1.22 +- 0.18)e-27 N m^2 over 0.5-3.0 um, 15% precision, agreeing with Casimir's pi h c/480; fitted exponent 5.0 +- 0.1 for the dynamic signal (d^-4 force).",
+   "read_status": "READ (pp.1-10)"
+  },
+  {
+   "ref": "quant-ph/0106045 Bordag, Mohideen, Mostepanenko 2001, Phys. Rep. 353, 1",
+   "effect": "narrows",
+   "what": "Casimir's result 'valid only for perfect conductors'; finite-conductivity corrections 10-20% at ~1 um (eq 5.60, valid for a >= lambda_p); non-retarded van der Waals limit F = -H/(6 pi a^3) for a << lambda_0 (eq 4.27); thermal corrections large beyond a few um (86-174% at 4-6 um).",
+   "read_status": "READ (pp.1, 23-26, 78-79, 139, 146, 154-157, 189-198, 199, 209, 220)"
+  },
+  {
+   "ref": "2104.01460 Mostepanenko 2021, 'Casimir Puzzle and Casimir Conundrum'",
+   "effect": "contested",
+   "what": "Real-metal Lifshitz theory with the Drude model is excluded by precision data (160-750 nm Au, 223-420 nm Ni, differential up to x1000) while the plasma model agrees; Nernst-theorem problems; unresolved. Concerns the few-percent real-material/thermal corrections at 0.2-1 um, not the ideal limit; also states the Casimir force becomes the non-retarded van der Waals force below a few nm. Does not move the tree's conclusions (plasma model was used here; Drude would reduce the force further at finite T).",
+   "read_status": "READ (pp.1-3, 9, 12-14, 22-24, 31)"
+  },
+  {
+   "ref": "discover_papers hits not read: 2608.16619 (real metallic plates, 2026), 1911.04294 (recent measurements), 2204.06290 (thermal Casimir status), 0902.4022 (real materials review)",
+   "effect": "extends",
+   "what": "Listed by discovery; not read here, so nothing is claimed from them.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What Casimir (1948) lacked: any measurement (first attempt Sparnaay 1958, 'do not contradict'; parallel-plate 15% only in 2002), and the optical response of real plates (Lifshitz 1956 supplied the framework). Having them does NOT change his conclusion inside its hypotheses: the ideal-plate coefficient is re-derived exactly here and the 2002 parallel-plate coefficient agrees at -0.45 sigma; the Drude/plasma 'Casimir puzzle' (2104.01460) is a dispute about real-material corrections of a few percent, not about the ideal limit. What the later data DO change is the domain: the ideal formula is the a >> lambda_p limit, and the tree evaluates it at 10 nm, 1 nm, 0.1 nm and 0.37 l_P, where the plasma-model interaction energy is 11%, 1.3%, 0.13% of it and the midpoint local density is positive. So M's hypothesis holds in a specific, non-favourable form: the data Casimir lacked narrow where his formula applies; it is not wrong, and every correction found runs AGAINST the device (smaller |rho|, larger shortfall), never for it. The energy density itself remains unobserved (Sopova-Ford p.16), so 'MEASURED' for rho is a discrepancy of status word, not a refutation.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published result STANDS on its own hypotheses: E/A = -pi^2 hbar c/(720 d^3), F/A = -pi^2 hbar c/(240 d^4) and the Brown-Maclay density -pi^2 hbar c/(720 d^4) re-derived symbolically (script A-C), the tree's numbers reproduce (D), no datum has moved (E), and the only parallel-plate measurement read agrees (pull -0.45 sigma). The TREE'S USE is on a larger class than the result covers: (1) it drops the perfect-conductor validity condition a >> lambda_p and evaluates the formula at 10 nm, 1 nm, 0.1 nm (achievable.py:124-141, 532-547; candidates.py:129-135) where plasma-model Lifshitz gives 0.111, 0.0130, 0.00132 of the ideal interaction energy (F); (2) it labels the energy density 'MEASURED' (achievable.py:31, 417-419; candidates.py:73-74) when only the force is measured, at 0.5-3 um parallel / >~120 nm sphere-plate; (3) its KIND pass (candidates.py:78) holds for a >~ 1.3 um (Al) but at its priced gaps the plasma-model midpoint density is positive (G). Not WRONG: no counterexample to the result as published. Direction: every narrowing reduces the available |rho|, so the tree's refusals (Casimir fails MAGNITUDE; corridors of light-years; crossover sub-Planckian) are unchanged or strengthened -- the numbers are ideal-plate upper bounds, not physical Casimir values.",
+ "what_would_change_the_grade": "To STANDS: the owners restrict the use to ideal plates, relabel the density as the ideal-plate QFT value (force MEASURED, density inferred), and present the 10 nm / 0.1 nm / 1 nm rows as ideal-plate upper bounds. To DATA-DEPENDENT: a material model or measurement showing |rho| at nm gaps EXCEEDS the ideal value (none found; every model read gives less). To WRONG: a computed contradiction of the ideal-plate coefficient -- the symbolic re-derivation here rules that out. To OPEN: none; all load-bearing pieces were readable and checkable.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/casimir-1948-parallel-plates.py  # exits 0 on ALL PASS (39 checks, ~15 s); source sentences: alphaXiv answer_pdf_queries quant-ph/0106045 (eqs 2.36-2.37 p.25, 4.31 p.79, 5.60 p.156, p.154 'valid only for perfect conductors'), quant-ph/0204125 (eqs 50-52, 56-57, p.13 'a_c = 99/omega_p = 1.3 um'), quant-ph/0203002 (p.6 eq 4 K_C = (1.22 +- 0.18)e-27)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/casimir-1948-parallel-plates.json"
+}

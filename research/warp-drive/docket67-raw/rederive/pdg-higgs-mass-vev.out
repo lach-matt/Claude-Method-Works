@@ -1,0 +1,81 @@
+A. SOURCE TEXT (on-disk alphaXiv page captures)
+  [ok] PDG 2026 prints '125.13± 0.11 OUR AVERAGE'                     True
+  [ok]   with 'Error includes scale factor of 1.5.'                   True
+  [ok]   ideogram 'χ 2 6.9 (Confidence Level = 0.075)'                True
+  [ok] PDG 2024 prints '125.20± 0.11 OUR AVERAGE' (the withdrawn pin) True
+  [ok] PDG 2024 Table 1.1 prints G_F '1.166 378 8(6)'                 True
+  [ok] PDG 2024 EW review: 'v = 246.22 GeV'                           True
+  [ok] PDG 2024 EW review: masses 'at tree level'                     True
+  [ok] Eberhart 2026 prints G_F '1.166 378 59 (59)'                   True
+  [ok] PDG 2026 width: 'equal on- and off-shell effective couplings'  True
+
+B. SYMPY -- the tree identities address.py uses
+  [ok] V''(v) = 2 lambda v^2 (tree mass^2)                            0
+  [ok] depth V(0)-V(v) = lambda v^4/4                                 0
+  [ok] 8 |V_min| = v^2 m_h^2 at lambda = m_h^2/2v^2                   0
+  [ok] PDG eq.(10.5a) M_H = lambda_P v with lambda_P^2 = 2 lambda     0
+  [ok] [V(v(1+eps)) - V(v)]/depth = eps^2(2+eps)^2 (offset-free)      0
+  [ok] eps = -rho_H/(v^2 m_h^2)                                       0
+  [ok] exterior eps0 (r0/r) e^{-(r-r0)/ell} solves (nabla^2 - 1/ell^2) = 0 0
+  [ok]   and equals eps0 at r = r0                                    0
+
+C. PDG 2026 AVERAGE, re-derived from its four listed inputs
+    mean 125.1309  err 0.0736  chi2 6.915 (0.57, 0.08, 6.23, 0.03)  S 1.518  scaled 0.1117
+  [ok] mean rounds to 125.13                                          125.13
+  [ok] scaled error rounds to 0.11                                    0.11
+  [ok] S rounds to 1.5                                                1.5
+  [ok] chi2 rounds to 6.9                                             6.9
+  [ok] CL(chi2, 3 dof) rounds to 0.075                                0.075
+    without SIRUNYAN 20L (the chi2 6.2 outlier): mean 125.0744, err 0.0767; m_h^2 moves -8.88e-04
+  [ok] dropping the outlier moves m_h by < 0.1 GeV                    True
+
+D. INDEPENDENT NUMBERS from READ inputs and exact SI constants
+    v 246.219640 GeV  lambda 0.129136053130  |V_min| 1.186529e+08 GeV^4 = 2.474168e+45 J/m^3
+    lambda_h 1.576976e-18 m   (m_e/m_h)^2 1.667697e-11 (CODATA 2022 m_e) / 1.667697e-11 (address m_e)
+  [ok] owner v equals independent v                                   246.21964 (want 246.21964)
+  [ok] owner M_HIGGS is the PDG 2026 print                            125.13
+  [ok] owner |V_min| J/m^3 vs exact-SI recomputation                  2.47416848e+45 (want 2.47416848e+45)
+  [ok] owner lambda_h vs exact-SI recomputation                       1.57697579e-18 (want 1.57697579e-18)
+  [ok] owner 8|V_min| = v^2 m_h^2                                     1.97933479e+46 (want 1.97933478e+46)
+  [ok] owner lambda = 0.129136053130                                  0.129136053 (want 0.129136053)
+  [ok] LAMBDA_QUARTIC imported but used nowhere else in address.py    1
+
+E. DATA MOVES -- each figure against m_h and G_F
+    eps_det H1 8.2067e-16  H2 6.3830e-16  (no m_h in either)
+    line  figure                         docstring   at 125.13   at 125.20   verdict
+    163   lambda_h (m)                   1.5761e-18  1.5770e-18  1.5761e-18  STALE: matches withdrawn 125.20
+    164   lambda_h / r_p                 0.0019      0.0019      0.0019      matches READ m_h
+    192   eps nuclear H1                 -3.26e-13   -3.27e-13   -3.26e-13   STALE: matches withdrawn 125.20
+    192   eps nuclear H2                 -7.28e-14   -7.29e-14   -7.28e-14   STALE: matches withdrawn 125.20
+    192   nuclear / eps_det H1           398         398         398         matches READ m_h
+    192   nuclear / eps_det H2           114         114         114         matches READ m_h
+    234   (m_e/m_h)^2                    1.6658e-11  1.6677e-11  1.6658e-11  STALE: matches withdrawn 125.20
+    237   probe eps                      1.80e-05    1.80e-05    1.80e-05    matches READ m_h
+    263   courier source H1 (kg/m^3)     8.20e+11    8.19e+11    8.20e+11    STALE: matches withdrawn 125.20
+    263   courier source H2 (kg/m^3)     3.67e+12    3.67e+12    3.67e+12    matches READ m_h
+    264   courier H1 / osmium            3.63e+07    3.63e+07    3.63e+07    matches READ m_h
+    264   courier H2 / osmium            1.63e+08    1.62e+08    1.63e+08    STALE: matches withdrawn 125.20
+  [ok] owner's printed nuclear eps H1 reproduced                      -3.26724058e-13 (want -3.26724057e-13)
+  [ok] owner's printed probe eps reproduced                           1.79888802e-05 (want 1.798888e-05)
+  [ok] owner's courier H1 reproduced                                  8.19039778e+11 (want 8.190398e+11)
+    stale docstring figures (withdrawn-pin roundings): 6
+  [ok] exactly 6 docstring figures are the 125.20 roundings           6
+
+    relative moves, 125.20 -> 125.13, and the +-0.11 GeV (S=1.5) band
+      lambda_h (m)                   +5.594e-04   band [+8.799e-04, -8.783e-04]
+      eps nuclear H1                 +1.119e-03   band [+1.760e-03, -1.756e-03]
+      (m_e/m_h)^2                    +1.119e-03   band [+1.760e-03, -1.756e-03]
+      courier source H1 (kg/m^3)     -1.118e-03   band [-1.757e-03, +1.759e-03]
+      G_F PDG 2024                   v 246.219640  eps_nuclear H1 moves +0.00e+00
+      G_F Eberhart 2026              v 246.219662  eps_nuclear H1 moves -1.80e-07
+      G_F CODATA 2018 / MuLan 2013   v 246.219651  eps_nuclear H1 moves -8.57e-08
+  [ok] m_e CODATA 2018->2022 moves (m_e/m_h)^2 by < 3e-9              True
+
+F. MARGINS -- how far m_h^2 v^2 would have to move to flip a verdict
+    nuclear matter over threshold: x398.1 (H1), x114.2 (H2): the coefficient v^2 m_h^2 would have to GROW by that factor
+    in m_h alone: m_h > 2497 GeV (H1) / 1337 GeV (H2)
+  [ok] domination limit r/d -> oo as rho -> oo for every m_h > 0      oo
+    width 3.0 MeV: Re(sqrt(M^2 - i M Gamma))/M - 1 = 7.19e-11 (range move)
+  [ok] width moves lambda_h by < 1e-9                                 True
+
+RESULT: ALL CHECKS PASS

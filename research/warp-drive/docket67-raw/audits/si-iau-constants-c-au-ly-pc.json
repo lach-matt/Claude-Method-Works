@@ -1,0 +1,93 @@
+{
+ "key": "si-iau-constants-c-au-ly-pc",
+ "name": "Speed of light, astronomical unit, light-year, parsec (SI/IAU defined values)",
+ "source": {
+  "located": "c: the SI defining constant (1983 metre redefinition, retained in the 2019 SI), READ as restated in CODATA 2022, Mohr-Newell-Taylor-Tiesinga, arXiv:2409.03787v1, Table XXXII p.50 ('speed of light in vacuum c 299 792 458 m s^-1 exact') and p.60 ('already exactly known as a result of the 1983 redefinition of the meter in terms of an exact value of c and the 2019 revision of the SI'). au: IAU 2012 Resolution B2, READ as restated in Prsa et al., 'Nominal values for selected solar and planetary quantities: IAU 2015 Resolution B3', arXiv:1605.09788v1 (31 May 2016) p.8 ('In 2012, the IAU passed a resolution that defines the astronomical unit as 149 597 870 700 m') and p.13 note 2 ('Resolution B2 of the 2012 IAU General Assembly adopted an exact value for the astronomical unit'), and in arXiv:1510.07674v1 endnote 4 ('defined the astronomical unit to be a conventional unit of length equal to 149 597 870 700 m exactly'). pc: IAU 2015 Resolution B2 (notes), READ as restated in arXiv:1605.09788v1 p.8 ('IAU 2015 Resolution B2 adopted the definition of the parsec to be exactly 648000/pi au ... Since pi is irrational, the length of one parsec cannot be rational, but it still is an exact number, 3.085 677 581 491... x 10^16 m') and p.13 note 2 ('1 pc = 648000 pi^-1 au'). ly: c x Julian year (365.25 d x 86400 s): the IAU/Julian-year definition was NOT read at any source here (NAMED-NOT-READ); the value is COMPUTED from the read c and the stated Julian-year hypothesis.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Live reads failed this stage: alphaXiv answer_pdf_queries x2 (1510.06262, CODATA 2022), get_paper_content x2 (1510.06262, 2409.03787) and discover_papers x1 all returned 'alphaXiv assistant quota exceeded'; curl to arxiv.org, pdg.lbl.gov and www.iau.org was refused by the egress proxy (403 CONNECT, logged). The texts were READ from the scratchpad cache /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/ (2409.03787v1.txt lines 4676-4686, 7632-7670; 1605.09788v1.txt lines 480-495, 605-630, 920-940; 1510.07674v1.txt lines 410-422), which holds alphaXiv's page extraction of the arXiv PDFs harvested from earlier tool results in this project's sessions (the same cache sibling audits schwarzschild-radius-collapse-criterion and si-speed-of-light used), not a paraphrase. The CGPM 1983 resolution, the SI Brochure (9th ed.), IAU 2012 Resolution B2 and IAU 2015 Resolution B2 themselves are not on arXiv and are NAMED-NOT-READ (their content is READ-VIA-RESTATEMENT in the papers above, 1605.09788 being authored by the IAU Inter-Division A-G Working Group that drafted B3). astropy 8.0.1 constants/iau2015.py (in scratchpad src/astropy_x) was inspected only as a software cross-check of the parsec construction (au / radians(1 arcsec), reference 'IAU 2015 Resolution B 2 note [4]'), not as a source."
+ },
+ "published_statement": "(i) c = 299 792 458 m s^-1, exact, a defining constant of the SI (CODATA 2022 Table XXXII p.50; p.60). (ii) 'Resolution B2 of the XXVIII General Assembly of the IAU in 2012 defined the astronomical unit to be a conventional unit of length equal to 149 597 870 700 m exactly' (1510.07674 endnote 4; 1605.09788 p.8, p.13). (iii) 'IAU 2015 Resolution B2 adopted the definition of the parsec to be exactly 648000/pi au ... it still is an exact number, 3.085 677 581 491... x 10^16 m' (1605.09788 p.8); '1 pc = 648000 pi^-1 au' (p.13 note 2). (iv) light-year: no published statement READ here; the tree's hypothesis LY = c x Julian year is computed: 9 460 730 472 580 800 m exactly.",
+ "published_hypotheses": [
+  "H1 (c): the SI is in force (metre defined through a fixed numerical value of c); c carries zero uncertainty by construction -- a convention, not a measurement.",
+  "H2 (au): the au is a CONVENTIONAL (nominal) unit of length fixed at 149 597 870 700 m (IAU 2012 B2) -- not the measured Earth-Sun mean distance and not tied to the Gaussian gravitational constant.",
+  "H3 (pc): the parsec is defined from the au by the exact factor 648000/pi (IAU 2015 B2 notes); it is exact but irrational in metres.",
+  "H4 (ly, NOT READ at source): the light-year is the distance light travels in vacuum in one Julian year of 365.25 days of 86400 SI seconds."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED ('exact' -> rounded) at arrival.py:23: the canonical hypothesis reads 'exact SI/IAU 2012 definitions', but LY = 9.4607304726e15 is c x Julian year ROUNDED to 11 significant figures (exact 9 460 730 472 580 800 m; literal +19 200 m, relative +2.029e-12). Computed (R3). A rounding, not an error; no printed output moves (R6).",
+  "WEAKENED ('exact' -> rounded) at arrival.py:24: PC = 3.0856775815e16 is 648000/pi au rounded to 11 s.f. (exact 3.08567758149136727...e16 m; literal +86 327 m, relative +2.798e-12). Computed (R4). PC is referenced on no other line of arrival.py (R5), so nothing downstream carries it.",
+  "MISATTRIBUTED (label only) at arrival.py:24 via the canonical hypothesis 'IAU 2012': the parsec definition is IAU 2015 Resolution B2 (notes), not 2012 (1605.09788 p.8, p.13). The value is unaffected: the construction 648000/pi au is identical to the conventional au/(1 arcsec in rad) (symbolic identity, R4).",
+  "LABEL at arrival.py:23 via the canonical hypothesis 'SI/IAU': the light-year is not an SI unit and its IAU definition was not read here; the tree's own stated hypothesis 'LY = Julian year x c' is the operative one and is verified exactly. The year choice is a real (if tiny) hypothesis: under a Gregorian (365.2425 d) or tropical (365.24219 d) year the 100 km-sail row printed by arrival.py:147-148 flips from 8.42 ly to 8.43 ly, because its exact value 8.424911 ly lies 8.9e-5 ly (1.06e-5 relative) below the 8.425 rounding boundary (R7). Under the Julian year the tree states, the printed 8.42 is correct.",
+  "DROPPED (source not cited) at arrival.py:21-24: the owner file gives no source, comment or status word for any of the four literals (canonical status_word 'none'); the hypotheses H1-H3 are therefore implicit in the tree, not stated. No consequence for any value.",
+  "NONE for c (arrival.py:21) and AU (arrival.py:22): both literals equal the defined values exactly and are exactly representable as IEEE doubles (R1, R2)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "c",
+   "value_then": "299 792 458 m/s exact (fixed 1983; retained 2019)",
+   "value_now": "299 792 458 m/s exact; tree 299792458.0 (arrival.py:21)",
+   "source_now": "CODATA 2022, arXiv:2409.03787v1 Table XXXII p.50, p.60",
+   "moves_conclusion": "No. Defined constant; zero uncertainty; tree literal identical (R1). c also cancels identically from the magsail floor L = (gamma-1) m c^2/(rho (beta c)^2 A) (sympy dL/dc = 0, R6), so the AU/ly distances do not depend on c at all."
+  },
+  {
+   "quantity": "au",
+   "value_then": "149 597 870 700 m exactly (IAU 2012 B2)",
+   "value_now": "149 597 870 700 m exactly (unchanged; restated 2016 by 1605.09788); tree 1.495978707e11 (arrival.py:22; same literal inline at launcher.py:94)",
+   "source_now": "arXiv:1605.09788v1 p.8, p.13; arXiv:1510.07674v1 endnote 4",
+   "moves_conclusion": "No. Identical, exact (R2)."
+  },
+  {
+   "quantity": "pc",
+   "value_then": "exactly 648000/pi au (IAU 2015 B2)",
+   "value_now": "3.085 677 581 491 367 3...e16 m (computed, agrees with 1605.09788 p.8 printed digits); tree 3.0856775815e16 (arrival.py:24), +2.80e-12 relative",
+   "source_now": "arXiv:1605.09788v1 p.8, p.13 + sympy (R4)",
+   "moves_conclusion": "No. PC is used in no output (R5)."
+  },
+  {
+   "quantity": "ly",
+   "value_then": "c x Julian year (definition NAMED-NOT-READ)",
+   "value_now": "9 460 730 472 580 800 m exactly (computed); tree 9.4607304726e15 (arrival.py:23), +2.03e-12 relative",
+   "source_now": "computed from CODATA c and 365.25 x 86400 s (R3)",
+   "moves_conclusion": "No. Every printed ly figure (arrival.py:147-148: 8.42, 0.08, 0.00) is unchanged by the literal's offset (R6). A different year convention would flip the 8.42 row to 8.43 (R7) -- a hypothesis-dependence at the 4th significant figure, not a moved datum."
+  },
+  {
+   "quantity": "m_p in RHO_ISM (context only; owned by another key, arrival.py:25)",
+   "value_then": "1.67262192e-27 kg (tree; CODATA 2018 truncated)",
+   "value_now": "1.672 621 925 95(52)e-27 kg (CODATA 2022, 2409.03787 Table, not re-quoted here beyond the value used by sibling audits)",
+   "source_now": "CODATA 2022 arXiv:2409.03787",
+   "moves_conclusion": "No. Shifts the 100 km row to 8.424911121 ly (R7 check); the edge row does not flip."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/si-iau-constants-c-au-ly-pc.py",
+  "outcome": "ALL PASS (0 fail), output in rederive/si-iau-constants-c-au-ly-pc.out. The literals are parsed from arrival.py:21-24 as exact decimals. R1: c == 299792458 exactly. R2: AU == 149597870700 exactly. R3: c x 365.25 x 86400 = 9460730472580800 m exactly; LY literal == that value rounded to 11 s.f. (diff +19200 m, rel 2.029e-12). R4: 648000/pi au = 30856775814913672.789 m; PC literal == that rounded to 11 s.f. (diff +86327 m, rel 2.798e-12); au/(1 arcsec in rad) - 648000/pi au simplifies to 0; pc/au irrational. R5: PC appears on no line of arrival.py but its definition. R6: all six printed magsail distances (200164/2002/20 AU; 8.42/0.08/0.00 ly) are identical under exact vs tree constants; selftest pin 2001.64 AU reproduced (2001.638202); c cancels identically from L. R7 (sensitivity): Gregorian/tropical-year ly flips the 100 km row 8.42 -> 8.43; sidereal does not; CODATA 2022 m_p does not; trip_time_ly = d/b years is independent of which year defines the ly (symbolic). R8 (discrepancy in the owner, not the constants): the prose 'A 1000 km magsail brakes a 1000 t ship from the shell's 0.048 c inside 810 AU' (arrival.py:150-151, repeated :159, carried into launcher.py:180,291 and index3.py:86) and 'From 0.87 c the same sail needs 2.6 ly' (:151-152) are NOT what the code prints for the 1000 km (1e12 m^2) row: 2001.64 AU and 0.0842 ly. Reconciling them would need au = 3.697e11 m (x2.471) or ly = 3.066e14 m (x0.0324), and the two ratios (2.471, 30.86) share no common factor, so no constant value explains the prose figures. Recorded, not repaired; the source of 810 AU / 2.6 ly is not determined here.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga, CODATA 2022, arXiv:2409.03787 (RMP 97, 025002, 2025)",
+   "effect": "confirms",
+   "what": "c = 299 792 458 m/s exact as a defining constant of the SI, unchanged since 1983 (Table XXXII p.50; p.60).",
+   "read_status": "READ (cache of alphaXiv extraction, lines 4676-4686, 7632-7670)"
+  },
+  {
+   "ref": "Prsa et al., IAU 2015 Resolution B3 nominal values, arXiv:1605.09788 (AJ 152, 41, 2016)",
+   "effect": "confirms",
+   "what": "Restates au = 149 597 870 700 m exact (IAU 2012 B2) and pc = 648000/pi au exact (IAU 2015 B2 notes) as in force; recommends these as the distance scale for stellar and planetary work.",
+   "read_status": "READ (cache, pp.8, 13)"
+  },
+  {
+   "ref": "Prsa et al., arXiv:1510.07674 (IAU 2015 B3 resolution text)",
+   "effect": "confirms",
+   "what": "Endnote 4: au is 'a conventional unit of length equal to 149 597 870 700 m exactly'. [Note: the one discover_papers call for later work changing any of the four definitions returned 'alphaXiv assistant quota exceeded' and was NOT RUN; no such work is in the local cache, which is not evidence of absence.]",
+   "read_status": "READ (cache, lines 410-422)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result, and the evidence is structural rather than presumed. Three of the four values are CONVENTIONS, not measurements: c has been fixed since 1983 (CODATA 2022 p.60), the au since 2012 as 'a conventional unit of length ... exactly' (1510.07674 endnote 4), the parsec since 2015 as exactly 648000/pi au (1605.09788 p.8). A defined unit cannot be wrong for lack of data -- no future measurement can move it; new data can only change what the unit is USED to express (e.g. the physical Earth-Sun distance, which the conventional au by definition no longer tracks). The fourth, the light-year, is c times a conventional year; the only open choice is WHICH year (a hypothesis, not a datum), and it moves one printed row at the 4th significant figure (8.42 -> 8.43 ly, R7). Before 2012 the au WAS a measured/derived quantity (Gaussian-constant based); what data earlier astronomers lacked there is outside this audit's reach -- the pre-2012 IAU 1976/2009 systems are NAMED-NOT-READ here -- and it is irrelevant to the tree, which uses the post-2012 defined value. Evidence either way: every tree literal equals the defined value exactly (c, au) or to 11 s.f. (ly, pc), and no output changes (R1-R6). The one discrepancy found (the prose 810 AU / 2.6 ly against the code's 2002 AU / 0.084 ly, R8) is internal to the tree and is shown NOT to be explicable by any value of the constants.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ-VIA-RESTATEMENT (CODATA 2022 for c; IAU 2015 B3 papers 1605.09788/1510.07674 restating IAU 2012 B2 for au and IAU 2015 B2 for pc); the light-year definition is NAMED-NOT-READ but the tree's own stated form (Julian year x c) is computed exactly. Re-derivation in exact sympy arithmetic: c and AU literals identical to the defined values; LY and PC literals are the exact values rounded to 11 s.f. (rel 2.0e-12, 2.8e-12); PC feeds no output; every printed AU and ly figure in arrival.py is unchanged under exact constants, and c cancels identically from the magsail floor. No datum has moved (all four are defined). Hypothesis drifts are labels ('exact' for two rounded literals; 'IAU 2012' for a 2015 parsec definition; 'SI' for a non-SI unit) that change no value. Not NARROWED: the tree uses these constants on exactly the class they are defined for (unit conversion). Separately recorded, NOT part of this grade and NOT an error in the constants: the owner's prose figures '810 AU' (arrival.py:151,159; launcher.py:180,291; index3.py:86) and '2.6 ly' (arrival.py:152) disagree with the owner's own printed output (2001.64 AU, 0.0842 ly) by factors 2.47 and 30.9 that no admissible au/ly reconciles (R8) -- a discrepancy for the owner of the magsail result, to be READ before it is quoted.",
+ "what_would_change_the_grade": "(a) A reading of the IAU/Julian-year light-year definition showing a year other than 365.25 d x 86400 s would make the 100 km row's printed 8.42 ly a 4th-figure discrepancy (it becomes 8.43 under Gregorian/tropical years, R7) -- still not a change to any conclusion. (b) A future IAU/CGPM redefinition of the au, parsec or c (none found; the later-literature search could not be run -- quota) would make the grade DATA-DEPENDENT. (c) A reading of IAU 2012 B2 / IAU 2015 B2 at source contradicting the restatements in 1605.09788 would reopen H2/H3. Nothing currently in hand moves it.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/si-iau-constants-c-au-ly-pc.py && sed -n 4676,4686p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2409.03787v1.txt && sed -n 612,620p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1605.09788v1.txt && sed -n 926,932p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1605.09788v1.txt && sed -n 416,420p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1510.07674v1.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/si-iau-constants-c-au-ly-pc.json"
+}

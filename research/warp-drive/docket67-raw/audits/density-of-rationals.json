@@ -1,0 +1,69 @@
+{
+ "key": "density-of-rationals",
+ "name": "Every nonempty open real interval contains a rational (Archimedean property)",
+ "source": {
+  "located": "Classical (Eudoxus/Archimedes; modern form in every analysis text, e.g. Rudin PMA Thm 1.20) -- no arXiv original. Read through: J. F. Hall, 'Completeness of Ordered Fields', arXiv:1101.5652v1 (2011), Def 2.1 p.5, Prop 2.4 p.6, Ex 2.7 p.7, Lemma 3.4 p.10, Thm 3.5 / Thm 3.8 pp.10-11, Ex 3.9 p.11, Thm 3.11 (viii)=>(ix) p.14; J. Propp, 'Real Analysis in Reverse', arXiv:1204.4483v4 (Amer. Math. Monthly 2013), property (2) p.5, sec.3 p.7 (R(omega) non-Archimedean), sec.4 p.9 ((1) => (2)); Z. Murray, arXiv:2205.08354 (2022) p.10-11, 15 (Archimedean property and density of Q machine-checked constructively in Agda, Bishop reals).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Rudin PMA Thm 1.20 / Eudoxus-Archimedes NAMED-NOT-READ. The Archimedean property READ verbatim in arXiv:1101.5652 Def 2.1 and arXiv:1204.4483 property (2); density READ as stated in arXiv:1101.5652 ('the rationals are dense in any Archimedean field', p.10 Lemma 3.4 proof; 'Q is dense in every Archimedean field', p.11 Thm 3.5 proof; 'Recall that the rationals are dense in an Archimedean field', Thm 3.8 proof) and in arXiv:2205.08354 p.10-11 ('both the Archimedean property and the density of Q in R are constructively valid (we have verified their proofs in the Agda proof assistant)'). Neither restating paper prints the density theorem as a numbered statement with its own proof; the proof is re-derived here (T1-T3)."
+ },
+ "published_statement": "Archimedean property: arXiv:1101.5652 Def 2.1: 'A totally ordered field (ring) K is Archimedean if for every x in K, there exists n in N such that |x| < n.' arXiv:1204.4483 (2): 'For every x in R there exists n in N_R with n > x. Equivalently, for every x in R with x > 0 there exists n in N_R with 1/n < x.' Density: arXiv:1101.5652 p.10-11: 'the rationals are dense in any Archimedean field' / 'Q is dense in every Archimedean field'; Ex 2.7: 'The fields R, Q, C are all Archimedean fields'; Lemma 3.10 / 1204.4483 p.9: Dedekind completeness implies Archimedean. Hence for real a < b there is a rational p/q with a < p/q < b.",
+ "published_hypotheses": [
+  "the ambient field is a totally ordered ARCHIMEDEAN field (1101.5652 Def 2.1; R qualifies: Ex 2.7, and Dedekind completeness => Archimedean, Lemma 3.10 / 1204.4483 p.9)",
+  "the interval is nonempty: a < b strictly (density is about open intervals (a,b) with a < b; T2d below shows the probe lemma fails at the boundary width exactly 1)",
+  "fails without the Archimedean hypothesis: in R(omega)/R(eps) ordered at infinity/0+, (0, eps) contains no positive rational (1204.4483 p.7; 1101.5652 Ex 3.9, sec.8); checked here as T4",
+  "constructively (Bishop reals, x < y meaning positive separation at some index) density and the Archimedean property still hold (2205.08354 p.10-11)"
+ ],
+ "hypothesis_drift": [
+  "NONE at the use site latticectc.py:38-47: the owner works in R (Archimedean), states A = |g1|^2 > 0 (latticectc.py:38) and H^2 > AC (latticectc.py:40), which together make the root interval (t-, t+) nonempty of width 2 sqrt(H^2-AC)/A > 0 (sympy T5b); a rational t = m/n in it with n != 0 gives Q(m,n) = n^2 (A t^2 + 2Ht + C) < 0 (T5a), and n = 0 is excluded since Q(m,0) = A m^2 > 0 (T5d). The lattice vector m g1 + n g2 is therefore nonzero and timelike exactly as claimed.",
+  "canonical.json restatement omits A > 0 (lists only H^2 > AC); the OWNER carries it (latticectc.py:38 in the theorem statement, latticectc.py:208 as an assert). A restatement omission, not an owner drift. Without A > 0 'between the roots' is not where Q < 0 (A < 0 makes g1 itself timelike, a separate case).",
+  "ADDED, unnamed, by the owner's constructive routine latticectc.py:203-216 (not by the external result): the termination sentence at :205-206 ('Terminates: once q > 2/width the interval q*(t-, t+) holds an integer') is true in exact reals -- the interval holds an integer once q*width > 1 (z3 T1), and the probe floor/ceil of q*mid lands in it once q*width > 1 (z3 T2) -- but the routine computes lo, hi in FLOAT (latticectc.py:209-210), which adds the hypothesis 'float-rounded midpoint within (q*width - 1)/2q of the exact one'. SHOWN violable (T8): g1 = (0,1,0), g2 = (1/2, -(10^17+7), 0) -- spacelike generators, A = 1, H^2 - AC = 1/4, width 1, so the stated bound is q = 3 -- the owner's timelike_vector returns only at q = 17479 with (m,n) = (1747900000000000131072, 17479), exactly verified (|m - qM| = 8719 < q/2 = 8739.5). The RETURNED vector is always exact-verified (no false positive possible); only the stated termination bound fails. A discrepancy in the tree's own code, recorded not repaired; it does not touch the density theorem and does not touch D21's existence claim.",
+  "SCOPE NOTE, not drift: for exact-rational Gram entries (every input the owner can actually take -- Fractions -- including the census and the separating witness) the vertex t* = -H/A is itself rational and interior, q(t*) = (AC - H^2)/A < 0 (sympy T5c; witness t* = 81/19, T7a), so density is not needed there at all; the density theorem is load-bearing only for the real-lattice (irrational Gram) statement of theorem (c), which the latticectc.py:52-56 boundary discussion (s irrational) shows the tree does intend."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none -- a theorem about the ordered field R; no physical or numerical input enters the conclusion",
+   "value_then": "n/a",
+   "value_now": "n/a",
+   "source_now": "n/a (arXiv:1101.5652, 1204.4483, 2205.08354 restate the same statement)",
+   "moves_conclusion": "no -- nothing to move. The tree's data_used ('timelike_vector() output verified exactly: nrm(m e1 + n e2) < 0') re-run: census of 400 exact-rational timelike spans, all return n != 0 with exact nrm < 0, and every return is within the exact-real bound q <= floor(1/width)+1 (max ratio 1.0, T6); separating witness -> (4,1) (T6)."
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/density-of-rationals.py",
+  "outcome": "z3 (5.1.0) + sympy (1.14.0), output in rederive/density-of-rationals.out. T1 unsat: y - x > 1 => x < floor(x)+1 < y. T2 unsat: width > 1 => floor(mid) or ceil(mid) lies in the open interval (the owner's probe); controls T2c (width 1/2) and T2d (width exactly 1) sat -- the lemma is not vacuous and the strict inequality is needed. T3 unsat: w > 0, q = floor(1/w)+1 => q w > 1 (the Archimedean step, nonlinear); T3b unsat: q(b-a) > 1, p = floor(qa)+1 => qa < p < qb, i.e. a < p/q < b. T4 (sympy): in R(eps) at 0+, p/q - eps -> p/q > 0, so no positive rational lies below eps -- the Archimedean hypothesis is necessary. T5a-d (sympy): Q(m,n) = n^2 q(m/n), root width^2 = 4(H^2-AC)/A^2, q(-H/A) = (AC-H^2)/A, Q(m,0) = A m^2. T6: owner's timelike_vector on 400 census spans, 400/400 exact, all within the exact bound. T7a: witness vertex 81/19 rational with q < 0. T8: float-rooted loop exceeds its stated termination bound (returns at q = 17479 against 3) on a valid input; result still exact.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Z. Murray, arXiv:2205.08354 (2022), Constructive Analysis in the Agda Proof Assistant",
+   "effect": "extends",
+   "what": "Archimedean property and density of Q in R machine-checked in Agda for Bishop's constructive reals (p.10-11, 15); the result holds even without excluded middle. Also records (p.24, 31) that computing the Archimedean witness can take hours -- a cost, not a limit on truth.",
+   "read_status": "READ (pp.1-38 via answer_pdf_queries)"
+  },
+  {
+   "ref": "J. Propp, arXiv:1204.4483 (2013), Real Analysis in Reverse",
+   "effect": "narrows",
+   "what": "the Archimedean property (2) is strictly weaker than completeness and fails in every non-Archimedean ordered field (R(omega), formal Laurent series, surreals); density of Q is therefore a property of Archimedean fields, not of ordered fields in general. The tree works in R, so this narrowing does not reach its use.",
+   "read_status": "READ (pp.1,4-7,9,11-16,20)"
+  },
+  {
+   "ref": "J. F. Hall, arXiv:1101.5652 (2011), Completeness of Ordered Fields",
+   "effect": "confirms",
+   "what": "Def 2.1, Prop 2.4, Ex 2.7 (R Archimedean), repeated use of 'Q is dense in every Archimedean field' (Lemma 3.4, Thms 3.5, 3.8, 3.11); Ex 3.9 R(x) non-Archimedean.",
+   "read_status": "READ (pp.1-3,5-8,10-19,21,26-29)"
+  },
+  {
+   "ref": "arXiv:2604.24782 (2026) Formalizing the Real Numbers in HoTT with Cubical Agda; arXiv:1510.00639 / 1510.00641 (Lubarsky, constructive Cauchy/Dedekind reals)",
+   "effect": "extends",
+   "what": "surfaced by discover_papers; concern completeness of constructive reals (Cauchy completeness can fail without countable choice), not density. Titles/abstracts only.",
+   "read_status": "NAMED-NOT-READ (abstract only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite here: the result is a theorem about the ordered field R with no empirical input, so there is no datum the authors could have lacked. Evidence either way: (i) it is re-derived here from the Archimedean property in z3 (T1-T3, unsat) and has been machine-checked constructively in Agda (arXiv:2205.08354); (ii) its one essential hypothesis, Archimedean, is shown necessary (T4: R(eps)) and is satisfied by R (arXiv:1101.5652 Ex 2.7, Lemma 3.10). What the physical use would need is not a datum but the modelling hypothesis that spacetime coordinates/lattice generators are REAL numbers (an Archimedean continuum); that is H1 of latticectc.py (flat R^{1,d}) and is a named hypothesis of D21, not of this theorem. The only discrepancy found is in the tree's own constructive routine (float roots, T8), and it moves a termination bound, never a conclusion.",
+ "grade": "STANDS",
+ "grade_evidence": "Published statement (Archimedean property; Q dense in every Archimedean field; R Archimedean) READ via arXiv:1101.5652 and 1204.4483, confirmed constructively by arXiv:2205.08354. The tree uses it in R on a nonempty open interval (A > 0 and H^2 > AC at latticectc.py:38-40), exactly within the published hypotheses. z3 re-derivation unsat on T1, T2, T3, T3b with non-vacuity controls sat; sympy confirms the reduction Q(m,n) = n^2 q(m/n) and n != 0. No datum enters. The one discrepancy -- the float-rooted timelike_vector exceeds its stated 'q > 2/width' termination bound (q = 17479 vs 3) on a valid input -- is in the tree's own code, is not a property of the external result, and leaves every returned vector exact-verified; it is recorded, not repaired, and is not quoted as an error in the theorem.",
+ "what_would_change_the_grade": "NARROWED if the tree were shown to apply the density step outside an Archimedean field (e.g. over a non-standard or valuation-field coordinate model) or on a degenerate interval (H^2 = AC, the latticectc.py:52-56 boundary, where the interval is empty and density gives nothing -- the owner already treats that case separately). Nothing plausible makes the theorem WRONG or DATA-DEPENDENT. The T8 discrepancy would become a finding against D21's CONSTRUCTIVE claim only if a valid input made timelike_vector fail to return at all; that has not been shown.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/density-of-rationals.py   # expect T1/T2/T3/T3b unsat, T2c/T2d sat, T6 400 and ratio 1.0, T8 q=17479 (needs z3-solver, sympy; ~1-3 min)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/density-of-rationals.json"
+}

@@ -1,0 +1,86 @@
+{
+ "key": "hep-ph/9603208-anomaly",
+ "name": "Rubakov & Shaposhnikov: SU(2) anomaly; fermion numbers change by N[A]; Delta B = Delta L = N_f per transition; B - L conserved",
+ "source": {
+  "located": "V.A. Rubakov & M.E. Shaposhnikov, 'Electroweak baryon number non-conservation in the early universe and in high energy collisions', arXiv:hep-ph/9603208, Usp. Fiz. Nauk 166 (1996) 493 (locator as the tree records it at massform.py:1054-1058: Sec. 2, eqs. (2.2)-(2.5), printed pp. 4-5, PDF pp. 5-6). The title is given from memory of the arXiv listing and was not re-read this stage.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT reached this stage. alphaXiv answer_pdf_queries (twice), get_paper_content(fullText=true) (twice) and discover_papers each returned 'alphaXiv assistant quota exceeded'. curl and WebFetch to arxiv.org, export.arxiv.org, www.alphaxiv.org, inspirehep.net and api.semanticscholar.org were refused by the egress proxy (CONNECT 403 / EGRESS_BLOCKED). No saved copy exists under scratchpad/d67/src. The only source text available is what the tree itself records as READ in massform.py SOURCES['RS96-sel'] and ['RS96-anom'] (massform.py:1054-1070). This audit did not verify those quotes. The physics was instead re-derived from first principles (see rederivation)."
+ },
+ "published_statement": "NOT re-read this stage. As the tree records it (massform.py:1054-1070, marked READ by an earlier stage and unverified here): 'At the quantum level these currents are no longer conserved due to the triangle anomaly ... Therefore, one expects that fermion numbers ... are not conserved in any process where the gauge field evolves in such a way that N[A] != 0 ... Namely, Delta N_F^(i) = N[A]' (eqs. (2.2)-(2.4)); and 'where the factor 1/3 comes from the baryon number of a quark, while the factor 3 . 3 is due to colour and number of generations. So, the amounts of non-conservation of baryon and lepton numbers are related: Delta N_e = Delta N_mu = Delta N_tau = (1/3) Delta B ; (B - L) is conserved while (B + L) is violated' (eqs. (2.4)-(2.5)).",
+ "published_hypotheses": [
+  "Hypotheses as the physics requires them. They are derived here, not read from the source this stage:",
+  "Standard Model fermion content: N_f complete generations of left-handed SU(2) doublets (Q with 3 colours and baryon number 1/3, and L), plus SU(2) singlets that do not couple to W.",
+  "The triangle (ABJ) anomaly of the fermion-number currents in an SU(2) gauge background with topological (Chern-Simons) number change N[A]. The count is one zero mode per doublet per unit N[A], by the index theorem with 2T(2) = 1.",
+  "The source uses massless neutrinos implicitly for per-flavour conservation, given how the tree carries H-FLAV. Not read this stage.",
+  "The U(1)_Y part of the anomaly and gravitational backgrounds are not in the quoted passage. Whether the source discusses them was not read this stage."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED PROXY (harmless), massform.py:1041-1048 and 518-519. The source's N_f is 'number of generations' of SU(2) doublets. The tree counts N_f as charged leptons in the PDG capture (Q3 = -3). These agree only if generations are complete. rederive (d) shows that SM gauge-anomaly cancellation (Y^3 etc.) and Witten's even-doublet condition hold per COMPLETE generation, and that a partial generation spoils U(1)_Y^3. So the proxy is sound under the SM. The capture gives 3.",
+  "DROPPED (incompleteness of H-BL), massform.py:832-833 and 508-510. H-BL says 'B - L is exactly conserved' and names only a Majorana mass as the breaker. rederive (c) computes B - L's mixed gravitational anomaly coefficient, Sum over Weyl fields of (B - L). It is -1 per generation (-N_f) with no nu^c, and 0 with one nu^c per generation. The (B-L)^3 coefficient behaves the same way: -1, or 0 with nu^c. In the nu^c-less SM, 'exactly conserved' therefore needs a second, unnamed hypothesis: vanishing gravitational Pontryagin density, or right-handed neutrinos present. The anomaly EQUATION this coefficient enters, div J = c R Rtilde (Alvarez-Gaume & Witten 1984), is NAMED-NOT-READ here. The coefficient itself is COMPUTED. Its magnitude in any warp geometry is not computed.",
+  "DROPPED (wording), massform.py:175-177 ('The only Standard Model violation of B comes from the SU(2) anomaly, with Delta B = Delta L = 3 per unit of Chern-Simons number') and 510-513. rederive (b) computes the U(1)_Y^2 anomaly coefficient of B + L as -1 per generation, the same magnitude as the SU(2)^2 coefficient (+1), and that of B - L as 0. So B + L also changes with the HYPERCHARGE Chern-Simons number (hypermagnetic helicity; Giovannini & Shaposhnikov hep-ph/9710234, NAMED-NOT-READ). That change is not quantised in units of N_f per transition. It is still B - L-conserving, so the tree's B - L balance (N_n extra leptons) is unaffected. Only 'the only violation ... SU(2)' and the integer transition count are route-specific. Whether the source itself names the U(1) term was not read this stage.",
+  "CARRIED, NOT DROPPED, massform.py:834-836. H-FLAV (per-flavour conservation, massless neutrinos) is the source-era hypothesis. The tree restricts it to the electron-family sub-count (electron_family_shortfall, massform.py:2158-2162), which carries no verdict. The drift is recorded, and the tree already quarantines it.",
+  "The tree's ceil(B/N_F) (massform.py:2125-2127) runs on a float B of about 4.2e28, so the ceil is not meaningful at the unit level (53-bit mantissa). It is a representation note with no effect on any 5-significant-figure figure."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "N_f, the number of fermion generations (SU(2) doublet families)",
+   "value_then": "3 (1996; LEP Z-width N_nu about 3 was already in hand; NAMED-NOT-READ this stage)",
+   "value_now": "3. The repo's own PDG capture counts 3 charged leptons (massform.n_generations(), measured in repo). PDG's N_nu = 2.9840 +/- 0.0082 is NAMED-NOT-READ this stage (PDG unreachable).",
+   "source_now": "massform.py:1041-1048 via pdgcapture (in-repo). PDG Z-width figure NAMED-NOT-READ.",
+   "moves_conclusion": "No. Computed in rederive (e): the B - L balance (extra leptons = 3T - N_e = N_n) is N_f-independent (a hypothetical N_f = 4 gives the same 1.8977e28). Only the transition count scales as 1/N_f (1.4036e28 at 3, 1.0527e28 at 4)."
+  },
+  {
+   "quantity": "Neutrino mass (massless vs massive)",
+   "value_then": "Taken as massless for per-flavour conservation (H-FLAV as the tree carries it). Oscillation evidence postdates 1996 (Super-K 1998).",
+   "value_now": "Nonzero: lepton flavour is violated by oscillations. Values NAMED-NOT-READ this stage.",
+   "source_now": "NAMED-NOT-READ (PDG neutrino review unreachable this stage)",
+   "moves_conclusion": "Not for the anomaly rule. The 't Hooft vertex contains one lepton per doublet generation in any basis, so Delta L = N_f is basis-independent. It invalidates only per-flavour conservation, i.e. H-FLAV, which the tree uses only for a verdict-free sub-count."
+  },
+  {
+   "quantity": "Majorana vs Dirac neutrinos (does B - L break by 2 units?)",
+   "value_then": "Unknown",
+   "value_now": "Unknown. Neutrinoless double-beta decay has not been observed (limits NAMED-NOT-READ this stage).",
+   "source_now": "NAMED-NOT-READ",
+   "moves_conclusion": "It would move H-BL, not the anomaly rule. The tree states H-BL as a named hypothesis and conditions its N_n-extra-leptons statement on a B - L-conserving route. Note from rederive (c): if neutrino masses are Dirac with nu^c, the gravitational B - L anomaly cancels. If they are Majorana, B - L is broken anyway. Either way the gravitational loophole in the nu^c-less SM is superseded by the neutrino-mass datum."
+  },
+  {
+   "quantity": "Payload counts used with the rule (tree inputs, not RS data): B, N_e, transitions, extra leptons",
+   "value_then": "n/a",
+   "value_now": "B = 4.210860e28, N_e = 2.313184e28, N_n = 1.897676e28; transitions ceil(B/3) = 1.4036e28; extra leptons 3T - N_e = 1.8977e28 = N_n to 1e-12",
+   "source_now": "Recomputed by rederive (e) from massform.COUNTS (read-only import, bytecode off)",
+   "moves_conclusion": "No. All three canonical data_used figures reproduce."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-ph_9603208-anomaly.py",
+  "outcome": "Exit 0, 38 checks PASS, none FAIL. (a) Index-theorem zero-mode count per unit N[A]: Delta B = N_c N_f/3 = N_f at N_c = 3 and Delta L = N_f, so Delta N_e = Delta B/3 = 1 per generation, and the 't Hooft vertex (qqql)^3 carries (B, L) = (3, 3). The source's '1/3' and '3 . 3' factors reproduce. (b) Triangle coefficients per generation: SU(2)^2 gives B 1/2, L 1/2, B - L 0, B + L 1. U(1)_Y^2 gives B -1/2, L -1/2, B - L 0, B + L -1. SU(3)^2 gives B 0. So B - L is anomaly-free under both electroweak factors and B + L is anomalous under both. (c) Gravitational: B 0, L 1, B - L -1 with no nu^c and 0 with nu^c. (B - L)^3 is -1 with no nu^c and 0 with nu^c. (d) SM gauge anomalies cancel per complete generation, and doublets per generation = 4 (even). (e) massform's N_F = 3, transitions 1.4036e28, extra leptons 1.8977e28 = N_n, and THOOFT_DELTA_B_L = (3, 3) all reproduce.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "G. 't Hooft, Phys. Rev. Lett. 37 (1976) 8; Phys. Rev. D 14 (1976) 3432",
+   "effect": "confirms",
+   "what": "The originating result that SU(2) instantons violate B + L by N_f units per unit topological charge while conserving B - L. rederive (a)-(b) reproduces the selection rule.",
+   "read_status": "NAMED-NOT-READ (classic; no restatement read this stage, alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "M. Giovannini & M.E. Shaposhnikov, arXiv:hep-ph/9710234 (hypermagnetic fields and the triangle anomaly)",
+   "effect": "extends",
+   "what": "The hypercharge term in the B + L anomaly lets hypermagnetic helicity change B + L (still conserving B - L). rederive (b) computes the U(1)_Y^2 coefficient of B + L as -N_f. This narrows the tree's 'only ... the SU(2) anomaly' wording, not RS's rule.",
+   "read_status": "NAMED-NOT-READ (discover_papers / answer_pdf_queries quota exceeded)"
+  },
+  {
+   "ref": "L. Alvarez-Gaume & E. Witten, Nucl. Phys. B 234 (1984) 269 (gravitational anomalies); S. Alexander, M. Peskin & M.M. Sheikh-Jabbari, arXiv:hep-th/0403069 (lepton number from the gravitational anomaly)",
+   "effect": "narrows",
+   "what": "The lepton current of the nu^c-less SM carries a gravitational anomaly. rederive (c) computes the B - L coefficient as -N_f. B - L is then exact only where the gravitational Pontryagin density vanishes, or with nu^c. This is a hypothesis H-BL does not name. Its magnitude for any geometry on the board is not computed.",
+   "read_status": "NAMED-NOT-READ (quota exceeded; egress blocked)"
+  }
+ ],
+ "lacked_data": "In 1996 the authors lacked the evidence for neutrino mass (oscillations, 1998 onward). Evidence either way: (i) The anomaly selection rule does not use neutrino mass. rederive (a) derives Delta B = Delta L = N_f from the doublet content alone, and the vertex is flavour-basis independent. So having the datum does not change Delta B = Delta L = N_f or B - L's anomaly-freedom under SU(2) x U(1)_Y. (ii) The datum does falsify per-flavour lepton conservation, i.e. H-FLAV. The tree already confines H-FLAV to a verdict-free sub-count (massform.py:834-836, 2158-2162). (iii) Whether B - L survives depends on a datum still missing today, Majorana vs Dirac. The tree names this as H-BL. The neutrino-mass datum reshapes H-BL: with Dirac nu^c the gravitational B - L anomaly cancels (rederive (c)), and with Majorana masses B - L breaks by 2 regardless. (iv) N_f = 3 was already fixed by LEP in 1996 and has not moved. No datum the authors lacked moves the conclusion as the tree uses it. M's hypothesis is not borne out for THIS result. That is recorded with the caveat that the source text itself was not re-read this stage.",
+ "grade": "NARROWED",
+ "grade_evidence": "The selection rule the tree uses re-derives exactly from SM quantum numbers (rederive (a), (b), (d)): Delta B = Delta L = N_f per unit N[A], Delta N_e = Delta B/3, B - L anomaly-free under SU(2)^2 and U(1)_Y^2. Every figure the tree computes with it reproduces (e). No moved datum moves it. It is NARROWED and not STANDS for two tree-side reasons, both COMPUTED here: (1) H-BL (massform.py:832-833) calls B - L 'exactly conserved' and names only a Majorana mass. In the nu^c-less SM, B - L also has a mixed gravitational anomaly coefficient of -N_f (0 with nu^c; rederive (c)). So exactness further needs vanishing gravitational Pontryagin density or right-handed neutrinos, a hypothesis the tree drops. The anomaly equation this coefficient enters is NAMED-NOT-READ, and no magnitude is computed. (2) massform.py:175-177 says the only SM B violation is the SU(2) anomaly with Delta B = 3 per unit CS number. The U(1)_Y^2 coefficient of B + L is -N_f (rederive (b)), so hypercharge Chern-Simons change also moves B + L, and not in integer steps of N_f. It still conserves B - L. Neither narrowing moves the tree's verdict-bearing statement, which is explicitly conditioned on a B - L-conserving route ('On a B-violating, B-L-conserving route ... it is N_n extra leptons', massform.py:509-510). The narrowing is of the tree's wording of H-BL and 'only', not of Rubakov & Shaposhnikov's rule. CAVEAT, not flattened: the source was NOT read this stage (alphaXiv quota exceeded, arXiv egress-blocked). The tree's READ quotes at massform.py:1054-1070 are unverified here, and drift against the source's own hypotheses is not assessed. Nothing here is a finding against the source.",
+ "what_would_change_the_grade": "-> STANDS: the tree names the second B - L hypothesis (vanishing gravitational Pontryagin density or nu^c present) alongside the Majorana one in H-BL, and scopes massform.py:175-177 to the SU(2) (vacuum-to-vacuum, integer) route. With the source then read at alphaXiv confirming the quoted eqs. (2.2)-(2.5) and their hypotheses, and no further drift, this would grade STANDS. -> Further NARROWED: reading the source shows hypotheses the tree drops beyond these (e.g. an explicit restriction the quote omits). -> DATA-DEPENDENT: only if a verdict-bearing tree statement were found that assumes B - L exact unconditionally. It would then move with the open Majorana/Dirac datum. -> WRONG: not reachable by any datum. The selection rule is a computed identity of the SM field content. A misquote at massform.py:1054-1070 would be a discrepancy, not WRONG.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-ph_9603208-anomaly.py   # expect 38 PASS, exit 0; then read hep-ph/9603208 Sec. 2 at alphaXiv: answer_pdf_queries(paper='hep-ph/9603208', queries=['eqs (2.1)-(2.5) verbatim','does the anomaly include the U(1)_Y term','stated assumptions on neutrinos/generations'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hep-ph_9603208-anomaly.json"
+}

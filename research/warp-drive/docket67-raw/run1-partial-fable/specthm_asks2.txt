@@ -1,0 +1,152 @@
+=== verdicts (facts used | assumed) / route
+K0 EMPTY ['D2'] [] | w/o aim: EMPTY ['D2'] []
+K1 EMPTY ['D14', 'MODEL-STATIC'] [] | w/o aim: EMPTY IF ['D4', 'D7'] ['H_flat']
+K6a OPEN [] [] | w/o aim: OPEN [] []
+K6b EMPTY ['D14', 'MODEL-STATIC'] [] | w/o aim: OPEN [] []
+K2 OPEN [] [] | w/o aim: OPEN [] []
+K3 OPEN [] [] | w/o aim: OPEN [] []
+K4 OPEN [] [] | w/o aim: OPEN [] []
+K5 OPEN [] [] | w/o aim: OPEN [] []
+S-1 NONEMPTY [] [] | w/o aim: NONEMPTY [] []
+S-2 EMPTY ['SR2'] [] | w/o aim: EMPTY ['SR2'] []
+S-3 OPEN [] [] | w/o aim: OPEN [] []
+W-create-cc OPEN [] [] | w/o aim: OPEN [] []
+W-create-ncc OPEN [] [] | w/o aim: OPEN [] []
+W-enlarge OPEN [] [] | w/o aim: OPEN [] []
+Rec OPEN [] [] | w/o aim: OPEN [] []
+entailment forced: {'W-create-cc': ['ctc'], 'W-create-ncc': ['pathology_or_nongr']}
+=== constants
+achievable.C_SI = 299792458.0
+achievable.G_SI = 6.6743e-11
+achievable.HBAR = 1.054571817e-34
+achievable.L_PLANCK = 1.616255e-35
+achievable.FEWSTER_C = 3.1698579383104675
+achievable.FEWSTER_MU1 = 4.730040744862704
+achievable.M_OVER_B = 0.005
+achievable.A_OVER_B = 0.02
+achievable.VERDICT_KIND = SURVEY
+achievable.VERDICT_IS_A_THEOREM = False
+spec.AU = 149597900000.0
+spec.LIGHT_YEAR = 9460700000000000.0
+spec.C_SI = 299792458.0
+spec.G_SI = 6.6743e-11
+spec.LENSES = (('Sun', 1.989e+30, 695700000.0), ('Jupiter', 1.898e+27, 71500000.0), ('Earth', 5.972e+24, 6371000.0), ('10 km asteroid', 2250000000000000.0, 10000.0))
+spec.DOES = ('establish a conjugate point at a declared range, by CUMULATIVE weak-field lensing -- f = b^2 c^2/(4 G M), not the Sturm condition, which is withdrawn', 'using ordinary positive mass, NEC/WEC/DEC satisfied everywhere', "with both endpoints declared at onset, per transit.py's gating", 'past the conjugate point the geodesic is not achronal, so a timelike curve A->B exists', 'and the Sun already does exactly this, focusing at 548 AU')
+spec.DOES_NOT = ('constitute a new device -- this IS gravitational lensing, known since 1919', 'beat light -- there is no lead, and Olum forbids one without negative energy', 'shortcut -- a conjugate point is a FOCUS, not a wormhole', 'transport a payload faster than a signal', 'require any exotic matter anywhere')
+spec.HALTED = {'Kerr-Newman (charge with rotation)': 'metric built and validated; integrator hit the ring singularity; HALTED by scoping because it was a hunt for a LEAD, which is no longer required. The one untested door if the lead is reopened.'}
+noise.B_OVER_LG_SQUARED = 3749.999999999999
+noise.HYPOTHESES = {'H1': ('free scalar, minimal coupling, m >= 0', "MODEL (the refusal's own)"), 'H2': ('Minkowski spacetime, inertial worldline', 'FAILS ON THE CORRIDOR: b/l_G = sqrt(B_OVER_LG_SQUARED), computed'), 'H3': ('A_tau is the Friedrichs extension', "ASSUMED, load-bearing (FFR: 'not fully resolved')"), 'H4': ('sampler root g in W^{2,2}', "CHECKED: g, g' vanish at the ends; g'' bounded"), 'H5': ('demand held over an interval of length tau', "the demand's own statement: held for achievable.hold_time(b) = b/c"), 'H6': ("'distribution' = quantum spectral measure of A_tau", 'DEFINITION; the EL-surrogate reading priced separately')}
+noise.CORRIDOR_APPLICATION = SURVEY
+noise.C1_FLAT_THEOREM = True
+noise.EL_VACUUM_LOG10_NEG_LN_P = 141.91579497495206
+noise.CURVED_PART_CARRIED_BY = O2
+ledger.EXCHANGE_RATE = 1.3489476444317511e+26
+ledger.PROXIMA_LY = 4.2465
+ledger.M_D65_1_LITERATURE = Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda arXiv:2301.02666; review arXiv:2505.04689; arXiv:2506.19878
+phase1.R_SHELL = 200.0
+phase1.B_RAY = 1.0
+phase1.A_CORE = 0.02
+hpscentre.FIRST_NEGATIVE_M_THROAT_LP = 0.0516
+hpscentre.THROAT_M_NEGATIVE_READING = CONSERVED
+hpscentre.DOMAIN_WORD = established: the AHS approximation has been derived or established only for asymptotically flat spacetimes (Popov p.1, eq. (70), Sec. VI); nothing here shows it invalid
+hpscentre.HPS_INTEGRATED_THE_PRINTED_SYSTEM = NOT DETERMINED
+hpscentre.LINEAR_CENTRE_THEOREM_SCOPE = the LINEARISED system about flat space
+hpscentre.CENTRE_M_LEADING = m = -3 c3 l^3 + O(l^5)
+certify.M_SEATED = 0.02
+certify.A_CORE = 0.02
+certify.R_SHELL = 200.0
+certify.PRIOR_ART = Pfenning & Ford, gr-qc/9702026 (1997)
+certify.THEOREM_SCOPE = static and spherically symmetric only
+certify.REQUIRES_NEGATIVE_TOTAL_MASS = False
+seatindex.T_COEFF = 9.505324974727696e+43
+branelink.COUPLING_SOURCE = Kabat & Nomura arXiv:2309.05759 eqs. 68, 70-73 -- coupling, source model, vertex, normalisation (READ by the pass)
+branelink.S5_OWED = DOCKET 56: the instrument that computes N from the specification
+fewsterteo.O2_ANSWERED_BY = evaluate Fewster & Smith's ABSOLUTE QEI on the corridor -- blocked on the corridor's scalar mode functions (NOT-FOUND, confluent Heun), and carrying C_ab, the conserved local curvature term that vanishes in Minkowski
+fewsterteo.RIGHT_INSTRUMENT = Fewster & Smith, absolute QEI, gr-qc/0702056 eq. (5) -- minimally coupled KG, mass >= 0, any 4D globally hyperbolic spacetime; READ at source by the DOCKET 62 ruling
+fewsterteo.CORRIDOR_SPECTRAL_GAP = 0.0
+fewsterteo.GAP_HYPOTHESIS = an asymptotically flat complete spatial slice has Laplace spectrum running continuously to zero
+fewsterteo.CORRIDOR_MODE_FUNCTIONS = NOT-FOUND -- confluent Heun (a property of the equation)
+fewsterteo.NINE_64_APPLIES_TO_C_F = False
+fewsterteo.FLAT_SHORTFALL_ORDERS = 71.25573183323002
+create.GEROCH_NEEDS_MATTER_ASSUMPTION = False
+create.EXOTIC_MATTER_HELPS_CREATION = False
+create.BORDE_DYNAMICS = in dimensions >= 3 causally compact topology-changing spacetimes cannot satisfy Einstein's equation (with a reasonable source)
+create.KINEMATICALLY_POSSIBLE = True
+create.ROUTE_COST = nobody has ever observed one -- a search problem, not a build
+create.BORDE = Neither Geroch's original theorem, nor its mild generalization in section IV, assume anything about the energy-momentum tensor, or indeed about a field equation
+create.BORDE_SINGULARITY = as long as the causal compactness condition is met, causality violations have to occur when the topology changes, even if incomplete geodesics are admitted
+create.ESCAPES = (('drop causal compactness', False, "Tipler: a singularity or A POINT AT INFINITY, which Borde calls 'a highly undesirable feature'"), ('weaken the curvature constraints', False, "requires altering Einstein's equation, and 'such an alteration would have to be fairly severe'"), ('Euclidean path integral', False, 'abandons the Lorentzian framework altogether'))
+foliation.EXTERNAL_PRIOR_ART = Misner & Sharp 1964 via Hayward gr-qc/9408002 eq. (27), RECOVERED not read; Hochberg & Visser gr-qc/9802046 s7
+foliation.INVARIANT_CRITERION = Gamma > 1 in EVERY foliation <=> m < 0
+foliation.GAMMA_RANGE = [sqrt(1-2m/R), infinity) over all foliations; all of R if trapped
+foliation.IDENTITY_DISPUTED = False
+axial.THEOREM = INT_0^inf 8 pi u W dr = -INT_0^inf W Psi'^2 dr <= 0
+axial.HYPOTHESES = ("regular axis: W(0) = 0 and W'(0) = 1", "asymptotic flatness: W -> r, so W' -> 1, and W Psi' -> 0")
+axial.CONTRACTION_FACTOR = Gamma_z = e^{-Psi}; axial contraction is Psi < 0
+drivensource.CERTIFY_COROLLARY = NARROWED -- needs a regular centre, m(0) = 0
+drivensource.SCOPE = pure electrovac, spherical symmetry. Charged fluids, non-spherical fields and nonlinear electrodynamics are not measured.
+drivensource.EM_CLOSED_BY = Birkhoff (driven branch) and the field's own exterior energy (static branch)
+drivensource.OVERTURN_L2 = BROKEN BY A POINT CHARGE, AND THE BREAK IS EMPTY
+bounds.DURATION_ROUTE_Z = 1
+qeihps.ABSOLUTE_QEI_FOR_NMC = NOT-FOUND -- FO conclusion: 'can also be adapted' (expected, not done); alphaXiv search returned none
+qeihps.KONTOU_REQUESTED_TEST_ON_HPS = FO Thm 4.2 OPEN and FFKP Thm IV.1 (eq. 72) OPEN -- both apply in form to HPS's xi = 1/6 field and neither is evaluable (reference state / W_0 and <:Phi^2:> on HPS NOT-FOUND; HPS's state not established Hadamard)
+qeihps.HPS_STATE_HADAMARD_ESTABLISHED = False
+candidates.LIST_IS_EXHAUSTIVE = False
+candidates.NMC_STATE_INDEPENDENT_QEI = False
+candidates.NMC_COEFFICIENT_STATUS = SCALING ESTIMATE -- N_n is schematic in the source, set to 1 here
+candidates.REQUIREMENT_SCALES_AS = -2
+linstab.D26_CLAIM = LINEARISED STABILITY (AMM). Classical radial sector of stability.py's shell: THEOREM under P1-P4, stable for every m > 0 at every beta^2 > beta^2_crit(u) = -(u-1)(3u^2+2u+1)/(4u^2(3u+1)) in (-1/4, 0), u = sqrt(1+2m/R) -- wall.py's closed form for the ordinary shell with s = sqrt(1-2M/R) < 1 replaced by u > 1. Semiclassical: NOT EVALUABLE AT PRESENT -- AMM's criterion is defined only about a solution of the semiclassical equations (2.9) (AMM pp. 8-9), and none of the demand configurations is recorded or shown to be one; that is O5, OPEN. GMMPS's reported Minkowski mode (the S-sector zero on the branch through gamma = 0) exists, locally by the implicit function theorem, iff alpha~^S_1 != 0; ot
+linstab.BETA2_CRIT_INFIMUM = -1/4
+linstab.CLASSICAL_RADIAL_STATUS = THEOREM
+linstab.SEMICLASSICAL_STATUS = NOT EVALUABLE AT PRESENT: precondition H1 (a solution of AMM (2.9)) is unestablished for every demand configuration, pending O5 -- not a proof that none is one
+linstab.LITERATURE_SPLIT_IS_ONE_CONSTANT = FOR GMMPS's REPORTED MODE ONLY: the S-sector zero on the branch through gamma = 0 exists iff alpha~^S_1 != 0 and grows iff alpha~^S_1 > 0 (locally, implicit function theorem). NOT for growth in general: other growing roots sit near -b_1/b_2 at a scale set by the free alpha~^S_3 and alpha~^TT_4, Planckian only for O(1) values
+transit.BEATS_LIGHT = False
+transit.IT_IS_A_MOVE_NOT_A_COPY = True
+transit.CHANNEL_IS_CONSUMED_BY_USE = True
+transit.CARRIES_SUBSTANCE = False
+warpfolder.PAYLOADS_KG = (100.0, 5000.0, 100000.0)
+warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = True
+throatmass.THROAT_MASS = r_0/2 > 0, exactly
+throatmass.FAMILIES_WITH_NEGATIVE_MASS = 0
+throatmass.SELF_CONSISTENT_FAMILIES_RETURNED = 6
+massform.M_MECHANISM = As soon as the information hits the seat, it triggers the higgs field, and atomic mass forms
+massform.C2_SCOPE = a SMALL displacement only; a finite one is OPEN, and C3 carries the refusal regardless
+massform.H_PRESENT_STATUS = NAMED CASE DEFINITION; the masses it names are READ
+massform.STABLE_RANGE = 0.5774 v < |phi| < v
+massform.COLLIDER_RATE_STATUS = CONTESTED
+massform.H_TREE_STATUS = NAMED HYPOTHESIS: m_f = y_f v/sqrt(2), at tree level in unitary gauge, as the READ source states it; each Yukawa carries the capture's mass scheme
+massform.H_TREE_V_STATUS = NAMED HYPOTHESIS: the field-energy theorem is for the tree-level potential; beyond it, what C4 needs is that v stays a local minimum, which the stable and the READ metastable case both keep
+massform.D20_MODEL_STATUS = NAMED MODEL: a source whose mass comes from phi, rising with |phi|, as every SM mass does; a source outside it (a negative-sign portal coupling, say) could raise |phi|
+massform.MECHANISM_VERDICT = ('REFUSED', ['CREATION', 'DISPLACEMENT', 'QUANTA', 'STOCK', 'SWITCH-ON', 'TEMPLATE'])
+excite.ELECTRON_MASS_IS_A_RULER = THEOREM given alpha fixed (H2) and clamped point nuclei
+excite.TAIL_RATE_IS_MASS = True
+=== S1 S2 S3 S6 S7 S8 S9 D18 D19 D11 D1 D3 D10 D16 D17 D23 D25 B1-B4 rows
+-- S1 : REFUSED negative effective mass (band curvature): STRUCK on KIND: m* is a dispersion curvature, not T_00.  It does not gravitate and will not source a metric None
+-- S2 : REFUSED Casimir between ideal plates: STRUCK three ways by DOCKET 54 and once more by DOCKET 53.  The sign INVERTS for any real mirror at a_c = 0.480 x skin depth, materials-independent; 2G|m|/(ac^2) is a-INDEPENDENT so building it bigger buys nothing; and the plate outweighs its own Casimir energy for every material that exists None
+-- S3 : MEASURED squeezed vacuum: THE LEAST-DEAD ROUTE and the only survivor of the four.  Passes KIND and DEADLINE, fails MAGNITUDE.  Untouched by DOCKET 54, because the parity argument bites boundary conditions and squeezing is a state None
+-- S6 : REFUSED Higgs displacement as an ADDRESS: The source is a better address than the displacement it creates: its gravity reads the region farther (address.py section 9, the domination theorem), and its own interior redshift beats the vev signal beyond 3.1 cm (m proportional to phi), 1.6 cm (H1) or 0.76 cm (H2).  Consistent with D14 None
+-- S7 : REFUSED Higgs displacement as a BINDER: The m_e mechanism is exactly null (D18).  What remains is O(eps) through m_p/m_e, and it needs D20's filling source: a small, computable shift, inside matter denser than any object, and never a rebinding None
+-- S8 : REFUSED Higgs as a negative-energy source at the endpoint: Minimal coupling is D17.  The xi != 0 case is S4 and O1, both refused; it needs phi at the GUT scale, xi_req = 1.483e+04, a field 2e+04 (upper edge) to 2e+06 (lower edge) times Degrassi's instability scale 10^(11 +- 1) GeV, 2e+05 at the centre, where the quartic is negative -- not an excitation of our vacuum.  DOCKET 63's printed '2e4 to 2e5' is the upper edge to the centre (excite.py: upper edge and centre), 50% of the band in log10; nothing turns on it None
+-- S9 : REFUSED the Drive folder's device specification (warpfolder.py): The only complete device specification written for this project, REFUSED AS A SUPPLY on two independent counts.  Its own printed hardware stores 1486 J against the 8.988e+18 J its own premise needs at 100 kg -- short by 15.8 orders ON ITS OWN NUMBERS, the energy budget never connected to the chain (ENERGY_BUDGET_IS_CONNECTED_TO_THE_CHAIN = False).  And its reconstruction mechanism is INVERTED: heating to the electroweak scale restores the symmetry (HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = True) and un-generates the masses it was to template.  That shortfall is the specification against itself, not a gap against this board's demand, so the row carries none.  NOT ADJUDICATED, and not to be quoted either way: shear-gap dynamic Casimir effect yields usable negative energy density; Berry-phase 'ghost horizon' measurement extracts all twelve parameters -- the first is the only folder claim that touches this column None
+-- D18 : THEOREM m_e -> m_e(1 + eps), alpha fixed and nuclei clamped, is an EXACT dilation of the Schrodinger and Dirac-Coulomb problems, so a displaced endpoint does not bind wrong through a_0: the object is its own ruler alpha not held fixed (H1) or finite nuclear size -- the residual channels, O(eps) through m_p/m_e, which S7 prices
+-- D19 : THEOREM A displacement along T1, T2, T3 or Y leaves H+H, every mass and every derivative-free gauge-invariant local observable unchanged: the flat directions are INERT nothing gauge-invariant, local and derivative-free; a radial displacement is the control that moves H+H
+-- D11 : MEASURED The exchange rate: kg of negative enclosed mass per metre of contraction, from the method equation's own coefficient a re-ruling of LAMBDA, which is a corpus question and not a physics one
+-- D1 : THEOREM Contraction at r requires negative enclosed Misner-Sharp mass, ansatz-free, in any STATIC spherically symmetric spacetime a failure of staticity or sphericity -- and D2 removes the first
+-- D3 : THEOREM The local criterion alone is NOT a scalar, so 'contraction' read off one slice is a statement about the foliation and not about the spacetime nothing; it is the content of D2 read from the other side
+-- D10 : THEOREM Sustaining contraction does NOT force rho < 0.  Witnesses hold it for all time with rho = 0 exactly and with rho > 0 exactly, NEC satisfied and not saturated.  What kills the driven route is kinematics, not an energy condition nothing; it is why D7 and not an energy condition is the obstruction
+-- D16 : THEOREM The displacement is ULTRALOCAL: delta phi = -J/m_h^2 locally and INT G d^3r = 1/m^2, so a displaced vev exists only where its source is and no arrangement of sources beats the local density a failure of its hypotheses -- linear regime, static, source scale L large against lambda_h; the error is (lambda_h/L)^2
+-- D17 : THEOREM Role 3 at the endpoint -- the Higgs as a source of negative energy -- is closed for ANY minimally coupled scalar, any potential, any mass: T_kk = (k.d phi)^2 >= 0.  The obstruction is not the Higgs mass; it would be just as closed at m_h = 0 a non-minimal coupling -- which is S4 and O1, both refused
+-- D23 : OPEN THE FIRST TRIP.  transit.py: a channel spanning D required something to cross D at <= c beforehand -- THE CORRIDOR MUST BE TRAVERSED IN ORDER TO EXIST.  Its advantage over light is ZERO BY CONSTRUCTION, not by measurement: transit.py models the channel's arrival as the classical message at c, because reading the shared state carries nothing alone (READING_CARRIES_NOTHING_ALONE = True -- the no-communication theorem), so advantage_over_light(D) = D/c - D/c at every distance it lists (Earth-Moon, Earth-Mars (min), Earth-Proxima, Milky Way cross: 0.000).  Applied to S5 with no entanglement in it: the fabricator, the stock survey and the receiver all had to reach the destination at <= c.  So S5 is an AMORTISATION SCHEME, not a transport route, with a minimum setup of the light time, 4.247 years at Proxima (the span in light years, foliation.py).  Whether that setup amortises is OPEN S5 priced per reconstruction -- DOCKET 56's owed instrument -- set against the first trip, giving the number of later reconstructions at which the route beats sending the payload itself at <= c.  Nothing removes the first trip: transit.py moves the traversal earlier, it does not delete it
+-- D25 : OPEN THE DESTINATION STOCK GATE.  stock.py derives it and stockgate.py audits it: B admissible <=> within the corridor's arrival aperture there is a CONDENSED body, PRIMITIVE rather than devolatilised, holding at least M(p,s) * m_payload of accessible mass.  The assemblable set is a principal ideal, down-set and join-closed (stockgate's z3 discharges).  A reference adult (ICRP) against a CI chondrite binds on P at 10.7 kg of feedstock per kg; the same payload against a stellar photosphere binds on P at 1911 kg per kg.  A manufactured payload binds on a refractory rarity instead.  S5 cannot close in either direction while this gate is unchecked at its destination.  DOCKET 64 (formation.py): OPEN AND UNCHANGED: no conjunct is newly evaluated.  The mass threshold is stockgate.py's (cited, not re-priced); the aperture is NOT EVALUABLE: NOT-FOUND (search named); the formation-epoch snow line is NOT-FOUND and a present-luminosity radius REFUSED.  NEW, READ: MacGregor 2018 withdraws the 1-4 au belt; the only condensed body in the sources read is Proxima b, whose primitive and accessible status is unmeasured.  The aperture search covered 'aperture' and its synonyms; 8 files hit (ledger.py and stockgate.py among them) and none gives the arrival aperture a value (formation.APERTURE_SEARCH).  Survey: condensed body found = True (Proxima b (m_p sin i = 1.3 M_earth, a = 0.05 au)); confirmed reservoir = UNDETERMINED; primitive measured = False; accessible measured = False; the data constra
+-- D27 : THEOREM M's consideration, computed: fermion masses are proportional to phi (READ, 1206.2942), so wherever the payload's elements exist with their measured masses the vev is nonzero there.  On P-UNIFORM (a named premise: the vev takes one value wherever nothing sources it) the condition holds everywhere and singles out no seat; arrival switches nothing on.  A change at the seat needs a local source (D15, D16).  Within D20's model (source mass rising with |phi|, true of every SM mass) a source of positive rest energy can only LOWER |phi|: D20's source term 4 eps(2-eps)(1-eps)^2 is positive only where 0 < |phi| < v, proved from the factorisation.  On the STOCK reading the elements are at the seat before anything arrives, and with their measured masses (H-PRESENT) they already carry their Higgs-given mass, so a trigger gives them nothing (PRIOR MASS, C5; on H-PRESENT it needs no P-UNIFORM, since their own masses fix phi where they are).  On TEMPLATE, templates at the seat without all or part of their Higgs-given mass (|phi| < v there before arrival), C1 refuses: on P-UNIFORM the unsourced field at the seat is at v; any lower value needs a local source (D15, D16), and on H-UNSOURCED-SEAT nothing holds one there before arrival (M's sentence names no such source; only the information arrives); H-TREE.  H-PRESENT or not, the split is three-way: before arrival the seat is r = |phi|/v < 1 (TEMPLATE, C1), r = 1 (STOCK on H-PRESENT, C5) or r > 1 (neither reading's claim: the trigger has
+-- D29 : THEOREM The Higgs field has no energy to give about v: its energy density above the vacuum, (1/2)phi_t^2 + (1/2)|grad phi|^2 + rho_EW eps^2(2-eps)^2, is a sum of squares (higgs.T_scalar, excite.FIELD_POLY), so any change of phi about v costs energy.  Proved for the real scalar higgs.T_scalar models; that the doublet's other components and the gauge fields add only non-negative terms is H-REAL, claimed and not computed.  Its one release is decay of a metastable vacuum, which is preferred at the central measured masses but not established (top-mass dependent, READ 1307.3536).  That decay forms no atomic mass at the seat is an INFERENCE from READ text (1809.06923: a bubble expanding at near c, with different particle masses inside, destroying what it meets) a potential whose electroweak minimum is not a local minimum; H-REAL failing (a doublet or gauge term of negative energy density); a source reading vacuum decay as forming atomic mass.  The top mass does not move it: the case split covers both stable and metastable
+-- S10 : REFUSED M's mechanism: atomic mass formed at the seat by the triggered Higgs field: M's mechanism, "As soon as the information hits the seat, it triggers the higgs field, and atomic mass forms", as a supply of payload mass.  REFUSED, gap None, reading by reading, on no contested-only count, and each count only where it has a stated reason to answer: SWITCH-ON by C1 alone (the field is already on, D27, on P-UNIFORM); EXCITATION, displacement branch, by C3, and by C2 for a SMALL displacement only; a finite one is OPEN, and C3 carries the refusal regardless (the field can be excited, at a cost, lowering |phi|; at first order, H-LINEAR, the largest central reading is 0.172 of atomic mass on the READ rows and 0.309 on all rows, and an illustration of margin reaches 0.236 on the READ rows, none a bound; no Higgs coupling carries net B or L); EXCITATION, quanta branch, by C3 alone; CREATION by C4 (the field has no energy to give about v, and its one release, vacuum decay, forms no atomic mass at the seat -- an INFERENCE from READ text, D29) and C3; STOCK, with the elements present as elements (H-PRESENT), by C5 alone, PRIOR MASS (they already carry their Higgs-given mass, since fermion masses are proportional to phi where they are; on H-PRESENT it needs no P-UNIFORM); TEMPLATE, its complement (templates at the seat without all or part of their Higgs-given mass, |phi| < v there before arrival), by C1 alone: on P-UNIFORM the unsourced field at the seat is at v; any lower value needs a
+-- S11 : OPEN the anomaly route: The anomaly route: B + L violated by the SU(2) anomaly over a gauge-Higgs saddle whose height the vev sets.  Zero temperature: INSTANTON tunnelling, exp(-4 pi/alpha_W) per transition, alpha_W from READ m_W and v (NAMED-NOT-READ, via G_F); B/3 transitions.  Over the barrier, the SPHALERON: E_sph ~ 9 TeV (READ), ~3.2e3 x the 3 baryons' rest energy.  Thermal: unsuppressed above T_c, vev approximately zero; below T_c down to T*, the READ broken-phase rate with the vev finite.  Two-particle collisions: CONTESTED (the prevalent semiclassical results find exponential suppression; Tye-Wong dissent; CMS decides nothing).  It must emit N_n extra leptons (D28).  WHAT WOULD MOVE IT: a READ prefactor (turns the exponent into a rate); a settlement of the collider-energy dispute (Tye-Wong against Bezrukov et al., Khoze-Milne and Funakubo et al.): Bezrukov et al. and Khoze-Milne rest on conjectures or assumptions they state as unproven; Funakubo et al. argue "in the leading order of the WKB approximation"; Tye-Wong state that "both estimates involve assumptions based on intuitions as well as approximations remaining to be fully justified" and call their own figure "only an order of magnitude guesstimate"; a READ G_F (lifts alpha_W's NAMED-NOT-READ) None
+-- S12 : OPEN the pair route: The pair route, EXCITATION's remainder: atomic mass forms as matter with its antimatter, B and L conserved.  The carrier supplies at least the pair floor Mc^2 + B mu_min c^2 (D28); B units of antibaryon number are held apart; the Higgs, where it appears, is an intermediary, not the source (D29).  Priced, not refused: no premise here disqualifies an antimatter by-product.  WHAT WOULD MOVE IT: a way to hold the antibaryons apart (not computed here); H-BL or H-AME failing (moves the floor); the Higgs field shown to supply energy (D29 reversed) None
+-- B1 : REFUSED negative enclosed mass, 1 m of contraction: demand 1.34895e+26 kg; supply no mechanism supplies negative enclosed mass at all None
+-- B2 : REFUSED negative enclosed mass, the Proxima span: demand 5.4194e+42 kg  (2.72551e+12 solar masses); supply as B1 None
+-- B3 : REFUSED Casimir as a source of negative enclosed mass: demand m(r) < 0 near the wall; supply m(r) > 0 near the wall for every real mirror None
+-- B4 : REFUSED the mirror against the asset it buys: demand |E_Cas| >= M c^2 for the apparatus; supply |E_Cas|/(M c^2) <= 2.72e-8 for hydrogen, the lightest conceivable sheet None
+-- M-S1A-P3 : RULED BY M Is a closed causal curve, or a Borde pathology, disqualifying? RULED BY M: BOTH readings of 'these are defects' -- (i) a closed causal curve or a Borde pathology DISQUALIFIES, and CLARIFIED BY M it does so AT THE SEAT ONLY: 'My ruling refers to the seat/destination.  Singular occurs in the throat where the geometry is compressed to binary information, and then push to the seat'.  APPLIED at the seat; a singular throat is not disqualified.  (ii) topological defects are candidate SEATING SITES ('Seating occurs in a place where matter can occur but not in its original geometric form'): NOT applied, opened as DOCKET 66, with M's throat-compression mechanism
+-- M-D65-1 : RULED BY M Should Quantum Energy Teleportation (information arriving at the destination creates a local negative-energy region there) be tested as its own docket? RULED BY M: FOLD INTO DOCKET 66 -- M's answer: 'Fold into D66'.  M's words, verbatim: 'consider the idea that the introduction of information into a space that never previously contained it would be considered exotic matter'.  The QET literature (Hotta 2008; Funai & Martin-Martinez arXiv:1701.03805; Ikeda arXiv:2301.02666; review arXiv:2505.04689; arXiv:2506.19878) is CITED, not READ; the question's parenthetical is the question's description as put to M, not READ.  APPLIED: no separate docket and no row; QET is to be tested inside DOCKET 66 (NOT YET RUN)
+-- M-D64-1 : RULED BY M phase1.py's D4 (not this board's D4): restate 'no momentum: T^{0i} = 0 throughout' for the process? RULED BY M: RESTATE IT, as DOCKET 64 ruling D.2 proposed -- (i) T^{0i} = 0 in each configuration g_s; (ii) zero NET momentum (no thrust) across the passage between them.  APPLIED in phase1.py (D4_RESTATED_ON_M_RULING = True); a device that thrusts still fails D4 (ii) (is_transition = False), and a transient flux with zero net momentum does not (is_transition = True)

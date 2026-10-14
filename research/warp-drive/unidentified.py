@@ -17,8 +17,13 @@ the failures land on all three:
     negative effective mass   FAILS KIND        m* is band curvature, not T_00
     Casimir                   FAILS DEADLINE    switching means MOVING PLATES
                               and MAGNITUDE
-    squeezed vacuum           FAILS MAGNITUDE   by 52.6 orders at 1 nm
+    squeezed vacuum           FAILS MAGNITUDE   by 52.6 orders at 1 nm (t0 = R/c;
+                                                50.1 on the duration bound)
     non-minimal coupling      FAILS MAGNITUDE   by a PURE NUMBER, not orders
+
+(CORRECTED (DOCKET 67, on M's ruling "Carry both"): the squeezed-vacuum row
+first read "by 52.6 orders at 1 nm", Ford-Roman read at t0 = R/c alone; on
+achievable.duration_bound it is 50.1.  It fails on both.)
 
 TRIANGULATE THEM AND THE MISSING CANDIDATE IS SPECIFIED:
 
@@ -241,7 +246,7 @@ def report():
   fail at DIFFERENT PLACES, and the way they fail is more informative than the
   verdict", and its four candidates hit ALL THREE GATES: negative effective mass
   fails KIND, Casimir fails DEADLINE and MAGNITUDE, squeezed vacuum fails
-  MAGNITUDE by 52.6 orders, non-minimal coupling fails MAGNITUDE BY A PURE
+  MAGNITUDE by 52.6 orders (50.1 on the duration bound), non-minimal coupling fails MAGNITUDE BY A PURE
   NUMBER.  TRIANGULATED, THE MISSING CANDIDATE IS SPECIFIED: a genuine T_00 < 0,
   FIELD-THEORETIC switching, and l_UV <= sqrt(Lambda) l_P = {closure_cutoff():.6f} l_P.  AND
   THAT NUMBER WAS ALREADY SEATED IN coefficients.py, reached from the coefficient
@@ -321,6 +326,15 @@ def selftest():
         TWO_ROUTES_ARE_INDEPENDENT, False)
     chk("nothing is repaired", THIS_PASS_REPAIRS_ANYTHING, False)
 
+    print("\nthe squeezed-vacuum shortfall on both readings (DOCKET 67, \"Carry both\")")
+    import candidates as _cand
+    _doc = " ".join(__doc__.split())
+    chk("t0 = R/c: 52.6 orders at 1 nm, computed", "%.1f" % math.log10(_cand.shortfall(1e-9)),
+        "52.6")
+    chk("duration bound: 50.1, computed",
+        "%.1f" % math.log10(_cand.shortfall_duration(1e-9)), "50.1")
+    chk("  both quoted in the docstring",
+        ("52.6 orders at 1 nm" in _doc, "50.1 on the duration bound" in _doc), (True, True))
     print("\n" + ("SELFTEST PASS" if bad == 0 else f"SELFTEST FAIL -- {bad}"))
     return 1 if bad else 0
 

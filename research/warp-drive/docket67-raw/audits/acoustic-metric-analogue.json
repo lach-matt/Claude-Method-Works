@@ -1,0 +1,82 @@
+{
+ "key": "acoustic-metric-analogue",
+ "name": "Acoustic (analogue-gravity) metric in PG form, -c_s^2 dt^2 + (dr - v dt)^2 + r^2 dOmega^2, for rho/c_s constant; acoustic horizon at |v| = c_s",
+ "source": {
+  "located": "M. Visser, 'Acoustic black holes: horizons, ergospheres, and Hawking radiation', Class. Quantum Grav. 15 (1998) 1767, arXiv gr-qc/9712010v2 (15 Dec 1997): Theorem p.3, eqs (4),(28),(29) p.8, (35) p.10, (44)-(45) p.13, sec 7 (49)-(53) pp.14-15, sec 8 (54)-(57) p.16, (59)-(65) p.18. Cross-read: Barcelo-Liberati-Visser, 'Analogue gravity', Living Rev. Rel., arXiv gr-qc/0505065v4 (29 Nov 2024), eqs (7),(107),(130)-(132), sec 2.11.3. Unruh 1981 (PRL 46, 1351) is pre-arXiv and is NAMED-NOT-READ, known here only through Visser's and the Living Review's restatement.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9712010 (page text pp.1-27) and on gr-qc/0505065 (pp.13-43, 74-75)"
+ },
+ "published_statement": "Visser 1998, Theorem (p.3): 'If a fluid is barotropic and inviscid, and the flow is irrotational (though possibly time dependent) then the equation of motion for the velocity potential describing an acoustic disturbance is identical to the d'Alembertian equation of motion for a minimally coupled massless scalar field propagating in a (3+1)-dimensional Lorentzian geometry.' Eq (29): 'ds^2 = (rho_0/c)[-c^2 dt^2 + (dx^i - v_0^i dt) delta_ij (dx^j - v_0^j dt)]'. Sec 7 (of Schwarzschild in PG form): 'the constant time spatial slices are completely flat'; 'simply take rho and c to be constants, and set v = sqrt(2GM/r)? ... this assignment is incompatible with the continuity equation'; the best achievable is c = 1, rho ~ r^{-3/2}, eq (53), 'conformal to the Painleve-Gullstrand form of the Schwarzschild geometry but not identical to it'. Sec 8, canonical acoustic black hole: rho (hence p and c) constant, v = c r0^2/r^2, eq (55) ds^2 = -c^2 dt^2 + (dr +- c r0^2/r^2 dt)^2 + r^2 dOmega^2. Eq (35): g_tt = -[c^2 - v^2], 'any region of supersonic flow is an ergo-region'; eq (45)/p.13: 'The acoustic event horizon forms once the radial component of the fluid velocity exceeds the speed of sound'; p.21: horizon defined by v_perp = c, and 'it is essential that we use the natural Newtonian time coordinate'.",
+ "published_hypotheses": [
+  "H1 barotropic fluid (rho = rho(p)); Visser notes this is weaker than Unruh's isentropic assumption",
+  "H2 inviscid (zero viscosity); viscosity adds a non-d'Alembertian term (Visser eq 106)",
+  "H3 irrotational flow, locally (velocity potential on an atlas of patches); distributed vorticity takes the wave equation outside the d'Alembertian form (Living Review 2.11.3)",
+  "H4 linearised fluctuations about a background (rho_0, p_0, psi_0); sound = the linear perturbation",
+  "H5 the background must itself solve continuity and Euler, with forces = pressure + Newtonian gravity + an arbitrary gradient-derived, possibly time-dependent external body force, all fixed (no back-reaction) (Visser eqs 5-7, p.7)",
+  "H6 (3+1) dimensions: the conformal factor is rho/c only for d = 3; in d space dimensions it is (rho/c)^{2/(d-1)} (Living Review eq 130); ill-defined for intrinsically 1+1",
+  "H7 horizon notion uses the lab (Newtonian) time; ergosurface |v| = c and horizon v_perp = c are distinct notions that coincide only when the flow is normal to the surface",
+  "H8 non-relativistic fluid; the relativistic acoustic metric (Bilic 1999; Visser & Molina-Paris 2010) replaces rho/c by n^2 c^-1/(rho+p) and reduces to it for p << rho (Living Review eqs 161-163)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED IN THE OWNER, CARRIED IN A SIBLING: H1-H4 (barotropic, inviscid, irrotational, linearised) are not written at drivensource.py:204-212 but are written at wavecorridor.py:30-33, which drivensource cites as the analogue's home. Not load-bearing for W = 1 (a statement about the background geometry), load-bearing for calling the metric the phonons' metric at all.",
+  "DROPPED: H5 continuity. drivensource.py:204-205 writes (dr - v dt) with v unconstrained; for rho/c_s constant, steady radial flow requires rho v r^2 = const, so v is fixed by rho (v = K/(rho r^2)). Not load-bearing for W = 1 (W = 1 for every v), but the PG-Schwarzschild choice v ~ r^{-1/2} with rho, c constant is exactly the assignment Visser sec 7 excludes. Lawful rho/c-constant backgrounds with a sonic point do exist: Visser's canonical acoustic black hole (rho, c constant, v = c r0^2/r^2, horizon at r0) and the p = p0 + rho^3/(3k^2) family (c = rho/k) -- both computed in the rederivation (sections 5, 6).",
+  "DROPPED: H6 dimension. drivensource.py:211 writes W = 1 + r d/dr log sqrt(rho/c_s), i.e. conformal factor Omega^2 = rho/c_s -- correct for d = 3 only (Living Review eq 131); the r^2 dOmega^2 in the tree's line element fixes d = 3, so this is implicit, not an error.",
+  "NARROWED (radial-flow hypothesis unwritten): 'acoustic horizon is |v| = c_s' (drivensource.py:196; wavecorridor.py:44 and horizon_condition at wavecorridor.py:253-255, which tests the norm of a general 3-vector v) is Visser's ergosurface (eq 35). The horizon is v_perp = c (p.21, eq 45). They coincide for purely radial flow, which is the case drivensource uses (dr - v dt); with swirl they separate: Visser's bathtub has r_ergo^2 - r_horizon^2 = B^2/c^2 > 0 (computed, section 4).",
+  "DROPPED (foliation): 'THE ANALOGUE CANNOT EXHIBIT CONTRACTION AT ALL' (drivensource.py:209-210) holds for the lab (Newtonian-time) foliation only. W is a component, not a scalar -- the tree's own nonstatic.py:209-215 ('m IS A SCALAR. W IS NOT.'). The same homogeneous acoustic geometry (v = 0) in Milne slicing gives W = cosh(chi) > 1 (computed, section 9). Mitigating, and recorded with equal weight: the lab time is the physically distinguished slicing of the analogue (Visser p.21), and drivensource.py:205 does say 'the constant-t slices'.",
+  "WEAKENED WORDING (scope restored in the next sentence): the capitalised sentence at drivensource.py:209-210 is unqualified, but drivensource.py:204 ('with rho/c_s constant') and 210-212 (inhomogeneous case 'NOT MEASURED ... recorded as a refusal') supply the scope, and section 7 (drivensource.py:268-269) restates it. Computed here, outside the tree's claim: lawful inhomogeneous backgrounds reach W > 1 on lab slices (c constant, rho ~ r^alpha, v from continuity, Phi from Bernoulli: W = 1 + alpha/2), and Visser's own PG analogue (eq 53, c = 1, rho ~ r^{-3/2}) has W = 1/4 exactly. So 'the analogue' in general is not confined to W = 1; the rho/c-constant analogue is. The tree claimed only the latter.",
+  "STATUS-WORD DRIFT (tree-internal): ACOUSTIC_W_HOMOGENEOUS = 1.0 (drivensource.py:390) is a stored constant and the selftest at drivensource.py:578 compares it to 1.0 -- a declared value checked against itself, not a computation. The rederivation here supplies the computation (W = 1 symbolically; slice 3-Ricci scalar = 0) and it agrees."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "none -- the result is a kinematic identity of linearised barotropic fluid dynamics; W = 1 and |v| = c_s depend on no measured constant",
+   "value_then": "n/a",
+   "value_now": "n/a",
+   "source_now": "n/a",
+   "moves_conclusion": "no -- no numerical input exists to move"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/acoustic-metric-analogue.py",
+  "outcome": "ALL CHECKS PASS (exit 0), 24 checks plus one recorded discrepancy. (1) Visser eq 29 with rho = k c is exactly k[-c^2 dt^2 + (dr - v dt)^2 + r^2 dOmega^2], c = c(r) allowed. (2) On lab slices W = s.grad R = 1 exactly for rho/c constant; the slice 3-Ricci scalar vanishes; for general rho(r), c(r), W = 1 + r d/dr log sqrt(rho/c), matching drivensource.py:211 exactly. (3) g_tt = 0 at v^2 = c^2; radial null speeds v +- c; Misner-Sharp 1 - 2m/R = 1 - v^2/c^2, so for radial flow the acoustic horizon IS the marginally trapped surface 2m = R, and with W = 1 the identity W^2 = 1 - 2m/R + U^2 holds with U = v/c. (4) Swirl separates ergosurface and horizon (B^2/c^2). (5) Visser's canonical acoustic BH: continuity, horizon at r0, and the static form (57) re-derived via Visser's own eq (62). (6) rho/c constant with rho varying is lawful (p = p0 + rho^3/(3k^2)). (7) Visser's eq 53 background: W = 1/4. (8) A lawful inhomogeneous background with W = 1 + alpha/2 > 1. (9) Milne slicing of the same homogeneous acoustic geometry: W = cosh(chi). DISCREPANCY recorded, not a refutation: Visser eq (56) read with its +/- correlated to (55)'s leaves a cross term 2c r0^2/r^2; the sign that removes it is the one Visser's general eq (62) gives, so (56) reads as a sign misprint (arXiv v2; the CQG print not read). (57) and everything the tree uses are unaffected.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Barcelo, Liberati, Visser, 'Analogue gravity', Living Rev. Relativ., arXiv gr-qc/0505065v4 (2024)",
+   "effect": "confirms",
+   "what": "Restates eq (7) = Visser eq 28 with the same hypotheses; PG slices 'completely flat'; the PG analogue is only conformal (eq 107), with footnote 17: the external potential needed is 'rather non-trivial and difficult to realise'. Extends: conformal factor (rho/c)^{2/(d-1)} in d space dimensions (eq 130); distributed vorticity leaves the d'Alembertian form (2.11.3); relativistic acoustic metric reduces to rho/c for p << rho (eqs 161-163); the acoustic metric has at most 2 degrees of freedom per point after continuity, so it 'can, at best, reproduce some subset' of GR metrics.",
+   "read_status": "READ (pp.1-2, 13, 15, 19, 32-33, 39-43, 74-75)"
+  },
+  {
+   "ref": "de Oliveira, Mosna, Pitelli, Richartz, 'Analogue models for Schwarzschild and Reissner-Nordstrom spacetimes', PRD 104, 024036 (2021), arXiv 2106.03960",
+   "effect": "contested",
+   "what": "Exact (not conformal) Schwarzschild and RN analogues from radial flows with inhomogeneous rho(r), c(r) in 3+1 (Appendix A2, eqs A9-A14), horizon where |v| = c, fine-tuned EOS and external force. Contests Visser 1998's parenthetical 'impossible to obtain an acoustic metric that is identical to the Schwarzschild metric' (which Visser framed within the PG construction); cites Visser & Weinfurtner 2005 (gr-qc/0409014, NAMED-NOT-READ) for exact static isotropic analogues. Does not touch the tree's claims: the exact matches need rho/c NON-constant -- the case the tree refuses to measure -- and they use the lab-to-T retiming (A10).",
+   "read_status": "READ (pp.1-8)"
+  },
+  {
+   "ref": "Pitelli, Mosna, de Oliveira, Richartz, 'Comment on Analog Schwarzschild-like geometry in fluids with external pressure', arXiv 2212.08431 (2022), on Bilic PRD 105, 064052 (2022), arXiv 2112.13349",
+   "effect": "contested",
+   "what": "Dispute over modelling the external force Visser's H5 allows: Bilic's external-pressure route changes the effective sound speed; the Comment argues an external body force entering Euler directly preserves c_s^2 = dp/drho. Bears on H5 (how the background is sustained), not on the metric's form or on W. Bilic 2022 NAMED-NOT-READ.",
+   "read_status": "READ (Comment, pp.1-4); Bilic 2022 NAMED-NOT-READ"
+  },
+  {
+   "ref": "'Towards an Acoustic Geometry in Slightly Viscous Fluids', arXiv 2204.00605 (2022)",
+   "effect": "extends",
+   "what": "Relaxes H2 (small viscosity) -- per the discovery abstract only.",
+   "read_status": "NAMED-NOT-READ (abstract from discover_papers)"
+  },
+  {
+   "ref": "'Emergent gravity from nonlinear perturbation of spherical accretion with variable adiabatic index', arXiv 2605.04158 (2026)",
+   "effect": "extends",
+   "what": "Relaxes H4 (beyond linear perturbation) -- per the discovery abstract only.",
+   "read_status": "NAMED-NOT-READ (abstract from discover_papers)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What Visser had in 1997: the Newtonian fluid equations and Unruh's 1981 construction; no analogue horizon had been built. What came later: laboratory sonic horizons (water-wave and BEC experiments, cited in 2106.03960 refs [8]-[13], NAMED-NOT-READ here) and the finding that real media are dispersive (Bogoliubov/short-wavelength), so the acoustic metric holds only in the long-wavelength hydrodynamic limit -- an extra hypothesis, not a correction. Does any of it change the conclusion the tree uses? No, and the evidence is computed: W = 1 on lab slices for rho/c constant, and the horizon at |v| = c for radial flow, are exact algebraic properties of the background metric (rederivation sections 1-3) and contain no measured quantity; dispersion alters what propagates on the geometry, not the slice geometry. Later theory moves a neighbouring claim, not this one: Visser's 'impossible to be identical to Schwarzschild' is contested by 2106.03960 using inhomogeneous rho/c. Evidence against M's hypothesis for this item: no datum was missing. Evidence that the tree's use is narrower than it reads: the foliation hypothesis (W = cosh chi on Milne slices of the same geometry) and the inhomogeneous W = 1 + alpha/2 > 1 -- both theory, both computed here, neither a new datum.",
+ "grade": "NARROWED",
+ "grade_evidence": "What STANDS, computed: Visser's eq 29 with rho/c_s constant is exactly the tree's line element; its lab slices are exactly flat (3-Ricci scalar 0) so W = 1 exactly; the tree's inhomogeneous formula W = 1 + r d/dr log sqrt(rho/c_s) is exactly right; for radial flow the horizon is at |v| = c_s and coincides with the marginally trapped surface 2m = R. No datum exists to move. What NARROWS it -- hypotheses the tree uses and does not write at the owner site: (a) the lab-time foliation behind 'THE ANALOGUE CANNOT EXHIBIT CONTRACTION AT ALL' (drivensource.py:209-210); the tree's own nonstatic.py:209-215 says W is slicing-dependent, and the same homogeneous acoustic geometry gives W = cosh(chi) on Milne slices; (b) purely radial flow for 'horizon = |v| = c_s' (Visser distinguishes ergosurface from horizon; swirl separates them); (c) continuity (rho v r^2 = const), which constrains v once rho/c is fixed; (d) Visser's H1-H4, absent at the owner and present at wavecorridor.py:30-33. Not WRONG: no counterexample to any statement inside its stated scope; the rho/c-constant restriction is written at drivensource.py:204 and 268-269. Against over-representing it the other way: the lab foliation is the physically distinguished one (Visser p.21), and the tree's refusal of the inhomogeneous case is exactly where W > 1 (and W = 1/4 for Visser's eq 53) lives -- computed here, never claimed there. One misprint-level discrepancy in the source (eq 56 sign against eq 62) is recorded and does not touch the tree.",
+ "what_would_change_the_grade": "To STANDS: the owner sentence scoped to 'on the lab-time slices, for rho/c_s constant, radial flow' (the hypotheses written rather than implicit) -- a wording change only, since every computation already agrees. To WRONG: a lawful (continuity- and Euler-satisfying) rho/c-constant radial background whose lab slices have W != 1 -- impossible, since the slice metric is k(dr^2 + r^2 dOmega^2) identically (rederivation section 2); or a radial flow whose horizon is not at |v| = c_s. To DATA-DEPENDENT: none available, since no measured constant enters. Reading the CQG print of Visser 1998 would settle whether the eq (56) sign is an arXiv-only misprint.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/acoustic-metric-analogue.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/acoustic-metric-analogue.json"
+}

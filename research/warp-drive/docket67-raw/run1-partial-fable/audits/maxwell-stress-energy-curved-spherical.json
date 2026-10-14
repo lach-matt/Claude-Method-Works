@@ -1,0 +1,99 @@
+{
+ "key": "maxwell-stress-energy-curved-spherical",
+ "name": "Curved-space Maxwell equations, Gauss' law sqrt(-g) F^{tr} = Q, and the Maxwell stress-energy T_ab = (F_ac F_b^c - g_ab F^2/4)/(4 pi); 'spherical symmetry admits only F_{tr}'",
+ "source": {
+  "located": "Carroll, Lecture Notes on General Relativity, arXiv:gr-qc/9712019 (Dec 1997), eqs (4.24)-(4.27) [curved-space Maxwell], (7.107) [T_{mu nu}, 1/4pi], (7.108) [most general spherically symmetric F: F_tr = f(r,t), F_{theta phi} = g(r,t) sin theta], (7.111)-(7.112) [RN with electric q and magnetic p]. Restated for the DYNAMICAL case by Dafermos arXiv:gr-qc/0307013 Prop. 2.1 eq (22) F = (e/r^2) Omega^2 du^dv, eq (25) T = e^2/(2 r^4) gbar + (e^2/r^2) gamma [units G_ab = 2 T_ab, no 1/4pi], and by Maedler-Gannouji-Gallo arXiv:2503.24162 eqs (2.7),(2.13),(3.5b),(5.7b) [Q constant, Q_lambda = 0 for pure Einstein-Maxwell] and (5.11) [Misner-Sharp M with Q0^2 (1/r_B - 1/r)]. The underlying classical results (Maxwell 1865; Reissner 1916 / Nordstrom 1918; the RN-with-monopole solution) are pre-arXiv and NAMED-NOT-READ; what was read is Carroll's exact restatement.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9712019 (pages 27-28, 31, 37, 114, 208-209), gr-qc/0307013 (pages 3, 8-10), 2503.24162 (pages 2-4, 14-15); later-literature reads of 2103.12178 (Weiner, Generalizing Birkhoff) and 2409.03787 (CODATA 2022)."
+ },
+ "published_statement": "Carroll (7.107): T_{mu nu} = (1/4pi)(F_{mu rho} F_nu^rho - (1/4) g_{mu nu} F_{rho sigma} F^{rho sigma}). Carroll (7.108): 'Since we have spherical symmetry, the most general field strength tensor will have components F_tr = f(r,t) = -F_rt, F_{theta phi} = g(r,t) sin theta = -F_{phi theta}, where f(r,t) and g(r,t) are some functions to be determined by the field equations, and components not written are zero. F_tr corresponds to a radial electric field, while F_{theta phi} corresponds to a radial magnetic field.' Field equations (7.109): g^{mu nu} nabla_mu F_{nu sigma} = 0, nabla_[mu F_{nu rho]} = 0. Solution (7.111)-(7.112): Delta = 1 - 2GM/r + G(p^2+q^2)/r^2, F_tr = -q/r^2, F_{theta phi} = p sin theta; 'Conservatives are welcome to set p = 0 if they like.' Curved-space Maxwell (4.24)-(4.27): nabla_mu F^{nu mu} = 4 pi J^nu, nabla_[mu F_{nu lambda]} = 0, equivalently d(*F) = 4 pi (*J), dF = 0; Carroll (3.28): nabla_mu V^mu = (1/sqrt|g|) d_mu(sqrt|g| V^mu), which is what turns the source-free inhomogeneous equation into d_a(sqrt(-g) F^{ab}) = 0. Dafermos Prop 2.1 (22),(25): in ANY spherically symmetric Einstein-Maxwell(-scalar) spacetime the Maxwell field is F = (e/r^2) Omega^2 du^dv with e a CONSTANT and its stress-energy is e^2/(2r^4) gbar + (e^2/r^2) gamma, i.e. rho = -p_r = p_T = e^2/(2 r^4) in units with G_ab = 2 T_ab.",
+ "published_hypotheses": [
+  "H1 spherical symmetry: SO(3) acts by isometry preserving F (Dafermos sec. 2 states this explicitly; Carroll 'we have spherical symmetry')",
+  "H2 Maxwell's equations in curved spacetime in the minimally coupled, torsion-free form (Carroll 4.24-4.27; Carroll p.108 names the alternative nabla_mu[(1+alpha R)F^{nu mu}] and sets alpha = 0 by the equivalence principle -- that IS a hypothesis, not a theorem)",
+  "H3 source-free region: J = 0 (electrovac) for the Gauss-law integration; charges only inside the region",
+  "H4 the metric ansatz -e^{2alpha(r,t)} dt^2 + e^{2beta(r,t)} dr^2 + r^2 dOmega^2 (Carroll 7.106), i.e. areal radius used as coordinate (Carroll) or the general warped product with R(t,r) (Dafermos, Maedler et al.)",
+  "H5 both an electric charge q and a magnetic charge p are admitted; setting p = 0 is a CHOICE (Carroll 7.112 'Conservatives are welcome to set p = 0')",
+  "H6 Gaussian units, signature -+++, with T_{mu nu} carrying 1/4pi (Carroll 7.107); Dafermos and Maedler et al. use G_ab = 2T_ab / kappa = 8 pi with no 1/4pi, so the same field gives rho = e^2/(2 r^4) there -- the numerical prefactor is a unit convention",
+  "H7 linear Maxwell theory (the Lagrangian -F^2/16pi, Maedler eq 2.1); nonlinear electrodynamics is outside"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (unnamed): 'no magnetic charge, P = 0'. Owner says 'Spherical symmetry admits only F_{tr} (radial electric)' (/home/user/Claude-Method-Works/research/warp-drive/drivensource.py:302) and 'the ONLY spherically symmetric field' (/home/user/Claude-Method-Works/research/warp-drive/drivensource.py:286). Carroll (7.108) states, and the re-derivation (checks A1-A4) confirms by solving L_xi F = 0 for the three rotation Killing fields, that F_{theta phi} = P sin theta is ALSO admitted. The tree's electrovac() is the P = 0 special case. Every downstream quantity survives with Q^2 -> Q^2 + P^2 (checks D1-F4), so the drop narrows the STATEMENT, not the conclusion.",
+  "WEAKENED (comment only): 'Gauss' law sqrt(-g) F^{tr} = Q fixes it' (/home/user/Claude-Method-Works/research/warp-drive/drivensource.py:302-303). For the F actually coded, sqrt(-g) F^{tr} = -Q sin(theta) (check C1); the coordinate-free form that equals Q is R^2 e^{-Phi-Lambda} F_{tr} = Q, equivalently (1/4pi) INT_{S^2} *F = Q (check C2). A misprint in a comment: the coded F_{tr} = Q e^{Phi+Lambda}/R^2 (line 305) is the correct field and the Maxwell residuals vanish (check B1, H1). Recorded, not a refutation.",
+  "ADDED (harmless, made explicit here): the owner verifies only the inhomogeneous half d_a(sqrt(-g)F^{ab}) = 0 (/home/user/Claude-Method-Works/research/warp-drive/drivensource.py:309-310). The homogeneous half dF = 0 (Carroll 4.25/4.27) is not checked by the owner; for F = E(t,r) dt^dr it holds identically and with F_{theta phi} = P sin theta it forces P constant (checks B2, B4). No conclusion depends on the omission.",
+  "ADDED (unit convention, two systems in one file): electrovac() builds T with 1/(4 pi) (Gaussian, /home/user/Claude-Method-Works/research/warp-drive/drivensource.py:314-316) while section 4 uses SI eps0 (/home/user/Claude-Method-Works/research/warp-drive/drivensource.py:147, 278, X = Q^2/(8 pi eps0 c^2)). The two are consistent under Q_G^2 = Q_SI^2/(4 pi eps0): INT_a^inf rho 4 pi R^2 dR = Q_SI^2/(8 pi eps0 a) (check G2). Not a drift in substance; a reader crossing sections must carry the conversion.",
+  "SCOPE the tree names correctly: 'pure electrovac, spherical symmetry. Charged fluids, non-spherical fields and nonlinear electrodynamics are not measured' (/home/user/Claude-Method-Works/research/warp-drive/drivensource.py:459-460) matches source hypotheses H3, H1, H7. The minimal-coupling hypothesis H2 (alpha = 0 in Carroll's nabla[(1+alpha R)F]) is in force in the tree and is not named there; it is the standard GR hypothesis and nothing in the tree contradicts it."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "epsilon_0 (used only in section 4 of the owner, X_of_Q; NOT an input to this theorem)",
+   "value_then": "8.8541878128e-12 F/m, CODATA 2018 (drivensource.py:278)",
+   "value_now": "8.854 187 8188(14) e-12 F/m, CODATA 2022 (Mohr, Newell, Taylor, Tiesinga arXiv:2409.03787 Table XXXII/XXXIII); relative shift +6.8e-10, which Table XXXVIII records as D_r = +4.5 sigma of the 2018 uncertainty",
+   "source_now": "arXiv:2409.03787v1 pp.50-51, 60 (READ)",
+   "moves_conclusion": "No. The result under audit is a symbolic identity with no numerical input. In section 4, X = Q^2/(8 pi eps0 c^2) shifts by -6.8e-10 relative; the bound r_c <= a is a ratio in which eps0 cancels (r_c/a = X/(M a) with M >= X/a), so nothing moves."
+  },
+  {
+   "quantity": "G (used only in section 4 / inner_horizon_ratio; NOT an input to this theorem)",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2, CODATA 2018 (drivensource.py:280)",
+   "value_now": "6.674 30(15) e-11, CODATA 2022 -- 'the 2022 and 2018 recommended values of G are therefore identical' (arXiv:2409.03787 sec. I.B.11, XV.A)",
+   "source_now": "arXiv:2409.03787v1 pp.5, 47, 50 (READ)",
+   "moves_conclusion": "No; the value is unchanged."
+  },
+  {
+   "quantity": "existence of magnetic monopoles (the physical datum behind the P = 0 choice)",
+   "value_then": "'Isolated magnetic charges (monopoles) have never been observed in nature' (Carroll 1997 p.202)",
+   "value_now": "still unobserved (no PDG discovery entry; not re-read here, so this row is a statement of the 1997 source, not a current measurement)",
+   "source_now": "gr-qc/9712019 p.202 (READ); current status NOT READ at source in this audit",
+   "moves_conclusion": "No either way: with P present rho = (Q^2+P^2)/(8 pi R^4) > 0, p_r = -rho, p_T = +rho and the Misner-Sharp residuals vanish with m = M - (Q^2+P^2)/(2R) (checks D1-F2). The conclusion is insensitive to the datum."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/maxwell-stress-energy-curved-spherical.py",
+  "outcome": "33/33 checks pass (sympy 1.14.0, python 3.11). A: solving L_xi F = 0 for the three SO(3) Killing fields on a general 2-form gives F = E(t,r) dt^dr + B(t,r) sin(theta) dtheta^dphi and nothing else (a t-theta component violates invariance; f(theta) must be sin theta). B: d_a(sqrt(-g)F^{ab}) = 0 is exactly d_t u = d_r u = 0 with u = E R^2 e^{-Phi-Lambda}, so E = Q e^{Phi+Lambda}/R^2 is UNIQUE; dF = 0 forces B = P constant. C: sqrt(-g) F^{tr} = -Q sin(theta), not +Q (comment misprint); R^2 e^{-Phi-Lambda} F_tr = Q holds. D: rho = (Q^2+P^2)/(8 pi R^4), j = 0, p_r = -rho, p_T = +rho (both angular), all off-diagonal T_ab = 0, F^2 = 2(B_phys^2 - E_phys^2), rho = (E_phys^2+B_phys^2)/8pi in the orthonormal frame. E: rho + p_r = 0, rho + p_T = 2 rho > 0, traceless, rho > 0, DEC saturated. F: Misner-Sharp MS-r and MS-t residuals vanish identically for ARBITRARY Phi(t,r), Lambda(t,r), R(t,r) with m = M - (Q^2+P^2)/(2R); 1 - 2m/R is the dyonic RN function; m < 0 iff R < (Q^2+P^2)/(2M). G: Heaviside-Lorentz rho = (Q^2+P^2)/(2R^4) = 4 pi x Gaussian (matches Dafermos e^2/(2 r^4)); SI form and section 4's X/a integral agree. H: the owner's own electrovac() and birkhoff_residuals(), imported by path and not edited, reproduce their asserted results and agree with the independent P = 0 specialisation.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Carroll, arXiv:gr-qc/9712019 (1997), sec. 7 eqs 7.106-7.112",
+   "effect": "narrows",
+   "what": "States the general spherically symmetric F has BOTH F_tr and F_{theta phi} = g sin theta; the tree's 'admits only F_tr' is the p = 0 sub-case. Everything else in the tree's use is confirmed verbatim (T with 1/4pi, RN mass function).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Dafermos, arXiv:gr-qc/0307013 (2003), Prop. 2.1",
+   "effect": "confirms",
+   "what": "In every spherically symmetric Einstein-Maxwell(-scalar) solution F = (e/r^2) Omega^2 du^dv with e constant, T = e^2/(2r^4) gbar + (e^2/r^2) gamma: rho = -p_r = p_T in the fully dynamical (double-null) setting, and the renormalised Hawking mass is m + e^2/(2r) -- the same m = M - Q^2/(2R) structure the tree's Birkhoff step uses. Dafermos too takes only the electric component (no F_{theta phi}), as a modelling choice.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Maedler, Gannouji, Gallo, arXiv:2503.24162 (2025)",
+   "effect": "confirms",
+   "what": "Affine-null formulation: Q is the charge function (2.7), the Maxwell equation gives Q_lambda = 0 with no scalar field (3.5b, 5.6b), the Misner-Sharp mass carries Q0^2(1/r_B - 1/r) (5.11), and the general vacuum-plus-charge solution is RN (5.8). The Maxwell field is written with the single component F_{w lambda} (gauge A = alpha dw) -- again the P = 0 choice, made implicitly.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Weiner, arXiv:2103.12178 (2021), Generalizing Birkhoff, Theorem 2",
+   "effect": "extends",
+   "what": "Necessary and sufficient conditions for a spherically symmetric spacetime to be static in terms of stress-energy eigenvalues in the Birkhoff frame: if mu_1 (radial pressure eigenvalue) depends on r alone then the spacetime is static with h = 1 - 2m(r)/r and a generalised TOV relation (28). Electrovac has mu_1 = -rho = -(Q^2+P^2)/(8 pi r^4), a function of r alone, so the tree's 'mass function is frozen' Birkhoff step is an instance of a general theorem rather than an isolated computation. Weiner assumes T diagonal in the Birkhoff frame (kappa = 0); electrovac satisfies it (j = 0, check D2/D6).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "arXiv:2604.23741 (2026), gravitating dyonic configurations in nonlinear electrodynamics",
+   "effect": "extends",
+   "what": "Dyonic (Q and P) static spherically symmetric solutions in nonlinear electrodynamics L(F^2): the nonlinear case the tree's SCOPE line excludes. Not read; named from the discover listing only.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:2411.09193 (2024), Birkhoff's Theorem and Uniqueness: A Peek Beyond General Relativity",
+   "effect": "extends",
+   "what": "Validity of Birkhoff beyond GR; relevant only to the H2 (minimal coupling / GR) hypothesis, which the tree holds. Not read.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "This is a theorem, not a measurement, so the only 'data' a 1916-1997 author could have lacked is whether magnetic monopoles exist (Carroll 1997: 'never been observed'), and that datum was and is unknown. The re-derivation shows the conclusion is INSENSITIVE to it: with P != 0 every quantity the tree rests on (rho > 0 at every R, p_r = -rho, j = 0, the frozen Misner-Sharp mass m = M - (Q^2+P^2)/2R, m < 0 iff R < (Q^2+P^2)/2M) holds with Q^2 -> Q^2 + P^2 (checks D1-F4). The two numerical constants the owner file carries (eps0, G) belong to a different section, and CODATA 2022 leaves G identical and moves eps0 by 6.8e-10 relative, which cancels in the ratio r_c/a. Evidence against M's hypothesis for THIS result: no datum, known or unknown, moves the conclusion. Evidence for it, in a narrow sense: the tree's own author lacked (or omitted) the magnetic sector Carroll writes down, and the words 'admits only F_tr' are inaccurate as a statement about spherical symmetry -- an omission in the statement, with no consequence for the conclusion.",
+ "grade": "NARROWED",
+ "grade_evidence": "The tree's STATEMENT 'spherical symmetry admits only F_{tr}' / 'the ONLY spherically symmetric field' (drivensource.py:286, 302) holds on a smaller class than it claims: the source (Carroll 7.108, READ) and the machine check (A1-A4, Lie derivative under all three rotation Killing fields) both give F_tr AND F_{theta phi} = P sin theta. The hypothesis 'P = 0' is in force in the tree and unnamed. This is exactly the NARROWED clause 'a hypothesis the tree drops'. It is NOT WRONG: no downstream conclusion fails -- every rests_on item (rho > 0 everywhere, NEC saturation, the frozen mass function, ledger D4's counterexample) survives the widening with Q^2 -> Q^2 + P^2, re-derived here (D1-F4, 33/33). Two further discrepancies are recorded and neither is a refutation: the comment 'sqrt(-g) F^{tr} = Q' is off by a sign and a sin(theta) (C1; the coded field is right), and only the divergence half of Maxwell is checked (dF = 0 holds, B2). Units are internally consistent across the file's two systems (G1-G2). No datum moves the conclusion (CODATA 2022 READ).",
+ "what_would_change_the_grade": "To STANDS: the owner naming 'no magnetic charge (P = 0)' as a hypothesis at lines 286/302, or restating the result for the dyonic field (Q^2 -> Q^2 + P^2), plus correcting the Gauss-law comment to R^2 e^{-Phi-Lambda} F_tr = Q; both are one-line edits to a file this workflow does not touch. To WRONG: a spherically symmetric Maxwell field (in linear, minimally coupled Maxwell theory) with rho + p_r != 0 or rho <= 0 somewhere, or a Misner-Sharp residual that fails for some Phi, Lambda, R -- the sympy checks quantify over arbitrary functions, so this would require an error in the check itself. To DATA-DEPENDENT: nothing; the result has no numerical input.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/maxwell-stress-energy-curved-spherical.py   # expect 'SUMMARY: 33/33 checks pass'; and python3 /home/user/Claude-Method-Works/research/warp-drive/drivensource.py --selftest for the owner's own assertions",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/maxwell-stress-energy-curved-spherical.json"
+}

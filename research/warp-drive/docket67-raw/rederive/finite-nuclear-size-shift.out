@@ -1,0 +1,21 @@
+R1   uniform sphere radius R  dE/[(2pi/3)Z e2 |psi(0)|^2 <r^2>] = 1 ; dE = 4/3 * Z^4 Ry <r^2>/(a0^2 n^3)
+R1   Gaussian                 dE/[(2pi/3)Z e2 |psi(0)|^2 <r^2>] = 1 ; dE = 4/3 * Z^4 Ry <r^2>/(a0^2 n^3)
+R1   exponential              dE/[(2pi/3)Z e2 |psi(0)|^2 <r^2>] = 1 ; dE = 4/3 * Z^4 Ry <r^2>/(a0^2 n^3)
+R1   CODATA eq(50) at m_r=m_e minus tree's (4/3)Z^4(r_N/a0)^2/n^3 Ry, lambda_C = alpha a0: 0
+R1   if r_N were the uniform-sphere RADIUS R (not rms): coefficient = (4/3)(3/5) = 4/5
+R2   K(x) = 28*x**2/(14*x**2 - 9) ; residual vs 28x^2/(14x^2-9): 0 ; series -28*x**2/9
+R2   tree/CODATA2018 0.8414 fm                  x = 1.590016e-05  K = -7.86535e-10
+R2   CODATA2022 0.84075 fm                      x = 1.588787e-05  K = -7.85321e-10
+R2   CODATA2022 +1sigma                         x = 1.589997e-05  K = -7.86517e-10
+R2   CODATA2022 -1sigma                         x = 1.587578e-05  K = -7.84125e-10
+R2   old e-p scattering/CODATA2014 0.8751 fm    x = 1.653699e-05  K = -8.50802e-10
+R2   selftest pin -7.8654e-10 rtol 1e-4: tree inputs True ; 2022 inputs False
+R3   control: Dirac point nucleus infinite-mass-scaled only -> K = 1.0691e-50 (expect 0: m_r cancels)
+R3   finite size, tree form (no (m_r/m_e)^3), full Dirac background, 2022 r_p: K = -7.85953e-10
+R3   finite size eq(50) with (m_r/m_e)^3, S=0: K = -7.84029e-10
+R3   alpha^5 Friar term (eq 51, r_pF 1.947 fm) adds: 1.16e-13  (-0.000148 of the leading)
+R4   S=0.0096 2P1/2-3D3/2: K_recoil(eq30)=6.378e-9 K_Salpeter=-8.643e-10 K_QED(m_r)=2.914e-9 K_fs=-7.84e-10  TOTAL=7.644e-9  |omitted|/|fs|=10.75
+R4   S=0.0096 2P3/2-3D5/2: K_recoil(eq30)=6.365e-9 K_Salpeter=-8.643e-10 K_QED(m_r)=2.86e-9 K_fs=-7.84e-10  TOTAL=7.577e-9  |omitted|/|fs|=10.66
+R4   S=0.06 2P1/2-3D3/2: K_recoil(eq30)=6.053e-9 K_Salpeter=-8.203e-10 K_QED(m_r)=2.766e-9 K_fs=-7.841e-10  TOTAL=7.215e-9  |omitted|/|fs|=10.20
+R4   S=0.06 2P3/2-3D5/2: K_recoil(eq30)=6.041e-9 K_Salpeter=-8.203e-10 K_QED(m_r)=2.715e-9 K_fs=-7.841e-10  TOTAL=7.152e-9  |omitted|/|fs|=10.12
+R4   closed form, leading (Z alpha)^4 m^2/M recoil term, d lnR/d ln mu = (2/9) mu alpha^2 approx: 6.4448e-9

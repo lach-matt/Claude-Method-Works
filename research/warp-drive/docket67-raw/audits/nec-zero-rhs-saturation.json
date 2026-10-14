@@ -1,0 +1,78 @@
+{
+ "key": "nec-zero-rhs-saturation",
+ "name": "NEC zero RHS saturated by vacuum and by EM field",
+ "source": {
+  "located": "No single paper. The pointwise NEC T_ab k^a k^b >= 0 is Hawking & Ellis (CUP 1973) sec. 4.3, which has no arXiv copy (NAMED-NOT-READ). What was read, at source: Kontou & Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815 (2020): eq (26) and Table 1 (the NEC), Prop. 2.1 (a constant lower bound on T_kk can only be zero), eq (15) (Maxwell/Proca stress tensor), eqs (36)-(37) and Table 2 (Maxwell/Proca: NEC holds for every off-shell configuration; traceless at n=4), eq (39) (non-minimally coupled scalar breaks the NEC classically), and p.3 ('all pointwise energy conditions are necessarily violated by essentially any quantum field theory [7]', where [7] is Epstein-Glaser-Jaffe 1965, NAMED-NOT-READ). Also Martin-Moruno & Visser, 'Classical and semi-classical energy conditions', arXiv:1702.05915 (2017): eq (2.6) NEC; type-I table p.6 (NEC <=> rho + p_i >= 0); p.4 ('non-null electromagnetic fields ... are of this type I form'); eq (2.13) (classical radiation / null dust T = f k k); eq (2.15) (an electric or magnetic field of energy density mu has T = diag(mu, -mu, mu, mu)); p.10 ('The Casimir vacuum violates all the mentioned energy conditions').",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 2003.01815 and 1702.05915 (page text quoted); Hawking-Ellis 1973 and Epstein-Glaser-Jaffe 1965 are NAMED-NOT-READ, restated in those two"
+ },
+ "published_statement": "NEC: 'T_ab k^a k^b >= 0' for every null k^a (K&S eq 26; MM&V eq 2.6). For a type-I tensor this is 'rho + p_i >= 0' (MM&V p.6). For Maxwell/Proca, K&S Table 2 marks the NEC as holding 'for all off-shell configurations', and at n = 4 'the electromagnetic stress tensor (m = 0) is traceless' (K&S p.15). MM&V eq (2.15): a classical electric (or magnetic) field of energy density mu is diag(mu, -mu, mu, mu), so rho + p_1 = 0. Radiation is 'T^ab = f k^a k^b' (MM&V eq 2.13), and T_kk = 0 along k. K&S Prop 2.1: 'If S_ab eta^a xi^b is bounded from below ... then the greatest lower bound is zero.' Neither source uses the word 'saturates' for this case. Saturation, meaning T_kk = 0 at some nonzero null k, is the direct consequence of MM&V eq (2.15) or (2.13) together with their own NEC criterion, and this audit re-derives that consequence below.",
+ "published_hypotheses": [
+  "Classical, pointwise condition: K&S p.3 says every pointwise energy condition is violated by essentially any QFT (Epstein-Glaser-Jaffe, NAMED-NOT-READ), and MM&V p.10 says the Casimir vacuum violates all of them",
+  "Holds only on a restricted classical matter class. K&S Table 2 has it hold for minimally coupled Klein-Gordon with any V and for Maxwell/Proca (m >= 0). The non-minimally coupled scalar (xi != 0) violates it even on-shell (K&S eq 39)",
+  "Maxwell stress tensor T_ab = F_ac F_b^c - (1/4) g_ab F^2 (K&S eq 15, m = 0) in n = 4, where it is traceless",
+  "Algebraic type: non-null EM fields are Hawking-Ellis type I (MM&V p.4) and null EM fields are type II null dust (MM&V eq 2.13)",
+  "The inequality is invariant under positive rescaling of k (K&S Prop 2.1), so an unnormalised infimum of 0 is trivial. Saturation is meaningful only as T_kk = 0 at some nonzero null k",
+  "'Vacuum' means T_ab identically 0 (classical vacuum, or the Minkowski vacuum with renormalised <T_ab> = 0). Quantum vacua in curved space or with boundaries (Casimir, Boulware, Hartle-Hawking, Unruh) VIOLATE the NEC (MM&V p.10), so they do not saturate it"
+ ],
+ "hypothesis_drift": [
+  "UNDER-CLAIM IN THE CANONICAL RESTATEMENT, not in the owner. The canonical hypothesis reads 'null EM field saturates T_ab k^a k^b = 0'. bounds.py:43 ('saturated by vacuum and by EM') and bounds.py:295 ('saturated by the vacuum and by EM') do not qualify EM, and the unqualified form is the correct one. EVERY Maxwell field saturates at every point: a non-null field along both of its principal null directions (MM&V eq 2.15: diag(mu,-mu,mu,mu) gives rho + p_1 = 0; machine-checked on 200 random non-null F, check B1, max |T_kk|/T_00 = 2.0e-14), and a null field along its repeated one (MM&V eq 2.13; check C1/C2). The restriction to null fields is unnecessary. It does not change K = 0.",
+  "DROPPED 'classical' AT A DIFFERENT SITE: bounds.py:88-90 (repeated in the printed reading at bounds.py:406) says 'Two of the eight bounds have gravity in them and six do not. The six are statements about quantum field theory on a fixed background'. The zero-RHS row (G = 0, bounds.py:295) is one of the six. The pointwise NEC with RHS 0 is not a valid QFT bound: K&S p.3 has it 'necessarily violated by essentially any quantum field theory', and MM&V p.10 has 'The Casimir vacuum violates all the mentioned energy conditions'. It fails even classically for the non-minimal scalar (K&S eq 39; check F1 gives T_kk = -2 at xi = 1). The canonical entry carries the hypothesis 'classical NEC', but no text at bounds.py:43 or :295 says so, and :88-90 files the row in the opposite category. The saturation claim and the K = 0 integer do not depend on this: Minkowski-vacuum saturation survives quantisation, since the renormalised <T> = 0 and coherent states (normal-ordered) keep T_kk >= 0 (Mandal arXiv:2109.05321, Theorem 1 as described on p.4). The row's validity domain is misfiled; its saturation coding is not. Recorded as a discrepancy, not repaired.",
+  "IMPLICIT, SATISFIED: slot K ('known to be saturated', bounds.py:28) is not defined in the file. By K&S Prop 2.1 scaling, the infimum of T_kk over unnormalised null k is 0 for EVERY NEC-satisfying tensor, attained or not (check G1: a perfect fluid with rho = 1, p = 0.2 has T_kk(r k) = 1.2 r^2). So 'saturated' must mean T_kk = 0 at a nonzero null k. Vacuum meets that trivially, in every direction. EM meets it non-trivially, at every point but only along its principal null directions. The minimally coupled scalar meets it only where grad phi is not timelike (check F2: min T_kk = 0.49 > 0 for a timelike gradient). The tree's reading passes under the strict definition.",
+  "IMPLICIT: 'vacuum' at bounds.py:43/:295 must mean T_ab = 0 (classical, or Minkowski renormalised). Read as 'a quantum vacuum' in general, the claim would fail in the other direction: Casimir, Boulware, Hartle-Hawking and Unruh vacua violate the NEC rather than saturate it (MM&V p.10). The tree never states which vacuum it means. Under the only reading consistent with 'the NEC's own RHS' being a bound that holds, no drift."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the saturation claim",
+   "value_then": "none. The claim is an algebraic identity about the Maxwell stress tensor and T_ab = 0",
+   "value_now": "none",
+   "source_now": "n/a: no measured constant enters. The identity 4 pi T_kk = |E_perp + n x B|^2 holds for all E, B and unit n (check A2, Groebner remainder 0; check E1, z3 unsat)",
+   "moves_conclusion": "no: there is no datum to move"
+  },
+  {
+   "quantity": "tree pin: bounds.saturated() count (rests_on_it: 'bounds selftest saturated count', bounds.py:455)",
+   "value_then": "4 (zero, ANEC, Ford-Roman, Bekenstein), with the zero row K = 0",
+   "value_now": "4 as coded (check H2). The zero row's K = 0 is supported. DOCKET 55 already records that Ford-Roman's K = 0 is wrong, so the literature count is 3 (bounds.py:562-563). This audit does not touch that.",
+   "source_now": "import bounds (read-only) in rederive/nec-zero-rhs-saturation.py, checks H1-H2",
+   "moves_conclusion": "no: the zero row's contribution to the count stands"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/nec-zero-rhs-saturation.py",
+  "outcome": "ALL PASS (17 checks), plus one INFO line. The script uses sympy, z3 and numpy. (A) From the covariant F_ab in signature (-,+,+,+): T_00 = (E^2+B^2)/8pi, trace 0, and T_ab k^a k^b = |E_perp + n x B|^2/4pi for k = (1,n), |n| = 1, reduced by a Groebner basis modulo |n|^2 - 1. This is a sum of squares, so the zero-RHS NEC holds for every Maxwell field. (B) For 200 random non-null F, both principal null directions (null real eigenvectors of F^a_b) are null to 2e-14 and give T_kk/T_00 <= 2.0e-14, so every non-null field saturates. A 181x361 grid of the null sphere shows min T_kk/T_00 in [7.0e-8, 1.5e-4] (grid resolution) and never negative. (C) Plane wave: T = l l/4pi exactly, T_kk = 0 at k = l. (D) A pure E field gives diag(mu,-mu,mu,mu) (MM&V eq 2.15), and rho + p_1 = 0 along (1,1,0,0). (E) z3: {|n|=1, 4pi T_kk != |E_perp + n x B|^2} is unsat, and a non-null F (E.B != 0) with T_kk = 0 at some null k is sat. INFO: z3 asked directly for {|n|=1, T_kk < 0} returns 'unknown' within 60 s. That is a solver limit and is evidence neither way; the SOS identity route is the proof. (F) The classical-class hypothesis is load-bearing: a non-minimal scalar at xi = 1 gives T_kk = -2 (K&S eq 39). A minimal scalar with timelike gradient gives min_k T_kk = 0.49 > 0, so it does not saturate there, whereas EM saturates at every point. (G) Scaling: an unnormalised infimum of 0 is automatic, so saturation is tested as attainment at nonzero k. (H) The tree codes the zero row (W,B,S,G,K,Z) = (0,0,0,0,0,0) with K = 0, and counts it in saturated().",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (2020), p.3, Table 2, eq (39)",
+   "effect": "narrows",
+   "what": "Confirms that Maxwell/Proca satisfy the NEC for all off-shell configurations. It narrows the zero-RHS bound's domain to classical matter excluding the non-minimal scalar, and states that essentially every QFT violates every pointwise condition. This narrows the bound's validity class (drift at bounds.py:88-90), not the saturation claim.",
+   "read_status": "READ (alphaXiv page text pp.1-3, 6-8, 10-12, 14-15, 33)"
+  },
+  {
+   "ref": "Martin-Moruno & Visser, arXiv:1702.05915 (2017), eqs (2.9)-(2.15), p.6 table, p.10",
+   "effect": "confirms",
+   "what": "Non-null EM fields are type I. An aligned electric or magnetic field is diag(mu,-mu,mu,mu), so rho + p_1 = 0, which is saturation along the field's principal null direction. Null EM is null dust, T = f k k. Casimir and the black-hole vacua violate every standard condition, so 'vacuum' must mean T = 0.",
+   "read_status": "READ (alphaXiv page text pp.1-8, 10-11, 15)"
+  },
+  {
+   "ref": "Mandal, 'Classification of quantum states based on the null energy condition', arXiv:2109.05321 (2021)",
+   "effect": "extends",
+   "what": "For a free scalar in curved space, normal-ordered, 'the set of all the coherent states does not violate the null energy condition' (abstract), while superpositions of coherent states can violate it (Theorems 2-5). Relative to the normal-ordered vacuum (T_kk = 0) this confirms that vacuum saturation carries into QFT, and it shows the zero RHS is not a state-independent QFT bound.",
+   "read_status": "READ (alphaXiv page text pp.1-2, 4-8, 10-12, 14)"
+  },
+  {
+   "ref": "Epstein, Glaser & Jaffe, Nuovo Cimento 36 (1965) 1016",
+   "effect": "narrows",
+   "what": "The classic result that local energy densities in QFT cannot be positive semi-definite, cited as K&S ref [7] for 'all pointwise energy conditions are necessarily violated by essentially any quantum field theory'.",
+   "read_status": "NAMED-NOT-READ (restated in K&S arXiv:2003.01815 p.3)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. Nothing measured enters the claim: saturation of the zero RHS by T = 0 and by the Maxwell field is an algebraic identity (4 pi T_kk = |E_perp + n x B|^2, a sum of squares that vanishes along principal null directions). No later datum can move it, and none was found that does. What the pre-1970 classical framing (Hawking-Ellis 1973) did not have in view is the QFT result, and that already existed in 1965 (Epstein-Glaser-Jaffe, NAMED-NOT-READ; restated in K&S p.3). Along with the Casimir and black-hole vacuum calculations (MM&V p.10), it limits the zero-RHS pointwise NEC to classical matter. That changes where the bound HOLDS: the tree files it as a QFT statement at bounds.py:88-90, and that is a discrepancy. It does not change that vacuum and EM SATURATE it. Evidence either way: the later literature (K&S 2020 Table 2; MM&V 2017 eq 2.15; Mandal 2021) re-confirms both saturation statements, and nothing read contradicts them. M's hypothesis does not bite on this result.",
+ "grade": "STANDS",
+ "grade_evidence": "As used at bounds.py:43 and :295 ('saturated by (the) vacuum and by EM') under the canonical hypothesis 'classical NEC', the claim holds and is broader than the canonical restatement. T_ab = 0 gives T_kk = 0 for every null k. Every Maxwell field, null or not, has T_kk = 0 along its principal null direction(s), and the NEC holds for it everywhere: sympy/Groebner identity 4 pi T_kk = |E_perp + n x B|^2 (check A2), z3 unsat for the identity's negation (E1), 200 random non-null fields saturating to 2e-14 (B1), and the plane wave exactly (C1/C2). MM&V 1702.05915 eq (2.15), diag(mu,-mu,mu,mu), and eq (2.13), T = f k k, read at source, give the same with their own criterion rho + p_i >= 0. K&S 2003.01815 Table 2 gives the NEC for Maxwell off-shell. The zero row's K = 0 and its place in the saturated() count (bounds.py:455) are supported. No datum enters. One discrepancy at a DIFFERENT site is recorded and not repaired: bounds.py:88-90 (and :406) classes this row among 'statements about quantum field theory on a fixed background', but the pointwise zero-RHS NEC is violated in essentially every QFT (K&S p.3) and by the classical non-minimal scalar (K&S eq 39; check F1). That misfiles the bound's validity domain and leaves the saturation claim untouched. It is not quoted as an error in the saturation result.",
+ "what_would_change_the_grade": "NARROWED, not WRONG, if the gravity-split sentence at bounds.py:88-90 (the zero-RHS bound as a QFT statement) is judged part of this result. The bound then holds only on classical matter excluding the non-minimal scalar, and that is a hypothesis the tree drops at that site. It would also be NARROWED if the tree's 'vacuum' were shown to mean a curved-space or bounded quantum vacuum (Casimir, Boulware, Hartle-Hawking, Unruh), since those violate the NEC rather than saturate it (MM&V p.10). WRONG would need an EM configuration with no null k giving T_kk = 0, or one with T_kk < 0. Check A2's identity and check B1's eigenvector construction exclude both for the Maxwell tensor in 4D.",
+ "reverify_command": "cd /tmp && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/nec-zero-rhs-saturation.py   # expects 'RESULT: ALL PASS' (needs sympy, numpy; z3-solver via pip for E0-E2); tree side: cd /home/user/Claude-Method-Works/research/warp-drive && sed -n '43p;88,90p;295p' bounds.py && python3 bounds.py --selftest",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/nec-zero-rhs-saturation.json"
+}

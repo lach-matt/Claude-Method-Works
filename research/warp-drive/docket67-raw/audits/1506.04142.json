@@ -1,0 +1,106 @@
+{
+ "key": "1506.04142",
+ "name": "Hoferichter, Ruiz de Elvira, Kubis, Meissner (2015), PRL 115, 092301: Roy-Steiner sigma_piN = 59.1(3.5) MeV (eq.(21)) and the six-quark scalar-coupling sum 2/9 + 7/9(f_u+f_d+f_s) = 0.305(9) (eq.(24))",
+ "source": {
+  "located": "arXiv:1506.04142v2 = Phys. Rev. Lett. 115, 092301 (2015). Eq.(21) (sigma_piN), eq.(24) (coupling sum, p.5), eq.(18) (pionic-atom scattering lengths), eqs.(8),(12),(17) (low-energy theorem, Delta_R, Delta_D - Delta_sigma, isospin-breaking corrections).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "NOT re-read at source in THIS stage: every alphaXiv call (answer_pdf_queries, get_paper_content, discover_papers) returned 'alphaXiv assistant quota exceeded', and arxiv.org, export.arxiv.org, alphaxiv.org, inspirehep.net, link.springer.com and api.semanticscholar.org are refused by the egress proxy (curl CONNECT 403; WebFetch EGRESS_BLOCKED). The published statement and hypotheses below are taken from two independent at-source readings that agree character for character on eqs.(21) and (24): (i) the sibling D67 audit sigma-term-scan.json in this same docket, which READ 1506.04142 pp.1-5 through alphaXiv answer_pdf_queries earlier today; (ii) the tree's own SOURCES entries HRKM-21 and HRKM-24 (massform.py:1344-1357), status READ. A WebSearch result (arxiv.org/abs/1506.04142 listing) corroborates the abstract's '(59.1 +- 1.9 +- 3.0) MeV = (59.1 +- 3.5) MeV'. Everything numerical in this audit is recomputed here, not taken from either reading."
+ },
+ "published_statement": "Eq.(21): 'we obtain sigma_piN = (59.1 +- 1.9 +- 3.0) MeV = (59.1 +- 3.5) MeV' (first error: piN amplitude; second: the low-energy theorem), with sigma_piN = sigma(0), sigma(t) = <N(p')| m-hat (uu + dd) |N(p)>, m-hat = (m_u+m_d)/2. Eq.(24): 'sum_{q=u,...,t} f_q^N = 2/9 + 7/9 (f_u^N + f_d^N + f_s^N) = 0.305 +- 0.009'. (Quoted as READ in sigma-term-scan.json and massform.py:1344-1357.)",
+ "published_hypotheses": [
+  "H1 Cheng-Dashen low-energy theorem D+(0, 2M_pi^2) = sigma(2M_pi^2) + Delta_R, |Delta_R| <~ 2 MeV from a resonance-exchange estimate (eq.(8)); Delta_D - Delta_sigma = -1.8(2) MeV (eq.(12)).",
+  "H2 Isospin-violating corrections (pion mass difference, virtual photons; f_2 = -0.97(38) GeV^-1, |f_1| <= 1.4 GeV^-1, eq.(17)) applied both to the scattering lengths and to the low-energy theorem; the isospin limit is defined with the CHARGED pion mass and the proton mass.",
+  "H3 Pionic-atom scattering lengths a^{1/2} = 169.8(2.0), a^{3/2} = -86.3(1.8) x 10^-3 M_pi^-1 (eq.(18)); g^2/4pi = 13.7(2); Roy-Steiner equations solved below s_m = (1.38 GeV)^2 with driving terms from existing partial-wave analyses.",
+  "H4 Eq.(24): the heavy-quark (c, b, t) contribution is (2/9)(1 - f_u - f_d - f_s), i.e. (2/27)(1 - f_l) per heavy quark (the SVZ trace-anomaly matching; shown in the rederivation to be exactly 2/(3 beta0) with n_l = 3 light flavours, i.e. leading order in alpha_s and in the heavy-quark limit).",
+  "H5 Eq.(24): f_s is a lattice input (Junnarkar-Walker-Loud 2013 per the sibling reading), not derived from the Roy-Steiner analysis; the implied value, computed here by inversion, is f_s = 0.0435, sigma_s = 40.8 MeV, with an implied uncertainty of 10.3 MeV if 0.009 is the quadrature of the two inputs.",
+  "H6 f_q^N are scalar COUPLINGS, f_q^N m_N = <N| m_q qq |N> for light q, the quantities that enter the Higgs- (or WIMP-) nucleon coupling; the heavy-quark entries are effective couplings obtained through the trace anomaly, not quark-mass contributions to m_N."
+ ],
+ "hypothesis_drift": [
+  "RETAINED correctly (the load-bearing one): the tree reads 0.305(9) as a COUPLING and labels every mass reading of it 'CONTESTED as mass', 'never added to the READ rows' (massform.py:350-356, 1866-1868, report row 'nucleons: six-quark coupling, Hoferichter 3.0707e-01 CONTESTED as mass, 0.305(9), READ as a coupling'). That is H6 exactly; the tree also quotes Ji that heavy-quark contributions cancel as m_f -> infinity (massform.py:351-353).",
+  "DROPPED (not named by the tree): H4's order. The tree states the SVZ relation f_TQ = (2/27)(1 - f_l) for c, b, t (massform.py:347-349, 1806-1813) and checks its algebra 'exactly over Fraction', but nowhere names that 2/27 is the LEADING-ORDER (alpha_s, 1/m_Q) matching; grep for 'leading order' in massform.py hits only the sphaleron WKB passages (:598, :1234, :1566, :2970), never the heavy-quark relation. Computed here: applied to charm with HRKM's own f_l the LO relation gives sigma_c = 62.1 MeV, -1.96 sigma below RQCD 16's 70(4) MeV and -2.04 sigma below ETM 19's 107(22) MeV, both READ by the tree itself (FLAG-sc, massform.py:1336-1340). Taking charm from those lattice values (b, t still LO, with 4 light flavours, coefficient 2/25, derived here) moves the six-quark sum to 0.3120 (+0.78 sigma of 0.009) or 0.3451 (+4.46 sigma).",
+  "WEAKENED (convention not named): H2's isospin limit is the charged pion; the FLAG rows printed beside it (massform.py:1455-1461, report 'sigma_piN, Roy-Steiner (alone) 6.2945 %') use the neutral-pion convention (per the sibling audit's reading of FLAG 2024). The tree names neither convention. The 3.1(5) MeV shift (READ-VIA-RESTATEMENT, 2609.05989 p.2) moves the coupling sum by -0.0026 (-0.29 sigma) and the printed 6.2945 % to 5.9643 %: a labelling discrepancy, not an error.",
+  "NOT RE-READ (named): whether HRKM's superscript N in eq.(24) is the proton, the neutron or an isospin average. The tree applies the one number to every nucleon of the payload (massform.py:1866-1868, 'COUPLING_SUM_HRKM * nuc / M', nuc = protons + neutrons, m_N = (m_p + m_n)/2 at massform.py:1029). An isospin-symmetric nucleon is thus a tree-side hypothesis; its size was not computable here without the paper's proton/neutron split.",
+  "PAGE CITATION (discrepancy recorded, not adjudicated): the tree cites eq.(21) at 'p.4' (massform.py:1344-1346); the sibling audit cites '1506.04142 p.1, eq.(21)'. The abstract on p.1 carries the same sentence, so both may be right; not re-read here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "sigma_piN (Roy-Steiner + pionic atoms)",
+   "value_then": "59.1(3.5) MeV, charged-pion isospin convention (eq.(21))",
+   "value_now": "59.1(3.5) MeV is still the phenomenological value; ~56.0 MeV after the 3.1(5) MeV isospin-convention shift (Hoferichter et al. PLB 843 (2023), arXiv:2305.07045, NAMED-NOT-READ; restated in 2609.05989 p.2 and 2412.13138 p.1 per sigma-term-scan.json). O(p^5) BChPT from Nf=2+1 lattice data: 55.9(2.5) MeV (arXiv:2508.11435, READ-VIA-RESTATEMENT in 2609.05989)",
+   "source_now": "sigma-term-scan.json (sibling D67 audit, READ at alphaXiv); rederive/1506.04142.py",
+   "moves_conclusion": "No. Coupling sum 0.305 -> 0.3024 (-0.29 sigma). The tree prints sigma_piN alone only (6.2945 %), nothing turns on it."
+  },
+  {
+   "quantity": "sigma_piN (lattice, FLAG 2024)",
+   "value_then": "not available in 2015 in this form; lattice then lay below phenomenology",
+   "value_now": "Nf=2+1: 42.2(2.4) MeV; Nf=2+1+1: 60.9(6.5) MeV; 2.7 sigma apart; Nf=2+1 ~3 sigma below HRKM (FLAG 2024 pp.273-274, READ by the tree and by the sibling audit)",
+   "source_now": "arXiv:2411.04268v3 eqs.(447),(448)",
+   "moves_conclusion": "No. Six-quark sums 0.2944 (-1.18 sigma of 0.009) and 0.3066 (+0.18 sigma), reproduced here through massform's own coupling_sum; the tree prints both beside 0.305(9) and chooses neither."
+  },
+  {
+   "quantity": "sigma_s (f_s input to eq.(24))",
+   "value_then": "lattice f_s (JWL 2013 per the sibling reading); implied here by inversion: f_s = 0.0435, sigma_s = 40.8 MeV, implied uncertainty 10.3 MeV",
+   "value_now": "FLAG 2024: 44.9(6.4) MeV (Nf=2+1), 41.0(8.8) MeV (Nf=2+1+1)",
+   "source_now": "arXiv:2411.04268v3 eqs.(449),(450)",
+   "moves_conclusion": "No. The implied 40.8 MeV lies inside both FLAG 1-sigma bands; 59.1 + 44.9 gives 0.3084 (+0.37 sigma), 59.1 + 41.0 gives 0.3051 (+0.02 sigma)."
+  },
+  {
+   "quantity": "charm scalar content (enters eq.(24) through the LO heavy-quark relation)",
+   "value_then": "LO heavy-quark relation: sigma_c = (2/27)(1 - f_l) m_N = 62.1 MeV (computed from HRKM's own f_l = 0.1064); direct lattice sigma_c did not exist at physical kinematics in 2015",
+   "value_now": "RQCD 16 (Nf=2) sigma_c = 70(4) MeV, f_Tc = 0.075(4); ETM 19 (Nf=2+1+1) 107(22) MeV (FLAG 2024 p.275, READ by the tree, massform.py:1336-1340)",
+   "source_now": "arXiv:2411.04268v3 Sec.10.4.4 p.275 (tree SOURCES FLAG-sc)",
+   "moves_conclusion": "Moves the NUMBER, not any tree conclusion. LO sits ~2 sigma below both lattice values. Replacing LO charm by lattice charm (b, t LO at 2/25): 0.3120 (+0.78 sigma) or 0.3451 (+4.46 sigma). The tree's C2 (HIGGS_SUPPLIES_MOST_ATOMIC_MASS = largest row >= 0.5) needs a coupling sum >= 0.4963 (sigma_piN + sigma_s >= 331 MeV at LO); the largest variant gives a row of 0.3478. C2 stays False."
+  },
+  {
+   "quantity": "m_N",
+   "value_then": "not re-read (paper's convention: proton mass in the isospin limit, per the sibling reading)",
+   "value_now": "tree uses (m_p + m_n)/2 = 938.9188 MeV (massform.py:1029)",
+   "source_now": "massform.MASS_MEV (READ in the tree)",
+   "moves_conclusion": "No: the p/n mass difference is 0.14 %, moving f_l by 1.5e-4."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1506.04142.py",
+  "outcome": "ALL 17 CHECKS PASS (exit 0); output in rederive/1506.04142.out.json. (A) sympy: the LO heavy-quark matching coefficient (1/12)/(beta0/8) = 2/(3 beta0) is 2/27 for 3 light flavours and 2/25 for 4; f_l + 3(2/27)(1 - f_l) = 2/9 + 7/9 f_l identically (HRKM eq.(24)'s form), and with charm light the sum is 4/25 + 21/25 (f_l + f_c); massform's coupling_sum and svz_heavy_sum are the same exact forms over Fraction. (B) 59.1/m_N = 0.062945 (the tree's printed 6.2945 %); inverting 0.305 gives f_l = 0.10643, implied f_s = 0.04348 (sigma_s = 40.83 MeV), implied delta sigma_s = 10.3 MeV; 40.8 MeV lies inside both FLAG sigma_s bands. (C) the tree's recomputations 0.3066 (FLAG 2+1+1) and 0.2944 (FLAG 2+1) are reproduced; pulls +0.18 and -1.18 in units of 0.009 (the tree's selftest claims only the first within 1 sigma, which is true). (D) all six u,d,s-data variants lie in 0.2944-0.3084, within 1.25 sigma. (E) LO sigma_c = 62.1 MeV vs 70(4) and 107(22): pulls -1.96 and -2.04; lattice charm moves the sum by +0.0070 / +0.0401. (F) through massform's own share_rows(): nuc/M = 1.00679, the HRKM row is 0.30707 and is not the row that sets HIGGS_SHARE_LARGEST_ALL (0.3090, the FLAG 2+1+1 coupling row); the largest variant row is 0.3478 < 0.5, so C2 = False is unmoved. massform.py imported read-only with bytecode writing off; git status of research/warp-drive clean after the run.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "FLAG Review 2024, arXiv:2411.04268v3 (Sec.10.4.4, pp.260-275)",
+   "effect": "contested",
+   "what": "Lattice sigma_piN 42.2(2.4) (Nf=2+1) vs 60.9(6.5) MeV (Nf=2+1+1), 2.7 sigma apart; the Nf=2+1+1 average agrees with Hoferichter et al., the Nf=2+1 average is ~3 sigma below; sigma_s 44.9(6.4) / 41.0(8.8) MeV; sigma_c 70(4) (RQCD 16) and 107(22) MeV (ETM 19). Leaves 0.305(9) within 1.2 sigma on light inputs; the charm values sit ~2 sigma above the LO heavy-quark estimate.",
+   "read_status": "READ by the tree (massform SOURCES FLAG-447..450, FLAG-sc, FLAG-HRKM23) and by the sibling D67 audit sigma-term-scan.json; not re-read in this stage (alphaXiv quota)"
+  },
+  {
+   "ref": "Barca, Bali, Collins, arXiv:2412.13138 (PRD 111, L031505, 2025); Barca, Bali, Collins, Rodekamp, arXiv:2609.05989 (LATTICE2026, preliminary)",
+   "effect": "narrows",
+   "what": "Attribute the lattice/phenomenology tension largely to N-sigma / N-pi excited-state contamination on the lattice side; restate the 3.1(5) MeV isospin-convention shift (phenomenology ~56 MeV in the neutral-pion convention) and an O(p^5) BChPT extraction 55.9(2.5) MeV from Nf=2+1 lattice data. No physical-point resolution yet.",
+   "read_status": "READ by the sibling D67 audit (sigma-term-scan.json); not re-read in this stage"
+  },
+  {
+   "ref": "Hoferichter et al., PLB 843 (2023) 138001, arXiv:2305.07045",
+   "effect": "narrows",
+   "what": "The isospin-convention correction Delta sigma_piN = 3.1(5) MeV between the charged-pion (HRKM 2015) and neutral-pion (lattice/FLAG) conventions; computed here to move the coupling sum by -0.0026.",
+   "read_status": "NAMED-NOT-READ (restated in 2609.05989 p.2 per the sibling audit)"
+  },
+  {
+   "ref": "Liang et al., arXiv:2508.11435 ('Two-Loop Extraction of the Pion-Nucleon Sigma Term')",
+   "effect": "contested",
+   "what": "O(p^5) BChPT fit to Nf=2+1 lattice data gives 55.9(2.5) MeV (vs 48.1(1.9) at one loop), closer to the convention-corrected phenomenological value.",
+   "read_status": "READ-VIA-RESTATEMENT (2609.05989 per sibling audit); located by WebSearch this stage (arxiv.org/html/2508.11435), body not reachable"
+  },
+  {
+   "ref": "Radiative (O(alpha_s)) and 1/m_Q corrections to the heavy-quark relation sigma_Q = (2/27)(m_N - sum sigma_q) (e.g. Hill & Solon; search hits arXiv:1707.06711, hep-ph/0004205, 1603.00827)",
+   "effect": "narrows",
+   "what": "A WebSearch snippet this stage states the 2/27 relation holds 'to leading order in 1/m_h and alpha', that 'radiative corrections to this formula have been calculated' and that they are larger for c than for t. Consistent with the LO status derived here in sympy and with the ~2 sigma LO-vs-lattice charm gap computed from the tree's own READ values; the size of the corrections was NOT read.",
+   "read_status": "NAMED-NOT-READ (search snippet only; discover_papers unavailable, arXiv bodies egress-blocked)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. WHAT THE AUTHORS HAD (2015): the modern pionic-atom scattering lengths -- and those are the data that moved sigma_piN from the ~45 MeV of 1991 to 59.1 MeV (the paper traces the shift to 'our modern knowledge of the piN scattering lengths as extracted from pionic atoms', quoted READ in sigma-term-scan.json): a documented case of an earlier result moving when data arrived, in M's favour as a pattern, but it moved an input, not a theorem, and it moved TO this paper. WHAT CAME LATER, each tested: (1) FLAG 2024 sigma_s averages -- the implied 2015 sigma_s (40.8 MeV) sits inside both bands; no change. (2) The 2023 isospin-convention clarification -- -0.29 sigma on the sum; no change to anything the tree concludes, though the tree names neither convention. (3) Lattice sigma_piN at the physical point -- still ~3 sigma contested (FLAG), attributed in 2024-2026 work to lattice excited states (a method gap on the lattice side, not missing experimental data); every lattice combination keeps the sum within 1.2 sigma. (4) Direct lattice charm sigma terms (RQCD 16, ETM 19), which did not exist in 2015: THIS is the one datum that pushes on the result -- the LO heavy-quark charm value implied by eq.(24) (62.1 MeV) sits ~2 sigma below both, and substituting them moves the sum +0.8 to +4.5 sigma of the quoted 0.009. Evidence against over-reading it: ETM 19 carries a 22 MeV error, FLAG itself calls RQCD 16 'consistent with' ETM 19, and the substitution changes the method (lattice charm for LO matching), so it narrows the result to its LO heavy-quark hypothesis rather than refuting it. Having all of this data changes no conclusion the tree draws: C2 needs a coupling sum >= 0.496 and the largest variant is 0.345.",
+ "grade": "NARROWED",
+ "grade_evidence": "(a) The statement as used STANDS numerically: eq.(24)'s form is re-derived exactly in sympy from LO trace-anomaly matching, 0.305 and 59.1 are reproduced as the tree prints them (0.30707 row, 6.2945 %), and the tree's recomputations 0.3066 / 0.2944 are reproduced through its own functions. (b) No moved light-quark datum moves the result beyond 1.2 sigma (six variants, 0.2944-0.3084). (c) The tree's load-bearing hypothesis -- a COUPLING, CONTESTED as mass -- is the source's own (H6), retained. (d) NARROWED because eq.(24) holds at leading order in alpha_s and 1/m_Q (2/27 = 2/(3 beta0), n_l = 3, derived here), and the tree states the relation for c, b, t without naming that order (massform.py:347-353, 1806-1813, 1866-1868); its own READ lattice charm values (FLAG-sc, massform.py:1336-1340) sit ~2 sigma above the LO charm value and move the sum by up to +4.5 sigma. A second, smaller unnamed hypothesis is the charged-pion isospin convention (-0.29 sigma). (e) Not WRONG: nothing contradicts the published statement; not DATA-DEPENDENT: no tree conclusion moves (C2 False needs >= 0.496, largest variant row 0.3478; the HRKM row does not set HIGGS_SHARE_LARGEST_ALL). (f) Caveat on the evidence: the source was not re-read in this stage (alphaXiv quota exhausted, arXiv egress-blocked); the quotations rest on the sibling D67 audit's at-source reading and the tree's READ SOURCES, which agree verbatim.",
+ "what_would_change_the_grade": "To STANDS: the tree names H4's order at massform.py:347-353 (e.g. 'SVZ, leading order in alpha_s and 1/m_Q; charm LO sits ~2 sigma below the lattice sigma_c it also prints') and names the charged-pion convention of HRKM-21. To DATA-DEPENDENT: a tree conclusion found that turns on the coupling sum below 0.5 (none: C2 is the only one and needs 0.496), or a physical-point lattice sigma_c large enough, with small error, that the charm correction exceeds the tree's use -- still far from 0.496. To WRONG: only a computed contradiction of eq.(24) itself, which the sympy derivation rules out at LO. To upgrade read_status to READ: re-read 1506.04142 at alphaXiv once the quota resets (answer_pdf_queries on eqs.(18),(21)-(24), the N superscript (p/n/average) and the order statement of the heavy-quark relation); that would also settle the p.1 vs p.4 citation of eq.(21) and the size of the p/n split. It could narrow H4's drift further but cannot move the conclusion-level findings, which are computed from READ values.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1506.04142.py && git -C /home/user/Claude-Method-Works status --short research/warp-drive",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1506.04142.json"
+}

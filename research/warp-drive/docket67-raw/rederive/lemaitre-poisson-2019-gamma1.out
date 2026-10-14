@@ -1,0 +1,26 @@
+PASS (A) mu = (1-s)/(4 pi R)
+PASS (A) p = (1-s)^2/(16 pi R s)
+PASS (B) M(mu,p) consistent with (A)
+PASS (B) one root in Gamma
+PASS (B) Gamma_1 = 3/2 + 4q + 4q^2   (Pitre 3.16a)
+PASS (B) (3.16a) == (3.16c) with C=(1-s^2)/2
+PASS (B) dM/dsigma increasing in Gamma (so >=0 iff Gamma>=Gamma_1)
+PASS (C) V(R0) = 0
+PASS (C) V'(R0) = 0
+PASS (C) one root in beta2
+PASS (C) beta2_crit = (1-s)(3s^2+2s+1)/(4 s^2 (1+3s))  (wall.beta2_crit)
+PASS (C) dV''/dbeta2 > 0 at s=1/2 (stable iff beta2 > crit)
+PASS (C) Eq(2.7)-converted dynamical threshold == (3.16c) identically in s
+     LP-convention threshold (d ln p/d ln mu): (3*s**2 + 2*s + 1)/(s*(3*s + 1))
+     in C: 2*(3*C - sqrt(1 - 2*C) - 2)/(6*C - sqrt(1 - 2*C) - 3)  series: 3/2 + 5*C/8 + 33*C**2/32 + O(C**3)
+PASS (D) LP-convention threshold differs from (3.16c) (not identically equal)
+PASS (D) relation Gamma_LP = Gamma_1 * mu/(mu+p)
+PASS (D) both Newtonian limits = 3/2
+PASS (D) (3.16c) = 3/2 + C + 7/4 C^2 + O(C^3)   (Pitre 3.17)
+     C=0.10: (3.16c) Gamma_1=1.621517   LP-convention threshold=1.575040   ratio=1.029508
+     C=0.20: (3.16c) Gamma_1=1.812164   LP-convention threshold=1.689272   ratio=1.072749
+     C=0.30: (3.16c) Gamma_1=2.165569   LP-convention threshold=1.890857   ratio=1.145285
+     C=0.40: (3.16c) Gamma_1=3.118034   LP-convention threshold=2.381966   ratio=1.309017
+     wall.gamma1_published vs 40-digit (3.16c), x=2C in [1e-6,0.8]: max rel err 3.55e-16
+PASS (E) wall.gamma1_published is (3.16c) with C = x/2
+ALL PASS

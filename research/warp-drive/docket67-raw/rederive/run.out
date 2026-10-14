@@ -1,0 +1,30 @@
+R1a  PASS  tidal matrix on screen {e_phi, d_z} along t=theta=lambda: [[1, 0], [0, 0]] (expected diag(1,0))
+R1b  PASS  J_phi = sin(lambda), first zero in (0,2pi): {pi} -> conjugate point at the antipode
+R3a  PASS  A = diag(sin(lambda), lambda), det A = lambda*sin(lambda): zero at pi in ONE screen direction (line focus)
+R2a  PASS  lambda < pi: dt - d = 0 -> not in I+(p): segment achronal (a causal curve has dt >= spatial length >= d; timelike needs dt > d)
+R2b  PASS  lambda = pi (the conjugate point): dt - d = 0 -> NOT in I+(p). B AT the focus is not reached by a timelike curve; B must be strictly past
+R2c  PASS  lambda = pi + eps: dt - d = 2*epsilon > 0 -> in I+(p)
+R2d  PASS  explicit curve t = s, theta = s(pi-eps)/(pi+eps), phi = pi, s in [0, pi+eps]: g(u,u) = (epsilon - pi)**2/(epsilon + pi)**2 - 1 < 0 for every eps > 0 (timelike); ends at gamma(pi+eps) (colatitude pi-eps on the phi = pi side = colatitude pi+eps along gamma)
+R3b  PASS  R x S^2 x R: the R2d curve with z = 0 reaches gamma(pi+eps): the one-direction (line) focus already breaks achronality
+R4   PASS  index form I[sin(pi l/L)] = -(L**2*kappa - pi**2)/(2*L); sign change at L = [pi/sqrt(kappa)] = first conjugate distance of u'' = -kappa u: past it the variation lowers the causal 'length' below zero
+R5   PASS  flat cylinder: no conjugate point on gamma (J = lambda), yet dt - d = 2*pi > 0 at gamma(2pi+eps): NON-achronal WITHOUT a conjugate point. The converse of the result is false; only 'conjugate => not achronal' is a theorem
+R6   PASS  thin lens, point source at D_A: conjugate at D_A + f D_A/(D_A - f) (none if D_A <= f); Sun f = 547.6 AU: D_A=600 -> 6270 AU past lens, 1000 -> 1210, 1e4 -> 579.3, 1e6 -> 547.90. 'timelike A->B' needs B past A's conjugate point, which exceeds f for every finite D_A
+R7a  PASS  b=0.05    anecscope run: conjugate 400.25 (tree prints 400.2), max_r 424.02 (crosses r = R_s = 200: True)
+R7a  PASS  b=0.2     anecscope run: conjugate 400.74 (tree prints 400.7), max_r 400.00 (crosses r = R_s = 200: True)
+R7a  PASS  b=0.5     anecscope run: conjugate 403.82 (tree prints 403.8), max_r 400.00 (crosses r = R_s = 200: True)
+R7a  PASS  b=1.0     anecscope run: conjugate 414.4 (tree prints 414.4), max_r 400.00 (crosses r = R_s = 200: True)
+R7a  PASS  b=2.0     anecscope run: conjugate 461.05 (tree prints 461.0), max_r 400.00 (crosses r = R_s = 200: True)
+R7a  PASS  b=2.3783  DISCREPANCY: at anecscope's has_conjugate config (x0=-400, lam=800) conjugate 491.20; the printed 1578.0 reproduces only at x0=-1500, lam=3000: 1578.09. The table mixes two run configurations unstated; existence unaffected
+R7a  PASS  b=2.4021  DISCREPANCY: at anecscope's has_conjugate config (x0=-400, lam=800) conjugate 493.29; the printed 1579.8 reproduces only at x0=-1500, lam=3000: 1579.69. The table mixes two run configurations unstated; existence unaffected
+R7b  PASS  b=0.05    start x0=-199 (inside shell): conjugate 199.25; segment to conj+2 has max_r 199.000 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7b  PASS  b=0.2     start x0=-199 (inside shell): conjugate 199.74; segment to conj+2 has max_r 199.000 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7b  PASS  b=0.5     start x0=-199 (inside shell): conjugate 202.82; segment to conj+2 has max_r 199.001 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7b  PASS  b=1.0     start x0=-199 (inside shell): conjugate 214.01; segment to conj+2 has max_r 199.003 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7b  PASS  b=2.0     start x0=-199 (inside shell): conjugate 271.12; segment to conj+2 has max_r 199.010 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7b  PASS  b=2.3783  start x0=-199 (inside shell): conjugate 317.39; segment to conj+2 has max_r 199.014 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7b  PASS  b=2.4021  start x0=-199 (inside shell): conjugate 321.21; segment to conj+2 has max_r 199.014 < R_s=200: True -> a conjugate pair entirely in the C^inf region (metric smooth for r < R_s), so the C^2 theorem applies there: True
+R7c  PASS  sample points within the +-2H = 2e-03 Riemann stencil of the r = R_s kink per anecscope ray (step h = 0.1231): {0.05: 1, 0.2: 1, 0.5: 1, 1.0: 0, 2.0: 0, 2.3783: 0, 2.4021: 0} -- the thin shell's delta-function curvature is sampled on some rays by the Jacobi integration
+R7e  PASS  b=0.05, n -> (n, stencil hits, conjugate): [(6497, 0, 400.062), (6499, 0, 400.062), (6500, 1, 400.246), (6501, 0, 400.062), (6503, 0, 400.062)]; spread 0.184 affine -- the sampled/unsampled shell moves the location, not the existence
+R7d  PASS  missed Ricci kick at shell entry |Delta u'| ~ 1.0e-04 against u' = 1 (positive shell mass: focusing, so omitting it can only DELAY a conjugate point; existence claims are conservative)
+
+28 checks, 0 FAIL

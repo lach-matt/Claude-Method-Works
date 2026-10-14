@@ -12,8 +12,12 @@ tree has now hit three times in three vocabularies.
 ===============================================================================
 
     CONJUGACY SYMMETRY, which is what reversal.py invoked.  The optical tidal
-        matrix T is symmetric, so the Jacobi operator A'' = -T A is
-        self-adjoint, so "p is conjugate to q" is a symmetric relation.
+        matrix is symmetric, so the Jacobi operator A'' = -K A (Gao-Wald
+        eq. 11; composite.py's T = -K, i.e. A'' = +T A) is self-adjoint, so
+        "p is conjugate to q" is a symmetric relation.  (CORRECTED, DOCKET 67
+        follow-up: written "A'' = -T A", the sign concentric.py and
+        composite.py first integrated.  Self-adjointness holds for either
+        sign, so nothing here moves.)
         IT RELATES TWO POINTS ON ONE GEODESIC.
 
     ENTANGLEMENT SYMMETRY.  A global pure state gives S_A = S_B for a region

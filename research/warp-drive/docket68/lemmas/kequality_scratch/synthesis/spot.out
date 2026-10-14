@@ -1,0 +1,17 @@
+(a) -1/8, ell_2=4ell_1/3 (per-sheet M4)
+  ell_s/ell_1 = 2.11473369241425  ell_1/ell_s = 0.47287277995669
+  mu = 0.922222933103 ell_1^2 = 0.206217039848 ell_s^2
+  r_h = 0.885763990337 ell_1   R1 = 1.11337199089 ell_1   R2 = 2.50379910811 ell_1 = 1.183978445 ell_s
+  max residual = 1.34e-51
+(b) -1/4, ell_2=ell_1
+  ell_s/ell_1 = 2.31786300533523  ell_1/ell_s = 0.431431882599709
+  mu = 0.867440619933 ell_1^2 = 0.16145973202 ell_s^2
+  r_h = 0.871748461759 ell_1   R1 = 1.08591697114 ell_1   R2 = 1.97236962984 ell_1 = 0.8509431426 ell_s
+  max residual = 5.35e-51
+(c) -1/8, ell_2=ell_1
+  ell_s/ell_1 = 1.34322964954649  ell_1/ell_s = 0.744474334926739
+  mu = 1.83159621373 ell_1^2 = 1.01514761346 ell_s^2
+  r_h = 1.06173599906 ell_1   R1 = 1.48585755251 ell_1   R2 = 3.88963675043 ell_1 = 2.895734733 ell_s
+  max residual = 2.94e-49
+k=0 B per bridge side: -2*ell*mu/(R*sqrt(R**4 - ell**2*mu)) ; at mu=0: 0
+mirrored flat kappa^2(rho+p) = -4*ell*mu/(R**2*sqrt(R**4 - ell**2*mu))

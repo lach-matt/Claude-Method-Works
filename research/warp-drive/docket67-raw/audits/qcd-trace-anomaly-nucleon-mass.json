@@ -1,0 +1,114 @@
+{
+ "key": "qcd-trace-anomaly-nucleon-mass",
+ "name": "QCD trace anomaly is essentially the whole of the nucleon mass",
+ "source": {
+  "located": "X. Ji, 'A QCD analysis of the mass structure of the nucleon', hep-ph/9410274 (PRL 74, 1071 (1995)); the trace-anomaly operator itself is Crewther 1972 / Chanowitz-Ellis 1972 / Collins-Duncan-Joglekar 1977 / Nielsen 1977 (Ji ref [5]) and the heavy-quark theorem Shifman-Vainshtein-Zakharov (Ji ref [11]). Current status read in Yang et al. (chiQCD) 1808.08677 and Hoferichter & Ruiz de Elvira 2506.23902.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on hep-ph/9410274 (full pages 1-9 returned, eqs (1)-(38), Table I). The 1970s anomaly papers (Crewther, Chanowitz-Ellis, CDJ, Nielsen, SVZ) are NAMED-NOT-READ and READ-VIA-RESTATEMENT through Ji eq (5) and Hoferichter-Ruiz de Elvira 2506.23902 eqs (16)-(18),(33)."
+ },
+ "published_statement": "Ji 1995 eq (5): T^mu_mu = (1+gamma_m) psibar m psi + beta(g)/(2g) F^2 (the second term 'is called the trace anomaly and is generated in the process of renormalization'). Eq (36): <P| (1+gamma_m) psibar m psi + beta(g)/(2g) F^2 |P> = M, 'an explicit form of Eq. (11)'. Eqs (10)-(11): <Tbar^00> = 3/4 M, <That^00> = 1/4 M, 'valid for any bound states in field theory'. The trace-anomaly Hamiltonian H_a contributes (1-b)/4 of the rest energy; Table I: 190 MeV (m_s->0) / 210 MeV (m_s->inf) of 939; 'the trace anomaly part contributes about 1/4'. 'In the chiral limit, the gluon energy from the trace anomaly (M/4) corresponds exactly to the vacuum energy in the MIT bag model.' Hoferichter & Ruiz de Elvira 2506.23902 abstract: the trace anomaly 'generates most of the nucleon mass via the gluon fields and thus contributes even in the case of vanishing quark masses'; eq (35) m_N ~ (69+43+68+65+63+630) MeV, 'two thirds of the nucleon mass are of gluonic origin'.",
+ "published_hypotheses": [
+  "QCD energy-momentum tensor, symmetric and conserved; forward nucleon matrix element <P|T^{mu nu}|P> = P^mu P^nu/M (Ji eq 4, Jaffe-Manohar).",
+  "Operator trace from renormalization: T^mu_mu = (1+gamma_m) m psibar psi + beta/(2g) F^2 (Ji eq 5); vacuum matrix element subtracted ('it actually is the difference of the nucleon matrix elements and the vacuum matrix elements that enters').",
+  "n_f = 3 light flavours; heavy quarks (c, b, t) integrated out: 'their contributions cancel each other in the limit m_f -> infinity, and thus for simplicity I neglect them' (Ji p.5). The heavy-quark sigma terms are then absorbed into the F^2 term via SVZ <m_Q QbarQ> = -(alpha_s/12pi)<F^2>.",
+  "gamma_m and higher orders in beta(g) neglected in the Hamiltonian split (Ji p.5).",
+  "Inputs b = <m psibar psi>/M from sigma_piN = 45 +/- 5 MeV (Gasser-Leutwyler-Sainio 1991) and a model estimate of the strange scalar charge (two approaches, bM = 160 or 107 MeV); a(1 GeV^2) = 0.55 from CTEQ2.",
+  "The statement 'the anomaly is the whole mass' is exact only in the chiral limit m_u = m_d = m_s = 0 (then b = 0 and eq (36) reads <beta/2g F^2> = M); at physical masses it is the fraction 1 - b of the Lorentz-invariant trace.",
+  "It is a statement about an integrated forward one-hadron matrix element, not about the local stress tensor at a point."
+ ],
+ "hypothesis_drift": [
+  "DECOMPOSITION DROPPED -- tolman.py:803-806 says 'the trace anomaly is essentially the whole of the nucleon mass' without naming the decomposition. It holds for the Lorentz-invariant TRACE sum rule (Ji eq 36: anomaly = 1 - b ~ 0.83-0.89 in 1995, 0.88-0.91 now). In Ji's own rest-energy (Hamiltonian) decomposition, the SAME source gives the anomaly (1-b)/4 ~ 0.21-0.23 (Table I: 190/210 MeV; chiQCD 1808.08677: 23(1)(1)%). Which of the two is 'the mass structure' is itself contested in later literature (Lorce 2018; Metz-Pasquini-Rodini 2006.11171; Ji 2102.07830; Yang 2608.01002). A discrepancy of wording, not a refutation: the tree's reading is one legitimate reading.",
+  "CHIRAL LIMIT WEAKENED to 'essentially' -- tolman.py:803-806. Exact (fraction 1) only for massless u, d, s; at physical quark masses 1 - (sigma_piN + sigma_s)/m_N = 0.88-0.91 (computed). 'Essentially' is a fair rendering of ~0.9; the canonical hypothesis 'QCD with massless-quark limit / trace anomaly' records it, the owner's sentence does not.",
+  "FLAVOUR COUNTING DROPPED -- tolman.py:803-806. The ~0.9 figure is the n_f = 3 counting with heavy quarks absorbed into F^2. Counting c, b, t sigma terms as quark-mass terms (n_f = 6, 2506.23902 eq 35) the F^2-only share is 630/938 = 0.67 (computed 0.672).",
+  "LOCAL USE ADDED -- tolman.py:800-806 applies the result to the 'QCD flux tube and the nucleon's confining region' as a LOCAL stress tensor against a pointwise tracelessness hypothesis (-u + p_r + 2 p_t = 0, tolman.py:440). Ji's result is an integrated forward matrix element and does not by itself fix the trace at a point. The gap is closed for the flux tube by later literature, not by the source: Yanagihara et al. 1803.05656 measure <T^R_mu_mu(r)> < 0 inside the SU(3) flux tube ('in sharp contrast to ... classical electrodynamics; T_mu_mu(r) = 0 for all r'), under the hypotheses pure Yang-Mills (no dynamical quarks), static sources, R = 0.46-0.92 fm, perturbative gradient-flow coefficients.",
+  "NOTHING DROPPED THAT THE CONCLUSION NEEDS -- the tree's operative inference 'QCD matter is NOT traceless' needs only <N|T^mu_mu|N> = M != 0 (exact for any massive bound state, Ji eqs 4, 9; re-derived A1/A5), plus, for the chiral-limit/confining region, that the nonvanishing trace is the anomaly rather than the quark masses (fraction ~0.9). Neither qualifier above touches that inference."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "sigma_piN (light-quark sigma term)",
+   "value_then": "45 +/- 5 MeV (Gasser-Leutwyler-Sainio 1991, Ji ref [8])",
+   "value_now": "59.0(3.5) MeV Roy-Steiner + pionic atoms; lattice Nf=2+1 average 42.2(2.4) MeV (3.2 sigma tension); Nf=2+1+1 60.9(6.5) MeV",
+   "source_now": "Hoferichter & Ruiz de Elvira 2506.23902 eq (25) and Table 1 (compiled from FLAG)",
+   "moves_conclusion": "No. Moves the trace-sum-rule anomaly fraction between 0.891 and 0.907 (computed, C2); the contested value is a live tension but it moves the fraction by < 0.02 and cannot make QCD matter traceless."
+  },
+  {
+   "quantity": "sigma_s (strange scalar content m_s <N|sbar s|N>)",
+   "value_then": "62 MeV (heavy-quark approach) or ~115 MeV (ChPT approach; bM = 160 - 45); Ji called it 'the only large uncertainty'",
+   "value_now": "lattice ~43 MeV (Nf=2+1: 44.9(6.4); Nf=2+1+1: 41.0(8.8))",
+   "source_now": "2506.23902 Table 1 and eq (32)",
+   "moves_conclusion": "No. Smaller sigma_s RAISES the anomaly share from Ji's 0.83-0.89 to 0.88-0.91 (computed); the strange uncertainty Ji flagged has shrunk."
+  },
+  {
+   "quantity": "nucleon mass",
+   "value_then": "939 MeV",
+   "value_now": "938.272 MeV (proton, PDG)",
+   "source_now": "PDG (quoted as 938 MeV in 1808.08677; used 938.27 here)",
+   "moves_conclusion": "No (0.08% change)."
+  },
+  {
+   "quantity": "a = quark momentum fraction (enters only the traceless 3/4, not the anomaly share)",
+   "value_then": "0.55 at 1 GeV^2 MSbar (CTEQ2)",
+   "value_now": "u+d+s ~ 0.52 at 2 GeV (lattice 0.518, CT14 0.573 at 2 GeV)",
+   "source_now": "1808.08677 p.3-4",
+   "moves_conclusion": "No -- a does not enter the trace or the anomaly fraction at all."
+  },
+  {
+   "quantity": "lattice direct check of the split",
+   "value_then": "none (1995: 'lattice ... provides little insight on how the number is partitioned')",
+   "value_now": "H_m = 9(2)(1)%, H_a/4 = 23(1)(1)% at physical pion mass (Nf=2+1 overlap on DWF); so trace anomaly = 91% of the trace sum rule",
+   "source_now": "Yang et al. (chiQCD) 1808.08677 abstract and p.5",
+   "moves_conclusion": "No -- confirms the ~0.9 trace-sum-rule reading and the ~1/4 Hamiltonian reading simultaneously."
+  },
+  {
+   "quantity": "QCD string tension used by tolman.py qcd_flux_tube()",
+   "value_then": "tree input 0.9 GeV/fm, r_t = 0.5 fm -> 1.836e35 Pa",
+   "value_now": "lattice mid-plane central -T_zz ~ 10-13 GeV/fm^3 at R = 0.46 fm (read from Fig. 2 axis, ~1.6-2.1e36 Pa); flux-tube radius ~0.2 fm",
+   "source_now": "Yanagihara et al. 1803.05656 Fig. 2 and item (iii)",
+   "moves_conclusion": "Not this result's conclusion: the QCD rung is excluded from the hypothesis whatever its magnitude. It would move the tree's '~1e6 short' toward ~5e4 at the tube centre (R = 0.46 fm, pure YM) -- recorded as a scale datum for the tree's ladder, NOT a finding against this entry."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qcd-trace-anomaly-nucleon-mass.py",
+  "outcome": "17 checks, 0 failures, exit 0. (A) From <P|T^{mu nu}|P> = P^mu P^nu/M sympy gives g_{mu nu}<T^{mu nu}> = M (nonzero for every M>0), traceless part 3M/4 and trace part M/4 of the rest energy -- Ji eqs (9)-(11) reproduced. (B) Ji Table I reproduced from a = 0.55, bM = 160/107 MeV; one DISCREPANCY: quark energy at bM = 107 computes to 307.1 MeV (rounds to 310) against the published 300 -- within Ji's stated 5-10 MeV error, recorded, not a refutation. (C) Anomaly share of the trace sum rule 1 - b: 0.830/0.886 (Ji inputs), 0.891 (Roy-Steiner + lattice sigma_s), 0.907 (lattice Nf=2+1), 0.891 (Nf=2+1+1), 0.910 (chiQCD), 0.881 (HRdE incl. higher-order light-quark term); Ji-Hamiltonian share (1-b)/4 = 0.21-0.23 in every case; n_f = 6 F^2-only share 0.672 = 630.3 MeV, matching 2506.23902 eq (35). (D) SVZ heavy-quark theorem 2/27(m_N - sigma_piN - sigma_s) = 61.95 MeV, matching the '~62 MeV' of 2506.23902 eq (33). (E) Classical longitudinal-field Maxwell tube is exactly traceless; a Nambu-Goto string (u = sigma/A, p_z = -sigma/A, p_perp = 0) has trace -2 sigma/A != 0. (F) Tree rungs: QCD rung 1.8360e35 Pa; bill/QCD rung = 5.325e5 (tree says '~1e6', correct to order of magnitude); bill/magnetar = 2.4573e13 (tree 2.46e13).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Yang, Liang, Bi, Chen, Draper, Liu, Liu (chiQCD), arXiv:1808.08677, PRL 121, 212001 (2018)",
+   "effect": "confirms",
+   "what": "First lattice proton mass decomposition at physical pion mass: quark condensate 9(2)(1)%, a quarter of the trace anomaly 23(1)(1)% -> anomaly 91% of M in the trace sum rule M = <H_m> + <H_a>.",
+   "read_status": "READ (alphaXiv, full pages 1-10)"
+  },
+  {
+   "ref": "Hoferichter & Ruiz de Elvira, arXiv:2506.23902 (2025 review chapter)",
+   "effect": "narrows",
+   "what": "Trace anomaly 'generates most of the nucleon mass'; with n_f = 6 counting the F^2 share is ~2/3 (630 MeV) and heavy-quark sigma terms ~21%; sigma_piN lattice vs Roy-Steiner tension (42.2 vs 59.0 MeV, 3.2 sigma) unresolved; sigma_s ~43 MeV.",
+   "read_status": "READ (alphaXiv, pages 1-2, 4-5, 7-9)"
+  },
+  {
+   "ref": "Yanagihara, Iritani, Kitazawa, Asakawa, Hatsuda, arXiv:1803.05656, PLB 789 (2019) 210",
+   "effect": "extends",
+   "what": "Local EMT around static Q-Qbar in SU(3) Yang-Mills via gradient flow: <T^R_mu_mu(r)> < 0 inside the flux tube, 'in sharp contrast to ... classical electrodynamics' where T_mu_mu = 0 -- the LOCAL non-tracelessness the tree needs, in pure YM only.",
+   "read_status": "READ (alphaXiv, full pages 1-7)"
+  },
+  {
+   "ref": "Bollweg, Ding, Gao, Luo, Mukherjee, arXiv:2601.13070 (2026)",
+   "effect": "confirms",
+   "what": "First direct lattice validation of trace-anomaly sum rules (charmonia, not nucleon): C_c(0)+C_g(0) = 0 within errors; Ji, Lorce, MPR and HRT decompositions mutually consistent; Ji trace-anomaly term 231/277 MeV for eta_c / J/psi.",
+   "read_status": "READ (alphaXiv, pages 1-3, 5, 7-9)"
+  },
+  {
+   "ref": "Yang, arXiv:2608.01002 (2026); Metz-Pasquini-Rodini arXiv:2006.11171; Lorce-Metz-Pasquini-Rodini arXiv:2109.11785; Ji arXiv:2102.07830",
+   "effect": "contested",
+   "what": "The INTERPRETATION of the anomaly's share of the mass is disputed: Ji/Yang hold the anomaly is M/4 of the rest energy (quantum anomalous energy); MPR/Lorce hold the anomaly is absent from the Hamiltonian and enters the pressure; the trace-sum-rule camp (Liu 2103.15768, HRT) reads M = <trace>. None disputes that the forward trace is nonzero. 2608.01002 read; the others seen only through its and 2601.13070's restatement.",
+   "read_status": "2608.01002 READ (alphaXiv pages 1-5); 2006.11171, 2109.11785, 2102.07830 NAMED-NOT-READ (abstracts via discover_papers)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested. What Ji lacked in 1994: (i) a controlled strange scalar content -- he called <P|m_s sbar s|P> 'the only large uncertainty' and bracketed it between two unsatisfactory estimates (62 and ~115 MeV); (ii) a lattice decomposition ('lattice QCD ... provides little insight on how the number is partitioned'); (iii) a precision sigma_piN (he used 45 +/- 5). What came later: lattice sigma_s ~43 MeV; chiQCD 2018 measured H_m = 9% and H_a/4 = 23% at the physical point; Roy-Steiner sigma_piN = 59.0(3.5) in 3.2 sigma tension with lattice 42.2(2.4); a local lattice EMT of the flux tube (2018). Does the new data change the conclusion? EVIDENCE AGAINST a change: every current input set gives an anomaly share of the trace sum rule 0.88-0.91, HIGHER than Ji's 0.83-0.89 (the missing data, once supplied, strengthened 'essentially the whole' rather than weakening it); the unresolved sigma_piN tension moves it by < 0.02; the forward trace = M is exact and data-independent; and the flux tube is measured non-traceless locally. EVIDENCE FOR a limitation (not from missing data but from definitions): the phrase is decomposition-dependent -- in Ji's own Hamiltonian split the anomaly is ~1/4, and with n_f = 6 counting the F^2 part is ~2/3 -- and which decomposition is 'the origin of mass' is contested in 2020-2026 literature. That contest is interpretive and leaves the tree's inference (QCD matter is not traceless) untouched. Verdict on M's hypothesis for THIS result: the authors did lack data, the data arrived, and it did not overturn the result; the incompleteness that remains is a wording/scope one, not a data one.",
+ "grade": "NARROWED",
+ "grade_evidence": "The load-bearing inference at tolman.py:803-806 -- QCD matter is NOT traceless and so sits outside the traceless-source identity -- STANDS on its own: <N|T^mu_mu|N> = M != 0 for any massive hadron (Ji eqs 4, 9; sympy A1/A5), the nonzero trace is ~0.9 anomaly in the n_f = 3 trace sum rule on every current input set (C1: 0.88-0.91; chiQCD 91%), and the flux tube's local trace is measured nonzero in SU(3) YM (1803.05656). The supporting clause 'the trace anomaly is essentially the whole of the nucleon mass' is NARROWED, not wrong: it holds (i) for the Lorentz-invariant trace sum rule, (ii) with n_f = 3 counting (heavy quarks absorbed into F^2), (iii) exactly only in the chiral limit. In the same source's rest-energy decomposition the anomaly is (1-b)/4 ~ 0.22 (Ji Table I 190-210 MeV; chiQCD 23%), and with n_f = 6 counting the F^2 share is 0.67 (2506.23902 eq 35). The tree states the clause without naming (i)-(iii), and applies an integrated forward matrix element to a local stress (the local gap is closed by later literature in pure YM, not by the source). No moved datum moves the conclusion (sigma_piN tension shifts the fraction < 0.02). One arithmetic discrepancy in the source (Table I quark energy 300 vs computed 307 MeV at bM = 107) is within its stated error and is recorded, not repaired. Nothing here supports WRONG, and DATA-DEPENDENT is excluded because the contested datum (sigma_piN) does not move the conclusion.",
+ "what_would_change_the_grade": "To STANDS: the owner sentence names the decomposition, e.g. 'the trace anomaly is ~90% of the nucleon's trace sum rule M = <(1+gamma_m) m qbar q> + <beta/2g F^2> (n_f = 3; all of it in the chiral limit)', or drops the quantitative clause and rests on <N|T^mu_mu|N> = M != 0 plus the flux-tube lattice trace. To WRONG: a first-principles demonstration that the renormalized QCD flux-tube / nucleon stress tensor is locally traceless at the tree's scale (none found; 1803.05656 finds the opposite), or, for the quantitative clause alone, a sigma-term total above ~0.5 m_N in the n_f = 3 trace sum rule (current values ~0.09-0.12 m_N). To DATA-DEPENDENT: a resolution of the sigma_piN / sigma_s situation that moved the anomaly share below ~0.5 (no current determination comes near). To OPEN: none -- the source and its successors were readable here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qcd-trace-anomaly-nucleon-mass.py  # expect '0 failures', exit 0; source: alphaXiv answer_pdf_queries(hep-ph/9410274, eqs 5, 10-11, 36, Table I); 1808.08677 abstract; 2506.23902 eqs 25, 33, 35, Table 1; 1803.05656 item (ii) p.4",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/qcd-trace-anomaly-nucleon-mass.json"
+}

@@ -1,0 +1,79 @@
+{
+ "key": "milne-slicing-of-minkowski",
+ "name": "Milne slicing of Minkowski space (Gamma = cosh chi, m = 0, T_ab = 0) and its flight times",
+ "kind": "computation",
+ "source": {
+  "located": "E. A. Milne, Z. Astrophys. 6 (1933) 1 (and Nature 1932 / 'Relativity, Gravitation and World Structure' 1935) -- no arXiv copy. Restated exactly in E. Ling, arXiv:2202.04014 (Class. Quantum Grav. 2022) sec. 1.1, eqs (1.1)-(1.5) and Fig. 2; and in M. J. Chodorowski, arXiv:astro-ph/0503690 (PASA 22 (2005) 287) sec. 2, eqs (1),(6),(8)-(14).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Milne 1933 NAMED-NOT-READ (cited as 'Milne, E. A. 1933, Zeitschrift fur Astrophysik, 6, 1' in astro-ph/0503690 refs). Ling 2202.04014 p.2-4 READ: 'The Milne universe corresponds to the scale factor a(tau) = tau which isometrically embeds into Minkowski space'; eq.(1.3) t = b(tau) cosh R, r = b(tau) sinh R with b = tau for Milne (tau_0 = 1); eq.(1.4) g = eta; eq.(1.5) b^2 = t^2 - r^2 so 'M lies within the set of points t > r'; Fig.2 'the Milne universe sits inside the future lightcone at the origin O of Minkowski space'. Chodorowski p.2 READ: 'In the Milne model, the cosmic arena of physical events is the pre-existing Minkowski spacetime', fundamental observers r = v t from an event O at t = 0, H = 1/t; FRW form with Omega_0 = 0, a(t) = H_0 t, open (sinh) spatial sections."
+ },
+ "published_statement": "Ling 2202.04014 sec.1.1 (restating the classical Milne universe): the k = -1 FLRW metric g = -dtau^2 + a(tau)^2[dR^2 + sinh^2 R dOmega^2] with a(tau) = tau 'isometrically embeds into Minkowski space'; under t = tau cosh R, r = tau sinh R it becomes g = -dt^2 + dx^2 + dy^2 + dz^2 (eq. 1.4), with tau^2 = t^2 - r^2 (eq. 1.5), so the manifold lies within t > r, the interior of the future light cone of O, foliated by the hyperboloids tau = const, comoving observers being straight lines from O. Chodorowski astro-ph/0503690 sec.2: Milne's kinematic model is the empty (Omega_0 = 0) open FRW universe, a(t) = H_0 t, set in pre-existing Minkowski spacetime.",
+ "published_hypotheses": [
+  "k = -1 FLRW form with scale factor exactly a(tau) = tau (Ling eq.1.1-1.2); 'Milne-like' a = tau + o(tau^(1+eps)) is NOT flat in general -- only a = tau is",
+  "tau in (0, infinity): the chart covers only I+(O) = {t > |r|} of Minkowski (Ling eq.1.5, Fig.2); tau = 0 is the light cone of O, a coordinate (not curvature) boundary",
+  "empty universe: Omega_0 = 0, no matter, no Lambda (Chodorowski eq.3, sec.2)",
+  "tau_0 = 1 normalisation of b(tau) (Ling, below eq.1.3)"
+ ],
+ "hypothesis_drift": [
+  "DOMAIN WEAKENED (text only). The source's chart covers only the open future cone I+(O) (Ling eq.1.5: 'M lies within the set of points t > r'); nonstatic.py:212-214 and driven.py:288-289 say the Milne and standard witnesses are 'THE SAME SPACETIME -- Minkowski -- sliced two ways', and foliation.py:286 'Minkowski in Milne slicing', without the restriction; driven.py's own hypothesis list (canonical entry) does carry 'Milne (hyperbolic) foliation of the future light cone'. Effect measured here: none on any quantity the tree computes -- Gamma, U, m, m3 are pointwise, m = 0 agrees on the overlap, and the flight ray r = t - 1 < t stays inside I+(O) (check F). What it does bound: the tau = const hyperboloids are Cauchy surfaces of I+(O), not of Minkowski, so 'Minkowski re-foliated' holds on I+(O) only.",
+  "FLATNESS EVIDENCE WEAKER THAN THE CLAIM (internal, conclusion true). nonstatic.py:411-421, 437, 655 computes Ricci/Einstein only and checks vacuum (Ein = 0); the tree then says 'FLAT SPACETIME' (nonstatic.py:94-96, driven.py:245). Ricci-flat does not imply flat in general (Schwarzschild); here it does, because in spherical symmetry vacuum plus Misner-Sharp m = 0 kills the Weyl part, but that step is not stated in the owner. Closed here by the explicit isometry (check A: the pullback of eta is the Milne metric) and all 256 Riemann components = 0 (check B).",
+  "ADVANCE OVER FLAT SET, NOT COMPUTED (internal, conclusion true). foliation.py:565 sets advance_over_flat = 0.0 by construction and :950-989 asserts near(...,0.0) on the constant; the value is exact only because the comparison 'flat' spacetime is the same Minkowski (check A), so it is an identity, not a measurement. Correct as stated at :295-296 ('because the spacetime is exactly flat').",
+  "CLOCK DROPPED IN PROSE (internal representation, not a drift from the source). milne_row (foliation.py:556, 561) measures flight as Minkowski coordinate dt = proper time of the chi = 0 emitter; the prose at foliation.py:294-295 ('THE SIGNAL TAKES 3774 TIMES THE SLICE'S LENGTH') drops which clock. On the target's own clock the elapse from tau_0 = 1 is e^chi - 1 = 198.995 at Gamma = 100, a ratio of 37.56, not 3774.5. The qualitative point (flight/slice >> 1 and increasing with Gamma; zero advance) is clock-independent; the number 3774 is not.",
+  "NO DRIFT in the Misner-Sharp reading: Gamma = e^-Lambda R' = cosh chi, U = sinh chi, m = 0, m3 = -tau sinh^3(chi)/2 all re-derived exactly (check D); nonstatic.py's 't' is the Milne proper time tau."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "any empirical datum",
+   "value_then": "none -- the result is a coordinate identity of Minkowski geometry (Milne 1933; restated Ling 2022 eq.1.3-1.5)",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no -- no measured input exists to move"
+  },
+  {
+   "quantity": "Gamma samples and tau_0",
+   "value_then": "Gamma = 2, 10, 100; tau_0 = 1 (foliation.py:969, 554-565) -- chosen, not measured",
+   "value_now": "same",
+   "source_now": "foliation.py (tree choice)",
+   "moves_conclusion": "no -- closed form flight = Gamma^2 + Gamma sqrt(Gamma^2-1) - 1, slice = arccosh Gamma, areal = sqrt(Gamma^2-1); flight/slice strictly increasing on Gamma in [2,1000] (check G)"
+  },
+  {
+   "quantity": "pinned table values",
+   "value_then": "slice/areal 0.760345996, 0.052985573; flight/slice 4.908358597, 3774.518015899 (foliation.py:977-980)",
+   "value_now": "re-derived independently: 0.760345996, 0.052985573; 4.908358597, 3774.518015899 (and Gamma=10: 0.300830215, 66.316059283)",
+   "source_now": "rederive/milne-slicing-of-minkowski.py check G",
+   "moves_conclusion": "no -- agreement to all printed digits"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/milne-slicing-of-minkowski.py",
+  "outcome": "0 FAIL. (A) pullback of eta under t = tau cosh chi, r = tau sinh chi equals -dtau^2 + tau^2(dchi^2 + sinh^2 chi dOmega^2) exactly; (B) all 256 Riemann components of the Milne metric vanish (exact, after exp-rewriting of hyperbolic identities sympy leaves unreduced) -- flat, hence T_ab = 0; (C) t^2 - r^2 = tau^2: chart covers only I+(O); (D) Gamma = cosh chi, U = sinh chi, Misner-Sharp m = 0, Gamma^2 - U^2 = 1, m3 = -tau sinh^3(chi)/2, Gamma > 1 for chi > 0; (E) standard slicing Gamma = 1, m = 0; (F) null ray from (t=1, r=0) meets chi1 worldline at t = e^chi1 cosh chi1, dt - dr = 0 exactly, flight = Gamma^2 + Gamma sqrt(Gamma^2-1) - 1, arrival tau = e^chi1, ray inside I+(O); (G) foliation.py table reproduced at Gamma = 2, 10, 100 to all printed digits, flight/slice monotone; (H) target-clock ratio 37.56 at Gamma = 100 vs emitter-clock 3774.52 -- both >> 1.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "E. Ling, arXiv:2202.04014 (2022) and refs [14] Galloway-Ling 2017, [30] Ling 2020 Found. Phys. 50",
+   "effect": "extends",
+   "what": "Milne-like k = -1 FLRW (a = tau + o(tau^(1+eps))) are conformal to a subset of Minkowski and extend continuously through tau = 0 (the light cone); only a = tau is isometric to Minkowski. Confirms the identification and its domain t > r.",
+   "read_status": "READ (pp.1-11, 13-14)"
+  },
+  {
+   "ref": "M. J. Chodorowski, arXiv:astro-ph/0503690 (2005)",
+   "effect": "confirms",
+   "what": "Milne kinematic model in Minkowski reproduces the empty open FRW distances exactly (D_A, D_L = (1+z)^2 D_A); the empty-universe identification holds observable by observable.",
+   "read_status": "READ (pp.1-5)"
+  },
+  {
+   "ref": "arXiv:2603.06794 (Flat holography for spinor fields, 2026); arXiv:2608.25363, arXiv:2605.26028 (hyperboloidal foliations of Minkowski, 2026); arXiv:2411.14976 (hyperboloidal slicing GSF)",
+   "effect": "extends",
+   "what": "Milne/hyperboloidal slicings of Minkowski used as a working tool (holography, numerical wave evolution); none narrows or contradicts the flatness identity. Found by discover_papers; abstracts only.",
+   "read_status": "NAMED-NOT-READ (abstracts via discover_papers)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: there is no datum to lack. The Milne slicing is a coordinate identity of Minkowski geometry -- Milne (1933) had everything the conclusion needs, and nothing measured since (cosmological data rule Milne out as a MODEL of our universe -- Chodorowski p.5: 'An empty universe is thus not a viable cosmological model', SN Ia at > 4 sigma per Riess 2004 as quoted there -- but that is about the universe, not about the geometry the tree uses) bears on it. Evidence: the isometry and Riemann = 0 are re-derived here exactly with no input numbers (checks A, B); the tree uses Milne only as an exact flat witness, never as cosmology. The only 'incompleteness' found is the domain (I+(O) only), which is in the source itself (Ling eq.1.5) and which the tree's prose omits at nonstatic.py:212-214 / foliation.py:286 but which moves none of its numbers.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ via exact restatement (Ling 2202.04014 eqs 1.1-1.5, Fig.2; Chodorowski astro-ph/0503690 sec.2); independently re-derived in sympy with 0 FAIL: explicit isometry to eta, all Riemann = 0, Gamma = cosh chi, m = 0, m3 = -tau sinh^3/2, null ray exact, and every pinned number of foliation.py's table reproduced to all printed digits. No empirical input exists to move. Hypothesis drifts found are (i) the chart's I+(O) domain dropped from the 'same spacetime' prose -- measured to change nothing the tree computes, since all quantities are pointwise and the ray stays inside the cone -- and (ii-iv) internal evidence/representation gaps (vacuum checked rather than flatness; advance set by identity; clock unnamed in prose) whose conclusions are each verified true here. None is a smaller class than the tree's USE, so not NARROWED; recorded, nothing repaired.",
+ "what_would_change_the_grade": "NARROWED if a consumer of this witness (ledger D3/D10, specthm R1, nonstatic.LOOPHOLE_IS_REAL, driven.CONTRACTION_IS_A_SCALAR) is shown to need the Milne hyperboloids as a foliation of ALL of Minkowski (e.g. a Cauchy-surface or global re-foliation claim), since they foliate only I+(O); or if the number 3774 is quoted as a clock-independent flight ratio (it is the emitter's clock; the target's gives 37.56). WRONG only if the re-derivation script failed a check -- it does not.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/milne-slicing-of-minkowski.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/milne-slicing-of-minkowski.json"
+}

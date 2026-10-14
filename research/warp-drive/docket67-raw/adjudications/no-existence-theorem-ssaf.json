@@ -1,0 +1,83 @@
+{
+ "key": "no-existence-theorem-ssaf",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "NARROWED. I support the refute and data verifiers (NARROWED) over the rederive verifier (OPEN). The audit's grade is superseded on its own stated terms.\n\nWhy the audit's OPEN no longer holds:\n- The audit graded OPEN because Juarez-Aubry 2011.05947 and 2412.08402 were NAMED-NOT-READ and the discover_papers sweep had not run.\n- Its what_would_change_the_grade names NARROWED as the expected ceiling once those papers are read and a sweep finds nothing contrary.\n- The rederive verifier's OPEN rests on the same two unread papers, and its own text says NARROWED needs them read and a sweep done.\n- Both conditions are now met. I READ both papers at source this pass (alphaXiv answer_pdf_queries, full page text). The sweep has now run three times: one call by the refute verifier and two by me.\n\nThe evidence, all READ or computed:\n\n(1) 2412.08402v2 (Juarez-Aubry, dated 1 Dec 2025), READ pp.1-6.\n- Theorem 1: at xi = 1/2, for a special class of Hadamard two-point functions ('perhaps up to positivity'), there is a unique analytic Cauchy evolution with no symmetry assumed. The two-point function is reconstructed only in a causal normal neighbourhood N of C.\n- Sec. VI, verbatim: 'local semiclassical gravity solutions exist for every (analytic) vacuum solution of higher-derivative gravity (and of general relativity!), modulo state positivity'.\n- Also verbatim: positivity 'remains an important open question'.\n- The paper never names Schwarzschild. Applying sec. VI to Schwarzschild is the verifiers' step and mine.\n- That step is checked by computation. Schwarzschild is Ricci-flat with K = 48M^2/r^6, so it is non-flat (A2). With all alpha = 0, eq. (III.3) gives <T> = 0 = G, so (IV.1a) holds. (IV.1b) is then a linear Klein-Gordon equation for w0 with non-zero source -2 v1 = -(m^4/4 + 2M^2/(15 r^6)) (A4).\n- So in a relaxed sector (xi = 1/2, positivity open, local on N, analytic), a READ general existence theorem yields non-flat static spherically symmetric asymptotically flat members. In that sector the tree's unqualified 'which nobody has' is false. That is a hypothesis the tree drops, i.e. NARROWED.\n- It is not a refutation: this is not a theorem for positive Hadamard states, nor at HPS's xi = 1/6.\n\n(2) 2011.05947v2, READ.\n- Prop. 9 (p.18) is a no-go. A static, Ricci-flat, globally hyperbolic spacetime other than Minkowski admits no states for the conformally coupled field (m = 0, xi = 1/6) that solve the equations, for any alpha and beta. The paper names Schwarzschild.\n- The mechanism is computed: eq. (6.14) needs K/720 to be constant, and it is not (A3).\n- This is a partial no-go in HPS's coupling, for Ricci-flat geometries only.\n\n(3) Other sources agree that no general theorem exists in the positive-state exact class:\n- Sanders 2007.14311v2 p.2;\n- 2604.01047v1 p.13, read live: 'a general theory for the well-posedness ... is missing';\n- 2412.08402 p.1: rigorous results 'only in highly symmetric spacetimes'.\n\n(4) My sweep returned only numerical work or work with an approximate or modified source.\n- 2212.09375v2, READ: order-reduced AHS source. p.12 says HPS's solution is the only known non-perturbative AHS-sourced solution, and it is not asymptotically flat.\n- 2506.17149v1, READ: an objective-collapse framework, with no existence theorem.\n- The rest are abstract-only.\n\n(5) The wording discrepancies were re-computed.\n- 'Only' is overstated. The no-go route decides O5 under either encoding of 'existence theorem' (A5), so the overstatement is robust.\n- The audit's C3c holds only under the 'some non-trivial member' encoding.\n\nWhy not each other grade:\n- Not STANDS: the tree drops the source-term, positivity and coupling hypotheses that 2412.08402 makes load-bearing, and it keeps 'only'.\n- Not WRONG: no READ paper proves a non-flat static spherically symmetric asymptotically flat solution for a positive Hadamard state with exact renormalised <T>. A relaxed-sector theorem is not a counterexample in the tree's own context, which is HPS's xi = 1/6 system.\n- Not OPEN: every grade condition the audit named is now READ or run. The residue is a universal negative, carried as the tree's own named hypothesis 'NOT-FOUND, not NO' (throatmass.py:40-58) on a recorded search. It is not presumed.\n- Not DATA-DEPENDENT: no measured datum enters. The HPS fit does not move the conclusion (F(1e3) = 123.457, F(1e6) = 2277.409, F -> infinity).",
+ "scope": "COVERS throatmass.py:98-99 ('Closed only by a general existence theorem for the static spherically symmetric asymptotically flat class, which nobody has') and its restatement at throatmass.py:174-176.\n\nUnder these named hypotheses, the claim holds as NOT-FOUND:\n- (H-a) The source is the exact renormalised <T> of a POSITIVE Hadamard state, not a two-point function 'modulo positivity'.\n- (H-b) The coupling is outside the xi = 1/2 stealth sector, for example HPS's xi = 1/6, m = 0. There, 2011.05947 Prop. 9 is a READ no-go for every Ricci-flat non-Minkowski static member.\n- (H-c) Existence means non-trivial (non-flat) existence, or existence for prescribed data, because Minkowski is a member.\n- (H-d) The solution is global, not confined to a neighbourhood N of a Cauchy surface.\n- (H-e) 'Only' is dropped.\n\nThe NOT-FOUND is a floor. It rests on READ sources up to April 2026 and three discover_papers calls. It is not proof that no such theorem exists.\n\nDOES NOT COVER:\n- (i) Existence theory for HPS's actual system, which uses the AHS approximate <T>. No READ source settles it either way.\n- (ii) Whether the stealth two-point functions are positive.\n- (iii) The journal versions (PLB 875 (2026) 140349; AHP 23 (2022) 1451), which were not compared with the arXiv versions.\n- (iv) O5 itself.\n- (v) The six sweep hits known only from abstracts.",
+ "corrections_to_record": [
+  "The audit's data row ('Nothing READ shows that [the stealth class of 2412.08402 contains a non-flat static spherically symmetric asymptotically flat member]') is SUPERSEDED. 2412.08402v2 is now READ (Thm 1 pp.4-5; sec. VI p.6). Its claim that local solutions exist 'for every (analytic) vacuum solution of ... general relativity!, modulo state positivity' covers Schwarzschild. Schwarzschild being non-flat and satisfying (IV.1a) with all alpha = 0 is COMPUTED (adjudicator A2/A4; refute check.py). The paper never names Schwarzschild, so the member is an application of the paper's statement, not a quotation. It holds only at xi = 1/2, with positivity open, locally on N, for analytic data.",
+  "2011.05947 is not a paper that 'suggests the gap may be closing'. READ: Prop. 9 (p.18) is a no-go for m = 0, xi = 1/6 on every static, Ricci-flat, globally hyperbolic non-Minkowski spacetime, for any alpha and beta, and it names Schwarzschild. Its effect is 'confirms, partially' (Ricci-flat only), not 'extends'. The eq. (6.14) mechanism is computed (A3).",
+  "The audit's 'DROPPED QUALIFIER non-trivial' overstates the case against the tree. The tree says 'a GENERAL existence theorem', and one trivial Minkowski member does not contradict that. This sharpens the unstated scope (H2); it is not a discrepancy in the tree's wording.",
+  "The audit's C3c ('an existence theorem alone is consistent with both answers') depends on the encoding. It holds for E = 'some non-trivial AF member'. For E = 'every admissible datum, m<0 data included, is realised', E implies O5 (A5, with a vacuity guard). 'Only' is overstated robustly through the no-go route. C3a is true by construction.",
+  "Audit C1 tests the HPS eqs (5)-(7) transcription only weakly: a flat profile kills every derivative term, and the control residual comes mostly from the left-hand side (rederive verifier V1-V3). C1's conclusion stands independently, because Sanders p.2 and 2011.05947 sec. 6.1 both name Minkowski as a solution.",
+  "Discrepancy recorded, not repaired: HPS gr-qc/9701064v1 eq. (6) has, inside its ln f bracket, the term '-4 f'^2 r'^2/(f^2 r)'. Its dimension is L^-3, while every other term is L^-4. READ this pass, and A1 shows it is the only inhomogeneous term in eqs (5)-(7). It is likely a misprint of r for r^2. It does not affect C1 or eq. (8), and the audit transcribed it faithfully.",
+  "The audit's use of Sanders sec. 7 ('or even in general static spacetimes') as leaving the existence of static solutions open is a misreading. That sentence concerns the ground state's special role for general states.",
+  "The audit's 'confirms' from 2604.01047v1 rested on a harvest that lacks page 13. Page 13, now READ live, supports the conclusion: 'a general theory for the well-posedness of the Cauchy problem on arbitrary background and for arbitrary Cauchy data is missing'.",
+  "'discover_papers NOT RUN' is superseded: there were three calls, one by the refute verifier and two by the adjudicator. None found an existence theorem for the exact class. 2212.09375v2 and 2506.17149v1 were READ; six other hits are abstract-only.",
+  "HPS's abstract ('two asymptotically spatially flat regions') and p.8 ('the metric as a whole is not asymptotically flat') are both true: the first is about R(l) -> l, the second about the unbounded f. A write-up should quote p.8, not the abstract.",
+  "Process note: verify/rederive/vacuity.py now holds another key's z3 script, so the rederive verifier's V1-V8 cannot be re-run from it. A1 reproduces V4, and A5 reproduces V7 and V8. V1-V3 rest on that verifier's report alone.",
+  "Flagged for the O5 and NOT-FOUND keys, outside this grade: 2212.09375v2 p.12 (READ) reports regular and irregular negative-ADM-mass static solutions in the ORDER-REDUCED AHS approximation. They are numerical and use an approximate source. This bears on throatmass.py's NOT-FOUND for self-consistent m<0 solutions."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/throatmass.py:98",
+   "finding": "'Closed only by a general existence theorem': 'only' is overstated. A no-go or an exhibited AF m<0 solution would also close O5 (C3; A5). hpscentre.py:303-308 supersedes it, but the sentence remains in the docstring. The current text matches the audit.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/throatmass.py:98-99",
+   "finding": "'... asymptotically flat class, which nobody has' drops the source-term, positivity and coupling hypotheses. 2412.08402 (READ) gives general local existence at xi = 1/2, modulo positivity, and that covers Schwarzschild (computed). So 'nobody has' holds only under H-a..H-d. The universal negative has no search record, and the tree's own 'NOT-FOUND, not NO' rule (lines 40-58) is not applied. The lines are unchanged since the audit.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/throatmass.py:174-176",
+   "finding": "O5_ANSWERED_BY repeats 'Closed only by an existence theorem ...', with the same overstated 'only' and the same unstated source class. It is still present although the O5 row is re-owned to hpscentre. The line numbers are current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/throatmass.py:40-58",
+   "finding": "States 'NOT-FOUND, not NO' and limits its control to the first zero. The rule is correct and is the right frame for this claim's residue, but it is not applied at :99.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:303-308",
+   "finding": "The live O5_ANSWERED_BY lists alternatives (AF m<0 solution, FO/FFKP on HPS, nonlinear regular-centre existence theorem) and drops 'only'. Consistent with C3/A5; current.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:299-302",
+   "finding": "DOMAIN_WORD records that AHS is established only for AF spacetimes. It correctly separates HPS's AHS class from the exact-<T> class (supports H-a).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/LEDGER.md:205",
+   "finding": "The superseded O5 (DOCKET 64) row keeps the DOCKET 62 'Closed only by' wording and marks the row re-owned to hpscentre.O5_CLOSED. This is a history record kept by design.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/LEDGER.md:87",
+   "finding": "The live O5 'Would be answered by' mirrors hpscentre.py:303-308 and has no 'only'.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/ledger.py:1907-1908",
+   "finding": "SUPERSEDED_WORDING keeps the O5 DOCKET 62 row (DOCKET 64 at :1965), preserving the throatmass wording as superseded.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (page through d67/adjudicate/in/no-existence-theorem-ssaf.json)",
+  "cat d67/verify/refute/no-existence-theorem-ssaf.notes.txt; cat d67/verify/data/no-existence-theorem-ssaf.live-reads.txt",
+  "sed -n 36,60p/88,102p/168,180p throatmass.py; sed -n 292,312p hpscentre.py; grep -rn 'existence theorem|which nobody has' research/warp-drive; grep -n '\"O5\", \"DOCKET' ledger.py; git status --short (clean)",
+  "cp rederive + refute check.py + data.py + vacuity.py to d67/adjudicate/run/ and ran each: rederive ALL PASS (12), refute_check PASS, data_check ALL PASS; vacuity.py was another key's script (overwritten)",
+  "python3 d67/adjudicate/run/adj_checks.py rederive.py (A1 HPS dimensional homogeneity, A2 Schwarzschild Ricci-flat/Kretschmann, A3 Prop 9 eq 6.14, A4 v1 at xi=1/2, A5 z3 encodings + vacuity) -> ALL PASS",
+  "mcp__alphaXiv__answer_pdf_queries 2412.08402 (READ v2 pp.1-8)",
+  "mcp__alphaXiv__answer_pdf_queries 2011.05947 (READ v2 Prop 9, sec 6-7)",
+  "mcp__alphaXiv__answer_pdf_queries gr-qc/9701064 (READ v1 eqs 5-8, p.8)",
+  "mcp__alphaXiv__discover_papers x2",
+  "mcp__alphaXiv__answer_pdf_queries 2506.17149; 2212.09375 (READ)"
+ ],
+ "reverify_command": "R=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run; python3 $R/rederive.py && python3 $R/adj_checks.py $R/rederive.py && python3 $R/refute_check.py && python3 $R/data_check.py; sed -n 98,99p /home/user/Claude-Method-Works/research/warp-drive/throatmass.py; sed -n 174,176p /home/user/Claude-Method-Works/research/warp-drive/throatmass.py; sed -n 303,308p /home/user/Claude-Method-Works/research/warp-drive/hpscentre.py; alphaXiv answer_pdf_queries 2412.08402 [Theorem 1, sec VI positivity] and 2011.05947 [Proposition 9]",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/no-existence-theorem-ssaf.json"
+}

@@ -179,7 +179,10 @@ contribution to support is one part in **10¹⁰**.
 
 This is not a defect in the proposal, because gyroscopic freedom is all the proposal claimed for it.
 It does dispose of any hope that spinning the shell might relax the density requirement of
-`WARP-DRIVE.md` §5.4 — it cannot, and the 8.16 km / 1.84 M☉ scaling stands unaltered.
+`WARP-DRIVE.md` §5.4 — it cannot, and the 7.56 km / 1.71 M☉ scaling stands unaltered.
+(Corrected on M's "Repair all", DOCKET 67 follow-ups: first 8.16 km / 1.84 M☉, on a recalled nuclear
+density of 2.3 × 10¹⁷ kg m⁻³; `warpdrive.py` now uses `address.RHO_NUCLEAR` = 2.676 × 10¹⁷, computed
+on the conventional n₀ = 0.16 fm⁻³, which is not read at source — see `WARP-DRIVE.md` Table 6's note.)
 
 ---
 

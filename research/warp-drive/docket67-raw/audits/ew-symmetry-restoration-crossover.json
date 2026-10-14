@@ -1,0 +1,115 @@
+{
+ "key": "ew-symmetry-restoration-crossover",
+ "name": "Electroweak symmetry restoration at high temperature; crossover T_EW ~ 160 GeV",
+ "source": {
+  "located": "D'Onofrio & Rummukainen, 'Standard model cross-over on the lattice', arXiv:1508.07161, PRD 93 (2016) 025003 (the lattice T_c and the crossover); companion D'Onofrio, Rummukainen, Tranberg arXiv:1404.3565, PRL 113 (2014) 141602 (vev 'approximately zero' above T_c); Morrissey & Ramsey-Musolf arXiv:1206.2942 p.4 (masses proportional to phi). Precursor classic Kajantie-Laine-Rummukainen-Shaposhnikov hep-ph/9605288 (1996, crossover endpoint) NAMED-NOT-READ.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "NOT re-read in this stage: alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'assistant quota exceeded' (5 attempts), and arxiv.org, export.arxiv.org, alphaxiv.org, semanticscholar and inspirehep are refused by the egress proxy (CONNECT 403). The source WAS read at source through alphaXiv in DOCKET 65 of this session; its verbatim quotes with page numbers are held in the tree at research/warp-drive/massform.py:1116-1138 (SOURCES 'DR-Tc', 'DRT-vev', 'DRT-rate', 'DRT-Tc', status READ) and in the DOCKET 65 source-read record tasks/wk4xpcbq7.output. This audit quotes only those verbatim captures (a restatement by this project, not by a later paper) and marks everything they did not record (the authors' m_H, m_t inputs; which fields the 3d reduction drops) as NOT READ."
+ },
+ "published_statement": "1508.07161 abstract p.1 (verbatim, DOCKET 65 capture): 'While the cross-over is smooth, it is very well defined with a width of only ~ 5 GeV. We measure the cross-over temperature from the maximum of the susceptibility of the Higgs condensate, with the result T_c = 159.5 +/- 1.5 GeV.' Sec. VII p.8: 'we obtain T_c = 159.6 +/- 0.1 +/- 1.5 GeV, where the first error is due to the statistical accuracy of the lattice computation and the second one is the estimated uncertainty of the effective theory approach'. fn.1 p.1: 'Although there is no real symmetry breaking phase transition, we use the conventional labels \"broken\" and \"symmetric\"'. p.1: first order only for m_H <~ 72 GeV. 1404.3565 p.1: 'a smooth cross-over from the symmetric phase at T > T_c, where the (expectation value of the) Higgs field was approximately zero, to the broken phase at T < T_c GeV where it is finite'; p.3: 'If the temperature is below T_c, v^2(T) is approximately linear in T, and at T > T_c, it is close to zero' and 'because of additive renormalization, v^2(T) can become negative'; abstract: 'the cross-over is sharply defined at T_c = (159 +/- 1) GeV'. 1206.2942 p.4: 'Note that (in unitary gauge) the masses of the W+/- and Z0 weak vector bosons and the fermions are proportional to phi.'",
+ "published_hypotheses": [
+  "Standard Model with ONE Higgs doublet at the physical Higgs mass (the crossover is the SM's; first order only for m_H <~ 72 GeV)",
+  "thermal equilibrium, infinite volume, zero chemical potentials (a lattice equilibrium measurement)",
+  "the effective-theory (dimensional-reduction) approach, whose estimated uncertainty is the 1.5 GeV systematic (Sec. VII, READ); which fields the reduction neglects was NOT recorded in the DOCKET 65 read and is NOT READ here",
+  "T_c is DEFINED as the maximum of the Higgs-condensate susceptibility -- a pseudo-critical temperature of a smooth crossover, width ~5 GeV, not a point where the condensate vanishes",
+  "no real symmetry-breaking transition: 'broken' and 'symmetric' are conventional labels (fn.1); v^2(T) above T_c is 'close to zero' and can be negative through additive renormalization (1404.3565 p.3)",
+  "masses proportional to phi: tree level, unitary gauge (1206.2942 p.4) -- vev-generated (Yukawa/Higgs) masses only"
+ ],
+ "hypothesis_drift": [
+  "STRENGTHENED (vanishing vs approximately zero): warpfolder.py:69 'Raising T to the crossover drives <phi> -> 0' and :392-394 'T_EW ~ 160 GeV ... and there <phi> -> 0'. Source: 'approximately zero' / 'close to zero' for T > T_c, with v^2 renormalization-dependent (can be negative). The tree's own massform.py:549 already reads it as 'approximately zero'; warpfolder.py does not.",
+  "SHIFTED (at T_c vs above T_c): warpfolder.py:392 places <phi> -> 0 AT T_EW ~ 160 GeV = T_c. Source defines T_c as the susceptibility maximum of a ~5 GeV-wide crossover -- the middle of the crossover, where v^2(T) is still falling (linear below T_c). The approximately-zero statement is for T > T_c, i.e. heating to a few GeV ABOVE 160 GeV, not to it.",
+  "DROPPED (no real transition): warpfolder.py:68 'HEATING TO THE ELECTROWEAK SCALE RESTORES THE SYMMETRY' and :243 HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = True; ledger.py:1640-1642. Source fn.1: 'there is no real symmetry breaking phase transition'; 'restores' is the conventional label for the smooth approach to the symmetric-labelled regime, not a phase change.",
+  "DROPPED (tree-level, vev-generated masses only): warpfolder.py:70 'UN-GENERATES the fermion masses'; ledger.py:1642 'un-generates the masses it was to template'. Source (1206.2942 p.4): masses proportional to phi at tree level in unitary gauge. Plasma thermal masses (order gT) are not addressed by warpfolder.py; massform.py:549-551 names that as H-THERM, 'not asserted'.",
+  "DROPPED (one Higgs doublet): neither warpfolder.py:68-73 nor ledger.py:1640 names the SM-only hypothesis. Restoration at high T is model-dependent: the re-derivation (check E) exhibits a bounded-below two-scalar potential with a negative thermal mass (symmetry non-restoration; Weinberg 1974, NAMED-NOT-READ). The tree's object is the SM Higgs, so this bounds scope rather than refutes.",
+  "DROPPED (attribution / effective-theory systematic): warpfolder.py:230 'T_EW_CROSSOVER_GEV = 160.0 # order ORDER' cites no source; the lattice origin, the 1.5 GeV effective-theory systematic and the susceptibility definition are owned only in massform.py:544-545, 1116-1125. No numerical drift: 160 vs 159.5 +/- 1.5 is 0.33 sigma.",
+  "KEPT, correctly named as the document's premise (not the source's): 'the flash thermalises the region to T ~ T_EW' (canonical hypothesis 2). The lattice result presupposes equilibrium; a non-thermalised or sub-thermal-length region is outside it. warpfolder.py does not claim the flash does thermalise; it takes the folder's premise and shows the premise's own direction is inverted."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "T_c (crossover temperature)",
+   "value_then": "159.5 +/- 1.5 GeV (abstract); 159.6 +/- 0.1 +/- 1.5 GeV (Sec. VII); 159 +/- 1 GeV (1404.3565)",
+   "value_now": "no later value read this stage (discover_papers quota exhausted); tree uses 160 GeV ORDER",
+   "source_now": "1508.07161 via DOCKET 65 capture (massform.py:1116-1125); warpfolder.py:230",
+   "moves_conclusion": "No. 160 - 159.5 = 0.5 GeV = 0.33 sigma; kelvin conversion 1.8567e15 K reproduces warpfolder's 1.857e15 K (rederive check A)."
+  },
+  {
+   "quantity": "m_H",
+   "value_then": "NOT READ: the authors' input Higgs mass was not recorded in the DOCKET 65 read and could not be re-read (quota/egress)",
+   "value_now": "125.13 GeV",
+   "source_now": "research/warp-drive/captures/PDG-2026.tsv H0 row (READ; higgs.py:250)",
+   "moves_conclusion": "No. Crossover requires m_H > ~72 GeV (1508.07161 p.1): margin 53.1 GeV, factor 1.74. Mean-field model T0 moves +0.12 GeV for m_H 125.0 -> 125.13 (RECONSTRUCTED model, ORDER only), far below the 1.5 GeV systematic."
+  },
+  {
+   "quantity": "m_t",
+   "value_then": "NOT READ (not recorded in the DOCKET 65 read)",
+   "value_now": "172.6 GeV",
+   "source_now": "captures/PDG-2026.tsv t row (READ)",
+   "moves_conclusion": "No. Mean-field T0 moves +0.20 GeV for m_t 173.0 -> 172.6 (model, ORDER only)."
+  },
+  {
+   "quantity": "crossover endpoint m_H,c",
+   "value_then": "~72 GeV (1508.07161 p.1, DOCKET 65 capture)",
+   "value_now": "not re-read",
+   "source_now": "1508.07161 p.1 via massform DOCKET 65 record",
+   "moves_conclusion": "No; 125.13 >> 72."
+  },
+  {
+   "quantity": "crossover width",
+   "value_then": "~5 GeV (abstract)",
+   "value_now": "not re-read",
+   "source_now": "1508.07161 abstract via DOCKET 65 capture",
+   "moves_conclusion": "Moves the LITERAL wording, not the direction: <phi> approximately zero requires T above T_c by about the width; at T = T_c (160 GeV, the tree's figure) the condensate is mid-crossover."
+  },
+  {
+   "quantity": "v (for the mean-field model only)",
+   "value_then": "n/a",
+   "value_now": "246.220 GeV from G_F = 1.1663788e-5 GeV^-2",
+   "source_now": "higgs.py:209 G_F NAMED-NOT-READ",
+   "moves_conclusion": "No; used only in the ORDER-level model check B/D."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/ew-symmetry-restoration-crossover.py",
+  "outcome": "All 13 checks pass (exit 0). A: 160 GeV = 1.8567e15 K and 159.5 GeV = 1.8509e15 K reproduce warpfolder.py:392 and massform.py:545; 160 is inside both 159.5+/-1.5 and 159.6+/-0.1+/-1.5. B (sympy + z3, RECONSTRUCTED textbook high-T expansion, used for DIRECTION only): summing T^2/24 n_b m_b^2 + T^2/48 n_f m_f^2 over W(6) Z(3) h(1) G(3) t(12) gives m^2(T) = -mu^2 + c T^2 with c = (3g^2 + g'^2 + 4y_t^2 + 8 lam)/16; z3 proves c > 0 for every real g, g', y_t and lam > 0 (unsat of the negation; vacuity guard sat): the SM curvature at phi = 0 turns positive at high T -- heating is the symmetric direction. At the PDG-2026 capture c = 0.3978 and the mean-field T0 = 140.3 GeV, ~19 GeV below the lattice T_c: the one-loop mean-field model is too crude to reproduce the number, which is why the lattice value, not this, is the datum; the model checks direction and order only. C: m_H = 125.13 GeV exceeds the 72 GeV endpoint by 53.1 GeV. D: mass moves shift T0 by +0.12 (m_H) and +0.20 GeV (m_t). E: a bounded-below two-scalar potential (lam1 = 0.1, lam2 = 4, lam12 = -0.5) has thermal phi1^2 coefficient -0.0083 T^2 < 0: high-T restoration is a property of the SM's scalar sector, not universal. Not checkable here: the lattice T_c itself and the shape of v^2(T) near T_c (need the paper's data, not re-read).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "D'Onofrio, Rummukainen, Tranberg, arXiv:1404.3565, PRL 113 (2014) 141602",
+   "effect": "confirms",
+   "what": "Independent lattice T_c = 159 +/- 1 GeV; Higgs expectation value 'approximately zero' above T_c, v^2(T) linear below; renormalized v^2 can be negative above T_c.",
+   "read_status": "READ in DOCKET 65 (verbatim capture massform.py:1126-1160); not re-read this stage"
+  },
+  {
+   "ref": "Morrissey & Ramsey-Musolf, arXiv:1206.2942, Sec. 2 p.4",
+   "effect": "narrows",
+   "what": "Masses proportional to phi in unitary gauge at tree level: supports 'un-generates' for vev-generated masses only; also states EWBG cannot explain the asymmetry within the SM alone.",
+   "read_status": "READ in DOCKET 65 (massform.py:1136-1138); not re-read this stage"
+  },
+  {
+   "ref": "Kajantie, Laine, Rummukainen, Shaposhnikov, hep-ph/9605288 (1996)",
+   "effect": "confirms",
+   "what": "Precursor: the first-order line ends at an endpoint; above it the SM transition is a crossover. Known here only through 1508.07161 p.1's ~72 GeV statement.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "S. Weinberg, PRD 9 (1974) 3357, 'Gauge and global symmetries at high temperature'",
+   "effect": "narrows",
+   "what": "Symmetry non-restoration at high T in multi-scalar models with negative cross couplings: restoration is model-dependent. Not read; the phenomenon is computed independently in rederive check E.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for work after 2016 narrowing/contradicting the SM crossover",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv quota exceeded. No later literature is claimed either way; this row records the gap, not a contest.",
+   "read_status": "NAMED-NOT-READ (search could not run)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The DECISIVE datum for this result is the Higgs mass. Before 2012 (and before the LEP bound) the SM's thermal transition was conditional: first order for m_H <~ 72 GeV, a crossover above (1508.07161 p.1, as captured). The 1996 endpoint work lacked m_H; the datum, when it came (PDG-2026 capture: 125.13 GeV), moved the conclusion from conditional to settled crossover -- in the direction the tree uses, with a 53 GeV margin, so no plausible revision reverses it. The 2014-16 lattice authors had the discovery; their inputs were not re-read here, but the tree's current m_H and m_t shift the mean-field model's T0 by 0.12 and 0.20 GeV, an order below their own 1.5 GeV effective-theory systematic. What remains lacking is BSM data: the result is for ONE Higgs doublet; an extended scalar sector with negative cross couplings could fail to restore (check E) or turn the crossover first order. No datum excludes such a sector and none requires it; that is a NAMED hypothesis (SM only), not a moved datum. Evidence against M's hypothesis for this result: the missing datum arrived and confirmed. Evidence for a flaw: none in the physics; the discrepancies found are the tree's wording ('<phi> -> 0' at T_c; 'restores'; 'un-generates the fermion masses'), each stronger than the source.",
+ "grade": "NARROWED",
+ "grade_evidence": "The direction the tree needs STANDS: in the SM the high-T side is the symmetric-labelled side (z3-proved positivity of the thermal curvature coefficient; lattice crossover at 159.5 +/- 1.5 GeV, 1508.07161 as captured), and the tree's 160 GeV is 0.33 sigma from it; no moved datum moves it (m_H 125.13 vs the 72 GeV endpoint). But the tree states it on a larger class than the source: (i) '<phi> -> 0' where the source says 'approximately zero' (renormalized v^2 can be negative); (ii) AT T_EW ~ 160 GeV = T_c, where the source's T_c is the susceptibility maximum in the middle of a ~5 GeV crossover -- approximately zero is for T > T_c; (iii) 'restores the symmetry' where the source says there is no real symmetry-breaking transition (fn.1); (iv) 'un-generates the fermion masses' where the source basis is tree-level vev-generated masses only (thermal masses not addressed); (v) the SM-only hypothesis is unnamed, and restoration is model-dependent (check E). Holding the result on the narrower class -- SM, equilibrium, T a few GeV above ~160 GeV, vev-generated masses approximately zero -- still gives FLASH_IS_A_RECONSTRUCTION_MECHANISM = False on reason (a), because the objection is about direction, which survives every narrowing. Not WRONG: nothing here is refuted; the discrepancies are wording, recorded not repaired. Caveat on the read: the source was not re-read in this stage (quota/egress); the grade rests on DOCKET 65's verbatim captures.",
+ "what_would_change_the_grade": "To STANDS: the owners restate (a) as 'in the SM, for T above the ~160 GeV crossover (width ~5 GeV), the Higgs condensate is approximately zero and the vev-generated masses approximately vanish; there is no true transition' -- or a re-read of 1508.07161 showing v^2 already approximately zero AT the susceptibility maximum (not expected from 1404.3565 p.3's 'approximately linear below T_c'). To DATA-DEPENDENT: evidence of an extended scalar sector (e.g. a second doublet or singlet with negative cross couplings) that alters or prevents high-T restoration. To OPEN: if the DOCKET 65 captures were found not to be verbatim on re-reading 1508.07161/1404.3565 at source. Nothing found here would move it to WRONG.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/ew-symmetry-restoration-crossover.py && grep -n 'phi> -> 0\\|RESTORES THE SYMMETRY\\|UN-GENERATES\\|T_EW_CROSSOVER_GEV = \\|HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = ' /home/user/Claude-Method-Works/research/warp-drive/warpfolder.py && sed -n 1640,1642p /home/user/Claude-Method-Works/research/warp-drive/ledger.py && sed -n 1116,1138p /home/user/Claude-Method-Works/research/warp-drive/massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/ew-symmetry-restoration-crossover.json"
+}

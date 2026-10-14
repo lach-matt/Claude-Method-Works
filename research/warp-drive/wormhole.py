@@ -15,8 +15,9 @@ REVERSAL OF AN EARLIER ANSWER, AND ONE SCOPE DECISION THAT IS M'S TO MAKE.
 ===============================================================================
 
         CORRIDOR   cost proportional to the DISTANCE SHORTENED
-                   1.3489e26 kg per metre, so one per cent off four light
-                   years is 5.1048e40 kg = 2.567e10 SOLAR MASSES.
+                   1.3489e26 kg per metre, so one per cent off the road to
+                   Proxima (phase1.L_PROXIMA, 4.2465 ly, Gaia DR3) is
+                   5.4193e40 kg = 2.725e10 SOLAR MASSES.
 
         WORMHOLE   cost proportional to the THROAT RADIUS, and to NOTHING
                    ELSE.  M ~ r_0 c^2/(8 pi G), independent of how far apart
@@ -29,9 +30,17 @@ REVERSAL OF AN EARLIER ANSWER, AND ONE SCOPE DECISION THAT IS M'S TO MAKE.
         3 km             1.6074e+29         2.69e+04
 
     A ONE-METRE THROAT COSTS ABOUT NINE EARTH MASSES, WHETHER THE MOUTHS ARE A
-    METRE APART OR FOUR LIGHT YEARS APART.  Against the corridor's 2.567e10
-    solar masses for one per cent of Alpha Centauri, that is 15.0 ORDERS, and
-    the ratio grows without limit with the distance.
+    METRE APART OR FOUR LIGHT YEARS APART.  Against the corridor's 2.725e10
+    solar masses for one per cent of Proxima, that is 15.0 ORDERS (1.0115e15),
+    and the ratio grows without limit with the distance.
+
+    CORRECTED (DOCKET 67 follow-up, M: "repair all figures").  First priced at
+    one per cent of a round 4.0 ly labelled "Alpha Centauri": 5.1048e40 kg =
+    2.567e10 solar masses, advantage 9.528e14 (14.98 orders).  phase1.py and
+    closeout.py now price at Proxima's Gaia DR3 distance (READ-VIA-
+    RESTATEMENT), so this file imports phase1.L_PROXIMA rather than carry a
+    second distance.  The 4.0 ly figures are DD_AS_FIRST_WRITTEN and are still
+    checked; the orders gap stays 15.0 to one decimal.
 
     THIS IS WHY THE LITERATURE WORKS ON WORMHOLES AND NOT ON CORRIDORS, and
     phase1's own complaint -- "a saving that does not scale with the journey is
@@ -157,13 +166,25 @@ def cost_scales_with_distance(architecture):
     return architecture == "corridor"
 
 
-def advantage_at(dd_metres=0.01 * 4.0 * LY, r0=1.0):
+def proxima_metres():
+    """phase1.L_PROXIMA (Gaia DR3 1/parallax, READ-VIA-RESTATEMENT), imported."""
+    import phase1
+    return phase1.L_PROXIMA
+
+
+#: CORRECTED (DOCKET 67 follow-up): the contraction as first written, 1 % of a
+#: round 4.0 ly ("Alpha Centauri").  Kept as history and still checked.
+DD_AS_FIRST_WRITTEN = 0.01 * 4.0 * LY
+
+
+def advantage_at(dd_metres=None, r0=1.0):
+    dd_metres = 0.01 * proxima_metres() if dd_metres is None else dd_metres
     return corridor_mass(dd_metres) / throat_mass(r0)
 
 
 def advantage_grows_with_distance():
     """The corridor's bill grows with the trip; the throat's does not."""
-    return advantage_at(0.10 * 4.0 * LY) > advantage_at(0.01 * 4.0 * LY)
+    return advantage_at(0.10 * proxima_metres()) > advantage_at(0.01 * proxima_metres())
 
 
 # --------------------------------------- 2: and it reverses contain.py
@@ -312,12 +333,24 @@ def selftest():
         print("  %-56s %18.6e %18.6e  %s" % (label, got, want, "ok" if good else "FAIL"))
 
     print("1. THE WIN -- cost stops scaling with distance")
-    near("corridor, 1 % off 4 ly (kg)", corridor_mass(0.01 * 4.0 * LY), 5.1048e40, 1e-4)
+    # CORRECTED (DOCKET 67 follow-up): re-based on phase1.L_PROXIMA; pins are
+    # the computed values (python3 -c "import wormhole as w; d=0.01*
+    # w.proxima_metres(); print(w.corridor_mass(d), w.advantage_at())").
+    near("corridor, 1 % off Proxima (kg)", corridor_mass(0.01 * proxima_metres()),
+         5.4193e40, 1e-4)
+    import phase1
+    near("  and it is phase1's own price", corridor_mass(0.01 * proxima_metres()),
+         phase1.mass_for_contraction(0.01 * proxima_metres()), 1e-6)
+    near("RECORD: as first written, 1 % off 4 ly (kg)",
+         corridor_mass(DD_AS_FIRST_WRITTEN), 5.1048e40, 1e-4)
     print("      %10s %16s %14s" % ("throat r0", "M_exotic (kg)", "Earth masses"))
     for r in (1.0e-6, 1.0, 10.0, 3000.0):
         print("      %10.4g %16.4e %14.4g" % (r, throat_mass(r), throat_mass(r) / MEARTH))
     near("one-metre throat, in Earth masses", throat_mass(1.0) / MEARTH, 8.9714, 1e-4)
-    near("advantage over the corridor at 1 % of 4 ly", advantage_at(), 9.528e14, 1e-3)
+    near("advantage over the corridor at 1 % of Proxima", advantage_at(), 1.0115e15, 1e-3)
+    chk("  15.0 orders to one decimal", round(math.log10(advantage_at()), 1), 15.0)
+    near("RECORD: as first written, at 1 % of 4 ly", advantage_at(DD_AS_FIRST_WRITTEN),
+         9.528e14, 1e-3)
     chk("and the advantage GROWS with distance", advantage_grows_with_distance(), True)
     chk("corridor cost scales with distance", cost_scales_with_distance("corridor"), True)
     chk("throat cost scales with distance", cost_scales_with_distance("wormhole"), False)
@@ -376,7 +409,9 @@ def report():
   THE FORK IS WORTH TAKING, AND FOR ONE REASON THAT IS LARGE AND
   STRUCTURAL: A THROAT'S COST DOES NOT SCALE WITH DISTANCE.  The
   corridor charges 1.3489e26 kg per metre shortened, so one per cent
-  off Alpha Centauri is 2.567e10 solar masses.  A one-metre throat
+  off the road to Proxima (phase1's Gaia DR3 distance) is 2.725e10
+  solar masses (first written 2.567e10 on a round 4 ly, "Alpha
+  Centauri" -- CORRECTED, DOCKET 67 follow-up).  A one-metre throat
   costs about nine Earth masses whether the mouths are a metre apart
   or four light years apart -- 15.0 orders, and the ratio grows
   without limit with the distance.  phase1's own complaint, that a

@@ -1,0 +1,80 @@
+import json
+D="/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/"
+r = {
+ "key": "1508.07161",
+ "name": "D'Onofrio-Rummukainen: electroweak crossover temperature T_c = 159.5 +/- 1.5 GeV",
+ "source": {
+  "located": "M. D'Onofrio and K. Rummukainen, 'The Standard Model cross-over on the lattice', arXiv:1508.07161, Phys. Rev. D 93 (2016) 025003 (identity corroborated by a WebSearch result listing arxiv.org/abs/1508.07161 and INSPIRE record 1390934).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT reached at source this stage. alphaXiv answer_pdf_queries (tried twice), get_paper_content(fullText) and discover_papers each returned 'alphaXiv assistant quota exceeded'. curl to arxiv.org, export.arxiv.org, www.alphaxiv.org, scholar.archive.org, api.crossref.org, core.ac.uk, web.archive.org and WebFetch to arxiv.org were all CONNECT 403 / EGRESS_BLOCKED (proxy status lists arxiv.org, inspirehep.net, api.semanticscholar.org as connect_rejected). No capture of the paper exists under research/warp-drive/captures or the scratchpad. What WAS seen: (a) the tree's own verbatim quotation, massform.py:1116-1125 (abstract p.1 '...with the result T_c = 159.5 +/- 1.5 GeV' and Sec. VII p.8 'T_c = 159.6 +/- 0.1 +/- 1.5 GeV ... second one is the estimated uncertainty of the effective theory approach'), which is the tree's READ, not an independent one; (b) a WebSearch engine summary stating the paper simulates 'an effective SU(2) x U(1) gauge + Higgs theory', reports 'Tc = 159.6 +/- 0.1 +/- 1.5 GeV' with the two error sources as the tree quotes them, and 'the cross-over region is quite narrow, between 157 and 162 GeV'. A search summary is not a verbatim read, so nothing here is marked READ."
+ },
+ "published_statement": "NOT READ at source this stage. As the tree quotes it (massform.py:1119-1125): abstract, 'While the cross-over is smooth, it is very well defined with a width of only ~ 5 GeV. We measure the cross-over temperature from the maximum of the susceptibility of the Higgs condensate, with the result T_c = 159.5 +/- 1.5 GeV'; Sec. VII, 'we obtain T_c = 159.6 +/- 0.1 +/- 1.5 GeV, where the first error is due to the statistical accuracy of the lattice computation and the second one is the estimated uncertainty of the effective theory approach'. Footnote 1 as the tree quotes it (massform.py:1127-1136): 'Although there is no real symmetry breaking phase transition, we use the conventional labels broken and symmetric'.",
+ "published_hypotheses": [
+  "H1 (as quoted by the tree and the search summary; not READ here): the Standard Model at the physical Higgs mass, where symmetry restoration is a smooth cross-over, not a phase transition.",
+  "H2 (search summary, not READ): high-temperature dimensional reduction to a 3d effective SU(2) x U(1) gauge + Higgs theory, simulated by lattice Monte Carlo; fermions and heavy modes enter only through the perturbative matching.",
+  "H3 (tree quote): the +/-1.5 GeV is 'the estimated uncertainty of the effective theory approach' (the perturbative matching), dominating the 0.1 GeV statistical error.",
+  "H4 (tree quote): T_c is DEFINED operationally as the maximum of the Higgs-condensate susceptibility; a pseudo-critical temperature of a crossover of width ~5 GeV.",
+  "H5 (not READ): specific SM input parameters (m_H, m_W, m_Z, m_t, couplings) at which the matching was done; the values the authors used were not read in this stage."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED (definition): massform.py:544 ('THERMAL, ABOVE T_c = 159.5 +/- 1.5 GeV') and S11 at massform.py:2957-2958 ('unsuppressed above T_c, vev approximately zero; below T_c down to T*') use T_c as a threshold between two regimes. The source (as the tree itself quotes at massform.py:1119-1121) defines T_c as a susceptibility maximum of a smooth crossover ~5 GeV wide; there is no temperature at which the regime switches. The tree carries this elsewhere (DRT-vev and footnote 1 quoted at massform.py:1126-1136; the 'approximate-zero reading' caveat at massform.py:549-551), so this is a presentation weakening at the line 544/S11 site, not a dropped hypothesis in any computation.",
+  "DROPPED at the use site (H2/H3): massform.py:544-545 cites only '(D'Onofrio-Rummukainen abstract, READ)'; the effective-theory (dimensional-reduction, perturbative matching) basis of the value and the fact that the whole 1.5 GeV is a matching-systematic estimate appear only in the quotation at massform.py:1122-1125. The canonical entry carries 'lattice + effective theory; SM crossover'. No computation in the tree depends on this.",
+  "DROPPED (H5): the tree does not state at which Higgs/top mass the value holds (massform.py:544, :1478). Quantified here (re-derivation): input movement of the plausible size moves T_c by well under 1.5 GeV, so the drop moves nothing.",
+  "PRECISION (tree-side, not a source fault): massform.py:545 prints 1.851e15 K and massform.py:4651 prints '%.4e K' (1.8509e15 K) for a value carrying +/-1.5 GeV (+/-1.7e13 K, ~1%): the 4th/5th significant figure is below the source's precision. The band is 1.834e15 .. 1.868e15 K. Recorded, not repaired.",
+  "SOURCE-INTERNAL DISCREPANCY carried correctly by the tree: abstract 159.5 +/- 1.5 vs Sec. VII 159.6 +/- 0.1 +/- 1.5 (massform.py:1116-1118 records both; T_C_GEV = 159.5 at massform.py:1478 takes the abstract). 0.1 GeV = 0.067 sigma: a rounding-level discrepancy, not a conflict. The tree also correctly keeps the companion paper's T_c = 159 +/- 1 (1404.3565) as the bound of the broken-phase fit rather than 159.5 (massform.py:556-560); the two agree to 0.28 sigma."
+ ],
+ "data_at_publication": [
+  {"quantity": "m_H (the matching input; T_c scales roughly as m_H^0.84 in the one-loop estimate)",
+   "value_then": "NOT READ (the value the authors used could not be read this stage; the 2015 world value was ~125 GeV)",
+   "value_now": "125.13 +/- 0.11 GeV (RPP 2026), 125.20 +/- 0.11 (RPP 2024/2025)",
+   "source_now": "pdg.lbl.gov rpp2026-list-higgs-boson.pdf p.1, as READ in the sibling audit d67/audits/pdg-2026-m_h.json",
+   "moves_conclusion": "No. One-loop sensitivity estimate (RECONSTRUCTED, not the paper's method): 125.0 -> 125.2 moves T_0 by +0.19 GeV; RPP-2024 -> RPP-2026 (-0.07 GeV) by -0.07 GeV; today's +/-0.11 GeV error propagates to ~0.12 GeV on T_c: all < 1/7 of the quoted +/-1.5 GeV."},
+  {"quantity": "m_t (enters via the top Yukawa in the thermal mass; d ln T_0/d ln m_t = -0.62)",
+   "value_then": "NOT READ",
+   "value_now": "NOT READ this stage (the PDG 2024 direct-measurement average ~172.6 GeV is recalled, not read)",
+   "source_now": "none read (alphaXiv quota; PDG/arXiv egress-blocked)",
+   "moves_conclusion": "No, bounded: a +/-1 GeV change in m_t moves T_0 by -/+0.50 GeV, a third of the quoted error; the 2015->2024 move of any plausible top mass is under 1 GeV."},
+  {"quantity": "m_W, m_Z, v",
+   "value_then": "NOT READ",
+   "value_now": "NOT READ this stage",
+   "source_now": "none read",
+   "moves_conclusion": "No: d ln T_0/d ln m_W = -0.13, d ln m_Z = -0.09; plausible moves shift T_0 by < 0.01 GeV (m_W, m_Z) and 0.13 GeV (v 246.0 -> 246.22)."},
+  {"quantity": "k_B and e (the tree's GeV -> K conversion)",
+   "value_then": "n/a",
+   "value_now": "SI-exact: e = 1.602176634e-19 C, k_B = 1.380649e-23 J/K (higgs.py:205, nopath.py:166)",
+   "source_now": "SI 2019 definition (exact by definition)",
+   "moves_conclusion": "No: 159.5 GeV = 1.85092064e15 K exactly, printed as 1.851e15 K (agrees)."}
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": D + "rederive/1508.07161.py",
+  "outcome": "0 failures, 12 checks. (1) 159.5 GeV x e x 1e9 / k_B = 1.85092064039e15 K with SI-exact constants: the tree's 1.851e15 K agrees; the +/-1.5 GeV band is 1.834e15 .. 1.868e15 K. (2) Abstract vs Sec. VII (as the tree quotes them) differ by 0.1 GeV = 0.067 sigma; 159.5+/-1.5 vs 1404.3565's 159+/-1 differ by 0.28 sigma. (3) The one inequality the tree computes on T_c, T* = 131.7 < T_c (massform.py:2190), holds by 27.8 GeV = 18.5 sigma, and still holds if T_c is lowered by the full ~5 GeV crossover width. (4) Sensitivity only (RECONSTRUCTED, explicitly NOT a re-derivation of the lattice value): one-loop high-T zero of the Higgs mass parameter, T_0^2 = 2 m_H^2 v^2 / (m_H^2 + 2 m_W^2 + m_Z^2 + 2 m_t^2) (sympy-verified closed form), gives 139.8-140.4 GeV, 12% below the lattice 159.5 (as expected of a one-loop estimate); elasticities d ln T_0/d ln (m_H, m_W, m_Z, m_t) = +0.84, -0.13, -0.09, -0.62; assumed-2015 -> PDG-2024 input move shifts T_0 by +0.54 GeV (m_H +0.19, m_t +0.22, v +0.13), RPP-2026 m_H by -0.07 GeV. The lattice value itself (a 3d Monte Carlo) is not re-derivable here.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {"ref": "arXiv:1404.3565, D'Onofrio, Rummukainen, Tranberg, PRL 113 (2014) 141602",
+   "effect": "confirms",
+   "what": "Companion paper: T_c = (159 +/- 1) GeV (as the tree quotes it, massform.py:1153-1157); consistent with 159.5 +/- 1.5 at 0.28 sigma (computed).",
+   "read_status": "READ by the tree (massform.py DRT-Tc); not re-read this stage"},
+  {"ref": "arXiv:1503.04935, Laine & Meyer, 'Standard Model thermodynamics across the electroweak crossover'",
+   "effect": "confirms",
+   "what": "Perturbative SM thermodynamics through the crossover; search summary states a crossover 'around T = 160 GeV' for m_H = 125 GeV.",
+   "read_status": "NAMED-NOT-READ (WebSearch listing only; alphaXiv quota exhausted, arXiv egress-blocked)"},
+  {"ref": "Gould, Guyot, Kajantie, Rummukainen et al., 'First-order electroweak phase transitions: A nonperturbative update', PRD 106 (2022) 114507",
+   "effect": "extends",
+   "what": "Nonperturbative update of the 3d effective-theory phase diagram (first-order region beyond the SM); relevant to H2's framework, does not bear on the SM T_c as far as seen.",
+   "read_status": "NAMED-NOT-READ (WebSearch listing only)"},
+  {"ref": "arXiv:2505.14335, 'Phase Transitions in Dimensional Reduction up to Three Loops'",
+   "effect": "extends",
+   "what": "Higher-order dimensional-reduction matching: the source of H3's +/-1.5 GeV systematic; whether it narrows that error for the SM crossover was not read.",
+   "read_status": "NAMED-NOT-READ (WebSearch listing only)"}
+ ],
+ "lacked_data": "M's hypothesis for this result: the authors lacked data. What the result rests on is (i) the SM input masses at which the 3d effective theory is matched, and (ii) the perturbative matching order (their +/-1.5 GeV). On (i): the Higgs mass was already measured to ~0.2-0.3 GeV by 2015 (ATLAS+CMS Run 1), and later data moved it by ~0.1-0.2 GeV (to 125.13 +/- 0.11, RPP 2026); the top and W masses moved by well under 1 GeV. Computed here through the one-loop elasticities, these moves shift T_c by at most ~0.5 GeV (m_t) and ~0.1-0.2 GeV (m_H), all inside the quoted 1.5 GeV: evidence AGAINST the hypothesis that missing data changes this conclusion. On (ii): higher-loop matching (e.g. arXiv:2505.14335, NAMED-NOT-READ) is later *theory*, not data; whether it has narrowed or shifted the SM T_c could not be read here, so that part is OPEN, not presumed either way. For the tree's use, T_c enters only as a label on the regime and as the upper side of T* < T_c, which survives any shift below ~28 GeV: even a hypothetical multi-sigma revision would not move the tree's conclusion.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be READ at source this stage: alphaXiv's quota was exhausted on all three tools and arXiv/INSPIRE/Crossref/ADS-type hosts are egress-blocked; the only views are the tree's own verbatim quotation (massform.py:1116-1125) and a WebSearch summary, neither of which is an independent read. Per M's rules a claim not checkable here is OPEN, not flattened to STANDS. What WAS checked, all agreeing: the GeV->K conversion (1.85092e15 K, exact SI constants; tree prints 1.851e15); the abstract/Sec. VII 0.1 GeV discrepancy (0.067 sigma, rounding-level, recorded by the tree itself); agreement with the companion 159 +/- 1 (0.28 sigma); the tree's only computed use, T* = 131.7 < T_c, holds by 18.5 sigma and survives the full 5 GeV crossover width; plausible input-mass moves shift T_c by <= ~0.5 GeV (<1/3 of the quoted error). Hypothesis drift is presentational (T_c treated as a threshold at massform.py:544 / S11 while the tree elsewhere quotes the smooth ~5 GeV crossover; effective-theory basis carried only in the quotation; a 4th-5th significant figure in kelvin below the source's 1% precision). No datum found that moves the tree's conclusion.",
+ "what_would_change_the_grade": "Reading arXiv:1508.07161 at source (alphaXiv quota reset or arXiv egress) and confirming the tree's two quotations (abstract '159.5 +/- 1.5 GeV'; Sec. VII '159.6 +/- 0.1 +/- 1.5 GeV'), the definition by the susceptibility maximum, and the input masses would grade it STANDS for the tree's use (re-derivation agrees; no moved datum moves the conclusion), with the presentational drifts kept recorded against the tree. NARROWED would follow if the read shows the value is stated only for an input set materially different from today's (e.g. m_H far from 125 GeV) or omits a sector the tree relies on. DATA-DEPENDENT would follow only if later work (e.g. three-loop matching, 2505.14335, or a 4d lattice study) moves the SM T_c by more than ~1.5 GeV -- and even then no tree verdict moves unless the shift exceeds ~28 GeV (the T* < T_c margin). WRONG would need a shown contradiction, and a misprint between abstract and body would be a discrepancy, not WRONG.",
+ "reverify_command": "python3 " + D + "rederive/1508.07161.py  # then read the source: alphaXiv answer_pdf_queries(paper='1508.07161', queries=['abstract T_c statement','Sec. VII T_c and error budget','input m_H, m_t, m_W','effective theory SU(2)xU(1) and matching order','crossover width']) and compare with massform.py:1116-1125",
+ "report_path": D + "audits/1508.07161.json"
+}
+json.dump(r, open(D + "audits/1508.07161.json", "w"), indent=1)
+print("ok")

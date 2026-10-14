@@ -1,0 +1,74 @@
+{
+ "key": "1808.08677",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I CONFIRM the overturn from OPEN to STANDS. I found no error shared by the three verifiers that touches the grade. I read the source myself this pass: alphaXiv answer_pdf_queries on arXiv:1808.08677v2 returned the full text, pp.1-10.\n\n(1) Abstract, p.1, verbatim: quark energy and glue field energy '33(4)(4)% and 37(5)(4)% respectively in the MS-bar scheme at mu = 2 GeV'; 'A quarter of the trace anomaly gives a 23(1)(1)% contribution to the proton mass based on the sum rule, given 9(2)(1)% contribution from the u, d, and s quark scalar condensates.' This is word for word the tree's held quote at massform.py:1381-1383.\n\n(2) p.5: '32(4)(4)% and 36(5)(4)% ... With the quark scalar condensate contribution of 9(2)(1)% [3], we can obtain that a quarter of the trace anomaly contributes 23(1)(1)% with N_f = 2 + 1.'\n\n(3) The sum rule is the source's own Eq.(2), M = <H_m> + <H_a>, with H_a = H_a^g + H_gamma_m (Eq.4). The audit's H-TRACE-SR is therefore READ, not an added hypothesis. (1-0.09)/4 = 22.75 %, which prints as 23 %.\n\n(4) The state: 'All the <H> are defined by <N|H|N>/<N|N> where |N> is the nucleon state' (p.1), and Table I uses a degenerate light sea quark. The paper works in the isospin limit, so its 'proton' value is the isospin-symmetric nucleon value. The tree's proton-to-nucleons step adds no hypothesis beyond that limit. The only residual is the normaliser, m_p against M_N, which is 0.069 % and was computed.\n\n(5) The error convention is READ: p.3 says 'the first error is the statistical one and the second error includes the systematic uncertainties'.\n\n(6) The 9 % is not computed in 1808.08677; p.5 imports it from ref [3], arXiv:1511.09089v3, which I also READ this pass: sigma_piN = 45.9(7.4)(2.8) MeV and sigma_sN = 40.2(11.7)(3.5) MeV, 'first error is statistical and the second systematic' (p.7). Computed: 86.1/938.272 = 9.18 %, which prints as 9. That paper does not itself print '9 %'.\n\nRe-runs, copied to adjudicate/run/:\n- The audit's rederive script gives OVERALL PASS.\n- The rederive verifier's script passes S2-S5. From the p.3 fractions 0.307 + 0.160 + 0.051 + 0.482 = 1.000, Eqs.(5)-(6) give H_E = 32.10 % and H_g = 36.15 %, which reproduce p.5's 32 and 36.\n- S6 fails as a finding: the abstract's 33 + 37 needs E+G >= 69.0, against a constructed 68.25. I recomputed this independently.\n- The data verifier's script reproduces.\n\nWhy not the other grades.\n- Not NARROWED. The tree uses only the 9 % and 23 % central values (massform.py:1434, 1464-1465, and the 9 % in a row at 1854-1855). Every hypothesis they carry is either the source's own (the isospin limit, N_f = 2+1, the sum rule) or disclosed by the tree (uncertainties dropped, massform.py:371-372). The MS-bar, mu = 2 GeV qualifier is dropped at :361-362, but it applies to the quark and glue energies, and the tree uses no number from them.\n- Not DATA-DEPENDENT. The later value I READ, CLQCD arXiv:2411.18402v2 Table III for the nucleon (sigma_H 0.0942, <H_a> 0.8434, m_N 0.9376 GeV), gives 10.05 % and 22.49 %. These are 0.34 and 0.33 combined sigma from 9(2)(1) and 23(1)(1). The FLAG sigma-term tension moves the condensate share by at most 1.9 points. C2 moves only if this row exceeds Ji's 17.04 %.\n- Not WRONG. Nothing refutes it. The one inconsistency in the source, abstract against body on quark and glue energy, is a DISCREPANCY between two printings. It touches no number the tree uses, and the tree records it neutrally at :905 and :1379-1380.\n\nWhere the verifiers were partly wrong (none of it moves the grade):\n- The audit called the 102-against-100 difference 'rounding'. That is wrong. The refute and data verifiers rightly called it a discrepancy between two printings.\n- The refute verifier says 1511.09089 is normalised to 938 MeV (Fig.5 caption). The caption says only that 938 MeV is used to obtain f_s^N.\n- The verifiers cite massform.py:903 for the divergence note; it stands at :905 now.",
+ "scope": "STANDS covers the tree's use of arXiv:1808.08677:\n- the READ status of the held abstract sentence;\n- the values CHIQCD_QUARK_CONDENSATE = 9.0 and CHIQCD_QUARTER_ANOMALY = 23.0;\n- the 9 % applied as an isospin-symmetric nucleon share in the C2 row set;\n- the tree's record that the abstract and p.5 differ on quark and glue energy.\n\nIt holds under these NAMED hypotheses:\n- N_f = 2+1, with charm and heavier quarks inside the anomaly term.\n- The isospin limit, which is the source's own (H-ISOSPIN). Isospin breaking is outside the source; CLQCD 2411.18402 estimates ISB and QED at about 1 %, unmeasured.\n- The 9 % is imported from chiQCD 2016 (1511.09089) and carries about 17 % relative error.\n- The 23 % is INFERRED from the trace sum rule Eq.(2), not measured independently.\n- Central values only, per the file's stated policy.\n\nIt does NOT cover:\n- The lattice computation itself, which cannot be reproduced here.\n- The normaliser ambiguity: the lattice M = 0.960(13) GeV against the physical 938 MeV moves the 9 % to 8.97 %, which does not change the printed value.\n- arXiv:2601.13070 (the gradient-flow test of the sum rules) and K.-F. Liu 2102.07830, neither of which was read.\n- Wang et al. arXiv:2401.05496, which only the data verifier read; I did not.\n- Whether chiQCD16 is an input to FLAG's N_f=2+1 average, which was not checked.",
+ "corrections_to_record": [
+  "Audit check C (and rederive C2) is wrong as stated. The abstract/p.5 difference in quark and glue energy is NOT 'arithmetically a rounding difference'. In the source, Eqs.(1),(2),(5),(6) with x_q + x_g = 1 make the four shares sum to exactly 100 %. From the p.3 fractions 0.307/0.160/0.051/0.482, H_E = 32.10 % and H_g = 36.15 %, which reproduce p.5. The abstract's 33 + 37 needs E+G >= 69.0 against 68.25, so it cannot come from the body's central values. Record it as a DISCREPANCY between the abstract and the body, not a refutation; it touches no number the tree uses. The C2 test (any excess under 8.9 points) does not discriminate and should not be cited as evidence.",
+  "H-TRACE-SR is not an auditor hypothesis. It is the source's Eq.(2), M = <H_m> + <H_a>, READ at p.1, with H_a = H_a^g + gamma_m m psibar psi (Eq.4).",
+  "Provenance: 1808.08677 does not compute the 9(2)(1)%. p.5 imports it from ref [3], chiQCD arXiv:1511.09089 (PRD 94, 054503), which prints sigma_piN = 45.9(7.4)(2.8) MeV and sigma_sN = 40.2(11.7)(3.5) MeV (READ). Their sum is 9.18 % of 938.272 MeV (computed). 1511.09089 itself prints no '9 %'.",
+  "Proton vs nucleon: the source defines every <H> on the nucleon state |N> (p.1) and uses degenerate light sea quarks (Table I). The tree's proton-to-nucleons step therefore rests on the source's own isospin limit, not on a hypothesis the tree added. The residual is the m_p/M_N normaliser, 0.069 %. The audit's 'ADDED (proton -> nucleons)' should be restated this way.",
+  "The error-bracket convention is READ, not assumed: (statistical)(systematic) at 1808.08677 p.3 and 1511.09089 p.7.",
+  "Later literature: arXiv:2411.18402v2 (CLQCD) is NOT 'a direct lattice calculation of the anomaly term'. Its Eq.(3) is <H_a>_H = m_H^phys - sigma_H, the same sum-rule inference, with sigma_H from Feynman-Hellmann (READ). Its nucleon values (Table III: sigma_H 0.0942, <H_a> 0.8434, m_N 0.9376 GeV; 14 ensembles, 3,340 configurations) give 10.05 % and 22.49 %, consistent with 9(2)(1)% and 23(1)(1)% (computed). It shares authors (Yang, K.-F. Liu), so it is not fully independent.",
+  "Later literature: Wang et al., 'Trace anomaly form factors', is arXiv:2401.05496 (PRD 109, 094504) per the data verifier, which also reports that it fixes beta/2g with chiQCD16's <H_m>, so it is not independent. I did not re-read it; it is carried as verifier-READ.",
+  "M's lacked-data hypothesis can now be answered with evidence rather than 'nothing either way'. A later, larger same-group dataset (CLQCD 2025) moved neither number by more than 0.34 combined sigma. A test independent of the sum rule (2601.13070) remains NOT READ.",
+  "The audit's what_would_change_the_grade is overstated. It says the later direct computations could move the grade to DATA-DEPENDENT, but both 2411.18402 and 2401.05496 rest on the same sum rule.",
+  "Line numbers: the verifiers' massform.py:903 for the divergence note is stale; it stands at :905. The audit's :360-362 is now :361-362. The audit's :369-371 for the 'uncertainties are dropped' policy is now :371-372.",
+  "Refute verifier, minor: 1511.09089's Fig.5 caption says the physical 938 MeV is used to obtain f_s^N. It is not a general normalisation statement."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:338",
+   "finding": "'The chiQCD lattice gives 9(2)(1)% (READ).' The figure is printed in 1808.08677 (abstract and p.5) and originates in chiQCD 1511.09089. True of the collaboration. A provenance note would be accurate; the value is unchanged.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:361-362",
+   "finding": "Calls chiQCD's quark energy, glue energy and quarter anomaly READ without the MS-bar, mu = 2 GeV qualifier the source attaches to the quark and glue energies. The tree uses no number from those two terms, so nothing turns on it.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/massform.py:371-372",
+   "finding": "Policy 'uncertainties are dropped' covers the dropped (2)(1) on the 9 %. Disclosed, not silent.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:905",
+   "finding": "'chiQCD's abstract and p.5 differ on quark and glue energy.' Confirmed at source: 33/37 against 32/36. The body's equations reproduce 32/36 and the abstract figures are irreproducible, so this is a genuine discrepancy and the tree's neutral wording is accurate. The verifiers cited it as :903, which is stale.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1378-1383",
+   "finding": "SOURCES 'chiQCD' entry: READ status, the locator 'v2 abstract p.1 and p.5', the 33/37 against 32/36 note and the quoted sentence all verified verbatim against arXiv:1808.08677v2.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1434",
+   "finding": "Pins ('chiQCD','9(2)(1)%',9.0) and ('chiQCD','23(1)(1)%',23.0). Both strings occur in the held quote and in the source.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1464-1465",
+   "finding": "CHIQCD_QUARK_CONDENSATE = 9.0 and CHIQCD_QUARTER_ANOMALY = 23.0 match the source. The 23.0 is defined and pinned but no row reads it.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/massform.py:1854-1855",
+   "finding": "Applies the 9 % to the total nucleon mass under the label 'lattice, proton'. The source's value is defined on the nucleon state in the isospin limit, so the source's own hypothesis covers this step. The normaliser drift is 0.069 %. The label 'proton' copies the paper's wording; 'isospin-symmetric nucleon' would be more exact, a wording matter only.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json paging of adjudicate/in/1808.08677.json (audit and three verifier reports read in full)",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1808.08677', 6 queries) -> v2 pp.1-10 full text READ",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1511.09089', 3 queries) -> v3 pp.1-9 READ",
+  "mcp__alphaXiv__answer_pdf_queries(paper='2411.18402', 3 queries) -> v2 pp.1-4, 17-23 READ (Eq.3, Table III)",
+  "grep -n chiQCD/CHIQCD massform.py; sed -n on 322-340, 356-373, 898-910, 1374-1386, 1430-1436, 1462-1466, 1850-1856 (tree HEAD 2cc577c)",
+  "cp rederive/1808.08677.py verify/rederive/1808.08677.verify.py verify/data/1808.08677-data.py -> adjudicate/run/; python3 each (OVERALL PASS; S2-S5 PASS, S6 FAIL-as-finding; data script reproduces 9.18 %, 10.05 %, 22.49 %)",
+  "python3 -c independent arithmetic: H_E 0.321, H_g 0.3615, H_a/4 0.2275, fraction sum 1.000; 86.1/938.272 = 9.18 %; 94.2/937.6 = 10.05 %; 843.4/4/937.6 = 22.49 %"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && python3 1808.08677.py && python3 1808.08677.verify.py && python3 1808.08677-data.py; alphaXiv answer_pdf_queries(paper='1808.08677', queries=['abstract percentages','p.5 decomposition','Eq.(2) sum rule','nucleon state definition','p.3 momentum fractions and error convention']); grep -n 'chiQCD\\|CHIQCD' /home/user/Claude-Method-Works/research/warp-drive/massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/1808.08677.json"
+}

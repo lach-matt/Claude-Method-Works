@@ -15,7 +15,11 @@ and a test, and the statuses are not flattened:
     UNTESTED         nobody has asked, this project included.  THE DANGEROUS ROW.
 
 THE HEADLINE: of fifty-three obstructions, SIX dissolved, FOUR relocated,
-THIRTY-THREE closed negative, NINE conditional, ONE is OPEN, NONE is untested.
+THIRTY-TWO closed negative, NINE conditional, TWO are OPEN, NONE is untested.
+(CORRECTED (DOCKET 67, on M's ruling): first "THIRTY-THREE closed negative ...
+ONE is OPEN".  ACHRONALITY moved CLOSED-NEGATIVE -> OPEN: its only stated
+ground was the false converse of the conjugate-point theorem, and no correct
+ground for the closure exists in this tree -- see the row.)
 The newest is LIGHT-AS-THE-SUPPLY, closed NEGATIVE at both ends at once.  A
 build is ready when the untested rows are either tested or accepted with eyes
 open, and this file exists to make that a decision rather than an oversight.
@@ -116,11 +120,20 @@ LEDGER = [
   "pathmetric.py"),
  ("SELF-SOURCED", "an engine sources the metric it uses", "CLOSED-NEGATIVE",
   "the 10^31 gap and the ADM theorem both follow from it alone", "COUPLING.md"),
+ # CORRECTED (DOCKET 67): first written "unstable even-parity mode for all
+ #   l >= 2, all compactness, all Gamma ... beta^2 does not appear in it" --
+ #   PSP sampled, and their model is a barotropic perfect fluid
+ #   (2604.05980-nonradial-instability).
  ("NONRADIAL", "the shell is stable to l >= 2 perturbations", "CONDITIONAL",
-  "IT IS NOT. Pitre-Schneider-Poisson 2026 (PRD): unstable even-parity mode for "
-  "all l >= 2, all compactness, all Gamma -- on Le's anchor exactly, and beta^2 "
-  "does not appear in it, so the structural fix does not reach it. But the rate "
-  "is self-gravitational, ~0.6 sqrt(GM/R^3), so N < 1 is a ceiling on MEAN "
+  "IT IS NOT, for a barotropic perfect-fluid shell. Pitre-Schneider-Poisson "
+  "2026 (PRD): unstable even-parity mode at every SAMPLED value -- in GR "
+  "M/R in [0, 0.3], Gamma in [1.8, 2.4], l = 2-4; for every Gamma and l >= 2 "
+  "only in the Newtonian limit -- on Le's anchor exactly. The mode's EXISTENCE "
+  "does not depend on beta^2, so the structural fix does not reach it; its "
+  "rate does (stiffening slows it by up to 45%). wall.py's collisionless "
+  "counter-rotating and Bowers-Liang anisotropic walls are outside PSP's fluid "
+  "model. The l = 2 rate is self-gravitational, ~0.6 sqrt(GM/R^3) (higher l "
+  "runs faster), so N < 1 is a ceiling on MEAN "
   "DENSITY. THE CORNER IS WITHDRAWN: the same mass sets density and compactness, "
   "so escaping the instability means x -> 0, and the survivor at x = 3e-25 is a "
   "3.97 g/m^2 balloon whose flat cavity is Birkhoff, not a warp feature. Both "
@@ -157,37 +170,91 @@ LEDGER = [
   "saturating only at resonance. Cost of the error: beta capped at c/4 when the "
   "real ceiling is the analogue horizon -- 0.825 c at 0.95% ferrite loss",
   "dispersive.py"),
+ # CORRECTED (DOCKET 67): first written "ANEC in curved spacetime is FALSE in
+ #   general -- the Casimir vacuum is the standard counterexample" (the plate
+ #   system obeys ANEC; casimir-anec-violation-curved) and "unproven for
+ #   nineteen years" (restricted proofs and G&O's sub-Planckian condition
+ #   dropped; 0705.3193, self-consistent-achronal-anec-open-nineteen-years).
  ("ANEC", "the averaged null energy condition", "RELOCATED",
   "RELOCATED, NOT DISSOLVED, AND NOT CLOSED. Three statements wear this name "
   "and only one bites. ANEC in flat space is PROVEN (Faulkner-Leigh-Parrikar-"
   "Wang; Hartman-Kundu-Tajdini) and says nothing about a curved corridor. ANEC "
-  "in curved spacetime is FALSE in general -- the Casimir vacuum is the "
-  "standard counterexample -- so violating it was never by itself a "
-  "disqualification. ACHRONAL ANEC is the one with teeth, and achronal.py "
+  "for test fields on a fixed curved background is FALSE in general -- the "
+  "counterexamples read are Schwarzschild/Boulware (chronal), Visser's "
+  "scale-anomaly class and Urban-Olum's conformally flat spacetime "
+  "(achronal); the Casimir-type one is plate-free compactified Minkowski "
+  "space, a FLAT system, since between plates ANEC holds -- so violating it "
+  "was never by itself a disqualification. ACHRONAL ANEC is the one with teeth, and achronal.py "
   "closed the achronality escape against us with SHEAR DROPPED, on the stated "
   "ground that dropping shear is conservative. THAT CLAIM IS INVERTED: shear "
   "helps focusing, focusing makes conjugate points, and a conjugate point is "
   "what REMOVES achronality. Demonstrated in vacuum where R_kk = 0 exactly -- "
   "the scalar equation gives u = lambda with no zero ever while the full "
-  "matrix finds a conjugate point at 56.50. Corrected, and scanning impact "
+  "matrix finds a conjugate point at 56.50 (n = 900; 56.56 converged at n = "
+  "3600). Corrected, and scanning impact "
   "parameter, ANEC violation ceases at b = 2.378288 while conjugate points "
   "persist well past it: the ANEC-violating set is STRICTLY INSIDE the "
-  "non-achronal set, so NO RAY OF THIS CORRIDOR IS BOTH ANEC-VIOLATING AND "
-  "ACHRONAL. The corridor is OUTSIDE achronal ANEC's scope. That is a scope "
-  "finding and NOT a refutation -- self-consistent achronal ANEC stands where "
-  "it stood, unproven for nineteen years -- and it moves NOT ONE ORDER OF "
+  "non-achronal set, so NO RAY OF THE SCANNED FAMILY (planar, +x-directed, "
+  "one source strength; other families NOT-RUN) IS BOTH ANEC-VIOLATING AND "
+  "ACHRONAL (CORRECTED, DOCKET 67 follow-ups: first 'NO RAY OF THIS "
+  "CORRIDOR', broader than the one family anecscope.py computed). On that "
+  "family the corridor is OUTSIDE achronal ANEC's scope. That is a scope "
+  "finding and NOT a refutation -- self-consistent achronal ANEC, at "
+  "curvature well below the Planck scale, stands where it stood, unproven in "
+  "general for nineteen years (restricted proofs aside: Kontou-Olum on curved "
+  "backgrounds obeying the NEC; Wall from the GSL) -- and it moves NOT ONE ORDER OF "
   "MAGNITUDE. The requirement is simply no longer answerable by a prohibition, "
   "so it relocates into the magnitude, where the rest of this project already "
   "sits", "anecscope.py"),
+ # CORRECTED (DOCKET 67): first written "THEY ARE ACHRONAL. ... ZERO with a
+ #   conjugate point" -- the converse of the conjugate-point theorem, which is
+ #   false; it ran against M and the ANEC row above already inverts the
+ #   closure.  Also "unproven for nineteen years" (0705.3193).
+ # CORRECTED (DOCKET 67, on M's ruling "state the correct reason it is still
+ #   closed-negative.  If there is none, it is open"): status first written
+ #   CLOSED-NEGATIVE, kept so through the prose pass.  NOW OPEN.  Closing it
+ #   negative needs the 25 ANEC-violating rays to be ACHRONAL, and nothing in
+ #   this tree shows that: (1) the only ground ever given was "no conjugate
+ #   point => achronal", the converse of Hawking-Ellis Prop. 4.5.12 / Wald
+ #   Thm 9.3.8, which runs one way only (conjugate-point-not-achronal R5,
+ #   0705.3193 C2: a flat-cylinder null geodesic has J = lambda and is
+ #   chronal; recomputed here, cylinder_converse_fails()); (2) even "no
+ #   conjugate point" is the SHEAR-DROPPED scalar result, which anecscope.py
+ #   showed overstates achronality, and the shear-restored re-run of these 25
+ #   rays is anecscope.NOT_RUN[0]; (3) achronality of a complete null
+ #   geodesic is a global causal statement (no timelike curve between ANY two
+ #   of its points) and no instrument here computes it for the bubble.  Nor
+ #   is the escape shown to exist for the bubble: anecscope.py's containment
+ #   is measured on the static corridor (one planar ray family, one source
+ #   strength), not on these rays.  So neither answer is computed -> OPEN.
+ #   What WOULD close it: a computed proof that each ANEC-violating complete
+ #   ray is achronal (e.g. a time function along which it is the fastest
+ #   causal curve between every pair of its points) -> CLOSED-NEGATIVE; a
+ #   full-matrix conjugate point exhibited on each of them (the forward
+ #   direction, valid) -> the escape exists for the bubble.
  ("ACHRONALITY", "the ANEC-violating rays might be non-achronal, putting the "
-  "bubble outside Graham-Olum", "CLOSED-NEGATIVE",
-  "THEY ARE ACHRONAL. 25 ANEC-violating rays over v_s = 0.3/0.5/0.8 c, ZERO "
-  "with a conjugate point. And the anti-correlation is Raychaudhuri itself -- "
+  "bubble outside Graham-Olum", "OPEN",
+  "OPEN (DOCKET 67, on M's ruling; first CLOSED-NEGATIVE, whose only ground "
+  "was the false converse below). Measured in the shear-dropped scalar "
+  "reduction: NO CONJUGATE POINT ON ANY OF THEM: 25 ANEC-violating rays over "
+  "v_s = 0.3/0.5/0.8 c, ZERO with a conjugate point. That does NOT make them "
+  "achronal -- past a conjugate point a null geodesic is chronal, but the "
+  "converse is false (a flat-cylinder null geodesic with no conjugate point "
+  "is chronal) -- and dropping shear overstates achronality (ANEC row "
+  "above). And the anti-correlation is Raychaudhuri itself -- "
   "u'' = -4 pi T_kk u, so the negative T_kk that violates ANEC is what "
   "defocuses the congruence and prevents the conjugate point that would break "
-  "achronality. PROVED where T_kk <= 0 throughout, measured where the signs "
-  "mix. The prohibition now rests entirely on the achronal ANEC in 4D CURVED "
-  "spacetime -- unproven for nineteen years, and load-bearing", "achronal.py"),
+  "achronality in that reduction. PROVED (no conjugate point, scalar "
+  "reduction) where T_kk <= 0 throughout, measured where the signs mix -- "
+  "and 'no conjugate point' is all it proves. WHETHER THESE RAYS ARE "
+  "ACHRONAL IS NOT COMPUTED: achronality is global and no instrument here "
+  "tests it, the shear-restored re-run is NOT-RUN (anecscope.NOT_RUN), and "
+  "anecscope's escape is measured on the corridor, not the bubble. Neither "
+  "'inside Graham-Olum' nor 'outside it' is shown for the bubble. If the "
+  "rays are achronal, the prohibition rests on the self-consistent achronal "
+  "ANEC in 4D CURVED spacetime at curvature well below the Planck scale -- "
+  "unproven in general for nineteen years, restricted proofs aside "
+  "(Kontou-Olum; Wall from the GSL)", "achronal.py"),
  ("TURN-ADVANTAGE", "the focusing turn that seats a transition might also "
   "shorten it", "CLOSED-NEGATIVE",
   "IT DOES NOT, and the two exclusions are one fact seen twice. The Jacobi "
@@ -202,7 +269,8 @@ LEDGER = [
   "DISSOLVED",
   "THEY CAN. Ricci focusing is linear in the source and needs positive energy; "
   "Weyl focusing is QUADRATIC and is sign-blind, while the Shapiro delay stays "
-  "linear and flips. Measured: M = -2e-3 seats at lambda 56.5 and arrives EARLY. "
+  "linear and flips. Measured: M = -2e-3 seats at lambda 56.5 (n = 900; 56.56 "
+  "converged at n = 3600) and arrives EARLY. "
   "Bounded above by the M^2 path-lengthening penalty, below by the focal length "
   "-- a window about a decade wide. Negative mass ASSUMED, field LINEARISED, "
   "focus ASTIGMATIC, no payload", "composite.py"),
@@ -267,26 +335,40 @@ LEDGER = [
   "exotic-matter bill, it PROVES the bill unavoidable. Charge is the quantity "
   "that does pair (Wheeler), because it is sign-symmetric and mass is not",
   "pair.py"),
+ # CORRECTED (DOCKET 67): first written "the universe has theta = 3 H_0"
+ #   (congruence and FLRW dropped), "grew by 1090.92 since recombination,
+ #   read off T_rec/T_0" (a factor; z* is last scattering and a base-LCDM
+ #   derived parameter; the T ratio is that number again, not a reading),
+ #   "where nothing moves" (no peculiar motion), and "CLASSICALLY EQUIVALENT
+ #   to GR" with conservation dropped.  The row's verdict rests on theta.
  ("EXPANSION-IS-A-RELABELLING", "cosmological metric transport is a gauge "
   "artefact -- a relabelling of a closed index, borrowable as a coordinate "
   "choice", "CLOSED-NEGATIVE",
   "IT IS NOT, AND ONE INVARIANT SCALAR SETTLES IT. A measure-preserving "
   "rearrangement has expansion scalar theta = grad_mu u^mu = 0 exactly; the "
-  "universe has theta = 3 H_0 = 6.549e-18 /s, and theta is coordinate-"
-  "invariant, so no relabelling moves it. The sharper form: the Bohr radius "
-  "contains no scale factor, so (cosmic scale)/(atomic scale) is DIMENSIONLESS "
-  "and grew by 1090.92 since recombination, read off T_rec/T_0 -- a "
-  "relabelling has no units to hide in. What IS a closed index here is the "
-  "COMOVING frame, where nothing moves and n a^3 is conserved exactly; that "
-  "much is textbook and buys nothing. Unimodular gravity formalises the fixed "
-  "volume element and is CLASSICALLY EQUIVALENT to GR", "permute.py"),
+  "comoving congruence of FLRW has theta = 3 H_0 = 6.549e-18 /s, and theta is "
+  "a scalar of the pair (metric, congruence), so no relabelling moves it -- "
+  "choosing the fundamental observers is the physical choice (de Sitter's "
+  "static congruence has theta = 0 at the same events). The sharper form: the "
+  "Bohr radius contains no scale factor, so (cosmic scale)/(atomic scale) is "
+  "DIMENSIONLESS and grew by a FACTOR of 1 + z* = 1090.92 since last "
+  "scattering (z*, a base-LCDM derived parameter; T ~ 1/a makes T_rec/T_0 the "
+  "same number, not an independent reading; alpha, m_e and hbar held "
+  "constant) -- a relabelling has no units to hide in. What IS a closed index "
+  "here is the COMOVING frame, where a body with no peculiar motion does not "
+  "move (the Sun moves at 371 km/s through it) and n a^3 is conserved exactly; "
+  "that much is textbook and buys nothing. Unimodular gravity formalises the "
+  "fixed volume element and, for conserved stress-energy (an added hypothesis, "
+  "automatic for Lagrangian matter), is CLASSICALLY EQUIVALENT to GR", "permute.py"),
  ("NO-PATH-IS-CHEAPER", "finding the point where NO PATH is needed is "
   "cheaper than computing a short one", "CLOSED-NEGATIVE",
   "IT IS THE MAXIMUM OF THE COST CURVE, NOT THE MINIMUM, AND THE PROJECT'S OWN "
   "EQUATION SAYS SO. Delta-d = (G/c^2) M Lambda is LINEAR in the contraction -- "
   "no economy of scale -- so making two points ONE means contracting the WHOLE "
-  "separation: 5.1048e42 kg at four light years, 2.5666e12 SOLAR MASSES, "
-  "against 5.1048e40 for a 1% contraction. BUT THE OTHER READING SURVIVES AND "
+  "separation: 5.4193e42 kg at Proxima (phase1.L_PROXIMA, 4.2465 ly), "
+  "2.7248e12 SOLAR MASSES, against 5.4193e40 for a 1% contraction "
+  "(CORRECTED, DOCKET 67 follow-ups: first 5.1048e42 kg, 2.5666e12 and "
+  "5.1048e40, at a round four light years; nopath.py now asks phase1). BUT THE OTHER READING SURVIVES AND "
   "IS NOT ON THIS CURVE AT ALL: two points ALREADY one is a wormhole mouth "
   "pair, nothing is contracted and nothing is paid for contracting -- which is "
   "create.py's FIND ONE AND ENLARGE IT, reached from the index picture instead "
@@ -294,13 +376,14 @@ LEDGER = [
  ("INFORMATION-CURRENCY", "the bill can be paid in information rather than "
   "mass-energy", "CLOSED-NEGATIVE",
   "INFORMATION IS NOT A SECOND CURRENCY. The required configuration holds "
-  "9.9736e101 bits and the holographic and Bekenstein routes agree to six "
+  "1.1241e102 bits at Proxima (first 9.9736e101, at four light years) and "
+  "the holographic and Bekenstein routes agree to six "
   "digits, saturated at the horizon -- WHICH IS THE FINDING: Bekenstein bounds "
   "S BY E, so you cannot hold the bits without the energy to hold them in, and "
   "S <= 2 pi R E / (hbar c) runs the WRONG WAY for the trade. The bits ARE the "
   "mass in other units, converted by hbar. Landauer adds that manipulating "
-  "them at the CMB costs 19.75 ORDERS MORE than Mc^2, breaking even only at "
-  "4.8068e-20 K -- flagged as the WEAKER half, since Landauer prices "
+  "them at the CMB costs 19.78 ORDERS MORE than Mc^2, breaking even only at "
+  "4.5279e-20 K (first 19.75 and 4.8068e-20 K, at four light years) -- flagged as the WEAKER half, since Landauer prices "
   "irreversible operations and the Bekenstein argument is static and survives "
   "reversibility. Complements CHEAPER-CURRENCY, which never priced this "
   "denomination", "nopath.py"),
@@ -314,9 +397,11 @@ LEDGER = [
   "QUANTUM STATES of energy E in radius R -- spectral multiplicity, never "
   "charge -- so the prediction names the bound's own variable. WRONG: a "
   "spectrum is a LOGARITHM. One hydrogenic charge holds 385/338,350/333,833,500 "
-  "states to n = 10/100/1000, which is 8.6/18.4/28.3 bits; reaching 9.9736e101 "
-  "bits takes 5.4298e100 atoms at 9.0870e73 kg against 5.1048e42 kg supplied "
-  "directly, THIRTY-ONE AND A QUARTER ORDERS WORSE. And the gap is not about "
+  "states to n = 10/100/1000, which is 8.6/18.4/28.3 bits; reaching 1.1241e102 "
+  "bits takes 6.1196e100 atoms at 1.0241e74 kg against 5.4193e42 kg supplied "
+  "directly, THIRTY-ONE AND A QUARTER ORDERS WORSE (at Proxima; first "
+  "9.9736e101 bits, 5.4298e100 atoms, 9.0870e73 kg and 5.1048e42 kg at four "
+  "light years -- CORRECTED, DOCKET 67 follow-ups). And the gap is not about "
   "hydrogen: black-hole bits go as M^2 and saturate the bound, so an OPTIMISED "
   "spectral currency IS A BLACK HOLE -- dichotomy.py's RICCI route, closed by "
   "COLLAPSE. Leaves H14 standing: a multiplicity has no sign", "spectra.py"),
@@ -473,15 +558,24 @@ LEDGER = [
   "1+2|M|r^2/R^3 > 1 everywhere, finite at 2|M|/R = 8378 -- and p(0)/|rho| "
   "rises to 1/3 FROM BELOW. Every energy condition fails and all fail for one "
   "reason: rho < 0. Flip that and DEC holds", "core.py"),
+ # CORRECTED (DOCKET 67): this row still printed what achievable.py withdrew
+ #   in DOCKET 55 -- "obeys Ford-Roman |rho| <~ hbar c/L^4", "65 ORDERS",
+ #   "4.09 PLANCK LENGTHS -- a third independent route", "a theorem not a
+ #   budget" -- and listed vacuum polarisation as a measured negative energy
+ #   density (lamb-shift-vacuum-polarisation).  Reworded to the owner's
+ #   corrected text; the status is unchanged.
  ("ACHIEVABLE-CORE", "a core that can actually be made", "CLOSED-NEGATIVE",
-  "THERE IS NONE. Every known negative energy density -- Casimir, squeezed "
-  "vacuum, dynamical Casimir, Hawking flux, vacuum polarisation -- obeys "
-  "Ford-Roman |rho| <~ hbar c/L^4, and the core needs 65 ORDERS more at metre "
-  "scale. The gap WIDENS with size (required 1/b^2 against available 1/b^4), "
-  "closing the 'go bigger' escape used twice before, and the curves cross at "
-  "4.09 PLANCK LENGTHS -- a third independent route to that scale. Dark energy "
-  "and BEC effective negative mass are not exceptions. THE DEVICE IS NOT "
-  "RETRACTED; the core is not buildable, and that is a theorem not a budget",
+  "NONE WITH KNOWN PHYSICS. The census -- Casimir, squeezed vacuum, dynamical "
+  "Casimir, Hawking flux, vacuum polarisation (the Lamb shift measures a "
+  "frequency interval, not a negative energy density) -- meets no spatial "
+  "bound, because Ford-Helfer-Roman prove none exists; the worldline QEI's "
+  "DURATION bound refuses the core on persistence, 71.256 orders short at "
+  "b = 1 m and widening as b^2, for the massless minimally coupled scalar in "
+  "flat space. The curves cross at 4.09 PLANCK LENGTHS, a dimensional "
+  "identity (L = l_P/sqrt(K)), not an independent route. Dark energy and BEC "
+  "effective negative mass are not exceptions. THE DEVICE IS NOT RETRACTED; "
+  "the core is not buildable with known physics, and the verdict is a SURVEY "
+  "of proven limits, not a theorem",
   "achievable.py"),
  ("ENTANGLEMENT-ROUTE", "entanglement supplies the negative energy without "
   "exotic matter", "CONDITIONAL",
@@ -490,21 +584,36 @@ LEDGER = [
   "as entropy CONCAVE along the ray. And the magnitude looks completely "
   "different in that variable: 2 pi^2 = 19.74x the HOLOGRAPHIC bound, constant "
   "at every scale, against Ford-Roman's 1e65. Cross-checks against spec.py's "
-  "collapse factor 2 pi^2/3, differing by exactly 3. So the PRINCIPLED gap is "
+  "collapse factor 2 pi^2/3 (its T_kk = u, radius-chord value), differing by "
+  "exactly 3. So the PRINCIPLED gap is "
   "twenty, the ENGINEERING gap is 65 orders, and the first is the meaningful "
   "one. But 20x the holographic bound is a limit on what CAN be. No charge "
   "loophole: QNEC is state-independent", "entangle.py"),
+ # CORRECTED (DOCKET 67): first written "THERE IS EXACTLY ONE, AND IT IS NOT
+ #   A MATTER-SIDE ESCAPE. achronal.py proved you cannot break achronality
+ #   through the stress tensor -- ANEC violation PROTECTS it, 25 rays and 0
+ #   escapes."  That rested on the same false converse as ACHRONALITY (no
+ #   conjugate point read as achronal; 0705.3193 C2) and on the shear-dropped
+ #   reduction anecscope.py inverted; and "exactly one" ignored this file's
+ #   own ANEC row, where the corridor's rays are measured non-achronal.  The
+ #   status CONDITIONAL is unchanged: its ground is GJW's external path and
+ #   the bank-loan condition (gjw.py), which do not use the struck claim.
  ("GRAHAM-OLUM-ESCAPE", "there is no way past the achronal ANEC",
   "CONDITIONAL",
-  "THERE IS EXACTLY ONE, AND IT IS NOT A MATTER-SIDE ESCAPE. achronal.py "
-  "proved you cannot break achronality through the stress tensor -- ANEC "
-  "violation PROTECTS it, 25 rays and 0 escapes. Gao-Jafferis-Wall break it by "
+  "THERE IS ONE BY AN EXTERNAL PATH, AND ONE MEASURED ON THE CORRIDOR. "
+  "achronal.py's 25 rays and 0 escapes are a shear-dropped no-conjugate-"
+  "point count and prove no achronality (ACHRONALITY row, now OPEN); "
+  "anecscope.py measures the corridor's ANEC-violating rays NON-achronal by "
+  "an internal conjugate point (one ray family; ANEC row). Gao-Jafferis-Wall break it by "
   "ADDING AN EXTERNAL CAUSAL PATH: coupling the two boundaries changes the "
   "chronology relation itself, and their traversable wormhole is the first in "
   "a UV-complete theory. THE CONDITION IS THAT THE SAME MOVE FORBIDS SPEED -- "
   "non-achronality requires an existing outside path, so the wormhole never "
   "beats it. Their flat-space version, left as a remark, needs amplification "
-  "4.387e71 D^2, rising with D and reaching unity at 0.093 Planck lengths",
+  "1.097e71 D^2 against T_kk (winding direction, H-WIND), rising with D and "
+  "reaching unity at 0.187 Planck lengths [CORRECTED, DOCKET 67 follow-up: "
+  "first 4.387e71 D^2 and 0.093 Planck lengths, the T_kk threshold against "
+  "the energy density, now gjw.energy_density_gain_coefficient()]",
   "gjw.py"),
  ("STANDING-COUPLING", "the ORDER row is open somewhere useful", "CONDITIONAL",
   "IT IS OPEN AT EXACTLY ONE POINT. The single-trip advantage is closed by the "
@@ -603,7 +712,8 @@ LEDGER = [
   "CLOSED BY EXHAUSTION, NOT BY CASE COUNT -- see rates.py: every "
   "denomination is tied to mass-energy by a MONOMIAL in G, c, hbar and k, or "
   "by a bound running against the trade, and the whole conversion table holds "
-  "one free dimensionless number (kappa, pi/360 against 3.8281e69 needed). A "
+  "one free dimensionless number (kappa, pi/90 against 3.8281e69 needed; "
+  "CORRECTED, DOCKET 67 follow-up: first pi/360, the energy-density ratio). A "
   "sixth denomination must enter through kappa or through the base. "
   "PURSUED IN THREE STAGES AND CLOSED, AND THE FIRST TWO STAGES SAY THE "
   "INSTINCT WAS RIGHT. (1) Entropy IS a structurally better denomination: "
@@ -635,15 +745,20 @@ LEDGER = [
   "ANEC's prohibition. This generalises nullbound.py's withdrawal from the "
   "Alcubierre wall, which phase1 excluded by D4, to EVERY ANEC-violating "
   "configuration", "smearing.py"),
+ # CORRECTED (DOCKET 67): first written "any Sturm-seating region is inside
+ #   its own Schwarzschild radius by 2 pi^2/3 at every scale" -- for T_kk = u
+ #   on a radius only (sturm-comparison-theorem, seated S-2 follow-on).
  ("THE-LEAD", "a device must beat light to be worth building", "DISSOLVED",
   "NOT UNDER M's SCOPING: the matter must exist at both ends under the same "
   "physics, nothing more. That removes the requirement Olum, Ford-Roman and "
   "Q <= M were all attached to. What remains -- the SEAT -- is achievable with "
   "ordinary matter, and the whole specification is one invariant, "
   "B*l = 1.5456e19 T m, fixed by c, G and mu_0 alone. The residual gap is "
-  "8.3e7 in field strength. BUT THE SPECIFICATION IS WITHDRAWN TWICE OVER: any "
-  "Sturm-seating region is inside its own Schwarzschild radius by 2 pi^2/3 at "
-  "every scale, and the magnetar figure compared a dipole's peak against a "
+  "8.3e7 in field strength. BUT THE SPECIFICATION IS WITHDRAWN TWICE OVER: for "
+  "pressureless matter (T_kk = u along the ray) any Sturm-seating region is "
+  "inside its own Schwarzschild radius by 2 pi^2/3 on a radius at every scale "
+  "(over H_ball as written specthm's S-2 is OPEN: a diameter chord falls to "
+  "<= 1 for w >= 0.644934), and the magnetar figure compared a dipole's peak against a "
   "length it does not sustain. What actually seats is CUMULATIVE WEAK-FIELD "
   "LENSING, f = b^2 c^2/(4 G M), validated against the solar focus at 547.6 AU "
   "-- which is gravitational lensing, ordinary and known since 1919", "spec.py"),
@@ -725,13 +840,52 @@ def check_typeiv_sources_conditional():
             and not selfconsistent.SCOPE["exact self-consistent"]
             and not selfconsistent.SCOPE["configuration matched"])
 
-def check_achronality_closed():
-    import achronal
+def cylinder_converse_fails(L=1.0, n=400):
+    """The converse of the conjugate-point theorem, refuted by computation.
+
+    Flat R x S^1 x R^2, x ~ x + L, null geodesic gamma(lam) = (lam, lam, 0, 0).
+    The tidal matrix is zero, so the Jacobi field J'' = 0, J(0) = 0, J'(0) = 1
+    is J = lam: NO conjugate point anywhere.  Yet gamma(s) is also the point
+    (s, s - L), whose interval from gamma(0) is -s^2 + (s - L)^2 = L^2 - 2 s L,
+    timelike for every s > L/2: the geodesic is CHRONAL.  (Same witness as
+    DOCKET 67's conjugate-point-not-achronal R5 and 0705.3193 C2.)
+    Returns (no_conjugate_point, first chronal s found, or None)."""
+    h = 4.0 * L / n
+    J, Jp, zero = 0.0, 1.0, False
+    for _ in range(n):                     # J'' = -K J with K = 0, integrated
+        J, Jp = J + h * Jp, Jp
+        zero = zero or J <= 0.0
+    chronal_at = None
+    for i in range(1, n + 1):
+        s_ = 4.0 * L * i / n
+        if -s_ * s_ + (s_ - L) ** 2 < 0.0:
+            chronal_at = s_
+            break
+    return (not zero, chronal_at)
+
+
+#: CORRECTED (DOCKET 67, on M's ruling): this check was
+#: check_achronality_closed(), labelled "the escape was looked for and is not
+#: there", returning True on (ANEC violators exist) and (achronal.escapes() ==
+#: []) and (the axial lemma fires).  Those compute "no conjugate point in the
+#: shear-dropped reduction" and nothing more; reading them as "achronal" is
+#: the false converse.  It now asserts what was computed AND why that is not
+#: a closure, and it FAILS if the shear-restored re-run is ever run (so the
+#: row must then be re-statused from the new measurement).
+ACHRONALITY_STATUS_AS_FIRST_WRITTEN = "CLOSED-NEGATIVE"
+
+
+def check_achronality_open():
+    import achronal, anecscope
     rows = achronal.survey()
     viol = [r for r in rows if r["anec_violated"]]
-    # closed negative means: the escape was looked for and is not there
+    no_conj, chronal_at = cylinder_converse_fails()
     return (len(viol) > 0 and achronal.escapes(rows) == []
-            and rows[0]["proved"])          # and the axial case is proved, not fitted
+            and rows[0]["proved"]          # no conjugate point: proved on the axis
+            # ... but no conjugate point does not give achronality:
+            and no_conj and chronal_at is not None
+            # ... and the shear-restored re-run of these rays is NOT-RUN
+            and any("25" in t and "shear" in t for t in anecscope.NOT_RUN))
 
 def check_turn_advantage_closed():
     # turnseat.py, NOT transit.py. The travel>turn>seat instrument was written
@@ -790,6 +944,10 @@ def check_charge_split():
             and charge.seats_beyond(1.0e11) < 2.0e8)
 
 def check_spec_achievable():
+    # pi/sqrt(q) is the first conjugate point for point initial data
+    # (u(0) = 0, u'(0) = 1) under CONSTANT q with zero shear -- the hypotheses
+    # of the "independent route" this check compares (DOCKET 67,
+    # jacobi-raychaudhuri-ricci-focusing).
     import spec
     return (abs(spec.seating_invariant()/1.54562e19 - 1.0) < 1e-4
             and abs(spec.conjugate_length_from_q(spec.energy_density(1e11))
@@ -812,8 +970,13 @@ def check_entanglement_route():
             and entangle.holographic_excess(1.0) > 1.0)
 
 def check_gjw():
+    # CORRECTED (DOCKET 67 follow-up): gjw.gain_coefficient() is now the T_kk
+    # gain 1.0967e71 (winding direction); the 4.3866e71 first pinned here is
+    # the energy-density ratio, and is still checked -- against
+    # gjw.energy_density_gain_coefficient(), the record gjw.py keeps.
     import gjw, math
-    return (abs(gjw.gain_coefficient()/4.3866e71 - 1.0) < 1e-3
+    return (abs(gjw.gain_coefficient()/1.0967e71 - 1.0) < 1e-3
+            and abs(gjw.energy_density_gain_coefficient()/4.3866e71 - 1.0) < 1e-3
             and gjw.amplification_needed(1e6) > gjw.amplification_needed(1.0)
             and gjw.unity_separation() < gjw.L_PLANCK)
 
@@ -849,8 +1012,13 @@ def selftest():
     chk("every row id is unique", len({r[0] for r in LEDGER}), len(LEDGER))
     chk("actually DISSOLVED", len(h["DISSOLVED"]), 6)
     chk("RELOCATED -- still true, renamed", len(h["RELOCATED"]), 4)
-    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 33)
+    chk("CLOSED-NEGATIVE", len(h["CLOSED-NEGATIVE"]), 32)
     chk("CONDITIONAL", len(h["CONDITIONAL"]), 9)
+    chk("OPEN -- TYPE-IV, and ACHRONALITY (DOCKET 67, on M's ruling)",
+        sorted(r[0] for r in h["OPEN"]), ["ACHRONALITY", "TYPE-IV"])
+    chk("ACHRONALITY moved from its first-written status",
+        [r[2] for r in LEDGER if r[0] == "ACHRONALITY"][0]
+        != ACHRONALITY_STATUS_AS_FIRST_WRITTEN, True)
     chk("UNTESTED -- where the next build fails", len(h["UNTESTED"]), 0)
     chk("UNTESTED is still empty; the new row is OPEN, which is not the same",
         sorted(set(r[2] for r in LEDGER)),
@@ -870,8 +1038,11 @@ def selftest():
         check_mapping_dissolved(), True)
     chk("TYPEIV-SOURCES: yes at first order, open at exact",
         check_typeiv_sources_conditional(), True)
-    chk("ACHRONALITY: the escape was looked for and is not there",
-        check_achronality_closed(), True)
+    chk("ACHRONALITY: no conjugate point (scalar), achronality not shown",
+        check_achronality_open(), True)
+    nc, ca = cylinder_converse_fails()
+    chk("  control: flat cylinder, no conjugate point", nc, True)
+    chk("  control: and chronal from s = L/2 (first grid s)", ca, 0.51)
     chk("TURN-ADVANTAGE: turn => late, early => no turn",
         check_turn_advantage_closed(), True)
     chk("SEAT-MEETS-TRANSPORT: a negative mass seats AND arrives early",

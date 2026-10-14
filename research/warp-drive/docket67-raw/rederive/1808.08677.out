@@ -1,0 +1,22 @@
+held quote: A quarter of the trace anomaly gives a 23(1)(1)% contribution to the proton mass based on the sum rule, given 9(2)(1)% contribution from the u, d, and s quark scalar condensates.
+PASS A1 '9(2)(1)%' in held quote
+PASS A2 '23(1)(1)%' in held quote
+PASS A3 CHIQCD_QUARK_CONDENSATE == 9.0
+PASS A4 CHIQCD_QUARTER_ANOMALY == 23.0
+PASS A5 held quote names 'proton' (not nucleon)
+B  (100-9)/4 = 91/4 = 22.750 %, propagated errors (0.50)(0.25)
+PASS B1 H-TRACE-SR reproduces 23 to printed precision  -- 22.75 rounds to 23; propagated (0.50)(0.25) vs printed (1)(1): printed errors are not smaller than propagation
+PASS B2 printed errors >= propagated
+C  abstract sum = 102 %, p.5 (tree note) sum = 100 %
+PASS C1 p.5 components (tree's reading) close to 100
+PASS C2 abstract excess of 2 points is inside combined uncertainty  -- excess 2 vs quadrature sum of printed errors 8.9 -- a rounding discrepancy, not a contradiction
+D  FLAG 2+1+1  (sigma_piN 60.9 + sigma_s 41.0)/m_N = 10.85 % ; H-TRACE-SR quarter anomaly 22.29 %
+D  FLAG 2+1    (sigma_piN 42.2 + sigma_s 44.9)/m_N = 9.28 % ; H-TRACE-SR quarter anomaly 22.68 %
+D  Roy-Steiner sigma_piN 59.1 + FLAG 2+1+1 sigma_s 41.0 -> 10.66 % ; quarter anomaly 22.33 %
+PASS D1 chiQCD 9% within its combined error (2.24) of FLAG 2+1 (9.28)
+D  chiQCD vs FLAG 2+1+1: 1.85 points = 0.83 of chiQCD's combined error
+PASS D2 moving the condensate to the largest sigma reading moves the quarter anomaly by < its printed (1)(1)  -- shift 0.42 points
+E  READ-row nucleon fractions: {'FLAG 2+1+1': 0.1085, 'FLAG 2+1': 0.0928, 'chiQCD': 0.09, 'Ji m_s -> 0': 0.1704, 'Ji m_s -> infinity': 0.1172} largest: Ji m_s -> 0
+PASS E1 chiQCD is not the largest READ row
+E  chiQCD would need > 17.04 % to move C2: 3.60 of its combined error above 9 %
+OVERALL PASS

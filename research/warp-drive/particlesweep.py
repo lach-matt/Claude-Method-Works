@@ -340,19 +340,30 @@ def selftest():
     # section 2: the two occupancy readings, and what they differ on
     chk("the ruling's census calls K1 and K6 empty; the index holds both",
         occupancy_gap(), [1, 6])
-    chk("and the honest occupancy leaves exactly K4 and K5 empty",
-        [k for k in range(8) if k not in honest_occupancy()], [4, 5])
-    chk("while the CURRENT occupancy leaves only K4 -- because this docket "
-        "filled K5", [k for k in range(8) if k not in current_occupancy()],
-        [4])
+    # RE-PINNED [4,5] -> [5] AND [4] -> [], AND THE TREE IS RIGHT AND THESE
+    # SENTENCES WERE OLD.  DOCKET 34 seated `spin4` at K4 after this census was
+    # pinned, so K4 is no longer empty on either reading.  Nothing about this
+    # docket's own finding moved: K5 is still the channel it filled, and
+    # honest_occupancy() still excludes its own row, which is the next fixture.
+    chk("and the honest occupancy leaves exactly K5 empty -- K4 went to "
+        "DOCKET 34's spin4, after this census was pinned",
+        [k for k in range(8) if k not in honest_occupancy()], [5])
+    chk("while the CURRENT occupancy leaves NONE empty -- this docket filled "
+        "K5 and DOCKET 34 filled K4",
+        [k for k in range(8) if k not in current_occupancy()], [])
     chk("and that is the whole reason honest_occupancy() excludes its own row",
         sorted(current_occupancy() - honest_occupancy()), [5])
 
     H = hits()
-    chk("three charts reach a channel the ruling's census calls empty",
-        len(H), 3)
-    chk("and against the HONEST occupancy only two do",
-        len(hits(honest_occupancy())), 2)
+    # RE-PINNED 3 -> 2 AND 2 -> 1, FOR THE SAME REASON AND NOT A SECOND ONE.
+    # `hits` counts charts reaching a channel the ruling's census calls empty;
+    # DOCKET 34 filling K4 removed the K4 hit from both readings.  The chart
+    # that falls away between the two readings is unchanged and is the next
+    # fixture -- it is still the K1, which is this docket's actual finding.
+    chk("two charts reach a channel the ruling's census calls empty",
+        len(H), 2)
+    chk("and against the HONEST occupancy only one does",
+        len(hits(honest_occupancy())), 1)
     chk("the one that falls away is the K1", sorted(
         {(p, c) for p, c, _n, k in H} - {(p, c) for p, c, _n, k
                                          in hits(honest_occupancy())}),
@@ -360,10 +371,20 @@ def selftest():
 
     # section 3: arity-2 freeness, the ground both refusals rest on
     F = arity2_freeness()
+    # RE-PINNED 105 -> 135 ARITY-2 CHARTS, and the count is the only thing
+    # that moved: statistics still closes every one of them and geometry still
+    # does not.  Thirty charts arrived since the pin.  SIX ARE DOCKET 51's --
+    # declaring NAMES on `phonondex` and `kpointdex` made three proper
+    # sub-charts each visible to the sweep, all six closing statistics and one
+    # of the six closing geometry, so without that repair the honest figures
+    # here would read (129, 129) and (83, 129).  The other 24 are indexes
+    # seated after this census was pinned.  ATTRIBUTED RATHER THAN LUMPED,
+    # because a census that cannot say where its own growth came from is not a
+    # census.
     chk("statistics closes EVERY arity-2 chart in the tree -- it is free",
-        F["statistics"], (105, 105))
-    chk("geometry does NOT -- 31 of 105 fail it, so it is earned",
-        F["geometry"], (74, 105))
+        F["statistics"], (135, 135))
+    chk("geometry does NOT -- 51 of 135 fail it, so it is earned",
+        F["geometry"], (84, 135))
     chk("and so does every other language fail some arity-2 chart",
         sorted(L for L, (c, n) in F.items() if c == n), ["statistics"])
     chk("the K4 candidate is arity 2, which is why it is refused",

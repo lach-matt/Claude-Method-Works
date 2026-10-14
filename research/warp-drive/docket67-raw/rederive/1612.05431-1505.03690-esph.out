@@ -1,0 +1,19 @@
+B(m_H -> inf) [h == 1]      = 2.7061   (KM restated: 2.72)  status=0
+B(m_H/m_W = 0.02)           = 1.5312   (KM restated: 1.56 as m_H -> 0)
+B(m_H/m_W = 0.05)           = 1.5463   (KM restated: 1.56 as m_H -> 0)
+B(m_H/m_W =  1.00)          = 1.8208  status=0 (monotone rise toward the m_H->inf limit)
+B(m_H/m_W =  2.00)          = 1.9766  status=0 (monotone rise toward the m_H->inf limit)
+B(m_H/m_W =  3.00)          = 2.0816  status=0 (monotone rise toward the m_H->inf limit)
+B(m_H/m_W =  5.00)          = 2.2187  status=0 (monotone rise toward the m_H->inf limit)
+
+TW-2015 inputs (v=246, m_W=80, m_H=125)              m_H/m_W=1.5625 B=1.9170 E_sph(SU2)=9.111 TeV  U(1) O(g'^2): -1.02% (on-shell s2=0.2303) -> 9.018 TeV; -1.03% (MSbar 0.23122) -> 9.018 TeV
+PDG-2014-era (v=246.22, m_W=80.385, m_H=125.09)      m_H/m_W=1.5561 B=1.9161 E_sph(SU2)=9.079 TeV  U(1) O(g'^2): -0.98% (on-shell s2=0.2229) -> 8.991 TeV; -1.03% (MSbar 0.23122) -> 8.986 TeV
+tree (v=246.2196, m_W=80.362 massform, m_H=125.20)   m_H/m_W=1.5580 B=1.9163 E_sph(SU2)=9.083 TeV  U(1) O(g'^2): -0.98% (on-shell s2=0.2233) -> 8.994 TeV; -1.03% (MSbar 0.23122) -> 8.990 TeV
+PDG-2024 (v=246.22, m_W=80.3692, m_H=125.20)         m_H/m_W=1.5578 B=1.9163 E_sph(SU2)=9.082 TeV  U(1) O(g'^2): -0.98% (on-shell s2=0.2232) -> 8.993 TeV; -1.03% (MSbar 0.23122) -> 8.989 TeV
+CDF-2022 m_W=80.4335 (contested)                     m_H/m_W=1.5566 B=1.9161 E_sph(SU2)=9.074 TeV  U(1) O(g'^2): -0.97% (on-shell s2=0.2220) -> 8.986 TeV; -1.03% (MSbar 0.23122) -> 8.981 TeV
+
+9.08 TeV / (3 m_p c^2) = 3225.8   (tree: 3226)
+9.11 TeV / (3 m_p c^2) = 3236.4 ; 9.0 -> 3197.4
+independent E_sph(PDG-2024, SU(2)) / (3 m_p) = 3226.7
+TW product 4.75 x (1.31+0.60) = 9.0725 (TW print 9.11)
+tree 3246 Mc^2 scales linearly with E_sph: at independent E=9.082 -> 3246.6 Mc^2

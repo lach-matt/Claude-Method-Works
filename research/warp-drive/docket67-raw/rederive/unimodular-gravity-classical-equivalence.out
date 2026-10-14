@@ -1,0 +1,20 @@
+PASS C1 nabla^mu(R_mu nu - R g/4) == d_nu R/4 on general time-dependent spherical metric (all 4 nu)
+     => nabla_nu (R + kappa T)/4 = kappa nabla^mu T_mu nu   [restatement 2603.14718 eq.(1), rearranged]
+PASS C2 G + Lambda g - kappa T == trace-free equation, with Lambda := (R + kappa T)/4 (identity)
+     with nabla.T = 0, C1 gives d_nu Lambda = 0: Lambda is an INTEGRATION CONSTANT on each connected domain
+PASS C3a trace-free FLRW dust system reduces to ONE equation (E_rr ∝ E_tt)
+     rho solving UG = 2*(-a(t)*Derivative(a(t), (t, 2)) + Derivative(a(t), t)**2)/(kappa*a(t)**2)  (i.e. kappa rho = -2 dH/dt)
+PASS C3b witness a = t^(1/2): rho = 1/(kappa t^2) > 0 (ordinary positive-density dust)
+PASS C3c witness violates conservation: nabla^mu T_mu t != 0
+     nabla^mu T_mu t = 1/(2*kappa*t**3)
+PASS C3d effective Lambda(t) = (R + kappa T)/4 is NOT constant
+     Lambda(t) = -1/(4*t**2)
+PASS C3e GR + constant Lambda fails: the tt equation demands Lambda0 depending on t
+     Lambda0 demanded by G_tt + Lambda0 g_tt = kappa T_tt : -1/(4*t**2)
+PASS C4a trace-free static system: rank 2 in (rho,p_r,p_t) [restatement p.5: 'only two independent equations']
+PASS C4b Einstein static system: rank 3 [restatement p.5: 'three independent equations']
+PASS C4c radial conservation = TOV form p_r' + (rho+p_r)Phi' + 2(p_r-p_t)/r
+PASS C4d on the trace-free shell d_r Lambda == kappa x (TOV expression): conservation <=> Lambda constant
+PASS C5 scalar field: nabla^mu T_mu nu == (Box phi - V'(phi)) d_nu phi (conservation on the matter shell)
+
+SUMMARY: 0 FAIL

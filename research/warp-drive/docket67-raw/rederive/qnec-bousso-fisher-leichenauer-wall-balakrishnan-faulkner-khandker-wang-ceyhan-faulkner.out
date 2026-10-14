@@ -1,0 +1,28 @@
+Q1  QNEC integrates to ANEC only with the boundary term
+  [ok] INT_{-L}^{L} S'' dlambda = S'(L) - S'(-L) 
+      S' = -a tanh(lambda/w):  [S'] = -2*a,  INT T_kk = -a*hbar/pi
+  [ok] QNEC holds pointwise (T_kk - (hbar/2pi)S'' = 0 >= 0) 
+  [ok] yet INT T_kk dlambda = -a hbar/pi < 0 : ANEC fails when [S'] != 0 
+  [ok] with S' -> 0 at both ends the saturating profile has INT T_kk = 0 (ANEC, saturated) 
+
+Q2  z3 on a finite box (n = 10 cells, h = 1)
+  [ok] pointwise QNEC + S'(ends)=0  AND  sum T < 0 : UNSAT (so QNEC => ANEC on the box) unsat
+  [ok] drop the end condition: SAT (QNEC alone does not give ANEC) (witness: sum T = -1, S'(start) = 0, S'(end) = -1)
+  [ok] weaker: [S'] >= 0 suffices (UNSAT) 
+
+Q3  classical limit
+  [ok] hbar -> 0 at fixed S'': QNEC RHS -> 0, i.e. QNEC -> NEC (T_kk >= 0) 
+
+Q4  the tree's ray integral vs the affine ANEC integral (frozen metric, y = 0)
+  [ok] k = (1, F+1, 0, 0) is null 
+  [ok] k_t = -(1+F) (not constant along the ray where F varies) k_t = -F(x, y, z) - 1
+  [ok] K = k/(1+F) has K_t = -1 (conserved Killing energy: affine) and K^x = 1 (dlambda = dx) 
+  [ok] Gamma^y_ab k^a k^b = F_y : zero on the axis, NONZERO off it (y != 0 'rays' are not geodesics) Gamma^y_kk = Derivative(F(x, y, z), y)
+      y = 0.0: tree INT T_kk dx = -0.08066 ;  affine INT T_KK dlambda = -0.05241 ; min T_kk = -0.1596
+  [ok] tree integral reproduces anec.py's -0.0807 at y = 0 (2%) 
+  [ok] affine on-axis ANEC integral is also negative (sign survives the reparametrisation) 
+  [ok] affine value agrees with the sibling alcubierre audit E8 frozen -0.05241 (2%) 
+      F_y at (0.9, 0.3, 0) = -0.5368  (the y-acceleration of the tree's y = 0.3 'ray')
+  [ok] off-axis ray at y = 0.3 has nonzero geodesic deviation (|F_y| > 0.1) 
+
+OVERALL: PASS

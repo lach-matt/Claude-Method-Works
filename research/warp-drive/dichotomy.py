@@ -40,8 +40,19 @@ question does no work.
 ===============================================================================
 
 spec.py measures seat_over_collapse = 2 pi^2/3 = 6.5797 AT EVERY SCALE: a
-region that seats a conjugate point exceeds its own collapse bound by that
-factor, so it sits inside its own Schwarzschild radius.  entangle.py reaches
+region that seats a conjugate point, with T_kk = u along the ray (pressureless
+matter) on a radius chord, exceeds its own collapse bound by that factor, so
+it sits inside its own Schwarzschild radius.
+  CORRECTED (DOCKET 67, seated S-2 follow-on; M ruled 'Seat all four'): first
+  written without the T_kk = u condition.  The ratio is
+  (2 pi^2/3)/((T_kk/u)(s/l)^2) (specthm.sturm_ratio): 6.5797 on a radius and
+  1.6449 on a diameter for pressureless matter, 1.2337 for radiation, 0.8225
+  for T_kk = 2u; it falls to <= 1 on a diameter for w >= pi^2/6 - 1 =
+  0.644934 (radius chords would need w > 5.58, beyond the DEC).  Over H_ball
+  as written class S-2 is OPEN in specthm (sturm_over_ball, sr2_certified).
+  Route A's COLLAPSE blocker below is stated for T_kk = u; whether it holds
+  for every positive-energy seat is that OPEN question, not settled here.
+entangle.py reaches
 19.7392 = 2 pi^2 from entropy, and currency.py showed the two differ by exactly
 3, the 3 in M = (4/3) pi R^3 rho.
 
@@ -72,9 +83,11 @@ THE DICHOTOMY, WHICH IS THE CLEANEST STRUCTURE THIS PROJECT HAS
 ===============================================================================
 
     ROUTE A -- ORDINARY MATTER.  Positive energy, focusing through RICCI, needs
-        the Sturm density q l^2 >= pi^2, exceeds the collapse bound by
-        2 pi^2/3 at every scale, and the region closes inside its own
-        Schwarzschild radius.  BLOCKED BY COLLAPSE.  This is the route on which
+        the Sturm density q l^2 >= pi^2, and for pressureless matter (T_kk = u)
+        on a radius exceeds the collapse bound by 2 pi^2/3 at every scale, and
+        the region closes inside its own Schwarzschild radius.  BLOCKED BY
+        COLLAPSE -- for T_kk = u; beyond it S-2 is OPEN (section 3, DOCKET
+        67).  This is the route on which
         "you need a black hole" is TRUE, and it is true as a prohibition rather
         than a recipe: you do not get a device, you get a black hole.
 
@@ -157,7 +170,9 @@ def sturm_is_positive_energy():
 
 
 def collapse_ratio():
-    """spec.py's 2 pi^2/3, scale-invariant.  It prices the STURM seat."""
+    """spec.py's 2 pi^2/3, scale-invariant.  It prices the STURM seat, for
+    T_kk = u along the ray on a radius chord (DOCKET 67); other T_kk/u and
+    chords give (2 pi^2/3)/((T_kk/u)(s/l)^2) -- specthm.sturm_ratio."""
     import spec
     return spec.seat_over_collapse(1.0)
 
@@ -193,7 +208,8 @@ def corridor_seats(m=2.0e-2):
 
 ROUTES = (
     (RICCI, "ordinary matter, positive energy",
-     "needs Sturm q l^2 >= pi^2, exceeds collapse by 2 pi^2/3 at every scale",
+     "needs Sturm q l^2 >= pi^2; for T_kk = u on a radius exceeds collapse by "
+     "2 pi^2/3 at every scale (beyond T_kk = u, S-2 is OPEN -- DOCKET 67)",
      "COLLAPSE -- you get a black hole, not a device"),
     (WEYL, "negative mass, quadratic and sign-blind",
      "no density requirement; seats at 165.36 with no horizon and M_ADM = 0",
@@ -311,9 +327,11 @@ def report():
 
   THE INTUITION IS RIGHT ABOUT A ROUTE THIS PROJECT IS NOT ON.  Try
   to seat a conjugate point with ORDINARY matter and you need the
-  Sturm density, which exceeds the collapse bound by 2 pi^2/3 at
-  every scale, and the region closes inside its own Schwarzschild
-  radius.  On that route "you need a black hole" is true -- as a
+  Sturm density, which for pressureless matter (T_kk = u along the
+  ray, on a radius) exceeds the collapse bound by 2 pi^2/3 at every
+  scale, and the region closes inside its own Schwarzschild radius.
+  (DOCKET 67: beyond T_kk = u the ratio falls -- 1.2337 for radiation
+  on a diameter -- and S-2 is OPEN in specthm.)  On that route "you need a black hole" is true -- as a
   PROHIBITION rather than a recipe.  You do not get a device.  You
   get a black hole.
 

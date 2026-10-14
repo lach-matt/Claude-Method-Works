@@ -1,0 +1,17 @@
+PASS A1 (19)-(20) = d/dlambda[-xi (phi^2)'/(1-a phi^2)]  (sympy, arbitrary phi)
+PASS A2 numerator = 1 - 8 pi G xi (1-4 xi) phi^2 (FFKP eq. 20)   32*pi*G*xi**2*phi(lambda)**2 - 8*pi*G*xi*phi(lambda)**2 + 1
+PASS A3 numerator at 8piG xi phi^2 = 1 equals 4 xi (positive for xi>0)
+PASS B1 xi<0 => N>0 (all field values)
+PASS B2 xi>1/4 => N>0 (all field values)
+PASS B3 0<xi<1/4 and EFT bound xi*x<1 => N>0
+PASS B4 0<xi<1/4 and N<0 => xi*x > 1/(1-4xi) > 1 (negativity needs beyond-critical field)
+PASS B5 non-vacuous: a violating point exists beyond the bound   [xi = 1/8, x = 17]
+PASS B6 at conformal xi=1/6, N<0 impossible for 8piG xi phi^2 <= 3 (threshold 1/(1-4xi)=3)
+PASS C1 complete geodesic, bounded Gaussian profile: (19) integral >= 0   I19=2.58031601
+PASS C2 (19) and (20) integrals agree when boundary terms vanish   I20=2.58031601
+PASS C3 finite segment [-0.3,0.3] at a local min of phi^2, a phi^2<=0.30: (19) integral < 0   I=-0.123712
+PASS D1 first term of (85) after ANEC normalisation ~ delta+ / (A alpha^n)   N_n*delta_p/(A*alpha**n)
+PASS D2 second term, phi_max fixed: ~ delta+ /(A alpha^2)  -> 0   C*delta_p*phimax2*xiabs/(A*alpha**2)
+PASS D3 second term, phi~_max fixed: ~ delta+/(A alpha^n); = alpha^-4 at n=4 (source prints alpha^4)   C*delta_p*phitilde2*xiabs/(A*alpha**n)
+PASS D4 guard: unbounded field (phi_max^2 ~ delta-^2) -> second term does NOT vanish   limit=oo
+REDERIVE PASS

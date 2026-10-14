@@ -1,0 +1,117 @@
+{
+ "key": "gr-qc/0702056",
+ "name": "Fewster & Smith, 'Absolute quantum energy inequalities', gr-qc/0702056v3 (20 Dec 2007) = Ann. Henri Poincare 9 (2008) 425-455: eq. (5) [schematic], Theorem 3.1 eqs. (64)-(65), worldline form eq. (82), flat massless check eq. (88)",
+ "source": {
+  "located": "arXiv:gr-qc/0702056v3, 20 Dec 2007 (journal ref Annales Henri Poincare 9 (2008) 425-455, as cited in FFKP 2309.10848 ref. [20] and in citers_teo.json ref. [27]). Pages READ: 1 (abstract), 2-3 (eqs. 1-6), 4-6 (sec 2.1, field eq., Hadamard series eq. 12, Hadamard def. eq. 16), 8 (sec 2.2: C_ab, eq. 21, non-minimal remark), 11, 14-15, 17-19 (small sampling domain definition, Theorem 3.1 eqs. 64-65 and Remarks), 21-22 (proof part three; 'the bound itself does not depend on any reference state'; sec 3.2.1 QNEI eq. 79), 22-24 (sec 3.2.2 worldline eqs. 80-88), 25-27 (Thm 3.3 adiabatic states; sec 3.3 covariance; conclusion), 29-31 (references). Pages 7, 9-10, 12-13, 16, 20, 28 were not in any returned copy (sec 2.2 opening, sec 2.3-2.4 technical lemmas, proof part two, appendix).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries page text for gr-qc/0702056v3, as returned verbatim to earlier workflow agents of this session (43 tool results recovered from /root/.claude/projects/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/**/*.jsonl, longest copy of each page kept) and banked at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/0702056.pages.txt. A fresh alphaXiv call in THIS stage returned 'assistant quota exceeded' (answer_pdf_queries, get_paper_content and discover_papers all refused), and arxiv.org / alphaxiv.org are denied by the egress proxy, so the page text is the earlier alphaXiv return, not a new fetch. Restatements cross-read: Fewster & Osterbrink 0708.2450 p.20-21, FFKP 2309.10848 pp.15-17, Kontou & Sanders 2003.01815 p.21, Fewster & Teo gr-qc/9812032 p.10 eq. (5.6) (all cached alphaXiv returns under src/)."
+ },
+ "published_statement": "Abstract (p.1): 'In this paper we obtain the first ‘absolute’ QEI for the minimally-coupled massive quantum Klein–Gordon field on four dimensional globally hyperbolic spacetimes; that is, a bound which depends only on the local geometry ... Moreover, the bound is explicit and can be formulated covariantly under additional (general) conditions. We also generalise our results to incorporate adiabatic states.' Intro (p.3): 'For averaging along timelike worldline γ, our result takes the form ∫ dt f²(t)⟨v^a v^b T^ren_ab⟩_ω(t) ≥ −B_A, (5) where B_A = ∫_{R+} dξ/π [f⊗f ϑ* T^split H̃]^(−ξ,ξ) + “local curvature terms” (6)'. Precise statement, Theorem 3.1 (p.18): 'Let Σ be a small sampling domain of dimension n in (M,g) with hyperbolic coordinate map κ and suppose Q is a partial differential operator of order at most one with smooth real-valued coefficents in a neighbourhood of Σ. Set k = max{n+3, 5}. For any real-valued f ∈ C∞_0(Σ) and any Hadamard state ω we have the inequality ∫_Σ dvol f² (Q⊗Q(Λ_ω − H_2))(x,x) ≥ −B > −∞ (64)', B given by (65). Remarks (p.18): 'This bound depends nontrivially on the coordinates (and on any partition of unity used to reduce a general timelike submanifold into small sampling domains).' Worldline form (p.23, eq. 82): ∫ dτ f²⟨u^a u^b T^ren_ab⟩_ω(γ(τ)) ≥ −∫_{R+} dξ/π [|h_κ|^{1/4} f ⊗ |h_κ|^{1/4} f ϑ* T^split H̃_5]^(−ξ,ξ) + ∫ dτ f² (Q + u^a u^b C_ab)|_γ(τ), with T^split built from 'any smooth tetrad ... such that e_0 = u on γ' (81). Renormalisation (p.8): 'any remaining finite renormalisation must take the form of a state-independent conserved local curvature term C_ab that vanishes in Minkowski space' (eq. 21: ⟨T^ren⟩ = ⟨T^fin⟩ − Q g_ab + C_ab); 'We take the view that the tensor C_ab is a necessary part of the specification of a given species of scalar field ... Given sufficient experimental accuracy C_ab should, in principle, be measurable.' Flat check (p.24, eq. 88): massless, Minkowski, inertial curve: '∫ dt f²(t)⟨u^a u^b T^ren_ab⟩_ω(γ(t)) ≥ −(1/16π³)∫_{R+} dη |f̂(η)|² η⁴ (88) which is the same as the QEI for the massless field in Minkowski spacetime obtained in [9]' [Fewster & Eveson 1998]. Then: 'on small length scales one expects the massive quantum field in a curved background to behave like its massless counterpart in flat spacetime ... This will be investigated in a future work.' Non-minimal (p.8): 'A similar problem arises for the non-minimally coupled scalar field. In this case one must smear the stress-energy tensor even to obtain an inequality on the classical field [21], which necessitates a more complicated analysis at the quantum level [22].'",
+ "published_hypotheses": [
+  "H1 field: minimally coupled Klein-Gordon, (∇²+μ²)φ = 0, mass μ ≥ 0 (p.4); free field, algebraic quantisation with CCR (p.4)",
+  "H2 spacetime: four-dimensional, smooth, Hausdorff, paracompact, no boundary, Lorentzian (+,−,−,−), globally hyperbolic (p.4); c = ℏ = 1",
+  "H3 states: Hadamard states (Thm 3.1, p.18); widened by Thm 3.3 (p.25) to adiabatic states of order N > 9/2",
+  "H4 sampling: a SMALL SAMPLING DOMAIN (p.17-18): Σ contained in a globally hyperbolic convex normal neighbourhood AND covered by one hyperbolic chart with bounded coordinate speed of light (62); for the worldline: 'provided that the track of γ can be contained in a globally hyperbolic convex normal neighbourhood in M' (p.23); otherwise a partition of unity over a compact subset, on which the bound then depends (p.18)",
+  "H5 smearing: real-valued f ∈ C∞_0 (compact support), weight f²; smooth timelike worldline in proper-time parametrisation (geodesic NOT required); tetrad with e_0 = u on γ (81)",
+  "H6 renormalisation: Hadamard point-splitting with Wald's w_0 = 0, length scale ℓ, conservation term −Q g_ab, residual C_ab state-independent, conserved, local curvature, vanishing in Minkowski (p.5 fn 2, p.6, p.8); C_ab is part of the specification of the field species",
+  "H7 bound form: partial sums H̃_k of the Hadamard series, k = max{n+3,5} (H̃_5 on a worldline), plus ∫ f² (Q + u u C_ab); finite (Thm 3.1 part three); reference-state-free (p.21); coordinate- and (in some cases) tetrad-dependent, covariant only under restrictions shown for worldvolume averages with Fermi normal coordinates (p.18, p.25-27)",
+  "H8 eq. (88) specifically: massless, Minkowski, inertial worldline along the time axis, where the full Hadamard series is its leading term (p.23)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (Hadamard state) at fewsterteo.py:113-121 and RIGHT_INSTRUMENT fewsterteo.py:177-179, echoed at specthm.py:2146-2153 and ledger.py:1819-1820 (O2) and LEDGER.md:111: the instrument is described by field, mass and spacetime class only; Thm 3.1 (p.18) holds 'for any Hadamard state ω' (or adiabatic N > 9/2, Thm 3.3). CARRIED at qeihps.py:63-72/402 (FORM_TAGS 'hadamard') and ledger.py O5 text; throatmass.py hypotheses call it 'implicit in F&S' -- it is EXPLICIT in Thm 3.1. Consequence for O2: any evaluation on the corridor needs a Hadamard state there, a requirement O2_ANSWERED_BY (fewsterteo.py:180-184) does not name.",
+  "DROPPED (small sampling domain) at every owner: fewsterteo.py:113-121, qeihps.py:63-72, throatmass.py:79-83, specthm.py:2146-2153, ledger.py:1819-1820. FS's worldline bound (82) needs the track of γ inside a globally hyperbolic convex normal neighbourhood with a hyperbolic chart (p.17-18, p.23), or a partition of unity whose choice enters the bound (p.18). WEAKENED at qeihps.py (hypothesis_table: 'globally hyperbolic ... MET locally: a causal diamond suffices'): FS ask for a globally hyperbolic CONVEX NORMAL neighbourhood, which a causal diamond is not in general.",
+  "WEAKENED ('depends ONLY ON LOCAL GEOMETRY') at fewsterteo.py:115-116 and throatmass.py:81 ('from local geometry alone'): this is the abstract's wording, but the body qualifies it -- 'This bound depends nontrivially on the coordinates (and on any partition of unity ...)' (p.18) and 'not covariant in full generality ... depend non-trivially on the coordinates used, and, in some cases, on a choice of tetrad' (p.25); covariance is SHOWN only for worldvolume averages in Fermi normal coordinates (p.25-27), and for worldlines only said to be achievable by the methods of [20]. Reference-state independence (p.21) is accurate as used.",
+  "WEAKENED ('the residual freedom is C_ab') at throatmass.py:86-88 and O2_ANSWERED_BY fewsterteo.py:180-184: (82) also carries ∫ f² Q, the conservation-restoring local curvature term of eq. (21) (known, not free), the ℓ-dependence (absorbed into C_ab, p.5 fn 2), and the chart/tetrad dependence above. C_ab's description (state-independent, conserved, local curvature, vanishes in Minkowski) matches p.8 verbatim.",
+  "ADDED implication at throatmass.py:85-87 ('The renormalisation gap is real but narrow: F&S's flat massless limit (their eq. (88)) has the same form and constant'): FS do NOT establish that the curved bound is approximated by (88) on any scale -- 'This will be investigated in a future work' (p.24) and 'control over the size of spacetime region in which the absolute QEI bound can be approximated ... is the subject of ongoing work' (p.27). (88) is a Minkowski massless inertial special case (H8). The tree does not evaluate on this basis (O2 stays OPEN, specthm.py:2861-2863 'not evaluated on the corridor'), so the implication is a wording over-reach, not a used number.",
+  "SITE PRECISION: every owner cites 'eq. (5)', which is the introduction's schematic form with 'local curvature terms' in quotation marks (p.3); the hypotheses live in Theorem 3.1 (p.17-18) and the worldline instance eq. (82) (p.22-23).",
+  "NOT DRIFT (checked): 'minimally coupled ... mass >= 0', 'four-dimensional globally hyperbolic', 'first absolute QEI ...' (qeihps.py:63-65, verbatim abstract), the Sec. 2.2 non-minimal quote (qeihps.py:69-71, verbatim p.8), FS_XI_RANGE = (0,0) (qeihps.py:383: FS prove xi = 0 only; the tree reads this as hypothesis-not-met, not as a no-go for xi != 0, which is correct), eq. (88)'s form and constant (fewsterteo.py:119-120, qeihps.py:240-241), and geodesicity (neither FS nor the tree require it for the worldline form).",
+  "NOT CHECKED HERE (a tree claim, not FS's): 'The corridor is in that class' (fewsterteo.py:118, throatmass.py:83, ledger.py O5). Global hyperbolicity of the corridor is not audited in this stage; note that H4 makes the local requirement (small sampling domain + a Hadamard state on it) the operative one, so the whole-spacetime claim is less load-bearing than the owners' wording suggests."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "flat massless worldline coefficient 1/(16 pi^3) in eq. (88)",
+   "value_then": "1/(16 pi^3), derived from (84)-(87); stated equal to Fewster-Eveson 1998 [9]",
+   "value_now": "1/(16 pi^3) (a mathematical constant; re-derived here: K1, K2, K5a-c)",
+   "source_now": "rederive/gr-qc_0702056.py K1-K6 (sympy + mpmath)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "pull-back coefficient 3/(2 pi^2) (eq. 84) and FT of (t - i0)^-4 = pi xi^3 theta(xi)/3 (p.24)",
+   "value_then": "3/(2 pi^2); pi xi^3 theta(xi)/3 citing Gel'fand-Shilov",
+   "value_now": "same, re-derived (K5a sympy; K5b residue)",
+   "source_now": "rederive/gr-qc_0702056.py K5a, K5b",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "eq. (87) prefactor as printed in the v3 text layer",
+   "value_then": "(1/4 pi^2) INT d eta INT_0^eta d zeta |fhat(eta)|^2 zeta^3 (no 1/pi on d eta, whereas (86) carries d xi/pi)",
+   "value_now": "taken literally it evaluates to (1/16 pi^2) INT |fhat|^2 eta^4, a factor pi from (88); (86) -> (88) holds exactly (K5c/K5d). Only one text-layer copy exists; journal version NOT READ",
+   "source_now": "rederive/gr-qc_0702056.py K5d; src/0702056.pages.txt p.23",
+   "moves_conclusion": "no -- a DISCREPANCY between (87) and (86)/(88) in the arXiv text layer, not a refutation; (88), the equation the tree uses, is what (86) gives. MUST NOT be quoted as an error until the journal version is read"
+  },
+  {
+   "quantity": "renormalisation residual C_ab (and Q)",
+   "value_then": "unfixed; 'should, in principle, be measurable' (p.8)",
+   "value_now": "no value is used anywhere in the tree; whether any measurement or constraint exists was NOT-SEARCHED here (alphaXiv quota exhausted in this stage)",
+   "source_now": "NOT-SEARCHED",
+   "moves_conclusion": "no for the existence/form of the bound (theorem); the NUMERICAL value of B_A on a curved background shifts additively by INT f^2 u^a u^b C_ab, so any future evaluation of O2 is DATA-DEPENDENT on C_ab, as the tree already states"
+  },
+  {
+   "quantity": "F&T (5.6) at C = 0 vs FS (88) (the tree's comparison)",
+   "value_then": "F&T gr-qc/9812032 (5.6): -(1/4 pi^3) INT dw INT_C dw' w'^2 sqrt(w'^2 - C^2)|fhat^{1/2}(w+w')|^2 = -(1/16 pi^3) INT_C du |fhat^{1/2}|^2 u^4 Q_3(u/C)",
+   "value_now": "at C = 0 the double integral equals FS (86)/(88) identically (K6, symbolic)",
+   "source_now": "rederive/gr-qc_0702056.py K6; src/gr-qc_9812032.cached.txt p.10",
+   "moves_conclusion": "no -- confirms fewsterteo.py:119-120"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0702056.py",
+  "outcome": "ALL 11 CHECKS PASS (exit 0). K1 Parseval (1/16pi^3) INT_0^oo |fhat|^2 u^4 = (1/16pi^2) INT (f'')^2, symbolic on a Gaussian; K2 same identity for compact (1-t^2)^4, Fourier side by quadrature vs exact time side 12288/(5005 pi^2), agreement to 1e-8; K3 Lorentzian sampler: the (88) form gives -27/(2048 pi^2 t0^4) = exactly 9/64 of Ford-Roman's -3/(32 pi^2 t0^4), matching the tree's independent fixture fewsterteo.NINE_64 (FS is tighter, so no contradiction with the older bound); K4 a wrong coefficient 1/(8 pi^3) fails (control fires); K5a pull-back of T^split H_{-1} = (3/(2pi^2))(t-t'-i eps)^-4 (FS 84); K5b FT of (t-i0)^-4 = pi xi^3/3 (FS p.24); K5c (86) = (88) exactly; K5d (87) as transcribed = pi x (88) -- recorded discrepancy; K6 F&T (5.6) at C = 0 = FS (88). NOT checkable here: Theorem 3.1 itself (a microlocal-analysis theorem over Sobolev wave-front sets; not finite, no closed form) and B_A on any curved background (needs the Hadamard coefficients v_j, w_j to order 5 and a state, neither closed-form on the corridor).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Fewster & Osterbrink, arXiv:0708.2450 (J. Phys. A 41 (2008) 025402), pp.20-21",
+   "effect": "confirms",
+   "what": "'This restriction has recently been removed for the minimally coupled field in [31] [= gr-qc/0702056] to obtain an ‘absolute’ QEI; one would expect that this can also be adapted to the non-minimally coupled field.' Confirms the minimal-coupling scope; the non-minimal adaptation is an expectation only.",
+   "read_status": "READ (cached alphaXiv return, src/0708.2450.txt lines 3820-3850)"
+  },
+  {
+   "ref": "Fliss, Freivogel, Kontou & Pardo Santos, arXiv:2309.10848 (2023), pp.15-17",
+   "effect": "confirms",
+   "what": "Restates FS's small sampling domain definition verbatim-in-substance ('Following Ref. [20] we define a small sampling domain Σ ... contained in a globally hyperbolic convex normal neighbourhood ... single hyperbolic coordinate chart'), and states its own non-minimal NEC bound 'is for a difference QEIs unlike the absolute one that was possible for the minimally coupled field' and state-dependent. As of 2023 the absolute form remains minimal-coupling only in this line of work; confirms H4 is part of how the field uses FS.",
+   "read_status": "READ (cached alphaXiv return, src/2309.10848.txt lines 2320-2330, 2400-2420, 2810-2830)"
+  },
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (review, 2020), p.21",
+   "effect": "narrows",
+   "what": "Defines an 'absolute' QEI as one whose lower bound 'depends in a local and covariant way on the spacetime metric and the test function'. FS's general Theorem 3.1 bound is chart/tetrad dependent and covariant only under restricted sampling (FS p.18, 25-27), so 'absolute' in the review's stricter sense attaches to FS only under those restrictions; supports the drift entry on 'depends ONLY on local geometry'.",
+   "read_status": "READ (cached alphaXiv return, src/fewster-teo-later-restatements.cached.txt, 2003.01815v2 p.21)"
+  },
+  {
+   "ref": "Fewster & Teo, gr-qc/9812032 (PRD 59 104016, 1999), eq. (5.6) p.10",
+   "effect": "confirms",
+   "what": "At C = 0 the F&T double integral equals FS (86)/(88) identically (K6), confirming the tree's 'same form and constant' claim.",
+   "read_status": "READ (cached alphaXiv return, src/gr-qc_9812032.cached.txt)"
+  },
+  {
+   "ref": "Smith, 'An absolute quantum energy inequality for the Dirac field in curved spacetime', CQG 24 (2007) 4733 (FS ref. [45])",
+   "effect": "extends",
+   "what": "Named by FS (p.27) as the Dirac-field extension of the same method.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers search for later work narrowing/contradicting/extending FS",
+   "effect": "contested",
+   "what": "NOT RUN: the one permitted discover_papers call returned 'alphaXiv assistant quota exceeded'. No later paper contradicting FS was found in the four read above, but absence of a search is not evidence of absence; this entry records the gap, and 'contested' is used only because the schema requires an effect -- no contest is known.",
+   "read_status": "NOT-SEARCHED (quota)"
+  }
+ ],
+ "lacked_data": "FS is a theorem of mathematical physics; its conclusion uses NO measured datum, so M's hypothesis ('previous physicists may have lacked certain data') has no empirical input to act on for the theorem itself. What the authors lacked in 2007, by their own statement: (i) control of the scale on which the curved-spacetime bound is approximated by the Minkowski massless bound (88) -- 'This will be investigated in a future work' (p.24), 'ongoing work' (p.27); this is missing ANALYSIS, not data, and it bears on the tree's wording at throatmass.py:85-87 ('gap ... narrow'), not on any tree verdict; (ii) a value of C_ab, which FS say 'should, in principle, be measurable' (p.8); the bound's EXISTENCE and FORM do not move with it, but any number obtained by evaluating (82) on the corridor moves additively by INT f^2 u u C_ab -- the tree already carries C_ab as an unevaluated term, so O2's evaluation, if ever run, is DATA-DEPENDENT on C_ab. Evidence either way: the finite, closed-form parts (84)-(88) re-derive exactly (11/11 checks), and the flat constant agrees with Fewster-Eveson (via the 9/64 Lorentzian ratio, matching the tree's independent fixture) and with F&T (5.6) at C = 0; the one discrepancy found, (87)'s missing 1/pi in the text layer, does not propagate to (88). The later papers read (FO 2007, FFKP 2023, Kontou-Sanders 2020) restate FS's scope without correcting it. Whether a C_ab measurement or a small-scale-approximation theorem appeared later was NOT-SEARCHED (alphaXiv quota).",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem stands as published: the flat check re-derives exactly (rederive K1-K6, 11/11 pass), the tree's quotes at qeihps.py:63-72 are verbatim to pp.1 and 8, and the core use -- an absolute, reference-state-free lower bound on the Hadamard-renormalised energy density along a worldline exists for the minimally coupled KG field of mass >= 0 in 4D globally hyperbolic spacetimes, so throatmass.py's 'no QEI can bound rho_ren' is correctly DEMOTED -- is accurate. It is NARROWED because the tree states it on a larger class than FS prove: (a) the Hadamard-state hypothesis of Thm 3.1 (p.18) is dropped at fewsterteo.py:113-121/177-179, specthm.py:2146-2153, ledger.py:1819-1820 (carried at qeihps.py and O5); (b) the small-sampling-domain hypothesis (worldline track inside a globally hyperbolic convex normal neighbourhood, p.17-18, p.23) is dropped at every owner and weakened to 'a causal diamond suffices' in qeihps.py; (c) 'depends ONLY on local geometry' drops the body's coordinate/tetrad/partition-of-unity dependence (p.18, p.25); (d) the residual in B_A is C_ab AND the Q term, with (88) a Minkowski special case whose approximation to the curved bound FS leave to future work (p.24, p.27), against throatmass.py:85-87's 'gap is real but narrow'. None of these moves a tree verdict (O2 stays OPEN and unevaluated; O5's demotion stands), and no moved datum moves the conclusion. The (87) text-layer factor-pi discrepancy is recorded, not graded: (86)->(88) holds.",
+ "what_would_change_the_grade": "To STANDS: the owners' statements carry Thm 3.1's hypotheses as FS state them -- Hadamard (or adiabatic N > 9/2) state, small sampling domain (or an explicit partition of unity), chart/tetrad dependence, the Q + C_ab term -- and throatmass.py:85-87 drops 'narrow' or cites a result that controls the curved-vs-flat difference. To WRONG: a computed counterexample to Thm 3.1 or to (88) (none found; K1-K6 agree). To DATA-DEPENDENT: if the tree ever evaluates (82) on the corridor, the number moves with C_ab (unmeasured). To OPEN: none -- the source is READ. A read of the journal version (Ann. Henri Poincare 9, 425) would settle whether (87)'s missing 1/pi is a v3 misprint or a text-layer artefact; a discover_papers run (blocked here by quota) could add later narrowing/extension work.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0702056.py && grep -n -e 'small sampling domain' -e 'any Hadamard state' -e 'depends nontrivially on the coordinates' -e 'not covariant in full generality' -e 'future work' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/0702056.pages.txt && sed -n 110,122p /home/user/Claude-Method-Works/research/warp-drive/fewsterteo.py && sed -n 78,88p /home/user/Claude-Method-Works/research/warp-drive/throatmass.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0702056.json"
+}

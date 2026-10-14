@@ -1,0 +1,132 @@
+{
+ "key": "gr-qc/9812032",
+ "name": "Fewster & Teo, 'Bounds on negative energy densities in static space-times', gr-qc/9812032v2 (16 Feb 1999), Phys. Rev. D 59, 104016: general static QEI (2.10)-(2.13), Minkowski (3.2)-(3.5) with the 9/64 of Ford-Roman, the ultrastatic Minkowski/open-RW master form (5.6), de Sitter (6.9)-(6.13), Schwarzschild (7.8)-(7.11), conclusions",
+ "source": {
+  "located": "arXiv:gr-qc/9812032v2, DAMTP-1998-160, C.J. Fewster (York) & E. Teo (DAMTP / NUS), 23 pp.; Phys. Rev. D 59, 104016 (1999)",
+  "read_status": "READ",
+  "via": "All 23 pages of alphaXiv page text for gr-qc/9812032v2. It was taken from this session's own earlier answer_pdf_queries results: every earlier call returned the same 23 pages, which were merged per page into scratchpad/d67/src/gr-qc_9812032.pages.txt (md5 3c461e8621e8c1ea096f920c21e110ff, 34,020 bytes) by src/_harvest_9812032.py. In THIS stage the live alphaXiv calls returned 'quota exceeded', and arxiv.org, export.arxiv.org, semanticscholar and inspirehep are refused by the egress proxy, so the harvested copy is the one used. CAVEAT: this text layer drops the glyph pi everywhere. For example (1.2) prints '3 / 32 2 t 4 0' for 3/(32 pi^2 t0^4), and (2.14) prints '2 / [blank line]' for 2/pi. Every coefficient that hides a pi was therefore RE-DERIVED from the paper's other printed equations (rederive section A-F), never read off the glyphs."
+ },
+ "published_statement": "p.3: 'We obtain a lower bound on the averaged normal-ordered energy density in the Fock space built on the static vacuum in terms of the appropriate mode functions. Since the normal-ordered energy density in a given state is the difference between the renormalised energy density in this state and the (generally nonzero and potentially negative) renormalised energy density of the static vacuum, our bound also constrains the renormalised energy density.' (2.1): ds^2 = -|g_tt(x)| dt^2 + g_ij(x) dx^i dx^j, 'globally static, with time-like Killing vector d_t'. (2.2): free real scalar of mass mu >= 0, with no xi R term. (2.7): rhobar = INT dt <:T_mu nu u^mu u^nu:> f(t), where 'f is any smooth, non-negative function decaying at least as fast as O(t^-2) at infinity, and normalised to have unit integral'. (2.10): rhobar >= -(1/2[pi]) INT_0^oo dw SUM_l [ (w_l^2/|g_tt|) |U_l|^2 + grad U_l*.grad U_l + mu^2 |U_l|^2 ] |FT f^{1/2}(w+w_l)|^2. (2.12): rhobar >= -(1/[pi]) INT_0^oo dw SUM_l [ w_l^2/|g_tt| + (1/4) grad_i grad^i ] |U_l|^2 |FT f^{1/2}(w+w_l)|^2, 'the desired quantum inequality, which is valid for general sampling functions f(t), subject to the above-stated conditions'. (2.13): the same with u = w + w_l, lower limit w_min = min_l w_l. p.7: 'massless fields in ... four dimensions with the sampling function (1.1) ... the present bound is 9/64 of Ford and Roman's result.' (5.6), for Minkowski (kappa = 0) and the open RW universe (kappa = 1) only: rhobar >= -(1/4[pi]^3) INT_0^oo dw INT_C^oo dw' w'^2 sqrt(w'^2 - C^2) |FT f^{1/2}(w+w')|^2 = -(1/16[pi]^3) INT_C^oo du |FT f^{1/2}(u)|^2 u^4 Q_3(u/C), with C = sqrt(kappa/a^2 + mu^2). Also: 'since Q_3(x) is an increasing function on [1,oo), the bound for general a is tighter than that in Minkowski space for all sampling functions f(t)'. p.18 (Schwarzschild, massless, Boulware vacuum, modes 'in the region exterior to the horizon r > 2M', Candelas asymptotics, low-energy 2M w << 1, l = 0 only): 'The bound in (7.8) is between 9/64 and 1/4 that in (7.9), at least in the present approximation. Note that in either case, the bound becomes arbitrarily negative near the horizon of the black hole.' p.19: 'it would be desirable to verify this calculation using the full curved space results; this should not be too difficult once the form of the scalar field mode functions in the wormhole space-time have been determined.' p.7 and p.19: the bound is 1.5 times weaker than Flanagan's optimal bound in 2D, and whether it is optimal is left open.",
+ "published_hypotheses": [
+  "n+1-dimensional GLOBALLY static spacetime (2.1) with timelike Killing vector d_t; no curvature cap and no asymptotic condition",
+  "free, real scalar field of mass mu >= 0, MINIMALLY coupled (2.2) in Sec. 2 (a xi R coupling appears only in the Sec. 4 3D closed universe)",
+  "the field equation admits a COMPLETE ORTHONORMAL set of positive-frequency modes U_l(x) e^{-i w_l t} (p.3: 'Suppose it admits ...')",
+  "states: normalised states in the Fock space built on the STATIC vacuum |0>; the bounded quantity is the NORMAL-ORDERED density, i.e. the difference from the static vacuum's renormalised density. The paper states no Hadamard condition; rigour was supplied later by Fewster gr-qc/9910060 (per F&T 2000)",
+  "static observer at fixed x0, four-velocity u = (|g_tt|^{-1/2}, 0)",
+  "sampling function f smooth, non-negative, decaying at least as O(t^-2), unit integral, not necessarily even (the Lorentzian (1.1) qualifies)",
+  "(5.6): ultrastatic (|g_tt| = 1) Minkowski or open RW (H^3 slices), via the isotropic sum rule (5.4); C = sqrt(kappa/a^2 + mu^2) = w_min",
+  "Sec. 7: massless field, Boulware vacuum, Candelas' near-horizon and near-infinity asymptotic forms (7.4)-(7.5), low-energy condition 2M w << 1 (7.6), l = 0 retained, higher-order terms dropped ('at least in the present approximation')",
+  "9/64: massless, 4D Minkowski, Lorentzian sampler (1.1); the Minkowski case is attributed to Fewster-Eveson [14]"
+ ],
+ "hypothesis_drift": [
+  "DISCREPANCY IN THE TREE'S READING, not a drift of F&T's hypotheses (fewsterteo.py:23-35, 153, 459-461; ledger.py:1805-1806 prints 'Its prefactor is exactly 1'). The tree has F&T (2.12)/(2.13)'s prefactor as exactly 1 and says 'the PDF text layer drops the prefactor'. The text layer in fact prints the numerator '1' over a blank line, which is the dropped pi, exactly as in (2.14)'s '2/[blank]' = 2/pi. The printed prefactor is 1/pi. Four routes inside the paper fix it, all computed in the rederivation. (i) (A.3)-(A.5) with the convolution theorem under (2.9) force g = h/sqrt(2 pi); (h*h)/fhat = 2 pi to 20 digits. So (A.2)'s coefficient is 1/(2 pi). (ii) (2.6) carries coefficient 1 in front of Re (symbolic single-mode check), so (2.10)'s coefficient = (A.2)'s = 1/(2 pi), not the 1/2 the tree reads. (iii) The tree's own route 1 (bracket ratio 2) then gives 1/pi. (iv) (5.6)'s printed 1/(4 pi^3) = C_3 * X with C_3 = 1/(2 pi^2) from (3.3), so (3.2)'s coefficient X = 1/(2 pi). The tree's own route 2 then solves to 1/pi. It solves to 1 only on the tree's reading X = 1/2. The tree's P = 1, carried through (3.2) to (5.6), gives 9 pi/64 = 0.442 instead of the printed 9/64. That also contradicts (6.10)/(6.11)'s 'at least four times stronger'. So PREFACTOR_212 = 1 and the tree's own 1/(16 pi^3) in (5.6) cannot both be F&T's. PREFACTOR_212 feeds no figure: it is printed only in the ledger's O2 text. The two routes are not independent on this point, because both inherit the same dropped pi.",
+  "DROPPED (achievable.py:257-258 'EXACT QEI for static spacetimes with no curvature cap'; superseded wording ledger.py:1885): minimal coupling; GLOBALLY static; existence of a complete orthonormal positive-frequency mode set; states restricted to the Fock space on the static vacuum. F&T 2000 (gr-qc/9908073, p.1) says Fewster's later worldline QI 'generalizes and makes precise the results of [8,9]', so the 1999 derivation is not fully rigorous. The corridor's own field is minimally coupled KG (fewsterteo.RIGHT_INSTRUMENT), so the coupling hypothesis is met in use. 'EXACT' should not be read as optimal: F&T leave optimality open (p.19).",
+  "WEAKENED (achievable.py:258-261; ledger.py:1808-1810; fewsterteo.py:44-55): 'C is that family's constant at the OPTIMAL COMPACTLY SUPPORTED sampler'. The clamped-beam fundamental has g''(0) = 44.75 != 0 (computed), so f = g^2 is not smooth and lies outside F&T's hypothesis class. C_F = mu_1^4/(16 pi^2) is the INFIMUM over smooth samplers, attained only in W^{2,2} (Fewster 1208.5399). This is harmless: the duration argument needs only the infimum, and the anti-double-counting refusal (NINE_64_APPLIES_TO_C_F = False) stands.",
+  "DROPPED, CLASS EXTENDED (achievable.py:265-267 'on an asymptotically flat corridor the spectral gap that could tighten (5.6) is zero'; specthm.py:954-956 'at spectral gap 0 the Fewster-Teo form returns the flat bound'; specthm.py:2838-2839 'REFUSED: gap 0 on an asymptotically flat corridor'; fewsterteo.py:95-107). (5.6) is derived only for ULTRASTATIC Minkowski and open-RW H^3 slices, using the isotropic sum rule (5.4). The corridor is neither ultrastatic (g_tt = -F) nor homogeneous. F&T's own Sec. 7 is a zero-gap case (a continuum down to w = 0) whose bound is NOT the flat one: it has O(2M/r) corrections at large r (7.10) and diverges near the horizon (7.8). So 'gap 0 => flat bound' holds for the (5.6) family only, not for the general (2.13). The tree names part of this: specthm.py:2148-2150 'Fewster-Teo on the corridor itself is not evaluated ... its redshift factors are not priced', and fewsterteo.GAP_HYPOTHESIS. The refusal of 72.599 is correct on its other stated ground (the witness is a third spacetime). But 71.256 'unmoved in either direction' is not an F&T result on the corridor. It stands because F&T is not evaluated there (O2 OPEN).",
+  "WEAKENED (achievable.py:263-265 'their Schwarzschild section shows the bound going arbitrarily negative near a horizon'): F&T add 'at least in the present approximation' (p.18). The result rests on the low-energy B_l (7.6), l = 0 truncation, dropped higher-order terms, a massless field and the Boulware vacuum. F&T also say 'in either case', i.e. Pfenning-Ford's bound diverges too. The divergence of the (1-2M/r)^{-1} term at fixed tau_0 is confirmed symbolically.",
+  "ACCURATE, no drift (achievable.py:264-265; fewsterteo.py:57-62 'mode basis defined by that horizon'): F&T p.17 define the modes as outgoing/ingoing radial solutions in r > 2M, positive frequency with respect to d_t (Boulware), with Candelas' asymptotics 'near the horizon and at infinity'. Note that Sec. 7 also contains the near-infinity result (7.10).",
+  "ACCURATE, no drift (throatmass.py:83-85; ledger.py:1853-1855): 'normal-ordered against the static vacuum, on which <0|:T:|0> = 0' matches p.3-4 exactly, including 'the normal-ordered energy density is the difference between the renormalised energy density in the two states'.",
+  "ATTRIBUTION NOTE, no drift (achievable.py:258-259; ledger.py:1807): the flat massless 9/64 is F&T's reproduction of Fewster-Eveson [14] (p.6 'the case that was treated in [14]'; p.16 'as was observed in [14]')."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "9/64 (F&T flat massless bound / Ford-Roman, Lorentzian sampler)",
+   "value_then": "9/64 (p.7, p.16)",
+   "value_now": "9/64 exact (sympy, via (6.9) at alpha = 5/2 with (5.6)'s 1/(16 pi^3))",
+   "source_now": "rederive section F; mathematical, no measured input",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "coefficient of (5.6) second form",
+   "value_then": "1/(16 pi^3) (pi dropped in the text layer; fixed by (3.3), (3.4) and the 9/64)",
+   "value_now": "1/(16 pi^3); Fewster & Thompson 2301.01698 eq.(1.4) Q(alpha) = alpha^4 Theta(alpha)/(16 pi^3) for the same Minkowski massless case",
+   "source_now": "2301.01698 p.2 (harvested alphaXiv page text); rederive E/F",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "prefactor of (2.12)/(2.13)",
+   "value_then": "1/pi (text layer: '1' over a dropped glyph; four in-paper routes)",
+   "value_now": "tree pins PREFACTOR_212 = 1 (fewsterteo.py:153)",
+   "source_now": "rederive B-F",
+   "moves_conclusion": "no: a recorded discrepancy in the tree's reading. It feeds no figure (ledger prose only). C_F, the 9/64 refusal and the gap sweep all use the pi-inclusive 1/(16 pi^3) and are unaffected"
+  },
+  {
+   "quantity": "C_F = mu_1^4/(16 pi^2), mu_1 root of cos mu cosh mu = 1",
+   "value_then": "n/a in F&T (the tree's identification via (5.6) at C = 0)",
+   "value_now": "mu_1 = 4.730040744862704, C_F = 3.169857938310468",
+   "source_now": "rederive section I (mpmath 30 dps)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "(5.6) gap-sweep ratios (tree GAP_SWEEP)",
+   "value_then": "C = 10: 0.165631, C = 5: 0.469090, C = 1: 0.974321",
+   "value_now": "independent scipy re-measurement agrees to < 2e-5 relative; the tree's own selftest passes (read-only run, PYTHONDONTWRITEBYTECODE=1)",
+   "source_now": "rederive section J; fewsterteo.py --selftest",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "corridor spectral gap",
+   "value_then": "not in F&T (the tree's GAP_HYPOTHESIS)",
+   "value_now": "0 by named hypothesis (asymptotically flat slice); not computed here",
+   "source_now": "fewsterteo.py:167-169",
+   "moves_conclusion": "no numerical move. It is only a refusal reason, and outside (5.6)'s class (see drift)"
+  },
+  {
+   "quantity": "flat shortfall 71.2557 orders; refused 72.5987",
+   "value_then": "n/a (tree figures from Fewster-Eveson, not F&T)",
+   "value_now": "71.2557318332 / 72.5987341709 reproduced by the tree's selftest",
+   "source_now": "fewsterteo.py --selftest section 5",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9812032.py",
+  "outcome": "ALL CHECKS PASS (exit 0, ~20 s; sympy + mpmath + scipy). A: the text layer drops pi ((1.1) and (2.14) normalisations; (2.15) |FT f^{1/2}|^2 = 2 pi t0 e^{-2|w|t0}; (2.18) (4t0/pi) K0^2). B: (h*h)/fhat = 2 pi exactly, so (A.2)'s coefficient is 1/(2 pi). C: (2.6) has coefficient 1, so (2.10)'s coefficient is 1/(2 pi). D: route 1 gives P(2.12) = 1/pi (1 only on the tree's 1/2 reading). E: (3.2)'s coefficient solved from (5.6)/(3.3) is 1/(2 pi); route 2 gives 1/pi. (3.4) matches (5.6). F: 9/64 exact with 1/(16 pi^3); P = 1 propagated gives 9 pi/64 = 0.442, contradicting the printed 9/64 and 'at least four times stronger'. G: (6.9) vs quadrature at alpha = 1, 3/2, 5/2 (rel < 1e-20). H: Q_3 closed form; Q_3(1) = 0; limit 1; increasing on (1, oo). I: INT(g'')^2/INT g^2 = mu_1^4; C_F = 3.169857938310468; g''(0) = 44.75, so the optimum is outside the smooth class. J: the tree's GAP_SWEEP at C = 10, 5, 1 reproduced independently to < 2e-5. K: (6.10)/(6.11) runs from 9/64 to 1/4, monotone; (7.8)/(7.9) horizon-term ratio 1/4; the (7.8) horizon term goes to +oo as r -> 2M+.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "gr-qc/9908073 (Fewster & Teo, Phys. Rev. D 61, 084012 (2000))",
+   "effect": "extends",
+   "what": "p.1: 'This method was extended to static spacetimes by the present authors [9]. Most recently, one of us has proved a rigorous quantum inequality valid for arbitrary smooth worldlines in general globally hyperbolic spacetimes and arbitrary smooth, compactly supported, positive sampling functions [10]. This generalizes and makes precise the results of [8,9].' Their (1.5) holds for Hadamard states and g in C0^oo, 'also follows from the derivation given in [9] applied to the real and imaginary parts of g separately'.",
+   "read_status": "READ in part (harvested alphaXiv page text, pp.1-3 and conclusion)"
+  },
+  {
+   "ref": "2003.01815 (Kontou & Sanders, energy conditions review, 2020)",
+   "effect": "confirms",
+   "what": "'Historically, the first QEIs were difference QWEIs in Minkowski space, followed by difference QWEIs in static spacetimes [79 = F&T]. The first QWEI for the minimally coupled scalar field on general spacetimes was derived by Fewster [80].' This confirms F&T as a DIFFERENCE QEI for the minimally coupled field, and records no correction to it.",
+   "read_status": "READ in part (harvested alphaXiv page text, the passages quoted)"
+  },
+  {
+   "ref": "2301.01698 (Fewster & Thompson, QEIs along stationary worldlines, 2023)",
+   "effect": "confirms",
+   "what": "eq.(1.4): Minkowski massless Q(alpha) = alpha^4 Theta(alpha)/(16 pi^3), then -(1/16 pi^2) INT|g''|^2; 'for some curved spacetime examples see [20 = F&T]'. This independently confirms the pi-inclusive coefficient, and hence (2.12)'s 1/pi.",
+   "read_status": "READ in part (harvested alphaXiv page text p.2)"
+  },
+  {
+   "ref": "gr-qc/0702056 (Fewster & Smith, absolute QEIs in curved spacetime, AHP 2008)",
+   "effect": "extends",
+   "what": "A state-independent ABSOLUTE QEI on any 4D globally hyperbolic spacetime, citing F&T as [11]. The tree already names it as the right instrument (fewsterteo.RIGHT_INSTRUMENT).",
+   "read_status": "READ in part (harvested page text; reference list and the tree's prior DOCKET 62 reading)"
+  },
+  {
+   "ref": "gr-qc/9910060 (Fewster, 'A general worldline quantum inequality', CQG 17, 1897 (2000))",
+   "effect": "extends",
+   "what": "The rigorous Hadamard-state generalisation that 'makes precise' F&T (per gr-qc/9908073 and 2003.01815).",
+   "read_status": "NAMED-NOT-READ (restated only)"
+  },
+  {
+   "ref": "discover_papers search",
+   "effect": "contested",
+   "what": "The one discover_papers call this stage returned 'alphaXiv assistant quota exceeded'. No new search was possible, and the later literature above comes from reads earlier in this session. 'contested' is used only because the schema requires an effect: no contesting paper was found.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. F&T (Dec 1998) used no empirical data: every input is mathematical (pi, Gamma, the (6.9) Bessel integral) or theoretical (Candelas' asymptotic mode sums and the Jensen-McLaughlin-Ottewill low-frequency B_l for Sec. 7). What they lacked was structural. (i) A rigorous Hadamard/microlocal framework: supplied in 1999-2000 by Fewster gr-qc/9910060. By their own account in F&T 2000 it 'generalizes and makes precise' their result and does not overturn it. (ii) Absolute, reference-state-free QEIs (Fewster-Smith 2007/8): a different object. F&T remain a difference QEI relative to the static vacuum, which they say themselves (p.3). (iii) The wormhole mode functions: still missing. The tree finds the corridor's radial equation to be of confluent-Heun class (NOT-FOUND), so the evaluation F&T call for on p.19 is still undone. (iv) Optimality in 4D: still open, as F&T state. Evidence either way: later work (2000, 2020, 2023) restates and uses F&T without correction, and the 1/(16 pi^3) Minkowski coefficient reappears in Fewster-Thompson 2023. No datum the authors lacked has since arrived and moved their conclusion. M's hypothesis is NOT supported for this result. The one inaccuracy found is in the tree's reading of F&T (the prefactor), not in F&T.",
+ "grade": "NARROWED",
+ "grade_evidence": "F&T as READ (all 23 pages) are reproduced where finite: 9/64 exact; (6.9); Q_3 and its monotonicity; (5.6) at C = 0 equals mu_1^4/(16 pi^2) for the clamped sampler; the tree's gap sweep re-measured independently; the Sec. 6/7 ratio and divergence claims. No refutation of F&T was found. NARROWED because the tree uses F&T on a larger class than the source supports. (1) '(5.6) at spectral gap 0 returns the flat bound' is used as a refusal reason on an asymptotically flat, non-ultrastatic corridor, but (5.6) holds only for ultrastatic Minkowski/open-RW slices. F&T's own Schwarzschild section is a zero-gap case whose bound differs from flat (O(2M/r) at large r; divergent near the horizon). (2) Dropped hypotheses: minimal coupling, global staticity, a complete positive-frequency mode set, Fock states on the static vacuum (rigour only via Fewster 2000), smooth samplers (the clamped optimum is an infimum outside the class), and 'at least in the present approximation' on Sec. 7. Separately, one DISCREPANCY is recorded, not repaired, and is not grounds for WRONG: the tree's PREFACTOR_212 = 1 disagrees with F&T's printed 1/pi. That is shown by four in-paper routes, and P = 1 carried through would turn the paper's 9/64 into 9 pi/64. It feeds no figure: 71.256, the 64/9 refusal, 72.599's refusal and O2 OPEN are all unmoved. The tree's own fewsterteo.py --selftest passes (read-only run).",
+ "what_would_change_the_grade": "To STANDS: the tree restricts '(5.6) at gap 0 returns the flat bound' to (5.6)'s ultrastatic Minkowski/open-RW class (or states it only as a property of that family), carries the dropped hypotheses, and restates PREFACTOR_212 as 1/pi (or as '2 x (2.10)'s coefficient, which is 1/(2 pi)'). A legible scan of p.5 would settle the prefactor glyph directly, though four in-paper routes already fix it. To WRONG: a counterexample to F&T's (2.12) itself; none was found, and later literature makes it precise without contradicting it. Evaluating F&T (2.13) or Fewster-Smith on the corridor (blocked on the NOT-FOUND mode functions) would decide whether the corridor's zero-gap bound is tighter or looser than flat. That would bear on O2, not on this grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9812032.py && (cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 fewsterteo.py --selftest) && md5sum /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/gr-qc_9812032.pages.txt  # expect exit 0, SELFTEST OK, md5 3c461e8621e8c1ea096f920c21e110ff",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9812032.json"
+}

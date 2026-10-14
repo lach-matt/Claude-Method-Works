@@ -1,0 +1,80 @@
+{
+ "key": "kuo-ford-1993-prd-47-4510",
+ "name": "Kuo & Ford, Phys. Rev. D 47, 4510 (1993) -- published journal version (the tree's scope clause: v1 discrepancies MUST NOT be quoted as errors in it until it is read)",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', Phys. Rev. D 47, 4510-4519 (May 1993), doi:10.1103/PhysRevD.47.4510; PubMed id 10015450 (seen only as a WebSearch result title/URL). Page range 4510-4519 READ in the bibliography of 2512.17789v2 ref [7] (cached d67/src/casmag/all/2512.17789v2.txt:1127-1129); month 'May 1993' READ in gr-qc/9805037 ref [46] (d67/src/_cache_gr-qc_9805037.txt:1174-1175). The journal TEXT was not reached.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Every route to the journal text failed on 2026-09-26: alphaXiv answer_pdf_queries (gr-qc/9304008 and the APS abstract URL), get_paper_content (fullText) and discover_papers all returned 'alphaXiv assistant quota exceeded'; journals.aps.org, arxiv.org, pubmed.ncbi.nlm.nih.gov (WebFetch: EGRESS_BLOCKED) and doi.org, export.arxiv.org, api.crossref.org, inspirehep.net (curl: CONNECT 403, proxy status recentRelayFailures) refused. One WebSearch ('... Phys. Rev. D 47 4510 erratum') returned the APS/PubMed/Springer listings and NO erratum -- a search engine not finding an erratum is recorded, not taken as proof there is none. What WAS read: the arXiv v1 PDF text layer harvested in earlier stages of this docket (d67/src/casmag/all/gr-qc_9304008v1.txt, md5 f1a6628604751cf61b2a4bd411b00153, 19 pages, header 'arXiv:gr-qc/9304008v1 6 Apr 1993 / TUTP-93-1 / February 1993', no journal-ref in its text), and four later papers citing the journal version (1807.03808, gr-qc/0402029, gr-qc/9410043, 2512.17789) -- none restates a journal-version EQUATION, so no journal equation is READ-VIA-RESTATEMENT either."
+ },
+ "published_statement": "NOT READ AT SOURCE (journal). Bibliographic record READ via later bibliographies: 'C.-I. Kuo and L. H. Ford, \"Semiclassical gravity theory and quantum fluctuations,\" Phys. Rev. D 47 (1993) 4510-4519, arXiv:gr-qc/9304008' (2512.17789v2 ref [7]). The arXiv v1 abstract (READ, harvest p.1): 'We find in all cases studied that the energy density fluctuations are large whenever the local energy density is negative.' The tree's use is not of any journal equation but of a scope statement about it: 'The published version, Phys. Rev. D 47, 4510 (1993), is NAMED-NOT-READ -- the discrepancies above are against v1 and MUST NOT be quoted as errors in the journal version until it is read.' (fluctuation.py:124-126); JOURNAL_VERSION_READ = False (fluctuation.py:135); selftest 'the journal version is NOT claimed read' (fluctuation.py:483); quoted into M-D65-3's why cell by ledger.py:1037-1042, 861, which raises if docstring and flag disagree.",
+ "published_hypotheses": [
+  "Journal version: hypotheses NAMED-NOT-READ (text unreachable).",
+  "As READ in arXiv v1 (the same paper, pre-proof): flat Minkowski background; free massless minimally coupled scalar field; all quadratic and quartic operators normal-ordered with respect to the Minkowski vacuum (v1 p.5, after (3.2)); coincidence limit, 00 component (Delta defined pointwise by (3.2) with an absolute value); single-mode vacuum+two-particle and squeezed states, Casimir vacuum between plates; Wick's theorem for states with phi+|psi> = <psi|phi- = 0 (Sec. III.C); Delta proposed as 'a measure' of semiclassical validity; curved-space extension explicitly requires an undeveloped quartic renormalisation (Sec. V).",
+  "Tree's own hypothesis on the journal version: 'may differ from arXiv v1' (canonical.json statements_as_used; fluctuation.py:124-126)."
+ ],
+ "hypothesis_drift": [
+  "None found in the tree's USE of this entry. The tree asserts only that the journal is unread and that v1 findings are not to be carried to it; fluctuation.py:122-128 and :135, ledger.py:861 and :1037-1042 all keep that scope, and machine-check T1-T6 confirm no file under research/warp-drive asserts an error in the journal version (only fluctuation.py and ledger.py name PRD 47 4510).",
+  "Presentation note, not drift: fluctuation.py:31-50 and :55-64 label the discrepancies 'KF (2.16)', 'KF (3.7)', 'KF (3.8)' without a per-line 'v1' tag; the version scope is carried by the STATUS OF THE SOURCE paragraph (fluctuation.py:122-126) and SOURCE = '... gr-qc/9304008 v1' (fluctuation.py:133). A reader lifting a section-1 line alone loses the scope. ledger.py:861 re-attaches it ('fluctuation.py, against arXiv gr-qc/9304008 v1 -- the journal version ... is NAMED-NOT-READ').",
+  "Hypothesis the tree adds that is correct and not in the source: equation numbering is assumed to carry over from v1 to the journal (implicit in any future comparison). Not checkable here; the journal is 10 printed pages against v1's 19 preprint pages, so page numbers certainly differ and equation numbers are UNVERIFIED."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "measured numerical inputs to Delta or to any v1 discrepancy",
+   "value_then": "none -- pure flat-space QFT algebra in natural units (hbar = c = 1); Casimir rho = -pi^2/(90 L^4) carries no measured constant",
+   "value_now": "none",
+   "source_now": "v1 harvest (READ); rederive A1-A11",
+   "moves_conclusion": "no -- there is no datum to move"
+  },
+  {
+   "quantity": "version gap: arXiv v1 date vs journal issue",
+   "value_then": "v1 posted 6 Apr 1993 (preprint dated Feb 1993, TUTP-93-1); journal May 1993, pp. 4510-4519",
+   "value_now": "unchanged; no erratum found by one WebSearch (not proof of none)",
+   "source_now": "v1 harvest header (READ); 2512.17789v2 ref [7], gr-qc/9805037 ref [46] (READ)",
+   "moves_conclusion": "cannot be determined -- v1 is a pre-proof manuscript posted ~5-6 weeks before the issue; whether proofs changed (2.16), (3.7), (3.8), (3.19)/(3.23), (3.41)-(3.43) is exactly what is unread"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/kuo-ford-1993-prd-47-4510.py",
+  "outcome": "24/24 checks OK (output in rederive/kuo-ford-1993-prd-47-4510.out). B1-B7: v1 harvest md5 f1a66286..., header 'arXiv:gr-qc/9304008v1 6 Apr 1993', 'TUTP-93-1'/'February 1993', 19 pages, no journal-ref in v1 text; journal page range 4510-4519 and 'May 1993' present in two later bibliographies. A1-A7 (exact 8-level Fock matrices, sympy): exact <:T00:> = 2K eps(2eps - sqrt2 cos2th)/(1+eps^2) = (2.16) middle line; (2.16) printed final/exact = 1/2; exact <:T00^2:> = 12K^2 eps^2/(1+eps^2), (3.7) printed/exact = 1/(1+eps^2); exact Delta = 1-(2eps - sqrt2 c)^2/(3(1+eps^2)); witness eps = 1/10, theta = 0: exact 0.5134 vs printed (3.8) 2.0118. A8-A11 (z3 over all real eps>0, |c|<=1): rho<0 reachable (vacuity SAT); rho<0 & Delta>=1 UNSAT; rho<0 & Delta<=1/3 UNSAT; rho<0 & Delta<0 UNSAT (the |.| of (3.2) inactive there). T1-T6 (read-only import of fluctuation.py): JOURNAL_VERSION_READ False; docstring says NAMED-NOT-READ and carries the MUST-NOT clause; SOURCE scoped to v1; only fluctuation.py and ledger.py name PRD 47 4510; no file asserts the journal is in error. So the discrepancies the clause protects are REAL and REPRODUCIBLE against v1, and the tree's scoping of them is exact. NOTHING about the journal text is checked: that is the grade.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "B. Freivogel & D. Krommydas, 'The Smeared Null Energy Condition', JHEP 12 (2018) 067, arXiv:1807.03808 (cites the journal version as ref [25])",
+   "effect": "narrows",
+   "what": "p.10: 'A similar measure of fluctuations was originally introduced by [25]. However, in that reference normal ordering was used to eliminate certain terms; we believe these terms contain important physical information about the fluctuations of the smeared stress tensor.' p.11: the vacuum+two-particle class 'first introduced by L.H.Ford [25]'; their smeared result 'is similar to that of [25], but due to the smearing the negative contribution ... is exponentially damped.' Restates no journal equation.",
+   "read_status": "READ (cached text d67/src/1807.03808.txt:600-610, 785-800, 836-925, 3554-3555)"
+  },
+  {
+   "ref": "B. L. Hu & E. Verdaguer, 'Stochastic gravity: theory and applications', Living Rev. Rel., arXiv:gr-qc/0402029v1 (cites KF as [5])",
+   "effect": "narrows",
+   "what": "'An earlier criterion put forth by Kuo and Ford [5] used the variance of the fluctuations of the stress tensor operator compared to the mean value as a measure of the validity of SCG. As pointed out by Hu and Phillips ... such a criterion should be refined by considering the back reaction of those fluctuations on the metric.'",
+   "read_status": "READ (cached d67/src/casmag/all/gr-qc_0402029v1.txt:104-107)"
+  },
+  {
+   "ref": "arXiv:2512.17789v2 (cites KF journal as [7], pp. 4510-4519)",
+   "effect": "contested",
+   "what": "'In these works, several perspectives and definitions of energy-momentum fluctuations were proposed, often invoking non-covariant expressions formulated in terms of specific mean values of components of the energy-momentum tensor, such as the \"energy density.\" In the early debates, much of the discussion centered on the choice of appropriate criteria for the validity of semiclassical gravity'; proposes OPE-based renormalisation in curved spacetime -- the procedure KF Sec. V said 'has not yet been developed'.",
+   "read_status": "READ (cached d67/src/casmag/all/2512.17789v2.txt:80-103, 1127-1129)"
+  },
+  {
+   "ref": "Ford & Roman, arXiv:gr-qc/9410043v1 (cites KF journal as [42])",
+   "effect": "confirms",
+   "what": "'recent work of Kuo and Ford [42, 43] indicates that in flat spacetime, negative energy densities are subject to large fluctuations' -- the qualitative conclusion, which fluctuation.py records as surviving (KF_QUALITATIVE_CONCLUSION_SURVIVES = True).",
+   "read_status": "READ (cached d67/src/casmag/all/gr-qc_9410043v1.txt:2365-2368, 2446)"
+  },
+  {
+   "ref": "discover_papers search for later work on this result",
+   "effect": "contested",
+   "what": "NOT RUN: alphaXiv returned 'assistant quota exceeded'. Later literature above is from cached texts of earlier stages only; no erratum located (one WebSearch; negative search is not evidence of absence).",
+   "read_status": "NAMED-NOT-READ (search refused)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. KF's content is algebra in flat spacetime with no measured input (data_at_publication row 1): no datum they lacked could move (2.16), (3.7), (3.8) or the inequality after (3.8) -- those stand or fall by computation, and the computation here (A1-A11) is exact and data-free. What KF lacked in 1993 was THEORY, not data, and they said so: 'a renormalization procedure for quartic operator products in such [curved] spacetimes, which has not yet been developed' (v1 Sec. V, READ via d67/src/gr-qc_9304008.note). That gap has since been addressed by OPE methods (2512.17789, READ) and the criterion itself refined by back-reaction arguments (gr-qc/0402029, READ) and contested on the normal-ordering choice (1807.03808, READ) -- each narrows the reach of Delta as a validity criterion; none refutes KF's flat-space qualitative finding, and gr-qc/9410043 (READ) restates that finding as standing. For THIS entry -- the journal version -- the missing item is not physical data but the journal text itself, which could not be reached here (quota / egress). Evidence against M's hypothesis for this entry: nothing in KF depends on a measured constant. Evidence for 'incomplete': the curved-space and smearing gaps, stated by KF themselves. Nothing here says the journal is wrong, and nothing says it repeats v1's slips.",
+ "grade": "OPEN",
+ "grade_evidence": "The journal text, PRD 47, 4510-4519 (1993), is NAMED-NOT-READ in this audit: every route was refused (alphaXiv quota exceeded x4; journals.aps.org, arxiv.org, pubmed, doi.org, crossref, inspirehep egress-blocked). Its equations therefore cannot be checked here, and under M's rule a claim that cannot be checked is OPEN, not STANDS or WRONG. What IS established, both ways: (i) the tree's use of this entry is a scope clause and it is exact -- JOURNAL_VERSION_READ = False, the docstring's NAMED-NOT-READ and MUST-NOT clause, SOURCE scoped to v1, ledger.py's consistency raise, and no file under research/warp-drive asserting an error in the journal (T1-T6); (ii) the v1 discrepancies the clause protects are real and reproducible (A1-A11: (2.16) final = 1/2 exact; (3.7) off by 1/(1+eps^2); exact Delta 0.5134 vs (3.8) 2.0118 at the witness; z3: rho<0 => 1/3 < Delta < 1, so 'Delta > 1' fails everywhere on rho<0 in v1) -- so the clause is protecting findings, not artefacts; (iii) v1 (6 Apr 1993) is a pre-proof manuscript ~5-6 weeks before the May 1993 issue, so proof corrections are possible and undetermined; one WebSearch found no erratum, which is not evidence of none. Nothing here moves any ledger row; nothing is in M's favour.",
+ "what_would_change_the_grade": "Reading PRD 47, 4510-4519 at source (APS page images or a library copy). If the journal prints the same (2.16) final line, (3.7), (3.8) and 'Delta(x) > 1' as v1, the v1 grades carry over (the sentence after (3.8) WRONG by computation, the rest discrepancies) and this entry becomes STANDS as a scope record with JOURNAL_VERSION_READ then flippable by the owner. If the journal prints corrected forms, the v1 discrepancies are v1-only -- exactly as the tree already scopes them -- and this entry STANDS with the tree's clause vindicated. An erratum located in PRD would likewise settle it. No computation can change the grade: the missing item is a text, not a result.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/kuo-ford-1993-prd-47-4510.py  (exits 0 on 24/24; also: cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/kuo-ford-1993-prd-47-4510.json"
+}

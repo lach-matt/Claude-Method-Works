@@ -332,13 +332,15 @@ Substituting the source carries the specification in `WARP-DRIVE.md` §5 across 
 |---|---|
 | inner radius `R₁` / outer `R₂` | 10 m / 20 m |
 | shell mass | 4.49 × 10²⁷ kg — **2.37 Jupiter masses** |
-| shell density | 1.53 × 10²³ kg m⁻³, **6.66 × 10⁵ × nuclear** |
+| shell density | 1.53 × 10²³ kg m⁻³, **5.72 × 10⁵ × nuclear** |
 | horizon margin `R₁/r_s` | 1.50, at 66.7 % of the ceiling `M < R₁c²/2G` |
 | velocity | 0.04 c, constant |
 
 and with it the scaling law: density falls as `1/R₁²` while the mass ceiling grows as `R₁`, so an
-**8.16 km** inner radius brings the material requirement to exactly nuclear density at **1.84 solar
-masses**.
+**7.56 km** inner radius brings the material requirement to exactly nuclear density at **1.71 solar
+masses**. (Corrected on M's "Repair all", DOCKET 67: first 6.66 × 10⁵, 8.16 km and 1.84 solar masses, on a recalled nuclear density
+of 2.3 × 10¹⁷ kg m⁻³; `warpdrive.py` now computes on `address.RHO_NUCLEAR` = 2.676 × 10¹⁷, from the
+conventional n₀ = 0.16 fm⁻³, which is not read at source.)
 
 Two of the document's own ideas survive the substitution and improve it. **Counter-rotation for
 `L_total = 0`** remains valuable — a shell that must not tumble is a shell that wants zero net angular

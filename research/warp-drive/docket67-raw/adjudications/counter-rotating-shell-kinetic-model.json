@@ -1,0 +1,100 @@
+{
+ "key": "counter-rotating-shell-kinetic-model",
+ "final_grade": "STANDS",
+ "source_read_status": "NAMED-NOT-READ",
+ "read_at_source_this_pass": false,
+ "decision": "STANDS, with the provenance sub-claim OPEN. The supporting reports are verifiers 0 (refute) and 1 (rederive) on the grade, the audit on every number, and verifier 2 (data) on every data row. Verifier 2's NARROWED repeats the audit's narrowing argument and never takes up the necessary-condition reading, so it is not followed on the grade. (1) Every number re-runs. The audit script, copied to adjudicate/run/crs_rederive.py, exits 0 with output md5 f80851f3d228d7d151f3bc44ad7b9ed4, the same as the audit's. It has 33 PASS lines, not 34. Re-running verifier 0's crs_refute.py gives md5 e5f555843097e4843263263192cd0fa6, the same as theirs. wall.py --selftest prints SELFTEST OK, and wall.matter_crossover() = 0.4689765563942486 = (17 - sqrt33)/24. (2) The NARROWED argument is that 0.46898 holds only for one speed, and the K7 alternatives give lower crossovers. I now prove exactly what verifiers 0 and 1 found only by random search (adjudicate/run/crs_jensen.py, output md5 49a6dc9a70b63bc0db7f14b23276fbb3). Take any speed distribution at one radius, with each particle conserving its own L (u_i ~ 1/R) and n ~ 1/R^2. Sympy gives, identically, d sigma_i/dR = -(2/R)(sigma_i + p_i), which is per-component Israel conservation, and d p_i/dR = -(2/R)(2 p_i - sigma_i v_i^4/4). Hence beta^2_mix = (2p - (1/4) sum sigma_i v_i^4)/(sigma + p). At fixed Lanczos statics (sigma, p), beta^2_single - beta^2_mix = sigma Var_sigma(v^2) / (4 (sigma + p)), which is >= 0 and zero only for a single speed (Jensen). The single-speed form reduces symbolically to wall.py:86. The same formula reproduces the audit's thin-cluster crossover 0.447387 and margin 1.133151. The single-speed margin crosses 1 only once in (0, 8/9) (K6). So any distribution with the same statics clears the threshold only at x where a single speed does, that is x < (17 - sqrt33)/24. wall.py:98-99, 'counter-rotating matter clears the threshold only for x < 0.46898', is therefore TRUE as written for the whole class the audit widened it to. The audit's alternatives (0.447387, 0.445357, 0.430510, and below 0.1) are instances of that bound, not narrowings of it. (3) The other reading is that 0.46898 is also the sufficiency boundary. That holds for the tree's model, whose single speed is stated in the formula (sigma = n mu gamma with one gamma, p = n mu gamma v^2/2, wall.py:81). The single speed is also forced in a strictly distributional shell if each particle feels the mean extrinsic curvature: verifier 0's R1, re-run here, gives v^2 = (1-s)/(2s) for every particle, difference 0. That mean-geometry law is a NAMED hypothesis, NAMED-NOT-READ, and the grade does not rest on it. Under the other idealisation, the thin limit of an Einstein cluster, sufficiency fails only on (0.447387, 0.468977). That number itself comes from a rigid L-conserving trial motion (verifier 1, point 4), so it is a trial-mode result. The tree asserts no point in that interval. Every point it does assert holds under both idealisations, as the audit itself computed: x = 0.3 stable (1.144558 single speed, 1.133151 cluster), x = 0.4 stable, x = 2/3 and 4/5 unstable, the margin tends to 4/3 as x -> 0, and designpoint.py:160-161's 1/6 lies below both crossovers. (4) No datum enters. The result is closed-form in x, so DATA-DEPENDENT does not apply. Verifier 2 confirmed every data row independently: mpmath root 0.468976556394248805839557855491, table rows to 6 decimals, and the cluster statics to 1e-29. (5) Over-representation was checked both ways. Grading NARROWED would charge the tree with a class-wide claim that is in fact class-wide true. Grading STANDS does not credit the tree with more than it shows: the bound is proven here, not by the tree; the single-speed hypothesis is carried only by the formula; and the provenance claim stays OPEN.",
+ "scope": "Covered: the radial (l = 0) stability of a thin shell of collisionless counter-rotating particles, Minkowski inside and Schwarzschild outside, under these NAMED hypotheses. H1: a distributional shell with Lanczos statics p0/sigma0 = (1-s)/(4s). H2: tangential motion isotropic on the 2-sphere at one common speed, as stated by sigma = n mu gamma; under H1 plus H-mean it is forced. H-mean: particles of a strictly thin shell feel the mean extrinsic curvature. NAMED-NOT-READ; the grade does not depend on it. H3: each particle conserves its own L under a spherically symmetric (rigid) radial perturbation. H4: stability judged by beta^2 = dp/dsigma along that sequence, against beta^2_crit (audited separately), and also tested by the EOM in K5 without beta^2_crit. Under these the grade covers: the beta^2_vlasov formula and its 1/2 ceiling; the 8/9 expiry; the crossover (17 - sqrt33)/24 = 0.468976556; the four table rows; the 1.144557648 margin; the 4/3 limit; and the stated conclusion 'clears the threshold only for x < 0.46898'. That conclusion is proven true as a necessary condition for ANY speed distribution with the same statics, and is exact as an iff for the single-speed model. Not covered: (a) the provenance claim 'no member or paper states it in this form' (wall.py:77-78). It is OPEN because no literature search ran, and alphaXiv discovery was not re-attempted here. (b) Non-radial (l >= 2) stability of a kinetic shell. The tree's import of PSP's perfect-fluid instability at wall.py:119-128 is an adjacent, separate finding. (c) Sufficiency of 0.46898 under the thick-shell-limit (Einstein-cluster) idealisation. There the crossover is 0.447387 under a rigid trial mode, which is itself not a full equilibrium analysis. (d) Ames-Andreasson-Logg and LeMaitre-Poisson 2019 remain NAMED-NOT-READ.",
+ "corrections_to_record": [
+  "The audit's narrowing is withdrawn on computation. wall.py:98-99 'clears the threshold only for x < 0.46898' is a necessary-condition bound, and it holds for EVERY speed distribution with the same Lanczos statics under per-particle L conservation. It is proven exactly: beta^2_single - beta^2_mix = sigma Var_sigma(v^2)/(4(sigma+p)) >= 0 (adjudicate/run/crs_jensen.py). The K7 alternatives (0.447387, 0.445357, 0.430510, <0.1) are instances of the bound, not counterexamples to it.",
+  "The single-speed hypothesis is not 'unstated'. It is stated by the formula sigma = n mu gamma, p = n mu gamma v^2/2 with one gamma and one v (wall.py:81-82), though not in words. A wording note, not a grade change: 0.46898 is the single-speed crossover and the supremum over all speed distributions. Under the thin-Einstein-cluster idealisation with a rigid L-conserving trial motion the crossover is 0.447387.",
+  "Verifiers 0 and 1 showed single-speed extremality only by random search over finite mixtures. It is now proven exactly by Jensen on the identity above, so their 'not proved' limitation is discharged.",
+  "The audit's '34 of 34 checks' is a miscount: the rederive output has 33 PASS lines, 0 FAIL (grep -cE '^(PASS|FAIL)' -> 33), with the md5 f80851f3d228d7d151f3bc44ad7b9ed4 reproduced.",
+  "The audit and verifier 2 cite the selftest crossover pin as wall.py:603. In the current tree it is at wall.py:602 (chk(\"crossover\", xc, 0.46897656, 1e-6)).",
+  "Dadhich's 'v^2 = 8/9' (2504.00064v2 p.7, cached text lines 270-287) does not come from the AAL limit 2p_t/rho -> 1. It is his own relativistic virial relation (cached text lines 70-90: 'limiting compactness, M/R = 4/9 for massive particles with velocity, v^2 = 8/9'). For a single-speed 2D gas 2p_t/rho = v^2, so 2p_t/rho -> 1 means local v -> 1. That is consistent with the tree's expiry at x = 2M/R = 8/9. The discrepancy is internal to Dadhich and is recorded as such, not against the tree.",
+  "K7a's thin-cluster crossover 0.447387 rests on a hypothesis the audit did not name: a rigid L-conserving trial motion in which each layer leaves its own circular-orbit equilibrium (verifier 1, point 4). A trial-mode V'' > 0 does not prove stability.",
+  "The K7c rest-dominated mixtures cannot be realized under either idealisation. In a strictly thin shell under the mean-geometry law every particle has v^2 = (1-s)/(2s). In the thin-cluster limit the speed map v^2(q) = q/(2(1-q)) with uniform dm is fixed. They are not refutations, as the audit already says.",
+  "The provenance sub-claim 'no member or paper states it in this form' stays OPEN, untested.",
+  "The label discrepancy is cross-referenced to audit einstein-vlasov-limit-2-3, not adjudicated here. wall.py:29 and wall.py:245 (X_VLASOV = 2/3) call x = 2/3 the 'Einstein-Vlasov limit', while this file's own counter-rotating (Einstein-Vlasov) model expires at 8/9 (wall.py:88, 435)."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/wall.py:98-99",
+   "finding": "'counter-rotating matter clears the threshold only for x < 0.46898'. True as a necessary condition for every speed distribution with the same statics (Jensen, proven exactly). Exact as an iff for the single-speed model the file states. The boundary as a sufficiency number is single-speed specific: 0.447387 under the thin-cluster rigid-trial idealisation. Wording note only.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:81-82",
+   "finding": "sigma = n mu gamma and p = n mu gamma v^2/2: the single-speed hypothesis is carried by the formula (one gamma, one v), not named in words. Under a strictly distributional shell with the mean-geometry law it is forced (v^2 = (1-s)/(2s) per particle, sympy difference 0).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:86",
+   "finding": "beta^2_vlasov = u^2(3u^2+4)/(2(1+u^2)(3u^2+2)) re-derived symbolically (K3; and here as the single-speed case of beta^2_mix = (2p - sum sigma_i v_i^4/4)/(sigma+p)). Ceiling 1/2.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:88",
+   "finding": "model expires at v = 1, x = 8/9: exact (K2). Matches the AAL thin-shell endpoint 2M/R -> 8/9 with 2p_t/rho -> 1, as restated by Dadhich p.7 (cached text, read this pass).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:89-95",
+   "finding": "table rows x = 0.3, 0.4, 2/3, 4/5 reproduce to 6e-7; the x -> 0 ratio 4/3 is exact. The 'x = 0.469 crossover' row equals (17 - sqrt33)/24.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:102-103",
+   "finding": "'Le's operating point and any habitable, low-compactness ship are both well inside'. Holds under both the single-speed and the thin-cluster idealisations (margins 1.144558 / 1.133151 at 0.3; both tend to 4/3 as x -> 0).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:77-79",
+   "finding": "'marked RECONSTRUCTED because no member or paper states it in this form'. The provenance claim is OPEN, untested; no literature search ran. The RECONSTRUCTED status label is accurate.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:399-436",
+   "finding": "v2_of_x, beta2_vlasov, matter_crossover (line 418, bisection gives 0.4689765563942486), vlasov_margin, and vlasov_model_limit (line 434) all agree with the closed forms. Line numbers as audited.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/wall.py:602",
+   "finding": "selftest crossover pin 0.46897656. The audit and verifier 2 cite it as wall.py:603; it is at 602 in the current tree. Off by one, not a tree change (wall.py last changed in ad86999, 2026-09-07; working tree clean).",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/wall.py:119-128",
+   "finding": "Imports PSP's l >= 2 instability (perfect-fluid shell, 2604.05980v1 cached line ~459, md5 9916ebc75c7859da12c37c59acc4458f, read this pass) and applies it to 'LE'S STATIC ANCHOR EXACTLY' (line 125), next to the kinetic model. The fluid-to-kinetic transfer is not established by anything read. Adjacent to this key, outside its grade.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/wall.py:29",
+   "finding": "labels x = 2/3 'Einstein-Vlasov limit', while this file's own counter-rotating (Einstein-Vlasov) model expires at 8/9. A label discrepancy, cross-referenced to audit einstein-vlasov-limit-2-3.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/wall.py:245",
+   "finding": "X_VLASOV = 2.0/3.0. The same label discrepancy as wall.py:29: 2/3 is where the outermost particle of the thin-limit cluster reaches v = 1, not where the single-speed model expires.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/designpoint.py:160-161",
+   "finding": "compactness(1.0) = 1/6 < wall.matter_crossover() = 0.468977. Also below the thin-cluster 0.447387, so the 'does not bind' check holds under both idealisations.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 json dump of adjudicate/in/counter-rotating-shell-kinetic-model.json (full packet read)",
+  "sed -n 20,35p; 70,135p; 238,250p; 395,440p; 595,615p wall.py; sed -n 150,165p designpoint.py (read-only)",
+  "grep -rn '0.4689|46898|matter_crossover|counter-rotating' research/warp-drive (other uses of the crossover)",
+  "cp rederive/counter-rotating-shell-kinetic-model.py adjudicate/run/crs_rederive.py && python3 crs_rederive.py > crs_rederive.out -> EXIT 0, md5 f80851f3d228d7d151f3bc44ad7b9ed4, 33 PASS / 0 FAIL",
+  "cp verify/refute/crs_refute.py adjudicate/run/ && python3 crs_refute.py -> md5 e5f555843097e4843263263192cd0fa6 (R1 difference 0; R2/R3 maxima equal single speed)",
+  "python3 adjudicate/run/crs_jensen.py -> md5 49a6dc9a70b63bc0db7f14b23276fbb3 (A, B identities 0; C equals wall.py:86; D cluster 0.447387 / 1.133151; E ordering)",
+  "sed/grep of scratchpad/d67/src/casmag/all/2504.00064v2.txt (md5 e52006a80f861116a103a94390b3f98f) lines 70-95, 268-296; 2604.05980v1.txt (md5 9916ebc75c7859da12c37c59acc4458f) lines 457-461",
+  "grep -n of site anchors in wall.py; git log -1 -- wall.py (ad86999, 2026-09-07); git diff --stat HEAD (clean)",
+  "python3 wall.py --selftest -> SELFTEST OK; python3 -c 'import designpoint,wall' -> 0.16666666666666666 0.4689765563942486"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && python3 crs_rederive.py | md5sum && python3 crs_refute.py | md5sum && python3 crs_jensen.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 wall.py --selftest | tail -1)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/counter-rotating-shell-kinetic-model.json"
+}

@@ -1,0 +1,97 @@
+{
+ "key": "2405.05963-sec3.3",
+ "name": "Kontou 2024 Sec. 3.3: the DSNEC makes sense only on Minkowski or at scales well below the curvature scale",
+ "source": {
+  "located": "arXiv:2405.05963, E.-A. Kontou, 'Wormhole restrictions from quantum energy inequalities', Universe 10 (2024) 291 (doi:10.3390/universe10070291). The sentence the tree quotes is located by two independent WebSearch results pointing at arxiv.org/pdf/2405.05963 and arxiv.org/html/2405.05963v1, which returned it as: 'The DSNEC of Equation (49) currently makes sense only on Minkowski spacetime or at length scales sufficiently smaller than the curvature scale', with the preceding context 'as averages over finite null segments diverge, one can average instead over two null directions. However, it is unclear what integrating over two null directions means unless they are both less than the radius of curvature.' The subsection NUMBER (3.3) was not confirmed this stage; it rests on DOCKET 64's recorded reading. The PDF itself could NOT be opened: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded'; curl and WebFetch to arxiv.org, www.mdpi.com and kclpure.kcl.ac.uk were refused by the egress proxy (403 / EGRESS_BLOCKED, organization policy; not routed around).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "The wording is known here through (a) the tree's quotation (qeihps.py:120-122, recorded READ by DOCKET 64) and (b) web-search snippets of the arXiv copy, which are search-engine mediated and so are corroboration, not a reading at source. The CONTENT was checked against a primary source that WAS read this stage from a cached arXiv extraction: Fliss-Freivogel-Kontou-Pardo Santos arXiv:2309.10848 (src/2309.10848.txt): lines 3083-3094 ('Our above result, (72), applies generally for non-minimally coupled scalar fields in a curved background ... It is also useful for us to discuss this bound in n-dimensional Minkowski spacetime and make comparisons to the DSNEC proven in [14] ... renormalize with the Minkowski vacuum state as the reference Hadamard state'), and footnote 15 (line 5449-5450): 'We presented a proof for Minkowski spacetime but we expect it could be extended to spacetimes with finite curvature as in Ref. [38].' [14] = Fliss, Freivogel, Kontou, 'The double smeared null energy condition', SciPost Phys. 14 (2023) 024, arXiv:2111.05772 -- NAMED-NOT-READ (its abstract, seen only as a search snippet, says the DSNEC was 'rigorously derived ... for free quantum fields in Minkowski spacetime' and the method 'allows for future systematic inclusion of curvature corrections')."
+ },
+ "published_statement": "'The DSNEC of Equation (49) currently makes sense only on Minkowski spacetime or at length scales sufficiently smaller than the curvature scale.' (Kontou 2024, arXiv:2405.05963; wording via search snippet, section number via DOCKET 64). It is a SCOPE / status-of-the-literature statement, not a theorem: it asserts where the double smeared null energy condition is currently meaningful, preceded by 'it is unclear what integrating over two null directions means unless they are both less than the radius of curvature.'",
+ "published_hypotheses": [
+  "H1 (Minkowski): the DSNEC of Kontou's eq. (49) is derived for free fields on Minkowski spacetime, renormalised against the Minkowski vacuum (corroborated READ at FFKP 2309.10848 lines 3083-3094 and fn. 15; FFK 2111.05772 NAMED-NOT-READ).",
+  "H2 (short-scale clause): or on a curved spacetime at sampling lengths (the two null smearing lengths delta+, delta-) 'sufficiently smaller than the curvature scale' -- the factor is NOT quantified in the sentence, and the clause is stated as where it 'makes sense', not as a proven curved-spacetime bound (FFKP fn. 15: extension to finite curvature 'expected', not done).",
+  "Implicit in the DSNEC itself: free (non-interacting) quantum fields; for the NMC field, FFKP's DSNEC form additionally needs <:phi^2:> <= phi_max^2 (FFKP eq. (79), READ)."
+ ],
+ "hypothesis_drift": [
+  "ELIDED WORDS (discrepancy, harmless): the tree quotes 'the DSNEC ... currently makes sense only on Minkowski spacetime or at length scales sufficiently smaller than the curvature scale' (qeihps.py:121-122); the elision is 'of Equation (49)'. Meaning unchanged.",
+  "ADDED (named): a Planck floor on the sampling length -- the DSN row reads 'Minkowski, or sampling << curvature radius (>= l_P)' (qeihps.py:446) and qeihps.py:122-124 converts 'sufficiently smaller' into 'SUB-PLANCKIAN' and hence REFUSED. Kontou's sentence carries no l_P floor; taken alone its short-scale clause would formally admit sampling at l << 0.0243 l_P on HPS. The floor is the tree's semiclassical-validity premise (it cites 'Kontou's own doubt about the semiclassical regime of [90]' only as a CAVEAT, qeihps.py:113-117). It is named in the row text, so this is a named added hypothesis, not a hidden one.",
+  "WEAKENED (flatness test): Kontou says 'Minkowski spacetime'; the owner's test is 'kretschmann == 0' (qeihps.py:449), and the selftest labels it 'CONTROL flat: Kretschmann 0 meets the DSNEC row' (qeihps.py:1039-1040). Kretschmann = 0 does not imply Minkowski: the vacuum plane wave ds^2 = -2 du dv + (x^2-y^2) du^2 + dx^2 + dy^2 has Ricci = 0, R_uxux = -1, R_abcd R^abcd = 0 (sympy, check E1). The proxy would mark such a spacetime MET.",
+  "WEAKENED (scale test): the owner's criterion 'min(radii) > 1' (qeihps.py:449) is necessary but not sufficient for the existence of a sampling length l with l_P <= l <= r_c/k for any factor k > 1: r_c = 7/4 l_P passes the proxy and admits no l in [1, r_c/10] (z3 witness, check E2).",
+  "NEITHER WEAKENING REACHES THE HPS VERDICT: at HPS's throat Kretschmann = 4/r_0^4 != 0 and both radii are < 1, so the row FAILS under the proxy and under the literal reading alike (checks B, D)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "HPS throat radius r_0 (= orthonormal curvature radius r_c) at L = -2/3",
+   "value_then": "tree: 1/sqrt(540 pi) = 0.0242789 l_P (computed from HPS boundary data (9), r(0)^2 = -16 K^2 L, K^2 = 1/(5760 pi))",
+   "value_now": "0.0242789 l_P (sympy, check A); no measured datum enters -- the value is dimensionless in Planck units, fixed by the anomaly coefficient K^2 and the HPS parameter L",
+   "source_now": "rederive/2405.05963-sec3.3.py checks A1-A3",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "Kretschmann radius (4/r_0^4)^(-1/4)",
+   "value_then": "0.0171677 l_P",
+   "value_now": "r_0/sqrt 2 = 0.0171677 l_P (sympy B2-B3)",
+   "source_now": "rederive checks B2, B3",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "r_0 over the whole HPS range -1 <= L < 0",
+   "value_then": "not stated by the tree (it evaluates L = -2/3 only)",
+   "value_now": "max at L = -1: 1/sqrt(360 pi) = 0.02974 l_P; z3: no admissible L gives r_0 >= l_P",
+   "source_now": "rederive checks C1, C2",
+   "moves_conclusion": "no -- the sub-Planckian curvature radius holds for every admissible L, not only the plotted one"
+  },
+  {
+   "quantity": "the factor k in 'sufficiently smaller' (unquantified in the source)",
+   "value_then": "unstated by Kontou; the tree uses only r_c > l_P",
+   "value_now": "z3: for every k >= 1 there is no l >= l_P with l <= r_c/k at HPS (either radius)",
+   "source_now": "rederive check D",
+   "moves_conclusion": "no -- the verdict is independent of k"
+  },
+  {
+   "quantity": "Newton's G / Planck length (unit)",
+   "value_then": "G = 6.67430e-11 (CODATA 2018)",
+   "value_now": "G = 6.67430(15)e-11 (CODATA 2022, unchanged)",
+   "source_now": "CODATA 2022 (value recalled, not re-read this stage); irrelevant because r_0 is computed directly in Planck units",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2405.05963-sec3.3.py",
+  "outcome": "ALL PASS (14 checks, sympy + z3). A: r_0^2 = 1/(540 pi) at L=-2/3; r_0 = 0.0242789, r_0/sqrt2 = 0.0171677 l_P, matching qeihps.py:130-131. B: for ds^2 = -f dt^2 + dl^2 + r^2 dOmega^2 with f'=f''=f'''=0, r'=r''=r'''=0 at l=0, the only non-zero orthonormal Riemann component is R_(th ph th ph) = 1/r_0^2 and Kretschmann = 4/r_0^4. C (z3): r_0 < l_P over the whole HPS range, max 0.02974 l_P at L=-1. D (z3): for every k >= 1 no sampling length l >= l_P satisfies l <= r_c/k at HPS, under either radius. E1 (sympy): vacuum plane wave, Ricci = 0, R_uxux = -1, Kretschmann = 0 -- the owner's kretschmann==0 proxy is not 'Minkowski'. E2 (z3): r_c = 7/4 passes 'min(radii) > 1' yet admits no l in [1, r_c/10]. NOT checkable here: Kontou's sentence itself (a scope statement with no proof to re-run), and whether a curved-spacetime DSNEC exists (a literature question, see later_literature). Output: rederive/2405.05963-sec3.3.out.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Fliss, Freivogel, Kontou, Pardo Santos, arXiv:2309.10848 (2023), Sec. IV.C and fn. 15",
+   "effect": "confirms",
+   "what": "DSNEC comparison forms (75)-(93) are written in n-dimensional Minkowski with the Minkowski vacuum as reference; 'We presented a proof for Minkowski spacetime but we expect it could be extended to spacetimes with finite curvature as in Ref. [38].' The curved-spacetime QEI (72) exists but is not in DSNEC form. (Predates Kontou 2024; read here as the primary source her sentence summarises.)",
+   "read_status": "READ (cached arXiv extraction src/2309.10848.txt lines 3083-3200, 3340-3370, 5449-5450)"
+  },
+  {
+   "ref": "Fliss, Freivogel, Kontou, arXiv:2111.05772, SciPost Phys. 14 (2023) 024",
+   "effect": "confirms",
+   "what": "Abstract (search snippet only): DSNEC 'rigorously derived from general worldvolume bounds for free quantum fields in Minkowski spacetime'; method 'allows for future systematic inclusion of curvature corrections'; generalization to curved spacetime named as future work (no preferred vacuum; Hadamard-parametrix renormalisation suggested).",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet; arXiv refused by egress proxy, alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "'The fermionic double smeared null energy condition', arXiv:2405.10228 (2024)",
+   "effect": "extends",
+   "what": "Search snippet: proves the DSNEC for the free fermionic theory in 4-dimensional flat Minkowski spacetime -- widens the field content, not the background; the Minkowski restriction persists.",
+   "read_status": "NAMED-NOT-READ (WebSearch snippet only)"
+  },
+  {
+   "ref": "discover_papers (alphaXiv) for later curved-spacetime DSNEC work",
+   "effect": "contested",
+   "what": "The mandated discover_papers call returned 'alphaXiv assistant quota exceeded'. One WebSearch ('double smeared null energy condition curved spacetime extension 2025') surfaced no curved-spacetime DSNEC proof. This is absence from one search, NOT evidence that none exists; effect recorded as 'contested' only because the schema has no 'unknown' value -- read it as NOT-ESTABLISHED.",
+   "read_status": "NAMED-NOT-READ (search failed / snippet-level only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the sentence is not a measurement-dependent conclusion and uses no experimental datum; what it records is a MISSING DERIVATION, not missing data -- no DSNEC has been proven on a curved background (FFKP fn. 15, READ: 'expect it could be extended'; FFK 2111.05772 and the fermionic DSNEC 2405.10228, snippet-level, both Minkowski). Evidence either way: (i) if a curved-spacetime DSNEC is later proven, the scope clause moves, and the tree's REFUSED would have to be re-examined against that theorem's own hypotheses -- but the HPS side of the refusal would not move from any datum: the curvature radius is fixed in Planck units by K^2 = 1/(5760 pi) and L, and is < l_P for every admissible L (z3, check C) and for every 'sufficiently smaller' factor k (check D). (ii) The HPS-side numbers are theory-internal (one conformally coupled field's anomaly coefficient), so no revised measurement (G, CODATA) touches them. (iii) The one premise that is not Kontou's -- the Planck floor on the sampling length -- is a physical judgement about the semiclassical regime, not a datum; the refusal is in any case overdetermined, because even at l << r_c the Minkowski DSNEC would need the unproven curved extension. Conclusion: M's 'lacked data' hypothesis finds no purchase here; the gap is a theorem not yet proved, which the source itself says ('currently').",
+ "grade": "NARROWED",
+ "grade_evidence": "The scope statement STANDS as a description of the literature and the tree's HPS verdict STANDS: FFKP 2309.10848 (READ) writes its DSNEC forms in Minkowski and calls the curved extension an expectation; HPS's throat has Kretschmann 4/r_0^4 != 0 with only R_(th ph th ph) = 1/r_0^2 non-zero (sympy), r_c = 0.0242789 l_P and r_0/sqrt2 = 0.0171677 l_P (sympy), sub-Planckian over the whole HPS range (z3) and for every factor k in 'sufficiently smaller' (z3). It is graded NARROWED, not STANDS, because the tree's operationalisation of Kontou's hypothesis is LAXER than the source on two computed counts and ADDS one premise: (i) 'kretschmann == 0' is treated as 'Minkowski' (qeihps.py:449, selftest 'CONTROL flat' at :1039-1040), but a vacuum plane wave has Kretschmann 0 with R_uxux = -1 (sympy E1); (ii) 'min(radii) > 1' is taken as the scale condition, but r_c = 7/4 l_P passes it while admitting no l in [l_P, r_c/10] (z3 E2); (iii) the l_P floor that turns 'sufficiently smaller' into REFUSED is the tree's semiclassical premise, named in the row text but not in Kontou's sentence. The DSN row therefore holds on a smaller class of spacetimes than its MET criterion covers. None of the three reaches the HPS value: the row FAILS there under proxy and literal reading alike. Not WRONG: nothing is contradicted. Source caveat: Kontou's PDF was not opened this stage (alphaXiv quota exhausted; arXiv/MDPI/KCL refused by egress policy); the wording is corroborated by search snippets and the content by FFKP (READ), so the source is NAMED-NOT-READ -- any wording difference found on a re-read is a discrepancy to record, not a refutation.",
+ "what_would_change_the_grade": "-> STANDS: the DSN row's MET criterion tightened to the source (flatness tested as Riemann = 0, not Kretschmann = 0; the scale test stated as 'there exists l with l_P <= l <= r_c/k' with k named) -- a change to the tree, not to the source; plus a direct read of arXiv:2405.05963 confirming the sentence and section 3.3. -> OPEN: a re-read showing the sentence is not in Kontou 2024 or says something materially different (the tree's attribution would then rest on nothing READ). -> DATA-DEPENDENT / re-examination: a published curved-spacetime DSNEC (the scope clause would move; the HPS refusal would then have to be re-tested against that theorem's hypotheses). -> WRONG: only a shown curved-spacetime DSNEC valid at HPS's throat scale; none was found.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2405.05963-sec3.3.py ; sed -n 3083,3094p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.txt ; sed -n 5449,5450p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/2309.10848.txt ; sed -n 446,449p /home/user/Claude-Method-Works/research/warp-drive/qeihps.py ; sed -n 1039,1040p /home/user/Claude-Method-Works/research/warp-drive/qeihps.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2405.05963-sec3.3.json"
+}

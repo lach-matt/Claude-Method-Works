@@ -1,0 +1,86 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67"
+R = {
+ "key": "morris-thorne-1988-throat",
+ "name": "Morris-Thorne traversable-wormhole throat: b(r_0) = r_0, Phi' = 0 there, flare-out",
+ "source": {
+  "located": "M. S. Morris & K. S. Thorne, 'Wormholes in spacetime and their use for interstellar travel: a tool for teaching general relativity', Am. J. Phys. 56, 395 (1988). No arXiv copy (pre-arXiv).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "MT 1988 itself NAMED-NOT-READ. Read at source through alphaXiv: F. S. N. Lobo, arXiv:0710.4474 (review) Sec II A-F, eqs (1)-(4), (9)-(10), (21)-(34), (37)-(41), (71), which restate MT's metric, throat, flare-out, field equations, throat values and exoticity with citations [1] = MT 1988; cross-read D. Hochberg & M. Visser, arXiv:gr-qc/9704082, eqs (67)-(68), (70)-(72), (98)-(100) and Secs 6-9, which quote 'the Morris-Thorne result that tau = 1/(8 pi G r_0^2) at the throat' (eq 68) and rho = b'(r_0)/(8 pi G r_0^2) <= 1/(8 pi G r_0^2) (eq 72), and note MT's 'at or near the throat' (MT p.405 eq 56)."
+ },
+ "published_statement": "As restated (Lobo 0710.4474): metric (1) ds^2 = -e^{2Phi(r)} dt^2 + dr^2/(1 - b(r)/r) + r^2 dOmega^2 with Phi, b 'arbitrary functions'; the throat is the minimum r_0 of r 'where b(r_0) = r_0'; 'for the wormhole to be traversable it must have no horizons ... Phi(r) must be finite everywhere'. Flare-out (10): d^2r/dz^2 = (b - b'r)/(2b^2) > 0 at or near the throat, 'at the throat ... b'(r_0) < 1'. Field equations (26)-(28): rho = b'/(8 pi r^2), tau = -p_r = [b/r^3 - 2(1 - b/r)Phi'/r]/(8 pi); at the throat (29)-(31): rho(r_0) = b'(r_0)/(8 pi r_0^2), tau(r_0) = 1/(8 pi r_0^2), p(r_0) = (1 - b'(r_0))(1 + r_0 Phi'(r_0))/(16 pi r_0^2). (32)-(33): b(r) = 2m(r), m(r) = r_0/2 + int_{r_0}^r 4 pi rho r'^2 dr' ('effective mass'). (39): with '(1 - b/r)Phi' -> 0 at the throat', flare-out gives xi(r_0) = (tau_0 - rho_0)/|rho_0| > 0 ('exotic matter', NEC violated). (40): the special class Phi(r) = 0 (MT's zero-tidal-force examples), catenary b = r_0^2/r. Hochberg-Visser gr-qc/9704082 eq (68) quotes the MT throat tension tau = 1/(8 pi G r_0^2).",
+ "published_hypotheses": [
+  "General relativity, G_mu_nu = 8 pi T_mu_nu (MT print G and c; the restatement sets G = c = 1)",
+  "static, spherically symmetric metric of the form (1) with arbitrary redshift function Phi(r) and shape function b(r); stress-energy read off from the metric (no matter model)",
+  "throat: the minimum radius r_0 with b(r_0) = r_0; proper radial distance l(r) finite everywhere",
+  "no horizon: Phi(r) finite everywhere (traversability); at the throat (1 - b/r)Phi' -> 0 (Lobo eq 38-39 text)",
+  "flare-out: (b - b'r)/(2b^2) > 0 at or near the throat, b'(r_0) < 1 for a non-degenerate throat (MT 'at or near the throat', MT p.405 eq 56 per Hochberg-Visser Sec 9)",
+  "asymptotic flatness / two asymptotically flat regions (MT's global setting; Hochberg-Visser Sec 1 notes it is an 'essential ingredient of the Morris-Thorne approach')",
+  "Phi' = 0 (Phi = 0) is NOT a general hypothesis: it is one 'specific class of particularly simple solutions' (Lobo eq 40)"
+ ],
+ "hypothesis_drift": [
+  "ADDED (superfluous, and inaccurate as a sentence about throats): 'Phi' = 0 at the throat' -- tolman.py:1439 docstring 'b(r_0) = r_0, Phi' = 0', tolman.py:1785 row label 'V18a a throat has Phi' = 0', canonical hypothesis list. MT do not require it: Phi is arbitrary and finite (Lobo eq 1, text after eq 3); Phi'(r_0) is a free parameter in Lobo eq (31) and is bounded, not zeroed, by the radial tidal constraint eq (57). The tree's throat values do NOT need it: rederive R4a gives 4 pi r^3 p_r + m = r (r - b) Phi' identically, so at b(r_0) = r_0 the identity 4 pi r_0^3 p_r = -m and p_r(r_0) = -1/(8 pi r_0^2) hold for ANY finite Phi'(r_0) (R4b, R4c) and even for Phi'(r_0) divergent with Phi finite (R4d, Phi = c sqrt(1 - r_0/r)). Effect: the tree states its result on a SMALLER class than it holds on; the result is not endangered. A discrepancy in wording, not an error in V18.",
+  "DROPPED (harmless for the claim): the flare-out condition b'(r_0) < 1 appears in the entry's NAME but not in its hypotheses, and V18/V18a never use it. Checked: the Einstein static universe equator (Phi' = 0, b = (8 pi rho_0/3) r^3, b(r_e) = r_e) satisfies 4 pi r_e^3 p_r = -m with b'(r_e) = 3 > 1 -- a maximal sphere (an 'anti-throat' in the language of arXiv:2412.05236), not a flare-out throat (rederive R6a-d). So the identity is a property of b(r_0) = r_0 (plus finite Phi), and the tree's statement is true without flare-out.",
+  "MISLABEL (discrepancy, not WRONG): tolman.py:539-541 'THE FLARE-OUT CONDITION IS NOT THIS IDENTITY; IT IS THE SAME QUANTITY WITH THE OPPOSITE SIGN' and selftest tolman.py:2990 'so the flare-out condition is NOT this identity' (which checks fw == -mw). The quantity 4 pi r_0^3 p_r = -m is the THROAT condition b(r_0) = r_0 read through G^r_r (Lobo eq 30 with m = b/2); MT's flare-out condition is the separate inequality b'(r_0) < 1, equivalently tau_0 > rho_0 (Lobo eqs 10, 39). The tree's conclusion -- that the identity m = +4 pi r^3 p_r cannot hold at a throat -- is TRUE (z3 Z1 unsat for any Phi'), and holds a fortiori; only the name 'flare-out' is misattached.",
+  "DROPPED (harmless for the claim): Phi finite everywhere / no horizon, and the condition (1 - b/r)Phi' -> 0 at the throat that p_r(r_0) = -1/(8 pi r_0^2) actually needs; the tree's added Phi' = 0 implies the latter, so there is no gap inside the tree's use.",
+  "DROPPED (irrelevant to a local claim): asymptotic flatness / two asymptotic regions; Hochberg-Visser gr-qc/9704082 Secs 3-5 show the throat analysis is local and does not need them.",
+  "IDENTIFICATION (consistent, the tree's own): the tree calls m = b/2 the Misner-Sharp mass; MT/Lobo call m(r) the 'effective mass' (eqs 32-33). They coincide for the static spherical metric since g^rr = 1 - b/r = 1 - 2m/r (rederive R2 uses m = b/2 and reproduces the tree's Phi' = (m + 4 pi r^3 p_r)/(r(r - 2m))).",
+  "LABEL OVER-DESCRIBES (not an MT statement): 'Phi' = 0 is the wormhole branch' (tolman.py:37, 331, 348, 1885, 2441, 2710). Phi' == 0 gives 4 pi r^3 p_r = -m everywhere (rederive R3, the tree's V18a) -- the zero-tidal-force class of Lobo eq (40) -- but that class also contains non-wormholes: Minkowski, and the regular-centred Einstein static universe (R6a: p_r = -rho_0/3, no flare-out anywhere). The W4/section-2 withdrawal rests only on the computed G^r_r and survives unchanged; the word 'wormhole' in the label is descriptive, not a theorem."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "throat radius r_0 (the tree's selftest fixture)",
+   "value_then": "MT: symbolic r_0 (their engineering examples use metres; not read here). Tree: fixture r_0 = 3.0, G = c = 1 (tolman.py:2987)",
+   "value_now": "no measured value exists or is needed; the result is an identity in r_0. Fixture reproduced exactly: p_r = -1/(72 pi), m = 3/2, 4 pi r_0^3 p_r = -3/2 (rederive R5; tolman.py --selftest row 8 prints -1.5 / -1.5)",
+   "source_now": "rederive/morris-thorne-1988-throat.py R5; python3 tolman.py --selftest",
+   "moves_conclusion": "no -- no datum enters"
+  },
+  {
+   "quantity": "Newton's constant G (enters only if the throat tension is restored to SI: tau_0 = c^4/(8 pi G r_0^2))",
+   "value_then": "MT print G symbolically in tau = [b/r - 2(r-b)Phi']/(8 pi G c^-4 r^2) (per the restatement); the 1988 numerical value they used was not read. The tree uses G = c = 1 and never restores SI for this result.",
+   "value_now": "G = 6.67430(15)e-11 m^3 kg^-1 s^-2 (u_r 2.2e-5); the 16 input measurements span 6.67191e-11 .. 6.67559e-11 (fractional spread 5.5e-4). tau_0(r_0 = 10 m) = 4.8155e40 Pa = 4.8155e41 dyn/cm^2; across the input spread 4.8145e40 .. 4.8172e40 Pa",
+   "source_now": "CODATA 2022, Mohr-Newell-Taylor-Tiesinga arXiv:2409.03787, Table XXXII and Table XXX (READ via alphaXiv); computed in rederive N1",
+   "moves_conclusion": "no -- the sign of p_r(r_0), the identity 4 pi r_0^3 p_r = -m and m(r_0) = r_0/2 > 0 are G-independent; an SI magnitude would move by <= 5.5e-4 fractionally"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": D + "/rederive/morris-thorne-1988-throat.py",
+  "outcome": "21/21 checks pass (exit 0). Einstein tensor computed from the metric independently of tolman.py. R1a-b reproduce Lobo eqs (26)-(27); R2 reproduces the tree's V9-shape Phi' = (m + 4 pi r^3 p_r)/(r(r - 2m)); R3 reproduces the tree's V18a (Phi' == 0 => 4 pi r^3 p_r = -m); R4a finds the exact general form 4 pi r^3 p_r + m = r (r - b) Phi' (a first draft of the script wrote r(r-b)Phi'/2 and sympy refused it -- corrected, recorded), whence R4b-c: at b(r_0) = r_0 the tree's V18 holds for ANY finite Phi'(r_0) and R4d even for Phi'(r_0) divergent with Phi finite -- the tree's Phi' = 0 hypothesis is superfluous. R5: fixture r_0 = 3 exact. R6a-d: Einstein-static-universe equator satisfies b = r, Phi' = 0, 4 pi r^3 p_r = -m with b' = 3 (flare-out fails): the identity is the throat condition, not flare-out. R7a-c: MT's catenary b = r_0^2/r flares out (b'(r_0) = -1), has m(r_0) = r_0/2 > 0 and tau_0 - rho_0 = 1/(4 pi r_0^2) > 0 (Lobo eq 39). R8 = tree's V33 negative control (-2m). z3: Z1 throat + identity m = 4 pi r^3 p_r is UNSAT for any Phi' and any b' (vacuity guard Z2 SAT without the identity); Z3 a throat with negative Misner-Sharp mass is UNSAT (m(r_0) = r_0/2), so 'flare-out iff negative enclosed MS mass' cannot hold at any MT throat -- the tree's section-1 non-find (b) reason stands, and more directly than stated. N1: SI restoration with CODATA 2022 G.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hochberg & Visser, arXiv:gr-qc/9704082 (1997), 'Geometric structure of the generic static traversable wormhole throat'",
+   "effect": "extends",
+   "what": "Defines a throat for ANY static spacetime as a minimal-area 2-surface (tr K = 0, flare-out d tr K/dn <= 0; strong/weak/N-fold-degenerate variants), no spherical symmetry, no asymptotic flatness. Recovers MT's tau = 1/(8 pi G r_0^2) (eq 68) as the spherical special case of tau = [2R + tr K^2 - 2 g^cd(phi_:cd + phi_:c phi_:d)]/(16 pi G) (eq 67): only TANGENTIAL gradients of phi enter, the normal derivative (the tree's Phi') does not -- independent corroboration that Phi'(r_0) is unconstrained and irrelevant to tau(r_0). Also records that MT's flare-out is 'at or near the throat' (degenerate throats with b'(r_0) = 1 allowed). NEC violation generalised (eqs 83, 100, 113).",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-24)"
+  },
+  {
+   "ref": "Lobo, arXiv:0710.4474 (2007) review",
+   "effect": "confirms",
+   "what": "Restates MT eqs used here; eq (30) tau(r_0) = 1/(8 pi r_0^2) with no condition on Phi'(r_0); eq (31) keeps Phi'(r_0) free; eq (40) identifies Phi = 0 as a special class; eq (39) flare-out => tau_0 > rho_0.",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1, 9-22)"
+  },
+  {
+   "ref": "Crispim, Silva, Alencar, Muniz, Saez-Chillon Gomez, arXiv:2412.05236 (2024), 'Field sources for wormholes with multiple throats/anti-throats'",
+   "effect": "narrows",
+   "what": "Throats are minima and anti-throats maxima of the areal radius (Sec II, eq 7; Fig 3). In MT coordinates both have b(r) = r; only flare-out separates them. Narrows the reading of 'b(r_0) = r_0' as a throat definition -- consistent with this audit's ESU witness (R6) and with the tree's statement, which never needed flare-out.",
+   "read_status": "READ (alphaXiv answer_pdf_queries, Secs I-II, IV)"
+  },
+  {
+   "ref": "discover_papers hits not read: arXiv:2606.19466 (degenerate wormholes, vanishing metric determinant at the throat), 2609.22823, 2605.16413, 2605.22799",
+   "effect": "extends",
+   "what": "Titles/abstracts only: generalisations (degenerate, rotating, arbitrary throat profile, multi-sheet). None located that contradicts tau(r_0) = 1/(8 pi r_0^2) for the static spherical MT class; a non-find is not a clearance.",
+   "read_status": "NAMED-NOT-READ (abstract listing only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: the result the tree uses is not a measurement or an extrapolation from data; it is an identity of the Einstein tensor for the ansatz (1): 8 pi p_r = -b/r^3 + 2(1 - b/r)Phi'/r, evaluated at b(r_0) = r_0. The only numerical constants are G and c, which the tree sets to 1; restoring SI moves a magnitude by at most 5.5e-4 fractionally across every G measurement CODATA 2022 lists, and moves no sign or identity. What came later is structural, not data: Hochberg-Visser 1997 generalised the throat to arbitrary static geometry and recovered MT's throat tension as a special case, with the normal redshift gradient absent from it; anti-throat literature (2412.05236) makes explicit that b(r) = r without flare-out is a maximal sphere. Neither changes MT's conclusion; both confirm that the tree's throat values hold on a LARGER class than the tree states. Evidence against M's hypothesis for this result: there is no datum for the authors to have lacked. Evidence for 'incomplete': MT's throat is defined only in the static spherical asymptotically-flat class, and 'at or near the throat' leaves degenerate throats to later work -- a scope limit, which the tree's use (static spherical, local at r_0) stays inside.",
+ "grade": "STANDS",
+ "grade_evidence": "The tree's statement -- at a Morris-Thorne throat p_r(r_0) = -1/(8 pi r_0^2), m = b(r_0)/2 = r_0/2 > 0, 4 pi r_0^3 p_r = -m, opposite in sign to the identity m = 4 pi r^3 p_r -- agrees with MT as restated (Lobo 0710.4474 eqs 30, 32-33; Hochberg-Visser gr-qc/9704082 eq 68) and is re-derived independently from the metric (sympy R1-R5, 21/21 pass) and machine-checked (z3 Z1 unsat with guard Z2 sat; Z3 unsat). No datum enters (G = c = 1; SI restoration with CODATA 2022 G moves nothing). Hypothesis drift is conservative: the tree ADDS Phi' = 0, which is not an MT hypothesis and is not needed (R4a-d: the result holds for any finite Phi'), so the tree claims less than is true. Two wording discrepancies are recorded, not repaired, and are NOT refutations: (1) tolman.py:1785 'a throat has Phi' = 0' and tolman.py:1439 are inaccurate as statements about MT throats (Lobo eqs 31, 57 keep Phi'(r_0) free); (2) tolman.py:539-541 and :2990 call the throat relation 'the flare-out condition', whereas MT's flare-out is b'(r_0) < 1 / tau_0 > rho_0 (Lobo eqs 10, 39), a separate inequality the identity does not use (ESU equator R6: identity holds, flare-out fails). The dependent tree conclusions -- section 1 non-find (b) reason, and the section-2/W4 withdrawal of Phi' = 0 as an exactness route -- survive: the first more directly (m(r_0) = r_0/2 > 0 at every throat, z3 Z3), the second because it rests on the computed G^r_r, not on MT; the label 'wormhole branch' over-describes the Phi' == 0 class (which contains Minkowski and the Einstein static universe) without affecting the withdrawal.",
+ "what_would_change_the_grade": "NARROWED if the tree used the throat relation somewhere that needs flare-out or a genuine throat (minimum of r) rather than b(r_0) = r_0 alone, or if a use outside tolman.py read 'Phi' = 0 at the throat' as a general property of MT wormholes and drew a conclusion from it (e.g. zero radial tidal force at every throat, contradicted by Lobo eq 57). WRONG only if a static spherically symmetric metric of MT form with b(r_0) = r_0, Phi finite and (1 - b/r)Phi' -> 0 at r_0 were exhibited with p_r(r_0) != -1/(8 pi r_0^2) -- R4a's identity 4 pi r^3 p_r + m = r(r - b)Phi' excludes it. Reading MT 1988 itself (Am. J. Phys. 56, 395) would upgrade source read_status from READ-VIA-RESTATEMENT to READ; it could change the grade only if MT's printed throat tension differed from the two independent restatements.",
+ "reverify_command": "python3 " + D + "/rederive/morris-thorne-1988-throat.py; echo exit=$?  # expect 21/21 checks pass, exit=0.  Tree side (read-only): cd /home/user/Claude-Method-Works/research/warp-drive && python3 tolman.py --verify | grep -E 'V18|V33' && python3 tolman.py --selftest | grep -A2 'WORMHOLE WITNESSES'",
+ "report_path": D + "/audits/morris-thorne-1988-throat.json"
+}
+json.dump(R, open(R["report_path"], "w"), indent=1)
+print("written", R["report_path"])

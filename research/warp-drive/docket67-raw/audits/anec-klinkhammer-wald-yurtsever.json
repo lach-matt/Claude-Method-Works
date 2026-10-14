@@ -1,0 +1,106 @@
+{
+ "key": "anec-klinkhammer-wald-yurtsever",
+ "name": "ANEC over a complete null geodesic holds (Klinkhammer 1991; Wald & Yurtsever 1991); saturated by the vacuum",
+ "source": {
+  "located": "Klinkhammer, PRD 43, 2542 (1991) and Wald & Yurtsever, PRD 44, 403 (1991): neither has an arXiv copy. Both are read through exact restatements: Fewster-Roman gr-qc/0209036v2 Sec. II.D p.9 and endnote [41]; Fewster-Olum-Pfenning gr-qc/0609007v3 Sec. I pp.2-3; Kontou-Sanders 2003.01815v2 Sec. 4.3 pp.35-36 and eq. (85) p.29; Visser gr-qc/9409043 p.1 and p.3 (quotes W-Y's note added in proof, p.415); Graham-Olum 0705.3193 p.2.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries, full page text returned for gr-qc/0209036 (pp.1-14), gr-qc/0609007 (pp.1-12), 0705.3193 (pp.1-8), gr-qc/9409043 (pp.1-6), 0910.5925 (pp.1-11), 1610.05308 (pp.1-36, selected) and 2003.01815 (pp.1,5,29-30,33-37,52,58). The two 1991 classics themselves: NAMED-NOT-READ."
+ },
+ "published_statement": "As restated (the classics are not on arXiv). Fewster-Roman gr-qc/0209036 p.9, eq. (II.35): the ANEC, int dlambda <:T_ab:l^a l^b>_omega(gamma(lambda)) >= 0, was \"established by Klinkhammer [21] at least for a dense set of states in the Fock space of the Minkowski vacuum, and by Wald and Yurtsever [22] for a large subclass of Hadamard states\". Fewster-Olum-Pfenning gr-qc/0609007 p.2: \"In n-dimensional Minkowski space, the ANEC was proved for the scalar field with arbitrary curvature coupling for a dense set of states in the Fock space of the Minkowski vacuum [9 = Klinkhammer]; namely, all finite linear combinations of finite particle-number states of bounded momentum ... A more general and quite technical argument [13 = Wald-Yurtsever] ... establishes the ANEC in four-dimensional Minkowski space for a restricted class of Hadamard states of the minimally coupled scalar field ... In general globally hyperbolic two-dimensional spacetimes, [13] established the ANEC on complete achronal null geodesics for the minimally coupled free scalar field. This holds for arbitrary Hadamard states in the massless case, and a restricted class of Hadamard states for nonzero mass.\" Kontou-Sanders 2003.01815 p.36: \"In four dimensions, Wald and Yurtsever [20] argued that the ANEC cannot hold for all states of a massless field in all spacetimes.\" Visser gr-qc/9409043 p.1: \"it is now realised that in general the ANEC must fail. See the 'note added in proof' on page 415 of [7 = W-Y]\". W-Y's ANEC for non-absolutely-convergent integrals (Kontou-Sanders eq. 85): lim inf_{lambda0->inf} int dlambda T_ab gamma'^a gamma'^b c(lambda/lambda0)^2 >= 0 for c in C^1_0 with (1+k^2)^{1+delta}|c^(k)| bounded. Title of W-Y (Kontou-Sanders ref [20]): 'General proof of the averaged null energy condition for a massless scalar field in two-dimensional curved space-time'. Title of Klinkhammer (ref [130]): 'Averaged energy conditions for free scalar fields in flat space-times'. Fewster-Roman p.9-10 check that their own states obey ANEC: phi(v,v') -> 0 (II.37), psi(v,v') -> 2 pi f(0) int_0^min u^2 C(u,u) du >= 0 (II.38), 'from which Eq. (II.36) follows'.",
+ "published_hypotheses": [
+  "H1 FIELD: free (non-interacting) scalar field. Klinkhammer: scalar, massless or massive, arbitrary curvature coupling xi (FOP p.2); Wald-Yurtsever: minimally coupled (4D Minkowski), massless (2D curved general proof). Electromagnetism only later (Folacci PRD 46 2726, 1992).",
+  "H2 BACKGROUND: Klinkhammer -- n-dimensional MINKOWSKI space ('flat space-times'); Wald-Yurtsever -- 4D MINKOWSKI (restricted states) and globally hyperbolic TWO-dimensional curved spacetime (general proof). No 4D curved result; W-Y's note added in proof (p.415) says ANEC fails generically for perturbations of Minkowski in 4D.",
+  "H3 STATES: Klinkhammer -- a DENSE set in the Minkowski-vacuum Fock space: finite linear combinations of finite-particle-number states of bounded momentum; Wald-Yurtsever -- a 'large' (FR) / 'restricted' (FOP) subclass of Hadamard states in 4D Minkowski; all Hadamard states (massless) in 2D.",
+  "H4 GEODESIC: complete (inextendible), affinely parametrised null GEODESIC (Klinkhammer also shows negative results along non-geodesic curves and chronal geodesics in a compactified flat spacetime: Kontou-Sanders p.35). ACHRONAL required in the 2D curved theorem; automatic in Minkowski (Kontou-Sanders p.35: 'all null geodesics in Minkowski space are automatically achronal').",
+  "H5 FORMULATION: the integral as a lim inf over widening test-function windows (W-Y) or for absolutely convergent integrals; renormalised <T_ab> by normal ordering relative to the Minkowski vacuum (so the vacuum value is 0 by construction).",
+  "H6 TEST FIELD: no back-reaction; semiclassical Einstein equation not imposed (Kontou-Sanders p.36 on all later violations: 'only known for test fields')."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- BACKGROUND (bounds.py:147-149, :96): the tree writes 'ANEC over a COMPLETE null geodesic holds' with no background named. The canonical entry lists 'flat (Minkowski) background implied'; the surrounding sentence at bounds.py:136-141 is about 4D Minkowski, so the implication is readable, but the claim line does not state it. The sources prove it on Minkowski (any n, Klinkhammer), on 2D curved globally hyperbolic (W-Y) and later on flat tubes around achronal geodesics (FOP gr-qc/0609007). It FAILS on 4D curved achronal complete geodesics: Urban-Olum 0910.5925 (conformally flat, re-derived here, part D) and generically via Visser's scale anomaly gr-qc/9409043.",
+  "WIDENED BY GLOSS (bounds.py:90, :406): ANEC is one of 'the six [that] are statements about quantum field theory on a fixed background'. 'Fixed background' is wider than the proved class: on a generic fixed 4D curved background the ANEC is false for test fields (Visser; Urban-Olum; Visser gr-qc/9604008 Boulware/Schwarzschild on chronal geodesics; the cylinder spacetime on winding geodesics, FOP Sec. IV eq. 24).",
+  "DROPPED -- FIELD CONTENT (bounds.py:147-149): the sources are free-scalar theorems (EM: Folacci 1992). The tree says 'holds' unqualified. Later work extends Minkowski ANEC to interacting QFT under stated assumptions (Faulkner-Leigh-Parrikar-Wang 1605.08072; Hartman-Kundu-Tajdini 1610.05308: unitary, Lorentz-invariant, interacting UV fixed point, d > 2), so for Minkowski the dropped field hypothesis is largely covered by later results, but the tree cites Klinkhammer/W-Y, not those.",
+  "DROPPED -- STATE CLASS (bounds.py:147-149): Klinkhammer: dense set of Fock states of bounded momentum; W-Y 4D: restricted subclass of Hadamard states. The tree states no state class.",
+  "DROPPED -- ACHRONALITY: harmless in Minkowski (automatic), load-bearing in any curved or compactified use (chronal winding geodesics violate ANEC: FOP Sec. IV; Graham-Olum Sec. II).",
+  "ATTRIBUTION INCOMPLETE (bounds.py:148): 'Wald & Yurtsever' is cited as a co-proof of 4D ANEC. Their GENERAL proof is 2D curved; their 4D result is Minkowski for a restricted class of states; and their note added in proof (p.415, as quoted by Visser gr-qc/9409043 p.1) states that ANEC fails for generic perturbations of Minkowski in 4D. Not wrong, but the citation carries the opposite result for the 4D curved case.",
+  "SATURATION (bounds.py:96, K=0 at :44/:296): 'ANEC by the vacuum along a complete null geodesic' -- true in Minkowski by construction (normal ordering relative to the Minkowski vacuum makes the vacuum ANEC integral exactly 0; part B). Not true of 'the vacuum' in curved backgrounds: the conformal vacuum of a conformally flat 4D spacetime gives a NEGATIVE ANEC integral (Urban-Olum eq. 42, re-derived, part D), and Boulware vacuum violates on chronal geodesics (Visser 1996). The coding K=0 is sound only with the Minkowski hypothesis.",
+  "Z-SLOT GLOSS (bounds.py:30, :194): Z=1 is glossed 'timelike or null -- a QEI exists' and seats ANEC there. For null smearing no QEI exists in 4D (Fewster-Roman, which the tree reads); ANEC is an averaged condition, not a QEI. The tree already records this as 'CANDIDATE INDEX FAULT, recorded not adjudicated' (bounds.py:147-155); noted, not re-adjudicated here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "empirical inputs to the ANEC theorem (Klinkhammer / Wald-Yurtsever)",
+   "value_then": "none -- a theorem about the free-field stress operator; no measured constant enters",
+   "value_now": "none",
+   "source_now": "restatements above (gr-qc/0209036 Sec. II.D; gr-qc/0609007 Sec. I)",
+   "moves_conclusion": "no -- nothing measurable moves; the conclusion is exactly zero on the RHS and scale-free in Minkowski"
+  },
+  {
+   "quantity": "trace/scale-anomaly coefficient a = 1/(2880 pi^2) for a scalar (enters the later curved-space violations, not the 1991 theorems)",
+   "value_then": "known (Page 1982; Birrell-Davies 1982), cited by W-Y's note via Visser",
+   "value_now": "unchanged, a computed QFT constant; Urban-Olum use beta = -1/(5760 pi^2), gamma = -2 beta",
+   "source_now": "gr-qc/9409043 eq.(6),(10); 0705.3193 p.4; 0910.5925 eq.(29)",
+   "moves_conclusion": "no for the flat theorem; it sets the size of the curved-space vacuum violation (part D: -2.1e-7 for a=0.01,b=0.05,r=1 in units hbar = c = 1 with r = 1), which is a sign statement independent of the value"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anec-klinkhammer-wald-yurtsever.py",
+  "outcome": "ALL AGREE (exit 0, 13 s; output in rederive/anec-klinkhammer-wald-yurtsever.out). A (sympy): for the flat-space scalar with arbitrary coupling xi, k^a k^b T_ab = (k.dphi)^2 - xi (k.d)^2 phi^2 exactly, so the xi term is a total lambda-derivative and ANEC is xi-independent -- consistent with FOP's restatement 'arbitrary curvature coupling'. B (numeric, model): 3-mode truncated Fock space of the 4D massless scalar restricted to the null line l=(1,0,0,1); windowed Q_L = int exp(-lambda^2/L^2) :(d_lambda phi)^2: has <0|Q_L|0> = 0 exactly at every L, min spectrum -0.320 (L=0.5), -1.7e-2 (L=2), -4.4e-7 (L=4), -3.7e-27 (L=8), 0 (L=32): negativity on a finite window (the Fewster-Roman no-null-QI phenomenon) dying as the window covers the complete line; the vacuum sits exactly on the bound. A model check, not a proof. C (sympy): Fewster-Roman's own explicit states (nu=1, step B, eqs II.24, II.26-28, II.37-38) give ANEC(alpha) = 4 L0^3 f0 alpha^(2 sigma-7) / (315 pi (alpha^(2 sigma-6) + 128 pi^4)) > 0, = 1.45e-7 at alpha=0.2 and 2.29e-8 at alpha=0.005 (sigma=3.75, L0=f(0)=1): ANEC obeyed and approached from above toward saturation while the segment average diverges as -alpha^(sigma-4); confirms FR's printed consistency claim, which the tree quotes. D (sympy): Urban-Olum eqs (39)-(42) re-derived from (37)-(38): int T_vv dv = (ab - 2a^2) 16 beta sqrt(2 pi)/r^3, beta = -1/(5760 pi^2); negative for b > 2a (-2.12e-7 at a=0.01, b=0.05, r=1) on a complete achronal null geodesic of a conformally and asymptotically flat 4D spacetime, in the vacuum state, for the conformally coupled scalar test field. So the flat-background hypothesis is load-bearing for both 'holds' and 'saturated by the vacuum'.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Fewster & Roman, PRD 67 044003 (2003), gr-qc/0209036",
+   "effect": "confirms",
+   "what": "No QI along null geodesics in 4D Minkowski (unbounded below on Hadamard states for any compactly supported weight), yet their states obey ANEC (Sec. II.D); timelike-worldline QNEI exists in any globally hyperbolic spacetime. Restates Klinkhammer/W-Y scope.",
+   "read_status": "READ (pp.1-14)"
+  },
+  {
+   "ref": "Fewster, Olum & Pfenning, PRD 75 025007 (2007), gr-qc/0609007",
+   "effect": "extends",
+   "what": "ANEC for the minimally coupled scalar (m >= 0) along a complete null geodesic with a flat tubular neighbourhood whose causal structure is intrinsic (forces achronality): cannot be uniformly violated (Thm II.1); holds with uniform continuity (Thm III.1); covers Casimir plates at finite distance. Cylinder spacetime: winding (chronal) geodesics violate.",
+   "read_status": "READ (pp.1-12)"
+  },
+  {
+   "ref": "Visser, PLB 349 443 (1995), gr-qc/9409043",
+   "effect": "narrows",
+   "what": "In 4D, for conformally coupled fields, a non-zero scale anomaly (Z^mu_nu != 0, generic) lets a choice of renormalisation scale violate ANEC; Minkowski, conformally flat, Einstein and all 2D spacetimes evade it; quotes W-Y's note added in proof that ANEC fails for generic perturbations of Minkowski.",
+   "read_status": "READ (pp.1-6)"
+  },
+  {
+   "ref": "Graham & Olum, PRD 76 064001 (2007), 0705.3193",
+   "effect": "narrows",
+   "what": "ANEC 'is violated by quantum fields in curved spacetime'; proposes self-consistent ACHRONAL ANEC, free of known violations then; credits W-Y with introducing achronality.",
+   "read_status": "READ (pp.1-8)"
+  },
+  {
+   "ref": "Urban & Olum, PRD 81 024039 (2010), 0910.5925",
+   "effect": "contradicts",
+   "what": "Contradicts the UNRESTRICTED-background reading only (not Klinkhammer/W-Y): ANEC and achronal ANEC violated by the conformally coupled scalar in a conformally flat 4D spacetime, state-dependently without bound and in the vacuum via the anomaly (eq. 42, re-derived here). Test field; self-consistency not imposed.",
+   "read_status": "READ (pp.1-11)"
+  },
+  {
+   "ref": "Hartman, Kundu & Tajdini, JHEP (2017), 1610.05308; Faulkner, Leigh, Parrikar & Wang, JHEP 09 (2016) 038, 1605.08072",
+   "effect": "extends",
+   "what": "ANEC in Minkowski space for interacting unitary Lorentz-invariant QFTs in d > 2 (causality/lightcone OPE; relative-entropy monotonicity). Hartman et al. p.2: earlier derivations [Klinkhammer, W-Y, ...] 'were restricted to free or superrenormalizable theories, or to two dimensions'.",
+   "read_status": "1610.05308 READ (pp.1-10,15-28,34,36 as returned); 1605.08072 NAMED-NOT-READ (cited via 1610.05308 and 2003.01815)"
+  },
+  {
+   "ref": "Kontou & Sanders, CQG 37 193001 (2020), 2003.01815",
+   "effect": "confirms",
+   "what": "Review: Klinkhammer (large subset of Hadamard states, Minkowski), W-Y (AANEC for all Hadamard states of massless scalar in any globally hyperbolic 2D spacetime; 4D results for smaller class; argued ANEC cannot hold for all states in all 4D spacetimes); Casimir obeys ANEC; AANEC has no known physically reasonable counterexample, violations are Planck-scale or test-field.",
+   "read_status": "READ (pp.1,5,29-30,33-37,52,58)"
+  },
+  {
+   "ref": "Wall, PRD 81 024038 (2010), 0910.5751",
+   "effect": "extends",
+   "what": "Achronal ANEC on null lines from the generalized second law for fields minimally coupled to semiclassical gravity (abstract only).",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The 1991 theorems use NO measured datum: they are statements about the free-field stress operator in Minkowski (and 2D curved) spacetime, and a zero RHS is scale-free, so no later measurement can move them (evidence against the hypothesis for the flat result). What the authors lacked was later CALCULATION, not data: (i) the 4D curved violations -- Visser 1995 (scale anomaly), Visser 1996 (Boulware, chronal), Urban-Olum 2010 (conformally flat, achronal, vacuum and excited states; re-derived here) -- and (ii) the interacting-QFT Minkowski proofs (Faulkner et al. 2016, Hartman et al. 2017). (i) does not refute them: Wald and Yurtsever themselves stated in their note added in proof (quoted by Visser gr-qc/9409043 p.1) that ANEC fails generically in 4D curved spacetime, and Klinkhammer's title restricts to flat spacetimes. (ii) extends them. So having the later results changes the tree's UNQUALIFIED use (a curved or 'fixed background' reading), not the authors' conclusion. Open beyond this audit: whether ACHRONAL ANEC holds for SELF-CONSISTENT semiclassical solutions (Graham-Olum conjecture; Flanagan-Wald second-order perturbative support; Wall 2010 GSL argument) is not settled by any source read here.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published result holds and re-derives: in Minkowski space (Klinkhammer: n dimensions, free scalar, any mass and coupling, dense Fock states; W-Y: 4D restricted Hadamard class, and 2D curved achronal, all Hadamard states for the massless field), the ANEC integral over a complete null geodesic is >= 0, and the Minkowski vacuum gives exactly 0 (parts A-C; Fewster-Roman's printed consistency check reproduced, ANEC(alpha) > 0 -> 0). But the tree's wording at bounds.py:147-149 names no background, field or state class, and bounds.py:90/:406 groups ANEC with 'statements about quantum field theory on a fixed background'. On a fixed 4D CURVED background the statement fails even on complete ACHRONAL geodesics for test fields: Urban-Olum eq. (42), re-derived here from their eqs (37)-(38), gives a negative vacuum ANEC integral in a conformally flat spacetime (part D), and Visser's scale-anomaly theorem makes violation generic. Wald & Yurtsever themselves recorded the 4D curved failure. The result therefore holds on a smaller class (Minkowski / flat-tube / 2D curved, free fields, stated state classes; interacting QFT in Minkowski by later work) than the tree's unqualified use, and the K=0 'saturated by the vacuum' coding holds only with the Minkowski hypothesis. Not WRONG: nothing refutes the published theorem; the canonical entry itself lists 'flat background implied', and within that hypothesis the tree's claim STANDS. Not DATA-DEPENDENT: no measured datum enters.",
+ "what_would_change_the_grade": "To STANDS: bounds.py stating the hypotheses at the use site (4D Minkowski or a flat achronal tube; free scalar per Klinkhammer/W-Y or interacting QFT per Faulkner/Hartman; stated state class) and restricting the ':90/:406' 'fixed background' gloss for ANEC, with K=0 read as 'saturated by the Minkowski vacuum'. To WRONG for the tree's use: a bounds.py consumer applying ANEC >= 0 (or vacuum saturation) to a curved 4D warp geometry -- Urban-Olum/Visser would then refute that application (not the theorem). To OPEN: if the classics' own text (PRD 43 2542; PRD 44 403, incl. the p.415 note) were found to differ from the four concordant restatements read here; a direct reading of the two PRD papers would upgrade the source status from READ-VIA-RESTATEMENT.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/anec-klinkhammer-wald-yurtsever.py   # exit 0 = ALL AGREE; then grep -n 'Klinkhammer\\|fixed background\\|complete null' /home/user/Claude-Method-Works/research/warp-drive/bounds.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/anec-klinkhammer-wald-yurtsever.json"
+}

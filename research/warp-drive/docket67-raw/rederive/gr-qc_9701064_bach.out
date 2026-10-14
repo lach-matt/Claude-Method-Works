@@ -1,0 +1,4 @@
+lambda candidates: [24]
+residuals with lam = 24 : [0, 0, 0]
+PASS C10 conserved-reading ln f bracket == lambda * Bach (EL tensor of sqrt(-g) C^2)
+printed-reading residuals (tt, ll): [-100*Derivative(f(l), l)**2*Derivative(f(l), (l, 2))/f(l)**3, 4*(1 - r(l))*Derivative(f(l), l)**2*Derivative(r(l), l)**2/(f(l)**2*r(l)**2)]

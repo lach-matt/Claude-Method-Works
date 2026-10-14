@@ -1,0 +1,22 @@
+PASS C1a [w] from the K_1 series = (3.2)'s m^2/(16pi^2)(-1+2g+L)
+PASS C1b coefficient of sigma in w = (3.2)'s m^4/(64pi^2)(-5/2+2g+L)
+PASS C1c numeric: w(sigma) - [w] - [w_1']sigma = O(sigma^2 log sigma) at sigma=1e-8
+PASS C2a (3.3) gives Prop 3.1's alpha_1 with v_1 = m^4/8 (1/(8pi^2)-stripped normalisation)
+PASS C2b with printed [w_1] = m^4/(64pi^2) inserted literally, (3.3) does NOT give Prop 3.1 (normalisation discrepancy, recorded, not a refutation)
+     literal-substitution alpha_1 - printed alpha_1 = (-1 + 8*pi**2)/(256*pi**4)
+PASS C3a first order of tr(3.21) = -4 m^2 dm^2/(64 pi^2) (p.37)
+PASS C3b paper's comparison gives alpha~S_1 = 1/(64 pi^2)  (Thm 3.6, S half reproduced)
+PASS C4a Omega^2 H_g(m, mu; sigma_g = Omega^2 sigma_eta) == H_eta(Omega m, Omega mu; sigma_eta)
+PASS C4b ... and != H_eta(Omega m, mu) (the scale does not stay fixed w.r.t. eta)
+PASS C4c exact V: V(m; sigma) at sigma=1e-10 matches m^2/16pi^2 + m^4 sigma/64pi^2
+PASS C4d all orders: Omega^2 V(m; Omega^2 sigma) == V(Omega m; sigma) (exact Bessel V)
+PASS C4e covariant late-time value (mu' = Omega mu) is EXACTLY 0 at every order in W
+PASS C4f (3.21) == the value with mu held fixed w.r.t. the background eta, exactly
+PASS C4g ... which is nonzero for Omega != 1
+PASS C5a covariant late-time value 0 in the paper's own comparison (p.37) gives alpha~S_1 = 0
+PASS C5b 1/(64pi^2) m^4 = d T_vac / d log(mu^2): the printed value is the mu-running coefficient
+PASS C6a tr r = 0 (TT perturbation (3.23))
+PASS C6b det(eta + W r) = -(1 - W^2): no first-order volume change
+PASS C6c first-order log|det| term vanishes, so alpha~TT_1 = 0 both ways
+
+RESULT: ALL CHECKS BEHAVE AS STATED

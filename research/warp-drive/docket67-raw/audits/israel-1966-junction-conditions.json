@@ -1,0 +1,102 @@
+{
+ "key": "israel-1966-junction-conditions",
+ "name": "Israel (1966) / Lanczos (1924) thin-shell junction conditions: S_ab = -(1/8 pi)([K_ab] - h_ab [K]) across a non-null hypersurface; static spherical shell sigma = -(1/4 pi R)[sqrt f], p = (1/8 pi R)[(1-M/R)/sqrt f]; 5D brane form [K_ab] - h_ab[K] = -8 pi G_5 S_ab",
+ "source": {
+  "located": "W. Israel, 'Singular hypersurfaces and thin shells in general relativity', Nuovo Cimento 44B (1966) 1; erratum 48B (1967) 463; K. Lanczos, Ann. Phys. (Leipzig) 74 (1924) 518 -- neither on arXiv. Read through exact restatements: (a) Poisson & Visser gr-qc/9506083 (PRD 52, 7318, 1995) eqs (3)-(8) [junction condition, sign convention [K]=K+ - K-], (9)-(13) [dynamic shell, conservation], (14)-(17) [potential], citing Sen 1924, Lanczos 1924, Israel 1966 + erratum as ref [7]; (b) Mars & Senovilla gr-qc/0201054 Sec. 5-6: preliminary junction condition (continuity of first fundamental form, Clarke-Dray theorem), Theorem 9 ('at any point where the hypersurface is non-null, the necessary and sufficient condition for the singular part of the Riemann tensor to vanish is that the second fundamental form be continuous'), eq (86) n^sigma[G_sigma lambda]=0 'known in the case of non-null junction hypersurfaces as the Israel conditions [24]'; (c) Shiromizu-Maeda-Sasaki gr-qc/9910076 eq (15): 5D brane form '[q_mu nu]=0, [K_mu nu] = -kappa_5^2 (S_mu nu - q_mu nu S/3)', [X] = X+ - X-, citing Israel 1966 as [19], and eq (16) under Z2; (d) Davis hep-th/0208205 eq (10): generalised junction condition for Einstein-Gauss-Bonnet bulk, reducing to Israel at alpha = 0.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9506083 (pp.1-4 full), gr-qc/0201054 (pp.1-4, 12, 21-22, 25, 27-29, 31, 33-34, 38, 41), gr-qc/9910076 (pp.1-8 full), hep-th/0208205 (pp.1-4 full). Israel 1966 itself and its 1967 erratum are NAMED-NOT-READ; the erratum's content is not known here."
+ },
+ "published_statement": "As restated by Poisson-Visser (gr-qc/9506083, eqs 3-8): 'Adopt Gaussian normal coordinates at the throat ... K^i_j(+/-) = (1/2) g^{ik} dg_kj/d eta |_{eta=+/-0} ... Define [K_ij] = K_ij(+) - K_ij(-). Then R^mu_nu = diag([K^i_j], [K]) delta(eta) ... the stress-energy tensor is localized at the throat: T^{mu nu} = S^{mu nu} delta(eta), with S^i_j = -(c^4/8 pi G)([K^i_j] - delta^i_j [K]) (6) ... S^i_j = diag(-sigma, p, p) (7) ... in spherical symmetry, G = c = 1: sigma = -(1/4 pi)[K^theta_theta], p = +(1/8 pi)([K^tau_tau] + [K^theta_theta]) (8).' Dynamic shell: eqs (9)-(12), and 'these imply energy conservation d(sigma A)/d tau + p dA/d tau = 0 (13), A = 4 pi a^2'. As restated by Mars-Senovilla (gr-qc/0201054, Theorem 9 and eq 86): continuity of the first fundamental form is necessary and sufficient for a continuous metric (Clarke-Dray); at non-null points the singular part of Riemann vanishes iff the second fundamental form is continuous; the normal components n^sigma[G_sigma lambda] = 0 are 'the Israel conditions [24]'. As restated in 5D by Shiromizu-Maeda-Sasaki (gr-qc/9910076 eq 15): '[q_mu nu] = 0, [K_mu nu] = -kappa_5^2 (S_mu nu - (1/3) q_mu nu S), [X] := X(+) - X(-)', which is algebraically identical (trace over the 4D brane) to the tree's [K_ab] - h_ab[K] = -8 pi G_5 S_ab.",
+ "published_hypotheses": [
+  "H1 Einstein's field equations on both sides (Einstein-Hilbert action; with a cosmological constant allowed in the bulk -- SMS eq 6/13). Davis hep-th/0208205 eq (10): with a Gauss-Bonnet term alpha != 0 the junction condition acquires cubic-in-K and intrinsic-curvature terms; Israel is the alpha = 0 case.",
+  "H2 The hypersurface is non-null (timelike or spacelike) -- Mars-Senovilla Thm 9; null shells need Barrabes-Israel 1991 (PRD 43, 1129), general-signature surfaces Mars-Senovilla.",
+  "H3 First (preliminary) junction condition: the induced metric is the same from both sides, [h_ab] = 0 (Mars-Senovilla eq 49; SMS eq 15 [q_mu nu]=0).",
+  "H4 Thin (distributional, delta-function) surface layer of codimension one; T^{mu nu} = S^{mu nu} delta(eta) (PV eq 5).",
+  "H5 Sign convention: [X] = X(+) - X(-), unit normal pointing from the - side to the + side (PV eq 3, eta positive in the + region; SMS eq 15).",
+  "H6 Metrics C^2 (M-S: C^3 structures) on each side with well-defined one-sided limits of derivatives at the surface.",
+  "H7 (for the static-spherical reduction) spherical symmetry, a = const, sqrt(f) taken positive, i.e. the areal radius increases along the normal on both sides (no wormhole-type or beyond-the-bridge side), f > 0 at the shell.",
+  "H8 Dimension: Israel 1966 is 4D; the D-dimensional form follows from the D-dimensional Gauss-Codazzi equations (SMS derive it in 5D, eq 15)."
+ ],
+ "hypothesis_drift": [
+  "latticectc.py:148-152 (O3_ANSWERED_BY: 'a braneworld whose bulk satisfies its field equations with Israel junction conditions at the brane') -- H1 DROPPED AT THIS SITE: the bulk field equations are unspecified, but the Israel form is the junction condition only for an Einstein(+Lambda) bulk. For an Einstein-Gauss-Bonnet bulk (the natural 5D Lovelock completion, Davis hep-th/0208205 eq 1-3) the correct condition is Davis eq (10), not Israel. The O3 answer-criterion as phrased therefore covers Einstein-bulk braneworlds only. (latticectc.py:78-80 writes the condition with G_5, the 5D Newton constant, which implicitly carries H1 -- no drift there.) The refusal itself (CODIM1_CTC_IS_BRANEWORLD_RESULT = False, latticectc.py:141-145) is untouched: the hand-written metric has no junction condition of either kind.",
+  "latticectc.py:78-80 -- H8 ADDED (4D -> 5D): legitimate, restated exactly by SMS gr-qc/9910076 eq 15; re-derived here (trace identity [K] = kappa S/(D-2); D = 5 gives SMS's 1/3).",
+  "latticectc.py:78-80 -- H5 unstated (orientation of the normal and meaning of [.] not given). Harmless: the owner's sign agrees with PV eq 6 and SMS eq 15 under [X] = X+ - X-, and the condition is used only as a named missing ingredient, not numerically.",
+  "stability.py:16-25, 132-142 -- H3 and H7 unstated. Both are satisfied by construction (the shell sits at a common areal radius R; proper time on the shell rescales t on each side; M_in = -m < 0 and M_out = 0 give f_in = 1 + 2m/R > 1 and f_out = 1, so sqrt(f) > 0 with the normal pointing to increasing r on both sides). Not a drift in substance.",
+  "stability.py:16-25 -- M_in = -m < 0 (negative-mass Schwarzschild interior at r = R-). NOT a drift from Israel: the junction formalism is purely geometric and makes no energy-condition assumption on either side (PV apply it to sigma < 0 shells). What it requires is only that the metric just inside R be Schwarzschild(-m), which is a claim about concentric.py's core, not about Israel.",
+  "wall.py:249-256, 483-499 -- none: Minkowski inside / Schwarzschild outside, static, thin, G = c = 1, x < 1 so f_out > 0. 'Lanczos' is the correct 1924 attribution (PV ref [7]).",
+  "stability.py:48, 65, 246 -- wording discrepancy, not a junction drift: beta^2 = dp/dsigma = 0 with p held at p_0 != 0 (stability.py:_ms_at) is a constant-pressure (stiffness-free) shell, not dust (p = 0); the text calls the beta^2 = 0 case 'dust'. Recorded, not repaired; it does not move any number (V'' values reproduce exactly on the tree's own definition)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs of the theorem itself",
+   "value_then": "none -- the Israel/Lanczos conditions are a geometric identity (Gauss-Codazzi + Einstein equations); no measured constant enters",
+   "value_now": "none",
+   "source_now": "PV gr-qc/9506083 eqs 4-6; Mars-Senovilla gr-qc/0201054 Thm 9",
+   "moves_conclusion": "no -- nothing to move"
+  },
+  {
+   "quantity": "G (wall.py SI conversion of sigma and p, wall.py:441, 492-499)",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2 used by the tree (CODATA 2018)",
+   "value_now": "6.67430(15)e-11 (CODATA 2022 unchanged from 2018)",
+   "source_now": "CODATA 2022 recommended values (NIST); value not re-read at source in this stage",
+   "moves_conclusion": "no -- enters only the SI conversion (kg/m^2, N/m) linearly; relative uncertainty 2.2e-5"
+  },
+  {
+   "quantity": "tree's own compactness grid (m/R = 0.01, 0.1, 0.5, 2.0; M/R = 0.01, 0.1, 0.2; x)",
+   "value_then": "sigma +7.918e-4, +7.595e-3, +3.296e-2, +9.836e-2; p -1.950e-6, -1.654e-4, -2.414e-3, -1.359e-2; V''(device) +2.965e-2, +2.700e-1, +1.018; V''(ordinary) -3.036e-2, -3.424e-1, -8.169e-1",
+   "value_now": "re-derived from the metric: sigma +7.9184e-4, +7.5953e-3, +3.2962e-2, +9.8363e-2; p -1.9504e-6, -1.6544e-4, -2.4136e-3, -1.3593e-2; V'' +2.9656e-2, +2.7007e-1, +1.0178; -3.0356e-2, -3.4238e-1, -8.1694e-1",
+   "source_now": "rederive/israel-1966-junction-conditions.py",
+   "moves_conclusion": "no -- agreement to the printed digits"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/israel-1966-junction-conditions.py",
+  "outcome": "ALL PASS (27 checks). From the Schwarzschild metric (Christoffels -> K_ab = nabla_a n_b on r = R) and S^i_j = -(1/8pi)([K^i_j] - delta[K]): sigma = -(1/4 pi R)[sqrt f], p = (1/8 pi R)[(1-M/R)/sqrt f], symbolically identical to stability.py sigma()/pressure() (:132-142). Device (M_in = -m, M_out = 0): sigma = (1/4piR)(sqrt(1+2m/R) - 1) exactly; p = -m^2/(16 pi R^3) + O(m^3) < 0 on a scan to m/R = 100; DEC sigma >= |p| at all four tabulated points; table reproduced to 4 significant figures. wall.py (M_in = 0, M_out = (1-s^2)R/2): sigma_0 = (1-s)/(4piR), p_0 = (1-s)^2/(16 pi R s), p_0/sigma_0 = (1-s)/(4s), 8piR(sigma_0 - p_0) = -(5s-1)(s-1)/(2s) (Le Eq 17 as quoted), surface DEC iff x <= 24/25, binding fraction (m_s - M)/m_s = (1-s)/2 -- all exact. Dynamic shell: two-sided PV eqs (9)-(12) reduce to the static formulas and satisfy d(sigma A)/dtau + p dA/dtau = 0 identically (the tree's m_s' = -8 pi R p); the tree's V(R) = 1 - 2M_out/R - [dM/m_s - m_s/2R]^2 inverts the junction equation on the branch sqrt(f_out + Rdot^2) > 0. V'' at beta^2 = 0 in closed form reproduces all six tree values (device +, ordinary -) with V = V' = 0 to 1e-14. 5D: [K_ab] - h_ab[K] = -kappa S_ab <=> [K_ab] = -kappa(S_ab - h_ab S/(D-2)); D = 5 gives SMS eq 15, D = 4 gives PV eq 6/8.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Barrabes & Israel, PRD 43, 1129 (1991) (as described in Mars-Senovilla gr-qc/0201054 Sec.1, 6)",
+   "effect": "extends",
+   "what": "junction conditions for null hypersurfaces, outside Israel 1966's non-null class (H2). No tree site uses a null shell.",
+   "read_status": "NAMED-NOT-READ (described in gr-qc/0201054)"
+  },
+  {
+   "ref": "Mars & Senovilla, gr-qc/0201054 (CQG 10, 1865, 1993)",
+   "effect": "extends",
+   "what": "junction conditions for hypersurfaces of arbitrary, changing signature; recovers Israel at non-null points (Thm 9, eq 86); shows Weyl discontinuities are forced by matter ones at non-null points.",
+   "read_status": "READ (pp. 1-4, 21-34, 38, 41)"
+  },
+  {
+   "ref": "Davis, hep-th/0208205 (PLB 2003)",
+   "effect": "narrows",
+   "what": "in D > 4 with a Gauss-Bonnet term the junction condition is eq (10), 2<K_ab - K h_ab> + 4 alpha <3J_ab - J h_ab + 2 P_acdb K^cd> = -kappa^2 S_ab; Israel holds only at alpha = 0. Narrows the class on which 'Israel junction conditions' is the right braneworld condition (latticectc.py:148-152).",
+   "read_status": "READ (full, 4 pp.)"
+  },
+  {
+   "ref": "Shiromizu, Maeda & Sasaki, gr-qc/9910076 (PRD 62, 024012, 2000)",
+   "effect": "confirms",
+   "what": "the 5D brane form with [X] = X+ - X- and the Z2 consequence K+ = -K- = -(kappa^2/2)(S - qS/3), matching latticectc.py:78-80.",
+   "read_status": "READ (full)"
+  },
+  {
+   "ref": "Poisson & Visser, gr-qc/9506083 (PRD 52, 7318, 1995)",
+   "effect": "confirms",
+   "what": "restates the Lanczos-Israel formalism, the static/dynamic spherical shell, conservation and the V(a) linearisation that stability.py and wall.py use.",
+   "read_status": "READ (full)"
+  },
+  {
+   "ref": "Chu & Tan, arXiv:2103.06314 'Generalized Darmois-Israel junction conditions'; arXiv:2603.04645 'Junction Conditions for General Gravitational Theories'; arXiv:2006.04044 (Einstein-Cartan)",
+   "effect": "extends",
+   "what": "junction conditions for higher-derivative, general-curvature-invariant and torsionful theories; all reduce to Israel for Einstein-Hilbert gravity per their abstracts.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstracts only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis, tested for this result: the Israel/Lanczos conditions take no measured input -- they are an identity obtained by integrating the Einstein equations (via Gauss-Codazzi) across a delta-function layer, so there is no datum Israel could have lacked that would change the formula. What was not available in 1966 was later mathematics, not data: null shells (Barrabes-Israel 1991), changing-signature surfaces (Mars-Senovilla 1993), the Clarke-Dray (1987) proof that continuity of the first fundamental form is exactly what a distributional Einstein equation needs, and higher-curvature bulks (Davis 2002 and later). Each of these EXTENDS the formalism to classes Israel did not treat or NAMES a hypothesis (Einstein-Hilbert action, non-null surface) under which Israel's form is the right one; none contradicts Israel inside his class (Mars-Senovilla Thm 9 and eq 86 recover him exactly; Davis eq 10 reduces to him at alpha = 0). Evidence against M's hypothesis for this result: the tree's every numerical use (stability.py, wall.py) is re-derived here from the metric and agrees exactly. Evidence for a limitation (not an error): at latticectc.py:148-152 the tree uses 'Israel' where the bulk field equations are left open; if they are not Einstein's, a different junction condition applies. One genuine unknown: the content of Israel's 1967 erratum (Nuovo Cim. 48B, 463) was not read; all restatements used here post-date it and cite it.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem as used numerically STANDS: stability.py sigma()/pressure() and wall.py statics() are symbolically identical to the Israel/Lanczos surface stress derived here from the Schwarzschild metric, every tabulated value (sigma, p, DEC, V'') reproduces to the printed digits, conservation and V(R) check identically, and the 5D form at latticectc.py:78-80 equals SMS gr-qc/9910076 eq 15. No datum enters. The single narrowing is a hypothesis dropped at one site: latticectc.py:148-152 (O3_ANSWERED_BY) requires 'Israel junction conditions' for a braneworld whose 'bulk satisfies its field equations' without naming the Einstein(+Lambda) bulk; Israel's form is the junction condition only then (Davis hep-th/0208205 eq 10: with a Gauss-Bonnet term it is replaced). So O3's answer-criterion as phrased covers Einstein-bulk braneworlds only. This is a scope limitation, not an error: it does not move the refusal CODIM1_CTC_IS_BRANEWORLD_RESULT = False (the hand-written metric has no junction condition of any kind), and it does not touch stability.py or wall.py, which are 4D Einstein throughout. If the board reads O3 as Einstein-bulk by intent (G_5 at :80 suggests so), the grade for the numerical uses alone is STANDS.",
+ "what_would_change_the_grade": "To STANDS: the board naming the Einstein(+Lambda) bulk as a hypothesis of O3 at latticectc.py:148-152 (or reading G_5 at :80 as already carrying it) -- then every use is inside Israel's class. To WRONG/NARROWED further: a computed disagreement between the Israel formulas and the tree's sigma/p (none found), a tree site applying Israel across a null surface, a horizon (f <= 0) or a wormhole-type branch (sqrt f < 0 side), or Israel's 1967 erratum (not read here) altering the formula as restated (all restatements read cite the erratum and agree with each other and with this derivation).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/israel-1966-junction-conditions.py   # expects ALL PASS, exit 0; then compare against: sed -n 76-87p,141-152p /home/user/Claude-Method-Works/research/warp-drive/latticectc.py; sed -n 16-25p,132-142p /home/user/Claude-Method-Works/research/warp-drive/stability.py; sed -n 249-256p,483-499p /home/user/Claude-Method-Works/research/warp-drive/wall.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/israel-1966-junction-conditions.json"
+}

@@ -1,0 +1,39 @@
+PASS A0 the definition 1 - 2m/R = g^{ab} d_aR d_bR solves UNIQUELY for m   solutions: 1
+PASS A1 Hayward eq.(4): m = (R/2)(1 - g^{ab} d_aR d_bR)   residual = 0
+PASS A2 Escriva (2.24): m = (R/2)(1 + U^2 - Gamma^2)   residual = 0
+PASS A3 tree identity  e^{-2Lambda} R'^2 = 1 - 2m/R + e^{-2Phi} Rdot^2   residual = 0
+PASS A4 Escriva (2.5) squared: Gamma^2 = 1 + U^2 - 2m/R   residual = 0
+PASS A5 Hayward eq.(27) in his chart: 1 - 2E/r = e^{-chi}(r')^2 - rdot^2   residual = 0
+PASS A6 driven.py:64-66 mapping: Hayward's rdot is the tree's e^{-Phi} Rdot at Phi=0   residual = 0
+PASS B1 MS-r  D_r m = 4 pi R^2 (rho W + j U)   [nonstatic.py:66; Hayward (28a)]   residual = 0
+PASS B2 MS-t  D_t m = -4 pi R^2 (p_r U + j W)  [nonstatic.py:67; Hayward (28b)]   residual = 0
+PASS B3 Hayward (28a): E' = 4 pi r^2 (T00 r' - T01 rdot)   residual = 0
+PASS B4 Hayward (28b): Edot = 4 pi r^2 e^{-chi} (T01 r' - T11 rdot)   residual = 0
+PASS B5 Escriva (2.12)/Hayward (32a) at j = 0: D_r m - 4 pi R^2 rho W = 4 pi R^2 j U   residual = 0
+PASS B6 Escriva (2.9)/Hayward (32b) at j = 0: D_t m + 4 pi R^2 p_r U = -4 pi R^2 j W   residual = 0
+PASS C1 certify.py:360-362  m = (r/2)(1 - 1/g_rr) inverts g_rr = 1/(1 - 2m/r)   residual = 0
+PASS C2 certify.theorem_holds() samples: g_rr < 1  <=>  m < 0 at r = 1
+PASS C3 certify.py:118-120 / tolman.py:314-316: static tt equation gives dm/dr = 4 pi r^2 rho   residual = 0
+PASS C4 throatmass.py: in the g_ll = 1 gauge the definition reduces to m = (r/2)(1 - r'^2)   residual = 0
+PASS C5 throatmass.py: G^t_t = (2 r r'' + r'^2 - 1)/r^2 (HPS eq. 5 left side)   residual = 0
+PASS C6 throatmass.py: dm/dl = 4 pi r^2 r' rho   residual = 0
+PASS C7 throat r' = 0, r = r0: m = r0/2 > 0 (no contraction, m positive)   residual = 0
+PASS D1 drivensource.py:39: RN Misner-Sharp mass m(r) = M - Q^2/(2r)   residual = 0
+PASS D2 RN energy density rho = Q^2/(8 pi r^4) > 0 everywhere   residual = 0
+PASS D3 RN: dm/dr = 4 pi r^2 rho holds; the integration constant is M, not 0   residual = 0
+PASS D4 RN: m < 0 exactly on r < Q^2/(2M)  (sympy solve)   r < Q**2/(2*M)
+PASS D5 RN centre is NOT regular in Hayward's sense (E = O(r^3) fails: E -> -oo)   -oo
+PASS E1 Hayward (4) second form: E = r/2 + e^f r d_+r d_-r   [metric RECONSTRUCTED]   residual = 0
+PASS E2 Hayward (4) third form: E = r/2 + (1/4) e^f r^3 theta_+ theta_-   [RECONSTRUCTED]   residual = 0
+PASS F1 boost invariance: Gamma'^2 - U'^2 = Gamma^2 - U^2   residual = 0
+PASS G1 guard: static (U = 0), W > 1 is satisfiable   sat
+PASS G2 certify THEOREM: U = 0, W > 0  =>  (W > 1 <=> m < 0)   negation: unsat
+PASS G3 static slice is never trapped: U = 0  =>  1 - 2m/R >= 0  (untrapped is a CONSEQUENCE, not a hypothesis)   negation: unsat
+PASS G4 throat: U = 0, W = 0  =>  m = R/2 > 0   negation: unsat
+PASS G5 Hayward Prop. 1: 1 - 2m/R = Gamma^2 - U^2 < 0  <=>  m > R/2   negation: unsat
+PASS G6 driven THEOREM: contraction W > 1  <=>  2m/R < U^2   negation: unsat
+PASS G7 drift guard: W > 1 with m >= 0 IS satisfiable off the static slice (m < 0 not necessary)   sat
+PASS G8 Escriva (2.5) sqrt is a BRANCH: Gamma < 0 also satisfies the constraint (type-II)   sat
+PASS G9 foliation: m < 0 => Gamma^2 > 1 + U^2 >= 1 in EVERY foliation   negation: unsat
+
+checks: 37   failed: 0

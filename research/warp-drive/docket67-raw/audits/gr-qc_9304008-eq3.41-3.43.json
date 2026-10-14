@@ -1,0 +1,66 @@
+{
+ "key": "gr-qc/9304008-eq3.41-3.43",
+ "name": "KF (3.41),(3.42): coefficient 1/2 where 1/4 holds; (3.43)'s 1/8 right",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (6 Apr 1993; TUTP-93-1, Feb 1993), Sec. III.C 'Casimir vacuum', pp. 9-12: (3.28)-(3.33) image sum and <:T_mn:>_C, (3.40) Wick form of <:T00^2:>_C, (3.41), (3.42), (3.43), (3.44), (3.45) and the paragraph after it. Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "arXiv v1 PDF TEXT LAYER, verbatim harvest of alphaXiv page returns made in an earlier stage of this docket: d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153, 39,849 bytes, 19 pages; (3.40)-(3.45) at lines 2015-2160), re-read in THIS stage from that file. A fresh fetch in this stage failed: alphaXiv answer_pdf_queries, get_paper_content(fullText) and discover_papers each returned 'alphaXiv assistant quota exceeded'; curl arxiv.org -> proxy CONNECT 403. Page image not viewed (a text layer of a REVTeX PDF carries the typeset glyphs, but this is named, not assumed away). Journal version not read."
+ },
+ "published_statement": "v1 p.11 (text layer, verbatim): 'Let rho = <:T00:>_C be the Casimir energy density and let p_i = <:T_ii:>_C be the pressure in the i-direction. Then for the massless scalar field we have <:phidot^2:>_C^2 = (1/2)(rho + p1 + p2 + p3)^2 (3.41) and, for example, <:(phi_,x)^2:>_C^2 = (1/2)(rho + p1 - p2 - p3)^2. (3.42) From these relations, we may write Delta' = (<:T00^2(x):> - rho^2)/rho^2 = (1/8)[(rho + xi1 + xi2 + xi3)^2 + (rho + xi1 - xi2 - xi3)^2 + (rho - xi1 + xi2 - xi3)^2 + (rho - xi1 - xi2 + xi3)^2], (3.43) where xi_i = p_i/rho.' Preceded by (3.40): '<:T00^2(x):>_C = <:T00:>_C^2 + (1/2)[<:phidot^2:>_C^2 + <:(phi_,x)^2:>_C^2 + <:(phi_,y)^2:>_C^2 + <:(phi_,z)^2:>_C^2]' and followed by (3.45) 'Delta' >= 1/2, Delta >= 1/3' and 'xi1 = xi2 = -1 and xi3 = 3, so that Delta' = 6 and Delta = 6/7'. TREE'S STATEMENT (fluctuation.py:47-48): 'KF (3.41), (3.42) print 1/2 where 1/4 holds; the 1/8 of (3.43) is right, so this one is typographical.'; fluctuation.py:150 KF_341_HALF_IS_TYPOGRAPHICAL = True; checked at fluctuation.py:456-459.",
+ "published_hypotheses": [
+  "K1 flat Minkowski spacetime (Sec. V: 'restricted to a flat spacetime background').",
+  "K2 massless scalar field, MINIMALLY coupled stress tensor (Lagrangian (2.1); point-split form (3.27); p.11 'for the massless scalar field we have').",
+  "K3 rho = <:T00:>_C, p_i = <:T_ii:>_C, operators normal ordered w.r.t. the Minkowski vacuum, expectation in the Casimir vacuum (text after (3.33)/(3.34)).",
+  "K4 coincidence-limit (pointwise) quantities.",
+  "K5 for (3.40): Wick's theorem via 'phi+|psi> = <psi|phi- = 0 ... Both the Minkowski and Casimir vacua satisfy this condition', and only diagonal squares <:(d_A phi)^2:>^2 kept (G_AB diagonal) -- exact for the worked periodic-z example.",
+  "K6 rho != 0 (xi_i = p_i/rho)."
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED that the verdict needs. The tree's check (fluctuation.py:456-459) is made on ONE state, the periodic-z image-sum G (fluctuation.py:265-279, 449), narrower than KF's general 'for the massless scalar field'. Re-derivation here shows the 1/4 is an OPERATOR IDENTITY for the minimally coupled massless scalar (phidot^2 = (T00+T11+T22+T33)/2, phi_x^2 = (T00+T11-T22-T33)/2, both signature conventions; normal ordering is linear so it holds in every state) -- the tree's claim is therefore true on a WIDER class than it tests. Not a weakening.",
+  "IMPLICIT in the tree, matches KF: minimal coupling -- the tree's p_i formula p_i = G_ii + (G00 - sum_j G_jj)/2 (fluctuation.py:278) is the minimal-coupling T_ii. Named: for conformal coupling (xi=1/6) the identity acquires terms in second derivatives of <:phi^2:>, which vanish for the homogeneous periodic-z state but not for, e.g., Dirichlet plates. KF's section is minimal coupling, so no drift at the site.",
+  "OMISSION (completeness, not drift): the tree's 'the 1/8 of (3.43) is right' (fluctuation.py:47-48) is true of the COEFFICIENT, but the v1 text layer of (3.43) also prints a leading 'rho' inside each bracket where the normalised form requires 1 (dimensionally rho is L^-4, xi is dimensionless; the identity holds only at rho = 1, re-derived here, check 6). The tree is silent on this second misprint in the very equation its 'typographical' inference leans on. Recorded as a v1 discrepancy only; KF's downstream numbers (min 1/2, 6, 6/7) are the values with 1, so it too is non-propagating.",
+  "INTERPRETIVE WORD: 'typographical' (fluctuation.py:48, 150) is established here only in the sense NON-PROPAGATING -- every downstream figure KF print ((3.43)'s 1/8, (3.45)'s 1/2 and 1/3, the periodic 6 and 6/7) is the value the 1/4 gives and not the value the 1/2 gives (1/4, 1, 12). Whether the 1/2 is a typesetter's error or an author's slip confined to that intermediate line cannot be distinguished from the text; named as hypothesis T-mech, not resolved.",
+  "SCOPE, carried correctly: the tree's status word 'READ (against arXiv v1 only)' and fluctuation.py:122-126 ('MUST NOT be quoted as errors in the journal version until it is read'; JOURNAL_VERSION_READ = False, PAGE_IMAGE_VIEWED = False) match this audit's read. No drift."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "zeta(4) (enters rho and p_i of the worked example, not the coefficient question)",
+   "value_then": "pi^4/90 (KF p.10)",
+   "value_now": "pi^4/90 (exact; mathematical constant)",
+   "source_now": "exact; sympy.zeta(4) in the re-derivation",
+   "moves_conclusion": "no -- no measured datum enters (3.41)-(3.43); the coefficient is fixed by algebra (the stress-tensor definition and Wick's theorem)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq3.41-3.43.py",
+  "outcome": "ALL 30 checks PASS (exit 0; output at d67/rederive/gr-qc_9304008-eq3.41-3.43.out), nothing imported from the tree. (1) Operator identities, minimal coupling, both signatures: phidot^2 = (rho+sum p)/2 and phi_x^2 = (rho+p1-p2-p3)/2 EXACTLY, so <:phidot^2:>^2 = (1/4)(rho+sum p)^2 in every state -- the coefficient is 1/4, not the printed 1/2 (printed/true ratio = 2). (2) Periodic-z image sum from scratch (KF (3.29)-(3.31)): G = diag(-1, 1, 1, -3) pi^2/(90 L^4), off-diagonals 0, rho = -pi^2/(90 L^4) (KF (3.33) EXACT), xi = (-1,-1,3) (KF (3.32) EXACT); (3.41) and (3.42) hold with 1/4 and FAIL with 1/2. (3) (3.40) re-derived by Isserlis on a general symbolic 4x4 G: <:T00^2:> = rho^2 + (1/2) sum_AB G_AB^2, reducing to KF's diagonal form since G is diagonal here. (4) Propagation: with coefficient c in (3.41)-(3.42), (3.43)'s coefficient is c/2; the printed 1/8 solves to c = 1/4 uniquely; the printed 1/2 carried through would give 1/4 in (3.43), min Delta' = 1 and periodic Delta' = 12, contradicting KF's own printed 1/2 and 6. (5) Sum over the four Hadamard sign patterns = 4(1+|xi|^2), so Delta' = (1+|xi|^2)/2; Delta'(0) = 1/2, Delta'(-1,-1,3) = 6, Delta = 6/7 -- and Delta' = 6 is obtained a second way directly from the image-sum G + Wick, bypassing (3.41)-(3.43). (6) (3.43) with the printed leading rho differs from the true Delta' except at rho = 1: a second, separate v1 misprint. (7) z3: no xi with Delta' < 1/2 (unsat); equality only at xi = 0 (unsat); vacuity guard: Delta' >= 3/4 refuted (sat). The tree's own fluctuation.py --selftest also run read-only (PYTHONDONTWRITEBYTECODE=1): exit 0, '(3.41) printed 1/2 holds False' and '1/4 holds, so it is typographical True'.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (this stage)",
+   "effect": "contested",
+   "what": "The one permitted discover_papers call (Kuo, Ford, stress tensor fluctuations, Casimir vacuum) returned 'alphaXiv assistant quota exceeded'. No search result is claimed; absence of a later paper noting the (3.41) coefficient is NOT established.",
+   "read_status": "NOT RUN (quota)"
+  },
+  {
+   "ref": "Cached citers of Kuo & Ford 1993 in d67/src (grep 'Kuo' over the cached texts): gr-qc/9410043 (Ford & Roman 1994), gr-qc/0402029 (Hu, Roura & Verdaguer 2004), 2512.17789v2 (Perez & Sudarsky 2026), gr-qc/9403008 (Garay 1995), 1807.03808, gr-qc/9805037",
+   "effect": "extends",
+   "what": "None restates or re-derives eqs (3.41)-(3.43); they cite the paper for the qualitative conclusion (large fluctuations where rho < 0) or the criterion itself (Hu-Roura-Verdaguer narrow the criterion's interpretation; Perez-Sudarsky supply the curved-space renormalisation KF said was undeveloped). Nothing found confirms or contradicts the coefficient; the coefficient question is settled here by algebra, not by literature.",
+   "read_status": "READ from cached verbatim text layers harvested in earlier stages of this docket (d67/src/casmag/all/*.txt); only the citing passages were re-read in this stage."
+  },
+  {
+   "ref": "Kuo & Ford, Phys. Rev. D 47, 4510 (1993) (journal version)",
+   "effect": "contested",
+   "what": "Whether the journal text prints 1/2 or 1/4 in (3.41)-(3.42), or 1 or rho in (3.43), is unknown here; the tree correctly refuses to quote the v1 discrepancy against it.",
+   "read_status": "NAMED-NOT-READ (journals.aps.org / doi.org unreachable; alphaXiv quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result, and the evidence is on the 'no' side: (3.41)-(3.43) take NO measured input. The coefficient is fixed by the definition of the minimally coupled stress tensor (T00 + sum_i T_ii = 2 phidot^2 is an operator identity) and Wick's theorem, both fully available in 1993. The discrepancy is a factor 2 in an intermediate printed line of the arXiv v1 text layer, and KF's own downstream results ((3.43)'s 1/8, (3.45)'s 1/2 and 1/3, the periodic 6 and 6/7) are all the correct-coefficient values -- so nothing later learned, and no datum, changes their conclusion. What KF 'lacked' at this site is proof-reading, not data; and it is a misprint (a discrepancy), not a refutation of anything they concluded.",
+ "grade": "STANDS",
+ "grade_evidence": "The tree's statement -- (3.41), (3.42) print 1/2 where 1/4 holds; (3.43)'s 1/8 is right; hence the 1/2 is typographical -- is re-derived in full: the 1/4 is an exact operator identity for the minimally coupled massless scalar in both signature conventions (so it holds beyond the one Casimir state the tree tests), it is confirmed on an independently rebuilt periodic-z image-sum G, the printed 1/2 fails there by a factor exactly 2, and the propagation computation shows (3.43)'s 1/8 and KF's printed 1/2, 1/3, 6, 6/7 are the 1/4 values and NOT the 1/2 values (which would be 1/4, 1, 12). No datum enters. Named limits that do not move the grade: (a) 'typographical' is established as NON-PROPAGATING; the mechanism (typesetter vs author slip) is undeterminable (T-mech); (b) the read is the v1 PDF text layer only, page image not viewed, journal PRD 47, 4510 NAMED-NOT-READ -- exactly the scope the tree itself declares (fluctuation.py:122-126); (c) completeness note: the tree is silent on a second v1 misprint in the same (3.43), a leading rho where 1 is required -- also non-propagating, recorded as a discrepancy, not an error of the tree's claim. rederivation.agrees_with_source is 'partly' because the SOURCE as printed in v1 disagrees with the re-derivation at (3.41)-(3.42) and at (3.43)'s leading rho, while agreeing at (3.40), (3.43)'s coefficient, (3.45) and 6/7; the TREE agrees with the re-derivation.",
+ "what_would_change_the_grade": "(1) The v1 page IMAGE showing 1/4 in (3.41)-(3.42) (a text-layer artefact) -> the tree's 'print 1/2' would be a discrepancy of the text layer, not of the paper: NARROWED to the text layer. (2) A reading where p_i is not the physical pressure (e.g. mixed-index T^i_i in (+,-,-,-)) such that rho + sum p != 2<:phidot^2:> -- excluded here because KF's own xi = (-1,-1,3) from (3.32) are the physical-pressure ratios, re-derived. (3) The journal version: would not change this grade (the tree scopes the claim to v1) but, if read, would decide whether the discrepancy survives into PRD 47, 4510. (4) A conformally coupled reading of Sec. III.C would require re-checking; KF state minimal coupling.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9304008-eq3.41-3.43.py  # expect 'ALL PASS', exit 0;  sed -n 2015,2160p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9304008v1.txt  # the v1 text of (3.40)-(3.45) (md5 f1a6628604751cf61b2a4bd411b00153);  cd /home/user/Claude-Method-Works/research/warp-drive && PYTHONDONTWRITEBYTECODE=1 python3 fluctuation.py --selftest | grep 3.41",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9304008-eq3.41-3.43.json"
+}

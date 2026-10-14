@@ -1,0 +1,104 @@
+{
+  "key": "einstein-tt-equation-misner-sharp",
+  "name": "The tt Einstein equation in spherical symmetry: dm/dr = 4 pi r^2 rho, so m(r) = int_0^r 4 pi r'^2 rho dr' given a regular centre m(0) = 0 (G_ab = 8 pi T_ab, geometric units); merged: with a regular centre rho >= 0 implies m >= 0, and the point-charge (RN) self-energy divergence m(0) = -infinity",
+  "kind": "theorem",
+  "docket": "67, audit 4 of 286, run 2026-09-26",
+  "source": {
+    "located": "Misner C W & Sharp D H 1964 Phys. Rev. 136 B571 (pre-arXiv, NAMED-NOT-READ). Read through the exact restatement in Hayward S A, 'Gravitational energy in spherical symmetry', arXiv:gr-qc/9408002v2 (Phys. Rev. D 53 (1996) 1938): eq. (4) E = (r/2)(1 - g^{-1}(dr,dr)) 'may be defined in units G = 1'; eq. (27) 1 - 2E/r = e^{-lambda}(r')^2 - rdot^2 'which is the form actually given by Misner & Sharp [4], with different notation'; eq. (28a) E' = 4 pi r^2 (T_00 r' - T_01 rdot); eq. (32a)-(33) E' = 4 pi r^2 mu r' and, with a regular centre, E(sigma) = INT_0^sigma 4 pi r^2 mu r' dsigma; regular centre defined as g^{-1}(dr,dr) - 1 = O(r^2), whence E = O(r^3); Proposition 2: a central singularity is temporal and untrapped if E < 0; Proposition 6: DEC on an untrapped spatial hypersurface with regular centre => E >= 0, 'By Proposition 5, since E = 0 at a regular centre'. The static 'tt Einstein equation' form dm/dr = 4 pi r^2 rho is (28a) with rdot = 0 and r as the coordinate (r' = 1); it is also re-derived here from the metric directly.",
+    "read_status": "READ-VIA-RESTATEMENT",
+    "via": "mcp__alphaXiv__answer_pdf_queries on gr-qc/9408002 (pages 1-4, 6-13, 16, 19, 22 returned); Misner-Sharp 1964 itself is cited there as ref. [4] and is not on arXiv"
+  },
+  "published_statement": "Hayward (1996), restating Misner-Sharp (1964): in spherical symmetry with areal radius r, the Misner-Sharp energy is E = (r/2)(1 - g^{ab} d_a r d_b r) (eq. 4; G = 1), equivalently 1 - 2E/r = e^{-lambda} r'^2 - rdot^2 in (tau, sigma) coordinates (eq. 27, 'the form actually given by Misner & Sharp'). The Einstein equations give E' = 4 pi r^2 (T_00 r' - T_01 rdot) (eq. 28a). For a perfect fluid on a comoving slice E' = 4 pi r^2 mu r' (32a), and 'if Sigma has a regular centre sigma = 0, (32a) integrates to E(sigma) = INT_0^sigma 4 pi r^2 mu r' dsigma' (33). A central point is regular iff g^{-1}(dr,dr) - 1 = O(r^2), and then E = O(r^3). Prop. 6: if the dominant energy condition holds on an untrapped spatial hypersurface with regular centre then E >= 0 there. Prop. 2: a central singularity is spatial and trapped if E > 0, temporal and untrapped if E < 0. Hayward also notes E 'may be negative, as in the negative-energy Schwarzschild solution' and that 'the energy can be negative if the above assumptions do not hold'.",
+  "published_hypotheses": [
+    "spherical symmetry (assumed throughout Hayward's paper 'implicitly in the Propositions')",
+    "Einstein's equations with G = 1 (eq. 10a-c, 28a); no cosmological constant appears in Hayward's field equations",
+    "areal radius r > 0 with r = 0 a boundary of the quotient space-time ('centre')",
+    "regular centre: g^{-1}(dr,dr) - 1 = O(r^2), so E = O(r^3) and E = 0 at the centre (needed for the integral form (33) and for Prop. 6)",
+    "for eq. (33): a perfect fluid on a comoving spatial hypersurface (T_01 = 0 there); for the general (28a) the T_01 rdot term survives",
+    "for Prop. 6 (positivity): the dominant energy condition AND an untrapped spatial hypersurface (monotonicity Prop. 5 is stated for untrapped spheres only)",
+    "for the integral in r rather than sigma: r' != 0 along the hypersurface (Hayward keeps the r' factor; using r as the coordinate needs dr spacelike and non-vanishing)"
+  ],
+  "hypothesis_drift": [
+    "DROPPED (preamble only): certify.py:116 'Every static spherically symmetric spacetime can be written with an areal radius' drops Hayward's r' != 0. Where dr vanishes (a throat; Maeda-Nozawa 0709.1199 Prop. 1(ii), the Nariai-type solution with r constant) the areal-radius chart does not exist and dm/dr = 4 pi r^2 rho has no meaning. Affects the 'every' of the THEOREM's preamble, not the RN region nor the regular-centre integral, both of which have dr != 0. certify.py:141-143 already defers to nonstatic.py's anchor lemma ('stationary AREAL RADII'), which this audit did not read.",
+    "ADDED silently (Lambda = 0): certify.py:118 writes dm/dr = 4 pi r^2 rho with no cosmological constant, and neither certify.py nor drivensource.py mentions one (grep: no 'cosmolog' in either; drivensource's 'Lambda' is the metric function e^{2Lambda}). Computed here: with G_ab + Lambda g_ab = 8 pi T_ab the tt equation is dm/dr = 4 pi r^2 rho + Lambda r^2/2, so with a regular centre m(r) = INT_0^r 4 pi r'^2 rho + Lambda r^3/6. Maeda-Nozawa 0709.1199 eq. (2.7) absorbs the term (m_MN = m - Lambda r^3/6, m_MN' = 4 pi r^2 rho, checked). With Lambda < 0 the corollary 'm < 0 => rho < 0 somewhere' FAILS even with a regular centre (pure AdS has m = Lambda r^3/6 < 0 and rho = 0); with Lambda >= 0 the added term is >= 0 and the corollary survives. Hayward's paper also carries Lambda = 0 without stating it, so the drift is source-to-tree consistent and the hypothesis is unwritten in both. See data_at_publication for the observed sign and size.",
+    "WEAKENED (in the tree's favour, and justified by computation): certify.py:132-141 and drivensource.py:162-164 use 'regular centre' to mean m(0) = 0 (drivensource.py:446, specthm.py:572-573 H_reg 'regular centre, m(0) = 0'). Hayward's regularity is stronger: g^{-1}(dr,dr) - 1 = O(r^2), i.e. m = O(r^3). The tree's conclusion m >= 0 needs only m(0) = 0 and rho >= 0 (checked: rho = k/r^2 gives m = 4 pi k r, m(0) = 0, m >= 0, but m = O(r), a conical centre that is not Hayward-regular). So the tree's hypothesis is the weaker one and its conclusion holds on the broader class; a naming drift, not a narrowing. The tree should not, however, cite Hayward's Prop. 6 for its m(0) = 0 class without noting this.",
+    "WEAKENED (in the tree's favour, and justified by computation): Hayward's positivity Prop. 6 needs the DOMINANT energy condition on an UNTRAPPED spatial hypersurface; drivensource.py:162-164 uses only rho >= 0 in the static frame. In the static areal-radius chart G_tr = 0 identically (computed), so T_01 = 0 and (28a) reduces to m' = 4 pi r^2 T_00 with no flux term; rho >= 0 (the WEC's static-frame component) then suffices. The 'untrapped' clause is what makes rho = T_{\\hat t \\hat t} an energy density measured by a static observer: inside a trapped region (1 - 2m/r < 0) the chart's t is spacelike and 'static' is a misnomer, though the equation m' = 4 pi r^2 (-T^t_t) still holds algebraically. Not stated by the owners; it does not bite on the regular-centre integral (m = 0 at the centre, untrapped there) nor on the RN region r < r_c (1 - 2m/r > 1, untrapped, checked).",
+    "ADDED interpretation (owner's prose, not in source): drivensource.py:130-131 'the finite M absorbs a -infinity of bare mass at the point charge' is the classical self-energy renormalisation reading. Hayward's source statement is only Prop. 2 (E < 0 central singularity is temporal and untrapped) and that E can be negative where the regular-centre hypothesis fails. The machine-checked fact (drivensource.py:530-533, re-derived here) is lim_{r->0+} INT 4 pi r^2 rho_RN = -oo, i.e. m(0) = 0 is impossible; the 'bare mass' gloss is not load-bearing for D4 or for specthm fact D4.",
+    "NONE at the theorem line itself: certify.py:118-120 states exactly Hayward (28a) with rdot = 0, r' = 1, and certify.py:304 fixes the units (c^4/8 pi G = 1) that Hayward's 'G = 1' carries. specthm fact D4, Implies(And(sph, negm, reg), rhoneg) (specthm.py:1806), is exactly the contrapositive of Prop. 6 in the static chart with the weaker hypotheses above."
+  ],
+  "data_at_publication": [
+    {
+      "quantity": "cosmological constant Lambda (the one physical datum the equation's form silently fixes)",
+      "value_then": "0 -- taken as absent by Misner-Sharp 1964 and by Hayward 1994/1996 (no Lambda in eqs. 10a-c or 28a); the accelerating expansion was measured in 1998",
+      "value_now": "Lambda = 3 Omega_Lambda H_0^2 / c^2 ~ 1.1e-52 m^-2 > 0 (Planck 2018, arXiv:1807.06209, TT,TE,EE+lowE+lensing+BAO: Omega_Lambda = 0.6889 +- 0.0056, H_0 = 67.66 +- 0.42 km/s/Mpc); PDG 2024 cosmological-parameters review quotes the same",
+      "source_now": "Planck 2018 results VI (arXiv:1807.06209), Table 2; PDG 2024 'Cosmological parameters' review -- value quoted from memory of those tables, not re-read at source in this audit (the sign and order of magnitude are what matter and are not in doubt)",
+      "moves_conclusion": "No. Computed: dm/dr = 4 pi r^2 rho + Lambda r^2/2, so the regular-centre integral gains + Lambda r^3/6. With the observed Lambda > 0 the term is non-negative, so 'rho >= 0 and m(0) = 0 => m >= 0' still holds, and 'm < 0 => rho < 0 somewhere' still holds; its size at r = 1 m is ~2e-53 m (geometric), and at r = 1e6 m ~2e-35 m. Only a NEGATIVE Lambda would move the corollary (pure AdS: m = Lambda r^3/6 < 0 with rho = 0). The RN divergence -Q^2/2r is unaffected."
+    },
+    {
+      "quantity": "G and c (units)",
+      "value_then": "set to 1 (Hayward 'units G = 1'; certify.py:304 c^4/8 pi G = 1)",
+      "value_now": "convention, not a measurement; CODATA 2022 G = 6.67430(15)e-11 m^3 kg^-1 s^-2 enters only when a geometric length is converted to kg",
+      "source_now": "CODATA 2022 (not re-read here; conventional)",
+      "moves_conclusion": "No: every statement audited is homogeneous in the units and sign-only; no numerical threshold depends on G or c."
+    },
+    {
+      "quantity": "closed-form inputs the tree's owners use: INT 4 pi r^2 Q^2/(8 pi r^4) dr = -Q^2/(2r); lim r->0+ = -oo; m(R) = M - Q^2/(2R) < 0 iff R < Q^2/(2M)",
+      "value_then": "exact (no datum)",
+      "value_now": "re-derived here from the RN metric 1 - 2M/r + Q^2/r^2 and the tt equation: all three agree (sympy)",
+      "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/einstein-tt-equation-misner-sharp.py section 4",
+      "moves_conclusion": "No; exact algebra, and the tree's own sympy at drivensource.py:525-533 states the same three lines."
+    }
+  ],
+  "rederivation": {
+    "method": "sympy",
+    "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/einstein-tt-equation-misner-sharp.py",
+    "outcome": "EXIT 0, 24 checks, all agree (sympy 1.14.0 with a z3 5.1.0 positivity check). (1) From ds^2 = -e^{2Phi}dt^2 + dr^2/(1-2m/r) + r^2 dOmega^2 the orthonormal Einstein tensor has G_tt = 2m'/r^2 exactly, independent of Phi, and G_tr = 0, so G_ab = 8 pi T_ab gives dm/dr = 4 pi r^2 rho with rho = T_{\\hat t\\hat t} -- the tree's certify.py:118 line. (2) With Lambda: dm/dr = 4 pi r^2 rho + Lambda r^2/2; Maeda-Nozawa's m - Lambda r^3/6 restores the Lambda-free form. (3) The chart's m equals Hayward's eq. (4) E = (r/2)(1 - g^{ab} d_a r d_b r), so the tree's m IS the Misner-Sharp mass. (4) RN: m = M - Q^2/2r; rho = m'/(4 pi r^2) = Q^2/(8 pi r^4) = E^2/8 pi of the Coulomb field; m < 0 iff r < Q^2/2M; INT 4 pi r^2 rho = -Q^2/2r; limit r->0+ is -oo; INT_a^r = Q^2/2a - Q^2/2r, so the integration constant is m(a) and never 0; lim(1 - 2m/r) = +oo so the r < r_c region is untrapped (Hayward Prop. 2 with E < 0). (5) z3: over a 12-cell Riemann discretisation, rho_i >= 0 and m(0) = 0 make m(R) < 0 UNSAT, and freeing one cell makes it SAT (control); sympy: uniform rho gives m = 4 pi rho0 r^3/3 = O(r^3) (Hayward-regular), rho = k/r^2 gives m = 4 pi k r >= 0 with m(0) = 0 but only O(r) (the tree's class is broader than Hayward's). (6) dl/dr = (1-2m/r)^{-1/2} < 1 iff m < 0. Two initial FAILs were the auditor's own wrong expected values (the sign of the Lambda term and a hand-subtracted Q^2/r^2) and were corrected; the tree's statements were never in disagreement.",
+    "agrees_with_source": "yes"
+  },
+  "later_literature": [
+    {
+      "ref": "Hayward S A, arXiv:gr-qc/9408002 (Phys. Rev. D 53, 1938, 1996), 'Gravitational energy in spherical symmetry'",
+      "effect": "confirms",
+      "what": "The restatement source: eqs. (4), (27)-(28a), (32a)-(33), regular-centre definition, Props. 2 and 6. Confirms the tree's split exactly: the THEOREM (contraction iff m < 0) is the definition (4) plus dl = dr/sqrt(1-2m/r); the COROLLARY needs the regular centre, and Hayward says outright that E 'can be negative if the above assumptions do not hold'.",
+      "read_status": "READ (answer_pdf_queries, pages 1-4, 6-13, 16, 19, 22)"
+    },
+    {
+      "ref": "Maeda H & Nozawa M, arXiv:0709.1199 (Phys. Rev. D 77, 064031, 2008), 'Generalized Misner-Sharp quasi-local mass in Einstein-Gauss-Bonnet gravity'",
+      "effect": "extends",
+      "what": "Generalises m to n dimensions, Lambda and Gauss-Bonnet (eq. 2.7); at n = 4, k = 1, alpha = 0 it is m - Lambda r^3/6, which this audit checks restores dm/dr = 4 pi r^2 rho. Their Lemma 1-2 show the sign of m near a regular centre depends on C and Lambda, and they remark that Hayward's positivity proof 'seems to be nontrivial, which requires Lemma 2 for completion' -- a narrowing of Hayward's PROOF, not of the result for k = 1, Lambda = 0, where positivity holds (Table I). Prop. 1(ii) exhibits the r = const (Nariai) vacuum where no areal-radius chart exists, supporting drift 1. Lemma 3: in GR with k = 0 a regular centre surrounded by untrapped surfaces under DEC is impossible for Lambda >= 0 -- not the tree's case (k = 1).",
+      "read_status": "READ (answer_pdf_queries, pages 1-3, 5-6, 8-10)"
+    },
+    {
+      "ref": "Kunduri H K, Margalef-Bentabol J & Muth S, arXiv:2409.07639 (2024), 'The Penrose inequality in spherical symmetry with charge and in Gauss-Bonnet gravity'",
+      "effect": "extends",
+      "what": "Defines the charged Hawking/Misner-Sharp mass m_CH = m_H + q^2/(2 r^{n-2}) + r^n/(2 l^2) (Def. 2.2) and proves m_CH' >= 0 under DEC on the uncharged matter (eq. 2.16), with the electric-field energy bounding the -q^2 term from below via Cauchy-Schwarz. For RN (their eq. 2.25, V = 1 - 2M/r + Q^2/r^2) m_CH = M exactly: the negativity of the PLAIN m near the point charge is precisely the -Q^2/2r electrostatic term the literature moves into the definition of the mass rather than denies. This corroborates the tree's V6/R3 reading that the RN break is the field's self-energy and that the corollary, not the theorem, is what fails. It does not restore the corollary for the plain m.",
+      "read_status": "READ (answer_pdf_queries, pages 1, 3-5, 7-16)"
+    },
+    {
+      "ref": "Hernandez W C & Misner C W 1966 Astrophys. J. 143 452; Cahill M E & McVittie G C 1970 J. Math. Phys. 11 1382",
+      "effect": "confirms",
+      "what": "The standard follow-ups (Misner-Sharp-Hernandez mass; Cahill-McVittie's general-coordinate form) that the later papers cite for the same definition; pre-arXiv.",
+      "read_status": "NAMED-NOT-READ"
+    },
+    {
+      "ref": "arXiv:2602.22559 (2026), 'Quantum corrected thermodynamics and horizon quantization of the Reissner-Nordstrom black hole' (uses the Misner-Sharp-Hernandez mass of RN)",
+      "effect": "extends",
+      "what": "Discover hit only; uses the MSH mass of RN as its base quantity. Not read; no bearing on the four-dimensional classical statement audited.",
+      "read_status": "NAMED-NOT-READ (discover_papers listing only)"
+    }
+  ],
+  "lacked_data": "M's hypothesis, tested for this result. What the authors had: Misner and Sharp (1964) and Hayward (1994/96) worked with G_ab = 8 pi T_ab, no cosmological constant, and no measured value of Lambda -- in 1964 Lambda was widely taken to be zero and its non-zero value was measured only in 1998 (Riess et al., Perlmutter et al.). That is the one datum the result's form silently fixes. What came later: Lambda ~ 1.1e-52 m^-2 > 0 (Planck 2018). Does it change the conclusion? Computed here: it adds + Lambda r^2/2 to dm/dr and + Lambda r^3/6 to the regular-centre integral, non-negative for the observed sign, so every conclusion the tree draws (rho >= 0 and m(0) = 0 => m >= 0; m < 0 => rho < 0 somewhere; the RN divergence) survives unchanged, with the correction ~1e-53 of a metre at laboratory scale. The evidence AGAINST M's hypothesis here: the result is a theorem of the field equations, and the only later datum that could touch it enters with the sign that preserves it. The evidence FOR it, narrowly: the hypothesis Lambda = 0 was indeed unwritten by the authors and by the tree, and with the opposite sign of Lambda (AdS) the corollary would fail even at a regular centre -- so the corollary's truth in our universe does rest on a 1998 measurement the 1964 authors lacked, which they could not have named as a hypothesis because they did not know it was one. That is a datum the conclusion depends on, but it has moved in the direction that leaves the conclusion standing; the grade therefore is not DATA-DEPENDENT.",
+  "grade": "STANDS",
+  "grade_evidence": "The statement as the tree uses it (certify.py:118-120, 132-141; drivensource.py:128-132, 162-164, 446, 530-533; specthm fact D4 Implies(And(sph, negm, reg), rhoneg)) is Hayward's (28a) with rdot = 0, r' = 1, integrated from E = 0 at a regular centre (eq. 33) -- read at source in the restatement -- and is re-derived here from the metric with sympy (G_tt = 2m'/r^2 exactly, Phi-free, G_tr = 0), the RN counterexample to the corollary reproduced (m = M - Q^2/2r, rho = Q^2/8 pi r^4 > 0, m < 0 for r < Q^2/2M, integral -Q^2/2r -> -oo), and positivity under m(0) = 0, rho >= 0 shown UNSAT to violate in z3 with a satisfiable control. Every hypothesis drift found is either in the tree's favour and computed to be sound (m(0) = 0 weaker than Hayward's O(r^3); rho >= 0 in place of DEC because T_01 = 0 in the static chart), or is a preamble limit that does not touch the rows resting on it (r' != 0), or is the one added hypothesis Lambda = 0 which the observed Lambda > 0 does not move. No moved datum moves the conclusion. Not NARROWED: the tree's own COROLLARY narrowing (regular centre) is already the source's hypothesis, and the tree's rows D4, R3, H_reg, V6 carry it explicitly. Not OPEN: read at source via restatement and machine-checked.",
+  "what_would_change_the_grade": "To NARROWED: if any owner row or specthm fact is found to invoke the corollary in a Lambda < 0 (AdS) setting, or at a throat where dr = 0, or cites Hayward's Prop. 6 for a centre with m(0) = 0 but m not O(r^3) as if it were Hayward-regular -- each is a named hypothesis this audit found unwritten (drift 1, 2, 3). To DATA-DEPENDENT: a measurement changing the SIGN of Lambda (no such measurement exists; Planck 2018 gives Omega_Lambda = 0.6889 +- 0.0056). To WRONG: a static spherically symmetric metric in areal-radius form with 1 - 2m/r > 0, m(0) = 0, rho >= 0 everywhere and m(r) < 0 somewhere -- the z3 check says none exists in the discretised class, and the sympy identity m(r) = INT_0^r 4 pi r'^2 rho says none exists at all. To OPEN: nothing; the classic is NAMED-NOT-READ but the restatement is exact and the equation is re-derived independently of both.",
+  "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 einstein-tt-equation-misner-sharp.py  # exit 0 iff all 24 checks agree; needs sympy (z3 optional, one check skipped without it). Source: mcp__alphaXiv__answer_pdf_queries(paper='gr-qc/9408002', queries=['definition of E eq. 4 and the Misner-Sharp form eq. 27', 'E-prime = 4 pi r^2 (T_00 r-prime - T_01 r-dot) eq. 28a and eq. 33', 'regular centre definition and Proposition 6'])",
+  "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/einstein-tt-equation-misner-sharp.json",
+  "tree_sites_audited": {
+    "certify.py": "116-120 (metric, tt equation), 132-141 (COROLLARY narrowing, RN), 304 (units)",
+    "drivensource.py": "44-47 (N1), 113-138 (section 3), 162-164 (regular-centre positivity), 446 (CERTIFY_COROLLARY), 525-535 (sympy RN checks)",
+    "specthm.py": "572-573 (H_reg), 872-898 (class R3), 1801-1806 (fact D4), 2849-2856 (V6)",
+    "ledger.py": "385-391 (D4)",
+    "formation.py": "372 (H_EFE)"
+  },
+  "nothing_repaired": "No file under research/, drive/ or method/ was edited; the two corrected lines were in this audit's own script."
+}

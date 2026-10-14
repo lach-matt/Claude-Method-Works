@@ -1,0 +1,65 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/"
+R = {
+ "key": "gr-qc/9304008-t00-single-mode",
+ "name": "KF normal-ordered single-mode energy density operator :T00: = K(2 a+a - z a^2 - zbar a+^2), from KF (2.10)-(2.14)",
+ "source": {
+  "located": "C.-I. Kuo & L. H. Ford, 'Semiclassical gravity theory and quantum fluctuations', arXiv gr-qc/9304008 v1 (6 Apr 1993; TUTP-93-1, Feb 1993), p.3: (2.1)-(2.9) (Lagrangian, stress tensor, mode expansion, box normalisation, single-mode state); p.4: (2.10)-(2.14) and the normal-ordering sentence. Journal version Phys. Rev. D 47, 4510 (1993) NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "arXiv v1 PDF text layer as returned by alphaXiv in earlier stages of this docket and harvested verbatim to d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153; lines 90-420 read in full in this stage). A fresh answer_pdf_queries call in THIS stage returned 'alphaXiv assistant quota exceeded', as did discover_papers. Page image not viewed; journal version not read."
+ },
+ "published_statement": "v1 p.3-4, verbatim from the text layer: 'Let us consider a massless, minimally coupled scalar field for which the Lagrangian density is L = 1/2 eta^{mu nu}(d_mu phi)(d_nu phi). (2.1) The stress tensor is T_mu nu = (d_mu phi)(d_nu phi) - 1/2 eta_mu nu (d_sigma phi)(d^sigma phi) (2.2) ... phi = sum_k (a_k f_k + a_k^+ f_k^*) (2.4) ... f_k = (2 L^3 omega)^{-1/2} e^{i k_sigma x^sigma} (2.6). Here we have assumed periodic boundary conditions in a 3-dimensional box of side L ... We will here consider states where a single mode is excited ... |Psi> = sum_n c_n |n> (2.9) ... <:T_ab(x):> = sum_n (2n|c_n|^2 T_ab[f_k,f_k^*] + n^{1/2}(n-1)^{1/2} c_n c^*_{n-2} T_ab[f_k,f_k] + n^{1/2}(n-1)^{1/2} c^*_n c_{n-2} T_ab[f^*_k,f^*_k]), (2.10) where T_mu nu[g,h](x) = (d_mu g)(d_nu h) - 1/2 eta_mu nu (d_sigma g)(d^sigma h). (2.11) ... T_ab[f_k,f_k] = -K_ab e^{2 i theta}, (2.12) T_ab[f^*_k,f_k] = T_ab[f_k,f^*_k] = K_ab, (2.13) T_ab[f^*_k,f^*_k] = -K_ab e^{-2 i theta}, (2.14) where theta = k_rho x^rho and K_ab = (k_a k_b - 1/2 eta_ab k_rho k^rho)/(2 omega L^3). For the massless case k_rho k^rho = 0, so K_ab = k_a k_b/(2 omega L^3). Notice that :T_ab: = T_ab - <0|T_ab|0>; the normal ordered stress tensor in flat spacetime is the renormalized result obtained by subtracting the Minkowski vacuum expectation value.' Convention: c = hbar = 1, eta = diag(-1,1,1,1). KF print (2.10) as an expectation value; the operator :T00: = K(2a+a - z a^2 - zbar a+^2) is not printed as such -- it is the operator whose matrix elements (2.10) are, and the tree's line (fluctuation.py:179) says 'from KF (2.10)-(2.14)', which is accurate.",
+ "published_hypotheses": [
+  "massless (k_rho k^rho = 0) scalar field, (2.1)",
+  "minimally coupled: stress tensor (2.2) carries no xi (R phi^2 / improvement) term",
+  "flat Minkowski spacetime, signature (-,+,+,+), c = hbar = 1",
+  "free field: plane-wave modes (2.6) solving the wave equation (2.3), CCR (2.5)",
+  "periodic boundary conditions in a 3-box of side L (continuum limit via L^3/(2pi)^3 int d^3k available but not used in Sec. II)",
+  "only one mode k excited: |Psi> = sum_n c_n |n_k>, all other modes in the vacuum, (2.9)",
+  "normal ordering with respect to the Minkowski vacuum, equal to subtraction of <0|T_ab|0>",
+  "theta = k_rho x^rho real (x a real spacetime point), so e^{-2 i theta} is the complex conjugate of e^{2 i theta}"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED on the physics: fluctuation.py:16-17 names 'normal-ordered against the Minkowski vacuum, flat spacetime, coincidence limit, massless minimally coupled scalar', and the canonical entry's hypotheses (single plane-wave mode, z = exp(2 i theta), normal ordering) are those of the source.",
+  "WORDING (fluctuation.py:179, canonical gloss 'K the mode's normalisation constant'): in the source K = K_00 = k_0 k_0/(2 omega L^3) = omega/(2 L^3) for the massless mode (re-derived C1), i.e. mode energy over twice the box volume, not only the normalisation (2 L^3 omega)^{-1/2}. Immaterial to every use: K is kept symbolic in fluctuation.py and every KF ratio the file re-derives (Delta, (3.8), (3.45)) is homogeneous of degree 0 in K.",
+  "SPECIALISED, not weakened (fluctuation.py:179-180): the source's (2.12)-(2.14) hold for every component K_ab; the tree takes only the 00 component. Correct for its use (KF's Delta (3.2) is the 00 component).",
+  "IMPLICIT (fluctuation.py:176-180): the tree writes the a+^2 coefficient as -K/z, which equals -K zbar only on |z| = 1 (theta real); sympy's z is an unrestricted complex symbol. With |z| != 1 the operator is not Hermitian (re-derived C2). No consequence: identities proved as Laurent-polynomial identities in z hold a fortiori on |z| = 1, and cos2 = (z + 1/z)/2 (fluctuation.py:177) is used consistently with the same restriction.",
+  "BOX DROPPED (fluctuation.py:179): L appears only inside K; no conclusion depends on it.",
+  "SCOPE NOTE, not a drift (fluctuation.py:189): T2 = nprod(T1, T1) is the FULL normal ordering of the quartic, i.e. KF's <:T00^2:>; re-derived as such (C5). Whether full Minkowski normal ordering is the right renormalisation of the quartic is a separate result (audit gr-qc_9304008-quartic-renormalisation), not this one."
+ ],
+ "data_at_publication": [],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": D + "rederive/gr-qc_9304008-t00-single-mode.py",
+  "outcome": "12/12 boolean checks pass (2.3 s). C1: (2.12)-(2.14) recovered from (2.6)+(2.11) for all 16 components alpha,beta with generic real k (massless), together with K_ab's formula; K_00 = omega/(2L^3). C2: on an exact 10-level Fock space, T_00 built from phi = a f + a+ f* with (2.12)-(2.14) has <0|T_00|0> = K and T_00 - K*1 == K(2a+a - z a^2 - (1/z) a+^2) away from the truncation edge (KF's ':T = T - <0|T|0>' sentence); Hermitian for real theta, not Hermitian at |z| = 2. C3: KF (2.10) reproduced exactly from that operator for a generic state c_0..c_5 with independent conjugates. C4: the tree's dict T1 = {(1,1): 2K, (0,2): -zK, (2,0): -K/z} (keys a+^m a^n, fluctuation.py:180) is the same matrix. C5: nprod(T1,T1) equals the hand-normal-ordered square K^2(6 a+^2 a^2 - 4z a+ a^3 - 4zbar a+^3 a + z^2 a^4 + zbar^2 a+^4) and gives <:T00^2:> = <:T00:>^2 in every coherent state (KF (3.21), Delta = 0) -- the positive control. C7: for a state with only mode k excited and mode 2 in vacuum, every cross-mode and mode-2 normal-ordered bilinear has zero expectation (2-mode exact check), so the single-mode reduction of the field's :T00: is exact, not an approximation. C6 (sensitivity of a named hypothesis): with a non-minimal term xi(eta_mu nu box - d_mu d_nu)phi^2 the a+a coefficient is unchanged (factor 1) but the z a^2 and zbar a+^2 coefficients scale by (1 - 4 xi); conformal coupling xi = 1/6 gives 1/3. Minimal coupling is therefore load-bearing for the operator, and the tree states it.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "B. Freivogel & D. Krommydas, 'The Smeared Null Energy Condition', arXiv:1807.03808, eqs (21)-(24)",
+   "effect": "confirms",
+   "what": "Restates the single-mode vacuum-plus-two state class attributing it to Ford (their [25] = Kuo & Ford PRD 47 4510) and finds the smeared <T++> = (k/L)(1 - (sqrt3/2) cos(2 x0.k) e^{-4 tau^2 k^2}): a constant (a+a) term plus an oscillating cos(2theta) (a^2, a+^2) term, the structure of :T00: here. Qualitative only: their continuum delta-normalisation, 1+1-null component and smearing were NOT reconciled with KF's box convention here, so no coefficient is compared (a naive box translation gives sqrt6/2 against their sqrt3/2, which is a convention question, not a finding).",
+   "read_status": "READ from cached text d67/src/1807.03808.txt lines 840-925 (harvested in an earlier stage of this docket); not re-fetched (alphaXiv quota exceeded)"
+  },
+  {
+   "ref": "S. Hollands & R. M. Wald, gr-qc/0103074; A. Perez & D. Sudarsky, arXiv:2512.17789",
+   "effect": "extends",
+   "what": "Curved-space and quartic renormalisation of the products this operator is the flat-space single-mode instance of; they bear on the quartic (a separate audit), not on the bilinear :T00: itself, which in flat space is fixed by the vacuum subtraction.",
+   "read_status": "NOT re-read by this stage; read by sibling stages (audits gr-qc_9304008-quartic-renormalisation, gr-qc_9304008)"
+  },
+  {
+   "ref": "discover_papers for later work on the single-mode operator",
+   "effect": "extends",
+   "what": "The one permitted discover_papers call returned 'alphaXiv assistant quota exceeded'; no new later literature was read in this stage. None is needed to settle this result: it is a closed-form free-field identity, re-derived here.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite here: this result consumes no measured datum. It is an algebraic consequence of the free massless minimally coupled scalar's Lagrangian (2.1), the CCR (2.5) and the plane-wave mode (2.6), and the conclusion is fixed once those definitions are. Every input was available in 1993 and is unchanged; nothing measured since (no constant, no G, no hbar -- set to 1) enters. Evidence either way: the independent first-principles re-derivation (C1-C4, C7) reproduces the operator exactly, and the coherent-state control (C5) reproduces KF (3.21). What the authors could have 'lacked' is not data but scope: the operator is specific to minimal coupling (C6: xi changes the z-terms by (1-4xi)) and to flat space with Minkowski normal ordering; the tree states both limits (fluctuation.py:16-17). The errors fluctuation.py records in KF (2.16 final line, 3.7, 3.8, 3.19, 3.23, 3.41-3.42) are downstream of this operator and are not errors in it: the tree's own re-derivations of those lines start from exactly this operator, which is why its correctness is what 'rests_on_it' requires.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses as used match the source (READ, v1 text layer): massless, minimally coupled, flat, single mode, Minkowski normal ordering, theta real. The operator is not printed by KF as an operator but is the one whose matrix elements are KF (2.10) with (2.12)-(2.14) -- the tree's attribution 'from KF (2.10)-(2.14)' is exact. An independent sympy derivation from (2.6)+(2.11) recovers (2.12)-(2.14) for every component (C1), builds T_00 from the field on an exact Fock space and shows T_00 - <0|T_00|0> equals the tree's T1 (C2, C4), reproduces (2.10) for a generic state (C3), confirms nprod gives the full normal-ordered square with the coherent-state control Delta = 0 (C5), and shows the single-mode reduction is exact (C7). No datum enters, so none can move. Drift is cosmetic only (K glossed as 'normalisation constant' when it is omega/(2L^3); -K/z standing for -K zbar on |z|=1), neither affecting any K-free ratio the file derives. Residual named hypotheses that bound but do not lower the grade: (a) the v1 text layer is faithful (page image not viewed, fresh fetch refused by quota); (b) journal version PRD 47 4510 NAMED-NOT-READ; (c) the operator is valid only under minimal coupling (C6) -- stated by the tree.",
+ "what_would_change_the_grade": "Only a scope breach: if any owner applied T1 to a non-minimally coupled field (xi != 0 changes the z-terms by (1 - 4xi), C6), to a curved background, or with a non-Minkowski reference state, the use would be NARROWED. A page image or the journal version printing different (2.12)-(2.14) would make this a discrepancy between versions (not a refutation of the operator, which C1-C3 derive from (2.2) and (2.6) alone). No datum can move it.",
+ "reverify_command": "python3 " + D + "rederive/gr-qc_9304008-t00-single-mode.py  # expect ALL_BOOLEAN_CHECKS_PASS True (12 checks); C6 prints 1 - 4*xi and 1/3;  sed -n 300,420p " + D + "src/casmag/all/gr-qc_9304008v1.txt  # (2.10)-(2.14) at source;  sed -n 173,181p /home/user/Claude-Method-Works/research/warp-drive/fluctuation.py",
+ "report_path": D + "audits/gr-qc_9304008-t00-single-mode.json"
+}
+json.dump(R, open(R["report_path"], "w"), indent=1)
+print("ok")

@@ -1,0 +1,398 @@
+#!/usr/bin/env python3
+r"""predict.py -- WHAT DOES THE REGISTER PREDICT?  DOCKET 38.
+
+    python3 predict.py             the reading
+    python3 predict.py --selftest  fixtures
+
+M: "What other scientific data can be derived from the index?"
+
+THE ANSWER THE MACHINERY ALREADY CONTAINS.  Section 25.6 says the number of
+predictions an index can make is E(X), and `demand.py` computes E for the
+FIGURE.  It had never been computed for the SEATED INDEXES themselves.  This
+file does that, and then does the harder half: says what an E cell is actually
+worth.
+
+===============================================================================
+1. E PER SEATED INDEX -- TWENTY-ONE PREDICT, SIX DO NOT
+===============================================================================
+
+E(X) = |J(X) \ X|: the cells the index's own join-closure DEMANDS and no member
+occupies.  Measured over EVERY seated index.  The clause that used to qualify
+that sentence -- "small enough to close (gravity, at 914 cells, is not)" -- is
+WITHDRAWN, with the exclusion it excused; gravity closes in about 16 seconds and
+its 1,550 are seated in the table below.  See TOO_LARGE.
+
+    gravity 1550   baryons 1012   readrezayi 678  channels 367  ions 296
+    laws 254       fibred 140     probability 112 phonondex 111 terms 98
+    fqh 71         observed 56    fundamental 46  kpointdex 45  inversion 24
+    madrule 18     mesons 15      nucshell 14     nucbands 5    corepdex 4
+    deformedbands 3
+
+    janet 0   gravity_bound 0   madelung_slot 0   baryon_isomultiplet 0
+    bosonqp 0   spin4 0
+
+THE LAST THREE ROWS TO ARRIVE ARE THE PHONON CHAIN, and they arrived here late:
+phonondex (90 cells, E = 111), its k-point extension kpointdex (21 cells,
+E = 45) and its time-reversal extension corepdex (13 cells, E = 4) were seated
+in the registry by DOCKET 50 and were NOT measured into this table, so the
+ledger guard below -- which exists for exactly that failure -- fired on all
+three.  Measured now, and note the shape: corepdex carries 3,529 members on 13
+cells and demands 4, while phonondex carries 1,120 on 90 and demands 111.  The
+demand tracks the CHART, not the population.
+
+THE PARTITION IS EXACT AND IT IS NOT A DISCOVERY.  Every index that closes
+under INFORMATION has E = 0; every index that does not has E > 0; no
+exceptions.  That is close to definitional -- E is the join-closure deficit and
+the information closer IS the join closer -- and it is stated here so nobody
+mistakes it for a result.  THE RESULT IS THE NUMBERS, and the numbers say the
+register is overwhelmingly INCOMPLETE: twenty-one of twenty-seven seated indexes
+demand cells they do not hold.  ("seventeen of twenty-three measurable" stood
+here; both halves moved -- gravity ended the word "measurable" and the phonon
+chain added three -- and a count written as a WORD goes stale invisibly, which
+is why the fixture below now pins the numeral and the word together.)
+
+===============================================================================
+2. AND AN E CELL IS NOT A PREDICTION UNTIL IT IS ADJUDICATED
+===============================================================================
+
+THE CORPUS ALREADY KNOWS THIS AND THE WEBSITE ALREADY DRAWS IT.  The element
+layout has E = 36, and `docs/WEB-INDEX.md` records that all thirty-six were
+adjudicated rather than announced: 25 FORBIDDEN by the hydrogenic bound
+l <= n-1 -- orbitals that cannot exist -- and 11 DEFERRED, real but filled
+elsewhere.  Register 448 rules the split.  An unadjudicated E is a count of
+QUESTIONS, not of objects.
+
+    CORRECTION, DOCKET 39.  THE TWO E's ARE MEASURED AGAINST DIFFERENT
+    OPERATORS AND THIS FILE DID NOT SAY SO.  The element layout's 36 is an
+    ORDER deficit -- `tools/cypher.py`'s own fixture reads ("periodic table
+    2-D", {"order": 36}) -- while every E in section 1 is an INFORMATION/join
+    deficit.  Measured on those same 90 cells the JOIN deficit is ZERO, and
+    l <= n-1 forbids 25 of the 36 order ghosts and none of the join ghosts,
+    of which there are none.  `ghosts.py` proves it could not have been
+    otherwise: a bound of the form x_i <= f(x_j) with f non-decreasing is
+    closed under componentwise max, so a join-closure can never leave it.
+    THE THREE BINS BELOW SURVIVE THE CORRECTION INTACT -- they are about what
+    an empty cell means, not about which operator emptied it -- and the
+    precedent is re-attributed rather than withdrawn.
+
+THE PARTICLE LAYER NEEDS A THIRD BIN, AND THIS FILE IS WHERE IT IS NAMED.
+Checking the smallest prediction set -- mesons, fifteen cells -- the very first
+cell examined was neither forbidden nor deferred:
+
+    CELL (2J, P, 2I, Q3) = (2, -1, 0, 3) is J^P = 1-, I = 0, Q = +1.
+    That combination is physical: 78 of the 242 members carry 2I = 0, and
+    (2I=0, Q3=3) is the D_s and B_c family.  So the cell is not forbidden.
+    D_s*(2112)+ IS such a particle AND IT EXISTS.  It is absent from the index
+    because the capture carries it with J = None and P = "?" -- PDG assigns it
+    no spin-parity here -- so `mesons.py` cannot place it.
+
+    THE CELL IS EMPTY BECAUSE OF THE SOURCE, NOT BECAUSE OF NATURE.
+
+So an E cell is one of THREE things, and only the third is a prediction:
+
+    FORBIDDEN   a bound rules the combination out.  25 of the element 36.
+    UNPLACED    the object exists and the SOURCE does not give it the
+                coordinates.  D_s*(2112)+ is one.  This tree has met the same
+                thing three times already and refused on it each time -- the
+                spin-4 mesons PDG cannot place in a mass reach, the 27 bands
+                with no I^pi column, the 93 levels with no parity.
+    OPEN        physical, coordinates assignable, and nothing there.  THIS is
+                a prediction in the sense section 25.6 means.
+
+E IS THEREFORE AN UPPER BOUND ON PREDICTIONS AND THIS FILE REPORTS IT AS ONE.
+Nothing here claims 1,012 unobserved baryons.  It claims 1,012 cells whose
+closure demands them, of which an unknown number are forbidden, an unknown
+number are unplaced, and the remainder -- only the remainder -- are open.
+
+===============================================================================
+3. WHAT WOULD ACTUALLY DERIVE THE SCIENCE
+===============================================================================
+
+    A BOUND PER INDEX, the way l <= n-1 served the elements.  For the mesons
+    and baryons the candidates are the quark-model constraints: P = (-1)^(L+1)
+    and C = (-1)^(L+S) for a q-qbar state, which forbid J^PC = 0--, 0+-, 1-+,
+    2+- and so on -- the famous "exotic" quantum numbers.  A cell in that set
+    is FORBIDDEN in the quark model and its emptiness is a theorem, not a gap.
+
+    A SOURCE-COMPLETENESS PASS, separating UNPLACED from OPEN.  That one is
+    mechanical: for each demanded cell, ask whether the raw capture holds a row
+    that would land there if the source assigned it coordinates.  The D_s* case
+    above was found exactly that way and took one query.
+
+BOTH ARE DONE IN `ghosts.py`, DOCKET 39, and the first came back mostly negative
+for a reason that is a theorem: a bound MONOTONE in the coordinates can never
+forbid a demanded cell, so only a non-monotone one forbids anything at all.
+
+    THE SPLIT THIS PASSAGE USED TO PRINT IS WITHDRAWN, TWICE OVER.  It read
+    "593 of the 1,012 baryon cells are FORBIDDEN by Gell-Mann--Nishijima ...
+    36 UNPLACED, 2,482 OPEN and 98 UNDECIDED".  DOCKET 43 replaced GMN with
+    the three-quark flavour bound, and DOCKET 42 seated gravity's 1,550, so
+    both the attribution and the arithmetic are superseded -- the old four
+    bins sum to 3,209, which is this table's PRE-GRAVITY total and is how the
+    staleness is visible without leaving the file.
+
+    NO REPLACEMENT NUMBER IS PINNED HERE ON PURPOSE.  The split is
+    `ghosts.py`'s measurement, not this file's, and a figure copied across a
+    file boundary is exactly what went stale.  Ask `ghosts.totals()`, which
+    returns (demand, FORBIDDEN, UNPLACED, OPEN, UNDECIDED) and whose first
+    element is `predict.total()` by construction.
+
+Neither is done here.  This file measures E, names the three bins, and proves
+by one worked case that the bins are not empty of each other.
+"""
+
+import sys
+
+import demand
+import mi
+import registry
+
+# Measured by `python3 predict.py --measure`; recorded so the default report
+# runs in seconds rather than re-closing twenty-two indexes.  The selftest
+# RE-MEASURES a sample rather than trusting the table.
+E_BY_INDEX = {
+    "baryons.index": 1012, "readrezayi.index": 678, "channels.index": 367,
+    "ions.index": 296, "laws.index": 254, "fibred.index": 140,
+    "probability.index": 112, "terms.index": 98, "fqh.index": 71,
+    "observed.index": 56, "fundamental.index": 46, "inversion.index": 24,
+    "madrule.index": 18, "mesons.index": 15, "nucshell.index": 14,
+    "nucbands.index": 5, "deformedbands.index": 3,
+    "gravity.index": 1550,
+    # DOCKET 50's phonon chain, measured into this table here.  They were
+    # seated in `registry.py` and never measured; the ledger guard at the
+    # bottom of the selftest caught all three, which is the one thing it was
+    # written to do.  Cells / E: phonondex 90 / 111, kpointdex 21 / 45,
+    # corepdex 13 / 4.  All three are K0 and none closes under INFORMATION,
+    # so all three land on the E > 0 side and the exact partition survives.
+    "phonondex.index": 111, "kpointdex.index": 45, "corepdex.index": 4,
+    "madelung.janet": 0, "overlaprule.gravity_bound": 0,
+    "overlaprule.madelung_slot": 0, "overlaprule.baryon_isomultiplet": 0,
+    "bosonqp.index": 0, "spin4.index": 0,
+}
+
+# NOTHING IS TOO LARGE, AND THE CLAIM THAT ONE WAS IS WITHDRAWN.  This read
+# "gravity is 914 cells and its closure is not computed here" and excluded it,
+# which removed a third of the register's demand from every headline figure the
+# paper printed.  The ground was false: `demand.E(registry.index_of(
+# "gravity.index"))` returns 1550 in about 16 seconds.  It was a decision
+# written as a limit, and a referee who checks finds the largest index dropped
+# from the one column the adjudication machinery has nothing to say about.
+#
+# gravity carries no entry in ghosts.BOUNDS and none in ghosts.GAPS, so all
+# 1,550 adjudicate OPEN.  That is the honest answer and it is a worse-looking
+# one, which is the point.
+TOO_LARGE = ()
+
+# The element layer's own adjudication, from docs/WEB-INDEX.md and register 448.
+# The precedent this file generalises.
+ELEMENT_GHOSTS = {"E": 36, "forbidden": 25, "deferred": 11,
+                  # DOCKET 39: and the OPERATOR, which this file first
+                  # omitted.  The join deficit of the same 90 cells is 0.
+                  "operator": "order", "E_join": 0}
+
+# The worked case that forced the third bin.
+UNPLACED_CASE = (
+    "mesons.index", (2, -1, 0, 3),
+    "J^P = 1-, I = 0, Q = +1 -- the D_s / B_c slot.  D_s*(2112)+ EXISTS; the "
+    "capture carries it with J = None and P = '?', so mesons.py cannot place "
+    "it.  The cell is empty because of the SOURCE, not because of nature.")
+
+BINS = (
+    ("FORBIDDEN", "a bound rules the combination out; emptiness is a theorem"),
+    ("UNPLACED", "the object exists and the source gives it no coordinates"),
+    ("OPEN", "physical, placeable, and nothing there -- a real prediction"),
+)
+
+
+def measure():
+    """{index: E} re-derived.  Slow; the table above is its record."""
+    out = {}
+    for nm, _mod, _a, _me, _w, _q in registry.rows():
+        X = registry.index_of(nm)
+        if len(X) > 400:
+            continue
+        out[nm] = demand.E(frozenset(X))
+    return out
+
+
+def closes_information(nm):
+    return "information" in mi.channels()[mi.K(registry.index_of(nm))]
+
+
+def partition():
+    """(E=0 and closing information, E>0 and not) -- the exact split."""
+    zero = sorted(n for n, e in E_BY_INDEX.items() if e == 0)
+    pos = sorted(n for n, e in E_BY_INDEX.items() if e > 0)
+    return (all(closes_information(n) for n in zero),
+            all(not closes_information(n) for n in pos),
+            len(zero), len(pos))
+
+
+def total():
+    return sum(E_BY_INDEX.values())
+
+
+def selftest():
+    ok = True
+
+    def chk(lab, got, want):
+        nonlocal ok
+        good = got == want
+        ok = ok and good
+        print("  [%s] %-58s %s" % ("ok" if good else "XX", lab,
+                                   got if good else "%s != %s" % (got, want)))
+
+    # RE-PINNED 24 -> 27: DOCKET 50's phonon chain (phonondex, kpointdex,
+    # corepdex) was seated in the registry and measured into E_BY_INDEX here.
+    chk("every seated index is measured and none is left out",
+        (len(E_BY_INDEX), len(TOO_LARGE)), (27, 0))
+    # gravity's exclusion was justified as a computational limit and was not
+    # one.  The fixture that used to pin the exclusion now pins the REFUTATION,
+    # so the claim cannot come back: if this ever takes minutes, that is a
+    # finding about the tree and not a licence to drop the index.
+    import time as _t
+    _t0 = _t.time()
+    _g = demand.E(frozenset(registry.index_of("gravity.index")))
+    chk("gravity closes, and closes quickly -- the exclusion was false",
+        (_g, _t.time() - _t0 < 120), (1550, True))
+
+    info_zero, noinfo_pos, nzero, npos = partition()
+    chk("every E = 0 index closes under INFORMATION", info_zero, True)
+    chk("and every E > 0 index does not -- no exceptions", noinfo_pos, True)
+    # RE-PINNED 17 -> 21, and THE WORD IN THE LABEL WITH IT.  This label read
+    # "seventeen predict" while the tuple pinned 17, so the prose and the
+    # numeral could only ever drift together -- but a reader greps the word.
+    # 17 -> 18 when gravity's exclusion was withdrawn (DOCKET 42) and 18 -> 21
+    # when the phonon chain was measured in.  Six complete is unmoved: no new
+    # row closes under INFORMATION.
+    chk("twenty-one predict, six are complete", (npos, nzero), (21, 6))
+
+    # RE-MEASURE a sample rather than trusting the recorded table.  The three
+    # newest rows are IN the sample, because a row that has never been
+    # re-measured is a row nobody has checked twice.
+    for nm in ("mesons.index", "nucbands.index", "spin4.index",
+               "phonondex.index", "kpointdex.index", "corepdex.index"):
+        X = frozenset(registry.index_of(nm))
+        chk("re-measured E(%s)" % nm, demand.E(X), E_BY_INDEX[nm])
+
+    # 3,206, not the 3,241 I first typed -- the sum is measured, not added up
+    # by hand, and the fixture caught the hand arithmetic.
+    #
+    # RE-PINNED 3,209 -> 4,919, AND THE MOVE DECOMPOSES EXACTLY.  It is two
+    # separate seatings, not one, and only the second is this pass's:
+    #
+    #     3,209   the 23-index table as it stood, gravity EXCLUDED
+    #   + 1,550   gravity, once DOCKET 42 withdrew "too large to close".
+    #             THIS is where the fixture actually went stale -- the
+    #             exclusion was withdrawn, TOO_LARGE was emptied and
+    #             gravity.index was written into the table, and the pin that
+    #             totals the table was not moved with it.  The three new rows
+    #             had nothing to do with it; the pin was already reading
+    #             4,759 before they existed.
+    #   +   160   DOCKET 50's phonon chain: phonondex 111 + kpointdex 45
+    #             + corepdex 4, measured in above.
+    #   = 4,919
+    #
+    # The intermediate 4,759 is therefore a REAL figure and not a typo -- it
+    # is the correct total for the 24-row table, and the paper prints it.  See
+    # the note beside TOO_LARGE, and PAPER IMPACT in this pass's report.
+    chk("the register demands 4,919 cells it does not hold", total(), 4919)
+    chk("and that total decomposes 3,209 + 1,550 gravity + 160 phonon chain",
+        (total() - 1550 - 111 - 45 - 4, 1550, 111 + 45 + 4), (3209, 1550, 160))
+
+    # THE LEDGER GUARD.  An audit pointed out that nothing tied this table back
+    # to the registry: a 25th seated index with E > 0 would pass every fixture
+    # above while silently missing from the demand.  It cannot now.
+    _seated = {nm for nm, *_r in registry.rows()}
+    chk("every seated index is measured here or named too large",
+        sorted(_seated - (set(E_BY_INDEX) | set(TOO_LARGE))), [])
+    chk("and this table invents no index the registry does not seat",
+        sorted((set(E_BY_INDEX) | set(TOO_LARGE)) - _seated), [])
+
+    chk("the element layer's 36 ghosts were adjudicated 25 + 11, not announced",
+        (ELEMENT_GHOSTS["forbidden"] + ELEMENT_GHOSTS["deferred"],
+         ELEMENT_GHOSTS["E"]), (36, 36))
+
+    # the worked case, re-derived: the cell IS demanded, and (2I=0, Q3=3) IS
+    # occupied elsewhere, so the cell is not forbidden.
+    X = frozenset(registry.index_of("mesons.index"))
+    d = set(demand.demand(X))
+    nm, cell, _why = UNPLACED_CASE
+    chk("the worked cell is genuinely demanded by the closure", cell in d, True)
+    chk("and (2I=0, Q3=3) is occupied by other members, so it is NOT forbidden",
+        any(c[2] == 0 and c[3] == 3 for c in X), True)
+    chk("three bins, and the third is the only one that is a prediction",
+        [b for b, _w in BINS], ["FORBIDDEN", "UNPLACED", "OPEN"])
+
+    print("predict selftest: %s" % ("PASS" if ok else "FAIL"))
+    return ok
+
+
+def report():
+    print("=" * 79)
+    print("DOCKET 38 -- WHAT DOES THE REGISTER PREDICT?")
+    print("=" * 79)
+    print()
+    print("Section 25.6: the number of predictions an index can make is E(X).")
+    print("demand.py computed E for the FIGURE; it had never been computed for")
+    print("the seated indexes themselves.")
+    print()
+    print("1. E PER SEATED INDEX")
+    print("     %-34s %6s %6s" % ("index", "K", "E"))
+    for nm, e in sorted(E_BY_INDEX.items(), key=lambda kv: -kv[1]):
+        print("     %-34s %6s %6d"
+              % (nm, "K%d" % mi.K(registry.index_of(nm)), e))
+    for nm in TOO_LARGE:
+        print("     %-34s %6s %6s" % (nm, "-", "not closed (914 cells)"))
+    info_zero, noinfo_pos, nzero, npos = partition()
+    print()
+    print("   %d predict, %d are complete.  THE PARTITION IS EXACT: every E = 0"
+          % (npos, nzero))
+    print("   index closes under INFORMATION and every E > 0 index does not.")
+    print("   That is near-definitional -- E is the join deficit and the")
+    print("   information closer IS the join closer -- and is said so nobody")
+    print("   mistakes it for a result.  The result is the numbers: the")
+    print("   register demands %s cells it does not hold." % format(total(), ","))
+    print()
+    print("2. BUT AN E CELL IS NOT A PREDICTION UNTIL IT IS ADJUDICATED.")
+    print("   The element layer already does this: E = %d ghosts, split %d"
+          % (ELEMENT_GHOSTS["E"], ELEMENT_GHOSTS["forbidden"]))
+    print("   FORBIDDEN by the hydrogenic bound and %d DEFERRED, per register"
+          % ELEMENT_GHOSTS["deferred"])
+    print("   448 -- adjudicated, not announced.")
+    print()
+    print("   THE PARTICLE LAYER NEEDS A THIRD BIN.  Checking the smallest")
+    print("   prediction set -- mesons, 15 cells -- the FIRST cell examined:")
+    nm, cell, why = UNPLACED_CASE
+    print("     %s  cell %s" % (nm, cell))
+    print("     %s" % why)
+    print()
+    for b, w in BINS:
+        print("     %-11s %s" % (b, w))
+    print()
+    print("   E IS AN UPPER BOUND ON PREDICTIONS, NOT A COUNT OF THEM.  This")
+    print("   file does NOT claim 1,012 unobserved baryons.  It claims 1,012")
+    print("   cells whose closure demands them, of which an unknown number are")
+    print("   forbidden, an unknown number unplaced, and only the remainder")
+    print("   open.")
+    print()
+    print("3. WHAT WOULD ACTUALLY DERIVE THE SCIENCE")
+    print("   A BOUND PER INDEX, as l <= n-1 served the elements.  For mesons")
+    print("   and baryons: P = (-1)^(L+1) and C = (-1)^(L+S) for a q-qbar")
+    print("   state, which forbid the exotic J^PC -- 0--, 0+-, 1-+, 2+-.  A")
+    print("   cell in that set is empty by theorem, not by gap.")
+    print("   A SOURCE-COMPLETENESS PASS separating UNPLACED from OPEN: for")
+    print("   each demanded cell, ask whether the raw capture holds a row that")
+    print("   would land there if the source assigned it coordinates.  The")
+    print("   D_s* case was found that way and took one query.")
+    return 0
+
+
+if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        sys.exit(0 if selftest() else 1)
+    if "--measure" in sys.argv:
+        for k, v in sorted(measure().items(), key=lambda kv: -kv[1]):
+            print("%-34s %6d" % (k, v))
+        sys.exit(0)
+    sys.exit(report())

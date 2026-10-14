@@ -1,0 +1,56 @@
+1. MISNER-SHARP EQUATIONS AS IDENTITIES OF THE EINSTEIN TENSOR (rebuilt, not quoted)
+  MS-r  D_r m - 4 pi R^2 (rho W + j U)  == 0 identically                 ok
+  MS-t  D_t m + 4 pi R^2 (p_r U + j W)  == 0 identically                 ok
+     Hypotheses used: the diagonal spherically symmetric ansatz and G_ab = 8 pi T_ab. Nothing else.
+
+2. SOURCE-FREE MAXWELL FORCES Q CONSTANT (owner assumes Q a Symbol; here Q = Q(t,r))
+  Maxwell (b=t) residual  = +sin(th) dQ/dr                               ok
+  Maxwell (b=r) residual  = -sin(th) dQ/dt                               ok
+  Maxwell (b=th, b=ph) residuals vanish                                  ok
+     So nabla_a F^{ab} = 0 <=> d_r Q = d_t Q = 0: Q is a constant, DERIVED not assumed.
+
+3. THE ELECTROVAC SOURCE IN THE FULL DYNAMICAL METRIC
+  Maxwell residuals all vanish with Q constant                           ok
+  rho = Q^2/(8 pi R^4)                                                   ok
+  j = 0                                                                  ok
+  p_r = -rho                                                             ok
+  p_T = +rho                                                             ok
+
+4. THE OWNER'S CHECK: m = M - Q^2/2R with M constant satisfies MS-r, MS-t for ARBITRARY Phi, Lam, R
+  MS-r residual with m = M - Q^2/2R                                      ok
+  MS-t residual with m = M - Q^2/2R                                      ok
+
+5. UNIQUENESS (drivensource.py:96 'the solution is exact' -- asserted there, checked here)
+  e^{Lam} * (MS-r residual)  ==  d_r (m + Q^2/2R)                        ok
+  e^{Phi} * (MS-t residual)  ==  d_t (m + Q^2/2R)                        ok
+     So MS-r = MS-t = 0  <=>  d(m + Q^2/2R) = 0  <=>  m = M - Q^2/2R with M constant on any
+     connected domain.  Uniqueness is one line and it holds for arbitrary Phi, Lam, R.
+
+6. MAGNETIC CHARGE: spherical symmetry admits F_thph = P sin(th) too (drivensource.py:302 says 'only F_tr')
+  Maxwell residuals vanish with dyonic (Q, P)                            ok
+  rho = (Q^2+P^2)/(8 pi R^4)                                             ok
+  j = 0, p_r = -rho (dyonic)                                             ok
+  MS-r residual with m = M - (Q^2+P^2)/2R                                ok
+  MS-t residual with m = M - (Q^2+P^2)/2R                                ok
+     The comment at line 302 is a discrepancy; the conclusion is unchanged (Q^2 -> Q^2 + P^2).
+
+7. WITNESS A -- BERTOTTI-ROBINSON, R = Q constant: the exception to FULL Birkhoff (not RN)
+  Maxwell residuals vanish on BR                                         ok
+  G_ab - 8 pi T_ab == 0 on BR (an exact electrovac solution)             ok
+  dR = 0 on BR (W = U = 0): outside Birkhoff's hypothesis                ok
+  m = R/2 = Q/2 = M - Q^2/(2Q) with M = Q: frozen-mass form still holds  ok
+     BR is not locally RN (no areal coordinate), so it is the classical exception to the theorem
+     as Bronnikov-Melnikov 4.3 state it; the tree's frozen-mass statement does not need dR != 0.
+
+8. WITNESS B -- RN IN A MOVING GEODESIC SLICING, infall energy E (Phi = 0, R = R(r - t))
+  Maxwell residuals vanish in the moving slicing                         ok
+  G_ab - 8 pi T_ab == 0 in the moving slicing (RN, exactly)              ok
+  m = M - Q^2/2R in the moving slicing (M constant, frozen)              ok
+  contraction variable W = E (> 1 for E > 1): nonstatic.py's inequality HOLDS here ok
+  areal velocity U = -s(R) != 0: the areal radius is moving              ok
+     The frozen mass does not by itself forbid 2m/R < e^{-2Phi} Rdot^2; a slicing of RN satisfies it
+     with rho > 0, exactly as Milne does for vacuum.  What closes the driven branch is the owner's
+     own inference that a driven contraction would need m(R) to evolve (drivensource.py:104-107),
+     plus nonstatic.py's 'a moving areal radius is not a destination'.  That is outside the theorem.
+
+RESULT: ALL CHECKS PASS

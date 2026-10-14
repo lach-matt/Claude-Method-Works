@@ -1,0 +1,85 @@
+{
+ "key": "hoelder-inequality",
+ "name": "Hoelder inequality (L^inf x L^1); autocorrelation maximum h(0) = ||f||_2^2",
+ "source": {
+  "located": "Classical: L.J. Rogers 1888 and O. Hoelder, 'Ueber einen Mittelwertsatz', Nachr. Akad. Wiss. Goettingen (1889) 38-47; neither is on arXiv. Exact modern restatement: N. Albuquerque, G. Araujo, D. Pellegrino, J.B. Seoane-Sepulveda, 'Hoelder's inequality: some recent and unexpected applications', arXiv:1412.2017v3 [math.FA] (2015), Theorem 1.1, p.2 (history p.1-2, citing Maligranda, 'Why Hoelder's inequality should be called Rogers' inequality', Math. Inequal. Appl. 1 (1998) 69-83). The autocorrelation half has no separate classical source: it is Hoelder at p = q = 2 (Cauchy-Schwarz, same Theorem 1.1) plus translation invariance of Lebesgue measure. Autocorrelation notation and positive-definiteness read in J. Madrid & J.P.G. Ramos, 'On optimal autocorrelation inequalities on the real line', arXiv:2003.06962v2, pp.1-4 and p.7 (0 <= |f^(xi)|^2 = INT e^{-2 pi i xi t} g(t) dt with g(t) = INT f(x) f(x+t) dx).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1412.2017 (pp.1-9, 11, 13, 15, 17, 19, 21, 23 returned verbatim; Theorem 1.1 on p.2) and on 2003.06962 (pp.1-5, 7-9, 12-13, 15-17, 19-20). Rogers 1888, Hoelder 1889, Maligranda 1998 and Young's convolution inequality (W.H. Young 1912) are NAMED-NOT-READ; the content of each is restated or re-derived here."
+ },
+ "published_statement": "arXiv:1412.2017 p.2, 'Theorem 1.1 (Hoelder's inequality, 1889). Let (Omega, Sigma, mu) be a measure space and let p, q in [1, infinity] with 1/p + 1/q = 1 (Hoelder's conjugates). Then, for all measurable real or complex valued functions f and g on Omega, INT |f g| dmu <= (INT |f|^p dmu)^{1/p} (INT |g|^q dmu)^{1/q}. If one has p, q in (1, infinity), f in L^p(mu), and g in L^q(mu), then this inequality becomes an equality if and only if |f|^p and |g|^q are linearly dependent in L^1(mu). When one has p = q = 2 we recover a form of the Cauchy-Schwarz inequality.' Endpoint used by the tree: p = infinity, q = 1, i.e. INT |h| w <= ||h||_inf ||w||_1. Autocorrelation (2003.06962 p.7 notation): g(t) = INT_R f(x) f(x+t) dx, with Fourier transform |f^|^2 >= 0.",
+ "published_hypotheses": [
+  "P1 (1412.2017 Thm 1.1) a measure space (Omega, Sigma, mu); here (R, Lebesgue)",
+  "P2 exponents p, q in [1, infinity] with 1/p + 1/q = 1; the tree uses the endpoint (infinity, 1), which Thm 1.1 includes",
+  "P3 f, g measurable, real or complex valued; the inequality is for INT |fg|, so INT h w <= INT |h| |w| is the (trivial) step that passes to a signed integrand",
+  "P4 (for the h-bound, via p = q = 2) f in L^2(R) real; h(u) = INT f(t) f(t+u) dt is the AUTOCORRELATION (not the convolution); translation invariance of Lebesgue measure gives ||f(.+u)||_2 = ||f||_2",
+  "P5 (equality clause) equality only for p, q in (1, infinity); not used by the tree"
+ ],
+ "hypothesis_drift": [
+  "NOTATION, NOT A DRIFT IN THE NUMBER: noise.py:115 writes 'h = f*f' (also noise.py:626 and :671), while noise.py:117 says '(h is an autocorrelation)'. The claim ||h||_inf = h(0) = ||f||_2^2 is true for the autocorrelation of every real f in L^2 (re-derived, H1/H2), but for the convolution f*f it holds only when f is even: for the non-even f = t^2 e^{-t} (t > 0), (f*f)(0) = 0 < ||f||_2^2 = 3/4 and sup(f*f) = 0.7019 sits away from 0 (H4). The tree's sampler is the even Gaussian (noise.py:654 h(x) = exp(-x^2/(2 tau^2))/(tau sqrt(2 pi)), which the audit re-derives as the autocorrelation of f = exp(-t^2/tau^2)/(tau sqrt pi), H1), so the two coincide and no figure moves. The canonical entry's hypothesis 'h = f*f autocorrelation of a real sampler' inherits the same ambiguous symbol. Recorded, not repaired.",
+  "IMPLICIT, SATISFIED: f in L^2(R) (P4) is not written at noise.py:115-118; the Gaussian sampler satisfies it (||f||_2^2 = 1/(tau sqrt(2 pi)), H1).",
+  "IMPLICIT, SATISFIED AND LOAD-BEARING: the weight w = g^2 must be >= 0 and in L^1 for INT h w <= ||h||_inf ||w||_1. g^2 >= 0 is automatic (a square); g^2 in L^1 is carried by the tree's exact ||g^2||_1 = 180 (zeta6 - zeta7)/pi^3 (noise.py:117-118, 581-586) and by g ~ -3/(2 pi^2 u^4) (noise.py:114; re-derived H5). The z3 mutation H3 shows that dropping w >= 0 makes the finite L^inf x L^1 step unprovable, so this hypothesis is load-bearing, and it holds.",
+  "NOMENCLATURE (noise.py:116 'previously misnamed Young'; WITHDRAWN at noise.py:297 \"'Young's inequality' for the (b) bound: it is Hoelder (L^inf x L^1)\"): correct for the step it names -- INT h g^2 <= ||h||_inf ||g^2||_1 is Hoelder at (infinity, 1), not Young. The OTHER step, ||h||_inf <= ||f||_2^2, is Cauchy-Schwarz (Hoelder at p = q = 2), which for a convolution would be Young's inequality at (2, 2, infinity); the tree names it only by '(h is an autocorrelation)'. No drop, add or weakening of a hypothesis; a naming note only.",
+  "NO DROPPED, ADDED OR WEAKENED HYPOTHESIS of Hoelder itself: the tree uses the (infinity, 1) endpoint on (R, Lebesgue) with measurable real integrands, exactly as Theorem 1.1 of 1412.2017 states it."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "coefficient 108000 in Delta'_f <= (beta/tau) 108000 (zeta6 - zeta7)/(sqrt(2 pi) pi^7) (noise.py:121, 716-727, 1053)",
+   "value_then": "108000 = (2/3)(900/pi^4)(180/pi^3) pi^7, DERIVED in sympy by the tree (exact rational)",
+   "value_now": "108000, re-derived independently here (H7) from rho = pi^2/30 (H5) and ||g^2||_1 = 180 (zeta6 - zeta7)/pi^3 (H6, by series AND by direct position-space quadrature to 1e-15, independent of the tree's Parseval route)",
+   "source_now": "rederive/hoelder-inequality.py H5-H7 (sympy 1.14.0, mpmath 1.3.0 at 40 dps)",
+   "moves_conclusion": "no -- a mathematical constant, not a measurement; nothing can move it"
+  },
+  {
+   "quantity": "zeta(6), zeta(7), pi (the bound at tau = beta)",
+   "value_then": "zeta6 = pi^6/945 (derived), zeta7 enclosed by partial sum n <= 30 + tail 1/(6*30^6), 333/106 < pi < 355/113 (noise.py:731-741)",
+   "value_now": "same constants; bound at tau = beta = 0.128300159012 (H8); z3 proves it < 1/2 from the audit's OWN enclosures (pi to 1e-6, zeta7 by n <= 20 + tail), and the same query at tau = beta/10 is not provable (H9)",
+   "source_now": "rederive/hoelder-inequality.py H8-H9 (z3 5.1.0)",
+   "moves_conclusion": "no -- mathematical constants"
+  },
+  {
+   "quantity": "physical inputs",
+   "value_then": "none: the inequality is a theorem of measure theory; beta is the unit of time (thermal state, beta = 1)",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum enters"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hoelder-inequality.py",
+  "outcome": "ALL PASS, 27 checks, exit 0, about 3.5 min (the slow part is sympy's symbolic autocorrelation integrals and the 40-dps quadratures); sympy 1.14.0, mpmath 1.3.0, z3 5.1.0; nothing imported from the tree. H1: for the Gaussian sampler and for a non-even f = t^2 e^{-t}, h(0) - h(u) = (1/2)||f - f(.+u)||_2^2 exactly in sympy, so |h(u)| <= h(0) = ||f||_2^2, strict for u != 0, f != 0; the Gaussian's autocorrelation is exactly the tree's h (noise.py:654). H2: the discrete identity ||f||^2 - h_k = (1/2) SUM (f_i - f_{i+k})^2 holds as a polynomial identity (n = 6, every lag). H3: z3 proves SUM h_i w_i <= H SUM w_i under |h_i| <= H, w_i >= 0 (n = 8); hypotheses satisfiable; dropping w_i >= 0 makes it unprovable. H4: for non-even f, (f*f)(0) = 0 < ||f||^2 = 0.75 and sup(f*f) = 0.7019 <= 0.75 attained away from 0 (the notation point). H5: rho = g(0) = pi^2/30, g u^4 -> -3/(2 pi^2). H6: series = 180 (zeta6 - zeta7)/pi^3, and 2 INT_0^oo g^2 by direct quadrature = 0.05221140368276821702 = the closed form to 20 digits. H7: coefficient = 108000, zeta6 = pi^6/945. H8: Delta'_f vs bound at tau/beta = 0.1, 0.5, 1, 3, 10: 0.5659/1.2830, 0.2095/0.2566, 0.118629/0.128300, 0.04232/0.04277, 0.012818/0.012830 -- the inequality holds at every tau, the tree's 0.1186 is reproduced, the bound is below 1/2 at tau = beta and above it at tau = beta/10, and bound/measured -> 1 as tau grows (the bound is asymptotically sharp for a Gaussian h). H9: z3 proves the tau = beta bound < 1/2 from independent enclosures, with vacuity guard and the tau = beta/10 negative control.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2605.31179 (2026), 'An Optimal Stability Theorem for Hoelder's Inequality'",
+   "effect": "extends",
+   "what": "an optimal L^1 stability (quantitative near-equality) theorem for the discrete Hoelder inequality with p, q > 1; does not touch the (infinity, 1) endpoint the tree uses and narrows nothing",
+   "read_status": "abstract only (discover_papers listing)"
+  },
+  {
+   "ref": "Madrid & Ramos, arXiv:2003.06962v2 (2020), 'On optimal autocorrelation inequalities on the real line'",
+   "effect": "extends",
+   "what": "sharp constants for averages and minima of the autocorrelation g(t) = INT f(x) f(x+t) dx against ||f||_1 ||f||_2 and ||f||_1^2 (Thms 1.1-1.3, 1.7); these are the non-trivial autocorrelation problems; the maximum at t = 0 equal to ||f||_2^2, which the tree uses, is the elementary case and nothing there contradicts it; also records positive-definiteness |f^|^2 >= 0 (p.7)",
+   "read_status": "READ (pp.1-5, 7-9, 12-13, 15-17, 19-20 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Albuquerque, Araujo, Pellegrino, Seoane-Sepulveda, arXiv:1412.2017v3 (2015)",
+   "effect": "extends",
+   "what": "mixed-norm Hoelder (Benedek-Panzone 1961) and interpolative multiple-exponent Hoelder (Thms 3.1-3.2); the classical Theorem 1.1 is restated unchanged",
+   "read_status": "READ (Theorem 1.1 p.2; sections 3-5)"
+  },
+  {
+   "ref": "search coverage",
+   "effect": "confirms",
+   "what": "one discover_papers call (Hoelder inequality, Rogers, Young's convolution inequality; historical priority) returned no work that narrows or contradicts the classical inequality or the autocorrelation maximum; none would be expected for a theorem proved in 1888-1889 and re-derived here",
+   "read_status": "search listing"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result, and the evidence is direct. Hoelder's inequality (Rogers 1888, Hoelder 1889; restated as Theorem 1.1 of arXiv:1412.2017) is a theorem about integrals on a measure space. Its conclusion takes no measured input, so no later datum can move it. What the authors 'had' was the proof, and the proof is re-run here: the autocorrelation half as an exact identity h(0) - h(u) = (1/2)||f - f(.+u)||^2 (H1, H2), and the (infinity, 1) step machine-checked in z3 in its finite form, with a vacuity guard and a mutation (H3). The only inputs to the tree's use are mathematical constants: pi, zeta(6), zeta(7), the Stefan-Boltzmann value rho = pi^2/30 in units beta = 1, and ||g^2||_1. Each is re-derived; ||g^2||_1 is checked by two independent routes that agree to 20 digits (H5-H7). One thing is genuinely data-like here: the bound's usefulness depends on tau/beta. The bound decides T1 at tau = beta (0.128 < 1/2) and cannot decide it at tau = beta/10 (1.283 > 1/2). The tree records this itself with its vacuity guard, so that is scope, not a moved datum. The physics the inequality is applied to is not part of this entry and is not audited here: the thermal normal-ordered kernel, isotropy's factor 2/3, and Kuo-Ford's measure.",
+ "grade": "STANDS",
+ "grade_evidence": "Read via restatement at source: Hoelder's inequality, arXiv:1412.2017 Theorem 1.1, p.2. It is stated for p, q in [1, infinity] on any measure space, so it includes exactly the (infinity, 1) endpoint the tree uses at noise.py:116 and :654. The autocorrelation maximum ||h||_inf = h(0) = ||f||_2^2 (noise.py:116-117) follows from Hoelder at p = q = 2 and is re-derived here as an exact identity for the tree's Gaussian sampler and for a non-even f (H1), and discretely (H2). Every hypothesis holds in the tree's use: f is a real L^2 Gaussian, and w = g^2 is >= 0 and in L^1. z3 shows the w >= 0 hypothesis is load-bearing (H3 mutation). The tree's derived constants are reproduced independently: rho = pi^2/30, ||g^2||_1 = 180 (zeta6 - zeta7)/pi^3 by series and by direct quadrature, and the coefficient 108000. The inequality holds on the tree's own case at all five tau tested. At tau = beta the bound is 0.128300 against the measured 0.118629, which reproduces the tree's 0.1186 (noise.py:131). z3 proves the bound < 1/2 at tau = beta from the audit's own enclosures, and the proof fails at tau = beta/10 (H9). No datum enters. Recorded discrepancies, none moving a number: (i) noise.py:115, :626 and :671 write 'h = f*f', which is the convolution symbol, where :117 correctly says h is an autocorrelation. For a non-even sampler the convolution would not have its maximum h(0) = ||f||_2^2 (H4, (f*f)(0) = 0 < 0.75). The tree's sampler is even, so the two coincide. (ii) The WITHDRAWN rename 'Young -> Hoelder (L^inf x L^1)' (noise.py:297) is right for the step it names. The companion step ||h||_inf <= ||f||_2^2 is Cauchy-Schwarz, which the tree names only as '(h is an autocorrelation)'. Neither is a refutation, a narrowing of the class the tree actually uses, or an error in the tree's mathematics. T1_SURVIVES_SMEARING = False (noise.py:273) does not rest on this bound alone: the tree also measures Delta'_f = 0.1186 < 1/2 directly (noise.py:1060), and this audit reproduces that measurement.",
+ "what_would_change_the_grade": "NARROWED if the tree applied the h(0) = ||f||_2^2 step to a NON-even sampler while reading h as the convolution f*f (then ||h||_inf = h(0) fails, H4). The fix would be to read h as the autocorrelation, which is what the variance integral actually produces. It would also be NARROWED if the weight in INT h w were a signed quantity rather than g^2 >= 0 (H3 mutation). WRONG only if a counterexample to Theorem 1.1 at (infinity, 1), or to h(0) - h(u) = (1/2)||f - f(.+u)||^2, were exhibited. Both are exact identities or proved theorems here, so nothing in this audit points that way. The grade does not depend on any measurement.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hoelder-inequality.py   # expect 'ALL PASS', exit 0 (~3.5 min; needs sympy, mpmath, z3-solver)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hoelder-inequality.json"
+}

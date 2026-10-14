@@ -1,0 +1,78 @@
+{
+ "key": "2604.01047#sec5.2-tt",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn from OPEN to STANDS. The verifiers did not share an error on the grade. The audit graded OPEN only because GMMPS sec. 5.2 had not been read. I re-read it this pass through alphaXiv answer_pdf_queries(2604.01047v1), which returned pp. 1, 2, 11, 41, 49-52 and 58-62.\n\n(1) p.62, page confirmed. The quote is verbatim. The owner's ellipsis hides only 'According to Theorem 4.16, this corresponds to an unstable solution. However, we observe that'. The claim's context is 'for more physically reasonable choices of the mass, and if b_2 is chosen to be positive and large'. There is no J-drop in 5.2; it happens only in 5.3, for F_S.\n\n(2) p.60. a = 4m^2, b_0 = 0, b_1 = 60/kappa. alpha~^TT_2 = 0 is assumed and alpha~^TT_1 = 0 comes from Thm 3.6. b_2 is 'proportional to alpha~^TT_4'. (5.4) is identical to linstab.py:764. Comparing terms in the p.60 TT equation times -120 against (4.9) gives b_2 = 120 alpha~^TT_4 (sympy, this pass).\n\n(3) The audit's own STANDS test asked whether the quote, a, b_1 and 'positive b_2' match. All four match, and no NARROWED trigger is met.\n\n(4) I re-ran the re-derivation from my own copy: exit 0, 38 PASS and 0 FAIL. The T8 exact zero is -5.7234909e-40. linstab.py --selftest gives 72 checks, 0 failed, and the TT b_2 = +1e100 row is True.\n\n(5) The verifiers left one hypothesis unchecked, so I checked it. Thm 4.16's growth clause needs ALL of Z inside (-4m^2, inf), with some element > 0. That means F_TT can have no complex zeros in D. I computed this two ways.\n- Analytically, for Re gamma < 4m^2 and b_2 >= 0: Im G = y[INT rho((M-4)^2/|M-gamma|^2 - 1) dM - b_2], and the bracket is strictly negative, so there is no off-axis zero there.\n- By the argument principle on a keyhole contour (run/complexzeros.py; the closed form (4.17) agrees with the integral off-axis to <= 1e-40): G = F_TT/gamma has exactly one zero in D. This holds at eps = 1e-2 for b_2 in {0, 1, 10, 1e3, 1e6}, and at eps = 1.048e-59 for b_2 in {0, 1, 1e60, 1e100}.\nSo Z = {0, -gamma_0}, the growth hypothesis is met, and GMMPS's remark that 'one zero falls into the cut' is corroborated.\n\n(6) F_TT(gamma) = -Q(-gamma). Reading Z in the w^2 variable is the only reading consistent with three things: Q's domain, the growth bound e^{sqrt(L)t} with L > 0, and GMMPS's own use in 5.1/5.2. (4.31)'s 'gamma in Z' with G^gamma_ret and Q'(-gamma) is a notational inconsistency in the source. It is a discrepancy, not a refutation.\n\nSTANDS, independently of the aggregation rule.",
+ "scope": "COVERS GMMPS 5.2 p.62 as the tree uses it (linstab.py:147-150, 171-173, 750-770, 981-985). The setting is the TT sector with alpha~^TT_1 = 0, alpha~^TT_2 = 0 (assumed), a = 4m^2, b_0 = 0 and b_1 = 60/kappa, on the hypothesis kappa m^2 < 360 pi^2, which is the computed form of GMMPS's 'physically reasonable choices of the mass'. Under these:\n- gamma = 0 is always a zero.\n- For b_2 >= 0 there is exactly one negative zero gamma_0, and no complex zero in D (computed).\n- |gamma_0| decreases strictly to 0 as b_2 -> +inf.\n- That zero is the instability GMMPS attribute to Thm 4.16, whose growth hypothesis is met.\n\nDOES NOT COVER:\n(a) The owner's 'Planckian for O(1) values only'. It is the owner's inference, not on p.62, though true as computed (32.1 M_P^2 at b_2 = 1).\n(b) The physical reach of 'as small as we want'. The Calmet-Hsu-Reeb ceiling is a lead only, because the alpha -> alpha~ map is not closed-form.\n(c) TT well-posedness. a = 4m^2 is on the boundary of the open interval in Prop 4.12/Thm 4.14, and b_0 = 0 lies outside Prop 4.10/Lemma 4.9. This is a source gap for the sibling audit thm4.16-prop4.10.\n(d) The complex-zero count off the region Re gamma < 4m^2 is numerical, at the listed (eps, b_2) points with R = 1e10 b_1.\n(e) No later-literature search was run this pass.",
+ "corrections_to_record": [
+  "Audit grade OPEN is withdrawn; the source is READ (2604.01047v1 pp.58-62, re-read by the adjudicator). Grade STANDS.",
+  "Audit: '39 assertions' should be 38. The 39th line is the ALL PASS summary (re-confirmed: 38 PASS, 0 FAIL).",
+  "Audit discrepancy (iii) and the matching SCOPE drift are partly withdrawn. Thm 4.16 (p.58): 'Z in (-4m^2,0)' is the BOUNDED/decay clause. Growth needs 'Z in (-4m^2,inf) with some element > 0', in Q's variable w^2 = -gamma, so it covers every negative TT zero at any magnitude. The 15/eps = 1.43e60 edge is correctly computed but is not a Thm 4.16 hypothesis. p.62 invokes Thm 4.16 for growth itself. What survives: a = 4m^2 lies outside the open range of Prop 4.12/Thm 4.14, and b_0 = 0 lies outside Prop 4.10 (a gap in the source).",
+  "Audit lacked_data sentence 'inside the range the tree states for Thm 4.16 only above b_2 = 1.43e60. This is where M's hypothesis has purchase' rests on the tree's misrestatement and is withdrawn.",
+  "Audit floor 'b_1/1e61 ~ 0.6 m^2' assumed O(1) normalisation. At source b_2 = 120 alpha~^TT_4 (verifier 3; recomputed here), so the floor is ~4.8e-3 m^2 if alpha~4 ~ c_3 < 1e61. That remains a LEAD, not a finding.",
+  "Verifiers 1 and 2 asserted that the growth clause applies without checking its all-zeros-real hypothesis. The adjudicator COMPUTED it: no off-axis zero for Re gamma < 4m^2 (analytic, every b_2 >= 0), and exactly one zero of G in D by the argument principle at every tested point. The write-up must carry this as computed, not read.",
+  "Named hypothesis: 'always negative' is conditioned on 'physically reasonable mass' and 'b_2 positive and large'. Its computed form is kappa m^2 < 360 pi^2 (m < 59.6 reduced M_P), and it holds for all b_2 >= 0.",
+  "Source discrepancies, not refutations: the misprint 'cat' for 'cut' (p.62). (4.31) writes 'gamma in Z' with G^gamma_ret and Q'(-gamma), which is inconsistent with Z as zeros of Q(w^2); the w^2 reading is fixed by Q's domain, the e^{sqrt(L)t} bound and 5.1/5.2's use.",
+  "'Planckian for O(1) values only (GMMPS 5.2, p. 62)' is the owner's inference, not on p.62, whose only Planck remark is the m ~ M_P, b_2 = -0.7 example. It is true as computed (32.1 M_P^2 at b_2 = 1)."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/linstab.py:147-150",
+   "finding": "Quote verbatim at p.62 (page confirmed). The ellipsis hides only the Thm 4.16 sentence. The 'physically reasonable mass, b_2 positive and large' context is omitted.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:140",
+   "finding": "alpha~^TT_1 = 0 (Thm 3.6) and alpha~^TT_2 = 0 ASSUMED match p.60.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:143-145",
+   "finding": "Gives '(Z strictly inside (-4m^2, 0))' as the growth condition of Thm 4.16. At source that is the BOUNDED/decay clause; growth is Z in (-4m^2,inf) with some element > 0, in w^2 = -gamma. Route to the sibling audit thm4.16-prop4.10; not repaired.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:178-180",
+   "finding": "Repeats the same misrestatement '(Z strictly inside (-4m^2, 0))' in the OPEN claim about growth from the gamma = 0 root.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:171-173",
+   "finding": "'near g* = -b_1/b_2' is an unnamed approximation, exact only at large b_2: gamma_0/g* = 0.535 at b_2 = 1, 0.921 at 10, 0.99917 at 1e3.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:175-177",
+   "finding": "'Planckian for O(1) values, arbitrarily far below otherwise' is the owner's inference and true as computed (32.1 M_P^2 at b_2 = 1).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:453-455",
+   "finding": "Attributes 'Planckian for O(1) values only' to GMMPS 5.2 p.62, which does not say it. The attribution is wrong; the content is true as computed.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:750-770",
+   "finding": "(5.4) is transcribed exactly (a = 4, b_0 = 0, b_1 = 60/kappa). The J-monotone bracket rests on rho >= 0 on M >= 4 (z3-proved).",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/linstab.py:981-985",
+   "finding": "The TT b_2 = +1e100 bracket row is True; the exact zero is -5.7234909e-40 = g*. 'Growing' is supported: p.62 invokes Thm 4.16, and its growth hypothesis is met (computed: no complex zeros in D, zero set {0, gamma_0}).",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/2604.01047_sec5.2-tt.json (read in full)",
+  "cat verify/rederive/gmmps_5.2_READ.txt verify/refute/qmap_sec5.2-tt.py verify/data/2604.01047_sec5.2-tt_datalens.txt",
+  "mcp__alphaXiv__answer_pdf_queries(2604.01047, [5.2 p.62 text; (5.4) coefficients; Thm 4.16 full statement; (4.30) Q vs F]) -> pp.1,2,11,41,49-52,58-62 READ",
+  "git log/status linstab.py (HEAD 30d2f46, clean); sed -n 136-182,440-458,745-790,975-990p linstab.py",
+  "cp rederive/2604.01047_sec5.2-tt.py adjudicate/run/ && python3 it (exit 0, 38 PASS, 0 FAIL)",
+  "python3 adjudicate/run/complexzeros.py (argument principle: exactly 1 zero of G in D at all tested eps,b_2)",
+  "python3 sympy: p.60 TT eq x -120 vs (4.9) -> b0=0, b1=60/kappa, b2=120 alpha~4",
+  "python3 linstab.py --selftest (72 checks, 0 failed)"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/2604.01047_sec5.2-tt.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/complexzeros.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 linstab.py --selftest 2>&1 | grep -n 'TT b_2\\|SELFTEST'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2604.01047_sec5.2-tt.json"
+}

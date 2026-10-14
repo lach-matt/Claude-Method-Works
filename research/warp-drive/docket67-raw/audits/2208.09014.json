@@ -1,0 +1,78 @@
+{
+ "key": "2208.09014",
+ "name": "GKLP paper(s): no coupling constant, source model or emission rate stated; GKLP: moving-braneworld causality, field commutator on M4 x S1 non-zero across induced-spacelike points",
+ "source": {
+  "located": "arXiv:2208.09014, B. Greene, D. Kabat, J. Levin, M. Porrati, 'Back to the Future: Causality on a Moving Braneworld', v1 18 Aug 2022, v3 24 Jan 2023; Phys. Rev. D 107, 025016 (2023) (ADS 2023PhRvD.107b5016G). Identity from WebSearch result titles/URLs only (arxiv.org/abs/2208.09014, journals.aps.org PhysRevD.107.025016, osti.gov 2420164).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ IN THIS AUDIT. alphaXiv answer_pdf_queries (twice), get_paper_content(fullText=true) and discover_papers all returned 'alphaXiv assistant quota exceeded'. arxiv.org (curl, 403 CONNECT tunnel failed) and export.arxiv.org, www.alphaxiv.org, www.semanticscholar.org are refused by the egress proxy (recorded in $HTTPS_PROXY/__agentproxy/status); per /root/.ccr/README.md these are reported, not routed around. A search of /tmp for a cached text of the paper found none: only the tree's earlier pass scripts (/tmp/work/gklp.py, /tmp/cfwork/caus.py, /tmp/o6o7/*.py), which are the tree's transcriptions of GKLP equations, not the source, and are NOT used here as a reading. The only source-side text seen is a search engine's paraphrase of the abstract (quoted below as a paraphrase, not as the paper's words)."
+ },
+ "published_statement": "NOT READ. Search-engine paraphrase of the abstract (WebSearch, 2026-09-26), recorded as a paraphrase only: 'Brane observers executing appropriate motion through a partially compactified Lorentz invariant bulk spacetime, such as M4 x S1, can send signals along the brane that are instantaneous or even travel backward in time. Nevertheless, causality in the braneworld remains intact. The results follow from superluminal signal propagation reported in arXiv:2206.13590, and are established through classical analysis and then extended by examining quantum mechanical microcausality. One implication is the capacity for real time communication across arbitrarily large distances.' No equation, hypothesis list or page count could be read at source.",
+ "published_hypotheses": [
+  "NOT READ -- the list below is only what the abstract paraphrase names, and is not a hypothesis list from the paper:",
+  "P1 Lorentz-invariant bulk, partially compactified, 'such as M4 x S1' (the paraphrase says 'such as': GKLP's class may be broader than M4 x S1)",
+  "P2 brane observers 'executing appropriate motion' through the bulk (the brane moving through the compact dimension)",
+  "P3 a classical signal analysis, 'then extended by examining quantum mechanical microcausality' -- the field content (free? massless? scalar or graviton?) is NOT known here",
+  "P4 builds on the superluminal propagation of arXiv:2206.13590 (GKLM)"
+ ],
+ "hypothesis_drift": [
+  "UNCHECKABLE (source not read), ledger.py:1862-1864 (SUPERSEDED_WORDING O6, DOCKET 62) and LEDGER.md:200: '2208.09014 has none [no coupling constant, source model or emission rate] in sixteen pages' -- a negative content claim and a page count; neither can be tested without the text. The paper has three arXiv versions (v1 Aug 2022, v3 Jan 2023) plus a PRD version, so 'sixteen pages' names one version the tree does not identify. Status word: none.",
+  "UNCHECKABLE, branelink.py:17-19: 'true of the two papers read' -- the O6/O7 pass's reading of 2208.09014 and 2206.13590; not reproducible here. The tree already records the sentence as superseded (false of the literature via Kabat & Nomura 2309.05759), which this audit does not re-read.",
+  "IMPLICIT HYPOTHESIS, ledger.py:455-458 (D13): 'GKLP's field commutator on M4 x S1 is non-zero across them' carries no field-content hypothesis. Computed here (rederive C5/C6): for a FREE MASSLESS bulk scalar the 5D interior kernel is -(1/4pi^2) s^(-3/2), single-signed, so the image sum is strictly non-zero at every brane pair with a strictly timelike image and no null image (exact witness beta=3/5, 2piR=1, Dt=5/3, Dx=3/2: induced norm +17/36, n=-1 bulk image -19/36, sum -0.06606). For a MASSIVE free field the interior kernel is -(1/4pi^2)[cos(mu)+mu sin(mu)]/u^3, which vanishes at m sqrt(s) = 2.798386; at the same witness a bulk mass m = 3.85196/(2piR) makes the (single-image) commutator vanish. So 'non-zero across them' is pointwise true for a massless bulk field and GENERIC (non-zero off a measure-zero set) for a massive one. Whether GKLP's commutator is massless: NOT READ. Named as a hypothesis, not a refutation.",
+  "ATTRIBUTION, ledger.py:544 (D21) and latticectc.py:35-38, 120: 'GKLP's no is FORCED'. The tree's lattice theorem uses H3 (causal curves unconstrained in the bulk), which latticectc.py:23 itself says is 'stronger than GKLP, who keep it on branes' -- the drift is declared by the owner. Whether GKLP's 'causality ... remains intact' is a no-CTC statement for bulk curves, or a statement about brane-signal paradoxes, is NOT READ. The vacuity D21 relies on does not need GKLP: rederive C1 shows |xi|^2 = (2 pi R)^2 in the bulk, brane-rest and B-boosted frames.",
+  "EQUATION NUMBER, branelink.py:81 and 277: 'GKLP eq. (22) extremised, g -> 1, as the pass read it'. rederive C7 obtains (gamma - B)/(1 - B gamma) as relativistic addition of the brane-frame speed gamma and a brane boost B in the induced metric, with its pole at B = 1/gamma, identical to Gamma = 1/beta (W7's threshold). The formula re-derives; the equation number is unverifiable."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "GW170817 bound on (v_gw - c)/c (enters only the tree's beta bound via GKLM eq. 38 as the tree reads it, not GKLP's causality conclusion)",
+   "value_then": "upper bound +7.0e-16 (Abbott et al. 2017, ApJL 848 L13; -3e-15 <= dv/c <= +7e-16), predating GKLP (2022)",
+   "value_now": "+7.0e-16 as seated in manyc.GW170817_BOUND_HI; no superseding multi-messenger bound was READ in this audit",
+   "source_now": "NAMED-NOT-READ here (sources refused/quota); value as seated in the tree (manyc.py) READ by earlier dockets",
+   "moves_conclusion": "NO for GKLP's kinematic conclusion (beta and R are free parameters there). For the tree's beta bound: computed beta = 3.74165738677e-08, 1/beta = 26726124.1912 at 50 digits; 1/beta scales as d^(-1/2), so a 10x tighter d would give 1/beta = 8.4515425e7"
+  },
+  {
+   "quantity": "W7 Gamma = 1.894565e6 against the supercritical threshold 1/beta",
+   "value_then": "DOCKET 61 pass A: 'supercritical'",
+   "value_now": "ratio 1/beta / Gamma = 14.1067 computed; Gamma < 1/beta, SUBcritical (W7's correction reproduces)",
+   "source_now": "computed, rederive C8",
+   "moves_conclusion": "no -- the tree's own correction stands; the threshold B = 1/gamma <=> Gamma = 1/beta is re-derived (C7)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2208.09014.py",
+  "outcome": "ALL CHECKS PASS (exit 0; sympy 1.14.0, z3 5.1.0 (z3-solver), mpmath 50 digits). From first principles under named hypotheses G1-G4 (5D Minkowski / y ~ y+2piR; unwrapped flat 3-brane at y = beta t; induced-metric observers boosted by B; free bulk scalar by images): C1 |xi|^2 = (2piR)^2 in all three frames -- rank-1 lattice spacelike, D21's vacuity; C2 induced metric flat with g_tt = -1/gamma^2; C3 exact rational witness of an induced-spacelike brane pair (norm +17/36) joined by a strictly timelike bulk image (-19/36); C4 z3 unsat: no causal image exceeds brane-frame speed gamma, sat: gamma attained; C5 5D retarded interior kernels via G_{D+2} = (1/pi) dG_D/ds -- massless single-signed, massive has a zero at m sqrt(s) = 2.79838604578; C6 massless image sum at the witness -0.0660638 (non-zero; no null image); C7 (gamma-B)/(1-B gamma) pole at B = 1/gamma <=> Gamma = 1/beta; C8 beta_max, 1/beta, W7 ratio 14.1067. NOT checkable: the negative content claim 'no coupling constant ... in sixteen pages' (C9).",
+  "agrees_with_source": "not-run"
+ },
+ "later_literature": [
+  {
+   "ref": "Kabat & Nomura, arXiv:2309.05759, Phys. Rev. D 108, 105014 (2023), 'Induced Lorentz Violation on a Moving Braneworld'",
+   "effect": "extends",
+   "what": "Same M^{3,1} x S^1 moving/spiralling brane; bulk scalar and graviton loops with non-zero winding give UV-finite Lorentz-violating terms, accommodated by the SME (WebSearch abstract summary). The tree's DOCKET 62 find: coupling, source model, vertex and normalisation stated there (eqs. 68, 70-73) -- which is what makes the superseded O6 line false of the literature.",
+   "read_status": "NOT READ in this audit (abstract seen only as a search-engine summary); the tree records it READ by the O6/O7 pass"
+  },
+  {
+   "ref": "Debolt & Kagan, arXiv:2602.13448, JHEP 08 (2026) 192, 'Braneworlds in Constant and Accelerated Motion and Their Causal Characteristics'",
+   "effect": "extends",
+   "what": "Generalises GKLP-type signalling to constant-velocity and constant-proper-acceleration branes and to tilted, partially wrapped branes; apparent superluminality persists and causality is preserved through the anisotropy of propagation (search-engine abstract summary). Nothing seen contradicts GKLP; it widens the class.",
+   "read_status": "NOT READ (search-engine abstract summary only; alphaXiv quota exceeded, arxiv.org refused)"
+  },
+  {
+   "ref": "Greene, Kabat, Levin, Menon (GKLM), arXiv:2206.13590",
+   "effect": "confirms",
+   "what": "The predecessor whose superluminal propagation GKLP build on (named in the abstract paraphrase).",
+   "read_status": "NOT READ"
+  },
+  {
+   "ref": "Polychronakos, arXiv:2210.11497",
+   "effect": "extends",
+   "what": "Named by the tree (latticectc.NOT_SEARCHED; /tmp/o6o7/fix.py 'full 3-D brane anisotropy ... NOT-EVALUATED'); relation not determined here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "GKLP's conclusion (signals along the brane can be instantaneous or backward in time, yet causality intact) is KINEMATIC: beta, R and the observer boost B are free parameters, and no measured datum enters it. Evidence here: C1 gives |xi|^2 = (2 pi R)^2 for every beta, B in (0,1) and C4 bounds the brane-frame speed by gamma for every beta -- no datum can move either. The data relevant to the route (GW170817, 2017) predated the paper; nothing measured since was read that bears on it. What arrived later is THEORY, not data: Kabat & Nomura (2023) supplied the coupling and loop-induced SME coefficients, which the tree itself priced as a null 42 orders short of a laboratory bound (branelink.py:96-99). M's hypothesis therefore finds no lacking datum for THIS result; the one open item -- the tree's negative claim about the paper's contents -- is open for lack of access to the text here, not for lack of data by the authors.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be read in this stage (alphaXiv quota exceeded on every call; arxiv.org and mirrors refused 403 by the egress proxy), so the result as the tree uses it -- chiefly the negative content claim '2208.09014 has none [coupling, source model, emission rate] in sixteen pages' (ledger.py:1862-1864, superseded wording) and the attribution of the commutator and 'no' to GKLP (ledger.py:455-458, 544) -- cannot be checked against the text: OPEN, never flattened. What IS checked, independently of the source and under named hypotheses G1-G4: the physics the tree attributes re-derives (rederive C1-C8, all pass) -- the rank-1 identification vector is spacelike in every frame (D21's vacuity), an exact induced-spacelike brane pair is joined by a strictly timelike bulk image, the brane-frame speed bound is exactly gamma (z3), the massless 5D free-field commutator is non-zero across such a pair, and W7's supercritical threshold Gamma = 1/beta and factor 14.1 reproduce. One implicit hypothesis is named: D13's commutator claim is pointwise for a massless bulk field but only generic for a massive one (zero at m sqrt(s) = 2.798386) -- a candidate NARROWING of D13's wording, NOT graded, because GKLP's field content is unread.",
+ "what_would_change_the_grade": "Reading 2208.09014 (v1 and v3, and ideally the PRD version) at source. If no coupling constant, source model or emission rate appears and the version is 16 pages -> STANDS for the (already superseded) sentence. If any appears -> a DISCREPANCY in the superseded O6 wording (not WRONG of the tree's current rows, which already refute the cause of death via 2309.05759). If GKLP's microcausality section treats a massive field or states the commutator only generically -> D13 is NARROWED to 'non-zero off a measure-zero set' for massive fields. If GKLP's 'causality remains intact' is only a brane-signal statement, D21's attribution narrows (the lattice theorem is unaffected; C1).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2208.09014.py  # exit 0 = all C1-C8 pass; then, when alphaXiv is available: answer_pdf_queries(paper='2208.09014', queries=['coupling constant / source model / emission rate stated?','page count per version','field commutator: which field, massless?','statement that causality remains intact: bulk CTCs or brane signals?','eq. (22)'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2208.09014.json"
+}

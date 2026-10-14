@@ -1,0 +1,70 @@
+PART A -- closed form (sympy)
+  PASS A1 a invariant under l -> lam l
+  PASS A1 b -> b - a ln lam  (l = lam l')
+     K = 0.007434 l_P;  ln(l_P/K) = 4.9017
+     b in K units IF HPS's l were in l_P: 51.479  (vs 25.5 if l is in K)
+     b/a = 4.8113  vs  ln(l_P/K) = 4.9017  (ratio 0.9816) -- recorded, not interpreted
+A2   zero of the law: l0 = exp(b/a) = 122.89 (HPS's unit of l)
+     sqrt F(500) = 7.437   F = 55.32
+     sqrt F(2000) = 14.785   F = 218.59
+     sqrt F(10000) = 23.315   F = 543.58
+     sqrt F(100000) = 35.519   F = 1261.56
+  PASS A2 l0 lies below every tree window's lower edge (500 K)
+  PASS A3 fitted slope = A exactly when C = 0 (window-free)
+  PASS A3 fitted slope depends on the window when C != 0 (d s1/d u2 != 0)
+     toy A = C = 1: slope over [500,2000] = 1.1451, over [5000,1e4] = 1.1129
+
+PART B -- the tree's integrations, re-run from the copy
+     hpscentre.py md5 07145787fd14c946a1b14167b6b0d109
+     throatmass.py md5 3e99c0b93c3a541ebccd33dcf9ca6748
+     printed   status 0 end x = 100000.0 K  (68 s)
+     conserved status 0 end x = 100000.0 K  (165 s)
+B1   window sweep (a, b) -- HPS print (5.3, 25.5):
+     (500, 2000, 'lin')       printed (4.705, 20.516)      conserved (5.060, 23.975)
+     (500, 2000, 'log')       printed (4.669, 20.259)      conserved (4.959, 23.269)
+     (1000, 10000, 'lin')     printed (5.223, 24.369)      conserved (6.869, 37.524)
+     (2000, 5000, 'lin')      printed (5.198, 24.218)      conserved (6.714, 36.475)
+     (2000, 10000, 'lin')     printed (5.300, 25.049)      conserved (7.202, 40.437)
+     (2000, 10000, 'log')     printed (5.279, 24.867)      conserved (7.099, 39.559)
+     (5000, 10000, 'lin')     printed (5.387, 25.820)      conserved (7.646, 44.382)
+     (10000, 30000, 'log')    printed (5.502, 26.886)      conserved (8.369, 51.086)
+     (30000, 100000, 'log')   printed (5.577, 27.658)      conserved (8.929, 56.840)
+     (2000, 100000, 'log')    printed (5.452, 26.334)      conserved (8.099, 48.041)
+     attribution, withdrawn window alone: PRINTED
+     attribution, every window:           NOT DETERMINED  (tree flag 'NOT DETERMINED')
+B2   local slope a_loc(l) = d sqrt f/d ln l, averaged over [l/1.25, l*1.25]:
+     printed   500:4.267  1000:4.689  2000:5.043  5000:5.319  10000:5.440  20000:5.517  50000:5.574  80000:5.592
+     printed   d a_loc / d ln l between successive points: 0.609 0.511 0.301 0.176 0.110 0.063 0.038
+     conserved 500:3.830  1000:4.982  2000:6.005  5000:7.250  10000:7.960  20000:8.470  50000:8.904  80000:9.049
+     conserved d a_loc / d ln l between successive points: 1.662 1.477 1.358 1.025 0.736 0.474 0.308
+B4   does a_loc approach a constant?  fit a_loc(l) = a_inf - c l^(-q) to the points l >= 2000
+     printed   a_inf = 5.643  c = 102  q = 0.675  (max resid 9.4e-04) -- EXTRAPOLATION, not a measurement; a_inf/5.3 - 1 = +6.5 %
+     printed   alt. model a_loc = a_inf + k/ln l: a_inf = 6.750 (max resid 5.8e-02)
+     conserved a_inf = 9.781  c = 118  q = 0.452  (max resid 3.0e-02) -- EXTRAPOLATION, not a measurement; a_inf/5.3 - 1 = +84.5 %
+     conserved alt. model a_loc = a_inf + k/ln l: a_inf = 15.505 (max resid 1.7e-01)
+B3   fine window scan: lo, hi on a 25-point log grid in [500, X], hi/lo >= 2, lin sampling
+     printed   matches (5.3, 25.5) within 5% in 125 of 231 windows; max b over scan 27.75
+        match window (500, 17100, 5.24, 24.448)
+        match window (500, 21324, 5.277, 24.753)
+        match window (500, 26591, 5.311, 25.04)
+        match window (500, 33160, 5.342, 25.31)
+        match window (500, 41352, 5.371, 25.563)
+        match window (500, 51567, 5.397, 25.801)
+        match window (500, 64305, 5.422, 26.022)
+        match window (500, 80191, 5.444, 26.229)
+        match window (500, 100000, 5.464, 26.421)
+        match window (624, 13712, 5.224, 24.337)
+        match window (624, 17100, 5.261, 24.641)
+        match window (624, 21324, 5.296, 24.928)
+     conserved matches (5.3, 25.5) within 5% in 5 of 231 windows; max b over scan 57.54
+        match window (500, 2345, 5.208, 24.982)
+        match window (500, 2924, 5.414, 26.415)
+        match window (624, 1880, 5.141, 24.584)
+        match window (624, 2345, 5.342, 25.977)
+        match window (778, 1880, 5.308, 25.797)
+     windows where BOTH systems match: 0 []
+     b in K units if HPS's l were l_P = 51.48: reached by any scanned window? True
+
+sympy identities: ALL PASS
+elapsed 424 s
+EXIT 0

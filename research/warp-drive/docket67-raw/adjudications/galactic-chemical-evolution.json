@@ -1,0 +1,93 @@
+{
+ "key": "galactic-chemical-evolution",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The audit graded OPEN for one reason: no source could be read. That obstacle is gone. On 2026-10-02 the adjudicator READ at source, through alphaXiv answer_pdf_queries, all three candidate sources the audit named: Maas+2022 (2206.03528, pp1-2, 9-15), Hinkel+2020 (2009.00009, pp1-9) and Kobayashi, Karakas & Lugaro 2020 (KKL20, 2008.04660, pp1-3, 15, 19-20, 25, 30). It also READ two later papers: Gakis+2026 (2609.20930, pp1-3, 14, 16, 18-19) and Swan+2023 (2309.06467, pp1-3, 9, 11, 14). Each verifier read was confirmed at source. The refute lens and the data lens (both NARROWED) are supported. The rederive lens (OPEN) is correct on its own scope: its checks reproduce, and the CI-like-body hypothesis is still not established for another star. But its OPEN rested on 'read nowhere', which no longer holds for the GCE result.\n\nWHAT IS READ.\n(1) The mechanism stands. KKL20 p1: 'Elements heavier than helium are synthesized inside and then ejected by dying stars. The next generation of stars form from gas clouds that include heavy elements from the previous stellar generations.' KKL20 p30: 49% of C and 74% of N come from AGB stars. Maas+22 p1 and Gakis+26 p1: P comes mainly from massive stars and core-collapse supernovae.\n(2) 'Every enriched star system' is the tree's extrapolation; the sources do not state it.\n  - Hinkel+20 p2-3: only 100 stars in Hypatia have P, about 1%. They are 64 G, 33 F and 3 K stars, with no M stars.\n  - Hinkel+20 p4: C, N and P show 'real and substantial variations'.\n  - Hinkel+20 p7: 'not possible to outline a plausible range or generalization of P abundances within nearby stars'.\n  - Maas+22 p1-2: about 190 earlier P abundances. Its own sample was selected so that P would be detectable.\n  - Gakis+26 p16: [P/Fe] at fixed [Fe/H] spans 'several tenths of a dex', well above the 0.048 dex median error. Some stars give upper limits only. There are P-rich outliers.\n  - Maas+22 p13: a GSE star sits 0.3-0.5 dex low.\n(3) 'GCE placed' is incomplete as a model account of P.\n  - Maas+22 p1: models 'generally under-predict P'. Its best model needs P yields multiplied by 2.75 (p15).\n  - Gakis+26 p19: current prescriptions 'underpredict the absolute P abundance level'.\n  - KKL20 p20 claims 'reasonably good agreement', but only against Caffau 2011/2016 and Roederer 2014. In the same paragraph it says 'It would be better if P yields increase toward higher metallicity'.\n(4) The CI-like, accessible body at another star is a hypothesis the tree adds; GCE does not output it. Swan+23 is the only exoplanetary evidence the audit named. It measures up to nine metals, with no P, no N and no usable C. It favours dry rock, with 'minimal evidence for a substantial volatile component' (p11). So that hypothesis stays OPEN.\n\nWHAT IS COMPUTED. The rederivation was re-run from a copy and passes 25/25, exit 0.\n  - C1: P binds at a factor of 10.701; N is runner-up at 8.0764.\n  - C3: D* = 0.1222 dex.\n  - C4: 7490.7 kg per 70 kg at D=-1.\n  - C5: factors run from 12.097 down to 10.305.\n  - The negated-premise vacuity guard behaves correctly: the negated premises give SAT, P_one with CLAIM gives UNSAT, and the mutant is caught. At LBP25 values the binder is N at 13.070.\n  - stock.py --selftest: 0 failures.\nBy C2, the tree's finding needs only one stocked, unshipped destination, so the narrowing does not reach the finding.\n\nWHY NARROWED. The external result holds on a smaller class than the tree uses: measured disk FGK stars, with scatter, rather than every enriched system. The tree also drops hypotheses: the CI-like-body premise, the incompleteness of the model attribution, and its interpretive reading of 'from the origin'.\nWhy not the other grades:\n  - Not STANDS: the universal and the unqualified attribution are not what the sources say.\n  - Not WRONG: nothing read refutes the mechanism or the finding.\n  - Not DATA-DEPENDENT: moved data move the 10.70 figure and the binder label, not the conclusion.\n  - Not OPEN: every source the GCE claim rests on was read here.",
+ "scope": "The grade covers the external result as stock.py:128-133, 311-312 and 415 use it: GCE puts C, N and P into every enriched star system, and GCE placed the destination stock.\n\nIt narrows to two things:\n  - Stellar nucleosynthesis supplies C, N and P to later generations. P is observed throughout the measured, detection-selected disk FGK population (about 190 stars by 2022, 755 by 2026), with per-star scatter of several tenths of a dex, upper limits for some stars, and P-rich and P-poor outliers.\n  - GCE model accounting for P is incomplete: models underpredict P or need P-yield boosts of 2-3x, and KKL20 itself asks for higher P yields.\n\nThe grade does NOT cover:\n  (a) The added hypothesis that a CI-like, accessible primitive body exists at a destination outside the solar system. This is OPEN: Swan+23 was READ and measures no C, N or P.\n  (b) The tree's finding that 'and that had to travel' is not established. That finding is not inherited from the universal; by C2 it needs one stocked, unshipped destination. It is discharged by measured CI chondrites for destinations within the solar system only.\n  (c) The CI P and N values, which are carried from the sibling audits. Lodders 2003, Palme 2014 and Lodders, Bergemann & Palme 2025 were not read here.\n  (d) Masseron 2020, which is READ only as Gakis+26 restates it.\n\nThe tree cites no GCE paper. The grade attaches to the candidate sources read.",
+ "corrections_to_record": [
+  "Grade: the audit's OPEN rested solely on an unreadable source. The sources are now READ, so the grade is NARROWED (refute and data lenses confirmed). The rederive lens's OPEN is kept only for the added CI-like-body hypothesis at other stars.",
+  "Audit drift 'GCE models UNDERPREDICT P' overgeneralizes. Maas+22 tested Cescutti 2012, Prantzos 2018 and Ritter 2018, not KKL20. Correct form: models tuned before the 2022-2026 surveys underpredict P or need P-yield boosts of 2-3x (Maas+22 p15: x2.75; Gakis+26 p2 and p19). KKL20 p20 claims 'reasonably good agreement' against Caffau 2011/2016 and Roederer 2014 only, while saying 'it would be better if P yields increase toward higher metallicity'. Maas+22 p11 reports that Kobayashi+11 predicts the ~0.1 dex thin/thick offset that is observed.",
+  "Audit 'by 2020 only ~100 FGKM stars had measured P': that is 100 stars in Hypatia, with zero M stars (64 G, 33 F, 3 K; Hinkel+20 p3). Maas+22 p1-2 counts ~190 across the literature before 2022, besides tens of thousands of low-reliability APOGEE values.",
+  "Thin/thick offset: Maas+22 gives 0.11 dex, above 2 sigma but not 3 sigma, over -0.57<[Fe/H]<-0.13 (p11). Gakis+26 gives ~0.08 dex with substantial overlap (pp18-19). The audit's '~0.1 dex' should carry both figures and the significance.",
+  "Per-star error '~0.11 dex' is Hinkel+20's compilation figure (Fig 1). Gakis+26 has a median [P/Fe] uncertainty of 0.048 dex, and Maas+22 Table 5 fit terms are ~0.04 dex. This does not affect the grade.",
+  "Swan+23 (2309.06467), now READ, measures no P and no N, and uses C only as an excluded tentative value from H22. It strongly favours dry rock and finds minimal evidence for a volatile component at J0956. Its 'chondritic' match concerns rock-forming metals and can reflect averaged differentiated bodies. It does not test the tree's CI-like C-, N- and P-bearing body hypothesis.",
+  "Refute verifier's 'new datum' (factor 18.3-19.2 from D = -0.23 to -0.25 dex) rests on an unnamed hypothesis. Hinkel+20 Table 1 gives P/C and P/N molar-ratio offsets (P/Si gives -0.249, computed here). They are built from per-element averages over different star sets (C 6072, N 2927, P 100, Si 7878; Hinkel p5). Reading them as a [P/H] offset of the destination body, with N held at solar CI, is a hypothesis. Hinkel Fig 1 reports the P stars' [P/Fe] 'centered around the 0.0 dex value, which is the same as the Sun', and Hinkel p7 says other stars appear 'enriched in C and N with respect to the Sun'. The factor is an illustration under a named hypothesis, not a datum. The conclusion is unaffected.",
+  "Refute verifier's claim that Hinkel's core-partitioning point bears against the CI-like body is overstated. Hinkel+20 concerns P partitioning into the cores of differentiated rocky planets. A CI chondrite is undifferentiated.",
+  "Data row 3's binder flip at D > +0.122 holds only with destination N held at solar CI. If N scales with the host too, metallicity alone does not flip the binder.",
+  "The rederive lens's wording fix is adopted. The finding needs only one stocked, unshipped destination (P_one). P_one is discharged by measured CI chondrites within the solar system only, and stays OPEN for other star systems. C1 reproduces a ratio for an assumed CI body and does not show that one exists at a destination. The audit's 'does not inherit the universal's openness' slightly over-reads C2.",
+  "The rederivation's n=2 strictness check is unfalsifiable as written: its expected value is copied from z3's output. An independent re-check gives SAT, so the conclusion holds.",
+  "Pointer discrepancy, extended. The audit recorded stock.py:15 citing CLAIMS.md 4629 against the sentence's current line, CLAIMS.md:4648. The same stale pointer is also printed at runtime by stock.py:413, which the audit did not list. Recorded, not repaired.",
+  "Data row 2's value_then of 3180 ppm N does not note that Lodders 2003 itself gives 2940 ppm (carried from the sibling audit, not read here).",
+  "Gakis+26's abstract says models 'struggle to reproduce the observed trends'. The 'underpredict the absolute P abundance level' wording is in its conclusions (p19)."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/stock.py:128-131",
+   "finding": "'puts carbon, nitrogen and phosphorus into every enriched star system'. The mechanism is READ (KKL20 p1-2). 'Every' is an extrapolation: P is measured in ~1% of Hypatia stars, ~190 stars by 2022 and 755 by 2026, all detection-selected FGK, with several tenths of a dex of scatter and upper limits. No source is cited. Lines are unchanged since the audit (stock.py last committed 2026-09-20).",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/stock.py:131-133",
+   "finding": "'a CI chondrite at the destination ... no part of it was shipped from anywhere'. This adds a hypothesis beyond GCE: that a CI-like accessible body exists there. Swan+23 is READ and measures no C, N or P, so the hypothesis is OPEN for other stars. 'Shipped' holds only under the 'from the origin' reading; on GCE's mechanism the atoms travelled as ISM ejecta.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/stock.py:311-312",
+   "finding": "'Galactic chemical evolution placed that stock; nothing shipped it.' The attribution carries no status. Model P accounting is incomplete: models need 2-3x yield boosts (Maas+22 p15, Gakis+26 p19), and KKL20 p20 asks for higher P yields.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/stock.py:415",
+   "finding": "Runtime print 'placed by galactic chemical evolution' repeats the unqualified attribution. Not listed by the audit.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/stock.py:15",
+   "finding": "Cites paper/CLAIMS.md line 4629. The sentence is at CLAIMS.md:4648. Stale pointer, as the audit recorded.",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/stock.py:413",
+   "finding": "Runtime print 'CLAIMS.md:4629 adds \"-- and that had to travel\"' carries the same stale pointer (now 4648). Not listed by the audit.",
+   "kind": "stale"
+  },
+  {
+   "site": "research/warp-drive/paper/CLAIMS.md:4648",
+   "finding": "'must already be there \u2014 and that had to travel.' The sentence the finding addresses is at 4648.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/stock.py:216-219",
+   "finding": "CHONDRITE gives every destination solar-CI P (1040 ppm) and N (3180 ppm), with no metallicity qualifier. The figure 10.70 moves with destination P (10.70*10^-D) and with CI P and N; the conclusion does not move.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/stock.py:195",
+   "finding": "The CI row is attributed to Lodders 2003, but the sibling audits record L03 P as 920 +- 100 ppm against the 1040 used. Carried, not read here. It moves the factor (12.10 at 920 ppm), not the finding.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/stock.py:520-522",
+   "finding": "The selftest pins stock_need_not_travel() at 10.7. Re-run this pass: 0 failures.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/galactic-chemical-evolution.json",
+  "cat verify/data/galactic-chemical-evolution.data-lens.txt verify/refute/gce_check.py verify/refute/gce_check.out",
+  "mcp__alphaXiv__answer_pdf_queries 2206.03528 (Maas+22) READ pp1-2,9-15",
+  "mcp__alphaXiv__answer_pdf_queries 2009.00009 (Hinkel+20) READ pp1-9",
+  "mcp__alphaXiv__answer_pdf_queries 2008.04660 (KKL20) READ pp1-3,15,19-20,25,30",
+  "mcp__alphaXiv__answer_pdf_queries 2609.20930 (Gakis+26) READ pp1-3,14,16,18-19",
+  "mcp__alphaXiv__answer_pdf_queries 2309.06467 (Swan+23) READ pp1-3,9,11,14",
+  "git log -1 -- stock.py; sed -n on stock.py 10-20,118-140,214-232,300-316,405-420,518-524 (read-only)",
+  "grep -n 'had to travel' paper/CLAIMS.md -> 4648; grep -rn 'chemical evolution' research/warp-drive -> stock.py:129,312,415",
+  "cp rederive script to adjudicate/run/gce.py; PYTHONDONTWRITEBYTECODE=1 python3 gce.py -> 0 failures, exit 0",
+  "python3 adjudicate/run/gce_vacuity.py -> negated premises SAT, P_one&CLAIM UNSAT, mutant caught, LBP25 N 13.070",
+  "python3 adjudicate/run/dcheck.py -> Hinkel P/C,P/N,P/Si offsets -0.232/-0.253/-0.249, factors 18.27/19.15/18.99, D*=0.1222",
+  "python3 research/warp-drive/stock.py --selftest -> 0 failures"
+ ],
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/gce.py && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/gce_vacuity.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/dcheck.py; then alphaXiv answer_pdf_queries on 2206.03528 (p1,p11,p15), 2009.00009 (p3,p6,p7,Table 1,Fig 1), 2008.04660 (p1,p20), 2609.20930 (p16,p19), 2309.06467 (p11); grep -n 'had to travel' research/warp-drive/paper/CLAIMS.md",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/galactic-chemical-evolution.json"
+}

@@ -1,0 +1,72 @@
+1. shape function
+  max |Eq(6) - typefour.shape| over 7 radii                              0.0
+  Eq(7) top-hat limit: f(0.5), f(1.5) at sigma=200                       (1.0, 0.0)
+2. Eq (19), Eulerian energy density, symbolic identity
+  G^00/8pi + (v_y^2+v_z^2)/32pi  (must be 0)                             0
+  Eq(19) in f: G^00/8pi - [-(1/32pi) v_s^2 rho^2/r_s^2 f'^2]             0
+3. T^{0i} (Eulerian momentum density J^i = T^{0i} with alpha = 1)
+  J^x generic                                                            (-v(t, x, y, z)*Derivative(v(t, x, y, z), y)**2 - v(t, x, y, z)*Derivative(v(t, x, y, z), z)**2 - 2*Derivative(v(t, x, y, z), (y, 2)) - 2*Derivative(v(t, x, y, z), (z, 2)))/(32*pi)
+  J^y generic                                                            Derivative(v(t, x, y, z), x, y)/(16*pi)
+  J^z generic                                                            Derivative(v(t, x, y, z), x, z)/(16*pi)
+  uniform shift (v = const): G == 0                                      True
+  [published] T^{00}, T^{0x}, T^{0y} at (x,y)=(0.9,0.3)                  (-0.0028661995454855415, 0.08765339106565251, -0.0523645520796921)
+  [frozen(typefour)] T^{00}, T^{0x}, T^{0y} at (x,y)=(0.9,0.3)           (-0.0028661995454855415, 0.08765339106565251, -0.0523645520796921)
+  typefour.eulerian_density(0.9,0.3)                                     -0.0028662064174929773
+  BBV/Eq(19) closed form at (0.9,0.3)                                    -0.0028661995454855394
+  max |typefour.stress_mixed - sympy(frozen)| at (0.9,0.3)               4.7148021891513237e-07
+4. staticity: twist of the Killing field xi = d_t + v_s d_x (published metric)
+  Lie_xi g == 0 (xi is Killing for constant v_s)                         True
+  xi.xi                                                                  v_s**2*f(sqrt(y**2 + z**2 + (t*v_s - x)**2))**2 - 2*v_s**2*f(sqrt(y**2 + z**2 + (t*v_s - x)**2)) + v_s**2 - 1
+  (xi^dxi)_{txy}                                                         v_s*y*(-v_s**2*(f(sqrt(y**2 + z**2 + (t*v_s - x)**2)) - 1)*(2*f(sqrt(y**2 + z**2 + (t*v_s - x)**2)) - 1) + v_s**2*f(sqrt(y**2 + z**2 + (t*v_s - x)**2))**2 - v_s**2*f(sqrt(y**2 + z**2 + (t*v_s - x)**2)) - 1)*Subs(Derivative(f(_xi_1), _xi_1), _xi_1, sqrt(y**2 + z**2 + (t*v_s - x)**2))/sqrt(y**2 + z**2 + (t*v_s - x)**2)
+  (xi^dxi)_{txy} + v_s f_y [1 + v_s^2 (1-f)^2]  (must be 0)              0
+  (  (xi + b phi) ^ d(xi + b phi) )_{txy} at z=0 minus (xi^dxi)_{txy}    0
+  (xi^dxi)_{txy} numeric at (0.9,0.3), v_s=0.5                           0.549316102099829
+5. spherical symmetry: independent invariant gradients in the (x', rho) plane
+  grad R, grad Ric^2 at (0.9,0.3)                                        ((64.84192647966402, 16.945452495571445), (640.2450840473861, 135.2556991622933))
+  |grad R x grad Ric2| / (|grad R||grad Ric2|)                           0.04740520328174897
+  xi.xi at (0.9,0.3) (timelike if < 0)                                   -0.9766617843380688
+  rho_E on the axis vs off-axis at the same r_s = 0.9487                 (-0.0, -0.0028661995454855415)
+6. Eq (12): expansion of the Eulerian volume elements
+  theta = -Tr K                                                          -v_s*(t*v_s - x)*Subs(Derivative(f(r_s), r_s), r_s, sqrt(y**2 + z**2 + (t*v_s - x)**2))/sqrt(y**2 + z**2 + (t*v_s - x)**2)
+  theta - v_s ((x - x_s)/r_s) f'   (must be 0)                           0
+  theta - v_s (x_s/r_s) f' as PRINTED, with x_s = v_s t (not 0)          v_s*(-2*t*v_s + x)*Subs(Derivative(f(r_s), r_s), r_s, sqrt(y**2 + z**2 + (t*v_s - x)**2))/sqrt(y**2 + z**2 + (t*v_s - x)**2)
+  theta at (x,y)=(-1.0,0.0) [behind] and (+1.0,0.0) [ahead], t=0         (2.0000004501406488, -2.0000004501406488)
+7. typefour freezes x_s: consequences
+  point (x,y)=(0.9,0.3)                                                  {'published': {'R': 8.289958050210146, 'Txx': 0.022182996370678162, 'Tyy': -0.15919107612345337, 'T0x_mixed': 0.08864862582309625, 'T00_up': -0.0028661995454855415, 'Tkk': -0.1887620498281346}, 'frozen(typefour)': {'R': -1.3957250990841978, 'Txx': 0.022182996370678162, 'Tyy': 0.03349946768055552, 'T0x_mixed': 0.08864862582309625, 'T00_up': -0.0028661995454855415, 'Tkk': -0.1887620498281346}, 'anec.T_kk': -0.18876184350013633}
+  point (x,y)=(1.0,0.2)                                                  {'published': {'R': 4.70498934292489, 'Txx': 0.01057084933998654, 'Tyy': -0.09069136387890822, 'T0x_mixed': 0.0708901043554779, 'T00_up': -0.001455712505619935, 'Tkk': -0.1476030587334355}, 'frozen(typefour)': {'R': 9.346504555681001, 'Txx': 0.01057084933998654, 'Tyy': -0.1830313750722039, 'T0x_mixed': 0.0708901043554779, 'T00_up': -0.001455712505619935, 'Tkk': -0.1476030587334355}, 'anec.T_kk': -0.147602969108423}
+  point (x,y)=(0.9,0.0)                                                  {'published': {'R': 4.4958720076986545, 'Txx': 0.020563896800082405, 'Tyy': -0.08944253169171558, 'T0x_mixed': 0.04943134079531423, 'T00_up': -0.0, 'Tkk': -0.09886268159062842}, 'frozen(typefour)': {'R': -7.3835926814633766, 'Txx': 0.020563896800082405, 'Tyy': 0.14689190912900482, 'T0x_mixed': 0.04943134079531423, 'T00_up': -0.0, 'Tkk': -0.09886268159062842}, 'anec.T_kk': -0.09886276879768913}
+  LV A10 (T_xx along motion) at (0.9,0.3): closed / published / frozen   (-0.008598598857699638, -0.008598598636456595, -0.008598598636456595)
+  LV A5  (T_yy transverse)   at (0.9,0.3): closed / published / frozen   (-0.15919103739407786, -0.15919107612345337, 0.03349946768055552)
+  LV A10 (T_xx along motion) at (1.0,0.2): closed / published / frozen   (-0.004367137306645014, -0.0043671375168597894, -0.0043671375168597894)
+  LV A5  (T_yy transverse)   at (1.0,0.2): closed / published / frozen   (-0.09069132924330643, -0.09069136387890822, -0.1830313750722039)
+  ANEC y=0.0 : published / frozen / anec.anec_integral                   (-0.08066456337339575, -0.08066456337339575, -0.08066456562047707)
+  ANEC y=0.2 : published / frozen / anec.anec_integral                   (-0.08653405672390635, -0.08653405672390635, -0.08653406535876591)
+  ANEC y=0.3 : published / frozen / anec.anec_integral                   (-0.09463672385636618, -0.09463672385636618, -0.09463672733014049)
+  ANEC y=0.5 : published / frozen / anec.anec_integral                   (-0.12903406752592617, -0.12903406752592617, -0.12903408896472368)
+  ANEC y=0.8 : published / frozen / anec.anec_integral                   (-0.34410025245903636, -0.34410025245903636, -0.34410021973663807)
+  7b  published - frozen, lower T_tt at t=0 (symbolic)                   0
+  7b  published - frozen, lower T_tx at t=0 (symbolic)                   0
+  7b  published - frozen, lower T_xx at t=0 (symbolic)                   0
+  7b  published - frozen, lower T_yy at t=0 (symbolic)                   v_s**2*Derivative(F2(x, y, z), (x, 2))/(8*pi)
+  7b  published - frozen, lower T_xy at t=0 (symbolic)                   -v_s**2*Derivative(F2(x, y, z), x, y)/(16*pi)
+  7b  published - frozen, lower T_zz at t=0 (symbolic)                   v_s**2*Derivative(F2(x, y, z), (x, 2))/(8*pi)
+  7b  (published - frozen)_xx minus -(v_s/8pi)(d_x K_xx - delta d_x K)  (must be 0) 0
+  7b  (published - frozen)_yy minus -(v_s/8pi)(d_x K_yy - delta d_x K)  (must be 0) 0
+  7b  (published - frozen)_xy minus -(v_s/8pi)(d_x K_xy - delta d_x K)  (must be 0) 0
+  7b  (published - frozen)_zz minus -(v_s/8pi)(d_x K_zz - delta d_x K)  (must be 0) 0
+  7c  acceleration of anec's ray field, a^y                              Derivative(v(t, x, y, z), y)
+  7c  a^x - a^t (v+1)   (0 => a is parallel to k where a^y = a^z = 0)    0
+  7c  a^t (the non-affinity kappa)                                       Derivative(v(t, x, y, z), x)
+  7d  axis geodesic, published, k^x = v+1: (affine, dt, dx) integrals    (-0.07722503363640912, -0.10940549269836639, -0.13536730960973722)
+  7d  axis geodesic, published, k^x = v-1: (affine, dt, dx) integrals    see below
+  7d  axis geodesic, published, k^x = v-1: (affine, dt) integrals        (0.08278061692803251, 0.06628142512718611)
+  7d  axis geodesic, frozen,    k^x = v+1: (affine, dt, dx) integrals    (-0.0524105151170725, -0.06457534472947977, -0.08066456326056448)
+  7d  anec.anec_integral(0.0) (int T_kk dx at t = 0)                     -0.08066456562047707
+  7e  (||T||, |Im|/||T||) at (0.6, 0.0)                                  {'published': (0.00154, 0.5717), 'frozen(typefour)': (0.00612, 0.1435), 'typefour.classify': (0.0061, 0.0009, 0.1435, 'IV')}
+  7e  (||T||, |Im|/||T||) at (0.9, 0.0)                                  {'published': (0.1505, 0.3284), 'frozen(typefour)': (0.22317, 0.2215), 'typefour.classify': (0.2232, 0.0494, 0.2215, 'IV')}
+  7e  (||T||, |Im|/||T||) at (0.9, 0.3)                                  {'published': (0.27804, 0.2815), 'frozen(typefour)': (0.15909, 0.6425), 'typefour.classify': (0.1591, 0.1022, 0.6425, 'IV')}
+  7e  (||T||, |Im|/||T||) at (1.0, 0.0)                                  {'published': (0.25482, 0.3123), 'frozen(typefour)': (0.25482, 0.3123), 'typefour.classify': (0.2548, 0.0796, 0.3123, 'IV')}
+  7e  (||T||, |Im|/||T||) at (1.0, 0.2)                                  {'published': (0.17442, 0.4311), 'frozen(typefour)': (0.28861, 0.2585), 'typefour.classify': (0.2886, 0.0746, 0.2585, 'IV')}
+  7e  (||T||, |Im|/||T||) at (1.05, 0.4)                                 {'published': (0.21378, 0.1081), 'frozen(typefour)': (0.12612, 0.5398), 'typefour.classify': (0.1261, 0.0681, 0.5398, 'IV')}
+  7e  (||T||, |Im|/||T||) at (1.2, 0.3)                                  {'published': (0.06968, 0.0492), 'frozen(typefour)': (0.01897, 0.6937), 'typefour.classify': (0.019, 0.0132, 0.6937, 'IV')}
+written /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0009013.out.json

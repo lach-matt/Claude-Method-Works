@@ -248,13 +248,25 @@ all, analysis has one but returns a magnitude rather than a cell decision.
 reads the corpus and never writes to it. It is **not** part of the corpus and none of the rules above
 about mirrored content apply to it. Its own `research/README.md` is the index.
 
-**There is a proof assistant available in this environment, and finding it was not obvious.** Lean and
-Coq cannot be installed — `elan` and `opam` both need github, which the egress proxy refuses with a 403
-— but **pypi is on the proxy allowlist**, so:
+**There is a proof assistant available in this environment, and finding it was not obvious.** Lean's and
+Coq's usual installers cannot be used — `elan` and `opam` both need github, which the egress proxy refuses
+with a 403 — but **pypi is on the proxy allowlist**, so:
 
 ```
 pip install z3-solver
 ```
+
+Lean and Coq themselves are reachable by other routes, measured in the 2026-10-09 tool sweep
+(`research/warp-drive/toolsweep/toolsweep_result.json`): **Lean 4.33 core** from conda-forge
+(`conda.anaconda.org`, via a micromamba binary taken from conda-forge itself; about 3.5 GB) and **Coq 8.18**
+from the Ubuntu noble archive debs (a private `findlib.conf` and `-coqlib`; about 1 GB). Both ran a test
+file and were deleted afterwards to free disk. **Mathlib is excluded**: every route to it found used
+GitHub content, which is not to be used. The `sci` script's `lean` and `coq` groups
+(`.claude/skills/science-tools/`) install these. They are **not yet verified end to end**, so check free
+disk first; z3 stays the light route. *[2026-10-14, item 401: Lean is now verified end to end -- `sci check lean`
+passes on Lean 4.33.0, 3.76 GB -- and the `lean4` skill of cameronfreer/lean4-skills is connected through the
+`lean4skills` group, the one GitHub-sourced group (a public clone through the session's git proxy, M-approved).
+`.claude/hooks/session-start.sh` restores both in every cloud session. Coq is still unverified.]*
 
 `research/warp-drive/hlaw.py` is the hierarchy law as a runnable instrument — hand it an index and
 it checks the seven lawful containments against it, exits 1 on a refutation, and refuses to print a
@@ -317,6 +329,11 @@ before any pass that spans more than one file.
 ## Skills
 
 - **graphify** (`.claude/skills/graphify/SKILL.md`) — any input to knowledge graph. Trigger: `/graphify`
+- **mathematica** (`.claude/skills/mathematica/SKILL.md`) — Wolfram Language through the official Wolfram connector
+  (`mcp__Wolfram__WolframLanguageEvaluator`, Wolfram 15.0.1; connected 2026-10-09), or offline through Mathics3, an
+  open-source interpreter (`.claude/skills/mathematica/wl 'expr' ...`).
+  Mathics3 is a subset of Mathematica, not Mathematica: label its results "computed (Mathics3)" and cross-check any that
+  carry weight. A full local Wolfram Engine is blocked by the egress proxy. Trigger: `/mathematica`
 
 Two more programs exist and are named here so nothing in the tree is unaccounted for:
 `tools/colab_land_chats.py` shards the Claude Chats export and lands it in the repository (**Colab

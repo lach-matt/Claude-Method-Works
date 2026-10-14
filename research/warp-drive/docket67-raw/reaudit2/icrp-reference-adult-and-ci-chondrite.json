@@ -1,0 +1,594 @@
+{
+ "key": "icrp-reference-adult-and-ci-chondrite",
+ "grade": "DATA-DEPENDENT",
+ "supersedes_grade": "DATA-DEPENDENT",
+ "read_status": "ICRP 23 Chapter 2 READ (M-retrieved, Google Drive 16DVXUYgP--2YmXOP4VaAguXyIY_rWqM9, OCR text layer; downloaded here as .docx, 79,841 bytes, md5 09a25adf33de8b2997bf9e355a115746, which holds word/document.xml only -- no media, no w:tbl, so there were NO page images to read). Readable: pp.273-288 text (introduction, notes for Table 108), Table 105 row 1 (p.280), Table 109 total (p.327), Table 110 in full (pp.327-328), Addendum II (pp.329-330), references (pp.331-334). UNREADABLE: Table 108 (pp.289-324) -- the OCR of those 36 pages carries no element name at all; Tables 106-107 were not located as legible text. Front matter to p.61 carried READ from the prior re-audit. L03 READ and LBP25 READ carried from the prior re-audit; A09/AAG21 photosphere CARRIED (not re-read here).",
+ "pages_read": [
+  "ICRP 23 pp.273-274 (Ch.2 introduction; rounding rule)",
+  "p.280 Table 105 row 1 (Total body 70,000)",
+  "pp.286-288 notes for Table 108 (method; Na, K, Cl, I, Ca, Co, Cs)",
+  "p.289-324 Table 108 attempted: OCR column-scrambled, no element names -- NOT READ",
+  "p.327 Table 109 total and Table 110 preamble + rows 1-16",
+  "p.328 Table 110 rows 17-36",
+  "pp.329-330 Addendum II (K vs age)",
+  "pp.331-334 references (titles only)",
+  "ICRP 23 pp.1-61 carried from prior re-audit (p.4 definition, p.13 70 kg male / 58 kg female)"
+ ],
+ "source_hypotheses": [
+  "Reference Man: 20-30 y, 70 kg, 170 cm, Caucasian, Western European or North American habitat, climate 10-20 C (p.4, READ in the prior re-audit); a separate reference female of 58 kg (p.13); characteristics 'chosen within those limits with some degree of arbitrariness' (p.4).",
+  "'All values have been rounded to two significant figures' with four named exceptions (specific gravity; GI-tract, body-fat and CNS contents) and 'Many apparent discrepancies throughout this chapter are due to rounding' (pp.273-274). Table 110 sums to 70,102.4 g against 70,000.",
+  "Table 110 'includes only those elements for which the concentration was known in at least 50 % of the total body, including the skeleton' (p.327); 'when a value for the concentration of an element in skeleton was not known, no value for total body has been included' (p.286).",
+  "Total-body content is the SUM over organs and tissues; unknown tissues are assigned the known-tissue average (p.286); C, H, O, N computed from water/fat/protein/carbohydrate via Table 106 (p.287).",
+  "Common trace elements rest on 150 adult accidental-death victims from the United States (Tennessee / Oak Ridge); medians represent Reference Man; '<' means below detection in more than half the specimens (pp.274, 286) -- so B, Sn, Au, Mo, Cr are upper limits, not measurements.",
+  "Cs from Yamagata's Japanese subjects, transferred because no Western values existed (p.288); Co values 'arbitrarily based' on Tipton and Parr (p.288); Si is from Chapter 3, not a tissue sum (Table 110 note a).",
+  "Na, K, Cl, I can be estimated otherwise: Na 70-93 g from isotope dilution / activation against 100 g by chemistry; K 133-145 g; I 13 g is a thyroid + extrathyroidal estimate that 'may exceed' 13 mg (pp.287-288)."
+ ],
+ "hypothesis_drift": [
+  "CONFIRMED AT SOURCE, NARROWED ATTRIBUTION: the payload labelled '(ICRP)' at ledger.py:674 holds 59 elements; ICRP 23 Table 110 prints 36. 21 of the owner's values equal Table 110 exactly (all 11 bulk, plus Fe F Zn Sr Pb Cu Cd Ba Mn Be); 14 differ (Si x0.056, Rb x2.12, Br x1.30, Al x0.984, I x1.54, Sn x1.18 vs an upper limit, B x0.375 vs an upper limit, Ni x1.50, Cr x7.78 vs an upper limit, Cs x4, Mo x0.538 vs an upper limit, Co x2, Au x0.02 vs an upper limit, U x1.11); 24 are not in Table 110 at all (Ce Ti Se As Li Hg Ge Sb Ag Nb Zr La Ga Te Y Bi Tl In Sc Ta V Th Sm W).",
+  "CONFIRMED AT SOURCE: LITHIUM IS NOT AN ICRP 23 TABLE 110 VALUE, and 'lithium' does not occur in the readable Chapter 2 text. The photosphere runner-up (Li 1753.4, 91.76 % of P; stockgate.py:53 '7 mg in a reference adult') therefore rests on Emsley, not ICRP. On the ICRP Table 110 payload alone the photosphere runner-up is K at 652.6, 2.93x behind P. Whether Li appears among Table 108's tail rows is OPEN (OCR unreadable).",
+  "DROPPED (source's hypothesis): '<' qualifiers on B, Sn, Au, Mo, Cr -- the owner prints point values for elements ICRP gives only as detection-limited upper bounds.",
+  "DROPPED (carried, now confirmed in Ch.2): 'male' -- the Chapter 2 tables are Reference MAN's; the two-significant-figure rounding rule (p.273) is dropped while D25 prints %.4g.",
+  "SOURCE DISCREPANCY, not owner's: Table 110 prints Cl 95 g at '0.12' % where 95/70000 = 0.136 % (Na 100 g prints 0.14) -- misprint or OCR misread, not settled without the page image; and the p.273 introduction says 'Table 108 summarizes the weights ... Table 109 summarizes the elemental content', while the tables themselves put weights in 109 and total-body elements in 110 (off by one). Discrepancies, not findings against the owner.",
+  "CARRIED from the prior re-audit (unchanged by this read): CI table is not L03's (P 1040 vs 920 +- 100; N 3180 vs 2940 +- 20); 'stellar photosphere' generalises A09's present-day Sun; bulk-CI accessibility is the tree's own open item (ledger.py:706-709)."
+ ],
+ "computation": {
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-reference-adult-and-ci-chondrite.py",
+  "output": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-reference-adult-and-ci-chondrite.out",
+  "result": "ALL PASS, exit 0. (a) owner 59 reproduces D25: CI P 10.701 (N 8.0763), photosphere P 1910.9 (Li 1753.4). (b) owner 59 with every Table 110 value substituted: CI P 10.699 / photosphere P 1910.4 (Li 1752.9); per ICRP's 70,000 g: P 10.714 / P 1913.2. (c) ICRP Table 110 alone (35 elements, Ra excluded; '<' at the limit or dropped -- identical): CI P 10.714, N 8.0863; photosphere P 1913.2, runner-up K 652.59. (d) owner without Li: photosphere runner-up K 651.79. Flip thresholds on ICRP-printed values with the owner's destination tables fixed: photosphere Li binds above 7.6288 mg (ICRP prints no Li); P loses to the owner's 7 mg Li below 715.71 g; CI P loses to N below 588.68 g; N binds above 2385.0 g. ICRP's own 2-s.f. intervals (P 775-785 g, N 1750-1850 g) reach none of them. Repository untouched (git status clean; bytecode suppressed)."
+ },
+ "values": [
+  {
+   "element": "O",
+   "owner_value": "43000 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "43000 g (61 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "C",
+   "owner_value": "16000 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "16000 g (23 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "H",
+   "owner_value": "7000 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "7000 g (10 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": false,
+   "agrees": "yes -- OCR prints '7O0O' (letter O for zero); resolved by the printed percent column '10' = 7000/70000, not by guess"
+  },
+  {
+   "element": "N",
+   "owner_value": "1800 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "1800 g (2.6 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Ca",
+   "owner_value": "1000 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "1000 g (1.4 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "P",
+   "owner_value": "780 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "780 g (1.1 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "K",
+   "owner_value": "140 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "140 g (0.2 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "S",
+   "owner_value": "140 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "140 g (0.2 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Na",
+   "owner_value": "100 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "100 g (0.14 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Cl",
+   "owner_value": "95 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "95 g (0.12 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes -- amount 95 reads cleanly; the percent cell reads '0.12' where 95/70000 = 0.136 (Na beside it prints 0.14 for 100 g) -- printed misprint or OCR misread, not settled without the page image; amount corroborated by p.288 note (Moore: 98 g 'approximately the same value as the sum')"
+  },
+  {
+   "element": "Mg",
+   "owner_value": "19 g",
+   "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+   "icrp_value": "19 g (0.027 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Fe",
+   "owner_value": "4.2 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "4.2 g (0.006 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "F",
+   "owner_value": "2.6 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "2.6 g (0.0037 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Zn",
+   "owner_value": "2.3 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "2.3 g (0.0033 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Si",
+   "owner_value": "1 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "18 g (0.026 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 0.0556 -- Table 110 footnote '(a) From Chapter 3' -- not a Chapter 2 tissue sum"
+  },
+  {
+   "element": "Rb",
+   "owner_value": "0.68 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.32 g (0.00046 % of body)",
+   "icrp_table_page": "Table 110, p.327",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 2.12 -- Rb (#16, p.327) and Sr (#17, p.328) both print 0.32 g / 0.00046 %"
+  },
+  {
+   "element": "Sr",
+   "owner_value": "0.32 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.32 g (0.00046 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Br",
+   "owner_value": "0.26 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.2 g (0.00029 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 1.3"
+  },
+  {
+   "element": "Pb",
+   "owner_value": "0.12 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.12 g (0.00017 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Cu",
+   "owner_value": "0.072 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "0.072 g (0.0001 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Al",
+   "owner_value": "0.06 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.061 g (9e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 0.984"
+  },
+  {
+   "element": "Cd",
+   "owner_value": "0.05 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.05 g (7e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "Ce",
+   "owner_value": "0.04 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Ba",
+   "owner_value": "0.022 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.022 g (3e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes"
+  },
+  {
+   "element": "I",
+   "owner_value": "0.02 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "0.013 g (2e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 1.54 -- Mn 0.012 and I 0.013 share percent 0.00002 so column alignment alone cannot separate them; I 0.013 g is corroborated by the p.288 note ('total content of iodine ... about 13 mg')"
+  },
+  {
+   "element": "Sn",
+   "owner_value": "0.02 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "<0.017 g (2e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 1.18; ICRP prints an UPPER LIMIT"
+  },
+  {
+   "element": "Ti",
+   "owner_value": "0.02 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "B",
+   "owner_value": "0.018 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "<0.048 g (7e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 0.375; ICRP prints an UPPER LIMIT"
+  },
+  {
+   "element": "Se",
+   "owner_value": "0.015 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Ni",
+   "owner_value": "0.015 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "0.01 g (1e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 1.5"
+  },
+  {
+   "element": "Cr",
+   "owner_value": "0.014 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "<0.0018 g (3e-06 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 7.78; ICRP prints an UPPER LIMIT"
+  },
+  {
+   "element": "Mn",
+   "owner_value": "0.012 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "0.012 g (2e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes -- see I: alignment corroborated by the p.288 iodine note"
+  },
+  {
+   "element": "As",
+   "owner_value": "0.007 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Li",
+   "owner_value": "0.007 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Hg",
+   "owner_value": "0.006 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Cs",
+   "owner_value": "0.006 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "0.0015 g (2e-06 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 4"
+  },
+  {
+   "element": "Mo",
+   "owner_value": "0.005 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "<0.0093 g (1e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 0.538; ICRP prints an UPPER LIMIT"
+  },
+  {
+   "element": "Ge",
+   "owner_value": "0.005 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Co",
+   "owner_value": "0.003 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "0.0015 g (2e-06 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 2"
+  },
+  {
+   "element": "Sb",
+   "owner_value": "0.002 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Ag",
+   "owner_value": "0.002 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Nb",
+   "owner_value": "0.0015 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Zr",
+   "owner_value": "0.001 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "La",
+   "owner_value": "0.0008 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Ga",
+   "owner_value": "0.0007 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Te",
+   "owner_value": "0.0007 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Y",
+   "owner_value": "0.0006 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Bi",
+   "owner_value": "0.0005 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Tl",
+   "owner_value": "0.0005 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "In",
+   "owner_value": "0.0004 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Au",
+   "owner_value": "0.0002 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "<0.01 g (1e-05 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 0.02; ICRP prints an UPPER LIMIT"
+  },
+  {
+   "element": "Sc",
+   "owner_value": "0.0002 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Ta",
+   "owner_value": "0.0002 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "V",
+   "owner_value": "0.00011 g",
+   "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Th",
+   "owner_value": "0.0001 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "U",
+   "owner_value": "0.0001 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "9e-05 g (1e-07 % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "no: owner/ICRP = 1.11"
+  },
+  {
+   "element": "Sm",
+   "owner_value": "5e-05 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "Be",
+   "owner_value": "3.6e-05 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "3.6e-05 g (cell not returned % of body)",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": true,
+   "agrees": "yes -- percent cell not returned by OCR; amount by position (19th of 20 amounts on p.328)"
+  },
+  {
+   "element": "W",
+   "owner_value": "2e-05 g",
+   "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+   "icrp_value": "NOT PRINTED in Table 110 (its 36 rows read in full)",
+   "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 OCR unreadable, so its tail rows ('elements ... less than 20 % of the body', p.286) are OPEN",
+   "ocr_unambiguous": true,
+   "agrees": "not an ICRP 23 Table 110 value; the owner's source for it is Emsley (stockgate.py:288 'ICRP Publication 23 / Emsley')"
+  },
+  {
+   "element": "total body mass",
+   "owner_value": "70 kg (stockgate.py:465 docstring; sum of the 59 = 70,085.9087 g is the normalising denominator, stockgate.py:426-428 _norm)",
+   "owner_site": "stockgate.py:345, 465",
+   "icrp_value": "70,000 g",
+   "icrp_table_page": "Table 105 row 1, p.280; Table 109 'Total body* 70,000* 100', p.327",
+   "ocr_unambiguous": true,
+   "agrees": "yes (70 kg); the owner divides by its own 59-element sum 70,085.9 g, ICRP's percentages by 70,000 g -- a 0.12 % rescale of every factor, no binder moves"
+  },
+  {
+   "element": "Ra (ICRP only)",
+   "owner_value": "not carried",
+   "owner_site": "n/a",
+   "icrp_value": "3.1 x 10^-11 g (OCR '3.1 • 10 -it')",
+   "icrp_table_page": "Table 110, p.328",
+   "ocr_unambiguous": false,
+   "agrees": "n/a: neither destination column carries Ra, so p/0 = inf would be the Finding-B artefact; excluded from the computation and named"
+  }
+ ],
+ "grade_evidence": "(1) ICRP 23 Chapter 2, Table 110 (pp.327-328), READ: every value that decides a binder the owner prints is ICRP's to the gram -- P 780, N 1800 (and O C H Ca K S Na Cl Mg) -- and body mass 70,000 g. On ICRP's own values and denominator the CI binder is P at 10.714 with N second, the photosphere binder P at 1913.2; ICRP's two-significant-figure rounding cannot reach any flip threshold (P would need < 715.7 g or < 588.7 g; N > 2385 g). The ICRP leg, as far as it decides the binder, STANDS. (2) The '(ICRP)' attribution is NARROWED at source: 21 of 59 owner values are Table 110's, 14 differ (five of them against printed upper limits), 24 are not in the table -- among them Li, the only element within 9 % of flipping the photosphere binder. The 9 % near miss is an Emsley datum, not an ICRP one; on ICRP alone the runner-up is K, 2.93x behind. (3) The composite grade does not rest on the ICRP leg alone: the prior re-audit's moved or contested data -- CI N (LBP25 1965 ppm, READ there) flipping CI to N; photospheric Li (AAG21 0.96, carried) and payload Li (7 vs 2.17 mg, carried tertiary) deciding P vs Li at the photosphere -- are untouched by this read. So DATA-DEPENDENT stands, now with its ICRP component closed: the data dependence is in the destination columns and in a non-ICRP payload element, not in ICRP 23. Not WRONG: no computed contradiction of any measurement as defined; the owner's 14 non-matching values are attribution discrepancies.",
+ "what_would_change_the_grade": "To STANDS for the binder labels: settled photospheric Li with eps_Li - eps_P >= -4.397 at payload Li 7 mg (or a primary whole-body Li for the 70 kg male below 7.63 mg -- ICRP 23 Table 110 prints none; Table 108's tail is OPEN in this OCR), and settled CI N >= ~2280 ppm at P 989; or the tree printing 'P or Li / P or N within the data's spread'. A legible scan of Table 108 (pp.289-324) would settle whether ICRP 23 gives Li at all and would read the Cl percent cell. To WRONG: a computed contradiction of a measurement as defined; none approached.",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-reference-adult-and-ci-chondrite.json",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-reference-adult-and-ci-chondrite.py"
+}

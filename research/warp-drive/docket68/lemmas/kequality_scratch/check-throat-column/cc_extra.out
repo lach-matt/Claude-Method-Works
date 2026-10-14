@@ -1,0 +1,13 @@
+== (i) M4 / S6 on the throat column: min over y of s2_dec - target, and where the sign is negative
+  e=0.015625 M4: min(s2-target)=0.00e+00; negative at y/y_s in []... (count 0); max |a+e|/e there = 0.0e+00
+  e=0.015625 S6: min(s2-target)=-5.55e-17; negative at y/y_s in [np.float64(1e-06)]... (count 1); max |a+e|/e there = 2.0e-17
+  e=1.0 M4: min(s2-target)=0.00e+00; negative at y/y_s in []... (count 0); max |a+e|/e there = 0.0e+00
+  e=1.0 S6: min(s2-target)=-5.55e-17; negative at y/y_s in [np.float64(1e-06)]... (count 1); max |a+e|/e there = 1.6e-20
+  e=64.0 M4: min(s2-target)=0.00e+00; negative at y/y_s in []... (count 0); max |a+e|/e there = 0.0e+00
+  e=64.0 S6: min(s2-target)=-5.55e-17; negative at y/y_s in [np.float64(1e-06), np.float64(0.000251), np.float64(0.000501)]... (count 7); max |a+e|/e there = 1.1e-16
+== (ii) Kretschmann from own Riemann tensor vs the pair-sum formula
+  K - formula = 0
+== (iii) owner's throat_bulk (read-only import by path) vs my column
+  e=0.03125: y_s owner=2.37442149147 mine=2.37442149147 rel diff=4.3e-13; max rel dev (p,q,ln alpha) to 0.99 y_s = 1.9e-13
+  e=1.0: y_s owner=0.913855357616 mine=0.913855357615 rel diff=1.2e-12; max rel dev (p,q,ln alpha) to 0.99 y_s = 1.1e-12
+  e=64.0: y_s owner=0.045489079855 mine=0.045489082445 rel diff=5.7e-08; max rel dev (p,q,ln alpha) to 0.99 y_s = 9.1e-06

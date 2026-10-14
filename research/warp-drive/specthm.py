@@ -1,0 +1,5190 @@
+#!/usr/bin/env python3
+r"""
+specthm.py -- STEP 1a: THE SPECIFICATION THEOREM, AS AN INSTRUMENT.
+
+    python3 specthm.py             the reading: theorem, requirements, classes,
+                                   escapes -- the printout M reviews
+    python3 specthm.py --selftest  every ask, every derivation, and controls
+                                   that turn it red
+
+Runs under python3 (3.11).  Needs z3 and sympy (pypi; see PROOF-ASSISTANT.md),
+but only inside functions: the import itself asks only stdlib and the seated
+peers in this directory, which it imports by path and copies none of.
+
+===============================================================================
+0.  WHAT THIS IS, AND WHAT IT IS NOT
+===============================================================================
+
+M ruled the order: step 3 (testing) complete, then 1a the specification
+theorem, 1b the balanced equation, 1c the device.  M chose INSTRUMENT FIRST:
+the theorem's statement and its escape list are reviewed by M BEFORE any paper
+is written.  So this file writes no paper.  It prints what M reviews.
+
+    IT ESTABLISHES NO ROW.  Every status and every figure below is ASKED of the
+    instrument that owns it, at run time, through `ledger.py`'s rows or the
+    owner's own attribute or function.  A status or figure typed here would be
+    failure mode 3.  What this file does itself is narrow and named:
+
+      * it SORTS the object space into classes (a partition, checked by z3),
+      * it DERIVES each class verdict by z3 from the owner facts that are in
+        force -- each fact is admitted only while its owner still says THEOREM
+        (or its computed equivalent), and the unsat core names which facts the
+        verdict used,
+      * it CHECKS that each class states every hypothesis its proof used, and
+        no hypothesis it did not use,
+      * it COMPOSES two owner functions into one figure: the persistence ratio
+        restated on the corridor's own demand, Delta d (section 3), and
+      * it DERIVES the headline from the verdicts, so a moved owner moves the
+        headline.
+
+    IT DOES NOT TYPE A VERDICT.  The selftest pins the verdicts it expects, as
+    `ledger.py` pins its asks; the report never reads those pins.
+
+M's rules, as this file applies them:
+    "everything we claim must be accurate and true" -- every sentence that is
+      a result carries its owner, and a result without one is marked (NO
+      OWNER, READ, CITED, ASSUMED);
+    "all things must be proven, no caveats" -- every limitation is a NAMED
+      HYPOTHESIS inside the theorem or a NAMED OPEN ESCAPE, never a footnote;
+    "no coefficients, exact calculations only";
+    "over-representation must be avoided at all costs" -- one question is one
+      requirement (R9 is folded into R4, R1 is the definition R2 is read
+      from, O1 is S4 counted once), and every ledger row is PLACED exactly
+      once, checked against the ledger's live row list;
+    the status word DECLARED is never used, and the selftest checks it.
+
+===============================================================================
+1.  THE OBJECTS, AND WHY THEY MUST BE KEPT APART
+===============================================================================
+
+    C    the contracting corridor -- what the ledger's DEMAND column prices.
+    T    phase1.py's TRANSITION, with D4 as M restated it (M-D64-1).
+    S    M's scoped seat -- spec.py's "DROP THE LEAD. KEEP THE SEAT."
+    W    the throat gate (non-simply-connected topology).
+    Rec  the reconstruction route (ledger S5).
+
+A requirement proved about C is not a requirement on S.  spec.py establishes S
+as achievable with ordinary matter satisfying every energy condition, and this
+file must not declare impossible anything that scoping establishes -- the
+selftest checks, by z3, that no EMPTY class contains spec.py's witness and that
+no requirement on C is applied to S.
+
+===============================================================================
+2.  THE CLASS VERDICTS, AND THE FOUR WORDS
+===============================================================================
+
+    EMPTY       no member of the class is an instance of its object: z3 finds
+                the class, the object's definition and the owner facts in force
+                jointly unsatisfiable, with NO assumed hypothesis.
+    EMPTY IF    unsatisfiable only once a named ASSUMED hypothesis is added.
+                The hypothesis is printed in the verdict and has an escape.
+    OPEN        satisfiable with every owner fact in force: nothing in the tree
+                decides it.  OPEN is not "possible".
+    NONEMPTY    a witness exists, computed by its owner (only the seat, S-1).
+
+"EMPTY" is about the OBJECT, never about spacetimes: Milne exists and lies in K0;
+it is simply not a contracting corridor.
+
+===============================================================================
+3.  THE ONE COMPOSED FIGURE
+===============================================================================
+
+achievable.py's persistence ratio at its pinned (mu, alpha) = (5e-3, 0.02) prices
+a core sized by concentric.py's SEAT + LEAD window edge (achievable.py line
+"M_OVER_B = 5.0e-3  # concentric.py's window, weakest end") -- a lead M dropped
+and a seat that is S's requirement, not C's.  Contraction is linear in m at
+first order in Phi, with no threshold in m (phase1.py's transition equation,
+MEASURED for m = 5e-3 to 8e-2; CORRECTED (DOCKET 67): first written "for every
+m > 0" -- phase1's own nonlinear integrand runs 12.4 % below Lambda per unit m
+at m = 1, sublinear, so more mass per metre), so that figure is not the price
+of the minimal contracting corridor.  This file therefore also states the ratio
+on C's OWN demand: with Delta d = (G/c^2) M Lambda (phase1.contraction_law) and
+M = mu b c^2/G, S is linear in mu at fixed (b, alpha), and the refusal holds for
+every contraction above Delta d_x(b) = Delta d_owner(b) / S_owner(b).  COMPOSED
+HERE from two owners; it carries the transition equation's own hypotheses
+(weak field, Lambda at R_s/b = 200, a/b = 0.02 -- MEASURED by phase1.py to 0.08 %).
+
+===============================================================================
+4.  WHAT THIS FILE REFUSES
+===============================================================================
+
+    IT DOES NOT RANK THE OPEN CLASSES.  Which is most promising is M's.
+    IT DOES NOT TOTAL THE GAPS.  Orders on different quantities do not add.
+    IT DOES NOT RULE.  A requirement M has ruled is in force only while its
+      ruling is on the board (ledger.RULED_BY_M, asked); anything still unruled
+      is printed under PENDING FOR M, with what changes either way.
+    IT DOES NOT DISCHARGE AN ASSUMED HYPOTHESIS.  H_flat stays ASSUMED until
+      O2 closes, and if O2 closes this file prints RE-ASK rather than guess
+      which way.
+    IT REPAIRS NOTHING AND EDITS NO PEER.  The critiques' divergences from an
+      owner are printed as divergences, not applied to the owner.
+"""
+
+import contextlib
+import copy
+import io
+import math
+import os
+import re
+import sys
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+if HERE not in sys.path:
+    sys.path.insert(0, HERE)
+
+import ledger          # noqa: E402  (imports most owners, by path)
+import achievable      # noqa: E402
+import axial           # noqa: E402
+import bounds          # noqa: E402
+import branelink       # noqa: E402
+import candidates      # noqa: E402
+import certify         # noqa: E402
+import create          # noqa: E402
+import driven          # noqa: E402
+import drivensource    # noqa: E402
+import excite          # noqa: E402
+import fewsterteo      # noqa: E402
+import foliation       # noqa: E402
+import formation       # noqa: E402
+import higgs           # noqa: E402
+import hpscentre       # noqa: E402
+import latticectc      # noqa: E402
+import linstab         # noqa: E402
+import massform        # noqa: E402  (DOCKET 65: SR5's owner)
+import noise           # noqa: E402
+import nonstatic       # noqa: E402
+import overturn        # noqa: E402
+import phase1          # noqa: E402
+import qeihps          # noqa: E402
+import seatindex       # noqa: E402
+import spec            # noqa: E402
+import stockgate       # noqa: E402
+import throatmass      # noqa: E402
+import tolman          # noqa: E402
+import transit         # noqa: E402
+import warpfolder      # noqa: E402
+
+# The status vocabulary is the ledger's, asked.  The four words that are not
+# ledger statuses name how a clause is held, and none of them is a result.
+THEOREM, NARROWED, MEASURED, SURVEY, OPEN, WITHDRAWN, REFUSED = (
+    ledger.THEOREM, ledger.NARROWED, ledger.MEASURED, ledger.SURVEY,
+    ledger.OPEN, ledger.WITHDRAWN, ledger.REFUSED)
+CITED, ASSUMED, READ, DEFINITION, CHECKED, NO_OWNER = (
+    "CITED", "ASSUMED", "READ", "DEFINITION", "CHECKED (a code path)",
+    "NO OWNER")
+
+EMPTY, EMPTY_IF, OPEN_V, NONEMPTY, RE_ASK = (
+    "EMPTY", "EMPTY IF", "OPEN", "NONEMPTY", "RE-ASK")
+VERDICTS = (EMPTY, EMPTY_IF, OPEN_V, NONEMPTY)
+
+#: The one word this file must never use as a status or verdict.
+FORBIDDEN_STATUS_WORD = "DECLARED"
+
+#: THE REQUIREMENTS M'S RULINGS IMPOSE, and the ledger row that carries each.
+#: A requirement is in force exactly while its ruling is on the board
+#: (ledger.RULED_BY_M) -- asked, never set here.
+RULING_OF = {
+    "aimability": "M-S1A-P2",    # aiming is a required function, not the sole one
+    "chronology": "M-S1A-P3",    # a closed causal curve disqualifies a device
+    "pathology": "M-S1A-P3",     # so does a Borde pathology
+}
+
+#: OVERRIDES, for the selftest's controls only: None defers to the ledger.
+REQUIRE_OVERRIDE = {"aimability": None, "chronology": None, "pathology": None}
+
+
+def ruled(pid):
+    return any(r[0] == pid for r in ledger.RULED_BY_M)
+
+
+def in_force(name, drop=()):
+    """Is the requirement `name` imposed?  `drop` switches one off, so a verdict
+    can be derived WITHOUT it and a second, independent route shown."""
+    if name in drop:
+        return False
+    if REQUIRE_OVERRIDE[name] is not None:
+        return REQUIRE_OVERRIDE[name]
+    return ruled(RULING_OF[name])
+
+
+# ============================================================ 1. THE ASKS
+
+def A(mod, attr):
+    """An owner's pinned attribute, asked live.  Raises if the owner dropped it:
+    a silently absent pin is how achievable.py's 65 orders survived."""
+    m = sys.modules[mod]
+    if not hasattr(m, attr):
+        raise AttributeError("%s no longer pins %s -- specthm is stale"
+                             % (mod, attr))
+    return getattr(m, attr)
+
+
+def ledger_ids():
+    """Every row id on the board, in board order, asked live."""
+    return ([r[0] for r in ledger.DEMAND] + [r[0] for r in ledger.SUPPLY]
+            + [r[0] for r in ledger.OPEN_ROWS] + [r[0] for r in ledger.CLOSED_ROWS]
+            + [r[0] for r in ledger.balance()] + [r[0] for r in ledger.RULED_BY_M])
+
+
+def withdrawn_ids():
+    return [r[0] for r in ledger.WITHDRAWN_ROWS]
+
+
+def row(rid):
+    """(status, claim, what-would-move-it) of a ledger row, asked live.
+
+    A CLOSED row's status is the clause its own answer opens with, verbatim --
+    "CLOSED, AND REFUSED" for O1 -- never re-worded here."""
+    for r in ledger.DEMAND:
+        if r[0] == rid:
+            return r[2], r[1], r[4]
+    for r in ledger.SUPPLY:
+        if r[0] == rid:
+            return r[2], r[1] + ": " + r[4], None
+    for r in ledger.OPEN_ROWS:
+        if r[0] == rid:
+            return OPEN, r[1], r[2]
+    for r in ledger.CLOSED_ROWS:
+        if r[0] == rid:
+            return r[2].split(".")[0], r[1], r[2]
+    for r in ledger.balance():
+        if r[0] == rid:
+            return (REFUSED if r[4] is None else MEASURED,
+                    "%s: demand %s; supply %s" % (r[1], r[2], r[3]), None)
+    for r in ledger.RULED_BY_M:
+        if r[0] == rid:
+            return "RULED BY M", r[1], r[3]
+    for r in ledger.WITHDRAWN_ROWS:
+        if r[0] == rid:
+            return WITHDRAWN, r[1], r[2]
+    raise KeyError("no ledger row %s" % rid)
+
+
+def st(rid):
+    return row(rid)[0]
+
+
+def st_ruling(rid):
+    """A ruling's status, or NOT RULED while it is off the board -- so a ruling
+    withdrawn from the ledger turns the requirement back, not the file red."""
+    return st(rid) if ruled(rid) else "NOT RULED (%s is not on the board)" % rid
+
+
+def priced65(*flags):
+    """DOCKET 65's remainder verdict, ASKED of massform's flags, never typed:
+    PRICED iff every flag named is True (all three routes when none is named),
+    NOT PRICED iff none is, PARTLY PRICED otherwise."""
+    fl = flags or (massform.ANOMALY_ROUTE_PRICED, massform.PAIR_ROUTE_PRICED,
+                   massform.HELD_SEAT_ROUTE_PRICED)
+    return "PRICED" if all(fl) else ("NOT PRICED" if not any(fl) else "PARTLY PRICED")
+
+
+#: The named hypotheses SR5 names by pointer to the rows that carry them
+#: (massform's section 6); the selftest checks each row carries its token.
+HYP_BY_ROW65 = (("H-REAL", ("D29",)), ("H-BL", ("D28", "S12")), ("H-AME", ("D28", "S12")))
+
+
+def s10_scope():
+    """S10's refusal per reading, built from massform.mechanism_label()'s own
+    clauses (everything after its head '<verdict> on <readings>; '): SWITCH-ON
+    on P-UNIFORM (C1 alone), DISPLACEMENT and QUANTA as NET formation only with
+    the pair route, TEMPLATE on P-UNIFORM and H-UNSOURCED-SEAT with the
+    held-seat release route -- so a status that prints S10 REFUSED prints the
+    premises it rests on and what is NOT refused beside it, exactly as the
+    owner does.  '' if the owner's label carries no clause after its head."""
+    v, rs = massform.MECHANISM_VERDICT
+    head = "%s on %s; " % (v, ", ".join(rs))
+    lab = massform.mechanism_label()
+    return lab[len(head):] if lab.startswith(head) else ""
+
+
+#: Every NAMED hypothesis or premise token massform uses ([HP]-NAME), and its
+#: model D20'S MODEL (section 6), as they may occur in a count's status or a
+#: placed row's text.  SR5's hypothesis list must name each one that occurs.
+_HYP_TOKEN = re.compile(r"\b([HP]-[A-Z][A-Z-]*[A-Z])\b|(D20'[sS] [mM][oO][dD][eE][lL])")
+
+
+def hypotheses_rested_on(sr5_rows=None):
+    """{token: [where]} of every named hypothesis DOCKET 65's placed rows and
+    massform's counts C1-C5 rest on, DERIVED: regexed out of each count's
+    status and each placed row's text (asked of the board).  Nothing typed."""
+    rows_ = SR5_ROWS if sr5_rows is None else sr5_rows
+    out = {}
+    srcs = [(c[0], c[3]) for c in massform.COUNTS_ON_THE_MECHANISM]
+    srcs += [(r, " ".join(str(x) for x in row(r) if x)) for r in rows_
+             if not r.startswith("M-")]
+    for where, text in srcs:
+        for m in _HYP_TOKEN.finditer(text):
+            tok = (m.group(1) or "D20'S MODEL").upper()
+            out.setdefault(tok, [])
+            if where not in out[tok]:
+                out[tok].append(where)
+    return out
+
+
+def unnamed_hypotheses(sr5, rested=None):
+    """[token] a DOCKET 65 row or count rests on that SR5's hypotheses do not
+    name (each hypothesis entry is named by what precedes its first ':')."""
+    rested = hypotheses_rested_on(sr5["rows"]) if rested is None else rested
+    names = " , ".join(h.split(":")[0] for h in sr5["hypotheses"]).upper()
+    return sorted(t for t in rested
+                  if not re.search(r"(?<![A-Z-])%s(?![A-Z-])" % re.escape(t), names))
+
+
+#: DOCKET 65's rows and rulings as SR5 places them.  The finite Higgs share is
+#: no row (M-D65-2: an OPEN item inside S10's note), so no O row is placed.
+SR5_ROWS = ["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2",
+            "M-D65-3", "M-D65-4", "M-D65-5"]
+
+#: What S13's S-3 candidacy rests on, stated once and printed at every site
+#: the candidacy is (the S object, the S-3 note, WHAT IT DOES NOT SAY): M's
+#: framing of the mechanism as the seat's (ledger M-S1A-P1).
+#: S13 moves no mass -- the templates are already at the seat, only
+#: information arrives -- which is Rec's defining feature, not S's.
+S13_CANDIDACY = ("on M's framing of the mechanism as the seat's (M-S1A-P1); it "
+                 "moves no mass, as Rec does not")
+
+
+def seated65():
+    """DOCKET 65's seated board rows (DEMAND/SUPPLY/OPEN ids of SR5's placed
+    rows that are on the board), compacted as 'D27-D29, S10-S13', built NOW."""
+    ids = [r for r in SR5_ROWS if not r.startswith("M-") and r in ledger_ids()]
+    runs, out = {}, []
+    for r in ids:
+        runs.setdefault(r[0], []).append(int(r[1:]))
+    for k, ns in runs.items():
+        ns = sorted(ns)
+        i = 0
+        while i < len(ns):
+            j = i
+            while j + 1 < len(ns) and ns[j + 1] == ns[j] + 1:
+                j += 1
+            out.append("%s%d" % (k, ns[i]) if i == j else "%s%d-%s%d" % (k, ns[i], k, ns[j]))
+            i = j + 1
+    return ", ".join(out)
+
+
+def expand_ids(text):
+    """[row id] a compact list like 'D27-D29, S10-S13' names."""
+    out = []
+    for m in re.finditer(r"\b([DSO])(\d+)(?:-[DSO]?(\d+))?\b", text):
+        a = int(m.group(2))
+        b = int(m.group(3)) if m.group(3) else a
+        out += ["%s%d" % (m.group(1), n) for n in range(a, b + 1)]
+    return out
+
+
+def _quiet(fn, *a, **kw):
+    """Run an owner's function with its printing swallowed."""
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        out = fn(*a, **kw)
+    return out, buf.getvalue()
+
+
+def _scope_line(doc):
+    """The owner's own SCOPE sentence from a docstring, verbatim."""
+    m = re.search(r"SCOPE:\s*(.*?\.)", " ".join(doc.split()))
+    if not m:
+        raise ValueError("owner docstring no longer states a SCOPE")
+    return m.group(1)
+
+
+def duration_scope_split():
+    """The duration bound's SCOPE, split into its MATTER-AND-STATE clauses
+    (H_M0's) and its SPACETIME clause (H_flat's), so flatness is carried by one
+    hypothesis and one escape only.  Raises if the owner's scope no longer has
+    exactly one clause naming flat space."""
+    items = [s.strip(" .") for s in
+             _scope_line(achievable.duration_bound.__doc__).split(",")]
+    flat = [s for s in items if "flat" in s]
+    matter = [s for s in items if "flat" not in s]
+    if len(flat) != 1 or not matter:
+        raise ValueError("duration_bound's SCOPE changed shape -- specthm is stale")
+    return matter, flat[0]
+
+
+def _claim_status(doc, letter):
+    """The status word an owner's docstring gives its lettered claim, e.g.
+    '(a) REGULAR CENTRE, FORMAL SERIES -- THEOREM': asked, not retyped."""
+    m = re.search(r"\(%s\) [^\n]*? -- (THEOREM|MEASURED|SURVEY|OPEN)" % letter, doc)
+    if not m:
+        raise ValueError("owner no longer states a status for claim (%s)" % letter)
+    return m.group(1)
+
+
+# ====================================================== 2. THE FIGURES
+
+_SLOW = {}
+
+
+def slow_figures():
+    """The owner integrations that take seconds.  Computed once per process;
+    nothing in a verdict depends on them, only in the report and selftest."""
+    if not _SLOW:
+        mu = A("achievable", "M_OVER_B")
+        import composite
+        # composite FIRST, and composite.phi restored after concentric: an
+        # OWNER SIDE EFFECT, recorded not repaired -- concentric._install
+        # assigns composite.phi and never restores it, so a composite survey
+        # run after a concentric one integrates concentric's potential.
+        # CORRECTED (DOCKET 67): concentric is not the only one.
+        # phase1.no_momentum, called below, reaches transition.momentum_flux,
+        # which overwrites composite.phi AND composite.metric and is not
+        # restored here; a later slow_figures in the same process (after
+        # _SLOW.clear()) integrates transition's potential.  Recorded, not
+        # repaired; the figures here are first-call (fresh-process) figures.
+        phi0 = composite.phi
+        plus = composite.survey(2.0e-3)     # composite.py's design point
+        minus = composite.survey(-2.0e-3)
+        try:
+            below = concentric_survey(0.6 * mu)   # the table row concentric prints
+            at = concentric_survey(mu)
+        finally:
+            composite.phi = phi0
+        spec_rc, _ = _quiet(spec.selftest)
+        _SLOW.update(concentric_below=below, concentric_at=at,
+                     composite_plus=plus, composite_minus=minus,
+                     composite_phi_restored=(composite.phi is phi0),
+                     spec_selftest_ok=(spec_rc == 0),
+                     theorem2=phase1.no_momentum())
+    return _SLOW
+
+
+def concentric_survey(m):
+    import concentric
+    r = concentric.survey(m)
+    return {"seats": r["seats"], "leads": r["leads"],
+            "inside_shell": r["inside_shell"]}
+
+
+def S_ratio(b, mu=None, alpha=None):
+    """demanded / allowed on the DURATION axis, by achievable.py's OWN functions
+    at any (mu, alpha).  persistence_shortfall() fixes (mu, alpha) to the pins;
+    this asks the same two functions it divides."""
+    mu = A("achievable", "M_OVER_B") if mu is None else mu
+    alpha = A("achievable", "A_OVER_B") if alpha is None else alpha
+    return achievable.required_density(b, mu, alpha) / achievable.persistence_allow(b)
+
+
+def S_closed(b, mu, alpha):
+    """3 mu b^2 c^3 / (4 pi C alpha^3 hbar G), with achievable.py's constants.
+    The closed form is checked against S_ratio, never used in its place."""
+    c, G, hb, C = (achievable.C_SI, achievable.G_SI, achievable.HBAR,
+                   achievable.FEWSTER_C)
+    return 3.0 * mu * b * b * c ** 3 / (4.0 * math.pi * C * alpha ** 3 * hb * G)
+
+
+def figures():
+    """Every number the reading prints, asked or composed from asks."""
+    mu, alpha = A("achievable", "M_OVER_B"), A("achievable", "A_OVER_B")
+    b1 = 1.0
+    S1 = S_ratio(b1)
+    pts = ((1.0, mu, alpha), (1.0e3, 1.0e-2, 0.1), (1.0e-6, 2.0e-3, 0.5),
+           (4.0e16, 1.0e-4, 0.02))
+    closed_rel = max(abs(S_closed(*p) / S_ratio(*p) - 1.0) for p in pts)
+    lam = phase1.lam()                                  # R_s/b = 200, a/b = 0.02
+    c, G = achievable.C_SI, achievable.G_SI
+    dd_owner = phase1.contraction_law(mu * b1 * c * c / G)   # Delta d of the family
+    lin = S_ratio(b1, 2.0 * mu) / S_ratio(b1, mu)
+    dd_x = dd_owner / S1
+    sun = [x for x in spec.LENSES if x[0] == "Sun"][0]
+    ast = [x for x in spec.LENSES if x[0] == "10 km asteroid"][0]
+    f_sun = spec.focal_length(sun[1], sun[2])
+    f_ast = spec.focal_length(ast[1], ast[2])
+    scales = (1.0, 1.0e5, 1.0e8, 1.0e11)
+    soc = [spec.seat_over_collapse(l) for l in scales]
+    d3 = foliation.d3_table()[-1]
+    fs = fewsterteo.refused_figures()
+    tube_w_over_l = 1.0e-2
+    l_t = 1.0
+    u_t = seatindex.tkk_required(l_t)
+    M_t = u_t * math.pi * (tube_w_over_l * l_t) ** 2 * l_t / spec.C_SI ** 2
+    tube_rs_over_w = 2.0 * spec.G_SI * M_t / spec.C_SI ** 2 / (tube_w_over_l * l_t)
+    return {
+        "mu": mu, "alpha": alpha, "S1": S1, "log10S1": math.log10(S1),
+        "closed_rel": closed_rel, "closed_points": len(pts),
+        "demand_Pa": achievable.required_density(b1),
+        "allow_Pa": achievable.persistence_allow(b1),
+        "b_x": achievable.persistence_crossing(),
+        "b_x_lP": achievable.persistence_crossing() / achievable.L_PLANCK,
+        "fewster_C": achievable.FEWSTER_C, "fewster_mu1": achievable.FEWSTER_MU1,
+        "flat_orders": A("fewsterteo", "FLAT_SHORTFALL_ORDERS"),
+        "refused_curved": fs[1],
+        "Lambda": lam, "Lambda_is_overturn": lam == A("overturn", "LAMBDA"),
+        "dd_owner": dd_owner, "dd_owner_is_mu_b_Lambda":
+            abs(dd_owner / (mu * b1 * lam) - 1.0),
+        "S_linear_in_mu": lin, "dd_x": dd_x,
+        "b_over_lG": math.sqrt(A("noise", "B_OVER_LG_SQUARED")),
+        "f_sun_m": f_sun, "f_sun_AU": f_sun / spec.AU,
+        "published_sun_AU": published_sun_au(),
+        "lenses": [(n, spec.focal_length(M, b), spec.focal_length(M, b) / spec.AU)
+                   for n, M, b in spec.LENSES],
+        "f_ast_ly": f_ast / spec.LIGHT_YEAR,
+        "soc": soc, "soc_scales": scales,
+        "soc_const": max(abs(x / soc[0] - 1.0) for x in soc),
+        "exchange": ledger.EXCHANGE_RATE,
+        "proxima_ly": ledger.PROXIMA_LY,
+        "S9_orders": math.log10(warpfolder.shortfall(warpfolder.PAYLOADS_KG[0])),
+        "disp_W2": nonstatic.displacement_fraction(2.0),
+        "milne": foliation.milne_row(100.0),
+        "shapiro": foliation.shapiro(1.0, 10.0, 100.0)["excess"],
+        "d3_frac": d3[3],
+        "plummer_outside": 1.0 - (1.0 + (certify.A_CORE / certify.R_SHELL) ** 2) ** -1.5,
+        "certify_negm": certify.conformastatic_forces_negative_mass(),
+        "certify_iff": certify.theorem_holds(),
+        "tube_w_over_l": tube_w_over_l, "tube_rs_over_w": tube_rs_over_w,
+    }
+
+
+def published_sun_au():
+    """The published solar focus as spec.py cites it ('~550 AU'), read from
+    spec's own source -- spec's selftest prints it and compares nothing with it."""
+    m = re.search(r"published solar gravitational lens focus(?: is)?:?\s*~(\d+)",
+                  open(spec.__file__, encoding="utf-8").read())
+    if not m:
+        raise ValueError("spec.py no longer cites a published solar focus")
+    return float(m.group(1))
+
+
+def sr2_identity():
+    """SR2's ratio is scale-free EXACT algebra: the owners' two coefficients are
+    identified as pi c^4/(4G) (seatindex.T_COEFF) and 3 c^4/(8 pi G)
+    (spec.collapse_bound * l^2), and their quotient is 2 pi^2/3 in sympy."""
+    import sympy as sp
+    c4G = spec.C_SI ** 4 / spec.G_SI
+    k_seat = seatindex.T_COEFF / (seatindex.C_SI ** 4 / seatindex.G_SI)
+    k_coll = spec.collapse_bound(1.0) / c4G
+    seat_is = abs(k_seat / float(sp.pi / 4) - 1.0) < 1e-12
+    coll_is = abs(k_coll / float(3 / (8 * sp.pi)) - 1.0) < 1e-12
+    exact = sp.simplify((sp.pi / 4) / (sp.Rational(3, 8) / sp.pi))
+    return seat_is, coll_is, exact
+
+
+#: DOCKET 67, key sturm-comparison-theorem (NARROWED; reopen verified by three
+#: lenses; seated on M's ruling of 2026-10-02).  Sturm's comparison theorem
+#: certifies seating along a chord of length s when 4 pi G T_kk s^2/c^4 >= pi^2:
+#: a SUFFICIENT condition, on T_kk, the ray-projected stress -- not on u.  The
+#: owners' ratio spec.seat_over_collapse = 2 pi^2/3 is that condition at
+#: T_kk = u (pressureless along the ray) on the RADIUS chord.  H_ball names u
+#: and restricts neither pressure nor chord, so S-2's class holds balls with
+#: T_kk > u along a diameter, where the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2).
+#: Two members from the record, both within the dominant energy condition:
+#: a stiff perfect fluid (w = 1, T_kk = (1+w) u = 2u) and a uniform magnetic
+#: field probed across B (u = B^2/2 mu_0, T_kk = 2u across B, 0 along it).
+#: The class's infimum is not computed here; one member at or below 1 is what
+#: refuses fact SR2 (ball => bh) over H_ball as written.  No witness is built:
+#: S-2 is OPEN, never NONEMPTY.
+STURM_MEMBER_TKK_OVER_U = 2.0
+#: The longest chord of a ball is its diameter: s/l = 2.
+STURM_DIAMETER_OVER_RADIUS = 2.0
+
+
+def sturm_ratio(soc, tkk_over_u=1.0, s_over_l=1.0):
+    """u_seat/u_collapse on a chord s = s_over_l * l at T_kk = tkk_over_u * u,
+    from the owners' T_kk = u radius ratio `soc`: soc/((T_kk/u)(s/l)^2)."""
+    return soc / (tkk_over_u * s_over_l ** 2)
+
+
+def sturm_over_ball(soc):
+    """The Sturm ratio's sub-cases over H_ball as written (DOCKET 67), all
+    computed from `soc`: pressureless (T_kk = u) on the radius and on the
+    diameter; radiation (w = 1/3, T_kk = 4u/3) on the diameter; the recorded
+    T_kk = 2u member on the diameter; and the perfect-fluid w at which the
+    ratio reaches 1 on the diameter (soc/4 - 1) and on the radius (soc - 1,
+    beyond the w <= 1 the dominant energy condition allows)."""
+    d = STURM_DIAMETER_OVER_RADIUS
+    return {"dust_radius": sturm_ratio(soc),
+            "dust_diameter": sturm_ratio(soc, 1.0, d),
+            "radiation_diameter": sturm_ratio(soc, 4.0 / 3.0, d),
+            "member_diameter": sturm_ratio(soc, STURM_MEMBER_TKK_OVER_U, d),
+            "w_threshold_diameter": soc / d ** 2 - 1.0,
+            "w_threshold_radius": soc - 1.0}
+
+
+def sr2_certified(F, sr2):
+    """Fact SR2 (ball => bh) is certified iff the owners' identity holds, the
+    T_kk = u radius ratio exceeds 1 at every scale and is scale-free, AND the
+    ratio exceeds 1 for every recorded member of H_ball as written -- the
+    T_kk = 2u member on a diameter (DOCKET 67).  One gate, read by the fact and
+    by requirement SR2, so the two cannot drift apart."""
+    return (all(sr2) and min(F["soc"]) > 1.0 and F["soc_const"] < 1e-12
+            and sturm_over_ball(min(F["soc"]))["member_diameter"] > 1.0)
+
+
+# ================================================ 3. HYPOTHESES, BY NAME
+
+def hypotheses():
+    """Every named hypothesis, (text, kind).  Where an owner states it, its own
+    words are asked.  KIND: DEFINING restricts a class or object; ASSUMED is a
+    claim about physics that nothing proves; OWNER is an owner theorem's."""
+    return {
+        "H_sph": (formation.H_SPH, "DEFINING"),
+        "H_R1": ("'contracts' means %s (foliation.INVARIANT_CRITERION), the "
+                 "definition R1, at EVERY point of K.  This is narrower than "
+                 "phase1's integrated D3 (d_s(A,B) decreasing): a corridor "
+                 "contracted on a proper sub-region K' only is not a member of C "
+                 "over K, and K' itself -- in spherical symmetry a shell between "
+                 "two areal radii, i.e. two places -- is priced as its own C"
+                 % foliation.INVARIANT_CRITERION, "DEFINING"),
+        "H_EFE": (formation.H_EFE + " -- its tt component dm/dr = 4 pi r^2 rho",
+                  "OWNER"),
+        "H_reg": ("regular centre, m(0) = 0 (drivensource.CERTIFY_COROLLARY: "
+                  "'%s')" % drivensource.CERTIFY_COROLLARY, "DEFINING"),
+        "H_M0": ("the negative energy is carried by the matter, in the state, of "
+                 "the duration bound's own SCOPE: %s (achievable.duration_bound; "
+                 "its remaining clause, '%s', is H_flat's and is not repeated here)"
+                 % (", ".join(duration_scope_split()[0]), duration_scope_split()[1]),
+                 "DEFINING"),
+        "H_model": ("achievable.py's model: a UNIFORM negative-density core of "
+                    "radius alpha*b carrying M = mu*b*c^2/G "
+                    "(achievable.required_density)", "DEFINING"),
+        "H_static": ("the density is held below its value at each point for the "
+                     "whole hold b/c (achievable.hold_time), the configuration "
+                     "being static over the hold; staticity supplies this and, "
+                     "through MODEL-STATIC, D14's premise", "DEFINING"),
+        "H_closed": ("the closed-universe case of Tipler's Theorem 5 (a "
+                     "non-compact interpolating spacetime whose topology "
+                     "changes), with Tipler's 'mild additional assumptions', "
+                     "which Borde does not list and which are not read here "
+                     "(Tipler 1977 NAMED-NOT-READ), as Borde gr-qc/9406053 "
+                     "section IX.A gives it (READ via create.py; CORRECTED "
+                     "DOCKET 67: first cited as section VIII.A, which is Borde's "
+                     "'A Few Words on Differentiability')", "OWNER"),
+        "H_aim": ("aimability (M-S1A-P2) is a property of the device's WHOLE "
+                  "geometry, which must single out a DISTANT POINT destination, "
+                  "not a sphere, from where the device sits with its user; a "
+                  "subsystem may supply it, and one that does breaks spherical "
+                  "symmetry.  The 'distant point from where the device sits' is "
+                  "this file's reading of M's 'the user aims the device' (a "
+                  "spherical device singles out its own centre, which is not a "
+                  "distant point).  M's picture: 'consider the device shape a "
+                  "cylinder.  The idea is the user aims the device, the corridor "
+                  "is like another agent that verifies it'", "DEFINING"),
+        "H_S": ("S(b; mu, alpha) > 1, the amount and scale at which D7 refuses",
+                "DEFINING"),
+        "H_flat": ("the flat-space, boundary-free duration QEI holds pointwise "
+                   "on the curved corridor.  noise.py's H2 is '%s' and on the "
+                   "corridor it %s" % (noise.HYPOTHESES["H2"][0],
+                                       "FAILS" if not noise.H2_SATISFIED_BY_CORRIDOR
+                                       else "holds"), "ASSUMED"),
+        "H_axial": ("; ".join(axial.HYPOTHESES) + "; INFINITE along z and static "
+                    "(axial.py section 4: it does not price a finite corridor, "
+                    "PRICES_A_FINITE_CORRIDOR = %s)" % axial.PRICES_A_FINITE_CORRIDOR,
+                    "DEFINING"),
+        "H_ball": ("uniform energy density u over a BALL of radius l, M = u (4/3) "
+                   "pi l^3/c^2 (spec.collapse_bound) -- it names u, not the "
+                   "ray-projected T_kk Sturm's theorem needs, and restricts "
+                   "neither pressure nor chord (DOCKET 67)", "DEFINING"),
+        "H_collapse": ("the ball lies inside its own Schwarzschild radius -- a "
+                       "TRAPPED sphere, Hayward gr-qc/9408002 Prop. 1, spherical "
+                       "symmetry, l the areal radius and M the Misner-Sharp mass "
+                       "-- iff 2GM/c^2 >= l (spec.collapse_bound's criterion; "
+                       "Schwarzschild 1916).  CORRECTED (DOCKET 67): first "
+                       "written 'a region is a black hole iff', false both ways "
+                       "(a sphere inside an event horizon can have 2m/R < 1; a "
+                       "past-trapped expanding ball is in no black hole).  What "
+                       "trapping gives with no further hypothesis is 'not "
+                       "static'; a BLACK hole needs future trapping, Penrose "
+                       "1965 and censorship besides", "OWNER"),
+        "H_cc": ("the interpolating spacetime is causally compact (Borde, READ "
+                 "by create.py) -- and, as Borde's Theorem 1 states it and named "
+                 "at DOCKET 67, time-oriented with a smooth, everywhere "
+                 "non-degenerate Lorentz metric (without that metric the "
+                 "GEROCH-BORDE encoding is not implied: Borde's C^0 route, Sec. "
+                 "VIII, and degenerate metrics, IX.C); for a throat in open "
+                 "space, a causally compact region of an externally simple "
+                 "spacetime (Sec. III.E)", "DEFINING"),
+        "H_seat": ("what S-1's membership rests on: the weak-field focal formula "
+                   "(SR1, MEASURED); a NULL congruence -- a massive payload's "
+                   "focus is velocity-dependent and computed by NO OWNER; impact "
+                   "parameter b >= the lens radius; the causal step 'conjugate "
+                   "point => not achronal' (CITED, escape causal-step); and the "
+                   "endpoint gate (R5-S, CHECKED, a code path, not a theorem)",
+                   "DEFINING"),
+    }
+
+
+# ==================================================== 4. THE OBJECTS
+
+def objects(F):
+    sf = slow_figures()
+    return [
+        {"id": "C", "name": "the contracting corridor (the demand column's object)",
+         "definition":
+            "A region K between two FIXED PLACES A and B -- a place is a fixed "
+            "areal radius (nonstatic.py's anchor lemma) -- on which proper "
+            "distance is contracted in the sense of R1 at every point, held for "
+            "at least one light-crossing b/c (D7), and -- on M's ruling "
+            "M-S1A-P2 -- aimable by its whole geometry (H_aim).  'At every point' is part of "
+            "the definition (H_R1) and is narrower than phase1's integrated D3: "
+            "a corridor contracted on a proper sub-region only is priced as a C "
+            "over that sub-region.  The quantity acted on is "
+            "proper distance, not light time (phase1.py Theorem 1).  m < 0 "
+            "locally is compatible with M_ADM >= 0 "
+            "(certify.REQUIRES_NEGATIVE_TOTAL_MASS = %s).  The board prices two "
+            "realisations.  (i) certify.py's seated metric, Phi(r) = "
+            "m/sqrt(r^2+a^2) - m/max(r,R_s), m = %g, a = %g, R_s = %g in "
+            "certify's unit; m < 0 at every sampled radius "
+            "(conformastatic_forces_negative_mass() = %s) with a regular "
+            "centre, but its core is Plummer, NOT uniform: the Plummer density "
+            "falls over the scale a (separately, a fraction %.3e of its mass "
+            "lies outside R_s, linstab.py's formula -- the Newtonian, leading-"
+            "order fraction; in this exact metric the Misner-Sharp fraction is "
+            "f(1 - m/2R_s), 5.0e-5 relative below it, the same to the printed "
+            "figure -- DOCKET 67).  It satisfies the "
+            "literals of class %s under H_M0 (K2 otherwise); being static and "
+            "spherically symmetric (certify.THEOREM_SCOPE) it fails aimability "
+            "(D14, M-S1A-P2), so it is NOT an instance of C.  (ii) "
+            "achievable.py's scale model, (mu, alpha) = (%g, %g): the literals "
+            "of class %s at b = 1 m under H_M0 (S = 10^%.3f), K6b's for b <= "
+            "b_x; static and spherically symmetric too, so likewise not an "
+            "instance of C under M-S1A-P2 -- its persistence price stands on "
+            "the route without aimability."
+            % (certify.REQUIRES_NEGATIVE_TOTAL_MASS, certify.M_SEATED,
+               certify.A_CORE, certify.R_SHELL, F["certify_negm"],
+               F["plummer_outside"], "{realisation_i}", F["mu"], F["alpha"],
+               "{realisation_ii}", F["log10S1"]),
+         "source": "certify.py, foliation.py, nonstatic.py, achievable.py, "
+                   "phase1.py; ledger D1-D4, D7, D11, D14"},
+        {"id": "T", "name": "the transition and its passage",
+         "definition":
+            "phase1.py's TRANSITION: g_s, s in [0,1], on a FIXED manifold, "
+            "meeting %s.  D4 as restated on M's ruling M-D64-1 "
+            "(phase1.D4_RESTATED_ON_M_RULING = %s); the first wording is kept "
+            "('%s').  phase1's D3 is a SLICE statement ('%s'), and a slice "
+            "statement is gauge (ledger D3; foliation section 6: with both "
+            "mouths anchored at U = 0 the slice length is driven to %.4f%% of "
+            "the areal gap, NONSTATIC_ANCHOR_CLOSES_D3 = %s).  On M's ruling "
+            "M-S1A-P4 this file runs THREE readings of D3 side by side (the D3 "
+            "COMPARISON below).  An endpoint is an instance of C only if it "
+            "contracts, is held for one light-crossing b/c (D7 -- phase1's "
+            "D1-D5 contain no hold requirement) and is aimable (M-S1A-P2); "
+            "reading 3 is written for static spherically symmetric endpoints, "
+            "which fail aimability, so with every ruling in force it admits no "
+            "instance of C; reading 2 also admits gauge-only configurations.  The PASSAGE "
+            "the board prices is formation.py's family, f: 0 (flat) -> 1 "
+            "(certify's metric), areal radii held fixed (U = 0), on R^3 -- no "
+            "topology change."
+            % ("; ".join("%s %s" % (c[0], c[1]) for c in phase1.CONDITIONS),
+               phase1.D4_RESTATED_ON_M_RULING, phase1.D4_AS_FIRST_WRITTEN,
+               [c[2] for c in phase1.CONDITIONS if c[0] == "D3"][0],
+               100.0 * F["d3_frac"], foliation.NONSTATIC_ANCHOR_CLOSES_D3),
+         "source": "phase1.py, formation.py, foliation.py; ledger M-D64-1"},
+        {"id": "S", "name": "M's scoped seat",
+         "definition":
+            "M's ruling as spec.py records it: 'DROP THE LEAD.  KEEP THE SEAT.'  "
+            "What is required is that the matter exist at both ends and "
+            "traverse under the same physics.  As spec.DOES (the tuple, which "
+            "this file uses) specifies it: %s.  DOES NOT: %s.  M RULED S IS NOT "
+            "REQUIRED TO CONTRACT -- M's words: 'I would imagine the seat is an "
+            "expansion' (M-S1A-P1, on the board: %s; the word 'contract' occurs "
+            "in spec.py: %s).  M's "
+            "mechanism for it -- the arriving information triggers the Higgs "
+            "field and atomic mass forms -- was tested by DOCKET 65, which HAS "
+            "RUN (SR5): as stated, as a supply, it is %s (S10), so it is NOT "
+            "part of S; its remainders S11-S13 (%s) are OPEN, not refused, and "
+            "the held-seat release route (S13, on H-RELEASE), which forms no "
+            "baryons, is a %s S-3 candidate %s.  Seating at a topological defect (M-S1A-P3 "
+            "(ii)), with QET folded in by M-D65-1, is DOCKET 66's.  S IS NOT A "
+            "TRANSITION: a positive lens "
+            "mass lengthens proper distance (certify.theorem_holds() = %s: "
+            "contraction iff m < 0), so S fails phase1's D3.  R5-S and SR1 "
+            "constrain the NULL congruence; the focus of a massive payload's "
+            "congruence is velocity-dependent and computed by no owner (OPEN, "
+            "NO OWNER).  The payload's own motion -- free fall or propelled -- "
+            "is part of S and is not the propulsion OPERATOR phase1 excludes "
+            "(D1: 'Nothing is transported anywhere by the operator itself').  "
+            "WITHDRAWN inside spec.py and not part of S: the Sturm-universal "
+            "B*l specification, the magnetar figure, and the ANEC-protects-"
+            "achronality line (struck, anecscope.py).  STALE TEXT THIS FILE "
+            "RECORDED IN THE OWNER, since repaired there (DOCKET 67 follow-up "
+            "D): spec.py's prose DOES paragraph now reads 'The seating "
+            "condition is SUFFICIENT, and its universality is Sturm's' -- over "
+            "shapes and entry states, the collapse computed only for T_kk = u "
+            "along a ball's radius (%s) -- and spec.report() prints the "
+            "duration bound's %.3f orders (achievable.persistence_shortfall at "
+            "1 m) in place of the withdrawn Ford-Roman census (that figure "
+            "still in report(): %s); the struck ANEC line is printed marked "
+            "STRUCK.  (CORRECTED, DOCKET 67 follow-up: this clause read "
+            "\"still says 'UNIVERSAL in Sturm's sense' ... still prints the "
+            "struck ANEC line and the withdrawn\" figure.)"
+            % ("; ".join(spec.DOES), "; ".join(spec.DOES_NOT), ruled("M-S1A-P1"),
+               "contract" in open(spec.__file__, encoding="utf-8").read().lower(),
+               massform.mechanism_label(), priced65(),
+               priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY,
+               F["certify_iff"],
+               ("The seating condition is SUFFICIENT, and its universality is "
+                "Sturm's" in " ".join(spec.__doc__.split())
+                and "computed only for T_kk = u along a ball's radius"
+                in " ".join(spec.__doc__.split())),
+               math.log10(achievable.persistence_shortfall(1.0)),
+               "65 orders" in _source(spec.report)),
+         "source": "spec.py (DOES, DOES_NOT, focal_length, LENSES, "
+                   "seat_over_collapse, HALTED), turnseat.py, composite.py, "
+                   "seatindex.py"},
+        {"id": "W", "name": "the throat gate",
+         "definition":
+            "A shortcut through non-simply-connected spatial topology.  It is "
+            "not a transition: create.which_fails() = %s -- it fails phase1's "
+            "fixed-manifold clause, on topology (fails_on_topology() = %s): "
+            "R^3 is simply connected and a handle wormhole is not (a "
+            "Morris-Thorne inter-universe section R x S^2 is simply connected; "
+            "create.py).  It is excluded from R2 on THAT ground only.  "
+            "(CORRECTED, DOCKET 67 follow-up: first written with which_fails() "
+            "= ['D2'] and 'a wormhole is not', unqualified.)  At "
+            "the throat itself m = %s (throatmass.THROAT_MASS); in HPS's "
+            "conserved system the flare carries m < 0 from %.4f l_P "
+            "(hpscentre, %s reading, outside the established domain).  Two "
+            "routes, split as create.py splits them: CREATE (topology change) "
+            "and FIND-AND-ENLARGE (a metric change, "
+            "theorems_apply_to_enlargement() = %s)."
+            % (create.which_fails(), create.fails_on_topology(),
+               throatmass.THROAT_MASS, hpscentre.FIRST_NEGATIVE_M_THROAT_LP,
+               hpscentre.THROAT_M_NEGATIVE_READING,
+               create.theorems_apply_to_enlargement()),
+         "source": "create.py, throatmass.py, hpscentre.py, formation.py; ledger D24"},
+        {"id": "Rec", "name": "the reconstruction route",
+         "definition":
+            "Ledger S5: specification, not mass.  No mass traverses, so D1-D4 "
+            "and D7 are not instantiated.  A specification is carried to the "
+            "destination and re-assembled from stock already there; by D23 the "
+            "fabricator, the stock survey and the receiver all reached the "
+            "destination at <= c first, so it is an AMORTISATION scheme with a "
+            "minimum setup of the light time (%.4g years at Proxima -- the "
+            "J2016.0 Gaia DR3 distance, whose 1-sigma interval does not fix the "
+            "4th printed figure; DOCKET 67).  D25's "
+            "stock gate must hold at the destination." % F["proxima_ly"],
+         "source": "ledger S5, D13, D21, D23, D25, O3, O6, O7; transit.py, "
+                   "stockgate.py, branelink.py, warpfolder.py"},
+    ]
+
+
+def _source(fn):
+    import inspect
+    return inspect.getsource(fn)
+
+
+B_ROWS = ("B1", "B2", "B3", "B4")
+
+
+def b_rows_sentence():
+    """R12's headline sentence, only when every balance row is REFUSED; any
+    other state of the four rows is printed row by row and marked RE-ASK."""
+    sts = [st(b) for b in B_ROWS]
+    if all(x == REFUSED for x in sts):
+        return ("OVER THE MECHANISMS EXAMINED no mechanism supplies negative "
+                "enclosed mass at all (%s: each %s, no ladder)."
+                % (", ".join(B_ROWS), REFUSED))
+    return ("RE-ASK: the balance rows are no longer all %s (%s)."
+            % (REFUSED, ", ".join("%s %s" % (b, x) for b, x in zip(B_ROWS, sts))))
+
+
+# ============================================== 5. THE REQUIREMENTS
+
+def requirements(F):
+    """One requirement per question.  `rows` are the ledger rows PLACED here
+    (each row is placed exactly once across all requirements); `see` are rows
+    referenced but placed elsewhere.  `status` is built from asks."""
+    sf = slow_figures()
+    d7 = st("D7")
+    h_flat_status = (ASSUMED if not (noise.H2_SATISFIED_BY_CORRIDOR
+                                     or fewsterteo.O2_CLOSED) else RE_ASK)
+    r12_status = THEOREM if candidates.LIST_IS_EXHAUSTIVE else SURVEY
+    sr2 = sr2_identity()
+    sr2_status = THEOREM if sr2_certified(F, sr2) else OPEN
+    sob = sturm_over_ball(min(F["soc"]))
+    unread = (phase1.is_transition(False, True, True, True, True, passage_flux=True)
+              == phase1.is_transition(False, True, True, True, True, passage_flux=False))
+    below, at = sf["concentric_below"], sf["concentric_at"]
+    return [
+        {"id": "R1", "applies_to": ["C", "T"], "kind": DEFINITION,
+         "title": "WHAT 'CONTRACTS' MEANS -- the definition R2 is read from",
+         "status": "%s (the definition); the equivalence it rests on: D2 %s, "
+                   "D3 %s" % (DEFINITION, st("D2"), st("D3")),
+         "rows": ["D3", "D10"], "see": ["D2"],
+         "owners": [("foliation", "INVARIANT_CRITERION"), ("foliation", "GAMMA_RANGE"),
+                    ("foliation", "ONLY_INVARIANT"), ("driven", "CONTRACTION_IS_A_SCALAR"),
+                    ("foliation", "NONSTATIC_ANCHOR_CLOSES_D3"),
+                    ("nonstatic", "SUSTAINING_FORCES_NEGATIVE_RHO"),
+                    ("nonstatic", "QUASI_STATIONARY_CORRIDOR_EXISTS")],
+         "hypotheses": ["H_sph", "untrapped (%s)" % foliation.GAMMA_RANGE,
+                        "contraction measured against the areal increment dR",
+                        "outside spherical symmetry the only invariant criterion "
+                        "any owner writes is axial.CONTRACTION_FACTOR ('%s'); "
+                        "for a general spacetime: NO OWNER" % axial.CONTRACTION_FACTOR],
+         "statement":
+            "'The corridor contracts' is a statement about the spacetime.  In 4D "
+            "spherical symmetry the only foliation-invariant content of "
+            "(U, Gamma) is %s, and Gamma ranges over %s (foliation.GAMMA_RANGE).  "
+            "So contraction at a point is DEFINED as Gamma > 1 in every foliation, "
+            "and foliation.INVARIANT_CRITERION reads '%s'.  This is R2 read from the "
+            "other side and is not counted as a second constraint.  A one-slice "
+            "criterion is gauge (driven.CONTRACTION_IS_A_SCALAR = %s): Milne, "
+            "exactly flat, gives Gamma = %g with advance over flat %g; in "
+            "Schwarzschild the slice between areal radii 10M and 100M, mouths "
+            "anchored at U = 0, is driven to %.4f%% of the gap while the signal "
+            "keeps its %.3f M Shapiro DELAY -- the anchor lemma does not close "
+            "the integrated criterion (NONSTATIC_ANCHOR_CLOSES_D3 = %s).  WHY "
+            "THE DEFINITION IS NOT A MERE CHOICE (D10, nonstatic.py): "
+            "sustaining a slice contraction does not force rho < 0 "
+            "(SUSTAINING_FORCES_NEGATIVE_RHO = %s), but with m >= 0 the far end "
+            "must move, |U| >= sqrt(W^2 - 1), displacing the destination by at "
+            "least sqrt(1 - 1/W^2) of the gap -- %.1f%% at W = 2 -- and "
+            "QUASI_STATIONARY_CORRIDOR_EXISTS = %s."
+            % (foliation.ONLY_INVARIANT, foliation.GAMMA_RANGE,
+               foliation.INVARIANT_CRITERION, driven.CONTRACTION_IS_A_SCALAR,
+               F["milne"]["gamma"], F["milne"]["advance_over_flat"],
+               100.0 * F["d3_frac"], F["shapiro"],
+               foliation.NONSTATIC_ANCHOR_CLOSES_D3,
+               nonstatic.SUSTAINING_FORCES_NEGATIVE_RHO, 100.0 * F["disp_W2"],
+               nonstatic.QUASI_STATIONARY_CORRIDOR_EXISTS)},
+
+        {"id": "R2", "applies_to": ["C"],
+         "title": "NEGATIVE ENCLOSED MISNER-SHARP MASS at every point of the corridor",
+         "status": "D1 %s (static); D2 %s (any foliation); O4 '%s' (infinite "
+                   "axial throat)" % (st("D1"), st("D2"), st("O4")),
+         "rows": ["D1", "D2", "D8", "D9", "O4"], "see": [],
+         "owners": [("certify", "THEOREM_SCOPE"), ("certify", "REQUIRES_NEGATIVE_TOTAL_MASS"),
+                    ("foliation", "IDENTITY_DISPUTED"), ("tolman", "RESTATES_CERTIFY_ON_SMALLER_CLASS"),
+                    ("tolman", "SUPERSEDES_CERTIFY"), ("axial", "THEOREM"),
+                    ("axial", "AXIS_ESCAPES_THE_SIGN"), ("axial", "PRICES_A_FINITE_CORRIDOR")],
+         "hypotheses": ["H_sph (static for D1: certify.THEOREM_SCOPE = '%s'; any "
+                        "foliation for D2)" % certify.THEOREM_SCOPE,
+                        "or H_axial, for the infinite throat only",
+                        "untrapped: 1 - 2m/R > 0, automatic where m < 0"],
+         "statement":
+            "In any static spherically symmetric spacetime proper distance is "
+            "contracted at r iff m(r) < 0, ansatz-free (D1).  With staticity "
+            "deleted, Gamma > 1 in every foliation iff m < 0 (D2, "
+            "foliation.IDENTITY_DISPUTED = %s).  tolman.py's pointwise test "
+            "restates this on a strictly smaller class and adds no constraint "
+            "(D8: RESTATES_CERTIFY_ON_SMALLER_CLASS = %s; D9: "
+            "SUPERSEDES_CERTIFY = %s).  On an INFINITE static cylindrical throat "
+            "(translation-invariant in z), %s, so any axial contraction forces "
+            "u < 0 somewhere (AXIS_ESCAPES_THE_SIGN = %s); a conical excess "
+            "restates the requirement.  axial.py does not price a finite "
+            "corridor (PRICES_A_FINITE_CORRIDOR = %s): finite axial corridors "
+            "are K5.  The requirement does NOT demand negative total mass "
+            "(certify.REQUIRES_NEGATIVE_TOTAL_MASS = %s).  It is NOT a "
+            "constraint on S (a positive lens does not contract) nor on W "
+            "(excluded from T on topology)."
+            % (foliation.IDENTITY_DISPUTED, tolman.RESTATES_CERTIFY_ON_SMALLER_CLASS,
+               tolman.SUPERSEDES_CERTIFY, axial.THEOREM, axial.AXIS_ESCAPES_THE_SIGN,
+               axial.PRICES_A_FINITE_CORRIDOR, certify.REQUIRES_NEGATIVE_TOTAL_MASS)},
+
+        {"id": "R3", "applies_to": ["C"],
+         "title": "A REGULAR CENTRE, if negative enclosed MASS is to mean negative enclosed ENERGY",
+         "status": "D4 %s" % st("D4"),
+         "rows": ["D4"], "see": [],
+         "owners": [("drivensource", "CERTIFY_COROLLARY"), ("drivensource", "OVERTURN_L2"),
+                    ("drivensource", "SCOPE"), ("drivensource", "EM_CLOSED_BY")],
+         "hypotheses": ["H_sph", "H_EFE",
+                        "electrovac sub-case: drivensource.SCOPE = '%s', and the "
+                        "body's own (bare) contribution to M non-negative"
+                        % drivensource.SCOPE,
+                        "the interior step also needs rho >= 0 at every point of "
+                        "the body and a regular centre (drivensource.py section 4)"],
+         "statement":
+            "With m(0) = 0, dm/dr = 4 pi r^2 rho integrates to m(r) = INT_0^r "
+            "4 pi r'^2 rho, so m(R) < 0 forces rho < 0 somewhere inside R.  "
+            "Without a regular centre the corollary fails: Reissner-Nordstrom "
+            "has m < 0 near r = 0 with rho > 0 everywhere and m(0) = -infinity "
+            "(drivensource.CERTIFY_COROLLARY = '%s').  Charged body of radius "
+            "a > 0 with non-negative bare mass: r_c <= a, so the m < 0 region "
+            "never reaches outside it; and a body with rho >= 0 at every point "
+            "and a regular centre has m >= 0 everywhere, so it does not "
+            "contract at all and lies in K0 (drivensource.py section 4; closed "
+            "by '%s').  The point charge (a = 0) carries a -infinite bare mass, "
+            "outside the non-negative-bare-mass hypothesis: it is in K3 "
+            "(divergence V6)."
+            % (drivensource.CERTIFY_COROLLARY, drivensource.EM_CLOSED_BY)},
+
+        {"id": "R4", "applies_to": ["C"],
+         "title": "PERSISTENCE for one light-crossing, and the refusal of it",
+         "status": "flat bound: D7 %s (Fewster 1208.5399 eq. (4), %s via "
+                   "achievable.py) | its application to C: %s (H_flat; O2 %s) "
+                   "| the figure: %s | D22's reading: %s"
+                   % (d7, CITED, h_flat_status, st("O2"), MEASURED, st("D22")),
+         # M-D67-1 (arXiv carries a journal version's weight once M confirms
+         # the pair) is applied so far to fluctuation.py's source, D22's reading.
+         # M-D67-2 (where M has not confirmed a pair, the arXiv version read is
+         # the object) is placed beside the ruling it completes; it moves no
+         # verdict here -- it governs how DOCKET 67's findings are stated.
+         "rows": ["D6", "D7", "D22", "O2", "M-D67-1", "M-D67-2"], "see": [],
+         "owners": [("bounds", "DURATION_ROUTE_Z"), ("achievable", "FEWSTER_C"),
+                    ("achievable", "VERDICT_KIND"), ("achievable", "VERDICT_IS_A_THEOREM"),
+                    ("fewsterteo", "FLAT_SHORTFALL_ORDERS"), ("fewsterteo", "CORRIDOR_SPECTRAL_GAP"),
+                    ("fewsterteo", "NINE_64_APPLIES_TO_C_F"), ("fewsterteo", "O2_CLOSED"),
+                    ("fewsterteo", "GAP_HYPOTHESIS"), ("fewsterteo", "CORRIDOR_MODE_FUNCTIONS"),
+                    ("noise", "CORRIDOR_APPLICATION"), ("noise", "C1_FLAT_THEOREM"),
+                    ("noise", "H2_SATISFIED_BY_CORRIDOR"), ("noise", "T1_SURVIVES_SMEARING"),
+                    ("noise", "EL_VACUUM_LOG10_NEG_LN_P"), ("noise", "EL_SURROGATE_NONVACUUM_COMPUTED"),
+                    ("noise", "DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT"),
+                    ("noise", "CURVED_PART_CARRIED_BY")],
+         "hypotheses": ["H_M0", "H_flat (ASSUMED)", "H_static", "H_model", "H_reg",
+                        "for D22's reading: noise.py's H3 '%s' -- %s"
+                        % noise.HYPOTHESES["H3"]],
+         "statement":
+            "A corridor that does not hold for one light-crossing T = b/c "
+            "transmits nothing (D7).  THE FLAT BOUND: if <T_00> stays below rho "
+            "for a duration T at a point, rho >= -C hbar/(c^3 T^4), C = "
+            "mu_1^4/(16 pi^2) with cos(mu_1) cosh(mu_1) = 1, mu_1 = %.15g, C = "
+            "%.15g (bisection, achievable.fewster_constant) -- the closed form is "
+            "this tree's computation, re-derived exactly; Fewster prints only "
+            "'C ~ 3.17' and the clamped-eigenvalue description (DOCKET 67).  It is a statement "
+            "at each point about a DURATION, so Ford-Helfer-Roman (D6: 'NO "
+            "purely spatially averaged quantum inequalities over bounded "
+            "regions in 4D Minkowski') does not touch it.  ITS APPLICATION TO "
+            "C IS "
+            "ASSUMED (H_flat): the corridor fails noise.py's H2, b/l_G = %.3f; "
+            "bounds.py calls it 'priced on the DURATION axis, by an instrument "
+            "of the wrong shape under an extra hypothesis', "
+            "achievable.VERDICT_KIND = %s and noise.CORRIDOR_APPLICATION = %s.  "
+            "Staticity supplies H_static only.  THE FIGURE, MEASURED: in "
+            "achievable.py's model, demanded/allowed is EXACTLY S(b; mu, alpha) "
+            "= 3 mu b^2 c^3/(4 pi C alpha^3 hbar G) -- equal to "
+            "required_density/persistence_allow to %.1e relative at %d "
+            "parameter points.  At the owner's pins (mu, alpha) = (%g, %g), "
+            "b = 1 m: %.4e Pa demanded against %.4e Pa allowed, 10^%.3f, i.e. "
+            "%.3f + 2 log10(b / 1 m) orders; S = 1 only at b_x = %.4e m = %.4f "
+            "l_P, 'l_P times an O(1) number by construction, NOT evidence'.  "
+            "WHAT mu = %g IS: %s (concentric.survey at 0.6 mu: seats = %s, "
+            "leads = %s; at mu: seats = %s, leads = %s, inside the shell = %s -- "
+            "and the lead is interior-only, withdrawn there).  It is not a "
+            "contraction threshold: contraction is linear in m at first order "
+            "in Phi, with no threshold in m (measured m = 5e-3..8e-2; sublinear "
+            "beyond, 12.4 %% below Lambda per unit m at m = 1 -- DOCKET 67).  "
+            "ON C's OWN "
+            "DEMAND (composed here, section 3): S is linear in mu (S(2mu)/S(mu) "
+            "= %.12g), Delta d = (G/c^2) M Lambda with Lambda = %.10g at R_s/b "
+            "= %g, a/b = %g (phase1.lam(), = overturn.LAMBDA: %s), so S = "
+            "3 Delta d b c^3/(4 pi C alpha^3 hbar G Lambda) and, at b = 1 m "
+            "and alpha = %g, under K1's hypotheses (H_flat ASSUMED among them) "
+            "and the transition equation's (weak field, MEASURED by phase1.py), "
+            "the refusal holds for EVERY contraction Delta d > %.4e m -- the "
+            "owner family itself contracts by %.4g m.  The curvature-tightened %.3f is REFUSED: at spectral gap "
+            "%g the Fewster-Teo (5.6) FORMULA returns the flat bound -- but (5.6) "
+            "is derived only for ultrastatic Minkowski and open-RW slices, which "
+            "the corridor is not, so what refuses the tightening is that the "
+            "corridor supplies no (5.6) gap, not a Fewster-Teo bound on the "
+            "corridor (not evaluated; F&T's own zero-gap Schwarzschild case is "
+            "not flat -- DOCKET 67) -- and the 9/64 is "
+            "not applied (NINE_64_APPLIES_TO_C_F = %s).  D22, FOLDED IN HERE "
+            "(DOCKET 64 D: the requirement is not restated about a "
+            "distribution, DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT "
+            "= %s): in the flat model H1-H6 the sampled density is bounded "
+            "below as an operator (C1_FLAT_THEOREM = %s), so in the flat model "
+            "and under H6 the distribution reading refuses exactly the set R4 "
+            "refuses; under the Einstein-Langevin surrogate with the VACUUM's "
+            "noise kernel the probability is exp(-10^%.3f), nonzero, and a "
+            "larger kernel is not computed (EL_SURROGATE_NONVACUUM_COMPUTED = "
+            "%s).  On the corridor that reading is a %s; its curved part is "
+            "%s's."
+            % (F["fewster_mu1"], F["fewster_C"], F["b_over_lG"],
+               achievable.VERDICT_KIND, noise.CORRIDOR_APPLICATION,
+               F["closed_rel"], F["closed_points"], F["mu"], F["alpha"],
+               F["demand_Pa"], F["allow_Pa"], F["log10S1"], F["log10S1"],
+               F["b_x"], F["b_x_lP"], F["mu"],
+               ("concentric.py's SEAT + LEAD window edge"
+                if (below["seats"], at["seats"], at["leads"]) == (False, True, True)
+                else "RE-ASK -- the survey no longer places mu at concentric's "
+                     "SEAT + LEAD edge"),
+               below["seats"], below["leads"],
+               at["seats"], at["leads"], at["inside_shell"], F["S_linear_in_mu"],
+               F["Lambda"], phase1.R_SHELL / phase1.B_RAY, phase1.A_CORE / phase1.B_RAY,
+               F["Lambda_is_overturn"], F["alpha"], F["dd_x"], F["dd_owner"],
+               F["refused_curved"], fewsterteo.CORRIDOR_SPECTRAL_GAP,
+               fewsterteo.NINE_64_APPLIES_TO_C_F,
+               noise.DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT,
+               noise.C1_FLAT_THEOREM, noise.EL_VACUUM_LOG10_NEG_LN_P,
+               noise.EL_SURROGATE_NONVACUUM_COMPUTED, noise.CORRIDOR_APPLICATION,
+               noise.CURVED_PART_CARRIED_BY)},
+
+        {"id": "R5-C", "applies_to": ["C"],
+         "title": "A DESTINATION PARAMETER, on the corridor -- REQUIRED on M's ruling (not sole)",
+         "status": "D14 %s; S6 %s; %s; beyond static spherical and axial: %s"
+                   % (st("D14"), st("S6"), st_ruling("M-S1A-P2"), NO_OWNER),
+         "rows": ["D14", "D15", "D16", "S6", "M-S1A-P2"], "see": [],
+         "owners": [("certify", "THEOREM_SCOPE"), ("excite", "ROLE1_DOMINATED_BY_OWN_SOURCE"),
+                    ("excite", "TAIL_RATE_IS_MASS"), ("excite", "DISPLACEMENT_IS_ULTRALOCAL")],
+         "hypotheses": ["static spherical symmetry, for the undefinedness theorem",
+                        "H_aim",
+                        "the one-bit statement for the axial object is ledger "
+                        "text (D14's DOCKET 62 scope flag), not an owner pin"],
+         "statement":
+            "A static spherically symmetric device has NO parameter in which a "
+            "destination can be written; addressing is UNDEFINED on it, not "
+            "unanswered (D14).  On the infinite axial object the destination "
+            "narrows to a one-bit parameter (ledger D14 text).  What a full 3-D "
+            "address requires of a metric is written down nowhere.  A displaced "
+            "Higgs vev does not supply one (S6: the source is the better "
+            "address, ROLE1_DOMINATED_BY_OWN_SOURCE = %s), because the "
+            "displacement returns at rate exactly m_h (D15, TAIL_RATE_IS_MASS "
+            "= %s) and is ultralocal (D16, DISPLACEMENT_IS_ULTRALOCAL = %s -- "
+            "a FLAT-background result, named at DOCKET 67; on the corridor its "
+            "curvature correction, ~(lambda_h/l_G)^2/3, is 3.1e-33 at b = 1 m).  "
+            "M RULED AIMABILITY A REQUIRED FUNCTION, not the only one "
+            "(M-S1A-P2, on the board: %s), of the device's whole geometry "
+            "(H_aim).  With D14 it excludes every static spherically symmetric "
+            "member of C; the classes it empties are computed from the verdicts "
+            "and printed in M's RULINGS below (achievable.py: '%s').  M's "
+            "illustrative shape ('consider the device shape a cylinder'), aimed "
+            "by its user with the corridor verifying: a finite "
+            "cylinder lies in K5, where no owner writes an invariant contraction "
+            "criterion (R1 is not supplied there), and K4 is its infinite "
+            "idealisation, where O4 forces u < 0 and D14's scope flag leaves a "
+            "one-bit parameter; what 'verifies' requires of a metric is written "
+            "by NO OWNER."
+            % (excite.ROLE1_DOMINATED_BY_OWN_SOURCE, excite.TAIL_RATE_IS_MASS,
+               excite.DISPLACEMENT_IS_ULTRALOCAL, ruled("M-S1A-P2"), MODEL_STATIC_TEXT)},
+
+        {"id": "R6", "applies_to": ["C"],
+         "title": "A MATTER MODEL OUTSIDE H_M0 -- the crack the tree cannot close",
+         "status": "D12 %s (a paper; unaskable); S4 = O1 '%s' (one refusal, "
+                   "counted once); D17 %s; S8 %s" % (st("D12"), st("O1"),
+                                                    st("D17"), st("S8")),
+         "rows": ["D12", "D17", "O1", "S4", "S8"], "see": ["S1", "S2", "O5"],
+         "owners": [("achievable", "VERDICT_KIND"), ("candidates", "LIST_IS_EXHAUSTIVE"),
+                    ("candidates", "NMC_STATE_INDEPENDENT_QEI"), ("candidates", "NMC_COEFFICIENT_STATUS"),
+                    ("higgs", "MINIMAL_SCALAR_SATISFIES_NEC"), ("qeihps", "ABSOLUTE_QEI_FOR_NMC")],
+         "hypotheses": ["D12's owner is a paper, so no instrument re-asks it "
+                        "(ledger.unaskable() = %s)" % ", ".join(ledger.unaskable())],
+         "statement":
+            "What escapes R4 is matter outside H_M0.  DOCKET 55's four limbs "
+            "are each proved inside their own hypotheses and their conjunction "
+            "is a SURVEY (D12), because nothing proves the hypothesis sets "
+            "exhaust matter.  O1, verbatim: '%s' -- 'it was S4 counted a "
+            "second time', so the nonminimally coupled scalar is ONE refusal "
+            "here, not two.  O1's two figures (E_pos/|E_neg| >= %s) are "
+            "LEDGER TEXT, asked from the row: no instrument "
+            "in this tree re-derives them (the selftest greps), so they are not "
+            "quoted as MEASURED.  (DOCKET 67: they are not Fewster-Osterbrink's "
+            "own; they reproduce on FO's one-particle family only under an "
+            "accounting the tree never states, and that state's actual negative "
+            "energy gives 22.79 and 102.02.)  S4's cutoff coefficient is a %s.  An absolute "
+            "QEI for NMC is %s.  Any canonical (two-derivative kinetic term) "
+            "minimally coupled scalar satisfies the NEC "
+            "classically (D17, MINIMAL_SCALAR_SATISFIES_NEC = %s), which closes "
+            "the Higgs, canonical, as a source at the endpoint (S8); a "
+            "non-canonical minimal scalar can violate it (P(X) with P_X < 0; "
+            "Galileons) -- DOCKET 67.  Interacting fields: "
+            "no state-independent QEI is expected (Fewster 1208.5399 Sec. 5.2, "
+            "which achievable.py labels Sec. 5.1) -- an expectation the source "
+            "itself qualifies: QEIs hold for 2D CFTs, and 'modified QEIs' may "
+            "hold.  Classical sources: no QEI constrains "
+            "them.  O5's only m < 0 candidate, HPS's xi = 1/6 field, is "
+            "non-minimally coupled and lies here (K2).  S1 and S2 are placed "
+            "in R12."
+            % (st("O1"), " and >= ".join("%s at xi = %s" % f for f in o1_figures()),
+               candidates.NMC_COEFFICIENT_STATUS, qeihps.ABSOLUTE_QEI_FOR_NMC,
+               higgs.MINIMAL_SCALAR_SATISFIES_NEC)},
+
+        {"id": "R7", "applies_to": ["C"],
+         "title": "SELF-CONSISTENCY: a SOLUTION of G_ab = 8 pi <T_ab>",
+         "status": "O5 %s (hpscentre.O5_CLOSED = %s)" % (st("O5"), hpscentre.O5_CLOSED),
+         "rows": ["O5"], "see": [],
+         "owners": [("hpscentre", "M_NEGATIVE_FOUND_IN_HPS_SYSTEM"),
+                    ("hpscentre", "M_NEGATIVE_FOUND_INSIDE_DOMAIN"),
+                    ("hpscentre", "THROAT_M_NEGATIVE_READING"),
+                    ("hpscentre", "FIRST_NEGATIVE_M_THROAT_LP"), ("hpscentre", "CENTRE_M_LEADING"),
+                    ("hpscentre", "RECURSION_DIRECTION"), ("hpscentre", "LINEAR_CENTRE_THEOREM_SCOPE"),
+                    ("hpscentre", "NONLINEAR_CENTRE_NONFLATNESS"),
+                    ("hpscentre", "NONLINEAR_CENTRE_ASYMPTOTICS"),
+                    ("hpscentre", "HPS_INTEGRATED_THE_PRINTED_SYSTEM"), ("hpscentre", "DOMAIN_WORD"),
+                    ("qeihps", "KONTOU_REQUESTED_TEST_ON_HPS"), ("qeihps", "HPS_STATE_HADAMARD_ESTABLISHED"),
+                    ("throatmass", "FAMILIES_WITH_NEGATIVE_MASS")],
+         "hypotheses": ["G_ab = 8 pi <T_ab> with Lambda = alpha = beta = 0 (no "
+                        "free local curvature-squared terms; a beta-type term moves "
+                        "the throat) and HPS's single field, N = 1 (no large-N "
+                        "limit), sourced by the ANALYTIC APPROXIMATION to the "
+                        "Anderson-Hiscock-Samuel <T> (HPS eq. 4, not AHS's full "
+                        "analytic + numeric <T>_ren) for HPS's xi = 1/6 field -- "
+                        "named at DOCKET 67", "the conserved reading of HPS's system",
+                        hpscentre.DOMAIN_WORD + " (DOCKET 67: of 'derived or "
+                        "established', the 'established' half holds; the 'derived' "
+                        "half is contested by HPS p.3 and Arrechea App. B)",
+                        "the m < 0 solutions are carried by modes non-perturbative "
+                        "in hbar (omega_1 = 6 sqrt(10 pi)/sqrt(hbar), ripple "
+                        "wavelength 0.187 l_P, computed at DOCKET 67), which the "
+                        "order-reduction literature holds non-physical, naming HPS",
+                        "HPS's state established Hadamard: %s"
+                        % qeihps.HPS_STATE_HADAMARD_ESTABLISHED],
+         "statement":
+            "In HPS's CONSERVED system their own throat data have m < 0 in the "
+            "flare from %.4f l_P (%s, hpscentre (d), %s reading only).  A "
+            "regular centre has %s (%s, hpscentre (a), formal series; %s).  "
+            "Every non-flat analytic regular-centre solution of %s changes the "
+            "sign of m and is not asymptotically flat (%s, hpscentre (b), for "
+            "that system only).  Nonlinear non-flatness is %s; "
+            "their asymptotics are %s.  m < 0 FOUND IN HPS's SYSTEM = %s; FOUND "
+            "INSIDE THE ESTABLISHED DOMAIN = %s.  Which system HPS integrated: "
+            "%s.  Kontou's requested test: %s.  %d of the %d families one "
+            "literature pass returned REPORT m < 0 -- true of what was reported, "
+            "and not a census of print (2607.07583v1 p.1 cites semiclassical "
+            "solutions outside the six; DOCKET 67)."
+            % (hpscentre.FIRST_NEGATIVE_M_THROAT_LP, _claim_status(hpscentre.__doc__, "d"),
+               hpscentre.THROAT_M_NEGATIVE_READING,
+               hpscentre.CENTRE_M_LEADING, _claim_status(hpscentre.__doc__, "a"),
+               hpscentre.RECURSION_DIRECTION,
+               hpscentre.LINEAR_CENTRE_THEOREM_SCOPE, _claim_status(hpscentre.__doc__, "b"),
+               hpscentre.NONLINEAR_CENTRE_NONFLATNESS,
+               hpscentre.NONLINEAR_CENTRE_ASYMPTOTICS, hpscentre.M_NEGATIVE_FOUND_IN_HPS_SYSTEM,
+               hpscentre.M_NEGATIVE_FOUND_INSIDE_DOMAIN,
+               hpscentre.HPS_INTEGRATED_THE_PRINTED_SYSTEM, qeihps.KONTOU_REQUESTED_TEST_ON_HPS,
+               throatmass.FAMILIES_WITH_NEGATIVE_MASS, throatmass.SELF_CONSISTENT_FAMILIES_RETURNED)},
+
+        {"id": "R8", "applies_to": ["C"],
+         # CORRECTED (DOCKET 67): first titled "LINEARISED STABILITY (AMM)".
+         # The classical radial theorem is ordinary Israel-shell stability,
+         # outside AMM's class (N free quantum scalars solving (2.9)); AMM's
+         # criterion is the semiclassical half, NOT EVALUABLE here.
+         "title": "LINEARISED STABILITY -- classical radial (Israel shell); "
+                  "semiclassical (AMM's criterion)",
+         "status": "D26 %s; classical radial sector %s; semiclassical: %s"
+                   % (st("D26"), linstab.CLASSICAL_RADIAL_STATUS, linstab.SEMICLASSICAL_STATUS),
+         "rows": ["D26"], "see": ["O5"],
+         "owners": [("linstab", "SEMICLASSICAL_EVALUABLE_ON_DEMAND"),
+                    ("linstab", "CLASSICAL_RADIAL_STATUS"), ("linstab", "BETA2_CRIT_INFIMUM"),
+                    ("linstab", "DEVICE_IS_WALL_FORMULA_AT_U"), ("linstab", "D26_CLAIM"),
+                    ("linstab", "LITERATURE_SPLIT_IS_ONE_CONSTANT")],
+         "hypotheses": ["P1-P4 of linstab.py; P2's interior is Schwarzschild with "
+                        "M_in = -m down to r = 0, i.e. m(0) != 0: the classical "
+                        "THEOREM is about a K3 idealisation, not a regular-centre "
+                        "corridor, and is not claimed for concentric.py's Plummer "
+                        "potential",
+                        "the core's own stability is deferred with the "
+                        "identification phase (linstab.py section 2)"],
+         "statement": "%s.  inf beta^2_crit = %s." % (linstab.D26_CLAIM,
+                                                     linstab.BETA2_CRIT_INFIMUM)},
+
+        {"id": "R10", "applies_to": ["C", "T", "W"],
+         "title": "FORMATION: a route from ordinary initial data",
+         "status": "D24 %s; part 3 %s; nucleation %s; find-and-enlarge %s"
+                   % (st("D24"), formation.STATUS["D24 part 3: F1, F2, transverse bound (this family), D4"],
+                      formation.STATUS["D24 nucleation"], formation.STATUS["D24 find-and-enlarge"]),
+         "rows": ["D24", "M-S1A-P3"], "see": [],
+         "owners": [("formation", "F1_THEOREM"), ("formation", "F2_THEOREM"),
+                    ("formation", "TRANSVERSE_BOUND"), ("formation", "SEATED_COMPACT_SUPPORT"),
+                    ("formation", "NUCLEATION_PRICEABLE_FROM_SOURCE"), ("formation", "NUCLEATION_PRICED"),
+                    ("create", "EXOTIC_MATTER_HELPS_CREATION"), ("create", "GEROCH_NEEDS_MATTER_ASSUMPTION"),
+                    ("create", "BORDE_DYNAMICS"), ("create", "KINEMATICALLY_POSSIBLE"),
+                    ("create", "ROUTE_COST")],
+         "hypotheses": ["F1: " + "; ".join(formation.F1_THEOREM),
+                        "F2 adds: " + "; ".join(h for h in formation.F2_THEOREM
+                                                if h not in formation.F1_THEOREM),
+                        "(c) adds: " + "; ".join(h for h in formation.TRANSVERSE_BOUND
+                                                 if h not in formation.F1_THEOREM),
+                        "(e) rests on Borde gr-qc/9406053, READ at source, not on "
+                        "a module; Geroch 1967 is read through restatements (Borde; "
+                        "2505.02210 Thm III.2) and Tipler 1977 is NAMED-NOT-READ, "
+                        "used as Borde restates it (CORRECTED, DOCKET 67: first "
+                        "written 'papers READ (Geroch, Borde, Tipler)')"],
+         "statement":
+            "(a) F1: across any sphere, a passage from flat space to a "
+            "configuration on R^3 holding every areal radius fixed carries the "
+            "object's own enclosed negative mass -m_1(R) outward as Kodama "
+            "energy, by ANY route, at ANY speed.  (b) F2: every such passage "
+            "pays an extra outgoing radial null deficit -(W_1 - 1)/(2 pi R), "
+            "independent of duration.  (c) IN formation.py's FAMILY ONLY: the "
+            "TIME PART of rho + p_T integrates to <= -(omega^2/8 pi)/tau_p < 0 "
+            "at every duration; whether the full transverse integral is "
+            "negative is not shown by the owner.  (d) certify.py's seated metric "
+            "is not compactly supported (SEATED_COMPACT_SUPPORT = %s), so it "
+            "fails phase1's D2.  (e) Creating a throat -- a handle or a second "
+            "end -- is topology change: for time-oriented, causally compact "
+            "interpolating spacetimes with a smooth non-degenerate Lorentz "
+            "metric, Geroch and Borde force "
+            "causality violation kinematically, with no matter assumption "
+            "(GEROCH_NEEDS_MATTER_ASSUMPTION = %s, EXOTIC_MATTER_HELPS_CREATION "
+            "= %s -- exact as 'exotic matter cannot remove the forced CTC'; Borde "
+            "IX.B names large energy-condition violation as the way past the "
+            "dynamical obstruction, the CTC kept); dynamically '%s' -- READ.  At "
+            "source 'reasonable' is a restriction from which Theorem 3's (i) "
+            "null generic and (ii) half-integral null convergence conditions "
+            "follow; a static zero-redshift throat's source violates (ii) "
+            "(computed at DOCKET 67), and throats with a redshift function are "
+            "not computed.  An 'unreasonable' source removes Theorem 3 only; "
+            "Theorem 1's CTC remains.  M ruled a closed "
+            "causal curve and a Borde pathology disqualifying AT THE SEAT "
+            "(M-S1A-P3 (i), as M scoped it): no owner places either at the seat "
+            "(the creation classes' verdicts are the class table's), and a "
+            "singular throat is part of M's own mechanism (DOCKET 66).  "
+            "Topology change "
+            "is kinematically possible (KINEMATICALLY_POSSIBLE = %s).  "
+            "Nucleation (Pisana et al.) is READ, its price not computed "
+            "(NUCLEATION_PRICED = %s), priceability %s.  Find-and-enlarge: %s.  "
+            "NO SI FIGURE: certify's unit L is never fixed (formation.py "
+            "section 7).  The surface layer at R_s is not priced; every "
+            "formation figure lies on one side of it."
+            % (formation.SEATED_COMPACT_SUPPORT, create.GEROCH_NEEDS_MATTER_ASSUMPTION,
+               create.EXOTIC_MATTER_HELPS_CREATION, create.BORDE_DYNAMICS,
+               create.KINEMATICALLY_POSSIBLE, formation.NUCLEATION_PRICED,
+               formation.NUCLEATION_PRICEABLE_FROM_SOURCE, create.ROUTE_COST)},
+
+        {"id": "R11", "applies_to": ["Rec"],
+         "title": "FOR THE RECONSTRUCTION ROUTE: a destination stock, a receiver, a bit count",
+         "status": "D23 %s; D25 %s; S5 %s; D13 %s; O3 %s, O6 %s, O7 %s; D21 %s; S9 %s; "
+                   "M-S1A-P5 %s; O9 %s (DOCKET 68)"
+                   % (tuple(st(r) for r in ("D23", "D25", "S5", "D13", "O3", "O6",
+                                            "O7", "D21", "S9")) + (st_ruling("M-S1A-P5"),
+                                                                   st("O9"))),
+         # DOCKET 68 (ledger O9 and M-D68-*): placed here, beside the bit count
+         # and the seat's supply they bear on.  No class or object verdict
+         # moves: no DOCKET 68 owner value is a fact in force in this file.
+         # CORRECTED (DOCKET 68 residuals): the statement first printed only
+         # 'O-BITS REMOVED-IF under H-SETTLE W2 x H-FRAME F1' (the supports and
+         # their windows cut at ' {') and left out the second member route,
+         # clause 2b's D-CTC; both are now printed as asked.  The rows follow
+         # ledger.D68_RULED, so M-D68-11 joins and the charter's carried items
+         # (ledger.D68_CARRIED: not rulings, not board rows) do not.
+         "rows": ["D13", "D21", "D23", "D25", "S5", "S9", "O3", "O6", "O7",
+                  "M-S1A-P5", "O9"] + [r[0] for r in ledger.D68_RULED], "see": [],
+         "owners": [("transit", "TRAVERSAL_IS_REMOVED"), ("transit", "READING_CARRIES_NOTHING_ALONE"),
+                    ("stockgate", "GATE"), ("formation", "APERTURE_STATUS"),
+                    ("branelink", "S5_FIGURES_MEASURED"), ("branelink", "S5_OWED"),
+                    ("branelink", "O6_CLOSED"), ("branelink", "O7_CLOSED"),
+                    ("latticectc", "O3_CLOSED"), ("latticectc", "LATTICE_THEOREM"),
+                    ("warpfolder", "FLASH_IS_A_RECONSTRUCTION_MECHANISM"),
+                    ("warpfolder", "HEATING_TO_EW_SCALE_RESTORES_SYMMETRY"),
+                    ("transit", "IT_IS_A_MOVE_NOT_A_COPY"), ("transit", "CARRIES_SUBSTANCE"),
+                    ("transit", "CHANNEL_IS_CONSUMED_BY_USE"), ("transit", "BEATS_LIGHT")],
+         "hypotheses": ["M RULED: 'both. Quantum first, which should derive the "
+                        "classical' (M-S1A-P5): the specification is a quantum "
+                        "state; the fidelity is not yet fixed",
+                        "H_tele: for transit.py's results, the specification is "
+                        "carried by teleportation as an unknown quantum state",
+                        "named at DOCKET 67: transit.py's MOVE and CONSUMED are exact "
+                        "at fidelity F = 1 only (at F = 2/3 a measure-and-prepare "
+                        "channel spends no ebit; clone-then-teleport leaves a 5/6 "
+                        "copy), and every transit.py result assumes linear, "
+                        "chronology-respecting quantum mechanics -- a Deutsch CTC "
+                        "clones above 5/6 (1207.6062), generic nonlinear dynamics "
+                        "signals (2412.20854) -- while O3 (a braneworld CTC) is open"],
+         "statement":
+            "The channel needs a shared pair, which needs a common causal past "
+            "(from a midpoint source it spans D in D/(2c), no carrier moving more "
+            "than D/2); with every resource sent from one end, S5's case, it is "
+            "in place no earlier than D/c, so its advantage over light is zero "
+            "(CORRECTED, DOCKET 67: first written 'must be traversed at <= c to "
+            "exist'; vacuum entanglement between causally disconnected probes is "
+            "weak and needs LOCC purification, classical messages at <= c) (D23; "
+            "READING_CARRIES_NOTHING_ALONE = %s, TRAVERSAL_IS_REMOVED = %s): S5 "
+            "is an amortisation scheme with a minimum setup of %.4g years at "
+            "Proxima, and whether it amortises is OPEN.  D25: '%s' -- the "
+            "aperture is %s.  S5: the bit count is owed (%s); the four figures "
+            "once seated are not measured (S5_FIGURES_MEASURED = %s).  D13: a "
+            "brane-confined carrier travels at <= c in its induced metric "
+            "(D13 %s); a bulk carrier is O6/O7, and whether any "
+            "braneworld shortcut yields a CTC is O3 (the flat-bulk quotient is "
+            "settled by D21).  S9, the Drive folder's device, is a "
+            "reconstruction-route specification REFUSED on two counts (below).  "
+            "ON M's RULING M-S1A-P5 the specification is QUANTUM FIRST, the "
+            "classical one to be derived from it (M: 'should derive'; no "
+            "derivation exists yet).  IF it is carried by teleportation as an "
+            "unknown quantum state (H_tele), transit.py's results bind it -- "
+            "exactly at F = 1, in part below it: it is "
+            "a move, not a copy "
+            "(IT_IS_A_MOVE_NOT_A_COPY = %s), the channel is consumed by use "
+            "(CHANNEL_IS_CONSUMED_BY_USE = %s), it carries no substance -- the "
+            "matter must already be there (CARRIES_SUBSTANCE = %s, which D25's "
+            "stock gate prices) -- and it does not beat light (BEATS_LIGHT = %s).  "
+            "A KNOWN state can be re-prepared rather than teleported, and then "
+            "the channel is not consumed.  S9 is "
+            "refused: its pulsed store is short "
+            "by %.1f orders ON ITS OWN NUMBERS (the specification against "
+            "itself, not a gap against this board's demand; the stator, rotors "
+            "and muCF cell it also energises are unquantified, and bounded by "
+            "its printed dimensions the whole device is still >= 5.7 orders "
+            "short -- DOCKET 67), and its mechanism "
+            "is inverted (HEATING_TO_EW_SCALE_RESTORES_SYMMETRY = %s)."
+            % (transit.READING_CARRIES_NOTHING_ALONE, transit.TRAVERSAL_IS_REMOVED,
+               F["proxima_ly"], stockgate.GATE, formation.APERTURE_STATUS,
+               branelink.S5_OWED, branelink.S5_FIGURES_MEASURED, st("D13"),
+               transit.IT_IS_A_MOVE_NOT_A_COPY, transit.CHANNEL_IS_CONSUMED_BY_USE,
+               transit.CARRIES_SUBSTANCE, transit.BEATS_LIGHT,
+               F["S9_orders"],
+               warpfolder.HEATING_TO_EW_SCALE_RESTORES_SYMMETRY)
+            + "  DOCKET 68 (O9, %s; asked of combine.py on the board): outside "
+            "linear quantum mechanics M's hypotheses remove the two classical bits "
+            "only IF named premises hold, by two member routes -- O-BITS %s under "
+            "H-SETTLE W2 x H-FRAME F1; or O-BITS %s under clause 2b's D-CTC, with "
+            "O-LOOP reintroduced (corridor O-LOOP %s there) and no CTC shown -- so "
+            "no transit.py result moves here, each staying exact in the linear, "
+            "chronology-respecting quantum mechanics this requirement names; the "
+            "supply at the seat (O-SEAT, on M's rulings M-D68-5 and M-D68-7) is %s."
+            % (st("O9"), ledger.d68_asked("W2 x F1", "O-BITS"),
+               ledger.d68_asked("clause 2b's D-CTC (F2b)", "O-BITS"),
+               ledger.d68_asked("clause 2b's D-CTC (F2b)", "O-LOOP-C"),
+               ledger.d68_uniform("O-SEAT"))},
+
+        {"id": "R12", "applies_to": ["C"],
+         "title": "THE ENGINEERING SIDE for the corridor: a supply that survives its arithmetic",
+         "status": "%s (candidates.LIST_IS_EXHAUSTIVE = %s); %s; S1 %s, "
+                   "S2 %s, S3 %s; D11 %s"
+                   % (r12_status, candidates.LIST_IS_EXHAUSTIVE,
+                      ", ".join("%s %s" % (b, st(b)) for b in B_ROWS), st("S1"),
+                      st("S2"), st("S3"), st("D11")),
+         "rows": ["D11", "B1", "B2", "B3", "B4", "S1", "S2", "S3"], "see": ["S4"],
+         "owners": [("candidates", "LIST_IS_EXHAUSTIVE"), ("candidates", "REQUIREMENT_SCALES_AS"),
+                    ("overturn", "LAMBDA")],
+         "hypotheses": ["the exchange rate c^2/(G Lambda) is certify's geometry: "
+                        "Lambda = 2[ln(2 R_s/sqrt(b^2+a^2)) - 1] at R_s/b = %g, "
+                        "a/b = %g (phase1.lam), improvable only logarithmically; "
+                        "D11 is a corpus question, not a physics one"
+                        % (phase1.R_SHELL / phase1.B_RAY, phase1.A_CORE / phase1.B_RAY)],
+         "statement":
+            "%s  The corridor "
+            "demands %.6g kg per metre of contraction (ledger.EXCHANGE_RATE; G "
+            "does not fix the 6th figure at 1 sigma) "
+            "and %s over the Proxima span.  S1 is refused on KIND, S2 because "
+            "the Casimir sign inverts for real mirrors (near the wall, eps <~ "
+            "lambdabar_p, for a passive local sharp-boundary medium; the "
+            "spherical plasma prefactor is RECONSTRUCTED, its sign from "
+            "conservation, tolman.py -- DOCKET 67), S4 on the EFT cutoff "
+            "(placed in R6); S3 (squeezed vacuum) is %s: passes KIND and "
+            "DEADLINE, fails MAGNITUDE.  The mechanism list is not exhaustive, "
+            "so this is a %s.  DOCKET 62's 'the tree can PROVE the right side "
+            "is empty' is not used (divergence V5)."
+            % (b_rows_sentence(),
+               F["exchange"], [r for r in ledger.balance() if r[0] == "B2"][0][2],
+               st("S3"), r12_status)},
+
+        {"id": "RT", "applies_to": ["T"],
+         "title": "THE TRANSITION, with D4 as M restated it (M-D64-1)",
+         "status": "%s; the passage statement %s (formation.py, F1's hypotheses)"
+                   % (st("M-D64-1"), formation.STATUS["D24 part 3: F1, F2, transverse bound (this family), D4"]),
+         "rows": ["M-D64-1", "M-S1A-P4"], "see": ["D24"],
+         "owners": [("phase1", "D4_RESTATED_ON_M_RULING"), ("phase1", "D4_AS_FIRST_WRITTEN"),
+                    ("phase1", "CONDITIONS"), ("formation", "PHASE1_D4_POINTWISE_DURING_PASSAGE"),
+                    ("formation", "SEATED_COMPACT_SUPPORT")],
+         "hypotheses": ["for the passage statement: F1's hypotheses",
+                        "D4 (i) for static configurations is phase1 Theorem 2; its "
+                        "selftest checks ONE POINT of ONE configuration "
+                        "(no_momentum() = %s)" % sf["theorem2"],
+                        "D2 is NOT met by certify's seated metric; whether any "
+                        "m < 0 configuration is compactly supported is decided "
+                        "by NO OWNER"],
+         "statement":
+            "D4: (i) T^{0i} = 0 in every configuration g_s -- a component "
+            "condition, so read in static-adapted coordinates, where a static "
+            "metric gives it (the same static geometry in Galilean-moving "
+            "coordinates has T^{0x} = v T^{00} != 0; frame named at DOCKET 67); "
+            "(ii) zero NET "
+            "momentum across any passage.  Every U = 0 spherically symmetric "
+            "passage from flat space has T^{0r} != 0 at some instant wherever "
+            "m_1 != 0 (PHASE1_D4_POINTWISE_DURING_PASSAGE = %s), radially, with "
+            "zero net momentum: it meets D4 (ii) and is not propulsion.  In "
+            "phase1.is_transition the passage clause is accepted BY DEFINITION: "
+            "the passage_flux parameter is unread (%s).  A device that thrusts "
+            "fails D4 (ii) (is_transition(net_momentum=True) = %s); Alcubierre "
+            "fails D4 (i) (alcubierre_is_propulsion() = %s).  phase1 Theorem 4 "
+            "('never a lead') presupposes D2 and agents acting in a compact "
+            "region; formation.py's family meets neither, so no owner decides "
+            "whether that passage can lead -- and a lead is not required.  "
+            "Theorem 5 (all value in amortisation) is likewise not required by "
+            "M's scope.  D3 is run under three readings on M's ruling M-S1A-P4 "
+            "(the D3 COMPARISON)."
+            % (formation.PHASE1_D4_POINTWISE_DURING_PASSAGE, unread,
+               phase1.is_transition(False, True, True, True, True, net_momentum=True),
+               phase1.alcubierre_is_propulsion())},
+
+        {"id": "R5-S", "applies_to": ["S"],
+         "title": "SEAT, PARTS 1 AND 3 -- both endpoints at onset, the turn lands on the arrival",
+         "status": CHECKED + "; spec selftest %s" % ("OK" if sf["spec_selftest_ok"] else "FAILED"),
+         "rows": [], "see": [],
+         "owners": [("spec", "DOES")],
+         "hypotheses": ["the gate is a checked code path (turnseat.part2 returns "
+                        "BLOCKED without a declared arrival; spec's selftest), "
+                        "not a proved theorem"],
+         "statement":
+            "Both endpoints are given at onset: turnseat.py's part 2 does not "
+            "initialise without an arrival, and spec.py's selftest checks that "
+            "gate.  The range is the lens's focal length (SR1)."},
+
+        {"id": "SR1", "applies_to": ["S"],
+         "title": "SEAT, PART 2 -- a conjugate point at a chosen range, from ordinary matter",
+         "status": MEASURED + " (spec.focal_length; spec selftest %s)"
+                   % ("OK" if sf["spec_selftest_ok"] else "FAILED"),
+         "rows": [], "see": [],
+         "owners": [("spec", "DOES"), ("spec", "LENSES")],
+         "hypotheses": ["weak field", "positive lens mass M",
+                        "source outside the focal length (composite.py: a real image "
+                        "forms at that b) -- necessary, not sufficient within a finite "
+                        "run: the image lies f D_s/(D_s - f) past the lens, 180 at "
+                        "D_s = 12, f = 11.25, beyond composite's run (DOCKET 67)",
+                        "impact parameter b >= the lens radius, so the congruence "
+                        "passes through vacuum -- a named hypothesis, not computed: "
+                        "the radii are photospheric, 1-bar or zero-tide surfaces with "
+                        "atmosphere above them, and for light a grazing ray's plasma "
+                        "shift is frequency-dependent and not computed (DOCKET 67)",
+                        "a NULL congruence; a massive payload's focus is "
+                        "velocity-dependent and computed by NO OWNER; read as a LIGHT "
+                        "focus only in geometric optics (DOCKET 67: the 10 km "
+                        "asteroid's on-axis wave gain at 500 nm is 1.00013, no light "
+                        "focus; the Sun's is 2.3e11)"],
+         "statement":
+            "spec.DOES: '%s'.  Each null geodesic passing a positive lens mass "
+            "M at impact parameter b >= the lens radius has a conjugate point at "
+            "f(b) = b^2 c^2/(4 G M) (the source-at-infinity focus), through "
+            "vacuum, where every energy condition holds trivially (CORRECTED, "
+            "DOCKET 67: first 'NEC, WEC and DEC satisfied everywhere' -- the "
+            "lens's own matter is checked by no owner cited; spec's check, "
+            "charge.em_is_ordinary(), is about classical EM stress-energy).  f "
+            "grows with b "
+            "(spherical aberration): at a given B only the rays of ONE impact "
+            "parameter reconverge on the axis -- a focal line, not a point focus "
+            "of the whole congruence -- and for a SPHERICAL lens f(R_lens) is its "
+            "MINIMUM range, so a declared range must be >= f(R_lens) (an oblate "
+            "lens grazed in its polar plane focuses shorter: Jupiter at ~5299 AU, "
+            "monopole order, against its equatorial figure below; the Sun is "
+            "unaffected to ~1e-5).  The Sun at b = "
+            "R_sun gives f = %.5e m = %.2f AU; spec's selftest pins f to its "
+            "own figure at 1e-3, and spec cites the published value, ~550 AU "
+            "(%.2f%% apart, computed here from spec's figure and pinned by no "
+            "selftest).  %s.  Weyl focusing is sign-blind at first order in M "
+            "(composite.py; computed 55.17 against 56.50 at the two signs at "
+            "composite.survey's default n = 900, 55.21 against 56.56 converged at "
+            "n = 3600, so not exactly -- DOCKET 67; the converged pair added in "
+            "the DOCKET 67 follow-ups, first given at n = 900 alone); Ricci "
+            "focusing needs T_kk > 0, which ordinary matter has."
+            % ("; ".join(spec.DOES), F["f_sun_m"], F["f_sun_AU"],
+               100.0 * abs(F["f_sun_AU"] / F["published_sun_AU"] - 1.0),
+               "; ".join("%s %.5g AU" % (n, au) for n, _f, au in F["lenses"]
+                         if n != "10 km asteroid")
+               + "; 10 km asteroid %.1f ly (a null-geodesic focus only: no light "
+               "focus in wave optics)" % F["f_ast_ly"])},
+
+        {"id": "SR2", "applies_to": ["S"],
+         # CORRECTED (DOCKET 67): first titled "a device, not a black hole";
+         # what the statement requires (and trapping gives) is "not inside its
+         # own Schwarzschild radius" -- see H_collapse.
+         "title": "SEAT -- a device, not inside its own Schwarzschild radius",
+         "status": sr2_status + (" (uniform ball; exact algebra, sympy, at T_kk = u "
+                                 "on the radius; over H_ball as written, which names "
+                                 "u and no pressure, a member with T_kk = 2u on a "
+                                 "diameter gives %.4f -- DOCKET 67)"
+                                 % sob["member_diameter"]),
+         "rows": [], "see": [],
+         "owners": [("seatindex", "T_COEFF")],
+         "hypotheses": ["H_ball", "H_collapse"],
+         "statement":
+            "The seating region must not lie inside its own Schwarzschild "
+            "radius.  For a uniform BALL of radius l, Sturm-certified seating "
+            "along the radius needs T_kk >= pi c^4/(4 G l^2) "
+            "(seatindex.T_COEFF) -- a SUFFICIENT condition, on T_kk, the "
+            "ray-projected stress, not on u -- and avoiding collapse needs "
+            "u < 3 c^4/(8 pi G l^2) (spec.collapse_bound), so at T_kk = u "
+            "u_seat/u_collapse "
+            "= %s = %.10g at l = %s m (constant to %.1e).  DOCKET 67 "
+            "(sturm-comparison-theorem, NARROWED; seated on M's ruling of "
+            "2026-10-02): on a chord s the ratio is (2 pi^2/3)/((T_kk/u)(s/l)^2), "
+            "and H_ball names u, not T_kk, and restricts neither pressure nor "
+            "chord.  Computed: pressureless (T_kk = u) %.4f on the radius and "
+            "%.4f on the diameter; radiation on the diameter %.4f; a member "
+            "with T_kk = 2u on the diameter (a stiff fluid, w = 1, or a "
+            "magnetised ball probed across B, both within the DEC) %.4f.  So "
+            "over H_ball as written the reductio fails for a perfect fluid on a "
+            "diameter with w >= pi^2/6 - 1 = %.6f, and fact SR2 (ball => bh) is "
+            "%s.  "
+            "On the radius the reductio holds for every perfect fluid within "
+            "the DEC (it would need w > %.2f).  What would keep S-2 EMPTY is a "
+            "hypothesis H_ball lacks: T_kk = u along the seating ray, or "
+            "(T_kk/u)(s/l)^2 < 2 pi^2/3 -- not adopted here, since it would "
+            "narrow the class.  Cumulative "
+            "weak-field lensing meets the requirement: the Sun is not inside its "
+            "Schwarzschild radius.  A non-ball region (a tube) is not covered: "
+            "see escape H_ball."
+            % (sr2[2], F["soc"][0], ", ".join("%g" % l for l in F["soc_scales"]),
+               F["soc_const"], sob["dust_radius"], sob["dust_diameter"],
+               sob["radiation_diameter"], sob["member_diameter"],
+               sob["w_threshold_diameter"],
+               ("refused: S-2 is OPEN -- no witness is built, so not NONEMPTY"
+                if sr2_status != THEOREM else "certified"),
+               sob["w_threshold_radius"])},
+
+        {"id": "SR3", "applies_to": ["S"],
+         "title": "M's SCOPE CLAUSE -- no lead required, traversal under the same physics",
+         "status": "D5 %s (its owner a paper, Olum PRL 81 3567: unaskable by any "
+                   "instrument here); the causal-structure step %s; the delay figure "
+                   "%s (composite.survey); M-S1A-P1 %s"
+                   % (st("D5"), CITED, MEASURED, st_ruling("M-S1A-P1")),
+         "rows": ["D5", "M-S1A-P1"], "see": [],
+         "owners": [("spec", "DOES_NOT")],
+         "hypotheses": ["'conjugate point => not achronal' is a standard "
+                        "causal-structure result spec.DOES states and no owner "
+                        "re-proves (CITED); it makes B timelike-reachable only for "
+                        "B strictly past the focus",
+                        "D5's owner is a paper (Olum PRL 81 3567); ledger.unaskable() "
+                        "lists it: %s" % ("D5" in ledger.unaskable())],
+         "statement":
+            "No lead is required (M: 'DROP THE LEAD').  D5 (%s, owner a paper, "
+            "no symmetry assumed) puts NEC violation ON a superluminal path in "
+            "Olum's sense -- Condition 1, the fastest null geodesic, with the "
+            "generic condition -- and a lead against a reference geometry need "
+            "not be one: around a negative-mass ball the ray at b = 2 leads flat "
+            "space with rho = 0 on its path, the negativity off it (computed at "
+            "DOCKET 67; linearised, prescribed ball).  (CORRECTED, DOCKET 67: "
+            "first written 'None is available from ordinary matter: a lead needs "
+            "negative energy (D5)'.)  Negative energy, wherever a lead takes it "
+            "from, is C's open question (K2, K3, S-3) -- "
+            "D5 does not say negative energy is unavailable.  The traversal "
+            "half of M's scope is met by any subluminal trajectory, lens or "
+            "not; the seat's own content is SR1.  A positive-mass lens delays "
+            "its signal (composite.survey(+2e-3): delay %+.4e, seats = %s); the "
+            "same mass negative seats and arrives early (early = %s), which "
+            "needs negative mass and so is C's question.  M ruled S is not "
+            "required to contract ('I would imagine the seat is an expansion', "
+            "M-S1A-P1): no contraction requirement binds S, and a positive lens "
+            "lengthens proper distance."
+            % (st("D5"), sf["composite_plus"]["delay"], sf["composite_plus"]["seats"],
+               sf["composite_minus"]["early"])},
+
+        {"id": "SR4", "applies_to": ["S"],
+         "title": "THE MATTER EXISTS AT BOTH ENDS under the same physics",
+         "status": "D18 %s; D19 %s; S7 %s; D20 %s" % (st("D18"), st("D19"),
+                                                     st("S7"), st("D20")),
+         "rows": ["D18", "D19", "D20", "S7"], "see": [],
+         "owners": [("excite", "ELECTRON_MASS_IS_A_RULER"), ("excite", "FLAT_DIRECTIONS_ARE_INERT"),
+                    ("excite", "ROLE2_REBINDS")],
+         "hypotheses": ["D18: '%s'" % excite.ELECTRON_MASS_IS_A_RULER,
+                        "residual channels O(eps) through m_p/m_e (S7 prices them)"],
+         "statement":
+            "S-1's seat displaces no field: the lens is ordinary positive mass "
+            "(spec.DOES), so the payload is ordinary matter at both ends.  For "
+            "an endpoint displaced along the Higgs, the board already has the "
+            "existence half: m_e -> m_e(1 + eps) with alpha fixed is an exact "
+            "dilation, the object is its own ruler (D18: %s); flat directions "
+            "are inert (D19: FLAT_DIRECTIONS_ARE_INERT = %s); rebinding never "
+            "happens, only an O(eps) shift (S7: ROLE2_REBINDS = %s); holding "
+            "eps costs what D20 measures."
+            % (excite.ELECTRON_MASS_IS_A_RULER, excite.FLAT_DIRECTIONS_ARE_INERT,
+               excite.ROLE2_REBINDS)},
+
+        {"id": "SR5", "applies_to": ["S"],
+         "title": "MASS FORMATION AT THE SEAT (DOCKET 65) -- M's mechanism, tested in M's terms",
+         # S10 is printed LAST, with its per-reading scope: the requirement
+         # table cuts a status at 84 characters, and a cut there must never
+         # leave 'S10 REFUSED' standing without what is not refused.
+         "status": "D27 %s; D28 %s; D29 %s; S11 %s, S12 %s, S13 %s (its "
+                   "remainders, %s); M-D65-1 %s; M-D65-2 %s; M-D65-3 %s; M-D65-4 %s; "
+                   "M-D65-5 %s; S10 %s (the mechanism as stated, as a supply, "
+                   "massform.MECHANISM_VERDICT%s)"
+                   % (tuple(st(r) for r in ("D27", "D28", "D29", "S11", "S12", "S13"))
+                      + (priced65(), st_ruling("M-D65-1"), st_ruling("M-D65-2"),
+                         st_ruling("M-D65-3"), st_ruling("M-D65-4"), st_ruling("M-D65-5"),
+                         st("S10"), (": " + s10_scope()) if s10_scope() else "")),
+         "rows": list(SR5_ROWS),
+         "see": ["D15", "D16", "D20", "D23", "S5"],
+         "owners": [("massform", "MECHANISM_VERDICT"), ("massform", "CONSIDERATION_VERDICT"),
+                    ("massform", "CONSIDERATION_HOLDS"),
+                    ("massform", "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY"),
+                    ("massform", "ANOMALY_ROUTE_PRICED"), ("massform", "PAIR_ROUTE_PRICED"),
+                    ("massform", "HELD_SEAT_ROUTE_PRICED"),
+                    ("massform", "FINITE_HIGGS_SHARE_STATUS"),
+                    ("massform", "RECONSTRUCTION_SURVIVES"), ("massform", "STABLE_RANGE"),
+                    ("massform", "COLLIDER_RATE_STATUS")],
+         "hypotheses": ["H-LINEAR: C2 measures the Higgs share as the first-order "
+                        "response of the nucleon mass, the QCD scale held fixed, so "
+                        "it answers %s (massform.C2_SCOPE)" % massform.C2_SCOPE,
+                        "H-PRESENT: %s (massform.H_PRESENT_STATUS) -- an element "
+                        "present at the seat carries its measured mass"
+                        % massform.H_PRESENT_STATUS,
+                        "H-UNSOURCED-SEAT: %s (massform.H_UNSOURCED_SEAT_STATUS)"
+                        % massform.H_UNSOURCED_SEAT_STATUS,
+                        "excite's section-3 stability model (a static source of "
+                        "fixed number density whose rest mass is proportional to "
+                        "phi): a static hold is stable only on %s "
+                        "(massform.STABLE_RANGE, from excite.stability_edge) -- a "
+                        "TREE-LEVEL edge on the SM self-coupling, so it rests on "
+                        "H-TREE-V too: kappa_lambda = 1, where the data allow "
+                        "(-1.2, 7.5); at kappa = 2 the edge moves 0.4226 -> 0.2743, "
+                        "and the one-loop V'' is log-singular at the tree spinodal "
+                        "(DOCKET 67)"
+                        % massform.STABLE_RANGE,
+                        "P-UNIFORM: %s (massform.P_UNIFORM_STATUS) -- the vev takes "
+                        "one value wherever nothing sources it"
+                        % massform.P_UNIFORM_STATUS,
+                        "H-RELEASE: %s (massform.H_RELEASE_STATUS) -- the prepared "
+                        "source removed at release without doing work; what becomes "
+                        "of its own rest energy is not computed.  S13's price rests "
+                        "on it" % massform.H_RELEASE_STATUS,
+                        "H-TREE: %s (massform.H_TREE_STATUS) -- carried by D27 and "
+                        "S10 (prior mass, C5; C1's reason on TEMPLATE) and by S13 "
+                        "(the electrons' exact regain)" % massform.H_TREE_STATUS,
+                        "H-TREE-V: %s (massform.H_TREE_V_STATUS) -- C4's THEOREM "
+                        "rests on it, and so D29 (the field has no energy to give "
+                        "about v)" % massform.H_TREE_V_STATUS,
+                        "H-BRIDGE: %s (massform.H_BRIDGE_STATUS) -- '%s' "
+                        "(massform.H_BRIDGE): C4's decay case rests on it, and "
+                        "through C4 D29's THEOREM grade (its decay conjunct "
+                        "only) and S12's 'priced, not refused'; on its failure "
+                        "the board's own link turns S12's PAIR_ROUTE_PRICED "
+                        "False, the mechanism's verdict does not move (CREATION "
+                        "keeps its ground in C3) and no class verdict moves "
+                        "(DOCKET 67, key 1809.06923, on M's ruling of "
+                        "2026-10-02)"
+                        % (massform.H_BRIDGE_STATUS, massform.H_BRIDGE),
+                        "D20'S MODEL: %s (massform.D20_MODEL_STATUS) -- D27's 'a "
+                        "source of positive rest energy can only LOWER |phi|' is a "
+                        "claim within it, and S10's and S13's movers name a source "
+                        "outside it" % massform.D20_MODEL_STATUS,
+                        "%s: named in massform's section 6 and carried by the rows "
+                        "that rest on them -- %s" % (", ".join(h for h, _r in HYP_BY_ROW65),
+                        "; ".join("%s by %s" % (h, " and ".join(r_))
+                                  for h, r_ in HYP_BY_ROW65))],
+         "statement":
+            "DOCKET 65 (massform.py) tested M's mechanism ('%s') and M's "
+            "consideration in M's own terms, reading by reading.  THE MECHANISM "
+            "AS STATED, as a supply of payload mass, is %s (S10: %s).  That is "
+            "NOT a refusal of every way atomic mass can appear at a seat: its "
+            "remainders are %s and OPEN, not refused -- the anomaly route "
+            "(S11, ANOMALY_ROUTE_PRICED = %s; its two-particle collider rate %s "
+            "(massform.COLLIDER_RATE_STATUS), and it must emit N_n extra "
+            "leptons, D28), the pair route (S12, "
+            "PAIR_ROUTE_PRICED = %s; its floor is D28, on H-BL and H-AME) and the "
+            "held-seat release route (S13, HELD_SEAT_ROUTE_PRICED = %s, on "
+            "H-RELEASE: %s), the reading closest to M's "
+            "mechanism, which needs the seat prepared in advance (a prior "
+            "arrival, D23) and forms no baryons.  M's consideration is %s (D27, "
+            "CONSIDERATION_HOLDS = %s).  The triggered field %s (D29, "
+            "HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = %s; H-REAL is claimed there, "
+            "not computed).  The finite Higgs share is %s "
+            "(massform.FINITE_HIGGS_SHARE_STATUS): an OPEN item inside S10's "
+            "note, not a row, on M's ruling M-D65-2 (on the board: %s; M: '%s'), "
+            "and no DOCKET 65 verdict rests on it.  Reconstruction "
+            "from destination stock %s (RECONSTRUCTION_SURVIVES = %s; S5's "
+            "note).  No requirement on C is applied here, and S-1's witness is "
+            "untouched: its lens forms no mass.  M ruled Quantum Energy "
+            "Teleportation FOLDED INTO DOCKET 66 (M-D65-1, on the board: %s); it "
+            "is not tested here.  M ruled DOCKET 67 OPENED (M-D65-3, on the "
+            "board: %s): the audit of the external results the board's refusals "
+            "rest on, after DOCKET 65 and before DOCKET 66; CORRECTED (DOCKET 67 "
+            "closed, docket67-raw/CLOSE.md): it HAS RUN, and which of the facts "
+            "in force here it moved is not computed in this file -- first said "
+            "'NOT YET RUN, after DOCKET 65 and before DOCKET 66, so nothing here "
+            "is yet graded by it'; what it audits lies BENEATH what "
+            "every refusal here rests on -- the %d facts in force, %s -- namely "
+            "the outside results each declares: %s; and, %s.  M ruled the paper's "
+            "caveat (b) QUALIFIED on "
+            "P-UNIFORM (M-D65-4, on the board: %s; M: '%s'): a paper edit on M's "
+            "ruling under M's rule for the paper (\"%s\", verbatim from the "
+            "session, witnessed by the lead); the paper's other marked edit on "
+            "M's ruling is DOCKET 63's (paper/CLAIMS.md:%s) -- so it stood when "
+            "M ruled.  CORRECTED (DOCKET 67 follow-ups): the paper has since "
+            "carried DOCKET 67's markers, '%s ...)', which name M's ruling "
+            "by M's words and which the census below READs (CORRECTED, DOCKET "
+            "67 close: M's words the marker heads carry, READ from the paper: "
+            "%s); no verdict here "
+            "moves on it.  M ruled the ruling id into the paper's clause "
+            "(M-D65-5, on the board: %s; M: '%s'); on the board, %s."
+            % (massform.M_MECHANISM, massform.MECHANISM_VERDICT[0],
+               massform.mechanism_label(), priced65(), massform.ANOMALY_ROUTE_PRICED,
+               massform.COLLIDER_RATE_STATUS,
+               massform.PAIR_ROUTE_PRICED, massform.HELD_SEAT_ROUTE_PRICED,
+               massform.H_RELEASE_STATUS,
+               massform.CONSIDERATION_VERDICT, massform.CONSIDERATION_HOLDS,
+               # Built from the owner's flag, so a flip moves the sentence
+               # (and ledger.theorem_owner_disagreements() turns red).
+               ("HAS energy to give about v, AGAINST D29's THEOREM"
+                if massform.HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY
+                else "has no energy to give about v"),
+               massform.HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY,
+               massform.FINITE_HIGGS_SHARE_STATUS, ruled("M-D65-2"),
+               ledger.M_D65_2_ANSWER,
+               # Built from the owner's flag, so a flip moves the sentence.
+               ("survives" if massform.RECONSTRUCTION_SURVIVES
+                else "DOES NOT survive, AGAINST S5's note"),
+               massform.RECONSTRUCTION_SURVIVES, ruled("M-D65-1"),
+               ruled("M-D65-3"), len(facts_in_force_names()),
+               d67_clauses()[0], d67_clauses()[1], d67_clauses()[2],
+               ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
+               ledger.paper_d63_marker()[0], ledger.PAPER_D67_MARKER_HEAD,
+               ledger.paper_d67_words_clause(),
+               ruled("M-D65-5"), ledger.M_D65_5_ANSWER, ledger.paper_markers_clause())},
+    ]
+
+
+# ============================================ 6. THE CLASSES AND FACTS
+
+FEATURE_TEXT = {
+    # C space
+    "sph": "4D spherical symmetry",
+    "axial": "infinite static cylindrical symmetry (axial.HYPOTHESES)",
+    "negm": "m < 0 at every point of K",
+    "reg": "regular centre",
+    "m0": "negative energy carried by H_M0 matter",
+    "model": "uniform core held static (H_model, H_static)",
+    "sgt1": "S(b; mu, alpha) > 1",
+    # S space
+    "wl": "cumulative weak-field lensing of positive mass through vacuum",
+    "ball": "Sturm seating by uniform u over a ball of radius l",
+    # W space
+    "created": "brought into existence (topology change)",
+    "cc": "causally compact",
+}
+
+
+def classes(F):
+    """The partition.  `lits` define the class (and generate its printed
+    definition); `hyps` is what the class STATES -- the selftest checks it
+    against what the z3 proof used.  S-2 states H_collapse only while fact SR2
+    is certified (sr2_certified, read from the figures F): since DOCKET 67 its
+    OPEN verdict uses no fact, so H_ball alone defines it."""
+    sr2_in = sr2_certified(F, sr2_identity())
+    return [
+        {"id": "K0", "object": "C", "space": "C", "lits": {"sph": True, "negm": False},
+         "name": "not contracted at every point of K",
+         "hyps": ["H_sph", "H_R1"],
+         "note": "two kinds of member.  (i) m >= 0 throughout K: contraction "
+                 "here is gauge only -- witnesses as spacetimes: Milne, open FRW "
+                 "dust, Schwarzschild under Painleve-Gullstrand-E slicing or "
+                 "bent between anchored mouths; and the charged body with "
+                 "rho >= 0 and a regular centre (R3), which has m >= 0 "
+                 "everywhere.  (ii) m < 0 on a proper sub-region K' of K only: "
+                 "invariantly contracted on K' (D2), and by H_R1 K' is priced as "
+                 "its own C, landing in K1-K6.  K0's EMPTY verdict is about C "
+                 "over K, and says nothing against K'"},
+        {"id": "K1", "object": "C", "space": "C",
+         "lits": {"sph": True, "negm": True, "reg": True, "m0": True, "model": True,
+                  "sgt1": True},
+         "name": "the priced corridor",
+         "hyps": ["H_sph", "H_reg", "H_EFE", "H_M0", "H_model", "H_static",
+                  "H_S", "H_flat", "H_aim"],
+         "note": "achievable.py's family satisfies its literals at every b > "
+                 "b_x, but is static and spherically symmetric and so fails "
+                 "aimability (D14, M-S1A-P2).  Neither route uses D2: the class "
+                 "is defined by m < 0, and D2 is what makes m < 0 the definition "
+                 "of contracting (K0, and the entailment)"},
+        {"id": "K6a", "object": "C", "space": "C",
+         "lits": {"sph": True, "negm": True, "reg": True, "m0": True, "model": False},
+         "name": "inside H_M0, profile not a uniform static core",
+         "hyps": ["H_sph", "H_reg", "H_M0"],
+         "note": "certify.py's seated metric (Plummer core) satisfies its "
+                 "literals, but is static and spherically symmetric and so is "
+                 "not an instance of C under M-S1A-P2.  Non-static members stay "
+                 "OPEN.  A mean-value route to K1 exists for the route without "
+                 "aimability and is NOT SEATED in any owner"},
+        {"id": "K6b", "object": "C", "space": "C",
+         "lits": {"sph": True, "negm": True, "reg": True, "m0": True, "model": True,
+                  "sgt1": False},
+         "name": "inside H_M0, uniform static core, S <= 1",
+         "hyps": ["H_sph", "H_reg", "H_M0", "H_model", "H_static", "H_aim"],
+         "note": "D7 does not refuse S <= 1; static and spherically symmetric, "
+                 "so it fails aimability (D14, M-S1A-P2)"},
+        {"id": "K2", "object": "C", "space": "C",
+         "lits": {"sph": True, "negm": True, "reg": True, "m0": False},
+         "name": "matter or state outside H_M0",
+         "hyps": ["H_sph", "H_reg"],
+         "note": "NMC scalar (O1 = S4, one refusal), interacting fields, "
+                 "massive fields, classical sources, non-Hadamard states; O5's "
+                 "HPS field (xi = 1/6) is K2's open instance.  A BOUNDARY is not "
+                 "a K2 feature: it breaks H_flat (the flat, boundary-free QEI), "
+                 "whose escape reopens K1"},
+        {"id": "K3", "object": "C", "space": "C",
+         "lits": {"sph": True, "negm": True, "reg": False},
+         "name": "non-regular centre",
+         "hyps": ["H_sph"],
+         "note": "a negative central (bare) mass, including the point charge "
+                 "and R8's P2 shell (M_in = -m); m < 0 need not mean rho < 0, "
+                 "so R4's density-based refusal does not apply"},
+        {"id": "K4", "object": "C", "space": "C", "lits": {"sph": False, "axial": True},
+         "name": "infinite axial throats",
+         "hyps": ["H_axial"],
+         "note": "u < 0 somewhere is forced (O4) on H_axial's class, whose "
+                 "asymptotic flatness includes W' -> 1 (no deficit angle at "
+                 "infinity); a conical, string-asymptotic cylinder lies outside "
+                 "it, and there a contracting profile with u >= 0 everywhere "
+                 "exists (computed at DOCKET 67) -- such an object lands in K5.  "
+                 "No persistence figure "
+                 "exists on this object.  The infinite idealisation of M's "
+                 "cylinder; D14's scope flag leaves a one-bit parameter, and "
+                 "whether that suffices for aiming is decided by no owner.  "
+                 "OPEN here means unpriced, not escaped"},
+        {"id": "K5", "object": "C", "space": "C", "lits": {"sph": False, "axial": False},
+         "name": "no symmetry (incl. finite axial corridors)",
+         "hyps": [],
+         "note": "R1 is not supplied here: no owner writes an invariant "
+                 "criterion for a general spacetime.  A finite cylinder (M's "
+                 "illustrative shape) lies here, as does any device carrying an "
+                 "aiming subsystem.  OPEN here means UNPRICED, not escaped"},
+        {"id": "S-1", "object": "S", "space": "S", "lits": {"wl": True},
+         "name": "the seat by cumulative lensing of ordinary matter",
+         "hyps": ["H_seat"],
+         "note": "witness: the Sun.  The verdict's evidential status is MEASURED "
+                 "(the focal formula) + CITED (the causal step) + CHECKED (the "
+                 "endpoint gate), not THEOREM"},
+        {"id": "S-2", "object": "S", "space": "S", "lits": {"wl": False, "ball": True},
+         "name": "Sturm-universal seating over a uniform ball",
+         "hyps": ["H_ball", "H_collapse"] if sr2_in else ["H_ball"],
+         "note": "spec.py's own withdrawal.  " + (
+             "Fact SR2 certified over the class as computed" if sr2_in else
+             "OPEN over H_ball as written (DOCKET 67, "
+             "sturm-comparison-theorem; M's ruling 2026-10-02): H_ball names u "
+             "and no pressure, and for T_kk > u along a diameter the Sturm "
+             "ratio falls to 1 or below (requirement SR2), so fact SR2 is "
+             "refused; no witness is built")},
+        {"id": "S-3", "object": "S", "space": "S", "lits": {"wl": False, "ball": False},
+         "name": "any other seat",
+         "hyps": [],
+         "note": "tubes and non-uniform sustained fields; strong-field "
+                 "ordinary focusing; a seat WITH a lead (needs negative mass: "
+                 "C's question), where the Kerr-Newman ergoregion is spec.HALTED's "
+                 "one untested door.  DOCKET 65 HAS RUN (SR5): M's mass-formation "
+                 "mechanism as stated, as a supply, is %s (S10).  Its held-seat "
+                 "release route (S13, OPEN, HELD_SEAT_ROUTE_PRICED = %s) -- a seat "
+                 "prepared in advance with a source holding |phi| below v, released "
+                 "by the arriving trigger on H-RELEASE (%s: the source removed "
+                 "without doing work; what becomes of its own rest energy is not "
+                 "computed), a prior arrival first (D23) -- forms no baryons: the "
+                 "elements must already be at the seat as templates, and only their "
+                 "Higgs-given mass is restored (C3).  It is a %s S-3 candidate, "
+                 "stable only on %s within excite's section-3 model (tree level, "
+                 "SM self-coupling: H-TREE-V); the candidacy "
+                 "rests %s.  Seating at a "
+                 "topological defect (DOCKET 66, M-S1A-P3 (ii), with QET folded in "
+                 "by M-D65-1) is S-3's: first said 'until tested'; DOCKET 66 "
+                 "HAS RUN since (wave 1, seated: ledger section 8) and adds no "
+                 "literal to S"
+                 % (massform.mechanism_label(), massform.HELD_SEAT_ROUTE_PRICED,
+                    massform.H_RELEASE_STATUS,
+                    priced65(massform.HELD_SEAT_ROUTE_PRICED),
+                    massform.STABLE_RANGE, S13_CANDIDACY)},
+        {"id": "W-create-cc", "object": "W", "space": "W",
+         "lits": {"created": True, "cc": True},
+         "name": "throat created, causally compact interpolation",
+         "hyps": ["H_cc"], "note": "create.py calls manufacture 'closed'; the "
+                                  "CTC Geroch forces lies in the interpolating "
+                                  "region, and M-S1A-P3 disqualifies a CTC AT "
+                                  "THE SEAT only (V7).  'created' here is a "
+                                  "handle in open space, inside a causally "
+                                  "compact region of an externally simple "
+                                  "spacetime; a new asymptotic region is not "
+                                  "compactly supported, and Theorem 1 as stated "
+                                  "does not reach it (DOCKET 67)"},
+        {"id": "W-create-ncc", "object": "W", "space": "W",
+         "lits": {"created": True, "cc": False},
+         "name": "throat created, causal compactness dropped",
+         "hyps": [], "note": "Borde's escapes (READ): under H_closed, a pathology "
+                             "(Tipler's route) or a departure from Lorentzian GR; "
+                             "in the open case nothing is shown.  M-S1A-P3 "
+                             "disqualifies a pathology AT THE SEAT only, and a "
+                             "singular throat is M's own mechanism"},
+        {"id": "W-enlarge", "object": "W", "space": "W", "lits": {"created": False},
+         "name": "an existing throat found and enlarged",
+         "hyps": [], "note": "a metric change, for an enlargement done as "
+                             "non-degenerate metrics on a FIXED spatial manifold "
+                             "with the throat radius kept above 0 -- a product "
+                             "interpolation, on which the theorems conclude only "
+                             "what is already true; neither condition is a "
+                             "literal here (named at DOCKET 67).  Premise "
+                             "unpriced at this board's 1193 km target: none has "
+                             "ever been identified, and the published null "
+                             "searches that bound Ellis throats of 10 pc to 10 "
+                             "kpc reach no window covering it (11.4 orders "
+                             "below the SQLS window)"},
+        {"id": "Rec", "object": "Rec", "space": "Rec", "lits": {},
+         "name": "the reconstruction route", "hyps": [],
+         "note": "R11 open in every part"},
+    ]
+
+
+#: D14's own words for what it costs the priced object, asked from the row.
+D14_PRICED_OBJECT = "the whole demand side prices an object that cannot have a destination"
+#: achievable.py's words that its model is static over the hold.
+MODEL_STATIC_TEXT = "corridor is static over the interval"
+
+
+def _owner_words(text, pattern, owner):
+    """Words READ out of an owner's own docstring or constant by regex, never
+    retyped; raises if the owner no longer says them."""
+    m = re.search(pattern, " ".join(str(text).split()))
+    if not m:
+        raise ValueError("%s no longer records '%s'" % (owner, pattern))
+    return m.groups() if m.re.groups > 1 else m.group(1)
+
+
+def facts_outside():
+    """{fact name: (rests, outside)} -- the outside result each fact in force
+    declares, ASKED of its owner module's own docstring and constants by regex
+    (an arXiv id or a named theorem, with the owner's own READ / read-at-source
+    / prior-art word), and whether the fact's proof RESTS on it or the owner
+    only names it.  A fact whose owner names no outside result it rests on is
+    this board's own (z3 / sympy / the model), and says so.  The RESTS boolean
+    is this board's reading of the owner's text, not a flag any owner exposes:
+    the owner's words the reading rests on are quoted beside it, and the
+    clause header says so once."""
+    d2_moves = _owner_words([r for r in ledger.DEMAND if r[0] == "D2"][0][4],
+                            r"(\d+ z3 obligations, all unsat)", "ledger D2")
+    d4_thm, d4_two = (_owner_words(drivensource.__doc__,
+                                   r"(POSITIVE ENERGY THEOREM FOR EINSTEIN-MAXWELL "
+                                   r"\(Gibbons & Hull; Witten\))", "drivensource.py"),
+                      _owner_words(drivensource.__doc__,
+                                   r"(Two independent closures agreeing)", "drivensource.py"))
+    d7_id, d7_read = _owner_words(
+        bounds.__doc__, r'Fewster, "Lectures on quantum energy inequalities", '
+        r"(arXiv:1208\.5399) Sec\. 1\.3, (read at source)", "bounds.py")
+    d7_eq = _owner_words(bounds.__doc__, r"Fewster arXiv:1208\.5399 (Eq\. \(4\)): if "
+                         r"<T_00> stays below rho for a DURATION tau", "bounds.py")
+    d14_why = _owner_words(certify.__doc__, r"PRIOR ART, (RECORDED FIRST BECAUSE IT "
+                           r"GOES AGAINST US)", "certify.py")
+    d14_chk = _owner_words([r for r in ledger.DEMAND if r[0] == "D14"][0][4],
+                           r"(dL/dtheta = dL/dphi = 0 is machine-checked)", "ledger D14")
+    ms_rec = _owner_words(achievable.__doc__,
+                          r"(Fewster 1208\.5399 Eq\. \(4\), read at source)", "achievable.py")
+    o4_prior, o4_gap = (_owner_words(axial.__doc__, r"(Weyl and Levi-Civita had this "
+                                     r"metric in 1917-1919)", "axial.py"),
+                        _owner_words(axial.__doc__, r"(PRIOR ART WAS NOT SEARCHED AT "
+                                     r"SOURCE THIS PASS)", "axial.py"))
+    sr2_thms, sr2_drop = _owner_words(
+        spec.__doc__, r"every theorem in the way \((Olum, Ford-Roman, Q <= M)\) is a "
+        r"theorem about that demand\. (M's scope drops it)", "spec.py")
+    gb_names, gb_abs = _owner_words(
+        create.__doc__, r"(Geroch \(1967\), Tipler \(1977\), and Borde "
+        r"\(gr-qc/9406053\)), whose (abstract) is explicit", "create.py")
+    be_tipler = _owner_words(create.ESCAPES[0][2],
+                             r"(Tipler): a singularity or A POINT AT INFINITY", "create.ESCAPES")
+    # The counts and the closure's name are the owners': create.py's own 'ALL
+    # THREE' beside len(create.ESCAPES); the ledger O4 row's own 'six sympy
+    # residuals'; drivensource's own name for the closure that cites charge.py.
+    be_all = _owner_words(create.__doc__, r"BORDE'S OWN ESCAPES, (ALL THREE), AND WHERE "
+                          r"EACH GOES", "create.py")
+    o4_res = _owner_words([r for r in ledger.CLOSED_ROWS if r[0] == "O4"][0][2],
+                          r"axial\.py, (\w+ sympy residuals) all 0", "ledger O4")
+    d4_route = _owner_words(drivensource.__doc__, r"(charge\.py'S ROUTE IS STRONGER WHERE "
+                            r"IT APPLIES AND IS CONFIRMED HERE)", "drivensource.py")
+    d7_fr, d7_fr_id, d7_fr_read = _owner_words(
+        bounds.__doc__, r'Ref\. \[23\] is (Fewster & Roman), "Null energy conditions in '
+        r'quantum field theory", PRD 67 044003, (gr-qc/0209036), (read at source this '
+        r"pass)", "bounds.py")
+    d7_fhr, d7_fhr_id = _owner_words(
+        bounds.__doc__, r"(Ford-Helfer-Roman) prove nothing about null smearing; their "
+        r"own text flags the companion result, verbatim, (gr-qc/0208045)", "bounds.py")
+    d7_corr, d7_null = _owner_words(
+        bounds.__doc__, r"\*\*(CORRECTED -- DOCKET 55)\.\*\* What stood here was .{0,200}? "
+        r"(THE NULL HALF IS FALSE), AND FALSE IN THE OPPOSITE DIRECTION", "bounds.py")
+    sr2_demand = _owner_words(spec.__doc__, r"demanding that the device (BEAT LIGHT)",
+                              "spec.py")
+    return {
+        "D2": (False, "prior art only, not what the proof rests on -- "
+                      "foliation.EXTERNAL_PRIOR_ART: '%s'; the theorem's own proof is '%s' "
+                      "(ledger D2), this board's own" % (foliation.EXTERNAL_PRIOR_ART, d2_moves)),
+        "D4": (False, "names the %s (via charge.py) for charge.py's closure only -- "
+                      "'%s', one of its '%s' (drivensource.py) -- so the corollary's "
+                      "narrowing does not rest on it; the counterexample is "
+                      "Reissner-Nordstrom's own m(R), this board's arithmetic"
+                      % (d4_thm, d4_route, d4_two)),
+        "D7": (True, "RESTS on Fewster %s %s, %s (bounds.py) -- the duration QEI itself; "
+                     "bounds.py also records, beside it, %s %s (%s) and %s %s (under "
+                     "bounds.py's own '%s' of its own null half: '%s')"
+                     % (d7_id, d7_eq, d7_read, d7_fr, d7_fr_id, d7_fr_read, d7_fhr,
+                        d7_fhr_id, d7_corr, d7_null)),
+        "D14": (False, "prior art only -- certify.PRIOR_ART '%s', %s (certify.py); %s "
+                       "(ledger D14), this board's own"
+                       % (certify.PRIOR_ART, d14_why, d14_chk)),
+        "MODEL-STATIC": (False, "none for the assumption itself (achievable.py's model, "
+                                "this board's own); achievable.py's outside record, "
+                                "'%s', is D7's bound" % ms_rec),
+        "O4": (False, "none rested on; axial.py: '%s' and '%s' -- %s (ledger O4), this "
+                      "board's own" % (o4_prior, o4_gap, o4_res)),
+        "SR2": (False, "none rested on; spec.py names '%s' as the theorems about that "
+                       "demand -- that the device '%s' -- which M's scope drops ('%s') "
+                       "-- the seat is sympy, this board's own"
+                       % (sr2_thms, sr2_demand, sr2_drop)),
+        "GEROCH-BORDE": (True, "RESTS on %s, its %s and body quoted verbatim in "
+                               "create.BORDE, BORDE_SINGULARITY, BORDE_DYNAMICS (READ is "
+                               "this file's word for those quotations)" % (gb_names, gb_abs)),
+        "BORDE-ESCAPES": (True, "RESTS on Borde gr-qc/9406053's own escapes, '%s' "
+                                "(create.py), the %d quoted in create.ESCAPES (%s named "
+                                "in the first) -- of Borde's four routes; IX.C, "
+                                "degenerate metrics, is not quoted, and with it the "
+                                "gate's test is undetermined (DOCKET 67)"
+                                % (be_all, len(create.ESCAPES), be_tipler)),
+    }
+
+
+def facts(z3, V, F):
+    """The owner facts, each GATED on its owner's live word.  A fact whose
+    gate fails is not admitted, and the verdicts that used it fall to OPEN.
+    Each carries 'outside' -- the outside result it declares, asked of its
+    owner (facts_outside()) -- and 'rests', whether its proof rests on it."""
+    sr2 = sr2_identity()
+    fo = facts_outside()
+    out = [
+        {"name": "D2", "space": "C",
+         "gate": st("D2") == THEOREM and foliation.IDENTITY_DISPUTED is False,
+         "held": "ledger D2 %s; foliation.IDENTITY_DISPUTED = %s"
+                 % (st("D2"), foliation.IDENTITY_DISPUTED),
+         "hyps": ["H_sph", "H_R1"],
+         "f": z3.Implies(V["sph"], V["contracts"] == V["negm"])},
+        {"name": "D4", "space": "C",
+         "gate": (st("D4") == THEOREM
+                  and str(drivensource.CERTIFY_COROLLARY).startswith("NARROWED")),
+         "held": "ledger D4 %s; drivensource.CERTIFY_COROLLARY = '%s'"
+                 % (st("D4"), drivensource.CERTIFY_COROLLARY),
+         "hyps": ["H_sph", "H_reg", "H_EFE"],
+         "f": z3.Implies(z3.And(V["sph"], V["negm"], V["reg"]), V["rhoneg"])},
+        {"name": "D7", "space": "C",
+         "gate": st("D7") == THEOREM and bounds.DURATION_ROUTE_Z == 1,
+         "held": "ledger D7 %s; bounds.DURATION_ROUTE_Z = %s"
+                 % (st("D7"), bounds.DURATION_ROUTE_Z),
+         "hyps": ["H_M0", "H_model", "H_static", "H_S", "H_flat"],
+         "f": z3.Implies(z3.And(V["rhoneg"], V["m0"], V["model"], V["sgt1"],
+                                V["H_flat"]), z3.Not(V["persist"]))},
+        {"name": "D14", "space": "C",
+         "gate": st("D14") == THEOREM,
+         "held": "ledger D14 %s ('%s')" % (st("D14"), D14_PRICED_OBJECT),
+         "hyps": ["H_sph", "H_aim"],
+         "f": z3.Implies(z3.And(V["sph"], V["static"]), z3.Not(V["aim"]))},
+        {"name": "MODEL-STATIC", "space": "C",
+         "gate": MODEL_STATIC_TEXT in " ".join(
+             open(achievable.__file__, encoding="utf-8").read().split()),
+         "held": "achievable.py: '%s'" % MODEL_STATIC_TEXT,
+         "hyps": ["H_model", "H_static"],
+         "f": z3.Implies(V["model"], V["static"])},
+        {"name": "O4", "space": "C",
+         "gate": st("O4").startswith("CLOSED") and axial.AXIS_ESCAPES_THE_SIGN is False,
+         "held": "ledger O4 '%s'; axial.AXIS_ESCAPES_THE_SIGN = %s"
+                 % (st("O4"), axial.AXIS_ESCAPES_THE_SIGN),
+         "hyps": ["H_axial"],
+         "f": z3.Implies(z3.And(V["axial"], V["contracts"]), V["u_neg"])},
+        {"name": "SR2", "space": "S",
+         "gate": sr2_certified(F, sr2),
+         "held": "spec.seat_over_collapse = %.10g at four scales, sympy %s; "
+                 "over H_ball as written the T_kk = 2u member on a diameter "
+                 "gives %.4f (DOCKET 67)"
+                 % (F["soc"][0], sr2[2],
+                    sturm_over_ball(min(F["soc"]))["member_diameter"]),
+         "hyps": ["H_ball", "H_collapse"],
+         "f": z3.Implies(V["ball"], V["bh"])},
+        {"name": "GEROCH-BORDE", "space": "W",
+         "gate": (create.GEROCH_NEEDS_MATTER_ASSUMPTION is False
+                  and create.EXOTIC_MATTER_HELPS_CREATION is False),
+         "held": "create.GEROCH_NEEDS_MATTER_ASSUMPTION = %s (READ)"
+                 % create.GEROCH_NEEDS_MATTER_ASSUMPTION,
+         "hyps": ["H_cc"],
+         # DOCKET 67: implied by Borde's Theorem 1 only with its time-oriented,
+         # smooth non-degenerate metric (z3 countermodel without 'smooth');
+         # H_cc's text now names both, and neither is a literal.  The gate's
+         # EXOTIC_MATTER_HELPS_CREATION = False reads "exotic matter cannot
+         # remove the forced CTC" -- not "cannot help creation" (Borde IX.B).
+         "f": z3.Implies(z3.And(V["created"], V["cc"]), V["ctc"])},
+        {"name": "BORDE-ESCAPES", "space": "W",
+         "gate": create.any_escape_stays_in_lorentzian_gr() is False,
+         "held": "create.any_escape_stays_in_lorentzian_gr() = %s (READ)"
+                 % create.any_escape_stays_in_lorentzian_gr(),
+         "hyps": ["H_closed"],
+         # Borde gr-qc/9406053 Sec. IX: dropping causal compactness (IX.A,
+         # Tipler's Theorem 5: closed-universe case, under Tipler's additional
+         # assumptions) ends in a pathology -- a singularity or a point at
+         # infinity.  The weakened curvature constraints (IX.B) and the
+         # Euclidean path integral are Borde's ALTERNATIVES to dropping it, not
+         # its outcomes; the formula below, weaker than Tipler's Theorem 5, is
+         # implied under H_closed (z3 unsat) and not without it (sat), and it
+         # carries no closed-universe literal -- H_closed carries that.  IX.C,
+         # degenerate metrics, is not encoded.  A DISJUNCTION, and M-S1A-P3
+         # does not disqualify leaving GR.  (CORRECTED, DOCKET 67: first cited
+         # as "VIII.A", Borde's section on differentiability, and framed B]
+         # and the Euclidean route as outcomes of dropping causal compactness.)
+         "f": z3.Implies(z3.And(V["created"], z3.Not(V["cc"])),
+                         z3.Or(V["pathology"], V["nongr"]))},
+    ]
+    for f in out:
+        f["rests"], f["outside"] = fo[f["name"]]
+    return out
+
+
+def _vars(z3):
+    # "bh" is named after H_collapse's first wording; what SR2 proves and the
+    # S member excludes is "inside its own Schwarzschild radius" (trapped), not
+    # an event-horizon black hole (DOCKET 67).  The name is kept: it is code.
+    names = ("sph", "axial", "negm", "reg", "m0", "model", "sgt1", "contracts",
+             "rhoneg", "persist", "u_neg", "H_flat", "wl", "ball", "bh",
+             "created", "cc", "ctc", "pathology", "static", "aim",
+             "ctc_seat", "path_seat", "nongr")
+    return dict((n, z3.Bool(n)) for n in names)
+
+
+def space_constraint(z3, V, space):
+    if space == "C":
+        return z3.Not(z3.And(V["sph"], V["axial"]))
+    return z3.BoolVal(True)
+
+
+def member(z3, V, space, drop=()):
+    """What it is to be an instance of the object.  C: contracts (R1), holds
+    for a light-crossing (D7) and, on M's ruling M-S1A-P2, can be aimed.  S: a
+    seat that is a device, not inside its own Schwarzschild radius (SR2; first
+    written 'not a black hole' -- the z3 variable keeps the name bh, but what it
+    stands for is that trapped condition, DOCKET 67).  Every object, on M's ruling
+    M-S1A-P3 as M scoped it: no closed causal curve and no Borde pathology AT
+    THE SEAT ('My ruling refers to the seat/destination') -- a singular throat
+    is not disqualified."""
+    cs = []
+    if space == "C":
+        cs += [V["contracts"], V["persist"]]
+        if in_force("aimability", drop):
+            cs.append(V["aim"])
+    if space == "S":
+        cs.append(z3.Not(V["bh"]))
+    if in_force("chronology", drop):
+        cs.append(z3.Not(V["ctc_seat"]))
+    if in_force("pathology", drop):
+        cs.append(z3.Not(V["path_seat"]))
+    return z3.And(*cs) if cs else z3.BoolVal(True)
+
+
+def _lit(z3, V, lits):
+    return z3.And(*[V[k] if v else z3.Not(V[k]) for k, v in lits.items()]) \
+        if lits else z3.BoolVal(True)
+
+
+ASSUMABLE = ("H_flat",)
+
+#: THE INDEPENDENT ROUTE: every verdict is derived a second time with this
+#: ruled requirement switched off, so a class emptied by aimability also shows
+#: whether it is emptied without it (the persistence route, D4 + D7).
+ROUTE_DROP = ("aimability",)
+
+PROP_TEXT = {"ctc": "a closed causal curve (in the interpolating region, not "
+                    "shown to be at the seat)",
+             "pathology": "a Borde pathology (a singularity or a point at infinity)",
+             "pathology_or_nongr": "either a Borde pathology (Tipler's route) or "
+                                   "a departure from Lorentzian GR (Borde's other "
+                                   "two escapes) -- UNDER H_closed only (the "
+                                   "closed-universe case, with Tipler's additional "
+                                   "assumptions); for an open or asymptotically "
+                                   "flat universe that drops causal compactness no "
+                                   "source here forces either"}
+
+
+def derive(model, drop=()):
+    """Each class verdict by z3, with the unsat core naming the facts used.
+    `drop` names a ruled requirement to switch off, for the independent route."""
+    import z3
+    V = _vars(z3)
+    fs = [f for f in facts(z3, V, model["F"]) if f["gate"]]
+    if not drop:
+        model["facts_in_force"] = [f["name"] for f in fs]
+        model["facts_refused"] = [f["name"] for f in facts(z3, V, model["F"])
+                                  if not f["gate"]]
+    out = {}
+    for K in model["classes"]:
+        sp = K["space"]
+
+        def solve(assume):
+            s = z3.Solver()
+            s.set(unsat_core=True)
+            s.add(space_constraint(z3, V, sp), _lit(z3, V, K["lits"]),
+                  member(z3, V, sp, drop))
+            for f in fs:
+                if f["space"] == sp:
+                    s.assert_and_track(f["f"], z3.Bool("fact:" + f["name"]))
+            for a in assume:
+                s.assert_and_track(V[a], z3.Bool("assume:" + a))
+            r = s.check()
+            core = [str(c) for c in s.unsat_core()] if r == z3.unsat else []
+            return r, core
+        r0, core0 = solve(())
+        if r0 == z3.unsat:
+            verdict, core = EMPTY, core0
+        else:
+            r1, core1 = solve(ASSUMABLE)
+            if r1 == z3.unsat:
+                verdict, core = EMPTY_IF, core1
+            else:
+                verdict, core = OPEN_V, []
+        if K["id"] == "S-1" and verdict == OPEN_V and model["witness_S1"]:
+            verdict = NONEMPTY
+        order = [f["name"] for f in fs]
+        used = sorted((c.split(":", 1)[1] for c in core if c.startswith("fact:")),
+                      key=order.index)
+        assumed = [c.split(":", 1)[1] for c in core if c.startswith("assume:")]
+        out[K["id"]] = {"verdict": verdict, "facts": used, "assumed": assumed}
+    return out
+
+
+def required_hyps(model, cid, verdicts):
+    """What the class's proof used: the hypotheses of the facts in its core,
+    and the assumptions in it.  For an OPEN class, nothing is used."""
+    v = verdicts[cid]
+    fmap = dict((f["name"], f) for f in _facts_plain(model))
+    req = set()
+    for fn in v["facts"]:
+        req.update(fmap[fn]["hyps"])
+    req.update(v["assumed"])
+    return req
+
+
+def _facts_plain(model):
+    import z3
+    return facts(z3, _vars(z3), model["F"])
+
+
+LIT_HYPS = {"sph": ["H_sph"], "reg": ["H_reg"], "m0": ["H_M0"],
+            "model": ["H_model", "H_static"], "sgt1": ["H_S"], "axial": ["H_axial"],
+            "ball": ["H_ball"], "cc": ["H_cc"], "wl": ["H_seat"]}
+
+
+def route_hyps(model, cid, verdicts):
+    """The hypotheses ONE route's verdict rests on: what its proof used plus what
+    the class's positive literals define, in the class's stated order."""
+    K = [k for k in model["classes"] if k["id"] == cid][0]
+    need = required_hyps(model, cid, verdicts) | set(
+        h for k, v in K["lits"].items() if v for h in LIT_HYPS.get(k, []))
+    return [h for h in K["hyps"] if h in need] + sorted(need - set(K["hyps"]))
+
+
+def hyp_check(model, verdicts, *more):
+    """[(class, missing, padded)] for every class whose STATED hypotheses do not
+    equal what its proofs used -- on every route given -- plus what its positive
+    literals define."""
+    bad = []
+    for K in model["classes"]:
+        req = set()
+        for vs in (verdicts,) + more:
+            req |= required_hyps(model, K["id"], vs)
+        lit = set(h for k, v in K["lits"].items() if v for h in LIT_HYPS.get(k, []))
+        stated = set(K["hyps"])
+        missing = sorted(req - stated)
+        padded = sorted(stated - req - lit)
+        if missing or padded:
+            bad.append((K["id"], missing, padded))
+    return bad
+
+
+def partition_check(model):
+    """z3: in each space the classes are pairwise disjoint and cover it, and
+    no class is vacuous (each is satisfiable in its space)."""
+    import z3
+    V = _vars(z3)
+    res = {}
+    for sp in sorted(set(K["space"] for K in model["classes"])):
+        ks = [K for K in model["classes"] if K["space"] == sp]
+        sc = space_constraint(z3, V, sp)
+        overlap = []
+        for i in range(len(ks)):
+            for j in range(i + 1, len(ks)):
+                s = z3.Solver()
+                s.add(sc, _lit(z3, V, ks[i]["lits"]), _lit(z3, V, ks[j]["lits"]))
+                if s.check() == z3.sat:
+                    overlap.append((ks[i]["id"], ks[j]["id"]))
+        s = z3.Solver()
+        s.add(sc, z3.Not(z3.Or(*[_lit(z3, V, K["lits"]) for K in ks])))
+        cover = s.check() == z3.unsat
+        vac = []
+        for K in ks:
+            s = z3.Solver()
+            s.add(sc, _lit(z3, V, K["lits"]))
+            if s.check() != z3.sat:
+                vac.append(K["id"])
+        res[sp] = {"overlap": overlap, "cover": cover, "vacuous": vac}
+    return res
+
+
+def class_of(model, space, assignment):
+    """The one class of `space` whose literals the assignment satisfies."""
+    hits = [K["id"] for K in model["classes"] if K["space"] == space
+            and all(assignment.get(k) == v for k, v in K["lits"].items())]
+    return hits[0] if len(hits) == 1 else None
+
+
+def entailment(model, verdicts, drop=()):
+    """z3: an instance of C lies in the OPEN classes (under H_flat), or in the
+    OPEN and EMPTY IF classes (without it); each OPEN class is consistent with
+    every fact in force."""
+    import z3
+    V = _vars(z3)
+    fs = [f for f in facts(z3, V, model["F"]) if f["gate"] and f["space"] == "C"]
+    ks = [K for K in model["classes"] if K["space"] == "C"]
+    opens = [K for K in ks if verdicts[K["id"]]["verdict"] == OPEN_V]
+    conds = [K for K in ks if verdicts[K["id"]]["verdict"] == EMPTY_IF]
+    base = [space_constraint(z3, V, "C"), member(z3, V, "C", drop)] + [f["f"] for f in fs]
+
+    def unsat(extra):
+        s = z3.Solver()
+        s.add(*(base + extra))
+        return s.check() == z3.unsat
+    with_h = unsat([V["H_flat"], z3.Not(z3.Or(*[_lit(z3, V, K["lits"]) for K in opens]))]) \
+        if opens else unsat([V["H_flat"]])
+    without_h = unsat([z3.Not(z3.Or(*[_lit(z3, V, K["lits"]) for K in opens + conds]))]) \
+        if (opens + conds) else unsat([])
+    # every OPEN class, in EVERY space, is propositionally consistent with the
+    # facts in force in its space; and what those facts FORCE on its members
+    allf = [f for f in facts(z3, V, model["F"]) if f["gate"]]
+    consistent, forced = [], {}
+    for K in model["classes"]:
+        if verdicts[K["id"]]["verdict"] != OPEN_V:
+            continue
+        sp = K["space"]
+        fsp = [f["f"] for f in allf if f["space"] == sp]
+        cb = [space_constraint(z3, V, sp), member(z3, V, sp, drop),
+              _lit(z3, V, K["lits"])] + fsp
+        if sp == "C":
+            cb.append(V["H_flat"])
+        s = z3.Solver()
+        s.add(*cb)
+        consistent.append((K["id"], s.check() == z3.sat))
+        for prop, expr in (("ctc", V["ctc"]), ("pathology", V["pathology"]),
+                           ("pathology_or_nongr", z3.Or(V["pathology"], V["nongr"]))):
+            if prop == "pathology_or_nongr" and "pathology" in forced.get(K["id"], []):
+                continue
+            s = z3.Solver()
+            s.add(*(cb + [z3.Not(expr)]))
+            if s.check() == z3.unsat:
+                forced.setdefault(K["id"], []).append(prop)
+    return {"with_H_flat": with_h, "without_H_flat": without_h,
+            "opens_consistent": consistent, "forced": forced,
+            "facts_encoded": [f["name"] for f in allf]}
+
+
+# ================================================ 7. ESCAPES, PENDING, V
+
+def landing(model, space, lits):
+    """The classes of `space` a candidate with these literals may lie in: those
+    whose own literals do not contradict it."""
+    return [K["id"] for K in model["classes"] if K["space"] == space
+            and all(lits.get(k, v) == v for k, v in K["lits"].items())]
+
+
+def _reopen(model, verdicts):
+    """{hypothesis: classes breaking it reopens}, for one verdict set."""
+    reopen = {}
+    for K in model["classes"]:
+        if verdicts[K["id"]]["verdict"] not in (EMPTY, EMPTY_IF):
+            continue
+        for a in verdicts[K["id"]]["assumed"]:
+            reopen.setdefault(a, set()).add(K["id"])
+        lit_h = set()
+        for k, val in K["lits"].items():
+            flipped = dict(K["lits"])
+            flipped[k] = not val
+            lands = [c for c in landing(model, K["space"], flipped)
+                     if verdicts[c]["verdict"] != EMPTY]
+            for h in LIT_HYPS.get(k, []):
+                lit_h.add(h)
+                reopen.setdefault(h, set()).update(lands)
+        fmap = dict((f["name"], f) for f in _facts_plain(model))
+        for fn in verdicts[K["id"]]["facts"]:
+            for h in fmap[fn]["hyps"]:
+                if h not in lit_h and h not in verdicts[K["id"]]["assumed"]:
+                    reopen.setdefault(h, set()).add(K["id"])
+    return reopen
+
+
+def escape_texts(model=None):
+    """[(hyp, text, route)] of every escape's own text and route, asked of the
+    owners now -- the part of escapes() that needs no verdicts, so DOCKET 67's
+    record and SR5 can ask what outside results the escapes name.  With no
+    model, hypotheses() and figures() are asked directly."""
+    if model is None:
+        model = {"hyps": hypotheses(), "F": figures()}
+    H, F = model["hyps"], model["F"]
+    o1 = o1_figures()
+    routes = [
+        ("H_flat", ["O2", "D22 (curved part)"],
+         "%s.  RIGHT INSTRUMENT: %s -- for a Hadamard state and a sampling "
+         "domain small enough to lie in a globally hyperbolic convex normal "
+         "neighbourhood (Fewster-Smith Thm 3.1, eq. (82)), so evaluating it on "
+         "the corridor needs a Hadamard state there (named at DOCKET 67).  The "
+         "Fewster-Teo spectral-gap tightening "
+         "does not transfer (gap %g under GAP_HYPOTHESIS '%s' -- the (5.6) "
+         "formula, derived for ultrastatic Minkowski and open-RW slices only, "
+         "which the corridor is not; DOCKET 67); Fewster-Teo on the "
+         "corridor itself is not evaluated (mode functions %s -- confluent Heun "
+         "on the constant-M vacuum segment with M != 0 only: at M = 0, the "
+         "device's M_ADM, that segment is spherical Bessel, and the "
+         "regular-centre corridor metric is not globally in the class; DOCKET "
+         "67), and its redshift "
+         "factors are not priced."
+         % (fewsterteo.O2_ANSWERED_BY, fewsterteo.RIGHT_INSTRUMENT,
+            fewsterteo.CORRIDOR_SPECTRAL_GAP, fewsterteo.GAP_HYPOTHESIS,
+            fewsterteo.CORRIDOR_MODE_FUNCTIONS)),
+        ("H_M0", ["D12", "O1", "S4"],
+         "the nonminimally coupled scalar admits no state-independent QEI "
+         "(candidates.NMC_STATE_INDEPENDENT_QEI = %s) and is refused ONCE, as S4 = "
+         "O1 ('%s'; the ledger's text prices it at >= %s, figures no instrument "
+         "re-derives); state-dependent NMC bounds exist (Fewster-Osterbrink "
+         "0708.2450, FFKP 2309.10848, as qeihps.py reads them -- FO's for xi in "
+         "[0, 1/4], along timelike geodesics in a globally hyperbolic "
+         "neighbourhood, difference type; both for Hadamard states only, the "
+         "hypotheses qeihps.FORM_TAGS carries since DOCKET 67's follow-up) and "
+         "an absolute "
+         "one is %s.  Interacting fields: no state-independent QEI is expected "
+         "(Fewster's lectures, Sec. 5.2; the source's own qualifications: QEIs "
+         "hold for 2D CFTs, and 'modified QEIs' may hold -- DOCKET 67).  "
+         "Classical sources: no QEI applies."
+         % (candidates.NMC_STATE_INDEPENDENT_QEI, st("O1"),
+            " and >= ".join("%s at xi = %s" % f for f in o1),
+            qeihps.ABSOLUTE_QEI_FOR_NMC)),
+        ("H_reg", ["D4"],
+         "a negative central (bare) mass.  No supply mechanism exists over the "
+         "mechanisms examined (B1 %s: '%s' -- a survey, "
+         "candidates.LIST_IS_EXHAUSTIVE = %s)."
+         % (st("B1"), [r for r in ledger.balance() if r[0] == "B1"][0][3],
+            candidates.LIST_IS_EXHAUSTIVE)),
+        ("H_sph", ["D1", "D2", "O4"],
+         "axial: price persistence on axial.py's object "
+         "(PRICES_A_FINITE_CORRIDOR = %s, and the object is infinite in z); "
+         "general: an invariant contraction criterion is written nowhere in the "
+         "tree." % axial.PRICES_A_FINITE_CORRIDOR),
+        ("H_model", ["D7"],
+         "mean value over the core: for fixed enclosed negative mass over the "
+         "core some point is at least as negative as the mean, so the pointwise "
+         "duration bound would refuse a non-uniform profile on the SAME support "
+         "volume a fortiori.  A profile whose negative density extends beyond "
+         "the core (Plummer's does) has a less negative mean over its larger "
+         "support, and the a fortiori step then needs a support bound that is "
+         "not seated either.  "
+         "Elementary, and NOT SEATED in any owner.  It matters only on the "
+         "route without aimability: certify.py's seated metric satisfies the "
+         "literals of %s, but is static and spherically symmetric, so under "
+         "M-S1A-P2 it is not an instance of C at all." % model.get("realisation_i")),
+        ("H_static", ["D7"],
+         "a non-static hold: the pointwise bound needs the density held below "
+         "at each point for the whole of b/c, which only staticity supplies here."),
+        ("H_S", ["D7"],
+         "none.  At the pins S = 1 only at b_x = %.4e m = %.4f l_P, 'l_P times an "
+         "O(1) number by construction, NOT evidence'; at b = 1 m, alpha = %g, S <= 1 "
+         "only for contractions of at most %.4e m.  Semiclassical validity there is itself "
+         "unestablished (O5, D26)." % (F["b_x"], F["b_x_lP"], F["alpha"], F["dd_x"])),
+        ("H_EFE", ["D4"],
+         "a field equation other than G_ab = 8 pi T_ab: outside every owner "
+         "here."),
+        ("H_R1", ["D2", "D3", "D10"],
+         "none inside spherical symmetry.  What is SHOWN for K0's m >= 0 "
+         "members: a slice criterion admits exactly flat space as 'contracted' "
+         "(Milne, advance over flat %g); Schwarzschild between anchored mouths "
+         "keeps its Shapiro DELAY (%.3f M); and with m >= 0 a sustained slice "
+         "contraction moves the far end (nonstatic.py's displacement bound, "
+         "%.1f%% of the gap at W = 2).  K0's members with m < 0 on a proper "
+         "sub-region are not reopened by breaking H_R1: their sub-region is "
+         "already priced as its own C."
+         % (F["milne"]["advance_over_flat"], F["shapiro"], 100.0 * F["disp_W2"])),
+        ("H_ball", ["none (spec.py; not a ledger row)"],
+         "none computed.  A tube of width w = %g l meeting Sturm's u carries "
+         "r_s/w = %.4g by a spherical Schwarzschild criterion (computed here from "
+         "seatindex.tkk_required -- an ILLUSTRATION only: that criterion is not a "
+         "collapse criterion for a tube).  It shows that the ball hypothesis "
+         "defines S-2; tubes and non-uniform sustained fields are S-3.  Inside "
+         "the ball, S-2 is OPEN (DOCKET 67): H_ball names u, not T_kk, and "
+         "restricts no pressure, so a ball with T_kk > u along a diameter "
+         "escapes the Sturm reductio (requirement SR2)."
+         % (F["tube_w_over_l"], F["tube_rs_over_w"])),
+        ("H_collapse", ["none (spec.py)"],
+         "a collapse criterion other than 2GM/c^2 >= l for the ball: none "
+         "computed."),
+        ("H_aim", ["D14", "M-S1A-P2"],
+         "aiming supplied from outside the corridor's geometry.  M's picture is "
+         "exactly this split -- the user aims the device, the corridor verifies "
+         "-- and a device carrying the aiming subsystem is not spherically "
+         "symmetric, so it lands in K4 or K5 (OPEN).  Formation-time aiming does "
+         "not help while the operating configuration is spherical during the "
+         "hold.  What 'verifies' requires of a metric: NO OWNER.  K5's OPEN "
+         "means UNPRICED, not escaped: a uniform negative core inside such a "
+         "device still meets D7's pointwise duration bound under H_flat -- no "
+         "owner prices it in K5.  A spherical device CENTRED ON THE DESTINATION "
+         "singles out its centre; building it there presupposes reaching the "
+         "destination first, the question D23 prices for the reconstruction "
+         "route and no owner prices for C."),
+        ("H_cc", ["none (create.py READ)"],
+         "drop causal compactness: the throat lands in W-create-ncc, where "
+         "Borde's escapes give either a pathology (Tipler's route) or a "
+         "departure from Lorentzian GR."),
+    ]
+    fixed = [
+        ("H3", "noise.py's H3: %s (%s)" % noise.HYPOTHESES["H3"], ["D22"],
+         "a self-adjoint extension other than Friedrichs need not keep the bound "
+         "(ledger D22).  Breaking it reopens D22's reading.  K1 does not rest "
+         "on it: D7's own row says the bound is '%s' (ledger D7), a statement "
+         "about expectation values over Hadamard states that no self-adjoint "
+         "extension enters." % D7_STATE_INDEPENDENCE),
+        ("electrovac", "pure electrovac, spherical symmetry, non-negative bare "
+         "mass, rho >= 0 in the body (drivensource.SCOPE and section 4)", ["D4"],
+         "breaking it moves the charged body out of K0; not measured: %s"
+         % drivensource.SCOPE),
+        ("objects", "the object list C, T, S, W, Rec", [],
+         "anything that is none of them -- the propulsion OPERATOR phase1 excludes "
+         "(a device violating D4), per-use channels (phase1 Theorem 5: GJW) -- is "
+         "outside the theorem, which says nothing about it.  The payload's own "
+         "motion inside S is part of S."),
+        ("static-sph-address", "static spherical symmetry, for D14", ["D14"],
+         "beyond static spherical symmetry and the infinite axial object, what an "
+         "address requires of a metric: NO OWNER."),
+        ("causal-step", "conjugate point => not achronal (CITED)", ["D5"],
+         "SR3's traversal clause rests on a standard causal-structure result no "
+         "owner re-proves; B must lie strictly past the focus."),
+    ]
+    open_rows = []
+    # An OPEN row is folded into a hypothesis escape only where that escape IS
+    # the row's open question (H_flat is O2's curved QEI).  Every other open
+    # row keeps its own escape with the ledger's full route.
+    carried = set(r for key, rows, _t in routes if H[key][1] == ASSUMED for r in rows)
+    for rid in open_row_ids():
+        if rid in carried:
+            continue
+        ans = row(rid)[2]
+        lab = "KNOWN ROUTE"
+        if ans is None and rid == "S5":
+            ans = branelink.S5_OWED
+        if ans is None and rid in massform_moves():
+            # massform's movers name what would move the row AND what closes
+            # it ('H-UNSOURCED-SEAT holding ... closes the route'), so they
+            # are printed under massform's own label, never as a KNOWN ROUTE.
+            ans = massform_moves()[rid]
+            lab = "WHAT WOULD MOVE IT (massform)"
+        open_rows.append((rid, ledger._one_line(row(rid)[1], 200),
+                          " ".join(str(ans).split()), lab))
+    texts = ([(k, H[k][0], r) for k, _rows, r in routes]
+             + [(k, t, r) for k, t, _rows, r in fixed]
+             + [("OPEN " + rid, t, r) for rid, t, r, _lab in open_rows])
+    return texts, routes, fixed, open_rows
+
+
+def escapes(model, verdicts, route=None):
+    """ONE ESCAPE PER HYPOTHESIS a verdict rests on, and one per OPEN ledger row
+    no hypothesis escape already carries.  WHAT BREAKING IT REOPENS is COMPUTED
+    where it can be: for an ASSUMED hypothesis, the classes whose verdict it
+    carries; for a DEFINING hypothesis of an EMPTY / EMPTY IF class, the
+    classes a candidate lands in when that literal is flipped, keeping only
+    those not themselves EMPTY.  The texts and routes are escape_texts()'s."""
+    H = model["hyps"]
+    reopen = _reopen(model, verdicts)
+    reopen_route = _reopen(model, route) if route is not None else {}
+    _texts, routes, fixed, open_rows = escape_texts(model)
+    out = []
+    for key, rows, route_txt in routes:
+        text, kind = H[key]
+        out.append({"hyp": key, "text": text, "kind": kind,
+                    "reopens": sorted(reopen.get(key, set())),
+                    "reopens_route": sorted(reopen_route.get(key, set())),
+                    "rows": rows, "route": route_txt})
+    for key, text, rows, route_ in fixed:
+        out.append({"hyp": key, "text": text, "kind": "OWNER" if key not in
+                    ("objects",) else "SCOPE", "reopens": None,
+                    "rows": rows, "route": route_})
+    for rid, text, ans, lab in open_rows:
+        out.append({"hyp": "OPEN " + rid, "text": text,
+                    "kind": "OPEN ROW", "reopens": None, "rows": [rid],
+                    "route": ans, "route_label": lab})
+    return out
+
+
+def mislabelled_routes(escs):
+    """[hyp] of every escape printed as a KNOWN ROUTE whose route is massform's
+    movers (a SUPPLY row of DOCKET 65) or names what CLOSES the route."""
+    return [x["hyp"] for x in escs
+            if x.get("route_label", "KNOWN ROUTE") == "KNOWN ROUTE"
+            and ("closes the route" in x["route"]
+                 or any(r in massform_moves() for r in x["rows"]))]
+
+
+#: D7's own words for why no branch escapes the bound, asked from the row.
+D7_STATE_INDEPENDENCE = re.search(r"(STATE-INDEPENDENT over Hadamard states)",
+                                  " ".join(row("D7")[1].split())).group(1)
+
+
+def massform_moves():
+    """{row id: what would move it} for DOCKET 65's rows, asked of
+    massform.PROPOSED_ROWS.  A SUPPLY row has no answer column of its own, so an
+    OPEN supply row's escape route (S11-S13) is asked here, never retyped."""
+    return dict((r[0], r[5]) for r in massform.PROPOSED_ROWS)
+
+
+def open_row_ids():
+    return ([r[0] for r in ledger.DEMAND if r[2] == OPEN]
+            + [r[0] for r in ledger.SUPPLY if r[2] == OPEN]
+            + [r[0] for r in ledger.OPEN_ROWS])
+
+
+def o1_figures():
+    """O1's two figures, ASKED from the ledger's own text (no instrument
+    computes them): [(value, xi)]."""
+    txt = row("O1")[2]
+    return re.findall(r">= (\d+\.\d+) at xi = (\d/\d)", txt)
+
+
+#: EVERY FRAGMENT THIS FILE QUOTES FROM AN OWNER, checked against the owner's
+#: source (whitespace, '*' and case normalised).  A misquote is a selftest
+#: failure, which is the only defence a quotation has.
+QUOTES = (
+    ("bounds", "priced on the DURATION axis, by an instrument of the wrong shape "
+               "under an extra hypothesis"),
+    ("achievable", "l_P times an O(1) number by construction, NOT evidence"),
+    ("achievable", "concentric.py's window, weakest end"),
+    # achievable.py's own label, quoted as it stands; the interacting-field
+    # clause it labels is Fewster 1208.5399 Sec. 5.2 (DOCKET 67).
+    ("achievable", "Sec. 5.1"),
+    ("phase1", "Nothing is transported anywhere by the operator itself"),
+    ("spec", "DROP THE LEAD.  KEEP THE SEAT."),
+    ("spec", "nothing else"),
+    # CORRECTED (DOCKET 67 follow-up): was ("spec", "UNIVERSAL in Sturm's
+    # sense"), which after spec.py's repair matched only its CORRECTED note's
+    # verbatim history; the live DOES text is quoted instead.
+    ("spec", "The seating condition is SUFFICIENT, and its universality is Sturm's"),
+    ("spec", "computed only for T_kk = u along a ball's radius"),
+    ("spec", "one untested door"),
+    ("create", "manufacture a wormhole -- closed"),
+    ("drivensource", "THE BREAK IS EMPTY"),
+    ("formation", "length unit L that the tree never fixes"),
+    ("formation", "INT (time part of rho + p_T) d tau"),
+    ("formation", "assumes agents acting in a compact region"),
+    ("linstab", "the core's own stability is deferred with the identification phase"),
+    ("axial", "IT DOES NOT PRICE A CORRIDOR"),
+    ("foliation", "THE ANCHOR LEMMA DOES NOT CLOSE THE INTEGRATED CRITERION"),
+    ("nonstatic", "NO QUASI-STATIONARY CORRIDOR EXISTS"),
+    ("concentric", "THE LEAD MEASURED HERE IS INTERIOR-ONLY"),
+    ("composite", "forms no real image"),
+    ("ledger:D14", "one-bit parameter"),
+    ("ledger:O1", "it was S4 counted a second time"),
+    ("ledger:S9", "the specification against itself, not a gap against this "
+                  "board's demand"),
+    ("ledger:D6", "NO purely spatially averaged quantum inequalities over bounded "
+                  "regions in 4D Minkowski"),
+    ("ledger:S3", "Passes KIND and DEADLINE, fails MAGNITUDE"),
+    ("ledger:D7", "STATE-INDEPENDENT over Hadamard states"),
+    ("ledger:D14", D14_PRICED_OBJECT),
+    ("achievable", MODEL_STATIC_TEXT),
+    ("ledger:M-S1A-P1", "I would imagine the seat is an expansion"),
+    ("ledger:M-S1A-P2", "the corridor is like another agent that verifies it"),
+    ("ledger:M-S1A-P3", "My ruling refers to the seat/destination"),
+    ("ledger:M-S1A-P5", "should derive the classical"),
+    ("ledger:M-S1A-P1", "it triggers the higgs field, and atomic mass forms"),
+    ("ledger:M-S1A-P1", "the conditions for a higgs field or something like it are also present"),
+    ("ledger:M-S1A-P3", "Singular occurs in the throat where the geometry is compressed to binary information"),
+    ("drivensource", "INNER horizon"),
+    ("drivensource", "Gibbons-Hull/Witten"),
+    ("ledger:M-D65-1", "consider the idea that the introduction of information into "
+                       "a space that never previously contained it would be "
+                       "considered exotic matter"),
+    ("ledger:M-D65-1", "Fold into D66"),
+    ("ledger:M-D65-1", "CITED, not READ"),
+    ("ledger:M-D65-2", "Fold into S10 (Recommended)"),
+    ("ledger:M-D65-2", "FOLD INTO S10's NOTE"),
+    ("ledger:M-D65-3", "some of the previously established math from outside art "
+                       "may be inaccurate or incomplete, or even wrong"),
+    ("ledger:M-D65-3", "some previous physicists may have all lacked certain data"),
+    ("ledger:M-D65-3", "After D65, before D66"),
+    ("ledger:M-D65-4", "Yes, qualify it (Recommended)"),
+    ("ledger:M-D65-4", "a paper edit on M's ruling under M's rule for the paper"),
+    ("ledger:M-D65-4", "No further edit will be made to it unless a finding changes "
+                       "any of the already existing paper"),
+    ("ledger:M-D65-4", "the paper's other marked edit on M's ruling is DOCKET 63's"),
+    # DOCKET 67 follow-ups: SR5 mirrors the cell's correction; quoted so a
+    # change in the owner's wording fails here.
+    ("ledger:M-D65-4", "so it stood when M ruled"),
+    ("ledger:M-D65-4", "the paper has since carried DOCKET 67's markers"),
+    ("ledger:M-D65-5", "add the id"),
+)
+
+
+def _norm(t):
+    return " ".join(t.replace("*", "").split()).casefold()
+
+
+def misquotes(quotes=QUOTES):
+    """Every (owner, fragment) whose fragment is not in the owner's text."""
+    import importlib
+    bad = []
+    for owner, frag in quotes:
+        if owner.startswith("ledger:M-D65-"):
+            # DOCKET 65's rulings: tested against the PRINTED ruling cell alone
+            # (LEDGER.md and both reports print it), never against its union
+            # with `why`, where an intact copy would hide a misquote here.
+            rid = owner.split(":", 1)[1]
+            src = row(rid)[2]
+        elif owner.startswith("ledger:"):
+            rid = owner.split(":", 1)[1]
+            src = " ".join(str(x) for x in row(rid) if x)
+            # A ruling's WHY holds M's words where M gave them as a reason
+            # (M-S1A-*); row() returns the question and ruling only.
+            src += " ".join(" " + str(r[2]) for r in ledger.RULED_BY_M
+                            if r[0] == rid)
+        else:
+            with open(importlib.import_module(owner).__file__, encoding="utf-8") as fh:
+                src = fh.read()
+        if _norm(frag) not in _norm(src):
+            bad.append((owner, frag))
+    return bad
+
+
+#: M's rulings on the five questions step 1a put to M are on the board
+#: (ledger.RULED_BY_M, M-S1A-P1 .. P5) and are asked from there.  Nothing is
+#: pending until a new question is recorded here.
+PENDING_FOR_M = []
+
+def pending_here():
+    """ledger.pending_rulings() entries whose 'waiting on it' names this file
+    (specthm): printed under PENDING FOR M, since their outcome changes it."""
+    return [p for p in ledger.pending_rulings() if "specthm" in p[4]]
+
+
+def m_d65_1():
+    """(M's answer, M's words, the literature clause, the question's own
+    description of QET -- its parenthetical) of ledger.RULED_BY_M M-D65-1,
+    ASKED: DOCKET 66's record prints these, and a copy typed here could drift
+    from M's words, or describe QET in this file's words, with nothing to catch
+    it."""
+    import re
+    r = [x for x in ledger.RULED_BY_M if x[0] == "M-D65-1"]
+    if len(r) != 1:
+        raise ValueError("ledger.RULED_BY_M no longer holds one M-D65-1")
+    q = " ".join(r[0][1].split())
+    why, ruling = " ".join(r[0][2].split()), " ".join(r[0][3].split())
+    ans = re.search(r"M's answer: '([^']+)'", ruling)
+    words = re.search(r"verbatim: '([^']+)'", why)
+    lit = re.search(r"CITED, not READ: (.+)$", why)
+    par = re.search(r"\((.+?)\) be tested", q)
+    if not (ans and words and lit and par):
+        raise ValueError("ledger M-D65-1 no longer carries M's answer, M's words, "
+                         "a CITED-not-READ literature clause and the question's "
+                         "parenthetical")
+    return ans.group(1), words.group(1), lit.group(1), par.group(1)
+
+
+def d66_rulings_clause():
+    """M's DOCKET 66 rulings (M-D68-26..28), M's words ASKED of ledger.D68_M_WORDS."""
+    w = ledger.D68_M_WORDS
+    return "; ".join("%s, M: '%s'" % (k, w[k][0]) for k in ("M-D68-26", "M-D68-27", "M-D68-28"))
+
+
+def d66_fill():
+    """The fragments D66_T is filled with, every one ASKED: what DOCKET 66 ran
+    (ledger.d66_p3_ran), M-D65-1's four fragments and QET_PROTOCOL, what it ran
+    on QET (ledger.d66_m_d65_1_ran), and M's DOCKET 66 rulings."""
+    a = m_d65_1()
+    return (ledger.d66_p3_ran(), a[0], a[3], QET_PROTOCOL, a[1], a[2],
+            ledger.d66_m_d65_1_ran(), d66_rulings_clause())
+
+
+#: The one description of the QET protocol this board prints, naming whose
+#: record it is -- this board's, of M's fold in the lead's paraphrase, not
+#: this tree's reading -- never 'information creates'.
+#: PROVENANCE: the description is M's fold as the lead paraphrased it in the
+#: session; the tree holds no abstract of the cited papers
+#: (ledger.M_D65_1_LITERATURE) to check it against, so it is not READ into
+#: this tree, and the tree cannot witness which words are M's and which the
+#: lead's.
+QET_PROTOCOL = ("information arriving at the destination enabling a local "
+                "operation that extracts energy and leaves a negative energy "
+                "density there, as this board records it (M's fold, the lead's "
+                "paraphrase), not READ into this tree")
+
+
+def m_d65_3():
+    """(the question as put to M, M's answer, M's words, what it unblocks) of
+    ledger.RULED_BY_M M-D65-3, ASKED: DOCKET 67's record prints these, never a
+    copy typed here."""
+    import re
+    r = [x for x in ledger.RULED_BY_M if x[0] == "M-D65-3"]
+    if len(r) != 1:
+        raise ValueError("ledger.RULED_BY_M no longer holds one M-D65-3")
+    q, ruling, unb = (" ".join(r[0][1].split()), " ".join(r[0][3].split()),
+                      " ".join(r[0][4].split()))
+    ans = re.search(r"M's answer: '([^']+)'", ruling)
+    words = re.search(r'verbatim: "([^"]+)"', ruling)
+    if not (ans and words and "NOT YET RUN" in unb):
+        raise ValueError("ledger M-D65-3 no longer carries M's answer, M's words "
+                         "and NOT YET RUN")
+    return q, ans.group(1), words.group(1), unb
+
+
+#: Dockets M's rulings open, and whether each has run.  DOCKET 65 has RUN
+#: (massform.py; its rows are placed in SR5, its verdicts ASKED below); DOCKET
+#: 66 has not run, and nothing in this file rests on it; DOCKET 67 (M-D65-3)
+#: is opened, NOT YET RUN, before DOCKET 66 -- it audits the external results
+#: every refusal here rests on, so nothing here is yet graded by it.
+#: [D66-RULINGS verifier, 2026-10-05; the paragraph above is kept as first
+#: written: DOCKET 66 HAS RUN since -- wave 1 run, verified, fixed (D66-fix)
+#: and seated (ledger.py section 8), and M ruled on it (M-RULINGS items 26-28,
+#: seated as M-D68-26..28, ledger section 8b).  Nothing in this file rests on
+#: it still: its S classes take only the literals wl and ball, which DOCKET 66
+#: adds to none (a selftest check).  What ran is ASKED of the ledger
+#: (d66_fill), never typed here; D66_T_AS_FIRST_WRITTEN keeps the record's
+#: first template.]  [2026-10-05: and DOCKET 67 HAS RUN and closed on
+#: 2026-10-03 (docket67-raw/CLOSE.md); D67_T now says so, asked of the ledger
+#: (ledger.d67_ran), and D67_T_AS_FIRST_WRITTEN keeps the first template.]
+#:
+#: The DOCKET 66 and 67 records are TEMPLATES filled from asked fragments; the
+#: selftest checks each printed record EQUALS its template so filled, so no
+#: verdict on a docket that has not run can be typed beside them, either way.
+D66_T_AS_FIRST_WRITTEN = (
+     "seating at a topological defect, with M's throat-compression mechanism "
+     "('Singular occurs in the throat where the geometry is compressed to binary "
+     "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
+     "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
+     "topological defects seating sites, and a SINGULAR defect (an idealised "
+     "conical string) falls under both.  NOT YET RUN.  M'S ADDITION (M-D65-1, "
+     "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
+     "Teleportation -- as the question put to M described it, '%s' (the "
+     "QUESTION's description, not READ; the protocol, %s) -- is to be "
+     "tested HERE, beside seating at a topological defect, not as a docket of "
+     "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
+     "is CITED, not READ.")
+#: DOCKET 66's record since it ran (D66-RULINGS verifier, 2026-10-05): the first
+#: template with 'NOT YET RUN' replaced by what ran, ASKED of ledger.d66_p3_ran()
+#: (M-S1A-P3's cell) and ledger.d66_m_d65_1_ran() (M-D65-1's cell), and M's
+#: DOCKET 66 rulings asked of ledger.D68_M_WORDS; the first words kept in a
+#: FIRST SAID clause.  It carries no result word of its own (selftest).
+D66_T = (
+     "seating at a topological defect, with M's throat-compression mechanism "
+     "('Singular occurs in the throat where the geometry is compressed to binary "
+     "information, and then push to the seat').  A TENSION TO SETTLE THERE, not "
+     "in code: P3 (i) disqualifies a pathology at the seat and P3 (ii) makes "
+     "topological defects seating sites, and a SINGULAR defect (an idealised "
+     "conical string) falls under both.  HAS RUN (asked of the ledger's M-S1A-P3 "
+     "cell, never typed here): %s.  M'S ADDITION (M-D65-1, "
+     "RULED BY M: FOLD INTO DOCKET 66 -- M: '%s'): Quantum Energy "
+     "Teleportation -- as the question put to M described it, '%s' (the "
+     "QUESTION's description, not READ; the protocol, %s) -- is to be "
+     "tested HERE, beside seating at a topological defect, not as a docket of "
+     "its own; nothing here decides it.  M's words: '%s'.  Its literature (%s) "
+     "was CITED, not READ, when M ruled; what DOCKET 66 has since done with QET "
+     "(asked of the ledger's M-D65-1 cell): %s.  M's DOCKET 66 rulings since "
+     "(the rulings file's items 26-28, asked of ledger.D68_M_WORDS): %s.  First "
+     "said (kept): 'NOT YET RUN' where the run now stands, and 'is CITED, not "
+     "READ' of the literature.")
+D67_T_AS_FIRST_WRITTEN = (
+     "the audit of the external results the board's refusals rest on -- the "
+     "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
+     "\"%s\".  NOT YET RUN, so nothing here is yet graded by it; on the board it "
+     "unblocks: '%s'.  What it audits lies BENEATH what every refusal here rests "
+     "on -- the facts in force, %s -- namely the outside results each declares: "
+     "%s; and, %s.")
+#: DOCKET 67's record since it closed (2026-10-05; DOCKET 67 closed 2026-10-03,
+#: docket67-raw/CLOSE.md): the first template with 'NOT YET RUN, so nothing here
+#: is yet graded by it' replaced by HAS RUN, what ran asked of the ledger's
+#: M-D65-3 unblocks cell (ledger.d67_ran(), READ from CLOSE.md), and the first
+#: words kept in a FIRST SAID clause.  Which of the facts in force here it moved
+#: is not computed in this file.
+D67_T = (
+     "the audit of the external results the board's refusals rest on -- the "
+     "question put to M: \"%s\".  RULED BY M: OPEN IT -- M: '%s'; M's words: "
+     "\"%s\".  HAS RUN (asked of the ledger's M-D65-3 cell, never typed here): "
+     "%s; which of the facts in force here it moved is not computed in this "
+     "file.  On the board it unblocks: '%s'.  What it audits lies BENEATH what "
+     "every refusal here rests on -- the facts in force, %s -- namely the outside "
+     "results each declares: %s; and, %s.  First said (kept): 'NOT YET RUN, so "
+     "nothing here is yet graded by it'.")
+
+
+def d67_fill():
+    """D67_T's fragments: M-D65-3's question, answer and words, what ran
+    (ledger.d67_ran()), the unblocks cell, and d67_clauses()."""
+    q, ans, words, unb = m_d65_3()
+    return (q, ans, words, ledger.d67_ran(), unb) + d67_clauses()
+
+_FACTS_IN_FORCE = []
+
+
+def facts_in_force_names():
+    """The names of the facts in force, ASKED of facts() with the owners' live
+    gates (what derive() admits), computed once per import."""
+    if not _FACTS_IN_FORCE:
+        import z3
+        _FACTS_IN_FORCE.extend(f for f in facts(z3, _vars(z3), figures()) if f["gate"])
+    return [f["name"] for f in _FACTS_IN_FORCE]
+
+
+def facts_in_force_clause():
+    """The facts in force, each with the outside result it declares, ASKED of
+    its owner (facts_outside(), via facts()): what DOCKET 67 audits lies
+    beneath them.  Never a regex over the held-by labels: that listed two and
+    dropped D7, whose duration QEI bounds.py READs at source.  The header says
+    once whose reading the RESTS / prior-art-only split is (this board's, of
+    each owner's text, quoted beside it -- no owner exposes such a flag)."""
+    facts_in_force_names()
+    return (RESTS_READING + " -- "
+            + "; ".join("%s: %s" % (f["name"], f["outside"]) for f in _FACTS_IN_FORCE))
+
+
+#: The one place the RESTS / prior-art-only split declares whose reading it
+#: is; printed at the head of the facts clause in DOCKET 67's record and SR5.
+RESTS_READING = ("rests / prior art only: this board's reading of each owner's text, "
+                 "quoted beside it")
+
+
+def facts_resting_on_outside():
+    """[name] of the facts in force whose proof RESTS on an outside result,
+    asked of facts_outside() through facts()."""
+    facts_in_force_names()
+    return [f["name"] for f in _FACTS_IN_FORCE if f["rests"]]
+
+
+#: An outside result named in an escape's own text: an arXiv id with the name
+#: before it, or a name carrying the owner's READ / CITED word.  The name is
+#: the OWNER'S: where the id sits inside a parenthesis, the owner's own
+#: parenthetical from its opening '(' up to the id (D24's 'Nucleation READ
+#: (Pisana, Shoshany, Antoniou, Kauffman & Lambropoulou, arXiv:2505.02210
+#: v4, ...)' -- an author run that crosses ', '); otherwise the capitalised-
+#: name chain before the id, which crosses ', ' too.  A status word is the
+#: OWNER'S provenance word for that result, taken only from the owner's
+#: sentence AFTER the id (with the qualifier that follows it, 'NOT-RUN in
+#: create.py') or from a parenthetical qualifying the name -- never from the
+#: clause before a colon (O6's 'is REFUTED: Kabat & Nomura ...' grades the
+#: row's own cause of death, not the paper), and never REFUTED, which is an
+#: audit grade, not a provenance word; 'NAMED-NOT-READ' and 'not READ' are
+#: not READ.  Items sharing an id are merged into one carrying every owner
+#: word, so no paper stands on the floor twice.
+_OUTSIDE_ID = re.compile(r"(?:arXiv:)?(gr-qc/\d{7}|\d{4}\.\d{4,5})")
+_OUTSIDE_NAME_RUN = r"(?:[A-Z][A-Za-z]*|&)(?:(?:[-&' ]+|, )(?:[A-Z][A-Za-z]*|&))*"
+_OUTSIDE_NAMED = re.compile(
+    r"(?<![A-Za-z:])((?:" + _OUTSIDE_NAME_RUN + r")[^.;():]{0,25}?"
+    r"(?:arXiv:)?(?:gr-qc/\d{7}|\d{4}\.\d{4,5}))")
+_OUTSIDE_STATUS = (r"(?<!NOT-)(?<!not )\b(READ at source|read at source|READ by the pass|"
+                   r"read via alphaXiv|READ|CITED|NOT-RUN(?: in [a-z0-9_]+\.py)?)\b")
+_OUTSIDE_WORD = re.compile(
+    r"\(((?:[A-Z][A-Za-z]+(?:[-&' ]+[A-Z][A-Za-z]+)*, (?:READ|CITED)[^()]*)|READ|CITED)\)")
+
+
+def _enclosing_paren(blob, start, end):
+    """(opener index, closer index) of the innermost parenthesis enclosing
+    blob[start:end], looking at most 200 characters each way, or None."""
+    depth, opener = 0, None
+    for k in range(start - 1, max(-1, start - 201), -1):
+        if blob[k] == ")":
+            depth += 1
+        elif blob[k] == "(":
+            if depth == 0:
+                opener = k
+                break
+            depth -= 1
+    if opener is None:
+        return None
+    depth = 0
+    for k in range(end, min(len(blob), end + 200)):
+        if blob[k] == "(":
+            depth += 1
+        elif blob[k] == ")":
+            if depth == 0:
+                return opener, k
+            depth -= 1
+    return None
+
+
+def _outside_items(blob):
+    """[(key, name, [status words])] the outside results one escape's text
+    names, by the rule above; key is the id where there is one, else the
+    parenthetical item itself."""
+    blob = " ".join(blob.split())
+    items = []
+    prev_end = -1
+    for m in _OUTSIDE_ID.finditer(blob):
+        item = None
+        paren = _enclosing_paren(blob, m.start(), m.end())
+        if paren:
+            # the owner's own parenthetical up to the id, after any earlier id
+            # inside the same parenthesis (H_M0's '(Fewster-Osterbrink
+            # 0708.2450, FFKP 2309.10848, ...)' names Fewster-Osterbrink and
+            # FFKP, each its own item -- pinned by a ctl in the selftest)
+            seg_start = max(paren[0] + 1, prev_end if prev_end > paren[0] else -1)
+            seg = blob[seg_start:m.start()].lstrip(",; ")
+            if seg == "" or re.fullmatch(_OUTSIDE_NAME_RUN + r",? ?", seg):
+                item = seg + m.group(0)
+        if item is None:
+            window = blob[max(0, m.start() - 60):m.end()]
+            named = [n for n in _OUTSIDE_NAMED.finditer(window) if n.end() == len(window)]
+            item = named[0].group(1) if named else m.group(0)
+        prev_end = m.end()
+        # the owner's status word: after the id, within the same sentence
+        tail = re.split(r"\.\s+(?=[A-Z])", blob[m.end():m.end() + 120])[0]
+        word = re.search(_OUTSIDE_STATUS, tail)
+        items.append((m.group(1), item, [word.group(1)] if word else []))
+    for m in _OUTSIDE_WORD.finditer(blob):
+        item = m.group(1)
+        if item in ("READ", "CITED"):
+            # a bare status word: carry the clause it qualifies
+            item = blob[:m.start()].rstrip().rsplit(".", 1)[-1].strip()[-60:] + " (%s)" % item
+        items.append((item, item, []))
+    return items
+
+
+def _merge_outside(items):
+    """[text] the items merged by key: one entry per id, its name the longest
+    the owners give it, its parenthetical every owner word in order."""
+    merged = {}
+    order = []
+    for key, name, words in items:
+        if key not in merged:
+            merged[key] = [name, []]
+            order.append(key)
+        elif len(name) > len(merged[key][0]):
+            merged[key][0] = name
+        for w in words:
+            if w not in merged[key][1]:
+                merged[key][1].append(w)
+    out = []
+    for key in order:
+        name, words = merged[key]
+        out.append(name + (" (%s)" % "; ".join(words) if words else ""))
+    return out
+
+
+def outside_results_in(blob):
+    """[text] the outside results one escape's text names, by the rule above:
+    each arXiv id with the owner's name before it and the owner's status word
+    after it in the same sentence, and each parenthetical carrying READ /
+    CITED; items sharing an id merged."""
+    return _merge_outside(_outside_items(blob))
+
+
+def escapes_outside_results(model=None):
+    """[text] A FLOOR: the outside results the escapes name with an arXiv id
+    (carrying the owner's status word where one follows it in the sentence)
+    or a parenthesised READ / CITED, regexed from the escapes' own texts and
+    routes (_outside_items() over escape_texts(), the OPEN rows' texts
+    untruncated -- escape_texts() cuts them to 200 characters for display,
+    which hid O6's '(READ by the pass)'), items sharing an id merged across
+    the escapes; asked, never typed, printed in DOCKET 67's record and SR5
+    under a label that says it is a floor.  The escapes' texts name more
+    (Fewster-Teo, Tipler, Tye-Wong, Bezrukov et al., ...): DOCKET 67's own
+    extraction is the census, not this regex."""
+    items = []
+    for hyp, text, route in escape_texts(model)[0]:
+        if hyp.startswith("OPEN "):
+            text = str(row(hyp[5:])[1])
+        items.extend(_outside_items(text + " " + route))
+    return _merge_outside(items)
+
+
+def escapes_outside_clause(model=None):
+    return "; ".join(escapes_outside_results(model)) or "none"
+
+
+#: The label the floor is printed under, in DOCKET 67's record and SR5: it
+#: says what the regex reaches and that the escapes' texts name more.
+ESCAPES_OUTSIDE_LABEL_T = ("A FLOOR, the outside results the escapes name with an arXiv "
+                           "id (carrying the owner's status word where one follows it in "
+                           "the sentence) or a parenthesised READ / CITED (the escapes' "
+                           "texts name more; DOCKET 67's own extraction is the census): %s")
+
+
+def d67_clauses():
+    """(the facts in force by name, the outside result each declares, the
+    labelled floor of outside results the escapes name) -- DOCKET 67's asked
+    clauses, shared by its record and SR5's statement."""
+    return (", ".join(facts_in_force_names()), facts_in_force_clause(),
+            ESCAPES_OUTSIDE_LABEL_T % escapes_outside_clause())
+
+
+def dockets_opened():
+    """DOCKETS_OPENED, built NOW from the owners (massform's verdicts and
+    flags, ledger's M-D65-1 and M-D65-3, the facts in force and the outside
+    results they and the escapes declare), so a moved owner moves the record."""
+    return [
+    ("DOCKET 65", "M-S1A-P1",
+     # M's words asked of massform (M_MECHANISM, M_CONSIDERATION), which checks
+     # them against the board's M-S1A-P1; the selftest checks them here too.
+     "mass formation at the seat: M's mechanism ('%s') and M's consideration "
+     "('%s'), tested against D15, D16, S9 and a full energy and conservation-law "
+     "account.  RUN (massform.py; seated as %s; the finite Higgs share an "
+     "OPEN item in S10's note, M-D65-2; placed in "
+     "SR5): the mechanism as stated is %s (massform.mechanism_label()), with "
+     "its remainders OPEN, not refused, and %s (S11-S13); the consideration is "
+     "%s (massform.CONSIDERATION_VERDICT).  SWITCH-ON's refusal and the "
+     "consideration's second half rest on P-UNIFORM (massform.P_UNIFORM_STATUS "
+     "= %s)."
+     % (massform.M_MECHANISM, massform.M_CONSIDERATION, seated65(),
+        massform.mechanism_label(),
+        priced65(), massform.CONSIDERATION_VERDICT, massform.P_UNIFORM_STATUS)),
+    ("DOCKET 66", "M-S1A-P3",
+     # M's answer, the question's parenthetical, M's words and the literature
+     # are asked of ledger.RULED_BY_M's M-D65-1, never retyped here; the
+     # protocol clause is QET_PROTOCOL, the one wording the board allows.
+     # D66-RULINGS verifier (2026-10-05): DOCKET 66 has run; d66_fill() asks
+     # what ran of the ledger.  First filled as D66_T_AS_FIRST_WRITTEN % (M's
+     # answer, the parenthetical, QET_PROTOCOL, M's words, the literature).
+     D66_T % d66_fill()),
+    ("DOCKET 67", "M-D65-3",
+     # The four fragments asked of ledger.RULED_BY_M's M-D65-3; the facts in
+     # force, the outside result each declares and the outside results the
+     # escapes name asked of facts() and escape_texts(); never retyped here.
+     # 2026-10-05: DOCKET 67 has closed; first filled as
+     # D67_T_AS_FIRST_WRITTEN % (m_d65_3() + d67_clauses()).
+     D67_T % d67_fill()),
+    ]
+
+
+#: A result asserted on a docket that has NOT run, in EITHER direction: a verb
+#: making or showing exotic matter, 'is (not) exotic', 'cannot', 'fails',
+#: 'no negative'.
+_RESULT_WORDS = re.compile(
+    r"\b(shows|proves|makes|produces|generates|demonstrates|establishes|confirms)"
+    r"\b[^.]{0,60}\bexotic\b|\bis( not)? exotic\b|\bcannot\b|\bfails\b|"
+    r"\bno negative\b", re.I)
+
+
+def d66_qet_faults(text):
+    """[fault] where DOCKET 66's record describes QET in this file's own words:
+    the question's description not attributed to the question, the protocol
+    clause not QET_PROTOCOL, 'information ... creates/creating' in the board's
+    own words, the record not saying 'nothing here decides it', or a result
+    asserted either way (_RESULT_WORDS) in the board's own words -- M's words,
+    the question's description and QET_PROTOCOL removed first."""
+    t = " ".join(text.split())
+    par, words = m_d65_1()[3], m_d65_1()[1]
+    bad = []
+    if ("as the question put to M described it, '%s' (the QUESTION's "
+            "description, not READ" % par) not in t:
+        bad.append("the question's description is not attributed to the question")
+    if QET_PROTOCOL not in t:
+        bad.append("the protocol clause is not the CITED-not-READ one")
+    if "nothing here decides it" not in t:
+        bad.append("the record does not say nothing here decides it")
+    rest = t.replace(par, "").replace(words, "")
+    if re.search(r"information[^.]{0,80}\bcreat", rest, re.I):
+        bad.append("'information creates' in the board's own words")
+    if _RESULT_WORDS.search(rest.replace(QET_PROTOCOL, "")):
+        bad.append("a result asserted")
+    return bad
+
+
+#: Dockets M's rulings open, as they stand at import (dockets_opened() is what
+#: the report prints and the checks read).
+DOCKETS_OPENED = dockets_opened()
+
+
+def ruling_effect(model):
+    """What each step-1a ruling changed HERE, COMPUTED: each ruled requirement
+    is switched off, the verdicts re-derived, and the classes that move named."""
+    v = model["verdicts"]
+
+    def moved(drop):
+        alt = derive(model, drop=drop)
+        return ["%s %s (without it: %s)" % (k, v[k]["verdict"], alt[k]["verdict"])
+                for k in sorted(v) if alt[k]["verdict"] != v[k]["verdict"]]
+    p2, p3 = moved(("aimability",)), moved(("chronology", "pathology"))
+    return {
+        "M-S1A-P1": "S carries no contraction requirement; S-1 is %s.  The "
+                    "mass-formation mechanism is DOCKET 65's, not S's: DOCKET 65 "
+                    "has run (SR5), the mechanism as stated, as a supply, is %s "
+                    "(S10); its remainders S11-S13 (%s) are OPEN, not refused, "
+                    "and it moves no class verdict here."
+                    % (v["S-1"]["verdict"], massform.mechanism_label(), priced65()),
+        "M-S1A-P2": "aimability joins C's membership (H_aim).  Classes it moves: "
+                    "%s." % ("; ".join(p2) or "none"),
+        "M-S1A-P3": "no closed causal curve and no Borde pathology AT THE SEAT of "
+                    "any object.  Classes it moves: %s.  Seating at a topological "
+                    "defect, and M's throat-compression mechanism, are DOCKET "
+                    "66's." % ("; ".join(p3) or "none -- no owner places a defect "
+                               "at a seat"),
+        "M-S1A-P4": "three readings of phase1's D3 are run side by side (the D3 "
+                    "COMPARISON).",
+        "M-S1A-P5": "R11 is stated on a quantum specification; transit.py's four "
+                    "results bind it under H_tele.",
+    }
+
+DIVERGENCES = [
+    ("V1", "DOCKET 62 R2: 'over-determined three ways' including Olum",
+     "Olum (D5) concerns superluminal travel -- the lead -- not m < 0 contraction; "
+     "dropped from R2."),
+    ("V2", "DOCKET 62 R4: 72.599", "REFUSED: gap 0 on an asymptotically flat corridor "
+     "(fewsterteo.py); 71.256 stands.  (DOCKET 67: gap 0 returns the flat bound "
+     "in the (5.6) FORMULA, derived for ultrastatic Minkowski and open RW only; "
+     "the refusal rests on the corridor supplying no (5.6) tightening, not on a "
+     "Fewster-Teo bound evaluated on the corridor.)"),
+    ("V3", "DOCKET 62 R5: 'a device that cannot be aimed is not a device'",
+     "M ruled aimability REQUIRED but not the device's only function "
+     "(M-S1A-P2); it is used as an exclusion, and nothing here treats it as "
+     "sufficient."),
+    ("V4", "DOCKET 62 R9 as a separate requirement",
+     "folded into R4: DOCKET 64 D ruled the requirement is not restated about a "
+     "distribution, so R9 refuses exactly R4's set in the flat model under H6."),
+    ("V5", "DOCKET 62 R12: 'the tree can PROVE the right side is empty'",
+     "candidates.LIST_IS_EXHAUSTIVE is False: a SURVEY."),
+    ("V6", "drivensource.OVERTURN_L2: the point-charge break 'IS EMPTY'",
+     "the emptiness is proved for bodies with non-negative bare mass; the point "
+     "charge carries a -infinite bare mass, outside that hypothesis, so K3 carries "
+     "it OPEN.  The owner has a second route: under Gibbons-Hull/Witten's Q <= M "
+     "(charge.py, confirmed in drivensource section 4) the point charge's m < 0 "
+     "region lies inside the INNER horizon r_- (drivensource.inner_horizon_ratio "
+     "<= 1).  Whether that empties the K3 instance is not decided here: no "
+     "requirement R1-R12 is written for a region inside a horizon."),
+    ("V7", "create.py: manufacture 'closed'",
+     "the creation classes are not emptied here: M scoped M-S1A-P3 to the SEAT "
+     "('My ruling refers to the seat/destination'), and create.py's CTC lies in "
+     "the interpolating region, which no owner places at the seat."),
+    ("V8", "DOCKET 62 R6 note: Fewster & Smith widen the covered set",
+     "true of its class; it is not evaluated on the corridor, so H_flat is not "
+     "discharged."),
+    ("V9", "phase1 docstring: 'IT IS NEVER A LEAD' (Theorem 4)",
+     "Theorem 4 presupposes D2 and agents in a compact region; formation.py's "
+     "family meets neither, so it does not reach that passage."),
+]
+
+def what_it_does_not_say():
+    """WHAT_IT_DOES_NOT_SAY, built NOW (its S13 sentence asks massform)."""
+    return [
+    "It does not say a contracting corridor is impossible: the OPEN classes are open.",
+    "It does not declare impossible anything spec.py establishes: S-1 is NONEMPTY.",
+    "It does not say the seat is new: '%s' (spec.DOES_NOT)." % spec.DOES_NOT[0],
+    "It uses aimability, chronology and pathology only as M ruled them "
+    "(M-S1A-P2, M-S1A-P3), and never treats aimability as sufficient.",
+    "It does not include seating at a topological defect in S, nor Quantum Energy "
+    "Teleportation (folded in by M-D65-1): both are DOCKET 66's, which HAS RUN "
+    "(wave 1, seated: ledger section 8; M's rulings M-D68-26..28) and adds neither "
+    "to S -- S's classes take only the literals wl and ball.  First said: \"both "
+    "are DOCKET 66's, untested.\"",
+    "It does not say atomic mass cannot appear at a seat: DOCKET 65 refuses M's "
+    "mechanism AS STATED as a supply (S10: %s), and its remainders S11-S13 (%s) "
+    "are OPEN, not refused; the held-seat release route S13, on H-RELEASE, "
+    "forms no baryons (the elements must already be at the seat) and is a %s "
+    "S-3 candidate, not a member of S-1 (the candidacy rests %s)."
+    % (massform.mechanism_label(), priced65(),
+       priced65(massform.HELD_SEAT_ROUTE_PRICED), S13_CANDIDACY),
+    "It does not say the external results its refusals rest on all stand: "
+    "DOCKET 67 (M-D65-3) HAS RUN and closed (docket67-raw/CLOSE.md lists what "
+    "it moved), and which of the facts in force here it moved is not computed "
+    "in this file.  First said: 'It does not say the external results its "
+    "refusals rest on have been audited: DOCKET 67 (M-D65-3) is NOT YET RUN.'",
+    "It does not decide whether a transition can lead; a lead is not required.",
+    "It does not quote O1's two figures as MEASURED, nor any SI formation price.",
+    "It does not rank the open classes or total any gaps.",
+    "It says nothing about objects outside C, T, S, W, Rec.",
+    ]
+
+
+WHAT_IT_DOES_NOT_SAY = what_it_does_not_say()
+
+
+# ================================================= 8. BUILD AND HEADLINE
+
+def build():
+    F = figures()
+    sf = slow_figures()
+    model = {"F": F, "hyps": hypotheses(), "classes": classes(F),
+             "requirements": requirements(F),
+             "witness_S1": bool(sf["spec_selftest_ok"] and F["f_sun_m"] > 0.0)}
+    model["objects"] = objects(F)
+    return model
+
+
+RE_ASK_PINS = (("fewsterteo", "O2_CLOSED", False), ("hpscentre", "O5_CLOSED", False),
+               ("branelink", "O6_CLOSED", False), ("branelink", "O7_CLOSED", False),
+               ("latticectc", "O3_CLOSED", False),
+               ("linstab", "SEMICLASSICAL_EVALUABLE_ON_DEMAND", False),
+               ("noise", "H2_SATISFIED_BY_CORRIDOR", False))
+
+
+def re_ask(model=None):
+    """Owners whose movement this file cannot interpret -- an open row closing,
+    in a direction the flag does not say.  Any of them moving makes the
+    headline RE-ASK instead of a guess."""
+    return ["%s.%s" % (m, a) for m, a, want in RE_ASK_PINS if A(m, a) != want]
+
+
+def _static_length(m, R):
+    """Antiderivative of the static radial length element dR/sqrt(1 - 2m/R) for
+    CONSTANT m (valid for R > 2m): sqrt(R(R - 2m)) + 2m ln(sqrt(R) + sqrt(R - 2m)).
+    d3_readings checks its derivative in sympy before using it."""
+    return math.sqrt(R * (R - 2.0 * m)) + 2.0 * m * math.log(math.sqrt(R) + math.sqrt(R - 2.0 * m))
+
+
+#: The mixed-sign witness for reading 3 (in units of the inner place's areal
+#: radius): m = D3_WITNESS_M[0] on [R_A, R_MID], D3_WITNESS_M[1] on (R_MID, R_B].
+#: A witness of what the criterion admits -- a mass profile, not a device.
+D3_WITNESS_R = (1.0, 2.0, 10.0)
+D3_WITNESS_M = (-0.3, 0.05)
+
+
+def d3_readings(F):
+    """M-S1A-P4: 'run both scenarios and compare.  Maybe its a combination.'
+    Three readings of phase1's D3, what each admits, and a z3 lemma tying the
+    third (the combination) to the first.  COMPUTED HERE."""
+    import sympy as sp
+    import z3
+    # LEMMA (z3): with x = 2m/R < 1 and y = sqrt(1 - x) > 0, the static length
+    # element 1/y is >= 1 exactly when x >= 0, and < 1 exactly when x < 0.
+    x, y = z3.Reals("x y")
+    s = z3.Solver()
+    s.add(x < 1, y > 0, y * y == 1 - x, z3.Not((y <= 1) == (x >= 0)))
+    lemma = s.check() == z3.unsat
+    # VACUITY GUARD: the false strengthening 'element >= 1 for every x < 1' fails
+    g = z3.Solver()
+    g.add(x < 1, y > 0, y * y == 1 - x, z3.Not(y <= 1))
+    guard = g.check() == z3.sat
+    # the antiderivative, checked symbolically before it is used
+    Rs, ms = sp.symbols("R m", real=True)
+    anti = sp.sqrt(Rs * (Rs - 2 * ms)) + 2 * ms * sp.log(sp.sqrt(Rs) + sp.sqrt(Rs - 2 * ms))
+    d = sp.diff(anti, Rs) - 1 / sp.sqrt(1 - 2 * ms / Rs)
+    anti_ok = all(abs(float(d.subs({Rs: r, ms: mm}))) < 1e-12
+                  for r in (1.0, 2.5, 7.0) for mm in (-0.3, 0.05, 0.2))
+    ra, rm, rb = D3_WITNESS_R
+    m1, m2 = D3_WITNESS_M
+    length = (_static_length(m1, rm) - _static_length(m1, ra)
+              + _static_length(m2, rb) - _static_length(m2, rm))
+    gap = rb - ra
+    return {
+        "lemma": lemma, "guard": guard, "antiderivative_checked": anti_ok,
+        "witness_length": length, "witness_gap": gap,
+        "witness_net": length / gap - 1.0,
+        "milne": F["milne"],
+        "readings": [
+            ("1", "R1, pointwise and invariant",
+             "an endpoint whose K has m < 0 at every point: an instance of C over K "
+             "when also held for b/c AND aimable (M-S1A-P2), and C's verdicts apply"),
+            ("2", "phase1's slice D3, read literally",
+             "also configurations with m >= 0 everywhere: Milne, exactly flat, "
+             "gives Gamma = %g on a slice with advance over flat %g -- K0's "
+             "gauge-only members, a contraction with no invariant content"
+             % (F["milne"]["gamma"], F["milne"]["advance_over_flat"])),
+            ("3", "net contraction along the STATIC slice between the two fixed "
+                  "places (the combination: D3's integrated form, R1's invariance)",
+             "by the lemma, an admitted endpoint has m < 0 somewhere between the "
+             "places.  WITHOUT aimability, by H_R1 that sub-region (held for b/c) "
+             "is itself a C (K1-K6), and reading 3 admits mixed-sign corridors "
+             "reading 1 prices only over their negative part: "
+             "the witness m = %g on [%g, %g], %g on (%g, %g] has static length "
+             "%.6f against the areal gap %g (net %+.4f%%).  Written for STATIC, "
+             "SPHERICALLY SYMMETRIC configurations only (Misner-Sharp m, areal R; "
+             "the static slice is the Killing slicing, and off it a slice length "
+             "is gauge), and every such configuration fails aimability (D14, "
+             "M-S1A-P2) -- so WITH every ruling in force reading 3 admits no "
+             "instance of C"
+             % (m1, ra, rm, m2, rm, rb, length, gap, 100.0 * (length / gap - 1.0))),
+        ],
+        "comparison": (
+            "WITHOUT aimability, readings 1 and 3 agree: every endpoint that "
+            "either admits, held for b/c, contains a C, over K (1) or over its "
+            "m < 0 sub-region (3), so C's verdicts decide both.  WITH every ruling "
+            "in force, reading 1's C must also be aimable, and reading 3 admits "
+            "none.  Only reading 2 admits configurations with no m < 0 anywhere, "
+            "and on those the advance over flat is %g (Milne)."
+            % F["milne"]["advance_over_flat"]),
+    }
+
+
+def fill_objects(model, verdicts):
+    F = model["F"]
+    ri = class_of(model, "C", {"sph": True, "negm": F["certify_negm"],
+                               "reg": True, "m0": True, "model": False})
+    rii = class_of(model, "C", {"sph": True, "negm": True, "reg": True, "m0": True,
+                                "model": True, "sgt1": F["S1"] > 1.0})
+    for o in model["objects"]:
+        o["definition"] = o["definition"].replace("{realisation_i}", str(ri)) \
+                                         .replace("{realisation_ii}", str(rii))
+    model["realisation_i"], model["realisation_ii"] = ri, rii
+
+
+def headline(model, verdicts, ent):
+    moved = re_ask(model)
+    if moved:
+        return ("RE-ASK: %s moved.  This file cannot tell which way an open row "
+                "closed, so it states no theorem until it is re-read."
+                % ", ".join(moved))
+    by = lambda sp, v: [K["id"] for K in model["classes"]
+                        if K["space"] == sp and verdicts[K["id"]]["verdict"] == v]
+    L = []
+    e, c, o = by("C", EMPTY), by("C", EMPTY_IF), by("C", OPEN_V)
+    ass = sorted(set(a for k in c for a in verdicts[k]["assumed"]))
+    L.append("OVER C (the contracting corridor): the classes partition C (z3).  "
+             "EMPTY: %s.%s  OPEN: %s."
+             % (", ".join(e) or "none",
+                ("  EMPTY IF %s: %s." % (" and ".join(ass), ", ".join(c))) if c else "",
+                ", ".join(o) or "none"))
+    if not c and ent["without_H_flat"]:
+        L.append("So, with every ruling in force and NO assumed hypothesis, every "
+                 "contracting, aimable corridor lies in %s (z3: entailed).  Each "
+                 "OPEN class is propositionally consistent with the facts encoded "
+                 "and in force in its own space (of %s) (z3: %s) -- a check over "
+                 "those encoded implications, not over the tree."
+                 % (", ".join(o), ", ".join(ent["facts_encoded"]),
+                    "all sat" if all(x[1] for x in ent["opens_consistent"])
+                    else "NOT all sat"))
+    if ent["with_H_flat"] and c:
+        L.append("So, under %s, every contracting corridor lies in %s; if %s "
+                 "fails it may also lie in %s (z3: entailed).  Each OPEN class is "
+                 "propositionally consistent with the facts encoded and in force "
+                 "in its own space (of %s) (z3: %s) -- a check over those encoded "
+                 "implications, not over the tree."
+                 % (" and ".join(ass), ", ".join(o), " and ".join(ass), ", ".join(c),
+                    ", ".join(ent["facts_encoded"]),
+                    "all sat" if all(x[1] for x in ent["opens_consistent"])
+                    else "NOT all sat"))
+    for sp, name in (("S", "S (M's scoped seat)"), ("W", "W (the throat gate)"),
+                     ("Rec", "Rec (the reconstruction route)")):
+        parts = ["%s %s" % (v, ", ".join(by(sp, v))) for v in VERDICTS if by(sp, v)]
+        L.append("OVER %s: %s." % (name, "; ".join(parts)))
+    rv = model["verdicts_route"]
+    diff = [K["id"] for K in model["classes"]
+            if rv[K["id"]]["verdict"] != verdicts[K["id"]]["verdict"]]
+    if diff:
+        L.append("WITHOUT %s (the independent route): %s."
+                 % (" and ".join(ROUTE_DROP), "; ".join(
+                     ("%s %s%s by %s" % (k, rv[k]["verdict"],
+                                          (" " + " and ".join(rv[k]["assumed"]))
+                                          if rv[k]["assumed"] else "",
+                                          " + ".join(rv[k]["facts"])))
+                     if rv[k]["verdict"] in (EMPTY, EMPTY_IF) else "%s %s" % (k, rv[k]["verdict"])
+                     for k in diff)))
+    aim_on = in_force("aimability")
+    L.append("T (the transition), under the three readings of D3 run on M's ruling "
+             "M-S1A-P4: an endpoint is an instance of C only if it contracts, is "
+             "held for one light-crossing (D7)%s.  %s  Reading 2 also admits "
+             "gauge-only configurations (advance over flat %g).  Its passage is "
+             "priced, not refused (R10, RT)."
+             % (" and is aimable (M-S1A-P2)" if aim_on else "",
+                "Reading 1 admits the pointwise-contracting endpoints, and those "
+                "also held and aimable are instances of C; reading 3 (static, "
+                "spherical) admits no instance of C, since every such endpoint "
+                "fails aimability (D14)." if aim_on else
+                "Readings 1 and 3 agree: every endpoint either admits contains a C.",
+                model["F"]["milne"]["advance_over_flat"]))
+    return "\n".join(L)
+
+
+def run():
+    model = build()
+    verdicts = derive(model)
+    route = derive(model, drop=ROUTE_DROP)
+    fill_objects(model, verdicts)
+    ent = entailment(model, verdicts)
+    model["verdicts"], model["entailment"] = verdicts, ent
+    model["verdicts_route"] = route
+    model["entailment_route"] = entailment(model, route, drop=ROUTE_DROP)
+    model["escapes"] = escapes(model, verdicts, route)
+    model["d3"] = d3_readings(model["F"])
+    model["partition"] = partition_check(model)
+    model["headline"] = headline(model, verdicts, ent)
+    return model
+
+
+# ============================================================ 9. THE REPORT
+
+def _wrap(text, indent=6, width=96):
+    """Never breaks a hyphenated term across lines: SR5's status once printed
+    'held-\n      seat release route', and bare_refusals(), which reads the
+    printed report, rightly found the remainder missing from that sentence."""
+    import textwrap
+    return textwrap.fill(" ".join(str(text).split()), width=width,
+                         initial_indent=" " * indent, subsequent_indent=" " * indent,
+                         break_on_hyphens=False)
+
+
+def theorem_statement(model):
+    v, H = model["verdicts"], model["hyps"]
+    cls = dict((K["id"], K) for K in model["classes"])
+
+    def defn(cid):
+        K = cls[cid]
+        return " and ".join(("" if val else "not ") + FEATURE_TEXT[k]
+                            for k, val in K["lits"].items()) or "all of it"
+    L = ["THE SPECIFICATION THEOREM (derived at run time from the class verdicts)", ""]
+    n = 1
+    for cid in [K["id"] for K in model["classes"]]:
+        vv = v[cid]
+        K = cls[cid]
+        rr = model["verdicts_route"][cid]
+        route_txt = ""
+        if rr["verdict"] != vv["verdict"]:
+            if rr["verdict"] in (EMPTY, EMPTY_IF):
+                route_txt = ("  Independently, without %s: %s%s, by %s, under %s."
+                             % (" and ".join(ROUTE_DROP), rr["verdict"],
+                                (" " + " and ".join(rr["assumed"]) + " (ASSUMED)")
+                                if rr["assumed"] else "",
+                                " + ".join(rr["facts"]),
+                                ", ".join(route_hyps(model, cid, model["verdicts_route"]))))
+            else:
+                route_txt = ("  Without %s it is %s: the verdict rests on that "
+                             "ruling." % (" and ".join(ROUTE_DROP), rr["verdict"]))
+        if vv["verdict"] == EMPTY:
+            L.append(_wrap("(%d) [%s] %s -- the class '%s' (%s) is EMPTY of "
+                           "instances of %s, by %s, under %s.%s"
+                           % (n, K["object"], cid, K["name"], defn(cid), K["object"],
+                                          " + ".join(vv["facts"]),
+                                          ", ".join(route_hyps(model, cid, v))
+                                          or "no hypothesis",
+                                          route_txt), 2))
+        elif vv["verdict"] == EMPTY_IF:
+            L.append(_wrap("(%d) [%s] %s -- the class '%s' (%s) is EMPTY of "
+                           "instances of %s IF %s (ASSUMED), by %s, under %s." %
+                           (n, K["object"], cid, K["name"], defn(cid), K["object"],
+                            " and ".join(vv["assumed"]), " + ".join(vv["facts"]),
+                            ", ".join(K["hyps"])), 2))
+        elif vv["verdict"] == NONEMPTY:
+            L.append(_wrap("(%d) [%s] %s -- '%s' is NONEMPTY: witness the Sun, "
+                           "f(R_sun) = %.2f AU (spec.focal_length), NEC, WEC and DEC "
+                           "satisfied, under %s: %s.  Its evidential status is %s "
+                           "+ %s + %s, not %s."
+                           % (n, K["object"], cid, K["name"], model["F"]["f_sun_AU"],
+                              ", ".join(K["hyps"]),
+                              "; ".join(H[h][0] for h in K["hyps"]),
+                              MEASURED, CITED, CHECKED, THEOREM), 2))
+        else:
+            continue
+        n += 1
+    opens = [K["id"] for K in model["classes"] if v[K["id"]]["verdict"] == OPEN_V]
+    ent = model["entailment"]
+    forced = ent["forced"]
+    fsent = "".join("  %s's members are FORCED to carry %s by the facts in force "
+                    "(z3; the facts are READ by create.py).  M-S1A-P3 disqualifies "
+                    "a defect AT THE SEAT only, and no owner places this one "
+                    "there, so %s stays OPEN."
+                    % (cid, " and ".join(PROP_TEXT[p] for p in props), cid)
+                    for cid, props in sorted(forced.items()))
+    L.append(_wrap("(%d) Every other class is OPEN: %s.  No requirement in force "
+                   "empties any of them.%s  Each OPEN class is propositionally consistent "
+                   "with the facts encoded and in force in its space -- %s -- "
+                   "(z3: %s); that is a check over those encoded implications, not "
+                   "consistency with the whole tree."
+                   % (n, ", ".join(opens), fsent, ", ".join(ent["facts_encoded"]),
+                      "all sat" if all(x[1] for x in ent["opens_consistent"])
+                      else "NOT all sat"), 2))
+    L.append(_wrap("(%d) The requirements hold as stated in the table, each on the "
+                   "object named there; every limitation is a named hypothesis "
+                   "there or an escape below.  M's rulings in force: %s."
+                   % (n + 1, ", ".join(r[0] for r in ledger.RULED_BY_M)), 2))
+    return "\n".join(L)
+
+
+def report():
+    model = run()
+    print(__doc__.split("===============", 1)[0].strip())
+    print("\n" + "=" * 79)
+    print("HEADLINE")
+    print("=" * 79)
+    for line in model["headline"].split("\n"):
+        print(_wrap(line, 2))
+    print()
+    print(theorem_statement(model))
+
+    print("\n" + "=" * 79 + "\nTHE OBJECTS\n" + "=" * 79)
+    for o in model["objects"]:
+        print("  %s -- %s" % (o["id"], o["name"]))
+        print(_wrap(o["definition"]))
+        print(_wrap("source: " + o["source"]))
+
+    print("\n" + "=" * 79 + "\nTHE REQUIREMENT TABLE\n" + "=" * 79)
+    print("  %-5s %-8s %s" % ("id", "object", "status"))
+    for r in model["requirements"]:
+        print("  %-5s %-8s %s" % (r["id"], ",".join(r["applies_to"]),
+                                  ledger._one_line(r["status"], 84)))
+    for r in model["requirements"]:
+        print("\n  %s  %s" % (r["id"], r["title"]))
+        print(_wrap("OBJECT: %s.   STATUS: %s" % (", ".join(r["applies_to"]), r["status"])))
+        print(_wrap(r["statement"]))
+        # Ends in a period: it is its own sentence, not the head of the
+        # OWNERS line (whose asked values are data, printed as repr).
+        print(_wrap("LEDGER ROWS PLACED HERE: %s%s." % (
+            ", ".join(r["rows"]) or "none",
+            ("; referenced: " + ", ".join(r["see"])) if r["see"] else "")))
+        print(_wrap("OWNERS ASKED: " + "; ".join(
+            "%s.%s = %s" % (m, a, ledger._one_line(repr(A(m, a)), 60))
+            for m, a in r["owners"])))
+        print(_wrap("HYPOTHESES: " + " | ".join(
+            (model["hyps"][h][0] + " [%s]" % h) if h in model["hyps"] else h
+            for h in r["hypotheses"])))
+
+    print("\n" + "=" * 79 + "\nTHE CLASS TABLE\n" + "=" * 79)
+    print("  %-13s %-4s %-9s %-9s %-24s %s" % ("class", "obj", "verdict", "w/o aim",
+                                              "facts used", "stated hypotheses"))
+    for K in model["classes"]:
+        vv = model["verdicts"][K["id"]]
+        print("  %-13s %-4s %-9s %-9s %-24s %s"
+              % (K["id"], K["object"], vv["verdict"],
+                 model["verdicts_route"][K["id"]]["verdict"],
+                 (" + ".join(vv["facts"]) + (" | " + ",".join(vv["assumed"])
+                                             if vv["assumed"] else "")) or "-",
+                 ", ".join(K["hyps"]) or "-"))
+    for K in model["classes"]:
+        print("\n  %s  %s" % (K["id"], K["name"]))
+        print(_wrap("DEFINITION: " + (" and ".join(
+            ("" if val else "NOT ") + FEATURE_TEXT[k] for k, val in K["lits"].items())
+            or "the whole route")))
+        print(_wrap("NOTE: " + K["note"]))
+    print("\n  facts in force: %s" % ", ".join(model["facts_in_force"]))
+    print("  facts refused (owner moved): %s" % (", ".join(model["facts_refused"]) or "none"))
+    for f in _facts_plain(model):
+        print(_wrap("%-13s held by: %s.  hypotheses: %s"
+                    % (f["name"], f["held"], ", ".join(f["hyps"]) or "-")))
+    for sp, p in sorted(model["partition"].items()):
+        print("  partition of %-4s disjoint: %-5s covers: %-5s vacuous classes: %s"
+              % (sp, not p["overlap"], p["cover"], p["vacuous"] or "none"))
+    e = model["entailment"]
+    print("  entailed, under H_flat: C lies in the OPEN classes = %s; without H_flat, "
+          "in OPEN + EMPTY IF = %s" % (e["with_H_flat"], e["without_H_flat"]))
+
+    print("\n" + "=" * 79 + "\nTHE ESCAPE LIST\n" + "=" * 79)
+    for i, x in enumerate(model["escapes"], 1):
+        print("  E%-3d %s  [%s]" % (i, x["hyp"], x["kind"]))
+        print(_wrap(x["text"]))
+        if x["reopens"] is not None:
+            print(_wrap("BREAKING IT REOPENS (computed, every ruling in force): %s"
+                        % (", ".join(x["reopens"]) or "nothing")))
+            if x.get("reopens_route") != x["reopens"]:
+                print(_wrap("  and without %s: %s" % (" and ".join(ROUTE_DROP),
+                                                       ", ".join(x["reopens_route"])
+                                                       or "nothing")))
+        if x["rows"]:
+            print(_wrap("LEDGER: %s" % ", ".join(x["rows"])))
+        print(_wrap(x.get("route_label", "KNOWN ROUTE") + ": " + x["route"]))
+
+    print("\n" + "=" * 79 + "\nTHE D3 COMPARISON (M-S1A-P4: run both, and the combination)\n"
+          + "=" * 79)
+    d3 = model["d3"]
+    for rid, name, admits in d3["readings"]:
+        print("  reading %s  %s" % (rid, name))
+        print(_wrap("ADMITS: " + admits))
+    print(_wrap("LEMMA (z3): with x = 2m/R < 1, the static length element "
+                "1/sqrt(1 - x) >= 1 exactly when m >= 0: %s; vacuity guard (the "
+                "false 'always >= 1' is refuted): %s; the antiderivative checked "
+                "in sympy: %s." % ("PROVED" if d3["lemma"] else "NOT PROVED",
+                                  d3["guard"], d3["antiderivative_checked"])))
+    print(_wrap("COMPARISON: " + d3["comparison"]))
+    print("\n" + "=" * 79 + "\nM's RULINGS IN FORCE, AND WHAT EACH CHANGED HERE\n" + "=" * 79)
+    eff = ruling_effect(model)
+    for rr in ledger.RULED_BY_M:
+        print("  %s  %s" % (rr[0], rr[1]))
+        print(_wrap(rr[3]))
+        if rr[0] in eff:
+            print(_wrap("HERE (computed): " + eff[rr[0]]))
+    print("\n" + "=" * 79 + "\nDOCKETS OPENED BY M's RULINGS, AND WHETHER EACH HAS RUN\n"
+          + "=" * 79)
+    for did, ruling, text in dockets_opened():
+        print("  %s  (%s, on the board: %s)" % (did, ruling, ruled(ruling)))
+        print(_wrap(text))
+    print("\n" + "=" * 79 + "\nPENDING FOR M -- what changes either way\n" + "=" * 79)
+    print("  This file's own questions: %s" % (", ".join(p[0] for p in PENDING_FOR_M)
+                                               or "none"))
+    for pid, q, why, change in PENDING_FOR_M:
+        print("  %s  %s" % (pid, q))
+        print(_wrap(why))
+        print(_wrap(change))
+    # The board's pending rulings whose outcome changes THIS file, ASKED of
+    # ledger.pending_rulings() (its census figures filled from statuses()).
+    board = pending_here()
+    print("  On the board, pending M and changing this file: %s"
+          % (", ".join(p[0] for p in board) or "none"))
+    for pid, q, _why, proposal, waits in board:
+        print("  %s" % pid)
+        print(_wrap(q))
+        print(_wrap("either way: " + proposal))
+        print(_wrap("what waits on it: " + waits))
+    print("\n" + "=" * 79 + "\nDIVERGENCES FROM A SOURCE, STATED\n" + "=" * 79)
+    for vid, src, why in DIVERGENCES:
+        print("  %s  %s" % (vid, src))
+        print(_wrap(why))
+    print("\n" + "=" * 79 + "\nWHAT THE THEOREM DOES NOT SAY\n" + "=" * 79)
+    vk, rk = model["verdicts"]["K1"], model["verdicts_route"]["K1"]
+    for s in ["It does not say K1 is empty without M's rulings: it is %s by %s "
+              "only under M-S1A-P2 (with H_aim); without that ruling it is %s%s."
+              % (vk["verdict"], " + ".join(vk["facts"]), rk["verdict"],
+                 (" " + " and ".join(rk["assumed"]) + ", ASSUMED") if rk["assumed"]
+                 else "")] + what_it_does_not_say():
+        print(_wrap("- " + s, 2))
+    wr = withdrawn_ids()
+    print("\n  withdrawn rows relied on: none (%s are listed in ledger.py and none "
+          "is an owner or a placed row here)" % ", ".join([wr[0], "...", wr[-1]]))
+    return 0
+
+
+def render(model=None):
+    buf = io.StringIO()
+    with contextlib.redirect_stdout(buf):
+        report()
+    return buf.getvalue()
+
+
+# ======================================================== 10. THE CHECKS
+
+def placement(model):
+    """(missing, doubled, withdrawn_used, unknown) against the ledger's LIVE rows."""
+    placed = [x for r in model["requirements"] for x in r["rows"]]
+    ids = ledger_ids()
+    missing = [i for i in ids if i not in placed]
+    doubled = sorted(set(i for i in placed if placed.count(i) > 1))
+    wd = set(withdrawn_ids())
+    used = sorted(set(x for r in model["requirements"]
+                      for x in r["rows"] + r["see"] if x in wd)
+                  | set(m for r in model["requirements"] for m, _a in r["owners"]
+                        if m in wd))
+    unknown = [i for i in placed if i not in ids]
+    return missing, doubled, used, unknown
+
+
+def scope_check(model, verdicts):
+    """spec.py's scoping respected: (1) no requirement on C (R1-R4 and the
+    corridor rows) is applied to S; (2) no EMPTY / EMPTY IF class of S contains
+    spec.py's achievable set (z3: class and wl jointly satisfiable)."""
+    import z3
+    V = _vars(z3)
+    on_S = sorted(r["id"] for r in model["requirements"] if "S" in r["applies_to"])
+    allowed = {"R5-S", "SR1", "SR2", "SR3", "SR4", "SR5"}
+    bad_req = sorted(set(on_S) - allowed)
+    bad_cls = []
+    for K in model["classes"]:
+        if K["space"] != "S" or verdicts[K["id"]]["verdict"] not in (EMPTY, EMPTY_IF):
+            continue
+        s = z3.Solver()
+        s.add(_lit(z3, V, K["lits"]), V["wl"])
+        if s.check() == z3.sat:
+            bad_cls.append(K["id"])
+    return bad_req, bad_cls
+
+
+def declared_check(model, verdicts, text):
+    """The forbidden word appears in no status, no verdict and no printed line."""
+    words = [r["status"] for r in model["requirements"]] + \
+            [v["verdict"] for v in verdicts.values()]
+    in_status = [w for w in words if FORBIDDEN_STATUS_WORD in w.upper()]
+    in_text = re.findall(r"\b%s\b" % FORBIDDEN_STATUS_WORD, text)
+    return in_status, in_text
+
+
+WITHDRAWN_NEEDLES = ("65 orders", "sixty-five", "18.5 orders", "1.5456e19",
+                     "PROTECTS ACHRONALITY")
+
+
+#: Wording that called DOCKET 65 pending after it ran.  Scanned over the whole
+#: report and every object definition, not over one list.
+STALE_DOCKET65 = ("DOCKET 65's to test", "until it lands", "DOCKETS 65 and 66, untested")
+_STALE65 = re.compile(r"(?i)DOCKET 65(?:'s)? (?:is |remains |stays )?"
+                      r"(?:untested|not yet run|to test|still to run)")
+
+
+def stale_docket65(text):
+    """[phrase] of `text` that still calls DOCKET 65 untested or pending."""
+    t = " ".join(text.split())
+    return ([p for p in STALE_DOCKET65 if p.casefold() in t.casefold()]
+            + [m.group(0) for m in _STALE65.finditer(t)])
+
+
+#: Wording that calls DOCKET 66 untested or not run after it ran (D66-RULINGS
+#: verifier, 2026-10-05).  A first wording kept as history is quoted after
+#: 'first said' / 'First said (kept):' and is removed before the scan, so only
+#: the board's current words are read.
+STALE_DOCKET66 = ("DOCKET 66's, untested", "DOCKET 66 still untested", "S-3's until tested")
+_STALE66 = re.compile(r"(?i)DOCKET 66(?:'s)?,? (?:is |remains |stays |still )?"
+                      r"(?:untested|not yet run|NOT YET RUN|to test|still to run)")
+_FIRST_SAID_QUOTE = re.compile(r"""(?i)first said(?: \(kept\))?:? (?:(?:'[^']*'|"[^"]*")(?:,? and )?)+""")
+
+
+def stale_docket66(text):
+    """[phrase] of `text` that still calls DOCKET 66 untested or not run,
+    outside a quoted first wording."""
+    t = _FIRST_SAID_QUOTE.sub("", " ".join(text.split()))
+    return ([p for p in STALE_DOCKET66 if p.casefold() in t.casefold()]
+            + [m.group(0) for m in _STALE66.finditer(t)])
+
+
+def _sentences65(text):
+    return re.split(r"(?<=[.])\s+(?=[A-Z(])", " ".join(text.split()))
+
+
+def bare_refusals(text):
+    """[sentence] that prints the refusal of M's mechanism without both priced
+    remainders massform attaches to it: DISPLACEMENT and QUANTA refused as NET
+    formation only (the pair route), and TEMPLATE's held-seat release route.
+    M's rule: never refuse a reading whose remainder is priced (massform's
+    refusal 9; its own guard, unqualified_refusals, sees only 'every reading',
+    so a sentence that LISTS the readings slips past it)."""
+    trig = [", ".join(massform.MECHANISM_VERDICT[1]).casefold(),
+            "refused as a supply", "refuses m's mechanism",
+            "mechanism as stated is refused", "as a supply, is refused"]
+    bad = []
+    for sent in _sentences65(text):
+        c = sent.casefold()
+        # WIDENED: any sentence where M's mechanism (or its row, S10) meets a
+        # refusal, whatever the wording -- 'M's mass-formation mechanism is
+        # REFUSED (S10)' names no reading and no fixed phrase.  A negated
+        # refusal ('not refused', 'not a refusal') refuses nothing.
+        pos = re.sub(r"not (?:a )?refus\w*", " ", c)
+        named = re.search(r"m's (?:mass[- ]formation )?mechanism|\bs10\b", pos)
+        if (any(t in c for t in trig) or (named and "refus" in pos)) and not (
+                "net formation" in c and "held-seat release route" in c):
+            bad.append(sent[:160])
+    return bad
+
+
+def d66_copy_faults(text):
+    """[fault] where DOCKET 66's printed copy of M-D65-1 differs from the
+    board: a QUOTES fragment of ledger:M-D65-1 missing, or its arXiv ids not
+    the ledger row's."""
+    t = _norm(text)
+    bad = ["missing: " + f for o, f in QUOTES
+           if o == "ledger:M-D65-1" and _norm(f) not in t]
+    board = " ".join(str(x) for x in [r for r in ledger.RULED_BY_M
+                                      if r[0] == "M-D65-1"][0])
+    ids = lambda u: sorted(set(re.findall(r"\d{4}\.\d{4,5}", u)))
+    if ids(text) != ids(board):
+        bad.append("arXiv ids %s, board %s" % (ids(text), ids(board)))
+    return bad
+
+
+def d65_quote_faults(text):
+    """[fault] where DOCKET 65's record quotes M (mechanism, consideration)
+    other than as the board's M-S1A-P1 row does; two quotes are required."""
+    board = _norm(" ".join(str(x) for x in [r for r in ledger.RULED_BY_M
+                                            if r[0] == "M-S1A-P1"][0]))
+    qs = re.findall(r"M's (?:mechanism|consideration) \('([^']+)'\)", text)
+    bad = ["not on the board: " + q for q in qs if _norm(q) not in board]
+    if len(qs) != 2:
+        bad.append("%d quotes of M, want 2" % len(qs))
+    return bad
+
+
+def withdrawn_lines(text):
+    """Printed lines carrying a withdrawn figure without saying so."""
+    bad = []
+    paras = text.split("\n\n")
+    for p in paras:
+        flat = " ".join(p.split())
+        for n in WITHDRAWN_NEEDLES:
+            if n in flat and not re.search(r"WITHDRAWN|withdrawn|struck|STRUCK|REFUSED",
+                                           flat):
+                bad.append((n, flat[:80]))
+    return bad
+
+
+def o1_figures_are_ledger_text():
+    """The two O1 figures occur in ledger.py / LEDGER.md and no other file here."""
+    hits = []
+    for fn in sorted(os.listdir(HERE)):
+        if not (fn.endswith(".py") or fn.endswith(".md")) or fn == os.path.basename(__file__):
+            continue
+        try:
+            with open(os.path.join(HERE, fn), encoding="utf-8") as fh:
+                t = fh.read()
+        except (OSError, UnicodeDecodeError):
+            continue
+        if any(v in t for v, _xi in o1_figures()):
+            hits.append(fn)
+    return hits
+
+
+def cls_hyps(model, cid):
+    return [K for K in model["classes"] if K["id"] == cid][0]["hyps"]
+
+
+@contextlib.contextmanager
+def patched(obj, attr, value):
+    old = getattr(obj, attr)
+    setattr(obj, attr, value)
+    try:
+        yield
+    finally:
+        setattr(obj, attr, old)
+
+
+@contextlib.contextmanager
+def ledger_status(rid, status):
+    """Replace one DEMAND or SUPPLY row's status for the duration -- a scratch
+    copy of the board, restored after."""
+    table = "DEMAND" if any(r[0] == rid for r in ledger.DEMAND) else "SUPPLY"
+    new = [(r[0], r[1], status, r[3], r[4]) if r[0] == rid else r
+           for r in getattr(ledger, table)]
+    with patched(ledger, table, new):
+        yield
+
+
+def selftest():
+    fails = []
+    rows = []
+
+    def chk(kind, label, got, want):
+        good = got == want
+        rows.append((kind, good))
+        tag = {"ask": "ask", "fig": "fig", "z3": "z3 ", "ctl": "CTL", "pin": "pin",
+               "chk": "chk"}[kind]
+        print("  [%s] %s %-70s %s" % ("ok" if good else "XX", tag, label[:70],
+                                      ledger._one_line(repr(got), 60)))
+        if not good:
+            fails.append((label, got, want))
+
+    print("specthm.py --selftest")
+    print("  kinds: ask = an owner asked, fig = a figure, z3 = a solver result,")
+    print("  CTL = a control that must change the output, pin = a verdict pinned,")
+    print("  chk = a structural check\n")
+
+    print("1. EVERY OWNER CITED IS ASKED, AND EVERY ASK SUCCEEDS")
+    model = run()
+    n = 0
+    for r in model["requirements"]:
+        for m, a in r["owners"]:
+            A(m, a)
+            n += 1
+    chk("ask", "owner attributes asked across the requirements (none missing)", n > 0, True)
+    chk("ask", "every ledger row a requirement places or references exists",
+        placement(model)[3], [])
+    chk("ask", "the ledger's own selftest-facing census is unchanged in kind",
+        sorted(ledger.statuses().keys()) == sorted(ledger.STATUSES), True)
+
+    print("\n2. THE FIGURES, ASKED OR COMPOSED FROM ASKS")
+    F = model["F"]
+    chk("fig", "S closed form = owner ratio at every test point (rel < 1e-12)",
+        F["closed_rel"] < 1e-12, True)
+    chk("fig", "log10 S(1 m) at the pins = fewsterteo.FLAT_SHORTFALL_ORDERS",
+        abs(F["log10S1"] - F["flat_orders"]) < 1e-9, True)
+    chk("fig", "  and it IS achievable.persistence_shortfall(1 m)",
+        abs(F["S1"] / achievable.persistence_shortfall(1.0) - 1.0) < 1e-12, True)
+    chk("fig", "S = 1 at b_x (persistence_crossing), to 1e-9",
+        abs(S_ratio(F["b_x"]) - 1.0) < 1e-9, True)
+    chk("fig", "Lambda = phase1.lam() = overturn.LAMBDA", F["Lambda_is_overturn"], True)
+    chk("fig", "phase1.contraction_law gives Delta d = mu b Lambda (rel < 1e-12)",
+        F["dd_owner_is_mu_b_Lambda"] < 1e-12, True)
+    chk("fig", "S is linear in mu at fixed (b, alpha)",
+        abs(F["S_linear_in_mu"] - 2.0) < 1e-12, True)
+    chk("fig", "at Delta d_x the composed S returns 1",
+        abs(S_ratio(1.0, F["mu"] * F["dd_x"] / F["dd_owner"]) - 1.0) < 1e-9, True)
+    sf = slow_figures()
+    chk("fig", "mu is concentric's SEAT+LEAD edge: no seat at 0.6 mu, seat+lead at mu",
+        (sf["concentric_below"]["seats"], sf["concentric_at"]["seats"],
+         sf["concentric_at"]["leads"]), (False, True, True))
+    chk("fig", "a positive lens seats LATE (composite +2e-3); the negative one early",
+        (sf["composite_plus"]["seats"], sf["composite_plus"]["delay"] > 0.0,
+         sf["composite_minus"]["early"]), (True, True, True))
+    chk("fig", "spec.py's selftest passes (it pins f_sun to its own 547.6 AU)",
+        sf["spec_selftest_ok"], True)
+    chk("fig", "the published ~550 AU is read from spec.py, and it is NOT within "
+        "spec's 1e-3 of f_sun", (F["published_sun_AU"],
+                                 abs(F["f_sun_AU"] / F["published_sun_AU"] - 1.0) > 1e-3),
+        (550.0, True))
+    chk("fig", "SR2: the owners' coefficients are pi c^4/4G and 3c^4/(8 pi G)",
+        sr2_identity()[:2], (True, True))
+    import sympy
+    chk("fig", "  and their quotient is 2 pi^2/3 exactly (sympy)",
+        sympy.simplify(sr2_identity()[2] - 2 * sympy.pi ** 2 / 3), 0)
+    chk("fig", "  equal to spec.seat_over_collapse at four scales",
+        max(abs(x / float(2 * sympy.pi ** 2 / 3) - 1.0) for x in F["soc"]) < 1e-12, True)
+    # DOCKET 67 (sturm-comparison-theorem, M's ruling 2026-10-02): the Sturm
+    # ratio over H_ball as written, every sub-case computed from the owners'
+    # ratio, against its closed form.
+    _sob = sturm_over_ball(min(F["soc"]))
+    _pi2 = float(sympy.pi ** 2)
+    chk("fig", "SR2 over H_ball as written: dust radius 2pi^2/3, dust diameter pi^2/6, "
+        "radiation diameter pi^2/8, T_kk = 2u diameter pi^2/12, w* = pi^2/6 - 1",
+        [abs(_sob[k] / x - 1.0) < 1e-12 for k, x in
+         (("dust_radius", 2 * _pi2 / 3), ("dust_diameter", _pi2 / 6),
+          ("radiation_diameter", _pi2 / 8), ("member_diameter", _pi2 / 12),
+          ("w_threshold_diameter", _pi2 / 6 - 1.0))], [True] * 5)
+    chk("fig", "  the T_kk = 2u member on a diameter is <= 1 (SR2 refused); dust on "
+        "either chord and radiation on the diameter stay > 1; the radius needs "
+        "w > 1 (beyond the DEC)",
+        (_sob["member_diameter"] <= 1.0, _sob["dust_radius"] > 1.0,
+         _sob["dust_diameter"] > 1.0, _sob["radiation_diameter"] > 1.0,
+         _sob["w_threshold_radius"] > 1.0, round(_sob["w_threshold_diameter"], 6)),
+        (True, True, True, True, True, 0.644934))
+    _w = _sob["w_threshold_diameter"]
+    chk("ctl", "  the w threshold brackets the gate: a member at w* + 1e-9 refuses SR2, "
+        "at w* - 1e-9 certifies it",
+        [sturm_ratio(min(F["soc"]), 1.0 + w, STURM_DIAMETER_OVER_RADIUS) > 1.0
+         for w in (_w + 1e-9, _w - 1e-9)], [False, True])
+    chk("fig", "D22 folded in: the demand is not restated about a distribution",
+        noise.DEMAND_RESTATED_ABOUT_DISTRIBUTION_CHANGES_REQUIREMENT, False)
+
+    print("\n3. THE PARTITION, BY z3")
+    for sp, p in sorted(model["partition"].items()):
+        chk("z3", "space %s: pairwise disjoint, covering, no class vacuous" % sp,
+            (p["overlap"], p["cover"], p["vacuous"]), ([], True, []))
+
+    print("\n4. THE VERDICTS AS DERIVED AT THIS HEAD (pins; the report never reads them)")
+    v = model["verdicts"]
+    want = {"K0": EMPTY, "K1": EMPTY, "K6a": OPEN_V, "K6b": EMPTY, "K2": OPEN_V,
+            # S-2 OPEN, not EMPTY: DOCKET 67 (sturm-comparison-theorem, M's
+            # ruling 2026-10-02) -- over H_ball as written fact SR2 is refused.
+            "K3": OPEN_V, "K4": OPEN_V, "K5": OPEN_V, "S-1": NONEMPTY, "S-2": OPEN_V,
+            "S-3": OPEN_V, "W-create-cc": OPEN_V, "W-create-ncc": OPEN_V,
+            "W-enlarge": OPEN_V, "Rec": OPEN_V}
+    chk("pin", "every class verdict, every ruling in force",
+        dict((k, v[k]["verdict"]) for k in want), want)
+    vr = model["verdicts_route"]
+    want_r = dict(want, K1=EMPTY_IF, K6b=OPEN_V)
+    chk("pin", "every class verdict without aimability (the independent route)",
+        dict((k, vr[k]["verdict"]) for k in want_r), want_r)
+    chk("pin", "K1 is emptied by D14 + MODEL-STATIC, assuming nothing",
+        (v["K1"]["facts"], v["K1"]["assumed"]), (["D14", "MODEL-STATIC"], []))
+    chk("pin", "without aimability K1's proof uses D4 + D7 (not D2), assumes H_flat",
+        (vr["K1"]["facts"], vr["K1"]["assumed"]), (["D4", "D7"], ["H_flat"]))
+    chk("pin", "K0's proof uses D2 alone", v["K0"]["facts"], ["D2"])
+    chk("pin", "S-2 is OPEN with no fact: SR2 refused over H_ball as written "
+        "(DOCKET 67)", (v["S-2"]["facts"], "SR2" in model["facts_refused"]),
+        ([], True))
+    chk("z3", "entailment: under H_flat C lies in the OPEN classes; without, + EMPTY IF",
+        (model["entailment"]["with_H_flat"], model["entailment"]["without_H_flat"]),
+        (True, True))
+    chk("z3", "every OPEN class of C is consistent with every fact in force",
+        all(x[1] for x in model["entailment"]["opens_consistent"]), True)
+    chk("chk", "realisation (i), certify's seated metric, is in K6a (not K1)",
+        model["realisation_i"], "K6a")
+    chk("chk", "realisation (ii), achievable's family at b = 1 m, is in K1",
+        model["realisation_ii"], "K1")
+
+    print("\n5. EACH CLASS STATES EXACTLY WHAT ITS PROOF USED")
+    chk("chk", "no class misses a hypothesis its z3 cores used, none is padded "
+        "(both routes)", hyp_check(model, v, vr), [])
+    chk("chk", "K1's aimability route rests on neither H_flat nor H_EFE",
+        [h for h in ("H_flat", "H_EFE") if h in route_hyps(model, "K1", v)], [])
+
+    print("\n6. PLACEMENT AGAINST THE LIVE LEDGER, AND WHAT IS NOT RELIED ON")
+    missing, doubled, used, unknown = placement(model)
+    chk("chk", "every ledger row (D, S, O, closed O, B, ruled) is placed", missing, [])
+    chk("chk", "and placed exactly once (no over-representation)", doubled, [])
+    chk("chk", "no WITHDRAWN row is placed, referenced or used as an owner", used, [])
+    text = render()
+    chk("chk", "no withdrawn figure printed without saying it is withdrawn",
+        withdrawn_lines(text), [])
+    chk("chk", "O1's two figures occur only in ledger.py and LEDGER.md (ledger text)",
+        o1_figures_are_ledger_text(), ["LEDGER.md", "ledger.py"])
+    chk("chk", "O1's status is quoted verbatim from ledger.CLOSED_ROWS",
+        st("O1"), ledger.CLOSED_ROWS[[r[0] for r in ledger.CLOSED_ROWS].index("O1")][2]
+        .split(".")[0])
+
+    chk("chk", "every fragment quoted from an owner is in the owner's text",
+        misquotes(), [])
+    chk("chk", "composite.phi restored after concentric's surveys (owner side effect)",
+        sf["composite_phi_restored"], True)
+
+    print("\n7. M's RULES, COMPUTED")
+    chk("chk", "the word %s is no status, no verdict, and absent from the "
+        "printout" % FORBIDDEN_STATUS_WORD, declared_check(model, v, text), ([], []))
+    chk("chk", "spec.py's scope: no C requirement on S; no EMPTY seat class holds "
+        "spec's witness", scope_check(model, v), ([], []))
+    chk("chk", "R1-R4 apply to C (R1 also to T's D3) and never to S",
+        [r["id"] for r in model["requirements"] if r["id"] in ("R1", "R2", "R3", "R4")
+         and "S" in r["applies_to"]], [])
+    chk("chk", "every ASSUMED hypothesis has an escape",
+        sorted(h for h, (t, k) in model["hyps"].items() if k == "ASSUMED"
+               and not any(x["hyp"] == h for x in model["escapes"])), [])
+    open_rows = ([r[0] for r in ledger.DEMAND if r[2] == OPEN]
+                 + [r[0] for r in ledger.SUPPLY if r[2] == OPEN]
+                 + [r[0] for r in ledger.OPEN_ROWS])
+    chk("chk", "every OPEN ledger row is carried by an escape (DOCKET 64 E's condition)",
+        [r for r in open_rows if not any(r in x["rows"] for x in model["escapes"])], [])
+    chk("chk", "  and their number is ledger.statuses()'s OPEN count",
+        len(open_rows), ledger.statuses()[OPEN])
+    stated = sorted(set(h for K in model["classes"]
+                        if v[K["id"]]["verdict"] in (EMPTY, EMPTY_IF) for h in K["hyps"]))
+    esc = dict((x["hyp"], x) for x in model["escapes"])
+    chk("chk", "every hypothesis an EMPTY / EMPTY IF class states has an escape",
+        [h for h in stated if h not in esc], [])
+    chk("chk", "  breaking each reopens a class on one route or the other",
+        [h for h in stated if h in esc and not (esc[h]["reopens"]
+                                               or esc[h]["reopens_route"])], [])
+    chk("chk", "  H_flat reopens nothing with aimability, K1 without; H_reg K3; H_M0 K2",
+        (esc["H_flat"]["reopens"], esc["H_flat"]["reopens_route"],
+         esc["H_reg"]["reopens"], esc["H_M0"]["reopens"]),
+        ([], ["K1"], ["K3"], ["K2"]))
+    chk("chk", "no escape is listed twice, and no open row twice",
+        (len(esc) == len(model["escapes"]),
+         len([x for x in model["escapes"] if x["kind"] == "OPEN ROW"])
+         == len(set(r for x in model["escapes"] if x["kind"] == "OPEN ROW"
+                    for r in x["rows"]))), (True, True))
+    chk("chk", "phase1.is_transition does not read passage_flux (accepted by definition)",
+        phase1.is_transition(False, True, True, True, True, passage_flux=True)
+        == phase1.is_transition(False, True, True, True, True, passage_flux=False), True)
+    chk("chk", "no RE-ASK owner has moved", re_ask(model), [])
+
+    print("\n8. CONTROLS -- EACH MUST CHANGE THE OUTPUT")
+    base_head = model["headline"]
+
+    def rerun():
+        m = run()
+        return m, m["verdicts"], m["headline"]
+
+    with ledger_status("D4", SURVEY):
+        m2, v2, h2 = rerun()
+    chk("ctl", "ledger D4 -> SURVEY: K1's persistence route falls to OPEN, the "
+        "headline moves, K1 stays EMPTY by D14",
+        (m2["verdicts_route"]["K1"]["verdict"], h2 != base_head, v2["K1"]["verdict"]),
+        (OPEN_V, True, EMPTY))
+    with ledger_status("D7", SURVEY):
+        m2, v2, h2 = rerun()
+    chk("ctl", "ledger D7 -> SURVEY: K1's persistence route falls to OPEN",
+        m2["verdicts_route"]["K1"]["verdict"], OPEN_V)
+    with ledger_status("D14", SURVEY):
+        m2, v2, h2 = rerun()
+    chk("ctl", "ledger D14 -> SURVEY: K1 falls back to EMPTY IF H_flat, K6b to OPEN",
+        (v2["K1"]["verdict"], v2["K6b"]["verdict"]), (EMPTY_IF, OPEN_V))
+    with patched(foliation, "IDENTITY_DISPUTED", True):
+        m2, v2, h2 = rerun()
+    chk("ctl", "foliation.IDENTITY_DISPUTED -> True: K0 falls to OPEN, K1 (which "
+        "never used D2) does not, the headline moves",
+        (v2["K0"]["verdict"], v2["K1"]["verdict"], m2["verdicts_route"]["K1"]["verdict"],
+         h2 != base_head), (OPEN_V, EMPTY, EMPTY_IF, True))
+    with patched(drivensource, "CERTIFY_COROLLARY", "UNCHANGED"):
+        m2, v2, h2 = rerun()
+    chk("ctl", "drivensource corollary un-narrowed: K1's persistence route falls "
+        "to OPEN (D4 refused)",
+        (m2["verdicts_route"]["K1"]["verdict"], "D4" in m2["facts_refused"]),
+        (OPEN_V, True))
+    with patched(ledger, "RULED_BY_M", [r for r in ledger.RULED_BY_M
+                                         if r[0] not in ("M-S1A-P2", "M-S1A-P3")]):
+        m2, v2, h2 = rerun()
+    chk("ctl", "M's rulings P2 and P3 taken off the board: K1 back to EMPTY IF, the "
+        "creation classes back to OPEN (the rulings are ASKED)",
+        (v2["K1"]["verdict"], v2["W-create-cc"]["verdict"], v2["W-create-ncc"]["verdict"]),
+        (EMPTY_IF, OPEN_V, OPEN_V))
+    # DOCKET 67: the class restricted to T_kk = u along the ray (the member
+    # ratio taken at T_kk/u = 1) is what SR2 used to certify -- S-2 returns to
+    # EMPTY on SR2 alone, SR2's requirement to THEOREM; so the refusal of SR2
+    # is the T_kk > u member and nothing else.  The owner-ratio control runs
+    # inside that restriction, where it still has something to move.
+    with patched(sys.modules[__name__], "STURM_MEMBER_TKK_OVER_U", 1.0):
+        m2, v2, h2 = rerun()
+        chk("ctl", "the member taken at T_kk = u (pressureless): S-2 back to EMPTY "
+            "on SR2 alone, requirement SR2 THEOREM, S-1 stays",
+            (v2["S-2"]["verdict"], v2["S-2"]["facts"],
+             [r["status"].split(" ")[0] for r in m2["requirements"]
+              if r["id"] == "SR2"], v2["S-1"]["verdict"]),
+            (EMPTY, ["SR2"], [THEOREM], NONEMPTY))
+        with patched(spec, "seat_over_collapse", lambda l: 0.5):
+            m2, v2, h2 = rerun()
+        chk("ctl", "  and there spec.seat_over_collapse -> 0.5: S-2 falls to OPEN, "
+            "S-1 stays", (v2["S-2"]["verdict"], v2["S-1"]["verdict"]),
+            (OPEN_V, NONEMPTY))
+    with patched(fewsterteo, "O2_CLOSED", True):
+        h2 = headline(model, model["verdicts"], model["entailment"])
+    chk("ctl", "fewsterteo.O2_CLOSED -> True: the headline becomes RE-ASK",
+        h2.startswith("RE-ASK"), True)
+    with patched(candidates, "LIST_IS_EXHAUSTIVE", True):
+        m2 = build()
+    chk("ctl", "candidates.LIST_IS_EXHAUSTIVE -> True: R12's status moves off SURVEY",
+        [r["status"].split(" ")[0] for r in m2["requirements"] if r["id"] == "R12"],
+        [THEOREM])
+    with patched(achievable, "M_OVER_B", 1.0e-80):
+        m2 = run()
+    chk("ctl", "achievable.M_OVER_B -> 1e-80: realisation (ii) leaves K1 for K6b",
+        m2["realisation_ii"], "K6b")
+    import z3 as _z3
+    Vz = _vars(_z3)
+
+    def seat_defect_admitted():
+        out = []
+        for prop in ("ctc_seat", "path_seat"):
+            sv = _z3.Solver()
+            sv.add(member(_z3, Vz, "W"), Vz[prop])
+            out.append(sv.check() == _z3.sat)
+        return tuple(out)
+    chk("ctl", "M-S1A-P3 is WIRED at the seat (a wiring check, true by "
+        "construction; no owner places a defect there)", seat_defect_admitted(),
+        (False, False))
+    REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = False
+    try:
+        admitted = seat_defect_admitted()
+    finally:
+        REQUIRE_OVERRIDE["chronology"] = REQUIRE_OVERRIDE["pathology"] = None
+    chk("ctl", "  and with the ruling switched off both are admitted", admitted,
+        (True, True))
+    chk("z3", "the creation classes are OPEN: a CTC (W-create-cc) and a pathology OR "
+        "departure from GR (W-create-ncc) are forced, none shown at the seat",
+        (model["entailment"]["forced"], v["W-create-cc"]["verdict"],
+         v["W-create-ncc"]["verdict"]),
+        ({"W-create-cc": ["ctc"], "W-create-ncc": ["pathology_or_nongr"]},
+         OPEN_V, OPEN_V))
+    with patched(sys.modules[__name__], "MODEL_STATIC_TEXT", "a sentence achievable.py never wrote"):
+        m2, v2, h2 = rerun()
+    chk("ctl", "the MODEL-STATIC gate refused: K1 falls back to EMPTY IF, K6b to OPEN",
+        (v2["K1"]["verdict"], v2["K6b"]["verdict"], "MODEL-STATIC" in m2["facts_refused"]),
+        (EMPTY_IF, OPEN_V, True))
+    with patched(ledger, "RULED_BY_M", [r for r in ledger.RULED_BY_M if r[0] != "M-S1A-P2"]):
+        m2, v2, h2 = rerun()
+    chk("ctl", "P2 alone off the board: K1 EMPTY IF, K6b OPEN",
+        (v2["K1"]["verdict"], v2["K6b"]["verdict"]), (EMPTY_IF, OPEN_V))
+    chk("chk", "every docket opened is named by a ruling on the board",
+        [d for d, r, _t in DOCKETS_OPENED if not ruled(r)], [])
+    eff = ruling_effect(model)
+    chk("chk", "the ruling effects are computed: P2 moves K1 and K6b, P3 moves nothing",
+        (eff["M-S1A-P2"].count("without it"), "none" in eff["M-S1A-P3"]), (2, True))
+    d3 = model["d3"]
+    chk("z3", "D3 lemma: static length element >= 1 exactly when m >= 0; guard refutes "
+        "the false strengthening; antiderivative checked",
+        (d3["lemma"], d3["guard"], d3["antiderivative_checked"]), (True, True, True))
+    chk("fig", "reading 3's mixed-sign witness is net contracted (length < gap)",
+        d3["witness_net"] < 0.0, True)
+    with patched(sys.modules[__name__], "D3_WITNESS_M", (-0.3, 0.3)):
+        d3b = d3_readings(model["F"])
+    chk("ctl", "the witness with the outer mass raised to +0.3 is NOT contracted",
+        d3b["witness_net"] > 0.0, True)
+    mm = copy.deepcopy(model)
+    [K for K in mm["classes"] if K["id"] == "K1"][0]["hyps"].remove("H_reg")
+    chk("ctl", "K1 with H_reg dropped from its stated hypotheses fails the check",
+        [b[0] for b in hyp_check(mm, v, vr)], ["K1"])
+    mm = copy.deepcopy(model)
+    [K for K in mm["classes"] if K["id"] == "K1"][0]["hyps"].remove("H_flat")
+    chk("ctl", "K1 with H_flat dropped fails the check too",
+        [b[:2] for b in hyp_check(mm, v, vr)], [("K1", ["H_flat"])])
+    mm = copy.deepcopy(model)
+    [K for K in mm["classes"] if K["id"] == "K4"][0]["hyps"].append("H_flat")
+    chk("ctl", "an OPEN class padded with an unused hypothesis fails the check",
+        [b[0] for b in hyp_check(mm, v, vr)], ["K4"])
+    vv = copy.deepcopy(v)
+    vv["K5"]["verdict"] = FORBIDDEN_STATUS_WORD
+    chk("ctl", "a verdict of %s is caught" % FORBIDDEN_STATUS_WORD,
+        declared_check(model, vv, "")[0], [FORBIDDEN_STATUS_WORD])
+    chk("ctl", "the word %s in the printout is caught" % FORBIDDEN_STATUS_WORD,
+        len(declared_check(model, v, "the rows " + FORBIDDEN_STATUS_WORD + " here")[1]), 1)
+    mm = copy.deepcopy(model)
+    [r for r in mm["requirements"] if r["id"] == "R2"][0]["applies_to"].append("S")
+    chk("ctl", "R2 applied to S is caught by the scope check",
+        scope_check(mm, v)[0], ["R2"])
+    mm = copy.deepcopy(model)
+    [K for K in mm["classes"] if K["id"] == "S-2"][0]["lits"] = {"ball": True}
+    # S-2 is OPEN since DOCKET 67; the control plants it EMPTY so the scope
+    # check still has an EMPTY seat class to test.
+    _v_e = copy.deepcopy(v)
+    _v_e["S-2"]["verdict"] = EMPTY
+    chk("ctl", "an EMPTY seat class that admits spec's witness is caught",
+        (scope_check(mm, _v_e)[1], scope_check(model, _v_e)[1]), (["S-2"], []))
+    mm = copy.deepcopy(model)
+    [r for r in mm["requirements"] if r["id"] == "R1"][0]["rows"].remove("D10")
+    chk("ctl", "a ledger row left unplaced (D10) is caught", placement(mm)[0], ["D10"])
+    mm = copy.deepcopy(model)
+    [r for r in mm["requirements"] if r["id"] == "R4"][0]["rows"].append("D2")
+    chk("ctl", "a ledger row placed twice (D2) is caught", placement(mm)[1], ["D2"])
+    mm = copy.deepcopy(model)
+    [r for r in mm["requirements"] if r["id"] == "R4"][0]["see"].append("W1")
+    chk("ctl", "a WITHDRAWN row relied on (W1) is caught", placement(mm)[2], ["W1"])
+    extra = list(ledger.DEMAND) + [("D99", "a row this file never placed", OPEN,
+                                    ("noise", "CORRIDOR_APPLICATION"), "-")]
+    with patched(ledger, "DEMAND", extra):
+        chk("ctl", "a NEW ledger row not yet placed turns the check red",
+            placement(model)[0], ["D99"])
+    chk("ctl", "a misquoted owner fragment is caught",
+        misquotes((("bounds", "priced on the MAGNITUDE axis"),)),
+        [("bounds", "priced on the MAGNITUDE axis")])
+    with ledger_status("D5", SURVEY):
+        m2 = build()
+    chk("ctl", "ledger D5 -> SURVEY: SR3's status moves (D5 asked, not typed)",
+        [r["status"] for r in m2["requirements"] if r["id"] == "SR3"]
+        != [r["status"] for r in model["requirements"] if r["id"] == "SR3"], True)
+    bal = ledger.balance
+    with patched(ledger, "balance", lambda: [
+            (r[0], r[1], r[2], r[3], "a supply figure") if r[0] == "B3" else r
+            for r in bal()]):
+        m2 = build()
+    r12 = [r for r in m2["requirements"] if r["id"] == "R12"][0]
+    chk("ctl", "ledger B3 given a supply figure: R12 prints B3 MEASURED and RE-ASK",
+        ("B3 " + MEASURED in r12["status"], r12["statement"].startswith("RE-ASK")),
+        (True, True))
+    with patched(achievable, "M_OVER_B", 1.0e-3):
+        _SLOW.clear()
+        try:
+            m2 = build()
+        finally:
+            _SLOW.clear()
+    chk("ctl", "mu moved off concentric's edge: R4 prints RE-ASK for mu, not the edge",
+        "RE-ASK -- the survey no longer places mu" in
+        [r for r in m2["requirements"] if r["id"] == "R4"][0]["statement"], True)
+    chk("chk", "H_M0 carries no flat-space clause; H_flat carries it (one escape)",
+        ("flat space" in model["hyps"]["H_M0"][0].split("its remaining clause")[0],
+         "flat" in model["hyps"]["H_flat"][0]), (False, True))
+    chk("chk", "S-1 states its hypotheses (H_seat), and clause (3) prints them",
+        (cls_hyps(model, "S-1"), "H_seat" in theorem_statement(model)), (["H_seat"], True))
+
+    chk("chk", "the T headline line runs the three D3 readings and needs the hold",
+        ("Reading 1 admits the pointwise-contracting endpoints" in model["headline"]
+         and "held for one light-crossing" in model["headline"]
+         and "is aimable" in model["headline"]), True)
+    chk("chk", "every step-1a ruling is on the board and placed; nothing pending",
+        ([r[0] for r in ledger.RULED_BY_M if r[0].startswith("M-S1A-")], PENDING_FOR_M),
+        (["M-S1A-P%d" % i for i in range(1, 6)], []))
+    chk("ctl", "a withdrawn figure printed bare is caught",
+        len(withdrawn_lines("the lead is 65 orders short")), 1)
+
+    # ---- DOCKET 65, seated (M: "Seat as proposed"); M-D65-1 folds QET into 66
+    sr5 = [r for r in model["requirements"] if r["id"] == "SR5"][0]
+    chk("chk", "SR5 places DOCKET 65's rows and its five rulings, M-D65-1 to "
+        "M-D65-5, on S alone; no O row (the finite share is in S10's note)",
+        (sr5["rows"], sr5["applies_to"]),
+        (["D27", "D28", "D29", "S10", "S11", "S12", "S13", "M-D65-1", "M-D65-2",
+          "M-D65-3", "M-D65-4", "M-D65-5"], ["S"]))
+    chk("ask", "SR5's status carries each row's asked status and S10 is "
+        "massform.MECHANISM_VERDICT[0]",
+        (all(("%s %s" % (r, st(r))) in sr5["status"]
+             for r in ("D27", "D28", "D29", "S10", "S11", "S12", "S13",
+                       "M-D65-1", "M-D65-2", "M-D65-3", "M-D65-4", "M-D65-5")),
+         st("S10") == massform.MECHANISM_VERDICT[0] == REFUSED), (True, True))
+    # SR5's status names every premise S10's refusal rests on wherever the
+    # owner's label does: SWITCH-ON and TEMPLATE on P-UNIFORM.
+    _lab = massform.mechanism_label()
+    chk("chk", "SR5's status carries P-UNIFORM wherever mechanism_label() does "
+        "(SWITCH-ON on P-UNIFORM (C1 alone); TEMPLATE on P-UNIFORM and "
+        "H-UNSOURCED-SEAT) -- the owner's clauses, whole",
+        (s10_scope() != "" and s10_scope() in sr5["status"],
+         sr5["status"].count("P-UNIFORM") >= _lab.count("P-UNIFORM") > 0,
+         "on SWITCH-ON on P-UNIFORM (C1 alone)" in sr5["status"],
+         "on TEMPLATE on P-UNIFORM and H-UNSOURCED-SEAT" in sr5["status"]),
+        (True, True, True, True))
+    _st_np = sr5["status"].replace("P-UNIFORM", "the premise")
+    chk("ctl", "SR5's status with P-UNIFORM stripped is caught",
+        (_st_np.count("P-UNIFORM") >= _lab.count("P-UNIFORM"),
+         "on SWITCH-ON on P-UNIFORM (C1 alone)" in _st_np), (False, False))
+    _rested = hypotheses_rested_on(sr5["rows"])
+    chk("chk", "SR5 names every hypothesis its rows and massform's counts C1-C5 "
+        "rest on (DERIVED: regexed out of the counts' statuses and the rows' "
+        "text, asked), each with its owner's status or its carrying rows",
+        (unnamed_hypotheses(sr5, _rested),
+         all(t in _rested for t in ("H-TREE-V", "D20'S MODEL", "P-UNIFORM",
+                                    "H-UNSOURCED-SEAT"))), ([], True))
+    # DOCKET 67 (key 1809.06923, M's ruling 2026-10-02): H-BRIDGE is DERIVED
+    # into the roster from D29's and S12's text and C4's status, and SR5 names
+    # it with its owner's status.
+    chk("chk", "H-BRIDGE is rested on by C4, D29 and S12 (derived) and SR5 names it "
+        "with massform.H_BRIDGE_STATUS",
+        (sorted(_rested.get("H-BRIDGE", [])),
+         any(h.startswith("H-BRIDGE: %s" % massform.H_BRIDGE_STATUS)
+             for h in sr5["hypotheses"])), (["C4", "D29", "S12"], True))
+    chk("ctl", "  SR5 without its H-BRIDGE entry is caught",
+        unnamed_hypotheses(dict(sr5, hypotheses=[h for h in sr5["hypotheses"]
+                                                 if not h.startswith("H-BRIDGE")]),
+                           _rested), ["H-BRIDGE"])
+    chk("ctl", "a hypothesis added to a count's status (C4 on H-SCRATCH) turns the "
+        "roster check red; and SR5 without H-TREE-V is caught",
+        (unnamed_hypotheses(sr5, dict(_rested, **{"H-SCRATCH": ["C4"]})),
+         unnamed_hypotheses(dict(sr5, hypotheses=[h for h in sr5["hypotheses"]
+                                                  if not h.startswith("H-TREE-V")]),
+                            _rested)),
+        (["H-SCRATCH"], ["H-TREE-V"]))
+    with patched(massform, "COUNTS_ON_THE_MECHANISM", tuple(
+            c if c[0] != "C4" else c[:3] + (c[3] + " and H-SCRATCH",) + c[4:]
+            for c in massform.COUNTS_ON_THE_MECHANISM)):
+        _scr = unnamed_hypotheses(sr5)
+    chk("ctl", "  the same, end to end: C4's status patched with H-SCRATCH is "
+        "derived into the roster and caught", _scr, ["H-SCRATCH"])
+    _rowtxt = lambda r: " ".join(str(x) for x in row(r) if x)
+    chk("chk", "each hypothesis SR5 names by row is carried by that row (asked of "
+        "the board): H-TREE by D27, S10, S13; H-REAL by D29; H-BL, H-AME by D28, S12; "
+        "H-BRIDGE by D29, S12",
+        [(h, r) for h, rs in HYP_BY_ROW65 + (("H-TREE", ("D27", "S10", "S13")),
+                                             ("H-RELEASE", ("S13",)),
+                                             ("H-BRIDGE", ("D29", "S12")))
+         for r in rs if h not in _rowtxt(r)], [])
+    chk("chk", "SR5 prints S13's price ON H-RELEASE, the hypothesis it rests on, "
+        "with massform.H_RELEASE_STATUS, in its statement and its hypotheses",
+        ("on H-RELEASE: %s" % massform.H_RELEASE_STATUS in sr5["statement"],
+         any(h.startswith("H-RELEASE: %s" % massform.H_RELEASE_STATUS)
+             for h in sr5["hypotheses"]),
+         any(h.startswith("H-TREE: %s" % massform.H_TREE_STATUS)
+             for h in sr5["hypotheses"])), (True, True, True))
+    _no_rel = dict(sr5, statement=sr5["statement"].replace("H-RELEASE", "H-?"),
+                   hypotheses=[h for h in sr5["hypotheses"] if not h.startswith("H-RELEASE")])
+    chk("ctl", "SR5 with H-RELEASE deleted is caught (statement and hypotheses)",
+        ("on H-RELEASE: %s" % massform.H_RELEASE_STATUS in _no_rel["statement"],
+         any(h.startswith("H-RELEASE") for h in _no_rel["hypotheses"])), (False, False))
+    chk("chk", "SR5 says the mechanism as stated is refused AND the remainders "
+        "are priced, not refused (neither way overstated)",
+        (massform.mechanism_label() in sr5["statement"],
+         "NOT a refusal of every way atomic mass can appear" in sr5["statement"],
+         "PRICED and OPEN, not refused" in sr5["statement"]), (True, True, True))
+    with ledger_status("D27", SURVEY):
+        m2 = build()
+    chk("ctl", "ledger D27 -> SURVEY: SR5's status moves (asked, not typed)",
+        [r["status"] for r in m2["requirements"] if r["id"] == "SR5"]
+        != [sr5["status"]], True)
+    _moved = {}
+    for _r in ("D27", "D28", "D29", "S10", "S11", "S12", "S13"):
+        with ledger_status(_r, SURVEY):
+            _s2 = [r["status"] for r in build()["requirements"] if r["id"] == "SR5"][0]
+        _moved[_r] = (_s2 != sr5["status"], "%s %s" % (_r, SURVEY) in _s2,
+                      "%s %s" % (_r, st(_r)) in _s2)
+    chk("ctl", "every board row SR5 places, set SURVEY on a scratch board: SR5's "
+        "status moves and prints the scratch status, never a typed one",
+        _moved, dict((r, (True, True, False)) for r in _moved))
+    chk("chk", "SR5 names S11's limits beside its PRICED flag: the collider rate "
+        "asked of massform.COLLIDER_RATE_STATUS, and the N_n extra leptons (D28)",
+        ("its two-particle collider rate %s (massform.COLLIDER_RATE_STATUS)"
+         % massform.COLLIDER_RATE_STATUS in sr5["statement"],
+         "extra leptons, D28" in sr5["statement"],
+         ("massform", "COLLIDER_RATE_STATUS") in sr5["owners"]), (True, True, True))
+    with patched(massform, "COLLIDER_RATE_STATUS", "SETTLED"):
+        _st2 = [r["statement"] for r in build()["requirements"] if r["id"] == "SR5"][0]
+    chk("ctl", "massform.COLLIDER_RATE_STATUS -> SETTLED: SR5's statement moves "
+        "and no 'CONTESTED' collider rate is left typed",
+        ("collider rate SETTLED (massform.COLLIDER_RATE_STATUS)" in _st2,
+         "collider rate CONTESTED" in _st2), (True, False))
+    chk("chk", "SR5's reconstruction clause is built from massform's flag",
+        ("stock survives (RECONSTRUCTION_SURVIVES = True" in sr5["statement"],
+         massform.RECONSTRUCTION_SURVIVES), (True, True))
+    with patched(massform, "RECONSTRUCTION_SURVIVES", False):
+        _st2 = [r["statement"] for r in build()["requirements"] if r["id"] == "SR5"][0]
+    chk("ctl", "massform.RECONSTRUCTION_SURVIVES -> False: SR5's clause moves and "
+        "'stock survives (' is not left typed",
+        ("stock survives (" in _st2,
+         "DOES NOT survive, AGAINST S5's note (RECONSTRUCTION_SURVIVES = False"
+         in _st2), (False, True))
+    with patched(massform, "HELD_SEAT_ROUTE_PRICED", False):
+        m2 = build()
+        _w13 = [t for t in what_it_does_not_say() if "S13" in t]
+    _n3 = [K["note"] for K in m2["classes"] if K["id"] == "S-3"][0]
+    chk("ctl", "massform.HELD_SEAT_ROUTE_PRICED -> False: SR5 and the S-3 note move, "
+        "and no 'PRICED S-3 candidate' or 'PRICED and OPEN' is left typed",
+        ([r["statement"] for r in m2["requirements"] if r["id"] == "SR5"]
+         != [sr5["statement"]],
+         _n3 != [K["note"] for K in model["classes"] if K["id"] == "S-3"][0],
+         bool(re.search(r"(?<!NOT )PRICED S-3 candidate", _n3)),
+         bool(re.search(r"(?<!NOT )(?<!PARTLY )PRICED and OPEN, not refused",
+                        [r["statement"] for r in m2["requirements"]
+                         if r["id"] == "SR5"][0])),
+         [bool(re.search(r"(?<!NOT )PRICED S-3", t)) for t in _w13]),
+        (True, True, False, False, [False]))
+    # massform derives its remainder tables from the flags at import, so the
+    # scratch flip moves them too: the whole owner says NOT PRICED.
+    with patched(massform, "HELD_SEAT_ROUTE_PRICED", False), \
+            patched(massform, "PAIR_ROUTE_PRICED", False), \
+            patched(massform, "ANOMALY_ROUTE_PRICED", False), \
+            patched(massform, "REMAINDER_FORMS_MASS",
+                    dict((k, False) for k in massform.REMAINDER_FORMS_MASS)), \
+            patched(massform, "REMAINDER_RESTORES_MASS",
+                    dict((k, False) for k in massform.REMAINDER_RESTORES_MASS)):
+        m2 = build()
+        _d65f, _eff_f = dockets_opened()[0][2], ruling_effect(model)["M-S1A-P1"]
+        _sdef = [o["definition"] for o in m2["objects"] if o["id"] == "S"][0]
+        _sr5f = [r for r in m2["requirements"] if r["id"] == "SR5"][0]
+    _typed = re.compile(r"(?<![A-Z_])(?<!NOT )(?<!PARTLY )PRICED|priced remainders")
+    chk("ctl", "all three route flags -> False: no remainder verdict 'PRICED' is left "
+        "typed in SR5, object S, the M-S1A-P1 effect or DOCKET 65's record",
+        [bool(_typed.search(t))
+         for t in (_sr5f["statement"], _sr5f["status"], _sdef, _eff_f, _d65f)],
+        [False] * 5)
+    esc65 = dict((x["rows"][0], x["route"]) for x in model["escapes"]
+                 if x["kind"] == "OPEN ROW" and x["rows"][0] in ("S11", "S12", "S13"))
+    chk("chk", "S11, S12 and S13 are each carried by an open-row escape, the "
+        "route massform's own; no escape for an O8 (M-D65-2: no row)",
+        (dict((r, esc65.get(r) == " ".join(massform_moves()[r].split()))
+              for r in ("S11", "S12", "S13")),
+         [x["hyp"] for x in model["escapes"] if "O8" in x["rows"]]),
+        ({"S11": True, "S12": True, "S13": True}, []))
+    _rendered = " ".join(render(model).split())
+    chk("chk", "those escapes print massform's movers under 'WHAT WOULD MOVE IT "
+        "(massform)', never as a KNOWN ROUTE (S13's movers name what closes it)",
+        (mislabelled_routes(model["escapes"]),
+         [x["route_label"] for x in model["escapes"]
+          if x["kind"] == "OPEN ROW" and x["rows"][0] in ("S11", "S12", "S13")],
+         "WHAT WOULD MOVE IT (massform): " + esc65["S13"] in _rendered,
+         "KNOWN ROUTE: " + esc65["S13"] in _rendered),
+        ([], ["WHAT WOULD MOVE IT (massform)"] * 3, True, False))
+    chk("ctl", "S13's escape relabelled KNOWN ROUTE on a private copy is caught",
+        mislabelled_routes([dict(x, route_label="KNOWN ROUTE") if "S13" in x["rows"]
+                            else x for x in model["escapes"]]), ["OPEN S13"])
+    d65, d66 = dockets_opened()[0][2], dockets_opened()[1][2]
+    chk("chk", "DOCKET 65's record carries P-UNIFORM beside SWITCH-ON's refusal and "
+        "the consideration's second half (asked of massform)",
+        ("SWITCH-ON on P-UNIFORM" in d65, "ON P-UNIFORM, DISCRIMINATES NOTHING" in d65,
+         "rest on P-UNIFORM (massform.P_UNIFORM_STATUS = %s)"
+         % massform.P_UNIFORM_STATUS in d65), (True, True, True))
+    _strip = d65.replace("P-UNIFORM", "the premise")
+    chk("ctl", "DOCKET 65's record with P-UNIFORM stripped is caught",
+        ("SWITCH-ON on P-UNIFORM" in _strip, "P-UNIFORM" in _strip), (False, False))
+    chk("ask", "DOCKET 65 has RUN and records massform's verdicts, asked",
+        ("RUN (massform.py" in d65, massform.MECHANISM_VERDICT[0] in d65,
+         massform.CONSIDERATION_VERDICT in d65), (True, True, True))
+    _named = expand_ids(re.search(r"seated as ([^;]+);", d65).group(1))
+    chk("chk", "every row id DOCKET 65's record names as seated is on the board "
+        "and equals SR5's placed D/S/O rows (built from them, not typed)",
+        ([r for r in _named if r not in ledger_ids()],
+         sorted(_named) == sorted(r for r in sr5["rows"] if r[0] in "DSO"
+                                  and r in ledger_ids())), ([], True))
+    _fake = expand_ids("D27-D29, S10-S14")
+    chk("ctl", "a fake id planted in the record ('S10-S14') is caught",
+        ([r for r in _fake if r not in ledger_ids()],
+         sorted(_fake) == sorted(r for r in sr5["rows"] if r[0] in "DSO")),
+        (["S14"], False))
+    chk("chk", "DOCKET 66 carries M-D65-1 (on the board) with M's words and the "
+        "literature CITED, not READ when M ruled; it HAS RUN, and 'NOT YET RUN' "
+        "stands only as its quoted first wording (D66-RULINGS verifier: this "
+        "check first required 'NOT YET RUN' in the record)",
+        (ruled("M-D65-1"), "M-D65-1" in d66, "FOLD INTO DOCKET 66" in d66,
+         "CITED, not READ" in d66, "HAS RUN" in d66, d66.count("NOT YET RUN"),
+         "First said (kept): 'NOT YET RUN'" in d66, stale_docket66(d66)),
+        (True,) * 5 + (1, True, []))
+    _d66_old = D66_T_AS_FIRST_WRITTEN % (m_d65_1()[0], m_d65_1()[3], QET_PROTOCOL,
+                                         m_d65_1()[1], m_d65_1()[2])
+    chk("ctl", "the record as first written ('NOT YET RUN' unquoted, no run asked) "
+        "fails the check above (no HAS RUN; its 'NOT YET RUN' is not the quoted first "
+        "wording) and the equality",
+        ("HAS RUN" in _d66_old, _d66_old == D66_T % d66_fill(),
+         _d66_old.count("NOT YET RUN") == 1 and "First said (kept): 'NOT YET RUN'" in _d66_old),
+        (False, False, False))
+    chk("chk", "what ran is ASKED, not typed: the record carries ledger.d66_p3_ran(), "
+        "ledger.d66_m_d65_1_ran() and M's words for M-D68-26..28 as ledger."
+        "D68_M_WORDS holds them; a moved ledger fragment moves the record",
+        (ledger.d66_p3_ran() in d66, ledger.d66_m_d65_1_ran() in d66,
+         all("%s, M: '%s'" % (k, ledger.D68_M_WORDS[k][0]) in d66
+             for k in ("M-D68-26", "M-D68-27", "M-D68-28"))), (True, True, True))
+    with patched(ledger, "d66_p3_ran", lambda: "a moved fragment"):
+        _d66_moved = dockets_opened()[1][2]
+    chk("ctl", "the ledger's M-S1A-P3 fragment patched: the printed record moves "
+        "with it (it is asked, not a copy)",
+        ("a moved fragment" in _d66_moved, _d66_moved == d66), (True, False))
+    chk("chk", "DOCKET 66 describes QET as the question put to M described it "
+        "(attributed, not READ) and the protocol only as the CITED literature is "
+        "described; it asserts no result", d66_qet_faults(d66), [])
+    chk("ctl", "the record as it stood ('information arriving ... creating a local "
+        "negative-energy region there, is tested HERE') is caught",
+        len(d66_qet_faults(
+            "M'S ADDITION (M-D65-1): Quantum Energy Teleportation, information "
+            "arriving at the destination creating a local negative-energy region "
+            "there, is tested HERE.  M's words: '%s'." % m_d65_1()[1])) >= 3, True)
+    chk("ctl", "a rewrite that pre-judges DOCKET 66 in M's favour ('shows that "
+        "information arriving ... IS exotic matter') is caught",
+        d66_qet_faults(d66.replace(
+            "is to be tested HERE", "which shows that information arriving at the "
+            "destination IS exotic matter, as M said, is to be tested HERE")),
+        ["a result asserted"])
+    chk("ctl", "the widened guard: 'Information arriving makes exotic matter "
+        "there', 'QET demonstrates exotic matter at the destination', a "
+        "pre-judgement AGAINST M ('QET cannot meet the corridor's demand ... is "
+        "not exotic matter') and 'nothing here decides it' dropped are each caught",
+        [d66_qet_faults(d66 + "  Information arriving makes exotic matter there."),
+         d66_qet_faults(d66 + "  QET demonstrates exotic matter at the destination."),
+         d66_qet_faults(d66.replace(
+             "nothing here decides it.", "nothing here decides it.  QET cannot meet "
+             "the corridor's demand, and information arriving is not exotic matter "
+             "in M's sense.")),
+         d66_qet_faults(d66.replace("; nothing here decides it", ""))],
+        [["a result asserted"]] * 3
+        + [["the record does not say nothing here decides it"]])
+    chk("chk", "DOCKET 66's record EQUALS D66_T filled from the asked fragments "
+        "(M's answer, the question's description, QET_PROTOCOL, M's words, the "
+        "literature): nothing is added in the board's own words, either way",
+        d66 == D66_T % d66_fill(), True)
+    chk("ctl", "the pre-judgement AGAINST M planted after 'nothing here decides "
+        "it' fails the equality",
+        d66.replace("nothing here decides it.", "nothing here decides it.  QET "
+                    "cannot meet the corridor's demand, and information arriving "
+                    "is not exotic matter in M's sense.")
+        == D66_T % d66_fill(), False)
+    chk("chk", "QET_PROTOCOL names whose record it is (this board's: M's fold, the "
+        "lead's paraphrase; not READ into this tree -- the tree holds no abstract "
+        "to witness 'the cited abstracts') and the record prints it as 'the "
+        "protocol, ...', not 'the protocol itself'",
+        ("as this board records it (M's fold, the lead's paraphrase), not READ "
+         "into this tree" in QET_PROTOCOL,
+         "cited abstracts" in QET_PROTOCOL,
+         "the protocol itself" in d66, "the protocol, " + QET_PROTOCOL in d66),
+        (True, False, False, True))
+    d67 = dockets_opened()[2][2]
+    chk("chk", "DOCKET 67 is on the record, opened by M-D65-3 (on the board), "
+        "HAS RUN (asked of the ledger, READ from CLOSE.md) with 'NOT YET RUN' kept "
+        "as first said, with the question as put to M and M's words asked of the "
+        "board",
+        (dockets_opened()[2][:2], ruled("M-D65-3"),
+         "HAS RUN (asked of the ledger's M-D65-3 cell, never typed here): %s"
+         % ledger.d67_ran() in d67 and "First said (kept): 'NOT YET RUN" in d67,
+         m_d65_3()[0] in d67, m_d65_3()[2] in d67,
+         "after DOCKET 65 is seated and before DOCKET 66" in d67),
+        (("DOCKET 67", "M-D65-3"), True, True, True, True, True))
+    _fif = facts_in_force_names()
+    _rests = facts_resting_on_outside()
+    _regex_only = [f["name"] for f in _facts_plain(model)
+                   if f["gate"] and re.search(r"\b(READ|CITED)\b", f["held"])]
+    chk("ask", "DOCKET 67's record says what it audits lies BENEATH the facts in "
+        "force (asked: equal to derive()'s, non-empty, each named with the "
+        "outside result its owner declares -- facts_outside(), regexed from the "
+        "owners), and the outside results the escapes name (regexed from the "
+        "escapes' own texts, non-empty) -- not that nothing here rests on it",
+        (_fif == model["facts_in_force"], len(_fif) > 0,
+         all("%s: %s" % (f["name"], f["outside"]) in d67
+             for f in _facts_plain(model) if f["gate"]),
+         "-- the facts in force, %s -- namely the outside results each declares: "
+         "%s; and, %s."
+         % d67_clauses() in d67,
+         len(escapes_outside_results()) > 0,
+         "NOT YET RUN, so nothing here is yet graded by it" in d67,
+         "What it audits is what every refusal here rests on" in d67,
+         "Nothing in this file rests on it" in d67, "nothing here rests on it" in d67),
+        (True, True, True, True, True, True, False, False, False))
+    chk("ask", "the facts whose proof RESTS on an outside result are asked of "
+        "their owners, and D7 is among them (bounds.py READs Fewster 1208.5399 at "
+        "source): equal to the asked set, non-empty; the escapes' list names "
+        "Fewster & Smith gr-qc/0702056 READ at source and Borde READ by create.py; "
+        "the RESTS reading is declared this board's once, in the clause header",
+        (_rests == [f["name"] for f in _facts_plain(model) if f["gate"] and f["rests"]],
+         len(_rests) > 0, "D7" in _rests,
+         "D7: RESTS on Fewster arXiv:1208.5399 Eq. (4), read at source (bounds.py)"
+         in d67,
+         any(x.startswith("Fewster & Smith") and "gr-qc/0702056" in x
+             and "READ at source" in x for x in escapes_outside_results()),
+         "Borde, READ by create.py" in escapes_outside_results(),
+         d67.count("each declares: " + RESTS_READING + " -- D2: "),
+         "rests / prior art only: this board's reading of each owner's text, "
+         "quoted beside it" in sr5["statement"]),
+        (True, True, True, True, True, True, 1, True))
+    # The status word beside an outside result is the OWNER'S: Kabat & Nomura
+    # carries branelink.COUPLING_SOURCE's own '(READ by the pass)', regexed;
+    # REFUTED (O6's grade of its own cause of death) is on no item.
+    _kn_word = _owner_words(branelink.COUPLING_SOURCE,
+                            r"Kabat & Nomura arXiv:2309\.05759 .*\((READ by the pass)\)",
+                            "branelink.COUPLING_SOURCE")
+    _eor = escapes_outside_results()
+    _kn = [x for x in _eor if x.startswith("Kabat & Nomura") and "arXiv:2309.05759" in x]
+    chk("ask", "the Kabat & Nomura item carries the owner's own word for that paper "
+        "(branelink.COUPLING_SOURCE, regexed: 'READ by the pass'), and no item "
+        "carries REFUTED",
+        (len(_kn), _kn and _kn[0].endswith("(%s)" % _kn_word),
+         [x for x in _eor if "REFUTED" in x]), (1, True, []))
+    _o6_cut = ledger._one_line(row("O6")[1], 200)
+    _o6_cut_items = outside_results_in(_o6_cut)
+    # the head-lookup as it stood, recomputed here over the cut text
+    _o6_head = [(re.search(r"\b(REFUTED):?\s*$", _o6_cut[:m.start()]) or [None, None])[1]
+                for m in re.finditer(r"Kabat & Nomura arXiv:2309\.05759", _o6_cut)]
+    chk("ctl", "the 200-character display cut of O6's text ends before the owner's "
+        "'(READ by the pass)': scanned, it yields Kabat & Nomura with NO status "
+        "word (failing the check above), and the head-lookup as it stood took the "
+        "'REFUTED:' before the name -- '(REFUTED)' planted on the item fails it",
+        ("READ by the pass" in _o6_cut, _o6_cut.endswith("..."),
+         [x for x in _o6_cut_items if x.startswith("Kabat & Nomura")],
+         _o6_head,
+         [x for x in _eor if "REFUTED" in x] == []
+         and [x for x in (_eor[:-1] + ["Kabat & Nomura arXiv:2309.05759 (REFUTED)"])
+              if "REFUTED" in x] == []),
+        (False, True, ["Kabat & Nomura arXiv:2309.05759"], ["REFUTED"], False))
+    chk("ctl", "synthetic texts: 'X is REFUTED: Author arXiv:0000.00000' yields the "
+        "name with no status; 'Kuo & Ford gr-qc/9304008 NAMED-NOT-READ' and 'Author "
+        "gr-qc/9304008, not READ' yield no READ; 'Author gr-qc/9304008 (READ by the "
+        "pass)' yields the owner's word",
+        (outside_results_in("X is REFUTED: Author arXiv:0000.00000"),
+         outside_results_in("Kuo & Ford gr-qc/9304008 NAMED-NOT-READ"),
+         outside_results_in("Author gr-qc/9304008, not READ"),
+         outside_results_in("Author gr-qc/9304008 (READ by the pass)")),
+        (["Author arXiv:0000.00000"], ["Kuo & Ford gr-qc/9304008"],
+         ["Author gr-qc/9304008"], ["Author gr-qc/9304008 (READ by the pass)"]))
+    # The name beside an id is the OWNER'S: the arXiv:2505.02210 item that
+    # carries D24's 'read via alphaXiv' starts with the author run regexed
+    # from D24's own parenthetical; the items the earlier rule got right are
+    # unchanged; no id stands on the floor twice.
+    _d24_run = _owner_words(row("D24")[1], r"Nucleation READ \((.+?), arXiv:2505\.02210",
+                            "ledger D24")
+    _d24_items = [x for x in _eor if "arXiv:2505.02210" in x and "read via alphaXiv" in x]
+    _d24_route_word = _owner_words(row("D24")[2], r"arXiv:2505\.02210, Morse theory and "
+                                   r"0-surgery, (NOT-RUN in create\.py)\)", "ledger D24")
+    _ids_on_floor = [_OUTSIDE_ID.search(x).group(1) for x in _eor if _OUTSIDE_ID.search(x)]
+    chk("ask", "the arXiv:2505.02210 item carrying D24's 'read via alphaXiv' starts "
+        "with the author run regexed from D24's own parenthetical ('%s'); it "
+        "carries the route's own qualified word ('%s') in the same parenthetical, "
+        "so the paper stands on the floor once; the Fewster & Smith and Kabat & "
+        "Nomura items are as before; no id appears twice on the floor" % (
+            _d24_run, _d24_route_word),
+        (len(_d24_items), _d24_items and _d24_items[0].startswith(_d24_run + ", "),
+         _d24_items and _d24_items[0].endswith("(read via alphaXiv; %s)" % _d24_route_word),
+         [x for x in _eor if "arXiv:2505.02210" in x] == _d24_items,
+         "Fewster & Smith, absolute QEI, gr-qc/0702056 (READ at source)" in _eor,
+         "Kabat & Nomura arXiv:2309.05759 (READ by the pass)" in _eor,
+         [i for i in _ids_on_floor if _ids_on_floor.count(i) > 1]),
+        (1, True, True, True, True, True, []))
+    chk("ctl", "the two-name form as it stood ('Kauffman & Lambropoulou, "
+        "arXiv:2505.02210 (read via alphaXiv)') fails the author-run check; a "
+        "synthetic 'A, B & C arXiv:0000.00000' yields 'A, B & C arXiv:0000.00000'; "
+        "'(A, B, C & D, arXiv:0000.00000, CITED)' yields the run with the owner's "
+        "word; the two D24 sentences scanned apart yield two items for one id and "
+        "merged yield one",
+        ("Kauffman & Lambropoulou, arXiv:2505.02210 (read via alphaXiv)"
+         .startswith(_d24_run + ", "),
+         outside_results_in("A, B & C arXiv:0000.00000"),
+         outside_results_in("(A, B, C & D, arXiv:0000.00000, CITED)"),
+         len([x for x in outside_results_in(str(row("D24")[1]))
+              + outside_results_in(str(row("D24")[2])) if "arXiv:2505.02210" in x]),
+         len([x for x in outside_results_in(str(row("D24")[1]) + " " + str(row("D24")[2]))
+              if "arXiv:2505.02210" in x])),
+        (False, ["A, B & C arXiv:0000.00000"], ["A, B, C & D, arXiv:0000.00000 (CITED)"],
+         2, 1))
+    chk("ctl", "an owner's parenthetical naming two ids in a row (H_M0's route: "
+        "Fewster-Osterbrink 0708.2450, FFKP 2309.10848) yields one item per id, "
+        "each under its own name; a third id typed into it appears as a third item",
+        (outside_results_in("(Fewster-Osterbrink 0708.2450, FFKP 2309.10848, as "
+                            "qeihps.py reads them)"),
+         len(outside_results_in("(Fewster-Osterbrink 0708.2450, FFKP 2309.10848, "
+                                "Planted 0000.00001, as qeihps.py reads them)"))),
+        (["Fewster-Osterbrink 0708.2450", "FFKP 2309.10848"], 3))
+    # DOCKET 67 follow-up: H_M0's text says FO and FFKP hold for Hadamard
+    # states only, and FO in a globally hyperbolic neighbourhood -- asked of
+    # qeihps.FORM_TAGS, the owner, so a dropped tag there fails here.
+    _fo = [k for k in qeihps.FORM_TAGS if k.startswith("Fewster-Osterbrink")]
+    _ffkp = [k for k in qeihps.FORM_TAGS if k.startswith("FFKP") and "IV.1" in k]
+    chk("chk", "H_M0's FO/FFKP hypotheses are qeihps.FORM_TAGS': FO carries "
+        "hadamard and globhyp, FFKP Thm IV.1 hadamard; and H_M0's text says so",
+        (len(_fo), len(_ffkp),
+         {"hadamard", "globhyp"} <= qeihps.FORM_TAGS[_fo[0]] if _fo else None,
+         "hadamard" in qeihps.FORM_TAGS[_ffkp[0]] if _ffkp else None,
+         any("both for Hadamard states only" in t and "globally hyperbolic" in t
+             for h, _t, t in escape_texts()[0] if h == "H_M0")),
+        (1, 1, True, True, True))
+    # The list is printed as a FLOOR, under a label in the method's own words
+    # that says what the regex reaches; the escapes' texts name more.
+    chk("chk", "the escapes' list is labelled a FLOOR at the record and at SR5, "
+        "naming what the regex reaches (an arXiv id, carrying the owner's status "
+        "word where one follows it in the sentence, or a parenthesised READ / "
+        "CITED) and that the escapes' texts name more; names the "
+        "texts carry without an id (Fewster-Teo, Tye-Wong, Tipler) are not on it",
+        ("and, A FLOOR, the outside results the escapes name with an arXiv id "
+         "(carrying the owner's status word where one follows it in the sentence) "
+         "or a parenthesised READ / CITED (the escapes' texts name more; DOCKET "
+         "67's own extraction is the census): " in d67,
+         "and, A FLOOR, the outside results the escapes name with an arXiv id "
+         "(carrying the owner's status word where one follows it in the sentence) "
+         "or a parenthesised READ / CITED (the escapes' texts name more; DOCKET "
+         "67's own extraction is the census): " in sr5["statement"],
+         [n for n in ("Fewster-Teo", "Tye-Wong", "Tipler")
+          if any(n in t + " " + r for _h, t, r in escape_texts()[0])],
+         [n for n in ("Fewster-Teo", "Tye-Wong", "Tipler") if any(n in x for x in _eor)]),
+        (True, True, ["Fewster-Teo", "Tye-Wong", "Tipler"], []))
+    chk("ctl", "the unscoped label as it stood ('and the outside results the escapes "
+        "name: ...') planted in the record fails the equality",
+        d67.replace("and, " + d67_clauses()[2],
+                    "and the outside results the escapes name: " + escapes_outside_clause())
+        == D67_T % d67_fill(), False)
+    # facts_outside()'s counts are the owners': BORDE-ESCAPES prints
+    # len(create.ESCAPES) beside create.py's own 'ALL THREE'; O4 prints the
+    # ledger O4 row's own words; D4 names charge.py's closure, no ordinal.
+    _fo = facts_outside()
+    _o4_row = [r for r in ledger.CLOSED_ROWS if r[0] == "O4"][0][2]
+    _o4_phrase = re.search(r"axial\.py, (\w+ sympy residuals) all 0", _o4_row).group(1)
+    chk("ask", "facts_outside()'s counts are asked: BORDE-ESCAPES prints "
+        "len(create.ESCAPES) = %d and create.py's own 'ALL THREE'; O4's residual "
+        "count is the ledger O4 row's own phrase; D4 carries no ordinal and names "
+        "charge.py's closure in drivensource's own words" % len(create.ESCAPES),
+        ("the %d quoted in create.ESCAPES" % len(create.ESCAPES) in _fo["BORDE-ESCAPES"][1],
+         "'ALL THREE' (create.py)" in _fo["BORDE-ESCAPES"][1],
+         "ALL THREE" in create.__doc__,
+         _o4_phrase in _fo["O4"][1], _o4_phrase in _o4_row,
+         bool(re.search(r"\b(second|first) closure\b", _fo["D4"][1])),
+         "charge.py'S ROUTE IS STRONGER WHERE IT APPLIES AND IS CONFIRMED HERE"
+         in _fo["D4"][1],
+         "%s (%s)" % (_o4_phrase, "ledger O4") in d67),
+        (True, True, True, True, True, False, True, True))
+    chk("ctl", "'four escapes' and 'seven sympy residuals' planted in facts_outside()'s "
+        "entries fail the guards above (the owner's phrase absent from the "
+        "planted entry; the owner never says 'seven'); 'for the second closure "
+        "only' planted in D4 is found",
+        ("the %d quoted in create.ESCAPES" % len(create.ESCAPES)
+         in _fo["BORDE-ESCAPES"][1].replace("the %d quoted" % len(create.ESCAPES),
+                                            "the four escapes quoted"),
+         _o4_phrase in _fo["O4"][1].replace(_o4_phrase, "seven sympy residuals"),
+         re.search(r"axial\.py, seven sympy residuals all 0", _o4_row),
+         bool(re.search(r"\b(second|first) closure\b",
+                        _fo["D4"][1].replace("for charge.py's closure only",
+                                             "for the second closure only")))),
+        (False, False, None, True))
+    chk("chk", "D7's outside also names what bounds.py records beside Eq. (4) "
+        "(Fewster & Roman gr-qc/0209036 read at source this pass; Ford-Helfer-Roman "
+        "gr-qc/0208045), regexed from bounds.py; SR2's paraphrase drops the DEMAND "
+        "(the device 'BEAT LIGHT'), not the theorems",
+        ("Fewster & Roman gr-qc/0209036 (read at source this pass) and "
+         "Ford-Helfer-Roman gr-qc/0208045 (under bounds.py's own 'CORRECTED -- "
+         "DOCKET 55' of its own null half: 'THE NULL HALF IS FALSE')" in _fo["D7"][1],
+         "CORRECTED -- DOCKET 55" in " ".join(bounds.__doc__.split()),
+         "THE NULL HALF IS FALSE" in " ".join(bounds.__doc__.split()),
+         "its null-smearing clause" in _fo["D7"][1],
+         "as the theorems about that demand -- that the device 'BEAT LIGHT' -- "
+         "which M's scope drops ('M's scope drops it')" in _fo["SR2"][1],
+         "as the theorems 'M's scope drops it'" in _fo["SR2"][1]),
+        (True, True, True, False, True, False))
+    chk("ctl", "the regex-only derivation as it stood (READ|CITED over the held-by "
+        "labels) lists two and drops D7; planted as the clause, it fails the "
+        "equality -- and a fact's outside result dropped from the record fails it",
+        (_regex_only, "D7" in _regex_only, _regex_only == _rests,
+         d67.replace(facts_in_force_clause(),
+                     "of these, READ or CITED outside results: " + ", ".join(_regex_only))
+         == D67_T % d67_fill(),
+         d67.replace("; D7: %s" % [f for f in _facts_plain(model)
+                                   if f["name"] == "D7"][0]["outside"], "")
+         == D67_T % d67_fill()),
+        (["GEROCH-BORDE", "BORDE-ESCAPES"], False, False, False, False))
+    chk("chk", "DOCKET 67's record EQUALS D67_T filled from the asked fragments and "
+        "the three asked clauses; D67_T and D66_T carry no result word in the "
+        "board's own words (either direction)",
+        (d67 == D67_T % d67_fill(),
+         _RESULT_WORDS.findall(D67_T), _RESULT_WORDS.findall(D66_T),
+         re.findall(r"\b(has run|HAS RUN|STANDS|WRONG|NARROWED|expected to)\b",
+                    D67_T_AS_FIRST_WRITTEN + D66_T_AS_FIRST_WRITTEN),
+         re.findall(r"\b(STANDS|WRONG|NARROWED|expected to)\b", D66_T + D67_T),
+         D66_T.count("HAS RUN"), D67_T.count("HAS RUN"),
+         _RESULT_WORDS.findall(ledger.d67_ran()),
+         re.findall(r"\b(STANDS|WRONG|NARROWED|expected to)\b", ledger.d67_ran())),
+        (True, [], [], [], [], 1, 1, [], []))
+    chk("ctl", "'HAS RUN' planted in the record, and 'Every result it audits is "
+        "expected to STAND' appended, each fail the equality",
+        (d67.replace("NOT YET RUN", "HAS RUN", 1) == D67_T % d67_fill(),
+         d67 + "  Every result it audits is expected to STAND."
+         == D67_T % d67_fill()), (False, False))
+    _old_clause = "the one paper edit since M " + "finalis" + "ed it"
+    chk("chk", "SR5 says DOCKET 67 was OPENED and HAS RUN (CORRECTED; 'NOT YET RUN, "
+        "so nothing here is yet graded by it' kept as first said), and carries the same asked clause as the record (the facts "
+        "in force by count and name, the outside result each declares, the "
+        "outside results the escapes name); and M-D65-4, the paper's caveat (b), "
+        "on the board, with M's rule for the paper verbatim and the DOCKET 63 "
+        "marker's lines READ back -- the paper's edits named, not counted",
+        ("M ruled DOCKET 67 OPENED (M-D65-3, on the board: %s)"
+         % ruled("M-D65-3") in sr5["statement"],
+         "after DOCKET 65 and before DOCKET 66; CORRECTED (DOCKET 67 closed, "
+         "docket67-raw/CLOSE.md): it HAS RUN, and which of the facts in force here "
+         "it moved is not computed in this file -- first said 'NOT YET RUN, after "
+         "DOCKET 65 and before DOCKET 66, so nothing here is yet graded by it'; "
+         "what it audits lies BENEATH what every refusal here "
+         "rests on -- the %d facts in force, %s -- namely the outside results each "
+         "declares: %s; and, %s."
+         % ((len(_fif),) + d67_clauses()) in sr5["statement"],
+         "nothing here rests on it" in sr5["statement"],
+         "what it audits is what every refusal here rests on" in sr5["statement"],
+         "M ruled the paper's caveat (b) QUALIFIED on P-UNIFORM (M-D65-4, on the "
+         "board: %s; M: '%s'): a paper edit on M's ruling under M's rule for the "
+         "paper (\"%s\", verbatim from the session, witnessed by the lead); the "
+         "paper's other marked edit on M's ruling is DOCKET 63's (paper/CLAIMS.md:"
+         "%s) -- so it stood when M ruled.  CORRECTED (DOCKET 67 follow-ups): the "
+         "paper has since carried DOCKET 67's markers, '%s ...)', which name M's "
+         "ruling by M's words and which the census below READs (CORRECTED, DOCKET "
+         "67 close: M's words the marker heads carry, READ from the paper: %s); "
+         "no verdict here "
+         "moves on it.  M ruled the ruling id into the "
+         "paper's clause (M-D65-5, on the board: %s; M: '%s'); on the board, %s."
+         % (ruled("M-D65-4"), ledger.M_D65_4_ANSWER, ledger.M_PAPER_RULE_WORDS,
+            ledger.paper_d63_marker()[0], ledger.PAPER_D67_MARKER_HEAD,
+            ledger.paper_d67_words_clause(),
+            ruled("M-D65-5"), ledger.M_D65_5_ANSWER,
+            ledger.paper_markers_clause())
+         in sr5["statement"],
+         ruled("M-D65-4"), ruled("M-D65-5"),
+         "M-D65-5 %s" % st("M-D65-5") in sr5["status"],
+         # the paper's markers are asked of ledger (paper_docket_markers()),
+         # printed in SR5 as the paper carries them, never counted here
+         ledger.paper_docket_markers_clause() in sr5["statement"],
+         "DOCKET 65 at %d (a ruling named)" % ledger.PAPER_CAVEAT_B_LINE
+         in sr5["statement"],
+         # the count vocabulary is ledger's (COUNT_RE), imported, not copied
+         bool(ledger.COUNT_RE.search(sr5["statement"])),
+         _old_clause[16:] in sr5["statement"],
+         # the withdrawn word stands nowhere in this file's source (the control
+         # below assembles it from pieces)
+         "finalis" + "ed it" in open(__file__, encoding="utf-8").read()),
+        (True, True, False, False, True, True, True, True, True, True, False, False,
+         False))
+    chk("ctl", "'both markers the paper carries from this board name a ruling' "
+        "planted for SR5's asked clause is found by the count regex and fails the "
+        "pinned statement",
+        (bool(ledger.COUNT_RE.search(
+                        sr5["statement"].replace(
+                            "; on the board, " + ledger.paper_markers_clause() + ".",
+                            ", so both markers the paper carries from this board "
+                            "name a ruling."))),
+         "; on the board, " + ledger.paper_markers_clause() + "."
+         in sr5["statement"].replace(
+             "; on the board, " + ledger.paper_markers_clause() + ".",
+             ", so both markers the paper carries from this board name a ruling.")),
+        (True, False))
+    chk("ctl", "the statement as it stood ('nothing here rests on it'), planted, "
+        "fails the check above",
+        "nothing here rests on it" not in sr5["statement"].replace(
+            ", so nothing here is yet graded by it", "; nothing here rests on it"),
+        False)
+    chk("ctl", "the clause as it stood ('the one paper edit since M finalis.. it') "
+        "planted in SR5's statement is caught by the check above",
+        _old_clause[16:] in sr5["statement"].replace(
+            "a paper edit on M's ruling under M's rule for the paper", _old_clause), True)
+    chk("chk", "WHAT IT DOES NOT SAY carries the DOCKET 67 line (HAS RUN and "
+        "closed; NOT YET RUN kept as first said)",
+        any("DOCKET 67 (M-D65-3) HAS RUN and closed" in t
+            and "First said: 'It does not say the external results its refusals "
+            "rest on have been audited: DOCKET 67 (M-D65-3) is NOT YET RUN.'" in t
+            for t in what_it_does_not_say()), True)
+    _q3 = [r for r in ledger.RULED_BY_M if r[0] == "M-D65-3"][0]
+    _mis3 = (_q3[0], _q3[1], _q3[2],
+             _q3[3].replace("or even wrong", "or even false"), _q3[4])
+    with patched(ledger, "RULED_BY_M", [(_mis3 if r[0] == "M-D65-3" else r)
+                                        for r in ledger.RULED_BY_M]):
+        _mq3 = misquotes()
+    chk("ctl", "M's words in M-D65-3 corrected in the ruling cell is caught (the "
+        "quote check reads the printed cell)", [q[1][:24] for q in _mq3],
+        ["some of the previously e"])
+    chk("chk", "the S-3 note: DOCKET 65 has run, S13 a priced S-3 candidate that "
+        "forms no baryons, on H-RELEASE (asked); DOCKET 66 HAS RUN and adds no "
+        "literal to S, its first wording ('until tested') kept quoted (D66-RULINGS "
+        "verifier: this check first required 'DOCKET 66 still untested')",
+        [("DOCKET 65 HAS RUN" in K["note"], "PRICED S-3 candidate" in K["note"],
+          "forms no baryons" in K["note"], "H-RELEASE" in K["note"],
+          massform.H_RELEASE_STATUS in K["note"], "first said 'until tested'" in K["note"],
+          "DOCKET 66 HAS RUN" in K["note"])
+         for K in model["classes"] if K["id"] == "S-3"],
+        [(True,) * 7])
+    chk("chk", "S's classes take only the literals wl and ball (so DOCKET 66, which "
+        "names neither, adds no literal to S -- the claim the S-3 note, WHAT IT DOES "
+        "NOT SAY and DOCKET 66's comment make)",
+        sorted({k for K in model["classes"] if K["object"] == "S" for k in K["lits"]}),
+        ["ball", "wl"])
+    _Snote = [K["note"] for K in model["classes"] if K["id"] == "S-3"][0]
+    _Sdef = [o["definition"] for o in model["objects"] if o["id"] == "S"][0]
+    _Swids = [t for t in what_it_does_not_say() if "S-3 candidate" in t]
+    chk("chk", "the S-3 note, object S and WHAT IT DOES NOT SAY say what S13's "
+        "candidacy rests on (M's framing, M-S1A-P1) and that it moves no mass, "
+        "as Rec does not -- in the note AFTER the stability clause, so 'stable "
+        "only on' attaches to the candidate, not to Rec",
+        ("the candidacy rests " + S13_CANDIDACY in _Snote,
+         "S-3 candidate " + S13_CANDIDACY in _Sdef,
+         [("the candidacy rests " + S13_CANDIDACY) in t for t in _Swids],
+         _Snote.index("stable only on") < _Snote.index("the candidacy rests"),
+         "as Rec does not, stable only on" in _Snote),
+        (True, True, [True], True, False))
+    # DOCKET 67 follow-up: object S's clause on spec.py's repaired text, asked
+    # live -- the scoped DOES sentence found (True), the withdrawn figure gone
+    # from report() (False) -- and object W's clause on create.which_fails().
+    _Wdef = [o["definition"] for o in model["objects"] if o["id"] == "W"][0]
+    chk("chk", "object S reads spec.py's scoped DOES (True) and no withdrawn "
+        "figure in report() (False); object W prints which_fails() and the "
+        "handle qualifier",
+        ("radius (True)" in _Sdef, "still in report(): False" in _Sdef,
+         "recorded not repaired: spec.py's prose DOES" in _Sdef,
+         str(create.which_fails()) in _Wdef,
+         "a handle wormhole is not" in _Wdef),
+        (True, True, False, True, True))
+    chk("ctl", "the note as it stood ('S-3 candidate' with no basis), and the "
+        "WHAT IT DOES NOT SAY entry without it, are caught",
+        ("the candidacy rests " + S13_CANDIDACY
+         in _Snote.replace(" " + S13_CANDIDACY, ""),
+         [("the candidacy rests " + S13_CANDIDACY)
+          in t.replace(" (the candidacy rests %s)" % S13_CANDIDACY, "")
+          for t in _Swids]),
+        (False, [False]))
+    chk("chk", "massform.mechanism_label() appears verbatim in the S-3 note, the "
+        "object-S definition and WHAT_IT_DOES_NOT_SAY",
+        (massform.mechanism_label() in _Snote, massform.mechanism_label() in _Sdef,
+         any(massform.mechanism_label() in t for t in what_it_does_not_say())),
+        (True, True, True))
+    chk("ctl", "a bare refusal naming no reading and no fixed phrase, planted, is "
+        "caught (the widened guard)",
+        [len(bare_refusals(t)) for t in (
+            "M's mass-formation mechanism is REFUSED (S10).",
+            "DOCKET 65 refused M's mechanism (S10).",
+            "M's mechanism, as a supply, stands REFUSED.",
+            _Snote.replace(massform.mechanism_label(),
+                           "M's mass-formation mechanism is REFUSED (S10)"))]
+        + [len(bare_refusals("its remainders are OPEN, not refused, and M's "
+                             "mechanism is not a refusal of every way."))],
+        [1, 1, 1, 1, 0])
+    _pend = pending_here()
+    _flat = " ".join(render(model).split())
+    chk("chk", "PENDING FOR M prints every board ruling pending M whose outcome "
+        "changes this file (ledger.pending_rulings(), asked): none, since M "
+        "ruled M-D65-2; M-D65-1 and M-D65-2 are both RULINGS on the board",
+        ([p[0] for p in _pend],
+         "On the board, pending M and changing this file: none" in _flat,
+         ruled("M-D65-1"), ruled("M-D65-2"),
+         [p[0] for p in ledger.PENDING_RULINGS]),
+        # RE-PINNED BY DOCKET 68: the board holds one pending question,
+        # M-D68-P1 (emtension.py's citation); it names no specthm, so it is
+        # not PENDING FOR M here (pending_here() is still empty).
+        # RE-PINNED WHEN M-D68-P1 WAS CONVERTED: M had answered it before
+        # DOCKET 68 opened; it is the ruling M-D68-C12 on the board, and the
+        # board's pending list is empty.
+        ([], True, True, True, []))
+    _r11 = [r for r in model["requirements"] if r["id"] == "R11"][0]
+    _r11s = " ".join(_r11["statement"].split())
+    chk("chk", "R11 names BOTH of O9's member routes, asked in full (W2 x F1 with its "
+        "supports and windows; clause 2b's D-CTC with O-LOOP reintroduced), and its rows "
+        "are the board's DOCKET 68 rulings (ledger.D68_RULED), the carried items not "
+        "among them",
+        (ledger.d68_asked("W2 x F1", "O-BITS") in _r11s,
+         ledger.d68_asked("clause 2b's D-CTC (F2b)", "O-BITS") in _r11s,
+         "O-LOOP reintroduced" in _r11s,
+         [x for x in _r11["rows"] if x.startswith("M-D68")] == [r[0] for r in ledger.D68_RULED],
+         [c[0] for c in ledger.D68_CARRIED if c[0] in _r11["rows"]]),
+        (True, True, True, True, []))
+    _fake = ledger.PENDING_RULINGS + [("M-X-9", "a scratch question for M?", "why",
+                                       "either way", "specthm's scratch placement")]
+    with patched(ledger, "PENDING_RULINGS", _fake):
+        _flat2 = " ".join(render(model).split())
+    chk("ctl", "a new board ruling naming specthm reaches PENDING FOR M (asked, "
+        "not typed)", ("M-X-9" in _flat2, "a scratch question for M?" in _flat2),
+        (True, True))
+    chk("chk", "WHAT_IT_DOES_NOT_SAY's S13 sentence carries the same two limits",
+        [("forms no baryons" in t, "H-RELEASE" in t) for t in what_it_does_not_say()
+         if "S13" in t], [(True, True)])
+    _out = render(model)
+    _defs = [o["definition"] for o in model["objects"]]
+    chk("chk", "nothing still calls DOCKET 65 untested or pending (whole report, "
+        "every object definition)",
+        [stale_docket65(t) for t in [_out] + _defs if stale_docket65(t)], [])
+    chk("chk", "nothing still calls DOCKET 66 untested or not run outside a quoted "
+        "first wording (whole report, every object definition; D66-RULINGS verifier)",
+        [stale_docket66(t) for t in [_out] + _defs if stale_docket66(t)], [])
+    chk("ctl", "the D66 wordings as first written, planted back, are each caught "
+        "(and the same words quoted after 'first said' are not)",
+        [bool(stale_docket66(x)) for x in (
+            "both are DOCKET 66's, untested.", "DOCKET 66 still untested",
+            "Seating at a topological defect is S-3's until tested",
+            "DOCKET 66 is NOT YET RUN",
+            "First said: \"both are DOCKET 66's, untested.\"")],
+        [True, True, True, True, False])
+    chk("ctl", "the old object-S sentence, planted back, is caught",
+        [p in stale_docket65("M's mechanism is DOCKET 65's to test and is NOT part "
+                             "of S until it lands") for p in STALE_DOCKET65[:2]]
+        + [bool(stale_docket65("DOCKET 65 is untested"))], [True, True, True])
+    chk("chk", "every printed refusal of M's mechanism carries both priced "
+        "remainders (NET formation; the held-seat release route)",
+        bare_refusals(_out), [])
+    chk("ctl", "the bare DOCKET 65 and M-S1A-P1 wordings, planted back, are caught",
+        len(bare_refusals(
+            "RUN: the mechanism as stated is REFUSED on %s (massform.MECHANISM_VERDICT), "
+            "with its priced remainders OPEN.  The mechanism as stated is REFUSED as "
+            "a supply (S10), and it moves no class verdict here."
+            % ", ".join(massform.MECHANISM_VERDICT[1]))), 2)
+    _eff = ruling_effect(model)["M-S1A-P1"]
+    _every = ", ".join(massform.MECHANISM_VERDICT[1])
+    chk("chk", "DOCKET 65's record and the M-S1A-P1 effect print "
+        "massform.mechanism_label(), S11-S13 OPEN; massform's refusal-9 guard "
+        "passes them with 'every reading' in place of the list",
+        (massform.mechanism_label() in d65, massform.mechanism_label() in _eff,
+         "S11-S13" in _eff,
+         massform.unqualified_refusals(d65.replace(_every, "every reading")),
+         massform.unqualified_refusals(_eff.replace(_every, "every reading"))),
+        (True, True, True, [], []))
+    chk("chk", "DOCKET 66's copy of M-D65-1 is the board's: M's words, the "
+        "answer, CITED not READ, the same arXiv ids",
+        (d66_copy_faults(d66), m_d65_1()[1] in d66), ([], True))
+    chk("ctl", "a misquote of M, or a wrong arXiv id, in DOCKET 66 is caught",
+        (len(d66_copy_faults(d66.replace("introduction", "arrival"))),
+         len(d66_copy_faults(d66.replace("2301.02666", "2301.02667")))), (1, 1))
+    chk("chk", "DOCKET 65's two quotes of M are the board's M-S1A-P1 words",
+        d65_quote_faults(d65), [])
+    chk("ctl", "a misquote of M in DOCKET 65's record is caught",
+        len(d65_quote_faults(d65.replace("it triggers", "it starts"))), 1)
+    chk("chk", "D27-D29's owners still say what the THEOREM rows say "
+        "(ledger.theorem_owner_disagreements)",
+        ledger.theorem_owner_disagreements(), [])
+    for _attr, _flip, _rid in (("CONSIDERATION_HOLDS", False, "D27"),
+                               ("HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY", True, "D29")):
+        with patched(massform, _attr, _flip):
+            m2 = build()
+            _dis = ledger.theorem_owner_disagreements()
+        chk("ctl", "massform.%s -> %s: SR5 moves and the board check names %s"
+            % (_attr, _flip, _rid),
+            ([r["statement"] for r in m2["requirements"] if r["id"] == "SR5"]
+             != [sr5["statement"]], _dis), (True, [_rid]))
+    chk("chk", "SR5 says the finite share is an OPEN item inside S10's note, not a "
+        "row, on M's ruling M-D65-2 (asked of the board), and nothing pending",
+        ("an OPEN item inside S10's note, not a row, on M's ruling M-D65-2"
+         in sr5["statement"], "M: '%s'" % ledger.M_D65_2_ANSWER in sr5["statement"],
+         "pending" in sr5["statement"].casefold(), "O8" in sr5["statement"]),
+        (True, True, False, False))
+    _qrow = [r for r in ledger.RULED_BY_M if r[0] == "M-D65-1"][0]
+    _mis = (_qrow[0], _qrow[1], _qrow[2],
+            _qrow[3].replace("consider the idea that the introduction",
+                             "consider that the introduction"), _qrow[4])
+    with patched(ledger, "RULED_BY_M", [(_mis if r[0] == "M-D65-1" else r)
+                                        for r in ledger.RULED_BY_M]):
+        _mq = misquotes()
+    chk("ctl", "M's words misquoted in M-D65-1's PRINTED ruling cell only (the "
+        "`why` copy intact) is caught", [q[1][:24] for q in _mq],
+        ["consider the idea that t"])
+    mm = copy.deepcopy(model)
+    [K for K in mm["classes"] if K["id"] == "K2"][0]["lits"]["m0"] = True
+    pc = partition_check(mm)
+    chk("ctl", "a class edited to overlap another breaks the z3 partition",
+        bool(pc["C"]["overlap"]) and not pc["C"]["cover"], True)
+
+    print()
+    counts = dict((k, sum(1 for kk, _ in rows if kk == k))
+                  for k in ("ask", "fig", "z3", "ctl", "pin", "chk"))
+    summary = "%d checks: %s" % (len(rows), ", ".join("%d %s" % (c, k)
+                                                       for k, c in counts.items()))
+    if fails:
+        print("  SELFTEST FAILED: %d of %s" % (len(fails), summary))
+        for fl in fails:
+            print("    %s: got %r want %r" % fl)
+        return 1
+    print("  SELFTEST OK, %s" % summary)
+    return 0
+
+
+if __name__ == "__main__":
+    if "--selftest" in sys.argv:
+        sys.exit(selftest())
+    sys.exit(report())

@@ -92,9 +92,17 @@ condition whose dynamical counterpart has not been asked:
   2. THE NEC LADDER ITSELF.  necladder.py grades the whole project against the
      POINTWISE null energy condition, with the measured world at rung 1 and the
      violation index's core at rung 3.  The dynamical counterpart is the QNEC,
-     <T_kk> >= (hbar/2 pi) S''_out, which LICENSES negative energy wherever the
-     outward entanglement entropy is concave.  The corpus records QNEC in
-     Appendix D5 and DELIBERATELY does not make it a letter of the index.
+     <T_kk> >= (hbar/2 pi) S''_out (S'' the per-area diagonal functional
+     derivative, at a point where the expansion and shear vanish), which
+     LICENSES negative energy wherever the outward entanglement entropy is
+     concave.  Its proofs are scoped (DOCKET 67): free and superrenormalizable
+     bosonic fields at a point of a stationary null surface of a FIXED
+     background (1509.02542), flat space for theories with a UV fixed point
+     (1706.09432), Minkowski Rindler cuts (1812.04683) -- in a quantum STATE,
+     with an entanglement entropy; on a classical T it reduces to the NEC.  It
+     integrates to ANEC only where the boundary term S'_out vanishes at both
+     ends.  The corpus records QNEC in Appendix D5 and DELIBERATELY does not
+     make it a letter of the index.
 
   3. WALL-RADIAL.  wall.py's beta^2 > beta^2_crit is a FROZEN-BACKGROUND
      linearisation.  Le leaves the flux-coupled stability of the RADIATING shell
@@ -145,8 +153,12 @@ ROWS = [
  ("HORIZON", "a warp drive needs a horizon",
   "GEOMETRIC", "-- no positivity condition --", "none: dissolved by geometry",
   "CONTROL", "twist.py"),
+ # PSP's instability is for a thin BAROTROPIC PERFECT-FLUID shell (no shear,
+ # no bending rigidity); wall.py's own collisionless and anisotropic walls are
+ # outside that hypothesis (DOCKET 67).
  ("WALL-NONRADIAL", "the shell is stable to l >= 2",
-  "POSITIVITY", "self-gravitating thin shell", "diffuse limit -- EXITS THE CATEGORY",
+  "POSITIVITY", "self-gravitating thin barotropic perfect-fluid shell (PSP)",
+  "diffuse limit -- EXITS THE CATEGORY",
   "EXITED", "wall.py"),
 ]
 
@@ -269,7 +281,10 @@ def selftest():
     import anec
     chk("  because the tested prediction FAILED: ANEC is violated",
         anec.anec_integral(0.3) < 0.0, True)
-    chk("  and QNEC integrates to it", anec.qnec_implies_anec(), True)
+    # anec.qnec_implies_anec() takes no argument and returns True: the boundary
+    # term BFKLW make a CONDITION is asserted there, so this row cannot fail.
+    chk("  and QNEC integrates to it (where [S'_out] = 0, asserted)",
+        anec.qnec_implies_anec(), True)
     chk("  so the dynamical form was STRICTER, not looser",
         "NEC-LADDER" in [r[0] for r in ROWS if r[5] == "FAILED"], True)
     print("""      A pattern induced from four cases is not supported by those four.  Its
@@ -277,7 +292,12 @@ def selftest():
       FAILED.  nullbound.py appeared to land it and was scored a half; anec.py
       then asked the named member and found the dynamical form STRICTER, not
       looser -- QNEC integrates to ANEC, which is violated on every ray.  Back
-      to zero, and one strike against.""")
+      to zero, and one strike against.
+      That step carries NAMED hypotheses (DOCKET 67): the boundary term
+      [S'_out] = 0, asserted for the bubble and not computed; a fixed
+      stationary background, where the bubble is curved and non-stationary;
+      and a quantum state, where anec.py's T is classical -- on which the QNEC
+      is the NEC, already failed pointwise.""")
 
     print("\nThe predictions, in order")
     for i, r in enumerate(predictions() + [r for r in ROWS if r[5] == "FAILED"], 1):

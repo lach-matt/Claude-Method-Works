@@ -1,0 +1,931 @@
+{
+ "audits": {
+  "icrp-reference-adult-and-ci-chondrite": {
+   "key": "icrp-reference-adult-and-ci-chondrite",
+   "grade": "DATA-DEPENDENT",
+   "supersedes_grade": "DATA-DEPENDENT",
+   "read_status": "ICRP 23 Chapter 2 READ, from the OCR text layer of M's Drive .docx 16DVXUYgP--2YmXOP4VaAguXyIY_rWqM9 (M retrieved it). I downloaded the .docx here: 79,841 bytes, md5 09a25adf33de8b2997bf9e355a115746. It holds word/document.xml only, with no media and no w:tbl, so there were NO page images to read. Readable: the text on pp.273-288 (introduction, notes for Table 108); Table 105 row 1 (p.280); the Table 109 total (p.327); Table 110 in full (pp.327-328); Addendum II (pp.329-330); the references (pp.331-334). UNREADABLE: Table 108 (pp.289-324). The OCR of those 36 pages has no element name at all. I could not locate Tables 106-107 as legible text. Carried from the prior re-audit: ICRP front matter to p.61 (READ there), L03 and LBP25 (READ there), and the A09/AAG21 photosphere (CARRIED, not re-read here).",
+   "pages_read": [
+    "ICRP 23 pp.273-274 (Ch.2 introduction; rule: rounded to two significant figures)",
+    "p.280 Table 105 row 1 (Total body 70,000)",
+    "pp.286-288 notes for Table 108 (method; Na, K, Cl, I, Ca, Co, Cs)",
+    "pp.289-324 Table 108 ATTEMPTED: OCR is column-scrambled with no element names, so NOT READ",
+    "p.327 Table 109 total and Table 110 preamble + rows 1-16",
+    "p.328 Table 110 rows 17-36",
+    "pp.329-330 Addendum II (K vs age)",
+    "pp.331-334 references (titles only)",
+    "ICRP 23 pp.1-61 carried from the prior re-audit (p.4 definition; p.13 70 kg male / 58 kg female)"
+   ],
+   "values": [
+    {
+     "element": "O",
+     "owner_value": "43000 g",
+     "owner_site": "stockgate.py:346-349 HUMAN_G_BULK",
+     "icrp_value": "43,000 g (61 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "C",
+     "owner_value": "16000 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "16,000 g (23 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "H",
+     "owner_value": "7000 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "7000 g (10 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": false,
+     "agrees": "yes. The OCR prints '7O0O'. The printed percent column reads 10 = 7000/70000, which resolves it by computation, not by guessing"
+    },
+    {
+     "element": "N",
+     "owner_value": "1800 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "1800 g (2.6 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Ca",
+     "owner_value": "1000 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "1000 g (1.4 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "P",
+     "owner_value": "780 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "780 g (1.1 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "K",
+     "owner_value": "140 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "140 g (0.20 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "S",
+     "owner_value": "140 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "140 g (0.20 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Na",
+     "owner_value": "100 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "100 g (0.14 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Cl",
+     "owner_value": "95 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "95 g (percent cell reads 0.12)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes. The amount reads cleanly. The percent cell reads 0.12, but 95/70000 = 0.136 %. Without the page image I cannot tell whether that is a misprint or an OCR misread. The amount is corroborated by the p.288 note (98 g, approximately the organ sum)"
+    },
+    {
+     "element": "Mg",
+     "owner_value": "19 g",
+     "owner_site": "stockgate.py:346-349",
+     "icrp_value": "19 g (0.027 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Fe",
+     "owner_value": "4.2 g",
+     "owner_site": "stockgate.py:350-354 HUMAN_G_ESSENTIAL_TRACE",
+     "icrp_value": "4.2 g",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "F",
+     "owner_value": "2.6 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "2.6 g",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Zn",
+     "owner_value": "2.3 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "2.3 g",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Si",
+     "owner_value": "1.0 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "18 g, footnote '(a) From Chapter 3'",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "no: x0.056"
+    },
+    {
+     "element": "Rb",
+     "owner_value": "0.68 g",
+     "owner_site": "stockgate.py:355-363 HUMAN_G_INCIDENTAL",
+     "icrp_value": "0.32 g (0.00046 %)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "no: x2.12"
+    },
+    {
+     "element": "Sr",
+     "owner_value": "0.32 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.32 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Br",
+     "owner_value": "0.26 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.20 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x1.30"
+    },
+    {
+     "element": "Pb",
+     "owner_value": "0.12 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.12 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Cu",
+     "owner_value": "0.072 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "0.072 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Al",
+     "owner_value": "0.060 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.061 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x0.984"
+    },
+    {
+     "element": "Cd",
+     "owner_value": "0.050 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.050 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Ba",
+     "owner_value": "0.022 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.022 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "I",
+     "owner_value": "0.020 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "0.013 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x1.54. Mn and I share one percent value, so column alignment alone cannot separate them. The p.288 note ('about 13 mg') corroborates I = 0.013 g"
+    },
+    {
+     "element": "Sn",
+     "owner_value": "0.020 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "<0.017 g (upper limit)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x1.18, against an upper limit"
+    },
+    {
+     "element": "B",
+     "owner_value": "0.018 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "<0.048 g (upper limit)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x0.375, against an upper limit"
+    },
+    {
+     "element": "Ni",
+     "owner_value": "0.015 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "0.010 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x1.5"
+    },
+    {
+     "element": "Cr",
+     "owner_value": "0.014 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "<0.0018 g (upper limit)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x7.78, against an upper limit"
+    },
+    {
+     "element": "Mn",
+     "owner_value": "0.012 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "0.012 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes (alignment corroborated by the p.288 iodine note)"
+    },
+    {
+     "element": "Cs",
+     "owner_value": "0.006 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.0015 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x4"
+    },
+    {
+     "element": "Mo",
+     "owner_value": "0.005 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "<0.0093 g (upper limit)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x0.538, against an upper limit"
+    },
+    {
+     "element": "Co",
+     "owner_value": "0.003 g",
+     "owner_site": "stockgate.py:350-354",
+     "icrp_value": "0.0015 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x2"
+    },
+    {
+     "element": "Au",
+     "owner_value": "0.0002 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "<0.010 g (upper limit)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x0.02, against an upper limit"
+    },
+    {
+     "element": "U",
+     "owner_value": "0.0001 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.00009 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no: x1.11"
+    },
+    {
+     "element": "Be",
+     "owner_value": "0.000036 g",
+     "owner_site": "stockgate.py:355-363",
+     "icrp_value": "0.000036 g (percent cell not returned)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Li",
+     "owner_value": "0.007 g",
+     "owner_site": "stockgate.py:355-363 (and :53 '7 mg in a reference adult')",
+     "icrp_value": "NOT PRINTED in Table 110 (all 36 rows read). 'lithium' occurs nowhere in the readable Ch.2 text",
+     "icrp_table_page": "Table 110 pp.327-328 (absent). Table 108 pp.289-324 is unreadable, so its tail rows are OPEN",
+     "ocr_unambiguous": true,
+     "agrees": "not an ICRP 23 Table 110 value; the owner's other named source is Emsley (stockgate.py:288)"
+    },
+    {
+     "element": "Se V Ce Ti As Hg Ge Sb Ag Nb Zr La Ga Te Y Bi Tl In Sc Ta Th Sm W (23 more)",
+     "owner_value": "Se 0.015, V 0.00011, Ce 0.040, Ti 0.020, As 0.007, Hg 0.006, Ge 0.005, Sb 0.002, Ag 0.002, Nb 0.0015, Zr 0.001, La 0.0008, Ga 0.0007, Te 0.0007, Y 0.0006, Bi 0.0005, Tl 0.0005, In 0.0004, Sc 0.0002, Ta 0.0002, Th 0.0001, Sm 0.00005, W 0.00002 g",
+     "owner_site": "stockgate.py:350-363",
+     "icrp_value": "NOT PRINTED in Table 110",
+     "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 OPEN",
+     "ocr_unambiguous": true,
+     "agrees": "not ICRP 23 Table 110 values (Emsley per stockgate.py:288)"
+    },
+    {
+     "element": "total body mass",
+     "owner_value": "70 kg (docstring stockgate.py:465). The normalising denominator is the 59-element sum, 70,085.9 g (stockgate.py:426-428)",
+     "owner_site": "stockgate.py:345, 465",
+     "icrp_value": "70,000 g",
+     "icrp_table_page": "Table 105 row 1, p.280; Table 109 total, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes. The different denominators rescale every factor by 0.12 %; no binder moves"
+    },
+    {
+     "element": "Ra (ICRP only)",
+     "owner_value": "not carried",
+     "owner_site": "n/a",
+     "icrp_value": "3.1 x 10^-11 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": false,
+     "agrees": "n/a. Neither destination column carries Ra, so it would give p/0 = inf. Excluded from the computation, and named here"
+    }
+   ],
+   "hypothesis_drift": [
+    "NARROWED ATTRIBUTION, CONFIRMED AT SOURCE: ledger.py:674 labels the 59-element payload '(ICRP)', but ICRP 23 Table 110 prints 36 elements. 21 owner values equal Table 110 exactly: all 11 bulk elements, plus Fe, F, Zn, Sr, Pb, Cu, Cd, Ba, Mn and Be. 14 differ: Si, Rb, Br, Al, I, Sn, B, Ni, Cr, Cs, Mo, Co, Au and U. Five of those 14 (B, Sn, Au, Mo, Cr) are printed by ICRP only as '<' upper limits. 24 owner elements are not in Table 110 at all.",
+    "CONFIRMED AT SOURCE: LITHIUM IS NOT AN ICRP 23 TABLE 110 VALUE. So the photosphere runner-up (Li 1753.4, 91.76 % of P, stockgate.py:53) rests on Emsley, not on ICRP. On the ICRP payload alone, the photosphere runner-up is K at 652.6, 2.93x behind. Whether Li is among Table 108's tail rows is OPEN, because that table is unreadable in the OCR.",
+    "DROPPED: the source's '<' (below detection in more than half the specimens, p.286) on B, Sn, Au, Mo and Cr. The owner prints point values for them.",
+    "DROPPED: 'male', and the rounding to two significant figures (p.273), while D25 prints %.4g. Also dropped are the source's other limits: Table 110 includes only elements known in at least 50 % of the body (p.327); trace values come from 150 United States accident victims (p.274); Cs comes from Japanese subjects (p.288); Co rests on values the source calls 'arbitrarily based' (p.288).",
+    "SOURCE DISCREPANCIES, not the owner's: in Table 110, Cl 95 g has a percent cell reading 0.12 against a computed 0.136; misprint or OCR is not settled. The p.273 introduction numbers the summary tables one lower than the tables themselves: it says Table 108 holds the weights and Table 109 the total-body elements, where the tables put them in 109 and 110.",
+    "CARRIED, unchanged by this read: the CI table is not L03's (P 1040 vs 920 +- 100; N 3180 vs 2940 +- 20); 'stellar photosphere' generalises A09's present-day Sun; bulk-CI accessibility is the tree's own open item (ledger.py:706-709)."
+   ],
+   "grade_evidence": "(1) ICRP 23 Table 110 (pp.327-328) READ. Every payload value that decides a binder the owner prints is ICRP's to the gram: P 780 and N 1800, along with O, C, H, Ca, K, S, Na, Cl and Mg. The body mass is 70,000 g (Table 105 p.280; Table 109 p.327). The script imports the owner's tables read-only and exits 0. On ICRP's own values and denominator, CI binds on P at 10.714 with N at 8.086, and the photosphere binds on P at 1913.2. The owner prints 10.70 and 1910.9; the difference is a 0.12 % rescale. The source rounds to two significant figures, so P could lie in 775-785 g and N in 1750-1850 g. Neither range reaches a flip threshold: P would have to fall below 715.7 g (photosphere) or 588.7 g (CI), or N rise above 2385 g. As far as it decides the binder, the ICRP leg STANDS. (2) The '(ICRP)' attribution is NARROWED at source. Of 59 owner values, 21 are Table 110's, 14 differ (5 against upper limits) and 24 are absent. Li is among the absent: it is the only element within 9 % of flipping the photosphere binder. On the ICRP payload alone the runner-up is K, 2.93x behind. (3) The composite grade does not rest on the ICRP leg. The data the prior re-audit found moved or contested are untouched by this read: CI N (LBP25 1965 ppm, READ there) makes N bind at CI, and photospheric Li (AAG21, carried) with payload Li (7 vs 2.17 mg, tertiary) decides P vs Li at the photosphere. DATA-DEPENDENT therefore holds, now with its ICRP part closed: the dependence lies in the destination columns and in one non-ICRP payload element. Not WRONG: no computed contradiction of a measurement as defined was found, and the 14 mismatches are attribution discrepancies.",
+   "what_would_change_the_grade": "To STANDS for the binder labels: settled photospheric Li with eps_Li - eps_P >= -4.397, or a primary whole-body Li for the 70 kg male below 7.63 mg (ICRP 23 Table 110 prints none). Also needed: settled CI N >= ~2280 ppm at P 989. Alternatively, the tree could print 'P or Li / P or N within the data's spread'. A legible scan of Table 108 (pp.289-324) would settle whether ICRP 23 gives Li at all, and would let the Cl percent cell be read. To WRONG: a computed contradiction of a measurement as defined. Nothing approached one.",
+   "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-reference-adult-and-ci-chondrite.py",
+   "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-reference-adult-and-ci-chondrite.json"
+  },
+  "icrp-23-reference-man": {
+   "key": "icrp-23-reference-man",
+   "grade": "DATA-DEPENDENT",
+   "supersedes_grade": "DATA-DEPENDENT (prior re-audit reaudit/icrp-23-reference-man.json, which read ICRP 23 only to p.61). The grade is the same, but it now rests on a narrower basis. Every ICRP 23 datum the binders use is confirmed at source. The one datum the photosphere binder still moves with, Li, is shown NOT to be an ICRP 23 Table 110 value.",
+   "read_status": "READ (OCR text layer): ICRP 23 Chapter 2, pp.273-334, from M's .docx (Drive 16DVXUYgP--2YmXOP4VaAguXyIY_rWqM9, 79,841 B, md5 09a25adf33de8b2997bf9e355a115746, downloaded and saved as reaudit2/icrp23_p273-334.docx). The .docx contains only word/document.xml and its support parts: no word/media and zero <w:drawing> elements, so there are NO page images to read. These parts read cleanly: Table 110 (pp.327-328); Table 109's total-body row (p.327); the Chapter 2 introduction (p.273); the notes for Tables 105 and 108 (pp.274-288). Table 108 itself (pp.289-324, landscape, E-notation) is NOT readable in the layer, which gives symbol noise. Tables 106 and 107 have no readable heading or body. Front matter to p.61 is carried from the prior re-audit. Emsley p.83 is NAMED-NOT-READ.",
+   "pages_read": [
+    "p.273 Chapter 2 Introduction: values 'rounded to two significant figures' (four exceptions); common trace elements from '150 adult victims of accidental death'; 'For the content of most other elements, no consistent body of data exists, and values have been inferred from a number of sources.'",
+    "p.274 Column 2 note: 'The sum of the asterisked weights is 70 kg.'",
+    "pp.279-280 Table 108 introduction: the Single value is the median of a statistical sample; the 80 % range is the 10th-90th percentiles; the sample is 150 US accident victims (Univ. Tennessee / ORNL).",
+    "p.286 notes for Table 108: a '<' value means below detection in more than half the specimens; total body = sum over tissues, extrapolated to 'unknown' tissues; Mg worked example 7.8 + 11 = 19 g; 'elements for which available values represented less than 20 % of the body are included at the end of Table 108'.",
+    "pp.287-288 notes for Table 108: alternative totals Na 93/75/70/80 g, K 136/133/~145 g, Cl 98 g and 84-94 g; I 13 mg 'may exceed'; Ca 1014 g unrounded (Widdowson & Dickerson 1265 g); Co 'arbitrarily based' on Tipton and Parr; Cs from Japanese subjects.",
+    "pp.289-324 Table 108: NOT READABLE in the OCR layer; no value taken.",
+    "pp.325-327 Table 109 weights: 'Total body* 70,000* 100'.",
+    "pp.327-328 Table 110 'REFERENCE MAN: TOTAL BODY CONTENT FOR SOME ELEMENTS': 36 rows of grams and % body weight. Caption: 'transferred from the first row of Table 108 ... includes only those elements for which the concentration was known in at least 50 % of the total body, including the skeleton'.",
+    "pp.329-334 Addendum II and references: skimmed, not used for a value. 'lithium' occurs nowhere in the Chapter 2 text layer, references included.",
+    "Carried from the prior re-audit: front matter, Introduction pp.1-7 (definition p.4), Chapter 1 pp.8-61 (p.13: male 70 kg / female 58 kg)."
+   ],
+   "values": [
+    {
+     "element": "body mass",
+     "owner_value": "70 kg (stock.py:285; 59-row sum 70,085.9 g)",
+     "owner_site": "stock.py:285; stockgate.py:288-289, :345",
+     "icrp_value": "Total body* 70,000 g, 100 % -- the reference adult MALE (p.13, prior re-audit)",
+     "icrp_table_page": "Table 109, p.327; Column 2 note p.274",
+     "ocr_unambiguous": true,
+     "agrees": "yes (value); source's object is the male, owner says 'adult'"
+    },
+    {
+     "element": "O",
+     "owner_value": "43000 g",
+     "owner_site": "stockgate.py:347; stock.py:228",
+     "icrp_value": "43,000 g, 61 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "C",
+     "owner_value": "16000 g",
+     "owner_site": "stockgate.py:347; stock.py:228",
+     "icrp_value": "16,000 g, 23 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "H",
+     "owner_value": "7000 g",
+     "owner_site": "stockgate.py:347; stock.py:228",
+     "icrp_value": "OCR '7O0O'; 7000 only via per-cent column '10'",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": false,
+     "agrees": "yes (via the per-cent cross-check)"
+    },
+    {
+     "element": "N",
+     "owner_value": "1800 g",
+     "owner_site": "stockgate.py:347; stock.py:228",
+     "icrp_value": "1800 g, 2.6 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Ca",
+     "owner_value": "1000 g",
+     "owner_site": "stockgate.py:347; stock.py:229",
+     "icrp_value": "1000 g, 1.4 % (unrounded 1014 g, p.288)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "P",
+     "owner_value": "780 g",
+     "owner_site": "stockgate.py:348; stock.py:229",
+     "icrp_value": "780 g, 1.1 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "K",
+     "owner_value": "140 g",
+     "owner_site": "stockgate.py:348; stock.py:229, :472-473",
+     "icrp_value": "140 g, 0.20 % (alternatives 133-145 g, p.287)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "S",
+     "owner_value": "140 g",
+     "owner_site": "stockgate.py:348; stock.py:229",
+     "icrp_value": "140 g, 0.20 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Na",
+     "owner_value": "100 g",
+     "owner_site": "stockgate.py:348; stock.py:230",
+     "icrp_value": "100 g, 0.14 % (alternatives 70-93 g, p.287)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Cl",
+     "owner_value": "95 g",
+     "owner_site": "stockgate.py:348; stock.py:230",
+     "icrp_value": "95 g; the per-cent cell reads '0.12' where 95/70,000 = 0.136 %, and 0.12 vs 0.14 cannot be resolved from the OCR",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes (grams)"
+    },
+    {
+     "element": "Mg",
+     "owner_value": "19 g",
+     "owner_site": "stockgate.py:348; stock.py:230",
+     "icrp_value": "19 g, 0.027 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Si",
+     "owner_value": "1.0 g",
+     "owner_site": "stockgate.py:351",
+     "icrp_value": "18 g, 0.026 % (footnote a: from Chapter 3)",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "no (x0.056); moves no binder"
+    },
+    {
+     "element": "Fe",
+     "owner_value": "4.2 g",
+     "owner_site": "stockgate.py:351; stock.py:230",
+     "icrp_value": "4.2 g",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "F",
+     "owner_value": "2.6 g",
+     "owner_site": "stockgate.py:351",
+     "icrp_value": "2.6 g",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Zn",
+     "owner_value": "2.3 g",
+     "owner_site": "stockgate.py:351; stock.py:231",
+     "icrp_value": "2.3 g",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Rb",
+     "owner_value": "0.68 g",
+     "owner_site": "stockgate.py:356",
+     "icrp_value": "0.32 g, 0.00046 %",
+     "icrp_table_page": "Table 110, p.327",
+     "ocr_unambiguous": true,
+     "agrees": "no (x2.12)"
+    },
+    {
+     "element": "Sr",
+     "owner_value": "0.32 g",
+     "owner_site": "stockgate.py:356",
+     "icrp_value": "0.32 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Br",
+     "owner_value": "0.26 g",
+     "owner_site": "stockgate.py:356",
+     "icrp_value": "0.20 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x1.3)"
+    },
+    {
+     "element": "Pb",
+     "owner_value": "0.12 g",
+     "owner_site": "stockgate.py:356",
+     "icrp_value": "0.12 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Cu",
+     "owner_value": "0.072 g",
+     "owner_site": "stockgate.py:351",
+     "icrp_value": "0.072 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Al",
+     "owner_value": "0.060 g",
+     "owner_site": "stockgate.py:356",
+     "icrp_value": "0.061 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x0.984)"
+    },
+    {
+     "element": "Cd",
+     "owner_value": "0.050 g",
+     "owner_site": "stockgate.py:356",
+     "icrp_value": "0.050 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "B",
+     "owner_value": "0.018 g",
+     "owner_site": "stockgate.py:351",
+     "icrp_value": "<0.048 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no ('<' detection-limit value)"
+    },
+    {
+     "element": "Ba",
+     "owner_value": "0.022 g",
+     "owner_site": "stockgate.py:357",
+     "icrp_value": "0.022 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Sn",
+     "owner_value": "0.020 g",
+     "owner_site": "stockgate.py:357",
+     "icrp_value": "<0.017 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (owner above printed '<' bound)"
+    },
+    {
+     "element": "Mn",
+     "owner_value": "0.012 g",
+     "owner_site": "stockgate.py:352",
+     "icrp_value": "0.012 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "I",
+     "owner_value": "0.020 g",
+     "owner_site": "stockgate.py:352",
+     "icrp_value": "0.013 g ('may exceed', p.288)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x1.54)"
+    },
+    {
+     "element": "Ni",
+     "owner_value": "0.015 g",
+     "owner_site": "stockgate.py:352",
+     "icrp_value": "0.010 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x1.5)"
+    },
+    {
+     "element": "Au",
+     "owner_value": "0.0002 g",
+     "owner_site": "stockgate.py:361",
+     "icrp_value": "<0.010 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no ('<' value)"
+    },
+    {
+     "element": "Mo",
+     "owner_value": "0.005 g",
+     "owner_site": "stockgate.py:353",
+     "icrp_value": "<0.0093 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no ('<' value)"
+    },
+    {
+     "element": "Cr",
+     "owner_value": "0.014 g",
+     "owner_site": "stockgate.py:352",
+     "icrp_value": "<0.0018 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (owner 7.8x the printed '<' bound)"
+    },
+    {
+     "element": "Cs",
+     "owner_value": "0.006 g",
+     "owner_site": "stockgate.py:358",
+     "icrp_value": "0.0015 g (Japanese subjects, p.288)",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x4)"
+    },
+    {
+     "element": "Co",
+     "owner_value": "0.003 g",
+     "owner_site": "stockgate.py:353",
+     "icrp_value": "0.0015 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x2)"
+    },
+    {
+     "element": "U",
+     "owner_value": "0.0001 g",
+     "owner_site": "stockgate.py:361",
+     "icrp_value": "0.00009 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "no (x1.11)"
+    },
+    {
+     "element": "Be",
+     "owner_value": "0.000036 g",
+     "owner_site": "stockgate.py:362",
+     "icrp_value": "0.000036 g",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": true,
+     "agrees": "yes"
+    },
+    {
+     "element": "Li",
+     "owner_value": "0.007 g (photosphere runner-up; stock.HUMAN 9.988e-08)",
+     "owner_site": "stockgate.py:358, :52-55; stock.py:226-231",
+     "icrp_value": "NOT PRINTED in Table 110. Table 108 is unreadable and 'lithium' is absent from the readable layer, so no ICRP value is stated.",
+     "icrp_table_page": "Table 110 pp.327-328 (absent); Table 108 pp.289-324 (unreadable)",
+     "ocr_unambiguous": false,
+     "agrees": "OPEN: not an ICRP 23 Table 110 value. Li binds above 7.629 mg (x1.0898)."
+    },
+    {
+     "element": "Se V Ce Ti As Hg Ge Sb Ag Nb Zr La Ga Te Y Bi Tl In Sc Ta Th Sm W (23)",
+     "owner_value": "per stockgate.py:352-362",
+     "owner_site": "stockgate.py:352-362",
+     "icrp_value": "NOT PRINTED in Table 110; Table 108 unreadable",
+     "icrp_table_page": "Table 110 (absent); Table 108 (unreadable)",
+     "ocr_unambiguous": false,
+     "agrees": "OPEN"
+    },
+    {
+     "element": "Ra (ICRP only)",
+     "owner_value": "not carried",
+     "owner_site": "-",
+     "icrp_value": "OCR '3.1 . 10 -it' -- exponent ambiguous",
+     "icrp_table_page": "Table 110, p.328",
+     "ocr_unambiguous": false,
+     "agrees": "n/a"
+    }
+   ],
+   "hypothesis_drift": [
+    "CONFIRMED AT SOURCE: all 11 bulk masses the owner carries equal ICRP 23 Table 110 p.327 exactly. These include P 780 g and N 1800 g, the CI binder and its runner-up, and K 140 g. So do Fe, F, Zn, Cu, Mn, Sr, Pb, Cd, Ba and Be. In all, 21 of the 59 owner values agree.",
+    "ATTRIBUTION, now shown: 14 owner values differ from Table 110 and 24 are not in it. The differences are Si 1.0 vs 18 g, Cs x4, Rb x2.1, Co x2, I x1.54, Ni x1.5, Br x1.3, U and Al, plus five against '<' values (Cr 0.014 vs <0.0018, Sn, B, Mo, Au). The label 'ICRP 23 / Emsley' (stockgate.py:288-289, :345; stock.py:196) covers a two-source table and never says which source supplies which element. Computed: substituting every Table 110 value moves no binder.",
+    "LITHIUM IS NOT AN ICRP 23 TABLE 110 VALUE. The photosphere runner-up (stockgate.py:52-55 '7 mg in a reference adult ... Nine per cent from flipping'; stock.py:226-227) is absent from Table 110. Under its caption's rule, ICRP did not know Li's concentration over half the body. Table 108 is unreadable here, and 'lithium' is absent from the readable layer. The 7 mg is Emsley's figure carried under an ICRP label.",
+    "DROPPED 'male' (re-confirmed): the 70,000 g total in Table 109 is the male of p.13. The owner says 'reference adult' (stockgate.py:289, :345; ledger.py:674).",
+    "OVERSTATED 'measured quantities of 59' (stockgate.py:36). The total-body table prints 36 elements. Five of them are '<' detection-limit values. For most elements beyond the common trace ones, the values were 'inferred from a number of sources' (p.273), and totals are extrapolated to 'unknown' tissues (p.286).",
+    "DROPPED the precision statement (p.273, two significant figures), but it moves nothing. Computed: P anywhere in [775, 785) g keeps P binding at both destinations. None of the source's own alternative totals moves a binder either (Na 70-93 g, K 133-145 g, Cl 84-98 g, Ca 1014 and 1265 g).",
+    "TREE-INTERNAL DISCREPANCY: stockgate.py:88 'On the ICRP datum the gap is 2.63x' computes as 2.631 using stock.py's superseded P 0.010 over ICRP K. With P and K both at ICRP values the gap is 2.932, as stockgate.py:56 and stock.py:72 themselves state. The reading that 'two scarcities at the same scale' fails survives either way.",
+    "SOURCE-OR-OCR DISCREPANCY (moves nothing): in Table 110, Cl reads 95 g with per-cent '0.12', but 95 g is 0.136 % of 70 kg. The other 33 per-cent cells agree with their grams.",
+    "CITATION NOTE: the p.273 introduction calls the total-body summary 'Table 109', but the printed tables number it Table 110, with Table 109 as weights."
+   ],
+   "grade_evidence": "(1) READ: Table 110, p.327, prints exactly the 11 bulk masses the owner uses, including P 780 g and N 1800 g. (2) CI half, computed on ICRP 23's own values: P binds at 10.699 kg/kg (owner 10.701), with N 1.3250x behind. P would cede only below 588.7 g, or N would take over only above 2385 g. Neither two-figure rounding nor any alternative total the source prints moves it. That half holds for ICRP 23's Reference Man, which is a 1975 20-30 y male; the tree calls it an 'adult', so it is NARROWED in class only. (3) Photosphere half, computed: P binds at 1910.4 over Li at 1752.9, a margin of 1.0898. Li binds above 7.6288 mg. ICRP 23 does not supply Li: it is absent from Table 110, and Table 108 is unreadable. On Table 110 alone the photosphere binder is P, with K 2.932x behind. The 7 mg is Emsley's, via a tertiary restatement whose own fraction column gives 2.17 mg (first audit). So the photosphere binder depends on a lithium datum that is neither ICRP's nor settled. (4) Carried from earlier audits, not re-read here: ICRP 89 amends P23, and on ICRP 110 bulk (P 0.813 %) the binders become Li and C. (5) Not WRONG: no ICRP 23 value is contradicted. The 14 differing owner values are attribution discrepancies and move no binder (computed). The 2.63x figure mixes two P values inside the tree. (6) Not STANDS: the photosphere binder moves with Li, a datum outside ICRP 23 that is contested.",
+   "what_would_change_the_grade": "Any one of these would change the grade. (a) A legible image of ICRP 23 Table 108 (pp.289-324, especially its closing section for elements known in under 20 % of the body), or of Chapter 3's lithium entry. (b) A primary whole-body Li measurement whose uncertainty lies wholly below 7.63 mg per 70 kg. Either would make the photosphere half READ. With the CI half already confirmed at source, the grade would then become NARROWED: the result holds for ICRP 23's 1975 male Reference Man, not for 'an adult'. A primary Li figure wholly above 7.63 mg would make Li the photosphere binder for the tree's own payload; that is recorded, not repaired. (c) ICRP 89's reference-male P read at source would settle whether later ICRP data move the binder for Reference Man itself. The flip thresholds are P below 1.021 % by mass at the photosphere, or below 0.840 % for P to cede to N at CI. (d) Emsley p.83 itself would settle the 14 non-ICRP values.",
+   "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-23-reference-man.py",
+   "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/icrp-23-reference-man.json"
+  }
+ },
+ "verifiers": [
+  {
+   "lens": "REFUTE THE GRADE in either direction. I re-read the ICRP 23 Chapter 2 OCR passages and Table 110 myself, re-opened ledger.py and stockgate.py at the cited lines, and recomputed the binders and flip thresholds independently with the owner's own functions, imported read-only.",
+   "refuted": false,
+   "proposed_grade": "DATA-DEPENDENT",
+   "reason": "I re-read Table 110 (pp.327-328) myself. Page 327 has 16 names, 16 amounts and 16 percents. Page 328 has 20 names and 20 amounts. Its 18 percent cells match the first 18 amounts exactly when each amount is divided by 70,000; only Be and Ra have no percent. So the alignment between columns is internally verified.\n\nEvery value the re-audit reports agrees with my reading: O 43,000; C 16,000; H 7O0O (resolved to 7000 by its 10 %); N 1800; Ca 1000; P 780; S and K 140; Na 100; Cl 95 (percent cell 0.12); Mg 19; Si 18 (a); Fe 4.2; F 2.6; Zn 2.3; Rb 0.32; Sr 0.32; Br 0.20; Pb 0.12; Cu 0.072; Al 0.061; Cd 0.050; B <0.048; Ba 0.022; Sn <0.017; Mn 0.012; I 0.013; Ni 0.010; Au <0.010; Mo <0.0093; Cr <0.0018; Cs 0.0015; Co 0.0015; U 0.00009; Be 0.000036; Ra 3.1e-11. The totals are 70,000 at Table 105 row 1 and at the Table 109 total, and Table 110 sums to 70,102.39.\n\nThe counts are 21 agree, 14 differ and 24 absent, and I reproduced them. Li is absent, and 'lithium' does not occur anywhere in the text. The p.288 notes read as reported: I about 13 mg; Cl 98 g approximately equals the organ sum; Cs is from Yamagata's Japanese subjects; Co values were 'arbitrarily based' on Tipton and Parr. The p.286 '<' definition, the p.327 50 % inclusion rule and the pp.273-274 rule of two significant figures are all at source.\n\nThe owner's words are verbatim. ledger.py:674 reads 'A reference adult (ICRP)' and ledger.py:675 prints %.4g. stockgate.py:53 reads '7 mg in a reference adult'. Line 345 labels the tables 'ICRP 23 / Emsley', and line 288 names Emsley.\n\nMy recomputation matches to the printed precision:\n- CI, owner payload: P 10.7012, N 8.0763.\n- CI, Table 110 over 70,000 g: P 10.7143, N 8.0863.\n- Photosphere, owner payload: P 1910.87, Li 1753.36 (91.76 %).\n- Photosphere, Table 110 over 70,000 g: P 1913.21, K 652.59, a ratio of 2.932.\n- Thresholds: Li 7.6288 mg; P 715.71 g; CI P 588.68 g; N 2385.0 g.\n\nSo the ICRP leg does not move the binder. The binder labels still move with the destination data, carried from the prior re-audit: CI N, where L03, LBP25 and the tree's 3180 ppm straddle the 2400 ppm crossover; and photospheric Li, where AAG21 at 0.96 flips the binder to Li 2157. They also move with one non-ICRP payload element, Emsley's Li. That fits 'the conclusion moves with a datum that has moved or is contested'. I found no computed contradiction of a measurement, so the grade is not WRONG. It is not STANDS either, because substituting data alone flips a printed binder. NARROWED covers only the attribution sub-finding, which the re-audit already records as narrowed. The defects below are omissions and over-statements in the supporting text, and none of them moves the grade.",
+   "defects": [
+    "UNNAMED HYPOTHESIS IN what_would_change_the_grade. The alternative route to STANDS, 'a primary whole-body Li for the 70 kg male below 7.63 mg', holds only while photospheric Li stays at A09's eps 1.05. At A09 it is vacuous, because the owner's 7 mg is already below 7.63 mg. At AAG21's eps 0.96 the P/Li crossover is 6.20 mg (computed in check2.py), so a Li of 6.2 to 7.6 mg would still leave Li binding. The threshold has to be stated together with the photospheric column it assumes.",
+    "OVER-REPRESENTED MISMATCH FOR VALUES WITHIN A '<' BOUND. B 0.018 < 0.048, Mo 0.005 < 0.0093 and Au 0.0002 < 0.010 lie inside ICRP's upper limits, so they do not contradict the source. Yet they are tabled as 'agrees: no' with ratios x0.375, x0.538 and x0.02, which are ratios to a bound, not to a value. Only Sn (0.020 > 0.017, x1.18) and Cr (0.014 > 0.0018, x7.78) exceed ICRP's bound. The '14 differ' count is literally true, but the five upper-limit rows should be split into 3 inside the bound and 2 exceeding it.",
+    "DROPPED CARRIED DRIFT. The original audit (audits/icrp-reference-adult-and-ci-chondrite.json) named that D25's 'stellar photosphere' is stockgate.solar_hybrid: photospheric where determined, meteoritic otherwise (stockgate.py:500-511, DESTS line 531). In it, 12 owner payload elements take meteoritic values (I Se Br Cd As Hg Cs Sb Te Bi Ta U), and so do 5 of the Table 110 elements (Br Cd I Cs U). The re-audit's CARRIED drift list keeps only 'generalises A09's present-day Sun', and 'hybrid' and 'meteoritic' occur nowhere in its JSON. This does not move the binder, since P, Li and K are all photospheric, but it breaks the rule that every limitation be a named hypothesis.",
+    "PAGE MISATTRIBUTION. 'trace values come from 150 United States accident victims (p.274)', and source_hypotheses 'pp.274, 286'. The p.273 introduction (before the 273/274 page break) says only '150 adult victims of accidental death'. The words 'from the United States performed at the University of Tennessee and Oak Ridge' are on p.279, between the OCR's p.278 and p.280 markers (text line 457-458), not on p.274.",
+    "UNRECORDED OCR ANOMALY ON Mn/I. The amount column prints Mn 0.012 above I 0.013. That breaks the otherwise descending order of Table 110, ties aside. The re-audit marks both ocr_unambiguous=true and says the shared percent cell cannot separate them, without noting the order break. Sequential alignment of the 20 names against the 20 amounts, together with the p.288 'about 13 mg' iodine note, does support I = 0.013 and Mn = 0.012, so the reading stands. The anomaly should still be named rather than flagged as unambiguous.",
+    "MINOR CITATION. stockgate.py:426-428 is _norm(), the generic normaliser, so citing it as 'the normalising denominator, 70,085.9 g' is right only when combined with payload() at lines 464-471. The figure itself is correct: the owner sum is 70,085.9087 g."
+   ],
+   "commands_run": [
+    "python3 (canonical.json lookup of key icrp-reference-adult-and-ci-chondrite)",
+    "sed -n 660,720p research/warp-drive/ledger.py; sed -n 40,60p and 280,480p research/warp-drive/stockgate.py; sed -n 482,549p stockgate.py",
+    "grep -n (line numbers for HUMAN_G_*, 7 mg, ICRP source label, payload) stockgate.py",
+    "sed -n 1,75p; 450-462; 2845-2870; 3000-3125; 6080-6400 of reaudit/src/icrp23_p273-334_docx.txt (intro, rounding, 150 victims/US, '<' definition, p.288 notes, Table 110)",
+    "grep -n -i 'lithium|arbitrar|Yamagata|13 mg|98 g|accident|<' and page-marker grep on the OCR text",
+    "python3 verify/refute/icrp-reference-adult-and-ci-chondrite/check.py (agree/differ/absent counts; binders under owner, T110/70000 and T110-renorm payloads; flip thresholds; hybrid-meteoritic elements; '<' bound comparison)",
+    "python3 verify/refute/icrp-reference-adult-and-ci-chondrite/check2.py (P/Li crossover under eps_Li 0.96: 6.20 mg; Li factor 2157.1)",
+    "grep of reaudit/ and audits/ prior JSONs for hybrid, LBP25, AAG21",
+    "PYTHONDONTWRITEBYTECODE=1 python3 reaudit2/icrp-reference-adult-and-ci-chondrite.py (exit 0); git status --short (clean)"
+   ]
+  },
+  {
+   "lens": "RE-RUN AND RE-DERIVE",
+   "refuted": false,
+   "proposed_grade": "DATA-DEPENDENT",
+   "reason": "I copied the re-audit script and ran it unchanged (script_copy.py). It exits 0, ALL PASS, and makes no change to the repository: git status is clean. It reproduces every figure in the report.\n\nI then re-derived the margins with my own script, rederive.py, in /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit2/verify/rederive/icrp-reference-adult-and-ci-chondrite/. It does not import stockgate and calls none of the owner's functions. It parses the raw tables (A09, ATOMIC_MASS, CHONDRITE, HUMAN_G_*) out of stockgate.py's source with ast. It rebuilds the hybrid solar column itself, and it takes the Table 110 payload from my own read of the OCR at lines 6096-6370 of icrp23_p273-334_docx.txt.\n\nPayload check. I read Table 110 at source: 16 rows on p.327 and 20 rows on p.328, with 20 amounts against 20 names and 18 percent cells. All 35 amounts the re-audit typed match. Ra is printed '3.1 \u2022 10 -it' in the OCR. The Be and Ra percent cells are missing, as the re-audit reports. The Cl percent reads 0.12 against a computed 0.136, and that is the only cell where amount and percent disagree. Owner against ICRP: 21 values agree, 14 differ (Al Au B Br Co Cr Cs I Mo Ni Rb Si Sn U) and 24 are absent, which is exactly the re-audit's count. Li is absent.\n\nMargins, recomputed independently:\n- CI: P 10.7143 against N 8.0863, a ratio of 0.75472. P would have to fall below 1800\u00d70.00104/0.00318 = 588.679 g, or N rise above 2385.0 g, to flip it.\n- Photosphere: P 1913.21 against K 652.589, a lead of 2.9317\u00d7. With the owner's 7 mg Li, the owner's ratio is Li/P = 0.91757. Li binds above 7.62881 mg, and P loses below 715.708 g.\n- The same Li/P threshold in log-abundance terms: Li binds if eps_Li \u2212 eps_P < \u22124.3974. A09 gives \u22124.36.\n- CI N threshold at CI P 989 ppm: 2282.3 ppm. LBP25's 1965 ppm would give N/P = 1.1615, so N would bind.\n- The 2-significant-figure intervals (P 775-785 g, N 1750-1850 g) reach no threshold.\n- Owner-sum against 70,000 g rescales every factor by 0.1227 %.\n\nEvery margin and flip threshold the grade turns on is reproduced. The source passages it cites also check out:\n- The p.273 rule of rounding to two significant figures, and the intro that numbers the summary tables one lower than the tables themselves.\n- The 150 United States accident victims, pp.273 and 280.\n- The '<' meaning on p.286.\n- The Cs (Japanese subjects) and Co ('arbitrarily based') notes on p.288.\n- The '50 %' preamble on p.327.\n- Table 109's total body of 70,000 g on p.327.\n\nThe claim that pp.289-325 are unreadable checks out. A grep finds no element name and no table header anywhere in that range.\n\nThe re-audit's checks can fail: section 1 detects Cl, and sections 3 and 4 compare computed binders against thresholds. Its check (a) compares against the owner's printed D25 figures, which is a legitimate reproduction check.\n\nThe ICRP leg closes. The composite stays DATA-DEPENDENT because two destination data are carried rather than re-read: CI N (LBP25) and photospheric Li (AAG21). With the payload Li that is not from ICRP, they decide the binder, and my numbers confirm that. Nothing I found reaches WRONG.",
+   "defects": [
+    "Tautological checks. In script section 5, 'ICRP K 140 g' (T110['K']==140) and 'lead 120 mg = Table 110 Pb 0.12' (T110['Pb']==0.12) compare the auditor's own transcription with itself. 'Li is NOT in Table 110' only asks whether 'Li' is a key of a dict the auditor typed. These cannot test the source, and they can fail only on a typo. 'Li threshold 7.6288 mg' hard-codes the claim's own output. It is computed, but it is a regression pin, not an independent check.",
+    "The Cl evidence is selective. The p.288 note that the re-audit cites (Moore, 98 g) goes on: 'Cotlove and Hogben ... suggest values from 84 g to 94 g in a 70-kg man'. 84/70000 = 0.120 %, exactly the printed percent cell. That bears directly on 'misprint or OCR misread' and should be named. Cl is not near the binder, so nothing moves.",
+    "The iodine discrepancy is over-represented. The re-audit grades the owner's I 0.020 g as 'no: x1.54' against Table 110's 0.013 g. It omits ICRP's own caveat on p.288: total body iodine 'may exceed the 13 mg', and 'determinations of iodine in tissues other than thyroid are necessary before a firm value ... can be established'. The source itself flags 13 mg as a floor-like value, so the mismatch should carry that hypothesis.",
+    "Mn is marked ocr_unambiguous=true without independent support. Table 110 prints Mn (0.012) before I (0.013), out of descending order. The OCR lists names and amounts as separate columns, and Mn and I share the percent cell 0.00002, so the alignment rests on row order alone. The p.288 note corroborates I = 13 mg, and Mn follows only by elimination. Not binder-relevant.",
+    "An unnamed hypothesis is behind 'the ICRP leg STANDS'. The robustness test uses only the 2-significant-figure rounding interval (P 775-785 g, N 1750-1850 g). The source's own spread, the 80 % range of Table 108 (p.286), is unreadable here. The statement should read: STANDS against rounding, with the source's 80 % range OPEN (Table 108 unreadable).",
+    "Omitted support for the Table 108 OPEN. p.287 states that 'those elements for which available values represented less than 20 % of the body are included at the end of Table 108'. That is the source's own reason Li could sit in Table 108's unreadable tail, and the re-audit should cite it.",
+    "Owner-side detail, not named: the CHONDRITE column in stockgate.py sums to 1.00690 and is used without normalising, unlike the solar columns. Every CI factor (10.70, 10.714) therefore carries a 0.69 % scale the photosphere factors do not. Binders and ratios are unaffected.",
+    "Minor: the re-audit uses P 989 ppm (CI) in what_would_change. It is carried from LBP25 and was not re-read in this pass, so it should be labelled CARRIED as the N value is."
+   ],
+   "commands_run": [
+    "cp reaudit2/icrp-reference-adult-and-ci-chondrite.py verify/rederive/icrp-reference-adult-and-ci-chondrite/script_copy.py && python3 script_copy.py  (exit 0, ALL PASS)",
+    "git -C /home/user/Claude-Method-Works status --short  (clean)",
+    "md5sum reaudit2/icrp23_p273-334.docx  (09a25adf33de8b2997bf9e355a115746, matches claim)",
+    "sed -n 6040,6420p reaudit/src/icrp23_p273-334_docx.txt  (Table 109 total, Table 110 both pages, read directly)",
+    "sed -n 1,80p; 450,488p; 2850,2945p; 3000,3125p of the OCR text  (p.273 rounding rule and table-numbering slip; 150 US victims; '<' rule p.286; tail-of-Table-108 rule p.287; Cl, I, Co, Cs notes p.288)",
+    "grep for page headers and element names over OCR lines 3121-5648  (pp.289-325: zero element names, zero table headers)",
+    "sed -n 280-560 research/warp-drive/stockgate.py; sed -n 668-712 research/warp-drive/ledger.py  (owner sites 288, 345-363, 426-428, 465, 487, 530; ledger.py:674 '(ICRP)')",
+    "python3 verify/rederive/icrp-reference-adult-and-ci-chondrite/rederive.py  (independent: parses the owner's tables with ast, rebuilds hybrid solar, sympy for the log-eps threshold, exact Fractions for the CI thresholds)"
+   ]
+  },
+  {
+   "lens": "SOURCE AND DATA: identity of the source text, ICRP 23 table and page attributions, a re-read of every ICRP value against the OCR, units and basis, and whether read_status and pages_read are honest",
+   "refuted": false,
+   "proposed_grade": "DATA-DEPENDENT",
+   "reason": "The source text is ICRP 23 Chapter 2. It opens 'CHAPTER 2 / GROSS AND ELEMENTAL CONTENT OF REFERENCE MAN', its running heads read 'REPORT OF THE TASK GROUP ON REFERENCE MAN', and its folios run 273 to 334. I confirmed the .docx: md5 09a25adf33de8b2997bf9e355a115746, 79,841 bytes. It holds word/document.xml only, with no word/media and no w:tbl, w:drawing or v:imagedata, so there were no page images to read.\n\nI re-parsed Table 110 from the OCR myself. Rows 1-16 sit on p.327, after 'TABLE 109--Continued 327'. Rows 17-36 sit on p.328, after 'Conthmed 328 REPORT'. All 36 amounts the re-audit gives match the OCR. H reads '7O0O' and is resolved by its percent cell 10. Ra reads '3.1 \u2022 10 -it', correctly flagged as ambiguous.\n\nThe percent column on p.328 has 18 cells for 20 rows. Taken in order, every cell equals the amount/70,000 rounded to two significant figures, from Sr through U. That independently confirms the row alignment, and that the Be and Ra percent cells are missing. Cl is the only mismatch: 95 g against a printed 0.12, where the computed value is 0.136.\n\nMy own parse gives the same counts: 21 equal, 14 differ (B, Sn, Au, Mo and Cr against '<' limits), 24 absent, and Ra as the only ICRP-only element. The other page attributions also check out:\n- Table 105 row 1 'Total body 70,000' is the first entry of column 2 on p.280.\n- Table 109 'Total body* 70,000* 100' is on p.327.\n- The two-significant-figure rule is on p.273.\n- The '<' rule ('below the detection limit in more than half') is on p.286.\n- The 50 % inclusion rule is on p.327.\n- 'about 13 mg' iodine, Cs from Japanese subjects and Co 'arbitrarily based' are on p.288.\n- The p.273 table misnumbering is present as stated.\n\nUnits are grams on both sides ('Amount (g)'); the owner's Li 0.007 g is 7 mg. On basis: Ch.2 says the asterisked weights sum to 70 kg (p.274 and p.325), and it refers to the male urethra and testes. This is consistent with the 70 kg male the re-audit carried from p.13.\n\nThe Table 108 claim holds. Lines spanning pp.289-324 contain no element name: the only words of five or more letters are running heads and glyph noise. 'lithium' occurs nowhere in the 89 KB text.\n\nI reran the re-audit script: exit 0, output identical. The flip thresholds follow arithmetically: 715.7 = 780 x 0.9176, 588.7 = 780 x 8.086/10.714, 2385 = 1800 x 10.714/8.086. The owner citations are accurate: stockgate.py:53 (Li 7 mg), :288-289 (SOURCES 'ICRP 23 / Emsley'), :345-363 (the tables), :465, and ledger.py:674 ('A reference adult (ICRP)').\n\nWhat remains is page-citation slips. None of them moves a value. The composite DATA-DEPENDENT rests on the CI N (LBP25) and photosphere Li (AAG21) legs, which were carried from the prior re-audit and are outside this lens. Nothing in the ICRP read contradicts it.",
+   "defects": [
+    "Page mis-citation in hypothesis_drift: 'trace values come from 150 United States accident victims (p.274)'. The OCR has no such statement on p.274. P.273 says '150 adult victims of accidental death' and gives no nationality. 'From the United States performed at the University of Tennessee and Oak Ridge' is on p.279, in the notes for Table 108 (OCR lines 457-459). P.273 also says 'more common trace elements', where p.279 says 'more common elements'.",
+    "Page mis-citation in the Cl and Ra rows of the values table: the chlorine note ('exchangeable chloride ... 98 g') is on p.287, not p.288. It sits before the '288 REPORT' folio at OCR line 3031. The iodine '13 mg' and the Cs and Co notes are correctly on p.288.",
+    "pages_read understates the notes read. The notes for Table 108 begin on p.279 ('Table 108 contains the values for the elemental content...', OCR line 431), not on p.286. The re-audit draws on p.279 material (the US-victims provenance) but lists the notes only as 'pp.286-288'. The p.274 text on Table 105 column 2 ('sum of the asterisked weights is 70 kg') also corroborates the 70,000 total and is not listed.",
+    "Overstated ambiguity, minor: on I, 'Mn and I share one percent value, so column alignment alone cannot separate them'. The amount column on p.328 is in row order: Manganese 0.012, then Iodine 0.013, alongside 20 names and 20 amounts. The percent-column check confirms that order for every other row. Only the percent column fails to separate Mn from I; the amount alignment does. The p.288 note is a corroboration, not the only resolver. The re-audit still marks the value ocr_unambiguous=true, which is correct.",
+    "The Cl percent cell (printed 0.12 against a computed 0.136) is correctly left unresolved between misprint and OCR. Note that it is the only failure of an amount/percent check that every other one of the 33 cells checked passes, so an OCR digit slip is no more likely here than elsewhere. It is still not settled without the page image, and the re-audit rightly does not settle it.",
+    "Outside this lens and not verified here: the composite grade leans on LBP25 (CI N 1965 ppm) and AAG21 (photospheric Li), both carried rather than re-read in this pass. The re-audit discloses this in read_status."
+   ],
+   "commands_run": [
+    "ls/wc on reaudit/src and reaudit2; head of icrp23_p273-334_docx.txt (Ch.2 intro pp.273-274)",
+    "grep -n table headings, folios ('REFERENCE MAN NNN' / 'NNN REPORT') to map OCR lines to pages",
+    "sed -n 5950,6500p (Table 109 end, Table 110 pp.327-328, Addendum II pp.329-330)",
+    "sed of notes passages: lines 400-470 (p.279), 530-600 (Table 105 p.280), 2850-2880 (p.286), 2980-3125 (pp.287-288)",
+    "grep -i for 70,000 / victims / United States / lithium / Japan / arbitrar / 13 mg / 98 g / 50 %",
+    "md5sum, wc -c, unzip -l on icrp23_p273-334.docx; grep for w:tbl|w:drawing|v:imagedata|w:pict in document.xml (0 hits)",
+    "python3 verify/data/icrp-reference-adult-and-ci-chondrite/check_table110.py (independent parse of Table 110 from OCR; amount/percent alignment; owner 59 vs ICRP 36 comparison; result 21/14/24, Ra only ICRP-only)",
+    "extracted Table 108 OCR lines 3121-5520 to t108.txt and counted words: no element names",
+    "python3 reaudit2/icrp-reference-adult-and-ci-chondrite.py (rerun, exit 0, output identical to the saved .out)",
+    "sed/grep on research/warp-drive/stockgate.py (lines 40-60, 280-300, 340-370, 420-470) and ledger.py (668-712; grep ICRP -> line 674)"
+   ]
+  },
+  {
+   "lens": "REFUTE THE GRADE in either direction: I re-read ICRP 23 Chapter 2 in the OCR layer (Table 110 pp.327-328, the p.273 introduction, the notes on pp.279-288) and the .docx container. I re-opened stockgate.py, stock.py and ledger.py at every cited line and recomputed every binder, margin and threshold on my own.",
+   "refuted": false,
+   "proposed_grade": "DATA-DEPENDENT",
+   "reason": "The source reading checks out. Table 110 prints exactly the grams the re-audit lists: O 43,000; C 16,000; H '7O0O' (=7000 via the per-cent cell '10'); N 1800; Ca 1000; P 780; S 140; K 140; Na 100; Cl 95; Mg 19; Si 18 (footnote a: Chapter 3); Fe 4.2; F 2.6; Zn 2.3; Rb 0.32; Sr 0.32; Br 0.20; Pb 0.12; Cu 0.072; Al 0.061; Cd 0.050; B <0.048; Ba 0.022; Sn <0.017; Mn 0.012; I 0.013; Ni 0.010; Au <0.010; Mo <0.0093; Cr <0.0018; Cs 0.0015; Co 0.0015; U 0.00009; Be 0.000036; Ra exponent garbled. I cross-checked every gram value against its per-cent cell where one exists, and only Cl (0.12 vs 0.136) disagrees. Lithium is absent from Table 110. The .docx (md5 09a25adf..., 79,841 B) has no word/media and no drawing, pict or imagedata elements. 'lithium' occurs 0 times in it. The 21/14/24 split over the owner's 59 rows reproduces, and every owner site cited is correct (stockgate.py:36, :52-55, :88, :288-289, :345-362, :668-674, :1008; stock.py:72, :196, :221-231, :285, :472; ledger.py:674). Recomputed: CI binder P 10.6986 with N 1.3250x behind; photosphere binder P 1910.42 with Li 1.0898x behind; Li binds above 7.6288 mg. Substituting the Table 110 values moves no binder, and stockgate's 2.632 is stock.py's P 0.010 over ICRP's K. DATA-DEPENDENT is still the right word, but on a different basis from the one the re-audit states. On every Li figure in hand, P binds at the photosphere: 7 mg (the tree's) and 2.17 mg (the fraction column of the tertiary restatement). So the photosphere BINDER does not 'move with Li' on any datum actually read; only a hypothetical figure above 7.63 mg would move it. What does move with the contested Li datum is the tree's runner-up claim: 'true co-binder is LITHIUM, at 1.090x' (stock.py:72-79; stockgate.py:52-55, :89-90). At Li 2.17 mg the runner-up becomes K at 2.932x. What also moves is the P datum, which has moved since ICRP 23 (ICRP 110 bulk P 0.813 %, carried from the first audit), and that flips the binder. Both satisfy DATA-DEPENDENT, so I do not refute the grade. The evidentiary defects listed below should be corrected before the report is relied on.",
+   "defects": [
+    "OVERREACH on Li provenance. Grade_evidence (3) says 'ICRP 23 does not supply Li: it is absent from Table 110, and Table 108 is unreadable'. An unreadable Table 108 makes ICRP 23's Li OPEN, not absent. p.286 says elements known in under 20 % of the body 'are included at the end of Table 108', and values known in under 50 % carry a '?'. So Table 108 can hold elements that Table 110 omits. Only 'not a Table 110 value' is READ.",
+    "UNINFORMATIVE EVIDENCE presented as evidence: ''lithium' occurs nowhere in the Chapter 2 text layer'. The element names of Table 108 cannot be recovered from the layer at all. Selenium, vanadium, titanium, arsenic and mercury occur only in the reference list (lines 6680-6999), and the 'Li' symbol never occurs. So the absence of 'lithium' says nothing about Table 108.",
+    "STATED BUT NOT READ: hypothesis_drift says 'The 7 mg is Emsley's figure carried under an ICRP label.' Emsley p.83 is NAMED-NOT-READ in this same report. The attribution rests on a tertiary (Wikipedia) restatement read by the first audit, and on Li's absence from Table 110. Grade_evidence qualifies it ('via a tertiary restatement'); the drift line does not. This breaks M's rule that a value not read is not stated.",
+    "LOGIC: 'Under its caption's rule, ICRP did not know Li's concentration over half the body.' The caption says Table 110 'includes ONLY those elements' known in at least 50 % of the body. That is a necessary condition for inclusion, not a sufficient one, so absence does not strictly entail 'not known over half'. Table 110 also is not purely Table 108's first row: Si comes from Chapter 3.",
+    "MISSTATED BASIS FOR THE GRADE: the supersedes_grade note and grade_evidence (3) say 'the photosphere binder depends on a lithium datum'. Computed: P binds at both Li figures in hand, 7 mg (margin 1.0898) and 2.17 mg (P over K, 2.932). What the Li datum moves is the tree's RUNNER-UP and MARGIN claim ('true co-binder is LITHIUM, at 1.090x'), not the binder. The binder moves only on the ICRP 110 P datum, which was carried rather than re-read. The grade survives, but its stated reason should be corrected.",
+    "COUNTING / OVER-REPRESENTATION: '14 owner values differ from Table 110' counts B 0.018 vs <0.048, Mo 0.005 vs <0.0093 and Au 0.0002 vs <0.010 as disagreements. Each owner value lies inside the printed '<' bound, so it is compatible with ICRP, though not printed by it. Only Cr (7.8x the bound) and Sn (1.18x) exceed their bounds. The accurate tally is 9 numeric differences, 2 exceedances of a bound and 3 values compatible with a bound.",
+    "CHARGE PARTLY UNSUPPORTED: 'OVERSTATED measured quantities of 59 (stockgate.py:36)'. At :36 the owner does not attribute the 59 to ICRP. Of the 59, 24 come from the unread Emsley, so the charge is READ only for the ICRP part: 5 '<' values, plus the p.273 statement that values were 'inferred from a number of sources'. Whether Emsley's 24 are 'measured' is NOT READ.",
+    "MINOR: calling stockgate.py:88 ('On the ICRP datum the gap is 2.63x') a 'TREE-INTERNAL DISCREPANCY' overstates it slightly. Finding (ii) is a one-variable counterfactual: K corrected in stock.py's own table, with P left at 0.010 (stockgate.py:668-674). That reading is defensible but not labelled, and the re-audit does say the reading survives either way.",
+    "MINOR: ICRP 110 'P 0.813 %' and 'the binders become Li and C' appear in grade_evidence (4) as carried, not re-read. They are now a load-bearing basis for DATA-DEPENDENT and should be marked as resting on Kanematsu arXiv:1508.00226 Table I as read by the first audit."
+   ],
+   "commands_run": [
+    "python3 -c (canonical.json key 'icrp-23-reference-man' statements_as_used)",
+    "sed -n 25,100p / 280,370p / 668,692p / 975,1015p research/warp-drive/stockgate.py",
+    "sed -n 60,80p / 190,235p / 280,290p / 450,480p research/warp-drive/stock.py; sed -n 665,690p ledger.py",
+    "grep -n -i 'table 110|lith|Li ' reaudit/src/icrp23_p273-334_docx.txt; sed -n 6040,6420p (Table 109 total row, Table 110 both pages, per-cent columns)",
+    "sed -n 18,75p, 450,462p, 2936,2948p; grep for asterisked/150 adult/inferred/median/percentile/20 %/arbitrarily/Japanese/1014/1265/may exceed/unknown",
+    "element-name census in the OCR layer (Selenium, Vanadium, Titanium, Arsenic, Mercury, Lithium ...) and grep -w for element symbols",
+    "md5sum, stat, unzip -l on reaudit2/icrp23_p273-334.docx; count of <w:drawing>, <w:pict>, <v:imagedata>; 'lithium' count in document.xml",
+    "cat reaudit2/icrp-23-reference-man.out; prior reaudit/icrp-23-reference-man.json basis for carried ICRP 110 / Emsley claims",
+    "python3 reaudit2/verify/refute/icrp-23-reference-man/check.py (independent recompute: binders, margins, Li threshold, Li at 7 and 2.17 mg, '<' bound compatibility) -> check.out"
+   ]
+  },
+  {
+   "lens": "SOURCE AND DATA",
+   "refuted": false,
+   "proposed_grade": "DATA-DEPENDENT",
+   "reason": "I re-read the source text and found that the re-audit's source and data claims hold. Three wording defects remain, and none of them moves the grade.\n\n**Identity and pages.** The text is ICRP 23 Chapter 2 'GROSS AND ELEMENTAL CONTENT OF REFERENCE MAN'. Its running heads run from 273 to 334. The .docx has md5 09a25adf33de8b2997bf9e355a115746. It holds only word/document.xml plus support parts, with no word/media and zero <w:drawing> elements, so there are no page images to read.\n\n**Table 110.**\n- It begins on p.327 (head at OCR line 5956) and continues on p.328 (head at line 6198). Rows 1-16 (O to Rb) are on p.327 and rows 17-36 (Sr to Ra) are on p.328.\n- Table 109 has 'Weight (g)' columns. It runs from p.325 in Addendum I, and its 'Total body* 70,000* 100' row is on p.327.\n- I transcribed both pages of Table 110 independently (verify/data/icrp-23-reference-man/check.py, check.out). Every gram value in the re-audit's values table matches the OCR.\n- H reads '7O0O'. The re-audit correctly marks it ambiguous and resolves it through the per-cent cell '10'.\n- Ra reads '3.1 \u2022 10 -it', which is correctly marked ambiguous.\n- Five values carry '<': B, Sn, Au, Mo and Cr. All five are correctly identified.\n- 34 per-cent cells are present and 33 of them agree with their grams. The exception is Cl: 95 g against a printed '0.12', where 95/70,000 = 0.136 %.\n\n**Notes and introduction.** All of these are confirmed at the stated pages: the p.273 introduction, the p.274 asterisk note, the median and 150-victim UT/ORNL sample on p.279, the '<' rule, Mg 7.8+11=19 g and the 'less than 20 %' rule on p.286, Na 93/75/70/80, K 136/133/~145 and Cl 98 and 84-94 on p.287, and I 13 mg 'may exceed', Ca 1014/1265, Co (Tipton/Parr) and Cs (Yamagata, Japanese) on p.288.\n\n**Lithium and Tables 106-108.**\n- The word 'lithium' appears nowhere in the layer, case-insensitively, references included.\n- No headings for Tables 106-108 survive in the layer, and the Table 108 pages (pp.289-324) are symbol noise. So 'Table 108 unreadable' is honest.\n\n**Units and basis.** Units are grams on both sides. On the basis, the 70 kg total is Table 109's, and the 'male' rests on p.13, carried from the prior re-audit; that is properly labelled. The Chapter 2 pages read here corroborate it ('male urethra' p.279; prostate p.278).\n\n**Owner table and computations.** I re-read the owner table at stockgate.py:345-362: 59 rows summing to 70,085.9 g. It splits into 21 agreeing, 14 differing and 24 absent, as stated. Using stockgate's own functions on the Table 110 substitution, the binders and thresholds reproduce:\n- CI: P 10.6986, N 1.3250x behind.\n- Photosphere: P 1910.42 against Li 1752.95, a margin of 1.0898.\n- Li binds above 7.6288 mg.\n- On Table 110 alone, the photosphere is P with K 2.9317x behind.\n- stockpy_potassium gives 2.6310, which confirms that the '2.63x' at stockgate.py:88 mixes stock.py's old P of 0.010 with ICRP's K.\n\n**Why the grade stands.** The ICRP half is confirmed at source. The photosphere binder moves with a lithium value that ICRP 23's readable pages do not supply. DATA-DEPENDENT is the grade the evidence supports.",
+   "defects": [
+    "The re-audit says 'Under its caption's rule, ICRP did not know Li's concentration over half the body.' That reverses the caption. Table 110 'includes ONLY those elements for which the concentration was known in at least 50 %' gives included => known >=50 %, not the converse. p.286 gives a second route to absence: 'when a value for the concentration of an element in skeleton was not known, no value for total body has been included'. Li's absence is READ; why it is absent is inferred, not read.",
+    "The re-audit says 'The 7 mg is Emsley's figure carried under an ICRP label' as fact. Emsley p.83 is NAMED-NOT-READ in the same re-audit, and the attribution rests on a tertiary restatement (first audit). Read at source: the 7 mg is not an ICRP 23 Table 110 value. Not read: that it is Emsley's.",
+    "The re-audit marks B (owner 0.018 vs <0.048), Mo (0.005 vs <0.0093) and Au (0.0002 vs <0.010) as 'agrees: no'. Each owner value lies under the printed '<' detection-limit bound, so it is compatible with the source, not contradicted by it. Only Cr (0.014 vs <0.0018) and Sn (0.020 vs <0.017) exceed their bounds. So of the '14 differ', 9 contradict a printed value, 2 exceed a '<' bound and 3 sit under one. Counting all 14 as differences over-represents the disagreement.",
+    "pages_read describes Table 110 as '36 rows of grams and % body weight'. The OCR layer carries per-cent cells for only 34 rows: Be and Ra have none. The re-audit's '33 other per-cent cells agree' is consistent with 34, but the row description overstates what was read.",
+    "Cosmetic inconsistency: icrp-23-reference-man.out cites the 2.632x figure at ':1008', while the JSON cites stockgate.py:88. Both sites exist: :88 is the prose and ~:1006 is the selftest assertion of 2.6320. The computed value is 2.6310. Either way it moves nothing.",
+    "Minor: the 'male' basis is carried only from p.13 of the prior re-audit. The Chapter 2 pages actually read here corroborate it ('male urethra', p.279; prostate weight 'for the adult 20-30 years old', p.278), and the re-audit could have cited them."
+   ],
+   "commands_run": [
+    "unzip -l reaudit2/icrp23_p273-334.docx; unzip -p ... word/document.xml | grep -c '<w:drawing'  (0)",
+    "md5sum reaudit2/icrp23_p273-334.docx  (09a25adf33de8b2997bf9e355a115746)",
+    "grep -n -i 'TABLE 110|TOTAL BODY CONTENT|Table 109|lithium' reaudit/src/icrp23_p273-334_docx.txt",
+    "sed -n 6050,6420p (Table 109 total row, Table 110 pp.327-328 verbatim)",
+    "grep page heads 'REPORT OF THE TASK GROUP|ELEMENTAL CONTENT OF REFERENCE MAN NNN' to map OCR lines to pp.273-334",
+    "sed -n 1,80p (p.273 introduction); sed -n 440,490p (p.279); sed -n 2840,3125p (notes pp.286-288)",
+    "grep -n -i 'ithium|lith' (no hit); grep 'TABLE 10[5-8]' (only Table 105 headings survive); sed -n 5380,5530p (Table 108 pp.322-324 = symbol noise)",
+    "sed -n stockgate.py 30-60, 84-90, 280-365, 426-500, 660-710, 1000-1012; stock.py 190-235, 285, 465-478",
+    "python3 verify/data/icrp-23-reference-man/check.py > check.out (independent Table 110 transcription; per-cent cross-check; owner diff 21/14/24; substitution via stockgate.ranked/processing_factor; Li threshold 7.6288 mg; Table 110-alone binders; stockpy_potassium 2.6310)"
+   ]
+  },
+  {
+   "lens": "RE-RUN AND RE-DERIVE. I copied and re-ran the re-audit script. I re-parsed Table 110 from the OCR layer with my own column reconstruction. I recomputed every margin and flip threshold in closed form; the total G cancels in any pairwise comparison. My script does not import stockgate or stock: it reads the owner and destination tables from the source as literals via AST.",
+   "refuted": false,
+   "proposed_grade": "DATA-DEPENDENT",
+   "reason": "The re-audit script exits 0 with no FAIL lines, and every check in it can fail. Most compare against the owner's printed numbers or the prior re-audit's numbers, not against the claim under test.\n\nMy own parse of Table 110 (pp.327-328, 36 rows) matches the script's hand-typed table in every gram value and every '<' flag. The one difference is Au's per-cent cell, OCR '0.0000!', which the script transcribes as 0.00001 and notes. Recomputed independently:\n- Owner against Table 110: 21 owner values agree, 14 differ, 24 are absent.\n- Gram against per-cent: only Cl disagrees (95 g against '0.12').\n- Li and the word 'lithium' occur nowhere in the OCR layer.\n\nMargins and thresholds, on ICRP-substituted data:\n- CI: P binds at 10.6986, N is behind by 1.32500. P cedes to N below 588.68 g; N takes over above 2385.0 g.\n- Photosphere: P binds at 1910.42, Li is behind by 1.08983, and K is behind by 2.93173. Li binds above 7.62881 mg; P cedes below 715.71 g.\n- Two-figure rounding of P and N together, worst case: CI margin 1.281.\n- stockgate.py:88's 2.63x reproduces as 2.6310 only when stock.py's P 0.010 is set against ICRP's K. All-ICRP, the gap is 2.9317.\n\nAll the arithmetic the grade turns on reproduces, and no ICRP 23 value is contradicted. So WRONG is not supported. STANDS is not supported either: the photosphere runner-up and its margin move with a Li datum that is not ICRP 23's, and the ICRP 110 bulk, carried from the first audit, flips both binders.\n\nDATA-DEPENDENT is supported, but on a narrower basis than the report's wording. No Li value in hand moves the photosphere binder. At the tertiary 2.17 mg, P still binds and K becomes runner-up at 2.932x. At the owner's 7 mg, P binds with Li runner-up at 1.0898. What moves with Li is the runner-up and the \"nine per cent from flipping\" near-miss (stockgate.py:52-56; stock.py:226-227). The binder itself moves only with P (the carried ICRP 110 figure) or with a hypothetical Li above 7.63 mg.\n\nThe defects below are stated-value and attribution defects. None of them changes the grade.",
+   "defects": [
+    "FLIP THRESHOLDS MIS-STATED AND NOT COMPUTED BY THE SCRIPT. what_would_change_the_grade (c) gives 'P below 1.021 % ... at the photosphere, or below 0.840 % ... at CI'. Those figures appear nowhere in the script or its output. They reproduce only as 715.7/70,085.9 = 1.0212 % and 588.7/70,085.9 = 0.8399 %, that is, threshold grams divided by the owner's UNADJUSTED total. With the other grams held fixed and the payload renormalised, the thresholds are 1.0219 % and 0.8420 % (0.841 % of a nominal 70,000 g). The flip conditions are really ratio conditions (p_P/p_Li < s_P/s_Li; p_P/p_N < s_P/s_N). An absolute mass-% threshold holds only under the unnamed hypothesis that every other element's grams stay fixed. The carried ICRP 110 conclusion is unaffected, since P 0.813 % is below both thresholds.",
+    "ATTRIBUTION STATED BUT NOT READ. 'The 7 mg is Emsley's figure carried under an ICRP label' (hypothesis_drift) and 'The 7 mg is Emsley's' (grade_evidence (3)) are asserted while Emsley p.83 is NAMED-NOT-READ. The attribution rests on a tertiary restatement from the first audit. ICRP 23's Table 108 closing section (elements known in under 20 % of the body, p.286) and Chapter 3 are unreadable or unread, so an ICRP 23 Li value elsewhere is not excluded; the report's own (a) concedes this. Also, the owner's label is 'ICRP 23 / Emsley' (stockgate.py:288-289, :345), so 'under an ICRP label' overstates.",
+    "LOGICAL OVERREACH ON THE CAPTION. 'Under its caption's rule, ICRP did not know Li's concentration over half the body.' The caption ('includes only those elements for which the concentration was known in at least 50 %') gives a NECESSARY condition for inclusion. Absence from Table 110 does not entail that condition failed. Li could be absent from Table 108 altogether, or excluded by the p.286 rule that no total-body value is given when the skeleton concentration is unknown. What is shown is only that Li is not in Table 110.",
+    "GRADE REASON IMPRECISE. The report says 'the photosphere binder moves with Li'. Computed: no Li value in hand moves the binder. Li 2.17 mg (tertiary) gives P binding with K runner-up at 2.932x; Li 7 mg gives P binding with Li runner-up at 1.0898. The datum that moves the binder is P (ICRP 110 bulk, carried, not re-read here), or a hypothetical Li above 7.6288 mg. What moves with the contested Li datum is the runner-up identity and the near-miss margin the owner states. DATA-DEPENDENT survives on that narrower basis.",
+    "MINOR OCR-ALIGNMENT CLAIM. 'Be: no per-cent entry printed' is an inference. P.328 has 18 per-cent cells for 20 rows, and U (0.00009 g, 1.3e-7 %) and Be (0.000036 g, 5.1e-8 %) both round to the printed '0.0000001'. The alignments 'Be and Ra lack an entry' and 'U and Ra lack an entry' each fit all 18 cells. Immaterial: the gram column is unambiguous and neither element binds.",
+    "SCRIPT DESIGN (not an error). Table 110 is hand-typed in the script, not parsed from the source text. I verified it cell by cell against an independent positional parse: it matches. Check 6 asserts the thresholds against the prior re-audit's figures, which makes it a regression check, not an independent one; my closed-form recomputation confirms them (7.62881 mg, 715.71 g, 588.68 g, 2385.0 g)."
+   ],
+   "commands_run": [
+    "cp reaudit2/icrp-23-reference-man.py verify/rederive/icrp-23-reference-man/orig.py && python3 orig.py  (exit 0, FAILS [])",
+    "sed -n 6040,6420p reaudit/src/icrp23_p273-334_docx.txt  (Table 109 total row, Table 110 pp.327-328)",
+    "sed -n 1,120p / 2895,2950p / 3000,3125p of the OCR text  (p.273 introduction; p.286-288 notes)",
+    "grep -n -i lithium on the OCR text  (no hits)",
+    "sed -n 30,100p, 280,545p, 662,700p, 975,1012p research/warp-drive/stockgate.py; sed -n 60-74, 218-232p stock.py  (read-only)",
+    "python3 canonical.json extraction of key icrp-23-reference-man",
+    "python3 verify/rederive/icrp-23-reference-man/rederive.py  (independent parse, AST load, closed-form margins and thresholds; exit 0; saved to rederive.out)",
+    "python3 verify/rederive/icrp-23-reference-man/cellcmp.py  (script T110 against independent parse: only Au per-cent '0.0000!')",
+    "grep 1.021 / 0.840 across reaudit2 scripts and json; python3 -c 715.71/70085.9087, 588.68/70085.9087  (origin of 1.021 % / 0.840 %)",
+    "grep 0.813 / ICRP 110 in reaudit/icrp-23-reference-man.json  (carried: C 31.6 %, N 2.40 %, so C/N 13.2 > 11.0, so C binds at CI: consistent)",
+    "git status --short  (repository untouched)"
+   ]
+  }
+ ]
+}

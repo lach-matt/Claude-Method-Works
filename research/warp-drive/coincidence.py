@@ -92,6 +92,10 @@ computable.
     0.307933 l_P and 0.369917 l_P, candidates.py's crossovers, reappearing as
         sqrt(k_FR) and sqrt(k_Cas) in magnitude.py's area law.  Reason: they
         are that hyperbola's intersection with the diagonal Delta d = R.
+        (CORRECTED (DOCKET 67, on M's ruling "Carry both"): 0.307933 is the
+        Ford-Roman crossover read at t0 = R/c.  On achievable.duration_bound
+        the pair is 5.625229 l_P = l_P sqrt(C Lambda) and sqrt(k_dur), for
+        the same reason.  The k_Cas/k_FR ratio below is the t0 = R/c one.)
 
     APPROXIMATE -- explained, and not chased:
 
@@ -183,7 +187,8 @@ ECHOES = [
     ("sqrt(Lambda) l_P in two places", EXACT_REASON_FOUND,
      "the same dimensionless group seen from two sides -- magnitude.py sec 4"),
     ("0.307933 / 0.369917 l_P recur", EXACT_REASON_FOUND,
-     "the area law's intersection with the diagonal Delta d = R"),
+     "the area law's intersection with the diagonal Delta d = R (t0 = R/c; "
+     "5.625229 l_P = sqrt(k_dur) on the duration bound, same reason)"),
     ("k_Cas/k_FR = 1.443098", APPROXIMATE,
      "two mode sums over the same field in the same dimension; generic"),
     ("9/2 = bisector stationary pt = ratio at D=11", EXACT_UNEXPLAINED,
@@ -288,6 +293,16 @@ def selftest():
         len(hits) - 1, 1)
     chk("so the observation carries no evidential weight on its own",
         abs((len(hits) - 1) - exp) < 1.0, True)
+
+    # -- DOCKET 67, M's ruling "Carry both": the crossover echo on both readings
+    import candidates as _cand, magnitude as _mag
+    chk("echo, t0 = R/c: sqrt(k_FR) == candidates' FR crossover",
+        _mag.diagonal_crossover(_mag.K_FR), _cand.crossover_ford_roman_closed(), 1e-12)
+    chk("echo, duration bound: sqrt(k_dur) == candidates' duration crossover",
+        _mag.diagonal_crossover(_mag.K_DUR), _cand.crossover_duration_closed(), 1e-12)
+    chk("  quoted in the echo row as computed",
+        ("%.6f l_P" % _cand.crossover_duration_closed()) in
+        [e[2] for e in ECHOES if e[0] == "0.307933 / 0.369917 l_P recur"][0], True)
 
     # -- the ledger -----------------------------------------------------------
     chk("every echo is classified",

@@ -1,0 +1,33 @@
+beta(3.7e5)          = 0.0012341871522331625834
+Gamma-1 (exact,50d)  = 0.00000076160983344212586841371616834448579660707902949272
+Gamma-1 (tree route) = 7.616098334421e-07
+PASS tree route agrees with exact to 1e-12 rel
+PASS branelink selftest pin 7.6161e-07 within 1e-4
+PASS canonical data_used 7.616098e-07 to 7 figures
+PASS three-term series b^2/2+3b^4/8+5b^6/16 matches to 1e-15 rel
+T0=5451/2000  beta=A/T0=0.0012335645  v=369.81333 km/s
+PASS A/T0 reproduces published beta within its sigma (T0=5451/2000)
+PASS beta*c reproduces published v within its sigma (T0=5451/2000)
+T0=68137/25000  beta=A/T0=0.0012335735  v=369.81604 km/s
+PASS A/T0 reproduces published beta within its sigma (T0=68137/25000)
+PASS beta*c reproduces published v within its sigma (T0=68137/25000)
+dipole coefficient of the boosted blackbody temperature to O(beta^3): beta**3/10 + beta
+PASS dipole = beta + O(beta^3) (so A/T0 = beta to 1e-6 rel)
+Gamma-1 @369.82 km/s  = 7.608689871e-7  band [ 7.6041642e-7 , 7.6132168e-7 ]
+Gamma-1 @369.816 km/s = 7.608525279e-7
+tree / Planck - 1     = 9.7368e-04   (v: 4.8672e-04)
+PASS tree's 3.7e5 is 2-figure rounding of 369.82 (|dv| = 0.18 km/s < 5 km/s, the 2-figure half-unit)
+PASS tree Gamma-1 outside Planck 1-sigma band (discrepancy of rounding, not error)
+PASS 4-figure print 7.6161e-07 would read 7.6087e-07 at Planck value
+dipole apex: RA 167.942 Dec -6.944 ; ecliptic lon 171.668 lat -11.152
+PASS apex RA/Dec near the textbook (168, -7)
+mean orbital speed u = 29.785 km/s ; Earth vs CMB: 340.65 .. 399.08 km/s
+Earth's Gamma-1 over a year: 6.4556e-07 .. 8.8605e-07  (-15.2% .. +16.5% of the barycentre value)
+PASS Earth's annual spread (~16 pct) dwarfs the 0.1 pct rounding
+B_cmb = 1.233587e-03 ; B needed for 1 s = 0.999387630 ; ratio 810.1
+PASS B at Earth's annual max is < 1/500 of the priced escape B
+  tree model saving at B=0          = 93.8065 ns
+  tree model saving at B=B_cmb      = 94.2706 ns
+  tree model saving at B=Earth max  = 94.3074 ns
+
+ALL PASS

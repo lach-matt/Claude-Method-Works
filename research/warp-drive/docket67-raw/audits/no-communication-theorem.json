@@ -1,0 +1,107 @@
+{
+ "key": "no-communication-theorem",
+ "name": "No-communication (no-signalling) theorem",
+ "source": {
+  "located": "Classics: P. H. Eberhard, Nuovo Cimento B 46, 392 (1978); G. C. Ghirardi, A. Rimini, T. Weber, Lett. Nuovo Cimento 27, 293 (1980) -- no arXiv copy of either. Read via exact restatements: G. C. Ghirardi, 'Entanglement, Nonlocality, Superluminal Signaling and Cloning', arXiv:1305.2305 (2013), sec. 4 eq.(12) pp.13-14 (the GRW proof restated by its first author, 'a generalization and a more accurate formulation of some ideas put forward by P. Eberhard'); A. Peres & D. R. Terno, 'Quantum information and relativity theory', Rev. Mod. Phys. 76, 93 (2004), arXiv:quant-ph/0212023, sec. II.E eqs.(9)-(11) pp.8-9.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1305.2305 (pp.1-3,5,7,10-11,13-14,26-28) and quant-ph/0212023 (pp.1,8-9,13,19,30-32). Eberhard 1978 and GRW 1980 themselves: NAMED-NOT-READ (only restated). Tree cites no source for the theorem (transit.py:318 names it; ledger.py:452,605 name it)."
+ },
+ "published_statement": "Peres-Terno (quant-ph/0212023 p.8-9): 'We now derive a sufficient condition that no instantaneous information transfer can result from a distant intervention ... the condition is [A_mu_m, B_nu_n] = 0 (9), where A and B are Kraus matrices for the observation of outcomes mu by Alice and nu by Bob. ... the probability that Bob gets a result nu, irrespective of what Alice found, is p_nu = sum_mu tr(sum B A rho A^+ B^+) (10) ... [using sum_mu E_mu = 1] reduces to p_nu = tr(sum_n B rho B^+) (11), whence all expressions involving Alice's operators have totally disappeared.' Ghirardi 2013 (1305.2305 p.13): for (i) no action, (ii) unitary evolution, (iii) an ideal or non-ideal NONSELECTIVE measurement on S(2), 'the reduced statistical operator of subsystem S(1) does not change in any way whatsoever' (eq.12, using cyclicity of Tr_(2), U U^+ = I, P^2 = P, and sum of Kraus A A^+ = I); p.14: for SELECTIVE measurements 'the physics of such a system is actually changed ... But the probabilistic changes depend crucially on the outcome that Bob has obtained', so exploiting them needs that outcome sent by 'standard communication procedures which require a subluminal communication'.",
+ "published_hypotheses": [
+  "H1 standard (linear) quantum mechanics: states are density operators, operations are linear completely positive maps in Kraus form rho -> sum A rho A^+ (Peres-Terno eq.6: 'the most general completely positive linear map'); Born-rule probabilities",
+  "H2 the intervention is NON-SELECTIVE / trace-preserving: summed over Alice's outcomes, sum_mu E_mu = 1 (Peres-Terno eq.10->11; Ghirardi eq.12); selective (post-selected) updates DO change the distant conditional state (Ghirardi p.14)",
+  "H3 locality of the operations: Alice's and Bob's Kraus operators commute, [A,B] = 0 (Peres-Terno eq.9, stated as a SUFFICIENT condition); in finite dimensions realised by the tensor product H_A (x) H_B with operations A (x) I (Ghirardi sec.2.2)",
+  "H4 a partial time ordering of interventions: 'we assume that there are no closed causal loops' (Peres-Terno p.9)",
+  "H5 the result is non-relativistic in content (Peres-Terno sec. III.D: 'Replace superluminal by supersonic and the argument is exactly the same'); the speed of any actual signal is set by the carrier's dynamics ('the characteristic velocity that appears in the Green's functions', sec. III.C) -- the theorem forbids signalling BY THE ENTANGLEMENT, it does not itself set c"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED WORDING (H2), transit.py:17-18 and :176 ('B's state is invariant ... under EVERY operation A can perform'; 'WORST DEVIATION OVER EVERY OPERATION A CAN PERFORM'): the theorem covers every NON-SELECTIVE (trace-preserving) local operation; a selective, post-selected operation moves B's conditional state (C4a: rho_B -> |0><0|). The tree's own teleportation section uses exactly this (outcome-conditioned correction needs the 2 bits), so the omission is of wording, not of physics.",
+  "INSTRUMENT CLASS SMALLER THAN THE CLAIM, transit.py:97-110 (random_unitary, signalling_deviation): only U (x) I on one Bell pair is sampled (6 draws seed 7 in the report, 40 draws seed 101 in the selftest); measurements, ancillas and general CPTP maps on A are never sampled though the docstring says 'EVERY operation'. Closed here: C1 proves the identity for generic symbolic Kraus sets (dA=2,3) and C3 samples 1,200 random CPTP-with-ancilla and non-selective projective operations (worst 9.99e-16). Sorkin's own remark (gr-qc/9302018 p.6) also subsumes a non-selective measurement under a random unitary. Not a narrowing of the theorem.",
+  "THEOREM ASSERTED, NOT DERIVED, transit.py:149 and :318: READING_CARRIES_NOTHING_ALONE = True is a hard-coded constant and the selftest checks the constant against True; the instrument measures an instance (1.1e-16), and the step from instance to theorem is carried by the name. C1 supplies that step (exact sympy identity).",
+  "DROPPED (H1 linearity), transit.py, ledger.py:451-453 (D13), ledger.py:604-605 (D23), index3.py:1366 and axis.py:208-210 ('provably ... because the no-communication theorem is a theorem'; 'the only route ... whose failure is proved rather than bounded'): 'proved' is conditional on linear, completely positive quantum dynamics. Gisin 1989 / Simon-Buzek-Gisin (restated in arXiv:2412.20854 sec. II) show a nonlinear local map signals; C4d exhibits one (Bob's state moves by 0.0950 with Alice's basis choice). The tree nowhere names linearity as a hypothesis.",
+  "DROPPED (H3 commuting local operations / tensor-product subsystems), ledger.py:451-453 (D13 'closes the entangled variant'): Sorkin 1993 (gr-qc/9302018 pp.5-8) shows microcausality alone does not exclude signalling once non-local ideal (Lueders) measurements are admitted (re-derived, C4b: |d><d| vs I/2, and (1/4)|u><u|+(3/4)|d><d|); Papageorgiou-Fraser 2023 (2307.08524 pp.1,20,29-30) record that the Fewster-Verch framework excludes it by ADDING the (Local) Time-Slice axiom. Donnelly-Giddings 2016 (1607.01025 abstract, secs. III.D, V) prove gravitational dressing obstructs local commuting subalgebras and tensor factorization at leading order in G -- the hypothesis H3 is not formulated in perturbative quantum gravity. Neither paper exhibits signalling; both show the hypothesis is not automatic. D13's narrowing to a brane-confined carrier (ledger.py:453-458) concerns the classical carrier limb, not this.",
+  "DROPPED (H4 no closed causal loops), D13/D23: Peres-Terno p.9 assume it explicitly; the same ledger carries a CTC row (O3, latticectc; specthm R11 status line lists O3 beside D13/D23). The tree applies the theorem without naming H4.",
+  "NOT DRIFT (correct use, H5): D13 keeps two limbs apart -- 'Classical information travels at <= c IN THE METRIC ITS CARRIER PROPAGATES IN' (a carrier statement) and 'the no-communication theorem closes the entangled variant' -- which matches Peres-Terno sec. III.C-D (the theorem forbids entanglement signalling; the speed limit comes from the carrier's dynamics). D23's zero advantage is, as D23 itself says (ledger.py:600-603), 'ZERO BY CONSTRUCTION, not by measurement'.",
+  "DISCREPANCY (not drift, recorded not repaired), index3.py:1362 and paper/CLAIMS.md:4577: 'under FORTY random unitaries ... worst deviation 1.110e-16'. Re-run (C5): the 40 selftest draws (seed 101) give worst 2.220e-16 and the selftest prints only the boolean; 1.110e-16 is the worst of the report's SIX draws (seed 7). A sample-count/figure misattribution at machine epsilon; it moves no conclusion."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs of the theorem",
+   "value_then": "none -- an algebraic identity (Tr_A[(K(x)I) rho (K(x)I)^+] = Tr_A[(K^+K (x) I) rho] with sum K^+K = I)",
+   "value_now": "none",
+   "source_now": "C1 (sympy, exact)",
+   "moves_conclusion": "no datum exists to move"
+  },
+  {
+   "quantity": "transit.py instance: worst |rho_B - rho_B(0)|",
+   "value_then": "1.1e-16 (report, 6 draws seed 7); < 1e-14 asserted (selftest, 40 draws seed 101)",
+   "value_now": "1.110e-16 (6 draws) and 2.220e-16 (40 draws) re-run; exactly 0 symbolically for every angle (C2); 9.99e-16 over 1,200 random CPTP/ancilla/non-selective operations (C3)",
+   "source_now": "rederive/no-communication-theorem.py C2,C3,C5",
+   "moves_conclusion": "no -- floating-point residue of an exact zero"
+  },
+  {
+   "quantity": "Earth-Proxima light time used in D23 (PROXIMA_LY)",
+   "value_then": "4.2465 yr (transit.py DISTANCES 4.0175e16 m -> 4.24650 Julian yr; foliation.py:583)",
+   "value_now": "Gaia DR3 1/plx = 4.24646 ly (audits/gaia-dr3-proxima-distance.json; DR3 = EDR3 astrometry, 2208.00211)",
+   "source_now": "arXiv:2104.14972 Table 1 via the gaia audit",
+   "moves_conclusion": "no -- advantage_over_light(D) = D/c - D/c = 0 for every D (C6); the distance scales only the setup time D23 states, and the theorem does not depend on it"
+  },
+  {
+   "quantity": "experimental bound on quantum nonlinearity (bears on H1)",
+   "value_then": "not an input of the 1978/1980 proofs (linearity assumed)",
+   "value_now": "|eps_gamma| < 4.7e-11 at 90% CL for the Kaplan-Rajendran electromagnetic state-dependent term (Polkovnikov et al., arXiv:2204.11875, measured Nov 2021); earlier bound eps_gamma <~ 1e-5 from ion traps as quoted there",
+   "source_now": "arXiv:2204.11875 p.3",
+   "moves_conclusion": "no -- consistent with zero ((0.7 +- 2.3)e-11); it bounds one model class, it does not establish linearity in general"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-communication-theorem.py",
+  "outcome": "14/14 checks pass (exit 0). C1: exact sympy identity for GENERIC symbolic rho (not even assumed Hermitian) and generic complex Kraus sets, dA=2 and 3, dB=2 -- difference expands to the zero matrix, so rho_B is invariant under every trace-preserving local operation. C2: transit.py's Euler U(a,b,c,g) is unitary and leaves rho_B = I/2 exactly for all angles. C3: 1,200 random CPTP maps with ancillas (Stinespring) and non-selective projective measurements, dA=2..4, generic mixed rho: worst 9.99e-16. C4 (hypotheses bite, none a refutation): selective measurement moves rho_B to |0><0|; Sorkin 1993 coupled-spin numbers reproduced exactly (|d><d|, I/2, diag(1/4,3/4)); Peres-Terno eq.16 incomplete Bell measurement distinguishes |00>/|01> with Helstrom probability 0.750000 as stated; a nonlinear map at B lets Alice's basis choice move Bob's state by 0.0950. C5: transit.py re-run read-only -- 1.110e-16 (6 draws), 2.220e-16 (40 draws). C6: advantage D/c - D/c = 0 symbolically; 4.0175e16 m = 4.24650 light-years.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "R. D. Sorkin, 'Impossible measurements on quantum fields', arXiv:gr-qc/9302018 (1993)",
+   "effect": "narrows",
+   "what": "Extending ideal (Lueders) measurement to QFT regions lets a kick at O1 be seen at spacelike O3 via an intermediate non-local measurement; microcausality alone is not sufficient for no-signalling. Also: a non-selective measurement equals a random-unitary intervention, 'so if unitary intervention cannot transmit information, then neither can any measurement'. Example re-derived (C4b).",
+   "read_status": "READ (pp.1-13)"
+  },
+  {
+   "ref": "M. Papageorgiou & D. Fraser, 'Eliminating the impossible: recent progress on local measurement theory for QFT', arXiv:2307.08524 (2023)",
+   "effect": "extends",
+   "what": "Reviews Sorkin and Borsten-Jubb-Kells as a reductio; Bostelmann-Fewster-Ruep prove the Fewster-Verch framework excludes Sorkin-type signalling, with the (Local) Time-Slice Property doing the non-trivial work; histories approaches: open.",
+   "read_status": "READ (pp.1,3-4,6,17-18,20,28-30,36,64)"
+  },
+  {
+   "ref": "W. Donnelly & S. B. Giddings, 'Observables, gravitational dressing, and obstructions to locality and subsystems', arXiv:1607.01025 (2016)",
+   "effect": "narrows",
+   "what": "Dressing theorem: any compactly supported operator with nonzero Poincare charge must be gravitationally dressed to infinity at O(kappa); no local commuting subalgebras, no tensor factorization into subsystems in perturbative gravity. The commuting-operator hypothesis H3 is therefore not available as stated once gravity is on; no signalling is exhibited.",
+   "read_status": "READ (pp.1-4,6,9-10,13)"
+  },
+  {
+   "ref": "M. E. Bielinska, M. Eckstein, P. Horodecki, 'Superluminal signalling and chaos in nonlinear quantum dynamics', arXiv:2412.20854 (2024)",
+   "effect": "confirms",
+   "what": "Restates Gisin 1989 / Simon-Buzek-Gisin: under the static QM structure and no-restriction, no-signalling forces linear CPTP dynamics; generic nonlocal nonlinear dynamics signal; non-signalling nonlinear cases need a radical restriction of measurable observables. Confirms linearity (H1) is load-bearing.",
+   "read_status": "READ (pp.1-5,8,10,17-18,20,23,25-26)"
+  },
+  {
+   "ref": "M. Polkovnikov et al., 'Experimental limit on non-linear state-dependent terms in quantum theory', arXiv:2204.11875 (2022)",
+   "effect": "confirms",
+   "what": "No evidence of electromagnetic state-dependent nonlinearity: eps_gamma = (0.7 +- 2.3)e-11, |eps_gamma| < 4.7e-11 (90% CL).",
+   "read_status": "READ (pp.1-4)"
+  },
+  {
+   "ref": "discover_papers hits not read: arXiv:2607.12976 (causality and realizability of local operations in QFT, 2026), 2512.23702 (operational no-signalling constraints), 2311.18465 (standard no-signalling constraints neither sufficient nor necessary with general interventions), 2411.13605 (FV measurements), 2503.20993 / 2204.01190 (gravity-mediated entanglement signalling gedankenexperiments)",
+   "effect": "contested",
+   "what": "Titles/abstract snippets only; listed so the search is on record. None was read; none is used for the grade.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What the 1978/1980 authors had: finite-dimensional linear QM with the projection postulate and Kraus operations (Kraus 1971/1983); the theorem is an algebraic identity with NO empirical input, so no later measurement can move it inside its hypotheses -- C1 re-derives it exactly. What came later: (i) Sorkin 1993 showed the measurement model, not the identity, is the weak point once one leaves tensor-product locality for QFT regions -- repaired by the Fewster-Verch axioms (2307.08524), not by overturning the theorem; (ii) Gisin 1989 / SBG showed linearity is necessary for no-signalling, and experiment now bounds one class of nonlinearity at |eps_gamma| < 4.7e-11 (2204.11875), consistent with zero; (iii) Donnelly-Giddings 2016 showed that in perturbative gravity the commuting-subsystem structure the theorem presupposes cannot be defined as in QFT. Evidence either way: nothing read here exhibits entanglement signalling in linear QM with local non-selective operations; equally, nothing here establishes that the hypotheses H1, H3, H4 hold in the gravitational/CTC settings the warp board also contemplates. So 'lacked data' does not change the conclusion WITHIN the class; the class boundary is where a future datum (a measured nonlinearity, a quantum-gravity subsystem structure, a causal loop) would matter, and those are hypotheses to be NAMED, not refutations.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem STANDS in its published class and is re-derived exactly: sympy identity for generic Kraus sets (C1), all angles of transit.py's U (C2), 1,200 random CPTP/ancilla/non-selective operations to 9.99e-16 (C3); no datum enters it (C6: D23's advantage is 0 by construction at every D). transit.py's and D23's actual uses (one Bell pair, finite-dimensional linear QM, local operations, classical bits at c) sit inside that class. It is graded NARROWED -- not WRONG, and not a finding against the tree's transit conclusion -- because the tree states it with hypotheses dropped: non-selectivity is omitted from 'EVERY operation A can perform' (transit.py:17-18,176; C4a shows a selective operation moves rho_B); linearity/complete positivity (C4d; 2412.20854), commuting local operations/tensor-product subsystems (C4b Sorkin; 1607.01025 in gravity), and 'no closed causal loops' (Peres-Terno p.9) are nowhere named, while D13/D23 and index3.py:1366 / axis.py:208-210 present the closure as 'proved' on a board that also carries CTC (O3) and gravitational constructions. Recorded discrepancy, not an error: index3.py:1362 and paper/CLAIMS.md:4577 attribute 1.110e-16 to forty draws; the forty give 2.220e-16 (C5).",
+ "what_would_change_the_grade": "To STANDS: the tree's statement names H1 (linear CP dynamics), H2 (non-selective, i.e. summed over A's outcomes), H3 (commuting local operations / tensor-product subsystems) and H4 (no closed causal loops) at transit.py:17-18/176 and D13/D23, restricting 'proved' to that class. To WRONG: an explicit linear, completely positive, local, non-selective operation on A that changes rho_B -- excluded by C1 as an algebraic identity, so only an error in C1's algebra could do it. To DATA-DEPENDENT: a nonzero measured nonlinearity of quantum dynamics (currently |eps_gamma| < 4.7e-11, consistent with 0) or an experimentally established failure of subsystem locality. To OPEN for the gravitational uses: if the ledger applied D13's entangled limb to a bulk/CTC carrier, where H3/H4 are not established.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-communication-theorem.py  # expects 14/14 PASS, exit 0; plus: cd /home/user/Claude-Method-Works/research/warp-drive && python3 transit.py --selftest && sed -n 15,18p transit.py && sed -n 149p transit.py && sed -n 318p transit.py && sed -n 450,458p ledger.py && sed -n 599,606p ledger.py && sed -n 4577p paper/CLAIMS.md",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/no-communication-theorem.json"
+}

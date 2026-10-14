@@ -1,0 +1,72 @@
+
+A. DIMENSIONAL HOMOGENEITY (Euler), sympy
+PASS Lambda dm_p/dLambda + sum m_q dm_p/dm_q - m_p == 0 for generic f  -- 0
+PASS d ln m_p/d ln Lambda |_(m_q fixed) == 1 - S
+
+B. FEYNMAN-HELLMANN, exact 2x2 Hermitian family
+PASS dE0/dlambda == <psi0|dH/dlambda|psi0> (isolated level, c != 0)
+
+C. UNSTATED HYPOTHESIS: which quark mass is held fixed when Lambda moves
+PASS at fixed m_q(mu0): d ln m_p/d ln Lambda == 1 - S (1 + gamma_m(mu0))  -- 0
+     S = 0.0600: at fixed mhat 1 - S = 0.9400; at fixed m(2 GeV) 1 - S(1+gamma_m) = 0.9285 (gamma_m ~ 0.191 LO)
+     S = 0.1086: at fixed mhat 1 - S = 0.8914; at fixed m(2 GeV) 1 - S(1+gamma_m) = 0.8707 (gamma_m ~ 0.191 LO)
+PASS the difference is O(S alpha_s) (< 0.03 at S <= 0.11)
+
+D. H1 / H2 COMPOSITION
+PASS Lambda_3 = Lambda_6^(7/9) (m_c m_b m_t)^(2/27)  -- {lnL6: 7/9, lnmt: 2/27, lnmb: 2/27, lnmc: 2/27}
+PASS d ln Lambda_3/d ln v = 2/9 (every heavy mass prop. to v, Lambda_6 fixed)
+PASS H1: (2/9)(1 - S) + S == 2/9 + 7S/9
+PASS SVZ-LO route: S + sum_{c,b,t} f_Q == 2/9 + 7S/9 (Hoferichter eq.(24) form)
+PASS full theory: d ln m_p/d ln v == sum_{q=u..t} sigma_q/m_p EXACTLY (QCD only)
+     Hoferichter 2015 eq.(24) 0.305(9) inverts to S_uds = 0.1064
+PASS inverted S_uds = 0.1064
+PASS tree prints 'H1 gives 0.229' = TRUNCATION of 0.22969 (rounds to 0.230: discrepancy recorded)
+PASS tree prints 'TWENTY-FOUR TIMES'  -- 23.925926
+PASS tree prints K_mu H1 S=0.0096 -0.7703  -- -0.770311
+PASS tree prints K_mu H2 S=0.0096 -0.9904  -- -0.990400
+PASS tree prints K_mu H1 S=0.06 -0.7311  -- -0.731111
+PASS tree prints K_mu H2 S=0.06 -0.9400  -- -0.940000
+PASS tree prints f H1 S=0.06 0.268889  -- 0.268889
+PASS tree prints F6 4.48 at S=0.06  -- 4.481481
+PASS tree prints F6 3.25 at S=0.09  -- 3.246914
+PASS address.dln_lambda_dln_v() == Fraction(2,9)
+PASS address.dln_mp_dln_v(0.0096,'H1') == 2/9 + 7S/9
+PASS address.K_mu(0.0096,'H2') == S - 1
+PASS address.dln_mp_dln_v(0.0600,'H1') == 2/9 + 7S/9
+PASS address.K_mu(0.0600,'H2') == S - 1
+PASS address.dln_mp_dln_v(0.0900,'H1') == 2/9 + 7S/9
+PASS address.K_mu(0.0900,'H2') == S - 1
+     tree NAIVE_CORRECTION_FACTOR: {'naive valence 2m_u+m_d': 23.9708, 'sigma_piN ~ 56 MeV': 4.4815, 'with strange sigma term': 3.2469}
+
+E. COC et al. 2007 eq.(11): 0.76 dLambda/Lambda + 0.24 (dh/h + dv/v)
+PASS homogeneity: 0.76 + 0.24 == 1
+PASS 0.24 = 0.19 (strange, B_s=1.5) + 0.052 (u,d) to rounding  -- 0.242
+     S_uds FLAG24 2+1                       = 0.0928 -> Coc's coefficient of dLambda/Lambda would be 0.907 (published 0.76)
+     S_uds FLAG24 2+1+1                     = 0.1086 -> Coc's coefficient of dLambda/Lambda would be 0.891 (published 0.76)
+     S_uds pheno 59.1 + FLAG 2+1 sigma_s    = 0.1108 -> Coc's coefficient of dLambda/Lambda would be 0.889 (published 0.76)
+     S_uds Hoferichter eq.(24) inverted     = 0.1064 -> Coc's coefficient of dLambda/Lambda would be 0.894 (published 0.76)
+     Coc S = 0.24: K_mu H1 = -0.5911, H2 = -0.7600  |  today S = 0.1086: H1 = -0.6933, H2 = -0.8914
+PASS Coc's 0.24 exceeds every current S_uds by > 2x (the strange content moved)
+
+F. SIGN ROBUSTNESS of K_mu
+PASS K_mu(H1) = -7(1-S)/9
+PASS K_mu(H1) < 0 exactly on S < 1  -- Interval.open(-oo, 1)
+PASS K_mu(H2) < 0 exactly on S < 1  -- Interval.open(-oo, 1)
+PASS |K_mu(H2)/K_mu(H1)| = 9/7 for every S < 1 (the two hypotheses agree to a factor 9/7)
+
+G. BEYOND LO (Hill-Solon through O(alpha_s^3), sibling script re-run here)
+PASS sibling script ran and printed its S table  -- 5 rows
+     higgs_fraction H1          LO 0.26889      N3LO 0.28177      ratio 1.0479
+     K_mu H1                    LO -0.73111     N3LO -0.71823     ratio 0.9824
+     eps_det_stationary H1      LO 8.2067e-16   N3LO 8.3539e-16   ratio 1.0179
+     EPS_NUCLEAR H1             LO -3.2672e-13  N3LO -3.4238e-13  ratio 1.0479
+     EPS_NUCLEAR_OVER_DET H1    LO 398.12       N3LO 409.84       ratio 1.0294
+     COURIER_SOURCE_KG_M3 H1    LO 8.1904e+11   N3LO 7.816e+11    ratio 0.9543
+     NAIVE 0.0096               LO 23.971       N3LO 25.603       ratio 1.0681
+     NAIVE 0.06                 LO 4.4815       N3LO 4.6962       ratio 1.0479
+     NAIVE 0.09                 LO 3.2469       N3LO 3.3718       ratio 1.0385
+PASS no sign flips in any rests_on_it quantity
+PASS every rests_on_it quantity moves < 8% except NAIVE_CORRECTION_FACTOR at the valence row
+PASS EPS_NUCLEAR_OVER_DET H1 stays > 100 (nuclear eps two orders over threshold)
+
+0 failures

@@ -1,0 +1,105 @@
+{
+ "key": "no-cloning-theorem",
+ "final_grade": "STANDS",
+ "source_read_status": "READ-VIA-RESTATEMENT",
+ "read_at_source_this_pass": true,
+ "decision": "Every report agrees that the theorem as published STANDS. The audit, all three verifiers and this pass each re-ran rederive/no-cloning-theorem.py: ALL PASS, exit 0.\n\nThe split is over one question: does the tree use the theorem where its linearity hypothesis H1 (linear, chronology-respecting evolution) is live? The audit's NARROWED rests on a single link: O3 (whether a braneworld shortcut yields a CTC) is OPEN on the board, and in Deutsch's CTC model cloning is possible. I tested that link at source and by computation. It does not hold for any use the tree makes.\n\n(1) READ at source, arXiv:1207.6062v1, Ahn et al. On p.1, eqs. (1)-(2), Deutsch's map is nonlinear only through a unitary interaction between the chronology-respecting system and the CTC system: the fixed point depends on the input. On p.2, eq. (8) and the text after it, with no CTC system interacting, 'there can be no cloning for density operators with nontrivial fidelity'.\n\n(2) COMPUTED, adj_checks.py A1/A2. For U = U_CR (x) U_CTC, Deutsch's map on the chronology-respecting system is exactly U rho U^dag (maximum deviation 2.3e-12 over 50 random states), so it is linear whatever the fixed point is. The control, a generic coupled 4x4 U, is nonlinear on mixtures (9.6e-2), so the test is not vacuous.\n\n(3) READ, the tree. Every site is a statement about transit.py's teleportation protocol: a local Bell measurement, 2 classical bits and a Pauli correction. Nothing in it is coupled to a CTC.\n- R11 (specthm.py:1170-1224) and M-S1A-P5 (ledger.py:1410-1425; specthm.py:2832-2833) bind the specification only 'IF it is carried by teleportation as an unknown quantum state (H_tele)'.\n- R11 states the H3 boundary itself: 'A KNOWN state can be re-prepared'.\n- O3 sits in R11's D13/O6/O7 carrier sentence, not in the H_tele sentence. The audit's link merges the two.\n- A grep of the whole board finds no use of move-not-copy for a CTC-coupled route and no general 'cannot be copied' refusal.\n\n(4) H2 ('perfect copies only') is not over-extended either. The tree's claim, that Alice keeps no trace, is stronger than no-cloning and is a property of the protocol: the outcome probabilities are psi-free at 1/4 each, and the post-measurement state is psi-free (A4; audit C4). The audit itself concedes that the use is correct within the class the tree runs, and that the H2 gap exists only if the flag is quoted beyond the protocol. No site quotes it that way.\n\nSo NARROWED would require an over-extension that no site makes. Grading it would presume a gap, and it would over-represent M's suspicion. What remains is a documentation gap: no site names H1 or H2, and none cites Wootters-Zurek or Dieks. It is recorded as hypothesis drift and does not narrow the class the result holds on.\n\nThe two verifiers who proposed NARROWED did not test the O3 link; each took over the audit's argument. Their own findings are correct, and they are corrections that change no grade:\n- rederive lens: C3 holds only for the three-state set, and C4 is partly vacuous;\n- data lens: a 1981 bound already existed, and the 2022 bound rests on Everett and a classical cosmic history.\n\nThe other grades do not fit:\n- DATA-DEPENDENT: every nonlinearity bound read is null.\n- OPEN: the result is fully checkable here and was checked.\n- WRONG: no counterexample exists within the hypotheses.",
+ "scope": "STANDS covers the no-cloning theorem (Wootters-Zurek and Dieks 1982) as restated in Scarani et al. 2005, in the use the warp board makes of it. That use is: transit.py's teleportation leaves Alice with no psi-dependent record, so it is a move, not a copy. R11 and M-S1A-P5 bind this to the reconstruction-route specification under the named H_tele. It holds in linear, chronology-respecting quantum mechanics for any protocol in which the specification does not interact with a CTC system. That holds whatever O3 resolves to (Ahn et al. eqs. 1-2 and 8; adj_checks A1).\n\nWhat the grade does not cover:\n- Any use that couples the specification, or Alice's registers, to a CTC system. There Deutsch's model breaks H1, and Ahn et al. exhibit perfect cloning of a finite non-orthogonal alphabet and above-bound universal cloning for N >= 55 (numerical, v1 read). This is contested by Bennett et al. 2009, which is NAMED-NOT-READ. A tree site that applied move-not-copy there, or stated a general 'cannot be copied' refusal, would be NARROWED.\n- Approximate copying, which the theorem allows (Buzek-Hillery F = 5/6, recomputed in C5).\n- Mixed-state no-broadcasting (Barnum et al. 1996, READ-VIA-RESTATEMENT only).\n\nH1 is empirical. Every bound read is null, but each covers one family under its own hypotheses: Kaplan-Rajendran electromagnetic nonlinearity, under Everett and a dominantly classical cosmic history; and the BBM logarithmic term. No bound read excludes nonlinearity in general.\n\nThe Wootters-Zurek and Dieks originals are NAMED-NOT-READ (not on arXiv). The theorem is READ-VIA-RESTATEMENT through Scarani et al. quant-ph/0511088, which the audit and the refute verifier read and this pass did not re-read. This pass did read at source arXiv:1207.6062, 2204.11875 and 2609.07195.",
+ "corrections_to_record": [
+  "AUDIT GRADE NARROWED -> STANDS. The audit's only route to NARROWED is the O3 -> H1 link, and it fails. Deutsch-CTC nonlinearity requires a unitary interaction between the chronology-respecting system and the CTC system (1207.6062 p.1 eqs. 1-2; p.2: with no CTC system interacting, no cloning). For a decoupled U the induced map is exactly linear (adj_checks A1, deviation 2.3e-12; coupled control A2, nonlinearity 9.6e-2). transit.py couples nothing to a CTC, and R11's O3 belongs to the D13/O6/O7 carrier sentence, not to the H_tele binding.",
+  "AUDIT hypothesis_drift 'DROPPED (unnamed) H1' overstates. The sites are conditional on the named H_tele (specthm.py:1187-1191 and :1206-1214; ledger.py:1424-1425; specthm.py:2832-2833) and state the H3 boundary themselves ('A KNOWN state can be re-prepared', specthm.py:1214-1215). What is unnamed is H1 (linear, chronology-respecting evolution, with no CTC coupling of the specification) and H2 (perfect copies only), and no site cites WZ or Dieks. This is a documentation gap, not a narrowing.",
+  "AUDIT says specthm.py R11 and ledger.py M-S1A-P5 'name no-cloning'. Neither file contains the word. They cite only the flag IT_IS_A_MOVE_NOT_A_COPY and the phrase 'a move, not a copy'. The word appears only at transit.py:231, :285 and :343, index3.py:1364 and paper/CLAIMS.md:4608.",
+  "AUDIT omitted the site paper/CLAIMS.md:4607-4609, which has the same 'no-cloning enforced *by* the protocol' wording.",
+  "AUDIT line numbers for specthm.py and ledger.py are stale; those files were last changed at dbb3c9c on 2026-09-27, and HEAD is now 4a63a6a. R11 is now specthm.py:1170-1224 (flag at :1185, :1209-1210, :1223), not :1183/:1206-1209. M-S1A-P5 is now ledger.py:1410-1425 (flag at :1414-1418), not :1360-1366. transit.py, index3.py:1364 and latticectc.py:109 are unchanged.",
+  "AUDIT C3 label 'no LINEAR map at all (unitary or not)' is true only for the three linearly dependent states {|0>,|1>,|+>}. For two linearly independent non-orthogonal states, a linear but non-isometric cloner exists (rederive verifier E3; confirmed as adj_checks A3/A3b). Ruling out cloning of two states needs unitarity or trace preservation (C1), not linearity alone. H1 as worded (a linear trace-preserving CP map) covers this, but the label must be scoped.",
+  "AUDIT C4 is partly vacuous, and 'computed from the protocol' overstates the contrast with the hard-coded I/2. Under a product |00> resource, the psi-free, I/2, average I/4, S = 1 and pure-pair checks all still PASS, and the average is weighted by a hard-coded 1/4 (rederive script line 88). Only p = 1/4 and B fidelity 1 FAIL. The values are correct; the encoding is structural (confirmed as A4/A4b).",
+  "AUDIT SCOPE NOTE misplaces where 'no trace' comes from. It rests on psi-independent outcome probabilities (p = 1/4) together with a psi-free post-measurement state, not on the post-state alone, which is psi-free for any projective Bell measurement.",
+  "AUDIT data row 2 value_then ('1982: no dedicated bound') and lacked_data ('no experimental bound on nonlinearity') are wrong. Gahler, Klein and Zeilinger, PRA 23, 1611 (1981), set a neutron-interferometric bound b < 3.3e-15 eV on the BBM logarithmic term: READ-VIA-RESTATEMENT through arXiv:2609.07195 p.4 and ref [60], re-read this pass; the original is NAMED-NOT-READ. The error over-represents in M's favour. It is a discrepancy, not a refutation; moves_conclusion stays No.",
+  "AUDIT data row 2 value_now: the 2204.11875 bound |eps_gamma| < 4.7e-11 at 90% CL (published as PRL 130, 040202 (2023)) carries two hypotheses that must be NAMED. It assumes Everett (p.2: under Copenhagen 'this effect vanishes') and a dominantly classical cosmic history (p.3).",
+  "RECORDED, NOT A REFUTATION: 'no-cloning enforced by the protocol rather than imposed on it' (transit.py:231-232, :285-286 and :343; index3.py:1364; CLAIMS.md:4608-4609) reverses the source's direction (Scarani p.30: the original must be destroyed or no-cloning would be contradicted).",
+  "RECORDED, NOT A REFUTATION: transit.py:230 and :341-342 take the entropy of a literal I/2, and teleport() (:112-125) discards Alice's register, so the selftest cannot fail; :343 checks a constant flag. The value S = 1 bit per qubit is correct when computed from the protocol.",
+  "RECOMMENDED WORDING (not a grade condition): name H1 at R11's H_tele as 'linear, chronology-respecting evolution; the specification does not interact with a CTC system (cf. O3)'. Name H2 at the transit.py sites: only a perfect copy is forbidden, F = 5/6 approximate copies are allowed, and the no-trace claim is a property of the protocol. Cite WZ and Dieks."
+ ],
+ "tree_sites": [
+  {
+   "site": "transit.py:30-33",
+   "finding": "Docstring 'A MOVE, NOT A COPY ... S = 1 bit, holding no trace'. A correct statement about the protocol; H1 and H2 are unnamed but not needed within the protocol. Line numbers unchanged.",
+   "kind": "consistent"
+  },
+  {
+   "site": "transit.py:112-125",
+   "finding": "teleport() returns only (p, B's state) and discards Alice's register, so A's entropy is never computed from the protocol.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "transit.py:152",
+   "finding": "IT_IS_A_MOVE_NOT_A_COPY = True is a hard-coded constant, the flag cited by R11 and M-S1A-P5. Correct for the protocol.",
+   "kind": "consistent"
+  },
+  {
+   "site": "transit.py:230",
+   "finding": "Entropy is printed from the literal [[0.5,0],[0,0.5]], not taken from the protocol. The value is correct (C4); this is a method gap.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "transit.py:231-232",
+   "finding": "'No-cloning enforced by the protocol itself rather than imposed on it' reverses the source's direction (Scarani p.30). Names no hypothesis and cites no source. A wording discrepancy, not a refutation.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "transit.py:285-286",
+   "finding": "The summary repeats 'no-cloning enforced by the protocol rather than imposed on it'. Same wording discrepancy.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "transit.py:341-343",
+   "finding": "The selftest takes the entropy of a literal I/2 and cannot fail; :343 checks a constant flag against True under the label 'no-cloning enforced'. The values are correct, but these checks can never fail.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "specthm.py:1170-1224",
+   "finding": "R11 has moved from the audit's :1183/:1206-1209. Its binding is conditional on the named H_tele (:1190-1191, :1206-1208), and it states the H3 boundary at :1214-1215. O3 sits in the separate carrier sentence (:1201-1203). The word 'no-cloning' does not appear. H1 and H2 are unnamed: a documentation gap, not a narrowing.",
+   "kind": "stale"
+  },
+  {
+   "site": "specthm.py:2832-2833",
+   "finding": "M-S1A-P5 ruling text 'transit.py's four results bind it under H_tele'. Conditional and correctly scoped; not cited by the audit.",
+   "kind": "consistent"
+  },
+  {
+   "site": "ledger.py:1410-1425",
+   "finding": "M-S1A-P5 has moved from the audit's :1360-1366. The flag is at :1414-1418, and the binding is 'IF it is carried by teleportation as an unknown quantum state' (:1424-1425). The word 'no-cloning' does not appear; H1 and H2 are unnamed.",
+   "kind": "stale"
+  },
+  {
+   "site": "index3.py:1364",
+   "finding": "'no-cloning enforced BY the protocol rather than imposed ON it'. The same direction reversal, in a statement about the protocol only. Line unchanged.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "paper/CLAIMS.md:4607-4609",
+   "finding": "'A move, not a copy -- no-cloning enforced *by* the protocol rather than imposed *on* it'. Same wording discrepancy. The audit omitted this site.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "latticectc.py:109",
+   "finding": "O3_CLOSED = False, unchanged. O3 being open does not bear on the protocol, because Deutsch-CTC nonlinearity needs an interaction between the chronology-respecting and CTC systems (1207.6062 eqs. 1-2 and 8; A1/A2).",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (page through adjudicate/in/no-cloning-theorem.json)",
+  "git log -1 (HEAD 4a63a6a 2026-10-02); git log -3 -- transit.py specthm.py ledger.py index3.py latticectc.py paper/CLAIMS.md",
+  "grep -n -i 'no-cloning|0.5+0j|IT_IS_A_MOVE_NOT_A_COPY|clon' transit.py; grep -n 'O3_CLOSED = ' latticectc.py; grep -n -i 'clon|IT_IS_A_MOVE|H_tele' specthm.py ledger.py index3.py",
+  "sed -n on transit.py 20-40,105-160,220-240,275-290,335-350; specthm.py 1165-1230,2825-2836; ledger.py 1400-1425; paper/CLAIMS.md 4604-4612",
+  "grep -rn -i 'not a copy|cannot be copied|no-cloning|no cloning|IT_IS_A_MOVE' --include=*.py --include=*.md --include=*.tsv --include=*.json research/warp-drive",
+  "cp rederive/no-cloning-theorem.py adjudicate/run/; python3 no-cloning-theorem.py (ALL PASS, exit 0)",
+  "python3 adjudicate/run/adj_checks.py (A1 decoupled Deutsch map linear 2.3e-12; A2 coupled control nonlinear 9.6e-2; A3/A3b two-state non-isometric linear cloner exists; A4/A4b p=1/4 Bell vs psi-dependent with |00>; ALL PASS, exit 0)",
+  "cat verify/data/no-cloning-theorem.data-lens.json",
+  "alphaXiv answer_pdf_queries 1207.6062 (pp.1-5)",
+  "alphaXiv answer_pdf_queries 2204.11875 (pp.1-4)",
+  "alphaXiv answer_pdf_queries 2609.07195 (p.4, refs [13],[60])"
+ ],
+ "reverify_command": "D=/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run; python3 $D/no-cloning-theorem.py && python3 $D/adj_checks.py; cd /home/user/Claude-Method-Works/research/warp-drive && grep -rn -i 'no-cloning\\|IT_IS_A_MOVE_NOT_A_COPY\\|not a copy' --include=*.py --include=*.md . | grep -v docket67-raw; grep -n 'O3_CLOSED = ' latticectc.py; sed -n 1186,1216p specthm.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/no-cloning-theorem.json"
+}

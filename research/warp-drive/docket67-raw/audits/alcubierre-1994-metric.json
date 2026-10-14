@@ -1,0 +1,96 @@
+{
+ "key": "alcubierre-1994-metric",
+ "name": "Alcubierre drive metric (tanh top-hat shape, Eulerian energy density eq 19); neither static nor spherically symmetric",
+ "source": {
+  "located": "M. Alcubierre, 'The warp drive: hyper-fast travel within general relativity', Class. Quantum Grav. 11 (1994) L73-L77; arXiv:gr-qc/0009013 (posted 2000, text of the 1994 paper)",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true) on arXiv:gr-qc/0009013: eqs (1)-(19) and the energy-condition paragraph read in full. Cross-read: Barzegar-Buchert-Vigneron arXiv:2602.16495 eqs (3.44)-(3.48) and Sec IV A (Error 1); Santiago-Schuster-Visser arXiv:2105.03079 eqs (2.11)-(2.12), (4.9), Sec 7.1, App. A."
+ },
+ "published_statement": "gr-qc/0009013 eq (8): ds^2 = -dt^2 + (dx - v_s f(r_s) dt)^2 + dy^2 + dz^2 with alpha = 1, beta^x = -v_s(t) f(r_s(t)), gamma_ij = delta_ij (eqs 2-5), v_s(t) = dx_s(t)/dt, r_s(t) = [(x - x_s(t))^2 + y^2 + z^2]^(1/2); eq (6): f(r_s) = [tanh(sigma(r_s+R)) - tanh(sigma(r_s-R))]/[2 tanh(sigma R)] 'with R > 0 and sigma > 0 arbitrary parameters'; eq (7) is the sigma -> infinity top-hat limit. Eq (19): T^{mu nu} n_mu n_nu = alpha^2 T^00 = (1/8pi) G^00 = -(1/8pi) (v_s^2 rho^2 / 4 r_s^2) (df/dr_s)^2, rho^2 = y^2+z^2: 'The fact that this expression is everywhere negative implies that the weak and dominant energy conditions are violated. In a similar way one can show that the strong energy condition is also violated.' Figure 1 uses sigma = 8 and R = v_s = 1. (The tree's scope sentence 'the Alcubierre drive is neither [static nor spherically symmetric]' is not a sentence of the paper; it is a property of eq (8), checked in E5.)",
+ "published_hypotheses": [
+  "General relativity with G = c = 1; the metric is PRESCRIBED and T_mu_nu is read off as G_mu_nu/8pi (no matter model)",
+  "3+1 form with unit lapse (Eulerian observers geodesic), flat spatial slices gamma_ij = delta_ij, shift only along x",
+  "the bubble centre moves on an arbitrary trajectory x_s(t) and v_s(t) = dx_s/dt -- the bubble velocity and the shift amplitude are the SAME function (eq 3 and the definition under it)",
+  "f is the specific tanh form (6) with arbitrary R > 0, sigma > 0; the physical discussion (tidal forces, eq 14-17) assumes large sigma and R << d << D",
+  "energy density is stated for the Eulerian observers n^mu = (1/alpha)(1, -beta^i) only (eq 18-19); the SEC claim is asserted, not shown",
+  "global hyperbolicity is claimed from positive-definiteness of gamma_ij alone (text after eq 1) -- see later_literature (BBV Error 1)"
+ ],
+ "hypothesis_drift": [
+  "ADDED, unnamed, in the use: a FROZEN bubble. typefour.py:138 ('The configuration is static in these coordinates, so d_t g = 0') and twist.py:174 ('x_s is fixed, so the configuration is static: d_t = 0') set x_s = 0 at all t while keeping v_s = 0.5 (typefour.py:99, 104-113). Alcubierre's eq (3) requires v_s = dx_s/dt, so the tree's metric is NOT eq (8): it is a stationary shift field anchored to the exterior frame, with the bubble at rest relative to the 'fixed stars' (SSV 2105.03079 p.5 names exactly the two admissible ways of getting relative motion, and this is neither). E2/E3/E6 of the re-derivation show the drift is IMMATERIAL for the Eulerian density (G_nn has no d_t F) and for every contraction anec.py makes (G_xx, G_nx and G_kk for k = (1, v f +- 1, 0, 0) along the motion carry no d_t F; anec.py's five integrals are reproduced exactly on the moving bubble, rel 1e-9), and MATERIAL for the full tensor: G_yy, G_zz carry d_t F, and typefour.py's printed Type IV table (||T|| and |Im|/||T|| at seven wall points) is the frozen metric's -- the moving bubble gives different numbers at 6 of 7 points (e.g. (0.90,0.30): ||T|| 0.15909 -> 0.27804, ratio 0.6425 -> 0.2815), though a complex pair survives at all 7 (ratios 0.049-0.572), so typefour's Type IV verdict carries over. typefour is not one of this entry's four owners, but its metric() is the configuration anec.py measures (anec.py:94-117) and index3.py:381 ('THE-TRADE') cites it.",
+  "INTERNAL, recorded not repaired: certify.py:181-183 says the Alcubierre drive is not static; typefour.py:138 calls its configuration 'static in these coordinates'. Both are true of different metrics: Alcubierre's eq (8) is time-dependent in the lab chart and, for constant v_s, stationary-but-not-static in the comoving chart (E5: twist of the comoving Killing field is nonzero, 0.549 at (0.9,0.3), v_s = 0.5); typefour's frozen metric is t-independent in the lab chart ('static' there means stationary).",
+  "NARROWED in the use, anec.py:9-10 / index3.py:383: 'ANEC IS VIOLATED BY THE ALCUBIERRE BUBBLE ON EVERY RAY MEASURED' is stated of 'the Alcubierre bubble' but measured at ONE parameter point (sigma = 8, R = 1, v_s = 0.5; typefour.py:99-101, anec.py:90), for FIVE fixed-y curves all in the forward (+x) direction (anec.py:91, sign = +1 default). E7: Gamma^y_ab k^a k^b = sgn * F_y, so the four off-axis curves (y = 0.2, 0.3, 0.5, 0.8) are NOT geodesics and their integrals are not ANEC integrals; only y = 0 is a (pre)geodesic. E8: on that axis ray the AFFINE-parameter integral is negative for the moving bubble (-0.0772) and for the frozen one (-0.0524), so an ANEC violation is confirmed on one genuine ray. The oppositely directed axis ray (sign -1) has a POSITIVE integral (affine +0.0828 moving, +0.1689 frozen; tree-style +0.0807) -- not a contradiction (one violating geodesic suffices) but 'every ray' holds only for the direction measured.",
+  "NARROWED, anec.py:94-117 integration measure: INT T_kk dx over x in [-2.5, 2.5] at fixed t, with k^t = 1, is not the affine integral; on the axis the two differ in magnitude (moving: -0.0807 tree-style vs -0.0772 affine) but not in sign. The finite window is adequate (T = 0 beyond r ~ 2 at sigma = 8).",
+  "WEAKENED in the owner's wording, not in the use: 'wall width ~0.125 (= 1/SIGMA)' is the tanh scale 1/sigma; the 10-90 per cent width of f at sigma = 8 is 2 artanh(0.8)/sigma = 0.275. Alcubierre states no wall width; BBV say sigma is 'inversely proportional to the bubble wall thickness'. A convention, not an error.",
+  "DISCREPANCY (citation), twist.py:80, 93, 101: the shape function is cited as Alcubierre 'Eq (7)'; in gr-qc/0009013 the tanh form is eq (6) and eq (7) is its sigma -> infinity top-hat limit. The form the tree codes (typefour.py:104-106) is eq (6) exactly. A misnumbering, not a refutation.",
+  "CONSISTENT, no drift: certify.py:181-184 and nonstatic.py:240-242, 604 (scope exclusion). E5 confirms eq (8) is not spherically symmetric about the bubble centre (y d_x - x d_y fails the Killing equation; only rotation about the x-axis is Killing -- SSV 2105.03079 App. A: 'while the warp bubble is spherically symmetric the spacetime is not') and not static (stationary-only for constant v_s; not even stationary for non-constant v_s(t)). The E5 symmetry check covers the SO(3) centred on the bubble in these coordinates; a proof that no SO(3) action of any kind exists was not attempted (a Killing-algebra computation), and the preferred x-axis carried by the shift is the source-level reason.",
+  "CONSISTENT: composite.py:83-88 'RICCI-dominated' is an in-tree characterisation (achronal.py), not a claim of the source; not audited here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "shape parameters sigma, R",
+   "value_then": "arbitrary (R > 0, sigma > 0); Figure 1: sigma = 8, R = 1",
+   "value_now": "free parameters; tree: SIGMA = 8.0, RADIUS = 1.0 (typefour.py:100-101)",
+   "source_now": "gr-qc/0009013 eq (6) and Fig. 1 caption text",
+   "moves_conclusion": "no -- a choice, not a measured datum; eq (19) is negative wherever y^2+z^2 > 0 and f' != 0, for every sigma, R"
+  },
+  {
+   "quantity": "bubble velocity v_s",
+   "value_then": "arbitrary function of t; Figure 1: v_s = 1",
+   "value_now": "tree: VS = 0.5 constant (anec.py:90, typefour.py:99)",
+   "source_now": "gr-qc/0009013 eqs (3), (8)",
+   "moves_conclusion": "no for the sign of eq (19) (scales as v_s^2; BBV Error 26: WEC violation is independent of v_s); the tree's numerical magnitudes scale with it and are stated at this one value"
+  },
+  {
+   "quantity": "G, c",
+   "value_then": "G = c = 1",
+   "value_now": "G = c = 1",
+   "source_now": "units",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "measured physical data",
+   "value_then": "none -- the result is a closed-form construction",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum exists to move"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/alcubierre-1994-metric.py",
+  "outcome": "PASS, all checks. E1: Einstein tensor of ds^2 = -dt^2 + (dx - F dt)^2 + dy^2 + dz^2 for GENERIC F(t,x,y,z) gives G_nn = -(F_y^2 + F_z^2)/4; with F = v_s f(r_s) this is exactly eq (19) including the 1/8pi. E2: G_nn carries no time derivative of F. E3: G_xx, G_nx and G_kk for k = (1, F +- 1, 0, 0) carry none either; G_yy, G_zz and G_kk for the transverse null vector n + e_y do. E4: the Alcubierre-Lobo identity T_xx = 3 T_nn (restated in SSV Sec 7.1) holds to 1e-9 at four wall points (and, both sides being d_t-free, for the frozen metric too). E5: y d_z - z d_y is Killing; y d_x - x d_y is not; comoving Killing field has nonzero twist (0.549 at (0.9,0.3), v_s = 0.5) -> stationary, not static; for non-constant v_s(t) no comoving Killing field. E6: exact-G integrals on the tree's grid reproduce anec.py's five numbers (-0.080665, -0.086534, -0.094637, -0.129034, -0.344100) for the frozen metric AND identically for the moving bubble. E6b: the frozen metric reproduces typefour.py's printed table to its printed digits; the moving bubble does not (6 of 7 points differ), while |Im|/||T|| > 1e-3 at all 7 (0.572, 0.328, 0.282, 0.312, 0.431, 0.108, 0.049). E7: Gamma^y_ab k^a k^b = sgn F_y -> off-axis fixed-y curves are not geodesics. E8: on-axis affine ANEC (RK4 along the ray, weight exp(-INT kappa dt), kappa = F_x): forward ray -0.0524 (frozen) / -0.0772 (moving); backward ray +0.1689 / +0.0828; ln(dlambda/dt) returns to 0 after exit to 1e-12 (Killing-energy check).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Santiago, Schuster, Visser, 'Generic warp drives violate the null energy condition', arXiv:2105.03079 (PRD 2022)",
+   "effect": "extends",
+   "what": "Sec 7.1: Alcubierre's WEC violation re-derived (eq 7.6, = eq 19); NEC violation via the Alcubierre-Lobo identity G_zz = 3 G_nn (checked here, E4); extended to generic Natario warp drives. App. A: 'while the warp bubble is spherically symmetric the spacetime is not' -- confirms the tree's scope exclusion. p.5: relative motion needs either explicit time dependence with v -> 0 at infinity or a time-independent bubble with v -> v* at infinity -- the tree's frozen metric is neither.",
+   "read_status": "READ (pp.1-7, 12-13, 16, 20-30, 37 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Barzegar, Buchert, Vigneron, 'General formalism, classification, and demystification of the current warp-drive spacetimes', arXiv:2602.16495 (2026)",
+   "effect": "narrows",
+   "what": "Eqs (3.44)-(3.48) restate the metric in comoving form (shift -V_s(f-1)) and eq (19) as (3.48), agreeing. Error 1 (Sec IV A): Alcubierre's claim that positive-definite gamma_ij guarantees global hyperbolicity is false in general (negative-mass Schwarzschild, AdS counterexamples); extra conditions (Choquet-Bruhat-Cotsakis, Natario's bounded-shift condition 3.37) are needed. This narrows a sentence of the SOURCE that the tree does not use. Error 26: WEC violation is independent of V_s. Theorem III.15: vorticity-free Alcubierre is Minkowski.",
+   "read_status": "READ (pp.1, 9, 11, 13-14, 23, 25-26 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Alcubierre and Lobo (review/book chapter, cited as [29] in 2105.03079), explicit NEC violation proof",
+   "effect": "extends",
+   "what": "Proves the NEC violation Alcubierre 1994 did not state; the SEC claim asserted 'in a similar way' in 1994 is proved in SSV Sec 7.4 (via Natario 2002 Thm 1.7).",
+   "read_status": "NAMED-NOT-READ (restated in 2105.03079 Sec 7.1; the identity itself re-derived here, E4)"
+  },
+  {
+   "ref": "Observer-robust energy condition verification for warp drive spacetimes, arXiv:2602.18023 (2026)",
+   "effect": "extends",
+   "what": "S-lemma formulation of NEC/WEC/SEC over all causal directions; relevant to anec.py's restriction to two null directions along x.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  }
+ ],
+ "lacked_data": "No measured datum enters this result: it is a prescribed metric plus the Einstein tensor, and eq (19) is re-derived exactly here for a generic shift F (E1), so no later measurement can move it. What the author lacked in 1994 were later ANALYSES, not data: (i) an explicit NEC proof (Alcubierre-Lobo; SSV 2105.03079) -- it strengthens the energy-condition conclusion, does not reverse it; (ii) a correct justification of global hyperbolicity -- BBV 2602.16495 Error 1 shows the 1994 argument is incomplete (a real incompleteness in the source, but in a sentence the tree does not rest on); (iii) the Hawking-Ellis Type IV character of the stress tensor, which the tree measures itself (typefour.py) and which carries over to the true moving bubble (E6b). Evidence against M's hypothesis for THIS result: every part the tree uses (eqs 6, 8, 19; non-static, non-spherical) re-derives exactly. Evidence for it, at a smaller scale: the source's global-hyperbolicity sentence is incomplete, and its SEC claim was unproved in 1994 (later proved true).",
+ "grade": "NARROWED",
+ "grade_evidence": "The SOURCE STANDS as the tree needs it: eq (8) with the tanh f of eq (6) and the Eulerian density eq (19) re-derive exactly (E1), and the scope claims of certify.py:181-183 / nonstatic.py:240-242 are correct (E5; SSV App. A agrees). The grade is NARROWED because of the USE: (a) the tree codes a frozen bubble (x_s fixed, v_s = 0.5; typefour.py:138, twist.py:174), which contradicts the source's hypothesis v_s = dx_s/dt and is a different spacetime; this is shown immaterial for eq (19) and for all of anec.py's contractions along the motion (anec numbers identical on the moving bubble, rel 1e-9), and material for typefour.py's printed tensor-level table (6 of 7 points change), whose Type IV verdict nevertheless survives; (b) anec.py's 'ANEC violated by the Alcubierre bubble on every ray measured' rests on one parameter point and five forward fixed-y curves, of which only y = 0 is a null geodesic (E7); on it the affine ANEC integral is negative (E8: -0.0772 moving), so an ANEC violation is confirmed on one genuine ray, and the opposite-directed axis ray is positive. Nothing here is WRONG: no computed contradiction of the source or of any number anec.py prints.",
+ "what_would_change_the_grade": "To STANDS: the tree names the frozen-bubble hypothesis (or recomputes with d_t = -v_s d_x, which leaves anec.py unchanged) and restates anec.py's headline as 'ANEC violated on the axis null geodesic at sigma = 8, R = 1, v_s = 0.5; off-axis fixed-y curves are non-geodesic Tkk integrals'. To WRONG: a computed negative Eulerian density contradicting eq (19), or a positive affine ANEC integral on every complete null geodesic through the moving bubble -- neither found. A Killing-algebra proof that no SO(3) of any kind acts would close the one symmetry sub-claim checked only for the bubble-centred rotations.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/alcubierre-1994-metric.py   # ~2-4 min; exits 0 with 'OVERALL: PASS'; writes /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/alcubierre-1994-metric.out.json",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/alcubierre-1994-metric.json"
+}

@@ -1,0 +1,42 @@
+R1  59-element total grams = 70085.9087 ; n = 59
+PASS R1 stock.HUMAN (13 non-Li) = 59-element fractions to 6 dp  -- max |diff| = 0.00e+00
+PASS R1 stock.HUMAN Li = 0.007 g / total  -- 9.9877e-08 vs 9.9880e-08
+PASS R1 listed fraction 0.9999231 (tree)  -- 0.9999231
+PASS R1 N = 0.02568, P = 0.011129  -- N 0.025683 P 0.011129
+
+PASS R2 K in 70 kg at stock.HUMAN = 140 g  -- 139.86 g
+PASS R2 superseded K 0.0040 = 280 g
+PASS R2 note: 140 g of 70,088 g total vs 140/70000 differ by 0.13 %
+
+R3  parse check O45/C13/H7: atom% O 25.5 (cell 26) C 9.8 (cell 9.5) H 62.9 (cell 63)
+R3  tree-vs-restatement mismatches (tree g, page g): [('Ga', 0.0007, 0.7), ('V', 0.00011, 0.02)]
+R3  O/C/H: tree 43000/16000/7000 g ; page (parsed) 45000/13000/7000 g
+R3  on page not in tree: ['Ra', 'Ru']  in tree not on page: []
+PASS R3 of 56 shared rows below H, exactly two differ (Ga x1000, V x182)
+R3  O 45 kg, C 13 kg (page parse)  photosphere P 1938.5 ; CI P 10.856 ; factor(Ga) 0.181
+R3  Ga 0.7 g (page) not 0.7 mg     photosphere P 1910.8 ; CI P 10.701 ; factor(Ga) 179
+
+PASS R4 photosphere binds on P at 1.9109e3  -- P 1910.9
+PASS R4 runner-up Li at 91.758 %  -- Li 91.757 %
+PASS R4 CI chondrite binds on P at 10.70, N second 8.08  -- P 10.7 ; N 8.076
+
+R5  photosphere: Li flips the binder above 7.6288 mg (tree 7 mg; +8.98 %)
+R5  photosphere: P below 715.7 g (tree 780 g; -8.24 %) hands the binder to Li
+R5  CI chondrite: P below 588.7 g (-24.53 %) hands the binder to N
+PASS R5 Li threshold ~7.63 mg  -- 7.6288 mg
+
+R6a restatement fraction column: Li 3.1e-8 x 70 kg = 2.17 mg ; P 5-7e-3 x 70 kg = 350-490 g
+     Li 2.17 mg             photosphere P 1911 (2nd K 651.8) | CI P 10.7
+     P 350 g                photosphere Li 1764 (2nd P 862.7) | CI N 8.126
+     P 490 g                photosphere Li 1761 (2nd P 1205) | CI N 8.11
+     P 490 g + Li 2.17 mg   photosphere P 1205 (2nd K 654.5) | CI N 8.11
+R6b ICRP 110 whole body (Kanematsu Table I, m sums to 100.0 %): {'H': 0.10184, 'C': 0.31603, 'N': 0.02397, 'O': 0.52811, 'P': 0.00813, 'Ca': 0.01532}
+     vs tree (ICRP 23/Emsley): {'H': 0.09988, 'C': 0.22829, 'N': 0.02568, 'O': 0.61353, 'P': 0.01113, 'Ca': 0.01427}
+     ICRP-110 bulk: photosphere Li 1752 ; ranking [('Li', 1752.3), ('P', 1394.7), ('K', 651.4)]
+     ICRP-110 bulk: CI chondrite C 9.024 ; ranking [('C', 9.024), ('P', 7.811), ('N', 7.534)]
+PASS R6b ICRP 110 P fraction is below the photosphere Li-flip threshold  -- P 0.0081 vs threshold 0.0102
+R6c +Ru 7 mg (page row)          factor(Ru) = 24 against binder 1911 -> binder P
+R6c V 20 mg (page) not 0.11 mg   factor(V) = 0.9 against binder 1911 -> binder P
+R6d ICRP 89 reference male 73 kg: factor per kg unchanged; feedstock x 1.0429
+
+13 of 13 checks pass

@@ -1,0 +1,31 @@
+PASS 1a sympy: advantage_over_light = D/c - D/c == 0 identically
+PASS 1b float: advantage is bit-exact 0.0 at all four DISTANCES  :: Earth-Moon 3.844e+08 m -> 0.0; Earth-Mars (min) 5.46e+10 m -> 0.0; Earth-Proxima 4.018e+16 m -> 0.0; Milky Way cross 9.46e+20 m -> 0.0
+PASS 1c C_SI equals SI c exactly (Fraction)
+PASS 1d BEATS_LIGHT flag is False (a constant, not a computation)
+     light time Earth-Moon         1.28222 s = 4.06311e-08 yr
+     light time Earth-Mars (min)   182.126 s = 5.77122e-06 yr
+     light time Earth-Proxima      1.34009e+08 s = 4.2465 yr
+     light time Milky Way cross    3.15552e+12 s = 99992.3 yr
+PASS 2a sympy: v=c*lam, delay = D(1-lam)/(c*lam)  :: D*(1 - lam)/(c*lam)
+PASS 2b delay >= 0 for 0<lam<=1 (numerical grid) -> advantage <= 0 needs ONLY v<=c
+PASS 2c delay < 0 for lam>1 -> the conclusion is exactly as strong as the hypothesis v<=c
+PASS 3 KG m^2>0: front velocity lim omega/k = 1
+PASS 3 KG m^2=0: front velocity lim omega/k = 1
+PASS 3 KG m^2<0 (tachyonic): front velocity lim omega/k = 1
+PASS 3' tachyonic KG group velocity k/omega > 1 for k>|m| (e.g. k=2: 1.1547) yet front = 1
+PASS 3'' principal symbol of KG is -w^2+q^2, independent of m^2 (characteristics = light cone)
+PASS 4a sound-cone boundary speed^2 = dp/drho (sympy: s^2 - cs2 = 0 at s = sqrt(cs2))
+PASS 4b a spacelike direction (s>1) lies in the cone iff dp/drho > 1 (grid cs2 in {0.25,0.5,1,1.01,1.5,2,4})
+     (Geroch 2010 p.7: the hyperbolization exists for dp/drho>0 whether or not dp/drho>1; the <=1 bound is an extra hypothesis on the equation of state, H_cone)
+     Scharnhorst dc/c at L=1e-06 m: 1.587e-32 ; one-gap advantage L/c*dc/c = 5.294e-47 s ; mL=2.59e+06
+     Scharnhorst dc/c at L=1e-05 m: 1.587e-36 ; one-gap advantage L/c*dc/c = 5.294e-50 s ; mL=2.59e+07
+     Scharnhorst dc/c at L=1e-07 m: 1.587e-28 ; one-gap advantage L/c*dc/c = 5.294e-44 s ; mL=2.59e+05
+PASS 5a Scharnhorst dc/c at 1 um is ~1.6e-32 from eq.(10)  :: 1.587e-32
+PASS 5b Fearn 0706.0553's '1.6e-36 at 1 um' matches eq.(10) at L=10 um, not 1 um (DISCREPANCY in a later paper, recorded, not a refutation)  :: eq10(1um)=1.587e-32 eq10(10um)=1.587e-36
+PASS 5c group velocity along plates = kpar/omega <= 1 exactly (sympy: 1 - vg_par^2 = (1+xi)kperp^2/omega^2 >= 0)
+PASS 5d perpendicular to plates vg -> sqrt(1+xi) > 1 (the only superluminal component, bounded by gap L)
+PASS 6 GW170817: +1.74 s / (26 Mpc / c) = 6.50e-16 (paper +7e-16); (1.74-10) s -> -3.09e-15 (paper -3e-15)
+PASS 7 OPERA 2012: 6.5 ns / (730.085 km / c) = 2.67e-06 (paper 2.7e-6)
+     (the originally reported 2011 anomaly, v1-v3, is NAMED-NOT-READ here; v4 Sec.6.1 READ: fibre-delay and 0.124 ppm oscillator offsets identified as its instrumental sources)
+
+SUMMARY: 20/20 PASS

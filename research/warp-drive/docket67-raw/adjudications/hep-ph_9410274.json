@@ -1,0 +1,114 @@
+{
+ "key": "hep-ph/9410274",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "SOURCE READ THIS PASS. mcp__alphaXiv__get_paper_content(url=arxiv.org/abs/hep-ph/9410274, fullText=true) returned arXiv:hep-ph/9410274v1 (12 Oct 1994), pp.1-9, in full. That is the preprint; the typeset PRL 74, 1071 was not read. Excerpts are kept at adjudicate/run/source_excerpts_hep-ph_9410274.txt. The audit's only ground for OPEN, that the source could not be read, no longer holds. All three verifiers read the same v1 text, and my reading confirms theirs on every point the grade turns on.\n\nWHAT STANDS, READ and computed (adj_ji.py, exit 0):\n(1) Quotes. The tree's three stored quotes match v1 word for word, at the pages the tree cites: 'Ji-table' (Table I p.9, and p.6 for the omitted errors, the rounding and the largest uncertainty), 'Ji-cancel' (p.5, after Eq.25) and 'Ji-eighth' (p.7 bullet). Table I prints the quark-mass row as M_i = b, with 160 and 110 MeV.\n(2) Arithmetic. 160/m_N = 17.0409 % and 110/m_N = 11.7156 %. 0.1719 (largest READ central reading) and 0.2362 (margin illustration) reproduce exactly. The flip to one half needs a Ji row of 466.0 MeV. Normalising by Ji's prose 939 MeV (READ, p.2) or by his table total of 940 (each column sums to 940, computed from the READ entries) moves the 160 row by at most 0.031 percentage points.\n(3) How the tree uses the row is faithful to the source. Ji has 'consistently neglected gamma_m and the higher-order terms in beta(g)' (p.5). H_m 'contributes b fraction of the mass', and Eq.(30) gives bM = <m_u uu + m_d dd> + <m_s ss>, which is exactly the sigma-term sum. So listing Ji's row among the first-order (H-LINEAR, Feynman-Hellmann) rows at massform.py:1856-1858 matches his own order of approximation. The audit's memory form P6, (4+gamma_m)/(4(1+gamma_m)), is not in this paper. Its drifts 'FIRST-ORDER RESPONSE ASSUMED' and 'LABEL b / lost prefactor' fall, and so does its 'SCHEME AND SCALE DROPPED' drift: MSbar at 1 GeV^2 qualifies a (Eq.29) and the quark-mass inputs, and Ji calls the mass and anomaly operators 'finite and scale independent' (p.4).\n(4) Re-derivation from the source's own equations at leading order, n_f = 3, beta0 = 9. Eq.33: 45 + 0.77 x 150 = 160.5, printed 160. Eq.34: X = -692.4 at M = 939 and -693.3 at M = 940, printed -693. Eq.37/38: X = -739.9, m_s<ss> = 61.7 and bM = 106.7, printed -740, 62 and 107. The m_s -> 0 column rebuilds from a = 0.55 to 270/160/320/190 exactly.\n(5) Heavy-quark cancellation. The tree uses it only to keep heavy-quark terms out of the READ rows, labelled CONTESTED. That claims less than the source.\n\nWHY NARROWED AND NOT STANDS. The rubric's NARROWED covers 'a hypothesis the tree drops', and M's rule is that every limitation is a NAMED hypothesis. The 160 MeV entry rests on hypotheses the source states and the tree does not name. The one that matters is the input vintage. The m_s -> 0 entry is built on 1994 inputs: sigma = 45 +- 5 MeV (Gasser-Leutwyler-Sainio 1991), m-hat = 7 MeV and m_s = 150 MeV at 1 GeV^2, and a chiral-perturbation strange charge <P|ss|P> ~ 0.77, giving m_s<ss> = 115.5 MeV (p.7: 'mass term 115 MeV'). Ji himself says both of his strange estimates are 'not completely satisfactory'. That strange input is about 2.57-2.82 times the tree-held FLAG 2024 sigma_s (44.9 and 41.0 MeV). Ji's sigma of 45 MeV sits inside today's 42.2-60.9 MeV, so the whole gap to today's sums comes from the strange input: +74.5 MeV from strange against -15.9 MeV from sigma_piN, relative to FLAG 2+1+1. The tree prints this row as its 'largest central reading of all the READ rows' (massform.py:128-133, 367-375; selftest 5021-5023). It sits beside the FLAG 2024 rows with neither its 1994 inputs nor the ChPT strange content named, so a reader takes it for a present-day reading. As Ji's 1994 estimate it holds exactly; as a present-day reading of the first-order quark-mass share it holds only under that superseded input. That is a smaller class than the tree's use, so the grade is NARROWED.\n\nTwo further unnamed hypotheses do no damage. The leading-order truncation is covered by the tree's verbatim quote of 'omission of higher-order perturbative effects ... 5 to 10 MeV'. n_f = 3 with heavy quarks dropped matches the tree's u,d,s comparators.\n\nWHY NOT DATA-DEPENDENT. The moved datum (sigma_s) moves a printed figure, not the conclusion. Without the m_s -> 0 row the largest READ reading is 0.1183 (Ji m_s -> infinity row plus the electron term). Without both Ji rows it is 0.1096 (FLAG 2+1+1). The 'below half' verdict needs 466 MeV, and every newer datum moves the row down, away from that. The tree's sentence that the largest READ row is Ji's m_s -> 0 row remains true of the rows as held.\n\nWHY NOT WRONG. No contradiction is shown. The b/bM wording and the '1/8' gloss are discrepancies, not refutations.\n\nDIRECTION. The dropped vintage keeps a superseded high row as the tree's maximum, which overstates the Higgs share. The omission therefore cuts against M's below-half verdict, not for it. The grade is not in M's favour, and it is not against M's verdict either: the verdict is unmoved.\n\nVERIFIERS. V1 (STANDS) and V2 (STANDS) are right on everything they READ and computed. They treat the vintage as a note, but under M's named-hypothesis rule an unnamed input vintage on the row the tree calls its largest reading is a dropped hypothesis. V2 itself says 'A stricter reader could grade NARROWED on the vintage.' V3 (NARROWED) is adopted, with its data figures confirmed: 160.5 = 45 + 115.5, gap decomposition +74.5 / -15.9, 0.118 / 0.1096. V2 carries one error, recorded below: its 'rebuilt Table I ... 300/110/320/210'. Its own source_check.py prints 307 for that entry, which rounds to 310.",
+ "scope": "The grade covers the tree's use of Ji, arXiv:hep-ph/9410274v1 Table I: the quark-mass row 160 / 110 MeV, its p.6 error caveats, the p.5 heavy-quark cancellation and the p.7 'about 1/8', as used in massform.py (D65 C2: the READ share rows, the largest READ central reading 0.1719, the margin illustration 0.2362, and keeping heavy-quark terms CONTESTED).\n\nSTANDS EXACTLY for: the quotes (verbatim, correct pages); the arithmetic (17.04 %, 11.72 %, 0.1719, 0.2362, the 466 MeV flip); the first-order identification at Ji's leading order (Eq.30: bM = sigma sum); and the heavy-quark use.\n\nNARROWED in one respect: the 160 MeV row is Ji's 1994 estimate. It holds as the first-order quark-mass share only under the 1994 inputs (sigma = 45 MeV; a ChPT strange charge giving 115.5 MeV; m_s = 150 MeV and m-hat = 7 MeV at 1 GeV^2), at leading order (gamma_m and higher beta neglected) with n_f = 3. The tree names none of the inputs. Superseded as a present value, the row falls to the 0.11-0.12 level, and the 'below half' verdict is unmoved.\n\nNOT COVERED: the typeset PRL 74, 1071 (not read; the extraction artefacts flagged below may or may not be present there); Ji's later PRD where the gamma_m form P6 may live (not read, not checked); Lorce-Metz-Pasquini-Rodini 2021 and the other later decomposition papers, which are NAMED-NOT-READ; the chiQCD 2018 row (its own audit); and whether the Higgs share should be first-order at all, which is H-LINEAR and the tree's own named hypothesis, not this source's.",
+ "corrections_to_record": [
+  "Source status: READ at source in the adjudication pass (and by all three verifiers). It is arXiv:hep-ph/9410274v1, pp.1-9, via alphaXiv get_paper_content fullText. The audit's NAMED-NOT-READ / OPEN is superseded. The typeset PRL 74, 1071 was not read.",
+  "P6, the memory form M_m = (4+gamma_m)/(4(1+gamma_m)) bM, is NOT in this paper. Ji: 'I have consistently neglected gamma_m and the higher-order terms in beta(g)' (p.5). Table I prints M_i = b, H_m 'contributes b fraction of the mass', and Eq.30 gives bM = sigma_piN + <m_s ss>. The audit's drifts 'FIRST-ORDER RESPONSE ASSUMED' and 'LABEL b / lost prefactor' are withdrawn. Re-derivation Part F is not an encoding of this source.",
+  "Audit drift 'SCHEME AND SCALE DROPPED' is withdrawn for the b row. MSbar at 1 GeV^2 qualifies a (Eq.29) and the quark-mass inputs. Ji: the mass and anomaly operators are 'finite and scale independent' (p.4). The 12.5 % scheme bound depended on P6.",
+  "data_at_publication rows 1-2: value_now on Ji's own form is the FLAG sigma sum itself, 87.1-101.9 MeV (9.28-10.85 % of m_N), not 87.1-114.6 MeV, which came from P6.",
+  "data_at_publication row 3: Ji's inputs are READ: sigma = 45 +- 5 MeV [GLS 1991]; (m_u+m_d)/2 = 7 MeV and m_s = 150 MeV at 1 GeV^2; <P|ss|P> ~ 0.77, so m_s<ss> = 115.5 MeV (p.7 '115 MeV') and bM = 160.5, printed 160. Heavy route: m_s<ss> = 62 MeV and bM = 107, printed 110. The implied sigma sum is 160.5, not '142-160' (the 142 came from P6). The attribution of the gap to the strange input is now SHOWN: 115.5 against FLAG sigma_s 41.0 / 44.9 MeV (x2.82 / x2.57), contributing +74.5 MeV of the 58.1 MeV gap to FLAG 2+1+1, against -15.9 MeV from sigma_piN.",
+  "data_at_publication row 4: Ji's prose gives M = 939 MeV (READ, p.2), and both Table I columns sum to 940 (computed from READ entries, no longer 'from memory'). The normalisation spread stays at most 0.031 percentage points. The tree's m_N is computed from PDG-read p and n masses (massform.py:1029), not typed from CODATA.",
+  "Source-internal discrepancy, not a refutation and not used by the tree: as extracted, Eq.31's ratio 0.11 x <uu+dd> with sigma = 45 and m-hat = 7 gives <ss> = 0.707, not Eq.32's 0.77 (a ratio of 0.1198 is needed). Ji's downstream numbers (115 MeV, bM = 160) use 0.77. This may be an extraction or print artefact; the PRL was not checked.",
+  "Source-internal discrepancy, not used by the tree: the Table I m_s -> infinity quark-energy entry recomputes from a = 0.55 and bM = 106.7 to 307.3 MeV (307.8 at M = 940), which rounds to 310, but 300 is printed. With 300 the column sums to 940; with 310 it would be 950. Verifier 2's statement that the rebuild gives '300/110/320/210' is incorrect: its own source_check.py prints 307. The m_s -> 0 column rebuilds exactly to 270/160/320/190.",
+  "Tree wording (massform.py:339 and the printout at 4539): 'the quark mass term b as 160 MeV'. In the source b is dimensionless (Eq.20: b = 4<T^00_m>/M), and 160 MeV is bM (Eq.33). The stored Table I extraction ('b 160 110') is faithful, so this is a wording discrepancy, not a lost prefactor.",
+  "Tree wording (massform.py:341): 'His prose rounds this to \"about 1/8\"'. 1/8 of 939 MeV is 117.4 MeV, which lies between the two rows and within 7.4 MeV of the 110 row, while 160 MeV is about 1/5.9. Ji's '1/8' is not a rounding of the 160 entry. This is a wording overstatement and moves nothing.",
+  "Dropped hypothesis to name: the m_s -> 0 row the tree calls its 'largest central reading of all the READ rows' rests on Ji's 1994 inputs (sigma = 45 MeV; a ChPT strange charge giving 115.5 MeV, which Ji calls 'not completely satisfactory'). As a present value that input is superseded by lattice sigma_s of 41-45 MeV. Without the row, the largest READ reading is 0.1183 (Ji m_s -> infinity); without both Ji rows it is 0.1096 (FLAG 2+1+1). The verdict needs 466 MeV and does not move. Also unnamed, and harmless: leading order (gamma_m and higher beta neglected; covered by the tree's verbatim 'higher-order perturbative effects' caveat) and n_f = 3.",
+  "Audit rederivation outcome A-E is reconfirmed (exit 0). Its first-run 0.03 bound failing at 0.0313 was the script's own guess, as the script itself records."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:128-133",
+   "kind": "dropped-hypothesis",
+   "finding": "C2 summary: 'The largest central reading of all the READ rows is Ji's quark-mass term in his m_s -> 0 column, 17.04 % of the nucleon.' The arithmetic is exact (17.0409 %) and the statement is true of the rows as held, but the row's 1994 inputs (sigma = 45 MeV; ChPT strange charge 115.5 MeV, about 2.6-2.8x today's lattice sigma_s) are not named. Superseded, the maximum falls to 0.1183 / 0.1096. The verdict is unmoved, and the omission overstates the Higgs share, against M."
+  },
+  {
+   "site": "research/warp-drive/massform.py:339-340",
+   "kind": "misprint",
+   "finding": "'gives the quark mass term b as 160 MeV': b is dimensionless in the source (Eq.20); 160 MeV is bM (Eq.33). The 160 / 110 values and the M_i = b column are faithful to Table I p.9. Wording discrepancy only."
+  },
+  {
+   "site": "research/warp-drive/massform.py:341",
+   "kind": "overstatement",
+   "finding": "'His prose rounds this to \"about 1/8\"': 1/8 of M = 117.4 MeV, between the rows and nearest the 110 row; 160 MeV is about 1/5.9. Ji's 1/8 is not a rounding of 160. The quote itself (p.7) is verbatim. Moves nothing."
+  },
+  {
+   "site": "research/warp-drive/massform.py:341-346",
+   "kind": "consistent",
+   "finding": "The rounding to 10 MeV, the omitted errors of 5 to 10 MeV (higher orders, sigma term, current quark masses) and the 'largest uncertainty ... could be larger than the difference of the two estimates' are verbatim from v1 p.6. The 50 MeV difference is computed from the READ rows."
+  },
+  {
+   "site": "research/warp-drive/massform.py:351-356",
+   "kind": "consistent",
+   "finding": "The heavy-quark cancellation quote is verbatim (p.5, after Eq.25). The source continues 'and thus for simplicity I neglect them' (n_f = 3). The tree uses it only to keep heavy-quark terms CONTESTED and out of the READ rows, claiming less than the source."
+  },
+  {
+   "site": "research/warp-drive/massform.py:367-375",
+   "kind": "dropped-hypothesis",
+   "finding": "'LARGEST CENTRAL READING ... over the READ rows alone (0.1719 of the payload)' and the margin illustration 0.2362 reproduce exactly. Both rest on Ji's m_s -> 0 row with its 1994 strange input unnamed. The 'Nothing near one half' conclusion is unmoved: the flip needs 466 MeV."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1358-1362",
+   "kind": "consistent",
+   "finding": "SOURCES 'Ji-cancel' is verbatim against v1 p.5 after Eq.(25). The locator also names PRL 74, 1071, but what was READ is the v1 preprint, and the page numbers are preprint pages."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1363-1365",
+   "kind": "consistent",
+   "finding": "SOURCES 'Ji-eighth' is verbatim against v1 p.7 bullet."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1366-1377",
+   "kind": "consistent",
+   "finding": "SOURCES 'Ji-table': the Table I caption, headings and quark-mass row 'b 160 110' (p.9) and the p.6 error/rounding/uncertainty passage are verbatim. The '...' and '/' splice is declared in the locator."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1466-1471",
+   "kind": "consistent",
+   "finding": "JI_QUARK_MASS_MEV = 160 / 110 and JI_ROUNDING_MEV = 10 match Table I and p.6. JI_ESTIMATE_DIFFERENCE_MEV = 50 is derived from the rows, not typed."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1803",
+   "kind": "consistent",
+   "finding": "JI_FRACTION = MeV / M_N_MEV (M_N_MEV = (m_p+m_n)/2 from PDG-read masses, line 1029). Ji's own 939 (prose) or 940 (table total) moves the 160 row by at most 0.031 percentage points."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1856-1858",
+   "kind": "consistent",
+   "finding": "Ji's rows listed READ among the first-order (H-LINEAR) quark-mass rows. This is faithful at Ji's order: he neglects gamma_m (p.5) and Eq.30 gives bM = sigma_piN + <m_s ss>, the Feynman-Hellmann sum, with no (1+gamma_m/4) factor. The vintage is not named here either (see 128-133)."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1885-1900",
+   "kind": "consistent",
+   "finding": "Margin illustration Ji + 10 + 50 MeV = 220 MeV gives 0.2362. The docstring's note that this is still not Ji's uncertainty at its largest matches his 'could be larger than' (p.6)."
+  },
+  {
+   "site": "research/warp-drive/massform.py:4538-4539",
+   "kind": "misprint",
+   "finding": "The printout label 'Ji quark mass term b, ...' with a percentage of the nucleon: the percentage is bM/m_N, which equals b numerically, so the label is defensible. It carries the same b/bM wording as 339."
+  },
+  {
+   "site": "research/warp-drive/massform.py:5021-5023",
+   "kind": "consistent",
+   "finding": "The selftest that the largest READ row is Ji's m_s -> 0 row is true of the held rows (computed: 0.1716 nucleon part, 0.1719 with electrons). It asserts nothing about a present-day value."
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/hep-ph_9410274.json (full packet read)",
+  "mcp__alphaXiv__get_paper_content(url='https://arxiv.org/abs/hep-ph/9410274', fullText=true) -> arXiv:hep-ph/9410274v1 pp.1-9 full text (excerpts kept at adjudicate/run/source_excerpts_hep-ph_9410274.txt)",
+  "git -C /home/user/Claude-Method-Works status --short research/warp-drive/massform.py (clean); git log -1 -- massform.py -> 4841aaf 2026-09-25",
+  "grep -n Ji/9410274/JI_ sites in massform.py; sed -n 120,135p; 315,380p; 760,768p; 1025,1032p; 1340,1390p; 1800,1805p; 1850,1860p; 1885,1902p; 5018,5036p massform.py",
+  "grep -rn 9410274|Ji over research/warp-drive excluding docket67-raw (only massform.py holds Ji sites)",
+  "cp rederive/hep-ph_9410274.py, verify/refute/ji_check.py, verify/data/ji_datacheck.py, verify/rederive/source_check.py, vacuity.py -> adjudicate/run/",
+  "python3 -B adjudicate/run/audit_rederive.py (exit 0, A-E pass)",
+  "python3 -B adjudicate/run/ji_check.py (exit 0)",
+  "python3 -B adjudicate/run/ji_datacheck.py (exit 0)",
+  "python3 -B adjudicate/run/source_check.py (exit 0; prints m_s->inf quark energy 307)",
+  "python3 -B adjudicate/run/adj_ji.py (exit 0; all checks pass)"
+ ],
+ "reverify_command": "python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/adj_ji.py  # exit 0: Table I = tree 160/110; Eq.30-38 reproduce at leading order nf=3; 17.04/11.72 %; 0.1719; 466 MeV flip; Eq.31/32 and m_s->inf 300-vs-307 discrepancies shown; then re-read with mcp__alphaXiv__get_paper_content(url='https://arxiv.org/abs/hep-ph/9410274', fullText=true) and compare to adjudicate/run/source_excerpts_hep-ph_9410274.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/hep-ph_9410274.json"
+}

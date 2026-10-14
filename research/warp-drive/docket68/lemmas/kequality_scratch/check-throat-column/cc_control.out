@@ -1,0 +1,38 @@
+== C1. pure AdS5 (cA = cS = 0), e = 1/4, 1, 4: exact alpha = beta = exp(-e y)
+  e=0.25: |deviation from exp(-ey)| = 1.78e-15; maxD/e = 0.0e+00; {'C-PRZ': (-0.125, 'nowhere'), 'C-SHEET-M4': (-0.125, 'everywhere'), 'C-S6': (-0.333333, 'everywhere'), 'C-S7': (-0.416667, 'nowhere'), 'C-MIRROR(-1/4)': (-1.0, 'nowhere')}
+  e=1.0: |deviation from exp(-ey)| = 2.66e-15; maxD/e = 0.0e+00; {'C-PRZ': (-0.125, 'nowhere'), 'C-SHEET-M4': (-0.125, 'everywhere'), 'C-S6': (-0.333333, 'everywhere'), 'C-S7': (-0.416667, 'nowhere'), 'C-MIRROR(-1/4)': (-1.0, 'nowhere')}
+  e=4.0: |deviation from exp(-ey)| = 2.66e-15; maxD/e = 0.0e+00; {'C-PRZ': (-0.125, 'nowhere'), 'C-SHEET-M4': (-0.125, 'everywhere'), 'C-S6': (-0.333333, 'everywhere'), 'C-S7': (-0.416667, 'nowhere'), 'C-MIRROR(-1/4)': (-1.0, 'nowhere')}
+== C1b. throat slices made negligible: alpha0 = beta0 = 1e12, y < 3 ell
+  e=0.25: maxD/e = 5.59e-19; {'C-PRZ': (-0.125, 'spread 0.0e+00', 'nowhere'), 'C-SHEET-M4': (-0.125, 'spread 0.0e+00', 'everywhere'), 'C-S6': (-0.333333, 'spread 0.0e+00', 'everywhere'), 'C-S7': (-0.416667, 'spread 0.0e+00', 'nowhere'), 'C-MIRROR(-1/4)': (-1.0, 'spread 0.0e+00', 'nowhere')}
+  e=1.0: maxD/e = 3.70e-20; {'C-PRZ': (-0.125, 'spread 0.0e+00', 'nowhere'), 'C-SHEET-M4': (-0.125, 'spread 0.0e+00', 'everywhere'), 'C-S6': (-0.333333, 'spread 0.0e+00', 'everywhere'), 'C-S7': (-0.416667, 'spread 0.0e+00', 'nowhere'), 'C-MIRROR(-1/4)': (-1.0, 'spread 0.0e+00', 'nowhere')}
+  e=4.0: maxD/e = 2.46e-21; {'C-PRZ': (-0.125, 'spread 0.0e+00', 'nowhere'), 'C-SHEET-M4': (-0.125, 'spread 0.0e+00', 'everywhere'), 'C-S6': (-0.333333, 'spread 0.0e+00', 'everywhere'), 'C-S7': (-0.416667, 'spread 0.0e+00', 'nowhere'), 'C-MIRROR(-1/4)': (-1.0, 'spread 0.0e+00', 'nowhere')}
+== C2. mutation: the same detector on the corridor's throat column (alpha0 = beta0 = 1)
+  e=0.25: maxD/e = 2.09e+06; {'C-PRZ': (-0.125, -0.0, 'spread 0.12', 'nowhere'), 'C-SHEET-M4': (-0.125, -0.0, 'spread 0.12', 'somewhere'), 'C-S6': (-0.3333, -0.0, 'spread 0.33', 'somewhere'), 'C-S7': (-0.4167, -0.0, 'spread 0.42', 'somewhere'), 'C-MIRROR(-1/4)': (-602682.6752, -1.0, 'spread 602681.68', 'nowhere')}
+  e=1.0: maxD/e = 9.48e+05; {'C-PRZ': (-0.125, -0.0, 'spread 0.12', 'nowhere'), 'C-SHEET-M4': (-0.125, -0.0, 'spread 0.12', 'somewhere'), 'C-S6': (-0.3333, -0.0, 'spread 0.33', 'somewhere'), 'C-S7': (-0.4167, -0.0, 'spread 0.42', 'somewhere'), 'C-MIRROR(-1/4)': (-273554.7455, -1.0, 'spread 273553.75', 'nowhere')}
+  e=4.0: maxD/e = 5.60e+05; {'C-PRZ': (-0.125, -0.0, 'spread 0.12', 'nowhere'), 'C-SHEET-M4': (-0.125, -0.0, 'spread 0.12', 'somewhere'), 'C-S6': (-0.3333, -0.0, 'spread 0.33', 'somewhere'), 'C-S7': (-0.4167, -0.0, 'spread 0.42', 'somewhere'), 'C-MIRROR(-1/4)': (-161757.1876, -1.0, 'spread 161756.19', 'nowhere')}
+== C3. positive control: alpha0=1, beta0=2 (R4 = -3/8), umbilic plane at s1 = 1/2: k = -e/2 must satisfy k^2 = e^2 + R4/12
+  scan roots: [0.2041241452319315]  1/sqrt(24) = 0.20412414523193154
+  constraint at start: 8.881784197001253e-17
+== C4. at most one umbilic slice: start umbilic with unequal radii, follow both ways
+  e=0.5 radii=(1.0,2.0) k=-0.4677: forward D>0 everywhere: True (min 3.13e-05, to y=1.521); backward D<0 everywhere: True (max -3.12e-05, to y=-5.000)
+  e=1.0 radii=(2.0,1.0) k=-1.0155: forward D>0 everywhere: True (min 3.13e-05, to y=1.001); backward D<0 everywhere: True (max -6.83e-06, to y=-5.000)
+  e=0.25 radii=(1.0,3.0) k=+0.1596: forward D>0 everywhere: True (min 2.78e-05, to y=5.000); backward D<0 everywhere: True (max -2.78e-05, to y=-2.418)
+  e=2.0 radii=(1.5,1.0) k=-2.0058: forward D>0 everywhere: True (min 3.61e-05, to y=0.645); backward D<0 everywhere: True (max -1.85e-10, to y=-5.000)
+== F1. C-S7 far side (decaying, e_f = e/6): distance z to alpha -> 0, z*e_f, Kasner exponent
+  e=0.000976562 y2=0.308099 far: a_f/e_f=-7.7500 D=0.1542 z_s=2.24107 z*e_f=0.0003648 dlnK/dln(alpha)=-5.856 min D_f>0: True
+  e=0.03125    y2=0.926213 far: a_f/e_f=-7.7500 D=0.5158 z_s=1.47555 z*e_f=0.007685 dlnK/dln(alpha)=-5.856 min D_f>0: True
+  e=0.125      y2=1.1768 far: a_f/e_f=-7.7500 D=1.003 z_s=0.846293 z*e_f=0.01763 dlnK/dln(alpha)=-5.856 min D_f>0: True
+  e=1          y2=0.750975 far: a_f/e_f=-7.7500 D=4.927 z_s=0.175247 z*e_f=0.02921 dlnK/dln(alpha)=-5.856 min D_f>0: True
+  e=4          y2=0.342657 far: a_f/e_f=-7.7500 D=18.25 z_s=0.0473233 z*e_f=0.03155 dlnK/dln(alpha)=-5.856 min D_f>0: True
+  e=64         y2=0.0426907 far: a_f/e_f=-7.7500 D=284.5 z_s=0.00303575 z*e_f=0.03238 dlnK/dln(alpha)=-5.856 min D_f>0: True
+== F2. coincidence branches (y2 = 0): far side is the throat column at e_f, pure-trace start
+  e=0.03125  C-SHEET-M4 e_f=0.023438 z*e_f=0.0566
+  e=0.03125  C-S6       e_f=0.010417 z*e_f=0.0259
+  e=0.125    C-SHEET-M4 e_f=0.09375 z*e_f=0.1966
+  e=0.125    C-S6       e_f=0.041667 z*e_f=0.0967
+  e=1        C-SHEET-M4 e_f=0.75 z*e_f=0.7954
+  e=1        C-S6       e_f=0.33333 z*e_f=0.5015
+== J. Jacobian of (rho_m, p_th,m) in (y2, e) [nu units]: det = 3 (a' D_e - (a_e - s2) D') -- probe
+  e=0.03125:  f0.25/s-0.250:1.26 f0.25/s-0.333:1.12 f0.25/s-0.167:1.4 f0.25/s-0.125:1.47 f0.25/s+1.000:3.39 f0.5/s-0.250:1.44 f0.5/s-0.333:1.24 f0.5/s-0.167:1.65 f0.5/s-0.125:1.75 f0.5/s+1.000:4.47 f0.75/s-0.250:1.9 f0.75/s-0.333:1.27 f0.75/s-0.167:2.54 f0.75/s-0.125:2.86 f0.75/s+1.000:11.5
+  e=0.125:  f0.25/s-0.250:1.61 f0.25/s-0.333:1.43 f0.25/s-0.167:1.79 f0.25/s-0.125:1.88 f0.25/s+1.000:4.32 f0.5/s-0.250:2.3 f0.5/s-0.333:2.01 f0.5/s-0.167:2.6 f0.5/s-0.125:2.75 f0.5/s+1.000:6.74 f0.75/s-0.250:3.57 f0.75/s-0.333:2.64 f0.75/s-0.167:4.5 f0.75/s-0.125:4.96 f0.75/s+1.000:17.5
+  e=1.0:  f0.25/s-0.250:3.84 f0.25/s-0.333:3.41 f0.25/s-0.167:4.26 f0.25/s-0.125:4.47 f0.25/s+1.000:10.2 f0.5/s-0.250:11.2 f0.5/s-0.333:9.95 f0.5/s-0.167:12.5 f0.5/s-0.125:13.1 f0.5/s+1.000:30.3 f0.75/s-0.250:31.7 f0.75/s-0.333:27 f0.75/s-0.167:36.5 f0.75/s-0.125:38.9 f0.75/s+1.000:103

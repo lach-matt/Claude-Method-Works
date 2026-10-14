@@ -1,0 +1,75 @@
+{
+ "key": "2504.05813",
+ "name": "Escriva 2025: U = D_t R, Gamma = D_r R, Gamma = sqrt(1 + U^2 - 2M/R), 'generalised Lorentz factor'",
+ "source": {
+  "located": "A. Escriva, 'A new approach for simulating PBH formation from generic curvature fluctuations with the Misner-Sharp formalism', arXiv:2504.05813v3 [astro-ph.CO], 28 Nov 2025 (v1 8 Apr 2025). Section 2, p.3-5: eqs. (2.1)-(2.5), (2.12); p.12 (type-II Gamma < 0).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 2504.05813 (pp.1-2, 4-5, 11, 13-14, 20-23, 30-32 returned; eqs. 2.1-2.15 and p.12 text read verbatim). Misner & Sharp 1964 (ref [57]) is the source Escriva cites for the equations and is NOT read here."
+ },
+ "published_statement": "p.3-4: 'we need to consider a perfect fluid with the energy-momentum tensor T^{mu nu} = (p + rho) u^mu u^nu + p g^{mu nu} (2.1), and with the following spacetime metric in spherical symmetry: ds^2 = -A(r,t)^2 dt^2 + B(r,t)^2 dr^2 + R(r,t)^2 dOmega^2 (2.2) ... we have chosen zero-shift vector beta^i = 0 (comoving threading). The components of the four-velocity ... u^t = 1/A and u^i = 0 ... (comoving slicing).' '(1/A) dR/dt = D_t R = U(r,t), (1/B) dR/dr = D_r R = Gamma(r,t) (2.3), where D_t and D_r are the proper time and distance derivatives.' 'The Misner-Sharp mass M(r,t) is introduced as M(R) = int_0^R 4 pi Rt^2 rho dRt (2.4), which is related with Gamma, U and R through the constraint: Gamma = sqrt(1 + U^2 - 2M/R) (2.5)'; p.5: 'where Gamma is called the generalised Lorentz factor, which includes the gravitational potential energy and kinetic energy per unit mass.' p.12 (same paper): 'we observe the throat-neck structure in the areal radius R, which causes the function Gamma to take negative values' and 'when Gamma < 0, the integrand in Eq. (2.4) (4 pi Rt^2 rho Gamma B), taken over the comoving radial coordinate r includes a locally \"negative mass\" component'. Units G = c = 1 (p.3).",
+ "published_hypotheses": [
+  "H1 spherical symmetry, metric (2.2) diagonal in (t, r)",
+  "H2 zero shift beta^i = 0 ('comoving threading') -- makes D_t = (1/A) d_t the derivative along the slice normal",
+  "H3 perfect fluid (2.1), comoving slicing u^t = 1/A (no radial energy flux in these coordinates)",
+  "H4 M defined by the integral (2.4) from R = 0 (regular centre implied); taken over r with integrand 4 pi R^2 rho Gamma B when R is non-monotonic (p.12)",
+  "H5 Einstein field equations (the constraint (2.5) is stated as following from them: 'Solving the Einstein field equations, the following quantities appear')",
+  "H6 IMPLICIT in the printed root of (2.5): Gamma >= 0, i.e. R' > 0 with outward-oriented r -- a hypothesis the same paper departs from on p.12 (Gamma < 0 for type-II data)",
+  "H7 geometrized units G = c = 1"
+ ],
+ "hypothesis_drift": [
+  "DROPPED, HARMLESS (machine-checked): H3 perfect fluid / comoving slicing and H5 field equations. Tree's hypotheses are 'spherical symmetry, Misner-Sharp mass M' (canonical entry; driven.py:74-80). driven.py:541-548 defines m GEOMETRICALLY (solves 1 - 2m/R = g^ab d_aR d_bR) in a general diagonal metric; with that M, Gamma^2 = 1 + U^2 - 2M/R is a kinematic identity needing no matter model (rederive check A, residual 0). The tree's use is therefore MORE general than the source's hypotheses, and correctly so.",
+  "DROPPED, HARMLESS HERE: H4 -- the tree never uses the integral (2.4). The source's integral equals the geometric M only for comoving perfect fluid (T^t_r = 0) plus regular centre (check C1-C2: M' = (R^2/2)(-G^t_t R' + G^t_r Rdot); comoving perfect fluid gives 4 pi rho R^2 R' = eq. 2.12 x B). With radial flux and Rdot != 0 the integral misses 4 pi R^2 q Rdot (check C3). The tree cites only (2.3) and (2.5) (driven.py:74-75, 492, 510, 575), so this does not reach it.",
+  "DROPPED, SATISFIED: H2 zero shift. Needed for (2.3)'s literal U = (1/A) dR/dt to obey (2.5): with a shift the literal U fails (check B1, residual beta R'(beta R' - 2 Rdot)/A^2) and the normal derivative passes (B2). driven.py's metric (driven.py:541) is diagonal, so the hypothesis holds in every use the tree makes.",
+  "DROPPED, NOT HARMLESS: H6, the root branch. driven.py:75 quotes 'Gamma = sqrt(1 + U^2 - 2M/R)'; driven.py:78-80 'contraction <=> Gamma > 1 ... E = (Gamma^2 - 1)/2 > 0. Contraction IS unboundedness'; driven.py:164 'CONTRACTION <=> dl < dR <=> Gamma > 1 <=> 2m/R < e^{-2Phi}Rdot^2'; driven.py:386 docstring 'which is Gamma > 1, which is 2m/R < U^2'; driven.py:512, :891; driven.py:376-381 gamma() returns +sqrt. The step Gamma > 1 <=> Gamma^2 > 1 needs Gamma > 0 (R' > 0, outward r). The source itself has Gamma < 0 on type-II slices (p.12) and the same group, 2505.00366 p.4, writes the LTB form with 'the positive and negative root +-sqrt(1+2E)' across a neck. driven.py's own V9 (driven.py:598, Rprime positive=True) assumes the branch without naming it. Check D: static metric ds^2 = -dt^2 + dl^2 + (1 + 4 l^2) dOmega^2 at l = -10: Gamma = -1.997505, m = -29.9376, driven.contracts(m, R, 0) = True, but Gamma > 1 is False and dl < dR is False (|dR| > dl is True). The tree's COMPUTED criterion contracts() uses the square and is the orientation-free |dR| > dl; the prose chain and the quoted positive root are narrower than the class the tree applies them to (wormhole throats are this tree's subject: driven.py:86-98).",
+  "NOT A DRIFT: M's definition. Source defines M by (2.4); tree by the geometric Misner-Sharp scalar. They coincide under H3+H4 (check C2); the tree's is the invariant (Hayward gr-qc/9408002 eq. 4) and is the wider one.",
+  "NOT A DRIFT: slicing. Source's U is 'the radial component of the four-velocity associated with an Eulerian frame' of the comoving slicing; the tree applies (2.3) to the normal of an arbitrary diagonal slicing. U and Gamma are foliation-dependent, Gamma^2 - U^2 = 1 - 2M/R is not; driven.py:290 already states contraction 'is a property of the FOLIATION and not of the spacetime'.",
+  "NOT A DRIFT: the name. 'where Gamma is called the generalised Lorentz factor' is quoted verbatim and accurately (source p.5)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to eqs. (2.3), (2.5)",
+   "value_then": "none -- a definition (2.3) and a kinematic/constraint identity (2.5) in geometrized units G = c = 1",
+   "value_now": "none",
+   "source_now": "n/a (no empirical constant enters)",
+   "moves_conclusion": "no -- nothing measured enters; the identity is re-derived symbolically (check A)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2504.05813.py",
+  "outcome": "14/14 as expected, ~4 s. A: Gamma^2 - (1 + U^2 - 2M/R) = 0 in the general diagonal metric with geometric MS mass, no matter model (reproduces driven.py V4 independently). B1: with a shift the literal (2.3) U fails, residual beta R'(beta R' - 2 Rdot)/A^2; B2: normal-derivative U passes, 0. C1: M' = (R^2/2)(-G^t_t R' + G^t_r Rdot) exactly; C2: comoving perfect fluid gives eq. (2.12); C3: radial flux adds 4 pi q R^2 Rdot, so (2.4) is perfect-fluid/comoving only. D: far side of a throat (R = sqrt(1 + 4 l^2), l = -10): Gamma^2 = 1 + U^2 - 2m/R holds (D1), Gamma = +sqrt is false (Gamma = -1.997505 vs +1.997505, D2), driven.contracts() returns True (D3, D6 via read-only import) while Gamma > 1 and dl < dR are False (D4); on the R' > 0 side the chain holds (D5). E: driven.py:698 fixture gamma(1,10,1) = sqrt(1.8) = 1.341640786 reproduced.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Uehara, Escriva, Harada, Saito, Yoo, arXiv:2505.00366 (May 2025), 'PBH formation from a type II perturbation in the absence and presence of pressure'",
+   "effect": "narrows",
+   "what": "p.4-5: LTB metric g_rr = (R')^2/(1+2E); '1 + 2E = 0 is allowed if R' = 0 at the same radius ... bottle neck or wormhole ... can make the areal radius R non-monotonic ... and can connect regions with the positive and negative root +-sqrt(1+2E)', citing 2504.05813 as [29]. Since Gamma = R'/sqrt(g_rr) = +-sqrt(1+2E), this is the source group stating the two-branch form that (2.5)'s printed root omits.",
+   "read_status": "READ (alphaXiv, pp.1-11, 13-15)"
+  },
+  {
+   "ref": "Escriva, arXiv:2504.05814 (PRD 112, 103527, 2025), threshold in the type-II region",
+   "effect": "extends",
+   "what": "companion paper using the same Misner-Sharp variables in the type-II (R' changes sign) regime; surfaced by discover_papers, not read here.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Uehara et al., arXiv:2401.06329 (JCAP 01 (2025) 003), Numerical simulation of type II PBH formation",
+   "effect": "confirms",
+   "what": "earlier type-II simulations in which R' < 0 regions (necks) occur; cited by the source as [41] for the Gamma < 0 configurations it reproduces. Not read here.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Hayward, gr-qc/9408002 (PRD 53, 1938), eq. (4) E = (r/2)(1 - g^-1(dr,dr))",
+   "effect": "confirms",
+   "what": "the invariant (geometric) Misner-Sharp mass the tree actually uses; the audit of that entry (audits/misner-sharp-1964-mass-function.json) read it at source. Cited by Escriva as [70].",
+   "read_status": "READ in the sibling audit misner-sharp-1964-mass-function, not re-read here"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite on this result in either direction, and the evidence is structural: (2.3) is a definition and (2.5), with M the geometric Misner-Sharp mass, is an identity of the metric (check A, residual 0) into which no measured quantity enters -- there is no datum the author could have lacked. What the source DID lack is not data but a named hypothesis: the printed positive root silently assumes R' > 0, which the type-I literature it inherits from always satisfied, and which the paper's own type-II subject (p.12, Gamma < 0) violates. That omission is a presentation discrepancy in the source (the squared constraint, which is what the numerics and the tree's computation use, is correct on both branches), not a physical error. The later paper 2505.00366 (same group) writes the two-branch form explicitly. So: no moved datum; one unnamed branch hypothesis, inherited by the tree's prose.",
+ "grade": "NARROWED",
+ "grade_evidence": "READ at source (2504.05813v3 pp.3-5, 12). The definitions (2.3) and the constraint in SQUARED form, Gamma^2 = 1 + U^2 - 2M/R, STAND for every use the tree makes and hold more generally than the source's perfect-fluid/comoving hypotheses once M is the geometric Misner-Sharp mass, as the tree defines it (check A; driven.py:541-548; driven.py V4 and contracts() use only the square). The name 'generalised Lorentz factor' is quoted accurately. The narrowing is the printed root: 'Gamma = sqrt(1 + U^2 - 2M/R)' (quoted at driven.py:75, implemented at driven.py:376-381) holds only where Gamma >= 0 (R' > 0, outward r), and the source's own p.12 has Gamma < 0; 2505.00366 p.4 writes +-sqrt(1+2E). Carried into the tree, the chain 'dl < dR <=> Gamma > 1 <=> 2m/R < U^2' (driven.py:164, 386; also 78-80, 512, 891) is shown false on the far side of a throat (check D: Gamma = -1.997505, contracts() True, Gamma > 1 and dl < dR False). This is NOT WRONG: no computed result of the tree's is refuted -- contracts() computes the orientation-free |dR| > dl, V1-V8 residuals are unaffected, and on R' > 0 the chain holds (D5). It is a hypothesis (R' > 0 / positive branch) the tree drops, on a class (spacetimes with throats) the tree applies it to. Recorded, not repaired.",
+ "what_would_change_the_grade": "To STANDS: the tree names R' > 0 (outward-oriented r, no neck on the slice) as the hypothesis of every 'Gamma > 1' / '+sqrt' statement, or rewrites those statements as |Gamma| > 1 / Gamma^2 > 1 (which is what contracts() already computes) -- nothing in the source would then be used beyond its reach. To WRONG: only a counterexample to the SQUARED identity with geometric M in a diagonal spherically symmetric metric, which check A excludes symbolically. To OPEN: none -- the source was read and the claim is closed-form.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2504.05813.py   # exits 0 with 'ALL CHECKS AS EXPECTED'; then: sed -n '74,80p;160,166p;376,387p;596,600p' /home/user/Claude-Method-Works/research/warp-drive/driven.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2504.05813.json"
+}

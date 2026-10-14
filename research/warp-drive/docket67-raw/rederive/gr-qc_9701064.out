@@ -1,0 +1,41 @@
+PASS C1 printed LHS (5)-(7) == G^mu_nu of metric (2), MTW  [0, 0, 0]
+PASS C2a tree copy md5 == live hpscentre.py  07145787fd14c946a1b14167b6b0d109
+PASS C2b my text-layer transcription == tree hpscentre.build() at printed slots  [0, 0, 0, 0, 0, 0]
+PASS C2c tree LHS == printed LHS
+     non-homogeneous terms (printed): [('ll_l', -4*F1**2*R1**2/(F0**2*R0), s**(-3))]
+PASS C3 exactly one printed term is not length^-4: ll-log -4 f'^2 r'^2/(f^2 r)
+     ll-log slot r^1: conserving (a_tt, a_th) solutions = []
+     ll-log slot r^2: conserving (a_tt, a_th) solutions = [{a_th: 21, a_tt: 116}]
+PASS C4a printed r^1 slot: NO (a_tt, a_th) conserves
+PASS C4b r^2 slot: unique conserving pair (a_tt, a_th) = (116, 21)
+PASS C4c conserved reading: log bracket alone conserved  0
+PASS C4d conserved reading: log bracket traceless  0
+     printed log-bracket trace: 4*(-f(l)*r(l)*Derivative(r(l), l)**2 + f(l)*Derivative(r(l), l)**2 - 25*r(l)**2*Derivative(f(l), (l, 2)))*Derivative(f(l), l)**2/(f(l)**3*r(l)**2)
+PASS C4e printed system (16, 21, r^1) NOT conserved
+PASS C4f both repaired terms vanish where f'=0 (the throat)
+     non-log trace == 16(Riem^2 - Ric^2 + c boxR): c = [{c: 1}]
+PASS C5 non-log trace is 16(Riem^2 - Ric^2 + c box R) with unique c = 1
+PASS C6a eq. (8) follows from (6) at l=0 with r'=f'=0 (printed quartic reproduced)  0
+PASS C6b eq. (8) independent of f'''(0), r'''(0) (p.6 claim)
+PASS C6c eq. (8) is the same under the ll-slot repair (r^1 vs r^2)
+PASS C7a0 (8) with f''=r''=0 collapses to K^-2 r0^2 + 16 L = 0
+PASS C7a eq. (9) r(0) = sqrt(-16 K^2 ln f(0)) from (8) with f''=r''=0
+     r0(L=-2/3) = sqrt(15)/(90*sqrt(pi)) = 0.024279 l_P  (printed '~0.02 l_P')
+PASS C7b r0(L=-2/3) = sqrt(15)/(90 sqrt(pi)) = 0.02428 l_P
+     case f=f''=1, r''=0: r0 = [12*sqrt(10)*sqrt(pi)] = [67.25989459677514] l_P  (printed '~67 l_P')
+PASS C7c p.7 case: r0 = 12 sqrt(10 pi) = 67.2599 l_P
+PASS C7d p.7 case lies OUTSIDE the eq. (9) range (ln f(0)=0, f''(0)=1 != 0)  recorded: it is a separate p.7 illustration, not the plotted solution
+     f''''(0)/f(0) = -259200*pi**2*(L + 1)/(L*(3*L + 4))    r''''(0)/r(0) = -129600*pi**2*(L**2 - 2)/(L**2*(3*L + 4))
+PASS C8a f''''/f and r''''/r at the throat == qeihps.py values
+PASS C8b printed and conserved readings agree at the throat (4th derivatives)
+     at L=-1: f''''/f = 0, r''''/r = 129600*pi**2; on (-1,0): (-L-1)<0, L<0, 3L+4>0 => f''''/f>0; 2-L^2>0 => r''''/r>0
+     exact solution sets: f''''/f>=0 on Union(Interval.open(-oo, -4/3), Interval.Ropen(-1, 0)) ; r''''/r>0 on Union(Interval.open(-oo, -sqrt(2)), Interval.open(-4/3, 0), Interval.open(0, sqrt(2)))
+PASS C8c f''''/f >= 0 and r''''/r > 0 on [-1, 0) (exact inequality solve + grid of 999 rationals)
+     throat: rho = -45/L  p_l = 45/L  p_t = 0  rho(-2/3) = 135/2
+PASS C8d rho = -45/L, p_l = -rho, p_t = 0; rho(-2/3) = 135/2
+     rho + p_l (L=-2/3) = -28350*pi*l**2 + O(l^4)
+PASS C8e rho + p_l = -28350 pi l^2 + O(l^4) at L=-2/3
+     m(l) = sqrt(10)*(L**2*(3*L + 4) - 5400*pi**2*l**4*(L**2 - 2))/(120*sqrt(pi)*(-L)**(3/2)*(3*L + 4))
+PASS C9 m = r0/2 + O(l^4) on data (9) (so 'through second order' holds, and further)
+
+SUMMARY: ALL PASS

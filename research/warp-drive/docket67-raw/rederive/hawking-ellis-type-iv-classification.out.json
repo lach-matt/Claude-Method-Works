@@ -1,0 +1,276 @@
+{
+ "C1a discriminant of char poly": "(-2*f + p + rho)*(2*f + p + rho)",
+ "C1a disc == (rho+p)^2 - 4 f^2": true,
+ "C1b z3: TypeIV-block and NEC on both radial nulls": "unsat",
+ "C1c z3: real eigenvalue of block when disc<0": "unsat",
+ "C2_rows": [
+  {
+   "point": [
+    0.6,
+    0.0
+   ],
+   "alcubierre_lab": {
+    "norm": 0.0015366736575690599,
+    "im_over_norm": 0.5717295368010684,
+    "trace_T": -2.7909786566592044e-05,
+    "ricci_scalar": 0.0007014494435269173,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.001242631477022751,
+    "im_over_norm": 0.7070171122345364,
+    "trace_T": -2.7909786566592044e-05,
+    "ricci_scalar": 0.0007014494435269173,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.006120371263616595,
+    "im_over_norm": 0.1435471282075804,
+    "trace_T": 0.008378301492871956,
+    "ricci_scalar": -0.21056968335653548,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.006120390676506166,
+    "im_over_norm": 0.14354681887420528,
+    "type": "IV"
+   }
+  },
+  {
+   "point": [
+    0.9,
+    0.0
+   ],
+   "alcubierre_lab": {
+    "norm": 0.15050424375207003,
+    "im_over_norm": 0.32843818594739355,
+    "trace_T": -0.17888506338343177,
+    "ricci_scalar": 4.4958720076986705,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.14476159142354322,
+    "im_over_norm": 0.3414672380237108,
+    "trace_T": -0.17888506338343177,
+    "ricci_scalar": 4.4958720076986705,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.22317271421852353,
+    "im_over_norm": 0.22149365780851077,
+    "trace_T": 0.2937838182580091,
+    "ricci_scalar": -7.383592681463363,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.2231716814883471,
+    "im_over_norm": 0.2214948505918036,
+    "type": "IV"
+   }
+  },
+  {
+   "point": [
+    0.9,
+    0.3
+   ],
+   "alcubierre_lab": {
+    "norm": 0.2780410445463532,
+    "im_over_norm": 0.2815047149544695,
+    "trace_T": -0.3298469504288495,
+    "ricci_scalar": 8.289958050210162,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.28328647642267946,
+    "im_over_norm": 0.27629227479917196,
+    "trace_T": -0.3298469504288495,
+    "ricci_scalar": 8.289958050210162,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.159087621595046,
+    "im_over_norm": 0.6424655170869424,
+    "trace_T": 0.055534137179168226,
+    "ricci_scalar": -1.3957250990841816,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.15908717907539777,
+    "im_over_norm": 0.6424662640919286,
+    "type": "IV"
+   }
+  },
+  {
+   "point": [
+    1.0,
+    0.0
+   ],
+   "alcubierre_lab": {
+    "norm": 0.2548208638564752,
+    "im_over_norm": 0.3122879667392387,
+    "trace_T": -0.31831002946805753,
+    "ricci_scalar": 8.000003601126402,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.25482086097245865,
+    "im_over_norm": 0.31228797027365746,
+    "trace_T": -0.31831002946805753,
+    "ricci_scalar": 8.000003601126402,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.2548208638564349,
+    "im_over_norm": 0.31228796673928805,
+    "trace_T": -0.318310029467993,
+    "ricci_scalar": 8.00000360112478,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.2548194268463307,
+    "im_over_norm": 0.31228931578139174,
+    "type": "IV"
+   }
+  },
+  {
+   "point": [
+    1.0,
+    0.2
+   ],
+   "alcubierre_lab": {
+    "norm": 0.17442041068678427,
+    "im_over_norm": 0.43109902600414624,
+    "trace_T": -0.18720557778029695,
+    "ricci_scalar": 4.704989342924908,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.17610196297261696,
+    "im_over_norm": 0.4269825724430338,
+    "trace_T": -0.18720557778029695,
+    "ricci_scalar": 4.704989342924908,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.28860962977385335,
+    "im_over_norm": 0.2585265206840948,
+    "trace_T": -0.37188560016688726,
+    "ricci_scalar": 9.346504555680994,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.2886081516275057,
+    "im_over_norm": 0.258527712652287,
+    "type": "IV"
+   }
+  },
+  {
+   "point": [
+    1.05,
+    0.4
+   ],
+   "alcubierre_lab": {
+    "norm": 0.21378005615598408,
+    "im_over_norm": 0.10805485694634834,
+    "trace_T": 0.2598397624892931,
+    "ricci_scalar": -6.530485511575038,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.22398891555202352,
+    "im_over_norm": 0.10312998448600456,
+    "trace_T": 0.2598397624892931,
+    "ricci_scalar": -6.530485511575038,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.12612361134066505,
+    "im_over_norm": 0.5397797169963247,
+    "trace_T": -0.09577962161254697,
+    "ricci_scalar": 2.407204444972702,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.1261237448469821,
+    "im_over_norm": 0.5397784957742903,
+    "type": "IV"
+   }
+  },
+  {
+   "point": [
+    1.2,
+    0.3
+   ],
+   "alcubierre_lab": {
+    "norm": 0.06967775303782395,
+    "im_over_norm": 0.04916412268173648,
+    "trace_T": 0.09414410912830778,
+    "ricci_scalar": -2.36609953292998,
+    "type": "IV"
+   },
+   "alcubierre_comoving": {
+    "norm": 0.07119356256022455,
+    "im_over_norm": 0.048117350436585715,
+    "trace_T": 0.09414410912830778,
+    "ricci_scalar": -2.36609953292998,
+    "type": "IV"
+   },
+   "typefour_static": {
+    "norm": 0.018970656000776007,
+    "im_over_norm": 0.6937112951995884,
+    "trace_T": -0.004445641278872633,
+    "ricci_scalar": 0.11173115185761437,
+    "type": "IV"
+   },
+   "typefour_py": {
+    "norm": 0.01897068323206255,
+    "im_over_norm": 0.6937110419478362,
+    "type": "IV"
+   }
+  }
+ ],
+ "C2a true Alcubierre Type IV at all 7 wall points": true,
+ "C2b comoving chart reproduces lab Ricci scalar (invariant)": true,
+ "C2c typefour.py numbers = static metric numbers (6 fig)": true,
+ "C2d points where static Ricci scalar != Alcubierre (>1e-6)": 6,
+ "C2e min Im/|T| over wall points, true Alcubierre": 0.04916412268173648,
+ "C2f min Im/|T| over wall points, typefour static": 0.1435471282075804,
+ "C3 max |T^00_lab - T^00_static| over wall points": 3.543711097672514e-32,
+ "C4a (xi ^ dxi)_{txy}": "y*(-(f(sqrt(x**2 + y**2 + z**2)) - 1)**2 - 4)*Subs(Derivative(f(_xi_1), _xi_1), _xi_1, sqrt(x**2 + y**2 + z**2))/(8*sqrt(x**2 + y**2 + z**2))",
+ "C4a vanishes identically?": false,
+ "C4b on axis y=z=0": "0",
+ "C4c axis samples with |T|>1e-6": 80,
+ "C4c of which Type IV (complex pair)": 80,
+ "C4_axis_iv_x_range": [
+  0.02,
+  1.6
+ ],
+ "C5 alcubierre_lab sigma=8  Type-IV fraction (4472 pts)": 0.9883830257902666,
+ "C5 typefour_static sigma=8  Type-IV fraction (4472 pts)": 0.9734783721594736,
+ "C5 alcubierre_lab sigma=4  Type-IV fraction (8928 pts)": 0.9907728484445615,
+ "C5 alcubierre_lab sigma=16  Type-IV fraction (8974 pts)": 0.9768739659633576,
+ "C5 alcubierre_lab sigma=32  Type-IV fraction (17970 pts)": 0.9562203248995339,
+ "C5": {
+  "alcubierre_lab_sigma8": {
+   "typeIV_fraction": 0.9883830257902666,
+   "wall_samples": 4472
+  },
+  "typefour_static_sigma8": {
+   "typeIV_fraction": 0.9734783721594736,
+   "wall_samples": 4472
+  },
+  "alcubierre_lab_sigma4": {
+   "typeIV_fraction": 0.9907728484445615,
+   "wall_samples": 8928
+  },
+  "alcubierre_lab_sigma16": {
+   "typeIV_fraction": 0.9768739659633576,
+   "wall_samples": 8974
+  },
+  "alcubierre_lab_sigma32": {
+   "typeIV_fraction": 0.9562203248995339,
+   "wall_samples": 17970
+  }
+ },
+ "C5a sigma=8 true-Alcubierre fraction within 2 pts of Le Table 2 (0.987)": true
+}

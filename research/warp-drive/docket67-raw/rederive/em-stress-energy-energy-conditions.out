@@ -1,0 +1,55 @@
+A  CLASSICAL MAXWELL FIELD (Heaviside-Lorentz, c=1; 1/4pi dropped)
+  A1 T_00 = (E^2+B^2)/2                                              ok 
+  A1 |T_0i| = |E x B| (Poynting)                                     ok 
+  A1 trace g^ab T_ab = 0                                             ok 
+  A2 T00^2 - |T0i|^2 == ((E^2-B^2)^2 + 4(E.B)^2)/4  (identity)       ok 
+     => for EVERY observer (any frame's e0) energy density >= 0 and the flux
+        -T^a_b u^b is causal: WEC and DEC hold for every F_ab; NEC by limit.
+  A3 char. poly of T^a_b = (lam^2 - L^2)^2, L^2=((E^2-B^2)^2+4(E.B)^2)/4 ok 
+     => eigenvalues {-L,-L,+L,+L}: canonical frame rho=L, p_1=-L, p_2=p_3=+L,
+        exactly charge.em_is_ordinary()'s (rho, p_r=-rho, p_t=+rho) with rho=L.
+  A2' numeric T_ab u^a v^b >= 0, 12000 random (F,u,v)                ok min normalised 1.840e-03
+  A4 null field (E=x, B=y): T^a_b nilpotent (type II), T_00=1>0      ok T_ab=[[1, 0, 0, -1], [0, 0, 0, 0], [0, 0, 0, 0], [-1, 0, 0, 1]]
+  A4 null field NEC: T_ab k^a k^b >= 0 for 2000 random null k        ok min 7.463e-06
+     charge.em_is_ordinary() tests only the non-null (type I) eigenstructure;
+     the null case is not in it and is shown here to satisfy NEC/WEC/DEC too.
+  A5 conditions at (rho,-rho,rho) are True for every rho>0 (rho=1 is WLOG) ok 
+
+A6  ENERGY-CONDITION DEFINITIONS, HAWKING-ELLIS TYPE I (z3)
+  A6 WEC: 'T_ab u^a u^b>=0 all timelike u' <=> charge.py's algebraic form ok unsat
+  A6 NEC: 'T_ab u^a u^b>=0 all null u' <=> charge.py's algebraic form ok unsat
+  A6 vacuity guard (EM point satisfies; p1=-1.1 rho refutes)         ok 
+  A6 DEC type I: flux-causal definition <=> rho >= |p_i| (300 random, margin 0.05) ok 
+
+B  NONLINEAR ELECTRODYNAMICS L(F), F = F_ab F^ab / 4  (sympy)
+  B1 w_b = F_ab k^a obeys w.k = 0                                    ok 
+  B1 w.w = (E_x-B_y)^2 + (E_y+B_x)^2 >= 0 (spacelike or null)        ok B_x**2 + 2*B_x*E_y + B_y**2 - 2*B_y*E_x + E_x**2 + E_y**2
+  B2 T_ab k^a k^b = -L_F (w.w)  =>  NEC <=> L_F <= 0 where w != 0    ok 
+  B3 pure B_z: rho = -L, p_par = L, p_perp = L - B^2 L_F             ok 
+     Maxwell L=-F=-B^2/2, L_F=-1 recovers (rho, -rho, +rho).
+     pure-B DEC <=> L_F <= 0 and -B^2 L_F <= 2 rho; with L = -B^2/2 + L1(B):
+       NEC <=> dL1/dB <= B;  DEC <=> additionally B dL1/dB >= 2 L1.
+
+C  ONE-LOOP EULER-HEISENBERG, PURE B (form NOT read at source; consistency only)
+  C1 weak field: L1(b)/(b^4/360pi^2) -> 1 (= 2a^2/45 (4F^2), G=0)    ok 0.999943
+  C2 strong field: d(L1/b^2)/d ln b -> 1/(24 pi^2)                   ok 0.999418
+     b = B/B_crit      L_F           rho/(B^2/2)     DEC margin (B L1' - 2 L1)/B^2
+              1    -0.9999310119     0.9999617666     3.075473e-05
+          22.65    -0.9987666051     0.9990428182     2.762131e-04
+          226.5    -0.9971565366     0.9975215890     3.650524e-04
+          1e+04    -0.9942549368     0.9946411365     3.861997e-04
+          1e+08    -0.9871247863     0.9875119227     3.871364e-04
+  C3 NEC (L_F<0), WEC (rho>0), DEC margin >= 0 at every tabulated b  ok 
+     leading-log NEC boundary L_F = 0: ln b ~ 3pi/alpha - 1/2 = 1291.0 (b ~ 10^561):
+     the Landau-pole scale, where one loop is not the theory.
+
+D  DATA
+     B_crit = m_e^2 c^2/(e hbar): 2018 4.4140052187e+09 T, 2022 4.4140052307e+09 T (rel 2.7e-09)
+     tree's 1e11 T = 22.655 B_crit ; 1e12 T = 226.55 B_crit
+  D1 1e11 T exceeds B_crit (classical-Maxwell hypothesis out of domain) ok 
+     magnetic pressure at 1e11 T: 3.9789e+27 Pa (tree: 3.979e27); mass-equivalent 4.427e+10 kg/m^3
+  D2 u(1e11 T) = 3.979e27 Pa as spec.py/charge.py print              ok 
+     Sun (tree's M, R): G M^2/R^4 = 1.13e+15 Pa vs mean rho c^2 = 1.27e+20 J/m^3, ratio 8.9e-06
+     (dimensional scale only, not a solar model; the lens-matter DEC is outside this result)
+
+RESULT: ALL CHECKS PASS

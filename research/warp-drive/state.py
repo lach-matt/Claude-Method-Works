@@ -74,6 +74,76 @@ SCHEMA = 2
 # THE ONE HAND-MAINTAINED TABLE.  A docket is a question, a status and what
 # would settle it; the selftest refuses a row missing any of the three.
 DOCKETS = (
+    ("37", "REFUSED-THREE-WAYS",
+     "Can an index be derived of chemical, atomic and particle bonds?",
+     "NO, three times, on three DIFFERENT grounds -- and the question was "
+     "worth measuring because the register really does have a molecular hole: "
+     "it charts atomic orbitals three ways, nuclear orbitals, atomic terms, "
+     "nuclei, particles and quasiparticles, and NOTHING between the atom and "
+     "the nucleus. (1) THE CHEMICAL BOND read as the molecular orbital fails "
+     "before any coordinate is tested, because an MO is not a bond -- F2's "
+     "single bond is nine occupied MOs, N2's triple is five, and only H2 "
+     "happens to match. Of the three proposed axes lambda is the orbital's "
+     "own, g/u exists only on a homonuclear host (34 of 103 measured members "
+     "carry none), and +/- is PROVED not to be the orbital's: sigma_v fixes "
+     "every m=0 harmonic so every one-electron sigma MO is sigma-plus, while "
+     "3Sigma- and 1Sigma+ both descend from pi^2 -- identical orbital numbers, "
+     "different +/-. What survives, (lambda, g/u), is in bijection with the MO "
+     "symbol set, so the chart relabels its members' own names. No census is "
+     "possible either: one molecule has 10, 18, 18, 28, 60 and 110 MOs under "
+     "six basis sets, so the count is the basis set's. (2) THE ATOMIC BOND has "
+     "four readings and not one is an object with its own numbers -- "
+     "electron-nucleus binding IS the atomic orbital already seated three "
+     "times; bond TYPE is a taxonomy whose only numbers are magnitudes, which "
+     "mesons.py already refused; a crystal bond orbital is labelled by the "
+     "host's space group; a hybrid is not an eigenstate of L^2. (3) THE "
+     "PARTICLE BOND: force carriers are already fundamental's and quarkonium "
+     "already mesons'. The NN partial waves ARE new members -- bonds.py "
+     "derives the fourteen J<=3 channels from the Pauli condition alone -- and "
+     "they fail twice: a partial wave labels the nucleon PAIR's state rather "
+     "than the binding, and every finite count of them (Granada's fifteen, "
+     "Argonne v14's fourteen) counts a POTENTIAL MODEL's operator basis, not "
+     "the object's. AND A FINDING THAT OUTLIVES THE DOCKET: all eight channels "
+     "are now occupied, so the overlap ruling's novel-channel ground can never "
+     "be satisfied again -- DOCKET 34 took the last one, and every future "
+     "candidate must bring a genuinely new member set.",
+     "For the chemical reading, nothing -- the +/- proof is arithmetic and does "
+     "not depend on data. The diatomic ELECTRONIC STATE (not the bond) is a "
+     "fair index of something and its census exists in Huber & Herzberg; it is "
+     "unreachable from here, and it would be an index of molecules, not bonds. "
+     "For the NN waves, a census of CHANNELS rather than of a model's "
+     "operators would reopen it."),
+    ("36", "OPEN-ON-ONE-ENTRY (a REFUSAL, RETRACTED)",
+     "Can arXiv:2508.05447's Table 3 -- the DEFORMED two-quasiparticle "
+     "rotational bands, the candidate subpop.py actually named -- be captured "
+     "total and seated?",
+     "NOT YET, AND THE FIRST ANSWER GIVEN HERE WAS WRONG AND IS RETRACTED. "
+     "Four forward parses came up short (154, 176, 160, 195 against the stated "
+     "234). Working backwards found the paper's own delimiter -- 'A single "
+     "blank row separates the entries for each band' -- and it IS absent from "
+     "this extraction: 210 separators required, and of the 71 blank lines 50 "
+     "are page boundaries and 21 are nuclide-header internals, so ZERO are "
+     "separators (an earlier count of '22 page breaks, at most 49 available' "
+     "was itself wrong, in a classifier that tested backwards). THAT MUCH "
+     "STANDS AND IS STRONGER THAN STATED. What does not stand is the "
+     "conclusion drawn from it: the file went on to claim no parse could "
+     "recover entry boundaries, which is a statement about every possible "
+     "parse and was never measured. AN ADVERSARIAL AUDIT REFUTED IT. A "
+     "sequence-with-reset rule on the band number -- next expected integer, or "
+     "a 1 opening a new nuclide, nothing else -- recovers 233 of 234 entries "
+     "in 24 blocks matching the 24 nuclide sections, every block contiguous. "
+     "The four attempts failed because they RELAXED the sequence; tightening "
+     "it works. Also recoverable: the 24 sections with Z and N, and the level "
+     "rows once wrapped parity is rejoined and relative energies (A+134.27, "
+     "1135.7+y) are admitted. NOTHING IS SEATED, because 233 is not 234.",
+     "Finding the 234th entry, then validating a finished capture against the "
+     "paper's own rich fixture set (234 = 173 bands + 61 bandhead states, 63 "
+     "GM doublets, 76 with signature splitting, 29 with inversion, 10 band "
+     "crossings, 58 bandheads with half-lives). A layout-preserving extraction "
+     "is NO LONGER NEEDED -- an earlier entry here said it was, on a claim "
+     "that the proxy blocks every mirror, which was also wrong: "
+     "storage.googleapis.com and github.com both tunnel. The docket is open on "
+     "ONE MISSING ENTRY, not on an input."),
     ("22", "CLOSED-WITH-CORRECTIONS",
      "Were the ruling's per-witness physics claims ever independently checked?",
      "Nine adversarial agents, three lenses on each of three seatings. Two "
@@ -185,10 +255,128 @@ DOCKETS = (
      "DOCKET 28's chart stays refused -- this is a different object, not an "
      "overrule, and both verdicts are on the record. The non-abelian states "
      "(Moore-Read, Read-Rezayi) are a further member set and are not here."),
+    ("31", "CLOSED",
+     "M: \"almost nothing -- but not nothing ... it is a sub index/sublattice "
+     "of bosons.\"",
+     "DOCKET 28 wrote \"almost nothing\" and then treated it as nothing. Low "
+     "resolution is not none -- overlap.py's LABEL threshold is 0.9 and these "
+     "coordinates do not meet it. The ruling also NAMES the object, which "
+     "DOCKET 28 never found: a SUBLATTICE OF THE BOSONS. bosonqp.py places 11 "
+     "bosonic collective excitations in the frame the tree's own bosons share, "
+     "(2J, Q3), which the ruling forces rather than leaves to be chosen. THE "
+     "FINDING IS THE RELATION: the tree's bosons are 15 cells and already a "
+     "sublattice, the quasiparticles are 3 cells and a sublattice, they are "
+     "NOT a subset, and the one cell outside is the COOPER PAIR at charge -2e "
+     "-- a charge no meson and no gauge boson reaches. The union is 16 cells "
+     "and still a sublattice, so the extension is exactly one cell wide. The "
+     "K7 is NOT a finding and the file says so first: three cells in a 2x2 box "
+     "is a chain, and z3 proves over every subset of that box that a chain is "
+     "closed under meet and join, with a vacuity guard and a contrast.",
+     "REOPENED AND REBUILT BY A SECOND RULING. M: \"Do not add declared. "
+     "Nothing less than computed or measured. Declared still requires proof.\" "
+     "The first draft listed eleven kinds with their spins and charges written "
+     "out from textbook knowledge and called it DECLARED provenance; "
+     "registry.py had grown a whole category for it. Both are gone. A member "
+     "is now defined by WHAT IT IS MADE OF and every number is COMPUTED -- "
+     "charge additive, spin by angular-momentum addition, the electron read "
+     "from the seated fundamental index. 7 members over 3 composites, 5 cells. "
+     "The trion EXCLUDES ITSELF by composing to half-integer spin. The cost is "
+     "real and recorded: the collective modes (phonon, magnon, plasmon, "
+     "polariton, roton, phason, amplitude mode, magnon-polaron) are NOT "
+     "composites, so they cannot be computed and are no longer seated. The "
+     "finding survived and strengthened -- the extension is now TWO cells "
+     "wide, both Cooper pair spin states -- and the K7 is no longer free "
+     "because the chart is no longer a chain: of the six subsets its own size "
+     "in its own box, only two close all five."),
+    ("32", "CLOSED",
+     "The non-abelian Hall states -- Moore-Read at nu=5/2 and Read-Rezayi at "
+     "12/5 -- named as a further member set by DOCKET 30 and left open.",
+     "SEATED. readrezayi.py charts the Z_k parafermion primaries of the "
+     "Read-Rezayi series; Moore-Read IS RR_2, not a separate construction. 363 "
+     "members over eleven levels, 78 cells, K0. k is a genuine REACH because "
+     "RR_k sits at nu = 2 + k/(k+2), so each k names a plateau -- which is "
+     "exactly what DOCKET 28's SU(2)_k union lacked -- and the channel MOVES "
+     "K2 to K0, so the same test seats it. THE WEIGHTS ARE VALIDATED AGAINST "
+     "THE LITERATURE: the closed form returns {0, 1/16, 1/2} at k=2, exactly "
+     "the Ising category, and 2/5 at k=3, the Fibonacci tau; charges e/4 and "
+     "e/5 as published. TWO NEGATIVE FINDINGS. First, the Majorana bounds "
+     "DOCKET 30's theorem: fqh proved no Laughlin quasiparticle is ever a "
+     "fermion, and this series has six, the first being the Ising psi at "
+     "h = 1/2 -- so that theorem was about the ABELIAN ones. Second, NEITHER "
+     "index nests in the other: 15 cells against 57 on their shared "
+     "coordinates, 8 in common, neither containing the other and neither a "
+     "sublattice, which is the negative counterpart of DOCKET 31.",
+     "It also closes DOCKET 28's trap: SU(2)_2 carries h = 3/16 and the real "
+     "Moore-Read state carries 1/16, so that chart had the wrong PHYSICS as "
+     "well as the wrong shape."),
+    ("33", "CLOSED-WITH-A-CORRECTION",
+     "M: \"seat that sweep as an instrument ... run all candidates. Leave no "
+     "stone unturned. And if any sublattice may possibly contain its own "
+     "sublattice, we must seek a determination.\"",
+     "subpop.py seats the MEMBER sub-population sweep -- every sweep before it "
+     "varied COLUMNS (DOCKET 25 over accessors, DOCKET 29 over all 142 "
+     "coordinate subsets), and DOCKET 31 asked the member question without "
+     "naming it as a method. 143 sublattices found; TWO reach K4, the last "
+     "empty channel. One dissolves (madrule at l_d=0 holds a coordinate "
+     "constant, effective arity 2, statistics free). THE OTHER IS THE FIRST "
+     "ARITY-3 K4 THIS TREE HAS SEEN: the spin-4 mesons on (P, 2I, Q3), 10 "
+     "members, 9 cells, cell (4,5,3), statistics EARNED. IT STILL FAILS, and "
+     "for a NEW reason -- two of the ten carry no printed mass, so under the "
+     "parent's own reach the population is 7 cells at K5 at every cut and "
+     "never 9 at K4. K4 stays empty for a THIRD reason: a channel that lives "
+     "on members the table cannot place in a reach. THE RECURSION "
+     "DETERMINATION CORRECTED ITSELF: within the sweep's family there are 14 "
+     "strict containments and the longest chain is 2, which would have been "
+     "reported as the answer -- but enumerating EVERY subset of the four "
+     "indexes small enough gives chains of 5 (bosonqp), 7 (spin4), 6 (madrule) "
+     "and 14 (baryon_isomultiplet, 1,649 sublattices in one 16-cell chart, more "
+     "than the whole family sweep found). The depth-2 figure is about the FAMILY, "
+     "not the lattices. All candidates run: the chiral Goldstone sublattice is "
+     "real but a FULL PRODUCT BOX so its closure is free; the electroweak "
+     "eaten Goldstones land on three cells fundamental already holds, a "
+     "relabelling.",
+     "NOT DETERMINED for the eighteen indexes too large to enumerate -- the "
+     "family figure is a floor there, and too_large() names them. NUCLEAR "
+     "ROTATIONAL BANDS were not run, and the reason this file first gave was "
+     "WRONG: four searches for a level scheme returned nothing (ENSDF 403, two "
+     "pypi dead ends, zero corpus hits) and subpop.py concluded there was "
+     "nothing this environment could reach. ALL FOUR WERE MEETS. NAVIGATION.md "
+     "section 3 -- the retrieval law this project derived from the three-body "
+     "index -- says navigate by JOIN, never by meet: meet failures run 12 to "
+     "90,705 by cap, join failures are 0 at every cap. Run as a join over the "
+     "paper database the fifth route returns at once, with E and I^pi PER BAND "
+     "MEMBER: arXiv:2508.05447 (234 two-quasiparticle bands in DEFORMED odd-odd "
+     "nuclei -- the candidate) and arXiv:2303.13849 (290 magnetic and "
+     "antimagnetic bands in 150 nuclei -- the SHEARS mechanism in NEAR-SPHERICAL "
+     "nuclei, a DIFFERENT object). arXiv is 403 over https here exactly as ENSDF "
+     "is; the connector is a different bracket and the join is what reached it. "
+     "DOCKET 35 THEN WALKED IT: nbcapture.py captures 2303.13849 in full, "
+     "reproducing the paper's own census exactly (252 MR bands in 123 nuclei, 38 "
+     "AMR in 27) AND its own Delta-I selection rule (213 of 213 AMR steps at "
+     "Delta-I = 2), which is a check on column order that a count cannot make. "
+     "nucbands.py seats 2,145 nuclear excited states on (2I, parity): 121 cells, "
+     "cell (2,63,2), K2 -- AND THE K2 IS THE FREE ONE, statistics being vacuous "
+     "at arity 2, so the index closes in NOTHING and every third coordinate "
+     "measured drops it to K0. Refused on the criterion: 27 bands the source "
+     "prints with no I^pi column at all, and 93 levels with a spin but no "
+     "parity, counted apart because they are different facts. 2508.05447 -- the "
+     "DEFORMED rotor's tower, the candidate subpop.py actually named -- is "
+     "captured as text and NOT parsed: two attempts reached 154 and 176 of its "
+     "stated 234 entries, and a capture that cannot be shown total is not "
+     "seated."),
 )
 
 # DOCKET 25's census, as measured.  The two artifact rows are named because a
 # census that hides its own double-counts is not a census.
+# A SNAPSHOT, AND LABELLED AS ONE.  These figures were measured at commit
+# 0571a2e on 2026-09-18, when the tree held 232 .py modules; it holds more now,
+# and four indexes (spin4, nucbands, deformedbands and the quasiparticle
+# charts) were seated AFTER the sweep.  Nothing in the tree re-runs it, which
+# is why a stale figure inside this dict could be printed as a current
+# measurement and the paper's substitution guard could not see it -- a number
+# inside an instrument-returned dict counts as instrument-produced.
+CENSUS_AS_OF = ("0571a2e", "2026-09-18")
+
 CENSUS = {
     "modules_in_tree": 232,
     "modules_attempted": 232,
@@ -204,7 +392,19 @@ CENSUS = {
     "new_first_order_indexes": 0,
     "charts_per_channel": {"K0": 15, "K1": 1, "K2": 10, "K3": 7, "K4": 0,
                            "K5": 1, "K6": 2, "K7": 8},
-    "K4_reached_by": "nothing in the tree -- 0 of 44 charts over 231 modules",
+    # THE MODULE COUNT WAS STALE INSIDE A BANKED SENTENCE.  This read "0 of 44
+    # charts over 231 modules" while `modules_attempted` above read 232 -- the
+    # phrase was banked one sweep earlier and nothing compared the two, because
+    # a figure inside a string is invisible to a check on the dict.  The count
+    # was redundant with `modules_attempted` anyway; what K4 needs is the chart
+    # total, which is `charts_found` in this same dict.
+    # WITHDRAWN, AND REFUTED BY THE REGISTER RATHER THAN BY A RE-SWEEP.  This
+    # read "nothing in the tree", which was true when the census was taken and
+    # is now false: `spin4` is SEATED at K4 and the paper says so two sections
+    # earlier.  A census is a snapshot, and a snapshot quoted as a present-tense
+    # claim is how this went wrong -- so the field now says what it is.
+    "K4_reached_by": "WITHDRAWN -- true at the census, false now: spin4 is "
+                     "seated at K4",
     "K5_reached_by": "exactly one chart, overlaprule.nucshell_lsigma, which "
                      "DOCKET 22 retracted",
     "artifacts_of_the_census": [
@@ -578,9 +778,17 @@ def selftest():
     chk("K4 is reached by no chart at all", c["charts_per_channel"]["K4"], 0)
     chk("K5 by exactly one -- the retracted row",
         c["charts_per_channel"]["K5"], 1)
-    chk("and every channel the FIGURE occupies has at least one chart",
+    # DOCKET 34 broke the coincidence this fixture used to rest on.  The
+    # census counts CHARTS (DOCKET 25's unseated candidates); the figure
+    # counts SEATED INDEXES.  They agreed channel-for-channel until spin4 was
+    # seated at K4 on the PDG status reach, which no chart reaches.  That is
+    # not a drift -- it is the whole content of DOCKET 33 and 34.
+    chk("K4 is occupied by a SEATED INDEX and reached by NO CHART",
+        (4 in S["figure"]["channels_occupied"], c["charts_per_channel"]["K4"]),
+        (True, 0))
+    chk("and every OTHER channel the figure occupies has at least one chart",
         [k for k in S["figure"]["channels_occupied"]
-         if c["charts_per_channel"]["K%d" % k] == 0], [])
+         if k != 4 and c["charts_per_channel"]["K%d" % k] == 0], [])
     chk("the census names its own artifacts",
         len(c["artifacts_of_the_census"]) > 0, True)
     chk("markdown renders without raising", bool(to_markdown(S)), True)

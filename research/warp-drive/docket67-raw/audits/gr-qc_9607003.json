@@ -1,0 +1,145 @@
+{
+ "key": "gr-qc/9607003",
+ "name": "Ford & Roman, 'Restrictions on Negative Energy Density in Flat Spacetime' (gr-qc/9607003; PRD 55, 2082 (1997)): Lorentzian-sampled QI for the free massless scalar, rho-hat >= -3/(32 pi^2 t0^4), plus the Sec. 4 curved-spacetime scope remark",
+ "source": {
+  "located": "arXiv gr-qc/9607003v2 (submitted 1 Jul 1996, revised 2 Oct 1996, v2 24 Jan 1997), L.H. Ford and T.A. Roman, Tufts; journal ref PRD 55, 2082-2089 (Feb 1997) as cited in Kontou-Sanders arXiv:2003.01815 ref. [74]",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9607003 returned all 17 pages (abstract, Secs. 1-4, Appendices A-B, references); every quotation below is from that page text; RE-READ in full in a second session (all 17 pages again), every quotation re-checked. Note: Eq.(1) is quoted on p.2 from Ref.[21] (Ford-Roman PRD 51, 4277 (1995)), where it was first derived; this paper re-derives it as Eq.(17), the m -> 0 limit of Eq.(16), by a plane-wave method."
+ },
+ "published_statement": "p.2 Eq.(1) (and p.5 Eq.(17), the m->0 limit of Eq.(16)): 'for the free quantized massless scalar field in four-dimensional Minkowski spacetime, rho-hat == (t0/pi) INT_{-oo}^{oo} <T00> dt/(t^2+t0^2) >= -3/(32 pi^2 t0^4), for all choices of the sampling time, t0. Here <T00> is the renormalized expectation value of the energy density evaluated in an arbitrary quantum state |psi>, in the frame of an arbitrary inertial observer whose proper time coordinate is t.' (units hbar = c = 1; the paper's text layer prints 't0' for the proper-time coordinate, an extraction artefact). p.4: 'the energy density is evaluated in the reference frame of an inertial observer, at an arbitrary spatial point which we choose to be x = 0.' Companion results in the same paper: massive scalar rho-hat >= -3 G(y)/(32 pi^2 t0^4), y = 2 m t0 (Eq.16); EM field -3/(16 pi^2 t0^4) (Eq.48); 2D massless -1/(8 pi t0^2) (Eq.25). Sec.4 (p.11), the scope remark: 'in Minkowski spacetime, our bounds hold for an arbitrary choice of the sampling time, t0. Recently we ARGUED that such bounds should also hold in a curved spacetime and/or one with boundaries, if the sampling time is restricted to be much smaller than the smallest local radius of curvature and/or the distance to any boundaries in the spacetime [23]. An explicit example ... [24] ... static closed and open Robertson-Walker universe models.' p.2 also: 'In quantum field theory ... the energy density may be unboundedly negative at a spacetime point.'",
+ "published_hypotheses": [
+  "H1 free (non-interacting) quantized field; stress tensor T_mn = phi,m phi,n - (1/2) eta_mn (phi,a phi^,a + m^2 phi^2) (Eq.6) -- MINIMAL coupling (no xi R phi^2 term)",
+  "H2 massless scalar for Eq.(1) (massive: Eq.16 with G(y) <= 1; EM: Eq.48, twice as negative)",
+  "H3 four-dimensional Minkowski spacetime, no boundaries ('derived for Minkowski spacetime, in the absence of boundaries', p.2)",
+  "H4 the quantity bounded is the Lorentzian TIME average rho-hat of <T00> along the worldline of an INERTIAL observer at ONE spatial point x = 0, weight t0/[pi(t^2+t0^2)] with unit integral (Eq.8); not <T00> at a point, not a spatial or spacetime average",
+  "H5 one-sided: a LOWER bound on rho-hat; nothing bounds positive energy density",
+  "H6 arbitrary state |psi> of the Fock space, <T00> renormalized (normal ordered w.r.t. the Minkowski vacuum); the mode sums are assumed convergent in the V -> oo / omega_max -> oo limit (p.16)",
+  "H7 holds for ALL t0 > 0 in flat space; the extension to curved spacetime / boundaries for t0 << smallest local curvature radius and/or boundary distance is ARGUED in ref.[23] (PRD 53, 5496), not proved in this paper. The paper names TWO supporting cases: p.2-3 'we proved that the inequality Eq.(1) holds in the case of the Casimir effect for sampling times much smaller than the distance between the plates' (in [23]), and p.3/p.11 the static closed and open Robertson-Walker QIs of ref.[24] (gr-qc/9608005), which reduce to Eq.(1) for short sampling times",
+  "H8 the derivation uses no time-energy uncertainty relation (Sec.4 note); it rests on two norm-positivity lemmas (App. A) and the kernel inequality S_m >= S~_m (App. B)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H4+H5 (sampling and one-sidedness): candidates.py:112-116 and candidates.py:346-348 state and code '|rho| <= 3 hbar c/(32 pi^2 L^4)'. The source bounds only the SAMPLED rho-hat from BELOW; it says the pointwise density 'may be unboundedly negative' (p.2). The absolute value adds a two-sided claim the source does not make (harmless for the magnitude of a negative demand, but it is not the published statement).",
+  "CONTRADICTS H4: overturn.py:220-222 says Ford-Roman and descendants 'bound |rho| itself over a sampling REGION rather than an average along a line'. The published Eq.(1) is exactly an average along a line (inertial worldline, one spatial point x = 0, p.4). certify.py:154-159 and bounds.py:234 ('F2 WORLDLINE a TIME average at ONE point') state it correctly; the tree's own DOCKET 55 withdrawal in achievable.py:316-323 and bounds.py:225-240 records the substitution; overturn.py:220-222 and overturn.py:277 still carry it.",
+  "ADDED (spatial length for a temporal width): candidates.py:112-114 'sampling length L = c tau' and candidates.py:363-364 shortfall(R) = rho_needed(R)/ford_roman(R) set the source's Lorentzian time width t0 equal to R/c, R a spatial corridor size. The source has no spatial length. The SI conversion itself is exact (H1 in the script), but L = R is the tree's modelling choice. achievable.py:316-323 withdraws the same move for quantum_bound; candidates.py is not amended (recorded, not repaired, per the tree's own rule).",
+  "WEAKENED H3/H7 (flat space implies more than the tree uses): for a time-independent <T00> = rho0 at the point, rho-hat = rho0 for every t0 (script I1), and Eq.(1) for all t0 forces rho0 >= 0 (script I2). So in flat space with no boundaries a STATIC negative density is excluded outright, and a finite L = R cut-off only makes sense if the sampling time is capped by curvature or boundaries, i.e. under the Sec.4 extension, which this paper ARGUES (ref.[23]) and does not prove. candidates.py marks flat space 'implied, not stated'; specthm's H_flat is ASSUMED (R4). The tree's choice is therefore WEAKER than the flat theorem, which errs against M, not for M, but its authority is the argued Sec.4 remark, not Eq.(1).",
+  "DROPPED part of H7: noise.py:185-187 quotes Sec.4 as 'sampling time ... much smaller than the smallest local radius of curvature'; the source continues 'and/or the distance to any boundaries in the spacetime', and prefaces it 'Recently we argued that such bounds should also hold'. The quotation is accurate as far as it goes, but it is labelled 'Ford-Roman's own condition', and the source's own status for it is an ARGUED extension (ref.[23]) with two worked cases (Casimir plates, proved in [23]; static RW, ref.[24]), not a theorem of this paper.",
+  "NOT IN SOURCE (tree coding): bounds.py:46/303 codes Ford-Roman K = 0 ('known saturated'); bounds.py:455-456 selftest asserts 'Ford-Roman is one of them'. The source claims no saturation. Computed here (script J1): the Fewster-Eveson flat massless bound (1/16 pi^2) INT (g'')^2 dt evaluated at g = sqrt(Lorentzian) is 27/(2048 pi^2 t0^4) = (9/64) x 3/(32 pi^2 t0^4). A bound 64/9 times tighter on the SAME functional, if valid for the Lorentzian, means no state reaches Ford-Roman's Lorentzian constant (see the caveat below). This independently supports the tree's own DOCKET 55 finding (K = 0 WRONG, recorded not repaired), which rested on Casimir at 3-7 % (Fewster 1208.5399). The fault is in the tree's coding, not in gr-qc/9607003. CAVEAT on the inference, recorded both ways: FE's own printed Eq.(5.6) (gr-qc/9805024 p.8, READ) gives exactly 27/(2048 pi^2 tau^4) = 9/64 of Ford-Roman at the Lorentzian, and FE p.6 say they do not expect even their own bound to be attained. But FE's stated class is smooth, even, non-negative samplers that 'decay rapidly at infinity', the Lorentzian decays only as t^-2 (script L3), and FE call their derivation 'somewhat formal and lacking in mathematical rigour' (p.9). So '4D Ford-Roman is not saturated' is supported by FE's own application of their bound, not proved here. In 2D it is firm: Flanagan's bound is OPTIMAL, and at the Lorentzian it is 1/6 of Ford-Roman's 2D bound (script L1, matching FE p.8 'six times stronger'), so Ford-Roman's 2D Lorentzian constant is provably not attained.",
+  "CONSISTENT, no drift: overturn.py (minimal coupling; the non-minimal case is the L4 breaker) matches H1 (Eq.6 is the minimal stress tensor). Later literature (Fewster-Osterbrink, restated in Kontou-Sanders 2003.01815 p.23 and Table 3) proves NO state-independent QEI exists for xi != 0.",
+  "CONSISTENT: achievable.py:194 reproduces Eq.(1) exactly; achievable.py:196-198 quotes p.4 verbatim (checked word for word); achievable.py:327-332 ford_roman_allow = 3 hbar/(32 pi^2 c^3 t0^4) is the correct SI restoration (J/m^3 = Pa).",
+  "UNSTATED H1/H6 in owners: 'free field' and 'arbitrary Fock state with convergent mode sums' are named in no owner except certify.py's ledger hypothesis list ('free quantum fields (not stated in owner)'). For interacting fields QEI status in 4D is still open (Kontou-Sanders p.24: 'their status in interacting models is less clear').",
+  "INHERITED FIGURE: spec.py:91-92, 347 '65 orders short against Ford-Roman'. Not a figure of the source. achievable.py's own selftest note says 65 is not the banked figure and candidates.py gets 70.606 at 1 m from the same inequality; the gap between them is the tree's sampling choice (and the 105.276 = 32 pi^2/3 coefficient drop, script H3), not anything in gr-qc/9607003.",
+  "ATTRIBUTION, not a fault: achievable.py:327-332 and the canonical names cite the massless bound as 'gr-qc/9607003 Eq.(1)'. That location is correct, but on p.2 Eq.(1) is quoted from Ref.[21] (Ford-Roman PRD 51, 4277 (1995)), which first derived it; gr-qc/9607003 re-proves it as Eq.(17). The merged key 'ford-roman-1995-qi-massless-scalar' points at the 1995 paper, which this audit did not open (NAMED-NOT-READ); the coefficient 3/(32 pi^2) is the same in both."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "measured physical data entering Eq.(1)",
+   "value_then": "none: the result is a theorem about the free massless scalar in units hbar = c = 1; the constant 3/(32 pi^2) is (1/4 pi^2) x 3!/2^4 from INT w^3 e^{-2 w t0} dw",
+   "value_now": "none",
+   "source_now": "the paper itself, Eqs.(12)-(17); re-derived symbolically (script B1, B2)",
+   "moves_conclusion": "no -- nothing measured enters"
+  },
+  {
+   "quantity": "hbar (only for the tree's SI form)",
+   "value_then": "not used (natural units)",
+   "value_now": "1.054571817e-34 J s, EXACT by the 2019 SI definition (h fixed)",
+   "source_now": "SI 2019 definition; the value used at candidates.py/achievable.py:317",
+   "moves_conclusion": "no -- exact by definition"
+  },
+  {
+   "quantity": "c (only for the tree's SI form)",
+   "value_then": "not used (natural units)",
+   "value_now": "299792458 m/s, EXACT by definition",
+   "source_now": "SI definition of the metre",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "G (only in the tree's crossover, not in Ford-Roman)",
+   "value_then": "not used by the source",
+   "value_now": "6.67430e-11 m^3 kg^-1 s^-2 as used in the tree (CODATA 2018 value; the CODATA 2022 value is recalled as unchanged but was NOT READ at source in this audit)",
+   "source_now": "tree constant G = 6.67430e-11; CODATA not read here",
+   "moves_conclusion": "no -- computed (script K3): the crossover R/l_P = sqrt(3 Lambda/(32 pi^2)) = 0.307933 is independent of G, hbar and c; only the tree's internal Lambda = 9.982529174194637 enters"
+  },
+  {
+   "quantity": "tree-side SI evaluation ford_roman(1 nm)",
+   "value_then": "n/a (tree figure)",
+   "value_now": "3.00309e8 J/m^3 (recomputed)",
+   "source_now": "script H2",
+   "moves_conclusion": "no -- agrees with candidates.py's 3.0031e8"
+  },
+  {
+   "quantity": "tree-side shortfall(1 nm)",
+   "value_then": "n/a (tree figure)",
+   "value_now": "4.0371e52 (recomputed with the tree's rho_needed = c^4/(G Lambda R^2))",
+   "source_now": "script K2",
+   "moves_conclusion": "no -- agrees with candidates.py's 4.037e52; note the requirement side is the tree's, not the source's"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9607003.py",
+  "outcome": "ALL PASS (28 checks, exit 0; output saved to rederive/gr-qc_9607003.out). A: Lorentzian sampler has unit integral and Fourier transform e^{-|W| t0}, the step Eq.(7)+(8) -> Eq.(9). B: the V->oo mode sum -1/(2V) SUM w e^{-2 w t0} -> -3/(32 pi^2 t0^4) exactly = Eq.(17); Eq.(13) at m=0 agrees. C: G(0)=1, G strictly decreasing (massive bound tighter), substitution Eq.(13)->(14) exact. D: EM Eq.(48) = -3/(16 pi^2 t0^4) = 2 x scalar. E: 2D -1/(8 pi t0^2), F(y)->1. F: the App.B kernel e^{-|wi-wj|t0} - e^{-(wi+wj)t0} is PSD on 400 random spectra (min normalised eigenvalue +4.6e-5). G: END-TO-END on 21,900 (random multimode Bogoliubov/squeezed state, phase) pairs over box modes, Eq.(9) evaluated exactly never falls below the finite-V bound Eq.(12) restricted to the occupied modes (max (bound - rho_hat)/|bound| = -0.188); guard: 612 pairs have negative rho-hat, so the test is not vacuous; the single-mode squeezed vacuum approaches the finite-V bound to 0.998587 as e^{-2 w t0} -> 1 and never crosses it; control: a bound half as large IS violated. H: 3 hbar/(32 pi^2 c^3 t0^4) at t0 = L/c equals 3 hbar c/(32 pi^2 L^4); ford_roman(1 nm) = 3.00309e8; 105.276 = 32 pi^2/3 exactly. I: static <T00> gives rho-hat = rho0, so Eq.(1) for all t0 forces rho0 >= 0 in flat space. J: Fewster-Eveson (1/16 pi^2) INT (g'')^2 at g = sqrt(Lorentzian) = 27/(2048 pi^2 t0^4) = 9/64 of Ford-Roman (agrees with fewsterteo.py's 9/64 by a different route). L (added in the second session): Flanagan's optimal 2D bound at the Lorentzian is exactly 1/6 of Ford-Roman's 2D Eq.(25) and FE's 2D bound 1/4 of it (INT f'^2/f = 1/(2 t0^2)), both as FE p.8 prints; the Lorentzian tail is t^-2, outside FE's rapid-decay class. K: crossover 0.307933 l_P, shortfall 4.0371e52, crossover independent of G/hbar/c. NOT checked: Lemma A (App. A) was read, not machine-checked: a finite Fock truncation breaks [a,a+]=1, and the lemma is the norm identity (A3), which follows from the CCR in one line. The end-to-end check G exercises both lemmas implicitly.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Kontou & Sanders, 'Energy conditions in general relativity and quantum field theory', arXiv:2003.01815 (CQG 2020)",
+   "effect": "confirms",
+   "what": "p.21 restates the flat inertial massless/massive minimally coupled QWEI (61) for all Hadamard states and attributes the Lorentzian case to Ford-Roman [73,74]. For the Lorentzian it gives C = 3/(32 pi^2). Table 3: a state-independent QWEI holds for massless and massive minimally coupled KG, Maxwell/Proca, Dirac, 2D CFT and Ising, and is IMPOSSIBLE for xi != 0. p.4 and p.24: QEIs for interacting fields in general are 'less clear'. p.25: no null-worldline QEI in 4D (Fewster-Roman). DISCREPANCY RECORDED, NOT A REFUTATION (re-read p.21-22): p.21 writes (61) with the weight f^2 and says it 'was first derived by Ford and Roman [73,74] for Lorentzian functions f(t) = t0/(pi(t^2+t0^2))'; p.22 then says 'for a Lorentzian function, C = 3/(32 pi^2)'. Read literally with f^2 = Lorentzian (Ford-Roman's actual weight), (61) gives 27/(2048 pi^2) = 9/64 of that C (script J1; FE's own Eq.(5.6)). So the review's C is Ford-Roman's own constant, not the value of (61), and the phrasing is loose about f versus f^2. Not an error in gr-qc/9607003. p.34 also records that Casimir negative energy is constant in time and violates AWEC: consistent with H3 (Eq.(1) is for no boundaries).",
+   "read_status": "READ (pp.1,20-25,27,34 via answer_pdf_queries; re-read in the second session)"
+  },
+  {
+   "ref": "Fewster & Eveson, 'Bounds on negative energy densities in flat space-time', PRD 58, 084010 (1998), gr-qc/9805024",
+   "effect": "narrows",
+   "what": "Generalises Ford-Roman to smooth, even, non-negative samplers that are compactly supported or rapidly decaying, any dimension d >= 2, mass m >= 0 (abstract). 4D massless Eq.(5.5): rho >= -(1/16 pi^2) INT ((f^{1/2})'')^2 dt; at the Lorentzian Eq.(5.6) gives -27/(2048 pi^2 tau^4), 'which is 9/64 of Ford and Roman's result' (reproduced exactly here, script J1). In 4D the massless bound also bounds massive fields (Q_3 <= 1). In 2D their bound is 4x stronger than Ford-Roman at the Lorentzian and Flanagan's optimal one 6x (script L1, L2). This SHARPENS the bound (against M) and supports 'not saturated'. Stated limits (named, not hidden): a formal derivation 'lacking in mathematical rigour' (p.9); rapid decay required, which the Lorentzian (t^-2 tail) does not meet though FE apply (5.6) to it; state class 'sufficiently well-behaved', Hadamard hoped for. A sharp box (characteristic function) sampler gives NO bound (p.9, Garfinkle): consistent with the tree's no-ball-QI reading only for SHARP spacetime boxes, not a statement about smooth spatial averages.",
+   "read_status": "READ (all 13 pages via answer_pdf_queries, second session)"
+  },
+  {
+   "ref": "Ford, Pfenning & Roman, 'Quantum inequalities and singular negative energy densities', PRD 57, 4839 (1998)",
+   "effect": "narrows",
+   "what": "Per Kontou-Sanders p.21: 'it was shown [75] that one should generally use sampling functions with compact support'. The Lorentzian's long tails limit what Eq.(1) excludes for singular or concentrated negative energy.",
+   "read_status": "NAMED-NOT-READ (restated in 2003.01815 p.21 only)"
+  },
+  {
+   "ref": "Fewster & Smith, Ann. Henri Poincare 9, 425 (2008); Kontou & Olum, PRD 91, 104005 (2015)",
+   "effect": "extends",
+   "what": "Absolute QEIs in general curved spacetime (Fewster-Smith), and the first explicitly curvature-dependent QWEI for the massless minimally coupled field in small-curvature spacetimes (Kontou-Olum). These put the Sec.4 'argued' short-sampling extension on a proved footing for the minimally coupled free scalar, with curvature corrections.",
+   "read_status": "READ-VIA-RESTATEMENT (2003.01815 p.23); the papers themselves were not opened"
+  },
+  {
+   "ref": "Fewster & Osterbrink, J. Phys. A41, 025402 (2008)",
+   "effect": "narrows",
+   "what": "Proves no state-independent QEI can exist for the non-minimally coupled scalar (only state-dependent ones). Ford-Roman's H1 (minimal coupling) is therefore load-bearing, and the tree's L4 breaker sits exactly on it.",
+   "read_status": "READ-VIA-RESTATEMENT (2003.01815 pp.20,23, Table 3)"
+  },
+  {
+   "ref": "Pfenning & Ford, 'The unphysical nature of Warp Drive', gr-qc/9702026",
+   "effect": "extends",
+   "what": "Applies the QI to Alcubierre's metric in the short-sampling (locally flat) regime. This is ref.[25]/[29] of the source ('manuscript in preparation'); overturn.py attributes the local-sampled gate to it.",
+   "read_status": "NAMED-NOT-READ (surfaced by discover_papers; not opened here)"
+  },
+  {
+   "ref": "Palessandro, 'Quantum Inequalities from the Second Law', arXiv:2608.11817 (Aug 2026)",
+   "effect": "extends",
+   "what": "Derives a state-independent lower bound on a detector's heat exchange (Unruh-DeWitt thermometer, free massless scalar, 4D Minkowski, leading order in coupling) and reads it as a QI on a nonlocal probe of energy density. It does not reproduce or contradict the 3/(32 pi^2) coefficient; per its own App. A the probe kernel differs from the energy-density kernel.",
+   "read_status": "READ (all 18 pages via answer_pdf_queries)"
+  },
+  {
+   "ref": "Fewster & Pfenning, J. Math. Phys. 47, 082303 (2006); Ford & Roman, PRD 87, 085001 (2013)",
+   "effect": "narrows",
+   "what": "Restated in Kontou-Sanders p.22 (eq.(64)): along a uniformly accelerated worldline the QWEI acquires acceleration terms and 'observers on non-inertial trajectories can experience negative energies for long times'; for sinusoidal motion 'the averaged energy density [can] become arbitrarily negative at a linear rate' (with the energy cost of the acceleration exceeding it). Ford-Roman's INERTIAL-observer hypothesis (H4) is therefore load-bearing. The tree's owners use the inertial case (achievable.py:196-198), so no drift; it is a scope limit.",
+   "read_status": "READ-VIA-RESTATEMENT (2003.01815 p.22); the papers were not opened"
+  },
+  {
+   "ref": "Helfer, CQG 13, L129 (1996) (cited as FE ref.[7]); Pfenning & Ford gr-qc/9805037; Fewster & Teo gr-qc/9812032",
+   "effect": "extends",
+   "what": "FE footnote 1 (p.2, READ): 'space averaged energy densities in 4-dimensions are not bounded below [7]' -- a published basis (one of them) for certify.py:154-159's 'no standard QI bounds' a spatial ball integral (the tree's own ledger D6 cites Ford-Helfer-Roman PRD 66 124012). Pfenning-Ford and Fewster-Teo (surfaced by discover_papers) extend the QI to curved and static spacetimes; not opened here.",
+   "read_status": "Helfer NAMED-NOT-READ (restated in FE p.2 footnote); the other two NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested here: did the authors lack data that would change the conclusion? No, and the evidence runs one way. Eq.(1) is a theorem about the free massless minimally coupled scalar in 4D Minkowski space, and no measured quantity enters it (the constant is 3!/(2^4 4 pi^2)). The re-derivation here reproduces every step: the Fourier identity, both lemmas' consequence end to end on 21,900 state/phase pairs with a non-vacuity guard, the V -> oo limit, and the massive, EM and 2D companions. What the 1996 authors lacked was later THEORY, not data. (a) The general-sampler analysis (Fewster-Eveson 1998, READ; not itself optimal, per FE p.8-10) makes the Lorentzian bound 64/9 TIGHTER, which moves against M. (b) Proofs in curved spacetime (Fewster-Smith 2008, Kontou-Olum 2015) back the Sec.4 remark that was only 'argued' in 1996. (c) Knowledge of which hypotheses are load-bearing: non-minimal coupling admits NO state-independent QEI (Fewster-Osterbrink 2008), interacting 4D fields remain open, and there is no null-line QEI in 4D and no spatial-only QEI in 4D (Ford-Helfer-Roman, ledger D6). Point (c) is where the statement's REACH is narrower than a loose reading, and it is exactly where the tree's own L4 breaker (non-minimal coupling) sits. None of it moves the published conclusion within its stated hypotheses. The only numerical inputs the tree adds (hbar, c, G) are exact by definition or cancel from the tree's crossover (script K3).",
+ "grade": "NARROWED",
+ "grade_evidence": "The published theorem STANDS. It was read at source, re-derived symbolically, and checked end to end on 21,900 squeezed-state/phase pairs (a non-vacuity guard and a control show the check can fail), and no datum it depends on has moved. The grade is NARROWED because of how the tree USES it, which is wider than the published class. (1) candidates.py:112-116, 346-348 and overturn.py:277 state it as '|rho| <= 3 hbar c/(32 pi^2 L^4)', dropping both the sampling (H4) and the one-sidedness (H5); the source says the pointwise density 'may be unboundedly negative' (p.2). (2) overturn.py:220-222 says it bounds |rho| 'over a sampling region rather than an average along a line', which contradicts p.4's single spatial point x = 0 on an inertial worldline. (3) candidates.py:363-364 puts a spatial corridor size R into the temporal width t0 (L = c t0 = R), a choice the source does not make. The tree's own DOCKET 55 already withdraws this for achievable.py and not for candidates.py or overturn.py. (4) The Sec.4 curved-spacetime scope, carried in noise.py and the split key, is in this paper an ARGUED claim (ref.[23]) with two worked cases (Casimir plates, static RW), and noise.py drops 'and/or the distance to any boundaries'. Later literature proves versions of it for the minimally coupled free scalar (Fewster-Smith 2008, Kontou-Olum 2015, via Kontou-Sanders). The tree's usage errs AGAINST M, not for M, in two places: flat-space Eq.(1) for all t0 excludes a static negative density outright (script I1/I2), which is stronger than the tree's L = R cut; and Fewster-Eveson's bound is 9/64 of Ford-Roman's (script J1). FE's own Eq.(5.6) (READ) prints that 9/64; it supports, but because the Lorentzian sits outside FE's stated rapid-decay class and FE's derivation is self-described as formal it does not prove, that Ford-Roman's 4D Lorentzian constant is never attained (in 2D Flanagan's optimal bound makes it firm, script L1). That supports the tree's own record that bounds.py's K = 0 ('known saturated') coding is wrong. That is a fault in the tree, not in the source. No WRONG: nothing in gr-qc/9607003 is refuted, and no misprint was found (the text layer's 't0' for the proper-time coordinate on p.2 is an extraction artefact, and p.4 has 't'). Second session: source, Kontou-Sanders and Fewster-Eveson re-read at alphaXiv; the script re-run (28 checks, all pass); every owner file:line quoted above was re-checked against the tree read-only.",
+ "what_would_change_the_grade": "To STANDS: every owner restates the result as a one-sided lower bound on the Lorentzian time-average along an inertial worldline at one spatial point (as certify.py and bounds.py:234 already do), and candidates.py's L = R step is carried as a named modelling hypothesis whose authority is the Sec.4 argued extension (or Kontou-Olum's proved small-curvature QWEI), not Eq.(1). To WRONG (for the source): an explicit Fock state of the free massless minimally coupled scalar in 4D Minkowski with rho-hat < -3/(32 pi^2 t0^4). None was found on 21,900 random squeezed-state/phase pairs, and Fewster-Eveson's 9/64-tighter bound would forbid it. To OPEN: none, since the source is read and the derivation is closed-form. Separately, the support for 'Ford-Roman 4D is not saturated' (and so for the tree's K = 0 WRONG record) would fall if FE's Eq.(5.6) were shown invalid for the Lorentzian sampler, which lies outside FE's stated rapid-decay class; it would not change this grade, which rests on the tree's usage.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9607003.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9607003.json"
+}

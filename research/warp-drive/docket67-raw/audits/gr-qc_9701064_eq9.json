@@ -1,0 +1,95 @@
+{
+ "key": "gr-qc/9701064#eq9",
+ "name": "HPS eq. (9): throat initial data r(0) = sqrt(-16 K^2 ln f(0)), -1 <= ln f(0) < 0, run at ln f(0) = -2/3",
+ "source": {
+  "located": "D. Hochberg, A. Popov, S. V. Sushkov, 'Self-consistent Wormhole Solutions of Semiclassical Gravity', arXiv:gr-qc/9701064v1 (30 Jan 1997; preprint dated 23 Oct 1996), Phys. Rev. Lett. 78, 2050 (1997). Eq. (9) and the ln f(0) = -2/3 run: p.7. Eq. (8) and its derivation 'where we have used only that r'(0) = f'(0) = 0': p.6. Throat conditions r(0) > 0, r'(0) = 0, r''(0) >= 0, f(0) > 0, f''(0) >= 0 'we may ask', even symmetry r(l) = r(-l), f(l) = f(-l): p.6. Eqs. (5)-(7) with K^2 = 1/(5760 pi), xi = 1/6: pp.4-5. r(0) ~ 0.02 l_P, flare, Figs. 1-2: p.7. 'the metric as a whole is not asymptotically flat': p.8.",
+  "read_status": "READ",
+  "via": "The arXiv v1 PDF text layer pp.1-8 as returned by alphaXiv answer_pdf_queries(paper='gr-qc/9701064') EARLIER IN THIS SESSION, saved verbatim at scratchpad/d67/src/hps/hps_0.xml (the sibling audits gr-qc_9701064_eq2-einstein / _k2 / _omega use the same file). This audit's own alphaXiv answer_pdf_queries and discover_papers calls both returned 'alphaXiv assistant quota exceeded'. pp.4-8 were read line by line here. The journal PRL typesetting was NOT read."
+ },
+ "published_statement": "p.7: 'Employing the Rugge-Kutta method, we have obtained a good numerical solution of these equations using the following boundary conditions for f(l) and r(l) at the throat l = 0: -1 <= ln f(0) < 0; f'(0) = 0; f''(0) = 0; f'''(0) = 0; (9)  r(0) = sqrt(-16 K^2 ln f(0)); r'(0) = 0; r''(0) = 0; r'''(0) = 0. The graphs which represent a particular numerical solution for ln f(0) = -2/3 for various length scales are displayed below.' ... 'In Fig. 2a one sees the throat, of radius r(0) ~ 0.02 l_P, in the neighborhood of the origin extending out to about 10K^-2 at which point the wormhole \"flares\" out, marking the onset of the superimposed small-scale oscillations.' The constraint it satisfies, p.6: eq. (8), '-4 (f''(0)/f(0))^2 [1 + ln f(0)] r(0)^4 + 32 (f''(0) r''(0)/f(0)) [1 + (1/2) ln f(0)] r(0)^3 + [K^-2 - 16 r''(0)^2 ln f(0)] r(0)^2 + 16 ln f(0) = 0, where we have used only that r'(0) = f'(0) = 0 ... this constraining relation is independent of the values assigned to the third derivatives'.",
+ "published_hypotheses": [
+  "Field equations: HPS (5)-(7), the semiclassical Einstein equations with the Anderson-Hiscock-Samuel analytic <T^mu_nu> (eq. (4), ref. [18]) for a CONFORMALLY coupled (xi = 1/6), massless (as used) quantised scalar, K^2 = 1/(5760 pi), units hbar = c = G = 1 (pp.4-5, footnote [19]).",
+  "Static spherically symmetric metric in proper-distance gauge, ds^2 = -f dt^2 + dl^2 + r^2 dOmega^2 (eq. (2), p.4).",
+  "Throat: r(0) > 0, r'(0) = 0, r''(0) >= 0 ('a sphere of minimum radius located at the origin') (p.6).",
+  "f(0) > 0 (no horizon at the throat; f(0) < 0 'leads to a Euclidean metric'); f'(0) = 0 by the chain rule; f''(0) >= 0 'we may ask' (p.6).",
+  "Even symmetry r(l) = r(-l), f(l) = f(-l), eliminating all odd derivatives at l = 0 (p.6).",
+  "The ll equation is a constraint (third order) restricting the fourth-order tt and thth system; the eight data are therefore not free, r(0) being fixed by eq. (8) (p.6).",
+  "Eq. (9) itself makes the further CHOICE f''(0) = r''(0) = 0 and restricts ln f(0) to [-1, 0); HPS give no reason for the lower bound -1 (p.7)."
+ ],
+ "hypothesis_drift": [
+  "ADDED (owner-named, not hidden): the tree runs eq. (9)'s data in the CONSERVED reading of HPS's system (M1 = 116 for the ln-f coefficient of f'^2 f''/f^3 in (5); M2 = r^2 in (6)), hpscentre.py:76-80, :431-437 (THROAT_M_NEGATIVE_READING = CONSERVED); HPS's eq. (9) is given for the system they integrated, which the tree records as NOT DETERMINED (hpscentre.py section 2). COMPUTED here: M1 and M2 multiply f' or r' and vanish at l = 0, so eq. (8), eq. (9) and the fourth-derivative data are IDENTICAL in both readings (rederive checks B', E0). The drift therefore touches the trajectory, not eq. (9); even there the first m < 0 moves only from 6.946559 K (printed M1) to 6.947365 K (conserved), 1.2e-4 relative.",
+  "NOT DRIFT, an added check: HPS require r''(0) >= 0 for a throat but eq. (9) sets r''(0) = 0, so minimality is decided at fourth order. The tree computes r''''(0) = 7 sqrt(6)/768 K^-3 > 0 at ln f(0) = -2/3 (hpscentre.py:203-205, :1297-1305); HPS print no r''''(0). Re-derived exactly here, and shown > 0 over the whole range -1 <= ln f(0) < 0 (check E3).",
+  "RECORDING GAP (no effect on any use): HPS_LNF0_RANGE = (-1.0, 0.0) at hpscentre.py:247 is a bare tuple; the closed/open endpoints (-1 included, 0 excluded, where r(0) = 0 and there is no throat) live only in the comment. The one use, bounding sqrt(3 L0 + 4) over the range, is continuous and unaffected.",
+  "NAMING GAP in the canonical entry (not in the owner's code): the entry's hypotheses omit xi = 1/6 / massless AHS source (hpscentre.py section 2 states 'xi = 1/6, m = 0'), f(0) > 0, and the even symmetry that zeroes the odd derivatives (its first hypothesis lists the zeros but not the symmetry that produces them). hpscentre.py:978 y0 = [exp(L0), 0, 0, 0, sqrt(-16 L0), 0, 0, 0] (K = 1) is a character-level match of eq. (9).",
+  "DISCREPANCY IN HPS, recorded not refuted: HPS p.7 say the throat extends 'to about 10K^-2' and that Figs. 1a-1b have 'both axes ... scaled by K^-2'. Read literally, 10 K^-2 = 57600 pi l_P ~ 1.8e5 l_P, inconsistent with their own Planck-scale ripple (omega_1^2 = 1/(16 K^2), spacing 4 pi K). The tree's 'm < 0 from l < 8 K onward' (hpscentre.py:76-78) reads the flare in units of K; computed here, r' first reaches 1 at l = 6.947 K, consistent with 'about 10' in units of K. The figures were not read (text layer only), so the printed unit label is a discrepancy, not an error.",
+  "Tree statement outside eq. (9) NOT audited here: 'it recurs in EVERY 8 pi K window between 50 K and 1e4 K' (hpscentre.py:81-83) and the far-zone attribution rest on the whole integration, not on eq. (9)'s algebra."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "K^2, the AHS source-term prefactor for the conformal scalar",
+   "value_then": "1/(5760 pi) (Planck units), HPS p.4",
+   "value_now": "1/(5760 pi): a pure number fixed by the conformal-anomaly coefficients alpha = beta = 1/(2880 pi^2) (AHL gr-qc/9504019 eq. (6)); not a measured datum",
+   "source_now": "sibling audit gr-qc_9701064_k2.json (STANDS)",
+   "moves_conclusion": "No. It cannot move. With K = 1 units eq. (9) reads r(0)^2 = -16 ln f(0) exactly."
+  },
+  {
+   "quantity": "ln f(0) for the run",
+   "value_then": "-2/3 (HPS p.7, their choice)",
+   "value_now": "-2/3 (a boundary datum, not a measurement)",
+   "source_now": "HPS p.7; hpscentre.py:246",
+   "moves_conclusion": "No datum to move. r(0) = sqrt(32/3) K = 3.26599 K = 0.02428 l_P, rounding to HPS's printed 'r(0) ~ 0.02 l_P' (check D)."
+  },
+  {
+   "quantity": "Planck length (only converts K-units to SI)",
+   "value_then": "hbar = c = G = 1 units; no SI value used",
+   "value_now": "l_P = 1.616255(18) x 10^-35 m (CODATA 2018, unchanged in CODATA 2022)",
+   "source_now": "CODATA recommended values (not read in this audit; stated for completeness)",
+   "moves_conclusion": "No. Every figure here (r(0) = 0.02428 l_P, first m < 0 at 0.05165 l_P) is in Planck units; the SI value of l_P enters nowhere."
+  },
+  {
+   "quantity": "FIRST_NEGATIVE_M_THROAT_LP (tree fixture; computed from eq. (9)'s data, not an HPS figure)",
+   "value_then": "not printed by HPS",
+   "value_now": "0.0516 l_P (tree, hpscentre.py:288); independently recomputed here: l = 6.947365 K x K = 0.007434 l_P -> 0.051646 l_P, three integrators (DOP853, Radau, LSODA) agreeing to 5e-10 K",
+   "source_now": "rederive/gr-qc_9701064_eq9.py check F1-F2 (own transcription of HPS (5)-(7), not the tree's)",
+   "moves_conclusion": "No; reproduced."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9701064_eq9.py",
+  "outcome": "18 checks, ALL PASS (output saved at rederive/gr-qc_9701064_eq9.out; exit 0; ~19 s). HPS (5)-(7) transcribed AFRESH from the v1 text layer (not imported from hpscentre.py). A: transcription control -- Einstein side conserved identically; source conserved (divergence exactly 0 at 3 random rational points) ONLY for (M1, M2) = (116, 2); printed (16, 1) and half-repaired (16, 2) are not. B: eq. (8) = -(r^4/K^2) x [ll equation at r' = f' = 0] exactly, independent of f''', r''' (as HPS state), identical in both readings. C: at f''(0) = r''(0) = 0 eq. (8) collapses to K^-2 r(0)^2 + 16 ln f(0) = 0, linear in r(0)^2 with the single root r(0)^2 = -16 K^2 ln f(0): eq. (9) is the unique positive root, real iff ln f(0) < 0 (HPS's upper bound is forced; the lower bound -1 is a choice). Control: eq. (8)'s other printed case (f = f'' = 1, r'' = 0) gives 67.26 l_P against HPS's '~67 l_P'. D: r(0) = 0.02428 l_P vs '~0.02 l_P'. E: from tt and thth at eq. (9) data, as closed forms in L = ln f(0) (K = 1): f''''(0) = -(L + 1) e^L / (128 L (3L + 4)), r''''(0) = (2 - L^2) / (64 (-L)^(3/2) (3L + 4)); identical in both readings; at L = -2/3, r''''(0) = 7 sqrt(6)/768 EXACTLY (the tree's figure) and f''''(0) = e^(-2/3)/512; the fourth-order determinant is -256 (3 ln f + 4)/(f r) (the tree's figure); r''''(0) > 0 on all of [-1, 0) (a throat minimum throughout HPS's range); |3L + 4| >= 1 on the range. E5 (COMPUTED, not stated by HPS): f''''(0) = 0 exactly at L = -1, > 0 on (-1, 0), < 0 on (-4/3, -1) -- HPS's unexplained lower bound coincides with the redshift having a (fourth-order) local minimum at the throat, their p.6 'f''(0) >= 0' carried to the first non-vanishing order. F: integrating this independent transcription from eq. (9) data at L = -2/3, r' first reaches 1 (Misner-Sharp m = (r/2)(1 - r'^2) turns negative) at l = 6.947365 K = 0.051646 l_P in the conserved reading (three integrators agree to 5e-10), with the ll constraint preserved to 1.4e-11; the printed-M1 reading crosses at 6.946559 K = 0.05164 l_P and drifts off the ll constraint (5.7e-4). The tree's FIRST_NEGATIVE_M_THROAT_LP = 0.0516 and 'l < 8 K' are reproduced.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (the one call this stage allows), keywords 'self-consistent wormhole', 'semiclassical gravity', 'Anderson-Hiscock-Samuel'",
+   "effect": "contested",
+   "what": "Returned 'alphaXiv assistant quota exceeded'; no later-literature search through alphaXiv could be run. 'contested' is the schema's nearest non-committal value; no paper is claimed to contest eq. (9). A WebSearch substitute ('Hochberg Popov Sushkov self-consistent wormhole ... throat boundary conditions re-examined') returned HPS itself (arXiv, PRL, kpfu.ru, ResearchGate copies), 1809.06182, gr-qc/9710001, gr-qc/0501105, 1502.03712, 1808.03717 -- none titled as a re-examination of HPS's eq. (8)-(9).",
+   "read_status": "NOT-READ (search failed at alphaXiv; web substitute titles only)"
+  },
+  {
+   "ref": "A. A. Popov, hep-th/0302039 v2, Appendix B (B1)-(B3); via sibling audit hep-th_0302039_seciv.json and hpscentre.py:117-153",
+   "effect": "extends",
+   "what": "An independent second printing of the same source term (M1 = 116 in (B1), M2 = r^2 in (B2)); the conserved reading the tree uses is the one this audit's check A finds unique. At l = 0 it leaves eq. (8)-(9) and the fourth-derivative data unchanged (checks B', E0). Popov also derives the AHS approximation under asymptotic flatness, which HPS's own solution lacks (p.8) -- a domain hypothesis on the SOURCE TERM, not on eq. (9)'s algebra.",
+   "read_status": "NAMED-NOT-READ by this audit (restated by the tree and a sibling audit)"
+  },
+  {
+   "ref": "E.-A. Kontou, arXiv:2405.05963 Sec. 5.2; via sibling audit gr-qc_9701064_k2.json",
+   "effect": "contested",
+   "what": "Doubts that HPS's Planck-scale throats lie in the semiclassical regime. Bears on the physical meaning of a throat of r(0) = 0.024 l_P = 3.27 K, not on whether eq. (9) solves eq. (8).",
+   "read_status": "NAMED-NOT-READ by this audit (restated by a sibling audit)"
+  },
+  {
+   "ref": "Anderson, Molina-Paris, Mottola, gr-qc/0209075; Parker & Simon gr-qc/9211002; via sibling audit gr-qc_9701064_omega.json",
+   "effect": "contested",
+   "what": "Planck-scale solutions of fourth-order semiclassical equations are singular in the vanishing-coefficient limit / excluded by order reduction; would discard the fourth-order data eq. (9) specifies (f''', r''' and the fourth derivatives), i.e. contest the regime, not the algebra.",
+   "read_status": "NAMED-NOT-READ by this audit (restated by a sibling audit)"
+  }
+ ],
+ "lacked_data": "Eq. (9) contains no measured datum. Its content is algebra on HPS's own system: r(0)^2 = -16 K^2 ln f(0) is the unique positive root of eq. (8) at f''(0) = r''(0) = 0, with K^2 = 1/(5760 pi) a pure number (anomaly coefficients). The things HPS lacked in 1997 were a second printing of the source term and the domain analysis: Popov (2003) gives an independent printing that disagrees with HPS at M1 and M2, and derives the AHS approximation under asymptotic flatness, which HPS's solution does not have. Having that data does not change eq. (9). COMPUTED: M1 and M2 vanish at l = 0, so eq. (8), eq. (9) and r''''(0) = 7 sqrt(6)/768 K^-3 are the same in every reading, and the first m < 0 changes by only 1.2e-4 relative. What the later data does change is the INTERPRETATION of any solution grown from eq. (9): it lies outside the class the AHS approximation was derived under (asymptotic flatness; the tree already confines itself to this, hpscentre.py 'DOMAIN'), and at 0.024 l_P it is sub-Planckian (Kontou 2024, via sibling). Those are hypotheses on the source term and belong to other entries (hep-th/0302039#seciv, ahs-1995). Evidence on the other side: HPS's two printed figures that can be checked (r(0) ~ 0.02 l_P; eq. (8)'s ~67 l_P case) reproduce, and their unexplained lower bound -1 turns out to be exactly where f''''(0) changes sign. So the choice has internal structure; HPS did not state it and nothing here says they knew it. M's hypothesis is tested and not supported for this result: no missing datum moves it.",
+ "grade": "STANDS",
+ "grade_evidence": "The statement is READ at source (arXiv v1 text layer p.7, from this session's earlier alphaXiv return). The tree's y0 (hpscentre.py:978) and its constants HPS_LNF0_RUN = (-2, 3) and HPS_LNF0_RANGE = (-1.0, 0.0) (:246-247) match eq. (9) and the run value exactly. RE-DERIVED from a fresh transcription of HPS (5)-(7). The transcription is validated by conservation, which holds only in the (116, 2) reading. Eq. (8) comes out exactly as printed. Eq. (9) is its unique positive root and is real iff ln f(0) < 0. r(0) = 0.02428 l_P matches the printed '~0.02 l_P'. r''''(0) = 7 sqrt(6)/768 K^-3 exactly, and the determinant is -256 (3 ln f + 4)/(f r); both are the tree's figures. Both are the same in the printed and conserved readings. r''''(0) > 0, so the throat is a minimum, over HPS's whole range. The tree's downstream fixture FIRST_NEGATIVE_M_THROAT_LP = 0.0516 is reproduced as 0.051646 by an integration that shares no code with the tree. No datum enters, so none can move. The tree's one added hypothesis, the conserved reading, is named by the owner, and it is shown to leave eq. (9) untouched. Three discrepancies are recorded and none is a refutation: HPS's 'about 10K^-2' unit label, the bare-tuple range endpoints, and the canonical entry's omitted hypotheses.",
+ "what_would_change_the_grade": "(1) If the journal PRL text printed eq. (9) differently from arXiv v1 (for example another prefactor or other derivative data), the tree's READ would rest on the preprint only: DISCREPANCY, then re-check. (2) If a transcription error were common to both this audit's transcription and the tree's, E and F would be affected. Two things guard against that: the conservation check picks (116, 2) uniquely, and at l = 0 only a handful of terms survive. Even so, an independent read of Popov (B1)-(B3) at l = 0 would close it. (3) A use of eq. (9) data outside HPS's range, or with f''(0) or r''(0) nonzero, would need eq. (8) in full; the reduction r(0)^2 = -16 K^2 ln f(0) would then no longer hold (NARROWED). (4) The physical standing of any solution from these data (sub-Planckian, not asymptotically flat, outside the derived domain of AHS) is graded under other keys and cannot move this algebraic grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9701064_eq9.py   # exit 0 and 'ALL PASS' (18 checks); source text: sed -n 1100,1160p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hps/hps_0.xml",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9701064_eq9.json"
+}

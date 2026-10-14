@@ -1,0 +1,139 @@
+{
+ "S_BH = k A c^3/(4 G hbar) from T_H and first law": {
+  "ok": true,
+  "detail": "ratio=1"
+ },
+ "Bousso RHS depends on G at fixed A (G slot = 1)": {
+  "ok": true,
+  "detail": "d/dG = -A*c**3*k/(4*G**2*hbar)"
+ },
+ "Bousso RHS -> oo as G -> 0 (bound trivial without gravity)": {
+  "ok": true,
+  "detail": "lim = oo"
+ },
+ "Bekenstein RHS has no G (tree's DOCKET 4 contrast)": {
+  "ok": true,
+  "detail": "d/dG = 0"
+ },
+ "Schwarzschild saturates Bekenstein exactly (tree's K=0 standard)": {
+  "ok": true,
+  "detail": "diff=0"
+ },
+ "bits_per_m2": {
+  "CODATA 2022": 1.380685525571003e+69,
+  "CODATA 1998": 1.3809547931172813e+69
+ },
+ "printed 1.4e69 reproduced to 2 s.f. (CODATA 2022)": {
+  "ok": true,
+  "detail": "1.3807e+69"
+ },
+ "move 1998 -> 2022 in G is < 0.1 % of the density": {
+  "ok": true,
+  "detail": "rel shift -1.95e-04"
+ },
+ "I <= (1 - A_end)/4 on 400 random generators": {
+  "ok": true,
+  "detail": "max I/bound = 0.9224"
+ },
+ "fmw1_max_ratio": 0.9224336567541277,
+ "non-vacuity guard: s at 3x the hypothesis violates somewhere": {
+  "ok": true,
+  "detail": "249/400 violate"
+ },
+ "(pi a1)^(1/4) + (a2/pi)^(1/2) = 1 for a1=1/(16pi), a2=pi/4": {
+  "ok": true,
+  "detail": "= 1"
+ },
+ "I <= (1/4)(1 - A_end)^(1/2) <= 1/4 on 400 random generators": {
+  "ok": true,
+  "detail": "max I/bound = 0.1456"
+ },
+ "fmw2_max_ratio": 0.1455516127348559,
+ "tree_row": [
+  "Bousso covariant",
+  2,
+  1,
+  0,
+  1,
+  1,
+  2,
+  "lightsheets"
+ ],
+ "G = 1 and it is the only G = 1 row (bounds.py:459)": {
+  "ok": true,
+  "detail": "['Bousso covariant']"
+ },
+ "DISCREPANCY RECORDED: Z coded 2 (spacelike/region); source is null (Z=1 cell)": {
+  "ok": true,
+  "detail": "Z=2"
+ },
+ "coding_as_seated": {
+  "cells": 8,
+  "collisions": [
+   [
+    "Fewster-Osterbrink QEI",
+    "SNEC"
+   ]
+  ],
+  "saturated": 4,
+  "Z2": [
+   "Casini (relative entropy)",
+   "Bekenstein",
+   "Bousso covariant"
+  ],
+  "Z2_with_G": [
+   "Bousso covariant"
+  ],
+  "every_Z2_has_entropy_LHS": true,
+  "all_energy_LHS_have_Z01": true
+ },
+ "counterfactual_Z_2_to_1": {
+  "cells": 8,
+  "collisions": [
+   [
+    "Fewster-Osterbrink QEI",
+    "SNEC"
+   ]
+  ],
+  "saturated": 4,
+  "Z2": [
+   "Casini (relative entropy)",
+   "Bekenstein"
+  ],
+  "Z2_with_G": [],
+  "every_Z2_has_entropy_LHS": true,
+  "all_energy_LHS_have_Z01": true
+ },
+ "counterfactual_K_1_to_0": {
+  "cells": 8,
+  "collisions": [
+   [
+    "Fewster-Osterbrink QEI",
+    "SNEC"
+   ]
+  ],
+  "saturated": 5,
+  "Z2": [
+   "Casini (relative entropy)",
+   "Bekenstein",
+   "Bousso covariant"
+  ],
+  "Z2_with_G": [
+   "Bousso covariant"
+  ],
+  "every_Z2_has_entropy_LHS": true,
+  "all_energy_LHS_have_Z01": true
+ },
+ "Z 2->1 keeps 'every Z=2 bound has an entropy LHS' True": {
+  "ok": true,
+  "detail": ""
+ },
+ "Z 2->1 empties 'region bounds with gravity' (tree:197 says two... of three)": {
+  "ok": true,
+  "detail": "as seated ['Bousso covariant'] -> []"
+ },
+ "restored in memory; no file written": {
+  "ok": true,
+  "detail": ""
+ }
+}

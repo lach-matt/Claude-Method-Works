@@ -1,0 +1,27 @@
+A0_bose_integral_numeric_vs_pi4_over_15 = (6.493939402266829, 6.493939402266829)
+A1_EA_matches_720 = True
+A2_FA_equals_minus_3u0 = True
+A2b_FA_equals_pi2_over_240 = True
+A3_traceless = True
+A4_isotropic_p = True
+A5_factor_9 = True
+A6_u0_at_10nm_J_per_m3 = 43337.52574825844
+A6_m_at_10nm_R1mm_kg = -2.0198137117732362e-21
+A6_matches_tolman = True
+B1_KC_theory_Nm2 = 1.3001257724477533e-27
+B1_KC_equals_pi2hbarc_240 = True
+B2_Bressi_KC_measured = (1.22e-27, 1.8e-28)
+B2_pull_sigma = -0.4451431802652962
+B2_Bressi_alt_fit = (1.24e-27, 1e-28, -0.6012577244775333)
+B3_Lamoreaux_radius_shift = 0.10619469026548667
+B4_MR_ideal_vs_corrected_rms_pN = (6.3, 1.6)
+C0_gold_skin_depth_nm = 21.925220037599605
+C0_gold_lambda_p_nm = 137.7602203969253
+C1_eta_gold_plasma = {10.0: 0.10985047861795237, 62.0: 0.40842345323528445, 100.0: 0.5253381845503371, 120.0: 0.5704795905446894, 500.0: 0.8489726958427204, 600.0: 0.8711097153813545, 1000.0: 0.9187854784282169, 3000.0: 0.9715188048602776, 6000.0: 0.9855733653238273}
+C2_nonretarded_check_ratio_at_D=1e-3 = 0.9999397950749911
+C3_nonretarded_over_lifshitz_at_10nm = 1.1828540182604532
+D0_perfect_limit = -0.013707783890401885
+D1_U_centre_a4 = {0.4561: 0.04049495103205941, 1.0: 0.06816379194669309, 10.0: 0.06863786667569736, 50.0: 0.011385704461220053, 90.0: 0.000943635782880416, 99.0: -0.0003125915948267728, 110.0: -0.0015835359161044662, 200.0: -0.00688428993115882, 10000.0: -0.013567495273722818}
+D2_sign_at_gold_10nm = POSITIVE
+D3_gold_distance_where_centre_turns_negative_um = 2.1705967837223605
+ALL ASSERTIONS PASS

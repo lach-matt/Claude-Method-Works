@@ -1,0 +1,121 @@
+{
+ "key": "conjugate-point-not-achronal",
+ "name": "Causal-structure result: past a point conjugate to p along a null geodesic, the geodesic is no longer achronal (a timelike curve p -> r exists); contrapositive: an achronal null geodesic has no pair of conjugate points (Hawking-Ellis 1973 Prop. 4.5.12; Wald 1984 Thm 9.3.8; Penrose 1972)",
+ "source": {
+  "located": "Hawking & Ellis, The Large Scale Structure of Space-Time (CUP 1973), Proposition 4.5.12 -- the proposition number as cited by 2408.00154 (p.~9, line 581 of the extracted text: 'achronal null geodesics cannot have conjugate points (Proposition 4.5.12 in Ref. [43])', [43] = Hawking & Ellis) and by 2010.05086 (line 1281: 'null geodesic ... without conjugate points ([9] Proposition 4.5.12)', [9] = Hawking & Ellis). Deformation form: Wald 1984 Sec. 9.3 as used by Gao & Wald gr-qc/0007021. The book itself has no arXiv copy.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Hawking-Ellis and Wald are NAMED-NOT-READ. Restatements READ as arXiv full text (cached in this docket's src/casmag/all from arXiv; the alphaXiv tools returned 'assistant quota exceeded' on every call in this stage, and arxiv.org is refused by the egress proxy, so no fresh fetch was possible): gr-qc/0007021v2 Gao & Wald 2000 (definition: 'points p, q along a geodesic gamma are said to be conjugate if there exists a Jacobi field which vanishes at both p and q. Equivalently ... q will be conjugate to p if and only if det A = 0 at q'; proof of Thm 1: 'q in J+(p) - I+(p) ... Then gamma must be a null geodesic that does not contain any pair of conjugate points lying between p and q (see, e.g., [9],[2])'; proof of Thm 2: 'lambda must contain a pair of conjugate points. Therefore ... lambda also can be deformed to be a timelike curve in M with the endpoints p and r fixed. Thus r in I+(p)'); 0705.3193v2 Graham & Olum 2007 p.3 ('every complete null geodesic that obeys ANEC has a pair of conjugate points [9] and thus is chronal [10]', [10] = Hawking & Ellis); math/9909158 Galloway 1999 p.16 ('an inextendible null geodesic is a null line iff it is achronal ... null lines, like timelike lines, must be free of conjugate points', citing Beem-Ehrlich-Easley); 2010.05086v2 Cameron; 2408.00154v2 de Aguiar Alves & Landulfo (Corollary 3: 'If k_c k_d k_[a R_b]cd[e k_f] != 0 at some point on gamma, then gamma is not achronal'). 2004.12523v4 Osorio Morales & Santillan READ in part: the extracted text lacks its 'Proposition 1' (section 2.2), so its statement is NOT quoted."
+ },
+ "published_statement": "Hawking-Ellis Prop. 4.5.12 as restated (2408.00154, 2010.05086, Galloway math/9909158): an achronal null geodesic contains no pair of conjugate points; equivalently (Gao-Wald gr-qc/0007021, from Wald Sec. 9.3 / HE): if a null geodesic gamma from p to r contains a pair of conjugate points lying between p and r (first conjugate point strictly before r), gamma can be deformed, endpoints fixed, into a timelike curve, so r is in I+(p). A point q in J+(p) - I+(p) is reached only by a null geodesic without conjugate points between p and q. Conjugate = a nonzero Jacobi field vanishing at both points, i.e. det A = 0 for A(p) = 0, A'(p) = 1 (Gao-Wald eq. 12 context).",
+ "published_hypotheses": [
+  "H1 smooth time-oriented Lorentzian manifold (Hawking-Ellis work with a C^2 metric or better; Galloway math/9909158 and Gao-Wald assume smooth spacetimes). Curvature must exist to write the Jacobi equation",
+  "H2 gamma is a null geodesic (affinely parametrised) segment from p to r lying in the spacetime",
+  "H3 the conjugate point q is conjugate TO A POINT OF THE SEGMENT (for 'p -> r': conjugate to p) and lies STRICTLY before r; at r = q the conclusion is not asserted (r may lie on the boundary of J+(p))",
+  "H4 conjugacy is the existence of ONE nonzero Jacobi field vanishing at both points (det A = 0): a one-direction (line/astigmatic) focus qualifies",
+  "H5 no energy condition, no field equation, no global hyperbolicity or completeness is needed: the deformation is local to a neighbourhood of the segment (Gao-Wald use it with NEC+generic only to PRODUCE the conjugate points, not for the causal step)",
+  "H6 the result is one-directional: 'conjugate pair => not achronal'. The converse is not part of it"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H1 (regularity) at anecscope.py:225-228 (has_conjugate: concentric.survey from x0 = -lam/2 = -400, lam = 800) with concentric.py:163-167 (Phi = m/sqrt(r^2+a^2) - m/max(r, R_s), R_s = 200, concentric.py:156): the thin shell makes Phi only Lipschitz at r = 200, so the metric is C^{0,1} there and its curvature has a delta on the shell; every anecscope scan ray starts at r ~ 400 and crosses r = 200 (R7a: max_r >= 400 on all seven rows). Neither anecscope.py nor concentric.py names a regularity hypothesis. EFFECT MEASURED, NOT PRESUMED (R7b): re-running each of the seven scan rays from x0 = -199 (inside the shell) finds a conjugate point at 199.25, 199.74, 202.82, 214.01, 271.12, 317.39, 321.21 with the whole segment to conjugate+2 at max_r <= 199.014 < 200, i.e. a conjugate pair inside the open region where the metric is C^infinity; the C^2 theorem applies there and non-achronality of the complete geodesic follows without the shell. No anecscope verdict moves.",
+  "WEAKENED H3 (endpoint) at spec.py:99-103: 'a whole null congruence leaving A and reconverging at B ... Past that point the geodesic is no longer achronal, so a timelike curve from A to B exists' places B AT the reconvergence and then asserts a timelike curve A->B; the theorem gives none at the conjugate point itself -- R2b computes dt - d = 0 at the antipodal conjugate point in R x S^2, which is therefore NOT in I+(p). spec.DOES[3] (spec.py:192-193, 'past the conjugate point'), specthm.py:1361-1363 ('only for B strictly past the focus') and the escape row specthm.py:2256-2258 already state the correct condition; the drift is confined to the prose at spec.py:99-100.",
+  "RELABELLED H3 (conjugate to WHICH point) at spec.py:194 ('the Sun already does exactly this, focusing at 548 AU') with spec.py:188-189 and specthm.py:1361-1363 ('strictly past the focus'): 548 AU = b^2c^2/(4GM) is the focus of a source at infinity; 'timelike curve A->B' needs B past the point conjugate to A, which for a source at finite D_A is at f D_A/(D_A - f) beyond the lens (none if D_A <= f): R6 gives 6270 AU for D_A = 600 AU, 1210 AU for D_A = 1000 AU. The weak-field-lens-focal-length audit records the same relabel and that specthm.py:1322-1323 already treats f(R_lens) as the MINIMUM range; non-achronality of the complete geodesic survives (a far-upstream A gives a conjugate point arbitrarily close past f). No conclusion moves.",
+  "ADDED (converse, wording) at achronal.py:41 ('A null geodesic is achronal EXACTLY up to its first CONJUGATE POINT') and anecscope.py:54-55 ('A CONJUGATE POINT IS EXACTLY WHAT MAKES A RAY NON-ACHRONAL'): 'exactly' reads as a biconditional; the 'achronal up to the first conjugate point' half is not the theorem and is false in general -- R5: flat R^{1,3} with x ~ x + 2 pi has no conjugate points (J = lambda) yet gamma(2 pi + eps) is timelike-related to gamma(0); the tree itself names another counter-mechanism, GJW's external causal path (anecscope.py section 4). NOT load-bearing where the result is used: anecscope.py:130-134 states the load-bearing direction is 'every ANEC-violating ray EXHIBITS a conjugate point', i.e. the forward direction only, and achronal.py's converse-based count (ZERO NON-ACHRONAL over 25 rays) is already struck (spec.py:87-90).",
+  "CONSISTENT H4 at composite.py:106-108 and concentric.py:142-143 ('a line focus, enough to break achronality'): matches Gao-Wald's definition (one Jacobi field vanishing at both points, det A = 0) and is checked in R3 (R x S^2 x R, A = diag(sin l, l), past the one-direction zero the point is in I+(p)). Not a drift.",
+  "CONSISTENT H2/H3 at concentric.py:198-199 and composite.py:245-246: the Jacobi matrix is started with A = 0, A' = I at the ray's first point, so the conjugate points the tree measures are conjugate TO THE START POINT, as the theorem requires (not focal points of a surface). Not a drift.",
+  "DISCREPANCY (tree data, not the external result) at anecscope.py:87-88: the rows b = 2.3783 (1578.0) and b = 2.4021 (1579.8) exceed the run length lam = 800 of anecscope.has_conjugate (anecscope.py:225-228) and cannot come from it; at that config the conjugate points are 491.20 and 493.29 (R7a); the printed figures reproduce only at x0 = -1500, lam = 3000 (1578.09, 1579.69; the second printed as 1579.8 against 1579.69). The table mixes two run configurations without saying so; affine positions are not comparable across its rows. Existence -- the only thing the causal step uses -- is unaffected. Recorded, not repaired.",
+  "DISCREPANCY (numerics, not the external result): the Riemann stencil (+-2H, H = 1e-3, composite.py:120) lands on the r = 200 kink at one sample on rays b = 0.05, 0.2, 0.5 and none on b >= 1.0 (step h = 0.1231; R7c); for b = 0.05 the conjugate point moves 400.062 <-> 400.246 as n changes from 6499 to 6500 (R7e), so the fourth significant figure of anecscope's first rows depends on whether the shell is sampled. The true thin-shell Ricci kick is |Delta u'| ~ 1e-4 and focusing (R7d). Location, not existence."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the theorem",
+   "value_then": "none -- a statement of Lorentzian differential geometry (HE 1973; Penrose 1972; Wald 1984)",
+   "value_now": "none",
+   "source_now": "restatements READ: gr-qc/0007021, 0705.3193, math/9909158, 2010.05086, 2408.00154",
+   "moves_conclusion": "no -- there is no datum to move"
+  },
+  {
+   "quantity": "tree's conjugate points, anecscope scan b = 0.05, 0.2, 0.5, 1.0, 2.0 (x0 = -400, lam = 800, n = 6500, M_SRC = 2e-2)",
+   "value_then": "400.2, 400.7, 403.8, 414.4, 461.0 (anecscope.py:81-86)",
+   "value_now": "400.25, 400.74, 403.82, 414.40, 461.05 (R7a, concentric.survey re-run read-only)",
+   "source_now": "rederive/conjugate-point-not-achronal.py R7a",
+   "moves_conclusion": "no -- reproduced to the printed precision"
+  },
+  {
+   "quantity": "tree's conjugate points, b = 2.3783, 2.4021",
+   "value_then": "1578.0, 1579.8 (anecscope.py:87-88)",
+   "value_now": "491.20, 493.29 at anecscope's own has_conjugate config; 1578.09, 1579.69 only at x0 = -1500, lam = 3000",
+   "source_now": "R7a",
+   "moves_conclusion": "no -- existence holds at both configs; the table's affine positions come from two unstated run lengths (discrepancy)"
+  },
+  {
+   "quantity": "conjugate pair inside the smooth region r < R_s = 200 (all seven scan b)",
+   "value_then": "not computed by the tree",
+   "value_now": "199.25, 199.74, 202.82, 214.01, 271.12, 317.39, 321.21 from x0 = -199; max_r <= 199.014",
+   "source_now": "R7b",
+   "moves_conclusion": "no -- it removes the regularity gap: the C^2 theorem applies on a C^infinity open set"
+  },
+  {
+   "quantity": "b = 3.5674 containment test (anecscope.py:247-249)",
+   "value_then": "has_conjugate True",
+   "value_now": "conjugate at 679.14 (x0 = -400, lam = 800)",
+   "source_now": "ad-hoc run recorded in this report (same concentric.survey call)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/conjugate-point-not-achronal.py",
+  "outcome": "28 checks, 0 FAIL (full run 8.5 min; --quick 45 s). R1: sympy Riemann of R x S^2 x R, tidal matrix on the screen {e_phi, d_z} along t = theta = lambda is diag(1, 0); J = sin(lambda), first conjugate point at pi. R2: dt - d = 0 for lambda < pi (segment achronal), = 0 AT the conjugate point (not in I+(p)), = 2 eps past it; explicit curve t = s, theta = s(pi-eps)/(pi+eps) has g(u,u) = -4 pi eps/(pi+eps)^2 < 0 and ends on gamma(pi+eps). R3: A = diag(sin l, l), det A = l sin l -- a one-direction (line) focus already gives the timelike curve. R4: index form I[sin(pi l/L)] = (L/2)(pi^2/L^2 - kappa), negative iff L > pi/sqrt(kappa), the conjugate distance -- the proof's mechanism. R5: flat cylinder, no conjugate point, still non-achronal -- the converse is false. R6: thin-lens point-source conjugate point f D_A/(D_A - f) > f. R7: the tree's numerics reproduced (five rows to printed precision; two rows only at an unstated lam = 3000), and a conjugate pair found entirely inside the smooth region for every scan ray.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Gao & Wald, gr-qc/0007021 (2000), Theorems on gravitational time delay",
+   "effect": "confirms",
+   "what": "Uses the result in both directions of its proofs (no conjugate pair on a null geodesic reaching J+(p) - I+(p); a conjugate pair lets the geodesic be deformed to a timelike curve with endpoints fixed); defines conjugacy by one Jacobi field / det A = 0, supporting the tree's line-focus use",
+   "read_status": "READ (arXiv full text, cached)"
+  },
+  {
+   "ref": "Graham & Olum, 0705.3193 (2007), Achronal averaged null energy condition",
+   "effect": "confirms",
+   "what": "'has a pair of conjugate points [9] and thus is chronal [10 = Hawking-Ellis]' -- the exact step the tree uses to leave the scope of achronal ANEC",
+   "read_status": "READ (arXiv full text, cached)"
+  },
+  {
+   "ref": "Galloway, math/9909158 (1999), Maximum principles for null hypersurfaces and null splitting theorems",
+   "effect": "confirms",
+   "what": "'an inextendible null geodesic is a null line iff it is achronal ... null lines ... must be free of conjugate points' (smooth spacetimes)",
+   "read_status": "READ (arXiv full text, cached)"
+  },
+  {
+   "ref": "Cameron, 2010.05086 (2020, v2 2023), Positivity of mass in higher dimensions",
+   "effect": "confirms",
+   "what": "Cites Hawking-Ellis Prop. 4.5.12 for 'null geodesic ... without conjugate points' on the boundary of the future; the proposition number the tree's names field guesses ('Prop. 4.5.12-type')",
+   "read_status": "READ (arXiv full text, cached)"
+  },
+  {
+   "ref": "de Aguiar Alves & Landulfo, 2408.00154 (2024), Positive mass in GR without energy conditions",
+   "effect": "confirms",
+   "what": "'achronal null geodesics cannot have conjugate points (Proposition 4.5.12 in Ref. [43] = Hawking-Ellis)'; Corollary 3 draws 'gamma is not achronal' from a conjugate pair",
+   "read_status": "READ (arXiv full text, cached)"
+  },
+  {
+   "ref": "Minguzzi, 1709.06494 (2019), Causality theory for closed cone structures",
+   "effect": "extends",
+   "what": "Theorem 2.7: for LOCALLY LIPSCHITZ cone structures a causal curve joined to a timelike one deforms to a timelike curve (push-up, no causal bubbles; bubbles for merely C^0 metrics per Chrusciel-Grant 1111.0400, NAMED-NOT-READ). Bears on the regularity drift: push-up survives the tree's Lipschitz shell, but the Jacobi/conjugate-point step still needs curvature; R7b bypasses the question. The one discover_papers call for later work was NOT RUN (alphaXiv 'assistant quota exceeded'); Kunzinger-Steinbauer-Stojkovic-Vickers 1310.4404 (C^{1,1}) and Graf-Ling 1712.09461 are NAMED-NOT-READ, so whether 'conjugate => not achronal' is published for C^{1,1} or C^{0,1} metrics is OPEN here and not needed by the tree",
+   "read_status": "READ (arXiv full text, cached)"
+  },
+  {
+   "ref": "Osorio Morales & Santillan, 2004.12523 (2020/2022), About apparent superluminal drives in generic gravity theories",
+   "effect": "confirms",
+   "what": "Uses the forward direction (Galloway/Gao-Wald); its p.11 sentence 'an inextensible null geodesic ... that has no conjugate points. If this geodesic appears, proposition 1 shows that it can not be deformed to a time like one. Its image is achronal' asserts the converse, which R5 refutes in general (flat cylinder) -- a discrepancy in that paper, not a limit on the result audited here",
+   "read_status": "READ in part (extracted text lacks its Proposition 1)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the result is a theorem of Lorentzian geometry with no empirical input (Penrose 1972, Hawking-Ellis 1973, Wald 1984); its authors lacked no datum because none enters. What came later is mathematical: low-regularity causality theory (Chrusciel-Grant 2012; Minguzzi 2019 Thm 2.7) EXTENDS the deformation/push-up part to Lipschitz metrics and shows it FAILS for merely continuous ones -- evidence for, not against, the result on the smooth class it was stated for. Evidence gathered here: R1-R4 re-derive the statement and its proof mechanism in closed form (no counterexample in the class); R5 exhibits the known limit (the converse is false), which is a limit on over-reading the result, not a defect in it. The only 'data' in this audit are the tree's own conjugate-point figures: five reproduce to printed precision, two come from an unstated longer run, and a smooth-region conjugate pair exists for every scan ray. Having all of it changes no conclusion: the result STANDS as published, and nothing M's hypothesis anticipates is found here.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result STANDS as published: re-derived in closed form (R1-R4: conjugate point at pi, point AT it not in I+(p), past it timelike with an explicit curve of norm -4 pi eps/(pi+eps)^2, the index form negative exactly past the conjugate distance), restated identically by five arXiv papers READ here (gr-qc/0007021, 0705.3193, math/9909158, 2010.05086, 2408.00154), and no datum enters it. It is NARROWED against the tree's use on hypotheses the tree drops, each shown and none moving a tree verdict: (i) C^2 regularity is never named, and anecscope's scan rays cross concentric's Lipschitz thin shell (R7a) -- R7b finds a conjugate pair inside the C^infinity region r < 200 for all seven rays, so SR3, H_seat, S-1, index3 NO-ACHRONAL-VIOLATOR / OUTSIDE-NOT-REFUTED and anecscope's counterexample() == [] survive; (ii) spec.py:99-103 asserts a timelike curve to B at the reconvergence, which the theorem does not give (R2b) -- specthm.py:1361-1363 and spec.DOES[3] already say 'strictly past'; (iii) 'the focus' at 548 AU is the source-at-infinity focus, not the point conjugate to a finite A (R6; same relabel recorded by the weak-field-lens audit); (iv) achronal.py:41 and anecscope.py:54-55 word the one-way result as 'exactly', whose converse is false (R5), but the load-bearing use is forward-only (anecscope.py:130-134). Two discrepancies in the tree's data (anecscope.py:87-88 from an unstated lam = 3000; stencil sampling of the shell moving b = 0.05 by 0.18) are recorded, not repaired, and do not touch existence. Not WRONG: no counterexample to the result or to any tree conclusion was found. Not OPEN: the statement was READ via restatement and re-derived.",
+ "what_would_change_the_grade": "To STANDS: the tree names H1 (C^2 metric along the segment) and cites the smooth-region pair (or starts its scan inside r < R_s), and spec.py:99-100 places B strictly past A's conjugate point. To WRONG: a smooth spacetime with a null geodesic carrying a conjugate pair strictly before r and r not in I+(p) (none exists per the restatements; R1-R4 find none), or a scan ray whose only conjugate points lie where the metric is not C^2 (R7b found none of seven). To OPEN: if the restatements were judged insufficient without reading Hawking-Ellis Prop. 4.5.12 itself -- reading the book (or a fresh alphaXiv read of gr-qc/0007021 once quota resets) would settle the wording.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/conjugate-point-not-achronal.py   # full, ~8.5 min, exit 0 = 28 PASS; add --quick for the closed-form checks plus two tree rays (~45 s)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/conjugate-point-not-achronal.json"
+}

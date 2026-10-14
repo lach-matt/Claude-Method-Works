@@ -1,0 +1,119 @@
+{
+ "key": "self-consistent-achronal-anec-open-nineteen-years",
+ "name": "Self-consistent achronal ANEC unproven for nineteen years (literature status)",
+ "source": {
+  "located": "Graham & Olum, 'Achronal averaged null energy condition', arXiv:0705.3193 (v2 dated 27 Aug 2007 on its page 1), PRD 76 (2007) 064001 (journal ref READ in the bibliographies of 2405.05963 ref 6 and 2510.13971 ref 17). Status in 2020-2026 READ in Kontou-Sanders 2003.01815v2, Kontou 2405.05963v2 (Universe 2024), Iizuka-Ishibashi-Maeda-Nakayama-Nishioka 2509.01286v2 (Nov 2025), Dorau-Much 2509.10137v2 (dated 27 May 2026), Fliss 2605.18964v1 (Modave lectures, 2026); conditional proof READ in Wall 0910.5751v2; fixed-background violation READ in Urban-Olum 0910.5925v2; the older self-consistent programme READ in Flanagan-Wald gr-qc/9602052v2.",
+  "read_status": "READ",
+  "via": "alphaXiv page text. The live alphaXiv calls in THIS stage (answer_pdf_queries x2, get_paper_content, discover_papers) all returned 'alphaXiv assistant quota exceeded'. The texts actually read are alphaXiv <paper><page> tool results returned to earlier tool calls in this workspace and collected verbatim into /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/ by scratchpad/d67/src/casmag/allpages.py (a harvester that keeps only alphaXiv page payloads). md5: 0705.3193v2.txt 756810091c5ce66496316b3ff22cfc29 (all 8 pages present: abstract, Condition 1, Lemma 1, Secs II-V, refs); 0910.5751v2 5739bf434ba5a86111d46458042e4216; 0910.5925v2 2f28b85d40dba4911548cf1cd00ef1d6; gr-qc_9602052v2 dbae4f49230b0184b50a6f455bad0096; 2003.01815v2 a647c534717b5b5b6ef5e7c0a9c54b2c; 2405.05963v2 7b8e441a1e90121782aafa8501188592 (its Sec. 3.4 page is NOT in the cache); 2509.01286v2 e8330ad44f195e04a40b64076eb92f7d (pages 1-12, 37-40, 46-47, 64-73 only; refs 149-150 not cached); 2605.18964v1 1c705c65ac742ae34b1d7a53c45d247a; 2509.10137v2 3a780b6adbd5b098765f7acdf703f76e; 2111.05772v1 75933fdb133d9539845f55a27c742937. Wald-Yurtsever 1991 and Penrose-Sorkin-Woolgar 1993 are NAMED-NOT-READ (restated only, by G&O p.2-3 and Kontou-Sanders)."
+ },
+ "published_statement": "G&O 0705.3193v2 p.2: 'Condition 1 (self-consistent achronal ANEC) There is no self-consistent solution in semiclassical gravity in which ANEC is violated on a complete, achronal null geodesic. We conjecture that all semiclassical systems obey self-consistent achronal ANEC.' p.3: 'self-consistent achronal ANEC can be proved along the lines of Ref. [3] ... but such a proof will have to await future work.' Abstract: the condition 'is free of known violations'. STATUS LATER, READ: Kontou-Sanders 2020 (2003.01815v2 l.4559): 'The slightly stronger conjecture that the AANEC holds for any self-consistent solution in semiclassical gravity has been advanced by Graham and Olum'; Freivogel-Kontou-Krommydas DSNEC (2111.05772 p.5): 'There are no known counterexamples to self-consistent achronal ANEC in the semi-classical regime'; Kontou 2024 (2405.05963 p.2): 'The ANEC over achronal null geodesics that satisfies the (semiclassical) Einstein equation is free of counterexamples in semiclassical gravity'; Iizuka et al. 2025 (2509.01286 p.64): 'so far, all holographic proofs of ANEC are performed on a fixed background. It remains an open question whether the self-consistent ANEC can be shown by using the holographic semiclassical Einstein equations'; Dorau-Much 2026 (2509.10137 p.2): 'no violations of this condition are currently known'; Fliss 2026 (2605.18964 p.45): 'it has been shown that the generalized second law implies the achronal ANEC [Wall] ... The status of the generalized second law as a scientific law is still uncertain however.'",
+ "published_hypotheses": [
+  "H1 SELF-CONSISTENCY: the spacetime solves Einstein's equation with the FULL stress tensor -- classical matter plus the induced quantum <T_ab> on that curvature (G&O p.2); not a test field on a fixed background.",
+  "H2 SEMICLASSICAL REGIME: 'Condition 1 should be expected to hold only in cases where the curvature is well below the Planck scale' (G&O p.3); this is what excludes the Barcelo-Visser classical violations (Planck-scale field values) and the scale-anomaly violation (Sec. III).",
+  "H3 COMPLETE geodesic: the ANEC integral is over a complete null geodesic (G&O p.2).",
+  "H4 ACHRONAL geodesic: no two points joined by a timelike path (G&O p.2); excludes the compactified-Minkowski and Schwarzschild/Boulware violations (Sec. II).",
+  "No spacetime dimension is stated in Condition 1 (G&O p.2); the 1+1 massless-scalar case is credited as proved by Wald-Yurtsever [5].",
+  "For the consequences (Lemma 1, topological censorship, no CTC construction): the null generic condition, and per theorem asymptotic flatness / global hyperbolicity / simple connectivity / partial asymptotic predictability (G&O Sec. IV; Kontou 2024 Thm 2 restating G&O's Tipler version).",
+  "The STATUS claim itself ('open') has no hypotheses in the source; it is a literature-status statement, read here in the 2020-2026 reviews listed."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H2 (semiclassical regime, curvature well below Planck scale, G&O p.3) at anecscope.py:34-36 and anecscope.py:170-171 (STATEMENTS row 3): the tree describes the open conjecture as 'the SELF-CONSISTENT version -- on a background the matter itself sources', keeping H1, H3 (anecscope.py:30) and H4, but anecscope.py contains no 'Planck' or 'semiclassical' qualifier anywhere (grep, 0 hits). Direction: the dropped hypothesis makes the conjecture NARROWER than the tree shows, so the drop overstates the conjecture's reach AGAINST M. It moves no anecscope conclusion (the corridor is placed outside the scope on H4 grounds, and REFUTES_ACHRONAL_ANEC = False stands either way). The same drop recurs at the sibling sites achronal.py:124-128, obstruct.py:178/190, index3.py:415/754, smearing.py:104-107, WARP-DRIVE.md:47 and 573, paper/CLAIMS.md:202-204.",
+  "DATING (a discrepancy of framing, not an error): 'nineteen years' (anecscope.py:36, 171; canonical hypothesis 'dated from Graham & Olum 2007') counts from G&O's naming of Condition 1. The same question is older on G&O's own account: the self-consistency requirement 'appears to have been introduced by Penrose, Sorkin and Woolgar [6]' (1993) and 'Flanagan and Wald [7] ... stated ANEC in the achronal form' in self-consistent perturbation theory (1996) (G&O p.2-4). So 19 yr is a LOWER bound on how long the question has stood (30.6 yr from FW 1996; rederive A). Neither direction favours M.",
+  "WEAKENED at sibling sites (not anecscope.py): 'no proof and no counterexample' (achronal.py:127-128, 467-468; paper/CLAIMS.md:204; WARP-DRIVE.md:573) flattens the conditional proof of Wall 0910.5751 (achronal ANEC on null lines from the GSL, for fields minimally coupled to semiclassical gravity, small gravitational perturbation, CPT, a renormalisation scheme; 'similar in scope to the self-consistent achronal ANEC' -- Wall p.3), whose GSL premise is proven for free / super-renormalisable fields on small perturbations of stationary causal horizons (restated GJW 1608.05687 p.2; Fliss 2605.18964 p.45). 'Open in general' survives; 'no proof' of any kind does not. anecscope.py itself says only 'open' (anecscope.py:34-36, 171) and is not affected.",
+  "'no counterexample' (same sibling sites) omits G&O's own undecided case: Flanagan-Wald's first-order ANEC violations for MIXED states in self-consistent perturbation theory about Minkowski, where 'we cannot be sure whether the geodesics are chronal or not' (G&O p.4). An undecided candidate, not a counterexample; READ reviews through 2026 still report no known counterexample.",
+  "ADDED at sibling sites: 'in 4D' / 'in four dimensions' (achronal.py:124-125, 467; obstruct.py:190; index3.py:415, 754; smearing.py:106; WARP-DRIVE.md:47, 573). Condition 1 carries no dimension (G&O p.2). The addition is a correct narrowing (the 1+1 massless-scalar case is proved, Wald-Yurtsever, credited by G&O p.2 and Kontou-Sanders l.4575-4578), not a drift against the source.",
+  "MISATTRIBUTION at a sibling site: 'Graham & Olum proved it in flat spacetime in 2007' (achronal.py:126; paper/CLAIMS.md:203). G&O prove no ANEC; they credit Wald-Yurtsever [5] with proving Condition 1 for a massless scalar in 1+1 (G&O p.2), and the flat-space proofs are Klinkhammer 1991 / Wald-Yurtsever 1991 (restated Kontou-Sanders l.4574-4579) and Faulkner et al. / Hartman et al. 2016. (Also found independently by the sibling audit 0705.3193.json.) A discrepancy, recorded not repaired."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "years elapsed since G&O named Condition 1",
+   "value_then": "0 (arXiv:0705.3193, May 2007; v2 27 Aug 2007)",
+   "value_now": "19.03-19.36 yr to the owner commit 2026-09-08 (git log 429323b); 19.08-19.41 yr to 2026-09-26; floor 19 in every case",
+   "source_now": "rederive A (dates: v2 date READ on 0705.3193v2 p.1; owner commit from git log)",
+   "moves_conclusion": "no -- 'nineteen years' is arithmetically right under the owner's stated dating"
+  },
+  {
+   "quantity": "years since the self-consistent ANEC question was first posed (FW 1996, 'stated ANEC in the achronal form')",
+   "value_then": "n/a",
+   "value_now": "30.60 yr (from Feb 1996); 33.68 yr from PSW 1993 self-consistency",
+   "source_now": "G&O p.2-4 (READ); FW gr-qc/9602052v2 p.1 (READ); rederive A",
+   "moves_conclusion": "no -- makes 'nineteen years' a lower bound on the age of the question; the status 'open' is unchanged"
+  },
+  {
+   "quantity": "known counterexamples to SELF-CONSISTENT achronal ANEC",
+   "value_then": "none known (G&O abstract, Sec. II); FW mixed-state first-order violations of undetermined chronality (G&O p.4)",
+   "value_now": "none known (2111.05772 p.5, 2405.05963 p.2, 2509.10137 p.2); Urban-Olum 2010 violate achronal ANEC on a FIXED conformally flat background, 'without attempting to impose self-consistency' (0910.5925 p.10) -- outside H1",
+   "source_now": "READ as listed",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "proofs",
+   "value_then": "none; 'such a proof will have to await future work' (G&O p.3)",
+   "value_now": "conditional/regime-restricted only: Wall 2010 (GSL => achronal ANEC, small perturbations); GSL proven for free/super-renormalisable fields (GJW p.2, Fliss 2026 p.45); holographic ANEC proofs all on FIXED backgrounds, self-consistent holographic case 'remains an open question' (Iizuka et al. 2025 p.64). No general 4D proof in any source read.",
+   "source_now": "READ as listed",
+   "moves_conclusion": "no for 'open'; yes for a flat 'no proof' (sibling sites only)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/self-consistent-achronal-anec-open-nineteen-years.py",
+  "outcome": "ALL OK (exit 0). (A) floor(elapsed years) = 19 for every G&O date bound (May 2007 v1, 27 Aug 2007 v2) against the owner commit and today; the question itself is 30.6 yr old from FW 1996. (B) G&O footnote 1 re-derived from the Schwarzschild metric (sympy Christoffels -> Riemann -> static orthonormal frame, k = (1, cos a, sin a, 0)): screen tidal matrix diag(+3M sin^2 a / r^3, -3M sin^2 a / r^3), traceless; k^a k^b k_[t R_r]ab[t k_r] = -(3M / 4 r^3) sin^4 a with unit-weight antisymmetrisation, against G&O's printed -(3M/r^3) sin a. The zero set agrees (radial rays only, every component vanishes there), which is all G&O's argument uses (non-radial complete geodesics generic => conjugate => chronal, so the Boulware violation misses Condition 1). The power of sin a and the factor differ: a DISCREPANCY in the printed footnote (normalisation conventions account for the 1/4, not for sin a vs sin^4 a), recorded, NOT an error in the conclusion. (C) z3: Lemma 1 skeleton (Condition 1 + self-consistent + Borde 'ANEC + generic => conjugate pair' + Hawking-Ellis 'conjugate pair => chronal') makes 'generic and achronal complete geodesic' UNSAT; vacuity guard SAT; dropping the generic condition, or self-consistency, makes the achronal/violating case SAT. The open conjecture itself is not a finite claim and is NOT checked.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Wall, arXiv:0910.5751, PRD 81 (2010) 024038",
+   "effect": "narrows",
+   "what": "Proves achronal ANEC on null lines from the GSL for fields minimally coupled to semiclassical gravity (CPT, renormalisation scheme, small perturbation) -- 'similar in scope to the self-consistent achronal ANEC ... weaker insofar as it is restricted to ... small [perturbation], stronger insofar as it only requires ... a null line on the background' (p.3). Also: G&O-type theorems 'fail once the linearized graviton field is quantized, because then the renormalized shear squared term in the Raychaudhuri equation can be negative' (abstract) -- a later-found incompleteness of the SUFFICIENCY theorems, not of the status.",
+   "read_status": "READ (alphaXiv page text, casmag/all/0910.5751v2.txt pp.1-3)"
+  },
+  {
+   "ref": "Urban & Olum, arXiv:0910.5925, PRD 81 (2010) 024039",
+   "effect": "confirms",
+   "what": "State-dependent, arbitrarily large achronal ANEC violation for a conformally coupled scalar on a FIXED conformally flat background; 'It is possible that self-consistency may be enough to enforce the energy conditions in the general case' (p.10). Confirms that only the self-consistent version is still open.",
+   "read_status": "READ (casmag/all/0910.5925v2.txt pp.2-3, 10)"
+  },
+  {
+   "ref": "Flanagan & Wald, gr-qc/9602052, PRD 54 (1996) 6233",
+   "effect": "extends",
+   "what": "Pre-dates G&O: self-consistent perturbation theory about flat space; pure states first order ANEC integral vanishes; mixed states can be negative; transverse Planck-scale-smeared ANEC strictly positive. Makes the question >= 30 years old; its mixed-state first-order violations are G&O's undecided case.",
+   "read_status": "READ (abstract, casmag/all/gr-qc_9602052v2.txt p.1)"
+  },
+  {
+   "ref": "Kontou & Sanders, arXiv:2003.01815 (CQG 2020)",
+   "effect": "confirms",
+   "what": "Calls self-consistent AANEC a conjecture advanced by Graham-Olum; known AANEC violations involve Planck-length distances.",
+   "read_status": "READ (casmag/all/2003.01815v2.txt l.4545-4579)"
+  },
+  {
+   "ref": "Kontou, arXiv:2405.05963 (Universe 10, 291, 2024)",
+   "effect": "confirms",
+   "what": "Self-consistent achronal ANEC 'free of counterexamples in semiclassical gravity'; restates G&O Tipler-type no-CTC theorem with its four hypotheses; long wormholes escape (no complete achronal null geodesic).",
+   "read_status": "READ (pp.2, 16, 20; Sec. 3.4 page not cached)"
+  },
+  {
+   "ref": "Iizuka, Ishibashi, Maeda, Nakayama & Nishioka, arXiv:2509.01286 (v2 Nov 2025)",
+   "effect": "confirms",
+   "what": "All holographic ANEC proofs are on fixed backgrounds; whether self-consistent ANEC follows from holographic semiclassical Einstein equations 'remains an open question' (p.64). DISCREPANCY recorded, not repaired: p.38 says self-consistent ANEC 'has been shown to hold for pure and mixed states under certain conditions on the curvature scale [77 = Flanagan-Wald]', whereas FW's own abstract says the mixed-state first-order ANEC integral CAN be negative and positivity holds only after transverse Planck-scale smearing.",
+   "read_status": "READ (pp.38-40, 64-65; refs 149-150 not cached)"
+  },
+  {
+   "ref": "Dorau & Much, arXiv:2509.10137 (v2, 2026)",
+   "effect": "confirms",
+   "what": "'no violations of this condition are currently known' (p.2).",
+   "read_status": "READ (p.2)"
+  },
+  {
+   "ref": "Fliss, Modave lectures, arXiv:2605.18964 (2026)",
+   "effect": "confirms",
+   "what": "GSL implies achronal ANEC (Wall), but 'the status of the generalized second law ... is still uncertain'; Wall's GSL proof assumptions verified for free and super-renormalisable QFTs, an assumption more generally (p.45).",
+   "read_status": "READ (pp.39-45 cached)"
+  }
+ ],
+ "lacked_data": "G&O 2007 lacked no experimental datum -- the conjecture is about semiclassical QFT and its evidence is computed <T_kk>. What came later, READ: (a) Urban-Olum 2010's fixed-background violation -- CONFIRMS G&O's choice to demand self-consistency rather than overturning it; (b) Wall 2010's GSL derivation and the GSL proof for free/super-renormalisable fields -- partial, conditional support, not a general proof; (c) holographic ANEC proofs, all on fixed backgrounds (Iizuka et al. 2025); (d) Wall 2010's observation that the sufficiency theorems fail once the linearised graviton is quantised (renormalised shear^2 can be negative) -- a genuine later-found INCOMPLETENESS, but of the consequences G&O draw, not of Condition 1's status, and it cuts toward weakening the no-CTC/no-wormhole theorems (M's direction) only at the level of quantised-graviton shear, which no source read quantifies for a macroscopic geometry, so nothing here may be quoted as a door. Evidence either way: no READ source (through Fliss 2026) reports a counterexample or a general proof. M's hypothesis is therefore NOT borne out for this result: the status 'open' is exactly what later data leave standing. The defects found are in the tree's description (a dropped semiclassical qualifier; a 19-year count that is a lower bound) and in a printed footnote of G&O (sin a vs computed sin^4 a, same zero set) -- discrepancies, not refutations.",
+ "grade": "NARROWED",
+ "grade_evidence": "The core status claim STANDS: every review READ from 2020 to 2026 (Kontou-Sanders; DSNEC 2111.05772; Kontou 2024; Iizuka et al. 2025; Dorau-Much 2026; Fliss 2026) treats self-consistent achronal ANEC as unproven in general and free of known counterexamples, and 'nineteen years' is arithmetically right from G&O's 2007 naming (rederive A, floor 19 under every date bound). Graded NARROWED, not STANDS, on one dropped hypothesis: G&O restrict Condition 1 to the semiclassical regime, 'curvature well below the Planck scale' (p.3), and anecscope.py:34-36/170-171 (and every sibling site) states the open conjecture without it -- so the tree shows the conjecture as binding on a larger class than its authors claim, an overstatement against M. Recorded alongside, and not grade-bearing for anecscope.py: the 19 years is a lower bound on the question's age (FW 1996: 30.6 yr); sibling sites flatten Wall 2010's conditional proof into 'no proof', omit G&O's undecided FW mixed-state case from 'no counterexample', and misattribute a flat-space proof to G&O (achronal.py:126, CLAIMS.md:203). Nothing that rests on it moves: REFUTES_ACHRONAL_ANEC = False (anecscope.py:263), NOT_RUN entry 4 (anecscope.py:271) and index3's OUTSIDE-NOT-REFUTED all need only 'open', which stands; a scope finding is unaffected by the conjecture's truth either way. No datum moved.",
+ "what_would_change_the_grade": "To STANDS: the tree's description carrying G&O's semiclassical (sub-Planck curvature) qualifier. To WRONG (for the status claim): a published general proof of self-consistent achronal ANEC in 4D, or an exhibited self-consistent semiclassical solution violating ANEC on a complete achronal null geodesic -- e.g. FW's first-order mixed-state violations shown to lie on achronal geodesics. To OPEN: nothing here; but a discover_papers pass after the alphaXiv quota resets could surface 2025-2026 work the cached texts do not cover. Reading G&O v1 / the PRD version would settle whether the footnote's 'sin a' is a misprint or a convention. NOTE: the one discover_papers call of this stage returned 'alphaXiv assistant quota exceeded', so the later-literature list is limited to cached alphaXiv page text (latest: Fliss 2605.18964, May 2026).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/self-consistent-achronal-anec-open-nineteen-years.py && grep -n 'Condition 1 (self-consistent\\|have to await\\|well below the Planck' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/0705.3193v2.txt && grep -n 'remains an open question whether' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2509.01286v2.txt && grep -n 'free of counterexamples' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2405.05963v2.txt ; echo \"anecscope.py Planck/semiclassical hits (expect 0):\" $(grep -c -i 'planck\\|semiclassical' /home/user/Claude-Method-Works/research/warp-drive/anecscope.py)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/self-consistent-achronal-anec-open-nineteen-years.json"
+}

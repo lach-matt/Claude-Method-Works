@@ -1,0 +1,84 @@
+{
+ "key": "gr-qc/9701064#k2",
+ "name": "HPS source-term prefactor K^2 = 8 pi/(46080 pi^2) = 1/(5760 pi) (Planck units)",
+ "source": {
+  "located": "arXiv:gr-qc/9701064v1, D. Hochberg, A. Popov, S. V. Sushkov, 'Self-consistent Wormhole Solutions of Semiclassical Gravity', Phys. Rev. Lett. 78, 2050 (1997). K^2 is printed on p.4 just before eq. (5); eqs. (5)-(7) are on pp.4-5, eq. (8) and its '~67 l_P' case on pp.6-7, eq. (9) and 'r(0) ~ 0.02 l_P' on p.7, footnotes [19], [20] on p.9.",
+  "read_status": "READ",
+  "via": "The arXiv v1 PDF text layer, pp.1-12, returned by alphaXiv answer_pdf_queries(paper='gr-qc/9701064') earlier in this session and saved verbatim at d67/src/hps/hps_0.xml (the same copy the sibling audit gr-qc_9701064_eq2-einstein.json uses). This audit's own alphaXiv calls (answer_pdf_queries on gr-qc/9701064 and hep-th/0302039, get_paper_content on hep-th/0302039, discover_papers) all returned 'alphaXiv assistant quota exceeded'. The journal PRL typesetting was NOT read. Popov hep-th/0302039, whose printing carries the 1/(46080 pi^2) form, was NOT read by this audit (NAMED-NOT-READ here; the tree records it READ at hpscentre.py:118-122)."
+ },
+ "published_statement": "HPS p.4: 'Carrying out these straightforward but rather lengthy steps we find that the semiclassical Einstein equations for a conformally coupled scalar (xi = 1/6) are as follows (K^2 = 1/(5760 pi)):' followed by eqs. (5)-(7), each of the form G^mu_nu (left side) = K^2 [ ... + ln f ( ... ) ]. With eq. (3), G^nu_mu = 8 pi <T^nu_mu>, this makes <T^nu_mu> = (K^2/(8 pi)) [ ... ] = (1/(46080 pi^2)) [ ... ]. Footnote [19]: 'We use units such that hbar = c = G = 1'. Footnote [20]: 'We have also set the scalar mass and temperature to zero: m = kappa = 0. In this case, the arbitrary renormalization scale parameter mu appearing in (T^nu_mu)_log can be absorbed into the definition of f.' HPS use K in print twice more: eq. (8) contains K^-2 r(0)^2, and eq. (9) sets r(0) = sqrt(-16 K^2 ln f(0)); p.7 prints 'r(0) ~ 67 l_P' for f(0) = f''(0) = 1, r''(0) = 0, and 'r(0) ~ 0.02 l_P' for ln f(0) = -2/3.",
+ "published_hypotheses": [
+  "A (single) conformally coupled scalar field, xi = 1/6 (p.3 'conformally coupled scalar field'; p.4 'for a conformally coupled scalar (xi = 1/6)').",
+  "Scalar mass and temperature zero, m = kappa = 0 (footnote [20]).",
+  "Units hbar = c = G = 1, MTW sign conventions (footnote [19]); G^nu_mu = 8 pi <T^nu_mu> (eq. (3)).",
+  "<T^nu_mu> taken in the Anderson-Hiscock-Samuel analytic approximation, PRD 51 4337 (eq. (4), ref. [18]), rewritten in f(l), r(l) (p.4) -- a hypothesis of the bracket, not of the scalar normalisation K^2.",
+  "Static spherically symmetric metric in proper-distance gauge, eq. (2)."
+ ],
+ "hypothesis_drift": [
+  "OMITTED FROM THE TREE'S HYPOTHESIS LIST (not a narrowing of the tree's use): the number of fields. K^2 is the one-loop coefficient for ONE real conformal scalar; with hbar and G restored and N identical fields it is K^2 = N hbar G/(5760 pi c^3) = N l_P^2/(5760 pi), so every K-scaled length (eq. (8)'s 67 l_P root, eq. (9)'s r(0), the tree's 'm < 0 region begins at a few K', FIRST_NEGATIVE_M_THROAT_LP = 0.0516 at hpscentre.py:288) scales as sqrt(N). The tree's entry states 'G = hbar = c = 1' and 'the conformal scalar' (hpscentre.py:88, 140, 890-893) but not N = 1. The tree applies K only to HPS's own one-field model system, so nothing moves; the hypothesis should be named.",
+  "OMITTED FROM THE TREE'S HYPOTHESIS LIST: m = kappa = 0 (HPS footnote [20]). The prefactor 1/(46080 pi^2) is that of the massless, zero-temperature approximation; the tree's K_in_planck() (hpscentre.py:890-893) carries it without the words. The tree's use is HPS's massless system throughout, so nothing moves.",
+  "ATTRIBUTION DETAIL (no drift in the value): the tree's hypothesis reads 'prefactor as printed by HPS / Popov'. HPS print K^2 = 1/(5760 pi) directly, with the 8 pi of eq. (3) already absorbed; the form 8 pi/(46080 pi^2) is the tree's mapping (hpscentre.py:140) to Popov's printing, which this audit did not read. The arithmetic of the mapping is exact (C1), and the HPS value stands on its own printing plus the checks C3-C5, so the value does not depend on the unread Popov page.",
+  "NOT DRIFT, BUT RECORDED: the tree's statement is scoped correctly as a normalisation. Its domain caveat (the AHS approximation is established only for asymptotically flat spacetimes, hpscentre.py:92-104) concerns the state-dependent bracket, not K^2: C5 shows K^2 is fixed by the trace, which is state-independent (the conformal anomaly), and in fact by the scheme-independent Riem^2 coefficient alone."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "one-loop trace-anomaly coefficient of a conformal scalar (fixes K^2 through the trace of eqs. (5)-(7))",
+   "value_then": "1/(2880 pi^2) (hbar = 1), i.e. <T> = (1/(2880 pi^2))(R_abcd R^abcd - R_ab R^ab + box R); a theoretical coefficient (heat-kernel a2/(16 pi^2) at xi = 1/6), known since the 1970s",
+   "value_now": "unchanged -- it is a theorem value for a free field, not a measurement",
+   "source_now": "standard heat-kernel coefficient; restated in the tree as AHL gr-qc/9504019 eq. (6), alpha = beta = 1/(2880 pi^2) (hpscentre.py:122-124, AHL_ALPHA_BETA_TIMES_2880PI2 = 1 at hpscentre.py:248; used in the tree selftest at hpscentre.py:1272). NOT read at source by this audit (quota); used as the fit target in C5, and C5 returns exactly the HPS K^2 from it",
+   "moves_conclusion": "no -- nothing measured enters; C5 computes trace = 16 (Riem^2 - Ric^2 + box R) from HPS's printed brackets, and 8 pi (1/(2880 pi^2)) / 16 = 1/(5760 pi)"
+  },
+  {
+   "quantity": "Planck length (only if K is quoted in metres; the tree works in l_P)",
+   "value_then": "CODATA 1986 era value, not stated by HPS (they quote lengths in l_P)",
+   "value_now": "l_P = 1.616255(18)e-35 m (CODATA 2018 and CODATA 2022, identical); K = l_P/sqrt(5760 pi) = 1.201500e-37 m",
+   "source_now": "CODATA tables as shipped in scipy 1.17.1 scipy/constants/_codata.py (txt2018 line 1439, txt2022 line 1893), read at d67/src/codata/x/scipy/constants/_codata.py",
+   "moves_conclusion": "no -- every tree figure is in l_P (K_in_planck(), FIRST_NEGATIVE_M_THROAT_LP); a metre conversion is never used"
+  },
+  {
+   "quantity": "field content: number and type of quantum fields",
+   "value_then": "N = 1 real massless conformal scalar (model choice, footnote [20], p.4)",
+   "value_now": "a model choice, not a datum; the Standard Model's measured field content (massive, non-conformally-coupled Higgs doublet, fermions, gauge bosons) is not HPS's model",
+   "source_now": "HPS pp.3-4, footnote [20]",
+   "moves_conclusion": "not for the tree's use (it studies HPS's model system). It would move any claim that K is THE physical scale: K^2 scales with N, and other spins carry different anomaly coefficients (not computed here)"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9701064_k2.py",
+  "outcome": "ALL PASS, exit 0 (~10 s). C1: 8 pi/(46080 pi^2) - 1/(5760 pi) simplifies to 0; 46080 = 8 x 5760. C2: K = 0.00743385048396988 l_P; the tree's withdrawn typed 0.0074335 differs by 3.5e-7, i.e. in the 5th significant digit, confirming the WITHDRAWN entry at hpscentre.py:335-336. C3: HPS eq. (8) at f(0) = f''(0) = 1, r''(0) = 0 reduces to -4 r^4 + K^-2 r^2 = 0, root r(0) = 1/(2K) = 12 sqrt(10 pi) = 67.2599 l_P against HPS's printed 'r(0) ~ 67 l_P'. C4: eq. (9) at ln f(0) = -2/3 gives r(0) = sqrt(15)/(90 sqrt(pi)) = 0.024279 l_P against printed 'r(0) ~ 0.02 l_P'. Controls: K^2 = 1/(2880 pi), 1/(46080 pi^2), 1/(720 pi) give 47.6, 337, 23.8 l_P for C3 -- only 1/(5760 pi) reproduces the printed 67. C5 (the independent normalisation): the NON-LOG brackets of eqs. (5)-(7), transcribed afresh from the text layer (not imported from the tree), traced as tt + ll + 2 thth, and fitted over arbitrary f(l), r(l) against a Riem^2 + b Ric^2 + c R^2 + d box R with the curvature computed from eq. (2) (MTW convention): unique solution a = 16, b = -16, c = 0, d = 16. So 8 pi <T> = K^2 x 16 (Riem^2 - Ric^2 + box R), which is exactly the conformal-scalar anomaly (1/(2880 pi^2))(Riem^2 - Ric^2 + box R) iff K^2 = 1/(5760 pi), with positive sign. The Riem^2 coefficient alone (scheme-independent; box R is shiftable by a local R^2 counterterm) already fixes K^2. The log part was not used; its tracelessness hinges on the M1 reading the tree records separately and is not this key.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (one call, keywords 'self-consistent wormhole', 'semiclassical gravity', 'conformal scalar', 'Hochberg Popov Sushkov')",
+   "effect": "contested",
+   "what": "The call returned 'alphaXiv assistant quota exceeded'; no later-literature search could be run by this audit. Recorded so the absence is not read as 'nothing found'. (effect field set to the schema's nearest non-committal value; no paper is claimed to contest K^2.)",
+   "read_status": "NOT-RUN (quota)"
+  },
+  {
+   "ref": "A. A. Popov, hep-th/0302039 v2, Appendix B (B1)-(B3)",
+   "effect": "confirms",
+   "what": "Per the tree (hpscentre.py:118-122, 140), an independent second printing of the same source term whose prefactor maps to HPS's K^2 via 8 pi/(46080 pi^2) = 1/(5760 pi), with all three non-log parts agreeing exactly. The mapping's arithmetic is checked here (C1); Popov's printed prefactor itself was NOT read by this audit.",
+   "read_status": "NAMED-NOT-READ in this audit (alphaXiv quota); recorded READ by the tree"
+  },
+  {
+   "ref": "P. R. Anderson, W. A. Hiscock, D. J. Loranz, gr-qc/9504019, eq. (6)",
+   "effect": "confirms",
+   "what": "Per the tree, alpha = beta = 1/(2880 pi^2) for the conformal scalar trace -- the coefficient C5 uses as the independent normalisation target and against which HPS's printed brackets return K^2 = 1/(5760 pi) exactly.",
+   "read_status": "NAMED-NOT-READ in this audit; recorded READ by the tree (hpscentre.py:122-124)"
+  },
+  {
+   "ref": "E.-A. Kontou, arXiv:2405.05963, Sec. 5.2",
+   "effect": "contested",
+   "what": "Per the sibling audit and qeihps.py:22-37, doubts HPS's Planck-scale throats lie in the semiclassical regime. Bears on the physical meaning of K-scale solutions (K ~ 0.0074 l_P is sub-Planckian), not on the value of K^2.",
+   "read_status": "NAMED-NOT-READ in this audit"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for K^2: nothing measured enters this result, so there is no datum the authors could have lacked. K^2 = 1/(5760 pi) is the one-loop normalisation of a free massless conformal scalar in Planck units; C5 shows it is exactly what the (state-independent, scheme-independent in its Riem^2 part) conformal anomaly 1/(2880 pi^2) requires of HPS's printed brackets, and C3/C4 show HPS's own printed numbers (67 l_P, 0.02 l_P) were computed with it. Evidence against M's hypothesis here: an internal-consistency triangle (printed K^2, printed eqs. (5)-(7) trace, printed eq. (8)/(9) numbers) closes exactly. Where later knowledge WOULD matter is applicability, not accuracy: HPS's model has one massless conformally coupled scalar; the measured world's fields (a massive Higgs doublet with no measured xi = 1/6, fermions, gauge bosons) are not that model, and K^2 grows with the number of fields, so K is the scale of HPS's model and not a measured physical scale. That is a named hypothesis (N = 1, m = kappa = 0, xi = 1/6), not an error, and the tree only uses K inside HPS's model. The only measured constant anywhere near it, l_P, is unchanged CODATA 2018 -> 2022 and is not used by the tree.",
+ "grade": "STANDS",
+ "grade_evidence": "READ at source (arXiv v1 text layer, p.4: '(K^2 = 1/(5760 pi))'). Re-derived: exact arithmetic of the tree's mapping (C1); the numeric K = 0.00743385048 l_P and the tree's withdrawal of the typed 0.0074335 (C2); HPS's own printed eq. (8) root ~67 l_P and eq. (9) throat ~0.02 l_P reproduced only with this K^2 (C3, C4, with three alternative normalisations as failing controls); and machine-checked against an independent normalisation -- the trace of HPS's printed non-log source equals 16 K^2 (Riem^2 - Ric^2 + box R), i.e. the conformal-scalar anomaly 1/(2880 pi^2) exactly when K^2 = 1/(5760 pi) (C5). No datum enters; the tree works in l_P. Hypotheses the tree's entry should name but whose omission narrows nothing in its use: N = 1 real field, m = kappa = 0 (footnote [20]). Limits of this audit, stated: Popov's 46080 pi^2 printing and AHL's eq. (6) were not read here (quota), and the later-literature search could not run; the anomaly coefficient is used as a standard theorem value.",
+ "what_would_change_the_grade": "NARROWED if a tree site applies K (or a K-scaled length such as FIRST_NEGATIVE_M_THROAT_LP) to a field content other than one massless conformal scalar (N != 1, m != 0, T != 0, xi != 1/6) without rescaling. A discrepancy (not WRONG) would be recorded if the journal PRL text or Popov's (B1)-(B3) printed a prefactor other than 1/(5760 pi) resp. 1/(46080 pi^2); C3-C5 would then decide which printing is consistent. WRONG would need the conformal-scalar anomaly coefficient to differ from 1/(2880 pi^2), which would contradict the heat-kernel a2 coefficient.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9701064_k2.py   # exits 0 on ALL PASS; source text: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/hps/hps_0.xml (p.4 K^2 and eqs. (5)-(7); p.6-7 eq. (8), (9), '67 l_P', '0.02 l_P')",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9701064_k2.json"
+}

@@ -1,0 +1,68 @@
+{
+ "key": "dreissen-sme-lab-bound",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The overturn is confirmed: OPEN becomes NARROWED. The audit's OPEN rested only on the sources being unreadable. This pass read both at source through alphaXiv: arXiv:2206.00570v4 pp.1-3, 5-7, 9-10, 12-14 and arXiv:2309.05759v2 pp.1-26. The verifiers did not share an error on any point the grade turns on.\n\nDREISSEN, READ:\n- Abstract: 'improve the constraints on the symmetry breaking coefficients to the 10^-21 level'.\n- p.2: the coefficients belong to the combined electron-photon tensor c' = c + k/2, taken as traceless and symmetric.\n- Table 1 ('All uncertainties represent a 1 sigma interval'): c_{X-Y} = (-5.2+/-7.8)e-21, c_XY = (4.4+/-3.9)e-21, c_XZ = (-5.0+/-9.3)e-21, c_YZ = (6.3+/-8.9)e-21.\n- Section 2.5: 'tightest constraint of 3.9e-21' is on c_XY.\n- Eq. 11 and Supp. Note 1: after the 5 uHz high-pass filter, only the four anisotropic spatial SCCEF combinations are fitted. c_TJ appears in Table S1 only with beta suppression at annual frequencies, which the filter removes. c_TT does not appear.\n- The published statement STANDS. No error in Dreissen is shown.\n\nKN, READ:\n- Eq. 76: c = -(1/16pi^2)(pi r M4)^-2 (b b - eta b^2/4) I_gravity, where I_gravity depends on b^2, pi m r and pi mu r.\n- Eq. 77: I ~ -zeta(3)/4, stated only under 'b^2 ~ 0, m ~ 0' and 'mu r -> 0'.\n- Eq. 69: mu is 'an infrared regulator' for the graviton.\n- Footnote 3: 1 - b^2 > 0 is needed for the loop integrals to converge. The boost-like range of b^2 is the open interval (0,1).\n- Fig. 7 caption: I 'decreases rapidly but has a finite limit as b^2 -> 1'.\n- p.25: '~10^-21 [14]' for the electron.\n\nCOMPUTED this pass:\n- run/igrav_adj.py is an independent mpmath implementation of eq. 76 at m = 0, mu -> 0. It gives I(0) = -0.30051423 = -zeta(3)/4. I(0.5) is 3.549 times that and I(0.9) is 54.05 times that. This reproduces the verifiers' figures, and it agrees with KN's own caption, where the integral becomes more negative as b^2 grows.\n- Projection, worked by hand: (c_xx - c_yy)/c_00 = (4/3) gamma^2 v^2 = 2.02e-6 at v = 1.23e-3. The audit's (e1) gave 1.52e-6. Both are conservative.\n- The audit's re-derivation script, re-run from run/: ALL PASS. The tree's arithmetic is right as coded: 6.372e-64 and 42.196 orders.\n\nWHY NARROWED:\n- Not DATA-DEPENDENT: the datum has not moved.\n- Not WRONG: nothing refutes 'does not bite' at the tree's operative beta_max.\n- Not STANDS: the tree's use drops hypotheses that are now read at source.\n  (a) 1e-21 is the abstract's 'level', not a CL bound. The per-component uncertainties are 1 sigma, 3.9-9.3e-21.\n  (b) The bound is on the electron-photon c + k/2, not on the electron's c alone.\n  (c) Only the four anisotropic SCCEF components are bounded. KN's boost-like c is isotropic in the brane frame, so it reaches those components only through the unmeasured B.\n  (d) KN eq. 77's qualifiers b^2 ~ 0 and m ~ 0 are dropped. The tree evaluates at beta = 1 (b^2 = 1), outside KN's domain, where by KN's own Fig. 7 |I| is larger. So '|c| <= 6.37e-64 at beta = 1' is not an upper bound. The m drop (pi m_e r = 3.1e8) is conservative.\n- At beta_max = 3.74e-8 the null holds and strengthens. The beta = 1 headline and the (c1) threshold are not established.\n\nVERIFIER OVERREACH, recorded but not grade-changing:\n- Verifiers 2 and 3 have I_grav growing 'without limit' as b^2 -> 1, which contradicts KN's caption ('finite limit').\n- My own corner analysis supports a divergence. With b^2 = 1 and m = mu = 0, the region s ~ t^2, t -> 0 contributes an integral like \u222b t^-2.5 dt, and neither m nor mu regulates that corner.\n- That analysis stands against an explicit statement by the authors, so it is an unreconciled discrepancy and stays OPEN. It is not a refutation of KN, and the grade does not depend on it.",
+ "scope": "The grade covers the following.\n- Dreissen's value as read: '10^-21 level'; Table 1 at 1 sigma; the combined c'; four anisotropic SCCEF spatial components. It STANDS as a statement about the paper.\n- The tree's use at branelink.py:97-98, 149, 288-292 and 308, LEDGER.md:101, and ledger.py:1851 and 1857. It is NARROWED on four named hypotheses:\n  1. 1-sigma level versus a CL bound.\n  2. c + k/2 versus the electron's c.\n  3. A scalar |c| compared against anisotropic components, where the projection needs the unmeasured B.\n  4. KN eq. 77's b^2 ~ 0 and m ~ 0.\n- 'Does not bite at r = 38.6 um' holds and strengthens at beta_max = 3.74e-8. It is not established as stated at beta = 1.\n\nThe grade does not cover:\n- Whether KN's I_gravity has a finite limit as b^2 -> 1. This stays OPEN: the caption says it does, and the verifiers' and my numerics and asymptotics say otherwise.\n- The size of the m-suppression, about 16 orders by the verifiers' numerics, which I did not re-run.\n- The identity of KN ref. [14]. The verifiers report it is Dreissen; the reference list was not on the pages returned to me.\n- R_EOTWASH, which was not re-read.\n- KN's tilt-like case, where c is directly anisotropic. The tree does not treat it.\n\nNo error in Dreissen or in KN is shown.",
+ "corrections_to_record": [
+  "Audit hypothesis 1 ('electron sector only') is wrong about the paper. Dreissen bounds the combined electron-photon c' = c + k/2 (p.2). KN p.25's 'for the electron' is a restatement discrepancy, and the tree inherits it.",
+  "Audit hypothesis 4 ('per-component figure with a confidence level') needs correcting. Table 1 is 1 sigma only (3.9-9.3e-21), with no CL bound. The tree's 1.0e-21 is the abstract's 'level' and is 4-24x tighter than |central| + 2 sigma (1.2-2.4e-20). This runs AGAINST the null: with the measured values the margin is 43.3-43.6 orders, not 42.2. It is a discrepancy, not an error.",
+  "Audit hypotheses 2 and 3 are confirmed at source. Only c_{X-Y}, c_XY, c_XZ and c_YZ in the SCCEF are fitted after the 5 uHz filter. c_TJ enters only beta-suppressed and is removed by the filter. c_TT is not constrained. The conversion uses kappa_LV/2pi = 5.1e15 Hz x C0 from refs 25 and 26.",
+  "The audit's 'UNVERIFIED mu' (d1) is resolved. mu is the graviton IR regulator (KN eq. 69), so mu r -> 0 is the physical limit. The dropped mass is m, the brane fermion mass in eq. 77's 'm ~ 0'; pi m_e r = 3.1e8 at 38.6 um. The drop is conservative.",
+  "The audit's (a4) 'scales exactly as beta^2/r^2' is true of the tree's code, not of KN eq. 76, whose I_gravity depends on b^2 and on pi m r.",
+  "The tree's beta = 1 (b^2 = 1) lies outside KN's 1 - b^2 > 0 (footnote 3) and outside eq. 77's b^2 ~ 0. |I_gravity| grows with b^2 (KN Fig. 7; computed here as 3.55x at 0.5 and 54.05x at 0.9). So '|c| <= 6.37e-64 at the maximal beta = 1' is not an upper bound, and the (c1) bite threshold r <= 3.08e-26 m at beta = 1 uses the formula outside its domain.",
+  "The audit's (e1) factor, under KN's boost-like structure as read: (4/3) gamma^2 v^2 = 2.02e-6 at the CMB speed, not 1.52e-6. Still conservative.",
+  "The verifiers' 'grows without limit as b^2 -> 1' contradicts KN's Fig. 7 caption ('finite limit'). Record it as an unreconciled DISCREPANCY (OPEN), not as a refutation of KN, and not as a basis for the grade.",
+  "The audit's site ledger.py:1793-1794 is stale. The O7 restatement is now at ledger.py:1851, with SME_ORDERS_SHORT at 1857.",
+  "The '(READ)' mark at branelink.py:149 is consistent with KN p.25's '~10^-21 [14]'. The value is the abstract's level, not a Table 1 entry. Provenance note only."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/branelink.py:149",
+   "finding": "SME_LAB_BOUND = 1.0e-21 '(READ)'. This is the abstract's '10^-21 level', not a tabulated CL bound. Table 1 gives 1 sigma = 3.9-9.3e-21 on c' = c + k/2. Line is current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:97-98",
+   "finding": "'maximal r = 38.6 um and beta = 1 gives |c| <= 6.37e-64 ... 42 orders short'. beta = 1 lies outside KN's 1 - b^2 > 0 and outside eq. 77's b^2 ~ 0, and |I| grows with b^2, so the '<=' is not an upper bound. m ~ 0 is also dropped (conservative). The null holds at beta_max. Line is current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:288-292",
+   "finding": "sme_coefficient codes c_00 of KN eq. 76 with eq. 77's asymptote. It drops b^2 ~ 0 and m ~ 0, and it compares a brane-frame scalar against bounds on anisotropic SCCEF components; the projection needs the unmeasured B (factor (4/3) gamma^2 B^2). The arithmetic as coded is correct. Line is current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:308",
+   "finding": "SME_ORDERS_SHORT = 42.196. The arithmetic is correct, but it inherits the beta = 1 and scalar-|c| drops. With the measured 2-sigma values it would be 43.3-43.6. Line is current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/branelink.py:469-470",
+   "finding": "The selftest pins round(...) == 42. It is consistent with the code but pins the beta = 1 evaluation.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/LEDGER.md:101",
+   "finding": "'a null 42 orders short' drops the (r, beta = 1) qualifier and the four hypotheses. 'Does not bite' holds at beta_max. Line is current.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/ledger.py:1851",
+   "finding": "The same unqualified restatement, formatted from SME_ORDERS_SHORT at :1857. The audit's cited ledger.py:1793-1794 is STALE; the site has moved here.",
+   "kind": "stale"
+  }
+ ],
+ "commands_run": [
+  "python3 -c (read adjudicate/in/dreissen-sme-lab-bound.json in full)",
+  "grep/sed on research/warp-drive/branelink.py, ledger.py, LEDGER.md (read-only)",
+  "mcp__alphaXiv__answer_pdf_queries(2206.00570) -> READ v4 incl. Table 1, p.2, Supp. Note 1, Table S1",
+  "mcp__alphaXiv__answer_pdf_queries(2309.05759) -> READ v2 eqs. 69, 76-77, footnote 3, Fig. 7 caption, p.25",
+  "cp d67/rederive/dreissen-sme-lab-bound.py adjudicate/run/ && python3 -> ALL PASS",
+  "python3 adjudicate/run/igrav_adj.py -> I(0)=-0.30051423=-zeta3/4; x3.549 at b2=0.5; x54.05 at b2=0.9",
+  "hand projection (c_xx-c_yy)/c_00 = (4/3)gamma^2 v^2 = 2.02e-6"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/dreissen-sme-lab-bound.py && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/igrav_adj.py && grep -n 'SME_LAB_BOUND\\|orders short\\|def sme_coefficient' /home/user/Claude-Method-Works/research/warp-drive/branelink.py /home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/dreissen-sme-lab-bound.json"
+}

@@ -1,0 +1,35 @@
+PASS A1 conserved reading (116, r^2): divergence 0 at 3 random points -- [0.0, 0.0, 0.0]
+PASS A2 printed reading (16, r^1): divergence != 0 -- ['-144', '-1.48', '1.65e+03']
+PASS B1 L = -2/3: first r' = 1 (m < 0 beyond) at x = 6.947365 K = 0.0516 l_P; tree 0.0516
+PASS B2 ll constraint held along the run (relative max 3.18e-14 < 1e-6)
+PASS B3 Radau agrees on first crossing (6.9473654)
+C  L = ln f(0) (a choice of mu, HPS fn [20]); first m<0 x (K), l_P; crossings of r'=1 up to x=200; min over run of |3 ln f + 4|
+   L = -1.000   x1 =    7.8250 K = 0.0582 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 1.000   status 0
+   L = -0.900   x1 =    7.7074 K = 0.0573 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 1.300   status 0
+   L = -0.800   x1 =    7.4383 K = 0.0553 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 1.600   status 0
+   L = -0.667   x1 =    6.9474 K = 0.0516 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 2.000   status 0
+   L = -0.500   x1 =    6.1572 K = 0.0458 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 2.500   status 0
+   L = -0.400   x1 =    5.5771 K = 0.0415 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 2.800   status 0
+   L = -0.300   x1 =    4.8894 K = 0.0363 l_P   up-crossings to 200 K   8   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 3.100   status 0
+   L = -0.200   x1 =    4.0411 K = 0.0300 l_P   up-crossings to 200 K   7   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 3.400   status 0
+   L = -0.100   x1 =    2.8927 K = 0.0215 l_P   up-crossings to 200 K   6   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 3.700   status 0
+   L = -0.050   x1 =    2.0582 K = 0.0153 l_P   up-crossings to 200 K   4   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 3.850   status 0
+   L = -0.010   x1 =    0.9251 K = 0.0069 l_P   up-crossings to 200 K   6   8piK windows in [50,200] with m<0 5 of 5   min|3lnf+4| 3.970   status 0
+PASS C1 every L in [-1, 0) scanned reaches x = 200 (no singular stop)
+PASS C2 m < 0 in the flare for EVERY scanned L (at least one r' = 1 up-crossing)
+PASS C3 recurs: every 8 pi K window in [50, 200] K contains m < 0, for every scanned L -- [(-1.0, 5), (-0.9, 5), (-0.8, 5), (-0.667, 5), (-0.5, 5), (-0.4, 5), (-0.3, 5), (-0.2, 5), (-0.1, 5), (-0.05, 5), (-0.01, 5)]
+PASS C4 onset stays sub-Planck across the scan (max 0.0582 l_P)
+C5 informational, L in (-4/3, -1) (outside HPS's range, inside eq. (9)'s):
+   L = -1.100   first m<0 x1 =   7.4256 K   up-crossings 1   stopped at x = 7.8791 (status -1: Required step size is less than spacing )   3 ln f + 4 there 8.96e-10   f there 0.264
+   L = -1.200   first m<0 x1 =   5.2119 K   up-crossings 1   stopped at x = 5.2119 (status -1: Required step size is less than spacing )   3 ln f + 4 there 6.84e-10   f there 0.264
+   L = -1.300   first m<0 x1 =      nan K   up-crossings 0   stopped at x = 2.4365 (status -1: Required step size is less than spacing )   3 ln f + 4 there 2.21e-10   f there 0.264
+PASS D0 flat space solves all three (zeroth order 0)
+PASS D1 mode 1 (k^2 = 1/(16K^2), A = -2B) solves tt, ll, thth linearised -- ['0.0e+00', '0.0e+00', '0.0e+00']
+PASS D2 mode 2 (k^2 = 1/(16K^2(3L0+4)), A = 4B) solves tt, ll, thth linearised -- ['0.0e+00', '0.0e+00', '0.0e+00']
+PASS D3 control: k^2 = 1/9 does NOT solve (the check can fail) -- ['5.7e-02', '3.8e-02', '3.8e-02']
+PASS D4 linear m = -B (sin kl - kl cos kl) takes both signs on (0, 60 K]
+PASS D5 |2m/r| does not decay (max over x > 40 is 0.502 B ~ 2kB = 0.5 B)
+PASS E1 K = 1/sqrt(5760 pi) l_P = 0.0074339 l_P (tree's withdrawn typed 0.0074335 is off in the 5th digit)
+PASS E2 r(0) at L = -2/3 = 0.02428 l_P (HPS 'about 0.02 l_P')
+PASS E3 300 l_P = 4.849e-33 m (tree largest throat 4.849e-33 m; CODATA 2022 l_P)
+FAILS: none

@@ -1,0 +1,63 @@
+== A  sympy tree relations
+A1 v = (sqrt2 G_F)^(-1/2) from tree eq.2 + M_W = g v/2 : True
+A2 alpha_W(g=2M_W/v, tree v) = sqrt2 G_F M_W^2/pi       : True
+A3 V_min = -m_h^2 v^2/8                                   : True
+A4 g = 2 M_W / v  ==  Buttazzo eq.18 g2_OS                : True
+
+== B  MuLan 1211.0960 eq.(23) from printed inputs (pp.28-29)
+B  G_F re-run              = 1.1663790143e-05   printed 1.1663787(6)e-5
+B  offset from print       = +0.269 ppm  (0.53 sigma of the 0.5 ppm)
+B  without -0.4 ppm term   = 1.1663787800e-05
+ok   B MuLan eq.23 re-run within its own 0.6e-11 error              got 1.166379014e-05 want 1.1663787e-05 (rel tol 5.14413e-07)
+
+== C  Eberhart et al. 2607.02657 eq.(21) from eqs.(4),(17),(20)
+C  G_F re-run = 1.1663785871e-05  printed 1.16637859(59)e-5
+ok   C Eberhart eq.21 reproduced                                    got 1.166378587e-05 want 1.16637859e-05 (rel tol 1e-08)
+
+== D  Buttazzo 1307.3536 eq.(27): W-propagator term removed
+D  1.1663787e-5/sqrt(1+3m_mu^2/5M_W^2) = 1.1663780955e-05 ; printed 1.1663781(6)e-5
+ok   D Buttazzo G_mu without dim-8 term                             got 1.166378095e-05 want 1.1663781e-05 (rel tol 1e-07)
+
+== E  owner figures reproduced (owner imported read-only)
+ok   E owner G_FERMI == PDG 2024 Table 1.1 1.166 378 8e-5           got 1.1663788e-05 want 1.1663788e-05 (rel tol 0)
+ok   E v independent vs higgs.vev()                                 got 246.2196402 want 246.2196402 (rel tol 1e-14)
+ok   E v vs Buttazzo Table 2 V=246.21971 (G_mu=1.1663787)           got 246.2196508 want 246.21971 (rel tol 3e-07)
+ok   E V_min = -m_h^2 v^2/8 vs higgs.v_min_gev4()                   got -118652880.8 want -118652880.8 (rel tol 1e-12)
+E  Buttazzo eq.11 lambda_OS at M_h=125.15 = 0.129177 ; Table 3 prints LO 0.12917 (DISCREPANCY RECORDED: 0.129177 rounds to 0.12918; 5.7e-5 relative, a last-digit rounding/truncation matter, not adjudicated)
+ok   E Buttazzo LO lambda 0.12917 (eq.11, to its printed 5 digits)  got 0.129177326 want 0.12917 (rel tol 0.0001)
+ok   E alpha_W = sqrt2 G_F m_W^2/pi vs massform.alpha_w()           got 0.03390831553 want 0.03390831553 (rel tol 1e-13)
+E  m_W (massform, capture READ) = 80.3620 GeV ; 1/alpha_W = 29.4913
+ok   E log10 exp(-4pi/alpha_W) vs massform (-160.95 printed)        got -160.9488802 want -160.9488802 (rel tol 1e-12)
+ok   E printed '10^-160.95' in massform docstring                   got -160.95 want -160.95 (rel tol 0)
+
+== F  sensitivity to every READ G_F
+G_F source                                  value         dv/v     drho/rho   d log10 supp
+PDG 2024 Table 1.1 (tree pin)        1.16637880e-05   +0.000e+00   +0.000e+00        +0.0000
+MuLan 2013 eq.24 / Crivellin eq.1    1.16637870e-05   +4.287e-08   +8.574e-08        -0.0000
+Eberhart 2026 eq.21                  1.16637859e-05   +9.002e-08   +1.800e-07        -0.0000
+Buttazzo eq.27 convention            1.16637810e-05   +3.001e-07   +6.001e-07        -0.0001
+G_F^EW Crivellin eq.5 (+2 sigma)     1.16716000e-05   -3.347e-04   -6.693e-04        +0.1077
+G_F^CKM Crivellin eq.9 (-3 sigma)    1.16550000e-05   +3.769e-04   +7.540e-04        -0.1214
+ok   F every muon-decay G_F moves v by <= 3.1e-7                    got 3.000741762e-07 want 3.000741762e-07 (rel tol 0)
+
+== G  scheme dependence of alpha_W and of exp(-4pi/alpha_W)
+owner: sqrt2 G_F m_W^2/pi, m_W=80.362        1/alpha_W =  29.4913   log10 exp(-4pi/aW) =  -160.949   shift  +0.000 decades
+G_mu scheme with PDG 2024 m_W=80.3692        1/alpha_W =  29.4860   log10 exp(-4pi/aW) =  -160.920   shift  +0.029 decades
+on-shell alpha(0)/s2_W, s2=1-mW^2/mZ^2       1/alpha_W =  30.5877   log10 exp(-4pi/aW) =  -166.933   shift  -5.984 decades
+alpha(m_W)~1/128 / MS-bar s2(M_Z)            1/alpha_W =  29.6051   log10 exp(-4pi/aW) =  -161.570   shift  -0.621 decades
+Buttazzo NNLO MS-bar g2(M_t)=0.64779         1/alpha_W =  29.9462   log10 exp(-4pi/aW) =  -163.431   shift  -2.483 decades
+Buttazzo LO g2=0.65294                       1/alpha_W =  29.4756   log10 exp(-4pi/aW) =  -160.863   shift  +0.085 decades
+Rubakov-Shaposhnikov printed 1/29            1/alpha_W =  29.0000   log10 exp(-4pi/aW) =  -158.268   shift  +2.681 decades
+G  MuLan eq.(3) solved for (1+sum r_i) with PDG 2024 inputs: sum r_i = 0.03736
+G  spread of the exponent over the six SM-scheme values: 6.07 decades
+G  for comparison, the 2026 G_F update moves the exponent by 2.90e-05 decades
+G  ratio scheme spread / G_F-update move = 2.09e+05
+ok   G scheme spread exceeds the G_F-update move by more than 1e5   got 100000 want 100000 (rel tol 0)
+
+== H  tree-level V_min (D20's rho_EW) against Buttazzo's MS-bar(M_t) parameters
+H  tree depth (M_h=125.15, V=246.21971) = 1.18691e+08 GeV^4 ; tree-form with MS-bar(M_t) = 1.48503e+08 ; ratio 1.2512
+H  ILLUSTRATIVE ONLY: V_min is not an observable; CW loop terms are omitted in both
+H  lambda NNLO/LO = 0.9758 ; m^2/M_h^2 = 1.1049
+ok   H scheme ratio is O(1), not an order of magnitude              got 1.251173913 want 1.251173913 (rel tol 0)
+
+0 FAIL []

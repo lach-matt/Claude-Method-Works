@@ -1,0 +1,100 @@
+{
+ "key": "2208.09014",
+ "final_grade": "STANDS",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn from OPEN to STANDS. The audit graded OPEN only because the source could not be reached. I read the full text of v3 (24 Jan 2023: 17 PDF pages, printed pages 1-16) and of v1 (18 Aug 2022: 16 PDF pages, printed pages 1-15) independently through alphaXiv. The verifiers made no shared substantive error.\n\nEvidence, item by item:\n\n(1) Superseded O6 sentence. Neither version states a coupling constant, a source model or an emission rate. The only field is a free massless scalar (v3 eqs. 33-37, v1 eqs. 31-35). The 'source' and 'image charges' are kinematic only. Robustness to interactions is stated only as 'we expect', citing Dubovsky et al. 'Sixteen pages' is true either as v3's printed page count or as v1's PDF page count. It is ambiguous about version but false under neither reading.\n\n(2) D13. v3 eq. 35 is for a massless scalar on M4xS1. The commutator is non-zero to the future and past of the image hyperboloids (eq. 37), and the causal future 'can include points with t''<0'. Computed: eq. 35 inside the cone gives G = +1/(4pi^2) s^-3/2 = 0.0660638 at the witness, which equals the C5 kernel up to the retarded sign. The witness is GKLP image n=+1 with sigma = -19/36. The audit's massive-field zero is outside GKLP's stated field, so it is moot.\n\n(3) D21. GKLP's own 'quick argument' (printed p.3) says mutually identified image points lie outside each other's lightcones, which is C1's spacelike vacuity. Their formal brane round-trip result is v_eff = gamma(1+Gamma^2 B^2 beta^2) >= gamma; I re-derived it in sympy from eqs. 20 and 25 with residual 0. The H3 lattice theorem is stronger and implies GKLP's claim, so 'forced' runs in the correct direction.\n\n(4) The eq. (22) citation. v3 eq. 22 is (gamma cos(theta) - B)/(1 - B gamma cos(theta)), extremised at cos(theta) = +-1. In v1, number 22 is the envelope velocity, which is v3's eq. 20; the two are equal at cos(theta) = 1. I computed that linearising eq. 22 at gamma = 1+e ('g -> 1'), with the backward excess held at d, gives forward/d = ((1+B)/(1-B))^2. That is exactly branelink.b_for_saving.\n\n(5) W7. GKLP's B_critical, Gamma^2 B = 1/(gamma beta^2), is equivalent to B = 1/gamma and to Gamma = 1/beta (residual 0). The ratio 14.1067 makes the case subcritical, and it reproduces.\n\n(6) No measured datum enters GKLP: every figure uses beta = 0.6 and R = 1.\n\nRe-runs, all from copies in adjudicate/run: rederive ALL CHECKS PASS; source_check ALL PASS; vacuity ALL EXPECTED, so the checks are not vacuous; gklp_check residuals 0; adj_g1.py residuals 0. No moved datum moves the conclusion. The statement and hypotheses as the tree uses them match the source.",
+ "scope": "The grade covers 2208.09014 v1 and v3, both read at source, under GKLP's stated hypotheses: flat M4xS1, a brane moving along the compact direction at constant beta, constant-velocity brane observers boosted by B, and a free massless bulk scalar. It covers the tree's uses at D13, at D21 and latticectc, in the 2208.09014 clause of the superseded O6 sentence, in branelink's eq. (22) citation, and in the W7 threshold.\n\nIt does NOT cover:\n- the PRD 107, 025016 published version, which was not read;\n- the 2206.13590 half of O6's 'neither GKLP paper', which is a different key;\n- interacting fields, which GKLP state only as an expectation;\n- Kabat & Nomura 2309.05759, which was not re-read.",
+ "corrections_to_record": [
+  "Audit OPEN superseded: the source is now READ (v1 and v3), by the verifiers and independently by the adjudicator.",
+  "Audit site lines are stale: the O6 superseded wording is now ledger.py:1920-1921 (not 1862-1864) and LEDGER.md:201 (not 200).",
+  "The audit's massive-field narrowing of D13 is moot: GKLP's field is a free massless scalar (v3 eq. 35). It is a hypothesis to NAME at D13, not a narrowing.",
+  "'Sixteen pages' resolved: v3 has printed pages 1-16 (17 PDF pages) and v1 has 16 PDF pages (printed pages 1-15). The tree does not say which version it means.",
+  "Verifier 3: 'g -> 1' is not an independent parameter of the tree. It is the gamma -> 1 linearisation of GKLP eq. (22), and it reproduces branelink.b_for_saving exactly (adj_g1.py).",
+  "Verifiers 1 and 2 mix PDF and printed page numbers: the quick argument is on printed p.3, which is PDF p.4.",
+  "Source misprint, recorded as a discrepancy and not a refutation: v1 eq. (34) has an unbalanced parenthesis, corrected in v3 eq. (36).",
+  "D13 wording note, not a grade change: on the null hyperboloids themselves the commutator is singular; it is a non-zero function strictly to the future and past of them. Points joined by bulk null geodesics that the brane calls spacelike come only from the n>0 images; the n<0 images stay inside the brane lightcone."
+ ],
+ "tree_sites": [
+  {
+   "site": "ledger.py:455-458",
+   "finding": "D13: the attribution to GKLP stands. GKLP's own hypothesis, a free massless bulk scalar (v3 eq. 35), is not named at the row. This is a named-hypothesis omission, not a narrowing.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "LEDGER.md:36",
+   "finding": "D13 as rendered: the free massless scalar is unnamed, the same omission as ledger.py:455-458.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "ledger.py:543-545",
+   "finding": "D21 'GKLP's no is FORCED': consistent. It matches GKLP's quick argument, and the stronger H3 theorem implies GKLP's brane round-trip result.",
+   "kind": "consistent"
+  },
+  {
+   "site": "LEDGER.md:44",
+   "finding": "D21 as rendered: consistent.",
+   "kind": "consistent"
+  },
+  {
+   "site": "latticectc.py:23",
+   "finding": "H3 'stronger than GKLP, who keep it on branes' is accurate against GKLP Sec. 4.",
+   "kind": "consistent"
+  },
+  {
+   "site": "latticectc.py:35-38",
+   "finding": "The vacuity and 'forced' claim match GKLP's quick argument (printed p.3).",
+   "kind": "consistent"
+  },
+  {
+   "site": "latticectc.py:120",
+   "finding": "GKLP_NO_IS_FORCED = True: consistent.",
+   "kind": "consistent"
+  },
+  {
+   "site": "ledger.py:1920-1921",
+   "finding": "Superseded O6 '2208.09014 has none in sixteen pages' is TRUE of v1 and v3. The page count is version-ambiguous but true under either reading. The audit cited this site as 1862-1864, which is now stale.",
+   "kind": "stale"
+  },
+  {
+   "site": "LEDGER.md:201",
+   "finding": "The 2208.09014 clause of the O6 row is true at source. The audit cited it as line 200, which is now stale.",
+   "kind": "stale"
+  },
+  {
+   "site": "branelink.py:17-19",
+   "finding": "'true of the two papers read' is true for 2208.09014; 2206.13590 is not adjudicated here.",
+   "kind": "consistent"
+  },
+  {
+   "site": "branelink.py:81",
+   "finding": "'GKLP eq. (22) extremised, g -> 1' matches v3 eq. 22. In v1, eq. 22 is the equivalent envelope velocity. 'g -> 1' is the gamma -> 1 linearisation, computed here to reproduce b_for_saving.",
+   "kind": "consistent"
+  },
+  {
+   "site": "branelink.py:277-278",
+   "finding": "The same eq. (22) citation in the b_for_saving docstring. The formula re-derives exactly.",
+   "kind": "consistent"
+  },
+  {
+   "site": "ledger.py:2079",
+   "finding": "W7 superseded line: the tree's correction (Gamma >= 1/beta, factor 14.1) is GKLP's own B_critical, which is equivalent to Gamma = 1/beta.",
+   "kind": "consistent"
+  },
+  {
+   "site": "LEDGER.md:230",
+   "finding": "The W7 correction reproduces: ratio 14.1067, subcritical.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of adjudicate/in/2208.09014.json",
+  "grep -n 'GKLP|2208.09014|sixteen' ledger.py LEDGER.md branelink.py latticectc.py; sed of the cited ranges (tree at 2cc577c)",
+  "mcp__alphaXiv__answer_pdf_queries(paper='2208.09014') -> full v3 text, 17 PDF pages",
+  "mcp__alphaXiv__answer_pdf_queries(paper='https://arxiv.org/pdf/2208.09014v1') -> full v1 text, 16 PDF pages",
+  "cp rederive/2208.09014.py, verify/rederive/source_check_2208.09014.py, verify/rederive/vacuity_2208.09014.py, verify/refute/gklp_check.py -> adjudicate/run; ran all four: PASS / PASS / EXPECTED / residuals 0",
+  "python3 adjudicate/run/adj_g1.py (eq. 22 linearised at gamma=1+e reproduces b_for_saving; B_crit <=> Gamma=1/beta; eq. 28 v_eff residual 0)"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && python3 2208.09014.py && python3 source_check_2208.09014.py && python3 vacuity_2208.09014.py && python3 gklp_check.py && python3 adj_g1.py ; then answer_pdf_queries(paper='2208.09014') and (paper='https://arxiv.org/pdf/2208.09014v1') on coupling/source/emission rate, the Sec. 5 field, the quick argument and eq. 22 vs eq. 20",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2208.09014.json"
+}

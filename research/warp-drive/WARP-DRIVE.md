@@ -34,10 +34,13 @@ after the Bobrick–Martire optimisations.
 constant-velocity subluminal warp shell satisfying the null, weak, dominant and strong energy
 conditions simultaneously — the only warp drive that does. We give its engineering specification and
 derive its scaling law. The published solution is a 20 m shell holding **2.37 Jupiter masses at
-6.66 × 10⁵ times nuclear density**, sitting at **66.7 % of its own horizon ceiling**, cruising at
+5.72 × 10⁵ times nuclear density**, sitting at **66.7 % of its own horizon ceiling**, cruising at
 **0.04 c**. Because the ceiling `M < R₁c²/2G` is linear in radius while density falls as `1/R₁²`,
-scaling the design to an inner radius of **8.16 km** brings the material requirement down to exactly
-nuclear density at a cost of **1.84 solar masses**. That is the trade, and it is the design space.
+scaling the design to an inner radius of **7.56 km** brings the material requirement down to exactly
+nuclear density at a cost of **1.71 solar masses**. That is the trade, and it is the design space.
+(Corrected on M's "Repair all", DOCKET 67: first 6.66 × 10⁵, 8.16 km and 1.84 solar masses, on a recalled nuclear density of
+2.3 × 10¹⁷ kg m⁻³; `warpdrive.py` now uses `address.RHO_NUCLEAR` = 2.676 × 10¹⁷, computed on the
+conventional n₀ = 0.16 fm⁻³, which is not read at source — the figures scale as 1/n₀ and n₀^−1/2.)
 
 What cannot be built is the superluminal drive, and we state precisely how firmly. Of the 5,304 index
 cells admitting one, **none pays nothing**; 92.3 % pay a preferred frame, 53.8 % pay ghosts, 26.9 % pay
@@ -373,7 +376,7 @@ threshold.** `NEC_pt = 0`, and none of the four core conditions is in play.
 | shell volume | 2.932 × 10⁴ m³ |
 | mass density | **1.531 × 10²³ kg m⁻³** |
 | energy density | 1.376 × 10⁴⁰ J m⁻³ |
-| — in units of nuclear saturation density | **6.658 × 10⁵** |
+| — in units of nuclear saturation density | **5.722 × 10⁵** (first 6.658 × 10⁵ on 2.3 × 10¹⁷; see Table 6's note) |
 | Schwarzschild radius `2GM/c²` | 6.669 m |
 | horizon margin `R₁ / r_s` | **1.500** |
 | horizon ceiling at `R₁ = 10 m` | 6.733 × 10²⁷ kg |
@@ -406,16 +409,22 @@ and the ratio `R₂ = 2R₁`, mass grows as `R₁` while density falls as `1/R�
 
 | `R₁` [m] | `M` [kg] | `M` [M☉] | `ρ` [kg m⁻³] | `ρ / ρ_nuclear` |
 |---|---|---|---|---|
-| 10 | 4.490 × 10²⁷ | 2.258 × 10⁻³ | 1.531 × 10²³ | 6.658 × 10⁵ |
-| 10² | 4.490 × 10²⁸ | 2.258 × 10⁻² | 1.531 × 10²¹ | 6.658 × 10³ |
-| 10³ | 4.490 × 10²⁹ | 2.258 × 10⁻¹ | 1.531 × 10¹⁹ | 6.658 × 10¹ |
-| **8.16 × 10³** | **3.664 × 10³⁰** | **1.842** | **2.300 × 10¹⁷** | **1.000** |
-| 10⁵ | 4.490 × 10³¹ | 2.258 × 10¹ | 1.531 × 10¹⁵ | 6.658 × 10⁻³ |
+| 10 | 4.490 × 10²⁷ | 2.258 × 10⁻³ | 1.531 × 10²³ | 5.722 × 10⁵ |
+| 10² | 4.490 × 10²⁸ | 2.258 × 10⁻² | 1.531 × 10²¹ | 5.722 × 10³ |
+| 10³ | 4.490 × 10²⁹ | 2.258 × 10⁻¹ | 1.531 × 10¹⁹ | 5.722 × 10¹ |
+| **7.565 × 10³** | **3.397 × 10³⁰** | **1.708** | **2.676 × 10¹⁷** | **1.000** |
+| 10⁵ | 4.490 × 10³¹ | 2.258 × 10¹ | 1.531 × 10¹⁵ | 5.722 × 10⁻³ |
 
-> **The trade.** The 20 m ship needs material 666,000 times denser than a nucleus — which is to say,
+(Corrected on M's "Repair all", DOCKET 67: the last column and the bold row were computed on ρ_nuclear = 2.3 × 10¹⁷ kg m⁻³ —
+6.658 × 10⁵ … 6.658 × 10⁻³, and nuclear density at R₁ = 8.16 × 10³ m, 3.664 × 10³⁰ kg, 1.842 M☉.
+They are recomputed by `warpdrive.design_trade` on `address.RHO_NUCLEAR` = 2.676 × 10¹⁷ kg m⁻³,
+n₀ = 0.16 fm⁻³ times the nucleon mass, a conventional value not read at source.)
+
+> **The trade.** The 20 m ship needs material 572,000 times denser than a nucleus — which is to say,
 > denser than a neutron star and not known to be stable outside one. Scale the same design to an
-> **8.16 km inner radius** and the requirement falls to **exactly nuclear density**, material whose
-> equation of state is at least studied — at a cost of **1.84 solar masses**. Push to 100 km and the
+> **7.56 km inner radius** and the requirement falls to **exactly nuclear density**, material whose
+> equation of state is at least studied — at a cost of **1.71 solar masses** (first 666,000, 8.16 km
+> and 1.84 M☉ on 2.3 × 10¹⁷ kg m⁻³; see Table 6's note). Push to 100 km and the
 > density becomes trivial while the mass reaches 22.6 M☉, which is a stellar-mass black hole's worth of
 > shell that must not be a black hole.
 >
@@ -550,7 +559,8 @@ Fuchs *et al.* shell satisfies all four energy conditions and spends no index co
 *(CITED + COMPUTED.)*
 
 **7. Its engineering is a curve, not a wall.** `M < R₁c²/2G` is linear in radius, density falls as
-`1/R₁²`. Nuclear-density material suffices at `R₁ = 8.16 km` and 1.84 M☉. No radius makes both numbers
+`1/R₁²`. Nuclear-density material suffices at `R₁ = 7.56 km` and 1.71 M☉ (first 8.16 km and 1.84 M☉;
+Table 6's note). No radius makes both numbers
 comfortable. *(COMPUTED — this paper's principal engineering contribution.)*
 
 **8. The open problem for the buildable engine is acceleration, not mass.** The solution is
@@ -583,7 +593,7 @@ proved. *(MEASURED from the corpus.)*
 | the upper limit on the shift vector `β` before momentum flux exceeds energy density | unpublished; Fuchs *et al.* call `β = 0.02` conservative and give no bound |
 | physical acceleration of a positive-energy warp shell | the foremost open problem in the field; no known scheme survives |
 | whether a degenerate higher-derivative warp drive exists | route A. Not attempted here and not, to our knowledge, attempted anywhere |
-| an equation of state for matter at 6.7 × 10⁵ × nuclear density | none; the 8.16 km scaling exists to avoid needing one |
+| an equation of state for matter at 5.7 × 10⁵ × nuclear density (first 6.7 × 10⁵; Table 6's note) | none; the 7.56 km scaling (first 8.16 km) exists to avoid needing one |
 | the self-consistent achronal ANEC in 4d | 19 years open; condition C2 on isolated horizons is the whole remaining problem |
 | whether the nine-letter index's edge list is recoverable | `vi_edges.py` stalled at distance 288; no later run recorded |
 | whether the `NEC_ach ≥ 1` placement of `WD-SUP` survives a construction that samples no achronal geodesic | none known; would refute §3.2 |

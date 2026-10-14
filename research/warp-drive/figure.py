@@ -57,13 +57,102 @@ the registry, because it does not hold a copy of it.
 1. WHAT IT MEASURES
 ===============================================================================
 
-    19 vertices, 19 distinct cells -- no two seated indexes share a cell
+    27 vertices, 27 distinct cells -- no two seated indexes share a cell
     it closes in NOTHING
-    E = 193
+    E = 570
+    ALL EIGHT CHANNELS OCCUPIED
 
-**ITS OWN CELL IS (0, 5, 9), AND NO MEMBER OCCUPIES IT.**  The index of
+    RE-PINNED E 570 -> 555 -> 570 WITH NO ROW SEATED OR UNSEATED IN EITHER
+    DIRECTION, AND BOTH MOVES ARE KEPT.  The overlap ruling re-seated its
+    gravity row on (B,F,X,E) -- `overlaprule.py` section 3f-bis -- and that one
+    vertex moved from (1, 8, 5) to (1, 9, 10).  Then the RESAMPLE that the same
+    ruling ordered second -- section 3f-ter -- replaced the six declared
+    reaches the gate reads with every reach gravity's own data holds, the gate
+    saw the Z <= 35/36 dip it had been stepping over, refused (B,F,X,E) on
+    oscillation, and the vertex went back to (1, 8, 5).  The vertex COUNT was
+    unmoved at 27 throughout and so was the distinct-cell count.
+        THAT IS NOT A WASTED PAIR OF PASSES AND IT IS NOT A CIRCLE.  What this
+    figure held before the pair was a reading that agreed with a blind sample
+    by accident; what it holds after is the same reading measured against every
+    reach the data has.  A number that returns to where it started by a route
+    that measured every step is not the same object as a number that never
+    moved, and the difference is the whole of why the pair was ordered.
+
+**ITS OWN CELL IS (0, 7, 11), AND NO MEMBER OCCUPIES IT.**  The index of
 first-order indexes is not one of its own first-order indexes.  That is
 measured by `self_cell()` and is not offered as meaning anything.
+
+    THESE FIGURES MOVE EVERY TIME A ROW IS SEATED and this block has been
+    stale before, so it is worth saying where they come from: every one is
+    read from `registry.rows()` at call time and none is stored here.  The
+    narrative below keeps each earlier stage rather than overwriting it, which
+    is why the numbers in it disagree with these -- that is the record, not a
+    contradiction.
+
+    AND TWENTY-FOUR, WITH THE DEFORMED BANDS.  DOCKET 36b seated
+    `deformedbands` -- 1,904 two-quasiparticle levels of deformed odd-odd
+    nuclei on (2I, parity), 96 cells at (2, 49, 2), K2.  A NEW MEMBER SET and
+    not a recharting of `nucbands`: the two share ZERO nuclides, which
+    `deformedbands.disjoint_from_nucbands()` measures rather than asserts, so
+    the overlap ruling has no subject.  At twenty-four: E 512, own cell
+    (0, 6, 11), resolutions 0.333 / 0.708 / 0.708, and the channel census does
+    not move because all eight were already occupied.  HEIGHT AND WIDTH NOW
+    TIE at 17 distinct apiece, which is the first time the two axes have
+    agreed, and it is a coincidence of this vertex set rather than a finding.
+
+    THIS PARAGRAPH PRINTED "0.692 / 0.654" UNTIL ROW 27 WAS SEATED, and those
+    are the TWENTY-SIX-row figures -- 18/26 and 17/26 -- pasted into a sentence
+    about twenty-four.  Its own next clause gave it away: a tie at 17 apiece
+    out of 24 is 0.708 and 0.708, which is what it now says.  Recorded rather
+    than silently corrected, because it is the exact failure `docfigures.py`
+    exists to catch and it happened inside the file that warns about it.
+
+    AND TWENTY-FIVE, TWENTY-SIX, TWENTY-SEVEN -- THE PHONON RUN.  Three rows
+    seated in one line of descent, each discharging a refusal the one before it
+    wrote down.  `phonondex` seated the Gamma-point content of every
+    crystallographic site (1,120 members, cell (0, 12, 16)) and REFUSED k != 0
+    because the little group's representations are projective.  `kpointdex`
+    discharged that and seated 870 isolated high-symmetry k-stars
+    (cell (0, 7, 5)), and recorded that discharging it is NECESSARY AND NOT
+    SUFFICIENT.  `corepdex` discharges the second obstruction -- TIME REVERSAL,
+    antiunitary, invisible to every unitary check -- and seats the 3,611
+    LEVELS those stars carry (cell (0, 11, 6)), 309 of them degenerate for a
+    reason no unitary calculation can see.
+        At twenty-seven: E 570, resolutions 0.296 / 0.667 / 0.630, and the
+    figure's OWN CELL MOVES for the first time in three rows, (0, 6, 11) to
+    (0, 7, 11) -- still unoccupied.  `corepdex` contributes NEITHER a new
+    height nor a new width; its cell is (0, 6, 3) and the figure held 6 and 3
+    already, so both resolutions fall on the larger denominator while the two
+    axes stay separated.  The channel census does not move: all eight were
+    occupied at twenty-four and `corepdex` lands in K0, which was held.
+        AND THEN TWENTY-SEVEN MOVED WITHOUT A TWENTY-EIGHTH.  The overlap
+    ruling re-seated `gravity_bound` from (B,F,X) to (B,F,X,E), so the vertex
+    at (1, 8, 5) became a vertex at (1, 9, 10): E 570 -> 555, resolutions
+    0.296 / 0.704 / 0.667, own cell (0, 7, 11) UNMOVED and still unoccupied,
+    closers still none, all eight channels still occupied.  Recorded as its
+    own stage because the narrative above reads each stage as a row arriving,
+    and this one is a row CHANGING -- the first time that has happened here.
+    `overlaprule.py` section 3f-bis.
+        AND THEN IT MOVED BACK, WHICH IS THE SECOND HALF OF ONE RULING RATHER
+    THAN A SECOND RULING.  M ordered both repairs and ordered them RESEAT
+    FIRST, THEN RESAMPLE.  `overlaprule.py` section 3f-ter is the resample: the
+    six declared reaches the gate read were faulty three ways -- three of the
+    six name no member, and two of those three are past the last member
+    (Z = 100 and Z = 118 are the PERIODIC TABLE's reach carried onto a nuclide
+    index whose members stop at Z = 90; Z = 60 falls in a gap), four of the six
+    are the
+    same chart (the last distinct reach is Z = 49, so the majority condition
+    carried 4/6 of its weight on one measurement and section 3's widest-two
+    test was a tautology here), and the dip sits below all of them.  Swept over
+    all 39 reaches gravity's data holds, (B,F,X,E) is off-channel at Z <= 35
+    and Z <= 36, fails the oscillation ground, and is refused.  So the vertex
+    returned to (1, 8, 5): E 555 -> 570, resolutions 0.296 / 0.667 / 0.630,
+    own cell (0, 7, 11) unmoved through both moves, closers still none, all
+    eight channels still occupied.
+        THE FIGURE WAS RIGHT BEFORE AND IS RIGHT NOW FOR A BETTER REASON, and
+    that is the only thing either pass bought here.  It is worth one line
+    because this file's business is measurement drift, and a value that leaves
+    and returns is the one shape a stale-figure audit cannot see.
 
 ===============================================================================
 1b. WHAT THE OVERLAP RULING COST AND WHAT IT BOUGHT -- BOTH, MEASURED
@@ -157,6 +246,63 @@ because it cut both ways and a one-sided report would be a lie by selection.
     DOCKET 28's CHART IS STILL REFUSED and this did not overturn it.  Two
     different objects, two different verdicts, both on the record.
 
+    AND TWENTY.  DOCKET 31 seated `bosonqp` on M's ruling that the textbook
+    quasiparticles' universal numbers are "almost nothing -- BUT NOT NOTHING",
+    and that the object is a SUBLATTICE OF THE BOSONS.  Eleven bosonic
+    collective excitations on (2J, Q3), three cells, K7.  At twenty: E 249,
+    own cell (0, 5, 10), resolutions 0.350 / 0.700 / 0.750.
+
+    ITS K7 IS NOT A FINDING AND THE FILE SAYS SO FIRST.  Three cells in a 2x2
+    box is a chain, and z3 proves over every subset of that box that a chain
+    is closed under meet and join -- so the channel is a fact about shape.
+    What IS the finding is the sublattice relation: the quasiparticles are a
+    sublattice, they are NOT a subset of the tree's bosons, and the one cell
+    outside is the COOPER PAIR at charge -2e, which no meson and no gauge
+    boson reaches.  The union is still a sublattice, one cell wider.
+
+    AND TWENTY-ONE.  DOCKET 32 seated `readrezayi` -- the NON-ABELIAN Hall
+    quasiparticles, 363 parafermion primaries over eleven Read-Rezayi states,
+    K0.  At twenty-one: E 292, own cell (0, 5, 10), resolutions
+    0.333 / 0.667 / 0.762, channels still seven of eight.
+
+    IT SEATS BY THE SAME TEST THAT REFUSED DOCKET 28, and for the reason
+    DOCKET 30 identified: RR_k sits at nu = 2 + k/(k+2), so k names an
+    OBSERVED PLATEAU and the box is a reach.  The channel moves K2 to K0.
+
+    AND IT BOUNDS DOCKET 30's THEOREM.  `fqh` proved no Laughlin quasiparticle
+    is ever a fermion.  This series has six, the first being the Ising psi at
+    h = 1/2 -- the neutral Majorana of the Moore-Read state -- so that theorem
+    was about the ABELIAN Hall quasiparticles and this is exactly where the
+    two families part.  Neither index nests in the other either: they share
+    eight cells on their three common coordinates and neither contains the
+    other, which is the negative counterpart of DOCKET 31's nesting and is
+    reported so that one positive result is not read as a pattern.
+
+    AND TWENTY-TWO, WHERE THE CHANNEL CENSUS CLOSES.  DOCKET 34 seated
+    `spin4` -- the ten spin-4 mesons on (P, 2I, Q3), 9 cells at (4, 5, 3) --
+    and **ALL EIGHT CHANNELS ARE NOW OCCUPIED.**  At twenty-two: E 348, own
+    cell (0, 5, 10), resolutions 0.364 / 0.682 / 0.773.
+
+    IT IS THE FIRST ARITY-3 K4 THIS TREE HAS HELD.  Four charts reached K4
+    before it -- `ions (sl, tl)`, `madrule (S_a, l_d)`,
+    `fundamental (Q3, GEN)` and `madrule` at l_d = 0 -- and all four were
+    arity 2, where `statistics` closes free at 105 of 105.  K4 is the one
+    channel above K1 whose extra content is exactly that free bit, so all four
+    showed join-closure and nothing more.  This one is arity 3, where
+    statistics closes 59 of 125, so the bit is earned.
+
+    AND DOCKET 33 HAD REFUSED IT ON THE WRONG REACH.  That docket swept it by
+    MASS, which is not total over these members -- two carry none -- and
+    concluded the K4 rested on rows the table could not place.  PDG STATUS is
+    total over them and is the reach this set has: swept on it the channel
+    MOVES, K5 to K4, which is what boxinvariance asks for.  The move is itself
+    recorded: on PDG's ESTABLISHED states alone the index is K5, and it is K4
+    only once the status-2 states are admitted.  Both readings are true.
+
+    WHAT A FULL CENSUS MEANS AND DOES NOT.  Every down-set of the hierarchy law
+    is now carried by something.  That is a statement about eight cells.
+    `registry.COMPLETE` is False and stays False.
+
     WHAT IT COST.  The figure's one closure.  At eleven it closed under
     statistics; at fourteen it closes under nothing, and E went 39 to 84.
     Anyone reading E as progress should read that as a step backwards.
@@ -170,6 +316,25 @@ because it cut both ways and a one-sided report would be a lie by selection.
     addition separated.  THE UNSEATED THIRD HAD WIDTH 2, WHICH WAS NEW: the
     claim was false while it was seated, and DOCKET 22's correction J caught
     that independently of the unseating.
+
+        HALF OF THAT WAS WITHDRAWN AND IS NOW REINSTATED, AND BOTH HALVES OF
+        THAT HISTORY ARE KEPT.  `overlaprule.py` section 3f-bis re-seated the
+        gravity row on (B,F,X,E); its cell went (1, 8, 5) -> (1, 9, 10), and
+        NEITHER 9 NOR 10 was a height or a width the figure held.  So for the
+        duration of that seating the gravity coarsening SEPARATED where the
+        sentence above says it groups, and both resolutions ROSE on it --
+        height 18/27 = 0.6667 -> 19/27 = 0.7037, width 17/27 = 0.6296 ->
+        18/27 = 0.6667.  Section 3f-ter's resample refused (B,F,X,E) and the
+        cell is (1, 8, 5) again, both of whose coordinates the figure holds, so
+        the sentence is TRUE once more and the resolutions are back at 0.6667
+        and 0.6296.
+            A CLAIM THAT WAS FALSE FOR ONE PASS AND IS TRUE AGAIN IS NOT THE
+        SAME AS A CLAIM THAT WAS NEVER TESTED, which is why the withdrawal is
+        recorded here rather than deleted.  The sentence was always TRUE of
+        madelung_slot, unmoved at width 6 throughout.
+        NOT A GROUND FOR OR AGAINST THE RE-SEATING, and it was not offered as
+        one: the paragraph below already says this file's resolution is never
+        why a row is seated.
 
     THAT WAS NOT THE REASON FOR SEATING THEM and it is not offered as one --
     `overlaprule.py` seats on a novel channel, a non-bijection and a reach
@@ -498,13 +663,15 @@ def selftest():
     chk("E equals the demand it names", demand.E(F), len(demand.demand(F)))
     # SECTION 1b.  At eleven this was ["statistics"]; the overlap ruling's
     # three coarsenings cost the figure its one closure.  Recorded, not hidden.
-    chk("at nineteen it closes in NOTHING -- the ruling cost it its closure "
-        "at fourteen and nothing since has given it back", closers(), [])
+    chk("at twenty-three it closes in NOTHING -- the ruling cost it its "
+        "closure at fourteen and nothing since has given it back",
+        closers(), [])
     own, occ = self_cell()
-    chk("it has its own cell", own, (0, 5, 9))
-    chk("SEVEN of the eight channels are occupied; only K4 is not -- "
-        "DOCKET 29 filled K5", sorted({c[0] for c in figure()}),
-        [0, 1, 2, 3, 5, 6, 7])
+    chk("it has its own cell", own, (0, 7, 11))
+    chk("ALL EIGHT CHANNELS ARE OCCUPIED -- DOCKET 34 filled the last",
+        sorted({c[0] for c in figure()}), [0, 1, 2, 3, 4, 5, 6, 7])
+    chk("and none is empty", [k for k in range(8)
+                              if k not in {c[0] for c in figure()}], [])
     chk("AND NO MEMBER OCCUPIES IT -- it is not one of its own", occ, [])
 
     # -- section 2, the finding growth exposed
@@ -513,10 +680,77 @@ def selftest():
     # SECTION 1b.  Both of these were LABELs at eleven vertices -- height
     # 0.909, width perfectly injective at 1.000.  The three coarsenings land at
     # heights and widths the figure already held, and both became measurements.
+    # DOCKET 36b's seating moved both: 24 vertices, and height and width now
+    # tie at 17 distinct apiece.  The RATIO is repinned rather than loosened,
+    # because the point of the fixture is that the verdict is a measurement of
+    # a moving object and not a constant someone wrote down.
+    #
+    # REPINNED THREE TIMES MORE.  At 24 rows height and width were TIED at
+    # 17/24 = 0.7083.  Seating THE PHONON INDEX as the 25th SEPARATED them:
+    # 18/25 = 0.72 against 17/25 = 0.68.  Seating its k-POINT EXTENSION as the
+    # 26th leaves them separated: 18/26 = 0.6923 against 17/26 = 0.6538.
+    # Seating its TIME-REVERSAL EXTENSION as the 27th leaves them separated:
+    # 18/27 = 0.6667 against 17/27 = 0.6296.  Both fall, because the row adds a
+    # vertex and NEITHER a new height nor a new width -- its cell is (0, 6, 3)
+    # and the figure already held 6 and 3.
+    #
+    # REPINNED A FIFTH TIME, AND THE FIRST TIME WITH NO ROW ADDED.
+    # `overlaprule.py` section 3f-bis re-seated the ruling's gravity row from
+    # (B,F,X) to (B,F,X,E) and that vertex moved (1, 8, 5) -> (1, 9, 10).
+    # Both 9 and 10 are NEW to the figure and the 8 and 5 it vacated are both
+    # still held elsewhere, so the numerators rise on an unchanged
+    # denominator: 19/27 = 0.7037 against 18/27 = 0.6667.  BOTH ROSE, where
+    # every previous repin here recorded a fall.  Measured after the reseat,
+    # never before it -- which is the lesson the two withdrawals below teach.
+    #
+    # AND REPINNED A SIXTH TIME, BACK TO THE FIFTH'S STARTING VALUES, BY THE
+    # SECOND HALF OF THE SAME RULING.  `overlaprule.py` section 3f-ter
+    # resampled the reach schedule the gate reads -- three of gravity's six
+    # declared reaches named a Z it holds no member at, two of those past its
+    # last member, and four were the same chart -- and
+    # over all 39 reaches its data holds, (B,F,X,E) is off-channel at Z <= 35
+    # and Z <= 36.  Refused on oscillation, the row is (B,F,X) again and the
+    # vertex is (1, 8, 5) again: 18/27 = 0.6667 against 17/27 = 0.6296.
+    #   THE FIFTH REPIN IS NOT DELETED AND WAS NOT WRONG.  It measured the
+    # seating that was in force when it was written.  What changed is the
+    # sample the gate reads, not the chart and not this file's arithmetic, and
+    # a repin that reverses an earlier repin is exactly as much a measurement
+    # as one that does not.
+    #   AND 0.7037 IS NOT THE 0.7037 WITHDRAWN BELOW.  That one was height
+    # read against a candidate row 27 that was never seated; this one is
+    # height read against the seated 27 after one of them moved.  Same
+    # number, different measurement, and they are not to be conflated.
+    #
+    # AN INTERMEDIATE READING OF ROW 27 SAID 0.7037, AND IT IS WITHDRAWN.  It
+    # was measured against a version of that index whose cell was (0, 11, 6),
+    # height 11 being new to the figure.  That version was over-representing --
+    # it seated each type-(x) corepresentation twice, once at each arm of a
+    # conjugate star pair, and carried `little_order`, which is constant on a
+    # star and already kpointdex's -- and the corrected one is (0, 6, 3).  This
+    # is the SECOND time a resolution here was read against a candidate that
+    # was not what got seated, and the lesson is the one already written at
+    # row 26: measure after seating, never before.
+    #
+    # AN INTERMEDIATE READING SAID THE TIE RE-FORMED AT 26, AND IT IS WRONG.
+    # It was measured against a DIFFERENT candidate instrument for row 26,
+    # whose cell was (0, 12, 19); the one actually seated has cell (0, 7, 5)
+    # and does not restore the tie.  Recorded because the mistake is
+    # instructive: these ratios depend on the seated population, so a reading
+    # taken against a candidate that was not seated is not a reading of this
+    # index at all.
     chk("HEIGHT IS NOW A MEASUREMENT -- it was a LABEL at eleven",
-        (res["height"][1], res["height"][0]), ("measurement", 0.6842))
+        (res["height"][1], res["height"][0]), ("measurement", 0.6667))
     chk("WIDTH IS NOW A MEASUREMENT -- it was perfectly injective at eleven",
-        (res["width"][1], res["width"][0]), ("measurement", 0.7368))
+        (res["width"][1], res["width"][0]), ("measurement", 0.6296))
+    # THE RULING'S OWN FIXTURE, so that the vertex which moved twice is pinned
+    # where it ENDED and not only in the two ratios it shifted and unshifted.
+    chk("the ruling's gravity row sits at (1, 8, 5) after the resample -- "
+        "26 cells on (B,F,X), overlaprule.py section 3f-ter",
+        cells()["gravity_bound"], (1, 8, 5))
+    chk("and the figure's own cell did NOT move with it",
+        self_cell(), ((0, 7, 11), []))
+    chk("the height/width tie BROKE at 25 and has NOT re-formed",
+        res["height"][0] != res["width"][0], True)
     chk("and the gain SURVIVES the DOCKET 22 unseating -- it was not carried "
         "by the vertex that fell", sorted(labelled_axes()), [])
     chk("NO axis is a row label any more", sorted(labelled_axes()), [])

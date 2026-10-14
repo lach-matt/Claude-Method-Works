@@ -1,0 +1,16 @@
+PASS (6.9) K0^2 Mellin integral, nu=3, t0=2 (numeric)
+PASS (6.9) K0^2 Mellin integral, nu=5, t0=2 (numeric)
+PASS (6.9) K0^2 Mellin integral, nu=7, t0=2 (numeric)
+PASS (7.8) re-derived: bracket = (1/24)(2M tau0/r^2)^2 F^-1 + (9/64)(1 + F)
+PASS (7.8)/(7.9): pole term ratio 1/24 : 1/6 = 1/4
+PASS (7.8)/(7.9): regular terms ratio 9/64
+PASS (7.8) has the (1-2M/r)^-1 pole, i.e. -> -oo at r -> 2M+ (M > 0)
+PASS (7.10) re-derived through (2M/r)^3: 1 - x + x^2(1 + (16/9)(1/3)(tau0/r)^2) - x^3(1 + (16/9)(tau0/r)^2)
+   closed form of the (7.10) bracket from these inputs: (x - 1)*(32*x**3*y**2 - 16*x**2*y**2 - 27*x**2 - 27)/27
+PASS (7.10) vs (7.11): overall 9/64, (tau0/r)^2 terms (9/64)(16/9) = 1/4 of PF
+PASS (7.10) Minkowski limit M -> 0 gives (9/64) x 3/(32 pi^2 tau0^4) (F&T: "correct Minkowski space result")
+PASS without the up-family B_0 term, (7.10) collapses to F = 1 - 2M/r exactly (no x^2, no (tau0/r)^2)
+PASS every x^2 and x^3 term of (7.10), incl. all (tau0/r)^2 terms, comes from |B_0|^2 = 16 M^2 w^2
+PASS |B_0|^2 is even in M: formally substituting M < 0 into (7.6) still returns 16 M^2 w^2 > 0 (a formula can be continued; the up-mode family it describes cannot)
+
+13 checks, 0 FAIL

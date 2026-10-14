@@ -1,0 +1,18 @@
+PASS (a) Pendry eq.(16) I^2<=(pi/3ln^2 2)E/hbar is identical to branelink's sqrt(pi P/3hbar)/ln2
+PASS (b) eq.(36) optimum saturates S^2 = pi k^2 E/(3 hbar) (eq.15 in entropy form)
+   int x/(e^x-1) = 1.64493406684823  pi^2/6 = 1.64493406684823
+PASS (c) E+ = int hbar w n dw/2pi = pi k^2 T^2/(12 hbar) (eq.36, bosons, massless)
+PASS (d) eq.(35) Q <= pi k^2 T^2/(3 hbar)
+PASS (d') optimum channel temperature Tc = 2T (E+(Tc)=Qmax)
+PASS (d'') eq.(37): irreversible contact Tc=T gives one quarter of optimum
+PASS (e) dE+/dT = pi^2 k^2 T/(3h), the conductance quantum: the OCR glyph 'h' is hbar
+   E+ at 1e9 bit/s = 4.8383631845957484e-17 W (hbar);  with h: 3.040033247225064e-16 W
+PASS (f) eq.(17) '10^-16 W' at 1e9 bit/s: right ORDER (4.8e-17 with hbar; not a discriminator between h and hbar)
+   I at 1 W = 1.4376420514855982e+17 bit/s
+PASS (f') 1 W carries 1.44e17 bit/s (Pendry's '10^17 Hz ... at least 1 W', exponent garbled in OCR)
+PASS (g) eq.(7): N channels sharing E carry sqrt(N) x single-channel ceiling
+PASS (h) branelink.py:350 N(A)=sqrt(A pi/(3 hbar ln^2 2)) is Pendry's bound
+PASS (i) massless gapless boson saturates (ratio 1)
+PASS (i') band edge (Pendry's optical-fibre cut-off) stays strictly below ceiling
+
+13 PASS, 0 FAIL

@@ -1,0 +1,98 @@
+{
+ "key": "hep-th/0302039",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The reports split STANDS (re-audit, and the re-audit's data verifier) against NARROWED (all three first-round verifiers, and the re-audit's refute and rederive verifiers). The first audit's OPEN no longer holds. It rested only on Popov being unreadable, and Popov hep-th/0302039v2 has since been READ at source by the re-audit and by five verifiers. I re-read the cached v2 text layer this pass (d67/src/casmag/all/hep-th_0302039v2.txt, pages 1-6, 9-12 and 14-16).\n\nWHAT STANDS, READ and COMPUTED.\n(a) The p.1 header carries the title and 'Arkady A. Popov, Department of Mathematics, Kazan State Pedagogical University'.\n(b) The p.10 sentence after eqs. (67)-(68) says (T)^(4) is 'equivalent to the analytical approximations ... of Anderson, Hiscock, and Samuel [4]', with m_DS = mu and w0 = lambda. Read verbatim this pass.\n(c) In (B3) the (xi-1/6)^2 log bracket opens '( 2880r^4 f^4 - 21r^8 f'^4 - 8640 ...' and closes '+ 7020r^8 f'^4 ) (xi - 1/6)^2'. Read this pass.\n(d) The tree's transcription of (B1)-(B3) at xi = 1/6, m = 0 equals the source. Three separate transcriptions agree 6/6 brackets: the re-audit's P1, rederive indep_popov.py, and refute v.py, which uses a different parser.\n(e) Re-run this pass, indep_popov.py gives 13 checks, 0 FAIL. The xi-free log bracket is conserved iff (-116, -21). The (xi-1/6)^2 log bracket is conserved only at a net f'^4 coefficient of 7020, not the printed 6999, so the -21 is misplaced into it, not missing. The full (T)^(4) with M3 restored is conserved identically. The non-log trace is 16 x [C^2 + Ric^2 - R^2/3 + box R], the 1/(2880 pi^2) anomaly. The vacuity controls fail as they should.\n(f) Re-run this pass, the re-audit script gives 17 checks, 0 FAIL, exit 0. HPS (5)-(7) at (116, 21, r^2) equal Popov with M3 restored and the log sign flipped. The log mapping from Popov's (20) and (68) gives ln|4u0^2/(m_DS^2 r^2)| = const - ln f.\nNo measured datum enters: K^2 = 1/(5760 pi) and 1/(2880 pi^2) are pure numbers. So DATA-DEPENDENT does not apply, and nothing is refuted, so WRONG does not apply.\n\nWHAT NARROWS, READ and COMPUTED. This decides between NARROWED and STANDS.\n(1) Shared author, READ this pass in both cached text layers. HPS v1 p.1 lists 'David Hochberg, Arkadiy Popov and Sergey V. Sushkov', with Popov at the Department of Mathematics, Kazan State Pedagogical University. Popov 2003 is single-authored by Arkady A. Popov at the same address. Popov 2003 also says it uses 'The Anderson-Hiscock-Samuel approach [4]' for the high-frequency part (p.2).\n(2) The tree presents the agreement of the two printings as corroboration. hpscentre.py:120-121 calls Popov 'the independent second printing of HPS's source term used below'. hpscentre.py:1239 heads the check at :1240, 'non-log parts identical', with 'TWO INDEPENDENT PRINTINGS OF THE SOURCE'. hpscentre.py:142 says 'All three non-log parts agree EXACTLY'.\n(3) Conservation and the anomaly trace do NOT fix the shared terms. I re-ran two independent encodings this pass, null.py and uniqueness.py, each with 26 weight-4 monomials. Both give a conserved+traceless space of dimension 8, and every null vector is checked back. The space contains Popov's scale part L0 and diag(-1,-1,1,1)/r^4. Adding the latter to Popov's T leaves the divergence 0 and the trace unchanged. Conservation forces L^l_l = (f/f') div N, so the log part does not detect an added X either. So 7 non-scale directions in the shared non-log part pass every test the tree runs.\nThe re-audit kept STANDS on the premise that 'conservation, not agreement, decides' and that no tree site uses the agreement as evidence ('none found'). That premise holds for M1-M3 only. For the shared terms it is computed false, and the sites in (2) exist. By the re-audit's own trigger, the grade is NARROWED.\n\nTHE NARROWED STATEMENT. Popov (B1)-(B3) at xi = 1/6, m = 0 is a separately typeset second printing of the AHS source term. It is by an author shared with HPS, derived by the AHS approach, and presented as equivalent to AHS under m_DS = mu, w0 = lambda. Its agreement with HPS on the shared terms is corroboration of that strength, not independent corroboration, and an error both printings share would pass both the comparison and conservation+trace.\n\nOVER-REPRESENTATION GUARDED BOTH WAYS.\n(i) Shared authorship is READ, but 'not independently derived' is not. Whether the 2003 derivation was independent of the 1997 typesetting is OPEN. M1-M3 show the texts were not copied verbatim.\n(ii) hpscentre.py:139-140, 'transcribed INDEPENDENTLY', is about the tree's own transcriptions, and it is confirmed. Citing it as an over-statement over-reads it.\n(iii) Nothing found says the shared terms are wrong. The 7 undetected directions are a limit of the checks, not a defect shown in either printing.\n(iv) M1, M2 and M3 are established in arXiv text layers only, not as journal errata.\n\nREJECTED. STANDS: its exemption is computed false. OPEN: Popov is READ. WRONG: nothing is refuted, and M3 is a printing discrepancy. DATA-DEPENDENT: no datum enters.",
+ "scope": "COVERED: Popov hep-th/0302039v2 Appendix B (B1)-(B3) restricted to xi = 1/6, m = 0. That means the xi-free, m-free non-log and log brackets, and the (xi-1/6)^2 log bracket only insofar as M3's placement is decided. Also covered: the p.10 AHS-equivalence sentence; the log mapping from (20) and (68); the authorship of both printings; and the tree's uses at hpscentre.py:118-121, 139-151, 155-166, 1239-1246, and LEDGER.md:85 / ledger.py:1770-1776.\nNOT COVERED:\n- Popov away from xi = 1/6, m = 0 (the (xi-1/6) and m^2 brackets), apart from the one (xi-1/6)^2 log sector.\n- AHS PRD 51 4337, which is NOT-REACHED. The equivalence rests on Popov's statement.\n- The journal texts of HPS (PRL) and Popov (PRD). The PRD venue rests only on a WebSearch listing.\n- The domain of validity: siblings hep-th/0302039_domain and _seciv.\n- Whether the 2003 derivation was independent of the 1997 typesetting. Undecidable from the text; OPEN.\n- Popov pp.7, 8 and 13, which are not in the cached layer. Nothing graded sits on them.\nThe non-uniqueness result covers diagonal tensors spanned by weight-4 monomials of the printed form only, not all conceivable source terms.",
+ "corrections_to_record": [
+  "Grade: OPEN (first audit) and STANDS (re-audit) are both superseded by NARROWED. Popov v2 is READ. The narrowing is 'independent second printing' -> 'separately typeset second printing by an author shared with HPS (A. A. Popov, Kazan State Pedagogical University), derived by the AHS approach'.",
+  "The re-audit's exemption ('nothing the tree concludes rests on the agreement; conservation decides') holds for the three disputed slots M1-M3 only. Computed: the conserved+traceless space of weight-4 diagonal tensors of the printed form has dimension 8, reproduced this pass in two encodings (null.py, uniqueness.py). It contains the scale part L0 and diag(-1,-1,1,1)/r^4, and leaves 7 non-scale directions in the shared non-log part that conservation, the anomaly trace and the derived log part cannot detect.",
+  "The re-audit's 'what_would_change_the_grade: ... none found' is false. hpscentre.py:120-121 ('the independent second printing') and :1239-1240 ('TWO INDEPENDENT PRINTINGS OF THE SOURCE' over chk 'non-log parts identical') present the agreement as corroboration.",
+  "The first audit's 'NOT CHECKABLE' on M3's placement is superseded. READ: (B3)'s (xi-1/6)^2 log bracket opens '(2880r^4f^4 - 21r^8f'^4 - 8640...' and closes '+7020r^8f'^4)'. Computed: that bracket conserves only at net 7020, not the printed 6999. M3 is a misplacement in the arXiv v2 text layer, a printing discrepancy and not a refutation.",
+  "The first audit's 'NOT CHECKABLE' on the log sign is superseded. READ plus algebra: (20) and (68) give u0 = w0 sqrt(r^2/f), so ln|4u0^2/(m_DS^2 r^2)| = ln(4w0^2/m_DS^2) - ln f, and HPS's ln f coefficient is minus Popov's.",
+  "The first audit's 'NOT CHECKABLE' on the AHS identification is superseded. READ (p.10): Popov writes 'equivalent to', with m_DS = mu and w0 = lambda, where the tree says 'IS' (hpscentre.py:119). The sentence follows eqs. (67)-(68), not (67) alone. Both are minor discrepancies. AHS itself remains NOT-REACHED.",
+  "Do not over-state the narrowing. Shared authorship is READ; 'not independently derived' is not. Whether the 2003 derivation was independent of the 1997 typesetting is OPEN. M1-M3 show the texts were not copied verbatim.",
+  "hpscentre.py:139-140 'transcribed INDEPENDENTLY' refers to the tree's own two transcriptions, which three re-transcriptions confirm. It is not an over-statement of the printings' independence. The first audit's drift item and the first-round refute verifier that cited it as one over-read it.",
+  "'Decided by conservation' is conditional on the other printed terms. With every log coefficient free, conservation alone leaves 18 free dimensions (first-round vac_guard V6). Conservation plus tracelessness, with the non-log part fixed, gives the unique reading (116, r^2, 21).",
+  "Do not quote M1, M2 or M3 as journal errata. They are established in arXiv text layers only (HPS v1, Popov v2), per the fluctuation.py precedent.",
+  "Re-audit script defects that do not move the grade. P1's term order is identical to hpscentre.build, so it cannot show its own independence; indep_popov.py and refute v.py supply that independence. P2's M1 check compares against its own transcription. P3's log mapping is an identity after substitution. P5's (T)^(2) check vanishes by construction. It runs no negative control on hpscentre.divergence; indep_popov.py V3, V9 and V10 supply them.",
+  "Re-audit later_literature: hep-th/0109166 relays the Minkowski-plane x S^2 inapplicability 'as noted in [31]' (Popov & Sushkov, PRD 63 044017); it does not show it."
+ ],
+ "tree_sites": [
+  {
+   "site": "hpscentre.py:118-121",
+   "kind": "overstatement",
+   "finding": "'it is the independent second printing of HPS's source term used below' over-states the corroboration in the tree's favour. Both printings carry A. A. Popov at Kazan State Pedagogical University (READ). Narrow to 'separately typeset second printing by an author shared with HPS, derived by the AHS approach'. The line numbers are current (last change e60d092); not stale."
+  },
+  {
+   "site": "hpscentre.py:119-120",
+   "kind": "discrepancy",
+   "finding": "'Popov states his (T)^(4) IS the AHS analytic approximation (after eq. (67))'. Popov writes 'are equivalent to', with m_DS = mu and w0 = lambda (p.10, READ), and the sentence follows eqs. (67)-(68). These are minor wording and locator discrepancies; the identification itself is READ."
+  },
+  {
+   "site": "hpscentre.py:139-141",
+   "kind": "consistent",
+   "finding": "'transcribed INDEPENDENTLY' refers to the tree's two transcriptions, which equal three separate re-transcriptions from source in all 6 brackets. The mapping 8 pi/(46080 pi^2) = K^2 is computed. 'HPS's ln f coefficient is MINUS Popov's' is READ from (20) and (68) plus algebra."
+  },
+  {
+   "site": "hpscentre.py:142",
+   "kind": "overstatement",
+   "finding": "'All three non-log parts agree EXACTLY' is true (recomputed, P3). But it is the only cross-check of the shared non-log terms beyond conservation and the trace, which leave 7 non-scale conserved traceless directions undetected (computed). Its weight is that of a same-author printing. This is an over-statement by context, not a false sentence."
+  },
+  {
+   "site": "hpscentre.py:145-151",
+   "kind": "consistent",
+   "finding": "M1 (Popov B1 gives 116), M2 (HPS /(f^2 r) is inhomogeneous; Popov is at r^2) and M3 ('-21 r^8 f'^4 is printed INSIDE the (xi-1/6)^2 bracket') are READ at source in the arXiv text layers and computed. M3's receiving bracket conserves only at net 7020, not the printed 6999."
+  },
+  {
+   "site": "hpscentre.py:155-166",
+   "kind": "consistent",
+   "finding": "'CONSERVATION DECIDES ALL THREE' and the uniqueness of (116, 21) hold for the three disputed slots, reproduced as indep_popov.py V1-V9. The scope is conditional on the other printed terms, and it does not extend to the shared terms."
+  },
+  {
+   "site": "hpscentre.py:1239",
+   "kind": "overstatement",
+   "finding": "The selftest heading 'TWO INDEPENDENT PRINTINGS OF THE SOURCE (HPS 5-7, Popov B1-B3)' presents the agreement checked at :1240 as independent corroboration. The printings share an author (READ)."
+  },
+  {
+   "site": "hpscentre.py:1240",
+   "kind": "consistent",
+   "finding": "chk('non-log parts identical, all three components') passes (recomputed). Its weight is narrowed as at :142."
+  },
+  {
+   "site": "hpscentre.py:1246",
+   "kind": "discrepancy",
+   "finding": "'M3: ... (Popov drops it)'. Popov does not drop the term. He prints it inside the (xi-1/6)^2 bracket (READ), so at xi = 1/6 it is absent only in effect. hpscentre.py:150 states this correctly, so the wording here is inconsistent with it."
+  },
+  {
+   "site": "hpscentre.py:115-117",
+   "kind": "consistent",
+   "finding": "The HPS arXiv v1 text layer was read and the PRL journal text was not. That still holds; M1 and M2 must not be quoted as journal errata."
+  },
+  {
+   "site": "LEDGER.md:85",
+   "kind": "consistent",
+   "finding": "'HPS's system has 3 disagreements with Popov; conservation decides them uniquely (116, th 21, /(f^2 r^2))' is consistent with what was READ and computed, and it does not repeat the 'independent' wording. Its domain clause belongs to the sibling hep-th/0302039_domain."
+  },
+  {
+   "site": "ledger.py:1770-1776",
+   "kind": "consistent",
+   "finding": "This is the generator of LEDGER.md:85, with the same statement. It is consistent."
+  }
+ ],
+ "commands_run": [
+  "python3 -c json dump of d67/adjudicate/in/hep-th_0302039.json (group, shard_audit + 3 verifiers, reaudit, reaudit_verdicts)",
+  "sed -n 105,180p and 1230,1260p research/warp-drive/hpscentre.py; grep -n 'independent|INDEPENDENTLY|Popov drops|agree EXACTLY' hpscentre.py; git log -- hpscentre.py (last e60d092)",
+  "grep -rn 'second printing|INDEPENDENT PRINTING' research/warp-drive (only hpscentre.py:121, :1239); grep Popov in LEDGER.md, ledger.py, throatmass.py, qeihps.py, WARP-DRIVE.md",
+  "cp reverify/rederive/hep-th_0302039/*.py and reverify/refute/hep-th_0302039/{null,v}.py -> adjudicate/run/hep-th_0302039/",
+  "python3 null.py -> 26 monomials; conserved traceless space dim 8; all null vectors conserved, traceless, nonzero: True",
+  "python3 uniqueness.py -> 78 unknowns, dim 8; diag(-1,-1,1,1)/r^4 in span (div 0, trace 0); L0 in span; Popov (M3 restored) div 0 and still 0 after the shift",
+  "python3 indep_popov.py -> 13 checks, 0 FAIL",
+  "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 d67/reaudit/popov-hep-th_0302039.py -> 17 checks, 0 FAIL, exit 0",
+  "grep on d67/src/casmag/all/hep-th_0302039v2.txt: p.1 author/affiliation; p.2 'Anderson-Hiscock-Samuel approach [4] is used'; p.10 'equivalent to ... [4] (m_DS, w0 = mu, lambda)'; (B3) '( 2880r^4 f^4 - 21r^8 f'^4 ...' ... '+ 7020r^8 f'^4 ) (xi - 1/6)^2'",
+  "head -c 800 d67/src/hps/_flat0.txt (HPS v1 p.1: Hochberg, Arkadiy Popov, Sushkov; Kazan State Pedagogical University)"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/hep-th_0302039 && python3 null.py && python3 uniqueness.py && python3 indep_popov.py && (cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py)   # expect dim 8 (twice), '13 checks, 0 FAIL', '17 checks, 0 FAIL'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/hep-th_0302039.json"
+}

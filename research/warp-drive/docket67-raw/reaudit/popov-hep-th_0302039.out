@@ -1,0 +1,19 @@
+PASS P1 B1 non-log: this transcription == tree hpscentre.build popov
+PASS P1 B1 log    : this transcription == tree hpscentre.build popov
+PASS P1 B2 non-log: this transcription == tree hpscentre.build popov
+PASS P1 B2 log    : this transcription == tree hpscentre.build popov
+PASS P1 B3 non-log: this transcription == tree hpscentre.build popov
+PASS P1 B3 log    : this transcription == tree hpscentre.build popov
+PASS P2 Popov AS PRINTED (M3 inside the (xi-1/6)^2 bracket) is NOT conserved
+PASS P2 Popov with -21 r^8 f'^4 moved into the xi-free log bracket IS conserved identically
+PASS P2 M1 as printed in Popov (B1): coefficient of ln-bracket f'^2 f'' r^8 f is -116
+PASS P3 HPS (5)-(7) at (116, 21, r^2) == Popov (B1)-(B3) with M3 restored, log sign flipped
+PASS P3 ln|4u0^2/(m_DS^2 r^2)| with u0 = w0 sqrt(r^2/f) (Popov (20),(68)) = ln(4 w0^2/(m_DS^2 f))
+PASS P4 scale (log-constant) part separately conserved
+PASS P4 scale part traceless
+PASS P5 (T)^(0) [(62)-(64)] + LFC [(75)-(76), m=0, Omega0 = w0/sqrt f] = 0 componentwise
+PASS P5 (T)^(0) alone is conserved
+PASS P5 (T)^(0) alone is traceless
+PASS P5 (T)^(2) [(65)] vanishes at xi = 1/6, m = 0
+
+17 checks, 0 FAIL

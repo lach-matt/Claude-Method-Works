@@ -1,0 +1,87 @@
+{
+ "key": "2405.02709",
+ "name": "Fuchs, Helmerich, Bobrick, Sellers, Melcher, Martire (2024), 'Constant Velocity Physical Warp Drive Solution' -- shell mass M = 4.49e27 kg (tree: 4.4886e27 kg) at R1 = 10 m, R2 = 20 m",
+ "source": {
+  "located": "arXiv:2405.02709v1 [gr-qc], 4 May 2024 (dated August 2023 on p.1); Class. Quantum Grav. 41 (2024) 095013 per the bibliographies of arXiv:2602.18023 ref [7] and arXiv:2606.22531 ref [5]",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 2405.02709: pp.1,2,6,7,9-15,17,20,26-28,30,32 returned. Mass statement read at p.13 and Table 1 p.26; horizon hypothesis p.27; 'reducing required mass by orders of magnitude' p.28; footnotes 11-12 p.13. The 5-figure 4.4886e27 is NOT printed in the paper: it is Warp Factory's example parameterisation m = R2 c^2/(2G)*(1/3), which the tree's own drivers carry (research/warp-drive/octave/run_angular.m:9, run_he.m:23, run_sweep.m:10) and warpdrive.py:531-533 attributes to Examples/4 Warp Shell/W1_Warp_Shell.mlx (that .mlx was not read here)."
+ },
+ "published_statement": "p.13: 'For a shell with parameters: R1 = 10 m, R2 = 20 m, M = 4.49 x 10^27 kg (2.365 Jupiter masses) [fn 12] the pressure and density before and after smoothing are shown in Figure 4.' Fn 12: 'Selection of the mass parameter is to allow the most amount of the shift vector to the drive while balancing physicality, given the selected radial distribution of the shift vector.' Fn 11: 'The specific numbers in the setup were found by trial and error.' p.17: 'we find that the addition of shift inside the shell is possible for beta_warp = 0.02 without any energy condition violation [fn 13: This is likely not an upper limit]'. Table 1 (p.26): Matter Shell and Warp Shell rows 'R1 = 10 m, R2 = 20 m, M = 4.49 x 10^27 kg' (table caption: time delay 'for v_warp = 0.04 c'). p.28: 'The metric construction process of smoothing can be replaced by a direct 1D optimization of the radial profiles for density, pressure, and shift vector, possibly reducing required mass by orders of magnitude.'",
+ "published_hypotheses": [
+  "Static, spherically symmetric shell metric ds^2 = -e^{2a}dt^2 + e^{2b}dr^2 + dOmega^2 (eq 16), built in comoving Schwarzschild coordinates; Schwarzschild exterior (p.13, eq 25 boundary condition)",
+  "Initial constant-density profile between R1 and R2 with total mass M (eq 19-20); isotropic TOV pressure with P(R2) = 0, P = 0 for r < R1 (eq 21)",
+  "Moving-average smoothing applied four times with span ratio s_rho/s_P ~ 1.72, found by trial and error (p.13, fn 10-11); energy conditions then evaluated numerically in Warp Factory with 100 orientation x 10 velocity observer samples (p.10)",
+  "Mass parameter CHOSEN (fn 12) to maximise admissible shift for the chosen shift profile -- not derived as a minimum; the authors expect optimisation could reduce it by orders of magnitude (p.28)",
+  "No horizon inside the shell: R_shell > 2GM_shell/c^2 (p.27)",
+  "Shift beta_warp = 0.02 verified physical (p.17); constant velocity only, acceleration not solved (sec 5.3); subluminal (sec 1.3 (iii))",
+  "Numerical precision floor ~1e34 against stress-energy ~1e39 (p.15, Appendix A p.30)"
+ ],
+ "hypothesis_drift": [
+  "PRECISION ADDED, source shifted: the tree carries 4.4886e27 (5 s.f.) at stock.py:237 and stockgate.py:422; the paper prints 4.49e27 (3 s.f.) only. The extra figures come from Warp Factory's example formula m = R2 c^2/(6G) (octave/run_angular.m:9; warpdrive.py:533), i.e. from the authors' code, not the paper. Rederived exactly (4.48864e27 with CODATA G); the 5th figure moves by +/-1 under G's 1-sigma (22 ppm). Discrepancy of attribution only; it moves no orders-of-magnitude use.",
+  "PROVENANCE INDIRECT (stated by the owner): stock.py:236 cites 'TARGET-1-RESULT.md's shell' (TARGET-1-RESULT.md:28), not the paper; stockgate.py:422 carries a bare constant with no citation. The paper is the ultimate source; emwarp.py:218-219 marks it 'quoted, not re-derived'.",
+  "PARAMETER-DEPENDENCE DROPPED: the paper's M is tied to R1 = 10 m, R2 = 20 m, the chosen sigmoid shift profile and beta_warp = 0.02 (fn 12, p.17). stock.py:176-177 says 'the Fuchs shell's 4.4886e27 kg' (scoped correctly to that shell); stockgate.py:273-274 says 'the shell mass' (definite article, no radii or beta); the hypotheses list of the canonical entry supplies R1, R2 via emwarp.py:219 but beta is carried nowhere at these owner sites.",
+  "NOT-A-MINIMUM DROPPED: the paper states the mass is a trial-and-error design choice (fn 11-12) and that optimisation might reduce it 'by orders of magnitude' (p.28). Neither stock.py:175-178 nor stockgate.py:273-274 says so. Computed here: the 'not a barrier' comparison survives any reduction smaller than 22.5 orders (70 kg payload, stock.py) or 19.7 orders (1000 kg craft, stockgate.py); the paper's 'orders of magnitude' is not quantified, so this drop is recorded but does not move the owners' conclusion on any reduction the source contemplates.",
+  "TREE-INTERNAL DISCREPANCY (not a drift from the source, recorded not repaired): stock.py:175-178 says '120 tonnes, or 0.7 tonnes at a chondrite, sits about 25 orders of magnitude below' 4.4886e27 kg; computed, 120 t sits 22.57 orders below and 0.7 t sits 24.81 orders below; stock.py:524-526 labels the check 'the stock bill is 25+ orders below the Fuchs shell' but asserts only against_the_shell() > 1e22, and against_the_shell(70) = 3.356e22 (22.53 orders). The '25' applies to the 0.7 t figure only. stockgate.py:273 '~19 orders' vs computed 19.70: consistent."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Newton's G (converts the geometric definition m = R2 c^2/(6G) to kg)",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2 (CODATA 2018; the value in the tree's drivers, warpdrive.py:142)",
+   "value_now": "6.67430(15)e-11 (CODATA 2022, unchanged from 2018; relative uncertainty 2.2e-5)",
+   "source_now": "CODATA 2022 recommended values (Mohr et al., arXiv:2409.03787) -- value restated from memory, NOT re-read at source in this stage",
+   "moves_conclusion": "No. 1-sigma shifts m by 2.2e-5 relative (4.4885e27..4.4887e27, the 5th figure by 1 unit); < 1e-4 dex against comparisons of 19.7-22.5 orders."
+  },
+  {
+   "quantity": "speed of light c",
+   "value_then": "299792458 m/s (exact, SI)",
+   "value_now": "299792458 m/s (exact)",
+   "source_now": "SI definition (1983, retained 2019)",
+   "moves_conclusion": "No; exact."
+  },
+  {
+   "quantity": "Jupiter mass (paper's '2.365 Jupiter masses')",
+   "value_then": "not stated in paper; 2.365 implies M_J ~ 1.898e27 kg",
+   "value_now": "GM_J = 1.2668653e17 m^3 s^-2 (IAU 2015 Resolution B3 nominal) -> M_J = 1.89813e27 kg with CODATA G -- restated from memory, not re-read at source here",
+   "moves_conclusion": "No. 4.4886e27/M_J = 2.36477 (4.49e27/M_J = 2.36549): the paper's 2.365 agrees to 1e-4; the Jupiter figure is not used by the tree."
+  },
+  {
+   "quantity": "shell radii R1, R2 and shift beta_warp",
+   "value_then": "R1 = 10 m, R2 = 20 m, beta_warp = 0.02 (design choices, fn 11-12)",
+   "value_now": "same (design parameters, not measurements); Le arXiv:2602.18023 p.34 re-uses 'published parameters R1 = 10 m, R2 = 20 m, M = 4.49e27 kg (2M = 6.668692 m), v_s = 0.02'",
+   "source_now": "arXiv:2602.18023v6 p.34 (READ)",
+   "moves_conclusion": "No datum here is measured; the mass scales with the chosen R2 (m = R2 c^2/6G), so a different design moves the comparison scale linearly in R2 -- not a moved datum."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2405.02709.py",
+  "outcome": "0 failures. (1) m = R2 c^2/(2G)/3 with R2 = 20 m, exact c, CODATA G = 4.4886364e27 kg: reproduces 4.4886e27 (5 s.f.) and the paper's 4.49e27 (3 s.f.). (2) 2GM/c^2 = R2/3 = 6.667 m exactly (sympy) < R1 = 10 m: the paper's no-horizon hypothesis (p.27) holds, fill fraction M/(R1c^2/2G) = 2/3 exactly; 2GM/c^2 for 4.49e27 = 6.668692 m, matching Le 2602.18023 p.34. (3) 2.365 M_J agrees to 1e-4. (4) FINDING: G's 1-sigma moves the 5th figure by +/-1 -- the 4.4886 value is exact only as R2c^2/(6G) with CODATA G. (5) Owners loaded read-only: stock.FUCHS_SHELL_KG = stockgate.FUCHS_SHELL_KG = 4.4886e27 (match); stock.against_the_shell(70) = 3.356e22 (22.53 orders; feedstock 1.337e5 kg); stockgate.against_the_shell(1000) = 4.98e19 (19.70 orders; feedstock 9.008e7 kg), matching stockgate.py:797. (6) Tree-internal prose discrepancy at stock.py:175-178/524-525: 120 t is 22.6 orders below, not ~25 (only 0.7 t gives 24.8). Not checkable here: the energy-condition satisfaction itself (a 3D numerical GR run; the tree's own TARGET-1-RESULT.md re-ran it under Octave) -- the owners under audit do not use it.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "An T. Le, 'Observer-robust energy condition verification for warp drive spacetimes', arXiv:2602.18023 (v6, 24 Sep 2026)",
+   "effect": "confirms",
+   "what": "Re-uses the published parameters verbatim (p.34: R1 = 10 m, R2 = 20 m, M = 4.49e27 kg, 2M = 6.668692 m, v_s = 0.02) in a regularised re-implementation (natural-endpoint sigmoid, C^2 joins -- 'this manuscript's regularization'). Confirms the mass figure and geometry; does not address mass minimality. States the Fuchs shell sits outside its matched four-drive benchmark set.",
+   "read_status": "READ (pp.1-3, 5, 21, 33-34, 40-41 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Barzegar, Buchert, Vigneron, 'General formalism, classification, and demystification of the current warp-drive spacetimes', arXiv:2602.16495",
+   "effect": "contested",
+   "what": "Per Le 2602.18023 p.3, 'They also question the consistency of the Fuchs shell's assumed matter source with its metric.' Bears on the shell's physicality (TARGET-1-RESULT.md's Q2, which that file records as unanswered), not on the mass figure the stock owners use.",
+   "read_status": "NAMED-NOT-READ (restated in arXiv:2602.18023 p.3 only)"
+  },
+  {
+   "ref": "An T. Le, 'Radiative steering of warp shells', arXiv:2606.22531 (v4, 13 Sep 2026)",
+   "effect": "extends",
+   "what": "Exact thin-shell flat cavities: strict surface DEC holds for 0 < 2m/R < 24/25 (eq 2.13) -- an UPPER compactness bound (the Fuchs shell's 2/3 at R1 lies inside it); no lower bound on shell mass for a given shift. Adds propulsion cost m_f/m_i = e^{-3L}; cites Fuchs as the constant-velocity shell [5] without re-deriving its mass.",
+   "read_status": "READ (pp.1-10, 13, 23, 27-30, 38-39 via answer_pdf_queries)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: the conclusion the tree uses (a shell of R1 = 10 m, R2 = 20 m carries M = 4.49e27 kg) rests on NO measured datum beyond G and c. M is a DESIGN PARAMETER: the authors chose it by trial and error (fn 11-12) as R2c^2/(6G). G is unchanged between CODATA 2018 and 2022 (value restated, not re-read here) and its 22 ppm uncertainty moves only the 5th figure. What the authors lacked was not data but an optimised profile -- they say so (p.28, 'possibly reducing required mass by orders of magnitude'); later work read here (2602.18023, 2606.22531) supplies no reduced-mass constant-velocity shell. Having such an optimisation would change the scale but, computed here, not the owners' 'not a barrier' verdict unless it removed more than 19.7 orders (stockgate) or 22.5 orders (stock). Evidence against M's hypothesis for THIS result: no missing datum moves the number or its use. Evidence for caution: the number is an example, not a bound, and the tree's owner sites do not say so.",
+ "grade": "STANDS",
+ "grade_evidence": "The published value (4.49e27 kg at R1 = 10 m, R2 = 20 m, p.13 and Table 1) is READ at source; the tree's 4.4886e27 is its exact 5-figure form from the authors' Warp Factory parameterisation m = R2c^2/(6G), rederived with sympy (4.48864e27), consistent with the paper's 2.365 M_J and with Le 2602.18023's independent restatement (2M = 6.668692 m). No datum has moved (G unchanged, c exact). The owners use the value only as a comparison scale for their own 'not a barrier' refusal, and that use survives every hypothesis the tree drops: the not-a-minimum caveat (p.28) would need >19.7-22.5 orders of reduction to reverse the verdict. Recorded, not repaired, and not grounds for a lower grade: (a) the 5th figure is code-sourced and sits at G's 1-sigma edge; (b) owner sites drop the beta = 0.02 / design-choice scope; (c) a TREE-INTERNAL prose discrepancy at stock.py:175-178 and :524-525 ('about 25 orders', '25+ orders') against a computed 22.5-22.6 orders for 120 t / 1.337e5 kg -- the selftest's actual assertion (> 1e22) is correct.",
+ "what_would_change_the_grade": "NARROWED if a later constant-velocity positive-energy shell at comparable radii were shown with mass reduced by more than ~20 orders (it would reverse stockgate.py's comparison), or if the owners' use were extended beyond a scale comparison to a claimed minimum mass. OPEN/contested for any use resting on the shell's physicality if Barzegar-Buchert-Vigneron's source-consistency objection (arXiv:2602.16495, not read here) were read and upheld -- the stock owners do not rest on physicality. Reading W1_Warp_Shell.mlx directly would convert the 5-figure provenance from the tree's drivers to source.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2405.02709.py   # expect '0 failure(s)'; owner sites: sed -n '175,178p;236,237p;317,319p;524,526p' /home/user/Claude-Method-Works/research/warp-drive/stock.py ; sed -n '273,274p;422p;797,798p' /home/user/Claude-Method-Works/research/warp-drive/stockgate.py ; grep -n 'R2/(2\\*G)\\*c^2\\*(1/3)' /home/user/Claude-Method-Works/research/warp-drive/octave/run_angular.m",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2405.02709.json"
+}

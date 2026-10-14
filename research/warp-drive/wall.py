@@ -3,15 +3,31 @@
 wall.py -- the stability of the warpshell wall is structural, so the fix is too.
 
 warpshell.py ended on a wall that was not the energy budget.  Le's realized
-tangential-pressure wall sits exactly on the Poisson-Visser marginal curve
-V''(R) = 0, a neutral radial zero mode that e-folds in a light-crossing time, and
-the burn-outruns-instability criterion delta_eta <= lambda excludes a habitable
-1 g, 10 m design by 1.8e14.
+tangential-pressure wall sits exactly on what he calls the Poisson-Visser
+marginal curve V''(R) = 0, a neutral radial zero mode that, "under the
+frozen-background rear-pole redshift", e-folds in tau_efold = sqrt(2/|V''|), "of
+order a light-crossing time" (Le, arXiv:2606.22531v2 p.28; the passage is absent
+from v4 as DOCKET 67 read it).  THIS TREE's burn-outruns-instability criterion
+delta_eta <= lambda -- its own quantification of Le's qualitative "restricted
+high-compactness, brief-rapidity corner", taking tau_efold = R/c with
+coefficient 1 and independent of lambda -- excludes a habitable 1 g, 10 m
+design by 1.8e14.  The lambda-independence is this tree's hypothesis, not
+Le's: on the static anchor V'' = 0, so if V''(lambda) is continuous tau_efold
+diverges as the burn-induced redshift goes to zero, and a lambda-dependent
+coefficient is not O(1).
+
+    CORRECTED (DOCKET 67).  This paragraph read as Le's throughout: "a
+    neutral radial zero mode that e-folds in a light-crossing time, and the
+    burn-outruns-instability criterion delta_eta <= lambda excludes a
+    habitable 1 g, 10 m design by 1.8e14" -- dropping Le's frozen-background
+    condition and giving the tree's criterion and figure his voice.
 
 BUT LE ALSO SAYS THE ESCAPE, IN ONE CLAUSE: "A slightly stiffer, still-admissible
 wall is strictly stable at no cost in the surface dec margin, which is
 junction-fixed and independent of the equation-of-state slope, so strict
-stability and strict dominant energy decouple."
+stability and strict dominant energy decouple; this stiffened wall is a nearby
+model, not the realized one (App. J)."  (CORRECTED, DOCKET 67: the quotation
+stopped at "decouple.", dropping the caveat.)
 
 This file takes that clause seriously and asks the question it leaves open: HOW
 MUCH STIFFER, AND IS THAT MATTER CAUSAL?  Both are computed here from scratch.
@@ -26,18 +42,43 @@ surface equation-of-state slope, the linearised radial mode is strictly stable i
 DERIVED HERE, not quoted.  It is exactly the zero of V''(R_0).  And it is CHEAP:
 
         x = 0.3  (Le's operating point)   beta^2 > 0.07933   c_s > 0.282 c
-        x = 2/3  (Einstein-Vlasov limit)  beta^2 > 0.36603   c_s > 0.605 c
-        x = 4/5  (the wall's own limit)   beta^2 > 0.73607   c_s > 0.858 c
+        x = 2/3  (Einstein-cluster limit) beta^2 > 0.36603   c_s > 0.605 c
+        x = 4/5  (the finite wall's limit) beta^2 > 0.73607  c_s > 0.858 c
 
-The middle and last are exact: (sqrt3 - 1)/2 and sqrt5 - 3/2, checked below.
-beta^2_crit reaches 1 -- the causal ceiling -- at the root of 15s^3+3s^2-s-1 = 0,
+(c_s = sqrt(beta^2) under the fluid proxy of limitation 3 below.)  The middle
+and last are exact: (sqrt3 - 1)/2 and sqrt5 - 3/2, checked below.  x = 2/3 is the
+Einstein-CLUSTER bound (p_r = 0, circular geodesics); general static
+Einstein-Vlasov matter reaches 8/9 (Dadhich 2025, read via restatement by
+DOCKET 67), which is where this file's own counter-rotating thin shell expires.
+x = 4/5 is the FINITE-WIDTH tangential wall's window; beta^2_crit is computed for
+an infinitely thin Lanczos shell, whose own windows are 24/25 (surface dec) and
+8/9, so taking 4/5 as the thin shell's domain is a hypothesis of this file.
+beta^2_crit reaches 1 -- the causal ceiling under the proxy beta^2 <= 1 -- at
+the root of 15s^3+3s^2-s-1 = 0,
 
         x* = 0.84374189
 
 and the ENTIRE operative window x < 4/5 lies below it.  So:
 
-    STRICT STABILITY IS AVAILABLE EVERYWHERE THE WALL IS REALIZABLE, WITH A
-    SUBLUMINAL SOUND SPEED, AND IT COSTS NOTHING IN DOMINANT ENERGY.
+    STRICT LINEAR RADIAL STABILITY ON A FROZEN BACKGROUND IS AVAILABLE
+    EVERYWHERE THE FINITE WALL IS REALIZABLE, WITH beta^2 < 1, AND IT COSTS
+    NOTHING IN DOMINANT ENERGY.
+
+beta^2 < 1 is a subluminal sound speed for a shear-free, isentropically
+perturbed fluid surface.  For an elastic wall the radial mode sees the bulk
+modulus, beta^2 = K/(eps+p), while longitudinal waves run at
+c_L^2 = beta^2 + mu_s/(eps+p), so the ceiling falls to 1 - mu_s/(eps+p): the
+window stays open iff mu_s/(eps+p) < 0.92067 at x = 0.3, 0.63397 at x = 2/3 and
+0.26393 at x = 4/5 (RECONSTRUCTED from linear elasticity by DOCKET 67).  Le's
+anisotropic-fluid wall and the collisionless shell below have no shear modulus
+of this kind.
+
+    CORRECTED (DOCKET 67).  The table read "x = 2/3 (Einstein-Vlasov limit)"
+    and "x = 4/5 (the wall's own limit)", and the conclusion read "STRICT
+    STABILITY IS AVAILABLE EVERYWHERE THE WALL IS REALIZABLE, WITH A
+    SUBLUMINAL SOUND SPEED" -- without 'radial', 'frozen background', the
+    fluid proxy, or the thin-shell/finite-wall distinction.  The arithmetic
+    is unchanged.
 
 The decoupling is not taken on faith either.  sigma_0 and p_0 come out of the
 junction as functions of (s, R) ALONE -- beta^2 does not appear until the second
@@ -49,13 +90,16 @@ Lanczos junction and giving surface dec iff x < 24/25.
 -- AND THE CONSTRAINT INVERTS -------------------------------------------------
 
 This is the part worth the trouble.  A marginal wall runs away, so the burn must
-BEAT it: tau_burn <= tau_efold, i.e. delta_eta <= lambda.  A strictly stable wall
+BEAT it: tau_burn <= tau_efold, i.e. delta_eta <= lambda -- this tree's
+criterion, with tau_efold = R/c (coefficient 1, independent of lambda) and the
+burn timed as c delta_eta/a at the PEAK acceleration.  A strictly stable wall
 oscillates instead, at omega = sqrt(V''/2), so the burn must merely not RESONATE
 with it: tau_burn >> 1/omega, i.e. W delta_eta / lambda >> 1 with
 W = sqrt(V'' R^2 / 2).  The same ratio, upside down.
 
     *** WITHDRAWN IN PART, see THE SHAPE HAS MASS below: the diffuse corner
-        this table opens escapes the l >= 2 instability by making the shell's
+        this table opens escapes the l = 2 instability (at the k = 0.6
+        reading; DOCKET 67 corrected "l >= 2") by making the shell's
         self-gravity negligible, which is the property that made it a warp
         drive.  The table is arithmetically right and its conclusion was
         over-read. ***
@@ -63,6 +107,16 @@ W = sqrt(V'' R^2 / 2).  The same ratio, upside down.
     design                     marginal wall        stiff wall (x=0.3, b^2=0.5)
     Le App. K worked burn      fails by 2.0         adiabatic by only 2.4
     1 g, 10 m cavity           fails by 1.8e14      ADIABATIC BY 2.2e14
+
+    CORRECTED (DOCKET 67), the App. K row.  "fails by 2.0" holds only on this
+    tree's two timings: tau_efold = R/c at coefficient 1, where Le gives
+    sqrt(2/|V''|) "of order a light-crossing time" -- any tau_efold >= 2R/c
+    turns it into a pass -- and tau_burn at the peak acceleration (the
+    bump's FWHM); on the full sin^2 profile the burn lasts 4R/c, a miss of 4
+    and a stiff margin of 4.86 (computed by DOCKET 67).  Le does not print
+    the App. K burn as passing or failing.  And the stiff column applies
+    Le's burn to beta^2 = 0.5, this file's choice: Le's stiffer wall is "a
+    nearby model, not the realized one".
 
 The habitable regime was not near the boundary and on the wrong side of it.  It
 was fourteen orders from the boundary, and which side depends entirely on the
@@ -124,14 +178,38 @@ adiabatic index, and all sampled values of the multipolar order l >= 2", and it
 survives the Newtonian limit.  Their configuration is a static thin shell,
 Minkowski inside, Schwarzschild outside -- LE'S STATIC ANCHOR EXACTLY.
 
-    STIFFENING THE WALL FIXES THE RADIAL MODE AND DOES NOTHING TO l >= 2.
-    beta^2 does not appear in the unstable branch at all.
+    STIFFENING THE WALL FIXES THE RADIAL MODE AND DOES NOT REMOVE THE l >= 2
+    MODE -- in PSP's model.  The mode's EXISTENCE does not depend on Gamma;
+    its RATE does.
+
+The DOCKET 67 audit's Newtonian re-derivation gives kappa_2 = 0.627, 0.548,
+0.515, 0.473 and 0.346 (in sqrt(GM/R^3)) at Gamma = 1.5, 1.8, 2.0, 2.4 and
+infinity: stiffening slows the mode by up to 45 % and never removes it.  And
+PSP's shell is a BAROTROPIC PERFECT FLUID, with no shear or bending rigidity.
+This file's own counter-rotating shell is collisionless, not a barotropic
+fluid under non-radial perturbation, and Le's realized wall is a Bowers-Liang
+anisotropic equilibrium; both lie outside PSP's class, so for them the l >= 2
+mode is not established here either way.
+
+    CORRECTED (DOCKET 67).  This read "STIFFENING THE WALL ... DOES NOTHING TO
+    l >= 2.  beta^2 does not appear in the unstable branch at all" -- true of
+    the mode's existence, not of its rate, and stated without PSP's fluid
+    hypothesis.
 
 But it is not unconditional in the only variable that matters for a mission.
-Their Fig. 1 gives Im{omega} (R^3/M)^{1/2} ~= 0.6, roughly flat over
-M/R in [0, 0.3] and Gamma in [1.8, 2.4], so the growth rate is the SELF-
-GRAVITATIONAL rate omega ~= 0.6 sqrt(GM/R^3) -- and a diffuse shell has a slow
-one.  Against a burn of duration c delta_eta/a, the number of e-foldings is
+Their Fig. 1 plots Im{omega} (R^3/M)^{1/2} for l = 2 ONLY, along two 1-D cuts --
+against M/R in [0, 0.3] at Gamma = 2, and against Gamma in [1.8, 2.4] at
+M/R = 0.2 -- inside y-axis ranges of 0.52-0.66 and 0.56-0.64.  No dot value is
+printed; this file reads the curves as ~0.6.  The diffuse shells below sit at
+M/R ~ 5e-25, the plotted left edge, where the re-derived Newtonian l = 2 value
+at Gamma = 2 is 0.5147.  So the growth rate is the SELF-GRAVITATIONAL rate
+omega ~= k sqrt(GM/R^3), k ~ 0.6 as read for l = 2 -- and a diffuse shell has
+a slow one.  Higher l grow faster: kappa_l = 1.090, 1.630 and 4.702 at
+l = 3, 4 and 10 (Gamma = 2, Newtonian, re-derived by DOCKET 67), tending to
+l/2, and for an infinitely thin shell the fastest rate is bounded only by a
+physical l cutoff (thickness, rigidity) the paper does not supply.  EVERY
+FIGURE BELOW IS AN l = 2 FIGURE AT k = 0.6, AND UNDERSTATES THE CONSTRAINT.
+Against a burn of duration c delta_eta/a, the number of e-foldings is
 
         N  =  0.6 sqrt(G M / R^3) · c delta_eta / a
 
@@ -139,8 +217,15 @@ and N < 1 is a ceiling on MEAN DENSITY, not on mass or size separately:
 
         rho_mean  <  3 a^2 / (4 pi G (0.6 c delta_eta)^2)
 
-For a 1 g burn to delta_eta = 0.2 that is 2.658e-4 kg/m^3, about 1/4000 of air.
-A 1,000-tonne ship meets it at R > 965 m, and comfortably (N < 0.1) at R > 4.48 km.
+For a 1 g burn to delta_eta = 0.2 that is 2.658e-4 kg/m^3, about 1/4000 of air
+(at the l = 3 rate it is 8.05e-5).
+A 1,000-tonne ship meets it at R > 965 m, and comfortably (N < 0.1) at R > 4.48 km
+(at the l = 3 rate, N at 5 km is 0.154, not under 0.1).
+
+    CORRECTED (DOCKET 67).  This read "Their Fig. 1 gives Im{omega}
+    (R^3/M)^{1/2} ~= 0.6, roughly flat over M/R in [0, 0.3] and Gamma in
+    [1.8, 2.4]" -- two cuts read as a box, tick ranges read as data, and an
+    l = 2 value applied to every l >= 2.
 The compactness there is x ~ 1e-24, so every dominant-energy window and the
 counter-rotating stability condition are satisfied with room to spare, and the
 adiabatic criterion is satisfied by twelve orders.  There is a corner, and its
@@ -151,9 +236,13 @@ et al. assume VACUUM on both sides, where Le's exterior is outgoing null dust;
 and they treat an INFINITESIMALLY THIN shell, where Le's realized wall has finite
 thickness.  Their own conclusion is phrased about objects "that feature a thin
 shell at its surface".  Whether either escape works is not settled by this file.
+A third is their constitutive hypothesis: a barotropic perfect fluid, which this
+file's own walls are not (DOCKET 67; see the paragraph above).
 
 -- THE SHAPE HAS MASS, AND THAT CLOSES THE CORNER I THOUGHT I HAD FOUND -------
-The l >= 2 ceiling was written above as a bound on MEAN DENSITY, and read as
+(Every figure in this section is at the l = 2 reading k = 0.6; higher l tighten
+it -- CORRECTED, DOCKET 67, where it said "l >= 2" of an l = 2 value.)
+The l = 2 ceiling was written above as a bound on MEAN DENSITY, and read as
 "the corner is big and diffuse".  That reading treats M and R as independent.
 They are not: the same mass sets the density AND the compactness,
 
@@ -168,7 +257,7 @@ so holding rho at the ceiling makes x a function of R alone.  Tabulated:
         0.0396   1.55e+14     4.13e+39      2.1e+09      0.01
         0.3      4.26e+14     8.60e+40      4.3e+10      0.082
 
-    TO BE BOTH STABLE AGAINST l >= 2 AND MEANINGFULLY SELF-GRAVITATING -- say a
+    TO BE BOTH STABLE AGAINST l = 2 AND MEANINGFULLY SELF-GRAVITATING -- say a
     one per cent gravitational binding fraction -- THE OBJECT MUST BE TWO
     BILLION SOLAR MASSES SPREAD OVER A THOUSAND AU.  Le's own operating point
     x = 0.3 needs 4.3e10 Msun at 2,850 AU.
@@ -176,15 +265,37 @@ so holding rho at the ceiling makes x a function of R alone.  Tabulated:
 And the 1,000-tonne, 4.48 km design that passed the density ceiling sits at
 x = 3.3e-25, a binding fraction of 8e-26, a wall of 3.97 g/m^2 -- half the
 areal density of kitchen foil -- under 1.5e-11 N/m of tension.  It is a Mylar
-balloon nine kilometres across.  Its cavity is exactly flat, but a spherical
-shell's interior is exactly flat by BIRKHOFF at any compactness whatever, so
-that property is shared with every balloon and is not a warp feature.
+balloon nine kilometres across.  Its cavity is flat, but the EMPTY,
+REGULAR-CENTRED cavity of a spherical shell is flat by BIRKHOFF (in GR, with
+Lambda = 0) at any compactness whatever, so that property is shared with every
+balloon and is not a warp feature.  A cavity holding mass is not flat --
+stability.py's device, interior Schwarzschild with M_in = -m, is not -- and
+with Lambda > 0 the empty cavity is de Sitter, a departure Lambda R^2/3 =
+7.3e-46 at R = 4478 m (DOCKET 67).  (CORRECTED, DOCKET 67: this read "a
+spherical shell's interior is exactly flat by BIRKHOFF at any compactness
+whatever".)
 
-    THE ESCAPE CORRIDOR EXITS THE CATEGORY.  Le's own line is that "a
-    sufficiently idealized hulled rocket ... lies outside the exact class W",
-    and the diffuse limit walks the warpshell into exactly that.  The l >= 2
-    instability is not escapable while the object remains self-gravitating,
-    which is what "warpshell" means.
+    THE ESCAPE CORRIDOR EXITS THE CATEGORY -- this file's category.  Le's
+    line, in full: "a sufficiently idealized hulled rocket shares C1-C2 after
+    coarse-graining and lies outside the exact class W (its exterior is not
+    exact null dust, its cavity only approximately Riemann-flat)" (v2 p.25;
+    the sentence, class W and Proposition 8 are absent from v4).  Neither
+    criterion is triggered by lowering the compactness: C2 holds on all of
+    0 < x < 24/25 (computed by DOCKET 67), and the diffuse cavity is exactly
+    flat, so by Le's own criteria the diffuse warpshell is NOT thereby a
+    hulled rocket.  What it leaves is "meaningfully self-gravitating" at the
+    one-per-cent binding threshold this file chose: Le's gloss calls the W
+    cell "self-gravitating", but his definitions set no threshold.  For PSP's
+    barotropic perfect-fluid shell, the l = 2 instability is not escaped while
+    the object stays self-gravitating in that sense.
+
+    CORRECTED (DOCKET 67).  This quoted Le as "a sufficiently idealized hulled
+    rocket ... lies outside the exact class W" -- the ellipsis removing the
+    clause that grants the rocket C1-C2 -- and went on: "the diffuse limit
+    walks the warpshell into exactly that.  The l >= 2 instability is not
+    escapable while the object remains self-gravitating, which is what
+    'warpshell' means."  Le's class is decided by C1-C3 and the exterior, not
+    by x, and the threshold is this file's.
 
 Recorded as a correction to this file's own earlier reading, not to the
 arithmetic, which stands.  What it costs is the claim that a habitable design
@@ -194,29 +305,52 @@ survives: it survives as a balloon.
 1. Not that EVERY admissible matter model clears it.  One model is worked, and
    Le's own realized wall is a Bowers-Liang anisotropic equilibrium rather than
    this one.  Anisotropic elastic matter on 2/3 < x < 4/5 is not treated here,
-   and by the table above that is exactly the range where this model fails.
+   and by the table above this model fails there -- and from x = 0.46898
+   upward, so that range is only part of where it fails.  (CORRECTED, DOCKET
+   67: "that is exactly the range where this model fails".)
 2. Not the flux-coupled dynamic stability of the RADIATING shell, which Le leaves
    open in his Sec. 15.  What is closed here is the frozen-background linear
    radial mode -- the one he identifies as marginal, and no more.
 3. beta^2 here is the slope of the thin-shell surface equation of state, which is
    not identical to the microphysical sound speed of the finite-thickness wall.
-   The causality reading beta^2 <= 1 is the standard one and is a proxy.
+   The causality reading beta^2 <= 1 is the standard one and is a proxy, exact
+   only for a shear-free, isentropically perturbed fluid surface; and in a
+   finite wall beta^2 is a positive-weight average of the local c_t^2, so
+   beta^2 <= 1 is necessary for local causality, not sufficient.  Wherever
+   this file says 'causal', 'subluminal', 'c_s' or 'superluminal' it means
+   this proxy.  (CORRECTED, DOCKET 67: the qualifier was stated here only, not
+   carried to those sites.)
+4. Not the l >= 2 mode for this file's own walls.  PSP's model is a barotropic
+   perfect fluid; the counter-rotating shell and Le's anisotropic wall are
+   outside it (DOCKET 67).
 -- A BONUS THEOREM, WHICH IS THE OPPOSITE OF WHAT I EXPECTED ------------------
 I went looking for the amplitude at which a swinging shell breaks dominant
-energy, since d(sigma-p)/dR = (1-beta^2) sigma' < 0 means the margin falls as the
-shell expands.  There is no such amplitude.  As R -> infinity the margin tends to
-2(beta^2 sigma_0 - p_0)/(1+beta^2), so the basin is unbounded iff
-beta^2 > p_0/sigma_0 = (1-s)/(4s) -- and
+energy, since d(sigma-p)/dR = (1-beta^2) sigma' < 0 (for beta^2 < 1) means the
+margin falls as the shell expands.  There is no such amplitude.  As R -> infinity
+sigma - p tends to 2(beta^2 sigma_0 - p_0)/(1+beta^2), so the basin is unbounded
+iff beta^2 > p_0/sigma_0 = (1-s)/(4s) -- and
 
         beta^2_crit  -  p_0/sigma_0  =  x / (4 s^2 (1 + 3s))   >  0
 
 exactly, for every x in (0,1), checked to 1e-13 at nine values.  So
 
     ANY STRICTLY STABLE WALL AUTOMATICALLY HAS AN UNBOUNDED DOMINANT-ENERGY
-    BASIN.  Stability does not merely cost nothing in dec; it buys dec.
+    BASIN, IN THE LINEAR-EOS MODEL.  Stability does not merely cost nothing in
+    dec; it buys dec.
 
 The oscillation therefore has no admissibility ceiling on its amplitude at all,
 which removes the constraint I built this section to measure.
+
+    CORRECTED (DOCKET 67).  sigma - p is the dominant-energy margin only for a
+    Type I stress with p > 0 (dec_margin's own hypotheses).  Along the orbit
+    p tends to (p_0 - beta^2 sigma_0)/(1+beta^2), negative exactly when the
+    basin is unbounded; for the selftest walls p crosses zero at R/R0 =
+    1.0514, 1.1462, 1.1165 and 1.1097, and past that sigma + p is the binding
+    term.  sigma + p = (sigma_0 + p_0)(R/R0)^(-2(1+beta^2)) > 0 exactly, so the
+    DEC holds iff sigma - p >= 0 and the boolean above stands -- resting on
+    that fact, which this section did not state.  But the true margin
+    min(sigma - p, sigma + p) tends to 0+: the DEC is asymptotically
+    saturated, and the limit quoted is of sigma - p, not of the margin.
 
 -- METHOD ---------------------------------------------------------------------
 Standard Poisson-Visser thin-shell linearisation (Phys. Rev. D 52 7318, 1995) for
@@ -289,7 +423,8 @@ def sound_speed_crit(x):
 
 def causal_limit(lo=1e-9, hi=1.0 - 1e-12, iters=200):
     """DERIVED.  beta^2_crit = 1 at the root of 15s^3 + 3s^2 - s - 1 = 0.
-    Returns x* above which strict stability would need superluminal sound."""
+    Returns x* above which strict stability would need beta^2 > 1 --
+    superluminal sound under the fluid proxy (limitation 3)."""
     f = lambda s: 15.0 * s ** 3 + 3.0 * s * s - s - 1.0
     a, b = lo, hi
     for _ in range(iters):
@@ -364,7 +499,9 @@ def lam(a_ms2, R_m):
     return a_ms2 * R_m / (C * C)
 
 def marginal_shortfall(delta_eta, a_ms2, R_m):
-    """MARGINAL wall: burn must beat the e-folding.  <= 1 passes."""
+    """MARGINAL wall: burn must beat the e-folding.  <= 1 passes.  This tree's
+    criterion, not Le's: tau_efold = R/c with coefficient 1, independent of
+    lambda, and tau_burn = c delta_eta/a at the peak acceleration (DOCKET 67)."""
     return delta_eta / lam(a_ms2, R_m)
 
 def adiabatic_margin(delta_eta, a_ms2, R_m, x, b2):
@@ -376,7 +513,10 @@ def adiabatic_margin(delta_eta, a_ms2, R_m, x, b2):
 
 def dec_asymptotic_margin(x, b2, R0=1.0):
     """sigma - p as R -> infinity.  Positive means the dominant-energy basin is
-    unbounded: no oscillation amplitude can break it."""
+    unbounded: no oscillation amplitude can break it.  sigma - p is the DEC
+    margin only while p > 0; when this is positive p tends to a negative
+    limit, and the DEC holds because sigma + p > 0 exactly, the true margin
+    min(sigma - p, sigma + p) tending to 0+ (CORRECTED, DOCKET 67)."""
     _, _, sig0, p0 = statics(x, R0)
     return 2.0 * (b2 * sig0 - p0) / (1.0 + b2)
 
@@ -437,7 +577,12 @@ def vlasov_model_limit():
 
 # -- the non-radial mode (Pitre, Schneider & Poisson 2026) -------------------
 
-PSP_K = 0.6          # PINNED from their Fig. 1: Im{omega}(R^3/M)^{1/2}, 0.52-0.66
+# READ-OFF-FIGURE (CORRECTED, DOCKET 67: was labelled "PINNED from their
+# Fig. 1 ... 0.52-0.66").  Fig. 1 is l = 2 only and prints no dot value;
+# 0.52-0.66 is the left panel's y-tick range, not a data range.  The
+# re-derived Newtonian l = 2 value at Gamma = 2 is 0.5147; l = 3, 4, 10 give
+# 1.090, 1.630, 4.702.  The value is unchanged.
+PSP_K = 0.6          # Im{omega}(R^3/M)^{1/2}, l = 2, read off their Fig. 1
 G_SI = 6.67430e-11
 
 def gamma1_published(x):
@@ -452,8 +597,10 @@ def gamma_crit(x, R=1.0):
     return beta2_crit(x) * (sig + p) / p
 
 def nonradial_rate(M_kg, R_m, k=PSP_K):
-    """Growth rate of the l >= 2 even-parity matter mode, 1/s.  Independent of
-    beta^2 -- the structural fix does not reach this branch."""
+    """Growth rate of the even-parity matter mode at k, 1/s -- the l = 2 rate at
+    the default k (higher l grow faster).  The mode's existence does not
+    depend on beta^2, so the structural fix does not remove it; its rate does
+    (CORRECTED, DOCKET 67: "the l >= 2 ... mode.  Independent of beta^2")."""
     return k * math.sqrt(G_SI * M_kg / R_m ** 3)
 
 def efoldings(M_kg, R_m, delta_eta, a_ms2, k=PSP_K):
@@ -461,7 +608,8 @@ def efoldings(M_kg, R_m, delta_eta, a_ms2, k=PSP_K):
     return nonradial_rate(M_kg, R_m, k) * (C * delta_eta / a_ms2)
 
 def max_mean_density(delta_eta, a_ms2, k=PSP_K):
-    """DERIVED.  N < 1 is a ceiling on mean density alone, kg/m^3."""
+    """DERIVED.  N < 1 is a ceiling on mean density alone, kg/m^3 (at the
+    l = 2 rate for the default k)."""
     return 3.0 * a_ms2 ** 2 / (4.0 * math.pi * G_SI * (k * C * delta_eta) ** 2)
 
 def min_radius(M_kg, delta_eta, a_ms2, k=PSP_K, n=1.0):
@@ -471,7 +619,7 @@ def min_radius(M_kg, delta_eta, a_ms2, k=PSP_K, n=1.0):
 # -- the shape has mass: self-gravity against the density ceiling ------------
 
 def radius_at_ceiling(x, delta_eta=0.2, a_ms2=9.80665):
-    """DERIVED.  Holding rho at the l >= 2 ceiling, x fixes R:
+    """DERIVED.  Holding rho at the l = 2 ceiling (default k), x fixes R:
     x = (8 pi G/3) rho R^2/c^2."""
     rho = max_mean_density(delta_eta, a_ms2)
     return C * math.sqrt(3.0 * x / (8.0 * math.pi * G_SI * rho))
@@ -524,7 +672,10 @@ def selftest():
         chk("  V(R_0) = 0 at beta^2 = %.2f" % b2, V_of_R(1.0, 0.3, b2), 0.0, 1e-14)
         d = (V_of_R(1.0 + 1e-6, 0.3, b2) - V_of_R(1.0 - 1e-6, 0.3, b2)) / 2e-6
         chk("  V'(R_0) = 0 at beta^2 = %.2f" % b2, d, 0.0, 1e-9)
-    chk("dec margin is identical for every beta^2 (it is junction-fixed)",
+    # CORRECTED (DOCKET 67): this check never varies beta^2 and cannot fail;
+    # dec_margin_scaled takes no beta^2 argument, which is the decoupling.
+    # What tests it is V(R_0) = V'(R_0) = 0 at four beta^2 above.
+    chk("dec margin takes no beta^2 (junction-fixed; cannot fail)",
         len({round(dec_margin_scaled(0.3), 12)}), 1)
 
     print("\nV'' analytic against a finite difference of the closed-form V(R)")
@@ -545,17 +696,17 @@ def selftest():
     chk("beta^2_crit(4/5) = sqrt5 - 3/2", beta2_crit(X_TANGENTIAL),
         math.sqrt(5.0) - 1.5, 1e-15)
 
-    print("\nThe causal ceiling, and the window that matters")
+    print("\nThe causal ceiling (the beta^2 <= 1 fluid proxy), and the window")
     xs = causal_limit()
     chk("x* where beta^2_crit = 1", beta2_crit(xs), 1.0, 1e-9)
     chk("  and it is", xs, 0.8437418926, 1e-9)
-    chk("the operative window x < 4/5 is entirely below x*", X_TANGENTIAL < xs, True)
-    chk("  so is the Vlasov window x < 2/3", X_VLASOV < xs, True)
+    chk("the finite wall's window x < 4/5 is entirely below x*", X_TANGENTIAL < xs, True)
+    chk("  so is the Einstein-cluster window x < 2/3", X_VLASOV < xs, True)
     chk("but the thin-shell dec window 24/25 is NOT", X_THIN_SHELL < xs, False)
     for x in (0.1, 0.3, X_VLASOV, X_TANGENTIAL):
         cs = sound_speed_crit(x)
         print("      x = %.4f  needs beta^2 > %.6f, c_s > %.4f c" % (x, beta2_crit(x), cs))
-        chk("    subluminal at x = %.4f" % x, cs < 1.0, True)
+        chk("    beta^2_crit < 1 (subluminal, fluid proxy) at x = %.4f" % x, cs < 1.0, True)
 
     print("\nThe oscillation period, measured by integrating R_ddot = -V'/2")
     for x, b2 in ((0.3, 0.5), (0.5, 0.5), (0.3, 0.2)):
@@ -573,8 +724,10 @@ def selftest():
     chk("the stiff wall is adiabatic by more than 1e13", am > 1e13, True)
     chk("it is the same ratio, times W", am / sf, omega_scaled(0.3, 0.5), 1e-9)
     lew = adiabatic_margin(0.24, 1.0, 1.0, 0.3, 0.5) * lam(1.0, 1.0) / 0.12
-    chk("Le's relativistic burn is only marginally adiabatic (< 5)", lew < 5.0, True)
-    print("      Le App. K burn (delta_eta/lambda = 2.0) is adiabatic by %.3f" % lew)
+    chk("Le's burn on this file's beta^2 = 0.5 wall: marginally adiabatic (< 5)",
+        lew < 5.0, True)
+    print("      Le App. K burn (delta_eta/lambda = 2.0, peak-a timing) on this file's")
+    print("      beta^2 = 0.5 wall -- not Le's -- is adiabatic by %.3f" % lew)
 
     print("\nBONUS: strict stability IMPLIES an unbounded dec basin")
     for x in (0.01, 0.1, 0.3, 0.5, X_VLASOV, X_TANGENTIAL, 0.9, 0.999):
@@ -620,7 +773,8 @@ def selftest():
             gamma1_published(x), 1e-9)
     chk("both go to 3/2 in the Newtonian limit", gamma_crit(1e-9), 1.5, 1e-6)
 
-    print("\nTHE NON-RADIAL MODE: beta^2 does not appear in it")
+    print("\nTHE NON-RADIAL MODE (l = 2, k = 0.6 read): it exists at every beta^2;")
+    print("its rate depends on Gamma (DOCKET 67), and higher l are faster")
     r1 = nonradial_rate(1.0e6, 10.0)
     print("      1e6 kg at R = 10 m grows at %.4e /s  (e-fold %.0f s = %.2f h)"
           % (r1, 1.0 / r1, 1.0 / r1 / 3600.0))
@@ -640,7 +794,7 @@ def selftest():
     chk("  ...and the burn is still adiabatic there",
         adiabatic_margin(0.2, 9.80665, r10, 0.3, 0.5) > 1e9, True)
 
-    print("\nTHE SHAPE HAS MASS: self-gravity traded against the l>=2 ceiling")
+    print("\nTHE SHAPE HAS MASS: self-gravity traded against the l=2 ceiling")
     print("      %-10s %12s %12s %12s" % ("x", "R (m)", "M (Msun)", "binding"))
     for x in (1e-24, 1e-6, 0.0396, 0.3):
         R = radius_at_ceiling(x)
@@ -661,9 +815,10 @@ def selftest():
         1.4787e-11, 1e-15)
     chk("  and the mass closes", surface_density(x_ship, 4478.0)
         * 4.0 * math.pi * 4478.0 ** 2, 1.0e6, 1.0)
-    print("""      A spherical shell's interior is exactly flat by BIRKHOFF at any
-      compactness, so the diffuse limit's "warp feature" is shared with every
-      balloon.  The escape corridor exits the category.""")
+    print("""      An empty, regular-centred cavity is flat by BIRKHOFF (GR, Lambda = 0)
+      at any compactness, so the diffuse limit's "warp feature" is shared
+      with every balloon.  The escape corridor exits this file's category
+      (self-gravitating at 1% binding), not Le's class W.""")
 
     print("\n  SELFTEST %s" % ("OK" if ok else "FAILED"))
     return 0 if ok else 1
@@ -673,14 +828,15 @@ def report():
     print("=" * 79)
     print("THE STIFFNESS REQUIREMENT\n")
     print("  %-10s %12s %12s %14s %14s"
-          % ("x = 2m/R", "beta^2_crit", "c_s / c", "8piR(sig-p)", "causal?"))
+          % ("x = 2m/R", "beta^2_crit", "c_s/c fluid", "8piR(sig-p)", "beta^2<=1?"))
     for x in (0.05, 0.1, 0.2, 0.3, 0.5, X_VLASOV, X_TANGENTIAL,
               causal_limit(), 0.9, X_THIN_SHELL):
         b = beta2_crit(x)
         cs = "%.4f" % math.sqrt(b) if b <= 1.0 else "  --  "
         print("  %-10.5f %12.6f %12s %14.6f %14s"
               % (x, b, cs, dec_margin_scaled(x), "yes" if b <= 1.0 else "NO"))
-    print("\n  every window the wall is realizable in (x < 4/5) is causal.")
+    print("\n  every window the finite wall is realizable in (x < 4/5) has")
+    print("  beta^2_crit < 1: causal under the fluid proxy (limitation 3).")
 
     print("\nTHE OSCILLATION, once stiffened (period in units R/c)\n")
     print("  %-10s %10s %12s %12s %16s" % ("x", "beta^2", "V''R^2", "period", "dec basin"))
@@ -691,6 +847,9 @@ def report():
 
     print("\nTHE INVERSION\n")
     print("  %-26s %16s %18s" % ("design", "marginal (<=1)", "stiff (>>1)"))
+    # DOCKET 67: the stiff column applies Le's burn to this file's beta^2 = 0.5
+    # wall, which Le did not build; the marginal column uses this tree's
+    # coefficient-1 tau_efold and peak-acceleration timing.
     for lbl, eta, a, R in (("Le App. K worked burn", 0.24, None, None),
                            ("1 g, 1 km cavity", 0.2, 9.80665, 1000.0),
                            ("1 g, 10 m cavity", 0.2, 9.80665, 10.0)):
@@ -700,6 +859,8 @@ def report():
             sf = marginal_shortfall(eta, a, R)
             am = adiabatic_margin(eta, a, R, 0.3, 0.5)
         print("  %-26s %16.3e %18.3e" % (lbl, sf, am))
+    print("\n  (Le App. K row: stiff column on this file's beta^2 = 0.5 wall, not Le's;")
+    print("  marginal column on tau_efold = R/c and the peak-acceleration timing.)")
     print("\n  Same ratio, opposite sign of V''.  The habitable regime was never")
     print("  near the boundary; it was fourteen orders from it, on whichever side")
     print("  the equation of state puts it.")

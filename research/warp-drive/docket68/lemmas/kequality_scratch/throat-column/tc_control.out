@@ -1,0 +1,82 @@
+K1 pure AdS5, exact: residuals of p', q', the constraint and alpha'/alpha = p on alpha = beta = exp(-e y), p = q = -e: {'P': 0, 'Q': 0, 'cons': 0, 'alpha': 0}
+   every level surface umbilic (D == 0), k = -e at every depth: True
+
+K2/K3 the balance detector (s2 of each convention along the column):
+  e=0.01562 pure AdS5 (my eqs, cA=cS=0)                      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.01562 pure AdS5 (my eqs, cA=cS=0)                      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.01562 pure AdS5 (my eqs, cA=cS=0)                      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.01562 pure AdS5 (my eqs, cA=cS=0)                      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.01562 pure AdS5 (my eqs, cA=cS=0)                      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.01562 owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.01562 owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.01562 owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.01562 owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.01562 owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.01562 MUTATION: corridor column (owner, alpha0=beta0=1) C-PRZ           D_max/e=2.3e+07  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=True crossings=0
+  e=0.01562 MUTATION: corridor column (owner, alpha0=beta0=1) C-SHEET-M4      D_max/e=2.3e+07  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=False crossings=0
+  e=0.01562 MUTATION: corridor column (owner, alpha0=beta0=1) C-S6            D_max/e=2.3e+07  s2(0)=-0.333333  spread=3.33e-01  everywhere=False nowhere=False crossings=0
+  e=0.01562 MUTATION: corridor column (owner, alpha0=beta0=1) C-S7            D_max/e=2.3e+07  s2(0)=-0.416667  spread=4.17e-01  everywhere=False nowhere=True crossings=1
+  e=0.01562 MUTATION: corridor column (owner, alpha0=beta0=1) C-MIRROR(-1/4)  D_max/e=2.3e+07  s2(0)=-1.003936  spread=1.78e+07  everywhere=False nowhere=True crossings=0
+  e=0.125   pure AdS5 (my eqs, cA=cS=0)                      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.125   pure AdS5 (my eqs, cA=cS=0)                      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.125   pure AdS5 (my eqs, cA=cS=0)                      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.125   pure AdS5 (my eqs, cA=cS=0)                      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.125   pure AdS5 (my eqs, cA=cS=0)                      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.125   owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.125   owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.125   owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=0.125   owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.125   owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=0.125   MUTATION: corridor column (owner, alpha0=beta0=1) C-PRZ           D_max/e=3.5e+06  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=True crossings=0
+  e=0.125   MUTATION: corridor column (owner, alpha0=beta0=1) C-SHEET-M4      D_max/e=3.5e+06  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=False crossings=0
+  e=0.125   MUTATION: corridor column (owner, alpha0=beta0=1) C-S6            D_max/e=3.5e+06  s2(0)=-0.333333  spread=3.33e-01  everywhere=False nowhere=False crossings=0
+  e=0.125   MUTATION: corridor column (owner, alpha0=beta0=1) C-S7            D_max/e=3.5e+06  s2(0)=-0.416667  spread=4.17e-01  everywhere=False nowhere=True crossings=1
+  e=0.125   MUTATION: corridor column (owner, alpha0=beta0=1) C-MIRROR(-1/4)  D_max/e=3.5e+06  s2(0)=-1.000397  spread=2.75e+06  everywhere=False nowhere=True crossings=0
+  e=1       pure AdS5 (my eqs, cA=cS=0)                      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=1       pure AdS5 (my eqs, cA=cS=0)                      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=1       pure AdS5 (my eqs, cA=cS=0)                      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=1       pure AdS5 (my eqs, cA=cS=0)                      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=1       pure AdS5 (my eqs, cA=cS=0)                      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=1       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=1       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=1       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=1       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=1       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=1       MUTATION: corridor column (owner, alpha0=beta0=1) C-PRZ           D_max/e=9.5e+05  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=True crossings=0
+  e=1       MUTATION: corridor column (owner, alpha0=beta0=1) C-SHEET-M4      D_max/e=9.5e+05  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=False crossings=0
+  e=1       MUTATION: corridor column (owner, alpha0=beta0=1) C-S6            D_max/e=9.5e+05  s2(0)=-0.333333  spread=3.33e-01  everywhere=False nowhere=False crossings=0
+  e=1       MUTATION: corridor column (owner, alpha0=beta0=1) C-S7            D_max/e=9.5e+05  s2(0)=-0.416667  spread=4.17e-01  everywhere=False nowhere=True crossings=1
+  e=1       MUTATION: corridor column (owner, alpha0=beta0=1) C-MIRROR(-1/4)  D_max/e=9.5e+05  s2(0)=-1.000023  spread=7.47e+05  everywhere=False nowhere=True crossings=0
+  e=8       pure AdS5 (my eqs, cA=cS=0)                      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=8       pure AdS5 (my eqs, cA=cS=0)                      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=8       pure AdS5 (my eqs, cA=cS=0)                      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=8       pure AdS5 (my eqs, cA=cS=0)                      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=8       pure AdS5 (my eqs, cA=cS=0)                      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=8       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-PRZ           D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=8       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-SHEET-M4      D_max/e=0.0e+00  s2(0)=-0.125000  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=8       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S6            D_max/e=0.0e+00  s2(0)=-0.333333  spread=0.00e+00  everywhere=True nowhere=False crossings=0
+  e=8       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-S7            D_max/e=0.0e+00  s2(0)=-0.416667  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=8       owner throat_rhs, alpha0=beta0=1e12, y<3ell      C-MIRROR(-1/4)  D_max/e=0.0e+00  s2(0)=-1.000000  spread=0.00e+00  everywhere=False nowhere=True crossings=0
+  e=8       MUTATION: corridor column (owner, alpha0=beta0=1) C-PRZ           D_max/e=4.6e+05  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=True crossings=0
+  e=8       MUTATION: corridor column (owner, alpha0=beta0=1) C-SHEET-M4      D_max/e=4.6e+05  s2(0)=-0.125000  spread=1.25e-01  everywhere=False nowhere=False crossings=0
+  e=8       MUTATION: corridor column (owner, alpha0=beta0=1) C-S6            D_max/e=4.6e+05  s2(0)=-0.333333  spread=3.33e-01  everywhere=False nowhere=False crossings=0
+  e=8       MUTATION: corridor column (owner, alpha0=beta0=1) C-S7            D_max/e=4.6e+05  s2(0)=-0.416667  spread=4.17e-01  everywhere=False nowhere=True crossings=1
+  e=8       MUTATION: corridor column (owner, alpha0=beta0=1) C-MIRROR(-1/4)  D_max/e=4.6e+05  s2(0)=-1.000001  spread=3.63e+05  everywhere=False nowhere=True crossings=0
+  K2 verdict (pure AdS5: umbilic everywhere, s2 depth-independent, each condition everywhere or nowhere): True
+  K3 verdict (the mutation is caught: depth dependence and D > 0 on the corridor's column): True
+
+K4 positive control: the balance condition as a function of e (constraint at p = q = -s1 e):
+  alpha0=1 beta0=2 s1=0.50: roots in e ['0.204124145232']; identically zero: False; max|residual| 35.6
+  alpha0=1 beta0=1 s1=1.00: roots in e ['every e']; identically zero: True; max|residual| 5.33e-15
+  alpha0=1 beta0=1 s1=0.50: roots in e []; identically zero: False; max|residual| 36
+  alpha0=1 beta0=1 s1=0.25: roots in e []; identically zero: False; max|residual| 45
+  1/sqrt(24) = 0.204124145232; K4 verdict: True
+
+K5 one umbilic slice per column (start umbilic at y = 0, follow both ways):
+  e=0.125  alpha0=1.00 beta0=0.80 k=-0.197642: y in [-3.000, 0): D<0 everywhere True; y in (0, 1.608]: D>0 everywhere True; other zeros 0
+  e=1      alpha0=1.00 beta0=0.80 k=-1.011651: y in [-3.000, 0): D<0 everywhere True; y in (0, 0.854]: D>0 everywhere True; other zeros 0
+  e=1      alpha0=1.00 beta0=1.00 k=-1.000000: y in [-3.000, 0): D<0 everywhere True; y in (0, 0.914]: D>0 everywhere True; other zeros 0
+  e=0.03125 alpha0=2.00 beta0=1.50 k=-0.095281: y in [-3.000, 0): D<0 everywhere True; y in (0, 3.000]: D>0 everywhere True; other zeros 0
+  K5 verdict: True
+
+controls: PASS

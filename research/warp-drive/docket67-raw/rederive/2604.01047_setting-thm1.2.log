@@ -1,0 +1,47 @@
+C1  S sector: a = 2m^2/(6xi-1) < 4m^2 (GMMPS 5.1 '2/(6xi-1) < 4')
+    solution set: Union(Interval.open(-oo, 1/6), Interval.open(1/4, oo))
+PASS C1a  {xi : 2/(6xi-1) < 4} = (-oo,1/6) U (1/4,oo) :: got Union(Interval.open(-oo, 1/6), Interval.open(1/4, oo)) want Union(Interval.open(-oo, 1/6), Interval.open(1/4, oo))
+PASS C1b  xi = 1/6 (conformal) excluded: a undefined :: got False want False
+PASS C1c  minimal coupling xi=0 admitted, a = -2 m^2 :: got (True, -2*m**2) want (True, -2*m**2)
+PASS C1d  S operator double root box = 2m^2/(6xi-1) :: got 0 want 0
+PASS C1e  S operator loses its box^2 term at xi=1/6 (top order degenerates) :: got 0 want 0
+
+C2  TT sector: T = (1/60)(box - 4m^2)^2  (1.11/3.11)  -> a1 = a2 = 4 m^2 (5.2)
+PASS C2a  TT double root a = 4m^2 :: got {4*m**2: 2} want {4*m**2: 2}
+PASS C2b  a_TT in (-oo,4m^2)  [Thm 4.14, Prop 4.12, Lemma 4.13 hypothesis] :: got False want False
+PASS C2c  a_TT in (-oo,4m^2]  [Prop 4.11 hypothesis] :: got True want True
+PASS C3pre  (4.17) closed form = Stieltjes integral at z=1, 3 (1e-20) :: got True want True
+
+C3  Lemma 4.13: A(g) = (a-g)^2 J(g) convex with A'(I) = R, I = (-oo, 4m^2)
+PASS C3a  A'' (derivative form) = Lemma 4.13 integral form at g=1, a=4 :: got True want True
+    a = -2 (S sector, xi = 0):  A'(4 - eps) = ['0.123807', '0.429126', '1.39668', '4.45729', '14.1361', '44.7433']
+    a =  4 (TT sector):         A'(4 - eps) = ['-0.000475595', '-5.7553e-5', '-6.14062e-6', '-6.27088e-7', '-6.31296e-8', '-6.32636e-9']
+PASS C3b  a=-2: A'(4-eps) grows like eps^-1/2 (ratio over eps 1e-4 -> 1e-6 in (9,11)): diverges, Lemma 4.13 holds :: got True want True
+PASS C3c  a=4:  |A'(4-1e-6)| < 1e-4 (tends to 0, Lemma 4.13's 'lim = +oo' FAILS) :: got True want True
+PASS C3d  a=4: A' < 0 at every grid point of I (so A'(I) is contained in (-oo,0), not R) :: got True want True
+PASS C3e  a=4: A'' >= 0 at every grid point (convexity survives) :: got True want True
+
+C4  Can Prop 4.12's conclusion (3 real distinct roots in I of A(g) = b0/g + b1 + b2 g, b0,b1 != 0)
+    be reached at a = 4m^2 by ANY auxiliary (b0,b1)?  Equivalent: G(g) = g A(g) - b2 g^2 meets a line
+    b1 g + b0 three times in I.  If G'' < 0 on all of I (G concave), no line does.
+    b2* = sup_I (A' + g A''/2) on grid = 0.012479583 at g = 3.9999
+    refined b2* = 0.012659251
+    b2 = 0.01   G concave on grid: False
+    b2 = 0.1    G concave on grid: True
+    b2 = 1.0    G concave on grid: True
+    b2 = 10.0   G concave on grid: True
+    b2 = 1000.0 G concave on grid: True
+PASS C4pre  J(4m^2) = 1/(32 pi^2 m^2) (4.17 at z -> 4m^2, and the integral) :: got True want True
+    f(4 - eps) = ['0.01088989898', '0.01247958273', '0.01264650648', '0.01266328295']  1/(8 pi^2) = 0.01266514796
+PASS C4lim  b2* = sup_I (A' + g A''/2) = its boundary value 4m^2 J(4m^2) = 1/(8 pi^2) (to 1e-5 at eps=1e-8; monotone approach; grid max below it) :: got (True, True, True) want (True, True, True)
+PASS C4a  for b2 = 0.1, 1, 10, 1e3 (m=1): G'' < 0 on the whole grid => no auxiliary (b0,b1) gives 3 real roots :: got True want True
+    a=-2, b2=0.2: tangent point g~ = 3.9578705; real roots of A = B located by sign change: 3 in (0,4m^2), 0 on the sampled negative axis
+PASS C4b  a=-2 (inside Lemma 4.13's hypothesis), b2=0.2: Prop 4.12's tangent construction yields 3 real roots in I :: got True want True
+
+C5  Prop 2.4 algebra (n dims): de Donder fixing is complete on past-compact fields
+PASS C5a  (n-1)/n box^2 wbar + 1/n box hbar + 2(n-2)/n box^2 Y~ = 0 with Y~ of Prop 2.4 :: got 0 want 0
+    det of residual-gauge symbol (general n, embedded in 4 comps): 2*(n - 2)*(k0**2 + k1**2 + k2**2 + k3**2)**4/n
+PASS C5b  residual-gauge symbol det = |k|^8 (2n-4)/n: vanishes only on |k|=0 or n=2 :: got 0 want 0
+PASS C5c  trace-reversal convention hbar = h - (2/n) eta tr h reproduces Prop 2.4's -(4/n) eta d.X term :: got -4/n want -4/n
+
+0 failed -- all checks pass

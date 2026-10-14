@@ -1,0 +1,132 @@
+{
+ "key": "quant-ph/bennett-1993-teleportation",
+ "name": "Quantum state teleportation protocol (Bennett-Brassard-Crepeau-Jozsa-Peres-Wootters 1993)",
+ "source": {
+  "located": "C.H. Bennett, G. Brassard, C. Crepeau, R. Jozsa, A. Peres, W.K. Wootters, 'Teleporting an unknown quantum state via dual classical and Einstein-Podolsky-Rosen channels', Phys. Rev. Lett. 70, 1895 (1993). No arXiv copy (pre-dates quant-ph); alphaXiv title lookup resolved to Boschi et al. quant-ph/9710013 instead. Read via exact restatements: (i) Pirandola, Eisert, Weedbrook, Furusawa, Braunstein, 'Advances in quantum teleportation', arXiv:1505.07831 pp.1-2 ('The Basics of Quantum Teleportation', sec. A and Fig. 1 caption); (ii) Bennett, Brassard, Popescu, Schumacher, Smolin, Wootters, arXiv:quant-ph/9511027 p.1 (co-authors of the 1993 paper restating it) and p.4 (LOCC monotonicity); (iii) Boschi et al. arXiv:quant-ph/9710013 pp.1-2 (quotes the 1993 abstract). The 1993 PRL itself is NAMED-NOT-READ.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1505.07831, quant-ph/9511027, quant-ph/9710013 (page text returned verbatim); experimental confirmation read in 1707.00934."
+ },
+ "published_statement": "As restated (1505.07831 p.1-2): 'an unknown quantum state of a physical system is measured and subsequently reconstructed or reassembled at a remote location (the physical constituents of the original system remain at the sending location). This process requires classical communication and excludes superluminal communication. Most importantly, it requires the resource of quantum entanglement.' Protocol: Alice and Bob 'share two qubits, A and B, prepared in a pure entangled state. In the ideal case, this is taken to be maximally entangled ... Alice is given another qubit a whose state rho is unknown. She then performs ... Bell detection, which projects her qubits a and A into one of the four Bell states (P_k x I)|Phi> ... Bob's qubit B is simultaneously projected onto P_k^dag rho P_k ... Alice communicates the classical outcome k ... Bob applies P_k to recover the original input state rho' (F = 1 in the ideal case). 'Alice's input state is assumed to be unknown, otherwise the protocol reduces to remote state preparation.' Finite d: 'the Pauli operators P_k replaced by U_k and the classical channel involves distinguishing d^2 signals.' quant-ph/9511027 p.1: 'an arbitrary unknown qubit can be faithfully transmitted via a pair of maximally-entangled qubits (e.g. two spin-1/2 particles in a pure singlet state) previously shared between sender and receiver, and a 2-bit classical message'; the 1993 abstract as quoted in quant-ph/9710013 p.1-2: an unknown state can be 'disassembled into, then later reconstructed from, purely classical information and purely nonclassical EPR correlations.'",
+ "published_hypotheses": [
+  "P1 the state to be sent is UNKNOWN to the sender (1505.07831 p.2; quant-ph/9511027 p.1); for a known state the task reduces to remote state preparation",
+  "P2 a maximally entangled pure pair (singlet in the original, per quant-ph/9511027 p.1; any Bell pair equivalently, 1505.07831 p.1) PREVIOUSLY SHARED between sender and receiver",
+  "P3 a complete (ideal) Bell measurement distinguishing all four Bell states (1505.07831 p.2; p.4 requirement (3))",
+  "P4 a classical channel carrying the 2-bit outcome (log2 d^2 bits for a d-level system) to the receiver, who applies the conditional unitary",
+  "P5 ideal, noiseless operations -> fidelity 1; with noise, fidelity < 1 and purification is needed (quant-ph/9511027)",
+  "P6 (implicit in all three restatements, stated in none) standard linear quantum mechanics with the Born rule; 'excludes superluminal communication' is a theorem inside it",
+  "P7 finite-dimensional systems (qubit in the original; any finite d by the source's own generalisation)"
+ ],
+ "hypothesis_drift": [
+  "RESOURCE STATE (harmless): transit.py:91-95 uses |Phi+> with corrections [I, X, Z, ZX] in Bell order [Phi+, Psi+, Phi-, Psi-]; the original used the singlet |Psi-> (quant-ph/9511027 p.1). The two are related by a local unitary; rederive C1 and C2 show both give psi exactly on all four outcomes. Not a narrowing.",
+  "IDEALITY (named, consistent): the tree's hypothesis 'ideal noiseless Bell pair' and 'ideal Bell-basis measurement' (canonical, transit.py:91-95) match P2/P3/P5. But the docstring and report prose (transit.py:20-22, 192-195, 280) state 'EXACT'/'PERFECT' without the word ideal; TRANSIT_IS_EXACT = True (transit.py:150) holds only under P3/P5. With a Werner resource of singlet fraction F the fidelity is (2F+1)/3 (rederive C6); measured fidelities are 0.831+-0.009 (quant-ph/9710013 p.8), >=0.83 at 143 km (1505.07831 Fig.2), 0.80+-0.01 up to 1400 km (1707.00934 p.2).",
+  "UNKNOWN STATE (consistent): H_tele (specthm.py:1188, 1206) carries P1, and specthm.py:1212 'A KNOWN state can be re-prepared rather than teleported, and then the channel is not consumed' matches 1505.07831 p.2 (remote state preparation). No drift.",
+  "SCALE (covered by the source): the tree applies the result to 'the reconstruction specification' (ledger.py:1357-1372, specthm.py:1170-1222), an object's state, while transit.py runs d = 2 only. The source's own finite-d generalisation (1505.07831 p.2) covers it: d^2 outcomes, 2 log2 d classical bits, log2 d ebits (rederive C7, d = 3 numeric). CLASSICAL_BITS_PER_QUBIT = 2 (transit.py:140) is correctly per qubit. No drift.",
+  "ADDED, OVERSTATED (tree prose): 'NO WORLDLINE CROSSES ANYTHING' (transit.py:21-22, 192-195). The source says only that 'the physical constituents of the original system remain at the sending location' (1505.07831 p.1) and that classical communication is required. Bob's half of the pair and the two classical bits do cross the distance at <= c -- which transit.py itself states at lines 46-50 and 251-256 ('THE TRAVERSAL IS NOT REMOVED -- IT IS MOVED EARLIER') and records as TRAVERSAL_IS_REMOVED = False (line 154). An internal inconsistency in the tree's wording; the recorded constant is the correct one. A discrepancy, not a refutation of anything.",
+  "ADDED, MIS-NAMED (tree prose): 'CONSERVATION LAW' (transit.py:24, 213, 221, 283). The drop of Alice|Bob entanglement from 1 ebit to 0 is computed true here (rederive C4: the post-measurement state is |Bell_m>_(Alice) x |v_m>_(Bob), a product), but the principle is LOCC non-increase of entanglement -- 'expected entanglement cannot be increased by local actions and classical communication' (quant-ph/9511027 p.4) -- not conservation: after the measurement Alice's own two qubits hold one ebit locally. The tree's conclusion 'one pair, one transit' stands; the name is imprecise.",
+  "ASSERTED NOT COMPUTED (tree code): CHANNEL_BITS_AFTER = 0.0 (transit.py:139) and A's S = 1 bit (transit.py:230, 342, via entropy2 of a hard-coded I/2) are constants in transit.py, not computed from the post-measurement state. Computed here (rederive C4): both are true.",
+  "ADVANTAGE BY CONSTRUCTION (tree code): advantage_over_light(D) = arrival_time(D) - D/c with arrival_time(D) = D/c (transit.py:145-146), identically 0 (rederive C9). 'provably' (transit.py:44, 249) is earned by the no-signalling computation (C3, C5, C8, and transit.py's own section 3), plus the named hypothesis that classical signals travel at <= c (special relativity), which the tree does not name; a real channel arrives no earlier than D/c, so the true advantage is <= 0.",
+  "COUNT WORDING: 'twelve trials' (transit.py:21, 280) is 3 trials x 4 outcomes in report() (rederive C10); selftest runs 5 x 4 = 20. Wording discrepancy only.",
+  "UNNAMED IN BOTH: P6 (linear QM, Born rule). Neither the restatements nor the tree name it; the tree's 'provably' (transit.py:44, 249) is provable within it. Under nonlinear modifications of QM, Gisin (Phys. Lett. A 143, 1 (1990)) and Polchinski (PRL 66, 397 (1991)) showed entanglement can signal (NAMED-NOT-READ here).",
+  "ATTRIBUTION: transit.py names the mechanism (lines 10-13, 276) but cites no paper for it (canonical hypothesis 'protocol not attributed to any paper in the file')."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "outcome probability per Bell outcome",
+   "value_then": "1/4, independent of the state (theorem)",
+   "value_now": "1/4 exactly (rederive C1, C2 symbolic; C7 gives 1/d^2 for d = 3)",
+   "source_now": "re-derived here (sympy)",
+   "moves_conclusion": "no -- exact algebra, not a measured datum"
+  },
+  {
+   "quantity": "classical bits per qubit",
+   "value_then": "2 (quant-ph/9511027 p.1 '2-bit classical message')",
+   "value_now": "2; 2 log2 d for a d-level system (1505.07831 p.2)",
+   "source_now": "1505.07831 p.2; rederive C7",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "entanglement consumed per qubit",
+   "value_then": "one maximally entangled pair (1 ebit)",
+   "value_now": "1 ebit before, 0 across Alice|Bob after (rederive C4)",
+   "source_now": "re-derived here",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "ideal fidelity",
+   "value_then": "1 (ideal)",
+   "value_now": "1 ideal (C1); (2F+1)/3 for a Werner resource of singlet fraction F (C6)",
+   "source_now": "re-derived here; quant-ph/9511027 for Werner states",
+   "moves_conclusion": "no for the tree's use -- TRANSIT_IS_EXACT is under the named ideal hypothesis; noise only lowers fidelity, and BEATS_LIGHT/CARRIES_SUBSTANCE/CHANNEL_IS_CONSUMED_BY_USE do not depend on fidelity"
+  },
+  {
+   "quantity": "experimental fidelity (no data in 1993: no experiment existed)",
+   "value_then": "none",
+   "value_now": "0.831+-0.009 (Boschi 1997, quant-ph/9710013 p.8); >=0.83 over 143 km (Ma 2012, via 1505.07831 Fig.2); 0.80+-0.01 over 500-1400 km ground-to-satellite (Ren 2017, 1707.00934 p.2, p.8); all above the classical 2/3",
+   "source_now": "quant-ph/9710013, 1505.07831, 1707.00934 (read)",
+   "moves_conclusion": "no -- confirms the protocol within the noise the source itself anticipates; no measurement shows signalling"
+  },
+  {
+   "quantity": "c and the four distances (tree's own inputs, not the source's)",
+   "value_then": "n/a",
+   "value_now": "c = 299792458 m/s exact (SI definition); Proxima 4.0175e16 m = 4.2465 ly; 9.46e20 m = 99,992 ly (C9)",
+   "source_now": "SI definition; arithmetic here",
+   "moves_conclusion": "no -- the advantage is identically 0 for any D"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/quant-ph_bennett-1993-teleportation.py",
+  "outcome": "ALL CHECKS PASS (24 checks). Symbolic, general psi = (a,b): C1 Phi+ resource with transit.py's corrections [I,X,Z,ZX] returns psi exactly on all four outcomes, p = |psi|^2/4; C2 the original singlet resource with {I, sz, sx, sy} returns psi up to global phase; C3 bits withheld -> Bob's state exactly I/2 independent of psi; C4 post-measurement state is a product |Bell_m> x |v_m| (Alice|Bob entanglement 0), Alice's state carries no trace of psi, Alice's input qubit alone is I/2, prior entanglement exactly 1 ebit; C5 Bob's state invariant under a general symbolic U(2) on Alice; C6 average fidelity through a Werner pair = (2F+1)/3 (1 only at F=1, 2/3 at F=1/2); C7 d = 3 Weyl teleportation: 9 outcomes p = 1/9, fidelity 1.000000000000000; C8 20 random CPTP maps on Alice: max |rho_B - I/2| = 5.6e-16; C9 transit.py's advantage is D/c - D/c identically; C10 'twelve trials' = 3 trials x 4 outcomes. transit.py --selftest also passes.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Bennett, Brassard, Popescu, Schumacher, Smolin, Wootters, arXiv:quant-ph/9511027 (PRL 76, 722 (1996))",
+   "effect": "extends",
+   "what": "Faithful teleportation over noisy channels by entanglement purification (distillable for F > 1/2); states that LOCC cannot increase expected entanglement (p.4) -- the correct principle behind transit.py's 'conservation law' wording.",
+   "read_status": "READ (pp.1-4)"
+  },
+  {
+   "ref": "Boschi, Branca, De Martini, Hardy, Popescu, arXiv:quant-ph/9710013 (PRL 80, 1121 (1998))",
+   "effect": "confirms",
+   "what": "Experimental teleportation, S = 0.831 +- 0.009 against the classical 3/4 bound for their alphabet (9 sigma); input prepared on an EPR photon (not from outside).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Pirandola, Eisert, Weedbrook, Furusawa, Braunstein, arXiv:1505.07831 (Nat. Photon. 9, 641 (2015))",
+   "effect": "confirms",
+   "what": "Review: restates the protocol, the finite-d and CV generalisations, the classical 2/3 benchmark, and experiments to 143 km; remote state preparation for known inputs.",
+   "read_status": "READ (pp.1-5, 11)"
+  },
+  {
+   "ref": "Ren et al., arXiv:1707.00934 (Nature 549, 70 (2017))",
+   "effect": "confirms",
+   "what": "Ground-to-satellite teleportation, 500-1400 km, average fidelity 0.80 +- 0.01 over six MUB inputs; the entangled photon is sent up the link (the corridor is traversed), and the BSM and source are co-located.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "arXiv:2403.07994 'Challenges in certifying quantum teleportation: moving beyond conventional fidelity benchmark'",
+   "effect": "narrows",
+   "what": "Argues average fidelity above 2/3 is not sufficient certification (per discover_papers abstract); concerns experimental certification, not the ideal protocol.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "arXiv:1211.5563 'Relativistic Quantum Teleportation with Superconducting Circuits'",
+   "effect": "extends",
+   "what": "Fidelity bounds under relativistic motion (per abstract); outside transit.py's inertial, noiseless setting.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "Gisin, Phys. Lett. A 143, 1 (1990); Polchinski, PRL 66, 397 (1991)",
+   "effect": "narrows",
+   "what": "Nonlinear modifications of QM allow signalling through entanglement -- the boundary of hypothesis P6 (linear QM).",
+   "read_status": "NAMED-NOT-READ (no arXiv copy; cited from general knowledge, not read here)"
+  }
+ ],
+ "lacked_data": "The result is a finite-dimensional theorem of linear quantum mechanics. It uses no measured input, so no moved datum can shift it. What the 1993 authors lacked was any experiment. Experiments that came later (Boschi 1997: 0.831; Ma 2012: >=0.83 at 143 km; Ren 2017: 0.80 at up to 1400 km) confirm the protocol at the fidelities that noise models predict (rederive C6: (2F+1)/3). None of them shows signalling, and each needed prior distribution of the entangled half, which is transit.py's 'corridor must be traversed' point. The only thing that could overturn the no-signalling part of the conclusion is a failure of hypothesis P6 (linear QM with the Born rule). The tree does not name that hypothesis, and this audit has no data here that tests it. Nonlinear-QM signalling results (Gisin 1990, Polchinski 1991) are NAMED-NOT-READ. Evidence either way: later data confirms and does not contradict. M's hypothesis ('previous physicists may have lacked data') does not change this result's conclusion as far as can be checked here.",
+ "grade": "STANDS",
+ "grade_evidence": "The protocol's statement and hypotheses as the tree uses them (unknown state, ideal Bell pair, ideal Bell measurement, 2 classical bits per qubit) match the restated source (1505.07831 pp.1-2; quant-ph/9511027 p.1). A symbolic re-derivation for a general state agrees on every point the tree relies on: exact fidelity under ideality (C1/C2), I/2 without the bits (C3), a product state after measurement with no trace of psi at Alice (C4), no-signalling for every unitary and CPTP map (C5/C8), and finite-d extension (C7). No datum enters, and later experiments confirm. The rows that rest on it (R11, Rec, M-S1A-P5, D23) use the constants IT_IS_A_MOVE_NOT_A_COPY, CHANNEL_IS_CONSUMED_BY_USE, CARRIES_SUBSTANCE = False, BEATS_LIGHT = False and TRAVERSAL_IS_REMOVED = False, and each is correct under the source. Discrepancies are recorded here, not repaired. All are in the tree's prose, not in the external result: 'NO WORLDLINE CROSSES ANYTHING' (transit.py:21-22, 192-195) contradicts the file's own lines 46-50/251-256 and constant at 154; 'CONSERVATION LAW' (24, 213, 221, 283) should be LOCC monotonicity; CHANNEL_BITS_AFTER and A's entropy are hard-coded, though computed true here; the advantage is 0 by construction (145-146); 'twelve trials' means 3 x 4; and linear QM (P6) and c-limited classical signalling are unnamed. None of these narrows the result as used.",
+ "what_would_change_the_grade": "NARROWED if a row resting on it were read to claim exact transfer without the ideality hypothesis (real fidelity is (2F+1)/3 < 1, measured 0.80-0.83), or if the tree's 'no worldline crosses anything' prose were used as a finding rather than the TRAVERSAL_IS_REMOVED = False constant. WRONG only on an experimentally shown failure of linear QM / no-signalling (none known). OPEN would apply to the verbatim wording of the 1993 PRL itself, which was not read (restatements only). Reading PRL 70, 1895 directly could still reveal a wording difference, but not a change in the protocol, which the three independent restatements and the re-derivation agree on.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/quant-ph_bennett-1993-teleportation.py && python3 /home/user/Claude-Method-Works/research/warp-drive/transit.py --selftest && grep -n 'WORLDLINE\\|CONSERVATION LAW\\|CHANNEL_BITS_AFTER  =\\|def arrival_time\\|twelve' /home/user/Claude-Method-Works/research/warp-drive/transit.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/quant-ph_bennett-1993-teleportation.json"
+}

@@ -1,0 +1,96 @@
+{
+ "key": "hep-ph/9603208-instanton",
+ "name": "Rubakov & Shaposhnikov: zero-temperature electroweak B+L violation by instanton tunnelling, suppressed by exp(-4 pi/alpha_W) (eq. (2.8); Sec. 4.1 'suppressed by the semiclassical exponent')",
+ "source": {
+  "located": "V.A. Rubakov, M.E. Shaposhnikov, 'Electroweak baryon number non-conservation in the early universe and in high energy collisions', arXiv:hep-ph/9603208 (Usp. Fiz. Nauk 166 (1996) 493; Phys. Usp. 39 (1996) 461) -- bibliographic identification from memory, NOT confirmed at source in this stage. Loci as the tree captured them in DOCKET 65: Sec. 2 eqs (2.2)-(2.4) printed p.4; Sec. 2 printed p.5 (T=0 instanton passage); eq. (2.8) printed p.6; Sec. 4.1 printed p.11 (massform.py SOURCES keys RS96-anom, RS96-T0, RS96-2.8, RS96-inst, massform.py:1071-1094).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ IN THIS STAGE. Every route failed: alphaXiv answer_pdf_queries x2, get_paper_content x2 and discover_papers x1 all returned 'alphaXiv assistant quota exceeded'; curl and WebFetch to arxiv.org, export.arxiv.org and www.alphaxiv.org are refused by the egress proxy (403 / EGRESS_BLOCKED); inspirehep, semanticscholar, core.ac.uk likewise 403. The only text of the source available here is the tree's own DOCKET-65 verbatim captures with page locators in massform.py:1071-1094 (status READ in the tree). Those are the tree's claim of a reading, not an independent restatement, so this audit does not count them as READ-VIA-RESTATEMENT. The pre-arXiv classic behind the result, 't Hooft PRL 37 (1976) 8, is NAMED-NOT-READ (the tree also holds it as CITED, massform.py:1089-1091)."
+ },
+ "published_statement": "AS CAPTURED BY THE TREE (not re-read here): eq. (2.8), printed p.6: 'In the electroweak theory, the tunneling probability is unobservably small, Gamma_inst ~ exp(-4 pi / alpha_W) ~ 10^-170, (2.8) where alpha_W = g^2/4 pi = alpha/sin^2 theta_W = 1/29'. Sec. 2 p.5: 'At zero energies and temperatures, the transition between vacua with different n[omega] is a tunnelling event which is described by instantons' ... 'In pure Yang-Mills theory an instanton is the solution to the Euclidean field equations'. Sec. 4.1 p.11: 'This process can be described by instantons and is strongly suppressed by the semiclassical exponent exp(-4 pi / alpha_W).' Sec. 2 eqs (2.2)-(2.4): 'Delta N_F^(i) = N[A]', with 'Delta N_e = Delta N_mu = Delta N_tau = (1/3) Delta B ; (B - L) is conserved while (B + L) is violated'.",
+ "published_hypotheses": [
+  "H1 zero energy and zero temperature (T = 0, E = 0): the vacuum-to-vacuum transition is a tunnelling event (captured, Sec. 2 p.5)",
+  "H2 semiclassical / weak-coupling (WKB) approximation: probability ~ exp(-2 S_inst), S_inst = 8 pi^2/g^2 (the form the exponent implies; the capture holds only the exponent and 'semiclassical exponent', Sec. 4.1)",
+  "H3 exponent only, the '~' of eq. (2.8): no pre-exponential factor is given in the captured text",
+  "H4 the instanton is an exact solution 'in pure Yang-Mills theory' (captured, p.5); in the gauge-Higgs theory it is not (the constrained-instanton setting) -- the source's own qualifier, as captured",
+  "H5 coupling: alpha_W = g^2/4 pi = alpha/sin^2 theta_W = 1/29 (eq. (2.8), captured); scheme and scale of alpha and sin^2 theta_W not stated in the captured text",
+  "H6 selection rule: Delta B = Delta L = N_f (x Delta N_CS), B - L conserved (eqs (2.2)-(2.4), captured)",
+  "H7 data of 1996: m_W ~ 80.3 GeV, sin^2 theta_W ~ 0.23, m_t measured (1995), m_H unknown (discovered 2012) -- context from general knowledge, not read at source"
+ ],
+ "hypothesis_drift": [
+  "UNNAMED SCHEME/SCALE OF alpha_W (weakened hypothesis H5) -- massform.py:527-531 names 'alpha_W = g^2/4 pi, with g = 2 m_W/v' (tree-level, G_F) and prints 10^-160.95 to two decimals and 'attempts x prefactor >= 10^189.10' (massform.py:532-533); it does not name that at leading order the choice of scheme/scale for alpha_W is a convention fixed only at next order (the prefactor). COMPUTED here: d log10/d(1/alpha_W) = 5.4575 decades per unit; the definitions in use give 1/alpha_W from 29.49 (G_F tree) and 29.59 (MS-bar at M_Z) to 30.59 (on-shell with alpha(0)) and 31.73 (alpha(0)/sin^2_eff), i.e. 10^-160.95 .. 10^-173.16 -- about 12 decades of convention (inputs other than the tree's RECALLED, not read here). The conclusion is untouched: every scheme leaves the suppression below 10^-158; the 10^189.10 threshold rises under each of the four conventions listed (each gives a smaller alpha_W) and falls only under the source's own 1/29, to 10^186.41 (2.68 decades).",
+  "DROPPED H4 (pure-Yang-Mills qualifier / constrained instanton) -- massform.py:524-533 carries the source's T=0 sentence but not its 'In pure Yang-Mills theory' qualifier (which the tree holds only in the SOURCES locator string, massform.py:1076-1077). Harmless in direction, COMPUTED here: the Bogomolny identity sum(F -+ Ftilde)^2 = 2F^2 -+ 2F Ftilde (machine-checked for a generic field) gives S_gauge >= 8 pi^2 |Q|/g^2, and the Higgs terms are non-negative, so every Q = 1 Euclidean path in the gauge-Higgs theory has S_E >= 8 pi^2/g^2: the Higgs can only deepen the suppression the tree uses.",
+  "H3 KEPT, NOT DRIFTED -- massform.py:531-532 'No prefactor was read, so NO RATE IS PRINTED' matches the '~' of eq. (2.8); the canonical entry's hypothesis 'no prefactor read' is faithful.",
+  "COUPLING SUBSTITUTED AND DECLARED -- massform.py:527-531 replaces the source's 1/29 by 1/29.49 from m_W (PDG-2026 capture) and v (G_F, NAMED-NOT-READ) and says so ('INHERITS NAMED-NOT-READ through v'); 'exactly as the source states it' (massform.py:530) refers to the functional form exp(-4 pi/alpha_W) = exp(-16 pi^2/g^2), not to the number -- not a drift.",
+  "DISCREPANCY IN THE SOURCE, ALREADY RECORDED BY THE TREE -- massform.py:533-536 and :900-904 record that eq. (2.8)'s pairing '10^-170 at alpha_W = 1/29' is arithmetically 10^-158.27 (confirmed here, 11.73 decades). Computed here: 10^-170 corresponds to 1/alpha_W = 31.15 = 137.036 x 0.2273, i.e. alpha(0)/sin^2 theta_W with sin^2 ~ 0.227, whereas 1/29 is the alpha(M_Z)-type value; the two numbers in eq. (2.8) are compatible with two different conventions for alpha. That is an inference about how the discrepancy could arise, not a reading of the authors' intent. Per M's rule it is a discrepancy, not a refutation; the tree's 'RECORDED, NOT REPAIRED' is correct.",
+  "linstab.py:402-411 (READ_HITS['massform']) quotes the Sec. 4.1 phrase only to classify the word 'semiclassical' as the instanton/WKB sense, not gravity; it carries no hypotheses and uses no number, and attributes the phrase correctly to Rubakov & Shaposhnikov (Sec. 4.1 per massform.py:1092-1094). No drift beyond not repeating H1-H5, which its use does not need.",
+  "NOT CONFIRMABLE HERE -- whether the tree's captures are verbatim and correctly located cannot be checked in this stage (source unreadable); every drift above is measured against the tree's captures, not the page."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "1/alpha_W (the exponent's only input)",
+   "value_then": "29 (eq. (2.8), as captured; alpha/sin^2 theta_W)",
+   "value_now": "29.4913 from the tree's inputs: g = 2 m_W/v, m_W = 80.362 GeV (captures/PDG-2026.tsv row 24, READ in the tree), v = 246.2196 GeV from G_F = 1.1663788e-5 GeV^-2 (higgs.py:209, NAMED-NOT-READ). Other conventions (RECALLED PDG-2024 inputs, not read here): 29.59 MS-bar at M_Z, 30.59 on-shell alpha(0), 31.73 alpha(0)/sin^2_eff",
+   "source_now": "tree capture PDG-2026 (Takahashi et al., IJMPA 41 (2026) 2630011, via scikit-hep particle 1.0.1) for m_W; G_F as held in higgs.py; the other scheme inputs recalled, NOT READ in this stage",
+   "moves_conclusion": "No. COMPUTED: 1/29 -> 1/29.49 moves the exponent by 2.68 decades (10^-158.27 -> 10^-160.95); the full convention band spans 10^-158.27 .. 10^-173.16. 'Unobservably small' holds throughout; the tree prints no rate."
+  },
+  {
+   "quantity": "m_W",
+   "value_then": "~80.3 GeV (1996 world average, from general knowledge, not read)",
+   "value_now": "80.362 GeV (tree PDG-2026 capture); PDG-2024 80.3692 +/- 0.0133 GeV RECALLED",
+   "source_now": "captures/PDG-2026.tsv (tree, READ); PDG-2024 recalled",
+   "moves_conclusion": "No. COMPUTED: a 1-sigma (13.3 MeV) move shifts the exponent by 0.053 decades; 80.362 vs 80.3692 by 0.03 decades."
+  },
+  {
+   "quantity": "m_H",
+   "value_then": "unknown in 1996",
+   "value_now": "~125 GeV (tree's PDG-2026 capture holds H0)",
+   "source_now": "captures/PDG-2026.tsv",
+   "moves_conclusion": "No. The leading exponent 8 pi^2/g^2 contains no m_H (the Bogomolny bound is m_H-independent); m_H enters only the constrained-instanton size cutoff and the prefactor, which the tree does not use."
+  },
+  {
+   "quantity": "tree's derived figures (not the source's)",
+   "value_then": "n/a",
+   "value_now": "10^-160.9489 per transition; ceil(B/3) = 1.40362e28 transitions; attempts x prefactor >= 10^189.0961",
+   "source_now": "recomputed in the rederive script without importing massform",
+   "moves_conclusion": "Reproduced to the printed digits; they carry the ~12-decade scheme convention of the first row (unnamed), and the prefactor (named as unread)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-ph_9603208-instanton.py",
+  "outcome": "19/19 PASS, exit 0. (1) sympy: 2 S_inst = 16 pi^2/g^2 = 4 pi/alpha_W, S_inst = 2 pi/alpha_W. (1b) BPST instanton built from 't Hooft symbols in sympy: F^a F^a = 192 rho^4/(x^2+rho^2)^4 exactly, the field is self-dual, S = (1/4g^2) int F^2 = 8 pi^2/g^2 and |Q| = 1 by exact radial integration -- the exponent's form is machine-checked, not assumed. (1c) Bogomolny identity for a generic field: S_E >= 8 pi^2|Q|/g^2 for any Q = 1 path, Higgs terms only adding. (2) independent recomputation of the tree's figures: m_W 80.362 from the capture, v 246.21964, 1/alpha_W 29.4913, log10 suppression -160.9489 (both forms agree), attempts x prefactor >= 10^189.0961. (3) eq. (2.8): 1/29 -> 10^-158.2677, printed 10^-170, gap 11.73 decades (the tree's record confirmed); 10^-170 <-> 1/alpha_W = 31.15; Tye-Wong 1/29.7 -> 10^-162.09, 1/30 -> 10^-163.73. (4) scheme band 14.89 decades including the source's own 1/29 (10^-158.27 .. 10^-173.16), every value < 10^-150; m_W 1-sigma = 0.053 decades. NOT checkable here: that exp(-2S) (squared WKB amplitude) is the source's definition of the 'tunneling probability' -- standard, but the page was not read.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Tye & Wong arXiv:1505.03690 (PRD 92 (2015) 045005), p.2 and p.7",
+   "effect": "confirms",
+   "what": "As captured by the tree (massform.py SOURCES 'TW-size'): 'exponentially suppressed, by a factor like exp(-4 pi/alpha_W) ~ 10^-162 where alpha_W ~ 1/30' and 'instanton action S = 2 pi/alpha_W ... alpha_W ~ 1/29.7, the tunneling rate goes like exp(-2S) ~ 10^-162'. Same exponent and the same S = 2 pi/alpha_W the sympy check derives; their p.7 pairing is arithmetically right (10^-162.09), their p.2 pairing 1.73 decades off (a discrepancy, recorded by the tree). Their dissent concerns the high-energy/collider (sphaleron, Bloch-wave) rate, not the T = 0 instanton exponent.",
+   "read_status": "READ by the tree in DOCKET 65 (massform.py SOURCES); NOT re-read in this stage"
+  },
+  {
+   "ref": "Tye & Wong arXiv:1710.07223v1; Funakubo, Fuyuto, Senaha arXiv:1612.05431",
+   "effect": "contested",
+   "what": "As captured by the tree ('TW-2017', 'FFS-rebut'): a '~70 orders of magnitude' dispute over the multi-sphaleron / collider rate. It bears on S11's collider row (CONTESTED in the tree), not on the zero-temperature single-instanton exponent this entry is about.",
+   "read_status": "READ by the tree in DOCKET 65 (massform.py:1208-1242); NOT re-read in this stage"
+  },
+  {
+   "ref": "CMS Collaboration arXiv:1805.06013 (JHEP 11 (2018) 042)",
+   "effect": "extends",
+   "what": "Upper limit 0.021 (95% CL) on the fraction of quark-quark interactions above 9 TeV producing a sphaleron transition (tree capture). An over-the-barrier collider search; it constrains nothing about the T = 0 instanton exponent.",
+   "read_status": "READ by the tree in DOCKET 65 (massform.py:1243-1249); NOT re-read in this stage"
+  },
+  {
+   "ref": "discover_papers for later work on the T = 0 electroweak instanton rate (prefactor, constrained instanton, high-energy enhancement)",
+   "effect": "contested",
+   "what": "NOT RUN TO COMPLETION: the single discover_papers call returned 'alphaXiv assistant quota exceeded'. No later work was discovered or read in this stage; the constrained-instanton literature (Affleck 1981) and the high-energy 'holy grail' literature (Ringwald, Espinosa 1990) are named from memory only and are NOT evidence here. effect set to 'contested' only because the schema requires a value; nothing was found either way.",
+   "read_status": "NOT READ (tool quota exhausted)"
+  }
+ ],
+ "lacked_data": "What the authors lacked in 1996: the Higgs mass (2012), a precise m_W (+/- ~0.1 GeV then vs ~0.01 now), and the post-LEP-II electroweak fits. EVIDENCE THAT IT DOES NOT CHANGE THE CONCLUSION, all COMPUTED here: (a) the leading exponent 8 pi^2/g^2 is a property of the self-dual BPST solution and, by the Bogomolny bound, a lower bound on the Euclidean action of every Q = 1 gauge-Higgs path -- it contains neither m_H nor m_t, so the missing Higgs mass cannot lift the suppression, only deepen it through the constrained-instanton term; (b) the m_W move 1996 -> 2026 shifts the exponent by < 0.1 decade; (c) the authors' 1/29 vs today's 1/29.49 (tree inputs) is 2.68 decades, and the whole convention band is ~15 decades, against a suppression of ~160 decades. EVIDENCE THE OTHER WAY: none found for the T = 0 exponent. Where data genuinely matter is the prefactor (m_H-dependent, unread by the tree) and the high-energy collider rate, which the tree already holds CONTESTED in S11. M's hypothesis is therefore not supported for this result on the computable legs; the source itself could not be read in this stage, so that verdict rests on the tree's captures plus the re-derivation, not on the page.",
+ "grade": "OPEN",
+ "grade_evidence": "OPEN because the source could not be READ in this stage (alphaXiv quota exhausted on all five calls; arxiv.org / alphaxiv.org / export.arxiv.org / inspirehep egress-blocked) and no later literature could be discovered; M's rule forbids flattening an unread source to STANDS. What WAS computed all points one way and is recorded so the next reader need not redo it: the exponent's form exp(-4 pi/alpha_W) = exp(-2 S_inst), S_inst = 8 pi^2/g^2, is machine-checked from the BPST solution (19/19 PASS); the Bogomolny bound shows every Higgs-phase Q = 1 path is at least this suppressed; the tree's figures (1/alpha_W 29.49, 10^-160.95, 10^189.10) reproduce independently; the source's eq. (2.8) '10^-170 at 1/29' is an 11.73-decade internal discrepancy the tree already records and does not repair, and 10^-170 matches a different convention for alpha (1/alpha_W = 31.15), so it is a misprint-class discrepancy, not a refutation; no moved datum moves the conclusion. One unnamed hypothesis in the tree's use: the scheme/scale of alpha_W at leading order (~12 decades of convention in 10^-160.95 and 10^189.10, massform.py:527-533), immaterial to every refusal that rests on it (S11, SR5): the tree's convention gives the second-weakest suppression of the five computed (only the source's own 1/29 is weaker, by 2.68 decades), and none moves the exponent off ~10^-160. On a read of the source confirming the captures, the computed legs would support STANDS with that hypothesis named (not NARROWED: the class of use is not smaller, the printed digits merely carry a convention).",
+ "what_would_change_the_grade": "-> STANDS: a read at source (alphaXiv answer_pdf_queries on hep-ph/9603208, pp. 4-7 and 11) confirming the tree's captures RS96-anom, RS96-T0, RS96-2.8, RS96-inst verbatim and located, plus a discover_papers pass finding no work that changes the T = 0 leading exponent; the tree should then name H-SCHEME (alpha_W convention at leading order) beside 'no prefactor read'. -> NARROWED: if the page shows the source restricting the exponent to a regime the tree extends (e.g. a stated validity condition the tree's 'per transition' use violates). -> WRONG: only a computed contradiction of S_inst = 8 pi^2/g^2 or of the Bogomolny bound, which the script shows does not exist for the BPST solution. -> DATA-DEPENDENT: not reachable for the exponent (no datum moves it by more than a few decades against ~160); the prefactor and the collider rate are separate entries.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-ph_9603208-instanton.py  # expect 'RESULT: 19/19 checks pass', exit 0; then, when the quota resets: alphaXiv answer_pdf_queries(paper='hep-ph/9603208', queries=[eq. (2.8) text and alpha_W definition; Sec. 2 p.5 T=0 instanton passage; Sec. 4.1 p.11 'semiclassical exponent'; eqs (2.2)-(2.4); any prefactor / Higgs-phase qualifier])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hep-ph_9603208-instanton.json"
+}

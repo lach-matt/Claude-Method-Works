@@ -1,0 +1,49 @@
+(1) point-split derivatives of W = 1/(4 pi^2 sigma)
+  [PASS] W on worldline = -1/(4 pi^2 u^2)  [FFR Eq.(24)] 
+  [PASS] D_00 = 3/(2 pi^2 u^4)  [FFR Eq.(25)] 
+  [PASS] D_0i = D_i0 = 0  [FFR Eq.(32)] 
+  [PASS] D_ij = (1/3) delta_ij D_00  [FFR Eq.(33)] 
+  [PASS] box_x W = 0 off the light cone (massless, no curvature term needed in flat space) 
+  [PASS] W(u - i eps) = (1/4pi^2) INT_0^oo a e^{-ia(u-i eps)} da  [FFR Eq.(24)] (|diff| = 1.94e-18)
+
+(2) Wick's theorem for normal-ordered squares, truncated 2-mode Fock space
+  [PASS] <0|:A^2::B^2:|0> = 2 <0|A B|0>^2 over 20 random complex mode pairs (max |diff| = 7.9e-15)
+  [PASS] <:rho::rho':>_0 = (1/2) SUM_AB D_AB^2 = 3/(2 pi^4 u^8) 
+  [PASS] FFR Eq.(34): (1/2)[D00^2 + 3 (D00/3)^2] = (1/3) * 2 D00^2 * (1/2)... ratio to <:phidot^2 phidot^2:> = 1/3 
+
+(3) the Fourier identity, with its phase
+  [PASS] INT_0^oo w^(n-1) e^{-aw} dw = (n-1)!/a^n, n = 1..8 (sympy, a > 0) 
+      n=1  phased rel.err 0.0e+00   unphased rel.err 1.4e+00   i^n = I
+      n=2  phased rel.err 1.7e-16   unphased rel.err 2.0e+00   i^n = -1
+      n=3  phased rel.err 1.3e-16   unphased rel.err 1.4e+00   i^n = -I
+      n=4  phased rel.err 1.4e-16   unphased rel.err 1.4e-16   i^n = 1
+      n=5  phased rel.err 1.1e-16   unphased rel.err 1.4e+00   i^n = I
+      n=6  phased rel.err 1.5e-16   unphased rel.err 2.0e+00   i^n = -1
+      n=7  phased rel.err 1.7e-16   unphased rel.err 1.4e+00   i^n = -I
+      n=8  phased rel.err 4.0e-17   unphased rel.err 4.0e-17   i^n = 1
+  [PASS] 1/(u-i0)^n = (i^n/(n-1)!) INT w^(n-1) e^{-iwu}; unphased form true iff n = 0 mod 4 
+  [PASS] n = 8 (the tree's only use): i^8 = 1, so (1/7!) INT w^7 e^{-iwu} is exact 
+
+(4) kappa and the controls against FFR 1204.3570 Table I
+  [PASS] kappa = (3/(2 pi^4))/7! = 1/(3360 pi^4) 
+  [PASS] Lorentzian (fhat = e^{-|w| tau}): K = 3/(512 pi^4) 
+  [PASS] a_2(rho_S) = (4 pi tau^2)^4 Var = 3/2  [FFR Table I] 
+  [PASS] a_2(phidot^2) = 9/2  [FFR Table I] 
+  [PASS] a_2(phi^2) = (4 pi tau)^4 Var = 2  [FFR Table I] 
+  [PASS] Gaussian (fhat = e^{-w^2 tau^2/4}): K = 1/(70 pi^4) 
+  [PASS] FFR App. A n=2 rule (32 INT INT w^3 w'^3 e^{-2(w+w')}) = 9/2 at tau = 1 (got 9/2)
+  [PASS] angular average of (1 + cos theta)^2 = 4/3 over d(cos)/2, i.e. INT_{-1}^{1} = 8/3 
+  [PASS] Beta integral INT_0^s w^3 (s-w)^3 dw = s^7/140 
+  [PASS] box sampler: the (V) integral grows like W^6/3 (finite only when fhat = o(w^-4)) 
+
+(5) K_F for Fewster's clamped sampler, recomputed from scratch
+  [PASS] g^2 as exponential sum integrates to the quadrature value 
+  [PASS] fhat(0) = 1 (f = g^2 / ||g||^2 is a probability density) 
+  [PASS] f and its first three derivatives vanish at the clamped end (so fhat ~ w^-5) 
+  [PASS] 4th derivative at 0 = 6 g2(0)^2/||g||^2 = 24 mu^4/||g||^2 
+      mu_1 = 4.730040744862704 ; F4 = f''''(0) = 12013.5336418
+      K_F (W=400) = 19.80242121506098 ; K_F (W=250) = 19.80242121506098 ; fixture = 19.80242121506098
+  [PASS] independent K_F agrees with noise.py K_F_FIXTURE to < 1e-11 relative (rel 3.04e-17)
+  [PASS] cutoff stability W=250 vs W=400 < 1e-12 relative (rel 4.43e-19)
+
+ALL PASS

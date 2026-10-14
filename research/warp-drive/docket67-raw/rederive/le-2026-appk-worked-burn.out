@@ -1,0 +1,40 @@
+C1  Le's printed parameters (p.45): x*=0.3, lambda_max=0.12, rapidity gain 0.24, ~51%
+  delta_eta/lambda_max exact                                         2                  2              ok
+  float 0.24/0.12 (the tree's sf)                                    2                  2              ok
+  radiated fraction 1-e^{-0.72} (Le: 'approx 51%')                   0.513247744        0.513247744    ok
+    rounds to 51%                                                    51                 51             ok
+  lambda_max < Prop.5 ceiling (1-x)/2 = 0.35                         True               True           ok
+  x + 2 lambda_max = 0.54 < 4/5 (operative window)                   True               True           ok
+
+C2  the sin^2 profile of App. K: a(u) = a_max sin^2(pi u/T)
+  INT a du = a_max T/2 (sympy)                                       0                  0              ok
+  full burn duration T in units R (retarded time u)                  4                  4              ok
+  constant-a reading tau = delta_eta/a_max (the tree's)              2                  2              ok
+  time with a >= a_max/2 (FWHM) in units R                           2                  2              ok
+  mean acceleration over the burn / a_max                            1/2                1/2            ok
+
+C3  budget along the profile: m' = -3 m a integrates to e^{-3 eta}
+  m_f/m_0 == e^{-3 a_max T/2} (sympy dsolve)                         0                  0              ok
+
+C4  the tree's own numbers, imported read-only (no bytecode written)
+      W(0.3, 0.5) = 1.2151275860   (V''R^2 = 2.9530701005)
+  wall.py:575 lew == 2 W                                             2.430255172        2.430255172    ok
+  wall.py:64 'adiabatic by only 2.4'                                 2.4                2.4            ok
+  wall.py:698 hardcoded sf=2.0 == 0.24/0.12                          2                  2              ok
+  wall.py:576 lew < 5                                                True               True           ok
+      with the App. K profile's full duration T = 4 R: margin = 4 W = 4.860510
+    still < 5 on the full duration (the tree's < 5 survives, narrowly) True               True           ok
+    margin on full duration                                          4.860510344        4.860510344    ok
+  marginal-wall shortfall on full duration (tau_efold = R): 4, not 2 4                  4              ok
+
+C5  what an O(1) coefficient in tau_efold does to 'fails by 2.0'
+      constant-a reading tau_burn = 2R     flips to PASS iff k >= 2.0, i.e. |V''|R^2 <= 0.5000
+      full sin^2 duration 4R               flips to PASS iff k >= 4.0, i.e. |V''|R^2 <= 0.1250
+  verdict is coefficient-dependent: k = 2 flips the tree's reading   True               True           ok
+    k = 1 (the tree's choice) fails it                               False              False          ok
+
+C6  proper-time vs retarded-time factor at the static anchor x = 0.3
+      sqrt(1-x) = 0.836660 : a static shell's proper time per unit u (Schwarzschild anchor)
+  the O(1) clock factor is < 1 and > 0.8 -- it does not flip a factor-2 miss by itself True               True           ok
+
+  REDERIVE OK

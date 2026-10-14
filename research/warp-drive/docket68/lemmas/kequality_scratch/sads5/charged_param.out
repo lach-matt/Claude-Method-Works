@@ -1,0 +1,6 @@
+parametrisation checks (k = +-1, every sign combo, ours two-sided, T1/T2 position 2): True True True
+S7-u1-1/3-grow k=+1 None zero-dim | junction-admissible: [({'p1': -0.000259, 'p2': -0.594006, 'u1': 4.9e-05, 'u2': 0.002325, 'mu': -109897.63984, 'Q': 424876380.341352, 's1': 1.000178, 't1': 0.272905, 's2': 2.633517, 't2': 2.451699}, 'connected')]
+S7-u1-1/6-grow k=+1 None zero-dim | junction-admissible: [({'p1': -2.9e-05, 'p2': -0.330462, 'u1': 5e-06, 'u2': 0.000581, 'mu': -978679.013281, 'Q': 33675566738.60213, 's1': 1.00002, 't1': 0.272747, 's2': 2.817542, 't2': 2.726633}, 'connected')]
+V1-T1 k=-1 (1, -1, 1, -1) zero-dim | junction-admissible: [({'p1': 16.754815, 'p2': 0.289918, 'u1': 4.583916, 'u2': 0.602982, 'mu': 0.797382, 'Q': 0.316726, 's1': 3.188704, 't1': 5.188704, 's2': 0.420164, 't2': 0.170164}, 'NOT CONNECTED (no slab bridging the planes)')]
+V2-T2 k=-1 (1, -1, 1, 1) zero-dim | junction-admissible: [({'p1': 12.958807, 'p2': 0.531025, 'u1': 2.008132, 'u2': 0.406506, 'mu': 3.213517, 'Q': 2.34419, 's1': 2.239702, 't1': 4.239702, 's2': 0.468975, 't2': 0.031025}, 'NOT CONNECTED (no slab bridging the planes)')]
+charged two-plane solutions: junction-admissible 4, of which with a connected slab 2  (35.2 s)

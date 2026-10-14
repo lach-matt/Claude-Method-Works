@@ -1,0 +1,19 @@
+=== 1. tree payload table
+  59-row total 70085.9 g (59 rows); ICRP 23 reference male 70 kg
+  PASS the tree's 70 kg equals ICRP 23's reference adult MALE body mass (p.13)
+  female reference adult (p.13) = 58 kg: feedstock at the CI factor would be 620.7 kg (not a tree figure)
+  N frac 0.025683  P frac 0.011129  K g at 70 kg 139.83
+  PASS stock.HUMAN equals the 59-row fractions to 6 dp
+
+=== 2. tree binders (reproduced)
+  CI chondrite         P 10.701, N 8.0763, C 6.5226
+  stellar photosphere  P 1910.9, Li 1753.4, K 651.79
+  PASS CI P 10.70, photosphere P 1910.9
+
+=== 3. flip thresholds by bisection (renormalised)
+  photosphere: Li binds above 7.6288 mg (x1.0898 of 7 mg)
+  photosphere: P hands binder to Li below 715.7 g (x0.9176 of 780 g)
+  CI chondrite: P hands binder to N below 588.7 g (x0.7547)
+  PASS thresholds reproduce the first audit (7.629 mg, 715.7 g, 588.7 g)
+
+FAILS: []

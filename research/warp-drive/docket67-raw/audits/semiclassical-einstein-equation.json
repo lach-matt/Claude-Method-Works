@@ -1,0 +1,134 @@
+{
+ "key": "semiclassical-einstein-equation",
+ "name": "Semiclassical Einstein equation G_ab = 8 pi <T_ab> (the self-consistency frame HPS solve)",
+ "source": {
+  "located": "General form: B. L. Hu & E. Verdaguer, 'Stochastic Gravity: Theory and Applications', arXiv:0802.0658v1 (Living Rev. Rel. 11 (2008) 3), Sec. 3.1 pp.7-8, eqs. (3.1)-(3.7); Sec. 3.3 p.13. The form the tree uses: D. Hochberg, A. Popov, S. V. Sushkov, arXiv:gr-qc/9701064v1 (PRL 78, 2050 (1997)), eq. (1) p.3, eq. (3) p.4, footnotes [19], [20] p.9; and E. E. Flanagan & R. M. Wald, arXiv:gr-qc/9602052v2 (PRD 54, 6233 (1996)), eq. (1.1) p.2, Sec. I pp.1-3, fn [77]. The originating classics (Moller 1962, Rosenfeld 1963) and Wald's stress-tensor axioms (1977/78) are NAMED-NOT-READ; they are restated in HV Sec. 3.1 ('satisfies Wald's axioms [33, 190]').",
+  "read_status": "READ",
+  "via": "alphaXiv page text returned EARLIER IN THIS SESSION and recovered verbatim from the session transcripts to d67/src/casmag/all/ (0802.0658v1.txt pp.1,7,8,10-13,...; gr-qc_9602052v2.txt pp.1-5,27,50; gr-qc_9701064v1.txt) and d67/src/hps/hps_0.xml. HV page 9 (which continues 'The values of these constants must be ...') was NOT among the returned pages; the continuation is therefore not quoted. This audit's own alphaXiv calls (answer_pdf_queries on 0802.0658, get_paper_content, discover_papers) all returned 'alphaXiv assistant quota exceeded'."
+ },
+ "published_statement": "HV 0802.0658 p.7-8: 'This theory can be formally derived as the leading 1/N approximation of quantum gravity interacting with N independent and identical free quantum fields ... By keeping the value of N G finite ... the gravitational field can be treated as a c-number field ... Let (M, g_ab) be a globally hyperbolic four-dimensional spacetime ... [T^R_ab = T_ab + F^C_ab I, (3.6)] ... for any pair of physically acceptable states, i.e., Hadamard states ..., the matrix element <psi|T^R_ab|phi> ... is finite and satisfies Wald's axioms. ... The choice of these counterterms is not unique but this ambiguity can be absorbed into the renormalized coupling constants which appear in the equations of motion for the gravitational field. The semiclassical Einstein equation for the metric g_ab can then be written as G_ab[g] + Lambda g_ab - 2(alpha A_ab + beta B_ab)[g] = 8 pi G <T^R_ab[g]>, (3.7) ... both the stress tensor and the quantum state are functionals of the metric ... The parameters G, Lambda, alpha and beta are the renormalized coupling constants, respectively, the gravitational constant, the cosmological constant and two dimensionless coupling constants which are zero in the classical Einstein equation.' HV p.13 (3.3): 'the scope and limits of semiclassical gravity are not well understood ... the semiclassical theory should break down when the quantum fluctuations of the stress tensor are large.' HPS p.3: 'In the realm of semiclassical gravity, one sets the Einstein tensor equal to the expectation value of the stress-energy tensor operator of the quantized fields present: G_mu nu = 8 pi <T_mu nu>. (1)'; p.4: 'G^nu_mu(f(l), r(l)) = 8 pi <T^nu_mu(f(l), r(l); xi)>, (3)'; fn [20]: 'We have also set the scalar mass and temperature to zero: m = kappa = 0. In this case, the arbitrary renormalization scale parameter mu appearing in (T^nu_mu)_log can be absorbed into the definition of f.' FW p.2: 'G_ab[g_cd] = 8 pi <T_ab[g_cd]>, (1.1)'; p.1 'we modify the perturbed semiclassical equations by the \"reduction of order\" procedure to eliminate spurious solutions. We also restrict attention to the limit in which the lengthscales determined by the state and metric are much larger than the Planck length'; p.3 '(1.1) contains time derivatives of order higher than two ... runaway solutions ... in general there are still open questions with respect to the extraction of physical predictions from the semiclassical equations'; p.2 'violations of ANEC in semiclassical gravity may be confined to the Planck scale, where the semiclassical approximation itself is suspect.'",
+ "published_hypotheses": [
+  "S1 (HV 3.1) leading 1/N approximation: N identical free fields interacting only with gravity, N G held finite; gravity a c-number (tree-level) field.",
+  "S2 (HV 3.1) (M, g_ab) globally hyperbolic, four-dimensional.",
+  "S3 (HV 3.1) <T^R_ab> renormalized by local counterterms, in a Hadamard state, satisfying Wald's axioms; the counterterm ambiguity is ABSORBED INTO renormalized couplings G, Lambda, alpha, beta -- so the equation is a FAMILY (3.7), and G_ab = 8 pi <T_ab> is its member Lambda = alpha = beta = 0 (HPS eq. (1), FW eq. (1.1)).",
+  "S4 (HV 3.1) state and metric solved together (both functionals of g).",
+  "S5 (HV 3.3; Kuo-Ford) validity requires stress-tensor fluctuations small relative to the mean; scope 'not well understood'.",
+  "S6 (FW Sec. I) higher-derivative equation with spurious/runaway solutions; physical predictions need a prescription (reduction of order, established only for perturbation theory about flat space); lengthscales >> Planck length.",
+  "S7 (HPS) hbar = c = G = 1, MTW signs (fn [19]); one conformally coupled scalar xi = 1/6, m = kappa = 0; <T> in the Anderson-Hiscock-Samuel approximation; renormalization scale mu absorbed into f (fn [20])."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- Lambda = alpha = beta = 0 (S3). The tree's hypotheses for the equation are 'hbar=c=G=1, MTW signs' and '<T> given by the AHS approximation' (canonical, owner qeihps.py:161-187, 776-808; specthm.py:1070-1071 'G_ab = 8 pi <T_ab> with the Anderson-Hiscock-Samuel <T>'). HV (3.7) makes the renormalized quadratic-curvature couplings free parameters; COMPUTED (C2, C4-C6): the beta-type term b*(1)H_ab is identically conserved on metric (2) with trace -6 Box R, and at HPS's throat data the ll constraint becomes r0^2 = -16 K^2 L - 2b (b = 0 reproduces HPS eq. (9) and the tree's r0 = 0.0242789 l_P exactly). The throat ceases to exist for b >= 1/(1080 pi) l_P^2 = 5.33 K^2 (at L = -2/3), stops being a minimum of r near b = 1/(2160 pi) = 2.67 K^2 (grid transition 2.5-2.75 K^2), and at b = -K^2 the matter-side <rho + p_l>(0) = -23.39 (radial NEC violated ON the throat), at b = +K^2 <rho>(0) = 196.83 against -45/L = 67.5. The tree's throat theorems (qeihps.py:161-187: f''''/f, r''''/r, <rho> = -45/L, rho + p_l = 0, 'NEC violation OFF the throat', 'INT g^2 <T u u> = (-45/L)||g||^2 > 0 EXACTLY' at :181) are all reproduced exactly as the b = 0 member (C5a, C5b, C6a, C6b) and all move for b != 0. The tree scopes these to 'HPS's OWN <T>' (qeihps.py:185-186), which implicitly carries b = 0, so nothing is wrong in HPS's system; the hypothesis is unnamed.",
+  "WEAKENED FRAMING -- qeihps.py:150-155 reads the solved Box R coefficient c = 1 as 'the form of the conformal-scalar trace anomaly'. The Box R coefficient of <T^mu_mu> is not fixed by the field: adding b (1)H/(8 pi) to <T> (a change of renormalization scheme, HV p.8 'the choice of these counterterms is not unique'; Kontou & Olum 1410.0665 eq. (15): 'the ambiguity of adding local curvature terms with arbitrary coefficients', (1)H and (2)H) shifts the trace by -6 b Box R/(8 pi) (C2c). c = 1 is the AHS scheme's value. The tree already marks the form NAMED-NOT-READ; recorded as a discrepancy of framing, not an error.",
+  "IMPLICIT, NOT NAMED -- alpha is inside HPS's L. COMPUTED (C3c): HPS's log bracket (the tree's repaired transcription, qeihps.hps_system) is exactly -96 x the Bach tensor on metric (2) (conserved, traceless, C3/C3b), i.e. the Weyl^2 (alpha-type) counterterm; Visser gr-qc/9409043 eq. (6)-(9) (READ) states the same mu-scaling tensor Z = [nabla nabla + R/2] C. So shifting ln mu is shifting alpha, and with fn [20] HPS's L = ln f(0) is ln(mu^2 f(0)): r0^2 = -16 K^2 ln(mu^2 f(0)) (b = 0). The tree treats L as boundary data 'HPS boundary data (9): -1 <= L < 0' (qeihps.py:161-162) without naming that it carries the renormalization scale. No narrowing inside HPS's system; the hypothesis should be named.",
+  "DROPPED -- large N (S1). HPS has N = 1 field (the K^2 audit: K^2 = N l_P^2/(5760 pi)); HV derive the equation as the leading 1/N term with graviton loops suppressed. With N = 1 the neglected graviton-loop terms are not parametrically smaller than the single scalar's K^2 terms. Neither qeihps.py nor specthm.py:1070 names N or 1/N. Size of the neglected terms: NOT computable here (OPEN).",
+  "PARTLY NAMED -- validity regime (S5, S6). FW restrict to 'lengthscales ... much larger than the Planck length'. The tree records that the throat curvature radius is 0.0243 l_P and calls it 'sub-Planckian -- Kontou's own doubt about the semiclassical regime' (qeihps.py:113-117, 132, 214) but only as a CAVEAT on the QEI tests, not as a hypothesis of the equation the throat theorems solve.",
+  "DROPPED -- the physical-solution prescription (S6). FW: spurious solutions must be removed (reduction of order; fn [77] lists 'accepting only perturbatively expandable (exact) solutions'). COMPUTED (C7): HPS's throat has r0 = sqrt(-16 hbar K^2 L) ~ hbar^(1/2), d r0/d hbar -> infinity at hbar = 0: it is not a power series in hbar about a classical solution, the class such prescriptions exclude. Whether it survives a reduced-order formulation is OPEN (no reduced-order static equation is in any source read). Not named by the tree.",
+  "NO DRIFT -- fluctuation.py:5-11 ('the error term of that equation is stated nowhere in this tree') and the canonical hypothesis 'fluctuations of T about its mean negligible' match HV 3.3 (Kuo-Ford criterion, 'scope and limits ... not well understood'). But fluctuation.py:9-10 / ledger.py:752 'Every DEMAND row ... is a demand on <rho>, inside G = 8 pi G <T>' is exact only at alpha = beta = 0, or where curvature radii >> sqrt|b|; data secure that only above sqrt(16 pi 1e61) l_P = 0.36 mm (C8c)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "K^2 = 1/(5760 pi) (one conformal scalar, one loop)",
+   "value_then": "1/(5760 pi) l_P^2 (HPS p.4, READ)",
+   "value_now": "unchanged -- a coefficient, not a measurement (sibling audit gr-qc_9701064_k2, STANDS)",
+   "source_now": "d67/audits/gr-qc_9701064_k2.json",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "Cosmological constant Lambda",
+   "value_then": "0 in HPS eq. (1) and FW eq. (1.1) (not measured in 1996)",
+   "value_now": "Planck 2018: (2.846 +- 0.076)e-122 l_P^-2 (READ in sibling audit)",
+   "source_now": "arXiv:1807.06209v4 p.17 via d67/audits/planck-cosmological-parameters-via-2604.01047.json",
+   "moves_conclusion": "No, computed (C8a): Lambda/|G^t_t(throat)| = 1.68e-125 at L = -2/3."
+  },
+  {
+   "quantity": "beta-type coupling b of (1)H_ab (renormalized R^2 coefficient)",
+   "value_then": "set to 0 implicitly (G = 8 pi <T> form); no measurement cited by HPS",
+   "value_now": "unmeasured; ceiling c2(mu ~ 1e-3 eV) < 1e61 (Calmet-Hsu-Reeb 0803.1836 p.2, READ: 'The strongest bounds come from experiments probing modifications of Newton's potential on distances of ~0.1 mm ... c2 < 10^61'), i.e. |b| = 16 pi c2 l_P^2 < 5.0e62 l_P^2 (mapping b = c2/c1, c1 = M_P^2/(16 pi), sign conventions not fixed here)",
+   "source_now": "arXiv:0803.1836v2 p.2 (cached alphaXiv page text)",
+   "moves_conclusion": "YES for the throat values, computed (C4-C6): r0^2 = -16 K^2 L - 2b; the allowed range exceeds the throat-destroying b_crit = 2.95e-4 l_P^2 by 1.7e66 (C8b). The datum has not moved -- it has never been measured at the relevant scale; that is the point."
+  },
+  {
+   "quantity": "alpha-type coupling (Weyl^2 / Bach), equivalently ln mu",
+   "value_then": "absorbed into f (HPS fn [20])",
+   "value_now": "'a similarly weak constraint holding for the coefficient of the other allowed four-derivative term R_mu nu R^mu nu' (CHR p.2, READ); no value",
+   "source_now": "arXiv:0803.1836v2 p.2",
+   "moves_conclusion": "Inside L: r0^2 = -16 K^2 ln(mu^2 f(0)) (C3c, C4b). The tree scans L over [-1,0), so this is already a parameter of its family, unnamed as a coupling."
+  },
+  {
+   "quantity": "hbar (restored)",
+   "value_then": "1",
+   "value_now": "CODATA exact (SI 2019)",
+   "source_now": "d67/audits/codata-2018-constants.json",
+   "moves_conclusion": "No numerical move; structurally r0 ~ hbar^(1/2) (C7)."
+  },
+  {
+   "quantity": "Planck length l_P (for C8c)",
+   "value_then": "unit",
+   "value_now": "1.616255e-35 m (CODATA 2018)",
+   "source_now": "d67/audits/codata-2018-constants.json",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/semiclassical-einstein-equation.py",
+  "outcome": "22/22 PASS (exit 0, ~35 s). C1 contracted Bianchi identity on metric (2) exact; HPS's printed G^mu_nu equal the computed ones. C2 (1)H_ab = 2 nabla_a nabla_b R - 2 g Box R - 2 R R_ab + g R^2/2 identically conserved, trace -6 Box R; sign-flipped control fails conservation. C3 Bach tensor conserved and traceless; HPS's log bracket == -96 Bach exactly (so the mu of fn [20] is the alpha coupling). C4 at HPS throat data (1)H^l_l = 2/r0^4 with no fourth derivatives; ll constraint gives r0^2 = -16 K^2 L - 2b; b = 0, L = -2/3 gives 1/(540 pi), r0 = 0.02427885 l_P (HPS eq. (9), tree); throat absent for b >= 1/(1080 pi) = 5.33 K^2. C5 b = 0 reproduces the tree's f''''/f and r''''/r closed forms exactly; b = K^2 moves them (639550 -> 2930579; 2238426 -> 4644120). C6 b = 0 reproduces <rho>(0) = -45/L and rho + p_l = 0; general-b forms printed; b = -K^2 gives <rho+p_l>(0) = -23.39, b = +K^2 gives <rho>(0) = 196.83; throat stops being a minimum near 2.67 K^2. C7 r0 ~ hbar^(1/2), not expandable in hbar. C8 Lambda negligible (1.7e-125); experimental |b| ceiling / b_crit = 1.7e66; data leave b*(1)H unexcluded below 0.36 mm. The tree's HPS system is imported read-only (sys.dont_write_bytecode; git status of research/ unchanged).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "K. Sanders, arXiv:2007.14311v2 (2021), 'Static symmetric solutions of the semi-classical Einstein-Klein-Gordon system'",
+   "effect": "narrows",
+   "what": "Abstract: 'The set of solutions ... depends on the choice of the parameters (a, Lambda, m, xi) and on the renormalisation constants in the renormalised stress tensor ... either (i) the empty set, or (ii) the singleton ..., or (iii) a set with infinitely many elements'; p.1: the ambiguities 'cannot be fixed without a full theory of quantum gravity or observational input'; well-posedness 'unknown'. Rigorous confirmation, on a different static geometry, of what C4 computes on HPS's: existence of a static semiclassical solution depends on the renormalization constants.",
+   "read_status": "READ (alphaXiv page text pp.1-2 cached this session)"
+  },
+  {
+   "ref": "M. Visser, arXiv:gr-qc/9409043 (1994), 'Scale anomalies imply violation of the averaged null energy condition'",
+   "effect": "confirms",
+   "what": "Eqs. (6)-(9): for a conformal field <T> changes under mu -> mu/Omega by -8a ln Omega Z, Z = [nabla nabla + R/2] C (the Bach tensor); Theorem 2: ANEC can be made to fail by choice of mu wherever Z != 0. Independent confirmation of C3c (HPS's mu-bracket is the Bach tensor) and of the renormalization-dependence of energy-condition signs.",
+   "read_status": "READ (cached page text pp.1-3)"
+  },
+  {
+   "ref": "E.-A. Kontou & K. D. Olum, arXiv:1410.0665v2 (2014)",
+   "effect": "confirms",
+   "what": "'there remains the ambiguity of adding local curvature terms with arbitrary coefficients', (1)H_ab and (2)H_ab, eq. (15) -- the freedom C2 machine-checks as conserved.",
+   "read_status": "READ (cached page text, eq. (14)-(15) passage)"
+  },
+  {
+   "ref": "B. L. Hu, A. Roura, E. Verdaguer, arXiv:gr-qc/0402029 (2004), 'Induced quantum metric fluctuations and the validity of semiclassical gravity'",
+   "effect": "extends",
+   "what": "Validity criterion: stability of semiclassical solutions against quantum metric fluctuations (Einstein-Langevin), large-N; 'These equations exhibit runaway solutions'; shown valid for flat space only.",
+   "read_status": "READ (abstract and introduction, cached p.1-2)"
+  },
+  {
+   "ref": "A. Perez & D. Sudarsky, arXiv:2512.17789v2 (2025/26), 'Renormalization of the Quantum Stress Tensor Fluctuations and the Limits of Semiclassical Gravity'",
+   "effect": "narrows",
+   "what": "Squeezed vacua 'fail to satisfy the natural semiclassicality criterion' once <T_ab T_cd> is renormalized (OPE); well-posedness questioned 'owing to ... their higher-derivative character'. Narrows the domain where G = 8 pi <T> is a controlled approximation; does not bear on HPS's static state directly.",
+   "read_status": "READ (cached pp.1, 4-5)"
+  },
+  {
+   "ref": "G. S. Habermann & D. A. T. Vanzella, arXiv:2605.24103v1 (2026), 'Probing the limits of the semiclassical Einstein equation'",
+   "effect": "contested",
+   "what": "Momentum superpositions where semiclassical and quantum-superposition predictions 'differ already at the level of expectation values'; a proposed test, not a measurement.",
+   "read_status": "READ (abstract, conclusion; cached)"
+  },
+  {
+   "ref": "X. Calmet, S. D. H. Hsu, D. Reeb, arXiv:0803.1836v2 (2008)",
+   "effect": "extends",
+   "what": "Data: c2 (R^2 coefficient) < 1e61 from sub-mm Newton-potential tests; similar for R_mu nu R^mu nu. The only measurement bearing on alpha, beta; 66 orders above HPS's throat scale.",
+   "read_status": "READ (cached p.2)"
+  },
+  {
+   "ref": "discover_papers (the one allowed later-literature search)",
+   "effect": "extends",
+   "what": "Returned 'alphaXiv assistant quota exceeded'; the list above is drawn from papers whose page text was returned earlier in this session. Newer work not in that cache is NOT surveyed.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "What HPS (1996) and FW (1996) lacked: (i) Lambda -- measured since (1998; Planck 2018 2.846e-122 l_P^-2); computed irrelevant at the throat (ratio 1.7e-125, C8a): having it changes nothing. (ii) The renormalized quadratic-curvature couplings alpha, beta that HV (3.7) makes free and that G = 8 pi <T> sets to zero -- STILL lacked: the only bound read (Calmet-Hsu-Reeb 2008, c2 < 1e61 at mu ~ 1e-3 eV) is 1.7e66 times larger than the b at which HPS's throat disappears (C8b), and the log running to the Planck scale is not measured. Having a measured beta WOULD change the throat conclusions: r0^2 = -16 K^2 L - 2b, and the sign of <rho + p_l> on the throat flips with the sign of b (C6). So M's hypothesis is CONFIRMED in a precise sense for this result -- the authors lacked a datum and the conclusion depends on it -- but the datum is lacked by everyone, not superseded: the equation is not shown inaccurate, it is shown to be one member of a family whose member is chosen by an unmeasured coupling. Evidence against M's stronger reading: nothing measured since 1996 contradicts the equation or HPS's b = 0 algebra; every tree figure is reproduced exactly (C4c, C5a-b, C6a-b). Data that would test the equation as a fundamental law (Page-Geilker 1981, NAMED-NOT-READ; the superposition proposals of 2605.24103) concern macroscopic superpositions, not vacuum-polarization back-reaction, and are not used by the tree.",
+ "grade": "NARROWED",
+ "grade_evidence": "Statement READ at source in both forms: the general family HV 0802.0658 eq. (3.7) p.8 (G + Lambda g - 2(alpha A + beta B) = 8 pi G <T^R>, counterterm ambiguity 'absorbed into the renormalized coupling constants') and the member the tree uses, HPS eq. (1)/(3) and FW eq. (1.1). Re-derivation agrees with the source and the tree: 22/22 sympy checks, every tree throat figure reproduced exactly at b = 0. NARROWED because the tree drops hypotheses the source carries: (1) Lambda = alpha = beta = 0 -- computed consequence: the throat radius, its fourth derivatives, <rho>(0) and the sign of <rho + p_l>(0) all move with the beta-type coupling b (r0^2 = -16 K^2 L - 2b; no throat for b >= 5.33 K^2; radial NEC violated on the throat at b = -K^2), and data bound |b| only to < 5e62 l_P^2; (2) alpha is carried inside HPS's L (log bracket = -96 Bach, computed), unnamed; (3) large N (HPS has N = 1); (4) the Planck-scale validity limit and the spurious-solution prescription of FW (throat r0 ~ hbar^(1/2), computed). The tree's own claims are scoped to 'HPS's OWN <T>' (qeihps.py:185-186) and 'HPS's CONSERVED system' (specthm R7), so none is WRONG: they are true of the b = 0, N = 1 member; the drift is that the hypothesis list names only 'hbar=c=G=1, MTW signs, AHS <T>'. Not graded DATA-DEPENDENT because the tree does not assert physical (scheme-independent) throat values -- if it did, that grade would apply. The large-N and reduced-order questions are OPEN sub-items, not computable here.",
+ "what_would_change_the_grade": "To STANDS: the tree names, at qeihps.py (throat section), specthm.py:1070 and fluctuation.py:9-11, the hypotheses 'Lambda = alpha = beta = 0 (AHS renormalization scheme; mu absorbed into f, which makes L carry ln mu^2)', 'N = 1, large-N not available', and 'semiclassical validity at a 0.024 l_P throat not established; unreduced fourth-order system'. Or a measurement/theory fixing beta = 0 at the Planck scale (none exists). To DATA-DEPENDENT: any use of the throat numbers as physical predictions outside HPS's system. To WRONG: only a demonstrated failure of the b = 0 algebra, which C4-C6 exclude. To OPEN: none of the core checks depends on an unread source; the large-N and reduced-order sub-questions already are OPEN.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/semiclassical-einstein-equation.py   # expect '22/22 checks pass', exit 0; then: cd /home/user/Claude-Method-Works && git status --short research/  # expect no change",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/semiclassical-einstein-equation.json"
+}

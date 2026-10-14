@@ -1,0 +1,71 @@
+{
+ "key": "gaussian-mills-ratio",
+ "name": "Mills-ratio bounds for the Gaussian tail: phi(z)/z (1 - 1/z^2) <= P <= phi(z)/z",
+ "source": {
+  "located": "Classic: R.D. Gordon (1941), Ann. Math. Stat. 12, 364-366 (upper phi/x and lower phi/(x+1/x), x>0); the tree's exact two-sided form (1/z - 1/z^3) < M(z) < 1/z is the K=1,2 truncation of the alternating Laplace series. Read at source in two arXiv papers: (i) L. Duembgen, 'Bounding Standard Gaussian Tail Probabilities', arXiv:1012.2063v3 (Bern TR 76, Dec 2010), p.2 eq.(2) and the Gordon restatement, p.4 sec.2 proof of the k=0 case; (ii) T. Buric, N. Elezovic, L. Mihokovic, arXiv:2607.26636v1 (29 Jul 2026), p.7 Proposition 3.3 (two-sided envelope, proof by repeated integration by parts).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1012.2063 (all 24 pages) and on 2607.26636 (all 13 pages). Gordon 1941 itself has no arXiv copy: NAMED-NOT-READ, restated exactly by Duembgen p.2 ('phi(x)/(x+1/x) < 1-Phi(x) < phi(x)/x, which was first established by Gordon (1941)'). The tree's specific lower bound phi(z)(1/z - 1/z^3) is stated verbatim as Prop. 3.3 of 2607.26636 with K=2 (and is implied by Gordon's, shown in rederive B1/B2)."
+ },
+ "published_statement": "Duembgen 1012.2063 p.2: 'for integers k >= 0 and arbitrary x > 0, (2) 1-Phi(x) < phi(x)/h_k(x) if k is even, > if k is odd. In particular, phi(x)/(x+1/x) < 1-Phi(x) < phi(x)/x, which was first established by Gordon (1941).' Buric-Elezovic-Mihokovic 2607.26636 p.7 Prop. 3.3: 'For z = x+t > 0 and every K >= 1, M(z) = sum_{k=0}^{K-1} (-1)^k (2k-1)!!/z^{2k+1} + r_K, sgn r_K = (-1)^K, |r_K| < (2K-1)!!/z^{2K+1}, so the even and odd partial sums bracket M from below and above', M = (1-Phi)/phi. K=1: M < 1/z; K=2: M > 1/z - 1/z^3 -- exactly the tree's pair, strict.",
+ "published_hypotheses": [
+  "Standard normal: phi(x) = exp(-x^2/2)/sqrt(2 pi), Phi its distribution function (a centred, unit-variance Gaussian; any N(0,s^2) reduces by z = D/s).",
+  "x > 0 (Gordon / Duembgen eq.(2)); z > 0 (Prop. 3.3). No further hypothesis; the bounds are strict.",
+  "The lower bound 1/z - 1/z^3 is informative only for z > 1 (non-positive for z <= 1)."
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED on the range: source x > 0; tree 'z >> 1 (z ~ 1e71)' (noise.py:348-349, entry hypotheses) is a strict subset.",
+  "WEAKENED (harmless): the tree writes '<=' (noise.py:347); the source bounds are strict '<'. A weaker statement, implied by the source.",
+  "SUBSTITUTED LOWER BOUND (not a drift in validity): the tree's lower bound phi/z (1 - 1/z^2) (noise.py:347) is the Laplace/Prop.3.3 K=2 truncation, not Gordon's phi/(z+1/z); Gordon's is strictly stronger by phi/(z^3(1+z^2)) (rederive B1, z3 B2 unsat). The tree names no author, so no misattribution.",
+  "ADDED DERIVED CLAIM, checked: '-ln P = z^2/2 + ln(z sqrt(2 pi)) + O(1/z^2)' (noise.py:348) is not in the sources as such; it follows from the pair for z > 1 with remainder in (0, -ln(1-1/z^2)] (rederive C2: rem*z^2 -> 1 at z = 1e5, 1e20, 1e71, 1.2823e71). It needs z > 1, which the tree's z >> 1 carries.",
+  "GAUSSIANITY is a hypothesis of the Mills result that the tree CARRIES AND NAMES, not drops: 'UNDER THE GAUSSIAN EINSTEIN-LANGEVIN SURROGATE (Hu & Verdaguer 0802.0658 Eq. (3.13); a different reading of \"distribution\", NOT H6)' (noise.py:46-53), 'Prob(A <= -D) under the Gaussian Einstein-Langevin surrogate with the VACUUM noise kernel (mean 0, SD = SD_0)' (noise.py:345-346), and H6 excludes it for the quantum measurement distribution (noise.py:167-171). The bound says nothing about the non-Gaussian quantum spectral measure and the tree does not use it there.",
+  "NOTE (not a drift): the docstring 'cross-checked against mpmath erfc at 30 digits' (noise.py:349-350, 1130-1131) checks the NUMBER log10(-ln P), not the bound: at z ~ 1e71 the bound's relative gap 1/z^2 ~ 1e-142 and the ln(z sqrt 2pi) term (~1e-140 relative) are invisible at 30 digits and in double, so both sides reduce to 2 log10 z - log10 2. This is exactly what the docstring claims ('O(1/z^2) term far below double precision'); the bound itself at the tree's z is checked here at 314 digits (rederive C1)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs of the Mills bound itself",
+   "value_then": "none -- a theorem about an explicitly defined function (Gordon 1941)",
+   "value_now": "none",
+   "source_now": "1012.2063 p.2, 2607.26636 Prop. 3.3",
+   "moves_conclusion": "no -- no datum enters the statement"
+  },
+  {
+   "quantity": "z = D/SD_0 at b = 1 m (the tree's own computed input, not an external datum of this result)",
+   "value_then": "10^71.108 (entry data_used)",
+   "value_now": "1.283549e71 = 10^71.108412, recomputed from achievable.required_density, hold_time, HBAR, C_SI and K_F_FIXTURE = 19.80242121506098 (rederive D)",
+   "source_now": "research/warp-drive/noise.py:343-356 and achievable.py, run read-only",
+   "moves_conclusion": "no. log10(-ln P) = 141.915794974952 (stdlib Mills form = mpmath erfc at 30 and 60 digits, |diff| < 1e-12). 'below exp(-10^141)' needs log10 z > 70.6505 (margin 0.458 dex); 'NOT below exp(-10^142)' needs log10 z < 71.150515 (margin 0.0421 dex, a factor 1.102 in z). Those margins belong to achievable's constants and K_F, not to the Mills bound, whose contribution to log10(-ln P) is ~1e-140."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gaussian-mills-ratio.py",
+  "outcome": "ALL PASS (exit 0). A: sympy proves Q' = -phi, (phi/z - Q)' = -phi/z^2 < 0, (phi(1/z-1/z^3) - Q)' = 3 phi/z^4 > 0, both differences -> 0 at infinity, hence phi(1/z-1/z^3) < Q < phi/z strictly for every z > 0 (the Duembgen sec.2 argument, now for both sides). B: Gordon lower - tree lower = 1/(z^3(1+z^2)) (sympy) and z3 returns unsat for any x > 0 violating it. C: mpmath erfc at dps = 4 log10 z + 30 confirms the bracket at z = 0.1 ... 1.2823e71 and the -ln P remainder in (0, -ln(1-1/z^2)] with rem*z^2 -> 1. A first run at fixed 60 digits and a second at 2 log10 z + 40 FAILED at z >= 1e20 / 1e71: the exponent -z^2/2 carries absolute error 10^(2L-dps) against a remainder 10^(-2L); this is a precision requirement of the CHECK, recorded, not a failure of the bound. D: the tree's value 141.915794974952 reproduced by stdlib form and by mpmath erfc (30, 60 digits); equals 2 log10 z - log10 2 to double precision; 141 < value < 142.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2607.26636 (Buric, Elezovic, Mihokovic 2026), Prop. 3.3",
+   "effect": "confirms",
+   "what": "Restates the alternating two-sided envelope for the Mills ratio, z > 0, with sign and size of every remainder; K=1,2 is exactly the tree's pair. No narrowing or counterexample.",
+   "read_status": "READ (pp. 1-13 via answer_pdf_queries)"
+  },
+  {
+   "ref": "arXiv:1012.2063 (Duembgen 2010)",
+   "effect": "extends",
+   "what": "Reviews and refines Gordon (1941), Birnbaum (1942), Sampford (1953), Komatu/Pollak, Shenton, Kouba; all tighten the bracket, none contradicts phi/z or the K=2 lower bound. Table 1 gives maximal errors; relevance at z ~ 1e71 is nil (all bounds agree to relative 1/z^2).",
+   "read_status": "READ (pp. 1-24)"
+  },
+  {
+   "ref": "arXiv:1212.4899 (new Mills-ratio inequalities tighter than Gordon's)",
+   "effect": "extends",
+   "what": "Listed by discover_papers as tightening Gordon's bounds; abstract only.",
+   "read_status": "NAMED-NOT-READ (abstract seen in discovery result)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: the Mills bounds are a theorem about the explicitly defined function (1-Phi)/phi with a two-line calculus proof (Duembgen 1012.2063 sec.2; Prop. 3.3 of 2607.26636), re-derived symbolically here for both sides. Gordon (1941) used no measured data, so there is no datum he could have lacked, and no later datum can move the inequality. Evidence either way: sympy/z3 proofs (A, B) and a 314-digit check at the tree's own z (C1). Where missing data COULD matter is one level up, in the modelling hypothesis that the smeared energy density is Gaussian -- the Einstein-Langevin surrogate. That is not part of this result; the tree already names it as a surrogate distinct from H6 and says its non-vacuum kernel is not computed (noise.py:46-53, 167-171, EL_SURROGATE_NONVACUUM_COMPUTED = False at noise.py:280). Whether the physical distribution is Gaussian is not adjudicated in this audit (the FFR papers the tree cites were not read here).",
+ "grade": "STANDS",
+ "grade_evidence": "Statement read at source in restatement (Gordon 1941 via Duembgen 1012.2063 p.2; the exact K=2 lower bound via 2607.26636 Prop. 3.3). Source hypotheses (standard normal, x > 0) are all carried: the tree's z >> 1 is narrower, its '<=' is weaker than the source's '<', and the Gaussian hypothesis is carried and named as a surrogate (noise.py:46-53, 345-346). Re-derivation agrees: both inequalities proved for every z > 0 in sympy, Gordon's stronger form checked by z3, bracket and O(1/z^2) remainder confirmed numerically up to z = 1.28e71, the tree's 141.915795 reproduced. No datum enters the theorem. What rests on it (EL_VACUUM_LOG10_NEG_LN_P, D22) inherits nothing from the bound but the leading term z^2/2: the bound contributes ~1e-140 in log10, so its truth is necessary and sufficient for the stdlib form, and its sharpness is irrelevant.",
+ "what_would_change_the_grade": "A value of z > 0 where erfc(z/sqrt2)/2 falls outside [phi(1/z-1/z^3), phi/z] computed at adequate precision (dps > 4 log10 z) -- excluded by the symbolic proof A. NARROWED would follow only if the tree applied the bound to a non-Gaussian distribution (e.g. to H6's spectral measure); it does not. The EL surrogate's physics (Gaussianity, the vacuum kernel, K_F, achievable's constants) is outside this result and would be audited separately.",
+ "reverify_command": "python3 -B /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gaussian-mills-ratio.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gaussian-mills-ratio.json"
+}

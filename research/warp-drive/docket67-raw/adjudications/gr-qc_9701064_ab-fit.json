@@ -1,0 +1,86 @@
+{
+ "key": "gr-qc/9701064#ab-fit",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "The overturn from OPEN to NARROWED is CONFIRMED. The audit's OPEN rested only on the source not being read in its run. This pass READ the source verbatim from the cached alphaXiv arXiv v1 text layer: scratchpad/d67/src/hps/hps_0.xml, md5 a5f55d32..., which existed before the audit's run. The PRL journal text was not read.\n\nWhat the source says:\n- p.7: 'asymptotic analysis of the Einstein equations (5-7) taking into account and guided by the results of the numerical investigation'.\n- p.8: 'in the limit of large l, R(l) ~ l and F(l) ~ (a ln l - b)^2 for a = 5.3 and b = 25.5', from 'combined numeric and analytic calculations'.\n- No fitting range, uncertainty or unit is given for (a, b).\n\nThat is the audit's own pre-registered case (b), which it said would give NARROWED.\n\nIndependent re-run this pass, on md5-matched copies of hpscentre.py and throatmass.py:\n- Setup: printed-M1 reading, eq. (9) data, DOP853 rtol 1e-10, status 0 to 1e5 K. The local window was x2 on each side, different from verifier 2's x1.25.\n- Local slope a_loc: 4.669 (1e3 K), 5.107, 5.309 (5e3), 5.436 (1e4), 5.514, 5.555, 5.573 (5e4).\n- Fit over [5e4, 1e5]: (5.588, 27.78), which is +5.4 % in a and +8.9 % in b, outside the tree's 5 % tolerance.\n- Fit over [2e3, 1e4] log: (5.279, 24.87).\n- This agrees with the audit's B2 (5.59 at 8e4 K) and verifier 2's V5 (crosses 5.3 at about 4,750 K). The conserved reading is further off (a_loc 9.05).\n\nSo in both source-term readings, (5.3, 25.5) holds as a fit over a mid-range window and not as the large-l limit HPS state. That is a smaller class than the published statement.\n\nWhy not the other grades:\n- Not WRONG: a limit cannot be refuted by integrating to a finite range; a_loc is decelerating (+0.04 per doubling at the end); the tail extrapolations disagree (5.64 vs 6.75).\n- Not DATA-DEPENDENT: the narrowing holds under both readings of the contested M1 (16 vs 116).\n- Not OPEN: the source is read and the narrowing is computed.\n- Not STANDS: the tree's use rests on two hypotheses it does not flag, the K unit of l and the 'fit' characterisation.\n\nShared-error check:\n- No shared error moves the grade. All three verifiers read the same sentence, and the cache confirms it verbatim.\n- Two over-readings are recorded under corrections. First, verifiers 1 and 3 lean the unit toward l_P on textual grounds, while verifier 2's V3 (0/231 joint matches in l_P units) disfavours l_P numerically under H1; the unit stays a live named hypothesis. Second, verifier 1's 'not supported as the large-l slope' must carry H1, H2 and H4, since the gap at the end of reach is a modest +5.5 % against HPS's '~'.",
+ "scope": "The grade covers HPS p.8's statement F(l) ~ (a ln l - b)^2 with a = 5.3 and b = 25.5 'in the limit of large l', for the ln f(0) = -2/3 run. It is graded as the tree uses it: the fixture at hpscentre.py:245, the window sweep at :251-263, and the attribution at :168-181.\n\nNARROWED means: under H1, H2 and H3, the pair holds as a log-law fit over a finite mid-range window of about 2e3-1e4 K, not as asymptotic constants. The hypotheses:\n- H1: HPS integrated a system equal to one of the tree's two transcriptions of eqs. (5)-(7).\n- H2: DOP853 at rtol 1e-10 is accurate to 1e5 K = 743 l_P.\n- H3: HPS's l is in K.\n- H4: a_loc does not turn back beyond 1e5 K. This is uncomputed, so the l -> infinity claim is NOT refuted.\n\nNot covered:\n- The qualitative unbounded-F / not-asymptotically-flat conclusion (graded separately as #not-af; a rising a_loc strengthens it).\n- Which system HPS integrated (NOT DETERMINED).\n- Popov's M2/M3 disagreements (not tested).\n- The PRL journal text (not read).\n- Whether the AHS source term is valid in the far zone.",
+ "corrections_to_record": [
+  "AUDIT read_status: NAMED-NOT-READ was a fact about the audit's run, not about the source. A cached alphaXiv v1 text layer (scratchpad/d67/src/hps/hps_0.xml, md5 a5f55d32..., mtime 13 min before the audit's .out) was available. The source is now READ, arXiv text layer only; the PRL text is not read.",
+  "AUDIT published_statement: replace 'NOT READ AT SOURCE' with the verbatim p.8 sentence: 'in the limit of large l, R(l) ~ l and F(l) ~ (a ln l - b)^2 for a = 5.3 and b = 25.5', from 'combined numeric and analytic calculations'. Add the p.7 context: 'asymptotic analysis of the Einstein equations (5-7) taking into account and guided by the results of the numerical investigation'.",
+  "AUDIT lacked_data: 'window and unit of l stay unknown because the source was not read' is wrong in its basis. At source, the window, the uncertainty and the unit of l in the (a, b) law are NOT STATED. That is a fact about HPS.",
+  "AUDIT hypothesis_drift (unit): 'the conserved run also reaches b = 51.48 ... does not rule the l_P reading out' is wrong reasoning. a is invariant under l -> lam l (the audit's own A1), so the l_P reading needs a JOINT match to (5.3, 51.48) in K units. Verifier 2's V3 finds 0/231 in both systems (closest max relative deviation 0.99 / 0.60). Numerically, under H1 and H4, the l_P reading is disfavoured. Textually, HPS state every length in l_P (fn [19]; r(0) ~ 0.02 l_P, computed 0.0243). The unit is a live named hypothesis and a discrepancy, unresolved.",
+  "AUDIT hypothesis_drift (F vs f): resolved at source. F is the monotone part of f = F + phi, so the tree's fit of sqrt f is a definitional discrepancy. Verifier 2's V4 computed its size: |delta a| <= 0.002 and |delta b| <= 0.02. That is immaterial, and it is not a refutation of HPS.",
+  "AUDIT hypothesis_drift (asymptotic flatness): resolved at source. HPS p.8 says R -> l, so the wormhole 'connects two spatial regions which are asymptotically flat, modulo the Planck-scale wiggles', and the redshift function 'does not approach a constant'. HPS is internally consistent. The only remaining discrepancy is with Hochberg-Visser gr-qc/9802046's wording.",
+  "AUDIT B2 'rises monotonically' holds on the coarse 8-point grid only. On verifier 2's 60-point x1.25 grid it is not strictly monotone (ripple). Write 'rising in trend'.",
+  "AUDIT script A1 docstring: it says b -> b + a ln lam, but the asserted identity is b -> b - a ln lam. The prose sign is wrong; the assertion is correct.",
+  "VERIFIER 1: 'a = 5.3 is not supported as the large-l slope by either reading' must carry H1, H2, H3 (for b) and H4. The printed-reading gap at the end of reach is only +5.4-5.5 % in a, against HPS's '~' at two significant figures. Unqualified, the phrase over-represents against HPS.",
+  "VERIFIER 1: 'the tree's K-unit reading is unsupported' and '125/231 does not corroborate under the l_P reading' are superseded by verifier 2's V3. Textually the unit is unsupported; numerically, under H1, the K reading is favoured. Record both and adjudicate neither.",
+  "VACUITY (verifier 2, carried forward): a 5 % window match does not distinguish the law from a ln ln-drifting law (8/10 windows still match). The 125/231 count is weak support for the form only and must never be quoted as confirming an asymptotic law.",
+  "DISCREPANCY, not adjudicated: HPS's 'both axes have been scaled by K^-2' and the flare extending 'out to about 10K^-2' are, read literally, inconsistent with the tree's K-length unit (K^-2 = 18096 in l_P units). This bears on H3.",
+  "TREE characterisation: HPS never call (a, b) a 'fit' or describe a fitting procedure. 'Two-parameter log fit' and 'the window they fitted over' (hpscentre.py:170, :176) are the tree's inference. The computation supports that the pair behaves as a window fit, but the inference should be labelled as the tree's reading."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/hpscentre.py:245",
+   "finding": "The comment 'F(l) ~ (a ln l - b)^2, HPS p.8' and the values 5.3, 25.5 match the source verbatim. However, far_zone_fit (:910-919) fits sqrt f, not sqrt F, and HPS define F as the monotone part of f = F + phi. The computed effect is <= 0.002 in a and <= 0.02 in b, so it is immaterial.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:251-252",
+   "finding": "'(lo, hi, sampling) in K' fixes HPS's l as K units. The source states no unit for the law, and every length it does state is in l_P. This is an unflagged hypothesis: numerically favoured under H1 (125/231 in K units against 0/231 in l_P units) but textually unsupported.",
+   "kind": "dropped-hypothesis"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:168-172",
+   "finding": "'a two-parameter log fit': HPS present the law as the 'limit of large l' from combined numeric and analytic work, and 'fit' is the tree's word. 'a has not converged ... keeps rising with the window' is consistent with the computation within 1e5 K (x2-window a_loc 4.67 -> 5.57; the [5e4,1e5] fit gives 5.588). It is a within-range claim only.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:176",
+   "finding": "'HPS do not state the window' is accurate (READ). The word 'fitted' presupposes a fitting procedure HPS do not describe.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:173-175",
+   "finding": "attribution() returns NOT DETERMINED, reproduced by audit B1 and verifier 2. This is consistent with the window-dependence behind the narrowing.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:114-117",
+   "finding": "'READ IN FULL ... a = 5.3, b = 25.5 ... arXiv text layer; PRL not' is consistent with the cached text layer read this pass.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:99-100",
+   "finding": "The quote 'the metric as a whole is not asymptotically flat' is verbatim at HPS p.8.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/hpscentre.py:263",
+   "finding": "MATCH_TOL = 0.05 is the tree's own criterion and is stated as such. The vacuity control shows a 5 % match does not distinguish the law from a drifting law.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/rederive/gr-qc_9701064_ab-fit.py (A1 docstring)",
+   "finding": "The prose says b -> b + a ln lam, but the asserted identity is b -> b - a ln lam. The prose sign is wrong; the assertion is correct.",
+   "kind": "misprint"
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/rederive/_hps_tree/hpscentre.py",
+   "finding": "md5 07145787... is identical to the live hpscentre.py, so every line number cited by the audit and verifiers is CURRENT. No site is stale, and git status of research/warp-drive is clean.",
+   "kind": "consistent"
+  }
+ ],
+ "commands_run": [
+  "python3 -c json paging of adjudicate/in/gr-qc_9701064_ab-fit.json",
+  "md5sum + grep -o of the p.7/p.8 sentences, fn [19], 'scaled by K^-2' and 'r(0) ~ 0.02 l_P' in scratchpad/d67/src/hps/_flat0.txt (hps_0.xml md5 a5f55d32...)",
+  "cat verify/rederive/supp.out; cat verify/refute/gr-qc_9701064_ab-fit.units.txt; sed of verify/rederive/supp_ab_fit.py",
+  "md5sum research/warp-drive/hpscentre.py throatmass.py (07145787..., 3e99c0b9..., unchanged); sed -n of hpscentre.py 90-130, 155-180, 238-266, 885-930 (read only)",
+  "grep -rn 'a ln l|ln l - b|25.5' research/warp-drive (only hpscentre.py and docket67-raw copies cite the law)",
+  "cp hpscentre.py throatmass.py -> adjudicate/run/tree/; PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/adj_aloc.py (printed-M1 to 1e5 K, status 0, about 55 s; x2-window a_loc 4.669 ... 5.573; fits [5e4,1e5] (5.588, 27.78), [2e4,1e5] (5.567, 27.54), [2e3,1e4] log (5.279, 24.87)), run twice with identical output",
+  "git status --short research/warp-drive (clean)"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && PYTHONDONTWRITEBYTECODE=1 python3 adj_aloc.py   # about 1 min; source: grep -o '.\\{300\\}25\\.5.\\{200\\}' ../../src/hps/_flat0.txt, or answer_pdf_queries(paper='gr-qc/9701064', queries=['p.8 large-l form of F, a, b; fitting range; unit of l']); full joint K/l_P scans: verify/rederive/supp_ab_fit.py (about 13 min)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/gr-qc_9701064_ab-fit.json"
+}

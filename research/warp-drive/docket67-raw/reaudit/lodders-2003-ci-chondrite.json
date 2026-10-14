@@ -1,0 +1,90 @@
+{
+ "key": "lodders-2003-ci-chondrite",
+ "name": "Lodders (2003), ApJ 591, 1220 -- CI chondrite bulk composition (as used by stockgate.py CHONDRITE and stock.py CHONDRITE)",
+ "source": {
+  "located": "K. Lodders, 'Solar System Abundances and Condensation Temperatures of the Elements', ApJ 591, 1220-1247 (2003); M-retrieved PDF on Google Drive 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N. Drive file title 'SOLAR SYSTEM ABUNDANCES AND CONDENSATION TEMPERATURES OF THE ELEMENTS.pdf' (280,145 bytes). Its own p.1 prints 'SOLAR SYSTEM ABUNDANCES AND CONDENSATION TEMPERATURES OF THE ELEMENTS', 'Katharina Lodders', 'Received 2003 January 22; accepted 2003 March 21', and the running line 'The Astrophysical Journal, 591:1220–1247, 2003 July 10'. It is the cited work. PDF page n = journal page 1219+n (PDF p.2 footer '1221').",
+  "read_status": "READ (M-retrieved, Google Drive 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N)",
+  "via": "mcp__Google_Drive__read_file_content on 1dxtorrPjr43Bu7Jaq3TdGI8t0ADCd22N (full text returned, saved to scratchpad reaudit/lodders2003.txt). Table 3 read in full (all rows H..U) for the first time in this docket; the first audit of this key had it CARRIED-FROM-SIBLING. LBP25 read directly this session (alphaXiv).",
+  "read_status_detail": "Table 3 extraction is a rotated table; values reconstructed row by row. Ambiguous cells (Be, Ti, Th, U sigma/N_met) are flagged and no conclusion rests on them."
+ },
+ "pages_read": "Whole Drive text extraction (168,561 chars, 28 PDF pages = journal pp.1220-1247) received; read closely: p.1220 (abstract), p.1221 (sec.2.2 CI chondrites), p.1224 (CI group-mean method), pp.1225-1226 (Table 3, all rows H..U), p.1231 (sec.2.3.2.1 Be), p.1234 (sec.2.3.3 P), p.1236 (sec.3, pressure choice), p.1238 (sec.3.1-3.2 equilibrium, host phases, 10 K composition offset), pp.1239-1240 (Table 8, complete), p.1241 (Table 9 head), p.1242 (sec.3.3.3 Be 1421 K), p.1243 (pressure dependence Te/Pb; Hg; sec.3.3.8 halogens), pp.1244-1245 (sec.3.4 O, C, N condensation). Table 3 and Table 8 are rotated tables whose extraction splits digits with spaces (e.g. '2101 5' = 21015) and renders some decimal points as ':'; each value used was reconstructed from the row and is quoted as extracted. Ambiguous in extraction: Be group sigma/N_met, Ti group sigma/N_met, Th and U group sigma.",
+ "published_statement": "p.1221: 'Only five CI meteorite falls are known, and of these, only four are massive enough for multiple chemical analyses.' | p.1221: 'CI chondrites are the most primitive chondrites in the sense that they are not chemically fractionated when relative abundances are compared to the photosphere. However, it should be noted that they are severely altered mineralogically from the \"pristine\" mineralogy expected for solar nebular condensates.' | p.1224: 'The CI chondrite group-mean composition (last columns in Table 3) was obtained by taking the weighted average of the compositions from the individual meteorites, using the number of analyses (N) as statistical weight. The uncertainties given are the square root of the weighted variance of the weighted average. Values in parenthesis in Table 3 are not included in the computation of the group mean.' | p.1234: 'the meteoritic value is only based on the P abundance in the Orgueil meteorite, for which a concentration of 920 ± 100 ppm is derived (mainly from data by Wolf & Palme 2001). The P abundances of other CI chondrites are much more uncertain; for Ivuna, one reliable P analysis of 760 ppm exists (Wolf & Palme 2001), whereas P analyses of other CI chondrites date back several decades to almost a century, and range from 500 to 1800 ppm (see Mason 1963).' | Table 3 title: 'TABLE 3 Elemental Abundances in CI Chondrites' ; columns 'Alais Ivuna Orgueil Revelstoke Tonk CI Chondrite Group ... Weighted Mean 1σ N met' | Table 3 note: 'Note.—ppm by mass = μg g−1 ... N = number of analyses included in mean; N met = number of meteorites included in weighted group mean. Elemental abundances given in parentheses are excluded in the group mean. a Oxygen abundance by difference to 100%.' | N row: 'N 2900 1 ... 2948 535 5 ... ... 2940 20 2' -> Alais 2900 (1 analysis), Orgueil 2948 +- 535 (5), group 2940 +- 20, N_met 2 | P row: 'P (1200 ) (1) (760) (1) 924 100 8 ... (480) (1) 920 100 1' -> Orgueil 924 +- 100 (8), group 920 +- 100, N_met 1 (Alais, Ivuna, Tonk excluded) | As row: 'As 1.82 0.04 2 1.77 0.21 3 1.70 0.23 18 ... 1.95 1 1 .73 0.06 4' -> group 1.73 +- 0.06, N_met 4 | Ta row: 'Ta ... 0.014 3 1 0.014 5 0.0010 2 ... ... 0.014 4 0.000 1 2' -> group 0.0144 +- 0.0001, N_met 2 | Rb row: 'Rb (1.55 0.04) (2) 2.16 0.32 15 2.12 0.31 30 ... (< 4) (1) 2.13 0.02 2' | Se row: 'Se 20.5 0.9 4 20.0 1.1 8 19.5 1.9 2 6 ... 21 1 19.7 0.4 4' | H row: 'H 21800 1 20900 1 1973 0 2270 3 ... 2420 0 1 2101 5 1770 4' -> group 21015 +- 1770 | C row: '... 3518 0 4810 5' -> group 35180 +- 4810, N_met 5 | O row: 'O (4717 0) a 454,130 a 462,2 5 0 a (4 13,400) a (488,7 00) a 458,2 0 0 5750 2' -> group 458200 +- 5750 (by difference) | K row: 'K 524 57 2 475 18 3 543 35 17 (800) (1 ) 510 1 530 24 4' | Li row: 'Li ... 1.52 1 1 :45 0 :21 6 ... ... 1 :46 0 :03 2' -> group 1.46 +- 0.03 | S row: '... 5410 0 3650 5' -> group 54100 +- 3650",
+ "published_hypotheses": [
+  "H1 (READ) The CI composition is a group mean over five falls weighted by number of analyses, with parenthesised values excluded; its uncertainty is 'the square root of the weighted variance of the weighted average' (p.1224) -- i.e. a spread of meteorite means, not the analytical scatter within a meteorite.",
+  "H2 (READ) Per-element support differs: P rests on ONE meteorite (Table 3 'N met' = 1; p.1234 'only based on the P abundance in the Orgueil meteorite'; other CI P analyses 'range from 500 to 1800 ppm'); N rests on TWO (Alais, a single analysis 2900; Orgueil 2948 +- 535 over 5 analyses), giving the group 2940 +- 20. The +-20 is far tighter than Orgueil's own 535.",
+  "H3 (READ) CI chondrites are 'not chemically fractionated' relative to the photosphere for the rock-forming elements, but 'severely altered mineralogically' (p.1221); aqueous alteration redistributed S, Ca, Mn; they 'are not unaltered equilibrium condensates' (p.1224).",
+  "H4 (READ) Values are mass concentrations of bulk meteorite ('ppm by mass = μg g−1', Table 3 note; O 'by difference to 100%'). The table describes five meteorites; it says nothing about any asteroid's accessible stock."
+ ],
+ "hypothesis_drift": [
+  "ATTRIBUTION DISCREPANCY, now CONFIRMED AT SOURCE (in the tree, not in Lodders). stockgate.py:284-285 and stock.py:195 credit CHONDRITE (stockgate.py:395-414; stock.py:216-219) to L03, but it is not L03 Table 3. Over the 60 elements both carry: 9 within 0.5%, 33 within L03's 1 sigma, 5 beyond 3 sigma: As 18.5 vs 1.73 +- 0.06 ppm (x10.69), Ta 0.01 vs 0.0144 +- 0.0001 ppm (x0.694), N 3180 vs 2940 +- 20 (x1.082), Rb 2.3 vs 2.13 +- 0.02 (x1.080), Se 21.2 vs 19.7 +- 0.4 (x1.076). P 1040 vs 920 +- 100 (x1.130, +1.2 sigma). Recorded, not repaired.",
+  "DROPPED: the per-element support. The tree carries P at a point value with no note that L03's P is one meteorite (Orgueil) and that other CI P analyses span 500-1800 ppm (p.1234). Computed: with L03's other rows and P at 1800 ppm the CI binder would be N (8.736); at 500 ppm P (22.26).",
+  "DROPPED: the uncertainties. 'Binds on PHOSPHORUS, not nitrogen' (stock.py:107-110; D25 via ledger.py:671-683) turns on CI N against the crossover N = P_CI x (payload N/P = 2.3077): 2400 ppm at the tree's P, 2123 at L03's. L03's group N (2940 +- 20) clears 2123 by 40.8 group sigma, but Orgueil's own scatter (2948 +- 535, 5 analyses) clears it by only 1.54 sigma.",
+  "WEAKENED: stockgate.py:175-177 'A CI chondrite retained its volatiles'. The source calls CI 'not chemically fractionated' relative to the photosphere for rock-forming elements and 'severely altered mineralogically' (p.1221); its Table 3 H, C, N are bulk concentrations of hydrated, altered meteorites. The tree needs only CI N/P > 2.3077: L03 gives 2940/920 = 3.20; LBP25 gives 1965/989 = 1.99, which fails.",
+  "ADDED by the tree (not in L03): that the CI group mean is the accessible stock of an asteroid destination (stock.py:112, 131-133). L03 averages five meteorite falls; LBP25 p.23 notes Ryugu and Bennu returned samples 'are similar to CI-chondrites in bulk chemical and isotopic composition' but does not discuss them. OPEN here.",
+  "NORMALISATION (tree): stockgate.CHONDRITE sums to 1.006899 and is not renormalised; effect on the factor below 0.7%.",
+  "SUBSET: stock.CHONDRITE's 16 entries equal stockgate's (checked by import)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "CI P (sets the CI processing factor and the 749.08 kg figure)",
+   "value_then": "L03 Table 3 group 920 +- 100 ppm, N_met 1 (Orgueil only) -- READ: 'P (1200 ) (1) (760) (1) 924 100 8 ... (480) (1) 920 100 1'. The tree uses 1040 attributed to L03.",
+   "value_now": "989 +- 89 (LBP25 Table 4, 1 SD, quality B) / 989 +- 63 (LBP25 text p.33) -- READ",
+   "source_now": "arXiv:2502.10575 Table 4 p.70, text p.33",
+   "moves_conclusion": "The figure, not the binder: 749.08 kg (tree) -> 846.79 kg (L03 920) -> 787.7 kg (LBP25 989); L03 +-1 sigma spans 763.8-950.1 kg. The binder stays P under every L03 value."
+  },
+  {
+   "quantity": "CI N (decides P vs N as binder)",
+   "value_then": "L03 group 2940 +- 20 ppm (N_met 2; Orgueil 2948 +- 535, n 5) -- READ: 'N 2900 1 ... 2948 535 5 ... ... 2940 20 2'. The tree uses 3180.",
+   "value_now": "1965 ppm, 1 SD 970 (Table 4, quality D, '-33' vs P14) or +- 447 (text p.29) -- READ",
+   "source_now": "arXiv:2502.10575 Table 4 p.70, p.29, abstract",
+   "moves_conclusion": "YES for the binder label. Crossover at LBP25 P is 2282 ppm; LBP25 N is below it by 0.33 SD (970), 0.71 (447) or 1.54 SE (206). With LBP25 N and P the binder is N at 13.070 (914.9 kg) and stockgate's regime label becomes VOLATILITY-LIMITED. The datum is quality D and its own band spans the crossover: contested."
+  },
+  {
+   "quantity": "CI Ta (the DECLARED craft's binder)",
+   "value_then": "L03 0.0144 +- 0.0001 ppm -- READ: 'Ta ... 0.014 4 0.000 1 2'. The tree uses 0.01 ppm (1 significant figure).",
+   "value_now": "not re-read here",
+   "source_now": "n/a",
+   "moves_conclusion": "The figure only: craft factor 90,082 -> 62,557 (x0.694) under L03; binder stays Ta (computed)."
+  },
+  {
+   "quantity": "CI As",
+   "value_then": "L03 1.73 +- 0.06 ppm (READ); the tree 18.5",
+   "value_now": "not needed",
+   "source_now": "n/a",
+   "moves_conclusion": "No conclusion rests on it; a factor-10 transcription discrepancy against the cited source."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders2003_reaudit.py",
+  "outcome": "exit 0, all checks pass; output reaudit/lodders2003_reaudit.out. (1) stockgate.CHONDRITE vs L03 Table 3 (60 elements, read at source): 9 within 0.5%, 33 within 1 sigma, 5 beyond 3 sigma (N +12.0, Se +3.8, As +279.5, Rb +8.5, Ta -44.0 sigma). (2) Tree binder reproduced: P 10.701153, 749.08 kg per 70 kg. (3) With L03's P only or all L03 rows: P 12.0970, 846.79 kg; P at 920 +- 100: 10.911-13.572. (4) Crossover N = P_CI x 2.3077: 2400.0 (tree P), 2123.1 (L03), 2282.3 (LBP25). (5) L03 rows with P at 1800 ppm (L03's quoted older CI range): binder N 8.736. (6) LBP25 N 1965 + P 989: binder N 13.070 (914.9 kg). (7) Craft: Ta 90,082 -> 62,557 under L03.",
+  "agrees_with_source": "partly (the tree's arithmetic is exact; its table is not the cited source's)"
+ },
+ "later_literature": [
+  {
+   "ref": "Lodders, Bergemann & Palme 2025, arXiv:2502.10575",
+   "effect": "contested",
+   "what": "Revised CI N 1965 ppm (SD 970, quality D, -33%) and P 989. Under it the tree's CI binder flips from P to N. Its N analyses of Orgueil 'vary from 800 to 8200 ppm in 20 analyses' (p.29).",
+   "read_status": "READ this session (alphaXiv; pp.1, 22-23, 29, 33, 70, 73, 75). Lodders, Bergemann & Palme 2025, arXiv:2502.10575 (Space Sci. Rev., accepted 7 Feb 2025), READ this session via alphaXiv answer_pdf_queries (pp.1, 22-23, 29, 33, 35, 70, 73, 75). Table 4 p.70: 'N 1965 970 49 22 206 10.5 428 37000 18200 D -33 ...' (1 SD 970, %SD 49, n 22, SE 206, quality D, -33% vs P14); 'P 989 89 9.1 32 16 1.6 32 8410 760 B 0.4 ...'. Text p.29: 'All selected values provide the grand average N = 1965 ± 447 ppm for CI-chondrites.' Text p.33: 'The recommended concentration of P = 989 ± 63 ppm from 24 analyses'. Abstract: 'the CI-abundances of Hg and N are now significantly lower.' Both N uncertainties (970 and 447) are printed in the paper itself: Table 4's SD against the text's; this settles the relay disagreement recorded by the first audits."
+  },
+  {
+   "ref": "Palme & O'Neill 2014; McDonough & Sun 1995 (CI columns)",
+   "effect": "contested",
+   "what": "As recorded by the first audit (package transcriptions): PON14 N 2950 +- 885 (2 sigma), MS95 N 3180 flagged factor-2. Not re-read here.",
+   "read_status": "CARRIED from the first audit (pyrolite 0.3.7 data files)"
+  },
+  {
+   "ref": "Ryugu (Hayabusa2) and Bennu (OSIRIS-REx) returned samples",
+   "effect": "extends",
+   "what": "LBP25 p.23: 'similar to CI-chondrites in bulk chemical and isotopic composition. These pristine samples are not discussed here'. Bearing on the tree's 'asteroid = CI stock' hypothesis; no values read.",
+   "read_status": "NAMED (quoted from LBP25 p.23); values NOT READ"
+  }
+ ],
+ "lacked_data": "Read at source, L03's own text already carries the fragility: P from one meteorite with other CI analyses spanning 500-1800 ppm (p.1234), and N from two meteorites with Orgueil's own 1 sigma at 535 ppm. What L03 lacked: the modern CI N compilation (LBP25: 20 Orgueil analyses from 800 to 8200 ppm, grand mean 1965) and ICP data for P (LBP25: 24 analyses, 989). FOR the hypothesis that later data move the tree: LBP25 N crosses the 2123-2400 ppm crossover and flips the binder to N at 13.07, VOLATILITY-LIMITED. AGAINST: LBP25 N is quality D with a band spanning the crossover; P moved only 920 -> 989; the major elements are within ~3%. No datum refutes L03's table as a 2003 group mean. Net: the binder label is sensitive to N; the tree's table is not L03's.",
+ "grade": "DATA-DEPENDENT",
+ "grade_evidence": "(i) L03 now READ at source: Table 3 prints P 920 +- 100 (N_met 1), N 2940 +- 20 (N_met 2), As 1.73 +- 0.06, Ta 0.0144 +- 0.0001. The tree's CHONDRITE is not this table (9/60 within 0.5%; five elements beyond 3 sigma; As x10.69). That is an attribution/transcription discrepancy in the tree, not an error in Lodders. (ii) The tree's result 'CI binder = P at 10.70' moves with CI N: the crossover is 2123 ppm at L03's own P. L03's group N clears it, but only by 1.54 sigma of Orgueil's own scatter, and L03's own statement that CI P spans 500-1800 ppm contains a flip at the high end. LBP25 (read) puts N at 1965 (quality D), below the crossover, making N the binder at 13.07. A tree label rests on a measured value that has changed and is contested: DATA-DEPENDENT. (iii) Not WRONG: nothing contradicts L03 at its hypotheses. (iv) Not NARROWED as primary: the verdicts built on the factor (asteroid beats cosmic/crust; stock need not travel) hold at 10.7-13.1.",
+ "what_would_change_the_grade": "To STANDS: a settled CI N whose band clears ~2400 ppm (e.g. the announced Lodders et al. 2025b CI composition, or Ryugu/Bennu bulk N), plus the tree citing the composition it actually uses (it is not L03 Table 3) with its uncertainties. To WRONG: only a demonstrated error in L03 at its hypotheses; none found.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders2003_reaudit.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/lodders-2003-ci-chondrite.json",
+ "supersedes_grade": "DATA-DEPENDENT"
+}

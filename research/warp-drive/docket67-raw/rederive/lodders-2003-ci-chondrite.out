@@ -1,0 +1,83 @@
+=== 1. the tree's figures, reproduced by import
+CHECK PASS  stockgate binding_under('as-composed 59','CI chondrite') = ('P', 10.7012) [P 10.701153]
+CHECK PASS  stock.binding_element(HUMAN, CHONDRITE) = ('P', 1.0701e1) [P 10.700962]; 70 kg -> 749.07 kg
+CHECK PASS  stock.CHONDRITE (16 elements) equals stockgate.CHONDRITE on every shared element
+  runner-up N at 8.0763; P/N margin 1.3250
+  sum of stockgate.CHONDRITE mass fractions = 1.006899 (not renormalised)
+  craft binder Ta at 90082; craft/human 8417.97
+
+=== 2. WHOSE TABLE IS IT?  tree vs L03 (sibling transcription), MS95, PON14
+  O   tree 0.464  L03 x1.013  PON14 x1.011
+  Fe  tree 0.185  L03 x1.012  MS95 x1.022  PON14 x0.991
+  Si  tree 0.107  L03 x1.005  MS95 x1.005  PON14 x1.000
+  Mg  tree 0.0965  L03 x1.007  MS95 x1.000  PON14 x1.012
+  S   tree 0.0541  L03 x1.000  MS95 x1.002  PON14 x1.011
+  C   tree 0.035  L03 x0.995  MS95 x1.000  PON14 x1.006
+  H   tree 0.0202  L03 x0.961  PON14 x1.025
+  Ni  tree 0.0107  L03 x1.006  MS95 x1.019  PON14 x0.981
+  Ca  tree 0.00911  L03 x1.004  MS95 x0.985  PON14 x1.000
+  Al  tree 0.0086  L03 x1.012  MS95 x1.000  PON14 x1.024
+  Na  tree 0.005  L03 x0.998  MS95 x0.980  PON14 x1.008
+  N   tree 0.00318  L03 x1.082  MS95 x1.000  PON14 x1.078
+  P   tree 0.00104  L03 x1.130  MS95 x0.963  PON14 x1.056
+  Cl  tree 0.000698  L03 x0.991  MS95 x1.026  PON14 x1.000
+  K   tree 0.000555  L03 x1.047  MS95 x1.009  PON14 x1.016
+  Zn  tree 0.000312  L03 x1.006  MS95 x1.006  PON14 x1.010
+  As  tree 1.85e-05  L03 x10.694  MS95 x10.000  PON14 x10.632
+  Li  tree 1.5e-06  L03 x1.027  MS95 x1.000  PON14 x1.034
+  Au  tree 1.4e-07  MS95 x1.000  PON14 x0.946
+  Ta  tree 1e-08  MS95 x0.735  PON14 x0.667
+  L03  : 7 of 39 tree elements within 0.5%: Si,S,Ca,Na,F,Ga,Ag; nearest source for 9
+  MS95 : 19 of 58 tree elements within 0.5%: Si,Mg,S,C,Al,N,Cr,Pb,Ba,Rb,Li,Mo,Ag,Cs,Sb,Au,Tl,Bi,In; nearest source for 32
+  PON14: 13 of 60 tree elements within 0.5%: Si,Ca,Cl,Co,Ti,V,Ge,Sc,Ce,Ag,Tl,Bi,Th; nearest source for 19
+  DISCREPANCY (attribution): the tree labels the table L03, but it is not L03 Table 3 as transcribed; it matches MS95 exactly on 19 elements and PON14 on 13; it is a blend not identified here.
+CHECK PASS  attribution check ran on >= 30 elements per column
+
+=== 3. THE BINDER under each CI compilation (as-composed 59 payload)
+  TREE   N   3180 ppm  P  1040 ppm  -> binder P  factor 10.7012  70 kg -> 749.1 kg  (runner-up N 8.0763)
+  L03    N   2940 ppm  P   920 ppm  -> binder P  factor 12.0970  70 kg -> 846.8 kg  (runner-up N 8.7356)
+  MS95   N   3180 ppm  P  1080 ppm  -> binder P  factor 10.3048  70 kg -> 721.3 kg  (runner-up N 8.0763)
+  PON14  N   2950 ppm  P   985 ppm  -> binder P  factor 11.2987  70 kg -> 790.9 kg  (runner-up N 8.7060)
+  LBP25  N   1965 ppm  P   989 ppm  -> binder N  factor 13.0701  70 kg -> 914.9 kg  (runner-up P 11.2530)
+CHECK PASS  binder is P under TREE, L03, MS95, PON14
+CHECK PASS  binder flips to N under LBP25 (carried datum)
+
+=== 4. the crossover, closed form (sympy)
+  N binds iff N_CI < P_CI*h_N/h_P
+  P = 1040 ppm -> N crossover 2400 ppm
+  P =  920 ppm -> N crossover 2123 ppm
+  P = 1080 ppm -> N crossover 2492 ppm
+  P =  985 ppm -> N crossover 2273 ppm
+  P =  989 ppm -> N crossover 2282 ppm
+CHECK PASS  closed-form crossover at tree P reproduces 2400 ppm (+-5)
+  uncertainty bands on CI N against that crossover:
+    MS95  3180 ppm, 'F2' (factor 2): 1590..6360 ppm -> spans crossover: True
+    PON14 2950 ppm +- 885 (2 sigma): 2065..3835 -> spans crossover at PON14 P 2273: True
+    L03   2940 +- 20 (carried): does not span
+    LBP25 1965 +- 970 (carried) or +- 447 (search snippet): central value below; +970 band spans, +447 band tops at 2412 vs crossover 2282
+CHECK PASS  PON14 N 2-sigma band spans the crossover (read datum, no carried value used)
+
+=== 5. the P datum sets the figure: factor range over compilations
+  P-bound factor spans 10.305..12.097 (70 kg: 721..847 kg); tree 10.701
+  vs cosmic: stellar photosphere factor 1911 -> advantage 146.2..185.4 x
+
+=== 6. craft binder Ta: tree 10 ppb against MS95 13.6 / PON14 15 ppb
+  Ta 10.0 ppb -> craft binder Ta factor 9.008e+04
+  Ta 13.6 ppb -> craft binder Ta factor 6.624e+04
+  Ta 15.0 ppb -> craft binder Ta factor 6.005e+04
+CHECK PASS  craft binder stays Ta under MS95 and PON14 Ta
+
+=== 7. 'retained its volatiles' (stockgate :175-177): CI vs solar, per Si, by number
+  H  CI/solar = 0.0002  (depleted x5875)
+  C  CI/solar = 0.0920  (depleted x11)
+  N  CI/solar = 0.0285  (depleted x35)
+  O  CI/solar = 0.5029  (~solar)
+  P  CI/solar = 1.1095  (~solar)
+  S  CI/solar = 1.0872  (~solar)
+  Zn CI/solar = 1.1163  (~solar)
+  Fe CI/solar = 0.8898  (~solar)
+  Mg CI/solar = 0.8471  (~solar)
+CHECK PASS  CI N is depleted > 20x relative to solar (tree's own tables)
+  => a CI chondrite retained its MODERATELY volatile elements near solar and lost most of its most-volatile ones (N, C, H); the binder argument needs only CI N/P > payload N/P = 2.308, not 'retained its volatiles'.
+
+RESULT: ALL CHECKS PASS

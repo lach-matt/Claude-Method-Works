@@ -1,0 +1,91 @@
+{
+ "key": "no-cloning-theorem",
+ "name": "No-cloning theorem (Wootters-Zurek / Dieks 1982)",
+ "source": {
+  "located": "W.K. Wootters & W.H. Zurek, Nature 299, 802 (1982); D. Dieks, Phys. Lett. 92A, 271 (1982). Neither is on arXiv. Read through V. Scarani, S. Iblisdir, N. Gisin, A. Acin, 'Quantum cloning', Rev. Mod. Phys. 77, 1225 (2005), arXiv:quant-ph/0511088 -- p.3 Sec. I.B (statement and the linearity proof 'following the work of Wootters and Zurek (1982)'), pp.3-4 Sec. I.C (history: Herbert's FLASH 1982, WZ, Dieks, Milonni-Hardies, Mandel), p.4 (Barnum et al. 1996 no-broadcasting; Buzek-Hillery 1996 F=5/6), p.30 Sec. VII.B (teleportation: 'the original has to be destroyed ... otherwise there would be a contradiction with the no-cloning theorem'). Ahn, Myers, Ralph, Mann arXiv:1207.6062 p.2 restates WZ's content independently ('the linearity of quantum mechanics leads to ... no apparatus exists that will copy an arbitrary quantum state. It does not rule out ... copying orthonormal states').",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on quant-ph/0511088 (pp.1-4,7,30,32) and 1207.6062 (pp.1-5). The WZ and Dieks originals are NAMED-NOT-READ; Dieks' own proof is not restated verbatim anywhere read here (Scarani et al. cite it only as a co-response)."
+ },
+ "published_statement": "As restated (Scarani et al. 2005, p.3): 'No-cloning theorem: No quantum operation exists that can duplicate perfectly an arbitrary quantum state.' Proof as restated: suppose |psi>|R>|M> -U-> |psi>|psi>|M(psi)>; for orthogonal |0>,|1> linearity forces (a|0>+b|1>)|R>|M> -> a|00>|M(0)>+b|11>|M(1)>, which is not (a|0>+b|1>)(a|0>+b|1>)|M>; 'So (2) may hold for states of an orthonormal basis, but cannot hold for all states. This concludes the proof using only the linearity of quantum transformations following the work of Wootters and Zurek (1982).' Scope (p.2): cloning 'can be done perfectly and with probability 1 if and only if a basis to which psi belongs is known'.",
+ "published_hypotheses": [
+  "H1 LINEARITY: the evolution is a linear (trace-preserving CP) map; by Kraus's theorem, unitary on system+ancilla, ancilla traced out (Scarani p.3). Ahn et al. p.2: the theorem holds 'if chronology is respected'; Deutsch's CTC model makes the induced map nonlinear.",
+  "H2 PERFECT copying: fidelity exactly 1 and deterministic (probability 1). Imperfect cloning is allowed (Buzek-Hillery F=5/6); probabilistic exact cloning is allowed for linearly independent states (Scarani p.2: 'or they are perfect but sometimes the copying process simply gives no outcome').",
+  "H3 ARBITRARY input: the set of states to be copied contains at least two distinct non-orthogonal states; an orthonormal set (a known basis) can be cloned.",
+  "H4 pure states in the original (WZ); extended to non-commuting mixed states by Barnum et al. 1996 (no-broadcasting), Scarani p.4.",
+  "H5 standard quantum mechanics on a Hilbert space (the blank |R> and machine |M> are fixed, independent of psi)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (unnamed) -- H1 linearity / chronology-respecting evolution: transit.py:30-33, :231-232, :343 and specthm.py R11 (:1183, :1206-1209), ledger.py M-S1A-P5 (:1360-1366), index3.py:1364 name no-cloning with no hypothesis. On this board the omission is not idle: whether any braneworld shortcut yields a CTC is held OPEN (latticectc.py:109 O3_CLOSED = False; specthm.py statement 'whether any braneworld shortcut yields a CTC is O3'), and under Deutsch's CTC model perfect cloning of a finite alphabet of non-orthogonal states and above-bound universal cloning are exhibited (Ahn et al. arXiv:1207.6062, READ) -- contested by Bennett et al. PRL 103, 170502 (2009) (NAMED-NOT-READ). IT_IS_A_MOVE_NOT_A_COPY therefore cannot be carried into a CTC-bearing geometry without naming H1.",
+  "DROPPED -- H2 'perfect': transit.py:31-33 'holding no trace of what it carried' is correct for the protocol as run, but the tree never states that the theorem forbids only PERFECT copies; an approximate copy at F = 5/6 per copy (Buzek-Hillery) is allowed. Not a falsity in transit.py (it does not claim approximate copying is impossible); a named-hypothesis gap if IT_IS_A_MOVE_NOT_A_COPY is quoted beyond the protocol.",
+  "WEAKENED-BUT-EQUIVALENT -- H3: specthm.py:1206-1209 and the canonical entry use 'unknown input state' and 'A KNOWN state can be re-prepared'. The published scope is 'arbitrary' / 'a basis to which psi belongs is not known'. The tree's gloss agrees in content (C3 in the re-derivation: an orthonormal pair is cloneable by CNOT). No drift of substance.",
+  "ADDED (framing, not a hypothesis) -- transit.py:231-232 'No-cloning enforced by the protocol itself rather than imposed on it'. The source's direction is the converse: teleportation 'elucidates' no-cloning -- 'the original has to be destroyed in the process ... otherwise there would be a contradiction with the no-cloning theorem' (Scarani p.30). Any linear protocol obeys the theorem; the protocol exhibits it, it does not enforce it. A discrepancy of wording, recorded, not a refutation.",
+  "METHOD GAP (not a drift in the theorem) -- transit.py:230 and :341-342 compute entropy2 of the literal matrix [[0.5,0],[0,0.5]]; A's post-measurement state is never extracted from teleport() (transit.py:112-125 discards Alice's register). The selftest therefore cannot fail on this line. Re-derived here from the protocol: the value is correct (C4).",
+  "SCOPE NOTE -- 'A's qubit is maximally mixed, S = 1 bit' is true of EACH of Alice's two qubits (input C and her half A) individually; given the outcome, the pair C,A is in a pure Bell state (S = 0) that carries no dependence on psi. 'No trace' is established by psi-independence, not by S = 1 alone (a psi-dependent mixed state could also have S close to 1). The tree's wording does not distinguish these; the re-derivation checks both."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "S(I/2), entropy of A's post-measurement qubit",
+   "value_then": "1 bit (transit.py:230, :342, from a hard-coded I/2)",
+   "value_now": "1 bit exactly, computed from the protocol: reduced state of qubit C and of qubit A = I/2 on every outcome, independent of alpha,beta (sympy)",
+   "source_now": "rederive/no-cloning-theorem.py C4",
+   "moves_conclusion": "no -- a mathematical identity, not a datum; agrees"
+  },
+  {
+   "quantity": "bound on nonlinearity of quantum evolution (hypothesis H1 is empirical)",
+   "value_then": "1982: no dedicated bound; WZ/Dieks take linearity as a postulate",
+   "value_now": "|eps_gamma| < 4.7e-11 (90% CL) for an electromagnetic state-dependent nonlinearity of the Kaplan-Rajendran form (Polkovnikov et al. arXiv:2204.11875, READ); earlier Bollinger et al. PRL 63, 1031 (1989) and Weinberg 1989, Gisin 1990, Polchinski 1991 (all NAMED-NOT-READ, cited there)",
+   "source_now": "arXiv:2204.11875 p.3",
+   "moves_conclusion": "no -- every test to date is null; a bound tightens H1 rather than moving the conclusion. It bounds one parametrised family only, so H1 remains a hypothesis, not a measured fact in general."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-cloning-theorem.py",
+  "outcome": "ALL PASS (exit 0). C1: <a|b> = <a|b>^2 has solutions {0,1} exactly (WZ/Dieks unitarity form). C2: the linear extension of a {|0>,|1>} cloner sends |+> to (|00>+|11>)/sqrt2, overlap with |++> = sqrt2/2, fidelity 1/2 (Scarani eq. 2 ff.). C3: no LINEAR map C^2->C^4, unitary or not, satisfies M psi = psi(x)psi on {|0>,|1>,|+>} -- sympy linsolve returns EmptySet; on the orthogonal pair alone the system is consistent and CNOT realises it. C4 (transit.py's claim from the protocol, symbolic alpha,beta): every Bell outcome has p = 1/4, the post-measurement state factorises as |Bell_m>_CA (x) |b>_B, Alice's pair is free of alpha,beta, each of her qubits is I/2, S = 1 bit, the pair is pure, averaged over outcomes the pair is I/4; B's corrected state has fidelity 1. C5: Buzek-Hillery machine gives F = 5/6 to 1e-12 on 200 random inputs, both copies. C6: Herbert's FLASH with a perfect cloner gives <01|rho_x|01> = 1/4 vs <01|rho_z|01> = 0, so perfect cloning would signal; without it B sees I/2 either way.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Barnum, Caves, Fuchs, Jozsa, Schumacher, PRL 76, 2818 (1996) (quant-ph/9511010)",
+   "effect": "extends",
+   "what": "No-broadcasting: non-commuting mixed states cannot be broadcast; the pure-state theorem generalises.",
+   "read_status": "READ-VIA-RESTATEMENT (Scarani et al. p.4)"
+  },
+  {
+   "ref": "Buzek & Hillery, PRA 54, 1844 (1996) (quant-ph/9607018)",
+   "effect": "narrows",
+   "what": "Only PERFECT cloning is forbidden; a universal 1->2 qubit cloner with F = 5/6 exists and is optimal. Re-computed here (C5).",
+   "read_status": "READ-VIA-RESTATEMENT (Scarani et al. pp.4,7)"
+  },
+  {
+   "ref": "Scarani, Iblisdir, Gisin, Acin, RMP 77, 1225 (2005), arXiv:quant-ph/0511088",
+   "effect": "confirms",
+   "what": "Restates the theorem and WZ's linearity proof; teleportation must destroy the original or contradict no-cloning (p.30).",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Ahn, Myers, Ralph, Mann, 'Quantum state cloning in the presence of a closed timelike curve', arXiv:1207.6062 (v1 read; journal version not checked here)",
+   "effect": "narrows",
+   "what": "Under Deutsch's CTC model the induced map is nonlinear; a finite alphabet of non-orthogonal states is cloned perfectly and a symmetric universal cloner exceeds the Buzek-Hillery bound for N >= 55 broadcast states (numerical); no signalling results. Removes H1, which the tree does not name.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Bennett, Leung, Smith, Smolin, PRL 103, 170502 (2009), arXiv:0908.3023",
+   "effect": "contested",
+   "what": "Argues the extra power of Deutsch CTCs disappears when the linearity trap is avoided (as cited by Ahn et al. p.2 and by Polkovnikov et al. ref. 27); Ahn et al. cite Ralph-Myers 2010 and Cavalcanti-Menicucci 2010 as rebutting it. The CTC narrowing is therefore itself contested.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Polkovnikov, Gramolin, Kaplan, Rajendran, Sushkov, arXiv:2204.11875",
+   "effect": "confirms",
+   "what": "Null search for state-dependent nonlinearity, |eps_gamma| < 4.7e-11 at 90% CL: linearity (H1) holds to this bound for the tested family.",
+   "read_status": "READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What WZ and Dieks had in 1982: linear quantum mechanics as a postulate, Herbert's FLASH proposal as the trigger, no experimental bound on nonlinearity, no quantum-information framework (teleportation 1993, no-broadcasting 1996, optimal cloning 1996 all came later). What came later: (a) experimental bounds on nonlinearity -- all null (Bollinger 1989 NAMED-NOT-READ; Polkovnikov 2022 READ, |eps_gamma| < 4.7e-11); (b) optimal approximate cloning, which shows the theorem is sharp only for perfect copies; (c) Deutsch-CTC models (1991 onward) under which cloning is possible, contested. Evidence either way: no datum the authors lacked moves the theorem, which is a two-line consequence of linearity re-derived here exactly (C1-C3); the later data CONFIRM H1 within tested families. What the later work does show is that the conclusion is exactly as strong as H1, and the one route by which H1 fails in the literature -- CTCs -- is one this board keeps open (O3). So M's suspicion is not borne out for this result as a theorem; it is borne out only in the narrow sense that the tree's use omits the hypothesis on which the result depends, in a setting where that hypothesis is live.",
+ "grade": "NARROWED",
+ "grade_evidence": "The theorem as published STANDS: statement and proof re-derived exactly in sympy (C1-C3, EmptySet for any linear cloner on {|0>,|1>,|+>}); transit.py's numerical claim is correct when computed from the protocol rather than hard-coded (C4: psi-free Bell state on Alice's pair, each qubit I/2, S = 1 bit, fidelity 1 at B); no moved datum moves it (nonlinearity bounds are null). The grade is NARROWED, not STANDS, on the grading rule's 'a hypothesis the tree drops': every tree site (transit.py:30-33, :231-232, :343; specthm.py R11 :1206-1209; ledger.py M-S1A-P5 :1360-1366; index3.py:1364) names no-cloning without its hypothesis H1 (linear, chronology-respecting evolution) or H2 (perfect copies only), and the board holds CTCs open (latticectc.py:109 O3_CLOSED = False) -- the one setting in the read literature where the theorem is circumvented (Ahn et al. arXiv:1207.6062, itself contested by Bennett et al. 2009). Within the class the tree actually runs (teleportation in linear, chronology-respecting QM) the tree's use is correct. Also recorded, not as refutations: 'enforced by the protocol rather than imposed on it' inverts the source's direction (Scarani p.30); the entropy at transit.py:230/:342 is of a literal I/2, so the selftest line cannot fail.",
+ "what_would_change_the_grade": "To STANDS: the tree names H1 (linear, chronology-respecting evolution; no Deutsch CTC) and H2 (perfect copies only; approximate F = 5/6 cloning allowed) at transit.py's no-cloning sites and in R11, and confines IT_IS_A_MOVE_NOT_A_COPY to that class. To WRONG: a demonstrated violation of linearity (a non-null result in a nonlinearity search) or an accepted resolution of the Deutsch-vs-Bennett CTC dispute placing the tree's teleportation inside a CTC-bearing region -- neither exists. To OPEN: none; the result is fully checkable here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/no-cloning-theorem.py; grep -n \"no-cloning\\|0.5+0j\\|IT_IS_A_MOVE_NOT_A_COPY\" /home/user/Claude-Method-Works/research/warp-drive/transit.py; grep -n 'O3_CLOSED = ' /home/user/Claude-Method-Works/research/warp-drive/latticectc.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/no-cloning-theorem.json"
+}

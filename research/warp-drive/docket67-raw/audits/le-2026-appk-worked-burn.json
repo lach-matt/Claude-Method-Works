@@ -1,0 +1,116 @@
+{
+ "key": "le-2026-appk-worked-burn",
+ "name": "Le App. K worked burn: delta_eta/lambda = 2.0 (delta_eta = 0.24, lambda = 0.12)",
+ "source": {
+  "located": "An T. Le, 'Steering a warp drive without exotic matter', arXiv:2606.22531v2 [gr-qc], 30 Jun 2026 -- the version the tree cites (warpshell.py:6-7). The worked burn is the paragraph 'Complete finite-duration maneuver (Theorem 3)' on printed p.45 (the numerical appendix the paper's own p.27 calls 'App. K': 'the worked saturating burn of App. K sheds about half its rest mass'); the stability sentence the tree leans on is printed p.28 (Sec. 15, 'Linear stability: marginal, conditionally burn-limited'). A later revision, arXiv:2606.22531v4 (13 Sep 2026, retitled 'Radiative steering of warp shells'), was also read in part.",
+  "read_status": "READ",
+  "via": "Live alphaXiv calls (answer_pdf_queries, get_paper_content, discover_papers) all returned 'alphaXiv assistant quota exceeded' in this stage, and arxiv.org / export.arxiv.org are refused by the egress proxy (CONNECT 403). The paper was READ from page text returned by alphaXiv in an earlier stage of this workflow and cached at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2606.22531v3.txt (md5 b9eaaa51be71f3bcc3b4845c828a4564). The file is NAMED v3 but its own arXiv stamp (line 59) reads 'arXiv:2606.22531v2 [gr-qc] 30 Jun 2026', so it is v2. The capture is PARTIAL: printed pages 1-4, 7, 8, 12, 23, 25-28 and 45 only. App. J (where tau_efold = sqrt(2/|V''|) is derived and |V''| would be stated) and Fig. 3 are NOT in the capture and were NOT read. v4 read from src/casmag/all/2606.22531v4.txt (md5 5a693452d50444f5188264f046e56c17), also partial (pages 1-10, 13, 23, 29, 30, 38, 39)."
+ },
+ "published_statement": "Le v2 p.45, verbatim (whitespace normalized): 'Complete finite-duration maneuver (Theorem 3). We integrate the bump steering a(u) = a_max sin^2[pi(u - u_0)/(u_f - u_0)] off the static anchor x* = 0.3 with the saturated budget m(u) = m_0 e^{-3 INT|a|} and lambda_max = 0.12 < g(0.3). At every retarded step it evaluates the bulk dust n_2(theta) and the gauge-invariant finite-lambda Lanczos surface stress (App. C), establishing n_2 >= 0, a strictly positive worst-observer surface dec margin (Type I), and lambda < 1 throughout, with the Bondi moment identities ... closing to ~10^-7; the burn radiates approx 51% of the rest mass for a rapidity gain 0.24 (Fig. 3)'. And p.28: 'Linear stability: marginal, conditionally burn-limited. The realized tangential-pressure wall sits exactly on the Poisson-Visser marginal curve V''(R) = 0 (App. J): a radial displacement is a neutral zero mode. Under the frozen-background rear-pole redshift the marginal wall e-folds in tau_efold = sqrt(2/|V''|), of order a light-crossing time (App. J), so the Tsiolkovsky burn outruns the instability only in a restricted high-compactness, brief-rapidity corner. A slightly stiffer, still-admissible wall is strictly stable at no cost in the surface dec margin ... this stiffened wall is a nearby model, not the realized one (App. J).' Le prints the parameters (0.24, 0.12, x* = 0.3); he does NOT print the ratio delta_eta/lambda = 2.0, and in the pages read he does NOT say that the App. K burn fails the burn-outruns-instability criterion. The ratio and the verdict 'fails by 2.0' are the tree's computation.",
+ "published_hypotheses": [
+  "H1 (p.45) acceleration profile a(u) = a_max sin^2[pi(u-u_0)/(u_f-u_0)] in the canonical rocket retarded time u, not constant acceleration",
+  "H2 (p.45) static anchor x* = 2m/R = 0.3 at the start (and end) of the burn",
+  "H3 (p.45) saturated budget m(u) = m_0 exp(-3 INT|a| du), i.e. the control law -m_dot >= 3 m |a| held with equality",
+  "H4 (p.45) peak lambda_max = a_max R = 0.12, required to lie below the dec frontier g(0.3); g(x) is the largest lambda admitting a regular admissible matched shell, capped below the kinematic ceiling (1-x)/2 (p.12, eq. 28; Prop. 5)",
+  "H5 (p.45) the burn is a sequence of per-retarded-cut snapshots (adiabatic in the junction); the fully time-dependent O(mu^2) correction 'is not parametrically negligible there and remains open' (p.28)",
+  "H6 (p.28) the e-folding estimate tau_efold = sqrt(2/|V''|) holds for the REALIZED tangential-pressure wall, on the marginal curve V''=0, 'under the frozen-background rear-pole redshift', and is 'of order a light-crossing time' -- an order estimate, with its coefficient in App. J (not read here)",
+  "H7 (p.28) the outrun condition is stated only qualitatively: the burn outruns the instability 'only in a restricted high-compactness, brief-rapidity corner'; no numerical criterion is printed in the pages read"
+ ],
+ "hypothesis_drift": [
+  "ADDED/WEAKENED -- tau_efold = R/c with coefficient exactly 1, where Le gives sqrt(2/|V''|) 'of order a light-crossing time' (warpshell.py:64-66, 208-211; wall.py:52). The tree labels this 'ORDER OF MAGNITUDE ... not a coefficient' at warpshell.py:209-210 and warpshell.py:404, and its only coefficient-robustness check (warpshell.py:353) is for the 14-order shortfall of a habitable ship. For Le's own burn the miss is a factor 2, so the O(1) coefficient decides the verdict: rederive C5 shows 'fails' flips to 'passes' for any tau_efold >= 2R/c, i.e. |V''|R^2 <= 1/2. That caveat is NOT carried at wall.py:64, 577 or 698 or warpshell.py:334, 389-395.",
+  "DROPPED -- the sin^2 profile (H1): the tree uses tau_burn = c delta_eta / a at the PEAK acceleration (warpshell.py:213-215, 225-231; wall.py:366-373), i.e. a constant-a burn at a_max. The App. K profile has mean acceleration a_max/2, so the full burn lasts T = 2 delta_eta / a_max = 4 R/c (rederive C2, sympy). The tree's own integrate_burn (warpshell.py:249-262, selftest warpshell.py:309-312: a_peak = 1, duration = 0.48 for eta = 0.24) already encodes T = 2 eta/a_peak, so warpshell.py is internally inconsistent between its budget check and its stability check. 2.0 equals the FWHM of the bump (time with a >= a_max/2), a defensible reading, but it is a reading, not the burn duration. The drop makes the marginal-wall verdict LESS severe (4 on full duration) and the stiff-wall margin SMALLER (4W = 4.86 vs 2W = 2.43).",
+  "DROPPED -- 'under the frozen-background rear-pole redshift' (H6): warpshell.py:62-66 restates the marginal wall as 'a neutral zero mode with e-folding time of order a light-crossing time' without the condition under which Le derives the growth; wall.py:199-200 does name 'the frozen-background linear radial mode', so the drop is local to warpshell.py:62-66 and wall.py:50-54.",
+  "WEAKENED -- clock: Le's a is the rate of rapidity per unit canonical retarded time u (INT|a|du = Delta eta, p.27), while warpshell.py:214 documents burn_time as 'Proper time to gain delta_eta at proper acceleration a'. At the x = 0.3 anchor a static shell's proper time per unit u is sqrt(1-x) = 0.837 (rederive C6); this O(1) factor does not by itself flip a factor-2 miss, but it is another unnamed O(1) in a factor-2 verdict.",
+  "ADDED -- the stiff-wall column (wall.py:64 'adiabatic by only 2.4'; wall.py:575-577; wall.py:698 'am = 2.0 * omega_scaled(0.3, 0.5)') applies Le's burn to a wall Le did not build: beta^2 = 0.5 is the tree's choice (wall.py:64 header 'x=0.3, b^2=0.5'); Le's realized wall is marginal (V''=0), and his stiffer wall is 'a nearby model, not the realized one' (p.28). The tree states this at warpshell.py:69-70 and wall.py:194-196; it is not restated at the table row.",
+  "ADDED -- the criterion itself: 'tau_burn <= tau_efold, i.e. delta_eta <= lambda' (wall.py:51-52; warpshell.py:64-66, 225-231) is the tree's quantification of Le's qualitative 'restricted high-compactness, brief-rapidity corner' (H7). The tree says only that its result is 'consistent with his statement' (warpshell.py:68), which is accurate: in the pages read Le does not print the App. K burn as passing or failing.",
+  "CONTEXT -- the wall.py table containing this row carries 'WITHDRAWN IN PART' (wall.py:56-61), aimed at the diffuse corner, not at this row; the row's arithmetic is unaffected by that withdrawal."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "rapidity gain delta_eta of the worked burn",
+   "value_then": "0.24 (Le v2 p.45)",
+   "value_now": "0.24 in v2; not found in the captured pages of v4 (13 Sep 2026), whose worked examples use x = 0.3 with L = 0.6 and a self-similar solution at lambda = 10^-4 (v4 p.10, Fig. 1; the exponent is split across lines in the extraction). Absence from a partial capture is not proof of withdrawal.",
+   "source_now": "src/casmag/all/2606.22531v4.txt (partial)",
+   "moves_conclusion": "No, as arithmetic: 0.24/0.12 = 2 exactly. It is a design parameter chosen by the author, not a measured datum."
+  },
+  {
+   "quantity": "peak lambda_max = a_max R",
+   "value_then": "0.12 < g(0.3) (Le v2 p.45)",
+   "value_now": "0.12 in v2; not located in v4 capture",
+   "source_now": "as above",
+   "moves_conclusion": "No. It is inside the Prop. 5 ceiling (1-x)/2 = 0.35 and the operative window x + 2 lambda = 0.54 < 4/5 (rederive C1)."
+  },
+  {
+   "quantity": "static anchor compactness x*",
+   "value_then": "0.3",
+   "value_now": "0.3 (v2); v4 figures still use x = 0.3",
+   "source_now": "v2 p.45; v4 p.10",
+   "moves_conclusion": "No -- enters only the stiff-wall column through W(0.3, 0.5) = 1.2151 (rederive C4)."
+  },
+  {
+   "quantity": "coefficient k in tau_efold = k R/c",
+   "value_then": "Le: sqrt(2/|V''|), 'of order a light-crossing time' (p.28); App. J not read",
+   "value_now": "tree takes k = 1 (warpshell.py:208-211)",
+   "source_now": "not measured anywhere; App. J unread",
+   "moves_conclusion": "YES for the verdict, NO for the number: 'fails by 2.0' becomes 'passes' for k >= 2 (constant-a reading) or k >= 4 (full sin^2 duration) -- rederive C5."
+  },
+  {
+   "quantity": "burn-duration convention (peak vs profile)",
+   "value_then": "Le's profile: sin^2 bump, mean a = a_max/2",
+   "value_now": "tree: constant a = a_max",
+   "source_now": "sympy, rederive C2",
+   "moves_conclusion": "Changes the ratio 2.0 -> 4.0 on the full duration (marginal verdict strengthened) and the stiff-wall margin 2.43 -> 4.86 (the tree's '< 5' survives, by 0.14)."
+  },
+  {
+   "quantity": "radiated fraction",
+   "value_then": "approx 51% (Le p.45)",
+   "value_now": "1 - e^{-0.72} = 0.513248 (computed)",
+   "source_now": "rederive C1; warpshell.py selftest fixture",
+   "moves_conclusion": "No -- agrees."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/le-2026-appk-worked-burn.py",
+  "outcome": "REDERIVE OK, 20 checks (output in rederive/le-2026-appk-worked-burn.out). C1: delta_eta/lambda_max = 2 exactly; 1 - e^{-0.72} = 0.5132477 ('approx 51%'); lambda_max inside (1-x)/2 and x + 2 lambda < 4/5. C2 (sympy): INT_0^T a_max sin^2(pi u/T) du = a_max T/2, so the App. K burn lasts T = 4 R (units c = 1) -- the tree's 2 is the constant-peak reading, equal to the bump's FWHM. C3 (sympy dsolve): m' = -3 m a_max sin^2 gives m_f/m_0 = e^{-3 a_max T/2} = e^{-3 eta}. C4: wall.py imported read-only (no bytecode written; __pycache__ mtimes unchanged): W(0.3, 0.5) = 1.2151275860, lew = 2W = 2.4302552 ('adiabatic by only 2.4' reproduced), hardcoded sf = 2.0 == 0.24/0.12, lew < 5 true; on the full profile duration the margin is 4W = 4.8605 -- still < 5. C5: the marginal verdict flips for tau_efold >= 2R (|V''|R^2 <= 0.5) or >= 4R on the full duration (|V''|R^2 <= 0.125). C6: clock factor sqrt(1-0.3) = 0.8367.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "A. T. Le, arXiv:2606.22531v4 (13 Sep 2026), 'Radiative steering of warp shells' -- the same paper, revised",
+   "effect": "narrows",
+   "what": "The revision reframes the stability content: the abstract now says 'Self-similar shells require anisotropic stress and have growing normal modes with the ambient geometry and coefficients held fixed', and Sec. 7 that 'compression produces growing normal modes in the frozen surface equations on a prescribed geometry' and 'The remaining problem is a self-gravitating material cavity that completes a turn and settles.' In the captured pages the App. K worked burn (0.24, 0.12), the marginal-wall sentence and 'tau_efold = sqrt(2/|V''|)' do not appear. The tree's citation (v2) is therefore a superseded version; since the capture is partial, whether the worked burn was removed is NOT established here.",
+   "read_status": "READ in part (src/casmag/all/2606.22531v4.txt; pages 1-10, 13, 23, 29, 30, 38, 39)"
+  },
+  {
+   "ref": "T. Pitre, B. Schneider, E. Poisson, 'Self-gravitating thin shells are dynamically unstable on all angular scales', arXiv:2604.05980 (cited as ref. [19] in Le v4 and at wall.py:110)",
+   "effect": "extends",
+   "what": "As cited by Le v4 p.3: 'For a barotropic fluid shell, the fully coupled study [19] finds growing even-parity modes at all sampled multipoles l >= 2 and parameter values. Its constitutive assumptions differ from those of the radiating shell considered here.' This bears on the tree's radial-only criterion (the l = 0 mode is what delta_eta <= lambda prices); the tree already carries the l >= 2 channel (wall.py 'THE NON-RADIAL MODE'). Not re-read in this stage.",
+   "read_status": "READ-VIA-RESTATEMENT (Le v4 p.3); the paper itself NAMED-NOT-READ here"
+  },
+  {
+   "ref": "discover_papers for later work on accelerating photon-rocket warp shells and radiating-shell stability",
+   "effect": "contested",
+   "what": "NOT RUN TO RESULT: the single call returned 'alphaXiv assistant quota exceeded'. No further later literature is claimed; 'contested' is used only because the enum has no 'not-read' value.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis does not bite here as a matter of MEASUREMENT: the worked burn uses no empirical datum -- 0.24, 0.12 and 0.3 are design parameters Le chose, and the ratio 2.0 is exact arithmetic (rederive C1). What was lacking is not data but a COEFFICIENT and a CONVENTION. (i) Le gives tau_efold only as sqrt(2/|V''|), 'of order a light-crossing time', for a wall sitting at V''=0 under a frozen-background redshift; the tree set the coefficient to 1. Because Le's own burn misses by a factor 2, not 14 orders, that unmeasured coefficient decides the verdict (C5: k >= 2 flips it). App. J, where the coefficient lives, was not in the capture, so whether k < 2 is OPEN here. (ii) The tree timed the burn at peak acceleration; the App. K profile's full duration is twice that (C2), which pushes the marginal verdict further toward failure. Evidence either way: (ii) strengthens 'fails', (i) could reverse it; neither is resolved by a datum that has moved. The later revision (v4) itself withdraws from the per-burn marginal-stability framing toward 'growing normal modes ... with coefficients held fixed', which is the author supplying a sharper statement, not new data.",
+ "grade": "NARROWED",
+ "grade_evidence": "The NUMBER stands: Le v2 p.45 (READ) prints x* = 0.3, lambda_max = 0.12 and 'rapidity gain 0.24', so delta_eta/lambda_max = 2 exactly, and wall.py's 2.0 (l.698), 2.43 (l.575-577, '2.4' at l.64) and the ~51% fixture reproduce (rederive C1, C4). The VERDICT the tree attaches ('fails by 2.0', wall.py:64; 'misses by a factor 2', warpshell.py:67, 334) holds only on a narrower class than the tree states, under hypotheses the source does not supply: (a) tau_efold = R/c with coefficient 1, where Le gives sqrt(2/|V''|) as an order estimate under a frozen-background redshift -- the verdict flips for any coefficient >= 2 (C5) and the tree's O(1)-robustness argument (warpshell.py:353) covers only the 14-order case; (b) tau_burn at peak acceleration, where the App. K sin^2 profile lasts 2x longer (C2, sympy; the tree's own integrate_burn at warpshell.py:309-312 uses that longer duration). (b) moves the numbers 2.0 -> 4.0 and 2.43 -> 4.86 without reversing either qualitative reading (marginal wall fails; stiff wall's margin stays '< 5'). No counterexample to anything Le printed is shown, so not WRONG; no measured datum has moved, so not DATA-DEPENDENT. Le never states the ratio or the verdict in the pages read; the tree's attribution 'consistent with his statement' (warpshell.py:68) is accurate. The cited version (v2) has been superseded by v4 (13 Sep 2026), whose captured pages no longer carry this burn -- recorded, not adjudicated, as the capture is partial.",
+ "what_would_change_the_grade": "To STANDS: reading Le v2 App. J and finding the tree's coefficient justified (sqrt(2/|V''|) <= 2R/c for the burn's redshift perturbation, i.e. |V''|R^2 >= 1/2), AND the tree stating which duration convention (peak or full sin^2) the criterion uses. To OPEN-for-the-verdict / stronger narrowing: App. J giving |V''|R^2 < 1/2 at x = 0.3, lambda = 0.12, which would make Le's worked burn PASS the tree's own criterion under the constant-a reading. To WRONG: only a computed contradiction of 0.24/0.12 = 2 or of the printed parameters, which C1 rules out on v2. A full v4 read showing the worked burn removed would not change this grade (the audit is of v2 as cited) but would make the citation stale.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/le-2026-appk-worked-burn.py && grep -n 'arXiv:2606.22531v2\\|lambda\\|0.12 &lt; g(0.3)\\|rapidity gain 0.24\\|e-folds in\\|restricted' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2606.22531v3.txt | head -20",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/le-2026-appk-worked-burn.json",
+ "statements_as_used": [
+  {
+   "owner": "wall.py",
+   "where": "wall.py:64, 575-577, 694-698",
+   "statement": "'Le App. K worked burn  fails by 2.0  adiabatic by only 2.4' (wall.py:64); 'Le App. K burn (delta_eta/lambda = 2.0)' (wall.py:577); hardcoded sf = 2.0 (wall.py:698)"
+  },
+  {
+   "owner": "warpshell.py (same figure, not listed in canonical owners)",
+   "where": "warpshell.py:64-68, 330-334, 389-395",
+   "statement": "'Le's own worked burn (delta_eta = 0.24, lambda_max = 0.12) misses it by a factor 2'; selftest 'it misses by a factor 2'; report sf = 0.24/0.12"
+  }
+ ]
+}

@@ -1,0 +1,113 @@
+{
+ "key": "classical-charge-radius-inside-body",
+ "name": "Every charged body that exists has classical radius r_c = Q^2/2M no larger than its own radius a",
+ "source": {
+  "located": "No single paper: the tree's own derivation (drivensource.py sec.4 + obligation E2) on top of the classical charged-body / Reissner-Nordstrom literature. The external result that speaks directly to the universal is Bonnor & Cooperstock, 'Does the electron contain negative mass?', Phys. Lett. A 139 (1989) 442 (with Cooperstock & Rosen 1989; Herrera & Varela, Phys. Lett. A 189 (1994) 11) -- pre-arXiv, NAMED-NOT-READ; restated exactly in arXiv:0710.5619 (S. Bhadra, PhD thesis 2007) sec. 3.1-3.2.1, eqs (3.1),(3.5)-(3.7), pp. 34-36, and summarized pp. 17-18 (with Ponce de Leon 1988 and Lopez 1992). Equality case (source boundary exactly at r = e^2/2m, zero bare mass) restated in arXiv:1212.2920 (Burinskii 2013) eq (5), p.3 (Lopez bubble). Measured lepton sizes: arXiv:2506.02450 (Bourilkov 2025) Table 1 and eq (3), from L3 PLB 489 (2000) 81 and Bourilkov PRD 62 (2000) 076005.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 0710.5619 (pp.1,3,6,8,21-22,26,32,34,38-42,47,49,52,61,80,85,88), 1212.2920 (pp.1-4), 2506.02450 (pp.1-5), 2603.22223 (pp.1-9), 0907.0629 (pp.1-16). Tree read locally: overturn.py:38-53, 256-266, 312-322, 360-380; drivensource.py:113-170, 346-368, 394-440 (git 3223791)."
+ },
+ "published_statement": "Bonnor-Cooperstock 1989 as restated in arXiv:0710.5619 p.36: 'any spherically symmetric distribution of charged fluid, irrespective of its equation of state, whose total mass, radius and charge correspond to the observed values of the electron, must have a negative energy distribution (at least for some values of the radial coordinate)'. Mechanism (eqs 3.5-3.7): matching e^{-2lambda} = 1 - (1/r) int_0^r (8 pi rho + e^{-(nu+lambda)} E^2) r^2 dr to Reissner-Nordstrom at r = a gives 1 - 2m/a + q^2/a^2 = RHS; with m = 6.76e-56 cm, q = 1.38e-34 cm, a = 1e-16 cm, q^2/a^2 - 2m/a ~ 2e-36 > 0, so rho < 0 somewhere; eq (3.1) 'M = m - q^2/2a' is negative, about -1e-52 cm. p.49: 'Since the electrostatic energy of a point charge is infinite, the only way to produce a finite total mass is the presence of an infinite amount of negative energy at the center'. Ponce de Leon 1988 (restated p.21): gravitational repulsion 'always takes place in the interior of a charged perfect fluid sphere when its radius is less than the classical electron radius', not necessarily for anisotropic spheres or boundary-concentrated charge. In words: the tree's bound r_c <= a is the contrapositive of this result (r_c <= a  <=>  interior Misner-Sharp mass m(a) >= 0), and the published literature applies it to the electron in the opposite direction: measured a < r_c, therefore negative interior mass.",
+ "published_hypotheses": [
+  "Classical Einstein-Maxwell (GR + linear Maxwell), static, spherically symmetric charged fluid (Bonnor-Cooperstock; restated 0710.5619 eqs 3.3-3.6)",
+  "Regular centre: the mass integral starts at r = 0 with no point singularity (0710.5619 eq 3.5 lower limit 0)",
+  "Reissner-Nordstrom exterior matched at a sharp boundary r = a",
+  "Input data: electron m, q in geometrized units and the 1983 experimental size bound a ~ 1e-16 cm (Quigg 1983, as cited in 0710.5619 p.34)",
+  "Conclusion concerns the interior energy density sign; it does not model spin/magnetic moment (0710.5619 p.35: 'These models ... lack spin and magnetic moment')",
+  "Tree's derivation (drivensource.py:144-150): flat-space accounting M >= X/a, X = Q^2/(8 pi eps0 c^2), 'whenever the body's own contribution to M is non-negative'; E2 (drivensource.py:426-429) hypothesis mu >= 0"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED at overturn.py:49-50 ('any body of charge Q and mass M >= 0') and overturn.py:376 ('every charged body with mass >= 0'): the bound needs the body's own (non-electromagnetic, binding-inclusive) mass mu >= 0, as drivensource.py:149 and E2 at drivensource.py:429 state. Total mass M >= 0 is insufficient: z3 returns sat with witness X=2, a=1, mu=-1, M=1, r_c=2 (rederive script check B) -- the same counterexample drivensource.py's own DRIFT guard (drivensource.py:430-433) is built to find.",
+  "ADDED at overturn.py:51 and :262 and :318 ('for every charged body that exists' / 'for every charged body'): an empirical universal over existing bodies that no owner measures. The canonical entry's data_used defers to drivensource.py, but drivensource.py contains no table of bodies and no Q, M, a for any real body (grep for electron/elementary returns nothing in drivensource.py or overturn.py). The universal is declared, not computed.",
+  "DROPPED at overturn.py:48-53: 'classical body with a sharp radius and a regular centre' -- the derivation (drivensource.py:144-164) assumes a classical extended body; elementary charged leptons, whose measured size bound is below r_c, are not such bodies unless mu < 0 (0710.5619 eq 3.1; rederive check E).",
+  "DROPPED (GR exactness, harmless): drivensource.py:146-152 uses flat-space additivity M = mu + X/a, omitting gravitational binding. Re-derived exactly with the Israel junction for a static charged thin shell (flat interior, RN exterior): M = mu - mu^2/(2a) + Q^2/(2a), so M - Q^2/(2a) = mu(2a - mu)/(2a) >= 0 on the normal branch 0 <= mu <= a (sympy + z3 unsat). The conclusion survives in full GR; the hypothesis becomes 'normal (non-throat) branch', violated only for mu > 2a on the far sheet (z3 sat).",
+  "NOT STATED BUT EQUIVALENT: r_c <= a <=> m_MS(a) = M - Q^2/(2a) >= 0 exactly (z3 unsat on the negation). So the tree's bound is precisely 'the Misner-Sharp mass at the body surface is non-negative', which regular centre + WEC on the TOTAL energy density inside implies; this is the same identity Bonnor-Cooperstock use in the opposite direction."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "electron size (upper bound) used to test r_c <= a",
+   "value_then": "Bonnor-Cooperstock 1989: a ~ 1e-16 cm = 1e-18 m (Quigg 1983), giving r_c/a = 1409; tree: no value used (universal declared)",
+   "value_now": "a < 2.8e-19 m (95% CL, LEP Bhabha form factor), a < 3.2e-19 m from (g-2)_e with quadratic mass scaling, < 1e-24 m with linear scaling; r_c/a_max = 5032",
+   "source_now": "arXiv:2506.02450 Table 1, eq (3) and p.2 [READ]",
+   "moves_conclusion": "YES, against the tree: for the electron r_c = 1.409 fm exceeds every measured size bound, by 1.4e3 (1983) and 5.0e3 (2000/2025); a classical body of radius 2.8e-19 m with the electron's mass needs mu = M - X/a = -2571 MeV < 0."
+  },
+  {
+   "quantity": "muon size bound",
+   "value_then": "not used",
+   "value_now": "< 2.4e-19 m (95% CL, F_e = F_mu); r_c = 6.81e-18 m, r_c/a_max = 28.4",
+   "source_now": "arXiv:2506.02450 Table 1 [READ]",
+   "moves_conclusion": "YES, against the tree: second counterexample under the classical-body reading."
+  },
+  {
+   "quantity": "tau size bound",
+   "value_then": "not used",
+   "value_now": "< 4.0e-19 m (F_e = F_tau) or < 5.7e-19 m (F_e = 1); r_c = 4.05e-19 m, ratio 1.01 / 0.72",
+   "source_now": "arXiv:2506.02450 Table 1 and text p.2 [READ]",
+   "moves_conclusion": "UNDETERMINED: within the bound's own assumption spread; OPEN."
+  },
+  {
+   "quantity": "electron mass and charge (geometrized)",
+   "value_then": "m = 6.76e-56 cm, q = 1.38e-34 cm (0710.5619 p.34 restating B-C)",
+   "value_now": "G m_e/c^2 = 6.765e-56 cm, sqrt(G/4 pi eps0) e/c^2 = 1.381e-34 cm (CODATA 2022 values, not read at source this run)",
+   "source_now": "CODATA 2022 [NOT READ this run]; recomputed in rederive check F",
+   "moves_conclusion": "NO: agreement to 3 digits; B-C eq (3.7) reproduced as 1.903e-36 and eq (3.1) as -9.5e-53 cm."
+  },
+  {
+   "quantity": "composite charged bodies: proton, pi+, He-4, Pb-208, U-238 nuclei (rms charge radius vs r_c)",
+   "value_then": "not used",
+   "value_now": "r_c/size = 9.1e-4, 7.8e-3, 4.6e-4, 4.5e-3, 4.7e-3",
+   "source_now": "CODATA 2022 / PDG 2024 / Angeli-Marinova 2013 [NOT READ this run; conclusion insensitive by >= 2 orders]",
+   "moves_conclusion": "NO: the bound holds for every composite body checked, by two to four orders of magnitude."
+  },
+  {
+   "quantity": "macroscopic charged sphere at field-emission limit (surface field 1e10 V/m)",
+   "value_then": "not used",
+   "value_now": "r_c/a = 3 eps0 E^2/(2 rho c^2) = 1.5e-11 (water density) to 7.4e-13 (20 g/cc)",
+   "source_now": "computed here",
+   "moves_conclusion": "NO."
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/classical-charge-radius-inside-body.py",
+  "outcome": "ALL CHECKS PASS (exit 0). (A) E2 with mu >= 0: negation unsat -- drivensource's conditional reproduced. (B) overturn.py's wording with only M > 0: sat, witness mu = -1, M = 1, r_c = 2a. (C) exact GR static charged thin shell via Israel junction: M - Q^2/2a = mu(2a-mu)/(2a); r_c <= a unsat-negated on the normal branch 0 <= mu <= a; equality attained at mu = 0 (sat); breaks for mu > 2a (far sheet, sat). (D) r_c <= a <=> m_MS(a) >= 0, negation unsat. (E) measured bodies: electron r_c/a_max = 5032 and muon 28.4 FAIL the universal; tau 1.01 marginal (OPEN); proton, pi+, alpha, Pb-208, U-238 and macroscopic spheres hold by >= 2 orders. (F) Bonnor-Cooperstock eqs (3.1),(3.7) reproduced. (G) peripheral: arXiv:2603.22223 eq (9) as extracted integrates to m_f + pi alpha/16R against its eq (11) m_f - pi alpha/16R; a Poincare coefficient 5 restores (11) and then T00(0) < 0 for MR << alpha -- recorded as a DISCREPANCY (possibly a text-extraction artefact), not a refutation.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:0710.5619 (Bhadra 2007, thesis; restating Bonnor-Cooperstock 1989, Cooperstock-Rosen 1989, Herrera-Varela 1994, Ponce de Leon 1988, Lopez 1992, Gron 1985)",
+   "effect": "contradicts",
+   "what": "Any static spherical charged fluid with the electron's observed mass, charge and radius bound must contain negative energy density; interior rest mass M = m - q^2/2a ~ -1e-52 cm. This is the tree's identity read the other way, and it refutes the universal 'every charged body that exists' for the electron under the classical Einstein-Maxwell reading. Ponce de Leon 1988: repulsion always occurs inside a charged perfect-fluid sphere smaller than the classical electron radius, not necessarily for anisotropic or boundary-charged spheres.",
+   "read_status": "READ-VIA-RESTATEMENT (originals NAMED-NOT-READ)"
+  },
+  {
+   "ref": "arXiv:2506.02450 (Bourilkov 2025)",
+   "effect": "contradicts",
+   "what": "Lepton radius upper limits at 95% CL: e 2.8e-19 m, mu 2.4e-19 m, tau 4.0e-19 m (LEP form factors); contact-interaction equivalents to ~1e-20 m. Supplies the moved datum: r_c(e) = 1.41e-15 m exceeds the electron bound 5000-fold.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "arXiv:1212.2920 (Burinskii 2013; Lopez bubble model)",
+   "effect": "confirms",
+   "what": "The consistent flat-interior source of the Kerr-Newman electron has its boundary exactly at r = r_e = e^2/(2m) (eq 5) -- the equality case r_c = a at zero bare mass that drivensource.py:157-160 derives. But it places the electron's source at 1.4 fm thickness, in tension with the measured size bounds above.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "arXiv:2603.22223 (Gardella, Varma, Schweitzer 2026)",
+   "effect": "narrows",
+   "what": "Classical Bialynicki-Birula electron at R = 1e-20 m: M = 28,234.7 + 42,351.3 - 70,585.5 MeV = 0.511 MeV (eq 13) -- non-electromagnetic contribution (fluid + Poincare stress) is -42,351 MeV < 0, i.e. mu < 0 is exactly how a sub-r_c classical electron is built. Classical results agree with QED only for r >> R and only the leading non-analytic form-factor terms; the electron has MR << 1 so 3D densities are not strictly defined. Peripheral discrepancy in eq (9) vs (11) recorded in rederive check G.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "arXiv:0907.0629 (Dymnikova, Sakharov, Ulbricht 2009)",
+   "effect": "extends",
+   "what": "Nonlinear electrodynamics + GR with WEC gives regular charged solitons with de Sitter core and positive electromagnetic mass; lepton size limits 'much less than its Compton wavelength and classical radius' (p.4). A route by which r_c > size without negative density -- but it drops the tree's linear-Maxwell hypothesis. Its claimed 5-sigma minimal length 1.57e-17 cm is not used here.",
+   "read_status": "READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The external physics (the conditional bound mu >= 0 => r_c <= a, i.e. m_MS(a) >= 0) did NOT lack data and is not overturned: it re-derives exactly, now also in full GR via the Israel thin shell. The data that matters -- the pointlike electron -- was available before the tree was written (size bound 1e-18 m by 1983; 2.8e-19 m by 2000) and was used by Bonnor-Cooperstock (1989) to reach the opposite conclusion for the electron. So the missing data is on the tree's side, not the classical physicists': the universal 'every charged body that exists' was asserted without any body table (drivensource.py holds none). Evidence either way: (for the tree) every composite charged body checked -- proton, pion, He-4, Pb-208, U-238 nuclei, macroscopic conductors -- satisfies r_c <= a by 2-11 orders; (against) the electron (ratio 5032) and muon (28) violate it under the classical-body reading, and improving data has moved the electron ratio from 1.4e3 to 5.0e3, i.e. further from the tree. Whether this reopens L2 is a separate question the tree has not asked: for the electron the would-be negative-m region (r < 1.41 fm) lies inside the Compton wavelength (386 fm) where classical RN is not the description (QED; mass renormalization is the negative bare mass -- 2603.22223 eq 13, 0710.5619 p.49), so 'EMPTY' may survive, but by a quantum argument the tree does not make, not by 'the region is inside the source'.",
+ "grade": "NARROWED",
+ "grade_evidence": "The conditional result STANDS and is strengthened: z3 reproduces E2 (mu >= 0 => r_c <= a), sympy+z3 re-derive it exactly in GR for a static charged thin shell on the normal branch, and r_c <= a is shown equivalent to m_MS(a) >= 0. The tree's USE is wider than what holds: (1) overturn.py:49 and :376 weaken mu >= 0 to 'mass M >= 0', which admits a counterexample (z3 sat, and drivensource's own DRIFT guard); (2) overturn.py:51, :262, :318 extend it to 'every charged body that exists', an empirical universal with no data behind it, and the measured electron (r_c = 1.409 fm vs size < 2.8e-4 fm, ratio 5032) and muon (ratio 28) violate it under the classical Einstein-Maxwell reading the derivation itself uses -- exactly Bonnor-Cooperstock 1989 (restated 0710.5619 eqs 3.1, 3.7, reproduced numerically). The class on which it holds is: classical charged bodies whose non-electromagnetic mass (binding included) is non-negative, equivalently m_MS(a) >= 0 -- which covers every composite body checked (proton, pion, nuclei, macroscopic conductors) but not the charged leptons. Not graded WRONG because the conditional theorem is sound and the lepton counterexample depends on treating a quantum pointlike particle as a classical body with a form-factor 'radius' (a counter-reading places the region inside the Compton wavelength / vacuum-polarization cloud); under that counter-reading the universal is not refuted but also not established -- either way it is narrower than stated. Not DATA-DEPENDENT: the composite-body verdicts do not move with any datum, and the lepton verdict does not flip with any plausible change of the bounds (they have only tightened). Tau is OPEN (ratio 0.72-1.01 within the bound's assumption spread); W+ is OPEN (no size bound read).",
+ "what_would_change_the_grade": "To STANDS: overturn.py rewording the hypothesis to 'bare/non-EM mass mu >= 0 (equivalently m_MS(a) >= 0)' and the quantifier to 'every classical composite charged body', with the leptons named as outside scope -- the result as then used would match what re-derives. To WRONG: a ruling that elementary leptons are 'charged bodies that exist' in the classical sense of drivensource.py sec.4, with the LEP form-factor bound accepted as their radius a; then the electron is a shown counterexample to the universal as worded. To OPEN on the lepton half: a ruling that classical radius is undefined for MR << 1 (2603.22223 p.5, 'this condition is not met'), which removes the counterexamples but leaves the universal unproven for leptons.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/classical-charge-radius-inside-body.py  # expect 'ALL CHECKS PASS', exit 0; then: grep -n 'mass M >= 0\\|mass >= 0\\|every charged body' /home/user/Claude-Method-Works/research/warp-drive/overturn.py ; grep -n 'mu >= 0\\|own contribution' /home/user/Claude-Method-Works/research/warp-drive/drivensource.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/classical-charge-radius-inside-body.json"
+}

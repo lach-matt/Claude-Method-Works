@@ -1,0 +1,13 @@
+# arXiv:2303.13849 -- Teng & Ma, Magnetic and antimagnetic rotational bands data tables
+# THE THIRD REFUSAL, counted rather than silent: level rows
+# the source prints with NO I^pi inside a band that has them.
+# `closes` is the corroboration -- the printed gamma
+# reproduces the drop to a level below (M1) or across two
+# (E2), so each is a real level whose spin is unassigned.
+table	A	el	band	E_keV	Egamma	gap	closes
+MR	103	Ag	4	6669.7	(502.0)	502.0	True
+MR	132	Ba	2	7750	(930)	464.0	True
+MR	194	Bi	1	3844	433.2	433.0	True
+MR	194	Bi	1	4302	457.9	458.0	True
+MR	197	Bi	1	(6429.8)	(396.0)	396.0	True
+AMR	144	Dy	1	6552.3	460.2	460.2	True

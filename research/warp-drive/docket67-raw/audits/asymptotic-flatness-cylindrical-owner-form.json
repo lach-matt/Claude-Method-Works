@@ -1,0 +1,74 @@
+{
+ "key": "asymptotic-flatness-cylindrical-owner-form",
+ "name": "Asymptotic flatness for the cylindrical metric, in the owner's form W -> r, W' -> 1, W Psi' -> 0",
+ "source": {
+  "located": "No external source is cited by the owner (canonical status_word: 'no source cited'). The literature's standard notion for static cylindrical symmetry is Bronnikov & Lemos, 'Cylindrical wormholes', Phys. Rev. D 79, 104019 (2009), arXiv:0902.2360, and the review Bronnikov, Santos & Wang, 'Cylindrical Systems in General Relativity', CQG 37, 113002 (2020), arXiv:1901.06561. Classic background: Levi-Civita (1919) vacuum; Vilenkin (1981) deficit 8 pi G mu; Thorne (1965) C-energy.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' (three attempts); arxiv.org, export.arxiv.org, api.semanticscholar.org, journals.aps.org, royalsocietypublishing.org, alphaxiv.org by WebFetch/curl all refused by the egress proxy (403 / EGRESS_BLOCKED). Only WebSearch result summaries were reachable; they restate 0902.2360's abstract as 'a flat (or string) asymptotic behavior on both sides of a cylindrical wormhole throat is impossible if the energy density of matter is everywhere nonnegative', and a Bronnikov-group definition as 'r -> infinity, finite limits of gamma, mu and E and e^{-alpha} r' -> 1'. These are search-engine paraphrases, NOT READ at source, and are used only to name the literature's vocabulary ('flat' vs 'string' = conical asymptotics). Every load-bearing claim below is COMPUTED here instead."
+ },
+ "published_statement": "The item is the tree's own definition, not a published theorem. Owner's statement (axial.py:44-45): 'ASYMPTOTIC FLATNESS gives W -> r, so W' -> 1, and Psi' -> 0 fast enough that W Psi' -> 0. Both boundary terms vanish'; HYPOTHESES[1] (axial.py:187): 'asymptotic flatness: W -> r, so W' -> 1, and W Psi' -> 0'; abstract (axial.py:27): 'in an asymptotically flat spacetime'. Literature vocabulary (search restatement only, NOT READ): static cylindrical systems are classed as having 'flat (or string)' asymptotics, 'string' meaning locally flat with an angular deficit (W' -> k < 1).",
+ "published_hypotheses": [
+  "metric ds^2 = -e^{2Phi}dt^2 + dr^2 + e^{2Psi}dz^2 + W^2 dphi^2, static, cylindrically symmetric, all functions of r only (Lambda = 0 gauge) -- axial.py:31-40",
+  "regular axis W(0) = 0, W'(0) = 1 -- axial.py:186",
+  "at infinity W' -> 1 (no angular deficit) -- axial.py:44, 187",
+  "at infinity W Psi' -> 0 -- axial.py:44-45, 187",
+  "infinite along z -- axial.py:145-149",
+  "no energy condition -- axial.py:190"
+ ],
+ "hypothesis_drift": [
+  "ADDED/STRENGTHENED relative to the literature's class: the owner's form demands W' -> 1 exactly, which excludes 'string' (conical, W' -> k < 1) asymptotics that the cylindrical literature groups with flat asymptotics (search restatement of arXiv:0902.2360, NOT READ). Computed here (C3): every static cylinder with u >= 0 and nonzero mass per length has W' -> 1 - 4 mu < 1, so it is NOT asymptotically flat in the owner's form -- axial.py:44-45, 187.",
+  "The owner's form is itself an energy constraint (computed, C4): with a regular axis and W' -> 1, INT 8 pi u W = -INT W Psi'^2 <= 0 for EVERY configuration, and u >= 0 everywhere forces u == 0, Psi' == 0, W == r. So 'ANY axial contraction forces u < 0 somewhere' (ledger.py:1962) is carried by the boundary condition, not by the contraction: a non-contracting (Psi' == 0) owner-form profile (W = r + 0.4 r^3 e^{-r^2}) already has u < 0 somewhere (min u = -0.0955).",
+  "UNQUALIFIED PROSE: 'in an asymptotically flat spacetime' (axial.py:27) and 'asymptotically flat (W -> r, W Psi' -> 0)' (ledger.py:1960) read as the general notion; the qualifier W' -> 1 (no deficit at infinity) is stated at axial.py:44, 187 but dropped from ledger.py:1960's parenthesis and from specthm.py:606's H_axial wording only by reference (it imports axial.HYPOTHESES verbatim, so H_axial is faithful; the ledger parenthesis omits W' -> 1).",
+  "SECTION 3 ASYMMETRY: axial.py:121-137 examines a conical defect at the AXIS (W'(0) != 1, term +(W'(0) - 1)) and dismisses an angle excess as 'the deficit of a NEGATIVE mu' (axial.py:133). The same identity at INFINITY gives +(1 - W'(inf)) (C2): a DEFICIT at infinity -- 'what ordinary matter makes' (axial.py:131-132) -- enters with the POSITIVE sign. That route is excluded only by the owner's W' -> 1, not examined.",
+  "W Psi' -> 0 restricts the vacuum exterior (computed, C5): R^z_z = -(A Psi')'/A with A = W e^{Psi+Phi}, so in vacuum A Psi' = const and W Psi' -> 0 forces Psi' == 0 outside the matter: only the sigma = 0 (flat/conical) branch of Levi-Civita is admitted; the general Levi-Civita exterior is excluded -- axial.py:44-45 ('fast enough') does not name this.",
+  "specthm.py:606 H_axial carries the owner's form with status 'DEFINING', and specthm.py:1607 K4 note 'u < 0 somewhere is forced (O4)' inherits the owner's class without the conical case."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "W' at infinity (asymptotic circumference slope)",
+   "value_then": "1 (owner's form, axial.py:44)",
+   "value_now": "literature class allows k = 1 - 4 G mu < 1 (string asymptotics); a positive-mu static cylinder has k < 1 (computed C3: example core delta = 0.3 gives mu = 0.075, k = 0.7 = 1 - 4 mu)",
+   "source_now": "computed here (rederive script C3); deficit 8 pi G mu is also stated by the owner itself at axial.py:132",
+   "moves_conclusion": "YES for the tree's use: with k < 1 the integral becomes (1 - k) - INT W Psi'^2 and a contracting profile with u >= 0 everywhere exists (C6)"
+  },
+  {
+   "quantity": "numerical truncation r_max = 60 (axial.py:223, 257)",
+   "value_then": "60",
+   "value_now": "60; Gaussian tails of all the tree's profile parameters bounded by 1.5e-165 at r = 60",
+   "source_now": "computed (C7)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/asymptotic-flatness-cylindrical-owner-form.py",
+  "outcome": "ALL CHECKS OK (exit 0; output in rederive/asymptotic-flatness-cylindrical-owner-form.out). C1: Einstein tensor recomputed from scratch; 8 pi u W = -(W Psi')' - W Psi'^2 - W'' residual 0, u independent of Phi -- the owner's identity AGREES. C2: exact form 8 pi u W = d/dr[-(W Psi' + W')] - W Psi'^2, so with regular axis, W Psi' -> 0 and W' -> k: INT 8 pi u W = (1 - k) - INT W Psi'^2. C3: Psi' = 0 gives deficit 2 pi (1-k) = 8 pi mu (Vilenkin's 8 pi G mu); a u >= 0 core has k = 1 - 4 mu < 1. C4: owner's form + regular axis + u >= 0 everywhere => u == 0, Psi' == 0, W == r (sign argument); a Psi' = 0 owner-form profile has min u = -0.0955 < 0. C5: R^z_z = -(A Psi')'/A residual 0. C6: EXPLICIT COUNTER-PROFILE under conical asymptotics: Psi = -0.05 e^{-r^2}, W = r - 0.6 (r - sqrt(pi) erf(r/2)); W(0) = 0, W'(0) = 1, W' -> 2/5, W Psi' -> 0, Psi < 0 (contraction); 8 pi u(0) = 1/10 exactly; min u >= 0 on 24000 points over (0,12] and 481 over [12,60]; tail ratio u/(-W''/8 pi W) -> 1 exactly; INT 8 pi u W = 0.598806215191908 = 0.6 - 0.00119378480809207 (residual -1.9e-32); mu = 0.1497 > 0. With Phi = Psi (Phi is free in u): u + p_z == 0 identically, u + p_r and u + p_phi >= 0 on the grid with axis value 3/(80 pi) and tail ratio 1 -- the WEC holds on the checked grid; the DEC fails (margin -0.00398), reported not hidden.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Bronnikov & Lemos, Phys. Rev. D 79, 104019 (2009), arXiv:0902.2360",
+   "effect": "narrows",
+   "what": "Per search restatement: no-go that flat OR STRING asymptotics on BOTH sides of a cylindrical throat is impossible with nonnegative energy density. The class it uses includes conical ('string') asymptotics -- wider than the owner's W' -> 1. With one axis and one infinity (the owner's case) the conical term at infinity is the positive-mass route shown in C6; with two asymptotic ends both deficit terms have the same sign structure, which is why their no-go survives the wider class and the owner's one-ended statement does not.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arXiv egress blocked; search-snippet restatement only)"
+  },
+  {
+   "ref": "Bronnikov, Santos & Wang, Class. Quantum Grav. 37, 113002 (2020), arXiv:1901.06561",
+   "effect": "extends",
+   "what": "Review of Levi-Civita/Lewis exteriors, cylindrical wormholes, C-energy; would give the standard asymptotic classes. Content not read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Vilenkin (1981); Gott (1985); Hiscock (1985); Linet (1985) -- cosmic string deficit 8 pi G mu",
+   "effect": "confirms",
+   "what": "A positive-mu straight string's exterior is conical, not W' -> 1; reproduced here from the owner's own identity (C3) and stated by the owner at axial.py:132.",
+   "read_status": "NAMED-NOT-READ (reproduced by computation)"
+  }
+ ],
+ "lacked_data": "This item is a definitional choice made inside the tree, not an external result resting on a measurement, so 'data the authors lacked' has no physical datum to move. What the owner lacked is the literature's classification of cylindrical asymptotics (axial.py:161-163 records 'PRIOR ART WAS NOT SEARCHED AT SOURCE THIS PASS', NOT-SEARCHED). Having it changes the SCOPE of the conclusion, shown by computation rather than by reading: (for) the identity and the theorem under the owner's stated hypotheses are exactly right (C1, C2); (against the tree's reading) the owner's W' -> 1 is strictly narrower than 'flat or string' asymptotics, excludes every static cylinder of positive mass per length (C3), forces u < 0 or triviality without any contraction (C4), and once a deficit at infinity is allowed a contracting static cylinder with u >= 0 everywhere and the WEC satisfied on the checked grid exists (C6). What it does NOT change: axial.py's section-4 refusals (infinite along z, no finite corridor, non-static case untouched) are unaffected; the counter-profile is itself infinite in z, carries positive mass per length mu ~ 0.15 (geometric units, a deficit of 0.6 x 2 pi), and violates the DEC.",
+ "grade": "NARROWED",
+ "grade_evidence": "Not WRONG: the owner's theorem, with its hypotheses exactly as written at axial.py:186-187, is re-derived and agrees (C1, C2). NARROWED: the owner's 'asymptotic flatness' (W' -> 1) is a strictly smaller class than the cylindrical literature's flat-or-string asymptotics (the vocabulary is from a search restatement, NOT READ; the narrowness itself is COMPUTED): (i) it excludes every u >= 0 static cylinder with mu > 0 (C3: k = 1 - 4 mu); (ii) under it, u >= 0 everywhere forces u == 0 regardless of contraction (C4), so the ledger's 'ANY axial contraction forces u < 0 somewhere' (ledger.py:1962) is a property of the boundary condition; (iii) on the wider conical class the conclusion fails: explicit regular-axis contracting profile with u >= 0 everywhere (8 pi u(0) = 1/10, min on grid >= 0, tail ratio 1) and, with Phi = Psi, u + p_i >= 0 for all i on the grid (C6). Section 3's axis-only treatment (axial.py:121-137) misses that a deficit at infinity enters with the positive sign. The rests_on_it entries (ledger O4, specthm H_axial/R2/O4/K4) hold on the owner's class and not beyond it.",
+ "what_would_change_the_grade": "To STANDS: a ruling that O4's question is restricted to spacetimes with NO angular deficit at infinity (and the ledger/specthm prose saying so), or a source READ at alphaXiv showing the standard definition of cylindrical asymptotic flatness excludes conical asymptotics AND that such a restriction is physically forced for the throat O4 prices. To WRONG: none of this -- the theorem as stated is correct. Would weaken the counter-profile's force: a proof that a deficit at infinity is incompatible with some further hypothesis the tree actually needs (e.g. the DEC -- the checked profile violates it -- or matching to a finite corridor, which axial.py already refuses). Reading 0902.2360 and 1901.06561 at source (quota/egress permitting) would promote the literature rows from NAMED-NOT-READ.",
+ "reverify_command": "cd /tmp && python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/asymptotic-flatness-cylindrical-owner-form.py   # expect 'ALL CHECKS OK', exit 0 (~20 s, needs sympy+mpmath; run from /tmp to avoid recovered/struct.py shadowing)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/asymptotic-flatness-cylindrical-owner-form.json"
+}

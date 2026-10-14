@@ -1,8 +1,12 @@
 #!/usr/bin/env python3
 r"""
-build_particle_plates.py -- the plates for DOCKET 27's three particle indexes.
+build_particle_plates.py -- the plates for the indexes whose members are not
+atomic.  RE-PINNED: this line read "the plates for DOCKET 27's three particle
+indexes" and the file has held more than three since DOCKET 28; it holds TEN
+now, the tenth being `deformedbands`.  The three DOCKET 27 seated are still
+`fundamental`, `mesons` and `baryons`, and nothing about them has moved.
 
-    python3 build_particle_plates.py               writes all three
+    python3 build_particle_plates.py               writes all ten
     python3 build_particle_plates.py mesons        writes one
 
 M: "produce indexes and plates for all particles other than periodic atoms.
@@ -14,11 +18,17 @@ members are not atomic at all.  Each is built on the shared scaffold in
 `plate.py`, so the stylesheet, the measured axis choice, the swept camera and
 the inlined runtime are one implementation rather than three.
 
-NONE OF THE THREE HAS ARITY 3, so every view here is a PROJECTION and
-`plate.exactness()` says what it costs in the caption -- fundamental and mesons
-project 4 coordinates onto 3, baryons projects 7.  That is stated rather than
-left for a reader to assume, exactly as `build_index_plates.py` states it for
-`gravity`.
+NONE OF DOCKET 27's THREE HAS ARITY 3, so those views are PROJECTIONS and
+`plate.exactness()` says what each costs in the caption -- fundamental and
+mesons project 4 coordinates onto 3, baryons projects 7.  That is stated rather
+than left for a reader to assume, exactly as `build_index_plates.py` states it
+for `gravity`.
+
+AND TWO OF THE TEN HAVE ARITY 2, so they get NO three-axis view at all.
+`nucbands` and `deformedbands` are drawn flat -- `lattice_svg` and
+`parity_ladder_svg` -- because `plate.view3d` needs three axes and padding a
+two-coordinate chart into one would be a picture of something that is not the
+index.
 
 Every number is read from the instrument at build time.  Nothing is retyped.
 """
@@ -41,6 +51,23 @@ from build_index_plates import (                                # noqa: E402
     _write, _alpha)
 
 E = html.escape
+
+
+def pfoot(mod):
+    """The footer, naming THIS builder.
+
+    `build_index_plates.foot` hardcodes its own filename, so every plate in
+    this family was printing a re-verify command that does not rebuild it.
+    The footer is the one part of a plate whose whole job is to be runnable,
+    so it gets its own version here rather than an inherited near-miss.
+    """
+    return ('<div class="foot"><p>Every figure on this plate is read from the '
+            'instrument at build time, not retyped. Re-verify with:</p>'
+            '<p><code>python3 research/warp-drive/%s.py --selftest</code> '
+            '&mdash; %d fixtures<br><code>python3 research/warp-drive/%s.py'
+            '</code> &mdash; the reading<br><code>python3 research/warp-drive/'
+            'render/build_particle_plates.py %s</code> &mdash; this plate</p>'
+            '</div>' % (mod, nfixtures(mod), mod, mod))
 
 
 def _typo(t):
@@ -257,7 +284,7 @@ def build_fundamental():
                     ("width", str(m["cell"][2]), "Dilworth"),
                     ("|X| &le; h&times;w", "%d &le; %d" %
                      (m["cells"], m["cell"][1] * m["cell"][2]), ""))))
-    h.append(foot("fundamental", nfixtures("fundamental")))
+    h.append(pfoot("fundamental"))
     h.append("</div>")
     _write("fundamental-plate.html", h)
 
@@ -390,7 +417,7 @@ def build_mesons():
                     ("width", str(m["cell"][2]), "Dilworth"),
                     ("|X| &le; h&times;w", "%d &le; %d" %
                      (m["cells"], m["cell"][1] * m["cell"][2]), ""))))
-    h.append(foot("mesons", nfixtures("mesons")))
+    h.append(pfoot("mesons"))
     h.append("</div>")
     _write("mesons-plate.html", h)
 
@@ -526,7 +553,7 @@ def build_baryons():
                     ("width", str(m["cell"][2]), "Dilworth"),
                     ("|X| &le; h&times;w", "%d &le; %d" %
                      (m["cells"], m["cell"][1] * m["cell"][2]), ""))))
-    h.append(foot("baryons", nfixtures("baryons")))
+    h.append(pfoot("baryons"))
     h.append("</div>")
     _write("baryons-plate.html", h)
 
@@ -677,7 +704,7 @@ def build_quasiparticle():
         'member set: a mode carries a symmetry label and a frequency, and those '
         'are quantum numbers. It is (material, mode), it needs a real fetch, '
         'and it is not what DOCKET 27 asked for.</p></section>')
-    h.append(foot("quasiparticle", nfixtures("quasiparticle")))
+    h.append(pfoot("quasiparticle"))
     h.append("</div>")
     _write("quasiparticle-plate.html", h)
 
@@ -815,15 +842,767 @@ def build_fqh():
         'the part that says what kind of thing the quasiparticle is.</p></div>'
         '</section>' % (a, b, f, 100.0 * a / len(Q.rows())))
 
-    h.append(foot("fqh", nfixtures("fqh")))
+    h.append(pfoot("fqh"))
     h.append("</div>")
     _write("fqh-plate.html", h)
 
 
+def lattice_svg(B, Q, out):
+    """The (2J, Q3) lattice drawn flat -- boson frame, excitations, and what
+    lies outside.  A 2-D index gets a 2-D picture; plate.view3d needs three
+    axes and this chart has two, which is a reason to draw it properly rather
+    than to pad it."""
+    Js = sorted({j for j, _q in B | Q})
+    Qs = sorted({q for _j, q in B | Q})
+    W, H = 74, 62
+    L, T = 92, 34
+    w = L + W * (len(Qs) - 1) + 300
+    hgt = T + H * (len(Js) - 1) + 78
+    outset = set(out)
+    p = ['<svg viewBox="0 0 %d %d" role="img" aria-label="the boson lattice '
+         'and the excitations in it" style="max-width:100%%;height:auto">'
+         % (w, hgt)]
+    # grid
+    for i, q in enumerate(Qs):
+        x = L + W * i
+        p.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="var(--rule)" '
+                 'stroke-width="1"/>' % (x, T - 16, x, T + H * (len(Js) - 1) + 16))
+        p.append('<text x="%d" y="%d" text-anchor="middle" font-size="13" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--muted)">%d'
+                 '</text>' % (x, T + H * (len(Js) - 1) + 40, q))
+    for r, j in enumerate(reversed(Js)):
+        y = T + H * r
+        p.append('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="var(--rule)" '
+                 'stroke-width="1"/>' % (L - 18, y, L + W * (len(Qs) - 1) + 18, y))
+        p.append('<text x="%d" y="%d" text-anchor="end" font-size="13" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--muted)">%d'
+                 '</text>' % (L - 30, y + 5, j))
+    # marks
+    for r, j in enumerate(reversed(Js)):
+        for i, q in enumerate(Qs):
+            x, y = L + W * i, T + H * r
+            inB, inQ = (j, q) in B, (j, q) in Q
+            if inB:
+                p.append('<circle cx="%d" cy="%d" r="9" fill="var(--rule-hard)"/>'
+                         % (x, y))
+            if inQ:
+                col = "var(--algebra)" if (j, q) in outset else "var(--geometry)"
+                p.append('<circle cx="%d" cy="%d" r="15" fill="none" '
+                         'stroke="%s" stroke-width="3.5"/>' % (x, y, col))
+            if (j, q) in outset:
+                p.append('<circle cx="%d" cy="%d" r="23" fill="none" '
+                         'stroke="var(--algebra)" stroke-width="1.5" '
+                         'stroke-dasharray="3 3"/>' % (x, y))
+    p.append('<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+             'letter-spacing="1.4" font-family="IBM Plex Mono,monospace" '
+             'fill="var(--muted)">Q3 &#8212; CHARGE IN THIRDS</text>'
+             % (L + W * (len(Qs) - 1) / 2, hgt - 16))
+    p.append('<text transform="translate(22,%d) rotate(-90)" '
+             'text-anchor="middle" font-size="12" letter-spacing="1.4" '
+             'font-family="IBM Plex Mono,monospace" fill="var(--muted)">2J'
+             '</text>' % (T + H * (len(Js) - 1) / 2))
+    # legend
+    lx = L + W * (len(Qs) - 1) + 46
+    for k, (lab, mk) in enumerate((("the tree&rsquo;s bosons", "solid"),
+                                   ("the excitations", "ring"),
+                                   ("outside the bosons", "out"))):
+        y = T + 26 * k
+        if mk == "solid":
+            p.append('<circle cx="%d" cy="%d" r="7" fill="var(--rule-hard)"/>' % (lx, y))
+        elif mk == "ring":
+            p.append('<circle cx="%d" cy="%d" r="9" fill="none" '
+                     'stroke="var(--geometry)" stroke-width="3"/>' % (lx, y))
+        else:
+            p.append('<circle cx="%d" cy="%d" r="9" fill="none" '
+                     'stroke="var(--algebra)" stroke-width="3"/>' % (lx, y))
+        p.append('<text x="%d" y="%d" font-size="12.5" fill="var(--body)">%s'
+                 '</text>' % (lx + 18, y + 4, lab))
+    p.append("</svg>")
+    return "".join(p)
+
+def build_bosonqp():
+    """DOCKET 31 -- a sublattice, and every number derived rather than typed."""
+    import bosonqp as Q
+    X = Q.index()
+    m = measured(X)
+    nb, nq, bsub, qsub, subset, out, nu, usub = Q.relation()
+    tot, full, n5, f5 = Q.box_freeness()
+
+    h = [plate.head("The Boson Sublattice"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate · an index of quantum objects · DOCKET 31",
+        "The Boson&nbsp;Sublattice",
+        "The bosonic excitations of condensed matter &mdash; Cooper pairs, "
+        "excitons, phonons, magnons &mdash; placed in the frame the "
+        "tree&rsquo;s own bosons already live in, and asked whether they sit "
+        "inside it closed.",
+        [("instrument", "bosonqp.py"), ("members", "%d" % len(Q.members())),
+         ("rules", "3 derivations"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("extends the bosons by", "%d cells" % (nu - nb))]))
+
+    h.append('<div class="note warn">'
+             '<span class="lab">Two rulings, and the second threw out the '
+             'first draft</span>'
+             '<p>M, first: <em>&ldquo;almost nothing &mdash; but not nothing, '
+             'which means measurable ... it is a sub index/sublattice of '
+             'bosons.&rdquo;</em> That corrected DOCKET 28, which wrote '
+             '&ldquo;almost nothing&rdquo; and then treated it as nothing.</p>'
+             '<p style="margin-bottom:0">M, second: <em>&ldquo;Do not add '
+             'declared. Nothing less than computed or measured. Declared still '
+             'requires proof.&rdquo;</em> The first draft listed eleven kinds '
+             'with their spins and charges written out from textbook '
+             'knowledge, and <span class="mono">registry.py</span> had grown a '
+             'whole provenance category &mdash; DECLARED &mdash; to let that '
+             'pass its own guard. <b>Both are gone.</b> Every number on this '
+             'plate comes out of one of the three rules below.</p></div>')
+
+    h.append(
+        '<section><div class="shead"><span class="snum">01</span>'
+        '<h2>Three derivation rules, and nothing outside them</h2></div>'
+        '<p class="sub">The inputs are what a thing is made of, which symmetry '
+        'it breaks, and what it mixes &mdash; each the definition of the '
+        'object rather than a measurement of it.</p>'
+        '<div class="kv">'
+        '<div><dt>composition</dt><dd>charge adds; spin combines<small>the '
+        'electron (2J&nbsp;=&nbsp;1, Q3&nbsp;=&nbsp;&minus;3) and photon '
+        '(2,&nbsp;0) are READ from the seated fundamental index</small></dd></div>'
+        '<div><dt>broken symmetry</dt><dd>2J = 2 &times; the generator&rsquo;s '
+        'rank<small>and Q3 = 0 when it commutes with charge</small></dd></div>'
+        '<div><dt>hybridisation</dt><dd>inherit what the constituents share'
+        '<small>and RAISE when they disagree</small></dd></div></div>'
+        '<div class="note good"><span class="lab">The second rule corrected '
+        'this file on its first use</span>'
+        '<p style="margin-bottom:0">The first draft wrote the phonon down as '
+        'spin&nbsp;0. The phonon is the Goldstone mode of <b>broken '
+        'translation</b>, whose generator is the momentum P &mdash; a VECTOR '
+        '&mdash; so the rule returns <b>2J&nbsp;=&nbsp;2</b>. The rule is '
+        'right and the draft was wrong: three broken translations in three '
+        'dimensions give the three acoustic branches, which a scalar mode '
+        'could not. <b>A derivation that can contradict what you would have '
+        'written down is the only kind worth having.</b></p></div>'
+        '</section>')
+
+    h.append(
+        '<section><div class="shead"><span class="snum">02</span>'
+        '<h2>Every member, and which rule produced it</h2></div>'
+        '<div class="tablewrap"><table><thead><tr><th>rule</th><th>member</th>'
+        '<th class="num">2J</th><th class="num">Q3</th></tr></thead><tbody>%s'
+        '</tbody></table><caption>%d members on %d cells. The eight collective '
+        'modes add members but <b>no new cells</b>.</caption></div>'
+        '<div class="note"><span class="lab">The trion excludes itself</span>'
+        '<p style="margin-bottom:0">Two electrons and a hole compose to 2J in '
+        '{1,&nbsp;3} &mdash; half-integer, a <b>fermion</b> &mdash; and a '
+        'sublattice of the bosons holds none. Nothing here decides that; the '
+        'addition rule returns it. And <span class="mono">hybrid()</span> '
+        'raises on constituents that disagree, so the third rule has a failure '
+        'mode too.</p></div></section>'
+        % ("".join(
+            '<tr><td>%s</td><td class="mono">%s</td><td class="num">%d</td>'
+            '<td class="num">%d</td></tr>' % (E(k), E(n), j, q)
+            for k, n, j, q in Q.members()),
+           len(Q.members()), m["cells"]))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">03</span>'
+        '<h2>The index, drawn flat</h2></div>'
+        '<p class="sub">Two coordinates, so this is the index ITSELF and not a '
+        'projection of it &mdash; nothing is collapsed, summarised or '
+        'dropped.</p>'
+        '<div class="fig">%s</div>'
+        '<p class="cap">The tree&rsquo;s fifteen boson cells, the five the '
+        'excitations occupy, and the two that fall outside the frame '
+        'altogether. <b>Both are the Cooper pair</b>, at a charge no meson and '
+        'no gauge boson reaches.</p></section>'
+        % lattice_svg(Q.boson_frame(), X, out))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">04</span>'
+        '<h2>The finding is the relation, not the chart</h2></div>'
+        '<div class="tablewrap"><table><thead><tr><th></th>'
+        '<th class="num">cells</th><th>sublattice?</th></tr></thead><tbody>'
+        '<tr><td>the tree&rsquo;s own bosons on (2J, Q3)</td>'
+        '<td class="num">%d</td><td><span class="yes">yes</span></td></tr>'
+        '<tr><td>the bosonic excitations</td><td class="num">%d</td>'
+        '<td><span class="yes">yes</span></td></tr>'
+        '<tr><td>the union</td><td class="num">%d</td>'
+        '<td><span class="yes">yes</span></td></tr>'
+        '</tbody></table><caption>But the second is <b>NOT a subset</b> of the '
+        'first.</caption></div>'
+        '<div class="note good"><span class="lab">The Cooper pair carries '
+        '&minus;2e and nothing else in the tree does</span>'
+        '<p style="margin-bottom:0">Every meson and every gauge boson is '
+        'charged &minus;1, 0 or +1. Two electrons bound in a metal reach a '
+        'charge no elementary or composite boson here reaches &mdash; in '
+        '<b>both</b> spin states, the triplet being helium-3&rsquo;s p-wave '
+        'pairing. So the excitations are a sublattice of the bosons only once '
+        'the lattice is <b>extended to hold them</b>, and the extension is '
+        '<b>%d cells wide</b>: %s.</p></div></section>'
+        % (nb, nq, nu, nu - nb, E(str(out))))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">05</span>'
+        '<h2>The channel, and why it is not free this time</h2></div>'
+        '<p class="sub">The chart closes all five languages &mdash; K7. The '
+        'first draft was a three-cell CHAIN, and a chain closes almost '
+        'everything by being one.</p>'
+        '<p><b>This chart is not a chain.</b> It is %d cells at width %d, and '
+        'the measurement changes with it: over the box this chart lives in, '
+        'only <b>%d of %d</b> subsets close all five, and of the <b>%d</b> '
+        'subsets its own size only <b>%d</b> do. So the K7 is earned by '
+        'two-thirds of the alternatives failing, not handed over by shape.</p>'
+        '<div class="note"><span class="lab">z3, pointed at this file&rsquo;s '
+        'own result</span>'
+        '<p style="margin-bottom:0"><span class="mono">--prove</span> runs four '
+        'claims over every subset of the box: that every chain there is '
+        'closed (so a chain&rsquo;s K7 <em>is</em> free), a vacuity guard that '
+        'chains exist, a contrast that some subset is not closed, and finally '
+        'that <b>THIS chart is not a chain</b> &mdash; so the free pass does '
+        'not reach it. It is still five cells, and section 04 is the '
+        'finding.</p></div></section>'
+        % (m["cells"], m["cell"][2], full, tot, n5, f5))
+
+    h.append(pfoot("bosonqp"))
+    h.append("</div>")
+    _write("bosonqp-plate.html", h)
+
+
+def build_readrezayi():
+    """DOCKET 32 -- the non-abelian Hall quasiparticles."""
+    import readrezayi as R
+    X = R.index()
+    m = measured(X)
+    na, nn, sh, ain, nin, asub, nsub = R.nesting()
+    F = R.fermions()
+
+    h = [plate.head("The Non-Abelian Anyons"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate · an index of quantum objects · DOCKET 32",
+        "The Non-Abelian&nbsp;Anyons",
+        "The other kind of Hall quasiparticle: exchange does not multiply the "
+        "state by a phase, it ROTATES IT inside a degenerate space. These are "
+        "the excitations proposed for topological quantum computing.",
+        [("instrument", "readrezayi.py"),
+         ("members", "%d primaries" % len(R.rows())),
+         ("states", "%d Read-Rezayi" % len(R.levels())),
+         ("arity", "4"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">01</span>'
+        '<h2>Moore&ndash;Read <em>is</em> RR&#8322;</h2></div>'
+        '<p class="sub">Not a separate construction, which is why there is one '
+        'instrument and not two. The series sits at '
+        '&nu;&nbsp;=&nbsp;2&nbsp;+&nbsp;k/(k+2).</p>'
+        '<div class="tablewrap"><table><thead><tr><th class="num">k</th>'
+        '<th class="num">&nu;</th><th class="num">charge</th>'
+        '<th class="num">primaries</th><th>observed</th></tr></thead><tbody>%s'
+        '</tbody></table><caption>Two levels have a reported plateau; the rest '
+        'is the series&rsquo; own continuation, declared as such.</caption></div>'
+        '<div class="note good"><span class="lab">k is a REACH, and that is the '
+        'whole difference from DOCKET 28</span>'
+        '<p style="margin-bottom:0">That docket charted SU(2)<sub>k</sub> for '
+        'every k and was refused, because varying k there varied <em>which '
+        'theory you were in</em> &mdash; a union over universes, with nothing '
+        'about the data being varied. Here each k <b>names a plateau at a '
+        'definite &nu;</b>, so varying the reach is varying how far up the '
+        'observed series you have got, exactly as varying Z is.</p></div>'
+        '</section>'
+        % "".join(
+            '<tr><td class="num mono">%d</td><td class="num mono">%s</td>'
+            '<td class="num mono">e/%d</td><td class="num">%d</td><td>%s</td>'
+            '</tr>' % (k, R.filling(k), k + 2, len(R.primaries(k)),
+                       "<b>%s</b> (%s)" % R.OBSERVED[k]
+                       if k in R.OBSERVED else "")
+            for k in R.levels()))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">02</span>'
+        '<h2>Validated against the literature, not against itself</h2></div>'
+        '<p class="eqn mono">h = l(l+2) / (4(k+2)) &nbsp;&minus;&nbsp; '
+        'm&sup2; / (4k)</p>'
+        '<div class="tablewrap"><table><thead><tr><th>what the literature '
+        'fixes</th><th class="num">computed</th><th>verdict</th></tr></thead>'
+        '<tbody>%s</tbody></table><caption>No tuning. The closed form returns '
+        'them.</caption></div>'
+        '<div class="note warn"><span class="lab">And this closes DOCKET '
+        '28&rsquo;s trap from the other side</span>'
+        '<p style="margin-bottom:0">That docket recorded that '
+        'SU(2)<sub>2</sub> is commonly called &ldquo;Ising&rdquo; and is not: '
+        'its j&nbsp;=&nbsp;&frac12; carries h&nbsp;=&nbsp;3/16 where the Ising '
+        '&sigma; carries <b>1/16</b>. The real Moore&ndash;Read state carries '
+        '1/16, which this file computes. <b>So that chart had the wrong '
+        'physics as well as the wrong shape</b>, and the caution written there '
+        'against trusting the name was the important half of it.</p></div>'
+        '</section>'
+        % "".join(
+            '<tr><td>%s</td><td class="num mono">%s</td><td>%s</td></tr>'
+            % (E(w), E(str(g)), '<span class="yes">ok</span>' if ok
+               else '<span class="no">DIFFERS</span>')
+            for w, g, _x, ok in R.validation()))
+
+    h.append(_view(
+        "rr3d", X, 0,
+        ["STAT  boson / fermion / anyon", "ORD  order of the twist",
+         "CHORD  order of the charge", "K  the level"],
+        "Colour is the statistics class &mdash; and unlike the abelian index, "
+        "all three values occur.",
+        "03", "The index, projected", "the non-abelian anyon index",
+        radius=5))
+
+    h.append(
+        '<section><div class="shead"><span class="snum">04</span>'
+        '<h2>The Majorana bounds DOCKET 30&rsquo;s theorem</h2></div>'
+        '<p class="sub"><span class="mono">fqh.py</span> proved that NOT ONE '
+        'Laughlin quasiparticle is ever a fermion &mdash; forced, because '
+        '&theta;/&pi;&nbsp;=&nbsp;j&sup2;/m is a half only if m divides '
+        '2j&sup2; and m is odd.</p>'
+        '<p><b>This series has %d fermions.</b> The one at k&nbsp;=&nbsp;2 is '
+        'the Ising &psi; at h&nbsp;=&nbsp;&frac12; &mdash; the neutral '
+        '<b>Majorana fermion</b> of the Moore&ndash;Read state. So the theorem '
+        'was never about Hall quasiparticles in general; it was about the '
+        '<em>abelian</em> ones, and this is precisely where the two families '
+        'part.</p>'
+        '<div class="note"><span class="lab">And neither index nests in the '
+        'other &mdash; a negative result, reported</span>'
+        '<p style="margin-bottom:0">DOCKET 31 found the bosonic excitations '
+        'sitting inside the boson lattice as a sublattice. Nothing of that '
+        'kind happens here: on the three coordinates they share, the abelian '
+        'chart has <b>%d</b> cells and the non-abelian <b>%d</b>, they share '
+        '<b>%d</b>, <b>neither contains the other</b> and neither is a '
+        'sublattice on its own. Reported so that one positive nesting result '
+        'is not read as a pattern.</p></div></section>'
+        % (len(F), na, nn, sh))
+
+    h.append(pfoot("readrezayi"))
+    h.append("</div>")
+    _write("readrezayi-plate.html", h)
+
+
+def build_spin4():
+    """DOCKET 34 -- the tree's only K4, and the last empty channel filled."""
+    import spin4 as S
+    X = S.index()
+    m = measured(X)
+    names = ("P (parity)", "2I (isospin, doubled)", "Q3 (charge, thirds)")
+
+    h = [plate.head("The Spin-4 Mesons"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate &middot; an index of quantum objects &middot; DOCKET 34",
+        "The Spin-4&nbsp;Mesons",
+        "The only chart in this tree that reaches K4 &mdash; and the only one "
+        "that earns it, every earlier K4 having been arity&nbsp;2 where "
+        "statistics closes for free.",
+        [("instrument", "spin4.py"), ("members", "%d mesons" % len(S.rows())),
+         ("arity", "3"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<div class="note warn">'
+             '<span class="lab">DOCKET 33 found this chart and REFUSED it. '
+             'The refusal was on the wrong reach</span>'
+             '<p style="margin-bottom:0">The sub-population sweep turned this '
+             'chart up and turned it down: two of the ten mesons carry no '
+             'printed mass, so swept by a MASS cut the population is 7 cells '
+             'at K5 at every cut and never 9 at K4. But mass is not the only '
+             'total order the table carries. <b>PDG STATUS is total where mass '
+             'is not</b>, and on that reach the channel moves K5&nbsp;&rarr;'
+             '&nbsp;K4 and holds. Both statements stand: the refusal is about '
+             'the mass reach, the seating about the status reach, and which '
+             'reach a channel survives is part of what the finding is.</p>'
+             '</div>')
+
+    h.append(_view("v-spin4", X, 2, names,
+                   "Colour is Q3, the charge in thirds.", 1,
+                   "The chart, at arity 3",
+                   "Three-dimensional scatter of the spin-4 meson chart."))
+
+    h.append('<section><h2>3. The chart</h2>')
+    h.append(chart_table(
+        [("P", "intrinsic parity of the meson"),
+         ("2I", "isospin, doubled, so the half-integers stay integers"),
+         ("Q3", "electric charge in thirds")],
+        X, m["res"]))
+    h.append(closure_table(m))
+    h.append('<p>Statistics is <b>earned</b> here, not free: <code>kdet</code> '
+             'returns early only when the arity is at most the determinant '
+             'order, and this chart is arity&nbsp;3. That is what makes it '
+             'the first real K4 in the tree.</p></section>')
+
+    ml = S.massless()
+    h.append('<section><h2>4. The two rows the table cannot place</h2>'
+             '<p>The whole K4 rests on <b>%s</b>, which the Particle Data '
+             'Group lists with no mass at all. That is not a defect in the '
+             'chart &mdash; it is why the mass reach could never reach it, '
+             'and why the status reach can.</p></section>'
+             % E(" and ".join(ml)))
+
+    h.append(pfoot("spin4"))
+    h.append("</div>")
+    _write("spin4-plate.html", h)
+
+
+def build_nucbands():
+    """DOCKET 35 -- the route a meet closed and a join opened."""
+    import nucbands as N
+    X = N.index()
+    m = measured(X)
+    nb, npar, nun = N.refusals()
+
+    h = [plate.head("Nuclear Rotational Levels"), '<div class="wrap">']
+    h.append(_mast(
+        "Research plate &middot; an index of quantum objects &middot; DOCKET 35",
+        "Nuclear Rotational&nbsp;Levels",
+        "Nuclear excited states in magnetic and antimagnetic rotational bands "
+        "&mdash; the candidate an earlier pass declared unreachable, reached "
+        "by navigating by JOIN instead of by meet.",
+        [("instrument", "nucbands.py"),
+         ("members", "%d levels" % len(N.members())),
+         ("bands", "%d" % len(N.bandrows())),
+         ("arity", "2"), ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<div class="note"><span class="lab">The corpus&rsquo;s own '
+             'retrieval law reopened a route this project had closed</span>'
+             '<p style="margin-bottom:0"><code>subpop.py</code> &sect;4 tried '
+             'four searches for a nuclear level scheme, found nothing, and '
+             'concluded there was nothing this environment could reach. '
+             '<b>All four were MEETS.</b> <code>NAVIGATION.md</code> &sect;3 '
+             '&mdash; a law derived from the three-body index, not a search '
+             'habit &mdash; says navigate by <b>JOIN</b>, never by meet: meet '
+             'failures run 12&nbsp;&rarr;&nbsp;90,705 by cap, <b>join failures '
+             'are 0 at every cap</b>. Run as a join the route opened at once. '
+             'arXiv is 403 over https through this proxy exactly as ENSDF is; '
+             'the connector is a different bracket, and the join is what '
+             'reached it.</p></div>')
+
+    h.append('<section><h2>1. The capture is total, and the paper proves it'
+             '</h2>'
+             '<p>The totality argument is not &ldquo;the queries looked '
+             'complete&rdquo;. It is the paper&rsquo;s own census, reproduced '
+             'exactly and independently for its two tables &mdash; and then a '
+             'second check a count cannot make.</p>'
+             '<table class="tab"><thead><tr><th>table</th><th>the paper '
+             'states</th><th>the parse finds</th></tr></thead><tbody>'
+             '<tr><td>A &mdash; magnetic rotation</td><td>252 bands in 123 '
+             'nuclei</td><td class="num"><b>252 / 123</b></td></tr>'
+             '<tr><td>B &mdash; antimagnetic rotation</td><td>38 bands in 27 '
+             'nuclei</td><td class="num"><b>38 / 27</b></td></tr>'
+             '</tbody></table>'
+             '<p>A count fixture cannot catch a parser that reads the right '
+             'number of <em>wrong</em> things. So the second check is the '
+             'physics each table is defined by: an AMR band is a '
+             '&Delta;I&nbsp;=&nbsp;2 sequence and an MR band a '
+             '&Delta;I&nbsp;=&nbsp;1 one. Measured over every consecutive '
+             'pair of extracted spins: <b>213 of 213</b> AMR steps are '
+             '&Delta;I&nbsp;=&nbsp;2, and <b>1,765 of 1,769</b> MR steps are '
+             '&Delta;I&nbsp;=&nbsp;1. Landing on 100&nbsp;% is what says the '
+             'columns are being read in the right order.</p></section>')
+
+    h.append('<section><h2>2. Three refusals, on the criterion</h2>'
+             '<p><b>%d bands</b> are printed with no I<sup>&pi;</sup> column '
+             'at all &mdash; their energies are relative to an unknown '
+             'bandhead, <span class="mono">200Pb&nbsp;1&nbsp;X</span>, then '
+             '100.6+X, 223.9+X. <b>%d levels</b> carry a spin but no parity. '
+             'A member must carry quantum numbers, so both are refused &mdash; '
+             'and counted <em>apart</em>, because &ldquo;no parity '
+             'printed&rdquo; and &ldquo;no spin printed&rdquo; are different '
+             'facts about the source and flattening them would lose one. '
+             'Of the %d, twenty-six are unknown in <em>energy</em> and one '
+             '&mdash; 141Eu band 3 &mdash; is the mirror image, with absolute '
+             'energies and a <em>relative spin ladder</em> I, I+1 &hellip; '
+             'I+8; an earlier draft asserted one reason for all twenty-seven '
+             'and was wrong about that one.</p>'
+             '<p><b>%d level rows carry no I<sup>&pi;</sup> at all, inside a '
+             'band that does.</b> A third refusal, and it was found by audit '
+             '&mdash; these six were vanishing with <em>no counter</em> while '
+             'the other two groups were captured and reported. Each closes its '
+             'own gamma arithmetic against a level below it, so each is a real '
+             'level whose spin the paper left unassigned, not a parse '
+             'artefact.</p></section>' % (nb, npar, nb, nun))
+
+    h.append('<section><h2>3. The chart, and the K2 that is the free one</h2>')
+    h.append(closure_table(m))
+    h.append('<p><b>It would be a lie to bank that K2 as a closure.</b> '
+             '<code>kdet</code> opens <code>if k &gt;= d: return True</code>, '
+             'so at arity&nbsp;2 statistics closes for nothing, and this tree '
+             'has measured 105 of 105 arity-2 charts closing it. <b>The '
+             'nuclear band index closes in NOTHING</b>; its real content is '
+             'K0, where <code>mesons</code> and <code>baryons</code> also sit. '
+             'And no third coordinate rescues it &mdash; every superset '
+             '<em>loses</em> the channel:</p>'
+             '<table class="tab"><thead><tr><th>K</th><th>cells</th>'
+             '<th>cell</th><th>coordinates</th></tr></thead><tbody>%s'
+             '%s</tbody></table>'
+             '<p class="sm"><b>All seven supersets are measured and every one '
+             'loses the channel.</b> The last row had to wait for the CPU: it '
+             'timed out at 40 minutes and was carried as UNMEASURED &mdash; '
+             'named rather than filled in from the six K0 rows above &mdash; '
+             'until a 90-minute run returned it. A pattern in six is not a '
+             'measurement of the seventh.</p></section>'
+             % ("".join('<tr><td class="mono">K%d</td><td class="num">%d</td>'
+                        '<td class="mono sm">%s</td><td class="mono sm">%s</td>'
+                        '</tr>' % (k, n, c, ", ".join(cols))
+                        for cols, k, n, c in N.ARITY3),
+                "".join('<tr><td class="mono">&mdash;</td>'
+                        '<td class="num">&mdash;</td>'
+                        '<td class="no">UNMEASURED</td>'
+                        '<td class="mono sm">%s</td></tr>' % ", ".join(cols)
+                        for cols, _why in N.UNMEASURED)))
+
+    for nm, what, why in N.NOT_INDEXED:
+        h.append('<div class="note warn"><span class="lab">The same join '
+                 'returned a second paper, and it is NOT indexed</span>'
+                 '<p style="margin-bottom:0"><span class="mono">%s</span> '
+                 '&mdash; %s. %s</p></div>' % (E(nm), E(what), E(why)))
+
+    h.append(pfoot("nucbands"))
+    h.append("</div>")
+    _write("nucbands-plate.html", h)
+
+
+def parity_ladder_svg(X):
+    """The (2I, parity) chart drawn flat.
+
+    A 2-D index gets a 2-D picture; `plate.view3d` needs three axes and this
+    chart has two, which is `lattice_svg`'s reason and it is the same one here.
+    Every mark is read from the index -- a filled square is a cell the chart
+    holds, an open dashed one a position in the box that it does not.
+    """
+    Is = sorted({i for i, _p in X})
+    Ps = (1, -1)
+    S, T, L = 21, 44, 74               # column pitch, top margin, left margin
+    w = L + S * (len(Is) - 1) + 40
+    hgt = T + 58 + 54
+    p = ['<svg viewBox="0 0 %d %d" role="img" aria-label="the deformed '
+         'two-quasiparticle chart: %d cells over %d spins and two parities" '
+         'style="max-width:100%%;height:auto">' % (w, hgt, len(X), len(Is))]
+    for r, par in enumerate(Ps):
+        y = T + 58 * r
+        p.append('<text x="%d" y="%d" text-anchor="end" font-size="14" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--muted)">'
+                 '%s</text>' % (L - 16, y + 5, "&#960; = +" if par > 0
+                                else "&#960; = &#8722;"))
+        for c, i2 in enumerate(Is):
+            x = L + S * c
+            if (i2, par) in X:
+                p.append('<rect x="%d" y="%d" width="13" height="13" rx="2" '
+                         'fill="var(--%s)"/>'
+                         % (x - 6, y - 6, "geometry" if par > 0 else "order"))
+            else:
+                p.append('<rect x="%d" y="%d" width="13" height="13" rx="2" '
+                         'fill="none" stroke="var(--algebra)" '
+                         'stroke-width="1.4" stroke-dasharray="2 2"/>'
+                         % (x - 6, y - 6))
+    for c, i2 in enumerate(Is):
+        if i2 % 10:
+            continue
+        p.append('<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+                 'font-family="IBM Plex Mono,monospace" fill="var(--faint)">'
+                 '%d</text>' % (L + S * c, T + 58 + 34, i2))
+    p.append('<text x="%d" y="%d" text-anchor="middle" font-size="12" '
+             'letter-spacing="1.4" font-family="IBM Plex Mono,monospace" '
+             'fill="var(--muted)">2I &#8212; SPIN, DOUBLED</text>'
+             % (L + S * (len(Is) - 1) / 2, hgt - 12))
+    p.append("</svg>")
+    return "".join(p)
+
+
+def build_deformedbands():
+    """DOCKET 36b -- the deformed rotor's tower, beside nucbands' shears."""
+    import deformed
+    import deformedbands as D
+    X = D.index()
+    m = measured(X)
+    lv = D.levels()
+    entries, bands, heads = deformed.census2()
+    mine_nuc, their_nuc, shared = D.disjoint_from_nucbands()
+    mine_A, their_A, shared_A = D.a_ranges()
+    n_mine_A = len({a for _i, _p, a, _z, _n, _e in lv if a})
+    n_above, max_A = D.above_title_range()
+    bn_d, bn_n, bn_r = D.band_number_is_a_label()
+    zn_cells, zn_K, zn_cell = D.with_ZN()
+    ar, vacuous, K, _why = D.free_channel()
+    cell, held = D.cell_is_unoccupied()
+    Is = sorted({i for i, _p in X})
+    box = len(Is) * 2
+    both = [i for i in Is if (i, 1) in X and (i, -1) in X]
+    single = [(i, 1 if (i, 1) in X else -1) for i in Is if i not in both]
+
+    h = [plate.head("The Deformed Two-Quasiparticle Levels"),
+         '<div class="wrap">']
+    h.append(_mast(
+        "Research plate &middot; an index of quantum objects &middot; "
+        "DOCKET 36b",
+        "The Deformed Two-Quasiparticle&nbsp;Levels",
+        "%s excited states in two-quasiparticle rotational bands of deformed "
+        "odd-odd nuclei &mdash; a deformed rotor&rsquo;s tower, beside "
+        "<code>nucbands</code>&rsquo; shears mechanism, sharing not one "
+        "nuclide with it." % "{:,}".format(len(lv)),
+        [("instrument", "deformedbands.py"),
+         ("members", "{:,} levels".format(len(lv))),
+         ("bands", str(bands)), ("arity", str(ar)),
+         ("cells", str(m["cells"])),
+         ("cell", "(%d,&nbsp;%d,&nbsp;%d)" % m["cell"]),
+         ("channel", "K%d" % m["cell"][0])]))
+
+    h.append('<section><div class="shead"><span class="snum">01</span>'
+             '<h2>A member is one level, and it is not the other nuclear '
+             'index&rsquo;s</h2></div>'
+             '<p class="sub">A nuclear excited state in a two-quasiparticle '
+             'rotational band of a deformed odd-odd nucleus, Z&nbsp;67&ndash;'
+             '71. It carries spin I and parity exactly as a particle carries J '
+             'and P, so the quantum numbers are <b>the level&rsquo;s own</b> '
+             '&mdash; not its band&rsquo;s and not its nuclide&rsquo;s.</p>'
+             '<p><code>nucbands</code> holds the levels of MAGNETIC and '
+             'ANTIMAGNETIC rotational bands &mdash; the shears mechanism in '
+             'weakly-deformed and near-spherical nuclei. These are a DEFORMED '
+             'ROTOR&rsquo;s tower: a different mechanism, in different nuclei, '
+             'from a different paper. The disjointness is measured rather than '
+             'asserted &mdash; <b>%d nuclides here, %d there, %d in '
+             'common</b>.</p></section>'
+             % (mine_nuc, their_nuc, shared))
+
+    h.append('<div class="note warn"><span class="lab">WITHDRAWN in the '
+             'instrument, and the plate carries the corrected ground rather '
+             'than the first one</span><p style="margin-bottom:0">The zero '
+             'above was first explained by saying the two mass ranges are '
+             'disjoint. <b>They are not.</b> <code>nucbands</code> spans '
+             'A&nbsp;%d&ndash;%d and <em>contains</em> this index&rsquo;s '
+             'A&nbsp;%d&ndash;%d entirely. The separation survives anyway, and '
+             'is sharper than the ranges suggest: of this index&rsquo;s '
+             '<b>%d</b> distinct mass numbers, <b>%d</b> occur in '
+             '<code>nucbands</code> at all. But that is a measured fact about '
+             'which nuclides each paper happens to tabulate, not a consequence '
+             'of where they sit on the chart &mdash; a weaker ground, and the '
+             'true one.</p></div>'
+             % (their_A[0], their_A[1], mine_A[0], mine_A[1],
+                n_mine_A, shared_A))
+
+    h.append('<div class="note"><span class="lab">The source&rsquo;s title '
+             'overclaims, and the index reports the table</span>'
+             '<p style="margin-bottom:0">The paper is titled &ldquo;&hellip; '
+             'Deformed Odd-Odd Nuclei, 156&nbsp;&le;&nbsp;A&nbsp;&le;&nbsp;'
+             '168&rdquo;, and its Table&nbsp;3 does not respect that: '
+             '<b>%d</b> of the %s seated levels sit above A&nbsp;=&nbsp;168, '
+             'up to A&nbsp;=&nbsp;<b>%d</b>. This index describes what the '
+             'table holds, not what the title claims, and the discrepancy is '
+             'recorded rather than smoothed.</p></div>'
+             % (n_above, "{:,}".format(len(lv)), max_A))
+
+    h.append('<section><div class="shead"><span class="snum">02</span>'
+             '<h2>The two coordinates</h2></div>%s</section>'
+             % chart_table(
+                 [("2I", "spin, doubled, so a half-integer spin stays an "
+                         "integer &mdash; READ from the I<sup>&pi;</sup> "
+                         "cell of Table&nbsp;3"),
+                  ("parity", "+1 or &minus;1, READ from the same cell")],
+                 X, m["res"]))
+
+    h.append('<section><div class="shead"><span class="snum">03</span>'
+             '<h2>Three refusals, each measured rather than asserted</h2></div>'
+             '<ul class="tight refuse">'
+             '<li><b>The energy is not a coordinate.</b> It is a magnitude, '
+             'not a quantum number. It is also not even a number for much of '
+             'this table: <b>%d</b> bandheads are printed as '
+             '<span class="mono">A+134.27</span> or '
+             '<span class="mono">1135.7+y</span>, relative to an unknown '
+             'offset. Both reasons hold and the second is peculiar to this '
+             'source.</li>'
+             '<li><b>The band number is not a coordinate</b> &mdash; it is the '
+             'table&rsquo;s row label. Measured against '
+             '<code>figure.py</code>&rsquo;s rule that a coordinate separating '
+             '90&nbsp;%% or more of its members groups nothing: '
+             '<b>%d distinct band numbers over %d entries, a ratio of '
+             '%.2f</b>. It separates every entry and groups none.</li>'
+             '<li><b>Z and N are not coordinates</b>, and this one is a '
+             'judgement rather than a rule, so it is charted anyway and '
+             'refused against a number. (2I, parity, Z, N) would be '
+             '<b>%s cells at K%d, cell (%d,&nbsp;%d,&nbsp;%d)</b>. They are '
+             'properties of the HOST nuclide, not of the level, which is '
+             'DOCKET 28&rsquo;s trap exactly.</li>'
+             '</ul></section>'
+             % (heads, bn_d, bn_n, bn_r, "{:,}".format(zn_cells), zn_K,
+                zn_cell[0], zn_cell[1], zn_cell[2]))
+
+    h.append('<section><div class="shead"><span class="snum">04</span>'
+             '<h2>The chart, drawn flat</h2></div>'
+             '<p class="sub">Arity 2, so there is no three-axis view to '
+             'build and none is padded into one.</p>'
+             '<figure class="plate">%s'
+             '<div class="key"><span><i class="k" style="background:'
+             'var(--geometry)"></i>&pi; = +1 held</span>'
+             '<span><i class="k" style="background:var(--order)"></i>'
+             '&pi; = &minus;1 held</span>'
+             '<span><i class="k" style="border:1.4px dashed var(--algebra)">'
+             '</i>in the box, not in the chart</span></div>'
+             '<figcaption><b>This view is the index itself, not a projection '
+             'of it.</b> The chart has two coordinates and they are the two '
+             'rows, so every one of the <b>%d</b> cells is its own square and '
+             'nothing is collapsed. The box is %d&nbsp;&times;&nbsp;2 = '
+             '<b>%d</b>, so <b>%d</b> positions are empty &mdash; and they are '
+             'not scattered. Both parities are held at every 2I from %d to '
+             '<b>%d</b>; above that only one parity survives at each spin, '
+             'and the survivor alternates: %s.</figcaption></figure></section>'
+             % (parity_ladder_svg(X), len(X), len(Is), box, box - len(X),
+                Is[0], max(both),
+                ", ".join("2I&nbsp;=&nbsp;%d&nbsp;%s" % (i, "+" if p > 0
+                                                         else "&minus;")
+                          for i, p in single)))
+
+    h.append('<section><div class="shead"><span class="snum">05</span>'
+             '<h2>What it measures</h2></div>%s%s'
+             '<p class="after"><b>And its K%d is the free one.</b> At arity 2 '
+             'there is exactly one 2-subset of the coordinates, so '
+             '<code>kdet</code> returns True for every set whatever and '
+             'statistics closes vacuously &mdash; measured, not assumed: '
+             '<span class="mono">arity %d &le; 2</span>, so the closer is '
+             'vacuous. <b>This index really closes in NOTHING</b>, which is '
+             'where <code>mesons</code>, '
+             '<code>baryons</code> and <code>nucbands</code> sit. It is said '
+             'rather than banked.</p></section>'
+             % (kv(("cells", m["cells"], ""),
+                   ("box", m["box"], "what charting cost tracks"),
+                   ("cell", "(%d, %d, %d)" % m["cell"], "K, height, width"),
+                   ("members", "{:,}".format(len(lv)),
+                    "levels, charted into %d cells" % m["cells"])),
+                closure_table(m), K, ar if vacuous else -1))
+
+    h.append('<div class="note %s"><span class="lab">The cell, against the '
+             'register</span><p style="margin-bottom:0">Measured, not assumed: '
+             '<b>(%d,&nbsp;%d,&nbsp;%d)</b> is held by <b>%s</b>.</p></div>'
+             % ("good" if not held else "warn", cell[0], cell[1], cell[2],
+                "no other seated index" if not held
+                else E(", ".join(held))))
+
+    h.append('<div class="note"><span class="lab">%d levels are REFUSED, and '
+             'counted apart</span><p style="margin-bottom:0">They carry a spin '
+             'and no parity. That is the same kind of gap <code>nucbands</code>'
+             ' reports and it is counted separately for the same reason: '
+             '&ldquo;no parity printed&rdquo; and &ldquo;no spin '
+             'printed&rdquo; are different facts about the source, and '
+             'flattening them would lose one. The capture itself is total '
+             'against three of the paper&rsquo;s own numbers &mdash; '
+             '<b>%d entries, %d bands, %d bandhead states</b>, all '
+             'exact.</p></div>'
+             % (len(D.no_parity()), entries, bands, heads))
+
+    h.append(sourceline("deformedbands"))
+    h.append(pfoot("deformedbands"))
+    h.append("</div>")
+    _write("deformedbands-plate.html", h)
+
 BUILDERS = {"fundamental": build_fundamental, "mesons": build_mesons,
             "baryons": build_baryons,
             "quasiparticle": build_quasiparticle,
-            "fqh": build_fqh}
+            "fqh": build_fqh,
+            "bosonqp": build_bosonqp,
+            "readrezayi": build_readrezayi,
+            "spin4": build_spin4,
+            "nucbands": build_nucbands,
+            "deformedbands": build_deformedbands}
 
 if __name__ == "__main__":
     for w in (sys.argv[1:] or sorted(BUILDERS)):

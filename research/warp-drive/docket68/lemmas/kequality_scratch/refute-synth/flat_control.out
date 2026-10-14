@@ -1,0 +1,20 @@
+1. dF/dR|static * R  ==  R * sum eps (k - 2mu/R^2)/sqrt(f) / R ? -2*e1*ell_s*k/sqrt(R**4 + R**2*ell_s**2*k - ell_s**2*mu_s) - 2*e2*ell_2*k/sqrt(R**4 + R**2*ell_2**2*k - ell_2**2*mu_o) + 4*e1*ell_s*mu_s/(R**2*sqrt(R**4 + R**2*ell_s**2*k - ell_s**2*mu_s)) + 4*e2*ell_2*mu_o/(R**2*sqrt(R**4 + R**2*ell_2**2*k - ell_2**2*mu_o))
+2a. k=0 per-bridge-side B equals -2 mu ell/(R sqrt(R^4 - ell^2 mu)): True
+2b. control mu=0: B identically 0 ; tension lam = sum eps/ell_j, independent of R: (ell_1 + ell_s)/(ell_1*ell_s)
+3a. at RS (lam = 2/ell): Rdot^2 = mu/R**2  (never zero for mu > 0: never at rest)
+3b. at RS: R'' = -mu/R**3    <-- synthesis says -2 mu/R^3
+3c. momentarily at rest (lam^2/4 = 1/ell^2 - mu/R^4, sub-critical): R'' = -2*mu/R**3
+4a. critical reading, k=1: f_s - s^2 = R*(v + 1)*(4*R**2 - 4*R*sqrt(R**2 + 1) + 3)/(2*sqrt(R**2 + 1))
+    its zeros in R > 0: []  -> ours has NO static position for ANY ell_s (Model C F2 holds with ell_s free)
+    reduced: 16 R^2 (1+R^2) - (3+4R^2)^2 = -8*R**2 - 9
+5. (a) -1/8, ell_2=4/3: ours lam1 = 2 vs flat-balance value 1.4728728 (super-critical by 35.79%); position 2 lam2 = -0.25 vs -0.27712722
+   -> with mu = 0 (no corridor) neither plane balances anywhere at these tensions: M's flat control FAILS
+5. (b) -1/4, ell_2=1: ours lam1 = 2 vs flat-balance value 1.4314319 (super-critical by 39.72%); position 2 lam2 = -0.5 vs -0.56856812
+   -> with mu = 0 (no corridor) neither plane balances anywhere at these tensions: M's flat control FAILS
+5. (c) -1/8, ell_2=1: ours lam1 = 2 vs flat-balance value 1.7444743 (super-critical by 14.65%); position 2 lam2 = -0.25 vs -0.25552567
+   -> with mu = 0 (no corridor) neither plane balances anywhere at these tensions: M's flat control FAILS
+5x. control for ours at 2/ell_1 forces ell_s = ell_1; then position 2's flat value 1/ell_s - 3/4 = 1/4 (positive: wrong sign for 139)
+6. k=-1 ours decaying outer needs R^2 < -2mu = x/(2w): outer horizon r_+^2 - x/(2w) = -x/2 + sqrt(1 - x)/2 + 1/2 > 0 on (0,1), so R is inside r_+ (not in an exterior); horizonless if x > 1
+   F4 holds with ell_s free in Model C's orientation (deduced from the three sign lines above)
+7. k=0, bridge mu_s=0.5 (ell_s=1) decaying, outer ell_2=1/2 growing with its own mass mu_o=1.186140662: B=1.97e-31, lam2=-0.9703494294
+   -> a static flat negative plane exists once the outer bulk carries mass: 'any tensions, any lengths' needs mu_o = 0

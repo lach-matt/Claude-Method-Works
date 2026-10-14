@@ -1,0 +1,121 @@
+{
+ "key": "pdg-light-quark-masses",
+ "name": "PDG MS-bar light-quark mass sum 2m_u + m_d = 8.990 MeV at 2 GeV (address.py QUARK_SUM_MEV, S_SCAN[0], NAIVE_CORRECTION_FACTOR['naive valence'])",
+ "source": {
+  "located": "Review of Particle Physics (Particle Data Group), u- and d-quark mass summary entries Q002M/Q001M (also Q123UM/Q123DM, mbar Q123MR4, m_u/m_d Q123MR0). The tree's 8.990 = 2(2.16)+4.67 is reproduced EXACTLY by the RPP 2019, 2020, 2021, 2022 and 2023 editions and by no other (2018: 9.10; 2024, 2025, 2026: 9.02). Current edition: RPP 2026, F. Takahashi et al., Int. J. Mod. Phys. A 41, 2630011 (2026). The RPP is not on arXiv.",
+  "read_status": "READ",
+  "via": "PDG's OWN machine-readable releases, parsed here independently: (a) the Berkeley PDG MC tables mass_width_2018..2023.mcd (scikit-hep particle 0.21.2/0.24.0 wheels from pypi, md5 e.g. 2022: c18b8b6f1aa01fbad8892da6a1113248) and mass_width_2024/2025/2026.txt (particle 1.0.1, installed; 2026 md5 e96a23be061430adc72d5b2ea5a93764), by PDG's stated FORTRAN column layout; (b) PDG's official API database pdg.sqlite, editions 2024 (pypi pdg 0.1.4, md5 0b6603c85a1e4f6a1b67a7c6ae201f5f), 2025 (pdg 0.2.3, 0472a9bb64b51d1bdd90ae4ebc2293df) and 2026 (pdg 2026.0, be22866cae6aa6b0cb5b2d1974048778), including PDG's header TEXT for the light-quark block, its footnotes and its measurement list. Copies under scratchpad/d67/src/pdgq/. NOT READ: the RPP 'Quark masses' review text (Manohar-Lellouch-Barnett) and FLAG 2024 (arXiv:2411.04268): alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' (2026-09-26), and arxiv.org, pdg.lbl.gov, inspirehep.net are refused by the egress proxy. Those are NAMED-NOT-READ; nothing below rests on them."
+ },
+ "published_statement": "PDG 2026 (identical values in 2024 and 2025) summary values: m_u = 2.16 +- 0.07 MeV, m_d = 4.70 +- 0.07 MeV, mbar = (m_u+m_d)/2 = 3.49 +- 0.07 MeV, m_u/m_d = 0.462 +- 0.020. PDG 2019-2023: m_u = 2.16 (+0.49/-0.26 in the RPP; file-rounded +0.5/-0.3), m_d = 4.67 (+0.48/-0.17; file +0.5/-0.2). PDG header text (pdgtext Q123UM, 2026), verbatim: 'The u-, d-, and s-quark masses are estimates of so-called ``current-quark masses,'' in a mass- independent subtraction scheme such as MSbar. The ratios mass(u)/mass(d) and mass(s)/mass(d) are extracted from pion and kaon masses using chiral symmetry. The estimates of d and u masses are not without controversy and remain under active investigation. Within the literature there are even suggestions that the u quark could be essentially massless. ... We have normalized the MSbar masses at a renormalization scale of mu = 2 GeV. Results quoted in the literature at mu = 1 GeV have been rescaled by dividing by 1.35. The values of ``Our Evaluation'' were determined in part via Figures 2 and 3 in the ``Quark masses'' review.' PDG publishes no value for 2m_u + m_d; the sum is the tree's arithmetic on PDG's two entries.",
+ "published_hypotheses": [
+  "current-quark masses in a mass-independent subtraction scheme (MS-bar) -- PDG text",
+  "renormalisation scale mu = 2 GeV; literature values at 1 GeV rescaled by 1/1.35 -- PDG text",
+  "m_u/m_d and m_s/m_d from pion and kaon masses via chiral symmetry -- PDG text",
+  "'Our Evaluation' determined in part from Figures 2 and 3 of the RPP Quark-masses review (an evaluation, not a pure weighted average: the 2026 computed averages are m_u 2.16 +- 0.04, m_d 4.70 +- 0.04, scale factor 1.157 on m_u) -- PDG data rows value_type 'AC'",
+  "inputs: lattice QCD (n_f = 2+1 and 2+1+1, some with QED) and sum rules -- PDG footnotes/measurement list",
+  "PDG's own caveat: d and u masses 'not without controversy'; 'suggestions that the u quark could be essentially massless'"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED at address.py:77-78 (prose): 'the Higgs supplies 2m_u + m_d = 8.99 MeV of the proton's 938.272 MeV -- 0.96%' drops the MS-bar / mu = 2 GeV qualifier that address.py:426 carries. The numerator is a scheme- and scale-dependent MS-bar mass, the denominator an RG-invariant physical mass; by PDG's own 1.35 rescaling the same sum at mu = 1 GeV is 12.14 MeV = 1.29%, and the F6 factor printed as '24.0' (address.py:80) becomes 18.0 (computed, C8). The tree already disowns the ratio as physics (address.py:83-86: 'a sum of current-quark masses and NOT a Feynman-Hellmann fraction'), so this is a prose-site omission, not a dropped hypothesis of the constant.",
+  "ADDED (tree's own, not PDG's) at address.py:77: 'the Higgs supplies' -- attributing the current-quark masses to Yukawa x v is Standard-Model physics the tree adds; PDG says only 'current-quark masses'. Standard, but it is the tree's hypothesis, not the source's.",
+  "DROPPED at address.py:426: the EDITION. The comment says 'PDG MS-bar 2 GeV' with no year; the value is RPP 2019-2023 and is superseded by RPP 2024-2026 (m_d 4.67 -> 4.70, sum 8.990 -> 9.02).",
+  "DROPPED at address.py:426: the UNCERTAINTY. The tree carries a central value only; RPP 2022 was +1.46/-0.69 MeV on the sum (linear, asymmetric), RPP 2026 is +-0.16 (uncorrelated) / +-0.21 (linear). Computed not to move the conclusion (C7).",
+  "DROPPED: PDG's caveat 'the u quark could be essentially massless' (still in the 2026 text). Computed: at m_u = 0 the naive S = 0.50%, the naive factor 45.1, K_mu(H1) = -0.7739, K_mu(H2) = -0.9950 -- still O(1) negative (C9); and one lattice input PDG averages, BAZAVOV 2018 m_u = 2.130 +- 0.041 MeV, excludes m_u = 0 at 52 sigma (C10).",
+  "STATUS WORD: address.py:426 marks the value NAMED-NOT-READ; it is now READ at source in PDG's own data release (this audit). The tree's 'valence sum, NOT a Feynman-Hellmann fraction' hypothesis (address.py:85-86) is consistent with PDG's 'current-quark masses' and is not a drift."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_u (MS-bar, 2 GeV)",
+   "value_then": "2.16 MeV (+0.49/-0.26), RPP 2019-2023",
+   "value_now": "2.16 +- 0.07 MeV (RPP 2024, 2025, 2026)",
+   "source_now": "PDG pdg.sqlite 2026 Q002M; mass_width_2026.txt row mcid 2",
+   "moves_conclusion": "no -- central unchanged, error shrank 4-7x"
+  },
+  {
+   "quantity": "m_d (MS-bar, 2 GeV)",
+   "value_then": "4.67 MeV (+0.48/-0.17), RPP 2019-2023",
+   "value_now": "4.70 +- 0.07 MeV (RPP 2024-2026)",
+   "source_now": "PDG pdg.sqlite 2026 Q001M; mass_width_2026.txt row mcid 1",
+   "moves_conclusion": "no -- +0.03 MeV"
+  },
+  {
+   "quantity": "2m_u + m_d (tree's QUARK_SUM_MEV)",
+   "value_then": "8.990 MeV (tree; = RPP 2019-2023 exactly)",
+   "value_now": "9.02 +- 0.16 MeV (RPP 2026; tree value sits -0.19 sigma from it)",
+   "source_now": "computed from PDG 2026 entries (rederive A2, B6, B7)",
+   "moves_conclusion": "no -- S 0.9581% -> 0.9613%, prints 0.96% either way (C5)"
+  },
+  {
+   "quantity": "S_valence = (2m_u+m_d)/m_p (S_SCAN[0])",
+   "value_then": "0.0095814 (8.990/938.27208816)",
+   "value_now": "0.0096133 (9.02/938.27208943, CODATA 2022)",
+   "source_now": "computed",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "NAIVE_CORRECTION_FACTOR['naive valence'] = (2/9 + 7S/9)/S",
+   "value_then": "23.9708 (pinned in address.py selftest at 1e-5; printed '24.0' at address.py:80)",
+   "value_now": "23.894 (-0.32%); prints '23.9'",
+   "source_now": "computed, rederive C2",
+   "moves_conclusion": "the 4-significant-figure pin is edition-specific: address.py's 1e-5 selftest would REJECT the current PDG input (C3), while its looser pin 23.9 +- 2% (address.py:1324) passes (C4). The finding it supports (the factor is S-dependent, ~24 at the naive value, 3-4.5 at sigma-term values) does not move."
+  },
+  {
+   "quantity": "K_mu = d ln mu/d ln v at S_valence",
+   "value_then": "-0.7703 (H1), -0.9904 (H2)",
+   "value_now": "-0.7703 (H1), -0.9904 (H2) at 4 dp",
+   "source_now": "computed, rederive C6",
+   "moves_conclusion": "no -- O(1) negative over every input incl. RPP 2022's full range, RPP 2026 +-1 sigma, mu = 1 GeV normalisation and m_u = 0 (C7, C9)"
+  },
+  {
+   "quantity": "m_p",
+   "value_then": "938.27208816 MeV (CODATA 2018)",
+   "value_now": "938.27208943 MeV (CODATA 2022; sibling audit codata-proton-mass)",
+   "source_now": "scipy constants tables as READ in sibling audit",
+   "moves_conclusion": "no -- 1.4e-9 relative"
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-light-quark-masses.py",
+  "outcome": "ALL PASS (exit 0). Parsed PDG's MC tables for RPP 2018-2026 by PDG's stated column layout and PDG's API database for 2024/2025/2026: 8.990 = 2(2.16)+4.67 is reproduced by exactly the RPP 2019-2023 editions (A1); 2024-2026 give 9.02 (A2). PDG's text states MS-bar, mu = 2 GeV, 'current-quark masses', the 1/1.35 rescaling and the m_u = 0 caveat (B1-B5). Re-derived over Fraction the 2/9 exponent (Lambda_3 = Lambda_6^(7/9)(m_c m_b m_t)^(2/27), C0) and reproduced the tree's F6 pin 23.9708 at 8.990 (C1; also read back read-only from address.py: 23.970759811148184); at 9.02 the factor is 23.894 (C2). K_mu unchanged at 4 dp (C6) and O(1) negative across every tested input (C7, C9). One PDG-internal DISCREPANCY recorded, not a refutation: (m_u+m_d)/2 from the summary m_u, m_d is 3.43 MeV against PDG's own mbar 3.49 +- 0.07, and 2 mbar (2r+1)/(1+r) = 9.19 MeV against 9.02 from the individual entries (B8) -- within PDG's quoted errors; PDG's 'Our Evaluation' is not a single fit.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "RPP 2024 / 2025 / 2026 (PDG; 2026: Takahashi et al., IJMPA 41, 2630011)",
+   "effect": "narrows",
+   "what": "m_d moved 4.67 -> 4.70 MeV and both errors shrank to +-0.07 MeV: the tree's sum 8.990 is superseded by 9.02 +- 0.16 (tree value -0.19 sigma from it). Does not move the conclusion.",
+   "read_status": "READ (PDG data releases, pdg.sqlite + MC tables)"
+  },
+  {
+   "ref": "BAZAVOV 2018 (Fermilab Lattice/MILC/TUMQCD), PRD 98, 054517 -- an input to the PDG 2026 average",
+   "effect": "confirms",
+   "what": "m_u = 2.130(41), m_d = 4.675(56) MeV -> 2m_u+m_d = 8.935 MeV; excludes m_u = 0 at 52 sigma.",
+   "read_status": "READ-VIA-RESTATEMENT (values as recorded in PDG 2026 pdgmeasurement table; paper not opened)"
+  },
+  {
+   "ref": "FODOR 2016 (BMW), PRL 117, 082001 -- PDG input",
+   "effect": "confirms",
+   "what": "m_u = 2.27(8), m_d = 4.67(8) MeV -> 2m_u+m_d = 9.21 MeV; lattice determinations of the sum span ~8.9-9.2 MeV.",
+   "read_status": "READ-VIA-RESTATEMENT (PDG 2026 measurement table)"
+  },
+  {
+   "ref": "ALEXANDROU 2021 (ETM, 2+1+1 twisted mass) and BRUNO 2020 (CLS, 2+1 Wilson) -- PDG mbar inputs",
+   "effect": "contested",
+   "what": "mbar = 3.636(89) and 3.54(15) MeV against PDG's 3.49(7): the newest lattice mbar sits ~1.3 sigma above PDG's evaluation; at the tree's precision this moves S by < 4%, which cannot move K_mu.",
+   "read_status": "READ-VIA-RESTATEMENT (PDG 2026 measurement table)"
+  },
+  {
+   "ref": "sibling audit sigma-term-scan (Hoferichter et al. arXiv:1506.04142; FLAG 2024 Sec.10.4.4; Barca-Bali-Collins arXiv:2412.13138)",
+   "effect": "confirms",
+   "what": "the physically relevant Feynman-Hellmann fraction is sigma_piN/m_p ~ 0.06, six times the valence 0.0096 -- the tree's own F6 point that the PDG current-mass sum is not the FH fraction.",
+   "read_status": "READ in sibling audit"
+  }
+ ],
+ "lacked_data": "For THIS result M's hypothesis is testable and the evidence is AGAINST it moving anything. The value the tree uses (RPP 2019-2023) was built before BAZAVOV 2018 fully tightened the average and before ALEXANDROU 2021 / BRUNO 2020; later data (RPP 2024+) moved m_d by +0.03 MeV and cut the errors ~5x, i.e. the earlier authors did lack data, and having it moved the sum by +0.33% (0.19 current sigma). Computed: that shifts the naive factor 23.97 -> 23.89 and leaves K_mu = -0.7703 (H1) / -0.9904 (H2) unchanged at 4 dp; even the extreme PDG caveat m_u = 0 leaves K_mu O(1) negative. What the data did NOT supply, and could not: the ratio (2m_u+m_d)/m_p is convention-dependent (0.96% at 2 GeV, 1.29% at 1 GeV by PDG's own factor), so no new measurement makes it a physical 'Higgs share' -- that limit is a hypothesis (the MS-bar scale), not missing data, and the tree already names it at address.py:83-86 and 426.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ at source in PDG's own data release: 8.990 = 2(2.16)+4.67 is exactly the RPP 2019-2023 value, MS-bar at mu = 2 GeV, current-quark masses (PDG text, verbatim). The tree's hypotheses (MS-bar 2 GeV; valence sum, not a Feynman-Hellmann fraction) agree with PDG's. Re-derivation agrees (ALL PASS). The datum HAS moved (RPP 2024-2026: 9.02 +- 0.16) but the move is -0.19 sigma and moves no conclusion: '0.96%' prints the same, K_mu is unchanged at 4 dp, and the finding it supports (F6: the naive factor ~24 is S-dependent, 3-4.5 at sigma-term values) survives. RECORDED, NOT REPAIRED: (i) stale edition -- the constant is RPP 2019-2023, current is 9.02; (ii) the tree's 1e-5 selftest pin 23.9708 is edition-specific and would reject the current input (23.894), and address.py:80's printed '24.0' would print '23.9'; (iii) address.py:77-78 prose omits the MS-bar/2 GeV qualifier, and the '24' is a 2-GeV-convention number (18.0 at 1 GeV); (iv) PDG-internal: summary m_u, m_d imply mbar 3.43 against PDG's 3.49 +- 0.07. None is a refutation; none is WRONG.",
+ "what_would_change_the_grade": "-> DATA-DEPENDENT if the docket counts the 4-significant-figure pinned factor 23.9708 (address.py selftest) as a conclusion, since it moves with the edition (23.894 at RPP 2024+). -> NARROWED if the prose claim at address.py:77-78 ('the Higgs supplies ... 0.96%') is read as a physical statement rather than the labelled naive reading, since it holds only in the MS-bar mu = 2 GeV convention. -> reconsidered if FLAG 2024 or the RPP Quark-masses review, read at source, gave a light-quark sum differing from 9.02 by more than ~50% (the size needed to take S_valence near a sigma-term value) -- no input in PDG's 2026 measurement list comes near that.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-light-quark-masses.py   # needs scratchpad/d67/src/pdgq/ (pdg + particle wheels from pypi; re-fetch: pip download --no-deps pdg==2026.0 pdg==0.2.3 particle==0.24.0 particle==0.21.2)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/pdg-light-quark-masses.json"
+}

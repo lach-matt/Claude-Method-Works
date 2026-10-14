@@ -1,0 +1,40 @@
+modelc.py -- model C, the two-sided bridge (items 179-182); scratch, not verified, not seated
+
+C0 conventions: M4 tensions 4/3, -1/3 of lambda_RS(k_R) -> ratio -1/4 (KDERIVE, b6_k); per sheet (stage 7 K5, 174 (2)) ratio -1/8; k_R/k_L = 3/4 so M4's ell_2 = 4/3 ell
+C1 junction: Christoffel K = coded True; rho = 3 sum eps sqrt f / R True; kappa^2(rho+p) = B/R True; moving-plane route agrees True (K^x_x moving True); RS control True (mutation kills it True); owners stage6 True, israel True
+C2 flat planes (k = 0): B(mirror) = -4*ell_s*mu/(R*sqrt(R**4 - ell_s**2*mu)); = 2 x, 1 x, 1 x (-2 mu/(R^2 sqrt f_s)) for mirror/decaying/growing: True; mu = 0 control B == 0: True; at rest R'' = -2*mu/R**3 (toward the bridge); at exactly RS Rdot^2 = mu/R**2 (k=0), -1 + mu/R**2 (k=1)
+C3 mirrored: static roots mu = [R**2/2] (k=1), [0] (k=0), [-R**2/2] (k=-1); k=1: (kappa^2 sigma/6)^2 - 1/ell^2 = 1/(2*R**2) > 0; mu = 1/(4*x) for excess x; f(R) = R**2/ell**2 + 1/2 > 0; V'' = -4/Rv**2 < 0 (unstable); k=-1 horizon gap r_+^2 - R^2 = -Rsq + l*(l + sqrt(-2*Rsq + l**2))/2 >= 0
+C4 sign: mirrored kappa^2 rho = 6*sqrt(R**4 + R**2*ell**2 - ell**2*mu)/(R**2*ell) (> 0); T5c's bound s2 <= -1 (Lemma T fixed point -1) needs a static chart to P2, but from P1 the chart ends at the bifurcation surface at finite depth (example 1.1658375 ell, r_h = 0.60500033)
+C5 k=1: quadratic roots True; unsquared residues ours ['0', '0', '5.43e-166', '1.09e-165', '0', '0'], P2 ['0', '0', '5.43e-166', '2.71e-166']; (3+4v^2)^2-16v^2(1+v^2) = 8*v**2 + 9; N-form True; lam_ours -> 3/2 at L=2 (= 1 + 1/L); P2 exists iff L<1 identity True; lam_P2 -> -1 at L=1/2 (= 1 - 1/L)
+C6 recorded conventions:
+   one ell (ell_2 = ell)                  L2 = 1    P2 static possible: False; ours at RS: no -> NO SOLUTION
+   M4/KDERIVE/b6_k (ell_2 = 4 ell/3)      L2 = 4/3  P2 static possible: False; ours at RS: no -> NO SOLUTION
+   stage 6 J3 (ell_2 = 3 ell)             L2 = 3    P2 static possible: False; ours at RS: no -> NO SOLUTION
+   stage 7 K5 (ell_2 = 6 ell)             L2 = 6    P2 static possible: False; ours at RS: no -> NO SOLUTION
+   off-convention branches (ell_s = 1):
+   RS at ell_s  L1 = 3/2  mu = 1.800000000  R1 = 1.341640787  r_h = 0.9652886130 ratio -1/4: u2 = 11.06741018, L2 = 0.6633661641, R2 = 3.326771735 (bal 3.340955888e-52, ten -1.336382355e-51)
+   RS at ell_s  L1 = 3/2  mu = 1.800000000  R1 = 1.341640787  r_h = 0.9652886130 ratio -1/8: u2 = 18.34964323, L2 = 0.7982662517, R2 = 4.283648355 (bal 1.002286766e-51, ten -6.013720598e-51)
+   RS at ell_s  L1 = 2    mu = 1.333333333  R1 = 1.154700538  r_h = 0.8708075213 ratio -1/4: u2 = 8.264081804, L2 = 0.6622673107, R2 = 2.874731606 (bal -6.681911775e-52, ten 4.677338243e-51)
+   RS at ell_s  L1 = 2    mu = 1.333333333  R1 = 1.154700538  r_h = 0.8708075213 ratio -1/8: u2 = 13.67958799, L2 = 0.7976791160, R2 = 3.698592704 (bal -6.681911775e-52, ten 2.672764710e-51)
+   RS at ell_s  L1 = 3    mu = 1.125000000  R1 = 1.060660172  r_h = 0.8201243442 ratio -1/4: u2 = 7.011788740, L2 = 0.6614987588, R2 = 2.647978236 (bal -6.681911775e-52, ten 4.009147065e-51)
+   RS at ell_s  L1 = 3    mu = 1.125000000  R1 = 1.060660172  r_h = 0.8201243442 ratio -1/8: u2 = 11.59390236, L2 = 0.7972655888, R2 = 3.404981992 (bal -3.340955888e-52, ten 1.670477944e-51)
+   RS at ell_s  L1 = 10   mu = 1.010101010  R1 = 1.005037815  r_h = 0.7890134401 ratio -1/4: u2 = 6.320767235, L2 = 0.6609474706, R2 = 2.514113608 (bal -6.681911775e-52, ten 2.004573533e-51)
+   RS at ell_s  L1 = 10   mu = 1.010101010  R1 = 1.005037815  r_h = 0.7890134401 ratio -1/8: u2 = 10.44323414, L2 = 0.7969675186, R2 = 3.231599316 (bal 3.340955888e-52, ten -2.672764710e-51)
+   RS at ell_1  L1 = 1/2  mu = 0.2410714286 R1 = 0.5669467095 r_h = 0.4480679505 ratio -1/4: u2 = 1.111612158, L2 = 0.4758647096, R2 = 1.054330194 (bal -6.681911775e-52, ten 0)
+   RS at ell_1  L1 = 1/2  mu = 0.2410714286 R1 = 0.5669467095 r_h = 0.4480679505 ratio -1/8: u2 = 1.668185285, L2 = 0.6463944299, R2 = 1.291582473 (bal -2.004573533e-51, ten 7.350102953e-51)
+   RS at ell_1  L1 = 4/5  mu = 1.505211596  R1 = 1.325887625  r_h = 0.9082092210 ratio -1/4: u2 = 8.064169339, L2 = 0.6109610067, R2 = 2.839748112 (bal -1.047263182e-52, ten -3.045450265e-51)
+   RS at ell_1  L1 = 4/5  mu = 1.505211596  R1 = 1.325887625  r_h = 0.9082092210 ratio -1/8: u2 = 12.96670892, L2 = 0.7592650507, R2 = 3.600931674 (bal -9.506204019e-52, ten 2.731643443e-51)
+   L1 -> oo (mu -> 1), ratio -1/4: ['L2 = 0.660893315115']
+   L1 -> oo (mu -> 1), ratio -1/8: ['L2 = 0.796938173175']
+   L1 -> 1+ (mu = 10000), ratio -1/4: ['L2 = 0.666666049387']
+   L1 -> 1+ (mu = 1000000), ratio -1/4: ['L2 = 0.666666660494']
+   L1 -> 1+ (mu = 10000), ratio -1/8: ['L2 = 0.799999680002']
+   L1 -> 1+ (mu = 1000000), ratio -1/8: ['L2 = 0.799999996800']
+C7 k=-1: lam R = 2*mu*sqrt(-L_o**2 + u)/(L_o*u) (sign of mu); extremal f_s = (2*u - 1)**2/(4*u), static u = 1/(-1 + L_o**(-2)), lam = (L_o**2 - 1)/(2*L_o**2), sample balance 0, window L_o > [sqrt(3)/3]
+C8 throats: column K = {0: tanh(rho)/(L*alpha(y)), 2: 0, 3: 0, 4: 0}; S = {0: 0, 2: tanh(rho)/(L*alpha(y)), 3: tanh(rho)/(L*alpha(y)), 4: tanh(rho)/(L*alpha(y))}; products {'AdS2 x H3': [{L1: ell/2, L2: sqrt(2)*ell/2}], 'AdS2 x S3': [], 'AdS2 x R3': [], 'AdS2 x S2 x R': []}; board's slice AdS2 R = -1/2, S2 radius 2; column ends (y_s, singular) {0.0: (2.553551338379166, True), 0.03125: (2.3744214914720354, True), 0.25: (1.6591156086282839, True), 1.0: (0.9138553576162483, True)}
+C9 charged k=1 outside root super-critical: numerator 9*x + 4 > 0
+C9 charged k=0: extremal q^2 = 2*r0**6, mu = 3*r0**4; mirrored static u and f there: [(r0**2, 0)]
+C9 charged k=1: extremal q^2 = 2*r0**6 + r0**4, mu = 3*r0**4 + 2*r0**2; mirrored static u and f there: [(r0**2, 0), (r0**2*(6*r0**2 + 3), 4*(3*r0**2 + 1)**3/(9*(2*r0**2 + 1)))]
+C11 matter (184): flat mirrored at RS rho_m = -6/ell + 6*sqrt(R**4 - ell**2*mu)/(R**2*ell); kappa^2(rho+p) flat = -4*ell*mu/(R**2*sqrt(R**4 - ell**2*mu)); spherical rho_m = -6/ell + 6*sqrt(R**4 + R**2*ell**2 - ell**2*mu)/(R**2*ell), kappa^2(rho+p) = 2*ell*(R**2 - 2*mu)/(R**2*sqrt(R**4 + R**2*ell**2 - ell**2*mu))
+
+(10.3 s)

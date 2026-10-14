@@ -1,0 +1,31 @@
+A: D = 1.8057952e+46 Pa, SD_0 = 1.40688e-25 Pa, log10 z = 71.108412, log10(-ln P) = 141.91579497495205
+PASS A1 log10(-ln P) = 141.91579497495206 (noise.py) to 1e-9
+PASS A2 log10 z = 71.108 (noise.py text) to 1e-3
+PASS A3 SD_0 = 1.4e-25 Pa (noise.py text) to 2 sig figs
+PASS A4 P below exp(-10^141)
+PASS A5 P NOT below exp(-10^142) (the CORRECTED entry)
+PASS A6 CODATA 2022 G leaves the exponent unchanged (|dL| < 1e-12)
+PASS A7 even a 2.2% shift of G keeps the exponent in (141,142): 141.89689
+A: K_F would have to change by factor 0.823749 to reach 10^142, 8.23749 to reach 10^141
+PASS A8 Mills asymptotic form agrees with erfc to 1e-40
+B: K_Gauss = 1/(70*pi**4)  K_Lorentz = 3/(512*pi**4)
+PASS B1 Gaussian K = 1/(70 pi^4)
+PASS B2 Lorentzian K = 3/(512 pi^4)
+PASS D1 both smeared noise-kernel variances positive
+C: kappa2 = 1/(128*pi**2*tau**4)  kappa3 = 3/(256*pi**3*tau**6)  skewness = 12*sqrt(2) = 16.9705627485
+PASS C1 kappa2 = 1/(128 pi^2 tau^4) > 0
+PASS C2 kappa3 != 0: the vacuum law of a smeared Wick square is NOT Gaussian
+PASS C3 skewness > 0 (the heavy tail is on the POSITIVE side)
+C: implied Gamma shape alpha = 4/skew^2 = 1/72 = 0.0138888888889
+PASS C4 CONTROL: a planted error (drop fhat(a-c)) changes kappa3
+PASS C5 kappa2(4D :phi^2:, Lorentzian) = alpha/beta^2 of FFR Eq. (26)
+PASS C5b kappa3(4D :phi^2:, Lorentzian) = 2 alpha/beta^3 of FFR Eq. (26)
+PASS C5c implied lower bound alpha/beta = 1/(96 pi^2 tau^2) (FFR Eq. (26)/(27))
+C6: Prob(negative outcome), true law (Gamma 1/72) = 0.94958668 ; Gaussian surrogate = 0.5
+PASS C6 reproduces FFR 1004.0179 p.7 '0.95'
+C7: Gaussian mass below the true floor (4D :phi^2:, Lorentzian) = 0.453093 (true law: 0)
+PASS C7 the surrogate puts > 40 percent of its mass where the quantum law puts none
+C8: SD_0/(C/tau^4) = 1.4038456 ; Gaussian mass below -C/tau^4 = 0.238131 (H6: 0, by C1)
+PASS C8 SD0_OVER_C = 1.4038456 (noise.py import value)
+PASS C8b the surrogate puts > 20 percent of its mass below the QEI floor of the tree's own operator
+ALL PASS

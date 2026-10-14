@@ -103,7 +103,7 @@ NUMBER RATHER THAN A PRINCIPLE.
 7} with exponents in [-8, 8] were measured against the target.  ONE lands within
 1 per cent; NONE within 0.1 per cent.  The single near-miss is
 
-        (10 Lambda)^-8  =  1.0140871864e-16   against   1.0110346504e-16
+        (10 Lambda)^-8  =  1.0140871864e-16   against   1.0110346501e-16
         relative error 3.019e-03
 
 AND IT IS REFUTED BY THE DATA'S OWN PRECISION.  v is known from the Fermi
@@ -154,6 +154,9 @@ import necindex
 cypher = necindex.cypher
 
 TARGET = higgs.hierarchy()
+#: CORRECTED (DOCKET 67): the target as first written, on ladder's truncated
+#: HBAR.  Kept as history; the live pin is the computed TARGET.
+TARGET_AS_FIRST_WRITTEN = 1.0110346504e-16
 LAMBDA = 9.982529174194637
 BASIS = {"Lambda": LAMBDA, "pi": math.pi, "e": math.e,
          "2": 2.0, "3": 3.0, "5": 5.0, "7": 7.0}
@@ -340,8 +343,12 @@ def selftest():
         True)
 
     # ------------------------------------------------------ the target
+    # CORRECTED (DOCKET 67): repinned to 1.0110346501e-16 when ladder.HBAR was
+    # made exact (h/2pi; it was typed truncated, low by 6.13e-10).  The value
+    # as first written, 1.0110346504e-16, is TARGET_AS_FIRST_WRITTEN; the
+    # relative error 3.019e-03 and the ~268 widths are unchanged at 4 s.f.
     chk("the target is higgs.py's hierarchy",
-        abs(TARGET - 1.0110346504e-16) < 1e-26, True)
+        abs(TARGET - 1.0110346501e-16) < 1e-26, True)
     chk("known to about a part in 1e5",
         1e-6 < target_precision() < 1e-4, True)
     chk("and G dominates that", 0.5 * G_REL > V_REL, True)

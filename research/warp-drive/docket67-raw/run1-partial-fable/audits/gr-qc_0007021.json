@@ -1,0 +1,113 @@
+{
+ "key": "gr-qc/0007021",
+ "name": "Gao & Wald (2000), 'Theorems on gravitational time delay and related issues', CQG 17, 4999: Theorem 1 (fastest null geodesics avoid a compact set under null completeness + NEC + null generic condition) and eqs. (11)-(13) (Jacobi matrix, conjugate point at det A = 0, G''/G = -(1/2)[sigma^2 + R_kk])",
+ "docket": "67, audit 16 of 286, run 2026-09-26",
+ "source": {
+  "located": "arXiv:gr-qc/0007021v2 (28 Jul 2000), Sijie Gao and Robert M. Wald, Enrico Fermi Institute; Class. Quantum Grav. 17, 4999 (2000). 15 pages, all returned. Theorem 1 p.6 with footnote 1 (Galloway's null-line strengthening); eqs. (10)-(13) p.7; Lemma 1 pp.7-9; proof of Theorem 1 pp.9-10; Corollary 1 p.11; Theorem 2 pp.12-14; Section 1 pp.2-6 on the gauge dependence of Visser-Bassett-Liberati and on Olum.",
+  "read_status": "READ",
+  "via": "mcp__alphaXiv__answer_pdf_queries on gr-qc/0007021, eight questions in one call; every page 1-15 returned"
+ },
+ "published_statement": "Theorem 1 (p.6, verbatim): 'Let (M, g_ab) be a null geodesically complete spacetime satisfying the null energy condition (2) and the null generic condition (see eq.(9)). Then given any compact region K subset M, there exists another compact region K' containing K such that if q, p not in K' and q in J^+(p) - I^+(p), then any causal curve gamma connecting p to q cannot intersect the region K.' The authors' own reading (p.5, p.10): 'the theorem suggests that \"time advance\" is not possible, although it is difficult to make a strong argument for this interpretation, since the theorem gives little control over the size of the region K''. Footnote 1: Galloway's version replaces the three hypotheses by 'fails to contain a null line' and is stronger. Eq. (11): d^2 A^mu_nu / d lambda^2 = - sum R_{alpha beta sigma}^mu k^alpha k^sigma A^beta_nu with A|_p = 0, dA/d lambda|_p = delta, q conjugate to p iff det A = 0 at q; eq. (12) G = sqrt(det A); eq. (13) 'the Raychaudhuri equation yields' G''/G = -(1/2)[sigma_ab sigma^ab + R_ab k^a k^b], sigma_ab the shear of the congruence emanating from p. Lemma 1 (NEC only): the first conjugate point depends continuously on the initial data. Theorem 2 (timelike conformal boundary, NEC or Borde's averaged condition, null generic condition, strong causality of M-bar, compact J^+(p) cap J^-(q)): a fastest causal curve between boundary points lies entirely in the boundary -- 'generic perturbations of anti-de Sitter spacetime always produce a time delay relative to anti-de Sitter spacetime itself'. Section 1: the Visser-Bassett-Liberati light-cone-contraction result 'is highly gauge dependent' and 'by adding a suitable multiple of this pure gauge perturbation ... we can reverse the conclusions of [3] in any compact region of spacetime'; Olum's no-advance theorem holds for spacetimes Minkowskian outside a world tube, which the dominant energy condition forbids (positive mass theorem). 'No assumption will be made about the dimensionality of spacetime'; no staticity or stationarity is assumed anywhere.",
+ "published_hypotheses": [
+  "Theorem 1: (M, g_ab) null geodesically complete",
+  "Theorem 1: null energy condition R_ab k^a k^b >= 0 for all null k (eq. 2) -- a curvature condition; Einstein's equation is not invoked in the theorem",
+  "Theorem 1: null generic condition, eq. (9): each null geodesic contains a point with k_[a R_b]cd[e k_f] k^c k^d != 0",
+  "Global: connected, smooth, time-oriented, paracompact; any dimension",
+  "Conclusion of Theorem 1 is compact-set avoidance by fastest null geodesics between points OUTSIDE an uncontrolled K'; it makes no comparison with a reference geometry and the authors decline to claim 'no time advance' from it",
+  "Eq. (11)-(12): Jacobi matrix from a point, A(0) = 0, A'(0) = I; conjugate point iff det A = 0; G = sqrt(det A)",
+  "Eq. (13): irrotational null congruence from a point (twist-free), G''/G = -(1/2)[sigma^2 + R_kk]; the 1/2 is the four-dimensional value (re-derived here: 1/(n-2) with G = (det A)^{1/(n-2)})",
+  "Lemma 1 needs only the NEC (not completeness, not the generic condition)",
+  "Theorem 2 (the reference-geometry delay): timelike conformal boundary with Omega = 0 there, NEC (or Borde's averaged NEC), null generic condition, strong causality of M-bar, compactness of J^+(p) cap J^-(q) -- asymptotically AdS, NOT asymptotically flat",
+  "NOT assumed anywhere: staticity, stationarity, spherical symmetry, asymptotic flatness, Einstein's equation"
+ ],
+ "hypothesis_drift": [
+  "DROPPED null geodesic completeness -- foliation.py:238-240 ('with the NEC, never an advance'), driven.py:116-118 ('no staticity hypothesis ... the NEC'); neither owner names it. Theorem 1's proof uses it to guarantee a conjugate pair on every null geodesic ([9] Hawking-Ellis via Wald Prop. 9.3.7); a wormhole corridor with mouths and a negative core has not been shown null-complete.",
+  "DROPPED null generic condition -- foliation.py:240, driven.py:118. The task's own key name carries it ('and generic condition'), the owners' text does not. Gao-Wald p.11 and p.14: de Sitter and anti-de Sitter satisfy every other hypothesis and fail the conclusion, so it is load-bearing.",
+  "STRENGTHENED conclusion -- foliation.py:238-240 'with the NEC, never an advance', :315-317 'the sign of that excess is forced by the NEC', driven.py:117-118 'the NEC makes Shapiro always a delay, never an advance': Theorem 1 states compact-set avoidance by fastest null geodesics between points outside an uncontrolled K'; Gao-Wald p.10: 'since K' could be far larger than K, it is difficult to make a strong argument for this kind of interpretation'. The reference-geometry delay is Theorem 2 (AdS boundary) or Olum's Minkowski-outside-a-world-tube setting, not Theorem 1. A misreading of which theorem carries the claim, not a refutation of the sign.",
+  "ADDED 'asymptotic flatness' -- in the census's name for this result ('with the NEC (and generic condition, asymptotic flatness)'): Theorem 1 assumes nothing asymptotic; Theorem 2 needs a timelike conformal boundary, which asymptotically flat spacetimes lack. Naming discrepancy in the census, no owner line states it.",
+  "CORRECT 'does not depend on staticity' (foliation.py:317) / 'no staticity hypothesis' (driven.py:116): nothing static or stationary is assumed in the paper.",
+  "ADDED concordance with Visser-Bassett-Liberati -- foliation.py:238-240 and driven.py:117 cite Gao-Wald and VBL as one standing result; Gao-Wald Section 1 (pp.2-4) says the VBL result 'is highly gauge dependent' and can be 'reverse[d] ... in any compact region' by a pure-gauge h_ab. VBL is its own key (gr-qc/9908023); recorded here, graded there.",
+  "composite.py:18-20 eq. (13) as quoted -- matches the source verbatim (four dimensions). composite.py:37-40, :116 eq. (11) 'A'' = -T A, A(0) = 0, A'(0) = I, conjugate at det A = 0' -- matches eqs. (11)-(12); the paper's A is the full matrix, composite.py's is its 2x2 screen projection, the standard reduction for a congruence from a point (screen components decouple from the k and l directions). No drift.",
+  "ADDED gloss 'Weyl focusing is quadratic in the source / sign-blind' (composite.py:24-27; concentric.py:5-7, :60) -- not a statement of the paper. Re-derived here as an exact identity in four dimensions: for any traceless symmetric 2x2 T(lambda), -T = R T R^T with R the 90-degree rotation, so det A(lambda; -T) = det A(lambda; T) exactly (same conjugate lambda 21.564 for both signs with a rotating eigenframe). Stronger than 'quadratic', and it holds only on a 2-screen (n = 4).",
+  "DISCREPANCY in the source, not the tree: G = sqrt(det A) (eq. 12) with eq. (13)'s 1/2 is the n = 4 case, while p.6 says 'our results hold in any spacetime dimension'; for n = 5 with sqrt(det A) a theta^2/12 term survives (sympy). G'' <= 0 under the NEC, which is all the proofs use, holds for G = (det A)^{1/(n-2)} in every n. A misprint-class discrepancy, sign unaffected; the tree is four-dimensional.",
+  "concentric.py:98-101 uses Ricci DEFOCUSING (R_kk < 0) inside the negative core -- there the NEC fails by construction and Theorem 1 is not claimed; only the eq. (13) split is used. No drift, and it is consistent with check (D) here: negative R_kk never seats."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "PPN gamma / Shapiro delay coefficient (the paper's only cited measurement, ref. [1] Reasenberg et al. 1979, offered as observational verification, not used in any proof)",
+   "value_then": "Viking 1976: (1+gamma)/2 to 0.1 % (Will 2014 Sec. 4.1.2, citing Reasenberg 1979)",
+   "value_now": "gamma - 1 = (2.1 +- 2.3) x 10^-5, Cassini 2003 (Bertotti, Iess, Tortora, Nature 425, 374)",
+   "source_now": "Will, C. M., Living Rev. Relativ. 17, 4 (2014), arXiv:1403.7377 Sec. 4.1.2 and Table 4, READ; Cassini paper itself NAMED-NOT-READ",
+   "moves_conclusion": "No. Theorems 1-2 and eqs. (11)-(13) take no numerical input; the datum only confirms the sign of the solar delay that motivates the paper. The tree's own 5.011052 M (foliation.py:311) is dimensionless (M = 1) and is not derived from the theorem."
+  },
+  {
+   "quantity": "coefficient 1/2 in eq. (13)",
+   "value_then": "1/2 with G = sqrt(det A) (eq. 12), stated for any dimension",
+   "value_now": "1/(n-2) with G = (det A)^{1/(n-2)}; = 1/2 at n = 4 (sympy, this audit)",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0007021.py check (A)",
+   "moves_conclusion": "No. Every owner is four-dimensional; the sign G'' <= 0 under the NEC is dimension-independent."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0007021.py",
+  "outcome": "ALL CHECKS PASS (exit 0; log beside the script). (A) sympy: from the irrotational null Raychaudhuri equation theta' = -theta^2/(n-2) - sigma^2 - R_kk with G = (det A)^{1/(n-2)}, G''/G = -(sigma^2 + R_kk)/(n-2); at n = 4 this is eq. (13) exactly. With eq. (12)'s sqrt(det A) at n = 5 a theta^2/12 term survives: recorded as a discrepancy against 'any dimension', sign unaffected. (B) z3: a concave sequence (G'' <= 0) with G(0) = 0, G(h) > 0 never rises again after a zero (UNSAT); vacuity guard: dropping concavity makes it SAT -- Lemma 1's core. (C) sympy: -T = R T R^T for every traceless symmetric 2x2 T; numeric Stormer-Verlet (composite.py's scheme, h = 1e-3) with a Weyl-like profile 3m b^2/(b^2+(l-10)^2)^{5/2}, m = 0.05, and a ROTATING eigenframe: +T and -T seat at the same lambda = 21.564 (thin-lens prediction f = 5, image at 20); vacuity guard: m = 0.02 (f = 12.5 > source distance 10) forms no image, which is composite.py's own 'source inside the focal length' case. (D) isotropic (pure Ricci) focusing: +r seats at 14.049 = pi/sqrt(r) to 0.1 %, -r never; note the 'det A <= 0' detector (composite.py:262) returns None on isotropic focusing because det A = a^2 has a DOUBLE zero -- a detector limit recorded, which cannot bite in vacuum where T is traceless and the zero is simple. (E) sympy: tr(M T1) is degree 1 in M, the traceless part squared is degree 2. Live: python3 composite.py --selftest 'SELFTEST OK', conjugate 55.17 (M = +2e-3) / 56.50 (M = -2e-3), ratio 1.02417 -- the 2.4 % is the ray path and the O(Phi^2) trace residue (1.6e-4), not the Jacobi equation, which check (C) shows is exactly sign-blind at fixed T(lambda). Not checkable here: the global steps of Theorem 1 (upper semicontinuity of f, compactness of S_K, the limit-curve arguments) and Theorem 2 -- read, not machine-checked; no counterexample is shown or known.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Galloway, G. J., 'Maximum principles for null hypersurfaces and null splitting theorems', math.DG/9909158 (Ann. Henri Poincare 1 (2000) 543)",
+   "effect": "extends",
+   "what": "Theorem 4.1: a null-complete spacetime obeying the NEC that contains a null line splits along a totally geodesic null hypersurface; Theorem 4.3: an asymptotically simple vacuum spacetime with a null line is Minkowski. This is the null-line machinery behind Gao-Wald footnote 1: Theorem 1's conclusion holds whenever M has no null line, a strictly weaker hypothesis than completeness + NEC + generic condition. Eq. (2.4) is the n-dimensional Raychaudhuri equation used in check (A).",
+   "read_status": "READ (pages 1, 4-5, 12, 15-26)"
+  },
+  {
+   "ref": "Osorio Morales, J. and Santillan, O. P., 'About apparent superluminal drives in generic gravity theories', arXiv:2004.12523",
+   "effect": "extends",
+   "what": "Independent Raychaudhuri-based proof of Galloway's version: in ANY gravity model with any matter, either a null line exists or Theorem 1's conclusion holds. Reads Theorem 1 exactly as this audit does: 'there is no control over the size of the region K' ... this result should be considered only as a weak version of a no go result'. Alcubierre spacetime contains null lines (Minkowski outside the bubble), so it does not contradict the theorem.",
+   "read_status": "READ (pages 1-3, 6-9, 11-14)"
+  },
+  {
+   "ref": "Papadopoulos, K., 'On null geodesically complete spacetimes under NEC and NGC; is the Gao-Wald time dilation a topological effect?', arXiv:1904.12123",
+   "effect": "contested",
+   "what": "Claims Theorem 1 'is not valid anymore throughout its statement' if compactness is taken in a Zeeman-Gobel topology finer than the manifold topology (S_K then need not be compact). This changes the theorem's hypotheses (compactness is a manifold-topology notion in Gao-Wald) rather than refuting it under them; no counterexample in the manifold topology is given. Recorded as a contest of the physical reading, not a refutation.",
+   "read_status": "READ (all 6 pages)"
+  },
+  {
+   "ref": "Engelhardt, N. and Fischetti, S., 'The Gravity Dual of Boundary Causality', arXiv:1604.03944 (CQG 33, 175004)",
+   "effect": "narrows",
+   "what": "For linear perturbations of pure AdS: boundary causality holds iff the averaged light-cone tilt I(gamma) = int delta g_ab k^a k^b >= 0 on every complete null geodesic; the ANCC (Gao-Wald's Theorem 2 input) implies it but is NOT necessary (explicit perturbation eq. 3.3 violates the ANCC and preserves causality). So the NEC is sufficient, not necessary, for 'no advance' -- the converse the tree sometimes leans on ('advance needs R_kk < 0') is only its contrapositive on the averaged condition.",
+   "read_status": "READ (pages 1-15, 17, 20-22)"
+  },
+  {
+   "ref": "Fu, L., Izumi, K. and Yoshida, D., 'Consistency between Bulk and Boundary Causalities in Asymptotically AdS Spacetimes', arXiv:2504.15910",
+   "effect": "extends",
+   "what": "Static spherically symmetric AAdS: sufficient conditions for time advance in the large-r region. RN-AdS shows no time advance even super-extremal and with M of either sign, 'beyond the general discussion by Gao and Wald, where the global hyperbolicity is assumed'. Einstein-Euler-Heisenberg: time advance exists for 0 < alpha_A < l^2 G/(8(D-3)k^2), and every advancing geodesic passes through a region where the null convergence condition of the EFFECTIVE metric fails while the physical metric satisfies it -- advance tracks the convergence condition of the metric that governs propagation.",
+   "read_status": "READ (pages 1-8, 13, 15, 17-19, 21-23, 29, 35-38)"
+  },
+  {
+   "ref": "Camanho, X. O., Edelstein, J. D., Maldacena, J. and Zhiboedov, A., 'Causality Constraints on Corrections to the Graviton Three-Point Coupling', arXiv:1407.5597 (JHEP 02 (2016) 020)",
+   "effect": "extends",
+   "what": "In Einstein gravity a shock wave gives Shapiro delay Delta v > 0 (eq. 2.6); with alpha_2 / alpha_4 corrections to the graviton three-point coupling (e.g. Gauss-Bonnet with alpha >> l_p^2) the delay becomes polarisation-dependent and a time ADVANCE appears at b^2 ~ alpha (eqs. 2.16, 2.19), fixable at tree level only by an infinite tower of higher-spin states. Sec. 3.5 adopts Gao-Wald's criterion in D = 4 (compare to the same metric far away) to remove the log L. The no-advance result is a statement about Einstein's characteristic cones, not about all consistent gravities.",
+   "read_status": "READ (pages 1-4, 8-9, 12-13, 21, 25-26, 40-41, 53-56, 66, 68)"
+  },
+  {
+   "ref": "Will, C. M., 'The Confrontation between General Relativity and Experiment', Living Rev. Relativ. 17, 4 (2014), arXiv:1403.7377",
+   "effect": "confirms",
+   "what": "Sec. 4.1.2: Viking 1976 at 0.1 %, Cassini 2003 gamma - 1 = (2.1 +- 2.3) x 10^-5 -- the solar delay Gao-Wald cite as motivation is a delay to 1.2e-5 of its coefficient.",
+   "read_status": "READ (pages 1-2, 41-44, 51-52)"
+  },
+  {
+   "ref": "'Timelike boundaries in de Sitter JT gravity and the Gao-Wald theorem', arXiv:2407.08913",
+   "effect": "extends",
+   "what": "Surfaced by discover_papers: Gao-Wald's Corollary-1-type statement (de Sitter 'gets taller' under positive-energy perturbation) with timelike boundaries in JT gravity. Not read; named only.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What Gao and Wald had in 2000: the conjugate-point theory of Hawking-Ellis (1973), Wald's Raychaudhuri form (1984), Penrose-Sorkin-Woolgar (1993), Woolgar (1994), Olum (1998), the VBL linearised result (1998-99), Galloway's null splitting theorem (1999, cited as [7]), Flanagan-Marolf-Wald's G-function (1999), and one measurement, Viking's 0.1 % Shapiro delay (ref. [1]). What came later: Cassini 2003 (gamma to 2.3e-5); Galloway's null-line version made explicit and re-proved model-independently (2004.12523); Engelhardt-Fischetti 2016 showing the ANCC is sufficient but not necessary for boundary causality; CEMZ 2014 showing that outside Einstein gravity (alpha >> l_p^2) Shapiro delay becomes a polarisation-dependent advance; Fu-Izumi-Yoshida 2025 showing advance follows the null convergence condition of the effective metric, and no advance in RN-AdS even beyond Gao-Wald's global hyperbolicity. Does having it change the conclusion? No, for the theorem as published: it is a theorem of Lorentzian geometry with a curvature inequality as input and takes no datum; no counterexample under its hypotheses exists in any paper read here, and the later work strengthens the hypotheses side (null line) rather than weakening the conclusion. What later data does change is the READING the tree gives it: (i) the NEC is not necessary for no-advance (EF 2016), so 'advance requires R_kk < 0 on the path' does not follow from Gao-Wald (it is Olum's theorem, with its own hypotheses); (ii) in gravities with large higher-derivative couplings the delay is not protected (CEMZ), which is the one place M's hypothesis has purchase -- if the true gravity at the device's scale had alpha >> l_p^2 the sign would be open -- and CEMZ's own result is that such a theory is acausal unless completed by higher-spin states, so the escape costs a UV completion, not a datum. Evidence either way: the statement stands on every read; the 2000 authors' hedge about K' is the honest limit and the later literature repeats it.",
+ "grade": "NARROWED",
+ "grade_evidence": "Two results under one key (split_note). Eqs. (11)-(13) as composite.py and concentric.py use them: STAND -- quoted verbatim, re-derived symbolically (check A), the Lemma-1 concavity step machine-checked (check B), the tree's added 'sign-blind' gloss strengthened to an exact 4D identity (check C, same conjugate lambda 21.564 for +T and -T with a rotating eigenframe), the Ricci contrast reproduced (check D, pi/sqrt(r) to 0.1 %), and composite.py's live selftest reproduces 55.17 / 56.50. Theorem 1 as foliation.py:238-240, :315-317 and driven.py:116-118 use it: NARROWED -- the theorem holds (no counterexample shown or found; Galloway's null-line version is stronger and independently re-proved in 2004.12523), but the tree (a) drops two of its three hypotheses, null geodesic completeness and the null generic condition, naming only the NEC, and (b) states a conclusion the theorem does not carry: 'no advance over the reference geometry' / 'Shapiro always a delay' is Theorem 2's statement (AdS boundary, not asymptotically flat) or Olum's (Minkowski outside a world tube), while Theorem 1 gives compact-set avoidance outside an uncontrolled K' that its authors say is 'difficult to make a strong argument' from. The 'no staticity' claim is correct. Discrepancies recorded, none repaired: the census name adds 'asymptotic flatness', which no theorem in the paper assumes; eq. (12)'s sqrt is the 4D form despite 'any dimension'; the tree pairs VBL with Gao-Wald though Gao-Wald's own Section 1 calls the VBL result gauge-dependent and reversible in any compact region; composite.py's det A <= 0 detector misses an isotropic double zero (cannot bite in vacuum). No datum enters, so DATA-DEPENDENT cannot apply; the source was read, so OPEN does not; nothing computed here contradicts the paper, so not WRONG.",
+ "what_would_change_the_grade": "STANDS if the two owner sites (foliation.py:238-240 and :315-317; driven.py:116-118) are read as citing Theorem 1 only for compact-set avoidance under all three named hypotheses, and Olum or Theorem 2 for the reference-geometry sign -- the theorem itself needs nothing more. WRONG only on a shown null-complete spacetime satisfying the NEC and the null generic condition in which a fastest null geodesic between points outside every candidate K' enters K -- none is known, Galloway's null-line theorem makes one impossible, and Papadopoulos's objection changes the topology rather than exhibiting one. DATA-DEPENDENT cannot apply: no numerical input exists. OPEN cannot apply: read at source, all 15 pages. The grade would also move to STANDS for the tree as a whole if the owners were found to rest their sign claims on Olum (already ledger D5, CITED) rather than on Gao-Wald Theorem 1.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_0007021.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 composite.py --selftest | grep -E 'conjugate|SELFTEST' && sed -n 238,240p foliation.py && sed -n 116,118p driven.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_0007021.json"
+}

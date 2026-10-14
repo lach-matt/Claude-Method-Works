@@ -1,0 +1,64 @@
+C1  unit identity
+PASS  1e-9 m/s^2 = 1/10 microGal exactly (tree: '~0.1 microGal')
+PASS  tree constant GRAVIMETER_FLOOR = 1.0e-09
+      relative to g = 9.80665 m/s^2 the floor is 1.020e-10 of g
+
+C2  reach numbers recomputed
+PASS  H1: M = 2.815539e+15 kg, r = sqrt(GM/1e-9) = 1.370830e+07 m (tree function agrees)
+PASS  H1: matches the tree's selftest pin 1.371597e+07 m (x m_h rescale 0.99944089) to 1e-5
+      prose 'out to 1.4e7 m' is the pin to two figures
+PASS  H2: M = 9.813832e+15 kg, r = sqrt(GM/1e-9) = 2.559306e+07 m (tree function agrees)
+PASS  H2: matches the tree's selftest pin 2.560737e+07 m (x m_h rescale 0.99944089) to 1e-5
+      prose 'out to 2.6e7 m' is the pin to two figures
+
+C3  sensitivity of the dependent conclusion to the floor
+PASS  d ln r / d ln a_floor = -1/2 exactly: a floor 100x worse costs 10x in reach
+      H1: Higgs best-case standoff d = 5.4778e-17 m
+        floor  1.0e-12 m/s^2 -> r = 4.335e+08 m, r/d = 7.914e+24
+        floor  1.0e-11 m/s^2 -> r = 1.371e+08 m, r/d = 2.502e+24
+        floor  1.0e-10 m/s^2 -> r = 4.335e+07 m, r/d = 7.914e+23
+        floor  1.0e-09 m/s^2 -> r = 1.371e+07 m, r/d = 2.502e+23
+        floor  1.0e-08 m/s^2 -> r = 4.335e+06 m, r/d = 7.914e+22
+        floor  1.0e-07 m/s^2 -> r = 1.371e+06 m, r/d = 2.502e+22
+        floor  1.0e-06 m/s^2 -> r = 4.335e+05 m, r/d = 7.914e+21
+        floor  1.0e-05 m/s^2 -> r = 1.371e+05 m, r/d = 2.502e+21
+        floor  9.8e+00 m/s^2 -> r = 1.385e+02 m, r/d = 2.528e+18
+PASS  H1: '>1e23' (address.py selftest :1474) holds for any floor below 6.262e-09 m/s^2 (6.3x the tree's 1e-9)
+PASS  H1: '>20 orders' (address.py:217-218) holds for any floor below 6.262e-03 m/s^2 = 626 mGal (6.3e+06 x the tree's 1e-9); it FAILS only for a floor ~1e-3 g
+      FINDING H1: at a 1 microGal (1e-8) floor r/d = 7.914e+22 -> log10 = 22.90; the '23 orders' wording (address.py:209) and the '>1e23' pin would NOT hold (floor-dependent), '>20 orders' still holds
+PASS  H1: r > d (gravity reads farther at all) for any floor below 6.262e+37 m/s^2
+      H2: Higgs best-case standoff d = 5.5175e-17 m
+        floor  1.0e-12 m/s^2 -> r = 8.093e+08 m, r/d = 1.467e+25
+        floor  1.0e-11 m/s^2 -> r = 2.559e+08 m, r/d = 4.639e+24
+        floor  1.0e-10 m/s^2 -> r = 8.093e+07 m, r/d = 1.467e+24
+        floor  1.0e-09 m/s^2 -> r = 2.559e+07 m, r/d = 4.639e+23
+        floor  1.0e-08 m/s^2 -> r = 8.093e+06 m, r/d = 1.467e+23
+        floor  1.0e-07 m/s^2 -> r = 2.559e+06 m, r/d = 4.639e+22
+        floor  1.0e-06 m/s^2 -> r = 8.093e+05 m, r/d = 1.467e+22
+        floor  1.0e-05 m/s^2 -> r = 2.559e+05 m, r/d = 4.639e+21
+        floor  9.8e+00 m/s^2 -> r = 2.585e+02 m, r/d = 4.686e+18
+PASS  H2: '>1e23' (address.py selftest :1474) holds for any floor below 2.152e-08 m/s^2 (21.5x the tree's 1e-9)
+PASS  H2: '>20 orders' (address.py:217-218) holds for any floor below 2.152e-02 m/s^2 = 2152 mGal (2.2e+07 x the tree's 1e-9); it FAILS only for a floor ~1e-3 g
+      FINDING H2: at a 1 microGal (1e-8) floor r/d = 1.467e+23 -> log10 = 23.17; the '23 orders' wording (address.py:209) and the '>1e23' pin hold
+PASS  H2: r > d (gravity reads farther at all) for any floor below 2.152e+38 m/s^2
+PASS  address.py:1129 'mass gravity reads at 1 m' = floor/G = 14.983 kg (linear in floor)
+
+C4  geometry left implicit by GM/r^2 (point-mass MAGNITUDE)
+PASS  vertical fraction of a surface source's pull = sin(theta/2) = s/(2R): (1 - cos(theta))/(2*sin(theta/2))
+      H1: magnitude reach 1.371e+07 m vs Earth diameter 1.274e+07 m; vertical g at the antipode 1.157e-09 m/s^2
+PASS  H1: the magnitude reach exceeds Earth's diameter, so '1.4e7/2.6e7 m' is a field-strength radius, not a terrestrial baseline
+PASS  H1: the vertical component (= magnitude at the antipode) is >= 1e-9 everywhere on Earth's surface -- the vertical-only reading does not shorten the claim for a surface source
+      H2: magnitude reach 2.559e+07 m vs Earth diameter 1.274e+07 m; vertical g at the antipode 4.034e-09 m/s^2
+PASS  H2: the magnitude reach exceeds Earth's diameter, so '1.4e7/2.6e7 m' is a field-strength radius, not a terrestrial baseline
+PASS  H2: the vertical component (= magnitude at the antipode) is >= 1e-9 everywhere on Earth's surface -- the vertical-only reading does not shorten the claim for a surface source
+PASS  H1: post-Newtonian parameter GM/(r c^2) at the reach = 1.53e-19 -- 'Newtonian point mass' costs nothing
+PASS  H2: post-Newtonian parameter GM/(r c^2) at the reach = 2.85e-19 -- 'Newtonian point mass' costs nothing
+
+C5  the floor itself as a measurement
+OPEN  1e-9 m/s^2 as an achieved instrument figure is NOT READ in this run (every paper route refused).
+      Which figure it is (single-shot noise / noise after integration / long-term stability /
+      absolute accuracy) is not said at address.py:431 ('~0.1 microGal ORDER').
+      C3: '>20 orders' survives any floor below 6.3e-3 (H1) / 2.2e-2 (H2) m/s^2; the '>1e23' pin
+      survives only below 6.3e-9 (H1) / 2.2e-8 (H2) m/s^2 -- a factor 6.3 from the tree's ORDER value.
+
+21 PASS, 0 FAIL

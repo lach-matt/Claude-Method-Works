@@ -1,0 +1,86 @@
+{
+ "key": "finite-nuclear-size-shift",
+ "name": "Finite-nuclear-size shift of S levels: (4/3) Z^4 (r_N/a_0)^2/n^3 Rydberg (uniform sphere, leading order)",
+ "source": {
+  "located": "No source is cited by the owner (address.py:45-52, 844-850 give the formula bare). The formula is the standard leading-order nuclear-size correction (first-order perturbation theory with |psi_nS(0)|^2; classic textbook result, no single originating paper). Read at: P. J. Mohr, D. B. Newell, B. N. Taylor, E. Tiesinga, 'CODATA Recommended Values of the Fundamental Physical Constants: 2022', arXiv:2409.03787v1 (dated 9 Sep 2024; RMP 97, 025002 (2025)), Sec. IV.A.7 eq (49)-(59), Sec. IV.A.1 eqs (28)-(30), IV.A.2 eq (32), IV.A.3 eqs (35)-(36), Table II (r_p,ref = 0.8414 fm), Table V (Bethe logs), Table XXXIII (r_p = 8.4075(64)e-16 m; a_0 = 5.29177210544(82)e-11 m).",
+  "read_status": "READ",
+  "via": "Full text of arXiv:2409.03787v1 cached in this workflow's scratchpad (d67/src/casmag/all/2409.03787v1.txt, 131,631 bytes, md5 cc640485b0d9f0fe202f38989dac6a2b, fetched earlier in DOCKET 67 by a sibling stage), read directly at its lines 2042-2330 (Sec. IV.A.7), 1262-1500 (eqs 28-32), 1673-1690 (eqs 35-36), 740-775 (Table II), 5149-5152 and 5771-5773 (Table XXXIII). Live alphaXiv calls this stage (answer_pdf_queries on hep-ph/0002158, get_paper_content on hep-ph/0002158, discover_papers) all returned 'alphaXiv assistant quota exceeded'; arxiv.org and export.arxiv.org are refused by the egress proxy (CONNECT 403, recorded in $HTTPS_PROXY/__agentproxy/status). Eides-Grotch-Shelyuto hep-ph/0002158, Yerokhin et al. 2019, Tomalak 2019, Pachucki et al. 2018 and Friar 1979 (cited by CODATA for the higher orders) are NAMED-NOT-READ. The ln k0(3D) = -0.005232148 used in R4 is NAMED-NOT-READ (CODATA Table V has no 3D entry); it enters only the tiny A40 constant of the 3D level."
+ },
+ "published_statement": "CODATA 2022 eq (50), verbatim from the text: 'The first and lowest-order contribution is E(4)_nucl = (2/3) m_e c^2 (Z alpha)^4/n^3 (m_r/m_e)^3 (r_N/lambda_C)^2 delta_l0 (50) and is solely due to the finite rms charge radius r_N of nucleus N. Here, lambda_C = hbar/m_e c is the reduced Compton wavelength of the electron.' With m_e c^2 alpha^2 = 2 R_inf hc (eq 26) and lambda_C = alpha a_0 this is exactly (4/3) Z^4 (m_r/m_e)^3 (r_N/a_0)^2/n^3 R_inf hc (R1, residual 0). Higher orders, eq (49): 'E_nucl = sum_{i>=4} E(i)_nucl ... ordered by powers of alpha'; eq (51) alpha^5 Friar/polarizability term with r_pF = 1.947(75) fm; eq (56) alpha^6 term, which carries a delta_kappa1 piece, i.e. P1/2 states ARE shifted at order (Z alpha)^6.",
+ "published_hypotheses": [
+  "r_N is the rms charge radius of the nucleus (eq 50: 'solely due to the finite rms charge radius r_N') -- no shape model; at this order the shift depends on the charge distribution only through <r^2>",
+  "leading order in alpha: E(4) of the series eq (49); alpha^5 (Friar radius / polarizability, eq 51) and alpha^6 (eq 56) corrections are separate terms",
+  "delta_l0: S states only at this order; P1/2 states acquire a finite-size term at order (Z alpha)^6 (eq 56, delta_kappa1 term)",
+  "finite nuclear mass carried by the factor (m_r/m_e)^3",
+  "hydrogenlike atom, nuclear charge Z (the formula is quoted for H and D in CODATA)"
+ ],
+ "hypothesis_drift": [
+  "ADDED, and not the source's hypothesis -- address.py:847-848 'uniform-sphere nucleus, leading order' (and the canonical name). The source's hypothesis is r_N = rms charge radius, shape-independent at this order. Harmless AS USED because the tree's input R_PROTON_M = 0.8414e-15 (address.py:427) is an rms charge radius, and R1 shows uniform sphere, Gaussian and exponential give the identical (4/3) Z^4 Ry <r^2>/(a0^2 n^3). But the label invites a misreading: if r_N were taken as the uniform sphere's RADIUS R, the coefficient would be (4/3)(3/5) = 4/5, not 4/3 (R1). A naming discrepancy, not an error.",
+  "DROPPED -- the (m_r/m_e)^3 factor of eq (50); address.py:46, 848 write the shift with a_0 and no reduced-mass factor. Covered by the named hypothesis 'recoil (m_e/M) omitted' (address.py:850). Effect on K computed: -7.8595e-10 -> -7.8403e-10 (0.24 %), R3.",
+  "WEAKENED/over-stated -- address.py:848 'P and D not at all'. At the stated leading order this is the source's delta_l0 and is correct; the source's own eq (56) shifts P1/2 at order (Z alpha)^6. Negligible for K (order alpha^2 relative to an already 1e-10 effect), recorded for accuracy only.",
+  "ADDED CONSEQUENCE, not in the source, and contradicted by computation here -- address.py:50-52 'Recoil terms in m_e/M add more. Small; and under H2, where K_alpha = 0, it is the LEADING same-place sensitivity' and address.py:850 'recoil (m_e/M) omitted, which only adds'. Using the SAME source's eqs (30), (32), (35)-(36) under the tree's own H2 (alpha fixed, r_N fixed, m_e ~ v, m_p ~ v^S, S = 0.0096 and 0.06 from address.py:113-114), the omitted reduced-mass/recoil terms give K_recoil(eq 30) = +6.38e-9, K_QED(m_r in the self energy) = +2.91e-9, K_Salpeter = -8.64e-10, against K_finite-size = -7.84e-10; total K = +7.64e-9 (S = 0.0096, 2P1/2-3D3/2), |omitted|/|finite size| = 10.75 (R4). The closed-form leading recoil piece, (2/9)(m_e/m_p) alpha^2 = 6.44e-9, agrees (R4). So finite size is NOT the leading same-place sensitivity of this ratio under H2; it is about one-tenth of it and of the opposite sign. 'Only adds' survives only in the loose sense that the total |K| is larger; the sign of K flips. The W10 conclusion (not exactly blind) is REINFORCED, not weakened.",
+  "IMPLICIT, not stated by the tree -- which fine-structure components 'nu(2P-3D)' means (address.py:49). R4 computes 2P1/2-3D3/2 and 2P3/2-3D5/2: K_fs and the omitted terms move by < 2 % between them; no conclusion depends on the choice."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "proton rms charge radius r_p",
+   "value_then": "tree: 0.8414e-15 m (address.py:427, marked 'CODATA ... NAMED-NOT-READ'); this is the CODATA 2018 value, and 0.8414 fm appears in 2409.03787 Table II as r_p,ref (READ). The formula itself needs no datum.",
+   "value_now": "8.4075(64)e-16 m, CODATA 2022 Table XXXIII (READ); determined chiefly from muonic-hydrogen Lamb shift with improved theory (2409.03787 Sec. XVI summary, READ)",
+   "source_now": "arXiv:2409.03787v1 Table XXXIII",
+   "moves_conclusion": "No verdict moves. K = -7.86535e-10 (tree inputs) -> -7.85321e-10 (2022 inputs), -0.154 %; still prints '-7.85e-10' vs the docstring's '-7.87e-10' (address.py:50), and the selftest pin -7.8654e-10 at rtol 1e-4 (address.py:1610-1611) would FAIL with 2022 inputs (R2: True -> False). A numeric-pin discrepancy only; sign and order of magnitude unchanged. Even the pre-2019 e-p value 0.8751 fm gives -8.51e-10 (R2)."
+  },
+  {
+   "quantity": "Bohr radius a_0",
+   "value_then": "tree: 5.29177210903e-11 m (address.py:428, CODATA 2018, NAMED-NOT-READ)",
+   "value_now": "5.29177210544(82)e-11 m, CODATA 2022 Table XXXIII (READ)",
+   "source_now": "arXiv:2409.03787v1 Table XXXIII",
+   "moves_conclusion": "No. Relative move -6.8e-10; K moves by ~1.4e-9 relative."
+  },
+  {
+   "quantity": "effective Friar radius r_pF (alpha^5 term, not used by the tree)",
+   "value_then": "not used (leading order only)",
+   "value_now": "1.947(75) fm, CODATA 2022 eq (52) (READ)",
+   "source_now": "arXiv:2409.03787v1 eq (51)-(52)",
+   "moves_conclusion": "No. Its contribution to K is +1.16e-13, -1.5e-4 of the leading finite-size K (R3)."
+  },
+  {
+   "quantity": "m_p/m_e (enters only through the omitted recoil / reduced-mass terms)",
+   "value_then": "omitted (named hypothesis 'recoil omitted', address.py:850)",
+   "value_now": "1836.152673426 (CODATA 2022, as used in R4)",
+   "source_now": "arXiv:2409.03787v1 Table XXXII (value as restated by sibling audit hydrogen-schrodinger-spectrum.json, READ there)",
+   "moves_conclusion": "The datum has not moved; what moves the tree's 'LEADING' qualifier is the omitted TERM, not a datum: the recoil sensitivity is ~(2/9)(m_e/m_p) alpha^2 = 6.4e-9, ~8x the finite-size K (R4)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/finite-nuclear-size-shift.py",
+  "outcome": "R1 (sympy, exact): first-order shift = (2 pi/3) Z e^2 |psi_nS(0)|^2 <r^2> for uniform sphere, Gaussian and exponential charge distributions (ratio exactly 1 each), = (4/3) Z^4 Ry <r^2>/(a0^2 n^3); CODATA eq (50) at m_r = m_e minus the tree's form = 0 exactly; a uniform sphere quoted by RADIUS would give 4/5. R2 (sympy): K = 28x^2/(14x^2-9) reproduced, residual 0, series -28x^2/9; K = -7.86535e-10 at tree inputs (matches selftest pin -7.8654e-10), -7.85321e-10 at CODATA 2022 inputs (pin fails at rtol 1e-4). R3 (mpmath 40 digits, full Dirac background eq 28-29): control point nucleus K = 1e-50 (i.e. 0: m_r cancels in the ratio); finite size tree form -7.8595e-10, with (m_r/m_e)^3 -7.8403e-10; alpha^5 Friar term +1.16e-13. R4 (mpmath, H2, S = 0.0096 / 0.06, two fine-structure choices): K_recoil(eq 30) +6.05e-9..+6.38e-9, K_QED +2.72e-9..+2.91e-9, K_Salpeter -8.2e-10..-8.6e-10, K_finite-size -7.84e-10; TOTAL +7.15e-9..+7.64e-9; |omitted|/|finite size| = 10.1-10.8; closed-form leading recoil (2/9) mu alpha^2 = 6.44e-9 agrees with the eq-30 numeric. The external formula and the tree's K(x) agree with the source; the tree's 'LEADING same-place sensitivity' qualifier does not survive R4.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2409.03787 (CODATA 2022, Mohr-Newell-Taylor-Tiesinga)",
+   "effect": "confirms",
+   "what": "Restates the leading shift exactly (eq 50) in terms of the rms radius with (m_r/m_e)^3, orders all corrections by alpha (eq 49), gives the alpha^5 Friar term (eq 51-52) and alpha^6 term (eq 56, which shifts P1/2), and moves r_p from 0.8414 fm (2018) to 0.84075(64) fm, chiefly from muonic hydrogen.",
+   "read_status": "READ (cached full text, see source.via); the one discover_papers call this stage returned 'alphaXiv assistant quota exceeded', so later literature is limited to what CODATA 2022 cites -- nothing found contradicts the leading term"
+  },
+  {
+   "ref": "Yerokhin, Pachucki, Patkos 2019 (Ann. Phys. (Berlin) 531, 1800324); Tomalak 2019; Pachucki et al. 2018 -- as cited by CODATA 2022 Sec. IV.A.7",
+   "effect": "extends",
+   "what": "Higher-order (alpha^5, alpha^6, radiative) nuclear-size and polarizability terms that CODATA adopts; they extend, not revise, the leading term.",
+   "read_status": "NAMED-NOT-READ (cited in 2409.03787 only)"
+  },
+  {
+   "ref": "Eides, Grotch, Shelyuto, hep-ph/0002158",
+   "effect": "confirms",
+   "what": "Standard review of light-hydrogen theory; expected to carry the same leading term. Not read: alphaXiv quota exceeded, arxiv.org refused by proxy.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The leading finite-size formula uses NO measured datum: it is first-order perturbation theory, exact in its class, and its only input (r_N) is a parameter. What was lacking historically is the VALUE of r_p: the 'proton radius puzzle' (e-p scattering / H spectroscopy ~0.875-0.88 fm vs muonic hydrogen 0.84 fm, 2010) was resolved in CODATA 2018/2022 toward the muonic value; CODATA 2022 gives 0.84075(64) fm. Evidence it does not change the conclusion here: K runs from -8.51e-10 (0.8751 fm) to -7.85e-10 (0.84075 fm) (R2) -- nonzero, negative, same order; the W10 verdict 'not exactly blind' is unmoved by any r_p value ever reported. What the TREE lacked is not a datum but terms of the same source's theory: the recoil and reduced-mass dependence of the energy levels (CODATA eqs 30, 32, 35-36), which at fixed alpha carry an m_e/m_p dependence ~10x larger than finite size (R4). Having them does not change the W10 verdict (it strengthens it) but does refute the qualifier 'LEADING same-place sensitivity' (address.py:51-52). No evidence was found that the external formula is inaccurate, incomplete in its stated order, or wrong.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result STANDS on its own terms: CODATA 2022 eq (50) (READ) equals the tree's (4/3) Z^4 (r_N/a_0)^2/n^3 Ry exactly at m_r = m_e (R1, sympy residual 0), the shape-independence is machine-checked for three distributions (R1), and the tree's K = 28x^2/(14x^2-9) = -7.865e-10 is reproduced exactly (R2); no moved datum moves a verdict (r_p 2018 -> 2022 moves K by -0.15 %, an 11-s.f.-style pin discrepancy at address.py:1610-1611 only). It is graded NARROWED, not STANDS, for how the tree uses it: (a) the tree names a hypothesis the source does not use ('uniform-sphere nucleus', address.py:847-848) where the source's is 'rms charge radius' -- harmless with the tree's rms input, misleading if r_N is read as a sphere radius (coefficient 4/5); (b) the tree extends the result from 'the finite-size contribution to K' to 'the LEADING same-place sensitivity under H2' (address.py:50-52), resting on the named hypothesis 'recoil omitted, which only adds' (address.py:850); computing the omitted terms from the same source under the tree's own H2 gives K_total = +7.6e-9, ten times |K_fs| and of opposite sign (R4). The result therefore holds on the smaller class 'finite nuclear size alone, recoil and QED reduced-mass dependence excluded', not as the leading sensitivity. This is recorded, not repaired, and is NOT an error in the external formula; the W10 withdrawal ('not exactly blind', OPTICAL_OPTICAL_IS_EXACTLY_BLIND = False) is reinforced. R4's magnitude rests on CODATA's leading recoil/QED terms, not a full theory; higher-order terms are smaller by further powers of alpha and would not restore finite size as leading.",
+ "what_would_change_the_grade": "To STANDS: the tree's 'LEADING same-place sensitivity' qualifier (address.py:51-52) and 'which only adds' (address.py:850) withdrawn or restricted to 'the finite-size contribution', and 'uniform-sphere' replaced by 'rms charge radius' -- then the result as used equals the source. To WRONG: a computed error in eq (50) itself, or in K(x) -- none found; R1/R2 agree exactly. To DATA-DEPENDENT: an r_p value that changed the sign or order of K -- none exists in any reported measurement (0.84-0.88 fm span moves K by 8 %). R4 would be overturned only by showing CODATA eqs (30), (32), (35)-(36) do not carry an m_e/m_p dependence at fixed alpha, or that H2 fixes m_e/m_p (address.py:104, 508-509 say d ln m_p/d ln v = S, so it does not).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/finite-nuclear-size-shift.py && sed -n 2042,2100p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2409.03787v1.txt | tr '\\n' ' ' && sed -n 45,52p /home/user/Claude-Method-Works/research/warp-drive/address.py && sed -n 844,850p /home/user/Claude-Method-Works/research/warp-drive/address.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/finite-nuclear-size-shift.json"
+}

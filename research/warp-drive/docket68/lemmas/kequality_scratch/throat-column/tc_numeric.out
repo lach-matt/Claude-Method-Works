@@ -1,0 +1,188 @@
+N1/N2  the umbilic defect D = q - p on the throat column, and the column's depth in ell
+  e        y_s        e*y_s     min D      min D/y (at y/y_s)   D>0 all   max(a+e)     cons rel   int.rep rel  alpha,beta end
+  0        2.553551   0.00000   8.748e-08  0.50000  (0.000)       True     -1.125e-22   2.4e-14    2.5e-16     3.7e-05, 25.065
+  0.00097656 2.547411   0.00249   8.727e-08  0.50000  (0.000)       True     0.000e+00    2.4e-14    3.8e-16     3.7e-05, 24.990
+  0.0039062 2.529221   0.00988   8.665e-08  0.50000  (0.000)       True     0.000e+00    2.2e-14    6.5e-16     3.7e-05, 24.768
+  0.015625 2.459731   0.03843   8.427e-08  0.50000  (0.000)       True     0.000e+00    2.3e-14    8.6e-16     3.7e-05, 23.927
+  0.03125  2.374421   0.07420   8.134e-08  0.50000  (0.000)       True     0.000e+00    2.4e-14    7.1e-16     3.6e-05, 22.917
+  0.0625   2.224704   0.13904   7.621e-08  0.50000  (0.000)       True     0.000e+00    2.2e-14    6.0e-16     3.5e-05, 21.200
+  0.125    1.986775   0.24835   6.806e-08  0.50000  (0.000)       True     0.000e+00    2.1e-14    5.2e-16     3.3e-05, 18.606
+  0.25     1.659116   0.41478   5.684e-08  0.50000  (0.000)       True     0.000e+00    1.6e-14    2.5e-15     3.1e-05, 15.281
+  0.5      1.280302   0.64015   4.386e-08  0.50000  (0.000)       True     0.000e+00    8.4e-15    6.6e-15     2.7e-05, 11.748
+  1        0.913855   0.91386   3.131e-08  0.50000  (0.000)       True     0.000e+00    5.0e-14    8.3e-14     2.3e-05, 8.580
+  2        0.610061   1.22012   2.090e-08  0.50000  (0.000)       True     0.000e+00    3.0e-13    6.6e-14     2.0e-05, 6.071
+  4        0.386374   1.54550   1.324e-08  0.50000  (0.000)       True     0.000e+00    5.5e-13    6.4e-14     1.6e-05, 4.228
+  8        0.235152   1.88121   8.056e-09  0.50000  (0.000)       True     0.000e+00    1.1e-10    9.8e-13     1.3e-05, 2.926
+  16       0.138894   2.22230   4.758e-09  0.50000  (0.000)       True     0.000e+00    1.0e-08    2.7e-10     1.0e-05, 2.021
+  32       0.080191   2.56611   2.747e-09  0.50000  (0.000)       True     0.000e+00    2.2e-07    7.1e-09     7.9e-06, 1.397
+  64       0.045489   2.91130   1.558e-09  0.50000  (0.000)       True     0.000e+00    9.9e-07    1.2e-09     6.1e-06, 0.967
+  N1 verdict: D > 0 at every grid point of every column, a <= -e throughout: True
+  N2: e*y_s rises with e at every step (e > 0): True -- the corridor's bulk depth in ell is a function of e
+
+N3  free far side: s2(y2) on the decaying root (range from y2 -> 0 to y2 -> y_s) and the growing root's maximum
+  C-PRZ: target s2 = -0.250000, ell_f/ell = 1.333333
+    e=0.00097656 dec s2 (-0.125000 -> -1.16e-09), a~ strictly falling True; gro max -0.875000; max a~ -1.1e-22; stable vs owner 1.7e-13 (y<=0.99y_s), its constraint 6.0e-15; roots: none at any y2 >= 0
+    e=0.0039062 dec s2 (-0.125000 -> -4.62e-09), a~ strictly falling True; gro max -0.875000; max a~ -1.1e-22; stable vs owner 2.7e-13 (y<=0.99y_s), its constraint 5.7e-15; roots: none at any y2 >= 0
+    e=0.015625 dec s2 (-0.125000 -> -1.80e-08), a~ strictly falling True; gro max -0.875000; max a~ -1.0e-22; stable vs owner 1.4e-13 (y<=0.99y_s), its constraint 4.8e-15; roots: none at any y2 >= 0
+    e=0.03125  dec s2 (-0.125000 -> -3.47e-08), a~ strictly falling True; gro max -0.875000; max a~ -9.0e-23; stable vs owner 2.1e-13 (y<=0.99y_s), its constraint 5.3e-15; roots: none at any y2 >= 0
+    e=0.0625   dec s2 (-0.125000 -> -6.50e-08), a~ strictly falling True; gro max -0.875000; max a~ -7.4e-23; stable vs owner 1.8e-13 (y<=0.99y_s), its constraint 3.5e-15; roots: none at any y2 >= 0
+    e=0.125    dec s2 (-0.125000 -> -1.16e-07), a~ strictly falling True; gro max -0.875000; max a~ -5.3e-23; stable vs owner 2.2e-13 (y<=0.99y_s), its constraint 4.6e-15; roots: none at any y2 >= 0
+    e=0.25     dec s2 (-0.125000 -> -1.94e-07), a~ strictly falling True; gro max -0.875000; max a~ -3.1e-23; stable vs owner 3.0e-13 (y<=0.99y_s), its constraint 3.7e-15; roots: none at any y2 >= 0
+    e=0.5      dec s2 (-0.125000 -> -2.99e-07), a~ strictly falling True; gro max -0.875000; max a~ -1.4e-23; stable vs owner 2.5e-13 (y<=0.99y_s), its constraint 2.5e-15; roots: none at any y2 >= 0
+    e=1        dec s2 (-0.125000 -> -4.27e-07), a~ strictly falling True; gro max -0.875000; max a~ -5.1e-24; stable vs owner 9.2e-13 (y<=0.99y_s), its constraint 1.9e-15; roots: none at any y2 >= 0
+    e=2        dec s2 (-0.125000 -> -5.70e-07), a~ strictly falling True; gro max -0.875000; max a~ -1.5e-24; stable vs owner 3.5e-12 (y<=0.99y_s), its constraint 1.0e-15; roots: none at any y2 >= 0
+    e=4        dec s2 (-0.125000 -> -7.22e-07), a~ strictly falling True; gro max -0.875000; max a~ -3.9e-25; stable vs owner 4.8e-12 (y<=0.99y_s), its constraint 1.4e-15; roots: none at any y2 >= 0
+    e=8        dec s2 (-0.125000 -> -8.79e-07), a~ strictly falling True; gro max -0.875000; max a~ -8.7e-26; stable vs owner 7.7e-10 (y<=0.99y_s), its constraint 1.4e-15; roots: none at any y2 >= 0
+    e=16       dec s2 (-0.125000 -> -1.04e-06), a~ strictly falling True; gro max -0.875000; max a~ -1.8e-26; stable vs owner 5.7e-08 (y<=0.99y_s), its constraint 1.5e-15; roots: none at any y2 >= 0
+    e=32       dec s2 (-0.125000 -> -1.18e-06), a~ strictly falling True; gro max -0.875000; max a~ -3.5e-27; stable vs owner 1.1e-06 (y<=0.99y_s), its constraint 9.3e-16; roots: none at any y2 >= 0
+    e=64       dec s2 (-0.125000 -> -1.43e-06), a~ strictly falling True; gro max -0.875000; max a~ -6.3e-28; stable vs owner 4.2e-06 (y<=0.99y_s), its constraint 1.4e-15; roots: none at any y2 >= 0
+  C-SHEET-M4: target s2 = -0.125000, ell_f/ell = 1.333333
+    e=0.00097656 dec s2 (-0.125000 -> -1.16e-09), a~ strictly falling True; gro max -0.875000; max a~ -1.1e-22; stable vs owner 1.7e-13 (y<=0.99y_s), its constraint 6.0e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.267e-02)
+    e=0.0039062 dec s2 (-0.125000 -> -4.62e-09), a~ strictly falling True; gro max -0.875000; max a~ -1.1e-22; stable vs owner 2.7e-13 (y<=0.99y_s), its constraint 5.7e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.419e-02)
+    e=0.015625 dec s2 (-0.125000 -> -1.80e-08), a~ strictly falling True; gro max -0.875000; max a~ -1.0e-22; stable vs owner 1.4e-13 (y<=0.99y_s), its constraint 4.8e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.845e-02)
+    e=0.03125  dec s2 (-0.125000 -> -3.47e-08), a~ strictly falling True; gro max -0.875000; max a~ -9.0e-23; stable vs owner 2.1e-13 (y<=0.99y_s), its constraint 5.3e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=0.0625   dec s2 (-0.125000 -> -6.50e-08), a~ strictly falling True; gro max -0.875000; max a~ -7.4e-23; stable vs owner 1.8e-13 (y<=0.99y_s), its constraint 3.5e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=0.125    dec s2 (-0.125000 -> -1.16e-07), a~ strictly falling True; gro max -0.875000; max a~ -5.3e-23; stable vs owner 2.2e-13 (y<=0.99y_s), its constraint 4.6e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=0.25     dec s2 (-0.125000 -> -1.94e-07), a~ strictly falling True; gro max -0.875000; max a~ -3.1e-23; stable vs owner 3.0e-13 (y<=0.99y_s), its constraint 3.7e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=0.5      dec s2 (-0.125000 -> -2.99e-07), a~ strictly falling True; gro max -0.875000; max a~ -1.4e-23; stable vs owner 2.5e-13 (y<=0.99y_s), its constraint 2.5e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=1        dec s2 (-0.125000 -> -4.27e-07), a~ strictly falling True; gro max -0.875000; max a~ -5.1e-24; stable vs owner 9.2e-13 (y<=0.99y_s), its constraint 1.9e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=2        dec s2 (-0.125000 -> -5.70e-07), a~ strictly falling True; gro max -0.875000; max a~ -1.5e-24; stable vs owner 3.5e-12 (y<=0.99y_s), its constraint 1.0e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=4        dec s2 (-0.125000 -> -7.22e-07), a~ strictly falling True; gro max -0.875000; max a~ -3.9e-25; stable vs owner 4.8e-12 (y<=0.99y_s), its constraint 1.4e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=8        dec s2 (-0.125000 -> -8.79e-07), a~ strictly falling True; gro max -0.875000; max a~ -8.7e-26; stable vs owner 7.7e-10 (y<=0.99y_s), its constraint 1.4e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=16       dec s2 (-0.125000 -> -1.04e-06), a~ strictly falling True; gro max -0.875000; max a~ -1.8e-26; stable vs owner 5.7e-08 (y<=0.99y_s), its constraint 1.5e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=32       dec s2 (-0.125000 -> -1.18e-06), a~ strictly falling True; gro max -0.875000; max a~ -3.5e-27; stable vs owner 1.1e-06 (y<=0.99y_s), its constraint 9.3e-16; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+    e=64       dec s2 (-0.125000 -> -1.43e-06), a~ strictly falling True; gro max -0.875000; max a~ -6.3e-28; stable vs owner 4.2e-06 (y<=0.99y_s), its constraint 1.4e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.861e-02)
+  C-S6: target s2 = -0.333333, ell_f/ell = 3.000000
+    e=0.00097656 dec s2 (-0.333333 -> -2.36e-09), a~ strictly falling True; gro max -0.666667; max a~ -1.1e-22; stable vs owner 1.7e-13 (y<=0.99y_s), its constraint 6.0e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.338e-02)
+    e=0.0039062 dec s2 (-0.333333 -> -9.38e-09), a~ strictly falling True; gro max -0.666667; max a~ -1.1e-22; stable vs owner 2.7e-13 (y<=0.99y_s), its constraint 5.7e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 4.589e-02)
+    e=0.015625 dec s2 (-0.333333 -> -3.65e-08), a~ strictly falling True; gro max -0.666667; max a~ -1.0e-22; stable vs owner 1.4e-13 (y<=0.99y_s), its constraint 4.8e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 5.322e-02)
+    e=0.03125  dec s2 (-0.333333 -> -7.05e-08), a~ strictly falling True; gro max -0.666667; max a~ -9.0e-23; stable vs owner 2.1e-13 (y<=0.99y_s), its constraint 5.3e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 6.196e-02)
+    e=0.0625   dec s2 (-0.333333 -> -1.32e-07), a~ strictly falling True; gro max -0.666667; max a~ -7.4e-23; stable vs owner 1.8e-13 (y<=0.99y_s), its constraint 3.5e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 7.912e-02)
+    e=0.125    dec s2 (-0.333333 -> -2.36e-07), a~ strictly falling True; gro max -0.666667; max a~ -5.3e-23; stable vs owner 2.2e-13 (y<=0.99y_s), its constraint 4.6e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=0.25     dec s2 (-0.333333 -> -3.94e-07), a~ strictly falling True; gro max -0.666667; max a~ -3.1e-23; stable vs owner 3.0e-13 (y<=0.99y_s), its constraint 3.7e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=0.5      dec s2 (-0.333333 -> -6.08e-07), a~ strictly falling True; gro max -0.666667; max a~ -1.4e-23; stable vs owner 2.5e-13 (y<=0.99y_s), its constraint 2.5e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=1        dec s2 (-0.333333 -> -8.68e-07), a~ strictly falling True; gro max -0.666667; max a~ -5.1e-24; stable vs owner 9.2e-13 (y<=0.99y_s), its constraint 1.9e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=2        dec s2 (-0.333333 -> -1.16e-06), a~ strictly falling True; gro max -0.666667; max a~ -1.5e-24; stable vs owner 3.5e-12 (y<=0.99y_s), its constraint 1.0e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=4        dec s2 (-0.333333 -> -1.47e-06), a~ strictly falling True; gro max -0.666667; max a~ -3.9e-25; stable vs owner 4.8e-12 (y<=0.99y_s), its constraint 1.4e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=8        dec s2 (-0.333333 -> -1.79e-06), a~ strictly falling True; gro max -0.666667; max a~ -8.7e-26; stable vs owner 7.7e-10 (y<=0.99y_s), its constraint 1.4e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=16       dec s2 (-0.333333 -> -2.11e-06), a~ strictly falling True; gro max -0.666667; max a~ -1.8e-26; stable vs owner 5.7e-08 (y<=0.99y_s), its constraint 1.5e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=32       dec s2 (-0.333333 -> -2.40e-06), a~ strictly falling True; gro max -0.666667; max a~ -3.5e-27; stable vs owner 1.1e-06 (y<=0.99y_s), its constraint 9.3e-16; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+    e=64       dec s2 (-0.333333 -> -2.91e-06), a~ strictly falling True; gro max -0.666667; max a~ -6.3e-28; stable vs owner 4.2e-06 (y<=0.99y_s), its constraint 1.4e-15; only at y2 = 0 (coincidence): s2_dec - target > 0 at every grid point y2 > 0 (min h/y^3 = 8.333e-02)
+  C-S7: target s2 = -0.166667, ell_f/ell = 6.000000
+    e=0.00097656 dec s2 (-0.416667 -> -2.58e-09), a~ strictly falling True; gro max -0.583333; max a~ -1.1e-22; stable vs owner 1.7e-13 (y<=0.99y_s), its constraint 6.0e-15; roots: decaying y2=0.308099 (y2/y_s=0.1209, y2/ell=0.00030)
+    e=0.0039062 dec s2 (-0.416667 -> -1.03e-08), a~ strictly falling True; gro max -0.583333; max a~ -1.1e-22; stable vs owner 2.7e-13 (y<=0.99y_s), its constraint 5.7e-15; roots: decaying y2=0.487581 (y2/y_s=0.1928, y2/ell=0.00190)
+    e=0.015625 dec s2 (-0.416667 -> -3.99e-08), a~ strictly falling True; gro max -0.583333; max a~ -1.0e-22; stable vs owner 1.4e-13 (y<=0.99y_s), its constraint 4.8e-15; roots: decaying y2=0.759416 (y2/y_s=0.3087, y2/ell=0.01187)
+    e=0.03125  dec s2 (-0.416667 -> -7.71e-08), a~ strictly falling True; gro max -0.583333; max a~ -9.0e-23; stable vs owner 2.1e-13 (y<=0.99y_s), its constraint 5.3e-15; roots: decaying y2=0.926213 (y2/y_s=0.3901, y2/ell=0.02894)
+    e=0.0625   dec s2 (-0.416667 -> -1.44e-07), a~ strictly falling True; gro max -0.583333; max a~ -7.4e-23; stable vs owner 1.8e-13 (y<=0.99y_s), its constraint 3.5e-15; roots: decaying y2=1.084251 (y2/y_s=0.4874, y2/ell=0.06777)
+    e=0.125    dec s2 (-0.416667 -> -2.58e-07), a~ strictly falling True; gro max -0.583333; max a~ -5.3e-23; stable vs owner 2.2e-13 (y<=0.99y_s), its constraint 4.6e-15; roots: decaying y2=1.176805 (y2/y_s=0.5923, y2/ell=0.14710)
+    e=0.25     dec s2 (-0.416667 -> -4.31e-07), a~ strictly falling True; gro max -0.583333; max a~ -3.1e-23; stable vs owner 3.0e-13 (y<=0.99y_s), its constraint 3.7e-15; roots: decaying y2=1.143743 (y2/y_s=0.6894, y2/ell=0.28594)
+    e=0.5      dec s2 (-0.416667 -> -6.65e-07), a~ strictly falling True; gro max -0.583333; max a~ -1.4e-23; stable vs owner 2.5e-13 (y<=0.99y_s), its constraint 2.5e-15; roots: decaying y2=0.981212 (y2/y_s=0.7664, y2/ell=0.49061)
+    e=1        dec s2 (-0.416667 -> -9.49e-07), a~ strictly falling True; gro max -0.583333; max a~ -5.1e-24; stable vs owner 9.2e-13 (y<=0.99y_s), its constraint 1.9e-15; roots: decaying y2=0.750975 (y2/y_s=0.8218, y2/ell=0.75098)
+    e=2        dec s2 (-0.416667 -> -1.27e-06), a~ strictly falling True; gro max -0.583333; max a~ -1.5e-24; stable vs owner 3.5e-12 (y<=0.99y_s), its constraint 1.0e-15; roots: decaying y2=0.524741 (y2/y_s=0.8601, y2/ell=1.04948)
+    e=4        dec s2 (-0.416667 -> -1.61e-06), a~ strictly falling True; gro max -0.583333; max a~ -3.9e-25; stable vs owner 4.8e-12 (y<=0.99y_s), its constraint 1.4e-15; roots: decaying y2=0.342657 (y2/y_s=0.8869, y2/ell=1.37063)
+    e=8        dec s2 (-0.416667 -> -1.95e-06), a~ strictly falling True; gro max -0.583333; max a~ -8.7e-26; stable vs owner 7.7e-10 (y<=0.99y_s), its constraint 1.4e-15; roots: decaying y2=0.213016 (y2/y_s=0.9059, y2/ell=1.70412)
+    e=16       dec s2 (-0.416667 -> -2.31e-06), a~ strictly falling True; gro max -0.583333; max a~ -1.8e-26; stable vs owner 5.7e-08 (y<=0.99y_s), its constraint 1.5e-15; roots: decaying y2=0.127754 (y2/y_s=0.9198, y2/ell=2.04407)
+    e=32       dec s2 (-0.416667 -> -2.63e-06), a~ strictly falling True; gro max -0.583333; max a~ -3.5e-27; stable vs owner 1.1e-06 (y<=0.99y_s), its constraint 9.3e-16; roots: decaying y2=0.074603 (y2/y_s=0.9303, y2/ell=2.38731)
+    e=64       dec s2 (-0.416667 -> -3.19e-06), a~ strictly falling True; gro max -0.583333; max a~ -6.3e-28; stable vs owner 4.2e-06 (y<=0.99y_s), its constraint 1.4e-15; roots: decaying y2=0.042691 (y2/y_s=0.9385, y2/ell=2.73221)
+
+N4  the far side at the N3 roots (decaying, Pi != 0): Riccati trap and end
+  C-SHEET-M4 e=0.03125 y2=0.00000: a_f(0)=-0.02344 (-e_f=-0.02344) Pi0=0.000e+00 trapped=True; ends at z=2.41609 (z e_f=0.0566), alpha -> 0, K 1.5, then 4.2e+11 at alpha=1e-02, 2.4e+23 at alpha=1e-04, 1.1e+35 at alpha=1e-06; far constraint at start 0.0e+00
+  C-SHEET-M4 e=1      y2=0.00000: a_f(0)=-0.75000 (-e_f=-0.75000) Pi0=0.000e+00 trapped=True; ends at z=1.06053 (z e_f=0.7954), alpha -> 0, K 14.2, then 1.1e+12 at alpha=1e-02, 6.5e+23 at alpha=1e-04, 3.8e+35 at alpha=1e-06; far constraint at start 0.0e+00
+  C-S6 e=0.03125 y2=0.00000: a_f(0)=-0.01042 (-e_f=-0.01042) Pi0=0.000e+00 trapped=True; ends at z=2.48999 (z e_f=0.0259), alpha -> 0, K 1.5, then 3.8e+11 at alpha=1e-02, 2.2e+23 at alpha=1e-04, 9.5e+34 at alpha=1e-06; far constraint at start 0.0e+00
+  C-S6 e=1      y2=0.00000: a_f(0)=-0.33333 (-e_f=-0.33333) Pi0=0.000e+00 trapped=True; ends at z=1.50462 (z e_f=0.5015), alpha -> 0, K 1.99, then 7.7e+11 at alpha=1e-02, 4.5e+23 at alpha=1e-04, 1.9e+35 at alpha=1e-06; far constraint at start -2.2e-16
+  C-S7 e=0.03125 y2=0.92621: a_f(0)=-0.04036 (-e_f=-0.00521) Pi0=5.158e-01 trapped=True; ends at z=1.47555 (z e_f=0.0077), alpha -> 0, K 2.29, then 4.3e+11 at alpha=1e-02, 1.9e+23 at alpha=1e-04, 1.1e+35 at alpha=1e-06; far constraint at start 4.4e-16
+  C-S7 e=0.25   y2=1.14374: a_f(0)=-0.32292 (-e_f=-0.04167) Pi0=1.577e+00 trapped=True; ends at z=0.54545 (z e_f=0.0227), alpha -> 0, K 40.7, then 5.7e+11 at alpha=1e-02, 3.3e+23 at alpha=1e-04, 1.4e+35 at alpha=1e-06; far constraint at start -3.8e-15
+  C-S7 e=1      y2=0.75098: a_f(0)=-1.29167 (-e_f=-0.16667) Pi0=4.927e+00 trapped=True; ends at z=0.17525 (z e_f=0.0292), alpha -> 0, K 2.5e+03, then 1.3e+12 at alpha=1e-02, 5.8e+23 at alpha=1e-04, 3.4e+35 at alpha=1e-06; far constraint at start -7.7e-13
+  C-S7 e=4      y2=0.34266: a_f(0)=-5.16667 (-e_f=-0.66667) Pi0=1.825e+01 trapped=True; ends at z=0.04732 (z e_f=0.0315), alpha -> 0, K 3.99e+05, then 3.4e+12 at alpha=1e-02, 2e+24 at alpha=1e-04, 1.1e+36 at alpha=1e-06; far constraint at start 1.4e-10
+
+N5  H-README-ON-P2: mirrored P2 with matter; rho_m/sigma_RS = (p+2q)/(3e) - s2; WEC window as y2/y_s
+  P2's law s2 = -0.2500:
+    e=0.00097656 rho_m(depth->0)=-0.74999  max rho_m=68.69189  WEC window=[0.0035, 0.7850]  min (rho_m+p_th,m)/sigma_RS=2.98e-05
+    e=0.0039062 rho_m(depth->0)=-0.75000  max rho_m=16.73582  WEC window=[0.0139, 0.7828]  min (rho_m+p_th,m)/sigma_RS=7.39e-06
+    e=0.015625 rho_m(depth->0)=-0.75000  max rho_m=3.74746  WEC window=[0.0571, 0.7739]  min (rho_m+p_th,m)/sigma_RS=1.80e-06
+    e=0.03125  rho_m(depth->0)=-0.75000  max rho_m=1.58347  WEC window=[0.1177, 0.7613]  min (rho_m+p_th,m)/sigma_RS=8.68e-07
+    e=0.0625   rho_m(depth->0)=-0.75000  max rho_m=0.50253  WEC window=[0.2475, 0.7313]  min (rho_m+p_th,m)/sigma_RS=4.06e-07
+    e=0.125    rho_m(depth->0)=-0.75000  max rho_m=-0.03638  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.82e-07
+    e=0.25     rho_m(depth->0)=-0.75000  max rho_m=-0.30408  WEC window=none  min (rho_m+p_th,m)/sigma_RS=7.58e-08
+    e=0.5      rho_m(depth->0)=-0.75000  max rho_m=-0.43650  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.92e-08
+    e=1        rho_m(depth->0)=-0.75000  max rho_m=-0.50192  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.04e-08
+    e=2        rho_m(depth->0)=-0.75000  max rho_m=-0.53433  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.48e-09
+    e=4        rho_m(depth->0)=-0.75000  max rho_m=-0.55045  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.10e-09
+    e=8        rho_m(depth->0)=-0.75000  max rho_m=-0.55848  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.36e-10
+    e=16       rho_m(depth->0)=-0.75000  max rho_m=-0.56249  WEC window=none  min (rho_m+p_th,m)/sigma_RS=9.91e-11
+    e=32       rho_m(depth->0)=-0.75000  max rho_m=-0.56449  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.86e-11
+    e=64       rho_m(depth->0)=-0.75000  max rho_m=-0.56550  WEC window=none  min (rho_m+p_th,m)/sigma_RS=8.12e-12
+  P2's law s2 = -0.3333:
+    e=0.00097656 rho_m(depth->0)=-0.66665  max rho_m=68.77522  WEC window=[0.0031, 0.7850]  min (rho_m+p_th,m)/sigma_RS=2.98e-05
+    e=0.0039062 rho_m(depth->0)=-0.66666  max rho_m=16.81916  WEC window=[0.0124, 0.7833]  min (rho_m+p_th,m)/sigma_RS=7.39e-06
+    e=0.015625 rho_m(depth->0)=-0.66667  max rho_m=3.83079  WEC window=[0.0507, 0.7761]  min (rho_m+p_th,m)/sigma_RS=1.80e-06
+    e=0.03125  rho_m(depth->0)=-0.66667  max rho_m=1.66680  WEC window=[0.1045, 0.7658]  min (rho_m+p_th,m)/sigma_RS=8.68e-07
+    e=0.0625   rho_m(depth->0)=-0.66667  max rho_m=0.58587  WEC window=[0.2185, 0.7428]  min (rho_m+p_th,m)/sigma_RS=4.06e-07
+    e=0.125    rho_m(depth->0)=-0.66667  max rho_m=0.04695  WEC window=[0.4771, 0.6593]  min (rho_m+p_th,m)/sigma_RS=1.82e-07
+    e=0.25     rho_m(depth->0)=-0.66667  max rho_m=-0.22074  WEC window=none  min (rho_m+p_th,m)/sigma_RS=7.58e-08
+    e=0.5      rho_m(depth->0)=-0.66667  max rho_m=-0.35316  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.92e-08
+    e=1        rho_m(depth->0)=-0.66667  max rho_m=-0.41859  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.04e-08
+    e=2        rho_m(depth->0)=-0.66667  max rho_m=-0.45100  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.48e-09
+    e=4        rho_m(depth->0)=-0.66667  max rho_m=-0.46711  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.10e-09
+    e=8        rho_m(depth->0)=-0.66667  max rho_m=-0.47515  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.36e-10
+    e=16       rho_m(depth->0)=-0.66667  max rho_m=-0.47916  WEC window=none  min (rho_m+p_th,m)/sigma_RS=9.91e-11
+    e=32       rho_m(depth->0)=-0.66667  max rho_m=-0.48116  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.86e-11
+    e=64       rho_m(depth->0)=-0.66667  max rho_m=-0.48216  WEC window=none  min (rho_m+p_th,m)/sigma_RS=8.12e-12
+  P2's law s2 = -0.1667:
+    e=0.00097656 rho_m(depth->0)=-0.83332  max rho_m=68.60856  WEC window=[0.0038, 0.7848]  min (rho_m+p_th,m)/sigma_RS=2.98e-05
+    e=0.0039062 rho_m(depth->0)=-0.83333  max rho_m=16.65249  WEC window=[0.0154, 0.7822]  min (rho_m+p_th,m)/sigma_RS=7.39e-06
+    e=0.015625 rho_m(depth->0)=-0.83333  max rho_m=3.66412  WEC window=[0.0634, 0.7719]  min (rho_m+p_th,m)/sigma_RS=1.80e-06
+    e=0.03125  rho_m(depth->0)=-0.83333  max rho_m=1.50013  WEC window=[0.1310, 0.7566]  min (rho_m+p_th,m)/sigma_RS=8.68e-07
+    e=0.0625   rho_m(depth->0)=-0.83333  max rho_m=0.41920  WEC window=[0.2777, 0.7182]  min (rho_m+p_th,m)/sigma_RS=4.06e-07
+    e=0.125    rho_m(depth->0)=-0.83333  max rho_m=-0.11972  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.82e-07
+    e=0.25     rho_m(depth->0)=-0.83333  max rho_m=-0.38741  WEC window=none  min (rho_m+p_th,m)/sigma_RS=7.58e-08
+    e=0.5      rho_m(depth->0)=-0.83333  max rho_m=-0.51983  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.92e-08
+    e=1        rho_m(depth->0)=-0.83333  max rho_m=-0.58526  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.04e-08
+    e=2        rho_m(depth->0)=-0.83333  max rho_m=-0.61767  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.48e-09
+    e=4        rho_m(depth->0)=-0.83333  max rho_m=-0.63378  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.10e-09
+    e=8        rho_m(depth->0)=-0.83333  max rho_m=-0.64181  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.36e-10
+    e=16       rho_m(depth->0)=-0.83333  max rho_m=-0.64582  WEC window=none  min (rho_m+p_th,m)/sigma_RS=9.91e-11
+    e=32       rho_m(depth->0)=-0.83333  max rho_m=-0.64783  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.86e-11
+    e=64       rho_m(depth->0)=-0.83333  max rho_m=-0.64883  WEC window=none  min (rho_m+p_th,m)/sigma_RS=8.12e-12
+  P2's law s2 = -0.1250:
+    e=0.00097656 rho_m(depth->0)=-0.87499  max rho_m=68.56689  WEC window=[0.0040, 0.7848]  min (rho_m+p_th,m)/sigma_RS=2.98e-05
+    e=0.0039062 rho_m(depth->0)=-0.87500  max rho_m=16.61082  WEC window=[0.0162, 0.7820]  min (rho_m+p_th,m)/sigma_RS=7.39e-06
+    e=0.015625 rho_m(depth->0)=-0.87500  max rho_m=3.62246  WEC window=[0.0666, 0.7709]  min (rho_m+p_th,m)/sigma_RS=1.80e-06
+    e=0.03125  rho_m(depth->0)=-0.87500  max rho_m=1.45847  WEC window=[0.1377, 0.7544]  min (rho_m+p_th,m)/sigma_RS=8.68e-07
+    e=0.0625   rho_m(depth->0)=-0.87500  max rho_m=0.37753  WEC window=[0.2935, 0.7108]  min (rho_m+p_th,m)/sigma_RS=4.06e-07
+    e=0.125    rho_m(depth->0)=-0.87500  max rho_m=-0.16138  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.82e-07
+    e=0.25     rho_m(depth->0)=-0.87500  max rho_m=-0.42908  WEC window=none  min (rho_m+p_th,m)/sigma_RS=7.58e-08
+    e=0.5      rho_m(depth->0)=-0.87500  max rho_m=-0.56150  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.92e-08
+    e=1        rho_m(depth->0)=-0.87500  max rho_m=-0.62692  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.04e-08
+    e=2        rho_m(depth->0)=-0.87500  max rho_m=-0.65933  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.48e-09
+    e=4        rho_m(depth->0)=-0.87500  max rho_m=-0.67545  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.10e-09
+    e=8        rho_m(depth->0)=-0.87500  max rho_m=-0.68348  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.36e-10
+    e=16       rho_m(depth->0)=-0.87500  max rho_m=-0.68749  WEC window=none  min (rho_m+p_th,m)/sigma_RS=9.91e-11
+    e=32       rho_m(depth->0)=-0.87500  max rho_m=-0.68949  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.86e-11
+    e=64       rho_m(depth->0)=-0.87500  max rho_m=-0.69050  WEC window=none  min (rho_m+p_th,m)/sigma_RS=8.12e-12
+  P2's law s2 = 1.0000:
+    e=0.00097656 rho_m(depth->0)=-1.99999  max rho_m=67.44189  WEC window=[0.0092, 0.7831]  min (rho_m+p_th,m)/sigma_RS=2.98e-05
+    e=0.0039062 rho_m(depth->0)=-2.00000  max rho_m=15.48582  WEC window=[0.0371, 0.7755]  min (rho_m+p_th,m)/sigma_RS=7.39e-06
+    e=0.015625 rho_m(depth->0)=-2.00000  max rho_m=2.49746  WEC window=[0.1554, 0.7373]  min (rho_m+p_th,m)/sigma_RS=1.80e-06
+    e=0.03125  rho_m(depth->0)=-2.00000  max rho_m=0.33347  WEC window=[0.3536, 0.6464]  min (rho_m+p_th,m)/sigma_RS=8.68e-07
+    e=0.0625   rho_m(depth->0)=-2.00000  max rho_m=-0.74747  WEC window=none  min (rho_m+p_th,m)/sigma_RS=4.06e-07
+    e=0.125    rho_m(depth->0)=-2.00000  max rho_m=-1.28638  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.82e-07
+    e=0.25     rho_m(depth->0)=-2.00000  max rho_m=-1.55408  WEC window=none  min (rho_m+p_th,m)/sigma_RS=7.58e-08
+    e=0.5      rho_m(depth->0)=-2.00000  max rho_m=-1.68650  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.92e-08
+    e=1        rho_m(depth->0)=-2.00000  max rho_m=-1.75192  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.04e-08
+    e=2        rho_m(depth->0)=-2.00000  max rho_m=-1.78433  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.48e-09
+    e=4        rho_m(depth->0)=-2.00000  max rho_m=-1.80045  WEC window=none  min (rho_m+p_th,m)/sigma_RS=1.10e-09
+    e=8        rho_m(depth->0)=-2.00000  max rho_m=-1.80848  WEC window=none  min (rho_m+p_th,m)/sigma_RS=3.36e-10
+    e=16       rho_m(depth->0)=-2.00000  max rho_m=-1.81249  WEC window=none  min (rho_m+p_th,m)/sigma_RS=9.91e-11
+    e=32       rho_m(depth->0)=-2.00000  max rho_m=-1.81449  WEC window=none  min (rho_m+p_th,m)/sigma_RS=2.86e-11
+    e=64       rho_m(depth->0)=-2.00000  max rho_m=-1.81550  WEC window=none  min (rho_m+p_th,m)/sigma_RS=8.12e-12
+  positive-energy thresholds (a bound, not an equality): best-depth rho_m = 0 at e*, so WEC needs ell > ell*:
+    P2 law s2 = +1.0000: e* = 0.0369461, ell* = 27.0665 m, best depth 0.5197 y_s   <- SIM2 S7 control: 27.07m
+    P2 law s2 = -0.1250: e* = 0.0961561, ell* = 10.3998 m, best depth 0.5610 y_s
+    P2 law s2 = -0.1667: e* = 0.1022425, ell* = 9.7807 m, best depth 0.5646 y_s
+    P2 law s2 = -0.2500: e* = 0.1170751, ell* = 8.5415 m, best depth 0.5730 y_s
+    P2 law s2 = -0.3333: e* = 0.1369730, ell* = 7.3007 m, best depth 0.5835 y_s
+  the count: det d(rho_m, p_th,m)/d(y2, e) at s2 = -1/4 (nu/m units), and its condition number:
+    e=0.03125, y2 = 0.50 y_s: det = 1.44387, cond = 16.1
+    e=0.125, y2 = 0.50 y_s: det = 2.30251, cond = 8.81
+    e=1, y2 = 0.50 y_s: det = 11.2244, cond = 1.85

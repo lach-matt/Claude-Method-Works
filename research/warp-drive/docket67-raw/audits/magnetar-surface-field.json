@@ -1,0 +1,127 @@
+{
+ "key": "magnetar-surface-field",
+ "name": "Magnetar surface field ~1e11 T (inferred), used by tolman.py as the best in-hypothesis (traceless, electromagnetic) tension known, B^2/(2 mu0) = 3.9789e27 Pa, and as the denominator of the shortfall 2.4573e13",
+ "source": {
+  "located": "No source is cited at the owner site (tolman.py:1592-1593 gives only 'magnetar surface field 1e11 T ... DERIVED from an inferred B'). The standard sources for the value, READ at source: (a) Olausen & Kaspi, 'The McGill Magnetar Catalog', ApJS 212, 6 (2014), arXiv:1309.4167 -- p.2 definition 'surface dipolar magnetic field strength B, defined as B = 3.2e19 (P Pdot)^(1/2) G', moment of inertia 1e45 g cm^2, caveat 'the expression for B assumes simple vacuum dipole radiation and ignores the potentially important torques due to magnetospheric variability and the internal superfluid'; Table 2 p.18 (SGR 1806-20: P = 7.547728 s, Pdot ~ 49.5e-11 long-term average, B = 20e14 G -- catalogue maximum; 1E 1841-045 6.9e14 G; SGR 1900+14 7.0e14 G; SGR 0418+5729 0.061e14 G); p.8 'the typical magnetar field is 2-3 orders of magnitude greater than that of the typical radio pulsar'. (b) Kouveliotou et al. 1998, 'Discovery of a magnetar associated with SGR 1900+14', astro-ph/9809140 (ApJ 510 L115) -- p.9 restates Kouveliotou et al. 1998a (Nature 393, 235; SGR 1806-20, P = 7.47 s, Pdot = 8.3e-11, 'dipolar magnetic field strength ... 8e14 G') and gives B* = 8e14 G for SGR 1900+14 'if the vacuum magnetic torque were the only torque'; p.10 'the simple estimate of the magnetic field derived above from P and Pdot is an overestimate ... for [SGR 1806-20] the required value of B* is reduced to 2e14 G' (particle-wind torque). The Nature discovery paper Kouveliotou et al. 1998a itself has no arXiv copy here: NAMED-NOT-READ, read via its authors' own restatement in (b). (c) Tiengo et al. 2013 (Nature 500, 312), arXiv:1308.4987 -- an independent, non-spin-down field measure: phase-variable absorption line 'interpreted as a proton cyclotron feature and its energy implies a magnetic field ranging from 2e14 gauss to more than 1e15 gauss' (p.1), R_NS = 12 km (p.3), model loop B_max = 7.41e15 G (Table 1, p.18), while the spin-down dipole of the same star is 6e12 G.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1309.4167, astro-ph/9809140, 1308.4987 (page text returned and quoted); comparison literature 0907.1396 (Skokov, Illarionov, Toneev 2009), 2304.03430 (STAR 2024, PRX) and 2405.15484 (Huang et al. 2024) also read at source. Kouveliotou 1998a (Nature) and Duncan & Thompson 1992 NAMED-NOT-READ except as restated."
+ },
+ "published_statement": "Olausen & Kaspi 2014 (arXiv:1309.4167 p.2): 'the surface dipolar magnetic field strength B, defined as B = 3.2 x 10^19 (P Pdot)^(1/2) G ... Note that the expression for B assumes simple vacuum dipole radiation and ignores the potentially important torques due to magnetospheric variability and the internal superfluid.' Table 2: largest B = 20 x 10^14 G (SGR 1806-20). Kouveliotou et al. 1998 (astro-ph/9809140 p.9-10): SGR 1806-20 '(dipolar) magnetic field strength ... 8 x 10^14 G'; 'The spindown rate of a magnetar may, however, be grossly underestimated by the vacuum dipole formalism ... the simple estimate of the magnetic field derived above from P and Pdot is an overestimate ... for that source the required value of B* is reduced to 2 x 10^14 G.'",
+ "published_hypotheses": [
+  "H1 spin-down is due to magnetic dipole radiation in VACUUM (Olausen-Kaspi p.2; Kouveliotou p.9 'if the vacuum magnetic torque were the only torque')",
+  "H2 orthogonal rotator (inclination alpha = 90 deg) -- implicit in the 3.2e19 coefficient; re-derived here: B_eq = sqrt(3 c^3 I P Pdot/(8 pi^2 R^6))",
+  "H3 moment of inertia I = 1e45 g cm^2 (Olausen-Kaspi p.2)",
+  "H4 neutron-star radius R = 10 km (implicit in 3.2e19; re-derived here)",
+  "H5 B is the EQUATORIAL surface dipole field; the polar field is twice it",
+  "H6 no additional torque (magnetospheric twist/variability, superfluid, particle wind) -- stated as ignored by Olausen-Kaspi, and stated by Kouveliotou to make the estimate an OVERESTIMATE for SGR 1806-20",
+  "H7 Pdot as measured over a stated range; for SGR 1806-20 a long-term average ('A') because Pdot varies strongly",
+  "H8 the field is the large-scale DIPOLE only; multipolar / internal fields are not measured by P, Pdot (Olausen-Kaspi p.9; Tiengo 2013 p.1-4)"
+ ],
+ "hypothesis_drift": [
+  "ADDED (the load-bearing drift) -- tolman.py:59-61 'the best in-hypothesis tension known (a magnetar field ...)', tolman.py:805-808 'Inside the hypothesis the best known tension is electromagnetic and the shortfall is 2.46e+13', tolman.py:3080 'shortfall against the best IN-HYPOTHESIS tension (magnetar)': no read source asserts that a magnetar field is the strongest electromagnetic field or tension known. The superlative holds only on an UNNAMED class -- macroscopic, quasi-static fields. Read at source: Skokov et al. 2009 (0907.1396 p.4) 'this magnetic field strength is higher by about 4 orders of magnitude than that in the surface of magnetar' (heavy-ion collisions, eB ~ m_pi^2 at RHIC, ~15 m_pi^2 at LHC, UrQMD-calculated, lifetime ~0.1-0.2 fm/c); STAR 2024 (2304.03430 p.3, popular summary) 'on the order of 10^18 Gauss', 'the highest strength ever achieved on earth', with the field's effect on charge-dependent directed flow observed at 5.2 sigma (Au+Au 200 GeV), 5.4 sigma (isobar), 14.3 sigma (Au+Au 27 GeV) -- the magnitude itself is model-calculated, not measured. And the tree's own ladder admits femtoscale rungs (tolman.py:801-803 calls the QCD flux tube and nucleon confining region 'the largest tensions nature is known to sustain'; tolman.py:1590 'nucleon core pressure ~1e35 Pa'), under which admission the static radial Coulomb field at a Pb-208 nuclear surface -- electromagnetic, hence traceless, DERIVED here from Z = 82 and the rms charge radius 5.5012 fm -- carries eps0 E^2/2 = 2.43e31 Pa, 6.1e3 times the magnetar rung. The hypothesis the tree's superlative needs, and does not name, is 'macroscopic and quasi-static'.",
+  "WEAKENED (compressed naming) -- canonical hypotheses list 'magnetar spin-down dipole inference' and tolman.py:1593 marks 'DERIVED from an inferred B'; the status word is honest, but H1-H6 (vacuum, orthogonal, I = 1e45, R = 10 km, equatorial, no extra torque) are not named at the owner site. Each moves B: force-free magnetosphere x0.577 (orthogonal) to x0.816 (aligned); polar x2; R = 12 km x0.579; particle wind (Kouveliotou) down to 2e14 G for SGR 1806-20.",
+  "VALUE CHOICE (not a hypothesis drop, but not stated) -- tolman.py:1592 uses the round 1e11 T = 1e15 G; the catalogue maximum it stands for is 1.96e11 T (SGR 1806-20, Olausen-Kaspi Table 2, recomputed here to 1.956e15 G). Using 1e11 T makes the rung 3.8x smaller and the shortfall 3.8x LARGER than the catalogue maximum gives (2.457e13 vs 6.42e12) -- an over-representation in the direction of the refusal, i.e. against M, recorded as such. In the other direction, Kouveliotou's wind-corrected 2e14 G would make the shortfall 6.1e14.",
+  "NONE DROPPED on the physics of the rung: B^2/(2 mu0) is exactly the Maxwell tension along the field (sympy: eigenvalues +B^2/2mu0 once, -B^2/2mu0 twice) and the EM stress-energy is exactly traceless (sympy), so the rung does sit inside tolman's traceless hypothesis as the tree says."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "SGR 1806-20 period derivative Pdot (sets its spin-down B)",
+   "value_then": "8.3e-11 s/s (Kouveliotou et al. 1998a, as restated in astro-ph/9809140 p.9) -> B = 8e14 G",
+   "value_now": "~49.5e-11 s/s long-term average over MJD 52021-53098 (Olausen & Kaspi 2014 Table 2) -> B = 2.0e15 G (recomputed 1.956e15 G); Pdot is known to vary strongly",
+   "source_now": "arXiv:1309.4167 Table 2 p.18 (READ)",
+   "moves_conclusion": "Moves B by x2.4 upward and the shortfall from 3.84e13 to 6.42e12; does NOT move the order-of-magnitude statement 'magnetar fields ~1e10-1e11 T' nor tolman's 'no gate moves'. The tree's 1e11 T sits between the two epochs."
+  },
+  {
+   "quantity": "largest spin-down-inferred magnetar dipole field",
+   "value_then": "1e11 T (tree's round value)",
+   "value_now": "1.96e11 T equatorial, vacuum, orthogonal (SGR 1806-20)",
+   "source_now": "arXiv:1309.4167 Table 2 (READ); recomputed in rederive [4]",
+   "moves_conclusion": "Rung x3.83, shortfall 2.457e13 -> 6.42e12. Conclusion (shortfall >> 1) unchanged; quoted figure is conservative against M by x3.8."
+  },
+  {
+   "quantity": "magnetosphere model (vacuum vs force-free)",
+   "value_then": "vacuum dipole (1998, and still the catalogue convention)",
+   "value_now": "force-free/plasma-filled spin-down L = mu^2 Omega^4 (1+sin^2 alpha)/c^3 (Spitkovsky 2006, named in 2405.15484 ref [48]; formula NAMED-NOT-READ at source, re-derived here as a hypothesis)",
+   "source_now": "2405.15484 (READ, sec II; best-fit B0 in plasma-filled runs 'a little bit' below vacuum, Table II)",
+   "moves_conclusion": "B x0.577-0.816, rung x0.33-0.67, shortfall x1.5-3.0 larger. Does not move the conclusion."
+  },
+  {
+   "quantity": "neutron-star radius R in the coefficient",
+   "value_then": "10 km (implicit in 3.2e19 G)",
+   "value_now": "12 km used by Tiengo et al. 2013 (READ); modern NICER radii NAMED-NOT-READ",
+   "source_now": "arXiv:1308.4987 p.3",
+   "moves_conclusion": "B x0.579 at fixed I, shortfall x3.0 larger; no conclusion moves."
+  },
+  {
+   "quantity": "independent (non-spin-down) local surface field",
+   "value_then": "none in 1998",
+   "value_now": "2e14 to >1e15 G local field from a proton-cyclotron line in SGR 0418+5729 (2013); model loop B_max 7.41e15 G",
+   "source_now": "arXiv:1308.4987 p.1, p.4, Table 1 (READ)",
+   "moves_conclusion": "Corroborates ~1e11 T surface fields by a second method, under the proton-cyclotron interpretation (a named hypothesis). Local B_max 7.41e11 T would give shortfall 4.5e11. No conclusion moves."
+  },
+  {
+   "quantity": "strongest electromagnetic field known (the tree's superlative)",
+   "value_then": "magnetar ~1e11 T (tree)",
+   "value_now": "heavy-ion collisions eB ~ 1-3 m_pi^2 (RHIC), ~15 m_pi^2 (LHC): 1e14-5e15 T, transient (~0.1-0.2 fm/c), model-calculated; effect on directed flow observed. Static: Pb-208 nuclear-surface Coulomb field 2.34e21 V/m, eps0 E^2/2 = 2.43e31 Pa",
+   "source_now": "0907.1396 p.1, p.4, p.7 (READ); 2304.03430 p.3, p.8, p.10 (READ); nuclear charge radius 5.5012 fm (Angeli & Marinova 2013, NAMED-NOT-READ)",
+   "moves_conclusion": "YES for the tree's wording 'best in-hypothesis tension known': shortfall against the LHC field 1.0e4 (SI conversion) to 1.1e5 (paper's conversion); against the RHIC field 2.5e5-2.5e7; against the static Pb-208 Coulomb field 4.0e9. NO for 'no gate moves': every value leaves a shortfall >= 1e4 against the 9.7773e40 Pa bill at R = 1 m, and none of these fields is macroscopic."
+  },
+  {
+   "quantity": "mu0",
+   "value_then": "1.25663706212e-6 N/A^2 (CODATA 2018, tolman.py:1125)",
+   "value_now": "1.25663706127e-6 N/A^2 (CODATA 2022)",
+   "source_now": "CODATA 2022 (NAMED-NOT-READ; value quoted for the relative move only)",
+   "moves_conclusion": "Relative move 7e-10; nothing moves."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/magnetar-surface-field.py",
+  "outcome": "ALL CHECKS PASS (exit 0). [1] B^2/(2 mu0) at 1e11 T = 3.97887e27 Pa (tree pins 3.9789e27); bill imported read-only from tolman.py = 9.77732e40 Pa; shortfall 2.45731e13 (tree pins 2.4573e13): the tree's arithmetic is exact. [2] sympy: Maxwell stress eigenvalues {+B^2/2mu0 (x1, along B), -B^2/2mu0 (x2)}, EM trace 0 -- the rung is a genuine tension and inside the traceless hypothesis. [3] sympy: vacuum orthogonal rotator gives B_eq = sqrt(6) sqrt(I) c^(3/2)/(4 pi R^3) sqrt(P Pdot) = 3.1996e19 sqrt(P Pdot) G at I = 1e45, R = 1e6 cm (catalogue 3.2e19); force-free factors 1/sqrt3 (orthogonal), sqrt(2/3) (aligned). [4] catalogue B recomputed from READ P, Pdot: SGR 1806-20 1.956e15 G (table 20e14), 1E 1841-045 6.886e14 (6.9e14), SGR 1900+14 6.999e14 (7.0e14), SGR 0418+5729 6.10e12 (0.061e14) -- all agree within rounding. [4b] R = 12 km: B x0.579. [5] shortfall across what the magnetar inference itself allows: 4.5e11 (Tiengo local B_max) .. 1.6e12 (polar) .. 6.4e12 (catalogue max) .. 2.46e13 (tree) .. 3.8e13 (1998 vacuum) .. 6.1e14 (1998 wind-corrected): a factor 1373 spread, every value >> 1. [6] eB = m_pi^2 -> 3.293e14 T in SI (Skokov 2009's footnote converts m_pi^2 as ~1e18 G, a factor 3.28 lower: a unit-convention DISCREPANCY recorded, not a refutation); LHC 15 m_pi^2 -> shortfall 1.0e4 (SI) / 1.1e5 (paper); Pb-208 surface Coulomb stress 2.43e31 Pa = 6.1e3 x the magnetar rung, shortfall 4.0e9.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Olausen & Kaspi 2014, arXiv:1309.4167 (McGill Magnetar Catalog)",
+   "effect": "extends",
+   "what": "Catalogue maximum dipole B = 2.0e15 G (SGR 1806-20), twice the tree's round 1e11 T; states the vacuum-dipole caveat explicitly.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Tiengo et al. 2013, arXiv:1308.4987 (Nature 500, 312)",
+   "effect": "confirms",
+   "what": "Independent proton-cyclotron measure of a local surface field 2e14 to >1e15 G in a star whose spin-down dipole is only 6e12 G: confirms ~1e11 T surface fields exist and shows the dipole inference can UNDER-state local fields by >x30.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Huang, Lu, Rice & Liang 2024, arXiv:2405.15484",
+   "effect": "narrows",
+   "what": "Vacuum vs plasma-filled spin-down with inclination evolution; best-fit initial fields in plasma-filled runs somewhat below vacuum (Table II); 'the braking index of a magnetar appears to differ from the dipole radiation dominated n = 3' -- the vacuum-dipole hypothesis is a model choice, moving B by factors < 2.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Skokov, Illarionov & Toneev 2009, arXiv:0907.1396",
+   "effect": "narrows",
+   "what": "Heavy-ion collisions: eB ~ m_pi^2 (RHIC), >= 15 m_pi^2 (LHC), 'higher by about 4 orders of magnitude than that in the surface of magnetar' -- narrows the tree's superlative 'best in-hypothesis tension known' to macroscopic quasi-static fields. Footnote unit conversion (m_pi^2 ~ 1e18 G) is x3.28 below the SI/Gaussian value computed here: a discrepancy, recorded.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "STAR Collaboration 2024, arXiv:2304.03430 (PRX 14, 011028)",
+   "effect": "narrows",
+   "what": "Observation (5.2-14.3 sigma) of charge-dependent directed-flow splitting attributed to the Faraday-induction + Coulomb effect of the collision's EM field, 'on the order of 10^18 Gauss', 'the highest strength ever achieved on earth'; the field magnitude remains model-calculated.",
+   "read_status": "READ"
+  },
+  {
+   "ref": "Discovery: 2606.18127, 2609.25958, 2605.02541 (IXPE magnetar polarimetry / vacuum birefringence, 2026)",
+   "effect": "extends",
+   "what": "Returned by discover_papers as the newest line (X-ray polarimetry as a field probe); abstracts only seen, not read -- cited for completeness, carry no weight here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What the 1998 authors lacked: (i) long-term timing -- SGR 1806-20's Pdot later averaged ~49.5e-11 against their 8.3e-11, which RAISES its B from 8e14 to 2.0e15 G; (ii) force-free/plasma-filled magnetosphere solutions (2006 onward), which LOWER B by x0.58-0.82; (iii) an independent field probe -- the 2013 proton-cyclotron line gives local fields 2e14 to >1e15 G, CONFIRMING the magnitude by a second method; (iv) NS radius/moment-of-inertia constraints (R = 12 km lowers B by x0.58). Evidence either way: the moves are factors of 0.3-3 in opposite directions, and the magnitude 'magnetar surface fields ~1e10-1e11 T' survives all of them -- the missing data do NOT overturn the published result; the authors themselves flagged the torque caveat (astro-ph/9809140 p.10). Where the missing data DO bite is the tree's own addition: the superlative 'best in-hypothesis tension known' was never the authors' claim, and data the tree did not use (heavy-ion EM fields 1e14-5e15 T, 2009-2024; static nuclear Coulomb fields) show it holds only for macroscopic quasi-static fields. The downstream refusal ('no gate moves') survives even that: the smallest shortfall computed is 1.0e4.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result STANDS as published: re-derivation agrees exactly (3.2e19 G coefficient from the vacuum orthogonal rotator with I = 1e45, R = 10 km; four catalogue B values recomputed from READ P, Pdot; the tree's 3.9789e27 Pa and 2.4573e13 reproduced; B^2/2mu0 is the Maxwell tension and the EM trace is 0), and an independent 2013 cyclotron measurement corroborates ~1e11 T surface fields. The grade is NARROWED because of how the tree USES it: (1) tolman.py:59-61, 805-808, 3080 call the magnetar rung 'the best in-hypothesis tension known' -- a superlative no read source makes, which holds only under the unnamed hypothesis 'macroscopic, quasi-static field'; read at source, heavy-ion EM fields are ~1e3-1e4 times stronger (0907.1396 p.4: 'about 4 orders of magnitude'; 2304.03430: '~1e18 G', effect observed), and under the tree's own admission of femtoscale rungs (tolman.py:801-803, 1590) a static Pb-208 surface Coulomb field gives 2.43e31 Pa = 6.1e3 x the rung; (2) the source hypotheses H1-H6 are compressed to 'spin-down dipole inference', and they span a shortfall of 1.6e12-6.1e14 around the quoted 2.46e13; (3) the round 1e11 T is 3.8x below the catalogue maximum, so the quoted shortfall is conservative AGAINST M by x3.8 -- recorded as over-representation in the refusal's favour, not as an error. NOT WRONG: nothing refutes the magnetar field, and the qualitative conclusion the tree rests on it (shortfall >> 1, no gate moves) holds for every value computed, minimum 1.0e4. NOT DATA-DEPENDENT as a whole: the moved data shift the figure by factors of order unity to 1e3-scale ranges but never move the conclusion.",
+ "what_would_change_the_grade": "To STANDS: the tree names the class ('best MACROSCOPIC, quasi-static in-hypothesis tension known') and the spin-down hypotheses (vacuum, orthogonal, I = 1e45 g cm^2, R = 10 km, equatorial) at tolman.py:59-61, 805-808, 1592-1593 and 3080, and states the 1e11 T as a round value below the 1.96e11 T catalogue maximum -- the human seats any such change; nothing is repaired here. To DATA-DEPENDENT: a reading of the ladder under which transient femtoscale EM fields count as 'known tensions', in which case the shortfall denominator moves by 1e6-1e9 with a model-calculated, contested datum (heavy-ion eB). To WRONG: only a demonstration that magnetar surface fields are not ~1e10-1e11 T (e.g. an accretion/fallback-disk explanation of magnetar spin-down established for the population -- Olausen-Kaspi p.2 judge the evidence for such models 'weak'); none was found.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/magnetar-surface-field.py  # exit 0 = all checks pass; and: grep -n 'best in-hypothesis\\|best known tension\\|best IN-HYPOTHESIS\\|magnetar surface field' /home/user/Claude-Method-Works/research/warp-drive/tolman.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/magnetar-surface-field.json"
+}

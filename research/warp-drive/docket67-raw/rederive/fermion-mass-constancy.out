@@ -1,0 +1,23 @@
+PASS A1 d ln Lambda/d ln v = 2/9 from Coc eq.(13)
+PASS A2 K_mu(H1) = -7(1-S)/9 exactly  -- 7*(S - 1)/9
+PASS A3 matches address.K_mu(0.0096,'H1')  -- -0.770311
+PASS A4 H2 (Lambda fixed): K = S-1 matches address at S=0.0096
+PASS A3 matches address.K_mu(0.0600,'H1')  -- -0.731111
+PASS A4 H2 (Lambda fixed): K = S-1 matches address at S=0.0600
+PASS A3 matches address.K_mu(0.0935,'H1')  -- -0.705056
+PASS A4 H2 (Lambda fixed): K = S-1 matches address at S=0.0935
+PASS B1 Jacobian of ln mu over 7 inputs has rank 1  -- [7*S/9 - 7/9, -1, S, 2/27 - 2*S/27, 2/27 - 2*S/27, 2/27 - 2*S/27, 2*pi*(S - 1)/9]
+PASS B2 null space has dimension 6
+PASS B3 d ln v = 1, d ln y_e = K_mu: mu EXACTLY constant
+PASS B4 Yukawas fixed, d(1/alpha_s) = -7/(2*pi) per unit d ln v keeps mu constant
+PASS B5 that alpha_s co-variation is finite and O(1) (needs H-AS-FIXED to exclude)  -- d(1/alpha_s)/d ln v = -1.1141 at S=0.06
+PASS C1 d ln Lambda/d ln v = 1 gives K_mu = 0: mu is BLIND to v
+PASS D1 |dv/v| <= B/|K_mu|: factor 1/|K| in [1.2982, 1.4183] (H1), [1.0097, 1.1031] (H2)
+PASS D2 so on H-YUK-FIXED + H1/H2 a ratio bound B bounds |dv/v| by < 1.5 B
+PASS D3 for every finite B > 0 the allowed |dv/v| interval is nonempty
+PASS E1 massform.P_UNIFORM_STATUS == 'PREMISE'
+PASS E2 VEV_IS_UNIFORM is P_UNIFORM (no measured value enters)
+PASS E3 CONSIDERATION_HOLDS True and CONSIDERATION_DISCRIMINATES False
+PASS E4 massform.py:223 says the constancy 'is not read here'  -- is supported by the measured constancy of fermion masses, which is not read
+
+RESULT: ALL PASS (0 failures)

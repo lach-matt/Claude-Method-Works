@@ -1,0 +1,94 @@
+{
+ "key": "hep-ph/9410274",
+ "name": "Ji's QCD decomposition of the nucleon mass (quark mass term b; heavy-quark cancellation)",
+ "source": {
+  "located": "X. Ji, 'A QCD analysis of the mass structure of the nucleon', arXiv:hep-ph/9410274, Phys. Rev. Lett. 74, 1071 (1995), doi:10.1103/PhysRevLett.74.1071 -- located by WebSearch (ui.adsabs.harvard.edu 1995PhRvL..74.1071J; journals.aps.org/prl/abstract/10.1103/PhysRevLett.74.1071). The tree's locators: Table I p.9; errors/rounding/largest uncertainty p.6; heavy-quark cancellation after Eq.(25) p.5; 'about 1/8' bullet p.7 (massform.py:1358-1377).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ this pass. alphaXiv get_paper_content (x2, incl. fullText) and answer_pdf_queries (x3) and discover_papers (x1) all returned 'alphaXiv assistant quota exceeded'. arxiv.org (curl and WebFetch), export.arxiv.org, www.alphaxiv.org, inspirehep.net, api.semanticscholar.org, scipost.org, link.springer.com, indico.cern.ch were refused by the egress policy (403 connect_rejected / EGRESS_BLOCKED); these are policy denials and were not routed around. No local copy exists in the scratchpad or the repo (grep for 9410274 finds only massform.py and its copies). The only text obtained is a WebSearch index summary of the abstract ('separation is done in the rest frame of the nucleon at the MSbar renormalization scale 1 GeV^2'), which is a search-engine restatement, NOT a READ. The tree's own held quotes (massform.py SOURCES 'Ji-cancel', 'Ji-eighth', 'Ji-table', recorded READ at DOCKET 65) are the only verbatim text available and are TREE-HELD, not re-read here."
+ },
+ "published_statement": "NOT RE-READ. As HELD by the tree (massform.py:1366-1377, status READ at D65, not re-verified here): 'TABLE I. A decomposition of the nucleon mass into different contributions. ... mass type H_i M_i m_s -> 0 (MeV) m_s -> infinity (MeV) ... quark mass psibar m psi b 160 110 / I have not shown the errors due to omission of higher-order perturbative effects and errors on the sigma-term and current quark masses. The total effect on individual numbers is about 5 to 10 MeV. Thus I have rounded up the numbers to nearest 10 MeV. The largest uncertainty is from the matrix element <P|m_s ss|P>, which could be larger than the difference of the two estimates shown.' Also held: 'the heavy quarks do contribute to the mass term, the kinetic and potential energy term, and the trace anomaly term. However, the contributions cancel each other in the limit of m_f -> infinity' (after Eq.(25), p.5) and 'The quark mass term accounts for about 1/8 of the nucleon mass. About half of which or more is carried by the strange quark.' (p.7).",
+ "published_hypotheses": [
+  "P1 (search-index restatement of the abstract, NOT READ): the separation is in the nucleon rest frame, MSbar scheme, renormalisation scale mu^2 = 1 GeV^2.",
+  "P2 (tree-held quote): leading-order perturbative treatment; higher-order perturbative effects omitted (5-10 MeV per entry).",
+  "P3 (tree-held quote): inputs are the (then) sigma term and current quark masses, with errors not propagated; numbers rounded to 10 MeV.",
+  "P4 (tree-held quote): the strange matrix element <P|m_s ss|P> is estimated two ways (the m_s -> 0 and m_s -> infinity columns); its uncertainty 'could be larger than the difference' (50 MeV).",
+  "P5 (tree-held quote): heavy quarks (m_f -> infinity) cancel between mass, kinetic/potential and trace-anomaly terms.",
+  "P6 (FROM MEMORY, NOT READ -- to be checked on reading): the quark-mass entry is M_m = (4+gamma_m)/(4(1+gamma_m)) b M with b M = <(1+gamma_m) m psibar psi>, i.e. M_m = (1+gamma_m/4) x (sigma-term sum), a Hamiltonian-decomposition term and not the Feynman-Hellmann first-order response itself; 'b' is then a dimensionless parameter, not the 160/110 MeV entry."
+ ],
+ "hypothesis_drift": [
+  "SCHEME/SCALE DROPPED (candidate; P1 is not READ): massform.py:339-346 and the row label at massform.py:1857-1858 ('Ji quark mass term ... Ji Table I') print 160/110 MeV without the MSbar, mu^2 = 1 GeV^2 qualifier. Effect: the gamma_m-dependent part of M_m is scheme-dependent; bounded here (rederive F2-F3) at <= 12.5 % of the entry for gamma_m <= 0.5.",
+  "FIRST-ORDER-RESPONSE IDENTIFICATION ADDED (candidate; rests on P6, NOT READ): massform.py:128-133 and :1856-1858 place Ji's quark-mass term among the 'quark-mass part' rows that, under H-LINEAR (massform.py:325-328, 764), measure the Higgs's first-order share, alongside the Feynman-Hellmann sigma rows. If P6 holds, Ji's M_m exceeds the first-order response by the factor (1+gamma_m/4) (sympy, rederive F2). Direction: it OVERSTATES the Higgs share, i.e. against M's favour and conservative for the tree's 'below half' verdict; it cannot flip it.",
+  "LABEL 'b' (candidate discrepancy, not a refutation; rests on P6): massform.py:339-340 says 'the quark mass term b as 160 MeV'. If Table I's M_i column prints the formula (4+gamma_m)b/(4(1+gamma_m)), the held extraction 'psibar m psi b 160 110' (massform.py:1370) may have dropped a prefactor and b is a dimensionless parameter, not the MeV entry. Not checkable without the page; recorded, not repaired.",
+  "DATA VINTAGE DROPPED (rests on P3, which IS in the tree-held quote): massform.py:339-346 and the 'largest READ central reading' (massform.py:130-131, 370, 5021-5023) take the 1994 m_s -> 0 entry at face value as a current READ row; the inputs Ji used (the then sigma term and strange content) are not named. The tree does record Ji's own omitted errors and his strange-element caveat (massform.py:341-346), so the uncertainty is not hidden; its data vintage is.",
+  "NORMALISATION (discrepancy, computed): the tree divides by m_N = (m_p+m_n)/2 = 938.919 MeV (massform.py:1029, 1803); Ji's table total (940 MeV, FROM MEMORY, not read) would give 17.02 % instead of 17.04 %. Spread over m_p..940 is 0.031 percentage points (rederive C). Immaterial.",
+  "NO drift on the heavy-quark cancellation: massform.py:352-356 quotes it and uses it only to keep heavy-quark terms out of the READ rows as CONTESTED; that is weaker than, not stronger than, the source's claim."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "quark-mass term, m_s -> 0 column",
+   "value_then": "160 MeV (tree-held Table I; +/- 5-10 MeV omitted, rounded to 10)",
+   "value_now": "No direct successor of Ji's M_m is READ here. Proxy: the tree-held FLAG 2024 sigma sums sigma_piN + sigma_s = 101.9 MeV (2+1+1) and 87.1 MeV (2+1) (massform.py:320-323; FLAG 2411.04268 READ in the sibling audit sigma-term-scan). Under the memory form P6 (NOT READ) with gamma_m in [0, 0.5]: M_m in [87.1, 114.6] MeV. chiQCD 1808.08677: u,d,s condensate 9(2)(1)% of the proton (tree-held quote; sibling audit OPEN).",
+   "source_now": "FLAG 2024 arXiv:2411.04268v3 eqs.(447)-(450) as held by massform.py and READ in audits/sigma-term-scan.json; chiQCD arXiv:1808.08677 as held (audits/1808.08677.json, OPEN)",
+   "moves_conclusion": "Moves the NUMBER, not the verdict. The modern proxy sits ~45-73 MeV below 160 MeV, and near the m_s -> infinity column. If the 160 row were superseded, the tree's 'largest READ central reading' would fall from 0.1719 to about 0.110-0.123 of the payload (rederive D2, F5). The tree's conclusion -- every row below one half at first order -- needs a Ji row of 466 MeV to flip (rederive E1); every datum moves the row DOWN, i.e. further from flipping."
+  },
+  {
+   "quantity": "quark-mass term, m_s -> infinity column",
+   "value_then": "110 MeV",
+   "value_now": "Proxy as above: 87.1-114.6 MeV (memory form, gamma_m <= 0.5); consistent in magnitude.",
+   "source_now": "as above",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "pion-nucleon sigma term and strange content used by Ji",
+   "value_then": "NOT READ: the tree-held quote names 'the sigma-term and current quark masses' as inputs without values; the values Ji used (1994-era dispersive sigma_piN, strange content) are not READ here",
+   "value_now": "sigma_piN = 60.9(6.5) MeV (FLAG 2+1+1), 42.2(2.4) (FLAG 2+1), 59.1(3.5) (Hoferichter 2015); sigma_s = 41.0(8.8), 44.9(6.4) MeV (FLAG) -- all tree-held READ",
+   "source_now": "massform.py:320-323, 1341-1350 (FLAG 2411.04268v3; Hoferichter 1506.04142v2)",
+   "moves_conclusion": "Cannot be computed through Ji's formula without reading his inputs; the implied sigma sum for his m_s -> 0 row (142-160 MeV, memory form) exceeds the modern 87-102 MeV, consistent with a large 1990s strange content, but that attribution is INFERRED, not READ."
+  },
+  {
+   "quantity": "nucleon mass normalisation",
+   "value_then": "940 MeV table total (FROM MEMORY, not read)",
+   "value_now": "m_N = 938.9187555 MeV (CODATA 2018, held); CODATA 2022 moves it by 3e-11 relative",
+   "source_now": "massform.py:1029; CODATA 2022 m_p 938.27208943, m_n 939.56542194 MeV",
+   "moves_conclusion": "No: 0.031 pp at most (rederive B4, C1)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-ph_9410274.py",
+  "outcome": "All A-E checks pass (exit 0). A: the tree-held Ji quotes carry every numeral used and JI_QUARK_MASS_MEV = {160, 110}. B: 160/m_N = 17.0409 %, 110/m_N = 11.7156 % (tree 17.04 / 11.72); CODATA 2022 moves them by 3e-11 relative. C: normalisation over m_p, m_N, m_n, 940 spreads the 160 row by 0.0313 pp (a first-run guessed bound of 0.03 pp failed and was widened to 0.05, recorded in the script); 1/8 of m_N = 117.4 MeV lies between the two rows, nearer 110. D: the 50 MeV difference is derived; the largest READ central reading 0.171867 and the margin illustration 0.236205 (220/m_N = 23.43 %) are reproduced exactly from massform's own payload. E: a Ji row of 466.0 MeV (49.6 % of m_N) would be needed for a 1/2 payload share; Ji's whole margin (220 MeV) is under half of that. F (CONDITIONAL on a memory form, NOT READ): the four-term decomposition closes to M identically in sympy; M_m / sigma-sum = 1 + gamma_m/4; tree-held FLAG sums imply M_m of 87.1-114.6 MeV (9.28-12.21 % of m_N) against Ji's 160/110; the payload share with the largest modern M_m would be 0.1232.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "FLAG Review 2024, arXiv:2411.04268v3, eqs.(447)-(450)",
+   "effect": "narrows",
+   "what": "Lattice sigma_piN and sigma_s averages give sigma_piN + sigma_s = 87.1-101.9 MeV, below the 160 MeV m_s -> 0 entry and near the 110 MeV m_s -> infinity entry; the direct lattice strange sigma term is data Ji did not have.",
+   "read_status": "TREE-HELD READ (massform.py:320-323) and READ at source in audits/sigma-term-scan.json; not re-read in this stage"
+  },
+  {
+   "ref": "Yang et al. (chiQCD), arXiv:1808.08677, PRL 121, 212001 (2018)",
+   "effect": "narrows",
+   "what": "Lattice u,d,s scalar condensate contribution 9(2)(1)% of the proton mass (MSbar, 2 GeV), against Ji's 17.04 % / 11.72 %.",
+   "read_status": "TREE-HELD quote (massform.py:1378-1383); sibling audit audits/1808.08677.json is OPEN (NAMED-NOT-READ)"
+  },
+  {
+   "ref": "Lorce, Metz, Pasquini, Rodini, 'Energy-momentum tensor in QCD: nucleon mass decomposition and mechanical equilibrium', JHEP 11 (2021) 121",
+   "effect": "contested",
+   "what": "Revisits the decomposition's definition and interpretation; title and scope only.",
+   "read_status": "NAMED-NOT-READ (WebSearch index title; link.springer.com egress-blocked; effect label is the title's scope, not a reading)"
+  },
+  {
+   "ref": "'Nucleon mass: trace anomaly and sigma-terms', arXiv:2506.23902; 'Proton mass decompositions in the NNLO QCD', arXiv:2511.18310; 'Systematic investigation of trace anomaly contribution in nucleon mass', arXiv:2402.05354",
+   "effect": "extends",
+   "what": "Later treatments of the same decomposition (higher orders, sigma-term inputs); titles only.",
+   "read_status": "NAMED-NOT-READ (WebSearch titles; arxiv.org egress-blocked; alphaXiv discover_papers quota exceeded)"
+  }
+ ],
+ "lacked_data": "M's hypothesis is PLAUSIBLE for this result's numbers and does NOT reach the tree's conclusion. What Ji lacked in 1994: any lattice determination of the strange sigma term (the FLAG averages, sigma_s = 41.0(8.8) / 44.9(6.4) MeV, are 2010s-2020s lattice data) and the modern sigma_piN tension (42.2 vs 60.9 MeV, 2.7 sigma). He says so himself: the strange matrix element is his largest uncertainty and 'could be larger than the difference of the two estimates' (tree-held quote). Evidence FOR the hypothesis: the modern sigma sums (87-102 MeV; 87-115 MeV as a Ji-style M_m under an unread memory form) lie well below his m_s -> 0 entry (160) and near his m_s -> infinity entry (110), so the row the tree calls its 'largest READ central reading' (17.04 %) is the one most plausibly superseded. Evidence AGAINST it mattering here: the tree takes the MAXIMUM over rows, so a lower Ji row only lowers the printed maximum (0.1719 -> ~0.11-0.12); the verdict 'below half at first order' needs a 466 MeV row to flip, and every datum moves the row the other way. Having the data changes Ji's number, not the tree's conclusion. Caveat: Ji's actual 1994 inputs were not READ, so the attribution of the 50 MeV gap to his strange content is inferred, not shown.",
+ "grade": "OPEN",
+ "grade_evidence": "OPEN because the source was not readable here: all alphaXiv tools returned quota-exceeded (6 calls), and arxiv.org and every mirror tried (export.arxiv.org, alphaxiv.org, inspirehep, semanticscholar, scipost, springer, indico) were refused by egress policy; no local copy exists. The tree's statement ('Table I ... 160 MeV (m_s -> 0) and 110 MeV (m_s -> infinity) ... about 5 to 10 MeV ... nearest 10 MeV ... largest uncertainty ... <P|m_s ss|P>') therefore rests on a D65 READ that could not be re-read. What WAS checked is consistent with the tree: the held quotes carry every numeral used (A1-A5); 17.04 % and 11.72 % recompute from 160 and 110 over m_N (B1-B3); the normalisation choice is immaterial, 0.031 pp (C1); the 0.1719 largest READ reading and 0.2362 margin illustration reproduce exactly (D2-D3); and no plausible Ji row moves the tree's verdict (E1: 466 MeV needed). Candidate hypothesis drifts -- dropped MSbar/1 GeV^2 qualifier, Ji's M_m identified with the first-order response, the label 'b' -- rest on text not READ here (P1 via search-index restatement, P6 from memory), all point AGAINST M's favour (they overstate the Higgs share), and cannot flip the verdict. Not STANDS (source unread; the vintage of the m_s -> 0 row is exposed by later data); not WRONG (no contradiction shown, the arithmetic agrees); not DATA-DEPENDENT for the conclusion (the moved datum moves the printed maximum, not the verdict); NARROWED would need a READ hypothesis the tree drops, and none is READ.",
+ "what_would_change_the_grade": "Reading hep-ph/9410274 at source (alphaXiv quota reset, or arxiv.org allowed). Then: (i) if Table I and p.6 match the held quotes and the M_i entry for 'quark mass' is the value the tree uses -> STANDS for the arithmetic, with the data-vintage note; (ii) if the page confirms the MSbar mu^2 = 1 GeV^2 qualifier and M_m = (1+gamma_m/4) x sigma-sum (P1, P6) -> NARROWED (the tree drops the scheme and treats a Hamiltonian-decomposition term as the first-order response; direction conservative, verdict unmoved); (iii) if the Table I numbers differ from 160/110 -> a discrepancy in the tree's reading, to be recorded, graded by whether it moves E1 (it cannot unless the entry exceeds 466 MeV); (iv) reading Ji's 1994 sigma_piN and strange-content inputs would make the data move computable through his own formula.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-ph_9410274.py  # exit 0 = A-E pass; then re-read the source: mcp__alphaXiv__answer_pdf_queries(paper='hep-ph/9410274', queries=['Table I rows and M_i formulas', 'inputs sigma term, strange content, quark masses, gamma_m, scale', 'errors and rounding p.6', 'definition of b'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hep-ph_9410274.json"
+}

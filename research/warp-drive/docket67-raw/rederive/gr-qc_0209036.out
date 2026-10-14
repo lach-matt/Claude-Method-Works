@@ -1,0 +1,37 @@
+PASS A.II.12: per-momentum alpha power -2*nu - 1; total alpha^(2 sigma -4*nu - 2) = alpha^(2(sigma-2nu-1))
+PASS A.II.12c: bound constant = (2*nu + 1)**(-2)
+PASS A.meas: angular measure prefactor = 1/(16*pi**4)
+PASS A.II.22a: k-power in (II.22) line 1 = beta*k**(nu + 2)
+PASS A.II.22: rho_2 ~ alpha^(-2*nu + sigma - 2)
+PASS A.II.15: c_alpha ~ alpha^(2 sigma -2*nu - 1)
+PASS A.II.24: rho_1 ~ alpha^(-4*nu + 2*sigma - 3)
+DISCREPANCY A.pref: prefactor implied by (II.21)/(II.20) = N**2/(8*pi**4) ; printed in (II.22)/(II.24) = N**2/(16*pi**4) ; ratio 2 (overall factor, both terms; sign and alpha-exponents untouched)
+PASS B.z3: window non-empty for all nu>0: unsat(neg); window => (N->1, rho2 exp<0, rho1 exp>0): unsat(neg)
+PASS C.swap: INT_0^L0 dv v^2nu INT_0^v du1 g = INT du1 g (L0^(2nu+1) - u1^(2nu+1))/(2nu+1)  [exact]
+DISCREPANCY C.II17-printed: printed (II.17) weight u1^(2nu+1)/(2nu+1); lhs/printed at nu=1,p=0: 3
+DISCREPANCY C.II27: (II.16) gives C = 1/(8*pi**2*Lambda0**4); (II.17) as printed gives 1/(24*pi**2*Lambda0**4) = (II.27) 1/(24*pi**2*Lambda0**4); ratio 3
+PASS C.props: corrected weight is >= 0 and vanishes only at u1 = L0: properties (i)-(iv) of C hold; Theorem II.1 unaffected
+PASS D.II28: 2 INT|b|^2 = alpha**(2*sigma - 6)/(128*pi**4)
+PASS E.II31: F_alpha integrand - xi integrand/(4 pi^2 alpha^2) = Piecewise((0, Ne(v**2*z**2, 0)), (v*(v**2*z**2*exp(I*v*z) - 2*I*v*z + 2*exp(I*v*z) - 2)*exp(I*v*(-alpha*z - t + z)/alpha)/(8*pi**2*alpha**2*z**2), True)) (numeric 1.17e-17) => (II.31) prefactors 2N^2/(16 pi^4 L0^4), alpha^(2s-7)/(24pi^2), alpha^(s-4) follow from (II.29)
+PASS F.III7a: INT (w - k cos)^2 dcos = 2*(kk**2 + 3*omega**2)/3
+PASS F.III7b: prefactor (l0)^2 x 1/(12*pi**2)
+PASS F.III9: INT_m^u sqrt(w^2-m^2)(4w^2-m^2) dw = u(u^2-m^2)^(3/2)
+PASS F.III13: INT g''^2 = 3/(16*tau0**4) ; (1/12pi^2) INT g''^2 = 1/(64*pi**2*tau0**4)
+PASS F.III10: momentum-space form = 1/(64*pi**2*tau0**4)
+PASS F.var: g^2 has norm 1 and variance tau0**2: the text's 'variance tau0' is the standard deviation (wording)
+PASS G.II34: <H>/hbar w = n^(1/2) - 1/2 + O(n^-1/2); through x^1 (x = n^-1/2): x - 1/2 + 1/x
+PASS H.Lambda0: Re fhat > 0 on [0, 2.00]; first sign change near 5.00; Lambda0 = 1.0 admissible
+PASS H.fourier: position-space INT f Re G^2 = 1.416507e-02 vs momentum-space 1.416507e-02 ; INT f|G|^2 = 1.550507e-02 vs 1.550507e-02
+PASS H.sign: phi-integral K2 = 1.4165e-02 > 0 => rho_2 strictly negative
+   alpha      N_alpha^2    rho_2              rho_1(C corrected)   rho_1(C printed)    <rho(f)>
+   2e-01     0.9999928265  -2.718120e-05      +1.126954e-07        +3.756515e-08       -2.706850e-05
+   5e-02     0.9999991033  -3.844026e-05      +5.634808e-08        +1.878269e-08       -3.838391e-05
+   1e-02     0.9999999198  -5.748164e-05      +2.519965e-08        +8.399882e-09       -5.745644e-05
+   1e-03     0.9999999975  -1.022184e-04      +7.968828e-09        +2.656276e-09       -1.022105e-04
+   1e-04     0.9999999999  -1.817729e-04      +2.519965e-09        +8.399883e-10       -1.817704e-04
+   1e-06     1.0000000000  -5.748164e-04      +2.519965e-10        +8.399883e-11       -5.748162e-04
+   1e-08     1.0000000000  -1.817729e-03      +2.519965e-11        +8.399883e-12       -1.817729e-03
+PASS H.II22vsII29: rho_2(alpha=1e-3): (II.22) AS PRINTED (prefactor N^2/(2pi)^4) -5.110921e-05 vs position-space from (II.18)/(II.29) (prefactor 2N^2) -1.022184e-04 ; ratio 2.000000 -- the numerics confirm the factor 2 found symbolically in A.pref
+PASS H.limit: <rho(f)> decreases monotonically ~ -alpha^(sigma-4) = -alpha^-0.25 -> -inf; rho_1 ~ alpha^0.5 -> 0 with EITHER constant C (the factor-3 discrepancy moves only the vanishing term)
+
+SUMMARY: theorem chain re-derived, no FAIL

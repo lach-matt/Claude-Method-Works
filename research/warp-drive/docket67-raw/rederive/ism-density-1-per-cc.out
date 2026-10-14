@@ -1,0 +1,49 @@
+1. The tree's datum, exactly
+  [ok] arrival/stock/stockgate RHO_ISM agree exactly 1.672621920e-21 kg/m^3
+2. Proton mass: tree vs CODATA 2018 / 2022, and m_p vs m_H
+     tree/CODATA2018 - 1 = -2.206e-09
+     tree/CODATA2022 - 1 = -3.557e-09
+     tree/m(1H atom) - 1 = -5.443e-04
+  [ok] proton-mass truncation moves rho by < 1e-8 (immaterial) 
+  [ok] m_p vs m_H moves rho by < 1e-3 (immaterial) 
+3. Ferriere 2001: 'average of about 2.7e-24 g cm^-3 ... approximately one H atom per cm^3'
+     2.7e-24 g/cc = 2.700e-21 kg/m^3 = 1.614 x tree rho; n_H = 1.137 cm^-3 at 1.42 m_p
+  [ok] Ferriere average is ~1 H/cc (0.8 < n_H < 1.3) -- the tree's number as a SPACE AVERAGE 
+  [ok] but mass density with He (x1.42) is 1.4-1.7x the tree's n*m_p 
+4. The phases and the local medium, READ values of n_H (cm^-3)
+  [ok] the tree's n=1 lies ABOVE Ferriere's WNM range 0.2-0.5 (label 'warm neutral medium' is a discrepancy) 
+  [ok] the tree's n=1 lies above every READ local total density (max 0.43) 
+5. What rests on it: recompute each consequent at each READ density
+     stock.ism_sweep_volume() now returns 7.9955e+25 m^3, r = 2.6725e+05 km
+     DISCREPANCY (tree-internal, not density-caused): stock.py:119-120 and stockgate.py:201 print 7.18e25 m^3 / 2.58e5 km; the function returns 1.114x that volume at the SAME RHO_ISM
+  [ok] stock sweep volume is within 15% of its prose 7.18e25 (same order; the gap is not from RHO_ISM) 
+  [ok] stock sweep equals feedstock/RHO_ISM exactly (the density enters only as 1/rho) 
+  [ok] arrival.py magsail floor at the tree's density reproduced (selftest pins 2001.64 AU) 2001.64 AU
+     medium                                   n_H     n_ion     V/V_tree       r (km) magsail AU(ion)
+     tree (arrival.py:26)                     1.0       1.0        1.000   2.6725e+05           2002
+     Ferriere WNM lo                          0.2      None        3.521   4.0658e+05            nan
+     Ferriere WNM hi                          0.5      None        1.408   2.9957e+05            nan
+     CHISM (Crawford T4)                     0.26      0.07        2.709   3.7253e+05          28595
+     CHISM SF08 Model 26                    0.245     0.055        2.874   3.7999e+05          36393
+     LIC n_e Redfield&Falcon                 None      0.12          nan          nan          16680
+     Icarus range lo                         0.15      0.05        4.695   4.4750e+05          40033
+     Icarus range hi                         0.43      0.21        1.638   3.1502e+05           9532
+     Local Bubble (hot)                     0.005     0.005      140.845   1.3905e+06         400328
+     Local Bubble (Welsh-Shelton alt.)       0.04      0.04       17.606   6.9524e+05          50041
+6. Does the move change the conclusions?
+  [ok] stock.py: at every READ diffuse density (He included) the sweep is LARGER or within 1.5x smaller -- the most favourable diffuse medium (WNM hi, 0.5 x 1.42) gives V/V_tree >= 1.40 
+  [ok] stock.py 'sweep radius > 1e5 km' (stockgate :1076) holds at every READ diffuse density 
+     stock radius falls below 1e5 km only above n_H = 13.4 cm^-3 (a cold-cloud density, Ferriere CNM 20-50)
+  [ok] that break-even density (>1 cm^-3) is outside every diffuse phase READ 
+     magsail floor on the ionised component, CHISM (Crawford T4)            28595 AU = 0.452 ly
+     magsail floor on the ionised component, LIC n_e Redfield&Falcon        16680 AU = 0.264 ly
+     magsail floor on the ionised component, Icarus range lo                40033 AU = 0.633 ly
+     magsail floor on the ionised component, Local Bubble (hot)            400328 AU = 6.330 ly
+  [ok] arrival.py: on the READ ionised density the floor rises >= 4.7x (Icarus hi 0.21) to 200x (LB) 
+  [ok] arrival.py: in the hot Local Bubble the floor (~4e5 AU) EXCEEDS the whole 4.37 ly trip 400328 AU vs 276364 AU
+  [ok] arrival.py: on the CHISM ion density the floor is still < trip length (braking still possible, but ~0.45 ly out -- not 'within a target system') 
+7. Tree-internal discrepancy (recorded, NOT caused by the external datum)
+     arrival.py prose :151/:159 says 810 AU; its own selftest (:95) pins 2001.64 AU at the same RHO_ISM. ratio 2.471
+  [ok] 810 AU is NOT what magsail_distance returns at the tree's density 
+
+  REDERIVE OK

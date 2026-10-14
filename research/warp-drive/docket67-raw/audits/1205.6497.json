@@ -1,0 +1,101 @@
+{
+ "key": "1205.6497",
+ "name": "Degrassi, Di Vita, Elias-Miro, Espinosa, Giudice, Isidori, Strumia, 'Higgs mass and vacuum stability in the Standard Model at NNLO', arXiv:1205.6497v2 (JHEP 08 (2012) 098; v2 stamped 30 Sep 2013): instability scale 10^(11+-1) GeV for M_h = 125 GeV, lambda(M_Pl) = -0.014 +- 0.006, stability to M_Pl excluded at 2 sigma (98% CL one-sided) for M_h < 126 GeV",
+ "source": {
+  "located": "arXiv:1205.6497v2 [hep-ph], 30 Sep 2013. Sentence used by excite/endpoint/ledger: Conclusions, printed p.27 = PDF p.28 (the tree's 'p.28' is the PDF page). Sentence used by massform: Sec. 1, after eq. (3), printed p.2 = PDF p.3 (massform's 'p.2' is the printed page). The two owners therefore use different page conventions for the same PDF -- a citation-convention inconsistency, not an error. Also read: Sec. 3.2 inputs (eqs. 55-63), Sec. 3.3 and Fig. 4 (definition of Lambda_I), Table 1, eq. (64), Sec. 4.2 (Higgs xi-inflation).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1205.6497 (two batched calls), returning PDF pages 1-4, 11, 13-25, 28, 33, 35 of v2 as text."
+ },
+ "published_statement": "Conclusions (printed p.27): 'We find that, for M_h = 125 GeV, lambda(M_Pl) = -0.014+-0.006, see eq. (64). The exact vanishing of lambda(M_Pl) is excluded at 2 sigma. Moreover, the smallness of beta_lambda at high energy implies that lambda remains negative in a relatively large energy range. Indeed, we find that, for M_h = 125 GeV, the instability scale develops at 10^{11+-1} GeV. Quantum tunneling is sufficiently slow to ensure at least metastability of the EW vacuum, see fig. 5. ... beta_lambda ... vanishes at a scale of about 3 x 10^17 GeV.' Sec. 1 (printed p.2): 'M_h [GeV] > 129.4 + 1.4((M_t[GeV] - 173.1)/0.7) - 0.5((alpha_s(M_Z) - 0.1184)/0.0007) +- 1.0_th. (2) Combining in quadrature the theoretical uncertainty with the experimental errors on M_t and alpha_s we get M_h > 129.4 +- 1.8 GeV. (3) From this result we conclude that vacuum stability of the SM up to the Planck scale is excluded at 2 sigma (98% C.L. one sided) for M_h < 126 GeV.' Fig. 4 caption (printed p.17): 'The instability scale Lambda_I at which the SM potential becomes negative as a function of the Higgs mass ... 1 sigma bands in M_t = 173.1 +- 0.6 GeV, alpha_s(M_Z) = 0.1184 +- 0.0007, M_h = 125.66 +- 0.34 GeV ... The theoretical error is not shown and corresponds to a +-1 GeV uncertainty in M_h.'",
+ "published_hypotheses": [
+  "The Standard Model alone, extrapolated to the Planck scale: 'our calculation reliably accounts for IR effects, but ignores possible new (unknown) UV threshold effects occurring near the Planck scale' (printed p.27); no new physics, gravity not included.",
+  "NNLO: three-loop running for gauge, top Yukawa and Higgs quartic couplings; two-loop matching keeping leading effects in alpha_s, y_t, lambda; two-loop effective potential (printed p.27, Sec. 3.1).",
+  "Lambda_I is defined as the field value at which the (two-loop, RG-improved) SM potential becomes negative, V_eff = lambda_eff(h) h^4/4 (eq. 51, Fig. 4). The paper does not state a gauge; the gauge dependence of this field value is not discussed in the paper (later literature: Landau gauge, gauge-dependent -- see later_literature).",
+  "Inputs (Sec. 3.2): M_t = 173.1 +- 0.7 GeV pole mass from a Tevatron/CMS/ATLAS average (eq. 61), treating the collider value as the pole mass with a +-Lambda_QCD ~ 0.3 GeV non-perturbative ambiguity (p.16); alpha_s(M_Z) = 0.1184 +- 0.0007 (eq. 58); alpha_em^-1 = 127.937, sin^2 theta_W = 0.23126 (eq. 55); M_h = 125 GeV for the p.27 sentences.",
+  "The '10^{11+-1}' band: its composition is not stated in the sentence; Fig. 4 draws 1 sigma bands in M_t, alpha_s, M_h with the theory error NOT shown. So the +-1 is a parametric ~1 sigma band, not a bound.",
+  "The '2 sigma' is one-sided and combines in quadrature the 1.0 GeV theory error with the experimental M_t and alpha_s errors, with eq. (2) linear in M_t and alpha_s about 173.1 and 0.1184.",
+  "Sec. 4.2 (printed p.21), for a non-minimal coupling xi|H|^2 R: 'Perturbative unitarity is violated at the scale M_Pl/xi ... It is naturally expected that these phenomena will affect the scalar potential above M_Pl/xi in an uncontrollable way'; the SM potential is used above that scale only under 'the procedure advocated by the proponents ... to assume that the strong dynamics will preserve intact the shape of the SM potential ... Although we find this assumption questionable'. And: 'Higgs xi-inflation requires stability of the potential up to the inflationary scale M_Pl/sqrt(xi)'."
+ ],
+ "hypothesis_drift": [
+  "DROPPED (named in the source) -- excite.py:215-219 and ledger.py:1610-1617 (S8): the tree applies the SM sign of lambda at phi = 2e16 GeV in the xi != 0 case (xi_req = 1.48e4). That phi is exactly M_red/sqrt(xi), Degrassi's 'inflationary scale' (rederive C4), and it lies sqrt(xi) = 122 times ABOVE the unitarity scale M_red/xi = 1.6e14 GeV, above which Degrassi Sec. 4.2 say the potential is affected 'in an uncontrollable way' and the SM shape is kept only as an assumption they call 'questionable'. The tree's clause 'a region where lambda < 0' in that case rests on that assumption, unstated. (The DIRECTION agrees with Degrassi: they conclude Higgs xi-inflation needs stability up to M_Pl/sqrt(xi) and is disfavoured unless M_t is ~2 sigma low.)",
+  "DROPPED (conditional -> fact) -- excite.py:217-218 'a region where lambda < 0', ledger.py:1615-1616 'where the quartic is negative': the source gives lambda < 0 up to M_Pl at the central M_t; at M_t about 2 sigma low (2012: ~171 GeV) lambda(M_Pl) = 0 and the potential is stable (printed pp.19, 21). The sign at phi = 2e16 is a statement conditional on M_t at the ~2 sigma level (today 1.9 sigma with the cross-section pole mass, 5.1 sigma with the MC mass: Hiller et al. 2401.08811 Table I).",
+  "WEAKENED (band treated as hard edges) -- excite.py:220-228, 983-1024 and ledger.py:1613-1618 compute 'upper edge / centre / lower edge' of 10^(11+-1) as if the band were a bound; the source's band is a parametric ~1 sigma band with the theory error not shown (Fig. 4 caption), and the field value itself is gauge-dependent (not stated in Degrassi; shown in 1608.06765: up to two orders of magnitude over gauge parameter 0-300). excite.py itself states 'Nothing turns on it -- every value is far above the scale', which remains true (rederive C6).",
+  "DROPPED (qualifier) -- massform.py:423-424 and massform.py:1298-1302: the quoted '2 sigma, for M_h < 126 GeV' is verbatim (massform.py:1301-1302 keeps '98% C.L. one sided' and 'up to the Planck scale'); the docstring at 423-424 drops the one-sided qualifier and the dependence on the 2012 inputs M_t = 173.1 +- 0.7, alpha_s = 0.1184 +- 0.0007. It is presented as 'the earlier 2 sigma', i.e. historically attributed -- not a mis-statement.",
+  "NONE for the numbers themselves -- endpoint.py:120-122 and endpoint.py:328-333 carry 10^{11+-1}, -0.014 +- 0.006 and 3 x 10^17 GeV verbatim from printed p.27; eq. (64) and eq. (3) re-derive (C1, C2). endpoint.py's 'M_h = 125 GeV' hypothesis is carried."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "top pole mass M_t",
+   "value_then": "173.1 +- 0.7 GeV (eq. 61; Tevatron/CMS/ATLAS average)",
+   "value_now": "172.57 +- 0.29 GeV (MC/direct, PDG 2024); 172.4 +- 0.7 GeV (pole from cross sections, PDG 2024)",
+   "source_now": "PDG 2024 as READ in Hiller, Hoehne, Litim, Steudtner arXiv:2401.08811v4 Table I",
+   "moves_conclusion": "Instability scale: no -- Buttazzo eq.(67) gives log10 Lambda_I = 11.25 (MC) / 11.42 (sigma), inside 11 +- 1 (C6). The 2 sigma exclusion: DEPENDS ON WHICH MASS -- Degrassi's own linear eq.(2) with PDG 2024 gives 2.58 sigma (MC mass) but 1.68 sigma (cross-section pole mass) (C5); Hiller's full analysis gives 5.1 sigma and 1.9 sigma respectively. The pole-vs-MC identification (Hoang 2004.12915, cited by Hiller) is contested."
+  },
+  {
+   "quantity": "alpha_s(M_Z)",
+   "value_then": "0.1184 +- 0.0007 (eq. 58)",
+   "value_now": "0.1180 +- 0.0009",
+   "source_now": "PDG 2024 via arXiv:2401.08811 Table I",
+   "moves_conclusion": "Slightly toward stability (-0.29 GeV on M_h,crit via eq.(2)) and a larger error; Hiller: stability needs +3.7 sigma in alpha_s. Does not move Lambda_I out of 10^(11+-1)."
+  },
+  {
+   "quantity": "Higgs mass M_h",
+   "value_then": "125 GeV (p.27 sentence); 125.5 +- 0.5 in v2 intro; 125.66 +- 0.34 in Fig. 4",
+   "value_now": "125.20 +- 0.11 GeV",
+   "source_now": "PDG 2024 via arXiv:2401.08811 Table I",
+   "moves_conclusion": "No: +0.2 GeV shifts log10 Lambda_I by +0.14 (Buttazzo coefficient 0.7/GeV); Hiller: stability needs M_h ~127.85, +24 sigma."
+  },
+  {
+   "quantity": "theory error on M_h,crit",
+   "value_then": "+-1.0 GeV (Table 1)",
+   "value_now": "not re-read here as a single number; Hiller use N3LO-class running (4-loop gauge, 3-loop Yukawa/quartic, 5-loop QCD) and report results 'equivalent within errors' to earlier ansatzes",
+   "source_now": "arXiv:2401.08811 Sec. II",
+   "moves_conclusion": "Hiller's M_t,crit = 171.10 GeV vs Degrassi's eq.(2) inverted 170.86 (+-0.5 th) at the same inputs (C5): agreement within Degrassi's theory error."
+  },
+  {
+   "quantity": "instability scale Lambda_I (derived)",
+   "value_then": "10^(11+-1) GeV",
+   "value_now": "5.3e11 GeV (Landau-gauge lambda_eff, PDG 2024 central; tree-level resummed 2.1e11); gauge-independent large-n Lambda_I ~ 1e11 GeV",
+   "source_now": "arXiv:2401.08811 p.3; arXiv:1608.06765 Sec. 4, Fig. 5",
+   "moves_conclusion": "No: inside the band; phi/Lambda_I = 3.8e4, inside the tree's 2e4..2e6 (C6)."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1205.6497.py",
+  "outcome": "ALL PASS (17 checks). C1: eq.(2) -> eq.(3) quadrature sqrt(1.0^2+1.4^2+0.5^2) = 1.79 -> 1.8; Table 1 totals 1.5 and 1.0 reproduce; 129.4 - 2(1.8) = 125.8 ('M_h < 126'); one-sided 2 sigma = 97.7% ('98% C.L.'). C2: eq.(64) at M_h = 125 gives -0.0143, error 0.0058 -> '-0.014 +- 0.006' as printed on p.27. C3: the tree's arithmetic reproduces: xi(2e16) = 1.48e4, ratios 2e4/2e5/2e6, ruling covers 0.5 of the band. C4: the tree's phi = M_red/sqrt(xi) exactly, and sits sqrt(xi) = 121.8 above M_red/xi = 1.64e14 GeV (the unitarity scale Degrassi Sec. 4.2 names). C5: THEN M_h = 125.0 is 2.46 sigma below M_h,crit = 129.40 +- 1.79; NOW (PDG 2024, eq.(2) linearised) 2.58 sigma with M_t^MC but 1.68 sigma with M_t^sigma -- recorded, the exclusion's side of 2 sigma depends on the top-mass definition; M_t,crit = 170.86 GeV vs Hiller's 171.10. C6: Lambda_I at PDG 2024 via Buttazzo eq.(67) = 10^11.25 / 10^11.42, Hiller 5.3e11, all inside 10^(11+-1). NOT re-derived: the NNLO running itself (three-loop RGEs and two-loop thresholds) -- out of reach of a stdlib/sympy check here; the comparison is against independent later computations instead.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Hiller, Hoehne, Litim, Steudtner, arXiv:2401.08811v4 (2024/2026), Sec. II",
+   "effect": "narrows",
+   "what": "PDG 2024 inputs, 4-loop gauge / 3-loop Yukawa+quartic / 5-loop QCD running, Landau gauge: lambda_eff turns negative at ~5.3e11 GeV and stays slightly negative (>~ -1e-4 in alpha units) to M_Pl, turning positive only past M_Pl if gravity is neglected. Confirms Degrassi's Lambda_I band. Stability excluded only at 1.9 sigma with the cross-section pole mass, 5.1 sigma with the MC mass; +3.7 sigma in alpha_s would stabilise; correlations (CMS) move it closer to stability. 'The fate of the standard model vacuum remains an important open question.'",
+   "read_status": "READ (pp.1-5, 16 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Espinosa, Garny, Konstandin, Riotto, arXiv:1608.06765 (2016)",
+   "effect": "narrows",
+   "what": "The field-value instability scale h_I ~ 1e11 GeV 'is unphysical as it is not gauge invariant and suffers from a gauge-fixing uncertainty of up to two orders of magnitude' (abstract); the value 1e11 'corresponds to the potential evaluated, at NNLO, in Landau gauge [4,5]' (p.1, [5] = Degrassi et al.). A gauge-independent substitute (critical scale of a stabilising h^n operator, large n) gives Lambda_I ~ 1e11 GeV, 'rather close to the naive instability scale obtained in Landau gauge'. So Degrassi's number survives as a gauge-independent order of magnitude, but its edges are not sharp.",
+   "read_status": "READ (pp.1-3, 7-14, 20, 27, 31-33)"
+  },
+  {
+   "ref": "Buttazzo et al., arXiv:1307.3536 (2013)",
+   "effect": "confirms",
+   "what": "Already seated in the tree (endpoint.py:124-128, massform.py:415-424): Lambda_I = 10^10-10^12 GeV, stability excluded at 2.8 sigma with M_t = 173.34. Not re-read in this stage; used only through the tree's seated eq.(67) coefficients.",
+   "read_status": "NAMED-NOT-READ in this stage (READ by the tree per endpoint.py BUTTAZZO_READ)"
+  },
+  {
+   "ref": "Bednyakov, Kniehl, Pikelner, Veretin, arXiv:1507.08833 (2015); Andreassen, Frost, Schwartz arXiv:1707.08124",
+   "effect": "extends",
+   "what": "Named in 2401.08811's bibliography as the gauge-independent / advanced-precision and lifetime analyses. Not read here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What Degrassi et al. lacked in 2012 and what came later: (1) a precise top mass and, more importantly, a settled meaning of it -- they used 173.1 +- 0.7 GeV and flagged the O(Lambda_QCD) pole-mass ambiguity (p.16) as a theory error; today the MC mass is 172.57 +- 0.29 but the cross-section pole mass is 172.4 +- 0.7, and the pole/MC identification is still debated (Hoang 2020, cited by Hiller). (2) Higher-order running (4-loop gauge, 3-loop Yukawa/quartic at full, 4-loop QCD in the quartic) and 3-loop effective-potential terms. (3) A gauge-independent formulation of the instability scale. Does having them change the conclusion? EVIDENCE AGAINST a change for the number the tree uses: Lambda_I with PDG 2024 lands at 10^11.25-10^11.72 by three routes (Buttazzo eq.67; Hiller 5.3e11; EGKR gauge-independent ~1e11), all inside 10^(11+-1); Hiller's M_t,crit 171.10 agrees with Degrassi's eq.(2) inverted (170.86 +- 0.5). EVIDENCE FOR a change in a qualifier: the 2 sigma exclusion of stability is not a settled datum -- with the cross-section pole mass it has fallen below 2 sigma (1.68 sigma via Degrassi's own eq.(2); 1.9 sigma in Hiller's full analysis), with the MC mass it has grown (2.6 / 5.1 sigma). So M's hypothesis is partly borne out -- not as an error in Degrassi's mathematics (every checked figure re-derives), but in that the metastability verdict turns on a datum (the meaning of M_t) that Degrassi could not pin and that is still contested. It does not move Lambda_I.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source is READ and every figure the tree takes from it is verbatim (endpoint.py:120-122, 328-333; massform.py:1298-1302) and re-derives (C1, C2: eq.(3) from eq.(2), '98% C.L.' = one-sided 2 sigma, eq.(64) -> -0.014 +- 0.006). The instability scale survives the moved data: PDG 2024 inputs give 10^11.25-10^11.72 by three independent routes, inside 10^(11+-1), and the tree's ratio phi/Lambda_I stays in 2e4..2e6 (C6), so excite.py's own 'nothing turns on it' holds. The grade is NARROWED, not STANDS, because the tree uses the result on a larger class than the source asserts it: (i) S8's xi != 0 case evaluates the SM sign of lambda at phi = M_red/sqrt(xi) = 2e16 GeV, 122x above the unitarity scale M_red/xi where Degrassi Sec. 4.2 say the potential is 'affected ... in an uncontrollable way' and keep the SM shape only as an assumption they call 'questionable' (excite.py:215-219, ledger.py:1610-1617; C4); (ii) 'a region where lambda < 0' is stated as fact where the source gives it at central M_t with stability ~2 sigma away -- today 1.9 sigma (pole mass from cross sections) to 5.1 sigma (MC mass), Hiller Table I; (iii) the 10^(11+-1) edges are used as hard edges though the band is a ~1 sigma parametric band with theory error not shown (Fig. 4) and the field value is gauge-dependent by up to two orders (1608.06765). Also a DATA-DEPENDENT component: massform's 'earlier 2 sigma' is correctly attributed to 2012 inputs, but whether stability is excluded at >= 2 sigma today depends on the top-mass definition (C5: 2.58 vs 1.68 sigma). No WRONG: no computed contradiction; the page-number mix (endpoint 'p.28' = PDF page, massform 'p.2' = printed page) is a citation-convention discrepancy only.",
+ "what_would_change_the_grade": "To STANDS: the tree names the three hypotheses at its use sites -- SM running to M_Pl with no new physics, and in the xi != 0 case the assumption that the SM potential shape holds above M_Pl/xi (Degrassi Sec. 4.2); the sign of lambda at 2e16 as conditional on M_t (stability 1.9-5.1 sigma away today); the band as a ~1 sigma Landau-gauge band -- or the S8 refusal is shown not to need the sign of lambda (it rests on D17 and S4/O1 per ledger.py:1611-1612). To DATA-DEPENDENT: if S8's refusal is shown to turn on lambda < 0 at 2e16, since that sign flips at M_t ~171 GeV (1.9 sigma below the cross-section pole mass). To WRONG: only a computed contradiction, e.g. a later NNLO/N3LO analysis at current inputs placing Lambda_I outside 10^10-10^12 in every gauge-independent definition -- none found (Hiller 5.3e11; EGKR ~1e11).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1205.6497.py  # expect ALL PASS, incl. C5 '1.68 sigma' (M_t^sigma) vs '2.58 sigma' (M_t^MC) and C4 'phi / (M_red/xi) = 121.8'; source re-read: alphaXiv answer_pdf_queries(paper='1205.6497', queries=['Conclusions: instability scale 10^{11+-1}', 'eq. (2), (3)', 'Sec. 4.2 unitarity M_Pl/xi', 'Fig. 4 caption'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1205.6497.json"
+}

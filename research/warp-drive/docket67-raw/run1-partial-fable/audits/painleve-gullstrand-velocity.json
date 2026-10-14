@@ -1,0 +1,111 @@
+{
+ "key": "painleve-gullstrand-velocity",
+ "name": "Painleve-Gullstrand shift / marginally bound radial free-fall speed sqrt(2m/R), the Newtonian escape velocity; Lemaitre (= PG) slicing of Schwarzschild",
+ "source": {
+  "located": "Classics: Painleve, C. R. Acad. Sci. 173, 677 (1921); Gullstrand, Arkiv Mat. Astron. Fys. 16(8), 1 (1922); Lemaitre, Ann. Soc. Sci. Bruxelles A53, 51 (1933) -- none on arXiv, NAMED-NOT-READ. Read via exact restatements: Martel & Poisson gr-qc/0001069 (Am. J. Phys. 69, 476, 2001) Sec. II eqs (2.1)-(2.7) [PG from the Etilde = 1 ingoing radial geodesics]; Hamilton & Lisle gr-qc/0411060 (Am. J. Phys. 76, 519, 2008) eqs (1)-(6) [beta = sqrt(2GM/r) 'the Newtonian escape velocity', beta = 1 at the horizon, beta > 1 inside]; de Haro arXiv:2601.18660 eqs (18)-(29) restating Landau-Lifshitz (100.1) [the Lemaitre chart R - T = (2/3) r^{3/2}/sqrt(r_s), ds^2 = dT^2 - (r_s/r) dR^2]; Herrero & Morales-Lladosa arXiv:1006.3182 eq (58) and Prop. 2 [extended PG-Lemaitre form derived from the vacuum EFE with flat slicing; existence iff Misner-Sharp E >= 0].",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/0001069, gr-qc/0411060, 2601.18660, 1006.3182, 2006.10827, 1911.05988; one discover_papers call"
+ },
+ "published_statement": "Martel-Poisson (2.1)-(2.2): for ingoing radial timelike geodesics of Schwarzschild (f = 1 - 2M/r, c = G = 1), tdot = Etilde/f, rdot^2 + f = Etilde^2, Etilde = 1/sqrt(1 - v_inf^2); the PG observers are Etilde = 1, 'starting at infinity with a zero initial velocity: v_inf = 0', so rdot = -sqrt(1 - f) = -sqrt(2M/r); u_alpha = -d_alpha T with T = t + int sqrt(1-f)/f dr (2.4); ds^2 = -dT^2 + (dr + sqrt(2M/r) dT)^2 + r^2 dOmega^2 (2.7), 'manifestly regular at r = 2M', T = const slices 'intrinsically flat'; the chart covers the black-hole and one exterior region, not the white hole. Hamilton-Lisle (1)-(2): beta = (2GM/r)^{1/2} 'is the Newtonian escape velocity', t_ff 'the proper time experienced by an object that free falls radially inward from zero velocity at infinity'; (6) horizons where beta = +-1; 'inside the horizon, the infall velocity exceeds the speed of light'. Lemaitre chart (de Haro 26-29 / Landau-Lifshitz 100.1): T = t + int r f/(r - 2MG) dr, R = t + int r/((r-2MG) f) dr with f = sqrt(2MG/r); R - T = (2/3) r^{3/2}/sqrt(2MG); ds^2 = dT^2 - (2MG/r) dR^2 - r^2 dOmega^2, singular only at R - T = 0 (r = 0). Herrero-Morales Prop. 2: a spherically symmetric spacetime admits a PG (flat) synchronization exactly in the region where the Misner-Sharp energy E = (r/2)(1 - (dr)^2) is non-negative.",
+ "published_hypotheses": [
+  "Schwarzschild vacuum, spherical symmetry, mass M > 0, geometrized units c = G = 1 (Martel-Poisson 1.1; Hamilton-Lisle 3 with M(r) = M)",
+  "Radial (zero angular momentum), timelike, geodesic (freely falling) observers -- the construction is 'limited to radial, freely moving observers in static, spherically-symmetric spacetimes' (Martel-Poisson Sec. V)",
+  "Etilde = 1, i.e. v_inf = 0: free fall from rest at infinity (Martel-Poisson Sec. II); asymptotic flatness is presupposed by 'at infinity'",
+  "Ingoing branch rdot < 0 (chart covers regions I and II; reversing the sign covers the white hole instead) (Martel-Poisson Sec. II, Fig. 1)",
+  "r > 0 (the metric 'is of course still singular at r = 0')",
+  "For the generalisation to any spherically symmetric spacetime: Misner-Sharp mass >= 0 in the region, i.e. (dr)^2 <= 1 (Herrero-Morales Prop. 2; Faraoni-Vachon Sec. 4)"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED on the witness. drivensource.py:381-384 and driven.py:610-621 put exactly Schwarzschild, ingoing branch (U < 0), Lemaitre chart, m = r_s/2 > 0 through the machinery; every source hypothesis holds there.",
+  "ASSERTED-NOT-DERIVED (now discharged): drivensource.py:374 and :189 state 'Lemaitre (= Painleve-Gullstrand)' / 'PG brought to the diagonal form' without a derivation and without citing Painleve 1921, Gullstrand 1922 or Lemaitre 1933. The audit script C3 derives it: on the Lemaitre chart dR = -sqrt(r_s/R) dtau + sqrt(r_s/R) drho, so (r_s/R) drho^2 = (dR + sqrt(r_s/R) dtau)^2 -- Martel-Poisson (2.7) with T = tau. Same Etilde = 1 congruence, same slices; only the radial coordinate differs (comoving rho vs areal R). MacLaurin 1911.05988 eq (9) restates the same relation for general e.",
+  "TAUTOLOGY PRESENTED AS A MEASUREMENT (over-representation risk, not an error): driven.py:592-594 (V8 'Gamma = 1 => U^2 = 2m/R') and drivensource.py:438-439 (z3 E3 'W = 1 <=> U^2 = 2m/R') are the definition m := R/2 (1 - W^2 + U^2) (nonstatic.py:304, :432) rearranged; script C6 confirms and the vacuity guard shows the equivalence is unprovable without that definition. The geometric content -- that the PG shift is the Etilde = 1 geodesic's dR/dtau and that Misner-Sharp m equals the Schwarzschild M in vacuum -- lives in Martel-Poisson (2.1) and in pg_witness(), not in E3/V8. The tree's own status word 'MEASURED, NOT ASSERTED' (drivensource.py:188) is right about the witness and should not be read as covering E3.",
+  "ADDED GLOSS WITH A SCOPE: 'free fall from rest at infinity' and 'the Newtonian escape velocity' (driven.py:205, drivensource.py:181-183) presuppose asymptotic flatness and m >= 0. driven.py:213-215 then applies the criterion to FRW ('in FRW the criterion is exactly k < 0'), where 'rest at infinity' has no meaning; that use goes through W^2 - 1 = 2E (the LTB energy function, V9), which needs neither, so nothing rests on the gloss outside Schwarzschild. Recorded as a scope note, not a fault.",
+  "HONOURED, NOT DRIFTED: the m >= 0 existence condition (Herrero-Morales Prop. 2, Faraoni-Vachon Sec. 4: PG fails in AdS, inside r = Q^2/2M of Reissner-Nordstrom, and for negative-mass Schwarzschild). driven.py:390-395 threshold_speed() returns None for m < 0 with the comment 'there is then no threshold at all -- EVERY U contracts'; nonstatic T5 (U = 0 => W > 1 <=> m < 0) is the same fact. Script C6 z3: W = 1 and R > 0 => m >= 0.",
+  "'W = Etilde' (drivensource.py:181-186, the 'marginally bound' = W = 1 = E = 0 reading) holds for a geodesic, vorticity-free congruence with comoving radial coordinate (LTB/Lemaitre form, W = e^{-Lambda} R' = sqrt(1 + 2E)); in a general slicing W = e^{-Lambda} R' is the slice quantity dR/dl (flatness of the slice, script C4), not a geodesic energy. On the PG/Lemaitre witness both readings coincide (W = 1 = Etilde). The tree's THRESHOLD claim uses only the slice reading; the 'marginally bound geodesic' sentence is the LTB reading. No load-bearing step rests on conflating them, but they are two hypotheses, not one."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Newton's constant G (enters only through r_s = 2GM/c^2 and v_esc = sqrt(2GM/r))",
+   "value_then": "~6.66e-11 m^3 kg^-1 s^-2 (Boys 1895: 6.658; Heyl 1930: 6.670) -- the 1921-1933 authors worked in geometrized form where G does not appear",
+   "value_now": "6.67430(15)e-11 (CODATA 2018, carried by PDG 2024 'Physical constants')",
+   "source_now": "CODATA 2018 / PDG 2024 physical-constants table (values as reproduced in the audit script C8; not re-read at source in this audit)",
+   "moves_conclusion": "No. The result is an exact coordinate identity in geometrized units; sqrt(2GM/r) = c sqrt(r_s/r) holds for every G and c (script C8, machine precision). An SI escape speed shifts at the 1e-3 relative level with G, the statement does not."
+  },
+  {
+   "quantity": "speed of light c",
+   "value_then": "299,796 +- 4 km/s (Michelson 1926 class)",
+   "value_now": "299,792,458 m/s exact (SI definition since 1983)",
+   "source_now": "SI / PDG 2024",
+   "moves_conclusion": "No -- cancels identically, as above."
+  },
+  {
+   "quantity": "threshold_speed(1, 10) pinned at driven.py:732-733",
+   "value_then": "0.4472135955",
+   "value_now": "sqrt(0.2) = 0.44721359549995... (script C7)",
+   "source_now": "computed",
+   "moves_conclusion": "No; agrees to 1e-9 as pinned."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/painleve-gullstrand-velocity.py",
+  "outcome": "ALL CHECKS PASS (sympy 1.14.0 + z3 5.1.0; imports nothing from research/warp-drive). C1 Lemaitre chart Ricci-flat, computed from scratch. C2 in the tree's frame U = -sqrt(r_s/R) = -sqrt(2m/R), W = 1, m_MS = r_s/2 -- reproduces pg_witness() (drivensource.py:567-572) independently. C3 Lemaitre -> PG derived exactly, and Schwarzschild -> PG via Martel-Poisson (2.4)-(2.7). C4 the Lemaitre tau = const slice has g_RR = 1 (flat = PG slice); dl = dR/W so W = 1 <=> flat slice. C5 Etilde = 1 => rdot^2 = 2M/r, Etilde^2 - 1 = rdot^2 - 2M/r = 2E_LTB, Etilde = 1 <=> v_inf = 0. C6 U^2 = W^2 - 1 + 2m/R is the m_MS definition rearranged (z3 unsat for a counterexample; vacuity guard sat without the definition); z3: U^2 = r_s/R and R < r_s => U^2 > 1; z3: W = 1 => m >= 0. C7 the three pinned numerics. C8 sqrt(2GM/r) = c sqrt(r_s/r) to 1e-14. A first run failed C3/C4 through a sympy .subs() pattern that did not match the derivative's form -- a bug in the audit script, corrected; the second run is the record.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Martel & Poisson, gr-qc/0001069 (2001)",
+   "effect": "extends",
+   "what": "PG is the p = 1 member of a one-parameter family of charts (p = 1/Etilde^2, 0 < p <= 1) anchored to radial geodesic observers; EF is the p -> 0 limit; generalised to any static spherical metric (Sec. IV); PG slices flat only for p = 1 and psi = 0; chart excludes the white hole.",
+   "read_status": "READ (alphaXiv, pages 1-6)"
+  },
+  {
+   "ref": "Hamilton & Lisle, gr-qc/0411060 (2008)",
+   "effect": "confirms",
+   "what": "beta = sqrt(2GM/r) named 'the Newtonian escape velocity'; beta = 1 at the horizon, beta > 1 inside 'carrying everything with it' while objects in the river obey SR; generalised PG for any M(r) with beta = sqrt(2M(r)/r) (eq 4), Reissner-Nordstrom via Misner-Sharp M(r) = M - Q^2/2r with beta imaginary inside r_0 = Q^2/2M; Doran form for Kerr-Newman.",
+   "read_status": "READ (alphaXiv, pages 1-5, 13-15)"
+  },
+  {
+   "ref": "Herrero & Morales-Lladosa, arXiv:1006.3182 (2010)",
+   "effect": "extends",
+   "what": "Prop. 2: a spherically symmetric spacetime admits a PG (flat) synchronization exactly where the Misner-Sharp energy is non-negative; Prop. 3 gives the general PG form ds^2 = A dt^2 + 2B dt dr + dr^2 + r^2 dOmega^2; eq (58) derives the extended PG-Lemaitre Schwarzschild form from the vacuum EFE assuming only spherical symmetry and a flat slicing (an improved Jebsen-Birkhoff proof). This is the general-case statement of the tree's 'the W = 1 surface IS the PG foliation'.",
+   "read_status": "READ (alphaXiv, pages 1-16)"
+  },
+  {
+   "ref": "Faraoni & Vachon, arXiv:2006.10827 (2020)",
+   "effect": "narrows",
+   "what": "PG coordinates fail wherever the Misner-Sharp-Hernandez mass is negative (anti-de Sitter, inner Reissner-Nordstrom r < Q^2/2M, negative-mass Schwarzschild: (dr/dtau)^2 = -2|M|/r < 0 for Etilde = 1) and, for a different reason, in the static Einstein universe; general Nielsen-Visser PG form has v = c(t,R) sqrt(2M_MSH/R). The tree's threshold_speed() already returns None for m < 0 (driven.py:390-395).",
+   "read_status": "READ (alphaXiv, pages 1-19)"
+  },
+  {
+   "ref": "MacLaurin, arXiv:1911.05988 (2019)",
+   "effect": "extends",
+   "what": "Generalised GP chart for every Killing energy e including e <= 0 ('mist', inside the horizon only); rain e = 1 is PG; eq (9) is the diagonal comoving form whose e = 1 case is 'the Lemaitre coordinates'; faller's radial proper distance dr/|e|; notes Painleve 1921 'concluded general relativity is self-contradictory' from the two radial distances.",
+   "read_status": "READ (alphaXiv, pages 1-11, 15-19)"
+  },
+  {
+   "ref": "de Haro, arXiv:2601.18660 (2026)",
+   "effect": "confirms",
+   "what": "Rederives the Lemaitre chart from the E = 0 (Etilde = 1) radial geodesics, eqs (18)-(29) = Landau-Lifshitz (100.1); r(s) = (r_0^{3/2} - (3/2) sqrt(2MG) s)^{2/3}; notes the Lemaitre chart is not geodesically complete (outgoing E = 0 geodesics reach T = -infinity at the horizon) and constructs Novikov coordinates for E < 0.",
+   "read_status": "READ (alphaXiv, pages 1-2, 4-10, 13-15)"
+  },
+  {
+   "ref": "Lemos & Silva, arXiv:2005.14211 (2020)",
+   "effect": "narrows",
+   "what": "PG is a partial extension of Schwarzschild; a further chart takes it to Kruskal-Szekeres (abstract only).",
+   "read_status": "NAMED-NOT-READ (discover_papers listing)"
+  },
+  {
+   "ref": "Kanai, Siino & Hosoya, arXiv:1008.0470 (2010)",
+   "effect": "extends",
+   "what": "Generalised PG coordinates for spherical collapse in a single patch (abstract only).",
+   "read_status": "NAMED-NOT-READ (discover_papers listing)"
+  }
+ ],
+ "lacked_data": "Evidence against M's hypothesis for THIS result at the level the tree uses it: the statement is an exact coordinate transformation of an exact vacuum solution and no measured quantity enters it (script C8: G and c cancel identically; data_at_publication moves nothing). Painleve, Gullstrand and Lemaitre had everything the mathematics needs, and the restatements read here reproduce their metric form unchanged a century on. Evidence FOR the hypothesis at the level of interpretation, which the tree does not use: Hamilton-Lisle p.1 record that Painleve, 'noting that the spatial metric was flat at constant free-fall time', concluded that drawing observable consequences from the ds^2 was 'pure imagination', whereas Gullstrand recognised that observables are coordinate-independent; MacLaurin Sec. 5 records that Painleve 'concluded general relativity is self-contradictory' from the two radial-distance formulas. Painleve's own reading of his metric was wrong; his metric was right. What later work did narrow is the domain: the PG shift is real, and a flat slicing exists, only where the Misner-Sharp mass is non-negative (Lin-Soo 2009; Herrero-Morales 2010 Prop. 2; Faraoni-Vachon 2020) -- a condition trivially met in Schwarzschild (E = m > 0 at every r, Herrero-Morales p.13) and already honoured by driven.py:390-395. Having that datum changes no conclusion the tree draws.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used matches the source: sqrt(2m/R) is the PG shift (Martel-Poisson 2.6-2.7, Hamilton-Lisle 1-2), is dR/dtau of the Etilde = 1 ingoing radial geodesic, i.e. free fall from rest at infinity (Martel-Poisson 2.1-2.2, script C5), is numerically the Newtonian escape velocity (Hamilton-Lisle 2, script C8), exceeds 1 inside r_s (Hamilton-Lisle p.1, script C6 z3); the Lemaitre chart is the same Etilde = 1 foliation in comoving radial coordinate (script C3, MacLaurin eq 9, de Haro 26-29) and its slices are the flat PG slices (script C4); pg_witness()'s four outputs -- vacuum, m = r_s/2, W = 1, U = -sqrt(2m/R) -- are reproduced from scratch without importing the tree (script C1-C2); W = 1 <=> flat slice <=> PG synchronization, which exists iff m_MS >= 0 (Herrero-Morales Prop. 2), and the tree's threshold_speed() refuses m < 0 (driven.py:395). No datum enters the conclusion. Every hypothesis the source states is present on the witness; the two glosses ('rest at infinity', W = Etilde) are scoped in hypothesis_drift and nothing load-bearing rests on them outside Schwarzschild. One caution carried, not a fault: E3/V8 are the Misner-Sharp definition rearranged and prove nothing about PG on their own; the witness does.",
+ "what_would_change_the_grade": "NARROWED if any owner were found using the 'free fall from rest at infinity' or 'Newtonian escape velocity' gloss as a load-bearing step in a non-asymptotically-flat or m < 0 setting (grep driven.py/drivensource.py for a threshold applied where m < 0 or in FRW without going through V9). WRONG only on a shown counterexample: a spherically symmetric slice with W = 1 that is not flat (excluded by dl = dR/W), a non-zero Ricci component for the Lemaitre chart (script C1), or nonstatic.witness() computing m by a formula other than R/2 (1 - W^2 + U^2) (it does not: nonstatic.py:432). DATA-DEPENDENT is unreachable: no measured quantity enters.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/painleve-gullstrand-velocity.py   # exits 0 on ALL CHECKS PASS; needs sympy and z3-solver (pip install z3-solver)",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/painleve-gullstrand-velocity.json"
+}

@@ -169,7 +169,10 @@ PROJECT_RESULTS = [
      "the hoop-tension DEC bound lambda <= c^2/(G ln(8R0/a)) holds the bore open",
      "UNPLACED: a bound on tension, not an integral over a violating region"),
     ("SHELL-5KM", 0, "THE-DRIVE.md",
-     "nuclear matter at 5 km: 1.11 Msun, 0.0476 c, all four conditions satisfied",
+     # CORRECTED (DOCKET 67 follow-ups): first "1.11 Msun", THE-DRIVE.md's
+     # point design on a recalled 2.3e17 kg/m^3; on address.RHO_NUCLEAR it is
+     # R1 = 4.54 km, 1.03 Msun (drivespec.py, computed).
+     "nuclear matter at ~5 km (4.54 km): 1.03 Msun, 0.0476 c, all four conditions satisfied",
      "rung 0 again -- the whole scaling series was run at the strictest rung"),
 ]
 

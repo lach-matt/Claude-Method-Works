@@ -1,0 +1,80 @@
+{
+ "key": "future-causal-cone-convex",
+ "name": "The future causal cone of Minkowski space is closed under addition (reduction lemma)",
+ "source": {
+  "located": "Textbook theorem with no single originating paper; the tree cites no source (status_word 'none (re-derived: sympy + z3)'). Standard statement: O'Neill, Semi-Riemannian Geometry (1983) Prop. 5.30 (reverse Cauchy-Schwarz and reverse triangle inequality for vectors in one causal cone), as cited and restated by Lange-Lytchak-Samann arXiv:2009.08834v2 sec. 6 pp.12-13. Axiomatic form: Minguzzi arXiv:1709.06494v4 (Rev. Math. Phys. 31, 1930001 (2019)) p.11 Def. 2.1-2.2 and Example 2.1, p.87 sec. 3.1 (polar cone, (C^o)^o = C, Remark 3.1 round cone = ice-cream cone).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries page text: Lange-Lytchak-Samann 2009.08834v2 pp.5-6 (conventions: signature +---, causal = g(v,v)>=0, v!=0), p.12-13 (C+ = {<v,v> >= 0, v_t > 0}; reversed triangle inequality (6.1) |u+v| >= |u|+|v| and reversed Cauchy-Schwarz <u,v> >= |u||v| 'see e.g. [O'N83, Prop. 5.30]'; Lemma 6.1 quantitative version A = 1/10), p.14 ('in Minkowski space all chords of a timelike curve are timelike as well'). Minguzzi 1709.06494v4 pp.1, 5, 11, 13, 15, 19-22, 87, 89. O'Neill 1983 and Hawking-Ellis 1973 are NAMED-NOT-READ (restated only). A direct read of Minguzzi's Living Reviews 'Lorentzian causality theory' (2019) was attempted twice by title and resolved to 2009.08834 both times; not read."
+ },
+ "published_statement": "Lange-Lytchak-Samann 2009.08834 pp.12-13: 'Recall that vectors u, v in C+ in the positive causal cone C+ = {v = (v_t, v_x) in R x R^n = R^{n+1} | <v,v> >= 0, v_t > 0} of the standard Minkowski space (R^{n+1}, <.,.>) with Minkowski product <u,v> = u_t v_t - u_x^T v_x and norm |v| = sqrt|<v,v>| satisfy the reversed triangle inequality (6.1) |u + v| >= |u| + |v| as well as the reversed Cauchy-Schwarz inequality <u,v> >= |u||v|, see e.g. [O'N83, Prop. 5.30].' Closure under addition is immediate from these (u+v has (u+v)_t > 0 and <u+v,u+v> = |u|^2+|v|^2+2<u,v> >= 0). Minguzzi 1709.06494 p.11: 'All our cones will be closed and convex'; Example 2.1 (p.13): 'A time oriented Lorentzian manifold (M, g) has an associated canonical cone structure given by the distribution of causal cones C_x = {y in T_xM \\ {0} : g(y,y) <= 0, y future directed}' -- i.e. the Lorentzian causal cone is admitted as a closed sharp convex cone; p.87 Remark 3.1: a round cone is an ice-cream cone 0 < (sum (y^i)^2)^{1/2} <= y^0 in suitable coordinates.",
+ "published_hypotheses": [
+  "a single real vector space with a Lorentzian (one-negative or one-positive, nondegenerate) quadratic form -- a tangent space T_xM, or flat Minkowski R^{1,n}; the statement is pointwise and algebraic",
+  "a time orientation: both vectors in the SAME (future) cone; the result fails across cones (u future, v past)",
+  "the cone as the source defines it excludes the origin (2009.08834 p.12: v_t > 0; 1709.06494 p.11: 'our closed cones do not contain the origin')",
+  "any finite dimension n+1 >= 2 (2009.08834: R^{n+1}; its Lemma 6.1 proof reduces to n = 2 by O(n) invariance)",
+  "round (quadratic) cone; Minguzzi's generalisation keeps convexity as a DEFINING property of every cone it admits (p.11, Def. 2.2), so convexity is assumed, not derived, beyond the round case"
+ ],
+ "hypothesis_drift": [
+  "ADDED, HARMLESS: the zero vector. latticectc.py:251-262 (chain_to) admits legs with dt >= 0 and dt^2 >= |dx|^2, i.e. the closed cone INCLUDING 0, where the sources exclude it. The tree's own clause 'with total dt > 0' (latticectc.py:27, :262) restores 'V nonzero'; rederive R4 shows a nonzero future-causal leg has dt > 0 and no two legs with total dt > 0 sum to zero (z3 unsat). No drift in the conclusion.",
+  "UNSTATED STEP, TRUE: from K-leg chains to arbitrary closed causal curves. latticectc.py:24-27 states (a) for 'a closed causal curve' and says 'The number of legs is irrelevant', but the file proves and checks only piecewise-linear chains of K legs (latticectc.py:251-265, :356-363). A continuous (Lipschitz) causal curve's displacement is an integral of future-causal tangents; closure of the chain set under limits needs the closed-convex-cone / self-duality form (v in C+ iff <v,w> <= 0 for all w in C+), which the file does not state. It is true (rederive R7: z3 unsat for the forward direction, a constructive separating w for 3,605 random rational V off the cone, and 300 random smooth causal curves with displacement in C+); the sources also carry it (2009.08834 p.14 'all chords of a timelike curve are timelike'; 1709.06494 p.87 (C^o)^o = C). A named step the tree leaves implicit, not a false one.",
+  "SCOPE OF CHECK vs CLAIM: 'in any dimension'. latticectc.py:284 says 'The future causal cone is closed under addition, in any dimension', but the file's Lagrange-identity check is sympy at spatial d = 3 only (latticectc.py:289-295) and its leg checks are 3+1 (latticectc.py:360-363). The scalar lemma (latticectc.py:296-299) is dimension-free and Cauchy-Schwarz holds in every dimension, so the claim is TRUE; rederive R1 extends the Lagrange identity to d = 1..8 and R3/R3b closes all d (direct z3 unsat at d = 1, 2; Gram reduction: every pair in R^d has its Gram triple realised in R^2). The direct z3 query at d = 3, 4 returns 'unknown' at a 20 s timeout -- a recorded solver limit, which is why the tree's decomposition (Cauchy-Schwarz + scalar lemma) is the right route.",
+  "DISCREPANCY IN THE FILE'S OWN DOCSTRING (not a refutation): latticectc.py:31-32 says the leg-by-leg check runs 'at K = 1, 2 (--full: up to 4)', but the reduction-lemma loop at latticectc.py:362 runs K in (1, 2, 3) under --full; K up to 4 occurs only in the codimension-one chain_scan at latticectc.py:368. The canonical entry already records 'up to 3/4 in --full'. rederive R6 re-implements chain_to independently and runs all four tree fixtures (plus a null V and V = 0) at K = 1..4, all agreeing, so the docstring's claim is now true of an independent check though not of the file's own.",
+  "UNSTATED, TRUE: time orientation / past-directed curves. D21's (a) (latticectc.py:24-25) speaks of 'a closed causal curve' without direction; the lemma is for the FUTURE cone. A past-directed closed curve has displacement -V with V in L iff -V in L (L is a group) and translations preserve time orientation, so nothing is lost; the file does not say so.",
+  "SCOPED CORRECTLY, NOT DRIFT: the source result is pointwise in a tangent space; adding displacement vectors requires the flat bulk. The tree names this as H1 (latticectc.py:19) and scopes D21 to the flat quotient (latticectc.py:146-157, CORRECTED IN PLACE record)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "z3 verdict on the negated scalar lemma",
+   "value_then": "unsat (latticectc.py --selftest, as recorded in the canonical entry)",
+   "value_now": "unsat (re-run of latticectc.py --selftest 2026-09-26, z3 5.1.0, sympy 1.14.0; and independently in rederive R2, with a control that dropping d <= ab turns it sat)",
+   "source_now": "rederive/future-causal-cone-convex.py R2; python3 research/warp-drive/latticectc.py --selftest section 2",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "chain_to fixtures (1,0,0,0) sat, (1,2,0,0) unsat, (2,1,1,0) sat, (-1,0,0,0) unsat",
+   "value_then": "as listed, K = 1, 2 (selftest)",
+   "value_now": "identical at K = 1..4 in an independent re-implementation, plus (1,1,0,0) sat (null) and (0,0,0,0) unsat",
+   "source_now": "rederive R6",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "any physical datum (signature, local Lorentz invariance)",
+   "value_then": "none used: the lemma is algebra on a fixed quadratic form; signature (-,+,+,...) is the tree's hypothesis H1",
+   "value_now": "none used",
+   "source_now": "n/a -- no numerical input exists for this result",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/future-causal-cone-convex.py",
+  "outcome": "68 checks ok, exit 0, ~1m50s. R1 Lagrange identity residual 0 for spatial d = 1..8 (sympy). R2 tree's scalar lemma: negation unsat; control without d <= ab sat. R3 direct convexity with no decomposition: unsat at d = 1, 2, and the difference control sat at d = 1..4; at d = 3, 4 the direct query returns 'unknown' (nlsat, 20 s timeout) -- recorded, not counted. R3b Gram reduction (sympy symbolic + 2000 random pairs d = 3..12, err < 1e-9): membership of u, v, u+v depends only on (t_u, t_v, |x|, |y|, x.y), realised in R^2, so d = 2 unsat covers every d. R4 nonzero clause unsat both ways. R5 converse: V/K repeated K times is a valid chain, exact, K = 1..5. R6 independent chain_to, 6 vectors x K = 1..4, all as the tree states. R7 integral form: <v,w> <= 0 on C+ x C+ (z3 unsat of negation); separating witness for 3,605 random rational V off the cone; 300 random smooth causal curves with displacement in C+. R8 boundary: future null u, v with null sum are parallel (z3 unsat of the non-parallel case, d = 3). Also re-ran the tree's own latticectc.py --selftest section 2: all ok.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "E. Minguzzi, arXiv:1709.06494v4, Rev. Math. Phys. 31, 1930001 (2019)",
+   "effect": "extends",
+   "what": "Causality theory for closed cone structures: cones are closed sharp CONVEX by definition (p.11); the Lorentzian causal cone is Example 2.1; reverse triangle and reverse Cauchy-Schwarz inequalities proved under very weak regularity (sec. 3.1); polar-cone duality (C^o)^o = C (p.87), which is the integral form R7 uses. Convexity is taken as an axiom beyond the round case -- so a non-convex (e.g. multi-cone/birefringent union) structure is outside the theory, not a counterexample within it.",
+   "read_status": "READ (pp.1, 5, 11, 13, 15, 19-22, 87, 89 via alphaXiv page text)"
+  },
+  {
+   "ref": "C. Lange, A. Lytchak, C. Samann, arXiv:2009.08834v2 (2020) 'Lorentz meets Lipschitz'",
+   "effect": "extends",
+   "what": "Restates the reversed triangle and Cauchy-Schwarz inequalities on C+ (citing O'Neill Prop. 5.30) and proves a quantitative strengthening, Lemma 6.1: |u+v|^2 >= |u+v|(|u|+|v|) + D^2/10; Cor. 6.2 notes chords of timelike curves in Minkowski space are timelike.",
+   "read_status": "READ (pp.1, 5-6, 8-10, 12-17, 19-24 via alphaXiv page text)"
+  },
+  {
+   "ref": "discover_papers results: Lorentzian metric spaces 2209.14384, 2412.04311, 2510.24423; Lorentz meets Ptolemy 2601.21596; closed geodesics on compact Lorentzian solvmanifolds 2411.14237",
+   "effect": "extends",
+   "what": "Synthetic Lorentzian geometry that takes the reverse triangle inequality as an axiom; none narrows or contradicts cone convexity in Minkowski space. Not needed for the grade.",
+   "read_status": "NAMED-NOT-READ (titles/abstracts from discover_papers only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: no. This result has no data input. It is an algebraic theorem about a fixed quadratic form -(dt)^2 + |dx|^2 on R^{1,d} stated in O'Neill 1983 Prop. 5.30 (NAMED-NOT-READ, restated in 2009.08834); nothing measured enters it, so no later measurement can move it. Evidence: (i) every step re-derives exactly (R1-R8, 68 checks), (ii) the only 'data' the tree uses are solver verdicts, which re-run identically. What data COULD bear on the tree's USE of it is the physical hypothesis H1 (the bulk's causal cones are the round Minkowski cones): Lorentz-violating models with non-round but still convex cones leave closure under addition intact (Minguzzi 1709.06494 p.11 admits any convex cone, and any convex cone is closed under addition trivially); only a NON-convex causal set (e.g. a union of two non-nested cones in a birefringent bimetric model) would break it, and that is a change of H1, outside this lemma and outside what the tree claims. No measurement is cited or needed here.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used (latticectc.py:26-32, :284) matches the published statement (2009.08834 pp.12-13 citing O'Neill Prop. 5.30; 1709.06494 p.11/Example 2.1) with the same hypotheses: flat Lorentzian signature, same time cone, finite dimension. The tree adds the zero vector but restores nonzeroness by 'total dt > 0' (R4). Re-derivation agrees: Lagrange identity d = 1..8, scalar lemma unsat with a firing control, direct convexity unsat at d = 1, 2 plus the Gram reduction to d = 2 covering all d, independent chain fixtures K = 1..4, converse, integral form, null boundary -- 68/68. No datum enters. Recorded, not repaired: (1) docstring latticectc.py:31-32 'up to 4' vs code :362 K <= 3 (a discrepancy, not a refutation); (2) 'any dimension' (:284) is checked in-file only at d = 3 though true in all d; (3) the extension from K-leg chains to arbitrary causal curves in D21 (a) uses the integral / self-dual form, which the file leaves unstated but which is true (R7). None narrows the class on which the lemma is used.",
+ "what_would_change_the_grade": "NARROWED if the tree used the lemma outside a flat bulk (e.g. summing displacements in a warped or curved bulk) or across time cones -- it does not (H1, latticectc.py:19, :146-157). WRONG only on a shown pair u, v in the future cone with u+v outside it, which R3 (d = 1, 2) and R3b (all d) exclude. The grade on the D21 theorem as a whole is not given here: its (b)/(c) rank-2 span claims and the lattice H2/H3 hypotheses are separate audits.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/future-causal-cone-convex.py   # expect 'ALL OK', exit 0 (~2 min; needs sympy + z3-solver); and: cd /home/user/Claude-Method-Works/research/warp-drive && python3 latticectc.py --selftest  # section 2 all [ok]",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/future-causal-cone-convex.json"
+}

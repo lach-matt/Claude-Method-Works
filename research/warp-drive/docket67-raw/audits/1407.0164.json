@@ -1,0 +1,123 @@
+{
+ "key": "1407.0164",
+ "name": "Godun et al. 2014 (PRL 113, 210801 = arXiv:1407.0164v2): 171Yb+ E3/E2 ratio (3e-16), absolute frequencies (6e-16), and the sensitivity coefficients A_E3=-5.95, A_E2=0.88, A_Cs=2.83, B_E3=B_E2=0, B_Cs=-1",
+ "source": {
+  "located": "arXiv:1407.0164v2 [physics.atom-ph], 1 Oct 2014, 6 pages. Abstract p.1 (absolute 'relative standard uncertainty of 6 x 10^-16'; mu-dot and alpha-dot limits); p.1 body 'fractional uncertainty 3 x 10^-16'; intro p.1 'absolute frequencies ... are now limited by Cs primary standards'; Table I and Table II p.3 (uncertainty budgets); ratio 0.932 829 404 530 964 65(31) p.3; statistics 7e-17 (ratio) and 5e-16 (each absolute) p.3; nu_E3, nu_E2 p.3; sensitivity coefficients, B values, Cs g-factor clause, LPI/linear-drift assumption p.4.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries page text of 1407.0164v2, all 6 pages including Tables I-II, returned in an earlier D67 workflow run of this same session (sibling audit clock-accuracy-1e-18) and recovered verbatim from the session transcript (subagents/workflows/wf_1ebde2d4-a80/agent-a3d2f2e36391ee930.jsonl) into scratchpad/d67/src/1407.0164.cached.txt. In THIS run alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org, inspirehep.net and eprintspublications.npl.co.uk are refused by the egress proxy (EGRESS_BLOCKED). No page was paraphrased or reconstructed. The references [34]-[38] behind the coefficients (Dzuba-Flambaum 2008, Dzuba-Flambaum-Marchenko 2003, Dzuba-Flambaum-Webb 1999, Flambaum-Tedesco 2006, Berengut-Flambaum-Kava 2011) are NAMED-NOT-READ."
+ },
+ "published_statement": "Abstract p.1: 'We present the first direct measurement of the frequency ratio of these two clock transitions, without reference to a cesium primary standard, and using the same single ion of 171Yb+. The absolute frequencies of both transitions are also presented, each with a relative standard uncertainty of 6 x 10^-16. Combining our results with those from other experiments, we report a three-fold improvement in the constraint on the time-variation of the proton-to-electron mass ratio, mu-dot/mu = 0.2(1.1) x 10^-16 year^-1, along with an improved constraint on time-variation of the fine structure constant, alpha-dot/alpha = -0.7(2.1) x 10^-17 year^-1.' p.1: 'the first direct measurement of the ratio between the E3 and E2 optical transition frequencies in 171Yb+, with fractional uncertainty 3 x 10^-16.' p.1: 'The absolute frequencies of both the E3 and E2 transitions have been measured with increasingly high accuracy and are now limited by Cs primary standards.' p.3: 'nu_E3/nu_E2 = 0.932 829 404 530 964 65(31)'; Table I TOTAL sigma/nu0: E2 6.13, E3 5.79, ratio 3.36 (x1e-16); 'a statistical relative standard uncertainty on the mean ratio of 7 x 10^-17, and 5 x 10^-16 on each of the absolute frequencies'. p.4: 'Time variation of alpha and mu is measured via the frequency ratio of two clock transitions r = nu_1/nu_2 using the relation r-dot/r = (A_1 - A_2) alpha-dot/alpha + (B_1 - B_2) mu-dot/mu. The sensitivity coefficients A_i of the relevant atomic transitions are: A_E3 = -5.95 [34], A_E2 = 0.88 [35], and A_Cs = 2.83 [36]. Dependence on mu-dot arises through the nuclear magnetic moment and is negligible for optical transitions (the sensitivity coefficient B_E3 = B_E2 = 0). As the 133Cs nuclear g-factor has negligible sensitivity to changes in the strong interaction [37, 38], an AFM history can also be interpreted to set constraints on mu-dot/mu (B_Cs = -1).' p.4: mu = m_p/m_e; constraints 'on the assumption of local position invariance and that any time-variation is linear'.",
+ "published_hypotheses": [
+  "H-MU: mu = m_p/m_e (p.4).",
+  "H-LIN: the linear-response relation r-dot/r = (A_1-A_2) alpha-dot/alpha + (B_1-B_2) mu-dot/mu (p.4), i.e. frequencies depend on the constants only through power laws alpha^A mu^B at fixed other quantities.",
+  "H-AOPT: A_E3 = -5.95, A_E2 = 0.88, A_Cs = 2.83 are atomic-structure calculations taken from refs [34]-[36] (Dzuba-Flambaum 2008; Dzuba-Flambaum-Marchenko 2003; Dzuba-Flambaum-Webb 1999), not measured here.",
+  "H-BOPT: B_E3 = B_E2 = 0 because mu-dependence of an optical transition (through the nuclear magnetic moment) is 'negligible' (p.4) -- an approximation, not an identity.",
+  "H-GCS: B_Cs = -1 rests on 'the 133Cs nuclear g-factor has negligible sensitivity to changes in the strong interaction [37, 38]' (p.4, Flambaum-Tedesco 2006; Berengut-Flambaum-Kava 2011).",
+  "H-LPI: the mu-dot and alpha-dot constraints assume 'local position invariance and that any time-variation is linear' (p.4).",
+  "H-BUDGET: the 3e-16 and 6e-16 are Table I totals (3.36, 6.13, 5.79 x1e-16) from the listed systematics plus statistics over 105 h (E2) and 81 h (E3), Feb-Mar 2014, with extrapolation of observed instabilities to the whole period (p.3); the absolute totals are dominated by the Cs-referenced statistical term (4.77, 5.35) and include Cs fountain systematics 1.90 (Table II)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H-GCS (the source's condition for B_Cs = -1): the tree's verbatim quote at address.py:436-440 elides, with '...', exactly the sentence 'As the 133Cs nuclear g-factor has negligible sensitivity to changes in the strong interaction [37, 38], an AFM history can also be interpreted to set constraints on mu-dot/mu' before '(B_Cs = -1)'. The tree's model nu_hf ~ alpha^2 g_I (m_e/m_p) F_rel (address.py:62, 615, 1243) holds g_I fixed without naming that as a hypothesis, and CONTROL 1 (address.py:1241-1252) 'derives' B_Cs = -1 from that same fixed-g_I model, so the control is consistent with, not independent of, H-GCS. The drop matters in the tree's setting specifically: a displaced vev moves X_q = m_q/Lambda_QCD at d ln X_q/d ln v = 7/9 (H1) or 1 (H2) (address.py:283), which is exactly the strong-interaction change H-GCS assumes negligible. COMPUTED (rederive G) with a Cs exponent kappa_q = +/-0.009 (a web-search snippet of physics/0309107, NOT READ): the optical/Cs eps_det moves by <= 1% from this term alone; no verdict moves.",
+  "WEAKENED-BY-OMISSION (the tree's own model, not a quote error): address.py:625-628 ratio_sensitivity uses 'B and K only', i.e. drops the source's (A_1 - A_2) alpha term of H-LIN from the optical/Cs channel. Under H2 K_alpha = 0 exactly, so nothing is lost; under H1 K_alpha = +1.8497e-3 and COMPUTED (rederive G) the E3/Cs sensitivity becomes -0.7473 instead of -0.7311 (eps_det 8.03e-16 vs the tree's 8.21e-16, 2.2%); E2/Cs 0.5%. The docstring states 'using B and K only', so the omission is visible, but it is not named as a hypothesis at the eps_det_stationary site (address.py:828-831).",
+  "NUANCE, not drift: the tree calls the 6e-16 'Cs-limited' (address.py:67, 115-117, 829). The source supports it (p.1 'now limited by Cs primary standards'), but the budget (Table I/II) shows the limit is the Cs-referenced STATISTICS (4.77 / 5.35 of 6.13 / 5.79, i.e. 61% / 85% of the variance), not the Cs fountain systematics (1.90, ~10%). That the absolute statistics come from the Cs reference chain is an inference from the ratio's statistical 0.68 on the same ion and run (>= 98% of the absolute statistical variance is not optical noise, rederive D) -- labelled as inference.",
+  "ROUNDING, a discrepancy not an error: CS_CHANNEL_COARSER_BY = 6e-16/3e-16 = 2 'COMPUTED' (address.py:68, 880) divides two figures the source printed to one significant digit. From Table I the factor is 6.13/3.36 = 1.82 (E2) and 5.79/3.36 = 1.72 (E3); from the printed digits 1.84 and 1.73. The W10 correction it supports ('2, not 100') stands at every reading.",
+  "SCOPE (not a drift in the tree's use): H-LPI and linear drift attach to the source's mu-dot / alpha-dot constraints, which the tree does not use; the tree uses only the coefficients (partial derivatives from atomic theory) and the measurement uncertainties. Using them for a spatially displaced vev (address.py section 7) needs the coefficients, not LPI.",
+  "SCOPE: the tree uses GODUN_ABS_UNC (a 72-105 h time-averaged absolute-frequency uncertainty against NPL-CsF2) as 'the fractional accuracy of an optical-to-Cs ratio' for detecting eps (address.py:115-117, 828-831). This is a representative scale, correctly labelled as Godun's; the tree does not claim it is an achievable accuracy for a spatial comparison, and the tree's section 7 separately names better channels.",
+  "PRESERVED: mu = m_p/m_e (address.py:440); B_E3 = B_E2 = 0 carried as 'negligible, not zero' (address.py:41-43) and the tree's own W10 computes a nonzero same-place optical term; the three A values, two B values and two uncertainties equal the printed ones exactly (rederive G)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "E3/E2 ratio fractional uncertainty (GODUN_RATIO_UNC)",
+   "value_then": "3e-16 printed p.1; Table I TOTAL 3.36e-16; digits (31)/0.9328 = 3.32e-16",
+   "value_now": "unchanged as a historical datum; the same ratio was later measured to 3.4e-18 (Lange et al. 2021, value 0.932829404530965376(32))",
+   "source_now": "arXiv:2010.06620 / PRL 126 011102 -- web-search abstract summary only, NAMED-NOT-READ",
+   "moves_conclusion": "No. The tree uses 3e-16 only as the stationary optical/optical scale and as the denominator of CS_CHANNEL_COARSER_BY. DISCREPANCY recorded: the later central value differs from Godun's by 7.8e-16 fractional = 2.3 sigma of Godun's quoted uncertainty (rederive H; Lange value NOT READ at source). This is in the ratio VALUE, which no tree figure uses; it is not quoted as an error in Godun."
+  },
+  {
+   "quantity": "absolute-frequency uncertainty (GODUN_ABS_UNC)",
+   "value_then": "6e-16 printed; Table I TOTAL 6.13e-16 (E2), 5.79e-16 (E3); digits 6.10e-16 and 5.76e-16",
+   "value_now": "unchanged as a historical datum (still bounded by Cs fountains at ~1e-16 level; no later value read)",
+   "source_now": "arXiv:1407.0164v2 Table I (READ)",
+   "moves_conclusion": "No. The tree's eps_det scales linearly; using 5.79 instead of 6 moves eps_det by 3.5%; EPS_NUCLEAR_OVER_DET (398 H1, 114 H2) stays >> 1."
+  },
+  {
+   "quantity": "A_E2 (alpha sensitivity of the 436 nm E2)",
+   "value_then": "0.88 (ref [35], Dzuba-Flambaum-Marchenko 2003)",
+   "value_now": "1.00 appears in later Yb+ analyses (a web-search result description only; the value was NOT READ at source)",
+   "source_now": "NAMED-NOT-READ (Huntemann et al. 2014 arXiv:1407.4408 and Lange et al. 2021 arXiv:2010.06620 not reachable: alphaXiv quota, arxiv.org egress-blocked)",
+   "moves_conclusion": "No for any tree verdict: dA = A_E2 - A_E3 from 6.83 to 6.95 moves the optical/optical eps_det_alpha (H1) by 1.7% (2.375e-14 -> 2.334e-14, rederive G). RULING_F7_IS_THE_SIGN_FLIP tests whether the ruling's printed +0.0682 follows from the withdrawn K_alpha with Godun's 0.88; with 1.00 the same sign-flip would print +0.0694, so that boolean is a reproduction check tied to the 0.88 input, correctly so."
+  },
+  {
+   "quantity": "A_E3",
+   "value_then": "-5.95 (ref [34], Dzuba-Flambaum 2008)",
+   "value_now": "-5.95 (same figure appears in the later-analysis search result; NOT READ)",
+   "source_now": "NAMED-NOT-READ",
+   "moves_conclusion": "No change known."
+  },
+  {
+   "quantity": "A_Cs",
+   "value_then": "2.83 (ref [36], Dzuba-Flambaum-Webb 1999): 2 (nonrelativistic) + 0.83 (relativistic, many-body)",
+   "value_now": "no later value read; the leading Casimir factor gives 0.739 for the relativistic part (computed here), the published 0.83 includes many-body corrections",
+   "source_now": "sympy (rederive F); ref [36] NAMED-NOT-READ",
+   "moves_conclusion": "No. The tree reads 2.83 and only checks 2.83 - 2 = 0.83 arithmetically (address.py:1255-1256); it derives only the integer 2. The alpha channel is zero under H2."
+  },
+  {
+   "quantity": "B_Cs and the Cs g-factor strong-interaction exponent kappa_q",
+   "value_then": "B_Cs = -1 with kappa_q treated as negligible (refs [37,38])",
+   "value_now": "kappa_q ~ 0.009 (web-search snippet of physics/0309107, NOT READ; later values not read)",
+   "source_now": "NAMED-NOT-READ",
+   "moves_conclusion": "No: <= 1% on the optical/Cs eps_det under either hypothesis (rederive G)."
+  },
+  {
+   "quantity": "B_E3 = B_E2 = 0",
+   "value_then": "'negligible' (p.4)",
+   "value_now": "normal-mass-shift order d ln nu/d ln mu ~ 3.2e-6 for 171Yb+ (computed; specific mass shift of similar order not computed); the tree's own W10 finite-size K for hydrogen -7.87e-10",
+   "source_now": "computed (rederive E); address.py:45-54",
+   "moves_conclusion": "No: |B_opt| << |B_Cs| = 1, confirming 'negligible' as an order."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1407.0164.py",
+  "outcome": "ALL CHECKS PASS (exit 0). A: Table I/II quadrature reproduces every printed subtotal and total (E2 3.20 vs printed 3.19 -- a 0.01 rounding of rounded entries; E3 0.52; ratio 3.29; Table II 2.16; TOTALS 6.131, 5.793, 3.360) and the shift sums (70.49, -4.31, 69.68, -5.12). B: printed digits give ratio 3.32e-16, E3 5.76e-16, E2 6.10e-16; nu_E3/nu_E2 from the absolute frequencies agrees with the direct ratio to 1.9e-16 (< 8.4e-16). C: CS_CHANNEL_COARSER_BY is 2.000 from the rounded 6 and 3, but 1.82 (E2) / 1.72 (E3) from Table I and 1.84/1.73 from digits -- ~2, never ~100, so W10 stands; the exact '2' is rounding. D: the absolute uncertainty is 61% (E2) / 85% (E3) statistical variance, Cs fountain systematics ~10%; >= 98% of the absolute statistical variance is not explained by optical noise (inference). E: 171Yb+ reduced-mass mu-sensitivity ~3.2e-6 << 1. F: Casimir relativistic factor 3/(lambda(4 lambda^2-1)) gives d ln F/d ln alpha = 0.739 for Cs (2e-4 for H, 2.18 for Z=80) against the published 0.83 remainder, which the tree reads rather than derives. G: address.py (imported read-only) carries the printed values exactly; adding Godun's own alpha term moves the H1 E3/Cs eps_det by 2.2% (E2/Cs 0.5%, H2 0%); a Cs kappa_q = +/-0.009 term adds <= 1%; EPS_NUCLEAR_OVER_DET 398 (H1) / 114 (H2) stays >> 1 under a 3.5% shift; A_E2 0.88 -> 1.00 moves the optical/optical eps_det by 1.7%; RULING_F7_IS_THE_SIGN_FLIP reproduces with 0.88. H: Lange 2021's ratio (abstract summary, NOT READ) differs from Godun's by 7.8e-16 = 2.3 sigma.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (this run)",
+   "effect": "contested",
+   "what": "NOT RUN: returned 'alphaXiv assistant quota exceeded'. The effect field is a placeholder required by the schema, not a finding.",
+   "read_status": "NOT RUN"
+  },
+  {
+   "ref": "Lange, Huntemann, Rahm, Sanner, Shao, Lipphardt, Tamm, Weyers, Peik, arXiv:2010.06620 = PRL 126, 011102 (2021)",
+   "effect": "extends",
+   "what": "Same E3/E2 ratio at 3.4e-18 (0.932829404530965376(32)); alpha-dot/alpha = 1.0(1.1)e-18/yr (x~20) and mu-dot/mu = -8(36)e-18/yr (x~2), plus LPI limits. Central value 2.3 sigma from Godun's (computed, rederive H). Coefficients used there not read.",
+   "read_status": "web-search abstract summary only; NAMED-NOT-READ (arxiv.org and inspirehep.net egress-blocked, alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "Huntemann et al., arXiv:1407.4408 = PRL 113, 210802 (2014)",
+   "effect": "confirms",
+   "what": "Independent PTB Yb+/Cs comparison over 7 years, the same season (Godun ref [52]); improved mu-dot limit. The search result describes E2/E3 sensitivities 1.00/-5.95 in this family of analyses, which is where the A_E2 = 1.00 datum comes from.",
+   "read_status": "web-search description only; NAMED-NOT-READ"
+  },
+  {
+   "ref": "Flambaum, Leinweber, Thomas, Young, physics/0309107; Flambaum-Tedesco nucl-th/0601050; Dinh-Dunning-Dzuba-Flambaum PRA 79, 054102 (2009)",
+   "effect": "narrows",
+   "what": "The Cs hyperfine frequency carries a small strong-interaction exponent, (m_q/Lambda_QCD)^0.009 per the snippet, i.e. H-GCS is an approximation at the ~1% level; later revisions not read.",
+   "read_status": "web-search snippet only; NAMED-NOT-READ"
+  },
+  {
+   "ref": "Sibling D67 audit clock-accuracy-1e-18.json (this session)",
+   "effect": "confirms",
+   "what": "Independently READ 1407.0164v2 pp.1-6 and reproduced the Table I ratio total 3.36e-16.",
+   "read_status": "READ by sibling audit; restated here"
+  }
+ ],
+ "lacked_data": "What the authors had: their own Feb-Mar 2014 data (E2 105 h, E3 81 h, 72 h overlap) against NPL-CsF2, the AFM histories of NPL/PTB and five other species, and theoretical coefficients from 1999-2008 atomic-structure calculations and 2006-2011 nuclear-g-factor estimates. What came later: (i) the same ratio at 3.4e-18 (Lange 2021, NOT READ) -- its central value sits 2.3 sigma from Godun's, which is consistent with Godun's budget being somewhat optimistic (the leading term was the E2 residual quadrupole, 2.97e-16) but is a single 2.3 sigma difference, not a refutation; (ii) A_E2 = 1.00 in later analyses (NOT READ) against 0.88; (iii) better Cs fountains and optical-optical ratios. Does any of it change the conclusion AS THE TREE USES IT? No, and this is computed rather than presumed: the tree uses the six coefficients and the two uncertainties, not the ratio value or the drift limits. A_E2 -> 1.00 moves the optical/optical eps_det by 1.7%; the Cs g-factor term (the dropped H-GCS) moves the optical/Cs eps_det by <= 1%; the source's alpha term the tree omits moves it by 2.2% under H1; the verdict EPS_NUCLEAR_OVER_DET (398, 114) and CS_CHANNEL_COARSER_BY's order (2 vs 100) do not move. M's hypothesis therefore finds, for this result, later data that sharpen it (a 2.3 sigma shift in the ratio value, a revised A_E2, a named ~1% Cs term) but none that moves what the tree rests on it. Evidence against the hypothesis here: the tree-relevant coefficients are ratios of derivatives whose leading parts (B = 0, -1; A_Cs integer 2) are exact power-law counting reproduced by the tree's own CONTROL 1 and by the Casimir estimate.",
+ "grade": "NARROWED",
+ "grade_evidence": "The READ values stand verbatim: A_E3 = -5.95, A_E2 = 0.88, A_Cs = 2.83, B_E3 = B_E2 = 0, B_Cs = -1, 3e-16 and 6e-16 are all printed on pp.1 and 4 of 1407.0164v2, the tree's dict equals them, and Table I/II arithmetic re-derives (rederive A-B, G). The grade is NARROWED, not STANDS, on the rule's 'a hypothesis the tree drops': the tree's quote at address.py:436-440 elides the source's condition for B_Cs = -1 (the Cs nuclear g-factor's negligible sensitivity to the strong interaction), which is the one condition a displaced vev directly violates by moving X_q; and its optical/Cs sensitivity (address.py:625-628) drops the source's alpha term under H1. The narrowing is QUANTIFIED here and is small: <= 1% (g_Cs, snippet-level exponent) and 2.2% (alpha term, computed), moving no tree verdict (EPS_NUCLEAR_OVER_DET 398/114). Two discrepancies recorded, neither a refutation: CS_CHANNEL_COARSER_BY = 2 is the quotient of one-digit roundings (1.72-1.84 from the table), and the tree's 'Cs-limited' is Cs-referenced statistics rather than Cs systematics. Not WRONG: nothing contradicts the source. Not DATA-DEPENDENT: the moved data (A_E2, the later ratio value) move no conclusion the tree draws.",
+ "what_would_change_the_grade": "To STANDS: the tree names H-GCS (g_I held fixed, 'negligible' strong-interaction sensitivity of the Cs g-factor) and the omitted (A_opt - A_Cs) K_alpha term as hypotheses at the eps_det sites, or includes them. To DATA-DEPENDENT: a READ current Cs kappa_q or A_E2 large enough to move eps_det by an order of magnitude (none suggested: ~1e-2 and ~1e-1 relative). To OPEN for the coefficients: nothing -- they are READ. Reading Lange 2021 / Huntemann 2014 at source (alphaXiv quota reset) would convert the A_E2 = 1.00 and ratio-value rows from NAMED-NOT-READ to READ without changing any computed consequence stated here.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1407.0164.py; echo exit=$?   # and: grep -n 'B_Cs\\|g-factor' /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/1407.0164.cached.txt ; sed -n 433,443p /home/user/Claude-Method-Works/research/warp-drive/address.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1407.0164.json"
+}

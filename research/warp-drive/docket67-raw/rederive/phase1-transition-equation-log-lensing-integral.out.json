@@ -1,0 +1,114 @@
+{
+ "sympy_inner_integral": "2*asinh(X0/c) - 2*X0/R",
+ "sympy_series_minus_closed_form": "epsilon**2*(a**2 + b**2)/2",
+ "Lambda_closed_form_code": 9.982529174194637,
+ "Lambda_closed_form_prose_b_only": 9.982929094215963,
+ "Lambda_first_order_exact_inside": 9.982541679233732,
+ "Lambda_exterior_tail_to_inf": -5.000031231640475e-09,
+ "Lambda_first_order_exact": 9.9825416742337,
+ "rel_closed_vs_exact": -1.2521900204197195e-06,
+ "per_unit_m": [
+  {
+   "m": 0.005,
+   "simpson_per_m": 9.97499710321944,
+   "exact_per_m": 9.974996956043364,
+   "second_third_order_pred": 9.974996964006625,
+   "simpson_minus_exact_rel": 1.4754498314087692e-08
+  },
+  {
+   "m": 0.01,
+   "simpson_per_m": 9.967468615098785,
+   "exact_per_m": 9.967468465619925,
+   "second_third_order_pred": 9.967468529275731,
+   "simpson_minus_exact_rel": 1.499667242771107e-08
+  },
+  {
+   "m": 0.02,
+   "simpson_per_m": 9.952460131940079,
+   "exact_per_m": 9.952459977911095,
+   "second_third_order_pred": 9.952460486302492,
+   "simpson_minus_exact_rel": 1.5476473523889495e-08
+  },
+  {
+   "m": 0.04,
+   "simpson_per_m": 9.922635815703028,
+   "exact_per_m": 9.922635652852417,
+   "second_third_order_pred": 9.922639706310202,
+   "simpson_minus_exact_rel": 1.6412031733880292e-08
+  },
+  {
+   "m": 0.08,
+   "simpson_per_m": 9.863747338789072,
+   "exact_per_m": 9.863747159400205,
+   "second_third_order_pred": 9.863779370142362,
+   "simpson_minus_exact_rel": 1.8186685397459717e-08
+  }
+ ],
+ "owner_quoted_per_unit_m": [
+  9.975,
+  9.967,
+  9.952,
+  9.923,
+  9.864
+ ],
+ "owner_quotes_reproduced_3dp": true,
+ "agreement_m5e-3_closed_vs_measured_pct": 0.07545253155550502,
+ "phi2_drift_pred_m5e-3_pct": 0.07566057044030276,
+ "saturation_simpson": {
+  "400.0": 0.19904919958575296,
+  "2000.0": 0.19904919962575704,
+  "20000.0": 0.19904920263880158
+ },
+ "saturation_exact": {
+  "400.0": 0.19904919958321177,
+  "2000.0": 0.1990491995592119,
+  "20000.0": 0.1990491995582219
+ },
+ "saturation_simpson_max_rel_spread": 1.5338160510055093e-08,
+ "saturation_exact_max_rel_spread": 1.2554620334506812e-10,
+ "per_unit_m_endpoints_inside_shell": {
+  "50.0": 8.680156506629562,
+  "100.0": 9.566214503090452,
+  "150.0": 9.87710636045101
+ },
+ "simpson_n_is_odd": true,
+ "proper_simpson_even_n_per_m_5e-3": 9.974771524369968,
+ "Lambda_point_source_rho1_vs_position": {
+  "0.0": 9.982529174195138,
+  "50.0": 9.982529171695138,
+  "100.0": 9.982529164195137,
+  "150.0": 9.982529151695138
+ },
+ "Lambda_closed_rho1_ray_through_centre": 9.982529174194637,
+ "gamma_shift_in_Lambda_rel_max": 8.999999999999999e-05,
+ "exchange_rate_kg_per_m": 1.3489476444317511e+26,
+ "solar_mass_buys_m_phase1": 14744.23420515953,
+ "solar_mass_buys_m_IAU_GM": 14740.452521681638,
+ "Msun_phase1_vs_IAU_rel": 0.0002565513828242404,
+ "per_unit_m_beyond_window": {
+  "0.08": 9.863747159400205,
+  "0.2": 9.692954794671401,
+  "0.5": 9.301291203675817,
+  "1.0": 8.743099719300732,
+  "2.0": 7.885793005880835
+ },
+ "per_unit_m_rel_drop_vs_Lambda": {
+  "0.08": 0.01190022728781781,
+  "0.2": 0.02900933339549805,
+  "0.5": 0.06824418998583126,
+  "1.0": 0.12416095974155927,
+  "2.0": 0.21004156424058396
+ },
+ "m_min_4ly_1pct": 0.4007000560880113,
+ "m_min_4ly_50pct": 20.035002804400563,
+ "max_fraction_in_measured_window_m0.08": 0.0019965058348389276,
+ "b_max_for_4ly_m": 94607000000000.0,
+ "per_unit_m_at_m_min_1pct_X_eq_Rs": 9.425680420403264,
+ "price_underestimate_1pct_rel": 0.05907783087850005,
+ "weak_field_geometry_1pct": {
+  "Rs_over_b": 22.427469718534354,
+  "Lambda": 5.6068674296335885,
+  "solar_masses": 45696332111.681656
+ },
+ "VERDICT_numbers_agree": true
+}

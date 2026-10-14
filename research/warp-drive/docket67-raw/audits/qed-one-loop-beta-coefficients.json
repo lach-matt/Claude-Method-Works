@@ -1,0 +1,86 @@
+{
+ "key": "qed-one-loop-beta-coefficients",
+ "name": "One-loop QED running coefficients: b = 4/3 per unit-charge Dirac fermion, b = -22/3 + 1/3 = -7 for the W and its Goldstone",
+ "source": {
+  "located": "Textbook one-loop coefficients (primary textbook/classic derivations NAMED-NOT-READ). Restated and READ in two later sources held as verbatim cached page text: (a) PDG 2024, Review 10 'Electroweak Model and Constraints on New Physics' (Erler & Freitas, rev. April 2024), p.4, eq.(10.11) alpha^-1 = 137.035999178(8) and eq.(10.13) Delta alpha_hat(MZ) - Delta alpha(MZ) = (alpha/pi)[100/27 - 1/6 - (7/4) ln(MZ^2/MW^2) + O(alpha_s)] = 0.007122(2)(5); (b) Buttazzo et al., arXiv:1307.3536v4, App. B.1 eqs.(96)-(97): dg1^2/d ln mu^2 = g1^4/(4pi)^2 [41/10] + ... (GUT norm. g1^2 = 5 gY^2/3) and dg2^2/d ln mu^2 = g2^4/(4pi)^2 [-19/6] + ... . Neither prints '4/3' or '-22/3 + 1/3' literally: b_W = -7 is READ as the coefficient -7/4 of ln(MZ^2/MW^2) in (a), and 4/3 per unit N_c Q^2 follows from (a)+(b) by the exact sum rule of check C5. The split -22/3 (W + ghosts) + 1/3 (Goldstone) is NOT printed in either; only the sum -7 enters the tree.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded' this stage; arxiv.org and pdg.lbl.gov are refused by the egress proxy (403, curl and WebFetch). Read instead from verbatim page text harvested earlier in D67: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/https___pdg.lbl.gov_2024_reviews_rpp2024-rev-standard-model.pdf.txt (lines ~630-790, PAGE 4) and /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1307.3536v4.txt (lines ~6030-6200, App. B.1). Erler hep-ph/9803453 (the MSbar alpha-hat running paper) was targeted and NOT read (quota + proxy)."
+ },
+ "published_statement": "PDG 2024 eq.(10.13): 'Delta alpha_hat(MZ) - Delta alpha(MZ) = alpha/pi [ 100/27 - 1/6 - 7/4 ln MZ^2/MW^2 + alpha_s(MZ)/pi (605/108 - 44/9 zeta(3)) + ... ] = 0.007122(2)(5)', with alpha_hat in the MSbar scheme ('In this Section we denote quantities defined in the MS scheme by a caret'). Buttazzo et al. eq.(96)-(97): one-loop 'dg1^2/d ln mu^2 = g1^4/(4pi)^2 [41/10]', 'dg2^2/d ln mu^2 = g2^4/(4pi)^2 [-19/6]', MSbar, full SM content. Tree's form (address.py:518-521): 'above its threshold a species drives d(1/alpha)/d ln mu = -b/(2 pi) ... B_DIRAC_UNIT_CHARGE = Fraction(4, 3); B_W_BOSON = Fraction(-22, 3) + Fraction(1, 3)'.",
+ "published_hypotheses": [
+  "One loop in the gauge couplings (PDG 10.13 adds O(alpha_s) terms for quarks; Buttazzo two/three-loop terms dropped at one loop).",
+  "MSbar scheme (PDG footnote 4: 'quantities defined in the MS scheme by a caret'; Buttazzo 'in the ms scheme').",
+  "Standard Model field content (three generations, one Higgs doublet) -- the coefficients 41/10, -19/6 and -7/4 are SM-content statements.",
+  "Perturbative thresholds; PDG: 'For scales above a few hundred MeV the low energy hadronic contribution to vacuum polarization introduces a theoretical uncertainty in alpha' -- light-quark contributions below ~2 GeV are taken from data/dispersion (Delta alpha_had^(5)(MZ) = 0.02783(6)), not from the one-loop coefficient.",
+  "b_W = -7 is the W+Goldstone coefficient of the MSbar coupling above MW (PDG's -7/4 ln(MZ^2/MW^2) term); its split into -22/3 and +1/3 is not stated in the READ sources."
+ ],
+ "hypothesis_drift": [
+  "SCHEME DROPPED (harmless at one loop, argued not machine-checked): address.py:518-521 states d(1/alpha)/d ln mu = -b/(2pi) with no scheme; the sources' -7 is an MSbar coefficient with a W matching constant (PDG's -1/6) and fermion constants (100/27 = (5/9) SUM N_c Q^2, check C4). The tree's formula (address.py:369-371, 563-566) drops all constants; since each is a pure number with no mass ratio, d/d ln v of it is zero at one loop, so K_alpha is unaffected.",
+  "IMPLICIT CHIRAL LIMIT ON THE u,d,s ROWS (NOT NAMED): address.py:526-532 and 540-542 apply the perturbative b = 4/3 N_c Q^2 to u,d,s at a threshold scaling as Lambda_QCD only (w = 2/9). The tree NAMES 'light-quark thresholds hadronic, weight 2/9', but not that this needs the u,d,s current masses (themselves proportional to v under H1) to be negligible in the hadronic vacuum polarization; PDG says this region is non-perturbative and data-driven. These rows carry 16/43 = 37.2% of the 43/54 (C7). Brackets, NOT measurements (C9): w_s = 1 gives 157/162 (+21.7%); pion-like w = 11/18 for all three gives 71/54 (+65.1%); w = 0 gives 1/2 (-37.2%). The true light-quark weight (d Delta alpha_had/d ln m_q) is not computed here.",
+  "O(alpha_s) CORRECTIONS TO THE QUARK ROWS: the tree's 'one loop' (address.py:373) is one loop in QED; PDG eq.(10.13) shows the quark sector carries alpha_s/pi corrections at the same electroweak order. Not quantified here for the ln v derivative; named as a hypothesis the tree's wording leaves ambiguous.",
+  "SM-ONLY CHARGED CONTENT BELOW Lambda (NOT NAMED): H1 'alpha fixed at a high scale' (address.py:369, 563) sums only the SM charged thresholds; any charged species between MW and Lambda adds b_i w_i/2 to the 43/54. The sources' coefficients are SM-content statements; the tree does not name the content hypothesis or bound Lambda.",
+  "NO DRIFT on the coefficient values: B_DIRAC_UNIT_CHARGE = 4/3 and B_W_BOSON = -7 (address.py:520-521) agree exactly with the READ sources (C3-C6); the status word NAMED-NOT-READ at address.py:519 is now superseded by READ-VIA-RESTATEMENT for the sum -7 and for 4/3, and remains NAMED-NOT-READ for the split -22/3 + 1/3."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "alpha (Thomson limit), multiplies the 43/54",
+   "value_then": "1/137.035999084 (CODATA 2018, address.py:429, marked NAMED-NOT-READ)",
+   "value_now": "1/137.035999178(8) (PDG 2024 eq.(10.11) world average; CODATA 2022 1/137.035999177(21) NAMED-NOT-READ)",
+   "source_now": "PDG 2024 rev. SM p.4 eq.(10.11), READ from cached page text",
+   "moves_conclusion": "No. K_alpha(H1) 1.849652538e-3 -> 1.849652536e-3 (relative -6.9e-10); Th-229 H1 coefficient -349630.0695 -> -349630.0695 (change 2.5e-7); the printed 1.849653e-3 and -3.49630e5 are unchanged (C8, C10)."
+  },
+  {
+   "quantity": "b_Dirac per unit N_c Q^2",
+   "value_then": "4/3 (textbook, NAMED-NOT-READ)",
+   "value_now": "4/3 = (b_Y + b_2 - b_W)/SUM N_c Q^2 = (11/3 + 7)/8 from READ 1307.3536 eqs.(96)-(97) + PDG eq.(10.13)",
+   "source_now": "Buttazzo et al. arXiv:1307.3536v4 App. B.1; PDG 2024 rev. SM eq.(10.13)",
+   "moves_conclusion": "No (group theory, not a measurement)."
+  },
+  {
+   "quantity": "b_W (W + Goldstone)",
+   "value_then": "-22/3 + 1/3 = -7 (textbook, NAMED-NOT-READ)",
+   "value_now": "-7 (PDG 2024 eq.(10.13) coefficient -7/4 of ln(MZ^2/MW^2))",
+   "source_now": "PDG 2024 rev. SM eq.(10.13)",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "light-quark threshold weight w_uds",
+   "value_then": "2/9 = 3 x 2/27 (one-loop Lambda_QCD matching, a separate result)",
+   "value_now": "not a datum of this result; the hadronic vacuum polarization is data-driven (Delta alpha_had^(5)(MZ) = 0.02783(6), PDG 2024) and its m_q-sensitivity is not computed here",
+   "source_now": "PDG 2024 rev. SM p.4 (READ)",
+   "moves_conclusion": "Model-dependent, not datum-moved: brackets +21.7% to +65.1% (or -37.2%) on the 43/54 (C9); see drift 2."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qed-one-loop-beta-coefficients.py",
+  "outcome": "ALL PASS (exit 0). C1 sign d ln alpha(0)/d ln m = +alpha b/(2pi) (sympy). C2 Buttazzo's dg^2/d ln mu^2 = g^4 b/(4pi)^2 is exactly d(1/alpha)/d ln mu = -b/(2pi), the tree's convention. C3 READ b_Y + b_2 = 41/6 - 19/6 = 11/3 equals the tree's 32/3 (twelve charged Dirac fermions at 4/3 N_c Q^2) + (-7). C4 PDG's -7/4 ln(MZ^2/MW^2) solves to b_W = -7; 100/27 = (5/9)(20/3). C5 b per unit N_c Q^2 from READ data alone = 4/3. C6 the one-loop formula (2/3 T per Weyl, 1/3 T per complex scalar, -11/3 C_A) reproduces 41/6 and -19/6 (gauge part -22/3), and gives 4/3 per Dirac, 1/3 per charged scalar. C7 43/54 exact from the tree's rows; u,d,s share 16/43; the W row alone is -189/43 of the total (the 43/54 is a cancellation of +232/54 fermions against -189/54 W). C8 alpha update: relative -6.9e-10. C9 chiral-limit brackets (not measurements). C10 address.py's B_DIRAC_UNIT_CHARGE, B_W_BOSON, dln_lambda_dln_v, K_ALPHA_H1_COEFFICIENT, K_ALPHA_H1 equal the independent values; RULING_F7_SEATED = {-349630.069, +0.0126331}.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "PDG 2024 Review 10 (Erler & Freitas), eq.(10.13)",
+   "effect": "confirms",
+   "what": "b_W = -7 as the coefficient -7/4 of ln(MZ^2/MW^2) in the MSbar-minus-on-shell alpha; fermion constants 100/27 consistent with b = 4/3 N_c Q^2; also records that the light-quark (hadronic) region is non-perturbative and data-driven, which is what narrows the tree's u,d,s rows.",
+   "read_status": "READ (cached verbatim page text, PAGE 4)"
+  },
+  {
+   "ref": "Buttazzo, Degrassi, Giardino, Giudice, Sala, Salvio, Strumia, arXiv:1307.3536v4, App. B.1 eqs.(96)-(97)",
+   "effect": "confirms",
+   "what": "One-loop SM b_1 = 41/10 (GUT), b_2 = -19/6; their sum in QED normalisation, 11/3, equals 4/3 x 8 - 7.",
+   "read_status": "READ (cached verbatim page text)"
+  },
+  {
+   "ref": "discover_papers call for later work (gauge-invariant W contribution / pinch technique / background field)",
+   "effect": "contested",
+   "what": "The one discover_papers call returned 'alphaXiv assistant quota exceeded'; no later literature was discovered this stage. Effect field set to 'contested' only because the schema requires one: NOTHING was found either way.",
+   "read_status": "NOT RUN (quota exceeded)"
+  }
+ ],
+ "lacked_data": "The coefficients 4/3 and -7 are one-loop group-theory results; they take no measured input, so no later datum can move them, and none has (C3-C6 reproduce them exactly from the 2013 and 2024 READ sources). The only numerical input to the tree's product, alpha, moved from CODATA 2018 to the PDG 2024 average by -6.9e-10 relative, with no effect on any printed figure (C8, C10). Where M's hypothesis has purchase is not the coefficients but the light-quark rows: the tree applies the perturbative 4/3 N_c Q^2 at a hadronic threshold, and what is needed there -- the sensitivity of the hadronic vacuum polarization to Lambda_QCD and to the v-proportional current masses m_u, m_d, m_s -- is data-driven (PDG: dispersive Delta alpha_had) and was not used by the tree. Having it would move the 43/54 by an amount this audit brackets but does not measure (-37% to +65% for the extreme weights of C9). Evidence against M's hypothesis for this result: every READ source agrees with the tree's values exactly. Evidence for a narrower scope: the tree's use extends the coefficient into the non-perturbative region under an unnamed chiral-limit hypothesis.",
+ "grade": "NARROWED",
+ "grade_evidence": "The coefficients as values STAND: b = 4/3 per unit N_c Q^2 and b_W = -7 are reproduced exactly from READ PDG 2024 eq.(10.13) and Buttazzo et al. eqs.(96)-(97) (checks C3-C6), the sign and the 43/54 re-derive (C1, C7), and the one moved datum (alpha) moves nothing (C8). The grade is NARROWED because the tree's use (address.py:526-542, 369-375) applies them on a larger class than the sources support, with hypotheses it does not name: (i) the u,d,s rows (16/43 of K) use the perturbative coefficient at a hadronic threshold in an implicit chiral limit, where PDG says the region is non-perturbative and data-driven; (ii) SM-only charged content between the thresholds and Lambda under H1; (iii) O(alpha_s) quark corrections not covered by 'one loop' in QED. No contradiction is shown: this is not WRONG, and the C9 figures are brackets, not a corrected value. The split -22/3 + 1/3 remains NAMED-NOT-READ (only the sum enters).",
+ "what_would_change_the_grade": "To STANDS: the tree names the chiral-limit/hadronic hypothesis and the SM-content hypothesis on the u,d,s rows and on H1, or a READ lattice/dispersive computation of d Delta alpha_had/d ln m_q shows the current-mass sensitivity negligible against the 2/9 weight. To DATA-DEPENDENT: such a computation shows the light-quark weight differs materially from 2/9, moving the 43/54 and the Th-229 / optical rows. Nothing here would make it WRONG: the coefficients are exact group theory reproduced from two READ sources. Reading Erler hep-ph/9803453 and a background-field/pinch-technique paper would upgrade the -22/3 + 1/3 split from NAMED-NOT-READ.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/qed-one-loop-beta-coefficients.py && sed -n 720,735p '/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/https___pdg.lbl.gov_2024_reviews_rpp2024-rev-standard-model.pdf.txt' && sed -n 6030,6045p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1307.3536v4.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/qed-one-loop-beta-coefficients.json"
+}

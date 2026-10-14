@@ -1,0 +1,115 @@
+{
+ "key": "gaia-dr3-proxima-distance",
+ "name": "Distance to Proxima Centauri, 4.2465 ly (Gaia DR3 parallax inverted; IAU light year)",
+ "source": {
+  "located": "Gaia DR3 astrometry for Proxima Cen (Gaia EDR3/DR3 source_id 5853498713190525696). The catalogue is a database, not a paper; its entry was READ as printed in Reyle et al. 2021, arXiv:2104.14972 Table 1 (PARALLAX_BIBCODE 2020yCat.1350 = Gaia EDR3), and again as the 'Gaia DR3 value' column of Libralato, Bedin & Burgasser 2025, arXiv:2512.08533 Table 2. DR3 = EDR3 astrometry READ in Gaia Collaboration, Vallenari et al. 2022, arXiv:2208.00211 (abstract; Sec. 3; Sec. 3.2-3.3). Zero-point READ in Lindegren et al. 2021, arXiv:2012.01742 (Sec. 2.2-2.3, Tables 9-10, Sec. 8, App. A). IAU light-year / au / parsec definitions NAMED-NOT-READ (IAU 2012 B2, 2015 B2); used only as the exact constants the tree already carries, and the tree's LY = c x Julian year was checked exactly.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Catalogue value restated verbatim (full digits) in 2104.14972 Table 1: PARALLAX 768.066539187357 mas, PARALLAX_ERROR 0.049872905 mas, EPOCH 2016.0, G 8.984749, BP 11.373116, RP 7.5685353, RV -22.345 km/s; 2512.08533 Table 2: 'Gaia DR3 value 768.067 +0.050/-0.050 mas'. 2208.00211 READ directly for the DR3=EDR3 identity and systematics."
+ },
+ "published_statement": "Gaia EDR3 (= DR3) parallax of Proxima Centauri: 768.066539187357 +- 0.049872905 mas at epoch J2016.0 (2104.14972 Table 1; 2512.08533 Table 2 '768.067 +- 0.050'). 2208.00211 abstract: 'The Gaia DR3 catalogue contains the same source list, celestial positions, proper motions, parallaxes, and broad band photometry ... already present in the Early Third Data Release, Gaia EDR3'; Sec. 3.2: 'the astrometry in Gaia DR3 is unchanged from Gaia EDR3'; Sec. 2: 'based on data collected over a 34-month time interval'; Sec. 3.3: 'the global parallax bias for Gaia DR3, as measured from quasars, is -17 uas ... varies as a function of magnitude, colour, and celestial position ... a recipe for correcting the parallaxes is given [L21]'. L21 Sec. 8: the bias function 'should be subtracted from the value (parallax) given in the Archive' -- i.e. the catalogue parallax is UNcorrected; 'Beyond the non-clamped interval 1.72 > nu_eff > 1.24 um^-1 (corresponding to 0.15 < GBP-GRP < 3.0) all results are in any case quite uncertain'. The distance 4.2465 ly is NOT a published statement of any source read: it is the tree's inversion 1/parallax, which re-derives to 4.2464599 ly (J2016.0).",
+ "published_hypotheses": [
+  "H1 (measurement model): five- or six-parameter astrometric solution under the standard model of uniform linear barycentric motion, fitted to 34 months of Gaia data (2208.00211 Sec. 2-3); the solution type for Proxima was not READ.",
+  "H2 (epoch/frame): position and parallax at reference epoch J2016.0 (TCB), Gaia-CRF3 aligned to ICRF3 (2208.00211 Sec. 3.2; 2104.14972 Table 1 EPOCH 2016.0).",
+  "H3 (systematics): catalogue parallaxes carry an uncorrected zero-point bias (global QSO median -17 uas) depending on G, colour and ecliptic latitude, plus small-scale angular covariances ~26 uas RMS (2208.00211 Sec. 3.3; L21).",
+  "H4 (zero-point validity): the L21 recipe is 'provisional and indicative', and 'quite uncertain' outside 1.24 < nu_eff < 1.72 um^-1 (L21 Sec. 2.2, Sec. 8).",
+  "H5 (formal error): the published uncertainty 0.0499 mas is the formal catalogue error.",
+  "H6 (distance): distance = 1/parallax is the tree's step; it is safe when sigma/plx << 1 (here 6.5e-5, inversion bias ~4e-9) -- the GCNS (2012.02061) instead reports Bayesian posteriors, which at this precision coincide."
+ ],
+ "hypothesis_drift": [
+  "DROPPED uncertainty -- foliation.py:583 'PROXIMA_LY = 4.2465' and nonstatic.py:257 carry no error; the formal sigma is 0.0499 mas = 6.49e-5 relative = +-0.00028 ly = +-2.6e12 m, so the 5th significant figure the tree prints is uncertain (1-sigma interval 4.24618-4.24674 ly).",
+  "DROPPED epoch J2016.0 -- nonstatic.py:257 '# ly, Gaia DR3 parallax distance', ledger.py:333 '# ly, Gaia DR3 parallax' state the distance without epoch; with RV -22.345 km/s (2104.14972 Table 1) Proxima has approached by 7.6e12 m (-1.89e-4 relative, ~2.9 formal sigma) between J2016.0 and 2026.74: 4.24646 -> 4.24566 ly. The tree's 4.2465 is a J2016.0 value; at 5 s.f. today's value is 4.2457.",
+  "DROPPED zero-point -- the tree inverts the raw catalogue parallax (nonstatic.py:257; foliation.py:583). L21 says the bias should be subtracted, but Proxima (BP-RP = 3.80, nu_eff ~1.19 by L21 Eq. 1) lies outside the recipe's validity range; evaluated anyway as an illustration, Z5 = -37.9 uas and Z6 = -22.3 uas give -4.9e-5 and -2.9e-5 relative (4.2463 ly at 5 s.f.). Illustrative only, not a correction.",
+  "PRECISION beyond the datum (not an error) -- driven.py:772 checks the span 4.017499195e16 m to 1e-9, foliation.py:999 likewise, nonstatic.py:681-684 prints band time 17.909799392 d and crossing 2.123250000 yr, branelink.py:64-65 prints 'Proxima light time 134009348.4 s = 4.2465 yr EXACTLY (a light year is c times a Julian year)'. As arithmetic on the input all of these re-derive exactly, and branelink's parenthesis says truthfully that the exactness belongs to the unit definition. As physics they carry ~4 significant figures (6.5e-5 relative).",
+  "PRECISION -- ledger.py:2977 'the Proxima demand is 5.4194e42 kg to 5 figures': this re-derives (5.41940e42), but the formal parallax sigma moves it to 5.41905e42 / 5.41975e42, so the 5th figure is arithmetic reproducibility, not a physical figure.",
+  "ADDED (tree modelling, not in any source) -- driven.py:445-457 'corridor span = Proxima distance'. Measured: the heliocentric-vs-barycentric origin offset (1 au) is 3.7e-6 relative, below the formal sigma, so this choice is immaterial at the stated precision.",
+  "WEAKENED status words -- formation.py:281 'THE SURVEY, READ at the tree's destination (foliation.PROXIMA_LY)' and nonstatic.py:257 attribute to Gaia DR3 with no parallax value and no citation; the attribution is correct and discriminating (Gaia DR2 gives 4.2439 ly, not 4.2465), but the tree records nowhere what it read."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Parallax of Proxima Cen (Gaia EDR3 = DR3, J2016.0)",
+   "value_then": "768.066539187357 +- 0.049872905 mas (2104.14972 Table 1)",
+   "value_now": "unchanged; DR3 astrometry = EDR3 astrometry (2208.00211). No Gaia DR4 astrometry has been READ here (2512.08533 expects DR4 'ca. December 2026'); DR3 still current",
+   "source_now": "arXiv:2208.00211 Sec. 3; arXiv:2512.08533 Table 2",
+   "moves_conclusion": "no -- it is the datum; 1/plx = 4.2464599 ly rounds to 4.2465"
+  },
+  {
+   "quantity": "Previous release value (Gaia DR2)",
+   "value_then": "768.529 +- 0.220 mas after +29 uas zero-point (Kervella+2020, 2003.13106 Table 1) -> 4.24390 ly",
+   "value_now": "superseded by DR3 768.067 (DR3 - DR2 = -0.462 mas, 2.05 combined sigma; distance +6.0e-4 relative)",
+   "source_now": "arXiv:2003.13106; arXiv:2104.14972",
+   "moves_conclusion": "no -- a 6e-4 relative move shifts every downstream figure by 6e-4 relative (log10 by 2.6e-4 orders); it does show the datum has moved once, at the 4th significant figure"
+  },
+  {
+   "quantity": "Independent HST WFC3 parallax (linked to Gaia DR3 frame via L21-corrected field stars)",
+   "value_then": "n/a (post-dates DR3)",
+   "value_now": "768.373 +0.194/-0.162 mas (Table 2); 768.240 +0.180/-0.267 with chromatic terms (Table A.1) -> 4.24477 / 4.24550 ly",
+   "source_now": "Libralato, Bedin & Burgasser 2025, arXiv:2512.08533",
+   "moves_conclusion": "no -- the paper reports agreement at 1.19 sigma (0.5 sigma with chromatic terms); my symmetric-error combination gives 1.66 / 0.76 sigma. The method discrepancy is recorded, not resolved; it moves no conclusion either way"
+  },
+  {
+   "quantity": "Parallax zero-point for Proxima (L21 Z5/Z6)",
+   "value_then": "not applied in the catalogue; recipe outside validity for nu_eff < 1.24",
+   "value_now": "illustrative Z5 = -37.9 uas, Z6 = -22.3 uas; global QSO -17 uas; 2605.31402 (2026) confirms residual local systematics after L21, but gives no value for Proxima",
+   "source_now": "arXiv:2012.01742 Tables 9-10, App. A; arXiv:2605.31402",
+   "moves_conclusion": "no -- shifts of 2-5e-5 relative, below the formal sigma; the 5th figure would read 4.2463/4.2464"
+  },
+  {
+   "quantity": "Epoch drift from radial velocity",
+   "value_then": "RV -22.345 +- 0.006 km/s (2104.14972 Table 1, from Barnes+2014)",
+   "value_now": "distance falls by 7.6e12 m from J2016.0 to 2026.74 (-1.89e-4 relative)",
+   "source_now": "computed here",
+   "moves_conclusion": "no for every downstream conclusion (log10 shift 8e-5); yes for the 5th significant figure of 'the distance' (4.2457 ly today)"
+  },
+  {
+   "quantity": "Light year / Julian year / parsec",
+   "value_then": "LY = 9.4607304725808e15 m (foliation.py:580, ledger.py:335); YR = 3.15576e7 s (manyc.py:61)",
+   "value_now": "LY = c x 365.25 x 86400 = 9460730472580800 m exactly (checked in sympy); pc/ly = 3.2615637771674",
+   "source_now": "exact computation (definitions NAMED-NOT-READ: IAU 2012 B2, 2015 B2)",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gaia-dr3-proxima-distance.py",
+  "outcome": "0 failures (exit 0). Reads the tree's constants read-only by regex. (1) LY = c x Julian year exactly; YR = Julian year; foliation and nonstatic carry the same 4.2465. (2) 1000/768.066539187357 mas = 1.301970531 pc = 4.246459923 ly, which rounds to 4.2465 (residual -4.0e-5 ly, inside the rounding half-unit). (3) Formal sigma 6.49e-5 relative = 0.000276 ly; the 1-sigma interval 4.24618-4.24674 spans several 5th-digit values; the inversion bias (~4e-9) is negligible. (4) Proxima's nu_eff ~1.19 < 1.24, outside L21 validity; illustrative Z5 -37.9 uas / Z6 -22.3 uas shift -4.9e-5 / -2.9e-5 relative. (5) DR2 gives 4.2439 ly, so 'DR3' is the discriminating attribution; HST agrees within 2 sigma. (6) Epoch drift to 2026.74 is -1.89e-4 relative (> formal sigma); the 1-au origin offset is 3.7e-6 (< sigma). (7) Every downstream figure re-derives exactly from 4.2465: span 4.0174991952e16 m, E = 2.7207442886e13 Msun, crossing 2.12325 yr, band 17.909799392 d, light time 134009348.400 s, exchange rate 1.3489476e26 kg/m, B2 5.41940e42 kg. (8) The largest moved or contested datum (DR2 -> DR3, 6.0e-4 relative) shifts log10 figures by 2.6e-4 orders (throatmass 48.92 unchanged at 2 dp); the 5th figure of 5.4194e42 is not fixed by the datum.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Libralato, Bedin & Burgasser 2025, arXiv:2512.08533 (A&A), ARES I",
+   "effect": "confirms",
+   "what": "HST WFC3 multi-epoch 2012-2025 astrometry of Proxima, tied to Gaia DR3 via L21-corrected field stars (Proxima excluded): parallax 768.373 +0.194/-0.162 mas against DR3 768.067 +- 0.050, reported agreement 1.19 sigma (0.5 sigma with chromatic terms). The authors state this is 'an independent test for the Gaia's astrometry of this very-red M dwarf' and find no colour-dependent discrepancy. It also records that excluding the microlensing epochs moved the HST parallax at ~2 sigma.",
+   "read_status": "READ (Table 2, Table A.1, Sec. 3-5 via answer_pdf_queries)"
+  },
+  {
+   "ref": "Ding et al. 2026, arXiv:2605.31402 (MNRAS preprint), refining the Gaia DR3 parallax zero-point",
+   "effect": "narrows",
+   "what": "Finds prominent local zero-point structure left after the L21 correction and builds a hybrid L21 + sliding-window map. Residual biases at the few-uas level (globular clusters -12 to +6 uas). No Proxima-specific value; the bright/red regime stays hardest to calibrate.",
+   "read_status": "READ (Sec. 1-4, Table 2)"
+  },
+  {
+   "ref": "Lindegren et al. 2021, arXiv:2012.01742 (A&A 649, A4)",
+   "effect": "narrows",
+   "what": "The catalogue parallax is biased; the bias is to be subtracted by the user; the recipe is 'quite uncertain' for nu_eff < 1.24 (Proxima ~1.19).",
+   "read_status": "READ (Sec. 2.2, 2.3, 4, 8; Tables 9-10; App. A)"
+  },
+  {
+   "ref": "Kervella, Arenou & Schneider 2020, arXiv:2003.13106 (A&A 635, L14)",
+   "effect": "contested",
+   "what": "Earlier datum: Gaia DR2 parallax 768.529 +- 0.220 mas (zero-point corrected), J2015.5; DR3 moved it by -0.46 mas (2.05 combined sigma). A moved datum, not a refutation.",
+   "read_status": "READ (Sec. 2.1, Table 1)"
+  },
+  {
+   "ref": "Reyle et al. 2021, arXiv:2104.14972 (A&A 650, A201), the 10 pc sample",
+   "effect": "confirms",
+   "what": "Prints the full-precision EDR3 parallax, error, epoch, photometry and RV of Proxima (Table 1) -- the restatement this audit read the datum through.",
+   "read_status": "READ (Table 1, Sec. 2)"
+  }
+ ],
+ "lacked_data": "M's hypothesis -- that earlier workers lacked data -- tested for this result. What DR3 had: 34 months of Gaia data (2208.00211 Sec. 2), no extended mission, and a parallax zero-point calibrated only for 1.24 < nu_eff < 1.72 (L21), a range Proxima lies outside. What came later: (a) an independent 13-year HST parallax (2512.08533), 768.373/768.240 mas, agreeing within 1.2-1.7 sigma, which directly tests the colour-systematic worry for this very red star and finds none; (b) refined zero-point maps (2605.31402) that change bright-star corrections by a few uas; (c) Gaia DR4 (66 months, expected precision gain x1.4 per 2208.00211 Sec. 14) has not been READ here. Evidence either way: the datum DID move once with more data (DR2 -> DR3, -0.46 mas, 6e-4 relative, 2 sigma of DR2), so M's premise holds historically at the 4th significant figure. For a later release to move any conclusion of the tree it would have to move the parallax by a sizeable fraction of itself (the tree's conclusions are order-of-magnitude: 2.72e13 Msun, 48.92 orders, 5.42e42 kg). Every independent measurement READ here agrees to <= 6e-4 relative. Missing data therefore does not change the conclusion; it changes only the 4th-5th figures the tree prints. What the tree itself lacks is not data but hypotheses the data carry (sigma, epoch J2016.0, zero-point).",
+ "grade": "NARROWED",
+ "grade_evidence": "The measurement stands. 1/parallax(DR3) = 4.2464599 ly (J2016.0), which rounds to the tree's 4.2465; every downstream figure re-derives exactly (script exit 0); every later datum READ (HST 2025, DR2, zero-point work) agrees to <= 6e-4 relative, and no moved or contested datum moves any downstream conclusion (worst log10 shift 2.6e-4 orders). It is NARROWED rather than STANDS because the tree drops three hypotheses the datum carries, each measured here. (i) The formal uncertainty is +-0.00028 ly, so the 5th figure (4.2465) and the '5 figures' of ledger.py:2977's 5.4194e42 kg are not fixed by the datum. (ii) The epoch is J2016.0: the radial approach moves the distance by -1.89e-4 relative to 2026.74 (4.2457 ly today), about 2.9 formal sigma, so the value holds as 'the J2016.0 barycentric distance', not as 'the distance'. (iii) The zero-point is uncorrected and the official recipe is invalid at Proxima's colour, so the size of the systematic is OPEN at the few-1e-5 level. None of this is an error in Gaia, and none is WRONG in the tree: the tree's own arithmetic and its 'EXACTLY' (branelink.py:64-65) are correct as statements about the unit definition. The narrowing concerns the class of statements the value supports (~4 significant figures at a stated epoch), not the tree's conclusions.",
+ "what_would_change_the_grade": "-> STANDS: if the tree recorded the parallax, its sigma (+-0.00028 ly) and the J2016.0 epoch at foliation.py:583 / nonstatic.py:257 and stopped claiming 5-figure physical precision downstream, the use would match the source's hypotheses. -> DATA-DEPENDENT: only if a conclusion came to rest on the 4th-5th figure (none does now), or if Gaia DR4 or another independent parallax differed from DR3 by far more than the 6e-4 spread seen so far. -> WRONG: nothing READ here supports it; it would need an independent parallax off by a large fraction, which HST 2025 excludes at <0.1%. -> OPEN on the zero-point component alone until a validated bias estimate for nu_eff < 1.24 bright stars (or DR4) is READ.",
+ "reverify_command": "PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gaia-dr3-proxima-distance.py  # expect '0 failure(s)', exit 0",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gaia-dr3-proxima-distance.json"
+}

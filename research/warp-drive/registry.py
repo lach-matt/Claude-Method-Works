@@ -53,7 +53,7 @@ essentially filling in the rest of the space in the master index."
 
     THE BOUNDARY THAT REMAINS.  Composite nuclei stay out of the particle
     capture, because they ARE the periodic elements and `gravity` already seats
-    3,394 nuclide-charge states.  `nucshell` was already the exception that
+    3,663 nuclide-charge states.  `nucshell` was already the exception that
     proved the old subject too narrow: its members are nuclear, not atomic, and
     it was seated with a note saying so.
 
@@ -68,7 +68,7 @@ essentially filling in the rest of the space in the master index."
     laws          584 series             n range, l, quantum defect
     probability   25 subshells           n, l
     inversion     20 inversions          pairs of (n, l)
-    gravity       3,394 nuclide-charge   Z, N, A, q, Ne, 2J, level status
+    gravity       3,663 nuclide-charge   Z, N, A, q, Ne, 2J, level status
                   states, read in 8
                   spacetime dimensions
     nucshell      22 NUCLEAR subshells   nr, l, j -- the only non-atomic
@@ -130,8 +130,15 @@ REGISTERED = (
     ("probability", "index", "TABLE", "25 subshells", "n, l"),
     ("inversion", "index", "TABLE", "20 fill-order/shell-order inversions",
      "pairs of (n, l)"),
+    # RE-PINNED 2026-09-20: 3,394 -> 3,663 nuclide-charge states, and the
+    # source did not grow.  DOCKET 49b (b28abdc) widened gravity's capture
+    # reader to the `Configuration / Term / J / Level_cm-1` header spelling and
+    # reached eight level tables already on disk -- Fr I, N IV, Ni X, Ra I,
+    # Rn I, Sr II, Ti IV, Xe I -- for +269 members.  The commit reported the
+    # new total and left this row at the old one.  The chart is unmoved: 914
+    # cells, (0, 19, 112), K0.  gravity.py sections 1 and 3a.
     ("gravity", "index", "TABLE",
-     "3,394 nuclide-charge states x 8 dimensions",
+     "3,663 nuclide-charge states x 8 dimensions",
      "Z, N, A, q, Ne, 2J, level status"),
     ("nucshell", "index", "TABLE", "22 nuclear single-particle subshells",
      "nr, l, j (nuclear)"),
@@ -156,8 +163,34 @@ REGISTERED = (
     ("observed", "index", "FIBRATION",
      "108 observed differentiating electrons, register 1306",
      "n, l, k (observed)"),
+    # RE-PINNED 2026-09-20/21, THREE TIMES OVER, AND THEY ARE NOT ALL THE SAME
+    # FAULT.  Two of the three are corrections; the third is a correction of
+    # the second, and it is kept rather than folded away.
+    #   (1) MEMBER COUNT 3,394 -> 3,663.  DOCKET 49b (b28abdc) widened
+    # gravity's capture reader and this coarsening reads the SAME members as
+    # its parent, whose row above was re-pinned for the same reason; this one
+    # was missed.  The source did not grow.  THIS ONE STANDS -- it is DOCKET
+    # 49b's correction and nothing below touches it.
+    #   (2) COORDINATES (B,F,X) -> (B,F,X,E), 26 cells -> 52, cell (1,8,5) ->
+    # (1,9,10), arity 3 -> 4.  The widening made (B,F,X,E) sound on the six
+    # reaches `overlaprule`'s gate sampled and the ruling followed the gate --
+    # `overlaprule.py` section 3f-bis.
+    #   (3) AND BACK: COORDINATES (B,F,X,E) -> (B,F,X), 52 cells -> 26, cell
+    # (1,9,10) -> (1,8,5), arity 4 -> 3.  `overlaprule.py` section 3f-ter is
+    # the RESAMPLE the same ruling ordered second.  Gravity's six declared
+    # reaches were measured against gravity's own data and named three Z it
+    # holds no member at -- two of them past the last member, Z = 90 -- while
+    # giving one chart four times; swept over all 39 reaches the data does
+    # hold, (B,F,X,E) is K0 at Z <= 35 and Z <= 36 and is refused on
+    # oscillation.  THE ROW FOLLOWED THE GATE BOTH TIMES.  The channel has been
+    # K1 throughout and the member count has been 3,663 since (1).
+    #   SO THE QUANTUM-NUMBER GLOSS LOSES `mass evidence` AGAIN, and that is
+    # the part of this row a reader most easily gets wrong: E is not refused
+    # for being evidence-about-a-member rather than a property-of-one -- that
+    # question is open and `overlaprule.py` 3f route (b) is where it sits.  It
+    # is refused because the chart oscillates on the reaches the data has.
     ("overlaprule", "gravity_bound", "TABLE",
-     "the same 3,394 nuclide-charge states, on the bound structure alone",
+     "the same 3,663 nuclide-charge states, on the bound structure alone",
      "horizon-bound class, forced angular momentum, spin-decade rank"),
     # UNSEATED BY DOCKET 22.  ("overlaprule", "nucshell_lsigma", ...) sat here.
     # The same 22 members under (l, 2j) -- an IDENTICAL partition, and 2j is
@@ -204,9 +237,199 @@ REGISTERED = (
      "168 quasiparticles of twelve Laughlin states, three of them observed",
      "statistics class, order of the exchange phase, order of the charge, "
      "inverse filling fraction"),
+    # ---- DOCKET 31.  M: "almost nothing -- but not nothing, which means
+    # measurable ... it is a sub index/sublattice of bosons."  DOCKET 28 read
+    # "almost nothing" as nothing; low resolution is not no resolution, and
+    # overlap.py's LABEL threshold is the test these coordinates pass.  The
+    # ruling also NAMES the object, which DOCKET 28 never found: not an index
+    # of quasiparticles floating free but a SUBLATTICE of the bosons.  The
+    # first draft LISTED eleven kinds with their spins and charges written out
+    # from textbook knowledge.  M then ruled: "Do not add declared.  Nothing
+    # less than computed or measured."  Rewritten -- a member is now defined by
+    # WHAT IT IS MADE OF and every number is computed from the seated
+    # electron by charge addition and angular-momentum addition.  The
+    # collective modes left with it, because they are not composites.
+    ("bosonqp", "index", "TABLE",
+     "15 bosonic excitations -- composites, Goldstone modes and hybrids, "
+     "every number derived",
+     "2J, Q3"),
+    # ---- DOCKET 32.  M: "the non-abelian Hall states are a further member
+    # set and are not in this index -- we do this next."  The other kind of
+    # Hall quasiparticle: exchange rotates the state inside a degenerate space
+    # rather than multiplying it by a phase.  Moore-Read IS RR_2.  Same
+    # coordinate frame as `fqh` on purpose, so the two can be compared -- and
+    # neither turns out to nest in the other.
+    ("readrezayi", "index", "TABLE",
+     "363 parafermion primaries of eleven Read-Rezayi states, two observed",
+     "statistics class, order of the twist, order of the charge, level"),
+    # ---- DOCKET 34.  M: "still indexable.  Just contains no mass.  But a
+    # legitimate index.  Build it and seat it."  DOCKET 33 found this chart and
+    # refused it on a MASS reach -- but mass is not total over these members
+    # and mesons.py already refuses it as a coordinate, so that was the wrong
+    # reach.  On PDG STATUS, which every row carries, the channel MOVES (K5 to
+    # K4) and boxinvariance seats it.  THE FIRST ARITY-3 K4 IN THE TREE: every
+    # earlier one was arity 2, where statistics closes free.  This fills the
+    # last empty channel.
+    ("spin4", "index", "TABLE",
+     "10 spin-4 mesons, two of them without a printed mass",
+     "P, 2I, Q3"),
+    # DOCKET 35.  The candidate subpop.py declared unreachable, reached by
+    # navigating by JOIN instead of by meet -- NAVIGATION.md section 3.  A
+    # nuclear excited state carries I and pi exactly as a particle carries J
+    # and P.  ITS K2 IS THE FREE ONE: at arity 2 kdet closes statistics for
+    # nothing, so the index really closes in NOTHING, which is where mesons
+    # and baryons sit too.  nucbands.py says so in its own section 3 rather
+    # than banking the channel.
+    ("nucbands", "index", "TABLE",
+     "2,145 nuclear excited states in magnetic and antimagnetic rotational "
+     "bands; 27 bands and 93 levels refused for carrying no quantum number",
+     "2I, parity"),
+    # DOCKET 36b.  The other nuclear paper, seated once its capture could be
+    # SHOWN total -- 234 entries, 173 bands, 61 bandhead states, all exact
+    # against the paper's own numbers.  A NEW MEMBER SET and not a recharting
+    # of nucbands: that index is the shears mechanism in near-spherical nuclei
+    # and this is a deformed rotor's tower, and the two share ZERO nuclides,
+    # which deformedbands.disjoint_from_nucbands() measures rather than
+    # asserts.  Its K2 is the free one, exactly as nucbands' is.
+    ("deformedbands", "index", "TABLE",
+     "1,907 excited states in two-quasiparticle rotational bands of deformed "
+     "odd-odd nuclei, Z 67-71 and A 156-174 -- the source's TITLE says "
+     "156 <= A <= 168 and its table does not, 132 levels sitting above 168; "
+     "56 levels refused for carrying a spin and no parity",
+     "2I, parity"),
+    # ---- THE PHONON INDEX.  M: "Do we have an index of phonons?  Or do we
+    # need to build one?" then "if it can accurately be a realized index, then
+    # we have an obligation to build it."  DOCKET 28 had closed the
+    # quasiparticle gap by finding that "the quasiparticles" is not a member
+    # set the way "the particles" is -- everything distinguishing one phonon
+    # mode from another is the HOST's.  quasiparticle.py section 3 left the
+    # door open with a spec: the mode tables of a fixed set of crystals, each
+    # mode's irrep, "it needs a real fetch."
+    #
+    # ONE LEVEL DEEPER THE FETCH DISAPPEARS.  A material's Gamma content is the
+    # SUM over its occupied site orbits, and each orbit's contribution depends
+    # only on its SITE-SYMMETRY TYPE.  So the member is (space group, site
+    # type) and that is the GENERATING TABLE from which every material follows
+    # by addition -- finite, exhaustive, no database.  1,120 members over all
+    # 230 space groups, every number COMPUTED: spglib for the operations,
+    # transformed to the primitive basis; Burnside's class-algebra method for
+    # the character tables, validated before use; chi = N_fixed tr(R)
+    # decomposed by orthogonality.  NO textbook character table and no Wyckoff
+    # table is read, which is bosonqp.py's ruling applied to a new index.
+    #
+    # THE GRANULARITY IS FORCED.  ITA lists P-1's eight inversion centres as
+    # 1a..1h; all eight contribute identically, so seating them separately
+    # would be over-representation.  This index seats P-1 with two members.
+    ("phonondex", "index", "TABLE",
+     "1,120 site-symmetry types over all 230 space groups -- the Gamma-point "
+     "phonon symmetry content of every distinct crystallographic site, from "
+     "which any material's content follows by addition",
+     "site-symmetry order, number of distinct irreps, maximum irrep dimension "
+     "(the mode's degeneracy)"),
+    # ---- THE k-POINT EXTENSION.  M: "Now seat and push the k-point extension
+    # for the high-symmetry points."  phonondex.py section 5 REFUSED k != Gamma
+    # and named the obstruction: the little group's representations are
+    # PROJECTIVE for non-symmorphic groups.  DISCHARGED FOR ALL 870.
+    #
+    # High-symmetry k are the reciprocal-space analogue of Wyckoff positions --
+    # stabiliser types keyed by the STAR, keeping those whose stabiliser FIXES
+    # NO DIRECTION, which is the analogue of a position with no free parameter.
+    # No k-point table is read; the standard fcc/sc/bcc/hex sets are reproduced
+    # afterwards as a check.  The small representations are ordinary irreps of
+    # the CENTRAL EXTENSION by the factor system omega(R1,R2) =
+    # exp(-2 pi i g1 . v2), selected by their central character.
+    #
+    # 45.9 % of members have a non-trivial factor system, so the projective
+    # route is load-bearing.  The decisive row is diamond at X: dims [2,2,2,2],
+    # every mode doubly degenerate -- the non-symmorphic sticking, which an
+    # ordinary-rep implementation gets visibly wrong.
+    #
+    # EIGHTEEN MEMBERS WERE FIRST SEATED UNRESOLVED and that is now CLOSED.
+    # The reason given for them -- that Burnside's randomised search does not
+    # converge in nine cubic non-symmorphic groups -- was WRONG three times
+    # over.  The cross-check implementation's multiplier g = R^-T k - k is a
+    # reciprocal lattice vector but NOT a 2-cocycle (deviation exactly 1/2), so
+    # its extension was not a group and Burnside was right to refuse it.
+    # Corrected to K = k - R^T k, all 870 resolve.  See kpointdex.py section 5a,
+    # which records the withdrawal in full.
+    ("kpointdex", "index", "TABLE",
+     "870 isolated high-symmetry k-point types over the 162 space groups that "
+     "have any -- the small representations available at each, computed "
+     "through their projective factor system",
+     "crystal momentum k (as the star), little-group order, factor-system "
+     "order, maximum small-representation dimension (the mode's degeneracy)"),
+    # ---- THE TIME-REVERSAL EXTENSION.  M: "Now seat the time-reversal
+    # extension for the antiunitary obstruction."  kpointdex discharged the
+    # PROJECTIVE obstruction; its own derivation recorded that doing so is
+    # NECESSARY AND NOT SUFFICIENT, because a second and independent one --
+    # TIME REVERSAL, acting ANTIUNITARILY -- degenerates levels the unitary
+    # calculation reports as separate, "and its integrality checks do not
+    # notice".  That clause is the difficulty: the unitary answer is internally
+    # consistent, sum d^2 = |G_k| and all, and simply INCOMPLETE.
+    #
+    # THE MEMBER IS A LEVEL, NOT A STAR, which is why this is an extension and
+    # not a recharting.  kpointdex's 870 stars carry 3,529 corepresentations --
+    # the physically irreducible objects, what a spectrum shows as one
+    # multiplet.  309 of them are DOUBLED at k by time reversal, across 86
+    # space groups, and no unitary quantity sees it.  3,908 small
+    # representations become 3,529 levels: 594 case-(c) reps fuse in conjugate
+    # pairs at one k, and 164 type-(x) reps fuse across CONJUGATE k.
+    #
+    # A FIRST VERSION SEATED 3,611 AND WAS OVER-REPRESENTING.  A type-(x)
+    # corepresentation spans the star of k AND the star of -k, both of which
+    # are seated, so a row at each arm names one member twice; the 42 type-(x)
+    # stars form 21 conjugate pairs and 164 rows named 82 objects.  Folded to
+    # one row with the partner in `k2` -- phonondex's P-1 ruling, applied
+    # again.  Its chart also carried `little_order`, which is CONSTANT on every
+    # star and is already kpointdex's first coordinate; struck.  See
+    # corepdex.py sections 2b and 5, which record both withdrawals.
+    #
+    # IT SITS ON kpointdex's OWN STARS AND THAT IS PROVED SET-WISE, not assumed:
+    # the 1/12 mesh here and kpoint_derive's grid-free Hermite-normal-form
+    # enumeration give IDENTICAL SETS of fractional k-vectors on 230 of 230
+    # space groups.  A side effect worth keeping: that upgrades the mesh from
+    # "converged" to proved.
+    #
+    # FOUR INDEPENDENT VALIDATIONS, none of them the code checking itself: a
+    # SIGNED sum rule derived from the omega-twisted regular character, whose
+    # right-hand side touches no character table (holds on all 828 stars with
+    # an antiunitary coset); the case-(c) pairing proved fixed-point-free; 230
+    # of 230 agreement with an implementation sharing no convention, no basis
+    # and no projective machinery; and the published literature, including the
+    # Dirac point MEASURED at 15.3 kHz in space group 230.
+    ("corepdex", "index", "TABLE",
+     "3,529 corepresentations over the 870 isolated high-symmetry k-stars -- "
+     "the physically irreducible phonon levels once TIME REVERSAL is admitted, "
+     "309 of them doubled by it and invisible to the unitary calculation; "
+     "spinless (T^2 = +1) and nonmagnetic, and refusing both extensions",
+     "crystal momentum k (as the star, and for type (x) the conjugate pair of "
+     "stars), the DEGENERACY time reversal forces, the small-representation "
+     "dimension under it, and how many symmetry species the level contains"),
 )
 
 NOT_AN_INDEX = {
+    # DOCKET 37.  Three readings of "a bond", three refusals, three
+    # DIFFERENT grounds -- and the molecular hole in this register is
+    # real, so the candidate was measured rather than waved off.
+    "bonds": "chemical, atomic and particle bonds -- REFUSED three "
+             "times over: the molecular orbital's +/- is provably the "
+             "MOLECULE's and its g/u the HOST's, leaving lambda alone "
+             "as the orbital's own; no reading of the atomic bond is an "
+             "object; "
+             "and the NN partial waves have no census that is not a "
+             "potential model's operator basis.  See bonds.py",
+    # DOCKET 36.  Not a refusal on the criterion -- the members WOULD
+    # carry quantum numbers.  It is a refusal on the INPUT: the paper's
+    # own entry delimiter was collapsed by the PDF-to-text extraction,
+    # and deformed.py proves it (210 separators required, at most 49
+    # present).  A capture that cannot be shown total is not seated.
+    "deformed": "the CAPTURE of the deformed two-quasiparticle bands, not an "
+                "index -- the levels it segments are seated as "
+                "`deformedbands`.  TWO refusals were RETRACTED here under "
+                "audit: first the claim that no parse could recover the "
+                "entries, then the 233-of-234 shortfall that held up the "
+                "seating.  The 234th was a band-number line printed with a "
+                "trailing full stop.  See deformed.py",
     "mi": "members are the seated indexes -- and NINE OF THEM ARE NOT "
           "REGISTERED ONES; figure.superseded_mi() measures it",
     "figure": "the index of first-order indexes: its members ARE the seated "
@@ -476,16 +699,26 @@ def selftest():
         sorted({tuple(d["path"] for d in sources()["%s.index" % m]["paths"])
                 for m in ("fundamental", "mesons", "baryons")}),
         [("research/warp-drive/captures/PDG-2026.tsv",)])
-    chk("a computed index declares an empty path tuple, which is a source "
-        "and not a gap",
+    # M: "Do not add declared.  Nothing less than computed or measured.
+    # Declared still requires proof."  A source with no file must be one of
+    # these three, and DECLARED -- a human writing values out of knowledge --
+    # is NOT among them.  It was briefly a fourth category to accommodate
+    # bosonqp's first draft; that draft was rewritten to compute its numbers
+    # instead, and the category is gone.
+    NOFILE = ("COMPUTED", "INLINE", "Inherited", "recovered/")
+    chk("an index with no file declares which kind of source it has instead",
         [nm for nm, v in sources().items()
-         if not v["paths"] and "COMPUTED" not in v["why"]
-         and "INLINE" not in v["why"] and "Inherited" not in v["why"]
-         and "recovered/" not in v["why"]], [])
-    chk("seventeen indexes registered -- eleven, two the overlap ruling seated "
-        "after DOCKET 22 unseated a third, one DOCKET 26 added, and DOCKET "
-        "27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
-        "quasiparticles", len(REGISTERED), 19)
+         if not v["paths"] and not any(k in v["why"] for k in NOFILE)], [])
+    chk("NO ROW IS DECLARED -- nothing less than computed or measured",
+        sorted(nm for nm, v in sources().items() if "DECLARED" in v["why"]),
+        [])
+    chk("twenty-seven indexes registered -- eleven, two the overlap ruling "
+        "seated after DOCKET 22 unseated a third, one DOCKET 26 added, and "
+        "DOCKET 27's three particle indexes, DOCKET 29's K5 and DOCKET 30's "
+        "quasiparticles, DOCKET 31's boson sublattice and DOCKET 32's "
+        "non-abelian states, DOCKET 34's K4, DOCKET 35's nuclear rotational "
+        "levels and DOCKET 36b's deformed ones, THE PHONON INDEX, its k-POINT "
+        "EXTENSION, and its TIME-REVERSAL EXTENSION", len(REGISTERED), 27)
     chk("DOCKET 27 seated three, and none of them is a coarsening of a row "
         "above -- each is a new member set",
         sorted(m for m, _a, _me, _w, _q in REGISTERED
@@ -507,11 +740,21 @@ def selftest():
         sorted(short(nm) for nm, m, *_r in rows() if m == "overlaprule"),
         ["baryon_isomultiplet", "gravity_bound", "madelung_slot"])
     chk("NO module exposing an index is unaccounted for", missing(), [])
-    chk("seven modules are excused, with reasons", len(NOT_AN_INDEX), 7)
-    chk("and SIX of the seven are excused by the criterion -- quasiparticle "
+    chk("nine modules are excused, with reasons", len(NOT_AN_INDEX), 9)
+    chk("and SIX of the nine are excused by the criterion -- quasiparticle "
         "is the one excused by BOX INVARIANCE instead",
         sorted(k for k, v in NOT_AN_INDEX.items() if "criterion passes" in v),
         ["quasiparticle"])
+    # DOCKET 36 added a THIRD KIND of excuse -- not the criterion, not box
+    # invariance, but THE INPUT -- and DOCKET 36b RETIRED it by closing the
+    # capture.  The entry stays, because the capture file really is not an
+    # index; what changed is the reason, and the reason is now that its levels
+    # are seated elsewhere.
+    chk("the one excused ON THE INPUT is retired: its levels are now seated",
+        [k for k, v in NOT_AN_INDEX.items() if "RETRACTED" in v], ["deformed"])
+    chk("and the excuse now points at the seating, not at a refusal",
+        ("seated as" in NOT_AN_INDEX["deformed"],
+         "NOT SEATED" in NOT_AN_INDEX["deformed"]), (True, False))
     chk("every excuse is non-empty",
         [k for k, v in NOT_AN_INDEX.items() if not v.strip()], [])
     chk("mi is excused, not registered",
@@ -537,6 +780,14 @@ def selftest():
     chk("terms seats 112 distinct cells", sz["terms.index"], 112)
     chk("DOCKET 26's observed fibration seats 98 distinct cells",
         sz["observed.index"], 98)
+    # RE-PINNED 26 -> 52 -> 26, AND BOTH MOVES ARE KEPT.  3f-bis re-seated the
+    # row on (B,F,X,E) because the gate admitted it on six declared reaches;
+    # 3f-ter resampled those six -- three named a Z gravity holds no member at,
+    # two of those past its last member, and four gave the same chart -- and
+    # the gate, able to see the Z <= 35/36 dip at last,
+    # refused (B,F,X,E) on oscillation.  The row is (B,F,X) again.  The number
+    # returned to where it started by a route that measured every step, which
+    # is not the same thing as never having moved.
     chk("the ruling's gravity coarsening seats 26",
         sz["overlaprule.gravity_bound"], 26)
     chk("the ruling's madelung coarsening seats 82",

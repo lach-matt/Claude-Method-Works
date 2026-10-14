@@ -1,0 +1,30 @@
+PASS A1 eq (7): P_r = -G^1_1/8pi equals Herrera's expression
+PASS A2 eq (6): mu = G^0_0/8pi equals Herrera's expression
+PASS A3 eq (10): nu' = 2(m + 4 pi P_r r^3)/(r(r-2m)) from (7) and e^-lam = 1-2m/r
+   K^t_t = -exp(-lam(r)/2)*Derivative(nu(r), r)/2    K^th_th = -exp(-lam(r)/2)/r
+PASS B0 K^t_t = e^{-lam/2} nu'/2 and K^th_th = e^{-lam/2}/r, up to ONE common overall sign
+   solve [K^th_th]=0 for e^{-lam_S}: [(-2*M + r_Sigma)/r_Sigma]
+PASS B1 [K^th_th] = 0  <=>  e^{-lam_S} = 1 - 2M/r_S  (eq 21)
+PASS B2 given (21), [K^t_t] = 0  <=>  nu'_S = 2M/(r_S(r_S-2M))
+PASS B3 (21) + eq (12)  =>  m(r_S) = M
+PASS B4 given (21), [K^t_t] = 0  <=>  P_r(r_S) = 0  (eq 22, necessity)
+PASS B5 sufficiency: (21) & P_r(r_S)=0  =>  [K^t_t] = [K^th_th] = 0
+   (eq 20 is [h]=0 with the exterior time normalised so the constant factor is 1: a coordinate choice, not a physical condition)
+   [K^t_t] = -4*pi*p0*r_Sigma**(3/2)/sqrt(-2*M + r_Sigma)   S^t_t (surface energy) = 0   S^th_th = -p0*r_Sigma**(3/2)/(2*sqrt(-2*M + r_Sigma))
+PASS C1 with p0 != 0 the shell has ZERO surface energy (S^t_t = 0)
+PASS C2 ... and a tangential surface stress proportional to p0 (nonzero iff p0 != 0)
+PASS D1 nabla_mu T^mu_r = 0 on a fixed background IS Herrera eq (9) (up to sign)
+   delta(r-R) coefficient of div T: sigma*NUP(R)/2 - P(R) - 2*s/R
+PASS E1 delta-coefficient = -P(R) + nu'(R) sigma/2 - 2 s/R
+PASS E2 no surface layer (sigma = s = 0)  =>  p_r(R^-) = 0  on ANY fixed background
+PASS F0 interior p_r=p_t=p0, u=3p0 is traceless and flat-conserved
+   shell: s = -R*p_0/2   sigma = -R*p_0
+PASS F1 bounded traceless source WITH a traceless shell has p_r(R^-) = p0 != 0
+PASS F2 identity m = 4 pi R^3 p_r holds at R^- (m = 4 pi R^3 p0)
+PASS F3 at R^+ (cut outside the shell) m = 0 = 4 pi R^3 p_r(R^+): L1's TOTAL-mass conclusion survives without eq (22)
+PASS F4 the traceless shell has NEGATIVE surface energy (sigma = -p0 R)
+PASS G1 flat conservation holds for the control
+PASS G2 identity m(r) = 4 pi r^3 p_r(r) for the control at every r
+PASS G3 p_r(R) = 0 (eq 22's conclusion) gives m(R) = 0 (L1 as used)
+
+ALL PASS

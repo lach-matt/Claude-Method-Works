@@ -1,0 +1,59 @@
+A. H^3 heat kernel and local spectral density
+  [ok] H^3 kernel solves dK/dt = Lap_H3 K (radial) residual/K = 0
+  [ok] coincidence limit = (4 pi t)^(-3/2) exp(-t/a^2) exp(-t/a**2)/(8*pi**(3/2)*t**(3/2))
+  [ok] density sqrt(lam - C^2)/(4 pi^2) Laplace-transforms to that limit (C = 1/a) exp(-C**2*t)/(8*pi**(3/2)*t**(3/2))
+  [ok] F&T (5.4)+(5.2) sum rule gives the heat-kernel density sqrt(lam - 1/a^2)/(4 pi^2) q/(4*pi**2*a)
+  [ok] Ricci scalar of R x H^3(a) = -6/a^2 (computed) -6/a**2
+  [ok] gap^2 = 1/a^2 + xi R: minimal (xi = 0) -> 1/a^2; conformal (xi = 1/6) -> 0 (1 - 6*xi)/a**2
+B. Fewster-Eveson counting with the H^3 density -> Q_3(u/C)
+  [ok] H^3 count integrand = w^2 sqrt(w^2 - C^2)/(2 pi^2) omega**2*sqrt(-C**2 + omega**2)/(2*pi**2)
+  [ok] flat count = u^4/(8 pi^2) u**4/(8*pi**2)
+  [ok] d/dy[(y(2y^2-1)sqrt(y^2-1) - acosh y)/8] = y^2 sqrt(y^2-1); = 0 at y = 1 
+  [ok] x = 1.5: numeric H^3 count / flat count = tree's Q_3 closed form 0.484667139833851
+  [ok] x = 2: numeric H^3 count / flat count = tree's Q_3 closed form 0.716617294032483
+  [ok] x = 7: numeric H^3 count / flat count = tree's Q_3 closed form 0.979095393078555
+  [ok] x = 40: numeric H^3 count / flat count = tree's Q_3 closed form 0.999374192994071
+  [ok] Q_3(x) -> 1 as x -> oo 
+  [ok] x^2 (1 - Q_3(x)) -> 1 (so 1 - Q_3(u/C) ~ C^2/u^2: the tail used in D) 1
+C/D. sampler, Parseval, ratio(C) at 30 dps
+  [ok] INT g^2 = 1 (clamped mode) 1.0
+  [ok] INT (g'')^2 = mu^4 INT g^2 500.56390174043259597
+  [ok] exponential form of g'' matches direct g'' 
+  [ok] FT(g'') closed form = quadrature at u = 0.7 
+  [ok] FT(g'') closed form = quadrature at u = 13.0 
+  [ok] FT(g'') closed form = quadrature at u = 101.0 
+  [ok] Parseval: INT_0^oo |FT g''|^2 = pi mu^4 (quad to 2000 + exact Si tail) rel -1.21e-9
+  [ok] (1/16 pi^3) pi mu^4 = mu^4/(16 pi^2) = C_F 3.16985793831047
+  [ok] ratio(C = 35.3553) = 0.04539391743841  (tree 0.0453939) rel 3.84e-07
+  [ok] ratio(C = 20) = 0.08072009594421  (tree 0.0807201) rel 5.02e-08
+  [ok] ratio(C = 10) = 0.1656314320165  (tree 0.165631) rel 2.61e-06
+  [ok] ratio(C = 5) = 0.4690896853998  (tree 0.46909) rel 6.71e-07
+  [ok] ratio(C = 1) = 0.9743214583231  (tree 0.974321) rel 4.70e-07
+  [ok] ratio(C = 0.1) = 0.9997538865225  (tree 0.999753886523) rel 4.84e-13
+  [ok] ratio(C = 0.01) = 0.9999975421913  (tree 0.999997542191) rel 3.09e-13
+  [ok] second route (numerator directly) agrees at the witness 0.0453939162331
+  [ok] witness orders -log10(ratio) = 1.343002 1.343002337
+  [ok] cavity C = 0.005 -> ratio rounds to 0.999999 0.999999385558
+  [ok] monotone decreasing in C 
+     (1 - ratio)/C^2 at C = 0.1: 0.02461134775
+     (1 - ratio)/C^2 at C = 0.01: 0.02457808691
+  [ok] (5.6) LHS -> RHS: (1/4pi^3) * C^4 [antideriv](u/C) = u^4 Q_3(u/C)/(16 pi^3) 
+G. F&T's OWN Einstein static universe (5.14), mu a = 1: gap C = 1/a, same sampler
+     C = 35.355     H^3 (5.6): 0.0453941   ESU (5.14): 0.0900570
+     C = 5          H^3 (5.6): 0.4690897   ESU (5.14): 1.0416223
+     C = 1          H^3 (5.6): 0.9743215   ESU (5.14): 1.0000666
+     C = 0.1        H^3 (5.6): 0.9997539   ESU (5.14): 0.9999995
+  [ok] float H^3 ratio reproduces the 30-dps value at the witness 
+  [ok] SAME gap C, DIFFERENT bound: |ESU - H^3| > 1e-4 at every C tested 
+  [ok] ESU with gap C = 5 > 0 is LOOSER than flat (ratio > 1): a gap does not imply tightening 1.0416223
+  [ok] ... and at C = 1 (margin 6.7e-5 >> quadrature/tail error ~1e-6) 1.0000666
+  [ok] CONTROL: ESU routine at C = 0.02 returns 1 to 1e-5 0.99999942
+E. inf spec(-Lap) = 0 on a slice with arbitrarily large flat balls
+  [ok] Rayleigh quotient of the R-scaled bump = k/R^2 -> 0 RQ = pi**2*(-3 + 2*pi**2)/(3*R**2*(-15 + 2*pi**2))
+F. the tree's witness gap (tree data, read-only import)
+  [ok] C = b/a_c = 35.35533905932738 35.35533905932737
+     note: 35.35533905932738 = 25*sqrt(2) = 35.35533905932738
+  [ok] C = b/a_c = sqrt(2 (M/b) / (a/b)^3): G, c and b cancel sqrt(2)*sqrt(m_b)/a_b**(3/2)
+  [ok] ... = 25 sqrt(2) at achievable's M/b = 0.005, a/b = 0.02 
+
+REDERIVE OK

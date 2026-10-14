@@ -1,0 +1,71 @@
+{
+ "key": "dreissen-sme-lab-bound",
+ "name": "Dreissen et al.: laboratory SME/Lorentz-violation bound 1e-21",
+ "source": {
+  "located": "L. S. Dreissen, C.-H. Yeh, H. A. Fuerst, K. C. Grensemann, T. E. Mehlstaeubler, 'Improved bounds on Lorentz violation from composite pulse Ramsey spectroscopy in a trapped ion', arXiv:2206.00570; Nature Communications 13, 7314 (2022). The tree's value reaches it through Kabat & Nomura arXiv:2309.05759 (PRD 108, 105014 (2023)), whose eqs. 76-77 supply the |c| it is compared against. Located by WebSearch (arXiv abs/html, nature.com, PMC9701673, PubMed 36437241 all returned as the same paper).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ IN THIS STAGE. Every route failed: alphaXiv answer_pdf_queries x2 (2206.00570 by title; 2309.05759), get_paper_content x2 and discover_papers x1 all returned 'alphaXiv assistant quota exceeded'; curl and WebFetch to arxiv.org, export.arxiv.org, alphaxiv.org, nature.com, ncbi.nlm.nih.gov, europepmc/ebi, repo.uni-hannover.de, semanticscholar, inspirehep, link.springer.com, journals.aps.org, research.vu.nl, quantummetrology.de all refused by the egress proxy (403 / EGRESS_BLOCKED). What is in hand is WebSearch result summaries only, which are NOT the source and are recorded as corroboration, not as READ: (i) for Dreissen, several results carry the abstract sentence that the work 'improves the constraints on the symmetry breaking coefficients to the 10^-21 level' and is 'the most stringent test of this type of Lorentz violation', in the 2F7/2 manifold of a single Yb+ ion, Michelson-Morley-type comparison of orthogonally oriented orbitals, coherence extended from 200 us to > 1 s; one summary adds that c_{X-Y}, c_{XZ}, c_{YZ} are consistent with zero at 1 sigma and c_{XY} deviates by 1.1 sigma, 'all the coefficients of the c_MN tensor at the 10^-21 level'. (ii) For Kabat & Nomura, a summary attributes to the paper the term i L = i c_{mu nu} psibar gamma^mu d^nu psi and the sentence 'For the electron, laboratory bounds on the dimensionless coefficients c_{mu nu} have reached the level of ~10^-21' -- i.e. the tree's 1e-21 is plausibly KN's quoted figure, citing Dreissen. Neither table values, uncertainties, confidence level, nor KN's eqs. 76-77 text were seen."
+ },
+ "published_statement": "NOT READ at source. As carried by search-result summaries of the abstract (not verbatim-verified): constraints on the electron's Lorentz-symmetry-breaking coefficients (SME c_MN / c_JK, Sun-centred frame) improved 'to the 10^-21 level' by composite-pulse Ramsey spectroscopy in the Yb+ 2F7/2 manifold. The tree's use: branelink.py:149 SME_LAB_BOUND = 1.0e-21 '# Dreissen et al. (READ)'; branelink.py:97-98 '|c| <= 6.37e-64 against a 1e-21 laboratory bound -- 42 orders short, a real measurement that does not bite'; branelink.py:308 SME_ORDERS_SHORT = log10(SME_LAB_BOUND / sme_coefficient()).",
+ "published_hypotheses": [
+  "(from search summaries, not READ) The bound is on the ELECTRON sector's c coefficients -- not photon, proton or any other species.",
+  "(from search summaries, not READ) It bounds the spatial, anisotropic components (c_{X-Y} = c_XX - c_YY, c_XY, c_XZ, c_YZ; possibly c_ZZ-type combination) in the Sun-centred celestial-equatorial frame, via the sidereal modulation of an orbital-quadrupole energy shift of a Michelson-Morley-type test; it does NOT bound c_TT or isotropic parts at 1e-21.",
+  "(standard for this class of measurement; not READ here) The conversion from a measured frequency modulation to c_JK uses an atomic-structure matrix element for the Yb+ 2F7/2 state from theory, and takes all other SME coefficients as zero (one-coefficient-at-a-time / electron-only analysis).",
+  "(not READ) The '10^-21 level' is per-component with stated uncertainties (1 sigma or a stated CL); the exact per-component values and CL were not seen."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- component / frame (branelink.py:149, 97-98, 308): the tree compares one scalar |c| from Kabat & Nomura eqs. 76-77 against 1e-21, but (per the search summaries) the 1e-21 bounds specific spatial anisotropic electron components c_JK in the Sun-centred frame. Mapping KN's c_{mu nu}, whose preferred direction is set by the compactification frame, onto Sun-frame c_JK requires the lab's velocity relative to that frame -- which is exactly O7's UNMEASURED B (branelink.py:92-95, LEDGER.md:101). The drift's direction was checked under a HYPOTHETICAL preferred-4-velocity structure (rederive (e1)): the Sun-frame spatial part is suppressed by gamma^2 v^2 ~ 1.5e-6 at the CMB speed, so the dropped hypothesis runs AGAINST biting -- the tree's comparison is the most favourable to biting, not less. KN's actual tensor structure was NOT read, so this is a recorded direction, not a verified one.",
+  "DROPPED in restatement -- the (r, beta) qualifier (LEDGER.md:101; ledger.py:1793-1794): branelink.py:96-97 states the null 'at the maximal r = 38.6 um and beta = 1', but the ledger restates it as 'The loop-induced SME route is a null 42 orders short' with no r or beta. Because |c| scales exactly as beta^2/r^2 (rederive (a4)), r = 38.6 um is the LEAST-biting r (largest r = smallest |c|); the same formula and the same 1e-21 DO bite at beta = 1 for r <= 3.08e-26 m (hbar c/r ~ 6.4e9 GeV) (rederive (c1)). At the tree's own beta <= 3.74e-8 the bite threshold falls to r <= 1.15e-33 m, ~71 Planck lengths (rederive (c2)), where nothing establishes the EFT. So the null is a statement at a named point, which branelink.py states and the ledger drops.",
+  "UNVERIFIED -- the mu r -> 0 limit (branelink.py:288-289 docstring 'at mu r -> 0: I_grav = -zeta(3)/4'): the identity of mu in KN eqs. 76-77 was not read. If mu is the massless graviton's mass the limit is exact; if the electron mass enters as mu, then m_e r/(hbar c) = 1.0e8 at r = 38.6 um (rederive (d1)) and the evaluated regime is the opposite limit. Either way this concerns KN, not Dreissen, and cannot be settled here.",
+  "STATUS WORD -- branelink.py:149 marks the value 'READ'. Whether the DOCKET 62 pass read Dreissen itself or took the 1e-21 from KN's sentence citing it is not recorded in the tree; the search summary of KN carries the same '~10^-21' figure, which fits the latter. Not a finding against the value -- a provenance note."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "electron c_JK laboratory bound (Sun-centred frame), the tree's SME_LAB_BOUND",
+   "value_then": "'10^-21 level' (Dreissen et al. 2022, per search summaries; tree carries 1.0e-21)",
+   "value_now": "No later laboratory electron c_JK bound improving on it was found by the one later-literature search run (WebSearch; alphaXiv discover_papers quota-refused). Current per-component values NOT READ.",
+   "source_now": "WebSearch summaries of arXiv:2206.00570 / Nat. Commun. 13, 7314; no Kostelecky-Russell Data Tables (arXiv:0801.0287) edition could be opened",
+   "moves_conclusion": "NO at the tree's point: rederive (b1)-(b2) -- any bound between 1e-19 and 1e-23 leaves 44.2 to 40.2 orders short at (r = 38.6 um, beta = 1); the bound would have to improve by > 1e42 to bite there."
+  },
+  {
+   "quantity": "|c| at r = 38.6 um, beta = 1 (KN eqs. 76-77 as coded, the other side of the comparison)",
+   "value_then": "6.37e-64 (branelink selftest pin)",
+   "value_now": "6.3722359955725e-64 recomputed with exact zeta(3) (tree's partial sum agrees to 1.2e-12 rel)",
+   "source_now": "rederive/dreissen-sme-lab-bound.py (a1)-(a3), constants from higgs.py / achievable.py as the tree asks them",
+   "moves_conclusion": "NO -- 42.196 orders, rounds to 42"
+  },
+  {
+   "quantity": "R_EOTWASH = 38.6 um (Lee et al. 2020, 95% CL), fixes the point of evaluation",
+   "value_then": "38.6 um",
+   "value_now": "not re-read here (separate audit key if any)",
+   "source_now": "branelink.py:142",
+   "moves_conclusion": "Only through r^-2: a 10% move in r moves the margin by 0.08 orders. It does NOT move 'does not bite' at this r; the bite region r <= 3.08e-26 m at beta = 1 is 21 orders of magnitude in r below it."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/dreissen-sme-lab-bound.py",
+  "outcome": "ALL PASS (11 checks). (a) The tree's |c| = 6.3722e-64 at r = 38.6 um, beta = 1 agrees with a sympy evaluation using exact zeta(3) to 1.2e-12 rel; log10(1e-21/|c|) = 42.196 -> SME_ORDERS_SHORT = 42; |c| scales exactly as beta^2 r^-2. (b) The conclusion is insensitive to the bound's value: 1e-19..1e-23 gives 44.2..40.2 orders short. (c) Scope: the same formula and bound bite at beta = 1 for r <= 3.08e-26 m (6.4e9 GeV), and at the tree's beta_max = 3.74e-8 for r <= 1.15e-33 m (71 l_Planck); at beta_max and r = 38.6 um the margin is 57.0 orders. (d) m_e r/(hbar c) = 1.0e8 at 38.6 um (relevant only if mu = m_e; mu not read). (e) Under a hypothetical preferred-4-velocity structure the Sun-frame c_JK carries gamma^2 v^2 = 1.52e-6 at the CMB speed. NOT CHECKED: the value 1e-21 itself against the paper's table (source unreadable); KN eqs. 76-77 against the code (source unreadable).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "WebSearch 'new bound electron Lorentz violation c_JK trapped ion 2023 2024 2025 ...' (alphaXiv discover_papers refused: quota)",
+   "effect": "confirms",
+   "what": "Result summaries still describe Dreissen et al. as 'the most stringent test of this type of Lorentz violation', mention the earlier entangled 40Ca+ bound (a search result titled 'A Michelson-Morley Test of Lorentz Symmetry for Electrons', arXiv:1412.2194) as its predecessor line, and report an arXiv revision dated 2024-07-24. No superseding laboratory electron c_JK bound surfaced. This is a search-summary absence, not a read survey: a newer bound may exist unseen.",
+   "read_status": "NAMED-NOT-READ (search summaries only)"
+  },
+  {
+   "ref": "Kabat & Nomura, arXiv:2309.05759, PRD 108, 105014 (2023)",
+   "effect": "extends",
+   "what": "The paper the tree's |c| comes from; per a search summary it quotes electron c_{mu nu} laboratory bounds '~10^-21', the same figure the tree carries. Eqs. 76-77, the tensor structure of c_{mu nu} and the definition of mu were not read.",
+   "read_status": "NAMED-NOT-READ (search summary only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What the authors had (per summaries): a single Yb+ ion, composite-pulse Ramsey in 2F7/2 with > 1 s coherence, a sidereal-modulation fit in the Sun-centred frame, and a theoretical atomic matrix element to convert frequency to c_JK. What came later: no superseding electron c_JK measurement was found; atomic-structure recalculations of the Yb+ 2F7/2 quadrupole matrix element could shift the bound by an O(1)-to-O(10) factor at most -- not checked here. Does missing data change the conclusion the TREE draws? No, computed: the tree's conclusion ('42 orders short at r = 38.6 um, beta = 1') would survive any revision of the bound by up to ~40 orders in either direction (rederive (b)). The data the tree itself lacks matters more than any the authors lacked: (1) the lab's velocity B relative to the compactification frame, needed to project KN's c_{mu nu} onto the components Dreissen actually bounds -- UNMEASURED, and on a hypothetical structure its absence makes the tree's comparison conservative; (2) r, which the tree fixes at its largest allowed value, the least-biting point. Evidence either way: no datum the authors lacked is shown to move anything here.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be READ in this stage (alphaXiv quota refused on every call; every publisher/repository host refused by the egress proxy), so the value 1e-21 -- marked 'READ' at branelink.py:149 -- is not re-verified against the paper's table, and its hypotheses (electron sector; spatial anisotropic c_JK in the Sun-centred frame; other coefficients zero; CL) are known here only from search-result summaries. By the docket's rule a claim that cannot be checked here is OPEN, and it is not flattened to STANDS. What WAS computed: the tree's arithmetic stands exactly (|c| = 6.372e-64, 42.196 orders -> 42), and the dependent conclusion O7's SME null is insensitive to the bound's value by ~40 orders, so no plausible correction to the datum moves it. Two scope notes, both recorded not repaired: (i) a probable dropped hypothesis -- the bound constrains Sun-frame c_JK components, not a scalar |c|, and the projection needs the unmeasured B; on a hypothetical structure that drop is conservative (runs against biting); (ii) LEDGER.md:101 / ledger.py:1793 restate the null without branelink.py:96-97's '(r = 38.6 um, beta = 1)'; the same bound does bite at beta = 1 for r <= 3.08e-26 m. Neither is shown to be an error in Dreissen et al., and nothing here is WRONG.",
+ "what_would_change_the_grade": "Reading arXiv:2206.00570 (Table of fitted c_JK with uncertainties and CL, the atomic matrix element used, the frame and sector) and Kabat & Nomura arXiv:2309.05759 eqs. 76-77 (tensor structure of c_{mu nu}, definition of mu, and the sentence quoting the ~1e-21 bound). If every bounded component is at <= a few x 1e-21, electron sector, Sun-centred frame -> STANDS for the value, with the tree's comparison graded NARROWED on the component/frame hypothesis unless KN's c maps onto c_JK with O(1) weight independent of B. If KN's c is purely c_TT-type in the compactification frame, Dreissen's bound applies only through B^2 and the comparison is NARROWED (conservatively). If the table shows the relevant components are bounded only at 1e-19 or weaker, the value is a discrepancy (DATA-DEPENDENT in principle) but rederive (b) already shows the 42-orders conclusion moves by at most 2 orders.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/dreissen-sme-lab-bound.py && grep -n 'SME_LAB_BOUND\\|orders short' /home/user/Claude-Method-Works/research/warp-drive/branelink.py /home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/dreissen-sme-lab-bound.json"
+}

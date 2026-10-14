@@ -1,0 +1,61 @@
+C1  transcription: every tree value vs A09 Table 1 as READ
+    DISCREPANCY Ne           tree=(7.93, None)  Table1=(7.93, -1.12)
+    DISCREPANCY Ar           tree=(6.4, None)  Table1=(6.4, -0.5)
+  [ok] stockgate carries 63 elements; photospheric column identical to Table 1 for all
+  [ok] meteoritic column identical except Ne, Ar (tree None; Table 1 -1.12, -0.50)
+  [ok] stock.py's 18 photospheric values identical to Table 1
+  [ok] the 12 no-photospheric elements the tree names are exactly Table 1's dashes among its 62: ['As', 'Bi', 'Br', 'Cd', 'Cs', 'Hg', 'I', 'Sb', 'Se', 'Ta', 'Te', 'U']
+
+C2  reproduce the tree's headline numbers from the Table 1 values
+    human(59) vs A09 hybrid: P 1910.87, Li 1753.36 (ratio 0.91757), K 651.79 (P/3rd 2.9317)
+  [ok] P binds at 1910.87 (stockgate selftest fixture; ledger D25)
+  [ok] Li runner-up at 0.91758 of P
+  [ok] Ne/Ar meteoritic omission does not move it (hybrid uses photospheric Ne, Ar)
+  [ok] stock.py cosmic(): P at 1910.5 (fixture 1910.5)
+  [ok] P/Li photospheric mass-fraction ratio 1.022e+05 (tree 1.02e5)
+  [ok] Li gap 2.21 dex = 162.18x (tree 2.21, 162)
+
+C3  the binder identity P vs Li -- exact criterion
+    Li overtakes P iff  log eps(Li) - log eps(P) < -4.3974  (A09 value: -4.36)
+    margin at A09: 0.0374 dex; A09 quoted sigma(Li)=0.10, sigma(P)=0.03
+    P(Li binds | A09's own Gaussian errors) = 0.3602 analytic, 0.3615 MC (N=200000)
+  [ok] the A09 margin (0.037 dex) is smaller than A09's own sigma(Li) = 0.10
+    A09 (0909.0948 Table 1)                    Li=1.05 P=5.41  f_Li/f_P = 0.9176  -> binder P
+    AAG21 (2105.01661 Table 2)                 Li=0.96 P=5.41  f_Li/f_P = 1.1289  -> binder Li
+    C11 (as restated in 2608.23155 pp.23,32)   Li=1.03 P=5.46  f_Li/f_P = 1.0781  -> binder Li
+    L25 (2502.10575 Table 2)                   Li=1.04 P=5.44  f_Li/f_P = 1.0061  -> binder Li
+    AG26 (2608.23155 Table 3)                  Li=0.96 P=5.35  f_Li/f_P = 0.9832  -> binder P
+  [ok] compilations disagree on the binder (contested datum)
+
+C4  full-table substitution into the tree's hybrid construction, same 59-element payload
+    A09    X=0.73739  binder P 1910.9  2nd Li 1753.4  (2nd/1st 0.9176)  70 kg -> 133.8 t
+           craft binder Li 6.1499e+07
+    AAG21  X=0.74380  binder Li 2138.5  2nd P 1894.4  (2nd/1st 0.8858)  70 kg -> 149.7 t
+           craft binder Li 7.5008e+07
+    AG26   X=0.73519  binder P 2200.5  2nd Li 2163.6  (2nd/1st 0.9832)  70 kg -> 154.0 t
+           craft binder Li 7.5887e+07
+  [ok] AAG21: binder flips to Li
+  [ok] AG26: binder P, Li within 2%
+  [ok] magnitude stays within 1.6e3..2.4e3 kg/kg on every table
+
+C5  'the largest such gap in the table' against Table 1 as published
+    top |ph-met|: He 9.64, Ne 9.05, Ar 6.90, Kr 5.52, Xe 4.19, H 3.78, Li 2.21, N 1.57, C 1.04
+    largest photospheric DEFICIT (ph<met): Li -2.21, Pb -0.29, Ag -0.26, Rh -0.15
+  [ok] literal claim FALSE on the published table (He, Ne, Ar, Kr, Xe, H exceed Li)
+  [ok] true as 'largest photospheric deficit' (Li -2.21, next Pb -0.29)
+  [ok] tree's largest_dex_gap() returns Li only because Ne/Ar meteoritic are None and H/He excluded
+
+C6  labels of destinations as computed
+    'solar meteoritic' column mass fractions: H 0.0194 O 0.466 Fe 0.182 Si 0.105 -> a CI-chondrite rock, not protosolar gas
+  [ok] meteoritic column is volatile-depleted (H mass fraction < 0.05)
+    protosolar (A09 sec 3.11 construction): binder P 1716.6, Li 10.17
+    tree's 'protosolar / meteoritic' Li = 0.0682 is the CI-rock figure (binder P 11.51)
+  [ok] a genuine protosolar stock binds on P with Li far behind (Li not burned)
+    Jupiter as the tree builds it (photospheric Li x3): P 654.0, Li/P 0.9176
+    Jupiter with unburned (meteoritic) Li x3:          P 654.0, Li/P 0.0057
+
+C7  X, Y, Z of the tree's 62-element hybrid vs A09 sec 3.12 (X=0.7381, Y=0.2485, Z=0.0134)
+    tree hybrid X=0.7374 Y=0.2492 Z=0.0134
+  [ok] agrees with A09's X, Y, Z to 0.001 absolute
+
+RESULT: ALL CHECKS AS STATED

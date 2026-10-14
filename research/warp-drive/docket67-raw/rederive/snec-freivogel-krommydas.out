@@ -1,0 +1,52 @@
+E1  FK eq.(37) with f = g^2  <=>  tree form anec.py:14 (INT g^2 T >= -(4B/G) INT g'^2)
+  [ok] (f')^2/f == 4 (g')^2
+E2  Gaussian g^2 = exp(-x^2/w^2)/(w sqrt(pi)) (anec.py:131)
+  [ok] normalised: INT g^2 = 1
+  [ok] INT (g')^2 = 1/(2 w^2)  (got 1/(2*w**2))
+      FK smearing length (eq. 38): tau = sqrt(2)*w/2
+      RHS (G = 1) = -2*B/w**2 ; at B = 1/(32 pi): -1/(16*pi*w**2)
+E3  G_N bookkeeping: 8 pi G T = G_munu  =>  INT g^2 G_kk >= -32 pi B INT g'^2
+  [ok] 32 pi B = 1 at B = 1/(32 pi): the code's -4B (anec.py:136) is LL eq.(3) lower bound -1/4 INT rho'^2/rho
+  [ok] G cancels in the geometric form (FK eq. 6)
+      large-w crossover (tree convention): w = [-2*sqrt(pi)*B/I]
+
+E4  tree's printed bound (anec.py:24-29) against the closed form -2B/w^2
+      w= 0.10  tree -1.7600e+00  closed form -1.9894e+00  rel.diff -11.5%
+      w= 0.50  tree -7.9180e-02  closed form -7.9577e-02  rel.diff -0.5%
+      w= 1.00  tree -1.9870e-02  closed form -1.9894e-02  rel.diff -0.1%
+      w= 5.00  tree -5.0850e-04  closed form -7.9577e-04  rel.diff -36.1%
+      w=20.00  tree -2.8430e-06  closed form -4.9736e-05  rel.diff -94.3%
+  [ok] w=0.5 and w=1.0 agree to <0.6%
+  [ok] w=0.1, 5, 20 do NOT agree (grid h=0.05 at w=0.1; window |x|<=6 truncation at w=5,20)
+
+E5  crossover recomputed: analytic g, analytic RHS, wide fine window (no truncation)
+      y=0.3: INT T_kk dx over [-8,8] = -0.09464 (tree -0.0946 over [-2.5,2.5])
+      w= 0.10  LHS -9.2892e-05  RHS -1.9894e+00  ok
+      w= 0.50  LHS -5.9267e-03  RHS -7.9577e-02  ok
+      w= 1.00  LHS -2.4284e-02  RHS -1.9894e-02  VIOLATED
+      w= 5.00  LHS -1.0339e-02  RHS -7.9577e-04  VIOLATED
+      w=20.00  LHS -2.6643e-03  RHS -4.9736e-05  VIOLATED
+      crossover w_c = 0.9274 (tree 0.9270); FK tau_c = w_c/sqrt2 = 0.6558
+  [ok] crossover reproduced within 2% of tree's 0.9270 (got 0.9274)
+  [ok] violation at w=5 and w=20 survives with UNtruncated Gaussians
+      large-w asymptotic crossover 2 sqrt(pi) B/|I| = 0.3726
+
+E6  B dependence (FKK 2012.11569 sec.2.2: B = 1/(32 pi) from LL; 'B << 1' when semiclassical is under control)
+      B =  0.01 x 1/(32pi): w_c = 0.3747
+      B =  0.10 x 1/(32pi): w_c = 0.5257
+      B =  1.00 x 1/(32pi): w_c = 0.9274
+      B =  3.00 x 1/(32pi): w_c = 1.5558
+      B = 10.00 x 1/(32pi): w_c = 3.9265
+  [ok] smaller B => smaller crossover (violation persists and widens)
+
+E7  axis ray y = 0 (the only (pre)geodesic of the five), tree-style vs affine (frozen metric)
+      INT T_kk dx tree-style -0.08066 ; affine INT T_KK dlambda -0.05241
+      crossover tree-style 1.0492 ; affine 1.2689
+  [ok] an affine, geodesic SNEC violation exists on the axis ray at the loosest B
+
+E8  curvature scale along the y = 0.3 ray: L = (max_ab |G_ab| Eulerian orthonormal)^(-1/2)
+      y=0.0: max|G_ab| = 4.9290  ->  L_curv = 0.4504 ; w_c/L = 2.82
+      y=0.3: max|G_ab| = 4.5375  ->  L_curv = 0.4695 ; w_c/L = 1.98
+  [ok] SNEC crossover lies ABOVE the curvature scale (outside FK 2018's stated domain tau << L)
+
+SELFTEST OK

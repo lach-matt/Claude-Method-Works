@@ -1,0 +1,53 @@
+A  dimensional analysis
+   nullity = 3  basis: [[0, -1, -1, 1, 0, 0], [-1, 0, 0, 0, 1, 0], [1, 1, -1, 0, 0, 1]]
+  PASS three dimensionless groups (alpha, m_e/M, r_N m_e c/hbar)
+  PASS alpha = q2/(hbar c) in nullspace span
+B  Schrodinger with reduced mass
+   d ln(nu/cR)/d ln(M/m_e) = 1/(mu + 1)
+  PASS reduced mass cancels exactly in a same-atom ratio
+   hydrogen single-transition B = 5.443206e-04
+C  Dirac, point nucleus, infinite mass
+  PASS Dirac n=1 l=0 up=True -> nu/cR is a function of alpha only, NR limit -1
+  PASS Dirac n=2 l=0 up=True -> nu/cR is a function of alpha only, NR limit -1/4
+  PASS Dirac n=2 l=1 up=False -> nu/cR is a function of alpha only, NR limit -1/4
+  PASS Dirac n=2 l=1 up=True -> nu/cR is a function of alpha only, NR limit -1/4
+  PASS Dirac n=3 l=2 up=True -> nu/cR is a function of alpha only, NR limit -1/9
+D  relativistic recoil in H(1S-2S)/(2P-3D)  [formula RECALLED: E = m_r c^2 (f-1) - m_r^2 c^2 (f-1)^2/(2M)]
+   d ln[nu(1S-2S)/nu(2P1/2-3D3/2)] / d ln(m_e/M) = 6.4377e-09
+   d ln[nu(1S-2S)/nu(2P3/2-3D5/2)] / d ln(m_e/M) = 6.4379e-09
+   tree finite-size K (r_p=8.4140e-16) = -7.8654e-10 ; with CODATA 2022 r_p=8.40750e-16: -7.8532e-10 (move -0.154%)
+   K_recoil(H2, S=0.06, 2P1/2-3D3/2) = 6.0515e-09  ; |K_recoil/K_fs| = 7.7
+   K_recoil(H2, S=0.06, 2P3/2-3D5/2) = 6.0516e-09  ; |K_recoil/K_fs| = 7.7
+  PASS finite-size closed form reproduced (sympy) 
+E  Fermi contact hyperfine
+  PASS |psi_1s(0)|^2 = 1/(pi a0^3)
+   nu_hf/(c R_inf) = 2*alpha_s**2*g_I*g_e*m_e*(2*I + 1)/(3*m_p)
+  PASS alpha exponent exactly 2
+  PASS m_p exponent exactly -1 and m_e exponent exactly +1
+  PASS g_I exponent exactly 1
+  PASS no hbar, c, eps0 left
+   Fermi nu_F(H) = 1418.840091 MHz ; measured 1420.405752 MHz ; ratio-1 = 1.1035e-03 ; a_e = 1.1597e-03
+  PASS measured/Fermi - 1 is (a_e + O(alpha^2)) to within 5e-5 [Breit 1.5a^2=8e-5, Zemach/recoil ~-4e-5]
+   with reduced mass: B_hf(H) = (2 - mu)/(mu + 1) = -0.998367
+F  Casimir relativistic factor (RECALLED, point nucleus, single s1/2 electron)
+   K_rel(Z=55) = d ln F_rel/d ln alpha = 0.7391 ; Godun READ A_Cs - 2 = 0.83 ; diff 0.091
+  PASS Casimir -> 1 as Z alpha -> 0
+G  g_I not fixed: optical/Cs coefficient under a displaced vev
+   H1 S=0.06 kappa_Cs=-0.05 : d ln(nu_opt/nu_Cs)/d ln v = -0.6922 (g_I fixed: -0.7311; change -5.32%)
+   H1 S=0.06 kappa_Cs=-0.01 : d ln(nu_opt/nu_Cs)/d ln v = -0.7233 (g_I fixed: -0.7311; change -1.06%)
+   H1 S=0.06 kappa_Cs=+0.01 : d ln(nu_opt/nu_Cs)/d ln v = -0.7389 (g_I fixed: -0.7311; change +1.06%)
+   H1 S=0.06 kappa_Cs=+0.05 : d ln(nu_opt/nu_Cs)/d ln v = -0.7700 (g_I fixed: -0.7311; change +5.32%)
+   H2 S=0.06 kappa_Cs=-0.05 : d ln(nu_opt/nu_Cs)/d ln v = -0.8900 (g_I fixed: -0.9400; change -5.32%)
+   H2 S=0.06 kappa_Cs=-0.01 : d ln(nu_opt/nu_Cs)/d ln v = -0.9300 (g_I fixed: -0.9400; change -1.06%)
+   H2 S=0.06 kappa_Cs=+0.01 : d ln(nu_opt/nu_Cs)/d ln v = -0.9500 (g_I fixed: -0.9400; change +1.06%)
+   H2 S=0.06 kappa_Cs=+0.05 : d ln(nu_opt/nu_Cs)/d ln v = -0.9900 (g_I fixed: -0.9400; change +5.32%)
+H  transported optical clock coefficient
+   tree K_alpha(H1) = 1.849653e-03 (43 alpha/(54 pi) = 1.849653e-03)
+   H1 A_opt=0                : d ln(nu_in/nu_out)/d eps = 1.00370  (tree: +1 EXACTLY; deviation +0.370%)
+   H1 Yb+ E2 (Godun READ)    : d ln(nu_in/nu_out)/d eps = 1.00533  (tree: +1 EXACTLY; deviation +0.533%)
+   H1 Yb+ E3 (Godun READ)    : d ln(nu_in/nu_out)/d eps = 0.99269  (tree: +1 EXACTLY; deviation -0.731%)
+   H2 hydrogen, reduced mass only        : 0.999488 (deviation -5.12e-04)
+   tree B_transported_optical() = 1.0
+
+SUMMARY {'B_single_H': 0.0005443205752384785, 'K_recoil_H2_2P1/2-3D3/2': 6.051474876755947e-09, 'K_recoil_H2_2P3/2-3D5/2': 6.0515792377202615e-09, 'K_fs_tree': -7.865353956580039e-10, 'K_fs_codata2022': -7.853206343460432e-10, 'nuF_H_MHz': 1418.8400906539039, 'ratio_meas_over_fermi_minus1': 0.0011034796129663071, 'B_hf_H_reduced_mass': -0.9983670382742846, 'K_rel_Cs_Casimir': 0.7390747484340359, 'B_transport_H1_A_opt=0': 1.003699305075118, 'B_transport_H1_Yb+ E2 (Godun READ)': 1.0053269993081697, 'B_transport_H1_Yb+ E3 (Godun READ)': 0.9926938724766421, 'B_transport_H2_hydrogen_recoil': 0.9994883386592758}
+FAILS: []

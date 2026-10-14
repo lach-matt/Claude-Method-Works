@@ -1,0 +1,147 @@
+{
+ "key": "1802.08257",
+ "name": "MacGregor, Weinberger, Wilner, Kowalski, Cranmer, 'Detection of a millimeter flare from Proxima Centauri', arXiv:1802.08257v1 (ApJL 855, L2, 2018): the ACA 1.3 mm excess is a ~1 min stellar flare, 'no need to posit the cold belt at 1-4 AU'; the 12-m excess may be coronal; the 30 au belt is marginal with 13+10-8 background sources > 150 uJy expected in the ACA primary beam",
+ "source": {
+  "located": "arXiv:1802.08257v1 [astro-ph.EP], 22 Feb 2018 (submitted 2017-12-22, accepted 2018-02-05). All 7 PDF pages read: abstract p.1; Sec 1 p.1 (PMS luminosity sentence); Sec 2 pp.1-2; Sec 3.1 pp.2-3; Sec 3.2 p.3 (first-12 rms 68 uJy with ~2 sigma peak, final obs 1.17+-0.10 mJy, peak 100+-4 mJy, ~1 min, FWHM 30 s); Sec 4.1 p.5; Sec 4.2 pp.5-6 (belt sentences, 13+10-8); Sec 5 pp.6-7. Also read for inputs: Anglada et al. 2017 (1711.00578v1) pp.1-8; Carniani et al. 2015 (1502.00640v3) pp.1-2,6-9 incl. Table 3; Gonzalez-Lopez et al. 2020 (2002.07199v1) Tables 2-4; Burton et al. 2025 (2503.21890v1) pp.1-4,6-8,10-11.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on 1802.08257 (one batched call, returned all 7 pages as text); same tool on 1711.00578, 1502.00640, 2002.07199, 2503.21890; discover_papers once."
+ },
+ "published_statement": "Abstract (p.1): 'Since the ACA observations do not show any quiescent excess emission, we conclude that there is no need to invoke the presence of a dust belt at 1-4 AU. We also posit that the slight excess flux density of 101+-9 uJy observed in the 12-m observations compared to the photospheric flux density of 74+-4 uJy extrapolated from infrared wavelengths may be due to coronal heating from continual smaller flares ... If this is true, then the need for warm dust at ~0.4 AU is also removed.' Sec 4.2 (p.6): 'It is clear from our analysis that the entirety of the 1.3 mm emission detected by the ACA results from the short duration stellar flare. No emission is detected above a 3 sigma level during quiescence ... When averaged together with the remaining ~19 hours of non-detections, this transient event appeared as the ~340 uJy source detected by Anglada et al. (2017). Without the detection of a quiescent excess, there is no need to posit the cold belt at 1-4 AU.' ... 'Given the differential source counts at 1.3 mm, the number of sources with flux density > 150 uJy that are expected within the ACA primary beam (FWHM ~39\") is 13+10-8, a not insignificant number. In addition, Proxima Centauri sits close to the Galactic plane (latitude -2 deg) in a region of high background cirrus.' Sec 5 (p.7): 'the detection of a flare does not immediately impact the claim of an outer belt at ~30 AU, [but] the significant number of background sources expected in the image and known high level of background cirrus suggest that caution should be used in over-interpreting this marginal result.' Sec 1 (p.1): 'Late M-type stars ... have long pre-main sequence phases during which the stellar luminosity can change significantly'.",
+ "published_hypotheses": [
+  "H1 (data): the 2017 Jan 21 - Apr 25 ALMA 12-m (2 SBs, 41 antennas) and ACA (13 SBs, 8-11 7-m antennas) Band 6 data of programme 2016.A.00013.S, the same data Anglada et al. 2017 used; nothing new observed.",
+  "H2 (sensitivity): 'no quiescent excess' is at the ACA sensitivity: first-12 image rms 68 uJy/beam, no source > 3 sigma, a ~2 sigma central peak; 30-s binning for short flares (p.3). A quiescent point source of ~100 uJy 'would not have been detected' (p.3).",
+  "H3 (parsimony, not exclusion): the belt conclusion is 'no need to posit/invoke' -- the evidence for the 1-4 au belt is removed; the paper does not claim to exclude a belt below its sensitivity.",
+  "H4 (photosphere): 74+-4 uJy at 1.3 mm is an extrapolation of the Ribas et al. 2017 SED model, not a measurement.",
+  "H5 (conditional, coronal): the 12-m ~30 uJy excess 'may be' / 'could also be plausibly explained by' / is 'likely' due to continual small flares (by analogy with AU Mic); warm dust at 0.4 au is removed only 'if this is true'.",
+  "H6 (background): the 13+10-8 figure uses 1.3 mm differential counts (Carniani et al. 2015, agreeing with Shimizu 2012 and Cai 2013 simulations) over 'the ACA primary beam (FWHM ~39\")'; the integration area and formula are not stated. A second, unquantified contamination source is Galactic: latitude -2 deg, high cirrus.",
+  "H7 (outer belt): the ACA visibilities 'do not adequately cover the short spatial frequencies needed to measure the total disk flux density'; the flare 'does not immediately impact' the 30 au claim."
+ ],
+ "hypothesis_drift": [
+  "STRENGTHENED (the load-bearing drift): formation.py:288-289 'THE 1-4 au BELT, which would have held small primitive bodies, IS WITHDRAWN'; formation.py:43-44 and :410 'MacGregor 2018 withdraws Anglada 2017's 1-4 au belt'; formation.py:458 SURVEY_BELT_1_4AU_WITHDRAWN_BY_SOURCE = True. The source says 'no need to posit' (p.6) / 'no need to invoke' (p.1, p.7): the EVIDENCE is removed (H3). Computed here: the first-12 ACA image disfavours star + Anglada's ~200 uJy belt at ~2.0 sigma and Anglada's full 340 uJy at ~3.0 sigma; a belt fainter than ~130 uJy (2 sigma of the 68 uJy rms) is not excluded, and such a belt could still hold small bodies. 'Withdraws' also names an author act; MacGregor et al. are not the Anglada et al. authors, and the one discover_papers call found no Anglada response (absence of a find, not a finding). The tree's own quote at :286-287 is verbatim-correct; the drift is in the gloss.",
+  "DROPPED (sensitivity scope): formation.py:286-289 drops H2 -- the 'no quiescent excess' holds at first-12 rms 68 uJy/beam (a ~2 sigma central peak is present, p.3). Same site as the first drift; it is what makes 'withdrawn' stronger than the data.",
+  "DROPPED (second contamination source): formation.py:290-291 and :448-449 carry the 13+10-8 background count but drop the paper's Galactic-plane / cirrus caveat (p.6, p.7). The omission weakens nothing the tree concludes (both caveats point the same way: the 30 au belt stays marginal).",
+  "UNSTATED INPUT CARRIED AS READ: formation.py:290-291 '13+10-8 background sources > 150 uJy expected in the primary beam' is quoted exactly, but the paper states neither area nor formula; recomputed from the counts it cites it is ~1.6 in the FWHM disk (see data). The tree marks it READ, which it is; it is not reproducible here under the literal reading.",
+  "NO DRIFT: formation.py:289-290 '0.4 au warm dust is unnecessary if the 12-m excess is coronal' keeps H5's conditional; formation.py:447 'ACA excess is a ~1 min flare' matches p.3 ('approximately 1 minute in total (FWHM of 30 seconds)'); formation.py:275-277 PMS-luminosity sentence is verbatim from Sec 1; formation.py:293-294 Proxima b m_p sin i = 1.3 M_earth, a = 0.05 AU matches Sec 1."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "flare peak flux density (2017 Mar 24 ACA event)",
+   "value_then": "100+-4 mJy (M18 p.3, uvmodelfit in 2-s intervals)",
+   "value_now": "119+-7 mJy, same event (B25 Sec 3.1, Table 2; 1-s integrations, CASA 6.4)",
+   "source_now": "Burton et al. 2025, arXiv:2503.21890 (READ)",
+   "moves_conclusion": "No. A different pipeline on the same data; either peak diluted into the ACA combination gives the few-hundred-uJy source. The flare itself is independently recovered."
+  },
+  {
+   "quantity": "flare duration",
+   "value_then": "~1 min total, FWHM 30 s, preceded by small peaks (M18 p.3)",
+   "value_now": "two-component fit t_1/2 = 16+-4 s and 14+-3 s; a smaller 63 mJy flare ~60 s before (B25 Table 2, Fig 2)",
+   "source_now": "Burton et al. 2025 (READ)",
+   "moves_conclusion": "No. The tree's '~1 min' stands."
+  },
+  {
+   "quantity": "final-observation ACA flux vs flare fluence",
+   "value_then": "1.17+-0.10 mJy measured (M18 p.3)",
+   "value_now": "recomputed here: fluence 3193-4328 mJy s (Gaussian to exponential shape) / 2764 s = 1.16-1.57 mJy",
+   "source_now": "rederive/1802.08257.py item 1",
+   "moves_conclusion": "No. Agrees at the Gaussian end."
+  },
+  {
+   "quantity": "combined 13-observation ACA flux (the Anglada 'excess')",
+   "value_then": "334+-48 uJy (M18), 340+-60 uJy (A17)",
+   "value_now": "recomputed: inverse-variance combination of first-12 (0-136 uJy, rms 68) and final (1170 uJy, rms 150) = 199-312 uJy",
+   "source_now": "rederive item 2",
+   "moves_conclusion": "No. Within 1 sigma at the upper end. Recorded discrepancies, not load-bearing: the three rms quotes (47, 68, 150) do not combine consistently (68 and 150 give 62); the p.6 'averaged with the remaining ~19 hours' sentence is heuristic, since a uniform time average gives 45-61 uJy."
+  },
+  {
+   "quantity": "quiescent ACA constraint on the 1-4 au belt",
+   "value_then": "first-12 rms 68 uJy/beam, ~2 sigma central peak; A17 belt ~200 uJy (A17 p.5)",
+   "value_now": "computed: star + 200 uJy belt is 2.0 sigma above the first-12 peak; A17's full 340 is 3.0 sigma above; no belt is +0.5 sigma. B25 finds >= 8 sigma short flares in the 2017 ACA data on 1 Feb and 19 Mar (Table 2), which lie inside M18's 'first 12' set (Jan 21 - Mar 24) and were invisible to M18's 30-s binning",
+   "source_now": "rederive item 3; Burton et al. 2025 (READ)",
+   "moves_conclusion": "No, but it fixes the conclusion's strength: the belt at A17's flux is disfavoured at ~2 sigma, not excluded. B25's extra flares, if anything, push the quiescent level lower, since the ~2 sigma peak may partly be flare flux. That last point is an inference, not a measurement."
+  },
+  {
+   "quantity": "12-m excess over photosphere",
+   "value_then": "101+-9 minus 74+-4 uJy = ~30 uJy (M18 p.6)",
+   "value_now": "27+-9.8 uJy (2.7 sigma); with A17's 106+-12: 32+-12.6 (2.5 sigma). The photosphere is still an SED extrapolation; no newer direct 1.3 mm photospheric value was read",
+   "source_now": "rederive item 4",
+   "moves_conclusion": "No. The coronal origin remains conditional (H5). B25's steep mm flare-frequency index alpha_FFD = 2.92+-0.02, meaning small flares dominate, is consistent with the low-level-flaring reading but does not measure the 12-m excess."
+  },
+  {
+   "quantity": "distance",
+   "value_then": "1.3 pc (van Leeuwen 2007)",
+   "value_now": "1.3020+-0.0001 pc (Gaia EDR3, cited in B25 Sec 1.2)",
+   "source_now": "Burton et al. 2025 (READ)",
+   "moves_conclusion": "No. Peak L_nu goes from 2.022e14 to 2.028e14 erg/s/Hz; M18 prints 2.04+-0.15e14, reproduced."
+  },
+  {
+   "quantity": "background sources > 150 uJy in the ACA primary beam",
+   "value_then": "13+10-8 (M18 p.6; Carniani 2015 counts; area unstated)",
+   "value_now": "recomputed from the Carniani 2015 1.3 mm Schechter fit (N(>150 uJy) = 1.74e4 deg^-2, 1-sigma corners 1.28e4-2.17e4): 1.6 [1.2-2.0] in the r = 19.5\" FWHM disk; 2.2 to r = 23\" (the ring radius); 3.7 to PB = 20%; 9.0 [6.6-11.1] to the 46\" first null. ASPECS 2020 1.2 mm counts (1.07e4 deg^-2) give 1.0 / 1.4 / 2.3 / 5.5. Thirteen needs a 55\" disk at the Carniani density",
+   "source_now": "Carniani et al. 2015 arXiv:1502.00640 Table 3 (READ); Gonzalez-Lopez et al. 2020 arXiv:2002.07199 Table 4 (READ); rederive item 7",
+   "moves_conclusion": "The number moves; the conclusion does not. Under the literal 'within the primary beam (FWHM ~39\")' reading the expected count is ~1-2, not 13. It falls inside 13+10-8 only under a first-null area. The tree quotes the figure as published. The tree's conclusion that the 30 au belt stays marginal does not rest on it: A17 itself calls the belt marginal (A17 abstract, Sec 3.3), and M18's own H7 (missing short spacings) and Galactic-cirrus caveats stand independently. NOT REPRODUCED here, which is not a refutation."
+  },
+  {
+   "quantity": "quiescent mm luminosity and electron index (M18 Sec 4.1-4.2; not used by the tree)",
+   "value_then": "~1e21 erg/s, '< 1e-9 L_bol'; delta = 3.32+-0.83",
+   "value_now": "recomputed: flat spectrum from 0 to 233 GHz gives nu L_nu = 1.41e22 erg/s = 2.5e-9 L_bol. M18's 1e21 needs a ~16 GHz band (the observed 224-242 GHz span gives 1.1e21). delta = 3.32 is reproduced, but sigma_delta by linear propagation is 0.50, not 0.83",
+   "source_now": "rederive items 5-6",
+   "moves_conclusion": "No. These are discrepancies from an unstated band and an unstated error method, not refutations, and neither feeds the tree."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1802.08257.py",
+  "outcome": "6 AGREES, 7 MEASURED, 4 DISCREPANCY, 1 NARROWS. Six results AGREE: flare fluence to final-obs flux (1.16-1.57 vs 1.17+-0.10 mJy); image-weighted dilution to the 334 uJy combined source (199-312, within 1 sigma); 12-m excess ~30 uJy (27+-9.8); peak L_nu 2.02e14; the solar 2e13 and 10x ratio; delta = 3.32. MEASURED (computed from inputs, no published counterpart): the first-12 data disfavour star + A17's belt at 2.0 sigma (A17 total 3.0 sigma), and 'no belt' fits at +0.5 sigma; background counts in five candidate areas (the MEASURED rows). The NARROWS row: 'no need to posit' is evidence removal, not exclusion. The four DISCREPANCIES, all recorded and none refuting: (i) the rms quotes 47/68/150 are mutually inconsistent; (ii) the 1e21 erg/s quiescent luminosity has an unstated band; (iii) sigma_delta 0.83 vs 0.50; (iv) the 13+10-8 background figure is NOT REPRODUCED under the literal FWHM-beam area (~1.6 from the counts M18 cites) and lies within its own error only if the area runs to the ~46\" first null. Only (iv) touches a number the tree quotes; none moves a tree conclusion.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Burton, MacGregor, Osten et al. 2025, arXiv:2503.21890 (ApJ, 'The Proxima Centauri Campaign -- first constraints on millimeter flare rates from ALMA')",
+   "effect": "confirms",
+   "what": "About 50 h of ALMA 1.3 mm data (2017, 2019, 2021), 463 flares. The 2017 Mar 24 flare is independently recovered at 119+-7 mJy with t_1/2 ~ 15 s, so the flare attribution of the ACA excess is confirmed. It also finds >= 8 sigma short flares in the 2017 ACA data on 1 Feb and 19 Mar, inside M18's 'first 12' set, which M18's 30-s binning could not see. That narrows M18's p.3 'no sources above 3 sigma ... in any of the first 12' to 'at 30-s binning' and strengthens the flare picture. alpha_FFD = 2.92: small flares dominate, consistent with the coronal reading of the 12-m excess. The pages read do not revisit the dust belts.",
+   "read_status": "READ (pp.1-4, 6-8, 10-11)"
+  },
+  {
+   "ref": "Carniani et al. 2015, arXiv:1502.00640 (A&A 584, A78)",
+   "effect": "narrows",
+   "what": "The count source M18 cites. Its 1.3 mm Schechter fit (phi* = 1.8e3 deg^-2, S* = 1.7 mJy, alpha = -2.08) gives N(>150 uJy) = 1.74e4 deg^-2, about 1.6 sources in the ACA FWHM disk against M18's 13. M18's figure is reproduced only with an area out to about the first null.",
+   "read_status": "READ (pp.1-2, 6-9, Tables 2-3)"
+  },
+  {
+   "ref": "Gonzalez-Lopez et al. 2020, arXiv:2002.07199 (ASPECS 1.2 mm counts)",
+   "effect": "narrows",
+   "what": "Later and deeper counts: N(>=158 uJy at 1.2 mm) = 1.06e4 deg^-2, i.e. N(>150 uJy at 1.3 mm) ~ 1.07e4. That lowers the background expectation further (1.0 in the FWHM disk). The 30 au belt stays marginal regardless.",
+   "read_status": "READ (Tables 2-4, Sec 5.1)"
+  },
+  {
+   "ref": "Anglada et al. 2017, arXiv:1711.00578 (ApJL 850, L6)",
+   "effect": "contested",
+   "what": "The claim M18 re-analyses. It gives the cold belt ~200 uJy of a ~270 uJy excess (Sec 3.2), a marginal 30 au belt of ~1.7 mJy (Sec 3.3), ACA primary-beam FWHM ~39\" with first null ~46\" (Sec 2), and an Fig 1 extent of PB > 20%. It supplies the inputs to the ~2 sigma belt test and the area options in rederive items 3 and 7.",
+   "read_status": "READ (pp.1-8)"
+  },
+  {
+   "ref": "MacGregor et al. 2021, arXiv:2104.09519 (extremely short Proxima Cen flare, mm to FUV)",
+   "effect": "extends",
+   "what": "Multi-wavelength 2019 campaign flare. It shows mm flares are common and FUV-correlated. Seen only as an abstract in discover_papers.",
+   "read_status": "NAMED-NOT-READ (abstract via discover_papers)"
+  },
+  {
+   "ref": "Howard et al. 2022, arXiv:2209.05490 (small Proxima Cen flare, mm/optical/X-ray)",
+   "effect": "extends",
+   "what": "Another mm flare from the 2019 campaign. Abstract only.",
+   "read_status": "NAMED-NOT-READ (abstract via discover_papers)"
+  },
+  {
+   "ref": "arXiv:2006.12503 ('Risks for life on Proxima b from sterilizing impacts')",
+   "effect": "extends",
+   "what": "Considers a hypothetical debris belt between Proxima b and c. It is a scenario, not evidence either way on the belts. Abstract only.",
+   "read_status": "NAMED-NOT-READ (abstract via discover_papers)"
+  }
+ ],
+ "lacked_data": "What M18 had: exactly A17's data (H1). M18 needed no new data, only a time-resolved re-analysis, and A17 had the same visibilities without looking at them in time. What M18 lacked, and what came later: (1) the mm flare rate. B25 (2025, ~50 h, 463 flares) measured it; flares are common, and the Mar 24 event is recovered independently at 119+-7 mJy. This CONFIRMS the flare attribution. (2) Second-scale time resolution in the 'quiescent' 2017 ACA sets. B25 finds >= 8 sigma short flares on 1 Feb and 19 Mar 2017, inside M18's first 12 observations. This narrows M18's 'no source above 3 sigma' to its 30-s binning, and it strengthens rather than weakens 'no quiescent excess'. (3) A direct 1.3 mm photospheric measurement is still lacking: 74+-4 uJy remains an SED extrapolation, so the 12-m ~30 uJy excess and its coronal reading stay conditional, exactly as M18 and the tree both say. (4) Deeper source counts: ASPECS 2020 lowers the expected background below the Carniani 2015 level, and M18's 13+10-8 is not reproduced from either under the literal beam reading. That moves a number the tree quotes, not the tree's conclusion. (5) Deep data on the 30 au belt: the 2019 ACA campaign (34 h on source, B25 Table 1) exists, but no dust analysis of it was found or read here, so it is OPEN whether it confirms or refutes the outer belt. Net: M's hypothesis is tested and does NOT move this result's conclusions. The later data reinforce the flare attribution. The one place the tree overreads is its own gloss 'WITHDRAWN', which the data at hand support only as 'no longer evidenced; disfavoured at ~2 sigma at Anglada's flux'.",
+ "grade": "NARROWED",
+ "grade_evidence": "The flare attribution STANDS. It is re-derived here (fluence to 1.17 mJy; image-weighted dilution to 334 uJy) and independently confirmed by Burton et al. 2025 (READ). The 12-m coronal conditional and the PMS sentence are carried faithfully. The grade is NARROWED because the tree's gloss is stronger than the source on the one conjunct it banks. formation.py:288-289 / :43-44 / :410 / :458 read 'THE 1-4 au BELT ... IS WITHDRAWN' and 'WITHDRAWN_BY_SOURCE = True'. The source concludes 'no need to posit/invoke' at ACA first-12 sensitivity (rms 68 uJy), and computed here the data disfavour star + A17's ~200 uJy belt at ~2.0 sigma (3.0 sigma at A17's full 340). A fainter belt, which could hold small bodies, is not excluded. The result holds on 'the 1-4 au belt is not evidenced', a smaller claim than 'withdrawn'. Secondary: the 13+10-8 background figure the tree quotes is not reproduced from the counts M18 cites under the literal FWHM-beam area (~1.6; ~1.0 with ASPECS 2020). It fits within its own error only with a first-null area. This is a recorded discrepancy, not WRONG, and the 30 au belt's 'marginal' status does not rest on it. Downstream: D25's verdict (OPEN AND UNCHANGED) and SURVEY_CONFIRMED_RESERVOIR = UNDETERMINED do not move, because an unevidenced belt is not a surveyed reservoir under either reading. Only the wording of the 'WITHDRAWN' flag overstates the source.",
+ "what_would_change_the_grade": "To STANDS: the tree rewords the flag to the source's scope, e.g. 'the 1-4 au belt is no longer evidenced (MacGregor 2018: no need to posit; disfavoured ~2 sigma at A17 flux)'. Or a later READ analysis of deeper data (e.g. the 34 h 2019 ACA campaign) sets an upper limit excluding a 1-4 au belt at the flux that would matter; that would make 'withdrawn' literally true. To DATA-DEPENDENT: a later deep analysis detects a quiescent 1-4 au excess, which would re-open the belt. To WRONG (for the background figure only, which the tree merely quotes): M18's area or method is stated and shown to give ~1-2, not 13. Even then the tree's 'marginal' conclusion survives. Nothing here shows the flare attribution to be wrong.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1802.08257.py   # then re-read M18 pp.3,6-7 via alphaXiv answer_pdf_queries(paper='1802.08257'); and grep -n 'WITHDRAWN_BY_SOURCE\\|withdraws the 1-4\\|IS WITHDRAWN' /home/user/Claude-Method-Works/research/warp-drive/formation.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1802.08257.json"
+}

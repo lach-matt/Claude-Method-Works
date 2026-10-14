@@ -1,0 +1,16 @@
+PASS C1a d/dh [S(q0+h) to O(h^2)] == E(q0) + K(q0) h  (identically)                 got=True
+PASS C1b d/deps E(q0+eps h)|0 == K(q0) h  (the operator of AMM (3.4))               got=True
+PASS C1c off a solution the zeroth-order source E(q0) is not identically 0          got=True
+PASS C2a identity E'[g](L_X g) == L_X E[g] for all M, c, Lambda, x(r)               got=True
+PASS C2b background is a solution of G + Lambda g = 0 at c = 0, Lambda = 0          got=True
+PASS C2c ... so pure gauge solves the homogeneous linearised eq. at c=0, Lambda=0   got=True
+PASS C2d off a solution (c != 0): E'[g](L_X g) != 0 for generic x(r)                got=True
+PASS C2e witness x(r)=r, c=1, M=0: some component of E'[g](L_X g) is nonzero        got=True
+     witness nonzero components (i, j, value): [(0, 0, -2/r), (1, 1, -2/(r*(r**2 - 2*r + 1))), (2, 2, -r), (3, 3, -r*sin(theta)**2)]
+PASS C3a W1 exact flow x=1/(1+e^-t) solves x'=x(1-x), x(0)=1/2, bounded (-> 1)      got=(True, 1/2, 1)
+PASS C3b W1 residual-kept linearisation: residual 1/4, d = t/4 unbounded            got=(1/4, 0, oo)
+PASS C3c W2 exact flow: t(x) = x + x^3/3 - 4/3, t -> oo only as x -> oo (unbounded) got=(0, oo, True)
+PASS C3d W2 linearisations: f'(1) = -1/2; kept -> 1 (bounded), dropped -> 0         got=(-1/2, 1, 0)
+PASS C4  control: W1 equilibria 0 (f'=1 unstable) and 1 (f'=-1 stable) match flow   got=(0, 0, 1, -1)
+
+13/13 checks pass

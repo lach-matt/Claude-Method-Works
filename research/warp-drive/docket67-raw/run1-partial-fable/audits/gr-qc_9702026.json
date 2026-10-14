@@ -1,0 +1,146 @@
+{
+ "key": "gr-qc/9702026",
+ "name": "Pfenning & Ford, 'The unphysical nature of Warp Drive' (1997): Ford-Roman quantum inequality applied to the Alcubierre metric",
+ "source": {
+  "located": "arXiv:gr-qc/9702026v3 (15 Mar 2001; TUTP-96-4, dated March 20, 1997), M. J. Pfenning and L. H. Ford, Class. Quantum Grav. 14 (1997) 1743. 11 pages, eqs (1)-(31), all read.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on gr-qc/9702026, one batched call, full text pages 1-11 returned"
+ },
+ "published_statement": "Eq (9): Ford-Roman QI for a free massless scalar in 4D Minkowski, Lorentzian sampling: (tau0/pi) INT <T_mn u^m u^n>/(tau^2+tau0^2) dtau >= -3/(32 pi^2 tau0^4). Inserting the Eulerian energy density of the Alcubierre metric, eq (8): <T^00> = -(1/8pi) v_s^2 rho^2/(4 r_s^2) (df/dr_s)^2, for an Eulerian observer crossing the wall at the equator with v_b ~ const, piecewise-linear wall of thickness Delta, and sampling time t0 = alpha * 2Delta/(sqrt3 v_b) with 0 < alpha << 1 (t0 below the smallest local curvature radius r_min = 1/sqrt|R_tyty| ~ 2Delta/(sqrt3 v_b)), the QI gives eq (22): Delta <= (3/4) sqrt(3/pi) v_b/alpha^2; 'as an example, if we let alpha = 1/10, then' eq (23): Delta <= 10^2 v_b L_Planck -- 'unless v_b is extremely large, the wall thickness cannot be much above the Planck scale.' Total energy eq (28): E = -(v_b^2/12)(R^2/Delta + Delta/12); with R = 100 m and Delta at the bound, eq (29): E <= -6.2e70 v_b L_Planck ~ -6.2e65 v_b grams, eq (31): E <= -3e20 M_galaxy v_b (M_MilkyWay ~ 1e12 M_sun = 2e45 g), 'roughly ten orders of magnitude greater than the total mass of the entire visible universe.' Delta = 1 m instead: 'on the order of a quarter of a solar mass.' A bubble of one electron Compton wavelength radius: 'E ~ -400 M_sun'. Summary: walls 'on the order of only hundreds or thousands of Planck lengths'; massive scalar is more restrictive (thinner walls); EM field allows walls thicker by sqrt2.",
+ "published_hypotheses": [
+  "H1 Alcubierre metric eq (1) with any shape function ~1 inside, ->0 outside; the piecewise-linear proxy f_p.c. (eq 4) with Delta = [1+tanh^2(sigma R)]^2/(2 sigma tanh(sigma R)) ~ 2/sigma (eq 5) used 'with no loss of generality' for an order-of-magnitude bound (leading Taylor term f'(rho) ~ 1/Delta, eq 13)",
+  "H2 Eulerian geodesic observers u^mu = (1, v_s f, 0, 0); energy density eq (8) measured by them; observer placed at the bubble equator at t = 0, geodesic x ~ f(rho) v_b t (eq 11)",
+  "H3 the QI is the flat-space Ford-Roman 1995 bound for a FREE MASSLESS SCALAR field with the LORENTZIAN sampling function, constant 3/(32 pi^2) (eq 9); stated to be a 'quantized, massless scalar field' (Sec 5)",
+  "H4 curved-spacetime application is HEURISTIC: 'apply the flat space inequality directly to the warp drive metric but restrict the sampling time to be small' -- t0 <= smallest local curvature radius, the exact treatment (Klein-Gordon modes) 'would be exceptionally difficult' (Sec 1); justified by Ford-Roman 1996 wormhole argument and by the Robertson-Walker exact QIs reducing to flat form for t0 << curvature radius",
+  "H5 v_b ~ const over the sampling interval; sampling function strongly peaked so only a small portion of the geodesic is sampled; contributions from outside the wall neglected (integral taken over all t)",
+  "H6 r_min from the largest orthonormal-tetrad Riemann component |R_tyty| = 3 v_b^2 y^2 f'^2/(4 rho^2) at y = rho with f_p.c. (eqs 18-19)",
+  "H7 t0 = alpha r_min with 0 < alpha << 1; the NUMERICAL bound 10^2 v_b L_P is for the example alpha = 1/10 (eq 20, 23); the bound scales as 1/alpha^2",
+  "H8 thin wall Delta/rho ~ v_b t0/rho << 1 so the (1-f) bracket term of eq (17) is dropped (eq 21)",
+  "H9 total-energy figures: constant-velocity bubble, R = 100 m ('so that we may fit a ship inside'), Delta saturating eq (23), Delta/12 term neglected, M_galaxy = 1e12 M_sun = 2e45 g (eqs 29-31); order-of-magnitude estimates only ('Since we are making only order of magnitude estimates')"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (all owners): H7, alpha = 1/10. The tree pins '10^2 Planck lengths' as a constant -- nullbound.py:157-159 pfenning_ford_thickness(n_planck=100) marked PINNED; nullbound.py:22-24 'bounds the WALL THICKNESS at about 10^2 Planck lengths'; certify.py:25 'Delta <= 10^2 v_b L_Planck' without the alpha. The source's bound is Delta <= 0.733 v_b L_P/alpha^2 (eq 22): alpha = 1 gives 0.73, alpha = 1/10 gives 73 (rounded to 10^2), alpha = 1/100 gives 7.3e3. The 10^2 is an example, not a result.",
+  "DROPPED (certify.py:18-46, nullbound.py, anec.py, overturn.py): H3 field content. No owner names the massless minimally coupled scalar or the Lorentzian sampling function; the source itself says the massive field tightens and the EM field loosens by sqrt2 (Sec 5). The harness's own hypothesis list flags this ('not stated by the owner').",
+  "DROPPED (certify.py:21-29): H9 R = 100 m as the premise of E ~ -3e20 M_galaxy. certify.py:31-35 restates the result as the general law 'Quantum inequalities force Planck-scale structure and then the energy is unattainable' and carries it to 'a different architecture'. Van Den Broeck gr-qc/9905084 (READ) keeps the SAME wall bound (his eq 6 = P&F eq 23) and gets E_IV ~ -6.3e29 v_s kg plus region-II energies of -1.4e30 / +4.9e30 kg -- 'a few solar masses' -- by changing the architecture. The wall bound survives the change of architecture; the energy figure does not.",
+  "WEAKENED (anec.py:60-61, :203-204; nullbound.py:75-78): 'their bound ON THE WALL THICKNESS really is an artefact of [a timelike instrument]'. The source's instrument is a timelike-worldline QI on T_mn u^m u^n for the Eulerian (timelike geodesic) observer -- a timelike-contracted quantity along a timelike curve, which is exactly what the QI bounds. Fewster-Roman gr-qc/0209036 (READ) proves there are no NULL-geodesic QIs in 4D but ALSO proves (Thm III.1) that timelike-worldline QIs, including on null-contracted stress, hold in any globally hyperbolic spacetime for Hadamard states; Kontou-Olum 1410.0665 (READ) 'explicitly confirms' the flat-space-plus-small-sampling-time heuristic to first order. 'Timelike instrument' is accurate; 'artefact' is the tree's word and is not supported by the source or the later literature -- it over-represents AGAINST P&F.",
+  "ADDED (overturn.py:277, :280-284): the Ford-Roman bound is transcribed as a SPATIAL law '|rho| <= 3 hbar c/(32 pi^2 L^4)' with L a length, and the tree's crossovers at 0.31-0.37 l_P are called 'Sub-Planckian, which is Pfenning-Ford's conclusion in this architecture's coordinates.' The source's bound is on a TIME-sampled density with tau0 (eq 9) and its conclusion is 'a few hundred Planck lengths' / 'hundreds or thousands of Planck lengths' (abstract, Sec 5) -- super-Planckian by two to three orders at alpha = 1/10. The harness alias 'Pfenning-Ford: quantum inequalities applied to the warp drive give sub-Planckian wall thickness' is not the source's statement. overturn.py:64-66 'exceeds every bound any known quantum inequality permits' is the tree's own claim cited to '[candidates.py, Pfenning-Ford]'; P&F evaluate one QI.",
+  "ADDED (certify.py:37-40): the '-400 M_sun for one electron Compton wavelength' is kept as 'one number of theirs worth keeping' and compared with the tree's 196 MJ per Planck cell. That printed figure is NOT reproducible from the source's own eqs (28)+(23): R = h/(m_e c) gives ~2e5 M_sun, R = hbar/(m_e c) gives ~5e3 M_sun (rederive script section E). Discrepancy of 10x-500x in the source, direction: the source understates its own formula. A discrepancy, not a refutation; the comparison certify.py draws changes by that factor.",
+  "ACCURATE (certify.py:21-29, 43-45): the four quotations ('unless v_b is extremely large...', 'roughly ten orders of magnitude...', 'would be exceptionally difficult', E ~ -3e20 M_galaxy v_b) are verbatim from the source (pages 9, 10, 2). certify.py:28 'E ~' where the source prints 'E <=' (eq 31): the source's inequality direction is that the energy is AT LEAST this negative in magnitude.",
+  "ACCURATE (specthm.py:1766-1768): classed 'prior art only', rests=False; NAMED-NOT-READ status is honest and D14's proof is the board's own.",
+  "TREE-INTERNAL, not P&F (nullbound.py:20-24, warpenergy.py:46, 139-141): the tree's 10^62 kg comes from its own M = -v_s^2 R^2/(36 G D), coefficient 1/36; the source's coefficient is 1/12 (eq 28). Same order (2.3e62 vs 6.9e62 kg at D = 100 L_P, R = 100 m, v = c). The '0.19 solar masses' at D = 1 m is the tree's 1/36 figure; the source prints 'a quarter' where its own eq (28) gives 0.56 M_sun."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Planck length L_P",
+   "value_then": "not printed; 1.6e-33 cm implied by the era",
+   "value_now": "1.616255e-35 m (CODATA 2018, via hbar, G, c)",
+   "source_now": "CODATA 2018 values as coded in the rederive script (hbar = 1.054571817e-34, G = 6.67430e-11)",
+   "moves_conclusion": "no -- enters eq (29) as R^2/L_P^2; the recomputed 3.2e70 v_b m_P vs printed 6.2e70 is a factor 1.94 that no plausible L_P value explains; recorded as a discrepancy in the source's arithmetic, not a datum shift"
+  },
+  {
+   "quantity": "Planck mass m_P (Planck-unit energy to grams)",
+   "value_then": "implied 1e-5 g (6.2e70 -> 6.2e65 g)",
+   "value_now": "2.176434e-8 kg = 2.18e-5 g",
+   "source_now": "CODATA 2018, computed in script",
+   "moves_conclusion": "no -- the two factor-2 discrepancies in eqs (29) run opposite ways; recomputed 6.9e65 v_b g vs printed 6.2e65 (x1.12), so eq (31)'s 3e20 M_galaxy v_b is reproduced (3.5e20)"
+  },
+  {
+   "quantity": "Ford-Roman QI constant for the Lorentzian sampling function (eq 9)",
+   "value_then": "3/(32 pi^2 tau0^4) (Ford-Roman 1995)",
+   "value_now": "27/(2048 pi^2 tau0^4) = 9/64 of Ford-Roman's (Fewster-Eveson gr-qc/9805024 eq 5.6, READ; reproduced by sympy in script section F)",
+   "source_now": "gr-qc/9805024 eq (5.5)-(5.6), read at source",
+   "moves_conclusion": "no -- TIGHTENS: Delta bound scales as sqrt(constant), 73.3 -> 27.5 v_b L_P at alpha = 1/10. The wall gets thinner and the energy larger; the direction is against a warp drive"
+  },
+  {
+   "quantity": "M_galaxy (Milky Way)",
+   "value_then": "1e12 M_sun = 2e45 g (eq 30)",
+   "value_now": "order 1e12 M_sun still the standard order-of-magnitude figure (not re-read here; modern total-mass estimates span roughly (0.5-1.5)e12 M_sun)",
+   "source_now": "not read at source in this audit -- order-of-magnitude only",
+   "moves_conclusion": "no -- a factor 2 either way in a unit of account for a 1e20 ratio"
+  },
+  {
+   "quantity": "mass of the visible universe",
+   "value_then": "not printed; 'ten orders of magnitude' below 3e32 M_sun implies ~1e22-1e23 M_sun",
+   "value_now": "~1e53 kg ordinary matter ~ 5e22 M_sun (order of magnitude; not re-read)",
+   "source_now": "order-of-magnitude, script computes 9.8 orders",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "electron Compton wavelength",
+   "value_then": "not printed",
+   "value_now": "h/(m_e c) = 2.426e-12 m; hbar/(m_e c) = 3.862e-13 m",
+   "source_now": "CODATA 2018 m_e = 9.1093837015e-31 kg",
+   "moves_conclusion": "the printed 'E ~ -400 M_sun' is not reproduced from eqs (28)+(23) with either value (5e3 to 2e5 M_sun); the qualitative statement ('still conceivable if very tiny... a smaller amount of negative energy') is unchanged, the number certify.py:37-40 keeps is off by 10x-500x in the source itself"
+  },
+  {
+   "quantity": "alpha (sampling time / curvature radius)",
+   "value_then": "1/10, 'as an example'",
+   "value_now": "still a free choice; Kontou-Olum 1410.0665 (READ) gives the first-order curvature corrections as 2.63 R_max t0^2 relative to 3.76 (Gaussian sampling), i.e. the flat bound holds with small corrections when t0 << curvature radius -- which is what alpha << 1 buys",
+   "source_now": "1410.0665 eq (130), read at source",
+   "moves_conclusion": "no, but it is the hypothesis the tree drops: the '10^2' is 0.733/alpha^2"
+  },
+  {
+   "quantity": "bubble radius R and the coefficient of eq (28)",
+   "value_then": "R = 100 m; E = -(v^2/12) R^2/Delta",
+   "value_now": "unchanged in the source; the tree's warpenergy.py uses 1/36 (its own derivation)",
+   "source_now": "rederive script sections D, E",
+   "moves_conclusion": "no; the 10^62 kg is the same order under either coefficient"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/gr-qc_9702026.py",
+  "outcome": "27 checks, all pass, exit 0 (~10 s). EXACT agreement: eq (5) and its 2/sigma limit; eq (8) by two independent routes (ADM Hamiltonian constraint symbolically; full Einstein tensor G^00 of the 4-metric numerically at three points); eq (18) tetrad Riemann component at the equator, numerically, and it holds for any f (no f'' dependence there); eqs (10), (12), (14), (15), (16), (17), (19), (22) symbolically; eqs (26), (28) symbolically. ROUNDING: eq (23) '10^2' is 73.3 v_b L_P at alpha = 1/10. DISCREPANCIES recorded, not repaired: eq (29) 6.2e70 vs recomputed 3.2e70 (x1.94) and 6.2e65 g vs 6.9e65 g (x1.12) -- the two errors cancel so eq (31) 3e20 M_galaxy is reproduced (3.5e20); 'a quarter of a solar mass' at Delta = 1 m vs recomputed 0.56 M_sun (x2.3); '-400 M_sun' for a Compton-wavelength bubble NOT reproduced (5e3 M_sun reduced, 2e5 M_sun full). Also: the dropped bracket of eq (17) is >= 0 so dropping it only tightens the Delta bound (monotone). Later datum: Fewster-Eveson's 27/(2048 pi^2) reproduced from their eq (5.5) and is 9/64 of Ford-Roman's. NOT checked: that R_tyty is the LARGEST tetrad component (only its value); the QI (9) itself is a theorem taken from Ford-Roman 1995 and not re-proved.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Fewster & Eveson, gr-qc/9805024 (1998), Phys. Rev. D 58 084010",
+   "effect": "narrows",
+   "what": "General QI for smooth sampling functions; for the Lorentzian the bound is -27/(2048 pi^2 tau0^4), '9/64 of Ford and Roman's result' (eq 5.6) -- the wall bound tightens to ~27 v_b L_P at alpha = 1/10. Also: the massless bound is a lower bound for massive fields in d >= 3 (eq 5.7-5.8), consistent with P&F Sec 5.",
+   "read_status": "READ (alphaXiv, eqs 1.3, 1.7, 5.5-5.8)"
+  },
+  {
+   "ref": "Van Den Broeck, gr-qc/9905084 (1999), Class. Quantum Grav. 16 3973",
+   "effect": "narrows",
+   "what": "Keeps P&F's wall bound verbatim (his eq 6: Delta <= 10^2 v_s L_P, 'as proven in [3]') and the same QI check, but a conformal 'pocket' (B = 1+alpha inside, alpha = 1e17) shrinks the bubble surface to R = 3e-15 m: E_IV ~ -6.3e29 v_s kg, region II -1.4e30 / +4.9e30 kg -- 'a few solar masses' against P&F's 6.2e62 kg. The energy conclusion is architecture-specific; the thin-wall conclusion is not. His own caveat: structure 'only a few orders of magnitude above the Planck scale; this seems to be generic'.",
+   "read_status": "READ (alphaXiv, full text)"
+  },
+  {
+   "ref": "Fewster & Roman, gr-qc/0209036 (2003), Phys. Rev. D 67 044003",
+   "effect": "extends",
+   "what": "No QIs along NULL geodesics in 4D Minkowski for the massless scalar (Thm II.1, explicit vacuum-plus-two-particle sequence) -- the tree's Register 5537. BUT Thm III.1: timelike-worldline QIs on the null-contracted stress hold in any globally hyperbolic spacetime for Hadamard states, e.g. -(v.l)^2/(64 pi^2 tau0^4) for a Gaussian. P&F's instrument is a timelike-worldline QI; this paper does not weaken it.",
+   "read_status": "READ (alphaXiv, Secs I-IV)"
+  },
+  {
+   "ref": "Lobo & Visser, gr-qc/0406083 (2004), Class. Quantum Grav. 21 5871",
+   "effect": "extends",
+   "what": "Without any QI: energy-condition violations persist to arbitrarily low v (NEC at O(v), WEC at O(v^2)); M_warp = -(v^2/12) INT f'^2 r^2 dr (their eq 13 = P&F eq 26, independently) ~ -v^2 R^2 sigma; with a finite-mass ship, v^2 R^2 sigma <~ M_ship (eq 94-95). Restrictions 'more generic than those derived using the quantum inequalities'.",
+   "read_status": "READ (alphaXiv, Secs I-IV, App A)"
+  },
+  {
+   "ref": "Kontou & Olum, arXiv:1410.0665 (2015), Phys. Rev. D 91 104005",
+   "effect": "confirms",
+   "what": "Derives the QI for a minimally coupled scalar on a geodesic in a spacetime with small curvature, first order in the Ricci tensor, from the Fewster-Smith absolute QEI: flat-space Fewster-Eveson bound plus corrections 2.63 R_max t0^2 + ... (eq 130). 'Ford and Roman [6] have argued that flat-space quantum inequalities can be applied in curved spacetime, so long as the radius of curvature is small as compared to the sampling time. The present paper explicitly confirms this claim and calculates the magnitude of the deviation.' Corrections depend only on the Ricci tensor (matter), which for the warp wall is nonzero; a caveat: unknown coefficients a, b of local curvature terms remain. This closes, to first order, the gap P&F named ('exceptionally difficult').",
+   "read_status": "READ (alphaXiv, abstract, Secs I, II, VII, VIII)"
+  },
+  {
+   "ref": "Helmerich et al., arXiv:2404.03095 (2024), Warp Factory",
+   "effect": "extends",
+   "what": "Numerical energy-condition evaluation over sampled observers; Alcubierre, Van Den Broeck, Modified Time and Lentz metrics all violate all four conditions (Table 1). Cited by certify.py:52-58; not re-read in this audit.",
+   "read_status": "NAMED-NOT-READ (already the tree's reading at certify.py:52-58)"
+  },
+  {
+   "ref": "Bobrick & Martire, arXiv:2102.06824 (2021); Santiago, Schuster & Visser 2105.03079 (2021)",
+   "effect": "extends",
+   "what": "General warp-shell framework and the 'generic warp drives violate the NEC' theorem; both reach P&F's qualitative verdict by other routes. Surfaced by discover_papers; not read here.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "What P&F lacked in 1997, and what came later: (1) a curved-spacetime QI -- they said the exact treatment 'would be exceptionally difficult' and used the flat bound with t0 << curvature radius; Fewster 2000 (general worldline QEI in globally hyperbolic spacetimes), Fewster-Smith 2008 (absolute QEI) and Kontou-Olum 2015 (READ) supplied it, and Kontou-Olum 'explicitly confirms' the heuristic with computed first-order corrections. Evidence: CONFIRMS, does not overturn. (2) A sharper flat-space constant -- Fewster-Eveson 1998 (READ), 9/64 of Ford-Roman's: TIGHTENS the wall bound (73 -> 27 v_b L_P). (3) The nonexistence of null QIs in 4D -- Fewster-Roman 2003 (READ); it removes a different instrument, not theirs, and proves timelike-worldline QIs survive in general spacetimes; the tree's anec.py records that ANEC is violated at every thickness anyway, so the replacement obstruction is D-independent. (4) Alternative architectures -- Van Den Broeck 1999 (READ): the same wall bound with a microscopic bubble surface reduces E from 6e62 kg to ~1e30 kg; so the ENERGY conclusion was data-dependent on the choice R = 100 m for the Alcubierre bubble, and later work moved it by 32 orders of magnitude while leaving the wall-thickness conclusion in place and the verdict ('not realistic', 'structure a few orders above the Planck scale') unchanged. (5) The printed numbers themselves: two factor-2 slips in eq (29) that cancel, 'a quarter' for 0.56 M_sun, and the -400 M_sun figure that their own formula does not give -- arithmetic discrepancies, not missing data. Net evidence for M's hypothesis on THIS result: the later data confirm and tighten the wall-thickness bound; the total-energy figure is the part that moved, and it moved because of a change of architecture (a modelling choice P&F did not make), not because of a datum they lacked.",
+ "grade": "NARROWED",
+ "grade_evidence": "The source's chain (eqs 5-28) re-derives exactly by sympy in two independent routes for the energy density and one for the curvature radius; the numerical endpoints reproduce to within a factor 2 except the -400 M_sun, which is a recorded discrepancy. No later datum moves the conclusion; Fewster-Eveson tightens it, Kontou-Olum confirms the heuristic to first order. So the published statement STANDS on its own hypotheses. It is graded NARROWED because the tree uses it on a larger class than it holds on: (a) every owner drops alpha = 1/10 and pins '10^2 Planck lengths' as a constant, where the source has 0.733 v_b L_P/alpha^2 'as an example'; (b) no owner names the massless-scalar/Lorentzian-sampling hypothesis the source states and varies (massive: tighter; EM: sqrt2 looser); (c) certify.py:31-35 carries the ENERGY conclusion to 'a different architecture' as a general law, whereas Van Den Broeck (READ) shows it is specific to an R = 100 m Alcubierre bubble and drops 32 orders under a different architecture with the SAME wall bound; (d) overturn.py:282-284 and the harness alias attribute a 'sub-Planckian' conclusion and a spatial L^-4 law to P&F, whose statement is a time-sampled bound giving 'hundreds or thousands of Planck lengths'; (e) anec.py:60-61 calls the wall bound an 'artefact', which neither the source nor Fewster-Roman 2003 supports -- the timelike instrument is a theorem in general globally hyperbolic spacetimes. (d) and (e) are over-representations in opposite directions; both are recorded, neither repaired.",
+ "what_would_change_the_grade": "To STANDS: the owners name alpha and the field content wherever '10^2 Planck lengths' is pinned (nullbound.py:157, certify.py:25), certify.py:31-35 scopes the energy figure to the Alcubierre bubble at R = 100 m, overturn.py:282-284 stops calling sub-Planckian crossovers 'Pfenning-Ford's conclusion', and anec.py:60-61 drops 'artefact' or cites a source for it. To WRONG: a computed counterexample to eq (22) under H1-H8, i.e. a Hadamard state of the massless scalar violating the Lorentzian-sampled QI, or a demonstration that the first-order curvature corrections of Kontou-Olum eq (130) are O(1) at t0 = 0.1 r_min for the warp wall (R_max t0^2 there is ~0.01 x 2.63/3.76, so this is not expected). To DATA-DEPENDENT: a reading of the unknown local-curvature coefficients a, b (Kontou-Olum eq 130) large enough to swamp the flat term at alpha = 1/10. To OPEN: nothing -- the source and the four later papers were read at source.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 gr-qc_9702026.py   # 27 checks, exit 0; sympy 1.14, python3.11, ~10 s; then re-read gr-qc/9702026 pp. 6-11 (eqs 9, 22-23, 28-31) via alphaXiv answer_pdf_queries",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/gr-qc_9702026.json"
+}

@@ -1,0 +1,38 @@
+PASS (3.11) mu == wall.statics sigma
+PASS (3.12) p == wall.statics p
+PASS (3.12) Newtonian mu ~ M/(4 pi R^2)
+PASS (3.12) Newtonian p ~ M^2/(16 pi R^3)
+PASS (3.16a) == (3.16b)
+PASS (3.16b) == (3.16c)
+PASS (3.13) M(mu,p) reproduces M
+PASS (3.13) R(mu,p) reproduces R
+PASS turning point: unique root in Gamma
+PASS turning point root == 3/2 + 4q + 4q^2  (3.16a)
+PASS dM/dsigma increasing in Gamma (so >= 0 iff Gamma >= Gamma_1)
+PASS V(R0) = 0 at the static solution
+PASS V'(R0) = 0 at the static solution
+PASS V''(R0) linear in beta2 with one root
+PASS independent beta2_crit == wall.beta2_crit (1-s)(3s^2+2s+1)/(4s^2(1+3s))
+     dV''/dbeta2 at R0 = 2*(3*s + 1)/R**2 (positive => stable iff beta2 > beta2_crit)
+PASS dV''/dbeta2 > 0 for 0<s<1
+PASS Eq (2.7)-converted dynamical threshold == Gamma_1 identically in s  (not just at 6 points)
+     threshold in d ln p/d ln mu convention (footnote 1's Ref.[34] convention): (3*s**2 + 2*s + 1)/(s*(3*s + 1))
+       Newtonian limit of that: 3/2
+PASS (3.17) Gamma_1 = 3/2 + C + 7/4 C^2 + O(C^3)
+PASS (3.18) inverts (3.16b) on 0<s<1 (numeric, 9 points)
+PASS Newtonian turning point at Gamma = 3/2
+PASS beta2_crit = 1 <=> 15s^3+3s^2-s-1 = 0
+     R/M at beta2_crit = 1: 2.370393  (BLP 1991 via Ishak-Lake: ~2.37)
+PASS R/M at the causal boundary rounds to 2.37
+     wall.gamma1_published vs 40-digit (3.16c): max rel err 3.42e-16 over 806 x in [1e-6, 0.8]
+     wall.gamma_crit       vs 40-digit (3.16c): max rel err 9.80e-11
+     wall pair |pub - crit|/pub:               max 9.80e-11  (wall.py:113 claims 1e-15)
+PASS wall.gamma1_published is (3.16c) with C = x/2 to < 1e-13
+     DISCREPANCY (tree sentence, not source): gamma_crit float error reaches 9.8e-11 at small x, not 1e-15
+     same conversion with (1-s) formed as x/(1+s): max rel err 5.39e-16
+PASS cause identified: the loss is the naive (1-s) in wall.statics (stable form < 1e-14)
+PASS tree's own selftest tolerance 1e-9 at its six points is met
+PASS tree's Newtonian check gamma_crit(1e-9) = 1.5 within 1e-6 is met
+     observed: gamma_crit(1e-12) = 1.499866660981 (naive-(1-s) error 8.9e-05); gamma1_published(1e-12) = 1.500000000000500
+
+ALL PASS

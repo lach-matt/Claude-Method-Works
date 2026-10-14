@@ -1,0 +1,28 @@
+== KM trial ansatz at KM's own Table I parameters (Zhang-Young Table I)
+   lambda/g^2 = 0       Omega = 2.600 Xi = 2.660  ->  B_trial = 1.5662
+   lambda/g^2 = 0.001   Omega = 2.520 Xi = 2.450  ->  B_trial = 1.6060
+   lambda/g^2 = 0.01    Omega = 2.290 Xi = 2.120  ->  B_trial = 1.6750
+   lambda/g^2 = 0.1     Omega = 1.900 Xi = 1.650  ->  B_trial = 1.8304
+   lambda/g^2 = 1       Omega = 1.250 Xi = 1.150  ->  B_trial = 2.0994
+   lambda/g^2 = 10      Omega = 0.620 Xi = 0.820  ->  B_trial = 2.4064
+   lambda/g^2 = 100     Omega = 0.220 Xi = 0.740  ->  B_trial = 2.6068
+   lambda/g^2 = 1000    Omega = 0.070 Xi = 0.730  ->  B_trial = 2.6849
+   lambda/g^2 = inf     Omega = 0.000 Xi = 0.728  ->  B_trial = 2.7220
+PASS B_trial(lambda=0) at KM Table I (2.600, 2.660) lies within 0.5% of RS96's 1.56 (it is 1.566: truncates, does not round, to 1.56 -- residual RECORDED)  1.5662 (+0.40%)
+PASS B_trial(lambda=inf) at KM Table I Xi = 0.728 rounds to RS96's 2.72  2.7220
+   re-minimised trial, lambda=0:   Omega, Xi = 2.612, 2.658  B = 1.5662
+   re-minimised trial, lambda=inf: Xi = 0.7294  B = 2.7220
+PASS variational optimum at lambda=0 lies at KM's (2.600, 2.660) to 0.05
+PASS variational optimum at lambda=inf lies at KM's Xi = 0.728 to 0.005
+== exact minimum of the same (read) functional
+   exact B(0) = 1.5202 (status 0);  exact B(inf) = 2.7061 (status 0)
+PASS exact B(0) = 1.520 and B(inf) = 2.706
+PASS variational bound respected: exact < trial at both ends
+   trial excess over exact: B(0) +3.02%, B(inf) +0.59%
+   m_H/m_W = 1.5580 lambda/g^2 = 0.3034: trial-optimum B = 1.9472 (Omega, Xi = 1.613, 1.394); exact B = 1.9163 (+1.61%)
+   m_H/m_W = 1.5578 lambda/g^2 = 0.3033: trial-optimum B = 1.9472 (Omega, Xi = 1.613, 1.394); exact B = 1.9163 (+1.61%)
+PASS exact B at measured mass reproduces 1.916 (first audit; FFS 9.08 / 4.740)  1.9163
+   Quiros fit (263) B(x) = 1.58 + 0.32x - 0.05x^2 at x = 1.5580: 1.9572
+   Trodden eq.(46) 8..14 TeV over (1.56, 2.72): prefactor 5.13 / 5.15 TeV
+
+ALL PASS

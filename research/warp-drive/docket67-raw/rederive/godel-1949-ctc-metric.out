@@ -1,0 +1,42 @@
+PASS E1a' DISCREPANCY: 2506.00860 eq.(1) as printed (beta = 1) is degenerate, det g = 0 -- a misprint in the restatement, not a property of Goedel's metric
+PASS E1a'' requiring dust + Lambda with u ~ d_t FORCES beta = 1/2 (unique positive solution) -- [{Lambda: -1/(2*a**2), beta: 1/2, rho: 1/(a**2*kappa)}]
+PASS E1a Lorentzian at beta = 1/2: det g = -a^8 e^{2x}/2 < 0 (signature +---)
+PASS E1b u = a^-1 d_t is unit timelike
+PASS E1c Einstein eq solvable with dust + Lambda -- [{Lambda: -1/(2*a**2), rho: 1/(a**2*kappa)}]
+PASS E1d 8 pi G rho = 1/a^2 (> 0)
+PASS E1e Lambda = -1/(2a^2) (< 0)
+PASS E1f all 16 components of G - kappa T - Lambda g vanish
+PASS E1g R_mn = u_m u_n / a^2, R = 1/a^2 (Kajari eq. after (18))
+PASS E1h dust is geodesic (acceleration 0)
+PASS E1i vorticity^2 = 1/(2a^2) = 4 pi G rho = -Lambda (2506.00860 eq.(1) text; Kajari eq.(21)) -- omega^2 = 1/(2*a**2)
+PASS E1j no expansion, no shear (theta = 0, sigma = 0)
+INFO Killing +2e^-x d_t + y d_x + (e^-2x - y^2/2) d_y [recollection, y -> -y]
+INFO not Killing -2e^-x d_t + y d_x + (e^-2x - y^2/2) d_y [recollection, as remembered]
+PASS E2a Killing: d_t
+PASS E2a Killing: d_y
+PASS E2a Killing: d_z
+PASS E2a Killing: d_x - y d_y
+PASS E2b four Killing fields span T_p at every point (det = 1): isometry group transitive -- so a CTC through one point gives a CTC through every point
+PASS E3a cylindrical form (Kajari eq.15) solves the same equations, same rho and Lambda
+PASS E3b same invariants R = 1/a^2 as original chart -- (invariant agreement is necessary, not a proof of the local isometry; not machine-checked)
+PASS E3c g_phiphi = 4a^2 sinh^2 r (sinh^2 r - 1): timelike (> 0 in +---) iff sinh r > 1
+PASS E3d critical radius r_c = asinh 1 = ln(1 + sqrt2); in Kajari's r = 2a sinh r it is r_G = 2a
+PASS E3e axis regular with phi ~ phi + 2pi: -g_phiphi/(-g_rr) ~ r^2 at r -> 0
+PASS E3f the circle T, Z const, r = 6/5 > ln(1+sqrt2) = 0.8814 is a closed timelike curve -- g_phiphi = 11.651873 (a = 1), proper time around it = 21.447553 a
+PASS E3g the circular CTC is not a geodesic (Gamma^r_phiphi != 0 at r0) -- Gamma^mu_phiphi = [0, exp(-172/21 + sqrt(48295)/21), 0, 0]
+PASS E4a NEC: S(k,k) = (u.k)^2/a^2 >= 0 for every null k (Lambda term drops on the cone)
+PASS E4b WEC of total source at v = u: 1/a^2 - 1/(2a^2) = 1/(2a^2) > 0
+PASS E4c the NEC-satisfying CTC metric exists in 4D: Goedel is NOT in the 'NEC-violating' category -- contrast latticectc.py:84-86 (refused metric: negative density, NEC fails)
+PASS E5a Goedel x R (flat 5th direction) is Lorentzian and contains the same CTC (curve at w = const)
+PASS E5b G5(k,k) = (u.k)^2/a^2 >= 0 on the null cone: NEC holds with T read off its own Einstein tensor
+PASS E5c' Maxwell energy density T(d_t,d_t) > 0 with this sign -- T_00 = 3/4
+PASS E5c GGHPR eq.(3.29) metric: Einstein tensor = const x Maxwell stress of F, const > 0 -- const = 2
+PASS E5c'' NEC for the Maxwell source: T(k,k) >= 0 on 200 random points x null directions (400 null k) -- min T(k,k) = 0.0900000
+PASS E5e d/dphi1 is timelike iff r1 > 2 (GGHPR p.12: 'timelike for r_i > 2')
+PASS E6a Barrow-Tsagas (36) with (18) gives (37): m^2 = 2 w^2 + 6(Pnn - P11)/(kappa^2 lambda)
+PASS E6b with the frame aligned (P11 = Pnn): m^2 = 2 w^2, Goedel's own value
+PASS E6c Goedel-type (30): g_phiphi -> e^{2mR}(w^2/m^4 - 1/(4m^2)) at large R: CTCs iff m^2 < 4 w^2
+PASS E6d (30) at m^2 = 2w^2, w = 1/(sqrt2 a), R = 2a r, t = 2a T is Kajari eq.(15)
+PASS E7 flat R^{1,3} with t ~ t + P: the t-line is a closed timelike curve (Luminet 2101.08592 p.4 'trivial CTCs'; D21's causal-lattice case) -- so the bare existence statement at latticectc.py:82-83 needs neither Goedel nor 5D
+
+RESULT: 0 failure(s)

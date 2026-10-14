@@ -1,0 +1,46 @@
+[1] sympy: the algebra of the classical proof
+  1/(c-a)+1/(b-c)-4/(b-a) = (a+b-2c)^2/((c-a)(b-c)(b-a))             ok (a + b - 2*c)**2/((a - b)*(a - c)*(b - c))
+  sup eta(c)^2 / INT|eta'|^2 = (c-a)(b-c)/(b-a)                      ok p*q/(p + q)
+  max over c of (c-a)(b-c)/(b-a) = (b-a)/4 at the midpoint           ok 
+[2] sharpness of the constant 4: centred slab on [0,1]
+     eps = 0.25      m = 11.8428        (b-a) INT q = 5.92139108
+     eps = 0.1       m = 23.0491        (b-a) INT q = 4.60981337
+     eps = 0.03      m = 69.4384        (b-a) INT q = 4.16630287
+     eps = 0.01      m = 202.701        (b-a) INT q = 4.05401697
+     eps = 0.001     m = 2002.67        (b-a) INT q = 4.00534010
+     eps = 1e-05     m = 200003         (b-a) INT q = 4.00005333
+  every product > 4 (strict)                                         ok 
+  products decrease monotonically toward 4                           ok 
+  limit eps->0 is 4 to 1e-4                                          ok 4.00005333
+  constant q on [0,1] (q = pi^2): product pi^2 = 9.8696 > 4          ok 
+[3] random sign-indefinite discontinuous q, RK4, first zero b
+     493 of 600 random profiles seat; min b*INT_0^b q+ = 4.3380
+  no seating profile violates (b-a) INT q+ > 4                       ok violations=0
+[4] the tree's cells (seatindex.py imported read-only)
+     excluded (m,l): [(0.5, 0.25), (0.5, 0.5), (1.0, 0.25)]  -> 12 cells
+     Lyapunov numbers L m l / 4: [0.375, 0.75, 0.75]
+  12 exterior cells, as CLAIMS.md states                             ok 
+  none seats by the tree's integrator                                ok 
+  none seats by an independent RK4 (12000 steps)                     ok 
+  none seats with outside q = -5 or -20 either (q+ unchanged)        ok 
+  exclusion test uses <= (theorem is strict >), so equality is excluded correctly ok 
+     illustration m=16,l=0.5,c=1.5: first zero b=1.9341, b INT_0^b q+ = 13.4617, L m l = 96.0
+  tree's L-form is weaker than b-form (conservative, never over-excludes) ok 
+     thin central slab with L m l = 4.08 (Lyapunov number 1.02): first zero 11.8337
+  a cell with Lyapunov number 1.02 DOES seat -> bound nearly sharp on the tree's own axes ok 
+[5] matrix (Jacobi) extension: Weyl-only tidal matrices
+     285 of 300 seat (det A = 0); 149 of them traceless (scalar q = 0 identically)
+     min t* INT lambda_max(T)+ = 7.6070
+  traceless (Weyl-only) seats exist: scalar Lyapunov (q = tr T/2 = 0) cannot exclude them ok 
+  matrix form t* INT lambda_max(T)+ >= 4 holds in every seat         ok violations=0
+[6] composite.py's vacuum Weyl seat (read-only import; ~1-2 min)
+     M = +0.002: conjugate at 55.167;  scalar number t* INT (trT/2)+ = 1.225e-02;  matrix number t* INT lambda_max+ = 5.0671
+  M=+0.002 seats (composite reproduces its own seat)                 ok 
+  M=+0.002 scalar Lyapunov number << 4 (Ricci-only form would exclude) ok 
+  M=+0.002 matrix Lyapunov number >= 4 (matrix form does NOT exclude) ok 
+     M = -0.002: conjugate at 56.5;  scalar number t* INT (trT/2)+ = 1.069e-02;  matrix number t* INT lambda_max+ = 4.8738
+  M=-0.002 seats (composite reproduces its own seat)                 ok 
+  M=-0.002 scalar Lyapunov number << 4 (Ricci-only form would exclude) ok 
+  M=-0.002 matrix Lyapunov number >= 4 (matrix form does NOT exclude) ok 
+
+ALL CHECKS AGREE

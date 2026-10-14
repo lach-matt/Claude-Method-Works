@@ -1,0 +1,90 @@
+{
+ "key": "xi-required-reduced-planck-gut-scale",
+ "name": "Non-minimal-coupling gate xi_required = (M_red/phi)^2 with reduced Planck mass, evaluated at GUT scale 2e16 GeV",
+ "source": {
+  "located": "Gate: Barcelo & Visser, 'Scalar fields, energy conditions, and traversable wormholes', gr-qc/0003025v2 (CQG 17 (2000) 3843), eqs (2.1),(2.3),(2.6), sect 2.3 cases 1-3. GUT scale: Nath & Fileviez Perez, hep-ph/0601023v3 (Phys. Rept. 441 (2007) 191), eq (2), p.66, p.72, Fig 7/9. Comparator (sign only): Bezrukov & Shaposhnikov 0710.3755v2 eq (2), footnote 1, eq (13). Constants: CODATA 2022, 2409.03787 Table XXXIII and sect XIV.",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries page text of all four papers (gr-qc/0003025 pp.1-8,10,14,16,17,19; 0710.3755 pp.1-5; hep-ph/0601023 pp.5,46-47,62-66,72,254-256; 2409.03787 pp.5,45,47,50-51,60,64). An attempt to read the PDG 'Grand Unified Theories' review returned an unrelated paper (1905.07232) and is not used."
+ },
+ "published_statement": "BV gr-qc/0003025 sect 2.1: 'kappa = 1/(8 pi G_N)'; action (2.1) S = 1/2 int sqrt(-g) kappa R + int sqrt(-g)(-1/2 (d phi)^2 - V - 1/2 xi R phi^2); effective stress tensor (2.3) carries the prefactor kappa/(kappa - xi phi^2). Sect 2.3 case 3: 'if xi > 0, and we have at least some places where (phi)^2 > kappa/xi ... there is definitely the possibility of ANEC violations'; cases 1 (xi<0) and 2 (xi>0, phi^2<kappa/xi): 'ANEC is satisfied'. Sect 4: 'the scalar field has to reach absolute values above ~ m_p/sqrt(xi)'. Hence, in hbar=c=1, the threshold field is phi_c^2 = kappa/xi = M_red^2/xi and xi_required(phi) = (M_red/phi)^2. GUT scale (hep-ph/0601023 eq 2): the couplings 'appear to unify within the minimal supersymmetric standard model at a scale M_G ~ 2 x 10^16 GeV. This scale which is presented here as empirical must also be associated with new physics.'",
+ "published_hypotheses": [
+  "BV: classical scalar, action (2.1) with canonical kinetic term -1/2(d phi)^2 and coupling -1/2 xi R phi^2, signature (-,+,+,+) (v^2 = -1), conformal coupling xi = +1/6",
+  "BV: kappa = 1/(8 pi G_N) -- the REDUCED Planck mass squared, not the unreduced one",
+  "BV: xi > 0 (in their convention) is required; xi < 0 satisfies ANEC (case 1)",
+  "BV: phi^2 > kappa/xi somewhere is NECESSARY for ANEC violation (case 3 says 'possibility'); sufficiency is shown only for particular exact solutions (V = 0, static, spherically symmetric, massless)",
+  "BV: boundary terms at points where kappa = xi phi^2 are what can make ANEC negative; discarding asymptotic boundary terms assumes smooth asymptotics",
+  "hep-ph/0601023: M_G ~ 2e16 GeV is conditional on the MSSM particle content (superpartners near the weak scale; 'M_GUT ~ 10^16 GeV if the supersymmetric particles are around 1 TeV', p.66); SM couplings do not unify (eq 156, Fig 7); non-SUSY SU(5) extensions give 'slightly above 10^14 GeV' (p.72)",
+  "0710.3755: action -(M^2 + xi h^2)/2 R with H = h/sqrt2, footnote 1 'In our notations the conformal coupling is xi = -1/6'; xi ~ 49000 sqrt(lambda) (eq 13) from COBE normalisation with N_COBE ~ 62"
+ ],
+ "hypothesis_drift": [
+  "ADDED, UNLABELLED: GUT_SCALE_GEV = 2e16 carries no status word (xigate.py:149, SCALES at xigate.py:137). At source it is the MSSM coupling-unification scale 'presented here as empirical' (hep-ph/0601023 eq 2), conditional on superpartners near 1 TeV (p.66); the SM alone has no unification point (eq 156, Fig 7); non-SUSY GUT extensions sit near 1e14 GeV (p.72). The tree uses it as if it were a physical field scale. Since xi_required ~ phi^-2 the number is exactly as good as this choice: 1e16 -> 5.93e4, 3e16 -> 6.59e3, 1e14 -> 5.93e8 (rederive section 3).",
+  "ADDED, UNLABELLED: the field amplitude phi is identified with the unification MASS scale M_G (xigate.py:137,149; excite.py:986). A GUT-breaking VEV and M_G are related by representation- and coupling-dependent factors (a gauge-boson mass is g times a VEV up to group factors); hep-ph/0601023 p.133 itself writes the breaking VEVs as 'order the GUT scale'. The identification is an order-of-magnitude one; the factor was not computed here and none is claimed.",
+  "DROPPED in excite.py:215-217: 'it needs phi at the GUT scale' holds only if xi is capped near 1.5e4 (the Higgs-inflation magnitude). The gate is an exchange rate xi phi^2 = M_red^2, which xigate.py's own section 2 (xigate.py:56-81) states; any phi works for large enough xi. The cap is not stated at excite.py:215-217. It does NOT move excite's refusal: a field below Degrassi's band 1e10-1e12 GeV needs xi >= 5.93e12 (rederive section 5), 3.5e8 times 1.7e4.",
+  "DROPPED (in the owner chain, xigate.py:35-37, imported by excite via xigate): the comparison '0.87 TIMES THE xi THAT HIGGS INFLATION ALREADY USES' is by magnitude only. READ at source: BV's conformal coupling is xi = +1/6 and xi>0 lowers kappa - xi phi^2; BS's is xi = -1/6 (0710.3755 footnote 1) and xi>0 raises M^2 + xi h^2. With the same canonical field (BV -1/2(d phi)^2; BS H = h/sqrt2 so xi H^dag H R = xi h^2 R/2) xi_BV = -xi_BS (sympy, rederive section 1). Higgs inflation's +1.7e4 is xi_BV = -1.7e4: BV case 1, no critical field, ANEC satisfied. At h = 2e16 GeV the BS-sign coupling multiplies M_eff^2 by 2.19 instead of sending it to zero. The tree marks the xi sign convention 'NOT settled' only for the curvature break-even (excite.py:283-284); higgs.py:219 records BV's xi > 0. This is a discrepancy of framing -- 'a coupling already in use' is in use with the opposite sign -- not an arithmetic error, and the 0.87 magnitude ratio is reproduced exactly.",
+  "KEPT CORRECTLY: reduced, not unreduced, Planck mass. BV's kappa = 1/(8 pi G_N) is M_red^2; higgs.reduced_planck_gev() = planck_mass_gev()/sqrt(8 pi) (higgs.py:317-318). With the unreduced mass xi would be 8 pi = 25.13 times larger, 3.73e5.",
+  "WEAKENED (inherited from BV, owner of the ANEC claim is a separate key gr-qc/0003025-anec-cases): 'gate' reads as necessary condition; BV case 3 gives the possibility of ANEC violation, not a guarantee. xi_required is where kappa - xi phi^2 = 0 exactly -- the threshold, which must be exceeded somewhere."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G (sets M_red)",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2 (tree: ladder.G, CODATA 2018)",
+   "value_now": "6.67430(15)e-11, CODATA 2022 identical to 2018 (no new data)",
+   "source_now": "2409.03787 sect XIV and Table XXXIII (READ)",
+   "moves_conclusion": "No. xi ~ 1/G; 1-sigma is 2.2e-5 relative."
+  },
+  {
+   "quantity": "M_red = (hbar c/8 pi G)^1/2",
+   "value_then": "2.4353234593e18 GeV (higgs.reduced_planck_gev)",
+   "value_now": "m_P c^2 = 1.220890(14)e19 GeV / sqrt(8 pi) = 2.435323e18 GeV",
+   "source_now": "2409.03787 Table XXXIII (READ); computed",
+   "moves_conclusion": "No. Agreement to 1e-6."
+  },
+  {
+   "quantity": "phi = GUT scale",
+   "value_then": "2e16 GeV (xigate.py:149, no status word)",
+   "value_now": "M_G ~ 2e16 GeV only in the MSSM with superpartners near 1 TeV; ~1e16 per p.66; no unification in the SM; ~1e14 in non-SUSY SU(5) extensions",
+   "source_now": "hep-ph/0601023 eq 2, p.66, p.72 (READ). LHC superpartner limits after 2006 NOT read here.",
+   "moves_conclusion": "The number moves as phi^-2 with this choice (1e16 -> 5.93e4; 1e14 -> 5.93e8); the 0.87 ratio flips above 1 for any phi < 1.87e16. excite.py's refusal does not move (see section 5)."
+  },
+  {
+   "quantity": "xi of Higgs inflation (comparator, owner higgs.py:213)",
+   "value_then": "1.7e4, NAMED-NOT-READ in the tree",
+   "value_now": "0710.3755 eq (13): 49000 sqrt(lambda); tree-level lambda = m_h^2/2v^2 = 0.1293 at m_h = 125.20 gives 1.762e4. Its sign in BV's convention is negative (READ, footnote 1). Running-lambda values were not read here (key 0710.3755-bezrukov-shaposhnikov).",
+   "source_now": "0710.3755 eq (13), footnote 1 (READ)",
+   "moves_conclusion": "Not the xi_required number. Ratio 0.872 vs 1.7e4, 0.842 vs 1.762e4; the sign breaks the comparison's force."
+  },
+  {
+   "quantity": "G_F (sets v, for the companion xi_required(v))",
+   "value_then": "1.1663788e-5 GeV^-2 (higgs.py:209)",
+   "value_now": "1.1663787(6)e-5 GeV^-2 (CODATA 2022 from PDG 2022)",
+   "source_now": "2409.03787 Table XXXIII (READ)",
+   "moves_conclusion": "No. xi_required(v) = 9.78290604e31 vs tree 9.7829068836e31, 9e-8 relative."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/xi-required-reduced-planck-gut-scale.py",
+  "outcome": "0 failures. Symbolic: kappa - xi phi^2 = 0 gives phi_c^2 = kappa/xi; with kappa = 1/(8 pi G) this is xi_required = (M_red/phi)^2. Sign map xi_BV = -xi_BS, checked against both papers' conformal values (+1/6 vs -1/6). Numeric (CODATA 2022 retyped): M_P = 1.220890e19 GeV, M_red = 2.435323e18 GeV, xi_required(2e16) = 14827.0009, identical to the tree's xigate.xi_required(2e16) = 14827.000879007486. Unreduced alternative 3.7264e5 (x 8 pi). xi_required(v) = 9.7829060e31. The scale where xi_required = 1.7e4 is M_red/sqrt(1.7e4) = 1.868e16 GeV, which is also BS's h_end = 1.07 M_P/sqrt(xi) = 1.999e16 GeV: the '2e16 meets Higgs inflation' match is the Higgs-inflation field scale restated, not an independent coincidence. Below Degrassi's upper edge 1e12 GeV the gate needs xi >= 5.93e12.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2309.10848 (Fliss, Freivogel, Kontou, Pardo Santos 2023)",
+   "effect": "narrows",
+   "what": "Same critical value (8 pi G_N xi)^-1/2 (sect II.A, p.7) and the same ANEC integrand as BV eq (2.10) (their eq 20). They treat the non-minimal coupling as an EFT with a field cutoff phi_max^2 <~ (8 pi G_N |xi|)^-1 (sect V). Under that assumption effective ANEC holds classically and semiclassically. For xi > 0 they show the gravitational path integral becomes strongly coupled as phi^2 -> (8 pi G xi)^-1, which is exactly xi phi^2 = M_red^2, the point xi_required defines. This leaves the formula alone and contests whether the regime beyond it is physical.",
+   "read_status": "READ (pp.1-9,14-15,19,23,28-29 via answer_pdf_queries)"
+  },
+  {
+   "ref": "arXiv:2403.02461 (Electroweak metastability and Higgs inflation, 2024)",
+   "effect": "contested",
+   "what": "Listed by discover_papers as bearing on the Higgs-inflation comparator under current m_t/m_h. It bears on the value of the comparator xi, not on xi_required.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. The re-derived result depends on three things. (1) The form kappa/(kappa - xi phi^2) is classical algebra from BV's action and needs no data; FFKP 2023 reproduces it. (2) G has not moved: CODATA 2022 = 2018, read at source. (3) phi = 2e16 GeV is a model scale, not a datum. When Nath-FP wrote (2006) it was conditional on weak-scale superpartners. Since then the LHC has searched for superpartners without a discovery (not read here, so no number is claimed). That weakens the premise that 2e16 is a physical scale but gives no replacement value. BV (2000) and BS (2007) both predate the Higgs discovery. That changes the comparator's value (BS eq 13 at m_h = 125.20 gives 1.76e4 at tree level) but not xi_required. The data the authors lacked do not change xi_required(2e16) = 1.4827e4. They bear on whether 2e16 is a physical scale and on the comparator. Where something is inaccurate it is the tree's framing, found by reading the sources: magnitude compared across opposite sign conventions, and a model scale with no status word. It is not the outside math.",
+ "grade": "NARROWED",
+ "grade_evidence": "The formula and number STAND. BV's kappa = 1/(8 pi G_N) (READ, sect 2.1) makes the threshold phi^2 = M_red^2/xi, with the reduced mass correctly used (higgs.py:317-318). The re-derivation from CODATA 2022 gives 14827.0009, bit-identical to the tree's 14827.000879. No moved datum moves it. It is NARROWED as the tree uses it, because the use carries hypotheses the tree does not name. (a) GUT_SCALE_GEV = 2e16 (xigate.py:149) has no status word. At source it is an MSSM-conditional unification scale 'presented as empirical'; the SM has none, and xi scales as phi^-2 with this choice. (b) excite.py:215-217 'needs phi at the GUT scale' holds only with an unstated cap xi <~ 1.5e4. (c) The owner-chain comparison 'a coupling already in use' (xigate.py:35-37) is by magnitude only. Higgs inflation's coupling has the opposite sign in BV's convention (READ: 0710.3755 footnote 1 xi_conf = -1/6 vs BV +1/6), which is BV's case 1 where ANEC holds. What the narrowing does NOT do: excite's refusal of the xi escape survives any GUT-scale choice. A field below Degrassi's band needs xi >= 5.93e12 (computed). This is a recorded discrepancy of framing, not an error in the external result, and nothing is repaired.",
+ "what_would_change_the_grade": "To STANDS: the tree gives GUT_SCALE_GEV a status word (MSSM-conditional ORDER or NAMED) and restricts the Higgs-inflation comparison to magnitude, noting that the sign is opposite (xi_BV = -xi_BS). To DATA-DEPENDENT: a use of the 0.87 ratio as load-bearing, because that ratio crosses 1 for phi < 1.87e16 GeV and moves with the comparator's running-lambda value. To WRONG: only a demonstration that BV's kappa is not 1/(8 pi G). The source says it is, so none is expected.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/xi-required-reduced-planck-gut-scale.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 -c \"import xigate as X; print(repr(X.xi_required(X.GUT_SCALE_GEV)))\"",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/xi-required-reduced-planck-gut-scale.json"
+}

@@ -1,0 +1,97 @@
+{
+ "key": "1807.06209-zrec",
+ "name": "Redshift of recombination z_rec = 1089.92 (Planck 2018)",
+ "source": {
+  "located": "Planck Collaboration, 'Planck 2018 results. VI. Cosmological parameters', arXiv:1807.06209v4 (A&A 641, A6; ESO manuscript dated 10 Aug 2021). READ: Table 2 p.16 (caption: 'Parameter 68 % intervals for the base-ΛCDM model ... The middle group lists derived parameters ... helium mass fraction used is predicted by BBN (posterior mean Y_P ≈ 0.2454) ... Our baseline results are based on Planck TT,TE,EE+lowE+lensing'; z_* row: 1090.30±0.41 | 1089.57±0.42 | 1087.8 +1.6/−1.7 | 1089.95±0.27 | 1089.92±0.25 | 1089.80±0.21 for TT+lowE | TE+lowE | EE+lowE | TT,TE,EE+lowE | TT,TE,EE+lowE+lensing | +BAO; z_drag row 1059.94±0.30 baseline); Table 1 caption p.15 ('A total systematic uncertainty of around 0.5 σ may be more realistic, and values should not be overinterpreted beyond this level'; 'the remaining parameters are derived from the first six'); Table A.1 p.71 (CamSpec z_*: 1090.26±0.41 | 1089.51±0.42 | 1088.8 | 1089.99±0.28 | 1089.99±0.26 | 1089.88±0.22); Sect. 3.1 p.13 ('r_* is the comoving sound horizon at recombination'); T_CMB = 2.7255 K (Fixsen 2009, ±0.0006 K) p.15; conclusions p.62 ('380 000 years after the Big Bang, defining the last-scattering surface'). NOT in the read set: the page carrying the formal definition of z_* (the 'optical depth equals unity' wording is Planck-series convention, NAMED-NOT-READ here) and Sect. 7.7 Recombination history (p.56).",
+  "read_status": "READ",
+  "via": "Verbatim alphaXiv answer_pdf_queries page text for 1807.06209v4 (pages 1,2,13-17,24,26,27,39-43,62,71) returned in earlier D67 calls this session and harvested unmodified into /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt (96,246 bytes); every quoted string is asserted by grep-equality in rederive section A. Fresh calls this stage (answer_pdf_queries, get_paper_content fullText, discover_papers) all returned 'alphaXiv assistant quota exceeded'; direct arxiv.org is refused by the egress proxy (CONNECT 403)."
+ },
+ "published_statement": "Table 2 (base-ΛCDM, 68% intervals, derived parameter): z_* = 1089.92 ± 0.25 (Planck TT,TE,EE+lowE+lensing, the paper's baseline); 1089.95 ± 0.27 (TT,TE,EE+lowE); 1089.80 ± 0.21 (+BAO); 1090.30 ± 0.41 (TT+lowE); 1089.57 ± 0.42 (TE+lowE); 1087.8 +1.6/−1.7 (EE+lowE). CamSpec (Table A.1) baseline 1089.99 ± 0.26. Planck's text calls r_* 'the comoving sound horizon at recombination' and the epoch 'the last-scattering surface'.",
+ "published_hypotheses": [
+  "Base-ΛCDM: six sampled parameters with flat priors (Ω_b h², Ω_c h², 100θ_MC, τ, ln(10^10 A_s), n_s); z_* is DERIVED from them ('The middle group lists derived parameters'; 'the remaining parameters are derived from the first six')",
+  "Spatial flatness; one massive neutrino of 0.06 eV (Table 1 caption: 'Ω_m includes the contribution from one neutrino with a mass of 0.06 eV'); standard N_eff (base model)",
+  "Helium fraction predicted by standard BBN, Y_P ≈ 0.2454 (Table 2 caption)",
+  "Reionization in a simple tanh model (Table 2 caption), affecting τ",
+  "T_CMB = 2.7255 K (Fixsen 2009) fixed",
+  "Standard recombination physics (atomic physics at present-day m_e, α) inside the Boltzmann code (Sect. 7.7 not read here)",
+  "Error bars exclude modelling uncertainties in lensing/low-ℓ likelihoods and foregrounds; 'A total systematic uncertainty of around 0.5 σ may be more realistic' (Table 1 caption)",
+  "Data: Planck 2018 (PR3) TT,TE,EE power spectra + low-ℓ EE + lensing reconstruction (baseline); Plik likelihood (CamSpec as the alternative)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- model dependence. permute.py:239 docstring of ratio_from_temperature: 'Measured independently of any model of a(t): T scales as 1/a.'; permute.py:66 'Measured, from the CMB temperature alone'. Source: z_* is a DERIVED parameter of a base-ΛCDM fit to the full TT,TE,EE+lowE+lensing spectra (Table 2 caption), not a measurement from the CMB temperature. Computed (rederive E): with the same recombination physics, changing only expansion-rate inputs moves z_* by ~1 unit = ~4σ of the quoted ±0.25 (N_eff 2.0/4.0: 1088.85/1090.81; ω_c ∓10%: 1088.83/1090.93), and ω_b ±10% moves it by −2.6/+3.1. The number is therefore a function of a model of a(t) and of the baryon density; its first three digits are not.",
+  "ADDED -- a measurement where there is a computation. permute.py:68 prints 'T_rec / T_0 = 2973.3 K / 2.7255 K = 1090.92 = 1 + z' and permute.py:428 checks 'ratio from the CMB temperature alone'. T_rec is computed as T0*(1+Z_REC) (temperature_at, permute.py:234-235), so ratio_from_temperature returns 1+z identically for ANY T0 (sympy: T0(1+z)/T0 − (1+z) ≡ 0; tree returns 1090.92 at T0 = 1, 2.7255 and 1000 K). The check at permute.py:428-429 is a tautology and does not constitute an independent measurement. Recorded, not repaired.",
+  "WEAKENED -- the label 'recombination'. permute.py:179 names z_* 'Z_REC'; permute.py:70 and 537 say 'since recombination'. Planck's quantity is z_* (last scattering; Planck itself says 'sound horizon at recombination', and DESI DR2 2503.14738v3 p.5 says 'end of recombination, at redshift z_* ≈ 1089', READ), so the label is conventional usage, not an error. But other standard definitions of recombination sit elsewhere: CAMB x_e = 0.5 at z = 1275.5 (x_e(z_*) = 0.132), Saha 50% at z ≈ 1370 (rederive F). The 'factor of 1,091' is the last-scattering factor, not a unique 'since recombination' factor.",
+  "DROPPED -- the error bar and the systematic caveat. permute.py:179 carries 1089.92 with no ±0.25 and no 0.5σ systematic note; the tree prints 1090.92 to five significant figures. Across the 12 READ Planck columns (Plik + CamSpec) z_* spans 1087.8-1090.30; round(1+z) = 1,091 in 10 of 12 (EE+lowE gives 1,089 Plik / 1,090 CamSpec). Does not move the conclusion.",
+  "WORDING (discrepancy, not an error): permute.py:537 'it changed by 1,090.92' and obstruct.py:278 'grew by 1090.92' mean 'by a factor of 1090.92' (= 1+z); read literally as an increment it would be z = 1089.92. permute.py:70 states it correctly as 'A FACTOR OF 1,091'.",
+  "KEPT -- 1+z = a_0/a (FLRW) and T ∝ 1/a (adiabatic free-streaming photons): both are hypotheses of the Planck analysis as well; no drift. Their empirical tests at z ≲ few (SZ / molecular-line T(z)) are NAMED-NOT-READ here."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "z_* (baseline TT,TE,EE+lowE+lensing, Plik)",
+   "value_then": "1089.92 ± 0.25 (Table 2, READ); the tree's Z_REC = 1089.92 transcribes it exactly (rederive B)",
+   "value_now": "No later CMB z_* READ this stage (ACT DR6 2503.14452, SPT-3G D1, Planck PR4 analyses: NAMED-NOT-READ, alphaXiv quota exceeded). DESI DR2 (2503.14738v3 p.5, READ) uses 'z_* ≈ 1089' -- a use of the CMB value, not a new measurement.",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.14738v3.txt",
+   "moves_conclusion": "No. CAMB 2.0.4 recomputes z_* = 1089.900 at the Planck Table 1 best-fit point (0.08σ from the posterior mean 1089.92). Every READ column and every computed variant keeps 1+z in [1088.3, 1370.8] -- a ratio ~10^3, which is all permute.py §3's argument needs."
+  },
+  {
+   "quantity": "z_* spread over likelihood / data combination",
+   "value_then": "Plik 1087.8-1090.30; CamSpec 1088.8-1090.26; CamSpec baseline 1089.99 ± 0.26 (Table A.1, READ)",
+   "value_now": "same (no later value read)",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt",
+   "moves_conclusion": "No: the printed 1090.92 moves by at most −2.1/+0.4; '1,091' becomes 1,089 or 1,090 in 2 of 12 columns."
+  },
+  {
+   "quantity": "T_CMB (T_0)",
+   "value_then": "2.7255 ± 0.0006 K (Fixsen 2009, adopted by Planck, READ)",
+   "value_now": "not re-read this stage",
+   "source_now": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/1807.06209v4.txt",
+   "moves_conclusion": "No: in permute.py T_0 cancels identically from T_rec/T_0 (rederive C); it only moves the printed T_rec = 2973.30 K by ±0.65 K."
+  },
+  {
+   "quantity": "ω_b = Ω_b h², ω_c, N_eff (inputs z_* is derived from)",
+   "value_then": "0.02237 ± 0.00015, 0.1200 ± 0.0012, base N_eff (Table 2, READ)",
+   "value_now": "not re-read this stage (DESI DR2 normalises to Planck ω_b = 0.02236, READ via prior audit)",
+   "source_now": "rederive E (CAMB)",
+   "moves_conclusion": "Computed sensitivities: ω_b ±10% → z_* −2.57/+3.10; ω_c ±10% → +1.03/−1.07; N_eff 2↔4 → −1.05/+0.91. None moves 1+z off ~1090 by more than 0.3%."
+  },
+  {
+   "quantity": "atomic binding energy m_e α² c²/2 at recombination",
+   "value_then": "present-day values assumed (standard recombination)",
+   "value_now": "varying-m_e / varying-α recombination analyses exist (e.g. Hart & Chluba; NAMED-NOT-READ)",
+   "source_now": "rederive F (Saha scaling)",
+   "moves_conclusion": "Computed: d ln(1+z_rec)/d ln B = 1.04 (Saha), so a fractional change δ in m_e α² at recombination moves 1+z by ~δ. A percent-level shift would move 1090.92 by ~11 -- it does not move 'a dimensionless ratio changed by ~10^3'. It would, however, bear directly on permute.py's premise that the atomic scale carries no time dependence (bohr_radius_contains_a, permute.py:243-245), which this audit does not test."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1807.06209-zrec.py",
+  "outcome": "ALL PASS (exit 0). A: every quoted source string is present verbatim in the cached Planck pages (Table 2 z_* row both halves, Table A.1 CamSpec row, captions, T_CMB, 'sound horizon at recombination'; DESI DR2 'z_* ≈ 1089'). B: tree imported read-only -- Z_REC = 1089.92 exactly matches Table 2 baseline; 1+z = 1090.92; T_rec = 2973.3025 K. C: sympy proves T0(1+z)/T0 − (1+z) ≡ 0; the tree's 'ratio from the CMB temperature alone' returns 1090.92 for T0 = 1, 2.7255, 1000 K -- a tautology, not a measurement. D: CAMB 2.0.4 (Recfast) at the Planck Table 1 Plik best fit gives z_* = 1089.900, z_drag = 1059.970, 100θ_* = 1.041125, H0 = 67.308 -- the published number is independently reproduced to 0.08σ. E: z_* moves ~1 (≈4σ) under N_eff 2/4 or ω_c ±10%, and −2.6/+3.1 under ω_b ±10%: it is model-derived. F: visibility peak z = 1088.8; x_e = 0.5 at z = 1275.5; Saha 50% at z = 1369.8 (T = 3736 K); d ln(1+z)/d ln B = 1.037. G: all values give 1+z in [1088.3, 1370.8]; round(1+z) = 1091 in 10 of 12 Planck columns.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "DESI Collaboration, DESI DR2 Results II, arXiv:2503.14738v3 (2025)",
+   "effect": "confirms",
+   "what": "p.5: 'r_* is the comoving sound horizon at the end of recombination, at redshift z_* ≈ 1089' -- adopts the CMB z_* and the 'recombination' label for it; its DESI+BBN H_0 result 'does assume standard pre-recombination physics'. A use of Planck's number, not an independent measurement of z_*.",
+   "read_status": "READ (cached verbatim alphaXiv pages, /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/2503.14738v3.txt, pp.5, 22)"
+  },
+  {
+   "ref": "ACT DR6 cosmological parameters (arXiv:2503.14452); SPT-3G D1 (2025); Planck PR4 re-analyses",
+   "effect": "extends",
+   "what": "Named as the later CMB determinations from which an updated z_* would come; NO content asserted. Effect label is a placeholder category, not a finding.",
+   "read_status": "NAMED-NOT-READ (discover_papers, answer_pdf_queries and get_paper_content all returned 'alphaXiv assistant quota exceeded' this stage)"
+  },
+  {
+   "ref": "Hart & Chluba, varying electron mass / fine-structure constant at recombination (arXiv:1912.03986 and related)",
+   "effect": "extends",
+   "what": "Named as the literature in which z_* shifts with m_e, α (the H_0-tension 'early-universe' route); rederive F computes the scaling (1+z_rec ∝ ~B) but no value from these papers is asserted.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for z_*: what Planck 2018 lacked was (i) later CMB data (ACT DR6, SPT-3G, PR4) -- not read here, so no claim either way on the fourth significant figure; (ii) the late-time data that sharpened the H_0 tension (SH0ES 2022, DESI DR2 -- READ in the sibling audit 1807.06209.json). Evidence on whether they move z_*: DESI DR2 still quotes z_* ≈ 1089 (READ), and the computed sensitivities (rederive E) show that even 10% moves in ω_c or an extra neutrino species shift z_* by ~0.1%, while ω_b ±10% shifts it by ~0.3%. Only a change to the atomic physics itself (m_e, α at recombination) moves 1+z proportionally (rederive F, d ln(1+z)/d ln B = 1.04), and a percent-level shift -- the scale discussed in varying-m_e H_0 papers, NAMED-NOT-READ -- would move 1090.92 by ~11. Conclusion: no datum Planck lacked is shown to move the tree's conclusion ('a dimensionless ratio changed by ~10^3'); the fourth-digit value 1090.92 and the phrase 'measured independently of any model of a(t)' are what later data or extended models could move, and the latter is already not true at publication (it is a base-ΛCDM derived parameter). Nothing here shows the external result inaccurate: CAMB reproduces it.",
+ "grade": "NARROWED",
+ "grade_evidence": "The external result STANDS as published: Z_REC = 1089.92 is Table 2's baseline z_* exactly (READ), and an independent Boltzmann code (CAMB 2.0.4) reproduces 1089.900 at the Planck best fit (0.08σ). It is NARROWED as used because the tree drops the hypothesis on which the number rests: permute.py:239 ('Measured independently of any model of a(t)') and permute.py:66 ('Measured, from the CMB temperature alone') present a base-ΛCDM derived parameter as a model-free measurement. Computed: z_* shifts ~4σ under N_eff or ω_c changes alone (rederive E), and the tree's own 'measurement' T_rec/T_0 is an identity in the input z (sympy, rederive C; permute.py:428-429 is a tautology). The ±0.25 and the 0.5σ systematic caveat are dropped, and 'recombination' is the last-scattering (x_e ≈ 0.13) definition, with x_e = 0.5 at z = 1275.5. None of this moves the tree's qualitative conclusion: every Planck column, every computed variant and every definition keeps 1+z between 1088 and 1371, so 'a dimensionless ratio changed by ~10^3 since last scattering' holds. No refutation is shown; the tautological check and 'changed by 1,090.92' wording are recorded discrepancies, not errors in Planck.",
+ "what_would_change_the_grade": "To STANDS: the tree's use restated as 'z_* = 1089.92 ± 0.25, a base-ΛCDM derived parameter (Planck 2018 TT,TE,EE+lowE+lensing)', with the temperature check marked as a restatement rather than a measurement (a tree change, outside this workflow). To DATA-DEPENDENT: a READ later CMB analysis (ACT DR6 / SPT-3G / PR4) or a varying-m_e/α constraint moving z_* enough to matter to a use that needs the fourth digit (none in permute.py or obstruct.py needs it). To WRONG: only a demonstration that 1+z at last scattering is not ≫ 1, which nothing READ or computed here suggests.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1807.06209-zrec.py  # expect ALL PASS, exit 0 (needs CAMB at /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/pkgs/camb: pip install --target /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/pkgs/camb camb); then: cd /home/user/Claude-Method-Works && git status --short research  # expect clean",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1807.06209-zrec.json"
+}

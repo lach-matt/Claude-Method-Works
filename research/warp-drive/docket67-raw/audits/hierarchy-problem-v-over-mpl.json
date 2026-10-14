@@ -1,0 +1,112 @@
+{
+ "key": "hierarchy-problem-v-over-mpl",
+ "name": "The hierarchy problem: v sits sixteen orders below the (reduced) Planck scale",
+ "source": {
+  "located": "No single originating paper: the 'hierarchy problem' is a community statement (Gildener-Weinberg 1976, Wilson 1970, Susskind 1978, 't Hooft 1979, Veltman 1981 -- all NAMED-NOT-READ). READ at source as its standard restatements: G.F. Giudice, 'Naturally Speaking', arXiv:0801.2562v2 (2008) secs 2-5, 9, eqs (1),(5),(9); N. Craig, 'Naturalness: A Snowmass White Paper', arXiv:2205.05708v1 (2022) sec 5; S. Koren, 'The Hierarchy Problem: From the Fundamentals to the Frontiers', arXiv:2009.11870v1 (2020) ch.2. The threshold the tree equates it with: Barcelo & Visser, gr-qc/0003025v2, eq (2.1) p.3, ANEC cases 1-3 p.6, the m_p/sqrt(xi) sentence p.16. Data: CODATA 2022 arXiv:2409.03787 (Tables XXX, XXXII, XXXIII); MuLan arXiv:1211.0960 eq (24).",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 0801.2562, 2205.05708, 2009.11870, gr-qc/0003025, 2409.03787, 1211.0960 (page text returned and quoted below). The original 1970s-80s papers are NAMED-NOT-READ; the statement audited is the one the three reviews give, which agree with each other."
+ },
+ "published_statement": "Giudice 0801.2562 sec 2: 'the ratio between the Fermi constant G_F and the Newton constant G_N ... is a very large number G_F hbar^2/(G_N c^2) = 1.738 59(15) x 10^33 (1)' [PDG 2006]. Sec 3: 'The really problematic aspect about the G_F/G_N ratio in eq. (1) comes about when we consider the effects of quantum mechanics' -- delta m_H^2 = kappa Lambda^2 (5); 'If the maximum energy is equal to the Planck mass M_Pl (= G_N^{-1/2}) ... if we take Lambda = M_Pl, the cancellation in kappa must be one part in 10^32.' Craig 2205.05708 sec 5: 'the divergence itself is not a problem ... The Standard Model in isolation does not suffer from a hierarchy problem ... It is only in the presence of additional UV scales that the problem emerges ... it is typical to invoke Lambda ~ M_Pl ... quantum corrections that are 32 orders of magnitude in excess of the doublet mass parameter.' Koren 2009.11870 sec 2.2.1: 'There is no hierarchy problem in the Standard Model. The hierarchy problem exists for a more-fundamental theory which predicts the Higgs mass'; sec 2.3: 'In a theory of physics beyond the Standard Model where the Higgs mass is an output, physical parameters must be finely-tuned in order to produce a mass which is far below the scale of new physics, in tension with the principle of parsimony.'",
+ "published_hypotheses": [
+  "H1 (the datum): the measured ratio of the weak scale to the gravitational scale, G_F/G_N ~ 1.7e33 (Giudice eq. 1), equivalently v << M_Pl. This is a measurement, not the problem.",
+  "H2 (the problem proper): the Higgs mass is an OUTPUT of a more fundamental theory with physical scales above the weak scale (GUT, Planck/quantum-gravity thresholds, Landau pole) that couple to the Higgs; then delta m_H^2 ~ Lambda^2 and m_H << Lambda needs a fine-tuned cancellation (Giudice sec 3-4; Craig sec 5; Koren sec 2.3).",
+  "H3: no symmetry of the SM protects a scalar mass (technical naturalness, 't Hooft 1979; Giudice sec 4; Koren sec 1.3).",
+  "H4: the problem is a naturalness/parsimony criterion, not an inconsistency: 'This is not a problem of internal consistency of the theory, but an acute problem of naturalness' (Giudice p.20); 'ultimately we do not know how Nature computes fine-tuning' (Craig p.20).",
+  "H5 (scale convention): the Planck scale in the literature is taken loosely; Giudice uses M_Pl = G_N^{-1/2} = 1.22e19 GeV; Craig's '32 orders' is quoted at Lambda ~ M_Pl without fixing the 8 pi.",
+  "H6 (BV side, for the equation the tree draws): Einstein equations kappa G = T with kappa = 1/(8 pi G_N) (BV p.3); ANEC violation possible only if phi^2 > kappa/xi somewhere (case 3, p.6); BV's prose 'above ~ m_p/sqrt(xi), where m_p is the Planck mass' (p.16) is an order-of-magnitude rendering of that exact condition."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H2/H3 (the problem's defining hypotheses) -- higgs.py:152-153 'THE HIERARCHY PROBLEM IS THE STATEMENT THAT v SITS SIXTEEN ORDERS BELOW IT', higgs.py:138 'AND THE GATE IS THE HIERARCHY PROBLEM. EXACTLY, NOT BY ANALOGY', higgs.py:17-18, higgs.py:484, VERDICT higgs.py:514 'the gate on xi is the hierarchy problem'. As READ, the hierarchy problem is not the statement that the ratio is small (H1, a measured number) but that it is radiatively unstable given UV scales coupling to the Higgs (H2), with no protecting symmetry (H3). Craig p.18 and Koren p.73 both say the SM alone has NO hierarchy problem. BV's gate depends only on H1: xi_required = (M_red/v)^2 is a function of the measured ratio and of nothing about UV sensitivity. Consequence (computed, A3/B7): a solution of the hierarchy problem (SUSY, compositeness, anthropics -- Craig sec 5.1) leaves v and G_N measured as they are, so leaves xi_required = 9.78e31 unchanged; the gate is the HIERARCHY (squared), not the hierarchy PROBLEM. The tree's sentence is accurate with 'problem' deleted.",
+  "WEAKENED 'EXACTLY' -- higgs.py:156-157 'THE SINGLE MOST FAMOUS FINE-TUNING IN PARTICLE PHYSICS IS EXACTLY THE QUANTITY STANDING BETWEEN THE HIGGS AND A TRAVERSABLE THROAT'. The fine-tuning (Giudice eq. 5/9: |delta m_h^2|/m_h^2 at Lambda) and xi_required = (M_red/v)^2 are different quantities that share an order of magnitude: re-derived (check E) 4.9e32 (log10 32.69) at Lambda = M_Pl and 1.95e31 (log10 31.29) at Lambda = M_red, against xi_required 9.78e31 (log10 31.99) -- same order, not the same number, and the tuning depends on the cutoff choice and the SM couplings while xi_required does not. The identity the tree actually proves (higgs.py:644-646 'xi_required is exactly the hierarchy squared') is exact and tautological given BV; the identity with the fine-tuning is order-of-magnitude.",
+  "SCALE CONVENTION (not a drift against BV; a normalisation choice against the hierarchy literature) -- higgs.py:145 'M_reduced = M_Planck/sqrt(8 pi)' and canonical hypothesis 'Planck scale taken as reduced Planck mass'. Against BV this is FAITHFUL, indeed more exact than BV's own prose: BV's exact condition phi^2 > kappa/xi with kappa = 1/(8 pi G_N) gives the reduced mass (sympy A1), and BV's '~ m_p/sqrt(xi), where m_p is the Planck mass' (p.16) differs from it by sqrt(8 pi) = 5.01 (A2). Against the hierarchy literature, Giudice's M_Pl = G_N^{-1/2} gives v/M_Pl = 2.017e-17, log10 16.70 -- 'seventeen orders' by rounding (B6); 'sixteen orders' (higgs.py:153) is the reduced-mass figure 15.995 (B5). The hypothesis is NAMED at higgs.py:145, so this is a stated convention, not a hidden one; the word 'the Planck scale' at higgs.py:152 relies on it.",
+  "ADDED/IMPLICIT: phi = v is the BV field value. higgs.py:141-143 enters phi = v = 246.22 GeV into BV's canonically normalised real scalar. Checked (sympy A4): with H = (0,(v+h)/sqrt2), xi H^dag H R = (1/2) xi R phi^2, phi = v+h, the same normalisation as BV eq (2.1). Not a drift. (BV's solutions are for V = 0, massless, static spherical scalar (BV p.6-7) -- that hypothesis belongs to the BV entry, not this one, and is not graded here.)"
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G_F (Fermi constant)",
+   "value_then": "Giudice 2008 used PDG 2006 (via G_F/G_N = 1.73859(15)e33); tree higgs.py:209 uses 1.1663788e-5 GeV^-2 'PDG NAMED-NOT-READ'",
+   "value_now": "1.1663787(6)e-5 GeV^-2 (0.5 ppm)",
+   "source_now": "CODATA 2022 arXiv:2409.03787 Table XXXIII (taken from PDG 2022); MuLan arXiv:1211.0960 eq (24)",
+   "moves_conclusion": "No. Tree value is 1e-12 GeV^-2 (0.9 sigma of the quoted 6e-12) above CODATA 2022/MuLan; moves v/M_red by 4.3e-8 relative (check B4). A discrepancy in the last digit, not an error in any conclusion."
+  },
+  {
+   "quantity": "G_N (Newton constant)",
+   "value_then": "tree ladder.py:54 uses 6.67430e-11 (CODATA 2018)",
+   "value_now": "6.67430(15)e-11 m^3 kg^-1 s^-2, identical in 2022; but the 16 input measurements are mutually inconsistent (expansion factor 3.9; BIPM-14 and JILA-18 residuals 7.75 and -6.80) spanning 6.67191 (LENS-14) to 6.67559 (BIPM-01)",
+   "source_now": "CODATA 2022 arXiv:2409.03787 secs XIV-XV, Tables XXX, XXXIII",
+   "moves_conclusion": "No. 1-sigma G moves log10(M_red/v) by 4.9e-6 dex; the FULL spread of the contested G measurements moves it by 1.2e-4 dex (check D). The G tension is real (contested) but cannot move a sixteen-order statement."
+  },
+  {
+   "quantity": "M_Pl, M_red",
+   "value_then": "tree higgs.py:609-610: 1.220890e19, 2.435323e18 GeV",
+   "value_now": "m_P c^2 = 1.220890(14)e19 GeV; M_red = 2.435323e18 GeV (computed)",
+   "source_now": "CODATA 2022 Table XXXIII",
+   "moves_conclusion": "No; tree reproduces CODATA 2022 to 1e-7 (checks B1-B2)."
+  },
+  {
+   "quantity": "v = (sqrt2 G_F)^(-1/2)",
+   "value_then": "tree 246.21964 GeV (tree-level Fermi-constant definition)",
+   "value_now": "246.21965 GeV from CODATA 2022 G_F",
+   "source_now": "computed from CODATA 2022 / MuLan",
+   "moves_conclusion": "No. A scheme change of v at the 1% level (e.g. an MS-bar vev; not read here, NAMED) moves log10 by 0.0043 dex; the margin before the rounded 'sixteen orders' changes is -0.495/+0.505 dex."
+  },
+  {
+   "quantity": "v/M_red (the tree's hierarchy)",
+   "value_then": "1.0110346504e-16 (higgs.py:645, 11 significant figures, selftest tolerance 1e-9)",
+   "value_now": "1.0110347e-16 +/- 1.1e-5 relative (data-supported ~5 significant figures)",
+   "source_now": "computed, check B3/B8",
+   "moves_conclusion": "No. Recorded discrepancy of PRESENTATION only: the pinned digits past the ~5th are arithmetic on the chosen inputs, not measurement; the selftest tolerance (1e-9) is 1e4 tighter than the datum supports. Not an error."
+  },
+  {
+   "quantity": "m_h (enters the problem, not the ratio)",
+   "value_then": "unknown in 2008 (Giudice: 'the hypothetical Higgs boson'; LEP fit < 182 GeV)",
+   "value_now": "125.13 GeV (tree's READ capture, higgs.py:652)",
+   "source_now": "tree captures/PDG-2026.tsv, not re-read here",
+   "moves_conclusion": "No for the ratio v/M_red (v comes from G_F, not m_h). It moves the naturalness estimate (check E) but that is not the quantity the gate uses."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hierarchy-problem-v-over-mpl.py",
+  "outcome": "19 checks, 0 FAIL. (A) sympy: BV's exact threshold sqrt(kappa/xi), kappa = 1/(8 pi G), equals M_red/sqrt(xi); BV's prose '~m_p/sqrt(xi)' is larger by sqrt(8 pi); xi_required(v) = (M_red/v)^2 identically; SM doublet normalisation matches BV's (1/2) xi R phi^2 with phi = v. (B) tree M_Pl, M_red, v/M_red = 1.0110346504e-16, xi_required = 9.7829e31 all reproduced; CODATA 2022/MuLan G_F moves v/M_red by 4.3e-8; log10(M_red/v) = 15.99523 (rounds to 16); log10(M_Pl/v) = 16.69535 (rounds to 17); data support ~5 significant figures (1.1e-5 rel). (C) Giudice eq.(1) G_F/G_N = 1.73859(15)e33 [PDG 2006] reproduced from CODATA 2022 as 1.73857e33, within its error. (D) the full spread of the inconsistent G measurements moves the log by 1.2e-4 dex; 1% on v by 4.3e-3 dex. (E) Giudice eq.(9) fine-tuning at Lambda = M_Pl is 4.9e32 vs xi_required 9.8e31: same order, factor 5.0 apart (at Lambda = M_red: 1.95e31, factor 0.2) -- not 'exactly' the same quantity.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "N. Craig, 'Naturalness: A Snowmass White Paper', arXiv:2205.05708 (2022)",
+   "effect": "narrows",
+   "what": "Sec 5: 'The Standard Model in isolation does not suffer from a hierarchy problem ... It is only in the presence of additional UV scales that the problem emerges'; also argues the SM is an EFT with a cutoff regardless (hypercharge Landau pole ~1e41 GeV). Post-LHC: 'supersymmetry did not appear where naturalness arguments led us to expect it.' Confirms the problem is H2 (UV sensitivity), which the tree's use drops; the ratio H1 is untouched.",
+   "read_status": "READ (sec 5, pp.18-28)"
+  },
+  {
+   "ref": "S. Koren, 'The Hierarchy Problem: From the Fundamentals to the Frontiers', arXiv:2009.11870 (2020)",
+   "effect": "narrows",
+   "what": "Sec 2.2.1 'There is no hierarchy problem in the Standard Model'; sec 2.3 one-sentence definition conditional on the Higgs mass being an output of BSM physics; sec 4.2 'Loerarchy problem' -- LHC data changed the problem's empirical form (no visible structure at the weak scale), not the ratio.",
+   "read_status": "READ (ch.2, sec 4.2)"
+  },
+  {
+   "ref": "CODATA 2022, arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "G unchanged since 2018 (no new input); m_P c^2 = 1.220890(14)e19 GeV; G_F = 1.1663787(6)e-5 GeV^-2. The ratio's inputs have not moved beyond the tree's last digit.",
+   "read_status": "READ (Tables XXX, XXXII, XXXIII; secs XIV-XV)"
+  },
+  {
+   "ref": "Shaposhnikov, cited as [36] in Giudice 0801.2562 footnote 11",
+   "effect": "contested",
+   "what": "Argues that without a new mass scale between weak and Planck the problem may not exist, the Planck mass possibly differing from a field-theoretic cutoff. Craig p.19 answers that the SM needs a UV completion anyway. Bears on H2 (whether the problem exists), not on the ratio the tree uses.",
+   "read_status": "NAMED-NOT-READ (read only as Giudice's restatement)"
+  },
+  {
+   "ref": "discover_papers results not read: 2203.05531 (Neutral Naturalness review), 1804.06376 (scale invariance and the hierarchy problem), 2505.08776/2502.09699 (Custodial Naturalness)",
+   "effect": "extends",
+   "what": "Proposed solutions of the hierarchy problem; none alters v or G_N, hence none alters xi_required (by A3).",
+   "read_status": "NAMED-NOT-READ (titles/abstracts only)"
+  }
+ ],
+ "lacked_data": "What the authors lacked: Giudice (2008) wrote before the Higgs discovery (m_h unknown, 'hypothetical Higgs boson') and before the LHC null results for TeV-scale partners; G_F was then ~17x less precise than MuLan's 0.5 ppm; G_N was already the worst-known constant. What came later, and whether it moves the conclusion, evidence either way: (1) G_F sharpened to 0.5 ppm (MuLan 2012) and the tree's value sits 1e-12 GeV^-2 above it -- moves v/M_red by 4.3e-8 (computed). (2) G_N: no new datum since 2018, and the existing measurements disagree at up to ~7.7 sigma before expansion; the full disagreement moves log10(M_red/v) by 1.2e-4 dex (computed) -- contested datum, immaterial to 'sixteen orders'. (3) The Higgs mass 125 GeV and the LHC's null results changed the NATURALNESS problem (Craig: SUSY 'did not appear where naturalness arguments led us to expect it'; Koren: the 'Loerarchy problem') -- this is real later data, and it does move the status of proposed SOLUTIONS of the problem; but by check A3 the tree's gate depends only on the measured ratio, so none of it reaches xi_required. Verdict on M's hypothesis for this result: the data the earlier physicists lacked do NOT change the ratio or its order of magnitude; they did change the problem's framing, which the tree does not in fact use -- and that is the narrowing, not a refutation.",
+ "grade": "NARROWED",
+ "grade_evidence": "The NUMBER the tree uses stands and is re-derived: v/M_red = 1.0110347e-16 (log10 15.995, 'sixteen orders' for the reduced mass it names at higgs.py:145; 16.70 for Giudice's M_Pl = G_N^{-1/2}); xi_required = (M_red/v)^2 = 9.78e31 is BV's exact condition (kappa = 1/(8 pi G)) identically (sympy A1, A3); no moved or contested datum shifts it by more than 1.2e-4 dex (D). What is narrowed is the IDENTIFICATION: as READ in Giudice 0801.2562 sec 3, Craig 2205.05708 sec 5 and Koren 2009.11870 sec 2, the hierarchy problem is the radiative/UV instability of m_H given heavy scales and no protecting symmetry (H2, H3), and 'the Standard Model in isolation does not suffer from a hierarchy problem'. The tree's statement (higgs.py:138, 152-153, 156-157, 484, 514) drops H2/H3 and uses only the measured ratio H1. The conclusion that rests on it, 'the gate on xi is the hierarchy problem' (higgs.py:514), holds on the smaller reading 'the gate on xi is the hierarchy, squared'; and 'EXACTLY the famous fine-tuning' (higgs.py:156-157) is exact only to order of magnitude (fine-tuning 4.9e32 at Lambda = M_Pl vs 9.8e31, check E). Not WRONG: no computed contradiction of any number; the sentence overstates a correct numerical identity by naming it after a different, related quantity. Recorded, nothing repaired. Minor recorded discrepancies (not errors): G_F pinned 1 unit in the last digit above CODATA 2022; v/M_red pinned to 11 figures against ~5 supported by G.",
+ "what_would_change_the_grade": "To STANDS: the tree restating the claim as 'the gate on xi is the (measured) electroweak-Planck hierarchy squared', with 'EXACTLY the fine-tuning' reduced to 'the same order as the fine-tuning' -- i.e. the dropped hypotheses H2/H3 either restored or the name 'problem' dropped. To DATA-DEPENDENT: a change in G_N or G_F of order 1 dex (no measurement is within 1e-3 of that). To WRONG: a showing that BV's threshold is not sqrt(kappa/xi) with kappa = 1/(8 pi G_N) (contradicted by BV p.3, p.6 as read), or a definition of the Higgs field in which phi != v at the vacuum for BV's normalisation (contradicted by sympy A4). Reading the original 1976-81 papers (NAMED-NOT-READ) could only sharpen H2's wording; the three reviews agree on it.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hierarchy-problem-v-over-mpl.py  # exits 0 with 19 PASS; plus: cd /home/user/Claude-Method-Works/research/warp-drive && sed -n 138,159p higgs.py && sed -n 640,648p higgs.py && grep -n 'hierarchy problem' higgs.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/hierarchy-problem-v-over-mpl.json"
+}

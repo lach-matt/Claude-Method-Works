@@ -43,6 +43,22 @@ prices an un-closable corridor.  The scalar-Gauss-Bonnet branch escapes this,
 because a scalar PROFILE can vary where a constant cannot, and that is a real
 discriminator between the two halves of the scope M just opened.
 
+[Item 327, docket68/lemmas/sgb_cone.py -- a finding recorded, nothing here
+repaired.  The scalar-Gauss-Bonnet theory fails relativity's light-cone test
+(docket68 relativity.py U6) for every coupling with f' != 0: on a plane
+gravitational wave, an exact solution, one graviton-scalar front lies
+outside the light cone for either sign of f', and a weakly coupled cosmology
+carries tensor fronts faster than light.  Its wormholes need f' != 0, a
+constant f being topological in four dimensions.  The pure-curvature
+branch's theories have field equations beyond second order in four
+dimensions, outside U4's law, and the five-dimensional Gauss-Bonnet coupling
+is zero (item 326, gb_cone.py).  The gates below stand as found.]
+[Item 332, the C9 verifier (docket68 gb_cone C10, sgb_cone S9): "for every
+coupling with f' != 0" holds on backgrounds with V(phi_0) = V'(phi_0) = 0
+-- every point when V = 0, which this branch's theory has (arXiv:1904.13091,
+no potential); the test on curved backgrounds rests on M-ONE-LIGHT-CONE
+(item 328).]
+
 THE ESCAPE IS THE SAME ESCAPE.  alpha ~ l_P^2 is an EFT EXPECTATION, NOT A
 THEOREM, and it fails exactly for a UV-complete theory with no cutoff to
 suppress anything -- which is unidentified.py's l_UV <= sqrt(Lambda) l_P
@@ -97,6 +113,8 @@ MG_GATES = {
         "DEADLINE":  False,   # A COUPLING CONSTANT DOES NOT SWITCH OFF
         "MAGNITUDE": False,   # (R/l_P)^2 over the natural value
     },
+    # [Item 327: this theory fails relativity's light-cone test for every
+    #  f' != 0 (docket68/lemmas/sgb_cone.py); the gate is left as found.]
     "scalar-Gauss-Bonnet": {
         "KIND":      True,
         "DEADLINE":  None,    # OPEN -- a scalar PROFILE can vary where a constant cannot

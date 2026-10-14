@@ -1,0 +1,29 @@
+[E0] PASS  sandbox composite.py md5 19b20fbb4663e7e2eb7ba2cdcdc0455e == repo 19b20fbb4663e7e2eb7ba2cdcdc0455e
+[E1] PASS  K_zz = 3*M/b**3, K_yy = -3*M/b**3 at O(M); trace at O(M) = 0 (vacuum: R_kk = 0)
+[E2] PASS  composite.tidal T = [[0.221276, -0.0], [-0.0, -0.22124]] ; standard K = [[-0.221261, 0.0], [0.0, 0.221248]] ; T = -K to 7.1e-05 -> composite evolves A'' = -T A = +K A, the opposite sign to eq. (11)
+[E3] PASS  M=+2e-3, parallel neighbours at lambda=75: z-sep/d = -2.169 (converges), y-sep/d = 4.237 (diverges) -- the physical sign is K's, not the code's T's
+[E3b] PASS  parallel data, M=+2e-3: geodesics give (y, z) = (4.237, -2.169); eq.(11) sign gives (4.229, -2.171); composite's sign gives (-2.176, 4.224) -- the transverse axes SWAPPED, same determinant
+[E4a] PASS  sign flip of a diagonal traceless T swaps the two decoupled ODEs; det A = u*w is swap-invariant (exact up to the O(Phi^2) trace and the screen leak)
+       M=+2.0e-03  code conj 55.17     eq11-sign conj 55.17     delay +5.1227e-02
+       M=-2.0e-03  code conj 56.50     eq11-sign conj 56.50     delay -3.7618e-02
+       M=-2.0e-04  code conj none      eq11-sign conj none      delay -4.3468e-03
+       M=-5.0e-04  code conj none      eq11-sign conj none      delay -1.0616e-02
+       M=-1.0e-03  code conj none      eq11-sign conj none      delay -2.0408e-02
+       M=-5.0e-03  code conj 45.58     eq11-sign conj 45.58     delay -7.1836e-02
+       M=-1.0e-02  code conj 42.83     eq11-sign conj 42.83     delay -7.9680e-02
+       M=-2.0e-02  code conj 41.50     eq11-sign conj 41.50     delay +4.1107e-02
+       M=-4.0e-02  code conj 40.83     eq11-sign conj 40.83     delay +6.1601e-01
+[E4b] PASS  code and sign-corrected copy give identical conjugate points at all 9 masses; the owner's window table (composite.py:70-77) reproduced
+[E5] PASS  independent eq.(11), standard sign, exact screen, RK4 (n=3600): conj(+2e-3) = 55.2085 vs code 55.17; conj(-2e-3) = 56.5591 vs code 56.50; along the ray max |trace|/|K| = 5.39e-02 (|K| > 1e-3), max |K_yz| = 0.0e+00
+       n= 900  h=0.0833  conj(+2e-3) = 55.1667  conj(-2e-3) = 56.5000  early(-2e-3) = True
+       n=1800  h=0.0417  conj(+2e-3) = 55.1667  conj(-2e-3) = 56.5417  early(-2e-3) = True
+       n=3600  h=0.0208  conj(+2e-3) = 55.1667  conj(-2e-3) = 56.5208  early(-2e-3) = True
+[E6] PASS  code conj(-2e-3) spread over 4x refinement = 0.0208 (<= one coarse step 0.083); docstring line 50 '56.52' is off the n=900 grid (56.50) -- a figure from another resolution, not an error
+[E7] PASS  composite's rule 'first det A <= 0 after step 5' misses a stigmatic focus (T = I: true conjugate point at pi = 3.1416, min det = 3.89e-08 > 0, detected = None) and finds an astigmatic one (3.140): it is SUFFICIENT, not necessary; irrelevant for composite's traceless (vacuum) T, where zeros are simple
+[E8] PASS  at the conjugate point A has singular values 111.707, 5.43e-02 (+M) and 114.269, 8.17e-03 (-M): rank 1, a line focus -- a nontrivial Jacobi field vanishing at both ends, so a conjugate point in the eq.(11) sense
+       concentric m=1e-02 a=0.02  |trace|/|T| = 6.53e-04  code conj 182.16  eq11-sign conj 182.28
+       concentric m=1e-02 a=0.50  |trace|/|T| = 3.98e-01  code conj 191.76  eq11-sign conj 232.56
+       concentric m=5e-03 a=0.50  |trace|/|T| = 3.99e-01  code conj 261.36  eq11-sign conj None
+[E9] PASS  vacuum corridor (a=0.02, the design point): the flip moves the conjugate point by one step; NON-vacuum ray (a=0.5, R_kk < 0, concentric.py's withdrawn first corridor): code 191.76 vs eq.(11) 232.56, and at m=5e-3 the code seats where eq.(11) does not -- with composite's sign, negative R_kk FOCUSES
+
+12/12 PASS

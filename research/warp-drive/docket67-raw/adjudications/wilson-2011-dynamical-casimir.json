@@ -1,0 +1,83 @@
+{
+ "key": "wilson-2011-dynamical-casimir",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "I confirm the overturn from the audit's OPEN to NARROWED. The verifiers did not share an error on the grade. I read arXiv:1105.4714v1, pp. 1-12, myself through alphaXiv answer_pdf_queries. The Nature version was not read.\n\nWhat the source says:\n- The claim, from the abstract (p. 2): \"Using a superconducting circuit, we have observed the DCE for the first time ... modulating the inductance of a SQUID at high frequencies (~11 GHz) ... we observe two-mode squeezing of the emitted radiation.\"\n- The conclusion (p. 11): \"we believe these results represent the first experimental observation of the dynamical Casimir effect.\"\n- What was measured: the photon flux n_out (Eq. 2), broadband output power, and two-mode squeezing.\n- Energy density: the paper neither measures nor claims any energy density. The only related passage is the static Casimir radiation pressure (p. 2).\n\nThe audit's four hypotheses, each stated in the paper:\n- H1, the observable: photon generation.\n- H2, the boundary: an effective circuit boundary. Its velocity is the rate of change of the electrical length, with v/c ~ 0.05 at 10% inductance modulation (p. 3) and c0 ~ 0.4c (p. 4).\n- H3, thermal input ruled out: the sample is at 50 mK, giving n = 0.008 at 5 GHz. I recomputed 0.0083. An 8.4-12 GHz bandpass filter sits on the drive line, and the broadband output excludes a single-mode parametric amplifier.\n- H4, the quantum signature: <I+I-> = -<Q+Q->, cross-correlations about 100 times the amplifier's own, single-mode fields unsqueezed, and Psi -> e^{-2i theta} Psi.\n\nThe grade, use by use:\n- Use 1, \"DCE is real and observed\" (warpfolder.py:155, and the words \"DYNAMICAL CASIMIR MEASURED\" at achievable.py:33), STANDS as the authors' claim.\n- Use 2 is the row's placement under \"THE CENSUS OF KNOWN NEGATIVE ENERGY DENSITY -- Everything real\" (achievable.py:27-28, with \"stands item by item\" at :24-25), repeated at research/README.md:2828/2835 and paper/CLAIMS.md:668-669. Placed there, the row reads as a measured negative-energy-density source. It holds only on a smaller class: a measured photon-generation and two-mode-squeezing effect. That is NARROWED.\n- It is not WRONG. No site states outright that Wilson measured a negative density, and DCE is real, so nothing refutes the row. This is a placement over-reach by the tree, not an error by Wilson et al. achievable.py's NO verdict does not rest on this row.\n\nThe re-derivation:\n- I copied it to adjudicate/run/w.py and ran it: ALL PASS, exit 0, every figure identical to the audit's. The script is byte-identical to the copy in docket67-raw.\n- It bears only on the warpfolder NOT-ADJUDICATED hedge. It supports that hedge under a named hypothesis: the motion begins and ends inertial. Verifier 2's vacuity guard shows that hypothesis is load-bearing.",
+ "scope": "Covers the tree's two uses of Wilson et al. 2011, as read in arXiv v1:\n- the observation claim, which STANDS;\n- its placement in the negative-energy-density census, which is NARROWED.\n\nDoes not cover:\n- the Nature 479, 376 version, which was not read;\n- whether Wilson's Q^2 parasitic-resonance reconciliation of the absolute rate is correct;\n- the separate theoretical claim that DCE or squeezed output carries negative energy density (frequency.py cites arXiv:2504.11361 for it, and that paper was not read);\n- the later literature, which remains NAMED-NOT-READ;\n- achievable.py's overall NO verdict, which does not rest on this row.",
+ "corrections_to_record": [
+  "The audit's OPEN, its NAMED-NOT-READ status and every 'value_then: not read' are superseded. arXiv:1105.4714v1 was read in full this pass.",
+  "The drive frequency is now READ: '~11 GHz' in the abstract, an 8-12 GHz band, and 8.70 and 11.30 GHz in Figs 2-3. The audit's untraced ~11 GHz was correct.",
+  "Effective velocity, read at source: 'a few percent of the speed of light', and 'v/c ~ 0.05 for a 10% modulation of the SQUID inductance' (p. 3). The '10%' is the inductance modulation, not the velocity.",
+  "Internal discrepancy in the source, recorded and not adjudicated. With sigma2 ~ v_e/2c0, v/c ~ 0.05 and c0 ~ 0.4c, sigma2 comes to ~0.06. The paper instead says 'about 2%', which implies v_e/c0 ~ 0.04. It then measures sigma2 ~ 0.04 and calls this 'consistent'. Fig 3c's squeezing axis, as extracted, spans 0-2.0%. The text does not settle whether 0.05 is taken against c or c0.",
+  "Named hypothesis: the measured power ('a few Kelvin') exceeds the ideal-line prediction ('a few mK'). The paper reconciles the two with a Q^2 enhancement from parasitic resonances at Q ~ 30-50, giving a factor of 1000-2000. The absolute rate rests on that model inference; the qualitative observation does not.",
+  "Named limitation: the thermal occupation is inferred from the fridge temperature (50 mK), not from a measured mode temperature.",
+  "Path correction: the audit's 'README.md:2835' is research/README.md:2835, outside research/warp-drive/. It is a table under the heading '### The census of real negative energy density' at line 2828.",
+  "The audit cited paper/CLAIMS.md:5495-5496 for the 'squeezed vacuum ... negative energy density' text. That text now sits at line 5496.",
+  "The re-derivation's 'negative on 50% of the grid' counts tail points where the flux is negligible. Among points with |F| > 1e-8 the negative fraction is 0.49. Not materially wrong.",
+  "The Fulling-Davies flux formula used in the re-derivation remains recalled, not read. Wilson cites it as ref 17 without stating it.",
+  "The later literature (Lahteenmaki 2013 PNAS, 1405.3720, 1411.2948, 2504.11361) remains NAMED-NOT-READ. One discover_papers search, run by a verifier, found no dispute, which does not rule one out."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/achievable.py:33",
+   "finding": "'DYNAMICAL CASIMIR MEASURED (Wilson 2011, superconducting circuit)' is true of the effect. Placed under the census of negative energy density, it goes beyond the source: no energy density was measured. The line number is current.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/achievable.py:27-28",
+   "finding": "The header 'THE CENSUS OF KNOWN NEGATIVE ENERGY DENSITY / Everything real, and what bounds it' attaches the negative-density reading to the Wilson row.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/achievable.py:24-25",
+   "finding": "'The census of real negative-energy sources below stands item by item.' For the DCE item it stands only as a measured photon effect.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/warpfolder.py:155-156",
+   "finding": "'DCE is real and observed; that it gives a usable STATIC negative density ... is the unestablished step.' This STANDS against the source; the hedge is supported.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/warpfolder.py:252-256",
+   "finding": "The NOT_ADJUDICATED tuple holding the shear-gap DCE claim is consistent with the source and with the re-derivation.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/paper/CLAIMS.md:668-669",
+   "finding": "'The census of real negative energy density -- ... dynamical Casimir (measured, Wilson 2011)'. The same placement over-reach.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/README.md:2835 (outside warp-drive; the audit cited it as README.md:2835)",
+   "finding": "A table under '### The census of real negative energy density' (line 2828) reads 'dynamical Casimir | measured -- Wilson 2011'. The same placement over-reach.",
+   "kind": "overstatement"
+  },
+  {
+   "site": "research/warp-drive/frequency.py:154",
+   "finding": "DCE_DRIVEN_AT_HZ = 1e9, against Wilson's read 8-12 GHz, about one decade low. frequency.py sources its DCE to arXiv:2504.11361, not to Wilson. The gap is 32.7-32.9 decades at the read drive frequencies against 33.77 at 1 GHz, and the verdict does not move. Not an owner site.",
+   "kind": "discrepancy"
+  },
+  {
+   "site": "research/warp-drive/frequency.py:22-24",
+   "finding": "'squeezed vacuum, which carries regions of NEGATIVE energy density' cites arXiv:2504.11361, not Wilson, and is not adjudicated here. Read together with the Wilson citations elsewhere, it produces the over-reach.",
+   "kind": "consistent"
+  },
+  {
+   "site": "research/warp-drive/paper/CLAIMS.md:5496",
+   "finding": "The audit cited lines 5495-5496. The squeezed-vacuum negative-energy text is now at 5496.",
+   "kind": "stale"
+  }
+ ],
+ "commands_run": [
+  "python3 -c 'import json; ...' to dump adjudicate/in/wilson-2011-dynamical-casimir.json",
+  "sed -n and grep on achievable.py, warpfolder.py, frequency.py, paper/CLAIMS.md and research/README.md",
+  "mcp__alphaXiv__answer_pdf_queries(paper='1105.4714', 6 queries) -> full v1 text, pp. 1-12",
+  "cp rederive/wilson-2011-dynamical-casimir.py adjudicate/run/w.py; python3 w.py -> ALL PASS, exit 0",
+  "cmp with research/warp-drive/docket67-raw/rederive copy -> SAME",
+  "python3: n_th(5 GHz, 50 mK) = 0.0083; sigma2 = 0.0625 if v/c = 0.05, and 0.025 if v/c0 = 0.05"
+ ],
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run/w.py ; answer_pdf_queries(paper='1105.4714', queries=['abstract claim','any energy density mention','sigma2 prediction vs measurement']) ; grep -n 'Wilson 2011\\|NEGATIVE ENERGY DENSITY' /home/user/Claude-Method-Works/research/warp-drive/achievable.py /home/user/Claude-Method-Works/research/warp-drive/paper/CLAIMS.md /home/user/Claude-Method-Works/research/README.md",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/wilson-2011-dynamical-casimir.json"
+}

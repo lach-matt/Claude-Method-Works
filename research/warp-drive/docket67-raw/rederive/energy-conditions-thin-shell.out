@@ -1,0 +1,50 @@
+A. closed forms (sympy)
+   sigma*R = (sqrt(2*x + 1) - 1)/(4*pi)    p*R = (-x + sqrt(2*x + 1) - 1)/(8*pi*sqrt(2*x + 1))
+  sigma*R, p*R are functions of x = m/R alone                            ok
+  sigma*R == (sqrt(1+2x) - 1)/(4 pi)                                     ok
+  p*R == (1 - (1+x)/sqrt(1+2x))/(8 pi)                                   ok
+  (1+x)^2 - (1+2x) == x^2  (so p < 0 for every x > 0)                    ok
+  8 pi sqrt(1+2x) (sigma+p) R == 1 + 3x - sqrt(1+2x)                     ok
+  (1+3x)^2 - (1+2x) == 4x + 9x^2 > 0  (so sigma + p > 0 for every x > 0) ok
+   |p|/sigma -> 0 (x->0),  -> 1/4 (x->oo)
+  |p|/sigma -> 0 as x -> 0 and -> 1/4 as x -> oo                         ok
+   |p|/sigma = x*(2 - 3*x)/8 + O(x^3)
+  |p|/sigma < 1/4 at x = 1e-6 .. 1e8 (margin to DEC >= 3/4 sigma)        ok
+
+B. quantified proof over the reals (z3)
+  z3: for all x > 0: sigma > 0  [unsat]                                  ok
+  z3: for all x > 0: p < 0  [unsat]                                      ok
+  z3: for all x > 0: sigma + p > 0  [unsat]                              ok
+  z3: for all x > 0: 2S(S-1) + (S-(1+X)) == 1 + 3X - S (normalisation identity)  [unsat] ok
+
+C. the tree's table, stability.py:29-33
+   x=0.01 sigma=+7.9184e-04 p=-1.9504e-06 sigma+p=+7.8988e-04 sigma-|p|=+7.8988e-04
+  x=0.01 matches the printed row to 4 significant figures                ok
+   x=0.10 sigma=+7.5953e-03 p=-1.6544e-04 sigma+p=+7.4298e-03 sigma-|p|=+7.4298e-03
+  x=0.10 matches the printed row to 4 significant figures                ok
+   x=0.50 sigma=+3.2962e-02 p=-2.4136e-03 sigma+p=+3.0548e-02 sigma-|p|=+3.0548e-02
+  x=0.50 matches the printed row to 4 significant figures                ok
+   x=2.00 sigma=+9.8363e-02 p=-1.3593e-02 sigma+p=+8.4770e-02 sigma-|p|=+8.4770e-02
+  x=2.00 matches the printed row to 4 significant figures                ok
+
+D. surface conditions vs the 4D distributional stress tensor (z3)
+  z3: 4D DEC <=> sigma >= 0 and sigma >= |p|  [unsat]                    ok
+  z3: 4D WEC <=> sigma >= 0 and sigma + p >= 0  [unsat]                  ok
+  z3: 4D NEC <=> sigma >= 0 and sigma + p >= 0 (the surface WEC)  [unsat] ok
+  z3: surface (tangential, 2+1) NEC <=> sigma + p >= 0  [unsat]          ok
+  sigma=-1, p=2: passes sigma+p>=0 yet violates the 4D NEC [sat]         ok
+    witness: radial null k=(1,1,0,0) gives T_kk = sigma = -1 < 0         ok
+  surface DEC => 4D NEC  [unsat]                                         ok
+
+E. stability.py's own dec_holds / nec_holds (imported read-only, no bytecode)
+  x=0.01  tree sigma, p agree with sympy to 1e-14; dec, nec True         ok
+  x=0.10  tree sigma, p agree with sympy to 1e-14; dec, nec True         ok
+  x=0.50  tree sigma, p agree with sympy to 1e-14; dec, nec True         ok
+  x=2.00  tree sigma, p agree with sympy to 1e-14; dec, nec True         ok
+  dec_holds True on 121 log-spaced x in [1e-6, 1e6]                      ok
+   ordinary shell M/R=0.1: sigma=+8.4012e-03 p=+2.4791e-04 dec=True
+  vacuity guard: dec_holds returns False somewhere (ordinary shell M/R=0.49: p>sigma) ok
+   M_in=+0.3, M_out=0: sigma=-2.9248e-02 p=-4.2493e-03 nec=False dec=False
+  vacuity guard: nec_holds returns False for M_in=+0.3, M_out=0 (sigma+p<0) ok
+
+ALL CHECKS PASS

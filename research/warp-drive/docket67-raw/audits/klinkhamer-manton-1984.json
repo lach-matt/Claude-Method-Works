@@ -1,0 +1,107 @@
+{
+ "key": "klinkhamer-manton-1984",
+ "name": "Klinkhamer-Manton sphaleron energy E_sph = (2 m_W/alpha_W) B(m_H/m_W), B from 1.56 to 2.72",
+ "source": {
+  "located": "Primary: F.R. Klinkhamer & N.S. Manton, Phys. Rev. D 30, 2212 (1984) -- pre-arXiv, no arXiv copy. Restatement the tree uses: Rubakov & Shaposhnikov hep-ph/9603208 eq. (2.11), printed p.7, quoted verbatim in massform.py:1101-1108 (locator RS96-esph).",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT re-read in this run: every alphaXiv call (answer_pdf_queries, get_paper_content, discover_papers; two attempts each) returned 'alphaXiv assistant quota exceeded', and arxiv.org / export.arxiv.org / alphaxiv.org / inspirehep.net / semanticscholar were refused by the egress proxy (CONNECT 403; WebFetch EGRESS_BLOCKED). The only text of the statement available here is the tree's own verbatim quote of RS96 eq. (2.11) at massform.py:1104-1107, which an earlier docket marked READ; that quote is used below as the statement-as-used, not as a re-reading. KM 1984 itself is CITED-only in the tree (massform.py:1101-1103) and was not read here either."
+ },
+ "published_statement": "As restated by Rubakov-Shaposhnikov eq. (2.11) and quoted in massform.py:1104-1107 (not re-read this run): \"E_sph = (2 m_W / alpha_W) B(m_H/m_W), where m_H is the mass of the Higgs boson. The function B(m_H/m_W) has been evaluated numerically [32]; it varies from 1.56 to 2.72 as m_H/m_W varies from zero to infinity. So, the height of the barrier in the electroweak theory is of order 10 TeV.\" (ref [32] = Klinkhamer & Manton PRD 30, 2212).",
+ "published_hypotheses": [
+  "Classical field theory, tree level: the sphaleron is a static solution of the classical Yang-Mills-Higgs field equations (no loop / quantum corrections).",
+  "Bosonic sector: SU(2) gauge field plus one complex Higgs doublet; fermions ignored.",
+  "Weak mixing angle theta_W = 0 (pure SU(2); U(1)_Y hypercharge field dropped, so m_W = m_Z in the model). [KM's setting as generally restated; the RS96 sentence quoted in the tree does not state it.]",
+  "Static, spherically symmetric (hedgehog) ansatz: A_i and Phi described by two radial profiles f(xi), h(xi), xi = g v r, with f(0)=h(0)=0, f(inf)=h(inf)=1.",
+  "Higgs potential V = lambda (Phi^+Phi - v^2/2)^2, so the only free parameter is lambda/g^2 = (m_H/m_W)^2/8; m_H was UNKNOWN in 1984, which is why the result is a function B rather than a number.",
+  "'Barrier height' = sphaleron energy: presumes the sphaleron is the lowest saddle on the non-contractible loop (true below the bisphaleron onset at large m_H; not stated in the quoted sentence)."
+ ],
+ "hypothesis_drift": [
+  "WEAKENED -- theta_W = 0: massform.py:521-523 and :537 write E_sph = (2 m_W/alpha_W) B(m_H/m_W) with the PHYSICAL m_W = 80.362 GeV and alpha_W from g = 2 m_W/v (massform.py:528, :2105-2110, :2134-2137) without naming theta_W = 0 at those sites. Not dropped outright: massform.py:539 and E_SPH_TEV (massform.py:1475-1476) hold the READ 'with U(1)' value 9.0 TeV beside the pure-SU(2) 9.11/9.08.",
+  "DROPPED at the sites -- classical / tree level: no statement at massform.py:521-543 that E_sph is a classical tree-level figure; loop corrections are not named as a hypothesis there.",
+  "DROPPED (not load-bearing) -- lowest-saddle / bisphaleron hypothesis: the quoted range 'from zero to infinity' (massform.py:1106-1107, B_KM_RANGE at massform.py:1472) and the 'height of the barrier' reading (RS96-sph, massform.py:1084-1087) carry no caveat that at large m_H the spherically symmetric sphaleron is not the lowest barrier. At the measured m_H/m_W = 1.558 this does not bite (the onset, per later literature not read here, is at m_H of order 12 m_W).",
+  "DISCREPANCY (computed here, recorded not repaired) -- endpoint values: B_KM_RANGE = (1.56, 2.72) is held READ at massform.py:1472 and stated at massform.py:537-538. The minimum of the reduced KM functional computed here is B(0) = 1.5202 (2.55% below 1.56) and B(inf) = 2.7061 (0.51% below 2.72), both converged in the cutoff and satisfying Derrick's virial identity. So 'B between 1.56 and 2.72' as a bracket over all m_H holds only for m_H/m_W >= 0.079 (m_H >= 6.4 GeV); the upper end is a valid (slightly loose) upper bracket everywhere. Whether 1.56/2.72 is KM's own figure or an RS96 transcription, and whether KM's numerics were variational estimates, is NOT READ -- a numerical discrepancy in a 1984 computation, not a refutation of the formula.",
+  "ADDED (named by the tree, not in the source) -- the alpha_W scheme: massform.py:528 fixes alpha_W = g^2/4pi with g = 2 m_W/v (1/29.49), where RS96 uses alpha/sin^2 theta_W = 1/29 (massform.py:1082). This choice is explicit in the tree; it moves the prefactor 2 m_W/alpha_W by -1.7% (1/29: 4.661 TeV) to +1.7% (1/30: 4.822 TeV) against the tree's 4.740 TeV (computed).",
+  "NO DRIFT -- status honesty: the tree labels KM CITED and its own reading READ-via-RS96 (massform.py:1101-1103); the canonical entry's hypothesis 'read through Rubakov-Shaposhnikov eq. (2.11); the primary is CITED' matches."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_H (sets the argument of B)",
+   "value_then": "unknown in 1984 (hence B given as a function over 0 < m_H/m_W < infinity)",
+   "value_now": "125.20 +/- 0.11 GeV (PDG 2024 average as recalled; NOT read in this run -- source unreachable). Tree uses the measured-m_H E_sph values of Tye-Wong / Funakubo et al., READ in an earlier docket.",
+   "source_now": "PDG 2024 Review (not read here); massform.py:1475-1477 E_SPH_TEV (READ by the tree)",
+   "moves_conclusion": "Pins the function to a number, inside the bracket: computed B(125.2/80.3692 = 1.558) = 1.9163, i.e. E_sph = 4.740 x 1.9163 = 9.083 TeV, matching the tree's READ 9.08 (FFS) and 1.31 + 0.60 = 1.91 (TW). Over m_H in [124, 126] GeV E_sph moves < 0.3% (computed). Does not move the conclusion."
+  },
+  {
+   "quantity": "m_W (prefactor 2 m_W/alpha_W and argument m_H/m_W)",
+   "value_then": "~81 GeV era (W discovered 1983 by UA1/UA2; value KM used not read)",
+   "value_now": "tree: 80.362 GeV (capture row 24, massform.py:1030). Values in play: PDG 2024 80.3692 +/- 0.0133 (recalled, not read), CMS 2024 80.3602, CDF 2022 80.4335 (contested outlier) -- all recalled, not read here.",
+   "source_now": "massform.py:1030 (tree); PDG 2024 / CDF 2022 / CMS 2024 not read in this run",
+   "moves_conclusion": "No. Computed E_sph over m_W in [80.3602, 80.4335] x m_H in [124, 126]: 9.0637 .. 9.0906 TeV, spread 0.30%."
+  },
+  {
+   "quantity": "v (vev, from G_F)",
+   "value_then": "~246 GeV",
+   "value_now": "246.2196 GeV (tree, higgs.vev(), NAMED-NOT-READ via G_F)",
+   "source_now": "higgs.vev() via massform.py:1596-1598",
+   "moves_conclusion": "No. Prefactor 2 pi v^2/m_W = 4.73996 TeV reproduces the tree's 4.740; G_F is known to ~1e-6 relative."
+  },
+  {
+   "quantity": "alpha_W scheme (1/29 vs 1/29.49 vs 1/30)",
+   "value_then": "tree-level, scheme unspecified in the quoted sentence",
+   "value_now": "tree 1/29.49 (g = 2 m_W/v); RS96 1/29; Tye-Wong ~1/29.7-1/30",
+   "source_now": "massform.py:528, :1082, :1098-1099",
+   "moves_conclusion": "Moves the prefactor by +/-1.7% (computed); the S11 figure 'E_sph ~ 9 TeV, ~3.2e3 x the 3 baryons' does not move at the precision the tree prints it."
+  },
+  {
+   "quantity": "theta_W (U(1) hypercharge)",
+   "value_then": "0 (pure SU(2))",
+   "value_now": "sin^2 theta_W ~ 0.23; the tree holds the READ 'with U(1)' E_sph = 9.0 TeV",
+   "source_now": "massform.py:539, :1475-1476",
+   "moves_conclusion": "About -1% on E_sph (9.0 vs 9.08/9.11, the tree's own READ figures). Does not move S11."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/klinkhamer-manton-1984.py",
+  "outcome": "ALL PASS (exit 0), ~40 s. (i) sympy: the Higgs potential and kinetic terms of the reduced functional re-derived from V = lambda(Phi^+Phi - v^2/2)^2 in units 4 pi v/g; 2 m_W/alpha_W = 4 pi v/g = 2 pi v^2/m_W; lambda/4g^2 = (m_H/m_W)^2/32. (ii) scipy solve_bvp on the Euler-Lagrange equations of B[f,h] = int dxi [4f'^2 + 8f^2(1-f)^2/xi^2 + xi^2 h'^2/2 + h^2(1-f)^2 + (lambda/4g^2) xi^2 (h^2-1)^2]; gauge terms and the h^2(1-f)^2 cross term are the standard hedgehog form, RECONSTRUCTED (not read) and validated by Derrick's virial identity (residual <= 3e-7 at finite m_H) and by reproducing two independent READ figures: B(m_H/m_W = 1.558) = 1.9163 -> 9.083 TeV at the tree's 4.740 TeV (FFS 9.08; TW 1.31+0.60 = 1.91). (iii) Endpoints converged in cutoff: B(0) = 1.52024 (xmax 100/400/1000), B(inf, h = 1) = 2.70613 (xmax 20/60/120); continuation m_H/m_W = 20..100 rises 2.521 -> 2.663 monotonically below 2.706. (iv) DISCREPANCY recorded: restated 1.56 and 2.72 are 2.55% and 0.51% ABOVE the computed minima; the computed B reaches 1.56 only at m_H/m_W = 0.0793 (m_H = 6.37 GeV). (v) E_sph spread over every m_W/m_H value in play: 0.30%.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Tye & Wong, arXiv:1505.03690, eq. (1.2) p.3",
+   "effect": "confirms",
+   "what": "At the measured m_H = 125 GeV, pure SU(2): V(Q) ~ 4.75 TeV (1.31 sin^2 + 0.60 sin^4), E_sph = 9.11 TeV (B = 1.91); with U(1) 9.0 TeV. Agrees with the computed B = 1.916 to 0.3%.",
+   "read_status": "READ by the tree in an earlier docket (quoted at massform.py:1109-1114); NOT re-read in this run"
+  },
+  {
+   "ref": "Funakubo, Fuyuto & Senaha, arXiv:1612.05431, eq. (10) p.2",
+   "effect": "confirms",
+   "what": "E_sph = g_2 v V(pi/2) ~ 9.08 TeV at the measured masses -- the value S11 uses; computed here 9.083 TeV.",
+   "read_status": "READ by the tree in an earlier docket (massform.py:1109-1114); NOT re-read in this run"
+  },
+  {
+   "ref": "Kunz & Brihaye (1989); Yaffe (1989) -- bisphalerons",
+   "effect": "narrows",
+   "what": "Named from memory: for sufficiently large m_H (of order 12 m_W) deformed, non-spherically-symmetric 'bisphaleron' saddles bifurcate with lower energy, so 'barrier height = KM sphaleron energy' and 'B from 1.56 to 2.72 as m_H/m_W goes to infinity' fail as a statement about the lowest barrier at large m_H. Irrelevant at m_H/m_W = 1.558.",
+   "read_status": "NAMED-NOT-READ (alphaXiv discover_papers quota exceeded; arXiv egress blocked) -- the onset figure is recalled, not evidence"
+  },
+  {
+   "ref": "Kleihaus, Kunz & Brihaye (1991); Klinkhamer & Laterveer (1992) -- sphaleron at finite theta_W",
+   "effect": "narrows",
+   "what": "Named from memory: restoring U(1)_Y lowers E_sph by about 1% at physical sin^2 theta_W and adds a magnetic dipole moment; consistent with the tree's READ 'with U(1)' 9.0 TeV.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "Later numerical evaluations of B at the endpoints (e.g. Akiba, Kikuchi & Yanagida 1988; the KKB papers above)",
+   "effect": "contested",
+   "what": "Candidate sources for the endpoint values; recalled (unverified) as quoting B from about 1.52 to 2.70, which would agree with the computed 1.520 / 2.706 rather than 1.56 / 2.72. This recollection is NOT used as evidence; the computed minima are.",
+   "read_status": "NAMED-NOT-READ -- to be read before the discrepancy is quoted as anything but a discrepancy"
+  }
+ ],
+ "lacked_data": "What KM lacked in 1984: m_H (unknown until 2012) -- they answered with the function B(m_H/m_W) rather than a number, so the lack is absorbed by design; precise m_W (W discovered 1983); sin^2 theta_W at percent precision (they set theta_W = 0); m_t (irrelevant at tree level, enters only loop corrections they did not compute). Having the data now: the measured m_H places B at the computed 1.9163 (E_sph = 9.083 TeV at the tree's prefactor), inside the stated bracket and in agreement with the two measured-m_H evaluations the tree READ (9.08, 9.11); every current m_W (including the contested CDF 2022 value) moves E_sph by <= 0.30%; theta_W != 0 moves it by about -1% (tree's READ 9.0). Evidence against M's hypothesis for THIS result: no datum the authors lacked moves the conclusion -- E_sph of order 9-10 TeV, ~3.2e3 x the rest energy of 3 baryons. What DID turn up is not a data gap but a computed numerical discrepancy in the endpoint values (1.56/2.72 vs 1.520/2.706), which affects only the unphysical endpoints (m_H -> 0 and m_H -> infinity) and not the tree's S11 figure.",
+ "grade": "NARROWED",
+ "grade_evidence": "The formula as used (E_sph = (2 m_W/alpha_W) B(m_H/m_W) = (4 pi v/g) B, prefactor 4.740 TeV) is re-derived in sympy and the load-bearing value is reproduced numerically: B(1.558) = 1.9163 -> 9.083 TeV vs the tree's READ 9.08. No moved datum moves it (0.30% over all m_W/m_H in play). It is NARROWED, not STANDS, on two counts computed or located here: (1) the bracket 'B between 1.56 and 2.72' (massform.py:537-538, B_KM_RANGE massform.py:1472) is not reproduced -- computed endpoints 1.5202 and 2.7061, so the lower bound holds only for m_H/m_W >= 0.079 (it holds at the measured value); recorded as a DISCREPANCY, not WRONG, since KM 1984 was not read and the cause (variational estimate, transcription, 1984 numerics) is unknown; (2) the source's hypotheses theta_W = 0, classical/tree-level, and lowest-saddle (no bisphaleron) are not named at the sites that state the formula (massform.py:521-523, 537-543), though the tree holds the U(1) figure separately (massform.py:539). S11's figure is unaffected. Caveat on the grade's footing: neither KM 1984 nor RS96 was re-read in this run (alphaXiv quota exceeded; arXiv egress 403); the statement-as-used rests on the tree's verbatim quote, and the gauge terms of the reduced functional are reconstructed and validated by the virial identity and two independent READ values, not read.",
+ "what_would_change_the_grade": "To STANDS: reading KM 1984 (or an exact arXiv restatement) showing its endpoints are 1.52/2.70 and RS96 misquoted -- the tree's use would then be a transcription carried from RS96, with the bracket corrected and the three hypotheses named at massform.py:521-543. To OPEN: if the reduced functional reconstructed here is shown to differ from KM's (it currently reproduces 9.08 and 9.11 to 0.3%, so this is unlikely). To WRONG: only if the tree's S11 figure (9.08 TeV, ~3.2e3 x 3 baryons) were contradicted by a computed E_sph at the measured masses -- the computation here instead agrees. A read of the bisphaleron literature would only confirm the large-m_H narrowing, which does not touch S11.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/klinkhamer-manton-1984.py 2>/dev/null | grep -E 'DISCREPANCY|B at measured|1.56 at|spread|ALL PASS|FAIL'; cd /home/user/Claude-Method-Works/research/warp-drive && sed -n '521,543p;1101,1108p;1472,1477p' massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/klinkhamer-manton-1984.json"
+}

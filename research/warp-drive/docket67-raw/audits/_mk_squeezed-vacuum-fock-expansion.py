@@ -1,0 +1,71 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67"
+script = D + "/rederive/squeezed-vacuum-fock-expansion.py"
+rep = {
+ "key": "squeezed-vacuum-fock-expansion",
+ "name": "Fock-basis expansion of the single-mode squeezed vacuum -- as used at fluctuation.py:419-446 (the 'independent control on method (G)')",
+ "source": {
+  "located": "The explicit coefficient formula S(zeta)|0> = (cosh r)^{-1/2} sum_k (-e^{i delta} tanh r)^k sqrt((2k)!)/(2^k k!) |2k> is a textbook quantum-optics result (classical sources: D. Stoler, PRD 1, 3217 (1970); H.P. Yuen, PRA 13, 2226 (1976); C.M. Caves, PRD 23, 1693 (1981); R. Loudon & P.L. Knight, J. Mod. Opt. 34, 709 (1987); Gerry & Knight, Introductory Quantum Optics (2005)) -- none on arXiv. The owner cites no source for it. The paper the owner is auditing, Kuo & Ford arXiv:gr-qc/9304008 v1 (1993), supplies the convention the formula must match (eqs 3.9-3.17, citing Caves 1981 as its ref [8]) and the qualitative Fock statement.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "The explicit coefficient formula was NOT read at any source this stage: every alphaXiv call (answer_pdf_queries on 1611.03986, gr-qc/9304008, quant-ph/0503237; get_paper_content fullText on 1611.03986; discover_papers x1) returned 'alphaXiv assistant quota exceeded'; direct fetches of arxiv.org, export.arxiv.org, ar5iv, alphaxiv.org, semanticscholar, wikipedia were refused by the egress proxy (403 / EGRESS_BLOCKED); a grep of the ~740 banked full texts under d67/src/ found no restatement of the single-mode coefficients. What IS READ at source: Kuo & Ford gr-qc/9304008 v1 full text as banked by an earlier DOCKET 67 alphaXiv extraction at d67/src/casmag/all/gr-qc_9304008v1.txt (md5 f1a6628604751cf61b2a4bd411b00153), pp.7-8, Sec. III.B: the squeeze operator S(zeta) = exp[(1/2) zeta* a^2 - (1/2) zeta (a+)^2], zeta = r e^{i delta} (3.11, 3.13); S+(zeta) a S(zeta) = a cosh r - a+ e^{i delta} sinh r (3.16); and the Fock statement 'Such a state is not, of course, the vacuum state so long as zeta != 0, but rather a superposition of states containing even numbers of particles', and 'In a squeezed vacuum, alpha = 0, we may also take delta = 0, as this is simply a choice of phase' (string-matched by rederive check H). Because the result is a closed-form theorem, its content is established here by PROOF (symbolic, general k) and by an independent matrix-exponential construction, not by quotation; the classic papers stay NAMED-NOT-READ."
+ },
+ "published_statement": "Not quoted from a page read this stage (see source.via). The standard statement, in Kuo-Ford's convention (READ: KF 3.11, 3.16): for S(zeta) = exp[(zeta* a^2 - zeta a+^2)/2], zeta = r e^{i delta}, S(zeta)|0> = (cosh r)^{-1/2} SUM_{k>=0} (-e^{i delta} tanh r)^k [sqrt((2k)!)/(2^k k!)] |2k>. What KF print verbatim (p.8): the squeezed vacuum is 'a superposition of states containing even numbers of particles', and for alpha = 0 'we may also take delta = 0, as this is simply a choice of phase'. The tree's form (fluctuation.py:427): cs[2k] = (-t)^k sqrt((2k)!)/(2^k k!)/sqrt(cosh r), t = tanh r, i.e. the statement at delta = 0.",
+ "published_hypotheses": [
+  "H1 single bosonic mode, [a, a+] = 1, Fock vacuum a|0> = 0",
+  "H2 squeeze-operator convention S(zeta) = exp[(zeta* a^2 - zeta a+^2)/2], equivalently S+ a S = a cosh r - a+ e^{i delta} sinh r (KF 3.11, 3.16 READ); the opposite sign convention flips (-e^{i delta} t)^k to (+e^{i delta} t)^k",
+  "H3 zeta = r e^{i delta} arbitrary complex; the series converges for every finite r since tanh r < 1 (normalisation sum_k C(2k,k)(t^2/4)^k = (1-t^2)^{-1/2}, needs t^2 < 1)",
+  "H4 pure state (no loss / thermal admixture): a lossy squeezed state is mixed and has no such ket expansion"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED on the mathematics: the tree uses exactly the delta = 0 instance of the KF-convention formula (fluctuation.py:427), within H1-H4. Re-derived (rederive A1, A2, B, B1).",
+  "RESTRICTED, legitimately and stated -- canonical hypothesis 'phase absorbed into theta' (fluctuation.py:419-446): the tree sets delta = 0 and carries the phase in z = e^{2 i theta} (fluctuation.py:175, 439). KF p.8 states the same choice. Checked here (E1): the state at (theta, delta) gives rho and <:T^2:> equal to the state at (theta + delta/2, 0) to 8e-48 relative. Not a drift.",
+  "IMPLICIT (unstated) -- fluctuation.py:438 computes the overlap <a^m psi|a^n psi> as fsum(x * y) WITHOUT complex conjugation. That is correct only because delta = 0 makes every coefficient real; with delta = 0.9 the un-conjugated <a+a> is off by 0.753 (rederive E2). As used (delta = 0) it is exact; it is a hypothesis the code relies on without naming. Recorded, not repaired.",
+  "CONVENTION NOT CITED -- fluctuation.py:419-427 names no source for the expansion or for the sign of (-t)^k. The sign is the one that matches the tree's Gaussian method (G), whose anomalous moment M = -w s c (fluctuation.py:244-245) is KF's <aa> = -e^{i delta} sinh r cosh r; with (+t)^k the control fails by a factor 5.65e3 relative (rederive F), so the control does discriminate the convention. A citation gap, not an error.",
+  "INDEPENDENCE WEAKER THAN WORDED -- 'the independent control on method (G)' (fluctuation.py:419): the Fock series and method (G) are independent COMPUTATIONS (explicit ket + ladder operators vs a generating-function derivative) but share one INPUT, the Bogoliubov convention S+ a S = a c - a+ s. The control therefore checks the moment algebra of (G), not the convention; the convention itself is checked here against KF 3.16 and against a matrix-exponential construction of S (rederive B).",
+  "PRECISION WORDING -- the docstring says 'a third, numeric Fock series at 60 digits' (fluctuation.py:31) while the code sets mpm.mp.dps = 50 (fluctuation.py:421), and the Gaussian comparator is fed double-precision inputs float(mpm.sinh(r)), float(mpm.cosh(r)), complex(zz) (fluctuation.py:441), so the comparison is at ~1e-16, not 50 or 60 digits. The tolerance printed and tested, 1e-12 (fluctuation.py:443-444), is honest; the '60 digits' is an internal discrepancy of the tree. Recorded, not repaired.",
+  "TRUNCATION (canonical hypothesis 'series truncated at n = 160 at r = 0.7, 50 digits'): measured here (D) -- tail norm^2 beyond n = 160 is 2.9e-37 and it moves <:T^2:> by 9.6e-30 relative, 17 orders inside the 1e-12 tolerance. Holds as used; it would need re-measuring at larger r (tail ~ tanh(r)^{2 nmax})."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "squeeze parameter r, phase theta, truncation nmax, working precision mp.dps -- numerical choices of the control, not physical data",
+   "value_then": "r = 0.7, theta = 1.1, nmax = 160, dps = 50 (fluctuation.py:421-425)",
+   "value_now": "same (no external datum exists for a mathematical identity)",
+   "source_now": "fluctuation.py:421-425; re-run in rederive C1-D",
+   "moves_conclusion": "No. The identity is exact for every r; at the tree's point the series agrees with independently computed Isserlis moments to 9.6e-30 relative, the floor being the n = 160 truncation, not precision (D)."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": script,
+  "outcome": "14/14 PASS, exit 0 (~20 s; sympy 1.14, mpmath 1.3, numpy 2.4.6, scipy 1.17.1; imports nothing from research/). A1 (sympy, general symbolic k and 15 concrete k at 40 digits): the claimed c_2k satisfy the annihilation recurrence cosh r sqrt(n+1) c_{n+1} + e^{i delta} sinh r sqrt(n) c_{n-1} = 0 of b = S a S+ = a cosh r + a+ e^{i delta} sinh r, which kills S|0>. A2 (sympy): sum_k C(2k,k) x^k/4^k = (1-x)^{-1/2}, so the norm is exactly 1 with c_0 = (cosh r)^{-1/2}. B/B1: S(zeta) built as a 260-level matrix exponential reproduces the formula on n < 120 at four (r, delta) including delta != 0 (max diff 5.0e-15) and has exactly zero odd components. C1: with the tree's own data (r = 0.7, theta = 1.1, nmax = 160, dps = 50) the Fock <:T00^2:> matches Isserlis/Wick moments computed from scratch to 9.6e-30 relative; C2: rho = 2 sinh r (sinh r + cosh r cos 2theta) = 0.0302149041978804 (KF 3.22 shape); C3: <:T00^2:> = 3 rho^2 = 0.00273882130706127; C4: KF's printed (3.23) gives 11.4710682724 there (the tree's recorded discrepancy, reproduced -- belongs to the KF-3.23 key, not this one). D: truncation tail 2.9e-37, effect 9.6e-30. E1: phase absorption exact; E2: un-conjugated overlap valid only at delta = 0. F: negative control (+tanh r)^k fails by 5.65e3 relative. G: <a+a> = sinh^2 r, <aa> = -sinh r cosh r to 8e-35. H: four KF quotes string-matched in the banked full text (md5 f1a66286...). The owner's own selftest (python3 fluctuation.py --selftest, run read-only) prints '[ok] CONTROL: Fock series agrees with Gaussian moments to 1e-12  True'.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "C.-I. Kuo & L.H. Ford, arXiv:gr-qc/9304008 v1 (1993), Sec. III.B, eqs 3.9-3.17, 3.22",
+   "effect": "confirms",
+   "what": "Fixes the convention (3.11, 3.16) the tree's coefficients must obey and states the squeezed vacuum is a superposition of even photon numbers, with delta removable as a phase choice; the tree's (-t)^k form is the one consistent with it (rederive B, F, G). Not a 'later' paper -- it is the owner's audit target and the only source actually read.",
+   "read_status": "READ (banked alphaXiv full text d67/src/casmag/all/gr-qc_9304008v1.txt, pp.7-8, string-matched in rederive H)"
+  },
+  {
+   "ref": "D. Stoler PRD 1, 3217 (1970); H.P. Yuen PRA 13, 2226 (1976); C.M. Caves PRD 23, 1693 (1981); Loudon & Knight J. Mod. Opt. 34, 709 (1987)",
+   "effect": "confirms",
+   "what": "The classical derivations of the squeezed-vacuum number-state expansion; no later work contradicts or narrows a closed-form identity of the one-mode Weyl algebra. Listed so the provenance is named; not relied on -- the identity is proved here.",
+   "read_status": "NAMED-NOT-READ (pre-arXiv; alphaXiv quota exhausted and egress blocked for any restatement this stage)"
+  },
+  {
+   "ref": "discover_papers ('photon-number expansion of the single-mode squeezed vacuum; Fock-space truncation')",
+   "effect": "contested",
+   "what": "The required later-literature search could NOT be run: alphaXiv returned 'assistant quota exceeded'. No later work is claimed either way; the effect field is the schema's nearest value and means 'not searched', not a contest in the literature.",
+   "read_status": "NOT-RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: it has no empirical input. The expansion is an identity in the Fock representation of one canonical pair, derived from [a, a+] = 1, a|0> = 0 and the definition of S(zeta); nothing measured enters, so no datum the 1970-1987 authors lacked can move it. Evidence either way, computed here: (i) proved for general k from the annihilation condition (A1) and normalised in closed form (A2); (ii) reproduced by an independent matrix-exponential construction of S at four (r, delta) to 5e-15 (B); (iii) its moments reproduce <a+a> = sinh^2 r, <aa> = -sinh r cosh r (G). What could be 'lacking' is physical, not mathematical, and lies outside this key: a real squeezed state is mixed (loss, detection inefficiency -- H4), for which no ket expansion exists and <:T00^2:> = 3 rho^2 need not hold; the tree uses the pure state only as a numerical control on its own algebra (fluctuation.py:419), not as a model of a laboratory source, so the restriction does not bite where the tree uses it.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement and hypotheses as used: the tree's cs[2k] (fluctuation.py:427) is the delta = 0 instance of the formula in KF's convention (KF 3.11, 3.16 READ at source), with the phase carried in theta as KF themselves do (p.8, READ). Re-derivation agrees: symbolic proof for general k (A1), exact normalisation (A2), independent matrix-exponential construction (B, B1), and the tree's own control reproduced against independently coded Isserlis moments at its own data to 9.6e-30 (C1-C3), with a negative control showing the check is discriminating (F). No datum exists to move. The drifts found are wording and implicit-restriction items that do not change the result as used: the un-conjugated overlap at fluctuation.py:438 (exact because delta = 0), '60 digits' at :31 vs dps = 50 at :421 with a double-precision comparator at :441, 'independent' meaning independent computation but a shared convention, and no citation. The grade rests on COMPUTATION, not on reading: the explicit published formula (Stoler/Yuen/Caves/Loudon-Knight) is NAMED-NOT-READ this stage, and the later-literature search could not run (alphaXiv quota).",
+ "what_would_change_the_grade": "Nothing about the identity itself: it is proved here for all k and r. The grade would move to NARROWED only if the tree began to use the expansion outside delta = 0 with the un-conjugated overlap of fluctuation.py:438 (E2 shows that would be wrong), at an r where nmax = 160 no longer suffices (tail ~ tanh(r)^320), or as a model of a lossy laboratory squeezed state (H4, mixed state). Reading the classic statement at source (e.g. once alphaXiv quota resets, an arXiv review restating Yuen 1976 / Loudon-Knight 1987) would upgrade read_status, not the grade, unless it printed a different convention -- which would change only the sign bookkeeping, already checked against KF.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/squeezed-vacuum-fock-expansion.py   # expect 14/14 PASS, exit 0; owner side: cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest | grep 'CONTROL: Fock'",
+ "report_path": D + "/audits/squeezed-vacuum-fock-expansion.json"
+}
+json.dump(rep, open(rep["report_path"], "w"), indent=1, ensure_ascii=False)
+print("wrote", rep["report_path"])

@@ -1,0 +1,88 @@
+{
+ "key": "flrw-comoving-number-conservation",
+ "name": "FLRW comoving coordinates of galaxies are fixed; comoving number density n a^3 = const",
+ "source": {
+  "located": "Textbook FLRW kinematics, no single originating paper. Read at: D. Baumann, 'TASI Lectures on Inflation', arXiv:0907.5424v2, pp.15-16 (Eq. 1 and the sentence following it). Peculiar-velocity datum read at: D.J. Fixsen et al., 'The Cosmic Microwave Background Spectrum from the Full COBE FIRAS Data Set', arXiv:astro-ph/9605054v1, p.26 (Summary). No arXiv-readable text for the number law n a^3 = const itself was obtained this stage; it is RE-DERIVED here (C3) from del_mu(n u^mu)=0 instead of read.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Verbatim page text cached by earlier D67 alphaXiv calls: /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/0907.5424v2.txt (lines 130-140) and /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/astro-ph_9605054v1.txt (lines 790-796). Fresh alphaXiv calls this stage (answer_pdf_queries on 1607.03909 and 1807.06205; discover_papers) all returned 'alphaXiv assistant quota exceeded'; direct arxiv.org fetch refused by the egress proxy (403). The statement has no originating classic to mark; it is read through a standard lecture-note restatement."
+ },
+ "published_statement": "Baumann 0907.5424 p.15-16: 'Eqn. (1) uses comoving coordinates - the universe expands as a(t) increases, but galaxies/observers keep fixed coordinates r, theta, phi as long as there aren't any forces acting on them, i.e. in the absence of peculiar motion. The corresponding physical distance is obtained by multiplying with the scale factor, R = a(t)r, and is time-dependent even for objects with vanishing peculiar velocities.' The number law (textbook, not read verbatim here): for a species with conserved current N^mu = n u^mu, del_mu N^mu = 0 gives n a^3 = const along the comoving congruence.",
+ "published_hypotheses": [
+  "FLRW metric (homogeneous, isotropic), any k, any a(t) (Baumann Eq. 1)",
+  "the observer/galaxy is free: 'as long as there aren't any forces acting on them, i.e. in the absence of peculiar motion' (Baumann p.15-16)",
+  "for n a^3 = const: the number current of the counted species is conserved, del_mu(n u^mu) = 0 (no creation, annihilation, merger or decay), and the species moves with the comoving congruence u = d/dt"
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- 'in the absence of peculiar motion': permute.py:42-44 states unconditionally 'the COMOVING COORDINATE OF A GALAXY DOES NOT CHANGE. Nothing moves.'; permute.py:222-224 hardcodes comoving_coordinate_moves() -> False; permute.py:418-419 checks that constant against False; permute.py:503 and permute.py:527-528 repeat it as the scorecard's 'why'; obstruct.py:280 'COMOVING frame, where nothing moves'. The source makes it conditional on no peculiar motion; real galaxies have peculiar velocities (Sun: 371 +- 1 km/s relative to the comoving frame, Fixsen 1996 p.26, READ), so for a real galaxy the comoving coordinate changes (C2, C6: ~0.41 comoving Mpc in the last Gyr at 371 km/s).",
+  "DROPPED -- conserved number current: permute.py:44-47 and permute.py:529-530 state 'the COUNT is conserved exactly' with no species named and no conservation hypothesis; the law holds only for a species whose current is conserved. Galaxies (the objects the same paragraph names) are formed and merge, so their comoving count is not a conserved current; baryon number is violated by electroweak sphaleron processes in the early universe (restated as a fact in the cached Matchev-Verner 2505.05607 p.2: 'processes that violate baryon number conservation'). This is a named-hypothesis omission, not a refutation of the textbook law.",
+  "ADDED/MISLABELLED -- 'Measured, not asserted' (permute.py:217): count_is_conserved() evaluates n0 (a0/a)^3 * a^3, which is the definition comoving_number (permute.py:211-213) multiplied back; sympy (C5) shows it equals n0 a0^3 identically, so the selftest's 2.22e-16 'spread' (permute.py:420) is float rounding of a tautology, not a measurement. The status word overstates.",
+  "WEAKENED LINK -- permute.py section 5 (lines ~100-125) correctly says the Bianchi identity forces del_mu T^{mu nu} = 0; it does NOT force del_mu N^mu = 0 (C4: a creation rate Gamma leaves the energy law expressible while n a^3 = C exp(Gamma t)). The tree's 'closed index defending itself' therefore does not carry over to the count; number conservation is an independent hypothesis."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "a values and n0 in the tree's check",
+   "value_then": "a in (0.5,1,2,10), n0 = 1 (fixtures, permute.py:216)",
+   "value_now": "unchanged; no empirical input",
+   "source_now": "permute.py:216",
+   "moves_conclusion": "no -- the check is a tautology (C5); any a gives spread 0"
+  },
+  {
+   "quantity": "Solar peculiar velocity relative to the comoving (CMB) frame -- the datum that tests the dropped 'no peculiar motion' hypothesis",
+   "value_then": "not used by the tree (hypothesis dropped); Fixsen et al. 1996: 371 +- 1 km/s (95% CL) toward (l,b) = (264.14, 48.26) deg",
+   "value_now": "369.82 +- 0.11 km/s (Planck 2018 I, arXiv:1807.06205) -- NAMED-NOT-READ this stage (alphaXiv quota exceeded)",
+   "source_now": "astro-ph/9605054v1 p.26 (READ, cached); 1807.06205 (named, not read)",
+   "moves_conclusion": "no -- either value is nonzero; C6 gives 0.407 vs 0.406 comoving Mpc of comoving-coordinate drift in the last Gyr. The move between values is immaterial; the existence of the datum is what the tree's unconditional statement omits."
+  },
+  {
+   "quantity": "H0, Omega_m, Omega_Lambda used in C6",
+   "value_then": "67.36 km/s/Mpc, 0.3153, 0.6847 (Planck 2018 VI; H0 is the tree's own pin via cosmo.py)",
+   "value_now": "same (see audit 1807.06209.json); local H0 ~73 is in tension",
+   "source_now": "arXiv:1807.06209 Table 2 (READ in earlier D67 audit)",
+   "moves_conclusion": "no -- changes the 0.41 Mpc drift at the ~10% level, never to zero"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/flrw-comoving-number-conservation.py",
+  "outcome": "ALL SIX CHECKS AS STATED (exit 0, ~3 s). C1: Gamma^i_tt = 0 for general k and a(t), so x^i = const is a timelike geodesic -- the textbook half STANDS. C2: along a geodesic d/dtau(a^2 dx/dtau) = a^2 x (geodesic eq), so a^2 x' is conserved; P != 0 means the comoving coordinate changes (peculiar momentum decays as 1/a, never to zero). C3: del_mu(n u^mu) = d(n a^3)/dt / (c a^3) exactly (general k) -- n a^3 = const iff the current is conserved. C4: with del.N = Gamma n, n a^3 = C exp(Gamma t): del T = 0 does not imply number conservation. C5: permute's comoving_number(n0,a)*a^3 == n0 a0^3 identically -- the selftest measures its own definition. C6: a body at 371 km/s (Fixsen 1996) drifts 0.407 comoving Mpc in the last 1 Gyr in Planck-2018 flat LCDM (0.406 at 369.82 km/s).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Fixsen et al. 1996, arXiv:astro-ph/9605054 (COBE FIRAS)",
+   "effect": "narrows",
+   "what": "Measures the Sun's peculiar velocity relative to the comoving frame, 371 +- 1 km/s: the comoving coordinate of a real observer is not fixed; the tree's unconditional 'does not change' holds only for the idealised comoving congruence.",
+   "read_status": "READ (cached verbatim page 26)"
+  },
+  {
+   "ref": "Planck 2018 I, arXiv:1807.06205",
+   "effect": "narrows",
+   "what": "CMB dipole, solar velocity 369.82 +- 0.11 km/s -- same conclusion as Fixsen at higher precision.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org refused by proxy)"
+  },
+  {
+   "ref": "Conselice et al. 2016, arXiv:1607.03909 ('The evolution of galaxy number density at z < 8')",
+   "effect": "narrows",
+   "what": "Reported to find the comoving number density of galaxies decreasing with cosmic time (mergers), i.e. n_gal a^3 not constant for galaxies.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded); cited only as the pointer that would settle the galaxy-count drift at source; the grade does not rest on it"
+  },
+  {
+   "ref": "Matchev & Verner 2025, arXiv:2505.05607 (electroweak sphaleron revisited)",
+   "effect": "narrows",
+   "what": "Restates sphaleron processes as 'processes that violate baryon number conservation' -- baryon n a^3 is conserved only after electroweak B-violation freezes out.",
+   "read_status": "READ (cached verbatim, p.2 lines 280-296)"
+  },
+  {
+   "ref": "discover_papers call for this stage",
+   "effect": "contested",
+   "what": "The mandated discover_papers call returned 'alphaXiv assistant quota exceeded'; no later-literature search result exists for this stage.",
+   "read_status": "NOT RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. The textbook authors did not lack data that moves the kinematic statement: FLRW comoving geodesics (C1) and the continuity identity (C3) are exact mathematics for any a(t), independent of any measurement, and no datum can move them. What the result has always carried is two hypotheses -- no peculiar motion, conserved number current -- and the data that bear on them were available and are stated in the source itself (Baumann's 'as long as there aren't any forces acting on them'). The CMB dipole (Fixsen 1996, 371 km/s; Planck 2018, 369.82 km/s) shows real galaxies are not exactly comoving, and structure formation / mergers show galaxy counts are not a conserved current; these do not refute the textbook, they confirm that its hypotheses are needed. So: evidence AGAINST M's 'lacked data' hypothesis for the theorem as published (nothing later changes it), and evidence that the TREE's use (permute.py:41-47, 'Everything else M says about it is right, and it is right in the textbook') claims more than the textbook does by dropping the hypotheses. Direction of the over-representation: in M's favour (the tree grades 'space is a closed index' STANDS on an unconditional reading).",
+ "grade": "NARROWED",
+ "grade_evidence": "The published statement (Baumann 0907.5424 p.15-16, READ) is conditional -- galaxies keep fixed comoving coordinates 'in the absence of peculiar motion' -- and n a^3 = const holds only for a conserved number current (re-derived exactly, C3). Both are machine-checked correct under those hypotheses (C1, C3), so the textbook STANDS on its own terms. The tree drops both hypotheses: permute.py:42-47, 222-224, 418-420, 503, 527-530 and obstruct.py:280 state unconditionally that a galaxy's comoving coordinate does not change and that 'the COUNT is conserved exactly'. Measured peculiar velocity 371 +- 1 km/s (Fixsen 1996 p.26, READ) gives 0.41 comoving Mpc of drift per Gyr (C6); del.T = 0 does not imply del.N = 0 (C4). Additionally, count_is_conserved's 'Measured, not asserted' is a tautology (C5) -- a status overstatement, recorded, not repaired. Not WRONG: nothing in the textbook statement is refuted; the tree's use holds on the smaller class (idealised comoving congruence, conserved species). The downstream scorecard row 'space is a closed index -- STANDS' (permute.py:503) rests on the unconditional form and carries the narrowing.",
+ "what_would_change_the_grade": "To STANDS: the tree names both hypotheses at its use sites ('for the comoving congruence, peculiar velocities neglected'; 'for a species with a conserved current') -- then use and source coincide. To WRONG: only a computed failure of Gamma^i_tt = 0 or of the continuity identity in FLRW, which C1/C3 exclude symbolically for general k and a(t). Reading 1607.03909 and 1807.06205 at source (quota permitting) would upgrade two NAMED-NOT-READ rows but cannot move the grade, which rests on READ Fixsen 1996 and the symbolic checks.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/flrw-comoving-number-conservation.py && sed -n 130,140p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/0907.5424v2.txt && sed -n 790,796p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/astro-ph_9605054v1.txt && sed -n 38,52p /home/user/Claude-Method-Works/research/warp-drive/permute.py && sed -n 211,225p /home/user/Claude-Method-Works/research/warp-drive/permute.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/flrw-comoving-number-conservation.json"
+}

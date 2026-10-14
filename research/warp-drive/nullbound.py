@@ -21,7 +21,10 @@ warpenergy.py closed directive 1 and handed off one sentence: the entire cost of
 a warp drive is the wall, M ~ -v_s^2 R^2/(36 G D), and D is set by a quantum
 inequality.  Pfenning and Ford's is the one everybody quotes, and it bounds the
 WALL THICKNESS at about 10^2 Planck lengths, which is what turns 0.19 solar
-masses into 10^62 kg.
+masses into 10^62 kg.  CORRECTED (DOCKET 67): 10^2 l_P is P&F's eq.(23), their
+example alpha = 1/10 at v_b = 1; the bound itself is eq.(22), Delta <=
+(3/4) sqrt(3/pi) v_b/alpha^2 = 0.7329 v_b/alpha^2 l_P with alpha << 1 left
+unspecified.  Their 10^62 kg is per v_b, for R = 100 m.
 
     THAT BOUND COMES FROM A TIMELIKE QUANTUM INEQUALITY, AND THE QUANTITY BEING
     BOUNDED IS NULL.  Change to the null-smeared condition and the wall
@@ -29,7 +32,10 @@ masses into 10^62 kg.
 
 -- WHY THE TIMELIKE ONE IS THE WRONG INSTRUMENT -------------------------------
 Not this file's finding -- the corpus's, banked at Register 5537 and reached
-independently there:
+independently there.  CORRECTED (DOCKET 67): "Register 5537" was not located.
+The Register seats entries 1-1792, and method/members/ holds "5537" only as a
+line reference (WORKING-REGISTER.md:2272, "R at L5537"); drive/ and the chat
+export were not searched.
 
     Fewster & Roman, Phys. Rev. D 67 (2003) 044003: for the massless minimally
     coupled scalar in FOUR-dimensional Minkowski space, weighted averages of the
@@ -64,7 +70,10 @@ Two 1/D^2 laws meet, and both of them also carry 1/G.
 
             required / allowed  =  v_s^2 / (288 pi B)  =  v_s^2 / 9
 
-        at Freivogel-Krommydas's holographic B = 1/(32 pi).  Verified constant to
+        at the holographic B = 1/(32 pi) of Leichenauer & Levine (1808.09970
+        eq.(1)).  CORRECTED (DOCKET 67): first credited to Freivogel &
+        Krommydas, who leave B undetermined ("We have not determined the
+        constant B", 1807.03808 v4 p.4).  Verified constant to
         six figures over D from 1 mm to the Planck length -- thirty-two orders.
 
             v_s = 0.1 c    ratio 0.0011     allowed, 900x margin
@@ -87,7 +96,10 @@ It is a scaling comparison with four O(1) exposures, every one of them named:
      on the NULL-contracted component.  Both are proportional to v_s^2 f'^2 -- so
      the 1/D^2 structure, which is the finding, is untouched -- but their ratio is
      an O(1) this file does not compute.
-  2. B is not a theorem.  Freivogel & Krommydas argue B <= 1/(32 pi) holographically.
+  2. B is fixed in one setting only.  Leichenauer & Levine (1808.09970) fix
+     B = 1/(32 pi) for holographic induced gravity on a brane; Freivogel &
+     Krommydas leave B undetermined.  (CORRECTED (DOCKET 67): first written
+     "Freivogel & Krommydas argue B <= 1/(32 pi) holographically".)
   3. The SNEC itself is a conjecture with holographic support, not a proof.
   4. The Gaussian gives INTEGRAL(g')^2 = 1/(2D^2); another sampling function gives
      another O(1).
@@ -123,7 +135,8 @@ G = 6.67430e-11
 C = 299792458.0
 MSUN = 1.98847e30
 L_PLANCK = 1.616255e-35
-B_FK = 1.0 / (32.0 * math.pi)      # Freivogel-Krommydas, holographic, NOT a theorem
+B_FK = 1.0 / (32.0 * math.pi)      # Leichenauer-Levine 1808.09970 eq.(1), holographic;
+                                   # FK leave B undetermined.  Name kept (DOCKET 67).
 
 def rho_required(vs_over_c, D):
     """DERIVED.  Mass density in the wall: -v_s^2/(144 pi G D^2).  R-independent."""
@@ -155,7 +168,10 @@ def max_velocity(B=B_FK):
     return math.sqrt(288.0 * math.pi * B)
 
 def pfenning_ford_thickness(n_planck=100.0):
-    """PINNED, for contrast: the timelike QI bounds D itself, at ~10^2 l_P."""
+    """PINNED, for contrast: the timelike QI bounds D itself, at ~10^2 l_P.
+    That is P&F eq.(23): alpha = 1/10 and v_b = 1 fixed (CORRECTED, DOCKET 67).
+    Their eq.(22) is 0.7329 v_b/alpha^2 l_P (73.3 at their example), scaling
+    as alpha^-2 -- 6.6 at alpha = 1/3, 660 at alpha = 1/30."""
     return n_planck * L_PLANCK
 
 def thickness_for_budget(M_kg, R, vs_over_c):
@@ -208,7 +224,7 @@ def selftest():
     print("\nAgainst the instrument it replaces")
     D_pf = pfenning_ford_thickness()
     D_need = thickness_for_budget(MSUN, 100.0, 0.1)
-    chk("Pfenning-Ford's ~10^2 l_P (m)", D_pf, 1.616255e-33, 1e-38)
+    chk("Pfenning-Ford's ~10^2 l_P, alpha=1/10, v_b=1 (m)", D_pf, 1.616255e-33, 1e-38)
     chk("D for a 1 Msun budget at R=100 m, 0.1 c (m)", D_need, 1.8811e-3, 1e-6)
     chk("  the gap the timelike bound imposes", D_need / D_pf, 1.1638e30, 1e26)
     chk("  and the SNEC imposes none of it", ratio(0.1, D_need), ratio(0.1, D_pf), 1e-12)

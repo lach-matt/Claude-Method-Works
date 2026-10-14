@@ -1,0 +1,25 @@
+PASS A: FO (7) == FO (8) identically, n=3
+PASS B: FO (9) == [rho1 - xi rho2 + xi rho3]_c (FO 10-14), n=3
+PASS A: FO (7) == FO (8) identically, n=4
+PASS B: FO (9) == [rho1 - xi rho2 + xi rho3]_c (FO 10-14), n=4
+PASS A: FO (7) == FO (8) identically, n=5
+PASS B: FO (9) == [rho1 - xi rho2 + xi rho3]_c (FO 10-14), n=5
+PASS C: f^2 rho - [discarded - xi Q_B phi^2 - xi Q_C phi^2] = d/dtau(-2 xi f^2 phi phi') -- Q_B = 2 f'^2 (FO 47), Q_C = f^2 (R_uu - (1-4xi)R/2) (FO 48) recovered
+PASS D1: z3 -- discarded bracket >= 0 for all fields when 0 <= xi <= 1/4 -- UNSAT of the negation
+PASS D2: z3 -- negative instance exists for xi > 1/4 and for xi < 0 (proof step fails there)
+PASS E1: geodesic t-lines: Gamma^a_tt = 0
+PASS E2: MTW T_tt = decomposition + const * phi * (field eq.) -- const = -2*xi; so Q_C^MTW = -f^2 (R_tt + (1-4xi)R/2) == FO (48) under R_uv(BD) = -R_uv(MTW), R(BD) = R(MTW)
+PASS E3: sanity -- MTW tensor traceless on shell at m = 0, xi = 1/6 (conformal) -- trace = 1 * phi * E
+PASS F1: (53) inner integral, n=4 m=0 == u^4 (1/4 - xi/3)
+PASS F2: (55) at m=0, n=4 gives the same coefficient
+PASS F3: coefficient >= 0 on [0,1/4] (value at 1/4: 1/6; at 1/6: 7/36 = 7/9 of minimal)
+PASS F4: Qt_A^{xi=0} (53) == (1/16pi^2) int f''^2 (FO: 'recovers [16]') -- 0.0245427007277 vs 0.0245427007277
+PASS G1: phi = d_x[(F(t+r)-F(t-r))/r] solves the massless wave equation (spot value)
+PASS G2: on x = 0: phi = 0 and rho = (1-4xi)/2 (d_x phi)^2 (xi = 1/3 > 1/4 gives rho < 0) -- rho samples ['0', '-0.9331', '-0.3568', '-0.06114']; the Phi^2 terms of (45) vanish on gamma, so rho(f^2) ~ -A^2 for coherent amplitude A
+PASS H1: static observer acceleration = f'/(2f); zero iff f'(0) = 0 (HPS data (9) f'(0) = 0 -> MET) -- a = Derivative(f(l), l)/(2*f(l))
+PASS H2: HPS throat (f'=f''=r'=r''=0): R_uu = 0, R = 2/r0**2 (MTW); Q_C/f^2 (FO 48, BD) = (4*xi - 1)/r0**2 -- at xi = 1/6: -1/(3*r0**2) ; at r0 = 0.0242789 l_P: -565.5 l_P^-2 (supplementary, not a tree claim)
+PASS H3: xi = 1/6 in [0, 1/4]
+PASS H4: omega_0 = psi instance reads 0 >= -Qt_A, true for every Qt_A >= 0 (vacuous)
+
+22 PASS, 0 FAIL
+EXIT 0

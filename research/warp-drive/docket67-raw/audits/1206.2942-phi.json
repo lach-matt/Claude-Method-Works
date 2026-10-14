@@ -1,0 +1,141 @@
+{
+ "key": "1206.2942-phi",
+ "name": "Higgs mechanism: fermion and W, Z rest masses proportional to phi (m -> m phi/v) -- Morrissey & Ramsey-Musolf 1206.2942 p.4",
+ "source": {
+  "located": "arXiv:1206.2942v1 [hep-ph], 13 Jun 2012, D. E. Morrissey (TRIUMF) and M. J. Ramsey-Musolf (Wisconsin/Caltech), 'Electroweak baryogenesis' (review, NPAC-12-08). The sentence is Sec. 2 'The electroweak phase transition', p.4, immediately below eq. (1).",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries(paper='1206.2942') returned the PDF text layer of pp.1,2,4,5,7,8,9,15,20,37-42. p.4 read verbatim; p.5 (eqs 2-5, V0 = -m^2 phi^2/2 + lambda phi^4/4), p.8 (gauge dependence of the effective-potential vev), p.9 (eq. 20, v(0) = 174 GeV) read for hypotheses and conventions. The tree's held text SOURCES['MRM-phi'] (massform.py:1133-1135) matches the PDF sentence word for word."
+ },
+ "published_statement": "p.4: 'The transition from symmetric to broken phase in the SM can be characterized by the vacuum expectation value (VEV) of the Higgs field H = (H+, H0)^T that transforms as (1, 2, 1/2) under SU(3)c x SU(2)L x U(1)Y. A field basis can always be chosen such that only the real component of H0 develops a non-zero expectation value. Thus, we will write  phi/sqrt(2) = <H0> . (1)  The symmetric phase corresponds to phi = 0 and the broken phase to phi != 0. Note that (in unitary gauge) the masses of the W+- and Z0 weak vector bosons and the fermions are proportional to phi.'",
+ "published_hypotheses": [
+  "Standard Model: one Higgs doublet H ~ (1,2,1/2); 'in the SM' is the sentence's frame (p.4)",
+  "phi is the (homogeneous) vacuum expectation value, phi/sqrt(2) = <H0>, basis chosen so only Re H0 has a vev (eq. 1)",
+  "Unitary gauge (stated, parenthetical)",
+  "Implicit, never stated: tree level / renormalisable Yukawa couplings, so m_f = y_f phi/sqrt(2). The review itself warns (p.8) that 'the vacuum expectation value of the one-loop effective potential phi at any temperature is gauge-dependent', so beyond tree level phi is not a physical quantity by itself",
+  "Implicit: 'the fermions' means the SM fermions with Dirac masses from Yukawas (neutrino masses are not discussed anywhere in the pages read)",
+  "Convention note (not a hypothesis): eq. (1) makes phi = sqrt(2)<H0> ~ 246 GeV, while eq. (20) p.9 uses v(0) = 174 GeV = <H0>. Two normalisations in one paper; not an error, but a reader mixing them errs by sqrt(2). The tree uses 246.22 GeV (phi-normalisation), consistently with eq. (1)."
+ ],
+ "hypothesis_drift": [
+  "ADDED, correct and needed: 'tree level' (massform.py:751-754 H-TREE 'm_f = y_f v/sqrt(2), at tree level in unitary gauge, as the READ source states it'). The source states only 'unitary gauge'; tree level is implicit there and the source's own p.8 gauge-dependence warning makes it necessary. Not a defect. Machine-check B shows phi^2 = 2 H^dag H is gauge invariant, so at tree level the gauge qualifier is not restrictive.",
+  "DROPPED as a named hypothesis, kept as a fact: the renormalisable-SM relation kappa_f = 1, i.e. d ln m_f / d ln phi = 1 exactly, for the payload's fermions e, u, d. excite.py:145-147 states 'rest mass is proportional to phi (m -> m phi/v) -- which is what the Higgs gives the fermions and W, Z' as fact; address.py:514 (K_mu, used via excite.py:971-974) states 'm_e is 100% Higgs, so subtract exactly 1'. The source's sentence is a statement about the SM Lagrangian, not a measurement. Check C proves kappa_f (the LHC coupling modifier) = d ln m_f/d ln phi at v for any m_f(phi); the electron's is bounded only to |kappa_e| < 262 (computed from ATLAS 1909.10235), and ATLAS 2207.00092 p.8 ASSUMES SM values for first-generation fermions. massform.py:751 H-TREE contains kappa_f = 1 but names it as a tree-level/scheme hypothesis, not as an untested datum.",
+  "DROPPED, unnamed: single Higgs doublet (H-SM). massform.py:210-214 'If m_f > 0 at a place, then phi != 0 at that place' and C5 need that no other electroweak-breaking vev gives the fermions mass. Check D: with ONE doublet and ANY gauge-invariant operators (l e H)(H^dag H)^n, m_f(phi) is odd and vanishes at phi = 0, so this contrapositive survives far beyond kappa = 1; with a second vev-carrying doublet (2HDM, discussed in 2501.07628) it does not. massform, excite and address never name the single-doublet premise (grep: no 'H-SM', 'doublet' premise).",
+  "EXTENDED: the source's phi is the homogeneous vacuum expectation value; the tree uses a local, spatially varying phi(x) held by a static source (excite.py:144-147 'A static source of fixed number density whose rest mass is proportional to phi'; massform.py:212 'at that place'). The Yukawa term is local, so m_f(x) = y_f phi(x)/sqrt(2) is the correct classical-background reading at tree level, but 'rest mass' at a place additionally needs phi slowly varying over the source particle's own Compton wavelength (electron 3.86e-13 m = ~2.4e5 lambda_h; CODATA 2022). excite's stated scale hypothesis (D16, 'region large compared with lambda_h', excite.py:147-148) is the weaker of the two for electron sources; for the nucleon sources the tree actually prices (rho = rho_H/f) the relevant scale is the nucleon size. Not named.",
+  "NOT A DRIFT: ledger.py:731-746 (D27 seated from massform.PROPOSED_ROWS) carries 'fermion masses are proportional to phi (READ, 1206.2942)' with H-TREE, P-UNIFORM, H-PRESENT, H-UNSOURCED-SEAT. The READ is accurate: the quote is verbatim at p.4. The canonical name 'Fermion masses proportional to phi (Higgs couplings measured)' does not occur in the tree (grep over research/warp-drive *.py, *.md: no match); were it used it would over-state the evidence for e, u, d.",
+  "USES THAT SURVIVE kappa != 1 (so not affected by the dropped hypothesis): massform C5/D27 ('m_f > 0 => phi != 0', needs only m(0) = 0, check D1) and massform M65-2/C2 ('the Higgs gives the payload 3.010e-4 of its mass through the electrons', massform.py:126-127: the share that vanishes with phi is all of m_e for any single-doublet m_e(phi)). USES THAT DEPEND on kappa = 1: address.K_mu ('subtract exactly 1', check G2: K_mu = f - kappa_e, one-for-one) and excite section 3 / D20 for a source whose mass is linear in phi (check E2: source rest energy = tree / kappa, ratio source/field -> 2/(kappa eps)); the tree's stable-matter f = d ln m_p/d ln v is itself this kappa for the nucleon, and its S (sigma-term) part assumes kappa_u = kappa_d = kappa_s = 1 (check G3: under H2, f = kappa_l S)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Existence and mass of the Higgs boson",
+   "value_then": "not discovered (paper 13 Jun 2012; cites ATLAS 1202.1408 exclusions, ref [21]); discovery announced 4 Jul 2012",
+   "value_now": "observed; ATLAS 2207.00092 uses m_H = 125.09 GeV; tree captures 125.13 READ / 125.20 pinned",
+   "source_now": "arXiv:2207.00092 p.2 (READ)",
+   "moves_conclusion": "No. The statement is structural (SM Lagrangian); the mass does not enter it."
+  },
+  {
+   "quantity": "kappa_F (universal fermion coupling modifier) and kappa_t, kappa_b, kappa_tau",
+   "value_then": "none measured",
+   "value_now": "kappa_F = 0.95 +- 0.05, kappa_V = 1.035 +- 0.031; t, b, tau couplings measured to ~7-12 %",
+   "source_now": "ATLAS Nature 607 (2022) 52, arXiv:2207.00092 pp.8-9, 13 (READ)",
+   "moves_conclusion": "No: confirms m proportional to phi (kappa = 1) for third-generation fermions and W, Z at 5-12 %. These are not the payload's fermions."
+  },
+  {
+   "quantity": "kappa_mu",
+   "value_then": "none",
+   "value_now": "H->mumu observed significance 2.0 sigma (ATLAS Run 2 combination)",
+   "source_now": "arXiv:2207.00092 p.7 (READ)",
+   "moves_conclusion": "No; indication only."
+  },
+  {
+   "quantity": "kappa_c",
+   "value_then": "none",
+   "value_now": "|kappa_c| < 3.5 (95 % CL, CMS VH+ttH combination); ATLAS kappa_c < 5.7",
+   "source_now": "arXiv:2602.08512 p.3 (READ); arXiv:2207.00092 p.9 (READ)",
+   "moves_conclusion": "Only through address.dln_lambda_dln_v ('every heavy mass is proportional to v', address.py:499): the 2/9 Lambda exponent assumes kappa_c = kappa_b = kappa_t = 1. Not computed here beyond noting the dependence; b and t are measured to ~10 %, c is bounded to a factor 3.5."
+  },
+  {
+   "quantity": "kappa_e = d ln m_e / d ln phi (check C)",
+   "value_then": "none",
+   "value_now": "|kappa_e| < 262 at 95 % CL: computed from BR(H->ee) < 3.6e-4 (observed) and the SM BR = G_F m_H m_e^2/(4 sqrt2 pi Gamma_H) = 5.23e-9 with Gamma_H = 4.1 MeV, both READ in 1909.10235; 2501.07628 quotes 260. kappa_e = 0 is not excluded by this search. Projected: HL-LHC 120, FCC-ee Higgs-pole run 1.6 (READ 2501.07628 pp.2-3)",
+   "source_now": "ATLAS PLB 801 (2020) 135148, arXiv:1909.10235 abstract, pp.2,7 (READ); arXiv:2501.07628 p.2 (READ)",
+   "moves_conclusion": "YES for the tree's linear uses: K_mu = f - kappa_e moves one-for-one (check G2; at kappa_e = 0, K_mu(H1) = +0.269 against the tree's -0.731); an electron-borne D20 source costs tree/kappa_e (check E2). NO for massform C5/D27/C2, which need only m_e(0) = 0 (check D1)."
+  },
+  {
+   "quantity": "kappa_u, kappa_d (first-generation quark Yukawas)",
+   "value_then": "none",
+   "value_now": "not measured; ATLAS 2022 combination 'SM values are assumed for the coupling strength modifiers of first-generation fermions'; CMS: light-quark Yukawas 'remain largely unconstrained'. Numerical light-quark bounds (CMS-PAS-HIG-23-011) not READ here",
+   "source_now": "arXiv:2207.00092 p.8 (READ); arXiv:2602.08512 p.1 (READ)",
+   "moves_conclusion": "YES for f = d ln m_p/d ln v: the S term scales with kappa_l (check G3: under H2 f = kappa_l S, so rho_stable = rho_H/f scales as 1/kappa_l; under H1 f runs 0.209 -> 0.389 for kappa_l 0 -> 3 at S = 0.06). No for C5 (the electron alone suffices, consideration_holds uses any of e, u, d)."
+  },
+  {
+   "quantity": "m_e",
+   "value_then": "(not used by the source)",
+   "value_now": "0.51099895069(16) MeV (CODATA 2022); tree 0.510998951 MeV",
+   "source_now": "arXiv:2409.03787 Table XXXIII p.52 (READ)",
+   "moves_conclusion": "No (agreement to 1e-9 relative, check F2)."
+  },
+  {
+   "quantity": "m_u, m_d (MS-bar, 2 GeV)",
+   "value_then": "(not used by the source)",
+   "value_now": "FLAG 2024 Nf=2+1+1: m_u = 2.14(8), m_d = 4.70(5) MeV; Nf=2+1: 2.27(9), 4.67(9). Tree: 2.16, 4.7",
+   "source_now": "arXiv:2411.04268 Table 12 p.54, eq.(43) p.47 (READ)",
+   "moves_conclusion": "No: C5 needs only m > 0 (FLAG: m_u differs from zero by 26 sigma, p.48); Yukawas shift by < 1 %."
+  },
+  {
+   "quantity": "G_F -> v = (sqrt2 G_F)^(-1/2)",
+   "value_then": "(source uses v(0) = 174 GeV = <H0>, p.9)",
+   "value_now": "G_F = 1.1663787(6)e-5 GeV^-2 -> v = 246.219651 GeV; tree higgs.vev() = 246.219640",
+   "source_now": "arXiv:2409.03787 Table XXXIII p.51 (READ; CODATA takes it from PDG 2022)",
+   "moves_conclusion": "No (4.5e-8 relative, check F1). The tree's 'G_F NAMED-NOT-READ' could be upgraded to READ via CODATA 2022 -- recorded, not repaired."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1206.2942-phi.py",
+  "outcome": "29/29 PASS, exit 0, 0.9 s. A: from |D_mu H|^2 with explicit Pauli matrices and H = (0, phi/sqrt2), m_W = g phi/2, m_Z = sqrt(g^2+g'^2) phi/2, photon massless; Yukawa m_f = y phi/sqrt2; d ln m/d ln phi = 1 for all three; m_f(0) = 0 -- the published statement re-derived at tree level. B: H^dag H gauge invariant (symbolic on U(1)_Y x diagonal SU(2); numeric on a generic SU(2) element). C: identity kappa_f = g_hff v/m = d ln m/d ln phi|_v, checked symbolically against 2501.07628 eq.(10) (kappa_e = 1 - v^3 C/(sqrt2 m_e)) -- the READ formula reproduced; kappa = 1 iff C = 0. D: any single-doublet operator sum gives odd m(phi), m(0) = 0; a phi^3 operator gives kappa = 3. E: excite section 3 re-derived and generalised: equilibrium with m ~ phi^k gives source rest energy 4 eps(2-eps)(1-eps)^2 / k (k = 1 reproduces the tree exactly), field eps^2(2-eps)^2 unchanged, ratio -> 2/(k eps). F: v from CODATA G_F agrees with the tree to 1e-6; tree m_e agrees with CODATA 2022 to 1e-9; SM BR(H->ee) = 5.225e-9; |kappa_e| < 262; tree y_e = 2.935e-6 and y_t = 0.9914 (at m_t = 172.6) reproduced. G: K_mu(H1, S=0.06) = -0.73111 reproduced, dK_mu/dkappa_e = -1; f(H2) = kappa_l S. H: one-loop QED running changes 'exactly 1' by ~3.5e-3 (ESTIMATE, labelled), far inside the |kappa_e| < 262 data window.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "ATLAS Collaboration, Nature 607 (2022) 52, arXiv:2207.00092",
+   "effect": "confirms",
+   "what": "Couplings to t, b, tau measured to ~7-12 %, W, Z ~5 %; kappa_F = 0.95 +- 0.05; the reduced coupling kappa_F m_F/vev vs mass (Fig. 5) is consistent with m proportional to phi for t, b, tau, mu. p.8: 'SM values are assumed for the coupling strength modifiers of first-generation fermions' -- the payload's fermions are assumed, not tested.",
+   "read_status": "READ (pp.1-2, 5, 7-11, 13, 17)"
+  },
+  {
+   "ref": "ATLAS Collaboration, PLB 801 (2020) 135148, arXiv:1909.10235",
+   "effect": "narrows",
+   "what": "BR(H->ee) < 3.6e-4 observed (3.5e-4 expected), SM 5e-9; 'there is currently no evidence of Higgs boson decays into first- or second-generation quarks or leptons' (p.2). Gives |kappa_e| < 262 (computed here). The Higgs origin of m_e is untested by a factor ~260.",
+   "read_status": "READ (pp.1-7)"
+  },
+  {
+   "ref": "Erdelyi, Grober, Selimovic, arXiv:2501.07628 (2025)",
+   "effect": "extends",
+   "what": "eq.(10) kappa_e = g_hee v/m_e = 1 - v^3 C/(sqrt2 m_e) in SMEFT; simplified UV models (extra scalar doublet; doublet + singlet) allow kappa_e up to 265 and 925 at 95 % CL consistent with all current data (Tabs. 13, p.24); FCC-ee Higgs-pole run could reach |y_e| < 1.6 y_e^SM. Shows the m -> m phi/v linearity for the electron is a model choice the data do not yet fix.",
+   "read_status": "READ (pp.1-5, 14-17, 23-28, 32)"
+  },
+  {
+   "ref": "A. Zucchetta for CMS, arXiv:2602.08512 (2026)",
+   "effect": "narrows",
+   "what": "'While couplings to third-generation fermions ... have been firmly established, the Yukawa interactions involving lighter quarks remain largely unconstrained'; |kappa_c| < 3.5 (95 % CL). 'In the SM, the Yukawa coupling of a fermion f is proportional to its mass ... Many extensions of the SM predict deviations from this relation.'",
+   "read_status": "READ (pp.1-5)"
+  },
+  {
+   "ref": "CODATA 2022, arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "m_e c^2 = 0.51099895069(16) MeV; G_F = 1.1663787(6)e-5 GeV^-2: the tree's m_e and v are current.",
+   "read_status": "READ (Tables XXXII-XXXIII, Sec. XII)"
+  },
+  {
+   "ref": "FLAG Review 2024, arXiv:2411.04268",
+   "effect": "confirms",
+   "what": "m_u = 2.14(8), m_d = 4.70(5) MeV (Nf=2+1+1): the tree's 2.16, 4.7 are within errors; m_u != 0 at 26 sigma, so 'm_u > 0' in consideration_holds stands.",
+   "read_status": "READ (Table 1 p.9, Sec. 4.1.3, Table 12 p.54)"
+  }
+ ],
+ "lacked_data": "What the authors lacked: in June 2012 (three weeks before the discovery) they had no Higgs boson, no Higgs mass and no coupling measurement of any kind; the sentence is a structural remark about the SM Lagrangian, not an inference from data. What came later: the discovery, then ATLAS/CMS coupling maps (2207.00092) that CONFIRM kappa = 1 (m proportional to phi) for W, Z (~5 %) and t, b, tau (~7-12 %), with muon evidence emerging. Does having it change the conclusion? For the statement as published (SM, unitary gauge, tree level): no -- nothing measured contradicts it and the re-derivation agrees. For the tree's use on the payload's fermions e, u, d: the data the authors lacked are STILL lacking. kappa_e is bounded only to |kappa_e| < 262 and kappa_e = 0 is not excluded by the H->ee search; first-generation quark Yukawas are assumed, not measured, in the ATLAS combination. So M's hypothesis holds in a precise, narrow sense: not that the 2012 statement is wrong, but that the tree's 'm_e is 100% Higgs, subtract exactly 1' (address.py:514) and 'which is what the Higgs gives the fermions' (excite.py:145-147) rest on an SM prediction for exactly the particles no experiment has yet tested. Evidence against over-reading this: every Yukawa that HAS been measured agrees with kappa = 1, and simplified models allowing large kappa_e require fine-tuned cancellations (2501.07628 p.5). Evidence for caution: 2501.07628 exhibits models consistent with all current data with kappa_e ~ 265-925. Which tree conclusions move: K_mu (one-for-one in kappa_e) and the stable-matter f under H2 (proportional to kappa_l); which do not: massform C5/D27 (m(0) = 0 survives any single-doublet m(phi)) and C2's 3.010e-4 share.",
+ "grade": "NARROWED",
+ "grade_evidence": "The published statement is READ verbatim (1206.2942v1 p.4, matching the tree's held text at massform.py:1133-1135) and re-derived at tree level by sympy (m_W = g phi/2, m_Z = sqrt(g^2+g'^2) phi/2, m_f = y phi/sqrt2, all d ln m/d ln phi = 1; 29/29 checks pass). No datum has moved against it and the confirmed Yukawas (t, b, tau, W, Z) agree. It is NOT WRONG and nothing is refuted. It is NARROWED as the tree uses it because two hypotheses the source carries implicitly are dropped at named sites: (i) the renormalisable-SM relation kappa_f = 1 for e, u, d -- asserted as fact at excite.py:145-147 and address.py:514 ('m_e is 100% Higgs, so subtract exactly 1'), whereas check C proves kappa_f = d ln m_f/d ln phi is the LHC coupling modifier and the data bound kappa_e only to |kappa_e| < 262 (ATLAS 1909.10235, computed) and assume kappa_u, kappa_d (2207.00092 p.8); (ii) a single Higgs doublet, unnamed, on which massform's contrapositive 'm_f > 0 => phi != 0' (massform.py:212) rests. The tree's own H-TREE (massform.py:751) correctly adds tree level. The massform/ledger uses that need only m(0) = 0 (C5, D27, C2) survive any single-doublet m(phi) (check D) and STAND on H-TREE plus the unnamed single-doublet premise; the linear uses (address.K_mu; excite D20 for an electron-borne source; the S part of f) hold on the smaller class kappa = 1, which is a prediction untested for the payload's fermions. Not graded DATA-DEPENDENT because no datum has moved or is contested: kappa_e, kappa_u, kappa_d are unmeasured, not in tension.",
+ "what_would_change_the_grade": "To STANDS: the tree names H-SM (one doublet, renormalisable Yukawas, kappa_e = kappa_u = kappa_d = 1, measured only to |kappa_e| < 262 and assumed for u, d) at excite.py:145-147 and address.py:514 and carries it into K_mu and D20's f; or a measurement (FCC-ee Higgs-pole run, projected |y_e| < 1.6 y_SM; light-quark Yukawa probes) finds kappa_e, kappa_u, kappa_d consistent with 1. To DATA-DEPENDENT: a measured kappa_e or kappa_l different from 1, or a contested one -- then K_mu and the H2 stable-matter density move (checks G2, G3). To WRONG: only a measured non-SM kappa for a payload fermion together with the tree continuing to assert 'exactly 1'; nothing of the kind exists. The published SM statement itself could change only if the SM Lagrangian were not the one nature uses for these fermions.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1206.2942-phi.py  # expect 29 PASS, exit 0; source: alphaXiv answer_pdf_queries(paper='1206.2942', queries=['p.4 sentence below eq. (1)']); kappa_e data: answer_pdf_queries(paper='1909.10235'); tree sites: sed -n 144,148p research/warp-drive/excite.py; sed -n 513,515p research/warp-drive/address.py; sed -n 208,214p,1133,1135p research/warp-drive/massform.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1206.2942-phi.json"
+}

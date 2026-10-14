@@ -1,0 +1,76 @@
+0. SOURCE TEXT: the B3 values are the ones printed in the cached arXiv page text
+  [ok] cached B3 md5
+  [ok] B3 text contains '= 6.957 × 10'
+  [ok] B3 text contains '= 6.3781 × 10'
+  [ok] B3 text contains '= 6.3568 × 10'
+  [ok] B3 text contains '= 7.1492 × 10'
+  [ok] B3 text contains '= 6.6854 × 10'
+  [ok] B3 text contains '= 3.986 004 × 10'
+  [ok] B3 text contains '= 1.266 865 3 × 10'
+  [ok] B3 text contains '= 1.327 124 4 × 10'
+  [ok] B3 text contains '149 597 870 700 m exactly'
+  [ok] B3 text contains '695 658 (± 140) km'
+  [ok] B3 text contains 'one-bar equato'
+  [ok] B3 text contains 'zero tide'
+  [ok] scipy G is CODATA 6.67430(15)e-11
+  [ok] spec literals as canonical.json records
+
+1. RADII
+  [ok] R_sun tree == B3 nominal 6.957e8 exactly
+     B3 note 2: nominal from Haberreiter 2008 photospheric 695 658 +- 140 km; nominal - measured = +42 km (0.30 sigma)
+     Jupiter: tree 7.15e7; B3 R_eJ 7.1492e7 (rel +1.119e-04); R_pJ 6.6854e7; volumetric mean 6.991131e+07
+  [ok] Jupiter tree radius is R_eJ rounded to 3 s.f. (the 1-bar EQUATORIAL radius)
+  [ok]   and NOT the volumetric mean (6.99e7 at 3 s.f.)
+     Earth: tree 6.371e6; B3 R_eE 6.3781e6 (rel -1.113e-03); R_pE 6.3568e6; (2a+b)/3 = 6.371000e+06; volumetric 6.370992e+06
+  [ok] Earth tree radius is the MEAN radius computed from B3's radii (both means round to 6.371e6)
+  [ok]   and NOT B3's default terrestrial radius R_eE (Explanation 6)
+     oblateness from B3's own radii: Earth 0.00334 (1/299.44), Jupiter 0.06487 (1/15.41)
+
+2. MASSES = (GM)^N / G  (B3 Recommends 5), CODATA G
+     Sun      tree 1.9890e+30  (GM)^N/G = 1.988410e+30 +- 4.5e+25 (G 1 sigma)  rel +2.968e-04  = 13.2 sigma_G;  4-s.f. rounding 1.9880e+30
+  [ok] M_sun tree 1.989e30 is NOT the 4-s.f. rounding of (GM)^N/G (which is 1.988e30)
+       with CODATA 1973 G 6.6720e-11: (GM)^N/G = 1.98910e+30
+       with CODATA 1986 G 6.67259e-11: (GM)^N/G = 1.98892e+30
+  [ok]   it IS the 4-s.f. rounding of (GM)^N/G for the CODATA-1973 G (1.98909e30) -- an older-G figure
+  [ok]   relative excess over current value < 3e-4 (i.e. inside spec's 1e-3 selftest pin)
+     Jupiter  tree 1.8980e+27  (GM)^N/G = 1.898125e+27 +- 4.3e+22 (G 1 sigma)  rel -6.564e-05  = -2.9 sigma_G;  4-s.f. rounding 1.8980e+27
+  [ok] Jupiter tree mass == 4-s.f. rounding of (GM)^N/G
+     Earth    tree 5.9720e+24  (GM)^N/G = 5.972168e+24 +- 1.3e+20 (G 1 sigma)  rel -2.811e-05  = -1.3 sigma_G;  4-s.f. rounding 5.9720e+24
+  [ok] Earth tree mass == 4-s.f. rounding of (GM)^N/G
+
+3. au AND light-year
+     au: tree 1.4959790e+11 vs 149 597 870 700 exact; rel +1.959e-07
+  [ok] tree au is the 7-s.f. rounding of the IAU 2012 au
+     ly: tree 9.46070e+15 vs c x Julian yr = 9460730472580800 m exactly; rel -3.221e-06
+  [ok] c x 365.25 x 86400 == 9460730472580800 exactly
+  [ok] tree ly is the 5-s.f. rounding of it
+
+4. WHAT THE DATA FEED: f = b^2 c^2 / (4 G M) = b^2 c^2 / (4 GM)
+  [ok] tree focal lengths reproduce spec.focal_length to 1e-12
+     Sun: tree 547.5949 AU; IAU (GM)^N, R^N, au 547.7576 AU; rel -2.969e-04
+  [ok] spec selftest pin |f/547.6 - 1| <= 1e-3 holds for the tree data
+  [ok]   and for the current (IAU 2015 / IAU 2012) data
+     comparator 550.0   spec.py:66 '~550 AU' (uncited)                                         tree -0.437%  IAU -0.408%
+     comparator 546.0   Hippke 2018 arXiv:1711.07962 sec 5.6.1 '~546 au' (READ, cached)        tree +0.292%  IAU +0.322%
+     comparator 547.8   Turyshev & Toth ~547.8 AU (NOT READ; prior audit's WebSearch summary)  tree -0.037%  IAU -0.008%
+  [ok] Hippke's R^2/(2 r_g) with his own rounded r_g=2950 m gives 548.4 AU, not his printed 546: the comparator's own inputs do not reproduce it (a discrepancy in the comparator, recorded; R_sun he used is not stated)
+     Jupiter  tree 6061.3 AU;  tree 7.15e7 6060.9  R_eJ 6059.6  volumetric 5794.6  R_pJ 5298.8
+     Earth    tree 15295 AU;  tree 6.371e6 15294  R_eE 15329  volumetric 15294  R_pE 15226
+     polar-plane / equatorial-plane grazing focus: Jupiter 0.8745 (12.6% shorter), Earth 0.99333 (0.67%)
+  [ok] Jupiter: a polar-grazing ray (b = R_pJ, through vacuum above the 1-bar level) focuses at < tree's printed minimum 6061 AU  -- 5298.8 AU (monopole; J2 quadrupole NOT computed)
+  [ok] Earth: polar-grazing focus below the tree's 15295 AU  -- 15226.3 AU
+     Sun: B3 gives ONE radius. f scales as b^2, so an equator-pole difference eps moves f by ~2 eps;
+          the 1e-3 pin tolerates eps up to ~5e-4.  Rotational estimate eps ~ q/2, q = w^2 R^3/GM,
+          P = 25.38 d (NAMED-NOT-READ input) -> q = 2.083e-05, q/2 = 1.04e-05
+  [ok]   solar eps estimate << 5e-4 (25.38 d)
+          P = 25.05 d (NAMED-NOT-READ input) -> q = 2.138e-05, q/2 = 1.07e-05
+  [ok]   solar eps estimate << 5e-4 (25.05 d)
+  [ok] Sun lies far outside its Schwarzschild radius (S-1/SR2 witness): R_s/R_sun  -- 4.245e-06
+
+5. THE 10 km ASTEROID -- the owner's figure, not a measured body
+     implied bulk density if b = 1e4 m is the RADIUS: 537 kg/m^3; if '10 km' were the DIAMETER, same mass: 4297 kg/m^3
+  [ok] with b = 1.0e4 the '10 km' is a radius (20 km body) -- a naming ambiguity, recorded
+     f_ast (tree) = 1581.5 ly; with b = 5e3 m it would be 395.4 ly (f ~ b^2)
+  [ok] tree f_ast in ly moves < 1e-5 between tree ly and exact ly
+
+failures: 0

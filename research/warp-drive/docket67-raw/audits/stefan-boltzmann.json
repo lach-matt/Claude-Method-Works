@@ -1,0 +1,93 @@
+{
+ "key": "stefan-boltzmann",
+ "name": "Stefan-Boltzmann energy density of scalar blackbody radiation rho = pi^2/(30 beta^4), p = rho/3 (one free massless scalar, flat space, thermal state)",
+ "source": {
+  "located": "Stefan (1879), Boltzmann (1884), Planck (1900) -- classics with no arXiv copy: NAMED-NOT-READ. The per-scalar-dof form read via restatement in: arXiv:1804.05382 (Dhumuntarao, Galvez Ghersi, Afshordi 2018) p.2 eq (15) and p.10 eq (86); arXiv:2512.15610 (de Farias et al. 2025) p.5-6 eqs (26)-(33); the imaginary-time image-sum method (the route fluctuation.py uses) read in arXiv:2512.15610 eqs (25)-(29) and, for the spatial analogue, gr-qc/9304008 (Kuo-Ford 1993) pp.9-12 eqs (3.28)-(3.45). Measurement of the photon (2-dof) Planck spectrum: astro-ph/9605054 (Fixsen et al. 1996, COBE FIRAS) pp.2, 22-26.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries page text for gr-qc/9304008, 1804.05382, 2512.15610, astro-ph/9605054. Kuo-Ford 1993 was read in full and contains NO thermal computation: the thermal Delta' = 2/3, Delta = 2/5 is the tree's own extension of KF's image-sum machinery to imaginary time, as fluctuation.py:83-87 says ('The same image-sum machinery, run in imaginary time')."
+ },
+ "published_statement": "1804.05382 p.2: from the Wightman function of a massless scalar, 'pi^2/30 [k_B T(tau)]^4 = lim_{x'->x} [d/dtau d/dtau' G~+_A(x',x)]  (15), matching the Stefan-Boltzmann law for scalar radiation'; p.10: 'We precisely recover the Stefan-Boltzmann factor of pi^2/30 for scalar radiation'. 2512.15610 p.5-6: thermal state by compactifying imaginary time, alpha = (beta,0,0,0), G^(11) = 2 SUM_{l0>=1} G0(x - x' - i beta l0 n0) (eq 27), 'in the flat-space limit ... it is reduced to the well-known Stefan-Boltzmann law for a massless scalar field: T00(T) = -pi^2(1+xi)/(30 beta^4)  (33)' [sign by that paper's convention; the factor (1+xi) see later_literature]. At xi = 0 (the tree's minimal coupling) both restatements give |rho| = pi^2/(30 beta^4) in hbar = c = k_B = 1.",
+ "published_hypotheses": [
+  "a FREE (non-interacting) quantised field -- the Bose occupation n(omega) = 1/(e^{beta omega} - 1) and the Wick/quasifree structure presuppose it (2512.15610 eq 23-24: free propagator G0 = -1/(k^2 + i eps))",
+  "MASSLESS: omega = |k| (1804.05382 eq 4; 2512.15610 eq 1 'massless scalar field')",
+  "thermal equilibrium at inverse temperature beta = 1/T, i.e. a KMS/Gibbs state, realised as imaginary-time periodicity (2512.15610 eq 26: 'beta = 1/T representing the compactification of the time dimension', topology S^1 x R^3)",
+  "FLAT Minkowski spacetime (2512.15610 eq 33 is explicitly 'the flat-space limit'; curvature and redshift change it, eq 31)",
+  "INFINITE spatial volume, no boundaries (R^3 factor of the topology; a spatial compactification adds Casimir and thermal-Casimir terms, 2512.15610 eqs 36-50)",
+  "renormalised by subtracting the Minkowski vacuum (2512.15610 eq 19-20; KF eq 3.26-3.27: the n = 0 image dropped, i.e. normal ordering against the Minkowski vacuum)",
+  "ONE real scalar degree of freedom; the coefficient is pi^2/30 per bosonic dof (photons, 2 dof, give pi^2/15 -- computed here, not read)",
+  "rest frame of the bath: rho is T00 in the frame in which the state is isotropic; p = rho/3 (Boltzmann's radiation relation) is the isotropic, traceless case"
+ ],
+ "hypothesis_drift": [
+  "NONE DROPPED IN SUBSTANCE, SEVERAL UNSTATED AT THE SITE: the canonical hypothesis lists (noise.py:113-114; fluctuation.py:84-85) name only 'one massless scalar, natural units, thermal equilibrium at beta'. Free/quasifree, flat space, normal ordering against Minkowski and no spatial boundary are not repeated there but are stated at file level and instantiated by the code: noise.py:111-112 'zero-mean Gaussian (quasifree, KMS, Hadamard) state'; fluctuation.py:16 'normal-ordered against the Minkowski vacuum, flat spacetime, coincidence limit'; fluctuation.py:265-276 image_stress uses the free massless Minkowski two-point function 1/(4 pi^2 sigma) and sums n >= 1 only (n = 0 dropped = normal ordering); fluctuation.py:460 shift (i n beta, 0) compactifies imaginary time only (no spatial image = infinite volume). The computation IS the source's case.",
+  "UNSTATED STEP, VERIFIED: noise.py:114 'g(0) = pi^2/(30 beta^4) = rho' identifies <:phidot^2:>_beta with rho = (1/2)<:phidot^2 + |grad phi|^2:>. That needs <:phidot^2:> = <:|grad phi|^2:>, true for a massless on-shell field (equipartition, omega = |k|) and false for m > 0. Verified here by the image sum (check B3). Not a drift in use because masslessness is stated.",
+  "COUPLING: the tree is minimally coupled (fluctuation.py:17 'massless minimally coupled scalar'). Computed here: in flat space the improvement term xi(eta Box - dd)<:phi^2:>_beta vanishes because <:phi^2:>_beta = 1/(12 beta^2) is constant, so the flat-space thermal rho is xi-independent; no drift.",
+  "ADDED SCOPE IN WORDING (a consequence, not the SB value): fluctuation.py:89 'So ordinary positive-energy blackbody radiation fails KF's pointwise criterion by the same margin as negative energy' and noise.py:136 ('one with the photons') call the scalar model blackbody radiation / photons. The SB coefficient transfers per dof (photon = 2 x scalar, check E4), but the fluctuation numbers drawn from it do not: with the same Wick machinery the free EM field in its thermal state gives Delta' = 1/3, Delta = 1/4 (computed here, check G3; the EM Cauchy-Schwarz floor is 1/3 and thermal EM saturates it), not the scalar 2/3, 2/5. Delta = 1/4 is still O(1), so 'fails a Delta << 1 criterion' survives for EM; 'by the same margin' and the numbers 2/3, 2/5 are scalar-model statements. The owners' formal claims (fluctuation.py:16-17, 461-467) are explicitly scalar and are unaffected."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "coefficient pi^2/30 = Gamma(4) zeta(4)/(2 pi^2) (the only 'datum' in data_used)",
+   "value_then": "zeta(4) = pi^4/90 (Euler; exact); pi^2/30 is a closed-form consequence of Bose statistics (Planck 1900, NAMED-NOT-READ)",
+   "value_now": "pi^2/30 exactly -- re-derived three independent ways here (Bose mode sum, thermodynamic free energy, imaginary-time image sum)",
+   "source_now": "rederive/stefan-boltzmann.py checks A1-A6, B1",
+   "moves_conclusion": "no -- a mathematical constant; nothing measured enters the tree's use (natural units, beta a free parameter)"
+  },
+  {
+   "quantity": "Stefan-Boltzmann constant sigma (SI; photon field, 2 dof) -- NOT used by the tree, recorded because it is the historical 'measured' form of the law",
+   "value_then": "Stefan 1879 empirical / Planck 1900 computed values: NAMED-NOT-READ, not quoted",
+   "value_now": "sigma = 2 pi^5 k^4/(15 h^3 c^2) = 5.67037441918e-8 W m^-2 K^-4, exact since the 2019 SI fixed h, k, c (computed here from the SI defining values; BIPM SI brochure NAMED-NOT-READ)",
+   "source_now": "rederive/stefan-boltzmann.py check E3",
+   "moves_conclusion": "no -- the tree works in hbar = c = k_B = 1"
+  },
+  {
+   "quantity": "measured deviation of real (photon) thermal radiation from the Planck spectrum that underlies the T^4 law",
+   "value_then": "not available to Stefan/Boltzmann",
+   "value_now": "COBE FIRAS: CMB monopole agrees with a blackbody, weighted rms deviation 50 ppm of peak brightness over 2-21 cm^-1; |y| < 15e-6, |mu| < 9e-5 (95% CL); T = 2.728 +- 0.004 K (95% CL)",
+   "source_now": "astro-ph/9605054 abstract p.2, sec 6.1 p.23, sec 8 p.26",
+   "moves_conclusion": "no -- confirms the Bose-statistics spectrum for the only massless bosonic thermal field measured; the scalar per-dof coefficient itself is a theorem about a model field, not a measurement"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/stefan-boltzmann.py",
+  "outcome": "0 FAIL of 26 checks, exit 0, ~12 s. (A) rho = (1/2 pi^2) INT k^3 n_B dk = pi^2/(30 beta^4) by sympy term-by-term series (INT x^3/(e^x-1) = 6 zeta(4) = pi^4/15) cross-checked by mpmath quadrature to 1e-25; p = rho/3; thermodynamic route p = -f = pi^2/(90 beta^4), rho = d(beta f)/d beta = pi^2/(30 beta^4). (B) independent imaginary-time image sum of 1/(4 pi^2 sigma) (not imported from the tree): rho = pi^2/(30 beta^4), p_i = rho/3, <:phidot^2:> = <:|grad phi|^2:> = rho (so noise.py's g(0) = rho), off-diagonals 0, minimal trace 0. (C) <:phi^2:>_beta = 1/(12 beta^2), constant -> flat thermal rho is xi-independent. (D) noise.py's closed form g(u): lim_{u->0} = pi^2/30, u^4 g -> -3/(2 pi^2), g(0.7) = mode integral to 1e-20. (E) m/T = 1 gives rho/rho_SB = 0.889891141102 (mass is load-bearing); m/T = 1e-4 recovers rho_SB to 1e-6; sigma(2019 SI) = 5.67037441918e-8. (F) thermal Delta' = 2/3, Delta = 2/5 (agrees with fluctuation.py:465-466). (G) scope: Isserlis identity Var(v.v/2) = tr C^2/2 verified; EM thermal Delta' = 1/3, Delta = 1/4. The tree's own fluctuation.py --selftest was also run read-only: 'CONTROL: thermal rho = pi^2/(30 beta^4), Stefan-Boltzmann' [ok], 'thermal p = rho/3' [ok].",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:1804.05382 (Dhumuntarao, Galvez Ghersi, Afshordi 2018)",
+   "effect": "confirms",
+   "what": "eq (15): pi^2/30 (k_B T)^4 from the coincident derivative of the massless-scalar Wightman function, 'matching the Stefan-Boltzmann law for scalar radiation' -- the same object as noise.py's g(0); eq (86) extends it to a curved-spacetime DEFINITION of an instantaneous temperature (a definition, not a test)",
+   "read_status": "READ (pp.1-4, 7-10)"
+  },
+  {
+   "ref": "arXiv:2512.15610 (de Farias, Anacleto, Batista, Brevik, Brito, Passos, Queiroz, Sales 2025)",
+   "effect": "extends",
+   "what": "imaginary-time compactification reproduces SB in flat space (eq 33) and adds redshift e^{-2 Phi} and curvature terms inside a TOV star (eq 31) -- outside the tree's flat-space use",
+   "read_status": "READ (pp.1-8, 10, 13, 15)"
+  },
+  {
+   "ref": "arXiv:2512.15610 eq (33), the factor (1+xi)",
+   "effect": "contested",
+   "what": "prints the flat-space scalar SB as pi^2(1+xi)/(30 beta^4). Computed here (check C1-C3): in flat space <:phi^2:>_beta = 1/(12 beta^2) is constant, so the improvement term vanishes and the thermal rho is xi-independent; 1804.05382 eq (15) also gives pi^2/30 without xi. Recorded as a DISCREPANCY in that preprint (v1), not as an error to be quoted, per the fluctuation.py precedent; it does not touch the tree, which is at xi = 0 where the two agree.",
+   "read_status": "READ (eq 17, 31-33)"
+  },
+  {
+   "ref": "astro-ph/9605054 (Fixsen, Cheng, Gales, Mather, Shafer, Wright 1996, COBE FIRAS)",
+   "effect": "confirms",
+   "what": "the photon thermal spectrum is Planckian to 50 ppm of peak; the Bose-statistics input to the T^4 coefficient is measured for the one massless boson available",
+   "read_status": "READ (pp.1-4, 14-16, 22-26)"
+  },
+  {
+   "ref": "gr-qc/9304008 (Kuo & Ford 1993)",
+   "effect": "extends",
+   "what": "read in full: supplies the spatial image-sum method (eqs 3.28-3.33) and Delta' formula (3.43) the tree runs in imaginary time; KF contain no thermal case, so the thermal control and its Delta' = 2/3 are the tree's own (correctly presented as such at fluctuation.py:83-87)",
+   "read_status": "READ (pp.1-19)"
+  }
+ ],
+ "lacked_data": "What the originators had: Stefan (1879) an empirical T^4 fit; Boltzmann (1884) a thermodynamic derivation of T^4 from radiation pressure p = u/3; neither could fix the coefficient, which needs Bose/quantum statistics (Planck 1900) -- the classics are NAMED-NOT-READ, so their data are not quoted. What came later: quantum statistics (the coefficient pi^2/30 per dof is then a theorem: Gamma(4) zeta(4)/(2 pi^2)), a 50-ppm measurement of the Planck spectrum (FIRAS, read), and the 2019 SI making sigma exact (computed). None moves the conclusion as the tree uses it: in hbar = c = k_B = 1 for one free massless scalar in flat infinite space, the value is pure mathematics and is re-derived here three independent ways. The law does move when its hypotheses are broken -- mass (m/T = 1 lowers rho by 11.0%, computed), interactions, finite volume/boundaries (thermal-Casimir terms, 2512.15610), curvature/redshift (2512.15610 eq 31) -- but none of these is in the tree's use. Evidence on M's hypothesis for THIS result is against it: no missing datum was found that changes the conclusion; later data strengthened it. The one caution is scope, not data: the tree's word 'blackbody radiation' (fluctuation.py:89) and 'photons' (noise.py:136) for the scalar model; the EM field's fluctuation numbers differ (Delta' = 1/3 vs 2/3, computed here).",
+ "grade": "STANDS",
+ "grade_evidence": "Statement as used (rho = pi^2/(30 beta^4), p = rho/3, g(0) = rho for one massless minimally coupled scalar, beta free, hbar = c = k_B = 1) matches the restated source (1804.05382 eq 15; 2512.15610 eq 33 at xi = 0). Every source hypothesis is instantiated by the owners' code and stated at file level (noise.py:111-112, fluctuation.py:16-17, 265-276, 460); none is dropped in substance. Re-derivation agrees by three independent routes (rederive/stefan-boltzmann.py, 26/26 PASS), including the unstated step g(0) = rho (massless equipartition) and xi-independence in flat space. The only input, pi^2/30, is a mathematical constant; no datum has moved. Recorded, not graded against the tree: (i) a (1+xi) discrepancy in 2512.15610 eq (33), irrelevant at the tree's xi = 0; (ii) a wording scope drift at fluctuation.py:89 / noise.py:136 -- the SB value transfers per dof to photons but the Delta', Delta consequences are scalar-specific (EM: 1/3, 1/4, computed here).",
+ "what_would_change_the_grade": "NARROWED if an owner applied rho = pi^2/(30 beta^4) or g(0) = rho to a massive, interacting, bounded or curved-space field (e.g. treating the scalar numbers as the physical EM blackbody's -- then the rests_on_it item 'thermal Delta' = 2/3, Delta = 2/5' would be narrowed to the scalar model, per check G3). WRONG only if the image-sum or mode-sum evaluation could be shown to give a different coefficient for the stated model -- three independent routes here agree. Reading Stefan 1879 / Boltzmann 1884 / Planck 1900 at source would upgrade read_status, not the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/stefan-boltzmann.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 fluctuation.py --selftest | grep -iE 'stefan|thermal p'",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/stefan-boltzmann.json"
+}

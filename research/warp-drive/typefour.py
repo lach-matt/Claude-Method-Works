@@ -19,6 +19,15 @@ which means there is no observer, anywhere, for whom it has a rest frame.
 
     NOTHING KNOWN IS TYPE IV.
 
+    CORRECTED (DOCKET 67).  As written, the two sentences above drop the
+    qualifier the sources carry: the "no known Type IV" statement is scoped to
+    CLASSICAL matter.  A quantum test field's renormalised stress tensor can be
+    Type IV -- the Unruh-state vacuum (2102.13551 abstract; 1607.05280 p.17) --
+    and obstruct.py's TYPEIV-SOURCES row already records the sub-objection
+    'nothing known is Type IV' as false.  Read: no known CLASSICAL matter is
+    Type IV.  ("Fields" in the Type I list means non-null classical fields;
+    radiation is Type II, as the next sentence says.)
+
 -- THE MEASUREMENT ------------------------------------------------------------
 The Alcubierre stress-energy is computed here from scratch: the metric on a grid,
 finite-differenced to Christoffels, differenced again to Riemann, contracted to
@@ -55,12 +64,36 @@ factor of four, which noise is not.  Seven of seven.  This reproduces the
 classification Le's Table 1 states for the Alcubierre class, by an independent
 route.
 
+    CORRECTED (DOCKET 67), two discrepancies, neither a refutation.  (1) THE
+    METRIC IS NOT ALCUBIERRE'S.  metric() holds the bubble centre at x = 0 while
+    the shift amplitude is v_s = 0.5 (a FROZEN bubble); Alcubierre's eq. (3)
+    has v_s = dx_s/dt, so his eq. (8) is a different spacetime.  The Ricci
+    scalar differs at 6 of the 7 points (at (0.90,0.30): +8.290 Alcubierre,
+    -1.396 here), and the table above is the frozen metric's: on the moving
+    bubble (0.90,0.30) gives ||T|| 0.27804 and |Im|/||T|| 0.2815, not 0.15909
+    and 0.6425.  A complex eigenvalue pair survives at all 7 points on the
+    moving bubble (ratios 0.049-0.572), so the Type IV labels carry over.  The
+    BBV Eq (3.48) validation could not catch this: the Eulerian density is the
+    same for both metrics to 3.5e-32, and the missing d_t terms enter only the
+    spatial stresses.  (DOCKET 67 computed all of this.)  (2) "Le's Table 1":
+    in the versions DOCKET 67 read, the Alcubierre classification is
+    2602.18023v6 Table 2; 2606.22531v3's Table 1 has no Hawking-Ellis type
+    column.  Versions v1-v5 of 2602.18023 were not read.
+
 -- WHY nullbound.py DOES NOT REACH IT -----------------------------------------
 Every energy condition -- NEC, WEC, DEC, ANEC, the quantum inequalities, the
 SNEC, the QNEC -- is an inequality on a CONTRACTION of T_mu_nu with some vector.
 Type IV is a statement about the tensor's eigenvectors.  You can make the
 contractions as small as you like and the eigenvalues stay complex.  The two
 questions are orthogonal, and this project spent its whole history on the first.
+
+    CORRECTED (DOCKET 67).  "Orthogonal" is too strong as written.  Type IV at
+    an event implies the NEC fails there, and hence every standard POINTWISE
+    condition (1702.05915; 2205.12993; DOCKET 67's z3 check returns unsat for
+    Type IV with the NEC holding).  What Type IV is independent of is the
+    MAGNITUDE and AVERAGED conditions this project priced -- nullbound.py's
+    null-smeared bound, the quantum inequalities, ANEC -- which is the sense in
+    which "untouched" above is true.
 
     THE OLD OBJECTION WAS "YOU NEED MORE ENERGY THAN EXISTS".  THAT IS GONE.
     THE OBJECTION THAT REPLACES IT IS "THE THING YOU NEED HAS NO REST FRAME",
@@ -70,13 +103,25 @@ questions are orthogonal, and this project spent its whole history on the first.
 Two architectures, and each has exactly one of the two properties:
 
         ALCUBIERRE CLASS   budget now tractable (18.8 Earth masses)
-                           matter is TYPE IV -- no rest frame, unknown to physics
+                           matter is TYPE IV -- no rest frame, and no known
+                           classical matter is Type IV
         WARPSHELL          matter is TYPE I, dominant-energy, observer-robust
-                           l >= 2 unstable while self-gravitating (wall.py)
+                           l >= 2 unstable while self-gravitating (wall.py),
+                           for a thin barotropic perfect-fluid shell
 
     NEITHER HAS BOTH, AND THE TWO OBSTRUCTIONS ARE UNRELATED.  That is a cleaner
     statement of where warp drive stands than "it needs 10^62 kg", and it is the
     first time this project has been able to say what the actual choice is.
+
+    CORRECTED (DOCKET 67).  The warpshell line drops two hypotheses.  The
+    l >= 2 instability (PSP 2604.05980, via wall.py) is proved for an
+    infinitesimally thin BAROTROPIC PERFECT-FLUID shell; wall.py's own wall
+    (counter-rotating Einstein-Vlasov, collisionless) and Le's realised wall
+    (Bowers-Liang anisotropic) are outside that hypothesis, so for them the
+    instability is unproven, not shown absent.  And "self-gravitating" is the
+    tree's threshold (wall.py: a one per cent binding fraction), not Le's: Le's
+    Definition 1 and class W carry no self-gravitation condition.  "Neither has
+    both" is stated for the barotropic-fluid warpshell.
 
 The route out of Type IV is known and is not free: stop prescribing the metric.
 Le's worldtube-first construction installs interpretable matter region by region
@@ -135,7 +180,16 @@ def _shift(p, i, d):
     return tuple(q)
 
 def d_metric(p, mu, vs=VS, h=H):
-    """The configuration is static in these coordinates, so d_t g = 0."""
+    """The configuration is static in these coordinates, so d_t g = 0.
+
+    CORRECTED (DOCKET 67): that is a property of THIS metric, a frozen bubble
+    (centre held at x = 0 while v_s = 0.5), not of Alcubierre's eq. (8), whose
+    bubble moves (v_s = dx_s/dt).  It is t-independent here, so "static" means
+    stationary; certify.py's "the Alcubierre drive is not static" is about
+    eq. (8).  Both statements are true, of different metrics.  The Type IV
+    labels survive on the moving bubble; the printed magnitudes do not (module
+    docstring, THE RESULT).
+    """
     if mu == 0:
         return [[0.0] * 4 for _ in range(4)]
     a, b = metric(_shift(p, mu, h), vs), metric(_shift(p, mu, -h), vs)
@@ -280,13 +334,15 @@ def selftest():
     chk("  while the eigenvalues stay complex regardless",
         is_type_iv((0.9, 0.3, 0.0)), True)
     print("""      every energy condition is an inequality on T_mu_nu contracted with
-      some vector; Type IV is a statement about its eigenvectors.  Orthogonal.""")
+      some vector; Type IV is a statement about its eigenvectors.  Orthogonal
+      to magnitude and averaged conditions; at the event itself Type IV implies
+      the NEC fails (DOCKET 67).""")
 
     print("\nThe trade this exposes")
     import wall
     chk("Alcubierre: budget tractable, matter Type IV",
         is_type_iv((1.0, 0.2, 0.0)), True)
-    chk("warpshell: matter Type I, but l>=2 unstable while self-gravitating",
+    chk("warpshell (thin barotropic fluid shell): matter Type I, l>=2 unstable",
         wall.efoldings(1.0e6, 10.0, 0.2, 9.80665) > 100.0, True)
     print("      neither architecture has both, and the obstructions are unrelated.")
 
@@ -306,11 +362,13 @@ def report():
         print("    %-12s ||T|| = %.3e" % (str(p), frobenius(stress_mixed((p[0], p[1], 0.0))[0])))
     print("\nVERDICT")
     print("  The objection that replaces 'more energy than exists' is 'no rest")
-    print("  frame'.  It is untouched by every energy condition, because those")
-    print("  bound contractions and this is about eigenvectors.  And it splits")
+    print("  frame'.  It is untouched by the magnitude and averaged energy")
+    print("  conditions, because those bound contractions and this is about")
+    print("  eigenvectors (pointwise, Type IV implies the NEC fails).  It splits")
     print("  the field cleanly: the Alcubierre class has a tractable budget and")
-    print("  impossible matter; the warpshell has possible matter and an l >= 2")
-    print("  instability.  Neither has both.")
+    print("  matter unknown to classical physics; the warpshell has possible")
+    print("  matter and an l >= 2 instability (thin barotropic fluid shell).")
+    print("  Neither has both.")
     return 0
 
 if __name__ == "__main__":

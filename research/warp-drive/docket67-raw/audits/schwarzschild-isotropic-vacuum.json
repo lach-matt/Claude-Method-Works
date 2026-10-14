@@ -1,0 +1,116 @@
+{
+ "key": "schwarzschild-isotropic-vacuum",
+ "name": "Schwarzschild solution in isotropic coordinates is vacuum (T = 0); used as the pipeline's noise-floor fixture",
+ "kind": "theorem",
+ "source": {
+  "located": "K. Schwarzschild, Sitzungsber. Preuss. Akad. Wiss. Berlin 1916, 189-196, English translation arXiv:physics/9905030 (Antoci & Loinger); isotropic form (Weyl 1917 / Eddington 1923, NAMED-NOT-READ) read as restated in Poplawski, arXiv:0902.1994 eq.(1) (Phys. Lett. B 687 (2010) 110) and Simmonds & Visser, arXiv:2606.01061 eq.(2.26)",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "Schwarzschild 1916 READ in translation this pass (physics/9905030 pp.1-7 via answer_pdf_queries: eqs (4),(5), conditions 1-4, sec.3 continuity condition, eq.(14), sec.5 uniqueness); isotropic chart READ via restatement (0902.1994 eq.(1), credited to Weyl 1917 / Eddington 1923; 2606.01061 eq.(2.26); 0904.4418 sec.I psi = 1 + M/2r). Weyl 1917 and Eddington 1923 themselves NAMED-NOT-READ."
+ },
+ "published_statement": "Schwarzschild 1916 eq.(14): ds^2 = (1-alpha/R)dt^2 - dR^2/(1-alpha/R) - R^2(dtheta^2+sin^2 theta dphi^2), R = (r^3+alpha^3)^(1/3), 'the exact solution of Einstein's problem', alpha depending on the mass; unique under his conditions (Sec.5). Isotropic restatement (Poplawski 0902.1994 eq.1, credited to Weyl 1917): 'The interval of the static, spherically symmetric, gravitational field in vacuum, expressed in isotropic coordinates ... ds^2 = (1-rg/4r)^2/(1+rg/4r)^2 c^2dt^2 - (1+rg/4r)^4(dr^2+r^2 dOmega^2)', rg = 2GM/c^2, with r_S = r(1+rg/4r)^2 bringing it to the standard form; identical to certify.py's A = ((1-u)/(1+u))^2, B = (1+u)^4, u = M/2r with rg/4 = M/2.",
+ "published_hypotheses": [
+  "Schwarzschild 1916: field equations sum_a dGamma^a_mn/dx^a + sum Gamma Gamma = 0 (vacuum, R_mn = 0) everywhere except the origin (eq.4)",
+  "Schwarzschild 1916: determinant condition |g| = -1 (eq.5) -- Einstein's 1915 unimodular coordinate condition, a gauge choice",
+  "Schwarzschild 1916 condition 1: all components independent of time (static)",
+  "Schwarzschild 1916 condition 2: g_rho4 = 0 exactly (no time-space cross terms)",
+  "Schwarzschild 1916 condition 3: spherical symmetry (invariance under rotations of x1,x2,x3)",
+  "Schwarzschild 1916 condition 4: asymptotic flatness, g -> diag(-1,-1,-1,+1) at infinity",
+  "Schwarzschild 1916 Sec.3 item 4: continuity except at the origin (fixes rho = alpha^3)",
+  "Isotropic chart (Poplawski 0902.1994): valid for r != rg/4 = M/2, where det g = 0 (common horizon); r < M/2 is the image r -> rg^2/16r of a second exterior sheet (Einstein-Rosen bridge); if the full r in (0,inf) sheet is treated as one solution, Guendelman et al. (restated in 0902.1994 Sec.IV) find a delta-function source at r = M/2",
+  "Isotropic Misner-Sharp check (2606.01061 sec.2.3): the isotropic form carries m(r) = m on the exterior sheet"
+ ],
+ "hypothesis_drift": [
+  "DROPPED, immaterial: Schwarzschild's determinant condition |g| = -1 (eq.5) is absent from the tree's use (certify.py:221-228 codes a Cartesian isotropic metric with det g = -A B^3 != -1). It is a coordinate condition; E1 of the re-derivation shows G_mn = 0 identically in the tree's own coordinates, so dropping it changes nothing.",
+  "DROPPED from the statement, respected in the use: the isotropic chart's exclusion of r = M/2 (horizon, det g = 0) and the second-sheet structure r < M/2 are not named in the result as stated, but the tree names 'r outside the horizon (r = 5, 50)' and evaluates only r = 5, 50 on the x-axis (certify.py:432-434), which map to areal R = 6.05 and 51.005 > 2M. No live drift.",
+  "ADDED in the use (not in the source), unnamed: a FLOOR-TRANSFER hypothesis -- that the finite-difference residual measured on Schwarzschild at two on-axis radii with h = r*1e-4 is the noise floor for every later evaluation ('THAT IS THE NOISE FLOOR, and every number below is quoted against it', certify.py:66; 'Everything below is quoted to it', certify.py:436). Measured here: the residual is a function of (r, h, direction, metric scale), not one number -- off-axis diagonal 2.73e-9 at r = 5 (6.7x the quoted 4.08e-10) and 1.39e-11 at r = 50 (3.5x); on-axis 2.02e-8 at r = 1 and 1.12e-7 at r = 0.6 (the latter above the 1e-8 selftest bound, outside the tree's sampled radii); at r = 5 non-monotone in h: 2.34e-9 (h=r*1e-2), 2.42e-11 (r*1e-3), 4.08e-10 (r*1e-4), 8.71e-8 (r*1e-5), i.e. round-off dominated at the tree's step. The ansatz is evaluated with h = max(r*1e-4, 1e-7) (certify.py:445) on a metric with m = 0.02, so the fixture's floor transfers to it only by this unnamed hypothesis.",
+  "DISCREPANCY in the tree's own summary (certify.py:513-516), not in the external result: the pass paragraph quotes the floor as '4e-12 on Schwarzschild vacuum' (the r = 50 figure, 100x below the r = 5 figure 4.08e-10 printed at certify.py:63) and says the ansatz violates the conditions 'at EVERY radius from 0.005 to 100, six orders above the noise floor'. At r = 1 measured true (|T_00| ~ 4.7e-4 vs 4.08e-10, ~1e6x). At r = 10 the tree's own table row (certify.py:82) gives orthonormal T_00 = -4.074e-8 and NEC min = -8.004e-8, against a Schwarzschild on-axis residual of 4.195e-10 at r = 10 with the same h = 1e-3: margins 97x (T_00) and 191x (NEC), i.e. two orders, not six (re-derivation E6, recomputed this pass). Recorded, not repaired; it does not move the sign conclusion (the r = 10 coordinate T_00 moves only 2.7e-3 relative between h = 1e-2 and 1e-3)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "M (mass parameter)",
+   "value_then": "M = 1 (geometric units, a choice of scale; Schwarzschild's alpha = 2M)",
+   "value_now": "M = 1 (no measured datum; any M > 0 gives the same identity, E1 is symbolic in M)",
+   "source_now": "re-derivation E1 (symbolic M)",
+   "moves_conclusion": "no -- G_mn = 0 holds identically for all M; no empirical input enters the theorem"
+  },
+  {
+   "quantity": "max|T| at r = 5, on-axis, h = r*1e-4",
+   "value_then": "4.08e-10 (certify.py:63)",
+   "value_now": "4.083e-10 reproduced",
+   "source_now": "re-derivation E4a, importing certify.stress_energy read-only",
+   "moves_conclusion": "no -- reproduced; but it is a residual of the numerics, not a property of the solution (exact value 0)"
+  },
+  {
+   "quantity": "max|T| at r = 50, on-axis, h = r*1e-4",
+   "value_then": "3.99e-12 (certify.py:63)",
+   "value_now": "3.989e-12 reproduced",
+   "source_now": "re-derivation E4a",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "selftest threshold",
+   "value_then": "1e-8 (certify.py:432-435)",
+   "value_now": "met at r = 5, 50 on- and off-axis (max 2.73e-9); exceeded at r = 1 (2.02e-8) and r = 0.6 (1.12e-7), radii the selftest does not sample",
+   "source_now": "re-derivation E4 output",
+   "moves_conclusion": "no for the result as used (r = 5, 50); yes for any extension of the fixture toward the horizon"
+  },
+  {
+   "quantity": "finite-difference step h",
+   "value_then": "h = r*1e-4",
+   "value_now": "residual at r = 5 is 2.34e-9, 2.42e-11, 4.08e-10, 8.71e-8 for h = r*(1e-2, 1e-3, 1e-4, 1e-5): the tree's step sits on the round-off side of the optimum near r*1e-3",
+   "source_now": "re-derivation E4 h-scan",
+   "moves_conclusion": "no for T = 0 (exact); it bears on how the floor is quoted, not on the theorem"
+  },
+  {
+   "quantity": "ansatz margin over floor at r = 10 (tree's weakest sampled radius)",
+   "value_then": "'six orders above the noise floor' at every radius 0.005-100 (certify.py:514-516)",
+   "value_now": "97x on T_00, 191x on NEC min at r = 10 (h = 1e-3, Schwarzschild residual 4.195e-10 at the same r and h)",
+   "source_now": "re-derivation E6 (certify imported read-only)",
+   "moves_conclusion": "no -- the sign of T_00 and of the NEC contraction is resolved at ~100x; only the tree's quoted margin is overstated"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/schwarzschild-isotropic-vacuum.py",
+  "outcome": "ALL CHECKS PASS (exit 0, ~6 s; re-run this pass). E1: Einstein tensor of the metric exactly as coded at certify.py:221-228 (Cartesian x,y,z, symbolic M) vanishes identically in all 16 components; exact zero at a rational off-axis point. E1c vacuity guard: the same pipeline returns G^r_r = 32 M r^2 (M-6r)/(M+2r)^6 != 0 when g_tt is perturbed. E2: R = r(1+M/2r)^2 maps it exactly onto Schwarzschild 1916 eq.(14) (areal form) with alpha = 2M. E3: dR/dr = 0 only at r = M/2 (R = 2M); R(M^2/4r) = R(r) (two-sheeted chart, Poplawski eq.(2)); r = 5, 50 on the exterior sheet (R = 6.05, 51.005 > 2); Kretschmann equals Poplawski eq.(3). E4: certify.py's 4.08e-10 (r=5) and 3.99e-12 (r=50) reproduced; off-axis 2.73e-9 / 1.39e-11; near-horizon 4.55e-9 (r=2), 2.02e-8 (r=1), 1.12e-7 (r=0.6); r=5 h-scan 2.34e-9, 2.42e-11, 4.08e-10, 8.71e-8 for h = r*(1e-2..1e-5). E5 (new): Misner-Sharp mass from 2606.01061 eq.(2.22) with g_thth = r^2 g_rr is exactly M; the text layer of their eqs.(2.24)/(2.25) reads (1 + g'/2g) without the factor r and is dimensionally inconsistent -- a DISCREPANCY in the served text (PDF vs extraction undetermined), not a refutation; it does not bear on T = 0. E6 (new): r = 10 margin 97x / 191x, see drift.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Poplawski, arXiv:0902.1994 (Phys. Lett. B 687 (2010) 110)",
+   "effect": "narrows",
+   "what": "The isotropic chart on the full range 0 < r < inf is an Einstein-Rosen bridge; citing Guendelman-Kaganovich-Nissimov-Pacheva (PLB 681 (2009) 457; arXiv:0904.0401), it states that metric taken as one solution carries a delta-function source at r = M/2 (eq.25). Narrows the vacuum claim to r != M/2 -- which the tree's use (r = 5, 50) already respects.",
+   "read_status": "READ (pp.1-7 via answer_pdf_queries); Guendelman et al. NAMED-NOT-READ"
+  },
+  {
+   "ref": "Simmonds & Visser, arXiv:2606.01061 (2026)",
+   "effect": "confirms",
+   "what": "Writes the isotropic Schwarzschild vacuum metric eq.(2.26) in the tree's exact form and checks that the isotropic Misner-Sharp mass returns m(r) = m.",
+   "read_status": "READ (pp.1-24 via answer_pdf_queries, this pass); eq.(2.24)/(2.25) text-layer discrepancy recorded (E5)"
+  },
+  {
+   "ref": "arXiv:2411.09193, 'Birkhoff's Theorem and Uniqueness: A Peek Beyond General Relativity'",
+   "effect": "extends",
+   "what": "Uniqueness of the spherically symmetric vacuum solution in GR and its failure beyond GR; bears on uniqueness, not on T = 0 for this metric.",
+   "read_status": "NAMED-NOT-READ (discover_papers abstract only)"
+  },
+  {
+   "ref": "Bruegmann, arXiv:0904.4418 (2009), 'Schwarzschild black hole as moving puncture in isotropic coordinates'",
+   "effect": "confirms",
+   "what": "Uses isotropic Schwarzschild with conformal factor psi = 1 + M/2r (sec.I) as standard puncture/wormhole initial data for numerical relativity; notes 3D codes evolve away from isotropic coordinates and that the puncture r = 0 is a coordinate singularity (areal R -> inf). Confirms the metric's standard role as a code fixture; the tree avoids both r = 0 and r = M/2.",
+   "read_status": "READ (pp.1-10 via answer_pdf_queries, this pass)"
+  },
+  {
+   "ref": "arXiv:1308.0394, 'The Schwarzschild metric: It's the coordinates, stupid!'",
+   "effect": "extends",
+   "what": "Coordinate choices for Schwarzschild; surfaced by discover_papers this pass, bears on chart choice only.",
+   "read_status": "NAMED-NOT-READ (abstract only)"
+  }
+ ],
+ "lacked_data": "The result is an exact identity of the vacuum Einstein equations (G_mn = 0 for the given metric, r != M/2); its conclusion depends on no measured quantity -- M is a scale, set to 1 in geometric units, and E1 holds symbolically for every M. Schwarzschild (1916) and Weyl (1917) lacked nothing the conclusion needs: the identity is re-derived here from scratch in the tree's own coordinates. What was not known in 1916-1917 was the global structure (horizon at R = 2M, Kruskal extension 1960, the two-sheeted reading of the isotropic chart -- Einstein-Rosen 1935, Fuller-Wheeler 1962, per 0902.1994 refs); that later knowledge narrows the valid region of the isotropic chart to r != M/2, which does not touch r = 5, 50. Evidence the other way would require GR itself to fail -- and even then the fixture would stand for its actual job, which is checking that certify.py's finite-difference code computes G_mn of a metric correctly, a purely mathematical test independent of whether nature obeys GR. M's hypothesis therefore finds no purchase on this result; where the audit does find something, it is in the tree's own quoting of the numerical floor (single figure; '4e-12'; 'six orders at every radius'), recorded as discrepancies above, not as errors of the external result.",
+ "grade": "STANDS",
+ "grade_evidence": "Statement READ in Schwarzschild 1916 (physics/9905030, eq.14 and conditions 1-4) and the isotropic form READ via restatement (0902.1994 eq.1; 2606.01061 eq.2.26); sympy re-derivation shows the Einstein tensor of the exact metric coded at certify.py:221-228 vanishes identically (symbolic M, all 16 components, vacuity guard passing) and maps exactly onto Schwarzschild's eq.(14) with alpha = 2M; the tree's hypotheses (vacuum, M = 1, r = 5, 50 outside the horizon) are inside the source's (r != M/2); no datum enters. The tree's quoted residuals 4.08e-10 / 3.99e-12 reproduce exactly. Caveats that do NOT move the grade of the external result: (i) the unnamed floor-transfer hypothesis (floor depends on r, h, direction: off-axis 6.7x higher at r = 5; 1.1e-7 at r = 0.6); (ii) certify.py:513-515 quotes the floor as 4e-12 and a six-order margin at every radius, where the tree's own r = 10 row sits 97x (T_00) / 191x (NEC) above the r = 10 Schwarzschild residual -- a discrepancy in the tree's summary, not a refutation, and the sign conclusion feeding SEAT_LEAD_SPLIT_SURVIVES = False is unaffected at the sampled radii.",
+ "what_would_change_the_grade": "NARROWED if the tree used the fixture at or inside r = M/2 (the chart degenerates there and the full two-sheeted metric carries a distributional throat source per Guendelman et al.), or if it relied on the fixture's floor being direction- and step-independent for a conclusion whose margin is under ~10x (not found at the sampled radii; smallest margin found 97x (T_00) at r = 10). WRONG only with a nonzero exact Einstein tensor for the coded metric, which E1 excludes. Reading Weyl 1917 / Eddington 1923 directly would upgrade read_status from READ-VIA-RESTATEMENT to READ without changing the grade.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/schwarzschild-isotropic-vacuum.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/schwarzschild-isotropic-vacuum.json"
+}

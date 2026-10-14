@@ -1,0 +1,117 @@
+{
+ "key": "pdg-2026-m_h",
+ "name": "PDG 2026 Higgs mass m_h = 125.13 GeV and total width Gamma_h = 3 MeV (captures/PDG-2026.tsv H0 row, pdgid 25)",
+ "source": {
+  "located": "RPP 2026 Higgs listing, F. Takahashi et al. (PDG), Int. J. Mod. Phys. A 41, 2630011 (2026): https://pdg.lbl.gov/2026/listings/rpp2026-list-higgs-boson.pdf (created 6/1/2026), pp.1-3 (H MASS) and p.8 (H DECAY WIDTH); plus the machine-readable scikit-hep particle 1.0.1 data file mass_width_2026.txt (md5 e96a23be061430adc72d5b2ea5a93764, line 48) that the capture was built from",
+  "read_status": "READ",
+  "via": "alphaXiv answer_pdf_queries on the PDG listing PDF (not an arXiv paper -- the RPP is not on arXiv; the PDF was read at pdg.lbl.gov); the input measurements READ at arXiv: ATLAS 2308.04775 (AAD 23BP) and CMS 2409.13663 (HAYRAPETYAN 25L). The capture's source file was re-hashed locally from the installed particle 1.0.1 package."
+ },
+ "published_statement": "RPP 2026, H MASS: '125.13 +- 0.11 OUR AVERAGE. Error includes scale factor of 1.5.' Inputs averaged: 125.04 +- 0.12 (HAYRAPETYAN 25L, CMS 13 TeV ZZ*->4l), 125.10 +- 0.11 (AAD 23BP, ATLAS 13 TeV gg+4l), 125.78 +- 0.26 (SIRUNYAN 20L, CMS 13 TeV gg), 125.09 +- 0.21 +- 0.11 (AAD 15B, LHC Run 1); ideogram chi2 = 6.9, CL = 0.075 (SIRUNYAN 20L contributes 6.2). H DECAY WIDTH: '3.0 +1.5 -0.7 MeV OUR AVERAGE' from AAD 25AQ (ATLAS ZZ, 4.3 +2.7 -1.9), AAD 25AV (ATLAS WW, 0.9 +3.4 -0.9), HAYRAPETYAN 25L (CMS ZZ, 3.0 +2.0 -1.5).",
+ "published_hypotheses": [
+  "m_H: a weighted average of four measurements with total errors, scaled by S = sqrt(chi2/(N-1)) = 1.5 because the inputs are mutually inconsistent at CL 0.075 (PDG listing p.3 ideogram).",
+  "m_H inputs: each experiment's mass is a peak-position fit in gg / 4l with signal normalisations floated; ATLAS 2308.04775 treats the H->gg signal-continuum interference as a systematic ('no shift of the mass value is applied'; including SM interference would raise the combination by 15 MeV); CMS 2409.13663 assumes 'the natural width of the Higgs boson is much smaller than the instrumental m4l resolution'.",
+  "Gamma_H (PDG p.8, verbatim): 'the total Higgs width cannot be measured indirectly without additional assumptions ... Constraints on the total width from the combination of on-peak and off-peak contributions in Higgs decays to ZZ* rely on the assumption of equal on- and off-shell effective couplings.'",
+  "Gamma_H (CMS 2409.13663 abstract, verbatim): determined 'assuming that no new virtual particles affect the production, a premise that is tested by adding new heavy particles in the gluon fusion loop model' (with an unconstrained heavy-quark kappa_Q the CMS value becomes 2.7 +2.7 -1.8 MeV, sec. 11.1).",
+  "Gamma_H: SM prediction 4.1 MeV (CMS 2409.13663 sec.1; lifetime 1.6e-22 s); direct on-shell limit only < 330 MeV at 95% CL (resolution-limited)."
+ ],
+ "hypothesis_drift": [
+  "DROPPED -- Gamma_h's model dependence. The tree labels Gamma_h plainly READ (excite.py:374 GAMMA_H_READ_GEV '# READ'; higgs.py:251 GAMMA_HIGGS_READ_GEV '# READ'; fixture 0.003 GeV at higgs.py:653-658 and excite.py:1352) and uses it for 'gone in hbar/Gamma_h ~ 2e-22 s' (excite.py:60-61), the driven ceiling (excite.py:1660-1663) and the quantum lifetime (excite.py:1664-1665). The source states the value exists only under 'equal on- and off-shell effective couplings' (PDG p.8) / 'no new virtual particles affect the production' (CMS 2409.13663). No site in the tree carries that hypothesis. Refusal 6 (excite.py:262-264) limits Gamma_h to one significant figure, which addresses precision but not the model assumption.",
+  "DROPPED -- the uncertainties. The capture schema (captures/PDG-2026.tsv:9 header 'pdgid name family ... mass_MeV width_MeV status rank') has no error column, although the source row carries +-0.11 GeV on m_h and +1.5/-0.7 MeV on Gamma_h (mass_width_2026.txt:48; particle2026.csv:36). The tree then prints lambda_h = 1.576976e-18 m to seven significant figures (excite.py:1384-1385; higgs.py:670-671) and the spinodal e-fold 7.439082e-27 s (excite.py:1654-1655) where the datum supports a relative +-8.8e-4. These are fixtures of arithmetic at the READ input, not claims of precision, and the tree says every figure 'inherits its input's status' (excite.py:289-291) -- recorded as a presentation discrepancy, not an error.",
+  "DROPPED -- the average's internal tension. m_h = 125.13 carries S = 1.5 and chi2 CL = 0.075 (one input, CMS 2020 gg 125.78, supplies 6.2 of chi2 6.9). The tree carries none of this (higgs.py:250-253; excite.py:373). Removing that input gives 125.074 +- 0.077 GeV (a sensitivity computed here, not a PDG number): a further 0.5 sigma, moving every m_h figure by ~5e-4 relative.",
+  "STATUS UNDER-CLAIMED (against the tree's own interest, recorded both ways) -- the withdrawn pin 125.20 is labelled 'NAMED-NOT-READ; WITHDRAWN' (higgs.py:175, 210; excite.py:382-389). It is READable: it is the PDG 2024 and PDG 2025 average (mass_width_2024.txt:48 and mass_width_2025.txt:48 in the same installed particle 1.0.1 package both read 1.2520E+02 +1.1E-01 -1.1E-01, width 3.7E-03 +1.9E-03 -1.4E-03). The pin was a superseded edition, not a mistaken value.",
+  "NO DRIFT -- m_h's value and its READ status: the capture's 125130 MeV equals the RPP 2026 listing's 125.13 GeV, read at source here; the capture's source md5 is reproduced from the installed file. The tree's claim 'm_h is READ (125.13, captures/PDG-2026.tsv)' (ledger.py:530) is corroborated at the primary source."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "m_H (PDG average)",
+   "value_then": "125.20 +- 0.11 GeV (PDG 2024 and 2025 editions; the tree's withdrawn pin)",
+   "value_now": "125.13 +- 0.11 GeV (S = 1.5), RPP 2026",
+   "source_now": "pdg.lbl.gov rpp2026-list-higgs-boson.pdf p.1; re-derived here from the four listed inputs: mean 125.1309, chi2 6.92, S 1.518, scaled error 0.1117",
+   "moves_conclusion": "No verdict. The move is -5.59e-4 relative (0.64 sigma); lambda_h and the e-fold move as 1/m_h (+5.6e-4), lambda and V_min/rho_EW/D20 as m_h^2 (-1.1e-3). The tree already records this switch and that 'NO VERDICT MOVED' (higgs.py:185-190); the power-law rescaling is reproduced in the re-derivation."
+  },
+  {
+   "quantity": "m_H single most precise inputs",
+   "value_then": "ATLAS Run1+2 125.11 +- 0.11; CMS 2020 comb. 125.38 +- 0.14 (the 2024 inputs, from 2409.13663 sec.1 and 2308.04775)",
+   "value_now": "CMS 4l Run 2 125.04 +- 0.12 (Run1+2 125.08 +- 0.12); ATLAS Run 2 125.10 +- 0.11",
+   "source_now": "arXiv 2409.13663 (READ), 2308.04775 (READ)",
+   "moves_conclusion": "No. It is what moved the PDG average from 125.20 to 125.13."
+  },
+  {
+   "quantity": "Gamma_H (PDG average, off-shell/on-shell, model-dependent)",
+   "value_then": "3.7 +1.9 -1.4 MeV (PDG 2024/2025, mass_width_2024/2025.txt:48)",
+   "value_now": "3.0 +1.5 -0.7 MeV (RPP 2026); SM 4.1 MeV",
+   "source_now": "pdg.lbl.gov rpp2026 listing p.8; mass_width_2026.txt:48",
+   "moves_conclusion": "No verdict moves; the one-significant-figure printed figures do. Driven ceiling sqrt(2/(m_h Gamma_h)): 4.55e-16 m -> '5e-16' at 3.0 MeV, but 4.10e-16 -> '4e-16' at the 2024 value 3.7 MeV, 3.90e-16 -> '4e-16' at SM 4.1, 3.72e-16 -> '4e-16' at the 2026 +1 sigma 4.5 MeV. Lifetime hbar/Gamma: '2e-22' at 3.0, '3e-22' at 2.3 (-1 sigma), '1e-22' at 4.5 (+1 sigma). The printed digit is inside the datum's own band and changed with the edition."
+  },
+  {
+   "quantity": "Gamma_H if the equal on/off-shell coupling hypothesis fails",
+   "value_then": "not considered by the tree",
+   "value_now": "upper bound weakened by at most ~x2 in realistic BSM (Stylianou-Weiglein 2026), <= 40% in the light-scalar-resonance case",
+   "source_now": "arXiv 2603.05020 (READ)",
+   "moves_conclusion": "Not the tree's refusals: lifetime stays within 8e-23 .. 3e-22 s (order 1e-22) and the driven ceiling within 2.8e-16 .. 5.2e-16 m over every band tested; refusal 6 and 'the driven ceiling is not a standing displacement' do not use the value. The single printed digit is not robust."
+  },
+  {
+   "quantity": "hbar c, hbar (for derived figures)",
+   "value_then": "197.3269804 MeV fm; 6.582119569e-22 MeV s (CODATA 2018 exact-SI)",
+   "value_now": "same (exact in SI)",
+   "source_now": "CODATA defined constants",
+   "moves_conclusion": "No."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-2026-m_h.py",
+  "outcome": "ALL CHECKS PASS (exit 0). (A) The RPP 2026 average re-derived from its four listed inputs: 125.1309 GeV, unscaled error 0.0736, chi2 6.92 (contributions 0.57/0.08/6.23/0.03), S 1.518, scaled error 0.1117, CL(chi2=6.92, 3 dof) = 0.075 -- every printed PDG number reproduced. (B) The installed particle 1.0.1 mass_width_2026.txt hashes to the capture's recorded md5; its H row is 125.13 GeV / 3.0 MeV; the 2024 and 2025 files carry 125.20 GeV / 3.7 MeV; the capture schema has no uncertainty column. (C) The tree's lambda_h (1.576976e-18 at 125.13; 1.576094e-18 at 125.20), spinodal e-fold 7.439082e-27 s, shift -5.5910543e-4, driven ceiling 4.555e-16 m -> '5e-16', lifetime '2e-22' all reproduced; over the published Gamma bands the ceiling prints 5e-16/4e-16/3e-16 and the lifetime 3e-22/2e-22/1e-22.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2409.13663 (CMS, PRD 111 (2025) 092014) -- HAYRAPETYAN 25L",
+   "effect": "confirms",
+   "what": "m_H = 125.04 +- 0.12 GeV (Run 2), 125.08 +- 0.12 (Run1+2); Gamma_H = 3.0 +2.0 -1.5 MeV 'assuming that no new virtual particles affect the production'; 2.7 +2.7 -1.8 MeV with a free heavy-quark loop. Input to both 2026 averages.",
+   "read_status": "READ (abstract, secs. 1, 10, 11, 11.1, 11.2, Tables 6 and 8)"
+  },
+  {
+   "ref": "arXiv:2308.04775 (ATLAS, PRL 131 (2023) 251802) -- AAD 23BP",
+   "effect": "confirms",
+   "what": "m_H = 125.11 +- 0.11 (Run1+2), 125.10 +- 0.11 (Run 2, the value PDG averages); interference treated as a 26 MeV (gg) / 17 MeV (combination) systematic, +15 MeV if the SM interference were modelled.",
+   "read_status": "READ (pp.1-7)"
+  },
+  {
+   "ref": "arXiv:2603.05020 (Stylianou & Weiglein 2026)",
+   "effect": "narrows",
+   "what": "The indirect Gamma_H determination rests on kappa_on = kappa_off; relaxing it in realistic BSM (scalar resonance, coloured scalar, Higgs-portal loop) weakens the upper bound by at most a factor ~2 (<= 40% for a light scalar resonance, m_S ~ 200-300 GeV).",
+   "read_status": "READ (pp.1-4, 7, 11-12)"
+  },
+  {
+   "ref": "arXiv:2609.01385 (CMS 2026, gg signal-background interference)",
+   "effect": "extends",
+   "what": "First on-shell interference constraint Gamma_H < 92 (138 exp.) MeV at 95% CL; quotes 3.0 +2.0 -1.5 MeV (CMS off-shell) as the most precise constraint to date. Consistent with, far weaker than, the off-shell value; a different assumption set.",
+   "read_status": "READ (pp.1-11)"
+  },
+  {
+   "ref": "arXiv:2609.19948 (ATLAS 2026, on-shell interference width constraint)",
+   "effect": "extends",
+   "what": "Listed by discover_papers; abstract states SM 4.1 MeV. Not read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:2607.23352 (CMS 2026, off-shell Higgs: width, Yukawas, self-coupling)",
+   "effect": "extends",
+   "what": "Newer off-shell 4l measurement, after RPP 2026's cut-off; may move the next Gamma_H average. Not read.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "arXiv:2601.05168 (CMS, Gamma_H from H->WW->e nu mu nu, PRD 113 (2026) 092014)",
+   "effect": "extends",
+   "what": "Cited in 2609.01385 ref.[10]; not among the three inputs in the RPP 2026 width average. Not read.",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result, evidence both ways. (1) m_h: the PDG 2024/2025 editions (125.20, the tree's withdrawn pin) lacked CMS's 2024 four-lepton measurement (125.04 +- 0.12, arXiv:2409.13663); with it the 2026 average is 125.13. That IS a case of earlier authors lacking data, and the value moved -- by 0.64 of its own error. Having the datum does not change any conclusion the tree draws: every m_h-dependent figure scales by (125.13/125.20)^k with |k| <= 2, i.e. <= 1.1e-3, and the tree's theorems D15/D16/D18/D19 do not contain the numerical value at all. The average still carries S = 1.5 (CL 0.075) from one outlier; dropping it would move m_h a further ~0.5 sigma, again moving no verdict. (2) Gamma_h: here the missing datum is structural, not a later measurement -- the LHC cannot measure the total width without assuming equal on- and off-shell effective couplings (PDG p.8 verbatim); a model-independent width awaits an e+e- Higgs factory. With the assumption relaxed, the upper bound can weaken by up to ~x2 (arXiv:2603.05020). The Gamma value also moved between editions (3.7 -> 3.0 MeV). Consequence: the tree's order-of-magnitude statements ('gone in ~1e-22 s'; the driven ceiling is sub-femtometre and not a standing displacement) survive every band tested; the single printed digits ('5e-16', '2e-22') do not -- they sit inside the datum's own 68% band and would have printed '4e-16' at the edition the tree previously pinned. Not an error in the source and not a refutation of the tree: a precision the tree prints beyond what the datum and its hypothesis support.",
+ "grade": "NARROWED",
+ "grade_evidence": "m_h STANDS in full: the RPP 2026 value 125.13 +- 0.11 GeV was READ at source (pdg.lbl.gov listing p.1) and re-derived exactly from its four inputs (mean 125.1309, chi2 6.92, S 1.518, CL 0.075 -- all PDG numbers reproduced); the capture row and its md5 match the installed particle 1.0.1 source file; every tree figure checked (lambda_h, e-fold, shift, rho_EW/D20 m_h^2 scaling) reproduces. The merged entry is NARROWED because of Gamma_h: the tree uses it as a plain READ value with no hypothesis (excite.py:374, 60-61, 1660-1665; higgs.py:251, 653-658), while the source states it exists only under equal on- and off-shell effective couplings / no new virtual particles in the production (PDG p.8; CMS 2409.13663 abstract) -- a hypothesis the tree drops. Secondary, recorded not repaired: the capture discards the uncertainties (+-0.11 GeV; +1.5/-0.7 MeV) and the S = 1.5 tension; the one-significant-figure Gamma_h outputs ('5e-16' m, '2e-22' s) move within the datum's 68% band (to '4e-16', '3e-22'/'1e-22') and would have printed '4e-16' at the PDG 2024 width -- DATA-DEPENDENT at the printed digit, not at any verdict; and the withdrawn pin 125.20 is under-labelled NAMED-NOT-READ although it is the READable PDG 2024/2025 value. No refusal, theorem or verdict of the tree moves.",
+ "what_would_change_the_grade": "To STANDS: the tree names the Gamma_h hypothesis (equal on-/off-shell effective couplings, no new virtual particles in gg -> H*) wherever Gamma_h is used, and carries the published band so the one-figure outputs are printed as a range (ceiling ~3.7e-16..5.2e-16 m; lifetime ~1.5e-22..2.9e-22 s at 68%). To DATA-DEPENDENT at the verdict level: only if some tree conclusion were shown to hinge on the printed digit rather than the order of magnitude -- none found. To WRONG: a measured Gamma_H outside [~0.1, ~100] MeV or an m_H shift of order GeV -- neither is in the literature read here (on-shell limit < 92 MeV, 2609.01385; all m_H inputs within 125.04-125.78). A 2027 RPP average including arXiv:2607.23352 / 2601.05168 / 2609.19948 would re-open the Gamma data row.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/pdg-2026-m_h.py && cd /home/user/Claude-Method-Works/research/warp-drive && sed -n 9p captures/PDG-2026.tsv && sed -n 307p captures/PDG-2026.tsv && grep -n ' 25 ' /usr/local/lib/python3.11/dist-packages/particle/data/mass_width_202[456].txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/pdg-2026-m_h.json"
+}

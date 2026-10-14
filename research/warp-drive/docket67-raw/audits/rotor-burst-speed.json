@@ -1,0 +1,87 @@
+{
+ "key": "rotor-burst-speed",
+ "name": "Classical rotor burst limit v = sqrt(sigma/rho), independent of radius",
+ "source": {
+  "located": "Classical engineering mechanics, no single arXiv source: thin-ring hoop balance sigma = rho v^2 (textbook elasticity, e.g. Timoshenko & Goodier, Theory of Elasticity, rotating discs; Stodola's constant-strength disc; Genta, Kinetic Energy Storage 1985, shape factor K). Candidate arXiv restatement: arXiv:2103.05224 ('A review of flywheel energy storage systems: state of the art and opportunities').",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ AT SOURCE. alphaXiv answer_pdf_queries / get_paper_content / discover_papers all returned 'alphaXiv assistant quota exceeded' (four attempts this stage); arxiv.org and alphaxiv.org are EGRESS_BLOCKED for WebFetch and curl (403 CONNECT). The only contact with a restatement is a WebSearch result summary attributing to arXiv:2103.05224 the sentences 'If all the mass of a rotor is concentrated at the rim, the maximum tip speed is (sigma/rho)^(1/2)', thin rim K = 0.5, Laval disc K = 1 -- a search-engine paraphrase, not page text, so it is NOT counted as READ. Compensating for that: the result is closed-form continuum mechanics and was RE-DERIVED in full here from force balance and the Lame equations (sympy), which is the evidence this audit rests on. The step-(5) discover_papers call for later literature also returned quota exceeded; no later work was read, so later_literature lists only the two search-summary restatements, both NAMED-NOT-READ."
+ },
+ "published_statement": "Not quoted at source (NAMED-NOT-READ). The classical content, as re-derived here: a thin rim (all mass at radius R, uniaxial hoop stress) spinning at tip speed v = omega R carries hoop stress sigma_h = rho v^2, so it fails when v exceeds sqrt(sigma/rho); the limit contains no R. Search-summary paraphrase of arXiv:2103.05224: 'If all the mass of a rotor is concentrated at the rim, the maximum tip speed is (sigma/rho)^(1/2)' -- note the rim hypothesis is in the sentence itself.",
+ "published_hypotheses": [
+  "all mass concentrated at the rim (thin rim, radial thickness << R) -- stated in the restated sentence itself",
+  "uniaxial hoop stress; radial and axial stresses neglected",
+  "linear elastic, quasi-static rotation (no vibration, no creep/fatigue), non-relativistic",
+  "sigma is the strength of the rim material in the hoop direction",
+  "for other geometries the classical treatment gives a different factor: uniform disc v_max = sqrt(8 sigma/((3+nu) rho)); constant-strength (Stodola/Laval) disc has K = 1 and no tip-speed ceiling from the same argument"
+ ],
+ "hypothesis_drift": [
+  "DROPPED at warpfolder.py:117-118: 'A rotor asked to exceed sqrt(sigma/rho) does not spin; it disassembles.' states the thin-rim limit as universal over rotors. Re-derived here: a uniform solid disc reaches sqrt(8/(3+nu)) = 1.557 sqrt(sigma/rho) (nu = 0.3), and a constant-stress (Stodola) disc h = h0 exp(-rho omega^2 r^2/2 sigma) closed by a thin rim of section A = R h0 sigma e^{-rho v^2/2 sigma}/(rho v^2 - (1-nu) sigma) is in equilibrium and compatible at ANY v > sqrt((1-nu) sigma/rho). The sentence is a thin-rim statement, not a theorem about all rotors.",
+  "DROPPED at warpfolder.py:329 docstring 'The classical rotor limit sqrt(sigma/rho), independent of radius': no geometry named. Compare the tree's own earlier sites which KEEP it: warpdrive.py:235 'Burst surface speed of a thin spinning cylinder: hoop stress = rho v^2' and ENGINE-ASSESSMENT.md:196 'A thin spinning cylinder bursts when hoop stress reaches the material limit'.",
+  "KEPT, correctly: 'independent of radius' (warpfolder.py:329) holds at fixed shape for every geometry checked (rim, solid disc, bored disc at fixed a/R, Stodola) -- stress scales as rho v^2.",
+  "SUBSTITUTED at warpfolder.py:225: sigma for T1000 is the bare-fibre tensile strength 6.4 GPa and rho the fibre density 1800; a rotor is a composite. Rule-of-mixtures UPPER bound (Vf 0.55-0.65, resin 1200 kg/m3) gives v_rim <= 1517-1618 m/s and ratio >= 4.95-5.28x, so the substitution is in the rotor's FAVOUR -- it does not flatter the refusal. The owner's comment at warpfolder.py:222-223 says sigma/rho 'are NOT from the folder ... so they carry their own status', but the status word on the MATERIALS row is ORDER only.",
+  "NOT MODELLED (named, not computed): radial/transverse failure of thick composite rims (transverse strength of order tens of MPa), which lowers the composite limit further; fatigue and safety factor; the diameter-vs-radius reading of 'Flywheel Rotor 1.8 m' (warpfolder.py:218 reads it as a diameter -- the radius reading doubles v and both ratios)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "tip speed v = pi D N/60 (D = 1.8 m, N = 85,000 RPM, from the folder's CAD page as the tree READ it)",
+   "value_then": "8011.06 m/s (warpfolder.py:113, selftest :562)",
+   "value_now": "8011.06 m/s recomputed",
+   "source_now": "computed, rederive/rotor-burst-speed.py",
+   "moves_conclusion": "no; if 1.8 m were a radius, v = 16,022 m/s and both ratios double -- conclusion strengthens"
+  },
+  {
+   "quantity": "T1000 sigma, rho",
+   "value_then": "6.4e9 Pa, 1800 kg/m3 (warpfolder.py:225, status ORDER)",
+   "value_now": "not READ this stage (manufacturer datasheet host unresolvable; ENOTFOUND). Commonly quoted T1000G fibre ~6.37 GPa, 1.80 g/cm3 -- NAMED-NOT-READ",
+   "source_now": "NAMED-NOT-READ",
+   "moves_conclusion": "no: sigma/rho would have to rise 18.0x (rim) or 7.4x (uniform disc) to reach 8011 m/s; composite values move the ratio UP to >= 4.95x"
+  },
+  {
+   "quantity": "BeCu sigma, rho",
+   "value_then": "1.4e9 Pa, 8250 kg/m3 (warpfolder.py:226, status ORDER)",
+   "value_now": "not READ this stage; swept over 1.2-1.6 GPa and 8250-8360 kg/m3",
+   "source_now": "sensitivity sweep, rederive script",
+   "moves_conclusion": "no: ratio 18.2-21.1x across the sweep; sigma/rho would need to rise 378x (rim) or 156x (disc)"
+  },
+  {
+   "quantity": "Poisson ratio nu (enters only the disc geometries)",
+   "value_then": "not used by the tree",
+   "value_now": "swept 0-0.5: uniform-disc factor 1.633-1.512",
+   "source_now": "computed",
+   "moves_conclusion": "no: disc ratios 2.73x (T1000) and 12.49x (BeCu) at nu = 0.3; >= 2.60x and 11.9x at nu = 0"
+  },
+  {
+   "quantity": "burst speeds and ratios",
+   "value_then": "~1886 m/s, ~412 m/s; 4.2x, 19.4x",
+   "value_now": "1885.6 m/s, 411.9 m/s; 4.2485x, 19.4470x (round to [4.2, 19.4] as warpfolder.py:568 pins)",
+   "source_now": "computed",
+   "moves_conclusion": "no -- exact agreement"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/rotor-burst-speed.py",
+  "outcome": "ALL PASS (exit 0). (1) Thin rim: sigma_h = rho v^2, v_max = sqrt(sigma/rho), no R, K = 1/2. (2) Uniform solid disc from the Lame equation: peak sigma = (3+nu)/8 rho omega^2 R^2 at the centre, v_max = 2 sqrt(2)/sqrt(3+nu) sqrt(sigma/rho) = 1.557x at nu = 0.3, K = 2/(3+nu) = 0.606. (3) Pinhole bore: (3+nu)/4 rho omega^2 R^2, v_max = 1.101x; a -> R recovers the thin rim. (4) Stodola disc satisfies equilibrium and compatibility for every omega; K -> 1 as R -> infinity (matches the restated 'Laval disc K = 1'); closing rim section A > 0 for any v > sqrt((1-nu) sigma/rho) -- a formal counterexample to the universal sentence at warpfolder.py:117-118. (5) Tree numbers: tip 8011.06 m/s; burst 1885.6 and 411.9 m/s; ratios 4.2485 and 19.4470, rounding to the pinned [4.2, 19.4]; warpfolder.burst_speed_m_s agrees to 1e-9. (6) Every non-profiled geometry leaves both materials over the limit (T1000 2.73-4.25x, BeCu 12.49-19.45x). The Stodola escape needs h(R)/h(0) = 1.2e-4 for T1000 treated as an isotropic material with fibre sigma/rho (no such material exists) and 7.5e-83 for BeCu (physically empty).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "arXiv:2103.05224 (review of flywheel energy storage systems)",
+   "effect": "confirms",
+   "what": "Per a search-engine summary only: restates the rim-concentrated limit (sigma/rho)^(1/2) WITH the rim hypothesis, and shape factors thin rim 0.5, Laval disc 1 -- both reproduced by the sympy derivation here.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arxiv.org egress-blocked; seen as WebSearch summary only)"
+  },
+  {
+   "ref": "arXiv:2005.14634 (modeling flywheel energy storage charge/discharge dynamics)",
+   "effect": "confirms",
+   "what": "Per search summary: thin-rim relation K.E./m = sigma_h/(2 rho), i.e. K = 1/2 -- reproduced here.",
+   "read_status": "NAMED-NOT-READ (search summary only)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: did the originators lack data that changes this? No. The result is a closed-form consequence of Newtonian force balance and linear elasticity; it takes no empirical input except the material's sigma and rho, which enter only as the ratio sigma/rho. What the classical authors lacked were modern materials (carbon fibre, maraging steels); those raise sigma/rho but do not touch the formula. Evidence against a data move changing THIS conclusion: the demanded 8011 m/s needs sigma/rho raised 18x (T1000, rim) / 7.4x (T1000, uniform disc) / 378x (BeCu, rim); replacing the bare-fibre T1000 figure with any composite value moves the ratio UP (>= 4.95x); the BeCu datasheet spread moves it only within 18.2-21.1x. Evidence FOR an incompleteness, found here and not in M's favour or against it: the limit is incomplete as the tree words it -- it is a thin-rim result, and the constant-stress disc formally escapes it -- but this is a hypothesis the tree drops, not missing data, and it does not rescue the rotor with the named materials.",
+ "grade": "NARROWED",
+ "grade_evidence": "The formula v = sqrt(sigma/rho), and its independence of radius, are re-derived exactly for the thin rim (sympy, script exit 0), and the tree's numbers (8011.06 m/s; 4.2x, 19.4x) are reproduced to four figures. But the tree uses it on a larger class than it holds on: warpfolder.py:117-118 says any rotor asked to exceed sqrt(sigma/rho) disassembles, whereas a uniform disc reaches 1.557x and a Stodola constant-stress disc with a thin closing rim is in equilibrium at any tip speed (shown symbolically). The dependent conclusion ROTOR_IS_WITHIN_MATERIAL_LIMITS = False (warpfolder.py:247, :569-570) survives on every geometry checked -- ratios 2.73-4.25x (T1000) and 12.49-19.45x (BeCu) -- and the Stodola escape needs a tip-to-hub thickness ratio of 1.2e-4 with a fictitious isotropic T1000 and 7.5e-83 with BeCu; the bare-fibre T1000 figure is favourable to the rotor, not to the refusal. So: the burst limit STANDS for the thin rim, is NARROWED as a universal rotor limit, and the refusal's factors are geometry-dependent ('over by 4.2x' is the thin-rim factor; the uniform-disc factor is 2.7x). Source NOT READ at arXiv this stage (quota/egress); the grade rests on the rederivation, not on a reading.",
+ "what_would_change_the_grade": "To STANDS: the owner restores the thin-rim (or 'non-profiled geometry') hypothesis at warpfolder.py:117-118 and :329, as warpdrive.py:235 and ENGINE-ASSESSMENT.md:196 already do. To WRONG for the dependent refusal: a realisable profiled rotor of either named material shown to hold 8011 m/s (none exists on the numbers here). A reading of arXiv:2103.05224 or Genta 1985 at source would upgrade read_status but cannot move the grade unless it states a different formula, which the derivation here makes implausible.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/rotor-burst-speed.py  # exit 0, ALL PASS; then: sed -n '113,118p;222,226p;246,247p;328,330p;566,570p' /home/user/Claude-Method-Works/research/warp-drive/warpfolder.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/rotor-burst-speed.json"
+}

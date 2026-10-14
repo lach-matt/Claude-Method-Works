@@ -1,0 +1,79 @@
+{
+ "key": "cosmic-string-deficit-angle-8pigmu",
+ "name": "Cosmic string conical deficit angle = 8 pi G mu, mu positive linear mass density (axial.py O4 closure: 'an angle excess is the deficit of a negative mu')",
+ "source": {
+  "located": "Classic result attributed in the literature to Vilenkin, PRD 23, 852 (1981) (linearised) and to Gott, ApJ 288, 422 (1985), Hiscock, PRD 31, 3288 (1985) and Linet (1985) (exact, uniform/boost-invariant interior); standard arXiv restatement Hindmarsh & Kibble, 'Cosmic strings', hep-ph/9411342. Bibliographic details are from memory and are NOT verified this pass. axial.py cites no source (status_word 'none').",
+  "read_status": "NAMED-NOT-READ",
+  "via": "Not read: alphaXiv answer_pdf_queries, get_paper_content and discover_papers all returned 'alphaXiv assistant quota exceeded'; arxiv.org, export.arxiv.org, inspirehep.net, api.semanticscholar.org, alphaxiv.org and wikipedia all refused by the egress proxy (CONNECT 403; WebFetch EGRESS_BLOCKED). No cached copy in the scratchpad or research tree. The result was instead RE-DERIVED here from the Einstein equations (rederive script), which is computed, not read."
+ },
+ "published_statement": "NOT READ AT SOURCE this pass; no quotation is offered. What was re-derived here (sympy, 10/10 PASS): (i) exact, nonlinear: a static straight string core with T^t_t = T^z_z (boost invariance along the axis; Psi' = 0 in the tree's metric) and mu = INT u dA = 2 pi INT_0^R u W dr has a flat conical exterior with deficit angle exactly 8 pi G mu, for either sign of mu (uniform cores W = r0 sin(r/r0), u = +1/(8 pi r0^2) and W = r0 sinh(r/r0), u = -1/(8 pi r0^2)); the cone closes at G mu = 1/4. (ii) linearised, general stress (energy/length mu, tension tau): deficit = 4 pi G (mu + tau), which reduces to 8 pi G mu iff tau = mu.",
+ "published_hypotheses": [
+  "NOT READ AT SOURCE. The hypotheses under which the formula was RE-DERIVED here are:",
+  "H1 static, straight, infinite string (cylindrical symmetry, translation invariance along z)",
+  "H2 tension equals energy per unit length, T^z_z = T^t_t (boost invariance along the string) -- required for 'deficit = 8 pi G mu'; without it the linear deficit is 4 pi G (mu + tau)",
+  "H3 mu defined as the proper integral INT u dA over a smooth core (thin limit taken of smooth sources; a conical singularity is not itself a distributional source -- Geroch-Traschen 1987, NAMED-NOT-READ)",
+  "H4 exterior vacuum; exactness beyond linear order holds for boost-invariant cores (re-derived B+/B-), weak-field for the general-stress formula (re-derived D)"
+ ],
+ "hypothesis_drift": [
+  "DROPPED H2 (tension = energy density) -- axial.py:130-135 states 'its deficit is 8 pi G mu' and 'AN ANGLE EXCESS IS THE DEFICIT OF A NEGATIVE mu' unconditionally for 'ordinary matter'. Re-derived D/E: for a thin string with tension tau != mu the deficit is 4 pi G (mu + tau), so mu = +0.01, tau = -0.02 (axial pressure 2 mu > mu) gives an angle EXCESS (deficit -pi/25) with POSITIVE mu, NEC along z satisfied (rho + p_z = 0.03 > 0), DEC violated (p_z > rho). The unconditional sentence is therefore false outside H2; an excess needs mu < 0 OR axial pressure exceeding mu.",
+  "UNSTATED (weakened in the listing) tree hypothesis that restores H2: axial.py:182-183 WITH_CONICAL_DEFECT drops the axis boundary term [W Psi']_{r=0}, i.e. assumes W Psi' -> 0 at the axis; axial.py:186-187 HYPOTHESES lists 'regular axis: W(0)=0 and W'(0)=1' and 'W Psi' -> 0' only at infinity, and the conical case relaxes W'(0)=1 without naming that W Psi' -> 0 at r = 0 is kept. Re-derived D: a thin string has W Psi' -> 2G(tau - mu), so this unnamed hypothesis is exactly tau = mu at first order. Inside it, the O4 conclusion holds and is STRENGTHENED by the tree's own identity (re-derived C: deficit = 8 pi G mu + 2 pi INT W Psi'^2 >= 8 pi G mu for any smooth core with W Psi' -> 0 at both ends).",
+  "IMPLICIT H3 (thin-limit / smooth-core definition of mu) -- axial.py:130-135 assigns a linear mass density to a bare conical singularity without naming the limit; harmless inside the tree's class (re-derived B, C) but it is a hypothesis, not a definition.",
+  "DISCREPANCY (not in the owner file; in the canonical paraphrase): canonical hypotheses say W'(0) - 1 is identified with '-8 pi G mu up to normalisation'. Re-derived F: W'(0) - 1 = -4 G mu; it is the deficit ANGLE 2 pi (1 - W'(0)) that equals 8 pi G mu. axial.py itself does not state a normalisation and its 'deficit 8 pi G mu' (the angle) is correct. A misprint-class discrepancy, recorded, not a refutation.",
+  "ADDED (benign): the tree applies the axis defect inside a spacetime whose exterior is not a flat cone (Phi, Psi free, axial.py:174-175 METRIC); the sources' exterior is a vacuum cone. The tree's identity (re-derived A, residual 0, Phi absent from u) covers this, so no conclusion rests on the difference."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "Newton's constant G",
+   "value_then": "Not read at source (1981/1985 papers unreadable this pass)",
+   "value_now": "Not read this pass (CODATA/PDG unreachable: arXiv and alphaXiv blocked/quota)",
+   "source_now": "not read",
+   "moves_conclusion": "No. The tree's conclusion is a SIGN statement (excess <=> mu < 0 inside the tree's class); deficit = 8 pi G mu is linear in G mu and its sign is independent of G's value. Computed: the rederive script uses G = 1 and every check is sign/identity-level."
+  },
+  {
+   "quantity": "Observed / bounded cosmic-string tension G mu",
+   "value_then": "not an input of the formula",
+   "value_now": "not read this pass",
+   "source_now": "not read",
+   "moves_conclusion": "No. The deficit formula is kinematic GR; no observed tension enters the O4 argument."
+  },
+  {
+   "quantity": "axial.py CONICAL_TERM (tree's own measured data, axial.py:213-214)",
+   "value_then": "W'(0)-1 = -0.4, 0.0, 0.7, 2.0 -> excess -0.4, 0.0, 0.7, 2.0",
+   "value_now": "Mapped here to the axis linear density in the tree's class: mu = -(W'(0)-1)/(4G) = +0.100, 0, -0.175, -0.500 (G=1)",
+   "source_now": "rederive/cosmic-string-deficit-angle-8pigmu.py section F",
+   "moves_conclusion": "No. Both excess cases map to mu < 0, as the tree says, provided W Psi' -> 0 at the axis."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cosmic-string-deficit-angle-8pigmu.py",
+  "outcome": "10/10 PASS. A: G^t_t of ds^2 = -e^{2Phi}dt^2 + dr^2 + e^{2Psi}dz^2 + W^2 dphi^2 gives 8 pi u W = -(W Psi')' - W Psi'^2 - W'' with residual 0 and Phi absent from u (the tree's identity confirmed independently). B+/B-: exact uniform boost-invariant cores (T^z_z = T^t_t verified) give deficit - 8 pi mu = 0 identically for mu > 0 (W = r0 sin) and mu < 0 (W = r0 sinh; an angle excess); cone closes at mu = 1/4. C: smooth core with Psi' != 0 and W Psi' = 0 at both ends: deficit 3.769911184 = 8 pi mu 3.766608136 + 2 pi INT W Psi'^2 0.003303049, so deficit >= 8 pi mu. D: linearised string (mu, tau): h_tt = h_zz = 4(tau - mu) ln r, deficit = 4 pi (mu + tau), W Psi' -> 2(tau - mu); tau = mu gives 8 pi mu, h_tt = 0, W Psi' = 0; the tree's identity at first order reproduces 4 pi (mu + tau) once its boundary term W Psi'|_inf is kept. E: mu = +0.01, tau = -0.02 gives deficit -pi/25 (EXCESS with positive mu) and W Psi' = -3/50 != 0 (outside the tree's class). F: W'(0) - 1 = -4 G mu.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Geroch & Traschen, 'Strings and other distributional sources in general relativity', PRD 36, 1017 (1987)",
+   "effect": "narrows",
+   "what": "As recalled (not read): a conical singularity is not a distributional source in GR, so 'the mu of a bare cone' is meaningful only as a limit of smooth sources -- the tree's H3.",
+   "read_status": "NAMED-NOT-READ (alphaXiv quota exceeded; arXiv blocked; pre-arXiv)"
+  },
+  {
+   "ref": "Wiggly / current-carrying string effective stress (Carter 1990; Vilenkin 1990, PRD 41, 3038)",
+   "effect": "narrows",
+   "what": "As recalled (not read): for effective energy U and tension T != U the deficit is 4 pi G (U + T) and the Newtonian attraction is proportional to U - T. Re-derived here independently at linear order (script D: deficit 4 pi (mu+tau), h_tt = 4(tau-mu) ln r), so the narrowing is COMPUTED, not taken from these papers.",
+   "read_status": "NAMED-NOT-READ; content re-derived (rederive D)"
+  },
+  {
+   "ref": "Negative-mass cosmic strings / angle-excess lensing (e.g. Cramer, Forward, Morris, Visser, Benford, Landis, 'Natural wormholes as gravitational lenses', PRD 51, 3117 (1995), astro-ph/9409051)",
+   "effect": "confirms",
+   "what": "As recalled (not read): a negative-mu string produces an angle excess and defocusing -- consistent with re-derived B- (W = r0 sinh core, mu < 0, deficit = 8 pi mu < 0).",
+   "read_status": "NAMED-NOT-READ (discover_papers call refused: quota exceeded)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: nothing in the deficit formula is data-driven. It is a kinematic consequence of the Einstein equations for a static straight source; the only constant is G, and the tree's conclusion is a sign statement independent of G's value (computed: every check in the script is identity- or sign-level at G = 1). No later measurement could move 'deficit = 8 pi G mu for T^z_z = T^t_t' -- it is re-derived exactly here (B+/B-, residual 0). What the classic formula lacks is not data but GENERALITY in the direction the tree uses it: the formula assumes tension = energy density, and a string with axial pressure exceeding its energy density (DEC-violating, NEC-respecting) gives an angle excess with positive mu (computed, E). That gap does NOT reopen O4, because such a string forces W Psi' -> 2G(tau - mu) != 0 at the axis, which the tree's WITH_CONICAL_DEFECT identity (axial.py:182-183) implicitly excludes, and inside the tree's class its own identity gives the stronger deficit >= 8 pi G mu (computed, C). Evidence against M's hypothesis for this result: the re-derivation agrees with the formula wherever its hypothesis H2 holds. Evidence for a limitation (not an error): H2 is dropped in the tree's sentence.",
+ "grade": "NARROWED",
+ "grade_evidence": "Source NOT read (alphaXiv quota exceeded; arXiv and all mirrors blocked by the egress proxy), so nothing here quotes Vilenkin/Gott/Hiscock; the grade rests on computation alone. (1) The formula deficit = 8 pi G mu is re-derived EXACTLY for boost-invariant cores of both signs (sympy residual 0) -- it is not WRONG. (2) The tree states it unconditionally for 'ordinary matter' and concludes 'an angle excess is the deficit of a negative mu' (axial.py:130-135, selftest axial.py:434-435); linearised general-stress re-derivation gives deficit 4 pi G (mu + tau), and mu = +0.01, tau = -0.02 yields an excess with positive mu (script E) -- the sentence holds only on the smaller class tau = mu (hypothesis H2 dropped by the tree). (3) The tree's operative conclusion O4 (AXIS_ESCAPES_THE_SIGN = False, axial.py:193; specthm O4 gate specthm.py:1826-1831) survives inside the tree's own hypotheses: the conical identity implicitly keeps W Psi' -> 0 at the axis, which is tau = mu at first order, and there the tree's identity gives deficit >= 8 pi G mu (script C), so an excess forces INT u dA < 0. The counterexample lies OUTSIDE that class. Hence NARROWED: the cited physics sentence is too broad and needs H2 (or the tree's unstated axis condition W Psi'(0+) = 0) named; the closure it supports is not refuted. The canonical paraphrase's '-8 pi G mu' normalisation for W'(0)-1 is a discrepancy (correct: -4 G mu), not a refutation, and is not in the owner file.",
+ "what_would_change_the_grade": "To STANDS: axial.py names H2 (T^z_z = T^t_t) or the axis condition W Psi' -> 0 at r = 0 as a hypothesis of the conical case (it then uses the result exactly on its class), AND the source is READ at alphaXiv confirming the stated hypotheses. To WRONG for the O4 closure: an explicit static cylindrical solution, inside the tree's stated boundary conditions (W Psi' -> 0 at both ends, W' -> 1 at infinity), with W'(0) > 1 and INT u W dr >= 0 -- the tree's identity (re-derived, residual 0) forbids this, so none is expected. To OPEN: if reading the sources shows the deficit is defined with a different mu (e.g. not the proper integral of -T^t_t), the mapping F would need re-doing.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/cosmic-string-deficit-angle-8pigmu.py  # expect '10/10 PASS'; then, when alphaXiv quota resets: answer_pdf_queries(paper='hep-ph/9411342', queries=['deficit 8 pi G mu hypotheses', 'tension vs energy density', 'wiggly string deficit 4 pi G (U+T)'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/cosmic-string-deficit-angle-8pigmu.json"
+}

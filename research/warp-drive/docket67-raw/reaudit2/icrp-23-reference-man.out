@@ -1,0 +1,94 @@
+=== 1. Table 110 internal consistency (grams vs printed per cent of 70 kg)
+  rows with a per-cent entry: 34; inconsistent: [('Cl', 95, '0.12', 0.1357142857142857)]
+  PASS the only gram/per-cent disagreement is Cl (95 g vs '0.12')
+  sum of the 11 bulk rows 70074 g; sum of all 36 rows (bounds as printed) 70102.39 g
+
+=== 2. owner table (stockgate.py:345-363, 59 rows) against Table 110
+  agree exactly (21): O C H N Ca P K S Na Cl Mg Fe F Zn Cu Mn Sr Pb Cd Ba Be
+  differ (14):
+    Si  owner 1         ICRP 18        owner/ICRP 0.0556
+    B   owner 0.018     ICRP <0.048    owner/ICRP 0.375
+    I   owner 0.02      ICRP 0.013     owner/ICRP 1.54
+    Ni  owner 0.015     ICRP 0.01      owner/ICRP 1.5
+    Cr  owner 0.014     ICRP <0.0018   owner/ICRP 7.78
+    Mo  owner 0.005     ICRP <0.0093   owner/ICRP 0.538
+    Co  owner 0.003     ICRP 0.0015    owner/ICRP 2
+    Rb  owner 0.68      ICRP 0.32      owner/ICRP 2.12
+    Br  owner 0.26      ICRP 0.2       owner/ICRP 1.3
+    Al  owner 0.06      ICRP 0.061     owner/ICRP 0.984
+    Sn  owner 0.02      ICRP <0.017    owner/ICRP 1.18
+    Cs  owner 0.006     ICRP 0.0015    owner/ICRP 4
+    Au  owner 0.0002    ICRP <0.01     owner/ICRP 0.02
+    U   owner 0.0001    ICRP 9e-05     owner/ICRP 1.11
+  not in Table 110 (24): Se V Ce Ti As Li Hg Ge Sb Ag Nb Zr La Ga Te Y Bi Tl In Sc Ta Th Sm W
+  in Table 110, not in owner: ['Ra']
+  PASS all 11 bulk elements agree exactly with Table 110
+  PASS Li is NOT among Table 110's 36 rows
+
+=== 3. owner's comparisons, owner data (reproduce)
+  CI chondrite         P 10.701, N 8.0763, C 6.5226
+  stellar photosphere  P 1910.9, Li 1753.4, K 651.79
+  Earth cont. crust    N 458.62, C 114.72, H 71.341
+
+=== 4. substitute every Table 110 value the owner carries ('<' bound taken as printed)
+  CI chondrite         P 10.699, N 8.0744, C 6.5211
+  stellar photosphere  P 1910.4, Li 1752.9, K 651.63
+  Earth cont. crust    N 458.51, C 114.69, Au 109.73
+  PASS CI binder is P after substitution
+  PASS photosphere binder is P, runner-up Li, after substitution
+  CI P/N margin 1.3250 ; photosphere P/Li margin 1.0898 (owner: 1.3250, 1.0898)
+
+=== 5. Table 110 ALONE as payload (35 rows; Ra 3.1e-11 g dropped -- no A09 row)
+  CI chondrite         P 10.699, N 8.0744, C 6.5211
+  stellar photosphere  P 1910.4, K 651.64, Ca 222.4
+  Earth cont. crust    N 458.51, C 114.69, Au 109.73
+  photosphere P / runner-up on Table 110 alone: 2.932
+
+=== 6. flip thresholds against ICRP-substituted payload
+  photosphere: Li binds above 7.6288 mg (x1.0898 of 7 mg)
+  photosphere: P cedes below 715.7 g (x0.9176 of ICRP 780 g)
+  CI: P cedes to N below 588.7 g (x0.7547 of ICRP 780 g)
+  CI: N takes over above 2385 g (x1.3250 of ICRP 1800 g)
+  PASS thresholds unchanged from the prior re-audit to 0.1 % (Li 7.629 mg, P 715.7 g, P 588.7 g)
+
+=== 7. the source's own alternative whole-body values (notes for Table 108)
+  Na     93 g -> CI binder P, photosphere binder P
+  PASS Na 93 g leaves both binders P
+  Na     75 g -> CI binder P, photosphere binder P
+  PASS Na 75 g leaves both binders P
+  Na     70 g -> CI binder P, photosphere binder P
+  PASS Na 70 g leaves both binders P
+  Na     80 g -> CI binder P, photosphere binder P
+  PASS Na 80 g leaves both binders P
+  K     136 g -> CI binder P, photosphere binder P
+  PASS K 136 g leaves both binders P
+  K     133 g -> CI binder P, photosphere binder P
+  PASS K 133 g leaves both binders P
+  K     145 g -> CI binder P, photosphere binder P
+  PASS K 145 g leaves both binders P
+  Cl     98 g -> CI binder P, photosphere binder P
+  PASS Cl 98 g leaves both binders P
+  Cl     84 g -> CI binder P, photosphere binder P
+  PASS Cl 84 g leaves both binders P
+  Cl     94 g -> CI binder P, photosphere binder P
+  PASS Cl 94 g leaves both binders P
+  Ca   1014 g -> CI binder P, photosphere binder P
+  PASS Ca 1014 g leaves both binders P
+  Ca   1265 g -> CI binder P, photosphere binder P
+  PASS Ca 1265 g leaves both binders P
+  photosphere P/K gap on ICRP K 140 g: 2.9317 (owner :1008 says 2.632x)
+  owner's 2.632 = stock.py's P 0.010 (NOT ICRP) over ICRP K 140/70000: 2.6310
+  PASS owner's 'On the ICRP datum the gap is 2.63x' (stockgate.py:88) uses stock.py's P, not ICRP's; all-ICRP gap is 2.93
+
+=== 8. two-significant-figure rounding of P, N (p.273 'rounded to two significant figures')
+  P 775 g -> CI P 10.63 / N 8.075 ; photo P 1898.3 / Li 1753.1
+  P 785 g -> CI P 10.77 / N 8.074 ; photo P 1922.5 / Li 1752.8
+  N 1750 g -> CI P 10.71 / N 7.856 ; photo P 1911.8 / Li 1754.2
+  N 1850 g -> CI P 10.69 / N 8.293 ; photo P 1909.1 / Li 1751.7
+  PASS P anywhere in [775, 785) g keeps P binding at both
+
+=== 9. does any element besides Li reach P at the photosphere? (owner :46 '48 added ... none exceeds P')
+  top 5: P 1910, Li 1753, K 651.6, Ca 222.4, Rb 220.5
+  Si on ICRP 18 g vs owner 1.0 g at the photosphere: 0.3862 vs 0.02146
+
+FAILS: []

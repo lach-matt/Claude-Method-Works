@@ -1,0 +1,106 @@
+{
+ "key": "2411.04268-sigma_c",
+ "final_grade": "NARROWED",
+ "source_read_status": "READ",
+ "read_at_source_this_pass": true,
+ "decision": "NARROWED. Of the three verifier proposals, the evidence supports NARROWED, which matches verifiers 1 (refute) and 3 (data). Verifier 2's STANDS is right about what FLAG prints. It is not right about the datum as the tree uses it. The audit's OPEN is superseded: it rested only on the source being unreadable, and every source was READ at source this pass.\nREAD THIS PASS (alphaXiv answer_pdf_queries, 2026-10-02): (a) FLAG 2024, 2411.04268, served as v3 with a p.1 stamp of 'v2, 17 Jan 2025'. On p.275 the tree's FLAG-sc quote (massform.py:1339-1343) appears word for word inside a longer sentence: 'by exploiting the heavy-quark limit, the light- and strange-quark sigma terms can be used to estimate sigma_q for the charm ... The resulting estimate for the charm quark, see, e.g., the RQCD 16 N_f = 2 analysis ... 70(4) MeV, is consistent with the direct determinations of ETM 19 ... 107(22) MeV, ETM 16A ... 79(21)(+12-8) MeV and chiQCD 13A ... 94(31) MeV. BMW 20A ... f_Tc = 0.0734(45)(55) ... MILC 12C <N|cc|N> = 0.056(27)'. Table 3 (p.11) lists FLAG results only for sigma_piN (60.9(6.5) / 42.2(2.4)) and sigma_s (41.0(8.8) / 44.9(6.4)), and pp.272-273 average only those two. FLAG forms no average or estimate for sigma_c. Eqs. (431)-(433) are on p.260 and the FLAG-def sentence is on p.261, both confirmed. p.267: 'The ETM 19 results for g_T^{u,d,s,c} are from a single ensemble ... a = 0.0801(4) fm and M_pi = 139.3(7) MeV. It was not considered for the final averages because it did not satisfy the criteria for the continuum extrapolation.' Table 72 (p.268) gives ETM 19 a red square for continuum extrapolation on sigma_piN and sigma_s. (b) ETM 19, 1909.00485v2. Table I (p.3) has one N_f = 2+1+1 ensemble, cB211.072.64, at a = 0.0801(4) fm. Table XII (p.14), 'using the cB211.072.64 ensemble', gives sigma_c = 107(22) MeV and f_Tc = 0.115(24). (c) ETM 2024, 2412.01535v1, which uses the same N_f = 2+1+1 physical-point setup at three spacings: B64 at 0.07957 fm, C80 at 0.06821 fm and D96 at 0.05692 fm. Table VIII (p.11) gives sigma_c of B64 126(43), C80 43(41), D96 80(110) and a=0 82(29), with the caption 'for sigma_c we use a single constant extrapolation'. p.12 says the earlier B64-only analysis (ETM19) was 'obtained without a continuum limit extrapolation and in addition no model averaging was performed'.\nCOMPUTED (scripts copied to adjudicate/run and re-run): the audit rederivation gives 15/15 PASS, reproduced. Verifier 2's verify script also reproduces: the quote is verbatim, 107 is the largest of FLAG's five charm values, the page prints no sigma_c average, and the mutation results are ALL 0.3090 at 185 MeV, 0.3101 at 187 MeV, 0.4999 at 364.0 MeV and 0.5001 at 364.2 MeV, with READ at 0.1719 throughout. Verifier 3's datacheck reproduces too. My own adjudicate_sigma_c.py gives these sigma_c row values: 0.2240 at 107, 0.1972 at 82, 0.2905 at 82+3x29 = 169 and 0.2444 at 126. In every case HIGGS_SHARE_LARGEST_ALL stays 0.3090 (set by 'six-quark coupling, FLAG 2+1+1') and HIGGS_SHARE_LARGEST_READ stays 0.1719. An inverse-variance constant fit of the three per-ensemble values gives 82.4 +- 28.6, which reproduces 82(29). 107(22) against 82(29) is 0.69 combined sigma, but only on an independence assumption the data do not satisfy, because B64 is the same gauge ensemble as ETM 19. ETM 19 sits 2.05 sigma from SVZ-LO 62.0 MeV; ETM 2024 sits 0.69 sigma from it. git status of research/ was clean after every run.\nWHY NOT STANDS: STANDS needs 'statement and hypotheses as used'. As a reading of FLAG the tree's sentence is exact. But the tree does more than report what FLAG prints. It carries 107 as the constant SIGMA_C_ETM19, labelled 'READ', and computes a row from it (massform.py:1461, :1859-1862). As a sigma_c datum, 107(22) holds only on one ensemble at a = 0.0801 fm with no continuum extrapolation. That is ETM 19's own setup (Tables I and XII), and ETM states it of itself in 2412.01535 p.12. The tree names none of this. The authors' continuum value, 82(29), now supersedes it. That is a hypothesis the tree drops: the definition of NARROWED.\nWHY NOT DATA-DEPENDENT: the datum has moved, but no conclusion moves with it. Every printed figure and every S10 verdict is unchanged at 82, at 82+3 sigma and at the B64-only 126. Only the CONTESTED row's own displayed value changes (0.2240 -> 0.1972), and that row sets no printed figure.\nWHY NOT WRONG: nothing is contradicted. The quote is verbatim, 'up to' and 'largest printed' are true over all five of FLAG's charm values, and 107(22) and 82(29) agree within errors. This is a supersession, not a refutation.\nWHY NOT OPEN: the sources are now read, and every item the audit's what_would_change_the_grade asked for has been done. The quote was confirmed word for word, ETM 19 was read, and a later N_f = 2+1+1 determination was found: 82(29), which is below 186 MeV even at +3 sigma (169 MeV).",
+ "scope": "The grade covers the tree's use of FLAG 2024's charm sigma term: the docstring sentence at massform.py:353-356, the FLAG-sc SOURCES quote at :1339-1343, the pin at :1432, the constant SIGMA_C_ETM19 = 107.0 at :1461, and the CONTESTED row at :1859-1862.\nSTANDS-part, recorded so the grade is not over-read against M: as a reading of what FLAG prints, the tree is exact. The quote is verbatim. 107 is the largest of FLAG's five charm values. FLAG forms no sigma_c average, and the tree never claims one. The 22 MeV uncertainty is dropped, and the tree says so. The value is labelled CONTESTED, kept out of the READ rows, and sets no printed figure or verdict.\nNARROWED-part: as a value of sigma_c, 107(22) holds only under a hypothesis the tree does not name. The value comes from one N_f = 2+1+1 ensemble (cB211.072.64, a = 0.0801 fm, physical pion mass) with no continuum extrapolation. Its continuum successor from the same collaboration is 82(29) MeV (2412.01535v1, Table VIII, a single constant extrapolation, not model-averaged).\nNOT COVERED: RQCD 16 (FLAG ref. [870]) was not read at source. Its characterisation as a heavy-quark-limit estimate rests on FLAG's own sentence, not on reading RQCD 16 itself. ETM 16A, chiQCD 13A and BMW 20A were not read at source; only FLAG's report of their values was read. Whether 2412.01535 was published, or revised beyond v1, was not checked. A literature search for other post-2024 sigma_c determinations was not repeated this pass beyond the ETM follow-up the verifiers found. The leading-order SVZ comparison omits O(alpha_s) and 1/m_c corrections, which were not computed. The sibling entry feynman-hellmann, whose Lambda_4-route figure 0.3469 uses 107, is out of scope and was not recomputed at 82.",
+ "corrections_to_record": [
+  "Audit read_status NAMED-NOT-READ and grade OPEN are superseded. FLAG 2024 pp.1, 11, 25, 260-261, 267-268, 270-275, ETM 19 (1909.00485v2) pp.1-3 and 13-16, and ETM 2024 (2412.01535v1) pp.1-2 and 8-16 were READ at source via alphaXiv on 2026-10-02.",
+  "The audit says 'No held copy of FLAG page text was found in the scratchpad'. That is false. d67/src/casmag/all/2411.04268v3.txt (2026-09-26, alphaXiv-harvested page text) holds p.275, as verifier 2 found, and it agrees with this pass's fresh read.",
+  "The tree's FLAG-sc quote (massform.py:1339-1343) is verbatim but truncated. It drops FLAG's lead-in ('by exploiting the heavy-quark limit ... The resulting estimate for the charm quark, see, e.g.,'), so RQCD 16's 70(4) is, in FLAG's words, an example of a heavy-quark-limit ESTIMATE, not a direct sigma_c determination. It also drops ETM 16A 79(21)(+12-8), chiQCD 13A 94(31), BMW 20A f_Tc = 0.0734(45)(55) (about 68.9 MeV) and MILC 12C <N|cc|N> = 0.056(27). This is a DISCREPANCY in the excerpt, not an error and not in M's favour.",
+  "Audit hypothesis_drift[1] ('the tree picks the larger of the two values FLAG quotes') is wrong in its count. FLAG quotes five charm sigma values, and 107 is the largest of all five, so the tree's 'up to' and 'largest printed' are correct.",
+  "Audit published_hypotheses[3], data_at_publication[1], rederivation check 'ETM 19 - RQCD 16 = 1.65 combined sigma' and check 'RQCD within 1 sigma+1 MeV of SVZ-LO' treat RQCD 16's 70(4) as a parallel lattice determination differing only in sea content. Per FLAG it is a heavy-quark-limit estimate, so comparing it with the SVZ leading-order heavy-quark value is close to circular. The arithmetic (0.075 x m_N = 70.42 MeV) is unaffected.",
+  "Audit published_hypotheses[2] (whether FLAG averages sigma_c was 'not verified') is now verified. FLAG forms no sigma_c average or estimate: Table 3 on p.11 lists only sigma_piN and sigma_s, and p.275 gives a sentence only.",
+  "A hypothesis the tree drops, unnamed by the audit: ETM 19's sigma_c = 107(22) MeV comes from a single ensemble, cB211.072.64 (a = 0.0801(4) fm, M_pi = 139.3(7) MeV), with no continuum extrapolation (1909.00485v2 Table I p.3, Table XII p.14; restated by ETM in 2412.01535v1 p.12).",
+  "Attribution correction to verifiers 1 and 3. FLAG's explicit 'single ensemble ... did not satisfy the criteria for the continuum extrapolation' sentence (p.267) is about ETM 19's TENSOR charges g_T^{u,d,s,c}. FLAG's red continuum-extrapolation square for ETM 19 (Table 72, p.268) rates its sigma_piN and sigma_s. FLAG gives no quality rating for sigma_c. The single-ensemble hypothesis for sigma_c therefore rests on ETM 19 itself and on ETM's 2024 statement, corroborated by FLAG's ratings of the same paper. It is not a FLAG statement about sigma_c.",
+  "Audit data_at_publication[0].value_now 'NOT READ' is superseded by sigma_c = 82(29) MeV at a = 0 (2412.01535v1 Table VIII p.11). That is a single constant extrapolation over B64 126(43), C80 43(41) and D96 80(110); an inverse-variance mean reproduces 82.4 +- 28.6. later_literature 'none retrieved / NOT-SEARCHED' is likewise superseded.",
+  "The 107(22) vs 82(29) separation of 0.69 combined sigma assumes independence, and the two are not independent: B64 is the same gauge ensemble as ETM 19's cB211.072.64. Report it as approximate. Like-for-like, B64 then and now is 107(22) vs 126(43), 0.39 sigma under the same independence caveat. The change is a supersession, not a refutation.",
+  "The audit's 'evidence the other way' (ETM 19 2.05 sigma above SVZ-LO 62.0 MeV) is a property of the single-ensemble value. At the continuum 82(29) it is 0.69 sigma, ETM error only. That is consistent with a fixed-spacing effect, which is not shown.",
+  "Rederivation defects (verifier 2, confirmed): check 4 ('107 > 70') is a literal that passes whatever the tree holds, so it is vacuous. The 2.1 sigma pass threshold was chosen after the computed 2.05 and 2.00. The 'largest printed' check compared 2 of FLAG's 5 values. None of these changes a conclusion.",
+  "Version note: the served FLAG PDF's p.1 stamp reads 'arXiv:2411.04268v2 [hep-lat] 17 Jan 2025' while alphaXiv serves the id as v3 and the tree cites v3. The page numbers (p.11, pp.260-261, p.267, p.275) match. This is a version note only, not a discrepancy in content.",
+  "ETM 19 prints f_Tc = 0.115(24) (Table XII). The audit's 0.1140 is 107/m_N with the tree's m_N = 938.919 MeV. The difference is the m_N convention, not a discrepancy.",
+  "No tree conclusion moves. At sigma_c = 82, 169 (82+3 sigma) and 126, HIGGS_SHARE_LARGEST_ALL stays 0.3090 and HIGGS_SHARE_LARGEST_READ stays 0.1719. The CONTESTED row itself moves from 0.2240 to 0.1972 at 82. The thresholds 186.0 MeV (row sets ALL) and 364.1 MeV (ALL reaches 1/2) are confirmed by mutation."
+ ],
+ "tree_sites": [
+  {
+   "site": "research/warp-drive/massform.py:353-356",
+   "kind": "dropped-hypothesis",
+   "finding": "'FLAG also prints a charm sigma term, up to 107(22) MeV (ETM 19, READ)' is exact as a reading of FLAG p.275, since 107 is the largest of the five charm values. It names neither N_f = 2+1+1 nor that the value is single-ensemble at a = 0.0801 fm with no continuum limit, and the value is superseded by ETM's continuum 82(29) MeV (2412.01535v1). The CONTESTED label and its exclusion from READ rows are correct and conservative. Line numbers are unchanged since the audit."
+  },
+  {
+   "site": "research/warp-drive/massform.py:371-372",
+   "kind": "consistent",
+   "finding": "'It is a largest central value, not a bound: uncertainties are dropped.' The dropped 22 MeV is disclosed by the owner."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1339-1343",
+   "kind": "discrepancy",
+   "finding": "The FLAG-sc quote is verbatim against FLAG p.275, confirmed by a fresh read and by the held page text. It is truncated: it drops the lead-in framing RQCD 16's 70(4) as a heavy-quark-limit estimate ('The resulting estimate for the charm quark, see, e.g.,') and the remaining values (ETM 16A 79, chiQCD 13A 94, BMW 20A f_Tc 0.0734, MILC 12C). This is a discrepancy in the excerpt and not in M's favour. The locator 'Sec. 10.4.4, p.275' is correct. The PDF stamp reads v2 against the cited v3, with the same page."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1352-1355",
+   "kind": "consistent",
+   "finding": "FLAG-def is verbatim on p.261, with Eqs. (431)-(433) on p.260, as cited."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1432",
+   "kind": "consistent",
+   "finding": "The pin ('FLAG-sc', '107(22)', 107.0) matches FLAG p.275 and ETM 19 Table XII."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1461",
+   "kind": "dropped-hypothesis",
+   "finding": "SIGMA_C_ETM19 = 107.0, 'READ ... FLAG-sc (largest printed)'. 'Largest printed' is true over all five FLAG values. As a sigma_c datum it is single-ensemble with no continuum extrapolation, now superseded by 82(29) MeV. No printed figure moves at 82 or at 169 (82+3 sigma)."
+  },
+  {
+   "site": "research/warp-drive/massform.py:1859-1862",
+   "kind": "dropped-hypothesis",
+   "finding": "The CONTESTED row 'sigma_piN + sigma_s + sigma_c (ETM 19)' adds FLAG N_f = 2+1+1 averages (60.9, 41.0) to a single-ensemble, non-continuum study value. The mix is heterogeneous, and the row is labelled CONTESTED and kept out of READ. Its value is 0.2240 at 107 and 0.1972 at 82. It sets no printed figure (ALL 0.3090 is set by 'six-quark coupling, FLAG 2+1+1')."
+  },
+  {
+   "site": "research/warp-drive/massform.py:5015-5017",
+   "kind": "consistent",
+   "finding": "The selftest asserts that the heavy-quark rows, including sigma_c, are labelled 'CONTESTED as mass'. It holds."
+  },
+  {
+   "site": "research/warp-drive/massform.py:3137",
+   "kind": "consistent",
+   "finding": "DOC_LITERALS names 'the study label ETM 19' as a literal, not a result. This is correct."
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/audits/feynman-hellmann.json:20",
+   "kind": "stale",
+   "finding": "A sibling audit's Lambda_4-route figure (0.3469, and 0.4470 at +3 sigma) uses ETM 19 sigma_c = 107. It rests on the single-ensemble value now superseded by 82(29). Not recomputed here; out of scope for this entry, and flagged for that entry's adjudication."
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/audits/1506.04142.json:20",
+   "kind": "stale",
+   "finding": "Cites FLAG-sc at 'massform.py:1336-1340'. The current site is :1339-1343. Its 'ETM 19 107(22)' and 'RQCD 16 70(4)' also treat RQCD 16 as a lattice value rather than FLAG's heavy-quark-limit estimate."
+  },
+  {
+   "site": "research/warp-drive/docket67-raw/run1-partial-fable/canonical.json:9259",
+   "kind": "stale",
+   "finding": "Quotes the charm sentence at 'massform.py:360-362' and SOURCES at ':1314-1350'. The current sites are :353-356 and FLAG-sc at :1339-1343. These line numbers are from an earlier run."
+  }
+ ],
+ "commands_run": [
+  "python3 -c json page-through of adjudicate/in/2411.04268-sigma_c.json (audit and all three verifier reports in full)",
+  "cat d67/verify/refute/2411.04268-sigma_c.txt; cat d67/verify/data/sigma_c_datacheck.out",
+  "git status --short research/; git log -1 -- research/warp-drive/massform.py (4841aaf, 6007 lines)",
+  "grep -n SIGMA_C_ETM19|FLAG-sc|ETM 19|107(22) research/warp-drive/massform.py; sed -n 345-375,1336-1358,1428-1434,1455-1465,1850-1880,5012-5025,3134-3140p massform.py (read-only)",
+  "grep -rn SIGMA_C_ETM19|ETM 19|107(22) research/ (other sites)",
+  "sed -n 1665-1690,1742-1765,2530-2600p d67/src/casmag/all/2411.04268v3.txt (held FLAG pp.267-268, 275)",
+  "mcp__alphaXiv__answer_pdf_queries(2412.01535: sigma_c continuum Table VIII, per-ensemble values, extrapolation, ETM19 statement) -> pp.1-2, 8-16",
+  "mcp__alphaXiv__answer_pdf_queries(1909.00485: sigma_c Table XII, ensembles Table I, continuum) -> pp.1-3, 13-16",
+  "mcp__alphaXiv__answer_pdf_queries(2411.04268: p.275 charm sentence, sigma_c average/Table 3, ETM19 single-ensemble, Table 72) -> pp.1, 11, 25, 260-261, 267-268, 270-275",
+  "cp rederive/2411.04268-sigma_c.py verify/rederive/2411.04268-sigma_c.verify.py verify/data/sigma_c_datacheck.py -> adjudicate/run/",
+  "PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/2411.04268-sigma_c.py -> ALL PASS 15/15",
+  "PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/2411.04268-sigma_c.verify.py -> verbatim True; max-of-five True; no average; mutation 185/187/364.0/364.2 confirmed",
+  "PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/sigma_c_datacheck.py -> 0.69 sigma; 169 < 186; 82.4 +- 28.6",
+  "PYTHONDONTWRITEBYTECODE=1 python3 adjudicate/run/adjudicate_sigma_c.py -> row 0.2240/0.1972/0.2905/0.2444; ALL 0.3090, READ 0.1719 throughout",
+  "git status --short research/ -> clean (0 lines) after all runs"
+ ],
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/run && PYTHONDONTWRITEBYTECODE=1 python3 2411.04268-sigma_c.py && PYTHONDONTWRITEBYTECODE=1 python3 2411.04268-sigma_c.verify.py && PYTHONDONTWRITEBYTECODE=1 python3 adjudicate_sigma_c.py && git -C /home/user/Claude-Method-Works status --short research/  # then answer_pdf_queries(paper='2412.01535', queries=['Table VIII sigma_c per ensemble and a=0']) and (paper='1909.00485', queries=['Table XII sigma_c; Table I ensembles'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/adjudicate/out/2411.04268-sigma_c.json"
+}

@@ -1,0 +1,9 @@
+   nonzero Christoffels of metric (2): ['-r(l)*Derivative(r(l), l)', '-r(l)*sin(theta)**2*Derivative(r(l), l)', '-sin(2*theta)/2', '1/tan(theta)', 'Derivative(f(l), l)/(2*f(l))', 'Derivative(f(l), l)/2', 'Derivative(r(l), l)/r(l)']
+PASS every Gamma of -f dt^2+dl^2+r^2 dOmega^2 is built from f'/f, f', r r', r'/r (and angular factors)
+   |Gamma^l_tt(h)-Gamma^l_tt(0)|/h: ['7.49', '75', '750', '7.5e+03']
+PASS f=1/(1+|l|^1.5): f(0)=1>0 (passes the tree's point test)
+PASS   but Gamma^l_tt is NOT Lipschitz at l=0 (difference quotient -> inf): Whitehead's (2.3) fails
+PASS   leading-order l''=(3/4)|l|^{1/2} has l=0 AND l=s^4/256 through (0,0): exp_p ill-defined
+PASS Whitehead's conclusion is local and sizeless: 'a simple, convex region which can be made as small as we please' (p.33)
+
+5 PASS, 0 FAIL

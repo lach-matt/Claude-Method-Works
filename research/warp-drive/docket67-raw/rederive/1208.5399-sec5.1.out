@@ -1,0 +1,18 @@
+PASS A1 FO eq.(28) re-derived symbolically -- -8*kappa**4*(18*kappa**4*t**4*xi - 3*kappa**4*t**4 - 44*kappa**2*t**2*xi - 3*kappa**2*t**2 + 2*xi)/(3*pi**2*(kappa**2*t**2 + 1)**5)
+PASS A2 FO eq.(29): rho(0,0) = -xi (2 kappa)^4 / (3 pi^2)
+PASS A3 spatial gradient at origin vanishes (angular integral of cos(theta) sin(theta))
+PASS B1 <Psi_kappa|Psi_kappa> = 1 -- 1
+PASS B2 FO eq.(26) <H> = 2 kappa/3 -- 2*kappa/3
+PASS C1 FO eq.(27) rho_{lambda kappa}(t) = lambda^4 rho_kappa(lambda t)
+PASS C2 continuity: at xi=1/6, kappa=1, rho(t,0) <= rho(0,0)/2 for |t|<=0.1 -- rho(0,0)=-0.0900633 max=-0.0591276
+PASS D1 j-particle additivity: <a^dag(f)a(g)> = n <h,f><g,h> (density matrix n|h><h|), pair terms 0 -- n = 1..4
+PASS E1 rho(0,0) = C^2 (A2^2 + 4 xi A1 A3) for real isotropic h
+PASS E2 A1 A3 / A2^2 -> oo as K -> oo (c = K^-3) -- 3*(K + 1)**2/(8*K)
+PASS E3 xi<0 witnesses: normalised rho(0,0) < 0 at xi = -1/100, -1/1000, -1/10 -- xi=-1/100 K=400 rho/norm=-8.154e+00; xi=-1/1000 K=4000 rho/norm=-8.111e+00; xi=-1/10 K=40 rho/norm=-8.597e+00
+PASS F1 single exponential: A1A3/A2^2 = 3/2 (negative at origin only for xi < -1/6)
+PASS F2 FO's h_kappa at xi = -1/10 gives rho(0,0) > 0 (FO's state does not cover xi<0) -- 8*kappa**4/(15*pi**2)
+PASS G1 'arbitrarily negative energy density can be sustained over arbitrarily large spacetime volumes' is in Sec. 5.1
+PASS G2 'One cannot expect state-independent QEIs to hold' is in Sec. 5.2, not 5.1
+PASS G3 Sec. 5.1 never says 'no state-independent QEI'; its only 'state-independent' is 'state-independent terms' inside the state-dependent bound
+PASS G4 Sec. 5.1 scopes the quantum argument to 'the case of Minkowski space'
+ALL PASS

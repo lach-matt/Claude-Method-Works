@@ -1,0 +1,34 @@
+PASS C1 Bianchi: nabla^a G_ab == 0 on metric (2) :: [0, 0, 0, 0]
+PASS C1b HPS printed G^t_t, G^l_l, G^th_th == computed :: [0, 0, 0]
+PASS C2 (1)H conserved :: [0, 0, 0, 0]
+PASS C2b control: +2RR_ab variant NOT conserved :: l-component nonzero
+PASS C2c trace (1)H == -6 Box R :: 0
+PASS C3 Bach conserved on metric (2) :: [0, 0, 0, 0]
+PASS C3b Bach traceless :: 0
+PASS C3c HPS log bracket B == const * Bach (so shifting ln mu == shifting alpha) :: -96
+PASS C4a (1)H^l_l at throat data == 2/r0^4, no 4th derivatives :: 2/rt**4
+PASS C4b ll constraint with beta term: r0^2 == -16 K^2 L - 2b :: -L/(360*pi) - 2*b
+PASS C4c b=0, L=-2/3: r0^2 == 1/(540 pi), r0 = 0.0242789 l_P (HPS eq.(9), tree) :: (1/(540*pi), 0.02427885)
+PASS C4d throat ceases to exist at b >= b_crit = 1/(1080 pi) l_P^2 = 2.947314e-04 :: (1/(1080*pi), 0.00029473137609610246, 5.333333333333333)
+    b = -1/(5760*pi)   r0^2 = 6.999870e-04  r0 = 0.026457  rho_geom(0)=1/(8 pi r0^2)= 56.8421
+    b = 1/(5760*pi)    r0^2 = 4.789385e-04  r0 = 0.021885  rho_geom(0)=1/(8 pi r0^2)= 83.0769
+    b = -1/100         r0^2 = 2.058946e-02  r0 = 0.143490  rho_geom(0)=1/(8 pi r0^2)= 1.9325
+    b = 1/10000        r0^2 = 3.894628e-04  r0 = 0.019735  rho_geom(0)=1/(8 pi r0^2)= 102.1631
+PASS C5a b=0 reproduces the tree f4/f = 259200 pi^2 (-L-1)/(L(3L+4)) :: -259200*pi**2*(L + 1)/(L*(3*L + 4))
+PASS C5b b=0 reproduces the tree r4/r = 129600 pi^2 (2-L^2)/(L^2(3L+4)) :: -129600*pi**2*(L**2 - 2)/(L**2*(3*L + 4))
+PASS C5c b = K^2 (one-loop size) moves both fourth derivatives at L=-2/3 :: {'f4f_b0': 639550.3651905905, 'f4f_bK2': 2930578.714814161, 'r4r_b0': 2238426.2781670666, 'r4r_bK2': 4644119.5749224415}
+    f4/f(b) = -259200*pi**2*(-L + 1440*pi*b)*(L + 720*pi*b + 1)/((L + 720*pi*b)**2*(3*L + 4)*(2160*pi*b - 1))
+    r4/r(b) = 129600*pi**2*(L**2 + 1440*pi*L*b + 518400*pi**2*b**2 + 2160*pi*b - 2)/((L + 720*pi*b)**2*(3*L + 4)*(2160*pi*b - 1))
+PASS C6a b=0: <rho>(0) == -45/L (tree) :: -45/L
+PASS C6b b=0: <rho+p_l>(0) == 0 (tree: radial NEC saturated on throat) :: 0
+    <rho>(0; b)       = 45*(-L + 1440*pi*b)*(720*pi*b - 1)/((L + 720*pi*b)**2*(2160*pi*b - 1))
+    <rho+p_l>(0; b)   = 64800*pi*b*(L + 720*pi*b - 1)/((L + 720*pi*b)**2*(2160*pi*b - 1))
+    b=-1/(5760*pi): <rho>(0)=24.4775  <rho+p_l>(0)=-23.3896
+    b=1/(5760*pi): <rho>(0)=196.8284  <rho+p_l>(0)=94.5799
+PASS C6c throat character changes with b/K^2 on [-10,10] at L=-2/3 (transitions listed) :: [(2.75, 'NOT-min'), (5.5, 'no-throat')]
+PASS C7 r0 = sqrt(-16 hbar K^2 L) -> 0 as hbar -> 0 with d r0/d hbar -> oo: not a power series in hbar about a classical solution (FW fn [77] class) :: {'r0': sqrt(10)*sqrt(hbar)*sqrt(-L)/(60*sqrt(pi)), 'dr0_dhbar_at_0': oo}
+PASS C8a Lambda / |G^t_t(throat)| at L=-2/3 (Lambda negligible) :: 1.6776109927390154e-125
+PASS C8b experimental ceiling |b| < 16 pi 1e61 l_P^2 exceeds b_crit by :: 1.705467640508241e+66
+PASS C8c length sqrt(|b|max) below which data do not exclude b*(1)H ~ G (metres) :: 0.0003623638031383694
+
+22/22 checks pass

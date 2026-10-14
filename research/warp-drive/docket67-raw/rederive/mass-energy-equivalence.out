@@ -1,0 +1,31 @@
+== A. Einstein 1905 two-pulse argument, exact
+PASS A1 total emitted energy in moving frame = gamma L   L*c/sqrt(c**2 - v**2)
+PASS A2 K0 - K1 = L (gamma - 1)   L*c/sqrt(c**2 - v**2) - L
+PASS A3 to O(v^2): K0 - K1 = (1/2)(L/c^2) v^2  (Einstein's printed form)   L*v**2/(2*c**2)
+PASS A4 exact at every v (given K = (gamma-1) m c^2): dm = L/c^2   [L/c**2]
+PASS A5 with Newtonian K the identification is exact only as v->0   L/c**2
+== B. The additive constant
+PASS B1 four-vector law + ansatz forces C = 0 for u != 0   [0]
+PASS B2 E^2 - p^2 c^2 = M^2 c^4 (so E(p=0) = M c^2)
+== C. z3: no nonzero C survives (rational box)
+PASS C1 z3: {g>1, C!=0, g(mc2+C) = g mc2 + C} is UNSAT   unsat
+PASS C2 vacuity guard: without C!=0 it is SAT (the box is not empty)
+== D. The tree's arithmetic (warpfolder imported read-only)
+PASS D0 tree c is the SI-exact 299 792 458   299792458.0
+PASS D1 100 kg -> 8.98755e18 J   8.987551787368176e+18
+PASS D2 printed 8.98e18 within 2e-3   0.0008409562770796963
+PASS D3 printed 4.49e20 (5000 kg) within 2e-3   0.0008409562770796963
+PASS D4 1e5 kg: 8.98755e21, printed 8.98e22 is x9.9916 (one slipped decade)   9.991597503361493
+PASS D5 100 kg = 2148 Mt = 2.15 Gt ('2.1 GIGATONS', 2 s.f. truncation-consistent)   2148.076431015338
+PASS D6 stored = Marx 1250 J + laser 235.6 J = 1485.6 J   (1250.0, 235.61944901923448, 1485.6194490192345)
+PASS D7 shortfall 6.050e15 = 15.78 orders   (6049699869843191.0, 15.781733829511285)
+     context: tau_Hawking(100 kg) = 8.411477904855981e-11 s
+== E. Data sensitivity
+PASS E1 at 3 sigma (eps=-1.46e-06) shortfall orders move by < 1e-5   15.781733195441806
+PASS E2 at 3 sigma the 1e5-row factor stays 9.99 (not 1)
+PASS E1 at 3 sigma (eps=1.18e-06) shortfall orders move by < 1e-5   15.781734341979078
+PASS E2 at 3 sigma the 1e5-row factor stays 9.99 (not 1)
+PASS E3 the 8.98e22 row would need c x sqrt(10) = 9.48e8 m/s (c is SI-exact: no datum can supply it)   947628619.2385707
+PASS E4 Newtonian self-binding of 100 kg at R=0.3 m is < 1e-24 of M c^2   1.485232053823733e-25
+
+RESULT: ALL PASS

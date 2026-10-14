@@ -1,0 +1,61 @@
+=== R2: eq. (9) transcription, READ at 0705.3704v2 p.5 ===
+PASS TH229_ENHANCEMENT == 1e5 (eq. 9)
+PASS TH229_COEFFS == {2, 0.5, -5} (eq. 9)
+PASS TH229_OMEGA_EV == 7 eV normalisation (eq. 9)
+
+=== R2: the tree's coefficient re-derived from eq. (9) ===
+  H1 coeff -3.496301e+05  (tree -3.496301e+05)
+  H2 coeff -4.500000e+05  (tree -4.500000e+05)
+PASS H1 coefficient reproduced
+PASS H2 coefficient reproduced
+  share of |inner| carried by the alpha term under H1: 1.058e-03
+  X_s term / (|X_q|+|X_s|) terms: 0.9091  -> the X_s coefficient dominates
+
+=== R2 DATA: transition energy ===
+  omega from nu (exact h/e): 8.355733554 eV
+PASS nu and quoted Delta E agree to 1e-9
+  (7 eV / omega) at the measured omega = 0.837748 ; tree uses 1 (omega=7)
+  H1 coeff at 7 eV -3.4963e+05 -> at 8.3557 eV -2.9290e+05 ; eps_det(1e-18) 2.8602e-24 -> 3.4141e-24
+  H2 coeff at 7 eV -4.5000e+05 -> at 8.3557 eV -3.7699e+05 ; eps_det(1e-18) 2.2222e-24 -> 2.6526e-24
+  1998-2007 range 3.5..7.6 eV spanned a factor 2.17 in (7eV/omega)
+
+=== R2 DATA: alpha sensitivity now MEASURED ===
+  eq.(9) implied K_alpha at measured omega: 1.6755e+05
+  eq.(9) implied Delta E_C = 2e5 * 7 eV = 1.400 MeV
+  Beeks 2024: K = 5900 +- 2300 ; Delta E_C = 0.049 MeV
+  check K = dE_C/omega: 5864
+PASS Beeks K consistent with its own dE_C/omega (within 3%)
+  eq.(9)/measured = 28.4  (1-sigma range 20.4 .. 46.5)
+  Beeks model caveat (p.4): a 1% differential octupole change moves K by 2850
+
+=== R2 LATER: X_q coefficient estimates, all normalised to omega_now ===
+  eq.9 (this paper)        K_Xq = 4.189e+04
+  Flambaum 2006 via FW     K_Xq = 3.638e+04
+  He-Ren 2007 via FW       K_Xq = 6.367e+04
+  Flambaum-Wiringa 2008    K_Xq = 1.364e+05
+  spread of published X_q coefficients: factor 3.75
+  X_s coefficient (-5e5 at 7 eV): no independent later estimate read here; FW 0807.4943 p.1 excludes it ('larger uncertainty')
+
+=== R2 SCENARIOS on the tree's figure (tree claims section 9 does not depend on it; NOT re-verified here) ===
+  eq.9 as used                   H1 coeff -2.929e+05  eps_det 3.414e-24  gain over electronic 2.93e+05
+  eq.9, FW X_q                   H1 coeff -2.194e+05  eps_det 4.559e-24  gain over electronic 2.19e+05
+  enh 1e4 (Caputo 'order 1e4')   H1 coeff -2.929e+04  eps_det 3.414e-23  gain over electronic 2.93e+04
+PASS in every scenario the nuclear courier still beats the electronic one by >1e3
+
+=== R1: M_p ~ Lambda_QCD and the tree's H2, symbolic ===
+PASS H2: d ln m_p/d ln v == Feynman-Hellmann S exactly
+PASS Flambaum's mu == X_e identity is the S -> 0 limit of the tree's K_mu = S - 1
+
+=== R1 DATA: S = sum sigma_q / m_p ===
+  RS 2015 sigma_piN (1506.04142, READ)               S_light = 0.0630 ; +sigma_s 0.0935
+  RS isospin-limit, as quoted in 2303.08741 (READ)   S_light = 0.0596 ; +sigma_s 0.0901
+  Mainz lattice 2023 sigma_piN (2303.08741, READ)    S_light = 0.0466 ; +sigma_s 0.0771
+  S span (light only low .. light+strange high): 0.0466 .. 0.0935 ; tree scan 0.0096/0.06/0.09
+  H2 stable-matter density at eps=1e-18: tree 3.6705e+12 ; over the S span 2.356e+12 .. 4.729e+12 kg/m^3
+PASS over the whole S span the H2 density stays > 1e7 x osmium (22590 kg/m^3)
+
+=== R1: the '~3' (scheme-dependent ratio), 2-loop MSbar, inputs NAMED-NOT-READ ===
+  2-loop Lambda^(3) ~ 357 MeV ; m_p/Lambda^(3) ~ 2.63
+PASS m_p / Lambda^(3) is O(3) (between 2 and 4) at 2 loops
+
+ALL CHECKS PASS

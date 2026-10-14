@@ -1,0 +1,105 @@
+{
+ "key": "causality-sound-speed-beta2-le-1",
+ "name": "Causality proxy: surface EOS slope beta^2 <= 1 as subluminal sound speed",
+ "source": {
+  "located": "The reading is not one paper's theorem but a convention of the thin-shell literature, stated with its own caveats in: E. Poisson & M. Visser, arXiv:gr-qc/9506083v1, PRD 52, 7318 (1995), sec. IV (p. 3-4); M. Ishak & K. Lake, arXiv:gr-qc/0108058v2, PRD 65, 044011 (2002), sec. II.D; E. F. Eiroa et al., arXiv:2408.14328v3 (2024), after Eq (42). The causal content it borrows -- a barotropic relativistic perfect fluid has characteristic speed sqrt(dp/deps), causal iff <= 1 -- is textbook and is MACHINE-CHECKED here for the shell's 2+1 worldvolume rather than read. The configuration-specific radial criterion that beta^2 is compared with is cross-checked against Pitre, Schneider & Poisson, arXiv:2604.05980v1 (2026) Eqs (3.11)-(3.16c), whose surface fluid is a genuine polytrope with thermodynamics, so its sound speed is defined. Later context: Simmonds & Visser, arXiv:2606.01061v1 (2026) sec. 2.6; Curiel, arXiv:1405.0403v1 (2014). Ellis, Maartens & MacCallum, 'Causality and the speed of sound', GRG 39, 1651 (2007), arXiv:gr-qc/0703121 is NAMED-NOT-READ.",
+  "read_status": "READ",
+  "via": "Verbatim page text cached in this docket's scratchpad from earlier alphaXiv tool results (src/casmag/all/): gr-qc_9506083v1.txt md5 1e67535c0026a14c76e24f318357121c (lines 754-845); gr-qc_0108058v2.txt md5 26cf595d20eaeeb5bfc27b4dc8891959 (lines 225-262); 2408.14328v3.txt md5 7b08b8dccd7bc84bdb92d0a560ce5000 (Eq 42 remark; ref [23] = PV 1995); 2604.05980v1.txt md5 9916ebc75c7859da12c37c59acc4458f (lines 640-830, 955-985); 2606.01061v1.txt md5 9da29ee321e68a8818170aaf0bf17ca4 (lines 1534ff); 1405.0403v1.txt md5 a99793ce4b564205c6b01ec34ec76854 (lines 662-672). Every live alphaXiv call in THIS stage (answer_pdf_queries x2, get_paper_content, discover_papers) returned 'alphaXiv assistant quota exceeded', and arxiv.org is refused by the egress proxy (CONNECT 403); the cached verbatim text is the read."
+ },
+ "published_statement": "PV 1995 sec. IV: 'Under normal circumstances one might (naively) try to interpret beta0 as the speed of sound in the exotic matter located at the wormhole throat. Furthermore, under normal circumstances one would require beta0 to lie in the interval beta0 in (0, 1]. (One would normally deduce beta0 > 0 from the assumed stability of matter, and argue that beta0 <= 1 based on the requirement that the speed of sound should not exceed the speed of light.) ... A certain level of caution in this interpretation is in order: ... we are already dealing with \"exotic matter\" ... the interpretation of beta0 as the speed of sound is itself problematic insofar as one does not have a detailed microphysical model for the exotic matter ... although one might expect beta0 to be of the same order of magnitude as the speed of sound, there is no guarantee that beta0 actually is the speed of sound. A detailed microphysical model for the exotic matter would be necessary in order to settle such issues with any certainty. We therefore conclude that wormhole configurations with |beta0^2| > 1 should not be ruled out a priori.' Ishak-Lake 2002 sec. II.D: 'Phenomenologically, for timelike Sigma, P'/sigma'(R) represents the square of the speed of sound on Sigma and so one would normally expect 0 <= P'/sigma'(R) < 1. However, one could also construct Sigma out of (say) fields for which P'/sigma'(R) need not even be positive. Since we are concerned with stability, not phenomenology, the plots we give generally extend beyond 0 <= P'/sigma'(R) < 1.' Eiroa et al. 2024: 'although kappa is the squared speed of sound in the case of ordinary matter, for which 0 < kappa <= 1, this may not be the case for exotic matter [23 = PV 1995].'",
+ "published_hypotheses": [
+  "S1 beta^2 = dp/dsigma is a PARAMETER of the linearised equation of state; its reading as c_s^2 is an interpretation, 'naive' in PV's word, 'phenomenological' in Ishak-Lake's",
+  "S2 the reading is offered for ORDINARY matter (sigma > 0, 'normal circumstances'); for exotic matter (sigma < 0, Casimir, false vacuum, fields) all three sources say it may fail and do not impose beta^2 <= 1",
+  "S3 settling whether beta is the sound speed needs a microphysical model of the shell matter (PV sec. IV), which none of the sources supplies",
+  "S4 (implicit in 'speed of sound', made explicit by PSP 2026's thermodynamic surface fluid) the shell matter is a barotropic/isentropic 2D perfect fluid, so that the slope along the perturbation is (dp/deps)_s",
+  "S5 the causal bound itself is the perfect-fluid one: characteristic speed <= light speed (PV: 'the speed of sound should not exceed the speed of light'); Ishak-Lake write the strict '< 1', PV and Eiroa '<= 1'"
+ ],
+ "hypothesis_drift": [
+  "KEPT (no drift): S1/S3 -- wall.py:201-203 names beta^2 as 'the slope of the thin-shell surface equation of state, which is not identical to the microphysical sound speed of the finite-thickness wall. The causality reading beta^2 <= 1 is the standard one and is a proxy.' That is the sources' own caveat, carried.",
+  "KEPT (no drift): S2 -- the tree applies the reading only where the sources say it is normal: the warpshell wall has sigma_0 = (1-s)/(4 pi R) > 0 and p_0 = (1-s)^2/(16 pi R s) > 0 (wall.py statics, identical to PSP Eq 3.12, check C3), i.e. ordinary matter; PV's and Eiroa's exotic-matter exemption does not arise.",
+  "WEAKENED at the sites that carry the conclusion: the proxy qualifier of wall.py:201-203 is dropped where the result is stated -- wall.py:39-40 'STRICT STABILITY IS AVAILABLE EVERYWHERE THE WALL IS REALIZABLE, WITH A SUBLUMINAL SOUND SPEED'; wall.py:33 'the causal ceiling'; wall.py:292 docstring 'strict stability would need superluminal sound'; wall.py:558 'subluminal at x'; wall.py:676-683 report table headed 'c_s / c' and 'causal?' ending 'every window the wall is realizable in (x < 4/5) is causal.'; warpshell.py:72-73 'subluminal throughout x < 0.8437'; restatus.py:155 'subluminal through the whole operative window x < 4/5'. Each reads the proxy as the sound speed without the qualifier. A wording drift, not an arithmetic one.",
+  "DROPPED (unnamed hypothesis S4, shear-free fluid): the identification beta^2 = c_s^2 and the bound c_s <= 1 are exact only for a shear-free (perfect-fluid) surface -- machine-checked here (C4): linearising div T = 0 for T = (eps+p)uu + p eta on the 2+1 worldvolume gives omega^2 = (dp/deps) k^2. The radial mode is a uniform areal dilatation and sees only the bulk response, so for a shear-bearing (elastic) wall beta^2 = K/(eps+p) while longitudinal waves see c_L^2 = beta^2 + mu_s/(eps+p) (linear elasticity, RECONSTRUCTED, check C5b). Then beta^2 <= 1 does NOT imply causality; the causal stable window is beta2_crit < beta^2 <= 1 - mu_s/(eps+p), open iff mu_s/(eps+p) < 1 - beta2_crit: 0.92067 at x = 0.3, 0.63397 at x = 2/3, 0.26393 at x = 4/5. wall.py:201-203 says 'not identical' but does not name the direction, and a solid wall moves the ceiling DOWN, not up. wall.py:195-196 does name 'Anisotropic elastic matter on 2/3 < x < 4/5' as NOT TREATED -- but as a gap in whether the stability threshold is cleared, not as a condition on the causal ceiling, which is where shear bites. Le's realized wall (a 'Bowers-Liang anisotropic equilibrium', wall.py:195) is an anisotropic FLUID and the worked Einstein-Vlasov model is collisionless; neither carries shear in this sense, so the drift does not touch the models the tree actually works.",
+  "DROPPED (unnamed hypothesis S4, isentropic perturbation): c_s^2 = (dp/deps) at fixed entropy; along a non-adiabatic perturbation -- the RADIATING shell -- the EOS slope is not the sound speed (the general point of Simmonds-Visser 2026 sec. 2.6: dp/drho along a sequence equals c_s^2 only under a single global EOS). Partially carried: wall.py:199-200 leaves 'the flux-coupled dynamic stability of the RADIATING shell' open, but not as a condition on the causality reading.",
+  "DIRECTION, carried: for a finite-thickness wall whose layers each respond with local c_t^2(n) and whose perturbation is one-signed, dp/dsigma is a positive-weight average of c_t^2 (C5a, 20000 random walls), so beta^2 <= 1 is NECESSARY for local causality but not sufficient (counterexample: beta^2 = 0.46 with a layer at c_t^2 = 1.5). The tree's beta2_crit < 1 therefore shows causality does not EXCLUDE the stable window, not that causal matter attains it; restatus.py:156-157 'Open: admissible matter at that stiffness' carries exactly this.",
+  "DISCREPANCY, immaterial: Ishak-Lake write the strict '0 <= P'/sigma' < 1', PV '(0, 1]', Eiroa '0 < kappa <= 1', the tree '<= 1' (wall.py:203). The boundary beta^2 = 1 sits at x* = 0.84374, outside the operative window x < 4/5, so strict vs non-strict changes nothing the tree claims."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "x* where beta2_crit(x) = 1 (root of 15 s^3 + 3 s^2 - s - 1, s = sqrt(1-x))",
+   "value_then": "0.8437418926 (wall.py:36, 553)",
+   "value_now": "0.843741892629416 (sympy nroots, 30 digits; s* = 0.395294962490777)",
+   "source_now": "rederive/causality-sound-speed-beta2-le-1.py C1 -- derived, no measured input",
+   "moves_conclusion": "No. Pure algebra; agrees to 1e-12. 4/5 < x* < 24/25 exactly as the tree states."
+  },
+  {
+   "quantity": "beta2_crit at x = 0.3, 2/3, 4/5",
+   "value_then": "0.07933, (sqrt3-1)/2 = 0.366025, sqrt5 - 3/2 = 0.736068 (wall.py:27-29)",
+   "value_now": "0.079332, 0.366025, 0.736068",
+   "source_now": "C2 of the rederive script; also equal to PSP 2026 Gamma_1 * p/(mu+p) identically (C3)",
+   "moves_conclusion": "No."
+  },
+  {
+   "quantity": "any measured datum",
+   "value_then": "none -- PV 1995, Ishak-Lake 2002 and the tree use no measured number; the causal bound is c = 1 in geometric units",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "No datum exists to move. The only 'data' the reading lacks is the wall's microphysics (fluid vs elastic, shear modulus, adiabaticity), which no source supplies."
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/causality-sound-speed-beta2-le-1.py",
+  "outcome": "ALL PASS (sympy 1.14.0, z3 5.1.0). C1: beta2_crit - 1 has numerator -(15s^3+3s^2-s-1), one real root in (0,1), x* = 0.843741892629416 = tree's 0.8437418926. C2: d beta2_crit/ds = -2(3s^3+3s^2+5s+1)/(4s^3(3s+1)^2) < 0 on (0,1), z3 unsat for any counterexample (vacuity guard sat), so beta2_crit is strictly increasing in x and < 1 on all of x < x*, including x < 4/5. C3: beta2_crit equals PSP 2026 Gamma_1 converted by beta^2 = Gamma p/(mu+p), as an exact symbolic identity, and wall.py's p_0 equals PSP Eq (3.12). C4: the linearised conservation law of a barotropic relativistic perfect fluid on the 2+1 worldvolume, derived from T^{ab}, gives d_t de + (eps+p) div v = 0 and (eps+p) d_t v + c_s^2 grad de = 0, dispersion omega^2 = (dp/deps) k^2; z3 proves |(v+c_s)/(1+v c_s)| <= 1 for all |v| < 1 iff c_s <= 1 (unsat / sat). So within the perfect-fluid thin-shell model the reading is exact, not merely a proxy. C5a: thick-wall averaging makes beta^2 <= 1 necessary but not sufficient. C5b: with shear the causal ceiling drops to 1 - mu_s/(eps+p) (RECONSTRUCTED illustration). C6: the Vlasov slope wall.py uses has ceiling 1/2 and is < 1 for all u > 0 (z3). Owner's own selftest (python3 wall.py --selftest, run read-only) prints SELFTEST OK.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "M. Ishak & K. Lake, arXiv:gr-qc/0108058v2 (PRD 65, 044011, 2002), sec. II.D",
+   "effect": "confirms",
+   "what": "Repeats the reading as phenomenological: P'/sigma' 'represents the square of the speed of sound on Sigma and so one would normally expect 0 <= P'/sigma' < 1', while noting fields can violate it and plotting beyond it because 'we are concerned with stability, not phenomenology'.",
+   "read_status": "READ (cached verbatim text)"
+  },
+  {
+   "ref": "E. F. Eiroa, G. Figueroa-Aguirre et al., arXiv:2408.14328v3 (2024), remark after Eq (42)",
+   "effect": "confirms",
+   "what": "'kappa is the squared speed of sound in the case of ordinary matter, for which 0 < kappa <= 1, this may not be the case for exotic matter [PV 1995]' -- the ordinary-matter reading the tree uses, still standard in 2024.",
+   "read_status": "READ (cached verbatim text)"
+  },
+  {
+   "ref": "C. Pitre, M. Schneider & E. Poisson, arXiv:2604.05980v1 (2026), Eqs (1.1), (3.11)-(3.18), sec. X",
+   "effect": "extends",
+   "what": "Gives the shell matter a thermodynamic polytrope p = K sigma^Gamma with mu = sigma + p/(Gamma-1), so the surface sound speed is defined: dp/dmu = Gamma p/(mu+p). The radial criterion Gamma >= Gamma_1, converted, is identical to wall.py's beta2_crit (C3). This is the microphysical model PV said was missing, for the positive-mass Minkowski/Schwarzschild shell, and it makes the tree's beta^2 an honest sound speed squared for that class. It also shows the l >= 2 even-parity instability, which wall.py already records and which beta^2 does not reach.",
+   "read_status": "READ (cached verbatim text)"
+  },
+  {
+   "ref": "C. Simmonds & M. Visser, arXiv:2606.01061v1 (2026), sec. 2.6",
+   "effect": "narrows",
+   "what": "'c^2_sound = dp/drho ... relies on an unstated assumption that one is dealing with a highly mixed fluid star described by a single global equation of state p(rho)'; with composition variable mu the correct statement is (dp/drho)_mu. General caution that an EOS slope equals a sound speed only under stated thermodynamic assumptions -- for the tree, the isentropic/barotropic hypothesis S4.",
+   "read_status": "READ (cached verbatim text)"
+  },
+  {
+   "ref": "E. Curiel, arXiv:1405.0403v1 (2014), 'A Primer on Energy Conditions'",
+   "effect": "extends",
+   "what": "For a barotropic effective fluid c_s^2 := dp/drho, and 'the NEC does not require that c_s <= 1'; likewise WEC. So the causality reading is an independent hypothesis, not implied by the energy conditions the tree separately verifies (dec margin); the tree treats it separately, correctly.",
+   "read_status": "READ (cached verbatim text)"
+  },
+  {
+   "ref": "G. F. R. Ellis, R. Maartens & M. A. H. MacCallum, 'Causality and the speed of sound', GRG 39, 1651 (2007), arXiv:gr-qc/0703121",
+   "effect": "contested",
+   "what": "Known by title to argue that dp/drho > 1 need not violate causality because the signal (front) speed is set by high-frequency behaviour. Would bear only on the direction the tree does not need (it claims beta^2 < 1, not that beta^2 > 1 is forbidden). NOT READ: live alphaXiv quota exhausted and not cached; no claim from it is used.",
+   "read_status": "NAMED-NOT-READ"
+  },
+  {
+   "ref": "discover_papers call for later work",
+   "effect": "contested",
+   "what": "The one permitted discovery call returned 'alphaXiv assistant quota exceeded'. Coverage of later work is limited to the cached, verbatim-read papers above. Not a finding either way.",
+   "read_status": "NOT-RUN (quota)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: what did the authors of the reading lack, and would having it change the conclusion? PV 1995 said exactly what they lacked: 'a detailed microphysical model for the exotic matter would be necessary' to know whether beta0 is a sound speed. For the tree's case the matter is ordinary (sigma_0, p_0 > 0), and the missing model has since been supplied for this very configuration by Pitre-Schneider-Poisson 2026: a thermodynamic polytropic surface fluid, for which beta^2 = dp/dmu IS the adiabatic sound speed squared and whose radial criterion reproduces beta2_crit identically (C3). Having that data CONFIRMS the reading for the perfect-fluid class rather than overturning it; the perfect-fluid causality bound c_s <= 1 is machine-checked here (C4). What is still lacking, and what could move the conclusion, is the wall's actual microphysics: (i) shear -- an elastic wall lowers the causal ceiling to 1 - mu_s/(eps+p), closing the window at x = 4/5 once mu_s/(eps+p) >= 0.264 but at x = 0.3 only once it reaches 0.921; (ii) non-adiabaticity of the radiating shell, where the EOS slope is not the sound speed; (iii) thickness structure, which makes beta^2 <= 1 necessary but not sufficient. None of these is a moved datum; each is an unmeasured property of a wall no one has built. (Orientation only, NOT read at source here and not grade-bearing: textbook terrestrial solids have mu_s/(rho c^2) of order 1e-10, e.g. steel mu ~ 80 GPa, rho ~ 7.85e3 kg/m^3, so ordinary elasticity would not close the window; relativistically stiff matter is precisely what is unknown.) Evidence either way: no contradiction computed; one confirmation (PSP 2026); one narrowing hypothesis (shear-free, isentropic) that the tree's proxy caveat gestures at without naming its direction.",
+ "grade": "NARROWED",
+ "grade_evidence": "The arithmetic STANDS: x* = 0.843741892629416 (root of 15s^3+3s^2-s-1), beta2_crit strictly increasing in x (z3), < 1 on all of x < 4/5, and identical to PSP 2026's independently derived Gamma_1 criterion (C1-C3, ALL PASS). The borrowed causal content STANDS for a shear-free barotropic surface fluid: c_s^2 = dp/deps and c_s <= 1 iff causal characteristics (C4, machine-checked). The reading is applied to ordinary matter, the case in which PV, Ishak-Lake and Eiroa all call it the normal one. It is NARROWED because (a) it holds exactly only for a shear-free, isentropically perturbed surface fluid -- a hypothesis the tree does not name; for an elastic wall the causal ceiling is lower, beta^2 <= 1 - mu_s/(eps+p) (C5b), so the headline 'WITH A SUBLUMINAL SOUND SPEED' (wall.py:39-40), 'every window ... is causal' (wall.py:683), warpshell.py:72-73 and restatus.py:155 are true for fluid walls and conditional for solid ones (still open at low x unless mu_s/(eps+p) > 0.92 at x = 0.3); and (b) the proxy qualifier the owner does state (wall.py:201-203) is dropped at every site that carries the conclusion. Not WRONG: no counterexample within the models the tree works (Bowers-Liang fluid, Einstein-Vlasov with slope ceiling 1/2), and wall.py already names the proxy.",
+ "what_would_change_the_grade": "To STANDS: the tree names 'shear-free (perfect-fluid) surface matter, isentropic radial perturbation' as a hypothesis of the causal reading and carries the proxy qualifier at wall.py:39-40, 683, warpshell.py:72-73 and restatus.py:155 -- or restricts the claim to fluid walls, where C4 makes it exact. Toward OPEN or further narrowing: a read of Ellis-Maartens-MacCallum 2007 (NAMED-NOT-READ) showing the signal-speed bound is stricter than dp/deps <= 1 for a relevant class; or a relativistic-elasticity source (e.g. Karlovini-Samuelsson / Carter-Quintana, not read) giving the shell longitudinal speed with a coefficient differing from the linear c_L^2 = beta^2 + mu_s/(eps+p) used here as a RECONSTRUCTED illustration. Toward WRONG: only a shear-free, adiabatic surface fluid with dp/deps < 1 whose characteristics are nonetheless superluminal, which C4 excludes.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive && python3 causality-sound-speed-beta2-le-1.py && cd /home/user/Claude-Method-Works/research/warp-drive && python3 wall.py --selftest | tail -1 && sed -n 33,40p wall.py && sed -n 199,203p wall.py && sed -n 676,683p wall.py && sed -n 754,845p /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/src/casmag/all/gr-qc_9506083v1.txt",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/causality-sound-speed-beta2-le-1.json"
+}

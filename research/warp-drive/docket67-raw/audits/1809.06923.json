@@ -1,0 +1,74 @@
+{
+ "key": "1809.06923",
+ "name": "Markkanen, Rajantie, Stopyra (2018), Cosmological Aspects of Higgs Vacuum Metastability, Front. Astron. Space Sci. 5:40 -- a true-vacuum bubble expands at ~c, with different particle masses inside, and destroys what it meets",
+ "source": {
+  "located": "arXiv:1809.06923 (v2 per the tree) = Front. Astron. Space Sci. 5:40 (2018), doi 10.3389/fspas.2018.00040 (identity confirmed by WebSearch result titles: arxiv.org/abs/1809.06923, ADS 2018FrASS...5...40R, frontiersin.org). The tree cites Sec. 4.1 printed p.24 and Sec. 6 printed p.54.",
+  "read_status": "NAMED-NOT-READ",
+  "via": "NOT READ IN THIS AUDIT. alphaXiv answer_pdf_queries and get_paper_content returned 'alphaXiv assistant quota exceeded' on four attempts; discover_papers likewise. arxiv.org, export.arxiv.org, www.frontiersin.org, www.alphaxiv.org and api.semanticscholar.org were all refused by the egress proxy (403 connect_rejected; recorded in the proxy status endpoint); per the proxy README these were reported, not routed around. The only text available is the tree's OWN transcription, massform.SOURCES['MRS-bubble'] (massform.py:1303-1312), recorded READ by DOCKET 65. That transcription is quoted below as the tree's, not re-verified against the source."
+ },
+ "published_statement": "NOT RE-READ HERE. As transcribed by the tree (massform.py:1306-1312), Sec. 4.1 p.24: 'This causes it to expand at near the speed of light, resulting in the space around a nucleation point being converted to the true vacuum, releasing energy into the bubble wall. Apart from the destruction that this would unleash, and the different masses of fundamental particles in the bubble interior, the result is also gravitational collapse of the bubble'; Sec. 6 p.54: 'Once a bubble has formed, it expands at the speed of light, destroying everything in its way.' Whether these words stand verbatim at those pages is OPEN in this audit.",
+ "published_hypotheses": [
+  "UNREAD HERE -- the following are the hypotheses the quoted content needs physically (re-derived below), NOT quoted from the source:",
+  "H-META: the electroweak vacuum is metastable (a lower-energy true vacuum exists); the source is a review of cosmological consequences IF metastable (the tree takes the metastability status from 1307.3536, audited under its own key)",
+  "H-NUC: a bubble has nucleated and is supercritical (radius >= Coleman's R0 = 3 sigma/eps); sub-critical fluctuations recollapse",
+  "H-FLAT/H-NOFRIC: wall runaway to v -> c holds in the absence of gravity and of a friction-supplying plasma (the late, cold Universe); 'near the speed of light' and 'at the speed of light' are the same claim asymptotically",
+  "H-NEG (for 'gravitational collapse of the bubble'): the interior vacuum has negative energy density (Coleman-De Luccia 1980; classic, NAMED-NOT-READ)",
+  "'different masses of fundamental particles in the bubble interior' needs only h_inside != v; the location of the true minimum in the SM depends on physics near the Planck scale (standard statement, NOT read in this source here)"
+ ],
+ "hypothesis_drift": [
+  "massform.py:1981-1987 -- the tree derives VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT = not (DECAY_CHANGES_PARTICLE_MASSES and DECAY_DESTROYS_WHAT_IT_MEETS). z3 shows (A and B and F) is satisfiable: the source's two clauses do not entail 'no atomic mass forms at the seat'. A bridging premise (named here H-BRIDGE: 'a region whose particle masses differ and which destroys what it meets forms no atomic mass of ours') is ADDED by the tree. The tree does label it an INFERENCE 'not a sentence of' the source (massform.py:436-437; ledger D29 text massform.py:2898-2900 / LEDGER.md:52), so the drift is DECLARED as inference, but H-BRIDGE itself is not named as a hypothesis, and the code comment at massform.py:1984-1985 calls it 'Refuted by the READ text', which is stronger than 'INFERENCE'.",
+  "massform.py:1981-1987 -- the boolean uses only 'different masses' and 'destroying everything in its way'; it drops the transcribed clause 'gravitational collapse of the bubble' (held in the text, massform.py:1310, and quoted at :431), which under H-NEG is the physically stronger support for 'no atomic mass forms'. Dropping it weakens the tree's own support, not the source.",
+  "massform.py:1983 -- 'destroying everything in its way' is a review's summary sentence (Sec. 6, conclusions), not a computed result; the tree turns it into a derived boolean by string match on its own transcription. The string match tests the tree against its transcription, not against the source.",
+  "'different masses inside' (massform.py:430, :1981) cuts both ways: with h_inside >> v every Yukawa mass rises by h_inside/v (4e7 at 1e10 GeV, 5e16 at M_Pl; rederive (2)), so a literal reading is that the interior holds HEAVIER particles. 'no ATOMIC mass' therefore turns on the word 'atomic' (ordinary atoms of our masses) plus the collapse, i.e. on H-BRIDGE.",
+  "ledger D29 (massform.py:2898-2900; ledger.py:731 builds PROPOSED from massform.PROPOSED_ROWS and :744-745 appends D27-D29) drops the tree's own hypothesis 'whether a local process could nucleate a bubble is NOT computed' (kept at massform.py:440-441) -- the ledger row states the inference without that restriction. Not a drift against the source (the source's statements are conditional on nucleation, per the tree's own quote 'Once a bubble has formed').",
+  "Kept correctly: 'decay case only (metastable vacuum)' -- c4_combined (massform.py:1996-2001) covers stable and metastable; z3 proves c4_combined == rel OR dec, independent of the case, so the top mass cannot reach C4 as the tree says."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical inputs to the bubble-dynamics claim as used (wall speed -> c, energy into wall, masses differ)",
+   "value_then": "none -- the canonical entry's data_used is empty; the claim holds for any eps > 0, sigma > 0, h_inside != v",
+   "value_now": "none",
+   "source_now": "rederive/1809.06923.py (1): wall energy / released vacuum energy = 1 and v -> 1 symbolically, for all sigma, eps",
+   "moves_conclusion": "no -- nothing to move"
+  },
+  {
+   "quantity": "top-quark pole mass (decides whether H-META holds at all)",
+   "value_then": "the source's value NOT READ here; the tree takes metastability status from Buttazzo et al. 1307.3536 (M_t < 171.53 +/- 0.42 GeV for stability, massform.py:420)",
+   "value_now": "PDG 2024 world average of direct measurements 172.57 +/- 0.29 GeV -- NAMED-NOT-READ in this audit (recalled, not read at source; the PDG review could not be fetched this session)",
+   "source_now": "PDG 2024 (NAMED-NOT-READ); audited under key 1307.3536, not here",
+   "moves_conclusion": "no for this key -- the tree's case split (c4_combined) makes C4 independent of stable vs metastable (z3-valid), so the top mass cannot move D29's use of 1809.06923"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1809.06923.py",
+  "outcome": "ALL CHECKS AGREE (exit 0; output in rederive/1809.06923.out). (1) sympy, flat-space thin wall: a bubble at rest at R0 = 3 sigma/eps has zero total energy; energy conservation gives gamma = R/R0; the O(4) hyperbola R(t) = sqrt(R0^2 + t^2) reproduces gamma exactly; lim v = 1; the wall carries exactly 100% of the released vacuum energy -- the transcribed 'expand at near the speed of light ... releasing energy into the bubble wall' re-derived under H-FLAT, H-THIN, H-NOFRIC, H-SUPER. Numeric, R0 ~ 1/(1e11 GeV): gamma = 5.1e26 and 1-v = 1.9e-54 at R = 1 m. (2) Yukawa rescaling m_f proportional to h: interior masses differ for any h_inside != v, and are LARGER for h_inside above v (illustrative interior values, not READ). (3) z3: masses_differ AND destroys AND atomic_mass_forms is SAT, so the tree's 'no atomic mass at the seat' is not entailed by the two clauses; with H-BRIDGE added it is UNSAT (entailed). z3 also proves c4_combined == rel OR dec and (not rel and not dec) -> not C4. (4) the tree's booleans recomputed from its own transcription: DECAY_CHANGES_PARTICLE_MASSES = True, DECAY_DESTROYS_WHAT_IT_MEETS = True, VACUUM_DECAY_FORMS_ATOMIC_MASS_AT_THE_SEAT = False, HIGGS_FIELD_SUPPLIES_THE_MASS_ENERGY = False; the transcription contains both 'near the speed of light' and 'expands at the speed of light' and 'gravitational collapse'. Not checkable here: that the transcription matches the source (source unreadable this session); the gravitational collapse (needs CDL, not re-derived).",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Coleman & De Luccia, Phys. Rev. D 21, 3305 (1980) -- gravitational effects on vacuum decay (pre-arXiv classic)",
+   "effect": "extends",
+   "what": "source of the 'gravitational collapse of the bubble' for a negative-energy interior; would supply the H-NEG support the tree's boolean omits",
+   "read_status": "NAMED-NOT-READ (no arXiv copy readable; alphaXiv quota exhausted)"
+  },
+  {
+   "ref": "Higgs vacuum (in)stability during inflation: the dangerous relevance of de Sitter departure and Planck-suppressed operators, JHEP 02 (2020) 142",
+   "effect": "contested",
+   "what": "title only (WebSearch result): Planck-suppressed operators affect Higgs stability -- bears on where the true minimum sits (h_inside) but not on the qualitative claims used",
+   "read_status": "NOT READ -- title from WebSearch; discover_papers unavailable (quota)"
+  },
+  {
+   "ref": "Massless preheating and electroweak vacuum metastability, Phys. Rev. D 105, 043508 (2022)",
+   "effect": "extends",
+   "what": "title only (WebSearch result): early-Universe decay triggers; does not bear on the post-nucleation dynamics the tree uses",
+   "read_status": "NOT READ -- title from WebSearch"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result: what the tree uses is post-nucleation bubble dynamics (wall -> c, energy into the wall, interior masses differ). Re-derived here, these depend on no measured datum: they hold for every eps > 0, sigma > 0 and h_inside != v (rederive (1),(2)), so no datum the 2018 authors lacked can move them. The data-dependent part is whether the vacuum is metastable at all (top mass, alpha_s, Planck-scale operators), which the source takes as its premise and the tree takes from 1307.3536; the tree's case split makes C4 independent of it (z3-valid). What would move the tree's USE is not data but the bridging premise H-BRIDGE: evidence against it would be a source computing that the bubble interior forms bound atoms of ordinary mass at the nucleation site, which nothing read here shows; evidence for it (the CDL interior crunch) is NAMED-NOT-READ. No evidence either way was obtainable from the source itself this session.",
+ "grade": "OPEN",
+ "grade_evidence": "The source could not be READ in this audit (alphaXiv quota exceeded x4; arxiv.org, export.arxiv.org, frontiersin.org, alphaxiv.org, semanticscholar.org refused by the egress proxy), so neither the verbatim statement nor its hypotheses can be checked against the published text; by M's rule a claim not checkable here is OPEN, not STANDS. What WAS checked: (a) the physical content the tree quotes -- runaway wall to c carrying 100% of the released energy, and interior masses differing -- re-derives exactly (sympy) under named hypotheses H-FLAT, H-THIN, H-NOFRIC, H-SUPER, with no datum to move; (b) the tree's step from the two clauses to 'decay forms no atomic mass at the seat' is NOT an entailment (z3 SAT counter-model) and needs a premise H-BRIDGE that the tree labels INFERENCE but does not name, while a code comment (massform.py:1984-1985) calls it 'Refuted by the READ text'; (c) the tree omits its own transcribed 'gravitational collapse' clause from the boolean, and the ledger D29 row drops the 'nucleation by a local process NOT computed' restriction kept at massform.py:440-441. None of (b)-(c) is a fault of the source; they are discrepancies in the tree's use, recorded, not repaired. Nothing here is WRONG.",
+ "what_would_change_the_grade": "A successful read of 1809.06923v2 at pp.24 and 54 (alphaXiv once the quota resets): if the transcription matches verbatim and the section states the claims conditional on nucleation in a metastable vacuum, the quoted content would STAND and the grade of the tree's use would be NARROWED (H-BRIDGE added and unnamed; the ledger row drops the local-nucleation restriction), or STANDS if the tree names H-BRIDGE and treats the collapse clause as its support. A mismatch in the transcription would be a discrepancy to record. Reading Coleman-De Luccia (via an arXiv restatement) would settle whether the interior crunch supports H-BRIDGE.",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/1809.06923.py  # then: alphaXiv answer_pdf_queries(paper='1809.06923', queries=['exact paragraph with \"different masses of fundamental particles in the bubble interior\" (Sec 4.1 p.24)', 'exact paragraph with \"destroying everything in its way\" (Sec 6 p.54)', 'interior vacuum energy sign / crunch', 'local nucleation by collisions or black holes'])",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/1809.06923.json"
+}

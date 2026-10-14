@@ -1,0 +1,78 @@
+{
+ "key": "hep-th/0302039#domain",
+ "name": "Popov: the AHS approximation is derived/established only for asymptotically flat spacetimes",
+ "source": {
+  "located": "A. A. Popov, 'Analytical approximation of the stress-energy tensor of a quantized scalar field in static spherically symmetric spacetimes', arXiv:hep-th/0302039v2 (19 Feb 2003) -- confirmed from its own p.1: header 'arXiv:hep-th/0302039v2 19 Feb 2003', title as above, 'Arkady A. Popov, Department of Mathematics, Kazan State Pedagogical University, Mezhlauk 1 st., Kazan 420021, Russia', 'PACS number(s): 04.62.+v, 04.70.Dy'.",
+  "read_status": "READ (alphaXiv, hep-th/0302039v2); AHS itself READ-VIA-RESTATEMENT (see ahs-1995-prd51-4337)",
+  "via": "alphaXiv answer_pdf_queries(hep-th/0302039) returned v2 pp.1, 2, 4, 5, 8, 9, 10, 11, 12, 14, 15, 16 (abstract, Secs. I-VI, eqs. (1)-(8), (17)-(33), (42)-(83), Appendix A (A7)-(A8), Appendix B (B1)-(B3) in full, refs [1]-[15]); pp.3, 6, 7, 13 were not returned (eqs. (9)-(16), (34)-(41), (A1)-(A6)). HPS gr-qc/9701064v1 re-read the same way, pp.1-12."
+ },
+ "published_statement": "Popov (READ), the three places the tree cites: p.1 'Using the methods of quantum field theory the expressions for <phi^2> and <T^mu_nu> of a scalar field in static spherically symmetric asymptotically flat spacetimes have been obtained by Anderson, Hiscock, and Samuel [4].' Eq. (70), Sec. V p.10: 'The behavior of low-frequency modes is determined by the boundary conditions and the topological structure of the spacetime. If the spacetime is asymptotically flat and the characteristic scale of the gravitational field inhomogeneity lambda is much less than the parameter sqrt(f)/omega_0, [(70)] the low-frequency contributions to <phi^2> and <T^mu_nu> can be expanded in terms of powers of this small parameter. ... This means that we choose the long-wave modes approximately coincident with long-wave modes of the Minkowski vacuum (... the Boulware quantum state).' Sec. VI p.12: 'In this paper, analytical approximations for <phi^2>_ren and <T^mu_nu>_ren of quantized scalar fields in static spherically symmetric asymptotically flat spacetimes have been obtained. The field is assumed to be in a zero temperature vacuum state, with mass m <~ 1/L ... The necessary conditions for the validity of the analytical approximations (74),(78)-(80) are lambda << sqrt(f(rho))/w_0 << L(rho), (83) where lambda is the characteristic scale of the gravitational field inhomogeneity in asymptotically flat spacetime'; 'When the massless conformally coupled scalar field is in a zero temperature vacuum state and propagating in static spherically symmetric asymptotically flat spacetimes the expressions (74),(78)-(80) are equivalent to ... the analytical approximation of Anderson, Hiscock, and Samuel [4].' Against these: Popov p.2 outline 'In Sec. II the expressions for the Euclidian Green's function and the unrenormalized stress-energy tensor of a scalar field with arbitrary mass and curvature coupling in a general static spherically symmetric spacetime are derived.' and Sec. IV (pp.4-5, 8-10), where the high-frequency (AHS) part is computed under eps_WKB = |r|/(u_0 L) << 1 alone, with no asymptotic-flatness condition. TSH p.6 and HPS p.3 (READ) restate AHS for 'a general' / 'an arbitrary' static spherically symmetric spacetime. Owner (hpscentre.py:94-96, :299-301, read): 'Every instance fails a hypothesis under which the AHS approximation has been DERIVED OR ESTABLISHED: asymptotic flatness (Popov hep-th/0302039 p.1, eq. (70), Sec. VI).'; DOMAIN_WORD = 'established: the AHS approximation has been derived or established only for asymptotically flat spacetimes (Popov p.1, eq. (70), Sec. VI); nothing here shows it invalid'.",
+ "published_hypotheses": [
+  "Popov's approximation to <T>_ren (74), (78)-(80): static spherically symmetric, ASYMPTOTICALLY FLAT, zero-temperature vacuum with Boulware-type long-wave modes (Sec. V), m <~ 1/L, and (83) lambda << sqrt(f)/w_0 << L.",
+  "Popov's high-frequency part (= AHS at fourth WKB order): general static spherically symmetric spacetime, eps_WKB = |r|/(u_0 L) << 1 (29), u_0 >> |r|/L (30); no asymptotic-flatness condition.",
+  "Equivalence <T>_ren ~ AHS: massless, conformally coupled, zero-temperature vacuum, asymptotically flat (p.12)."
+ ],
+ "hypothesis_drift": [
+  "SUPPORTED, all three citations check: p.1 attributes asymptotic flatness to AHS; eq. (70) is the AF condition; Sec. VI states the result for AF spacetimes with validity condition (83). 'Established only for AF' is what Popov's paper establishes.",
+  "NARROWER THAN 'DERIVED': on Popov's own derivation, the AHS EXPRESSION is obtained without asymptotic flatness (Sec. II 'general static spherically symmetric spacetime'; Sec. IV conditions (29)-(30) only), and AF enters at Sec. V for the low-frequency part. The script's P5 shows the mechanism: in AF/Boulware the cutoff-dependent (T)^(0) cancels the low-frequency part exactly (m = 0), leaving AHS. So what is confined to AF is the claim '<T>_ren ~ AHS', i.e. 'established', not the derivation of the expression. 'Derived ... only for AF' holds only as Popov's p.1 attribution to AHS, which TSH p.6 and HPS p.3 contradict. (This confirms the first audit's z3 finding, now at source.)",
+  "DROPPED FROM DOMAIN_WORD: the state (zero-temperature vacuum; Boulware-type long-wave modes, Sec. V) and the validity window (83). Both are hypotheses of what Popov establishes, and both are extra conditions the HPS instances would also have to meet; linstab.py:417-420 carries the state separately.",
+  "'ONLY' is a universal negative; the read literature supports it (all tests restated are in AF black-hole spacetimes: TSH pp.6, 13-14, AHT p.3, AHL) and nothing read establishes the approximation in a non-AF spacetime. Popov 2001 p.1 goes further: 'not applicable' in Minkowski-plane x S^2, said of HPS's use.",
+  "NO DRIFT toward M: the tree claims no invalidity ('nothing here shows it invalid'); the narrowing adds hypotheses the HPS instances fail too."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "numerical input to the domain statement",
+   "value_then": "none",
+   "value_now": "none",
+   "source_now": "n/a",
+   "moves_conclusion": "no datum"
+  },
+  {
+   "quantity": "HPS non-flatness (the instance the domain is applied to)",
+   "value_then": "HPS p.8 (READ): 'The redshift function however, does not approach a constant value as l -> oo, so the metric as a whole is not asymptotically flat.'",
+   "value_now": "same",
+   "source_now": "gr-qc/9701064v1 p.8 (READ this run)",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "M_NEGATIVE_FOUND_INSIDE_DOMAIN (tree record pin)",
+   "value_then": "False",
+   "value_now": "False",
+   "source_now": "hpscentre.py:274 (read); carried from first audit (selftest OK)",
+   "moves_conclusion": "no; strengthened by the extra hypotheses"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy (shared Popov script) + first-audit z3",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py",
+  "outcome": "17 checks, 0 FAIL. P5 locates asymptotic flatness exactly: (T)^(0) (high-frequency, cutoff-dependent, conserved, traceless) + the AF/Boulware low-frequency part (75)-(76) = 0 identically at m = 0, and (T)^(2) = 0 at xi = 1/6, so <T>_ren -> (T)^(4) = AHS only after the AF low-frequency input. The expression (T)^(4) itself (P1-P4) is conserved with no AF input. The first audit's z3 check (rederive/hep-th_0302039_domain.py: 'derived only under AF' UNSAT, 'established only under AF' SAT on the tree's Sec. IV reading) is now matched by the source text.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Popov hep-th/0109166 (PRD 64 104005)",
+   "effect": "narrows",
+   "what": "AHS 'not applicable' in Minkowski-plane x S^2 (about HPS's use) -- narrows the domain further, in the tree's direction.",
+   "read_status": "READ (alphaXiv, v1)"
+  },
+  {
+   "ref": "Taylor-Hiscock-Anderson gr-qc/9608036; Hochberg-Popov-Sushkov gr-qc/9701064",
+   "effect": "contested",
+   "what": "Restate the AHS METHOD for a general / arbitrary SSS spacetime, against Popov p.1's 'asymptotically flat'; contest the 'derived' half only.",
+   "read_status": "READ (alphaXiv)"
+  }
+ ],
+ "lacked_data": "The domain statement takes no datum. What would test it -- an exact renormalised <T_ab> for the massless conformal field in a non-AF static geometry compared with AHS -- is still absent from everything read; Jiang-Zhang 2606.01980 computes exact <T> on a wormhole throat but for a massive minimally coupled field. The literature that exists (Popov 2001) narrows the domain in the tree's direction.",
+ "grade": "NARROWED",
+ "supersedes_grade": "OPEN",
+ "grade_evidence": "Read at source. The 'established only for AF' half stands, with every cited location checked (p.1, eq. (70), Sec. VI and (83)). But DOMAIN_WORD's 'derived or established only for asymptotically flat spacetimes' is broader than the source on 'derived': Popov derives the AHS expression in a general static spherically symmetric spacetime and confines only the low-frequency part -- hence the approximation <T>_ren ~ AHS -- to AF, and it attaches two further hypotheses DOMAIN_WORD omits: the zero-temperature (Boulware-type) vacuum and the window (83). So the statement is true only when 'derived' is read as 'established' and the state/(83) hypotheses are carried. The narrowing does not move O5: HPS's instances fail AF (HPS p.8) and the added hypotheses only enlarge what they fail.",
+ "what_would_change_the_grade": "To STANDS: reword DOMAIN_WORD to 'established (as an approximation to <T>_ren) only for asymptotically flat spacetimes in a zero-temperature vacuum, under Popov (83)', or read AHS itself and find an AF hypothesis in AHS's derivation. To WRONG: a published establishment of the massless conformal AHS approximation in a non-AF spacetime (none found; Popov 2001 points the other way).",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/popov-hep-th_0302039.py   # expect \"17 checks, 0 FAIL\", exit 0 (imports hpscentre.build read-only); python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/hep-th_0302039_domain.py; sed -n 94,110p /home/user/Claude-Method-Works/research/warp-drive/hpscentre.py; sed -n 299,301p /home/user/Claude-Method-Works/research/warp-drive/hpscentre.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/reaudit/hep-th_0302039_domain.json",
+ "pages_read": [
+  "Popov hep-th/0302039v2: pp.1, 2, 4, 5, 8, 9, 10, 11, 12, 14, 15, 16",
+  "Hochberg-Popov-Sushkov gr-qc/9701064v1: pp.1-12",
+  "Taylor-Hiscock-Anderson gr-qc/9608036v1: pp.1-18",
+  "Popov hep-th/0109166v1: p.1 (and pp.3-5, 8, 10)"
+ ]
+}

@@ -1,0 +1,93 @@
+{
+ "key": "phase1-transition-equation-log-lensing-integral",
+ "name": "Closed form Delta d = (G/c^2) M Lambda, Lambda = 2[ln(2 R_s/b) - 1] (code: b -> sqrt(b^2+a^2)); a first-order line integral of the potential, Shapiro/lensing type, matched by phase1.py to its own Simpson measurement",
+ "source": {
+  "located": "No outside source is cited by the owner (phase1.py:154-172 says 'Measured, then matched to closed form'). The external content it rests on is the weak-field line-integral form of the Shapiro effect: I.I. Shapiro, PRL 13, 789 (1964), 'Fourth test of general relativity' -- restated as a line integral of the potential in B.P. Abbott et al., 'Gravitational Waves and Gamma-Rays from a Binary Neutron Star Merger: GW170817 and GRB 170817A', ApJL 848:L13 (2017), arXiv:1710.05834, Sec. 4.3 eq. (3), which also quotes the Cassini bound on gamma.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "arXiv:1710.05834 read from the local capture scratchpad/d67/src/1710.05834.cached.txt (lines 295-330 for eq. 3, lines 376-386 for the Cassini gamma bound), itself an earlier alphaXiv page read; the PDF extraction is garbled and eq. (3) is reconstructed from its glyphs as delta t_S = -(1+gamma)/c^3 int_{r_e}^{r_o} U(r(l)) dl. Shapiro 1964 itself is NAMED-NOT-READ. At this stage alphaXiv answer_pdf_queries(1403.7377), get_paper_content(1403.7377, fullText) and discover_papers each returned 'alphaXiv assistant quota exceeded'. The closed form is therefore checked not by reading but by re-deriving it from first principles (sympy) and by exact quadrature (mpmath), which is the stronger test for a calculus result."
+ },
+ "published_statement": "Owner (phase1.py:156): 'Delta d = (G/c^2) * M * Lambda, Lambda = 2[ln(2 R_s / b) - 1]'; code phase1.py:359-361 lam() = 2(ln(2 Rs/sqrt(b^2+a^2)) - 1); proper_contraction (phase1.py:275-277) = int (1 - e^{-Phi}) dl by Simpson, n = 100001, over |x| <= X along a straight line at impact b; phi_device (phase1.py:261-263) = m/sqrt(r^2+a^2) - m/max(r,R_s). External form it is of the type of (arXiv:1710.05834 eq. 3, reconstructed): delta t_S = -(1+gamma)/c^3 int U(r(l)) dl -- the first-order effect of a weak static potential is its line integral along the unperturbed path; the proper-distance analogue carries gamma alone.",
+ "published_hypotheses": [
+  "weak field: first order in U/c^2 (Phi << 1); linearised metric, straight unperturbed path (Shapiro line-integral form, 1710.05834 eq. 3)",
+  "PPN spatial metric (1 + 2 gamma U) delta_ij; GR gamma = 1 (Cassini: gamma - 1 = (2.1 +/- 2.3)e-5, Bertotti et al. 2003, as quoted in 1710.05834)",
+  "static source",
+  "owner's device: Plummer core a = 0.02, compensating thin shell at R_s = 200, ray at impact b = 1 (phase1.py:214, 261-263); M_ADM = 0 so the line integral converges (saturates)",
+  "R_s >> sqrt(b^2+a^2) for the closed form (sympy: exact inner integral minus closed form = (a^2+b^2)/(2 R_s^2))",
+  "both endpoints outside the shell (half-baseline X >= sqrt(R_s^2 - b^2)) for the saturation claim"
+ ],
+ "hypothesis_drift": [
+  "WEAKENED at specthm.py:96 and specthm.py:945: 'contraction is linear in m for every m > 0'. The law is first order in Phi and was measured on m = 5e-3..8e-2 (phase1.py:163-164). The tree's own nonlinear integrand gives per-unit-m 9.864 (m=0.08, -1.19%), 9.301 (m=0.5, -6.82%), 8.743 (m=1, -12.42%), 7.886 (m=2, -21.0%) against Lambda 9.9825, and beyond Phi ~ 1 the e^{-Phi} ansatz is not GR's weak field at all. Immaterial where specthm actually uses it (mu = achievable.M_OVER_B = 5e-3, achievable.py:305 -- the measured endpoint, 0.08%), material as a general statement.",
+  "DROPPED at phase1.py:178-181 (THE PRICE): '4 light years, contracted by 1 % -> 2.57e10 solar masses' and '... by 50 % -> 1.28e12 solar masses' apply the first-order law at the seated geometry (R_s/b = 200, Lambda = 9.98). Saturation needs both endpoints outside the shell, X >= R_s = 200 b, so m = (Delta d/L) * 2(R_s/b)/Lambda >= 0.401 for 1 % and >= 20.04 for 50 % -- 5x and 250x past the measured window (8e-2). The seated geometry certifies fractional contractions up to 0.200 % of the endpoint separation within the measured window. At m = 0.401, X = R_s, the tree's own integrand gives per-unit-m 9.426, so the law UNDER-prices the 1 % case by 5.9 %; a weak-field-consistent geometry (R_s/b <= 22.4, Lambda = 5.61) costs 4.57e10 M_sun. Direction: the true price at these fractions is HIGHER than printed, not lower -- the owner's 'galaxy of negative mass' conclusion is strengthened, not weakened; the printed figures are outside the law's hypotheses.",
+  "WEAKENED at phase1.py:172 and 184-186: 'There is no free parameter left' / 'Nothing in the geometry is left to optimise' -- Lambda depends on R_s/b and a/b (the owner's own lambda_cost_of_improving, phase1.py:343-349, says so); the claim holds at fixed geometry, and 'improvable only logarithmically' is the correct form (re-derived here: for ANY source element inside the compensating shell at distance rho from the ray, Lambda = 2[ln(2 R_s/rho) - 1] independent of its position along the ray -- measured 9.9825292 at x_s = 0, 50, 100, 150 to 2e-9 -- so the logarithmic ceiling extends to arbitrary distributions at first order).",
+  "DROPPED (unnamed) at phase1.py:157-160: the saturation claim needs both endpoints outside the shell. With endpoints inside (X = 50, 100, 150) per-unit-m is 8.680, 9.566, 9.877 and grows with X. The tested baselines (400, 2000, 20000) all satisfy it, so the statement is right where tested; the hypothesis is not written.",
+  "UNNAMED at phase1.py:275-277: the contraction is measured along the fixed straight coordinate line at impact b, not along the slice geodesic. D3's d_s(A,B) (phase1.py:27-28) is a distance (an infimum over curves), so the straight-line value bounds d from above and the measured contraction from below; the difference is O(m^2).",
+  "UNNAMED metric ansatz at phase1.py:276: proper length element e^{-Phi} dl is the isotropic gamma = 1 form; with PPN gamma, Delta d scales by gamma (the time delay by (1+gamma)/2). Cassini bounds the move to <= ~9e-5 (|gamma-1| + 3 sigma) -- immaterial.",
+  "DISCREPANCY (prose vs code) phase1.py:156 vs phase1.py:359-361: prose Lambda = 2[ln(2R_s/b) - 1] = 9.982929; code uses sqrt(b^2+a^2), 9.982529 (4.0e-5 relative). The code form is the one that matches the exact first-order integral (9.982542, 1.25e-6). Not a refutation.",
+  "DISCREPANCY (precision word) phase1.py:157-158 'IDENTICAL TO NINE DIGITS at half-baselines 400, 2000 and 20000': the owner's own Simpson (n = 100001, h = 0.4 at X = 20000) gives a relative spread of 1.46e-8..1.80e-8 (~7.8 digits) at every m in the window; exact quadrature gives 1.26e-10 (~9.9 digits). The physical saturation holds; the instrument as written does not show nine digits. The selftest tolerance (1e-6, phase1.py:378) passes.",
+  "WEAKENED (canonical wording 'cut at shell R_s'): phi_device's Plummer core is not cut -- outside r > R_s Phi = m(1/sqrt(r^2+a^2) - 1/r) != 0 (~ -m a^2/2r^3), so D2 compact support (phase1.py:23-24) is approximate for this potential; its line-integral tail is -5.0e-9 per unit m, immaterial to Lambda.",
+  "NUMERICAL NOTE phase1.py:266-272: _simpson with odd n = 100001 is not a valid composite Simpson rule (weights end ...,2,1). At n = 100001 it agrees with exact quadrature to 1.5e-8; at even n = 100000 the same grid spacing gives 9.974772 (2.3e-5 off) -- grid sensitivity well below every figure the tree quotes (3 decimals)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G (Newtonian constant)",
+   "value_then": "6.67430e-11 m^3 kg^-1 s^-2 (phase1.py:212)",
+   "value_now": "6.67430(15)e-11 (CODATA 2022)",
+   "source_now": "scipy 1.17.1 scipy.constants, _current_codata = 'CODATA 2022' (computed here)",
+   "moves_conclusion": "no -- unchanged; exchange rate c^2/(G Lambda) = 1.34895e26 kg/m re-computed"
+  },
+  {
+   "quantity": "c",
+   "value_then": "2.99792458e8 m/s",
+   "value_now": "exact (SI)",
+   "source_now": "SI definition",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "PPN gamma (sets Delta d proportional to gamma)",
+   "value_then": "gamma = 1 implicit in e^{-Phi} (phase1.py:276)",
+   "value_now": "gamma - 1 = (2.1 +/- 2.3)e-5 (Cassini, Bertotti et al. 2003)",
+   "source_now": "arXiv:1710.05834 as captured in scratchpad/d67/src/1710.05834.cached.txt:376-386 (READ-VIA-RESTATEMENT)",
+   "moves_conclusion": "no -- moves Lambda_eff by < 1e-4 relative"
+  },
+  {
+   "quantity": "solar mass (price figures only)",
+   "value_then": "1.98892e30 kg (phase1.py:213)",
+   "value_now": "GM_sun = 1.3271244e20 m^3 s^-2 (IAU 2015 nominal) / G = 1.98841e30 kg",
+   "source_now": "IAU 2015 Resolution B3 nominal value, not read at source here (value recalled; flagged)",
+   "moves_conclusion": "no -- 2.6e-4 relative; 'one solar mass buys' 14744.2 m -> 14740.5 m"
+  },
+  {
+   "quantity": "device geometry A_CORE, R_SHELL, B_RAY",
+   "value_then": "0.02, 200, 1 (phase1.py:214)",
+   "value_now": "same (design parameters, not measurements)",
+   "source_now": "phase1.py",
+   "moves_conclusion": "no datum; Lambda depends on them only logarithmically"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/phase1-transition-equation-log-lensing-integral.py",
+  "outcome": "sympy: int_{-X0}^{X0} [1/sqrt(x^2+c^2) - 1/R_s] dx = 2 asinh(X0/c) - 2 X0/R_s; with X0 = sqrt(R_s^2-b^2), c^2 = b^2+a^2 the series in 1/R_s minus the closed form is (a^2+b^2)/(2 R_s^2) -- the closed form is exact to leading order. mpmath: exact first-order Lambda = 9.982541674 (inside 9.982541679, exterior tail -5.0e-09) vs code 9.982529174 (rel -1.25e-06). Nonlinear exact int(1-e^{-Phi}) per unit m at m = 5e-3..8e-2: 9.974997, 9.967468, 9.952460, 9.922636, 9.863747 -- owner's 9.975, 9.967, 9.952, 9.923, 9.864 reproduced to 3 dp; owner's Simpson agrees with exact to 1.5e-8..1.8e-8. The 0.0755 % closed-vs-measured gap at m = 5e-3 is the Phi^2 term (predicted 0.0757 %). Saturation: exact spread 1.26e-10 over X = 400/2000/20000; owner's Simpson 1.5e-8 (not nine digits). Endpoints inside the shell do not saturate. Off-ray position independence of Lambda confirmed to 2e-9. Exchange rate 1.34895e26 kg/m reproduced. Scope: seated geometry certifies <= 0.200 % fractional contraction within the measured window; 4 ly at 1 % needs m >= 0.401, at 50 % m >= 20.0.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "B.P. Abbott et al., arXiv:1710.05834, ApJL 848:L13 (2017), Sec. 4.3 eq. (3)",
+   "effect": "confirms",
+   "what": "restates the Shapiro effect as the first-order line integral of the potential along the path, weighted (1+gamma), and quotes Cassini's gamma - 1 = (2.1 +/- 2.3)e-5 -- the form phase1's Lambda integral is of, and the datum it silently sets to 1",
+   "read_status": "READ-VIA-RESTATEMENT (local capture scratchpad/d67/src/1710.05834.cached.txt, garbled PDF extraction; not re-read at alphaXiv this stage)"
+  },
+  {
+   "ref": "discover_papers (Shapiro delay / negative mass / proper distance; weak-field line integral with zero-ADM-mass screening)",
+   "effect": "contested",
+   "what": "NOT RUN TO RESULT: the call returned 'alphaXiv assistant quota exceeded'. No later work narrowing or contradicting the logarithmic line integral was read at this stage; the result is elementary calculus on linearised GR and its correctness here rests on the re-derivation, not on literature.",
+   "read_status": "NOT-READ (quota exceeded)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested: the external ingredient is linearised GR's line-integral form (Shapiro 1964). The only datum it carries is PPN gamma, which Shapiro's era took as GR's gamma = 1 and Cassini (2003) has since pinned to |gamma - 1| <~ 2e-5: having that datum moves Lambda_eff by < 1e-4 relative -- it does not change the conclusion. G is unchanged in CODATA 2022. So no datum the authors lacked moves this result; evidence: the recomputed exchange rate, Lambda and per-unit-m values agree with the owner's to the digits quoted. What the tree lacked is not data but scope: the weak-field window (m <= 8e-2 measured) and the endpoints-outside-the-shell condition are not carried to specthm.py:96/945 ('every m > 0') or to the astronomical price figures (phase1.py:180-181), which sit at m >= 0.40 and m >= 20. That is a hypothesis drift inside the tree, not an error in outside physics -- and it cuts against M's hopes, not for them: at those fractions the true price is higher.",
+ "grade": "NARROWED",
+ "grade_evidence": "Closed form re-derived symbolically (sympy: correction (a^2+b^2)/(2R_s^2)) and numerically (exact first-order Lambda 9.982542 vs code 9.982529, 1.25e-6); every quoted per-unit-m value, the 0.08 % agreement (explained quantitatively by the Phi^2 term), saturation (exact spread 1.3e-10) and the 1.349e26 kg/m exchange rate reproduce. No datum moves it (G CODATA 2022 unchanged; Cassini gamma). It is NARROWED, not STANDS, because the tree uses it on a larger class than its hypotheses: (i) specthm.py:96 and :945 state linearity 'for every m > 0' where the law is first order and drops 12.4 % below Lambda at m = 1 in the tree's own integrand; (ii) the price figures phase1.py:180-181 (4 ly at 1 % and 50 %) require m >= 0.401 and >= 20.04 at the seated geometry, outside the weak-field window; within it the seated geometry certifies only <= 0.200 % fractional contraction. The uses that matter for the refusals (specthm R4/R12 at mu = 5e-3, b = 1 m; the per-metre exchange rate for small fractions) are inside the hypotheses and stand. Two discrepancies are recorded, not refutations: prose b vs code sqrt(b^2+a^2) (4e-5), and 'nine digits' where the owner's Simpson shows ~7.8.",
+ "what_would_change_the_grade": "To STANDS: specthm.py:96/945 restricted to the weak-field window (m <~ 0.08 at 1.2 %), and the phase1.py:180-181 price figures either restricted to fractions <= 0.2 % at R_s/b = 200 or recomputed at a weak-field-consistent geometry (or by a strong-field solution). To WRONG: a strong-field or geodesic-distance computation showing the first-order law fails inside the measured window m <= 8e-2 at more than its stated 1 % -- the exact nonlinear integral here shows it does not (1.19 % at m = 0.08). A non-GR gamma far from 1 would rescale Delta d proportionally (Cassini excludes it).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/phase1-transition-equation-log-lensing-integral.py /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/phase1-transition-equation-log-lensing-integral.out.json",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/phase1-transition-equation-log-lensing-integral.json"
+}

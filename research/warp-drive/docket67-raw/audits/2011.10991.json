@@ -1,0 +1,91 @@
+{
+ "key": "2011.10991",
+ "name": "Sorge, eq. (36): int_V sqrt(-g) T^i_(C) i = 0 for a complete Casimir apparatus",
+ "source": {
+  "located": "F. Sorge, 'Quasi-local Casimir energy and vacuum buoyancy in a weak gravitational field', arXiv:2011.10991v1 [gr-qc], 22 Nov 2020 (INFN Napoli); eqs (29)-(40), sec. 6; appendix eqs (64)-(72)",
+  "read_status": "READ",
+  "via": "alphaXiv get_paper_content(fullText=true) -- whole paper read, 20 pp. incl. references. Only v1 was read; the acknowledgment thanks referees, so a journal version exists (not read; the tree's precedent: discrepancies below are NOT to be quoted against the journal version until it is read)."
+ },
+ "published_statement": "Sec. 6, from the equilibrium equation f_nu + nabla_mu T^mu_(C) nu = 0 (31) in the Fermi metric ds^2 = (1+2 gamma z)dt^2 - dx^2 - dy^2 - dz^2 (30), with the weight identified as F_z = int_V d^3x sqrt(-g) f_z = m gamma = gamma int_V d^3x sqrt(-g)[T^t_t - T^i_i]_(C) (32): 'The first and the last term cancel each other [at the O(gamma) order ...]' (34)->(35); 'The last term is zero, since it can be converted to a surface integral on the boundary dV of the cavity volume, where T^mu nu_(C) = 0. The second term is zero, as the cavity does not exchange energy and momentum with the surroundings. As a consequence int_V d^3x sqrt(-g) T^i_(C) i = 0. (36)'. Then m = int_V sqrt(-g) T^t_(C) t (37), T_(C) = T_(phi) + T_(cav) (38). p.11: 'it appears evident the cancellation between the space-like components of the stress-energy tensors T_(phi) and T_(cav) ... We point out that such cancellation basically relies on the virial theorem [2]'. Boxed conclusion p.11: 'We have thus proved that if (according to the Equivalence Principle) the gravitational and inertial (quasi-local Tolman) mass associated to the field quantum vacuum coincide, then the quasi-local mass value is related solely to the T^t_(phi) t component'. Abstract: 'it is possible to attribute a Tolman mass to a massless scalar field confined to a Casimir cavity'.",
+ "published_hypotheses": [
+  "H1 weak static field, first order in gamma only: Fermi metric (30) 'To first order, and neglecting rotations', O(|x|^2) dropped; gamma uniform over the apparatus (sec. 5)",
+  "H2 the apparatus is a test system: T_(C) does not appreciably influence the background (assumption (c), sec. 3; sqrt(-g_T) ~ sqrt(-g), eq. (27))",
+  "H3 compact support: T^mu nu_(C) = 0 outside and on the boundary dV of the integration volume (assumption (a); eq. (29) 'T^mu nu_(C) = 0 outside the cavity'; used to kill int d_j T^j_z in (35))",
+  "H4 stationarity: int d_t T^t_z = 0 ('the cavity does not exchange energy and momentum with the surroundings'; footnote 1, the field fluctuations are fast compared with lab times)",
+  "H5 held at rest by an external non-gravitational force density f_nu (31) -- a NON-closed system",
+  "H6 THE PREMISE (32): the weight equals gamma times the quasi-local Tolman mass (29), justified by the Equivalence Principle -- eq. (36) is derived FROM it; the paper says the result 'basically relies on the Equivalence Principle, which was indeed employed in deriving the result (40)'",
+  "H7 complete apparatus: T_(C) = T_(phi) + T_(cav) (38); T_(cav) is never modelled -- the field/wall cancellation is inferred from the integral, not computed",
+  "H8 model: massless minimally coupled scalar field, Dirichlet parallel plates, L << sqrt(A_perp), edge effects neglected (sec. 2); the paper notes different fields give different Tolman masses (p.11) -- eq. (36) itself does not use the field's form",
+  "H9 the cancellation is attributed (not proved independently) to the virial theorem, citing Landau-Lifshitz [2], Carlip [55], Ohanian [10]"
+ ],
+ "hypothesis_drift": [
+  "DROPPED (premise), tolman.py:167-169 'proves int_V sqrt(-g) T^i_(C) i = 0 for the apparatus (his eq. 36)': Sorge derives (36) from conservation PLUS the premise (32) F_z = gamma m_Tolman (H6); his own boxed statement is conditional ('if ... coincide, then ...'). Re-derived here (C): conservation ALONE gives F_z = gamma int sqrt(-g) T^tt (Calloni's result); adding (32) gives EXACTLY int sqrt(-g) T^i_i = 2 gamma int sqrt(-g) z T^tt. The conclusion does not fall: flat-space von Laue (static, divergence-free, compactly supported T^ij => int T^ij = 0) supplies it independently at O(gamma^0), machine-checked in D. So 'proves' overstates Sorge's logic; the content is carried by von Laue, which tolman.py already cites through Wang 1206.5618 eq. (20).",
+  "DROPPED (order), tolman.py:171-172 '4 pi R^3 p_r(R) = 0 identically' and tolman.py:2608-2609 'returns exactly zero': (36) enters (35) multiplied by gamma, so it is established only at O(gamma^0); the O(gamma) remainder 2 gamma int z T^tt depends on the origin of z (frame-dependent) and, physically, on HOW the apparatus is held (E: a column hung vs supported gives int T^zz = +/- gamma M h/2). Relative size gamma h/c^2 = 1.1e-22 (1 um), 1.1e-18 (1 cm), 1.1e-16 (1 m). In the tree's own setting (a fixed, unsourced background, flat for the plate cell; HYPOTHESES 'test_field_background') von Laue is exact and 'identically' is correct; the drift is in citing a weak-field O(gamma) paper for an exact zero. No conclusion moves.",
+  "WEAKENED (what 'complete' means), tolman.py:170-171 'for a COMPLETE apparatus -- field plus mirrors': field plus mirrors is not a static closed system -- the Casimir attraction must be carried by whatever holds the plates apart. Sorge's T_(cav) (H7) is 'the cavity itself', never modelled; Fulling et al. hep-th/0702091 p.3 (READ): 'the energy-momentum tensor of the complete physical situation must be conserved ... if we included a physical mechanism holding the plates apart against the Casimir attraction'. Checked (D): the EM field alone has int sum_i T^ii = E_total != 0 (Tolman mass 2E), so the spacers/frame must carry -E_total. Naming gap in the tree's gloss; the refusal is unaffected.",
+  "WIDENED (the refusal's stated ground), tolman.py:173-174 'REFUSES on a ball containing a mirror', :549 'any ball enclosing a mirror : REFUSE (Sorge eq. 36, section 1)', :1016-1017, :2974 'a ball enclosing a mirror: REFUSE (von Laue, Sorge eq. 36)': eq. (36) and von Laue cover only a region containing the WHOLE support (H3). A ball that contains one mirror but cuts the apparatus is not covered: there int T^i_i is generally NONZERO (D: sub-ball -27 pi/8; partial-frame strip -24/35; interior strip -2097152/688905). The refusal is still correct -- the test has no licensed content where unmodelled wall stress enters -- but for a cutting ball its ground is 'unmodelled wall stress', not 'integrates to zero'. A refusal is a non-claim, so this is not over-representation in either direction; it is a mis-cited ground.",
+  "ADDED (field transfer), tolman.py:2607-2609 (switch.py, 'the EM switch') applies the scalar-field paper to an EM apparatus: harmless -- the derivation of (36) uses only conservation, compact support, stationarity and (32), not the scalar Lagrangian; Fulling et al. make the same complete-conservation point for the EM plates.",
+  "PARAPHRASE, tolman.py:167-168 'attributes a Tolman mass to a Casimir cavity': the abstract says 'to a massless scalar field confined to a Casimir cavity'. Minor; the quotation 'basically relies on the virial theorem' (tolman.py:169-170) is verbatim (p.11).",
+  "SOURCE-SIDE DISCREPANCY, not the tree's: Sorge eq. (33) prints (1/sqrt(-g)) d_mu T^mu_(C) z where the covariant divergence is (1/sqrt(-g)) d_mu(sqrt(-g) T^mu_z) - Gamma-term. Checked (C): the difference after the measure is d_j((sqrt(-g)-1) T^j_z), itself a total derivative, so it does not reach (36). Recorded as a display discrepancy in v1, not an error; the journal version was not read."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "gamma (local gravitational acceleration) entering (30)-(36)",
+   "value_then": "symbolic; 'a laboratory on the surface of the Earth', gamma = M/R^2",
+   "value_now": "g_n = 9.80665 m s^-2 (conventional); gamma h/c^2 = 1.1e-18 for h = 1 cm",
+   "source_now": "conventional standard gravity (CGPM 1901); computed in rederive/2011.10991.py sec. E",
+   "moves_conclusion": "no -- eq. (36) is the O(gamma^0) statement and holds for any gamma; only the size of the O(gamma) remainder scales with it"
+  },
+  {
+   "quantity": "zeta(-3) (the regularised sum in eqs (11)-(13))",
+   "value_then": "1/120",
+   "value_now": "1/120 (mathematical constant, sympy.zeta(-3))",
+   "source_now": "sympy 1.14 exact",
+   "moves_conclusion": "no -- and eq. (36) does not use it; it fixes E = -A pi^2/(1440 L^3), re-derived"
+  },
+  {
+   "quantity": "measured weight of Casimir vacuum energy (Archimedes experiment)",
+   "value_then": "none -- proposal/pathfinder stage (Calloni et al. 2014, ref. [43]; Avino et al. 2018, ref. [44])",
+   "value_now": "no measurement read here; 1511.00609 ('The Archimedes experiment', pathfinder) located by discover_papers, abstract only",
+   "source_now": "arXiv:1511.00609 abstract (NOT read in full)",
+   "moves_conclusion": "no -- eq. (36) is an integral identity from conservation, independent of whether vacuum weight has been measured"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2011.10991.py",
+  "outcome": "27 PASS, 0 FAIL (exit 0; md5 52b26ff550d145ad561590bc83345a5d). A: eqs (10)-(13) re-derived (dim-reg continuation -(2pi/3)s^(3/2), -A pi^2/(12L^3) sum n^3, zeta(-3)=1/120, E = -A pi^2/(1440 L^3)). B: eq (57) z-integral and (52)-(54) O(h) algebra agree. C: covariant divergence in metric (30) re-derived exactly; conservation alone gives F_z = gamma int sqrt(-g) T^tt; with premise (32), int sqrt(-g) T^i_i = 2 gamma int sqrt(-g) z T^tt exactly -> eq (36) holds at O(gamma^0); printed eq (33) differs from the correct divergence by a total derivative, harmless. D: independent von Laue route -- a Beltrami 3D stress and a 2D Airy plate/frame model, both divergence-free and compactly supported, give int T^i_i = 0 over any region containing the whole support and NONZERO over regions cutting it (-27pi/8, -2097152/688905, -24/35); tree's finite-ball identity int_ball T^i_i = 4 pi R^3 T^rr(R) verified for all R; EM field alone has int sum T^ii = E_total != 0. E: O(gamma) remainder is support-dependent (+/- gamma M h/2), relative size 1e-22..1e-16.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "Fulling, Milton, Parashar, Romeo, Shajesh, Wagner, 'How does Casimir energy fall?', arXiv:hep-th/0702091 (PRD 76, 025004, 2007) -- Sorge's ref. [38], earlier than Sorge but the anchor of the later debate",
+   "effect": "confirms",
+   "what": "Fermi-frame weight of the rigid EM parallel-plate apparatus is g E_c (EP-consistent); the field-only T^mu nu is not conserved, and gauge invariance requires 'the energy-momentum tensor of the complete physical situation ... a physical mechanism holding the plates apart' -- the complete-apparatus hypothesis, with the struts named; naive surface-term formula over the gap alone gives an orientation-dependent -3gE_c cos(alpha) extra term",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-5)"
+  },
+  {
+   "ref": "Shevchenko & Shevrin, 'Archimedes Force on Casimir Apparatus', arXiv:1606.03383 (2016)",
+   "effect": "extends",
+   "what": "weight defined operationally by integrated pressure difference, eq. (13): depends only on T^00 for metric (8), for material + field with nabla_mu T^mu nu = 0 holding only for the combined system; spatial metric components enter at NEXT order, eq. (18) -- consistent with the finding here that (36) is a leading-order statement",
+   "read_status": "READ (alphaXiv answer_pdf_queries, pp.1-12)"
+  },
+  {
+   "ref": "Archimedes collaboration, arXiv:1511.00609 (2015) and arXiv:1409.6974 (2014)",
+   "effect": "extends",
+   "what": "pathfinder/feasibility for weighing vacuum energy; no measurement of the buoyancy force read",
+   "read_status": "NAMED-NOT-READ (abstracts via discover_papers)"
+  },
+  {
+   "ref": "Milton, Shajesh, Fulling, Parashar, PRD 89 064027 (2014) (Sorge ref. [41]); journal version of 2011.10991",
+   "effect": "contested",
+   "what": "not read; listed so the gap is visible -- the tree's non-find (a) cites the Milton series 'as cited by Sorge'",
+   "read_status": "NAMED-NOT-READ"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this result. What Sorge had (2020): the Casimir stress for the scalar field, the Fermi metric to O(gamma), the Calloni/Fulling/Bimonte results, and NO measurement of vacuum weight (Archimedes still at pathfinder stage). What came later: nothing located that measures the Casimir-apparatus weight. Does the missing datum change the conclusion? NO, evidence: eq. (36) is not an empirical claim -- sec. C shows it is algebraically equivalent (given conservation) to the premise F_z = gamma m_Tolman, and sec. D shows it is independently forced at O(gamma^0) by flat-space von Laue for any static, conserved, compactly supported stress. A vacuum-weight measurement would test the EP premise (H6) and Calloni's F_z = gamma E, not the identity. What the paper does lack is not data but MODELLING: T_(cav) is never written, so the field/wall cancellation is inferred, not shown; that gap is closed here generically (D), not for a specific wall model. M's hypothesis is therefore not supported for this result; the limitations found are hypotheses (order in gamma, completeness of the apparatus, the EP premise), all now named.",
+ "grade": "NARROWED",
+ "grade_evidence": "Read at source (v1, full text). The identity holds -- re-derived from the conservation law in metric (30) and independently by von Laue (27/27 sympy checks) -- but on a smaller class than the tree's wording: (i) Sorge's (36) is derived from the EP premise (32) and is established at O(gamma^0) only (exact remainder 2 gamma int sqrt(-g) z T^tt, support-dependent), whereas tolman.py:167-172 says 'proves' and 'identically'; (ii) 'complete apparatus' must include the struts that hold the plates apart, not just 'field plus mirrors' (tolman.py:170-171; EM field alone gives int sum T^ii = E_total != 0); (iii) the identity covers only regions containing the WHOLE support, while the refusal is keyed to 'a ball containing a mirror' (tolman.py:173-174, :549, :2974), where int T^i_i is shown nonzero. Nothing resting on it moves: the `ball_excludes_walls` refusal is a non-claim and stays correct (its ground for a cutting ball is unmodelled wall stress, not a zero); PEER_STATUS 'own reach NARROWED' is if anything reinforced; the switch.py caution holds in the flat test-field setting where von Laue is exact. Not WRONG: no counterexample to (36) within its hypotheses; the eq. (33) display is a discrepancy that does not propagate. Not DATA-DEPENDENT: no datum enters (36).",
+ "what_would_change_the_grade": "To STANDS: reword tolman.py's gloss to 'von Laue (flat, exact) -- Sorge eq. (36) is its O(gamma^0) weak-field restatement under the EP premise (32); complete = field + mirrors + whatever holds them apart; zero only on a ball enclosing the whole support' (a human seats any change). To WRONG: a static, conserved, compactly supported apparatus with int T^i_i != 0 at O(gamma^0) -- none exists (von Laue, sec. D). To OPEN/other: the journal version of 2011.10991 differing materially from v1 in eqs (32)-(36) (not read here).",
+ "reverify_command": "python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/2011.10991.py  # expect '0 FAIL', exit 0, 27 PASS",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/2011.10991.json"
+}

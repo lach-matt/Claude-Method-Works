@@ -1,0 +1,78 @@
+import json
+D = "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/"
+rep = {
+ "key": "schwarzschild-1916",
+ "name": "Schwarzschild metric (static corner g_rr = 1/(1 - 2m/r) and PG witness)",
+ "source": {
+  "located": "K. Schwarzschild, 'Ueber das Gravitationsfeld eines Massenpunktes nach der Einsteinschen Theorie', Sitzungsber. Preuss. Akad. Wiss. Berlin 1916, 189-196; English translation arXiv:physics/9905030 (Antoci & Loinger), pp.1-7. Lemaitre 1933 slicing (Ann. Soc. Sci. Bruxelles A53, 51) and Painleve 1921 / Gullstrand 1922 NAMED-NOT-READ, restated in Hamilton & Lisle arXiv:gr-qc/0411060 eqs.(1)-(4),(7) and Lehmkuhl arXiv:2508.00034 p.5 fn.c, p.12 and note 32",
+  "read_status": "READ",
+  "via": "Schwarzschild 1916 READ in translation (physics/9905030 pp.1-7: conditions 1-4, eqs (4),(5),(9)-(14), Sec.5 uniqueness, Sec.6 numerics). The PG/Lemaitre slicing the tree actually evaluates is not in the 1916 paper: READ-VIA-RESTATEMENT (gr-qc/0411060 eq.1 PG form with beta = sqrt(2GM/r); 2508.00034 note 32: Lemaitre 1933 called r = 2m a 'fictitious singularity'), and re-derived here directly (E6)."
+ },
+ "published_statement": "physics/9905030 eq.(14): 'the line element that forms the exact solution of Einstein's problem: ds^2 = (1 - alpha/R)dt^2 - dR^2/(1 - alpha/R) - R^2(dtheta^2 + sin^2 theta dphi^2), R = (r^3 + alpha^3)^(1/3). The latter contains only the constant alpha that depends on the value of the mass at the origin.' Sec.5: 'The uniqueness of the solution resulted spontaneously through the present calculation.' Sec.6: 'alpha/r is nearly equal to twice the square of the velocity of the planet'.",
+ "published_hypotheses": [
+  "field equations sum_a dGamma^a_mn/dx^a + sum Gamma^a_mb Gamma^b_na = 0 'everywhere, with the exception of the point x1 = x2 = x3 = 0' (eq.4) -- vacuum, R_mn = 0, origin excluded",
+  "equation of the determinant |g_mn| = -1 (eq.5) -- Einstein's Nov-1915 unimodular coordinate condition, a gauge choice",
+  "condition 1: all components independent of the time x4 (static)",
+  "condition 2: g_rho4 = g_4rho = 0 exactly (no time-space cross terms)",
+  "condition 3: spatial symmetry under rotations about the origin (spherical symmetry)",
+  "condition 4: g -> diag(-1,-1,-1,+1) at infinity (asymptotic flatness)",
+  "Sec.3 item 4: continuity of the f except at x1 = 0, which fixes rho = alpha^3 (eq.13) and so places the discontinuity at r = 0 <=> R = alpha; the manifold is r in (0, inf) <=> R in (alpha, inf)",
+  "sign of alpha not derived: 'alpha depends on the value of the mass'; alpha > 0 enters only through the Newtonian identification alpha/r ~ 2v^2"
+ ],
+ "hypothesis_drift": [
+  "LABEL CONFLATION in the canonical entry, not in the owner: the entry names 'the static corner g_rr = 1/(1 - 2m/r)' as the Schwarzschild metric and lists 'vacuum' as its hypothesis. driven.py:182-183 calls it 'certify.py's metric', and certify.py:114-116 correctly writes it as the general static spherical form with m = m(r) ('Every static spherically symmetric spacetime can be written with an areal radius and the Misner-Sharp mass function'). E5 computes rho = m'/(4 pi r^2) for that form: it is Schwarzschild ONLY where m' = 0. The static corner does not rest on Schwarzschild 1916 at all; it rests on the Misner-Sharp definition (audited separately as misner-sharp-1964-mass-function). 'vacuum' does not hold at the static corner in general.",
+  "V6 IS AN IDENTITY, NOT A CHECK OF THE METRIC (driven.py:182-183 'verified as a residual in V6'; driven.py:577-581): V6 defines m_s := (r/2)(1 - e^{-2 Lambda}) and then tests e^{2 Lambda} = 1/(1 - 2 m_s/r). E5 shows the residual is 0 for ARBITRARY Lambda(r), including the non-vacuum Lambda = r^2. The sentence is true (the residual is 0) but what it verifies is the inversion of the mass-function definition; no field equation and no property of Schwarzschild's solution is exercised. A discrepancy of description, not an error.",
+  "ADDED DOMAIN (attributed, mathematically sound): driven.py:208-211 and 219-220 evaluate 'Schwarzschild in Lemaitre (= PG) slicing' and use '|U| = sqrt(r_s/R), which exceeds 1 at every R < r_s'. The 1916 manifold is R in (alpha, inf) only (E3; Lehmkuhl 2508.00034 p.5 fn.c: 'Schwarzschild himself restricted the coordinate system to r > 2m and regarded r = 2m as the center'). R < r_s belongs to the Lemaitre 1933 / Painleve-Gullstrand extension (NAMED-NOT-READ, restated in gr-qc/0411060 and 2508.00034), not to Schwarzschild 1916. E6 verifies the tree's Lemaitre metric is vacuum directly (G_ab = 0) and isometric to eq.(14) by an explicit pullback valid on both sides of r_s; drivensource.py:567 asserts vacuum from its own Einstein tensor. So the extension is carried by computation, not by the 1916 citation.",
+  "DROPPED, immaterial: the determinant condition |g| = -1 (eq.5). Neither the Lemaitre witness (det = -r_s R^3 sin^2 theta, drivensource.py:382-384) nor any static-corner metric in driven.py satisfies it. It is a coordinate condition; E1 shows eq.(14) is vacuum without it.",
+  "DROPPED, replaced by computation: staticity (condition 1) and g_rho4 = 0 (condition 2). The Lemaitre slicing is time-dependent (R depends on t, drivensource.py:382). The tree does not appeal to Birkhoff (1923, NAMED-NOT-READ) to carry staticity over; it computes vacuum for the time-dependent chart directly (nonstatic.py:398-437, E6), so nothing is lost.",
+  "POSITIVITY BY DECLARATION (named here, not a drift from the source, which also takes alpha > 0 physically): driven.py:211/V13 'm = r_s/2 > 0'. The residual checks m - r_s/2 = 0; the '> 0' comes from sp.symbols('rho r_s', positive=True) at drivensource.py:381. E1/E4: the vacuum equations hold for alpha of either sign; alpha < 0 is a vacuum solution with g_RR < 1 (contracted) and a naked singularity at R = 0. The positivity is an input hypothesis of the witness, not a derived property."
+ ],
+ "data_at_publication": [
+  {"quantity": "alpha_sun = 2 G M_sun / c^2 (only numerical use in the source: Sec.6 limit frequency n0 = 1/(alpha sqrt 2) 'around 10^4 per second')",
+   "value_then": "not stated numerically; implied by 'a point with the solar mass'",
+   "value_now": "2953.250 m from IAU 2015 Resolution B3 nominal GM_sun = 1.3271244e20 m^3 s^-2 (value used in the script; IAU resolution itself NOT read on arXiv); n0 = 7.18e4 rad/s = 1.14e4 cycles/s coordinate time",
+   "source_now": "computed in rederive/schwarzschild-1916.py E7",
+   "moves_conclusion": "no -- the 'around 10^4 per second' reading holds as cycles/s (1.14e4); the tree uses no numerical value of alpha at all (canonical data_used = [])"},
+  {"quantity": "Mercury: deviation of (1 + alpha^3/r^3)^(1/3) from 1",
+   "value_then": "'differs from 1 only for quantities of the order 10^-12' (physics/9905030 p.7; restated unchanged in Weinstein 2312.01865 p.23)",
+   "value_now": "alpha/r = 5.10e-8 (a = 5.7909e10 m), so alpha^3/(3 r^3) = 4.4e-23",
+   "source_now": "computed in rederive/schwarzschild-1916.py E7",
+   "moves_conclusion": "no -- a DISCREPANCY in the stated order of magnitude (the translated text's 1e-12 is an upper bound, 11 decades loose); the conclusion 'r is virtually identical to R' is strengthened, and none of it reaches the tree"}
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": D + "rederive/schwarzschild-1916.py",
+  "outcome": "ALL AS RECORDED, 22/22. E1 eq.(14) is vacuum (G_ab = 0) for every real alpha. E2 Schwarzschild's own system (a),(b),(c),(d) in x1 = r^3/3 is satisfied exactly by his f1,f2,f4, including (b) 'automatically fulfilled' and the determinant f1 f2^2 f4 = 1. E3 R(r->0+) = alpha, R monotone: the 1916 chart covers R > alpha only. E4 Misner-Sharp mass of eq.(14) = alpha/2 exactly; sign not fixed by the field equations. E5 driven.py's V6 residual vanishes for arbitrary Lambda(r) (an identity), and the static form with m(r) has rho = m'/(4 pi r^2), so it is Schwarzschild only where m' = 0. E6 the tree's Lemaitre witness (R = (3/2(rho - t))^(2/3) r_s^(1/3), g_rhorho = r_s/R) is vacuum, Gamma = 1, m = r_s/2, U = -sqrt(r_s/R), |U| > 1 inside r_s, and pulls back exactly to eq.(14). E7 numerics as in data_at_publication. Independently, python3 driven.py --verify (sympy 1.14.0, python 3.11.15) prints V1-V13 all exactly 0, 'VERIFY OK'.",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {"ref": "Hamilton & Lisle, 'The river model of black holes', arXiv:gr-qc/0411060, Am. J. Phys. 76 (2008) 519",
+   "effect": "extends",
+   "what": "eq.(1)-(2): Schwarzschild in Gullstrand-Painleve form with infall velocity beta = sqrt(2GM/r), 'hitting the speed of light at the horizon. Inside the horizon, the river flows inward faster than light'; eq.(3)-(4): the same for any M(r), with the Misner-Sharp mass eq.(7). Confirms the tree's PG threshold and |U| > 1 inside r_s.",
+   "read_status": "READ (pp.1-4, 13-15)"},
+  {"ref": "Lehmkuhl, 'The Prediction and Interpretation of Singularities and Black Holes', arXiv:2508.00034 (2025)",
+   "effect": "narrows",
+   "what": "p.5 fn.c: Schwarzschild restricted his chart to r > 2m and treated r = 2m as the centre; note 32: Lemaitre 1933 identified r = 2m as a 'fictitious singularity'; p.12: Finkelstein 1958 'unidirectional membrane'. Narrows what 1916 itself covers (R > alpha) and locates the source of the interior region the tree uses.",
+   "read_status": "READ (pp.1-2, 5-8, 12, 14, 22-23, 27-28)"},
+  {"ref": "Weinstein, 'A comprehensive survey of Schwarzschild's original papers', arXiv:2312.01865 (2023)",
+   "effect": "confirms",
+   "what": "Restates the derivation step for step (eqs.55-82), notes the final spherical form has sqrt(-g) = R^2 sin theta, not 1, so it solves the field equations beyond unimodular coordinates; alpha = 2GM/c^2 (eq.87-88). Repeats the '10^-12' figure without comment.",
+   "read_status": "READ (pp.1, 6-8, 12-18, 23, 27, 29, 31)"},
+  {"ref": "Antoci & Loinger foreword to arXiv:physics/9905030 (1999)",
+   "effect": "contested",
+   "what": "Claims the original form 'is regular in the whole space-time ... it leaves no room for the science fiction of the black holes'. E3 confirms the 1916 chart covers only R > alpha; E6 shows the Lemaitre extension is vacuum and isometric on the overlap. Which manifold to take is a hypothesis about global structure, not a computed obstruction; the interior the tree evaluates exists as a vacuum solution either way.",
+   "read_status": "READ (p.1)"},
+  {"ref": "Birkhoff 1923 (uniqueness without staticity); Lemaitre 1933; Painleve 1921; Gullstrand 1922; Kruskal/Szekeres 1960",
+   "effect": "extends",
+   "what": "Classics restated in the above; not needed by the tree because it computes vacuum for the Lemaitre chart directly.",
+   "read_status": "NAMED-NOT-READ"}
+ ],
+ "lacked_data": "What Schwarzschild did not have in January 1916: (i) the understanding that R = alpha is a coordinate singularity -- Lemaitre 1933, Finkelstein 1958 (via 2508.00034); (ii) the matter-sourced field equations he used a month later for the interior solution (Einstein's Nov-25-1915 equations, 2312.01865 Sec.9); (iii) any strong-field observation. Does having them change the conclusion? No, on the evidence here: the local metric is re-derived exactly from his own equations (E2) and from covariant R_mn = 0 (E1), with no numerical input; (i) enlarges the domain rather than altering the metric, and the enlarged domain is verified directly (E6); no datum enters the solution (the only numbers in the paper are illustrative, E7). The one place where later knowledge MATTERS to the tree is the domain: driven.py's '|U| > 1 at every R < r_s' uses a region Schwarzschild 1916 excluded, and it stands on Lemaitre's extension and on the tree's own computation, not on the 1916 paper. Observational confirmation of the exterior (perihelion, light deflection, EHT, GW ringdowns) was NOT read at source in this audit and is not claimed; it would bear on whether nature realises the solution, not on whether it solves the equations, which is all the tree uses.",
+ "grade": "STANDS",
+ "grade_evidence": "As the tree uses it -- Schwarzschild vacuum in Lemaitre/PG slicing with m = r_s/2, Gamma = 1, U = -sqrt(2m/R) (driven.py:208-211, 611-619; drivensource.py:373-387) -- the result is re-derived exactly: eq.(14) and Schwarzschild's own system (a)-(d) hold (E1, E2), the tree's Lemaitre chart is vacuum and isometric to eq.(14) (E6), and driven.py --verify returns every residual 0. No datum enters. Recorded, not repaired, and none moves the grade: (1) the canonical entry's 'static corner g_rr = 1/(1-2m/r)' is the general Misner-Sharp form, Schwarzschild only where m' = 0 (E5); driven.py itself calls it certify.py's metric, so this is a labelling of the entry, and the static corner rests on misner-sharp-1964, not on this result; (2) V6 is a definitional identity (E5), so 'verified as a residual in V6' verifies the mass-function inversion, not the metric; (3) R < r_s is outside the 1916 manifold (E3) and stands on Lemaitre 1933 (NAMED-NOT-READ) plus the tree's direct computation; (4) 'm = r_s/2 > 0' takes positivity as a declared input (drivensource.py:381), the field equations allowing alpha < 0 (E1, E4); (5) two order-of-magnitude discrepancies in the source's illustrative numerics (E7), neither load-bearing.",
+ "what_would_change_the_grade": "NARROWED if an owner were found attributing the general static form g_rr = 1/(1 - 2m(r)/r) with non-constant m to Schwarzschild 1916, or leaning on the 1916 paper (rather than a computation) for the region R < r_s; WRONG only if G_ab of eq.(14) or of the tree's Lemaitre chart were shown non-zero, which E1 and E6 exclude exactly. A reading of the German original that differed from the Antoci-Loinger translation at eq.(14) would reopen the READ status, not the mathematics.",
+ "reverify_command": "python3 " + D + "rederive/schwarzschild-1916.py && (cd /home/user/Claude-Method-Works/research/warp-drive && python3 driven.py --verify | tail -16)",
+ "report_path": D + "audits/schwarzschild-1916.json"
+}
+json.dump(rep, open(D + "audits/schwarzschild-1916.json", "w"), indent=1)
+print("ok")

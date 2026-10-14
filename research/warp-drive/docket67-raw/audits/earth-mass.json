@@ -1,0 +1,83 @@
+{
+ "key": "earth-mass",
+ "name": "Earth mass M_earth = 5.9722e24 kg (ladder.M_EARTH)",
+ "source": {
+  "located": "No single paper: M_E in kg is a derived measurement, M_E = GM_E / G. GM_E: IAU 2009 system (Luzum et al. 2011, Celest. Mech. Dyn. Astr. 110, 293 -- no arXiv copy, NAMED-NOT-READ); nominal (GM)^N_E = 3.986004e14 m^3 s^-2 READ in Prsa et al. 2016, IAU 2015 Resolution B3 (arXiv:1605.09788) Table 1 and sec 4; measured GM_E = 398600.4419(2) km^3 s^-2 READ-VIA-RESTATEMENT in Jentschura 2026 (arXiv:2609.09485) p.3 (citing Dunn & Torrence 1999, GRL 26, 1489, and DE440, Park et al. 2021). G: CODATA 2022 (arXiv:2409.03787) Table XXXII G = 6.67430(15)e-11, u_r 2.2e-5, identical to CODATA 2018 (sec I.B.11, sec XIV, sec XV.A) -- READ.",
+  "read_status": "READ-VIA-RESTATEMENT",
+  "via": "alphaXiv answer_pdf_queries on 1605.09788 (IAU B3), 2409.03787 (CODATA 2022), 2609.09485 (restates GM_E and DE440 GM_E). An alphaXiv title lookup for Luzum 2011 resolved instead to Kaplan 2015 (arXiv:1511.01546), which cites Luzum 2011 but does not print GM_E; so the IAU 2009 GM_E best estimate is NAMED-NOT-READ and its measured value is taken from the 2026 restatement."
+ },
+ "published_statement": "IAU 2015 B3 (Prsa 2016 sec 3, rec. 2, 4, 5; Table 1): '1 (GM)^N_E = 3.986 004 x 10^14 m^3 s^-2' ... 'that if SI masses are explicitly needed, they should be expressed in terms of (GM)_object/G, where the estimate of the Newtonian constant G should be specified in the publication'; sec 2: 'the uncertainty in G is five orders of magnitude larger than the uncertainty in GM'. CODATA 2022 Table XXXII: 'Newtonian constant of gravitation G 6.674 30(15) x 10^-11 m^3 kg^-1 s^-2, 2.2 x 10^-5'; sec I.B.11: 'the 2022 and 2018 recommended values of G are therefore identical'. Jentschura 2026 p.3: 'mu = G M = 398600.4419(2) km^3/S^2, with an uncertainty of 5 x 10^-10'. Hence M_E = GM_E/G = 5.97217(13) x 10^24 kg (computed here).",
+ "published_hypotheses": [
+  "H1 (IAU B3 rec. 5): an SI mass exists only as (GM)/G, and the G used must be stated; the kg value inherits u_r(G) = 2.2e-5, not u_r(GM) = 5e-10.",
+  "H2 (IAU B3 rec. 2 / sec 4): GM_E is the geocentric gravitational constant (Earth including atmosphere and oceans, excluding the Moon), referred to a stated time scale (TCG/TT vs TCB/TDB); the nominal value is rounded to the precision at which TCB and TDB values agree.",
+  "H3 (IAU B3 rec. 1-2): the nominal (GM)^N_E is a conversion constant, not the physical property; symbols like GM_E denote actual estimates with uncertainties.",
+  "H4 (CODATA 2022 sec XIV, XV.A): G is the weighted mean of 16 mutually inconsistent measurements with an expansion factor 3.9 applied; no new G datum entered 2022."
+ ],
+ "hypothesis_drift": [
+  "DROPPED H1 (G must be stated) at ladder.py:63 (M_EARTH = 5.9722e24 given as a bare kg value with no G or GM cited). Mitigated, not absent: the same file's G = 6.67430e-11 (ladder.py:54; ledger.py:331 labels it CODATA 2018) is the G that reproduces 5.9722e24 from GM_E, and G*M_EARTH matches GM_E to 5.3e-6 (the 5-s.f. rounding). Computed, not presumed.",
+  "STATUS DRIFT at formation.py:359, 882, 1133: ladder.py:43 declares 'Astrophysical and engineering figures are RECALLED, not read, and marked' (and :44 'no claim rests on their third digit'), but M_EARTH at ladder.py:63 carries no individual mark (the '--- RECALLED, not read ---' marker at ladder.py:68 heads SOURCES, below it), and formation.py imports it with no status word into a product whose other factor is labelled 'READ, Anglada 2017 sec 1' (formation.py:452). The product at formation.py:882/1133 is therefore READ x RECALLED, printed without that distinction.",
+  "ADDED (implicit) at formation.py:452/882: that the 'M_earth' unit in which Anglada-Escude et al. 2016 / Anglada et al. 2017 state m_p sin i = 1.3 M_earth is the same kg value as ladder.M_EARTH. Not stated in the tree; any plausible difference in the papers' conversion constant is <= ~1e-4 relative, 22 orders below the margin of the use.",
+  "No drift on H2/H3/H4 that affects the use: the tree uses an actual-estimate kg value (not the nominal), to 5 s.f., where time-scale (1.6e-8) and G-inconsistency (~5.5e-4 full spread of the 16 G inputs) effects are below or at the 4th significant figure."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "G (Newtonian constant)",
+   "value_then": "6.67430(15)e-11 m^3 kg^-1 s^-2 (CODATA 2018, the tree's ladder.py:54); earlier 6.67408(31)e-11 (CODATA 2014, quoted in IAU B3 rec. 5) and 6.67428e-11 (CODATA 2006, NSFA recommendation, Prsa 2016 App. A)",
+   "value_now": "6.67430(15)e-11, u_r 2.2e-5, unchanged (CODATA 2022 Table XXXII; sec XIV: no new relevant G input)",
+   "source_now": "arXiv:2409.03787 (CODATA 2022), Table XXXII, sec I.B.11, XIV, XV.A",
+   "moves_conclusion": "No. Computed: GM_E/G = 5.972168e24 (CODATA 2018/2022) -> 5.9722e24 at 5 s.f., tree value 0.23 sigma(G) away; CODATA 2014 G would give 5.972365e24 -> 5.9724e24 (a 3.3e-5 shift). Proxima ratio log10 = 22.0155; the whole 5-sigma(G) band and the extreme G inputs (6.67191, 6.67559) move log10 by < 1e-4."
+  },
+  {
+   "quantity": "GM_E (geocentric gravitational constant)",
+   "value_then": "3.986004418e14 +- 8e5 m^3 s^-2 (IAU 2009, Luzum 2011: NAMED-NOT-READ); nominal (GM)^N_E = 3.986004e14 exact (IAU 2015 B3, READ)",
+   "value_now": "398600.4419(2) km^3 s^-2 = 3.986004419e14 (restated, Jentschura 2026 p.3, citing Dunn & Torrence 1999); DE440 (Park et al. 2021) 398600.435507 km^3 s^-2 in TDB-compatible units (restated, same page)",
+   "source_now": "arXiv:2609.09485 p.3 (restatement); arXiv:1605.09788 Table 1",
+   "moves_conclusion": "No. The DE440 vs SLR difference (1.6e-8, called 'not in agreement' by Jentschura) is computed here to be the TCB->TDB scaling: 3.986004419e14 x (1 - L_B) = 3.986004357e14 vs DE440 3.986004355e14, residual 5.3e-10 (~1 sigma of the quoted GM uncertainty; L_B = 1.550519768e-8 is RECALLED, IAU 2006 B3, not read here). Either GM moves M_E by 1.6e-8, far below the 5-s.f. rounding (5e-6)."
+  },
+  {
+   "quantity": "stockgate feedstock threshold (70 kg payload, as-composed 59, CI chondrite) -- the denominator, not audited here",
+   "value_then": "749.081 kg (tree, stockgate.feedstock_kg)",
+   "value_now": "749.081 kg (unchanged; tree-internal)",
+   "source_now": "research/warp-drive/stockgate.py:780 (read-only import)",
+   "moves_conclusion": "Context only: the comparison 1.3 M_E / need = 1.036e22 would flip only if M_E were smaller by a factor 9.65e-23."
+  }
+ ],
+ "rederivation": {
+  "method": "numeric",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/earth-mass.py",
+  "outcome": "ALL CHECKS PASS (exit 0), 14 checks: (1) GM_E/G(CODATA 2018=2022) = 5.972168e24 +- 1.3e20 kg rounds to the tree's 5.9722e24; |diff| = 3.2e19 = 0.23 sigma(G). (2) With CODATA 2014 G the 5-s.f. value is 5.9724e24, so the tree value is CODATA 2006/2018-consistent, not 2014. (3) u_r(G)/u_r(GM) = 2.2e-5/5e-10 > 1e4, confirming IAU B3's 'five orders of magnitude' premise to within a factor ~2. (4) tree G*M_EARTH = 3.986025e14 vs GM_E 3.986004e14 (ratio-1 = 5.3e-6 = rounding). (5) DE440 GM_E agrees with the SLR value after TDB scaling to 5.3e-10. (6) formation.proxima_b_over_threshold() = 1.3*M_EARTH/749.081 = 1.036452e22, log10 22.0155; sympy: elasticity d ln(ratio)/d ln M_E = 1; the verdict '> 1' is invariant across 5 sigma(G) and the extreme G inputs. CONTEXT NOTE (not the entry's use; recorded, not repaired): ladder.py:303 pins EXCHANGE_KG/M_EARTH = 22.5871 to 4 decimals; the G-free form c^2/(Lambda*GM_E) gives 22.587234 -> 22.5872, so that 4th decimal is an artefact of rounding M_EARTH to 5 s.f. (and G-dependent). ladder.py:44 disclaims any claim on the third digit, so this is a precision note on a selftest pin, not a finding against a claim. Imports of ladder/stockgate/formation were run with bytecode writing disabled (an earlier exploratory import in this stage ran without that flag; research/warp-drive/__pycache__ is gitignored and pre-existed; git status for research/warp-drive is clean).",
+  "agrees_with_source": "yes"
+ },
+ "later_literature": [
+  {
+   "ref": "Mohr, Newell, Taylor, Tiesinga, CODATA 2022, arXiv:2409.03787",
+   "effect": "confirms",
+   "what": "G = 6.67430(15)e-11 unchanged from 2018; 16 inconsistent inputs, expansion factor 3.9; largest pre-expansion residuals BIPM-14 7.7, JILA-18 -6.8, BIPM-01 4.8; Speake et al. 2023 found stray AC magnetic fields unlikely to explain the BIPM values.",
+   "read_status": "READ (Table XXX, XXXII, sec I.B.11, XIV, XV.A, XVI.C.2)"
+  },
+  {
+   "ref": "Jentschura 2026, Space-Based Lock-In Determination of Newton's Gravitational Constant, arXiv:2609.09485",
+   "effect": "confirms",
+   "what": "Restates GM_E = 398600.4419(2) km^3/s^2 (u 5e-10) and DE440's 398600.435507; states the difference (1.6e-8) is 1.3e3 times smaller than u_r(G) -- i.e. M_E in kg is limited by G. Its 'not in agreement' remark is computed here to be consistent with the TCB/TDB scaling (L_B recalled). Also restates LISA Pathfinder's space G: 6.71(42)e-11 and 6.15(35)e-11 (Armano et al. 2019, PRD 100, 062003 -- NAMED-NOT-READ), proof-of-principle only.",
+   "read_status": "READ (pp.1-4, 12, 20, 36, refs)"
+  },
+  {
+   "ref": "Prsa et al. 2016, IAU 2015 Resolution B3, arXiv:1605.09788",
+   "effect": "narrows",
+   "what": "Nominal (GM)^N_E is a conversion constant only; an SI mass must be (GM)/G with the G stated -- the hypothesis the tree drops at ladder.py:63 (mitigated by ladder.py:54).",
+   "read_status": "READ (pp.1-12, Table 1)"
+  },
+  {
+   "ref": "discover_papers (recency) on G / geocentric gravitational constant / Earth mass",
+   "effect": "confirms",
+   "what": "Returned no post-CODATA-2022 G measurement competitive with u_r 2.2e-5 (items: atmospheric Newtonian noise in torsion balances 2608.26020, G-variation test 2608.21758, proposals 2107.04339, 1903.11223); nothing that moves M_E at the level the tree uses.",
+   "read_status": "abstracts only (search listing); only 2609.09485 read in full"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested. What was lacking is real and documented: G is the least well known constant, its 16 inputs are mutually inconsistent (expansion factor 3.9, residuals up to 7.7 before expansion, CODATA 2022 sec XIV/XVI.C.2), and no new G datum has entered since 2018; the IAU itself refused to put a kg value on the Earth's mass for this reason (B3 rec. 5). So the kg value is genuinely data-limited at ~2e-5 (formal) to ~5.5e-4 (full spread of the G inputs). Evidence that having the missing data would NOT change the tree's conclusion: the only conclusion resting on M_E here is formation.py's '1.3 M_E exceeds a 749 kg threshold', which holds by 22.0 orders of magnitude; its elasticity in M_E is exactly 1 (sympy), so a G error would have to be ~1e22-fold to matter, while the whole historical G spread moves log10(ratio) by < 1e-4. GM_E itself (the directly measured quantity) is known to 5e-10 and two independent determinations (SLR and DE440) agree after the time-scale conversion. Verdict on M's hypothesis for this result: the data lack is present in the source (G) but does not reach the use.",
+ "grade": "STANDS",
+ "grade_evidence": "Re-derivation agrees: GM_E/G with CODATA 2018 = CODATA 2022 G gives 5.972168(134)e24 kg, which rounds to the tree's 5.9722e24 (0.23 sigma). The only moved/contested datum (G: CODATA 2014 vs 2018, and the 3.9-expanded inconsistency among G inputs) shifts M_E at the 4th-5th significant figure; the tree's use (formation.py:882, 1133: Proxima b m sin i x M_E over stockgate's 749 kg threshold, log10 = 22.0155) is invariant under it (computed). Hypothesis drifts are recorded (H1 'state your G' dropped at ladder.py:63 but satisfied by ladder.py:54; RECALLED status of ladder.py:43 not carried into formation.py) and none shrinks the class on which the tree uses the value. Not NARROWED: no hypothesis the tree drops is one the use needs. Not DATA-DEPENDENT: the conclusion does not move with the moved datum.",
+ "what_would_change_the_grade": "To NARROWED: a tree use of M_EARTH that needs more than ~4 significant figures in kg (then the unstated G, H1, and the G-input inconsistency become load-bearing) -- ladder.py:303's 4-decimal pin 22.5871 is already at that edge (22.5872 in the G-free form) but is a selftest pin, not a claim. To DATA-DEPENDENT: a future G determination differing from 6.67430e-11 by > ~1e-4 relative would change the 5th s.f. of M_E (no effect on formation.py's verdict). To WRONG: only a demonstration that GM_E or G is off by many orders of magnitude, for which there is no evidence. The READ status of the IAU 2009 GM_E best estimate (Luzum 2011) would rise from NAMED-NOT-READ if its text became readable here; the grade would not move.",
+ "reverify_command": "cd /tmp && PYTHONDONTWRITEBYTECODE=1 python3 /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/earth-mass.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/earth-mass.json"
+}

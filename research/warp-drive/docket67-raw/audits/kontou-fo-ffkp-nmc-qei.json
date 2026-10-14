@@ -1,0 +1,117 @@
+{
+ "key": "kontou-fo-ffkp-nmc-qei",
+ "name": "Kontou's requested test: Fewster-Osterbrink Thm 4.2 and FFKP Thm IV.1 (NMC state-dependent QEIs)",
+ "source": {
+  "located": "Composite of two sources. (a) C.J. Fewster & L.W. Osterbrink, 'Quantum Energy Inequalities for the Non-Minimally Coupled Scalar Field', arXiv:0708.2450 (J. Phys. A 41 (2008) 025402), Theorem 4.2, eqs (44)-(48), p.10. (b) J.R. Fliss, B. Freivogel, E.-A. Kontou & D. Pardo Santos, 'Non-minimal coupling, negative null energy, and effective field theory', arXiv:2309.10848v1 (dated 21 Sep 2023; SciPost Phys. 16 (2024) 119 per 2510.26247), Theorem IV.1, eq. (72), with (9)-(13), (61)-(72), pp.5-6, 17-18. The request itself: Kontou arXiv:2405.05963v2 (Universe 10 (2024) 291) Sec.5.2: 'it would be of interest to examine that wormhole solution [90 = HPS PRL 78, 2050] using one of the QEIs for the nonminimally coupled fields derived in [17 = 2309.10848, 30 = Fewster-Osterbrink J.Phys.A 41 025402]'.",
+  "read_status": "READ",
+  "via": "alphaXiv full-text extractions cached in scratchpad/d67/src by earlier DOCKET 67 stages (alphaXiv get_paper_content fullText=true): src/fo/0708.2450.txt (Theorem 4.2 re-read this stage at lines 1880-2040, verbatim match to the sibling audit), src/2309.10848.txt (re-read this stage at lines 490-660 for (7)-(13) and 2660-3090 for (61)-(74) and Theorem IV.1), src/casmag/all/2405.05963v2.txt (the request and refs 17, 30, 90, re-read this stage). Fresh alphaXiv calls this stage (two answer_pdf_queries, one discover_papers) were all REFUSED: 'alphaXiv assistant quota exceeded'. The SciPost journal version is NOT read (scipost.org, arxiv.org and export.arxiv.org refused by the egress proxy, 403). Component audits consulted, not copied: audits/0708.2450-thm4.2.json and audits/2309.10848-thmiv.1.json; every load-bearing claim of theirs used here was re-checked independently (rederive/kontou-fo-ffkp-nmc-qei.py) or re-read at the cached source."
+ },
+ "published_statement": "(a) FO p.10, Theorem 4.2 (verbatim from cache): 'Let omega_2^0 be the two-point function of a reference Hadamard state for the non-minimally coupled scalar field with coupling constant xi in [0, 1/4], defined on a globally hyperbolic spacetime with smooth metric. Furthermore, let gamma be a time-like geodesic parametrised in proper time tau and let f in D(R,R). On the set of Hadamard states, we then find (rho_quant o gamma)(f^2) >= -Q_xi(f), (44) where Q_xi(f) = Qt_A^xi(f) 1 + xi(:Phi^2: o gamma)(Q_B[f]) + xi(:Phi^2: o gamma)(Q_C^xi[f]) (45) ... Q_B[f](tau) = 2(d_tau f)^2 (47), Q_C^xi[f](tau) = f^2 (R_mn gamma^m gamma^n - (1/2)(1-4xi)R) (48). Furthermore Qt_A^xi(f) and Q_B[f] are non-negative.' (b) FFKP p.18: 'Theorem IV.1. Let f be any real-valued test function compactly supported in a small sampling domain. Let l^mu be a null vector field defined in the neighbourhood of support of f. Then, for all Hadamard states psi <:rho_n:(f^2)>_psi >= -2 INT_D d^n alpha/(2pi)^n ((Q x Q)W_0)_kappa(fbar_alpha, f_alpha) - xi <:phi^2:(Q[f])>_psi, (72) where W_0 is the two-point function of the reference Hadamard state psi_0 and Q = l^mu nabla_mu', with (69b) Q[f] = nabla_mu nabla_nu (l^mu l^nu f^2) + (1/2) R_mn l^mu l^nu f^2; 'unlike those two inequalities [FO, Fewster-Kontou], the QEI derived holds for any value of the coupling constant xi'; 'as this bound is derived by discarding positive terms we do not expect it to be optimal'.",
+ "published_hypotheses": [
+  "FO-P1 reference Hadamard state omega_0; rho_quant and :Phi^2: normal-ordered against it (difference type)",
+  "FO-P2 xi in [0, 1/4] (closed)",
+  "FO-P3 globally hyperbolic spacetime with smooth metric",
+  "FO-P4 gamma a timelike GEODESIC in proper time",
+  "FO-P5 f real, smooth, compactly supported (sampling function f^2)",
+  "FO-P6 inequality on the set of Hadamard states",
+  "FO-P7 conventions Birrell-Davies [-,-,-] (FO footnote 2), fixing the signs in (48)",
+  "FFKP-P1 (M,g) globally hyperbolic; free scalar on a FIXED background, field equation (box_g + m^2 + xi R)phi = 0 with box_g = -nabla^2, MTW (+,+,+), signature (-,+,+,+)",
+  "FFKP-P2 psi and reference psi_0 Hadamard; W_0 the two-point function of psi_0; left side normal-ordered relative to psi_0 (65)",
+  "FFKP-P3 f real, smooth, compactly supported in a SMALL SAMPLING DOMAIN: open subset of a globally hyperbolic convex normal neighbourhood, covered by one hyperbolic chart (66)",
+  "FFKP-P4 l^mu a null vector field near supp f",
+  "FFKP-P5 Leibniz rule for Wick powers (Hollands-Wald axiom 10), form (62)-(63)",
+  "FFKP-P6 rho_hat_n = l.nabla (x) l.nabla of positive type, bound (70) (cited [7],[20], not re-proved)",
+  "FFKP scope: any real xi; not optimal"
+ ],
+ "hypothesis_drift": [
+  "COMPOSITE WORDING (elision, not an error) at ledger.py:1727-1728 via qeihps.py:514-517: 'both apply in form to HPS's xi = 1/6 field' names only the field. 'In form' also requires, and the instrument COMPUTES, FO's timelike-geodesic hypothesis (throat worldline, acceleration f'/(2f) = 0; qeihps.py:79-81, 431-433) and FFKP's small sampling domain and null l (qeihps.py:101-106, 436-440). The computed status is faithful (check T1b: qei_status returns OPEN for both from HYPOTHESES; T1f: setting the three blockers MET flips both to EVALUABLE, so the word is computed, not declared). The O5 text is a compression of a computed table, correct as such; read as 'applies to the field anywhere' it would over-state FO (geodesic only) and FFKP (small domain only).",
+  "DROPPED FO-P3 (globally hyperbolic, smooth metric) at qeihps.py:402-403 (FORM_TAGS[FO] = {'xi','geodesic'}; check T1c) and qeihps.py:74-85, 430-435 (FO rows), while the same file carries it for Fewster-Smith ('local: a causal diamond suffices   MET locally', qeihps.py:68) and FFKP (qeihps.py:101-103, 436). So 'FO applies in form' feeding ledger.py:1727 is unguarded on FO-P3. Restorable LOCALLY (FO on a globally hyperbolic neighbourhood of gamma(supp f); Hadamard condition is local; reference state existence Fulling-Narcowich-Wald -- NAMED-NOT-READ), giving 'applies in form locally, f of small support'. Changes no downstream verdict (all are refusals). Same finding as audits/0708.2450-thm4.2.json, re-confirmed here by T1c.",
+  "COPIED DISCREPANCY (carried from the source, not introduced by the tree) at qeihps.py:98-99: the tree displays FFKP's Q[f] = nabla nabla(l l f^2) + (1/2) R_mn l^m l^n f^2 verbatim from (69b) (check T1d). FFKP's own stress tensor (9) -- shown conserved here on an FRW metric (N2, residual 1e-166) -- null-contracts to T_ll = (1-2xi)(l.dphi)^2 - 2xi[phi l l dd phi - (1/2)R_ll phi^2] (N1b), whereas (13) prints '+ (1/2) R_ll phi^2' inside the bracket: (9)_ll - (13) = 2 xi R_ll phi^2 exactly (N1). Carried through the Leibniz/integration-by-parts step, (9) gives Q_true[f] = nabla_mu nabla_nu(l^mu l^nu f^2) - R_ll f^2, verified here as a POINTWISE divergence identity f^2 T_ll = f^2 (l.dphi)^2 - xi phi^2 Q_true[f] + div V on FRW with an explicit null field (N3b, residual 4e-165); the printed +1/2 leaves exactly -(3/2) xi R_ll f^2 phi^2 (N3c, N3d). (13) as printed would give +1; (61) as extracted shows +1 inside -2xi(...), i.e. +2; (64)/(69b)/(72) print +1/2 -- consistent with none. This is a DISCREPANCY IN v1 AS EXTRACTED, not a refutation: the journal version is unread, and no state violating the printed (72) is exhibited (the bound is not sharp). Inert for the tree: every 'Q[f]'/'R_ll' in qeihps.py is the docstring display at lines 98-99 (T1e); nothing evaluates it. It would be live if (72) were ever evaluated on HPS, where R_ll != 0 on any open supp f (audits/2309.10848-thmiv.1.json C4b: -226800 pi^2 l^2 + O(l^4)).",
+  "WEAKENED (re-labelled, verdict unaffected) at qeihps.py:402-405: 'Hadamard state psi' is a hypothesis of both theorems ('On the set of Hadamard states'; 'for all Hadamard states psi') but is tagged as an evaluation input, not a FORM tag, for FO and FFKP (it IS a form tag for FS). The composite string at qeihps.py:516-517 still lists 'HPS's state not established Hadamard' as a blocker, so the refusal survives either labelling.",
+  "CONDITION LEFT UNSTATED at qeihps.py:225-227: the one writable FO instance (omega_0 = HPS's own state, reading 0 >= -Qt_A) needs omega_0 Hadamard, which the tree itself records NOT-ESTABLISHED; vacuity is correct, availability over-stated (from the FO component audit; not load-bearing for O5).",
+  "UNTAGGED CONVENTION at qeihps.py:77 vs :61: FO's (48) quoted in Birrell-Davies form inside a file declaring MTW units; no number computed from it (FO component audit). Not load-bearing for O5.",
+  "NO DRIFT: FO range [0, 1/4] (qeihps.py:384) and FFKP 'any xi' (qeihps.py:385) match the sources verbatim; xi = 1/6 is inside FO's range (F2) and FFKP has none; both are DIFFERENCE inequalities (qeihps.py:397-399) as printed (FO eq. 6; FFKP (65)); the blockers named at ledger.py:1727-1728 (reference state / W_0, <:Phi^2:> in the state) are exactly the inputs the two right-hand sides need; attribution 'the two Kontou names' is READ (2405.05963v2 Sec.5.2, refs 17 = 2309.10848, 30 = FO). Kontou asks for 'one of' the two; the tree tests both.",
+  "CAVEAT CORRECTLY KEPT A CAVEAT (qeihps.py:113-117): the sub-Planckian size of any sampling domain about the throat (curvature radius 0.0243 l_P) is not a hypothesis of either theorem (both are theorems of QFT on a fixed background); Kontou herself doubts HPS is in the semiclassical regime (2405.05963v2 Sec.5.2, READ)."
+ ],
+ "data_at_publication": [
+  {
+   "quantity": "empirical inputs of FO Thm 4.2 and FFKP Thm IV.1",
+   "value_then": "none -- both are theorems of free QFT on a fixed globally hyperbolic background",
+   "value_now": "none",
+   "source_now": "FO p.10; FFKP p.18 (cached alphaXiv text)",
+   "moves_conclusion": "no -- no datum enters either bound"
+  },
+  {
+   "quantity": "coupling ranges",
+   "value_then": "FO: xi in [0, 1/4]; FFKP: any real xi",
+   "value_now": "same; z3: FO's discarded classical bracket a^2/2 + (1-4xi)S/2 + 2xi c^2 (S >= 0) is >= 0 for all values iff 0 <= xi <= 1/4 (F1a UNSAT of negation, F1b SAT outside)",
+   "source_now": "rederive/kontou-fo-ffkp-nmc-qei.py F1a, F1b",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "HPS coupling xi",
+   "value_then": "1/6 = xi_c(4) = (n-2)/(4(n-1))",
+   "value_now": "1/6, exact and definitional (F2); inside FO's range",
+   "source_now": "FFKP (8); qeihps.HPS_XI",
+   "moves_conclusion": "no"
+  },
+  {
+   "quantity": "Ricci coefficient in FFKP's Q[f] (a derived coefficient, not a datum)",
+   "value_then": "+1/2 as printed in (64)/(69b)/(72) of v1",
+   "value_now": "-1 from the paper's own conserved stress tensor (9) (N1-N3); +1 from (13) as printed; +2 from (61) as extracted",
+   "source_now": "rederive checks N1, N2, N3b-d (FRW metric a = e^{t/3} + t^2/5, R_ll(t=0.7) = -0.2635, N4)",
+   "moves_conclusion": "moves the printed right side of (72) by (3/2) xi <:phi^2:(R_ll f^2)>_psi wherever R_ll != 0 and xi != 0 (sign indefinite, so the printed bound is not implied by the derivable one there); does NOT move the tree's OPEN verdict, which rests on missing W_0 / <:phi^2:> / Hadamard inputs untouched by the coefficient"
+  },
+  {
+   "quantity": "HPS throat f(0) = e^{-2/3}, r(0) = 0.02428 l_P",
+   "value_then": "tree inputs (qeihps.py), sign only enters FFKP-P3 and FO-P4",
+   "value_now": "unchanged (component audits recomputed them)",
+   "source_now": "qeihps.py import; audits/2309.10848-thmiv.1.json C4d",
+   "moves_conclusion": "no"
+  }
+ ],
+ "rederivation": {
+  "method": "sympy",
+  "script_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/rederive/kontou-fo-ffkp-nmc-qei.py",
+  "outcome": "19 PASS, 0 FAIL, exit 0 (sympy 1.14, z3 4.x; output in rederive/kontou-fo-ffkp-nmc-qei.out). Independent of the component scripts (different metric, fields, and a pointwise divergence identity rather than a Noether residual). N1: FFKP (9) null-contracted minus (13) as printed = 2 xi R_ll phi^2 exactly; (13) with -1/2 matches (9). N2: (9) conserved off-shell on spatially flat FRW (nabla^m T_mn = E d_n phi, residual 1.4e-166); (12)'s Ricci sign is not (residual 0.145). N3: with the null field l = d_t + a^{-1} d_x, f^2 T_ll(9) = f^2 (l.dphi)^2 - xi phi^2 [nabla nabla(l l f^2) - R_ll f^2] + div V holds pointwise at three points (residual 4e-165); the printed Q (+1/2) fails by exactly -(3/2) xi R_ll f^2 phi^2. N4: R_ll != 0 on that FRW. N5: the positive part f^2 (l.dphi)^2 carries no curvature coefficient, so the structure of FFKP's proof (positivity of rho_hat_n, (70)) is unaffected and Theorem IV.1 goes through with Q_true in place of (69b) -- the classical/pointwise skeleton is machine-checked; the quantum positive-type step (70) is NAMED (FFKP cite [7],[20]), not re-derived. F1: z3 proves FO's classical positivity bracket non-negative exactly on [0, 1/4]. F2: xi_c(4) = 1/6. T1: the tree's composite string reads 'FO Thm 4.2 OPEN and FFKP Thm IV.1 (eq. 72) OPEN', both computed by qei_status from HYPOTHESES, and flip to EVALUABLE when the three blockers are set MET; FORM_TAGS[FO] lacks global hyperbolicity; qeihps.py:98-99 displays the +1/2 coefficient and nothing evaluates it. First run had a sign slip in the Noether identity (E d_n phi, not -E d_n phi) and a too-strict grep count; both fixed, re-run clean.",
+  "agrees_with_source": "partly"
+ },
+ "later_literature": [
+  {
+   "ref": "discover_papers (this stage)",
+   "effect": "contested",
+   "what": "REFUSED: 'alphaXiv assistant quota exceeded' (also both answer_pdf_queries). No fresh search completed; nothing is inferred from absence. A correction of FFKP's (12)/(13)/(69b) in the SciPost version or elsewhere is neither found nor excluded.",
+   "read_status": "NOT RUN (quota)"
+  },
+  {
+   "ref": "E.-A. Kontou, arXiv:2405.05963v2 (Universe 10 (2024) 291), Sec.5.2",
+   "effect": "extends",
+   "what": "The request itself: examine HPS's wormhole 'using one of the QEIs for the nonminimally coupled fields derived in [17 = FFKP, 30 = FO]'; also doubts HPS's Planck-scale throat is semiclassical. Gives no evaluation -- consistent with the tree's OPEN.",
+   "read_status": "READ (cached text src/casmag/all/2405.05963v2.txt, re-read this stage)"
+  },
+  {
+   "ref": "C.J. Fewster & E.-A. Kontou, arXiv:1809.05047v2 (PRD 99 (2019) 045001)",
+   "effect": "extends",
+   "what": "Same technique for the effective energy density along any smooth timelike curve, xi in [0, 2xi_c], global hyperbolicity retained; fn.4 corrects a missing beta^{2-n} in FO's Sec.5 KMS example ('final results are correct') -- not in Thm 4.2.",
+   "read_status": "READ-VIA-SIBLING-STAGE (audits/0708.2450-thm4.2.json, cached text); not re-read here"
+  },
+  {
+   "ref": "J.R. Fliss & A. Rolph, arXiv:2510.26247v2",
+   "effect": "confirms",
+   "what": "For the NMC scalar one can build states of arbitrarily negative timelike or null-contracted stress tensor regardless of smearing domain -- why both bounds must be state-dependent; gives FFKP's journal reference SciPost Phys. 16 (2024) 119.",
+   "read_status": "READ-VIA-SIBLING-STAGE (audits/2309.10848-thmiv.1.json, cached text)"
+  },
+  {
+   "ref": "J.R. Fliss, arXiv:2605.18964v1 (lectures on energy conditions, 2026), eq.(1.45)",
+   "effect": "contested",
+   "what": "Restates the null energy with '+ (1/2) R_kk' inside -2xi(...) -- the same sign as FFKP (13), opposite to what (9) gives (N1); the curved bound (72) is not restated. An author repeats the (13) sign; it neither corrects nor confirms (69b).",
+   "read_status": "READ (cached text src/casmag/all/2605.18964v1.txt, eq.(1.45) re-read this stage)"
+  }
+ ],
+ "lacked_data": "M's hypothesis tested for this composite. Neither theorem has an empirical input, so there is no measured datum either set of authors could have lacked, and none has moved (data_at_publication). Evidence against M's hypothesis for these results: FO Thm 4.2's range and classical skeleton re-derive (F1 here; 22/22 in the component script), and FFKP's proof structure re-derives (N5) -- nothing is refuted. Evidence FOR a weaker form of M's suspicion ('incomplete or inaccurate', not 'lacked data'): FFKP v1's printed curvature coefficient in Q[f] (+1/2) is not the one its own conserved stress tensor (9) produces (-1; N1-N3). That is an internal algebraic discrepancy, not missing data, and it is invisible in every application FFKP make (Minkowski DSNEC/SNEC, R_mn = 0) -- which plausibly explains why it was not caught; it matters only where R_ll != 0 and xi != 0, i.e. exactly the curved use Kontou requests for HPS. What IS lacking -- for everyone, then and now -- is the INPUT to evaluate either bound on HPS: a reference Hadamard state (FO's omega_0, FFKP's W_0) on HPS's metric, <:Phi^2:> in HPS's state, and a proof that HPS's AHS-approximated state is Hadamard. HPS printed none; Kontou 2024 names the test and supplies none; neither later paper read here supplies them. Having the corrected coefficient changes no tree verdict: the refusal (OPEN, not evaluable) stands on the missing inputs.",
+ "grade": "NARROWED",
+ "grade_evidence": "Both components READ at source (cached alphaXiv extractions; Theorem 4.2 and Theorem IV.1 re-read verbatim this stage) and the composite's own conclusion -- both apply in form to HPS's xi = 1/6 field, neither evaluable, OPEN -- is faithful and computed (T1a, T1b, T1f), so the TREE'S VERDICT STANDS. The grade is NARROWED, not STANDS, because the external results as the tree carries them hold on a smaller class than stated: (1) FO Thm 4.2 requires a globally hyperbolic smooth spacetime, and the tree drops that hypothesis from FO's form test (FORM_TAGS[FO] = {xi, geodesic}, qeihps.py:402-403; T1c) while carrying it for FS and FFKP -- restorable only LOCALLY ('applies in form locally'); (2) FFKP Thm IV.1's printed right side, with Q[f] = nabla nabla(l l f^2) + (1/2) R_ll f^2 (copied at qeihps.py:98-99), is supported by the paper's own conserved stress tensor (9) only where R_mn l^m l^n = 0 on supp f or xi = 0; in general (9) gives Q_true = nabla nabla(l l f^2) - R_ll f^2 (N1-N3, pointwise identity machine-checked on FRW to 4e-165, printed form off by exactly -(3/2) xi R_ll f^2 phi^2), and HPS's throat neighbourhood has R_ll != 0. This is recorded as a DISCREPANCY in v1 as extracted -- NOT a refutation and NOT to be quoted as an error in SciPost Phys. 16, 119 until that version is read; no violating state is shown, and the theorem survives with Q_true (N5). Not WRONG: nothing in either source is refuted by a counterexample, and nothing the tree computes is contradicted. Not DATA-DEPENDENT: no datum enters. Not OPEN: both statements were read and every finite claim checked; only the journal version of FFKP and a fresh literature search were unavailable (quota / proxy), which bears on item (2)'s status in print, not on the computation.",
+ "what_would_change_the_grade": "To STANDS: (i) the tree adds FO's global-hyperbolicity hypothesis to FORM_TAGS[FO] with the local restriction named (as it does for FS), AND (ii) FFKP's SciPost version (or a v2) is read and shows (12)/(13)/(69b) corrected to the coefficient consistent with (9), with the tree's display at qeihps.py:98-99 then updated or marked -- or an error is found in checks N1-N3 (re-run; exact differentiation evaluated at 30 digits). To WRONG for FFKP (72) as printed: an explicit Hadamard state on a background with R_ll != 0 on supp f violating the printed bound -- not attempted and not implied, since the bound is not sharp. To OPEN: the journal version restates Theorem IV.1 with a different Q[f] whose derivation cannot be checked here. The tree's O5 refusal would change only if a reference Hadamard state and <:Phi^2:> on HPS were supplied (then both become EVALUABLE, T1f) -- at which point the Q[f] coefficient becomes load-bearing.",
+ "reverify_command": "cd /tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67 && python3 -u rederive/kontou-fo-ffkp-nmc-qei.py   # expects 19 PASS, 0 FAIL, exit 0 (sympy, z3-solver); then: sed -n 525,545p src/2309.10848.txt (eq.9) ; sed -n 585,647p src/2309.10848.txt (eqs.12-13 '+1/2 R_ll' inside -2xi) ; sed -n 2940,3040p src/2309.10848.txt (69b, 72) ; sed -n 1900,2030p src/fo/0708.2450.txt (FO Thm 4.2) ; grep -n 'FORM_TAGS\\|Q\\[f\\]\\|KONTOU_REQUESTED_TEST_ON_HPS' /home/user/Claude-Method-Works/research/warp-drive/qeihps.py ; sed -n 1712,1753p /home/user/Claude-Method-Works/research/warp-drive/ledger.py",
+ "report_path": "/tmp/claude-0/-home-user-Claude-Method-Works/6d820e7d-6d3c-5ac7-8067-527dc14c2847/scratchpad/d67/audits/kontou-fo-ffkp-nmc-qei.json"
+}
