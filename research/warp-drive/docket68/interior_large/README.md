@@ -970,3 +970,40 @@ scheme has already made.
   ergoregion). Item 397's model PASS is withdrawn beside its text: its flat error was the jump damping suppressing
   the model's own growth. The joining is to be checked on a model derived from flat space, in coordinates that move
   faster than light in a band, whose exact solutions are bounded plane waves.
+
+## Item 406: the corner where the far end meets the brane (2026-10-14; analysis, no run)
+
+M, 406, on the far end's line-by-line exponents changing with x: "do it" -- the corner analysis. `corner_analysis.py`
+(selftest 7/7, mutants 3/3); the record's equations and brane rows linearised about the reference metric exactly in
+`CORNER-LIN.json` (`--derive` rebuilds it from gen_eqs_fw.py's expressions, about 20 minutes).
+
+**The geometry, read at source.** Figueras and Wiseman's ansatz (9) (arXiv:1105.2558): r = sqrt(s), r = 0 the horizon,
+x = 1 the brane, x = 0 the axis, r = 1 the far region, where the metric tends to the Poincare horizon of AdS; their
+Delta = 1/beta + (1 - x^2)/(1 - r^2) is the record's Dl. Near (s, x) = (1, 1) it depends on the ratio of 1 - x^2 to
+1 - s, which is why a line-by-line series there changes with x.
+
+**The blow-up.** t = 1 - s, eta = (1 - x^2)/t, w = 1 + eta = (2 - s - x^2)/(1 - s): the corner opens into the line
+w in [1, inf), w = 1 the brane, w -> inf the far end away from it. With dX_f = t^lam Phi_f(w) (computed, exact):
+- **at leading order in t the corner is an ordinary differential system in w alone, independent of lam** -- g^ss goes
+  as t^4 against g^xx as t^2, so the s-derivatives enter one order later:
+  T, S, A:  -w^2 Phi''/2 + 3 w Phi'/2 + (Phi_T + 2 Phi_S + Phi_A) = 0;
+  B:        -w^2 Phi''/2 + 3 w Phi'/2 + 4 Phi_B = 0;
+  F:        -w^2 Phi''/4 + 3 w Phi'/4 + 5 Phi_F/4 = 0.
+- **Its exponents are exact** (Phi = w^m): for B and Sigma = T + 2S + A, m^2 - 4m - 8 = 0, **m = 2 +- 2 sqrt 3**
+  (5.4641, -1.4641, irrational); for T - S and T - A, m = 0, 4; for F, m = -1, 5.
+- **The forcing is t^3**, the reference's own residual (exact polynomials, zero at the corner): T, A: 3w^2 - 15w/2 + 4;
+  S, B: 4 - 3w; F: 0. Particular solutions: Phi_B = -1 + 6w/11, Sigma = -4 + 42w/11 - w^2, T - S = 3w - 3w^2/2.
+- **The brane rows at w = 1:** Phi_T' = Phi_S' = Phi_A' = -Phi_B (Israel), F = 0; the xi^x row enters only at the next
+  order; the reference satisfies all four exactly. With the far end excluding the growing branches (w^4, w^5,
+  w^(2 + 2 sqrt 3)), the rows tie the two admissible singular amplitudes: sigma_ = 2 b_/(sqrt 3 - 1), b_ left free.
+
+**The record's solution at order t^3** (computed, the static solutions N = 16 to 32): on the brane the corner form gives
+(B - 1)/t^3 -> -5/11 + b_; the solutions give -0.4553, -0.4613, -0.4515, -0.4530, -0.4527 against -5/11 = -0.4545.
+So at this order the record's solution follows the analytic particular solution and the irrational mode is not
+excited (|b_| <~ 0.01). Away from the brane the far end is clean: every field goes as t^1 at x = 0 and 0.5, converged,
+which is the particular solution's t^3 w^2 ~ t (1 - x^2)^2. The disagreement between resolutions sits in the corner
+region (x ~ 0.9 to 1).
+
+**Not yet known:** the next order, t^4. There the lam-dependent s-derivative terms act on the t^3 solution, the xi^x row
+first enters, and the exponent 4 of the differences can resonate with the forcing (w^4 log w). The non-analytic term
+that keeps the static solution's DeTurck vector from converging must enter there, if it is at the corner.

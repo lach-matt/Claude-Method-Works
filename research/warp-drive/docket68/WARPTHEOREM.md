@@ -804,6 +804,13 @@ state was rebuilt first.
   endpoints of the joining x = 1/8 (1.5e-2 and 1.0e-2 at the end), and the vector was already 2.8e-3 in the initial
   data and 9.0e-3 at the restart. Yours to rule: how the half is judged on exact pointwise values, a joining without
   coefficients, and the initial data's own vector.
+- **Item 405** (your three rulings): the true solution's DeTurck vector is zero; the initial data's is the static
+  solution's own, which does not converge with resolution; the interior scheme's coefficients listed; a joining with no
+  coefficient stable on the plain wave model, none yet validated where a < 0; item 397's model PASS withdrawn (that
+  model grows by itself).
+- **Item 406, the corner** (`corner_analysis.py`): where the far end meets the brane the record's equations reduce, in
+  w = (2 - s - x^2)/(1 - s), to an Euler system with exact exponents 2 +- 2 sqrt 3, 0, 4, -1, 5; forced at t^3, the
+  record's solution follows the analytic part there (-0.453 against -5/11 on the brane). The next order is open.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

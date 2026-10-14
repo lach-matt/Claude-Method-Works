@@ -191,3 +191,18 @@ coefficient, 1/(2H) = 1,680 at the left copy, times the jump; it offsets what th
   restart, s = -0.503.
 - **For M:** how the half is to be judged on exact pointwise values; a joining without coefficients (posed and
   checked on the model first); the initial data's own DeTurck vector.
+
+**Item 405: no coefficients in the chain** (`interior_large/README.md`, "Item 405"; in progress). The true solution's
+DeTurck vector is zero (the record's equation with its brane row xi^x = 0). The initial data's vector is the static
+solution's own, carried across the horizon, and the static solution's does not converge with resolution. The interior
+scheme's coefficients are listed (kappa, the tilt, gk, the joining's 1/(2H), the brane's c^2/h_N); the damping only pays
+down a xi the scheme has made. A joining with no coefficient: stable on the plain wave model in the adjoint form on one
+domain; on a band where a < 0 none tried is yet validated, and item 397's band model grows by itself (its PASS
+withdrawn).
+
+**Item 406: the corner where the far end meets the brane** (`interior_large/README.md`, "Item 406";
+`corner_analysis.py`, selftest 7/7, mutants 3/3). Blown up by w = (2 - s - x^2)/(1 - s), the corner is at leading
+order an Euler system in w, independent of the power of t; its exponents are exact: 2 +- 2 sqrt 3 (B and
+T + 2S + A), 0 and 4 (the differences), -1 and 5 (F). The reference's residual forces it at t^3; the record's solution
+follows the analytic particular solution there (on the brane (B - 1)/t^3 = -0.453 against -5/11), the irrational mode
+not excited. The next order, t^4, is where the non-analytic term must enter, if it is at the corner.
