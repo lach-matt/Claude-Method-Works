@@ -11,6 +11,7 @@ carried over one halving of u = 1/(1 - s) -- the variable of B6's power laws -- 
 
 python3 zeno_run.py trusted                 -- the trusted state: B7's damped Nx = 28 run from s = -0.002 to -0.503
 python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state.  mesh is one of
+    "dsem" (item 397: the joining of the penalised derivative, valid where a = -g_ss/g_xx < 0),
     "satw" (item 395: the folded axis, the energy-derived coupling and the brane imposed weakly),
     "sat" (item 394: the brane rows algebraic) or "patch" (item 393: derivative continuity)
 python3 zeno_run.py reassess [n]             -- item 393's saved half re-assessed with the brane root marched in order
@@ -26,6 +27,7 @@ STATIC = dict(file=C.static_file(B, 24, 24), Ns=24, Nx=24)
 TRUSTED = "zeno_trusted_28.pkl"
 WALL = 20 * 60.0
 SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)        # item 394: the axis part and the brane part given more points
+DSEM_NS = (12, 14, 14, 10, 14)    # item 397: more points where the third attempt's tails were worst
 GAM_SIGN = -1.0     # the jump damping acts along the evolution, toward decreasing s (spectrum check, item 395)
 
 
@@ -168,11 +170,9 @@ class FoldedSAT(ID.Damped):
 
     brane_values = Halving.brane_values
 
-    def rhs(self, s, Y):
-        m = self.m; Xi = Y[:5 * m].reshape(5, m); Vi = Y[5 * m:].reshape(5, m)
-        Xf, Vf = self.brane_values(s, Xi, Vi)
-        DX = Xf @ self.D.T; DXX = Xf @ self.D2.T; DV = Vf @ self.D.T
-        I = self.inner; xs = self.xn[I]; ss = np.full(m, s); a = []
+    def pointwise(self, s, Xf, Vf, DX, DXX, DV):
+        """the record's equations solved node by node for X_ss, given the fields and their x-derivatives"""
+        m = self.m; I = self.inner; xs = self.xn[I]; ss = np.full(m, s); a = []
         for e in range(5):
             a += [Xf[e, I], Vf[e, I], DX[e, I], np.zeros(m), DXX[e, I], DV[e, I]]
         bc = lambda L: np.array([np.broadcast_to(np.asarray(r, dtype=float), (m,)) for r in L])
@@ -187,6 +187,14 @@ class FoldedSAT(ID.Damped):
                 M[:, e, k] = np.broadcast_to(np.asarray(co[e][k], dtype=float), (m,))
         Xss = np.zeros_like(Xf)
         Xss[:, I] = np.linalg.solve(M, -rest.T[:, :, None])[:, :, 0].T
+        return Xss
+
+    def rhs(self, s, Y):
+        m = self.m; Xi = Y[:5 * m].reshape(5, m); Vi = Y[5 * m:].reshape(5, m)
+        Xf, Vf = self.brane_values(s, Xi, Vi)
+        DX = Xf @ self.D.T; DXX = Xf @ self.D2.T; DV = Vf @ self.D.T
+        I = self.inner
+        Xss = self.pointwise(s, Xf, Vf, DX, DXX, DV)
         gss, gsx, gxx = C.metric_sx(s, self.xn, self.b, Xf)
         for j in range(len(self.blk) - 1):
             (idL, DL, _, wL, _), (idR, DR, _, wR, _) = self.blk[j], self.blk[j + 1]
@@ -263,6 +271,58 @@ class FoldedSATWeak(FoldedSAT):
         return d
 
 
+class FoldedDSEM(FoldedSATWeak):
+    """item 397: the joining rebuilt so that it holds where a = -g_ss/g_xx < 0 (item 396: d_s outside the light cone,
+    the slices still spacelike, c^2 = b^2 + a > 0).  The penalised derivative of Duru, Wang & Wiratama (2021,
+    arXiv:2107.05770) -- each part's own D, minus half the jump over the end weight at both copies of every joining,
+    skew in H -- carries every first derivative, and with p = X_s - b X_x the principal part is put in their form,
+        X_ss = b Dt X_s + Dt(b p) + Dt(c^2 Dt X) - b_x X_s - a_x Dt X,
+    the last two terms returning it to the record's a X_xx + 2 b X_sx.  Its energy |p|^2 + c^2 |Dt X|^2 is a norm
+    wherever c^2 > 0, whatever the sign of a, and holds the jump in X itself (zeno_char_check.py).  The record's
+    equations are then solved node by node with Dt X, Dt Dt X and Dt X_s in place of the plain derivatives, and their
+    principal part a Dt Dt X + 2 b Dt X_s is replaced by the form above.  At each joining the jump in p is damped
+    along the evolution: X_ss -= gam J_p/h_L at the left copy, += gam J_p/h_R at the right, gam = GAM_SIGN c gk.
+    The brane is weak as in item 395, with c^2 (= a there, b = 0) in the penalty; F = 0 held exactly."""
+
+    def __init__(self, *args, gk=0.5, **kw):
+        super().__init__(*args, **kw)
+        self.Dfull = C.bary_D(self.fold[0]); self.gk = gk
+        self.H = np.concatenate([blk[3] for blk in self.blk])
+
+    def Dt(self, f, par):
+        """the penalised derivative of each row of f; the axis part on its full symmetric nodes, f extended there
+        with parity par (+1 even, -1 odd)"""
+        full, P, Mi = self.fold; idx0 = self.blk[0][0]; out = np.zeros_like(f)
+        g = np.zeros((f.shape[0], len(full))); g[:, P] = f[:, idx0]; g[:, Mi] = par * f[:, idx0]
+        out[:, idx0] = (g @ self.Dfull.T)[:, P]
+        for idx, Dl, _, _, _ in self.blk[1:]:
+            out[:, idx] = f[:, idx] @ Dl.T
+        for j in range(len(self.blk) - 1):
+            iL, iR = self.blk[j][0][-1], self.blk[j + 1][0][0]; J = f[:, iL] - f[:, iR]
+            out[:, iL] -= 0.5 * J / self.H[iL]; out[:, iR] -= 0.5 * J / self.H[iR]
+        return out
+
+    def rhs(self, s, Y):
+        m = self.m; N = self.Nx
+        Xf, Vf = self.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
+        DX = self.Dt(Xf, 1); DV = self.Dt(Vf, 1); DXX = self.Dt(DX, -1)
+        Xss = self.pointwise(s, Xf, Vf, DX, DXX, DV)
+        gss, gsx, gxx = C.metric_sx(s, self.xn, self.b, Xf)
+        a = -gss / gxx; b = gsx / gxx; c2 = b * b + a                    # b is odd in x, a and c^2 even
+        W = Vf - b * DX
+        Xss += (-a * DXX - b * DV + self.Dt(b * W, -1) + self.Dt(c2 * DX, -1)
+                - self.Dt(b[None], -1) * Vf - self.Dt(a[None], 1) * DX)
+        for j in range(len(self.blk) - 1):
+            iL, iR = self.blk[j][0][-1], self.blk[j + 1][0][0]
+            gam = GAM_SIGN * self.gk * np.sqrt(max(0.5 * (c2[iL] + c2[iR]), 0.0)); JW = W[:, iL] - W[:, iR]
+            Xss[:, iL] -= gam * JW / self.H[iL]; Xss[:, iR] += gam * JW / self.H[iR]
+        phi, _, _, _ = self.slopes(s, Xf, DX[:, N])
+        for e in range(4):
+            Xss[e, N] += -(c2[N] / self.hN) * (DX[e, N] - phi[e])
+        Xss[4, N] = 0.0                                                  # F = 0 held exactly on the brane
+        return np.concatenate([Vf.ravel(), Xss.ravel()])
+
+
 def lapse_of(I, s, Xf):
     """the lapse of the s-slices, N = 1/sqrt(-g^ss), from the (s, x) block of the metric"""
     gss, gsx, gxx = C.metric_sx(s, I.xn, I.b, Xf)
@@ -276,6 +336,8 @@ def half(n=12, mesh="sat"):
         I = FoldedSAT(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=SAT_NS)
     elif mesh == "satw":                                       # item 395: and the brane imposed weakly
         I = FoldedSATWeak(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=SAT_NS)
+    elif mesh == "dsem":                                       # item 397: the penalised derivative's joining
+        I = FoldedDSEM(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=DSEM_NS)
     else:
         I = Halving(n, B, STATIC, KAP, AT)
     m = I.m
