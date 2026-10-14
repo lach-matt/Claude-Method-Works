@@ -10,9 +10,10 @@ carried over one halving of u = 1/(1 - s) -- the variable of B6's power laws -- 
     half's end; the run is stopped at 20 minutes of wall time.
 
 python3 zeno_run.py trusted                 -- the trusted state: B7's damped Nx = 28 run from s = -0.002 to -0.503
-python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state; mesh "satw" (item 395: the folded axis, the
-                                              energy-derived coupling and the brane imposed weakly), "sat" (item 394,
-                                              the brane rows algebraic) or "patch" (item 393's derivative continuity)
+python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state.  mesh is one of
+    "satw" (item 395: the folded axis, the energy-derived coupling and the brane imposed weakly),
+    "sat" (item 394: the brane rows algebraic) or "patch" (item 393: derivative continuity)
+python3 zeno_run.py reassess [n]             -- item 393's saved half re-assessed with the brane root marched in order
 """
 import numpy as np, sys, time, pickle, os
 import core_fw as C, interior_fw as IF, interior_damp as ID
@@ -24,8 +25,8 @@ P_EXP = np.array([1.0, -2.0, 1.0, -2.0, -1.0])            # B6: T, A ~ u; S, B ~
 STATIC = dict(file=C.static_file(B, 24, 24), Ns=24, Nx=24)
 TRUSTED = "zeno_trusted_28.pkl"
 WALL = 20 * 60.0
-SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)
-GAM_SIGN = -1.0     # the jump damping acts along the evolution, toward decreasing s (spectrum check, item 395)        # item 394: the axis part and the brane part given more points
+SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)        # item 394: the axis part and the brane part given more points
+GAM_SIGN = -1.0     # the jump damping acts along the evolution, toward decreasing s (spectrum check, item 395)
 
 
 class Halving(ID.Damped):
