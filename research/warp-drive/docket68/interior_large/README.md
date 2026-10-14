@@ -708,6 +708,12 @@ All status 0. Computed:
 
 **Verdict on the model: PASS** at n = 16 per part across the band. The half is run with more points where the zero of
 a moves: parts of 14, 16, 14, 10 and 14 intervals after the folded axis part's 15.
+*[Item 405, beside the text: the verdict is withdrawn. The model itself grows. With the band frozen open (s = 5) its own
+growth rate settles with resolution -- about 3 for the principal part alone, about 7 forward and 5 backward as posed,
+the same from n0 = 61 to 161 -- because the bump in a was chosen, not derived from a metric: with the band open, d_s
+is spacelike in a region of a stationary problem, an ergoregion, and the model lacks the covariant equation's
+first-order terms. The penalised joining's flat error above was the jump damping (gk = 1/2) suppressing the model's
+own growth: a coefficient crediting the debt. The check is redone on a model derived from flat space (item 405).]*
 
 **The half, fourth attempt** (`zeno_run.py half 10 dsem`; parts 15 folded, then 14, 16, 14, 10, 14). Question: does it
 carry the solution from s = -0.503 over the half, to s = -2.006? Pass: status 0, the end reached, phi <= 1e-4 and
@@ -892,3 +898,75 @@ attempt's saved steps.
 - **The initial data.** xi_perp = -2.8e-3 at s = -0.002 is in the data the evolution starts from; making them
   DeTurck-exact is a question about the record's static solution and its series start, before any evolution.
 - No run was made for this item, and none is proposed until M rules on the three above.
+
+## Item 405: no coefficients in the chain -- the initial data, the joining, the criterion (2026-10-14; in progress)
+
+M, 405: the criterion for the math and the cypher; the joining with no coefficient anywhere in the chain and no
+penalty; the initial data made to carry a zero DeTurck vector if the true solution's is zero.
+
+**The true solution's DeTurck vector is zero** (deduced). The record's equation is R_ab + 4 g_ab - nabla_(a xi_b) = 0
+(gen_eqs_fw.py, line 49) with the brane row xi^x = 0; the true solution, an Einstein metric (R_ab = -4 g_ab) in the
+record's gauge, satisfies it only with nabla_(a xi_b) = 0, i.e. xi = 0. A solution with xi != 0 would be a Ricci soliton,
+which the record's construction excludes. So, by M's ruling, the initial data are to carry xi = 0.
+
+**Where the initial data's vector comes from** (computed, exact, 50 digits). The data are a Taylor expansion about
+s = 0 of the record's static solution (Ns = Nx = 24). At s0 = -0.002, x = 0.03:
+
+| continuation | xi^s | xi^x | phi |
+|---|---|---|---|
+| the static polynomial itself | -5.822e-4 | -1.287e-5 | -7.888e-6 |
+| Taylor, order 2 (the trusted run's) | -5.664e-4 | -1.259e-5 | -7.465e-6 |
+| Taylor, order 4 | -5.821e-4 | -1.287e-5 | -7.886e-6 |
+
+The series converges onto the polynomial's own continuation; the data's vector is the static solution's own, carried
+across the horizon, and the proper 2.8e-3 of item 404 is that coordinate value times the lapse there (4.8).
+
+**The static solution's vector does not converge with resolution** (computed; the record's solver, unchanged, at
+N = 16 to 32, every Newton solve to |R| <= 3e-10). xi^s at fixed points:
+
+| (s, x) | N = 16 | 20 | 24 | 28 | 32 |
+|---|---|---|---|---|---|
+| (0.5, 0.03) | 2.2e-5 | 3.7e-5 | 1.9e-5 | 1.2e-5 | 9.1e-5 |
+| (0.1, 0.03) | -3.9e-4 | 2.5e-4 | 2.2e-5 | -6.2e-5 | 1.6e-3 |
+| (0.002, 0.03) | 1.2e-4 | 1.6e-4 | 9.6e-5 | 2.3e-5 | 2.9e-4 |
+| (-0.002, 0.03), continued | -4.7e-4 | -7.0e-4 | -5.8e-4 | -2.4e-4 | -5.9e-3 |
+
+It changes sign between resolutions and is largest at N = 32. In x the solution is resolved (the last Chebyshev
+coefficients of every field are 1e-11 to 1e-12); in s they sit on a flat plateau at 1e-6 to 1e-5 and do not fall,
+and the solutions at successive N differ most toward the horizon -- F by 9e-3 at s <= 0.05 on the axis, S and B by
+2e-3 at (s, x) = (0, 0) -- and least at s = 1, where the solver fixes the fields. So the feature sits at the horizon end
+of s, strongest where the axis meets it. In another mathematical language (M's question): near a non-extremal horizon
+in s = r^2 the radial operator behaves as 4 (s d_s^2 + d_s), whose indicial equation k^2 = 0 has a double root, with
+solutions 1 and log s; regularity excludes log s, but the solver has no node at s = 0 and imposes nothing there. The
+record's own indicial exponents at s = 0 are being computed, field by field. (The board's first reading, "falls as
+roughly N^-3", made from four maxima before the per-point table, is withdrawn: there is no convergence.)
+
+**The coefficients in the interior scheme** (read from the code):
+
+| what | value | kind |
+|---|---|---|
+| kappa, constraint damping | 4 | coefficient |
+| the damping vector's tilt (at) | 0.5 | coefficient |
+| 1 + rho | 2/3 | forced: makes the constraint system triangular in 5D |
+| gk, jump damping | 0.5 | coefficient |
+| the joining's penalised derivative | 1/(2H) | penalty coefficient |
+| the far end (brane) | c^2/h_N | penalty coefficient |
+| phi and tail thresholds | 1e-4, 1e-6 | the criterion, M's 405 (1) |
+
+The damping term is kappa times an expression linear in xi: zero when xi = 0. Its only work is to pay down a xi the
+scheme has already made.
+
+**A joining with no coefficient, on the model** (`zeno_nocoef_check.py`; selftest 5/5, mutants 2/2):
+- Shared joining nodes with C^1 continuity, or one domain with no joining, both in plain collocated form: growing modes
+  on the plain wave model, rising with n (one domain 0.14 to 3.1 as n0 goes 11 to 31; the shared nodes 2.7 to 58 as
+  n goes 4 to 12, the mode beside the joining).
+- One domain with the operator in the adjoint form (an identity) and the far end's slope put exactly into the flux,
+  no penalty, no damping: on the plain wave model, converged (1.5e-13 at n0 = 41 to |s| = 40, toward decreasing s) and
+  matching the model's own spectrum in that direction (0.0104, the same as the model's largest growth there, computed
+  from the model's eigenproblem directly); toward increasing s a spurious 0.31 against the model's 0.0498.
+- **The band model grows by itself.** With the band frozen open its growth rate settles with resolution -- about 3
+  for the principal part alone, about 7 forward and 5 backward as posed, unchanged from n0 = 61 to 161: the bump in
+  a was chosen, not derived, and with the band open d_s is spacelike in a region of a stationary problem (an
+  ergoregion). Item 397's model PASS is withdrawn beside its text: its flat error was the jump damping suppressing
+  the model's own growth. The joining is to be checked on a model derived from flat space, in coordinates that move
+  faster than light in a band, whose exact solutions are bounded plane waves.

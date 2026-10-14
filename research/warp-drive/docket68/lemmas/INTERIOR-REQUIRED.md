@@ -154,6 +154,8 @@ points, and couple the parts by penalty. It is for M to approve.
 - **The board's own coupling failed on the model** (exact only at a norm's edge; it grows once coefficients vary). The
   one built is Duru, Wang and Wiratama's penalised derivative, a strict norm wherever b^2 + a > 0. On the model it holds
   the error flat to s = 40 where a < 0 opens across a joining (1.5e-7 at n = 16).
+  *[Item 405, beside the text: withdrawn -- that model grows by itself once the band is open (its rate settles with
+  resolution), and the flat error was the jump damping, a coefficient, suppressing it.]*
 - **The half reached its end, s = -2.006**, for the first time, through a region of a < 0 that spread over
   [0.037, 0.777]. The slices stayed spacelike.
 - **It failed the criterion at the end only**: phi 3.5e-3 and tails 1.5e-5, both in the axis part, where both

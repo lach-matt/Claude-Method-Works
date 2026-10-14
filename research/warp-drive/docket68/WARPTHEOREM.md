@@ -785,6 +785,8 @@ state was rebuilt first.
   jump damped along the evolution.
 - **On the model**, with a band of a < 0 opening across a joining four times, the error converges spectrally and stays
   flat to s = 40 at n = 16 (1.5e-7).
+  *[Item 405, beside the text: withdrawn -- that model grows by itself once the band is open, and the flat error was
+  the jump damping, a coefficient, suppressing it.]*
 - **The half reached its end, s = -2.006**, for the first time, through a region of a < 0 that spread over
   [0.037, 0.777], the slices spacelike throughout. It failed the criterion at the end only (phi 3.5e-3, tails
   1.5e-5), in the axis part, where both characteristics converge. Next, for you: halve toward the axis too.
