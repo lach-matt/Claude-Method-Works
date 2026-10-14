@@ -149,6 +149,10 @@ V14.]
      item-348 note). (5) uses the board's 336 (a), named at 341 (Q10). And J1 is evaluated at our face's r_h: at each
      destination's own face, with its own ell and the G5 readings, the period is 32.60-34.53 of position 2's clocks (V14
      (c); the verifier's convention gives 31.2-34.1), at least 6.91 w* in our clocks -- the comparison stands.]
+     [Item 387: M ruled position 2's own sigma, ours at 218's destination, so J1's junction does not rise. The open
+     period is J2's short phase, about 2 clocks (c_junction J4; READ, an order). (3)'s comparison is then reversed:
+     the width must be below about 2 clocks, under the 4.79. That is a requirement on SOURCE (SOURCE-REQUIRED item
+     10). Kept as written.]
   V9 (computed) ARRIVAL's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the classes t, the arrival compact (within V4's widths) or spread, and m, the README or other matter --
      no arrival, a README on a standing face (reading (i)), the README with 183's exact partner (README-HELD 2: no face

@@ -36,6 +36,27 @@ What the correction changes:
   S3's formula). No row turns on it: the small end's hole lasts 1.28e10 times the old floor (o3_hold), the large end's
   3.3e10 times (close_large L3). Which count is right is SOURCE's.
 
+## Settled at item 387: position 2's plane carries its own sigma
+
+M, 387: "it should carry its own σ." That answers the fork below. What follows from it, worked from the record:
+
+- At the working destination, its own sigma is ours. Position 2 is "a universe identical to this one with a singular
+  exception, that that universe is 1 hour ahead of ours" (218), and each position 2 carries its own universe's values
+  (226). So s2 = s_in = sigma: no junction rises on position 2's face, at either end (c8_level V2). J1's junction does
+  not bind there. Deduced.
+- Position 2's open period is then J2's short white-hole phase, (Delta u)* <~ 2 r_s/c (c_junction J2, READ: Barcelo,
+  Carballo-Rubio and Garay). It is an order, not an exact bound. At the small end that is about 2 clocks of r_h/c
+  (c_junction J4). At the large end it is 4 clocks of GM/c^3 (close_large L4 (a)).
+- So item 10 is one requirement at both ends, in each end's own units: the README's arrival lasts less than about
+  twice the hole's horizon radius in light time. Deduced.
+- At the small end this is stricter than item 9's 4.79 clocks. The margin of 6.9 against J1's 33.6 is gone, and item
+  10 now binds at both ends. Deduced.
+- A destination whose own sigma differs from ours, such as 2P and its combinations (sigma/4 in SI, p2_planck Q2),
+  would carry a junction of the difference. Its period would have to be computed. The working experiment (218) does
+  not need it, so it is not computed (384).
+- New, and the math's to answer: with no junction, M's rulings carry nothing that closes position 2's face. The
+  record's only bound on the open period is J2, which is READ. A bound from the theorem itself would replace it.
+
 ## What it is
 
 1. *[Withdrawn at item 386: see 1'.]* **Written on our plane, in our plane's own fields** -- "a gas of the plane's fields, not null dust" (344,
@@ -79,6 +100,10 @@ What the correction changes:
       source, and it is new to the large end. For the Earth's corridor with ell at its ceiling the quarter's bound is
       6.6e-7 clocks, about 1e-17 s.
     Computed.
+    [Item 387: position 2's plane carries its own sigma, which at 218's destination is ours. So the bound at both ends
+    is J2's short phase, about 2 clocks of r_h/c at the small end and 4 clocks of GM/c^3 at the large (READ, an order).
+    The small end's 32.6-34.5 and the large end's quarter bound were J1's junction, which does not rise there. Kept as
+    written; see "Settled at item 387" above.]
 11. **It keeps our vacuum.** It never carries our plane's Higgs over its barrier: our universe is defined by its offset
     (201), which a bubble of the deeper vacuum would change by more than eighty orders (322; 382). At the example README
     the gas is about 5.6e3 GeV at the floor ball and 2.3e7 GeV at the face, against the barrier's 3.68e10 GeV -- at most
@@ -98,5 +123,6 @@ What the correction changes:
 - **Position 2's tension at the destination.** It is 139 (1)'s quarter, or the destination's own sigma (218, 226). The
   large end's arrival must be shorter than 2.67e-3 (10 ell/r0)^2 clocks in the first case and 4 clocks in the second:
   a factor of at least 1,500 apart, and the record holds both readings.
+  [Answered at item 387: its own sigma. Kept as written.]
 - **The arrival's width itself.** By 163 it is one whole, not an instant; nothing in the rulings or the geometry sets
   it. It is SOURCE's to set, within items 9 and 10.

@@ -589,6 +589,7 @@ the rows proved:
 - **What it replaces.** The board's three readings RDUST, RBITS and RSHELL, which stand in for it now.
 - **Yours.** Which tension position 2's plane carries at the destination; the two readings set the large end's bound
   1,500 times apart.
+  [Answered at item 387: its own σ. Kept as written.]
 
 **Item 386: not a gas -- only information goes in** (`lemmas/SOURCE-REQUIRED.md`, corrected). You asked how the source
 can be a gas if matter cannot travel. It cannot; requirements 1 and 2 of item 385 were wrong, and are withdrawn beside
@@ -604,6 +605,23 @@ their correction.
   that way is still SOURCE's to prove. The write's floor counted every Standard Model species as a carrier; with only
   the massless gauge quanta it is 252,191 clocks instead of 66,980. No row turns on it: the holes last 1.28×10¹⁰ and
   3.3×10¹⁰ times the old floor.
+
+**Item 387: position 2's plane carries its own σ** (`lemmas/SOURCE-REQUIRED.md`, "Settled at item 387"; notes in
+`arrival_large`, `close_large`, `c_junction`, `arrival_small`). Your answer to the fork settles SOURCE's last open
+requirement.
+- **At the working destination its own σ is ours.** Position 2 is our universe an hour ahead (218), carrying its own
+  universe's values (226), so no junction rises on its face at either end (c8_level V2). J1's junction, which gave the
+  small end 33.6 clocks and the large end the quarter's 2.67×10⁻³ (10ℓ/r₀)², does not bind there. Deduced.
+- **Item 10 becomes one requirement at both ends.** Position 2's face is open for the short white-hole phase, about
+  twice the hole's horizon radius in light time: about 2 clocks of r_h/c at the small end and 4 clocks of GM/c³ at the
+  large (c_junction J2, J4; close_large L4 (a)). That bound is READ (Barcelo, Carballo-Rubio and Garay) and is an order
+  of magnitude, not exact. The README's arrival must be shorter than it.
+- **The small end tightens.** Item 9's 4.79 clocks no longer has a margin of 6.9. Item 10's bound of about 2 clocks now
+  binds at both ends.
+- **Not computed, not needed:** a destination whose own σ differs from ours (2P and its combinations, σ/4 in SI) would
+  carry a junction of the difference.
+- **New, for the math.** With no junction, nothing in your rulings closes position 2's face. The record's only bound on
+  how long it stays open is J2, which is READ. A bound from the theorem itself would replace it.
 
 ## The register as it stands (item 331)
 

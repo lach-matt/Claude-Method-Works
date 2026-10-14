@@ -55,6 +55,8 @@ seated); 2026-10-13.
      face closes, releasing position 2's own energy (110, 111 (a), 240; 336 (a), the board's reading).  Whether the
      README crosses within that period is the large end's ARRIVAL, which rests on SOURCE (358, reading (a)): reported
      here under reading (c), not decided.
+     [Item 387: M ruled position 2's own sigma, ours at 218's destination, so reading (a) holds: no junction, and the
+     open period is at most 4 clocks (READ, an order). Reading (b) is kept as written.]
   L5 (deduced) The rows.  CLOSE at the large end, on M-ENERGY-STAYS: our face closes by Hawking emission over the large
      hole's life, at least 2.4 N clocks (L3), its energy ours, radiated into our universe; position 2's face closes
      within its open period (L4), on either reading of position 2's tension.  E1u and E1x: E stays (336), carried by

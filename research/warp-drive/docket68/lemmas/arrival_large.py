@@ -32,6 +32,9 @@ seated); 2026-10-14.
      corridor's geometry sets it.  It is SOURCE's: the README written on our plane and coming in (344-346).  So ARRIVAL
      at the large end relies on SOURCE, on one number -- the arrival's width below position 2's open period, 2.67e-3
      (10 ell/r0)^2 clocks on 139 (1)'s quarter -- and under 358 (c) it is reported so, not forced green.
+     [Item 387: M ruled that position 2's plane carries its own sigma, which at 218's destination is ours. So A4's bound
+     is the 4 clocks (close_large L4 (a), the short phase with no junction; READ, an order), not the quarter's 2.67e-3
+     (10 ell/r0)^2. A5's consistency stands: 4 < 16. Kept as written.]
   A6 (deduced) The rows that wait only on it.  M1P2x (all but the README's emergence within position 2's open period),
      E1x (the README's crossing against that period) and H2tx (resting on M1P2x) rely on SOURCE through A5 alone, and
      reach the small end's state with ARRIVAL: readings on SOURCE once M finalizes.  Z3b, B3 and B4d rest on ARRIVAL and
