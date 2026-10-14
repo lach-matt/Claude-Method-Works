@@ -21,6 +21,9 @@ nearest saved step moved to s by its own s-slope.  That disagreement cannot see 
 (the same in both) and the departure from Einstein's law (xi) are not in it, and are named as owed, not as passed.
 
 python3 criterion_large.py              -- the table over the half (nine slices); CRITERION-405.tsv
+python3 criterion_large.py --start PKL  -- the same with the shared start's error added (item 411): PKL is the same half
+                                          (dsem5, n = 10) run from another resolution's static start; each cell's
+                                          error is the meshes' disagreement plus the starts'; CRITERION-411.tsv
 python3 criterion_large.py --selftest | --mutants
 """
 import sys, pickle
@@ -69,9 +72,12 @@ def at(R, I, sv):
     return (X if "noslope" in MUT else X + Xs * (sv - ss)), Xs, ss
 
 
-def table(slices=SLICES, quiet=False):
+def table(slices=SLICES, quiet=False, start=None):
+    """rows (s, requirement, min q, mesh error/|q|, start error/|q|, total/|q|, at x, violated, undecided) and E; the
+    start error is zero unless start names the half run from another static start"""
     import zeno_run as Z, deturck_exact as D
     R5, I5 = scheme(FIFTH); R4, I4 = scheme(FOURTH); xs = I5.xn; rows = []
+    Rb, Ib = scheme(start) if start else (None, None)
     for sv in slices:
         X5, _, s5 = at(R5, I5, sv); X4, Xs4, s4 = at(R4, I4, sv)
         parts = D.parts_of(I4, X4, Xs4); X4i = np.zeros_like(X5)
@@ -80,25 +86,35 @@ def table(slices=SLICES, quiet=False):
             for e, n in enumerate(D.NAMES):
                 X4i[e, j] = float(D.poly_at(p["nodes"], p["w"], p["vals"][n], mp.mpf(xv))[0])
         q5, q4 = quantities(sv, xs, X5, Z.B), quantities(sv, xs, X4i, Z.B)
+        qb = quantities(sv, xs, at(Rb, Ib, sv)[0], Z.B) if start else q5
         for r in REQS:
-            err = np.abs(q5[r] - q4[r]); v, u = cells(q5[r], err); rel = err / np.abs(q5[r]); j = int(np.argmax(rel))
-            rows.append((sv, r, float(q5[r].min()), float(rel.max()), float(xs[j]), v, u))
+            em = np.abs(q5[r] - q4[r]); es = np.abs(q5[r] - qb[r]); err = em + es
+            v, u = cells(q5[r], err); a = np.abs(q5[r]); j = int(np.argmax(err / a))
+            rows.append((sv, r, float(q5[r].min()), float((em / a).max()), float((es / a).max()),
+                         float((err / a).max()), float(xs[j]), v, u))
         if not quiet:
-            print("s %5.2f: " % sv + "; ".join("%s min %.2e, error/|q| <= %.1e (x %.3f), violated %d, undecided %d"
-                                                % r[1:] for r in rows[-4:]), flush=True)
-    E = sum(r[5] + r[6] for r in rows)
+            print("s %5.2f: " % sv + "; ".join("%s min %.2e, error/|q| mesh %.1e start %.1e total %.1e (x %.3f), "
+                                                "violated %d, undecided %d" % r[1:] for r in rows[-4:]), flush=True)
+    E = sum(r[7] + r[8] for r in rows)
     if not quiet:
         print("E = %d over %d cells (%d slices x %d nodes x %d requirements)" % (
             E, len(slices) * len(xs) * len(REQS), len(slices), len(xs), len(REQS)))
     return rows, E
 
 
-def run(out="CRITERION-405.tsv"):
-    rows, E = table()
+def run(start=None):
+    out = "CRITERION-411.tsv" if start else "CRITERION-405.tsv"
+    rows, E = table(start=start)
     with open(out, "w") as fh:
-        fh.write("s\trequirement\tmin_q\tmax_error_over_q\tat_x\tviolated\tundecided\n")
-        for r in rows:
-            fh.write("%.2f\t%s\t%.6e\t%.6e\t%.4f\t%d\t%d\n" % r)
+        if start:
+            fh.write("s\trequirement\tmin_q\tmesh_error_over_q\tstart_error_over_q\ttotal_error_over_q\tat_x"
+                     "\tviolated\tundecided\n")
+            for r in rows:
+                fh.write("%.2f\t%s\t%.6e\t%.6e\t%.6e\t%.6e\t%.4f\t%d\t%d\n" % r)
+        else:
+            fh.write("s\trequirement\tmin_q\tmax_error_over_q\tat_x\tviolated\tundecided\n")
+            for r in rows:
+                fh.write("%.2f\t%s\t%.6e\t%.6e\t%.4f\t%d\t%d\n" % (r[0], r[1], r[2], r[3], r[6], r[7], r[8]))
     return E
 
 
@@ -152,4 +168,6 @@ if __name__ == "__main__":
         sys.exit(0 if selftest() else 1)
     if a and a[0] == "--mutants":
         sys.exit(0 if mutants() else 1)
+    if a and a[0] == "--start":
+        sys.exit(0 if run(a[1]) == 0 else 1)
     sys.exit(0 if run() == 0 else 1)
