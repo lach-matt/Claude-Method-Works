@@ -501,6 +501,45 @@ It cannot be proved in the theorem as it stands, because its premise is gone. Wh
   λ(E₅) = 0: the Higgs quartic vanishes at the bulk's Planck energy. The next step is the object in relativity that
   forces it.
 
+**Item 382: the window's top, and the object for λ(E₅) = 0** (`lemmas/ell_higgs.py` H0–H8, selftest 7/7, mutants
+2/2). You left the window's top to the math and agreed the next step. No runs.
+- **What was read.**
+  - Shaposhnikov and Wetterich (arXiv:0912.0208), READ: "For a positive gravity induced anomalous dimension A_λ > 0 the
+    running of the quartic scalar self interaction λ at scales beyond the Planck mass is determined by a fixed point at
+    zero", giving "λ(k_tr) ≈ 0, β_λ(k_tr) ≈ 0" where gravity becomes strong. They "expect this form to hold for a wide
+    class of theories ... even higher dimensions".
+  - Burda, Gregory and Moss (arXiv:1501.04937), READ: "small black holes can act as seeds for vacuum decay".
+  - Cuspinera, Gregory, Marshall and Moss (arXiv:1803.02871, Randall–Sundrum brane black holes), READ: "small black hole
+    seeds preferentially catalyse vacuum decay", the action being "the difference in areas of the seed and remnant black
+    hole horizon geometries". Their 1907.11046 (READ): without a black hole the extra dimension has little effect.
+- **The tie as numbers (computed).** The Higgs quartic crosses zero at E_I = 3.68×10¹⁰ GeV (322's three-loop run).
+  E₅ = E_I at ℓ_H = 0.588 nm; within the top mass's 1σ that is 0.024–9.6 nm, and with the reduced Planck length it is
+  8π smaller. Beyond the zero the potential falls fast: −8.7×10³⁹ GeV⁴ at 2E_I.
+- **The bound, from the theorem's own corridors (READ; deduced).** The corridors are black holes on our plane, from the
+  one-bit hole at the five-dimensional Planck scale upward. The danger range the papers find for small holes lies
+  inside that family. If E_I < E₅, the instability lies inside the plane's matter theory, and such a hole seeds a bubble
+  of the deeper vacuum. That bubble changes our plane's offset, one of the two numbers that define our universe (201),
+  by more than eighty orders. A corridor that ends our universe is not the theorem's.
+  - So the theorem requires E_I ≥ E₅, i.e. ℓ ≥ ℓ_H. Under your 380, nothing may be added in between to save the vacuum.
+  - This excludes item 380's reduced-Planck value (12.28 l_P) and the integer kind's floor. It keeps 0.59 nm to
+    13.964 μm, the dark dimension's band included.
+  - The tunnelling action is the papers' value for their tidal brane holes; it is not yet computed for the theorem's own
+    holes.
+- **B5a alone does not give it (computed).** B5a allows matter down to −σ/6. A plane whose Higgs left our basin would
+  break that only for ℓ from 56.7 l_P up to ℓ_H; below 56.7 l_P the tension is so large that −σ/6 lies under the whole
+  potential.
+- **The equality (READ; deduced).** Gravity's fixed point drives λ to zero where gravity becomes strong. On our plane
+  that is E₅, so λ(E₅) ≈ 0: the Higgs tie, sitting exactly on the bound's edge. It rests on asymptotic safety with
+  A_λ > 0. That is gravity's own quantum running, as 326's α was gravity's own, but it is not classical relativity.
+- **What the equality fixes (computed).** ℓ = 0.588 nm, uncertain by the top mass (0.024–9.6 nm) and by the
+  convention for "Planck" (a factor 25). There N_L = 9.4×10⁵¹ bits, which is the Earth's README (9.3×10⁵¹): item 380's
+  Earth/Higgs coincidence is this equality seen from the Earth. The interior's Planck span there is 10⁶⁸, and the
+  table-top correction at 52 μm is 8.5×10⁻¹¹.
+- **The window's top, for the math (deduced).** Positivity sets none (381). The theorem's domain sets the Planck
+  curvature, 3.99 l_P, which is proved. The plane's own Higgs, with the theorem's own corridors, sets ℓ ≥ ℓ_H, which is
+  far stronger. It becomes the top once its literature step is computed for the record's own holes. The seated window
+  and its dependents change once, when that is settled; until then the top is the Planck curvature.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
