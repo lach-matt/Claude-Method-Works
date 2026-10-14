@@ -820,6 +820,13 @@ state was rebuilt first.
 - **Items 408-409** (your questions): the context of the interior work, and the accuracy the chain needs. O1b and
   O1c ask yes or no of the interior (a forward clock, no inner horizon, curvature finite); a computation settles each
   where its error lies inside that property's margin. The margins are not yet measured (405-3).
+  *[Measured at 405-3, below.]*
+- **Item 410** (your ruling): the board's "phi <= 1e-4" of item 392, never derived, is the failure point, and the
+  board's. Corrections stand beside every verdict judged against it (393-401) and beside item 407's criterion.
+- **405-3, the criterion derived** (`criterion_large.py`): (a) N^2 > 0, (b) g_tt > 0 with S, B > 0, (c) curvature
+  finite, each a cell per node and slice; E = 0 when no cell is violated or undecided, the error measured, no number
+  chosen. On the first half the two meshes give E = 0 over 3,456 cells, the smallest margin about 9,000 times its
+  error. Owed: the shared start carried through, xi, curvature per halving, the other halves.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

@@ -222,3 +222,15 @@ to 7e-5 from N = 20 to 32. The missing horizon node is not the cause. The rows t
 and K_thth and the interior tt and thth beside them, at the far end's corner; taken alone they are not degenerate.
 What accuracy O1b and O1c need (405-3) is not yet derived; requirements (a)-(c) are yes or no, settled where the error
 lies inside each margin.
+
+## Item 405-3: the criterion derived from (a)-(c), not chosen (after items 405 and 410)
+
+(`interior_large/README.md`, "Item 405-3"; `criterion_large.py`, selftest 4/4, mutants 3/3; `CRITERION-405.tsv`.)
+Each requirement above is the sign of one quantity within the record's ansatz (deduced): (a) N^2 = -g_ss + g_sx^2/g_xx
+> 0, the clock s, with rate at least 1/N; (b) g_tt = -s T / Dl^2 > 0, with S, B > 0; (c) curvature finite. A cell (one
+requirement, one node, one slice) is violated if its quantity is <= 0 and undecided if the quantity's measured error is
+at least its size. The criterion is E = 0 over all cells: no threshold, no factor. This replaces item 392's
+"phi <= 1e-4", the board's own number (M, 410: "this is the failure point, and it is yours").
+On the first half, with the error measured as the two independent meshes' disagreement (items 397 and 401): **E = 0 over
+3,456 cells**, the smallest margin about 9,000 times its error (computed). Owed: the shared static start's error carried
+through the march, the departure from Einstein's law, (c)'s curvature growth per halving, and the remaining halves.

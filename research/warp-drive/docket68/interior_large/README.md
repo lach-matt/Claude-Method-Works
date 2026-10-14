@@ -1139,3 +1139,44 @@ So item 406's corner is implicated after all. Its text is corrected beside it. W
 finite to 273's region. A computed answer settles each when its error lies inside that property's margin. The 1e-4
 of item 392 was the board's own number and was never derived. Whether xi near 5e-5 is too much depends on margins not
 yet measured.
+
+## Item 405-3: the criterion derived from what O1b and O1c need (2026-10-14; read from the saved steps, no run)
+
+M, 405: "The criterion - for the math/cypher". M, 410, on the board's "phi <= 1e-4" of item 392: "this is the failure
+point, and it is yours". Instrument: `criterion_large.py` (selftest K1-K4, mutants 3/3); table `CRITERION-405.tsv`.
+
+**What O1b and O1c ask is yes or no** (INTERIOR-REQUIRED (a)-(c)). Within the record's ansatz each requirement is the
+sign of one quantity (deduced). The record computes in Euclidean signature, g_tautau = s T / Dl^2, so inside the
+horizon (s < 0) the Lorentzian g_tt = -s T / Dl^2.
+- **(a) A forward clock:** s's gradient is timelike exactly when N^2 = -g_ss + g_sx^2 / g_xx > 0. Along any traveller
+  its rate is then at least 1/N.
+- **(b) No inner horizon:** within the ansatz an inner horizon is where the static Killing field turns null again,
+  g_tt = 0. So g_tt > 0, with S > 0 and B > 0.
+- **(c) Curvature finite to 273's region:** owed (below).
+
+**The criterion, with no number chosen.** A cell is one requirement at one node of one slice. It is violated if its
+quantity is <= 0, undecided if the quantity's measured error is at least its size, and decided otherwise. The criterion
+is E = 0, E counting violated and undecided cells. No factor multiplies the error, and no threshold is set: each
+requirement's own size is its margin. The error is measured as the disagreement between the two independent meshes
+that both reached the half's end (the fourth attempt, item 397, and the fifth, item 401), at the fifth's nodes and at
+common s.
+
+**On the first half, s = -0.503 to -2.006** (computed, nine slices, 96 nodes, four requirements):
+- **E = 0 over 3,456 cells.** No requirement is violated anywhere, and every cell is decided.
+- **The margins against their errors.** N^2's smallest value falls from 6.8e-3 to 7.5e-5 as the lapse falls toward the
+  chart's end; the meshes agree on it to 1.1e-4 of its own size at worst (at the joining x = 0.125, s = -1.9). g_tt
+  stays at 0.016 to 0.025 on the axis, agreed to 9e-6 of itself; S and B stay above 2.0 and 0.84, agreed to 7e-6.
+- **The clock's rate**, at least 1/N, is at least 2.3 everywhere on the half, and grows inward.
+
+**So against what O1b and O1c need, the fifth attempt's first half meets (a) and (b) with every cell decided.** The
+smallest decision margin is about 9,000 times its measured error. The half "failed" only the board's own 1e-4.
+
+**Owed, named and not passed:**
+- **The shared start.** Both meshes begin from the same static solution, whose fields differ between resolutions by up
+  to 9e-3 (F near the axis at the horizon) and 2e-3 (S, B). Their difference cannot see an error they share. Unamplified,
+  1e-2 would sit inside these margins about a hundred times over (estimate). Whether the march amplifies it is not yet
+  measured; one half run from another resolution's static start would measure it.
+- **The departure from Einstein's law (xi)**, common to both meshes for the same reason.
+- **(c) curvature:** every computed step is finite by construction; the growth per halving, against 273's region, is
+  still to be measured (the record's `gen_kretsch_fw.py`).
+- **The remaining halves**: about 45 to 273's region (item 392). The criterion is per half: E = 0 at each.
