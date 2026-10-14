@@ -582,3 +582,38 @@ s = -1.6 (Nx = 20) without reporting it.
 
 The deciding comparison: the record's own scheme (B7's damped Nx = 28 single grid), continued from the trusted state to
 s = -0.8, with A(x) compared at the same s. It takes about 5 minutes, and it is for M to approve.
+
+## Item 396: the comparison -- g_ss -> 0 at x = 0.23 is the solution's, and it is benign (2026-10-14)
+
+`zeno_compare.py`. The record's own scheme -- B7's damped single grid, Nx = 28, the brane rows algebraic -- continued from
+the trusted state to s = -0.80: status 0, 43 steps, 72 s. A(x) is set beside the third attempt's at matching s:
+
+| s (grid / attempt) | min A, record's grid | min A, third attempt | phi_max (both) |
+|---|---|---|---|
+| -0.553 / -0.551 | 0.0624 at x = 0.158 | 0.0630 at x = 0.157 | 8.1e-5 |
+| -0.652 / -0.651 | 0.0392 at x = 0.191 | 0.0395 at x = 0.191 | 7.8-7.9e-5 |
+| -0.759 / -0.750 | 0.0110 at x = 0.218 | 0.0132 at x = 0.216 | 7.6-7.8e-5 |
+| -0.797 / -0.798 | 0.0000 at x = 0.227 | -0.0004 at x = 0.227 | 7.5-8.0e-5 |
+
+At every x sampled, the two discretizations agree to about 1e-3 at matching s. **A, and with it g_ss, reaching zero at
+x = 0.23 by s = -0.80 belongs to the solution in this gauge, not to the third attempt's scheme.**
+
+**And it is benign** (computed at the third attempt's last state):
+- g^ss = -210 at that point, and g^ss < 0 everywhere: the s-slices stay spacelike.
+- det(g_sx block) < 0 everywhere: the metric is Lorentzian.
+- b^2 + a >= 9.5e-4 everywhere: the characteristic speeds b +- sqrt(b^2 + a) stay real, so the system stays hyperbolic.
+
+What changes is only that the coordinate vector d_s tips outside the light cone (g_ss > 0). Both characteristics then run
+the same way in x (speeds -9e-5 and -0.106 there). The record's grid passes through it.
+
+**So the third attempt stopped on the coupling's own assumption, a = -g_ss/g_xx > 0** -- its sqrt(a) damping and its
+tau ~ a -- not on anything in the interior.
+
+What a fourth attempt would change, for M:
+- a coupling that does not assume a > 0, built on the characteristic speeds b +- sqrt(b^2 + a), which stay real wherever
+  the metric is Lorentzian;
+- checked first on the model with a crossing zero inside the domain;
+- then the same half, with more points where the tails need them (the third attempt's reached 3.3e-6, above 1e-6).
+
+An observation, not a finding: the record's own runs lost x-resolution after about s = -1 (B5). Whether that relates to
+this region, where both characteristics run one way, is not examined here.

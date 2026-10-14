@@ -140,3 +140,12 @@ points, and couple the parts by penalty. It is for M to approve.
   g_ss, reached zero at x = 0.22: the s-slicing degenerates there.
 - **Open:** whether that is the solution or the scheme. The record's own single grid continued to s = -0.8 would decide
   it, in about 5 minutes, for M to approve.
+
+**Item 396: the comparison -- the solution's, and benign** (`interior_large/README.md`, "Item 396").
+- **The record's own grid**, continued to s = -0.80, reaches A = 0 at x = 0.227 at the same s as the third attempt. The
+  two agree to about 1e-3 everywhere.
+- **It is benign.** There the s-slices stay spacelike (g^ss < 0), the metric Lorentzian and the system hyperbolic
+  (b^2 + a > 0). Only d_s tips outside the light cone.
+- **So the stop was the coupling's own assumption** (a > 0), not anything in the interior.
+- **Next, for M:** a coupling built on the characteristic speeds, which stay real; checked on the model, then the same
+  half.

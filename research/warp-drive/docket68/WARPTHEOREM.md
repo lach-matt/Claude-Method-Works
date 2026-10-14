@@ -767,6 +767,16 @@ state was rebuilt first.
 - **Open:** whether g_ss → 0 is the solution or the scheme. The record's own single grid, continued to s = −0.8, would
   decide it, in about 5 minutes, for you to approve.
 
+**Item 396: the comparison -- g_ss → 0 is the solution's, and benign** (`interior_large/zeno_compare.py`;
+`interior_large/README.md`, "Item 396").
+- **The record's own grid**, continued to s = −0.80 (72 s), reaches A = 0 at x = 0.227 at the same s as the third
+  attempt. The two agree to about 10⁻³ at every x.
+- **What it is.** At that point the s-slices stay spacelike (g^ss = −210), the metric stays Lorentzian, and the system
+  stays hyperbolic: the characteristic speeds b ± √(b² + a) are real. Only the coordinate vector ∂_s tips outside the
+  light cone. The interior does nothing there.
+- **The cause of the stop.** The third attempt stopped on its coupling's assumption a > 0, not on the interior.
+- **Next, for you:** a coupling built on the characteristic speeds, checked on the model first, then the same half.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
