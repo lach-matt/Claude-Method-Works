@@ -381,6 +381,50 @@ in practice is (A) (M-ONE-README).
   14 μm (gravity's 2ℓ²/(3r²) correction), the dual theory's N or string data, or a tie to something the theory already
   holds (the offset, the corridor family). Which kind to seek is yours.
 
+**Item 379: ℓ tied to the dark energy (option 3)** (`lemmas/ell_de.py` D0–D9, selftest 9/9, mutants 8/8). You asked to
+look at option 3 first, then perhaps option 2. No runs.
+- **The tie in the literature.** Montero, Vafa and Valenzuela (arXiv:2205.12293), READ: "l ∼ λΛ^(−1/4) ∼ 1 μm", with
+  "10^(−4) < λ < 1 or the central region λ ∼ 10^(−1) − 10^(−3)", and λ from the Casimir energy of a circle,
+  "λ_Casimir = 3ζ(5)/(2π)^6 = 5·10^(−5)", giving "l ≈ 7.42 μm". Blumenhagen, Brinkmann and Makridou (arXiv:2208.01057),
+  READ, get the same quarter power from a warped throat's redshifted tower, the dark dimension running along the throat
+  (a compact throat, an anti-D3-brane at its tip). Cohen, Kaplan and Nelson (hep-th/9803132), READ: "L³Λ⁴ ≲ LM_P²",
+  which with L the horizon gives "Λ ∼ 10^(−2.5) eV".
+- **It does not carry over as a mechanism (deduced).** The dark dimension's tie is the Casimir energy of a size that can
+  vary; the throat's needs a tip. The bulk the theorem uses, FAR's coincident sheets with AdS on each side and no second
+  boundary, has no compact direction, no tip and no modulus: ℓ is fixed by Λ₅, and a brane energy ħc/ℓ⁴ from bulk
+  fields is a local term, absorbed in the tension, with no calculable coefficient. The dark energy is the tension's
+  detuning δσ, set apart from ℓ. In the theorem a dark-energy tie is a postulate. Wall C, the global bulk, is open; a
+  compact direction, a tip or a modulus would be new structure.
+- **The tie and its window (computed).** Write ℓ = λ L_DE, with L_DE = (ħc/δσ)^(1/4) = 88.097 μm. That length is
+  exactly (8π/3)^(1/4)√(l_P L_H), the geometric mean of the Planck length and the de Sitter radius, L_H = 1.659×10²⁶ m.
+  The record's window becomes 4.11×10⁻³⁰ ≤ λ ≤ 0.1585. The dark dimension's central band (λ from 10⁻³ to 10⁻¹, ℓ from
+  88 nm to 8.8 μm) lies wholly inside. So does its Casimir value, λ = 0.0843, ℓ = 7.43 μm, about half the ceiling.
+- **What it is in your 201's coordinates (computed; deduced).** Exactly σ − 2δσ = (3/(4πλ²))√(σ_P δσ): the tension is
+  the geometric mean of the Planck density and the offset, times a number. Your two coordinates (σ, δσ) become (λ, δσ),
+  so λ is σ restated. As a law over the index the tie would fail: position 2P keeps λ exactly, but every 2b step halves
+  λ², against 246 and 247. Read per cell, λ is each universe's coordinate, and the tie fixes nothing until λ is fixed.
+- **What it would fix, in the theorem's terms (computed).**
+  - Λ₄ℓ² = 4π²λ⁴/N² and Λ₄l_P² = 2π³λ⁴/N⁴: the dark energy is 1/N² in bulk units and 1/N⁴ in Planck units, N the dual
+    theory's rank (378).
+  - The ends meet at N_L = π²λ²√(2/ln2)·√N_max, the square root of the universe's bit cap N_max = 1.5918×10¹²² times
+    0.119 at the Casimir λ (0.421 at the ceiling).
+  - At the Casimir λ: N = 5.76×10²⁹, N_L = 1.50×10⁶⁰, σ^(1/4) = 1.26×10⁴ GeV, and the five-dimensional Planck energy
+    1.58×10⁹ GeV, inside the dark dimension's species scale "10^9 − 10^10 GeV" (READ) by the same formula.
+  - The small end's r_h = 9.08×10⁻²¹ m and E = 1.58×10⁹ J; the large end starts at 6.27×10²¹ kg; the Earth's cap is
+    1194ℓ.
+- **The coefficient-one forms tried are all excluded (computed).** N_L = √N_max needs ℓ = 21.5 μm; L_H = Nℓ needs
+  46.3 μm; N⁴ = N_max needs 45.8 μm; Cohen–Kaplan–Nelson saturated needs 51.8 μm (116 μm with the reduced Planck
+  length). Each is 1.5 to 8.3 times the ceiling. Only λ ≤ 0.1585 survives, and the Casimir value is inside it.
+- **The interior (computed).** Under the tie the Planck span is 9.20×10⁸¹ λ^(8/3): 1.26×10⁷⁹ at the Casimir λ, still
+  2.0×10⁷¹ at λ = 10⁻⁴. Option 3 puts ℓ far beyond the runs' reach, so item 377's matching approach stays the only route.
+- **What option 3 gives (deduced).** It does not fix ℓ: it trades ℓ for λ, and nothing in the theory or the warped-bulk
+  literature fixes λ. It does make ℓ a table-top quantity: gravity off Newton's law by 2ℓ²/(3r²), with ℓ between 88 nm
+  and 8.8 μm on the dark dimension's central band. Lee et al. 2020 (arXiv:2002.11761, READ) tighten the Yukawa ranges
+  to "< 38.6 μm" but state no bound on a warped bulk's radius, so the record's 13.964 μm stands. Their best fit at
+  7.1 μm is below 2σ and is not a finding.
+- **Toward option 2.** Options 3 and 2 are the two ends of one family, ℓ = λ l_P^a L_DE^(1−a): option 3 is a = 0, a
+  Planck-scale tension a = 1. At λ = 1 the window admits 0.026 ≤ a ≤ 0.956.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
