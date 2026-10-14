@@ -572,6 +572,24 @@ own math. Its answers, and the first step in the order.
     reach the small end's state with ARRIVAL: readings on SOURCE, once you finalize. Z3b, B3 and B4d rest on ARRIVAL and
     on work of their own, next in the order.
 
+**Item 385: what the source is required to be** (`lemmas/SOURCE-REQUIRED.md`; no runs). You held the large-end rows
+back: no row is finalized on SOURCE until the theorem says what SOURCE must be. Its specification, from your rulings and
+the rows proved:
+- **What it is.** A gas of our plane's own fields, not null dust (344). Ordinary matter of our universe, so B5a holds
+  for it at every point. One process for each end (346).
+- **What it carries.** The README's one energy E(N) exactly and nothing besides (136 (1), 136 G; no 2E). N bits in one
+  fixed exact encoding, holding exactly N ln2 at the write's floor (136 (5); the second law saturated). No partner:
+  null energy ≥ 0 on every ray. One whole: the face holds the README only when all of it is in (163, 162).
+- **How it comes in.** The write takes at least its floor: 66,980 clocks at the small end, 199,702 at the large. The
+  arrival onto the face is compact: at most 4.79 clocks at the small end, under 16 at the large, the face born before
+  the README. The README emerges within position 2's open period: 32.6–34.5 clocks at the small end (met), and at the
+  large end under 2.67×10⁻³ (10ℓ/r₀)² clocks on your 139 (1)'s quarter, or 4 clocks at position 2's own σ. That large
+  -end bound is the strictest requirement; for the Earth's corridor it is about 10⁻¹⁷ s. It keeps our vacuum, its gas
+  at most 6×10⁻⁴ of the Higgs barrier's scale (estimate).
+- **What it replaces.** The board's three readings RDUST, RBITS and RSHELL, which stand in for it now.
+- **Yours.** Which tension position 2's plane carries at the destination; the two readings set the large end's bound
+  1,500 times apart.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
