@@ -62,3 +62,51 @@ it:
   now do.
 
 The board's order, to be overruled by M at any point: the proof first.
+
+## Item 392: Zeno's halves as the method for the 5D stretch
+
+M, 392: "The zeno paradox describes halves and their halved segmentation. This can be a useful model for run such a
+large size computation". Considered, and checked first where the answer is exact (`zeno_method.py` Z0-Z5; selftest 6/6,
+mutants 3/3).
+
+**The method.**
+- Cut the remaining distance to the end in halves.
+- Rescale each half to one size and give it the same fixed effort.
+- Hand each half's end state to the next.
+- Once the rescaled halves settle to one form, the rest is that form's geometric series: Zeno's sum, with its tail
+  bounded.
+
+The run then costs the number of halvings (about 45 for the 5D stretch), not the ratio of its ends (2e13).
+
+**Checked on the 4D interior, where the answer is exact.**
+- 45 halves of 40 steps each reach 1.4e-14 of the radius, every half accurate to 1e-10.
+- The same 1,800 steps spread uniformly lose 1e-6 accuracy at 0.01 of the radius, twelve orders short.
+- The halves measure the approach themselves: time per halving falls by 2^-3/2 in 4D and 2^-2 in 5D (Kasner's
+  exponents), and curvature rises 2^6 and 2^8 per halving.
+- The tail bounded from the measured ratio matches the exact remainder to 1e-9.
+
+**What the halves measure, against (a)-(c) above.**
+- (a) The proper time to 273's region is the sum over the halves, finite once the per-halving ratio settles below 1.
+- (b) No inner horizon: the clock stays monotone in every half. A ratio stalling at 1 would signal one.
+- (c) Curvature finite in each half, its growth per halving measured, up to the bulk's Planck boundary.
+
+**Where it applies to the record's interior runs** (`interior_large/README.md`, items 360-367). Those runs failed two
+ways. The grid lost resolution toward the brane (B5, C1), and the chart ends at finite proper time (B6). Halving answers
+both, three ways:
+- **In time.** Halve the proper time left. Restart each half from the last state, with the fields rescaled by B6's
+  fitted power laws (A, T ~ u; S, B ~ u^-2; F ~ u^-1, u = 1/(1 - s)), so they are of order one. Re-grid, and run the
+  half at one fixed resolution. This replaces the continuous lapse driver that failed at C1.
+- **In the bulk coordinate.** A halving mesh toward the brane, [0, 1/2], [1/2, 3/4], [3/4, 7/8], ..., with the same
+  points in each part. The brane's sharpening gradients then cost the number of halvings.
+- **In the hole's size.** Sample r0/ell at about 1, 2, 4, 8 and 16 (bt = 1 ... 16, all solved at stage B3), and test
+  whether the measured ratios settle as r0 doubles. The large end beyond 20 ell then follows from the limit.
+
+**The first run, if M approves it** (377: question, criterion, time; 384: cost stated first).
+- **Question:** does one rescaled restart at bt = 1, from the trusted state near s = -0.5 (B7's damped Nx = 28 run),
+  carry the solution over half the proper time left to the chart's end, at one fixed resolution per mesh part?
+- **Pass:** the DeTurck norm stays at or below 1e-4, and the Chebyshev tails at or below 1e-6, at the half's end.
+- **Time:** generating the rescaled equations (the record's `gen_*.py` take a few minutes), then one run, stopped at
+  20 minutes.
+- **Cost:** small next to the runs at 365-367.
+
+Its result decides whether the second half is run.

@@ -713,6 +713,22 @@ I0–I5, selftest 4/4, mutants 4/4). The open rows are O1b and O1c at the large 
 - **Two routes.** A proof for every static vacuum interior, which is light. A computed interior, the problem the 365–367
   runs attempted, which is heavy. The board's order: the proof first.
 
+**Item 392: Zeno's halves, considered and checked** (`lemmas/zeno_method.py` Z0–Z5, selftest 6/6, mutants 3/3;
+`lemmas/INTERIOR-REQUIRED.md`, "Item 392"). You asked that testing, sampling and measurement over a large range be
+considered in Zeno's form.
+- **The method.** Halve the remaining distance, rescale each half to one size, and give each the same effort. Once the
+  rescaled halves settle, the rest is a convergent geometric series. The cost is the number of halvings (about 45 for the
+  5D stretch), not the ratio of the ends (2×10¹³).
+- **Checked where the answer is exact.** On the 4D interior, 45 halves of 40 steps reach 1.4×10⁻¹⁴ of the radius, each to
+  10⁻¹⁰, while 1,800 uniform steps fail at 0.01. The halves measure Kasner's exponents themselves (2^-3/2 per halving in
+  4D, 2^-2 in 5D), and the tail they bound matches the exact remainder.
+- **It answers the record's two failures** in the interior runs: the brane's resolution loss and the chart's end at
+  finite proper time.
+  - In time: restart each half rescaled by the fitted power laws.
+  - In the bulk coordinate: a halving mesh toward the brane.
+  - In the hole's size: sampling by doubling r₀.
+- **One first run is proposed**, with its question, criterion and a 20-minute stop. It is not run until you approve.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.

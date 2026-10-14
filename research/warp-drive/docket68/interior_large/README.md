@@ -409,3 +409,16 @@ failed tests and into runs left stalling with waiters on them. What the record h
   the floor 22.4 l_P (computed, l5^3 = l_P^2 ell). No evolution spans the first; the runs reach K ~ 2.5e3. The large
   end's interior to the Planck curvature therefore needs an asymptotic regime established from the computed solution
   and carried by analysis, for every ell above the floor (deduced). WARPTHEOREM.md's item-377 reassessment takes it up.
+
+## Item 392: Zeno's halves (2026-10-14; considered, not run)
+
+M asked that testing, sampling and measurement over a large range be considered in Zeno's form: halves, and halves of
+the remainder. The method is checked where the answer is exact in `../lemmas/zeno_method.py`. On the 4D interior, 45
+halves of 40 steps reach 1.4e-14 of the radius, each to 1e-10, while 1,800 uniform steps fail at 0.01. It answers this
+directory's two limits: the loss of x-resolution at the brane (B5, C1), and the chart's end at finite proper time (B6).
+- **In time:** each half is restarted with the fields rescaled by B6's power laws.
+- **In x:** a halving mesh toward the brane.
+- **In r0:** sampling by doubling.
+
+The plan and the first run's question, criterion and time are in `../lemmas/INTERIOR-REQUIRED.md`, "Item 392". Nothing
+is run until M approves.
