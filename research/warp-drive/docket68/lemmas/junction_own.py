@@ -51,9 +51,31 @@ a separate session; not seated); no test run; 2026-10-14.
        quarter, 3.14e-3 at the inverse 2P step (falling, bound by positivity), all at r0 = 10 ell.
      The 387 deduction ("its own sigma is ours, so no junction rises") holds for 218's example and the other
      destinations at our sigma, not for the theorem.
+     [The board's correction, after item 389, against 277 and i_oneway I3: J2 is a two-way element.  Barcelo's
+     suffocation needs inflow from position 2 onto its white-hole face, and on the one-way object nothing from
+     position 2 meets the face (i_oneway I3; c_junction's item-277 note).  G4's min with J2 and the J2 figures in G5
+     and G7 rest on it, as do close_large L4 (a)'s 4 clocks and the 387 deduction.  Kept as written; the one-way
+     periods are G8-G9's.]
+  G8 (computed, exact; 109, 273) The face's end where no junction binds, on the one-way object.  M's 109: "A horizon
+     cannot exist without the object of which it needs to exist".  On 273's construction, inside the README's shell
+     the geometry is flat (o1c_oneway Z2b), and position 2's side is our side's reflection (b_bounce Q1's isometry).
+     Our face is born where the outgoing ray from r = 0 meets the incoming shell at r_s: 2 r_s/c before the shell's
+     first part.  That is 4 clocks of GM/c^3 at the large end, A3's exact figure reproduced, and 2 clocks of r_h/c at
+     the small end.  Reflected, position 2's face ends 2 r_s2/c after the README's last part has crossed it outward, at
+     r = 0 in the flat region.  So the face ends with its object, the README, as 109 has it.  What closes it is the
+     README's own passing, not an outside perturbation.
+  G9 (deduced from G3 and G8) Position 2's open period on the one-way object.
+     - Where the junction binds -- below our sigma, or above it with F1's start -- the face closes at the junction's
+       G3 period. The README must have emerged within it.
+     - Elsewhere, at our sigma, the face lasts from its opening through the README's emergence and 2 r_s2/c beyond
+       (G8). Item 10 then puts no bound on SOURCE.
+     - Small end: the junction's period is 32 to 34 of position 2's e-folds wherever it rises (33.6 on the quarter;
+       46.3 of our clocks at 2P), well above the compact 4.79. arrival_small V8's comparison stands as first written.
+     - Large end: the junction's figures in G7 stand where sigma2 differs. At our sigma there is no bound from the face.
 
 What this does not claim.
   - What closes position 2's face where no junction binds: J2 is READ, and nothing in M's rulings bounds it.
+    [After 389: answered in G8 from 109 and 273's construction; J2 withdrawn on the one-way object.]
   - The falling junction's start: F1's reading, the README's energy laid on it; what supplies it is not ruled.
   - The clock conversion across the bounce (V14 (c)'s, through the quantum region, 273) and the face readings of V6.
 
@@ -155,6 +177,38 @@ def open_period(end, K, b):
     return (pj, "junction") if pj < j2 else (j2, "J2")
 
 
+def face_end():
+    """G8: in the flat region inside the shell, the outgoing ray from r = 0 meeting the shell v = v_o at r = r_s"""
+    t, r, vo, rs, tb = sp.symbols("t r v_o r_s t_b", real=True)
+    sol = sp.solve([sp.Eq(t + r, vo), sp.Eq(t - r, tb), sp.Eq(r, rs)], [t, r, tb], dict=True)[0]
+    lead = sp.simplify(vo - sol[tb])                             # how long before the shell's v the face is born
+    AL = _load("arrival_large.py", "jo_al")
+    thin = AL.born_before(1e-7)[1]                               # A3's integrated thin arrival, in clocks of GM/c^3
+    return dict(lead=lead, rs=rs, large=float(lead.subs(rs, 2)), small=float(lead.subs(rs, 1)), a3=-thin)
+
+
+def open_period_oneway(end, K, b):
+    """G9: the junction's period where it binds; otherwise the face lasts the README's emergence (109, G8)"""
+    if MUT.get("j2_one_way"):
+        return open_period(end, K, b)                            # the mutant: J2 kept on the one-way object
+    pj = period_junction(K, b)
+    return (pj, "junction") if pj < math.inf else (None, "README (109)")
+
+
+def table_oneway(ex, bfun):
+    rows = {}
+    base_s = 8 / math.pi * ex["rh_ell"]
+    for n, d in destinations().items():
+        b = bfun(d["x"])
+        ks, efs = k0("small", d["gG"], d["g5"])
+        p_s, w_s = open_period_oneway("small", base_s * ks, b)
+        kl, efl = k0("large", d["gG"], d["g5"])
+        p_l, w_l = open_period_oneway("large", 1200 * kl, b)
+        rows[n] = dict(b=b, small=(None if p_s is None else p_s * efs, w_s),
+                       large=(None if p_l is None else p_l * efl, w_l))
+    return rows
+
+
 def destinations():
     """the record's twelve (bulk5_index), 139 (1)'s quarter, and the lattice's inverse 2P step (G/2, sigma x 4)"""
     B5 = _load("bulk5_index.py", "jo_b5")
@@ -211,7 +265,10 @@ def compute():
     band = {q: (1 / (12 * q * q * (math.e - 1)), 1 / (12 * q * q * (1 - math.exp(-1)))) for q in R0_ELL}
     sym = [(period_junction(K, 1.0), period_junction(K, -1.0)) for K in (1e2, 1e4)]
     d_ours = period_junction(base_s, 0.75)                      # the rising case on our face, 2P's jump, small end
-    return dict(lw=lw, sigma_jump=sp.simplify(lw["mp"] - (sig - sig2)) == 0, ex=ex, cf=cf, rows=rows, rows_k=rows_k,
+    fe = face_end()
+    ow = table_oneway(ex, bfun)
+    return dict(fe=fe, ow=ow, lw=lw, sigma_jump=sp.simplify(lw["mp"] - (sig - sig2)) == 0, ex=ex, cf=cf, rows=rows,
+                rows_k=rows_k,
                 j1_re=period_junction(base_s, quarter_b), l4_re=4 * period_junction(12 * 100, quarter_b),
                 b_star_small=b_star_small, band=band, sym=sym, d_ours=d_ours)
 
@@ -236,6 +293,15 @@ def report(o):
         print("  %-26s %7.3g %18s %24s %24s" % (n, r["b"], f(*r["small"]) + " [%.3g]" % k["small"][0],
                                                   f(*r["large"][10.0]) + " [%.3g]" % k["large"][10.0][0],
                                                   f(*r["large"][100.0]) + " [%.3g]" % k["large"][100.0][0]))
+    fe = o["fe"]
+    print("G8 the face is born %s before the shell (flat ray): %g clocks of GM/c^3 at the large end (A3 integrated "
+          "%.4f), %g of r_h/c at the small; position 2's ends as long after the README's last part" % (
+              fe["lead"], fe["large"], fe["a3"], fe["small"]))
+    print("G9 one-way, position 2's open period in our clocks (none = the face lasts the README's emergence, 109):")
+    for n, r in o["ow"].items():
+        g = lambda v: ("%.3g %s" % v) if v[0] is not None else v[1]
+        print("  %-26s b = %6.3g   small end %-22s large end, r0 = 10 ell %s" % (n, r["b"], g(r["small"]),
+                                                                                  g(r["large"])))
 
 
 def checks(o):
@@ -270,6 +336,16 @@ def checks(o):
     add("G7 small end: 2 to 3.17 of our clocks over the record's twelve and the quarter, 1.41 at inverse 2P (240 (b))",
         min(rec) == 2.0 and "%.3g" % max(rec) == "3.17"
         and "%.3g" % rows["inverse 2P (G/2, 4 sigma)"]["small"][0] == "1.41")
+    fe, ow = o["fe"], o["ow"]
+    add("G8 the face is born 2 r_s/c before the shell: 4 clocks of GM/c^3, A3's integrated figure; 2 of r_h/c",
+        sp.simplify(fe["lead"] - 2 * fe["rs"]) == 0 and fe["large"] == 4.0 and abs(fe["a3"] - 4) < 1e-5
+        and fe["small"] == 2.0)
+    rise_s = [r["small"][0] for r in ow.values() if r["b"] > 0 and r["small"][0] is not None]
+    fm = lambda v, f: f % v if v is not None else "none"
+    add("G9 one-way: no bound at our sigma; small end 33.6 on the quarter and 46.3 at 2P, all above 4.79 x 6.9; large "
+        "end 1.57e-3 at 2P", all(r["small"][1] == r["large"][1] == "README (109)" for r in ow.values() if r["b"] == 0)
+        and fm(ow["139 (1) quarter"]["small"][0], "%.1f") == "33.6" and fm(ow["2P"]["small"][0], "%.1f") == "46.3"
+        and bool(rise_s) and min(rise_s) > 4.79 * 6.9 and fm(ow["2P"]["large"][0], "%.3g") == "0.00157")
     return res
 
 
@@ -277,7 +353,8 @@ MUTANTS = {"jump_flipped": "the junction's law with its sign reversed (G1)",
            "interior_own": "the object's interior at the destination's own sigma, not ours (G1, G6)",
            "e_not_e2": "the README's E taken for what position 2's face reads, under 240 (b) (G2)",
            "sigma2_in_k0": "the destination's own sigma in K0 for our interior's (G2)",
-           "no_j2": "the J2 short phase not taken, the junction's period alone (G4)"}
+           "no_j2": "the J2 short phase not taken, the junction's period alone (G4)",
+           "j2_one_way": "J2 kept on the one-way object, where nothing from position 2 meets the face (G9)"}
 
 
 def selftest():

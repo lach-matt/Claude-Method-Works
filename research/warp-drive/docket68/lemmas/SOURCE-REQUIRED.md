@@ -41,6 +41,9 @@ What the correction changes:
 M, 387: "it should carry its own σ." That answers the fork below. What follows from it, worked from the record:
 [Item 388: what follows holds only for destinations at our sigma, 218's example among them. For the theorem see
 "Corrected at item 388". Kept as written.]
+[After 389: the J2 bound used below is withdrawn. J2 is a two-way element: Barcelo's suffocation needs inflow from
+position 2 onto its face, and on the one-way object nothing from position 2 meets it (277, i_oneway I3). At our
+sigma the face ends 2 r_s2/c after the README's last part (109; "Corrected after item 389").]
 
 - At the working destination, its own sigma is ours. Position 2 is "a universe identical to this one with a singular
   exception, that that universe is 1 hour ahead of ours" (218), and each position 2 carries its own universe's values
@@ -59,6 +62,35 @@ M, 387: "it should carry its own σ." That answers the fork below. What follows 
   [Item 388: wrong -- the theorem needs it, and it is computed below. Kept as written.]
 - New, and the math's to answer: with no junction, M's rulings carry nothing that closes position 2's face. The
   record's only bound on the open period is J2, which is READ. A bound from the theorem itself would replace it.
+
+## Corrected after item 389: J2 withdrawn, the face closed by 109
+
+The board's own audit, after 389, against M's 277. Items 387 and 388 above, close_large L4 (a) and arrival_large A4 used
+J2, Barcelo, Carballo-Rubio and Garay's short white-hole phase, as a bound on position 2's open period. The record
+withdrew J2 at 277. Barcelo's suffocation needs inflow from position 2 onto its white-hole face, and on the one-way
+object nothing from position 2 meets that face (i_oneway I3; c_junction's item-277 note). Corrected (junction_own G8-G9;
+selftest 12/12, mutants 6/6):
+
+- **What closes position 2's face where no junction binds is M's 109**: "A horizon cannot exist without the object of
+  which it needs to exist". On 273's construction the README's shell has flat space inside it (o1c_oneway Z2b), and
+  position 2's side is our side's reflection. Our face is born 2 r_s/c before the README's first part reaches it:
+  arrival_large A3's exact 4 clocks of GM/c^3 at the large end, and 2 clocks of r_h/c at the small end. So position 2's
+  face ends 2 r_s2/c after the README's last part has crossed it outward. The face ends with its object. Computed,
+  exact; 109 M's.
+- **Item 10 is then a requirement only where a junction binds.** Where it binds, the README must have emerged within the
+  junction's period:
+  - below our sigma at both ends;
+  - above our sigma at the large end, with F1's start.
+
+  At a destination at our sigma -- 218's example, 2a, 2b, 2c -- the face lasts from its opening through the README's
+  emergence and 2 r_s2/c beyond, and item 10 puts no bound on SOURCE. Deduced.
+- **Small end**: the junction's period is 32-34 of position 2's e-folds wherever it rises. That is 33.6 on 139 (1)'s
+  quarter and 46.3 of our clocks at 2P, all above the compact 4.79. arrival_small V8's comparison stands as first
+  written; 387's "about 2 clocks" and 388's "J2 binds everywhere" are withdrawn. Computed.
+- **Large end**: 388's junction figures stand where sigma2 differs from ours (1.57e-3 clocks at 2P at r0 = 10 ell).
+  The 4 clocks at our sigma (close_large L4 (a), arrival_large A4, 387) is withdrawn: no bound there. Computed.
+- The open question 387 named -- what closes position 2's face with no junction -- is answered from M's 109 and 273,
+  not from another's model.
 
 ## Item 389: the rows that wait on it
 
@@ -79,7 +111,8 @@ Computed in junction_own.py (G0-G7; selftest 10/10, mutants 5/5):
   positivity fails at the face where it is owed (284, 285). Taking the start as the README's energy laid on the
   junction (m1p2x_fifth F1's reading), the face stays open at most -ln(1 - 1/(K0 |b|)) e-folds. For a large jump the two
   signs give the same period, 1/(K0 |b|) e-folds. Deduced from the computed form.
-- **Small end: J2's short phase binds at every destination**, junction or not. The junction would bind only for sigma2
+- [After 389: this bullet rests on J2, withdrawn on the one-way object; see "Corrected after item 389".]
+  **Small end: J2's short phase binds at every destination**, junction or not. The junction would bind only for sigma2
   below -7.7e13 sigma. At 139 (1)'s quarter too, J1's 33.6 clocks never bound: J2's about 2 always did. In our clocks
   the bound is 2 to 3.17 over the record's twelve destinations and the quarter, and 1.41 at the inverse 2P step
   (G/2, 4 sigma). Computed; J2 READ, an order.
@@ -147,6 +180,8 @@ ruled).
     [Item 388: that note holds only at our sigma. For the theorem the bound depends on the destination: J2's at the
     small end everywhere, and at the large end the junction's wherever sigma2 differs from ours (junction_own G7). See
     "Corrected at item 388" above.]
+    [After 389: J2 is withdrawn on the one-way object (277). Item 10 binds only where a junction does; at our sigma the
+    face ends with the README (109). See "Corrected after item 389".]
 11. **It keeps our vacuum.** It never carries our plane's Higgs over its barrier: our universe is defined by its offset
     (201), which a bubble of the deeper vacuum would change by more than eighty orders (322; 382). At the example README
     the gas is about 5.6e3 GeV at the floor ball and 2.3e7 GeV at the face, against the barrier's 3.68e10 GeV -- at most

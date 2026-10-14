@@ -78,6 +78,10 @@ exact where marked; READ where marked; deduced where marked; not verified by a s
      outer (K2), closes within 33.6 clocks (c_junction J1), its release position 2's own energy (110, 111 (a), 240): the
      energy plane 2 read while its face held, which the build uses exactly. What crosses is the README. So the CLOSE row
      at the small end is closed on M's ruling (computed: the life and the floor, K5; the open period, c_junction J1).
+     [Items 387-389: J1's 33.6 clocks is the period where the junction rises: 139 (1)'s quarter, or any sigma2 below
+     ours (junction_own G3). At a destination at its own sigma equal to ours there is no junction. Position 2's face
+     then ends 2 clocks after the README's last part -- the reflection of our face's birth, 109 (junction_own G8). Either
+     way it closes, and K9 stands.]
 
 What this does not claim.
   - That a -E shell can be prepared, or what would prepare it: K3 says only where it must be.

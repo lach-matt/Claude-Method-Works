@@ -156,6 +156,10 @@ V14.]
      [Item 388: this holds at every destination, not only at our sigma. At the small end the junction would bind only
      for sigma2 below -7.7e13 sigma, so J2 governs everywhere, the quarter included: 2 to 3.17 of our clocks over the
      record's twelve and the quarter (junction_own G5, G7).]
+     [The board's correction after item 389: the two notes above rest on J2, withdrawn on the one-way object (277;
+     i_oneway I3). (3)'s comparison stands as first written. Wherever the junction rises its period is 32-34 of
+     position 2's e-folds (33.6 on the quarter), above the 4.79. At our sigma there is no junction, and the face ends 2
+     clocks after the README's last part (109; junction_own G8-G9).]
   V9 (computed) ARRIVAL's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the classes t, the arrival compact (within V4's widths) or spread, and m, the README or other matter --
      no arrival, a README on a standing face (reading (i)), the README with 183's exact partner (README-HELD 2: no face

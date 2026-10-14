@@ -611,6 +611,8 @@ their correction.
 requirement.
 [Item 388: what follows holds only for destinations at our σ, 218's example among them. The theorem's case is item
 388's below. Kept as written.]
+[After 389: the short-phase bound below is J2, withdrawn on the one-way object at your 277. Position 2's face is closed
+by your 109 instead; see "Corrected after item 389". Kept as written.]
 - **At the working destination its own σ is ours.** Position 2 is our universe an hour ahead (218), carrying its own
   universe's values (226), so no junction rises on its face at either end (c8_level V2). J1's junction, which gave the
   small end 33.6 clocks and the large end the quarter's 2.67×10⁻³ (10ℓ/r₀)², does not bind there. Deduced.
@@ -629,6 +631,8 @@ requirement.
 G0–G7, selftest 10/10, mutants 5/5; `SOURCE-REQUIRED.md`, "Corrected at item 388"; notes in `arrival_large`,
 `close_large`, `c_junction`, `arrival_small`). You corrected 387's report: it set the bound from 218's example. Computed
 in general:
+[After 389: its small-end and own-σ figures rest on J2, withdrawn at your 277; see "Corrected after item 389". The
+junction's figures stand. Kept as written.]
 - **The law.** The record's junction law, called, carries the two tensions and nothing else, so it holds at every
   destination whatever its G and ℓ. On position 2's face, with the interior at our σ, the junction grows at σ − σ₂.
 - **Three cases.** Below our σ the junction rises and closes the face. At our σ there is none. Above it, it falls, and

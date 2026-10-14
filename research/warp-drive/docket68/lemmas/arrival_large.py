@@ -39,6 +39,10 @@ seated); 2026-10-14.
      destination. Wherever its own sigma differs from ours the junction binds: about (ell/r0)^2/(3 (G2/G)^(3/2)
      |1 - sigma2/sigma|) clocks, 1.57e-3 at 2P at r0 = 10 ell (junction_own G5, G7). A5 stands: every such bound is
      under 16.]
+     [The board's correction after item 389: the 4 clocks at our sigma was close_large L4 (a)'s Barcelo phase, a
+     two-way element (277; i_oneway I3). At our sigma the face ends 4 clocks after the README's last part (109;
+     junction_own G8), so it bounds nothing. A5's one number is the junction's period, and only where the destination's
+     own sigma differs from ours.]
   A6 (deduced) The rows that wait only on it.  M1P2x (all but the README's emergence within position 2's open period),
      E1x (the README's crossing against that period) and H2tx (resting on M1P2x) rely on SOURCE through A5 alone, and
      reach the small end's state with ARRIVAL: readings on SOURCE once M finalizes.  Z3b, B3 and B4d rest on ARRIVAL and
