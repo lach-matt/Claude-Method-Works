@@ -10,8 +10,9 @@ carried over one halving of u = 1/(1 - s) -- the variable of B6's power laws -- 
     half's end; the run is stopped at 20 minutes of wall time.
 
 python3 zeno_run.py trusted                 -- the trusted state: B7's damped Nx = 28 run from s = -0.002 to -0.503
-python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state; mesh "sat" (item 394, the folded axis and
-                                              the energy-derived coupling) or "patch" (item 393's derivative continuity)
+python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state; mesh "satw" (item 395: the folded axis, the
+                                              energy-derived coupling and the brane imposed weakly), "sat" (item 394,
+                                              the brane rows algebraic) or "patch" (item 393's derivative continuity)
 """
 import numpy as np, sys, time, pickle, os
 import core_fw as C, interior_fw as IF, interior_damp as ID
@@ -213,6 +214,53 @@ class FoldedSAT(ID.Damped):
         return max(out)
 
 
+class FoldedSATWeak(FoldedSAT):
+    """item 395: FoldedSAT with the brane conditions imposed weakly, in the same energy form.  The brane node is
+    evolved by the equations (regular at x = 1: Delta = 1/bt there).  The record's four brane rows -- K_tt, K_thth,
+    K_ss = gamma and xi^x = 0, affine in the brane's x-derivatives once F = F_s = 0 -- are solved each step for the
+    slopes phi* = (T_x, S_x, A_x, B_x) given the brane values, and each field's slope is pulled to its value by
+    X_ss[N] += -(a/h_N)(X_x[N] - phi*), which replaces the boundary's energy term a v_N X_x by a v_N phi*.  F = 0 is
+    held exactly (its node does not move).  Checked on the model first (zeno_interface_check FoldedWeak; with b zero
+    at the brane, as g_sx ~ x F is)."""
+
+    def __init__(self, *args, **kw):
+        super().__init__(*args, **kw)
+        Nn = self.Nx + 1
+        self.inner = np.arange(0, Nn); self.m = Nn
+        self.hN = self.blk[-1][3][-1]
+
+    def _full(self, xb, Xi, V=False):
+        return Xi.copy()
+
+    def brane_values(self, s, Xi, Vi):
+        Xf, Vf = Xi.copy(), Vi.copy(); Xf[4, -1] = 0.0; Vf[4, -1] = 0.0
+        return Xf, Vf
+
+    def slopes(self, s, Xf, DXN):
+        """phi* from the brane rows: affine in (T_x, S_x, A_x, B_x), so four evaluations and one solve"""
+        N = self.Nx
+        def r(phi):
+            a = []
+            for e in range(5):
+                a += [Xf[e, N], 0.0, phi[e] if e < 4 else DXN[4], 0.0, 0.0, 0.0]
+            return np.array([float(v) for v in IF.f_bc(s, 1.0, self.b, *a)])
+        r0 = r(np.zeros(4)); J = np.array([r(np.eye(4)[k]) - r0 for k in range(4)]).T
+        return np.linalg.solve(J, -r0), r0, J, r
+
+    def rhs(self, s, Y):
+        d = super().rhs(s, Y)
+        m = self.m; N = self.Nx
+        Xf, Vf = self.brane_values(s, Y[:5 * m].reshape(5, m), Y[5 * m:].reshape(5, m))
+        DXN = (Xf @ self.D.T)[:, N]
+        phi, _, _, _ = self.slopes(s, Xf, DXN)
+        gss, gsx, gxx = C.metric_sx(s, self.xn[-1:], self.b, Xf[:, -1:])
+        aN = float(-gss[0] / gxx[0])
+        for e in range(4):
+            d[5 * m + e * m + N] += -(aN / self.hN) * (DXN[e] - phi[e])
+        d[5 * m + 4 * m + N] = 0.0                             # F = 0 held exactly on the brane
+        return d
+
+
 def lapse_of(I, s, Xf):
     """the lapse of the s-slices, N = 1/sqrt(-g^ss), from the (s, x) block of the metric"""
     gss, gsx, gxx = C.metric_sx(s, I.xn, I.b, Xf)
@@ -224,6 +272,8 @@ def half(n=12, mesh="sat"):
     T = pickle.load(open(TRUSTED, "rb"))
     if mesh == "sat":                                          # item 394: more points where the restart tails need them
         I = FoldedSAT(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=SAT_NS)
+    elif mesh == "satw":                                       # item 395: and the brane imposed weakly
+        I = FoldedSATWeak(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=SAT_NS)
     else:
         I = Halving(n, B, STATIC, KAP, AT)
     m = I.m

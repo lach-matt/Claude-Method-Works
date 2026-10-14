@@ -224,3 +224,26 @@ class Folded:
         return np.concatenate([v[self.ev], uss[self.ev]])
 
     run = Mesh.run
+
+
+def exact_ux(s, x):
+    return -K1 * np.cos(2.3 * s) * np.sin(K1 * x) - 0.3 * K2 * np.sin(1.7 * s) * np.sin(K2 * x)
+
+
+class FoldedWeak(Folded):
+    """item 395: the far end (x = 1, the brane's place) imposed weakly as well -- its node evolved, its slope pulled to
+    the prescribed value g by u_ss[N] += -(a/h_N)(u_x[N] - g), which replaces the boundary's energy term a v_N u_x[N]
+    by a v_N g (data); with kappa != 0 the slope is a Robin condition u_x = kappa u + g, as the Israel rows are"""
+    def __init__(self, n, kappa=0.0, **kw):
+        super().__init__(n, **kw); self.kappa = kappa; self.ev = np.arange(0, len(self.x))
+        self.hN = self.blk[-1][3][-1]
+
+    def fill(self, s, ue, ve):
+        return ue.copy(), ve.copy()
+
+    def rhs(self, s, y):
+        d = super().rhs(s, y); m = len(self.ev); u = y[:m]; x = self.x
+        ux = self.D @ u
+        g = exact_ux(s, 1.0) - self.kappa * exact(s, 1.0)[0] + self.kappa * u[-1]
+        d[m + m - 1] += -(A(x[-1]) / self.hN) * (ux[-1] - g)
+        return d
