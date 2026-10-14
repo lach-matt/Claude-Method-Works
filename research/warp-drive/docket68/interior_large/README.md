@@ -1007,3 +1007,35 @@ region (x ~ 0.9 to 1).
 **Not yet known:** the next order, t^4. There the lam-dependent s-derivative terms act on the t^3 solution, the xi^x row
 first enters, and the exponent 4 of the differences can resonate with the forcing (w^4 log w). The non-analytic term
 that keeps the static solution's DeTurck vector from converging must enter there, if it is at the corner.
+
+**Item 406, continued: the next order, and where the non-convergence actually is** (computed, no run).
+- **The corner at t^4 forces nothing.** At O(t) the operators of the T, S, A, B equations carry only F, which is zero at
+  t^3, and the reference's residual has no t^4 term: the t^4 forcing of B, Sigma, T - S and T - A is exactly zero (no
+  resonance, no logarithm). F's t^4 forcing is a polynomial to w^3 plus terms in b_; its resonant coefficients (w^-1,
+  w^5) are zero. At the brane, the Israel rows' O(t) parts carry only F, and the xi^x row's first appearance,
+  -A/2 + 2B - S - T/2 + A'/4 - B'/4 + S'/2 + T'/4, vanishes identically on the t^3 solution whatever its free constants
+  -- implied by the other rows at this order. So through t^4 the corner admits the irrational modes with free
+  amplitudes and forces none; the record's solution gives b_ = 0.000 +- 0.004. **The corner is not shown to be the
+  source.**
+- **The solutions disagree everywhere but the far end** (N = 28 against 32, fields on a 57 x 41 grid): largest at the
+  horizon on the axis (S, B 2.3e-3 at (0, 0); F 8.6e-3 at (0.01, 0)), as large through the middle (2e-3 to 7e-3), small
+  where the solver fixes the fields (1e-4 near s = 1), and growing from (24, 28) to (28, 32).
+- **The cause, in the language of linear algebra: a near-null direction of the record's Newton Jacobian.**
+
+  | N | smallest singular value, raw | condition, raw | smallest, rows and columns equilibrated | condition |
+  |---|---|---|---|---|
+  | 16 | 1.13e-7 | 4.4e11 | 2.28e-7 | 2.0e7 |
+  | 20 | 3.80e-8 | 2.5e12 | 7.92e-8 | 6.0e7 |
+  | 24 | 1.56e-8 | 1.1e13 | 2.12e-8 (rows) | 2.2e8 (rows) |
+  | 28 | 7.29e-9 | 3.8e13 | | |
+
+  The direction is 88-89 % F, largest at the first Radau node on the axis (s = 0.0023, 0.0015, 0.0010 at N = 16, 20,
+  24), smooth there (nearly flat in s near the horizon, the same at x = 0 and x = 0.5: not the horizon's s^-1 branch,
+  which the board first supposed and withdraws), and its singular value falls as about N^-5 even with every row and
+  column scaled. The continuum problem has no zero mode (Figueras-Wiseman found none in its spectrum), so this one is
+  the discretisation's: the scheme grows more nearly singular in it as N grows, and whatever error it makes is
+  amplified into F, and through the coupling into S and B, near the horizon on the axis. That is why the static
+  solution's DeTurck vector does not converge, and why N = 32 is the worst.
+- The record's solver has no node at the horizon (its Radau nodes in s exclude s = 0) and imposes the horizon's
+  regularity only through the equations' degeneration; the axis rows (F_x = 0 among them) meet the horizon at that
+  corner. The horizon's exponents (T + A, S, B: 0, 0; T - A: +1, -1; F: 0, -1) say what an exact horizon row is.
