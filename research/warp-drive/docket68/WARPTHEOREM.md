@@ -660,6 +660,28 @@ large end are finalized "can only be determined once the source is determined". 
 (c), and wait on SOURCE's specification (`SOURCE-REQUIRED.md`). SOURCE stays last. Next in the order you approved at
 384 is the part that does not rest on SOURCE: the interior, worked from your rulings.
 
+**Corrected after item 389: J2 withdrawn, position 2's face closed by your 109** (`lemmas/junction_own.py` G8–G9,
+selftest 12/12, mutants 6/6; notes in `SOURCE-REQUIRED.md`, `close_large`, `arrival_large`, `c_junction`,
+`arrival_small`, `close_small`). The board's own audit against your 277.
+- **The error.** Since close_large (362) the board used J2, Barcelo, Carballo-Rubio and Garay's short white-hole phase,
+  as position 2's open period where no junction binds. Items 387 and 388 carried it into SOURCE's item 10. The record had
+  withdrawn J2 at your 277: Barcelo's mechanism needs inflow from position 2 onto its white-hole face, and on the one-way
+  object nothing from position 2 meets it (i_oneway I3).
+- **What closes the face is your 109**: "A horizon cannot exist without the object of which it needs to exist". On your
+  273's construction the README's shell has flat space inside it, and position 2's side is ours reflected. Our face is
+  born 2 r_s/c before the README's first part reaches it (A3's exact 4 clocks of GM/c³ at the large end, 2 of r_h/c at
+  the small). So position 2's face ends 2 r_s/c after the README's last part has passed it. It ends with its object.
+  Computed, exact.
+- **So item 10 binds only where a junction does.** At a destination at our σ (218's example, 2a, 2b, 2c) the face lasts
+  through the README's emergence and puts no bound on SOURCE. Where the destination's own σ differs, the junction's
+  period stands.
+  - Small end: 32–34 of position 2's e-folds wherever the junction rises (33.6 on your quarter, 46.3 of our clocks at 2P),
+    all above the compact 4.79. arrival_small's original comparison stands.
+  - Large end: the junction's figures, 1.57×10⁻³ clocks at 2P at r₀ = 10ℓ.
+- **387's open question is answered from your rulings.** That question was what closes the face with no junction, and
+  the answer comes from 109 and 273, not from Barcelo's model. CLOSE at the small end stands either way (close_small
+  K9's note).
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
