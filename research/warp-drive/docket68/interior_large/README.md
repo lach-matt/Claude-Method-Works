@@ -533,3 +533,52 @@ form:
 - F = 0 kept strongly (its node does not move).
 
 First checked on the model, with a prescribed slope at x = 1.
+
+## Item 395: the third attempt -- the brane imposed weakly (2026-10-14)
+
+**The model check** (`zeno_interface_check.py` FoldedWeak). The far end imposed weakly: its node evolved, its slope
+pulled to the prescribed value by -(a/h_N)(u_x - g).
+- Exactly neutral for the pure wave, for the Neumann case and for an Israel-like Robin u_x = kappa u + g with
+  kappa = -1.
+- With b = 0.3 x, nonzero at the end, it is unstable: the boundary keeps an energy term b v_N^2. In the interior
+  b = g_sx/g_xx is zero at the brane (g_sx ~ x F, F = 0 there).
+- With b vanishing at both ends the error stays at 2-4e-12 to s = 40 (n = 12).
+
+**The port** (`zeno_run.py` FoldedSATWeak). The brane node is evolved (the equations are regular at x = 1). The four
+Israel rows -- affine in the brane's slopes, checked to 9e-16, a 4 x 4 system of condition 9 -- are solved each step for
+T_x, S_x, A_x and B_x, and F = 0 is held exactly. At the trusted state the rows' slopes match the mesh's to 1e-6.
+
+**Run 1: died inside the solver**, a NaN in the Jacobian, with nothing saved. The solver was then stepped one step at a
+time with its history kept.
+
+**Run 2: failed at s = -0.628**, as item 394's had. The spectrum of the semi-discrete system (its Jacobian takes 6 s)
+located the cause:
+- Spurious modes, one per field, growing at 186 per unit -s on the x = 7/8 joining, present already at the restart.
+- **The board's error:** the coupling's dissipative term -gam J_v was derived for time running forward in s. The
+  interior evolves toward decreasing s, so it pumped energy in at about gam/h -- largest where the end weight h is
+  smallest, the joining before the brane. The principal parts were checked to be exactly a X_xx + 2b X_sx for every
+  field, as the coupling assumes (a = 0.1073 and 2b = -0.0746 at x = 7/8, diagonal); the first-order terms are sizable
+  (to 7 across fields) but a model with them stays tame.
+- With the damping along the evolution the top growth rate falls from 186 to 1.05, a slow mode in F near the axis.
+
+**Run 3, the sign corrected:** stopped at s = -0.80 (159 steps, 86 s):
+
+| s | phi_max | tail |
+|---|---|---|
+| -0.503 | 8.2e-5 | 6.5e-7 |
+| -0.790 | 7.5e-5 | 3.1e-6 |
+| -0.798 | 7.5e-5 | 3.3e-6 |
+
+The DeTurck norm held under 1e-4 throughout, for the first time past s = -0.63. It stopped because **A turned negative at
+x = 0.22** (-3.2e-4), so g_ss >= 0 there: s is no longer timelike, and a = -g_ss/g_xx changes sign. A fell smoothly and
+nearly linearly (min A 0.073 at s = -0.50, 0.027 at -0.70, 0.013 at -0.75), its minimum moving out from x = 0.14 to
+0.22, and it was resolved there (tails 1e-8 to 1e-7). The other fields were healthy (T, B, S > 0).
+
+**Verdict: FAIL** -- the half's end was not reached, and the tails (3.3e-6) were above 1e-6. The second half is not run.
+
+**What is not known: whether A -> 0 is the solution or the scheme.** g_ss -> 0 means the DeTurck s-slicing degenerates
+there, a coordinate matter (B6 found the chart ends at finite proper time). But the record's single-grid runs reached
+s = -1.6 (Nx = 20) without reporting it.
+
+The deciding comparison: the record's own scheme (B7's damped Nx = 28 single grid), continued from the trusted state to
+s = -0.8, with A(x) compared at the same s. It takes about 5 minutes, and it is for M to approve.

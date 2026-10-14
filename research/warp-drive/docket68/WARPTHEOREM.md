@@ -755,6 +755,18 @@ state was rebuilt first.
 - **Next, for you to approve or not:** the brane conditions imposed weakly, in the same energy form, checked first on
   the model.
 
+**Item 395: the third attempt -- the brane weak; the damping's sign corrected; stopped by g_ss -> 0 at s = −0.80**
+(`interior_large/zeno_run.py` FoldedSATWeak; `interior_large/README.md`, "Item 395").
+- **The model check.** With b zero at the brane, as it is in the interior, the weak brane holds the error at 10⁻¹².
+- **The board's error.** The first two runs failed on a sign: the coupling's damping was derived for time running forward
+  in s, and the interior runs toward decreasing s. The spectrum showed it: modes at 186 per unit −s on the joining before
+  the brane, falling to 1.05 when corrected.
+- **The corrected run** kept the DeTurck norm under 10⁻⁴ to s = −0.80, the farthest any attempt has gone. It stopped
+  because A, and with it g_ss, reached zero at x = 0.22: s stops being timelike there.
+- **Fail** by the criterion (the end not reached; the tails 3.3×10⁻⁶).
+- **Open:** whether g_ss → 0 is the solution or the scheme. The record's own single grid, continued to s = −0.8, would
+  decide it, in about 5 minutes, for you to approve.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.

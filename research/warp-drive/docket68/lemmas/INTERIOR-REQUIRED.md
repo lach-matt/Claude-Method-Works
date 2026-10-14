@@ -129,3 +129,14 @@ points, and couple the parts by penalty. It is for M to approve.
   reaches that node, and the record's Israel rows fix it algebraically. The model check had shown that an algebraic
   slope condition at an end node is unstable in this scheme.
 - **The next fix, for M:** impose the brane conditions weakly, in the same energy form. The second half is not run.
+
+**Item 395: the third attempt -- the brane imposed weakly** (`interior_large/README.md`, "Item 395").
+- **Checked on the model first.** With b zero at the brane, as it is in the interior, the weak far end holds the error at
+  1e-12.
+- **The board's sign error.** The first two runs failed on it: the coupling's damping was derived for time running
+  forward in s, and the interior runs backward. The spectrum found it: 186 per unit -s on the joining before the brane,
+  falling to 1.05 when corrected.
+- **The corrected run** held the DeTurck norm under 1e-4 to s = -0.80, the farthest yet. It stopped where A, and with it
+  g_ss, reached zero at x = 0.22: the s-slicing degenerates there.
+- **Open:** whether that is the solution or the scheme. The record's own single grid continued to s = -0.8 would decide
+  it, in about 5 minutes, for M to approve.
