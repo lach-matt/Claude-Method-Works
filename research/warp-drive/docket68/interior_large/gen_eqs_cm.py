@@ -27,7 +27,7 @@ Usage: gen_eqs_cm.py tag x1 ca cb [k]    e.g. gen_eqs_cm.py cm23 2/3 1 1, or gen
 import sympy as sp, pickle, time, itertools, sys
 t0 = time.time()
 tag = sys.argv[1]; x1, ca, cb = (sp.Rational(v) for v in sys.argv[2:5])
-kw = int(sys.argv[5]) if len(sys.argv) > 5 else 1     # k > 1: Christoffels by cancel (simplify stalls on f^k/(1+f^k))
+kw = int(sys.argv[5]) if len(sys.argv) > 5 else 1     # k > 1: Christoffels unsimplified (simplify, cancel stall)
 tau, s, x, ps = sp.symbols("tau s x psi", real=True)
 bt = sp.Symbol("bt", positive=True); a_, b_ = ca * bt, cb * bt
 kap, at = sp.symbols("kap at", real=True)
@@ -61,7 +61,7 @@ def inverse(G):
 def christ(Gm, Gmi, simp=False):
     out = [[[sum(Gmi[a, d] * (sp.diff(Gm[d, b], X[c]) + sp.diff(Gm[d, c], X[b]) - sp.diff(Gm[b, c], X[d]))
                  for d in range(4)) / 2 for c in range(4)] for b in range(4)] for a in range(4)]
-    return [[[(sp.simplify(e) if kw == 1 else sp.cancel(e)) if simp else e for e in r2] for r2 in r1] for r1 in out]
+    return [[[sp.simplify(e) if simp and kw == 1 else e for e in r2] for r2 in r1] for r1 in out]
 
 G = metric(*[fn[n] for n in names]); Gi = inverse(G)
 Gb = metric(1, 1, 1, 1, 0); Gbi = inverse(Gb)
