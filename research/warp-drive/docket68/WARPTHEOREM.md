@@ -351,6 +351,36 @@ in practice is (A) (M-ONE-README).
   verification (358); (4) SOURCEs and SOURCE. The paused tests -- the C-metric's gauge half, the r₀ ≈ 10ℓ run -- are
   dropped unless you want them; the C-metric's stability half stands.
 
+**Item 378: ℓ, isolated** (`lemmas/ell_map.py` E0–E9, selftest 8/8, mutants 2/2). You asked to look directly at ℓ.
+- **What ℓ is: one unknown under several names.** Your B6' (201) with SMS (19) gives Gℓ² = 3c⁴/(4π(σ − 2δσ)), so ℓ is
+  our plane's tension in other units. The same unknown is the five-dimensional coupling G₅ = Gℓ, the bulk's
+  Λ₅ = −6/ℓ², the five-dimensional Planck length l₅ = (l_P²ℓ)^(1/3), and, through AdS/CFT, the rank N of the conformal
+  field theory the bulk is dual to: Hawking, Hertog and Reall (hep-th/0003052), READ, "l³/G = 2N²/π" and "G₄ = G/l",
+  so N² = (π/2)(ℓ/l_P)². Their "l = λ^(1/4) l_s" (READ) puts it in string terms.
+- **The two ends meet at that theory's size (computed, exact).** N_L = (π²/2 ln2)(ℓ/l_P)² is exactly πN²/ln2. A README
+  with fewer bits than the dual theory's count is the small end; one with more is the large end.
+- **Its window, as the record holds it.** From 22.4 l_P (a classical bulk) to 13.964 μm (the table-top floor on σ):
+  σ^(1/4) from 1.80×10¹⁸ GeV down to 9.18×10³ GeV, N from 28 up to 1.08×10³⁰.
+- **The theorem's small-end headline numbers take ℓ at its ceiling (computed).** r_h = 1.12008×10⁻²⁰ m scales as
+  ℓ^(1/3), E = 1.28×10⁹ J as ℓ^(−1/3), r_h/ℓ = 8.0×10⁻¹⁶ as ℓ^(−2/3). No row's status turns on them; the rows hold in N
+  and ℓ.
+- **The interior.** The Planck curvature, where your 273 begins, is (ℓ/l_P)^(8/3) in units of ℓ⁻⁴: 3.99×10³ at the
+  floor, 6.77×10⁷⁹ at the ceiling. The runs reach 2.5×10³, the value at 18.8 l_P, below the floor: no ℓ in the window is
+  within the runs' reach (computed).
+- **What ℓ rests on.** On σ, which nothing in the theory sets (sigma_cypher C1–C3; 201 made it a definition). Outside:
+  the table-top bound is the ceiling; astrophysical bounds of 80 and 161 μm (Psaltis; Johannsen, Psaltis and
+  McClintock; search summary) and a LISA forecast of 5 μm (McWilliams; search summary) all rest on large brane holes
+  evaporating classically, which Figueras and Wiseman's static, stable holes stand against (READ, in the record);
+  solar-system ranging gives only ≲ 5 m (search summary). Theory ties ℓ to the dual theory's N, or to string data, and
+  the swampland's "dark dimension" proposal ties one extra dimension's size to the dark energy at about a micron
+  (search summary; a flat dimension, not a warped one). The dark energy's own length, (ħc/δσ)^(1/4) = 88.1 μm, is 6.3
+  times the ceiling (computed).
+- **What knowing ℓ would decide, and what it would not.** It would fix where the ends meet, the small end's numbers,
+  the large end's range in units of ℓ, and how far the interior must be carried. It would not by itself move a row:
+  every row is proved for all ℓ in the window. Closing ℓ takes one input of a named kind -- a measurement below about
+  14 μm (gravity's 2ℓ²/(3r²) correction), the dual theory's N or string data, or a tie to something the theory already
+  holds (the offset, the corridor family). Which kind to seek is yours.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
