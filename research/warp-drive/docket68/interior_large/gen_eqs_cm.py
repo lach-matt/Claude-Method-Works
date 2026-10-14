@@ -14,8 +14,8 @@ its own chart: p_ref = p (1 + a w x^2), Dl_ref = 1/mu + xc (1 + b w x^2)/f, w = 
 one on the horizon, two at the singularity), with a = ca eps and b = cb eps.  An optional fifth argument k makes it
 w = 2 f^k/(1 + f^k): with k = 1 the deformation dies at infinity only as f, the order at which the C-metric's mass
 sits in this chart (H = s); k = 3 keeps the reference's asymptotic data through that order.  The amplitude eps is the
-symbol bt of the RSII code (bt does not otherwise enter here), so one pickle serves every eps and Newton can continue in it; eps = 0 is
-the exact chart (T = S = A = B = 1, F = 0).  Ansatz:
+symbol bt of the RSII code (bt does not otherwise enter here), so one pickle serves every eps and Newton can continue
+in it; eps = 0 is the exact chart (T = S = A = B = 1, F = 0).  Ansatz:
     g = Dl_ref^-2 [s T dtau^2 + A ds^2/(f^4 s) + c0 B dx^2/(f^2 p_ref) + x F ds dx/f^3 + c0 x^2 p_ref S dpsi^2/f^2].
 
 Written (keys as gen_eqs_fw's, "thth" carrying psi psi, so core_fw.py and the interior classes read them unchanged):
@@ -27,7 +27,7 @@ Usage: gen_eqs_cm.py tag x1 ca cb [k]    e.g. gen_eqs_cm.py cm23 2/3 1 1, or gen
 import sympy as sp, pickle, time, itertools, sys
 t0 = time.time()
 tag = sys.argv[1]; x1, ca, cb = (sp.Rational(v) for v in sys.argv[2:5])
-kw = int(sys.argv[5]) if len(sys.argv) > 5 else 1
+kw = int(sys.argv[5]) if len(sys.argv) > 5 else 1     # k > 1: Christoffels by cancel (simplify stalls on f^k/(1+f^k))
 tau, s, x, ps = sp.symbols("tau s x psi", real=True)
 bt = sp.Symbol("bt", positive=True); a_, b_ = ca * bt, cb * bt
 kap, at = sp.symbols("kap at", real=True)
@@ -61,7 +61,7 @@ def inverse(G):
 def christ(Gm, Gmi, simp=False):
     out = [[[sum(Gmi[a, d] * (sp.diff(Gm[d, b], X[c]) + sp.diff(Gm[d, c], X[b]) - sp.diff(Gm[b, c], X[d]))
                  for d in range(4)) / 2 for c in range(4)] for b in range(4)] for a in range(4)]
-    return [[[sp.simplify(e) if simp else e for e in r2] for r2 in r1] for r1 in out]
+    return [[[(sp.simplify(e) if kw == 1 else sp.cancel(e)) if simp else e for e in r2] for r2 in r1] for r1 in out]
 
 G = metric(*[fn[n] for n in names]); Gi = inverse(G)
 Gb = metric(1, 1, 1, 1, 0); Gbi = inverse(Gb)
