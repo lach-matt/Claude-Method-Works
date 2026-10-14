@@ -609,6 +609,8 @@ their correction.
 **Item 387: position 2's plane carries its own σ** (`lemmas/SOURCE-REQUIRED.md`, "Settled at item 387"; notes in
 `arrival_large`, `close_large`, `c_junction`, `arrival_small`). Your answer to the fork settles SOURCE's last open
 requirement.
+[Item 388: what follows holds only for destinations at our σ, 218's example among them. The theorem's case is item
+388's below. Kept as written.]
 - **At the working destination its own σ is ours.** Position 2 is our universe an hour ahead (218), carrying its own
   universe's values (226), so no junction rises on its face at either end (c8_level V2). J1's junction, which gave the
   small end 33.6 clocks and the large end the quarter's 2.67×10⁻³ (10ℓ/r₀)², does not bind there. Deduced.
@@ -622,6 +624,32 @@ requirement.
   carry a junction of the difference.
 - **New, for the math.** With no junction, nothing in your rulings closes position 2's face. The record's only bound on
   how long it stays open is J2, which is READ. A bound from the theorem itself would replace it.
+
+**Item 388: the junction at a destination's own σ, for the theorem, not the example** (`lemmas/junction_own.py`
+G0–G7, selftest 10/10, mutants 5/5; `SOURCE-REQUIRED.md`, "Corrected at item 388"; notes in `arrival_large`,
+`close_large`, `c_junction`, `arrival_small`). You corrected 387's report: it set the bound from 218's example. Computed
+in general:
+- **The law.** The record's junction law, called, carries the two tensions and nothing else, so it holds at every
+  destination whatever its G and ℓ. On position 2's face, with the interior at our σ, the junction grows at σ − σ₂.
+- **Three cases.** Below our σ the junction rises and closes the face. At our σ there is none. Above it, it falls, and
+  the face stays positive only while a start lasts; taking the start as the README's energy, which is F1's reading, it
+  closes in about the same time. That is computed exactly, then deduced.
+- **Small end: J2 binds at every destination.** The junction would bind only for σ₂ below −7.7×10¹³ σ. Even on your
+  139 (1)'s quarter, J1's 33.6 clocks never bound; J2's about 2 always did. The bound is 2 to 3.17 of our clocks over the
+  record's destinations. J2 is READ, an order of magnitude.
+- **Large end: the junction binds wherever σ₂ differs from ours**, by more than about 5×10⁻⁴ σ at r₀ = 10ℓ. Its period
+  is about (ℓ/r₀)²/(3 (G₂/G)^(3/2) |1 − σ₂/σ|) clocks of GM/c³. At r₀ = 10ℓ:
+  - 2P: 1.57×10⁻³;
+  - 2b + 2P: 5.6×10⁻⁴;
+  - your quarter: 2.67×10⁻³;
+  - the inverse 2P step: 3.14×10⁻³.
+
+  The 4 clocks holds only at our σ with our G; at 2b and 2c it is 5.66.
+- **So SOURCE's item 10 is a function of the destination.** It depends on the destination's own σ₂, G₂ and G₅, and on r₀
+  at the large end. Its strictest case is the junction's, a fraction of a clock, at every destination whose own σ is not
+  ours.
+- **Still open.** What closes the face where no junction binds (J2 is READ), and what supplies a falling junction's
+  start (F1's reading, not a ruling).
 
 ## The register as it stands (item 331)
 

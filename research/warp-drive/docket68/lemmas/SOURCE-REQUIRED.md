@@ -39,6 +39,8 @@ What the correction changes:
 ## Settled at item 387: position 2's plane carries its own sigma
 
 M, 387: "it should carry its own σ." That answers the fork below. What follows from it, worked from the record:
+[Item 388: what follows holds only for destinations at our sigma, 218's example among them. For the theorem see
+"Corrected at item 388". Kept as written.]
 
 - At the working destination, its own sigma is ours. Position 2 is "a universe identical to this one with a singular
   exception, that that universe is 1 hour ahead of ours" (218), and each position 2 carries its own universe's values
@@ -54,8 +56,40 @@ M, 387: "it should carry its own σ." That answers the fork below. What follows 
 - A destination whose own sigma differs from ours, such as 2P and its combinations (sigma/4 in SI, p2_planck Q2),
   would carry a junction of the difference. Its period would have to be computed. The working experiment (218) does
   not need it, so it is not computed (384).
+  [Item 388: wrong -- the theorem needs it, and it is computed below. Kept as written.]
 - New, and the math's to answer: with no junction, M's rulings carry nothing that closes position 2's face. The
   record's only bound on the open period is J2, which is READ. A bound from the theorem itself would replace it.
+
+## Corrected at item 388: the theorem, not the example
+
+M, 388: "we do need to compute this. You're basing your decision off an applied simplified example of the warp
+theorem." The 387 section above set item 10 from 218's one-hour jump, where the destination's own sigma happens to be
+ours. The theorem is general: each position 2 carries its own values (226), and its own sigma2 can differ from ours.
+Computed in junction_own.py (G0-G7; selftest 10/10, mutants 5/5):
+
+- The junction law carries the two tensions and nothing else (m1p2x_index Y1, called), so it holds at every destination
+  whatever its G2 and ell2. On position 2's face, with the interior at our sigma, mu' = sigma - sigma2. Computed, exact.
+- Below our sigma the junction rises. At our sigma there is none. Above it the junction falls, and it needs a start or
+  positivity fails at the face where it is owed (284, 285). Taking the start as the README's energy laid on the
+  junction (m1p2x_fifth F1's reading), the face stays open at most -ln(1 - 1/(K0 |b|)) e-folds. For a large jump the two
+  signs give the same period, 1/(K0 |b|) e-folds. Deduced from the computed form.
+- **Small end: J2's short phase binds at every destination**, junction or not. The junction would bind only for sigma2
+  below -7.7e13 sigma. At 139 (1)'s quarter too, J1's 33.6 clocks never bound: J2's about 2 always did. In our clocks
+  the bound is 2 to 3.17 over the record's twelve destinations and the quarter, and 1.41 at the inverse 2P step
+  (G/2, 4 sigma). Computed; J2 READ, an order.
+- **Large end: the junction binds wherever sigma2 differs from ours** by more than about 5e-4 sigma (at r0 = 10 ell; the
+  band shrinks as (ell/r0)^2). Its period is about (ell/r0)^2/(3 (G2/G)^(3/2) |1 - sigma2/sigma|) clocks of GM/c^3. At
+  r0 = 10 ell (240 (b); one Kruskal geometry in brackets): 2P and 2a + 2P 1.57e-3 [2.22e-3], 2b + 2P and 2c + 2P
+  5.6e-4 [1.11e-3], the quarter 2.67e-3, the inverse 2P step 3.14e-3 [2.22e-3]. Only at our sigma is it J2's: 4 clocks
+  where G2 = G (ours, 2a), 5.66 at 2b and 2c. Computed.
+- Where the jump would rise, d_ours (the interior at our sigma) is forced at both ends. Otherwise the junction would sit
+  on our face, and our face must stand at least 66,980 clocks against the junction's 34. Computed comparison.
+
+So item 10 is a function of the destination -- its own sigma2, G2 and G5_2 -- and, at the large end, of r0. SOURCE meets
+it for the destination it serves. The strictest case is not the example's 4 clocks: at the large end it is the
+junction's, a small fraction of a clock, at every destination whose own sigma differs from ours. Still open: what
+closes the face where no junction binds (J2 is READ), and what supplies a falling junction's start (F1's reading, not
+ruled).
 
 ## What it is
 
@@ -104,6 +138,9 @@ M, 387: "it should carry its own σ." That answers the fork below. What follows 
     is J2's short phase, about 2 clocks of r_h/c at the small end and 4 clocks of GM/c^3 at the large (READ, an order).
     The small end's 32.6-34.5 and the large end's quarter bound were J1's junction, which does not rise there. Kept as
     written; see "Settled at item 387" above.]
+    [Item 388: that note holds only at our sigma. For the theorem the bound depends on the destination: J2's at the
+    small end everywhere, and at the large end the junction's wherever sigma2 differs from ours (junction_own G7). See
+    "Corrected at item 388" above.]
 11. **It keeps our vacuum.** It never carries our plane's Higgs over its barrier: our universe is defined by its offset
     (201), which a bubble of the deeper vacuum would change by more than eighty orders (322; 382). At the example README
     the gas is about 5.6e3 GeV at the floor ball and 2.3e7 GeV at the face, against the barrier's 3.68e10 GeV -- at most

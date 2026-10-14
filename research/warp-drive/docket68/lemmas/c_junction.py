@@ -21,6 +21,9 @@ one-way re-closure is i_oneway.py.]
      [Item 387: M ruled that position 2's plane carries its own sigma, which at 218's destination is ours. So J1's
      junction does not rise there (c8_level V2), and the open period is J2's short phase, about 2 clocks (J4). J1 is
      kept as written: it is the period on 139 (1)'s quarter.]
+     [Item 388: for a destination with its own sigma2 the jump is sigma - sigma2 (junction_own G1). At the small end
+     J2's short phase binds at every destination the record holds, the quarter included: J1's 33.6 never bound
+     (junction_own G5).]
   J2 (READ) Barcelo, Carballo-Rubio & Garay, arXiv:1511.00633: "transitions with long characteristic time scales are
      pathologically unstable: occasional perturbations away from the perfect vacuum around these compact objects, even
      if being imperceptibly small, suffocate the white-hole explosion" (abstract); for short ones the white-hole horizon

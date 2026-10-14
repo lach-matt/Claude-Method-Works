@@ -153,6 +153,9 @@ V14.]
      period is J2's short phase, about 2 clocks (c_junction J4; READ, an order). (3)'s comparison is then reversed:
      the width must be below about 2 clocks, under the 4.79. That is a requirement on SOURCE (SOURCE-REQUIRED item
      10). Kept as written.]
+     [Item 388: this holds at every destination, not only at our sigma. At the small end the junction would bind only
+     for sigma2 below -7.7e13 sigma, so J2 governs everywhere, the quarter included: 2 to 3.17 of our clocks over the
+     record's twelve and the quarter (junction_own G5, G7).]
   V9 (computed) ARRIVAL's question through the calculator, clause by clause in the form C4's stands in (291; c4_residue
      R9, R12): the classes t, the arrival compact (within V4's widths) or spread, and m, the README or other matter --
      no arrival, a README on a standing face (reading (i)), the README with 183's exact partner (README-HELD 2: no face

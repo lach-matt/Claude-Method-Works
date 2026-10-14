@@ -57,6 +57,8 @@ seated); 2026-10-13.
      here under reading (c), not decided.
      [Item 387: M ruled position 2's own sigma, ours at 218's destination, so reading (a) holds: no junction, and the
      open period is at most 4 clocks (READ, an order). Reading (b) is kept as written.]
+     [Item 388: reading (a) covers only destinations at our sigma. For a destination with its own sigma2, the junction
+     on position 2's face is sigma - sigma2, and (b)'s formula holds with that jump (junction_own G1-G3, G7).]
   L5 (deduced) The rows.  CLOSE at the large end, on M-ENERGY-STAYS: our face closes by Hawking emission over the large
      hole's life, at least 2.4 N clocks (L3), its energy ours, radiated into our universe; position 2's face closes
      within its open period (L4), on either reading of position 2's tension.  E1u and E1x: E stays (336), carried by

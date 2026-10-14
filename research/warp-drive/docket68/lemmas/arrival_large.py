@@ -35,6 +35,10 @@ seated); 2026-10-14.
      [Item 387: M ruled that position 2's plane carries its own sigma, which at 218's destination is ours. So A4's bound
      is the 4 clocks (close_large L4 (a), the short phase with no junction; READ, an order), not the quarter's 2.67e-3
      (10 ell/r0)^2. A5's consistency stands: 4 < 16. Kept as written.]
+     [Item 388: the 4 clocks covers only destinations at our sigma with G2 = G. In the theorem the bound depends on the
+     destination. Wherever its own sigma differs from ours the junction binds: about (ell/r0)^2/(3 (G2/G)^(3/2)
+     |1 - sigma2/sigma|) clocks, 1.57e-3 at 2P at r0 = 10 ell (junction_own G5, G7). A5 stands: every such bound is
+     under 16.]
   A6 (deduced) The rows that wait only on it.  M1P2x (all but the README's emergence within position 2's open period),
      E1x (the README's crossing against that period) and H2tx (resting on M1P2x) rely on SOURCE through A5 alone, and
      reach the small end's state with ARRIVAL: readings on SOURCE once M finalizes.  Z3b, B3 and B4d rest on ARRIVAL and
