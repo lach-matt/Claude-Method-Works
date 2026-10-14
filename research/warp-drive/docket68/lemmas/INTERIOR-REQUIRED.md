@@ -241,3 +241,12 @@ at N = 28: **E = 0 over the 3,456 cells with the start's error counted**, the sm
 total error (computed). The start's error grows at most 2.2-fold over the half (N^2); whether that settles per half is
 not yet known, and if it did not, N^2's margin would last about eight halves (estimate). The withdrawn 1e-4 mark passed
 from this start (6.9e-5) and failed from N = 24 (2.21e-4): it measured the start, not the passage.
+
+**Item 412: where error enters, and the cypher** (`interior_large/README.md`, "Item 412"; `cypher_criterion.py`,
+selftest 4/4, mutants 2/2). Error is not in the passage: the README's route is exact (item 9). It enters only where
+(a)-(c) are checked by computing the surrounding interior: representation (finite N; item 411's start error),
+stepping, arithmetic, and coefficients. The last are still in the march of 393-411 (item 405's table), against M's 405;
+405-2 is not built. Errors of the first three kinds vanish only by proof, or by a computer-assisted proof. Through the
+cypher (every roster) the interior's cells are closed with E = 0 in every speaking language; the control outside the
+horizon flips (a) and (b) to violated; inside and outside together are not one closed index (E > 0).
+

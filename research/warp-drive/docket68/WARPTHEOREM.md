@@ -830,6 +830,10 @@ state was rebuilt first.
 - **Item 411, the shared start** (your approval): the half rerun from the N = 28 static start. With the start's error
   counted, E = 0 still, the smallest margin about 600 times its error; the error grows at most 2.2-fold over the half.
   The withdrawn mark passed from this start and failed from N = 24: it measured the start, not the passage.
+- **Item 412** (your question, then the cypher): error is not in the passage, whose README route is exact; it enters
+  only where the surrounding interior is computed (finite representation, stepping, arithmetic, and coefficients still
+  in the march, against your 405). It vanishes only by proof. Through the cypher, every roster: inside, E = 0; the
+  control outside the horizon flips; the two together are not one closed index.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

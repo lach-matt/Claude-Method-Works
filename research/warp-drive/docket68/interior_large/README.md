@@ -1216,3 +1216,47 @@ verdict moved with the static start's resolution: it measured the start, not the
 **Not yet known:** whether the start's per-half growth settles. If N^2's 2.2 repeated at every half, its margin would be
 used up after about eight halves (estimate). The second half would measure it. Still owed: the departure from
 Einstein's law, (c)'s curvature per halving, and the remaining halves.
+
+## Item 412: where error enters, and the cypher over the cells (2026-10-14)
+
+M, 412: "where does error enter my theorem? I have demanded no coefficients to minimize error, so we can identify error
+and eliminate it. There should be no error." And: "Have the cypher run over it".
+
+**Where error enters** (deduced, from the record). Not in the passage. The README's own route is settled exactly, with
+no computation (INTERIOR-REQUIRED item 9): flat inside its shell, finite affine length to 273's region, independent of
+the 5D interior. Error enters only where the board checks the surrounding 5D interior, the manifold around that route
+(O1b, O1c's (a)-(c)), by computing it in place of proving it. A computation holds finitely many numbers, so it carries:
+1. **representation** -- the exact solution drawn through finitely many points (N = 24 or 28 per direction). "The
+   start's error" of item 411 is this one: the N = 24 and N = 28 drawings of one static hole differ by up to 3e-3;
+2. **stepping** -- the march's finite steps, at a tolerance of 1e-8;
+3. **arithmetic** -- sixteen digits, 1e-16;
+4. **coefficients** -- these change the equations themselves, and M's 405 removes them. **The march used in items
+   393-411 still carries them**: constraint damping kappa = 4 and its tilt 0.5, the jump damping 0.5, the joining's
+   penalty 1/(2H), and the brane's c^2/h_N (item 405's table). Each vanishes on an exact solution, but each is a
+   coefficient M has ruled out, and the coefficient-free scheme (405-2) is not built. Those runs are evidence; they do
+   not yet meet M's rule.
+
+Removing coefficients makes the equations exact; it cannot make a finite drawing exact. Errors 1-3 shrink with effort
+and never reach zero by computing. **They are eliminated only by not resting the yes or no on a computation:** a proof
+of (a)-(c) for the large hole's interior, from Einstein's law in the bulk and the plane at sigma > 0 (the route
+INTERIOR-REQUIRED put first, never attempted after item 392); or a computer-assisted proof, in which every number
+carries a guaranteed enclosure and a theorem turns E = 0 into a proof.
+
+**The cypher over the cells** (`cypher_criterion.py`, selftest K1-K4, mutants 2/2; `CYPHER-412.json`). Three indexes
+were run through `tools/cypher.py`, every roster (1173, 20.2, 33.1), with analysis given the board's declared witness.
+Logic's binary (`b6p_scale.determined`, by path) was asked beside it which coordinates fix the verdict (computed):
+- **INSIDE**, item 411's 3,456 cells (slice, node, requirement, verdict; the error is the meshes' plus the starts'):
+  every speaking language of every roster has **E = 0**, and they agree. The verdict adds nothing: it is one value,
+  decided, fixed by nothing. This index is the full box with one verdict, so every language must admit exactly it:
+  E = 0 is how "every cell decided" reads in the cypher, not evidence beyond the count.
+- **OUTSIDE**, the control: the static solution outside the horizon (s = 0.1, 0.25, 0.5, 0.75; error N = 24 against 28),
+  judged by the same requirements. It flips: (a) N^2 > 0 and (b) g_tt > 0 are violated at every cell, as they must be
+  where s is spacelike and the static direction timelike, while S and B are decided. The verdict is fixed by the
+  requirement. E = 0 in every speaking language.
+- **BOTH**, the two with region as a coordinate (52 cells, node dropped): **E > 0 and the languages disagree** (order
+  and algebra 26; geometry, information and statistics 8, the number of violated cells). The verdict is fixed by region
+  and requirement together. Each region alone is a closed index and the two joined are not: the cypher sees two laws,
+  split at the horizon (deduced). With the node kept the regions' different grids (96 against 24 nodes) add an artifact
+  E; it was measured and is not reported as a finding.
+Silent and not-run as the instrument reports them: documentary silent; 20.2's arithmetic, calculus, logic and
+constraint-language NOT-RUN (no ruled operator).
