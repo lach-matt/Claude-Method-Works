@@ -1026,7 +1026,7 @@ that keeps the static solution's DeTurck vector from converging must enter there
   |---|---|---|---|---|
   | 16 | 1.13e-7 | 4.4e11 | 2.28e-7 | 2.0e7 |
   | 20 | 3.80e-8 | 2.5e12 | 7.92e-8 | 6.0e7 |
-  | 24 | 1.56e-8 | 1.1e13 | 2.12e-8 (rows) | 2.2e8 (rows) |
+  | 24 | 1.56e-8 | 1.1e13 | 3.29e-8 | 1.5e8 |
   | 28 | 7.29e-9 | 3.8e13 | | |
 
   The direction is 88-89 % F, largest at the first Radau node on the axis (s = 0.0023, 0.0015, 0.0010 at N = 16, 20,
