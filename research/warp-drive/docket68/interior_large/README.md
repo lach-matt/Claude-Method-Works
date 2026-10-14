@@ -741,3 +741,29 @@ Computed, from the saved steps:
 What a fifth attempt would change, for M: halve toward the axis as well -- the axis part split as [0, 1/16] folded and
 [1/16, 1/8], with more points there -- which is item 392's mesh halved toward both ends. The rest unchanged; the same
 half, question, criterion and 20-minute stop.
+
+## Item 401: the fifth attempt -- the axis part halved too (2026-10-14)
+
+`zeno_run.py half 10 dsem5`: the folded axis part now [-1/16, 1/16] (15 intervals), then [1/16, 1/8] (14), and 14,
+16, 14, 10, 14 as before; the joining unchanged. Question, criterion and stop as in item 397.
+
+| s | phi_max | tail | lapse, axis / brane | T/u, axis | S u^2, brane |
+|---|---|---|---|---|---|
+| -0.503 | 8.3e-5 | 8.3e-8 | 0.1061 / 0.4313 | 0.1238 | 0.8498 |
+| -0.788 | 7.8e-5 | 3.1e-7 | 0.0537 / 0.2183 | 0.1039 | 0.7647 |
+| -1.129 | 7.3e-5 | 5.5e-7 | 0.0283 / 0.1151 | 0.0881 | 0.7088 |
+| -1.533 | 6.7e-5 | 5.2e-7 | 0.0154 / 0.0627 | 0.0757 | 0.6722 |
+| -2.006 | 2.2e-4 | 9.1e-7 | 0.0086 / 0.0351 | 0.0662 | 0.6480 |
+
+Status 0, the end reached: 327 steps, 56,456 evaluations, 572 s. **Verdict: FAIL**, on phi at the end alone (2.2e-4
+against 1e-4). The tails pass everywhere (9.1e-7 at most). Computed, from the saved steps:
+- **Halving toward the axis did what it was for.** The axis part's tails, 1.5e-5 in the fourth attempt, are 2.1e-7.
+  The norm is 16 times lower at the end (2.2e-4 against 3.5e-3), and stays at or below 1e-4 to s = -1.85 (7.9e-5).
+- **The remaining excess sits at the joining x = 1/8**, from about s = -1.9 (2.2e-4 there at the end). It is not the
+  joining failing to stitch: the jumps across every joining stay small (fields <= 1.9e-5, slopes <= 6.2e-5, relative).
+  And it is not resolution: every part's tail is <= 9.1e-7.
+- B6's ratios still drift over the half (T/u on the axis 0.124 to 0.066); the two attempts agree on them to 0.5 %.
+
+Not yet known: why the DeTurck vector grows at x = 1/8 in the half's last stretch. That can be read from the saved
+steps without a run (which component, and its rate against the damping kap = 4 as the coordinate light cones narrow);
+the board does that before proposing a sixth attempt.

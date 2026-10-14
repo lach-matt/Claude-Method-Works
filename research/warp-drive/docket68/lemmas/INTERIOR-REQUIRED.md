@@ -159,3 +159,8 @@ points, and couple the parts by penalty. It is for M to approve.
 - **It failed the criterion at the end only**: phi 3.5e-3 and tails 1.5e-5, both in the axis part, where both
   characteristics converge. Under 1e-4 to s = -1.53.
 - **Next, for M:** halve toward the axis too ([0, 1/16] folded, [1/16, 1/8]), the same half.
+
+**Item 401: the fifth attempt -- halved toward the axis too** (`interior_large/README.md`, "Item 401").
+- Reached the end again. Tails pass everywhere (9.1e-7); the axis part's fell from 1.5e-5 to 2.1e-7.
+- **FAIL on phi at the end alone**: 2.2e-4 against 1e-4, at the joining x = 1/8 from about s = -1.9; under 1e-4 to
+  s = -1.85. The jumps there are small and the part resolved, so the cause is still to be read from the saved steps.
