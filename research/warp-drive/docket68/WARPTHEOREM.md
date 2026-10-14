@@ -590,6 +590,21 @@ the rows proved:
 - **Yours.** Which tension position 2's plane carries at the destination; the two readings set the large end's bound
   1,500 times apart.
 
+**Item 386: not a gas -- only information goes in** (`lemmas/SOURCE-REQUIRED.md`, corrected). You asked how the source
+can be a gas if matter cannot travel. It cannot; requirements 1 and 2 of item 385 were wrong, and are withdrawn beside
+their correction.
+- **Your rulings.** What crosses is information only (30, 35, 131). The information is the energy (190; 136 G). Matter is
+  assembled at position 2 by that energy triggering position 2's Higgs field, from position 2's bulk (101, 136 (2),
+  240, 285).
+- **The source is required to be:** the README's information as energy alone, E(N) carrying its N bits, with no matter
+  and no rest mass (1′); and so moving on the light cone, a null inflow of energy only onto the face (2′, from
+  relativity.py and your 324). Its null energy is ≥ 0 on every ray, and B5a holds without a matter model.
+- **What it changes.** "Gas" was the board's word in 344, and it is withdrawn. A null inflow of energy alone is the form
+  RDUST already has, so RDUST becomes the shape the requirement takes, not just a stand-in; that the README comes in
+  that way is still SOURCE's to prove. The write's floor counted every Standard Model species as a carrier; with only
+  the massless gauge quanta it is 252,191 clocks instead of 66,980. No row turns on it: the holes last 1.28×10¹⁰ and
+  3.3×10¹⁰ times the old floor.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.

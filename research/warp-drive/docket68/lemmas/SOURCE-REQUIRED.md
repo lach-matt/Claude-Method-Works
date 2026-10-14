@@ -5,11 +5,42 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Corrected at item 386: nothing but the README's information goes in
+
+M, 386: "How can it be a gas if matter cannot travel, only information can travel?" It cannot. Requirements 1 and 2
+below were wrong as worded, and are kept as the record of what was corrected. The rulings:
+
+- What crosses is information only: "Information only" (30, the value balanced between the positions); "that was for
+  moving matter instead of information" (35); "the throat size only needs to carry the binary information defining the
+  object in transit" (131).
+- The information is the energy: "Information is energy" (190); "the README is the energy, not separate" (136 G).
+- Matter is assembled at position 2, never carried: "Newly introduced energy to a position triggers a field reaction,
+  such as a higgs field, however slightly, allowing for matter assembly" (101); the release "activates the higgs field
+  forming the mass defined in the README" (136 (2)); the object is built from position 2's bulk (240, 285).
+
+So the source is required to be:
+
+1'. **The README's information as energy alone, E(N) carrying its N bits, with no matter** -- nothing the Higgs field
+    has assembled, no rest mass. M's.
+2'. **Moving on the light cone.** Energy with no rest mass travels at c (relativity.py: the massless on the light cone,
+    the massive inside it; 324). So it comes onto the face as a null inflow of energy only. Its null energy is >= 0 on
+    every ray (item 6), and B5a holds for it without a matter model. Derived.
+
+What the correction changes:
+- "A gas of our plane's fields, not null dust" was the board's sentence in 344, which M quoted as a process to define.
+  "Gas" is withdrawn. A null inflow of energy alone is the form RDUST (item 12) already has, so RDUST is no longer only
+  a stand-in model: it is the shape the requirement takes. Whether the README's information, written on our plane,
+  comes in that way is still SOURCE's to prove.
+- Item 8's floor came from a free gas counting every Standard Model species as a carrier of the README's states (Z =
+  106.75). With only the massless gauge quanta counted it is longer: 252,191 clocks at Z = 2 (computed, write_small
+  S3's formula). No row turns on it: the small end's hole lasts 1.28e10 times the old floor (o3_hold), the large end's
+  3.3e10 times (close_large L3). Which count is right is SOURCE's.
+
 ## What it is
 
-1. **Written on our plane, in our plane's own fields** -- "a gas of the plane's fields, not null dust" (344,
+1. *[Withdrawn at item 386: see 1'.]* **Written on our plane, in our plane's own fields** -- "a gas of the plane's fields, not null dust" (344,
    M-SOURCE-IN-THE-MAP; H-README-ON-PLANE, write_small S3). M's.
-2. **Ordinary matter of our universe** -- particles, scalar and gauge fields with their kinetic terms of the positive
+2. *[Withdrawn at item 386: see 2'.]* **Ordinary matter of our universe** -- particles, scalar and gauge fields with their kinetic terms of the positive
    sign (pointwise.py P1-P4). Then B5a's condition (rho + p >= 0, rho > -sigma/6) holds for it at every point with no
    further work. Derived.
 3. **One process for each end** -- SOURCEs onto the README's own five-dimensional hole, SOURCE onto the
