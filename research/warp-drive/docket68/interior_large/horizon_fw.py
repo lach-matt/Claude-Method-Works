@@ -272,20 +272,33 @@ def R4(G, U, b):
     return b * np.sqrt(U[n:2 * n].reshape(N + 1, -1)[0, -1])
 
 def run(Ns, b=1.0, out="HORIZON-FW.tsv"):
+    """each N from the saved solution in HFW_DIR if there is one, else from the previous N regridded (from ones at
+    the first); every row is written to the table as its N closes"""
     import solver_fw as SF
-    t0 = time.time(); H = Rows(); E = None
+    t0 = time.time(); H = Rows(); E = None; where = os.environ.get("HFW_DIR", ".")
     print("rows derived and compiled  [%.0f s]" % (time.time() - t0), flush=True)
+    head = ["N", "newton_R", "steps", "raw_s1", "raw_s2", "raw_s3", "raw_max", "eq_s1", "eq_s2", "eq_s3", "eq_max",
+            "eq_mode_field", "max_xis", "max_xix", "max_xis_s-0.002", "C_tt", "R4"]
+    head += ["xis(%s,%s)" % p for p in PTS] + ["xix(%s,%s)" % p for p in PTS]
+    with open(out, "w") as fh:
+        fh.write("\t".join(head) + "\n")
     Gp = Up = None; lines = []
     for N in Ns:
-        G = setup(N); n = len(G["S"]); t1 = time.time()
-        U0 = np.concatenate([np.ones(4 * n), np.zeros(n)]) if Up is None else SF.regrid(Gp, Up, G)
+        G = setup(N); n = len(G["S"]); t1 = time.time(); saved = os.path.join(where, "hfw_bt%g_%d.npy" % (b, N))
+        if os.path.exists(saved):
+            U0 = np.load(saved); src = "saved"
+        elif Up is None:
+            U0 = np.concatenate([np.ones(4 * n), np.zeros(n)]); src = "ones"
+        else:
+            U0 = SF.regrid(Gp, Up, G); src = "regridded"
         U, nr, it = newton(G, U0, b, H)
         R, J = residual_and_jac(G, U, b, H); sg = sigma(J, n, G)
         import deturck_exact as D
         E = E or D.Exact(); xs = xi_at(G, U, b, E); ck = check_at(G, U, b, H)
         ms = max(abs(r[2]) for r in xs if r[0] > 0); mx = max(abs(r[3]) for r in xs if r[0] > 0)
         m0 = max(abs(r[2]) for r in xs if r[0] < 0)
-        print("N = %2d: Newton |R| %.1e after %d steps  [%.0f s]" % (N, nr, it, time.time() - t1), flush=True)
+        print("N = %2d: Newton |R| %.1e after %d steps from %s  [%.0f s]" % (N, nr, it, src, time.time() - t1),
+              flush=True)
         for lab in ("raw", "eq"):
             q = sg[lab]
             print("    %-3s singular values: smallest %s  largest %.2e; null-most mode in %s at (s, x) = (%.4f, %.3f), "
@@ -294,18 +307,14 @@ def run(Ns, b=1.0, out="HORIZON-FW.tsv"):
                   flush=True)
         print("    xi exact: max |xi^s| %.3e  max |xi^x| %.3e  (s > 0);  continued to s = -0.002: max |xi^s| %.3e;"
               "  C_tt at the horizon %.2e;  R4 %.10f" % (ms, mx, m0, ck, R4(G, U, b)), flush=True)
-        lines.append([N, nr, it, *sg["raw"]["small"], sg["raw"]["large"], *sg["eq"]["small"], sg["eq"]["large"],
-                      sg["eq"]["field"], ms, mx, m0, ck, R4(G, U, b)] + [r[2] for r in xs] + [r[3] for r in xs])
-        np.save(os.path.join(os.environ.get("HFW_DIR", "."), "hfw_bt%g_%d.npy" % (b, N)), U)
-        Gp, Up = G, U
-    head = ["N", "newton_R", "steps", "raw_s1", "raw_s2", "raw_s3", "raw_max", "eq_s1", "eq_s2", "eq_s3", "eq_max",
-            "eq_mode_field", "max_xis", "max_xix", "max_xis_s-0.002", "C_tt", "R4"]
-    head += ["xis(%s,%s)" % p for p in PTS] + ["xix(%s,%s)" % p for p in PTS]
-    with open(out, "w") as fh:
-        fh.write("\t".join(head) + "\n")
-        for L in lines:
+        L = [N, nr, it, *sg["raw"]["small"], sg["raw"]["large"], *sg["eq"]["small"], sg["eq"]["large"],
+             sg["eq"]["field"], ms, mx, m0, ck, R4(G, U, b)] + [r[2] for r in xs] + [r[3] for r in xs]
+        lines.append(L)
+        with open(out, "a") as fh:
             fh.write("\t".join(v if isinstance(v, str) else ("%d" % v if isinstance(v, int) else "%.6e" % v)
                                for v in L) + "\n")
+        np.save(saved, U)
+        Gp, Up = G, U
     return lines
 
 def record(Ns, b=1.0):
