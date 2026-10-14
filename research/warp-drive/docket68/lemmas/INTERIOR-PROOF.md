@@ -123,3 +123,27 @@ the computations we need from the README itself in any circumstance?"
   README's size). The board's recommendation: the README's passage, under 273's "README only" and 162's "hold the object
   once and at once", with what else may enter the open object carried as its own row.
 
+## Items 417-418: whatever falls in is the README -- what the proof becomes
+
+M, 417, "nothing falls in", retracted at 418: "It's not that nothing falls in, it's that if anything falls in it is
+still only every part of the one README from position 1" (H-ALL-IS-README).
+- **Every route through the object is a part of the README's route**, and the geometry each part crosses is made by the
+  README's earlier parts and nothing else (136 G, "the README is the energy"). Nothing crosses the vacuum behind the
+  README's last part: whatever crossed it would be README, and the part before it not the last (deduced).
+- **So O1b and O1c at the large end are about the README's parts, through the README's own geometry** -- not a static
+  hole's interior crossed by outside content. That is why the Komar route of P2 (a vacuum interior crossed from outside)
+  and the static computations at bt = 1 are not the object.
+- **The route the proof now takes (P2, revised): the focusing theorem**, which needs no exact solution and holds in any
+  dimension (deduced; to be written out and machine-checked). Each part falls along an ingoing radial null congruence,
+  twist-free, with expansion theta0 < 0 once inside our face. Raychaudhuri gives dtheta/dlambda <= -theta^2/(D - 2) -
+  R_kk. On a null k, Lambda gives R_kk = 0, the plane's tension gives none, and the README's own flux gives T_kk >= 0
+  (an arrival that only adds energy, mu' >= 0, arrival_small V1). So theta reaches -infinity within lambda <= (D - 2)/
+  |theta0|: every part reaches its focus in finite affine parameter. Wherever the README's own mass is already inside
+  (mu > 0 along the part), the curvature there rises without bound toward that focus (48 mu^2/r^6 on the 4D form), so
+  the part reaches 273's region, x = 1 (quantum_onset.py), first. That is O1c, and O1b with (c1).
+- **What it leaves open, and why it is SOURCE's:** the earliest parts, with almost none of the README's mass inside
+  them (mu ~ 0), focus where the curvature is still small. Whether the region they meet at the centre is hidden inside
+  our face, or seen from outside before the face forms, depends on how fast the README arrives (the arrival's profile).
+  For collapsing null flux that is a known question (slow arrivals can leave the centre visible). The arrival's width
+  is an open SOURCE fork (SOURCE-REQUIRED), and it ties to the read, which is queued (399, 417).
+
