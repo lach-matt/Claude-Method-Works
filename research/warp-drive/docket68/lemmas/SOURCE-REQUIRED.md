@@ -5,6 +5,100 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 399: the read -- a geometric object into the README
+
+M, 399: "Converting a geometric object into an information README... this is the the next part of the SOURCE to
+pursue", with an answer M quoted from Gemini on how to "convert a geometric object into a binary matrix". The read sits
+before the write: object -> README (N bits) -> written onto the plane (write_small S3, o3_write) -> the corridor. It is
+the row the record already holds open as COPY-O3 ("the read") and S1C-O1 ("an atom-resolving read of a bulk object
+that reads every atom it removes, or removes none"; LEDGER). Worked in the conversation; no runs. Labels as above, and
+READ (2nd hand) for what is taken from the Gemini text without being read at source.
+
+**What the record already fixes about the README the read must produce** (M's unless marked):
+- Its size is "the most simplistically exact binary code form" of the object's definition (131,
+  H-README-MINIMAL-EXACT), one fixed exact encoding (136 (5)), and the trip's cost is that size (89,
+  H-COST-IN-README).
+- No tolerance at all (146), written in what every universe shares, "such as element identity and electron
+  configuration" (146, H-INVARIANT-ENCODING).
+- The object's motion is not in it (147, H-MOTION-NOT-ENCODED); it carries both labels and values (147).
+- A destroying read is admissible (136 (4), the original irrelevant); whether the original is retired stays open (89).
+- The board's readings, kept as the board's: what survives "no tolerance" exactly is discrete labels -- Z, electron
+  configuration, bound quantum numbers -- while bond lengths and frequencies are law values set by position 2's laws
+  (bulk/EXACTCOPY.md, H-LABEL-ENCODING); the values the README can carry are state values, preparable at the instant
+  (bulk/REARRANGE.md, H-STATE-VALUES); the README is as small as the builder's knowledge makes it (copy/FAITHFUL.md 4,
+  H-REGENERABLE).
+- Five readings of the object's information are kept (33, 89): the board's four snapshot counts -- species sequence,
+  a 1 A grid, a 0.1 A grid, thermal entropy: 9.5e27 to 1.1e29 bits for a body -- and the identity core (FAITHFUL 3).
+- A classical README needs no quantum resources and is not bound by no-cloning (FAITHFUL 5, 7).
+
+**Gemini's three phases, read against that** (READ 2nd hand; deduced):
+- *Phase 1, voxelization.* A grid of occupied/empty cells is the record's grid count when the cell is atomic (1 A,
+  0.1 A) and a label is added per cell. At any coarser cell it carries the envelope only -- no element identity, no
+  electron configuration -- so by 146 it cannot be the README. At any cell size it fixes positions to within a cell,
+  a tolerance, which 146 refuses unless the positions are themselves discrete labels (lattice sites, which atom bonds
+  to which). And a raw grid is not the minimal exact form (131): it is a snapshot (FAITHFUL 1).
+- *Phase 2, quantum gas microscopes, Rydberg tweezer arrays.* As described, they image atoms first placed in an optical
+  lattice or in tweezers, not atoms bound in an object. They do not answer S1C-O1, the read of a bulk object.
+  Whether any does is still open; the record's best demonstrated bulk read, atom probe tomography, removes 60 % of the
+  atoms unread (step1c/supply.py).
+- *Phase 2, tomography.* It reconstructs a state from many identically prepared copies. One object is one copy, and a
+  single copy cannot be measured into its unknown state (FAITHFUL, "ruled out", Scarani p.3). So the object's full
+  quantum state cannot be captured -- and by 147 and H-STATE-VALUES it is not asked for.
+- *Phase 3, collapse to bits.* This fits the record: the README is classical binary (131), the read may destroy
+  (136 (4)), no-cloning does not bind it (FAITHFUL 7). But one projective outcome is one sample of the state, zero-point
+  motion included (EXACTCOPY 3). What must be fixed is the labels and the preparable state values, not one sampled
+  configuration.
+
+**What the read is required to be** (continuing the numbering below):
+
+13. **Its output is the one fixed exact encoding**, in labels and state values, with no motion (131, 136 (5), 146,
+    147; H-LABEL-ENCODING and H-STATE-VALUES as the board's readings). M's, with the board's readings named.
+14. **It is exact.** Every label is read without error, since the reconstruction has no tolerance (146). Read errors
+    are dissolved by redundancy at I/(1 - h2(p)) bits (step1b C3); N is the error-free count. M's, computed (record).
+15. **It reads every atom it consumes, or consumes none** -- S1C-O1, still open: no demonstrated bulk method, READ
+    at source (step1c). Gemini's methods do not close it. READ.
+16. **It may destroy the object** (136 (4)); the original's retirement stays open (89). M's.
+17. **Its size is N, the shortest exact encoding given what position 2's builder knows** (131; H-REGENERABLE). That
+    N is G1's and H1's N: it sets E(N), the hole, the floor of item 8 and every row after the write. M's, derived.
+18. **The object's geometry is carried as labels of structure, not as coordinates** -- which element sits at which
+    lattice site, which atom bonds to which -- with the positions themselves set by position 2's laws as the matter
+    rearranges to the README (148). Coordinates carry a tolerance (146) and motion (147). Deduced from 146, 147 and 148
+    with EXACTCOPY; a board reading, for M (fork (a) below).
+
+**A worked example, 1 cm^3 of copper** (computed in the conversation; E from the record's large-end
+459,404,002.42 J per sqrt(bit), copy/exactE.py; density, molar mass and isotope abundances standard values, not READ
+here):
+
+| reading of the read | N (bits) | E at the large end |
+|---|---|---|
+| envelope voxels at 1 um (Gemini's phase 1, raw) | 1e12 | 4.6e14 J |
+| atomic grid at 1 A, occupancy and element (the record's grid count) | 2e24 | 6.5e20 J |
+| element and isotope per atom (8.49e22 atoms, 63Cu/65Cu at 0.8914 bits each) | 7.6e22 | 1.3e20 J |
+| a perfect crystal: element, lattice, shape (an estimate) | about 300 | 8.0e9 J |
+
+- The raw grids are snapshots, far above the minimal exact form, as FAITHFUL found for a body.
+- **Natural copper's isotopes sit at random, so if each atom's isotope is a label the README cannot be shorter than
+  0.89 bits per atom**: the read must then resolve every nucleus, and E rises by a factor of 1.6e10 over the crystal's
+  labels. 146 names element identity and electron configuration; whether the isotope (a nucleus, not an element) is
+  in the README is not ruled (fork (b) below).
+- A real piece of copper is a polycrystal with defects; its structure labels (grain orientations, dislocations) lie
+  between the crystal and the isotope rows. Not computed.
+
+**Forks that are M's:**
+- (a) **How the geometry is carried**: as labels of structure, the positions then set by position 2's laws (the
+  board's reading, 18), or as measured coordinates to a stated resolution (which 146 and 147 refuse)?
+- (b) **The isotope**: is each atom's isotope part of the README (item 146's "element identity" read as the nucleus),
+  or only the element? It moves N by up to twenty orders for natural matter.
+- (c) **Which reading of the read is SOURCE's**: every atom of the object (S1C-O1), or only what position 2's builder
+  cannot regenerate (H-REGENERABLE, FAITHFUL 4)? Item 33's five readings stay kept until M rules.
+
+**Outstanding work it adds:**
+- Read Gemini's named methods at source (quantum gas microscopy's single-site imaging, Rydberg tweezer arrays,
+  tomography's copy requirement), so none rests on the second-hand text.
+- An instrument for the read: N under each reading for named objects (a crystal, a polycrystal, a molecule, the
+  record's body), with E(N) and the downstream rows each N moves.
+- S1C-O1 stays open: a demonstrated read of a bulk object that loses no atom.
+
 ## Corrected at item 386: nothing but the README's information goes in
 
 M, 386: "How can it be a gas if matter cannot travel, only information can travel?" It cannot. Requirements 1 and 2

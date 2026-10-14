@@ -777,6 +777,27 @@ state was rebuilt first.
 - **The cause of the stop.** The third attempt stopped on its coupling's assumption a > 0, not on the interior.
 - **Next, for you:** a coupling built on the characteristic speeds, checked on the model first, then the same half.
 
+**Item 397: a joining that holds where a < 0** (`interior_large/zeno_char_check.py`, `zeno_run.py` FoldedDSEM).
+- **The board's own construction failed.** It conserves its energy exactly only with tau on the norm's edge, and once
+  the coefficients vary it grows like 1/h. Kept as written.
+- **The one built** is Duru, Wang and Wiratama's penalised derivative (arXiv:2107.05770). Its energy is a norm wherever
+  b² + a > 0, whatever the sign of a, and is exactly conserved for constant coefficients (computed to 1e-13), with the
+  jump damped along the evolution.
+- **On the model**, with a band of a < 0 opening across a joining four times, the error converges spectrally and stays
+  flat to s = 40 at n = 16 (1.5e-7). The same half follows.
+
+**Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
+- **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
+  COPY-O3 and S1C-O1.
+- **Your rulings already fix its output**: the shortest exact binary form (131), one fixed encoding (136), no tolerance
+  in what every universe shares (146), no motion, labels and values (147). A destroying read is allowed (136).
+- **The Gemini answer, read against them**: its voxel grids are the record's grid counts; its quantum microscopes image
+  atoms placed in traps, not an object; tomography needs many copies of one state; its collapse to bits fits.
+- **For 1 cm³ of copper** N runs from about 300 bits (a perfect crystal's labels) to 7.6e22 (each atom's isotope a
+  label), and E at the large end from 8.0e9 J to 1.3e20 J. Computed.
+- **Your forks**: the geometry as structure labels or coordinates; whether the isotope is in the README; which reading
+  of the read is SOURCE's.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
