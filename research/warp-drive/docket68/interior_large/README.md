@@ -708,3 +708,36 @@ All status 0. Computed:
 
 **Verdict on the model: PASS** at n = 16 per part across the band. The half is run with more points where the zero of
 a moves: parts of 14, 16, 14, 10 and 14 intervals after the folded axis part's 15.
+
+**The half, fourth attempt** (`zeno_run.py half 10 dsem`; parts 15 folded, then 14, 16, 14, 10, 14). Question: does it
+carry the solution from s = -0.503 over the half, to s = -2.006? Pass: status 0, the end reached, phi <= 1e-4 and
+tails <= 1e-6 there. Stop: 20 minutes.
+
+| s | phi_max | tail | lapse, axis / brane | T/u, axis | S u^2, brane |
+|---|---|---|---|---|---|
+| -0.503 | 8.2e-5 | 2.2e-7 | 0.1062 / 0.4313 | 0.1240 | 0.8498 |
+| -0.788 | 7.5e-5 | 3.9e-7 | 0.0537 / 0.2180 | 0.1041 | 0.7646 |
+| -1.131 | 7.0e-5 | 1.2e-6 | 0.0282 / 0.1146 | 0.0882 | 0.7085 |
+| -1.532 | 6.6e-5 | 5.4e-6 | 0.0154 / 0.0627 | 0.0760 | 0.6722 |
+| -2.006 | 3.5e-3 | 1.5e-5 | 0.0086 / 0.0351 | 0.0665 | 0.6480 |
+
+Status 0, the end reached: 334 steps, 45,745 evaluations, 434 s. **Verdict: FAIL** on the criterion, at the end only.
+Computed, from the saved steps:
+- **The joining holds where a < 0.** The region spreads from the zero at x = 0.23 to [0.082, 0.530] by s = -1.13 and
+  [0.037, 0.777] by s = -2.0 (min a about -2e-3). The slices stay spacelike throughout (g^ss <= -22, -812 at the end),
+  and c^2 = b^2 + a > 0 everywhere (1.6e-5 at least). The norm held under 1e-4 to s = -1.53.
+- **The failure is in the axis part alone.** Its tails (field A) grow 2.2e-7, 1.2e-6, 5.4e-6, 1.0e-5 (s = -1.81),
+  1.5e-5; every other part stays at or below 1.1e-6. phi rises from s = -1.8 at the folded joining x = 1/8 (4.1e-4,
+  then 3.5e-3).
+- **Why there.** Both characteristic speeds are negative across the region (at x = 1/8, -0.0136 and -0.0251 at the
+  end), and with the evolution toward decreasing s both run toward the axis. Everything the region carries flows into
+  the axis part, which converges onto x = 0 from both sides of the fold and sharpens there. [Correction beside the
+  item-397 report: the board told M the characteristics there run toward the brane; they run toward the axis. The
+  model's orientation, forward with b > 0, was the right one; its words were not.]
+- **The speeds shrink everywhere** (c^2 near the axis 9.5e-4 at s = -0.8, 1.6e-5 at -2.0) while the slices stay
+  spacelike: the coordinate light cones narrow as the chart's end approaches (B6). That is what Zeno's halves are for.
+- B6's ratios have not settled yet: T/u on the axis falls 0.124, 0.104, 0.088, 0.076, 0.067 over the half.
+
+What a fifth attempt would change, for M: halve toward the axis as well -- the axis part split as [0, 1/16] folded and
+[1/16, 1/8], with more points there -- which is item 392's mesh halved toward both ends. The rest unchanged; the same
+half, question, criterion and 20-minute stop.

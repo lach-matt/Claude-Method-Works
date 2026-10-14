@@ -784,7 +784,10 @@ state was rebuilt first.
   b² + a > 0, whatever the sign of a, and is exactly conserved for constant coefficients (computed to 1e-13), with the
   jump damped along the evolution.
 - **On the model**, with a band of a < 0 opening across a joining four times, the error converges spectrally and stays
-  flat to s = 40 at n = 16 (1.5e-7). The same half follows.
+  flat to s = 40 at n = 16 (1.5e-7).
+- **The half reached its end, s = -2.006**, for the first time, through a region of a < 0 that spread over
+  [0.037, 0.777], the slices spacelike throughout. It failed the criterion at the end only (phi 3.5e-3, tails
+  1.5e-5), in the axis part, where both characteristics converge. Next, for you: halve toward the axis too.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
