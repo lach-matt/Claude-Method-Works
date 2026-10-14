@@ -234,3 +234,10 @@ at least its size. The criterion is E = 0 over all cells: no threshold, no facto
 On the first half, with the error measured as the two independent meshes' disagreement (items 397 and 401): **E = 0 over
 3,456 cells**, the smallest margin about 9,000 times its error (computed). Owed: the shared static start's error carried
 through the march, the departure from Einstein's law, (c)'s curvature growth per halving, and the remaining halves.
+
+**Item 411: the shared start measured** (`interior_large/README.md`, "Item 411"; `criterion_large.py --start`,
+selftest 5/5; `CRITERION-411.tsv`). The lead-in and the fifth attempt's half rerun unchanged from the static solution
+at N = 28: **E = 0 over the 3,456 cells with the start's error counted**, the smallest margin (g_tt) about 600 times its
+total error (computed). The start's error grows at most 2.2-fold over the half (N^2); whether that settles per half is
+not yet known, and if it did not, N^2's margin would last about eight halves (estimate). The withdrawn 1e-4 mark passed
+from this start (6.9e-5) and failed from N = 24 (2.21e-4): it measured the start, not the passage.

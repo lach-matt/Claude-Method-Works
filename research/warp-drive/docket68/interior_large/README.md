@@ -1176,7 +1176,43 @@ smallest decision margin is about 9,000 times its measured error. The half "fail
   to 9e-3 (F near the axis at the horizon) and 2e-3 (S, B). Their difference cannot see an error they share. Unamplified,
   1e-2 would sit inside these margins about a hundred times over (estimate). Whether the march amplifies it is not yet
   measured; one half run from another resolution's static start would measure it.
+  *[Measured at item 411, below: with the start's error counted, E = 0 still; it grows at most 2.2-fold over the half.]*
 - **The departure from Einstein's law (xi)**, common to both meshes for the same reason.
 - **(c) curvature:** every computed step is finite by construction; the growth per halving, against 273's region, is
   still to be measured (the record's `gen_kretsch_fw.py`).
 - **The remaining halves**: about 45 to 273's region (item 392). The criterion is per half: E = 0 at each.
+
+## Item 411: the shared start measured (2026-10-14) -- E = 0 with it counted
+
+M, 411: "Approved". **Question:** does the shared start's error stay inside the margins after the march?
+**Criterion:** E = 0 with that error counted. **Time:** 20-30 minutes, no data download. The lead-in (B7's damped
+Nx = 28 run, s = -0.002 to -0.503) and the fifth attempt's half (dsem5, n = 10), both unchanged, were run from the
+record's static solution at N = 28 in place of N = 24. They ran in a separate directory, so the record's pickles were
+not touched. Outputs: `zeno_trusted_28_from28.pkl`, `zeno_half_dsem5_10_from28.pkl`; table `CRITERION-411.tsv`
+(`criterion_large.py --start`, selftest K5). The pickles are generated and, like the record's own, not committed (this
+directory's `.gitignore`); `criterion_large.py --make-start DIR` regenerates the N = 28 static solution, the lead-in and
+the half exactly as run here.
+
+**The run** (computed): the lead-in reached s = -0.503 (status 0, 625 steps, 299 s), and the half reached its end
+(status 0, 313 steps, 568 s). At s = -0.503 the two starts differ by up to 3.5e-3 in F and 2.6e-3 in S and B (on the
+axis), and 3e-4 in T and A. On the margin quantities that is at most 1.2e-3 of their own size.
+
+| requirement | the start's error / its own size, s = -0.6 | at s = -2.0 | the meshes' | total, worst |
+|---|---|---|---|---|
+| N^2 > 0 | 4.9e-4 | 1.1e-3 | <= 1.1e-4 | 1.1e-3 |
+| g_tt > 0 | 1.3e-3 | 1.6e-3 | <= 9e-6 | 1.6e-3 |
+| S > 0 | 3.6e-4 | 3.6e-4 | <= 6e-6 | 4.1e-4 |
+| B > 0 | 4.8e-4 | 6.1e-4 | <= 7e-6 | 6.1e-4 |
+
+**Verdict: PASS.** E = 0 over all 3,456 cells with the start's error counted: no requirement is violated and every
+cell is decided. The smallest margin (g_tt, on the axis) is about 600 times its total error. The start's error
+outweighs the meshes' everywhere. Over the half it grows at most 2.2-fold (N^2, whose own size falls 90-fold over the
+half), 1.2-fold for g_tt and 1.3-fold for B, while S's stays near 4e-4.
+
+**Beside the text** (computed: the halves' own logs; deduced: the reading): from the N = 24 start the half ended at
+phi = 2.21e-4, failing the withdrawn mark of item 392; from the N = 28 start it ended at 6.9e-5, passing it. The mark's
+verdict moved with the static start's resolution: it measured the start, not the passage.
+
+**Not yet known:** whether the start's per-half growth settles. If N^2's 2.2 repeated at every half, its margin would be
+used up after about eight halves (estimate). The second half would measure it. Still owed: the departure from
+Einstein's law, (c)'s curvature per halving, and the remaining halves.

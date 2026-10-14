@@ -827,6 +827,9 @@ state was rebuilt first.
   finite, each a cell per node and slice; E = 0 when no cell is violated or undecided, the error measured, no number
   chosen. On the first half the two meshes give E = 0 over 3,456 cells, the smallest margin about 9,000 times its
   error. Owed: the shared start carried through, xi, curvature per halving, the other halves.
+- **Item 411, the shared start** (your approval): the half rerun from the N = 28 static start. With the start's error
+  counted, E = 0 still, the smallest margin about 600 times its error; the error grows at most 2.2-fold over the half.
+  The withdrawn mark passed from this start and failed from N = 24: it measured the start, not the passage.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

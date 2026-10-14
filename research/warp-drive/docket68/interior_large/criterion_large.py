@@ -24,7 +24,14 @@ python3 criterion_large.py              -- the table over the half (nine slices)
 python3 criterion_large.py --start PKL  -- the same with the shared start's error added (item 411): PKL is the same half
                                           (dsem5, n = 10) run from another resolution's static start; each cell's
                                           error is the meshes' disagreement plus the starts'; CRITERION-411.tsv
+python3 criterion_large.py --make-start DIR
+                                       -- regenerate item 411's inputs in DIR: the record's static solution at N = 28
+                                          (solver_fw), then the lead-in and the fifth attempt's half from it, unchanged
+                                          (zeno_run), copied back as zeno_trusted_28_from28.pkl and
+                                          zeno_half_dsem5_10_from28.pkl; about 16 minutes
 python3 criterion_large.py --selftest | --mutants
+The pickles are generated, not committed (this directory's .gitignore). K4 needs the fourth and fifth
+attempts' halves (zeno_run.py half 10 dsem, half 10 dsem5); K5 needs the N = 28 start's (--make-start).
 """
 import sys, pickle
 import numpy as np, mpmath as mp
@@ -33,6 +40,7 @@ MUT = set()
 SLICES = (-0.6, -0.8, -1.0, -1.2, -1.4, -1.6, -1.8, -1.9, -2.0)
 REQS = ("N2", "gtt", "S", "B")
 FIFTH, FOURTH = "zeno_half_dsem5_10.pkl", "zeno_half_dsem_10.pkl"
+FROM28 = "zeno_half_dsem5_10_from28.pkl"      # item 411: the fifth attempt's half from the N = 28 static start
 
 
 def quantities(sv, xv, X, b):
@@ -118,6 +126,29 @@ def run(start=None):
     return E
 
 
+def make_start(where, N=28):
+    """item 411's run, reproducible: the static solution at N (the record's solver, from ones), then zeno_run's lead-in
+    and dsem5 half from it, in `where` so that the record's own pickles are not touched"""
+    import os, shutil
+    here = os.path.dirname(os.path.abspath(__file__)); os.makedirs(where, exist_ok=True)
+    for f in ("eqs_fw.pkl", "eqs_sy.pkl", "damp_fw.pkl", "fw_bt1_24_24.npy"):
+        dst = os.path.join(where, f)
+        if not os.path.exists(dst):
+            os.symlink(os.path.join(here, f), dst)
+    os.chdir(where); sys.path.insert(0, here)
+    import zeno_run as Z, interior_damp as ID, solver_fw as SF, core_fw as C
+    static = C.static_file(1.0, N, N)
+    if not os.path.exists(static):
+        G = SF.setup(N, N); n = len(G["S"]); U, nr = SF.newton(G, np.concatenate([np.ones(4 * n), np.zeros(n)]), 1.0)
+        np.save(static, U); print("static N = %d: |R| %.1e" % (N, nr), flush=True)
+    Z.STATIC = dict(file=static, Ns=N, Nx=N); Z.TRUSTED = "zeno_trusted_28_from%d.pkl" % N
+    sb = ID.static_brane
+    ID.static_brane = lambda b, Ns=N, Nx=N: sb(b, Ns, Nx)
+    Z.trusted(); Z.half(10, "dsem5")
+    shutil.copy(Z.TRUSTED, os.path.join(here, Z.TRUSTED))
+    shutil.copy("zeno_half_dsem5_10.pkl", os.path.join(here, "zeno_half_dsem5_10_from%d.pkl" % N))
+
+
 # ---------------------------------------------------------------------------------------------- selftest / mutants
 def selftest(quiet=False):
     ok = []
@@ -146,6 +177,11 @@ def selftest(quiet=False):
           and abs(d["gtt"][2] - 2.49e-2) < 0.01e-2)
     ok.append(k4); say("K4 at s = -2.0: E = %d, N^2 min %.3e, its error/|q| %.2e (recorded 7.48e-5, 4.8e-5): %s" % (
         E, d["N2"][2], d["N2"][3], k4))
+    # K5: item 411's recorded numbers -- with the start's error (the half from the N = 28 static start) added
+    rows, E = table(slices=(-2.0,), quiet=True, start=FROM28); d = {r[1]: r for r in rows}
+    k5 = (E == 0 and abs(d["N2"][4] - 1.1e-3) < 0.05e-3 and abs(d["gtt"][4] - 1.6e-3) < 0.05e-3)
+    ok.append(k5); say("K5 at s = -2.0 with the start's error: E = %d, start error/|q| N^2 %.2e, g_tt %.2e (recorded "
+                       "1.1e-3, 1.6e-3): %s" % (E, d["N2"][4], d["gtt"][4], k5))
     return all(ok)
 
 
@@ -168,6 +204,8 @@ if __name__ == "__main__":
         sys.exit(0 if selftest() else 1)
     if a and a[0] == "--mutants":
         sys.exit(0 if mutants() else 1)
+    if a and a[0] == "--make-start":
+        make_start(a[1]); sys.exit(0)
     if a and a[0] == "--start":
         sys.exit(0 if run(a[1]) == 0 else 1)
     sys.exit(0 if run() == 0 else 1)
