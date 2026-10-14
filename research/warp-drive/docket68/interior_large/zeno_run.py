@@ -10,7 +10,8 @@ carried over one halving of u = 1/(1 - s) -- the variable of B6's power laws -- 
     half's end; the run is stopped at 20 minutes of wall time.
 
 python3 zeno_run.py trusted                 -- the trusted state: B7's damped Nx = 28 run from s = -0.002 to -0.503
-python3 zeno_run.py half [n_per_part]       -- the Zeno half from that state (default 12 points per part)
+python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state; mesh "sat" (item 394, the folded axis and
+                                              the energy-derived coupling) or "patch" (item 393's derivative continuity)
 """
 import numpy as np, sys, time, pickle, os
 import core_fw as C, interior_fw as IF, interior_damp as ID
@@ -22,6 +23,7 @@ P_EXP = np.array([1.0, -2.0, 1.0, -2.0, -1.0])            # B6: T, A ~ u; S, B ~
 STATIC = dict(file=C.static_file(B, 24, 24), Ns=24, Nx=24)
 TRUSTED = "zeno_trusted_28.pkl"
 WALL = 20 * 60.0
+SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)        # item 394: the axis part and the brane part given more points
 
 
 class Halving(ID.Damped):
@@ -121,6 +123,96 @@ def trusted():
         sol.status, len(sol.t), took, sol.t[-1], phi, lapse[0], lapse[-1]), flush=True)
 
 
+class FoldedSAT(ID.Damped):
+    """item 394: the axis folded away and the parts joined by the energy-derived coupling (zeno_interface_check.py).
+    Part 0 is the symmetric [-1/8, 1/8] with an odd number of Legendre-Gauss-Lobatto intervals, no node on the axis;
+    every field is even in x (g_sx ~ x F is odd), so only its x > 0 half is stored and derivatives act on even
+    extensions.  Parts [1/8, 1/4], [1/4, 1/2], [1/2, 3/4], [3/4, 7/8], [7/8, 1] halve toward the brane, n intervals
+    each; each part keeps its own end nodes.  At each interface, per field, with a = -g_ss/g_xx and b = g_sx/g_xx
+    (each field's principal part is g^cd d_c d_d X; the DeTurck form makes it diagonal):
+      left copy:  X_ss += [-(a/2) J_x - tau J - (b + gam) J_s]/h_L, and (a/2) J H^-1 D^T e_N over the left part;
+      right copy: X_ss += [-(a/2) J_x + tau J - (b - gam) J_s]/h_R, and (a/2) J H^-1 D^T e_0 over the right part;
+    J = left - right, tau = 1.2 a (h_L + h_R)/(4 h_L h_R), gam = 0.5 sqrt(a).  The brane keeps the record's rows."""
+
+    def __init__(self, n, b, static, kap, at, edges=(0.125, 0.25, 0.5, 0.75, 0.875, 1.0), n0=None, ns=None):
+        import zeno_interface_check as ZC
+        n0 = n0 or (n + 1 if n % 2 == 0 else n)
+        assert n0 % 2 == 1, "the folded part needs an odd number of intervals (no node on the axis)"
+        ns = list(ns or [n] * (len(edges) - 1))
+        e1 = edges[0]; z, wz = ZC.lgl(n0); full = -e1 + 2 * e1 * z; wfull = 2 * e1 * wz
+        P = np.where(full > 0)[0]; Mi = np.array([int(np.argmin(np.abs(full + full[p]))) for p in P])
+        Df = C.bary_D(full); D2f = Df @ Df
+        self.fold = (full, P, Mi)
+        blk = [(np.arange(len(P)), Df[np.ix_(P, P)] + Df[np.ix_(P, Mi)], D2f[np.ix_(P, P)] + D2f[np.ix_(P, Mi)],
+                wfull[P], full[P])]
+        xs = list(full[P])
+        for (a_, c_), nk in zip(zip(edges[:-1], edges[1:]), ns):
+            zz, ww = ZC.lgl(nk); loc = a_ + (c_ - a_) * zz; i0 = len(xs); xs += list(loc)
+            Dl = C.bary_D(loc); blk.append((np.arange(i0, i0 + nk + 1), Dl, Dl @ Dl, (c_ - a_) * ww, loc))
+        super().__init__(len(xs) - 1, b, static, kap, at)
+        self.blk = blk; self.xn = np.array(xs); Nn = len(xs)
+        self.D = np.zeros((Nn, Nn)); self.D2 = np.zeros((Nn, Nn))
+        for idx, Dl, D2l, w, loc in blk:
+            self.D[np.ix_(idx, idx)] = Dl; self.D2[np.ix_(idx, idx)] = D2l
+        self.inner = np.arange(0, Nn - 1); self.m = Nn - 1
+
+    def axis(self, Xf):
+        return                                                   # no axis node: the axis is folded away
+
+    def _full(self, xb, Xi, V=False):
+        Xf = np.zeros((5, self.Nx + 1)); Xf[:, self.inner] = Xi; Xf[:4, -1] = xb; Xf[4, -1] = 0
+        return Xf
+
+    brane_values = Halving.brane_values
+
+    def rhs(self, s, Y):
+        m = self.m; Xi = Y[:5 * m].reshape(5, m); Vi = Y[5 * m:].reshape(5, m)
+        Xf, Vf = self.brane_values(s, Xi, Vi)
+        DX = Xf @ self.D.T; DXX = Xf @ self.D2.T; DV = Vf @ self.D.T
+        I = self.inner; xs = self.xn[I]; ss = np.full(m, s); a = []
+        for e in range(5):
+            a += [Xf[e, I], Vf[e, I], DX[e, I], np.zeros(m), DXX[e, I], DV[e, I]]
+        bc = lambda L: np.array([np.broadcast_to(np.asarray(r, dtype=float), (m,)) for r in L])
+        rest = bc(IF.f_rest(ss, xs, self.b, *a))
+        if self.kap:
+            with np.errstate(all="ignore"):
+                rest = rest + bc(ID.f_damp(ss, xs, self.b, self.kap, self.at, *a))
+        co = IF.f_coef(ss, xs, self.b, *a)
+        M = np.empty((m, 5, 5))
+        for e in range(5):
+            for k in range(5):
+                M[:, e, k] = np.broadcast_to(np.asarray(co[e][k], dtype=float), (m,))
+        Xss = np.zeros_like(Xf)
+        Xss[:, I] = np.linalg.solve(M, -rest.T[:, :, None])[:, :, 0].T
+        gss, gsx, gxx = C.metric_sx(s, self.xn, self.b, Xf)
+        for j in range(len(self.blk) - 1):
+            (idL, DL, _, wL, _), (idR, DR, _, wR, _) = self.blk[j], self.blk[j + 1]
+            iL, iR = idL[-1], idR[0]; hL, hR = wL[-1], wR[0]
+            aa = 0.5 * (-gss[iL] / gxx[iL] - gss[iR] / gxx[iR]); bb = 0.5 * (gsx[iL] / gxx[iL] + gsx[iR] / gxx[iR])
+            tau = 1.2 * aa * (hL + hR) / (4 * hL * hR); gam = 0.5 * np.sqrt(aa)
+            Ju = Xf[:, iL] - Xf[:, iR]; Jv = Vf[:, iL] - Vf[:, iR]; Jp = DX[:, iL] - DX[:, iR]
+            Xss[:, iL] += (-(aa / 2) * Jp - tau * Ju - (bb + gam) * Jv) / hL
+            Xss[:, iR] += (-(aa / 2) * Jp + tau * Ju - (bb - gam) * Jv) / hR
+            Xss[:, idL] += (aa / 2) * np.outer(Ju, DL[-1] / wL)
+            Xss[:, idR] += (aa / 2) * np.outer(Ju, DR[0] / wR)
+        return np.concatenate([Y[5 * m:], Xss[:, I].ravel()])
+
+    def tails(self, Xf):
+        """each part's Chebyshev tail; part 0 rebuilt on its full symmetric nodes"""
+        out = []
+        full, P, Mi = self.fold
+        for k, (idx, Dl, D2l, w, loc) in enumerate(self.blk):
+            if k == 0:
+                vals = np.zeros((5, len(full))); vals[:, P] = Xf[:, idx]; vals[:, Mi] = Xf[:, idx]; pts = full
+            else:
+                vals = Xf[:, idx]; pts = loc
+            t = 2 * (pts - pts[0]) / (pts[-1] - pts[0]) - 1
+            for e in range(5):
+                c = np.polynomial.chebyshev.chebfit(t, vals[e], len(t) - 1); big = np.abs(c).max()
+                out.append(max(abs(c[-1]), abs(c[-2])) / big if big > 0 else 0.0)
+        return max(out)
+
+
 def lapse_of(I, s, Xf):
     """the lapse of the s-slices, N = 1/sqrt(-g^ss), from the (s, x) block of the metric"""
     gss, gsx, gxx = C.metric_sx(s, I.xn, I.b, Xf)
@@ -128,9 +220,13 @@ def lapse_of(I, s, Xf):
     return 1 / np.sqrt(np.abs(-gxx / det))
 
 
-def half(n=12):
+def half(n=12, mesh="sat"):
     T = pickle.load(open(TRUSTED, "rb"))
-    I = Halving(n, B, STATIC, KAP, AT); m = I.m
+    if mesh == "sat":                                          # item 394: more points where the restart tails need them
+        I = FoldedSAT(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=SAT_NS)
+    else:
+        I = Halving(n, B, STATIC, KAP, AT)
+    m = I.m
     Xg = np.array([C.bary_interp(T["xn"], T["Xf"][e], I.xn).ravel() for e in range(5)])
     Vg = np.array([C.bary_interp(T["xn"], T["Vf"][e], I.xn).ravel() for e in range(5)])
     I.lastbr = T["br"].copy()
@@ -166,15 +262,15 @@ def half(n=12):
     took = time.time() - t0
     if sol is None:
         print("half: stopped at 20 minutes", flush=True)
-        pickle.dump(dict(status=status, msg=msg, took=took), open("zeno_half_%d.pkl" % n, "wb"))
+        pickle.dump(dict(status=status, msg=msg, took=took), open("zeno_half_%s_%d.pkl" % (mesh, n), "wb"))
         return
     I.lastbr = T["br"].copy()                                  # march the brane root from the restart, in order
     log = assess_steps(I, sol.t, sol.y, [lam1] + marks, P)
     ok = bool(log) and log[-1]["phi"] <= 1e-4 and log[-1]["tail"] <= 1e-6
     print("half: status %d (%s), %d steps, %d evaluations, %.0f s; pass: %s" % (status, msg, len(sol.t), state["n"],
                                                                            took, ok), flush=True)
-    pickle.dump(dict(status=status, msg=msg, took=took, log=log, ok=ok, n=n, t=sol.t, y=sol.y),
-                open("zeno_half_%d.pkl" % n, "wb"))
+    pickle.dump(dict(status=status, msg=msg, took=took, log=log, ok=ok, n=n, t=sol.t, y=sol.y, mesh=mesh),
+                open("zeno_half_%s_%d.pkl" % (mesh, n), "wb"))
 
 
 def assess_steps(I, ts, ys, marks, P):
@@ -214,6 +310,6 @@ if __name__ == "__main__":
     if sys.argv[1] == "trusted":
         trusted()
     elif sys.argv[1] == "half":
-        half(int(sys.argv[2]) if len(sys.argv) > 2 else 12)
+        half(int(sys.argv[2]) if len(sys.argv) > 2 else 12, sys.argv[3] if len(sys.argv) > 3 else "sat")
     elif sys.argv[1] == "reassess":
         reassess(int(sys.argv[2]) if len(sys.argv) > 2 else 12)
