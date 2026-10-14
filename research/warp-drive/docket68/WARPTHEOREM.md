@@ -694,6 +694,25 @@ corridor. It meets the board's 109 deduction above.
   junction rises it still closes the face at its period, so there the README must have emerged by then.
 - CLOSE at the small end now rests on your ruling at our σ (close_small K9's note).
 
+**Item 391: what the large end's interior is required to be** (`lemmas/INTERIOR-REQUIRED.md`; `lemmas/interior_large.py`
+I0–I5, selftest 4/4, mutants 4/4). The open rows are O1b and O1c at the large end.
+- **Your rulings fix the frame.** One object, one way (132, 270, 277). README only, complete, no Cauchy horizon, with
+  classical GR given up only in the quantum region (273). Position 2's face closes when the corridor holds nothing (109,
+  390), and position 2 carries its own values (226, 240, 387, 388).
+- **The 4D stretch is settled** (computed, exact). Inside the hole, the plane's own time falls monotonically along every
+  causal route, which reaches deeper in finite affine parameter, as at the small end.
+- **That stretch ends where the bulk dimension enters**, at R₅ = 12^(1/6) (r₀ℓ²)^(1/3): 3.26ℓ at r₀ = 10ℓ. Your 273's
+  quantum region lies about 5×10⁻¹⁴ of that radius further in, so a five-dimensional stretch of the large hole's interior
+  lies between them.
+- **The README's own route is settled** (computed, exact). It runs along its shell, with flat space on the inside, from
+  our face to the quantum region in finite affine parameter, whatever the 5D stretch holds. Reflected, it leaves by
+  position 2's face.
+- **Required, and not held: the 5D stretch** behind the shell. It needs (a) a function that falls monotonically along
+  every route there, at a rate bounded below; (b) no inner horizon; (c) curvature finite until the quantum region; and
+  (d) the same on position 2's side.
+- **Two routes.** A proof for every static vacuum interior, which is light. A computed interior, the problem the 365–367
+  runs attempted, which is heavy. The board's order: the proof first.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
