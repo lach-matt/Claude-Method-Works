@@ -386,3 +386,26 @@ was checked bit-identical after that switch (computed).
   s = -1.60 about 0.296, 0.569 and 1.152, the loss onset tau_mid ~ 0.55-0.56 about 0.58-0.59, and the Kasner estimate
   tau_s ~ 0.63 about 0.66. Comparisons between runs, which share s0, do not move. `cm_analyze.py` now adds the stretch
   and integrates in sqrt|s|. The figures above are kept as written; this line corrects them.
+
+**C6. Where the interior stands at item 377 (2026-10-14).** M stopped every run (377): too much time had gone into
+failed tests and into runs left stalling with waiters on them. What the record holds, by status:
+- *Holds (computed).* The RSII hole at bt = 1 (R4/ell = 1.13, the large end's start) evolved inward stably on the brane
+  rows with constraint damping. The DeTurck chart ends at s = -infinity, which lies at finite proper time (B5-B6). Pure
+  harmonic time carries it further: at s = -1.60 (Nx = 40) phi~ = 5.9e-5 and the proper time is about 0.296, 0.569 and
+  1.152 ell at the near-axis node, mid-bulk and brane (C4, with C5's correction), beyond the old chart everywhere. The
+  mid-bulk curvature then climbs from 450 to 2500 ell^-4 between s = -1.75 and -1.90, Kasner-like.
+- *Holds (computed), the method's stability.* On the exact AdS4 C-metric, with the reference equal to the solution's
+  own chart, the same pipeline holds the exact interior to r = 0.05 mu (K = 9.2e7), matching it to 3e-9 (C5).
+- *Fails or undecided.* (a) Every RSII run loses the constraint mid-bulk near tau_mid ~ 0.58-0.59 (corrected), in both
+  slicings; whether that is the solution nearing its singularity or the method failing is not decided. (b) Wang and
+  Choptuik's extra brane row did worse (C4). (c) The C-metric's gauge half -- a deformed reference -- converges in phi
+  but not in the solution with the deformation's falloff ~ f (T at the horizon 1.37 at N = 12, 1.23 at N = 20), and
+  near the axis the computed norms have no exact preimage; the f^3 falloff was being regenerated when stopped (its
+  symbolic simplification stalled twice). (d) The calibrated top: the static 20 ell hole loses resolution at N = 32
+  (phi 1.9e-2); 10 ell is clean at N = 28 (phi 5.9e-7), but its interior's Radau phase stalled at s = -0.186 with steps
+  of 7e-7 and a diverging Newton iteration (py-spy on the process, 376), and was stopped.
+- *What none of this can do alone.* Item 360 (c) puts 273's region where the curvature reaches the five-dimensional
+  Planck scale. In units of ell that is about (ell/l5)^4: 7e79 with ell at its ceiling (l5 = 1.5e-25 m), about 4e3 at
+  the floor 22.4 l_P (computed, l5^3 = l_P^2 ell). No evolution spans the first; the runs reach K ~ 2.5e3. The large
+  end's interior to the Planck curvature therefore needs an asymptotic regime established from the computed solution
+  and carried by analysis, for every ell above the floor (deduced). WARPTHEOREM.md's item-377 reassessment takes it up.

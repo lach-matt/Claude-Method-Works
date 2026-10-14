@@ -291,6 +291,66 @@ in practice is (A) (M-ONE-README).
   Earth's own gravity cannot see ℓ: the correction at its surface is 3.2 × 10⁻²⁴ (MK's 2ℓ²/(3r²)).
 - No row's status moves. O1b and O1c at the large end stay OPEN; their family is now finite.
 
+**Since items 363-376: the interior, a validation test, and a stop** (`interior_large/README.md` C1-C6). Under your 360
+(M-COMPUTE-THE-INTERIOR) the board evolved the large end's first hole (r₀ ≈ 1.13ℓ) inward from its horizon.
+- What holds (computed). The evolution is stable on the brane rows with constraint damping. Harmonic time carries it
+  past the DeTurck chart's end, to proper times of about 0.296ℓ, 0.569ℓ and 1.152ℓ (near the axis, mid-bulk, on the
+  plane) with the constraint at 6×10⁻⁵, and the mid-bulk curvature then climbs from 450 to 2500 ℓ⁻⁴, Kasner-like. On
+  the exact AdS4 C-metric, a brane hole whose interior is known, the same pipeline holds the exact interior to
+  r = 0.05μ (curvature 9×10⁷), to 3×10⁻⁹.
+- A correction (computed). Every proper time quoted for the interior before item 372 had left out the stretch from the
+  horizon to the runs' start, 0.019ℓ, 0.034ℓ and 0.077ℓ. The figures above include it.
+- What failed or stays undecided. Every run loses the constraint mid-bulk near τ ≈ 0.58ℓ, in both slicings; whether
+  that is the singularity's approach or the method's failure is not decided. Wang and Choptuik's extra brane row did
+  worse. The C-metric test's gauge half did not converge. A run at r₀ ≈ 10ℓ stalled at s = −0.186.
+- Item 376: you asked whether the r₀ ≈ 10ℓ run was still running. It was alive but stalled, which the board had not
+  checked. Item 377: you stopped every run, because time was going into failed tests and stalled runs with waiters.
+
+**Item 377: where the theorem stands, and what is still needed.**
+- **Where it stands.** 78 rows: 64 green (20 proved, 39 derived, 5 your definitions); 3 on board readings, all at the
+  small end (ARRIVALs, B3s, B4ds), all on the null-dust model of how the README comes in, which only SOURCEs can
+  replace; 11 OPEN: nine at the large end and SOURCEs and SOURCE, deferred last (345, 358). The small end is complete
+  but for what waits on SOURCEs. The large end runs from r₀ = 1.25ℓ to the Earth's crossover (372).
+- **What each open large-end row waits on** (the register's rests-on column, and 362):
+  - ARRIVAL is not worked at the large end. At the small end it was worked in the null-dust model and is a reading on
+    it; worked the same way here, it rests on SOURCE (358 (c)).
+  - E1x and M1P2x (and H2tx, which rests on M1P2x): everything else in them is derived (close_large, m1p2x_large). What
+    remains is the README's crossing within position 2's open period, which is ARRIVAL's.
+  - Z3b rests on M1, FAR, WRITE and CLOSE, all derived, and on ARRIVAL.
+  - B3 and B4d: the opening rests on ARRIVAL; the interior is O1b's and O1c's.
+  - O1b and O1c: the interior alone, resting only on M1 (derived).
+- **So under your 358** (green first, then the whole chain verified, then SOURCE): only O1b and O1c can turn green before
+  SOURCE. ARRIVAL, Z3b, E1x, M1P2x, H2tx, B3 and B4d can be brought to the small end's state -- worked in the model,
+  readings on SOURCE, reported as such (358 (c)). That work is analytic, on the four-dimensional corridor with its
+  ℓ²/r₀² corrections, as arrival_small, c8_level and b4d_small were at the small end; it needs no long runs.
+- **The interior, and what no run removes (deduced).** Your 360 (c) puts 273's region where the curvature reaches the
+  five-dimensional Planck scale. In units of ℓ that is (ℓ/l₅)⁴: about 4×10³ at ℓ's floor, 7×10⁷⁹ at its ceiling
+  (computed). The runs reach 2.5×10³. Unless ℓ is pinned near its floor, the interior cannot be evolved to the Planck
+  curvature by any method; the last stretch has to be carried by an asymptotic description fitted to the computed
+  solution and checked against it.
+- **The approach the board proposes for O1b and O1c, each step with a pass/fail test:**
+  1. Measure the Kasner exponents of the computed interior on the runs already made, and whether they settle before
+     the runs fail. No new run.
+  2. Read what is proved about singularities of this symmetry class -- static, axisymmetric, diagonal on the orbits,
+     bounded by a brane -- in particular velocity-dominated (Fuchsian) results (Isenberg and Moncrief; Damour, Henneaux,
+     Rendall and Weaver), READ, with their hypotheses checked against ours.
+  3. If 1 and 2 hold, match the computed interior to the asymptotic solution and carry it to the Planck curvature,
+     with the matching error stated; for r₀ ≫ ℓ, the plane's interior is four-dimensional Schwarzschild's until the
+     curvature radius reaches ℓ (earth_cap K7), after which the same matching applies.
+  4. One targeted run only if a specific gap remains, with its question, its pass/fail and its time stated beforehand.
+
+  This is not the BKL estimate your 360 declined, because the inner zone is fitted to the computed solution with its
+  error stated, but it is not an evolution to the Planck scale either. Whether it meets M-COMPUTE-THE-INTERIOR is
+  yours to rule.
+- **How the board will work (from 376-377).** No run is left unattended: each states its question, its pass/fail
+  criterion and its expected time, and its progress, not merely its life, is checked at fixed intervals. A run that
+  cannot meet its criterion is stopped and reported. A test that fails twice is reported, not retried with
+  variations. No waiters.
+- **The order proposed, yours to change:** (1) the analytic large-end rows to readings on SOURCE -- ARRIVAL first, then
+  E1x, M1P2x, H2tx, Z3b and the opening of B3/B4d; (2) the interior by steps 1-4; (3) the whole chain through
+  verification (358); (4) SOURCEs and SOURCE. The paused tests -- the C-metric's gauge half, the r₀ ≈ 10ℓ run -- are
+  dropped unless you want them; the C-metric's stability half stands.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
@@ -377,7 +437,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-78 rows, 64 lemmas and 14 inputs: 20 proved, 33 derived, 3 under a named reading of the board's, 5 definitions, 17 OPEN.
+78 rows, 64 lemmas and 14 inputs: 20 proved, 39 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN
+(two of them, SOURCEs and SOURCE, deferred by you). *Corrected at item 377: this line had kept item 356's 33 derived and
+17 OPEN after the table moved; the table above was right.*
 
 ## Energy at both ends (item 331)
 
@@ -507,7 +569,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   hole's life, and the energy stays in our universe. Position 2's face closes within its open period (`close_small.py`
   K9). It was worked at item 335: our face is a future outer trapping horizon, which Hayward's second law (READ) keeps
   from shrinking under positive energy.
-- **OPEN at the large end:** the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL. *Item 350: FAR at the large
+- **OPEN at the large end:** *Since item 377 (current): nine rows -- O1b, O1c, B3, B4d, Z3b, ARRIVAL, E1x, M1P2x and
+  H2tx -- and SOURCE, deferred. What each waits on, and the approach, are in "Item 377" above the register.* The record's
+  list as it stood: the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL. *Item 350: FAR at the large
   end is worked and seated as a reading (below); it was never on this list, which counted the record's rows.*
   - *Item 356: B3 and B4d belong on this list too, and twelve more rows join it: the large halves of Z1t, Z2r, E4r, B2t,
     H2tx, B5c, E1u, E1x, E2u and E2x, and O1b and O1c, entered. Twenty-one OPEN in all, to be re-posed on C3's large
