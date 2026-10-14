@@ -242,3 +242,28 @@ exactly; the deformed core does not, until it is shown.
 3. **Computation.** The gravitational static modes of the 5D interior, the decisive version of B4. That is linear
    and cheap, but it covers small deviations only. The order-one transition itself is the large interior that items
    393-411 attempted.
+
+## Item 422: the core assumed to deliver -- what the proof now gives
+
+M, 422, to the board's one-sentence summary ("the one thing not yet shown is that the hole's deepest stretch delivers
+it to the bounce rather than ending somewhere before"): "let's assume it does because it is supposed to." Seated as
+M's: **H-CORE-DELIVERS**. It is an assumption on M's word, and it covers exactly item 420's located core: (b2) and (c2)
+inside r ~ ell. The three routes of item 420 are not taken, and the one-hour check of the gravitational modes is not run.
+
+**What follows (deduced from the computed pieces, under M's rulings):**
+- **The 4D stretch**, face to r ~ ell: exact. No inner horizon (Q constant and positive), curvature finite.
+- **The transition and the core**, r ~ ell to 273's region: every part reaches its focus in finite affine parameter
+  (F4, any geometry), and by H-CORE-DELIVERS it reaches the bounce, with curvature finite before it (Q5).
+- **The earliest parts** are hidden if the face is born first (F5): met where position 2's sigma differs from ours (a
+  junction binds the arrival to about 1e-3 clocks); at our sigma, a requirement on SOURCE (4.31 to 8 clocks by order).
+- **The face** is the static hole's from the arrival's end (420, A1-A3).
+- **Position 2's side** is the time reverse (414 (d)), with the same premise.
+
+So **O1b and O1c at the large end hold**, given:
+1. M's 418 (H-ALL-IS-README) and 422 (H-CORE-DELIVERS);
+2. quantum_onset's P1-P4 (the onset's placement);
+3. at a destination at our sigma, SOURCE's arrival width (and by 389, not finalized until SOURCE is).
+
+**The register change, proposed and not made** (M's approval needed): O1b and O1c at the large end from OPEN to
+DERIVED, resting on M1 and H-CORE-DELIVERS, with the qualification that at our sigma they rest also on SOURCE's arrival
+width (389).

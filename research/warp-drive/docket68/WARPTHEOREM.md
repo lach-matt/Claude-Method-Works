@@ -856,6 +856,10 @@ state was rebuilt first.
   and the brane alone keeps the symmetric form exactly. But the deviation made at r ~ ell is of order one and, on a
   scalar proxy, survives to the centre. So it is item 414's core, (b2) and (c2), located. Premise, theorem or
   computation: to M.
+- **Items 421-422** (context asked; the core assumed to deliver): M seats H-CORE-DELIVERS, "let's assume it does
+  because it is supposed to". With it O1b and O1c at the large end follow (deduced): on M1 and H-CORE-DELIVERS where
+  position 2's sigma differs from ours, and also on SOURCE's arrival width at our sigma (389). The register change waits
+  for M's approval. The large interior's computation (393-411) is off the chain's path.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

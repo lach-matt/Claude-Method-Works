@@ -265,3 +265,10 @@ horizon flips (a) and (b) to violated; inside and outside together are not one c
   with a small quantum region, where classical GR is given up, so the README goes through that region (the bounce) and
   out of position 2's white-hole face. It never meets a singularity. It goes through the centre, not past it.
 
+
+**Items 414-422: proof first, and where it lands** (`INTERIOR-PROOF.md`). Under 418 the requirements are about the
+README's own parts. The quantum region's boundary is derived (415, `quantum_onset.py`); every part reaches its focus in
+finite affine parameter and the earliest parts are hidden if SOURCE arrives fast enough (419, `focusing_parts.py`); the
+face is static from the arrival's end (420, `core_face.py`). The one open piece, (b2) and (c2) in the core inside
+r ~ ell, M assumed at 422 (H-CORE-DELIVERS). (a)-(d) then hold at the large end on M's premises, at our sigma also on
+SOURCE's arrival width. The march of 393-411 is no longer on the chain's path.

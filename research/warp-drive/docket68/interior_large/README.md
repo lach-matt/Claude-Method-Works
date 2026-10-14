@@ -1260,3 +1260,10 @@ Logic's binary (`b6p_scale.determined`, by path) was asked beside it which coord
   E; it was measured and is not reported as a finding.
 Silent and not-run as the instrument reports them: documentary silent; 20.2's arithmetic, calculus, logic and
 constraint-language NOT-RUN (no ruled operator).
+
+## Item 422: off the chain's path (2026-10-14)
+
+M seated H-CORE-DELIVERS at 422: the large hole's deepest stretch delivers every part of the README to 273's bounce.
+With 418-420's proof along the README's parts (`lemmas/INTERIOR-PROOF.md`), O1b and O1c at the large end no longer
+need this computation. The runs, the criterion (405-3, 411) and the cypher (412) stand as the record of what was
+measured; 405-1 and 405-2 (the coefficient-free scheme) are not pursued. Nothing above is withdrawn.
