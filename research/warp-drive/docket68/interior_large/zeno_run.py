@@ -12,6 +12,7 @@ carried over one halving of u = 1/(1 - s) -- the variable of B6's power laws -- 
 python3 zeno_run.py trusted                 -- the trusted state: B7's damped Nx = 28 run from s = -0.002 to -0.503
 python3 zeno_run.py half [n_per_part] [mesh] -- the Zeno half from that state.  mesh is one of
     "dsem" (item 397: the joining of the penalised derivative, valid where a = -g_ss/g_xx < 0),
+    "dsem5" (item 401: as dsem, with the axis part halved -- [0, 1/16] folded, then [1/16, 1/8]),
     "satw" (item 395: the folded axis, the energy-derived coupling and the brane imposed weakly),
     "sat" (item 394: the brane rows algebraic) or "patch" (item 393: derivative continuity)
 python3 zeno_run.py reassess [n]             -- item 393's saved half re-assessed with the brane root marched in order
@@ -28,6 +29,8 @@ TRUSTED = "zeno_trusted_28.pkl"
 WALL = 20 * 60.0
 SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)        # item 394: the axis part and the brane part given more points
 DSEM_NS = (14, 16, 14, 10, 14)    # item 397: more points where the tails were worst and the zero of a moves
+DSEM5_EDGES = (0.0625, 0.125, 0.25, 0.5, 0.75, 0.875, 1.0)   # item 401: halved toward the axis as well
+DSEM5_NS = (14, 14, 16, 14, 10, 14)                         # [1/16, 1/8] given 14 intervals
 GAM_SIGN = -1.0     # the jump damping acts along the evolution, toward decreasing s (spectrum check, item 395)
 
 
@@ -338,6 +341,8 @@ def half(n=12, mesh="sat"):
         I = FoldedSATWeak(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=SAT_NS)
     elif mesh == "dsem":                                       # item 397: the penalised derivative's joining
         I = FoldedDSEM(n, B, STATIC, KAP, AT, n0=SAT_N0, ns=DSEM_NS)
+    elif mesh == "dsem5":                                      # item 401: and the axis part halved too
+        I = FoldedDSEM(n, B, STATIC, KAP, AT, edges=DSEM5_EDGES, n0=SAT_N0, ns=DSEM5_NS)
     else:
         I = Halving(n, B, STATIC, KAP, AT)
     m = I.m

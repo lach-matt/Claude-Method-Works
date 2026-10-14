@@ -180,7 +180,10 @@ from the Ubuntu noble archive debs (a private `findlib.conf` and `-coqlib`; abou
 file and were deleted afterwards to free disk. **Mathlib is excluded**: every route to it found used
 GitHub content, which is not to be used. The `sci` script's `lean` and `coq` groups
 (`.claude/skills/science-tools/`) install these. They are **not yet verified end to end**, so check free
-disk first; z3 stays the light route.
+disk first; z3 stays the light route. *[2026-10-14, item 401: Lean is now verified end to end -- `sci check lean`
+passes on Lean 4.33.0, 3.76 GB -- and the `lean4` skill of cameronfreer/lean4-skills is connected through the
+`lean4skills` group, the one GitHub-sourced group (a public clone through the session's git proxy, M-approved).
+`.claude/hooks/session-start.sh` restores both in every cloud session. Coq is still unverified.]*
 
 `research/warp-drive/hlaw.py` is the hierarchy law as a runnable instrument — hand it an index and
 it checks the seven lawful containments against it, exits 1 on a refutation, and refuses to print a

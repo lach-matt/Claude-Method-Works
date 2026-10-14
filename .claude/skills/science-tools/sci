@@ -14,7 +14,8 @@
 # (archive.ubuntu.com / security.ubuntu.com: `apt-get download` + `dpkg-deb -x` into a private prefix;
 # the dependency set comes from a *simulated* `apt-get -s install`, which installs nothing),
 # conda-forge via micromamba (conda.anaconda.org), and SourceForge (REDUCE).
-# Nothing is fetched from GitHub or any GitHub-content mirror.
+# Nothing is fetched from GitHub or any GitHub-content mirror -- with ONE exception, approved by M at item 401:
+# the group lean4skills clones the public repo cameronfreer/lean4-skills (MIT) through the session's git proxy.
 
 set -uo pipefail
 
@@ -36,7 +37,7 @@ if [ -f "$CA_BUNDLE" ]; then
   export PIP_CERT="$CA_BUNDLE" SSL_CERT_FILE="$CA_BUNDLE" REQUESTS_CA_BUNDLE="$CA_BUNDLE" CURL_CA_BUNDLE="$CA_BUNDLE"
 fi
 
-ALL_GROUPS="gr cas sage provers lean coq numerics dedalus data cosmo gw lit tex"
+ALL_GROUPS="gr cas sage provers lean lean4skills coq numerics dedalus data cosmo gw lit tex"
 DEFAULT_GROUPS="gr cas provers numerics data cosmo gw lit tex"
 
 declare -A DESC=(
@@ -45,6 +46,7 @@ declare -A DESC=(
   [sage]="SageMath parts via passagemath-symbolics + passagemath-maxima (SageManifolds, Sage's symbolic ring) -- ~1.5 GB"
   [provers]="cvc5 + z3 (py venv), Metamath + set.mm, SPASS 3.9, QEPCAD-B 1.74 (+ Singular 4.3)"
   [lean]="Lean 4 core (conda-forge lean4; Mathlib is NOT available here) -- ~3.5 GB"
+  [lean4skills]="the lean4 skill of cameronfreer/lean4-skills (GitHub, item 401): skill linked into ~/.claude/skills, helper runtime (LEAN4_*); no hooks, commands or agents"
   [coq]="Coq 8.18 + Interval/Coquelicot/Flocq (Ubuntu debs) -- ~1.2 GB"
   [numerics]="py-pde, findiff, diffrax + jax (CPU), pygro (geodesics), SumOfSquares (PICOS/cvxopt), scipy, matplotlib"
   [dedalus]="Dedalus 3 spectral PDE solver (conda-forge env with FFTW/MPI; command dedalus-python) -- ~0.9 GB"
@@ -54,7 +56,7 @@ declare -A DESC=(
   [lit]="verbatim READs: poppler (pdftotext/pdftoppm), tesseract (eng+deu), pdfplumber, pypdf, pymupdf, pylatexenc, bibtexparser, TexSoup"
   [tex]="TeX Live 2023 from Ubuntu debs (relocated): pdflatex, bibtex; latex-base/recommended/extra, pictures (TikZ), science, publishers (revtex4-2)"
 )
-declare -A SIZE=( [gr]="~1.2 GB" [cas]="~0.5 GB" [sage]="~1.6 GB" [provers]="~0.2 GB" [lean]="~3.5 GB"
+declare -A SIZE=( [gr]="~1.2 GB" [cas]="~0.5 GB" [sage]="~1.6 GB" [provers]="~0.2 GB" [lean]="~3.5 GB" [lean4skills]="~4 MB"
   [coq]="~1.2 GB" [numerics]="~1.1 GB" [dedalus]="~0.9 GB" [data]="~0.4 GB" [cosmo]="~0.3 GB"
   [gw]="~0.6 GB" [lit]="~0.2 GB" [tex]="~0.5 GB" )
 
@@ -347,6 +349,27 @@ install_lean() {
   mark_ok lean "conda env: $E"
 }
 
+install_lean4skills() {  # item 401: the one GitHub-sourced group (anonymous clone through the session's git proxy)
+  local D="$SCI_ROOT/opt/lean4-skills" url="https://github.com/cameronfreer/lean4-skills"
+  local L="$HOME/.claude/skills/lean4" P
+  if [ -d "$D/.git" ]; then
+    git -C "$D" remote get-url origin | grep -qi 'cameronfreer/lean4-skills' || die "$D is not the lean4-skills checkout"
+    GIT_LFS_SKIP_SMUDGE=1 git -C "$D" pull -q --ff-only || log "lean4-skills: pull failed; keeping the checkout as it is"
+  else
+    rm -rf "$D"; mkdir -p "$SCI_ROOT/opt"
+    GIT_LFS_SKIP_SMUDGE=1 git clone -q --depth 1 "$url" "$D" || die "clone of $url failed"
+  fi
+  P="$D/plugins/lean4"
+  [ -f "$P/skills/lean4/SKILL.md" ] || die "lean4-skills layout changed: no plugins/lean4/skills/lean4/SKILL.md"
+  mkdir -p "$HOME/.claude/skills"
+  if [ -e "$L" ] && [ ! -L "$L" ]; then die "$L exists and is not a link; left alone"; fi
+  ln -sfn "$P/skills/lean4" "$L"
+  rm -rf "$SCI_ROOT/bin/lean4skills"; mkdir -p "$SCI_ROOT/bin/lean4skills"
+  write_env lean4skills "" "export LEAN4_PLUGIN_ROOT=\"$P\" LEAN4_SCRIPTS=\"$P/lib/scripts\" LEAN4_REFS=\"$P/skills/lean4/references\"
+export PATH=\"$P/bin:\$PATH\""
+  mark_ok lean4skills "checkout: $D at $(git -C "$D" rev-parse --short HEAD)" "skill link: $L"
+}
+
 install_coq() {
   local R; R="$(droot coq)"
   apt_fetch coq "$DEB_coq"
@@ -594,6 +617,19 @@ check_lean() {
   rm -rf "$d"; return $rc
 }
 
+check_lean4skills() {
+  local d rc=0 L="$HOME/.claude/skills/lean4" out
+  [ -f "$L/SKILL.md" ] && echo "ok   lean4 skill linked -> $(readlink -f "$L")" || { echo "FAIL skill link $L"; rc=1; }
+  lean4-skills-preflight && echo "ok   helper runtime: LEAN4_* set, wrappers on PATH" || { echo "FAIL preflight"; rc=1; }
+  d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
+  printf 'theorem t : 1 + 1 = 2 := by\n  sorry\n' > "$d/A.lean"; printf 'theorem u : 2 = 2 := rfl\n' > "$d/B.lean"
+  out="$(lean4-skills-sorry-analyzer "$d" --format=summary --report-only 2>&1)"
+  echo "$out" | grep -q '1 total across 1 file' && echo "ok   sorry analyzer finds the one sorry" || { echo "FAIL sorry analyzer: $out"; rc=1; }
+  out="$(lean4-skills-sorry-analyzer "$d/B.lean" --format=summary --report-only 2>&1)"
+  echo "$out" | grep -q '0 total' && echo "ok   sorry analyzer negative control: none in a closed proof" || { echo "FAIL control: $out"; rc=1; }
+  rm -rf "$d"; return $rc
+}
+
 check_coq() {
   local d out rc=0; d="$(mktemp -d "$SCI_ROOT/tmp/chk.XXXXXX")"
   cat > "$d/T.v" <<'EOF'
@@ -826,6 +862,7 @@ group_paths() { # every path a group owns
     gr) echo "$(venv gr) $(venv gr313)" ;;
     cas) echo "$(droot cas) $(venv cas312) $SCI_ROOT/opt/reduce" ;;
     lean|dedalus) echo "$SCI_ROOT/conda/envs/$g" ;;
+    lean4skills) echo "$SCI_ROOT/opt/lean4-skills $HOME/.claude/skills/lean4" ;;
     provers|lit) echo "$(venv "$g") $(droot "$g")" ;;
     coq|tex) echo "$(droot "$g")" ;;
     *) echo "$(venv "$g")" ;;

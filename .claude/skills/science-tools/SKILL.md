@@ -62,7 +62,8 @@ fails.
 | `tex` | NOT YET VERIFIED (relocation prototyped) | TeX Live 2023 from debs: latex-base/recommended/extra, pictures (TikZ), fonts-recommended, science (physics, siunitx), publishers (revtex4-2) | ~0.5 GB est. |
 | `sage` | NOT YET VERIFIED | passagemath-symbolics + passagemath-maxima: SageManifolds and Sage's symbolic ring | ~1.6 GB est. |
 | `dedalus` | NOT YET VERIFIED | Dedalus 3 from a conda-forge env with FFTW/MPI (command `dedalus-python`) | ~0.9 GB est. |
-| `lean` | NOT YET VERIFIED | Lean 4 core from conda-forge `lean4` (Mathlib is excluded) | ~3.5 GB est. |
+| `lean` | VERIFIED 2026-10-14 (`sci check lean`: Lean 4.33.0; (n+1)^2 proved on propext and Quot.sound; 1+1=3 rejected) | Lean 4 core from conda-forge `lean4` (Mathlib is excluded) | 3.76 GB measured |
+| `lean4skills` | VERIFIED 2026-10-14 (`sci check lean4skills`: skill linked, helper runtime, sorry analyzer with a negative control) | the `lean4` skill of cameronfreer/lean4-skills (MIT), linked into `~/.claude/skills`; LEAN4_* helper runtime; no hooks, commands or agents. **The one GitHub-sourced group** (item 401) | 8 MB |
 | `coq` | NOT YET VERIFIED | Coq 8.18 + Interval, Coquelicot, Flocq (Ubuntu debs; private `findlib.conf`, `COQLIB`) | ~1.2 GB est. |
 
 **Verified check output (2026-10-09):**
@@ -123,7 +124,11 @@ Install the heavy optional groups only when needed, and `sci remove` them afterw
 - **jax**: set `jax.config.update('jax_enable_x64', True)` for precision work.
 - **qnm** writes a cache. The `gw` env points `XDG_CACHE_HOME` at `SCI_ROOT/cache`, not `~/.cache`.
 - **Dedalus** must run with `OMP_NUM_THREADS=1` (`dedalus-python` sets it).
-- **Lean** comes without Mathlib. Core Lean (`Nat`, `omega`, `simp`, `decide`) only.
+- **Lean** comes without Mathlib. Core Lean (`Nat`, `omega`, `simp`, `decide`) only. Some instances live in Mathlib,
+  not core: `max` on `Fin n` fails to synthesize, so state such claims on `.val` (`decide` then checks every case).
+- **lean4skills** is restored each cloud session by `.claude/hooks/session-start.sh` (with `lean`), which also puts
+  `lean`, `lake` and LEAN4_* on every shell's PATH. Its `/lean4:*` commands are not registered here: invoke the
+  `lean4` skill and name the workflow ("the guided prove workflow on X.lean").
 - **Python 3.12 members**: ten seated members in `method/` need `python3.12`, not the bare `python3`. That is
   unrelated to `sci`, so do not "fix" them with a venv.
 - **Constants**: take CODATA 2022 from scipy.constants or `astropy.constants.codata2022`, and particle values from
@@ -165,6 +170,10 @@ Check free disk space first: the shared disk had about 19 GB free at the end of 
 These were found by the tool sweep but depend on GitHub content: github.com, codeload, raw/media/release-asset
 githubusercontent hosts, `git clone` of github.com, cdn.jsdelivr.net/gh, or proxy.golang.org used for non-Go
 code. They are excluded, and no workaround is offered:
+*[2026-10-14, item 401: the session's git proxy now serves anonymous `git clone` of public GitHub repositories
+(the add_repo route); `lean4skills` uses it, M-approved. The entries below were not retried. Mathlib's own
+olean caches (lakecache.blob.core.windows.net, mathlib4.lean-cache.cloud) are refused (403), so Mathlib would
+have to be built from source: hours of compute. It stays excluded.]*
 - Mathlib4 (and elan, lean-interact, LeanDojo);
 - CLASS built from a Go-proxy zip, hi_class, MGCAMB, EFTCAMB. Use pip `classy`/`camb` instead;
 - ore_algebra from a Go-proxy zip;
