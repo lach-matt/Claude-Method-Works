@@ -285,7 +285,8 @@ def track(path="zeno_half_dsem5_10.pkl", svals=TRACK_S):
     with open("DETURCK-TRACK.tsv", "w") as fh:
         fh.write("\t".join(cols) + "\n")
         for r in out:
-            fh.write("\t".join(mp.nstr(r[c], 17) if isinstance(r[c], mp.mpf) else repr(r[c]) for c in cols) + "\n")
+            fh.write("\t".join(mp.nstr(r[c], 17) if isinstance(r[c], mp.mpf) else "%.17g" % r[c] for c in cols)
+                     + "\n")
     print("     s   N(axis)  xi^s(axis) xi_perp(axis) | max|xi^s| (x)     max|xi_perp| (x)   max|xi_par| (x)    "
           "max|phi| (x)       | cancel min-max")
     for r in out:

@@ -793,3 +793,8 @@ from the joining nodes.
 - The criterion (item 392) did not say how to measure at a joining: the instrument came from the single grid, which
   has none. Which measure defines it on a joined mesh is M's to rule; the board's reading is the penalised derivative,
   or equivalently the norm away from the joining nodes, which agree here.
+  - *[Item 404, beside the text: the reading above is withdrawn. The penalised value at the joining node is each
+    part's own slope less the penalty coefficient 1/(2H) -- 1,680 at the left copy of x = 1/8, 1,088 at the right --
+    times the jump: a coefficient offsetting what the representation holds there. Evaluated exactly
+    (`deturck_exact.py`), both copies' own DeTurck vectors grow over the last stretch, and phi is itself a lumped
+    number whose coefficient is the lapse squared. See "Item 404" below.]*
