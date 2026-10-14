@@ -82,6 +82,8 @@ exact where marked; READ where marked; deduced where marked; not verified by a s
      ours (junction_own G3). At a destination at its own sigma equal to ours there is no junction. Position 2's face
      then ends 2 clocks after the README's last part -- the reflection of our face's birth, 109 (junction_own G8). Either
      way it closes, and K9 stands.]
+     [Item 390, M: "it closes when there is nothing contained within the corridor" -- M-CLOSES-WHEN-EMPTY, the closing
+     at our sigma ruled. The face closes as the README's last part leaves the anti-trapped region (junction_own G10).]
 
 What this does not claim.
   - That a -E shell can be prepared, or what would prepare it: K3 says only where it must be.

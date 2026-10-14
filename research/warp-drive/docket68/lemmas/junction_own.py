@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""junction_own.py -- item 388: the junction on position 2's face where the destination's own sigma differs from
+"""junction_own.py -- items 388-390: the junction on position 2's face where the destination's own sigma differs from
 ours, and position 2's open period at each end, for the general theorem rather than 218's applied example.  M, 388:
 "we do need to compute this. You're basing your decision off an applied simplified example of the warp theorem."
 Worked in the conversation (computed with sympy and floats, exact where marked; deduced where marked; not verified by
@@ -72,6 +72,19 @@ a separate session; not seated); no test run; 2026-10-14.
      - Small end: the junction's period is 32 to 34 of position 2's e-folds wherever it rises (33.6 on the quarter;
        46.3 of our clocks at 2P), well above the compact 4.79. arrival_small V8's comparison stands as first written.
      - Large end: the junction's figures in G7 stand where sigma2 differs. At our sigma there is no bound from the face.
+  G10 (item 390; computed, exact) M, 390: "if it opens because of the README, then it would stand to read me that it
+     closes when there is nothing contained within the corridor" -- M-CLOSES-WHEN-EMPTY.
+     - On position 2's side, in outgoing Eddington form -f du^2 - 2 du dr + r^2 dOmega_n^2, the radial null directions
+       are d_r and d_u - (f/2) d_r. Their expansions are n/r and -n f/(2 r) (theta_k = (n/r) k^r), for n = 2 at the
+       large end and 3 at the small.
+     - So a sphere is anti-trapped -- both expanding, the white hole's interior -- exactly where f < 0, that is
+       r < r_s2. Inside the emerging shell f = 1, and nothing there is anti-trapped.
+     - What the corridor contains on position 2's side is the anti-trapped region the README crosses, and position 2's
+       face bounds it. That region ends when the README's last part crosses r_s2 outward: the face closes then, as 390
+       rules.
+     - G8's 2 r_s2/c is the null surface's continuation through the empty flat region. It contains nothing, so on 390
+       it is no part of the open face.
+     Item 10 at our sigma is met by identity: the face is open exactly while the README is within it.
 
 What this does not claim.
   - What closes position 2's face where no junction binds: J2 is READ, and nothing in M's rulings bounds it.
@@ -187,6 +200,25 @@ def face_end():
     return dict(lead=lead, rs=rs, large=float(lead.subs(rs, 2)), small=float(lead.subs(rs, 1)), a3=-thin)
 
 
+def antitrapped():
+    """G10: expansions of the two radial null directions on position 2's side, n = 2 (large end) and 3 (small end)"""
+    r, rs = sp.symbols("r r_s", positive=True)
+    out = {}
+    for n in (2, 3):
+        f = 1 - (rs / r) ** (n - 1)
+        g = sp.Matrix([[-f, -1], [-1, 0]])                       # (u, r) block of the outgoing Eddington form
+        k_out, k_in = sp.Matrix([0, 1]), sp.Matrix([1, -f / 2])
+        null = all(sp.simplify((k.T * g * k)[0]) == 0 for k in (k_out, k_in))
+        th_out, th_in = n / r * k_out[1], n / r * k_in[1]
+        if MUT.get("antitrapped_flat"):
+            th_in = -th_in                                       # the mutant: the flat interior read as anti-trapped
+        anti = sp.solve_univariate_inequality(sp.simplify(th_in.subs(rs, 1)) > 0, r, relational=False)
+        anti = anti.intersect(sp.Interval.open(0, sp.oo))           # r is a radius
+        flat_anti = bool(sp.simplify(th_in.subs(f, 1).subs(rs, 0)) > 0)
+        out[n] = dict(null=null, th_out=sp.simplify(th_out), th_in=sp.simplify(th_in), anti=anti, flat_anti=flat_anti)
+    return out
+
+
 def open_period_oneway(end, K, b):
     """G9: the junction's period where it binds; otherwise the face lasts the README's emergence (109, G8)"""
     if MUT.get("j2_one_way"):
@@ -267,7 +299,8 @@ def compute():
     d_ours = period_junction(base_s, 0.75)                      # the rising case on our face, 2P's jump, small end
     fe = face_end()
     ow = table_oneway(ex, bfun)
-    return dict(fe=fe, ow=ow, lw=lw, sigma_jump=sp.simplify(lw["mp"] - (sig - sig2)) == 0, ex=ex, cf=cf, rows=rows,
+    return dict(at=antitrapped(), fe=fe, ow=ow, lw=lw, sigma_jump=sp.simplify(lw["mp"] - (sig - sig2)) == 0, ex=ex,
+                cf=cf, rows=rows,
                 rows_k=rows_k,
                 j1_re=period_junction(base_s, quarter_b), l4_re=4 * period_junction(12 * 100, quarter_b),
                 b_star_small=b_star_small, band=band, sym=sym, d_ours=d_ours)
@@ -297,6 +330,9 @@ def report(o):
     print("G8 the face is born %s before the shell (flat ray): %g clocks of GM/c^3 at the large end (A3 integrated "
           "%.4f), %g of r_h/c at the small; position 2's ends as long after the README's last part" % (
               fe["lead"], fe["large"], fe["a3"], fe["small"]))
+    for n, a in o["at"].items():
+        print("G10 n = %d: theta_out = %s, theta_in = %s; anti-trapped for r in %s (r_s = 1); flat interior "
+              "anti-trapped: %s" % (n, a["th_out"], a["th_in"], a["anti"], a["flat_anti"]))
     print("G9 one-way, position 2's open period in our clocks (none = the face lasts the README's emergence, 109):")
     for n, r in o["ow"].items():
         g = lambda v: ("%.3g %s" % v) if v[0] is not None else v[1]
@@ -346,6 +382,11 @@ def checks(o):
         "end 1.57e-3 at 2P", all(r["small"][1] == r["large"][1] == "README (109)" for r in ow.values() if r["b"] == 0)
         and fm(ow["139 (1) quarter"]["small"][0], "%.1f") == "33.6" and fm(ow["2P"]["small"][0], "%.1f") == "46.3"
         and bool(rise_s) and min(rise_s) > 4.79 * 6.9 and fm(ow["2P"]["large"][0], "%.3g") == "0.00157")
+    at = o["at"]
+    add("G10 anti-trapped exactly where r < r_s2, never inside the emerging shell: the face closes as the last part "
+        "leaves (390)", all(a["null"] and a["anti"] == sp.Interval.open(0, 1) and not a["flat_anti"]
+                            and sp.simplify(a["th_out"] - n / sp.Symbol("r", positive=True)) == 0
+                            for n, a in at.items()))
     return res
 
 
@@ -354,7 +395,8 @@ MUTANTS = {"jump_flipped": "the junction's law with its sign reversed (G1)",
            "e_not_e2": "the README's E taken for what position 2's face reads, under 240 (b) (G2)",
            "sigma2_in_k0": "the destination's own sigma in K0 for our interior's (G2)",
            "no_j2": "the J2 short phase not taken, the junction's period alone (G4)",
-           "j2_one_way": "J2 kept on the one-way object, where nothing from position 2 meets the face (G9)"}
+           "j2_one_way": "J2 kept on the one-way object, where nothing from position 2 meets the face (G9)",
+           "antitrapped_flat": "the ingoing expansion's sign reversed, the flat interior read as anti-trapped (G10)"}
 
 
 def selftest():

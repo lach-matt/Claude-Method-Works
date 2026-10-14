@@ -63,6 +63,19 @@ sigma the face ends 2 r_s2/c after the README's last part (109; "Corrected after
 - New, and the math's to answer: with no junction, M's rulings carry nothing that closes position 2's face. The
   record's only bound on the open period is J2, which is READ. A bound from the theorem itself would replace it.
 
+## Ruled at item 390: position 2's face closes when the corridor holds nothing
+
+M, 390: "if it opens because of the README, then it would stand to read me that it closes when there is nothing
+contained within the corridor". This is M's ruling (M-CLOSES-WHEN-EMPTY), and it meets the board's 109 deduction below.
+
+- **What the corridor contains, on position 2's side, is the white hole's anti-trapped region.** Position 2's face bounds
+  it. Both radial light directions expand there exactly where r < r_s2, and nowhere inside the emerging shell.
+- **So the face closes when the README's last part crosses r_s2 outward.** The null surface's continuation through the
+  empty flat region (the 2 r_s2/c below) contains nothing, and is no part of the open face (junction_own G10, computed,
+  exact; selftest 13/13, mutants 7/7).
+- **Item 10 at a destination at our sigma is met by identity**: the face is open exactly while the README is within it.
+  Where a junction rises, J1 still closes the face at its period, so there the README must have emerged by then.
+
 ## Corrected after item 389: J2 withdrawn, the face closed by 109
 
 The board's own audit, after 389, against M's 277. Items 387 and 388 above, close_large L4 (a) and arrival_large A4 used

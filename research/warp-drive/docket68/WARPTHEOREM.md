@@ -682,6 +682,18 @@ selftest 12/12, mutants 6/6; notes in `SOURCE-REQUIRED.md`, `close_large`, `arri
   the answer comes from 109 and 273, not from Barcelo's model. CLOSE at the small end stands either way (close_small
   K9's note).
 
+**Item 390: position 2's face closes when the corridor holds nothing** (`lemmas/junction_own.py` G10, selftest 13/13,
+mutants 7/7). You ruled that if the face opens because of the README, it closes when nothing is contained within the
+corridor. It meets the board's 109 deduction above.
+- **What the corridor contains, on position 2's side, is the white hole's anti-trapped region**, the spheres where both
+  radial light directions expand. Position 2's face bounds that region. It exists exactly where r < r_s2 and never
+  inside the emerging shell. Computed, exact.
+- **So the face closes when the README's last part crosses it outward.** The null surface running on 2 r_s2/c through the
+  empty flat region contains nothing, and is no part of the open face.
+- **SOURCE's item 10 at our σ is met by identity**: the face is open exactly while the README is within it. Where a
+  junction rises it still closes the face at its period, so there the README must have emerged by then.
+- CLOSE at the small end now rests on your ruling at our σ (close_small K9's note).
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
