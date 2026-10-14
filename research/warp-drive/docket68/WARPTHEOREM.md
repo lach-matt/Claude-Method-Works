@@ -425,6 +425,51 @@ look at option 3 first, then perhaps option 2. No runs.
 - **Toward option 2.** Options 3 and 2 are the two ends of one family, ℓ = λ l_P^a L_DE^(1−a): option 3 is a = 0, a
   Planck-scale tension a = 1. At λ = 1 the window admits 0.026 ≤ a ≤ 0.956.
 
+**Item 380: no free variables** (`lemmas/ell_fix.py` X0–X7, selftest 9/9, mutants 4/4). You said "I don't believe in
+free variables". The board reads it with your 140 ("k is dependent on our work") and 326 (find the fixing object), and
+withdraws its own word "free": ℓ is not yet fixed, which is a statement about the board, not the theory. No runs.
+- **The audit (computed; the record).** Of the numbers the theorem uses, c and h are exact, G and the offset measured,
+  the README's N the object's, k_R = k_L/2 and position 2's −σ/4 the work's, position 2's offset derived (322), α = 0
+  relativity's (326), the Earth's mass measured and its README an estimate. One number is fixed by nothing yet: σ, and
+  with it every name ℓ carries (k, G₅, Λ₅, l₅, the dual rank, N_L, 379's λ). One threshold is the board's own: the
+  classical floor's 1 % (22.4 l_P is where the bulk's curvature is 1 % of the Planck scale).
+- **No row can fix it (computed; deduced).** The theorem is stated in N and ℓ, and its invariants do not move with ℓ.
+  Every condition on ℓ in the record is an inequality: positivity ℓ > 2.0 l_P, the bulk below the Planck curvature
+  ℓ > 4.0 l_P, the board's 1 % floor 22.4 l_P, and the table-top ℓ ≤ 13.964 μm.
+- **The theory's two given scales, at coefficient one (computed).** The dark-energy ties all land above the ceiling
+  (21.5–116 μm, 379). A tension at a Planck density gives ℓ = 0.117 l_P, 0.489 l_P or 12.3 l_P, depending on which
+  Planck density is taken (five-dimensional, four-dimensional, or reduced). The first two lie below positivity. The
+  third lies above positivity and the Planck curvature, below only the board's 1 % floor. "Coefficient one" is itself
+  a convention: the choice moves ℓ by a factor 105.
+- **The one candidate the record's physics leaves standing (computed; deduced).** Take the plane's tension to be the
+  Planck energy density in Einstein's own coupling, σ = c⁷/(ħ(8πG)²). Then ℓ = √(48π) l_P = 12.28 l_P = 1.985×10⁻³⁴ m.
+  - The bulk sits at 5.0 % of the Planck curvature. Your B8 makes its law Einstein's exactly, and 353's M-PLANCK-ENDS
+    governs the Planck-scale places.
+  - The dual rank is 15.39, not an integer.
+  - The ends meet at N_L = 1074 bits, so the identity core (2.7×10¹⁵ bits) and the Earth's README sit at the large end,
+    which starts at 1.67×10⁻⁷ kg.
+  - The interior's Planck curvature is 803 ℓ⁻⁴. The runs reached about 2.5×10³ (README C6), so evolution would already
+    span it; whether the runs held their constraints that far is part of 377's open question.
+- **The other objects that carry a length (computed; estimate).**
+  - The Earth's README at the crossover gives ℓ = 0.584 nm. That README is an estimate, so the range is 0.19–0.61 nm.
+  - The five-dimensional Planck energy at the Higgs quartic's zero (3.68×10¹⁰ GeV, 322) gives 0.588 nm. Within the top
+    mass's 1σ that runs from 0.024 to 9.6 nm.
+  - The two agree to 0.8 %. That is recorded as a coincidence, not proposed as a tie: nothing relates the Earth's mass
+    to the Higgs quartic, and the Higgs value moves by a factor of 390 within 1σ.
+- **Kinds of object that fix a scale with no free variable.**
+  - Observation (247) fixes ℓ as it fixed G and ρ_Λ, but present tests reach only the window's top. At 52 μm the
+    correction is 4.8 % at the ceiling and 2.5×10⁻⁴ at 1 μm (computed).
+  - An equality from relativity or consistency, as 326 found for α: none in the record.
+  - An integer fixed by topology. In AdS/CFT from branes, ℓ/l_P = N√(2/π), with N set by a tadpole the topology fixes
+    (Giddings, Kachru and Polchinski, hep-th/0105097, READ). Their "χ(X)/24 = N_D3 + …" and their example "MK = N ≤ 72"
+    put ℓ at 22.3–57.4 l_P, the window's floor.
+  - A natural unit: the candidate above.
+  - The work (140): the Earth's value is the one length the work supplies. No ruling says which point of the family the
+    cap must occupy, so the board does not propose it.
+- **Where that leaves ℓ (deduced).** Under your 380 the theorem is missing one object, and no row can supply it. Of the
+  no-coefficient values, one stands: the reduced Planck tension. The integer kind points to the same end. Both are
+  option 2's end of the window, where the interior comes within the runs' reach.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.
