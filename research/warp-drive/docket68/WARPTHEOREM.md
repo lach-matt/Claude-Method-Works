@@ -834,6 +834,10 @@ state was rebuilt first.
   only where the surrounding interior is computed (finite representation, stepping, arithmetic, and coefficients still
   in the march, against your 405). It vanishes only by proof. Through the cypher, every roster: inside, E = 0; the
   control outside the horizon flips; the two together are not one closed index.
+- **Item 413** (your conjecture): inside this static hole no path can turn (requirement (a), every cell decided), and
+  the classical centre is a future moment, not a place to pass; a slingshot past a singularity needs a rotating or
+  charged hole and an inner horizon, which your 273 excludes. In your theory the README meets no singularity: it goes
+  through 273's quantum region, the bounce, not past it.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

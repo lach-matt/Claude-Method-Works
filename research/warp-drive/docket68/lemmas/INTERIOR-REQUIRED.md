@@ -250,3 +250,18 @@ stepping, arithmetic, and coefficients. The last are still in the march of 393-4
 cypher (every roster) the interior's cells are closed with E = 0 in every speaking language; the control outside the
 horizon flips (a) and (b) to violated; inside and outside together are not one closed index (E > 0).
 
+**Item 413: M's conjecture -- past the singularity, not through it -- read against the record** (no run).
+- **Inside this hole there is no "past"** (deduced from computed and exact results). The large hole is static: the
+  record's metric has no term mixing the static time with any other direction (`gen_eqs_fw.py`), so it does not rotate.
+  Inside its horizon the radius-like s is the clock: N^2 > 0 makes s's gradient timelike, so along every causal path s
+  changes in one direction only, and no path has a turning point. That is requirement (a), measured with every cell
+  decided on the first half (405-3, 411), and exact on the 4D stretch (item 6). A slingshot needs a turning point, and
+  there is none inside.
+- **The centre is a moment, not a place** (standard GR, not re-read here). In a static hole the classical singularity
+  lies to the future of every interior path; it is not beside the path. A slingshot past a singularity exists only where
+  the singularity is timelike (a rotating or charged hole), and the routes that pass it cross an inner (Cauchy) horizon.
+  273's option text excludes a Cauchy horizon, so that route is closed by M's own ruling.
+- **What the conjecture gets right, in M's theory:** the passage does not go through a singularity. 273 replaces it
+  with a small quantum region, where classical GR is given up, so the README goes through that region (the bounce) and
+  out of position 2's white-hole face. It never meets a singularity. It goes through the centre, not past it.
+
