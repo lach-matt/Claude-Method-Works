@@ -23,17 +23,39 @@ class Exact:
     def K(self, r, xc):
         return 24 + 12 * self.mu ** 2 * (1 + xc * r) ** 6 / r ** 6
 
+    def roots(self, gtt, gpp):
+        """every (r, xc), 0 <= xc <= x1, with the given norms: g_tautau gives 1 + xc r = mu sqrt((1 - mu/r)/g_tautau),
+        so xc is a function of r and one equation in r remains; scanned in log r on both sides of the horizon, each
+        sign change refined by brentq"""
+        from scipy.optimize import brentq
+        def xcr(r):
+            a = (1 - self.mu / r) / gtt
+            return (self.mu * np.sqrt(a) - 1) / r if a > 0 else np.nan
+        def res(r):
+            xc = xcr(r)
+            return 4 * r ** 2 * self.G(xc) / (self.P1 ** 2 * (1 + xc * r) ** 2) / gpp - 1 if np.isfinite(xc) else np.nan
+        side = np.geomspace(1e-6, 1 - 1e-12, 4000) if gtt < 0 else np.geomspace(1 + 1e-12, 1e4, 4000)
+        rs = self.mu * side; v = np.array([res(r) for r in rs]); out = []
+        for i in range(len(rs) - 1):
+            if np.isfinite(v[i]) and np.isfinite(v[i + 1]) and v[i] * v[i + 1] < 0:
+                r = brentq(res, rs[i], rs[i + 1], xtol=1e-15, rtol=1e-14); xc = xcr(r)
+                if -1e-9 <= xc <= self.x1 + 1e-9:
+                    out.append((r, xc))
+        return out
+
     def invert(self, gtt, gpp, r0, xc0, axis=False):
         """(r, xc) with the given norms; on the axis (gpp = 0) xc = x1 and r from g_tautau alone.  Outside the horizon
-        the map is two-to-one in places (g_tautau is not monotonic in r for xc > 0), so the guess must be near"""
+        the map is two-to-one in places (g_tautau is not monotonic in r for xc > 0): every root is found (roots) and
+        the one nearest the guess, in (log r, xc), is taken, so a continuation from a known point stays on its branch;
+        (nan, nan) when the norms have no exact preimage"""
+        if not axis:
+            rts = self.roots(gtt, gpp)
+            if not rts:
+                return float("nan"), float("nan")
+            return min(rts, key=lambda q: (np.log(q[0] / r0)) ** 2 + (q[1] - xc0) ** 2)
         if axis:
             q = fsolve(lambda v: [self.norms(np.exp(v[0]), self.x1)[0] / gtt - 1], [np.log(r0)], xtol=1e-14)
             return float(np.exp(q[0])), self.x1
-        def res(v):
-            t, p = self.norms(np.exp(v[0]), v[1])
-            return [t / gtt - 1, p / gpp - 1]
-        q, info, ier, msg = fsolve(res, [np.log(r0), xc0], xtol=1e-14, full_output=True)
-        return float(np.exp(q[0])), float(q[1])
 
     def chart(self, s, x):
         """the exact chart's point (a = b = 0): r = mu/(1 - s), xc = x1 (1 - x^2)"""
@@ -73,6 +95,11 @@ def selftest():
         bad = list(args); bad[2 * 6] = 1.001                              # mutant: A = 1.001
         n += 1; ok += max(abs(float(v)) for v in fr(-0.5, 0.4, 0.0, *bad)) > 1e-5
         n += 1; ok += max(abs(float(v)) for v in fr(-0.5, 0.4, 0.3, *args)) > 1e-5 or E.ca == E.cb == 0
+    r, xc = E.chart(0.519, 0.794); gt, gp = E.norms(r, xc); rts = E.roots(gt, gp)    # a two-root exterior point
+    r2, xc2 = E.invert(gt, gp, r * 1.02, xc + 0.01); n += 1
+    ok += len(rts) == 2 and abs(r2 / r - 1) < 1e-9 and abs(xc2 - xc) < 1e-9 and min(q[0] for q in rts) < 0.8 * r
+    print("two preimages at (s 0.519, x 0.794): %s; the branch kept %.5f, %.5f" % (
+        ", ".join("(%.5f, %.5f)" % q for q in rts), r2, xc2))
     t0 = E.tau_total(0.0); n += 1; ok += abs(t0 - np.pi * E.mu / 2) < 1e-9
     print("tau to r = 0 on the brane: %.6f (pi mu/2 = %.6f)" % (t0, np.pi * E.mu / 2))
     # mutants: a wrong mu in K, a wrong P1 in the norms

@@ -11,8 +11,10 @@ axis x = 0 and brane x = 1 as there.  The parameter is x1 (rational), so mu = (1
 
 The reference metric is this one deformed, so that the Einstein-DeTurck solution is the C-metric in a gauge that is not
 its own chart: p_ref = p (1 + a w x^2), Dl_ref = 1/mu + xc (1 + b w x^2)/f, w = 2 f/(1 + f) (zero at infinity s = 1,
-one on the horizon, two at the singularity), with a = ca eps and b = cb eps.  The amplitude eps is the symbol bt of the
-RSII code (bt does not otherwise enter here), so one pickle serves every eps and Newton can continue in it; eps = 0 is
+one on the horizon, two at the singularity), with a = ca eps and b = cb eps.  An optional fifth argument k makes it
+w = 2 f^k/(1 + f^k): with k = 1 the deformation dies at infinity only as f, the order at which the C-metric's mass
+sits in this chart (H = s); k = 3 keeps the reference's asymptotic data through that order.  The amplitude eps is the
+symbol bt of the RSII code (bt does not otherwise enter here), so one pickle serves every eps and Newton can continue in it; eps = 0 is
 the exact chart (T = S = A = B = 1, F = 0).  Ansatz:
     g = Dl_ref^-2 [s T dtau^2 + A ds^2/(f^4 s) + c0 B dx^2/(f^2 p_ref) + x F ds dx/f^3 + c0 x^2 p_ref S dpsi^2/f^2].
 
@@ -21,10 +23,11 @@ eqs_<tag>.pkl (E_ab = R_ab + 3 g_ab - nabla_(a xi_b), phi, brane rows, the metri
 (kap [n_(a xi_b) - (1/2) g n.xi]:
 the triangular choice 1 + rho = 2/(D - 2) is 1/2 in four dimensions, 1/3 in five), harm_<tag>.pkl (pure harmonic time,
 gen_harm_fw.py's h^s = -R Fbar^s with the four-dimensional damping on h) and kretsch_<tag>.pkl.
-Usage: gen_eqs_cm.py tag x1 ca cb    e.g. gen_eqs_cm.py cm23 2/3 1 1"""
+Usage: gen_eqs_cm.py tag x1 ca cb [k]    e.g. gen_eqs_cm.py cm23 2/3 1 1, or gen_eqs_cm.py cm23w3 2/3 1 1 3"""
 import sympy as sp, pickle, time, itertools, sys
 t0 = time.time()
 tag = sys.argv[1]; x1, ca, cb = (sp.Rational(v) for v in sys.argv[2:5])
+kw = int(sys.argv[5]) if len(sys.argv) > 5 else 1
 tau, s, x, ps = sp.symbols("tau s x psi", real=True)
 bt = sp.Symbol("bt", positive=True); a_, b_ = ca * bt, cb * bt
 kap, at = sp.symbols("kap at", real=True)
@@ -35,7 +38,7 @@ mu = (1 - x1**2) / x1**3
 P = lambda q: mu * q**2 + (mu * x1 + 1) * q + (mu * x1**2 + x1)
 P1 = P(x1); assert sp.simplify(P1 - (3 * mu * x1**2 + 2 * x1)) == 0
 q_ = sp.Symbol("q"); assert sp.expand((x1 - q_) * P(q_) - (1 - q_**2 - mu * q_**3)) == 0
-f = 1 - s; xc = x1 * (1 - x**2); c0 = 4 * x1 / P1; w = 2 * f / (1 + f)
+f = 1 - s; xc = x1 * (1 - x**2); c0 = 4 * x1 / P1; w = 2 * f**kw / (1 + f**kw)
 p = sp.expand(P(xc) / P1)
 pr = p * (1 + a_ * w * x**2); Dl = 1 / mu + xc * (1 + b_ * w * x**2) / f
 
@@ -99,7 +102,7 @@ pickle.dump({"E": {k: sp.srepr(v) for k, v in E.items()}, "phi": sp.srepr(phi),
              "bc": {k: sp.srepr(v) for k, v in bc.items()},
              "metric": {k: sp.srepr(Rp(G[i, j])) for k, (i, j) in
                         {"gtt": (0, 0), "gss": (1, 1), "gxx": (2, 2), "gsx": (1, 2), "gpp": (3, 3)}.items()},
-             "meta": dict(x1=str(x1), mu=str(mu), P1=str(P1), c0=str(c0), ca=str(ca), cb=str(cb))},
+             "meta": dict(x1=str(x1), mu=str(mu), P1=str(P1), c0=str(c0), ca=str(ca), cb=str(cb), kw=kw)},
             open("eqs_%s.pkl" % tag, "wb"))
 print("eqs written", time.time() - t0, flush=True)
 # damping, gen_damp_fw.py's tilted normal (sinh eta = -at x^2), coefficient 1/(D - 2)
