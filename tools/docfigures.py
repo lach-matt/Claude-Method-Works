@@ -110,6 +110,51 @@ def _is_finding(site):
     return bool(site.get("census_class")) or site.get("verdict") in _FINDING_VERDICTS
 
 
+def _nested_isotopes():
+    """{Z: isotopes block} from the element files the site ships, as the page reads them."""
+    out = {}
+    for Z in range(1, 121):
+        t = (ROOT / "public" / "data" / "elements" / ("%d.js" % Z)).read_text(encoding="utf-8")
+        body = t[t.index("] = ") + 4:t.rstrip().rindex("}") + 1]
+        out[Z] = json.loads(body).get("isotopes") or {"rows": []}
+    return out
+
+
+def _site_index():
+    """public/data/index.js, the generated site index, read as data: the file is
+    `window.__mi = ...; window.__mi.index = {...};` and the object is JSON."""
+    blob = (ROOT / "public" / "data" / "index.js").read_text(encoding="utf-8")
+    start = blob.index("window.__mi.index = ") + len("window.__mi.index = ")
+    end = blob.rstrip().rstrip(";")
+    return json.loads(end[start:])
+
+
+_PARTICLES = {}
+
+
+def _particles():
+    """The site's Particles block, which the public build does not carry (the
+    paper it reads is not released), built on demand by the generator's own
+    function so the figures the doc states about it are still measured."""
+    if "block" not in _PARTICLES:
+        sys.path.insert(0, str(ROOT / "tools"))
+        import webindex
+        _PARTICLES["block"] = webindex.particles_block()
+    return _PARTICLES["block"]
+
+
+def _walk_summary():
+    return _tool_json("lowdin_walk.py", ["--report", str(ROOT / "LOWDIN-WALK.tsv"), "--json"])
+
+
+def _walk_setting(c):
+    return _walk_summary().get("settings", {}).get(c, {})
+
+
+def _walk_compare(field="lx"):
+    return (_walk_summary().get("fields") or {}).get(field) or {}
+
+
 def _manifest():
     return [r["repo_path"] for r in _rows("drive/MANIFEST.tsv")]
 
@@ -142,7 +187,7 @@ def checks():
     return [
         ("CLAUDE.md", "members extracted from the bundles", 343,
          len(_rows("method/MEMBER-INDEX.tsv"))),
-        ("CLAUDE.md", "drive/ MANIFEST rows", 820, len(man)),
+        ("CLAUDE.md", "drive/ MANIFEST rows", 832, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,
          len(disk ^ set(man))),
         ("CLAUDE.md", "drive/ rows with status ok", 819,
@@ -179,8 +224,164 @@ def checks():
           max(_build_nums("_main_and_register.md")))),
         ("CLAUDE.md", "figure bundles held", 3,
          sum(1 for p in man if re.search(r"figures_BUILD\d+\.zip$", p))),
-        ("CLAUDE.md", "__<driveFileId> duplicates", 99,
+        ("CLAUDE.md", "__<driveFileId> duplicates", 100,
          sum(1 for p in man if "__" in os.path.basename(p))),
+        # the reconstructed walk: LOWDIN-WALK.tsv through the instrument's own summary
+        ("docs/LOWDIN-WALK.md", "LOWDIN-WALK rows", 476, len(_rows("LOWDIN-WALK.tsv"))),
+        ("docs/LOWDIN-WALK.md", "walk lx: entrant = observed gain at c = 137.035999", 96,
+         _walk_setting("lx:137.035999").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk lx: entrant = observed gain at c = inf", 92,
+         _walk_setting("lx:inf").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk lx: chain configuration identical at c = 137.035999", 84,
+         _walk_setting("lx:137.035999").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk lx: clause 2 exceptions at c = 137.035999", 1,
+         len(_walk_setting("lx:137.035999").get("clause2_exceptions", []))),
+        ("docs/LOWDIN-WALK.md", "walk lx: entrants differing between the settings", 7,
+         len(_walk_compare("lx").get("displaced", []))),
+        ("docs/LOWDIN-WALK.md", "walk lx: of register 1706's eleven, displaced here too", 2,
+         len(_walk_compare("lx").get("in_eleven", []))),
+        ("docs/LOWDIN-WALK.md", "walk hf: entrant = observed gain at c = 137.035999", 94,
+         _walk_setting("hf:137.035999").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk hf: entrant = observed gain at c = inf", 96,
+         _walk_setting("hf:inf").get("agree")),
+        ("docs/LOWDIN-WALK.md", "walk hf: chain configuration identical at c = 137.035999", 70,
+         _walk_setting("hf:137.035999").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk hf: chain configuration identical at c = inf", 76,
+         _walk_setting("hf:inf").get("cfg_identical")),
+        ("docs/LOWDIN-WALK.md", "walk hf: clause 2 exceptions at c = 137.035999", 2,
+         len(_walk_setting("hf:137.035999").get("clause2_exceptions", []))),
+        ("docs/LOWDIN-WALK.md", "walk hf: entrants differing between the settings", 5,
+         len(_walk_compare("hf").get("displaced", []))),
+        ("docs/LOWDIN-WALK.md", "walk hf: of register 1706's eleven, displaced here too", 1,
+         len(_walk_compare("hf").get("in_eleven", []))),
+        ("docs/LOWDIN-WALK.md", "walk: the two fields' entrants differ at c = 137.035999", 6,
+         len((_walk_summary().get("fields_compare") or {}).get("entrants_differ", []))),
+        ("docs/LOWDIN-WALK.md", "walk: rows not converged (three hf rows at c = 137.035999)", 3,
+         sum(len(v.get("not_converged", [])) for v in _walk_summary().get("settings", {}).values())),
+        # the thirty-six of section 6, as the site carries them (webindex.py over cypher's R)
+        ("docs/WEB-INDEX.md", "site closure: the thirty-six forbidden by l <= n-1", 25,
+         _site_index()["closure"]["decomposition"]["forbidden"]),
+        ("docs/WEB-INDEX.md", "site closure: the thirty-six deferred", 11,
+         _site_index()["closure"]["decomposition"]["deferred"]),
+        ("docs/WEB-INDEX.md", "site closure: E with helium at group 2 (Register 448)", 20,
+         _site_index()["closure"]["placement"]["helium_at_2"]["E"]),
+        ("docs/WEB-INDEX.md", "site closure: E prices helium's placement at", 16,
+         _site_index()["closure"]["placement"]["priced"]),
+        ("docs/WEB-INDEX.md", "site lattice: sites, charge 1..Z by l 0..7 over Z = 1..120", 58080,
+         _site_index()["lattice"]["sites"]),
+        ("docs/WEB-INDEX.md", "site lattice: known cells (measured + exact)", 1287,
+         len(_site_index()["lattice"]["known"])),
+        ("docs/WEB-INDEX.md", "site references: arXiv identifiers the corpus prints", 53,
+         len(_site_index()["references"]["arxiv"])),
+        ("docs/WEB-INDEX.md", "site references: DOIs the corpus prints", 7,
+         len(_site_index()["references"]["doi"])),
+        ("docs/WEB-INDEX.md", "site references: B.1 species mapped to a compilation", 26,
+         len(_site_index()["references"]["spectra_sources"]["by_species"])),
+        ("docs/WEB-INDEX.md", "site papers: released papers held", 14,
+         sum(1 for x in _site_index()["papers"]["papers"] if x["held"])),
+        ("docs/WEB-INDEX.md", "site papers: slots not yet held", 0,
+         sum(1 for x in _site_index()["papers"]["papers"] if not x["held"])),
+        ("docs/WEB-INDEX.md", "site figure data: measured channels the equation figure draws", 358,
+         len(_site_index()["figure_data"]["equation"]["rows"])),
+        ("docs/WEB-INDEX.md", "site particle indexes: members 30, 250, 292, 10", [30, 250, 292, 10],
+         [x["members"] for x in ((_site_index()["particle_index"] or {}).get("indexes") or [])]),
+        ("docs/WEB-INDEX.md", "site particle indexes: cells 26, 66, 184, 9", [26, 66, 184, 9],
+         [x["cells"] for x in ((_site_index()["particle_index"] or {}).get("indexes") or [])]),
+        ("docs/WEB-INDEX.md", "site spin-4 mesons: 10 members, 9 cells, K4 (K5 on the established states)", "spin4: 10 spin-4 mesons, 9 cells, K4 (K5 on the established states)",
+         (_site_index()["particle_index"] or {}).get("spin4")),
+        ("docs/WEB-INDEX.md", "site sub-population sweep: 2 hits, exhaustive chains 5, 7, 6, 8, 14, 3 lattices",
+         {"hits": 2, "exhaustive_chains": [5, 7, 6, 8, 14], "lattices": 3},
+         {k: v for k, v in (((_site_index()["particle_index"] or {}).get("subpop") or {}).items()) if k not in ("tested", "closed_sets")}),
+        ("docs/WEB-INDEX.md", "site nuclear band index: 2,152 members, 121 cells, K2, refusals 27 + 93 + 6; the deformed levels seated, 1,907 on 96 cells at K2",
+         {"members": 2152, "cells": 121, "channel": 2, "refusals": [27, 93, 6], "census_exact": True, "deformed": "234 of 234 entries, total, seated: 1907 levels, 96 cells, K2",
+          "deformed_index": {"members": 1907, "refused": 56, "cells": 96, "cell": {"channel": 2, "height": 49, "width": 2}}},
+         (_site_index()["particle_index"] or {}).get("nuclear")),
+        ("docs/WEB-INDEX.md", "site gravity index: 3,663 members of 126 species, 914 cells, K0, 684 relieved, 294 Schwarzschild, E 1,550 with 1,080 forbidden",
+         {"members": 3663, "species": 126, "rows": 29304, "cells": 914, "cell": {"channel": 0, "height": 19, "width": 112}, "forced": 1831, "vanishes": 423, "schwarzschild": 294, "relieved": 684,
+          "coarsening": {"cells": 26, "channel": 1}, "demand": {"E": 1550, "forbidden": 1080, "unplaced": 0, "open": 470, "undecided": 0}, "selftest_passed": True},
+         (_site_index()["particle_index"] or {}).get("gravity")),
+        ("docs/WEB-INDEX.md", "site phonon index: 1,120 site types over 230 space groups, 90 cells, K0, 115 decompositions",
+         {"members": 1120, "space_groups": 230, "cells": 90, "cell": {"channel": 0, "height": 12, "width": 16}, "decompositions": 115},
+         (_site_index()["particle_index"] or {}).get("phonons")),
+        ("docs/WEB-INDEX.md", "site k-point index: 870 stars over 162 space groups, 21 cells, K0, 305 projective",
+         {"members": 870, "space_groups": 162, "cells": 21, "cell": {"channel": 0, "height": 7, "width": 5}, "projective": 305},
+         (_site_index()["particle_index"] or {}).get("kpoints")),
+        ("docs/WEB-INDEX.md", "site corepresentation index: 3,529 levels, 13 cells, K0, 309 doubled at k, cases 3138 / 12 / 297 / 82",
+         {"members": 3529, "cells": 13, "cell": {"channel": 0, "height": 6, "width": 3}, "doubled_at_k": 309, "cases": {"a": 3138, "b": 12, "c": 297, "x": 82}},
+         (_site_index()["particle_index"] or {}).get("coreps")),
+        ("docs/WEB-INDEX.md", "site register: 27 seated indexes on all eight channels", {"count": 27, "occupied": [0, 1, 2, 3, 4, 5, 6, 7], "all_occupied": True},
+         {k: v for k, v in (((_site_index()["particle_index"] or {}).get("register") or {}).items()) if k != "state_commit"}),
+        ("docs/LOWDIN-RECOVERED.md", "recovered runtime: 28 files, 23 RECOVERED, 3 RECOVERED-REPLAYED, 1 RECOVERED-PARTIAL, 1 STORE",
+         {"files": 28, "RECOVERED": 23, "RECOVERED-REPLAYED": 3, "RECOVERED-PARTIAL": 1, "STORE": 1},
+         (lambda rows: {"files": len(rows), **{k: sum(1 for r in rows if r["status"] == k) for k in ("RECOVERED", "RECOVERED-REPLAYED", "RECOVERED-PARTIAL", "STORE")}})(_rows("lowdin/LEDGER.tsv"))),
+        ("docs/LOWDIN-RECOVERED.md", "recovered runtime: 157 printed windows, 154 reproduced", [157, 154],
+         (lambda rows: [len(rows), sum(1 for r in rows if r["contiguous"] == "yes" or r["lines_found"].split("/")[0] == r["lines_found"].split("/")[1])])(_rows("lowdin/WITNESS.tsv"))),
+        ("docs/LOWDIN-RECOVERED.md", "recovered runtime: cinf.py and rt/t7b_hf.py at the sealed digests", ["cinf.py", "t7b_hf.py"],
+         sorted(r["file"] for r in _rows("lowdin/LEDGER.tsv") if "MATCH" in r["sealed_sha256"])),
+        ("docs/LOWDIN-RECOVERED.md", "the repair: the recovered instrument displaces Th, Rf, Ubn; the paper's eleven superseded; 8 of 11 on the restart's side; the reconstruction's five contain the three",
+         {"displaced": ["Th", "Rf", "Ubn"], "witnessed": ["Th", "Rf"], "restart_holds_observed": 8, "within": True, "hf": ["Ce", "Hf", "Th", "Rf", "Ubn"],
+          "sides": {"Th": "departs", "Rf": "observed"}},
+         (lambda r: {"displaced": r["displaced"], "witnessed": r["witnessed"], "restart_holds_observed": r["paper_eleven_restart_holds_observed"],
+                     "within": r["reconstruction"]["record_set_within"], "hf": r["reconstruction"]["hf_displaced"],
+                     "sides": {d["symbol"]: ("departs" if "departs" in d["against_nature"].split(";")[0] else "observed") for d in r["detail"] if d["symbol"] in ("Th", "Rf")}}
+          if r else None)((_site_index().get("relativistic") or {}).get("repair"))),
+        ("docs/LOWDIN-RECOVERED.md", "the record's scorer at both settings: 96 of 107 steps at either, 73 and 76 configurations, the step failures swapping Rf for Th",
+         {"chain": ["73/107", "96/107"], "chain_cinf": ["76/107", "96/107"], "swap": [[104], [90]]},
+         (lambda rows: (lambda d: {"chain": [d["chain"]["config_score"], d["chain"]["step_score"]], "chain_cinf": [d["chain_cinf"]["config_score"], d["chain_cinf"]["step_score"]],
+                                   "swap": [sorted(set(map(int, d["chain"]["step_failures"].split())) - set(map(int, d["chain_cinf"]["step_failures"].split()))),
+                                            sorted(set(map(int, d["chain_cinf"]["step_failures"].split())) - set(map(int, d["chain"]["step_failures"].split())))]}
+                        if {"chain", "chain_cinf"} <= set(d) else None)({r["key"]: r for r in rows}))(_rows("lowdin/chain/SCORE.tsv") if (ROOT / "lowdin/chain/SCORE.tsv").exists() else [])),
+        ("docs/WEB-INDEX.md", "site record walk: the chain to 120, the two restart tables to 108, the chain at c -> inf to 120; the eleven; Th, Rf and Ubn; 96 of 107",
+         {"rows": {"chain": 119, "restart137": 107, "restart_cinf": 107, "chain_cinf": 119}, "paper": ["Mn", "Zn", "Ag", "Cd", "Nd", "Pm", "Sm", "Lu", "Hg", "Lr", "Rf"],
+          "chain_cinf": ["Th", "Rf", "Ubn"], "restart_cinf": ["Nd", "Pm", "Sm", "Th", "Lr"], "agree": [96, 107]},
+         (lambda r: {"rows": r["summary"]["rows"], "paper": r["summary"]["displaced"]["paper"], "chain_cinf": r["summary"]["displaced"]["chain_cinf"],
+                     "restart_cinf": r["summary"]["displaced"]["restart_cinf"], "agree": [r["summary"]["steps_agreeing_with_observed"]["agree"], r["summary"]["steps_agreeing_with_observed"]["scored"]]}
+          if r else None)((_site_index().get("relativistic") or {}).get("record"))),
+        ("docs/WEB-INDEX.md", "site isotope index: 3,558 nuclides on 3,558 cells, K4, cell (4, 295, 18), E = 0, seven refused, the site's own",
+         {"members": 3558, "cells": 3558, "cell": {"channel": 4, "height": 295, "width": 18}, "closers": ["information", "statistics"], "E": 0,
+          "measured": 2550, "estimated": 1008, "refused": 7, "site_own": True, "source_ok": True},
+         (_site_index()["particle_index"] or {}).get("isotopes")),
+        ("docs/WEB-INDEX.md", "nested isotopes: 3,557 nuclides over 118 elements, iron 32, none at 119 and 120",
+         [3557, 118, 32, 0, 0],
+         (lambda d: [sum(len(b["rows"]) for b in d.values()), sum(1 for b in d.values() if b["rows"]), len(d[26]["rows"]), len(d[119]["rows"]), len(d[120]["rows"])])(_nested_isotopes())),
+        ("docs/ISOTOPES.md", "isotope instrument: 3,558 rows, height 295, width 18, E 0, 2,550 measured and 1,008 estimated, 62Ni the most bound",
+         [3558, 295, 18, 0, 2550, 1008, "62Ni"],
+         [(_tool_json("isotopes.py", ["--json"]) or {}).get("members"),
+          ((_tool_json("isotopes.py", ["--json"]) or {}).get("own_cell") or {}).get("height"),
+          ((_tool_json("isotopes.py", ["--json"]) or {}).get("own_cell") or {}).get("width"),
+          ((_tool_json("isotopes.py", ["--json"]) or {}).get("demand") or {}).get("E"),
+          ((_tool_json("isotopes.py", ["--json"]) or {}).get("census") or {}).get("measured"),
+          ((_tool_json("isotopes.py", ["--json"]) or {}).get("census") or {}).get("estimated"),
+          (((_tool_json("isotopes.py", ["--json"]) or {}).get("census") or {}).get("most_bound") or {}).get("name")]),
+        ("docs/WEB-INDEX.md", "site nuclides: 3,558 nuclides and 126 species in data/nuclides.js", [3558, 126],
+         [(_site_index().get("nuclides") or {}).get(k) for k in ("nuclides", "species")]),
+        ("docs/WEB-INDEX.md", "site bonds: three refusals, no channel empty", {"refusals": 3, "empty_channels": []},
+         (_site_index()["particle_index"] or {}).get("bonds")),
+        ("docs/WEB-INDEX.md", "site predictions: 4,919 demanded over 27 indexes, 21 predicting, 2,045 / 36 / 2,740 / 98",
+         {"total_E": 4919, "predicting": 21, "complete": 6, "totals": {"E": 4919, "forbidden": 2045, "unplaced": 36, "open": 2740, "undecided": 98}},
+         {k: v for k, v in (((_site_index()["particle_index"] or {}).get("predictions") or {}).items()) if k != "site_ghosts"}),
+        ("docs/WEB-INDEX.md", "site particle indexes: the accounting 6506 = 5880 + 54 + 572", "6506 = 5880 + 54 + 572",
+         ((_site_index()["particle_index"] or {}).get("accounting") or {}).get("identity")),
+        ("docs/WEB-INDEX.md", "site particle indexes: 550 charted of 572, 22 unplaced", [572, 550, 22],
+         [((_site_index()["particle_index"] or {}).get("accounting") or {}).get(k) for k in ("members", "charted", "unplaced")]),
+        ("docs/WEB-INDEX.md", "site particle sweep: 142 charts", 142,
+         ((_site_index()["particle_index"] or {}).get("sweep") or {}).get("charts")),
+        ("docs/WEB-INDEX.md", "site particle sweep: the seating, baryons (2I, Q3) at K5, 16 cells", "baryons (2I, Q3) at K5, 16 cells",
+         ((_site_index()["particle_index"] or {}).get("sweep") or {}).get("seated")),
+        ("docs/WEB-INDEX.md", "site particle indexes: antimatter 231 of 550", [231, 550],
+         [(((_site_index()["particle_index"] or {}).get("antimatter") or {}).get(k)) for k in ("total", "of_charted")]),
+        ("docs/WEB-INDEX.md", "site quasiparticles seated: 168 of twelve Laughlin states, 30 cells, K0", "fqh: 168 quasiparticles of 12 Laughlin states, 30 cells, K0",
+         (((_site_index()["particle_index"] or {}).get("quasiparticles") or {}).get("seated"))),
+        ("docs/WEB-INDEX.md", "site quasiparticles: the bosonic excitations, 15 members, 5 cells, K7", "bosonqp: 15 bosonic excitations, 5 cells, K7",
+         (((_site_index()["particle_index"] or {}).get("quasiparticles") or {}).get("bosons"))),
+        ("docs/WEB-INDEX.md", "site quasiparticles: the Read-Rezayi series, 363 primaries, 78 cells, K0", "readrezayi: 363 primaries of 11 levels, 78 cells, K0",
+         (((_site_index()["particle_index"] or {}).get("quasiparticles") or {}).get("nonabelian"))),
+        ("docs/WEB-INDEX.md", "site particles: absent from the public build (None)", None,
+         _site_index()["particles"]),
+        ("docs/WEB-INDEX.md", "site particles: constants of Lambda_phys (--with-particles)", 27,
+         _particles()["constants"]["count"]),
+        ("docs/WEB-INDEX.md", "site particles: the muon window in electron masses (--with-particles)", [119, 918],
+         _particles()["window"]["m_e"]),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY rows", 1168,
          len(_rows("PROSE-ONLY.tsv"))),
         ("docs/PROSE-ONLY.md", "PROSE-ONLY conversations", 194,
@@ -190,7 +391,7 @@ def checks():
         ("docs/RETRACTION-AUDIT.md", "LIVE-SUPERSEDED", 25,
          sum(1 for r in _rows("RETRACTION-AUDIT.tsv")
              if r["verdict"] == "LIVE-SUPERSEDED")),
-        ("docs/REGISTER-GAPS.md", "The Register entries", 1660, len(R)),
+        ("docs/REGISTER-GAPS.md", "The Register entries", 1661, len(R)),
         ("docs/REGISTER-GAPS.md", "Working Register entries", 119, len(W)),
         ("docs/REGISTER-GAPS.md", "registers seated in both (must be 0)", 0, len(R & W)),
         ("docs/REGISTER-GAPS.md", "numbering gaps", 132, len(gaps)),
@@ -221,7 +422,7 @@ def checks():
          _members_needing_312()),
         ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
          _unparseable_anywhere()),
-    ] + _instrument_rows()
+    ] + _instrument_rows() + _hosted()
 
 
 def _newest_python():
@@ -340,6 +541,51 @@ def _governance_prose_only():
     return 0 if seen > 100 else 1
 
 
+def _hosted():
+    """docs/GRAPH-HOSTED.md against HOSTED-GRAPH.tsv -- the one class of figure no
+    other check could see.
+
+    The hosted Graphify index is a SERVICE. Its numbers cannot be re-counted by a
+    stdlib program, so they are recorded by `hostedgraph.py` and the document is
+    pinned against the RECORD rather than against the live service. That direction
+    is deliberate and docs/GRAPH-HOSTED.md §7 argues it: pinning prose to a service
+    that rebuilds several times a day produces a check that is STALE more often
+    than not, and a check that cries wolf is a check nobody reads.
+
+    A STALE row here therefore means "the record moved and the prose did not",
+    which is a documentation fault of exactly the kind this instrument exists for.
+
+    The document carries its figures in a stamped indented block (§2). Parsing it
+    is how the two are kept to two places rather than three -- were the claimed
+    value hardcoded here, this file would be a third place to forget."""
+    sys.path.insert(0, str(ROOT / "tools"))
+    import hostedgraph
+    row = hostedgraph.latest()
+    doc = (ROOT / "docs/GRAPH-HOSTED.md").read_text(encoding="utf-8", errors="replace")
+    out = []
+    if row is None:
+        # No record is not a drift; it is an absence, and it is reported as one.
+        out.append(("docs/GRAPH-HOSTED.md", "a hosted measurement is on record",
+                    True, False))
+        return out
+    stamped = {}
+    for key in ("build", "commit", "nodes", "edges", "communities", "labels_paren"):
+        m = re.search(r"^ {4}%s +(\S+)$" % key, doc, re.M)
+        stamped[key] = m.group(1) if m else None
+    pairs = [("build", "build_id"), ("commit", "commit_sha"), ("nodes", "nodes"),
+             ("edges", "edges"), ("communities", "communities"),
+             ("labels_paren", "labels_paren")]
+    for dockey, tsvkey in pairs:
+        out.append(("docs/GRAPH-HOSTED.md",
+                    "hosted %s, document against record" % dockey,
+                    stamped[dockey], row[tsvkey]))
+    # the bound the document states in prose, recomputed from the record
+    d = hostedgraph.derived(row)
+    out.append(("docs/GRAPH-HOSTED.md", "hosted non-code bound stated in prose",
+                ("\u2264 %s" % f"{d['noncode_max']:,}") in doc, True))
+    return out
+
+
 def _instrument_rows():
     """Totals the instruments report, which their per-site selftests do not pin."""
     sites = _pointer_sites()
@@ -349,9 +595,9 @@ def _instrument_rows():
     pv = lambda v: sum(1 for s in sites if s["verdict"] == v)
     av = lambda v: sum(1 for c in claims if c["verdict"] == v)
     return [
-        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 1932, len(sites)),
+        ("docs/POINTERS.md", "pointer tokens, --roster with-companion", 1940, len(sites)),
         ("docs/POINTERS.md", "findings", 42, sum(1 for s in sites if _is_finding(s))),
-        ("docs/POINTERS.md", "RESOLVED", 1387, pv("RESOLVED")),
+        ("docs/POINTERS.md", "RESOLVED", 1395, pv("RESOLVED")),
         ("docs/POINTERS.md", "RESOLVED-HERE", 438, pv("RESOLVED-HERE")),
         ("docs/POINTERS.md", "AMBIGUOUS", 65, pv("AMBIGUOUS")),
         ("docs/POINTERS.md", "PARTIAL", 17, pv("PARTIAL")),

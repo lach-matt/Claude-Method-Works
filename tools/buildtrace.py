@@ -55,6 +55,15 @@ STORE = os.path.join(REPO, "method")
 
 # The live bundles, which are the newest members of the two streams.
 LIVE = {
+    "main": ("The_Method_1_6_BUILD91_main_and_register.md",
+             "7d056e31a931a3c6802eea739af91e0f"),
+    "compendia": ("The_Method_1_6_BUILD181_compendia_papers_audits.md",
+                  "78120e152d359972a214adbee7669e66"),
+}
+# The bundles the live ones superseded (R3 class CINF, 2026-09-24), kept in the store beside them.
+# BUILD90 is the newest main bundle the archive mirrors, so the store-against-archive check runs
+# on it: the live BUILD91 reverses to it under tools/r3_cinf.py's guard.
+PREVIOUS = {
     "main": ("The_Method_1_6_BUILD90_main_and_register.md",
              "49065309b0c4fe8e055f693aed295cca"),
     "compendia": ("The_Method_1_6_BUILD180_compendia_papers_audits.md",
@@ -540,6 +549,22 @@ def selftest(manifest, tree):
         else:
             print("  note: the archive does not mirror %s (the live %s "
                   "bundle); nothing to cross-check" % (fname, stream))
+    # The superseded bundles: where the store still holds one and the archive mirrors it, the two
+    # must agree byte for byte -- the witness for the live bundle is then the reverse guard.
+    for stream, (fname, want_md5) in sorted(PREVIOUS.items()):
+        store = os.path.join(STORE, fname)
+        rows = [b for b in series if os.path.basename(b.repo_path) == fname]
+        if not os.path.exists(store):
+            continue
+        checked += 1
+        got = md5_of(store)
+        if got != want_md5:
+            fails.append("the store's superseded %s is md5 %s; expected %s" % (fname, got, want_md5))
+        if rows:
+            checked += 1
+            if rows[0].md5 != want_md5:
+                fails.append("the archive's %s is md5 %s; the store's superseded bundle is %s "
+                             "-- store and witness disagree" % (fname, rows[0].md5, want_md5))
 
     print("fixtures checked: %d  failed: %d" % (checked, len(fails)))
     for f in fails:

@@ -1,0 +1,4 @@
+recorded_at	build_id	commit_sha	pipeline	model	nodes	edges	communities	labels_paren	labels_e	labels_e_code	note
+2026-09-06T16:04:00Z	93b5e258-5384-4b4f-98d1-6ed355275131	f5e46b4afe98c5f3f5b1c5b64ed7421c9ec8284a	production-v1	minishlab/potion-base-8M	15901	17626	3439	7919	10142	4104	first build observed this session
+2026-09-06T16:19:00Z	f4ba753a-f233-48fd-8ab8-6bfc6e91f7de	c5ff5ca8bb3281d4769544d789edf2fc59ae080d	production-v1	minishlab/potion-base-8M	16216	17690	3637	7942	10486	4127	rebuilt mid-session; commit was 5 behind main
+2026-09-06T16:29:00Z	f4fbeee4-d7cd-4b67-9b01-11f5046c8bcc	3f65d1715b6ffd15e47c9d20fe4ac7a44c91876a	production-v1	minishlab/potion-base-8M	16201	17673	3725	7971	10463	4165	third build in one session; nodes fell while communities rose

@@ -11,13 +11,20 @@ all works for the books
 | [`drive/The Method Prints & Proofs/`](drive/The%20Method%20Prints%20%26%20Proofs/) | Prints and proofs |
 | [`drive/MANIFEST.tsv`](drive/MANIFEST.tsv) | File-by-file inventory: repo path, Drive id, title, size, modified time, md5, status |
 
-**819 of the 823 Drive files are mirrored, every one verified by md5.**
+**822 of the 826 Drive files are mirrored: 819 verified against Drive's own md5, 3 adopted by another route (`ok-adopted`).**
 [`drive/MANIFEST.tsv`](drive/MANIFEST.tsv) inventories them; [`drive/PENDING.tsv`](drive/PENDING.tsv)
 lists the four still outstanding with a reason each. Two are the 370 MB `conversations.json` exports,
 which exceed GitHub's 100 MB per-file limit and need sharding rather than transferring. Two are
 same-folder duplicates of files already mirrored, reachable only by Drive id.
 
 See [`drive/README.md`](drive/README.md) for the detail.
+
+## The index as a website — [`public/`](public/)
+
+A zoomable reading of the index: the drawn periodic layout at the top, each element opening into its
+ions, channels and cells, every value badged with its status. `python3 tools/webindex.py` writes
+`public/data/` from the instruments; serve `public/` from any static host. See
+[`docs/WEB-INDEX.md`](docs/WEB-INDEX.md).
 
 ## Everything the mirror had sealed — [`extracted/`](extracted/)
 
@@ -103,6 +110,14 @@ it, each with a real contract and a self-check.
   transition cells of its ionisation ladder with the caps each one needs. Runs **both halves of the
   method equation** (register 1206) — ℛ places the cells, the channel equation values them. See
   [`docs/POPULATE.md`](docs/POPULATE.md).
+* [`tools/lowdin_walk.py`](tools/lowdin_walk.py) — the Löwdin solution's entrant walk,
+  **reconstructed**: the record's own chain (`THE-LOWDIN-SOLUTION-2.md` §II.2) with the
+  Koelling–Harmon equation and one constant, run in the record's own average-of-configuration
+  Hartree–Fock field (rebuilt from its statement; the record's code never arrived) and in a
+  local-exchange field beside it, at c = 137.035999 and c → ∞, into
+  [`LOWDIN-WALK.tsv`](LOWDIN-WALK.tsv). Every value is RECONSTRUCTED and placed beside the record's
+  READ result, never in its place; its selftest is exact hydrogenic and Dirac levels plus a
+  deliberate failure mode. See [`docs/LOWDIN-WALK.md`](docs/LOWDIN-WALK.md).
 
 Every one of them runs `--selftest`, whose fixtures are the corpus's own recorded numbers, and every
 one is stdlib-only so an audit can run it from any tree.

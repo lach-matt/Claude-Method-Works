@@ -519,7 +519,7 @@ def report(sites, only=None, limit_lines=6):
 
 def report_extent(sites, indexes):
     """A gap in the Register's numbering is only a defect if something cites
-    it. The extent is stated as a range; 1660 of the 1792 numbers in it carry a
+    it. The extent is stated as a range; 1661 of the 1793 numbers in it carry a
     ### entry, and an uncited absence is not a pointer failure. This lists the
     absences that ARE cited, with the citing sites."""
     reg = indexes.get(REGISTER_MEMBER)

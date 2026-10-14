@@ -1,0 +1,569 @@
+{
+ "byk": [
+  9,
+  8,
+  8,
+  11,
+  6
+ ],
+ "bys": [
+  6,
+  2,
+  2,
+  20,
+  12
+ ],
+ "byp": [
+  16,
+  10,
+  16
+ ],
+ "byp_f": [
+  15,
+  11,
+  16
+ ],
+ "breadth_sweep": [
+  11,
+  2,
+  1152
+ ],
+ "ORD_K": [
+  "size",
+  "count",
+  "energy",
+  "symmetry"
+ ],
+ "ORD_S": [
+  "the subvalence shell",
+  "the valence shell"
+ ],
+ "ORD_P": [
+  "A",
+  "C",
+  "P"
+ ],
+ "nclose_sv": 16,
+ "chem_orders": [
+  [
+   [
+    "count",
+    "size",
+    "symmetry",
+    "energy"
+   ],
+   [
+    "A",
+    "P",
+    "C"
+   ]
+  ],
+  [
+   [
+    "count",
+    "size",
+    "symmetry",
+    "energy"
+   ],
+   [
+    "A",
+    "C",
+    "P"
+   ]
+  ],
+  [
+   [
+    "count",
+    "size",
+    "energy",
+    "symmetry"
+   ],
+   [
+    "A",
+    "P",
+    "C"
+   ]
+  ],
+  [
+   [
+    "count",
+    "size",
+    "energy",
+    "symmetry"
+   ],
+   [
+    "A",
+    "C",
+    "P"
+   ]
+  ],
+  [
+   [
+    "size",
+    "count",
+    "symmetry",
+    "energy"
+   ],
+   [
+    "A",
+    "P",
+    "C"
+   ]
+  ],
+  [
+   [
+    "size",
+    "count",
+    "symmetry",
+    "energy"
+   ],
+   [
+    "A",
+    "C",
+    "P"
+   ]
+  ],
+  [
+   [
+    "size",
+    "count",
+    "energy",
+    "symmetry"
+   ],
+   [
+    "A",
+    "P",
+    "C"
+   ]
+  ],
+  [
+   [
+    "size",
+    "count",
+    "energy",
+    "symmetry"
+   ],
+   [
+    "A",
+    "C",
+    "P"
+   ]
+  ]
+ ],
+ "n_closed_sub14": 1482,
+ "sole": [
+  [
+   "centrifugal barrier",
+   "symmetry",
+   "the valence shell",
+   "P"
+  ],
+  [
+   "closed f shell n_f",
+   "count",
+   "the subvalence shell",
+   "A"
+  ],
+  [
+   "coordination number",
+   "count",
+   "the valence shell",
+   "A"
+  ],
+  [
+   "ionic radius",
+   "size",
+   "the valence shell",
+   "C"
+  ],
+  [
+   "lanthanide contraction",
+   "size",
+   "the subvalence shell",
+   "A"
+  ],
+  [
+   "oxidation states",
+   "count",
+   "the valence shell",
+   "C"
+  ],
+  [
+   "term symbol",
+   "symmetry",
+   "the valence shell",
+   "C"
+  ]
+ ],
+ "removal": {
+  "lanthanide contraction": [
+   0,
+   24
+  ],
+  "closed f shell n_f": [
+   0,
+   24
+  ],
+  "oxidation states": [
+   0,
+   4
+  ],
+  "coordination number": [
+   1,
+   0
+  ],
+  "ionic radius": [
+   0,
+   4
+  ],
+  "centrifugal barrier": [
+   1,
+   0
+  ],
+  "term symbol": [
+   1,
+   0
+  ]
+ },
+ "pairs_closable": 30,
+ "triples_closable": 16,
+ "barrier_energy": [
+  13,
+  1,
+  0,
+  288
+ ],
+ "fx20": 3449,
+ "own20": 7887,
+ "n14_fixed": 128,
+ "n14_own": 150,
+ "n14_some": 6432,
+ "n14_all": 1961256,
+ "fx24": 9115,
+ "own24": 27477,
+ "nc30": 5824,
+ "oc30": 8590,
+ "nc32": 29067,
+ "got_filled": [
+  [
+   14,
+   0
+  ],
+  [
+   16,
+   2
+  ],
+  [
+   21,
+   7
+  ],
+  [
+   22,
+   10
+  ],
+  [
+   27,
+   18
+  ]
+ ],
+ "got_held": [
+  [
+   13,
+   1
+  ],
+  [
+   15,
+   3
+  ],
+  [
+   20,
+   8
+  ],
+  [
+   21,
+   11
+  ],
+  [
+   26,
+   19
+  ]
+ ],
+ "visited_e": [
+  [
+   288,
+   144
+  ],
+  [
+   864,
+   432
+  ],
+  [
+   17280,
+   8640
+  ],
+  [
+   17280,
+   8640
+  ],
+  [
+   86400,
+   43200
+  ]
+ ],
+ "nA": 16,
+ "nB": 4,
+ "nc_alt": 4,
+ "four": [
+  "centrifugal barrier",
+  "term symbol",
+  "magnetic moment",
+  "paramagnetism"
+ ],
+ "nmin0": 20,
+ "ROUTE": [
+  [
+   "the 1.029 factor on t(l)",
+   "subshell radius",
+   "size",
+   "the valence shell",
+   "A",
+   "one subshell",
+   "one subshell"
+  ],
+  [
+   "no f corridor",
+   "centrifugal barrier",
+   "symmetry",
+   "the valence shell",
+   "P",
+   "a block",
+   "d and f only"
+  ],
+  [
+   "occupancy slope 0.021-0.243",
+   "subshell radius",
+   "size",
+   "the valence shell",
+   "A",
+   "one subshell",
+   "one subshell"
+  ],
+  [
+   "crossing charge 2,3,5",
+   "closed f shell n_f",
+   "count",
+   "the subvalence shell",
+   "A",
+   "a period",
+   "period 6, 7"
+  ]
+ ],
+ "dom_diff": [
+  [
+   "C′ = 1",
+   "all elements",
+   "low"
+  ]
+ ],
+ "region_to": [
+  [
+   "Seaton δ₂/δ₀",
+   "low"
+  ],
+  [
+   "h₀ collapse",
+   "low"
+  ]
+ ],
+ "pca_table": [
+  [
+   5,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   7,
+   1,
+   0,
+   0,
+   0
+  ],
+  [
+   0,
+   2,
+   5,
+   2,
+   4,
+   0
+  ]
+ ],
+ "pca_orders": [
+  [
+   [
+    "standard",
+    "mathematics",
+    "literature",
+    "this work"
+   ],
+   [
+    "universal",
+    "all elements",
+    "low",
+    "neutral",
+    "hydrogenic"
+   ]
+  ],
+  [
+   [
+    "standard",
+    "mathematics",
+    "literature",
+    "this work"
+   ],
+   [
+    "universal",
+    "all elements",
+    "low",
+    "hydrogenic",
+    "neutral"
+   ]
+  ]
+ ],
+ "ncm": 4,
+ "univ_first": 2,
+ "hyd_witness": [
+  "17/81",
+  "16/729"
+ ],
+ "grid": {
+  "0,0,0": [
+   "lanthanide contraction"
+  ],
+  "1,0,0": [
+   "closed f shell n_f"
+  ],
+  "1,1,2": [
+   "ground configuration",
+   "node count p",
+   "valence electron count"
+  ],
+  "1,1,1": [
+   "oxidation states"
+  ],
+  "1,1,0": [
+   "coordination number"
+  ],
+  "2,1,2": [
+   "ionisation energy",
+   "emission spectrum"
+  ],
+  "2,1,0": [
+   "electron affinity",
+   "colour of the ion"
+  ],
+  "2,1,1": [
+   "electronegativity",
+   "successive IEs"
+  ],
+  "0,1,2": [
+   "atomic radius",
+   "relativistic 7s"
+  ],
+  "0,1,1": [
+   "ionic radius"
+  ],
+  "0,1,0": [
+   "covalent radius",
+   "subshell radius"
+  ],
+  "3,1,2": [
+   "centrifugal barrier"
+  ],
+  "3,1,1": [
+   "term symbol"
+  ],
+  "3,1,0": [
+   "magnetic moment",
+   "paramagnetism"
+  ]
+ },
+ "closed_sizes14": {
+  "0": 1,
+  "1": 14,
+  "2": 70,
+  "3": 176,
+  "4": 270,
+  "5": 288,
+  "6": 242,
+  "7": 175,
+  "8": 114,
+  "9": 66,
+  "10": 37,
+  "11": 17,
+  "12": 8,
+  "13": 3,
+  "14": 1
+ },
+ "pca_names": {
+  "1,0": [
+   "R∞",
+   "R_M",
+   "a₀",
+   "α",
+   "m_e/m_p"
+  ],
+  "0,0": [
+   "2(2ℓ+1) Pauli",
+   "n−ℓ−1 nodes",
+   "ℓ(ℓ+1) centrifugal"
+  ],
+  "2,1": [
+   "Madelung n+ℓ",
+   "Janet boundary",
+   "aufbau order",
+   "ionisation limit",
+   "TF length Z^(−1/3)",
+   "Slater σ",
+   "Hund's rules"
+  ],
+  "2,3": [
+   "Seaton δ₂/δ₀"
+  ],
+  "3,1": [
+   "a amplitude",
+   "β = ⅔"
+  ],
+  "3,3": [
+   "h₀ collapse",
+   "C′ = 1",
+   "charge: c in u",
+   "charge: c^(-x) base",
+   "charge: c in x"
+  ],
+  "0,1": [
+   "bracket surds"
+  ],
+  "3,2": [
+   "charge: c in u",
+   "charge: c^(-x) base"
+  ],
+  "3,4": [
+   "charge: c in u",
+   "charge: c^(-x) base",
+   "charge: c in x",
+   "charge: c selects order"
+  ]
+ }
+}

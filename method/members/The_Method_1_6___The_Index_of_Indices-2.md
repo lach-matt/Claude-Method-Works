@@ -1879,7 +1879,7 @@ differences plus one endpoint — and the cypher separates them:
 | **Λ_ladder** | that a coordinate individuating the cells is a key, not an axis |
 | **Λ_xray** | thirty-three named lines are nine transition types |
 | **Λ_chain** | Λ's input column as a derived object — the order from the equation, one constant |
-| **Λ_cinf** | that the periodic table is not a solution of the non-relativistic equation |
+| **Λ_cinf** | that the periodic table's actinide opening is not a solution of the non-relativistic equation, and the rest of it is indifferent to c |
 | **Λ_V5** | every contested competition widens under correlation |
 | **Λ_j120** | Λ's falsification frontier, twelve rows wide |
 | **Λ₃** | masses enter through six numbers; structure is mass-free — the three-body factorisation, closed |
@@ -1930,16 +1930,17 @@ one constant, and the two agree everywhere Λ has an element.
 
 ## Λ_cinf — the counterfactual twin
 
-**What it holds.** The identical 107-row walk at c → ∞.
+**What it holds.** The identical walk at c → ∞, 119 rows; the 107-row table first
+held here had run at c = 137.035999 in restart mode and is withdrawn (register 1793).
 
 **Does it close?** As Λ_chain does, on itself.
 
 **Does it carry time?** Yes — the same move-cells as Λ_chain, in the same total order.
 
-**Role for Λ.** None as data, everything as contrast: **eleven of its entrants
-differ from Λ_chain's, and all eleven are wrong against nature.** It exists to
-state that Λ's subject is relativistic, and it is quarantined from every other
-use (register 1706).
+**Role for Λ.** None as data, everything as contrast: **three of its entrants
+differ from Λ_chain's — thorium, wrong against nature; rutherfordium, the observed
+channel; Z = 120, unwitnessed.** It exists to state where Λ's subject is
+relativistic, and it is quarantined from every other use (register 1793).
 
 ---
 

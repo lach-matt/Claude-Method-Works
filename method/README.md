@@ -8,8 +8,9 @@ tree, and nothing is fetched from Drive to open a chat.
 
 | Path | What it is |
 | --- | --- |
-| `The_Method_1_6_BUILD90_main_and_register.md` | Live main bundle — 1,983,081 B · `49065309b0c4fe8e055f693aed295cca` · 18,470 lines · 2 members |
-| `The_Method_1_6_BUILD180_compendia_papers_audits.md` | Live compendia bundle — 5,757,241 B · `ea5becc40e13debe4faaf6c7e0cde960` · 65,420 lines · 341 members |
+| `The_Method_1_6_BUILD91_main_and_register.md` | Live main bundle — 1,985,872 B · `7d056e31a931a3c6802eea739af91e0f` · 18,478 lines · 2 members (R3 class CINF, 2026-09-24: entry 1793 and §35's three sites; `docs/R3-CLASS-CINF.md`) |
+| `The_Method_1_6_BUILD181_compendia_papers_audits.md` | Live compendia bundle — 5,760,530 B · `78120e152d359972a214adbee7669e66` · 65,429 lines · 341 members (the same class: the paper, three compendia, W-190) |
+| `The_Method_1_6_BUILD90_main_and_register.md`, `…BUILD180_compendia_papers_audits.md` | The superseded bundles, kept beside the live ones until the author retires them — `49065309…`, `ea5becc4…`; `tools/r3_cinf.py`'s reverse guards recover both from the live bundles' bytes |
 | `members/` | All 343 members extracted from those two bundles, byte-exact. Instruments read these by name. |
 | `MEMBER-INDEX.tsv` | Per member: bundle, extension, size, md5, and byte offset in its bundle |
 | `verify.py` | The witness check — see below |
@@ -34,7 +35,7 @@ Two independent checks, and a mismatch is a hard failure that is reported, never
    is asserted. This is what makes the extracted tree a witness rather than a plausible copy: a tree
    that passes provably reproduces what the old Drive gate used to extract.
 
-Current state: `members checked: 343  mismatched: 0`, both bundles recovered, `VERIFY OK`.
+Current state: `members checked: 343  mismatched: 0`, both bundles (BUILD91, BUILD181) recovered, `VERIFY OK`.
 
 ## Running the gate
 

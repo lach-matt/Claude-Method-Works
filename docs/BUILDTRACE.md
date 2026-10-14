@@ -137,7 +137,7 @@ pure parts:
 | variants | `.REPAIRED`, `-1` and `__<driveFileId>` all parse, and `select()` never leaks one into the canonical series |
 | `count_in` at nine chunk sizes | a token straddling a chunk boundary is still counted — without the carried tail a 448 MiB scan silently loses roughly one occurrence per boundary |
 | `transitions()` | five count sequences, including absent-throughout (which must yield **nothing**, not a withdrawal that never happened) and a token withdrawn and reintroduced |
-| **store against archive** | the live main bundle in `method/` is byte-identical to the archive's mirror of BUILD90 — md5 `49065309…`, 1,983,081 B — so the store of record and the original-input witness of Ruling 56 agree |
+| **store against archive** | the live main bundle is BUILD91 (md5 `7d056e31…`, R3 class CINF, 2026-09-24), which the archive does not mirror; the superseded BUILD90 kept beside it in `method/` is byte-identical to the archive's mirror — md5 `49065309…`, 1,983,081 B — and BUILD91 reverses to it under `tools/r3_cinf.py`'s guard, so the store of record and the original-input witness of Ruling 56 still agree |
 | the dated withdrawal | `Theorem 7.1` twice in BUILD10 and once in BUILD54 |
 
 Current state: `SELFTEST OK`.

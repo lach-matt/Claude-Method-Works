@@ -1,0 +1,158 @@
+file	chat	seq	lines	cut	contiguous	lines_found
+nlchain.py	LCP46	51	1-120		yes	120/120
+nlchain.py	LCP46	70	120-138		yes	19/19
+nlchain.py	LCP47	29	1-60		yes	60/60
+nlchain.py	LCP47	48	1-60		yes	60/60
+nlchain.py	LCP48	28	1-40		yes	40/40
+nlchain.py	LCP49	16	1-60		yes	60/60
+nlchain.py	LCP51	27	1-end		yes	139/139
+nlchain.py	LCP52	48	1-40		yes	40/40
+nlchain.py	LCP52	51	55-80		yes	26/26
+nlchain.py	LCP57	28	1-40		yes	40/40
+nlchain.py	LCP58	26	1-30		yes	30/30
+nlchain.py	LCP58	31	56-85		yes	30/30
+nlchain.py	LCP59	13	1-45		yes	45/45
+nlchain.py	LCP59	14	45-100		yes	56/56
+nlchain.py	LCP60	20	1-end		yes	139/139
+nlchain.py	LCP61	14	1-140		yes	139/139
+nlchain.py	LCP62	31	20-100		yes	81/81
+nlchain.py	LCP71	51	107-130		yes	24/24
+nlchain.py	LCP74	22	56-100		yes	45/45
+nlchain.py	LCP80	38	56-130		yes	75/75
+nlchain.py	LCP88	11	56-79		yes	24/24
+nlchain.py	LCP88	12	21-55		yes	35/35
+nlchain.py	LCP91	7	1-60		yes	60/60
+nlchain.py	LCP94	16	29-60		yes	32/32
+hfc2.py	LCP27	33	10-20		yes	11/11
+hfc2.py	LCP28	34	14-38	260	yes	25/25
+hfc2.py	LCP28	52	12-40		yes	29/29
+hfc2.py	LCP33	53	39-44	200	yes	6/6
+hfc2.py	LCP33	53	70-77	200	yes	8/8
+hfc2.py	LCP35	62	74-79	200	yes	6/6
+hfc2.py	LCP38	49	40-70		yes	31/31
+hfc2.py	LCP39	26	40-75		yes	36/36
+hfc2.py	LCP40	34	1-89		yes	89/89
+hfc2.py	LCP41	100	48-60		yes	13/13
+hfc2.py	LCP45	37	30-80		yes	51/51
+hfc2.py	LCP51	28	1-30		yes	30/30
+hfc2.py	LCP57	33	80-90		yes	11/11
+hfc2.py	LCP58	27	12-45		yes	34/34
+hfc2.py	LCP58	35	45-60		yes	16/16
+hfc2.py	LCP60	21	1-end		yes	90/90
+hfc2.py	LCP74	48	47-70		yes	24/24
+hfc2.py	LCP75	19	25-75		yes	51/51
+hfc2.py	LCP76	14	45-60		yes	16/16
+hfc2.py	LCP76	31	1-44		yes	44/44
+hfc2.py	LCP77	17	39-75		yes	37/37
+hfc2.py	LCP77	22	75-89		yes	15/15
+hfc2.py	LCP78	25	1-38		yes	38/38
+hfc2.py	LCP89	11	1-end		yes	90/90
+hfc2.py	LCP90	19	20-80		yes	61/61
+hfc2.py	LCP91	42	20-34	240	yes	15/15
+hfc2.py	LCP91	43	1-19	200	yes	19/19
+hfc2.py	LCP91	45	34-36	300	yes	3/3
+hfc2.py	LCP91	46	36-40	300	yes	5/5
+hfc2.py	LCP92	24	1-80	240	yes	80/80
+hfc2.py	LCP97	47	26-75		yes	50/50
+t7c_hfsr.py	LCP24	39	1-6	500	yes	6/6
+t7c_hfsr.py	LCP24	52	6-60	260	yes	55/55
+t7c_hfsr.py	LCP25	71	7-12	200	yes	6/6
+t7c_hfsr.py	LCP38	53	30-70		yes	41/41
+t7c_hfsr.py	LCP39	28	32-60		yes	29/29
+t7c_hfsr.py	LCP39	57	58-80		yes	19/19
+t7c_hfsr.py	LCP40	36	39-80		yes	38/38
+t7c_hfsr.py	LCP40	42	1-9		yes	9/9
+t7c_hfsr.py	LCP60	23	1-80		yes	76/76
+t7c_hfsr.py	LCP74	51	1-30		yes	30/30
+t7c_hfsr.py	LCP75	38	38-80		yes	39/39
+t7c_hfsr.py	LCP76	14	55-80		yes	22/22
+t7c_hfsr.py	LCP77	17	65-80		yes	12/12
+t7c_hfsr.py	LCP97	52	8-30		yes	23/23
+t7b_hf.py	LCP26	73	120-140		yes	21/21
+t7b_hf.py	LCP26	73	155-172		yes	18/18
+t7b_hf.py	LCP38	55	33-48		yes	16/16
+t7b_hf.py	LCP40	41	105-108		yes	4/4
+t7b_hf.py	LCP59	12	1-60		yes	60/60
+t7b_hf.py	LCP59	12	100-125		yes	26/26
+t7b_hf.py	LCP60	24	1-24		yes	24/24
+t7b_hf.py	LCP70	21	20-40		yes	21/21
+t7b_hf.py	LCP90	41	95-135		yes	41/41
+t7c_kernel.py	LCP16	90	86-90	160	yes	5/5
+t7c_kernel.py	LCP18	42	110-126	160	yes	17/17
+t7c_kernel.py	LCP20	73	98-110		yes	13/13
+t7c_kernel.py	LCP27	39	86-120		yes	35/35
+t7c_kernel.py	LCP51	25	1-127		yes	127/127
+t7c_kernel.py	LCP59	10	80-110		yes	31/31
+t7c_kernel.py	LCP60	22	1-end		yes	128/128
+t7c_kernel.py	LCP97	39	80-95		yes	16/16
+t7c_kernel.py	LCP97	51	19-40		yes	22/22
+t5_scf.py	LCP15	12	1-45		yes	36/36
+t5_scf.py	LCP16	52	1-end		yes	36/36
+t5_scf.py	LCP16	55	1-end		yes	36/36
+t5_scf.py	LCP19	26	1-22		yes	22/22
+t5_scf.py	LCP20	25	20-30		yes	11/11
+t5_scf.py	LCP27	39	6-22		yes	17/17
+t5_scf.py	LCP32	56	1-25	200	yes	25/25
+t5_scf.py	LCP34	33	1-5	200	yes	5/5
+t5_scf.py	LCP34	33	20-30	200	yes	11/11
+t5_scf.py	LCP35	37	1-35	200	yes	35/35
+t5_scf.py	LCP51	26	1-end		yes	36/36
+t5_scf.py	LCP60	24	1-end		yes	36/36
+hfs.py	LCP7	33	45-60	120	yes	16/16
+hfs.py	LCP7	34	60-80	120	yes	21/21
+hfs.py	LCP8	19	1-50		yes	50/50
+hfs.py	LCP15	12	25-45		yes	21/21
+hfs.py	LCP16	53	1-45		yes	45/45
+hfs.py	LCP16	56	28-44		yes	17/17
+hfs.py	LCP33	39	30-42	200	yes	13/13
+hfs_pol.py	LCP8	16	1-60		yes	53/53
+hfs_pol.py	LCP15	28	6-47		yes	42/42
+hfs_sic.py	LCP15	37	1-21		yes	21/21
+hfs_sic.py	LCP15	37	34-120		yes	58/58
+hfs_sic.py	LCP35	41	36-50	200	yes	15/15
+hfs_sic.py	LCP35	42	66-95	220	yes	26/26
+step2_run.py	LCP4	32	39-80		yes	42/42
+step2_run.py	LCP5	13	60-80		yes	21/21
+step2_run.py	LCP6	14	55-95		yes	41/41
+step2_run.py	LCP6	31	95-130		yes	14/14
+rad.py	LCP3	12	1-35		yes	35/35
+rad.py	LCP5	9	1-end		yes	38/38
+tfd.py	LCP3	12	1-end		yes	38/38
+tfd.py	LCP5	9	1-end		yes	38/38
+tfd.py	LCP6	40	1-end		yes	38/38
+tfd.py	LCP10	8	1-60		yes	38/38
+tfd.py	LCP11	40	11-40		yes	28/28
+tfd.py	LCP14	10	1-end		yes	38/38
+tfd.py	LCP51	26	1-25		yes	25/25
+eigen_fix.py	LCP10	9	1-40		yes	40/40
+eigen_fix.py	LCP11	40	16-30		yes	15/15
+derive_P.py	LCP6	40	1-48		yes	48/48
+derive_P.py	LCP8	69	1-30	200	yes	30/30
+ground.py	LCP38	33	1-5		yes	5/5
+ground.py	LCP70	50	1-20		yes	20/20
+ground.py	LCP71	54	1-40		yes	40/40
+nlguard.py	LCP46	29	1-80		yes	80/80
+nlguard.py	LCP47	54	90-130		yes	41/41
+nlguard.py	LCP53	14	1-90		yes	90/90
+nlguard.py	LCP60	21	1-end		yes	135/135
+nlguard.py	LCP61	59	1-60		yes	60/60
+nlguard.py	LCP61	60	60-95		yes	36/36
+nlguard.py	LCP81	12	1-53		yes	53/53
+t7c_cuaudit.py	LCP23	33	1-134	170	no	131/134
+t7c_cuaudit.py	LCP24	20	1-52		no	49/52
+t7c_cuaudit.py	LCP25	72	20-45	200	no	23/26
+t7c_cuaudit.py	LCP28	95	24-48	200	yes	25/25
+t7c_cuaudit.py	LCP29	41	15-45	230	yes	31/31
+t7c_cuaudit.py	LCP68	15	1-30		yes	30/30
+ring_zeta.py	LCP28	90	1-12	200	yes	12/12
+ring_zeta.py	LCP28	92	14-26	220	yes	12/12
+ring_zeta.py	LCP30	33	1-40		yes	25/25
+shoot.c	LCP4	31	1-40		yes	17/17
+shoot.c	LCP15	19	1-30		yes	17/17
+shoot_sr.c	LCP60	22	1-end		yes	17/17
+shoot_x.c	LCP20	33	1-end		yes	26/26
+nlcfg.py	LCP50	37	36-60		yes	25/25
+cinf.py	LCP51	13	1-end		yes	58/58
+cinf.py	LCP57	30	1-60		yes	58/58
+cinf2.py	LCP58	4	1-40		yes	40/40
+runsealed.py	LCP57	12	1-60		yes	60/60
