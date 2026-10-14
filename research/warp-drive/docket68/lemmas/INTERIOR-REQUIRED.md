@@ -108,6 +108,8 @@ both, three ways:
 - **Time:** generating the rescaled equations (the record's `gen_*.py` take a few minutes), then one run, stopped at
   20 minutes.
 - **Cost:** small next to the runs at 365-367.
+  *[Item 410, beside the text: these thresholds were the board's own choice, carried over from the record's practice,
+  and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours".]*
 
 Its result decides whether the second half is run.
 

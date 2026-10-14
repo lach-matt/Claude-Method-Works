@@ -453,6 +453,9 @@ order along the saved steps, as `rescaled.py` does (`zeno_run.py reassess`, no r
 | -2.006 | 6.4 | x = 0.500 | 4.7e-4 | 3.4e-4, 4.4e-3, 3.3e-3, 2.7e-4 |
 
 **Verdict: FAIL** (phi 6.4 > 1e-4; tails up to 4.4e-3 > 1e-6). So the second half is not run (item 393).
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 What the failure locates (computed from the saved run):
 - **The brane is resolved.** phi there stays at or below 5e-4 through s = -2, where B5's single grids grew. The halving
@@ -519,6 +522,9 @@ starts at the brane node, x = 1 (phi 9e31 there at the stop).
 
 **Verdict: FAIL**, earlier than item 393's. The run printed "pass: True", read from the restart slice alone, because the
 board's check did not require the half's end. Fixed: a pass now needs status 0 and the criterion at the end.
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 The cause is the one the model check predicted. The coupling's spread from the last interface reaches the brane node,
 which the record's Israel rows fix algebraically. In item 393 the derivative-continuity joining left that node alone,
@@ -575,6 +581,9 @@ nearly linearly (min A 0.073 at s = -0.50, 0.027 at -0.70, 0.013 at -0.75), its 
 0.22, and it was resolved there (tails 1e-8 to 1e-7). The other fields were healthy (T, B, S > 0).
 
 **Verdict: FAIL** -- the half's end was not reached, and the tails (3.3e-6) were above 1e-6. The second half is not run.
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 **What is not known: whether A -> 0 is the solution or the scheme.** g_ss -> 0 means the DeTurck s-slicing degenerates
 there, a coordinate matter (B6 found the chart ends at finite proper time). But the record's single-grid runs reached
@@ -744,6 +753,10 @@ Computed, from the saved steps:
   spacelike: the coordinate light cones narrow as the chart's end approaches (B6). That is what Zeno's halves are for.
 - B6's ratios have not settled yet: T/u on the axis falls 0.124, 0.104, 0.088, 0.076, 0.067 over the half.
 
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
+
 What a fifth attempt would change, for M: halve toward the axis as well -- the axis part split as [0, 1/16] folded and
 [1/16, 1/8], with more points there -- which is item 392's mesh halved toward both ends. The rest unchanged; the same
 half, question, criterion and 20-minute stop.
@@ -769,6 +782,10 @@ against 1e-4). The tails pass everywhere (9.1e-7 at most). Computed, from the sa
   joining failing to stitch: the jumps across every joining stay small (fields <= 1.9e-5, slopes <= 6.2e-5, relative).
   And it is not resolution: every part's tail is <= 9.1e-7.
 - B6's ratios still drift over the half (T/u on the axis 0.124 to 0.066); the two attempts agree on them to 0.5 %.
+
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 Not yet known: why the DeTurck vector grows at x = 1/8 in the half's last stretch. That can be read from the saved
 steps without a run (which component, and its rate against the damping kap = 4 as the coordinate light cones narrow);
@@ -1100,6 +1117,9 @@ just above its 1e-10 tolerance. Continued to s = -0.002, max |xi^s| is 1.4e-5, 6
   N = 20 to 32. The continued value grows from N = 20 on.
 - **What does hold:** C_tt stays at 1e-11 or below. The tt equation's horizon limit is satisfied without being imposed,
   so the horizon's regularity as derived is consistent with the solution.
+
+*[Item 410, beside the text: this criterion too was the board's own -- convergence of the method -- and not derived from
+what O1b and O1c need.]*
 
 **Where the near-null pair lives** (computed, `horizon_fw.py --modes`, from the saved solutions).
 - **The right vector (which fields):** F, spread over the interior (0.34 to 0.38 of the weight) and along the axis (0.13
