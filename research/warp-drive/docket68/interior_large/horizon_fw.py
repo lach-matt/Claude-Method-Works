@@ -27,6 +27,9 @@ python3 horizon_fw.py [N ...]       -- solve at each N (default 16 20 24 28 32):
                                        row-then-column equilibrated (2-norms), the null-most mode, xi exactly at the
                                        fixed points static_conv used, C_tt, R4; HORIZON-FW.tsv
 python3 horizon_fw.py --record N .. -- the same singular-value measurement on the record's Radau solver
+python3 horizon_fw.py --modes N ..  -- at the saved solutions (HFW_DIR): the null-most pair's right vector (which fields,
+                                       where) and left vector (which rows nearly depend), by field and node class, and
+                                       the four rows of the cell next to (s, x) = (1, 1) taken alone
 python3 horizon_fw.py --selftest | --mutants
 """
 import sys, os, time, random
@@ -317,6 +320,47 @@ def run(Ns, b=1.0, out="HORIZON-FW.tsv"):
         Gp, Up = G, U
     return lines
 
+def node_class(sv, xv):
+    if abs(sv - 1) < 1e-14:
+        return "top"
+    if abs(xv) < 1e-14:
+        return "axis-corner" if abs(sv) < 1e-14 else "axis"
+    if abs(xv - 1) < 1e-14:
+        return "brane-corner" if abs(sv) < 1e-14 else "brane"
+    return "horizon" if abs(sv) < 1e-14 else "interior"
+
+def modes(Ns, b=1.0):
+    """the null-most singular pair of the equilibrated Jacobian at each saved solution, summed by (field or row, node
+    class); and the T and S rows at (s_{N-1}, x_N) and (s_{N-1}, x_{N-1}) -- the brane's K_tt, K_thth and the interior
+    tt, thth beside them, the rows the left vector names -- taken alone, rows scaled to unit length"""
+    H = Rows(); where = os.environ.get("HFW_DIR", "."); out = {}
+    for N in Ns:
+        G = setup(N); n = len(G["S"]); U = np.load(os.path.join(where, "hfw_bt%g_%d.npy" % (b, N)))
+        R, J = residual_and_jac(G, U, b, H)
+        M = J / np.linalg.norm(J, axis=1)[:, None]; M = M / np.linalg.norm(M, axis=0)[None, :]
+        Uu, sv, Vt = np.linalg.svd(M); rec = {"sigma": sv[-1]}
+        for lab, vec in (("right", Vt[-1]), ("left", Uu[:, -1])):
+            tot = {}
+            for idx, w in enumerate(vec ** 2):
+                e, i = divmod(idx, n); key = "%s@%s" % ("TSABF"[e], node_class(G["S"][i], G["X"][i]))
+                tot[key] = tot.get(key, 0) + w
+            rec[lab] = sorted(tot.items(), key=lambda t: -t[1])[:6]
+            j = np.argsort(-vec ** 2)[:4]
+            rec[lab + "_at"] = [("TSABF"[k // n], G["S"][k % n], G["X"][k % n], vec[k] ** 2) for k in j]
+        rows = []
+        for xi_ in (N, N - 1):
+            i = (N - 1) * (N + 1) + xi_; rows += [J[i], J[n + i]]
+        B = np.array(rows); B = B / np.linalg.norm(B, axis=1)[:, None]
+        rec["block"] = np.linalg.svd(B, compute_uv=False)
+        out[N] = rec
+        print("N = %d: sigma_min %.3e" % (N, sv[-1]), flush=True)
+        for lab in ("right", "left"):
+            print("    %-5s %s" % (lab, "  ".join("%s %.2f" % kv for kv in rec[lab])), flush=True)
+            print("          largest at %s" % "  ".join("%s(%.4f, %.3f) %.2f" % q for q in rec[lab + "_at"]), flush=True)
+        print("    the four rows next to (1, 1) alone: singular values %s" % " ".join("%.2e" % q for q in rec["block"]),
+              flush=True)
+    return out
+
 def record(Ns, b=1.0):
     """the record's Radau solver, measured the same way (sigma), from ones at the first N, regridded after"""
     import solver_fw as SF
@@ -412,6 +456,8 @@ if __name__ == "__main__":
         sys.exit(0 if selftest() else 1)
     if a and a[0] == "--mutants":
         sys.exit(0 if mutants() else 1)
+    if a and a[0] == "--modes":
+        modes([int(v) for v in a[1:]] or [16, 20, 24, 28, 32]); sys.exit(0)
     if a and a[0] == "--record":
         record([int(v) for v in a[1:]] or [16, 20, 24, 28, 32]); sys.exit(0)
     run([int(v) for v in a] or [16, 20, 24, 28, 32])
