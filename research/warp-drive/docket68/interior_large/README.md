@@ -617,3 +617,94 @@ What a fourth attempt would change, for M:
 
 An observation, not a finding: the record's own runs lost x-resolution after about s = -1 (B5). Whether that relates to
 this region, where both characteristics run one way, is not examined here.
+
+## Item 397: the fourth attempt -- a joining that holds where a < 0 (2026-10-14)
+
+M approved, at 397, a joining that does not assume a > 0, checked first on the model with a crossing zero, then the
+same half. Both constructions below are built on p = X_s - b X_x, the derivative along the slices' normal. In it the
+same equation reads X_s = p + b X_x, p_s = c^2 X_xx + b p_x, with c^2 = b^2 + a, and the energy |p|^2 + c^2 |X_x|^2 is a
+norm wherever c^2 > 0 (the metric Lorentzian), whatever the sign of a. `zeno_char_check.py` holds both and the model
+check (selftest 5/5, mutants 4/4).
+
+**First construction, the board's own -- it failed, kept as written.**
+- Point and D^T e liftings on p_s and a point lifting on X_s, with the energy corrected by J_u times the end slopes and
+  by J_u^2. Solved for symbolically, the member whose energy is exactly conserved apart from the damping is unique.
+- It forces tau onto the norm's threshold, tau = c^2 (h_L + h_R)/(4 h_L h_R), so the corrected energy is only
+  semi-definite.
+- With varying coefficients that shows up as modes growing like 1/h. Even with b = 0, where it is item 394's coupling
+  at tau* instead of 1.2 tau*, the growth on a bump of a is 1.3, 2.5 and 4.8 at n = 8, 16 and 32, against 0.00-0.06 at
+  1.2 tau*. And at 1.2 tau* the exactness is lost once b is nonzero (5.5 at n = 32).
+- A wider family (jump-quadratic energy corrections, more liftings) was set up for a symbolic solve; it is bilinear in
+  the unknowns and was stopped once the literature gave the construction below.
+
+**Second construction, from the literature.** Duru, Wang and Wiratama, "A conservative and energy stable discontinuous
+spectral element method for the shifted wave equation in second order form" (arXiv:2107.05770; SIAM J. Numer. Anal.
+2022) treat exactly this equation, in subsonic, sonic and supersonic regimes. Their shift a and coefficient b are our b
+and c^2; their c = b - a^2 is our a.
+- **The penalised derivative** Dt = D - (1/2) H^-1 B^, where B^ puts the jump u_L - u_R at both copies of each joining.
+  It is skew in H apart from the outer ends.
+- **The principal part in their adjoint form**, with W = X_s - b Dt X:
+  X_ss = b Dt X_s + Dt(b W) + Dt(c^2 Dt X), less b_x X_s + a_x Dt X, which returns it to the record's a X_xx + 2 b X_sx.
+- **Its energy** |W|^2_H + |Dt X|^2_(c^2 H) is a strict norm wherever c^2 > 0, because the jump in X sits inside Dt X at
+  the joining nodes. For constant coefficients it is exactly conserved, for either sign of a.
+- **Added by the board:** the jump in W is damped along the evolution, X_ss -= gam J_W/h_L at the left copy and
+  += gam J_W/h_R at the right, gam = GAM_SIGN c/2, built on c = (lambda+ - lambda-)/2. Without it a central-flux mode
+  grows at 1.24-1.27 on the a > 0 model at every n.
+
+**The model.** u_ss = a u_xx + 2 b u_sx + F, the axis folded away and the far end weak, as in the interior.
+- **b** = 2x(1 - x^2)^2: odd, and zero with zero slope at x = 1, as the interior's g_sx ~ x F is.
+  - The first model's b = sin(pi x) has slope -pi at x = 1. It put a +-pi/2 mode there in every scheme, which says
+    nothing about the joining.
+- **cross2:** a band of a < 0 (down to -0.139, with c^2 >= 0.043) opens and closes over the joining at x = 1/4 every 10
+  in s. At its widest it spans [0.193, 0.297]. Both speeds then point the same way across that joining, as at the
+  interior's zero at x = 0.23.
+  - The band is even about the axis, as the interior's a is. A first bump at x = 1/4 alone was not even, and the folded
+    part's derivative of a was wrong by 0.43 at every n: the board's model error, caught by the selftest's
+    consistency check.
+- **pos2:** the same band with a kept positive, so that item 394's coupling can be set beside it.
+
+Computed:
+- The energy identity holds to 1e-13 for a of either sign, including at a sonic and at a supersonic joining.
+- Dt is skew to 2e-15.
+- The principal operator matches a u_xx + 2 b u_sx to 6e-7 at n = 12 on smooth data.
+
+| growth rate, frozen at s = 5 (n = 8 / 16 / 32) | item 394-395 | first construction | penalised derivative |
+|---|---|---|---|
+| wave2, forward | 0.05 / 0.05 / 0.28 | 0.05 / 0.05 / 0.09 | 0.04 / 0.05 / 0.05 |
+| wave2, backward | 0.01 / 1.19 / 0.87 | 0.01 / 0.27 / 0.01 | 0.01 / 0.01 / 0.68 |
+| pos2, forward | 0.12 / 0.12 / 0.45 | 0.12 / 0.70 / 1.33 | 0.12 / 0.12 / 0.22 |
+| pos2, backward | 0.06 / 1.19 / 0.88 | 0.36 / 0.34 / -0.00 | 0.04 / 0.05 / 0.00 |
+| cross2, forward | -- (needs a > 0) | 1.58 / 2.11 / 2.80 | 1.09 / 0.36 / 1.94 |
+| cross2, backward | -- | 2.71 / 2.97 / 3.00 | 0.47 / 0.54 / 0.47 |
+
+The frozen-time spectra are a guide only: the band changes in time, and the cross2 forward rates do not settle with n.
+The runs decide. With t = -s, the interior is the forward case with b > 0: its b is negative and it evolves toward
+decreasing s.
+
+Runs to |s| = 40 against the exact solution (four openings of the band); error at |s| = 10, 20 and 40:
+
+| model | joining | direction | n | error 10 / 20 / 40 |
+|---|---|---|---|---|
+| wave2 | penalised | forward | 12 | 5.3e-14 / 7.1e-14 / 7.5e-14 |
+| wave2 | penalised | backward | 12 | 2.1e-14 / 6.8e-14 / 4.8e-14 |
+| pos2 | item 394-395 | forward | 12 | 1.5e-12 / 6.2e-13 / 8.4e-12 |
+| pos2 | item 394-395 | backward | 12 | 2.3e-12 / 6.1e-12 / 1.7e-11 |
+| pos2 | penalised | forward | 12 | 6.0e-10 / 2.0e-9 / 2.5e-9 |
+| pos2 | penalised | backward | 12 | 2.2e-10 / 6.1e-10 / 1.0e-9 |
+| cross2 | penalised | forward | 8 | 3.6e-2 / 9.3e-2 / 9.4e-2 |
+| cross2 | penalised | forward | 12 | 1.1e-4 / 3.4e-4 / 7.1e-4 |
+| cross2 | penalised | forward | 16 | 6.9e-8 / 1.2e-7 / 4.8e-8 |
+| cross2 | penalised | backward | 8 | 3.8e-3 / 2.3e-2 / 5.4e-2 |
+| cross2 | penalised | backward | 12 | 1.0e-6 / 8.5e-6 / 3.0e-5 |
+| cross2 | penalised | backward | 16 | 2.0e-8 / 2.5e-8 / 2.8e-8 |
+
+All status 0. Computed:
+- **Where a < 0 opens across a joining, the penalised joining converges spectrally and holds the error flat to
+  s = 40 at n = 16**, in both directions (1.5e-7 forward, 4.3e-8 backward at most).
+- At n = 12 the error creeps, and at n = 8 the band is not resolved. Resolution, not growth: the error falls 130x and
+  then 1.5e4x per four more points.
+- Where a stays positive, item 394's coupling is the more accurate (1e-11 against 1e-9 at n = 12). The penalised form
+  needs the coefficients' x-derivatives by collocation. Both are flat.
+
+**Verdict on the model: PASS** at n = 16 per part across the band. The half is run with more points where the zero of
+a moves: parts of 14, 16, 14, 10 and 14 intervals after the folded axis part's 15.

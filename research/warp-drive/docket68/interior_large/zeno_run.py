@@ -27,7 +27,7 @@ STATIC = dict(file=C.static_file(B, 24, 24), Ns=24, Nx=24)
 TRUSTED = "zeno_trusted_28.pkl"
 WALL = 20 * 60.0
 SAT_N0, SAT_NS = 15, (10, 10, 10, 10, 14)        # item 394: the axis part and the brane part given more points
-DSEM_NS = (12, 14, 14, 10, 14)    # item 397: more points where the third attempt's tails were worst
+DSEM_NS = (14, 16, 14, 10, 14)    # item 397: more points where the tails were worst and the zero of a moves
 GAM_SIGN = -1.0     # the jump damping acts along the evolution, toward decreasing s (spectrum check, item 395)
 
 
