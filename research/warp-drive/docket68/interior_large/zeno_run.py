@@ -265,8 +265,13 @@ def half(n=12, mesh="sat"):
         pickle.dump(dict(status=status, msg=msg, took=took), open("zeno_half_%s_%d.pkl" % (mesh, n), "wb"))
         return
     I.lastbr = T["br"].copy()                                  # march the brane root from the restart, in order
-    log = assess_steps(I, sol.t, sol.y, [lam1] + marks, P)
-    ok = bool(log) and log[-1]["phi"] <= 1e-4 and log[-1]["tail"] <= 1e-6
+    reached = [l for l in [lam1] + marks if l <= sol.t[-1] + 1e-12]
+    if sol.t[-1] < lam2 - 1e-9:
+        reached.append(sol.t[-1])                              # stopped early: assess where it stopped
+    log = assess_steps(I, sol.t, sol.y, reached, P)
+    # a pass needs the half's end reached (status 0, the last mark at lam2), then the criterion there
+    ok = (status == 0 and bool(log) and abs(log[-1]["lam"] - lam2) < 1e-9 and log[-1]["phi"] <= 1e-4
+          and log[-1]["tail"] <= 1e-6)
     print("half: status %d (%s), %d steps, %d evaluations, %.0f s; pass: %s" % (status, msg, len(sol.t), state["n"],
                                                                            took, ok), flush=True)
     pickle.dump(dict(status=status, msg=msg, took=took, log=log, ok=ok, n=n, t=sol.t, y=sol.y, mesh=mesh),

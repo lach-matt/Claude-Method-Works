@@ -120,3 +120,12 @@ Its result decides whether the second half is run.
 
 The second half is not run. A second attempt at the same half would halve toward both ends, give the axis part more
 points, and couple the parts by penalty. It is for M to approve.
+
+**Item 394: approved, checked, run -- it failed earlier** (`interior_large/README.md`, "Item 394").
+- **The joining, checked on a known solution.** The coupling derived from the discrete energy, with the axis folded away
+  (all fields are even in x), is strictly stable. It holds the error at 2.5e-13 to s = 40, where item 393's joining
+  grows to 1e93 and the single grid to 27.
+- **The interior run.** It held to s = -0.54, then blew up from s = -0.56, at the brane node. The coupling's spread
+  reaches that node, and the record's Israel rows fix it algebraically. The model check had shown that an algebraic
+  slope condition at an end node is unstable in this scheme.
+- **The next fix, for M:** impose the brane conditions weakly, in the same energy form. The second half is not run.

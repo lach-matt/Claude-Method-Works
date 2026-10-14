@@ -742,6 +742,19 @@ state was rebuilt first.
 - **The board's own error, corrected.** The first evaluation solved the brane from the end state and found the spurious
   root the record warns of. Re-assessed by marching it in order, with no rerun.
 
+**Item 394: the joining fixed on a known solution; the second attempt failed at the brane**
+(`interior_large/zeno_interface_check.py`, `zeno_run.py` FoldedSAT; `interior_large/README.md`, "Item 394").
+- **The check.** On a wave problem with the interior's structure and a known answer, item 393's joining grows to 10⁹³ and
+  the single grid to 27 by s = 40. A coupling derived from the discrete energy, with the axis folded away, is strictly
+  stable and keeps the error at 2.5×10⁻¹³. Two of the board's slips were found and fixed on the way: the characteristics'
+  direction, and one sign.
+- **The run.** Clean to s = −0.54, then a blow-up from s = −0.56 at the brane node. **Fail**, earlier than 393's. The
+  coupling's spread reaches the brane, which the record's Israel rows fix algebraically; the check had shown that such
+  rows are unstable in this scheme.
+- **Also corrected.** The run printed "pass" from its first slice alone. A pass now needs the half's end.
+- **Next, for you to approve or not:** the brane conditions imposed weakly, in the same energy form, checked first on
+  the model.
+
 ## The register as it stands (item 331)
 
 The table is generated from `warptheorem.py`'s `LEMMAS_NOW`. Each row's full statement and owners are in the instrument.

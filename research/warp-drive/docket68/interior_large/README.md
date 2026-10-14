@@ -472,3 +472,64 @@ What a second attempt at the same half would change, for M to approve or not:
 - couple the parts by penalty rather than by derivative continuity.
 
 The same question, criterion and stop.
+
+## Item 394: the joining checked, then the second attempt at the half (2026-10-14) -- it failed earlier
+
+**The check on a known solution** (`zeno_interface_check.py`). A wave equation with the interior's principal structure:
+u_ss = a u_xx + 2 b u_sx + F, with a = 1 + x^2, b = 0.3 x, b = 0 on the axis, and F made so that a chosen u is exact.
+The mesh is the six parts [0, 1/8, 1/4, 1/2, 3/4, 7/8, 1], run to s = 40 (about 50 crossings), with eigenvalues of the
+semi-discrete operator alongside. Computed:
+
+| joining | pure wave, max Re | a, b varying, max Re | error at s = 40 (n = 12) |
+|---|---|---|---|
+| single grid (no parts) | 1e-14 | +0.88 | 27 |
+| item 393's derivative continuity | 1e-14 | +6.2 | 1e93 |
+| characteristic penalty, guessed | -- | +21 | blew up by s = 0.4 |
+| energy-derived coupling, axis algebraic | +6.3 | +10 | -- |
+| energy-derived coupling, axis weak | 1e-13 | +0.10 | 1e-12 |
+| energy-derived coupling, axis folded | 7e-14 | **-0.06** | **2.5e-13** |
+
+Two corrections of the board's own along the way:
+- The guessed penalty acted on the characteristics leaving each part, not those entering it: (d_s - lambda d_x) w = 0
+  carries w at velocity -lambda.
+- The derived coupling had the right copy's slope-jump term with the wrong sign. A term-by-term energy check found it,
+  and with it fixed d/ds [E - a m_phi J_u + tau J_u^2/2] is exactly zero on random states.
+
+What the check also showed:
+- **An algebraic slope condition at an end node is itself unstable in this scheme.** With strong Neumann at x = 1 even
+  the single grid grows (+0.93 for the pure wave; +60 with a and b varying). The coupling's symmetric spread cannot be
+  absorbed by a node whose value is fixed algebraically while it moves.
+- So the axis was folded away. All five fields are even in x (g_sx ~ x F is odd), so the axis part is the symmetric
+  [-1/8, 1/8] with an odd number of nodes and only x > 0 stored.
+
+**The second attempt** (`zeno_run.py half 10 sat`, the class FoldedSAT). Folded axis part with 15 intervals; parts of
+10, 10, 10, 10 and 14 intervals halving to the brane (restart tails 6.5e-7). The energy-derived coupling per field, with
+a = -g_ss/g_xx and b = g_sx/g_xx. The brane rows unchanged. Run from the trusted state:
+
+| s | phi_max | tail |
+|---|---|---|
+| -0.503 | 8.2e-5 | 6.5e-7 |
+| -0.544 | 8.1e-5 | 9.4e-7 |
+| -0.564 | 2.0e-3 | 6.0e-5 |
+| -0.585 | 9.8e-1 | 1.6e-3 |
+| -0.627 | 2.0e25 | 4.4e-1 |
+
+The solver stopped at s = -0.627 (status -1, step size below the spacing of numbers; 1,596 steps, 473 s). The blow-up
+starts at the brane node, x = 1 (phi 9e31 there at the stop).
+
+**Verdict: FAIL**, earlier than item 393's. The run printed "pass: True", read from the restart slice alone, because the
+board's check did not require the half's end. Fixed: a pass now needs status 0 and the criterion at the end.
+
+The cause is the one the model check predicted. The coupling's spread from the last interface reaches the brane node,
+which the record's Israel rows fix algebraically. In item 393 the derivative-continuity joining left that node alone,
+and the brane held there.
+
+**What a third attempt would change, for M to approve or not.** Impose the brane conditions weakly, in the same energy
+form:
+- the brane node evolved;
+- the Israel rows -- linear in the brane's x-derivatives -- solved for the slopes T_x, S_x, A_x and B_x given the brane
+  values;
+- each field's slope pulled to that value by the penalty (a/h)(phi* - phi) that replaces the boundary's energy term;
+- F = 0 kept strongly (its node does not move).
+
+First checked on the model, with a prescribed slope at x = 1.
