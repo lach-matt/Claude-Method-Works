@@ -849,6 +849,13 @@ state was rebuilt first.
   and every part reaches its focus in finite affine parameter (Raychaudhuri, any dimension). The earliest parts are
   hidden if the face is born first: on the plane, an arrival within 8, 4.75, 4.44, 4.31 clocks of r_h/c at orders 1-4,
   a new requirement on SOURCE at our sigma. The register's O1b and O1c at the large end are not yet changed: to M.
+- **Item 420** (the two unproved points; `lemmas/core_face.py`, `lemmas/INTERIOR-PROOF.md`, "Item 420"): the face
+  static from the arrival's end **closes**. It holds by 418, and independently because later infall only makes the
+  face born earlier (no rescue for a slow arrival); evaporation moves the mass by 4.4e-66 over the arrival. The large
+  end's 5D core **does not close**. The onset sits at 3-7e-10 ell, the hand-over at r = ell is classical (x ~ 1e-38),
+  and the brane alone keeps the symmetric form exactly. But the deviation made at r ~ ell is of order one and, on a
+  scalar proxy, survives to the centre. So it is item 414's core, (b2) and (c2), located. Premise, theorem or
+  computation: to M.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

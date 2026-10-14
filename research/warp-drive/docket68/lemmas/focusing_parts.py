@@ -34,6 +34,9 @@ deduced, READ.
 What this does not prove: the core's own geometry at the large end is not computed, so F3's curvature growth is exact
 on the spherical forms and carried to the brane's core by F4's focusing (completeness), not by an exact curvature law;
 F5's horizon is traced with the face static from v = w on (the record's 348 (Q3) qualification).
+[Item 420, beside the text (core_face.py): the second closes, by 418 and independently (later infall only makes
+the face born earlier; evaporation 4.4e-66 over the arrival).  The first is item 414's open core, (b2) and (c2),
+located in the core r << ell: the deviation made at r ~ ell is of order one and, on a scalar proxy, survives inward.]
 python3 focusing_parts.py [--selftest | --mutants]
 """
 import sys

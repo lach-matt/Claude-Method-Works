@@ -182,3 +182,63 @@ fast enough for our face to be born before its first part. Then 273's region sta
 - **Not proved:** the large end's 5D core is crossed with completeness by F4, but its curvature growth is not computed
   there. And the horizon is traced with the face static from v = w on (348 (Q3)).
 
+
+## Item 420: the two unproved points (`core_face.py`, selftest A2-B4, mutants 4/4)
+
+M, 420, quoting the board's "What is not proved" after 419: "What is not proved: - what about these?"
+
+**Point (2), the face static from v = w on (348 (Q3)): closed.**
+- **By 418 (M's; deduced).** Whatever crosses our face is README, so the arrival ends where crossing ends. mu(v) is
+  constant after v = w by the definition of w, and from there the face is the static hole's.
+- **Independently (A2, computed).** An arrival that adds mass later (mu' >= 0, README or not) lowers every outgoing
+  ray's slope, so the trapped region only grows and the face is born no later. 4D, order 1, w = 4: born 0.416 clocks
+  before the onset, 0.555 with half the mass again arriving after; 5D, order 2: 0.464 to 0.471. Parts already hidden
+  stay hidden. But later infall does not rescue a slow arrival: at w = 10, past the threshold 8, the face is still born
+  at the onset. **F5's widths stay the requirement on SOURCE.**
+- **The one thing that lowers the mass after v = w (A3, computed; the coefficient an estimate)** is the hole's own
+  Hawking flux, negative energy going in (d_evap's record; under 136 G, the README's own energy leaving). The face
+  moves at l_P^2/(1920 pi r0^2) per clock: 5.6e-67 at r0 = 20 ell, 5.5e-70 at the Earth cap. Over the widest arrival,
+  8 clocks, the mass falls by **4.4e-66** and **4.4e-69**. Its ingoing flux breaks F4's R_kk >= 0 by a part in
+  l_P^2/r0^2 = 3.3e-63 at the face (estimate), and inside by quantum_onset Q2's x.
+
+**Point (1), the large end's 5D core: not closed; located.**
+- **B1 (computed).** On the 5D form with the README's mass (mu5 = (8/(3 pi)) m ell, b4d_stage1), x = 1 at
+  r_q = **4.27e-15 m** (r0 = 20 ell) and **1.01e-14 m** (the Earth cap): r_q/ell = 3.1e-10 and 7.3e-10. On the 4D form
+  it would be deeper (2.8e-18 m and 9.0e-18 m). The onset is five-dimensional.
+- **B2 (computed).** At r = ell, where the 4D stretch hands over, x = 8.8e-39 (r0 = 20 ell) and 2.8e-37 (the Earth cap)
+  on either form. The transition region is deeply classical; its curvature is finite whatever its exact geometry.
+- **B3 (computed, exact).** The equator chi = pi/2 of the 5D form has zero extrinsic curvature, for any mu and lam,
+  interior included. So a tensionless Z2 brane through the centre fits it exactly: the README's earlier parts, at the
+  centre, make exactly the SO(4) field the small end uses (arrival_small V1). The brane alone does not break it.
+- **What breaks it.** The tension (Israel then needs |K| = 1/ell against the core's 1/r: about 1e-10 at the onset) and
+  Lambda5 (about 1e-19) are made where the core is; both are estimates. The transition region at r ~ ell is neither form
+  and differs from both at order one (estimate).
+- **B4 (computed, exact, on a scalar proxy).** Static zonal modes on the 5D form reduce exactly to Legendre's equation
+  in xi = 2 r^2/mu - 1 with degree l/2. A smooth face admits only P (Q is logarithmic at the face). The Z2 keeps even l
+  (C_l^1(cos chi) has parity (-1)^l), so the degree is an integer and P a polynomial, finite at the centre. On the
+  proxy, a deviation made at r ~ ell neither fades toward the centre nor grows: it arrives at its own size.
+
+*[Beside the board's preliminary reading after 419, which put point (1) down to corrections of 1e-10 and 1e-19 at the
+onset: those are the corrections made at the onset. The deviation carried in from the transition is not among them.
+It is of order one, and on the proxy it survives to the centre. So "adopt the small end's model" is a real premise, not
+a small approximation.]*
+
+**What point (1) is.** It is item 414's open core again, now located in a place:
+- (b2) no inner horizon, and (c2) the onset reached at the centre,
+- in the core r << ell inside our face,
+- entered from a transition region that is classical (B2) but whose geometry is not known.
+
+It is not about where the onset is: an order-one deformation moves r_q by an order-one factor, and O1b and O1c do not
+care where. It is about how the core ends. Either the curvature runs to x = 1 (a scalar singularity, as in the
+symmetric form), and then O1b and O1c hold by Q5; or the deformed core ends classically before x = 1, at a Cauchy horizon
+or at a singularity that K does not see (Lorentzian K is not positive-definite). The symmetric form excludes the second
+exactly; the deformed core does not, until it is shown.
+
+**Three routes, to discuss before any runs (414):**
+1. **Premise.** Adopt the symmetric 5D form in the core, as the small end does, named as a premise on the rows.
+2. **Theorem.** Show that the static SO(3) x Z2 vacuum core, with Lambda5 and the tension, cannot end before x = 1.
+   P2 (Komar, (b1)) and P3 ((b2)) are its pieces, and P2's preliminary note already found that the signs there are
+   decided at order one in the 5D stretch.
+3. **Computation.** The gravitational static modes of the 5D interior, the decisive version of B4. That is linear
+   and cheap, but it covers small deviations only. The order-one transition itself is the large interior that items
+   393-411 attempted.
