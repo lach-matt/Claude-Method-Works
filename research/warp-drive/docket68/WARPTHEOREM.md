@@ -790,6 +790,9 @@ state was rebuilt first.
   1.5e-5), in the axis part, where both characteristics converge. Next, for you: halve toward the axis too.
 - **Item 401, the fifth attempt** (the axis halved too): the end reached, tails passing everywhere (9.1e-7), phi
   under 1e-4 to s = -1.85 and 2.2e-4 at the end, at the joining x = 1/8. FAIL on phi alone, 16 times nearer.
+- **Item 403, the cause** (read from the saved steps): the 2.2e-4 is the measure, at one joining node. With the
+  derivative the scheme evolves with, the norm is 6.45e-5 at the end and never above 6.7e-5; on that measure the
+  fifth attempt meets the criterion. Which measure defines it on a joined mesh is yours to rule.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

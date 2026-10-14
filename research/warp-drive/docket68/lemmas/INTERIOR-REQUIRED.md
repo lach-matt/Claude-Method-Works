@@ -164,3 +164,9 @@ points, and couple the parts by penalty. It is for M to approve.
 - Reached the end again. Tails pass everywhere (9.1e-7); the axis part's fell from 1.5e-5 to 2.1e-7.
 - **FAIL on phi at the end alone**: 2.2e-4 against 1e-4, at the joining x = 1/8 from about s = -1.9; under 1e-4 to
   s = -1.85. The jumps there are small and the part resolved, so the cause is still to be read from the saved steps.
+
+**Item 403: the cause read from the saved steps -- the measure, at one node.** The DeTurck norm built with the
+derivative the scheme evolves with stays <= 6.7e-5 over the fifth attempt's last stretch (6.45e-5 at the end); the
+2.2e-4 is the plain one-sided derivative at the joining node x = 1/8, which reads the scheme's jump over a tiny end
+weight. The same holds for the fourth attempt (3.48e-3 plain, 6.50e-5 penalised). On the scheme's own derivative the
+fifth attempt meets the criterion. Which measure defines it on a joined mesh is for M.

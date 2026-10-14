@@ -767,3 +767,29 @@ against 1e-4). The tails pass everywhere (9.1e-7 at most). Computed, from the sa
 Not yet known: why the DeTurck vector grows at x = 1/8 in the half's last stretch. That can be read from the saved
 steps without a run (which component, and its rate against the damping kap = 4 as the coordinate light cones narrow);
 the board does that before proposing a sixth attempt.
+
+**Item 403: the cause, read from the saved steps (no run).** phi is the squared norm of the DeTurck vector,
+g_mk xi^m xi^k, one scalar per node (gen_eqs_fw.py). `phi_at` builds xi with each part's plain derivative D; the
+fourth and fifth attempts evolve with the penalised derivative Dt, which at a joining node is D minus half the jump
+over the end weight (zeno_char_check.py). Away from the joining nodes the two are the same. Computed:
+
+| s | plain D: max (x) | plain D at x = 1/8, left / right copy | penalised Dt: max | plain D away from joinings |
+|---|---|---|---|---|
+| -1.504 | 6.69e-5 (0.006) | 1.63e-5 / 2.14e-5 | 6.69e-5 | 6.69e-5 |
+| -1.797 | 6.48e-5 (0.019) | 5.61e-5 / 4.23e-5 | 6.48e-5 | 6.48e-5 |
+| -1.849 | 7.91e-5 (0.125) | 7.91e-5 / 5.26e-5 | 6.47e-5 | 6.47e-5 |
+| -1.905 | 1.15e-4 (0.125) | 1.15e-4 / 6.75e-5 | 6.46e-5 | 6.46e-5 |
+| -2.006 | 2.21e-4 (0.125) | 2.21e-4 / 1.08e-4 | 6.45e-5 | 6.45e-5 |
+
+At the end of the fourth attempt the same holds: plain D 3.48e-3 at x = 1/8, penalised Dt 6.50e-5, and 6.41e-5 away
+from the joining nodes.
+- **The excess is the measure, at one node.** With the derivative the scheme evolves with -- the one the constraint
+  damping acts on -- the DeTurck norm never exceeds 6.7e-5 in the fifth attempt's last stretch, and at x = 1/8 it
+  stays near 2e-5, level. The plain one-sided derivative at a joining node ignores the jump the scheme carries by
+  construction, so it reads about half the jump over the end weight, and the end weight there is about 3e-4.
+- **The jumps themselves are small** (fields <= 1.9e-5, slopes <= 6.2e-5 relative), and the tails pass everywhere.
+- **So on the scheme's own derivative the fifth attempt meets the criterion at the half's end**: phi 6.45e-5 <= 1e-4,
+  tails 9.1e-7 <= 1e-6. On the board's original instrument it does not, at the left copy of one joining node.
+- The criterion (item 392) did not say how to measure at a joining: the instrument came from the single grid, which
+  has none. Which measure defines it on a joined mesh is M's to rule; the board's reading is the penalised derivative,
+  or equivalently the norm away from the joining nodes, which agree here.
