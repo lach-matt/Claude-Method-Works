@@ -74,6 +74,11 @@ the rows above.  Further anchors pass (nlchain.py md5 f6d31e38 at LCP46; session
 nlguard.py, hfc2.py, t7c_kernel.py and shoot_sr.c; hfs.py at 5143 B and t5_scf.py at 2141 B in the LCP27 archive
 listing, after the replay's own faults -- quote-blind statement splitting, refused writes applied -- were fixed).
 Reads data/madelung_field_rows.json, the rulings file, M's paper (method/members) and two recovered bridges (read-only).
+[Item 425, beside the text: on 2026-10-14 this branch took main's R3 class CINF repair (the author's approval,
+entry 1793, W-190, BUILD91 and BUILD181): the live paper's c -> infinity clause was rewritten, and its eleven-element
+sentence is no longer there.  The checks that quote the pre-repair paper now read it from the superseded compendia
+bundle, BUILD180, kept beside the live one, and a check asks that the live paper and BUILD181 carry the repair and
+BUILD91 seat entry 1793.  Nothing computed here moves.]
 Stdlib.  python3 madelung_field.py [--selftest | --mutants | --rebuild SCRATCHDIR]
 """
 import copy
@@ -88,8 +93,12 @@ DATA = os.path.join(HERE, "data", "madelung_field_rows.json")
 MUT = {}
 M219 = "Let's consider position 2 universe where the madelung exceptions didn't exist."
 M220 = "That and all the lowdin Handoff and chat transcipts are all in the repo"
-PAPER_Q = ["They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf.",
-           "the inverse fine-structure constant c = 137.035999 as the only number supplied"]
+PAPER_Q = ["the inverse fine-structure constant c = 137.035999 as the only number supplied"]
+# [item 425] the pre-repair paper, quoted from the superseded compendia bundle (BUILD180); the repair from the live store
+PAPER_PRE = ["They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf."]
+LIVE_COMP = os.path.join(ROOT, "method", "The_Method_1_6_BUILD181_compendia_papers_audits.md")
+LIVE_MAIN = os.path.join(ROOT, "method", "The_Method_1_6_BUILD91_main_and_register.md")
+REPAIRED = "The second boundary statement is the deeper one, and it is corrected here"
 B54 = ["Z=90 sealed (c=137) : 6d -0.19094 | 5f -0.13689 | 7p -0.13206", "Z=90 c=1e6          : 5f -0.39017 | 6d -0.26099 | 7p -0.14042"]
 B43 = "-0.266643, it [30,35]"
 B54T = ["57   5d   5d      0.06756        0.00288      -0.06468   -0.20585 -> -0.23514",
@@ -172,7 +181,7 @@ def checks(d):
     add("F0 M's 219 and 220 verbatim in the rulings file; the paper's one constant and its c -> infinity list; the "
         "record's Th rows (BRIDGE-54), Sc row (BRIDGE-43) and session-8 HFS result, verbatim",
         M219 in rul and M220 in rul and all(q in paper for q in PAPER_Q) and all(q in b54 for q in B54) and B43 in b43
-        and S8 in s8)
+        and S8 in s8 and all(q in open(COMP, encoding="utf-8").read() for q in PAPER_PRE))       # [item 425] BUILD180
     f = d["fix"]
     sc, ac, th, th6 = f[(21, 137.035999)], f[(89, 137.035999)], f[(90, 137.035999)], f[(90, 1e6)]
     add("F1 the rebuild is the record's instrument: t7b_hf.py sha256 = the chat's a53d8a1c...; Sc 3d -0.26664 it [30,35] "
@@ -208,8 +217,12 @@ def checks(d):
     eleven = {25: "Mn", 30: "Zn", 47: "Ag", 48: "Cd", 60: "Nd", 61: "Pm", 62: "Sm", 71: "Lu", 80: "Hg", 103: "Lr", 104: "Rf"}
     add("F7 the paper's eleven c -> infinity elements are session 53's restart-versus-chained list (reference-borne), "
         "drawn by fig6.py from rt/cinf.jsonl, which session 59 VOIDED; the live-lever rows change only Th (F2); the claim "
-        "stands in Register 1706, Chapter 35 and the Physics Compendium (for R3)",
-        PAPER11 in paper and all(q in b53 for q in B53) and B59 in b59 and "open('rt/cinf.jsonl')" in fig6
+        "stood in Register 1706, Chapter 35 and the Physics Compendium until the store's R3 class CINF repair (entry "
+        "1793, W-190): the superseded bundles keep it, the live paper and bundles carry the repair (item 425)",
+        PAPER11 in open(COMP, encoding="utf-8").read() and REPAIRED in paper
+        and REPAIRED in open(LIVE_COMP, encoding="utf-8").read()
+        and "\n### 1793" in open(LIVE_MAIN, encoding="utf-8").read()
+        and all(q in b53 for q in B53) and B59 in b59 and "open('rt/cinf.jsonl')" in fig6
         and all(("%d:'%s'" % (z, e)) in fig6.replace(" ", "") for z, e in eleven.items())
         and not any(g.get((Z, 1e6), 1) < 0 for Z in (57, 89)) and g.get((90, 1e6), 1) < 0
         and R1706 in open(MAIN, encoding="utf-8").read() and CH35 in open(MAIN, encoding="utf-8").read()
