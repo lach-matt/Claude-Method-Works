@@ -5,6 +5,35 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 424: the carrier's room -- items 5 and 9 cannot hold together (`source_capacity.py`, S1-S6)
+
+M, 424: "review all the other open items in the warp theorem map, and close them". Every open row at the large end
+rests on SOURCE through the arrival's width, so the review asked whether a carrier can meet item 5 (exactly N bits,
+2^N states, at exactly E(N)) and item 9 (a compact arrival) at once. Computed; an estimate in its idealizations (free
+fields of Z species, geometric-optics capture); not verified; not seated.
+- **The room (S1, standard thermodynamics, not READ here).** At fixed energy E in volume V a massless carrier holds at
+  most e^S states, S = (4/3) (pi^2 Z/30)^(1/4) (V/(hbar c)^3)^(1/4) E^(3/4). What crosses the face's capture
+  cross-section sigma within a time tau lay in the volume sigma c tau, so N ln2 <= S(E, sigma c tau).
+- **The least arrival (S2, exact).** tau_min = (3 N ln2/4)^4 (hbar c)^3 / ((pi^2 Z/30) E^3 sigma c). On the plane's
+  hole at the bound it is exactly **(45/4) N ln2 / Z clocks of r0/c**, with no free number: bringing the README in takes
+  of order the time its Hawking emission takes to carry it out.
+- **The figures (S3).** Small end: 5.3e15 clocks (Z = 2) and 1.0e14 (Z = 106.75), against 4.79, and beyond the hole's
+  life of 8.57e14 at Z = 2. Large end: 5.3e63 and 9.7e61 at r0 = 20 ell; 5.3e66 and 9.8e64 at the Earth cap, against
+  4.31-8 at our sigma and 1.6e-3 where a junction binds.
+- **What compact would cost (S4).** Within the compact width the carrier needs E_c/E(N) = (tau_min/w)^(1/3): 2.8e4 at
+  the small end, 2.3e21 at the Earth cap. The face it forms would then hold far more than N bits (136 (1), 162).
+- **So (S5)** items 5 and 9 cannot hold together for any carrier of the plane's fields. Something in the premise set
+  gives, and which is M's:
+  (a) the exact energy at the bound (G1, 133, 136 (1));
+  (b) the compact arrival -- the onset hidden (arrival_small V2-V4; focusing_parts F5, so O1b and O1c for the earliest
+      parts) and, where a junction binds, item 10;
+  (c) the carrier: a species count of 2e15 to 1e66 would be needed.
+  RBITS, the bits arriving with the energy, is the board reading this refutes for a compact arrival (an estimate). The
+  verified ARRIVALs (348) rests on it as a reading through SOURCE; nothing there is repaired.
+- **(S6, exact)** An ultrarelativistic carrier at fixed E and S has kT = (4/3) E/S whatever its volume: at the bound,
+  (8/3) of the hole's Hawking temperature, with its peak wavelength at 10.5 r0 at every N. So the geometric-optics
+  capture S1 uses flatters it; the true room is smaller still.
+
 ## Item 399: the read -- a geometric object into the README
 
 M, 399: "Converting a geometric object into an information README... this is the the next part of the SOURCE to

@@ -307,9 +307,12 @@ LEMMAS_NOW = [
      ("lemmas/copy_p2.py C1 (240, overruling 239's note); at the small end position 2's figures are the "
       "construction's single chart, and under position 2's own laws only the face's existence and the finiteness of "
       'its closing carry (c7_oneway V12 (Q3)); item 356: split by end')),
-    ('H', "H2tx between universes position 2's horizon holds the README at its own bit area, at the large end", 'OPEN',
+    # [item 424] closed under M's 'close them', with M1P2x: DERIVED at our sigma, held at sigma2 != sigma (389)
+    ('H', "H2tx between universes position 2's horizon holds the README at its own bit area, at the large end",
+     'DERIVED',
      ("copy_p2 C1 (240) holds at its own bit area, capacity N in every position 2 (m1p2x_large Y8, item 362); it rests "
-      "on M1P2x, whose one remaining part is the README's emergence, ARRIVAL's (358 (c))")),
+      "on M1P2x, DERIVED at our sigma (item 424) -- at a destination whose own sigma differs, on item 10 through "
+      "M1P2x, by 389 not finalized there.  Item 362: OPEN, the README's emergence ARRIVAL's (358 (c))")),
     ('O',
      ("O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's "
       'white-hole face'),
@@ -396,9 +399,17 @@ LEMMAS_NOW = [
       "(m1_small (d)); item 354: the reading proved (lemmas/readings.py Q1) -- every other reading of 273 against 183 "
       "excluded by M's 273 and by pair_math P1, the one left the reading -- so DERIVED from M's rulings and computed "
       "results; pair_math's own note owed after FAR's verdict")),
-    ('Z', 'Z3b rays that meet the corridor keep (Z) at the large end: the across-the-ring class', 'OPEN',
-     ("the record's (z3b_cypher, ring_consistent, open_mouth, two_sided): waits on the bulk carrying the warp's kink "
-      'into the corridor (232)')),
+    # [item 424] closed under M's 'close them': re-posed on C3's large hole as Z3bs was at the small end
+    ('Z', 'Z3b rays that meet the corridor keep (Z) at the large end: every classical ray keeps 183, the passage\'s '
+          'negative confined to the quantum region', 'DERIVED',
+     ("lemmas/z3b_large.py Z0-Z6 (item 424): the ring does not arise at the large end (m1_large); in the bulk R_kk = 0 "
+      "(rows_large Z1t), the plane's negative reading the Weyl term's appearance under 183; on the plane S_kk = T_kk "
+      ">= 0, the tension giving nothing on null rays and the README's flux G_vv = 2 m'/r^2 at every arrival width "
+      "(arrival_large A1); inside our face classical to 273's region (focusing_parts F1, the core by M's 422); the "
+      "passage's negative, which Raychaudhuri requires on every turned ray in D = 4 and 5, inside 273's region -- "
+      "177's appearance, the reading proved at 354 (readings Q1) from 273, 318 and pair_math P1-P3 -- so DERIVED from "
+      "M's rulings and computed results, as Z3bs.  The record's row (z3b_cypher, ring_consistent, open_mouth, "
+      "two_sided) waited on the bulk carrying the warp's kink into the corridor (232), its ring")),
     ('Z', "Z3c the plane's dark energy has w >= -1 at every epoch the theory controls", 'DERIVED',
      'lemmas/nature_rows.py Z1-Z3; item 200 (3)'),
     ('B',
@@ -528,11 +539,15 @@ LEMMAS_NOW = [
      'DERIVED',
      ("M-ENERGY-STAYS (336); 240 (the copy built from position 2's bulk, its mass position 2's); 111 (b) and 230 read"
       ' as the one value, the README (240); lemmas/close_small.py K9; item 356: split by end')),
-    ('E', "E1x between universes, nothing of our E crosses; the README crosses, at the large end", 'OPEN',
+    # [item 424] closed under M's 'close them': DERIVED at our sigma, held at sigma2 != sigma (389)
+    ('E', "E1x between universes, nothing of our E crosses; the README crosses, at the large end", 'DERIVED',
      ("nothing of our E crosses: M-ENERGY-STAYS (336) with lemmas/close_large.py L3 (item 362); the README's crossing "
-      "is M's (111 (b), 230, 240), but at the large end its timing against position 2's open period (close_large L4: "
-      "<= 4 clocks at its own sigma, <= 2.7e-3 clocks at r0 = 10 ell on 139 (1)'s quarter) is ARRIVAL's, which rests "
-      "on SOURCE -- reported under 358 (c), not forced green")),
+      "is M's (111 (b), 230, 240); its timing against position 2's open period is met by identity at our sigma -- "
+      "position 2's face closes when the corridor holds nothing (M's 390; junction_own G10: open exactly while the "
+      "README is within it) -- item 424.  At a destination whose own sigma differs the junction binds (item 10, "
+      "SOURCE's; junction_own G7), and by 389 the row is not finalized there; lemmas/source_capacity.py S5 finds "
+      "that bound unmeetable for N bits at E(N), an estimate put to M.  Item 362: OPEN, the timing ARRIVAL's, on the "
+      "withdrawn J2 bound (after 389)")),
     ('E',
      ("E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build "
       'uses, at the small end'),
@@ -591,13 +606,17 @@ LEMMAS_NOW = [
     ('N', "M1P2xs position 2's side at the small end, on the one-way object", 'PROVED',
      ("lemmas/c8_level.py V0-V10 (275-341; finalized 330; verified, CONFIRMED with qualifications (341); V5 (d) on "
       "both readings of the arrival, V10); m1p2x_oneway kept as written")),
-    ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'OPEN',
+    # [item 424] closed under M's 'close them': DERIVED at our sigma, held at sigma2 != sigma (389)
+    ('N', "M1P2x position 2's side reads eq. (17)'s other leg at the large end", 'DERIVED',
      ("lemmas/m1p2x_large.py Y1-Y9 (item 362), c8_level carried to the large hole: the glued object's isometry (m1_large "
       "M6); position 2's face's junction rising on every reading, none on ours (c8_level V3); its blueshift at most e "
       "(own sigma) or 1.0007 (139 (1)'s quarter), the bath 72 orders below Barcelo's 0.28 E; (d) on reading (i), 3.3e10 "
-      "writes; (e) on the side total; warp order 6.2e-4 at r0 = 10 ell. What remains is the README's emergence within "
-      "position 2's open period -- at most 4 clocks at its own sigma, 2.7e-3 on 139 (1)'s quarter -- ARRIVAL's, which "
-      "rests on SOURCE: reported under 358 (c)")),
+      "writes; (e) on the side total; warp order 6.2e-4 at r0 = 10 ell. The README's emergence within position 2's "
+      "open period (Y7) is met by identity at our sigma: the face closes when the corridor holds nothing (M's 390; "
+      "junction_own G10) -- item 424, DERIVED there.  At a destination whose own sigma differs the junction binds "
+      "(item 10, SOURCE's), and by 389 the row is not finalized there; lemmas/source_capacity.py S5 finds that bound "
+      "unmeetable for N bits at E(N), an estimate put to M.  Item 362: OPEN, the emergence ARRIVAL's at 4 clocks (the "
+      "withdrawn J2) or 2.7e-3 on 139 (1)'s quarter, reported under 358 (c)")),
     # [item 349] FAR at the small end worked and seated as FARs; FAR stays the large end's
     # [item 354] FARs and FAR READING -> DERIVED: every board reading each rested on proved (readings Q23-Q25, Q30)
     ('N',
@@ -700,14 +719,14 @@ LEMMAS_NOW = [
       "defined for its own end (M-SOURCE-BY-END, 346); until then no row rests on it -- the large end's ARRIVAL and "
       "WRITE are open, README-HELD.md's four-dimensional models the record's")),
 ]
-RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'ARRIVAL',
+RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
                 'Z1ts': 'M1s', 'Z1t': 'M1', 'Z2rs': 'M1s', 'Z2r': 'M1', 'Z3bs': 'M1s',
-                'Z3b': 'M1 FAR WRITE ARRIVAL CLOSE',
+                'Z3b': 'M1',
                 'B2ts': 'M1s', 'B2t': 'M1', 'B3': 'M1 FAR WRITE ARRIVAL CLOSE',
                 'B3s': 'M1s FARs WRITEs ARRIVALs CLOSEs', 'B4ds': 'M1s FARs WRITEs ARRIVALs CLOSEs',
-                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'E1u': 'CLOSE', 'E1x': 'CLOSE ARRIVAL',
+                'B4d': 'M1 FAR WRITE ARRIVAL CLOSE', 'E1u': 'CLOSE', 'E1x': 'CLOSE',
                 'E2us': 'CLOSEs', 'E2u': 'CLOSE', 'E2xs': 'CLOSEs', 'E2x': 'CLOSE', 'E4rs': 'M1s', 'E4r': 'M1'}
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
