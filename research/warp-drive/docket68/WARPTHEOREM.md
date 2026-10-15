@@ -891,6 +891,10 @@ state was rebuilt first.
   large end, 11.7 % small; Z cancels, correcting 425's "Z = 2 does not fit"). A destination whose own sigma differs is
   not reached on this reading: the junction's period is far shorter than the write. The rows that rested on the compact
   width now rest on the object standing from the opening, which the board models; its approach goes to M first (414).
+  *The interior's first verifier (sent at 424) was stopped at 00:51 UTC on 2026-10-15 when M's message interrupted the
+  board's turn; it left no report, and the board twice reported it as still running without checking -- M caught it.
+  A fresh verifier was sent on the same claim (the claim files md5-identical to the hand-over, the gate 11/11), told of
+  426 as context.*
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
