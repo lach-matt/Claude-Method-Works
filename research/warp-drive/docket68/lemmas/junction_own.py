@@ -86,6 +86,13 @@ a separate session; not seated); no test run; 2026-10-14.
        it is no part of the open face.
      Item 10 at our sigma is met by identity: the face is open exactly while the README is within it.
 
+[Item 427, beside the text: M, "Destination with any σ is supposed to be reachable".  The junction on position 2's face
+(G1-G2, G7: our sigma inside the object on position 2's side, an Israel jump sigma - sigma2 rising from F1's start)
+is the board's model, and it gives way: 390's reason ("it opens because of the README") carries no exception for a
+junction, 215 set aside the gluing of the two cells along a sheet, and under 426's long write a rising junction can
+sit on neither face (G7's own comparison).  G10 holds at every sigma: item 10 is met by identity everywhere.  G1-G9
+stand as computed and bind nothing (SOURCE-REQUIRED.md, "Item 427").]
+
 What this does not claim.
   - What closes position 2's face where no junction binds: J2 is READ, and nothing in M's rulings bounds it.
     [After 389: answered in G8 from 109 and 273's construction; J2 withdrawn on the one-way object.]

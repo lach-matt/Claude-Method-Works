@@ -895,6 +895,14 @@ state was rebuilt first.
   board's turn; it left no report, and the board twice reported it as still running without checking -- M caught it.
   A fresh verifier was sent on the same claim (the claim files md5-identical to the hand-over, the gate 11/11), told of
   426 as context.*
+- **Item 427** (M: "Destination with any σ is supposed to be reachable"): the 426 line excluding destinations whose
+  own sigma differs is withdrawn. It rested on the board's junction model of position 2's face: our sigma inside the
+  object on position 2's side, an Israel jump sigma - sigma2 rising from F1's start, and the face's period ended by it,
+  with 390 confined to faces with no junction. Against 390's own reason, 215's cells not glued along a sheet, and
+  226/387, that model gives way. Under 426 a rising junction can sit on neither face anyway. Item 10 is met by identity
+  at every sigma (`lemmas/SOURCE-REQUIRED.md`, "Item 427"). The register's sigma2 != sigma holds on M1P2x, E1x and H2tx,
+  and the junction clause on O1b/O1c, are put to M to lift. How the object meets two sigmas without a junction joins the
+  model of 426.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

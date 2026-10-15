@@ -5,6 +5,42 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 427: every sigma reachable -- the junction on position 2's face is the board's, and it gives way
+
+M, 427: "Destination with any σ is supposed to be reachable" (M-ANY-SIGMA-REACHABLE), to the board's 426 line that a
+destination whose own sigma differs is not reached. The exclusion rested on three steps, traced:
+
+| step | source | whose |
+|---|---|---|
+| (1) the object's interior stands at our sigma on position 2's side too | junction_own G1 ("d_ours"; m1p2x_oneway O3, O5), "forced" at 388 by the write floor | **the board's** |
+| (2) position 2's face is an Israel junction carrying the jump sigma - sigma2, its seen energy rising from a start | junction_own G1-G2, c_junction J1, the start m1p2x_fifth F1's reading ("not ruled") | **the board's** |
+| (3) the face's open period ends when that energy outweighs the README, and 390 holds only where no junction rises | c_junction J1; this file's 390 section: "Where a junction rises, J1 still closes the face at its period" | **the board's** |
+
+Against M's words:
+- **390:** "if it opens because of the README, then it would stand to read me that it closes when there is nothing
+  contained within the corridor". The reason given (the face opens because of the README) carries no exception for a
+  junction. The board confined it to destinations at our sigma, because its question had asked about the case "where
+  no junction applies". Read as M reasoned it, position 2's face closes when the README has left, at every sigma.
+- **215:** "they exist within the everything bulk index". The board's own reading then was that the two bulks are
+  cells of the index, "not glued along a shared sheet, so Israel's first condition is not imposed between them".
+  Step (2) glues them along position 2's face, which is the gluing 215 set aside.
+- **226, 387:** each position 2 carries its own values, its plane its own sigma. Nothing of M's puts our sigma on
+  position 2's side of the object (step (1)).
+- **426** makes the junction model fail on its own terms. A rising junction must sit on one face (388), and under the
+  long write both faces stand for at least the write, far longer than any junction's period. So it can sit on neither.
+
+**So steps (2) and (3) give way, and (1) with them.** With 390 read as given, item 10 is met by identity at every
+sigma, and nothing in the record then bars a destination of any sigma from receiving the README.
+
+*[Beside 426's line above, "a destination whose own sigma differs from ours is not reached on this reading": withdrawn
+at 427. It rested on steps (2)-(3).]*
+
+**What it leaves, the board's to model with the object (426):** how the object meets our sigma on our side and
+position 2's own sigma2 on its side without a junction on either face. This is 215/216's question, "what relates the
+two cells is the index's question". The verified small-end rows that bound the junction (c8_level V3, V5; M1P2xs, 341)
+bound something now withdrawn as the board's model. Their bounds stand as computed and carry no weight; nothing there is
+repaired.
+
 ## Item 426: the compact arrival withdrawn -- the write long, the object standing from the opening
 
 M, 426: "Withdraw the compact arrival as the board's, and take the write as long (163, 158 (2)), with the object standing
@@ -20,6 +56,8 @@ from the opening (162). The board then models that object. - yes". Seated as M's
   r0 = 10 ell (junction_own G7), 32-34 of position 2's e-folds at the small end. Against a write of 1e14 clocks and
   more, **a destination whose own sigma differs from ours is not reached on this reading** (computed, an estimate).
   At our sigma item 10 is met by identity (390).
+  *[Item 427: withdrawn. M: every sigma is reachable. The junction that gave this period is the board's model; with 390
+  read as M gave it, item 10 is met by identity at every sigma.]*
 - **Items 4-7 and 11 stand.** RDUST and RBITS (item 12) gave the compact form; under 426 the README's form is the long
   write into a standing object, which the board now models.
 - **What the model must answer (the board's, put to M before any computation, 414):** how a face of the README's size
