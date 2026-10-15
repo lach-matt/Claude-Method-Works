@@ -326,12 +326,21 @@ LEMMAS_NOW = [
       "every causal geodesic through the open interiors and the README's region; the faces' own generators end where "
       'the faces close (CLOSEs; c1_oneway K2), not claimed')),
     # [item 356] the large end's O1b and O1c were in no row: entered, OPEN
-    ('O', 'O1b no curvature singularity on the passage at the large end', 'OPEN',
-     ("the record's o1c_complete was eq. (17)'s, superseded (259, 282 (c)); the large hole's exterior is "
-      "Figueras-Wiseman's (READ, regular outside its horizon), its interior not computed -- item 356: entered")),
-    ('O', 'O1c every causal route of the passage complete at the large end', 'OPEN',
-     ("o1c_oneway (O1cs) is the small end's; at the large end the interior between the face and 273's region is "
-      'not computed -- item 356: entered')),
+    # [item 423] M approved the change proposed at 422: OPEN -> DERIVED, on M1 and H-CORE-DELIVERS (M's, 422)
+    ('O', 'O1b no curvature singularity on the passage at the large end', 'DERIVED',
+     ("along the README's parts (418): lemmas/quantum_onset.py Q1-Q6 (415, the onset x = 1); lemmas/focusing_parts.py "
+      "F1-F6 (419: every part reaches its focus in finite affine parameter, curvature finite before x = 1); "
+      "lemmas/core_face.py A1-B4 (420: the face static from the arrival's end); the core inside r ~ ell delivering "
+      "every part to 273's bounce is M's H-CORE-DELIVERS (422), assumed, not derived -- the 4D stretch exact, the "
+      "earliest parts hidden if the face is born first (F5: met by the junction where position 2's sigma differs "
+      "from ours; at our sigma it rests also on SOURCE's arrival width, 4.31-8 clocks by order, and by 389 is not "
+      "finalized until SOURCE is) -- item 423: approved.  Item 356: entered OPEN (the record's o1c_complete was eq. "
+      "(17)'s, superseded; the large hole's exterior Figueras-Wiseman's, READ)")),
+    ('O', 'O1c every causal route of the passage complete at the large end', 'DERIVED',
+     ("with O1b: lemmas/focusing_parts.py F4 (every part's route complete to its focus, any geometry), "
+      "H-CORE-DELIVERS (M's, 422: on to 273's bounce), position 2's side by time reversal (414 (d)); at our sigma "
+      "it rests also on SOURCE's arrival width (389) -- item 423: approved.  Item 356: entered OPEN (o1c_oneway, "
+      "O1cs, is the small end's)")),
     ('O', 'O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large', 'PROVED',
      ('lemmas/rows_small.py O2s (C7 verified, 271, 319); C3 F5 (the large end four-dimensional Schwarzschild, '
       'verified, 261); bulk/stability.py S6 (item 331): our face damps every transverse derivative at kappa, the '

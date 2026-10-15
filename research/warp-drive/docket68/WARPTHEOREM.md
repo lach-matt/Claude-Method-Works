@@ -860,6 +860,9 @@ state was rebuilt first.
   because it is supposed to". With it O1b and O1c at the large end follow (deduced): on M1 and H-CORE-DELIVERS where
   position 2's sigma differs from ours, and also on SOURCE's arrival width at our sigma (389). The register change waits
   for M's approval. The large interior's computation (393-411) is off the chain's path.
+- **Item 423** (M: "Approved"): **O1b and O1c at the large end, OPEN to DERIVED**, on M1 and H-CORE-DELIVERS (422),
+  at our sigma resting also on SOURCE's arrival width and by 389 not finalized until SOURCE is. Seven rows remain OPEN
+  at the large end. The Crossing station passes at both ends. Next by 389: the interior's verification, then SOURCE.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -891,8 +894,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | -- | 270, 273, 276, 282; c1_oneway.py |
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
-| O | O1b no curvature singularity on the passage at the large end | **OPEN** | M1 | Figueras-Wiseman exterior (READ); interior not computed |
-| O | O1c every causal route of the passage complete at the large end | **OPEN** | M1 | interior not computed (356) |
+| O | O1b no curvature singularity on the passage at the large end | derived | M1 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS (422); at our sigma also SOURCE's arrival width (389) |
+| O | O1c every causal route of the passage complete at the large end | derived | M1 | focusing_parts.py F4; H-CORE-DELIVERS (422); at our sigma also SOURCE's arrival width (389) |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
 | O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | derived | WRITEs | o3_hold.py |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | derived | WRITE | o3_large.py Q1-Q4 (362), re-posed as O3s |
@@ -1091,8 +1094,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
   hole's life, and the energy stays in our universe. Position 2's face closes within its open period (`close_small.py`
   K9). It was worked at item 335: our face is a future outer trapping horizon, which Hayward's second law (READ) keeps
   from shrinking under positive energy.
-- **OPEN at the large end:** *Since item 377 (current): nine rows -- O1b, O1c, B3, B4d, Z3b, ARRIVAL, E1x, M1P2x and
-  H2tx -- and SOURCE, deferred. What each waits on, and the approach, are in "Item 377" above the register.* The record's
+- **OPEN at the large end:** *Since item 423 (current): seven rows -- B3, B4d, Z3b, ARRIVAL, E1x, M1P2x and H2tx --
+  and SOURCE, deferred. O1b and O1c are DERIVED (423, on H-CORE-DELIVERS, 422). Since item 377: nine rows -- O1b, O1c,
+  B3, B4d, Z3b, ARRIVAL, E1x, M1P2x and H2tx -- and SOURCE, deferred. What each waits on, and the approach, are in "Item 377" above the register.* The record's
   list as it stood: the record's M1, M1P2x, WRITE, O3, Z3b, CLOSE and ARRIVAL. *Item 350: FAR at the large
   end is worked and seated as a reading (below); it was never on this list, which counted the record's rows.*
   - *Item 356: B3 and B4d belong on this list too, and twelve more rows join it: the large halves of Z1t, Z2r, E4r, B2t,
