@@ -48,6 +48,54 @@ Point (1), the large end's 5D core.
   Point (1) is the open core of item 414 again -- (b2) no inner horizon and (c2) the onset reached at the centre --
   now located: the core r << ell inside the face, entered from a classical transition region.
 
+Item 424, the gate (330; verify_ledger's INTERIOR column): M finalized the large end's interior for its verifier
+("Yes", 424).  The earlier verifications that bear on it are carried here; the rest do not bear, each with its reason
+in the ledger.  G1-G2 compute the two that move or bound a number.
+  (254 (Q2)) the 4D forms hold for r >> ell and the 5D forms for r << ell; at r ~ ell neither holds (B3).
+  (261 (Q1)-(Q2)) the large end's lower edge is the two-end construct's convention: the 4D forms are controlled for
+     r0 > 10 ell, which r0 = 20 ell and the Earth cap meet (G2); between 1.25 ell and 10 ell F5's 4D widths are an
+     estimate.
+  (261 (Q3)) the plane is four-dimensional Schwarzschild with corrections O(ell^2/r0^2), surface gravity 1/(4M):
+     F5's 4D traces carry those corrections, 2.5e-3 at r0 = 20 ell (G2).
+  (267 (Q2)-(Q4)) greybody 0.93 and brane dominance enter A3's coefficient only, inside its tenfold.
+  (267 (Q5)) the hole is collapse-formed and evaporates: A3's flux is the Unruh state's, no bath, no second exterior.
+  (271 (Q3), 319 (Q1)) position 2's side by time reversal is the geometry only: its white-hole face's blueshift is
+     C8's, bounded over its open period.
+  (304 (Q5)) the bounce's own (B) is a board reading at 304: this object stops at x = 1 and claims nothing inside.
+  (310 (Q1)) the README leaves by position 2's face on a quantum region of 273's kind, which this object does not model.
+  (310 (outside G5), 319 (Q2), 348 (Q6)) under the G5 readings, (3/2) G ell and G ell/2, r_q moves as G5^(5/12), by
+     1.184 and 0.749, and quantum_onset's r_q/R_5 as G5^(2/9), by 1.094 and 0.857 (G1): r_q/ell stays below 1e-9.
+  (310 (Q3), 355 (Q10)) position 2's side carries its own mass, m2/m = (G2/G)^(1/2) = 1, 1.41 or 2: its time reverse
+     sits at its own r_s2.
+  (317 (Q3)) position 2's side as the time reverse is the construction's time symmetry (M's 273), not READ.
+  (317 (Q4), 355 (Q1)) mu(v) never exceeds the README's whole mass, given spherical symmetry and positive energy: A2's
+     arrivals rise monotonically to it.
+  (317 (Q8)) warp order enters the core's near field at first order, r/ell (B3's tension), not its square.
+  (319 (Q5)-(Q7)) B3's tensionless equator is a limit, the tension's correction r/ell beside it.
+  (332 (Q1)) the Gauss-Bonnet coupling is zero under 328 (M-ONE-LIGHT-CONE): quantum_onset's P2 cites 324-328.
+  (337 (Q1)) the faces' own generators end where the faces close (CLOSE): not claimed by O1c here.
+  (337 (Q2), (Q7), (Q8)) the README's parts as radial null flux is RDUST's form (386, 2'); whether the written README
+     comes in that way is SOURCE's; the parts' own worldlines are the flux's rays (F2).
+  (337 (Q3), (Q4)) classical GR is given up inside 273's region; Einstein's law is exact at the two-derivative order.
+  (337 (Q5), (Q6)) the bulk's own content (320 (b)-(c)) enters at its own order, not computed here.
+  (337 (Q9)-(Q11)) 273's quantum region is the option text M chose.
+  (339 (Q4)) F1's null energy is classical; the quantum flux is A3's, read under 120.
+  (348 (Q1)) F5 claims no censorship: past its widths the face is born at the onset, whose rays escape along the
+     trapping horizon where K diverges at orders >= 3; the widths are a requirement on SOURCE.
+  (348 (Q2)) the hole's mass is the README's whole E: a lossless collapse.
+  (348 (Q3)) the face static from v = w: A1-A3 above.
+  (348 (Q5), 355 (Q13)) the rests-on: 270 (a) and 273 (a) (M's construction, as the board reads it), 320 (b)-(c),
+     226 with tension, 418, 422, and quantum_onset's P1-P4.
+  (348 (outside)) on the 4D onset K = 48 m^2/r^6 diverges along r = 2m when the face is born at the onset: F5's 4D
+     widths are what keep it behind our face.
+  (355 (Q4)) the Hawking negative ingoing flux lies near the horizon and partly outside it; A3's bound is its total.
+  (355 (Q8)) Figueras and Wiseman's far Poincare horizon is their boundary condition, not their result.
+  (355 (Q11)) F5's widths are for a spherical arrival; a collimated pulse focuses locally and is not traced.
+  (355 (Q14)) every round surface is trapped at the large end for N > 1.13 N_L, met from its start (ell/m = 1.596).
+  G1 (computed) the G5 readings: r_q = (72 mu5^2 l5^4)^(1/8) with mu5 and l5^3 each proportional to G5, so r_q goes as
+     G5^(5/12); r_q/R_5 = (l5/ell)^(2/3) as G5^(2/9).
+  G2 (computed) r0 = 20 ell and the Earth cap lie above 10 ell, (ell/r0)^2 = 2.5e-3 and 2.5e-6.
+
 python3 core_face.py [--selftest | --mutants]
 """
 import os, sys, math, importlib.util
@@ -160,6 +208,20 @@ def proxy():
     return dict(legendre=legendre_ok, laplacian=lap_ok, parity=parity, centre=centre, even=ls)
 
 
+def gate_numbers():
+    """G1-G2: the G5 readings' factors on r_q and r_q/R_5, and the 4D forms' control at the two reference holes"""
+    p5, p9 = (sp.Rational(4, 12) if "g5_power" in MUT else sp.Rational(5, 12)), sp.Rational(2, 9)
+    G5, mu0, l0 = sp.symbols("G5 mu0 l0", positive=True)
+    rq = (72 * (mu0 * G5) ** 2 * (l0 * G5 ** sp.Rational(1, 3)) ** 4) ** sp.Rational(1, 8)
+    power = sp.simplify(sp.log(rq.subs(G5, sp.E) / rq.subs(G5, 1)))
+    fac = {g: (float(g ** p5), float(g ** p9)) for g in (1.5, 0.5)}
+    cs = core_scales()
+    worst = max(c["rq_ell"] for c in cs.values()) * max(f[0] for f in fac.values())
+    ctrl = {k: (c["r0"] / _load("quantum_onset.py", "cf_qo").onset_4d()["ell"]) for k, c in cs.items()}
+    return dict(power=power, p5=p5, fac=fac, worst=worst, ctrl=ctrl,
+                corr={k: 1 / v ** 2 for k, v in ctrl.items()})
+
+
 def report():
     for D, n, w in ((4, 1, 4.0), (4, 1, 10.0), (5, 2, 4.0)):
         print("A2 D = %d order %d w = %g: face born at %+.3f; with half the mass again arriving after: %+.3f" % (
@@ -172,6 +234,12 @@ def report():
               "onset %.3g; x at r = ell: %.2g (5D form), %.2g (4D form)" % (
                   k, c["mu5"], c["rq5"], c["rq4"], c["rq_ell"], c["lam"], c["x5_ell"], c["x4_ell"]))
     print("B3 extrinsic curvature of the equator chi = pi/2:", equator().is_zero_matrix)
+    gn = gate_numbers()
+    print("G1 r_q goes as G5^%s; under (3/2) G ell and G ell/2: r_q x %.3f, %.3f; r_q/R_5 x %.3f, %.3f; worst r_q/ell "
+          "%.2g" % (gn["power"], gn["fac"][1.5][0], gn["fac"][0.5][0], gn["fac"][1.5][1], gn["fac"][0.5][1],
+                    gn["worst"]))
+    print("G2 r0/ell: %s; (ell/r0)^2: %s" % ({k: round(v, 1) for k, v in gn["ctrl"].items()},
+                                             {k: "%.2g" % v for k, v in gn["corr"].items()}))
     p = proxy()
     print("B4 Legendre, nu = l/2: %s; parity of C_l^1: %s; P_nu at the horizon and at the centre: %s" % (
         p["legendre"], p["parity"], {l: ("%.3g" % c["horizon"], "%.4g -> %.4g" % (c["near"], c["nearer"]))
@@ -208,13 +276,25 @@ def selftest(quiet=False):
     b4 = (p["legendre"] and all(p["laplacian"].values()) and p["parity"] == {0: 1, 1: -1, 2: 1, 3: -1, 4: 1}
           and all(p["centre"][l]["finite"] and abs(p["centre"][l]["horizon"] - 1) < 1e-12 for l in p["even"])
           and not p["centre"][1]["finite"] and not p["centre"][3]["finite"])
+    gn = gate_numbers()
+    g1 = (gn["power"] == sp.Rational(5, 12) and gn["p5"] == sp.Rational(5, 12)
+          and abs(gn["fac"][1.5][0] - 1.184) < 1e-3 and abs(gn["fac"][0.5][0] - 0.749) < 1e-3
+          and abs(gn["fac"][1.5][1] - 1.094) < 1e-3 and abs(gn["fac"][0.5][1] - 0.857) < 1e-3 and gn["worst"] < 1e-9)
+    ok.append(g1); say("G1 (item 424) r_q as G5^(5/12): x %.3f and %.3f under the G5 readings, r_q/ell below 1e-9: "
+                       "%s" % (
+        gn["fac"][1.5][0], gn["fac"][0.5][0], g1))
+    g2 = (all(v > 10 for v in gn["ctrl"].values()) and abs(gn["corr"]["r0 = 20 ell"] - 2.5e-3) < 1e-6
+          and abs(gn["ctrl"]["the Earth cap"] - 635.2) < 0.1)
+    ok.append(g2); say("G2 (item 424) both reference holes above 10 ell (20, %.1f), (ell/r0)^2 = 2.5e-3 at 20 ell: "
+                       "%s" % (
+        gn["ctrl"]["the Earth cap"], g2))
     ok.append(b4); say("B4 proxy: Legendre with nu = l/2, C_l^1 of parity (-1)^l, the Z2-even modes finite at the "
                        "centre and the odd ones logarithmic: %s" % b4)
     return all(ok)
 
 
 def mutants():
-    caught = 0; names = ["loss", "mu4", "offequator", "oddl"]
+    caught = 0; names = ["loss", "mu4", "offequator", "oddl", "g5_power"]
     for m in names:
         MUT.clear(); MUT.add(m)
         try:
