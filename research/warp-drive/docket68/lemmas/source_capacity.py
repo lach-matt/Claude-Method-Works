@@ -28,13 +28,18 @@ This instrument asks whether the two can hold together for a carrier made of the
      1.0e14 at Z = 106.75, against the compact 4.79 (and the hole's life, 8.57e14).  Large end at r0 = 20 ell: 5.3e63
      and 9.7e61 clocks (Z = 2, 108.75); at the Earth cap (N* = 1.3651e66): 5.3e66 and 9.8e64 clocks, against the compact
      4.31-8 and the junction's 1.6e-3.
-  S4 (computed) What a compact arrival would cost.  Holding N bits within w clocks needs E_c = (3 N ln2/4)^(4/3)
-     (hbar c) (30/(pi^2 Z))^(1/3) / (sigma w r_h)^(1/3); against E(N) that is (tau_min/w)^(1/3): 2.8e4 (small end, Z =
-     106.75, w = 4.79) and 2.3e21 (Earth cap, Z = 108.75, w = 8).  So a compact README is a README far above the bound:
-     the face it forms holds (E_c/E(N))^(3/2) N bits (small end) or (E_c/E(N))^2 N (large), not N (136 (1), 162).
+  S4 (computed; solved self-consistently) What a compact arrival would cost.  At energy E the hole is larger (r_h^2
+     proportional to E at the small end, r0 to E at the large), and so are its cross-section and its clock.  Solving
+     N ln2 = S(E_c, sigma(E_c) w r(E_c)) for E_c, at the compact w: E_c/E(N) = 912 (small end, Z = 106.75, w = 4.79),
+     1.5e10 (r0 = 20 ell) and 4.8e10 (Earth cap; Z = 108.75, w = 8) -- growing as N^(2/9) and N^(1/6).  The face that
+     E_c forms holds N_c = 2.8e4 N, 2.3e20 N and 2.3e21 N bits: a compact README sits far above the bound, its hole far
+     larger than the size its bits need (136 (1), 162).  [Item 424, beside the text: the first figures written here,
+     2.8e4 and 2.3e21 for E_c/E(N), held the hole at E(N)'s size while raising its energy; corrected in the same pass,
+     before any report.]
   S5 (deduced) So items 5 and 9 cannot hold together for any carrier of the plane's fields: at E(N) the arrival lasts
      at least tau_min, 13 to 66 orders beyond the compact widths (at the compact width the carrier has room for 4.7e-4
-     of the bits at the small end, 1e-16 at the Earth cap); within those widths the energy is 3e4 to 9e21 times E(N).
+     of the bits at the small end, 1e-16 at the Earth cap); within those widths the energy is 912 to 4.8e10 times
+     E(N).
      Something in the premise set gives: (a) the exact energy at the bound (G1, 133, 136 (1)); (b) the compact
      arrival -- the onset hidden behind the face (arrival_small V2-V4; focusing_parts F5, so O1b and O1c for the
      earliest parts) and, where a junction binds, the emergence within its period (item 10); (c) the carrier: a species
@@ -95,6 +100,32 @@ def exact_4d():
     return sp.simplify(tau / (2 * M) / (S / Z))  # tau_min / r0 per (N ln2 / Z)
 
 
+def compact_energy(kind, N, w, Z, k):
+    """S4: the E_c at which the hole E_c forms holds N bits brought in within w of its own clocks, and its capacity"""
+    c, G, hbar, ell = k["c"], k["G"], k["hbar"], k["ell"]
+    if kind == "small":
+        G5 = G * ell
+        r = lambda E: math.sqrt(8 * G5 * E / (3 * math.pi * c ** 4)); sig = lambda E: math.pi * (2 * r(E)) ** 2
+        cap = lambda E: 2 * math.pi ** 2 * r(E) ** 3 / (4 * k["ln2"] * (G5 * hbar / c ** 3))
+    else:
+        r = lambda E: 2 * G * E / c ** 4; sig = lambda E: 27 * math.pi * r(E) ** 2 / 4
+        cap = lambda E: math.pi * r(E) ** 2 / (hbar * G / c ** 3) / k["ln2"]
+    room = lambda E: s_max(E, sig(E) * w * r(E), Z, k) - N * k["ln2"]
+    lo, hi = 1.0, 1e80
+    if "fixedhole" in MUT:                                       # the mutant: the hole held at E(N)'s size
+        E0 = [1.0, 1e80]
+        while E0[1] / E0[0] > 1 + 1e-12:
+            mid = math.sqrt(E0[0] * E0[1]); E0[cap(mid) < N] = mid
+        Ef = E0[1]; room = lambda E: s_max(E, sig(Ef) * w * r(Ef), Z, k) - N * k["ln2"]
+    for _ in range(400):
+        mid = math.sqrt(lo * hi)
+        if room(mid) < 0:
+            lo = mid
+        else:
+            hi = mid
+    return hi, cap(hi)
+
+
 def cases():
     k = consts(); c, G, hbar, ell = k["c"], k["G"], k["hbar"], k["ell"]
     out = {}
@@ -114,7 +145,10 @@ def cases():
         out[name] = dict(N=N, E=E, r=r0, sigma=27 * math.pi * r0 ** 2 / 4, Zs=(2, 108.75), w=8.0)
     for name, d in out.items():
         d["tau"] = {Z: tau_min(d["N"], d["E"], d["sigma"], Z, k) * c / d["r"] for Z in d["Zs"]}
-        d["Ec_ratio"] = {Z: (d["tau"][Z] / d["w"]) ** (1 / 3) for Z in d["Zs"]}
+        kind = "small" if name == "small end" else "large"
+        sol = {Z: compact_energy(kind, d["N"], d["w"], Z, k) for Z in d["Zs"]}
+        d["Ec_ratio"] = {Z: sol[Z][0] / d["E"] for Z in d["Zs"]}
+        d["Nc_ratio"] = {Z: sol[Z][1] / d["N"] for Z in d["Zs"]}
         d["S_room"] = s_max(d["E"], d["sigma"] * d["w"] * d["r"], d["Zs"][1], k) / (d["N"] * k["ln2"])
     out["the Earth cap"]["N_check"] = EC["N"]
     return out
@@ -133,10 +167,12 @@ def wavelength_4d():
 def report():
     print("S2 exact, on the plane's hole at the bound: tau_min = %s x (N ln2 / Z) clocks of r0/c" % exact_4d())
     for name, d in cases().items():
-        print("S3 %-14s N = %.4g, E = %.4g J, r = %.4g m: tau_min = %s clocks; compact w = %g; E_c/E(N) = %s; room at "
-              "w for %.2g of the bits" % (name, d["N"], d["E"], d["r"],
-                                         ", ".join("%.2g (Z = %g)" % (t, Z) for Z, t in d["tau"].items()), d["w"],
-                                         ", ".join("%.2g" % v for v in d["Ec_ratio"].values()), d["S_room"]))
+        print("S3 %-14s N = %.4g, E = %.4g J, r = %.4g m: tau_min = %s clocks; compact w = %g; room at w for %.2g of "
+              "the bits" % (name, d["N"], d["E"], d["r"],
+                            ", ".join("%.2g (Z = %g)" % (t, Z) for Z, t in d["tau"].items()), d["w"], d["S_room"]))
+        print("S4 %-14s E_c/E(N) = %s; its face holds N_c/N = %s" % (
+            name, ", ".join("%.3g (Z = %g)" % (v, Z) for Z, v in d["Ec_ratio"].items()),
+            ", ".join("%.3g" % v for v in d["Nc_ratio"].values())))
     r, lam = wavelength_4d()
     print("S6 the carrier's kT at the bound is %s of Hawking's; peak wavelength %.3g r0" % (r, lam))
 
@@ -164,6 +200,12 @@ def selftest(quiet=False):
           and abs(sm["S_room"] / 4.7e-4 - 1) < 0.05)
     ok.append(s5); say("S5 every case: tau_min above 1e12 times the compact width, the room at that width under 1e-3 of "
                        "the bits: %s" % s5)
+    s4 = (abs(sm["Ec_ratio"][106.75] / 912 - 1) < 0.02 and abs(ec["Ec_ratio"][108.75] / 4.8e10 - 1) < 0.02
+          and abs(tw["Ec_ratio"][108.75] / 1.52e10 - 1) < 0.02 and abs(ec["Nc_ratio"][108.75] / 2.3e21 - 1) < 0.03
+          and abs(sm["Nc_ratio"][106.75] / 2.76e4 - 1) < 0.03)
+    ok.append(s4); say("S4 the compact energy, self-consistent: E_c/E(N) = %.3g (small), %.3g (Earth cap); N_c/N = "
+                       "%.3g, %.3g: %s" % (sm["Ec_ratio"][106.75], ec["Ec_ratio"][108.75], sm["Nc_ratio"][106.75],
+                                     ec["Nc_ratio"][108.75], s4))
     r, lam = wavelength_4d()
     s6 = r == sp.Rational(8, 3) and abs(lam - 10.5) < 0.05
     ok.append(s6); say("S6 kT = (8/3) T_Hawking at the bound, peak wavelength %.2f r0: %s" % (lam, s6))
@@ -171,7 +213,7 @@ def selftest(quiet=False):
 
 
 def mutants():
-    caught = 0; names = ["noZ", "power3"]
+    caught = 0; names = ["noZ", "power3", "fixedhole"]
     for m in names:
         MUT.clear(); MUT.add(m)
         try:

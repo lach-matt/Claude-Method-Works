@@ -869,7 +869,7 @@ state was rebuilt first.
   **M1P2x, E1x and H2tx DERIVED at our sigma**, where your 390 meets position 2's open period by identity, and held at
   sigma2 != sigma by 389. **Open: ARRIVAL, B3, B4d and SOURCE.** A finding, put to you (`source_capacity.py`): at
   E(N) the README's carrier needs at least (45/4) N ln2/Z clocks to bring its N bits through the face -- 1e14 at the
-  small end, 1e65 at the Earth cap -- against the compact widths of 4.79 and 4.31-8; within them it needs 3e4 to 9e21
+  small end, 1e65 at the Earth cap -- against the compact widths of 4.79 and 4.31-8; within them it needs 912 to 4.8e10
   times E(N). Items 5 and 9 of SOURCE cannot hold together for any carrier of the plane's fields (an estimate):
   which premise gives -- the exact energy, the compact arrival, or the carrier -- is yours.
 

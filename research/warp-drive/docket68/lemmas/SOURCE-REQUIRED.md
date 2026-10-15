@@ -20,8 +20,9 @@ fields of Z species, geometric-optics capture); not verified; not seated.
 - **The figures (S3).** Small end: 5.3e15 clocks (Z = 2) and 1.0e14 (Z = 106.75), against 4.79, and beyond the hole's
   life of 8.57e14 at Z = 2. Large end: 5.3e63 and 9.7e61 at r0 = 20 ell; 5.3e66 and 9.8e64 at the Earth cap, against
   4.31-8 at our sigma and 1.6e-3 where a junction binds.
-- **What compact would cost (S4).** Within the compact width the carrier needs E_c/E(N) = (tau_min/w)^(1/3): 2.8e4 at
-  the small end, 2.3e21 at the Earth cap. The face it forms would then hold far more than N bits (136 (1), 162).
+- **What compact would cost (S4, solved self-consistently: a bigger energy makes a bigger hole).** Within the compact
+  width the carrier needs E_c/E(N) = 912 at the small end, 1.5e10 at r0 = 20 ell and 4.8e10 at the Earth cap. The
+  face it forms then holds 2.8e4 N, 2.3e20 N and 2.3e21 N bits, far more than N (136 (1), 162).
 - **So (S5)** items 5 and 9 cannot hold together for any carrier of the plane's fields. Something in the premise set
   gives, and which is M's:
   (a) the exact energy at the bound (G1, 133, 136 (1));
