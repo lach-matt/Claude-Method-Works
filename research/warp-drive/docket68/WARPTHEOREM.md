@@ -872,6 +872,15 @@ state was rebuilt first.
   small end, 1e65 at the Earth cap -- against the compact widths of 4.79 and 4.31-8; within them it needs 912 to 4.8e10
   times E(N). Items 5 and 9 of SOURCE cannot hold together for any carrier of the plane's fields (an estimate):
   which premise gives -- the exact energy, the compact arrival, or the carrier -- is yours.
+- **Item 425** (M: "audit this problem against my rulings. This seems to be a misreading somewhere of my rulings"):
+  traced to M's words (`lemmas/SOURCE-REQUIRED.md`, "Item 425"). The exact energy at the bound is M's (136 (1)). The
+  bits streaming through the face as field quanta are the board's (H-BITS-ARE-STATES, RBITS). The compact arrival is
+  the board's, and it reverses 163: M chose "All together, one whole" over "Instantaneously", an option whose text had a
+  write of at least ~200,000 clocks held whole at a fixed size. Read with 158 (2), item 424's bound is the write's own
+  least time, (45/4) N ln2/Z clocks, inside the face's life at Z near 100 (12 % small end, 6 % large) and outside it at
+  Z = 2. What it leaves is the board's: a face of the README's size standing from the opening (162) before its energy
+  is all inside, which general relativity does not give and 130 and 136 (7) describe. The map's stale ARRIVAL, B3 and
+  B4d texts and the Arrival station's large-end pill corrected.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

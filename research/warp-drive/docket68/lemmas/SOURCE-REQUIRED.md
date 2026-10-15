@@ -5,6 +5,41 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 425: the conflict audited against M's rulings -- item 9 is the board's, and it reverses 163
+
+M, 425: "audit this problem against my rulings. This seems to be a misreading somewhere of my rulings". The conflict of
+item 424 has three premises besides standard thermodynamics. Each traced to M's words (verbatim in the rulings file):
+
+| premise | M's words | the board's step | whose |
+|---|---|---|---|
+| (a) exactly E(N), the energy at which the horizon holds N bits | 133: "There is only one exact energy needed for any given README"; 136 (1): "yes" to "Is your one exact energy E(N)" | the identification put to M at 135 | **M's** (136 (1)) |
+| (b) the N bits come in as 2^N states of a carrier of the plane's fields, crossing the face with the energy | 190: "Information is energy"; 136 G: "the README is the energy, not separate"; 136 (10): "an exact value of entanglement between any two given point"; 136 (7): "The throat formation is synchronization" | H-BITS-ARE-STATES, H-FREE-GAS (write_small S3), RBITS (arrival_small) | **the board's**; M was never asked how the bits enter the object |
+| (c) a compact arrival, within 4.79 (small end) or 4.31-8 (large) clocks | 162: "only the size that is needed to hold the object once and at once"; 163: "All together, one whole" -- chosen over "Instantaneously", its option text "the README carried in by the inflow ... held as a single whole, not bit by bit, at the fixed size; the write lasts at least ~200,000 clocks"; 158 (2): "Exactly as long as the write needs I should think" | the null-dust model of 340's guess A (arrival_small V2-V4), and 419's F5 built on it | **the board's** |
+
+**The misreading is (c).** M chose "all together, one whole" and declined "Instantaneously"; the option M chose said the
+README is carried in over a write of at least ~200,000 clocks and held whole at a fixed size. The board's compact
+requirement -- the arrival onto the face within a few clocks of a write of 66,980 -- is in effect the instant M
+declined, re-entered through the board's own model of how a face forms (the README collapsing as null dust, 340's
+guess A worked for the math). (b) is the board's too: M's words make the information the energy and the passage an
+entanglement formed by synchronization; nothing of M's says the bits must stream through the face as field quanta.
+
+**Read with M's words alone, item 424's bound is not a conflict: it is the write's own length.** 158 (2) holds the
+object "exactly as long as the write needs", and S2 says how long that is at E(N): at least (45/4) N ln2/Z clocks of
+r0/c at the large end -- 0.07 N clocks at Z = 108.75 against the hole's life of at least 1.21 N (6 %); at the small end
+1.0e14 clocks at Z = 106.75 against 8.57e14 (12 %). So at Z of about 100 the write fits inside the face's life at both
+ends; at Z = 2 (386's count of the massless gauge quanta alone) it does not (5.3e15 > 8.57e14; 3.9 N > 1.21 N).
+Computed (source_capacity S2, close_large L3, hold_small L5).
+
+**What that reading leaves, the board's to work, not M's to answer:**
+- A face of the README's size standing from the opening (162), before the README's energy is all inside. General
+  relativity ties a horizon's size to the energy within it; at 340 the board framed this as "the hole ending with 2E"
+  (option B), which is how the compact reading came to be preferred. M's 130 ("a black hole is not matter, it is what
+  the mouth at position 1 looks like") and 136 (7) ("The throat formation is synchronization") describe an object the
+  board has not modelled.
+- With a face standing from the opening, F5's condition holds by construction: the README's first part meets a face
+  already there (419's widths then bind nothing).
+- Which carrier, and so Z, is SOURCE's (386).
+
 ## Item 424: the carrier's room -- items 5 and 9 cannot hold together (`source_capacity.py`, S1-S6)
 
 M, 424: "review all the other open items in the warp theorem map, and close them". Every open row at the large end

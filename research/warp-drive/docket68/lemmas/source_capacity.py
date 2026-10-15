@@ -46,6 +46,11 @@ This instrument asks whether the two can hold together for a carrier made of the
      count Z near Z tau_min/w, 2e15 to 1e66 (H-SPECIES-FINITE's replacement, readings Q27, bounds it far below).
      Which is M's.  RBITS (the bits arriving with the energy) is the reading S5 refutes for a compact arrival, as an
      estimate.
+     [Item 425, beside the text: audited against M's words (SOURCE-REQUIRED.md, "Item 425"), (a) is M's (136 (1)),
+     but (b) the compact arrival is the board's, from its null-dust model, and it reverses 163, where M chose "All
+     together, one whole" over "Instantaneously" with a write of at least ~200,000 clocks.  Read with M's 158 (2), S2's
+     tau_min is not a conflict but the write's own least time: inside the hole's life at Z of about 100, outside it at
+     Z = 2.]
 
 What this does not claim: the bound is free-field thermodynamics with Z species (an estimate in its idealizations: no
 interactions, no gravity's own entropy before the face forms); the cross-section is geometric optics, which a carrier
