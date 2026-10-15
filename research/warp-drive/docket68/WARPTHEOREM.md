@@ -885,6 +885,12 @@ state was rebuilt first.
   and F7, not on anything of 424's. Since the branch took main's R3 class CINF repair on 2026-10-14 (entry 1793,
   W-190), the live Löwdin paper no longer carries the eleven-element sentence those checks quote. They now quote it
   from the superseded BUILD180 kept beside, and check that the live store carries the repair; both pass (7/7, 6/6).*
+- **Item 426** (M: "Withdraw the compact arrival as the board's, and take the write as long ... with the object standing
+  from the opening (162). The board then models that object. - yes"): seated as M-LONG-WRITE. SOURCE's item 9 is
+  withdrawn; the write's least time, (45/4) N ln2/Z clocks, replaces item 8's floor and lies inside the face's life (5.9 %
+  large end, 11.7 % small; Z cancels, correcting 425's "Z = 2 does not fit"). A destination whose own sigma differs is
+  not reached on this reading: the junction's period is far shorter than the write. The rows that rested on the compact
+  width now rest on the object standing from the opening, which the board models; its approach goes to M first (414).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

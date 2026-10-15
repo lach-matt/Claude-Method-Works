@@ -179,6 +179,9 @@ fast enough for our face to be born before its first part. Then 273's region sta
   far inside these widths: met.
 - At a destination at our sigma, no junction binds and nothing bounded the arrival (the 4 clocks withdrawn there).
   These widths are a **new requirement on SOURCE**: arrive within 4.31 to 8 clocks of r_h/c, by onset order.
+  *[Item 426, beside the text: M withdrew the compact arrival as the board's; the README is written in over a long
+  write, the object standing at its size from the opening (162). With a face standing before the README's first part,
+  F5's condition holds by construction and these widths bind nothing -- once the board has modelled that object.]*
 - **Not proved:** the large end's 5D core is crossed with completeness by F4, but its curvature growth is not computed
   there. And the horizon is traced with the face static from v = w on (348 (Q3)).
 

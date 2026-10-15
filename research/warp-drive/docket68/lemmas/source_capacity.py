@@ -51,6 +51,16 @@ This instrument asks whether the two can hold together for a carrier made of the
      together, one whole" over "Instantaneously" with a write of at least ~200,000 clocks.  Read with M's 158 (2), S2's
      tau_min is not a conflict but the write's own least time: inside the hole's life at Z of about 100, outside it at
      Z = 2.]
+     [Item 426, M: the compact arrival withdrawn as the board's; the write long (163, 158 (2)); the object standing from
+     the opening (162).  And a correction beside the item-425 note: "outside it at Z = 2" compared tau_min at Z = 2 with
+     a life computed at Z of about 107.  The life goes as 1/Z too (close_large L3, hold_small), so with the carrier and
+     the emission counting the same species the write takes a fixed share of the face's life whatever Z is: 5.9 % at
+     the large end, 11.7 % at the small end (S7, computed).]
+  S7 (computed) The write against the face's life.  Large end: tau_min / life = (45/4) ln2 / (2.417 x 108.75 / 2)
+     = 0.0593, Z cancelling when the carrier and the emission count the same species (close_large L3's life, at least
+     2.417 N clocks of m/c with Z = 108.75, an upper bound on the power).  Small end: 1.0e14 / 8.57e14 = 0.117 at Z =
+     106.75 (hold_small's life).  At the large end the hole is cold enough to emit only massless species, so its life
+     is longer and the share smaller.
 
 What this does not claim: the bound is free-field thermodynamics with Z species (an estimate in its idealizations: no
 interactions, no gravity's own entropy before the face forms); the cross-section is geometric optics, which a carrier
@@ -169,6 +179,13 @@ def wavelength_4d():
     return ratio, lam_over_r0
 
 
+def write_share():
+    """S7: the write's least time against the face's life, at each end, with the life's own species count"""
+    large = (45 / 4) * math.log(2) / (2.417 * 108.75 / 2)
+    small = cases()["small end"]["tau"][106.75] / 8.57e14
+    return large, small
+
+
 def report():
     print("S2 exact, on the plane's hole at the bound: tau_min = %s x (N ln2 / Z) clocks of r0/c" % exact_4d())
     for name, d in cases().items():
@@ -178,6 +195,8 @@ def report():
         print("S4 %-14s E_c/E(N) = %s; its face holds N_c/N = %s" % (
             name, ", ".join("%.3g (Z = %g)" % (v, Z) for Z, v in d["Ec_ratio"].items()),
             ", ".join("%.3g" % v for v in d["Nc_ratio"].values())))
+    wl, ws = write_share()
+    print("S7 the write's least time against the face's life: %.3g (large end), %.3g (small end)" % (wl, ws))
     r, lam = wavelength_4d()
     print("S6 the carrier's kT at the bound is %s of Hawking's; peak wavelength %.3g r0" % (r, lam))
 
@@ -211,6 +230,10 @@ def selftest(quiet=False):
     ok.append(s4); say("S4 the compact energy, self-consistent: E_c/E(N) = %.3g (small), %.3g (Earth cap); N_c/N = "
                        "%.3g, %.3g: %s" % (sm["Ec_ratio"][106.75], ec["Ec_ratio"][108.75], sm["Nc_ratio"][106.75],
                                      ec["Nc_ratio"][108.75], s4))
+    wl, ws = write_share()
+    s7 = abs(wl - 0.0593) < 5e-4 and abs(ws - 0.117) < 5e-3
+    ok.append(s7); say("S7 the write inside the face's life: %.4f of it at the large end, %.3f at the small: %s" % (
+        wl, ws, s7))
     r, lam = wavelength_4d()
     s6 = r == sp.Rational(8, 3) and abs(lam - 10.5) < 0.05
     ok.append(s6); say("S6 kT = (8/3) T_Hawking at the bound, peak wavelength %.2f r0: %s" % (lam, s6))

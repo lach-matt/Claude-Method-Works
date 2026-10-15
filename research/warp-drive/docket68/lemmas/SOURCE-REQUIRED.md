@@ -5,6 +5,27 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 426: the compact arrival withdrawn -- the write long, the object standing from the opening
+
+M, 426: "Withdraw the compact arrival as the board's, and take the write as long (163, 158 (2)), with the object standing
+from the opening (162). The board then models that object. - yes". Seated as M's: M-LONG-WRITE. What it does here:
+- **Item 9 is withdrawn** as the board's reading (kept above as the record). In its place: the README is written in
+  over a write as long as it needs, held whole at the object's fixed size, the object standing at the README's size from
+  the opening (162, 163, 158 (2)).
+- **Item 8's floor gives way to the write's least time** (source_capacity S2): at least (45/4) N ln2/Z clocks of r0/c
+  at the large end, 1.0e14 clocks at the small end's example (Z = 106.75). It lies inside the face's life: 5.9 % of it
+  at the large end, 11.7 % at the small (S7). The write-floor ball (66,980 clocks) counted room, not the rate through
+  the face, and is short of it by nine orders.
+- **Item 10 where a junction binds** asks the README to emerge within the junction's period: 1.57e-3 clocks at 2P at
+  r0 = 10 ell (junction_own G7), 32-34 of position 2's e-folds at the small end. Against a write of 1e14 clocks and
+  more, **a destination whose own sigma differs from ours is not reached on this reading** (computed, an estimate).
+  At our sigma item 10 is met by identity (390).
+- **Items 4-7 and 11 stand.** RDUST and RBITS (item 12) gave the compact form; under 426 the README's form is the long
+  write into a standing object, which the board now models.
+- **What the model must answer (the board's, put to M before any computation, 414):** how a face of the README's size
+  stands from the opening while the README's energy is still coming in -- general relativity ties a horizon's size to
+  the energy within it, and its area cannot hold still while positive energy crosses unless something balances it.
+
 ## Item 425: the conflict audited against M's rulings -- item 9 is the board's, and it reverses 163
 
 M, 425: "audit this problem against my rulings. This seems to be a misreading somewhere of my rulings". The conflict of
@@ -29,6 +50,9 @@ r0/c at the large end -- 0.07 N clocks at Z = 108.75 against the hole's life of 
 1.0e14 clocks at Z = 106.75 against 8.57e14 (12 %). So at Z of about 100 the write fits inside the face's life at both
 ends; at Z = 2 (386's count of the massless gauge quanta alone) it does not (5.3e15 > 8.57e14; 3.9 N > 1.21 N).
 Computed (source_capacity S2, close_large L3, hold_small L5).
+*[Item 426, beside the text: "at Z = 2 it does not" compared the write at Z = 2 with lives computed at Z of about 107.
+The lives go as 1/Z as well, so with the carrier and the emission counting the same species the write is a fixed share
+of the face's life whatever Z is: 5.9 % at the large end, 11.7 % at the small end (source_capacity S7, computed).]*
 
 **What that reading leaves, the board's to work, not M's to answer:**
 - A face of the README's size standing from the opening (162), before the README's energy is all inside. General
