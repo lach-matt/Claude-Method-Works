@@ -1033,6 +1033,18 @@ state was rebuilt first.
   SOURCE's (399). Discrepancies corrected beside the text: the SOURCE rows' withdrawn "gas", the WRITE rows' old
   floors, ARRIVALs' "compact", the map's Formation and Address stations and stale rows, RECON and ENCODE drawn, the
   tally. SOURCE-REQUIRED 19-22 state what SOURCE must supply.
+- **Item 440** (M: "Correction -  A station is green at an end only when every row it rests on there is proved, or
+  derived from first principles and established  mathematics. - this is the criteria for each pass... And anything
+  derived must be proved separately with computation"). The map's sentence corrected to M's. **The audit**
+  (`lemmas/pass_audit.py`, selftest 4/4, mutant 1/1): every cited instrument is on disk with a selftest, but thirteen
+  owners seated since item 362 are not in the theorem's own selftest list (T1 stops at 362) -- run here, all thirteen
+  pass; adding them to T1 is a change to warptheorem.py, put to M. Of the 58 rows not PROVED: 48 have their claim
+  computed or machine-checked by their instruments; B7 (a chain of rulings argued in prose) and B5b (the wall's
+  tension share deduced, no wall profile computed) owe a computed proof; O1b and O1c rest on H-CORE-DELIVERS (422),
+  assumed; R0, R1, R2, R6, RECON and B6' are definitions, which the corrected criterion no longer names. So 68 rows
+  pass, 10 do not yet, 2 deferred; Supply, Formation, Information route and Arrival amber at both ends, Crossing at
+  the large end. Put to M: whether M's rulings and definitions count as first principles (22 of the 48 name M's
+  rulings among their premises), and the approach for the four proofs owed.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
