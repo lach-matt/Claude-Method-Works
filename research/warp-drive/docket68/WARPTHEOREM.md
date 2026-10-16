@@ -918,6 +918,14 @@ state was rebuilt first.
   what holds it is what that E(N) is while the README enters over the write. Stage 1 READs (eight abstracts READ at
   source today; pages to follow); stage 2 four readings with tests -- Y1 the entanglement sets the size (RT with 137
   (1)), Y2 the E(N) inside at the opening, Y3 the channel, Y4 the closing; stage 3 decide. Nothing computed.
+- **Item 429** (M: "Yes, I approve this approach. BUT before we continue, I want to revisit the ADDRESS station ...
+  Instead I want to utilize the Anthropic Principles of the 26 universal constants, which are in turn the 26 multiverse
+  variants for determine relative position in an index"): the synchronization approach approved and held; the Address
+  station revisited (`lemmas/ADDRESS-26.md`). The record's trajectory count is 12, not 16 (23; 104 (c)). Baez's 26 READ
+  at source. Of the twelve, CP, alpha_s, Lambda and v are among the 26, Z0 and G_F fold in through alpha and v, M, R,
+  K and T are readouts, G is the unit, and G_theta is outside Baez's list (deduced). R4 stands in form on the new
+  coordinates; the face rows carry none of the 26 in Planck units except the cosmological constant (deduced, to
+  check). Three forks put to M: which 26; which reading of the anthropic principles; what stays beside the 26.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
