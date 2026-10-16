@@ -948,8 +948,16 @@ def lemma_selftests():
               # item 356
               "m1_large.py", "rows_large.py",
               # item 362
-              "close_large.py", "write_large.py", "m1p2x_large.py", "o3_large.py"):
+              "close_large.py", "write_large.py", "m1p2x_large.py", "o3_large.py",
+              # item 441 (approved): the owners seated since item 362, which rows cite (pass_audit P1)
+              "arrival_large.py", "quantum_onset.py", "focusing_parts.py", "core_face.py", "z3b_large.py",
+              "junction_own.py", "bearing26.py", "encode_read.py", "b4d_large.py", "settle_arrival.py",
+              "encode_labels.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
+        with contextlib.redirect_stdout(io.StringIO()):
+            out[f] = mod.selftest()
+    for f in ("exactcopy.py", "rearrange.py"):                     # item 441: R3's owners, in bulk/
+        mod = _load(os.path.join(HERE, "bulk", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
     return out

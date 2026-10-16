@@ -7,11 +7,11 @@ with computation."  With 156 (M-DERIVED-AND-PROVED: every lemma both derived and
 Labels: computed, deduced, M's.  Worked in the conversation; not verified; not seated.
 
   P0 (read) M's words, verbatim in the rulings file (156, 440).
-  P1 (computed) Every instrument a row cites is found on disk and carries a selftest.  Thirteen are not run by the
-     theorem's own selftest (warptheorem T1's lemma list stops at item 362): arrival_large, b4d_large, bearing26,
+  P1 (computed) Every instrument a row cites is found on disk and carries a selftest.  Thirteen were not run by the
+     theorem's own selftest (warptheorem T1's lemma list stopped at item 362): arrival_large, b4d_large, bearing26,
      core_face, encode_labels, encode_read, exactcopy, focusing_parts, junction_own, quantum_onset, rearrange,
-     settle_arrival, z3b_large.  T1's line "the lemma instruments' selftests pass" does not cover them -- a discrepancy,
-     recorded; with --run this instrument runs each of them.
+     settle_arrival, z3b_large -- all thirteen pass (run here at 440); added to T1 at 441, M approving, so none is left
+     outside it.
   P2 (deduced) Each row not PROVED is classed by what proves it.
      C -- its claim is computed or machine-checked by the instruments it cites (the computation is the separate proof
           M asks for); its premises are named (M's rulings, READ sources, other rows).
@@ -23,6 +23,14 @@ Labels: computed, deduced, M's.  Worked in the conversation; not verified; not s
      (put to M: are M's definitions first principles?); and SOURCEs and SOURCE, deferred.  Every other row is C.
   P4 (deduced) Which stations the failing rows sit in, end by end, read from the map's own station lists; a station
      passes at an end only when every row it lists there is PROVED or C.
+  P5 (deduced; item 441) M: "1 - no" (M's rulings are not first principles) and "2 - no. Each definition must be
+     proved".  So a row passes only when its claim is computed, it names no ruling of M's among its premises, and it
+     rests on no definition not yet proved.  RULED below is each row's premises among M's rulings, read from its
+     where-field (verifier and work-item numbers set aside); FRAMEWORK is the definition B6' (our universe a plane of
+     tension sigma with its offset in a five-dimensional bulk), on which every row set in the bulk or on the plane
+     rests.  Under 441 three rows pass: I2, R3 and Z3a -- the capacity bound, exactness at the instant, and the null
+     condition of our own matter -- each physics alone and computed.  Every other row waits on a definition proved
+     (B6' first, which gates all the rest) or a ruling derived.
 
 python3 pass_audit.py [--selftest | --run | --mutants]
 """
@@ -96,6 +104,40 @@ CLASS = {
     "B6'": ("X", "M's definition (201), its consistency computed (sigma_defines T1-T4, nature_rows B1-B3)"),
 }
 PASSING = ("PROVED", "C")
+# P5 (item 441): each row's premises among M's rulings (substantive; verifier and work-item numbers set aside)
+RULED = {
+    "G1": (101, 131, 132, 133), "H2": (270,), "H2txs": (240,), "H2tx": (240, 390, 427),
+    "O1a": (270, 273, 276, 277, 282), "O1bs": (259, 282), "O1cs": (282,), "O1b": (273, 422, 426),
+    "O1c": (273, 414, 422, 426), "O3s": (158, 334, 336), "O3": (158, 160, 334, 336),
+    "Z3bs": (177, 183, 273, 318), "Z3b": (177, 183, 273, 318, 422), "Z3c": (200, 201), "B1": (201, 320),
+    "B3s": (162, 273, 336, 353, 386), "B4ds": (162, 273, 336, 353, 386), "B3": (162, 179, 273, 353, 386),
+    "B4d": (162, 179, 273, 353, 386), "B4a": (282,), "B5a": (127, 275, 276, 282, 322), "B5cs": (139, 284, 285),
+    "B5c": (139, 275, 276), "B5pu": (202,), "B5px": (202, 229, 284), "B6": (200,), "B8": (201, 328),
+    "B7": (86, 100, 101, 122, 140, 282), "I1": (137,), "E1us": (336,), "E1u": (336,), "E2us": (110, 111, 240),
+    "E2u": (110, 111, 240), "E1xs": (111, 230, 240, 336), "E1x": (111, 230, 240, 336, 390, 427),
+    "E2xs": (110, 111, 240), "E2x": (110, 111, 240), "E3": (110, 111, 155, 239, 240), "R4": (155,),
+    "R5": (155, 239, 240), "ENCODE": (131, 136, 146, 147, 148, 437, 438), "M1s": (282,), "M1": (273,),
+    "M1P2xs": (275, 282), "M1P2x": (390, 427), "FARs": (139, 166, 226, 275, 318), "FAR": (139, 166, 226),
+    "WRITEs": (163, 334, 336), "WRITE": (334, 336), "ARRIVALs": (109, 136, 162, 163, 240, 285, 340, 386),
+    "ARRIVAL": (162, 198, 386, 432, 437), "CLOSEs": (336,), "CLOSE": (139, 336),
+}
+OFF_FRAMEWORK = ("I2", "R3", "Z3a")                   # physics of our own universe, not set in the bulk or the plane
+DEFINITIONS = ("R0", "R1", "R2", "R6", "RECON", "B6'")
+
+
+def strict(cls):
+    """P5: the rows that pass under 441, and for every other row what it waits on"""
+    out = {}
+    for k, (c, why) in cls.items():
+        wait = []
+        if c not in PASSING:
+            wait.append(c)
+        if RULED.get(k):
+            wait.append("rulings " + ", ".join(str(n) for n in RULED[k]))
+        if k not in OFF_FRAMEWORK and k not in DEFINITIONS and "framework" not in MUT:
+            wait.append("B6' (the framework) unproved")
+        out[k] = wait
+    return out
 
 
 def _item(n):
@@ -229,7 +271,11 @@ def report(run=False):
     for c in ("D", "A", "X", "OPEN"):
         for k in by.get(c, []):
             print("   %-5s %-7s %s" % (c, k, cls[k][1]))
-    print("P4 stations not passing at an end under the corrected criterion:")
+    st = strict(cls)
+    passing = sorted(k for k, w in st.items() if not w)
+    print("P5 under 441, rows that pass (%d): %s; every other row waits on a ruling derived or a definition proved"
+          % (len(passing), ", ".join(passing)))
+    print("P4 stations not passing at an end under the corrected criterion (440's reading):")
     for sid, ends in station_verdicts(cls).items():
         for end, bad in ends.items():
             if bad:
@@ -245,8 +291,8 @@ def selftest(quiet=False):
     w = words(); ok.append(w); say("P0 M's words verbatim inside 156 and 440: %s" % w)
     rows = register()
     nt = cited_not_in_t1(rows)
-    p1 = set(nt) == set(NOT_IN_T1)
-    ok.append(p1); say("P1 the thirteen cited instruments outside T1 found exactly: %s" % p1)
+    p1 = nt == []                                                    # [item 441: T1 runs all thirteen]
+    ok.append(p1); say("P1 every cited instrument is in T1's list now (the thirteen added at 441): %s" % p1)
     cls = classify(rows)
     unclassed = [k for k, v in cls.items() if v[0] == "?"]
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
@@ -257,11 +303,14 @@ def selftest(quiet=False):
     p4 = any(bad for ends in v.values() for bad in ends.values()) and all(
         set(bad) <= set(fail) for ends in v.values() for bad in ends.values())
     ok.append(p4); say("P4 the failing rows located in the map's stations: %s" % p4)
+    st = strict(cls)
+    p5 = sorted(k for k, w in st.items() if not w) == ["I2", "R3", "Z3a"]
+    ok.append(p5); say("P5 under 441 three rows pass -- I2, R3, Z3a: %s" % p5)
     return all(ok)
 
 
 def mutants():
-    names = ["promote"]
+    names = ["promote", "framework"]
     caught = 0
     for m in names:
         MUT.clear(); MUT.add(m)
