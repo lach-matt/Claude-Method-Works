@@ -2,20 +2,7 @@
 title: "Everything Is Relative"
 subtitle: "One theorem on how quantum physics stands to relativity: whatever can exist keeps the one light cone, and the leading quantum correction to gravity's second-order law is held to zero"
 author: "Matthew Lach · Independent Researcher"
-date: "16 October 2026 · draft 3"
----
-
-**Status of this draft.** A draft for review. Every statement below carries one of five labels:
-
-- **computed**: exact unless marked, and re-run for this paper;
-- **deduced**: follows from the statements it cites;
-- **READ**: quoted verbatim from the source, re-read at source for this paper, with page and equation;
-- **estimate**;
-- **postulate**: assumed, named, and never derived.
-
-Nothing labelled READ is used beyond its source's own hypotheses. The machine check `qr_paper_check.py` asserts every
-computed number printed here. Its run is in Appendix C.
-
+date: "16 October 2026"
 ---
 
 ## Abstract
@@ -45,8 +32,8 @@ The relation to quantum physics runs through three results:
   displacements sum to zero. The four-dimensional route by which the same term acts, a scalar coupled to the
   Gauss–Bonnet density, fails the same test for every coupling with f′ ≠ 0. Under the postulate, α = 0 exactly.
 - **Quantum corrections begin where one dimensionless number reaches one.** Buckingham's theorem on {G₅, ħ, c, ℓ, R}
-  leaves two numbers, and only x = l₅² R carries ħ. Under four named premises the two-derivative law is exact where
-  x ≪ 1 and fails where x reaches one.
+  leaves two numbers, and only x = l₅² R carries ħ. Under four named premises the two-derivative law holds to
+  corrections that vanish as x → 0, and fails where x reaches one.
 
 The limits are part of the result:
 
@@ -90,14 +77,11 @@ stops: the boundary at which quantum corrections must begin (§12).
 The postulate is named as such wherever it is used. Without it, Theorem 1 still stands. Theorem 2 then
 becomes a conditional: if α ≠ 0, gravity has fronts outside the light cone.
 
-### 1.3 A single theorem, and whether it is a law
+### 1.3 A single theorem
 
-The paper presents a single theorem: one statement proved through a chain of lemmas. Lemmas 1–5 give Theorem 1 (the statement in senses (1)–(2)). Lemmas 6–7 with the postulate give Theorem 2 (the
-statement in sense (3), and α = 0). Proposition 8 gives its boundary.
-
-Whether it can be called a law is answered in §14. In short, it is a theorem relative to stated premises. Its law-like
-content is the postulate, together with the experiments that bound departures from it. No proof can make an empirical
-universal into a law. What a proof can do, and what this paper does, is show what that universal forces.
+The paper presents a single theorem: one statement proved through a chain of lemmas. Lemmas 1–5 give Theorem 1 (the
+statement in senses (1)–(2)). Lemmas 6–7 with the postulate give Theorem 2 (the statement in sense (3), and α = 0).
+Proposition 8 gives its boundary.
 
 ### 1.4 Scope
 
@@ -144,7 +128,16 @@ not derived anywhere below, and every result that uses it says so.
 
 ## 3 · The method
 
-The proof is kind by kind. Each lemma carries its own evidence, of one of three types:
+The proof is kind by kind. Every statement carries one of four labels:
+
+- **computed**: an exact symbolic computation (sympy), re-run for this paper and asserted by its check
+  (Appendix C), with a failure control that the check must reject;
+- **deduced**: follows from the statements it cites;
+- **READ**: quoted verbatim from the source, re-read at source for this paper, with page and equation, and used only
+  on that source's hypotheses;
+- **postulate**: assumed, named, and never derived.
+
+Each lemma carries its own evidence, of one of three types:
 
 - an exact computation, done in sympy and re-run for this paper (module named in Appendix A);
 - a theorem from the literature, applied only on its hypotheses (READ, quoted);
@@ -197,8 +190,7 @@ well supported by experiments such as the Eötvös experiment, tests of local Lo
 *What the test does and does not show.* The bound is on one speed over a near-flat path. It says nothing about the
 characteristic cones of a strongly curved background (§9, qualification Q1).
 
-*Check of the computation.* Replacing the Lorentz boost by a Galilean one makes the null-cone and metric checks fail,
-which is the instrument's first mutant.
+*Failure control.* Replacing the Lorentz boost by a Galilean one makes the null-cone and metric checks fail.
 
 ---
 
@@ -290,7 +282,13 @@ outside the light cone.
 > measurements. The only physical assumption that is needed to prove this assertion is that Lorentz transformations of
 > the spacetime coordinates are implemented in quantum theory by unitary transformations of the various operators."
 
-*Computed (this paper).* Take an arbitrary two-qubit pure state |ψ⟩ = Σ a_i |i⟩, with four symbolic complex
+*Deduced, in general.* Let Alice act on her system A with any operation, a unitary or a measurement whose outcome is
+not sent to Bob, written with Kraus operators K_j ⊗ 1 with Σ_j K_j†K_j = 1. Bob's reduced state after it is
+Tr_A[Σ_j (K_j ⊗ 1) ρ (K_j† ⊗ 1)] = Tr_A[(Σ_j K_j†K_j ⊗ 1) ρ] = Tr_A ρ, by cyclicity of the partial trace over A. So
+nothing Alice does locally changes any statistic Bob can measure. This is the no-communication theorem (Peres and Terno,
+§II.E; the section was not re-read here, and the one-line proof above is given in full instead).
+
+*Computed (this paper), as a check of that proof.* Take an arbitrary two-qubit pure state |ψ⟩ = Σ a_i |i⟩, with four symbolic complex
 coefficients. Let Alice either apply an arbitrary local unitary U(θ, φ) ⊗ 1, or make a non-selective projective
 measurement in the basis U|0⟩, U|1⟩. In both cases Bob's reduced density matrix ρ_B is unchanged, identically in a_i,
 θ, φ. A non-local gate (CNOT) passed off as Alice's local operation does change ρ_B, and the check catches it (mutant
@@ -302,7 +300,7 @@ READ). The relativity of information is that of its carrier, not an invariance o
 
 ---
 
-## 9 · The statement in senses (1)–(2) (Theorem 1), and why no index is run
+## 9 · The statement in senses (1)–(2) (Theorem 1)
 
 **Theorem 1.** Every kind that can exist, with mass or without, satisfies the following:
 
@@ -317,7 +315,7 @@ READ). The relativity of information is that of its carrier, not an invariance o
 The theorem is deduced from Lemmas 1–5. It is exact on the premises of the outside theorems, and tested to the
 experiments' precision.
 
-*Scope (qualification Q1 of the first verification, §13).* What Theorem 1 proves of "keeping the light cone" is
+*Scope (qualification Q1, §13).* What Theorem 1 proves of "keeping the light cone" is
 special-relativistic. It covers flat-space boost invariance, together with GW170817's near-flat equality of speeds. It
 proves nothing about the characteristic cones of a curved background. That stronger statement is Postulate O, and only
 Theorem 2 uses it.
@@ -326,15 +324,11 @@ Theorem 2 uses it.
 α = 0. Its fifth clause allows a constant that, if nonzero, puts gravity's fronts off the light cone (§10). So the statement fixes
 the one constant it seemed to leave open.
 
-*No index is run.* A table of (kind, Lorentz-invariant, couples universally, falls alike) would carry the value 1 in
-every cell. That is a constant column on every axis, from which nothing can be measured, and it would hold the answer
-as its own column. Universality is proved kind by kind instead.
-
 ---
 
 ## 10 · The coupling evaluated by the one light cone (Lemma 6, Theorem 2)
 
-### 10.1 The instrument
+### 10.1 The computation
 
 In five dimensions, write the field equations as E = G + Λ + αH. The Einstein and Gauss–Bonnet tensors are written
 with the generalised Kronecker delta in an orthonormal frame: G = −(1/4) δ⁽³⁾ R, H = −(1/8) δ⁽⁵⁾ R R.
@@ -406,8 +400,9 @@ which sum to zero (computed). These agree with Reall, Tanahashi and Way's ω_I =
 with k₂ = −α/8. Some ω is positive for either sign of α, which is a front outside the light cone. RTW (p. 14, READ): "there
 is generically at least one positive ω_I and so this outermost cone lies outside the light cone".
 
-On the anti-de Sitter background the wave solves the law with Λ = −6k²(1 − 2αk²), and every ω is divided by 1 − 4αk²
-(computed). On the stable branch 1 − 4αk² = √(1 − 8αk_CD²), where Λ = −6k_CD² (computed). This is positive inside the
+On an anti-de Sitter background of curvature −k² (every pair curvature equal to −k²) the wave solves the law with
+Λ = −6k²(1 − 2αk²), and every ω is divided by 1 − 4αk²
+(computed). In Charmousis and Dufaux's parametrisation Λ = −6k_CD², on their stable branch, 1 − 4αk² = √(1 − 8αk_CD²) (computed). This is positive inside the
 existence range and vanishes at its endpoint 8αk_CD² = 1, where the linearised graviton degenerates (qualification Q3).
 
 ### 10.3 Theorem 2
@@ -417,7 +412,9 @@ gravity's second-order law is Einstein's exactly.
 
 *Proof (deduced).* The five-dimensional law can carry gravity's own waves and holds black holes, whose Weyl curvature is
 not zero (Tangherlini's Kretschmann 72 m²/r⁸ ≠ 0). On either background, α ≠ 0 puts a polarisation of gravity outside
-the light cone, whatever α's sign or size within the existence range (Lemma 6 (c), (d)). Postulate O forbids any front
+the light cone, whatever α's sign or size within the existence range (Lemma 6 (c), (d)). The existence range is the one in which the
+maximally symmetric vacuum exists: "the maximally symmetric solution is defined only for 1 ≥ 8αk² (for α < 0 there is
+no such restriction)" (Charmousis and Dufaux, p. 10, READ, with Λ = −6k²). Postulate O forbids any front
 outside the one light cone. At α = 0 every front is null (Lemma 6 (a)). ∎
 
 *Corroboration, within its range.* Camanho, Edelstein, Maldacena and Zhiboedov (arXiv:1407.5597, READ) give a
@@ -499,8 +496,7 @@ by the causal structure of the asymptotic spacetime" (§2, p. 2). The delays are
 **Corollary (under Postulate O).** The four-dimensional scalar–Gauss–Bonnet theory is excluded wherever its
 backgrounds have V(φ₀) = V′(φ₀) = 0: every point when V = 0, the shift-symmetric and massless-dilaton cases. This
 holds whether its scalar is read as part of gravity or as matter, because matter must keep the cone too (Lemma 1,
-Postulate O). Theories built on it keep their own findings as findings about that theory. Nothing about them is
-repaired here.
+Postulate O).
 
 *Not shown.* The case V ≠ 0 at φ₀ (for example V = m²φ²/2 with f = λφ²) is not shown (qualification Q5). Theories with
 field equations beyond second order in four dimensions, such as Einsteinian cubic gravity and f(R), lie outside (PL);
@@ -514,14 +510,15 @@ Where the classical law stops is not assumed here. Proposition 8 derives it, und
 
 **The premises**, each named so it can be refused:
 
-- **P1.** The constants of the five-dimensional law are G₅, ħ and c, with a classical Λ₅ = −6/ℓ² and no other scale.
+- **P1.** The constants of the five-dimensional law of §§7 and 10 are G₅, ħ and c, with a classical Λ₅ = −6/ℓ² (an
+anti-de Sitter radius ℓ) and no other scale.
 - **P2.** The classical part is Einstein's law, exact at two derivatives (Theorems 1–2). Everything beyond it carries ħ
   and vanishes as ħ → 0.
 - **P3 (decoupling).** Where the curvature is far above 1/ℓ², the corrections do not grow with ℓ.
 - **P4 (no free number).** No pure number is chosen.
 
-**Proposition 8.** Under P1–P4, classical general relativity holds exactly where x ≪ 1 and fails where x reaches order
-one, with x = l₅² √K, l₅³ = G₅ħ/c³, and K the Kretschmann scalar (the curvature's scale). The boundary is x = 1.
+**Proposition 8.** Under P1–P4, classical general relativity holds up to corrections that vanish as x → 0, so it is
+accurate where x ≪ 1, and it fails where x reaches order one, with x = l₅² √K, l₅³ = G₅ħ/c³, and K the Kretschmann scalar (the curvature's scale). The boundary is x = 1.
 
 *Proof.*
 
@@ -540,11 +537,9 @@ derived here, and none is chosen.
 *Four dimensions (computed, this paper).* With {G, ħ, c, R} the matrix again has rank 3, leaving one group,
 l_P² R. The same argument puts the boundary at l_P² R = 1.
 
-*What P3 excludes (computed; corrected).* If a term l₅ℓR were admitted, growing with ℓ against P3, it would reach one
+*What P3 excludes (computed).* If a term l₅ℓR were admitted, growing with ℓ against P3, it would reach one
 at R* = 1/(l₅ℓ). There x = l₅/ℓ, far before x = 1 whenever ℓ ≫ l₅.
-
-The earlier instrument printed (l₅/ℓ)^{1/2} for this value. The second verification refuted that figure: it is
-l₅√R*, not x (qualification Q1′). The conclusion holds a fortiori.
+(The group l₅√R* = (l₅/ℓ)^{1/2} at the same point is not x; qualification Q1′.)
 
 *Relation to Haggard and Rovelli's criterion (READ; relation computed, this paper).* Haggard and Rovelli
 (arXiv:1407.0989, eqs. (11)–(13), p. 4) argue "on dimensional grounds" that a process of duration τ stays classical
@@ -568,7 +563,8 @@ Q3′). Only x decides at the onset by that argument, not by a comparison of tim
 
 Theorems 1–2 and Proposition 8 together give the relation the paper set out to state:
 
-- **Where x ≪ 1:** the law is Einstein's exactly. Its one possible quantum correction at second order is zero, and
+- **Where x ≪ 1:** the law is Einstein's, up to corrections that vanish as x → 0. Its one possible quantum correction
+  at second order is zero, and
   quantum matter and information live inside the one light cone (Lemma 5).
 - **Where x → 1:** the classical law stops, and nothing proved here says what replaces it. Postulate O says only that
   whatever replaces it keeps the one cone.
@@ -577,8 +573,8 @@ Theorems 1–2 and Proposition 8 together give the relation the paper set out to
 
 ## 13 · Verification
 
-The work was verified twice, independently, before this paper. Each verification was done by one verifier working
-read-only. The second also re-derived the claims with code that imports nothing from the instruments.
+The computations were re-derived twice before this paper, each time by a separate AI session in this project working
+read-only and re-deriving with its own code. These are in-project readings, not outside review.
 
 **First verification: Lemmas 6–7 and Theorem 2.** Confirmed, with qualifications; no sub-claim refuted. It
 re-derived:
@@ -603,61 +599,19 @@ It also re-read the quotations of the outside sources. Its qualifications, each 
 - **Q5.** Lemma 7 needs V(φ₀) = V′(φ₀) = 0 (§11).
 - **Q6.** "Either sign of f′" in cosmology is a reflection; the sign of c_T² − 1 is set by f̈ and ḟ (§11).
 - **Q7.** The cosmology check is blind to the Weyl part, and the verifier's own checks close the gap (§11).
-- **Q8.** Minor points. Transversality is RTW's §3.1 (not §3.3), and the symmetry in Lemma 7 (a) is ω's.
+- **Q8.** The symmetry in Lemma 7 (a) is ω's, not ξ₀²'s (§11).
 
 **Second verification: Proposition 8.** Confirmed, with qualifications; one computed value refuted. It re-derived the rank and null space of Buckingham's matrix and read Haggard and Rovelli in full.
 Qualifications carried in §12:
 
-- **Q1′.** The counterfactual onset is x = l₅/ℓ, and the instrument's value was refuted.
+- **Q1′.** The counterfactual onset is x = l₅/ℓ; the value (l₅/ℓ)^{1/2} is a different group, and was refuted as x.
 - **Q2′.** The form of the expansion is an assumption.
 - **Q3′.** Haggard and Rovelli's criterion is q = l_P R τ, and "only x decides" stands by x ∼ 31 q².
 - **Q4′.** A bound on K is not a bound on all curvature.
 
-**This paper's own check.** `qr_paper_check.py` imports the computation modules. It requires each module's own
-checks to pass, asserts each computed number printed here, and asserts that each printed form appears in this text. Its
-five mutants each change one thing:
-
-- `paper_drift` changes one printed number;
-- `signal` passes off a non-local gate as local;
-- `onset_sqrt` uses the refuted value;
-- `sum_weights` miscounts the polarisations;
-- `inst_gb_double` runs a module with one of its own mutants.
-
-Each must be caught by the claim it targets. Results are in Appendix C.
-
-**The verification of this paper.** One independent verifier, after the draft and its check pass. Its report is
-recorded in Appendix D when it returns.
-
 ---
 
-## 14 · Is it a law?
-
-A theorem is true relative to its premises. A physical law is a universal statement that experiment supports and can
-refute. This paper's chain has three kinds of links:
-
-- **Exact computations** (Lemmas 2, 6, 7, parts of 1, 3, 5 and 8). They hold unconditionally as mathematics.
-- **Outside theorems** (Lovelock, Deser, Peres–Terno), exact on their premises: locality, second order, consistency,
-  unitary implementation of the Lorentz group.
-- **One universal statement, Postulate O,** and the experiments bounding departures from it to 10⁻¹⁵ (speed and free
-  fall) and 10⁻⁶–10⁻⁵ (Shapiro delays).
-
-So the honest answer is this. The statement *everything is relative*, in sense (3), is not proved as a law and cannot
-be: no finite set of experiments establishes a universal. It is proved as a theorem in the following form.
-
-> **If** everything that can exist keeps the one light cone, **then**:
->
-> - gravity's second-order law is Einstein's exactly in four and five dimensions;
-> - its one quantum-correction coupling is zero;
-> - its four-dimensional scalar realisation is excluded;
-> - quantum information signals nothing outside that cone;
-> - the classical law is exact until x = l₅²√K reaches one.
-
-The law-like content is the antecedent. What makes it a candidate for a law is that every experiment quoted bounds a
-departure from it and none has found one.
-
----
-
-## 15 · What is not proved
+## 14 · What is not proved
 
 - Anything beyond the experiments' precision.
 - Postulate O. It is assumed, never derived.
@@ -672,42 +626,43 @@ departure from it and none has found one.
 
 ---
 
-## 16 · References
+## 15 · References
 
 Each was re-read at source for this paper (alphaXiv PDF text, 2026-10-16), with page numbers as printed, except where
 marked "named, not re-read".
 
-1. A. Peres and D. R. Terno, *Quantum Information and Relativity Theory*, Rev. Mod. Phys. 76 (2004) 93;
+1. A. Peres and D. R. Terno, *Quantum Information and Relativity Theory*, Rev. Mod. Phys. 76 (2004) 93, doi:10.1103/RevModPhys.76.93;
    arXiv:quant-ph/0212023v2. pp. 1, 13 and abstract.
 2. LIGO Scientific and Virgo Collaborations, Fermi GBM and INTEGRAL, *Gravitational Waves and Gamma-Rays from a Binary
-   Neutron Star Merger: GW170817 and GRB 170817A*, ApJL 848 (2017) L13; arXiv:1710.05834v2. Abstract, eq. (1) p. 6,
+   Neutron Star Merger: GW170817 and GRB 170817A*, ApJL 848 (2017) L13, doi:10.3847/2041-8213/aa920c; arXiv:1710.05834v2. Abstract, eq. (1) p. 6,
    eq. (4) and the Cassini bound p. 7.
-3. C. M. Will, *The Confrontation between General Relativity and Experiment*, Living Rev. Rel. 17 (2014) 4;
+3. C. M. Will, *The Confrontation between General Relativity and Experiment*, Living Rev. Rel. 17 (2014) 4, doi:10.12942/lrr-2014-4;
    arXiv:1403.7377v1. Abstract; §2.1 p. 6; §3.1.1 p. 26.
-4. S. Deser, *Self-Interaction and Gauge Invariance*, Gen. Rel. Grav. 1 (1970) 9; arXiv:gr-qc/0411023v3. pp. 1, 4.
+4. S. Deser, *Self-Interaction and Gauge Invariance*, Gen. Rel. Grav. 1 (1970) 9, doi:10.1007/BF00759198; arXiv:gr-qc/0411023v3. pp. 1, 4.
 5. P. Touboul et al. (MICROSCOPE), *MICROSCOPE mission: final results of the test of the Equivalence Principle*,
-   Phys. Rev. Lett. 129 (2022) 121102; arXiv:2209.15487v1. Eq. (5) p. 5.
-6. A. Navarro and J. Navarro, *Lovelock's theorem revisited*, J. Geom. Phys. 61 (2011) 1950; arXiv:1005.2386v4.
+   Phys. Rev. Lett. 129 (2022) 121102, doi:10.1103/PhysRevLett.129.121102; arXiv:2209.15487v1. Eq. (5) p. 5.
+6. A. Navarro and J. Navarro, *Lovelock's theorem revisited*, J. Geom. Phys. 61 (2011) 1950, doi:10.1016/j.geomphys.2011.05.004; arXiv:1005.2386v4.
    Theorem 2.6 p. 9; p. 1. D. Lovelock (1970–72) and C. Lanczos (1938) are named through it, not re-read.
-7. C. Charmousis and J.-F. Dufaux, *General Gauss-Bonnet brane cosmology*, Class. Quant. Grav. 19 (2002) 4671;
+7. C. Charmousis and J.-F. Dufaux, *General Gauss-Bonnet brane cosmology*, Class. Quant. Grav. 19 (2002) 4671, doi:10.1088/0264-9381/19/18/304;
    arXiv:hep-th/0202107v3. pp. 3, 4, 5, 9, 16. D. G. Boulware and S. Deser (1985) and D. J. Gross and J. H. Sloan
    (1987) are named through it, not re-read.
 8. H. S. Reall, N. Tanahashi and B. Way, *Causality and Hyperbolicity of Lovelock Theories*, Class. Quant. Grav. 31
-   (2014) 205005; arXiv:1406.3379v2. Abstract; pp. 2, 13, 14, 17, 22, 24–25. R.-G. Cai (2002) is named through it.
+   (2014) 205005, doi:10.1088/0264-9381/31/20/205005; arXiv:1406.3379v2. Abstract; pp. 2, 13, 14, 17, 22, 24–25. R.-G. Cai (2002) is named through it.
 9. X. O. Camanho, J. D. Edelstein, J. Maldacena and A. Zhiboedov, *Causality Constraints on Corrections to the Graviton
-   Three-Point Coupling*, JHEP 02 (2016) 020; arXiv:1407.5597v1. Abstract; §1 p. 3; §2.4 pp. 12–13; §4.4 p. 33.
+   Three-Point Coupling*, JHEP 02 (2016) 020, doi:10.1007/JHEP02(2016)020; arXiv:1407.5597v1. Abstract; §1 p. 3; §2.4 pp. 12–13; §4.4 p. 33.
 10. H. S. Reall, *Causality in gravitational theories with second order equations of motion*, Phys. Rev. D 103 (2021)
-    084027; arXiv:2101.11623v2. Abstract; eq. (91) p. 18.
+    084027, doi:10.1103/PhysRevD.103.084027; arXiv:2101.11623v2. Abstract; eq. (91) p. 18.
 11. F. Serra, J. Serra, E. Trincherini and L. G. Trombetta, *Causality Constraints on Black Holes beyond GR*, JHEP 08
-    (2022) 157; arXiv:2205.08551v2. Eq. (1) p. 1; §2 p. 2; eqs. (12)–(13) p. 5.
+    (2022) 157, doi:10.1007/JHEP08(2022)157; arXiv:2205.08551v2. Eq. (1) p. 1; §2 p. 2; eqs. (12)–(13) p. 5.
 12. H. M. Haggard and C. Rovelli, *Black hole fireworks: quantum-gravity effects outside the horizon spark black to
-    white hole tunneling*, Phys. Rev. D 92 (2015) 104020; arXiv:1407.0989v2. Eq. (2) p. 2; eqs. (11)–(13) p. 4.
+    white hole tunneling*, Phys. Rev. D 92 (2015) 104020, doi:10.1103/PhysRevD.92.104020; arXiv:1407.0989v2. Eq. (2) p. 2; eqs. (11)–(13) p. 4.
 13. E. Buckingham, *On physically similar systems*, Phys. Rev. 4 (1914) 345. Named, not re-read; the theorem is used
     in its standard form, and the rank is computed.
 14. F. R. Tangherlini (1963), the five-dimensional Schwarzschild metric; Y. Nambu and T. Goto, the area action; the
     Lorentz transformation (Lorentz, Poincaré, Einstein). Standard, named, not re-read.
 
-Journal references are given as commonly cited and were not re-read; the arXiv versions above are the texts read.
+Journal references and DOIs were checked against each paper's arXiv record on 2026-10-16; the arXiv versions above
+are the texts read.
 
 ---
 
@@ -759,7 +714,7 @@ Module suites, re-run for this paper (Appendix C):
 | Theorem 2 | deduced from Lemma 6 + Postulate O + (PL); corroborated, READ CEMZ, within Q2 |
 | Lemma 7 | computed (L7, M3); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q8 |
 | Proposition 8 | computed (Q1, Q6, HR); premises P1–P4; READ Haggard–Rovelli eqs. (2), (11)–(13); Q1′–Q4′ |
-| §13 | the two independent verifications |
+| §13 | the two in-project AI re-derivations |
 
 ---
 
@@ -772,14 +727,14 @@ python3 qr_paper_check.py --selftest
 python3 qr_paper_check.py --mutants
 ```
 
-The check runs each module's own selftest before it asserts anything of its own. Run for this draft:
+The check runs each module's own selftest before it asserts anything of its own. Run for this version:
 
 - `--selftest`: 24/24 claims, every module's own checks passing (I1–I4);
 - `--mutants`: 5/5 caught, each by the claim it targets (`paper_drift` by L7, `signal` by L5, `onset_sqrt` by Q6,
   `sum_weights` by L6, `inst_gb_double` by I2 and L6).
 
----
-
-## Appendix D · The verification of this paper
-
-VERIFIER-RECORD
+**Tools.** The text was drafted, and the sources re-read, with Claude (Anthropic), an AI assistant, working with the
+author. Quotations were read from the arXiv PDFs through alphaXiv; journal references through Firecrawl. Key results
+(Tangherlini's Kretschmann scalar, the cone sum rule, the scalar–Gauss–Bonnet numbers, light bending, Buckingham's
+ranks) were recomputed independently in Wolfram Language. The reviews mentioned in §13 were separate AI sessions in
+this project; none is an outside review.
