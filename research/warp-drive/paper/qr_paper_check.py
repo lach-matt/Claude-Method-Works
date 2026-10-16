@@ -7,7 +7,7 @@ carries it (imported by path from ../docket68/lemmas/, never copied) or by a com
 and the check cannot drift apart silently.
 
   python3 qr_paper_check.py              report every claim
-  python3 qr_paper_check.py --selftest   exit 0 iff every claim holds and every instrument's own checks pass
+  python3 qr_paper_check.py --selftest   exit 0 iff every claim holds (M1-M3's own checks pass; M4's S1-S2 hold)
   python3 qr_paper_check.py --mutants    each mutant must be caught by the claim it targets
 
 Stdlib + sympy.  Run with PYTHONDONTWRITEBYTECODE=1 so nothing is written beside the instruments.
@@ -39,12 +39,14 @@ _RUNS = {}
 
 def run(name):
     """an instrument's compute() and its own checks, cached unless a mutant touches that instrument"""
-    key = (name, "inst_gb_double" in MUT and name == "gb_cone")
+    key = (name, ("inst_gb_double" in MUT and name == "gb_cone") or ("inst_hbar_in_y" in MUT and name == "quantum_onset"))
     if key not in _RUNS:
         mod = load(name)
         mod.MUT.clear()
-        if key[1]:
+        if key[1] and name == "gb_cone":
             mod.MUT["gb_double"] = True
+        if key[1] and name == "quantum_onset":
+            mod.MUT.add("hbar_in_y")
         if name == "quantum_onset":
             out, ok = None, buckingham_5d(mod)
         else:
@@ -176,7 +178,7 @@ def claims():
     add("I1 instrument relativity.py: its own checks pass", "M1 (special and general relativity)", lambda: rel()[1])
     add("I2 instrument gb_cone.py: its own checks pass", "M2 (the Gauss–Bonnet cones)", lambda: gbc()[1])
     add("I3 instrument sgb_cone.py: its own checks pass", "M3 (scalar–Gauss–Bonnet)", lambda: sgb()[1])
-    add("I4 instrument quantum_onset.py: S1-S2 (Buckingham) hold", "M4 (the quantum onset)", lambda: qo()[1])
+    add("I4 instrument quantum_onset.py: S1-S2 (Buckingham, 5D: rank 3, two groups) hold", "rank 3", lambda: qo()[1])
     add("L1 E = pc at m = 0", "E^2 = p^2 c^2 + m^2 c^4", dispersion)
     add("L2 boost invariants for every kind", "Lᵀ η L = η",
         lambda: all(rel()[0]["sr"][k] for k in ("keeps", "null_kept", "future", "mass_kept", "below_c", "scalar",
@@ -206,7 +208,6 @@ def claims():
     add("L7 8 f.. = 1363/11525, c_T^2 - 1 = 76/461", "1363/11525", sgb_numbers)
     add("L7 sGB wave: mixed fronts |xi|^2/(1 -+ 8 sqrt2 f' eps)", "|ξ|²/(1 ∓ 8√2 f′ε)",
         lambda: all(d["ok"] for d in sgb()[0]["wave"]["dirs"].values()) and sgb()[0]["wave"]["solves"])
-    add("B1 Buckingham in 5D: rank 3, two groups", "rank 3", lambda: qo()[1])
     add("B1 Buckingham in 4D (this paper): one group l_P^2 R", "l_P² R", buckingham_4d)
     add("B2 corrected: x = l5/ell at the counterfactual onset", "x = l₅/ℓ", onset_corrected)
     add("B3 q = l_P R tau at tau = R^-1/2 is (l_P^2 R)^1/2 (this paper)", "(l_P² R)^{1/2}", hr_relation)
@@ -245,7 +246,8 @@ MUTANTS = {"paper_drift": ("the paper's 537/461 altered to 537/460", "L7 sGB exa
            "signal": ("a non-local gate passed off as Alice's local operation", "L5 no signalling"),
            "onset_sqrt": ("the refuted (l5/ell)^(1/2) used for x", "B2 corrected"),
            "sum_weights": ("the cone sum rule with weights 1, 1, 1", "L6 sum rule"),
-           "inst_gb_double": ("gb_cone.py run with its own gb_double mutant", "I2 instrument gb_cone.py")}
+           "inst_gb_double": ("gb_cone.py run with its own gb_double mutant", "I2 instrument gb_cone.py"),
+           "inst_hbar_in_y": ("quantum_onset.py with hbar put into ell^2 R", "I4 instrument quantum_onset.py")}
 
 
 def mutants():

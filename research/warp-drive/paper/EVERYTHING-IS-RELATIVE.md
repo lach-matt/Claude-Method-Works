@@ -1,6 +1,6 @@
 ---
 title: "Everything Is Relative"
-subtitle: "One theorem on how quantum physics stands to relativity: on the postulate that whatever can exist keeps the one light cone, the leading quantum correction to gravity's second-order law is held to zero"
+subtitle: "How quantum physics stands to relativity: on the postulate that whatever can exist keeps the one light cone, the leading quantum correction to gravity's second-order law, on its string effective-action reading, is held to zero"
 author: "Matthew Lach · Independent Researcher"
 date: "16 October 2026"
 ---
@@ -33,7 +33,7 @@ The relation to quantum physics runs through three results:
   gravitational wave the displacements likewise sum to zero. The four-dimensional route by which the same term acts, a
   scalar coupled to the Gauss–Bonnet density, fails the same test for every coupling with f′ ≠ 0 on backgrounds with
   V = V′ = 0. Under the postulate, α = 0 within that range.
-- **Quantum corrections begin where one dimensionless number reaches one.** Buckingham's theorem on {G₅, ħ, c, ℓ, R}
+- **Quantum corrections can be neglected only where one dimensionless number is small.** Buckingham's theorem on {G₅, ħ, c, ℓ, R}
   leaves two numbers, and in the basis {l₅²R, ℓ²R} only x = l₅²R carries ħ. Under four named premises, and the
   postulate through Theorem 2, the two-derivative law holds to corrections that vanish as x → 0, and is no longer
   guaranteed where x reaches one.
@@ -70,7 +70,7 @@ that can exist and is not subject to relativity, and whether quantum physics sup
 ### 1.2 What is proved, and what is postulated
 
 We prove the statement in senses (1) and (2) of the abstract, kind by kind (§§4–8, Theorem 1). We then ask what
-relativity still leaves free. The answer is one constant: the Gauss–Bonnet coupling α of the five-dimensional
+relativity still leaves free. Beyond the cosmological constant, the answer is one constant: the Gauss–Bonnet coupling α of the five-dimensional
 second-order law. On the string effective-action reading of Charmousis and Dufaux, that constant is where the leading quantum correction
 enters gravity's second-order law.
 
@@ -80,12 +80,12 @@ Last, we derive where the classical law stops being guaranteed: the boundary at 
 longer be neglected (§12).
 
 The postulate is named as such wherever it is used. Without it, Theorem 1 still stands. Theorem 2 then
-becomes a conditional: if α ≠ 0, gravity has fronts outside the light cone.
+becomes a conditional: if α ≠ 0 within its existence range, gravity has fronts outside the light cone.
 
-### 1.3 A single theorem
+### 1.3 One statement, proved in steps
 
-The paper presents a single theorem: one statement proved through a chain of lemmas. Lemmas 1–5 give Theorem 1 (the
-statement in senses (1)–(2)). Lemma 6 with the postulate gives Theorem 2 (α = 0); Lemma 7 gives its four-dimensional corollary.
+The paper proves one statement, in steps, through a chain of lemmas. Lemmas 1–5 give Theorem 1 (the
+statement in senses (1)–(2)). Lemma 6 with the postulate gives Theorem 2 (α = 0); Lemma 7 with the postulate gives its four-dimensional corollary.
 Proposition 8 gives the boundary of the classical law. Sense (3) itself is postulated, not proved.
 
 ### 1.4 Scope
@@ -418,11 +418,14 @@ existence range and vanishes at its endpoint 8αk_CD² = 1, where the linearised
 Gauss–Bonnet coupling is zero: α = 0, and gravity's second-order law is Einstein's exactly.
 
 *Proof (deduced).* The five-dimensional law can carry gravity's own waves and holds black holes, whose Weyl curvature is
-not zero (Tangherlini's Kretschmann 72 m²/r⁸ ≠ 0). On either background, α ≠ 0 puts a polarisation of gravity outside
-the light cone, whatever α's sign or size within the existence range (Lemma 6 (c), (d)). The existence range is the one in which the
-maximally symmetric vacuum exists: "the maximally symmetric solution is defined only for 1 ≥ 8αk² (for α < 0 there is
-no such restriction)" (Charmousis and Dufaux, p. 10, READ, with Λ = −6k²). Outside it, "no solutions exist" (p. 10,
-READ): neither background of Lemma 6 exists there, and Theorem 2 makes no claim about such α. Postulate O forbids any front
+not zero (Tangherlini's Kretschmann 72 m²/r⁸ ≠ 0). Write Λ = −6k_CD² (either sign of Λ). The existence range is
+1 − 8αk_CD² ≥ 0, where the maximally symmetric vacuum exists; for anti-de Sitter, Charmousis and Dufaux write "the
+maximally symmetric solution is defined only for 1 ≥ 8αk² (for α < 0 there is no such restriction)" (p. 10, READ,
+their k² being k_CD²), and outside it "no solutions exist" (p. 10, READ). Neither background of Lemma 6 exists outside
+that range, and Theorem 2 makes no claim about such α. Inside it, α ≠ 0 puts a polarisation of gravity outside the
+light cone, whatever α's sign or size: on the hole (Lemma 6 (c)) for m > 0, and on the wave (Lemma 6 (d)) away from
+the endpoint 8αk_CD² = 1. At that endpoint the wave's cones degenerate and the hole alone carries the proof (A = 0
+there, so c_T = 3). Postulate O forbids any front
 outside the one light cone. At α = 0 every front is null (Lemma 6 (a)). ∎
 
 *Corroboration, within its range.* Camanho, Edelstein, Maldacena and Zhiboedov (arXiv:1407.5597, READ) give a
@@ -438,7 +441,7 @@ does not use it: Lemma 6 is local and pointwise, not an asymptotic-causality arg
 
 *What Theorem 2 does not say.*
 
-- It does not say gravity has been seen to keep the light cone in five dimensions. The effect at α ≠ 0 near a hole is
+- It does not say gravity has been seen to keep the light cone in five dimensions. The effect at α ≠ 0 near a hole, in the squared speed, is
   16|α|m/(r⁴q²), and no measurement reaches it. α = 0 is deduced, not measured.
 - It does not say no world could hold an infinite tower of higher spins. Such a tower would take the law outside (PL),
   which Lemma 4 used.
@@ -512,9 +515,9 @@ their cone tests are not run.
 
 ---
 
-## 12 · Where quantum corrections begin (Proposition 8)
+## 12 · Where quantum corrections can no longer be neglected (Proposition 8)
 
-Where the classical law stops is not assumed here. Proposition 8 derives it, under named premises.
+Where the classical law stops being guaranteed is not assumed here. Proposition 8 derives it, under named premises.
 
 **The premises**, each named so it can be refused:
 
@@ -526,7 +529,7 @@ anti-de Sitter radius ℓ) and no other scale.
 - **P4 (no free number).** No pure number is chosen.
 
 **Proposition 8.** Under P1–P4 (and so under Postulate O, through P2), classical general relativity holds up to
-corrections that vanish as x → 0, so it is accurate where x ≪ 1, and it is no longer guaranteed where x reaches order
+corrections that vanish as x → 0, so it is accurate where x ≪ 1 (for ℓ ≫ l₅, so that ℓ²R ≫ 1 there), and it is no longer guaranteed where x reaches order
 one, with x = l₅² √K, l₅³ = G₅ħ/c³, and K the Kretschmann scalar (the curvature's scale). The boundary is x = 1.
 
 *Proof.*
@@ -537,7 +540,7 @@ one, with x = l₅² √K, l₅³ = G₅ħ/c³, and K the Kretschmann scalar (th
    classical Λ term (P2).
 3. **The size of every correction (deduced, with qualification Q2′).** Against the Einstein term, every correction is
    then a function F(x, ℓ²R) with F(0, ℓ²R) = 0 (P2). Where ℓ²R ≫ 1, P3 makes F tend to a function of x alone. Taking each term as a positive power of x, a correction is
-   small exactly when x is.
+   small when x is.
 4. **The boundary (P4).** With no coefficient chosen, the boundary is x = 1: below it the corrections are guaranteed
    small; above it nothing here guarantees them small. Whether they are actually large there depends on coefficients
    P4 declines to fix. ∎
@@ -576,7 +579,7 @@ Theorems 1–2 and Proposition 8 together give the relation the paper set out to
 - **Where x ≪ 1:** the law is Einstein's, up to corrections that vanish as x → 0. Under Postulate O its one possible
   quantum correction at second order is zero, and
   quantum matter and information live inside the one light cone (Lemma 5).
-- **Where x → 1:** the classical law stops, and nothing proved here says what replaces it. Postulate O says only that
+- **Where x → 1:** the classical law stops being guaranteed, and nothing proved here says what replaces it. Postulate O says only that
   whatever replaces it keeps the one cone.
 
 ---
@@ -656,7 +659,7 @@ marked "named, not re-read".
 6. A. Navarro and J. Navarro, *Lovelock's theorem revisited*, J. Geom. Phys. 61 (2011) 1950, doi:10.1016/j.geomphys.2011.05.004; arXiv:1005.2386v4.
    Theorem 2.6 p. 9; p. 1. D. Lovelock (1970–72) and C. Lanczos (1938) are named through it, not re-read.
 7. C. Charmousis and J.-F. Dufaux, *General Gauss-Bonnet brane cosmology*, Class. Quant. Grav. 19 (2002) 4671, doi:10.1088/0264-9381/19/18/304;
-   arXiv:hep-th/0202107v3. pp. 3, 4, 5, 9, 16. D. G. Boulware and S. Deser (1985) and D. J. Gross and J. H. Sloan
+   arXiv:hep-th/0202107v3. pp. 3, 4, 5, 9, 10, 16. D. G. Boulware and S. Deser (1985) and D. J. Gross and J. H. Sloan
    (1987) are named through it, not re-read.
 8. H. S. Reall, N. Tanahashi and B. Way, *Causality and Hyperbolicity of Lovelock Theories*, Class. Quant. Grav. 31
    (2014) 205005, doi:10.1088/0264-9381/31/20/205005; arXiv:1406.3379v2. Abstract; pp. 2, 13, 14, 17, 22, 24–25. R.-G. Cai (2002) is named through it.
@@ -724,7 +727,7 @@ Module suites, re-run for this paper (Appendix C):
 | Lemma 5 | READ Peres–Terno p. 13; computed (L5) |
 | Theorem 1 | deduced from Lemmas 1–5; qualification Q1 |
 | Lemma 6 | computed (L6, M2); READ RTW pp. 2, 13, 14, 17, 22, 24–25 |
-| Theorem 2 | deduced from Lemma 6 + Postulate O + (PL); corroborated, READ CEMZ, within Q2 |
+| Theorem 2 | deduced from Lemma 6 + Postulate O + (PL); READ Charmousis–Dufaux p. 10; corroborated, READ CEMZ, within Q2 |
 | Lemma 7 | computed (L7, M3); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q8 |
 | Proposition 8 | computed (B1–B3); premises P1–P4; READ Haggard–Rovelli eqs. (2), (11)–(13); Q1′–Q4′ |
 | §13 | the two in-project AI re-derivations |
@@ -740,10 +743,12 @@ python3 qr_paper_check.py --selftest
 python3 qr_paper_check.py --mutants
 ```
 
-The check runs each module's own selftest before it asserts anything of its own. Run for this version:
+The check runs the own checks of M1–M3 and asserts M4's Buckingham steps (S1–S2) directly, before it asserts anything
+of its own. Run for this version:
 
-- `--selftest`: 24/24 claims, every module's own checks passing (I1–I4);
-- `--mutants`: 5/5 caught, each by the claim it targets (`paper_drift` by L7, `signal` by L5, `onset_sqrt` by B2,
+- `--selftest`: 23/23 claims, M1–M3's own checks passing (I1–I3) and M4's S1–S2 holding (I4);
+- `--mutants`: 6/6 caught, each by the claim it targets (`paper_drift` by L7, `signal` by L5, `onset_sqrt` by B2,
+  `inst_hbar_in_y` by I4,
   `sum_weights` by L6, `inst_gb_double` by I2 and L6).
 
 **Tools.** The text was drafted, and the sources re-read, with Claude (Anthropic), an AI assistant, working with the
