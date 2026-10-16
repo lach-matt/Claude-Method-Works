@@ -14,11 +14,23 @@ The full walkthrough is [Route 2](#route-2--toolsdrive_syncpy-run-locally-recomm
 
 ## 1. What is already mirrored
 
-**820 of the 824 Drive files across the two mirrored folders are in `drive/`.** 819 were downloaded
-by this tool and verified by md5 against the copy Drive served; **one — `The Method Materials/warp
-drive theory.pdf` — was seated by `--adopt`** on 2026-09-06, fetched through the Drive connector,
-byte count checked against Drive's metadata and no Drive md5 available to compare, so its row reads
-`ok-adopted`. Four remain outstanding.
+**833 Drive files across the two mirrored folders are in `drive/`: 819 verified by md5, 14 adopted
+by another route (`ok-adopted`).** The 819 were downloaded by this tool and verified by md5 against
+the copy Drive served. The fourteen were seated by
+[`--adopt`](#--adopt--recording-a-file-this-tool-did-not-download), each fetched by id through the
+Drive connector, its byte count checked against Drive's metadata and no Drive md5 available to
+compare:
+
+| Adopted | Files | Witness beyond the byte count |
+| --- | --- | --- |
+| 2026-09-06 | `The Method Materials/warp drive theory.pdf` | none |
+| 2026-09-18 | `LOWDIN-DELIVERY-1/LW1-ADDENDUM-REPLY.md` and the reissued manifest, `MANIFEST__1t0dHJHZomGeCbag-oFVYJ72NeDAanTP_.tsv` | the reply's md5 is the one the reissued manifest records for it; the manifest has none |
+| 2026-09-24 | the ten research papers' PDFs, `The Method Prints & Proofs/01-closure-law.pdf` to `10-beyond-the-atom.pdf` | each byte-identical to its copy in `papers/method/pdf/` |
+| 2026-10-16 | `The Method Prints & Proofs/EVERYTHING-IS-RELATIVE.pdf` | byte-identical to `research/warp-drive/paper/pdf/EVERYTHING-IS-RELATIVE.pdf` |
+
+None of the fourteen came from a pass over both folders, so these figures count what `MANIFEST.tsv`
+and `PENDING.tsv` hold: a file added to Drive and never fetched is in neither. Four remain outstanding.
+`tools/docfigures.py` reads the bold sentence above and holds it against the manifest.
 
 Getting there took two passes, and the difference between them is the whole lesson of this document:
 

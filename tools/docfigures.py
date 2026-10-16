@@ -2,8 +2,9 @@
 """docfigures.py -- do the repository's own documents still state true numbers?
 
 `arith.py` checks the arithmetic the volumes state about themselves. This does the
-same for the documents that describe the REPOSITORY -- CLAUDE.md and docs/ -- and
-it exists because they went stale without anyone noticing:
+same for the documents that describe the REPOSITORY -- CLAUDE.md, docs/ and the
+two READMEs that state the mirror's size -- and it exists because they went stale
+without anyone noticing:
 
     CLAUDE.md said 559 artefacts held against 431 ABSENT. The instrument measured
     702 and 4. `extracted/` and `recovered/` had landed 143 of them and nothing
@@ -422,7 +423,7 @@ def checks():
          _members_needing_312()),
         ("CLAUDE.md", ".py files that parse under NO available interpreter", 6,
          _unparseable_anywhere()),
-    ] + _instrument_rows() + _hosted()
+    ] + _mirror_headlines() + _instrument_rows() + _hosted()
 
 
 def _newest_python():
@@ -586,6 +587,54 @@ def _hosted():
     return out
 
 
+_NUMWORD = {w: i for i, w in enumerate(
+    "zero one two three four five six seven eight nine ten".split())}
+
+
+def _mirror_headlines():
+    """README.md, drive/README.md and docs/DRIVE-SYNC.md against the manifest.
+
+    Each opens its account of the mirror with one bold sentence -- so many files
+    mirrored, so many verified by md5, so many adopted -- and says how many remain
+    outstanding. No row held them, so they went stale together: they still said
+    820 of 824 and 822 of 826 when the manifest reached 833, while CLAUDE.md's pin
+    on the same count was moved without them. Like _hosted(), this reads the
+    figures out of the documents, so a claimed value lives in one place, the
+    sentence itself; a sentence reworded past the pattern reads as None and shows
+    STALE rather than passing unseen."""
+    man = _rows("drive/MANIFEST.tsv")
+    measured = (len(man),
+                sum(1 for r in man if r["status"] == "ok"),
+                sum(1 for r in man if r["status"] == "ok-adopted"),
+                len(_rows("drive/PENDING.tsv")))
+    out = []
+    for rel in ("README.md", "drive/README.md", "docs/DRIVE-SYNC.md"):
+        stated = _mirror_stated((ROOT / rel).read_text(encoding="utf-8", errors="replace"))
+        for label, s, got in zip(("mirror headline: files mirrored",
+                                  "mirror headline: verified by md5 (ok)",
+                                  "mirror headline: adopted (ok-adopted)",
+                                  "files still outstanding"), stated, measured):
+            out.append((rel, label, s, got))
+    return out
+
+
+_MIRROR_HEAD = re.compile(
+    r"\*\*([\d,]+)(?:\s+of\s+the\s+[\d,]+)?\s+Drive\s+files\s[^*]*?mirrored[^*]*?:\s+"
+    r"([\d,]+)\s+verified[^*]*?,\s+([\d,]+)\s+adopted\s+by\s+another\s+route")
+_MIRROR_LEFT = re.compile(
+    r"\b(%s|\d+)\s+(?:still|remain)\s+outstanding" % "|".join(_NUMWORD), re.I)
+
+
+def _mirror_stated(doc):
+    """(mirrored, ok, adopted, outstanding) as a document states them; None where
+    it does not. The bold sentence may wrap and may say 'N of the M'."""
+    m, p = _MIRROR_HEAD.search(doc), _MIRROR_LEFT.search(doc)
+    stated = [int(g.replace(",", "")) for g in m.groups()] if m else [None] * 3
+    w = p.group(1).lower() if p else None
+    stated.append(_NUMWORD[w] if w in _NUMWORD else int(w) if w else None)
+    return tuple(stated)
+
+
 def _instrument_rows():
     """Totals the instruments report, which their per-site selftests do not pin."""
     sites = _pointer_sites()
@@ -661,6 +710,18 @@ def selftest():
     check("Ruling 27: the two registers do not overlap", len(R & W), 0)
     check("COVERAGE.tsv is the --chats run (IN-CHAT rows present)",
           sum(1 for r in _rows("COVERAGE.tsv") if r["status"] == "IN-CHAT") > 0, True)
+    # the mirror headlines are read out of prose, so the reader is pinned on fixtures:
+    # a wrapped sentence, the 'N of the M' form, and a sentence it must not read
+    check("mirror headline read through a line wrap",
+          _mirror_stated("**8 Drive files are mirrored here: 5 verified by md5, 3 adopted\n"
+                         "by another route.** The two still outstanding"), (8, 5, 3, 2))
+    check("mirror headline read in the 'N of the M' form",
+          _mirror_stated("**822 of the 826 Drive files are mirrored: 819 verified against "
+                         "Drive's own md5, 3 adopted by another route.** Four remain "
+                         "outstanding"), (822, 819, 3, 4))
+    check("a headline split across bold runs is not read",
+          _mirror_stated("**820 of the 824 Drive files are mirrored.** 819 verified, "
+                         "1 adopted by another route"), (None, None, None, None))
     # the finding predicate is neither half alone -- both halves have been got
     # wrong here, and the report's own by-class breakdown is the arbiter
     sites = _pointer_sites()

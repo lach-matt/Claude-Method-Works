@@ -211,8 +211,8 @@ hydrogenic and Dirac levels, and it carries a demonstrable failure mode — see
 (Z, N), its height, width and join deficit measured exactly there and its channel by the law's
 operators at build; `--selftest` pins the table's census and ledger md5 — see `docs/ISOTOPES.md`)
 and **`tools/docfigures.py`**, which
-checks the numbers *this* file and `docs/` state about the repository against the tree.
-**Run it after any pass that changes a count** — 127 pinned figures, ~8 s, exits 1 on drift. The
+checks the numbers *this* file, `docs/` and the two READMEs state about the repository against the tree.
+**Run it after any pass that changes a count** — 139 pinned figures, ~8 s, exits 1 on drift. The
 last fourteen are the totals `pointers.py` and `arith.py` report, which their own selftests do not
 cover: those pin individual sites, so a change in a corpus-wide total passes them silently. It exists
 because `CLAUDE.md` claimed 559 artefacts held against 431 absent when the true figures were 702 and
