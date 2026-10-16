@@ -413,3 +413,71 @@ at position 2, the passage between them through the bulk?** The prior art offers
      at 446 (4)).
    - Then the charged bulk hole meeting both planes with localized mouths.
    - Done by a cohomogeneity-two solve, using what the interior attempts (393–411) taught.
+
+## 14. Stage 1, computed: what the planes see (item 447 (1); `wh5_dictionary.py`, 7/7, mutants 3/3)
+
+**Outside art (READ).**
+- MM's figure 6: in a near-extremal black hole, "The two triangles correspond to the two exteriors of the maximally
+  extended black hole", and "These red regions correspond to a Rindler-like portion of global AdS2 space."
+- Spradlin and Strominger (hep-th/9904143): "An AdS_2 black hole spacetime is an AdS_2 spacetime together with a
+  preferred choice of time."
+- The Reissner–Nordström inner horizon is a Cauchy horizon, unstable to perturbations from outside (Gürsel, Novikov,
+  Sandberg, Starobinsky; Hod).
+
+**The throat (computed, exact).**
+- A near-extremal charged hole's throat is AdS2, with its two horizons at x = ±1: outside r₊ is x > 1, between the
+  horizons is |x| < 1, inside r₋ is x < −1. This holds in four dimensions (AdS2 radius r_e) and in five (radius r_e/2).
+
+**The passage (computed, exact).** In global AdS2 the black-hole coordinate is x = cos τ / sin σ. A light ray leaves
+position 1's boundary at any τ₀ in (−π/2, π/2):
+1. It crosses r₊ at τ = (π/2 + τ₀)/2, into the diamond between the bifurcation points P0 and P1.
+2. It crosses r₋ at τ = (3π/2 + τ₀)/2, into P1's left wedge.
+3. It reaches position 2's boundary at τ₀ + π.
+
+What each position sees:
+- **The diamond is P0's future interior and P1's past interior at once.** From position 1 it is a black hole, entered
+  through r₊. From position 2 it is a white hole, left through r₋. So position 2's white-hole horizon is position 1's
+  inner horizon. This is your 446 (2) in exact form.
+- Every ray spends global time π/2 in the diamond and π in all. In Maldacena and Milekhin's outside time that crossing
+  is πl.
+
+**The clocks (computed, exact).**
+- Each mouth's own (thermal) time is the boost angle about its own bifurcation point.
+- The ray leaves position 1 and arrives at position 2 at the same reading, artanh(sin τ₀). In the mouths' own clocks
+  the passage takes no time.
+- In the throat's shared global time, position 2's patch sits π ahead (πl outside).
+- Which clock each plane keeps is the convention your hour (M-CLOCK-OFFSET) fixes.
+
+**The charged hole at the small end (computed, exact; quadrature for the times).** A five-dimensional
+Reissner–Nordström hole on the plane, f = 1 − μ/r² + q²/r⁴. The AdS term is 6×10⁻³¹ there, and the plane is
+equatorial to O(r_h/ℓ), as the record's small end has it.
+- Inside r₋, f falls monotonically from +∞ to 0. So every massive radial route turns at one r_min inside r₋ and passes
+  out through the white hole into the next exterior.
+- Every route with angular momentum turns there too.
+- Radial light alone reaches r = 0, where the curvature diverges.
+- The next exterior carries the same f, so clocks at equal radius tick alike there.
+
+| r₋/r₊ | κ₊r₊ | κ₋r₊ | r_min/r₊ | passage, r₊/c | at r_h | energy vs uncharged |
+|---|---|---|---|---|---|---|
+| 0.10 | 0.990 | 990 | 0.0996 | 8.01 | 3.0×10⁻²⁸ s | 1.01 |
+| 0.50 | 0.750 | 6.00 | 0.4588 | 7.80 | 2.9×10⁻²⁸ s | 1.25 |
+| 0.90 | 0.190 | 0.261 | 0.710 | 7.10 | 2.7×10⁻²⁸ s | 1.81 |
+| 0.99 | 0.0199 | 0.0205 | 0.752 | 6.91 | 2.6×10⁻²⁸ s | 1.98 |
+
+The passage is released from rest at 2r₊ and counted out to 2r₊ on the far side.
+
+**The large end (computed; the plane's corrections an estimate).** The plane's view is four-dimensional
+Reissner–Nordström with the same chain. At the Earth cap the passage takes 2.8×10⁻¹⁰ s (r₋/r₊ = 0.5) to 2.9×10⁻¹⁰ s
+(0.9).
+
+**What stage 1 settles (deduced).**
+- **M-CORRIDOR-5D is realized exactly:** a charged hole's chain, with a black hole at position 1 and a white hole at
+  position 2.
+- **The two candidates of section 13 are one object.** Near extremality the passage lies in the AdS2 throat, where it
+  is Maldacena and Milekhin's crossing read in each mouth's own time: their cold state read in global time is the
+  traversable reading, and the black-hole/white-hole reading is the same throat in the mouths' times.
+- **Classically the chain is complete** for every massive route and every route with angular momentum. Radial light
+  reaches the timelike centre, a set of measure zero. In Maldacena and Milekhin's wormhole the region beyond r₋ is
+  position 2's exterior, so that centre is not there.
+- **The obstruction is the inner horizon**, which is position 2's white-hole horizon: a Cauchy horizon, unstable to
+  perturbations from position 1. Stage 2 computes it.

@@ -1166,6 +1166,19 @@ state was rebuilt first.
   hole, cut by the two planes; (2) the inner horizon, the classical obstruction (Gursel-Novikov-Sandberg-Starobinsky;
   Hod, READ), and its reading on the plane, 444's C2 with the device's charge; (3) the full solution, Maldacena-
   Milekhin's Einstein-static-universe case first.
+- **Item 447** (M: "1 - yes 2 - yes 3 - yes"): the staged approach approved, "respectively" confirmed (the black hole
+  at position 1, the white hole at position 2), u1_bulk.py to T1. **Stage 1, the dictionary** (`lemmas/
+  wh5_dictionary.py`, 7/7, mutants 3/3; BOUNCE-RESEARCH section 14): a near-extremal charged hole's throat is AdS2
+  with r_+- at x = +-1 (exact, 4D and 5D); a light ray from position 1 crosses r_+ into the diamond between the
+  bifurcation points P0 and P1, crosses r_- into P1's wedge and reaches position 2 -- the diamond is P0's future
+  interior and P1's past interior at once, a black hole from position 1 and a white hole from position 2, so position
+  2's white-hole horizon is position 1's inner horizon (exact); global time pi/2 inside, pi in all (pi l outside); in
+  the mouths' own clocks the ray leaves and arrives at the same reading, so M-CLOCK-OFFSET's hour fixes which clock
+  each plane keeps (Spradlin-Strominger, READ: an AdS2 black hole is AdS2 with a preferred time). At the small end a
+  five-dimensional Reissner-Nordstrom hole on the plane: inside r_- f falls monotonically, so every massive radial
+  route and every route with angular momentum turns and passes out through the white hole (passage 6.9-8.0 r_+/c,
+  2.6-3.0e-28 s); radial light alone reaches the singular centre. The obstruction is the inner horizon, a Cauchy
+  horizon (READ) -- stage 2.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
