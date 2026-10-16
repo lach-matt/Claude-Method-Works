@@ -67,6 +67,11 @@ verified; not seated.
      as at every sigma (427, 428), since the face depends on N, sigma and Lambda only (A5); B4a, B4ds and B4d concern
      the bulk's geometry and carry none of the 26.
 
+[Item 432, beside the text: A3's strong CP angle is proved not represented in the 26, physical, and a constant
+of the Standard Model (conditional on no axion), and entered as the 27th coordinate (navlattice.py P1-P4).  A4's
+resolution is withdrawn: M ruled the address exact (146); the length is recalculated on the calibrated
+navigational lattice, L = sum log2(1 + |D_i|) with D_i exact binary steps from ours (navlattice.py L1-L5).]
+
 What this does not claim: the values of position 2 (the destination is the user's input, 130 (2), 116 (a)); our three
 neutrino masses; the PDG world average of alpha_s; that the board's resolution is the measure's last word (146).
 

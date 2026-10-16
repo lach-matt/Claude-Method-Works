@@ -954,6 +954,14 @@ state was rebuilt first.
   the README's energy, whole from the opening, its exact state written over the long write (141's cubes solving),
   the coupling and position 2's energy excluded as holders; the passage held whole and released at the end (Y4).
   Two readings put to M: 426's "written in" as the state, and the release at the end.
+- **Item 432** (M: "the energy is there at the opening. It is the README itself ... 2 - yes  3 - ... can we prove
+  it? ... 4 - exact ... build an navigational lattice index from these constants, and calibrate to our universe"):
+  the synchronization object is modelled (Y2 (i), Y4 now M's) -- both faces formed at once, each holding the README
+  itself, E(N), from the opening, its exact state written over the long write, the passage released whole at the
+  end. The strong CP angle proved not in Baez's 26, physical and a Standard Model constant (no axion established)
+  and entered as the 27th coordinate (`lemmas/navlattice.py` P1-P4, 7/7, mutants 3/3). The navigational lattice:
+  ours the exact origin, one binary step per unit, L = sum log2(1 + |D_i|) exact; 2b recalculated at 10.60 and 17.49
+  bits; our own position known to 219 bits. Next: ARRIVAL, B3 and B4d at the large end re-posed on the object.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

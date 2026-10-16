@@ -58,6 +58,12 @@ Worked in the conversation; not verified; not seated.
   the passage is held whole and released at the end, closing both faces (Y4).  What supplies our side's E(N) at the
   formation is SOURCE's (the device's input, 130 (2)) -- now posed exactly: E(N), whole, at the opening.
 
+[Item 432, beside the text: M, "the energy is there at the opening. It is the README itself. Information is
+energy in the form of a binary interaction" -- Y2 (i) is M's (M-ENERGY-AT-OPENING); and "yes" to the release
+at the end -- Y4 is M's (M-RELEASE-WHOLE).  Stage 3: the object is modelled -- both faces formed at once, each
+holding the README itself, E(N), from the opening; its exact state written over the long write; the passage
+held whole and released at the end.]
+
 What this does not claim: that RT, derived in AdS/CFT, holds for the passage (the identification of 137 (1)'s
 entanglement with RT's is the board's reading); that the README's state can be written onto a hole's own capacity
 at S2's rate (stated, not derived); any page beyond those quoted.
