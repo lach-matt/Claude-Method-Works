@@ -1135,6 +1135,18 @@ state was rebuilt first.
   near-extremal Reissner-Nordstrom mouth of 445 (2)'s device, so route A continues through route B's mouths. Not a
   finding that the bounce is unprovable (443 (2)); the brane's own tidal term, in its source's case, gives one
   horizon (hep-th/0003061, READ).
+  **The corridor as the coupling wormhole** (`lemmas/mmp_corridor.py`, 9/9, mutants 2/2; BOUNCE-RESEARCH section 9).
+  The prior art is our setting: Maldacena and Milekhin (2008.06618, READ in full) put MMP's wormhole in Randall-Sundrum
+  II with a bulk U(1); the throat's Casimir energy is "a classical effect in five dimensions (the negative classical
+  energy of AdS3)" and the field-line circle closes through the fifth dimension; argued by patching for r_e >> R5,
+  the full 5D solution not computed. Computed on our plane (R5 = ell): c_2 = 4 pi R5 r_e/(G4 sqrt L), one- or
+  two-sided alike; at the Earth cap the throat's l = 18.2 m, the passage 1.9e-7 s outside, E_bind 2.5e35 J against
+  the README's 7.79e12 J, mouths of 1.19e25 kg, the dark sector below 0.13 mK; always pi l > d. The Standard Model's
+  own fields need sizes below 1/TeV, where the plane's hole is five-dimensional; the small end lies outside the
+  construction. It needs a bulk U(1) the record lacks and charged mouths (445 (2)'s device); it has no horizon, so
+  its passage needs no bounce, and it stands before the README. **162 reassessed** (444 (2); section 10): on the
+  record's object it holds only for a delivery narrower than 16 M (large) and 9 r_h (small), 7.1 and 4.2 times
+  shorter than one bit's thermal quantum -- put to M.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

@@ -219,3 +219,73 @@ outgoing ray crossed the shell.
   is impossible in general relativity, and in this case only one horizon is admitted, located outside the
   Schwarzschild horizon." A positive tidal term would act as a charge does (c1_inner's "inner" mutant), but nothing
   here fixes that sign.
+
+## 9. The coupling wormhole computed on the plane as the corridor (item 445 (2); `mmp_corridor.py`, 9/9, mutants 2/2)
+
+**The prior art is exactly our setting (READ, both papers in full).** MMP's section 8 points to Randall–Sundrum II.
+Maldacena and Milekhin, *Humanly traversable wormholes* (2008.06618), build the wormhole there:
+- The setting: "a dark sector consisting of a four dimensional conformal field theory with a U(1) symmetry that is
+  gauged by a four dimensional (dark) gauge field", here the AdS5 bulk with a five-dimensional U(1).
+- In the throat's magnetic field the bulk flows from AdS5 to AdS3 × R², a two-dimensional CFT whose central charge
+  grows with the flux.
+- "what looks like a quantum Casimir energy in four dimensions is actually a classical effect in five dimensions (the
+  negative classical energy of AdS3)".
+- The field-line circle "is 'filled in' by the extra dimension", so topological censorship holds in five dimensions.
+- It holds for r_e ≫ R5. They are "not going to find the full 5d solution explicitly", only argue it by patching.
+
+**The relations (computed, exact, on READ equations).**
+- MMP's balance E(l) = r_e³/(Gl²) − c₂/(8l) is least at l = 16r_e³/(Gc₂), with binding −Gc₂²/(256r_e³).
+- On the plane, MM's (3.21) gives c₂ = 4πR5 r_e/(G₄√L), with L = ln(r_e/R5). It is the same whether the bulk is on
+  one side or two (ours is two-sided), and it does not depend on the gauge coupling.
+- Hence l = (4/π) r_e²√L/R5 and E_bind = (π²/16) R5²/(G₄ r_e L).
+- MM's own case reproduces their (3.27): c₂ 7×10⁷², l 3×10³ light-years, γ 2×10¹², E_bind 5×10⁹ kg.
+
+**On our plane** (R5 = ℓ = 13.964 μm; the mouth radius r_e set to the face's r₀ for comparison):
+
+| mouth r_e | c₂ | l | passage seen outside | γ | E_bind | dark sector colder than |
+|---|---|---|---|---|---|---|
+| 10 ℓ | 6.2×10⁶¹ | 2.70 mm | 2.8×10⁻¹¹ s | 19 | 4.5×10³⁷ J | 0.85 K |
+| 100 ℓ | 4.4×10⁶² | 0.38 m | 4.0×10⁻⁹ s | 273 | 2.3×10³⁶ J | 6 mK |
+| Earth cap, 8.870 mm | 2.3×10⁶³ | 18.2 m | 1.9×10⁻⁷ s | 2055 | 2.5×10³⁵ J | 0.13 mK |
+
+- The large end's foot (r₀ = 1.25ℓ) lies outside MM's regime.
+- At the Earth cap each mouth is an extremal hole of 1.19×10²⁵ kg, two Earths.
+- The README's energy (7.79×10¹² J, room_work) is 3×10⁻²³ of the binding. Its 1.3×10²¹ bits stand against a capacity
+  of c₂ = 2.3×10⁶³ quanta per l ("~ c₂ qubits per ℓ", MM).
+- **Holding the mouths.** Orbiting needs 1.43 m ≪ d ≲ 18.2 m. MM's lifetime at d = l is 0.19 s, which is 10⁶
+  passages.
+- **Causality.** Always πl > d (MMP 5.46): the corridor is slower than light through the ambient space between its
+  mouths.
+- **A one-hour corridor.** One whose outside delay is an hour has mouths of r_e = 942 m, 0.64 solar masses each.
+
+**The Standard Model's own fields cannot be used (computed on READ conditions).**
+- MMP need the mouths' distance below the electroweak scale, ħc/TeV = 1.97×10⁻¹⁹ m, which is 1.4×10⁻¹⁴ ℓ.
+- There the plane's hole is five-dimensional, and MMP's four-dimensional gravity does not hold.
+- The small end (r_h = 1.12×10⁻²⁰ m) is below that scale but five-dimensional for the same reason.
+
+**What it gives the record (deduced).**
+- A corridor on the plane at the large end. It needs two things the record lacks:
+  - a U(1) gauge field in the bulk (the record's bulk has gravity alone);
+  - two oppositely magnetically charged extremal mouths, which is 445 (2)'s device.
+- No horizon, no trapped surface, no core: the passage through it needs no bounce. If the corridor is this object,
+  O1a–O1c are re-posed rather than proved as written.
+- 179, in part, in established physics: the negative energy is the bulk's classical AdS3 energy, and the field-line
+  circle closes through the fifth dimension. The passage itself runs through the plane's throat.
+- The README passes as quanta above the gap ħc/l, its total energy under E_bind. It is one-way by its use.
+- It stands before the README; it is not formed by the README's energy (162, 270 and 276 bear on this).
+- The small end lies outside it, and no prior art was found there.
+- Its existence is argued, not computed. The full five-dimensional solution is the computation it leaves. MM sketch
+  the simplest case: the Einstein static universe with the two mouths at antipodal points.
+
+## 10. 162 reassessed after the deeper research (item 444 (2); deduced from C1–C2)
+
+- **The finding put at 444.** 162's "upon opening" holds coarse-grained over the quanta's wavelength. At finer
+  resolution the delivery is a ramp 38–57 face radii wide.
+- **C1 and C2 settle what that ramp does on the record's object.** Absorbed at the centre, a delivery that wide is
+  naked at its onset at both ends. Passing through the centre, it forms no face at the large end. The quantum fields
+  do not change this at first order.
+- **So 162 holds on the record's object only for a narrow delivery** (c1_inner K2, K3): narrower than 16 M at the
+  large end and 9 r_h at the small. That is 7.1 and 4.2 times shorter than one bit's thermal quantum.
+- **How the README could meet it is open.** It could put more energy in each quantum, or more bits in each quantum.
+  It is a reading put to you.
+- **On the corridor of section 9 the question does not arise**, since the corridor stands before the README.
