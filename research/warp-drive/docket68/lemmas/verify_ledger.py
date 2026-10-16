@@ -73,6 +73,20 @@ file's reports and the instruments' notes, each marker checked against its file;
   (310, outside map), (317, Q7), (341, Q3) and (261, Q3) re-pointed to the texts that carry their substance; (341, Q2)
   and (348, Q5)'s rests-on completed in far_small F11 (k). The queue is empty.]
 
+  [Item 424: M finalized the large end's interior ("Yes", to "Is the interior at the large end ready for the
+  verifier?"), O1b and O1c at the large end as quantum_onset, focusing_parts and core_face work them under 418 and 422,
+  and it is queued. Its column (INTERIOR_BEAR) accounts it against every row of the eighteen reports: 38 carried, each
+  marker found in core_face's item-424 notes, and 81 not bearing, each with its reason (the two-way rows among them).
+  None was written there before the gate ran; all are carried by core_face's notes and G1-G2 (the G5 readings' factors
+  on r_q, the 4D forms' control at the reference holes), each G with a check and a mutant, before the verifier starts.
+  L8 checks the column complete.]
+  [Item 430: the interior verified, CONFIRMED with qualifications, quantum_onset Q6's value refuted.  Its rows are
+  entered above (nineteen reports now), each seated beside the text in quantum_onset, focusing_parts or core_face
+  ("Item 430") or in INTERIOR-PROOF.md, and accounted in every column.  Its (Q9) found seven of this gate's interior
+  reasons wrong or partial -- (254, Q1), (269, Q6), (317, Q7), (304, Q5), (267, Q2-Q4), (319, Q5-Q7), (332, Q4) -- and
+  the rests-on note incomplete at (348, Q5) and (355, Q13); each is corrected, the old reason kept beside it in a
+  comment.  The labels' "eighteen" now read "nineteen".]
+
 What this does not claim.
   - That the dispositions are complete beyond the reports' own texts: a qualification is what a report lists and the
     critic accepted; the bearing judgements are the board's, each with its reason.
@@ -105,7 +119,8 @@ HEADERS = {254: "254. **Claim C1 verified", 258: "258. **Claim C2 verified", 261
            339: "339. **B5a one-way verified",
            341: "341. **C8 one-way verified",
            348: "348. **ARRIVAL at the small end verified",
-           355: "355. **FAR at both ends verified"}
+           355: "355. **FAR at both ends verified",
+           430: "430. **The large end's interior verified"}
 NA = "n/a"
 
 
@@ -397,6 +412,32 @@ ROWS = [
      NO_E),
     (355, "outside", "item 354's inventory bears on Q2, Q3, Q7 and Q13; L4 (a) backs F5 (c) at the small end",
      [("far_large.py", 355), ("readings.py", 355)], NO_O, NO_B, NO_E),
+    # [item 430] the large end's interior verified: its rows, seated beside the text in the three instruments
+    (430, "Q1", "quantum_onset Q6's value refuted: x = l5/ell, not (l5/ell)^(1/2); S5 pins it; conclusion a fortiori",
+     [("quantum_onset.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q2", "F4 gives a focus or an earlier ending, not completeness; completeness is the 4D forms' and 422's",
+     [("focusing_parts.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q3", "F4's R_kk >= 0: transverse S_kk = sigma (n.k)^2; on the plane the projected Weyl term has no sign",
+     [("focusing_parts.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q4", "Haggard-Rovelli's criterion q = l_P R tau; x ~ 31 q^2; the 1e-29 bound at ell's ceiling only",
+     [("quantum_onset.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q5", "Q5 bounds K only; the gap K cannot see closed by the exact forms and 422",
+     [("quantum_onset.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q6", "core_face B4 at the large end: xi = 1 outside the 5D form's domain; Q_nu, logarithmic growth",
+     [("core_face.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q7", "core_face A2's no rescue case-bound; excluded under 418", [("core_face.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q8", "core_face A1's Birkhoff fails for SO(3) x Z2 (317 (Q3)); static on the 4D form only",
+     [("core_face.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q9", "the gate's interior reasons at 269 (Q6), 317 (Q7), 254 (Q1), 304 (Q5); partial notes; the rests-on",
+     [("core_face.py", 430), ("verify_ledger.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q10", "the 4D/5D split: F3's D = 4 placement where the 4D form does not hold", [("focusing_parts.py", 430)],
+     NO_O, NO_B, NO_E),
+    (430, "Q11", "F5's steep collapse at the self-similar onsets only", [("focusing_parts.py", 430)], NO_O, NO_B, NO_E),
+    (430, "Q12", "core_face B2 an estimate", [("core_face.py", 430)], NO_O, NO_B, NO_E),
+    (430, "since 426", "the compact arrival in the junction clause, A3's 8 clocks and F1-F3's model; about 2 % lost",
+     [("core_face.py", 430), ("focusing_parts.py", 430)], NO_O, NO_B, NO_E),
+    (430, "outside", "INTERIOR-PROOF line 142 (12 mu^2/r^6) and its item-420 heading (mutants 5/5)",
+     [("INTERIOR-PROOF.md", 430)], NO_O, NO_B, NO_E),
 ]
 # [Item 344] ARRIVAL queued -- M: "ARRIVAL is ready for the verifier" -- and accounted against every row, beside the
 # record's three columns (O1c, B5a and C8, verified at 337, 339 and 341): carried, with its marker in arrival_small, or
@@ -531,6 +572,10 @@ ARRIVAL_BEAR = {
     (355, "Q13"): N("the large end not claimed"),
     (355, "Q14"): N("the large end not claimed"),
     (355, "outside"): N("item 354's inventory is readings.py's; ARRIVAL's readings stand in it"),
+    # [item 430] the large end's interior verified
+    **{(430, q): N("the large end not claimed") for q in ("Q1", "Q2", "Q3", "Q4", "Q5", "Q6", "Q7", "Q8", "Q10",
+                                                          "Q11", "Q12", "since 426", "outside")},
+    (430, "Q9"): N("the interior's column of this gate"),
 }
 # [Item 351] FAR at both ends queued -- M: "FAR both ends is now ready for the verifier." -- and accounted against every
 # row: carried, with its marker in far_small or far_large, or not bearing, with the reason
@@ -670,7 +715,173 @@ FAR_BEAR = {
     (355, "Q12"): C(FS_, "Q12, the gate's carries corrected in verify_ledger's FAR column"),
     (355, "Q13"): C(FL_, "L9 (i)'s rests-on, completed"),
     (355, "Q14"): C(FL_, "holds for N > 1.13 N_L"),
+    # [item 430] the large end's interior verified
+    **{(430, q): N("FAR uses no interior instrument (quantum_onset, focusing_parts, core_face)")
+       for q in ("Q1", "Q2", "Q4", "Q5", "Q6", "Q7", "Q11", "Q12", "outside")},
+    (430, "Q3"): N("FAR uses no focusing comparison; its (Z) is each side's R(k, k) = 0 and F6's surface stress"),
+    (430, "Q8"): N("FAR uses no core_face A1; its own faces are carried at 317 (Q3) in this column"),
+    (430, "Q9"): N("the interior's column of this gate"),
+    (430, "Q10"): N("FAR's 4D forms carry 261 (Q3)'s O(ell^2/r0^2); FAR places no onset"),
+    (430, "since 426"): N("FAR bounds the field by the whole mass at every stage (F5 (a), L6), whatever the arrival's "
+                          "width; the object standing from the opening meets that bound"),
     (355, "outside"): C(FL_, "L4's exact result backs F5 (c)'s far-zone order"),
+}
+# [Item 424] the large end's interior queued -- M: "Yes" (to "Is the interior at the large end ready for the
+# verifier?") -- O1b and O1c at the large end, as quantum_onset, focusing_parts and core_face work them under 418 and
+# 422, accounted against every row: carried, with its marker in one of the three, or not bearing, with the reason
+QO_, FP_, CF_ = "quantum_onset.py", "focusing_parts.py", "core_face.py"
+NO_I = N("not used by the interior")
+QUEUED_FILES["INTERIOR"] = (QO_, FP_, CF_)
+INTERIOR_BEAR = {
+    # [item 430 (Q9)] was N("the interior uses no plane's tangential reading; its null energy is the README's flux
+    # (F1)"): wrong where F4 is applied on the plane
+    (254, "Q1"): C(CF_, "where F4 is applied on the plane, its R_kk carries the bulk's projected Weyl term"),
+    (254, "Q2"): C(CF_, "the 4D forms hold for r >> ell and the 5D forms for r << ell"),
+    (254, "Q3"): N("the interior is the one-way object's: no bridge, no second exterior; it stops at x = 1"),
+    (258, "Q1"): N("the interior takes the 5D mass from b4d_stage1's relation, no closed form of E"),
+    (258, "Q2"): N("the interior uses no black string: the 4D form on the plane, the 5D form in the core"),
+    (261, "Q1-Q2"): C(CF_, "the 4D forms are controlled for r0 > 10 ell"),
+    (261, "Q3"): C(CF_, "the plane is four-dimensional Schwarzschild with corrections O(ell^2/r0^2)"),
+    (264, "Q1"): N("the interior uses no write and no S4"),
+    (264, "Q2,Q5"): N("the interior uses no species count"),
+    (264, "Q3,Q4,Q6"): N("the interior counts in clocks of r_h/c on its own traces (F5) and uses neither one side's "
+                         "modes nor 262's range"),
+    (267, "Q1"): N("the interior uses no fall time; F2's affine length is r at entry"),
+    # [item 430 (Q9)] the note carried Q2-Q3 only; Q4 added
+    (267, "Q2-Q4"): C(CF_, "the life's exact form, 45 N ln2/(g* gamma) clocks, fixes the write's share"),
+    (267, "Q5"): C(CF_, "the hole is collapse-formed and evaporates"),
+    (267, "Q6"): N("the interior uses no write floor"),
+    (269, "Q1-Q5,Q8"): TWO_WAY,
+    # [item 430 (Q9)] was N("the interior's completeness is F4's focusing and 422, not 259's"): it bears, and F4 is
+    # not completeness (430 (Q2))
+    (269, "Q6"): C(CF_, "the interior's completeness is a ruling, 422's (as it was 259's), not computed"),
+    (269, "Q7"): N("the interior makes no claim within one universe about crossing rays' null energy"),
+    (269, "Q9"): N("the interior uses no N2"),
+    (271, "Q1,Q2,Q4-Q7,Q9"): TWO_WAY,
+    (271, "Q3"): C(CF_, "its white-hole face's blueshift is C8's"),
+    (271, "Q8"): N("the interior uses no G1s and no ledger"),
+    (281, "#6"): N("the interior uses no maximal extension: one-way, it stops at x = 1"),
+    (281, "#7"): N("the interior uses no junction"),
+    (281, "marks"): N("the interior uses no m1p2x element"),
+    (281, "outside"): N("the interior uses no slab and no summed-stress junction"),
+    (304, "Q1"): N("the interior uses no continuation through a bridge"),
+    (304, "Q2"): N("the small end's holes; the interior is the large end's"),
+    (304, "Q3,Q4,Q6"): N("the interior uses no calculator classification"),
+    # [item 430 (Q9)] the note carried (B) only; the inner-horizon clause added
+    (304, "Q5"): C(CF_, "fails at an inner horizon with charge or spin, which changes the exterior"),
+    (304, "Q7"): N("the interior's routes are the README's parts into our face (418), by construction"),
+    (304, "Q8"): N("the interior states no crossing time in clocks"),
+    (304, "Q9"): N("the interior uses no K2 or J1"),
+    (304, "outside"): N("the interior uses no J1 and no F1"),
+    (310, "Q1+critic"): C(CF_, "the README leaves by position 2's face on a quantum region of 273's kind"),
+    (310, "Q2"): N("the interior uses no R6 bounce"),
+    (310, "Q3"): C(CF_, "position 2's side carries its own mass"),
+    (310, "Q4"): N("the interior uses no R12"),
+    (310, "Q5,Q6"): N("the interior uses no R4 or R5; its no-inner-horizon in the core is M's 422"),
+    (310, "Q7"): N("the interior uses no junction"),
+    (310, "Q8"): N("the interior uses no DeTurck-Kazdan regularity (the static solver is off its path, 422)"),
+    (310, "Q9"): N("the interior uses no P18 or R9"),
+    (310, "Q10"): N("c4_residue's mutants, not the interior's"),
+    (310, "outside G5"): C(CF_, "under the G5 readings, (3/2) G ell and G ell/2, r_q moves as G5^(5/12)"),
+    (310, "outside metric"): N("the interior uses no Hubble rates"),
+    (310, "outside map"): N("the interior stops at x = 1 and uses no map across the bounce"),
+    (317, "Q1"): N("the interior turns no ray: its rays are ingoing, with R_kk >= 0 (F4)"),
+    (317, "Q2"): N("the interior uses no species cap"),
+    (317, "Q3"): C(CF_, "position 2's side as the time reverse is the construction's time symmetry"),
+    (317, "Q4"): C(CF_, "mu(v) never exceeds the README's whole mass"),
+    (317, "Q5"): N("the interior uses no E~"),
+    (317, "Q6,Q9,Q10"): N("the interior uses no U7, no seed and none of 198's words"),
+    # [item 430 (Q9)] was N("the interior uses no gluing map"): O1c's position-2 clause is the time reverse (414 (d)),
+    # the construction's map -- the error 355 (Q3) found in FAR's column
+    (317, "Q7"): C(CF_, "the time reverse (414 (d)), the construction's map: the interior uses that map"),
+    (317, "Q8"): C(CF_, "warp order enters the core's near field at first order"),
+    (317, "outside"): N("the interior uses no pairing, no C7 carry and no 158 (2)"),
+    (319, "Q1"): C(CF_, "bounded over its open period"),
+    (319, "Q2"): C(CF_, "r_q moves as G5^(5/12), by 1.184 and 0.749"),
+    (319, "Q3"): C(CF_, "its time reverse sits at its own r_s2"),
+    (319, "Q4"): N("the interior uses no T3 or E3"),
+    # [item 430 (Q9)] the note carried Q5 only; Q6 and Q7 added
+    (319, "Q5-Q7"): C(CF_, "the closing lines rest on the board's readings named in the rests-on note"),
+    (319, "outside"): N("the interior uses no pair_math"),
+    (332, "Q1"): C(CF_, "the Gauss-Bonnet coupling is zero under 328"),
+    (332, "Q2"): N("the interior uses no CEMZ bound: its corrections are quantum_onset's, functions of x"),
+    (332, "Q3"): N("the interior uses no C5 divisor"),
+    # [item 430 (Q9)] was N("the interior uses no family split"): the conclusion right, the reason mis-worded
+    (332, "Q4"): N("the interior uses no Gauss-Bonnet cone result"),
+    (332, "Q5"): N("the interior uses no scalar-Gauss-Bonnet potential"),
+    (332, "Q6-Q7"): N("the interior uses no S1 or S3"),
+    (332, "Q8"): N("the interior uses no gb_alpha"),
+    (332, "Q9"): N("minor points of C9, not the interior's"),
+    (337, "Q1"): C(CF_, "the faces' own generators end where the faces close"),
+    (337, "Q2, Q7, Q8"): C(CF_, "the README's parts as radial null flux is RDUST's form"),
+    (337, "Q3, Q4"): C(CF_, "classical GR is given up inside 273's region"),
+    (337, "Q5, Q6"): C(CF_, "the bulk's own content (320 (b)-(c)) enters at its own order"),
+    (337, "Q9-Q11"): C(CF_, "273's quantum region is the option text M chose"),
+    (337, "outside"): N("the interior uses no c4_residue sample point and no cypher audit"),
+    (339, "Q1"): N("the interior uses no crossing share"),
+    (339, "Q2"): N("the interior counts no position 2 matter"),
+    (339, "Q3"): N("the interior uses no junction bound"),
+    (339, "Q4"): C(CF_, "F1's null energy is classical; the quantum flux is A3's, read under 120"),
+    (339, "Q5"): N("the interior uses no kappa+ and no A5"),
+    (339, "Q6"): N("the interior uses no E7"),
+    (339, "Q7"): N("the interior uses no x+"),
+    (339, "Q8"): N("the interior uses no cypher read-back"),
+    (339, "Q9"): N("b5a_oneway's pointers, not the interior's"),
+    (339, "outside"): N("the interior uses no normal stress of the bulk on a plane"),
+    (341, "Q1"): N("the interior uses no V5 (d)"),
+    (341, "Q2"): N("C8's rests-on; the interior's is at (348, Q5)"),
+    (341, "Q3"): N("the interior uses no J5, no J2 and no Barcelo threshold"),
+    (341, "Q4"): N("the interior's figures carry no sigma"),
+    (341, "Q5"): N("the interior uses no z_net"),
+    (341, "Q6"): N("the interior uses no quadratic root"),
+    (341, "Q7"): N("the interior makes no past-interior claim"),
+    (341, "Q8"): N("the interior was written after 336"),
+    (341, "Q9"): N("the interior claims nothing of rays meeting the corridor"),
+    (341, "Q10"): N("the interior uses none of those pointers"),
+    (341, "outside"): N("the notes owed since 338 sit outside the interior"),
+    (348, "Q1"): C(CF_, "F5 claims no censorship"),
+    (348, "Q2"): C(CF_, "the hole's mass is the README's whole E: a lossless collapse"),
+    (348, "Q3"): C(CF_, "the face static from v = w: A1-A3 above"),
+    (348, "Q4"): N("the interior's cypher runs (412) are off its path; none is a claim of O1b or O1c"),
+    # [item 430 (Q9)] the rests-on completed (RDUST's form, 136 G, 162, 336)
+    (348, "Q5"): C(CF_, "The rests-on, completed: RDUST's form (386 (2')), 136 G, 162 and 336"),
+    (348, "Q6"): C(CF_, "(310 (outside G5), 319 (Q2), 348 (Q6))"),
+    (348, "Q7-Q10"): N("the interior uses no 158 (2), no Bousso bound, no coarse count and no 109"),
+    (348, "Q11"): N("minor points of arrival_small; F5's widths are bisected, not a grid's first point"),
+    (348, "outside"): C(CF_, "on the 4D onset K = 48 m^2/r^6 diverges along r = 2m"),
+    (355, "Q1"): C(CF_, "given spherical symmetry and positive energy"),
+    (355, "Q2"): N("the interior uses no J5 or J1"),
+    (355, "Q3"): C(CF_, "M's construction, as the board reads it"),
+    (355, "Q4"): C(CF_, "the Hawking negative ingoing flux lies near the horizon and partly outside it"),
+    (355, "Q5"): N("the interior makes no claim of B4d"),
+    (355, "Q6"): N("FAR's margin; the interior uses no U or ell+"),
+    (355, "Q7"): N("the interior uses no Garriga-Tanaka field"),
+    (355, "Q8"): C(CF_, "Figueras and Wiseman's far Poincare horizon is their boundary condition"),
+    (355, "Q9"): N("the interior uses no content bound"),
+    (355, "Q10"): C(CF_, "m2/m = (G2/G)^(1/2) = 1, 1.41 or 2"),
+    (355, "Q11"): C(CF_, "a collimated pulse focuses locally and is not traced"),
+    (355, "Q12"): N("FAR's own column"),
+    # [item 430 (Q9)] the rests-on completed
+    (355, "Q13"): C(CF_, "The rests-on, completed: RDUST's form (386 (2')), 136 G, 162 and 336"),
+    (355, "Q14"): C(CF_, "every round surface is trapped at the large end for N > 1.13 N_L"),
+    (355, "outside"): N("item 354's inventory is readings.py's; the interior rests on no board reading but RDUST's "
+                        "form, carried at (337, Q2)"),
+    # [item 430] the interior's own verification, carried beside the text in its three instruments
+    (430, "Q1"): C(QO_, "S5 pins that wrong value"),
+    (430, "Q2"): C(FP_, "F4 does not give completeness"),
+    (430, "Q3"): C(FP_, "So F4 holds for bulk null geodesics in 5D"),
+    (430, "Q4"): C(QO_, "so x = 1 comes first by an order-one factor"),
+    (430, "Q5"): C(QO_, "Q5 bounds K only"),
+    (430, "Q6"): C(CF_, "on the proxy it can grow logarithmically"),
+    (430, "Q7"): C(CF_, "A2's independence covers the comparison's direction"),
+    (430, "Q8"): C(CF_, "where Birkhoff fails"),
+    (430, "Q9"): C(CF_, "the gate's notes:"),
+    (430, "Q10"): C(FP_, "F3's D = 4 placement of x = 1 at 2.8e-18 m"),
+    (430, "Q11"): C(FP_, "at 4D orders 2-4 r(0) falls linearly"),
+    (430, "Q12"): C(CF_, "B2 is an estimate"),
+    (430, "since 426"): C(CF_, "So A1's static face and point (2)'s independent closure by A3 are bound to the compact "
+                               "arrival"),
+    (430, "outside"): N("INTERIOR-PROOF.md's line 142 and item-420 heading, corrected beside the text there"),
 }
 OUTSIDE_QUEUE = [
     ("271 (3)", "the rows resting on kappa = 0: stability S5b, o3_hold O3c, write_cypher W4",
@@ -732,12 +943,18 @@ def compute():
         fbear[(341, "Q4")] = C(FS_, "under one convention for sigma only")  # the mutant: 341 (Q4) not carried
     if MUT.get("far_unaccounted"):
         del fbear[(271, "Q3")]                                             # the mutant: a row left unaccounted
+    ibear = dict(INTERIOR_BEAR)                                     # [item 424] the queued interior's column
+    if MUT.get("interior_stale"):
+        ibear[(348, "Q3")] = C(CF_, "the face is traced static from v = w on")   # the mutant: 348 (Q3) not carried
+    if MUT.get("interior_unaccounted"):
+        del ibear[(310, "outside G5")]                                     # the mutant: a row left unaccounted
     for rep, q, gist, seats, *bear in rows:
         for f, n in seats:
             item = n if not MUT.get("wrong_item") else n + 1000
             seated.append(((rep, q), f, item, has_item(os.path.join(HERE, f), item)))
         for obj, b in list(zip(QUEUED, bear)) + [("ARRIVAL", abear.get((rep, q), ("outstanding", "not accounted"))),
-                                                  ("FAR", fbear.get((rep, q), ("outstanding", "not accounted")))]:
+                                                  ("FAR", fbear.get((rep, q), ("outstanding", "not accounted"))),
+                                                  ("INTERIOR", ibear.get((rep, q), ("outstanding", "not accounted")))]:
             if b[0] == "carried":
                 # [item 339] the marker must sit in one of the object's own files (QUEUED_FILES)
                 carried.append(((rep, q), obj, b[1], b[2], has_text(os.path.join(HERE, b[1]), b[2])
@@ -759,8 +976,9 @@ def compute():
     brought = [(lab, f, n, has_item(os.path.join(HERE, f), n)) for lab, _, seats in BROUGHT_CURRENT for f, n in seats]
     arr_rows = {(r[0], r[1]) for r in rows} == set(abear)
     far_rows = {(r[0], r[1]) for r in rows} == set(fbear)
+    int_rows = {(r[0], r[1]) for r in rows} == set(ibear)
     return dict(stale=stale, reg_now=max(nums) if nums else None, current=current, brought=brought, arr_rows=arr_rows,
-                abear=abear, far_rows=far_rows, fbear=fbear,
+                abear=abear, far_rows=far_rows, fbear=fbear, int_rows=int_rows, ibear=ibear,
                 reg_last=max(int(x) for x in reg_hist) if reg_hist else None, rows=rows, seated=seated,
                 carried=carried, outstanding=outstanding, outside=outside,
                 words=all(w in rul for w in WORDS), headers={k: v in rul for k, v in HEADERS.items()})
@@ -796,6 +1014,9 @@ def report(o):
     print("L6 (item 344) ARRIVAL (verified, item 348): every row accounted for it: %s; carried %d, not bearing %d" % (
         o["arr_rows"], sum(b[0] == "carried" for b in o["abear"].values()),
         sum(b[0] == NA for b in o["abear"].values())))
+    print("L8 (item 424) the large end's interior (queued): every row accounted for it: %s; carried %d, not bearing "
+          "%d" % (o["int_rows"], sum(b[0] == "carried" for b in o["ibear"].values()),
+                  sum(b[0] == NA for b in o["ibear"].values())))
     print("L7 (item 351) FAR at both ends (verified, item 355): every row accounted for it: %s; carried %d, not "
           "bearing %d" % (
         o["far_rows"], sum(b[0] == "carried" for b in o["fbear"].values()),
@@ -805,11 +1026,12 @@ def report(o):
 def checks(o):
     res = []
     add = lambda n, ok: res.append((n, bool(ok)))
-    add("L0 M's item-330 words and the eighteen reports' headers verbatim in the rulings file",
+    add("L0 M's item-330 words and the nineteen reports' headers verbatim in the rulings file",
         o["words"] and all(o["headers"].values()))
     add("L1 every seated correction's marker is found in its file", all(s[3] for s in o["seated"]))
     add("L2 every correction a queued object carries is found in its instrument", all(c[4] for c in o["carried"]))
-    add("L3 no queued object (O1c, B5a, C8; ARRIVAL, item 344; FAR, item 351) has an outstanding row",
+    add("L3 no queued object (O1c, B5a, C8; ARRIVAL, item 344; FAR, item 351; the interior, item 424) has an "
+        "outstanding row",
         not o["outstanding"])
     add("L4 the outstanding rows outside the queue are each marked in their own instruments",
         all(ok for _, _, seats in o["outside"] for _, _, ok in seats))
@@ -820,11 +1042,13 @@ def checks(o):
     add("L4 (item 331) the three rows outstanding outside the queue each brought current, marked in their instruments",
         all(b[3] for b in o["brought"]) and {b[0] for b in o["brought"]} == {lab for lab, _, _ in OUTSIDE_QUEUE})
     reps = {r[0] for r in o["rows"]}
-    add("L4 every report of the eighteen has its rows in the ledger", reps == set(HEADERS))
-    add("L6 (item 344) ARRIVAL accounted against every row of the eighteen reports, each carried in "
+    add("L4 every report of the nineteen has its rows in the ledger", reps == set(HEADERS))
+    add("L6 (item 344) ARRIVAL accounted against every row of the nineteen reports, each carried in "
         "arrival_small or not bearing with its reason", o["arr_rows"])
-    add("L7 (item 351) FAR at both ends accounted against every row of the eighteen reports, each carried in far_small "
+    add("L7 (item 351) FAR at both ends accounted against every row of the nineteen reports, each carried in far_small "
         "or far_large or not bearing with its reason", o["far_rows"])
+    add("L8 (item 424) the large end's interior accounted against every row of the nineteen reports, each carried in "
+        "quantum_onset, focusing_parts or core_face or not bearing with its reason", o["int_rows"])
     return res
 
 
@@ -835,7 +1059,9 @@ MUTANTS = {"c8_stale": "C8 carrying the refuted blueshift closure instead of 319
            "arrival_stale": "ARRIVAL carrying 33.6 clocks on every reading, not the G5 readings (L2; item 344)",
            "arrival_unaccounted": "a row left unaccounted for ARRIVAL (L3, L6; item 344)",
            "far_stale": "FAR carrying one sigma convention, not 341 (Q4)'s two (L2; item 351)",
-           "far_unaccounted": "a row left unaccounted for FAR (L3, L7; item 351)"}
+           "far_unaccounted": "a row left unaccounted for FAR (L3, L7; item 351)",
+           "interior_stale": "the interior carrying the face presumed static, not 348 (Q3)'s answer (L2; item 424)",
+           "interior_unaccounted": "a row left unaccounted for the interior (L3, L8; item 424)"}
 
 
 def selftest():

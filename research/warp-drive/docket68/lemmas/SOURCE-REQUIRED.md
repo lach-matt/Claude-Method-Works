@@ -5,6 +5,133 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 427: every sigma reachable -- the junction on position 2's face is the board's, and it gives way
+
+M, 427: "Destination with any σ is supposed to be reachable" (M-ANY-SIGMA-REACHABLE), to the board's 426 line that a
+destination whose own sigma differs is not reached. The exclusion rested on three steps, traced:
+
+| step | source | whose |
+|---|---|---|
+| (1) the object's interior stands at our sigma on position 2's side too | junction_own G1 ("d_ours"; m1p2x_oneway O3, O5), "forced" at 388 by the write floor | **the board's** |
+| (2) position 2's face is an Israel junction carrying the jump sigma - sigma2, its seen energy rising from a start | junction_own G1-G2, c_junction J1, the start m1p2x_fifth F1's reading ("not ruled") | **the board's** |
+| (3) the face's open period ends when that energy outweighs the README, and 390 holds only where no junction rises | c_junction J1; this file's 390 section: "Where a junction rises, J1 still closes the face at its period" | **the board's** |
+
+Against M's words:
+- **390:** "if it opens because of the README, then it would stand to read me that it closes when there is nothing
+  contained within the corridor". The reason given (the face opens because of the README) carries no exception for a
+  junction. The board confined it to destinations at our sigma, because its question had asked about the case "where
+  no junction applies". Read as M reasoned it, position 2's face closes when the README has left, at every sigma.
+- **215:** "they exist within the everything bulk index". The board's own reading then was that the two bulks are
+  cells of the index, "not glued along a shared sheet, so Israel's first condition is not imposed between them".
+  Step (2) glues them along position 2's face, which is the gluing 215 set aside.
+- **226, 387:** each position 2 carries its own values, its plane its own sigma. Nothing of M's puts our sigma on
+  position 2's side of the object (step (1)).
+- **426** makes the junction model fail on its own terms. A rising junction must sit on one face (388), and under the
+  long write both faces stand for at least the write, far longer than any junction's period. So it can sit on neither.
+
+**So steps (2) and (3) give way, and (1) with them.** With 390 read as given, item 10 is met by identity at every
+sigma, and nothing in the record then bars a destination of any sigma from receiving the README.
+
+*[Beside 426's line above, "a destination whose own sigma differs from ours is not reached on this reading": withdrawn
+at 427. It rested on steps (2)-(3).]*
+
+**What it leaves, the board's to model with the object (426):** how the object meets our sigma on our side and
+position 2's own sigma2 on its side without a junction on either face. This is 215/216's question, "what relates the
+two cells is the index's question". The verified small-end rows that bound the junction (c8_level V3, V5; M1P2xs, 341)
+bound something now withdrawn as the board's model. Their bounds stand as computed and carry no weight; nothing there is
+repaired.
+
+## Item 426: the compact arrival withdrawn -- the write long, the object standing from the opening
+
+M, 426: "Withdraw the compact arrival as the board's, and take the write as long (163, 158 (2)), with the object standing
+from the opening (162). The board then models that object. - yes". Seated as M's: M-LONG-WRITE. What it does here:
+- **Item 9 is withdrawn** as the board's reading (kept above as the record). In its place: the README is written in
+  over a write as long as it needs, held whole at the object's fixed size, the object standing at the README's size from
+  the opening (162, 163, 158 (2)).
+- **Item 8's floor gives way to the write's least time** (source_capacity S2): at least (45/4) N ln2/Z clocks of r0/c
+  at the large end, 1.0e14 clocks at the small end's example (Z = 106.75). It lies inside the face's life: 5.9 % of it
+  at the large end, 11.7 % at the small (S7). The write-floor ball (66,980 clocks) counted room, not the rate through
+  the face, and is short of it by nine orders.
+- **Item 10 where a junction binds** asks the README to emerge within the junction's period: 1.57e-3 clocks at 2P at
+  r0 = 10 ell (junction_own G7), 32-34 of position 2's e-folds at the small end. Against a write of 1e14 clocks and
+  more, **a destination whose own sigma differs from ours is not reached on this reading** (computed, an estimate).
+  At our sigma item 10 is met by identity (390).
+  *[Item 427: withdrawn. M: every sigma is reachable. The junction that gave this period is the board's model; with 390
+  read as M gave it, item 10 is met by identity at every sigma.]*
+- **Items 4-7 and 11 stand.** RDUST and RBITS (item 12) gave the compact form; under 426 the README's form is the long
+  write into a standing object, which the board now models.
+- **What the model must answer (the board's, put to M before any computation, 414):** how a face of the README's size
+  stands from the opening while the README's energy is still coming in -- general relativity ties a horizon's size to
+  the energy within it, and its area cannot hold still while positive energy crosses unless something balances it.
+
+## Item 425: the conflict audited against M's rulings -- item 9 is the board's, and it reverses 163
+
+M, 425: "audit this problem against my rulings. This seems to be a misreading somewhere of my rulings". The conflict of
+item 424 has three premises besides standard thermodynamics. Each traced to M's words (verbatim in the rulings file):
+
+| premise | M's words | the board's step | whose |
+|---|---|---|---|
+| (a) exactly E(N), the energy at which the horizon holds N bits | 133: "There is only one exact energy needed for any given README"; 136 (1): "yes" to "Is your one exact energy E(N)" | the identification put to M at 135 | **M's** (136 (1)) |
+| (b) the N bits come in as 2^N states of a carrier of the plane's fields, crossing the face with the energy | 190: "Information is energy"; 136 G: "the README is the energy, not separate"; 136 (10): "an exact value of entanglement between any two given point"; 136 (7): "The throat formation is synchronization" | H-BITS-ARE-STATES, H-FREE-GAS (write_small S3), RBITS (arrival_small) | **the board's**; M was never asked how the bits enter the object |
+| (c) a compact arrival, within 4.79 (small end) or 4.31-8 (large) clocks | 162: "only the size that is needed to hold the object once and at once"; 163: "All together, one whole" -- chosen over "Instantaneously", its option text "the README carried in by the inflow ... held as a single whole, not bit by bit, at the fixed size; the write lasts at least ~200,000 clocks"; 158 (2): "Exactly as long as the write needs I should think" | the null-dust model of 340's guess A (arrival_small V2-V4), and 419's F5 built on it | **the board's** |
+
+**The misreading is (c).** M chose "all together, one whole" and declined "Instantaneously"; the option M chose said the
+README is carried in over a write of at least ~200,000 clocks and held whole at a fixed size. The board's compact
+requirement -- the arrival onto the face within a few clocks of a write of 66,980 -- is in effect the instant M
+declined, re-entered through the board's own model of how a face forms (the README collapsing as null dust, 340's
+guess A worked for the math). (b) is the board's too: M's words make the information the energy and the passage an
+entanglement formed by synchronization; nothing of M's says the bits must stream through the face as field quanta.
+
+**Read with M's words alone, item 424's bound is not a conflict: it is the write's own length.** 158 (2) holds the
+object "exactly as long as the write needs", and S2 says how long that is at E(N): at least (45/4) N ln2/Z clocks of
+r0/c at the large end -- 0.07 N clocks at Z = 108.75 against the hole's life of at least 1.21 N (6 %); at the small end
+1.0e14 clocks at Z = 106.75 against 8.57e14 (12 %). So at Z of about 100 the write fits inside the face's life at both
+ends; at Z = 2 (386's count of the massless gauge quanta alone) it does not (5.3e15 > 8.57e14; 3.9 N > 1.21 N).
+Computed (source_capacity S2, close_large L3, hold_small L5).
+*[Item 426, beside the text: "at Z = 2 it does not" compared the write at Z = 2 with lives computed at Z of about 107.
+The lives go as 1/Z as well, so with the carrier and the emission counting the same species the write is a fixed share
+of the face's life whatever Z is: 5.9 % at the large end, 11.7 % at the small end (source_capacity S7, computed).]*
+
+**What that reading leaves, the board's to work, not M's to answer:**
+- A face of the README's size standing from the opening (162), before the README's energy is all inside. General
+  relativity ties a horizon's size to the energy within it; at 340 the board framed this as "the hole ending with 2E"
+  (option B), which is how the compact reading came to be preferred. M's 130 ("a black hole is not matter, it is what
+  the mouth at position 1 looks like") and 136 (7) ("The throat formation is synchronization") describe an object the
+  board has not modelled.
+- With a face standing from the opening, F5's condition holds by construction: the README's first part meets a face
+  already there (419's widths then bind nothing).
+- Which carrier, and so Z, is SOURCE's (386).
+
+## Item 424: the carrier's room -- items 5 and 9 cannot hold together (`source_capacity.py`, S1-S6)
+
+M, 424: "review all the other open items in the warp theorem map, and close them". Every open row at the large end
+rests on SOURCE through the arrival's width, so the review asked whether a carrier can meet item 5 (exactly N bits,
+2^N states, at exactly E(N)) and item 9 (a compact arrival) at once. Computed; an estimate in its idealizations (free
+fields of Z species, geometric-optics capture); not verified; not seated.
+- **The room (S1, standard thermodynamics, not READ here).** At fixed energy E in volume V a massless carrier holds at
+  most e^S states, S = (4/3) (pi^2 Z/30)^(1/4) (V/(hbar c)^3)^(1/4) E^(3/4). What crosses the face's capture
+  cross-section sigma within a time tau lay in the volume sigma c tau, so N ln2 <= S(E, sigma c tau).
+- **The least arrival (S2, exact).** tau_min = (3 N ln2/4)^4 (hbar c)^3 / ((pi^2 Z/30) E^3 sigma c). On the plane's
+  hole at the bound it is exactly **(45/4) N ln2 / Z clocks of r0/c**, with no free number: bringing the README in takes
+  of order the time its Hawking emission takes to carry it out.
+- **The figures (S3).** Small end: 5.3e15 clocks (Z = 2) and 1.0e14 (Z = 106.75), against 4.79, and beyond the hole's
+  life of 8.57e14 at Z = 2. Large end: 5.3e63 and 9.7e61 at r0 = 20 ell; 5.3e66 and 9.8e64 at the Earth cap, against
+  4.31-8 at our sigma and 1.6e-3 where a junction binds.
+- **What compact would cost (S4, solved self-consistently: a bigger energy makes a bigger hole).** Within the compact
+  width the carrier needs E_c/E(N) = 912 at the small end, 1.5e10 at r0 = 20 ell and 4.8e10 at the Earth cap. The
+  face it forms then holds 2.8e4 N, 2.3e20 N and 2.3e21 N bits, far more than N (136 (1), 162).
+- **So (S5)** items 5 and 9 cannot hold together for any carrier of the plane's fields. Something in the premise set
+  gives, and which is M's:
+  (a) the exact energy at the bound (G1, 133, 136 (1));
+  (b) the compact arrival -- the onset hidden (arrival_small V2-V4; focusing_parts F5, so O1b and O1c for the earliest
+      parts) and, where a junction binds, item 10;
+  (c) the carrier: a species count of 2e15 to 1e66 would be needed.
+  RBITS, the bits arriving with the energy, is the board reading this refutes for a compact arrival (an estimate). The
+  verified ARRIVALs (348) rests on it as a reading through SOURCE; nothing there is repaired.
+- **(S6, exact)** An ultrarelativistic carrier at fixed E and S has kT = (4/3) E/S whatever its volume: at the bound,
+  (8/3) of the hole's Hawking temperature, with its peak wavelength at 10.5 r0 at every N. So the geometric-optics
+  capture S1 uses flatters it; the true room is smaller still.
+
 ## Item 399: the read -- a geometric object into the README
 
 M, 399: "Converting a geometric object into an information README... this is the the next part of the SOURCE to
@@ -196,6 +323,10 @@ selftest 12/12, mutants 6/6):
   written; 387's "about 2 clocks" and 388's "J2 binds everywhere" are withdrawn. Computed.
 - **Large end**: 388's junction figures stand where sigma2 differs from ours (1.57e-3 clocks at 2P at r0 = 10 ell).
   The 4 clocks at our sigma (close_large L4 (a), arrival_large A4, 387) is withdrawn: no bound there. Computed.
+  *[Item 419, beside the text: a bound returns at our sigma from the passage's own rows. Under 418 every route is a
+  README part, and O1b and O1c hold for the earliest parts only if our face is born before the README's first part.
+  On the plane that needs an arrival within 7.94 (exact 8), 4.75, 4.44 and 4.31 clocks of r_h/c at onset orders 1-4
+  (16 to 8.6 of GM/c^3; lemmas/focusing_parts.py F5-F6, computed). Where a junction binds, its bound is far tighter.]*
 - The open question 387 named -- what closes position 2's face with no junction -- is answered from M's 109 and 273,
   not from another's model.
 

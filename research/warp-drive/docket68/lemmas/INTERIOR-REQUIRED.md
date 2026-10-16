@@ -108,6 +108,8 @@ both, three ways:
 - **Time:** generating the rescaled equations (the record's `gen_*.py` take a few minutes), then one run, stopped at
   20 minutes.
 - **Cost:** small next to the runs at 365-367.
+  *[Item 410, beside the text: these thresholds were the board's own choice, carried over from the record's practice,
+  and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours".]*
 
 Its result decides whether the second half is run.
 
@@ -154,8 +156,119 @@ points, and couple the parts by penalty. It is for M to approve.
 - **The board's own coupling failed on the model** (exact only at a norm's edge; it grows once coefficients vary). The
   one built is Duru, Wang and Wiratama's penalised derivative, a strict norm wherever b^2 + a > 0. On the model it holds
   the error flat to s = 40 where a < 0 opens across a joining (1.5e-7 at n = 16).
+  *[Item 405, beside the text: withdrawn -- that model grows by itself once the band is open (its rate settles with
+  resolution), and the flat error was the jump damping, a coefficient, suppressing it.]*
 - **The half reached its end, s = -2.006**, for the first time, through a region of a < 0 that spread over
   [0.037, 0.777]. The slices stayed spacelike.
 - **It failed the criterion at the end only**: phi 3.5e-3 and tails 1.5e-5, both in the axis part, where both
   characteristics converge. Under 1e-4 to s = -1.53.
 - **Next, for M:** halve toward the axis too ([0, 1/16] folded, [1/16, 1/8]), the same half.
+
+**Item 401: the fifth attempt -- halved toward the axis too** (`interior_large/README.md`, "Item 401").
+- Reached the end again. Tails pass everywhere (9.1e-7); the axis part's fell from 1.5e-5 to 2.1e-7.
+- **FAIL on phi at the end alone**: 2.2e-4 against 1e-4, at the joining x = 1/8 from about s = -1.9; under 1e-4 to
+  s = -1.85. The jumps there are small and the part resolved, so the cause is still to be read from the saved steps.
+
+**Item 403: the cause read from the saved steps -- the measure, at one node.** The DeTurck norm built with the
+derivative the scheme evolves with stays <= 6.7e-5 over the fifth attempt's last stretch (6.45e-5 at the end); the
+2.2e-4 is the plain one-sided derivative at the joining node x = 1/8, which reads the scheme's jump over a tiny end
+weight. The same holds for the fourth attempt (3.48e-3 plain, 6.50e-5 penalised). On the scheme's own derivative the
+fifth attempt meets the criterion. Which measure defines it on a joined mesh is for M.
+*[Item 404, beside the text: withdrawn. The penalised value at the joining node is each part's own slope less a
+coefficient, 1/(2H) = 1,680 at the left copy, times the jump; it offsets what the representation holds there.]*
+
+**Item 404: the DeTurck norm evaluated exactly, at each point** (`interior_large/README.md`, "Item 404";
+`deturck_exact.py`, selftest 6/6, mutants 4/4; no run). M: the norm is a coefficient that credits a debt downstream.
+- **What contributes.** xi^s and xi^x, each eleven exact terms (the five fields' s- and x-slopes and a part with no
+  derivative), every one evaluated at 50 digits from each part's own polynomial, both copies of a joining apart; and
+  phi = xi_par^2 - xi_perp^2 exactly, with xi_perp = N xi^s normal to the slices.
+- **The vector is not small; phi is small because its coefficient is.** Near the axis xi_perp holds at 9.0e-3 to
+  7.9e-3 over the whole half while the lapse falls 12 times and xi^s grows 11 times. "phi <= 1e-4" is |xi_perp| <= 1e-2
+  there, and lets the coordinate vector grow as 1/N.
+- **Every component is a remainder**: its largest term is at least 2.2e3 times it at the half's first step and
+  1.8e4 times it at the end (dA/ds, dF/ds, dB/ds and the no-derivative part chiefly).
+- **The growth at x = 1/8 is at the joining's two endpoints alone** (1.49e-2 and 1.04e-2 at the end, against
+  5.3e-3 and 5.0e-3 at the nodes beside them), where the joining carries its coefficients.
+- **The debt is carried from the start**: xi_perp is 2.8e-3 in the initial data at s = -0.002 and 9.0e-3 at the
+  restart, s = -0.503.
+- **For M:** how the half is to be judged on exact pointwise values; a joining without coefficients (posed and
+  checked on the model first); the initial data's own DeTurck vector.
+
+**Item 405: no coefficients in the chain** (`interior_large/README.md`, "Item 405"; in progress). The true solution's
+DeTurck vector is zero (the record's equation with its brane row xi^x = 0). The initial data's vector is the static
+solution's own, carried across the horizon, and the static solution's does not converge with resolution. The interior
+scheme's coefficients are listed (kappa, the tilt, gk, the joining's 1/(2H), the brane's c^2/h_N); the damping only pays
+down a xi the scheme has made. A joining with no coefficient: stable on the plain wave model in the adjoint form on one
+domain; on a band where a < 0 none tried is yet validated, and item 397's band model grows by itself (its PASS
+withdrawn).
+
+**Item 406: the corner where the far end meets the brane** (`interior_large/README.md`, "Item 406";
+`corner_analysis.py`, selftest 7/7, mutants 3/3). Blown up by w = (2 - s - x^2)/(1 - s), the corner is at leading
+order an Euler system in w, independent of the power of t; its exponents are exact: 2 +- 2 sqrt 3 (B and
+T + 2S + A), 0 and 4 (the differences), -1 and 5 (F). The reference's residual forces it at t^3; the record's solution
+follows the analytic particular solution there (on the brane (B - 1)/t^3 = -0.453 against -5/11), the irrational mode
+not excited. The next order, t^4, is where the non-analytic term must enter, if it is at the corner.
+
+*[Items 406-407: the corner forces nothing through t^4. The static solver's Newton Jacobian has a near-null direction
+whose smallest equilibrated singular value falls as about N^-4.8; its rows are those next to this corner, its fields
+F through the bulk. So the corner is implicated, though not by a term it forces.]*
+
+**Item 407: the horizon put on the grid with its exact rows** (`interior_large/README.md`, "Item 407";
+`horizon_fw.py`, selftest 5/5, mutants 3/3; `HORIZON-FW.tsv`). The record's equations, expanded exactly in s about the
+horizon, lose every 1/s under the one condition T = A. The rows there are T - A, R_tt + R_ss, R_thth, R_xx and E_sx's
+own limit, with no coefficient. The tt equation's limit, not imposed, holds to 1e-11. **It failed its criterion on both
+counts:** the near-null direction is unchanged (6.73e-9 at N = 32 against the record's 6.72e-9), and xi holds at 5e-5
+to 7e-5 from N = 20 to 32. The missing horizon node is not the cause. The rows that nearly depend are the brane's K_tt
+and K_thth and the interior tt and thth beside them, at the far end's corner; taken alone they are not degenerate.
+What accuracy O1b and O1c need (405-3) is not yet derived; requirements (a)-(c) are yes or no, settled where the error
+lies inside each margin.
+
+## Item 405-3: the criterion derived from (a)-(c), not chosen (after items 405 and 410)
+
+(`interior_large/README.md`, "Item 405-3"; `criterion_large.py`, selftest 4/4, mutants 3/3; `CRITERION-405.tsv`.)
+Each requirement above is the sign of one quantity within the record's ansatz (deduced): (a) N^2 = -g_ss + g_sx^2/g_xx
+> 0, the clock s, with rate at least 1/N; (b) g_tt = -s T / Dl^2 > 0, with S, B > 0; (c) curvature finite. A cell (one
+requirement, one node, one slice) is violated if its quantity is <= 0 and undecided if the quantity's measured error is
+at least its size. The criterion is E = 0 over all cells: no threshold, no factor. This replaces item 392's
+"phi <= 1e-4", the board's own number (M, 410: "this is the failure point, and it is yours").
+On the first half, with the error measured as the two independent meshes' disagreement (items 397 and 401): **E = 0 over
+3,456 cells**, the smallest margin about 9,000 times its error (computed). Owed: the shared static start's error carried
+through the march, the departure from Einstein's law, (c)'s curvature growth per halving, and the remaining halves.
+
+**Item 411: the shared start measured** (`interior_large/README.md`, "Item 411"; `criterion_large.py --start`,
+selftest 5/5; `CRITERION-411.tsv`). The lead-in and the fifth attempt's half rerun unchanged from the static solution
+at N = 28: **E = 0 over the 3,456 cells with the start's error counted**, the smallest margin (g_tt) about 600 times its
+total error (computed). The start's error grows at most 2.2-fold over the half (N^2); whether that settles per half is
+not yet known, and if it did not, N^2's margin would last about eight halves (estimate). The withdrawn 1e-4 mark passed
+from this start (6.9e-5) and failed from N = 24 (2.21e-4): it measured the start, not the passage.
+
+**Item 412: where error enters, and the cypher** (`interior_large/README.md`, "Item 412"; `cypher_criterion.py`,
+selftest 4/4, mutants 2/2). Error is not in the passage: the README's route is exact (item 9). It enters only where
+(a)-(c) are checked by computing the surrounding interior: representation (finite N; item 411's start error),
+stepping, arithmetic, and coefficients. The last are still in the march of 393-411 (item 405's table), against M's 405;
+405-2 is not built. Errors of the first three kinds vanish only by proof, or by a computer-assisted proof. Through the
+cypher (every roster) the interior's cells are closed with E = 0 in every speaking language; the control outside the
+horizon flips (a) and (b) to violated; inside and outside together are not one closed index (E > 0).
+
+**Item 413: M's conjecture -- past the singularity, not through it -- read against the record** (no run).
+- **Inside this hole there is no "past"** (deduced from computed and exact results). The large hole is static: the
+  record's metric has no term mixing the static time with any other direction (`gen_eqs_fw.py`), so it does not rotate.
+  Inside its horizon the radius-like s is the clock: N^2 > 0 makes s's gradient timelike, so along every causal path s
+  changes in one direction only, and no path has a turning point. That is requirement (a), measured with every cell
+  decided on the first half (405-3, 411), and exact on the 4D stretch (item 6). A slingshot needs a turning point, and
+  there is none inside.
+- **The centre is a moment, not a place** (standard GR, not re-read here). In a static hole the classical singularity
+  lies to the future of every interior path; it is not beside the path. A slingshot past a singularity exists only where
+  the singularity is timelike (a rotating or charged hole), and the routes that pass it cross an inner (Cauchy) horizon.
+  273's option text excludes a Cauchy horizon, so that route is closed by M's own ruling.
+- **What the conjecture gets right, in M's theory:** the passage does not go through a singularity. 273 replaces it
+  with a small quantum region, where classical GR is given up, so the README goes through that region (the bounce) and
+  out of position 2's white-hole face. It never meets a singularity. It goes through the centre, not past it.
+
+
+**Items 414-422: proof first, and where it lands** (`INTERIOR-PROOF.md`). Under 418 the requirements are about the
+README's own parts. The quantum region's boundary is derived (415, `quantum_onset.py`); every part reaches its focus in
+finite affine parameter and the earliest parts are hidden if SOURCE arrives fast enough (419, `focusing_parts.py`); the
+face is static from the arrival's end (420, `core_face.py`). The one open piece, (b2) and (c2) in the core inside
+r ~ ell, M assumed at 422 (H-CORE-DELIVERS). (a)-(d) then hold at the large end on M's premises, at our sigma also on
+SOURCE's arrival width. The march of 393-411 is no longer on the chain's path.

@@ -453,6 +453,9 @@ order along the saved steps, as `rescaled.py` does (`zeno_run.py reassess`, no r
 | -2.006 | 6.4 | x = 0.500 | 4.7e-4 | 3.4e-4, 4.4e-3, 3.3e-3, 2.7e-4 |
 
 **Verdict: FAIL** (phi 6.4 > 1e-4; tails up to 4.4e-3 > 1e-6). So the second half is not run (item 393).
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 What the failure locates (computed from the saved run):
 - **The brane is resolved.** phi there stays at or below 5e-4 through s = -2, where B5's single grids grew. The halving
@@ -519,6 +522,9 @@ starts at the brane node, x = 1 (phi 9e31 there at the stop).
 
 **Verdict: FAIL**, earlier than item 393's. The run printed "pass: True", read from the restart slice alone, because the
 board's check did not require the half's end. Fixed: a pass now needs status 0 and the criterion at the end.
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 The cause is the one the model check predicted. The coupling's spread from the last interface reaches the brane node,
 which the record's Israel rows fix algebraically. In item 393 the derivative-continuity joining left that node alone,
@@ -575,6 +581,9 @@ nearly linearly (min A 0.073 at s = -0.50, 0.027 at -0.70, 0.013 at -0.75), its 
 0.22, and it was resolved there (tails 1e-8 to 1e-7). The other fields were healthy (T, B, S > 0).
 
 **Verdict: FAIL** -- the half's end was not reached, and the tails (3.3e-6) were above 1e-6. The second half is not run.
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
 
 **What is not known: whether A -> 0 is the solution or the scheme.** g_ss -> 0 means the DeTurck s-slicing degenerates
 there, a coordinate matter (B6 found the chart ends at finite proper time). But the record's single-grid runs reached
@@ -708,6 +717,12 @@ All status 0. Computed:
 
 **Verdict on the model: PASS** at n = 16 per part across the band. The half is run with more points where the zero of
 a moves: parts of 14, 16, 14, 10 and 14 intervals after the folded axis part's 15.
+*[Item 405, beside the text: the verdict is withdrawn. The model itself grows. With the band frozen open (s = 5) its own
+growth rate settles with resolution -- about 3 for the principal part alone, about 7 forward and 5 backward as posed,
+the same from n0 = 61 to 161 -- because the bump in a was chosen, not derived from a metric: with the band open, d_s
+is spacelike in a region of a stationary problem, an ergoregion, and the model lacks the covariant equation's
+first-order terms. The penalised joining's flat error above was the jump damping (gk = 1/2) suppressing the model's
+own growth: a coefficient crediting the debt. The check is redone on a model derived from flat space (item 405).]*
 
 **The half, fourth attempt** (`zeno_run.py half 10 dsem`; parts 15 folded, then 14, 16, 14, 10, 14). Question: does it
 carry the solution from s = -0.503 over the half, to s = -2.006? Pass: status 0, the end reached, phi <= 1e-4 and
@@ -738,6 +753,517 @@ Computed, from the saved steps:
   spacelike: the coordinate light cones narrow as the chart's end approaches (B6). That is what Zeno's halves are for.
 - B6's ratios have not settled yet: T/u on the axis falls 0.124, 0.104, 0.088, 0.076, 0.067 over the half.
 
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
+
 What a fifth attempt would change, for M: halve toward the axis as well -- the axis part split as [0, 1/16] folded and
 [1/16, 1/8], with more points there -- which is item 392's mesh halved toward both ends. The rest unchanged; the same
 half, question, criterion and 20-minute stop.
+
+## Item 401: the fifth attempt -- the axis part halved too (2026-10-14)
+
+`zeno_run.py half 10 dsem5`: the folded axis part now [-1/16, 1/16] (15 intervals), then [1/16, 1/8] (14), and 14,
+16, 14, 10, 14 as before; the joining unchanged. Question, criterion and stop as in item 397.
+
+| s | phi_max | tail | lapse, axis / brane | T/u, axis | S u^2, brane |
+|---|---|---|---|---|---|
+| -0.503 | 8.3e-5 | 8.3e-8 | 0.1061 / 0.4313 | 0.1238 | 0.8498 |
+| -0.788 | 7.8e-5 | 3.1e-7 | 0.0537 / 0.2183 | 0.1039 | 0.7647 |
+| -1.129 | 7.3e-5 | 5.5e-7 | 0.0283 / 0.1151 | 0.0881 | 0.7088 |
+| -1.533 | 6.7e-5 | 5.2e-7 | 0.0154 / 0.0627 | 0.0757 | 0.6722 |
+| -2.006 | 2.2e-4 | 9.1e-7 | 0.0086 / 0.0351 | 0.0662 | 0.6480 |
+
+Status 0, the end reached: 327 steps, 56,456 evaluations, 572 s. **Verdict: FAIL**, on phi at the end alone (2.2e-4
+against 1e-4). The tails pass everywhere (9.1e-7 at most). Computed, from the saved steps:
+- **Halving toward the axis did what it was for.** The axis part's tails, 1.5e-5 in the fourth attempt, are 2.1e-7.
+  The norm is 16 times lower at the end (2.2e-4 against 3.5e-3), and stays at or below 1e-4 to s = -1.85 (7.9e-5).
+- **The remaining excess sits at the joining x = 1/8**, from about s = -1.9 (2.2e-4 there at the end). It is not the
+  joining failing to stitch: the jumps across every joining stay small (fields <= 1.9e-5, slopes <= 6.2e-5, relative).
+  And it is not resolution: every part's tail is <= 9.1e-7.
+- B6's ratios still drift over the half (T/u on the axis 0.124 to 0.066); the two attempts agree on them to 0.5 %.
+
+*[Item 410, beside the text: this verdict is against the board's own pass mark (item 392), carried over from the
+record's practice and never derived from what O1b and O1c need. M: "this is the failure point, and it is yours". It
+stands as a measurement against that number, not as a finding about the passage.]*
+
+Not yet known: why the DeTurck vector grows at x = 1/8 in the half's last stretch. That can be read from the saved
+steps without a run (which component, and its rate against the damping kap = 4 as the coordinate light cones narrow);
+the board does that before proposing a sixth attempt.
+
+**Item 403: the cause, read from the saved steps (no run).** phi is the squared norm of the DeTurck vector,
+g_mk xi^m xi^k, one scalar per node (gen_eqs_fw.py). `phi_at` builds xi with each part's plain derivative D; the
+fourth and fifth attempts evolve with the penalised derivative Dt, which at a joining node is D minus half the jump
+over the end weight (zeno_char_check.py). Away from the joining nodes the two are the same. Computed:
+
+| s | plain D: max (x) | plain D at x = 1/8, left / right copy | penalised Dt: max | plain D away from joinings |
+|---|---|---|---|---|
+| -1.504 | 6.69e-5 (0.006) | 1.63e-5 / 2.14e-5 | 6.69e-5 | 6.69e-5 |
+| -1.797 | 6.48e-5 (0.019) | 5.61e-5 / 4.23e-5 | 6.48e-5 | 6.48e-5 |
+| -1.849 | 7.91e-5 (0.125) | 7.91e-5 / 5.26e-5 | 6.47e-5 | 6.47e-5 |
+| -1.905 | 1.15e-4 (0.125) | 1.15e-4 / 6.75e-5 | 6.46e-5 | 6.46e-5 |
+| -2.006 | 2.21e-4 (0.125) | 2.21e-4 / 1.08e-4 | 6.45e-5 | 6.45e-5 |
+
+At the end of the fourth attempt the same holds: plain D 3.48e-3 at x = 1/8, penalised Dt 6.50e-5, and 6.41e-5 away
+from the joining nodes.
+- **The excess is the measure, at one node.** With the derivative the scheme evolves with -- the one the constraint
+  damping acts on -- the DeTurck norm never exceeds 6.7e-5 in the fifth attempt's last stretch, and at x = 1/8 it
+  stays near 2e-5, level. The plain one-sided derivative at a joining node ignores the jump the scheme carries by
+  construction, so it reads about half the jump over the end weight, and the end weight there is about 3e-4.
+- **The jumps themselves are small** (fields <= 1.9e-5, slopes <= 6.2e-5 relative), and the tails pass everywhere.
+- **So on the scheme's own derivative the fifth attempt meets the criterion at the half's end**: phi 6.45e-5 <= 1e-4,
+  tails 9.1e-7 <= 1e-6. On the board's original instrument it does not, at the left copy of one joining node.
+- The criterion (item 392) did not say how to measure at a joining: the instrument came from the single grid, which
+  has none. Which measure defines it on a joined mesh is M's to rule; the board's reading is the penalised derivative,
+  or equivalently the norm away from the joining nodes, which agree here.
+  - *[Item 404, beside the text: the reading above is withdrawn. The penalised value at the joining node is each
+    part's own slope less the penalty coefficient 1/(2H) -- 1,680 at the left copy of x = 1/8, 1,088 at the right --
+    times the jump: a coefficient offsetting what the representation holds there. Evaluated exactly
+    (`deturck_exact.py`), both copies' own DeTurck vectors grow over the last stretch, and phi is itself a lumped
+    number whose coefficient is the lapse squared. See "Item 404" below.]*
+
+## Item 404: the DeTurck norm, exact at each point (2026-10-14; read from the saved steps, no run)
+
+M, 404: the DeTurck norm is a coefficient, and coefficients credit a debt downstream; what contributes to it is to be
+evaluated to its exact value at each point. `deturck_exact.py` (selftest 6/6, mutants 4/4) does that for the fifth
+attempt's saved steps.
+- **The vector, from the record's own construction.** xi^m = g^pq (Gamma^m_pq - Gammabar^m_pq) is derived from the
+  record's metric and reference metric (gen_eqs_fw.py's construction, not its pickle). xi^tau, xi^theta and xi^phi
+  vanish identically (K1); xi^s and xi^x remain.
+- **Every term.** Each of xi^s and xi^x is split exactly into a part carrying no derivative and one term per field and
+  slope: T, S, A, B, F, each by d/ds and d/dx -- eleven terms, none identically zero, the split recomposing the
+  component to 4e-50 (K2).
+- **phi, two ways.** As the record writes it, g_ss (xi^s)^2 + 2 g_sx xi^s xi^x + g_xx (xi^x)^2, which is the record's
+  PHI to 3e-50 (K3). And split by the s-slices, exactly: with the lapse N^2 = -g_ss + g_sx^2/g_xx (= c^2 g_xx) and the
+  shift b = g_sx/g_xx, xi = xi^s N n + (xi^x + b xi^s) d_x, so
+  phi = xi_par^2 - xi_perp^2, xi_perp = N xi^s, xi_par = sqrt(g_xx) (xi^x + b xi^s)   (K6, 6e-51),
+  two squares of fixed and opposite sign.
+- **Exact at each point.** Every term is evaluated at 50 digits from each part's own interpolating polynomial: the
+  x-slopes are its exact derivative, the s-slopes the evolved X_s. At a joining both copies are reported, each from
+  its own part, with no penalty and no averaging, and the representation's own jump is reported beside them. Exact
+  means exact for the saved representation, the stored doubles read as exact numbers.
+- Tables: `DETURCK-EXACT.tsv` (s = -1.504, -1.849, -2.006; 250 points each, nodes and between, every term and piece),
+  `DETURCK-TRACK.tsv` (eleven steps over the half, at the nodes), `DETURCK-JUMPS.tsv` (each joining's jumps).
+
+**What contributes, computed.**
+
+1. **The vector is not small; phi is small because its coefficient is.** The DeTurck vector is mostly normal to the
+   slices: away from the joining endpoints |xi_perp| is at most 8.2e-3, largest at the axis and falling toward the
+   brane (1e-5 to 3e-4 for x > 0.88); |xi_par| is at most 2.6e-3; phi < 0 at 241-245 of the 250 points of each slice. For
+   x < 0.02, xi_par^2 is at most 0.27 % of xi_perp^2, so phi = -xi_perp^2 there. Over the half the lapse at the axis
+   falls twelve times while the coordinate component grows eleven times, and their product holds:
+
+   | s | N, axis | xi^s, axis | xi_perp = N xi^s, axis | phi, axis |
+   |---|---|---|---|---|
+   | -0.503 | 0.1061 | -0.0852 | -9.04e-3 | -8.2e-5 |
+   | -0.788 | 0.0537 | -0.1643 | -8.82e-3 | -7.8e-5 |
+   | -1.129 | 0.0283 | -0.3014 | -8.53e-3 | -7.3e-5 |
+   | -1.532 | 0.0154 | -0.5304 | -8.16e-3 | -6.7e-5 |
+   | -1.849 | 0.0103 | -0.7761 | -7.99e-3 | -6.4e-5 |
+   | -2.006 | 0.0086 | -0.9224 | -7.92e-3 | -6.3e-5 |
+
+   So "phi <= 1e-4" reads |xi_perp| <= 1e-2: it lets the coordinate vector grow as 1/N. The half began at
+   xi_perp = -9.0e-3, nine tenths of that allowance, at its very first step.
+2. **Each component is a remainder.** The largest term building xi^s is, at every point, at least 2.2e3 times the
+   sum at the half's first step and at least 1.8e4 times it at its end (medians 6e4 to 1.7e5 over the three tabled
+   slices); for xi^x at least 6.9e3 to 1.35e4. The largest are dA/ds, dF/ds and dB/ds, with the no-derivative part,
+   dF/dx and dS/ds among the three largest at some points (in xi^x the x-slopes of A, B and S as well). At x = 1/8,
+   s = -2.006, left copy: xi^s = -1.474 from +71,450 (dF/ds) - 64,390 (dA/ds)
+   - 40,100 (dB/ds) + 22,320 (no derivative) and the rest. The terms grow as the lapse falls (they carry g^ss), so a
+   fixed relative imbalance among the slopes becomes a growing coordinate vector. And phi is itself a remainder where
+   g_sx is not small: at the same point 0.002281 - 0.005133 + 0.002631 = -0.000221.
+3. **The growth at x = 1/8 is at the joining's two endpoints, and only there.** xi_perp at the nodes beside the
+   joining and at its two copies:
+
+   | s | node x = 0.1239 | left copy | right copy | node x = 0.1272 |
+   |---|---|---|---|---|
+   | -1.504 | -5.53e-3 | -4.29e-3 | -4.89e-3 | -5.44e-3 |
+   | -1.849 | -5.34e-3 | -8.97e-3 | -7.35e-3 | -5.12e-3 |
+   | -2.006 | -5.28e-3 | -1.49e-2 | -1.04e-2 | -4.98e-3 |
+
+   Between the nodes of the left part's last intervals the polynomial now oscillates (-5.96e-3 at x = 0.1196,
+   -4.27e-3 at 0.1223, s = -2.006), where at s = -1.5 it was smooth (-5.58e-3, -5.67e-3). Every joining's endpoints
+   depart from their neighbours' trend -- at x = 1/16 (-5.39e-3 and -3.16e-3 against -6.96e-3 and -7.15e-3) and at
+   x = 1/4, where phi is positive at both copies at the end -- but only x = 1/8's has grown.
+4. **The copies differ through the coefficients.** The jumps the representation carries at x = 1/8 are 3e-10 to
+   8e-6 in the fields and up to 2.4e-5 in their s-slopes (DETURCK-JUMPS.tsv); the terms they enter are of size 1e4 to
+   7e4 there, and xi^s differs between the copies by 0.44 at the end (left minus right), its largest contributions
+   dF/ds -0.92, dA/ds +0.92, dF/dx -0.56, dB/ds +0.53.
+5. **Item 403 read again.** The penalised derivative's value at the joining node is each part's own slope less
+   1/(2H) times the jump, 1/(2H) being 1,680 at the left copy and 1,088 at the right: a coefficient that offsets
+   what each part holds at its endpoint. That is why the penalised phi looked level there (6.45e-5 at the end) while
+   both copies' own vectors grew. Item 403's reading -- that on the scheme's own derivative the fifth attempt meets
+   the criterion -- is withdrawn beside its text.
+6. **Where the half's starting vector came from** (`deturck_exact.py --trusted`, the trusted run's single grid). The
+   initial data, at s = -0.002, already carry xi_perp = -2.8e-3 next to the axis (phi -7.6e-6; the lapse there is
+   4.8). B7's damped run takes it to -9.0e-3 by s = -0.503, 3.3 times, while xi^s grows 150 times and the lapse
+   falls 45 times. The single grid and the fifth attempt's mesh agree on it at the hand-over (-9.04e-3 both). So the
+   debt is carried from the start: present in the initial data, grown over B7's run, held near the axis over the
+   half, and grown at x = 1/8's endpoints in the half's last stretch.
+
+**What is left for M.**
+- **The criterion.** "phi <= 1e-4" is a lumped number whose coefficient on the normal part is N^2; under 404 the half
+  is to be read from xi_perp and xi_par at every point, the joining endpoints included. What those are to be held to
+  is M's: the solution's own DeTurck vector is zero, and any threshold set on it would be another coefficient. The
+  board can give, at each point, every term and what is left of them after they cancel.
+- **The endpoints.** The only growth is at x = 1/8's two endpoints, and the joinings are where the construction
+  carries its coefficients: the penalty 1/(2H) and the jump damping (gk = 0.5). Under M-COEFF (98) and 404 a joining
+  whose parts agree at the node exactly, with no penalty, is the direction the exact values point to. The nearest
+  thing tried was a scratch probe on the model during item 397, recorded here for the first time: shared joining
+  nodes, one derivative taking there the weighted mean of the two parts' one-sided slopes -- itself a coefficient --
+  and it grew near the axis. Any such joining would be posed and checked on the model before any half is run.
+- **The initial data.** xi_perp = -2.8e-3 at s = -0.002 is in the data the evolution starts from; making them
+  DeTurck-exact is a question about the record's static solution and its series start, before any evolution.
+- No run was made for this item, and none is proposed until M rules on the three above.
+
+## Item 405: no coefficients in the chain -- the initial data, the joining, the criterion (2026-10-14; in progress)
+
+M, 405: the criterion for the math and the cypher; the joining with no coefficient anywhere in the chain and no
+penalty; the initial data made to carry a zero DeTurck vector if the true solution's is zero.
+
+**The true solution's DeTurck vector is zero** (deduced). The record's equation is R_ab + 4 g_ab - nabla_(a xi_b) = 0
+(gen_eqs_fw.py, line 49) with the brane row xi^x = 0; the true solution, an Einstein metric (R_ab = -4 g_ab) in the
+record's gauge, satisfies it only with nabla_(a xi_b) = 0, i.e. xi = 0. A solution with xi != 0 would be a Ricci soliton,
+which the record's construction excludes. So, by M's ruling, the initial data are to carry xi = 0.
+
+**Where the initial data's vector comes from** (computed, exact, 50 digits). The data are a Taylor expansion about
+s = 0 of the record's static solution (Ns = Nx = 24). At s0 = -0.002, x = 0.03:
+
+| continuation | xi^s | xi^x | phi |
+|---|---|---|---|
+| the static polynomial itself | -5.822e-4 | -1.287e-5 | -7.888e-6 |
+| Taylor, order 2 (the trusted run's) | -5.664e-4 | -1.259e-5 | -7.465e-6 |
+| Taylor, order 4 | -5.821e-4 | -1.287e-5 | -7.886e-6 |
+
+The series converges onto the polynomial's own continuation; the data's vector is the static solution's own, carried
+across the horizon, and the proper 2.8e-3 of item 404 is that coordinate value times the lapse there (4.8).
+
+**The static solution's vector does not converge with resolution** (computed; the record's solver, unchanged, at
+N = 16 to 32, every Newton solve to |R| <= 3e-10). xi^s at fixed points:
+
+| (s, x) | N = 16 | 20 | 24 | 28 | 32 |
+|---|---|---|---|---|---|
+| (0.5, 0.03) | 2.2e-5 | 3.7e-5 | 1.9e-5 | 1.2e-5 | 9.1e-5 |
+| (0.1, 0.03) | -3.9e-4 | 2.5e-4 | 2.2e-5 | -6.2e-5 | 1.6e-3 |
+| (0.002, 0.03) | 1.2e-4 | 1.6e-4 | 9.6e-5 | 2.3e-5 | 2.9e-4 |
+| (-0.002, 0.03), continued | -4.7e-4 | -7.0e-4 | -5.8e-4 | -2.4e-4 | -5.9e-3 |
+
+It changes sign between resolutions and is largest at N = 32. In x the solution is resolved (the last Chebyshev
+coefficients of every field are 1e-11 to 1e-12); in s they sit on a flat plateau at 1e-6 to 1e-5 and do not fall,
+and the solutions at successive N differ most toward the horizon -- F by 9e-3 at s <= 0.05 on the axis, S and B by
+2e-3 at (s, x) = (0, 0) -- and least at s = 1, where the solver fixes the fields. So the feature sits at the horizon end
+of s, strongest where the axis meets it. In another mathematical language (M's question): near a non-extremal horizon
+in s = r^2 the radial operator behaves as 4 (s d_s^2 + d_s), whose indicial equation k^2 = 0 has a double root, with
+solutions 1 and log s; regularity excludes log s, but the solver has no node at s = 0 and imposes nothing there. The
+record's own indicial exponents at s = 0 are being computed, field by field. (The board's first reading, "falls as
+roughly N^-3", made from four maxima before the per-point table, is withdrawn: there is no convergence.)
+
+**The coefficients in the interior scheme** (read from the code):
+
+| what | value | kind |
+|---|---|---|
+| kappa, constraint damping | 4 | coefficient |
+| the damping vector's tilt (at) | 0.5 | coefficient |
+| 1 + rho | 2/3 | forced: makes the constraint system triangular in 5D |
+| gk, jump damping | 0.5 | coefficient |
+| the joining's penalised derivative | 1/(2H) | penalty coefficient |
+| the far end (brane) | c^2/h_N | penalty coefficient |
+| phi and tail thresholds | 1e-4, 1e-6 | the criterion, M's 405 (1) |
+
+The damping term is kappa times an expression linear in xi: zero when xi = 0. Its only work is to pay down a xi the
+scheme has already made.
+
+**A joining with no coefficient, on the model** (`zeno_nocoef_check.py`; selftest 5/5, mutants 2/2):
+- Shared joining nodes with C^1 continuity, or one domain with no joining, both in plain collocated form: growing modes
+  on the plain wave model, rising with n (one domain 0.14 to 3.1 as n0 goes 11 to 31; the shared nodes 2.7 to 58 as
+  n goes 4 to 12, the mode beside the joining).
+- One domain with the operator in the adjoint form (an identity) and the far end's slope put exactly into the flux,
+  no penalty, no damping: on the plain wave model, converged (1.5e-13 at n0 = 41 to |s| = 40, toward decreasing s) and
+  matching the model's own spectrum in that direction (0.0104, the same as the model's largest growth there, computed
+  from the model's eigenproblem directly); toward increasing s a spurious 0.31 against the model's 0.0498.
+- **The band model grows by itself.** With the band frozen open its growth rate settles with resolution -- about 3
+  for the principal part alone, about 7 forward and 5 backward as posed, unchanged from n0 = 61 to 161: the bump in
+  a was chosen, not derived, and with the band open d_s is spacelike in a region of a stationary problem (an
+  ergoregion). Item 397's model PASS is withdrawn beside its text: its flat error was the jump damping suppressing
+  the model's own growth. The joining is to be checked on a model derived from flat space, in coordinates that move
+  faster than light in a band, whose exact solutions are bounded plane waves.
+
+## Item 406: the corner where the far end meets the brane (2026-10-14; analysis, no run)
+
+M, 406, on the far end's line-by-line exponents changing with x: "do it" -- the corner analysis. `corner_analysis.py`
+(selftest 7/7, mutants 3/3); the record's equations and brane rows linearised about the reference metric exactly in
+`CORNER-LIN.json` (`--derive` rebuilds it from gen_eqs_fw.py's expressions, about 20 minutes).
+
+**The geometry, read at source.** Figueras and Wiseman's ansatz (9) (arXiv:1105.2558): r = sqrt(s), r = 0 the horizon,
+x = 1 the brane, x = 0 the axis, r = 1 the far region, where the metric tends to the Poincare horizon of AdS; their
+Delta = 1/beta + (1 - x^2)/(1 - r^2) is the record's Dl. Near (s, x) = (1, 1) it depends on the ratio of 1 - x^2 to
+1 - s, which is why a line-by-line series there changes with x.
+
+**The blow-up.** t = 1 - s, eta = (1 - x^2)/t, w = 1 + eta = (2 - s - x^2)/(1 - s): the corner opens into the line
+w in [1, inf), w = 1 the brane, w -> inf the far end away from it. With dX_f = t^lam Phi_f(w) (computed, exact):
+- **at leading order in t the corner is an ordinary differential system in w alone, independent of lam** -- g^ss goes
+  as t^4 against g^xx as t^2, so the s-derivatives enter one order later:
+  T, S, A:  -w^2 Phi''/2 + 3 w Phi'/2 + (Phi_T + 2 Phi_S + Phi_A) = 0;
+  B:        -w^2 Phi''/2 + 3 w Phi'/2 + 4 Phi_B = 0;
+  F:        -w^2 Phi''/4 + 3 w Phi'/4 + 5 Phi_F/4 = 0.
+- **Its exponents are exact** (Phi = w^m): for B and Sigma = T + 2S + A, m^2 - 4m - 8 = 0, **m = 2 +- 2 sqrt 3**
+  (5.4641, -1.4641, irrational); for T - S and T - A, m = 0, 4; for F, m = -1, 5.
+- **The forcing is t^3**, the reference's own residual (exact polynomials, zero at the corner): T, A: 3w^2 - 15w/2 + 4;
+  S, B: 4 - 3w; F: 0. Particular solutions: Phi_B = -1 + 6w/11, Sigma = -4 + 42w/11 - w^2, T - S = 3w - 3w^2/2.
+- **The brane rows at w = 1:** Phi_T' = Phi_S' = Phi_A' = -Phi_B (Israel), F = 0; the xi^x row enters only at the next
+  order; the reference satisfies all four exactly. With the far end excluding the growing branches (w^4, w^5,
+  w^(2 + 2 sqrt 3)), the rows tie the two admissible singular amplitudes: sigma_ = 2 b_/(sqrt 3 - 1), b_ left free.
+
+**The record's solution at order t^3** (computed, the static solutions N = 16 to 32): on the brane the corner form gives
+(B - 1)/t^3 -> -5/11 + b_; the solutions give -0.4553, -0.4613, -0.4515, -0.4530, -0.4527 against -5/11 = -0.4545.
+So at this order the record's solution follows the analytic particular solution and the irrational mode is not
+excited (|b_| <~ 0.01). Away from the brane the far end is clean: every field goes as t^1 at x = 0 and 0.5, converged,
+which is the particular solution's t^3 w^2 ~ t (1 - x^2)^2. The disagreement between resolutions sits in the corner
+region (x ~ 0.9 to 1).
+
+**Not yet known:** the next order, t^4. There the lam-dependent s-derivative terms act on the t^3 solution, the xi^x row
+first enters, and the exponent 4 of the differences can resonate with the forcing (w^4 log w). The non-analytic term
+that keeps the static solution's DeTurck vector from converging must enter there, if it is at the corner.
+
+**Item 406, continued: the next order, and where the non-convergence actually is** (computed, no run).
+- **The corner at t^4 forces nothing.** At O(t) the operators of the T, S, A, B equations carry only F, which is zero at
+  t^3, and the reference's residual has no t^4 term: the t^4 forcing of B, Sigma, T - S and T - A is exactly zero (no
+  resonance, no logarithm). F's t^4 forcing is a polynomial to w^3 plus terms in b_; its resonant coefficients (w^-1,
+  w^5) are zero. At the brane, the Israel rows' O(t) parts carry only F, and the xi^x row's first appearance,
+  -A/2 + 2B - S - T/2 + A'/4 - B'/4 + S'/2 + T'/4, vanishes identically on the t^3 solution whatever its free constants
+  -- implied by the other rows at this order. So through t^4 the corner admits the irrational modes with free
+  amplitudes and forces none; the record's solution gives b_ = 0.000 +- 0.004. **The corner is not shown to be the
+  source.**
+  *[Item 407: the near-null pair's left vector -- the rows that nearly depend -- is the T and S rows in the cell next to
+  this corner, at every N from 16 to 28. The corner is implicated, though those four rows taken alone are not
+  degenerate (smallest singular value 0.19 at every N).]*
+- **The solutions disagree everywhere but the far end** (N = 28 against 32, fields on a 57 x 41 grid): largest at the
+  horizon on the axis (S, B 2.3e-3 at (0, 0); F 8.6e-3 at (0.01, 0)), as large through the middle (2e-3 to 7e-3), small
+  where the solver fixes the fields (1e-4 near s = 1), and growing from (24, 28) to (28, 32).
+- **The cause, in the language of linear algebra: a near-null direction of the record's Newton Jacobian.**
+
+  | N | smallest singular value, raw | condition, raw | smallest, rows and columns equilibrated | condition |
+  |---|---|---|---|---|
+  | 16 | 1.13e-7 | 4.4e11 | 2.28e-7 | 2.0e7 |
+  | 20 | 3.80e-8 | 2.5e12 | 7.92e-8 | 6.0e7 |
+  | 24 | 1.56e-8 | 1.1e13 | 3.29e-8 | 1.5e8 |
+  | 28 | 7.29e-9 | 3.8e13 | | |
+
+  The direction is 88-89 % F, largest at the first Radau node on the axis (s = 0.0023, 0.0015, 0.0010 at N = 16, 20,
+  24), smooth there (nearly flat in s near the horizon, the same at x = 0 and x = 0.5: not the horizon's s^-1 branch,
+  which the board first supposed and withdraws), and its singular value falls as about N^-5 even with every row and
+  column scaled. The continuum problem has no zero mode (Figueras-Wiseman found none in its spectrum), so this one is
+  the discretisation's: the scheme grows more nearly singular in it as N grows, and whatever error it makes is
+  amplified into F, and through the coupling into S and B, near the horizon on the axis. That is why the static
+  solution's DeTurck vector does not converge, and why N = 32 is the worst.
+  *[Item 407: the place named here is the right vector's, the field direction. The rows it fails are at the far end's
+  corner with the brane (the left vector). A node on the horizon with exact rows leaves the singular value unchanged to
+  two or three digits. The table's equilibration used a norm not recorded; with rows then columns scaled to unit
+  2-norm the record's smallest values are 1.89e-7, 6.56e-8, 2.73e-8, 1.29e-8, 6.72e-9 at N = 16 to 32.]*
+- The record's solver has no node at the horizon (its Radau nodes in s exclude s = 0) and imposes the horizon's
+  regularity only through the equations' degeneration; the axis rows (F_x = 0 among them) meet the horizon at that
+  corner. The horizon's exponents (T + A, S, B: 0, 0; T - A: +1, -1; F: 0, -1) say what an exact horizon row is.
+  *[Item 407: put to the test -- the missing horizon node is not the cause.]*
+
+## Item 407: the horizon put on the grid with its exact rows (2026-10-14) -- it failed its criterion
+
+M, 407: "Proposed next step, yours to approve - approved". The proposal was a static solver with a node on the horizon
+s = 0 and exact regularity rows from the horizon's own analysis, with no coefficients, as a new instrument beside
+`solver_fw.py`. **Question:** does the near-null F direction disappear, and does xi then fall steadily with resolution?
+**Criterion:** the smallest scaled singular value stops shrinking with N, and xi falls geometrically. **Cost:** about
+30 minutes, no data download. Instrument: `horizon_fw.py` (selftest H1-H5, mutants 3/3); table `HORIZON-FW.tsv`.
+
+**The rows at the horizon** (computed, exact). Each of the record's five equations is expanded in s about s = 0 as a
+truncated Laurent series over its own expression tree, the fields and their slopes held as symbols:
+s E_e = S_e + R_e s + O(s^2). Substituting s = 0 into the equations directly gives 0 times infinity (a factor such as
+(T bt^2 s^3 - 2 T bt^2 s^2 + T bt^2 s)^-2 hides s^-2), which is why the expansion walks the tree.
+- S_thth = S_xx = 0 identically.
+- S_tt = (T - A) Dl0^2 / (4 A T), with Dl0 = 1/bt + 1 - x^2 (Dl at s = 0), and S_ss = -S_tt.
+- S_sx = (A - T)(bt x^2 - bt - 1)(T_x (bt x^2 - bt - 1) - 4 T bt x) / (4 T^2 bt^2). It is not zero, but it too carries
+  the factor (A - T).
+
+So the one condition T = A removes every 1/s. The rows at s = 0 (0 < x < 1) are:
+- T: T - A = 0;
+- A: R_tt + R_ss (the 1/s parts cancel identically, and so do their s-derivatives);
+- S: R_thth; B: R_xx;
+- F: R_sx + sum_q dS_sx/dq D_s q, E_sx's own limit when T = A.
+
+The tt equation's own limit, C_tt = R_tt + sum_q dS_tt/dq D_s q, is carried as a check, not a row. The brane's rows
+have no 1/s, so the corner (0, 1) takes their exact s^0 coefficient; the corner (0, 0) takes the record's axis rows.
+Selftest H4 checks that the rows are the equations' own limits. On a smooth configuration with T = A at s = 0 and
+T_s != A_s, each equation at s = 1e-4 and then 1e-5 approaches its row with the error falling exactly tenfold.
+
+**The run** (computed; Lobatto in s and x; N = 16 to 28 solved from ones and regridded upward in a first run, which
+was stopped at the background limit during N = 32; the rerun re-measured them from their saved solutions and solved
+N = 32 from N = 28 regridded). The record's solver is measured the same way in the same instrument (`--record`).
+
+| N | Newton | smallest eq. singular value | record's | max \|xi^s\|, s > 0 | record's | C_tt at s = 0 | R4 |
+|---|---|---|---|---|---|---|---|
+| 16 | 8.6e-11, 15 steps | 1.86e-7 | 1.89e-7 | 1.18e-4 | 3.94e-4 | 4.6e-12 | 1.129310 |
+| 20 | 2.2e-11, 3 | 6.50e-8 | 6.56e-8 | 4.82e-5 | 2.52e-4 | 3.1e-12 | 1.128639 |
+| 24 | 8.1e-11, 3 | 2.72e-8 | 2.73e-8 | 6.98e-5 | 1.19e-4 | 8.9e-12 | 1.129359 |
+| 28 | 8.1e-11, 7 | 1.29e-8 | 1.29e-8 | 5.95e-5 | 7.85e-5 | 1.3e-11 | 1.129147 |
+| 32 | 1.5e-10, 59 | 6.73e-9 | 6.72e-9 | 5.47e-5 | 1.60e-3 | 6.1e-12 | 1.129118 |
+
+"Equilibrated" here is rows, then columns, scaled to unit 2-norm. The record's xi column is item 405's run (the record's
+solver, unchanged), at the same nineteen points. At N = 32 Newton stopped at its 60-step limit with |R| = 1.5e-10,
+just above its 1e-10 tolerance. Continued to s = -0.002, max |xi^s| is 1.4e-5, 6.5e-6, 1.2e-5, 2.3e-5 and 5.9e-5.
+
+**Verdict: FAIL on both counts.**
+- **The near-null direction does not disappear.** The smallest equilibrated singular value falls as about N^-4.8
+  (a factor 27.6 from N = 16 to 32), and equals the record's solver's to two or three digits at every N. A node on the
+  horizon with exact rows changes nothing in it.
+- **xi does not fall geometrically.** It is lower than the record's at N = 16 and 20, then holds at 5e-5 to 7e-5 from
+  N = 20 to 32. The continued value grows from N = 20 on.
+- **What does hold:** C_tt stays at 1e-11 or below. The tt equation's horizon limit is satisfied without being imposed,
+  so the horizon's regularity as derived is consistent with the solution.
+
+*[Item 410, beside the text: this criterion too was the board's own -- convergence of the method -- and not derived from
+what O1b and O1c need.]*
+
+**Where the near-null pair lives** (computed, `horizon_fw.py --modes`, from the saved solutions).
+- **The right vector (which fields):** F, spread over the interior (0.34 to 0.38 of the weight) and along the axis (0.13
+  to 0.17), with S and B beside it. Its largest single nodes are near the horizon on the axis, none above 0.07.
+- **The left vector (which rows nearly depend):** the T and S rows in the cell next to the corner (s, x) = (1, 1), at
+  the last s-node before the far end (s = 0.9904, 0.9938, 0.9957, 0.9969 at N = 16 to 28). These are the brane's K_tt
+  and K_thth and the interior tt and thth equations at the neighbouring x-node. The weights are 0.34, 0.25, 0.16 and
+  0.14 at every N. The second pair's left vector sits there too, on the A and S rows.
+- **Those four rows alone are not degenerate.** Their smallest singular value, rows scaled, is 0.19 at every N, in
+  both solvers. So the dependence is global: the discrete system as a whole leaves one combination of the corner's rows
+  almost unreachable, and the F direction is its partner.
+
+So item 406's corner is implicated after all. Its text is corrected beside it. What the corner needs is not yet known.
+
+**Not yet known, and the hinge (405-3).** What accuracy O1b and O1c require of the interior. Their requirements
+(INTERIOR-REQUIRED (a)-(c)) are yes or no: a forward clock with its rate bounded below, no inner horizon, curvature
+finite to 273's region. A computed answer settles each when its error lies inside that property's margin. The 1e-4
+of item 392 was the board's own number and was never derived. Whether xi near 5e-5 is too much depends on margins not
+yet measured.
+
+## Item 405-3: the criterion derived from what O1b and O1c need (2026-10-14; read from the saved steps, no run)
+
+M, 405: "The criterion - for the math/cypher". M, 410, on the board's "phi <= 1e-4" of item 392: "this is the failure
+point, and it is yours". Instrument: `criterion_large.py` (selftest K1-K4, mutants 3/3); table `CRITERION-405.tsv`.
+
+**What O1b and O1c ask is yes or no** (INTERIOR-REQUIRED (a)-(c)). Within the record's ansatz each requirement is the
+sign of one quantity (deduced). The record computes in Euclidean signature, g_tautau = s T / Dl^2, so inside the
+horizon (s < 0) the Lorentzian g_tt = -s T / Dl^2.
+- **(a) A forward clock:** s's gradient is timelike exactly when N^2 = -g_ss + g_sx^2 / g_xx > 0. Along any traveller
+  its rate is then at least 1/N.
+- **(b) No inner horizon:** within the ansatz an inner horizon is where the static Killing field turns null again,
+  g_tt = 0. So g_tt > 0, with S > 0 and B > 0.
+- **(c) Curvature finite to 273's region:** owed (below).
+
+**The criterion, with no number chosen.** A cell is one requirement at one node of one slice. It is violated if its
+quantity is <= 0, undecided if the quantity's measured error is at least its size, and decided otherwise. The criterion
+is E = 0, E counting violated and undecided cells. No factor multiplies the error, and no threshold is set: each
+requirement's own size is its margin. The error is measured as the disagreement between the two independent meshes
+that both reached the half's end (the fourth attempt, item 397, and the fifth, item 401), at the fifth's nodes and at
+common s.
+
+**On the first half, s = -0.503 to -2.006** (computed, nine slices, 96 nodes, four requirements):
+- **E = 0 over 3,456 cells.** No requirement is violated anywhere, and every cell is decided.
+- **The margins against their errors.** N^2's smallest value falls from 6.8e-3 to 7.5e-5 as the lapse falls toward the
+  chart's end; the meshes agree on it to 1.1e-4 of its own size at worst (at the joining x = 0.125, s = -1.9). g_tt
+  stays at 0.016 to 0.025 on the axis, agreed to 9e-6 of itself; S and B stay above 2.0 and 0.84, agreed to 7e-6.
+- **The clock's rate**, at least 1/N, is at least 2.3 everywhere on the half, and grows inward.
+
+**So against what O1b and O1c need, the fifth attempt's first half meets (a) and (b) with every cell decided.** The
+smallest decision margin is about 9,000 times its measured error. The half "failed" only the board's own 1e-4.
+
+**Owed, named and not passed:**
+- **The shared start.** Both meshes begin from the same static solution, whose fields differ between resolutions by up
+  to 9e-3 (F near the axis at the horizon) and 2e-3 (S, B). Their difference cannot see an error they share. Unamplified,
+  1e-2 would sit inside these margins about a hundred times over (estimate). Whether the march amplifies it is not yet
+  measured; one half run from another resolution's static start would measure it.
+  *[Measured at item 411, below: with the start's error counted, E = 0 still; it grows at most 2.2-fold over the half.]*
+- **The departure from Einstein's law (xi)**, common to both meshes for the same reason.
+- **(c) curvature:** every computed step is finite by construction; the growth per halving, against 273's region, is
+  still to be measured (the record's `gen_kretsch_fw.py`).
+- **The remaining halves**: about 45 to 273's region (item 392). The criterion is per half: E = 0 at each.
+
+## Item 411: the shared start measured (2026-10-14) -- E = 0 with it counted
+
+M, 411: "Approved". **Question:** does the shared start's error stay inside the margins after the march?
+**Criterion:** E = 0 with that error counted. **Time:** 20-30 minutes, no data download. The lead-in (B7's damped
+Nx = 28 run, s = -0.002 to -0.503) and the fifth attempt's half (dsem5, n = 10), both unchanged, were run from the
+record's static solution at N = 28 in place of N = 24. They ran in a separate directory, so the record's pickles were
+not touched. Outputs: `zeno_trusted_28_from28.pkl`, `zeno_half_dsem5_10_from28.pkl`; table `CRITERION-411.tsv`
+(`criterion_large.py --start`, selftest K5). The pickles are generated and, like the record's own, not committed (this
+directory's `.gitignore`); `criterion_large.py --make-start DIR` regenerates the N = 28 static solution, the lead-in and
+the half exactly as run here.
+
+**The run** (computed): the lead-in reached s = -0.503 (status 0, 625 steps, 299 s), and the half reached its end
+(status 0, 313 steps, 568 s). At s = -0.503 the two starts differ by up to 3.5e-3 in F and 2.6e-3 in S and B (on the
+axis), and 3e-4 in T and A. On the margin quantities that is at most 1.2e-3 of their own size.
+
+| requirement | the start's error / its own size, s = -0.6 | at s = -2.0 | the meshes' | total, worst |
+|---|---|---|---|---|
+| N^2 > 0 | 4.9e-4 | 1.1e-3 | <= 1.1e-4 | 1.1e-3 |
+| g_tt > 0 | 1.3e-3 | 1.6e-3 | <= 9e-6 | 1.6e-3 |
+| S > 0 | 3.6e-4 | 3.6e-4 | <= 6e-6 | 4.1e-4 |
+| B > 0 | 4.8e-4 | 6.1e-4 | <= 7e-6 | 6.1e-4 |
+
+**Verdict: PASS.** E = 0 over all 3,456 cells with the start's error counted: no requirement is violated and every
+cell is decided. The smallest margin (g_tt, on the axis) is about 600 times its total error. The start's error
+outweighs the meshes' everywhere. Over the half it grows at most 2.2-fold (N^2, whose own size falls 90-fold over the
+half), 1.2-fold for g_tt and 1.3-fold for B, while S's stays near 4e-4.
+
+**Beside the text** (computed: the halves' own logs; deduced: the reading): from the N = 24 start the half ended at
+phi = 2.21e-4, failing the withdrawn mark of item 392; from the N = 28 start it ended at 6.9e-5, passing it. The mark's
+verdict moved with the static start's resolution: it measured the start, not the passage.
+
+**Not yet known:** whether the start's per-half growth settles. If N^2's 2.2 repeated at every half, its margin would be
+used up after about eight halves (estimate). The second half would measure it. Still owed: the departure from
+Einstein's law, (c)'s curvature per halving, and the remaining halves.
+
+## Item 412: where error enters, and the cypher over the cells (2026-10-14)
+
+M, 412: "where does error enter my theorem? I have demanded no coefficients to minimize error, so we can identify error
+and eliminate it. There should be no error." And: "Have the cypher run over it".
+
+**Where error enters** (deduced, from the record). Not in the passage. The README's own route is settled exactly, with
+no computation (INTERIOR-REQUIRED item 9): flat inside its shell, finite affine length to 273's region, independent of
+the 5D interior. Error enters only where the board checks the surrounding 5D interior, the manifold around that route
+(O1b, O1c's (a)-(c)), by computing it in place of proving it. A computation holds finitely many numbers, so it carries:
+1. **representation** -- the exact solution drawn through finitely many points (N = 24 or 28 per direction). "The
+   start's error" of item 411 is this one: the N = 24 and N = 28 drawings of one static hole differ by up to 3e-3;
+2. **stepping** -- the march's finite steps, at a tolerance of 1e-8;
+3. **arithmetic** -- sixteen digits, 1e-16;
+4. **coefficients** -- these change the equations themselves, and M's 405 removes them. **The march used in items
+   393-411 still carries them**: constraint damping kappa = 4 and its tilt 0.5, the jump damping 0.5, the joining's
+   penalty 1/(2H), and the brane's c^2/h_N (item 405's table). Each vanishes on an exact solution, but each is a
+   coefficient M has ruled out, and the coefficient-free scheme (405-2) is not built. Those runs are evidence; they do
+   not yet meet M's rule.
+
+Removing coefficients makes the equations exact; it cannot make a finite drawing exact. Errors 1-3 shrink with effort
+and never reach zero by computing. **They are eliminated only by not resting the yes or no on a computation:** a proof
+of (a)-(c) for the large hole's interior, from Einstein's law in the bulk and the plane at sigma > 0 (the route
+INTERIOR-REQUIRED put first, never attempted after item 392); or a computer-assisted proof, in which every number
+carries a guaranteed enclosure and a theorem turns E = 0 into a proof.
+
+**The cypher over the cells** (`cypher_criterion.py`, selftest K1-K4, mutants 2/2; `CYPHER-412.json`). Three indexes
+were run through `tools/cypher.py`, every roster (1173, 20.2, 33.1), with analysis given the board's declared witness.
+Logic's binary (`b6p_scale.determined`, by path) was asked beside it which coordinates fix the verdict (computed):
+- **INSIDE**, item 411's 3,456 cells (slice, node, requirement, verdict; the error is the meshes' plus the starts'):
+  every speaking language of every roster has **E = 0**, and they agree. The verdict adds nothing: it is one value,
+  decided, fixed by nothing. This index is the full box with one verdict, so every language must admit exactly it:
+  E = 0 is how "every cell decided" reads in the cypher, not evidence beyond the count.
+- **OUTSIDE**, the control: the static solution outside the horizon (s = 0.1, 0.25, 0.5, 0.75; error N = 24 against 28),
+  judged by the same requirements. It flips: (a) N^2 > 0 and (b) g_tt > 0 are violated at every cell, as they must be
+  where s is spacelike and the static direction timelike, while S and B are decided. The verdict is fixed by the
+  requirement. E = 0 in every speaking language.
+- **BOTH**, the two with region as a coordinate (52 cells, node dropped): **E > 0 and the languages disagree** (order
+  and algebra 26; geometry, information and statistics 8, the number of violated cells). The verdict is fixed by region
+  and requirement together. Each region alone is a closed index and the two joined are not: the cypher sees two laws,
+  split at the horizon (deduced). With the node kept the regions' different grids (96 against 24 nodes) add an artifact
+  E; it was measured and is not reported as a finding.
+Silent and not-run as the instrument reports them: documentary silent; 20.2's arithmetic, calculus, logic and
+constraint-language NOT-RUN (no ruled operator).
+
+## Item 422: off the chain's path (2026-10-14)
+
+M seated H-CORE-DELIVERS at 422: the large hole's deepest stretch delivers every part of the README to 273's bounce.
+With 418-420's proof along the README's parts (`lemmas/INTERIOR-PROOF.md`), O1b and O1c at the large end no longer
+need this computation. The runs, the criterion (405-3, 411) and the cypher (412) stand as the record of what was
+measured; 405-1 and 405-2 (the coefficient-free scheme) are not pursued. Nothing above is withdrawn.

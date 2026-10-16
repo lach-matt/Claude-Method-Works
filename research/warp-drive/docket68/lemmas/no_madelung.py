@@ -63,6 +63,11 @@ Z = 57-70 or 89-103 would have other ground states at position 2, and so a mass 
 the theory's m is given, not built from composition, and does not carry that.  The ell-orderings test of
 tools/orderideal.py (a RECONSTRUCTED convention) gives 2 of 120 on the 118 cells; register 66 states no such count
 (register 68's 120 counts down-sets of the column poset).
+[Item 425, beside the text: on 2026-10-14 this branch took main's R3 class CINF repair (the author's approval,
+entry 1793, W-190, BUILD91 and BUILD181): the live paper's c -> infinity clause was rewritten, and its eleven-element
+sentence is no longer there.  The checks that quote the pre-repair paper now read it from the superseded compendia
+bundle, BUILD180, kept beside the live one, and a check asks that the live paper and BUILD181 carry the repair and
+BUILD91 seat entry 1793.  Nothing computed here moves.]
 Imports LW1-ground.py, tools/orderideal.py, tools/cypher.py and index_audit.py by path; reads the paper, the main bundle
 and the rulings file (read-only).  Stdlib.  python3 no_madelung.py [--selftest | --mutants]
 """
@@ -77,6 +82,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(HERE))))
 PAPER = os.path.join(ROOT, "method", "members", "THE-LOWDIN-SOLUTION-2.md")
 MAIN = os.path.join(ROOT, "method", "The_Method_1_6_BUILD90_main_and_register.md")
+# [item 425] the pre-repair paper is quoted from the superseded compendia bundle; the repair from the live store
+SUPERSEDED = os.path.join(ROOT, "method", "The_Method_1_6_BUILD180_compendia_papers_audits.md")
+LIVE_COMP = os.path.join(ROOT, "method", "The_Method_1_6_BUILD181_compendia_papers_audits.md")
+LIVE_MAIN = os.path.join(ROOT, "method", "The_Method_1_6_BUILD91_main_and_register.md")
+REPAIRED = "The second boundary statement is the deeper one, and it is corrected here"
 MUT = {}
 L = "spdfg"
 M219 = ("Let's consider position 2 universe where the madelung exceptions didn't exist. That is the principle difference "
@@ -84,8 +94,9 @@ M219 = ("Let's consider position 2 universe where the madelung exceptions didn't
         "very helpful here")
 PAPER_Q = ["except at exactly three elements, La (Z=57), Ac (Z=89), and Th (Z=90)",
            "the d-block anomalies are total-energy rearrangements *within* an already-opened block",
-           "They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf.",
            "cfg(Z)     := cfg(Z−1) + one electron in entrant(Z)"]
+# [item 425] quoted from BUILD180, the superseded compendia bundle
+PAPER_PRE = ["They disagree at eleven elements: Mn, Zn, Ag, Cd, Nd, Pm, Sm, Lu, Hg, Lr, and Rf."]
 REG_Q = ["180 VOID · 240 REACTIVE · 92 RESERVED · 118 OCCUPIED", "Kendall τ = 0.992; the 28 inversions",
          "19 SATURATED, 6 EMPTY, NONE PARTIAL", "DOWNWARD CLOSED WITHOUT EXCEPTION",
          "DIFFERS FROM MADELUNG AT TWO OF NINETEEN"]
@@ -253,7 +264,10 @@ def checks(d):
     main = open(MAIN, encoding="utf-8").read()
     add("N0 M's 219 verbatim in the rulings file; the paper's three exceptions, its d-block reading, its c -> infinity "
         "list and its chain step verbatim; registers 11, 49, 66, 67, 1307 verbatim; 108/108 electron counts (1306)",
-        M219 in rulings and all(q in paper for q in PAPER_Q) and all(q in main for q in REG_Q) and d["counts"] == 108)
+        M219 in rulings and all(q in paper for q in PAPER_Q) and all(q in main for q in REG_Q) and d["counts"] == 108
+        and all(q in open(SUPERSEDED, encoding="utf-8").read() for q in PAPER_PRE)              # [item 425]
+        and REPAIRED in paper and REPAIRED in open(LIVE_COMP, encoding="utf-8").read()
+        and "\n### 1793" in open(LIVE_MAIN, encoding="utf-8").read())
     add("N1 three readings: 20 configuration exceptions; first openings differ from Madelung at 2 of 19 (La 5d, Ac 6d: "
         "register 1307); the differentiating electron at exactly La, Ac, Th (M's paper's three); primary rule unbroken",
         len(d["config_exc"]) == 20 and len(d["openings"]) == 19 and len(d["open_diff"]) == 4

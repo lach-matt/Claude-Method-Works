@@ -1,0 +1,558 @@
+{
+ "INSIDE": {
+  "index": "INSIDE",
+  "coords": [
+   "slice",
+   "node",
+   "requirement",
+   "verdict"
+  ],
+  "cells": 3456,
+  "rosters": {
+   "1173": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "algebra",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "analysis",
+      "state": "SPEAKS",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "information",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "statistics",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "documentary",
+      "state": "SILENT",
+      "admitted": null,
+      "E": null
+     }
+    ],
+    "agree": true,
+    "all_E_zero": true,
+    "degenerate": false,
+    "bearing": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ]
+   },
+   "20.2": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "arithmetic",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "calculus",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "logic",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "constraint-language",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     }
+    ],
+    "agree": true,
+    "all_E_zero": true,
+    "degenerate": false,
+    "bearing": [
+     "geometry",
+     "order"
+    ]
+   },
+   "33.1": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "analysis",
+      "state": "SPEAKS",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "algebra",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "information",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     },
+     {
+      "language": "statistics",
+      "state": "SPEAKS",
+      "admitted": 3456,
+      "E": 0
+     }
+    ],
+    "agree": true,
+    "all_E_zero": true,
+    "degenerate": false,
+    "bearing": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ]
+   }
+  },
+  "adds_nothing": [
+   "verdict"
+  ],
+  "keys": [],
+  "verdict_counts": {
+   "violated": 0,
+   "undecided": 0,
+   "decided": 3456
+  },
+  "fixed_by": {
+   "nothing": true,
+   "requirement": true,
+   "slice+requirement": true,
+   "slice+node+requirement": true
+  }
+ },
+ "OUTSIDE": {
+  "index": "OUTSIDE",
+  "coords": [
+   "slice",
+   "node",
+   "requirement",
+   "verdict"
+  ],
+  "cells": 384,
+  "rosters": {
+   "1173": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "algebra",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "analysis",
+      "state": "SPEAKS",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "information",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "statistics",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "documentary",
+      "state": "SILENT",
+      "admitted": null,
+      "E": null
+     }
+    ],
+    "agree": true,
+    "all_E_zero": true,
+    "degenerate": false,
+    "bearing": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ]
+   },
+   "20.2": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "arithmetic",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "calculus",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "logic",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "constraint-language",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     }
+    ],
+    "agree": true,
+    "all_E_zero": true,
+    "degenerate": false,
+    "bearing": [
+     "geometry",
+     "order"
+    ]
+   },
+   "33.1": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "analysis",
+      "state": "SPEAKS",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "algebra",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "information",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     },
+     {
+      "language": "statistics",
+      "state": "SPEAKS",
+      "admitted": 384,
+      "E": 0
+     }
+    ],
+    "agree": true,
+    "all_E_zero": true,
+    "degenerate": false,
+    "bearing": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ]
+   }
+  },
+  "adds_nothing": [
+   "verdict"
+  ],
+  "keys": [],
+  "verdict_counts": {
+   "violated": 192,
+   "undecided": 0,
+   "decided": 192
+  },
+  "fixed_by": {
+   "nothing": false,
+   "requirement": true,
+   "slice+requirement": true,
+   "slice+node+requirement": true
+  },
+  "by_requirement": {
+   "N2": [
+    "violated"
+   ],
+   "gtt": [
+    "violated"
+   ],
+   "S": [
+    "decided"
+   ],
+   "B": [
+    "decided"
+   ]
+  }
+ },
+ "BOTH": {
+  "index": "BOTH",
+  "coords": [
+   "region",
+   "slice",
+   "requirement",
+   "verdict"
+  ],
+  "cells": 52,
+  "rosters": {
+   "1173": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 78,
+      "E": 26
+     },
+     {
+      "language": "algebra",
+      "state": "SPEAKS",
+      "admitted": 78,
+      "E": 26
+     },
+     {
+      "language": "analysis",
+      "state": "SPEAKS",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     },
+     {
+      "language": "information",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     },
+     {
+      "language": "statistics",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     },
+     {
+      "language": "documentary",
+      "state": "SILENT",
+      "admitted": null,
+      "E": null
+     }
+    ],
+    "agree": false,
+    "all_E_zero": false,
+    "degenerate": false,
+    "bearing": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ]
+   },
+   "20.2": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 78,
+      "E": 26
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     },
+     {
+      "language": "arithmetic",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "calculus",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "logic",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "constraint-language",
+      "state": "NOT-RUN",
+      "admitted": null,
+      "E": null
+     }
+    ],
+    "agree": false,
+    "all_E_zero": false,
+    "degenerate": false,
+    "bearing": [
+     "geometry",
+     "order"
+    ]
+   },
+   "33.1": {
+    "verdicts": [
+     {
+      "language": "order",
+      "state": "SPEAKS",
+      "admitted": 78,
+      "E": 26
+     },
+     {
+      "language": "analysis",
+      "state": "SPEAKS",
+      "admitted": null,
+      "E": null
+     },
+     {
+      "language": "algebra",
+      "state": "SPEAKS",
+      "admitted": 78,
+      "E": 26
+     },
+     {
+      "language": "geometry",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     },
+     {
+      "language": "information",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     },
+     {
+      "language": "statistics",
+      "state": "SPEAKS",
+      "admitted": 60,
+      "E": 8
+     }
+    ],
+    "agree": false,
+    "all_E_zero": false,
+    "degenerate": false,
+    "bearing": [
+     "algebra",
+     "geometry",
+     "information",
+     "order",
+     "statistics"
+    ]
+   }
+  },
+  "adds_nothing": [
+   "region",
+   "verdict"
+  ],
+  "keys": [],
+  "verdict_counts": {
+   "violated": 8,
+   "undecided": 0,
+   "decided": 44
+  },
+  "fixed_by": {
+   "nothing": false,
+   "requirement": false,
+   "region": false,
+   "region+requirement": true,
+   "slice+requirement": true
+  }
+ }
+}
