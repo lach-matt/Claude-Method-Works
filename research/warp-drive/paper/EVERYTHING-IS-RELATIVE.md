@@ -366,8 +366,8 @@ the field equation is caught (mutant).
 Way (arXiv:1406.3379, §1, p. 2, READ): "For the Einstein equation, a hypersurface is characteristic if, and only if,
 it is null: "gravity travels at the speed of light"."
 
-**(b) Any static, spherical or planar background.** Let the pair curvatures be K₁ = R^{tr}_{tr},
-K₂ = R^{ti}_{ti} = R^{ri}_{ri} and K₃ = R^{ij}_{ij}. A front moving along the sphere is characteristic at
+**(b) Any static, spherical or planar background.** Let the pair curvatures be K₁ = R^{tr}\_{tr},
+K₂ = R^{ti}\_{ti} = R^{ri}\_{ri} and K₃ = R^{ij}\_{ij}. A front moving along the sphere is characteristic at
 ξ₀² = c|ξ|². The graviton's five polarisations fall on three cones:
 
 - c₁ = (1 + 4αK₁)/(1 + 4αK₂), twice;
@@ -460,7 +460,7 @@ Here f is any function: exponential for the dilaton, linear for the shift-symmet
 the theory's distinct content needs f′ ≠ 0.
 
 **Field equations (computed, exact).** Varying the action gives the metric equation
-G^a_b + 2 δ^{acde}_{bghk} (∇_c ∇^g f) R_de^{hk} = T^a_b, and the scalar equation □φ − V′ + f′ L_GB = 0. They were
+G^a\_b + 2 δ^{acde}\_{bghk} (∇\_c ∇^g f) R\_{de}^{hk} = T^a\_b, and the scalar equation □φ − V′ + f′ L_GB = 0. They were
 checked against a cosmology's reduced action: the Euler–Lagrange equations in N, a and φ are −a³, −3a² and a³ times the
 covariant ones, for every f. Reading the Gauss–Bonnet term's factor 2 as 1 is caught (mutant).
 
@@ -485,7 +485,7 @@ so one lies outside the light cone for either sign of f′ (computed). The symme
 of ω, equivalently of 1/ξ₀², not of ξ₀² (qualification Q9).
 
 **(b) In a weakly coupled cosmology.** The tensor fronts run at c_T² = (1 + 8f̈)/(1 + 8Hḟ), twice (computed). This is
-the null cone of Reall's effective metric C^{ab} = g^{ab} − β′∇^a∇^bΦ − β″∇^aΦ∇^bΦ (arXiv:2101.11623, eq. (91), p. 18,
+the null cone of Reall's effective metric Cᵃᵇ = gᵃᵇ − β′ ∇ᵃ∇ᵇΦ − β″ ∇ᵃΦ ∇ᵇΦ (arXiv:2101.11623, eq. (91), p. 18,
 READ), here with β = 8f. Two routes give one answer.
 
 At exact solution points (V = 0, linear f, H = 1, φ̇ = ±12/5, f′ = ∓1/480, with the Friedmann equation holding exactly
