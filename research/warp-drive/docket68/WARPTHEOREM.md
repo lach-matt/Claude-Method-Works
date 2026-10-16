@@ -1103,6 +1103,17 @@ state was rebuilt first.
   refound's table recorded: ARRIVAL's and ENCODE's 437 is item 437's (1), (3), (4), not RECON's. The board's
   proposal to record O1a, O1b and O1c as not provable is declined (M-BOUNCE-PROVABLE): the passage through the
   core is researched further, in the literature first, then by computation discussed before it runs.
+  **The deeper research, first pass** (`lemmas/BOUNCE-RESEARCH.md`; `lemmas/bounce_scope.py`, 5/5, mutants 2/2).
+  Any bounce needs negative null energy (Penrose in every dimension; the plane keeps the condition); established
+  physics supplies it through quantum fields. The literature now carries a semiclassical black-to-white transition
+  (Barcelo, Boyanov, Carballo-Rubio, Garay 2011.07331; Boyanov, Hilditch, Semiao 2506.04845, READ) wherever the inner
+  trapping horizon lingers. On the plane the effect is multiplied by the dual theory's central charge, 2.93e59
+  (Emparan-Fabbri-Kaloper, Tanaka; a conjecture with evidence): 7.8-20.2 e-folds needed across the large end, not
+  145-157. Our step's inner boundary moves at light speed, but the README's quanta are 56.96 r0 (4D) and 37.97 r_h
+  (5D) long, so the delivery spreads over tens of face clocks and the inner horizon lingers (~57 e-folds, an
+  estimate). A finding for 162: its 'at once' holds coarse-grained over the quanta's wavelength. Proposed, to
+  discuss before it runs (414): C1 the inner horizon of the spread delivery, exact; C2 Barcelo et al.'s eqs.
+  (64), (68) on it with the plane's multiplicity; C3, if C2 bounces, a self-consistent evolution to the white hole.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
