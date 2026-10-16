@@ -46,7 +46,7 @@ def run(name):
         if key[1]:
             mod.MUT["gb_double"] = True
         if name == "quantum_onset":
-            out, ok = None, mod.selftest(quiet=True)
+            out, ok = None, buckingham_5d(mod)
         else:
             out = mod.compute()
             ok = all(v for _, v in mod.checks(out))
@@ -63,6 +63,17 @@ def paper_text():
 
 
 # ---------------------------------------------------------------- computations of this paper's own
+
+def buckingham_5d(mod):
+    """M4's S1-S2 asserted directly (its S5 pins a superseded value and is not used): rank 3, two groups
+    spanned by l5^2 R and ell^2 R; l5^2 R carries hbar^(2/3), ell^2 R none"""
+    names, A, ns = mod.buckingham()
+    x2, y2 = mod.groups()
+    span = sp.Matrix.hstack(*ns)
+    inspan = lambda v: sp.Matrix.hstack(span, v).rank() == span.rank()
+    return (A.rank() == 3 and len(ns) == 2 and inspan(x2) and inspan(y2) and sp.Matrix.hstack(x2, y2).rank() == 2
+            and x2[1] == sp.Rational(2, 3) and y2[1] == 0 and (A * x2).is_zero_matrix and (A * y2).is_zero_matrix)
+
 
 def no_signalling():
     """Lemma 5 (this paper): no local operation of Alice changes Bob's reduced state, for any two-qubit pure state"""
@@ -165,9 +176,9 @@ def claims():
     add("I1 instrument relativity.py: its own checks pass", "M1 (special and general relativity)", lambda: rel()[1])
     add("I2 instrument gb_cone.py: its own checks pass", "M2 (the Gauss–Bonnet cones)", lambda: gbc()[1])
     add("I3 instrument sgb_cone.py: its own checks pass", "M3 (scalar–Gauss–Bonnet)", lambda: sgb()[1])
-    add("I4 instrument quantum_onset.py: its own selftest passes", "M4 (the quantum onset)", lambda: qo()[1])
+    add("I4 instrument quantum_onset.py: S1-S2 (Buckingham) hold", "M4 (the quantum onset)", lambda: qo()[1])
     add("L1 E = pc at m = 0", "E^2 = p^2 c^2 + m^2 c^4", dispersion)
-    add("L2 boost invariants for every kind", "Λ^T η Λ = η",
+    add("L2 boost invariants for every kind", "Lᵀ η L = η",
         lambda: all(rel()[0]["sr"][k] for k in ("keeps", "null_kept", "future", "mass_kept", "below_c", "scalar",
                                                   "gauge", "gauge_dual", "vacuum", "sheet")))
     add("L3 geodesics carry no mass", "independent of m", lambda: rel()[0]["gr"]["mass_free"])
@@ -195,10 +206,10 @@ def claims():
     add("L7 8 f.. = 1363/11525, c_T^2 - 1 = 76/461", "1363/11525", sgb_numbers)
     add("L7 sGB wave: mixed fronts |xi|^2/(1 -+ 8 sqrt2 f' eps)", "|ξ|²/(1 ∓ 8√2 f′ε)",
         lambda: all(d["ok"] for d in sgb()[0]["wave"]["dirs"].values()) and sgb()[0]["wave"]["solves"])
-    add("Q1 Buckingham in 5D: rank 3, two groups", "rank 3", lambda: qo()[1])
-    add("Q1 Buckingham in 4D (this paper): one group l_P^2 R", "l_P² R", buckingham_4d)
-    add("Q6 corrected: x = l5/ell at the counterfactual onset", "x = l₅/ℓ", onset_corrected)
-    add("HR q = l_P R tau at tau = R^-1/2 is (l_P^2 R)^1/2 (this paper)", "(l_P² R)^{1/2}", hr_relation)
+    add("B1 Buckingham in 5D: rank 3, two groups", "rank 3", lambda: qo()[1])
+    add("B1 Buckingham in 4D (this paper): one group l_P^2 R", "l_P² R", buckingham_4d)
+    add("B2 corrected: x = l5/ell at the counterfactual onset", "x = l₅/ℓ", onset_corrected)
+    add("B3 q = l_P R tau at tau = R^-1/2 is (l_P^2 R)^1/2 (this paper)", "(l_P² R)^{1/2}", hr_relation)
     return C
 
 
@@ -232,7 +243,7 @@ def selftest():
 
 MUTANTS = {"paper_drift": ("the paper's 537/461 altered to 537/460", "L7 sGB exact points"),
            "signal": ("a non-local gate passed off as Alice's local operation", "L5 no signalling"),
-           "onset_sqrt": ("the refuted (l5/ell)^(1/2) used for x", "Q6 corrected"),
+           "onset_sqrt": ("the refuted (l5/ell)^(1/2) used for x", "B2 corrected"),
            "sum_weights": ("the cone sum rule with weights 1, 1, 1", "L6 sum rule"),
            "inst_gb_double": ("gb_cone.py run with its own gb_double mutant", "I2 instrument gb_cone.py")}
 
