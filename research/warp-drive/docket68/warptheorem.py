@@ -970,7 +970,9 @@ def lemma_selftests():
               # item 443 (3), approved: the instruments of 441-442
               "b6p_prove.py", "b7_geometry.py", "room_work.py", "prior_art.py", "phase2.py", "refound.py",
               # item 446 (5), approved: the deeper research of 443-445
-              "bounce_scope.py", "c1_inner.py", "c2_quantum.py", "mmp_corridor.py"):
+              "bounce_scope.py", "c1_inner.py", "c2_quantum.py", "mmp_corridor.py",
+              # item 447 (3), approved: the bulk U(1) of 446 (1)
+              "u1_bulk.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
