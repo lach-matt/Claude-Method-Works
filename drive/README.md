@@ -4,11 +4,15 @@ Byte-exact copies of the Google Drive folders **The Method Materials** (with its
 LOWDIN-DELIVERY-1, THREEBODY-DELIVERY-1, CORPUS, BUILD175-PARTS, Claude Memories, Claude Metadata,
 Claude Projects and Claude Chats) and **The Method Prints & Proofs**.
 
-**820 of the 824 Drive files in scope are mirrored here.** 819 were verified by md5 against the copy
-Drive served; one, `The Method Materials/warp drive theory.pdf`, was seated by `drive_sync.py
---adopt` and carries status `ok-adopted` because the route that fetched it returned no Drive md5 to
-compare — its byte count was checked and nothing more. The four still outstanding are listed in
-`PENDING.tsv` with the reason for each.
+**833 Drive files are mirrored here: 819 verified by md5 against the copy Drive served, 14 adopted
+by another route (`ok-adopted`).** An adopted file was seated by `drive_sync.py --adopt` because the
+route that fetched it returned no Drive md5 to compare, so its byte count was checked and nothing
+more. The fourteen are `The Method Materials/warp drive theory.pdf`, two members of
+`LOWDIN-DELIVERY-1/` (the addendum reply and the reissued manifest), and the eleven PDFs the author
+released to `The Method Prints & Proofs/`. Each was fetched by id through the Drive connector rather
+than found by walking the folders, so these figures count what `MANIFEST.tsv` and `PENDING.tsv`
+hold: a file added to Drive and never fetched is in neither. The four still outstanding are listed
+in `PENDING.tsv` with the reason for each.
 
 * `MANIFEST.tsv` inventories every mirrored file: repo path, Drive file id, title, mime type, size,
   modified time, md5, and status. One row per Drive file, no two rows sharing a path. The
