@@ -525,8 +525,11 @@ LEMMAS_NOW = [
      "lemmas/theorem_p2.py TC (229); pointwise.py P6 (any of position 2's laws, 202, 284 (1))"),
     ('B', "B5b a smooth wall carrying matter keeps null energy at every point (B5'b)", 'DERIVED',
      ('lemmas/pointwise.py P1-P6 (320): every kind of matter the record holds -- particles, scalar and gauge fields '
-      "-- keeps the null condition at every point, under any of position 2's values; a positive tension adds a "
-      'non-negative crossing share (TS) -- deduced; no wall profile is computed')),
+      "-- keeps the null condition at every point, under any of position 2's values; lemmas/b5b_wall.py W0-W7 "
+      "(441, 442 (4)): an exact smooth wall of a positive-sign field, its null energy (k^y phi')^2 at every point, "
+      "the matter it carries in D = 5, its tension the integral of phi'^2, the crossing share computed to TS's "
+      "thin limit [before 442 the field ended: 'a positive tension adds a non-negative crossing share (TS) -- "
+      "deduced; no wall profile is computed']")),
     ('B', "B6 k's ratio fixed by the work, k_R = k_L/2 (200 (1))", 'PROVED',
      "lemmas/b6_once.py, b6_k.py; exact as a curvature ratio in Einstein's law, the bulk's law exactly (C9)"),
     ('B',
@@ -952,7 +955,9 @@ def lemma_selftests():
               # item 441 (approved): the owners seated since item 362, which rows cite (pass_audit P1)
               "arrival_large.py", "quantum_onset.py", "focusing_parts.py", "core_face.py", "z3b_large.py",
               "junction_own.py", "bearing26.py", "encode_read.py", "b4d_large.py", "settle_arrival.py",
-              "encode_labels.py"):
+              "encode_labels.py",
+              # item 442 (4), approved: B5b's wall
+              "b5b_wall.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
