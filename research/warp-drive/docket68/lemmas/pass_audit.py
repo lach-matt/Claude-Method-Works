@@ -21,6 +21,7 @@ Labels: computed, deduced, M's.  Worked in the conversation; not verified; not s
   P3 (deduced) The rows that do not pass now: D -- B7 (the formation's chain of rulings and one READ source) and B5b (the
      wall's tension share TS, deduced, no wall profile computed); A -- O1b and O1c; X -- R0, R1, R2, R6, RECON, B6'
      (put to M: are M's definitions first principles?); and SOURCEs and SOURCE, deferred.  Every other row is C.
+     [Item 441: B5b's wall computed (b5b_wall.py W0-W7, approach approved at 441); B5b is C since.]
   P4 (deduced) Which stations the failing rows sit in, end by end, read from the map's own station lists; a station
      passes at an end only when every row it lists there is PROVED or C.
   P5 (deduced; item 441) M: "1 - no" (M's rulings are not first principles) and "2 - no. Each definition must be
@@ -74,8 +75,9 @@ CLASS = {
     "B5a": ("C", "b5a_oneway, b5a_residue computed, verified 339"),
     "B5cs": ("C", "e_positive E7 computed"), "B5c": ("C", "m1_large M8, tau_share T4 computed"),
     "B5pu": ("C", "b5p_cypher, pointwise P5 computed"), "B5px": ("C", "theorem_p2 TC, pointwise P6 computed"),
-    "B5b": ("D", "pointwise P1-P6 computed for every kind of matter; the wall's tension share TS deduced, no wall "
-                 "profile computed"),
+    "B5b": ("C", "b5b_wall W0-W7 computed (441): an exact smooth wall, its null energy a square at every point, the "
+                 "matter it carries in D = 5, the crossing share to the thin limit; pointwise P1-P6 computed"),
+    # [item 441: B5b was D -- "the wall's tension share TS deduced, no wall profile computed" -- until b5b_wall]
     "B7": ("D", "b7_formation: a chain of M's rulings (100, 140, 122 (4), 101 (1), 86 (3)) and one READ source, argued "
                 "in prose, not machine-checked"),
     "I1": ("C", "i2_capacity I2a: the throat's area entropy N bits computed; 137 (1) M's"),
@@ -296,8 +298,8 @@ def selftest(quiet=False):
     cls = classify(rows)
     unclassed = [k for k, v in cls.items() if v[0] == "?"]
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
-    p2 = not unclassed and fail == sorted(["B5b", "B7", "O1b", "O1c", "R0", "R1", "R2", "R6", "RECON", "B6'",
-                                           "SOURCEs", "SOURCE"])
+    p2 = not unclassed and fail == sorted(["B7", "O1b", "O1c", "R0", "R1", "R2", "R6", "RECON", "B6'",
+                                           "SOURCEs", "SOURCE"])         # [B5b passed out at 441: b5b_wall]
     ok.append(p2); say("P2-P3 every row classed; not passing: %s: %s" % (", ".join(fail), p2))
     v = station_verdicts(cls)
     p4 = any(bad for ends in v.values() for bad in ends.values()) and all(

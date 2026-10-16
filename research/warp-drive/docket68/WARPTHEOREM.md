@@ -1056,6 +1056,18 @@ state was rebuilt first.
   station amber at both ends, Source deferred. The approach for B5b, O1b and O1c stands as approved; B7's approved
   approach (the chain of rulings machine-checked) no longer suffices under answer 1, so B7 is to be derived from the
   bulk's geometry instead, put to M.
+- **B5b's wall, computed (441 (4), approach approved).** `lemmas/b5b_wall.py` (W0-W7, selftest 8/8, mutants 5/5): an
+  exact smooth wall in five dimensions -- A = -b ln cosh(y/w), a field of the positive kinetic sign, Gremm's form --
+  solves every component of Einstein's equations and the field equation for every b, w, kappa, anti-de Sitter of
+  1/ell = b/w far off. For every null k, T(k, k) = (k^y phi')^2 at every point, inside the wall's thickness as
+  outside; the matter it carries (particles, scalars, gauge fields) keeps the condition in D = 5, each a sum of
+  squares. The tension -(3/kappa^2)[A'] equals the integral of phi'^2 exactly, 6/(kappa^2 ell) at every width; a
+  crossing ray's share is m (3b/(kappa^2 w)) B(1 - b/2, 1/2) >= sigma k^y(0), equal in the thin limit (1.000031 at
+  w/ell = 1e-4): TS, which had been deduced, is computed. A wall carrying a second field, back-reacted, holds
+  through any superpotential (a polynomial identity). Finding, recorded: no smooth wall of such matter has negative
+  tension, so a negative-tension plane is not one (B5a and B5c read the crossing there). The audit moves B5b from D
+  to C; under 441 it rests on B6' alone. The register's B5b where-field still reads "no wall profile is computed";
+  citing b5b_wall.py there, and adding it to T1, is put to M.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
