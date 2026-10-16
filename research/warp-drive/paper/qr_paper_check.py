@@ -139,7 +139,7 @@ def buckingham_4d():
 
 
 def onset_corrected():
-    """item 430 (Q1): a term l5 ell R reaches one at R* = 1/(l5 ell), where x = l5^2 R* = l5/ell"""
+    """corrected onset: a term l5 ell R reaches one at R* = 1/(l5 ell), where x = l5^2 R* = l5/ell"""
     l5, ell, R = sp.symbols("l_5 ell R", positive=True)
     Rs = sp.solve(sp.Eq(l5 * ell * R, 1), R)[0]
     x = sp.sqrt(l5 ** 2 * Rs) if "onset_sqrt" in MUT else l5 ** 2 * Rs  # the mutant: the refuted value

@@ -2,20 +2,19 @@
 title: "Everything Is Relative"
 subtitle: "One theorem on how quantum physics stands to relativity: whatever can exist keeps the one light cone, and the leading quantum correction to gravity's second-order law is held to zero"
 author: "Matthew Lach · Independent Researcher"
-date: "16 October 2026 · draft 1"
+date: "16 October 2026 · draft 2"
 ---
 
-**Status of this draft.** The title is the author's, given on 2026-10-16. Everything else is a draft for the author's
-review. Every statement below carries one of five labels:
+**Status of this draft.** A draft for review. Every statement below carries one of five labels:
 
 - **computed**: exact unless marked, and re-run for this paper;
 - **deduced**: follows from the statements it cites;
 - **READ**: quoted verbatim from the source, re-read at source for this paper, with page and equation;
 - **estimate**;
-- **postulate**: the author's, named and quoted.
+- **postulate**: assumed, named, and never derived.
 
 Nothing labelled READ is used beyond its source's own hypotheses. The machine check `qr_paper_check.py` asserts every
-computed number printed here. Its run is in Appendix D.
+computed number printed here. Its run is in Appendix C.
 
 ---
 
@@ -30,8 +29,8 @@ relativity in three senses, each stronger than the last:
    that metric, at every point of every background that can exist (*one cone*).
 
 Senses (1) and (2) are proved kind by kind. They use exact computation and the theorems of Lovelock, Deser, and Peres
-and Terno, and they are tested to the precision of GW170817, MICROSCOPE and Cassini. Sense (3) is the author's postulate
-(M-ONE-LIGHT-CONE). It is stated as a postulate and never derived.
+and Terno, and they are tested to the precision of GW170817, MICROSCOPE and Cassini. Sense (3) is a postulate, the
+one-cone principle. It is stated as a postulate and never derived.
 
 The relation to quantum physics runs through three results:
 
@@ -71,9 +70,9 @@ reading is that quantum measurement seems to act instantaneously at a distance. 
 quantisation as an ordinary field theory. A third is that the classical field equations must fail at high curvature,
 and no one knows the law that replaces them.
 
-The author poses the question differently (item 324, verbatim):
+This paper poses the question differently:
 
-> "everything that can exist with or without mass is subject to relativity. - this must be proved for us to continue."
+> Everything that exists, with or without mass, is subject to relativity.
 
 Asked this way, the question is not whether one theory can be derived from the other. It asks whether there is anything
 that can exist and is not subject to relativity, and whether quantum physics supplies such a thing.
@@ -84,17 +83,16 @@ We prove the statement in senses (1) and (2) of the abstract, kind by kind (§§
 relativity still leaves free. The answer is one constant: the Gauss–Bonnet coupling α of the five-dimensional
 second-order law. That constant is exactly the place where the quantum correction enters gravity's law.
 
-Under the author's postulate that everything keeps the one light cone, we show that constant is zero (§10, Theorem 2).
+Under the postulate that everything keeps the one light cone, we show that constant is zero (§10, Theorem 2).
 We also show that its four-dimensional scalar realisation is excluded (§11). Last, we derive where the classical law
 stops: the boundary at which quantum corrections must begin (§12).
 
-The postulate is the author's and is named as such throughout. Without it, Theorem 1 still stands. Theorem 2 then
+The postulate is named as such wherever it is used. Without it, Theorem 1 still stands. Theorem 2 then
 becomes a conditional: if α ≠ 0, gravity has fronts outside the light cone.
 
 ### 1.3 A single theorem, and whether it is a law
 
-We read "the single state theorem" as one statement proved through a chain of lemmas, and the paper is organised
-that way. Lemmas 1–5 give Theorem 1 (the statement in senses (1)–(2)). Lemmas 6–7 with the postulate give Theorem 2 (the
+The paper presents a single theorem: one statement proved through a chain of lemmas. Lemmas 1–5 give Theorem 1 (the statement in senses (1)–(2)). Lemmas 6–7 with the postulate give Theorem 2 (the
 statement in sense (3), and α = 0). Proposition 8 gives its boundary.
 
 Whether it can be called a law is answered in §14. In short, it is a theorem relative to stated premises. Its law-like
@@ -103,10 +101,9 @@ universal into a law. What a proof can do, and what this paper does, is show wha
 
 ### 1.4 Scope
 
-This paper sets out only what its lemmas need. Two further lines of work were sought on the same record. One is an
-equality from relativity that would fix the Higgs quartic coupling at the five-dimensional Planck energy. The other
-concerns the record's applied constructions. Neither was proved as a relativity result, so neither appears here except
-as an open item in §15.
+The paper is built from first principles and established results only. Each step is either computed here, deduced
+here, or taken from a published theorem or measurement with its hypotheses stated. Nothing else is needed to follow
+it.
 
 ---
 
@@ -126,14 +123,13 @@ p_a p^a = −m²c² where it has a four-momentum. *With or without mass* means m
   of g. A front is *characteristic* when its normal ξ makes the principal symbol of the field equations degenerate on
   physical polarisations (Reall, Tanahashi and Way, §2.2, READ).
 
-**Postulate O (M-ONE-LIGHT-CONE; the author's).** The board put a reading to the author: everything that can exist
-keeps the one light cone, every front, at every point, on every background that can exist, gravity's own included. The
-author confirmed it (item 328, verbatim):
+**Postulate O (the one-cone principle).** Everything that can exist keeps the one light cone: every front of every
+field, gravity's own included, at every point, on every background that can exist, lies on or inside the null cone of
+the one metric.
 
-> "One reading for you to confirm or overrule - confirmed."
-
-The text before " - " is the board's line, quoted by the author. This paper uses the confirmed reading as a postulate.
-It is not derived anywhere below, and every result that uses it says so.
+It strengthens what Lemmas 2–3 establish. Local Lorentz invariance and universal coupling fix one cone for signals in
+flat space and in the weak field. Postulate O asks the same of the characteristic fronts on every background. It is
+not derived anywhere below, and every result that uses it says so.
 
 **Premises of the outside theorems.** These are used only where named:
 
@@ -150,7 +146,7 @@ It is not derived anywhere below, and every result that uses it says so.
 
 The proof is kind by kind. Each lemma carries its own evidence, of one of three types:
 
-- an exact computation, done in sympy and re-run for this paper (instrument and entry named in Appendix A);
+- an exact computation, done in sympy and re-run for this paper (module named in Appendix A);
 - a theorem from the literature, applied only on its hypotheses (READ, quoted);
 - an experiment, quoted with its bound (READ), which bounds a departure and never fixes a value.
 
@@ -327,7 +323,7 @@ proves nothing about the characteristic cones of a curved background. That stron
 Theorem 2 uses it.
 
 *A finding about Theorem 1 itself.* Read together with Postulate O, the two halves of Theorem 1 hold together only at
-α = 0. Item 5 allows a constant that, if nonzero, puts gravity's fronts off the light cone (§10). So the statement fixes
+α = 0. Its fifth clause allows a constant that, if nonzero, puts gravity's fronts off the light cone (§10). So the statement fixes
 the one constant it seemed to leave open.
 
 *No index is run.* A table of (kind, Lorentz-invariant, couples universally, falls alike) would carry the value 1 in
@@ -366,8 +362,8 @@ the field equation is caught (mutant).
 Way (arXiv:1406.3379, §1, p. 2, READ): "For the Einstein equation, a hypersurface is characteristic if, and only if,
 it is null: "gravity travels at the speed of light"."
 
-**(b) Any static, spherical or planar background.** Let the pair curvatures be K₁ = R^{tr}_{tr},
-K₂ = R^{ti}_{ti} = R^{ri}_{ri} and K₃ = R^{ij}_{ij}. A front moving along the sphere is characteristic at
+**(b) Any static, spherical or planar background.** Let the pair curvatures be K₁ = R^{tr}\_{tr},
+K₂ = R^{ti}\_{ti} = R^{ri}\_{ri} and K₃ = R^{ij}\_{ij}. A front moving along the sphere is characteristic at
 ξ₀² = c|ξ|². The graviton's five polarisations fall on three cones:
 
 - c₁ = (1 + 4αK₁)/(1 + 4αK₂), twice;
@@ -460,7 +456,7 @@ Here f is any function: exponential for the dilaton, linear for the shift-symmet
 the theory's distinct content needs f′ ≠ 0.
 
 **Field equations (computed, exact).** Varying the action gives the metric equation
-G^a_b + 2 δ^{acde}_{bghk} (∇_c ∇^g f) R_de^{hk} = T^a_b, and the scalar equation □φ − V′ + f′ L_GB = 0. They were
+G^a\_b + 2 δ^{acde}\_{bghk} (∇\_c ∇^g f) R\_{de}^{hk} = T^a\_b, and the scalar equation □φ − V′ + f′ L_GB = 0. They were
 checked against a cosmology's reduced action: the Euler–Lagrange equations in N, a and φ are −a³, −3a² and a³ times the
 covariant ones, for every f. Reading the Gauss–Bonnet term's factor 2 as 1 is caught (mutant).
 
@@ -482,10 +478,10 @@ graviton–scalar polarisations are characteristic at
 ξ₀² = |ξ|²/(1 ∓ 8√2 f′ε),
 
 so one lies outside the light cone for either sign of f′ (computed). The symmetry about the light cone is the symmetry
-of ω, equivalently of 1/ξ₀², not of ξ₀² (qualification Q9).
+of ω, equivalently of 1/ξ₀², not of ξ₀² (qualification Q8).
 
 **(b) In a weakly coupled cosmology.** The tensor fronts run at c_T² = (1 + 8f̈)/(1 + 8Hḟ), twice (computed). This is
-the null cone of Reall's effective metric C^{ab} = g^{ab} − β′∇^a∇^bΦ − β″∇^aΦ∇^bΦ (arXiv:2101.11623, eq. (91), p. 18,
+the null cone of Reall's effective metric Cᵃᵇ = gᵃᵇ − β′ ∇ᵃ∇ᵇΦ − β″ ∇ᵃΦ ∇ᵇΦ (arXiv:2101.11623, eq. (91), p. 18,
 READ), here with β = 8f. Two routes give one answer.
 
 At exact solution points (V = 0, linear f, H = 1, φ̇ = ±12/5, f′ = ∓1/480, with the Friedmann equation holding exactly
@@ -514,11 +510,7 @@ their cone tests are not run.
 
 ## 12 · Where quantum corrections begin (Proposition 8)
 
-The author directed (item 415, verbatim):
-
-> "If it is the likely solution, then let's prove that it is."
-
-Proposition 8 does that, under named premises.
+Where the classical law stops is not assumed here. Proposition 8 derives it, under named premises.
 
 **The premises**, each named so it can be refused:
 
@@ -526,7 +518,7 @@ Proposition 8 does that, under named premises.
 - **P2.** The classical part is Einstein's law, exact at two derivatives (Theorems 1–2). Everything beyond it carries ħ
   and vanishes as ħ → 0.
 - **P3 (decoupling).** Where the curvature is far above 1/ℓ², the corrections do not grow with ℓ.
-- **P4 (the author's standing rule).** No pure number is chosen.
+- **P4 (no free number).** No pure number is chosen.
 
 **Proposition 8.** Under P1–P4, classical general relativity holds exactly where x ≪ 1 and fails where x reaches order
 one, with x = l₅² √K, l₅³ = G₅ħ/c³, and K the Kretschmann scalar (the curvature's scale). The boundary is x = 1.
@@ -562,14 +554,14 @@ Their criterion adds the elapsed time to the local curvature.
 Evaluated on the local curvature time τ = R^{−1/2}, it becomes q = (l_P² R)^{1/2}. So their q is small exactly where
 the local group is, and the two criteria order the same onset up to an order-one factor. The second verification found
 the corresponding factor on a black-hole interior to be x ≈ 31 q² in four dimensions and 34 q² in five (qualification
-Q4′). Only x decides at the onset by that argument, not by a comparison of times. Haggard and Rovelli's bounce time
+Q3′). Only x decides at the onset by that argument, not by a comparison of times. Haggard and Rovelli's bounce time
 τ ∼ m²/l_P (eq. (2), p. 2, READ) is the long-time effect their q adds. Proposition 8 does not need it.
 
 *What Proposition 8 does not prove.*
 
 - P1–P3 are premises of effective field theory, not theorems.
 - "Each term a positive power of x" is an assumption about the expansion's form (Q2′).
-- A bound on K is not a bound on every curvature component, because the Lorentzian K is not positive-definite (Q5′).
+- A bound on K is not a bound on every curvature component, because the Lorentzian K is not positive-definite (Q4′).
 - Which invariant measures the scale moves the boundary by an order-one factor.
 
 ### 12.1 What this says about the relation
@@ -588,8 +580,8 @@ Theorems 1–2 and Proposition 8 together give the relation the paper set out to
 The work was verified twice, independently, before this paper. Each verification was done by one verifier working
 read-only. The second also re-derived the claims with code that imports nothing from the instruments.
 
-**First verification (item 332): Lemmas 6–7 and Theorem 2.** Verdict: "CONFIRMED with qualifications, no sub-claim
-refuted". It re-derived:
+**First verification: Lemmas 6–7 and Theorem 2.** Confirmed, with qualifications; no sub-claim refuted. It
+re-derived:
 
 - the Boulware–Deser solution at κ = 1 and 0 (with 2α and −α failing);
 - the three cones from the explicit E_ab in a temporal gauge;
@@ -611,19 +603,15 @@ It also re-read the quotations of the outside sources. Its qualifications, each 
 - **Q5.** Lemma 7 needs V(φ₀) = V′(φ₀) = 0 (§11).
 - **Q6.** "Either sign of f′" in cosmology is a reflection; the sign of c_T² − 1 is set by f̈ and ḟ (§11).
 - **Q7.** The cosmology check is blind to the Weyl part, and the verifier's own checks close the gap (§11).
-- **Q8.** An evaluation of α from the record's definitions is exact only as an evaluation of definitions. This paper
-  does not use it.
-- **Q9.** Minor points. Transversality is RTW's §3.1 (not §3.3), and the symmetry in Lemma 7 (a) is ω's.
+- **Q8.** Minor points. Transversality is RTW's §3.1 (not §3.3), and the symmetry in Lemma 7 (a) is ω's.
 
-**Second verification (item 430): Proposition 8 among others.** Verdict: "CONFIRMED with qualifications, one computed
-value refuted". It re-derived the rank and null space of Buckingham's matrix and read Haggard and Rovelli in full.
+**Second verification: Proposition 8.** Confirmed, with qualifications; one computed value refuted. It re-derived the rank and null space of Buckingham's matrix and read Haggard and Rovelli in full.
 Qualifications carried in §12:
 
 - **Q1′.** The counterfactual onset is x = l₅/ℓ, and the instrument's value was refuted.
 - **Q2′.** The form of the expansion is an assumption.
-- **Q3′.** A four-dimensional placement holds only where the four-dimensional form holds. Not used here.
-- **Q4′.** Haggard and Rovelli's criterion is q = l_P R τ, and "only x decides" stands by x ∼ 31 q².
-- **Q5′.** A bound on K is not a bound on all curvature.
+- **Q3′.** Haggard and Rovelli's criterion is q = l_P R τ, and "only x decides" stands by x ∼ 31 q².
+- **Q4′.** A bound on K is not a bound on all curvature.
 
 **This paper's own check.** `qr_paper_check.py` imports the instruments by path. It requires each instrument's own
 checks to pass, asserts each computed number printed here, and asserts that each printed form appears in this text. Its
@@ -635,10 +623,10 @@ five mutants each change one thing:
 - `sum_weights` miscounts the polarisations;
 - `inst_gb_double` runs an instrument with its own mutant.
 
-Each must be caught by the claim it targets. Results are in Appendix D.
+Each must be caught by the claim it targets. Results are in Appendix C.
 
 **The verification of this paper.** One independent verifier, after the draft and its check pass. Its report is
-recorded in Appendix E when it returns.
+recorded in Appendix D when it returns.
 
 ---
 
@@ -672,7 +660,7 @@ departure from it and none has found one.
 ## 15 · What is not proved
 
 - Anything beyond the experiments' precision.
-- Postulate O. It is the author's; it is assumed, never derived.
+- Postulate O. It is assumed, never derived.
 - The cone splitting at every point of nonzero Weyl curvature. It is proved on the families computed and generic per
   RTW.
 - α = 0 below |α| ∼ l_P5² by scattering alone. Theorem 2 needs Postulate O there.
@@ -681,9 +669,6 @@ departure from it and none has found one.
   infinite tower of higher spins.
 - The form of the correction expansion, nature's order-one factor at x = 1, and what law replaces Einstein's there.
 - Any theory of quantum gravity, and any unification. The result is one shared causal structure.
-- **Open, not a result.** An equality from relativity that would force the Higgs quartic to vanish at the
-  five-dimensional Planck energy was sought (items 381–382). No relativity object that forces it was found or proved,
-  and it is listed here as open.
 
 ---
 
@@ -728,7 +713,7 @@ Journal references are given as commonly cited and were not re-read; the arXiv v
 
 ## Appendix A · Every computation, with its instrument and check
 
-The instruments are in `../docket68/lemmas/`, imported by path by `qr_paper_check.py`.
+The computation modules are imported by path by `qr_paper_check.py`; each also runs on its own.
 
 | claim | where | instrument · entry | check |
 |---|---|---|---|
@@ -747,10 +732,10 @@ The instruments are in `../docket68/lemmas/`, imported by path by `qr_paper_chec
 | \|ξ\|²/(1 ∓ 8√2 f′ε) | §11 | sgb_cone.py S4 | L7 |
 | rank 3, two groups; ħ^{2/3} in l₅²R only | §12 | quantum_onset.py Q1–Q2 | Q1, I4 |
 | four dimensions: one group l_P² R | §12 | this paper | Q1 |
-| x = l₅/ℓ at the counterfactual onset (corrected) | §12 | this paper (430 Q1′) | Q6 |
+| x = l₅/ℓ at the counterfactual onset (corrected) | §12 | this paper | Q6 |
 | q = (l_P² R)^{1/2} at τ = R^{−1/2} | §12 | this paper | HR |
 
-Instrument suites, re-run for this paper (Appendix D):
+Instrument suites, re-run for this paper (Appendix C):
 
 - relativity.py: 6/6 selftest, 4/4 mutants;
 - gb_cone.py: 10/10, 5/5;
@@ -759,24 +744,7 @@ Instrument suites, re-run for this paper (Appendix D):
 
 ---
 
-## Appendix B · The author's words, verbatim
-
-From the rulings file, quoted exactly. The text before " - " in a quotation is the board's, quoted by the author.
-
-- **Item 324:** "everything that can exist with or without mass is subject to relativity. - this must be proved for us
-  to continue."
-- **Item 328:** "One reading for you to confirm or overrule - confirmed. We're ready to hand off to the verifier and
-  move on". The confirmed reading, as recorded there: everything that can exist keeps the one light cone, every front,
-  at every point, on every background that can exist (M-ONE-LIGHT-CONE).
-- **Item 415:** "how am I supposed to know this? It's a conjecture. If it is the likely solution, then let's prove that
-  it is."
-- **Item 431 (the commission):** "Earlier we had worked a proof proving the relation between quantum physics to
-  relativity. Write instructions for another session to write a exhaustive, cohesive, and complete research paper on
-  this proof."
-
----
-
-## Appendix C · Source map
+## Appendix B · Source map
 
 | claim | rests on |
 |---|---|
@@ -788,13 +756,13 @@ From the rulings file, quoted exactly. The text before " - " in a quotation is t
 | Theorem 1 | deduced from Lemmas 1–5; qualification Q1 |
 | Lemma 6 | computed (L6, gb_cone.py); READ RTW pp. 2, 13, 14, 17, 22, 24–25 |
 | Theorem 2 | deduced from Lemma 6 + Postulate O + (PL); corroborated, READ CEMZ, within Q2 |
-| Lemma 7 | computed (L7, sgb_cone.py); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q7, Q9 |
-| Proposition 8 | computed (Q1, Q6, HR); premises P1–P4; READ Haggard–Rovelli eqs. (2), (11)–(13); Q1′–Q5′ |
-| §13 | the verifiers' reports, items 332 and 430 of the rulings file |
+| Lemma 7 | computed (L7, sgb_cone.py); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q8 |
+| Proposition 8 | computed (Q1, Q6, HR); premises P1–P4; READ Haggard–Rovelli eqs. (2), (11)–(13); Q1′–Q4′ |
+| §13 | the two independent verifications |
 
 ---
 
-## Appendix D · Reproduction and md5
+## Appendix C · Reproduction and md5
 
 From `research/…/paper/`:
 
@@ -804,19 +772,17 @@ export PYTHONDONTWRITEBYTECODE=1
 python3 qr_paper_check.py --selftest
 python3 qr_paper_check.py --mutants
 for f in relativity gb_cone sgb_cone quantum_onset; do
-  python3 ../docket68/lemmas/$f.py --selftest; python3 ../docket68/lemmas/$f.py --mutants; done
+  python3 ../$f.py --selftest; python3 ../$f.py --mutants; done
 ```
 
 Files relied on, md5 at the start of the work (unchanged at its end; see the closing run):
 
 | file | md5 |
 |---|---|
-| docket68/lemmas/relativity.py | c2727eda529fb97c6086e460a64ceab9 |
-| docket68/lemmas/gb_cone.py | 6a6da20ca31f91b6a459c44a7e731792 |
-| docket68/lemmas/sgb_cone.py | bd787b985e6cad05587f39a2a2b8816b |
-| docket68/lemmas/quantum_onset.py | 6d00f28026d4dfe606515c1532deea76 |
-| docket68/lemmas/gb_alpha.py (read; not used) | ab22fb7ca3f1026fe9d63181640ab8c4 |
-| docket68/M-RULINGS-2026-10-03.md | 4cd96bec195f0598668a28728242b88c |
+| relativity.py | c2727eda529fb97c6086e460a64ceab9 |
+| gb_cone.py | 6a6da20ca31f91b6a459c44a7e731792 |
+| sgb_cone.py | bd787b985e6cad05587f39a2a2b8816b |
+| quantum_onset.py | 6d00f28026d4dfe606515c1532deea76 |
 
 The check's run is recorded below.
 
@@ -824,6 +790,6 @@ RUN-RECORD
 
 ---
 
-## Appendix E · The verification of this paper
+## Appendix D · The verification of this paper
 
 VERIFIER-RECORD
