@@ -1200,6 +1200,22 @@ state was rebuilt first.
   Einstein-DeTurck (Headrick-Kitchen-Wiseman, READ) by Newton on Fourier-Chebyshev collocation, the lessons of
   393-411 carried, a validation ladder (global AdS5; the throat section; MM's wormhole), and a smooth boundary
   metric to be declared.
+- **Item 450** (M: "1 - both, and compare / 2 - yes / 3 - yes"). **Stage 3b, rung V1: global AdS5 recovered both
+  ways** (`lemmas/deturck2d.py`, 5/5, mutants 3/3; `lemmas/stage3b_v1.py`, 7/7, mutants 4/4; BOUNCE-RESEARCH
+  section 17).
+  - The method: Einstein-DeTurck in global AdS5 sliced as AdS2 x S^3, whose boundary AdS2 x S^2 is conformal to
+    R x S^3 less two antipodal worldlines. Chebyshev collocation is set beside finite differences of orders 2 and 4,
+    with Newton's Jacobian by the complex step, and the axis carries no row (behavioural regularity, checked).
+  - From a perturbed start (7.5% off) Newton returns to the exact chart to 1e-14 on all three grids.
+  - With a deformed reference it converges to AdS5 in a gauge that moves the metric functions up to 18%. At N = 24,
+    xi^2 = 2e-11 and |K - 40| = 3e-4; both fall geometrically, and the parities hold.
+  - The comparison, against a Chebyshev N = 28 solution: FD2 converges at order 1.99 and FD4 at 4.07, Chebyshev
+    exponentially, and Chebyshev is about ten times cheaper at equal accuracy.
+  - Recorded: the first chart, (tanh X, sin^2 Y), converged only algebraically (slope about 9), because the
+    defining function enters it as a square root; (tanh(X/2), 1 - cos Y) converges exponentially.
+  - Also recorded: the reference family has a degenerate direction, e1 + e2 = 0 at e3 = 0, where xi vanishes on
+    the exact chart.
+  - V2 (the throat section in this chart) is next, reported to M first.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

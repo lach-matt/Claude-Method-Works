@@ -583,6 +583,8 @@ plane, AdS3 × S² beneath it.
 - **The method proposed.** The Einstein–DeTurck equation, which "renders the Einstein equation strictly elliptic"
   (Headrick, Kitchen, Wiseman 0905.1822, READ), solved by Newton's method on spectral collocation: Fourier along the
   circle, Chebyshev into the bulk. This is the practice Dias, Santos and Way review (1510.02804).
+  *[Note beside, 450 (V1, section 17): the chart taken is global AdS5 sliced as AdS2 × S³, which has no periodic
+  direction. Chebyshev runs in both coordinates, and finite differences beside it, as M asked.]*
 - **The lessons of 393–411, carried over:**
   - the DeTurck vector evaluated exactly at each point, and required to converge to zero with resolution (404–405);
   - no tuning coefficients in the scheme (405);
@@ -590,6 +592,8 @@ plane, AdS3 × S² beneath it.
   - the corners analysed before the basis is chosen (406).
 - **The validation ladder, each step reported:**
   - (V1) the solver recovers global AdS5 with boundary R × S³ from a perturbed start, an exact answer;
+    *[note beside, 450: in section 17's chart the boundary is AdS2 × S², which is conformal to R × S³ less two
+    antipodal worldlines. Those worldlines are the chart's ends X → ±∞.]*
   - (V2) it recovers stage 3a's throat section inside the two-dimensional chart;
   - (V3) Maldacena and Milekhin's wormhole.
   
@@ -599,3 +603,91 @@ plane, AdS3 × S² beneath it.
   radius's profile along the S³ angle, has to be chosen, and the result's dependence on that choice reported.
 - **Size.** About six metric functions on a 24 × 24 grid, roughly 3,500 unknowns, is minutes per Newton solve. The
   convergence study needs about 40 × 40, roughly 10⁴ unknowns, solved with sparse LU.
+
+## 17. Stage 3b, V1: global AdS5 both ways, compared (450; `deturck2d.py` 5/5, 3/3; `stage3b_v1.py` 7/7, 4/4)
+
+M, verbatim: "1 - both, and compare / 2 - yes / 3 - yes". The ladder runs in order, each rung reported before the
+next. This is the first rung.
+
+**The chart** (standard). Global AdS5 sliced as AdS2 × S³:
+
+  ds² = (1/cos²Y)[−cosh²X dt² + dX² + dY² + sin²Y dΩ₂²].
+
+- Its conformal boundary at Y = π/2 is AdS2 × S², the boundary stage 3's throat carries.
+- AdS2 × S² is conformal to R × S³ less two antipodal worldlines, and those worldlines sit at X → ±∞. So this is the
+  plan's global AdS5 with boundary R × S³, in the chart the throat needs (notes beside section 16).
+- The unknowns are five functions of two variables, T, A, B, F, S:
+
+  ds² = (1−w)⁻² [−T cosh²X dt² + A dX² + B dw²/(w(2−w)) + 2F dX dw + S w(2−w) dΩ₂²],
+
+  where w = 1 − cos Y, and the grid runs in ζ = tanh(X/2). Exact AdS5 is T = A = B = S = 1, F = 0.
+
+**The toolkit** (`deturck2d.py`, computed):
+- The Einstein–DeTurck operator E_ab = R_ab + 4g_ab − ∇₍ₐξ_b₎ is built symbolically on the jets of the unknowns and
+  never simplified. It is checked on Schwarzschild–AdS5 entered through its jets: R + 4g = 0 to 4×10⁻¹⁵, against
+  0.33 for a four-dimensional falloff put in its place.
+- Chebyshev collocation is set beside Fornberg finite differences of orders 2 and 4. Newton's Jacobian comes by the
+  complex step, exact to rounding.
+- **The axis carries no row.** The grid omits w = 0. The operator there has indicial exponents 0 and −1/2, and the
+  polynomial basis selects the regular branch by itself (Boyd's behavioural condition). This is checked on a
+  manufactured problem: Chebyshev reaches rounding by N = 16, and finite differences converge.
+
+**What V1 computed** (`stage3b_v1.py`):
+- **The operator** vanishes on exact AdS5 against the undeformed reference (9×10⁻¹³). AdS5 pulled back by a
+  diffeomorphism that keeps the ansatz has R + 4g = 0 (7×10⁻¹³). Against the undeformed reference, that pullback
+  gives E = 34, so the check is not vacuous.
+- **Recovered from a perturbed start.** The start is 7.5% off, with the undeformed reference. Newton returns to the
+  exact chart to rounding (10⁻¹⁴), in 5 iterations, on the Chebyshev, FD2 and FD4 grids alike.
+- **Recovered in a gauge of the reference's choosing.** The reference is T̄ = 1 + e₁b, Ā = 1 + e₂b, B̄ = S̄ = 1 + e₃b,
+  with b = sin²Y cos⁴Y sech²X, taken at (e₁, e₂, e₃) = (1, 0.5, −0.7).
+  - Newton converges quadratically to AdS5 with the metric functions moved up to 18% (max |B − 1| = 0.18).
+  - T, A, B and S come out even in X and F odd, to 10⁻¹⁴.
+
+| Chebyshev N | ξ² | Einstein residual | \|K − 40\| |
+|---|---|---|---|
+| 12 | 2.6×10⁻⁶ | 1.7×10⁻² | 1.0×10⁻¹ |
+| 16 | 7.2×10⁻⁸ | 2.5×10⁻³ | 1.7×10⁻² |
+| 20 | 1.4×10⁻⁹ | 3.3×10⁻⁴ | 2.4×10⁻³ |
+| 24 | 2.0×10⁻¹¹ | 3.9×10⁻⁵ | 2.8×10⁻⁴ |
+
+  K = R_abcd R^abcd = 40 for unit AdS5. For a static Einstein metric it equals 40 exactly when the Weyl tensor
+  vanishes, so K → 40 says the solution is AdS5 itself, not merely some Einstein metric.
+- **A degenerate direction of the reference (deduced, then computed).** At e₃ = 0, the drive of ξ along w depends
+  only on e₁ + e₂, and the drive along X vanishes because ∂_X b = −2b tanh X. At (−3, 3, 0) the exact chart already
+  has ξ = 0 (3×10⁻¹⁴). A first run at (0.4, −0.3, 0) moved the functions by under 1% for that reason, and the run
+  above drives both directions.
+
+**The comparison M asked for.** Each solution is measured against a Chebyshev N = 28 solution interpolated to its
+nodes.
+
+| method | N | error | time |
+|---|---|---|---|
+| FD2 | 16 | 2.9×10⁻³ | 2 s |
+| FD2 | 32 | 7.2×10⁻⁴ | 4 s |
+| FD4 | 16 | 2.8×10⁻⁴ | 2 s |
+| FD4 | 32 | 1.7×10⁻⁵ | 6 s |
+| FD4 | 64 | 9.9×10⁻⁷ | 37 s |
+| Chebyshev | 20 | 1.3×10⁻⁶ | 4 s |
+| Chebyshev | 24 | 8.9×10⁻⁸ | 6 s |
+
+- The finite differences converge at their orders, 1.99 and 4.07, and the Chebyshev solution converges
+  exponentially.
+- All three meet on one answer. Each finite-difference error is its own truncation, measured against the spectral
+  solution.
+- At equal accuracy Chebyshev is about ten times cheaper. For the curvature, FD's error near the axis falls an order
+  slower, because the axis's 1/w terms amplify it: |K − 40| converges at about order 1.5 for FD2 and 3.6 for FD4.
+
+**The chart matters (computed; deduced).** In the first chart taken, (tanh X, sin²Y), ξ² fell only algebraically:
+log–log slopes 9.2, 9.2, 9.0 from N = 12 to 24. In (tanh(X/2), 1 − cos Y) the slope rises, 12.4, 17.7, 23.1, which
+is exponential convergence, and by N = 24 that chart is below the first.
+
+- Deduced: the DeTurck solution carries odd powers of the defining function — cos Y at the boundary, e^−X at the
+  poles — and the first chart's variables enter those powers as square roots, the second's linearly. The axis is
+  even in Y in both.
+- The second chart starts higher. sech²X is a polynomial in tanh X but has poles at ±i in tanh(X/2), which costs a
+  constant, not a rate.
+- The chart and the open axis carry to V2. The first chart's result is recorded, not repaired.
+
+**V1 passes.** Global AdS5 is recovered by both discretizations, from a perturbed start and in a nontrivial gauge,
+and the two agree to the finite differences' truncation. Next is V2, stage 3a's throat section inside this chart,
+reported to M before V3.
