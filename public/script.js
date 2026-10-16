@@ -1554,7 +1554,10 @@
     state.selected = node;
     renderInspector(node);
     renderCrumbs(node);
-    if (setHash) {
+    // a selection that lands while the address names a paper (a slow load finishing behind the Papers
+    // dialog) moves the explorer only: the paper keeps its entry, and closing it brings the explorer's
+    // address back
+    if (setHash && !/^#paper=/.test(location.hash)) {
       const h = hashOf(node);
       state.lastHash = h;
       if (location.hash !== h) history.replaceState(null, '', h);
@@ -1644,8 +1647,13 @@
       openPaper(slug);
       return;
     }
-    // the address has left the paper it named (Back, a link, a typed route): close that paper
-    if (/^#paper=/.test(state.lastHash || '')) { const d = $('#dlg-papers'); if (d.open) d.close(); }
+    // the address has left the paper it named (Back, a link, a typed route): close that paper. Back onto
+    // the entry the paper was shown over finds the explorer already there, as the reader left it: it
+    // is not selected again, so the camera, the zoom and the page's scroll stay where they were
+    if (/^#paper=/.test(state.lastHash || '')) {
+      const d = $('#dlg-papers'); if (d.open) d.close();
+      if (state.selected && h === hashOf(state.selected)) { state.lastHash = h; return; }
+    }
     const p = parseHash(h);
     if (!p || p.root) return select(rootNode, { fly, ms, reveal });
     if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, { fly, ms, reveal });
@@ -3530,9 +3538,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (cur && typeof nav.entries === 'function') {
       const want = new URL(h, location.href).href, all = nav.entries();
       const holds = (e) => e && e.sameDocument && e.url === want;
+      // a paper shown over the explorer's entry keeps that entry directly behind it: forward onto the
+      // paper's own entry if it is next, else a new one, never back onto an older entry for it
+      if (slug && !onPaper) { if (holds(all[cur.index + 1])) history.forward(); else history.pushState(null, '', h); return; }
       if (holds(all[cur.index - 1])) { history.back(); return; }
       if (holds(all[cur.index + 1])) { history.forward(); return; }
-      if (slug && !onPaper) { history.pushState(null, '', h); return; }
     }
     history.replaceState(null, '', h);
   }
@@ -4085,6 +4095,24 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     // citation followed again reopens the paper. The close event is asynchronous: it acts only while
     // the dialog is still closed and the address is still the one this page wrote
     $('#dlg-papers').addEventListener('close', () => { if (!$('#dlg-papers').open && location.hash === state.lastHash) paperAddress(null); });
+    // a rotation reflows the paper while the scroll offset stays put, which moves the reader by about a
+    // screen: the block at the top edge, and how far into it the edge falls, is noted as the reader
+    // scrolls and put back at the edge after the width changes
+    {
+      const host = $('#papers-body'); let mark = null, lastW = 0;
+      host.addEventListener('scroll', () => {
+        const art = host.querySelector('#paper-article'); mark = null;
+        if (!art) return;
+        const top = host.getBoundingClientRect().top, el = [...art.children].find((c) => c.getBoundingClientRect().bottom > top);
+        if (el) { const r = el.getBoundingClientRect(); mark = { el, f: r.height ? (top - r.top) / r.height : 0 }; }
+      }, { passive: true });
+      if ('ResizeObserver' in window) new ResizeObserver(() => {
+        const w = host.clientWidth, was = lastW; lastW = w;
+        if (!w || !was || w === was || !mark || !mark.el.isConnected) return;
+        const r = mark.el.getBoundingClientRect();
+        host.scrollTop += r.top + mark.f * r.height - host.getBoundingClientRect().top;
+      }).observe(host);
+    }
     $('#btn-figures').addEventListener('click', () => { renderFigures(); $('#dlg-figures').showModal(); });
     $('#btn-glossary').addEventListener('click', () => $('#dlg-glossary').showModal());
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
