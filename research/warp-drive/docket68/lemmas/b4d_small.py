@@ -217,7 +217,7 @@ CORES = (2.9e-23, 6.4e-24)                      # b_bounce Q5's e and c4_residue
 COMPACT, SPREAD3, SPREAD4 = 4.79, 5.27, 4.79    # arrival_small V2, V11 (verified 348): the widths named in D2
 # the cells of D10: (stage, the register row that decides it, its status there)
 CELLS = (("before the opening", "B7", "DERIVED"), ("the global shape", "B4a", "PROVED"),
-         ("the opening", "ARRIVALs", "READING"), ("the hold", "O3s", "DERIVED"), ("the write", "WRITEs", "DERIVED"),
+         ("the opening", "ARRIVALs", "DERIVED"), ("the hold", "O3s", "DERIVED"), ("the write", "WRITEs", "DERIVED"),
          ("the interior", "O1cs", "PROVED"), ("no singularity on the passage", "O1bs", "PROVED"),
          ("our face's closing", "CLOSEs", "DERIVED"), ("the far boundary", "FARs", "DERIVED"),   # [item 354]
          ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2ts", "PROVED"))   # [item 356: split by end]
@@ -291,7 +291,7 @@ def d10():
     reg = _register()
     cells = list(CELLS)
     if MUT.get("cell_status"):
-        cells[2] = ("the opening", "ARRIVALs", "DERIVED")         # the mutant: ARRIVALs' reading read as derived
+        cells[2] = ("the opening", "ARRIVALs", "READING")         # the mutant: ARRIVALs read as its pre-439 reading
     return dict(found=[(s, r, st, reg.get(r)) for s, r, st in cells],
                 ok=all(reg.get(r) == st for _, r, st in cells), b3=reg.get("B3"), b4d=reg.get("B4d"),
                 b3s=reg.get("B3s"), b4ds=reg.get("B4ds"))                       # [item 355] READINGs
@@ -447,8 +447,9 @@ def checks(o):
         and "%.2g" % d["left"] == "0.0022" and "%.2g" % d["frac"] == "2.6e-18")
     e = o["d10"]
     # [item 438: B3 and B4d at the large end READINGs (b4d_large K12); this check read them OPEN before]
-    add("D10 every cell's row in the register with the status stated; B3 and B4d READINGs there (438); B3s and B4ds "
-        "READINGs (item 355)", e["ok"] and e["b3"] == e["b4d"] == "READING" and e["b3s"] == e["b4ds"] == "READING")
+    # [item 439: all four DERIVED (settle_arrival A6), the opening's cell ARRIVALs DERIVED; READING before]
+    add("D10 every cell's row in the register with the status stated; B3, B4d, B3s and B4ds DERIVED there (439)",
+        e["ok"] and e["b3"] == e["b4d"] == "DERIVED" and e["b3s"] == e["b4ds"] == "DERIVED")
     f = o["d13"]
     add("D13 (item 352) the Vaidya Kretschmann exactly 72 mu^2/r^8, no term in mu'; 72/mu^2 on r^2 = mu; Planckian at "
         "2.91 l5; the core 6.3e-3 of the face at the example", f["exact"] and f["trap"]
@@ -472,7 +473,7 @@ def checks(o):
 MUTANTS = {"cubic_4d": "the onset's threshold taken as the four-dimensional 1/16 (D2)",
            "curv_4d": "the interior's curvature taken as four-dimensional Schwarzschild's (D4, D6)",
            "life_cubic": "the remaining life taken as r^3, not r^4 (D6)",
-           "cell_status": "ARRIVALs' reading counted as derived (D10)",
+           "cell_status": "ARRIVALs counted as its pre-439 reading (D10)",
            "word_wrong_item": "273's words looked for in item 274 (D0)",
            "dim4": "the Vaidya curvature computed in four dimensions (D13; item 352)",
            "planck_energy_linear": "the energy at the Planck radius taken as growing like r (D14; item 352)",

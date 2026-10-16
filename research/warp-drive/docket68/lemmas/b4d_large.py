@@ -69,7 +69,8 @@ verified; not seated.
      verified 355) encloses the hole by a strictly untrapped surface.  The onset is hidden under (b) and (c) (K2), 273's
      region lies inside our face, and our exterior is classical everywhere but K6's last place, on the face.
   K9 (deduced; the register read by path) B3 at the large end, cell by cell: before the opening B7 (DERIVED) and B4a
-     (PROVED); the opening ARRIVAL (OPEN -- the delivery, Q1); the hold O3 and WRITE (DERIVED); the interior O1c and O1b
+     (PROVED); the opening ARRIVAL (OPEN -- the delivery, Q1; DERIVED at 439, settle_arrival A6); the hold O3 and
+     WRITE (DERIVED); the interior O1c and O1b
      (DERIVED); 273's region (M's); position 2's face M1P2x (DERIVED); the closing CLOSE (DERIVED), ending at B4ds D14's
      place; the far boundary FAR (DERIVED); the bulk's law B8 (PROVED); the near bulk B2t (DERIVED).  Every cell but the
      opening is a row computed, derived, verified or M's.
@@ -141,7 +142,7 @@ LEAST_WRITE_RH = 9.4926                     # encode_read E5, clocks of r_h/c (5
 V11_RAMP, V11_FLOOR = 5.39, 66980           # arrival_small V11 (b)
 ELL, EARTH_R0 = 13.964e-6, 8.870e-3         # earth_cap K3; close_large / bearing26
 CELLS = (("before the opening", "B7", "DERIVED"), ("the global shape", "B4a", "PROVED"),
-         ("the opening", "ARRIVAL", "OPEN"), ("the hold", "O3", "DERIVED"), ("the write", "WRITE", "DERIVED"),
+         ("the opening", "ARRIVAL", "DERIVED"), ("the hold", "O3", "DERIVED"), ("the write", "WRITE", "DERIVED"),
          ("the interior", "O1c", "DERIVED"), ("no singularity on the passage", "O1b", "DERIVED"),
          ("position 2's face", "M1P2x", "DERIVED"), ("our face's closing", "CLOSE", "DERIVED"),
          ("the far boundary", "FAR", "DERIVED"), ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2t", "DERIVED"))
@@ -309,8 +310,8 @@ def selftest(quiet=False):
     c6 = abs(f1 - 1e-3) < 1e-12 and abs(f2 / 3.90e-9 - 1) < 0.01
     ok.append(c6); say("K6 the life's last part at the small end, 1e-3 and 3.9e-9: %s" % c6)
     cells, b3, b4d = k9()
-    c9 = all(now == st for _, _, st, now in cells) and b3 == "READING" and b4d == "READING"   # [438 (2); was OPEN]
-    ok.append(c9); say("K9 every cell's row at its stated status, the opening OPEN; B3 and B4d READING (438): %s" % c9)
+    c9 = all(now == st for _, _, st, now in cells) and b3 == "DERIVED" and b4d == "DERIVED"   # [439; READING at 438]
+    ok.append(c9); say("K9 every cell's row at its stated status; B3 and B4d DERIVED (439): %s" % c9)
     k = k12()
     c12 = k["ramp_first"] == 0 and sp.simplify(k["step_first"] - 2 * sp.Symbol("E", positive=True)) == 0 \
         and k["timelike_excluded"]

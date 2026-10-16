@@ -1021,6 +1021,18 @@ state was rebuilt first.
   ARRIVALs, a reading through SOURCE: put to you. Fork (a) is yours (M-GEOMETRY-AS-LABELS); fork (b) answered
   (M-ISOTOPE-OUT, M-LAST-STATE, M-POTENTIAL-IN): the copper's README is its last state's labels, about 300 bits for a
   perfect crystal, 2.9 J at the small end.
+- **Item 439** (M: "Review all item not green in the warp theorem map, and correct any discrepancies. I see two open
+  lemmas, ARRIVAL  and ENCODE, as well as 5 readings, that need to be addressed, proved, and settled"). **All seven
+  settled as derived; 78 of 80 rows green, SOURCEs and SOURCE deferred** (`lemmas/NOT-GREEN-REVIEW.md`).
+  `settle_arrival.py` (6/6, mutants 5/5): a face of fixed size takes no energy or shear after the opening (z3); the
+  step exists exactly at the small end, round in the bulk (5D Vaidya), and light from our plane cannot make it; at the
+  large end the warped Vaidya metric solves the five-dimensional equations exactly, a null shell in the bulk with our
+  plane carrying only its tension, exact where the large hole is a black string and the cap at (ell/r0)^2; your 232
+  answered with Wang and Choptuik's collapse onto the static large hole (READ). `encode_labels.py` (6/6, mutants 4/4):
+  the labels of the last state, canonical, exact, integers only -- 174 bits for 1 cm^3 of copper -- the read's device
+  SOURCE's (399). Discrepancies corrected beside the text: the SOURCE rows' withdrawn "gas", the WRITE rows' old
+  floors, ARRIVALs' "compact", the map's Formation and Address stations and stale rows, RECON and ENCODE drawn, the
+  tally. SOURCE-REQUIRED 19-22 state what SOURCE must supply.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1070,11 +1082,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
 | B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
 | B | B2t its instance beneath the corridor at the large end: the large hole's bulk | derived | M1 | rows_large.py B2t; Figueras-Wiseman (READ) |
-| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); M-PLANCK-ENDS |
-| B | B3 a complete bulk exists at the large end | reading | M1 FAR WRITE ARRIVAL CLOSE | b4d_large.py K9, K12 (436-438): every cell a row, the opening the null shell the math requires; M-PLANCK-ENDS; SOURCE |
+| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | derived | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS |
+| B | B3 a complete bulk exists at the large end | derived | M1 FAR WRITE ARRIVAL CLOSE | b4d_large.py K9, K12; settle_arrival.py A4-A6 (439): every cell a row, the opening the bulk null shell; at the large end's order |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
-| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D18 (351-355); M-PLANCK-ENDS |
-| B | B4d the opening and closing evolve regularly in five dimensions at the large end | reading | M1 FAR WRITE ARRIVAL CLOSE | b4d_large.py K0-K12 (436-438): regular wherever classical GR holds, the opening the null shell; M-PLANCK-ENDS; SOURCE |
+| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | derived | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D18 (351-355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS |
+| B | B4d the opening and closing evolve regularly in five dimensions at the large end | derived | M1 FAR WRITE ARRIVAL CLOSE | b4d_large.py K0-K12; settle_arrival.py A4-A6 (439): the opening the bulk null shell (warped Vaidya); M-PLANCK-ENDS; at the large end's order |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
 | B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | derived | -- | e_positive.py E7 |
 | B | B5c position 2's positivity where it bears, at the large end | derived | -- | m1_large.py M8; tau_share T4 |
@@ -1106,24 +1118,25 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | derived | -- | r5_build.py, copy_p2.py |
 | R | R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2 | definition | -- | items 284, 285 |
 | R | RECON any information is reconstructed to obey the 26 of any position 2 (M-RECON-ALWAYS) | definition | -- | item 437; with 24, 240 |
-| R | ENCODE the read: how a geometric object becomes binary information, one exact encoding reading the same at every point of the 26-lattice | **OPEN** | -- | items 437, 136 (5), 146-148, 399; encode_read.py (worked, not seated) |
+| R | ENCODE the read: how a geometric object becomes binary information, one exact encoding reading the same at every point of the 26-lattice | derived | -- | encode_labels.py C0-C7 (439): the labels of the last state (438), canonical, exact, integers only; the read's device SOURCE's (399) |
 | N | M1s the plane's reading of the corridor's mouth at the small end | proved | -- | m1_small.py, c4_oneway.py |
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | derived | -- | m1_large.py M0-M10 (356) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | derived | M1 | m1p2x_large.py Y1-Y9 (362); the emergence met by identity at every sigma (390, junction_own G10; 427, 428 approved) |
 | N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355 |
 | N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | derived | -- | far_large.py L0-L11 (350-355); verified 355 |
-| N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
-| N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | derived | -- | write_large.py X1-X3 (362) |
-| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
-| N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | **OPEN** | -- | arrival_cypher, README-HELD.md (the record's); whether it is an arrival turns on the read (437 (1)) |
+| N | WRITEs the bulk held through the whole write at the small end, its least time 9.49 clocks of r_h/c (437) | derived | -- | write_cypher.py; the name read '>= 66,980 clocks of r_h/c' before 439 |
+| N | WRITE the static bulk held through the whole write at the large end, its least time 28.48 clocks of m/c | derived | -- | write_large.py X1-X3 (362); the name read '>= 199,702.19 clocks of m/c' before 439 |
+| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, all at once; the bits rebuild at position 2 under its laws and take their room | derived | -- | arrival_small.py V0-V14 (verified 348); settle_arrival.py A2, A6 (439); 'compact' before 439 |
+| N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | derived | -- | arrival_large.py A1-A3; b4d_large.py K12; settle_arrival.py A4-A6 (439); at the large end's order |
 | N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
 | N | CLOSE the closing at the large end | derived | -- | close_large.py L1-L5 (362, on 336) |
-| N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
-| N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
+| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 20, 22 ('a gas of the plane's fields' withdrawn at 386) |
+| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 21, 22 ('a gas' withdrawn at 386) |
 
-80 rows, 66 lemmas and 14 inputs: 20 proved, 45 derived, 5 under a named reading, 6 definitions, 4 OPEN (ARRIVAL,
-ENCODE, and SOURCEs and SOURCE, deferred by you). *[Item 438: B3 and B4d at the large end moved from OPEN to readings;
+80 rows, 66 lemmas and 14 inputs: 20 proved, 52 derived, 6 definitions, 2 OPEN (SOURCEs and SOURCE, deferred by you
+and worked last). *[Item 439: ARRIVAL, ENCODE and the five readings settled as derived; the line read "45 derived, 5
+under a named reading, 6 definitions, 4 OPEN (ARRIVAL, ENCODE, and SOURCEs and SOURCE ...)" before.]* *[Item 438: B3 and B4d at the large end moved from OPEN to readings;
 the line read "3 under a named reading of the board's ... 6 OPEN (B3, B4d, ARRIVAL, ENCODE, ...)" before.]* *[Corrected at item 437: this line had read "78
 rows, 64 lemmas and 14 inputs: 20 proved, 39 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN"
 after items 423-424 moved six rows to derived; RECON and ENCODE are 437's.]* *Corrected at item 377: this line had kept item 356's 33 derived and

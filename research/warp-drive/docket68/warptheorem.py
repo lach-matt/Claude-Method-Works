@@ -433,7 +433,8 @@ LEMMAS_NOW = [
     # [item 351] B3 and B4d split by end: the small end's worked on the one-way object (b4d_small), the large end's
     # the record's
     # [item 355] FAR's verdict accounted: B3s and B4ds OPEN -> READING (353 (a))
-    ('B', "B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247)", 'READING',
+    # [item 439] the five readings and ARRIVAL settled (settle_arrival.py), ENCODE (encode_labels.py)
+    ('B', "B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247)", 'DERIVED',
      ("lemmas/b4d_small.py D10 (351): every cell a row computed, derived, verified or M's -- before the opening B7 "
       "and B4a, the opening ARRIVALs, the hold O3s and WRITEs, the interior O1cs and O1bs, 273's region, position 2's "
       "face, the closing CLOSEs, the far boundary FARs -- the static localized hole known only numerically for one "
@@ -443,15 +444,21 @@ LEMMAS_NOW = [
       "a READING, resting as M's on M-PLANCK-ENDS and on the board's readings that remain (readings.py: the radial "
       "null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover); since 354, "
       "H-SPECIES-FINITE replaced by the hole's own species bound (readings Q27) and FARs DERIVED (Q24, Q25, Q30), so "
-      "of the board's readings only the null-dust model remains, through SOURCE (Q29)")),
-    ('B', 'B3 a complete bulk exists at the large end', 'READING',
+      "of the board's readings only the null-dust model remains, through SOURCE (Q29).  [Item 439: DERIVED -- the null-"
+      "dust model is the delivery the theorem requires (b4d_large K12, from M's 386, 162 and T0 with 324), round and at"
+      " width zero, existing exactly at the small end's order (settle_arrival A2); that SOURCEs supply it is SOURCEs' "
+      "(344-345), not this row's; was READING]")),
+    ('B', 'B3 a complete bulk exists at the large end', 'DERIVED',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
       'spacetime, read cell by cell (247); the small end in B3s (b4d_small, 351).  [Items 436-437: worked, '
       'lemmas/b4d_large.py K9 -- every cell a row computed, derived, verified or M\'s but the opening, ARRIVAL, whose '
       'delivery is Q1 (M\'s); a READING on it put to M (K10), the status unchanged until M rules].  [Item 438: M, '
       '"What does the math require?" -- the null shell, all at once (b4d_large K12, from M\'s 386, 162 and T0 with '
-      '324); M, "yes": a READING on the shell through SOURCE and on M-PLANCK-ENDS; was OPEN]')),
+      '324); M, "yes": a READING on the shell through SOURCE and on M-PLANCK-ENDS; was OPEN].  [Item 439: DERIVED '
+      'at the large end\'s order -- the opening\'s cell the bulk null shell of settle_arrival A4 (warped Vaidya, '
+      'exact near the plane; the cap O(ell^2/r0^2)); the formation in the bulk READ (Wang-Choptuik, A5); was '
+      'READING]')),
     ('B',
      ("B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk "
       'with no horizons until the opening'),
@@ -460,7 +467,7 @@ LEMMAS_NOW = [
     ('B',
      ("B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is "
       "kept, and data beyond the opening's causal future join the untouched exterior"),
-     'READING',
+     'DERIVED',
      ("lemmas/b4d_small.py D0-D12 (351): the opening regular outside our face on 340's compact reading, the onset's "
       "escape exactly at lambda <= 1/27 (D2); the hold O3s's (D3); the interior classical down to r_c = 7.09e-23 m, "
       "273's region below it (D4); position 2's face open at most 33.60 clocks (D5); the closing semiclassical until "
@@ -475,8 +482,10 @@ LEMMAS_NOW = [
       "accounted at 355: a READING, resting as M's on M-PLANCK-ENDS and on the board's readings that remain "
       "(readings.py: the radial null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and "
       "cover); since 354, H-SPECIES-FINITE replaced (readings Q27) and FARs DERIVED (Q24, Q25, Q30), so of the "
-      "board's readings only the null-dust model remains -- the opening's onset (D2) -- through SOURCE (Q29)")),
-    ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'READING',
+      "board's readings only the null-dust model remains -- the opening's onset (D2) -- through SOURCE (Q29).  [Item "
+      "439: DERIVED -- the opening is the step (b4d_large K12; settle_arrival A2), its onset hidden behind the event "
+      "horizon born 2 clocks before it, D2's ramps superseded; was READING]")),
+    ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'DERIVED',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
       "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351).  [Items "
       "436-437: worked, lemmas/b4d_large.py K0-K11 -- the opening keeps the face's size from its first instant and "
@@ -486,7 +495,11 @@ LEMMAS_NOW = [
       "M's; a READING on it put to M (K10), the status unchanged until M rules].  [Item 438: the math requires the "
       "null shell (K12: the timelike delivery excluded by 386's energy alone on the light cone, a null ramp by 162 and "
       "T0; the face of 162 the trapping horizon, the event horizon's head start every collapse's); M, 'yes': a READING "
-      "on the shell through SOURCE and on M-PLANCK-ENDS; was OPEN]")),
+      "on the shell through SOURCE and on M-PLANCK-ENDS; was OPEN].  [Item 439: DERIVED at the large end's order -- "
+      "the opening in five dimensions the bulk null shell of settle_arrival A4, the warped Vaidya metric solving the "
+      "five-dimensional equations exactly with the plane carrying its tension alone, exact near the plane and the "
+      "cap O(ell^2/r0^2); M's 232 'compute the formation in the bulk' answered by A4 and Wang-Choptuik's READ "
+      "collapse (A5); was READING]")),
     ('B',
      ("B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one"
       ' way'),
@@ -622,10 +635,13 @@ LEMMAS_NOW = [
     ('R',
      ("ENCODE the read: how a geometric object becomes binary information, in one fixed exact encoding that reads "
       "the same at every point of the 26-lattice"),
-     'OPEN',
+     'DERIVED',
      ("437 (1), (4) (M: 'we need to address turning a geometric object into binary information, it bears on your "
       "question'); 136 (5), 146, 147, 148; SOURCE's read (399's forks); bearing26 G4 (e); decides whether the "
-      "README's energy at the opening is an arrival (M-READ-DECIDES)")),
+      "README's energy at the opening is an arrival (M-READ-DECIDES).  [Item 439: DERIVED -- lemmas/encode_labels.py "
+      "C0-C7: the labels of the last state (438) in one fixed gamma-coded encoding, canonical, exact, integers only "
+      "and so the same at every point of the lattice, finite (1 cm^3 of copper 174 bits); the device that performs "
+      "the read is SOURCE's (399, M-SOURCE-READ); M-READ-DECIDES answered by the math at 438; was OPEN]")),
     ('N', "M1s the plane's reading of the corridor's mouth at the small end", 'PROVED',
      'lemmas/m1_small.py (C4 verified, 269); lemmas/c4_oneway.py (C4 one-way verified, 310)'),
     ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'DERIVED',
@@ -687,20 +703,27 @@ LEMMAS_NOW = [
       "item 354: H-GT-IN-WARP proved in Garriga and Tanaka's own field (readings Q23 -- the elongated surface "
       "untrapped once U > 2m K/(K - 1), the round tip trapped for ell < 2m, so at N_L too, Q14's bound the test "
       "form's), the cover (Q25), 166 and 226 (Q3, Q4): DERIVED")),
-    ('N', 'WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c', 'DERIVED',
+    ('N', 'WRITEs the bulk held through the whole write at the small end, its least time 9.49 clocks of r_h/c (437)',
+     'DERIVED',
      ("lemmas/write_cypher.py W5: the README's localized hole is static, lasts 1.28e10 times the floor (C5 U4, "
       'verified), keeps (Z) as a vacuum bulk, survives (stability S6, Schlue READ) and stands -- T_WRITE and T_O3 '
-      "data; the hold the face standing (334), lasting the life (336), 163's floor bounding the write")),
-    ('N', 'WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c', 'DERIVED',
+      "data; the hold the face standing (334), lasting the life (336), 163's floor bounding the write.  [Item 439: the "
+      "name read '>= 66,980 clocks of r_h/c', S2's free-field floor, which stood on H-BITS-ARE-STATES (425) and gave "
+      "way at 432 (1); the least write by the math is 9.49 clocks (437 (2), encode_read E5), and the hold proved here, "
+      "the life, covers either]")),
+    ('N', 'WRITE the static bulk held through the whole write at the large end, its least time 28.48 clocks of m/c',
+     'DERIVED',
      ("lemmas/write_large.py X1-X3 (item 362): the large brane hole is static (Figueras-Wiseman, READ; dM/M 1.0e-11 "
       "over the floor), lasts 3.3e10 times the floor at the example README (close_large L3), keeps (Z) as a vacuum bulk "
       "(m1_large M1, M2), survives (stability S6 at kappa = 1/(4M); Figueras-Wiseman's 'dynamically stable', READ) and "
       "stands -- T_WRITE and T_O3 data in all five languages and statistics 2-6; the hold the face standing (334), "
-      "lasting the life (336); the record's eq. (17) cells stand as its end")),
+      "lasting the life (336); the record's eq. (17) cells stand as its end.  [Item 439: the name read '>= 199,702.19 "
+      "clocks of m/c', the free-field floor, set aside as at WRITEs; the least write 28.48 clocks (437 (2), "
+      "encode_read E5); the hold covers it 2.33e14 times (b4d_large K3)]")),
     ('N',
-     ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild "
-      "at position 2 under its laws and take their room"),
-     'READING',
+     ("ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, all at once; the bits "
+      "rebuild at position 2 under its laws and take their room"),
+     'DERIVED',
      ("lemmas/arrival_small.py V0-V14 (338, 340, 343, 344, 348): for the math with M's guess A (340), the math on M's "
       "statements giving reading (ii), compact -- G_vv >= 0, no partner, one E (V1); the face born before the onset and"
       " the coarse second law kept only for an arrival within 4.79 clocks, the radial model's figure, its scale what "
@@ -709,16 +732,25 @@ LEMMAS_NOW = [
       "the approach (V5); position 2's release E2/E = (G5/G5_2)^(1/3) under 240 (b) (V6); the room, 285 (b)'s figures "
       "(V7); the rebuild's steps M's (V8) -- the board's reading of 340; finalized by M and accounted before its "
       "verifier (V13, 344); verified, CONFIRMED with qualifications (348) -- V11 (b)'s censorship sentence refuted at "
-      "order 4, the compact reading strengthened, the qualifications seated in item-348 notes and V14")),
+      "order 4, the compact reading strengthened, the qualifications seated in item-348 notes and V14.  [Item 439: "
+      "DERIVED -- the delivery is the step, the compact range's member at width zero (b4d_large K12; settle_arrival "
+      "A2: exact at the small end's order), round in the bulk; V11's '5.39 clocks, 8.0e-5 of the write' and V5's floor "
+      "superseded (0.568 of the least write for the ramp, nothing for the step); that SOURCEs supply the step is "
+      "SOURCEs' (344-345), not from our plane alone (settle_arrival A3); the name read 'one E, compact'; was "
+      "READING]")),
     ('N',
      "ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; 437 (3))",
-     'OPEN',
+     'DERIVED',
      ("the record's (arrival_cypher, README-HELD.md, four-dimensional): 284 (d), 285 (d); formation in the bulk (179); "
       "the small end in ARRIVALs (338).  [Item 437 (3), M: 'yes' -- re-worded from 'forms the corridor as it comes "
       "in' (198) on 432 (1), T0 and 162 (LATTICE-BEARING 3); whether the energy at the opening is an arrival turns on "
       "the read, ENCODE (M-READ-DECIDES, 437 (1))].  [Item 438: the math requires the arrival to be the null shell "
       "at the opening, all at once (b4d_large K12); whether the README comes in so is SOURCE's -- as ARRIVALs, a "
-      "READING through SOURCE, put to M; status unchanged]")),
+      "READING through SOURCE, put to M; status unchanged].  [Item 439: DERIVED at the large end's order -- the "
+      "arrival is the bulk null shell of settle_arrival A4, conforming to the large hole, reading on the plane as the "
+      "4D step (no partner, one E, held whole, onset hidden: arrival_large A1-A3); the formation in the bulk M asked "
+      "at 232 answered by A4 and Wang-Choptuik's READ collapse onto the static hole (A5); that SOURCE supplies it is "
+      "SOURCE's (344-345); was OPEN]")),
     ('N',
      ("CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; "
       "position 2's face within its open period"),
@@ -738,20 +770,28 @@ LEMMAS_NOW = [
       "J2), <= 2.7e-3 clocks at r0 = 10 ell on 139 (1)'s quarter (J1 at the large end, 15 (r0/ell)^2)")),
     # [item 344] M-SOURCE-IN-THE-MAP, split by end at item 346 (M-SOURCE-BY-END); both worked last (M-SOURCE-LAST, 345)
     ('N',
-     ("SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not "
-      "null dust, and coming in onto the README's own five-dimensional hole (344, 346)"),
+     ("SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own "
+      "five-dimensional hole as the theorem requires (344, 346, 386, 439)"),
      'OPEN',
      ("deferred by M (344, M-SOURCE-IN-THE-MAP): worked after every other open row is decided (M-SOURCE-LAST, 345), "
       "defined for its own end (M-SOURCE-BY-END, 346); until then no row rests on it -- ARRIVALs models it as radial "
       "null dust in the bulk and WRITEs as write_small S3's free gas on the plane (H-README-ON-PLANE), arrival_small "
-      "V12 naming what carries without the model")),
+      "V12 naming what carries without the model.  [Item 439: the name read 'written there as a gas of the plane's "
+      "fields, not null dust' -- 'gas' withdrawn at 386 (SOURCE-REQUIRED 1', 2'); what it must supply, from the "
+      "completed rows (344-345): E(N), no rest mass, as a round null shell in the bulk crossing the face's whole "
+      "3-sphere at once (settle_arrival A2, A7), not from our plane alone (A3); the read, ENCODE's device, is its "
+      "(399)]")),
     ('N',
-     ("SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not "
-      "null dust, and coming in onto the four-dimensional corridor (344, 346)"),
+     ("SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as "
+      "the theorem requires (344, 346, 386, 439)"),
      'OPEN',
      ("deferred by M (344, M-SOURCE-IN-THE-MAP): worked after every other open row is decided (M-SOURCE-LAST, 345), "
       "defined for its own end (M-SOURCE-BY-END, 346); until then no row rests on it -- the large end's ARRIVAL and "
-      "WRITE are open, README-HELD.md's four-dimensional models the record's")),
+      "WRITE are open, README-HELD.md's four-dimensional models the record's.  [Item 439: the name read 'written there "
+      "as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor' -- 'gas' "
+      "withdrawn at 386; ARRIVAL and WRITE are DERIVED; what it must supply: E(N) as a null shell in the bulk "
+      "conforming to the large hole, e^(2y/ell)-weighted near the plane, reading on the plane as the 4D step with no "
+      "matter there (settle_arrival A4, A7); the read, ENCODE's device, is its (399)]")),
 ]
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',

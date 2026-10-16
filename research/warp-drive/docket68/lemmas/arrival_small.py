@@ -207,6 +207,8 @@ V14.]
      cone (386), so the delivery is null, and a null inflow keeps 162 only as a step.  The step is the zero-width member
      of (b)'s compact range, w = 0 <= 4.79 clocks, its face born 2 clocks before it; the growth above does not arise, and
      V11 (b)'s conclusion, compact, stands at its limit.]
+     [Item 439: ARRIVALs DERIVED (settle_arrival A2, A6): the step exists exactly at the small end's order, round in the
+     bulk; that SOURCEs supply it is SOURCEs' -- not from our plane alone (A3) -- and the row does not rest on it.]
      [Item 348 (Q1, Q9, Q10), the verifier: (b)'s "Censorship admits a spread arrival only at onset orders 1 and 4 and
      above (V3)" is REFUTED at order 4 (V3's item-348 note, V14 (a)). Correct: among the orders computed, censorship
      admits a spread arrival only at order 1, and at order 2 below 9 clocks; at orders 3 and 4 every arrival wider than

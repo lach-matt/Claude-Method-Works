@@ -253,6 +253,11 @@ goes to M; the board does not rule on M's meaning.
      any converging matter, as o1c_oneway's item-337 note records (Z8 (Q2), (Q7), (Q8)): "Z2b's causal argument needs
      neither". So the shell carries nothing RDUST does not; the README's true form, a gas of our plane's fields (344), is
      SOURCEs's to define, and RSHELL goes through SOURCE with RDUST (M-SOURCE-LAST).
+     [Items 438-439, beside Q29, not repairing it: RDUST and RSHELL are no longer readings.  "Gas" was withdrawn at 386
+     (SOURCE-REQUIRED 1', 2'); the math requires the README to come in as the null shell, all at once (b4d_large K12,
+     from M's 386, 162 and T0 with 324), and the step exists exactly at the small end's order (settle_arrival A2) and
+     in the bulk at the large end's (A4).  That SOURCE supplies it is SOURCE's (344-345); the rows resting on RDUST --
+     ARRIVALs, B3s, B4ds -- are DERIVED at 439.]
   Q30 (computed, exact; deduced; estimate where marked) FARs rests on neither of the two readings the inventory listed
      for it that go through SOURCE.  (a) RGAS, the carrier a free gas, enters FARs only through the write's floor T,
      which sets the reach the cover must enclose; FARs holds at every U past the reach whatever T is (Q25).  (b) RDUST,

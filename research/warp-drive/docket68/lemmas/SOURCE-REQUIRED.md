@@ -5,6 +5,27 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 439: what the completed rows require of SOURCE (`settle_arrival.py` A7, `encode_labels.py` C7)
+
+M, 344: "we need the completed warp theorem to tell us what is required" (M-SOURCE-LAST, 345). With ARRIVAL, ENCODE
+and the five readings settled at 439, the rows now say what the source must supply. Continuing the numbering below:
+
+19. **The README's energy comes onto the face as a null shell, all at once.** E(N), energy alone with no rest mass
+    (386; 1', 2'), crossing the face's whole surface at one instant, so that the face has its full size from its first
+    instant and nothing crosses or shears it after (162, T0; b4d_large K12; settle_arrival A1). Derived.
+20. **At the small end it comes through the bulk, round.** A null shell in the bulk crossing the hole's whole 3-sphere
+    at once (settle_arrival A2, exact at the small end's order). Light sent from our plane cannot do it: its front
+    reaches the face spread over one face clock and pressed onto the plane (A3, computed). So the README's last leg is
+    in the bulk (180, the corridor exclusive to the bulk). Derived.
+21. **At the large end it comes through the bulk, conforming to the large hole.** A null shell in the bulk, weighted as
+    e^(2y/ell) near the plane, the warped Vaidya metric (settle_arrival A4, exact near the plane, the cap at the large
+    end's order). On our plane it reads as the four-dimensional step with no matter there. Matter collapsing on our
+    plane does form the large hole in the bulk (Wang and Choptuik, READ, A5), but leaves its face to settle, which 162
+    refuses. Derived.
+22. **The read is the source's.** ENCODE's encoding is fixed (encode_labels C0-C6: the labels of the last state, 174
+    bits for 1 cm^3 of perfect copper); the device that reads each atom's Z and place to within half a spacing, exactly,
+    is SOURCE's (399, M-SOURCE-READ; requirement 14). Demonstrated at 1e4 atoms, not at a body's 1e23 (C7, READ).
+
 ## Item 427: every sigma reachable -- the junction on position 2's face is the board's, and it gives way
 
 M, 427: "Destination with any σ is supposed to be reachable" (M-ANY-SIGMA-REACHABLE), to the board's 426 line that a
