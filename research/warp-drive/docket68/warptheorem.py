@@ -968,7 +968,9 @@ def lemma_selftests():
               # item 442 (4), approved: B5b's wall
               "b5b_wall.py",
               # item 443 (3), approved: the instruments of 441-442
-              "b6p_prove.py", "b7_geometry.py", "room_work.py", "prior_art.py", "phase2.py", "refound.py"):
+              "b6p_prove.py", "b7_geometry.py", "room_work.py", "prior_art.py", "phase2.py", "refound.py",
+              # item 446 (5), approved: the deeper research of 443-445
+              "bounce_scope.py", "c1_inner.py", "c2_quantum.py", "mmp_corridor.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
