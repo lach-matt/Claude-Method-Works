@@ -168,3 +168,54 @@ probability at low energies … the ideal carriers of information through them".
 
 **The protocol view.** Gao–Jafferis–Wall (1608.05687) and Maldacena–Stanford–Yang (1704.05333): the passage is a
 teleportation protocol in which "the teleportee feels nothing special".
+
+## 8. The re-posed C2, computed (item 445 (1); `c2_quantum.py`, selftest 6/6, mutants 3/3)
+
+**The approximation** is the papers' own (§2): the s-wave Polyakov stress tensor in the collapse's "in" vacuum, on the
+fixed background (first order in ħ). Four-dimensional components are the two-dimensional ones over 4πr².
+
+**The three components after the shell (computed, exact).** Write g = 2ff″ − f′², and r_s for the radius at which an
+outgoing ray crossed the shell.
+- Incoming: T_vv = (ħ/192π) g(r). In four dimensions that is (ħ/(96π²r²))(−M/r³ + 3M²/(2r⁴)).
+  - It is negative outside 3M/2. At the horizon it is the influx −L/(4π(2M)²), with L = ħ/(768πM²) the Polyakov
+    luminosity.
+  - It is **positive inside 3M/2**. In five dimensions it is positive inside √(2/3) r_h.
+- Outgoing: T_UU/r_U² = (ħ/48π)(g(r) − g(r_s))/f(r)². On late rays it returns the Hawking flux L at infinity.
+  - Since g′ = 2ff‴ with f‴ > 0, g falls inward wherever f < 0. So **T_UU > 0 inside the trapped region**.
+- The trace: T_Uv/r_U = ħR/(48π), with R = −f″ > 0.
+- Encoding guard: the chart's mixed derivatives commute.
+
+**The mass grows inward (computed, exact; deduced).**
+- At fixed v, ∂_r m = −(ħ/48π) B, where B = −f″ − (g(r) − g(r_s))/(2f(r)).
+- B > 0 at every point of the trapped region, at both ends. The reasons: f < 0 on (0, r_h), g is monotone there, and
+  R > 0. A grid check agrees (least B 2.24 at four dimensions, 6.96 at five, in units of the horizon).
+- So m(v, r) > m(v, r_ah) for every r inside the apparent horizon, and 2m/r > 1 all the way to the centre.
+  **No inner horizon.**
+- Along outgoing rays, dm/dv = (ħ/192π)(4ff″ − f′²). It is −L on the horizon, which is the evaporation, and positive
+  inside 7M/4.
+- The plane's multiplier c scales every term and changes no sign.
+
+**Where the multiplier makes it large (computed; estimate).**
+- Near the centre B → 7M/r³ (10μ/r⁴ in five dimensions). So the first-order mass gain is 7ħM/(96πr²).
+- With ħ l_P² → c l_P² = πℓ²/8, that gain equals M at r₁ = ℓ√(7/768) = **0.0955 ℓ = 1.33 μm**.
+- That is inside ℓ, where the plane's hole is five-dimensional and the four-dimensional dual reading stops. The
+  first-order term is past its validity there, but it is positive all the way in.
+
+**What C2 settles (deduced).**
+- The in vacuum's negative energy sits outside 3M/2 and shrinks the outer horizon. At the centre every component
+  focuses.
+- So the neutral null delivery has no inner horizon, either classically (C1) or at first order in the quantum fields,
+  multiplied or not.
+- Barceló et al.'s growth (eqs. 64, 68) therefore has nothing to amplify, and **C3 does not run on the neutral
+  delivery**. This is not a finding that the bounce is unprovable (443 (2)). It locates what the proof needs: an inner
+  horizon from somewhere else.
+- The one established physics offers is a charge's. With a charge, f‴ changes sign inside (the instrument's "tidal"
+  mutant fails exactly there), and the trapped region stops short of the centre. The stress tensor at that inner
+  horizon is the one 2011.07331 and 2506.04845 amplify into the black-to-white transition.
+- That is the near-extremal Reissner–Nordström mouth of 445 (2)'s device. **Route A continues through route B's
+  mouths.**
+- The plane's own Weyl term does not supply it in the case its source computes. Dadhich, Maartens, Papadopoulos and
+  Rezania (hep-th/0003061, READ, abstract): "The tidal correction to the Schwarzschild potential is negative, which
+  is impossible in general relativity, and in this case only one horizon is admitted, located outside the
+  Schwarzschild horizon." A positive tidal term would act as a charge does (c1_inner's "inner" mutant), but nothing
+  here fixes that sign.

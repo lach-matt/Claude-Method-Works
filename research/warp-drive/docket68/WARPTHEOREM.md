@@ -1124,6 +1124,17 @@ state was rebuilt first.
   coupled by fermion exchange, embeddable in the Standard Model; fermions traverse with unit probability
   (2606.12528). Its mouths are magnetically charged and it is two-way: both part from the record (the README's
   uncharged face; 270, 276).
+- **Item 445** (M: "1 - yes 2 - Should I compute this wormhole on the plane as the corridor? - yes").
+  **C2, re-posed** (`lemmas/c2_quantum.py`, 6/6, mutants 3/3; BOUNCE-RESEARCH section 8): the s-wave Polyakov stress
+  tensor in the collapse's in vacuum, first order. T_vv = (hbar/192 pi)(2ff'' - f'^2): negative outside 3M/2 (the
+  horizon influx -L/(16 pi M^2)), positive inside; T_UU/r_U^2 = (hbar/48 pi)(g(r) - g(r_s))/f^2 > 0 in the trapped
+  region (the Hawking flux L at infinity); the trace T_Uv/r_U = hbar R/(48 pi) > 0. The Misner-Sharp mass grows
+  inward at every point of the trapped region at both ends, so 2m/r > 1 to the centre: no inner horizon, multiplied
+  or not (the multiplier scales every term). The first-order gain reaches M at 0.0955 ell = 1.33 um, inside ell.
+  C3 does not run on the neutral delivery; the inner horizon the mechanism needs is a charge's -- the
+  near-extremal Reissner-Nordstrom mouth of 445 (2)'s device, so route A continues through route B's mouths. Not a
+  finding that the bounce is unprovable (443 (2)); the brane's own tidal term, in its source's case, gives one
+  horizon (hep-th/0003061, READ).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
