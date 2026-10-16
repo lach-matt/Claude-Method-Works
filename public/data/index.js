@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-10-16T15:47:41+00:00",
-  "commit": "3c97e1734304",
+  "built": "2026-10-16T19:59:27+00:00",
+  "commit": "83d55b46f5c0",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "3c97e1734304",
-   "text": "Lach, M. (2026). The Master Index, edition 3c97e1734304. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 3c97e1734304}\n}"
+   "commit": "83d55b46f5c0",
+   "text": "Lach, M. (2026). The Master Index, edition 83d55b46f5c0. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 83d55b46f5c0}\n}"
   },
   "history": [
    {
@@ -359,13 +359,62 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "files": 124,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0b84e59f92607a77aeb4ed259a44bf13cba32e4e",
     "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "f4a9bfd2",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/f4a9bfd26425ed0f105f0fb1465d31af7a7575db",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "730597a4",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/730597a4b34e5595e1c2adea570878347c1408cd",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "6fe9c989",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/6fe9c9895d39290646c8a9a37752057fb2984456",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "9fd08b48",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/9fd08b48e9bf7003d393b82a5a37209bb9272d80",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "98dea573",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/98dea57365376a20df48be52e8d018978ac8f4b8",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "8b2537c4",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8b2537c495b2a525ba375f078cae416a9ec1f6bf",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "83d55b46",
+    "files": 2,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/83d55b46f5c0e1128a4e2cfa10e437a847e47820",
+    "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 1300199,
-  "md5": "9c0d92098d38ba2e29680c9f98c24276",
+  "bytes": 1299845,
+  "md5": "a5821986d260ac7f51fd38b25f1f5dc8",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -867,8 +916,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 1300199,
-   "md5": "9c0d92098d38ba2e29680c9f98c24276",
+   "bytes": 1299845,
+   "md5": "a5821986d260ac7f51fd38b25f1f5dc8",
    "what": "the released papers, rendered"
   },
   {

@@ -1038,8 +1038,13 @@ wanted (a citation followed inside the page pushes one) the page steps to it rat
 copy, so Back and Forward never pass through an entry with nothing changing. Without the API every
 write replaces the entry, as the explorer's routes do: nothing navigates wrongly, but Back leaves a
 paper read from the list as it did before, and a citation closed inside the page leaves one entry
-that Back passes through. Every path that
-shows a paper puts focus on it (`focusPapers`), and while any dialog is open the explorer's keys
+that Back passes through. Back onto the entry a paper was shown over closes it without selecting
+the explorer again, so the camera, the zoom and a phone's scroll stay as the reader left them; a
+selection that lands while the address names a paper (a slow load finishing behind the dialog)
+moves the explorer only and leaves the paper's entry alone; and a load at a paper's address (a
+reload, a restored tab) puts the explorer on the node the entry behind the paper holds, so closing
+it returns there. Every path that shows a paper puts focus on it (`focusPapers`), a rotation keeps
+the block at the top of the paper where it was, and while any dialog is open the explorer's keys
 (`h`, the arrows, `+`/`−`) do not act behind it. Until 2026-10-16 the router did not read that form,
 and a citation's address opened the front page. The text is the
 author's own and is shipped as written — the public-build guard is not run over `papers.js`, and
@@ -1120,7 +1125,10 @@ and linked a DOI that does not exist, and an old-style arXiv id may carry a vers
 link's target, which keeps its own link. Measured over every source the site reads, the two
 identifier repairs change this paper alone and leave the References dialog's counts as they were;
 the selftest checks that no paper's render keeps a backslash escape outside code or a table cell cut
-at an escaped pipe.
+at an escaped pipe. A Markdown link is read only where its target is an address (`http(s)://`,
+`mailto:`, `#`, a path): the index paper writes operators applied to sets as `cl[L](X)`, which the
+bare `[text](target)` rule had turned into six links to a page named X. No paper on the site uses
+a link of any other kind, and the selftest carries the case.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,

@@ -1641,8 +1641,14 @@
       try { slug = decodeURIComponent(slug); } catch (e) { /* as typed */ }
       slug = slug.split(/[?&#\s]/)[0].replace(/[.,;:!?)\]}>'"/]+$/, '').toLowerCase();
       state.lastHash = h;
-      if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
-      // a first load waits for the explorer's root: open the paper only if the address still names it
+      // a first load (a reload, a restored tab, a citation followed from elsewhere): the explorer takes the
+      // node the entry behind the paper holds, as it showed before, so closing the paper steps back to it;
+      // with no such entry, the root. Open the paper only if the address still names it after the wait
+      if (!state.selected) {
+        const behind = entryBehind();
+        if (behind) await routeHash(behind, { fly, ms, setHash: false, reveal: false });
+        if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
+      }
       if (location.hash !== h) return;
       openPaper(slug);
       return;
@@ -1654,16 +1660,33 @@
       const d = $('#dlg-papers'); if (d.open) d.close();
       if (state.selected && h === hashOf(state.selected)) { state.lastHash = h; return; }
     }
+    return routeHash(h, { fly, ms, reveal });
+  }
+  // an explorer address to its node
+  function routeHash(h, opts) {
     const p = parseHash(h);
-    if (!p || p.root) return select(rootNode, { fly, ms, reveal });
-    if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, { fly, ms, reveal });
-    if (p.pindex !== undefined) return goToParticle(p.pindex, p.member, { fly, ms, reveal });
+    if (!p || p.root) return select(rootNode, opts);
+    if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, opts);
+    if (p.pindex !== undefined) return goToParticle(p.pindex, p.member, opts);
     if (p.ghost) {
       const g = state.ghosts.find((x) => x.p === p.ghost.p && x.g === p.ghost.g);
-      return g ? select({ kind: 'ghost', ...g }, { fly, ms, reveal }) : select(rootNode, { fly, ms, reveal });
+      return g ? select({ kind: 'ghost', ...g }, opts) : select(rootNode, opts);
     }
-    if (p.iso) return goToIsotope(p.Z, p.A, { fly, ms, reveal });
-    return goToPath(p.Z, p.charge, p.l, p.mult, { fly, ms, reveal });
+    if (p.iso) return goToIsotope(p.Z, p.A, opts);
+    return goToPath(p.Z, p.charge, p.l, p.mult, opts);
+  }
+  // the explorer address the same-document history entry just behind this one holds, where the
+  // Navigation API names it; null where it is absent, cross-document or itself a paper's address
+  function entryBehind() {
+    try {
+      const nav = window.navigation, cur = nav && nav.currentEntry;
+      if (!cur || typeof nav.entries !== 'function') return null;
+      const e = nav.entries()[cur.index - 1];
+      if (!e || !e.sameDocument || !e.url) return null;
+      const u = new URL(e.url);
+      if (u.origin !== location.origin || u.pathname !== location.pathname || u.search !== location.search) return null;
+      return u.hash && u.hash !== '#' && !/^#paper=/.test(u.hash) ? u.hash : null;
+    } catch (e) { return null; }
   }
 
   // ---------------------------------------------------------------- crumbs
