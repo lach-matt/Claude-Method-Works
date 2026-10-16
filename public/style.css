@@ -205,6 +205,9 @@ h1, h2, h3, h4 { margin: 0; }
 #canvas { display: block; width: 100%; height: 100%; touch-action: none; cursor: grab; }
 #canvas.is-dragging { cursor: grabbing; }
 #canvas:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* the paper body takes focus when a paper opens by its address, so the keyboard scrolls it; it is a
+   scroll box, not a control, and draws no ring */
+#papers-body:focus { outline: none; }
 
 #legend {
   position: absolute; left: 16px; bottom: 16px; padding: 8px 12px; border: 1px solid var(--line);

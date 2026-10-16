@@ -1629,14 +1629,21 @@
     const h = location.hash;
     if (h === state.lastHash) return;
     // a paper's own address, as its cite line prints it: open the Papers dialog on that paper,
-    // the explorer staying where it is (at the root on a first load)
-    const pm = /^#paper=([A-Za-z0-9-]+)$/.exec(h);
+    // the explorer staying where it is (at the root on a first load). Read loosely, as a citation
+    // is pasted: decoded, cut at a query or a space, trailing punctuation dropped, any case; the
+    // held paper's render then writes the address back in its own form
+    const pm = /^#paper=(.*)$/s.exec(h);
     if (pm) {
+      let slug = pm[1];
+      try { slug = decodeURIComponent(slug); } catch (e) { /* as typed */ }
+      slug = slug.split(/[?&#\s]/)[0].replace(/[.,;:!?)\]}>'"/]+$/, '').toLowerCase();
       state.lastHash = h;
       if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
-      openPaper(pm[1]);
+      openPaper(slug);
       return;
     }
+    // the address has left the paper it named (Back, a link, a typed route): close that paper
+    if (/^#paper=/.test(state.lastHash || '')) { const d = $('#dlg-papers'); if (d.open) d.close(); }
     const p = parseHash(h);
     if (!p || p.root) return select(rootNode, { fly, ms, reveal });
     if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, { fly, ms, reveal });
@@ -3494,6 +3501,19 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     renderPapers(slug);
     const d = $('#dlg-papers');
     if (!d.open) d.showModal();
+    // showModal focuses the close button, where Space would close the paper: the paper takes focus,
+    // so Space, PageDown and End scroll it as they do when it is opened from the list
+    const host = $('#papers-body');
+    host.tabIndex = -1;
+    host.focus({ preventScroll: true });
+  }
+  // the address names the paper the Papers dialog shows, and the explorer's node once it shows none.
+  // replaceState, as select() does: no history entry is added and no hashchange fires
+  function paperAddress(slug) {
+    const h = slug ? '#paper=' + slug : hashOf(state.selected || rootNode);
+    if (!slug && !/^#paper=/.test(location.hash)) return;
+    state.lastHash = h;
+    if (location.hash !== h) history.replaceState(null, '', h);
   }
   function paperCite(pp) {
     const m = state.index.meta || {}, c = m.cite || {};
@@ -3505,6 +3525,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     ensurePapers().then((papers) => {
       const sum = (state.index.papers || {});
       if (!slug) {
+        state.paperSlug = null;
+        paperAddress(null);
         host.innerHTML = `<p class="note">The papers the author has released to this site, as written. Each is rendered at build from its own text; its figures travel with the md5 the repository's ledger records. ${sum.papers ? badge('READ', 'the paper\'s own text; nothing in it is edited for the site') : ''}</p>
           <div class="paper-list">${papers.map((pp) => `<div class="paper-card${pp.held ? '' : ' is-slot'}">
             <h3>${esc(pp.title)}</h3>${pp.subtitle ? `<p class="paper-sub">${esc(pp.subtitle)}</p>` : ''}
@@ -3523,10 +3545,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       }
       const pp = papers.find((x) => x.slug === slug);
       if (!pp || !pp.held) {
+        state.paperSlug = null;
         host.innerHTML = `<div class="paper-head"><button type="button" class="ghost" data-act="papers-back">← all papers</button></div><p class="note">no paper named “${esc(slug)}” is held.</p>`;
         host.querySelector('[data-act="papers-back"]').addEventListener('click', () => renderPapers());
         return;
       }
+      state.paperSlug = pp.slug;
+      if ($('#dlg-papers').open) paperAddress(pp.slug);
       host.innerHTML = `<div class="paper-head"><button type="button" class="ghost" data-act="papers-back">← all papers</button>
           <span class="note">${esc(pp.author || '')} · md5 <span class="mono">${esc((pp.md5 || '').slice(0, 12))}</span> ${badge('READ', 'the paper\'s own text, rendered at build')}</span></div>
         <div class="paper-layout">
@@ -4030,7 +4055,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (state.index.particles || state.index.particle_index) $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
     else $('#btn-particles').hidden = true;
     $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });
-    $('#btn-papers').addEventListener('click', () => { if (!$('#papers-body').innerHTML) renderPapers(); $('#dlg-papers').showModal(); });
+    $('#btn-papers').addEventListener('click', () => { if (!$('#papers-body').innerHTML) renderPapers(); $('#dlg-papers').showModal(); if (state.paperSlug) paperAddress(state.paperSlug); });
+    // closing the dialog (✕, Escape, the backdrop) gives the explorer its address back, so the same
+    // citation followed again reopens the paper. The close event is asynchronous: it acts only while
+    // the dialog is still closed and the address is still the one this page wrote
+    $('#dlg-papers').addEventListener('close', () => { if (!$('#dlg-papers').open && location.hash === state.lastHash) paperAddress(null); });
     $('#btn-figures').addEventListener('click', () => { renderFigures(); $('#dlg-figures').showModal(); });
     $('#btn-glossary').addEventListener('click', () => $('#dlg-glossary').showModal());
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
