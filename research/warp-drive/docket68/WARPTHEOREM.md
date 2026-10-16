@@ -903,6 +903,16 @@ state was rebuilt first.
   at every sigma (`lemmas/SOURCE-REQUIRED.md`, "Item 427"). The register's sigma2 != sigma holds on M1P2x, E1x and H2tx,
   and the junction clause on O1b/O1c, are put to M to lift. How the object meets two sigmas without a junction joins the
   model of 426.
+- **Item 428** (M: "Approved. And Still open from 426: what holds the face at the README's size at the opening? - for
+  the math to decide, start will b synchronization"): **the register change applied.** H2tx, E1x and M1P2x at the
+  large end are DERIVED at every sigma, 424's hold at sigma2 != sigma lifted; O1b and O1c rest on the object standing
+  from the opening (426), which the board models, in place of item 423's clauses (a junction where position 2's sigma
+  differs, SOURCE's arrival width at ours), withdrawn at 426-427. The register's OPEN rows at the large end: ARRIVAL,
+  B3 and B4d, with SOURCE. What holds the face at the README's size at the opening is for the math to decide, and the
+  math starts from synchronization (136 (7)); its approach goes to M before any computation (414).
+  *The register's full selftest on the state after item 425's gate repair came back 12/12. The fresh interior
+  verifier was cut off by an API rate limit at 01:37 UTC on 2026-10-15, mid-way through the instruments' selftests,
+  and left no verdict; it was resumed at 06:02 UTC on 2026-10-16 on the same claim (md5s re-measured identical).*
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -930,12 +940,12 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | H | H2 our face and position 2's face hold the README as one null surface | derived | -- | 270 (a); c7_oneway V11 (Q4) |
 | H | H2tu within one universe the horizon's trace on each plane is r = r_h | derived | M1s | rows_small.py |
 | H | H2txs between universes position 2's horizon holds the README at its own bit area, at the small end | derived | M1s M1P2xs | copy_p2.py C1; c7_oneway V12 (Q3) |
-| H | H2tx between universes position 2's horizon holds the README at its own bit area, at the large end | derived | M1P2x | copy_p2.py C1 (m1p2x_large Y8, 362); rests on M1P2x; at sigma2 != sigma by 389 not finalized (424) |
+| H | H2tx between universes position 2's horizon holds the README at its own bit area, at the large end | derived | M1P2x | copy_p2.py C1 (m1p2x_large Y8, 362); rests on M1P2x; at every sigma (428, approved; 424's hold at sigma2 != sigma lifted) |
 | O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | -- | 270, 273, 276, 282; c1_oneway.py |
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
-| O | O1b no curvature singularity on the passage at the large end | derived | M1 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS (422); at our sigma also SOURCE's arrival width (389) |
-| O | O1c every causal route of the passage complete at the large end | derived | M1 | focusing_parts.py F4; H-CORE-DELIVERS (422); at our sigma also SOURCE's arrival width (389) |
+| O | O1b no curvature singularity on the passage at the large end | derived | M1 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS (422); on the object standing from the opening (426), modelled by the board (428) |
+| O | O1c every causal route of the passage complete at the large end | derived | M1 | focusing_parts.py F4; H-CORE-DELIVERS (422); on the object standing from the opening (426), modelled by the board (428) |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
 | O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | derived | WRITEs | o3_hold.py |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | derived | WRITE | o3_large.py Q1-Q4 (362), re-posed as O3s |
@@ -974,7 +984,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | E | E2us within one universe, position 2's face releases its own energy at its closing, at the small end | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
 | E | E2u within one universe, position 2's face releases its own energy at its closing, at the large end | derived | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362) |
 | E | E1xs between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses, at the small end | derived | -- | 336; 240; close_small.py K9 |
-| E | E1x between universes, nothing of our E crosses; the README crosses, at the large end | derived | CLOSE | close_large.py L3; the timing met by identity at our sigma (390, junction_own G10); at sigma2 != sigma item 10, by 389 not finalized (424) |
+| E | E1x between universes, nothing of our E crosses; the README crosses, at the large end | derived | CLOSE | close_large.py L3; the timing met by identity at every sigma (390, junction_own G10; 427, 428 approved) |
 | E | E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build uses, at the small end | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
 | E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | derived | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362) |
 | E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | derived | -- | ledger.py |
@@ -990,7 +1000,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1s the plane's reading of the corridor's mouth at the small end | proved | -- | m1_small.py, c4_oneway.py |
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | derived | -- | m1_large.py M0-M10 (356) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
-| N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | derived | M1 | m1p2x_large.py Y1-Y9 (362); the emergence met by identity at our sigma (390, junction_own G10); at sigma2 != sigma item 10, by 389 not finalized (424) |
+| N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | derived | M1 | m1p2x_large.py Y1-Y9 (362); the emergence met by identity at every sigma (390, junction_own G10; 427, 428 approved) |
 | N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355 |
 | N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | derived | -- | far_large.py L0-L11 (350-355); verified 355 |
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |

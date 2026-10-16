@@ -311,8 +311,8 @@ LEMMAS_NOW = [
     ('H', "H2tx between universes position 2's horizon holds the README at its own bit area, at the large end",
      'DERIVED',
      ("copy_p2 C1 (240) holds at its own bit area, capacity N in every position 2 (m1p2x_large Y8, item 362); it rests "
-      "on M1P2x, DERIVED at our sigma (item 424) -- at a destination whose own sigma differs, on item 10 through "
-      "M1P2x, by 389 not finalized there.  Item 362: OPEN, the README's emergence ARRIVAL's (358 (c))")),
+      "on M1P2x, DERIVED at every sigma (item 428, approved).  Item 424: DERIVED at our sigma, held at sigma2 != "
+      "sigma (389), the hold lifted at 427-428.  Item 362: OPEN, the README's emergence ARRIVAL's (358 (c))")),
     ('O',
      ("O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's "
       'white-hole face'),
@@ -335,14 +335,16 @@ LEMMAS_NOW = [
       "F1-F6 (419: every part reaches its focus in finite affine parameter, curvature finite before x = 1); "
       "lemmas/core_face.py A1-B4 (420: the face static from the arrival's end); the core inside r ~ ell delivering "
       "every part to 273's bounce is M's H-CORE-DELIVERS (422), assumed, not derived -- the 4D stretch exact, the "
-      "earliest parts hidden if the face is born first (F5: met by the junction where position 2's sigma differs "
-      "from ours; at our sigma it rests also on SOURCE's arrival width, 4.31-8 clocks by order, and by 389 is not "
-      "finalized until SOURCE is) -- item 423: approved.  Item 356: entered OPEN (the record's o1c_complete was eq. "
+      "earliest parts hidden because the face stands before the first part: it rests on the object standing from "
+      "the opening (M's 426), which the board models (item 428, approved; it replaces item 423's clauses -- a "
+      "junction where position 2's sigma differs, SOURCE's arrival width of 4.31-8 clocks at ours -- withdrawn at "
+      "426-427) -- item 423: approved.  Item 356: entered OPEN (the record's o1c_complete was eq. "
       "(17)'s, superseded; the large hole's exterior Figueras-Wiseman's, READ)")),
     ('O', 'O1c every causal route of the passage complete at the large end', 'DERIVED',
      ("with O1b: lemmas/focusing_parts.py F4 (every part's route complete to its focus, any geometry), "
-      "H-CORE-DELIVERS (M's, 422: on to 273's bounce), position 2's side by time reversal (414 (d)); at our sigma "
-      "it rests also on SOURCE's arrival width (389) -- item 423: approved.  Item 356: entered OPEN (o1c_oneway, "
+      "H-CORE-DELIVERS (M's, 422: on to 273's bounce), position 2's side by time reversal (414 (d)); it rests on the "
+      "object standing from the opening (M's 426), which the board models (item 428, approved; item 423's "
+      "arrival-width clause withdrawn at 426) -- item 423: approved.  Item 356: entered OPEN (o1c_oneway, "
       "O1cs, is the small end's)")),
     ('O', 'O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large', 'PROVED',
      ('lemmas/rows_small.py O2s (C7 verified, 271, 319); C3 F5 (the large end four-dimensional Schwarzschild, '
@@ -544,10 +546,9 @@ LEMMAS_NOW = [
      ("nothing of our E crosses: M-ENERGY-STAYS (336) with lemmas/close_large.py L3 (item 362); the README's crossing "
       "is M's (111 (b), 230, 240); its timing against position 2's open period is met by identity at our sigma -- "
       "position 2's face closes when the corridor holds nothing (M's 390; junction_own G10: open exactly while the "
-      "README is within it) -- item 424.  At a destination whose own sigma differs the junction binds (item 10, "
-      "SOURCE's; junction_own G7), and by 389 the row is not finalized there; lemmas/source_capacity.py S5 finds "
-      "that bound unmeetable for N bits at E(N), an estimate put to M.  Item 362: OPEN, the timing ARRIVAL's, on the "
-      "withdrawn J2 bound (after 389)")),
+      "README is within it), at every sigma (M's 427: every sigma reachable; the junction model of position 2's face "
+      "withdrawn as the board's) -- item 428, approved.  Item 424: DERIVED at our sigma, held at sigma2 != sigma.  "
+      "Item 362: OPEN, the timing ARRIVAL's, on the withdrawn J2 bound (after 389)")),
     ('E',
      ("E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build "
       'uses, at the small end'),
@@ -612,10 +613,9 @@ LEMMAS_NOW = [
       "M6); position 2's face's junction rising on every reading, none on ours (c8_level V3); its blueshift at most e "
       "(own sigma) or 1.0007 (139 (1)'s quarter), the bath 72 orders below Barcelo's 0.28 E; (d) on reading (i), 3.3e10 "
       "writes; (e) on the side total; warp order 6.2e-4 at r0 = 10 ell. The README's emergence within position 2's "
-      "open period (Y7) is met by identity at our sigma: the face closes when the corridor holds nothing (M's 390; "
-      "junction_own G10) -- item 424, DERIVED there.  At a destination whose own sigma differs the junction binds "
-      "(item 10, SOURCE's), and by 389 the row is not finalized there; lemmas/source_capacity.py S5 finds that bound "
-      "unmeetable for N bits at E(N), an estimate put to M.  Item 362: OPEN, the emergence ARRIVAL's at 4 clocks (the "
+      "open period (Y7) is met by identity at every sigma: the face closes when the corridor holds nothing (M's 390; "
+      "junction_own G10), the junction model withdrawn at 427 (M: every sigma reachable) -- item 428, approved.  Item "
+      "424: DERIVED at our sigma, held at sigma2 != sigma.  Item 362: OPEN, the emergence ARRIVAL's at 4 clocks (the "
       "withdrawn J2) or 2.7e-3 on 139 (1)'s quarter, reported under 358 (c)")),
     # [item 349] FAR at the small end worked and seated as FARs; FAR stays the large end's
     # [item 354] FARs and FAR READING -> DERIVED: every board reading each rested on proved (readings Q23-Q25, Q30)
