@@ -34,13 +34,41 @@ THE STRONG CP ANGLE (M's 3)
   P4 So the claim the record can make, proved: Theta-bar is legitimately defined, not represented in Baez's 26 (P1),
      physical (P2), and a constant of the Standard Model with the same standing as the 26 (P3), conditional on no
      axion; our value is BOUND, |Theta-bar| <~ 1e-10 (P0).  It enters as the 27th coordinate, with this proof and that
-     condition (M-PROVE-THETA).
+     condition (M-PROVE-THETA).  [Item 434, beside the text: M, "Anything conditional cannot by definition be a
+     constant, and thus could not be a coordinate value" -- Theta-bar is considered as the 27th coordinate and enters
+     only when the Peccei-Quinn axion condition is proved false; until then the lattice is Baez's 26.  P1-P3 stand as
+     proved findings.]
+
+THE AXION CONDITION, SETTLED (M's 434-435: prove it false, or the angle is conditional and not a coordinate)
+  P5 (READ) Experiment.  PDG 2024's axion review: the photon coupling bound gives "fa > 4.8 x 10^7 GeV (ma < 0.12 eV)"
+     (KSVZ) or "fa > 1.8 x 10^7 GeV (ma < 0.32 eV)" (DFSZ); stellar black-hole spins "exclude 3x10^17 GeV < fa < 1x10^19
+     GeV"; ADMX reaches DFSZ sensitivity "in the mass range between 2.7 and 4.2 microeV", other haloscopes "over narrow
+     bands", and searches continue.  The QCD axion is excluded only in windows; across most of its range it is open.
+  P6 (READ) Theory.  Harlow and Ooguri (arXiv:1810.05337) establish from AdS/CFT "that no global symmetries are
+     possible" in quantum gravity, so the Peccei-Quinn symmetry can only be approximate; Kamionkowski and March-Russell
+     (hep-th/9202003): Planck-scale violating operators "render this solution unnatural".  That is a quality problem
+     -- the symmetry must be protected to high order -- not an exclusion.
+  P7 (computed, exact; deduced) The record's own rules.  The axion's coupling to a gauge field, -(g/4) a F F-dual,
+     changes the field's equation by g (d a) F-dual only: the term g a d F-dual vanishes identically (the Bianchi
+     identity, computed), so no second derivative of the gauge field is added and the principal part -- the light
+     cone -- is Maxwell's (computed; the gluons' likewise, by D G-dual = 0, standard).  The axion keeps the one light
+     cone (328), as relativity.py U2-U6 require.  Only a coupling to the gravitational Chern-Simons density, which adds
+     third derivatives of the metric, meets the causality constraint Serra, Serra, Trincherini and Trombetta derive for
+     "a scalar coupled to the Gauss-Bonnet or the Chern-Simons terms" (arXiv:2205.08551, READ) -- excluded under 328
+     as 327 excluded scalar-Gauss-Bonnet -- and that coupling comes from a mixed gravitational anomaly whose coefficient
+     a model can set to zero (standard, not READ).  So the record's rules exclude some axions, not the axion.
+  P8 (deduced) Settled.  No proof that the Peccei-Quinn axion does not exist is available, from experiment (P5),
+     established theory (P6) or the record's rulings (P7).  The condition stands open, so by M's 434 the strong CP
+     angle is conditional, not a constant, and not a coordinate: the lattice has 26 coordinates.  It would enter on an
+     experimental exclusion of the QCD axion over its whole range, or a theorem that the Peccei-Quinn mechanism cannot
+     be realized -- neither exists.  (Other proposed mechanisms that would fix the angle, Nelson-Barr among them, make
+     it conditional a second way; standard, not READ.)
 
 THE NAVIGATIONAL LATTICE (M's 4)
   L1 (the board's reading of "exact ... calibrate to our universe") Every coordinate is calibrated so that our universe
      is the origin, exactly, and each axis's unit is its binary step: a doubling for a scale (a mass over the Planck
      mass, a mixing sine, a coupling, the cosmological constant over the Planck density), a sign flip -- a half turn --
-     for a phase (the two CP phases and Theta-bar).  D_i = log2(x_i / x_i,ours) on a scale axis; D_i = the shortest
+     for a phase (the two CP phases).  D_i = log2(x_i / x_i,ours) on a scale axis; D_i = the shortest
      signed (delta - delta_ours)/pi in (-1, 1] on a phase axis.  The three neutrino masses, of which none is measured
      one by one, are charted by the two measured splittings Delta m^2_21 and |Delta m^2_3l| (over m_P^2) and the
      lightest mass: two axes calibrated, the lightest NOT MEASURED, its origin unknown.  (A chart of the same three
@@ -55,8 +83,7 @@ THE NAVIGATIONAL LATTICE (M's 4)
      form).  Our universe is the origin cell at every depth.
   L4 (computed from READ) Calibration: navigation is relative and exact; our own position is known per axis to the
      depth our measurements reach, d_i = floor(log2(1/sigma_D,i)) -- the mass axes limited by G's own precision
-     (CODATA 2018, 2.2e-5) through the Planck mass.  The lightest neutrino mass's origin is not known at all, and
-     Theta-bar's to |Theta-bar|/pi < 3.2e-11.
+     (CODATA 2018, 2.2e-5) through the Planck mass.  The lightest neutrino mass's origin is not known at all.
   L5 (computed) The record's positions recalculated.  2b's G scaled by g, every other dimensionful quantity held in
      SI (the board's convention for the record's 2b): each mass over m_P moves (1/2) log2 g, each splitting over m_P^2
      log2 g, the cosmological constant over the Planck density 2 log2 g, the couplings, mixings and phases not at all.
@@ -99,8 +126,9 @@ OURS = [
     ("v", "mass", 246.22, 246.22 * (6e-12 / 1.1663788e-5) / 2, "PDG 2024; sigma from G_F, v = (sqrt2 G_F)^(-1/2)"),
     ("alpha_1", "scale", None, None, "computed"), ("alpha_2", "scale", None, None, "computed"),
     ("alpha_s", "scale", 0.1187, 0.0017, "PDG 2024 EW fit"),
-    ("Lambda", "scale", None, None, "Planck 2018"), ("theta_bar", "phase", 0.0, 1e-10, "BOUND, PDG axions"),
+    ("Lambda", "scale", None, None, "Planck 2018"),
 ]
+THETA = ("theta_bar", "phase", 0.0, 1e-10, "BOUND, PDG axions")   # [item 434] enters if no axion is proved
 
 
 def _item(n):
@@ -125,6 +153,29 @@ def p1_theta():
     keep = sp.simplify(rot * rot.H - M * M.H) == sp.zeros(3)
     det = sp.simplify(rot.det() - sp.exp(3 * sp.I * phi) * M.det()) == 0
     return keep and det
+
+
+def axion_cone():
+    """P7: the axion-Maxwell equation d_m (F^mn - g a F~^mn) carries no second derivative of A from the coupling,
+    since d_m F~^mn = 0 identically; the mutant 'no_dual' couples to F itself, which does"""
+    X = sp.symbols("x0:4")
+    A = [sp.Function("A%d" % i)(*X) for i in range(4)]
+    a = sp.Function("a")(*X)
+    g = sp.Symbol("g")
+    eta = sp.diag(-1, 1, 1, 1)
+    F = [[sp.diff(A[n], X[m]) - sp.diff(A[m], X[n]) for n in range(4)] for m in range(4)]
+    Fu = [[sum(eta[m, p] * eta[n, q] * F[p][q] for p in range(4) for q in range(4)) for n in range(4)]
+          for m in range(4)]
+    Fd = [[sum(sp.Rational(1, 2) * sp.LeviCivita(m, n, p, q) * F[p][q] for p in range(4) for q in range(4))
+           for n in range(4)] for m in range(4)]
+    C = Fu if "no_dual" in MUT else Fd
+    for n in range(4):
+        eq = sp.expand(sum(sp.diff(Fu[m][n] - g * a * C[m][n], X[m]) for m in range(4)))
+        cg = eq.coeff(g)
+        for d in cg.atoms(sp.Derivative):
+            if d.expr in A and sum(c for _, c in d.variable_count) == 2:
+                return False
+    return True
 
 
 def our_alphas():
@@ -158,8 +209,8 @@ def axes():
         elif name == "Lambda":
             val, sig = lam, lam * lrel
         out.append((name, kind, val, sig, src))
-    if "drop_theta" in MUT:
-        out = out[:-1]
+    if "add_theta" in MUT:
+        out = out + [THETA]                                         # the mutant: the withdrawn 27th coordinate
     return out
 
 
@@ -213,7 +264,7 @@ def metric_checks():
 
 def report():
     print("P1 Theta-bar not a function of the 26 (M M^dagger kept, det moved by e^(3 i phi)):", p1_theta())
-    print("axes %d (Baez's 26 with the neutrino chart, and Theta-bar):" % len(axes()))
+    print("axes %d (Baez's 26 with the neutrino chart):" % len(axes()))
     tot = 0
     for name, kind, val, sig, src in axes():
         d = depth(kind, val, sig)
@@ -234,8 +285,10 @@ def selftest(quiet=False):
     w = words(); ok.append(w); say("N0 M's words verbatim inside 432: %s" % w)
     p = p1_theta(); ok.append(p); say("P1 masses and CKM kept, det(M_u M_d) moved: Theta-bar not in the 26: %s" % p)
     ax = axes()
-    n = len(ax) == 27 and ax[-1][0] == "theta_bar"
-    ok.append(n); say("P4 the 27th coordinate Theta-bar entered, with the proof: %s" % n)
+    ac = axion_cone(); ok.append(ac)
+    say("P7 the axion's gauge coupling adds no second derivative: it keeps the one light cone: %s" % ac)
+    n = len(ax) == 26 and all(a[0] != "theta_bar" for a in ax)
+    ok.append(n); say("P8 (434-435) settled: the axion not excludable, the angle conditional, 26 coordinates: %s" % n)
     unknown = [a[0] for a in ax if a[2] is None]
     c = unknown == ["m_light"]; ok.append(c)
     say("L1 the neutrino chart: two splittings calibrated, the lightest mass NOT MEASURED: %s" % c)
@@ -252,7 +305,7 @@ def selftest(quiet=False):
 
 
 def mutants():
-    names = ["phase_leaks", "drop_theta", "tolerance"]
+    names = ["phase_leaks", "add_theta", "tolerance", "no_dual"]
     caught = 0
     for m in names:
         MUT.clear(); MUT.add(m)

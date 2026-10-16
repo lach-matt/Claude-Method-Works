@@ -962,6 +962,15 @@ state was rebuilt first.
   and entered as the 27th coordinate (`lemmas/navlattice.py` P1-P4, 7/7, mutants 3/3). The navigational lattice:
   ours the exact origin, one binary step per unit, L = sum log2(1 + |D_i|) exact; 2b recalculated at 10.60 and 17.49
   bits; our own position known to 219 bits. Next: ARRIVAL, B3 and B4d at the large end re-posed on the object.
+- **Items 433-435** (M: "consider how the new navigation coordinates bear on the very work"; "26 coordinates";
+  "we must prove the Peccei-Quinn axion condition false. Anything conditional cannot by definition be a constant";
+  "Settle the CP/axion question before the lattice is built"): **settled -- 26 coordinates.** No proof that the
+  axion does not exist is available: experiment excludes it only in windows (PDG 2024), quantum gravity makes the
+  Peccei-Quinn solution unnatural, not impossible, and the axion's gauge couplings keep the one light cone (computed),
+  so 328 excludes only axions with a gravitational Chern-Simons coupling (`lemmas/navlattice.py` P5-P8, 8/8, mutants
+  4/4). The strong CP angle is conditional and stays out; 432's entry of the 27th is withdrawn. Next, per 433: where
+  the 26 enter the chain, then stage 3. *[The board's rejected command of 434 had written a draft item and a
+  navlattice edit before it was refused; the draft was removed from the rulings file and the edit corrected.]*
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

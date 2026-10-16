@@ -145,3 +145,11 @@ every value of them is a position, and beside them stands any further true unive
   - Navigation is exact. Our own position is known to 219 bits over the calibrated axes, limited per axis by
     measurement (the mass axes by G).
   - Recalculated: 2b at G2/G = 2 and 4 is 10.60 and 17.49 bits.
+
+*[Items 434-435, beside the item-432 section above: "So it enters as the 27th coordinate" is withdrawn. M: "Anything
+conditional cannot by definition be a constant, and thus could not be a coordinate value" -- the angle enters only if
+the Peccei-Quinn axion condition is proved false. Settled (navlattice P5-P8): no such proof is available. The QCD axion
+is excluded only in windows (PDG 2024, READ); quantum gravity's ban on global symmetries makes the Peccei-Quinn solution
+"unnatural", not impossible (READ); and the axion's gauge couplings keep the one light cone (computed: the Bianchi
+identity leaves the principal part Maxwell's), so 328 excludes only axions with a gravitational Chern-Simons coupling.
+The angle is conditional; **the lattice has 26 coordinates**, and our own position is known to 185 bits.]*
