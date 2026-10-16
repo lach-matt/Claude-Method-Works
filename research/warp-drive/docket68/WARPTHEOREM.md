@@ -1078,6 +1078,15 @@ state was rebuilt first.
   standard forms). Proposed order: B6' first (71 rows), the five definitions, the S rulings, the N rulings, B7 by
   the bulk's geometry (an adaptation of the approved approach under answer 1), O1b and O1c by computing the core
   on the exact warped black string to the quantum region's boundary.
+- **Item 442** (M: "1 - yes 2 - yes 3 - yes 4 - yes"; "Prove all readings in the warp theorem using previous arts
+  and works in the field, and after that, then use computation to prove the rest."). B5b's row cites b5b_wall.py,
+  T1 runs it (4). **Phase 1, prior art** (`lemmas/prior_art.py` A0-A4, 7/7, mutants 2/2; `lemmas/PRIOR-ART.md`): 61
+  readings against 50 sources READ -- 8 established (B6' as a consistent, realizable model agreeing with
+  measurement; 101, 133, 158, 229, 336, 386, 353), 35 in part, 4 contrary (RECON for every position 2; 139 (1)'s
+  negative plane and 427's every tension, SMS's anti-gravity world; 122, five-dimensional black strings pinching
+  to naked singularities), 14 not in the literature. Findings within the in-part: 131's shortest form uncomputable;
+  273's long time scales unstable; 183's local null energy unbounded below; 100 not for finitely many modes; 390's
+  closing needs negative null energy; 162's dust collapse has no static exterior on the plane.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
