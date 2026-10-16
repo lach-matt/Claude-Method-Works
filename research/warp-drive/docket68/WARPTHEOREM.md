@@ -1114,6 +1114,16 @@ state was rebuilt first.
   estimate). A finding for 162: its 'at once' holds coarse-grained over the quanta's wavelength. Proposed, to
   discuss before it runs (414): C1 the inner horizon of the spread delivery, exact; C2 Barcelo et al.'s eqs.
   (64), (68) on it with the plane's multiplicity; C3, if C2 bounces, a self-consistent evolution to the white hole.
+- **Item 444** (M: "1 - yes 2 - no, reassess after the Answer 2, the deeper research computations. 3 - yes").
+  **C1** (`lemmas/c1_inner.py`, 5/5, mutants 2/2): a null delivery has no inner trapping horizon at r > 0 (one root
+  of f; the trapped region reaches the centre); spread over its quanta's width it is naked at its onset at both
+  ends (113.9 M against 16 M; 37.97 r_h against 9 r_h); passing through a regular centre it forms no face at the
+  large end. C2 re-posed: the inner horizon can come only from the quantum fields' stress tensor (multiplied by
+  2.93e59 on the plane) making the centre untrapped -- put to M before it runs. **The coupling route**: Maldacena,
+  Milekhin and Popov's four-dimensional traversable wormhole (1807.04726, READ) -- entangled near-extremal black holes
+  coupled by fermion exchange, embeddable in the Standard Model; fermions traverse with unit probability
+  (2606.12528). Its mouths are magnetically charged and it is two-way: both part from the record (the README's
+  uncharged face; 270, 276).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
