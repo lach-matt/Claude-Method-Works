@@ -218,7 +218,7 @@ characteristic cones of a strongly curved background (§9, qualification Q1).
   posting's own).** The
   massless spin-2 field, coupled to a source, "must actually be coupled to the total stress-tensor including that of
   the φ-field itself" (p. 1), and "Consistency has therefore led us to universal coupling, which implies the
-  equivalence principle." This holds under (PD). Deser notes that consistency and linearity "may also be reconciled if
+  equivalence principle." (p. 4). This holds under (PD). Deser notes that consistency and linearity "may also be reconciled if
   locality is abandoned" (p. 1, footnote 2), so locality is a premise. Will names the result (§3.1.1, p. 26, READ):
   "The property that all non-gravitational fields should couple in the same manner to a single gravitational field is
   sometimes called "universal coupling"".
