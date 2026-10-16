@@ -944,6 +944,10 @@ state was rebuilt first.
   session to write the paper on item 324's proof (`../paper/INSTRUCTIONS-QUANTUM-RELATIVITY-PAPER.md`): relativity.py
   U0-U7, closed by 325-328, verified at 332, with quantum_onset (415, verified 430) as where quantum corrections
   begin. Then the trajectories on the 26 and the synchronization work, without a further ask.
+  **The trajectories on the 26** (`lemmas/address26.py`, 6/6, mutants 4/4): our 26 at source, three neutrino masses
+  NOT MEASURED and carried so; sigma beside them; the strong CP angle carried as a 27th, BOUND, put to M; R4's length
+  sum log2(1 + |n_i|) exact on R4a-R4d, zero within one universe now that history trajectories are gone; the face
+  in its own Planck units a function of N, sigma and Lambda alone, so the synchronization work stands as approved.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

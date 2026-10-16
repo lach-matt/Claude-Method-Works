@@ -103,3 +103,24 @@ mass.
 2. Re-pose R4 and the Address rows on it.
 3. Check that the face rows (M1P2x, H2tx, E1x, O1b, O1c) carry none of the 26 beyond the cosmological constant.
 4. Resume synchronization.
+
+## Item 431: M's answers, and the index built (`address26.py`, selftest 6/6, mutants 4/4)
+
+M: "1 - baez's list, unless we have legitimately defined additional universal constants, in which case they too are
+included... 2 - a  3 - any other true universal constant we have identified." So the coordinates are Baez's 26,
+every value of them is a position, and beside them stands any further true universal constant.
+- **Our position, at source** (A2). Twenty-three of our 26 coordinates are READ: masses from the PDG 2026 capture,
+  CKM from PDG 2024 eq. (12.28), PMNS from NuFIT 6.0 Table 1, v = 246.22 GeV, the couplings at M_Z, and the
+  cosmological constant from Planck 2018. **Three are not known: the neutrino masses**, which no measurement yet gives
+  one by one; they are carried as NOT MEASURED, never filled. The theta23 octant and the mass ordering are not settled.
+  rho_Lambda c^2 from Planck 2018 is 5.25e-10 J/m^3, 201's value at three figures.
+- **Beside the 26** (A3). Sigma (201) is the record's one further identified constant. G is the unit, not a
+  coordinate: the record's 2b is one ray in the fourteen mass coordinates (A6). The strong CP angle is legitimately
+  defined but bounded near zero (the neutron EDM, READ) and Baez does not count it; **the board carries it as a 27th
+  coordinate, BOUND, and puts that to M.**
+- **R4 on the 26** (A4). L = sum log2(1 + |n_i|) bits satisfies R4a-R4d exactly, the triangle inequality included.
+  Its resolution (our measurement's precision) is the board's reading, in tension with 146. **With no history
+  trajectories (431), the length within one universe is zero**; location is the address, the device's input (116 (a)).
+- **The face carries none of the 26 but Lambda** (A5, exact). In its own Planck units the face is fixed by N, sigma
+  and the cosmological constant. So the synchronization work stands as approved, and the other 25 constants bear on
+  what position 2 builds, the length, and the copy's survival.
