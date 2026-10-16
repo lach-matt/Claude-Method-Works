@@ -22,7 +22,8 @@ image in a research-tree paper with a placeholder. It now has the branch the pap
 registry entry marked as carrying its own figures has each image resolved against the paper's
 directory, copied to the site's data under the paper's slug, and its md5 measured at build, there
 being no ledger row. The old branch of the handler still stands for a paper not so marked. The
-selftest asserts the fourteen papers in order, that each of the ten carries every figure it cites
+selftest asserts the fourteen papers in order (fifteen since Everything Is Relative joined the shelf on
+2026-10-16), that each of the ten carries every figure it cites
 and its PDF with an md5, and that the guard measures zero book citations in each.
 
 ## 3. What a rebuild needs
