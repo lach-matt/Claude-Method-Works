@@ -1179,6 +1179,17 @@ state was rebuilt first.
   route and every route with angular momentum turns and passes out through the white hole (passage 6.9-8.0 r_+/c,
   2.6-3.0e-28 s); radial light alone reaches the singular centre. The obstruction is the inner horizon, a Cauchy
   horizon (READ) -- stage 2.
+- **Item 448** (M: "yes, continue to stage 2"). **Stage 2, the inner horizon** (`lemmas/stage2_inner.py`, 7/7, mutants
+  2/2; BOUNCE-RESEARCH section 15): the classical blueshift belongs to the thermal clock -- infall from position 1
+  piles onto its own Cauchy-horizon branch as its thermal clock runs to infinity (rate 1/cos tau), while in global
+  time it arrives with finite blueshift, and the passage's rays run parallel to that branch (exact). In the black-hole
+  reading the inner horizon is classically unstable at both ends (tails are powers in 4D and 5D, READ; no de Sitter
+  exception on the plane, kappa_c/kappa_- ~ 1e-28). On the plane, Barcelo et al.'s (41)-(42) on the charged mouth
+  give the growth rate r_+/r_-^2 exactly and the closing time (r_-^2/r_+) ln(1 + 96 pi r_+ r_-/(N l_P^2)): 1.4e-10 s
+  at the Earth cap with the multiplier (r_-/r_+ = 0.5), far from Planck curvature (K l_P^4 = 7.8e-129); it outgrows
+  the classical blueshift (Gamma/kappa_- > 2, exact) and closes first if the late influx is below 0.9% of the mass
+  (91% near extremality). The black-to-white transition on the plane, with the device's inner horizon; the small
+  end's semiclassical reading is outside the prior art.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

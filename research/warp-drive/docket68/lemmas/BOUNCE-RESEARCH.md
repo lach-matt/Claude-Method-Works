@@ -481,3 +481,67 @@ Reissner–Nordström with the same chain. At the Earth cap the passage takes 2.
   position 2's exterior, so that centre is not there.
 - **The obstruction is the inner horizon**, which is position 2's white-hole horizon: a Cauchy horizon, unstable to
   perturbations from position 1. Stage 2 computes it.
+
+## 15. Stage 2, computed: the inner horizon (item 448; `stage2_inner.py`, 7/7, mutants 2/2)
+
+**Outside art (READ).**
+- Barceló, Boyanov, Carballo-Rubio and Garay (2011.07331), read in full. For a static inner horizon (their eqs. 41–42),
+  "the redshift function tends to increase, and this leads to a reduction of the size of the trapped region".
+  - Their evaporation time (69) is "much quicker than the time it would take for a Schwarzschild black hole to
+    evaporate from the outside".
+  - Mass inflation needs inverse-power influx, a slowly settling inner horizon, and a small outgoing flux (their
+    section 2.2). It disappears only "in special cases in which the value of the surface gravity of the cosmological
+    horizon is greater than that of the Cauchy horizon".
+- Gürsel, Novikov, Sandberg and Starobinsky: the tails' "decay in time is sufficiently slow that the tails yield
+  infinite energy densities on the Cauchy horizon."
+- Cardoso, Yoshida, Dias and Lemos (hep-th/0307122): "for odd D>3 we find that the field behaves as t^[-(2l+D-2)] at
+  late times".
+
+**The classical blueshift belongs to the thermal clock (computed, exact).**
+- Infall from position 1's boundary piles onto one branch of r₋, position 1's Cauchy horizon CH^R. The reason: as
+  the emission time approaches π/2, position 1's thermal clock runs to infinity at rate 1/cos τ.
+- In the throat's global (cold) time the same infall arrives with finite blueshift.
+- The passage's light rays to position 2 run parallel to CH^R and never meet it. They cross the other branch,
+  position 2's white-hole horizon, which collects the thermal future of the earlier left exterior instead.
+
+**Classically the black-hole reading is unstable at both ends (READ; computed).**
+- The tails are powers: t^−(2l+3) in four dimensions, and t^−(2l+3) in five as well. They are slower than the
+  blueshift's exponential, so the blueshift wins.
+- The plane's de Sitter horizon offers no escape: H₀/c = 7.3×10⁻²⁷ m⁻¹ against κ₋ = 113 m⁻¹ at the Earth cap.
+
+**The semiclassical push, as the plane sees it** (computed on READ equations; the closing time an estimate, as their
+(69)).
+- For the device's charged mouth (four-dimensional Reissner–Nordström), their (41) gives exactly the growth rate
+  Γ = 2κ₋ + 1/r₋ = r₊/r₋².
+- The inner horizon moves out by Δr₋ = (N l_P² κ₋ r₋/(48π r₊))(e^{Γt} − 1). It reaches the outer horizon at
+  **t_close = (r₋²/r₊) ln(1 + 96π r₊r₋/(N l_P²))**.
+- With the plane's multiplier, N l_P² = πℓ²/8:
+
+| mouth | r₋/r₊ | t_close (plane) | t_close (one field) | classical influx below |
+|---|---|---|---|---|
+| 10 ℓ | 0.50 | 1.2×10⁻¹² s | 1.7×10⁻¹¹ s | 7% of the mass |
+| 10 ℓ | 0.99 | 5.1×10⁻¹² s | 6.8×10⁻¹¹ s | 95% |
+| Earth cap | 0.50 | 1.4×10⁻¹⁰ s | 1.2×10⁻⁹ s | 0.9% |
+| Earth cap | 0.90 | 4.7×10⁻¹⁰ s | 3.7×10⁻⁹ s | 38% |
+| Earth cap | 0.99 | 5.7×10⁻¹⁰ s | 4.5×10⁻⁹ s | 91% |
+
+**Which wins (computed, exact; the threshold an estimate).**
+- Γ/κ₋ = 2 + 2r₋/(r₊ − r₋) > 2. So the semiclassical push outgrows the classical blueshift at late times, always.
+- It closes the trapped region first if the late classical influx stays below the last column's fraction of the mass.
+- Near extremality that threshold approaches the whole mass.
+
+**Before the Planck-curvature surface (computed).** The inner horizon stays at r₋. There K l_P⁴ = 7.8×10⁻¹²⁹ (Earth
+cap, 0.5), so the closing happens far outside any quantum region.
+
+**What stage 2 settles (deduced).**
+- **In the cold reading** (global time) the inner horizon is a regular null surface, and nothing piles up on it.
+- **In the black-hole reading** (thermal time) it is unstable classically at both ends.
+- **On the plane**, the in vacuum's negative energy pushes it outward at r₊/r₋², outgrowing the classical blueshift.
+  It closes the trapped region in about 20 r₋²/(r₊c) at the Earth cap, before the Planck-curvature surface.
+  - This is the black-to-white transition 444's C2 asked about, now with the device's inner horizon.
+  - It comes first if the late classical influx is below the threshold.
+- **At the small end** the semiclassical reading lies outside the prior art: 2011.07331 is four-dimensional Polyakov,
+  and there the plane's hole is five-dimensional. Only the classical statements hold there.
+- **Left for stage 3:** the full solution, and the superposition of the semiclassical push with classical mass
+  inflation. The latter is open in 2011.07331 itself: "one important issue that is still not completely solved is the
+  superposition between this semiclassical evaporative effect and classical mass inflation".
