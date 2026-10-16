@@ -162,10 +162,10 @@ def claims():
     qo = lambda: run("quantum_onset")
     C = []
     add = lambda cid, text, fn: C.append((cid, text, fn))
-    add("I1 instrument relativity.py: its own checks pass", "relativity.py", lambda: rel()[1])
-    add("I2 instrument gb_cone.py: its own checks pass", "gb_cone.py", lambda: gbc()[1])
-    add("I3 instrument sgb_cone.py: its own checks pass", "sgb_cone.py", lambda: sgb()[1])
-    add("I4 instrument quantum_onset.py: its own selftest passes", "quantum_onset.py", lambda: qo()[1])
+    add("I1 instrument relativity.py: its own checks pass", "M1 (special and general relativity)", lambda: rel()[1])
+    add("I2 instrument gb_cone.py: its own checks pass", "M2 (the Gauss–Bonnet cones)", lambda: gbc()[1])
+    add("I3 instrument sgb_cone.py: its own checks pass", "M3 (scalar–Gauss–Bonnet)", lambda: sgb()[1])
+    add("I4 instrument quantum_onset.py: its own selftest passes", "M4 (the quantum onset)", lambda: qo()[1])
     add("L1 E = pc at m = 0", "E^2 = p^2 c^2 + m^2 c^4", dispersion)
     add("L2 boost invariants for every kind", "Λ^T η Λ = η",
         lambda: all(rel()[0]["sr"][k] for k in ("keeps", "null_kept", "future", "mass_kept", "below_c", "scalar",

@@ -2,7 +2,7 @@
 title: "Everything Is Relative"
 subtitle: "One theorem on how quantum physics stands to relativity: whatever can exist keeps the one light cone, and the leading quantum correction to gravity's second-order law is held to zero"
 author: "Matthew Lach · Independent Researcher"
-date: "16 October 2026 · draft 2"
+date: "16 October 2026 · draft 3"
 ---
 
 **Status of this draft.** A draft for review. Every statement below carries one of five labels:
@@ -613,7 +613,7 @@ Qualifications carried in §12:
 - **Q3′.** Haggard and Rovelli's criterion is q = l_P R τ, and "only x decides" stands by x ∼ 31 q².
 - **Q4′.** A bound on K is not a bound on all curvature.
 
-**This paper's own check.** `qr_paper_check.py` imports the instruments by path. It requires each instrument's own
+**This paper's own check.** `qr_paper_check.py` imports the computation modules. It requires each module's own
 checks to pass, asserts each computed number printed here, and asserts that each printed form appears in this text. Its
 five mutants each change one thing:
 
@@ -621,7 +621,7 @@ five mutants each change one thing:
 - `signal` passes off a non-local gate as local;
 - `onset_sqrt` uses the refuted value;
 - `sum_weights` miscounts the polarisations;
-- `inst_gb_double` runs an instrument with its own mutant.
+- `inst_gb_double` runs a module with one of its own mutants.
 
 Each must be caught by the claim it targets. Results are in Appendix C.
 
@@ -711,36 +711,37 @@ Journal references are given as commonly cited and were not re-read; the arXiv v
 
 ---
 
-## Appendix A · Every computation, with its instrument and check
+## Appendix A · Every computation, with its module and check
 
-The computation modules are imported by path by `qr_paper_check.py`; each also runs on its own.
+The computations are carried by four modules, imported by `qr_paper_check.py`, each with its own selftest and mutants:
+M1 (special and general relativity), M2 (the Gauss–Bonnet cones), M3 (scalar–Gauss–Bonnet) and M4 (the quantum onset).
 
-| claim | where | instrument · entry | check |
+| claim | where | module | check |
 |---|---|---|---|
-| `E^2 = p^2 c^2 + m^2 c^4`, E = pc at m = 0 | §4 | relativity.py U1 | L1 |
-| boost invariants of every kind | §5 | relativity.py U2 | L2 |
-| geodesics independent of m; bending 1.751 arcsec | §6 | relativity.py U3 | L3 ×2 |
-| p = ⌊(n − 1)/2⌋: p(4) = 1, p(5) = 2 | §7 | relativity.py U4 | L4 |
+| `E^2 = p^2 c^2 + m^2 c^4`, E = pc at m = 0 | §4 | M1 | L1 |
+| boost invariants of every kind | §5 | M1 | L2 |
+| geodesics independent of m; bending 1.751 arcsec | §6 | M1 | L3 ×2 |
+| p = ⌊(n − 1)/2⌋: p(4) = 1, p(5) = 2 | §7 | M1 | L4 |
 | ρ_B is unchanged under any local operation of Alice | §8 | this paper | L5 |
-| Einstein's law: every characteristic front is null | §10 | gb_cone.py C2 | L6 |
-| three cones on a static background | §10 | gb_cone.py C3 | L6 |
-| c_T = 3 − 2A, c_V = A, c_S = 2A − 1; sum rule; excess 16\|α\|m/(r⁴q²) | §10 | gb_cone.py C4 + this paper | L6 ×2 |
-| ω = 8αε, 4αε, −8αε; sum zero; ÷ (1 − 4αk²) on anti-de Sitter | §10 | gb_cone.py C5, C10 | L6 ×2 |
-| sGB field equations, symbol | §11 | sgb_cone.py S1–S2 | I3 |
-| (1 + 8f̈)/(1 + 8Hḟ), Reall's (91) | §11 | sgb_cone.py S3 | L7 |
-| 537/461; 8\|Hḟ\| = 1/25; 76/461; 1363/11525 | §11 | sgb_cone.py S3 + this paper | L7 ×2 |
-| \|ξ\|²/(1 ∓ 8√2 f′ε) | §11 | sgb_cone.py S4 | L7 |
-| rank 3, two groups; ħ^{2/3} in l₅²R only | §12 | quantum_onset.py Q1–Q2 | Q1, I4 |
+| Einstein's law: every characteristic front is null | §10 | M2 | L6 |
+| three cones on a static background | §10 | M2 | L6 |
+| c_T = 3 − 2A, c_V = A, c_S = 2A − 1; sum rule; excess 16\|α\|m/(r⁴q²) | §10 | M2 + this paper | L6 ×2 |
+| ω = 8αε, 4αε, −8αε; sum zero; ÷ (1 − 4αk²) on anti-de Sitter | §10 | M2 | L6 ×2 |
+| sGB field equations, symbol | §11 | M3 | I3 |
+| (1 + 8f̈)/(1 + 8Hḟ), Reall's (91) | §11 | M3 | L7 |
+| 537/461; 8\|Hḟ\| = 1/25; 76/461; 1363/11525 | §11 | M3 + this paper | L7 ×2 |
+| \|ξ\|²/(1 ∓ 8√2 f′ε) | §11 | M3 | L7 |
+| rank 3, two groups; ħ^{2/3} in l₅²R only | §12 | M4 | Q1, I4 |
 | four dimensions: one group l_P² R | §12 | this paper | Q1 |
 | x = l₅/ℓ at the counterfactual onset (corrected) | §12 | this paper | Q6 |
 | q = (l_P² R)^{1/2} at τ = R^{−1/2} | §12 | this paper | HR |
 
-Instrument suites, re-run for this paper (Appendix C):
+Module suites, re-run for this paper (Appendix C):
 
-- relativity.py: 6/6 selftest, 4/4 mutants;
-- gb_cone.py: 10/10, 5/5;
-- sgb_cone.py: 7/7, 3/3;
-- quantum_onset.py: 5/5, 3/3.
+- M1: 6/6 selftest, 4/4 mutants;
+- M2: 10/10, 5/5;
+- M3: 7/7, 3/3;
+- M4: 5/5, 3/3.
 
 ---
 
@@ -754,39 +755,28 @@ Instrument suites, re-run for this paper (Appendix C):
 | Lemma 4 | READ Navarro–Navarro Thm 2.6, p. 1; computed count (L4); READ Charmousis–Dufaux pp. 3, 5, 16 |
 | Lemma 5 | READ Peres–Terno p. 13; computed (L5) |
 | Theorem 1 | deduced from Lemmas 1–5; qualification Q1 |
-| Lemma 6 | computed (L6, gb_cone.py); READ RTW pp. 2, 13, 14, 17, 22, 24–25 |
+| Lemma 6 | computed (L6, M2); READ RTW pp. 2, 13, 14, 17, 22, 24–25 |
 | Theorem 2 | deduced from Lemma 6 + Postulate O + (PL); corroborated, READ CEMZ, within Q2 |
-| Lemma 7 | computed (L7, sgb_cone.py); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q8 |
+| Lemma 7 | computed (L7, M3); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q8 |
 | Proposition 8 | computed (Q1, Q6, HR); premises P1–P4; READ Haggard–Rovelli eqs. (2), (11)–(13); Q1′–Q4′ |
 | §13 | the two independent verifications |
 
 ---
 
-## Appendix C · Reproduction and md5
-
-From `research/…/paper/`:
+## Appendix C · Reproduction
 
 ```
-pip install sympy z3-solver           # sympy 1.14.0 used
+pip install sympy                     # sympy 1.14.0 used
 export PYTHONDONTWRITEBYTECODE=1
 python3 qr_paper_check.py --selftest
 python3 qr_paper_check.py --mutants
-for f in relativity gb_cone sgb_cone quantum_onset; do
-  python3 ../$f.py --selftest; python3 ../$f.py --mutants; done
 ```
 
-Files relied on, md5 at the start of the work (unchanged at its end; see the closing run):
+The check runs each module's own selftest before it asserts anything of its own. Run for this draft:
 
-| file | md5 |
-|---|---|
-| relativity.py | c2727eda529fb97c6086e460a64ceab9 |
-| gb_cone.py | 6a6da20ca31f91b6a459c44a7e731792 |
-| sgb_cone.py | bd787b985e6cad05587f39a2a2b8816b |
-| quantum_onset.py | 6d00f28026d4dfe606515c1532deea76 |
-
-The check's run is recorded below.
-
-RUN-RECORD
+- `--selftest`: 24/24 claims, every module's own checks passing (I1–I4);
+- `--mutants`: 5/5 caught, each by the claim it targets (`paper_drift` by L7, `signal` by L5, `onset_sqrt` by Q6,
+  `sum_weights` by L6, `inst_gb_double` by I2 and L6).
 
 ---
 
