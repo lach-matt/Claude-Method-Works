@@ -1068,6 +1068,16 @@ state was rebuilt first.
   tension, so a negative-tension plane is not one (B5a and B5c read the crossing there). The audit moves B5b from D
   to C; under 441 it rests on B6' alone. The register's B5b where-field still reads "no wall profile is computed";
   citing b5b_wall.py there, and adding it to T1, is put to M.
+- **The re-foundation, put to M (441; 414)** (`lemmas/REFOUNDATION.md`, `lemmas/refound.py` F0-F4, 6/6, mutants
+  2/2). The 62 rulings the rows name sort into 44 specifications (proved by realizability: a computed solution of
+  established physics meeting them), 10 statements about nature (proved only by derivation; else their rows are
+  re-derived without them) and 8 of process, scope or confirmation (dropped as premises). Findings recorded: 273's
+  bounce is quantum gravity, outside established physics, under ten rows; B6' can be proved consistent, realizable
+  and in agreement with measurement, not derived as true; RECON holds inside the computed reconstructible region,
+  not for every position 2; none of the ten N rulings is established physics as stated (100 and 183 have weaker
+  standard forms). Proposed order: B6' first (71 rows), the five definitions, the S rulings, the N rulings, B7 by
+  the bulk's geometry (an adaptation of the approved approach under answer 1), O1b and O1c by computing the core
+  on the exact warped black string to the quantum region's boundary.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
