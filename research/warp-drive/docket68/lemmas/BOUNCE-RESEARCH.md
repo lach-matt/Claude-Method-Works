@@ -800,6 +800,14 @@ V2 computes how similar: O(l̂²).
   - Finite differences beside it on the same grid's coordinates.
   - The toolkit needs Fourier operators and periodic finite differences. These are new, and they are checked
     against closed forms before use.
+
+  *[Note beside, 452 (V3, section 19): the chart taken is V2's strip, not Fourier along χ. In MM's regime the
+  mouths pinch to points (d ≫ r_e). V2 measured that such a point is a polar-type point of the solution: smooth in
+  the strip, where it is a chart end, and not smooth on a periodic χ grid, where it is a point of the circle. So
+  Fourier would have lost its rate there. In the strip the mouths are the ends, V3 at ε = 1 is V2 exactly, and both
+  discretizations, Chebyshev and finite differences, are kept as M asked. No Fourier operators were needed. The
+  boundary family is unchanged: ε = d/(πℓ), with the mouths' smoothing taken to its limit, zero width, which is
+  MM's d ≫ r_e.]*
 - **The boundary family (450 (2)).** The conformal boundary metric is −dt² + dχ² + R(χ)² dΩ²:
   - over the throat, AdS2 × S² with equal radii, R = cos of the throat's conformal coordinate;
   - over the exterior, the Einstein static universe's latitude spheres;
@@ -819,3 +827,83 @@ V2 computes how similar: O(l̂²).
 
   At the plane's l̂ first. MM's real scale separation (ℓ/r_e ~ 10¹²) is not reachable on a grid and is not
   attempted. The dependence on ε and l̂ is what carries to it.
+
+## 19. Stage 3b, V3: Maldacena and Milekhin's Einstein-static-universe wormhole, computed (452; `stage3b_v3.py` 7/7, 4/4)
+
+M, verbatim: "Yes to both". V3 runs on section 18's plan, with ε = d/(πℓ) as the boundary family, and
+`stage3b_v2.py` joins T1.
+
+This is the five-dimensional solution MM sketch and leave (2008.06618, §3.2, READ): "It is possible to describe the
+metric more explicitly and find the solution numerically, but we will not do it here."
+
+**The configuration, in the throat's conformal units** (deduced from MM's (2.4), (2.7) and (2.8), READ):
+- The throat is AdS2 × S² with equal radii. Divided by its lapse it is a round unit S³.
+- The exterior is the Einstein static universe of radius a, with the mouths at antipodal points. In the throat's
+  time, t = ℓτ, it is a round S³ of radius a/ℓ = d/(πℓ) = ε. So MM's own parameter is the exterior's radius.
+- The two S³ are joined at the mouths. Each mouth's conformal size is about 4r_e/ℓ, and at MM's d ≫ r_e the mouths
+  pinch to points. That is the family's one parameter, the smoothing taken to its limit (note beside section 18).
+
+**In V2's strip chart** the circle runs along the top edge (the throat), through one strip end (a mouth), back along
+the bottom edge (the exterior) and through the other end. The only change from V2 is the bottom edge's time warp: a
+round S³ of radius ε has its time running 1/ε relative to its size, so h_T = 1 on the throat and 1/ε² on the
+exterior, interpolated as ε^{−(1 − sin Y)}. **At ε = 1, V3 is V2** (computed, number for number). From there it
+continues in ε.
+
+**What it computed** (l̂ = 0.513 and 0.193, Chebyshev N = 24, 32, 40):
+- **The solve.** Newton converges at every ε from 1 to 0.1, in 5 to 9 iterations.
+  - The solution depends on X, by up to 0.5 at ε = 0.2; the exterior breaks the AdS2 symmetry.
+  - It is symmetric under the mouths' exchange X → −X to rounding.
+  - ξ² converges geometrically in N: 6.6×10⁻⁵, 4.5×10⁻⁷, 2.8×10⁻⁹ at ε = 0.5 for N = 24, 32, 40.
+- **The interior is global AdS3 × S², closing the field-line circle** (computed; deduced).
+  - The circle's conformal length is L = π(1 + ε) in the throat's time.
+  - The flux scale l̂ is the same at every point of it in this frame, since l_B and the S² radius both scale with R.
+  - So the lapse at the AdS3 centre should scale as (2π/L)². Relative to ε = 1 that is (2/(1+ε))².
+
+| ε | 0.8 | 0.6 | 0.5 | 0.42 | 0.35 | 0.3 | 0.25 |
+|---|---|---|---|---|---|---|---|
+| deviation from (2/(1+ε))², l̂ = 0.513 | −0.08% | −0.39% | −0.69% | −1.01% | −1.38% | −1.70% | −2.07% |
+| same, l̂ = 0.193 | −0.02% | −0.12% | −0.21% | −0.32% | −0.44% | −0.54% | −0.67% |
+
+  - N = 32 and N = 40 agree to 10⁻⁵ in the ratio, so the deviations are converged.
+  - The deviation is 3.1 to 3.3 times smaller at l̂ = 0.193 at every ε, about l̂^1.2 over this pair. It is the flow
+    region's share, shrinking as the throat lengthens; two l̂ values do not fix whether the law is a power.
+- **The transition, MM's green and purple lines** (computed; READ, Fig. 2).
+  - The line X = 0 is fixed by the mouths' exchange, so it is a geodesic. Along it, the S² area doubles closer to
+    the AdS3 centre on the throat side and farther on the exterior side.
+  - Deduced: each boundary point's flow starts at a depth proportional to its own S² radius, 1 on the throat and ε on
+    the exterior, so the gap should be L3·log(1/ε). Computed: 1.11 and 1.08 times that at ε = 0.5 and 0.25 for
+    l̂ = 0.513; 1.03 and 1.02 for l̂ = 0.193.
+  - Along the exterior the S² radius is largest at its middle, so the transition is deepest there and rises to the
+    boundary at the mouths. That is MM's purple line, which "curves inwards", and their green line, which "also
+    approaches the boundary at the wormhole ends".
+  - The AdS3 centre moves toward the throat edge as the exterior shrinks. Its S² radius moves by under 3% from the
+    fixed point's.
+- **Finite differences beside Chebyshev** (ε = 0.5, against Chebyshev N = 40):
+
+| method | N = 16 | N = 32 | N = 64 | orders |
+|---|---|---|---|---|
+| FD2 | 6.0×10⁻² | 1.3×10⁻² | 3.1×10⁻³ | 2.2, 2.0 |
+| FD4 | 7.1×10⁻² | 4.2×10⁻³ | 2.0×10⁻⁴ | 4.1, 4.4 |
+
+**The energy, against MM's (2.13).**
+- **The Casimir energy's law** (deduced; READ). MM: "what looks like a quantum Casimir energy in four dimensions is
+  actually a classical effect in five dimensions (the negative classical energy of AdS3)" (READ). The bulk computes
+  that AdS3 and the circle it closes, of length π(1 + ε). So the Casimir energy in the throat's flat (ultrastatic)
+  frame is −πc₂/(6L) = −c₂/(6(1 + ε)).
+  - The bulk measures its 1/L law through the lapse, to the deviations above.
+  - c₂ = 3L3/(2G₃) = 6πL3e^{2σ₀}/G₅ at stage 3a's exact AdS3 × S² fixed point (Brown–Henneaux, READ, as in
+    u1_bulk.py): c₂G₅ = 39.57 at l̂ = 0.513 and 290.35 at l̂ = 0.193.
+  - The bulk's own AdS3 centre gives a c₂ above that, by 5.5–11% at l̂ = 0.513 and 1.5–2.5% at l̂ = 0.193 for ε from 1
+    to 0.25. The centre is not deep in AdS3 at these l̂: this is the flow region's share again, falling as the throat
+    lengthens.
+- **MM's (2.11), −c₂/(8ℓ)**, is in their AdS2 frame and "includes a contribution due to the conformal anomaly in AdS2"
+  (READ). That frame constant is MM's and is not re-derived here.
+- **MM's (2.13), E_bind = −c₂/(16ℓ)**, is their extremization of that energy against the four-dimensional
+  gravitational cost (2.10). A bulk with a fixed boundary contains no four-dimensional gravity, so the binding energy
+  itself is MM's step. What the bulk supplies is the term it rests on: the Casimir energy's 1/L law and c₂.
+
+**V3 passes.** MM's sketch is computed: its global AdS3 interior, its transition lines, and the 1/L law of its
+Casimir energy. Each holds better as the throat lengthens, and V3 contains V2 at ε = 1.
+
+The ladder is complete. Next, as section 13 set out, is the corridor itself: the charged bulk hole meeting both
+planes, with the planes as branes under Israel's conditions. Its approach is put to M before it runs (414).

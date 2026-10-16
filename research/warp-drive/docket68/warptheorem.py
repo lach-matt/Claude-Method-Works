@@ -974,7 +974,9 @@ def lemma_selftests():
               # item 447 (3), approved: the bulk U(1) of 446 (1)
               "u1_bulk.py",
               # item 451 (2), approved: stages 1, 2 and 3a, and stage 3b's toolkit and first rung
-              "wh5_dictionary.py", "stage2_inner.py", "stage3a_throat.py", "deturck2d.py", "stage3b_v1.py"):
+              "wh5_dictionary.py", "stage2_inner.py", "stage3a_throat.py", "deturck2d.py", "stage3b_v1.py",
+              # item 452 (2), approved: stage 3b's second rung
+              "stage3b_v2.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

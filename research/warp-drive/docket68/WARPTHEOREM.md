@@ -1235,6 +1235,29 @@ state was rebuilt first.
     - Newton from the undeformed start failed at a strong deformation;
     - two first comparisons misread conditioning and interpolation as error, and were corrected beside.
   - V3 (MM's Einstein-static-universe wormhole, with the smooth boundary family) is next, reported to M first.
+- **Item 452** (M: "Yes to both"). **T1 extended by stage3b_v2.py, and stage 3b's rung V3: MM's
+  Einstein-static-universe wormhole computed** (`lemmas/stage3b_v3.py`, 7/7, mutants 4/4; BOUNCE-RESEARCH section
+  19).
+  - This is the five-dimensional solution MM sketch and leave ("find the solution numerically, but we will not do it
+    here", READ).
+  - In the throat's conformal units the boundary is two round S^3, the throat (radius 1) and the exterior (radius
+    a/ell = d/(pi ell) = eps), joined at mouths that pinch at d >> r_e.
+  - In V2's strip chart the only change is the exterior edge's time warp, so V3 at eps = 1 is V2. The chart changed
+    from the plan's Fourier in chi, recorded beside section 18: a pinched mouth is not smooth on a periodic grid.
+  - Newton converges from eps = 1 to 0.1; the solution is X-dependent and symmetric under the mouths' exchange.
+    xi^2 converges geometrically (2.8e-9 at eps = 0.5, N = 40).
+  - The interior is global AdS3 x S^2 closing a circle of conformal length pi(1 + eps). The AdS3 centre's lapse
+    follows (2/(1+eps))^2 within 0.69% at eps = 0.5 and 2.07% at 0.25 (lhat = 0.513), and 0.21% and 0.67% at
+    lhat = 0.193, converged in N: the flow region's share, shrinking as the throat lengthens.
+  - The exterior's transition lies farther from the AdS3 centre by L3 log(1/eps), to 1.11-1.02 times: MM's purple
+    line.
+  - FD2 and FD4 converge at orders 2.2/2.0 and 4.1/4.4 against Chebyshev.
+  - The energy: the Casimir energy -c2/(6(1+eps)) in the throat's flat frame, its 1/L law measured, c2 from the
+    exact fixed point (Brown-Henneaux, READ), the centre's estimate above it by the flow region's share. MM's
+    -c2/(8 ell) frame constant and their (2.13) binding energy, which needs four-dimensional gravity, stay MM's
+    (READ).
+  - The ladder is complete; the corridor (the charged bulk hole meeting both planes under Israel's conditions) is
+    next, its approach put to M first.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
