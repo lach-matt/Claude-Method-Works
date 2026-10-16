@@ -1639,6 +1639,8 @@
       slug = slug.split(/[?&#\s]/)[0].replace(/[.,;:!?)\]}>'"/]+$/, '').toLowerCase();
       state.lastHash = h;
       if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
+      // a first load waits for the explorer's root: open the paper only if the address still names it
+      if (location.hash !== h) return;
       openPaper(slug);
       return;
     }
