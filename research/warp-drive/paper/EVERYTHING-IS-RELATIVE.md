@@ -136,7 +136,7 @@ not derived anywhere below, and every result that uses it says so.
 The proof is kind by kind. Every statement carries one of four labels:
 
 - **computed**: an exact symbolic computation (sympy), re-run for this paper and asserted by its check
-  (Appendix C), and, where a failure control is listed, shown to reject it;
+  `qr_paper_check.py`, and, where a failure control is listed, shown to reject it;
 - **deduced**: follows from the statements it cites;
 - **READ**: quoted verbatim from the source, re-read at source for this paper, with page and equation, and used only
   on that source's hypotheses;
@@ -624,6 +624,12 @@ Qualifications carried in §12:
   it orders the same onset as x, up to a background-dependent factor.
 - **Q4′.** A bound on K is not a bound on all curvature.
 
+**Tools.** The text was drafted, and the sources re-read, with Claude (Anthropic), an AI assistant, working with the
+author. Quotations were read from the arXiv PDFs through alphaXiv; journal references through Firecrawl. Key results
+(Tangherlini's Kretschmann scalar, the cone sum rule, the scalar–Gauss–Bonnet numbers, light bending, Buckingham's
+ranks) were recomputed independently in Wolfram Language. The reviews mentioned in §13 were separate AI sessions in
+this project; none is an outside review.
+
 ---
 
 ## 14 · What is not proved
@@ -706,7 +712,7 @@ M1 (special and general relativity), M2 (the Gauss–Bonnet cones), M3 (scalar�
 | x = l₅/ℓ at the counterfactual onset | §12 | this paper | B2 |
 | q = (l_P² R)^{1/2} at τ = R^{−1/2} | §12 | this paper | B3 |
 
-Module suites, re-run for this paper (Appendix C):
+Module suites, re-run for this paper:
 
 - M1: 6/6 selftest, 4/4 mutants;
 - M2: 10/10, 5/5;
@@ -731,28 +737,3 @@ Module suites, re-run for this paper (Appendix C):
 | Lemma 7 | computed (L7, M3); READ Reall eq. (91), SSTT eqs. (1), (12)–(13); Q5–Q8 |
 | Proposition 8 | computed (B1–B3); premises P1–P4; READ Haggard–Rovelli eqs. (2), (11)–(13); Q1′–Q4′ |
 | §13 | the two in-project AI re-derivations |
-
----
-
-## Appendix C · Reproduction
-
-```
-pip install sympy                     # sympy 1.14.0 used
-export PYTHONDONTWRITEBYTECODE=1
-python3 qr_paper_check.py --selftest
-python3 qr_paper_check.py --mutants
-```
-
-The check runs the own checks of M1–M3 and asserts M4's Buckingham steps (S1–S2) directly, before it asserts anything
-of its own. Run for this version:
-
-- `--selftest`: 23/23 claims, M1–M3's own checks passing (I1–I3) and M4's S1–S2 holding (I4);
-- `--mutants`: 6/6 caught, each by the claim it targets (`paper_drift` by L7, `signal` by L5, `onset_sqrt` by B2,
-  `inst_hbar_in_y` by I4,
-  `sum_weights` by L6, `inst_gb_double` by I2 and L6).
-
-**Tools.** The text was drafted, and the sources re-read, with Claude (Anthropic), an AI assistant, working with the
-author. Quotations were read from the arXiv PDFs through alphaXiv; journal references through Firecrawl. Key results
-(Tangherlini's Kretschmann scalar, the cone sum rule, the scalar–Gauss–Bonnet numbers, light bending, Buckingham's
-ranks) were recomputed independently in Wolfram Language. The reviews mentioned in §13 were separate AI sessions in
-this project; none is an outside review.
