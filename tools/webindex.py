@@ -1074,7 +1074,9 @@ def cite_block(head):
 # --- a small Markdown renderer for the released papers -----------------------
 _MD_INLINE = [
     (re.compile(r"!\[([^\]]*)\]\(([^)]+)\)"), lambda m, ctx: ctx["img"](m.group(1), m.group(2))),
-    (re.compile(r"\[([^\]]+)\]\(([^)]+)\)"), lambda m, ctx: '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(2), m.group(1))),
+    # a link only where the target is an address: the papers write operators applied to sets as
+    # cl[L](X), which a bare [text](target) rule turned into a link to a page named X
+    (re.compile(r"\[([^\]]+)\]\(((?:https?://|mailto:|#|\.{0,2}/)[^)\s]+)\)"), lambda m, ctx: '<a href="%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(2), m.group(1))),
     (re.compile(r"`([^`]+)`"), lambda m, ctx: "<code>%s</code>" % m.group(1)),
     (re.compile(r"\*\*\*(.+?)\*\*\*"), lambda m, ctx: "<b><i>%s</i></b>" % m.group(1)),
     (re.compile(r"\*\*(.+?)\*\*"), lambda m, ctx: "<b>%s</b>" % m.group(1)),
@@ -4607,7 +4609,7 @@ def selftest(warp_root=WARP_ROOT):
         check("papers: a list item's lazy continuation line stays in its item: the premises P1 to P4 are one list, P1 whole",
               ("anti-de Sitter radius ℓ) and no other scale.</li><li><b>P2.</b>" in eir_full["html"], "<p>anti-de Sitter radius" in eir_full["html"]), (True, False))
     check("papers: an identifier inside a link's target is left to the link: one anchor, its URL whole",
-          [_md_inline(t, {"img": lambda a, b: ""}).count("<a ") for t in ("[Deser](https://arxiv.org/abs/gr-qc/0411023v3)", "[Deser](https://arxiv.org/abs/gr-qc/0411023)", "see gr-qc/0411023v3", "doi:10.1007/JHEP02(2016)020.")], [1, 1, 1, 1])
+          [_md_inline(t, {"img": lambda a, b: ""}).count("<a ") for t in ("[Deser](https://arxiv.org/abs/gr-qc/0411023v3)", "[Deser](https://arxiv.org/abs/gr-qc/0411023)", "see gr-qc/0411023v3", "doi:10.1007/JHEP02(2016)020.", "X ⊆ cl[L](X); cl[b](X) = X")], [1, 1, 1, 1, 0])
     check("papers: a header that is not flat key: value lines is not taken as front matter, and the text renders whole",
           (_front_matter("---\ntitle: x\n- y\n---\nbody\n"), _front_matter("---\ntitle: \"a \\\"b\\\"\"\nauthor: 'c''d'\n---\nbody\n"), _front_matter("no header\n")),
           (({}, "---\ntitle: x\n- y\n---\nbody\n"), ({"title": 'a "b"', "author": "c'd"}, "body\n"), ({}, "no header\n")))

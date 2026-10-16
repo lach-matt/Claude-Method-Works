@@ -1554,7 +1554,10 @@
     state.selected = node;
     renderInspector(node);
     renderCrumbs(node);
-    if (setHash) {
+    // a selection that lands while the address names a paper (a slow load finishing behind the Papers
+    // dialog) moves the explorer only: the paper keeps its entry, and closing it brings the explorer's
+    // address back
+    if (setHash && !/^#paper=/.test(location.hash)) {
       const h = hashOf(node);
       state.lastHash = h;
       if (location.hash !== h) history.replaceState(null, '', h);
@@ -1638,22 +1641,52 @@
       try { slug = decodeURIComponent(slug); } catch (e) { /* as typed */ }
       slug = slug.split(/[?&#\s]/)[0].replace(/[.,;:!?)\]}>'"/]+$/, '').toLowerCase();
       state.lastHash = h;
-      if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
+      // a first load (a reload, a restored tab, a citation followed from elsewhere): the explorer takes the
+      // node the entry behind the paper holds, as it showed before, so closing the paper steps back to it;
+      // with no such entry, the root. Open the paper only if the address still names it after the wait
+      if (!state.selected) {
+        const behind = entryBehind();
+        if (behind) await routeHash(behind, { fly, ms, setHash: false, reveal: false });
+        if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
+      }
+      if (location.hash !== h) return;
       openPaper(slug);
       return;
     }
-    // the address has left the paper it named (Back, a link, a typed route): close that paper
-    if (/^#paper=/.test(state.lastHash || '')) { const d = $('#dlg-papers'); if (d.open) d.close(); }
+    // the address has left the paper it named (Back, a link, a typed route): close that paper. Back onto
+    // the entry the paper was shown over finds the explorer already there, as the reader left it: it
+    // is not selected again, so the camera, the zoom and the page's scroll stay where they were
+    if (/^#paper=/.test(state.lastHash || '')) {
+      const d = $('#dlg-papers'); if (d.open) d.close();
+      if (state.selected && h === hashOf(state.selected)) { state.lastHash = h; return; }
+    }
+    return routeHash(h, { fly, ms, reveal });
+  }
+  // an explorer address to its node
+  function routeHash(h, opts) {
     const p = parseHash(h);
-    if (!p || p.root) return select(rootNode, { fly, ms, reveal });
-    if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, { fly, ms, reveal });
-    if (p.pindex !== undefined) return goToParticle(p.pindex, p.member, { fly, ms, reveal });
+    if (!p || p.root) return select(rootNode, opts);
+    if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, opts);
+    if (p.pindex !== undefined) return goToParticle(p.pindex, p.member, opts);
     if (p.ghost) {
       const g = state.ghosts.find((x) => x.p === p.ghost.p && x.g === p.ghost.g);
-      return g ? select({ kind: 'ghost', ...g }, { fly, ms, reveal }) : select(rootNode, { fly, ms, reveal });
+      return g ? select({ kind: 'ghost', ...g }, opts) : select(rootNode, opts);
     }
-    if (p.iso) return goToIsotope(p.Z, p.A, { fly, ms, reveal });
-    return goToPath(p.Z, p.charge, p.l, p.mult, { fly, ms, reveal });
+    if (p.iso) return goToIsotope(p.Z, p.A, opts);
+    return goToPath(p.Z, p.charge, p.l, p.mult, opts);
+  }
+  // the explorer address the same-document history entry just behind this one holds, where the
+  // Navigation API names it; null where it is absent, cross-document or itself a paper's address
+  function entryBehind() {
+    try {
+      const nav = window.navigation, cur = nav && nav.currentEntry;
+      if (!cur || typeof nav.entries !== 'function') return null;
+      const e = nav.entries()[cur.index - 1];
+      if (!e || !e.sameDocument || !e.url) return null;
+      const u = new URL(e.url);
+      if (u.origin !== location.origin || u.pathname !== location.pathname || u.search !== location.search) return null;
+      return u.hash && u.hash !== '#' && !/^#paper=/.test(u.hash) ? u.hash : null;
+    } catch (e) { return null; }
   }
 
   // ---------------------------------------------------------------- crumbs
@@ -3528,9 +3561,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (cur && typeof nav.entries === 'function') {
       const want = new URL(h, location.href).href, all = nav.entries();
       const holds = (e) => e && e.sameDocument && e.url === want;
+      // a paper shown over the explorer's entry keeps that entry directly behind it: forward onto the
+      // paper's own entry if it is next, else a new one, never back onto an older entry for it
+      if (slug && !onPaper) { if (holds(all[cur.index + 1])) history.forward(); else history.pushState(null, '', h); return; }
       if (holds(all[cur.index - 1])) { history.back(); return; }
       if (holds(all[cur.index + 1])) { history.forward(); return; }
-      if (slug && !onPaper) { history.pushState(null, '', h); return; }
     }
     history.replaceState(null, '', h);
   }
@@ -4083,6 +4118,24 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     // citation followed again reopens the paper. The close event is asynchronous: it acts only while
     // the dialog is still closed and the address is still the one this page wrote
     $('#dlg-papers').addEventListener('close', () => { if (!$('#dlg-papers').open && location.hash === state.lastHash) paperAddress(null); });
+    // a rotation reflows the paper while the scroll offset stays put, which moves the reader by about a
+    // screen: the block at the top edge, and how far into it the edge falls, is noted as the reader
+    // scrolls and put back at the edge after the width changes
+    {
+      const host = $('#papers-body'); let mark = null, lastW = 0;
+      host.addEventListener('scroll', () => {
+        const art = host.querySelector('#paper-article'); mark = null;
+        if (!art) return;
+        const top = host.getBoundingClientRect().top, el = [...art.children].find((c) => c.getBoundingClientRect().bottom > top);
+        if (el) { const r = el.getBoundingClientRect(); mark = { el, f: r.height ? (top - r.top) / r.height : 0 }; }
+      }, { passive: true });
+      if ('ResizeObserver' in window) new ResizeObserver(() => {
+        const w = host.clientWidth, was = lastW; lastW = w;
+        if (!w || !was || w === was || !mark || !mark.el.isConnected) return;
+        const r = mark.el.getBoundingClientRect();
+        host.scrollTop += r.top + mark.f * r.height - host.getBoundingClientRect().top;
+      }).observe(host);
+    }
     $('#btn-figures').addEventListener('click', () => { renderFigures(); $('#dlg-figures').showModal(); });
     $('#btn-glossary').addEventListener('click', () => $('#dlg-glossary').showModal());
     $('#btn-help').addEventListener('click', () => $('#dlg-help').showModal());
