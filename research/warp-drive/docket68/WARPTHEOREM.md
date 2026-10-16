@@ -1097,6 +1097,12 @@ state was rebuilt first.
   442; 14 wait on a reading re-derived (139's negative plane, 109, 155, 177, 183, 202, 320) or bounded (ARRIVAL,
   RECON); 10 rest on 273's bounce, beyond established physics; SOURCE deferred. The map (v89): Supply, Holding and
   the information route pass at both ends.
+- **Item 443** (M: "1 - yes 2 - they are provable. It's going to take more work and deeper research 3 - yes").
+  RECON's and ARRIVAL's names bounded to the reconstructible region, E1x, M1P2x and H2tx to sigma > 0 (the old
+  wording kept beside); T1 runs the seven instruments of 441-442 and bulk/static.py. 56 rows pass. A conflation in
+  refound's table recorded: ARRIVAL's and ENCODE's 437 is item 437's (1), (3), (4), not RECON's. The board's
+  proposal to record O1a, O1b and O1c as not provable is declined (M-BOUNCE-PROVABLE): the passage through the
+  core is researched further, in the literature first, then by computation discussed before it runs.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
