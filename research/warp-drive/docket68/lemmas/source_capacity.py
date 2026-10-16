@@ -62,6 +62,13 @@ This instrument asks whether the two can hold together for a carrier made of the
      106.75 (hold_small's life).  At the large end the hole is cold enough to emit only massless species, so its life
      is longer and the share smaller.
 
+[Item 433, beside the text (bearing26.py G1, G3): at the large end the face is far too cold for the Standard
+Model's species -- the carrier's kT is 1.5e-4 eV at r0 = 20 ell and 4.7e-6 eV at the Earth cap -- so Z there
+is 2 (the photon), or 3.75 if the lightest neutrino, unmeasured, lies below kT; S3's, S4's and S7's large-end
+figures at Z = 108.75 overcount it.  At Z = 2 the write's least time is 3.90 N clocks, at 3.75 2.08 N, against
+0.0717 N; the life grows by the same factor and S7's 5.9 % share is unchanged.  A finding, recorded, not
+repaired.]
+
 What this does not claim: the bound is free-field thermodynamics with Z species (an estimate in its idealizations: no
 interactions, no gravity's own entropy before the face forms); the cross-section is geometric optics, which a carrier
 of wavelength above r_h does not obey (S1's thermal README has its peak at 10.5 r0, S6, so the true capacity is lower

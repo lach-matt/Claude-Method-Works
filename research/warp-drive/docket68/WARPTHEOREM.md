@@ -971,6 +971,16 @@ state was rebuilt first.
   4/4). The strong CP angle is conditional and stays out; 432's entry of the 27th is withdrawn. Next, per 433: where
   the 26 enter the chain, then stage 3. *[The board's rejected command of 434 had written a draft item and a
   navlattice edit before it was refused; the draft was removed from the rulings file and the edit corrected.]*
+- **Item 436** (M: "Thank you. Please continue"): **where the 26 enter** (`lemmas/LATTICE-BEARING.md`,
+  `lemmas/bearing26.py` 5/5, mutants 2/2). The face and the bulk carry none but Lambda; the 26 enter the face's
+  physics only through the species count Z -- 106.75 at the small end (7.5 TeV), 2 or 3.75 at the large end (1.5e-4
+  to 4.7e-6 eV), set there by the unmeasured lightest neutrino -- and the record's large-end Z = 108.75 overcounts (a
+  finding beside source_capacity; S7's share unchanged); position 2's own 26 enter what it builds and its Z2; the
+  offsets are the length; the encoding must read the same across the lattice (146). Stage 3 adjusted: T0, 162 and
+  432 (1) put the README's energy inside the face at the opening, an arrival at the opening in general relativity
+  (the zero-width null shell); the conflict that withdrew it rested on the board's carrier reading, which 432 (1)'s
+  binary interaction replaces. Put to M: that arrival and the write's least time; ARRIVAL's re-posing ("forms the
+  corridor at the opening"); RECON and ENCODE as items of their own.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
