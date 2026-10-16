@@ -28,8 +28,8 @@ compare:
 | 2026-09-24 | the ten research papers' PDFs, `The Method Prints & Proofs/01-closure-law.pdf` to `10-beyond-the-atom.pdf` | each byte-identical to its copy in `papers/method/pdf/` |
 | 2026-10-16 | `The Method Prints & Proofs/EVERYTHING-IS-RELATIVE.pdf` | byte-identical to `research/warp-drive/paper/pdf/EVERYTHING-IS-RELATIVE.pdf` |
 
-None of the fourteen was found by walking the folders, so these figures count what `MANIFEST.tsv` and
-`PENDING.tsv` hold: a file added to Drive and never fetched is in neither. Four remain outstanding.
+None of the fourteen came from a pass over both folders, so these figures count what `MANIFEST.tsv`
+and `PENDING.tsv` hold: a file added to Drive and never fetched is in neither. Four remain outstanding.
 `tools/docfigures.py` reads the bold sentence above and holds it against the manifest.
 
 Getting there took two passes, and the difference between them is the whole lesson of this document:

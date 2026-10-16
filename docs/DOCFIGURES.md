@@ -51,9 +51,9 @@ Three documents open their account of the mirror with one bold sentence: so many
 mirrored, so many verified by md5, so many adopted, and so many still outstanding. No row held them,
 and they drifted. On 2026-10-16 `drive/README.md` and `docs/DRIVE-SYNC.md` said **820 of 824** and
 `README.md` said **822 of 826**, while the manifest held **833** rows, 14 of them `ok-adopted`.
-`CLAUDE.md`'s pin on the same count had moved three times since 2026-09-06, to 822, 832 and 833. The
-first move carried `README.md` with it and the other two carried none of them: the failure the next
-section warns about, one step removed.
+`CLAUDE.md`'s pin on the same count had moved three times since 2026-09-06, to 822, 832 and 833. At
+the first, `README.md` was corrected in the same pass; at the other two, none of the three was: the
+failure the next section warns about, one step removed.
 
 So these twelve rows do not hardcode a claimed value. Like the hosted-graph rows, they **read it from
 the document** (`_mirror_stated`): the bold sentence's three numbers and the word or number before

@@ -9,9 +9,9 @@ by another route (`ok-adopted`).** An adopted file was seated by `drive_sync.py 
 route that fetched it returned no Drive md5 to compare, so its byte count was checked and nothing
 more. The fourteen are `The Method Materials/warp drive theory.pdf`, two members of
 `LOWDIN-DELIVERY-1/` (the addendum reply and the reissued manifest), and the eleven PDFs the author
-released to `The Method Prints & Proofs/`. Each was fetched by id through the Drive connector rather
-than found by walking the folders, so these figures count what `MANIFEST.tsv` and `PENDING.tsv`
-hold: a file added to Drive and never fetched is in neither. The four still outstanding are listed
+released to `The Method Prints & Proofs/`. Each was fetched by id through the Drive connector, not
+by a pass over both folders, so these figures count what `MANIFEST.tsv` and `PENDING.tsv` hold: a
+file added to Drive and never fetched is in neither. The four still outstanding are listed
 in `PENDING.tsv` with the reason for each.
 
 * `MANIFEST.tsv` inventories every mirrored file: repo path, Drive file id, title, mime type, size,
