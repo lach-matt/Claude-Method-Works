@@ -35,9 +35,9 @@ reading, put to M), M's (the rulings), computed (the counts).  Worked in the con
          432's "information is energy" are N too (Landauer prices erasing a bit at kT ln2; it does not make
          information an energy), but the rows use 101's answers 1 and 6 and 432's specification, not those parts.]
   F4 (deduced) The order: B6' first (it gates 71 rows, the two deferred among them); then R0, R1, R2, R6 and
-     RECON; then the S rulings by the rows they gate; then the N rulings, derived or set aside; B7 by the bulk's geometry (its N premises 86, 100, 122, 140
-     dropped: before the opening the warped Vaidya bulk of settle_arrival A4 is the vacuum, horizon-free, computed);
-     O1b and O1c by computing the large-end core (the approved approach).
+     RECON; then the S rulings by the rows they gate; then the N rulings, derived or set aside; B7 by the bulk's
+     geometry (its N premises 86, 100, 122, 140 dropped: before the opening the warped Vaidya bulk of settle_arrival
+     A4 is the vacuum, horizon-free, computed); O1b and O1c by computing the large-end core (the approved approach).
 
 python3 refound.py [--selftest | --mutants]
 """
