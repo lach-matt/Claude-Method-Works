@@ -252,6 +252,12 @@ Maldacena and Milekhin, *Humanly traversable wormholes* (2008.06618), build the 
 - At the Earth cap each mouth is an extremal hole of 1.19×10²⁵ kg, two Earths.
 - The README's energy (7.79×10¹² J, room_work) is 3×10⁻²³ of the binding. Its 1.3×10²¹ bits stand against a capacity
   of c₂ = 2.3×10⁶³ quanta per l ("~ c₂ qubits per ℓ", MM).
+  [Corrected in the same round: 7.79×10¹² J is the small-end example README's energy, not a large-end README's. The
+  README filling a face of the mouth's radius carries the face's own mass, r₀c⁴/2G: at the Earth cap N* = 1.3651×10⁶⁶
+  bits and 5.37×10⁴¹ J, which is 2.1×10⁶ times the binding. It passes in parts, at least 0.40 s seen outside, since
+  the throat holds at most E_bind for πl/c. That is longer than an orbiting pair's 0.19 s, so the mouths must be held
+  by the device rather than orbit. Carried at the gap instead (one quantum of ħc/l per bit), it is 9.3×10³ parts and
+  at least 1.8 ms. Capacity is not the limit: N*/c₂ = 583.]
 - **Holding the mouths.** Orbiting needs 1.43 m ≪ d ≲ 18.2 m. MM's lifetime at d = l is 0.19 s, which is 10⁶
   passages.
 - **Causality.** Always πl > d (MMP 5.46): the corridor is slower than light through the ambient space between its
@@ -272,6 +278,7 @@ Maldacena and Milekhin, *Humanly traversable wormholes* (2008.06618), build the 
 - 179, in part, in established physics: the negative energy is the bulk's classical AdS3 energy, and the field-line
   circle closes through the fifth dimension. The passage itself runs through the plane's throat.
 - The README passes as quanta above the gap ħc/l, its total energy under E_bind. It is one-way by its use.
+  [Corrected in the same round: its total energy is above E_bind, so it passes in parts. See the bracket above.]
 - It stands before the README; it is not formed by the README's energy (162, 270 and 276 bear on this).
 - The small end lies outside it, and no prior art was found there.
 - Its existence is argued, not computed. The full five-dimensional solution is the computation it leaves. MM sketch

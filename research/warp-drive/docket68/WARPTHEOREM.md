@@ -1141,7 +1141,9 @@ state was rebuilt first.
   energy of AdS3)" and the field-line circle closes through the fifth dimension; argued by patching for r_e >> R5,
   the full 5D solution not computed. Computed on our plane (R5 = ell): c_2 = 4 pi R5 r_e/(G4 sqrt L), one- or
   two-sided alike; at the Earth cap the throat's l = 18.2 m, the passage 1.9e-7 s outside, E_bind 2.5e35 J against
-  the README's 7.79e12 J, mouths of 1.19e25 kg, the dark sector below 0.13 mK; always pi l > d. The Standard Model's
+  the README's 7.79e12 J [corrected in the same round: that is the small-end example's energy; a README filling the
+  cap carries the face's own 5.37e41 J, 2.1e6 bindings, so it passes in parts, at least 0.40 s outside, or 1.8 ms
+  carried at the gap], mouths of 1.19e25 kg, the dark sector below 0.13 mK; always pi l > d. The Standard Model's
   own fields need sizes below 1/TeV, where the plane's hole is five-dimensional; the small end lies outside the
   construction. It needs a bulk U(1) the record lacks and charged mouths (445 (2)'s device); it has no horizon, so
   its passage needs no bounce, and it stands before the README. **162 reassessed** (444 (2); section 10): on the

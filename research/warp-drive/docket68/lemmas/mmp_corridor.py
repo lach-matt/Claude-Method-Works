@@ -32,8 +32,12 @@ The prior art is two papers, both READ in full:
        than 1.3e-4 K; each mouth an extremal hole of 1.19e25 kg (two Earths);
      - r_e = 10 ell: l = 2.70 mm, E_bind = 4.5e37 J;
      - r0 = 1.25 ell, the large end's foot, lies outside MM's regime (r_e/R5 = 1.25; l_B is not between R5 and r_e).
-     The README's energy (room_work: 7.79e12 J for the real piece) is 3e-23 of the Earth cap's binding; its 1.3e21
-     bits against c_2 = 2.3e63 quanta per l of capacity (MM: "~ c_2 qubits per l").
+     The README filling a face of the mouth's radius carries, by the record's E (the face's own mass, r0 c^4/(2G); at
+     the Earth cap N* = 1.3651e66 bits, 5.37e41 J), 2.1e6 times the binding: it passes in parts, at least 0.40 s
+     outside, since the throat holds at most E_bind for pi l/c.  Carried at the gap instead (one quantum of hbar c/l
+     per bit), 9.3e3 parts, at least 1.8 ms.  Capacity is not the limit (MM: "~ c_2 qubits per l"; N*/c_2 = 583).
+     [Corrected in the same round: the first version set the binding against room_work's 7.79e12 J, which is the
+     small-end example README's energy, not a large-end README's.]
   V4 (computed; estimate where marked) Holding the mouths.  Orbiting (MM B.32), Omega = sqrt(r_e/d^3) << 1/l needs
      d >> (r_e l^2)^(1/3) = 1.43 m at the Earth cap, with d <~ l = 18.2 m; MM's lifetime (B.34) (3/4) d^3/r_e^2 is
      0.19 s at d = l, 1e6 passages.  Always pi l > d (MMP 5.46, figure 7): slower than light outside.
@@ -157,12 +161,21 @@ def ell():
     return _load("bounce_scope").ELL
 
 
+def readme_through(p, re_):
+    """a README filling a face of radius re_: the record's E and N, and what passing it through the throat takes"""
+    E = re_ * C ** 4 / (2 * G)                                          # the face's own mass, r0 = 2GM/c^2
+    N = (E / _load("encode_read").E_LARGE_PER_SQRT_BIT) ** 2            # E = 459,404,002.42 J x sqrt(N)
+    parts = E / p["Eb_J"]
+    gap_total = N * HBAR * C / p["l"]
+    return dict(E=E, N=N, parts=parts, t_min=parts * p["delay"], gap_parts=gap_total / p["Eb_J"],
+                t_gap=gap_total / p["Eb_J"] * p["delay"], per_c2=N / p["c2"])
+
+
 def v3():
     e = ell()
     rows = {name: point(r, e) for name, r in (("1.25 ell", 1.25 * e), ("10 ell", 10 * e), ("100 ell", 100 * e),
                                               ("Earth cap", R_EARTH_CAP))}
-    n_perfect, e_perfect, n_real, e_real = _load("room_work").budget()
-    return rows, (n_real, e_real)
+    return rows, readme_through(rows["Earth cap"], R_EARTH_CAP)
 
 
 def v5():
@@ -195,15 +208,16 @@ def report():
     m = mm_case()
     print("   MM's case: c_2 %.2e, l %.2e ly, gamma %.2e, E_bind %.2e kg, gap %.1e eV"
           % (m["c2"], m["l"] / LY, m["gamma"], m["Eb_kg"], m["gap_eV"]))
-    rows, (n_real, e_real) = v3()
+    rows, rd = v3()
     for name, p in rows.items():
         print("V3 %-9s L %.3f regime %-5s c_2 %.3e l %.4g m delay %.3g s gamma %.4g E_bind %.3g J (%.3g kg) gap %.3g eV"
               " T < %.3g K l_B %.3g m mouth %.3g kg" % (name, p["L"], p["regime"], p["c2"], p["l"], p["delay"],
                                                         p["gamma"], p["Eb_J"], p["Eb_kg"], p["gap_eV"], p["Tmax"],
                                                         p["lB"], p["Me"]))
     cap = rows["Earth cap"]
-    print("   the README: %.3g J = %.2g of the Earth cap's binding; %.3g bits against c_2 %.3g per l"
-          % (e_real, e_real / cap["Eb_J"], n_real, cap["c2"]))
+    print("   the README filling the cap: N %.5g bits, E %.4g J = %.3g bindings, at least %.3g s outside;"
+          " at the gap %.3g parts, %.3g s; N/c_2 = %.0f"
+          % (rd["N"], rd["E"], rd["parts"], rd["t_min"], rd["gap_parts"], rd["t_gap"], rd["per_c2"]))
     print("V4 orbiting needs d >> %.3g m, with d <~ l = %.3g m; lifetime at d = l %.3g s (%.2g passages)"
           % (cap["d_rot"], cap["l"], cap["life_at_l"], cap["life_at_l"] / cap["delay"]))
     r1h, msun = v5()
@@ -227,14 +241,17 @@ def selftest(quiet=False):
     r1 = (abs(m["c2"] / 7e72 - 1) < 0.1 and abs(m["l"] / LY / 3e3 - 1) < 0.1 and abs(m["gamma"] / 2e12 - 1) < 0.1
           and abs(m["Eb_kg"] / 5e9 - 1) < 0.1)
     ok.append(r1); say("V2 MM's (3.27) reproduced: %s" % r1)
-    rows, (n_real, e_real) = v3()
+    rows, rd = v3()
     cap, ten, foot = rows["Earth cap"], rows["10 ell"], rows["1.25 ell"]
     r1 = (abs(cap["c2"] / 2.345e63 - 1) < 2e-3 and abs(cap["l"] - 18.22) < 0.02 and abs(cap["gamma"] - 2055) < 2
           and abs(cap["Eb_J"] / 2.543e35 - 1) < 2e-3 and abs(ten["l"] / 2.698e-3 - 1) < 2e-3 and cap["regime"]
           and ten["regime"] and not foot["regime"] and abs(cap["Tmax"] / 1.256e-4 - 1) < 5e-3)
     ok.append(r1); say("V3 the Earth cap and 10 ell on our plane; the foot outside the regime: %s" % r1)
-    r1 = abs(e_real / 7.79e12 - 1) < 1e-2 and e_real < 1e-20 * cap["Eb_J"] and n_real < cap["c2"]
-    ok.append(r1); say("V3 the README under the binding and the capacity: %s" % r1)
+    r1 = (abs(rd["N"] / 1.3651e66 - 1) < 1e-3 and abs(rd["E"] / 5.37e41 - 1) < 2e-3 and abs(rd["parts"] / 2.11e6 - 1)
+          < 5e-3 and abs(rd["t_min"] - 0.403) < 4e-3 and abs(rd["gap_parts"] / 9.3e3 - 1) < 1e-2
+          and abs(rd["t_gap"] / 1.78e-3 - 1) < 1e-2 and abs(rd["per_c2"] - 583) < 2)
+    ok.append(r1)
+    say("V3 the README filling the cap passes in parts (2.1e6 bindings, 0.40 s; at the gap 1.8 ms): %s" % r1)
     r1 = (abs(cap["d_rot"] - 1.433) < 0.01 and cap["d_rot"] < cap["l"] and cap["life_at_l"] > 1e5 * cap["delay"])
     ok.append(r1); say("V4 an orbiting window 1.43 m << d <~ 18.2 m; lifetime >> passage: %s" % r1)
     r1h, msun = v5()
