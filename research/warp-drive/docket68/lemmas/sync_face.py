@@ -64,6 +64,11 @@ at the end -- Y4 is M's (M-RELEASE-WHOLE).  Stage 3: the object is modelled -- b
 holding the README itself, E(N), from the opening; its exact state written over the long write; the passage
 held whole and released at the end.]
 
+[Item 437, beside "S2's least time stands": M, "yes, the math, always. The write time is whatever is needed for the size
+of the geometric object" (M-WRITE-BY-SIZE).  S2's least time stood on H-BITS-ARE-STATES (425), which 432 (1) set aside;
+the least write time by the math is Margolus-Levitin's on each bit's share, 14.24 r0/c and 9.49 r_h/c, proportional
+to the face's size (encode_read E5).]
+
 What this does not claim: that RT, derived in AdS/CFT, holds for the passage (the identification of 137 (1)'s
 entanglement with RT's is the board's reading); that the README's state can be written onto a hole's own capacity
 at S2's rate (stated, not derived); any page beyond those quoted.

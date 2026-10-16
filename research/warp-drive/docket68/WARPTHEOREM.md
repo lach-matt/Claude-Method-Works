@@ -994,6 +994,18 @@ state was rebuilt first.
   so proportional to the size (Lloyd's black-hole bit flip at 4D, READ); over it the face's Hawking emission takes
   ~1e-15 of E, so LATTICE-BEARING's 2 % tension does not arise. Put to M: Q1's delivery (one whole at the opening, or
   gathered over the read) and the isotope (fork (b)).
+- **Stage 3 at the large end, items 436-437** (`lemmas/b4d_large.py` K0-K11, 9/9, mutants 5/5; not seated). Under
+  162 and T0 the opening is decided by three exact facts: a radial null ramp grows the face (r = 2m(v), r^2 = mu(v));
+  a null shell keeps it at full size from v = 0, carries M on v = 0, and hides its onset behind an event horizon born
+  2 r0 earlier; a uniform dust ball (Oppenheimer-Snyder) keeps it too, since inside flat dust the Misner-Sharp ratio is
+  exactly (H R)^2 in D = 4 and 5, so the edge is the first trapped surface -- the singularity forming 4M/3 later,
+  inside. On the brane the ball's exterior is non-static (Bruni, Germani and Maartens, READ) by rho/lambda =
+  (ell/r0)^2/2, the large end's own order, expected transient. The hold covers the least write 2.33e14 times; the
+  interior, position 2's face and the closing are the register's; the closing's last (ell/r0)^3 of the life is the
+  small end's, ending at B4ds D14's place. B3's cells are all rows of the register but the opening. Put to M: which
+  delivery is the README's (Q1), and B4d and B3 at the large end as READINGs on it. The small end re-read: the record's
+  compact ramp grows the face over 0.568 of the least write, not 8.0e-5 of the old floor (a finding beside
+  arrival_small V11); the same fork stands there. Beside sync_face: S2's least time gives way to the math (437 (2)).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1044,10 +1056,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
 | B | B2t its instance beneath the corridor at the large end: the large hole's bulk | derived | M1 | rows_large.py B2t; Figueras-Wiseman (READ) |
 | B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); M-PLANCK-ENDS |
-| B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's) |
+| B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's); worked cell by cell, b4d_large.py K9 (436-437): all but the opening, Q1's |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
 | B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D18 (351-355); M-PLANCK-ENDS |
-| B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's) |
+| B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's); worked, b4d_large.py K0-K11 (436-437): regular wherever classical GR holds under either delivery, Q1 M's |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
 | B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | derived | -- | e_positive.py E7 |
 | B | B5c position 2's positivity where it bears, at the large end | derived | -- | m1_large.py M8; tau_share T4 |

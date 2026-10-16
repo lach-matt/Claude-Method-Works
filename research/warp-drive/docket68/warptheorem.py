@@ -447,7 +447,9 @@ LEMMAS_NOW = [
     ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
-      'spacetime, read cell by cell (247); the small end in B3s (b4d_small, 351)')),
+      'spacetime, read cell by cell (247); the small end in B3s (b4d_small, 351).  [Items 436-437: worked, '
+      'lemmas/b4d_large.py K9 -- every cell a row computed, derived, verified or M\'s but the opening, ARRIVAL, whose '
+      'delivery is Q1 (M\'s); a READING on it put to M (K10), the status unchanged until M rules]')),
     ('B',
      ("B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk "
       'with no horizons until the opening'),
@@ -474,7 +476,12 @@ LEMMAS_NOW = [
       "board's readings only the null-dust model remains -- the opening's onset (D2) -- through SOURCE (Q29)")),
     ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
-      "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351)")),
+      "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351).  [Items "
+      "436-437: worked, lemmas/b4d_large.py K0-K11 -- the opening keeps the face's size from its first instant and "
+      "hides its onset under a null shell or a uniform timelike ball, exactly, and a null ramp does not (K2); the hold, "
+      "interior, position 2's face and closing imported (K3-K6), the closing ending at B4ds D14's place; the gluing "
+      "(K8) -- regular wherever classical GR holds on M-PLANCK-ENDS under either delivery; which delivery is Q1, "
+      "M's; a READING on it put to M (K10), the status unchanged until M rules]")),
     ('B',
      ("B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one"
       ' way'),

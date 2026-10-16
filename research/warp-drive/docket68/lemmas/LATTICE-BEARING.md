@@ -80,3 +80,8 @@ time. What the read decides in (i) is put to M there (E6).]*
 *[Item 437, beside 3: ARRIVAL re-worded "forms the corridor at the opening" in the register (3, "yes"). RECON entered as
 M's definition under M-RECON-ALWAYS, not as a region; ENCODE entered as OPEN, the geometric object into binary
 information (4, "yes to both"), worked in `encode_read.py`.]*
+
+*[Stage 3, worked after 437 (`b4d_large.py` K0-K11): the opening as first posed here, "the null shell at the opening",
+is one of two deliveries that keep 162 exactly; a uniform timelike ball keeps it too, and a null ramp does not. B4d and
+B3 at the large end are worked under both, regular wherever classical GR holds; which delivery is the README's is Q1,
+put back to M. The small end's opening carries the same fork (K11).]*

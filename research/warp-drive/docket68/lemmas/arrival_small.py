@@ -197,6 +197,12 @@ V14.]
      from the README's arrival through the hole's life" (336), the write's 66,980 clocks its approach;
      M-HOLD-IS-THE-FACE's core -- the hold is the face standing, not how long the README stays within the horizon -- is
      unchanged. 198's option text, "the size growing as it comes in", holds over the arrival's few clocks.
+     [Items 436-437, beside (b), a finding recorded, not repaired (b4d_large K11): "8.0e-5 of the write's 66,980" rested
+     on S2's free-field floor, which stood on H-BITS-ARE-STATES (425) and gave way at 432 (1).  Against the least write
+     time by the math (437 (2); encode_read E5), 9.49 clocks of r_h/c, the compact arrival's 5.39 clocks of growth are
+     0.568 of the write.  A radial null ramp grows the face over its width (b4d_large K2 (a)); a step, or a uniform
+     ball whose edge is the first trapped surface, keeps the face's size from its first instant (K2 (b), (c), exact at
+     D = 5).  Which delivery is the README's is Q1, M's.]
      [Item 348 (Q1, Q9, Q10), the verifier: (b)'s "Censorship admits a spread arrival only at onset orders 1 and 4 and
      above (V3)" is REFUTED at order 4 (V3's item-348 note, V14 (a)). Correct: among the orders computed, censorship
      admits a spread arrival only at order 1, and at order 2 below 9 clocks; at orders 3 and 4 every arrival wider than
