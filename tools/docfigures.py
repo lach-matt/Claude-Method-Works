@@ -187,7 +187,7 @@ def checks():
     return [
         ("CLAUDE.md", "members extracted from the bundles", 343,
          len(_rows("method/MEMBER-INDEX.tsv"))),
-        ("CLAUDE.md", "drive/ MANIFEST rows", 832, len(man)),
+        ("CLAUDE.md", "drive/ MANIFEST rows", 833, len(man)),
         ("CLAUDE.md", "drive/ manifest-tree bijection (orphans, both ways)", 0,
          len(disk ^ set(man))),
         ("CLAUDE.md", "drive/ rows with status ok", 819,
@@ -277,7 +277,7 @@ def checks():
          len(_site_index()["references"]["doi"])),
         ("docs/WEB-INDEX.md", "site references: B.1 species mapped to a compilation", 26,
          len(_site_index()["references"]["spectra_sources"]["by_species"])),
-        ("docs/WEB-INDEX.md", "site papers: released papers held", 14,
+        ("docs/WEB-INDEX.md", "site papers: released papers held", 15,
          sum(1 for x in _site_index()["papers"]["papers"] if x["held"])),
         ("docs/WEB-INDEX.md", "site papers: slots not yet held", 0,
          sum(1 for x in _site_index()["papers"]["papers"] if not x["held"])),

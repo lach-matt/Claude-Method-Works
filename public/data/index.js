@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-09-25T04:10:00+00:00",
-  "commit": "46b6c9ecb34e",
+  "built": "2026-10-16T15:47:41+00:00",
+  "commit": "3c97e1734304",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,353 +12,360 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "46b6c9ecb34e",
-   "text": "Lach, M. (2026). The Master Index, edition 46b6c9ecb34e. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 46b6c9ecb34e}\n}"
+   "commit": "3c97e1734304",
+   "text": "Lach, M. (2026). The Master Index, edition 3c97e1734304. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 3c97e1734304}\n}"
   },
   "history": [
    {
     "date": "2026-09-17",
-    "commit": "745414d",
+    "commit": "745414d3",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/745414d310e11b6eed9fd45e4c985f1be5746cab",
     "note": "first page"
    },
    {
     "date": "2026-09-18",
-    "commit": "a4cd621",
+    "commit": "a4cd621c",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a4cd621ca4da021e81541072e64cbac98c42de4e",
     "note": "interactive index, first pass"
    },
    {
     "date": "2026-09-18",
-    "commit": "ef7b325",
+    "commit": "ef7b325d",
     "files": 125,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ef7b325d5e5b995bd8f6dbe9a84a007e5fae2138",
     "note": "touch-first site; data as script files; solver suite; coefficient calculator"
    },
    {
     "date": "2026-09-18",
-    "commit": "86276a0",
+    "commit": "86276a01",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/86276a0156ea96dafa602250ec6fecc1833dd0fb",
     "note": "the relativistic limit as a seventh mode; the bounds facet"
    },
    {
     "date": "2026-09-18",
-    "commit": "d415284",
+    "commit": "d4152844",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d41528441103cb380cfa510c1cbc3472a7fd258a",
     "note": "mode 7 asserts both directions, thorium the null-difference control"
    },
    {
     "date": "2026-09-18",
-    "commit": "0360a25",
+    "commit": "0360a255",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0360a2553588d77d7fc56c72e61cf60d32c2d50e",
     "note": "the Löwdin delivery's reply cited from the store"
    },
    {
     "date": "2026-09-18",
-    "commit": "e9b77f6",
+    "commit": "e9b77f6f",
     "files": 125,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/e9b77f6fa39028830e34cf81de03a3e1d0b2ba7d",
     "note": "the Löwdin walk reconstructed beside the paper, at both settings"
    },
    {
     "date": "2026-09-18",
-    "commit": "5755759",
+    "commit": "57557596",
     "files": 122,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/575575964f5eeeef2208e51a95d1f51a0c0ca008",
     "note": "a Hartree-Fock field with non-local exchange, in progress"
    },
    {
     "date": "2026-09-19",
-    "commit": "ab7a374",
+    "commit": "ab7a3742",
     "files": 121,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab7a3742aaf6bfd10921f4131cfd3093a3cd07f6",
     "note": "the walk in the paper's own Hartree-Fock field, 476 rows"
    },
    {
     "date": "2026-09-19",
-    "commit": "5e55930",
+    "commit": "5e559305",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5e5593054009768846b3a71edd0a055427a57ff0",
     "note": "the thirty-six cells carry their definitions; helium's placement offered"
    },
    {
     "date": "2026-09-19",
-    "commit": "fc8bcdb",
+    "commit": "fc8bcdb8",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fc8bcdb8e459165ac48fea60f18e23174958c542",
     "note": "the lattice in three dimensions: every element its slab, rotatable and zoomable"
    },
    {
     "date": "2026-09-19",
-    "commit": "81bd08e",
+    "commit": "81bd08ed",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/81bd08ede450f54b59a4f9f032b28fb50877a257",
     "note": "particles and binders; references linked by construction; the muon balance as a mode"
    },
    {
     "date": "2026-09-19",
-    "commit": "3f71e96",
+    "commit": "3f71e96e",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/3f71e96eaf2d796bc3ebe7373fdef021f3e3589e",
     "note": "set like a reference work: type, palette, frame"
    },
    {
     "date": "2026-09-19",
-    "commit": "337b922",
+    "commit": "337b9226",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/337b9226e1f238708590f97941255bdbd60eda1e",
     "note": "the index's cells drawn as a table, not a grid"
    },
    {
     "date": "2026-09-19",
-    "commit": "3c1abef",
+    "commit": "3c1abef1",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/3c1abef14024112146e92434ea3601485de13998",
     "note": "the lattice drawn as a figure: fitted, grounded, labelled"
    },
    {
     "date": "2026-09-19",
-    "commit": "07f9ff7",
+    "commit": "07f9ff7e",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/07f9ff7ebe9bd4b4359ba8b325432e1c00528f81",
     "note": "the lattice's cells as nodes"
    },
    {
     "date": "2026-09-19",
-    "commit": "2d0d5e3",
+    "commit": "2d0d5e33",
     "files": 28,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2d0d5e3340fdf12de1eca5bf013895ce5342149c",
     "note": "the public build: the site cites nothing from the unpublished books"
    },
    {
     "date": "2026-09-19",
-    "commit": "7612e56",
+    "commit": "7612e562",
     "files": 16,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/7612e562bdb17f87ee6ab4063a453c9a6b394fe5",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "229a595",
+    "commit": "229a5950",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/229a5950d6d91c4159953d39f265fdd168bc1fdb",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "4832489",
+    "commit": "48324891",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/48324891e26ea5276c3adc7729196742f9c8db15",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "d8fcff5",
+    "commit": "d8fcff59",
     "files": 112,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d8fcff592773bf6bafd63d39452821373bb1bf30",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "67e98e0",
+    "commit": "67e98e09",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/67e98e094889407af54e034caf2d5c7350c4f018",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "8a01e28",
+    "commit": "8a01e280",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8a01e28061beec3499df05a15486420bd587dd38",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "adbbcd4",
+    "commit": "adbbcd4e",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/adbbcd4e4bd46f33e99471801e04620ad646d635",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "327f552",
+    "commit": "327f552f",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/327f552fda1d85e0225ab37a44ccf9fff5199b71",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "110e0bd",
+    "commit": "110e0bde",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/110e0bde1799191d5570aa172692863e8491f5b2",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "8215d64",
+    "commit": "8215d646",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/8215d646876ca45029e281082b191ea4ecfa4c24",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "de0b829",
+    "commit": "de0b829e",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/de0b829ef3cb85f2478bae159328c423986c74c4",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "79e920e",
+    "commit": "79e920e0",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/79e920e0f57a3e5acfb97709824c4ca9e7cfada2",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "2cb6bc3",
+    "commit": "2cb6bc38",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2cb6bc38c01d53ba6dc18a0c0373a64ff393f20c",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "fdf00d5",
+    "commit": "fdf00d52",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/fdf00d522c29fc61abd2389735a10780282b0022",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "d002152",
+    "commit": "d0021529",
     "files": 3,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d0021529ab9c91b0eb353a2f921b80526196046b",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "364e85f",
+    "commit": "364e85fb",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/364e85fb1c264923f8a8675ce4e4bbf631eabfeb",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "96da041",
+    "commit": "96da0414",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/96da04147973889226a949a1c834aa33cda05b5b",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "ac7fb31",
+    "commit": "ac7fb317",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ac7fb3170664b4fcc906621c860a04a3c2e4e53c",
     "note": null
    },
    {
     "date": "2026-09-19",
-    "commit": "a5e4978",
+    "commit": "a5e4978c",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a5e4978cf7f775291036af54383a0460245f3bb0",
     "note": null
    },
    {
     "date": "2026-09-20",
-    "commit": "0f3b774",
+    "commit": "0f3b7742",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0f3b77423895d771d8ae7ac3b584692762f184a8",
     "note": null
    },
    {
     "date": "2026-09-20",
-    "commit": "17332cb",
+    "commit": "17332cbe",
     "files": 7,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/17332cbe46269c06b7996f52dce510e5bdba73d3",
     "note": null
    },
    {
     "date": "2026-09-20",
-    "commit": "484bc21",
+    "commit": "484bc210",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/484bc21089322407d05035cb734571cbbdc9b2f9",
     "note": null
    },
    {
     "date": "2026-09-21",
-    "commit": "ab70960",
+    "commit": "ab70960f",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ab70960f3b54e7bdd07bdb6c2f37ad1ed27badbe",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "5f7a034",
+    "commit": "5f7a034a",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/5f7a034a640eb3b707a9f0402b197e0b039bd430",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "d7cd27b",
+    "commit": "d7cd27bb",
     "files": 59,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/d7cd27bbea11ae560c54fd8b4d2d519a02a8ec21",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "60ceaf5",
+    "commit": "60ceaf59",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/60ceaf592284db2c901348bfeb0b6508ade59836",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "2ab58bb",
+    "commit": "2ab58bbb",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/2ab58bbbd2ce1b4559ce747d5cebc02a022a04ef",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "ff31bc1",
+    "commit": "ff31bc17",
     "files": 130,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ff31bc17c5b2e56c70da215766049e19110ff3c5",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "a8aa7bf",
+    "commit": "a8aa7bfe",
     "files": 6,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/a8aa7bfe37d826830df51a279422f2adcbf0d0e6",
     "note": null
    },
    {
     "date": "2026-09-24",
-    "commit": "6bfa080",
+    "commit": "6bfa080d",
     "files": 15,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/6bfa080d1214e6a8d3e5db796402ec58028a6623",
     "note": null
    },
    {
     "date": "2026-09-25",
-    "commit": "dded28c",
+    "commit": "dded28c6",
     "files": 5,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/dded28c64cdb33236059ac8707770bd994df88bb",
+    "note": null
+   },
+   {
+    "date": "2026-09-25",
+    "commit": "0b84e59f",
+    "files": 124,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/0b84e59f92607a77aeb4ed259a44bf13cba32e4e",
     "note": null
    }
   ]
  },
  "papers": {
   "file": "data/papers.js",
-  "bytes": 1239668,
-  "md5": "1d81b9e68d069aa1e1b21788a317186a",
+  "bytes": 1300199,
+  "md5": "9c0d92098d38ba2e29680c9f98c24276",
   "protocol": "data/papers.js sets window.__mi.papers, loaded on demand",
   "papers": [
    {
@@ -486,13 +493,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/01-closure-law/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/closure-law/01-closure-law.pdf",
      "bytes": 362493,
      "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
@@ -520,13 +527,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/02-lambda/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/lattice/02-lambda.pdf",
      "bytes": 809787,
      "md5": "75533f2246e75ef436a7e971e35c0307",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "75533f2246e75ef436a7e971e35c0307",
@@ -554,13 +561,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/03-bracket/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "2ab58bbb"
     },
     "pdf": {
      "file": "papers/bracket/03-bracket.pdf",
      "bytes": 506621,
      "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-     "commit": "27dd39c",
+     "commit": "2ab58bbb",
      "witness": {
       "status": "ok-adopted",
       "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
@@ -588,13 +595,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/04-seaton/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "2ab58bbb"
     },
     "pdf": {
      "file": "papers/polarisation-ratio/04-seaton.pdf",
      "bytes": 365197,
      "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-     "commit": "27dd39c",
+     "commit": "2ab58bbb",
      "witness": {
       "status": "ok-adopted",
       "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
@@ -622,13 +629,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/05-tower/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/tower/05-tower.pdf",
      "bytes": 606017,
      "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "b1fca4f6be8027b4da414dba7a94fd17",
@@ -656,13 +663,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/06-order-recovery/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "049b3590"
     },
     "pdf": {
      "file": "papers/order-recovery/06-order-recovery.pdf",
      "bytes": 527483,
      "md5": "9f65e141cab5d77b75080870d9c96156",
-     "commit": "27dd39c",
+     "commit": "049b3590",
      "witness": {
       "status": "ok-adopted",
       "md5": "9f65e141cab5d77b75080870d9c96156",
@@ -690,13 +697,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/07-wall-janet/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "2ab58bbb"
     },
     "pdf": {
      "file": "papers/parent-term-wall/07-wall-janet.pdf",
      "bytes": 540996,
      "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-     "commit": "27dd39c",
+     "commit": "2ab58bbb",
      "witness": {
       "status": "ok-adopted",
       "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
@@ -724,13 +731,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/08-chemical-index/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "60ceaf59"
     },
     "pdf": {
      "file": "papers/chemical-index/08-chemical-index.pdf",
      "bytes": 426155,
      "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-     "commit": "27dd39c",
+     "commit": "60ceaf59",
      "witness": {
       "status": "ok-adopted",
       "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
@@ -758,13 +765,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/09-occupation-hull/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "60ceaf59"
     },
     "pdf": {
      "file": "papers/occupation-law/09-occupation-hull.pdf",
      "bytes": 354736,
      "md5": "9d86f90ee094e01c61d6c23f1300e967",
-     "commit": "27dd39c",
+     "commit": "60ceaf59",
      "witness": {
       "status": "ok-adopted",
       "md5": "9d86f90ee094e01c61d6c23f1300e967",
@@ -792,13 +799,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "note": "the paper as the author wrote it, from the repository's papers directory rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
     "tree": {
      "path": "papers/method/10-beyond-the-atom/PAPER.md",
-     "commit": "27dd39c"
+     "commit": "60ceaf59"
     },
     "pdf": {
      "file": "papers/closure-beyond/10-beyond-the-atom.pdf",
      "bytes": 535900,
      "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-     "commit": "27dd39c",
+     "commit": "60ceaf59",
      "witness": {
       "status": "ok-adopted",
       "md5": "cacbcbb131c57a7f029a833f2473e6a7",
@@ -812,6 +819,40 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "figures_ok": true,
     "arxiv": 0,
     "doi": 1
+   },
+   {
+    "slug": "everything-is-relative",
+    "title": "Everything Is Relative",
+    "subtitle": "Matthew Lach · Independent Researcher · 16 October 2026",
+    "author": "Lach, M.",
+    "held": true,
+    "bytes": 50757,
+    "md5": "0e25e7ffb10e9201626b573eaa760fea",
+    "md5_recorded": null,
+    "words": 8512,
+    "note": "the paper as the author wrote it, from the repository's research tree rather than the store: no ledger row records its md5, so the md5 is measured at build and the file's last commit is recorded beside it; nothing in it is edited for the site",
+    "tree": {
+     "path": "research/paper/EVERYTHING-IS-RELATIVE.md",
+     "commit": "6764ffaa"
+    },
+    "pdf": {
+     "file": "papers/everything-is-relative/EVERYTHING-IS-RELATIVE.pdf",
+     "bytes": 182149,
+     "md5": "b559a0c99193bef851c5f29d465f715f",
+     "commit": "6764ffaa",
+     "witness": {
+      "status": "ok-adopted",
+      "md5": "b559a0c99193bef851c5f29d465f715f",
+      "match": true
+     }
+    },
+    "pdf_note": null,
+    "masked": [],
+    "headings": 26,
+    "figures": 0,
+    "figures_ok": true,
+    "arxiv": 12,
+    "doi": 12
    }
   ]
  },
@@ -826,8 +867,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/papers.js",
-   "bytes": 1239668,
-   "md5": "1d81b9e68d069aa1e1b21788a317186a",
+   "bytes": 1300199,
+   "md5": "9c0d92098d38ba2e29680c9f98c24276",
    "what": "the released papers, rendered"
   },
   {
@@ -840,61 +881,67 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "file": "data/papers/closure-law/01-closure-law.pdf",
    "bytes": 362493,
    "md5": "efda0adb9dc02584ae3bb5f43dc23db4",
-   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Closure Law of a Finite Index, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/lattice/02-lambda.pdf",
    "bytes": 809787,
    "md5": "75533f2246e75ef436a7e971e35c0307",
-   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Lattice of Subshell Transitions, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/bracket/03-bracket.pdf",
    "bytes": 506621,
    "md5": "ac4557a4763ba1ba1a1f42fdc0b317ba",
-   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Bracket: a Guarantee on Rydberg Levels, and What It Costs, as a PDF; md5 measured at build, commit 2ab58bbb; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/polarisation-ratio/04-seaton.pdf",
    "bytes": 365197,
    "md5": "a1f1352e8f8a11dee2d2734ee8d9b62e",
-   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Domain of the Polarisation Ratio δ₂/δ₀ = −ℓ(ℓ+1)/3: a Necessary Condition from the Core Configuration, Tested on Thirteen Rydberg Series, as a PDF; md5 measured at build, commit 2ab58bbb; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/tower/05-tower.pdf",
    "bytes": 606017,
    "md5": "b1fca4f6be8027b4da414dba7a94fd17",
-   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Tower over Λ: from Eight Coordinates to Thirteen, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/order-recovery/06-order-recovery.pdf",
    "bytes": 527483,
    "md5": "9f65e141cab5d77b75080870d9c96156",
-   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "Order Recovery and the Reorderability Law, as a PDF; md5 measured at build, commit 049b3590; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/parent-term-wall/07-wall-janet.pdf",
    "bytes": 540996,
    "md5": "7d9da28b922f3cb88acbc55fb7aa35f4",
-   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "The Parent-Term Wall and the Cost of a Drawn Coordinate, as a PDF; md5 measured at build, commit 2ab58bbb; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/chemical-index/08-chemical-index.pdf",
    "bytes": 426155,
    "md5": "465d6c0eab3e4e5bb06acf9c01f7bd53",
-   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "Closing the Chemical Properties: a Classification Index for the Elements, as a PDF; md5 measured at build, commit 60ceaf59; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/occupation-law/09-occupation-hull.pdf",
    "bytes": 354736,
    "md5": "9d86f90ee094e01c61d6c23f1300e967",
-   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "An Occupation Law as a Lower Convex Hull, as a PDF; md5 measured at build, commit 60ceaf59; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/papers/closure-beyond/10-beyond-the-atom.pdf",
    "bytes": 535900,
    "md5": "cacbcbb131c57a7f029a833f2473e6a7",
-   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 27dd39c; byte-identical to the copy the author released to the witness folder"
+   "what": "Closure beyond the Atom: the Defect of an Index, Its Zeros by Theorem, and the Electromagnetic Quotient, as a PDF; md5 measured at build, commit 60ceaf59; byte-identical to the copy the author released to the witness folder"
+  },
+  {
+   "file": "data/papers/everything-is-relative/EVERYTHING-IS-RELATIVE.pdf",
+   "bytes": 182149,
+   "md5": "b559a0c99193bef851c5f29d465f715f",
+   "what": "Everything Is Relative, as a PDF; md5 measured at build, commit 6764ffaa; byte-identical to the copy the author released to the witness folder"
   },
   {
    "file": "data/particles.js",
