@@ -172,7 +172,13 @@ only, `python3 tools/test_drive_sync.py`) is a regression guard on `drive_sync.p
 mirror's guarantee is byte-exactness and each test defends one way that can fail silently. **Run it
 after any change to `drive_sync.py`** — it is not covered by that tool's `--selftest`, which checks
 the adopt path only. Everything else here is checked by an instrument's own `--selftest`, not by a
-test file.
+test file — **except the site's behaviour in a browser**, which no selftest can press a button on:
+`tools/sitecheck.mjs` (Node and Playwright with Chromium, both in this environment; not stdlib) opens
+`public/` at the site's own address in headless Chromium and clicks through the Papers dialog, the
+cite addresses, history and focus — 26 scenarios, 102 checks, about six minutes. `--target worktree`
+(default) serves this checkout, `--target commit` the deployed `main` held against the copy GitHub
+serves, `--target live` the network where the proxy allows it. **Run it after any change to
+`public/script.js`'s routing or the papers' render.** See `docs/SITECHECK.md`.
 
 The exceptions, and they are the only ones: `method/verify.py` and the instruments in
 `method/members/` are run by the §0 gate, `tools/drive_sync.py` syncs the mirror (and takes a
@@ -335,10 +341,11 @@ before any pass that spans more than one file.
   Mathics3 is a subset of Mathematica, not Mathematica: label its results "computed (Mathics3)" and cross-check any that
   carry weight. A full local Wolfram Engine is blocked by the egress proxy. Trigger: `/mathematica`
 
-Two more programs exist and are named here so nothing in the tree is unaccounted for:
+Three more programs exist and are named here so nothing in the tree is unaccounted for:
 `tools/colab_land_chats.py` shards the Claude Chats export and lands it in the repository (**Colab
 only** — it is the mount-side half of the route `docs/DRIVE-SYNC.md` describes, and does not run
-here), and `tools/test_drive_sync.py` is the regression suite named above. `docs/REPO-SIZE.md` is a
+here), `tools/test_drive_sync.py` is the regression suite named above, and `tools/sitecheck.mjs` is
+the site's click-through named beside it. `docs/REPO-SIZE.md` is a
 size audit **measured 2026-09-02 on another branch at 8 commits** — historical, and superseded by any
 figure `tools/docfigures.py` pins.
 
