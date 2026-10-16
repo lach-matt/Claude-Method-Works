@@ -332,7 +332,8 @@ LEMMAS_NOW = [
     # [item 423] M approved the change proposed at 422: OPEN -> DERIVED, on M1 and H-CORE-DELIVERS (M's, 422)
     ('O', 'O1b no curvature singularity on the passage at the large end', 'DERIVED',
      ("along the README's parts (418): lemmas/quantum_onset.py Q1-Q6 (415, the onset x = 1); lemmas/focusing_parts.py "
-      "F1-F6 (419: every part reaches its focus in finite affine parameter, curvature finite before x = 1); "
+      "F1-F6 (419: curvature finite before x = 1 along every part); H-CORE-DELIVERS (422) also closes the gap the "
+      "Kretschmann scalar cannot see, in the transition and the core (item 430 (Q5), wording approved at 431); "
       "lemmas/core_face.py A1-B4 (420: the face static from the arrival's end); the core inside r ~ ell delivering "
       "every part to 273's bounce is M's H-CORE-DELIVERS (422), assumed, not derived -- the 4D stretch exact, the "
       "earliest parts hidden because the face stands before the first part: it rests on the object standing from "
@@ -341,8 +342,10 @@ LEMMAS_NOW = [
       "426-427) -- item 423: approved.  Item 356: entered OPEN (the record's o1c_complete was eq. "
       "(17)'s, superseded; the large hole's exterior Figueras-Wiseman's, READ)")),
     ('O', 'O1c every causal route of the passage complete at the large end', 'DERIVED',
-     ("with O1b: lemmas/focusing_parts.py F4 (every part's route complete to its focus, any geometry), "
-      "H-CORE-DELIVERS (M's, 422: on to 273's bounce), position 2's side by time reversal (414 (d)); it rests on the "
+     ("with O1b: complete on the 4D stretch by its exact forms (lemmas/focusing_parts.py F1-F3) and over the "
+      "transition and the core by H-CORE-DELIVERS (M's, 422: on to 273's bounce); F4 gives a focus or an earlier "
+      "ending, not completeness (item 430 (Q2); wording approved at 431); position 2's side by time reversal (414 "
+      "(d)); it rests on the "
       "object standing from the opening (M's 426), which the board models (item 428, approved; item 423's "
       "arrival-width clause withdrawn at 426) -- item 423: approved.  Item 356: entered OPEN (o1c_oneway, "
       "O1cs, is the small end's)")),

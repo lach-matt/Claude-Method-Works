@@ -935,6 +935,15 @@ state was rebuilt first.
   supplies; over the long write the face loses about 2 % of its mass to Hawking emission (an estimate, critic's
   re-derivation). Seated beside the text in the three instruments and INTERIOR-PROOF.md; verify_ledger carries the
   430 rows in every column and corrects seven of its own interior reasons, the old kept beside.
+- **Item 431** (M: "For your approval: a register wording change. - approved ... 1 - baez's list, unless we have
+  legitimately defined additional universal constants ... 2 - a  3 - any other true universal constant we have
+  identified"): **O1b and O1c's wording applied** -- O1c complete on the 4D stretch by its exact forms and over the
+  transition and core by 422, not F4; O1b names 422's share in what K cannot see. The address's 26 are Baez's, with
+  any further universal constant legitimately defined; every value is a position (reading (a): habitability not a
+  factor); beside the 26 stands any other true universal constant. First, as M asked, the instructions for another
+  session to write the paper on item 324's proof (`../paper/INSTRUCTIONS-QUANTUM-RELATIVITY-PAPER.md`): relativity.py
+  U0-U7, closed by 325-328, verified at 332, with quantum_onset (415, verified 430) as where quantum corrections
+  begin. Then the trajectories on the 26 and the synchronization work, without a further ask.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -966,8 +975,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | -- | 270, 273, 276, 282; c1_oneway.py |
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
-| O | O1b no curvature singularity on the passage at the large end | derived | M1 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS (422); on the object standing from the opening (426), modelled by the board (428) |
-| O | O1c every causal route of the passage complete at the large end | derived | M1 | focusing_parts.py F4; H-CORE-DELIVERS (422); on the object standing from the opening (426), modelled by the board (428) |
+| O | O1b no curvature singularity on the passage at the large end | derived | M1 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS (422), which also closes what K cannot see (430 (Q5); 431); on the object standing from the opening (426), modelled by the board (428) |
+| O | O1c every causal route of the passage complete at the large end | derived | M1 | exact 4D forms on the stretch (focusing_parts F1-F3), not F4 (430 (Q2); 431); H-CORE-DELIVERS (422); on the object standing from the opening (426), modelled by the board (428) |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
 | O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | derived | WRITEs | o3_hold.py |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | derived | WRITE | o3_large.py Q1-Q4 (362), re-posed as O3s |
