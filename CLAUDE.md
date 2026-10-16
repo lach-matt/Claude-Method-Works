@@ -175,7 +175,7 @@ the adopt path only. Everything else here is checked by an instrument's own `--s
 test file — **except the site's behaviour in a browser**, which no selftest can press a button on:
 `tools/sitecheck.mjs` (Node and Playwright with Chromium, both in this environment; not stdlib) opens
 `public/` at the site's own address in headless Chromium and clicks through the Papers dialog, the
-cite addresses, history and focus — 26 scenarios, 102 checks, about six minutes. `--target worktree`
+cite addresses, history and focus — 26 scenarios, 109 checks, about six minutes. `--target worktree`
 (default) serves this checkout, `--target commit` the deployed `main` held against the copy GitHub
 serves, `--target live` the network where the proxy allows it. **Run it after any change to
 `public/script.js`'s routing or the papers' render.** See `docs/SITECHECK.md`.

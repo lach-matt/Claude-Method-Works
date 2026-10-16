@@ -1551,6 +1551,8 @@
 
   async function select(node, opts = {}) {
     const { fly = true, ms = 650, setHash = true, reveal = true } = opts;
+    // a selection made on the address's behalf yields once the reader has moved the address on
+    if (opts.stale && opts.stale()) return false;
     state.selected = node;
     renderInspector(node);
     renderCrumbs(node);
@@ -1646,7 +1648,7 @@
       // with no such entry, the root. Open the paper only if the address still names it after the wait
       if (!state.selected) {
         const behind = entryBehind();
-        if (behind) await routeHash(behind, { fly, ms, setHash: false, reveal: false });
+        if (behind) await routeHash(behind, { fly, ms, setHash: false, reveal: false, stale: () => location.hash !== h });
         if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
       }
       if (location.hash !== h) return;

@@ -1043,7 +1043,8 @@ the explorer again, so the camera, the zoom and a phone's scroll stay as the rea
 selection that lands while the address names a paper (a slow load finishing behind the dialog)
 moves the explorer only and leaves the paper's entry alone; and a load at a paper's address (a
 reload, a restored tab) puts the explorer on the node the entry behind the paper holds, where the
-Navigation API names it, so closing it returns there. Every path that shows a paper puts focus on it (`focusPapers`), a rotation keeps
+Navigation API names it, so closing it returns there — and yields to the reader if they move the
+address on while that node is still loading (`opts.stale` in `select`). Every path that shows a paper puts focus on it (`focusPapers`), a rotation keeps
 the block at the top of the paper where it was, and while any dialog is open the explorer's keys
 (`h`, the arrows, `+`/`−`) do not act behind it. `tools/sitecheck.mjs` clicks through all of it in
 headless Chromium at the site's own address (`docs/SITECHECK.md`). Until 2026-10-16 the router did not read that form,

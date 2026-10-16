@@ -22,7 +22,7 @@
 // so no target needs any other host. Exit status: 0 all pass, 1 a check failed or the page threw,
 // 2 the run could not start. See docs/SITECHECK.md.
 import { execFileSync, spawnSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
+import { X509Certificate, createHash } from 'node:crypto';
 import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -44,11 +44,23 @@ const TYPES = { '.html': 'text/html; charset=utf-8', '.js': 'application/javascr
 const argv = process.argv.slice(2);
 const flag = (name) => argv.includes(name);
 const opt = (name, dflt) => { const a = argv.find((x) => x === name || x.startsWith(name + '=')); if (!a) return dflt; const i = argv.indexOf(a); return a.includes('=') ? a.slice(name.length + 1) : (argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : dflt); };
+const die = (m) => { console.error(m); process.exit(2); };
+// every argument is a known flag, a known option with its value, or that value: anything else is a
+// mistake to stop on, not to ignore (a misspelt --nonav would otherwise run with the API present)
+for (let i = 0; i < argv.length; i++) {
+  const a = argv[i], name = a.split('=')[0];
+  if (a === '--nonav' || a === '--list') continue;
+  if (!['--target', '--suite', '--root'].includes(name)) die(`unknown argument ${a}${a.startsWith('--') ? '' : ' (use --target commit=REV)'}`);
+  if (a.includes('=') ? a.length === name.length + 1 : !argv[i + 1] || argv[i + 1].startsWith('--')) die(`${name} needs a value`);
+  if (!a.includes('=')) i++;
+}
 const targetArg = opt('--target', 'worktree');
-const [TARGET, REV] = targetArg.startsWith('commit') ? ['commit', targetArg.split('=')[1] || 'origin/main'] : [targetArg, null];
-const SUITES = new Set((opt('--suite', 'all') === 'all' ? 'papers,routing,review' : opt('--suite', 'all')).split(','));
+const tm = /^(worktree|live|commit)(?:=(.+))?$/s.exec(targetArg);
+if (!tm || (tm[2] !== undefined && tm[1] !== 'commit')) die(`unknown --target ${targetArg}`);
+const [TARGET, REV] = [tm[1], tm[1] === 'commit' ? (tm[2] || 'origin/main') : null];
+if (opt('--root') !== undefined && TARGET !== 'worktree') die('--root serves a directory with the worktree target only');
+let SUITES = new Set(opt('--suite', 'all').split(','));
 const NONAV = flag('--nonav'), LIST = flag('--list');
-if (!['worktree', 'commit', 'live'].includes(TARGET)) { console.error(`unknown --target ${targetArg}`); process.exit(2); }
 
 // ---------------------------------------------------------------- the scenarios
 // scenario(suite, name, fn): fn receives { open, st, ok, W } and opens its own pages; every page is
@@ -80,6 +92,11 @@ for (const vp of [DESK, PHONE]) scenario('papers', `the Papers dialog and Everyt
   ok('the contents carry every section heading', r.toc === r.heads && r.toc > 0, { toc: r.toc, heads: r.heads });
   ok('the PDF is served whole and matches the released copy', r.pdf && r.pdf[0] === 200 && r.pdf[1] === r.pdfBytes && r.witness, r);
   ok('no horizontal scroll', !r.hscroll, r.hscroll);
+  const id = await p.evaluate(() => document.querySelectorAll('.paper-toc a[data-h]')[4].dataset.h);
+  await p.click(`.paper-toc a[data-h="${id}"]`); await W(p, 1200);
+  const j = await p.evaluate((h) => { const b = document.querySelector('#papers-body'), t = document.getElementById(h);
+    return { open: document.querySelector('#dlg-papers').open, hash: location.hash, scroll: b.scrollTop, off: t ? Math.round(t.getBoundingClientRect().top - b.getBoundingClientRect().top) : null }; }, id);
+  ok('a contents link scrolls to its heading, the paper and its address kept', j.open && j.hash === '#paper=everything-is-relative' && j.scroll > 0 && j.off !== null && Math.abs(j.off) < 40, j);
 });
 scenario('papers', 'what the renderer must get right in the papers', async ({ open, ok, W }) => {
   const p = await open(DESK); await p.goto(B + '#paper=everything-is-relative'); await W(p, 3000);
@@ -89,13 +106,19 @@ scenario('papers', 'what the renderer must get right in the papers', async ({ op
     return { pipes: [...a.querySelectorAll('td')].map((td) => td.textContent).filter((t) => /16\|α\|m|8\|Hḟ\||\|ξ\|²/.test(t)).length,
       escapes: (a.textContent.match(/\\[_|[\]*]/g) || []).length,
       jhep: [...a.querySelectorAll('a[href*="JHEP"]')].map((x) => x.getAttribute('href')),
-      grqc: [...a.querySelectorAll('a[href="https://arxiv.org/abs/gr-qc/0411023"]')].length,
+      grqc: [...a.querySelectorAll('a[href="https://arxiv.org/abs/gr-qc/0411023"]')].map((x) => x.textContent),
+      rtr: (a.textContent.match(/R\^\{tr\}_\{tr\}/g) || []).length,
+      unlinked: (() => { const pp = window.__mi.papers.find((x) => x.slug === 'everything-is-relative');
+        const hrefs = new Set([...a.querySelectorAll('a[href]')].map((x) => x.getAttribute('href')));
+        return [...pp.arxiv.map((i) => 'https://arxiv.org/abs/' + i), ...pp.doi.map((i) => 'https://doi.org/' + i)].filter((u) => !hrefs.has(u)); })(),
       p1: p1 && /no other scale\.$/.test(p1.textContent.trim()), p1list: p1 && p1.parentElement.children.length };
   });
   ok('escaped pipes are literal pipes in their table cells', r.pipes === 3, r.pipes);
   ok('no backslash escape survives the render', r.escapes === 0, r.escapes);
   ok('a DOI with a balanced parenthesised group links whole', JSON.stringify(r.jhep.sort()) === JSON.stringify(['https://doi.org/10.1007/JHEP02(2016)020', 'https://doi.org/10.1007/JHEP08(2022)157']), r.jhep);
-  ok('an old-style arXiv id with a version suffix is linked', r.grqc >= 1, r.grqc);
+  ok('an old-style arXiv id with a version suffix is linked, as printed, at both its sites', r.grqc.length === 2 && r.grqc.every((t) => t === 'gr-qc/0411023v3'), r.grqc);
+  ok('every arXiv and DOI identifier the paper cites is linked', r.unlinked.length === 0, r.unlinked);
+  ok('an escaped underscore is its character: R^{tr}_{tr} as printed', r.rtr >= 1, r.rtr);
   ok('a list item\'s lazy continuation stays in it: P1 whole, P1–P4 one list', r.p1 && r.p1list === 4, r);
   for (const slug of ['closure-beyond', 'languages', 'bracket', 'closure-law', 'indexes']) {
     await p.evaluate((s) => { location.hash = '#paper=' + s; }, slug); await W(p, 1300);
@@ -172,6 +195,9 @@ for (const vp of [DESK, PHONE]) scenario('routing', `Read from the list at ${vp.
   for (let i = 0; i < 6; i++) await p.keyboard.press('ArrowDown'); await W(p, 300);
   s = await st(p); ok('ArrowDown scrolls the paper', s.scroll > 0, s);
   await p.keyboard.press('h'); await W(p, 600); s = await st(p); ok('h does not act behind the dialog', s.open && s.hash === '#paper=lowdin' && /Fe$/.test(s.crumbs), s);
+  const cam = s.cam; await p.evaluate(() => document.activeElement.blur()); await W(p, 200);
+  for (const k of ['h', '+', 'ArrowRight']) { await p.keyboard.press(k); await W(p, 400); }
+  s = await st(p); ok('with focus fallen to the page, still no key acts behind the dialog', s.open && s.hash === '#paper=lowdin' && /Fe$/.test(s.crumbs) && Array.isArray(cam) && JSON.stringify(s.cam) === JSON.stringify(cam), s);
   await p.click('[data-act="papers-back"]'); await W(p, 800); s = await st(p); ok('back to the list keeps focus in the dialog', s.active === 'papers-body' && s.hash === '#/Fe', s);
 });
 scenario('routing', 'reopening with the Papers button: focus on the paper', async ({ open, st, ok, W }) => {
@@ -229,7 +255,7 @@ for (const [vp, mobile] of [[PHONE, true], [DESK, false]]) scenario('review', `B
   const before = await st(p);
   await p.click('#btn-papers'); await W(p, 1500); await p.click('button[data-paper="lowdin"]'); await W(p, 1200);
   await p.goBack(); await W(p, 1800); const after = onSite(p) ? await st(p) : { url: p.url() };
-  ok('the paper closes; camera and scroll unmoved', onSite(p) && !after.open && after.hash === '#/' && after.y === before.y && JSON.stringify(after.cam) === JSON.stringify(before.cam), { before, after }, { nav: true });
+  ok('the paper closes; camera and scroll unmoved', onSite(p) && !after.open && after.hash === '#/' && after.y === before.y && Array.isArray(before.cam) && JSON.stringify(after.cam) === JSON.stringify(before.cam), { before, after }, { nav: true });
   if (!onSite(p)) { ok('Forward reopens it', false, 'Back had left the site', { nav: true }); return; }
   await p.goForward(); await W(p, 1500); const fw = await st(p); ok('Forward reopens it', fw.open && LO.test(fw.h1), fw, { nav: true });
 });
@@ -243,8 +269,9 @@ scenario('review', 'a paper over the explorer never steps back onto an older ent
   await p.goBack(); await W(p, 1800); s = onSite(p) ? await st(p) : { url: p.url() }; ok('Back closes Löwdin at #/Cu, Bracket not opened', onSite(p) && !s.open && s.hash === '#/Cu', s, { nav: true });
 });
 scenario('review', 'a selection landing late behind an open paper leaves its entry alone', async ({ open, st, ok, W, onSite }) => {
-  const p = await open(); await p.route(B + 'data/elements/92.js', async (r) => { await new Promise((res) => setTimeout(res, 5000)); await r.fallback(); });
-  await p.goto(ELSEWHERE); await p.goto(B + '#/U/III'); await W(p, 1200);
+  let held = 0; const p = await open(); await p.route(/\/data\/elements\/92\.js(\?|$)/, async (r) => { held++; await new Promise((res) => setTimeout(res, 5000)); await r.fallback(); });
+  await p.goto(ELSEWHERE); await p.goto(B + '#/U/III', { waitUntil: 'commit' }); await W(p, 1200);
+  const early = await st(p); ok('the element load is held back past the Papers press', held > 0 && !early.crumbs.endsWith('III'), { held, crumbs: early.crumbs });
   await p.click('#btn-papers'); await W(p, 1500); await p.click('button[data-paper="lowdin"]'); await W(p, 6000);
   let s = await st(p); ok('after the late load: the paper open, its address kept', s.open && LO.test(s.h1) && s.hash === '#paper=lowdin', s);
   await p.goBack(); await W(p, 1800); s = onSite(p) ? await st(p) : { url: p.url() }; ok('Back closes it at the element asked for', onSite(p) && !s.open && /^#\/U/.test(s.hash) && /U/.test(s.crumbs), s, { nav: true });
@@ -269,20 +296,30 @@ scenario('review', 'a citation followed from another page opens over the root', 
   const p = await open(); await p.goto(ELSEWHERE); await p.goto(B + '#paper=tower'); await W(p, 3500); const s = await st(p);
   ok('Tower over the root', s.open && /Tower/.test(s.h1) && s.crumbs === 'Index', s);
 });
-scenario('review', 'an address changed during the first load opens no paper', async ({ open, ok, W }) => {
-  const p = await open(); await p.addInitScript(() => { document.addEventListener('DOMContentLoaded', () => setTimeout(() => { location.hash = '#/Fe'; }, 0)); });
-  await p.goto(B + '#paper=lowdin'); await W(p, 4000);
-  const r = await p.evaluate(() => ({ hash: location.hash, open: document.querySelector('#dlg-papers').open, crumbs: [...document.querySelectorAll('#crumbs button')].map((x) => x.textContent).join(' › ') }));
-  ok('no paper; the explorer at Fe', r.hash === '#/Fe' && !r.open && /Fe$/.test(r.crumbs), r);
+scenario('review', 'an address changed during the first load opens no paper', async ({ open, st, ok, W }) => {
+  const p = await open(); await p.goto(ELSEWHERE); await p.goto(B + '#/U/III'); await W(p, 3000);
+  await p.click('#btn-papers'); await W(p, 1500); await p.click('button[data-paper="lowdin"]'); await W(p, 1200);
+  // the reload restores the ion behind the paper and waits on its element file, held back here
+  await p.route(/\/data\/elements\/92\.js(\?|$)/, async (r) => { await new Promise((res) => setTimeout(res, 4000)); await r.fallback(); });
+  await p.reload({ waitUntil: 'domcontentloaded' }); await W(p, 1000);
+  const pending = await p.evaluate(() => !document.querySelector('#dlg-papers').open);
+  await p.evaluate(() => { location.hash = '#/Fe'; }); await W(p, 6000);
+  const s = await st(p);
+  ok('no paper; the address and the explorer are the reader\'s', pending && !s.open && s.hash === '#/Fe' && /Fe$/.test(s.crumbs), { pending, ...s }, { nav: true });
 });
 scenario('review', 'the explorer\'s own keys still act with no dialog open', async ({ open, ok, W }) => {
   const p = await open(); await p.goto(B + '#/Fe/II'); await W(p, 3500);
-  const crumbs = () => p.evaluate(() => [...document.querySelectorAll('#crumbs button')].map((x) => x.textContent).join(' › '));
+  const at = () => p.evaluate(() => ({ crumbs: [...document.querySelectorAll('#crumbs button')].map((x) => x.textContent).join(' › '), hash: location.hash }));
   await p.evaluate(() => document.querySelector('#canvas').focus());
-  await p.keyboard.press('Escape'); await W(p, 900); ok('Escape goes up to Fe', /Fe$/.test(await crumbs()), await crumbs());
-  await p.keyboard.press('h'); await W(p, 900); ok('h goes home', (await crumbs()) === 'Index', await crumbs());
+  await p.keyboard.press('Escape'); await W(p, 900); let s = await at(); ok('Escape goes up to Fe', /Fe$/.test(s.crumbs) && s.hash === '#/Fe', s);
+  await p.keyboard.press('h'); await W(p, 900); s = await at(); ok('h goes home', s.crumbs === 'Index' && s.hash === '#/', s);
   await p.keyboard.press('/'); await W(p, 300); ok('/ focuses the search', (await p.evaluate(() => document.activeElement.id)) === 'q', null);
 });
+
+// ---------------------------------------------------------------- suites
+const KNOWN = [...new Set(SCENARIOS.map((x) => x.suite))];
+if (SUITES.has('all')) SUITES = new Set(KNOWN);
+{ const bad = [...SUITES].filter((x) => !KNOWN.includes(x)); if (bad.length) die(`unknown --suite ${bad.join(',')}; the suites are ${KNOWN.join(', ')}`); }
 
 // ---------------------------------------------------------------- listing
 if (LIST) {
@@ -299,19 +336,24 @@ if (TARGET === 'commit') {
   let sha;
   try { sha = execFileSync('git', ['rev-parse', REV], { cwd: REPO }).toString().trim(); } catch (e) { console.error(`cannot resolve ${REV}`); process.exit(2); }
   tmp = mkdtempSync(path.join(tmpdir(), 'sitecheck-'));
-  execFileSync('sh', ['-c', `git archive ${sha} public | tar -x -C "${tmp}"`], { cwd: REPO });
+  process.on('exit', () => { if (tmp) rmSync(tmp, { recursive: true, force: true }); });   // every exit path, a throw included
+  try { execFileSync('sh', ['-c', `git archive ${sha} public | tar -x -C "${tmp}"`], { cwd: REPO, stdio: ['ignore', 'ignore', 'pipe'] }); }
+  catch (e) { die(`cannot extract public/ from ${REV} (${sha.slice(0, 12)}): ${String(e.stderr || e.message).split('\n')[0]}`); }
   ROOT = path.join(tmp, 'public');
+  if (!existsSync(path.join(ROOT, 'index.html'))) die(`no public/index.html in ${REV}`);
   console.log(`serving public/ of ${sha.slice(0, 12)} (${REV}) at ${SITE}`);
   // each key file against the copy GitHub serves for that commit (curl honours the session's proxy)
   let differs = 0, unreached = 0;
   for (const f of KEY_FILES) {
-    const local = md5(readFileSync(path.join(ROOT, f)));
+    const lp = path.join(ROOT, f);
+    if (!existsSync(lp)) { console.log(`  ${f.padEnd(62)} not in this commit`); continue; }
+    const local = md5(readFileSync(lp));
     const got = spawnSync('curl', ['-sSf', '-m', '90', RAW + sha + '/public/' + f], { maxBuffer: 64 << 20 });
     const remote = got.status === 0 ? md5(got.stdout) : null;
     if (!remote) unreached++; else if (remote !== local) differs++;
     console.log(`  ${f.padEnd(62)} ${local}  ${remote === null ? 'GitHub unreachable' : remote === local ? 'same as GitHub serves' : 'DIFFERS from GitHub: ' + remote}`);
   }
-  if (differs) { console.error('the commit\'s files differ from the copy GitHub serves; stopping'); process.exit(2); }
+  if (differs) die('the commit\'s files differ from the copy GitHub serves; stopping');
   if (unreached) console.log('  (GitHub could not be reached for some files; served from the commit as held here)');
 }
 if (TARGET === 'worktree') console.log(`serving ${path.relative(REPO, ROOT) || ROOT} at ${SITE}`);
@@ -323,14 +365,27 @@ const PW = process.env.PLAYWRIGHT_MODULE || '/opt/node22/lib/node_modules/playwr
 let chromium;
 try { ({ chromium } = await import(existsSync(PW) ? PW : 'playwright')); } catch (e) { console.error('Playwright not found: set PLAYWRIGHT_MODULE to its index.mjs'); process.exit(2); }
 const EXE = process.env.CHROMIUM || (existsSync('/opt/pw-browsers/chromium') ? '/opt/pw-browsers/chromium' : undefined);
-const browser = await chromium.launch({ executablePath: EXE, headless: true });
+// the session's proxy re-signs TLS with its own CA, which curl and Node are given: Chromium is told to
+// trust the same keys (and nothing else is relaxed), so the live target can load where the proxy allows
+const CA = process.env.SSL_CERT_FILE || process.env.NODE_EXTRA_CA_CERTS || '/root/.ccr/ca-bundle.crt';
+let spki = [];
+try { spki = existsSync(CA) ? [...new Set((readFileSync(CA, 'utf8').match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g) || [])
+  .map((pem) => createHash('sha256').update(new X509Certificate(pem).publicKey.export({ type: 'spki', format: 'der' })).digest('base64')))] : []; } catch (e) { spki = []; }
+let browser;
+try { browser = await chromium.launch({ executablePath: EXE, headless: true, args: spki.length ? ['--ignore-certificate-errors-spki-list=' + spki.join(',')] : [] }); }
+catch (e) { die(`Chromium could not be launched: ${e.message.split('\n')[0]} (set CHROMIUM to its executable)`); }
 
 async function route(r) {
+  try { return await serve(r); } catch (e) { return r.fulfill({ status: 500, body: String(e) }).catch(() => {}); }
+}
+async function serve(r) {
   const url = r.request().url();
   if (url.startsWith(ELSEWHERE)) return r.fulfill({ status: 200, body: '<!doctype html><title>elsewhere</title><p>a page before the site</p>', headers: { 'content-type': 'text/html' } });
   if (TARGET === 'live') return r.fallback();
   if (url.startsWith(SITE)) {
-    let rel = decodeURIComponent(new URL(url).pathname.slice('/Claude-Method-Works/'.length)) || 'index.html';
+    let rel;
+    try { rel = decodeURIComponent(new URL(url).pathname.slice('/Claude-Method-Works/'.length)) || 'index.html'; }
+    catch (e) { return r.fulfill({ status: 400, body: 'bad path', headers: { 'content-type': 'text/plain' } }); }
     if (rel.endsWith('/')) rel += 'index.html';
     const file = path.join(ROOT, rel);
     if (!file.startsWith(ROOT + path.sep)) return r.fulfill({ status: 403, body: 'outside the site' });
@@ -346,8 +401,10 @@ if (TARGET === 'live') {
   const resp = await p.goto(SITE, { timeout: 30000 }).catch((e) => e);
   await ctx.close();
   if (!resp || resp instanceof Error || !resp.ok()) {
-    console.error(`${SITE} is not reachable from here (${resp instanceof Error ? resp.message.split('\n')[0] : resp && resp.status()}).`);
-    console.error('Allow lach-matt.github.io in the environment\'s network access, or use --target commit to serve the deployed commit\'s own files.');
+    const why = resp instanceof Error ? resp.message.split('\n')[0] : `HTTP ${resp && resp.status()}`;
+    console.error(`${SITE} did not load from here: ${why}.`);
+    if (/ERR_TUNNEL_CONNECTION_FAILED|HTTP 40[37]/.test(why)) console.error('The session\'s proxy refused the host: allow lach-matt.github.io in the environment\'s network access, or use --target commit to serve the deployed commit\'s own files.');
+    else if (/ERR_CERT_/.test(why)) console.error(`The browser does not trust the certificate it was given: a trust-store problem, not the allowlist (the CA bundle read was ${CA}).`);
     await browser.close(); process.exit(2);
   }
 }
@@ -359,8 +416,9 @@ const st = (p) => p.evaluate(() => ({ open: document.querySelector('#dlg-papers'
   note: [...document.querySelectorAll('#papers-body .note')].map((n) => n.textContent).join(' | '), cards: document.querySelectorAll('#papers-body .paper-card').length,
   crumbs: [...document.querySelectorAll('#crumbs button')].map((x) => x.textContent).join(' › '), hash: location.hash,
   active: document.activeElement && (document.activeElement.id || document.activeElement.tagName), scroll: document.querySelector('#papers-body').scrollTop,
-  y: Math.round(scrollY), cam: (() => { const c = window.__mi_state && window.__mi_state.cam; return c ? [+c.k.toFixed(3), Math.round(c.tx), Math.round(c.ty)] : null; })() }));
+  y: Math.round(scrollY), cam: (() => { if (!window.__mi_state) return 'no window.__mi_state'; const c = window.__mi_state.cam; return c ? [+c.k.toFixed(3), Math.round(c.tx), Math.round(c.ty)] : null; })() }));
 const onSite = (p) => p.url().startsWith(SITE);
+const SCENARIO_MS = 180000;   // the longest scenario takes well under a minute
 for (const sc of SCENARIOS) {
   if (!SUITES.has(sc.suite)) continue;
   const contexts = [];
@@ -368,18 +426,27 @@ for (const sc of SCENARIOS) {
     const ctx = await browser.newContext({ viewport: vp, isMobile: mobile, hasTouch: mobile }); contexts.push(ctx);
     await ctx.route('**/*', route);
     if (NONAV) await ctx.addInitScript(() => { try { Object.defineProperty(window, 'navigation', { value: undefined, configurable: true }); } catch (e) { /* not definable */ } });
-    const p = await ctx.newPage(); p.on('pageerror', (e) => pageErrors.push(`${sc.name}: ${e.message}`)); return p;
+    ctx.setDefaultTimeout(30000);
+    const p = await ctx.newPage(); p.on('pageerror', (e) => pageErrors.push(`${sc.name}: ${e.message}`));
+    // the page reports a caught failure (a draw, the boot, an element load) on the console only; a
+    // refused request to another host (the fonts route() turns away) is not the site's and is left out
+    p.on('console', (m) => { if (m.type() !== 'error') return; const at = (m.location() || {}).url || '';
+      if (/^Failed to load resource/.test(m.text()) && at && !at.startsWith(SITE)) return;
+      pageErrors.push(`${sc.name}: console: ${m.text().split('\n')[0]}`); });
+    return p;
   };
-  const ok = (name, cond, got, o = {}) => results.push({ suite: sc.suite, scenario: sc.name, name, status: o.nav && NONAV ? 'n/a' : cond ? 'PASS' : 'FAIL', got: cond ? '' : JSON.stringify(got) });
-  try { await sc.fn({ open, st, ok, W, onSite }); }
+  let done = false, timer;
+  const ok = (name, cond, got, o = {}) => { if (!done) results.push({ suite: sc.suite, scenario: sc.name, name, status: o.nav && NONAV ? 'n/a' : cond ? 'PASS' : 'FAIL', got: cond ? '' : JSON.stringify(got) }); };
+  const deadline = new Promise((_, rej) => { timer = setTimeout(() => rej(new Error(`did not finish in ${SCENARIO_MS / 1000} s (the page stopped responding?)`)), SCENARIO_MS); });
+  try { await Promise.race([sc.fn({ open, st, ok, W, onSite }), deadline]); }
   catch (e) { results.push({ suite: sc.suite, scenario: sc.name, name: 'ran to the end', status: 'FAIL', got: e.message.split('\n')[0] }); }
-  finally { for (const c of contexts) await c.close().catch(() => {}); }
+  finally { done = true; clearTimeout(timer); for (const c of contexts) await c.close().catch(() => {}); }
   const mine = results.filter((r) => r.scenario === sc.name);
   console.log(`\n${sc.suite} · ${sc.name}`);
   for (const r of mine) console.log(`  ${r.status.padEnd(4)}  ${r.name}${r.status === 'FAIL' ? '\n        got ' + r.got.slice(0, 600) : ''}`);
 }
 await browser.close();
-if (tmp) rmSync(tmp, { recursive: true, force: true });
 const n = (s) => results.filter((r) => r.status === s).length;
+if (!results.length) die('no checks ran');
 console.log(`\n${n('PASS')} passed, ${n('FAIL')} failed${n('n/a') ? `, ${n('n/a')} n/a without the Navigation API` : ''}; page errors: ${pageErrors.length ? pageErrors.join(' | ') : 'none'}`);
 process.exit(n('FAIL') || pageErrors.length ? 1 : 0);
