@@ -188,6 +188,7 @@ PUBLIC_NAMES = {"LOWDIN-WALK.tsv": "the walk table", "SCORE.tsv": "the scorer ta
                 "papers/method/08-chemical-index/PAPER.md": "the chemical-index paper",
                 "papers/method/09-occupation-hull/PAPER.md": "the occupation-law paper",
                 "papers/method/10-beyond-the-atom/PAPER.md": "the closure-beyond-the-atom paper",
+                "EVERYTHING-IS-RELATIVE.md": "the everything-is-relative paper",
                 }
 
 
@@ -997,6 +998,17 @@ RESEARCH_PAPERS = {
         "slug": "closure-beyond", "short": "the closure-beyond-the-atom paper",
         "pdf": "papers/method/pdf/10-beyond-the-atom.pdf", "own_figures": True, "origin": "the repository's papers directory",
     },
+    # Everything Is Relative (2026-10-16): released to the Prints & Proofs folder and merged to the
+    # research tree on main after the commit --warp-root pins for the particle indexes, so it is read
+    # from the repository's own tree (from_repo) with its own last commit. Its title block is a YAML
+    # front-matter header, read by _front_matter. The guard's one hit outside its own section marks is
+    # a journal page, "ApJL 848 (2017) L13" in its references, which the line-reference pattern also
+    # catches and which cites nothing from the books
+    "research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md": {
+        "slug": "everything-is-relative", "short": "the everything-is-relative paper",
+        "pdf": "research/warp-drive/paper/pdf/EVERYTHING-IS-RELATIVE.pdf", "from_repo": True,
+        "own_terms": {r"\bL\d{2,5}\b(?![.\d])"},
+    },
 }
 # the edition history the site shows: the commits that changed public/ or the
 # generator, each with a note written for the site (the commit subjects are
@@ -1070,15 +1082,26 @@ _MD_INLINE = [
 ]
 
 
+_MD_ESCAPE = re.compile(r"\\([!-/:-@\[-`{-~])")
+
+
 def _md_inline(text, ctx):
+    # a backslash escape outside a code span is its character, as GitHub reads it (π\[F\] is
+    # π[F], R\_{tr} is R_{tr}): held out of the inline rules as a private-use mark, restored at the end
+    held = []
+
+    def _hold(m):
+        held.append(m.group(1))
+        return "\ue000%d\ue001" % (len(held) - 1)
+    text = "".join(p if k % 2 else _MD_ESCAPE.sub(_hold, p) for k, p in enumerate(re.split(r"(`[^`]+`)", text)))
     text = html_escape(text)
     # identifiers first, so a link's own URL is not re-linked inside a tag
     text = ARXIV_NEW.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
-    text = ARXIV_OLD.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
-    text = re.sub(r"(?<![/\w])(10\.\d{4,9}/[^\s\"'<>,;)\]]+)", lambda m: '<a href="https://doi.org/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1).rstrip("."), m.group(1)), text)
+    text = _ARXIV_OLD_INLINE.sub(lambda m: '<a href="https://arxiv.org/abs/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1), m.group(0)), text)
+    text = re.sub(r"(?<![/\w])(10\.\d{4,9}/(?:[^\s\"'<>,;()\]]|\([^\s()<>\"',;\]]*\))+)", lambda m: '<a href="https://doi.org/%s" target="_blank" rel="noopener noreferrer">%s</a>' % (m.group(1).rstrip("."), m.group(1)), text)
     for rx, fn in _MD_INLINE:
         text = rx.sub(lambda m, fn=fn: fn(m, ctx), text)
-    return text
+    return re.sub("\ue000(\\d+)\ue001", lambda m: html_escape(held[int(m.group(1))]), text) if held else text
 
 
 def html_escape(t):
@@ -1089,6 +1112,17 @@ def _slugify(t):
     t = re.sub(r"<[^>]+>", "", t)
     t = re.sub(r"[^A-Za-z0-9]+", "-", t).strip("-").lower()
     return t[:60] or "s"
+
+
+def _table_cells(row):
+    """A pipe-table row's cells: split on the unescaped pipes, each escaped pipe (\\|) a literal
+    one in its cell, as GitHub's tables read it -- inside a code span too."""
+    row = row.strip()
+    if row.startswith("|"):
+        row = row[1:]
+    if row.endswith("|") and not row.endswith("\\|"):
+        row = row[:-1]
+    return [c.strip().replace("\\|", "|") for c in re.split(r"(?<!\\)\|", row)]
 
 
 def md_to_html(text, ctx):
@@ -1130,11 +1164,11 @@ def md_to_html(text, ctx):
             flush(); out.append("<hr>"); i += 1; continue
         if st.startswith("|") and i + 1 < n and re.match(r"^\|?\s*:?-{2,}", lines[i + 1].strip()):
             flush()
-            hdr = [c.strip() for c in st.strip("|").split("|")]
+            hdr = _table_cells(st)
             j = i + 2
             body = []
             while j < n and lines[j].strip().startswith("|"):
-                body.append([c.strip() for c in lines[j].strip().strip("|").split("|")]); j += 1
+                body.append(_table_cells(lines[j])); j += 1
             out.append('<div class="tbl-wrap"><table class="t"><thead><tr>%s</tr></thead><tbody>%s</tbody></table></div>' % (
                 "".join("<th>%s</th>" % _md_inline(c, ctx) for c in hdr),
                 "".join("<tr>%s</tr>" % "".join("<td>%s</td>" % _md_inline(c, ctx) for c in r) for r in body)))
@@ -1156,7 +1190,9 @@ def md_to_html(text, ctx):
                 lm2 = re.match(r"^(\s*)([-*]|\d+[.)])\s+(.*)$", lines[i])
                 if lm2:
                     items.append(lm2.group(3)); i += 1
-                elif lines[i].strip() and lines[i].startswith("  ") and items:
+                # a continuation line, indented or lazy as GitHub reads it: any non-blank line that
+                # does not open a block of its own (a heading, fence, quote, table or rule)
+                elif lines[i].strip() and items and (lines[i].startswith("  ") or not re.match(r"^(#{1,6}\s|```|>|\||(-{3,}|\*{3,}|_{3,})$)", lines[i].strip())):
                     items[-1] += " " + lines[i].strip(); i += 1
                 else:
                     break
@@ -1197,8 +1233,11 @@ def research_path(rel, warp_root=None):
 
 def research_commit(rel, warp_root=None):
     """The last commit that touched a research-tree file: the repository's own record
-    where the file is in this checkout, else the commit the caller named for the tree."""
-    if os.path.isfile(os.path.join(REPO, rel)) and (warp_root is None or os.path.abspath(warp_root) == os.path.abspath(WARP_ROOT)):
+    where the file is read from this checkout, else the commit the caller named for the tree.
+    Only a path under research/warp-drive/ is read from --warp-root (research_path), so only
+    such a path takes the named commit; papers/method/ is always this checkout's."""
+    if os.path.isfile(os.path.join(REPO, rel)) and (not rel.startswith("research/warp-drive/") or warp_root is None
+                                                    or os.path.abspath(warp_root) == os.path.abspath(WARP_ROOT)):
         return _git_last_commit(rel)
     return WARP_COMMIT or _git_last_commit(rel)
 
@@ -1241,7 +1280,7 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
         h1 = next((h for h in headings if h["level"] == 1), None)
         h2 = next((h for h in headings if h["level"] == 2), None)
         arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
-        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".") for m in DOI_RX.finditer(text)})
         row = _member_row(fn)
         papers.append({
             "slug": slug, "short": short,
@@ -1260,7 +1299,9 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                     "for the site, and its own citations are its own",
         })
     for rel, spec in RESEARCH_PAPERS.items():
-        path = research_path(rel, warp_root)
+        # a paper the tree at --warp-root predates is read from the repository's own copy
+        wr = None if spec.get("from_repo") else warp_root
+        path = research_path(rel, wr)
         if not os.path.isfile(path):
             papers.append({"slug": spec["slug"], "short": spec["short"], "title": spec["short"], "held": False, "author": SITE_AUTHOR,
                            "note": "named by the author as released; its file is not in this tree, so the site lists it and shows nothing in its place"})
@@ -1299,23 +1340,26 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                           "md5_recorded": None, "ok": True, "note": "the paper's own figure; md5 measured at build, no ledger row"})
             alt = re.sub(r"[*_]", "", alt).strip()
             return '<img src="data/%s" alt="%s" loading="lazy">' % (rel, html_escape(alt))
-        body, headings = md_to_html(text, {"img": img_r})
+        fm, fm_body = _front_matter(text)
+        body, headings = md_to_html(fm_body, {"img": img_r})
+        if fm:
+            body = _front_matter_html(fm) + "\n" + body
         h1 = next((h for h in headings if h["level"] == 1), None)
         arx = sorted({m.group(1) for m in ARXIV_NEW.finditer(text)} | {m.group(1) for m in ARXIV_OLD.finditer(text)})
-        dois = sorted({m.group(1).rstrip(".)") for m in DOI_RX.finditer(text)})
+        dois = sorted({m.group(1).rstrip(".") for m in DOI_RX.finditer(text)})
         pdf = None
         pdf_note = None
-        if spec.get("pdf_withheld") and os.path.isfile(research_path(spec["pdf"], warp_root)):
+        if spec.get("pdf_withheld") and os.path.isfile(research_path(spec["pdf"], wr)):
             pdf_note = "the PDF is the paper as written and carries the citations masked above, so it is not carried until the author reissues it"
-        elif spec.get("pdf") and os.path.isfile(research_path(spec["pdf"], warp_root)):
-            with open(research_path(spec["pdf"], warp_root), "rb") as fh:
+        elif spec.get("pdf") and os.path.isfile(research_path(spec["pdf"], wr)):
+            with open(research_path(spec["pdf"], wr), "rb") as fh:
                 pblob = fh.read()
             prel = "papers/%s/%s" % (slug, os.path.basename(spec["pdf"]))
             if write:
                 os.makedirs(os.path.join(out_dir, "papers", slug), exist_ok=True)
                 with open(os.path.join(out_dir, prel), "wb") as fh:
                     fh.write(pblob)
-            pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": research_commit(spec["pdf"], warp_root)}
+            pdf = {"file": prel, "bytes": len(pblob), "md5": hashlib.md5(pblob).hexdigest(), "commit": research_commit(spec["pdf"], wr)}
             # the copy the author released to the Drive folder that is the original-input witness, where
             # the mirror holds one under the same name (drive_sync.py --adopt): its manifest md5 against this file's
             wrow = _manifest_row("/" + os.path.basename(spec["pdf"]))
@@ -1323,13 +1367,13 @@ def papers_block(out_dir=OUT, write=True, log=print, warp_root=None):
                 pdf["witness"] = {"status": wrow["status"], "md5": wrow["md5"], "match": wrow["md5"] == pdf["md5"]}
         papers.append({
             "slug": slug, "short": spec["short"],
-            "title": (h1 or {}).get("text") or spec["short"],
-            "subtitle": _paper_byline(text),
+            "title": fm.get("title") or (h1 or {}).get("text") or spec["short"],
+            "subtitle": (" · ".join(x for x in (fm.get("author"), fm.get("date")) if x) or None) if fm else _paper_byline(text),
             "author": SITE_AUTHOR,
             "held": True,
             "bytes": len(raw), "md5": hashlib.md5(raw).hexdigest(),
             "md5_recorded": None,
-            "tree": {"path": public_path(rel), "commit": research_commit(rel, warp_root)},
+            "tree": {"path": public_path(rel), "commit": research_commit(rel, wr)},
             "words": len(text.split()),
             "headings": headings,
             "figures": figs,
@@ -1374,6 +1418,49 @@ def _git_last_commit(rel):
                               capture_output=True, text=True, check=True).stdout.strip() or None
     except Exception:  # noqa: BLE001 -- not a git checkout
         return None
+
+
+def _front_matter(text):
+    """A YAML front-matter title block (a first line of ---, flat `key: value` lines, a closing ---)
+    as a dict, and the text after it. Not a YAML parser: a value is a double-quoted string read as
+    JSON, a single-quoted one, or bare text, and a header of any other shape is not taken -- the
+    text is returned whole and renders as written."""
+    m = re.match(r"\A---\r?\n(.*?)\r?\n---\r?\n", text, re.S)
+    if not m:
+        return {}, text
+    meta = {}
+    for ln in m.group(1).splitlines():
+        km = re.match(r"^([A-Za-z_][\w-]*):[ \t]*(.*?)[ \t]*$", ln)
+        if not km:
+            return {}, text
+        v = km.group(2)
+        if v.startswith('"'):
+            try:
+                v = json.loads(v)
+            except ValueError:
+                return {}, text
+            if not isinstance(v, str):
+                return {}, text
+        elif len(v) >= 2 and v[0] == v[-1] == "'":
+            v = v[1:-1].replace("''", "'")
+        meta[km.group(1)] = v
+    return meta, text[m.end():]
+
+
+def _front_matter_html(meta):
+    """The title block a front-matter header stands for, in the shape the other papers write it
+    as text: the title, the subtitle as a bold standfirst, the author and date as a byline, a rule."""
+    out = []
+    if meta.get("title"):
+        out.append('<h1 class="paper-title">%s</h1>' % html_escape(meta["title"]))
+    if meta.get("subtitle"):
+        out.append("<p><strong>%s</strong></p>" % html_escape(meta["subtitle"]))
+    by = " · ".join(x for x in (meta.get("author"), meta.get("date")) if x)
+    if by:
+        out.append("<p>%s</p>" % html_escape(by))
+    if out:
+        out.append("<hr>")
+    return "\n".join(out)
 
 
 def _paper_byline(text):
@@ -3656,8 +3743,12 @@ def mucf_instruments():
 # ---------------------------------------------------------------------------
 
 ARXIV_NEW = re.compile(r"arXiv[: ]?(\d{4}\.\d{4,5})(?:v\d+)?", re.IGNORECASE)
-ARXIV_OLD = re.compile(r"\b((?:hep-th|hep-ph|hep-ex|hep-lat|math-ph|alg-geom|physics|quant-ph|cond-mat|astro-ph|nucl-th|nucl-ex|gr-qc|math|cs)(?:\.[A-Za-z]{2})?/\d{7})\b")
-DOI_RX = re.compile(r"\b(10\.\d{4,9}/[^\s\"'<>,;)\]]+)")
+ARXIV_OLD = re.compile(r"\b((?:hep-th|hep-ph|hep-ex|hep-lat|math-ph|alg-geom|physics|quant-ph|cond-mat|astro-ph|nucl-th|nucl-ex|gr-qc|math|cs)(?:\.[A-Za-z]{2})?/\d{7})(?:v\d+)?\b")
+# the inline linker's form: not after "/", so an id inside a URL or a Markdown link's target is left to that link
+_ARXIV_OLD_INLINE = re.compile(r"(?<![/\w])" + ARXIV_OLD.pattern)
+# a DOI may carry a balanced parenthesised group (Springer's JHEP DOIs, 10.1007/JHEP02(2016)020): a ")"
+# outside such a group closes the sentence and is not matched, so a matched ")" is the DOI's own
+DOI_RX = re.compile(r"\b(10\.\d{4,9}/(?:[^\s\"'<>,;()\]]|\([^\s()<>\"',;\]]*\))+)")
 URL_RX = re.compile(r"https?://[^\s)\]>\"']+")
 
 
@@ -3689,7 +3780,7 @@ def references_block():
                 for m in ARXIV_OLD.finditer(ln):
                     add(arxiv, m.group(1), rel, i, ln)
                 for m in DOI_RX.finditer(ln):
-                    add(doi, m.group(1).rstrip(".)"), rel, i, ln)
+                    add(doi, m.group(1).rstrip("."), rel, i, ln)
                 for m in URL_RX.finditer(ln):
                     u = m.group(0).rstrip(".),;")
                     if "doi.org/" in u or "arxiv.org/" in u:
@@ -4455,14 +4546,31 @@ def selftest(warp_root=WARP_ROOT):
             check("quasiparticles: 230 space groups, 32 point groups, 73 arithmetic classes",
                   [pfull["quasiparticles"]["no_table"][k] for k in ("space_groups", "point_groups", "arithmetic_classes")], [230, 32, 73])
     pp = index["papers"]["papers"]
-    SITE_PAPERS = ["lowdin", "three-body", "languages", "indexes"] + ["closure-law", "lattice", "bracket", "polarisation-ratio", "tower", "order-recovery", "parent-term-wall", "chemical-index", "occupation-law", "closure-beyond"]
-    check("papers: the fourteen released papers, in order", [p["slug"] for p in pp], SITE_PAPERS)
-    check("papers: all fourteen are held", [p["held"] for p in pp], [True] * 14)
-    for q in pp[4:]:
+    SITE_PAPERS = ["lowdin", "three-body", "languages", "indexes"] + ["closure-law", "lattice", "bracket", "polarisation-ratio", "tower", "order-recovery", "parent-term-wall", "chemical-index", "occupation-law", "closure-beyond"] + ["everything-is-relative"]
+    check("papers: the fifteen released papers, in order", [p["slug"] for p in pp], SITE_PAPERS)
+    check("papers: all fifteen are held", [p["held"] for p in pp], [True] * 15)
+    for q in pp[4:14]:
         check("papers: %s carries every figure it cites from its own directory, and its PDF with an md5" % q["slug"],
               (q["figures"] > 0, q["figures_ok"], bool(q["pdf"] and q["pdf"]["md5"]), q["masked"]), (True, True, True, []))
     check("papers: the ten PDFs are byte-identical to the copies the author released to the witness folder, mirrored ok-adopted",
-          [((q["pdf"] or {}).get("witness") or {}).get("match") and ((q["pdf"] or {}).get("witness") or {}).get("status") for q in pp[4:]], ["ok-adopted"] * 10)
+          [((q["pdf"] or {}).get("witness") or {}).get("match") and ((q["pdf"] or {}).get("witness") or {}).get("status") for q in pp[4:14]], ["ok-adopted"] * 10)
+    eir = pp[14]
+    eir_src = "research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md"
+    check("papers: Everything Is Relative is read from the repository's own research tree, not --warp-root, with that file's last commit",
+          (eir["tree"]["path"], eir["tree"]["commit"], eir["md5"]),
+          ("research/paper/EVERYTHING-IS-RELATIVE.md", _git_last_commit(eir_src), hashlib.md5(open(os.path.join(REPO, eir_src), "rb").read()).hexdigest()))
+    check("papers: its title and byline are its front matter's, and it carries no figure and nothing masked",
+          (eir["title"], eir["subtitle"], eir["figures"], eir["masked"]),
+          ("Everything Is Relative", "Matthew Lach · Independent Researcher · 16 October 2026", 0, []))
+    check("papers: its PDF is carried and is byte-identical to the copy released to the witness folder, mirrored ok-adopted",
+          (eir["pdf"]["md5"], eir["pdf"]["bytes"], eir["pdf"]["witness"]), ("b559a0c99193bef851c5f29d465f715f", 182149, {"status": "ok-adopted", "md5": "b559a0c99193bef851c5f29d465f715f", "match": True}))
+    check("papers: it links 12 arXiv and 12 DOI identifiers", (eir["arxiv"], eir["doi"]), (12, 12))
+    # the routing measured directly: with a --warp-root that holds no paper at all, the research-tree papers
+    # read from it are not held, and this one is still held from this checkout with its own commit
+    probe = {q["slug"]: q for q in papers_block(write=False, log=lambda *_a, **_k: None, warp_root=os.path.join(REPO, "no-such-warp-root"))["papers"]}
+    check("papers: Everything Is Relative is read from this checkout whatever --warp-root holds (from_repo); the tree's own papers are not",
+          (probe["everything-is-relative"]["held"], probe["everything-is-relative"]["tree"]["commit"], probe["everything-is-relative"]["md5"], probe["languages"]["held"], probe["indexes"]["held"]),
+          (True, _git_last_commit(eir_src), eir["md5"], False, False))
     check("papers: the index of first-order indexes paper comes from the research tree with its commit, four citations of unpublished material masked and its PDF withheld",
           (pp[3]["tree"]["path"], bool(pp[3]["tree"]["commit"]), pp[3]["pdf"], bool(pp[3]["pdf_note"]), sum(m["count"] for m in pp[3]["masked"]), sorted({m["kind"] for m in pp[3]["masked"]})),
           ("research/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", True, None, True, 8, ["a citation of an unpublished record", "a member's file name", "a path into the unpublished store", "the research tree's directory"]))
@@ -4479,8 +4587,36 @@ def selftest(warp_root=WARP_ROOT):
         check("papers: after masking, the index paper cites nothing from the books, measured by the guard with its own section marks and its own terms excluded", (idx_paper["book_citations"], sorted(idx_paper["own_terms"])), ([], sorted(RESEARCH_PAPERS["research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md"]["own_terms"])))
         check("papers: the mask leaves a visible mark at every site but the directory rewrite", idx_paper["html"].count("withheld on this site"), 7)
         check("papers: its render carries every heading of the source", len(idx_paper["headings"]), sum(1 for ln in open(research_path("research/warp-drive/paper/THE-INDEX-OF-FIRST-ORDER-INDEXES.md", warp_root), encoding="utf-8") if ln.startswith("#")))
+    eir_full = next((p for p in full_papers if p["slug"] == "everything-is-relative"), None)
+    if eir_full:
+        eir_lines = open(os.path.join(REPO, "research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md"), encoding="utf-8").read().split("\n")
+        check("papers: Everything Is Relative cites nothing from the books, measured by the guard with its own section marks and one journal page (ApJL 848 L13) excluded",
+              (eir_full["book_citations"], eir_full["own_section_marks"], eir_full["own_terms"]), ([], [r"§\s?\d"], [r"\bL\d{2,5}\b(?![.\d])"]))
+        check("papers: its render carries every heading of the source and its front matter as the title block, not as rules",
+              ([h["text"] for h in eir_full["headings"]], eir_full["html"].startswith('<h1 class="paper-title">Everything Is Relative</h1>'), "title:" in eir_full["html"], eir_full["html"].count("<hr>")),
+              ([re.sub(r"[*_`]", "", ln.lstrip("#").strip()) for ln in eir_lines if ln.startswith("#")], True, False,
+               1 + sum(1 for ln in eir_lines[6:] if re.match(r"^(-{3,}|\*{3,}|_{3,})$", ln.strip()))))
+        check("papers: its escaped pipes are literal pipes in their table cells, not cell breaks",
+              ("\\|" in eir_full["html"], "excess 16|α|m/(r⁴q²)</td>" in eir_full["html"]), (False, True))
+        check("papers: the front matter's subtitle is the title block's standfirst, as written",
+              "<p><strong>How quantum physics stands to relativity: on the postulate that whatever can exist keeps the one light cone, "
+              "the leading quantum correction to gravity's second-order law, on its string effective-action reading, is held to zero</strong></p>" in eir_full["html"], True)
+        check("papers: a DOI with a balanced parenthesised group is linked whole, and an old-style arXiv id with a version suffix is found",
+              ({"10.1007/JHEP02(2016)020", "10.1007/JHEP08(2022)157"} <= set(eir_full["doi"]), 'href="https://doi.org/10.1007/JHEP02(2016)020"' in eir_full["html"],
+               "gr-qc/0411023" in eir_full["arxiv"], 'href="https://arxiv.org/abs/gr-qc/0411023"' in eir_full["html"]), (True, True, True, True))
+        check("papers: a list item's lazy continuation line stays in its item: the premises P1 to P4 are one list, P1 whole",
+              ("anti-de Sitter radius ℓ) and no other scale.</li><li><b>P2.</b>" in eir_full["html"], "<p>anti-de Sitter radius" in eir_full["html"]), (True, False))
+    check("papers: an identifier inside a link's target is left to the link: one anchor, its URL whole",
+          [_md_inline(t, {"img": lambda a, b: ""}).count("<a ") for t in ("[Deser](https://arxiv.org/abs/gr-qc/0411023v3)", "[Deser](https://arxiv.org/abs/gr-qc/0411023)", "see gr-qc/0411023v3", "doi:10.1007/JHEP02(2016)020.")], [1, 1, 1, 1])
+    check("papers: a header that is not flat key: value lines is not taken as front matter, and the text renders whole",
+          (_front_matter("---\ntitle: x\n- y\n---\nbody\n"), _front_matter("---\ntitle: \"a \\\"b\\\"\"\nauthor: 'c''d'\n---\nbody\n"), _front_matter("no header\n")),
+          (({}, "---\ntitle: x\n- y\n---\nbody\n"), ({"title": 'a "b"', "author": "c'd"}, "body\n"), ({}, "no header\n")))
+    check("papers: no backslash escape of any paper survives its render outside code, as GitHub reads them",
+          [p["slug"] for p in full_papers if p.get("held") and _MD_ESCAPE.search(re.sub(r"<(pre|code)\b[^>]*>.*?</\1>", "", p["html"], flags=re.S))], [])
+    check("papers: no table cell of any paper is cut at an escaped pipe",
+          [p["slug"] for p in full_papers if p.get("held") and re.search(r"\\(</t[dh]>|\|)", p["html"])], [])
     for q in full_papers:
-        if q.get("held") and q["slug"] in SITE_PAPERS[4:]:
+        if q.get("held") and q["slug"] in SITE_PAPERS[4:14]:
             check("papers: %s cites nothing from the books, measured by the guard with its own section marks excluded" % q["slug"],
                   (q["book_citations"], q["own_terms"]), ([], []))
     lang = next((p for p in full_papers if p["slug"] == "languages"), None)

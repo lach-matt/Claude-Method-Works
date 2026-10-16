@@ -1062,10 +1062,47 @@ the image handler resolves each against the paper's own directory, copies it to
 research-tree papers had every image replaced by a placeholder, and that branch of the handler
 still does so for a paper without `own_figures`. The PDF beside each, in `papers/method/pdf/`, is the
 review render and is offered as a download with its md5. The card's note names the papers directory
-as the origin (`origin`). The selftest asserts the fourteen in order, that every one of the ten
+as the origin (`origin`). The selftest asserts the fifteen in order, that every one of the ten
 carries every figure it cites and its PDF, and that the guard measures zero book citations in each;
 the guard's name map (`PUBLIC_NAMES`) carries each paper's path so that the path the site prints
 resolves to the paper's short name and not to a file name.
+
+**Everything Is Relative is the fifteenth** (`RESEARCH_PAPERS`:
+`research/warp-drive/paper/EVERYTHING-IS-RELATIVE.md`), released by the author to the Prints & Proofs
+folder on 2026-10-16. It merged to the research tree on `main` after the commit the particle indexes
+pin with `--warp-root`, so that tree does not hold it; the spec's `from_repo` flag reads it, its PDF
+and its last commit from this checkout's own `research/warp-drive/paper/` whatever `--warp-root`
+says. `research_commit` also takes the named tree's commit only for a path under
+`research/warp-drive/`, the only paths `research_path` redirects — the ten papers of
+`papers/method/` had been stamped with the tree's commit, and now carry their own. Its title block
+is a YAML front-matter header rather than a `#` line and a bold byline: `_front_matter` reads its
+flat `key: "value"` lines (and takes nothing from a header of any other shape, which then renders
+as written), the title is the header's, the byline its author and date, and `_front_matter_html`
+renders the title, the subtitle as the bold standfirst and the byline in the shape the other papers
+write as text. The Drive copy was fetched by id and seated with `drive_sync.py --adopt`, row
+`ok-adopted`, and is byte-identical to the PDF beside the text, which `pdf.witness` records. The
+guard measures its own section marks (§) and one more hit, a journal page in its references (ApJL
+848 (2017) L13), which the line-reference pattern also catches and which is carried as its own term;
+it cites nothing from the books. The selftest pins its source, commit, title, byline, PDF and
+witness, 12 arXiv and 12 DOI identifiers, every heading, and the front-matter reader's refusals,
+and measures the routing directly: with a `--warp-root` that holds nothing, this paper is still held
+from this checkout and the tree's own papers are not.
+
+**What this paper exposed in the renderer, repaired for every paper.** It was the first to need four
+things the renderer did not do, each as GitHub reads Markdown. An escaped pipe (`\|`) in a table
+cell is a literal pipe (`_table_cells`), where the row had been split at it — the hierarchy-law and
+bracket papers' tables carried the same fault. A backslash escape outside a code span is its
+character (`π\[F\]` is π[F], `R\_{tr}` is R_{tr}), where the backslash had been printed — the
+hierarchy-law, closure-law and beyond-the-atom papers carried it, the last with a bracket pair read
+as a dead link. A list item's unindented (lazy) continuation line stays in its item, where it had become a
+stray paragraph between two lists. And identifiers: a DOI may carry a balanced parenthesised group
+(Springer's JHEP DOIs, `10.1007/JHEP02(2016)020`), where the match had stopped at the parenthesis
+and linked a DOI that does not exist, and an old-style arXiv id may carry a version suffix
+(`gr-qc/0411023v3`), where it had not been found — and is not linked inside a URL or a Markdown
+link's target, which keeps its own link. Measured over every source the site reads, the two
+identifier repairs change this paper alone and leave the References dialog's counts as they were;
+the selftest checks that no paper's render keeps a backslash escape outside code or a table cell cut
+at an escaped pipe.
 
 **Figures from the data.** The *Figures* dialog draws five figures in the browser, as SVG, from
 `index.js` when it opens — no image, no typed number, each caption naming its block and status,
