@@ -1045,6 +1045,17 @@ state was rebuilt first.
   pass, 10 do not yet, 2 deferred; Supply, Formation, Information route and Arrival amber at both ends, Crossing at
   the large end. Put to M: whether M's rulings and definitions count as first principles (22 of the 48 name M's
   rulings among their premises), and the approach for the four proofs owed.
+- **Item 441** (M: "1 - no 2 - no. Each definition must be proved 3 - yes 4 - approach approved"). M's rulings are
+  not first principles (M-RULINGS-NOT-PRINCIPLES), and each definition must be proved (M-DEFINITIONS-PROVED). T1's
+  lemma list in `warptheorem.py` now runs the thirteen owners (approved). `pass_audit.py` P5 (selftest 5/5, mutants
+  2/2): a row passes only when its claim is computed, it names no ruling of M's among its premises and it rests on
+  no definition unproved. Three rows pass -- I2, R3 and Z3a, physics of our own universe alone. Every other row rests
+  on B6' (our universe a plane of tension bounding a five-dimensional bulk), now to be proved; 53 also name rulings
+  of M's, each to be derived from physics and computed, or, where a ruling specifies the device, proved realizable.
+  The register's statuses are unchanged: they record what was computed from those premises. The map shows every
+  station amber at both ends, Source deferred. The approach for B5b, O1b and O1c stands as approved; B7's approved
+  approach (the chain of rulings machine-checked) no longer suffices under answer 1, so B7 is to be derived from the
+  bulk's geometry instead, put to M.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1147,7 +1158,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 21, 22 ('a gas' withdrawn at 386) |
 
 80 rows, 66 lemmas and 14 inputs: 20 proved, 52 derived, 6 definitions, 2 OPEN (SOURCEs and SOURCE, deferred by you
-and worked last). *[Item 439: ARRIVAL, ENCODE and the five readings settled as derived; the line read "45 derived, 5
+and worked last). *[Item 441: the statuses are the register's and are unchanged; under your 441 three rows pass
+the criterion (I2, R3, Z3a), and the other 77 wait on a definition proved, a ruling derived, or SOURCE (pass_audit P5).]* *[Item 439: ARRIVAL, ENCODE and the five readings settled as derived; the line read "45 derived, 5
 under a named reading, 6 definitions, 4 OPEN (ARRIVAL, ENCODE, and SOURCEs and SOURCE ...)" before.]* *[Item 438: B3 and B4d at the large end moved from OPEN to readings;
 the line read "3 under a named reading of the board's ... 6 OPEN (B3, B4d, ARRIVAL, ENCODE, ...)" before.]* *[Corrected at item 437: this line had read "78
 rows, 64 lemmas and 14 inputs: 20 proved, 39 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN"
