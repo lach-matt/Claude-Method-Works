@@ -545,3 +545,57 @@ cap, 0.5), so the closing happens far outside any quantum region.
 - **Left for stage 3:** the full solution, and the superposition of the semiclassical push with classical mass
   inflation. The latter is open in 2011.07331 itself: "one important issue that is still not completely solved is the
   superposition between this semiclassical evaporative effect and classical mass inflation".
+
+## 16. Stage 3a: the throat's five-dimensional section; stage 3b put to M (449; `stage3a_throat.py`, 5/5, mutants 2/2)
+
+**The throat's section (computed, exact; RK4 where marked).** On the plane, the throat carries AdS2 × S² of radius
+r_e with the device's flux. Beneath it the bulk flows from AdS5 to AdS3 × S² (Maldacena–Milekhin (A.30)).
+- Einstein–Maxwell for that ansatz, derived here from the metric, gives their (A.30) exactly: the ρρ component at
+  β = 6 l̂_B⁻⁴, and (2E_tt − E_θθ + E_ρρ)/3.
+- **The infrared fixed point, exactly:** e^{−2σ₀} = y = (l̂⁴ + √(l̂⁸ + 64 l̂⁴))/8. So e^{−σ₀} = l̂ + l̂³/16 + …, which
+  is their (A.31). The AdS3 radius is R5/√(3 + y/4).
+- The flow leaves the fixed point along k = −√(3 + y/4) + √(19 + 9y/4). This reduces to stage 0's √19 − √3 for the
+  planar case.
+- From that mode it reaches AdS5 at every size taken. The unused tt component holds to 10⁻¹⁴.
+- The integration runs in the deviation from the fixed point. A first version that integrated σ itself lost eight
+  digits in its starting perturbation, which showed as non-convergent noise of 10⁻⁷ under step-halving. It now
+  converges at fourth order, 2×10⁻¹² at h/2.
+
+| mouth | l̂ = l_B/r_e | AdS3 radius vs R5/√3 |
+|---|---|---|
+| 10 ℓ | 0.513 | −1.11% |
+| 100 ℓ | 0.193 | −0.16% |
+| Earth cap | 0.083 | −0.03% |
+| Maldacena–Milekhin's case | 5.4×10⁻⁶ | 0 |
+
+So the throat's five-dimensional section exists at the plane's numbers, now computed in one dimension: AdS5 at the
+plane, AdS3 × S² beneath it.
+
+**Stage 3b, the two-dimensional solve: the plan put to you before it runs (414).**
+- **The problem.** Maldacena and Milekhin's Einstein-static-universe case: the boundary is R × S³ with the two mouths
+  at antipodal points, joined through an AdS2 × S² throat.
+  - The bulk is static Einstein–Maxwell with a negative cosmological constant, symmetric under SO(3) and time.
+  - The unknown metric functions depend on two coordinates: the depth into the bulk, and the angle along the
+    field-line circle.
+  - The flux on the S² is constant, which solves Maxwell's equations identically.
+  - The field-line circle is filled in by the bulk, so the bulk's topology is D² × S² (MM, READ): regular at the
+    disc's centre, with stage 3a's AdS3 × S² as its deep interior.
+- **The method proposed.** The Einstein–DeTurck equation, which "renders the Einstein equation strictly elliptic"
+  (Headrick, Kitchen, Wiseman 0905.1822, READ), solved by Newton's method on spectral collocation: Fourier along the
+  circle, Chebyshev into the bulk. This is the practice Dias, Santos and Way review (1510.02804).
+- **The lessons of 393–411, carried over:**
+  - the DeTurck vector evaluated exactly at each point, and required to converge to zero with resolution (404–405);
+  - no tuning coefficients in the scheme (405);
+  - every claim a sign decided where its error is smaller (405-3);
+  - the corners analysed before the basis is chosen (406).
+- **The validation ladder, each step reported:**
+  - (V1) the solver recovers global AdS5 with boundary R × S³ from a perturbed start, an exact answer;
+  - (V2) it recovers stage 3a's throat section inside the two-dimensional chart;
+  - (V3) Maldacena and Milekhin's wormhole.
+  
+  After V3 comes the corridor itself: the charged bulk hole meeting both planes, with the planes as branes under
+  Israel's conditions. Its approach will be put to you then.
+- **A modelling choice to declare.** MM's boundary is sketched piecewise. A smooth boundary metric, the throat
+  radius's profile along the S³ angle, has to be chosen, and the result's dependence on that choice reported.
+- **Size.** About six metric functions on a 24 × 24 grid, roughly 3,500 unknowns, is minutes per Newton solve. The
+  convergence study needs about 40 × 40, roughly 10⁴ unknowns, solved with sparse LU.

@@ -1190,6 +1190,16 @@ state was rebuilt first.
   the classical blueshift (Gamma/kappa_- > 2, exact) and closes first if the late influx is below 0.9% of the mass
   (91% near extremality). The black-to-white transition on the plane, with the device's inner horizon; the small
   end's semiclassical reading is outside the prior art.
+- **Item 449** (M: "Continue"). **Stage 3a, the throat's five-dimensional section** (`lemmas/stage3a_throat.py`, 5/5,
+  mutants 2/2; BOUNCE-RESEARCH section 16): Einstein-Maxwell for the throat's ansatz with its S^2, derived from the
+  metric, gives Maldacena-Milekhin's (A.30) exactly; the infrared AdS3 x S^2 fixed point solved exactly
+  (e^{-sig0} = lhat + lhat^3/16 + ..., their (A.31); AdS3 radius R5/sqrt(3 + y/4)); the flow reaches AdS5 at
+  lhat = 0.513, 0.193, 0.083 (10 ell, 100 ell, the Earth cap) and at MM's 5.4e-6, the unused tt component held to
+  1e-14, fourth-order convergence after a first version lost digits integrating sigma itself (recorded). **Stage 3b
+  put to M** (414): the Einstein-static-universe wormhole as a static cohomogeneity-two Einstein-Maxwell problem,
+  Einstein-DeTurck (Headrick-Kitchen-Wiseman, READ) by Newton on Fourier-Chebyshev collocation, the lessons of
+  393-411 carried, a validation ladder (global AdS5; the throat section; MM's wormhole), and a smooth boundary
+  metric to be declared.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
