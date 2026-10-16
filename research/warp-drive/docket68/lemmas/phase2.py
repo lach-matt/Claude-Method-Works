@@ -46,7 +46,8 @@ REMAINS = {
     "R0": ("COMPUTED", ["settle_arrival.py", "encode_labels.py"], "the shell of E(N) forms the face; N computable"),
     "R1": ("COMPUTED", ["encode_labels.py"], "the labels decode exactly"),
     "R2": ("COMPUTED", ["p2_matter.py", "copy_p2.py"], "the copy's structures under the destinations' laws"),
-    "R6": ("TO-COMPUTE", [], "the work of displacement inside the build's energy"),
+    "R6": ("COMPUTED", ["room_work.py"], "realizable: the displacement inside E in vacuum, gas and liquid; "
+                                         "a finding: inside solid matter it can exceed E"),
     "437": ("BOUNDED", ["bearing26.py"], "RECON inside the reconstructible region"),
     "110": ("COMPUTED", ["ledger.py"], "the ledger across the passage (its own premise 155 is REDERIVE)"),
     "111": ("COMPUTED", ["ledger.py"], "E3"), "230": ("COMPUTED", ["ledger.py"], "E3"),
@@ -77,7 +78,7 @@ REMAINS = {
     "226": ("COMPUTED", ["theorem_p2.py", "p2_combined.py"], "the destinations' own values"),
     "427": ("BOUNDED", ["junction_own.py"], "every sigma > 0 (negative tension contrary, SMS)"),
     "240": ("COMPUTED", ["copy_p2.py"], "as R2"), "285": ("COMPUTED", ["copy_p2.py"], "as R2"),
-    "284": ("TO-COMPUTE", [], "as R6"),
+    "284": ("COMPUTED", ["room_work.py"], "as R6"),
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
     "273": ("BEYOND", [], "quantum gravity; long time scales unstable (prior art)"),
