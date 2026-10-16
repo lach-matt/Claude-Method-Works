@@ -1006,6 +1006,8 @@ state was rebuilt first.
   delivery is the README's (Q1), and B4d and B3 at the large end as READINGs on it. The small end re-read: the record's
   compact ramp grows the face over 0.568 of the least write, not 8.0e-5 of the old floor (a finding beside
   arrival_small V11); the same fork stands there. Beside sync_face: S2's least time gives way to the math (437 (2)).
+  The full theorem selftest over the 80-row register: 12/12 (warptheorem.py, 53 minutes; every lemma instrument's
+  selftest passing).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
