@@ -1032,9 +1032,13 @@ held paper says so and offers the list. From then on the address names what the 
 (`paperAddress`, by `replaceState` as the explorer's own routes are written): reading another paper
 names that one, the list and closing the dialog give the explorer its own address back, so the same
 citation followed again reopens the paper, and leaving a paper's address (Back, a typed route)
-closes it. Where closing would leave a history entry that copies its neighbour (a citation followed
-inside the page pushes one), the page steps to that neighbour instead, by the Navigation API where
-the browser has it, so Back never passes through an entry with nothing changing. Every path that
+closes it. With the Navigation API, a paper shown over the explorer's entry gets an entry of its
+own, so Back closes it, and where the entry beside the current one already holds the address
+wanted (a citation followed inside the page pushes one) the page steps to it rather than write a
+copy, so Back and Forward never pass through an entry with nothing changing. Without the API every
+write replaces the entry, as the explorer's routes do: nothing navigates wrongly, but Back leaves a
+paper read from the list as it did before, and a citation closed inside the page leaves one entry
+that Back passes through. Every path that
 shows a paper puts focus on it (`focusPapers`), and while any dialog is open the explorer's keys
 (`h`, the arrows, `+`/`−`) do not act behind it. Until 2026-10-16 the router did not read that form,
 and a citation's address opened the front page. The text is the

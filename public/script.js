@@ -3513,22 +3513,24 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     host.focus({ preventScroll: true });
   }
   // the address names the paper the Papers dialog shows, and the explorer's node once it shows none.
-  // replaceState, as select() does: no history entry is added and no hashchange fires
+  // A paper shown over the explorer's entry gets an entry of its own, so Back closes it; one paper
+  // replacing another, or the explorer's address coming back, reuses an entry. Where the entry beside
+  // this one already holds the address wanted, the page steps to it rather than write a copy that Back
+  // or Forward would pass through with nothing changing. The Navigation API names the neighbours;
+  // where it is absent every write replaces the entry, as select() does
   function paperAddress(slug) {
     const h = slug ? '#paper=' + slug : hashOf(state.selected || rootNode);
-    if (!slug && !/^#paper=/.test(location.hash)) return;
+    const onPaper = /^#paper=/.test(location.hash);
+    if (!slug && !onPaper) return;
     state.lastHash = h;
     if (location.hash === h) return;
-    // leaving a paper reached by a citation followed in the page: the history entry beside this one
-    // already holds the explorer's address, so step to it rather than leave a copy of it that Back
-    // would pass through with nothing changing. The Navigation API names the neighbours exactly;
-    // where it is absent the entry is replaced, as select() does
     const nav = window.navigation, cur = nav && nav.currentEntry;
-    if (!slug && cur && typeof nav.entries === 'function') {
+    if (cur && typeof nav.entries === 'function') {
       const want = new URL(h, location.href).href, all = nav.entries();
-      const prev = all[cur.index - 1], next = all[cur.index + 1];
-      if (prev && prev.sameDocument && prev.url === want) { history.back(); return; }
-      if (next && next.sameDocument && next.url === want) { history.forward(); return; }
+      const holds = (e) => e && e.sameDocument && e.url === want;
+      if (holds(all[cur.index - 1])) { history.back(); return; }
+      if (holds(all[cur.index + 1])) { history.forward(); return; }
+      if (slug && !onPaper) { history.pushState(null, '', h); return; }
     }
     history.replaceState(null, '', h);
   }
