@@ -948,6 +948,12 @@ state was rebuilt first.
   NOT MEASURED and carried so; sigma beside them; the strong CP angle carried as a 27th, BOUND, put to M; R4's length
   sum log2(1 + |n_i|) exact on R4a-R4d, zero within one universe now that history trajectories are gone; the face
   in its own Planck units a function of N, sigma and Lambda alone, so the synchronization work stands as approved.
+  **Synchronization, stages 1-2** (`lemmas/sync_face.py`, 4/4, mutants 3/3): a face of the README's size holds
+  exactly E(N) whenever it stands, apparent or event horizon (T0); the passage's N bits give exactly the record's bit
+  area (Y1, RT); each side of the two-sided state holds its own E(N) (Y2) -- so the face at the opening is held by
+  the README's energy, whole from the opening, its exact state written over the long write (141's cubes solving),
+  the coupling and position 2's energy excluded as holders; the passage held whole and released at the end (Y4).
+  Two readings put to M: 426's "written in" as the state, and the release at the end.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
