@@ -3501,8 +3501,13 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     renderPapers(slug);
     const d = $('#dlg-papers');
     if (!d.open) d.showModal();
-    // showModal focuses the close button, where Space would close the paper: the paper takes focus,
-    // so Space, PageDown and End scroll it as they do when it is opened from the list
+    focusPapers();
+  }
+  // showModal focuses the close button, where Space would close the paper, and a Read or back button
+  // that held focus is removed when the dialog redraws: the dialog's body takes focus instead, so
+  // Space, PageDown, End and the arrows scroll what it shows
+  function focusPapers() {
+    if (!$('#dlg-papers').open) return;
     const host = $('#papers-body');
     host.tabIndex = -1;
     host.focus({ preventScroll: true });
@@ -3513,7 +3518,19 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     const h = slug ? '#paper=' + slug : hashOf(state.selected || rootNode);
     if (!slug && !/^#paper=/.test(location.hash)) return;
     state.lastHash = h;
-    if (location.hash !== h) history.replaceState(null, '', h);
+    if (location.hash === h) return;
+    // leaving a paper reached by a citation followed in the page: the history entry beside this one
+    // already holds the explorer's address, so step to it rather than leave a copy of it that Back
+    // would pass through with nothing changing. The Navigation API names the neighbours exactly;
+    // where it is absent the entry is replaced, as select() does
+    const nav = window.navigation, cur = nav && nav.currentEntry;
+    if (!slug && cur && typeof nav.entries === 'function') {
+      const want = new URL(h, location.href).href, all = nav.entries();
+      const prev = all[cur.index - 1], next = all[cur.index + 1];
+      if (prev && prev.sameDocument && prev.url === want) { history.back(); return; }
+      if (next && next.sameDocument && next.url === want) { history.forward(); return; }
+    }
+    history.replaceState(null, '', h);
   }
   function paperCite(pp) {
     const m = state.index.meta || {}, c = m.cite || {};
@@ -3521,6 +3538,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
   function renderPapers(slug) {
     const host = $('#papers-body');
+    focusPapers();
     host.innerHTML = '<p class="note">loading the papers…</p>';
     ensurePapers().then((papers) => {
       const sum = (state.index.papers || {});
@@ -3987,6 +4005,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     // the canvas is focusable (tabindex on #canvas), and the shortcuts act only while it — or
     // nothing — has focus, so a button or a plate row keeps its own keys and the page its scroll
     window.addEventListener('keydown', (ev) => {
+      // a dialog is modal: the explorer behind it takes no keys, and the dialog keeps its own
+      // (Space, PageDown and the arrows scroll a paper; Escape closes it)
+      if (document.querySelector('dialog[open]')) return;
       const ae = document.activeElement;
       const inField = !!(ae && /INPUT|TEXTAREA|SELECT/.test(ae.tagName));
       if (ev.key === '/' && !inField) { ev.preventDefault(); $('#q').focus(); $('#q').select(); return; }
@@ -4055,7 +4076,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (state.index.particles || state.index.particle_index) $('#btn-particles').addEventListener('click', () => { if (!$('#particles-body').innerHTML) renderParticles(); $('#dlg-particles').showModal(); });
     else $('#btn-particles').hidden = true;
     $('#btn-references').addEventListener('click', () => { if (!$('#references-body').innerHTML) renderReferences(); $('#dlg-references').showModal(); });
-    $('#btn-papers').addEventListener('click', () => { if (!$('#papers-body').innerHTML) renderPapers(); $('#dlg-papers').showModal(); if (state.paperSlug) paperAddress(state.paperSlug); });
+    $('#btn-papers').addEventListener('click', () => { if (!$('#papers-body').innerHTML) renderPapers(); $('#dlg-papers').showModal(); if (state.paperSlug) { paperAddress(state.paperSlug); focusPapers(); } });
     // closing the dialog (✕, Escape, the backdrop) gives the explorer its address back, so the same
     // citation followed again reopens the paper. The close event is asynchronous: it acts only while
     // the dialog is still closed and the address is still the one this page wrote
