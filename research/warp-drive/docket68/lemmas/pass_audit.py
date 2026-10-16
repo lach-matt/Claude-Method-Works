@@ -22,6 +22,7 @@ Labels: computed, deduced, M's.  Worked in the conversation; not verified; not s
      wall's tension share TS, deduced, no wall profile computed); A -- O1b and O1c; X -- R0, R1, R2, R6, RECON, B6'
      (put to M: are M's definitions first principles?); and SOURCEs and SOURCE, deferred.  Every other row is C.
      [Item 441: B5b's wall computed (b5b_wall.py W0-W7, approach approved at 441); B5b is C since.]
+     [Item 442: B7 derived by the bulk's geometry (b7_geometry.py G0-G6, 442 (3)); B7 is C since.]
   P4 (deduced) Which stations the failing rows sit in, end by end, read from the map's own station lists; a station
      passes at an end only when every row it lists there is PROVED or C.
   P5 (deduced; item 441) M: "1 - no" (M's rulings are not first principles) and "2 - no. Each definition must be
@@ -78,8 +79,10 @@ CLASS = {
     "B5b": ("C", "b5b_wall W0-W7 computed (441): an exact smooth wall, its null energy a square at every point, the "
                  "matter it carries in D = 5, the crossing share to the thin limit; pointwise P1-P6 computed"),
     # [item 441: B5b was D -- "the wall's tension share TS deduced, no wall profile computed" -- until b5b_wall]
-    "B7": ("D", "b7_formation: a chain of M's rulings (100, 140, 122 (4), 101 (1), 86 (3)) and one READ source, argued "
-                "in prose, not machine-checked"),
+    "B7": ("C", "b7_geometry G0-G6 computed (442 (3)): the vacuum before the opening, strictly stationary, no closed "
+                "trapped surface (Mars-Senovilla, READ), the planes coincident"),
+    # [item 442: B7 was D -- "b7_formation: a chain of M's rulings (100, 140, 122 (4), 101 (1), 86 (3)) and one READ
+    #  source, argued in prose, not machine-checked" -- until b7_geometry]
     "I1": ("C", "i2_capacity I2a: the throat's area entropy N bits computed; 137 (1) M's"),
     "E1us": ("C", "close_small K5, K9 computed; M-ENERGY-STAYS M's"),
     "E1u": ("C", "close_large L3, L5 computed; M-ENERGY-STAYS M's"),
@@ -298,8 +301,8 @@ def selftest(quiet=False):
     cls = classify(rows)
     unclassed = [k for k, v in cls.items() if v[0] == "?"]
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
-    p2 = not unclassed and fail == sorted(["B7", "O1b", "O1c", "R0", "R1", "R2", "R6", "RECON", "B6'",
-                                           "SOURCEs", "SOURCE"])         # [B5b passed out at 441: b5b_wall]
+    p2 = not unclassed and fail == sorted(["O1b", "O1c", "R0", "R1", "R2", "R6", "RECON", "B6'",
+                                           "SOURCEs", "SOURCE"])         # [B5b out at 441, B7 at 442: computed]
     ok.append(p2); say("P2-P3 every row classed; not passing: %s: %s" % (", ".join(fail), p2))
     v = station_verdicts(cls)
     p4 = any(bad for ends in v.values() for bad in ends.values()) and all(

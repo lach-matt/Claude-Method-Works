@@ -12,7 +12,7 @@ seated.
      COMPUTED  -- the remainder is computed by the instruments named (each on disk with a selftest).
      BOUNDED   -- proved inside a stated bound, the contrary part excluded (437 inside the reconstructible region, 427
                   for sigma > 0); a row resting on it passes once shown to stay inside.
-     TO-COMPUTE -- owed: a computation not yet made (R6 and 284, the room's work; 282's part (2), B7 by geometry).
+     TO-COMPUTE -- owed: a computation not yet made (R6 and 284, the room's work).
      REDERIVE  -- a statement about nature the literature does not hold as stated, or a contrary part: its rows are
                   re-derived without it (M-REDERIVE-WITHOUT, 442 (2)).
      BEYOND    -- outside established physics: 273's bounce (prior_art flag (a)).
@@ -71,7 +71,8 @@ REMAINS = {
     "179": ("COMPUTED", ["settle_arrival.py"], "the warped Vaidya's horizon in the bulk (A4)"),
     "282": ("COMPUTED", ["c1_oneway.py", "c4_oneway.py", "c5_oneway.py", "c7_oneway.py"],
             "(1), C1, C4, C5 and C7 re-posed one-way"),
-    "282b": ("TO-COMPUTE", [], "(2), B7's join through the bulk with no horizons: B7 by geometry (442 (3))"),
+    "282b": ("COMPUTED", ["b7_geometry.py"], "(2), B7's join through the bulk with no trapped surface before the "
+                                             "opening (442 (3)); the event horizon's head start a finding"),
     "200": ("COMPUTED", ["b6_once.py"], "counted once"),
     "226": ("COMPUTED", ["theorem_p2.py", "p2_combined.py"], "the destinations' own values"),
     "427": ("BOUNDED", ["junction_own.py"], "every sigma > 0 (negative tension contrary, SMS)"),
@@ -100,6 +101,7 @@ REMAINS = {
 STATUSES = ("NONE", "COMPUTED", "BOUNDED", "TO-COMPUTE", "REDERIVE", "BEYOND")
 PROVED_DEFS = {"B6'": "b6p_prove.py"}
 ROW_PART = {"B4a": {282: "282b"}, "B7": {282: "282b"}}       # the rows that use 282 (2), B7's join
+DROPPED_FOR = {"B7": (86, 100, 122, 140)}                     # b7_geometry G6: B7 derived without them
 # a row on a BOUNDED reading passes when it is shown to stay inside the bound
 INSIDE_BOUND = {("ENCODE", 437): "the encoding is integers only, the same under any constants (encode_labels C3)",
                 ("E1x", 427): "junction_own computes every sigma2, so every sigma2 > 0",
@@ -145,7 +147,7 @@ def audit():
         if c not in pa.PASSING:
             wait.append("its own claim (%s)" % c)
         for n in pa.RULED.get(row, ()):
-            if n in DROPPED_P:
+            if n in DROPPED_P or n in DROPPED_FOR.get(row, ()):
                 continue
             if n == 422:
                 wait.append("422 the core (TO-COMPUTE)")
@@ -205,7 +207,7 @@ def selftest(quiet=False):
     r = rem.get("273", ("",))[0] == "BEYOND"; ok.append(r); say("Q1 273 beyond established physics: %s" % r)
     a = audit()
     passing = sorted(k for k, w in a.items() if not w)
-    r = set(["I2", "R3", "Z3a", "B5b", "B6'", "CLOSEs", "E1us", "E1u", "ENCODE", "E1x", "M1s", "O1bs"]) <= \
+    r = set(["I2", "R3", "Z3a", "B5b", "B6'", "CLOSEs", "E1us", "E1u", "ENCODE", "E1x", "M1s", "O1bs", "B7", "B4a"]) <= \
         set(passing) and "O1b" not in passing and "ARRIVAL" not in passing
     ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s) among them; O1b not: %s"
                       % (len(passing), r))
