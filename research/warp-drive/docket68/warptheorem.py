@@ -311,7 +311,8 @@ LEMMAS_NOW = [
     ('H', "H2tx between universes position 2's horizon holds the README at its own bit area, at the large end",
      'DERIVED',
      ("copy_p2 C1 (240) holds at its own bit area, capacity N in every position 2 (m1p2x_large Y8, item 362); it rests "
-      "on M1P2x, DERIVED at every sigma (item 428, approved).  Item 424: DERIVED at our sigma, held at sigma2 != "
+      "on M1P2x, DERIVED at every sigma (item 428, approved; every sigma > 0 at 443 (1)).  "
+      "Item 424: DERIVED at our sigma, held at sigma2 != "
       "sigma (389), the hold lifted at 427-428.  Item 362: OPEN, the README's emergence ARRIVAL's (358 (c))")),
     ('O',
      ("O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's "
@@ -578,7 +579,8 @@ LEMMAS_NOW = [
       "is M's (111 (b), 230, 240); its timing against position 2's open period is met by identity at our sigma -- "
       "position 2's face closes when the corridor holds nothing (M's 390; junction_own G10: open exactly while the "
       "README is within it), at every sigma (M's 427: every sigma reachable; the junction model of position 2's face "
-      "withdrawn as the board's) -- item 428, approved.  Item 424: DERIVED at our sigma, held at sigma2 != sigma.  "
+      "withdrawn as the board's) -- item 428, approved.  [Item 443 (1): every sigma > 0; a negative tension is SMS's "
+      "anti-gravity world (prior_art).]  Item 424: DERIVED at our sigma, held at sigma2 != sigma.  "
       "Item 362: OPEN, the timing ARRIVAL's, on the withdrawn J2 bound (after 389)")),
     ('E',
      ("E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build "
@@ -629,12 +631,15 @@ LEMMAS_NOW = [
       ' its volume (285 (b), computed in conversation, not seated)')),
     # [item 437 (4)] two items of their own, approved by M ("yes to both")
     ('R',
-     "RECON any information is reconstructed to obey the 26 of any position 2 (M-RECON-ALWAYS, 437)",
+     ("RECON any information is reconstructed to obey the 26 of any position 2 inside the reconstructible region "
+      "(M-RECON-ALWAYS, 437; bounded at 443 (1))"),
      'DEFINITION',
      ("437 (M: 'previously ruled irrelevant. Any information is reconstructed to obey the 26 of any position 2'); "
       "with 24 and 240: whether position 2 can rebuild the object, and the copy's survival, are not the work's; "
       "every position reachable (427, 431 (2)) and none excluded -- the board's 'reconstructible region' (433, "
-      "bearing26 G4 (c)) gives way")),
+      "bearing26 G4 (c)) gives way.  [Item 443 (1), approved: bounded to the reconstructible region (433, bearing26 "
+      "G4), the literature contrary beyond it (prior_art: Adams 1902.03928, 1511.06958); 'gives way' above is "
+      "superseded; the name read '... of any position 2 (M-RECON-ALWAYS, 437)' before]")),
     ('R',
      ("ENCODE the read: how a geometric object becomes binary information, in one fixed exact encoding that reads "
       "the same at every point of the 26-lattice"),
@@ -663,7 +668,8 @@ LEMMAS_NOW = [
       "(own sigma) or 1.0007 (139 (1)'s quarter), the bath 72 orders below Barcelo's 0.28 E; (d) on reading (i), 3.3e10 "
       "writes; (e) on the side total; warp order 6.2e-4 at r0 = 10 ell. The README's emergence within position 2's "
       "open period (Y7) is met by identity at every sigma: the face closes when the corridor holds nothing (M's 390; "
-      "junction_own G10), the junction model withdrawn at 427 (M: every sigma reachable) -- item 428, approved.  Item "
+      "junction_own G10), the junction model withdrawn at 427 (M: every sigma reachable) -- item 428, approved "
+      "[443 (1): every sigma > 0, a negative tension SMS's anti-gravity world].  Item "
       "424: DERIVED at our sigma, held at sigma2 != sigma.  Item 362: OPEN, the emergence ARRIVAL's at 4 clocks (the "
       "withdrawn J2) or 2.7e-3 on 139 (1)'s quarter, reported under 358 (c)")),
     # [item 349] FAR at the small end worked and seated as FARs; FAR stays the large end's
@@ -742,9 +748,12 @@ LEMMAS_NOW = [
       "SOURCEs' (344-345), not from our plane alone (settle_arrival A3); the name read 'one E, compact'; was "
       "READING]")),
     ('N',
-     "ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; 437 (3))",
+     ("ARRIVAL the arrival at the large end: the README forms the corridor at the opening, the rebuild inside the "
+      "reconstructible region (198, M's guess; 437 (3); 443 (1))"),
      'DERIVED',
-     ("the record's (arrival_cypher, README-HELD.md, four-dimensional): 284 (d), 285 (d); formation in the bulk (179); "
+     ("[Item 443 (1), approved: the rebuild bounded to the reconstructible region; the name read '... at the opening "
+      "(198, M's guess; 437 (3))' before.]  "
+      "the record's (arrival_cypher, README-HELD.md, four-dimensional): 284 (d), 285 (d); formation in the bulk (179); "
       "the small end in ARRIVALs (338).  [Item 437 (3), M: 'yes' -- re-worded from 'forms the corridor as it comes "
       "in' (198) on 432 (1), T0 and 162 (LATTICE-BEARING 3); whether the energy at the opening is an arrival turns on "
       "the read, ENCODE (M-READ-DECIDES, 437 (1))].  [Item 438: the math requires the arrival to be the null shell "
@@ -957,11 +966,13 @@ def lemma_selftests():
               "junction_own.py", "bearing26.py", "encode_read.py", "b4d_large.py", "settle_arrival.py",
               "encode_labels.py",
               # item 442 (4), approved: B5b's wall
-              "b5b_wall.py"):
+              "b5b_wall.py",
+              # item 443 (3), approved: the instruments of 441-442
+              "b6p_prove.py", "b7_geometry.py", "room_work.py", "prior_art.py", "phase2.py", "refound.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
-    for f in ("exactcopy.py", "rearrange.py"):                     # item 441: R3's owners, in bulk/
+    for f in ("exactcopy.py", "rearrange.py", "static.py"):        # item 441: R3's owners; 443 (3): static, in bulk/
         mod = _load(os.path.join(HERE, "bulk", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

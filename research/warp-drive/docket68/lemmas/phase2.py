@@ -106,7 +106,11 @@ DROPPED_FOR = {"B7": (86, 100, 122, 140)}                     # b7_geometry G6: 
 # a row on a BOUNDED reading passes when it is shown to stay inside the bound
 INSIDE_BOUND = {("ENCODE", 437): "the encoding is integers only, the same under any constants (encode_labels C3)",
                 ("E1x", 427): "junction_own computes every sigma2, so every sigma2 > 0",
-                ("H2tx", 427): "as E1x", ("M1P2x", 427): "as E1x"}
+                ("H2tx", 427): "as E1x", ("M1P2x", 427): "as E1x",
+                # 443 (1), approved: the wording bounded to the reconstructible region and to sigma > 0
+                ("RECON", 437): "RECON's name bounded to the reconstructible region (443 (1))",
+                ("ARRIVAL", 437): "ARRIVAL's name bounds its rebuild to the region (443 (1)); its 437 is item 437 (3), "
+                                  "the re-wording, not RECON's 437 (4) -- a conflation in refound's table, recorded"}
 DEF_READING = {"R0": "R0", "R1": "R1", "R2": "R2", "R6": "R6", "RECON": "437", "B6'": "201"}
 
 
@@ -141,6 +145,9 @@ def audit():
         wait = []
         if row in DEF_READING:
             st = rem[DEF_READING[row]][0]
+            inside = (row, int(DEF_READING[row])) in INSIDE_BOUND if DEF_READING[row].isdigit() else False
+            if st == "BOUNDED" and inside and "outside" not in MUT:
+                st = "NONE"
             if st not in ok_status:
                 wait.append("%s %s" % (DEF_READING[row], st))
             out[row] = wait
@@ -209,7 +216,7 @@ def selftest(quiet=False):
     a = audit()
     passing = sorted(k for k, w in a.items() if not w)
     r = set(["I2", "R3", "Z3a", "B5b", "B6'", "CLOSEs", "E1us", "E1u", "ENCODE", "E1x", "M1s", "O1bs", "B7", "B4a"]) <= \
-        set(passing) and "O1b" not in passing and "ARRIVAL" not in passing
+        set(passing) and "O1b" not in passing and {"ARRIVAL", "RECON"} <= set(passing)
     ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s) among them; O1b not: %s"
                       % (len(passing), r))
     say("%d/%d" % (sum(ok), len(ok)))
