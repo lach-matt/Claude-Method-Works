@@ -1216,6 +1216,25 @@ state was rebuilt first.
   - Also recorded: the reference family has a degenerate direction, e1 + e2 = 0 at e3 = 0, where xi vanishes on
     the exact chart.
   - V2 (the throat section in this chart) is next, reported to M first.
+- **Item 451** (M: "Yes to both 1 and 2"). **T1 extended by five, and stage 3b's rung V2** (`lemmas/stage3b_v2.py`,
+  8/8, mutants 4/4; BOUNCE-RESEARCH section 18).
+  - T1 now holds wh5_dictionary.py, stage2_inner.py, stage3a_throat.py, deturck2d.py and stage3b_v1.py. The theorem
+    selftest passes, 12/12 (41.5 min).
+  - The comparison flow takes AdS2 slices in place of stage 3a's flat ones (derived from the metric; exact). It is
+    two-sided: symmetric about a centre, AdS5 on both sides, the field-line circle closed. The throat's boundary ratio
+    a/b = 1 fixes the centre: delta_c = 1.56e-2, 4.22e-3 and 1.22e-3 at the plane's three mouths, 5.6e-10 at MM's.
+    It scales as lhat^(k L3), with k L3 -> sqrt(19/3) - 1.
+  - The flow differs from stage 3a's planar flow by 0.050 lhat^2 in sig' and 0.155 lhat^2 in lam', so stage 3a is
+    its planar limit.
+  - The two-dimensional Einstein-DeTurck-Maxwell solve: chart (tanh(X/2), Y), reference from the fixed point, the
+    equations themselves at X -> +-inf.
+    - Undeformed reference: X-independent, the minimum S^2 radius on the flow to 1e-9, xi^2 to 7.5e-13 at N = 40.
+    - Deformed reference, reached by continuation: X-dependent by 0.13, every point's invariants on the flow.
+    - FD2 and FD4 converge at their orders, with Chebyshev ahead.
+  - Recorded:
+    - Newton from the undeformed start failed at a strong deformation;
+    - two first comparisons misread conditioning and interpolation as error, and were corrected beside.
+  - V3 (MM's Einstein-static-universe wormhole, with the smooth boundary family) is next, reported to M first.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

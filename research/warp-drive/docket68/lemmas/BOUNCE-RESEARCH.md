@@ -691,3 +691,131 @@ is exponential convergence, and by N = 24 that chart is below the first.
 **V1 passes.** Global AdS5 is recovered by both discretizations, from a perturbed start and in a nontrivial gauge,
 and the two agree to the finite differences' truncation. Next is V2, stage 3a's throat section inside this chart,
 reported to M before V3.
+
+## 18. Stage 3b, V2: the throat section inside the chart (451; `stage3b_v2.py` 8/8, 4/4)
+
+M, verbatim: "Yes to both 1 and 2". V2 runs on the plan given, and the five instruments are added to T1. The theorem
+selftest passes with them, 12/12 (41.5 min).
+
+**The comparison flow, with AdS2 slices** (computed, exact; derived from the metric):
+ds² = dρ² + e^{2λ} ds²(AdS2) + e^{2σ} dΩ₂², with the flux on the S², β = 6 l̂⁻⁴.
+- The AdS2 slices add e^{−2λ} to the θθ and ρρ equations and nothing to the slices' own. With flat slices the system
+  is stage 3a's.
+- Global AdS3 × S² at stage 3a's fixed point solves it exactly.
+- **The flow is two-sided** (deduced, then computed). With flux the S² cannot close, so the solution is symmetric
+  about a centre where λ′ = σ′ = 0 and reaches AdS5 on both sides. The two AdS2 boundaries meet and close the
+  field-line circle, which is Maldacena and Milekhin's D² × S² (READ, section 9).
+  - A centre above the fixed point reaches AdS5; below it the S² collapses.
+  - The boundary ratio a/b of the AdS2 and S² radii falls monotonically from infinity, so the throat's a/b = 1 fixes
+    the centre.
+
+| l̂ | δ_c = σ_c − σ₀ | e^{σ_c} (fixed point) | e^{λ_c} (L3) |
+|---|---|---|---|
+| 0.513 (10 ℓ) | 1.56×10⁻² | 1.9477 (1.9175) | 0.5544 (0.5709) |
+| 0.193 (100 ℓ) | 4.22×10⁻³ | 5.1912 (5.1693) | 0.5717 (0.5765) |
+| 0.083 (Earth cap) | 1.22×10⁻³ | 12.0577 (12.0430) | 0.5758 (0.5772) |
+| 5.45×10⁻⁶ (MM's case) | 5.64×10⁻¹⁰ | 183486.2 | 0.57735 |
+
+- Deduced from stage 3a's growing mode: δ_c goes as l̂^{kL3}, with kL3 → √(19/3) − 1 = 1.517. The computed local
+  exponents climb 1.34, 1.47, 1.515.
+- **The bridge to stage 3a.** Along the flow, σ′(σ) and λ′(σ) differ from stage 3a's planar flow by c·l̂², with
+  c = 0.050 and 0.155, flat from l̂ = 0.083 to 0.003. Stage 3a's throat section is this flow's planar limit.
+  - A first comparison stalled near 10⁻⁴. The cause was my numerics: linear interpolation between integrator steps,
+    and a planar start that ignored the constraint. Recorded, and corrected beside: dense output, with λ′ from the
+    constraint as stage 3a has it.
+- **Kretschmann in closed form**, with the AdS2 dependence cancelling: 40 at AdS5, 12/L3⁴ + 4e^{−4σ₀} at the fixed
+  point.
+
+**The two-dimensional solve.**
+- **The chart.** (ζ, Y) with ζ = tanh(X/2) and Y ∈ (−π/2, π/2). It is linear in the defining function at both ends,
+  V1's lesson.
+- **The source.** The flux enters as β(T_ab − T g_ab/3): −g_ab/(3R⁴) off the sphere, 2/(3R²) on it. For this field
+  Maxwell's equations hold identically.
+- **The reference** is built from stage 3a's fixed point in closed form, never from the answer: AdS3 × S² at the
+  centre and AdS5 at both ends.
+- **Boundary rows.** Dirichlet at Y = ±π/2, where the boundary metric is AdS2 × S² with equal radii. At X → ±∞ the
+  rows are the equations themselves, which there reduce to the one-dimensional system. This is a toolkit option
+  (`xdirichlet`), off by default, so V1 is unchanged.
+
+**What the solve showed** (computed, l̂ = 0.513):
+- **Undeformed reference.** X-independent and symmetric in X and Y to rounding.
+  - Each point is measured against the flow by its invariants, parametrized by |∇R_s|². That is monotone and linear
+    in ρ² at the centre, where R_s itself, at its minimum, is a poor parameter. A first comparison over R_s
+    misread its own conditioning as error (recorded).
+
+| Chebyshev N | ξ² | minimum R_s against the flow | K along the throat | R_s along the throat |
+|---|---|---|---|---|
+| 16 | 1.2×10⁻⁴ | 2.5×10⁻⁵ | 1.9×10⁻¹ | 2.8×10⁻³ |
+| 24 | 1.5×10⁻⁷ | 2.0×10⁻⁷ | 5.1×10⁻³ | 1.3×10⁻⁴ |
+| 32 | 5.2×10⁻¹¹ | 2×10⁻⁹ | 7.7×10⁻⁴ | 3.6×10⁻⁶ |
+| 40 | 7.5×10⁻¹³ | 1×10⁻⁹ | 5.9×10⁻⁵ | 8.7×10⁻⁷ |
+
+- **At l̂ = 0.193**, a longer throat, the solve converges the same way, more slowly: ξ² 6×10⁻⁸ and the minimum radius
+  within 2×10⁻⁷ at N = 40.
+- **Deformed reference.** The reference is T̄ = 1 + e₁b, Ā = 1 + e₂b, B̄ = S̄ = 1 + e₃b, with b = cos²Y sech²X, which
+  peaks at the centre.
+  - At (0.2, 0.1, −0.15), reached in two continuation steps of five Newton iterations each, the solution depends on
+    X by 0.13 and every point's invariants lie on the flow. K agrees to 3.2×10⁻³ and R_s to 5.7×10⁻⁶ at N = 40,
+    both falling tenfold per eight in N, and ξ² reaches 2.5×10⁻⁹.
+  - At (1, 0.5, −0.7), Newton from the undeformed start failed (|R| = 44 after 40 iterations, recorded). At
+    (0.5, 0.25, −0.35), continuation converges but the steep centre needs more resolution than N = 32 (K within 1.5).
+- **Finite differences beside Chebyshev** (undeformed):
+
+| method | N | ξ² | K | minimum R_s | time |
+|---|---|---|---|---|---|
+| FD2 | 16 / 32 / 64 | 7.4×10⁻³ / 4.4×10⁻⁴ / 3.0×10⁻⁵ | 1.6 / 0.40 / 0.10 | 6.5×10⁻⁴ / 2.3×10⁻⁴ / 5.0×10⁻⁵ | 3 / 5 / 18 s |
+| FD4 | 16 / 32 / 64 | 1.2×10⁻³ / 5.6×10⁻⁶ / 3.2×10⁻⁸ | 0.77 / 0.064 / 0.0039 | 2.2×10⁻³ / 2.1×10⁻⁴ / 7.2×10⁻⁶ | 3 / 8 / 43 s |
+| Chebyshev | 24 / 32 | 1.5×10⁻⁷ / 5.2×10⁻¹¹ | 5.1×10⁻³ / 7.7×10⁻⁴ | 2×10⁻⁷ / 2×10⁻⁹ | 13 / 38 s |
+
+  ξ converges at orders 2.0 and 3.9, K at 2 and 4. At equal time Chebyshev is ahead by one to three orders.
+
+**V2 passes.** Stage 3a's throat section is recovered inside the two-dimensional chart: as the planar limit of the
+AdS2-sliced flow, which the chart reproduces from a reference that never sees the answer, by both discretizations and
+in a nontrivial gauge.
+
+MM, READ (2008.06618, §3.1): "The situation is fairly similar when we put the four dimensional theory on AdS2 × S2."
+V2 computes how similar: O(l̂²).
+
+**V3, the approach put to M before it runs (414).** The problem is MM's own, READ (§3.2):
+
+> "let us take the four dimensional geometry to be the Einstein static universe, R × S³, and we add the two wormhole
+> mouths at antipodal points on the S³ … we have now an unbroken SO(3) rotation symmetry and the geometry contains
+> an S² factor (with varying radius) … The four dimensional geometry has two pieces. One is the wormhole interior
+> with an AdS2 × S2 geometry. The exterior region is R × S³. Deep in the bulk the metric is AdS3 in global
+> coordinates … It is possible to describe the metric more explicitly and find the solution numerically, but we
+> will not do it here."
+
+- **The domain.** The bulk is static and SO(3)-symmetric, and its two coordinates span MM's disc.
+  - Around the disc runs the field-line circle χ: through the throat and back through the exterior.
+  - Into the disc runs the depth, to the centre where the circle closes (global AdS3's centre; the topology
+    D² × S², READ).
+  - The S² carries the flux, so its radius never vanishes. The field strength varies along χ, so the depth of the
+    flow does too. MM say the same of the general exterior, where the field varies around a mouth: "the flow
+    distance also depends on this angular dimension and the five dimensional geometry will not be a direct product"
+    (§3.2, READ).
+- **The discretization, both ways (450 (1)).**
+  - Fourier along the periodic χ, Chebyshev in a depth variable that is even at the centre and linear in the
+    defining function at the boundary. These are V1's and V2's lessons: the centre carries no row, as V1's axis
+    did not.
+  - Finite differences beside it on the same grid's coordinates.
+  - The toolkit needs Fourier operators and periodic finite differences. These are new, and they are checked
+    against closed forms before use.
+- **The boundary family (450 (2)).** The conformal boundary metric is −dt² + dχ² + R(χ)² dΩ²:
+  - over the throat, AdS2 × S² with equal radii, R = cos of the throat's conformal coordinate;
+  - over the exterior, the Einstein static universe's latitude spheres;
+  - glued smoothly at the mouths.
+
+  The one parameter proposed is MM's own, the exterior's share of the field-line circle, ε = d/(πℓ) ("the whole
+  exterior region occupies a relatively short space, a portion equal to d/(πℓ)", §3.2, READ). The smoothing width is
+  tied to it, so the family stays one-parameter. Every result is reported against ε.
+- **The reference** is built from V2's throat and stage 3a's fixed point, as V2's was: global AdS3 × S² at the
+  centre, AdS5 at the boundary. Continuation runs in ε from a small exterior.
+- **What it computes.**
+  - The solution and its convergence (ξ → 0, both discretizations compared).
+  - The global AdS3 interior.
+  - The flow's depth along the circle, MM's green and purple lines.
+  - The binding energy from the bulk, against MM's (2.13), E_bind = −c₂/(16ℓ).
+  - Their dependence on ε.
+
+  At the plane's l̂ first. MM's real scale separation (ℓ/r_e ~ 10¹²) is not reachable on a grid and is not
+  attempted. The dependence on ε and l̂ is what carries to it.

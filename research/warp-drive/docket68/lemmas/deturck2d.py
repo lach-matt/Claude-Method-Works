@@ -182,6 +182,7 @@ class Newton:
 
     def __init__(self, funcs, eqs, axis_eqs, bvals, params, ops, cstep=True):
         self.funcs, self.ops, self.bvals, self.cstep = funcs, ops, bvals, cstep
+        self.xdirichlet = True        # False: the equations themselves at x = +-1 (a degenerate edge, as the axis)
         self.js = [sp.Symbol(f + j) for f in funcs for j in JETS]
         ps = list(params.keys())
         self.pvals = [params[p] for p in ps]
@@ -203,14 +204,15 @@ class Newton:
         n = self.ops.n
         return [self.ops.D[j] @ U[m * n:(m + 1) * n] for m in range(len(self.funcs)) for j in JETS]
 
-    def residual_and_jacobian(self, U):
+    def residual_and_jacobian(self, U, jac=True):
+        """the residual, and with jac the Jacobian (the line search needs the residual alone)"""
         o, nf, n = self.ops, len(self.funcs), self.ops.n
         x, uu = o.xg, o.ug
         Xg = o.Xof(x)
         Jv = self.jets(U)
         R = np.zeros(nf * n)
         blocks = [[None] * nf for _ in range(nf)]
-        dirich = (np.abs(x) > 1 - 1e-14) | (uu > 1 - 1e-14)
+        dirich = ((np.abs(x) > 1 - 1e-14) & self.xdirichlet) | (uu > 1 - 1e-14)
         axis = (uu < 1e-14) & ~dirich
         inner = ~dirich & ~axis
         npre = 2 + len(self.pvals)
@@ -221,7 +223,7 @@ class Newton:
                 idx = np.where(mask)[0]
                 a = [Xg[idx], uu[idx]] + self.pvals + [jv[idx] for jv in Jv]
                 R[k * n + idx] = np.real(np.broadcast_to(f(*a), idx.shape))
-                for jj in range(len(self.js)):
+                for jj in (range(len(self.js)) if jac else ()):
                     if self.cstep:
                         ac = list(a)
                         ac[npre + jj] = a[npre + jj] + 1e-30j
@@ -237,10 +239,14 @@ class Newton:
                     blocks[k][m] = term if blocks[k][m] is None else blocks[k][m] + term
             idx = np.where(dirich)[0]
             R[k * n + idx] = U[k * n + idx] - self.bvals[k]
+            if not jac:
+                continue
             dd = np.zeros(n)
             dd[idx] = 1.0
             eye = sps.diags(dd) if o.sparse else np.diag(dd)
             blocks[k][k] = eye if blocks[k][k] is None else blocks[k][k] + eye
+        if not jac:
+            return R, None
         for k in range(nf):
             for m in range(nf):
                 if blocks[k][m] is None:
@@ -262,7 +268,7 @@ class Newton:
                 break
             lam = 1.0
             for _ in range(20):
-                Rn, _ = self.residual_and_jacobian(U + lam * dU)
+                Rn, _ = self.residual_and_jacobian(U + lam * dU, jac=False)
                 if np.max(np.abs(Rn)) < (1 - 1e-4 * lam) * r or lam < 1e-3:
                     break
                 lam /= 2
