@@ -24,7 +24,8 @@ The relation to quantum physics runs through three results:
 - **Quantum information lives inside the causal structure.** Measurement cannot violate relativistic causality, and no
   local operation on one half of an entangled pair changes what the other half can observe. We prove the second fact in
   general and check it by exact computation on every two-qubit pure state.
-- **The one constant classical relativity leaves open is the leading quantum correction.** Lovelock's theorem leaves
+- **The one constant classical relativity leaves open is the leading quantum correction, on its string effective-action
+  reading.** Lovelock's theorem leaves
   gravity's second-order law exactly Einstein's in four dimensions. In five it admits one more coupling, the
   Gauss–Bonnet α, which the string effective action reads as "the leading order quantum correction". We compute, from
   the field equations, that with α ≠ 0 gravity's own waves leave the light cone, for either sign of α within the range
@@ -135,8 +136,8 @@ not derived anywhere below, and every result that uses it says so.
 
 The proof is kind by kind. Every statement carries one of four labels:
 
-- **computed**: an exact symbolic computation (sympy), re-run for this paper and asserted by its check
-  `qr_paper_check.py`, and, where a failure control is listed, shown to reject it;
+- **computed**: an exact symbolic computation (sympy), re-run for this paper and asserted by the paper's
+  check, and, where a failure control is listed, shown to reject it;
 - **deduced**: follows from the statements it cites;
 - **READ**: quoted verbatim from the source, re-read at source for this paper, with page and equation, and used only
   on that source's hypotheses;
@@ -207,13 +208,20 @@ characteristic cones of a strongly curved background (§9, qualification Q1).
 
 - **Metric theories (READ, Will, arXiv:1403.7377, §2.1, p. 6).** "it is possible to argue convincingly that if EEP is
   valid, then gravitation must be a "curved spacetime" phenomenon", and "the only theories of gravity that can fully
-  embody EEP are those that satisfy the postulates of "metric theories of gravity"". Will calls this an argument, not a
-  theorem, and it is used here as such.
-- **Universal coupling from consistency (READ, Deser, gr-qc/0411023, *Gen. Rel. Grav.* 1 (1970) 9, p. 4).** The
+  embody EEP are those that satisfy the postulates of "metric theories of gravity"". Will presents this as an argument
+  ("it is possible to argue convincingly"), and it is used here as such. He also notes (p. 7, READ) that superstring
+  theory "introduces additional fields (dilatons, moduli) that can couple to material stress-energy in a way that can
+  lead to violations, say, of WEP", and that "there is some ambiguity in whether one treats such fields as
+  EEP-violating gravitational fields, or simply as additional matter fields". Lemma 3 is therefore exact on its
+  premises and tested only to the experiments' precision.
+- **Universal coupling from consistency (READ, Deser, gr-qc/0411023v3, *Gen. Rel. Grav.* 1 (1970) 9; pages are the
+  posting's own).** The
   massless spin-2 field, coupled to a source, "must actually be coupled to the total stress-tensor including that of
   the φ-field itself" (p. 1), and "Consistency has therefore led us to universal coupling, which implies the
   equivalence principle." This holds under (PD). Deser notes that consistency and linearity "may also be reconciled if
-  locality is abandoned" (p. 1, footnote 2), so locality is a premise.
+  locality is abandoned" (p. 1, footnote 2), so locality is a premise. Will names the result (§3.1.1, p. 26, READ):
+  "The property that all non-gravitational fields should couple in the same manner to a single gravitational field is
+  sometimes called "universal coupling"".
 - **Geodesics carry no mass (computed).** For any static spherical metric, the Euler–Lagrange equations of
   ½ m g_ab ẋ^a ẋ^b are m times those of ½ g_ab ẋ^a ẋ^b, so the paths are independent of m. Light follows the same law
   with g_ab ẋ^a ẋ^b = 0. A force that knows the body's mass makes the check fail (mutant).
@@ -221,10 +229,12 @@ characteristic cones of a strongly curved background (§9, qualification Q1).
 
 *Tests (READ).*
 
-- MICROSCOPE (arXiv:2209.15487, eq. (5), p. 5): η(Ti, Pt) = [−1.5 ± 2.3 (stat) ± 1.5 (syst)] × 10⁻¹⁵.
+- MICROSCOPE (arXiv:2209.15487, eq. (5), p. 5; a test of the weak equivalence principle between massive bodies of
+  different composition, statistical error at 1σ): η(Ti, Pt) = [−1.5 ± 2.3 (stat) ± 1.5 (syst)] × 10⁻¹⁵.
 - Cassini, as quoted in arXiv:1710.05834, p. 7: γ_EM − 1 = (2.1 ± 2.3) × 10⁻⁵, "from the measurement of the Shapiro
   delay (at radio wavelengths) with the Cassini spacecraft (Bertotti et al. 2003)".
-- Gravity's own waves feel the same Shapiro delay as light (arXiv:1710.05834, eq. (4), p. 7):
+- Gravity's own waves feel the same Shapiro delay as light (arXiv:1710.05834, eq. (4), p. 7; a conservative bound
+  from the Milky Way's potential outside 100 kpc, with the time bounds of their eq. (1)):
   −2.6 × 10⁻⁷ ≤ γ_GW − γ_EM ≤ 1.2 × 10⁻⁶.
 
 So the massless are gravitated as the massive are, and so is gravity itself, to these precisions.
@@ -241,7 +251,7 @@ p = ⌊(n − 1)/2⌋. In Navarro and Navarro's statement (arXiv:1005.2386, Theo
 > tensors: L₀, . . . , L_p are a basis for the R-vector space of second-order natural (0,2)-tensors on X that are
 > symmetric and divergence-free."
 
-Here L₀ is the metric and L₁ is Einstein's tensor (p. 9). The count gives p(4) = 1 and p(5) = 2 (computed), so:
+Here L₀ is the dual metric of g and L₁ is the contravariant Einstein tensor of g (p. 9). The count gives p(4) = 1 and p(5) = 2 (computed), so:
 
 - **In four dimensions** the only field equations are Einstein's with a cosmological constant.
 - **In five** there is exactly one more term, Lanczos's tensor. It is "quadratic on the second derivatives of the
@@ -291,8 +301,9 @@ outside the light cone.
 *Deduced, in general.* Let Alice act on her system A with any operation, a unitary or a measurement whose outcome is
 not sent to Bob, written with Kraus operators K_j ⊗ 1 with Σ_j K_j†K_j = 1. Bob's reduced state after it is
 Tr_A[Σ_j (K_j ⊗ 1) ρ (K_j† ⊗ 1)] = Tr_A[(Σ_j K_j†K_j ⊗ 1) ρ] = Tr_A ρ, by cyclicity of the partial trace over A. So
-nothing Alice does locally changes any statistic Bob can measure. This is the no-communication theorem (Peres and Terno,
-§II.E; the section was not re-read here, and the one-line proof above is given in full instead).
+nothing Alice does locally changes any statistic Bob can measure. This is the no-communication theorem. Peres and Terno (§II.E, p. 8, READ) derive it as "a
+sufficient condition that no instantaneous information transfer can result from a distant intervention", namely that
+Alice's and Bob's Kraus matrices commute, their eq. (9); operators of the form K_j ⊗ 1 and 1 ⊗ B satisfy it.
 
 *Computed (this paper), as a check of that proof.* Take an arbitrary two-qubit pure state |ψ⟩ = Σ a_i |i⟩, with four symbolic complex
 coefficients. Let Alice either apply a local unitary U(θ, φ) ⊗ 1 from a two-parameter family, or make a non-selective projective
@@ -344,7 +355,7 @@ The normalisation is checked before use, against two exact solutions:
   Kretschmann scalar 72 m²/r⁸.
 - **Boulware–Deser–Cai.** The hole f = κ + r²(1 − q)/(4α), with q² = 1 + 8αm/r⁴ + 4αΛ/3, solves E = 0 exactly for
   κ = 1 and κ = 0, with α, m, Λ and r left symbolic. The solution is Boulware and Deser's (1985) and Cai's (2002); it is
-  quoted as Reall, Tanahashi and Way's eq. (5.15), READ, and Charmousis and Dufaux's eq. (17), READ.
+  quoted as Reall, Tanahashi and Way's eq. (5.15), READ (their α̃² = 4α at d = 5), and Charmousis and Dufaux's eq. (17), READ.
 
 The principal symbol, the part of the linearised equations that decides where waves can go, is
 
@@ -393,11 +404,14 @@ And A − 1 = −8αm/(r⁴q²) (computed), which is nonzero whenever αm ≠ 0.
 For the fastest cone, c − 1 = 16|α|m/(r⁴q²) (computed; c is a squared speed, so the speed exceeds light by about
 8|α|m/(r⁴q²) to first order), at every radius outside the horizon. Reall, Tanahashi and Way
 (p. 22, READ): "If c_A(r) > 1 then the outermost graviton cone lies outside the light cone: gravity travels faster than
-light. We will see below that this is often the case, including arbitrarily far from the black hole."
+light. We will see below that this is often the case, including arbitrarily far from the black hole." For small
+black holes they add a further failure: for spherical Einstein–Gauss–Bonnet holes with Λ = 0 in d = 5 the scalar cone
+coefficient becomes negative near the horizon, so that "the theory is not hyperbolic near the horizon" (pp. 23, 26,
+READ). Either way, α ≠ 0 does not keep the one light cone.
 
 **(d) On gravity's own wave.** A plane gravitational wave (Weyl type N, profile diag(2, −1, −1)ε) solves the
 Gauss–Bonnet law exactly (computed). Reall, Tanahashi and Way (§4.1, p. 13, READ): "It is easy to see that any such
-spacetime is a solution of Lovelock theory with Λ = 0."
+spacetime is a solution of Lovelock theory with Λ = 0 (generalising a result of Ref. [13])."
 
 A graviton crossing it is characteristic at ξ² = −(l·ξ)² ω, with
 
@@ -405,11 +419,15 @@ A graviton crossing it is characteristic at ξ² = −(l·ξ)² ω, with
 
 which sum to zero (computed). These agree with Reall, Tanahashi and Way's ω_I = −32 k₂ ν_I (eq. (4.11), p. 17, READ)
 with k₂ = −α/8. Some ω is positive for either sign of α, which is a front outside the light cone. RTW (p. 14, READ): "there
-is generically at least one positive ω_I and so this outermost cone lies outside the light cone".
+is generically at least one positive ω_I and so this outermost cone lies outside the light cone (except where they
+are tangent along ℓ^a)". On this wave each effective metric is isometric to the physical one, by v′ = v − ω_I u/2, so
+that "causality of Lovelock theory in this spacetime is equivalent to causality defined by the light cone in an
+isometric spacetime" (RTW, p. 15, READ). The cones are still nested at each point, and the outermost one lies outside
+the null cone of g, which is what Postulate O forbids.
 
 On an anti-de Sitter background of curvature −k² (every pair curvature equal to −k²) the wave solves the law with
 Λ = −6k²(1 − 2αk²), and every ω is divided by 1 − 4αk²
-(computed). In Charmousis and Dufaux's parametrisation Λ = −6k_CD², on their stable branch, 1 − 4αk² = √(1 − 8αk_CD²) (computed). This is positive inside the
+(computed). In Charmousis and Dufaux's parametrisation Λ = −6k_CD², on the stable ('−') branch of their eq. (17) (pp. 9, 15), 1 − 4αk² = √(1 − 8αk_CD²) (computed). This is positive inside the
 existence range and vanishes at its endpoint 8αk_CD² = 1, where the linearised graviton degenerates (qualification Q3).
 
 ### 10.3 Theorem 2
@@ -419,10 +437,12 @@ Gauss–Bonnet coupling is zero: α = 0, and gravity's second-order law is Einst
 
 *Proof (deduced).* The five-dimensional law can carry gravity's own waves and holds black holes, whose Weyl curvature is
 not zero (Tangherlini's Kretschmann 72 m²/r⁸ ≠ 0). Write Λ = −6k_CD² (either sign of Λ). The existence range is
-1 − 8αk_CD² ≥ 0, where the maximally symmetric vacuum exists; for anti-de Sitter, Charmousis and Dufaux write "the
-maximally symmetric solution is defined only for 1 ≥ 8αk² (for α < 0 there is no such restriction)" (p. 10, READ,
-their k² being k_CD²), and outside it "no solutions exist" (p. 10, READ). Neither background of Lemma 6 exists outside
-that range, and Theorem 2 makes no claim about such α. Inside it, α ≠ 0 puts a polarisation of gravity outside the
+1 − 8αk_CD² ≥ 0. For anti-de Sitter, Charmousis and Dufaux write "the maximally symmetric solution is defined only
+for 1 ≥ 8αk² (for α < 0 there is no such restriction)" and "For 1 ≤ 8αk² no solutions exist" (p. 10, READ, their k²
+being k_CD²); the two statements overlap at the endpoint, and Reall, Tanahashi and Way's eq. (5.16) (p. 25, READ),
+−¼(d − 1)(d − 2) < α̃²Λ, excludes the vacuum (m = 0) there. So the vacuum exists for 8αk_CD² < 1; at the endpoint
+only the hole with m > 0 is used. Neither background of Lemma 6 exists outside the range, and Theorem 2 makes no claim
+about such α. Inside it, α ≠ 0 puts a polarisation of gravity outside the
 light cone, whatever α's sign or size: on the hole (Lemma 6 (c)) for m > 0, and on the wave (Lemma 6 (d)) away from
 the endpoint 8αk_CD² = 1. At that endpoint the wave's cones degenerate and the hole alone carries the proof (A = 0
 there, so c_T = 3). Postulate O forbids any front
@@ -431,7 +451,9 @@ outside the one light cone. At α = 0 every front is null (Lemma 6 (a)). ∎
 *Corroboration, within its range.* Camanho, Edelstein, Maldacena and Zhiboedov (arXiv:1407.5597, READ) give a
 scattering argument. A graviton crossing a shock wave in Gauss–Bonnet theory gets a time advance: "by choosing
 different polarizations we can get time advance for b² ∼ |λ_GB| for any sign of λ_GB" (§2.4, p. 12). So "the purely
-Gauss-Bonnet theory (2.17) is acausal" (p. 13). The violation "cannot be fixed by adding conventional particles with
+Gauss-Bonnet theory (2.17) is acausal" (p. 13). Their own example of α ≫ l_p² is "a weakly coupled string theory"
+(p. 3), whose Regge tower restores causality (§4.4, pp. 33–34); Theorem 2 is conditional on (PL), which excludes such a
+tower. The violation "cannot be fixed by adding conventional particles with
 spins J ≤ 2. But, it can be fixed by adding an infinite tower of extra massive particles with higher spins, J > 2"
 (abstract), and "a finite number of higher spin particles does not fix the problem" (§4.4, p. 33).
 
@@ -446,7 +468,8 @@ does not use it: Lemma 6 is local and pointwise, not an asymptotic-causality arg
 - It does not say no world could hold an infinite tower of higher spins. Such a tower would take the law outside (PL),
   which Lemma 4 used.
 - The split is computed on the families named: static pair-diagonal backgrounds and type N waves. It is generic by
-  Reall, Tanahashi and Way (abstract: "characteristic hypersurfaces are generically all non-null"). It is not proved at
+  Reall, Tanahashi and Way (abstract: for Ricci-flat type N spacetimes "characteristic hypersurfaces are generically
+  all non-null"; for the black holes, "Again, characteristic surfaces are generically non-null"). It is not proved at
   every point where the Weyl curvature is nonzero (qualification Q4).
 - It is computed at d = 5. Reall, Tanahashi and Way's statements hold for Lovelock theories in general d (READ), but
   this paper computes only d = 5.
@@ -489,7 +512,7 @@ so one lies outside the light cone for either sign of f′ (computed). The symme
 of ω, equivalently of 1/ξ₀², not of ξ₀² (qualification Q8).
 
 **(b) In a weakly coupled cosmology.** The tensor fronts run at c_T² = (1 + 8f̈)/(1 + 8Hḟ), twice (computed). This is
-the null cone of Reall's effective metric Cᵃᵇ = gᵃᵇ − β′ ∇ᵃ∇ᵇΦ − β″ ∇ᵃΦ ∇ᵇΦ (arXiv:2101.11623, eq. (91), p. 18,
+the cone on which the normal is null for the inverse of Reall's effective metric (p. 20), with Cᵃᵇ = gᵃᵇ − β′ ∇ᵃ∇ᵇΦ − β″ ∇ᵃΦ ∇ᵇΦ (arXiv:2101.11623, eq. (91), p. 18,
 READ), here with β = 8f. Two routes give one answer.
 
 At exact solution points (V = 0, linear f, H = 1, φ̇ = ±12/5, f′ = ∓1/480, with the Friedmann equation holding exactly
@@ -502,10 +525,10 @@ scalar coupled to the Gauss-Bonnet (GB) invariant" (p. 1). The scalar–graviton
 amplitude between graviton and scalar, such that one of the propagation eigenmodes travels faster than what is allowed
 by the causal structure of the asymptotic spacetime" (§2, p. 2). The delays are ∆t_± = 2r_s(log(b₀/b) ± √2|α̂|/b²)
 (eq. (12), p. 5). They find the time advance avoidable only if the effective theory's cutoff obeys |α̂| ≲ log(b₀Λ)/Λ²
-(eq. (13)), that is, by new physics at that scale.
+(eq. (13)), that is, by new physics at that scale; they do not exclude the theory if such physics exists.
 
-**Corollary (under Postulate O).** The four-dimensional scalar–Gauss–Bonnet theory is excluded wherever its
-backgrounds have V(φ₀) = V′(φ₀) = 0: every point when V = 0, the shift-symmetric and massless-dilaton cases. This
+**Corollary (under Postulate O).** With no new physics below the theory's cutoff, the four-dimensional
+scalar–Gauss–Bonnet theory is excluded wherever its backgrounds have V(φ₀) = V′(φ₀) = 0: every point when V = 0, the shift-symmetric and massless-dilaton cases. This
 holds whether its scalar is read as part of gravity or as matter, because matter must keep the cone too (Lemma 1,
 Postulate O).
 
@@ -556,14 +579,16 @@ at R* = 1/(l₅ℓ). There x = l₅/ℓ, far before x = 1 whenever ℓ ≫ l₅.
 (The group l₅√R* = (l₅/ℓ)^{1/2} at the same point is not x; qualification Q1′.)
 
 *Relation to Haggard and Rovelli's criterion (READ; relation computed, this paper).* Haggard and Rovelli
-(arXiv:1407.0989, eqs. (11)–(13), p. 4) argue "on dimensional grounds" that a process of duration τ stays classical
-only while q = l_P R τ ≪ 1. They also say: "Since this heuristic argument is not very strong, we leave b undetermined".
+(arXiv:1407.0989, eqs. (11)–(13), p. 4) argue, "on dimensional grounds", that a process of duration τ stays classical while
+q = l_P^{2−b} R τ^b ≪ 1, with b undetermined; their guess b = 1 gives q = l_P R τ. They add: "Since this heuristic
+argument is not very strong, we leave b undetermined below, to show that our point does not strongly depend on it".
 Their criterion adds the elapsed time to the local curvature.
 
 Evaluated on the local curvature time τ = R^{−1/2}, it becomes q = (l_P² R)^{1/2}. So, at that time scale, their q is small exactly
 where the local group l_P²R is, and the two criteria place the same onset up to an order-one factor that depends on
-the background (qualification Q3′). Haggard and Rovelli's bounce time
-τ ∼ m²/l_P (eq. (2), p. 2, READ) is the long-time effect their q adds. Proposition 8 does not need it.
+the background (qualification Q3′). Haggard and Rovelli's time after which
+quantum effects can first appear outside a black hole, an "(asymptotic) proper time of the order τ ∼ m²/l_P"
+(eq. (2), p. 2, READ), is the long-time effect their q adds. Proposition 8 does not need it.
 
 *What Proposition 8 does not prove.*
 
@@ -620,7 +645,7 @@ Qualifications carried in §12:
 
 - **Q1′.** The counterfactual onset is x = l₅/ℓ; the value (l₅/ℓ)^{1/2} is a different group, and was refuted as x.
 - **Q2′.** The form of the expansion is an assumption.
-- **Q3′.** Haggard and Rovelli's criterion is q = l_P R τ, which adds a time; compared at the local curvature time
+- **Q3′.** Haggard and Rovelli's criterion is q = l_P R τ (their b = 1), which adds a time; compared at the local curvature time
   it orders the same onset as x, up to a background-dependent factor.
 - **Q4′.** A bound on K is not a bound on all curvature.
 
@@ -653,26 +678,26 @@ Each was re-read at source for this paper (alphaXiv PDF text, 2026-10-16), with 
 marked "named, not re-read".
 
 1. A. Peres and D. R. Terno, *Quantum Information and Relativity Theory*, Rev. Mod. Phys. 76 (2004) 93, doi:10.1103/RevModPhys.76.93;
-   arXiv:quant-ph/0212023v2. pp. 1, 13 and abstract.
+   arXiv:quant-ph/0212023v2. pp. 1, 8, 13 and abstract.
 2. LIGO Scientific and Virgo Collaborations, Fermi GBM and INTEGRAL, *Gravitational Waves and Gamma-Rays from a Binary
    Neutron Star Merger: GW170817 and GRB 170817A*, ApJL 848 (2017) L13, doi:10.3847/2041-8213/aa920c; arXiv:1710.05834v2. Abstract, eq. (1) p. 6,
    eq. (4) and the Cassini bound p. 7.
 3. C. M. Will, *The Confrontation between General Relativity and Experiment*, Living Rev. Rel. 17 (2014) 4, doi:10.12942/lrr-2014-4;
-   arXiv:1403.7377v1. Abstract; §2.1 p. 6; §3.1.1 p. 26.
+   arXiv:1403.7377v1. Abstract; §2.1 pp. 6–7; §3.1.1 p. 26.
 4. S. Deser, *Self-Interaction and Gauge Invariance*, Gen. Rel. Grav. 1 (1970) 9, doi:10.1007/BF00759198; arXiv:gr-qc/0411023v3. pp. 1, 4.
 5. P. Touboul et al. (MICROSCOPE), *MICROSCOPE mission: final results of the test of the Equivalence Principle*,
    Phys. Rev. Lett. 129 (2022) 121102, doi:10.1103/PhysRevLett.129.121102; arXiv:2209.15487v1. Eq. (5) p. 5.
 6. A. Navarro and J. Navarro, *Lovelock's theorem revisited*, J. Geom. Phys. 61 (2011) 1950, doi:10.1016/j.geomphys.2011.05.004; arXiv:1005.2386v4.
    Theorem 2.6 p. 9; p. 1. D. Lovelock (1970–72) and C. Lanczos (1938) are named through it, not re-read.
 7. C. Charmousis and J.-F. Dufaux, *General Gauss-Bonnet brane cosmology*, Class. Quant. Grav. 19 (2002) 4671, doi:10.1088/0264-9381/19/18/304;
-   arXiv:hep-th/0202107v3. pp. 3, 4, 5, 9, 10, 16. D. G. Boulware and S. Deser (1985) and D. J. Gross and J. H. Sloan
+   arXiv:hep-th/0202107v3. pp. 3, 4, 5, 9, 10, 15, 16. D. G. Boulware and S. Deser (1985) and D. J. Gross and J. H. Sloan
    (1987) are named through it, not re-read.
 8. H. S. Reall, N. Tanahashi and B. Way, *Causality and Hyperbolicity of Lovelock Theories*, Class. Quant. Grav. 31
-   (2014) 205005, doi:10.1088/0264-9381/31/20/205005; arXiv:1406.3379v2. Abstract; pp. 2, 13, 14, 17, 22, 24–25. R.-G. Cai (2002) is named through it.
+   (2014) 205005, doi:10.1088/0264-9381/31/20/205005; arXiv:1406.3379v2. Abstract; pp. 2, 13, 14, 15, 17, 22, 23, 24–26. R.-G. Cai (2002) is named through it.
 9. X. O. Camanho, J. D. Edelstein, J. Maldacena and A. Zhiboedov, *Causality Constraints on Corrections to the Graviton
-   Three-Point Coupling*, JHEP 02 (2016) 020, doi:10.1007/JHEP02(2016)020; arXiv:1407.5597v1. Abstract; §1 p. 3; §2.4 pp. 12–13; §4.4 p. 33.
+   Three-Point Coupling*, JHEP 02 (2016) 020, doi:10.1007/JHEP02(2016)020; arXiv:1407.5597v1. Abstract; §1 p. 3; §2.4 pp. 12–13; §4.4 pp. 33–34.
 10. H. S. Reall, *Causality in gravitational theories with second order equations of motion*, Phys. Rev. D 103 (2021)
-    084027, doi:10.1103/PhysRevD.103.084027; arXiv:2101.11623v2. Abstract; eq. (91) p. 18.
+    084027, doi:10.1103/PhysRevD.103.084027; arXiv:2101.11623v2. Abstract; eq. (91) p. 18; p. 20.
 11. F. Serra, J. Serra, E. Trincherini and L. G. Trombetta, *Causality Constraints on Black Holes beyond GR*, JHEP 08
     (2022) 157, doi:10.1007/JHEP08(2022)157; arXiv:2205.08551v2. Eq. (1) p. 1; §2 p. 2; eqs. (12)–(13) p. 5.
 12. H. M. Haggard and C. Rovelli, *Black hole fireworks: quantum-gravity effects outside the horizon spark black to
@@ -689,7 +714,7 @@ are the texts read.
 
 ## Appendix A · Every computation, with its module and check
 
-The computations are carried by four modules, imported by `qr_paper_check.py`, each with its own selftest and mutants:
+The computations are carried by four modules, imported by the paper's check, each with its own selftest and mutants:
 M1 (special and general relativity), M2 (the Gauss–Bonnet cones), M3 (scalar–Gauss–Bonnet) and M4 (the quantum onset).
 
 | claim | where | module | check |
