@@ -203,6 +203,10 @@ V14.]
      0.568 of the write.  A radial null ramp grows the face over its width (b4d_large K2 (a)); a step, or a uniform
      ball whose edge is the first trapped surface, keeps the face's size from its first instant (K2 (b), (c), exact at
      D = 5).  Which delivery is the README's is Q1, M's.]
+     [Item 438: M, "What does the math require?"  The step (b4d_large K12): what crosses is energy alone on the light
+     cone (386), so the delivery is null, and a null inflow keeps 162 only as a step.  The step is the zero-width member
+     of (b)'s compact range, w = 0 <= 4.79 clocks, its face born 2 clocks before it; the growth above does not arise, and
+     V11 (b)'s conclusion, compact, stands at its limit.]
      [Item 348 (Q1, Q9, Q10), the verifier: (b)'s "Censorship admits a spread arrival only at onset orders 1 and 4 and
      above (V3)" is REFUTED at order 4 (V3's item-348 note, V14 (a)). Correct: among the orders computed, censorship
      admits a spread arrival only at order 1, and at order 2 below 9 clocks; at orders 3 and 4 every arrival wider than

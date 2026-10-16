@@ -1008,6 +1008,19 @@ state was rebuilt first.
   arrival_small V11); the same fork stands there. Beside sync_face: S2's least time gives way to the math (437 (2)).
   The full theorem selftest over the 80-row register: 12/12 (warptheorem.py, 53 minutes; every lemma instrument's
   selftest passing).
+- **Item 438** (M: "1 - I don't know. What does the math require? 2 - yes 3 - confirm 4 - no. The README only contains
+  the last state of the object at position 1, not all of its states possible states, however, potential to be other
+  states is carried as part of the README"). **What the math requires** (`b4d_large.py` K12, 10/10, mutants 6/6): the
+  null shell, the README crossing all at once, at both ends. Your 386 makes what crosses energy alone, with no rest mass,
+  so on the light cone (324); that excludes the gathered ball the board had offered, against 386, which it had not
+  re-read (a correction beside K2 (c)). A null inflow keeps 162 only as a step, since every r < 2m(v) is trapped and a
+  ramp's first face has size zero. The face of 162 is the trapping horizon: from a regular centre the event horizon
+  always begins at zero size, before the opening. B3 and B4d at the large end are readings on the shell, through SOURCE
+  and on M-PLANCK-ENDS (your "yes"); `b4d_small.py` D10's fixture moved with them. At the small end the step is the
+  zero-width member of ARRIVALs' compact range, and K11's growth does not arise. ARRIVAL at the large end, as
+  ARRIVALs, a reading through SOURCE: put to you. Fork (a) is yours (M-GEOMETRY-AS-LABELS); fork (b) answered
+  (M-ISOTOPE-OUT, M-LAST-STATE, M-POTENTIAL-IN): the copper's README is its last state's labels, about 300 bits for a
+  perfect crystal, 2.9 J at the small end.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1058,10 +1071,10 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
 | B | B2t its instance beneath the corridor at the large end: the large hole's bulk | derived | M1 | rows_large.py B2t; Figueras-Wiseman (READ) |
 | B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D10 (351, 355); M-PLANCK-ENDS |
-| B | B3 a complete bulk exists at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | equivalent to B4 (the record's); worked cell by cell, b4d_large.py K9 (436-437): all but the opening, Q1's |
+| B | B3 a complete bulk exists at the large end | reading | M1 FAR WRITE ARRIVAL CLOSE | b4d_large.py K9, K12 (436-438): every cell a row, the opening the null shell the math requires; M-PLANCK-ENDS; SOURCE |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
 | B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | reading | M1s FARs WRITEs ARRIVALs CLOSEs | b4d_small.py D0-D18 (351-355); M-PLANCK-ENDS |
-| B | B4d the opening and closing evolve regularly in five dimensions at the large end | **OPEN** | M1 FAR WRITE ARRIVAL CLOSE | not evolved (the record's); worked, b4d_large.py K0-K11 (436-437): regular wherever classical GR holds under either delivery, Q1 M's |
+| B | B4d the opening and closing evolve regularly in five dimensions at the large end | reading | M1 FAR WRITE ARRIVAL CLOSE | b4d_large.py K0-K12 (436-438): regular wherever classical GR holds, the opening the null shell; M-PLANCK-ENDS; SOURCE |
 | B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
 | B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | derived | -- | e_positive.py E7 |
 | B | B5c position 2's positivity where it bears, at the large end | derived | -- | m1_large.py M8; tau_share T4 |
@@ -1109,8 +1122,9 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-80 rows, 66 lemmas and 14 inputs: 20 proved, 45 derived, 3 under a named reading of the board's, 6 definitions, 6 OPEN
-(B3, B4d, ARRIVAL, ENCODE, and SOURCEs and SOURCE, deferred by you). *[Corrected at item 437: this line had read "78
+80 rows, 66 lemmas and 14 inputs: 20 proved, 45 derived, 5 under a named reading, 6 definitions, 4 OPEN (ARRIVAL,
+ENCODE, and SOURCEs and SOURCE, deferred by you). *[Item 438: B3 and B4d at the large end moved from OPEN to readings;
+the line read "3 under a named reading of the board's ... 6 OPEN (B3, B4d, ARRIVAL, ENCODE, ...)" before.]* *[Corrected at item 437: this line had read "78
 rows, 64 lemmas and 14 inputs: 20 proved, 39 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN"
 after items 423-424 moved six rows to derived; RECON and ENCODE are 437's.]* *Corrected at item 377: this line had kept item 356's 33 derived and
 17 OPEN after the table moved; the table above was right.*

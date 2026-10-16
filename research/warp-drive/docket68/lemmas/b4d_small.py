@@ -446,8 +446,9 @@ def checks(o):
         "%.2g" % d["k_now"] == "2.6e-18" and "%.3g" % d["r_star_l5"] == "2.91" and round(d["bits"]) == 176
         and "%.2g" % d["left"] == "0.0022" and "%.2g" % d["frac"] == "2.6e-18")
     e = o["d10"]
-    add("D10 every cell's row in the register with the status stated; B3 and B4d OPEN there; B3s and B4ds READINGs "
-        "(item 355)", e["ok"] and e["b3"] == "OPEN" and e["b4d"] == "OPEN" and e["b3s"] == e["b4ds"] == "READING")
+    # [item 438: B3 and B4d at the large end READINGs (b4d_large K12); this check read them OPEN before]
+    add("D10 every cell's row in the register with the status stated; B3 and B4d READINGs there (438); B3s and B4ds "
+        "READINGs (item 355)", e["ok"] and e["b3"] == e["b4d"] == "READING" and e["b3s"] == e["b4ds"] == "READING")
     f = o["d13"]
     add("D13 (item 352) the Vaidya Kretschmann exactly 72 mu^2/r^8, no term in mu'; 72/mu^2 on r^2 = mu; Planckian at "
         "2.91 l5; the core 6.3e-3 of the face at the example", f["exact"] and f["trap"]

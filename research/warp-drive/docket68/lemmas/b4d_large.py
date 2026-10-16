@@ -87,10 +87,34 @@ verified; not seated.
      (encode_read E5), it is 0.568 of the write.  K2's (b) and (c) are exact at D = 5 too, and keep the face's size from
      its first instant; so at the small end the same delivery fork stands, and V11 (b)'s comparison is withdrawn by
      its own premise.
+  K12 (item 438 (1); deduced, computed where marked) What the math requires.  M: "I don't know. What does the math
+     require?"  (i) (deduced, exact in spherical symmetry) The face of 162 is the trapping horizon.  In an untrapped
+     region an outgoing radial null ray expands, so traced back it reaches the regular centre; the event horizon's
+     generators are such rays, so in every delivery from a regular centre the event horizon begins at zero size before
+     the opening (2 r_face before a shell, K2 (b)) and grows.  No delivery lets the event horizon meet 162; its head
+     start is the boundary every collapse has, drawn by what comes after.  (ii) (M's, with the record's correction at
+     386) What crosses is the README's information as energy alone, with no rest mass -- "matter cannot travel, only
+     information can travel" (386; SOURCE-REQUIRED 1', M's) -- so it moves on the light cone (2', derived from
+     relativity.py, 324: the massless on the light cone, the massive inside it).  That excludes K2 (c), every timelike
+     delivery, a ball or a thin shell of matter alike, and leaves a null inflow.  (iii) (computed, exact; K2 (a)) On the
+     ingoing form every r < 2m(v) is trapped, so the first face has size 2m(v) at its first instant: a ramp's first face
+     has size zero, a step's 2E.  A null inflow puts the face at the README's size from its first instant exactly when
+     m(v) jumps from 0 to E -- m(v) = E theta(v - v_open) (at 5D, mu jumps from 0 to r_h^2).  So the math requires the
+     null shell, the README crossing all at once, at both ends: derived from M's 386, 162 and T0 with 324.  163's "All
+     together, one whole", read as V11 (b) read it, agrees: a step crosses as one whole at one instant.  Whether the
+     README written on our plane comes in so stays SOURCE's to prove (386's note), as at the small end.
+     B4d and B3 at the large end become READINGs (M, 438 (2)) on the shell, derived, through SOURCE and on
+     M-PLANCK-ENDS.  At the small end the step is the zero-width member of ARRIVALs' compact range (w <= 4.79 clocks;
+     the event horizon born 2 clocks before it): K11's growth does not arise at w = 0, and ARRIVALs, B3s and B4ds
+     stand with their opening read as the step.
+     [Correction beside K2 (c) and K10, item 438: (c) was offered against 386, which the board did not re-read before
+     putting the fork.  386 excludes every timelike delivery.  K2 (c)'s computations stand as computed, for matter; they
+     are not the README's.]
 
 What this does not claim: an evolution of the brane collapse beyond C3's order (the non-static transient of K2 (c) is
-READ, not computed); the delivery itself (Q1, M's); SOURCE's matter; the evolution inside 273's region; global
-hyperbolicity (B4's).
+READ, not computed); that the README written on our plane comes in as K12's shell (SOURCE's); the evolution inside
+273's region; global hyperbolicity (B4's).  [The second clause read "the delivery itself (Q1, M's); SOURCE's matter"
+before item 438.]
 
 python3 b4d_large.py [--selftest | --mutants]
 """
@@ -108,7 +132,8 @@ WORDS = ((152, "It could very well be possible, so let's consider this an option
          (336, '"I think it is B"'), (353, '"I propose one reading for you to confirm. - confirmed"'),
          (432, "the energy is there at the opening"),
          (437, "I don't know. That's why I said we need to address turning a geometric object into binary information"),
-         (437, "yes, the math, always"))
+         (437, "yes, the math, always"), (386, "matter cannot travel, only information can travel"),
+         (438, "I don't know. What does the math require?"), (438, "2 - yes"))
 EXAMPLE_N = 2742570311524972
 LIFE_PER_N = 2.417                          # close_large L3, clocks of m/c, Z = 108.75
 LEAST_WRITE_M = 28.4777                     # encode_read E5, clocks of m/c (4D)
@@ -215,6 +240,17 @@ def k6():
     return (1 / 10) ** 3, (ELL / EARTH_R0) ** 3
 
 
+def k12():
+    """K12: the first face's size under a ramp and a step; the timelike delivery excluded by 386 (1', 2')"""
+    E, v, w = sp.symbols("E v w", positive=True)
+    ramp_first = sp.limit(2 * E * (v / w), v, 0, "+")
+    step_first = sp.limit(2 * E * sp.Heaviside(v), v, 0, "+")
+    src = open(os.path.join(HERE, "SOURCE-REQUIRED.md"), encoding="utf-8").read()
+    one_two = "The README's information as energy alone" in src and "Moving on the light cone" in src
+    excluded = one_two and "matter cannot travel, only information can travel" in _item(386) and "timelike_ok" not in MUT
+    return {"ramp_first": ramp_first, "step_first": sp.simplify(step_first), "timelike_excluded": excluded}
+
+
 def k9():
     reg = _register()
     return [(s, r, st, reg.get(r)) for s, r, st in CELLS], reg.get("B3"), reg.get("B4d")
@@ -240,6 +276,9 @@ def report():
     for s, r, st, now in cells:
         print("K9 %-32s %-6s %-10s (register: %s)" % (s, r, st, now))
     print("   B3 %s, B4d %s in the register" % (b3, b4d))
+    k = k12()
+    print("K12 first face: ramp %s, step %s; timelike delivery excluded by 386: %s" % (k["ramp_first"], k["step_first"],
+                                                                                    k["timelike_excluded"]))
     print("K11 the small end's compact ramp: %.3f of the least write (V11 weighed it %.1e of 66,980)"
           % (V11_RAMP / LEAST_WRITE_RH, V11_RAMP / V11_FLOOR))
 
@@ -270,15 +309,20 @@ def selftest(quiet=False):
     c6 = abs(f1 - 1e-3) < 1e-12 and abs(f2 / 3.90e-9 - 1) < 0.01
     ok.append(c6); say("K6 the life's last part at the small end, 1e-3 and 3.9e-9: %s" % c6)
     cells, b3, b4d = k9()
-    c9 = all(now == st for _, _, st, now in cells) and b3 == "OPEN" and b4d == "OPEN"
-    ok.append(c9); say("K9 every cell's row at its stated status, the opening OPEN; B3 and B4d OPEN: %s" % c9)
+    c9 = all(now == st for _, _, st, now in cells) and b3 == "READING" and b4d == "READING"   # [438 (2); was OPEN]
+    ok.append(c9); say("K9 every cell's row at its stated status, the opening OPEN; B3 and B4d READING (438): %s" % c9)
+    k = k12()
+    c12 = k["ramp_first"] == 0 and sp.simplify(k["step_first"] - 2 * sp.Symbol("E", positive=True)) == 0 \
+        and k["timelike_excluded"]
+    ok.append(c12); say("K12 a ramp's first face has size %s, a step's %s; timelike delivery excluded by 386: %s"
+                        % (k["ramp_first"], k["step_first"], c12))
     c11 = abs(V11_RAMP / LEAST_WRITE_RH - 0.568) < 1e-3
     ok.append(c11); say("K11 the small end's ramp is 0.568 of the least write: %s" % c11)
     return all(ok)
 
 
 def mutants():
-    names = ["ramp_ok", "eh_after", "ball_center", "no_half", "old_write"]
+    names = ["ramp_ok", "eh_after", "ball_center", "no_half", "old_write", "timelike_ok"]
     caught = 0
     for m in names:
         MUT.clear(); MUT.add(m)

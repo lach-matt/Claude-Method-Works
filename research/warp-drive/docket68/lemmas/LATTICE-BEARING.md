@@ -85,3 +85,7 @@ information (4, "yes to both"), worked in `encode_read.py`.]*
 is one of two deliveries that keep 162 exactly; a uniform timelike ball keeps it too, and a null ramp does not. B4d and
 B3 at the large end are worked under both, regular wherever classical GR holds; which delivery is the README's is Q1,
 put back to M. The small end's opening carries the same fork (K11).]*
+
+*[Item 438: M, "I don't know. What does the math require?" The math requires the null shell at both ends (`b4d_large.py`
+K12): 386 makes what crosses energy alone on the light cone, which excludes the ball, and 162 with T0 admits a null
+inflow only as a step. M, "yes": B4d and B3 at the large end are READINGs on it, through SOURCE and on M-PLANCK-ENDS.]*

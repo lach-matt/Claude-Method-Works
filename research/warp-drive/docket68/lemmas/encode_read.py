@@ -57,6 +57,15 @@ Worked in the conversation; not verified; not seated.
      closes a smaller face first, which 162 refuses.  Whether the delivery crosses as one whole at the opening (the
      shell) or gathers over the read, and whether the isotope is read (fork (b), 146) -- these are M's.
 
+[Item 438, beside E1, E3, E4 and E6, not repairing them.  E1's labels are M's (fork (a): "confirm",
+M-GEOMETRY-AS-LABELS).  The isotope is not in the README (fork (b): "no", M-ISOTOPE-OUT): "The README only contains the
+last state of the object at position 1, not all of its states possible states, however, potential to be other states is
+carried as part of the README" (M-LAST-STATE, M-POTENTIAL-IN).  So E3 and E4's isotope reading (7.57e22 bits, 1.2e14 J)
+is not the copper's README; its README is the labels of its last state -- the crystal's element, lattice and shape,
+about 300 bits for a perfect crystal (2.9 J at the small end), more with a real piece's defects, far under N*.  E6's
+fork is answered by the math (b4d_large K12): what crosses is energy alone on the light cone (386), so the delivery is
+null, and a null inflow keeps 162 only as a step -- the README crosses into the face all at once at the opening.]
+
 python3 encode_read.py [--selftest | --mutants]
 """
 import importlib.util, math, os, re, sys

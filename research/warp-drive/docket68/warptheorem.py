@@ -444,12 +444,14 @@ LEMMAS_NOW = [
       "null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and cover); since 354, "
       "H-SPECIES-FINITE replaced by the hole's own species bound (readings Q27) and FARs DERIVED (Q24, Q25, Q30), so "
       "of the board's readings only the null-dust model remains, through SOURCE (Q29)")),
-    ('B', 'B3 a complete bulk exists at the large end', 'OPEN',
+    ('B', 'B3 a complete bulk exists at the large end', 'READING',
      ('equivalent to B4: the local bulk is proved (B2), the complete one is B4a-B4d; at the small end the warp-order '
       "bulk is Kudoh-Tanaka-Nakamura's numerical construction (named, not computed); 'complete' is B4a-B4d's global "
       'spacetime, read cell by cell (247); the small end in B3s (b4d_small, 351).  [Items 436-437: worked, '
       'lemmas/b4d_large.py K9 -- every cell a row computed, derived, verified or M\'s but the opening, ARRIVAL, whose '
-      'delivery is Q1 (M\'s); a READING on it put to M (K10), the status unchanged until M rules]')),
+      'delivery is Q1 (M\'s); a READING on it put to M (K10), the status unchanged until M rules].  [Item 438: M, '
+      '"What does the math require?" -- the null shell, all at once (b4d_large K12, from M\'s 386, 162 and T0 with '
+      '324); M, "yes": a READING on the shell through SOURCE and on M-PLANCK-ENDS; was OPEN]')),
     ('B',
      ("B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk "
       'with no horizons until the opening'),
@@ -474,14 +476,17 @@ LEMMAS_NOW = [
       "(readings.py: the radial null-dust model through SOURCE, H-SPECIES-FINITE, and FARs's H-HOLE-IN-WARP and "
       "cover); since 354, H-SPECIES-FINITE replaced (readings Q27) and FARs DERIVED (Q24, Q25, Q30), so of the "
       "board's readings only the null-dust model remains -- the opening's onset (D2) -- through SOURCE (Q29)")),
-    ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'OPEN',
+    ('B', 'B4d the opening and closing evolve regularly in five dimensions at the large end', 'READING',
      ("the opening and closing of the one-way object -- the bounce's quantum region (273) and the faces' beginning "
       "and end -- are not evolved; B4b and B4c superseded (210); the small end in B4ds (b4d_small, 351).  [Items "
       "436-437: worked, lemmas/b4d_large.py K0-K11 -- the opening keeps the face's size from its first instant and "
       "hides its onset under a null shell or a uniform timelike ball, exactly, and a null ramp does not (K2); the hold, "
       "interior, position 2's face and closing imported (K3-K6), the closing ending at B4ds D14's place; the gluing "
       "(K8) -- regular wherever classical GR holds on M-PLANCK-ENDS under either delivery; which delivery is Q1, "
-      "M's; a READING on it put to M (K10), the status unchanged until M rules]")),
+      "M's; a READING on it put to M (K10), the status unchanged until M rules].  [Item 438: the math requires the "
+      "null shell (K12: the timelike delivery excluded by 386's energy alone on the light cone, a null ramp by 162 and "
+      "T0; the face of 162 the trapping horizon, the event horizon's head start every collapse's); M, 'yes': a READING "
+      "on the shell through SOURCE and on M-PLANCK-ENDS; was OPEN]")),
     ('B',
      ("B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one"
       ' way'),
@@ -711,7 +716,9 @@ LEMMAS_NOW = [
      ("the record's (arrival_cypher, README-HELD.md, four-dimensional): 284 (d), 285 (d); formation in the bulk (179); "
       "the small end in ARRIVALs (338).  [Item 437 (3), M: 'yes' -- re-worded from 'forms the corridor as it comes "
       "in' (198) on 432 (1), T0 and 162 (LATTICE-BEARING 3); whether the energy at the opening is an arrival turns on "
-      "the read, ENCODE (M-READ-DECIDES, 437 (1))]")),
+      "the read, ENCODE (M-READ-DECIDES, 437 (1))].  [Item 438: the math requires the arrival to be the null shell "
+      "at the opening, all at once (b4d_large K12); whether the README comes in so is SOURCE's -- as ARRIVALs, a "
+      "READING through SOURCE, put to M; status unchanged]")),
     ('N',
      ("CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; "
       "position 2's face within its open period"),

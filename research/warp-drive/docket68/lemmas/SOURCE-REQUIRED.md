@@ -224,8 +224,15 @@ rises by a factor of 1.6e10 over the crystal's labels" reads 4.0e13 at the small
   *[Item 437: deduced from 131, 146, 148 and M-RECON-ALWAYS (`encode_read.py` E1): no tolerance with a finite README
   admits only discrete data, and every coordinate is a law value that moves with the electron's mass and alpha across
   the 26-lattice and is re-set by position 2's 26. So the first option follows; it stays M's to confirm.]*
+  *[Item 438: M, "confirm" -- the first option is M's (M-GEOMETRY-AS-LABELS), and requirement 18 with it.]*
 - (b) **The isotope**: is each atom's isotope part of the README (item 146's "element identity" read as the nucleus),
   or only the element? It moves N by up to twenty orders for natural matter.
+  *[Item 438: M, "no. The README only contains the last state of the object at position 1, not all of its states
+  possible states, however, potential to be other states is carried as part of the README" -- M-ISOTOPE-OUT,
+  M-LAST-STATE, M-POTENTIAL-IN. The isotope row of the copper table is not the README; the copper's README is the
+  labels of its last state, the crystal's row (about 300 bits, an estimate) and, for a real piece, its defects. The
+  read need not resolve nuclei. The board's reading of "potential", put to M: what a label carries -- an element's
+  identity, which its isotopes and excitations share -- and which of them the copy takes is position 2's (RECON).]*
 - (c) **Which reading of the read is SOURCE's**: every atom of the object (S1C-O1), or only what position 2's builder
   cannot regenerate (H-REGENERABLE, FAITHFUL 4)? Item 33's five readings stay kept until M rules.
 
