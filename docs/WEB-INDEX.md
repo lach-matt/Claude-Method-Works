@@ -1023,7 +1023,11 @@ linked by pattern), records its md5 against the store's, copies every figure it 
 extracted tree by the ledger row of the paper's own archive (`PAPER_FIGURE_ARCHIVES`, because two
 archives hold a `fig1_shape_sphere.png` and only one is the paper's) with the ledger md5 beside the
 measured one, and writes the lot to `data/papers.js`, loaded on demand (`ensurePapers`). The reader
-carries a table of contents, the figures inline, a cite line per paper and the md5. The text is the
+carries a table of contents, the figures inline, a cite line per paper and the md5. The cite line
+ends in the paper's own address, `#paper=<slug>`, and the router opens it (`applyHash` →
+`openPaper`): the Papers dialog on that paper, the explorer staying where it was, at the root on a
+first load; an address naming no held paper says so and offers the list. Until 2026-10-16 the router
+did not read that form, and a citation's address opened the front page. The text is the
 author's own and is shipped as written — the public-build guard is not run over `papers.js`, and
 the three-body paper's own citations of the books stay its own. **The hierarchy law paper is the third**, and
 it comes from the research tree rather than the store (`RESEARCH_PAPERS`:

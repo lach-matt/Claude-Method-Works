@@ -1628,6 +1628,15 @@
   async function applyHash(fly = true, ms = 650, reveal = true) {
     const h = location.hash;
     if (h === state.lastHash) return;
+    // a paper's own address, as its cite line prints it: open the Papers dialog on that paper,
+    // the explorer staying where it is (at the root on a first load)
+    const pm = /^#paper=([A-Za-z0-9-]+)$/.exec(h);
+    if (pm) {
+      state.lastHash = h;
+      if (!state.selected) await select(rootNode, { fly: false, setHash: false, reveal: false });
+      openPaper(pm[1]);
+      return;
+    }
     const p = parseHash(h);
     if (!p || p.root) return select(rootNode, { fly, ms, reveal });
     if (p.pindex !== undefined && p.ghost !== undefined) return goToGhost(p.pindex, p.ghost, { fly, ms, reveal });
@@ -3481,6 +3490,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       document.head.appendChild(sc);
     });
   }
+  function openPaper(slug) {
+    renderPapers(slug);
+    const d = $('#dlg-papers');
+    if (!d.open) d.showModal();
+  }
   function paperCite(pp) {
     const m = state.index.meta || {}, c = m.cite || {};
     return `${c.author || 'Lach, M.'} (${c.year || ''}). ${pp.title}. In ${c.title || 'The Master Index'}, edition ${c.commit || '?'}. ${c.url || ''}#paper=${pp.slug}`;
@@ -3508,7 +3522,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         return;
       }
       const pp = papers.find((x) => x.slug === slug);
-      if (!pp || !pp.held) { host.innerHTML = '<p class="note">no such paper is held.</p>'; return; }
+      if (!pp || !pp.held) {
+        host.innerHTML = `<div class="paper-head"><button type="button" class="ghost" data-act="papers-back">← all papers</button></div><p class="note">no paper named “${esc(slug)}” is held.</p>`;
+        host.querySelector('[data-act="papers-back"]').addEventListener('click', () => renderPapers());
+        return;
+      }
       host.innerHTML = `<div class="paper-head"><button type="button" class="ghost" data-act="papers-back">← all papers</button>
           <span class="note">${esc(pp.author || '')} · md5 <span class="mono">${esc((pp.md5 || '').slice(0, 12))}</span> ${badge('READ', 'the paper\'s own text, rendered at build')}</span></div>
         <div class="paper-layout">
