@@ -1149,6 +1149,23 @@ state was rebuilt first.
   its passage needs no bounce, and it stands before the README. **162 reassessed** (444 (2); section 10): on the
   record's object it holds only for a delivery narrower than 16 M (large) and 9 r_h (small), 7.1 and 4.2 times
   shorter than one bit's thermal quantum -- put to M.
+- **Item 446** (M: "1 - I would assume yes, prove with the math and outside art contributions / 2 - the wormhole in
+  5D, but when viewed in 4D it appears as a black hole/white hole respectively / - Should I compute this wormhole on
+  the plane as the corridor? - no. The clock of position 2 is an hour ahead to the relative time of the clock at
+  position 1 / 3 - I accept / 4 - yes / 5 - yes"). **The bulk U(1) proved** (`lemmas/u1_bulk.py`, 8/8, mutants 4/4;
+  BOUNCE-RESEARCH section 12): unexcited it changes nothing; it keeps the null condition at every point (T_++ a sum of
+  squares in five dimensions); its four-dimensional coupling runs, not localized (Pomarol, READ, reproduced);
+  Einstein-Maxwell for Maldacena-Milekhin's ansatz derived from the metric gives their (A.28)-(A.29), and the flow
+  AdS3 x R^2 -> AdS5 integrates with the unused tt component held to 3e-15 (D'Hoker-Kraus, READ); an added field,
+  M's assumption, shown consistent and established, not derived from first principles. **M-CORRIDOR-5D** (section
+  11): the corridor is the wormhole in five dimensions, seen from the planes as a black hole at position 1 and a white
+  hole at position 2 -- routes A and B one object in two descriptions; the computation on the plane is not the
+  corridor; the hour is the clocks' offset (M-CLOCK-OFFSET). 162's narrow-delivery reading accepted. T1 extended by
+  bounce_scope, c1_inner, c2_quantum, mmp_corridor. **The five-dimensional solution's approach put to M** (section
+  13, 414): (1) the dictionary, exact -- a charged bulk hole whose extension runs black hole, inner horizon, white
+  hole, cut by the two planes; (2) the inner horizon, the classical obstruction (Gursel-Novikov-Sandberg-Starobinsky;
+  Hod, READ), and its reading on the plane, 444's C2 with the device's charge; (3) the full solution, Maldacena-
+  Milekhin's Einstein-static-universe case first.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

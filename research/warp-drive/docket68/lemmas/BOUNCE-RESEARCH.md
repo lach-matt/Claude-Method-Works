@@ -222,6 +222,10 @@ outgoing ray crossed the shell.
 
 ## 9. The coupling wormhole computed on the plane as the corridor (item 445 (2); `mmp_corridor.py`, 9/9, mutants 2/2)
 
+[446 (2): M, "the wormhole in 5D, but when viewed in 4D it appears as a black hole/white hole respectively", and to
+"Should I compute this wormhole on the plane as the corridor?", "- no". This section is the record of the plane option;
+it is not the corridor. See section 11.]
+
 **The prior art is exactly our setting (READ, both papers in full).** MMP's section 8 points to Randall–Sundrum II.
 Maldacena and Milekhin, *Humanly traversable wormholes* (2008.06618), build the wormhole there:
 - The setting: "a dark sector consisting of a four dimensional conformal field theory with a U(1) symmetry that is
@@ -263,6 +267,8 @@ Maldacena and Milekhin, *Humanly traversable wormholes* (2008.06618), build the 
 - **Causality.** Always πl > d (MMP 5.46): the corridor is slower than light through the ambient space between its
   mouths.
 - **A one-hour corridor.** One whose outside delay is an hour has mouths of r_e = 942 m, 0.64 solar masses each.
+  [446 (2): "The clock of position 2 is an hour ahead to the relative time of the clock at position 1". 218's hour is
+  the clocks' offset, not the corridor's delay, so this line is not a reading.]
 
 **The Standard Model's own fields cannot be used (computed on READ conditions).**
 - MMP need the mouths' distance below the electroweak scale, ħc/TeV = 1.97×10⁻¹⁹ m, which is 1.4×10⁻¹⁴ ℓ.
@@ -296,3 +302,114 @@ Maldacena and Milekhin, *Humanly traversable wormholes* (2008.06618), build the 
 - **How the README could meet it is open.** It could put more energy in each quantum, or more bits in each quantum.
   It is a reading put to you.
 - **On the corridor of section 9 the question does not arise**, since the corridor stands before the README.
+
+## 11. Item 446: the corridor is the wormhole in five dimensions (READ, M's; the board's reading)
+
+**M's words.** "the wormhole in 5D, but when viewed in 4D it appears as a black hole/white hole respectively". The
+board reads "respectively" as the black hole at position 1 and the white hole at position 2, the order 270 and 276
+give the passage.
+
+**What it does to the record (deduced).**
+- The two routes are one object in two descriptions:
+  - route A, the black hole → bounce → white hole, is how the planes see it;
+  - route B, the wormhole, is what it is in the bulk.
+- This is the duality section 3 already uses, where classical in the bulk is quantum-corrected on the plane (EFK;
+  Tanaka).
+- It is your 179, the corridor exclusive to the bulk, made definite.
+- The ten rows on 273 become statements about the five-dimensional wormhole. O1b and O1c ask that it be regular, and
+  that every route through it be complete. Nothing is re-seated until the computation of section 13 says what holds.
+- The computation on the plane (section 9) is not the corridor ("- no").
+- The hour is the clocks' offset between the positions (M-CLOCK-OFFSET), carried as data, not computed.
+- 162's narrow-delivery reading is accepted (section 10).
+
+## 12. The bulk U(1), proved (item 446 (1); `u1_bulk.py`, 8/8, mutants 4/4)
+
+M: "I would assume yes, prove with the math and outside art contributions".
+
+**Outside art (READ).**
+- **Maldacena and Milekhin (2008.06618).** "We imagine that we have a five dimensional gravity theory with a five
+  dimensional U(1) gauge field, as in (3.17)." Also: "This dark sector only interacts via gravity with the Standard
+  Model."
+- **D'Hoker and Kraus (0908.3875).** "We construct asymptotically AdS_5 solutions of Einstein-Maxwell theory dual to
+  N=4 SYM theory on R^{3,1} in the presence of a background magnetic field. The solutions interpolate between AdS_5
+  and a near horizon AdS_3×T^2."
+- **Pomarol (hep-ph/9911294).** "we find that the massless mode is not localized in the extra dimension".
+- **Kaloper, Silverstein and Susskind (hep-th/0006192).** In their realizations the effect "turns over either to
+  screening or the Higgs mechanism at long distances".
+- **Chamblin, Reall, Shinkai and Shiromizu (hep-th/0008177).** Brane-world black holes "can carry two types of
+  'charge', one arising from the bulk Weyl tensor and one from a gauge field trapped on the wall".
+
+**The math (computed).**
+- **Unexcited, it changes nothing.** The Maxwell stress tensor is quadratic in F, so the record's bulk and B6''s plane
+  solve Einstein–Maxwell unchanged.
+- **It keeps the null condition at every point, excited or not.** In a five-dimensional null frame,
+  T₊₊ = (F₊₁² + F₊₂² + F₊₃²)/g₅² ≥ 0. So no lemma resting on the null condition moves. The corridor's negative energy
+  cannot come from this field; it comes from the throat's classical AdS3.
+- **Its four-dimensional coupling runs.** 1/g₄² = s(R5/g₅²) ln(L_IR/R5), diverging as L_IR → ∞. That is Pomarol's
+  non-localization, reproduced.
+- **The magnetic flow exists.**
+  - The Einstein–Maxwell equations for MM's ansatz were derived here from the metric. Their ρρ component is MM's
+    (A.28) at β = 6 l_B⁻⁴, and (2E_tt − E_yy + E_ρρ)/3 is their (A.29).
+  - The flow, integrated from the IR's growing mode (exponent √19 − √3, exact), runs from AdS3 × R² (λ′ = √3, so
+    R3 = R5/√3) to AdS5.
+  - The tt component, which the integration does not use, holds along the flow to 3×10⁻¹⁵. A mutated (A.29) breaks
+    it.
+  - Halving the step moves the end value by 1.5×10⁻¹².
+  - Brown–Henneaux's 3R3/(2G3) is MM's c₂ (3.21) exactly.
+
+**What this proves, and what it does not.**
+- The bulk U(1) is consistent with the record and keeps the null condition. It supplies the flux whose flow turns the
+  four-dimensional Casimir energy into classical five-dimensional energy.
+- Its zero mode is not localized, and its long-distance fate in microscopic realizations is screening or a Higgs
+  mechanism. Both lie outside the corridor's scales.
+- It is a field added to the theory: your assumption, shown consistent and established in the literature, not
+  derived from first principles.
+- It meets the Standard Model only by gravity (MM).
+
+## 13. The five-dimensional solution: the approach, put to M before it runs (446 (4); 414)
+
+**Which five-dimensional configuration looks, from the planes, as M says: a black hole at position 1, a white hole
+at position 2, the passage between them through the bulk?** The prior art offers two candidates.
+
+**(a) A charged bulk black hole.**
+- The bulk U(1) allows a five-dimensional Reissner–Nordström hole. Its maximal extension runs: exterior → black-hole
+  interior → inner horizon → white hole → a further exterior.
+- A plane cut by the first exterior's hole sees a black hole. Frolov, Snajdr and Stojkovic (gr-qc/0304083, READ):
+  the brane observer sees "shadow matter", with "regions on the brane where a brane observer sees an apparent
+  violation of energy conditions".
+- A plane in the further exterior sees the white hole. The bridge between the two is the five-dimensional wormhole.
+- **Its classical obstruction is the inner horizon**, a Cauchy horizon: unstable by blueshift and mass inflation
+  (Gürsel, Novikov, Sandberg and Starobinsky, PRD 19, 2821; Hod 1801.07261 for charged fields, READ).
+- Crossing it, seen from the plane, is route A's black-to-white transition, multiplied by c on the plane. The
+  device's charge supplies exactly the inner horizon that C2 found missing.
+- Prior art on the plane's side: Bronnikov, Dehnen and Melnikov (gr-qc/0304068, READ) find brane-world black holes
+  "unifying non-extremal globally regular BHs with a Kerr-like global structure, extremal BHs and symmetric
+  wormholes". That is a black-hole-to-white-hole chain, continued "into the 5D bulk according to the embedding
+  theorems".
+- A thin-shell version of the same chain is "From black hole to white hole via thin-shell wormhole" (Annals of
+  Physics, 2025, READ). It needs "exotic surface matter" at the throat in four dimensions.
+
+**(b) Maldacena and Milekhin's throats, filled in by the bulk.**
+- Cold (global AdS3), the planes see a horizonless traversable wormhole. Heated (BTZ), they see two black holes.
+- Neither is a black hole at one mouth and a white hole at the other, except through a one-way protocol of
+  Gao–Jafferis–Wall type.
+
+**Proposed, in order, each reported before the next.**
+1. **Exact, light: the dictionary.** The charged bulk hole and the two planes:
+   - the planes' positions and induced metrics in the two exteriors, by Israel's conditions as Bowcock–Charmousis–
+     Gregory and Kraus have them for a plane in a bulk black hole;
+   - the four-dimensional views, which should be a black hole at 1 and a white hole at 2;
+   - the passage's causal chain;
+   - how the two planes' clocks relate, where M-CLOCK-OFFSET's hour enters as data;
+   - where the Cauchy horizon stands.
+   
+   The same for (b), to show what each candidate looks like from the planes.
+2. **ODE, moderate: the inner horizon.** Its classical blueshift in five dimensions, and its four-dimensional reading:
+   Barceló et al.'s growth (eqs. 60–68) on the device's charged mouth with the plane's multiplier. That is 444's C2,
+   now with the inner horizon it lacked. The question: does the passage open black-to-white before the Planck-
+   curvature surface?
+3. **PDE, heavy: the full solution.**
+   - First Maldacena and Milekhin's Einstein-static-universe case, a test problem whose structure is known (approved
+     at 446 (4)).
+   - Then the charged bulk hole meeting both planes with localized mouths.
+   - Done by a cohomogeneity-two solve, using what the interior attempts (393–411) taught.

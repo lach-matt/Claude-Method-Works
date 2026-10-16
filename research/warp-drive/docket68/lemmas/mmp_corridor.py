@@ -43,10 +43,15 @@ The prior art is two papers, both READ in full:
      0.19 s at d = l, 1e6 passages.  Always pi l > d (MMP 5.46, figure 7): slower than light outside.
   V5 (computed) A corridor whose outside delay is one hour (pi l = c x 3600 s) has mouths of r_e = 942 m (0.64 solar
      masses each).  Put to M as a question, not a reading: whether 218's hour is the corridor's delay.
+     [446 (2): M -- "The clock of position 2 is an hour ahead to the relative time of the clock at position 1": the
+     hour is the clocks' offset, not the corridor's delay; V5 stays computed and is not a reading.]
   V6 (computed on READ conditions; deduced) The Standard Model's own fields (MMP section 8) need the mouths' distance
      below the electroweak scale, hbar c/(1 TeV) = 1.97e-19 m, 1.4e-14 of ell: there the plane's hole is five-
      dimensional and MMP's four-dimensional gravity does not hold.  The small end (r_h = 1.12e-20 m, b4d_small) is
      below that scale but five-dimensional for the same reason.  Neither end takes the Standard Model version.
+     [446 (2): M -- "the wormhole in 5D, but when viewed in 4D it appears as a black hole/white hole respectively",
+     and to computing this wormhole on the plane as the corridor, "- no".  V7 below is the record of the plane option,
+     not the corridor; BOUNCE-RESEARCH sections 11-13.]
   V7 (deduced) What it gives the record.
      - A corridor on the plane at the large end, needing a U(1) gauge field in the bulk (the record's bulk has gravity
        alone) and two oppositely magnetically charged extremal mouths (445 (2)'s device).
