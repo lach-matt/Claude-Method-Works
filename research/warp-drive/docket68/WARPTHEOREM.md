@@ -913,6 +913,11 @@ state was rebuilt first.
   *The register's full selftest on the state after item 425's gate repair came back 12/12. The fresh interior
   verifier was cut off by an API rate limit at 01:37 UTC on 2026-10-15, mid-way through the instruments' selftests,
   and left no verdict; it was resumed at 06:02 UTC on 2026-10-16 on the same claim (md5s re-measured identical).*
+  **The approach** (`lemmas/SYNCHRONIZATION-APPROACH.md`), put to M: general relativity makes the question exact --
+  a marginally trapped face of the README's size encloses exactly E(N) of Misner-Sharp energy at the opening, so
+  what holds it is what that E(N) is while the README enters over the write. Stage 1 READs (eight abstracts READ at
+  source today; pages to follow); stage 2 four readings with tests -- Y1 the entanglement sets the size (RT with 137
+  (1)), Y2 the E(N) inside at the opening, Y3 the channel, Y4 the closing; stage 3 decide. Nothing computed.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
