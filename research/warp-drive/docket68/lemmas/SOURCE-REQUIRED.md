@@ -211,9 +211,19 @@ here):
 - A real piece of copper is a polycrystal with defects; its structure labels (grain orientations, dislocations) lie
   between the crystal and the isotope rows. Not computed.
 
+*[Item 437, beside the table, a finding recorded, not repaired (`encode_read.py` E3, E4): the table priced every
+reading at the large end's 459,404,002.42 J per sqrt(bit), but the large end begins at N_L = 5.31e60 bits and every
+reading lies far below it, at the small end, where E5(N) = 3 pi hbar c r_h^2/(8 l5^3) grows as N^(2/3). There the four
+rows cost 6.5e6 J, 1.0e15 J, 1.2e14 J and 2.9 J. Against the copper's own rest energy, 8.05e14 J, the crossover is N* =
+1.37e24 bits: the isotope reading (14.5 % of m c^2) and the crystal's labels lie under it, the atomic grid over it. "E
+rises by a factor of 1.6e10 over the crystal's labels" reads 4.0e13 at the small end.]*
+
 **Forks that are M's:**
 - (a) **How the geometry is carried**: as labels of structure, the positions then set by position 2's laws (the
   board's reading, 18), or as measured coordinates to a stated resolution (which 146 and 147 refuse)?
+  *[Item 437: deduced from 131, 146, 148 and M-RECON-ALWAYS (`encode_read.py` E1): no tolerance with a finite README
+  admits only discrete data, and every coordinate is a law value that moves with the electron's mass and alpha across
+  the 26-lattice and is re-set by position 2's 26. So the first option follows; it stays M's to confirm.]*
 - (b) **The isotope**: is each atom's isotope part of the README (item 146's "element identity" read as the nucleus),
   or only the element? It moves N by up to twenty orders for natural matter.
 - (c) **Which reading of the read is SOURCE's**: every atom of the object (S1C-O1), or only what position 2's builder

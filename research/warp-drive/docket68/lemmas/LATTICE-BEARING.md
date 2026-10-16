@@ -14,6 +14,10 @@ accordingly and wisely sir." The lattice has 26 coordinates (434-435). The compu
 | (d) the offsets | the length L (navlattice) | the difference position 2 needs to build under its laws (240, 114 (c)), in the length, not the width (117) |
 | (e) the README's encoding | 136 (5), 146 | it must read the same at every point of the lattice: Planck units or labels, not our SI or our atoms' sizes |
 
+*[Item 437, beside row (c): M, "previously ruled irrelevant. Any information is reconstructed to obey the 26 of any
+position 2" (M-RECON-ALWAYS). Row (c) gives way: what position 2 builds, whether it can rebuild the object, the copy's
+survival and its own Z2 are not the work's (24, 240), and "reconstructible is a region of the lattice" is withdrawn.]*
+
 **The species count, computed (G1-G3).**
 - **Small end:** the carrier's kT is 7.5 TeV, every Standard Model species is free, and Z = 106.75, as the record has
   it.
@@ -45,6 +49,13 @@ accordingly and wisely sir." The lattice has 26 coordinates (434-435). The compu
   of the mass if the write is S7's share (the interior verifier, 430). Under 136 G that is the README's energy
   leaving, while 163 holds the README whole. Stage 3 states this tension; it does not resolve it.
 
+*[Item 437, beside 2: M answered (i) "I don't know ... we need to address turning a geometric object into binary
+information, it bears on your question" (M-READ-DECIDES) and (ii) "yes, the math, always. The write time is whatever is
+needed for the size of the geometric object" (M-WRITE-BY-SIZE). Worked in `encode_read.py`: the least write time by
+Margolus-Levitin on each bit's share is 14.24 r0/c (4D) and 9.49 r_h/c (5D), and over it the face's Hawking emission
+takes about 1e-15 of E. The 2 % tension above rested on S7's share of the life and does not arise at the least write
+time. What the read decides in (i) is put to M there (E6).]*
+
 ## 3. Stage 3, adjusted
 
 - **ARRIVAL at the large end, re-posed.** The README forms the corridor at the opening, its energy there whole (432
@@ -65,3 +76,7 @@ accordingly and wisely sir." The lattice has 26 coordinates (434-435). The compu
   - RECON: position 2 can rebuild the object from its stock under its own 26 (24, 136 H, 240). Reachable is every
     position; reconstructible is a region of the lattice.
   - ENCODE: the README's encoding is invariant across the lattice (146). This bears on SOURCE's read (399).
+
+*[Item 437, beside 3: ARRIVAL re-worded "forms the corridor at the opening" in the register (3, "yes"). RECON entered as
+M's definition under M-RECON-ALWAYS, not as a region; ENCODE entered as OPEN, the geometric object into binary
+information (4, "yes to both"), worked in `encode_read.py`.]*

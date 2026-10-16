@@ -981,6 +981,19 @@ state was rebuilt first.
   (the zero-width null shell); the conflict that withdrew it rested on the board's carrier reading, which 432 (1)'s
   binary interaction replaces. Put to M: that arrival and the write's least time; ARRIVAL's re-posing ("forms the
   corridor at the opening"); RECON and ENCODE as items of their own.
+- **Item 437** (M: "previously ruled irrelevant. Any information is reconstructed to obey the 26 of any position 2";
+  to (1) "I don't know ... we need to address turning a geometric object into binary information"; to (2) "yes, the
+  math, always. The write time is whatever is needed for the size of the geometric object"; (3) "yes"; (4) "yes to
+  both"): ARRIVAL re-worded "forms the corridor at the opening"; RECON (a definition, M-RECON-ALWAYS) and ENCODE (OPEN)
+  entered -- 80 rows; bearing (c) gives way. **The read worked** (`lemmas/encode_read.py` E0-E6, 7/7, mutants 4/4):
+  the geometry carried as labels of structure, deduced from 131, 146, 148 and 437 (fork (a)); each bit's energy
+  Smarr's share of Landauer's, E(N)/N = ((D-2)/(D-3)) kT ln2 exactly at both ends; ordinary READMEs at the small end,
+  so the record's copper table priced at the large end (a finding beside SOURCE-REQUIRED: 1.2e14 J, not 1.3e20 J, for
+  the isotope reading); 1 cm^3 of copper carries its own README's energy below N* = 1.37e24 bits; the least write time
+  by Margolus-Levitin on each bit's share (READ), 14.24 r0/c and 9.49 r_h/c, the same in face clocks for every N and
+  so proportional to the size (Lloyd's black-hole bit flip at 4D, READ); over it the face's Hawking emission takes
+  ~1e-15 of E, so LATTICE-BEARING's 2 % tension does not arise. Put to M: Q1's delivery (one whole at the opening, or
+  gathered over the read) and the isotope (fork (b)).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1065,6 +1078,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance | derived | -- | r4_length.py |
 | R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | derived | -- | r5_build.py, copy_p2.py |
 | R | R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2 | definition | -- | items 284, 285 |
+| R | RECON any information is reconstructed to obey the 26 of any position 2 (M-RECON-ALWAYS) | definition | -- | item 437; with 24, 240 |
+| R | ENCODE the read: how a geometric object becomes binary information, one exact encoding reading the same at every point of the 26-lattice | **OPEN** | -- | items 437, 136 (5), 146-148, 399; encode_read.py (worked, not seated) |
 | N | M1s the plane's reading of the corridor's mouth at the small end | proved | -- | m1_small.py, c4_oneway.py |
 | N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | derived | -- | m1_large.py M0-M10 (356) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
@@ -1074,14 +1089,16 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | WRITEs the bulk held through the whole write at the small end, >= 66,980 clocks of r_h/c | derived | -- | write_cypher.py |
 | N | WRITE the static bulk held through the whole write at the large end, >= 199,702.19 clocks of m/c | derived | -- | write_large.py X1-X3 (362) |
 | N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, compact; the bits rebuild at position 2 under its laws and take their room | reading | -- | arrival_small.py V0-V14 (338-348); verified 348 |
-| N | ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess) | **OPEN** | -- | arrival_cypher, README-HELD.md (the record's) |
+| N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | **OPEN** | -- | arrival_cypher, README-HELD.md (the record's); whether it is an arrival turns on the read (437 (1)) |
 | N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
 | N | CLOSE the closing at the large end | derived | -- | close_large.py L1-L5 (362, on 336) |
 | N | SOURCEs the README's source on our plane at the small end: written there as a gas of the plane's fields, not null dust, and coming in onto the README's own five-dimensional hole (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 | N | SOURCE the README's source on our plane at the large end: written there as a gas of the plane's fields, not null dust, and coming in onto the four-dimensional corridor (344, 346) | **OPEN** | -- | deferred by M; worked last (344-346) |
 
-78 rows, 64 lemmas and 14 inputs: 20 proved, 39 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN
-(two of them, SOURCEs and SOURCE, deferred by you). *Corrected at item 377: this line had kept item 356's 33 derived and
+80 rows, 66 lemmas and 14 inputs: 20 proved, 45 derived, 3 under a named reading of the board's, 6 definitions, 6 OPEN
+(B3, B4d, ARRIVAL, ENCODE, and SOURCEs and SOURCE, deferred by you). *[Corrected at item 437: this line had read "78
+rows, 64 lemmas and 14 inputs: 20 proved, 39 derived, 3 under a named reading of the board's, 5 definitions, 11 OPEN"
+after items 423-424 moved six rows to derived; RECON and ENCODE are 437's.]* *Corrected at item 377: this line had kept item 356's 33 derived and
 17 OPEN after the table moved; the table above was right.*
 
 ## Energy at both ends (item 331)

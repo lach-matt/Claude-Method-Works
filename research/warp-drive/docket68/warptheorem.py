@@ -599,6 +599,21 @@ LEMMAS_NOW = [
      'DEFINITION',
      ('284 (2)-(3), 285 (H-ROOM-BY-DISPLACEMENT, H-NEW-WHOLE): no new space; a pure-metal copy fills (a0_2/a0_1)^3 of'
       ' its volume (285 (b), computed in conversation, not seated)')),
+    # [item 437 (4)] two items of their own, approved by M ("yes to both")
+    ('R',
+     "RECON any information is reconstructed to obey the 26 of any position 2 (M-RECON-ALWAYS, 437)",
+     'DEFINITION',
+     ("437 (M: 'previously ruled irrelevant. Any information is reconstructed to obey the 26 of any position 2'); "
+      "with 24 and 240: whether position 2 can rebuild the object, and the copy's survival, are not the work's; "
+      "every position reachable (427, 431 (2)) and none excluded -- the board's 'reconstructible region' (433, "
+      "bearing26 G4 (c)) gives way")),
+    ('R',
+     ("ENCODE the read: how a geometric object becomes binary information, in one fixed exact encoding that reads "
+      "the same at every point of the 26-lattice"),
+     'OPEN',
+     ("437 (1), (4) (M: 'we need to address turning a geometric object into binary information, it bears on your "
+      "question'); 136 (5), 146, 147, 148; SOURCE's read (399's forks); bearing26 G4 (e); decides whether the "
+      "README's energy at the opening is an arrival (M-READ-DECIDES)")),
     ('N', "M1s the plane's reading of the corridor's mouth at the small end", 'PROVED',
      'lemmas/m1_small.py (C4 verified, 269); lemmas/c4_oneway.py (C4 one-way verified, 310)'),
     ('N', "M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232)", 'DERIVED',
@@ -684,10 +699,12 @@ LEMMAS_NOW = [
       "verifier (V13, 344); verified, CONFIRMED with qualifications (348) -- V11 (b)'s censorship sentence refuted at "
       "order 4, the compact reading strengthened, the qualifications seated in item-348 notes and V14")),
     ('N',
-     "ARRIVAL the arrival at the large end: the README forms the corridor as it comes in (198, M's guess)",
+     "ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; 437 (3))",
      'OPEN',
      ("the record's (arrival_cypher, README-HELD.md, four-dimensional): 284 (d), 285 (d); formation in the bulk (179); "
-      "the small end in ARRIVALs (338)")),
+      "the small end in ARRIVALs (338).  [Item 437 (3), M: 'yes' -- re-worded from 'forms the corridor as it comes "
+      "in' (198) on 432 (1), T0 and 162 (LATTICE-BEARING 3); whether the energy at the opening is an arrival turns on "
+      "the read, ENCODE (M-READ-DECIDES, 437 (1))]")),
     ('N',
      ("CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; "
       "position 2's face within its open period"),

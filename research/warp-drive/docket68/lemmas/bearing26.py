@@ -45,6 +45,11 @@ not verified; not seated.
      keeping B3 and B4d free of the 25, (b) putting ARRIVAL's clocks on the large end's own Z, and (c)-(e) entered as
      their own items rather than folded into the face: RECON (position 2 can rebuild the object from its stock under
      its 26) and ENCODE (the README's encoding invariant across the lattice), each put to M.
+  [Item 437, beside G4 (c) and G5, not repairing them: M, of (c), "previously ruled irrelevant. Any information is
+     reconstructed to obey the 26 of any position 2" (M-RECON-ALWAYS).  What position 2 builds, whether it can rebuild
+     the object, the copy's survival and its own species count are not the work's (24, 240); "reconstructible is a
+     region of the lattice" gives way, and G2's thresholds stand as computed numbers carrying no weight.  RECON entered
+     as M's definition, ENCODE as OPEN ("yes to both"); the read worked in encode_read.py.]
 
 python3 bearing26.py [--selftest | --mutants]
 """
