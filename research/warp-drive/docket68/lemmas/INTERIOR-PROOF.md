@@ -270,3 +270,20 @@ So **O1b and O1c at the large end hold**, given:
 **The register change, proposed and not made** (M's approval needed): O1b and O1c at the large end from OPEN to
 DERIVED, resting on M1 and H-CORE-DELIVERS, with the qualification that at our sigma they rest also on SOURCE's arrival
 width (389).
+
+## Item 430: the interior verified -- CONFIRMED with qualifications, one computed value refuted
+
+The one verifier sent at 424 (resumed after a rate-limit stop) reported on 2026-10-16. The register rows' conclusions
+follow, but only under M's 422, which does more of the work than the rows say. It carries all of the completeness in
+the transition and the core, and it closes the gap the Kretschmann scalar cannot see. Every instrument ran twice with
+identical results (quantum_onset 5/5 and 3/3, focusing_parts all True and 2/2, core_face 8/8 and 5/5, verify_ledger
+11/11 and 10/10); every computed statement was re-derived in the verifier's own code. The qualifications are seated
+beside the text in the three instruments ("Item 430") and in verify_ledger.
+- **Refuted, the value only:** quantum_onset Q6 (and S5, which pins it). The counterfactual onset is x = l5/ell =
+  1.10e-20, not (l5/ell)^(1/2); the conclusion holds a fortiori.
+- **F4 does not give completeness** (focusing_parts, the O1c row): the comparison yields a focus or an earlier ending,
+  and a focus is not an ending. Completeness rests on the exact 4D forms on the stretch and on 422.
+- **Since 426** the interior becomes the static hole's, crossed by the write, which no instrument here models. That is
+  the synchronization model's (428). A3's evaporation over the long write is about 2 % of the mass (estimate).
+- *Beside line 142 above: "48 mu^2/r^6 on the 4D form" should read 12 mu^2/r^6 (= 48 m^2/r^6). Beside the item-420
+  heading: core_face's mutants now run 5/5 (g5_power added at 424).*

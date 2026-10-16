@@ -926,6 +926,15 @@ state was rebuilt first.
   K and T are readouts, G is the unit, and G_theta is outside Baez's list (deduced). R4 stands in form on the new
   coordinates; the face rows carry none of the 26 in Planck units except the cosmological constant (deduced, to
   check). Three forks put to M: which 26; which reading of the anthropic principles; what stays beside the 26.
+- **Item 430** (the interior's verifier, not M's words): **the large end's interior CONFIRMED with qualifications**,
+  one computed value refuted -- quantum_onset Q6's counterfactual onset is x = l5/ell = 1.10e-20, not (l5/ell)^(1/2),
+  the conclusion holding a fortiori. The rows' conclusions follow, but only under M's 422, which carries all of the
+  completeness in the transition and the core and closes the gap the Kretschmann scalar cannot see. focusing_parts F4
+  gives a focus or an earlier ending, not completeness, so the O1c row's "F4" overstates it: a register text change,
+  put to M. Since 426 the interior is the static hole's crossed by the write, which the synchronization model (428)
+  supplies; over the long write the face loses about 2 % of its mass to Hawking emission (an estimate, critic's
+  re-derivation). Seated beside the text in the three instruments and INTERIOR-PROOF.md; verify_ledger carries the
+  430 rows in every column and corrects seven of its own interior reasons, the old kept beside.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

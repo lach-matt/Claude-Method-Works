@@ -96,6 +96,37 @@ in the ledger.  G1-G2 compute the two that move or bound a number.
      G5^(5/12); r_q/R_5 = (l5/ell)^(2/3) as G5^(2/9).
   G2 (computed) r0 = 20 ell and the Earth cap lie above 10 ell, (ell/r0)^2 = 2.5e-3 and 2.5e-6.
 
+Item 430, the interior's verifier (CONFIRMED with qualifications), beside the text:
+  (Q6) B4 at the large end: P_nu alone rests on smoothness at xi = 1, which at the large end is the 5D form's own
+     horizon, at sqrt(mu5) = 2.91 ell (r0 = 20 ell) and 16.4 ell (Earth cap) -- outside the 5D form's domain and not
+     the face.  A deviation imposed at r ~ ell (xi = -0.764, -0.993) generally carries Q_nu, logarithmic at xi = -1, so
+     on the proxy it can grow logarithmically: point (1) does not close, more strongly; the register is 422's there.
+  (Q7) A2's "does not rescue a slow arrival" is case-bound: at 4D order 1, w = 10, rescue happens iff the event
+     horizon at v = w exceeds 3.618 r_h, and five times the mass again rescues it; that case cannot arise under 418
+     (mu capped at the README's whole mass).  A2's independence covers the comparison's direction, not "no rescue".
+  (Q8) A1's "Birkhoff on the symmetric forms": the 5D geometry about the plane is SO(3) x Z2, where Birkhoff fails
+     (317 (Q3)); the face is static from v = w on the 4D form only, up to O(ell^2/r0^2) (261 (Q3)), given a lossless
+     collapse (348 (Q2)).
+  (Q9) the gate's notes: (269 (Q6)) the interior's completeness is a ruling, 422's (as it was 259's), not computed,
+     and the classical region is itself incomplete -- not F4's focusing.  (317 (Q7)) position 2's clause of O1c is the
+     time reverse (414 (d)), the construction's map: the interior uses that map.  (254 (Q1)) where F4 is applied on
+     the plane, its R_kk carries the bulk's projected Weyl term, of no sign, at O(ell^2/r^2).  (304 (Q5)) "H2-H7 in
+     every configuration" fails at an inner horizon with charge or spin, which changes the exterior; the interior's
+     README is uncharged, spherical radial null flux, so none arises in what it models.  (267 (Q4)) the life's exact
+     form, 45 N ln2/(g* gamma) clocks, fixes the write's share of the life (source_capacity S7); A3 takes the rate
+     only.  (319 (Q6)) the closing lines rest on the board's readings named in the rests-on note.  (319 (Q7)) B2's
+     "finite whatever its exact geometry" is an estimate (Q12).  (332 (Q4)) the interior uses no Gauss-Bonnet cone
+     result.  The rests-on, completed: RDUST's form (386 (2')), 136 G, 162 and 336 besides those named; 328 only
+     through P2.
+  (Q12) B2 is an estimate in its "finite whatever its exact geometry"; covered by 422.
+  Since 426: A3's 4.4e-66 and 4.4e-69 are over the widest compact arrival, 8 clocks.  Over the long write, the write
+     a fixed 5.9 % of the life (S7, the same species emitting and carrying), the face loses about 2 % of its mass by
+     Hawking emission (estimate); counting the emission as photons alone against a Z-species write gives
+     45/(7680 Z) of the mass instead (the verifier's first estimate; the species counted unequally).  So A1's static
+     face and point (2)'s independent closure by A3 are bound to the compact arrival; the junction clause (about
+     1e-3 clocks) is withdrawn at 427.  Item 418's model is the compact arrival's; the object standing from the
+     opening (426) is the synchronization model's (428).
+
 python3 core_face.py [--selftest | --mutants]
 """
 import os, sys, math, importlib.util

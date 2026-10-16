@@ -37,6 +37,23 @@ F5's horizon is traced with the face static from v = w on (the record's 348 (Q3)
 [Item 420, beside the text (core_face.py): the second closes, by 418 and independently (later infall only makes
 the face born earlier; evaporation 4.4e-66 over the arrival).  The first is item 414's open core, (b2) and (c2),
 located in the core r << ell: the deviation made at r ~ ell is of order one and, on a scalar proxy, survives inward.]
+[Item 430, the interior's verifier, beside the text.  (Q2) F4 does not give completeness.  Raychaudhuri's comparison
+shows only that if a route extends to lambda* = (D - 2)/|theta0| a focus occurs by then -- otherwise the route ends
+earlier, the alternative the singularity theorems use -- and a focus is not an ending (in a deformed core a caustic
+can be regular).  So F4's "every part reaches its focus in finite affine parameter", the closing paragraph's "by F4's
+focusing (completeness)" and the O1c row's "F4 (every part's route complete to its focus, any geometry)" overstate
+it: completeness rests on the exact 4D forms on the stretch and on 422 in the transition and the core.  (Q3) F4's
+R_kk >= 0 "in any dimension": S_kk = 0 holds only for k tangent to the plane; for a transverse ray S_kk =
+sigma (n.k)^2, still >= 0 at sigma > 0; on the plane's 4D reading R_kk carries -E_kk, the projected bulk Weyl term,
+of no sign (254 (1) measured it negative at the small end).  So F4 holds for bulk null geodesics in 5D, and on the
+4D stretch up to the O(ell^2/r^2) Weyl part.  (Q10) F3's D = 4 placement of x = 1 at 2.8e-18 m lies where the 4D form
+does not hold (it holds to O(ell^2/r^2): 2.5e-3 at a 20 ell face, order one at R_5 ~ 4.1 ell and 13 ell); at the large
+end the onset is core_face B1's, in 5D.  (Q11) F5's "r(0) collapses steeply" holds at the self-similar onsets (4D
+order 1, 5D order 2, where 7.94 and 8.96 sit floor-biased below the exact 8 and 9); at 4D orders 2-4 r(0) falls
+linearly (4.2e-5 at w = 4.7505, zero at 4.75079).  Since 426: F1-F3's model, the parts as a flux whose mu(v) rises
+from 0, is the compact arrival's; with the object standing at full size from the opening every part has the whole
+mass inside it, F3 holds a fortiori and F4 is unchanged, but the interior is then the static hole's crossed by the
+write, unmodelled here (the synchronization model, 428); F5's widths bind nothing.]
 python3 focusing_parts.py [--selftest | --mutants]
 """
 import sys

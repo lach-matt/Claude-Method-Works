@@ -37,7 +37,19 @@ The premises, each named so that it can be refused:
 
 What this does not prove: P1-P3 are premises of effective field theory, not theorems; nature's order-one factor is
 not derived (P4 sets it to one by M's rule); which curvature invariant measures the scale moves the boundary by order
-one (Kretschmann taken).  python3 quantum_onset.py [--selftest | --mutants]
+one (Kretschmann taken).
+[Item 430, the interior's verifier, beside the text.  (Q1) Q6's value is wrong as written: x = l5^2 sqrt(K) goes as
+l5^2 R, so a term l5 ell R reaches one at R* = 1/(l5 ell), where x = l5/ell = 1.10e-20; the (l5/ell)^(1/2) = 1.05e-10
+computed below is l5 sqrt(R*), the group carrying hbar^(1/3), not x.  S5 pins that wrong value.  The conclusion, the
+onset far before x = 1 and P3 what excludes it, holds a fortiori.  (Q2) "each term a positive power of x" is an
+assumption about the expansion's form, not a deduction.  (Q3) Q3 holds on the 4D form only, which does not hold at
+r_q4 = 2.8e-18 m; at the large end the onset is core_face B1's, in 5D.  (Q4) Haggard and Rovelli's criterion is q =
+l_P R tau (their eq. (13)), not the time compared in Q4; evaluated inside on the local time q is a function of x, x ~
+31 q^2 (4D) and 34 q^2 (5D), so x = 1 comes first by an order-one factor and "only x decides" stands by that
+argument; Q4's "below 1e-29 for any hole with r0 >= ell" holds at ell's ceiling only (2 pi l_P/r0 < 1e-29 iff r0 >
+1.0e-5 m).  (Q5) Q5 bounds K only; the Lorentzian K is not positive-definite, so the gap K cannot see is closed by
+the exact forms on the 4D stretch and by 422 in the transition and the core.]
+python3 quantum_onset.py [--selftest | --mutants]
 """
 import os, sys, importlib.util
 import sympy as sp
@@ -131,6 +143,7 @@ def selftest(quiet=False):
     l5s, ells = sp.symbols("l_5 ell", positive=True)
     s5 = sp.simplify(counterfactual() - sp.sqrt(l5s / ells)) == 0
     ok.append(s5); say("S5 the counterfactual onset (against P3) is x = (l5/ell)^(1/2): %s" % s5)
+    say("   [item 430 (Q1): that is l5 sqrt(R*), not x; x at R* is l5/ell -- the conclusion holds a fortiori]")
     return all(ok)
 
 
