@@ -1087,6 +1087,16 @@ state was rebuilt first.
   to naked singularities), 14 not in the literature. Findings within the in-part: 131's shortest form uncomputable;
   273's long time scales unstable; 183's local null energy unbounded below; 100 not for finitely many modes; 390's
   closing needs negative null energy; 162's dust collapse has no static exterior on the plane.
+  **Phase 2, computation.** B6' proved to M's standard (`lemmas/b6p_prove.py`, 5/5, mutants 4/4: the exact de
+  Sitter plane in AdS5, SMS's relation, our offset 5.24e-10 J/m^3, sigma 1.48e53 J/m^3, ell at the table-top
+  ceiling, every correction within measurement; consistent and realizable, not derivable as true). B7 by the
+  bulk's geometry (`lemmas/b7_geometry.py`, 5/5, mutants 3/3: the vacuum before the opening, strictly stationary,
+  no closed trapped surface by Mars-Senovilla, READ; the event horizon's head start a finding). R6 and 284
+  (`lemmas/room_work.py`, 5/5: the displacement fits E in fluids; inside solid matter it can exceed the perfect
+  block's 2.04 J, a finding). The remainder ledger (`lemmas/phase2.py`, 7/7, mutants 3/3): 54 rows pass under
+  442; 14 wait on a reading re-derived (139's negative plane, 109, 155, 177, 183, 202, 320) or bounded (ARRIVAL,
+  RECON); 10 rest on 273's bounce, beyond established physics; SOURCE deferred. The map (v89): Supply, Holding and
+  the information route pass at both ends.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
