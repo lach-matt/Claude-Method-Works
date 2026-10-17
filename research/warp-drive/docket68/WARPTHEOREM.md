@@ -1469,6 +1469,33 @@ state was rebuilt first.
       Integrate section 14's routes.
     - The lam = 0 chart: (a) a far coordinate u = 1/(1 + ln 1/f), in which the tail is analytic; or (b) subtract the
       zero mode's far solution. The board's reading is (a) first, with (b)'s leading term as its check.
+- **Item 464** (M: "Prioritize the obstacles in the warp theorem and resolve them in full. Everything must be proven as
+  previously ruled. Work concisely, efficiently, and proficiently."; "approval to build P3's next attempt as a
+  double-null evolution. - approved. Continue").
+  - Carried as M's: M-OBSTACLES-FIRST, M-WORK-CONCISELY and the double-null approval. The charge's origin is left open
+    by M ("not a question I can answers at this time") and is not asked again.
+  - **`OBSTACLES.md`** ranks the obstacles by what each blocks. First is the passage itself, P3, which the charge and
+    the magnetic closing serve.
+  - **P3 computed** (`lemmas/p3_double_null.py`, 11/11, mutants 4/4; BOUNCE-RESEARCH section 28). Conformal
+    (double-null) gauge in the four-dimensional Einstein frame, with the Misner-Sharp mass integrated from the axis.
+    The scheme:
+    - converges at second order on exact AdS5;
+    - reproduces the static solve on the plane to 4e-4;
+    - is independent of the start slice.
+    A first formulation, R = chi e^(sig+psi), is unstable at the axis (growth ~ 1/h). It is recorded as the reason
+    for the frame.
+  - **The result: no regular inner horizon.**
+    - The control (kappa = 0) crunches on the plane, as Schwarzschild does.
+    - In the charged hole N on the plane rises to 4.09 at R = 0.62 ell, then falls.
+    - A spacelike curvature singularity forms in the bulk near the axis and sweeps to the plane. It arrives where
+      N -> 0, at R = 0.300 ell, with K ~ N^-1.38.
+    - This is Maeda, Okamura and Koga's prediction (READ), computed for this hole at r+ = 1.79 ell.
+  - **What it bears on.** The ten rows on 273 and H2 rested on a classical passage through r-, and this hole has none.
+    The passage left is section 2's bounce at the core, which O1a already names. Ranks 2-3 (the charge's origin, the
+    magnetic closing) serve the classical route and are moot for the passage. STALE-LEDGER S20-S22.
+  - Not computed: the large end (r+/ell ~ 3e7), an evaporating or perturbed hole, any quantum stress.
+  - Offered to M as a clarification under 454 (b), not a ruling made again: with no regular r-, position 2's mouth
+    in a second universe has no classical route through this hole.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

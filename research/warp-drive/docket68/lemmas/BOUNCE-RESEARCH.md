@@ -1771,3 +1771,85 @@ M, verbatim (463): "We will need to reevaluate the whole warp chain under a magn
 - and either way the prior art expects no regular inner horizon (section 26).
 
 How the magnetic corridor's charge is to arise is put to M as a clarification under 463, not a ruling made again.
+
+## 28. P3 by a double-null evolution: no regular inner horizon (464; `lemmas/p3_double_null.py`, 11/11, mutants 4/4)
+
+M, verbatim (464): "Still waiting from last turn: approval to build P3's next attempt as a double-null evolution. -
+approved. Continue".
+
+**Prior art first (READ, section 26).** Maeda, Okamura and Koga: static charged AdS holes that vary in space "terminate
+at singularity instead of the appearance of the Cauchy horizon". Ansorg and Hennig's inner horizon needs the Ernst
+equation's integrability, which a hole varying in the bulk lacks. The prediction: no regular r₋.
+
+**The system (computed).**
+- The magnetic corridor's hole of section 26: vacuum bulk with Λ₅. The plane's field enters through Israel's rows,
+  κ = 0.2908.
+- Conformal (double-null) gauge on the two-dimensional quotient, written in the four-dimensional Einstein frame of the
+  reduction along the Killing time:
+  - g₅ = e^(−A)[e^(2S)(−dτ² + dχ²) + r²dΩ²] + e^(2A)dt²;
+  - χ runs from the axis (χ = 0) to the plane (χ = 1).
+- Three wave equations, for S, A and r. The two null constraints are reduced to the Misner–Sharp mass m, which is
+  integrated from the axis on every slice.
+- The plane carries Israel's rows as Neumann data. Their signs are read off the static solve: 1 ∓ κ/R⁴ to 10⁻⁶.
+- **The initial slice** is the static solve's s = −0.05 inside the horizon. It is parametrised so that the plane's rows
+  hold at the corner.
+- **Past a singularity**, the run continues by excision. This is valid only while the cut moves faster than light,
+  which is checked.
+
+**A correction found on the way (computed).**
+- The first formulation wrote R = χe^(σ+ψ). σ's equation then carries σ_χχ − (2/χ)σ_χ, a radial operator of
+  dimension −1, and the scheme is unstable at the axis even on exact AdS₅.
+- Its growth scales as 1/h: blow-up at τ = 0.29 with N = 20, at τ = 0.18 with N = 40.
+- The Einstein frame, with the mass integrated from the axis, removes every cancelling 1/χ² term. It is the standard
+  form for spherical collapse.
+
+**Checks (computed).**
+- **D0.** On exact AdS₅ in the chart the equations hold to 10⁻¹⁵, and K = 40.
+- **D1.** The scheme converges at second order: error ratios 3.96–4.02.
+- **D4.** The initial constraints fall with N to 5×10⁻⁴, the static solve's own residual.
+- **D5.** Where both exist, the evolution reproduces the static DeTurck solve. The plane's N(R) agrees to 4×10⁻⁴
+  over s ∈ [−0.28, −0.07]: two independent methods.
+- **D8.** The plane's N and R converge at second order (N = 100, 200, 400) to τ = 1.28.
+- **D10.** The result is the same from s₀ = −0.05 and from s₀ = −0.15, to 2×10⁻³.
+
+**The control (computed).** With κ = 0 the plane crunches as Schwarzschild's interior does. R → 0.04, N → 280 and
+K → 1.7×10¹⁰ at τ = 0.70.
+
+**The charged hole (computed; plane history at N = 400).**
+
+| τ | cut χ | N = g_tt | R/ℓ | K |
+|---|---|---|---|---|
+| 0.00 | 0 | 0.237 | 1.699 | 41 |
+| 0.60 | 0 | 2.438 | 1.036 | 43 |
+| 0.90 | 0 | 4.089 | 0.611 | −1.96×10³ |
+| 1.10 | 0 | 2.710 | 0.434 | 1.25×10⁵ |
+| 1.20 | 0.630 | 1.345 | 0.369 | 5.77×10⁶ |
+| 1.28 | 0.825 | 0.271 | 0.326 | 7.91×10⁷ |
+| 1.31 | 0.940 | 0.034 | 0.309 | 5.46×10⁸ |
+
+- **The charge turns N.** On the plane N rises to 4.09 at R = 0.62ℓ and then falls, the turn Reissner–Nordström's
+  r₋ would complete.
+- **But the bulk ends first.** A curvature singularity forms in the bulk near the axis at τ = 1.14. It sweeps to the
+  plane at 1.5 to 3 times the speed of light in χ, so it is spacelike, and arrives at τ = 1.32.
+- **On the plane, N → 0 at R = 0.300ℓ while K diverges as N^(−1.38).** There is no regular inner horizon: the
+  curvature diverges where it would stand.
+
+**The reading (deduced).**
+- The magnetic corridor's hole has no classical passage through r₋. Its interior ends in a spacelike singularity that
+  reaches the plane where r₋ would be. This is Maeda, Okamura and Koga's prediction, computed for this hole at
+  r₊ = 1.79ℓ.
+- Section 25's W9 (r₋ = 0.316ℓ, an area product) marks within 5% where the singular end falls, at 0.300ℓ. It is
+  not a horizon (STALE-LEDGER S21).
+- Section 24's interior figures (Reissner–Nordström-like to 0.94ℓ, r₋ rising toward 0.27ℓ) are superseded (S20).
+- **What it bears on.** The ten rows on 273 (O1a, O1b, O1c, Z3b, Z3bs, M1, B3, B3s, B4d, B4ds) and H2.
+  - The corridor's charge was taken up (446–463) to give the passage a classical route through r₋ into position 2's
+    white hole. In this hole there is none.
+  - The passage left is section 2's: the semiclassical black-to-white transition at the core, which O1a already names
+    as "the bounce".
+  - Rank 2 (the charge's origin) and rank 3 (the magnetic closing) of `OBSTACLES.md` serve that classical route. They
+    are moot for the passage, as the ranking anticipated.
+- **What is not computed.**
+  - The large end, where r₊/ℓ ≈ 3×10⁷ and the plane is closer to four-dimensional. The prior art expects the same
+    there for any inhomogeneity.
+  - An evaporating or perturbed hole: here the hole is the eternal static one.
+  - Any quantum stress.
