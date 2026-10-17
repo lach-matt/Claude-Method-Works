@@ -2079,3 +2079,31 @@ Planck-curvature region carried as the one premise, as a theorem carries its axi
 **How it is solved.** Treat 273 as what it is, M's one premise beyond established physics. Prove every link around it
 from what is already computed and READ (items 1–2). State the ten rows as resting on that premise alone (item 3). No
 further numerical work bears on 273.
+
+## 33. 273's surroundings closed from the record (475; section 32, items 1–2)
+
+**Item 1: H-CORE-DELIVERS, deduced (replaces 422's assumption).** Claim: every README element reaches the quantum
+region's boundary, x = l5²√K = 1 (415), before its classical end.
+1. It reaches the core: its Killing energy is conserved (Noether), so in the interior r falls monotonically (421).
+2. The interior ends at finite affine length: Penrose, on the smooth wall (`collapse_bulk.py` C7); on the plane, proper
+   time 2.087 ℓ from s₀ = −0.05 (`p3_double_null.py` D12).
+3. The end is not a horizon: no inner horizon (464, 471), no inner trapping horizon (D11).
+4. K diverges along the ending geodesics, K ~ (T_end − T)^(−2.5) (D7, D12). So K passes 1/l5⁴, i.e. x = 1, at a finite
+   T < T_end: the boundary is reached before the classical end.
+
+Scope: steps 1–4 are computed at r+ = 1.8 ℓ. At the large end steps 1–3 hold (Noether; Penrose is size-independent; 471).
+Step 4 there needs the end to be a curvature singularity and not one with bounded curvature. That is supported, not
+computed: Hollands, Wald and Zahn (READ, section 31's sources, S26): the stress "should be sufficient to convert the
+Cauchy horizon into a strong curvature singularity". Status: derived at the computed sizes; at the large end derived on
+that READ support.
+
+**Item 2: no theorem read forbids 273.** Each theorem's hypothesis that 273 gives up fails inside the quantum region
+only.
+| theorem (READ or computed) | hypothesis 273 gives up | inside the region | outside |
+|---|---|---|---|
+| Penrose, n dimensions (Kunzinger, Steinbauer and Vickers) | Ric(X, X) ≥ 0 for null X | fails: net negative on every turned ray (318 P1) | holds: bulk C1, plane C2, wall C4; Z3b |
+| Raychaudhuri; "183 everywhere" forbids turning rays (318 P3) | pointwise null energy on turned rays | fails | holds on every classical segment (318 P2) |
+| Bousso: no bounce while semiclassical (brane-world GSL, Shahbazi-Moghaddam) | semiclassical validity | fails: x ≥ 1 (415) | holds: x < 1 |
+| Noether's second theorem (474) | none: energy-momentum conserved identically | conserved | conserved |
+Penrose's other two hypotheses, a Cauchy surface and completeness, 273 keeps ("complete ... no Cauchy horizon"). So
+273 is consistent with every theorem read, and its one premise is the transition through the region itself.
