@@ -1499,7 +1499,15 @@ g_tt = |s|T, with two resolutions in s agreeing to 3×10⁻⁴:
 The last two come from the re-referenced march. In Reissner–Nordström the Killing norm peaks near R ≈ 0.5ℓ and returns
 to zero at r₋. r₋ is not yet computed.
 
-**Next (running).**
-- The global solve, its reference turned onto the solution in stages (continuation in the blend), then extended.
-- If that stalls, a chart with both horizons as Fuchsian points, s₋ a gauge choice of the reference. The inner horizon
-  is then a node of one global solve, not the end of an evolution.
+**Two more attempts (computed).**
+- **The reference turned onto the solution in stages.** On [−0.35, 1], even a quarter of the way fails (|R| 7.8).
+  Changing the gauge inside a region that is an initial-value problem moves the solution too far for Newton.
+- **A reference with two horizons.**
+  - g_tt = −wsqT and g_ss = wA/(sqf⁴) in solution and reference, with q = 1 − ((1 − s)/(1 − s₋))³. This leaves the
+    far end unchanged and puts the reference's inner horizon at s₋.
+  - At s₋ = −2.0 the solve holds to R = 1.04ℓ, with g_tt = 0.598, the other gauges' value at that R as an invariant
+    must be. It fails short of R ≈ 0.95ℓ.
+  - At s₋ = −0.8 and −1.2 it fails sooner.
+- So every global solve, in every gauge tried, stops near R ≈ 0.95ℓ. The wall is not the reference alone. The
+  candidates are the conditioning of a global solve of an initial-value region, and a growing static mode toward r₋.
+  Neither is yet separated.
