@@ -1278,6 +1278,25 @@ state was rebuilt first.
   - The ladder proposed: P1, the throat with the plane (ODE, checked first on Kaus-Reall); P2, one cold charged mouth
     on the plane (PDE, about V3's size, with the plane's rows new in deturck2d.py); P3, MM's binding from five
     dimensions under (a), or the interior evolution under (b).
+- **Item 454** (M: "1 - b / 2 - yes"). **Position 2's mouth in a second universe; P1 computed: the throat with the
+  plane** (`lemmas/corridor_p1.py`, 9/9, mutants 5/5; BOUNCE-RESEARCH section 21).
+  - Under (b) the hole is stage 1's, electrically charged. So P1 is Kaus and Reall's extremal near-horizon problem
+    (AdS2-warped bulk, smooth cap, the plane under Israel's conditions), with the bulk U(1) as F = c omega.
+  - Kaus and Reall reproduced: their exact AdS2 x H^3 point to 1e-12; their small-hole coefficients (0.244, 0.657,
+    0.558, 0.138 against 0.24, 0.66, 0.56, 0.14); their large-hole series (-3/4, -1/4, log 2) and entropy constant
+    (-1.39 against "~ -1.4").
+  - **With the bulk U(1) alone no extremal throat meets the plane.**
+    - Deduced, with the identities machine-checked: such a plane would need L2^2 >= 3 L1^2.
+    - Computed: W = A'/A - R'/R < 0 wherever A'/A + R'/R >= 1.5 over 1,612 trajectories, and 8,000 inward starts
+      from bulk-only planes all reach R = 0 singularly.
+    - Small holes: AdS2 x S^3 cannot take the plane's 1/ell in its AdS2 part. Large holes: the bulk field's share
+      cannot close W, the non-localized zero mode (Pomarol) at the horizon.
+  - With a field term on the plane (Dvali-Gabadadze-Shifman, READ) the throat returns above lam_min, which rises from
+    2.6 L1^2 at small holes to 3.4e3 ell at L1 = 10 ell; Kaus and Reall's field on the plane is its limit.
+  - For (b): the record's bulk-charged hole cannot approach extremality on the plane. Stage 1's rows toward
+    extremality and stage 2's near-extremal threshold hold off the plane; notes stand beside sections 14 and 15.
+  - Put to M: what carries the hole's charge on the plane, (i) a field living there, (ii) the bulk U(1) alone, or
+    (iii) the bulk U(1) with a field term there; whether corridor_p1.py joins T1.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

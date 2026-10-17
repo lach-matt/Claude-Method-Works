@@ -467,6 +467,10 @@ equatorial to O(r_h/ℓ), as the record's small end has it.
 | 0.99 | 0.0199 | 0.0205 | 0.752 | 6.91 | 2.6×10⁻²⁸ s | 1.98 |
 
 The passage is released from rest at 2r₊ and counted out to 2r₊ on the far side.
+[454, beside it: on the plane, with the bulk U(1) alone, there is no extremal throat (section 21, P5–P6). So the rows
+toward extremality hold for the hole without the plane; on the plane they need charge carried there, or a field term
+there above λ_min (P7). "Equatorial to O(r_h/ℓ)" fails down a long throat. How near extremality the static hole on the
+plane comes is P2's to measure.]
 
 **The large end (computed; the plane's corrections an estimate).** The plane's view is four-dimensional
 Reissner–Nordström with the same chain. At the Earth cap the passage takes 2.8×10⁻¹⁰ s (r₋/r₊ = 0.5) to 2.9×10⁻¹⁰ s
@@ -531,6 +535,7 @@ Reissner–Nordström with the same chain. At the Earth cap the passage takes 2.
 - Γ/κ₋ = 2 + 2r₋/(r₊ − r₋) > 2. So the semiclassical push outgrows the classical blueshift at late times, always.
 - It closes the trapped region first if the late classical influx stays below the last column's fraction of the mass.
 - Near extremality that threshold approaches the whole mass.
+  [454, beside it: near extremality on the plane, see the note beside section 14's table and section 21.]
 
 **Before the Planck-curvature surface (computed).** The inner horizon stays at r₋. There K l_P⁴ = 7.8×10⁻¹²⁹ (Earth
 cap, 0.5), so the closing happens far outside any quantum region.
@@ -1011,6 +1016,8 @@ M, verbatim: "Yes to both". The prior art was read first, charged versions inclu
 
 **Proposed, in order, each reported before the next.**
 - **P1 (ODE, light): the throat with the plane.**
+  [454, beside it: under (b) P1 ran as Kaus and Reall's one-sided problem with the bulk field, stage 1's hole being
+  electrically charged (section 21); the two-sided magnetic flow below belongs to (a).]
   - V2's AdS2-sliced flow, its conformal boundary replaced by the plane at the Randall–Sundrum tension (clause (B)).
     The plane carries vacuum Israel conditions; the bulk field is even across it and asks nothing of it.
   - The count is Kaus and Reall's: the plane's two conditions fix its depth and the core's one free number.
@@ -1046,3 +1053,79 @@ M, verbatim: "Yes to both". The prior art was read first, charged versions inclu
 **Section 13's wording, kept beside this.** Section 13 named "the charged bulk hole meeting both planes with
 localized mouths". By deduction 1, a magnetically charged mouth has no axis to be localized on. By deduction 2,
 "both planes" is (b). The notes stand beside section 13 and section 19; neither is repaired.
+
+## 21. P1, computed: the throat with the plane (454; `corridor_p1.py` 9/9, mutants 5/5)
+
+M, verbatim: "1 - b / 2 - yes". Position 2's mouth is in a second universe, and the ladder runs. Under (b) the hole is
+stage 1's, which is electrically charged (section 14). So P1 is the extremal throat each plane sees: Kaus and Reall's
+near-horizon problem, with the bulk field in place of theirs.
+
+**The problem (READ; deduced; computed).**
+- The near-horizon geometry of a static extremal hole is A(ρ)²dΣ² + dρ² + R(ρ)²dΩ² with unit AdS2 slices (Kaus and
+  Reall, from Kunduri, Lucietti and Reall, READ).
+- The horizon's bulk end is a smooth cap at ρ = 0. The plane sits at ρ₀ under Israel's conditions at the
+  Randall–Sundrum tension (ℓ = 1).
+- Kaus and Reall's field lives on the plane: A′/A = 1 − Q²/(2R⁴) and R′/R = 1 + Q²/(2R⁴) (their (2.16), READ).
+- Ours is the bulk U(1): F = c ω, with ω the unit AdS2 area form.
+  - dF = 0 makes c constant, and the Maxwell equations hold identically (computed).
+  - The field is even across the plane and tangential to it, so the plane carries vacuum conditions:
+    A′/A = R′/R = 1.
+- The equations integrated were derived from the metric (sympy) and agree with it to 8.5×10⁻¹⁴ (P1).
+
+**Kaus and Reall reproduced (computed; READ).**
+- **Their exact point**, AdS2 × H³ at A₀ = 1/2 (sinh(√2ρ₀) = 1, Q = 1/√2, L₁ = 1/2, L₂ = 1/√2), comes out to 10⁻¹².
+- **Small holes.** L₁, L₂ and ρ₀ over (Q²)^{1/3}, and S₅/S₄, extrapolate to 0.244, 0.657, 0.558 and 0.138. Theirs:
+  "0.24", "0.66", "0.56", "0.14".
+- **Large holes** (Q = 70.7). L₁² − Q² = −0.7496, L₂² − Q² = −0.2496 and ρ₀ − log Q = 0.69316, against their −3/4,
+  −1/4 and log 2.
+- **The entropy's constant term** is −0.443π = −1.39ℓ³/G₅, against their "a constant ≈ −1.4ℓ³/G₅".
+
+**With the bulk U(1) alone, no extremal throat meets the plane.**
+- **Deduced**, its identities machine-checked:
+  - W = A′/A − R′/R obeys (A²R²W)′ = 2c²R²/A² − R² − A², and W → −∞ at the cap.
+  - At W's first zero the constraint gives W′ = 3c²/L₁⁴ − 2/L₁² ≥ 0, with 1/L₂² = 1/L₁² − c²/L₁⁴ > 0.
+  - So such a plane would need L₂² ≥ 3L₁²: a sphere at least √3 times the AdS2, far from four-dimensional GR's
+    L₁ = L₂.
+- **Computed forward:** over 1,612 trajectories (A₀ from 0.005 to 3, c up to 40A₀), W < 0 wherever
+  A′/A + R′/R ≥ 1.5. Its largest value, −2×10⁻¹², comes only in the asymptotic AdS region.
+- **Computed inward:** 8,000 starts from bulk-only planes (L₁ from 0.01 to 30). Every one that reaches R = 0 does so
+  singularly: R′ ≥ 300 there, where a smooth cap has R′ = 1.
+- **Why (deduced).**
+  - **Small holes.** The bulk near the horizon is five-dimensional Reissner–Nordström's AdS2 × S³, whose A is
+    constant, so the plane's 1/ℓ cannot enter its AdS2 part. A′/A where R′/R = 1 reaches 0.05 at most at A₀ = 0.02,
+    against the 1 needed.
+  - **Large holes.** In the identity, the field's term 2c²R²/A² stays bounded while R² + A² grows as e^{2ρ}, so the
+    field cannot close W. This is the bulk U(1)'s non-localized zero mode (Pomarol; `u1_bulk.py`) seen at the
+    horizon.
+
+**With a field term on the plane, the throat returns.**
+- Dvali, Gabadadze and Shifman (hep-th/0010071, READ) add a term −(1/4e²)F²δ(y) for a bulk field. The field becomes
+  "four-dimensional at short distances; it becomes higher-dimensional on very large (cosmic) scales", with crossover
+  r_c = g²/(2e²).
+- Here the term adds Kaus and Reall's stress, with the bulk field's own value: A′/A = 1 − λc²/(2L₁⁴) and
+  R′/R = 1 + λc²/(2L₁⁴). Here λ is the term's strength in units of ℓ (λ = 2r_c in a flat bulk; an estimate here).
+- The throat exists above λ_min, which rises steeply with size (computed):
+
+| L₁/ℓ | 0.020 | 0.11 | 0.37 | 0.77 | 1.41 | 3.03 | 4.36 | 9.88 |
+|---|---|---|---|---|---|---|---|---|
+| λ_min/ℓ | 1.1×10⁻³ | 0.027 | 0.28 | 1.12 | 4.3 | 40 | 151 | 3.4×10³ |
+| λ_min/L₁² | 2.6 | 2.3 | 2.0 | 1.9 | 2.2 | 4.4 | 7.9 | 35 |
+| L₂/L₁ | 1.98 | 1.87 | 1.58 | 1.33 | 1.15 | 1.04 | 1.02 | 1.003 |
+
+- Small holes need only a weak term. Their plane sees L₂/L₁ → 2, the AdS2 × S³ of five-dimensional
+  Reissner–Nordström.
+- Large holes need the field held on the plane: λ_min grows faster than L₁².
+  - Kaus and Reall's field on the plane is the limit λ → ∞ with λc² held.
+  - Their L₁ ≈ L₂ is approached: 1.003 at L₁ ≈ 10ℓ.
+
+**What P1 settles for (b) (deduced).**
+- The record's hole for (b) is charged by the bulk U(1) (446 (1); stage 1), and on the plane it has no extremal throat.
+- Assume, as Kaus and Reall do, that a family of static holes approaching extremality has a near-horizon limit. Then
+  the static hole on the plane cannot approach extremality.
+- Stage 1's rows toward extremality, and stage 2's near-extremal threshold, hold for the hole without the plane. Notes
+  stand beside sections 14 and 15.
+- The extremal throat returns with charge on the plane: a field living there (Chamblin, Reall, Shinkai and
+  Shiromizu; Kaus and Reall), or a field term for the bulk U(1) above λ_min.
+- So P2's field content is put to M:
+  - (ii) and (iii) are one code, with λ a parameter;
+  - (i) is that code's limit.
