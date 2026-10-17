@@ -1372,6 +1372,14 @@ stations, one the panels. Every finding was checked against the record before it
   - The review panel claimed more for `map_audit.py` than it checked. The audit now checks it (A12, A13), and the
     panel says exactly what is checked.
 
+**A sweep, inline (456; computed).** Three more readings of the page found nothing further.
+- **Instruments.** Every label range cited beside an instrument lies inside its docstring's labels. Every k/k count
+  is the record's, and the selftests that print 9 and 8 checks (`mmp_corridor.py`, `u1_bulk.py`) append more than one
+  check under some labels.
+- **Figures.** Every figure in a row's statement and line stands in that row's register entry, to rounding. The one
+  exception is O3s's least write, 9.49 clocks, which is the correction above.
+- **Citations.** All 54 citations of the form "your NNN" name an item that records M's own words.
+
 **A correction of the board's own.** `corridor_p2.py`'s docstring (Q11) gave the charge at 4πT R₄ = 0.89 as
 μ̃ = 0.84. The code computes μ̃ = √λ μ/β̃, and the table in section 22 gives 0.42; 0.84 is the units slip that section
 22 records, left in the docstring. Corrected there; no check changes.

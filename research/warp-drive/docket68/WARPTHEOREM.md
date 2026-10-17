@@ -1335,6 +1335,59 @@ state was rebuilt first.
     - A units slip of the board's own, caught before the report: on the plane t_phys = bt t, so mu_phys = mu/bt.
     - Put to M: P3(b)'s start (the lam = 64 member, or P2 at T = 0 first); lam large or a chart for lam = 0's tail;
       whether corridor_p2.py joins T1.
+- **Item 456** (M: "1 - I agree, the lam = 64 hole. / 2 - both / 3 - yes", and "most of the warp theorem map is still
+  stale. Review ALL aspects of the map please").
+  - P3(b) starts from the lam = 64 member nearest extremality (4 pi T R4 ~ 0.89, R4 ~ 1.8 ell). Both routes are kept:
+    the large field term toward (i), and a lam = 0 chart that holds the logarithmic tail. corridor_p2.py joins T1.
+    The theorem selftest with corridor_p2.py in T1: running at this commit, recorded on its result.
+  - **The map reviewed in full** (BOUNCE-RESEARCH section 23).
+    - Every chip, station colour, strip tag and pill is drawn from phase2's audit (442): 56 pass, 12 wait on a
+      reading, 10 rest on 273's bounce, 2 deferred. Before, 76 rows showed the register's green words, and Demand,
+      Formation, Address and Crossing were drawn amber though each holds a row on 273. Beside each row now stands the
+      register's own word.
+    - 27 rows carry a note "Since 446": seven of the ten on 273 and twenty others. No row is moved (446).
+    - Four of them are findings put to M:
+      - G1: the charged corridor costs 1.01 to 1.98 times E(N) at the same horizon (section 14).
+      - H2: our face and position 2's are two null surfaces of one hole, r+ and r-.
+      - O1bs and O1cs: radial light reaches the charged hole's centre, and the README travels on the light cone (386).
+      - ARRIVAL, ARRIVALs and B7: the README is a neutral shell, which makes no inner horizon (C1, 444), so the
+        charge needs a source that no row places.
+    - Superseded figures corrected on the page. The write's free-field floor (66,980 clocks; "3.3e10 writes") was set
+      aside by 432 (1). The page now reads the least write (encode_read E5, 437): 9.49 r_h/c at the small end and
+      28.48 m/c at the large end. The large hole's life is 6.63e15 clocks at the example README, covering the write
+      2.33e14 times.
+    - Every panel brought to 456, and the old texts kept in folds: the header, the theorem's key, the tally key, the
+      strip note, the passage (P3's start and the lam = 0 chart), the scales (three lam's told apart), the readings
+      (seven statements), what comes next, and the footer.
+    - Recorded, not repaired: the register's own text is stale in places. M1's name ends "(OPEN since item 232)",
+      though M1 is DERIVED. O3s, O3, CLOSE and CLOSEs quote the old write floor. CLOSE bounds position 2's face by
+      c_junction J2, which was withdrawn at 277.
+  - **`lemmas/map_audit.py`** extended to 14 checks (14/14, mutants 12/12). Six are new, so that what the review set
+    right holds at every render:
+    - every chip against phase2's audit;
+    - every station's colours and pills against its rows;
+    - every open range of items and sections ending at the last;
+    - no build-script text on the page;
+    - the tally's colours and the counts the page states;
+    - the fold of rulings complete since 372.
+  - **Two readers then checked the page independently**, one the stations and one the panels. All 21 of their
+    findings held against the record and are applied (section 23). Among them:
+    - O1c credited completeness to F4; it is F1-F3 (430-431).
+    - H2tx is derived at every sigma (428), not at ours alone.
+    - RECON and ARRIVAL had lost their bound to the reconstructible region (443 (1)).
+    - SOURCE's block still asked the forks answered at 438.
+    - Stage 2's closing was carried to the small end, where only its classical statements hold.
+    - The fold of rulings skipped 428-439.
+    An inline sweep of every instrument's labels, every row's figures and every "your" citation found nothing
+    further.
+  - A correction of the board's own: corridor_p2.py's docstring gave the charge at 4 pi T R4 = 0.89 as 0.84. It is
+    0.42 (mt = sqrt(lam) mu/bt, section 22's table); the 0.84 was the units slip. No check changes.
+  - Put to M (414): P3's scheme, and the lam = 0 chart's construction (section 23).
+    - P3: evolve the interior between r+ and r- as a hyperbolic problem in (r, x), from the lam = 64 member's horizon
+      data, with the plane's rows on its boundary. Take the white hole and the second exterior as the time reverse.
+      Integrate section 14's routes.
+    - The lam = 0 chart: (a) a far coordinate u = 1/(1 + ln 1/f), in which the tail is analytic; or (b) subtract the
+      zero mode's far solution. The board's reading is (a) first, with (b)'s leading term as its check.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
