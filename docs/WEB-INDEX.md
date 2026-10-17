@@ -299,21 +299,46 @@ decades and ranks in the index's alphabet, χ² + Q̃² against 1, F by the pari
 by the pairing rule where it applies, the horizon-bound class at every dimension from the exact
 solutions, the body's cell in the index where it is a charted member, and every quantity as a
 ratio against a reference body (the field at equal distance scales as M). The angular momentum is
-the banked lowest level of a single species (READ), typed (no status) or refused — a molecule's is
-never inferred — and a mass with no isotope is refused, because no atomic-weight table is held.
-Its selftest recomputes the index's own figures from the rows: the member count, the decade
-alphabets, the forced and vanishing counts, the 914 cells and the cells per dimension, the 684
-relieved, the 294 Schwarzschild nuclides, the two bounds, a sample of members against their
-exported χ, Q̃ and cells, and the mass of ¹H₂¹⁶O against the generator's own arithmetic.
+a single species' banked ground level (READ), or for a neutral atom the ground term its element
+record holds (READ, NIST ASD: Fe I ⁵D₄, so 2J = 8), typed (no status), or refused — a molecule's is
+never inferred. **An excited level is never taken for the lowest**: 33 of the 126 banked level
+tables start above the ground, C I at 3s ³P° (60,333 cm⁻¹, 7.5 eV), and the mode reads such a
+body at the ground with the record's term, the index's own cell still reported at its banked
+level and said to be. An ion whose table starts above the ground has no ground term held, so its
+χ is refused and its mass is the ground's. **F and the bound class** are established only where
+the physics establishes them: F ≠ 0 by an odd fermion count; for an even-even nucleus the pairing
+rule sets the nuclear spin to 0, so F = J either way; otherwise the nuclear spin, banked nowhere,
+may cancel the electrons' J (¹H's ground level is F = 0), and each dimension's class is given
+only where both branches agree and left undecided, with both, where they do not. A typed 2J is
+the body's alone, never the reference's. **An element written without its isotope is its most
+abundant one** by the CIAAW compositions (`tools/atomicweights.py`, `docs/ATOMIC-WEIGHTS.md`),
+said so with its share, the mass then DERIVED; the molar mass of the natural substance is the sum
+of the CIAAW standard atomic weights (water 18.015 g/mol), and an element with none (Tc, Pm, Po
+to Ac, Np and beyond) is refused rather than given a mass. A particle is read by its common name
+too (proton, electron, muon, photon), a name that is several particles (pion, kaon, neutrino) is
+listed and never chosen, and a massless particle's χ and Q̃ are refused as undefined, not
+infinite. Before 2026-10-17 these were all refusals or worse: "Fe" and "water" had no mass, ⁵⁶Fe no
+χ, ¹²C a mass 7.5 eV too high, and ²³Na a rotating class it had not established. Its selftest
+recomputes the index's own figures from the rows: the member count, the decade alphabets, the
+forced and vanishing counts, the 914 cells and the cells per dimension, the 684 relieved, the 294
+Schwarzschild nuclides, the two bounds, a sample of members against their exported χ, Q̃ and
+cells, and the mass of ¹H₂¹⁶O against the generator's own arithmetic; and since 2026-10-17 each
+of the readings above, two runs of the mode as a reader runs it, and the particle names against
+the loaded indexes.
 
 **The twelfth mode, the builder** (`MODE_BUILDER`), reads an atom, ion or molecule with the same
-reader into its atoms, electrons, protons and nucleons, its exact mass where every isotope is
-given, each atom's record (the neutral ground configuration and level, the channels and ions the
-index holds, the banked lowest level of the species where one is held) as chips into the explorer,
+reader into its atoms, electrons, protons and nucleons, its exact mass (each element's most
+abundant isotope where none is typed, said so), the molar mass of the natural substance from the
+CIAAW standard atomic weights, each atom's record (the standard atomic weight, the neutral ground
+configuration and level, the channels and ions the index holds, the banked ground level of the
+species, or that its table starts above the ground) as chips into the explorer,
 the Λ₈ cell of a single ion from its element's ladder (RECONSTRUCTED), and the same gravitational
 quantities, with a button into the gravity mode. **It draws no bond and defines none**: the finding
 on the site is that a bond cannot be indexed, and the row that would carry a bond order carries
-that refusal instead. Everything not derivable from what is held is refused by name.
+that refusal instead. Everything not derivable from what is held is refused by name. A bare
+nucleus is read by its name (proton, deuteron, triton, helion, alpha particle: ¹H⁺ to ⁴He²⁺), and a
+particle that is not an atom (electron, muon, photon) is sent to the gravity mode rather than refused
+unread.
 
 **Names as well as formulas.** The builder, the gravity mode (body and reference), the two
 equation modes, every mode's element input and the search box read a species by name as well as
@@ -333,7 +358,8 @@ refused rather than guessed. In an equation an element name reads as the element
 substance, so "methane + oxygen → carbon dioxide + water" balances as CH₄ + 2 O₂ → CO₂ + 2 H₂O. The
 formula always wins where the text is one, so NO is nitric oxide and No is nobelium. In the search
 box a molecule or ion opens the builder and the gravity mode with its formula, a nuclide opens in
-its element's nest, and a number above Z after an element (Fe 56) is read as a mass number. The
+its element's nest, a particle by its common name (proton) offers its plate and its gravity, and a
+number above Z after an element (Fe 56) is read as a mass number. The
 builder's and the balancer's browser selftests pin the readings.
 
 ## The relativistic limit and the bounds facet

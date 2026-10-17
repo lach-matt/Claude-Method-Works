@@ -3861,6 +3861,23 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   function namedSuggestions(raw) {
     const lib = (window.MI || {}).solverLib;
     if (!lib || !lib.resolveName) return [];
+    // a particle by its common name: proton, electron, muon, photon; the plate where the indexes are
+    // loaded (asked for now, so the next keystroke has it), and the gravity mode either way
+    const pa = lib.particleAlias ? lib.particleAlias(raw) : null;
+    if (pa) {
+      if (!state.particleIndex) ensureParticleIndex().catch(() => {});
+      const plates = [];
+      for (const nm2 of pa.names || [pa.name]) {
+        for (const px of state.particleIndex ? particleIndexes() : []) {
+          const r = px.rows.find((x) => x.name === nm2);
+          if (r) { plates.push({ path: `${raw} → ${r.name}`, note: `${px.short} · its plate`, go: ['p', px.id, r.key] }); break; }
+        }
+      }
+      if (pa.names) return plates.length ? plates : [{ path: `${raw} ?`, note: pa.reading.replace(/^"[^"]*" /, ''), go: ['solver', 'gravity', { species: raw }] }];
+      const nuc = lib.resolveName(raw, 'atom');
+      return plates.concat([{ path: `${raw} → ${pa.name}`, note: 'a particle · relative gravity of it', go: ['solver', 'gravity', { species: raw }] }],
+        nuc && nuc.formula ? [{ path: `${raw} → ${nuc.display}`, note: `the bare nucleus · build it`, go: ['solver', 'builder', { formula: raw }] }] : []);
+    }
     let nm = lib.resolveName(raw, 'atom');
     const nuclide = raw.match(/^\^?(\d{1,3})([A-Z][a-z]?)$|^([A-Z][a-z]?)-(\d{1,3})$/);
     if (!nm && nuclide) {
@@ -7184,6 +7201,8 @@ var SOLVERS, LIB;
   var NAME_ALIAS = { aluminum: 13, cesium: 55, sulphur: 16 };
   Object.keys(NAME_ALIAS).forEach(function (n) { NAME_Z[n] = NAME_ALIAS[n]; });
   var ISOTOPE_NAMES = { protium: [1, 1], deuterium: [1, 2], tritium: [1, 3] };
+  // bare nuclei by name: [Z, A], the charge Z (no electron left)
+  var NUCLEUS_NAMES = { proton: [1, 1], deuteron: [1, 2], triton: [1, 3], helion: [2, 3], 'alpha particle': [2, 4], 'alpha-particle': [2, 4] };
   // the elements whose usual substance is a diatomic molecule: in an equation "oxygen" is O₂
   var ELEMENTAL = { H: 'H2', N: 'N2', O: 'O2', F: 'F2', Cl: 'Cl2', Br: 'Br2', I: 'I2' };
   // anions by name: [formula, charge, polyatomic]
@@ -7287,6 +7306,12 @@ var SOLVERS, LIB;
       var ip = ISOTOPE_NAMES[w];
       return { formula: '^' + ip[1] + 'H', display: SUPD[ip[1]] + 'H', kind: 'isotope', Z: ip[0], A: ip[1], rule: 'the isotope\'s own name',
                reading: said + ' read as the nuclide H-' + ip[1] };
+    }
+    if (NUCLEUS_NAMES[w]) {
+      var nn = NUCLEUS_NAMES[w], nsy = ELEMENT_SYMBOLS[nn[0] - 1];
+      var ndisp = String(nn[1]).split('').map(function (c) { return SUPD[+c]; }).join('') + nsy + (nn[0] > 1 ? SUPD[nn[0]] : '') + '⁺';
+      return { formula: '^' + nn[1] + nsy + (nn[0] > 1 ? '^' + nn[0] : '') + '+', display: ndisp, kind: 'nucleus', Z: nn[0], A: nn[1],
+               rule: 'a bare nucleus by its name', reading: said + ' read as the bare nucleus ' + ndisp + ', every electron removed' };
     }
     if (TRIVIAL[w]) {
       out = { formula: TRIVIAL[w], kind: 'molecule', rule: 'a trivial name, from the page\'s table of common names' };
@@ -7812,8 +7837,64 @@ var SOLVERS, LIB;
     nb.rows.forEach(function (r) { var Z = r[0], A = r[2], s = r[3]; (byZ[Z] = byZ[Z] || []).push(r); if (!bySym[s]) bySym[s] = Z; if (!symOf[Z]) symOf[Z] = s; byZA[Z + '-' + A] = r; });
     var species = {};
     (nb.species || []).forEach(function (s) { species[s.Z + '/' + s.q] = s; });
-    GRAV = { src: nb, K: K, byZ: byZ, bySym: bySym, byZA: byZA, symOf: symOf, species: species, dims: nb.dimensions || [4, 5, 6, 7, 8, 9, 10, 11], decades: nb.decades || { spin: [], charge: [] } };
+    // the CIAAW tables: the standard atomic weight of each element, and the most abundant isotope by
+    // its representative composition (an interval's midpoint where CIAAW prints only the interval)
+    var aw = {}, top = {};
+    ((nb.atomic_weights || {}).rows || []).forEach(function (r) { aw[r[0]] = { Z: r[0], sym: r[1], kind: r[2], value: r[3], unc: r[4], low: r[5], high: r[6], edition: r[8] }; });
+    ((nb.compositions || {}).rows || []).forEach(function (r) {
+      var c = { A: r[1], value: r[2], unc: r[3], low: r[4], high: r[5], rep: r[6], status: r[7], edition: r[8] };
+      if (!top[r[0]] || c.rep > top[r[0]].rep) top[r[0]] = c;
+    });
+    GRAV = { src: nb, K: K, byZ: byZ, bySym: bySym, byZA: byZA, symOf: symOf, species: species, dims: nb.dimensions || [4, 5, 6, 7, 8, 9, 10, 11], decades: nb.decades || { spin: [], charge: [] },
+             aw: aw, top: top };
     return GRAV;
+  }
+  function groundTwoJ(term) {
+    // twice J from a ground term as the record prints it: 5D4, 2S1/2, 2P*3/2, (1/2,1/2)0, 5/2
+    var m = String(term === null || term === undefined ? '' : term).trim().match(/(\d+)(\/2)?$/);
+    if (!m) return null;
+    return m[2] ? parseInt(m[1], 10) : 2 * parseInt(m[1], 10);
+  }
+  function decimals(s) { var i = String(s).indexOf('.'); return i < 0 ? 0 : String(s).length - i - 1; }
+  function gravMolar(g, sp) {
+    // the molar mass of the natural substance: the sum of the CIAAW standard atomic weights, kept to
+    // the decimals of the least precise of them, with the sum of their uncertainties
+    var sum = 0, unc = 0, dp = 9, missing = [], intervals = [];
+    sp.atoms.forEach(function (a) {
+      var w = g.aw[a.Z];
+      if (!w) { missing.push(a.el); return; }
+      sum += a.n * parseFloat(w.value); unc += a.n * (parseFloat(w.unc) || 0); dp = Math.min(dp, decimals(w.value));
+      if (w.kind === 'interval') intervals.push(a.el + ' [' + w.low + ', ' + w.high + ']');
+    });
+    if (missing.length) return { refused: missing.join(', ') + ' ' + (missing.length > 1 ? 'have' : 'has') + ' no standard atomic weight: no stable isotope and no characteristic terrestrial composition (CIAAW), so a natural mixture has no mass to give' };
+    if (sp.charge) sum -= sp.charge * g.K.M_E / g.K.U_KG;   // an ion: its electrons' mass, q·mₑ, off or on
+    return { value: sum.toFixed(dp), unc: unc, intervals: intervals, ion: !!sp.charge };
+  }
+  // particle names, read onto the particle indexes' own names; a name that is several particles is
+  // listed, never chosen. Bare nuclei by name are formulas, read by resolveName (NUCLEUS_NAMES).
+  var PARTICLE_ALIASES = {
+    proton: 'p', antiproton: 'p~', neutron: 'n', antineutron: 'n~',
+    electron: 'e-', positron: 'e+', antielectron: 'e+',
+    muon: 'mu-', 'negative muon': 'mu-', antimuon: 'mu+', 'positive muon': 'mu+',
+    tau: 'tau-', tauon: 'tau-', 'tau lepton': 'tau-', antitau: 'tau+',
+    photon: 'gamma', gluon: 'g', higgs: 'H0', 'higgs boson': 'H0', 'z boson': 'Z0', 'w boson': ['W+', 'W-'], 'w+ boson': 'W+', 'w- boson': 'W-',
+    neutrino: ['nu(e)', 'nu(mu)', 'nu(tau)'], 'electron neutrino': 'nu(e)', 'electron antineutrino': 'nu(e)~',
+    'muon neutrino': 'nu(mu)', 'muon antineutrino': 'nu(mu)~', 'tau neutrino': 'nu(tau)', 'tau antineutrino': 'nu(tau)~',
+    'up quark': 'u', 'down quark': 'd', 'strange quark': 's', 'charm quark': 'c', 'bottom quark': 'b', 'top quark': 't',
+    quark: ['u', 'd', 's', 'c', 'b', 't'],
+    pion: ['pi+', 'pi0', 'pi-'], 'positive pion': 'pi+', 'negative pion': 'pi-', 'neutral pion': 'pi0', 'pi plus': 'pi+', 'pi minus': 'pi-', 'pi zero': 'pi0',
+    kaon: ['K+', 'K-', 'K0', 'K~0', 'K(L)0', 'K(S)0'], 'positive kaon': 'K+', 'negative kaon': 'K-', 'neutral kaon': ['K0', 'K~0', 'K(L)0', 'K(S)0'],
+    lambda: 'Lambda', 'lambda baryon': 'Lambda', antilambda: 'Lambda~',
+  };
+  function particleAlias(text) {
+    // {name, reading} | {names, reading} (several particles) | null (not a particle name)
+    var w = nameKey(text);
+    if (!PARTICLE_ALIASES[w] && /s$/.test(w) && PARTICLE_ALIASES[w.slice(0, -1)]) w = w.slice(0, -1);   // protons, muons
+    var hit = PARTICLE_ALIASES[w];
+    if (!hit) return null;
+    var said = '"' + String(text).trim() + '"';
+    return Array.isArray(hit) ? { names: hit, reading: said + ' names ' + hit.length + ' particles: ' + hit.join(', ') + '; write one' }
+                              : { name: hit, reading: said + ' read as ' + hit + ', the particle indexes\' own name' };
   }
   function gravMass(g, A, dmKeV, q, levelCm1) {
     var K = g.K;
@@ -7887,34 +7968,61 @@ var SOLVERS, LIB;
     return { atoms: atoms, charge: parsed.charge, errors: parsed.errors, notes: parsed.notes.concat(notes), typeset: parsed.typeset, iso: iso, text: text };
   }
   function gravBody(g, sp, opts) {
-    // the body's numbers from the species reading: masses from the table where every isotope is
-    // given, the electron count, the total nucleon count, and the banked level for a single species
+    // the body's numbers from the species reading. Masses come from the table: every isotope typed,
+    // or, where one is not, the element's most abundant isotope by CIAAW's composition, said so. The
+    // angular momentum is typed, the banked ground level, or a neutral atom's ground term from its
+    // record (opts.ground); an excited level is never taken for the lowest.
     opts = opts || {};
     var out = { species: sp, refused: [], notes: [], atoms: [] };
-    var Zt = 0, At = 0, allIso = true, M = 0, anyEst = false;
+    var Zt = 0, At = 0, allIso = true, M = 0, anyEst = false, anyChosen = false, anyTyped = false, natural = [];
     sp.atoms.forEach(function (a) {
-      var row = a.A ? g.byZA[a.Z + '-' + a.A] : null;
-      var at = { el: a.el, Z: a.Z, n: a.n, A: a.A, N: a.A ? a.A - a.Z : null, row: row, nuclides: (g.byZ[a.Z] || []).length };
-      if (a.A && !row) { out.refused.push('no nuclide ' + a.el + '-' + a.A + ' in the mass table'); allIso = false; }
-      if (!a.A) allIso = false;
-      if (row) { M += a.n * (a.A * g.K.U_KG + row[4] * g.K.KEV_J / (g.K.C_SI * g.K.C_SI)); if (row[5] !== 'M') anyEst = true; }
-      Zt += a.n * a.Z; if (a.A) At += a.n * a.A;
+      var A = a.A, chosen = false;
+      if (A) anyTyped = true;
+      else if (g.top[a.Z]) { A = g.top[a.Z].A; chosen = true; anyChosen = true; }
+      var row = A ? g.byZA[a.Z + '-' + A] : null;
+      var at = { el: a.el, Z: a.Z, n: a.n, A: A, N: A ? A - a.Z : null, row: row, nuclides: (g.byZ[a.Z] || []).length, chosen: chosen, share: chosen ? g.top[a.Z] : null };
+      if (A && !row) { out.refused.push('no nuclide ' + a.el + '-' + A + ' in the mass table'); allIso = false; }
+      if (!A) { allIso = false; natural.push(a.el); }
+      if (row) { M += a.n * (A * g.K.U_KG + row[4] * g.K.KEV_J / (g.K.C_SI * g.K.C_SI)); if (row[5] !== 'M') anyEst = true; }
+      Zt += a.n * a.Z; if (A) At += a.n * A;
       out.atoms.push(at);
     });
-    out.Z = Zt; out.q = sp.charge; out.Ne = Zt - sp.charge; out.A = allIso ? At : null;
+    out.Z = Zt; out.q = sp.charge; out.Ne = Zt - sp.charge; out.A = allIso ? At : null; out.chosen = anyChosen; out.typed = anyTyped;
     out.single = sp.atoms.length === 1 && sp.atoms[0].n === 1;
     if (out.Ne < 0) out.refused.push('more positive charge than electrons: Ne = ' + out.Ne);
-    if (allIso) { out.M = M - sp.charge * g.K.M_E; out.massStatus = anyEst ? 'ESTIMATED' : 'READ'; }
-    else { out.M = null; out.refused.push('mass: no isotope given for ' + sp.atoms.filter(function (a) { return !a.A; }).map(function (a) { return a.el; }).join(', ') + ', and no atomic-weight table is held; write the isotope (^56Fe, U-238) for an exact mass'); }
-    // the angular momentum: the banked lowest level for a single species, typed, or refused
-    out.tj = null; out.tjStatus = null; out.level = 0;
+    if (allIso) { out.M = M - sp.charge * g.K.M_E; out.massStatus = anyEst ? 'ESTIMATED' : (anyChosen ? DERIVED : READ); }
+    else {
+      out.M = null;
+      if (natural.length) out.refused.push('mass: ' + natural.join(', ') + ' ' + (natural.length > 1 ? 'have' : 'has') + ' no isotope that occurs in nature (no CIAAW composition), so none is chosen; type one (Tc-99, Pu-239) for its mass');
+    }
+    out.molar = gravMolar(g, sp);
+    // the angular momentum
+    out.tj = null; out.tjStatus = null; out.level = 0; out.tjSource = null;
     var typed = opts.twoJ;
-    if (typed !== null && typed !== undefined) { out.tj = typed; out.tjStatus = null; out.tjNote = 'typed, not a figure of the index'; }
-    else if (out.single) {
-      var s = g.species[out.Z + '/' + sp.charge];
-      if (s) { out.tj = s['2J']; out.tjStatus = 'READ'; out.level = s.level_cm1; out.banked = s; out.tjNote = 'the lowest level the ' + s.symbol + ' ' + s.stage + ' level table banks with a readable J: ' + s.config + ' ' + s.term + ' at ' + s.level_cm1 + ' cm⁻¹' + (s.L ? ' (an excited level, L = 1)' : ' (the ground level)'); }
-      else out.refused.push('angular momentum: no level table is banked for ' + sp.atoms[0].el + ' ' + (ROMAN_OF[sp.charge + 1] || ('q = ' + sp.charge)) + ', so χ is not computed; type 2J to compute it');
-    } else out.refused.push('angular momentum: not banked for a molecule; type 2J to compute χ, or leave it and only the mass and charge quantities are computed');
+    var s = out.single ? g.species[out.Z + '/' + sp.charge] : null;
+    if (s) out.banked = s;
+    var gr = out.single && sp.charge === 0 ? opts.ground : null;
+    var grTj = gr ? groundTwoJ(gr.term) : null;
+    var stage = sp.atoms.length ? sp.atoms[0].el + ' ' + (ROMAN_OF[sp.charge + 1] || ('q = ' + sp.charge)) : '';
+    var evenEven = out.single && out.A !== null && sp.atoms[0].Z % 2 === 0 && (out.A - sp.atoms[0].Z) % 2 === 0;
+    if (typed !== null && typed !== undefined) { out.tj = typed; out.tjSource = 'typed'; out.tjNote = 'typed, not a figure of the index'; }
+    else if (!out.single) out.refused.push('angular momentum: not banked for a molecule; type 2J to compute χ, or leave it and only the mass and charge quantities are computed');
+    else if (out.Ne === 0) {
+      // a bare nucleus: no electron, so its angular momentum is the nuclear spin, banked nowhere here
+      if (evenEven) { out.tj = 0; out.tjStatus = DERIVED; out.tjSource = 'pairing'; out.tjNote = 'a bare even-even nucleus: no electron, and the pairing rule sets the nuclear spin to 0'; }
+      else out.refused.push('angular momentum: a bare nucleus\'s is its nuclear spin, and no nuclear spin is banked, so χ is not computed; type 2J to compute it');
+    }
+    else if (s && !s.L) {
+      out.tj = s['2J']; out.tjStatus = READ; out.level = s.level_cm1; out.tjSource = 'banked';
+      out.tjNote = 'the ground level the ' + s.symbol + ' ' + s.stage + ' level table banks: ' + s.config + ' ' + s.term + ' at ' + s.level_cm1 + ' cm⁻¹';
+    }
+    else if (grTj !== null) {
+      out.tj = grTj; out.tjStatus = READ; out.level = 0; out.tjSource = 'ground';
+      out.tjNote = 'the ground term ' + gr.term + ' of ' + stage + ', from the element\'s record (the observed ground levels, NIST ASD)' +
+        (s ? '; the banked ' + s.symbol + ' ' + s.stage + ' table starts above the ground, at ' + s.config + ' ' + s.term + ' (' + s.level_cm1 + ' cm⁻¹), so that level is not taken for the lowest' : '');
+    }
+    else if (s) out.refused.push('angular momentum: the banked ' + s.symbol + ' ' + s.stage + ' table starts above the ground, at ' + s.config + ' ' + s.term + ' (' + s.level_cm1 + ' cm⁻¹), and the ion\'s ground level is not held, so χ is not computed; type 2J to compute it');
+    else out.refused.push('angular momentum: no level table is banked for ' + stage + (sp.charge === 0 ? ' and its record carries no ground term' : ', and of the ground terms only the neutral atom\'s is held') + ', so χ is not computed; type 2J to compute it');
     if (opts.level !== null && opts.level !== undefined) out.level = opts.level;
     if (out.M !== null && out.level) out.M += out.level * g.K.CM1_KG;
     if (out.M !== null) {
@@ -7922,53 +8030,110 @@ var SOLVERS, LIB;
       out.qt = gravQt(g, sp.charge, out.M);
       out.chi = out.tj === null ? null : gravChi(g, out.tj, out.M);
     }
-    // the two facts
+    // the two facts. F is forced non-zero by an odd fermion count. J = 0 or J ≠ 0 is established only
+    // for an even-even nucleus, whose spin the pairing rule sets to 0 so that F is the electrons' J;
+    // otherwise the nuclear spin, banked nowhere, may cancel J (¹H's ground level is F = 0).
     out.F = out.A === null ? null : gravForced(out.A, out.Ne);
-    out.Jzero = null;
-    if (out.tj !== null) out.Jzero = out.tj === 0 && (out.single ? gravVanishes(sp.atoms[0].Z, out.A - sp.atoms[0].Z, out.tj) : false);
-    if (out.single && out.A !== null && out.tj === 0 && !gravVanishes(sp.atoms[0].Z, out.A - sp.atoms[0].Z, 0)) out.Jzero = false;
-    if (out.tj !== null && out.tj > 0) out.Jzero = false;
+    out.Jzero = null; out.Jbasis = null;
+    if (out.F === 1) { out.Jzero = false; out.Jbasis = 'forced'; }
+    else if (evenEven && out.tj !== null) { out.Jzero = out.tj === 0; out.Jbasis = 'pairing'; }
     return out;
   }
   function gravParticleBody(g, px, text) {
-    // a particle of the indexes by name: mass from MeV, charge in thirds, 2J from its coordinates
-    var t = String(text).trim().toLowerCase();
+    // a particle of the indexes by its name in the table (p, e-, mu-, pi+, Lambda) or a common one
+    // (proton, electron, muon): mass from MeV, charge in thirds, 2J from its coordinates
+    var al = particleAlias(text);
+    if (al && al.names) return { error: al.reading, refused: [] };
+    var t = (al ? al.name : String(text).trim()).toLowerCase();
     var hit = null, ixHit = null;
     (px.indexes || []).forEach(function (ix) { if (hit) return; (ix.rows || []).forEach(function (r) { if (!hit && r.name.toLowerCase() === t) { hit = r; ixHit = ix; } }); });
     if (!hit) return null;
     var names = ixHit.coordinates.map(function (c) { return c.name; });
     var ji = names.indexOf('2J'), qi = names.indexOf('Q3');
-    var out = { particle: hit, index: ixHit.id, refused: [], notes: [], atoms: [], single: false };
+    var out = { particle: hit, index: ixHit.id, refused: [], notes: [], atoms: [], single: false, reading: al ? al.reading : null };
     out.q = qi >= 0 ? hit.coords[qi] / 3 : null; out.tj = ji >= 0 ? hit.coords[ji] : null; out.tjStatus = 'READ';
     out.tjNote = 'the table\'s own J'; out.A = null; out.Ne = null; out.Z = null;
-    if (hit.extra.mass_MeV === null || hit.extra.mass_MeV === undefined) { out.M = null; out.refused.push('mass: the table prints a limit only for ' + hit.name); }
-    else { out.M = hit.extra.mass_MeV * 1e6 * g.K.EV_J / (g.K.C_SI * g.K.C_SI); out.massStatus = 'READ'; out.rs = 2 * g.K.G_SI * out.M / (g.K.C_SI * g.K.C_SI); out.qt = gravQt(g, Math.abs(out.q), out.M); out.chi = out.tj === null ? null : gravChi(g, out.tj, out.M); }
+    var mev = hit.extra.mass_MeV;
+    if (mev === null || mev === undefined) { out.M = null; out.refused.push('mass: the table prints a limit only for ' + hit.name); }
+    else if (mev === 0) {
+      // massless: no rest frame, so neither χ = Jħc/(GM²) nor Q̃ = qe/(M√(4πε₀G)) is defined
+      out.M = 0; out.massless = true; out.massStatus = 'READ'; out.rs = 0; out.qt = null; out.chi = null;
+      out.refused.push('χ and Q̃: ' + hit.name + ' is massless, so χ = Jħc/(GM²) and Q̃ = qe/(M√(4πε₀G)) are not defined');
+    }
+    else { out.M = mev * 1e6 * g.K.EV_J / (g.K.C_SI * g.K.C_SI); out.massStatus = 'READ'; out.rs = 2 * g.K.G_SI * out.M / (g.K.C_SI * g.K.C_SI); out.qt = gravQt(g, Math.abs(out.q), out.M); out.chi = out.tj === null ? null : gravChi(g, out.tj, out.M); }
     out.F = out.tj === null ? null : (out.tj % 2);
-    out.Jzero = out.tj === 0;
+    out.Jzero = out.tj === null ? null : out.tj === 0;
     return out;
   }
   function gravBoundRows(g, b) {
+    // the bound class at each dimension from the exact solutions: static when J = 0 is established,
+    // rotating when J ≠ 0 is; where neither is, both branches are run and the class is given wherever
+    // they agree, and left undecided, with both, where they do not
     var qpos = b.q !== null && Math.abs(b.q) > 0 ? 1 : 0;
     return g.dims.map(function (D) {
-      var B, note;
-      if (b.Jzero === true || b.Jzero === false) { B = gravBound(D, qpos, b.F || (b.Jzero ? 0 : 1), b.Jzero); note = null; }
-      else if (b.F === 1) { B = gravBound(D, qpos, 1, false); note = 'F forced non-zero, so the rotating branch applies'; }
-      else { B = null; note = 'whether J vanishes is not established (F not forced and no level banked), so the branch cannot be chosen'; }
-      return { D: D, B: B, note: note };
+      if (b.Jzero === true) return { D: D, B: gravBound(D, qpos, 0, true), note: null };
+      if (b.Jzero === false) return { D: D, B: gravBound(D, qpos, 1, false), note: b.Jbasis === 'pairing' ? 'J ≠ 0: the electrons\' J, the nuclear spin 0 by the pairing rule' : (b.Jbasis === 'forced' ? 'J ≠ 0: forced by an odd fermion count' : null) };
+      var still = gravBound(D, qpos, 0, true), spin = gravBound(D, qpos, 1, false);
+      if (still === spin) return { D: D, B: still, note: 'the same whether J vanishes or not, which is not established' };
+      return { D: D, B: null, note: 'J = 0 gives ' + B_TEXT[still] + ', J ≠ 0 gives ' + B_TEXT[spin] + '; whether J vanishes is not established' + (b.F === 0 && b.tj > 0 ? ' (the electrons\' J may be cancelled by the nuclear spin, which is not banked)' : '') };
     });
   }
   var B_TEXT = ['no bound', 'a bound', 'undetermined (no exact solution)'];
+  // shared by the gravity mode and the builder
+  async function groundFor(ctx, sp) {
+    // a neutral atom's ground term, from its element record (the observed ground levels)
+    if (!sp || sp.atoms.length !== 1 || sp.atoms[0].n !== 1 || sp.charge !== 0 || !sp.atoms[0].Z) return null;
+    var rec = null;
+    try { rec = ctx.element(sp.atoms[0].Z) || await ctx.load(sp.atoms[0].Z); } catch (err) { rec = null; }
+    return rec && rec.populated && rec.level ? { term: rec.level } : null;
+  }
+  function pct(x) { return (100 * x).toPrecision(5).replace(/\.?0+$/, '') + ' %'; }
+  function isoText(a) {
+    // how an atom's isotope was fixed: typed, or chosen as the most abundant
+    if (!a.A) return a.el + ': Z = ' + a.Z + ', no isotope occurs in nature';
+    if (!a.chosen) return a.el + ': Z = ' + a.Z + ', N = ' + a.N;
+    var c = a.share;
+    var share = c.status === READ ? pct(+c.value) : pct(c.rep) + ', the midpoint of CIAAW\'s interval [' + pct(+c.low) + ', ' + pct(+c.high) + ']';
+    return a.el + ': Z = ' + a.Z + ', N = ' + a.N + '; ' + a.el + '-' + a.A + ' is the most abundant isotope, ' + share + ' (CIAAW), chosen because none was typed';
+  }
+  function molarRow(g, b) {
+    // the natural substance's molar mass when no isotope was typed; this isotopologue's when one was
+    if (b.particle) return null;
+    if (!b.typed) {
+      if (b.molar.refused) return row('molar mass', 'refused', 'REFUSED', b.molar.refused);
+      return row('molar mass (standard atomic weights)', b.molar.value + ' g/mol' + (b.molar.unc ? ' ± ' + Number(b.molar.unc.toPrecision(2)) : ''), DERIVED,
+                 'the natural mixture: the CIAAW standard atomic weights summed' + (b.molar.intervals.length ? ', with the abridged value where CIAAW prints an interval (' + b.molar.intervals.join('; ') + ')' : '') + (b.molar.ion ? '; less q·mₑ for the charge' : ''));
+    }
+    if (b.M === null) return null;
+    return row('molar mass of this body', (b.M / g.K.U_KG).toFixed(6) + ' g/mol', b.massStatus, 'the body as written: its isotopes' + (b.chosen ? ', the most abundant where none was typed' : '') + (b.level ? ', the level included' : ''));
+  }
+  function fRow(nb, b) {
+    if (b.particle) return row('J, the angular momentum', b.tj === null ? 'not printed' : (b.tj % 2 ? 'half-odd: cannot vanish' : (b.tj === 0 ? 'zero' : 'integer, non-zero')), b.tj === null ? 'REFUSED' : READ, 'the table\'s own J; a particle has no A + Ne to count');
+    if (b.F === null) return row('F, the total angular momentum', 'not decided: A is not fixed', 'REFUSED', 'give every isotope to fix A + Ne');
+    var J = b.tj === null ? null : (b.tj % 2 ? b.tj + '/2' : String(b.tj / 2));
+    if (b.F) return row('F, the total angular momentum', 'cannot vanish: A + Ne = ' + (b.A + b.Ne) + ' is odd', DERIVED, 'exact arithmetic on two integers, no nuclear datum used');
+    if (b.Jbasis === 'pairing') return row('F, the total angular momentum', b.Jzero ? 'zero, established by the pairing rule' : 'non-zero: F = J = ' + J + ', the nuclear spin 0 by the pairing rule', DERIVED, 'an even-even nucleus: ' + nb.pairing_rule_status + ', not a theorem');
+    return row('F, the total angular momentum', 'may vanish: A + Ne is even; whether it does is not established', DERIVED,
+               b.tj !== null && b.tj > 0 ? 'the electrons\' J is ' + J + ', but the nuclear spin is not banked and may cancel it' : 'exact arithmetic on two integers; no nuclear spin is held');
+  }
+  function sourcesHtml(nb) {
+    var a = (nb.source || {}).doi, w = ((nb.atomic_weights || {}).source || {}).doi;
+    var link = function (doi, text) { return '<a href="https://doi.org/' + doi + '" target="_blank" rel="noopener noreferrer">' + text + '</a>'; };
+    return '<p class="note">Read from: the masses, ' + (a ? link(a, 'AME2020') : 'AME2020') + '; the standard atomic weights and isotopic compositions, ' +
+           (w ? link(w, 'CIAAW 2021') : 'CIAAW') + ' with the 2024 revisions; the ground terms, each element\'s record (NIST ASD).</p>';
+  }
+
   var MODE_GRAVITY = {
     id: 'gravity',
     requires: 'nuclides',
     title: 'Relative gravity of a body',
     status: DERIVED,
-    statusNote: 'The gravity index\'s own arithmetic (the research tree\'s gravity instrument) run here over the AME2020 mass table and the banked levels in data/nuclides.js: the mass, the Schwarzschild radius, the dimensionless Kerr spin χ and Reissner–Nordström charge Q̃, the two angular-momentum facts, and the horizon-bound class in every dimension from 4 to 11 from the exact solutions only. Every input carries its status; a typed J carries none; no number is put on a horizon above four dimensions.',
-    description: 'A body is a nuclide, an ion or a molecule written as a formula with its isotopes (^56Fe, ^56Fe2+, U-238, D2O, ^1H2^16O) or a particle of the indexes by name (p, e-, mu-, pi+, Lambda). M = A·u + mass excess − q·mₑ + the level\'s energy; r_s = 2GM/c²; χ = J ħ c / (G M²); Q̃ = q e / (M √(4π ε₀ G)); F cannot vanish when A + Ne is odd; F = 0 is established for an even-even nucleus with J = 0 by the pairing rule. Every quantity is set against a reference body as a ratio, which is the relative gravity: at equal distance the field scales as M. Where the angular momentum is not banked it is typed or refused, never inferred.',
+    statusNote: 'The gravity index\'s own arithmetic (the research tree\'s gravity instrument) run here over the AME2020 mass table, the CIAAW standard atomic weights and isotopic compositions, the banked levels in data/nuclides.js and the ground terms of the element records: the mass, the Schwarzschild radius, the dimensionless Kerr spin χ and Reissner–Nordström charge Q̃, the two angular-momentum facts, and the horizon-bound class in every dimension from 4 to 11 from the exact solutions only. Every input carries its status; a typed J carries none; no number is put on a horizon above four dimensions.',
+    description: 'A body is a nuclide, an ion or a molecule, by formula or by name (Fe, ^56Fe2+, U-238, water, D2O, ^1H2^16O, alpha particle), or a particle of the indexes by name (proton, electron, muon, photon, p, e-, pi+, Lambda). An element written without its isotope is its most abundant isotope by the CIAAW compositions, said so on the row; the molar mass of the natural substance is the sum of the CIAAW standard atomic weights. M = A·u + mass excess − q·mₑ + the level\'s energy; r_s = 2GM/c²; χ = J ħ c / (G M²); Q̃ = q e / (M √(4π ε₀ G)). J is the banked ground level or, for a neutral atom, the ground term its record holds; an excited level is never taken for the lowest. F cannot vanish when A + Ne is odd; for an even-even nucleus the pairing rule sets the nuclear spin to 0, so F = J is established either way; otherwise the nuclear spin, banked nowhere, may cancel J, and the horizon class is given only where both branches agree. Every quantity is set against a reference body as a ratio, which is the relative gravity: at equal distance the field scales as M. Where the angular momentum is not held it is typed or refused, never inferred.',
     inputs: [
-      { name: 'species', label: 'body', type: 'text', default: '^56Fe', help: 'a formula with isotopes and charge (^56Fe2+, U-238, D2O), a name (iron-56, heavy water, uranium-238, water), or a particle name once the indexes are loaded (p, mu-, pi+)' },
-      { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'twice the electronic angular momentum; blank uses the banked lowest level of a single species, or refuses' },
-      { name: 'level', label: 'level (cm⁻¹, optional)', type: 'number', default: '', help: 'an excitation energy added to the mass exactly; blank uses the banked level' },
+      { name: 'species', label: 'body', type: 'text', default: '^56Fe', help: 'a formula (Fe, ^56Fe2+, U-238, D2O), a name (iron, water, uranium-238, heavy water, alpha particle) or a particle (proton, electron, muon, photon, pi+)' },
+      { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'twice the electronic angular momentum of the body (not the reference); blank uses the banked ground level or the ground term, or refuses' },
+      { name: 'level', label: 'level (cm⁻¹, optional)', type: 'number', default: '', help: 'an excitation energy added to the body\'s mass exactly; blank is the ground' },
       { name: 'reference', label: 'reference body', type: 'text', default: '^1H', help: 'the body every ratio is taken against; the same notation, names included' },
     ],
     source: { instrument: 'members', file: 'the research tree\'s gravity instrument', also: ['forced', 'vanishes', 'bound_class', 'rows'] },
@@ -7976,59 +8141,69 @@ var SOLVERS, LIB;
       var nb = await ctx.nuclides(); if (!nb) return fail('data/nuclides.js is not carried by this build');
       var g = gravSetup(nb);
       var px = ctx.particlesLoaded ? ctx.particlesLoaded() : null;
-      var read = async function (text) {
+      var loadPx = async function () { if (!px && ctx.particles) { try { px = await ctx.particles(); } catch (err) { px = null; } } };
+      var read = async function (text, own) {
+        // a particle name first (proton is the particle p here, not the bare nucleus), then a formula
+        // or name; the typed 2J and level belong to the body, never to the reference
+        if (particleAlias(text)) { await loadPx(); var pa = px ? gravParticleBody(g, px, text) : null; if (pa) return pa; }
         var sp = gravSpecies(text);
-        if (!sp.errors.length && sp.atoms.length) return gravBody(g, sp, { twoJ: int(values.two_j), level: num(values.level) });
-        if (!px && ctx.particles) { try { px = await ctx.particles(); } catch (err) { px = null; } }
+        if (!sp.errors.length && sp.atoms.length) return gravBody(g, sp, { twoJ: own ? int(values.two_j) : null, level: own ? num(values.level) : null, ground: await groundFor(ctx, sp) });
+        await loadPx();
         var pb = px ? gravParticleBody(g, px, text) : null;
         if (pb) return pb;
         return { error: sp.errors.length ? sp.errors.join('; ') : 'nothing read', refused: [] };
       };
-      var b = await read(values.species);
+      var b = await read(values.species, true);
       if (b.error) return fail('cannot read "' + values.species + '": ' + b.error + (px ? '' : '; particle names need the indexes, which could not be loaded'));
       var rows = [];
       var name = b.particle ? b.particle.name : b.species.typeset;
-      rows.push(row('body', name + (b.particle ? ' (a member of the ' + b.index + ' index)' : ''), b.particle ? 'READ' : null, b.particle ? 'mass and quantum numbers as the table prints them' : (b.species.notes.join('; ') || 'as read')));
-      if (b.atoms.length) rows.push(row('atoms', b.atoms.map(function (a) { return a.el + (a.A ? '-' + a.A : '') + (a.n > 1 ? ' ×' + a.n : ''); }).join(', '), 'READ', b.atoms.map(function (a) { return a.el + ': Z = ' + a.Z + (a.A ? ', N = ' + a.N : ', no isotope given; ' + a.nuclides + ' nuclides in the table'); }).join('; ')));
-      if (b.Z !== null && b.Z !== undefined) rows.push(row('protons, electrons, nucleons', b.Z + ', ' + b.Ne + (b.A === null ? ', A not fixed' : ', ' + b.A), 'DERIVED', 'Ne = Z − q; A only where every isotope is given'));
-      if (b.q !== null) rows.push(row('charge q', String(b.q), 'READ', b.particle ? 'in units of e, from Q in thirds' : 'from the formula'));
+      rows.push(row('body', name + (b.particle ? ' (a member of the ' + b.index + ' index)' : ''), b.particle ? READ : null, b.particle ? (b.reading ? b.reading + '; ' : '') + 'mass and quantum numbers as the table prints them' : (b.species.notes.join('; ') || 'as read')));
+      if (b.atoms.length) rows.push(row('atoms', b.atoms.map(function (a) { return a.el + (a.A ? '-' + a.A : '') + (a.n > 1 ? ' ×' + a.n : ''); }).join(', '), b.chosen ? DERIVED : READ, b.atoms.map(isoText).join('; ')));
+      if (b.Z !== null && b.Z !== undefined) rows.push(row('protons, electrons, nucleons', b.Z + ', ' + b.Ne + (b.A === null ? ', A not fixed' : ', ' + b.A), DERIVED, 'Ne = Z − q; A from the isotopes typed, or the most abundant where none was'));
+      if (b.q !== null) rows.push(row('charge q', String(b.q), READ, b.particle ? 'in units of e, from Q in thirds' : 'from the formula'));
       if (b.M === null) rows.push(row('mass', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^mass/.test(r); }).join('; ')));
       else {
-        rows.push(row('mass M', (b.M / g.K.U_KG).toFixed(6) + ' u = ' + b.M.toExponential(6) + ' kg', b.massStatus, b.particle ? 'from the printed mass in MeV' : nb.mass_formula + (b.level ? '; level ' + b.level + ' cm⁻¹ included' : '') + '; electron binding neglected and bounded'));
-        rows.push(row('Schwarzschild radius r_s', b.rs.toExponential(4) + ' m', 'DERIVED', '2GM/c²; G empirical (CODATA 2018), c exact'));
-        rows.push(row('Q̃, the Reissner–Nordström charge', b.qt === 0 ? '0 (neutral)' : b.qt.toExponential(4) + (b.qt > 0 ? ' · decade ' + gravDecade(b.qt) + (gravRank(g.decades.charge, b.qt) === null ? ' (outside the index\'s alphabet)' : ', rank ' + gravRank(g.decades.charge, b.qt) + ' in the index') : ''), 'DERIVED', 'q e / (M √(4π ε₀ G))'));
-        if (b.tj === null) rows.push(row('χ, the Kerr spin', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^angular/.test(r); }).join('; ')));
+        rows.push(row('mass M', b.massless ? '0 (massless)' : (b.M / g.K.U_KG).toFixed(6) + ' u = ' + b.M.toExponential(6) + ' kg', b.massStatus,
+                      b.particle ? 'from the printed mass in MeV' : nb.mass_formula + (b.level ? '; level ' + b.level + ' cm⁻¹ included' : '; at the ground level') + (b.chosen ? '; the most abundant isotope where none was typed' : '') + '; electron binding neglected and bounded'));
+        var mr = molarRow(g, b); if (mr) rows.push(mr);
+        rows.push(row('Schwarzschild radius r_s', b.rs === 0 ? '0' : b.rs.toExponential(4) + ' m', DERIVED, '2GM/c²; G empirical (CODATA 2018), c exact'));
+        if (b.qt === null) rows.push(row('Q̃, the Reissner–Nordström charge', 'not defined', 'REFUSED', b.refused.filter(function (r) { return /^χ and Q̃/.test(r); }).join('; ')));
+        else rows.push(row('Q̃, the Reissner–Nordström charge', b.qt === 0 ? '0 (neutral)' : b.qt.toExponential(4) + (b.qt > 0 ? ' · decade ' + gravDecade(b.qt) + (gravRank(g.decades.charge, b.qt) === null ? ' (outside the index\'s alphabet)' : ', rank ' + gravRank(g.decades.charge, b.qt) + ' in the index') : ''), DERIVED, 'q e / (M √(4π ε₀ G))'));
+        if (b.massless) rows.push(row('χ, the Kerr spin', 'not defined', 'REFUSED', b.refused.filter(function (r) { return /^χ and Q̃/.test(r); }).join('; ')));
+        else if (b.tj === null) rows.push(row('χ, the Kerr spin', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^angular/.test(r); }).join('; ')));
         else {
           rows.push(row('2J', String(b.tj) + ' (J = ' + (b.tj % 2 ? b.tj + '/2' : b.tj / 2) + ')', b.tjStatus, b.tjNote));
-          rows.push(row('χ, the Kerr spin', b.chi === 0 ? '0 (J = 0)' : b.chi.toExponential(4) + ' · decade ' + gravDecade(b.chi) + (gravRank(g.decades.spin, b.chi) === null ? ' (outside the index\'s alphabet)' : ', rank ' + gravRank(g.decades.spin, b.chi) + ' in the index'), b.tjStatus === 'READ' ? 'DERIVED' : null, 'J ħ c / (G M²)' + (b.particle ? '' : ', the electronic part; the nuclear spin is not banked')));
-          rows.push(row('χ² + Q̃² against 1', (b.chi * b.chi + b.qt * b.qt).toExponential(3), b.tjStatus === 'READ' ? 'DERIVED' : null, 'a horizon exists exactly when this is ≤ 1; the excess is the ordinary statement that the body is not a black hole'));
+          rows.push(row('χ, the Kerr spin', b.chi === 0 ? '0 (J = 0)' : b.chi.toExponential(4) + ' · decade ' + gravDecade(b.chi) + (gravRank(g.decades.spin, b.chi) === null ? ' (outside the index\'s alphabet)' : ', rank ' + gravRank(g.decades.spin, b.chi) + ' in the index'), b.tjStatus ? DERIVED : null,
+                        'J ħ c / (G M²)' + (b.particle ? '' : (b.Jbasis === 'pairing' ? ', the whole angular momentum: the pairing rule sets an even-even nucleus\'s spin to 0' : ', the electrons\' part; the nuclear spin is not banked'))));
+          rows.push(row('χ² + Q̃² against 1', (b.chi * b.chi + b.qt * b.qt).toExponential(3), b.tjStatus ? DERIVED : null, 'a horizon exists exactly when this is ≤ 1; the excess is the ordinary statement that the body is not a black hole'));
         }
       }
-      if (b.particle) rows.push(row('J, the angular momentum', b.tj === null ? 'not printed' : (b.tj % 2 ? 'half-odd: cannot vanish' : (b.tj === 0 ? 'zero' : 'integer, non-zero')), b.tj === null ? 'REFUSED' : 'READ', 'the table\'s own J; a particle has no A + Ne to count'));
-      else if (b.F === null) rows.push(row('F, the total angular momentum', 'not decided: A is not fixed', 'REFUSED', 'give every isotope to fix A + Ne'));
-      else rows.push(row('F, the total angular momentum', b.F ? 'cannot vanish: A + Ne = ' + (b.A + b.Ne) + ' is odd' : (b.Jzero === true ? 'zero, established by the pairing rule' : 'may vanish: A + Ne is even' + (b.Jzero === false ? '; not zero here, J > 0' : '; whether it does is not established')), 'DERIVED', b.Jzero === true ? 'even-even nucleus with 2Je = 0: ' + nb.pairing_rule_status + ', not a theorem' : 'exact arithmetic on two integers, no nuclear datum used'));
-      gravBoundRows(g, b).forEach(function (r) { rows.push(row('horizon bound at D = ' + r.D, r.B === null ? 'undecided' : r.B + ' · ' + B_TEXT[r.B], r.B === null ? 'REFUSED' : 'DERIVED', r.note || (r.D === 4 ? 'Kerr–Newman covers every (M, Q, J) in four dimensions' : 'from an exact solution only; a root exists, not where; the D-dimensional constant is never valued'))); });
-      // the index cell, where the body is a charted member
-      if (b.single && b.A !== null && b.banked && !b.tjNote.match(/^typed/) && !num(values.level)) {
-        var ms = gravMembers(g), alpha = gravAlphabets(ms);
-        var m = { Z: b.atoms[0].Z, N: b.A - b.atoms[0].Z, A: b.A, q: b.q, Ne: b.Ne, tj: b.tj, L: b.banked.L, chi: b.chi, qt: b.qt, qual: b.atoms[0].row[5] };
-        rows.push(row('its cell in the gravity index at D = 4', '(' + gravCoords(g, m, alpha, 4).join(', ') + ')', 'DERIVED', '(D, B, F, X, Y, L, E); the same body at every dimension is on its plate in the explorer'));
+      rows.push(fRow(nb, b));
+      gravBoundRows(g, b).forEach(function (r) { rows.push(row('horizon bound at D = ' + r.D, r.B === null ? 'undecided' : r.B + ' · ' + B_TEXT[r.B], r.B === null ? 'REFUSED' : DERIVED, r.note || (r.D === 4 ? 'Kerr–Newman covers every (M, Q, J) in four dimensions' : 'from an exact solution only; a root exists, not where; the D-dimensional constant is never valued'))); });
+      // the index cell, where the nuclide is a charted member: the instrument's, at its banked level
+      if (b.single && b.A !== null && b.banked && b.tjSource !== 'typed' && !num(values.level)) {
+        var ms = gravMembers(g), alpha = gravAlphabets(ms), bk = b.banked, at0 = b.atoms[0];
+        var Mb = gravMass(g, b.A, at0.row[4], bk.q, bk.level_cm1);
+        var m = { Z: at0.Z, N: b.A - at0.Z, A: b.A, q: bk.q, Ne: b.Ne, tj: bk['2J'], L: bk.L, chi: gravChi(g, bk['2J'], Mb), qt: gravQt(g, bk.q, Mb), qual: at0.row[5] };
+        rows.push(row('its cell in the gravity index at D = 4', '(' + gravCoords(g, m, alpha, 4).join(', ') + ')', DERIVED,
+                      '(D, B, F, X, Y, L, E)' + (bk.L ? '; the index charts this nuclide at its banked level, ' + bk.config + ' ' + bk.term + ' (' + bk.level_cm1 + ' cm⁻¹), an excited level, and not at the ground this body is read at' : '') + '; the same body at every dimension is on its plate in the explorer'));
       } else if (b.single) rows.push(row('the gravity index', b.A === null ? 'no isotope: the index charts nuclides' : (b.banked ? 'not this reading: a typed J or level leaves the chart' : 'not a member: no level table is banked for this species'), null, 'the index charts every nuclide of every species a level table names, at its banked level'));
       // the reference, and the ratios
-      var ref = await read(values.reference || '^1H');
+      var ref = await read(values.reference || '^1H', false);
       if (ref.error) rows.push(row('reference', 'cannot read "' + values.reference + '": ' + ref.error, 'REFUSED', null));
       else {
         var rn = ref.particle ? ref.particle.name : ref.species.typeset;
-        rows.push(row('reference body', rn + (ref.M === null ? ' — no mass' : ', M = ' + (ref.M / g.K.U_KG).toFixed(6) + ' u'), ref.M === null ? 'REFUSED' : ref.massStatus, ref.refused.join('; ') || 'the body every ratio is taken against'));
-        if (b.M !== null && ref.M !== null) {
-          rows.push(row('relative gravity: M / M_ref', (b.M / ref.M).toPrecision(7), 'DERIVED', 'the field at equal distance scales as M, so this is the ratio of the two bodies\' fields there; r_s scales the same way'));
-          if (b.qt > 0 && ref.qt > 0) rows.push(row('Q̃ / Q̃_ref', (b.qt / ref.qt).toPrecision(6), 'DERIVED', null));
-          if (b.chi !== null && b.chi > 0 && ref.chi !== null && ref.chi > 0) rows.push(row('χ / χ_ref', (b.chi / ref.chi).toPrecision(6), b.tjStatus === 'READ' && ref.tjStatus === 'READ' ? 'DERIVED' : null, null));
-          else if (b.chi !== null && ref.chi === null) rows.push(row('χ / χ_ref', 'refused: the reference\'s J is not banked', 'REFUSED', null));
+        var rj = ref.tj === null ? '' : ', 2J = ' + ref.tj;
+        rows.push(row('reference body', rn + (ref.M === null ? ' — no mass' : ', M = ' + (ref.M / g.K.U_KG).toFixed(6) + ' u' + rj), ref.M === null ? 'REFUSED' : ref.massStatus, ref.refused.join('; ') || (ref.tjNote ? 'J: ' + ref.tjNote : 'the body every ratio is taken against')));
+        if (b.M !== null && ref.M !== null && ref.M > 0) {
+          rows.push(row('relative gravity: M / M_ref', (b.M / ref.M).toPrecision(7), DERIVED, 'the field at equal distance scales as M, so this is the ratio of the two bodies\' fields there; r_s scales the same way'));
+          if (b.qt > 0 && ref.qt > 0) rows.push(row('Q̃ / Q̃_ref', (b.qt / ref.qt).toPrecision(6), DERIVED, null));
+          if (b.chi !== null && b.chi > 0 && ref.chi !== null && ref.chi > 0) rows.push(row('χ / χ_ref', (b.chi / ref.chi).toPrecision(6), b.tjStatus && ref.tjStatus ? DERIVED : null, b.particle || ref.particle ? null : 'the electrons\' parts, as each row above reads them'));
+          else if (b.chi !== null && b.chi > 0 && ref.chi === null) rows.push(row('χ / χ_ref', 'refused: the reference\'s J is not held', 'REFUSED', null));
         }
       }
-      b.refused.forEach(function (r) { if (!/^(mass|angular)/.test(r)) rows.push(row('refused', r, 'REFUSED', null)); });
-      return { rows: rows, ok: true, message: 'computed for ' + name + ': the weakest status of the inputs is the status of the result' + (b.tjStatus === null && b.tj !== null ? ' (a typed J carries none)' : '') };
+      b.refused.forEach(function (r) { if (!/^(mass|angular|χ and Q̃)/.test(r)) rows.push(row('refused', r, 'REFUSED', null)); });
+      return { rows: rows, ok: true, html: sourcesHtml(nb), message: 'computed for ' + name + ': the weakest status of the inputs is the status of the result' + (b.tjSource === 'typed' ? ' (a typed J carries none)' : '') };
     },
     selftest: async function (ctx) {
       var ck = new Checker();
@@ -8082,6 +8257,51 @@ var SOLVERS, LIB;
       ck.near('⁵⁶Fe²⁺: mass = the nuclide less two electrons', fe.M / g.K.U_KG, fx.iron_56_u - 2 * g.K.M_E / g.K.U_KG, 1e-6);
       ck.ok('a molecule\'s χ is refused rather than inferred', w.tj === null && w.refused.some(function (r) { return /^angular/.test(r); }), 'refused', 'refused');
       ck.ok('U-238, D2O and 56Fe are read as isotopes', gravSpecies('U-238').atoms[0].A === 238 && gravSpecies('D2O').atoms.find(function (a) { return a.el === 'H'; }).A === 2 && gravSpecies('56Fe').atoms[0].A === 56, true, true);
+      // the CIAAW tables: an element without its isotope is its most abundant one, and has a molar mass
+      var cf = fx.ciaaw || {};
+      ck.eq('the CIAAW tables travel with the mass table', [Object.keys(g.aw).length, cf.weights], [84, 84]);
+      ck.eq('the most abundant isotope, as the build chose it', Object.keys(cf.most_abundant || {}).map(function (z) { return g.top[z] ? g.top[z].A : null; }), Object.keys(cf.most_abundant || {}).map(function (z) { return cf.most_abundant[z]; }));
+      var fe0 = gravBody(g, gravSpecies('Fe'), { ground: { term: '5D4' } });
+      ck.near('Fe with no isotope: ⁵⁶Fe, the most abundant, its exact mass', fe0.M / g.K.U_KG, fx.iron_56_u, 1e-9);
+      ck.eq('...said to be chosen, and so DERIVED', [fe0.atoms[0].A, fe0.atoms[0].chosen, fe0.massStatus], [56, true, 'DERIVED']);
+      ck.eq('...its molar mass the standard atomic weight, 55.845', fe0.molar.value, '55.845');
+      ck.eq('Fe I: J from the ground term ⁵D₄ (2J = 8), and F ≠ 0 by the pairing rule', [fe0.tj, fe0.tjSource, fe0.Jzero, fe0.Jbasis], [8, 'ground', false, 'pairing']);
+      ck.eq('...so the bound class is decided at every dimension: rotating', gravBoundRows(g, fe0).map(function (r) { return r.B; }), [1, 1, 0, 0, 0, 0, 0, 0]);
+      ck.eq('water: 18.015 g/mol from the standard atomic weights', gravMolar(g, gravSpecies('water')).value, String(cf.water_molar));
+      ck.eq('Fe³⁺: the ion\'s molar mass less three electrons', gravMolar(g, gravSpecies('Fe3+')).value, '55.843');
+      ck.ok('Tc has no isotope in nature: mass and molar mass refused, not invented', (function () { var t = gravBody(g, gravSpecies('Tc'), {}); return t.M === null && /no isotope that occurs in nature/.test(t.refused.join(' ')) && !!t.molar.refused; })(), 'refused', 'refused');
+      // an excited banked level is never the lowest: ¹²C reads at the ground, the index cell at its level
+      var c0 = gravBody(g, gravSpecies('^12C'), { ground: { term: '3P0' } });
+      ck.eq('¹²C: the banked C I table starts above the ground, so the ground term ³P₀ is used', [c0.banked && c0.banked.L, c0.tjSource, c0.tj, c0.level], [1, 'ground', 0, 0]);
+      ck.near('...and the mass is exactly 12 u, no excitation added', c0.M / g.K.U_KG, 12, 1e-12);
+      ck.eq('...J = 0 on an even-even nucleus: static, established', [c0.Jzero, c0.Jbasis], [true, 'pairing']);
+      var fe15 = gravBody(g, gravSpecies('^56Fe^14+'), {});
+      ck.ok('Fe XV: banked only above the ground, and no ion ground term is held: χ refused, the mass at the ground', fe15.tj === null && fe15.level === 0 && /starts above the ground/.test(fe15.refused.join(' ')), 'refused', 'refused');
+      // J ≠ 0 from the electrons is not F ≠ 0 when the nuclear spin is not held
+      var h1 = gravBody(g, gravSpecies('^1H'), { ground: { term: '2S1/2' } });
+      ck.eq('¹H: 2J = 1 from the ground term, but F may vanish (it does: the hyperfine ground is F = 0)', [h1.tj, h1.F, h1.Jzero], [1, 0, null]);
+      ck.eq('...so only the dimensions where both branches agree are decided', gravBoundRows(g, h1).map(function (r) { return r.B; }), [null, null, 0, 0, 0, 0, 0, 0]);
+      ck.eq('groundTwoJ reads every form the records print', ['5D4', '2S1/2', '2P*3/2', '(1/2,1/2)0', '5/2', '4', '6H*15/2', '5L*6'].map(groundTwoJ), [8, 1, 3, 0, 5, 8, 15, 12]);
+      // bare nuclei and particles by name
+      var al = gravBody(g, gravSpecies('alpha particle'), {});
+      ck.eq('alpha particle: the bare ⁴He²⁺, no electron, spin 0 by the pairing rule', [al.Z, al.Ne, al.A, al.tj, al.Jzero], [2, 0, 4, 0, true]);
+      ck.eq('deuteron: ²H⁺, its spin not banked, so χ is refused', (function () { var d = gravBody(g, gravSpecies('deuteron'), {}); return [d.A, d.Ne, d.tj]; })(), [2, 0, null]);
+      ck.eq('particle names: proton, electrons, muon, photon', ['proton', 'electrons', 'muon', 'photon'].map(function (n) { return particleAlias(n).name; }), ['p', 'e-', 'mu-', 'gamma']);
+      ck.eq('a name that is several particles is listed, never chosen', particleAlias('pion').names, ['pi+', 'pi0', 'pi-']);
+      ck.eq('iron is not a particle', particleAlias('iron'), null);
+      var pxs = ctx.particlesLoaded ? ctx.particlesLoaded() : null;
+      if (!pxs && ctx.particles) { try { pxs = await ctx.particles(); } catch (err) { pxs = null; } }
+      if (pxs) {
+        var pr = gravParticleBody(g, pxs, 'proton'), gm = gravParticleBody(g, pxs, 'photon');
+        ck.eq('proton read as the baryon p, 2J = 1, charge 1', [pr && pr.particle.name, pr && pr.tj, pr && pr.q], ['p', 1, 1]);
+        ck.eq('photon: massless, so χ and Q̃ are refused, not infinite', [gm && gm.M, gm && gm.chi, gm && gm.qt, gm && gm.massless], [0, null, null, true]);
+      } else ck.notes.push('the particle indexes could not be loaded, so the two particle checks were not run');
+      // the mode as a reader runs it: the record's ground term for iron and for the reference hydrogen
+      var res = await MODE_GRAVITY.run({ species: 'Fe', two_j: '', level: '', reference: '^1H' }, ctx);
+      var rtext = function (lab) { var r = (res.rows || []).find(function (x) { return x.label === lab; }); return r ? String(r.value) : null; };
+      ck.eq('a run on "Fe": χ computed, D = 4 decided, the χ ratio against ¹H computed', [/^\d/.test(rtext('χ, the Kerr spin') || ''), rtext('horizon bound at D = 4'), /^\d/.test(rtext('χ / χ_ref') || '')], [true, '1 · a bound', true]);
+      var res2 = await MODE_GRAVITY.run({ species: '^56Fe', two_j: '2', level: '', reference: '^1H' }, ctx);
+      ck.ok('a typed 2J is the body\'s alone: the reference keeps its own', /2J = 1\b/.test(((res2.rows || []).find(function (x) { return x.label === 'reference body'; }) || {}).value || ''), 'kept', 'kept');
       return ck.result();
     },
   };
@@ -8092,55 +8312,68 @@ var SOLVERS, LIB;
     requires: 'nuclides',
     title: 'Build an atom, ion or molecule',
     status: DERIVED,
-    statusNote: 'A formula read into what the index holds of it: each atom\'s record and banked ground level where held, the electrons, protons and nucleons counted, the exact mass from the mass table where every isotope is given, and the gravitational quantities of the gravity mode. It draws no bond and defines none: the finding on this site is that a bond cannot be indexed, and the builder carries that refusal rather than inventing a bond order.',
-    description: 'Write an atom, ion or molecule by formula or by name: Fe, Fe3+, ^56Fe2+, H2O, D2O, SO4^2-, NH4+, U-238, ^1H2^16O — or iron, water, carbon dioxide, iron(III) oxide, ammonium sulfate, sulfate, carbon-14, deuterium. A name is read into a formula by the page\'s naming rules (IUPAC element names, isotope names, Stock numerals and charge balance for salts, Greek prefixes for binary compounds, a short table of trivial names) and the reading is shown; a metal whose charge is not fixed is refused without its numeral. The reader is the chemistry modes\' own, with isotopes as a caret prefix, leading digits or a dash. Values it cannot derive from what is held are refused by name.',
+    statusNote: 'A formula read into what the index holds of it: each atom\'s record and ground level, the electrons, protons and nucleons counted, the exact mass from the mass table (each element\'s most abundant isotope where none is typed, by the CIAAW compositions), the molar mass of the natural substance from the CIAAW standard atomic weights, and the gravitational quantities of the gravity mode. It draws no bond and defines none: the finding on this site is that a bond cannot be indexed, and the builder carries that refusal rather than inventing a bond order.',
+    description: 'Write an atom, ion or molecule by formula or by name: Fe, Fe3+, ^56Fe2+, H2O, D2O, SO4^2-, NH4+, U-238, ^1H2^16O — or iron, water, glucose, carbon dioxide, iron(III) oxide, ammonium sulfate, sulfate, carbon-14, deuterium, alpha particle. A name is read into a formula by the page\'s naming rules (IUPAC element names, isotope and bare-nucleus names, Stock numerals and charge balance for salts, Greek prefixes for binary compounds, a short table of trivial names) and the reading is shown; a metal whose charge is not fixed is refused without its numeral. An element written without its isotope is its most abundant one, said so; the molar mass of the substance as found in nature is the sum of the CIAAW standard atomic weights. Values it cannot derive from what is held are refused by name.',
     inputs: [
-      { name: 'formula', label: 'atom, ion or molecule', type: 'text', default: 'H2O', help: 'a formula (H2O, Fe3+, ^56Fe) or a name (water, iron, carbon dioxide, iron(III) oxide, carbon-14)' },
-      { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'for χ; blank uses the banked level of a single species, else refuses' },
+      { name: 'formula', label: 'atom, ion or molecule', type: 'text', default: 'H2O', help: 'a formula (H2O, Fe3+, ^56Fe) or a name (water, iron, glucose, iron(III) oxide, carbon-14, alpha particle)' },
+      { name: 'two_j', label: '2J (optional)', type: 'number', default: '', help: 'for χ; blank uses the banked ground level or a neutral atom\'s ground term, else refuses' },
     ],
     source: { instrument: 'parseFormula', file: 'this page\'s solver module', also: ['members'] },
     run: async function (values, ctx) {
       var nb = await ctx.nuclides(); if (!nb) return fail('data/nuclides.js is not carried by this build');
       var g = gravSetup(nb);
       var sp = gravSpecies(values.formula);
-      if (sp.errors.length) return fail('cannot read "' + values.formula + '": ' + sp.errors.join('; '));
-      if (!sp.atoms.length) return fail('no atoms read from "' + values.formula + '"');
-      var b = gravBody(g, sp, { twoJ: int(values.two_j) });
+      if (sp.errors.length || !sp.atoms.length) {
+        var al = particleAlias(values.formula);
+        if (al) {
+          var r0 = fail(al.names ? al.reading + '. A particle is not an atom or molecule; the gravity mode reads it.' : '"' + String(values.formula).trim() + '" is the particle ' + al.name + ', not an atom or molecule: the gravity mode reads its mass, charge and J from the particle indexes.');
+          if (!al.names) r0.html = '<p class="note"><button type="button" class="pchip" data-solver="gravity" data-fill=\'' + JSON.stringify({ species: String(values.formula).trim() }).replace(/'/g, '&#39;') + '\'>relative gravity of ' + al.name + ' →</button></p>';
+          return r0;
+        }
+        return fail(sp.errors.length ? 'cannot read "' + values.formula + '": ' + sp.errors.join('; ') : 'no atoms read from "' + values.formula + '"');
+      }
+      var b = gravBody(g, sp, { twoJ: int(values.two_j), ground: await groundFor(ctx, sp) });
       var rows = [], html = '';
-      var kind = b.single ? (sp.charge ? 'an ion' : 'an atom') : (sp.charge ? 'a molecular ion' : 'a molecule');
+      var kind = b.single ? (b.Ne === 0 ? 'a bare nucleus' : (sp.charge ? 'an ion' : 'an atom')) : (sp.charge ? 'a molecular ion' : 'a molecule');
       rows.push(row('reading', sp.typeset + ' — ' + kind + ', ' + sp.atoms.reduce(function (n, a) { return n + a.n; }, 0) + ' atoms of ' + sp.atoms.length + ' element' + (sp.atoms.length > 1 ? 's' : ''), null, sp.notes.join('; ') || 'the chemistry modes\' reader, with isotopes'));
-      rows.push(row('protons Z, electrons Ne', b.Z + ', ' + b.Ne + (b.Ne % 2 ? ' (odd)' : ' (even)'), 'DERIVED', 'Ne = Z − q'));
-      rows.push(row('nucleons A, neutrons N', b.A === null ? 'not fixed: no isotope for ' + sp.atoms.filter(function (a) { return !a.A; }).map(function (a) { return a.el; }).join(', ') : b.A + ', ' + (b.A - b.Z), b.A === null ? 'REFUSED' : 'DERIVED', 'A from the isotopes given; the table holds no abundances, so none is assumed'));
-      if (b.M === null) rows.push(row('mass', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^mass/.test(r); }).join('; ')));
+      rows.push(row('protons Z, electrons Ne', b.Z + ', ' + b.Ne + (b.Ne % 2 ? ' (odd)' : ' (even)'), DERIVED, 'Ne = Z − q'));
+      rows.push(row('nucleons A, neutrons N', b.A === null ? 'not fixed' : b.A + ', ' + (b.A - b.Z), b.A === null ? 'REFUSED' : DERIVED,
+                    b.A === null ? b.refused.filter(function (r) { return /^mass/.test(r); }).join('; ') : (b.chosen ? 'the most abundant isotope of ' + b.atoms.filter(function (a) { return a.chosen; }).map(function (a) { return a.el + ' (' + a.el + '-' + a.A + ')'; }).join(', ') + ', none typed' + (b.typed ? '; the rest as typed' : '') : 'the isotopes as typed')));
+      var mr = molarRow(g, b); if (mr) rows.push(mr);
+      if (b.M === null) rows.push(row('mass M', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^mass/.test(r); }).join('; ')));
       else {
-        rows.push(row('mass M', (b.M / g.K.U_KG).toFixed(6) + ' u = ' + b.M.toExponential(6) + ' kg', b.massStatus, nb.mass_formula + ' summed over the atoms; electron binding neglected and bounded'));
-        rows.push(row('Schwarzschild radius r_s', b.rs.toExponential(4) + ' m', 'DERIVED', '2GM/c²'));
-        rows.push(row('Q̃', b.qt === 0 ? '0 (neutral)' : b.qt.toExponential(4), 'DERIVED', 'q e / (M √(4π ε₀ G))'));
-        if (b.chi !== null) rows.push(row('χ', b.chi === 0 ? '0 (J = 0)' : b.chi.toExponential(4), b.tjStatus === 'READ' ? 'DERIVED' : null, b.tjNote));
+        rows.push(row('mass M' + (b.chosen ? ' (the most abundant isotopologue)' : ''), (b.M / g.K.U_KG).toFixed(6) + ' u = ' + b.M.toExponential(6) + ' kg', b.massStatus, nb.mass_formula + ' summed over the atoms, at the ground level; electron binding neglected and bounded'));
+        rows.push(row('Schwarzschild radius r_s', b.rs.toExponential(4) + ' m', DERIVED, '2GM/c²'));
+        rows.push(row('Q̃', b.qt === 0 ? '0 (neutral)' : b.qt.toExponential(4), DERIVED, 'q e / (M √(4π ε₀ G))'));
+        if (b.chi !== null) rows.push(row('χ', b.chi === 0 ? '0 (J = 0)' : b.chi.toExponential(4), b.tjStatus ? DERIVED : null, b.tjNote));
         else rows.push(row('χ', 'refused', 'REFUSED', b.refused.filter(function (r) { return /^angular/.test(r); }).join('; ')));
       }
-      if (b.F !== null) rows.push(row('F, the total angular momentum', b.F ? 'cannot vanish: A + Ne is odd' : 'may vanish: A + Ne is even', 'DERIVED', 'parity of the fermion count, no other datum'));
+      if (b.F !== null) rows.push(fRow(nb, b));
       // each atom's record
       var chips = [];
       for (var i = 0; i < b.atoms.length; i++) {
         var a = b.atoms[i], rec = null;
         try { rec = ctx.element(a.Z) || await ctx.load(a.Z); } catch (err) { rec = null; }
-        var iso = a.A ? (a.row ? a.el + '-' + a.A + ' (' + (a.row[5] === 'M' ? 'measured' : 'estimated') + ', N = ' + a.N + ')' : a.el + '-' + a.A + ' not in the table') : a.nuclides + ' nuclides held, none chosen';
+        var iso = a.A ? (a.row ? a.el + '-' + a.A + ' (' + (a.chosen ? 'the most abundant, ' : '') + (a.row[5] === 'M' ? 'mass measured' : 'mass estimated') + ', N = ' + a.N + ')' : a.el + '-' + a.A + ' not in the table') : a.nuclides + ' nuclides held, none occurring in nature';
         var conf = rec && rec.populated ? rec.shells_as_printed + (rec.level ? ' · ' + rec.level : '') : (rec ? 'not populated (Z > 108)' : 'no record');
         var chs = rec && rec.channels ? rec.channels.length : 0;
         var ions = rec && rec.channels ? Object.keys(rec.channels.reduce(function (o, c) { o[c.charge] = 1; return o; }, {})).length : 0;
-        var st = b.single ? g.species[a.Z + '/' + sp.charge] : g.species[a.Z + '/0'];
-        rows.push(row(a.el + (a.n > 1 ? ' ×' + a.n : ''), 'Z = ' + a.Z + '; ' + iso + '; neutral ground configuration ' + conf + '; ' + chs + ' channels over ' + ions + ' ions in the index' + (st ? '; banked lowest level of ' + st.symbol + ' ' + st.stage + ': ' + st.config + ' ' + st.term + ', J = ' + (st['2J'] % 2 ? st['2J'] + '/2' : st['2J'] / 2) : '; no level table banked for ' + a.el + ' ' + (ROMAN_OF[(b.single ? sp.charge : 0) + 1] || '')), rec && rec.populated ? 'READ' : null, 'the element\'s record; open it for every ion and channel'));
+        var q0 = b.single ? sp.charge : 0, st = g.species[a.Z + '/' + q0];
+        var lvl = st ? (st.L ? '; the banked ' + st.symbol + ' ' + st.stage + ' level table starts above the ground, at ' + st.config + ' ' + st.term : '; banked ground level of ' + st.symbol + ' ' + st.stage + ': ' + st.config + ' ' + st.term + ', J = ' + (st['2J'] % 2 ? st['2J'] + '/2' : st['2J'] / 2))
+                     : '; no level table banked for ' + a.el + ' ' + (ROMAN_OF[q0 + 1] || '');
+        var w = g.aw[a.Z];
+        rows.push(row(a.el + (a.n > 1 ? ' ×' + a.n : ''), 'Z = ' + a.Z + '; ' + iso + (w ? '; standard atomic weight ' + (w.kind === 'interval' ? '[' + w.low + ', ' + w.high + '], abridged ' + w.value : w.value + '(' + Math.round(parseFloat(w.unc) * Math.pow(10, decimals(w.value))) + ')') + (w.edition === '2024' ? ' (revised 2024)' : '') : '; no standard atomic weight') +
+                      '; neutral ground configuration ' + conf + '; ' + chs + ' channels over ' + ions + ' ions in the index' + lvl, rec && rec.populated ? READ : null, 'the element\'s record; open it for every ion and channel'));
         chips.push('<button type="button" class="pchip" data-go="' + a.Z + '">' + a.el + ' · Z = ' + a.Z + '</button>' + (b.single && sp.charge > 0 && rec && rec.populated ? '<button type="button" class="pchip" data-go="' + a.Z + '/' + (sp.charge + 1) + '">' + a.el + ' ' + (ROMAN_OF[sp.charge + 1] || '') + '</button>' : ''));
       }
       if (b.single && sp.charge > 0) {
         var rec1 = ctx.element(b.atoms[0].Z);
         var lad = rec1 && rec1.lambda8 ? rec1.lambda8.find(function (s) { return s.charge === sp.charge + 1; }) : null;
-        if (lad) rows.push(row('Λ₈ cell of the ion', '(' + lad.cell.map(function (v) { return v === null ? '·' : v; }).join(', ') + ') — ' + lad.from + ' → ' + lad.to + (lad.constraints.every(function (c) { return c.holds; }) ? ', every constraint holds' : ', a constraint FAILS'), 'RECONSTRUCTED', 'the ionisation ladder\'s cell for this stage, as the element\'s record carries it'));
+        if (lad) rows.push(row('Λ₈ cell of the ion', '(' + lad.cell.map(function (v) { return v === null ? '·' : v; }).join(', ') + ') — ' + lad.from + ' → ' + lad.to + (lad.constraints.every(function (c) { return c.holds; }) ? ', every constraint holds' : ', a constraint FAILS'), RECONSTRUCTED, 'the ionisation ladder\'s cell for this stage, as the element\'s record carries it'));
       }
       if (!b.single) rows.push(row('bonds', 'none drawn, none defined', 'REFUSED', 'the finding on this site is that a bond cannot be indexed: a molecular orbital is not a bond, the atomic bond is the orbital already charted, and a scattering channel is a magnitude; see the Indexes dialog, "Can a bond be indexed?"'));
       b.refused.forEach(function (r) { if (!/^(mass|angular)/.test(r)) rows.push(row('refused', r, 'REFUSED', null)); });
-      html = '<p class="note">Records: ' + chips.join(' ') + ' <button type="button" class="pchip" data-solver="gravity" data-fill=\'' + JSON.stringify({ species: values.formula }).replace(/'/g, '&#39;') + '\'>relative gravity of this body →</button></p>';
+      html = '<p class="note">Records: ' + chips.join(' ') + ' <button type="button" class="pchip" data-solver="gravity" data-fill=\'' + JSON.stringify({ species: values.formula }).replace(/'/g, '&#39;') + '\'>relative gravity of this body →</button></p>' + sourcesHtml(nb);
       return { rows: rows, html: html, ok: true, message: 'built ' + sp.typeset + ' from what the index holds; everything it does not hold is refused by name' };
     },
     selftest: async function (ctx) {
@@ -8149,8 +8382,11 @@ var SOLVERS, LIB;
       if (!nb) { ck.ok('data/nuclides.js present', false, 'absent', 'present'); return ck.result(); }
       var g = gravSetup(nb), fx = nb.fixtures || {};
       var w = gravBody(g, gravSpecies('H2O'), {});
-      ck.eq('H2O: Z, Ne, A unfixed', [w.Z, w.Ne, w.A], [10, 10, null]);
-      ck.ok('H2O: mass refused without isotopes', w.M === null, 'refused', 'refused');
+      ck.eq('H2O with no isotope: the most abundant isotopologue ¹H₂¹⁶O, A = 18, said to be chosen', [w.Z, w.Ne, w.A, w.chosen, w.typed], [10, 10, 18, true, false]);
+      ck.near('...its exact mass from the table', w.M / g.K.U_KG, fx.water_u, 1e-9);
+      ck.eq('...and the natural substance\'s molar mass, 18.015 g/mol', w.molar.value, '18.015');
+      var gl = gravBody(g, gravSpecies('glucose'), {});
+      ck.eq('glucose: C₆H₁₂O₆, 180.156 g/mol', [gl.Z, gl.molar.value], [96, '180.156']);
       var w2 = gravBody(g, gravSpecies('^1H2^16O'), {});
       ck.near('¹H₂¹⁶O: exact mass from the table', w2.M / g.K.U_KG, fx.water_u, 1e-6);
       var d2o = gravSpecies('D2O');
@@ -8164,7 +8400,11 @@ var SOLVERS, LIB;
       var c = gravBody(g, gravSpecies('^12C'), { level: 0 });
       ck.near('¹²C at the ground level: exactly 12 u', c.M / g.K.U_KG, 12, 1e-12);
       var cb = gravBody(g, gravSpecies('^12C'), {});
-      ck.ok('¹²C at its banked level: the excitation mass is included, above 12 u by the level\'s energy', cb.M / g.K.U_KG > 12 && cb.level > 0 && cb.banked && cb.banked.L === 1, 'included', 'included');
+      ck.ok('¹²C with no level given: the ground, never the banked excited level (C I starts at 3s ³P°)', Math.abs(cb.M / g.K.U_KG - 12) < 1e-12 && cb.level === 0 && cb.banked && cb.banked.L === 1, 'the ground', 'the ground');
+      var pr = await MODE_BUILDER.run({ formula: 'proton', two_j: '' }, ctx);
+      ck.eq('proton: the bare nucleus ¹H⁺, no electron, its spin forced non-zero by an odd count', (function () { var r = (pr.rows || []).find(function (x) { return x.label === 'protons Z, electrons Ne'; }); return [pr.ok, r ? r.value : null]; })(), [true, '1, 0 (even)']);
+      var el = await MODE_BUILDER.run({ formula: 'electron', two_j: '' }, ctx);
+      ck.ok('electron: a particle, sent to the gravity mode rather than refused unread', !el.ok && /particle e-/.test(el.message) && /data-solver="gravity"/.test(el.html || ''), 'sent', 'sent');
       ck.ok('a molecule refuses χ and the bond', w2.tj === null, 'refused', 'refused');
       ck.ok('an unknown symbol is an error, not a guess', gravSpecies('Xx2').errors.length > 0, 'error', 'error');
       // names read into formulas, the reading shown and nothing guessed
@@ -8197,6 +8437,7 @@ var SOLVERS, LIB;
     label: label, roman: roman, FALLBACK_COEF: FALLBACK_COEF, COEF_NAMES: COEF_NAMES,
     parseFormula: parseFormula, checkEquation: checkEquation, checkAnswer: checkAnswer, balanceEquation: balanceEquation, SYMBOL_Z: SYMBOL_Z,
     gravSpecies: gravSpecies, gravBody: gravBody, gravSetup: gravSetup, gravMembers: gravMembers, gravBound: gravBound,
+    gravMolar: gravMolar, gravBoundRows: gravBoundRows, groundTwoJ: groundTwoJ, particleAlias: particleAlias,
     resolveName: resolveName, nameZ: nameZ, zOf: zOf
   };
 

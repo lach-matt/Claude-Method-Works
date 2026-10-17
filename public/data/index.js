@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-10-16T19:59:27+00:00",
-  "commit": "83d55b46f5c0",
+  "built": "2026-10-17T22:14:43+00:00",
+  "commit": "057607f25939",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "83d55b46f5c0",
-   "text": "Lach, M. (2026). The Master Index, edition 83d55b46f5c0. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 83d55b46f5c0}\n}"
+   "commit": "057607f25939",
+   "text": "Lach, M. (2026). The Master Index, edition 057607f25939. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 057607f25939}\n}"
   },
   "history": [
    {
@@ -407,6 +407,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "commit": "83d55b46",
     "files": 2,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/83d55b46f5c0e1128a4e2cfa10e437a847e47820",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "433ac527",
+    "files": 3,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/433ac527a94365f1bb983b6b873151cdbe7bc881",
+    "note": null
+   },
+   {
+    "date": "2026-10-16",
+    "commit": "98300bae",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/98300bae9f4bd3b1fdda5a179f70496332267f12",
     "note": null
    }
   ]
@@ -1000,9 +1014,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "file": "data/nuclides.js",
-   "bytes": 162619,
-   "md5": "bafd443ca161653e19387d5a478fd04c",
-   "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"
+   "bytes": 187863,
+   "md5": "a5265c515bc3ff0645fbe9c65d053f7d",
+   "what": "the nuclides of AME2020 Table I with the banked levels, and the CIAAW standard atomic weights and isotopic compositions: what the gravity and builder modes compute over"
   },
   {
    "file": "data/LOWDIN-WALK.tsv",
@@ -10652,8 +10666,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  },
  "nuclides": {
   "file": "data/nuclides.js",
-  "bytes": 162619,
-  "md5": "bafd443ca161653e19387d5a478fd04c",
+  "bytes": 187863,
+  "md5": "a5265c515bc3ff0645fbe9c65d053f7d",
   "nuclides": 3558,
   "species": 126,
   "source": {
@@ -10674,7 +10688,14 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "quality_note": "M measured, otherwise estimated, from the table's own flag",
    "status": "READ"
   },
-  "protocol": "data/nuclides.js sets window.__mi.nuclides, loaded on demand by the gravity and builder modes"
+  "protocol": "data/nuclides.js sets window.__mi.nuclides, loaded on demand by the gravity and builder modes",
+  "ciaaw": {
+   "weights": 84,
+   "isotopes": 289,
+   "weights_md5": "4f4ee68526dd188d1b5a03ba12c35d3f",
+   "compositions_md5": "a845f4d265f92839987962eabfa42f42",
+   "doi": "10.1515/pac-2019-0603"
+  }
  },
  "references": {
   "note": "identifiers the index's sources cite, found at build by pattern and linked by construction; a compilation named without an identifier is cited as a string and not linked, because the target would be invented. A citing line is quoted only from a paper released to the site.",

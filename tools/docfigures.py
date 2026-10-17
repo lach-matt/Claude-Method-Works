@@ -227,6 +227,8 @@ def checks():
          sum(1 for p in man if re.search(r"figures_BUILD\d+\.zip$", p))),
         ("CLAUDE.md", "__<driveFileId> duplicates", 100,
          sum(1 for p in man if "__" in os.path.basename(p))),
+        ("CLAUDE.md", "tables/ciaaw/ standard atomic weights", 84, len(_rows("tables/ciaaw/STANDARD-ATOMIC-WEIGHTS.tsv"))),
+        ("CLAUDE.md", "tables/ciaaw/ isotopes in the compositions", 289, len(_rows("tables/ciaaw/ISOTOPIC-COMPOSITIONS.tsv"))),
         # the reconstructed walk: LOWDIN-WALK.tsv through the instrument's own summary
         ("docs/LOWDIN-WALK.md", "LOWDIN-WALK rows", 476, len(_rows("LOWDIN-WALK.tsv"))),
         ("docs/LOWDIN-WALK.md", "walk lx: entrant = observed gain at c = 137.035999", 96,

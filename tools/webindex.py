@@ -2630,6 +2630,44 @@ def _ledger_md5(rel):
 NUCLIDES_JS = "nuclides.js"
 NUCLIDES_PREFIX = "window.__mi = window.__mi || {}; window.__mi.nuclides = "
 AME_REL = "extracted/archives/restore-point-2-13/captures/AME2020-TableI.tsv"
+CIAAW_DIR = "tables/ciaaw"
+
+
+def ciaaw_block():
+    """The CIAAW standard atomic weights and isotopic compositions, as tools/atomicweights.py
+    captured them into tables/ciaaw/: what the builder and gravity modes give when no isotope
+    is typed. Every value travels as the table prints it; the browser picks the most abundant
+    isotope from the representative compositions and sums the weights, nothing else."""
+    def rows(name):
+        path = os.path.join(REPO, CIAAW_DIR, name)
+        with open(path, "rb") as fh:
+            blob = fh.read()
+        lines = blob.decode("utf-8").splitlines()
+        head = lines[0].split("\t")
+        return [dict(zip(head, l.split("\t"))) for l in lines[1:] if l.strip()], hashlib.md5(blob).hexdigest()
+    w, w_md5 = rows("STANDARD-ATOMIC-WEIGHTS.tsv")
+    c, c_md5 = rows("ISOTOPIC-COMPOSITIONS.tsv")
+    cap, _ = rows("CAPTURE.tsv")
+    cap = {r["key"]: r["value"] for r in cap}
+    top = {}
+    for r in c:
+        z, rep = int(r["Z"]), float(r["representative"])
+        if z not in top or rep > top[z][1]:
+            top[z] = (int(r["A"]), rep)
+    water = 2 * float(next(r for r in w if r["Z"] == "1")["value"]) + float(next(r for r in w if r["Z"] == "8")["value"])
+    return {
+        "atomic_weights": {"source": {"citation": cap["weights_citation"], "doi": cap["weights_doi"], "path": CIAAW_DIR + "/STANDARD-ATOMIC-WEIGHTS.tsv",
+                                      "md5": w_md5, "route": "%s, sha256 %s; %s" % (cap["source"], cap["wheel_sha256"][:16], cap["revised_2024"]),
+                                      "status": "READ"},
+                           "columns": ["Z", "symbol", "kind", "value", "uncertainty", "low", "high", "notes", "edition"],
+                           "rows": [[int(r["Z"]), r["symbol"], r["kind"], r["value"], r["uncertainty"], r["low"], r["high"], r["notes"], r["edition"]] for r in w]},
+        "compositions": {"source": {"citation": cap["compositions_citation"], "doi": cap["compositions_doi"], "path": CIAAW_DIR + "/ISOTOPIC-COMPOSITIONS.tsv",
+                                    "md5": c_md5, "not_followed": cap["not_followed"], "status": cap["status"]},
+                         "columns": ["Z", "A", "value", "uncertainty", "low", "high", "representative", "status", "edition"],
+                         "rows": [[int(r["Z"]), int(r["A"]), r["value"], r["uncertainty"], r["low"], r["high"], float(r["representative"]), r["status"], r["edition"]] for r in c]},
+        "fixtures": {"weights": len(w), "revised_2024": sum(1 for r in w if r["edition"] == "2024"), "isotopes": len(c),
+                     "water_molar": round(water, 3), "most_abundant": {str(z): top[z][0] for z in (1, 6, 7, 8, 26, 40, 82, 92)}},
+    }
 
 
 def nuclides_block(G, grav, out_dir=OUT, write=True):
@@ -2658,7 +2696,9 @@ def nuclides_block(G, grav, out_dir=OUT, write=True):
         "species": grav["species"]["rows"],
         "species_note": grav["species"]["note"],
         "mass_formula": grav["data"]["mass_formula"],
+        **{k: v for k, v in ciaaw_block().items() if k != "fixtures"},
         "fixtures": {"nuclides": len(nuc), "carbon_12_u": grav["data"]["carbon_12"]["mass_u"], "members": grav["members"], "rows": grav["rows_charted"],
+                     "ciaaw": ciaaw_block()["fixtures"],
                      "cells": grav["cells"], "cells_at_D": {str(d["D"]): d["cells"] for d in grav["dimension"]["per_D"]},
                      "forced": am["forced"], "vanishes": am["vanishes"], "undetermined": am["undetermined"], "schwarzschild": am["schwarzschild"]["count"],
                      "relieved": grav["dimension"]["relieved"]["count"],
@@ -2674,7 +2714,10 @@ def nuclides_block(G, grav, out_dir=OUT, write=True):
         with open(os.path.join(out_dir, NUCLIDES_JS), "wb") as fh:
             fh.write(text)
     return {"file": "data/" + NUCLIDES_JS, "bytes": len(text), "md5": hashlib.md5(text).hexdigest(), "nuclides": len(nuc), "species": len(body["species"]),
-            "source": body["source"], "protocol": body["protocol"]}
+            "source": body["source"], "protocol": body["protocol"],
+            "ciaaw": {"weights": len(body["atomic_weights"]["rows"]), "isotopes": len(body["compositions"]["rows"]),
+                      "weights_md5": body["atomic_weights"]["source"]["md5"], "compositions_md5": body["compositions"]["source"]["md5"],
+                      "doi": body["atomic_weights"]["source"]["doi"]}}
 
 
 def _nuclide_u(G, Z, A, q=0):
@@ -4186,7 +4229,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
                                                                             "; byte-identical to the copy the author released to the witness folder" if (p["pdf"].get("witness") or {}).get("match") else "")}
               for p in papers["papers"] if p.get("pdf")],
             {"file": pindex["file"], "bytes": pindex["bytes"], "md5": pindex["md5"], "what": "the particle indexes: 572 members of the PDG 2026 table with their coordinates and statuses, the nuclear band levels, the gravity index and the register"} if pindex else None,
-            {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels: what the gravity and builder modes compute over"} if nuclides else None,
+            {"file": nuclides["file"], "bytes": nuclides["bytes"], "md5": nuclides["md5"], "what": "the nuclides of AME2020 Table I with the banked levels, and the CIAAW standard atomic weights and isotopic compositions: what the gravity and builder modes compute over"} if nuclides else None,
             walk_copy,
             *record_copies,
             {"file": "figures/" + FIGURE, "what": "Figure 5 of the Löwdin paper, with its ledger md5"} if figures else None,
@@ -4645,6 +4688,14 @@ def selftest(warp_root=WARP_ROOT):
     if nd:
         check("nuclides: 3,558 nuclides of AME2020 Table I, the file's md5 the ledger's own", (nd["nuclides"], nd["source"]["md5"] == nd["source"]["md5_recorded"], bool(nd["source"]["md5_recorded"])), (3558, True, True))
         check("nuclides: 126 species with their banked levels travel with the table", nd["species"], 126)
+        cw = nd.get("ciaaw") or {}
+        check("nuclides: the CIAAW tables travel with it, 84 weights over 289 isotopes, each file's md5 recorded",
+              (cw.get("weights"), cw.get("isotopes"), len(cw.get("weights_md5") or ""), len(cw.get("compositions_md5") or ""), cw.get("doi")),
+              (84, 289, 32, 32, "10.1515/pac-2019-0603"))
+        cb = ciaaw_block()["fixtures"]
+        check("nuclides: water's molar mass from the standard atomic weights, and the most abundant isotopes",
+              (cb["water_molar"], cb["revised_2024"], cb["most_abundant"]),
+              (18.015, 3, {"1": 1, "6": 12, "7": 14, "8": 16, "26": 56, "40": 90, "82": 208, "92": 238}))
     iso = (index.get("particle_index") or {}).get("isotopes")
     if iso:
         check("isotopes: the site's own index, 3,558 on 3,558 cells at (4, 295, 18), E = 0, the table the ledger's own", (iso["members"], iso["cells"], iso["cell"], iso["E"], iso["site_own"], iso["source_ok"], iso["refused"]), (3558, 3558, {"channel": 4, "height": 295, "width": 18}, 0, True, True, 7))
