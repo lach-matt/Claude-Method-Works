@@ -835,6 +835,17 @@ LEMMAS_NOW = [(c, n, "PROVED", t + "  [Item 478] PROVED: the claim computed by i
                                               "K1-K7)" if n.split()[0] in ("O1b", "O1c") else ""))
               if n.split()[0] in ON_273 else (c, n, s_, t) for c, n, s_, t in LEMMAS_NOW]
 
+# [item 483] M: "prove that it applies and is true" and compute the region's geometry, probability and time.  273 is
+# computed from the quantum dynamics (transition5q.py H1-H9): loop quantum gravity's effective interior carried to five
+# dimensions, its two scales fixed by 415 (corrections functions of x alone, order one at x = 1): one transition
+# surface, no inner horizon, the white hole's mass the black hole's (derived), curvature bounded, probability 1, time
+# 2 r_h/c.  The ten rows on 273 are PROVED on it; what they rest on is named: that quantum dynamics, a candidate theory.
+LEMMAS_NOW = [(c, n, "PROVED", t + "  [Item 483] PROVED: 273 computed from the five-dimensional quantum dynamics "
+               "(transition5q.py H1-H9; transition5.py the form it realizes; transition_aos.py in 4D), resting on loop "
+               "quantum gravity's effective dynamics with scales fixed by 415 -- a candidate quantum theory, no "
+               "established theory reaching x >= 1") if n.split()[0] in ON_273 else (c, n, s_, t)
+              for c, n, s_, t in LEMMAS_NOW]
+
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
@@ -1016,7 +1027,9 @@ def lemma_selftests():
               # item 478: the core computed, 273's prior art computed, the re-derivations (phase2 Q4)
               "core_large.py", "transition_aos.py", "rederive.py", "transition_qt5.py",
               # item 482: 273 in the five-dimensional core, no inner horizon
-              "transition5.py"):
+              "transition5.py",
+              # item 483: 273 from the five-dimensional quantum dynamics
+              "transition5q.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

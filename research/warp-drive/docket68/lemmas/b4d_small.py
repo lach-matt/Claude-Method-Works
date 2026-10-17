@@ -448,8 +448,9 @@ def checks(o):
     e = o["d10"]
     # [item 438: B3 and B4d at the large end READINGs (b4d_large K12); this check read them OPEN before]
     # [item 439: all four DERIVED (settle_arrival A6), the opening's cell ARRIVALs DERIVED; READING before]
-    add("D10 every cell's row in the register with the status stated; B3, B4d, B3s and B4ds DERIVED there (439)",
-        e["ok"] and e["b3"] == e["b4d"] == "DERIVED" and e["b3s"] == e["b4ds"] == "DERIVED")
+    # [item 483: all four PROVED, 273 computed from the five-dimensional quantum dynamics (transition5q)]
+    add("D10 every cell's row in the register with the status stated; B3, B4d, B3s and B4ds PROVED there (483)",
+        e["ok"] and e["b3"] == e["b4d"] == "PROVED" and e["b3s"] == e["b4ds"] == "PROVED")
     f = o["d13"]
     add("D13 (item 352) the Vaidya Kretschmann exactly 72 mu^2/r^8, no term in mu'; 72/mu^2 on r^2 = mu; Planckian at "
         "2.91 l5; the core 6.3e-3 of the face at the example", f["exact"] and f["trap"]

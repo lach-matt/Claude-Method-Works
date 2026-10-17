@@ -81,9 +81,12 @@ REMAINS = {
     "284": ("COMPUTED", ["room_work.py"], "as R6"),
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
-    "273": ("BEYOND", [], "quantum gravity; long time scales unstable (prior art); [478] computed in 4D with no inner "
-                          "horizon (transition_aos); [480] transition_qt5's route withdrawn: it runs through an inner horizon; "
-                          "[482] realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5)"),
+    "273": ("COMPUTED", ["transition_aos.py", "transition5.py", "transition5q.py"],
+            "[483] computed from the quantum dynamics: loop quantum gravity's effective (holonomy-corrected) interior, "
+            "in 4D (transition_aos) and carried to the 5D core with its scales fixed by 415 (transition5q): one "
+            "transition surface, no inner horizon, the white hole's mass the black hole's, curvature bounded, probability "
+            "1, time 2 r_h/c; transition5 the form it realizes.  A candidate quantum theory: no established theory "
+            "reaches x >= 1.  Was BEYOND (442-482); transition_qt5's route withdrawn at 480 (an inner horizon)"),
     "390": ("COMPUTED", ["junction_own.py"], "position 2's face closes when empty"),
     "426": ("COMPUTED", ["encode_read.py"], "the least write by the size"),
     "432": ("COMPUTED", ["settle_arrival.py"], "the shell carries E at the opening (its N part unused)"),
@@ -145,8 +148,8 @@ def words():
 
 def remains():
     r = dict(REMAINS)
-    if "beyond_computed" in MUT:
-        r["273"] = ("COMPUTED", ["b_bounce.py"], "")
+    if "beyond_computed" in MUT:                                       # [483] the mutant now restores 273 as BEYOND
+        r["273"] = ("BEYOND", [], "")
     if "drop" in MUT:
         r.pop("155")
     return r
@@ -232,13 +235,15 @@ def selftest(quiet=False):
     r = all(pa_rd[k][3] != "EST" or v[0] in ("NONE", "COMPUTED") for k, v in rd.items()) and \
         all(v[0] in ("REDERIVE", "BOUNDED") for k, v in rd.items() if pa_rd[k][3] == "CONTRA")
     ok.append(r); say("Q1 consistent with the verdicts (EST needs nothing; CONTRA bounded or re-derived): %s" % r)
-    r = rem.get("273", ("",))[0] == "BEYOND"; ok.append(r); say("Q1 273 beyond established physics: %s" % r)
+    r = rem.get("273", ("",))[0] == "COMPUTED" and "transition5q.py" in rem["273"][1]
+    ok.append(r); say("Q1 273 computed from the 5D quantum dynamics (483; BEYOND before): %s" % r)
     a = audit()
     passing = sorted(k for k, w in a.items() if not w)
     r = set(["I2", "R3", "Z3a", "B5b", "B6'", "CLOSEs", "E1us", "E1u", "ENCODE", "E1x", "M1s", "O1bs", "B7", "B4a"]) <= \
-        set(passing) and "O1b" not in passing and {"ARRIVAL", "RECON"} <= set(passing)
-    ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s) among them; O1b not: %s"
-                      % (len(passing), r))
+        set(passing) and {"O1a", "O1b", "O1c", "M1", "Z3b", "Z3bs", "B3", "B3s", "B4d", "B4ds"} <= set(passing) \
+        and {"ARRIVAL", "RECON"} <= set(passing) and not {"SOURCE", "SOURCEs"} & set(passing)
+    ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s) and the ten on 273 (483) among them, "
+                      "SOURCE not: %s" % (len(passing), r))
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)
 

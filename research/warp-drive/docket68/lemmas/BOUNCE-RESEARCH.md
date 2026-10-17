@@ -2223,3 +2223,43 @@ x < 1. It has no inner horizon, and its null energy fails only inside the region
 scale for every mass, and the README passes one way into position 2 of equal mass. Inside x >= 1 the geometry is
 specified, as 273 states it, not derived from a quantum theory in five dimensions; in four, transition_aos computes the
 form. The transition's probability and time are not computed.
+
+## 36. The region's geometry, the transition's probability and time, from a quantum dynamics (483; `lemmas/transition5q.py`, 9/9, mutants 3/3)
+
+M (483): "prove that it applies and is true ... you still need to compute this."
+
+**Held against the exclusions first (481).** The interior found below has two horizons only. Its bounce comes from the
+quantum correction, not from classical matter, and the correction reaches order one only at x = 1.
+
+**The dynamics.** In five dimensions, Kantowski-Sachs reduces to L = 6NAB - (6/N)(AB B'^2 + B^2 A'B'), with constraint
+N(-pi_b pi_c/3 - 6 p_b) (p_b = AB, p_c = B^2). The canonical transformation P_c = p_c, P_b = p_b sqrt(p_c),
+Pi_b = pi_b/sqrt(p_c), Pi_c = pi_c - Pi_b p_b/(2 sqrt(p_c)), with lapse N = -3 p_c/pi_b, gives
+H = P_c Pi_c + 3 P_b (b + 1/b), b = Pi_b/6. That is Ashtekar, Olmedo and Singh's form exactly, gamma -> 1 (H1; computed
+as an identity, the brackets canonical). The classical limit is Tangherlini's interior, mu = -P_c Pi_c/3 (H2). Their
+holonomy corrections give closed forms that solve the effective equations to 1e-37, mu conserved (H3).
+
+**The scales, from 415.** Corrections depend on x alone only if d_c ~ mu^(-1/2) and d_b ~ mu^(-1/4); this is the 5D
+counterpart of AOS's m^(-1/3). With no coefficient, each sector reaches order one at x = 1. The second condition gives
+d_b = sqrt(6 d_c), the very scaling the first required (H4).
+
+**The geometry.**
+- Exactly two horizons: our black hole at T = 0 and position 2's white hole at T_WH = 2 T_T. A > 0 between, so there is
+  no inner horizon. Trapped, then one transition surface, then anti-trapped (H5).
+- The white hole's mass equals the black hole's: P_c(T_WH) = P_c(0) exactly, derived (H6).
+- l5^4 K_max = 0.2917 (x = 0.54) for mu/l5^2 = 1e12 to 1e40. P_c departs from Tangherlini by less than 1e-2 wherever
+  x < 1e-2 (H7).
+- transition5's construction is the form this dynamics realizes.
+
+**The probability.** Quantized, the sphere sector is a free translation: tan(d_c Pi_c/2) = e^(d_c u), H_c = P_u/d_c,
+P_c = P_u cosh(d_c u). Every state evolves unitarily through the transition, with no other branch, so the probability is
+1. A Gaussian state's <P_c> = |P_u| e^(s^2/2) cosh(T + u0) is bounded below; on a grid its norm is conserved to 1e-15 and
+it matches the closed form to 1e-4 (H8).
+
+**The time.** The proper time across the interior is 2.000 r_h/c: 2.71e-13 s at r0 = 20 ell and 1.53e-12 s at the Earth
+cap, the large end's 5D forms (H9). Haggard and Rovelli's m^2/l_P belongs to the two-exterior object, not the one-way
+one (277).
+
+**Status.** 273's transition is computed, not specified, within loop quantum gravity's effective dynamics carried to five
+dimensions, its scales fixed by 415. That is a candidate quantum theory, as AOS's is in four dimensions. No established
+theory computes inside x >= 1; Penrose's theorem leaves that to quantum gravity. The ten rows on 273 are proved on it,
+and the register names it.
