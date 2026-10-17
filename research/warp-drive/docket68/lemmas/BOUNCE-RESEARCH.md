@@ -2018,3 +2018,64 @@ the sources read; the conformal model gives C ≠ 0 at every Q/M short of extrem
 *[471, beside section 31: stood down. The inner horizon's non-existence was already ruled (464; the route through r₋
 closed at 465), so a large-end computation framed on r₋ chased an object ruled out (STALE-LEDGER S26). The section is
 left as written.]*
+
+## 32. 273 reassessed (473): what it is, what is left, what went wrong, how it is solved
+
+M (473): "Reassess the 273 question and determine what actually still needs to be worked, and how your approach has
+been wrong, and how it should actually be solved".
+
+**What 273 is.** Penrose's theorem (READ, any dimension) lets the black-hole interior reach position 2's white hole
+only by giving up pointwise null energy, a Cauchy surface or completeness. At 273 M chose the option that gives up null
+energy and classical GR inside a small quantum region: Haggard and Rovelli's black-to-white tunnelling, "One-way,
+complete, README only, no Cauchy horizon". That makes 273 a premise beyond established physics, H-BOUNCE-TO-P2: the
+transition through the quantum region. No computation within GR plus quantum field theory can prove or refute it.
+Such a computation can only show what surrounds the region.
+
+**What surrounds it, established in the record.**
+| link | status | where |
+|---|---|---|
+| the quantum region's onset: classical GR fails where x = l5² √K reaches 1, nowhere else | derived | 415, `quantum_onset.py` Q1–Q3 |
+| no bounce before it: classical bounces need negative null energy (Penrose, Raychaudhuri); semiclassical ones are excluded while the semiclassical regime holds (Bousso; the brane-world GSL) | computed, READ | 318 `pair_math.py`; 466 (b) `collapse_bulk.py` C1–C9 |
+| the negative null energy confined to the region; every classical ray keeps 183 | derived | 318; Z3b, Z3bs |
+| no inner horizon and no inner trapping horizon to end or divert the interior first | computed, ruled | 464 (`p3_double_null.py` D7), 465 (D11), 471 |
+| the interior is null-incomplete inside the hole | READ, computed | `collapse_bulk.py` C7 (Kunzinger–Steinbauer–Vickers, smooth wall) |
+| the curvature diverges along the incomplete geodesics at finite proper time, K ~ (T_end − T)^(−2.5) | computed | `p3_double_null.py` D12 |
+| the region's form and time: Haggard and Rovelli's construction, time of order m²/l_P | READ | b_interior B4, `b_bounce.py` Q1–Q3 |
+| the core delivers the README to the region | M's assumption | 422, H-CORE-DELIVERS |
+
+**What actually still needs to be worked.** Three things, all short; none is a new computation programme.
+1. *H-CORE-DELIVERS, from assumption to deduction.* With no inner horizon (464, 471), the interior null-incomplete
+   (C7) and K diverging along the incomplete geodesics (D7, D12), every infalling worldline passes x = 1 before its
+   classical end, so the core delivers the README to the quantum region. This is shown at the computed sizes. At the
+   large end it needs one more step: that the incompleteness there is a curvature singularity and not a Cauchy horizon
+   (ruled out, 471) or a non-curvature ending. That step is deduced, not computed.
+2. *The consistency audit of H-BOUNCE-TO-P2.* Each theorem read (Penrose, Raychaudhuri, Bousso, Kunzinger–Steinbauer–
+   Vickers) has a hypothesis that fails inside the region exactly as 273's option says (null energy, the
+   semiclassical regime, classical GR), and nowhere outside it (Z3b, x < 1). The record holds every piece; it needs
+   one table.
+3. *The ten rows restated.* O1a, O1b, O1c, Z3b, Z3bs, M1, B3, B3s, B4d and B4ds rest on one premise, H-BOUNCE-TO-P2,
+   with everything outside the quantum region proved; H-CORE-DELIVERS drops out of their "rests on" where item 1
+   derives it. That is a register change for M's approval.
+
+This is what "provable" (443) can mean within established physics: every link proved, and the transition through the
+Planck-curvature region carried as the one premise, as a theorem carries its axioms.
+
+**How the approach went wrong.**
+- At 443 the board proposed recording O1a–O1c as not provable. M declined ("they are provable. It's going to take more
+  work and deeper research"). The board read "deeper research" as a search for a mechanism established physics could
+  compute in place of the quantum bounce. From 444 to 466 it tried:
+  - a semiclassical transition (C1, C2);
+  - a coupling wormhole (section 9);
+  - a five-dimensional wormhole (stages 1–3b);
+  - a charged corridor with an inner horizon (P1–P3);
+  - the size ladder.
+  Each route closed. The result is the position of 443, with fewer options.
+- Every one of those computations could at most show where classical GR ends, which Penrose's theorem already
+  guaranteed and quantum_onset already placed. None could decide a quantum transition.
+- Several chased objects 273 had given up ("no Cauchy horizon": the inner horizon) or that were already ruled (the
+  inner horizon after 464; 471).
+- Each failure was answered with a larger scheme put to M, not with the short question of what closes the answer (470).
+
+**How it is solved.** Treat 273 as what it is, M's one premise beyond established physics. Prove every link around it
+from what is already computed and READ (items 1–2). State the ten rows as resting on that premise alone (item 3). No
+further numerical work bears on 273.
