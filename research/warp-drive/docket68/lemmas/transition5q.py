@@ -40,6 +40,12 @@ the correction reaches order one only at x = 1.
      norm 1 and no other branch: the transition's probability is 1.  A Gaussian state's <P_c>(T) =
      |P_u| e^(d^2 s^2/2) cosh(T + d u0) is bounded below and follows the effective P_c(T); computed on a grid, its norm
      is conserved to 1e-12 and its expectation matches the closed form to 1e-4 (the grid's).
+  H10 (computed; deduced from it) No Cauchy horizon (484, M-NO-CAUCHY).  The sphere's radius never falls below B_T > 0
+     (no centre, no timelike boundary); the curvature is bounded (H7); inside, N is finite and positive, so every T =
+     const slice is spacelike and T is a time function crossed by every causal curve, in at most 2 r_h of proper time
+     (H9); the only horizons are A = 0 at T = 0 and T_WH (H5), our black hole's and position 2's white hole's.  With no
+     singular or timelike boundary nothing enters the interior except through those two horizons, so the development of
+     a slice is the whole interior: there is no Cauchy horizon.
   H9 (computed) Time.  The proper time across the interior, from our face to position 2's, is 2.000 r_h/c to
      corrections in d: 2.7e-13 s at r0 = 20 ell and 1.5e-12 s at the Earth cap (the large end's 5D form), 2 r_h/c at the
      small end.  The README's null rays cross in finite affine length.  (Haggard and Rovelli's exterior time m^2/l_P is
@@ -227,10 +233,12 @@ def compute():
                 dev = max(dev, abs(state(T, s)["Pc"] / Pcl - 1))
         # the interior is symmetric about T_T (P_c a cosh, cos(d_b b) odd): tau = 2 int_{T_T}^0 N dT
         symm = abs(state(TT + mp.mpf("0.7"), s)["N"] / state(TT - mp.mpf("0.7"), s)["N"] - 1)
+        Bmin = min(state(T, s)["B"] for T in [TWH * mp.mpf(j) / 200 for j in range(1, 200)]) / mp.sqrt(s["mu"])
+        Npos = all(0 < state(T, s)["N"] < mp.inf for T in [TWH * mp.mpf(j) / 50 for j in range(1, 50)])
         tau = 2 * mp.quad(lambda T: state(T, s)["N"], [TT, TT / 2, 0]) / mp.sqrt(s["mu"])
         res[e] = dict(s=s, TWH=TWH, eom=max(r[0] for r in eom), mudrift=max(r[1] for r in eom),
                       Apos=min(A_) > 0, side=side, mwh=state(TWH, s)["Pc"] / state(mp.mpf(0), s)["Pc"],
-                      Kmax=Kmax, dev=dev, tau=tau, symm=symm, dbcheck=s["db"] / mp.sqrt(6 * s["dc"]))
+                      Kmax=Kmax, dev=dev, tau=tau, symm=symm, Bmin=Bmin, Npos=Npos, dbcheck=s["db"] / mp.sqrt(6 * s["dc"]))
     o["res"] = res
     q = quantum(1.0)
     o["q"] = q
@@ -260,7 +268,8 @@ def checks(o):
     h8 = max(abs(n - 1) for n in norms) < 1e-12 and max(abs(e / a - 1) for (_, _, e), a in zip(q, ana)) < 1e-4 \
         and min(e for _, _, e in q) >= math.exp(0.18) - 1e-9
     h9 = all(abs(v["tau"] - 2) < 0.01 and v["symm"] < 1e-20 for v in res.values()) and all(1e-14 < t < 1e-10 for t in o["times"].values())
-    return dict(H1=h1, H3=h3, H4=h4, H5=h5, H6=h6, H7=h7, H8=h8, H9=h9)
+    h10 = all(v["Bmin"] > 0 and v["Npos"] and v["Apos"] for v in res.values()) and h5 and h7 and h9
+    return dict(H1=h1, H3=h3, H4=h4, H5=h5, H6=h6, H7=h7, H8=h8, H9=h9, H10=h10)
 
 
 def report(o=None):

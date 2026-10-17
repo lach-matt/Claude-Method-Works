@@ -1603,6 +1603,15 @@ state was rebuilt first.
   - **The ten rows on 273 proved**, resting on that dynamics, which is loop quantum gravity's effective one, a
     candidate theory. 78 rows pass under 442; SOURCE, deferred by you, waits. The register reads 72 proved, 6
     definitions, 2 OPEN.
+- **Item 484** (M: "Remember, there are no chaucy horizons. If you are calculating anything involving a chaucy horizon,
+  you have already failed"). M-NO-CAUCHY. Every instrument in the theorem's selftest was checked.
+  - Three calculated with an inner or Cauchy horizon and are out of the checks, kept as record: wh5_dictionary,
+    stage2_inner and transition_qt5. bounce_scope's inner-horizon e-folds (B2's, B4) are struck (S32).
+  - The passage's basis now computes that it has none (transition5q H10, 10/10). The radius never falls below B_T > 0,
+    the curvature is bounded, T is a time function crossed by every causal curve, and the only horizons are our black
+    hole's and position 2's white hole's.
+  - The calculators that enter the Cauchy-horizon option only to reject it stand: C4, C5 and C7's "inner" cell is 0,
+    and pair_math P3 excludes it.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

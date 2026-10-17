@@ -1015,7 +1015,7 @@ def lemma_selftests():
               # item 447 (3), approved: the bulk U(1) of 446 (1)
               "u1_bulk.py",
               # item 451 (2), approved: stages 1, 2 and 3a, and stage 3b's toolkit and first rung
-              "wh5_dictionary.py", "stage2_inner.py", "stage3a_throat.py", "deturck2d.py", "stage3b_v1.py",
+              "stage3a_throat.py", "deturck2d.py", "stage3b_v1.py",
               # item 452 (2), approved: stage 3b's second rung
               "stage3b_v2.py",
               # item 453 (2), approved: stage 3b's third rung
@@ -1025,7 +1025,9 @@ def lemma_selftests():
               # item 456 (3), approved: the corridor's second rung
               "corridor_p2.py",
               # item 478: the core computed, 273's prior art computed, the re-derivations (phase2 Q4)
-              "core_large.py", "transition_aos.py", "rederive.py", "transition_qt5.py",
+              "core_large.py", "transition_aos.py", "rederive.py",
+              # [item 484: wh5_dictionary, stage2_inner and transition_qt5 removed -- they calculate with an inner
+              # (Cauchy) horizon; M-NO-CAUCHY]
               # item 482: 273 in the five-dimensional core, no inner horizon
               "transition5.py",
               # item 483: 273 from the five-dimensional quantum dynamics

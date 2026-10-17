@@ -2263,3 +2263,11 @@ one (277).
 dimensions, its scales fixed by 415. That is a candidate quantum theory, as AOS's is in four dimensions. No established
 theory computes inside x >= 1; Penrose's theorem leaves that to quantum gravity. The ten rows on 273 are proved on it,
 and the register names it.
+
+**[Item 484] No Cauchy horizons.** M: "Remember, there are no chaucy horizons. If you are calculating anything involving
+a chaucy horizon, you have already failed".
+- Out of the theorem's checks (S32): wh5_dictionary, stage2_inner and transition_qt5, and bounce_scope's inner-horizon
+  e-folds.
+- transition5q H10 computes that the passage has no Cauchy horizon. B never falls below B_T > 0, K is bounded, T is a
+  time function, and there are two horizons only. With no singular or timelike boundary, the development of a slice is
+  the whole interior.

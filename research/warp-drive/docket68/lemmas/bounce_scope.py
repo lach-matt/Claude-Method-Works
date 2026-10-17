@@ -24,6 +24,7 @@ estimate, deduced, standard.  Worked in the conversation; not verified; not seat
      than the face by a factor of 38 to 57.  A delivery of N such quanta is spread over tens of face clocks, so the
      inner trapping horizon lingers -- the condition the semiclassical mechanism needs (2011.07331: it is avoided only
      if "the classical trajectory of the inner horizon goes to zero quickly").
+  [Item 484: B2's e-folds and B4 calculate with the semiclassical inner horizon; struck from the checks, M-NO-CAUCHY.]
   B4 (estimate) The room it gives.  If the inner horizon lingers one wavelength at a rate lambda ~ 1/r0, it has
      about 57 e-folds at the large end: more than the 7.8-20.2 the plane requires, fewer than the 145-157 a single
      field would.  The estimate is the research question, not its answer; C1-C3 of BOUNCE-RESEARCH.md compute it.
@@ -91,15 +92,10 @@ def selftest(quiet=False):
     r = words(); ok.append(r); say("B0 words: %s" % r)
     c = central_charge()
     r = abs(c / 2.931e59 - 1) < 1e-3; ok.append(r); say("B2 c = 2.931e59: %s" % r)
-    e = [efolds(x, c) for x in (1.25 * ELL, 10 * ELL, R_EARTH_CAP)]
-    p = [efolds(x) for x in (1.25 * ELL, 10 * ELL, R_EARTH_CAP)]
-    r = abs(e[0] - 7.8) < 0.1 and abs(e[2] - 20.2) < 0.1 and abs(p[0] - 144.7) < 0.1 and abs(p[2] - 157.2) < 0.1
-    ok.append(r); say("B2 e-folds 7.8-20.2 on the plane, 144.7-157.2 for one field: %s" % r)
+    # [item 484, M-NO-CAUCHY: B2's e-folds and B4 grow the semiclassical inner horizon's mass; struck from the checks]
     w = wavelengths()
     r = sp.simplify(w[4] - 4 * sp.pi ** 2 / sp.log(2)) == 0 and sp.simplify(w[5] - 8 * sp.pi ** 2 / (3 * sp.log(2))) == 0
     ok.append(r); say("B3 wavelengths 4 pi^2/ln2 r0 and 8 pi^2/(3 ln2) r_h exactly: %s" % r)
-    r = e[2] < float(w[4]) < p[0]; ok.append(r)
-    say("B4 one wavelength's e-folds between the plane's need and one field's: %s" % r)
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)
 
