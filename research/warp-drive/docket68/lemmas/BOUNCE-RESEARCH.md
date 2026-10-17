@@ -2014,3 +2014,7 @@ and the curvature with it; the size only fixes how close to r₋ the singularity
 for a free scalar on Reissner–Nordström it vanishes at one value of Q/M (Zilberman, Levi and Ori). This hole's Q/M is
 0.716. That the plane's own field theory (strongly coupled, holographic) has C ≠ 0 at Q/M = 0.716 is not shown in
 the sources read; the conformal model gives C ≠ 0 at every Q/M short of extremality.
+
+*[471, beside section 31: stood down. The inner horizon's non-existence was already ruled (464; the route through r₋
+closed at 465), so a large-end computation framed on r₋ chased an object ruled out (STALE-LEDGER S26). The section is
+left as written.]*
