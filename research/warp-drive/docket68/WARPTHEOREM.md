@@ -1339,7 +1339,7 @@ state was rebuilt first.
   stale. Review ALL aspects of the map please").
   - P3(b) starts from the lam = 64 member nearest extremality (4 pi T R4 ~ 0.89, R4 ~ 1.8 ell). Both routes are kept:
     the large field term toward (i), and a lam = 0 chart that holds the logarithmic tail. corridor_p2.py joins T1.
-    The theorem selftest with corridor_p2.py in T1: running at this commit, recorded on its result.
+    The theorem selftest passes with it, 12/12 (39.4 min).
   - **The map reviewed in full** (BOUNCE-RESEARCH section 23).
     - Every chip, station colour, strip tag and pill is drawn from phase2's audit (442): 56 pass, 12 wait on a
       reading, 10 rest on 273's bounce, 2 deferred. Before, 76 rows showed the register's green words, and Demand,
