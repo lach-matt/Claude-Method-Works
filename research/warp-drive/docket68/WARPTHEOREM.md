@@ -1258,6 +1258,26 @@ state was rebuilt first.
     (READ).
   - The ladder is complete; the corridor (the charged bulk hole meeting both planes under Israel's conditions) is
     next, its approach put to M first.
+- **Item 453** (M: "Yes to both"). **T1 extended by stage3b_v3.py; the prior art read and the corridor's approach put
+  to M before it runs** (BOUNCE-RESEARCH section 20; nothing has run).
+  - T1 now holds stage3b_v3.py.
+  - Read: Figueras-Wiseman and Figueras-Lucietti-Wiseman (brane holes by DeTurck; the plane's mixed
+    Neumann-Dirichlet rows; no maximum principle on a negative-tension plane), Chamblin-Reall-Shinkai-Shiromizu and
+    Kaus-Reall (holes charged by a field on the plane; Kaus-Reall's exact near-horizon geometry, the code's fixture),
+    Liu-Ling-Chen and Biggs-Santos (charged DeTurck solves, the soliton check by xi^2 against N), Lu-Pope (not our
+    field content), and MM again (the mouths attract and are held by an orbit; the solution argued by patches).
+  - Deduced:
+    - with the bulk U(1)'s magnetic flux, no S^2 may close, so the corridor's bulk has no axis and its domain is V3's
+      strip;
+    - between two universes the field-line circle is open, the AdS3 energy vanishes, and no cold throat holds: the
+      corridor is then the eternal charged hole, its passage through the non-static interior;
+    - in one universe a static, symmetric, flat-outside corridor does not exist on a plane without matter (Birkhoff
+      with a Maxwell field), so the mouths are held or orbit as in MM.
+  - Put to M: where position 2's mouth sits, (a) our universe (168) or (b) a second universe (218), with (b') on
+    139 (1)'s negative plane.
+  - The ladder proposed: P1, the throat with the plane (ODE, checked first on Kaus-Reall); P2, one cold charged mouth
+    on the plane (PDE, about V3's size, with the plane's rows new in deturck2d.py); P3, MM's binding from five
+    dimensions under (a), or the interior evolution under (b).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

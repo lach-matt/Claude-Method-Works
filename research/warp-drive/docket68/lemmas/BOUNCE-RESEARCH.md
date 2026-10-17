@@ -412,6 +412,8 @@ at position 2, the passage between them through the bulk?** The prior art offers
    - First Maldacena and Milekhin's Einstein-static-universe case, a test problem whose structure is known (approved
      at 446 (4)).
    - Then the charged bulk hole meeting both planes with localized mouths.
+     [453, beside it: with the bulk U(1)'s magnetic flux a mouth has no axis to be localized on, and "both planes"
+     is one of two configurations, the one with no cold throat. See section 20, which puts the choice to M.]
    - Done by a cohomogeneity-two solve, using what the interior attempts (393–411) taught.
 
 ## 14. Stage 1, computed: what the planes see (item 447 (1); `wh5_dictionary.py`, 7/7, mutants 3/3)
@@ -907,3 +909,140 @@ Casimir energy. Each holds better as the throat lengthens, and V3 contains V2 at
 
 The ladder is complete. Next, as section 13 set out, is the corridor itself: the charged bulk hole meeting both
 planes, with the planes as branes under Israel's conditions. Its approach is put to M before it runs (414).
+[453, beside it: section 20 reads "both planes" as configuration (b) and puts it beside (a).]
+
+## 20. The corridor: the approach, put to M before it runs (453 (1); 414)
+
+M, verbatim: "Yes to both". The prior art was read first, charged versions included. Nothing below has run.
+
+**The prior art (READ).**
+- **Figueras and Wiseman (1105.2558)** build static brane holes in Randall–Sundrum II by Einstein–DeTurck, "with
+  radius up to ∼ 20ℓ", and follow them to "small radius ≪ ℓ, where as expected they transition to a 5d behaviour".
+  - On the plane: "the vacuum Israel matching conditions ... together with ξ^x = 0 and F = 0, which imply mixed
+    Neumann-Dirichlet conditions". Also: "imposing the Israel vacuum condition and both ξ^r = 0 and ξ^x = 0 on the
+    brane does not give a regular elliptic system."
+  - Two discretizations: "a pseudospectral collocation approximation in r, x (up to 40 × 40 points), and the other
+    is based on second order finite difference". The DeTurck norm reaches "φ_max < 10^−8".
+  - "for this negative tension orbifold brane there is no maximum principle argument that rules out the existence of
+    a soliton solution."
+- **Figueras, Lucietti and Wiseman (1104.4489).** They give the maximum principle that excludes solitons for
+  Dirichlet data, and the fictitious boundaries: a horizon carries "T = κ²A", an axis "S/B = 1". The principle
+  excepts "the mixed Neumann-Dirichlet condition for 'negative tension'."
+- **Chamblin, Reall, Shinkai and Shiromizu (hep-th/0008177).** A brane hole charged by a field living on the plane.
+  - The plane's condition is K_μν = −h_μν/ℓ − (κ₅²/2)T_μν.
+  - A bent plane in the black string cannot carry the charge: "the bulk has to change once the brane-world charge is
+    introduced".
+  - Charge shortens the horizon in the fifth dimension: "increasing the charges of a brane-world black hole will
+    decrease the length of its horizon in the fifth dimension".
+- **Kaus and Reall (0901.4236): the extremal charged hole's near-horizon geometry**, exact up to one ODE.
+  - The bulk is A(ρ)²dΣ² + dρ² + R(ρ)²dΩ², sliced by AdS2 as our V2. The plane's Israel conditions fix its depth
+    and the charge.
+  - Large holes: L₁² = Q² − 3ℓ²/4 + … (AdS2) and L₂² = Q² − ℓ²/4 + … (S²). The horizon's depth into the bulk is
+    ρ₀ = ℓ log(Q/ℓ) + ℓ log 2 + …, and S₅ = πℓQ²/G₅ − (πℓ³/G₅) log(Q/ℓ) + ….
+  - One point is exact: A₀ = ℓ/2 gives AdS2 × H³, with sinh(√2ρ₀/ℓ) = 1, Q = ℓ/√2, L₁ = ℓ/2 and L₂ = ℓ/√2.
+  - Small holes: L₁ ≈ 0.24(ℓQ²)^{1/3}, L₂ ≈ 0.66(ℓQ²)^{1/3}, ρ₀ ≈ 0.56(ℓQ²)^{1/3}, and S₅/S₄ ≈ 0.14.
+  - The full solution is left open: "It would be interesting to see if this problem could be solved numerically using
+    the methods of Ref. [4]."
+- **Liu, Ling and Chen (2607.22382)** build planar charged holes on a brane by Einstein–DeTurck.
+  - The brane's field is solved as ODEs on the boundary, with Neumann conditions "along with the gauge-fixing
+    condition ξ^a n_a = 0".
+  - On solitons: "a rigorous proof is currently lacking for Neumann boundaries". They check that ξ² falls with N.
+- **Biggs and Santos (2407.00151)** build charged static AdS binaries in four and five dimensions by
+  Einstein–Maxwell–DeTurck.
+  - The Maxwell equation "is already elliptic since the gauge vector is assumed to be proportional to the static
+    Killing vector field".
+  - A Maxwell field voids the soliton proofs, so they track the DeTurck norm against N. Seeds come from patching and
+    the δ-trick.
+- **Biggs and Santos (2207.14306)** build black tunnels by DeTurck, with fictitious boundaries at two bulk horizons
+  and an axis. Where a horizon meets the boundary, they "'blow up' the points ... into lines".
+- **Lü and Pope (hep-th/0008050).** Their Reissner–Nordström on the brane uses gauged supergravity's 2-forms, not a
+  five-dimensional Maxwell field, and it is singular at the AdS horizon. It is not our field content, so it is not a
+  fixture.
+- **Maldacena and Milekhin (2008.06618), reread for the corridor.**
+  - The mouths attract: "Naively, they would attract and coalesce. However, let us first imagine they are somehow held
+    fixed".
+  - Their remedy is an orbit, "with an angular velocity Ω ≪ 1/ℓ"; radiation brings the mouths together in a time of
+    order (3/4)d³/r_e².
+  - The field lines "form closed circles, entering one mouth, traveling through the wormhole, exiting the other mouth
+    and then going back to the first mouth in the ambient space."
+  - Of the full solution: "we are not going to find the full 5d solution explicitly, we will only argue that it
+    should exist based on solving it by patches".
+
+**Three deductions that shape the computation (deduced).**
+1. **The corridor's bulk has no axis.**
+   - In any SO(3)-symmetric solution, the bulk U(1)'s magnetic field is F = P vol(S²) with P constant. dF = 0 forces
+     dP = 0, and the Maxwell equation then holds identically.
+   - Its invariant F_abF^ab = 2P²/R⁴ diverges wherever the S² closes, so no S² may close.
+   - So Figueras and Wiseman's domain, with its axis, does not apply. The domain is V3's strip, whose field-line circle
+     closes without one.
+   - A lone magnetically charged mouth cannot end its flux in the bulk; the flux runs into the deep bulk.
+   - The field adds no unknown, as in V2 and V3.
+2. **Two universes cannot hold a cold throat.**
+   - In V3 the throat is held at finite length by the AdS3 energy of the closed field-line circle, −πc₂/(6L).
+   - If position 2's mouth is in another universe, each field line runs from infinity in one universe to infinity in
+     the other. Then L → ∞ and the energy vanishes.
+   - MM's sum r_e³/(G₄ℓ²) − c₂/(8ℓ) then loses its minimum, and the throat runs to extremality.
+   - So between universes the corridor is the eternal charged hole. Its passage crosses its horizons through the
+     non-static interior: stage 2's black-hole reading, unstable classically at both ends.
+   - This agrees with MM: "In classical general relativity, they are forbidden by the average null energy condition"
+     (READ). The bulk U(1) keeps the null condition (446 (1)).
+3. **One universe cannot be static, symmetric and flat outside at once.**
+   - Take a static SO(3) outside joining two mouths of equal radius on a plane with no matter. It would be a
+     spherically symmetric electrovacuum region whose S² radius turns.
+   - Birkhoff's theorem with a Maxwell field (standard) allows only Reissner–Nordström, whose radius does not turn,
+     or the constant radius of AdS2 × S².
+   - So the static symmetric case is the two-arc throat: V2's case, with the plane.
+   - A flat outside keeps only an axial symmetry. The bulk then depends on three coordinates, and the mouths must be
+     held or must orbit (MM).
+   - MM's Einstein-static-universe outside needs matter on the plane that the record does not have.
+
+**The question that is yours: where does position 2's mouth sit?**
+- **(a) In our universe** (your 168, "positions, one universe"). This is MM's corridor.
+  - The field-line circle closes, and the throat is horizonless in its global time.
+  - The passage lies inside one static solution. The black-hole/white-hole reading is the mouths' clocks (stage 1).
+  - It stands while held, as MM hold it.
+- **(b) In a second universe** (your 218: identical and an hour ahead, at our σ by its reading (a)).
+  - This is the eternal charged hole (deduction 2), with a plane in each exterior.
+  - The passage runs through its interior: an evolution, the class of the interior attempts (393–411).
+  - Its hot exterior is static only if the far region stays cold. A heat bath gravitates on a dynamical plane: a plane
+    in a bulk black hole moves (Bowcock, Charmousis and Gregory; Kraus, as section 13 cites them).
+- **(b′) As (b), but on your 139 (1)'s negative plane, a quarter of ours.** On that plane there is no maximum
+  principle either (Figueras and Wiseman), and gravity is not held to it (B4d stage 5).
+
+**Proposed, in order, each reported before the next.**
+- **P1 (ODE, light): the throat with the plane.**
+  - V2's AdS2-sliced flow, its conformal boundary replaced by the plane at the Randall–Sundrum tension (clause (B)).
+    The plane carries vacuum Israel conditions; the bulk field is even across it and asks nothing of it.
+  - The count is Kaus and Reall's: the plane's two conditions fix its depth and the core's one free number.
+  - Outputs: the plane's AdS2 and S² radii against four-dimensional GR's equal r_e, c₂ at the plane's finite depth,
+    and the AdS3 core.
+  - The code is checked first on Kaus and Reall's case, with the field on the plane: their exact point, their
+    large-Q series and their small-Q coefficients above.
+  - In (a) it is the corridor's core. In (b) it is the extremal throat each plane sees.
+- **P2 (PDE, about V3's size): one charged mouth on the plane, cold.**
+  - Cohomogeneity two: the S² around the mouth, the distance along the field line, and the depth (deduction 1).
+  - It is solved at T = 0, so no heat bath sits on the plane. The throat end carries P1's section, its asymptotic end
+    blown up into a line in the tunnels' way.
+  - Outputs: the plane's metric against extremal Reissner–Nordström with MM's G₄ and g₄ ((3.23)–(3.24), READ).
+  - MM's (2.10) coefficient comes from how the S² radius leaves r_e along the throat, MM's (2.9), read as the
+    throat's dilaton (standard).
+  - Its first rung is the plane's rows alone: Randall–Sundrum II's vacuum recovered from a perturbed start, as V1 did
+    for the conformal boundary.
+  - Methods as read:
+    - the plane under Figueras and Wiseman's mixed Neumann–Dirichlet rows, new in `deturck2d.py`;
+    - spectral and FD2/FD4 side by side;
+    - ξ² against N, since neither a Maxwell source nor a Neumann row allows the soliton proof.
+  - In (a) it is each mouth. In (b) it is each plane's exterior, cold.
+- **P3, by your answer.**
+  - **(a): MM's binding from five dimensions, as algebra.** P2's (2.10) coefficient and P1's c₂ go into their
+    (2.12)–(2.13), so the throat's ℓ and E_bind need no four-dimensional input.
+    - This is MM's patching made exact patch by patch.
+    - It keeps MM's d ≪ ℓ, and carries their attraction and orbit as theirs.
+  - **(b): the interior,** from P2's horizon inward through r₋ to the second plane. It is a hyperbolic evolution,
+    planned after P2.
+- **Not proposed now:** the two mouths with a flat outside in one solve. That needs three coordinates and a strut or
+  an orbit, beyond V1–V3's toolkit. Only (a) would ask for it; it is put to you after P3 if wanted.
+
+**Section 13's wording, kept beside this.** Section 13 named "the charged bulk hole meeting both planes with
+localized mouths". By deduction 1, a magnetically charged mouth has no axis to be localized on. By deduction 2,
+"both planes" is (b). The notes stand beside section 13 and section 19; neither is repaired.
