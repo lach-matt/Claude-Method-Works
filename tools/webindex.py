@@ -34,14 +34,17 @@ own status vocabulary through untouched: READ, PINNED, DERIVED, RECOVERED and
 RECONSTRUCTED. The site never prints a value without its status, because the
 status travels with the axis in index.js.
 
-ELEMENTS ABOVE Z = 108. LW1-ground.py stops at 108 because measurement does.
+ELEMENTS ABOVE Z = 108. LW1-ground.py stops at 108 because NIST's neutral
+ground levels do (and from Lr to Hs they are the ground level alone, with a
+calculated ionisation energy from Rf on: populate.GROUND_ONLY).
 COORDINATES-2.13 carries rows to Z = 120, and those rows are exported READ from
 the CSV with no configuration, no equation and no derived value behind them --
 the file says so in its own "populated" field, and the site draws them apart.
 
 A finding is recorded, never repaired. Where populate.py reports that the
 CSV's B column disagrees with the observed configurations, or that a row's B
-is a dispersion rather than a bound, that reaches the site as it is.
+is the range of a series' defects or a bare 0 rather than a bound, that reaches
+the site as it is.
 
 Stdlib only, Python 3.9+.
 """
@@ -273,78 +276,122 @@ STATUS_LEGEND = {
                      "such so a later decision can move it",
 }
 
-# The site's own caveats, drawn from docs/POPULATE.md's "Known gaps" and
-# "Two findings". They are shown on every page, not buried in a footnote.
+# The site's own caveats. They are shown on every page, not buried in a footnote, and each
+# carries its state: "repaired" where the caveat named something wrong and it has been put right,
+# "measured" where it is a measured property of the data that stays true, "standing" where it is a
+# permanent qualification of what a value is, and "open" where the decision is the author's. Every
+# caveat was reviewed against the evidence on 2026-10-17 (docs/CAVEATS.md records each review, what
+# it measured and how to re-run it); "was" keeps what a repaired caveat said before, so a reader of
+# an older page can see what changed.
 CAVEATS = [
-    {"id": "above-108",
-     "text": "Elements above Z = 108 are not populated. The observed configurations "
-             "stop at 108 because measurement does. COORDINATES-2.13 carries rows to "
-             "Z = 120 and those are shown READ from the CSV with no configuration, "
-             "equation or derived value behind them."},
-    {"id": "b-aufbau",
-     "text": "The spectra index's B column was built on a withdrawn configuration "
-             "table (aufbau, patched by hand). The configurations were later corrected "
-             "and COORDINATES-2.13 was never rebuilt on them. Where the observed table "
-             "gives a different Pauli bound the site shows both and marks the "
-             "disagreement."},
-    {"id": "b-overloaded",
-     "text": "25 measured rows carry a float in the B column: a dispersion of "
-             "the median defect, not a bound. The site says 'B column is not a "
-             "bound here' on those rows rather than comparing an integer "
-             "against a spread."},
-    {"id": "lambda8-mapping",
-     "text": "A Λ₈ cell is a transition, so an element is not a cell. "
-             "The mapping shown is the element's own ionisation ladder read off "
-             "the observed configurations. Nothing fixes this mapping; it is "
-             "RECONSTRUCTED and a later decision can move it."},
-    {"id": "equation-domain",
-     "text": "The channel equation is validated in its stated domain and "
-             "extrapolated outside it. A residual on a channel outside that "
-             "domain is not a finding against the equation."},
-    {"id": "relativistic-not-held",
-     "text": "The scalar-relativistic construction (Koelling\u2013Harmon "
-             "Hartree\u2013Fock at c = 137) behind the L\u00f6wdin paper was never "
-             "banked as an archive; its code has since been RECOVERED from the "
-             "project's own conversations (every file written, edited and printed "
-             "by tool calls, rebuilt and held against every printed window) and run "
-             "here. The displaced set this site states is what that recovered "
-             "instrument returns (RECOVERED); the paper's eleven are READ from the "
-             "paper's own sentence and carried as the reading it printed, superseded."},
-    {"id": "record-eleven",
-     "text": "The paper's eleven were computed by its own final session as the "
-             "elements where the chain's entrant differs from a second table the "
-             "project had sealed as its c \u2192 \u221e walk. The project's own "
-             "fault record F59.3, written before the paper, established that the "
-             "second table ran at c = 137 in restart mode (each step from the "
-             "observed configuration), so the eleven measure the chain's memory "
-             "against a memoryless restart at one c, not the constant. Re-derived "
-             "here, both tables reproduce and the eleven reproduce from them; at "
-             "eight of the eleven the restart entrant is the observed one. Repaired by "
-             "the author's decision (2026-09-24): the displaced set this site states is "
-             "the recovered instrument's \u2014 the chain at c \u2192 \u221e differs from "
-             "the chain at c = 137 at thorium and rutherfordium among the measured "
-             "elements and at Z = 120 beyond them, and nowhere else \u2014 RECOVERED; "
-             "the paper's eleven are shown as the reading the paper printed, "
-             "superseded, and the paper's own text is shown as it stands until the "
-             "author reissues it."},
-    {"id": "walk-reconstructed",
-     "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own "
-             "rebuild of the paper's construction from its statement, run in two "
-             "fields, and is kept beside the record's recovered instrument as a "
-             "second measurement, not in its place. Where it agrees with the "
-             "record that is a measurement; where it disagrees that is a "
+    {"id": "above-108", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "Elements above Z = 108 are not populated. The ground-configuration table the site "
+             "reads stops at hassium because NIST's compilation of neutral ground levels does: its "
+             "neutral rows end at Hs I, and meitnerium and darmstadtium appear only as ions "
+             "(checked 2026-10-17). It does not stop where measurement stops; that is earlier, as "
+             "the next caveat says. COORDINATES-2.13 carries rows to Z = 120, and those are shown "
+             "READ from the CSV with no configuration, equation or derived value behind them; its B "
+             "column holds 0 in every one of them, which is not a bound.",
+     "was": "The observed configurations stop at 108 because measurement does."},
+    {"id": "ground-103-108", "state": "measured", "reviewed": "2026-10-17",
+     "text": "From lawrencium to hassium the ground levels shown are not observed spectra. For each "
+             "neutral spectrum from Lr I to Hs I, NIST holds the ground level and no excited level, "
+             "and the ionisation energy it prints is measured only for Lr: for Rf and Db it is ab "
+             "initio (NIST's parentheses), for Sg, Bh and Hs semi-empirical (NIST's brackets), and "
+             "those three ground levels carry no term. The configuration is still READ; the plate "
+             "of each of these six elements shows what it rests on (read from NIST, 2026-10-17)."},
+    {"id": "b-aufbau", "state": "measured", "reviewed": "2026-10-17",
+     "text": "The spectra index's B column was built on plain Madelung aufbau, the configuration "
+             "table the record later withdrew. On that table, with n\u2080 the first entirely "
+             "unoccupied n, it reproduces all 101,303 integer B values with Z \u2264 118. The CSV "
+             "was never rebuilt on the observed configurations, and on them the bound differs in "
+             "1,104 of the 99,687 rows whose core the observed table holds (the cores of La, Pd, "
+             "Ce, Ac, Th, Gd, Lr and others). The B this site gives is computed on the observed "
+             "configurations; the CSV's value is shown beside it, READ, and every disagreement is "
+             "marked. The CSV itself is not edited.",
+     "was": "The spectra index's B column was built on a withdrawn configuration table (aufbau, "
+            "patched by hand)."},
+    {"id": "b-overloaded", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The B column holds something other than the Pauli bound in 3,529 rows, and the site "
+             "names each for what it is. In 25 measured rows from one NIST fetch (2026-08-14) it is "
+             "the range, max \u2212 min, of the series' quantum defects. Recomputed from NIST's "
+             "levels, with the printed limit in cm\u207b\u00b9 and the reduced-mass Rydberg, the "
+             "row's delta is the median defect and B the range in all 25 rows (RECOVERED). In all "
+             "3,504 rows of Z = 119 and 120 it is 0, the bound on neither configuration table. "
+             "Neither is compared with a bound.",
+     "was": "25 measured rows carry a float in the B column: a dispersion of the median defect, "
+            "not a bound."},
+    {"id": "lambda8-mapping", "state": "open", "reviewed": "2026-10-17",
+     "text": "A \u039b\u2088 cell is a transition, so an element is not a cell, and nothing in "
+             "the record fixes which transitions stand for an element (searched again 2026-10-17). "
+             "The mapping shown is the element's own ionisation ladder read off the observed "
+             "configurations, and it is RECONSTRUCTED. Measured: every one of its 5,778 steps "
+             "(Z = 1 to 108) satisfies the six of \u039b\u2088's seven constraints that can be "
+             "decided without the ion's term, and 1,107 of them lie within the standing caps; the "
+             "seventh, 2S \u2264 k, is left undecided because the ion's term is not carried. "
+             "Choosing the mapping is the author's decision."},
+    {"id": "equation-domain", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The channel equation is validated in its stated domain and extrapolated outside it, "
+             "and every channel now says which. The domain is the record's own: a channel is "
+             "outside it where the element has no long-lived isotope (Z > 103), the ion is above "
+             "charge 10, the core is open-shell at 3, 16 or 119 parents, or the series is "
+             "unresolved above ng, each read from the CSV's own notes (DERIVED). The rule "
+             "reproduces the record's figures: 24,312 and 61,748 cells for the first two, and of "
+             "the measured rows exactly the 51 the record left out of its refit (24, 15 and 12). "
+             "The 282 measured rows inside give an rms residual of 0.147, the figure the record "
+             "states. A residual outside the domain is not a finding against the equation.",
+     "was": "The channel equation is validated in its stated domain and extrapolated outside "
+            "it. A residual on a channel outside that domain is not a finding against the "
+            "equation."},
+    {"id": "relativistic-recovered", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The scalar-relativistic construction (Koelling\u2013Harmon Hartree\u2013Fock at "
+             "c = 137) behind the L\u00f6wdin paper was never banked as an archive; its code has "
+             "since been RECOVERED from the project's own conversations (every file written, "
+             "edited and printed by tool calls, rebuilt and held against every printed window) "
+             "and run here. The displaced set this site states is what that recovered instrument "
+             "returns (RECOVERED); the eleven the paper first printed are carried as the reading "
+             "it printed, superseded."},
+    {"id": "record-eleven", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "The paper's eleven were computed by its own final session as the elements where the "
+             "chain's entrant differs from a second table the project had sealed as its "
+             "c \u2192 \u221e walk. The project's own fault record F59.3, written before the "
+             "paper, established that the second table ran at c = 137 in restart mode (each step "
+             "from the observed configuration), so the eleven measure the chain's memory against "
+             "a memoryless restart at one c, not the constant. Re-derived here, both tables "
+             "reproduce and the eleven reproduce from them; at eight of the eleven the restart "
+             "entrant is the observed one. Repaired by the author's decision (2026-09-24): the "
+             "displaced set this site states is the recovered instrument's \u2014 the chain at "
+             "c \u2192 \u221e differs from the chain at c = 137 at thorium and rutherfordium "
+             "among the measured elements and at Z = 120 beyond them, and nowhere else \u2014 "
+             "RECOVERED. The paper was corrected in the store the same day, and the text this site "
+             "shows is the corrected one: it names the eleven as the disagreements it first "
+             "printed and withdraws them.",
+     "was": "... the paper's own text is shown as it stands until the author reissues it."},
+    {"id": "walk-reconstructed", "state": "standing", "reviewed": "2026-10-17",
+     "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own rebuild of the "
+             "paper's construction from its statement, run in two fields, and is kept beside the "
+             "record's recovered instrument as a second measurement, not in its place. Where it "
+             "agrees with the record that is a measurement; where it disagrees that is a "
              "measurement too. It is never the paper's number."},
-    {"id": "limit-kind",
-     "text": "A limit kind is a classification of the csv's own bound note by "
-             "the stated rule: the note is READ, the kind is DERIVED, and the "
-             "rule is shown beside it. 'no analysis located' is, as the note "
-             "itself says, not a bound on existence; a series limit is printed "
-             "as the csv prints it, with no unit added."},
-    {"id": "n0-reading",
-     "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) "
-             "names its terms but not whether a partially filled subshell counts; "
-             "'first entirely unoccupied n' matches the column at 97.7 % and He I "
-             "settles it."},
+    {"id": "limit-kind", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "A limit kind is a classification of the CSV's own bound note by the stated rule: the "
+             "note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis "
+             "located' is, as the note itself says, not a bound on existence. A series limit is "
+             "shown with its unit, cm\u207b\u00b9, which the CSV does not print: each of the nine "
+             "it prints equals NIST's ionisation energy for that neutral spectrum in "
+             "cm\u207b\u00b9 to every printed digit, and is the denominator the row's defects "
+             "recompute from (RECOVERED). The nine are carried on the series-limit axis too, READ.",
+     "was": "... a series limit is printed as the csv prints it, with no unit added."},
+    {"id": "n0-reading", "state": "repaired", "reviewed": "2026-10-17",
+     "text": "n\u2080's reading is RECOVERED. The definition B = min(p, n\u2080 \u2212 \u2113 "
+             "\u2212 1) names its terms but not whether a partially filled subshell counts. "
+             "Measured on the configuration table the CSV's B column was built on, 'first entirely "
+             "unoccupied n' reproduces all 101,303 integer B values with Z \u2264 118, and 'first "
+             "n with room' 88.9 %. (The 97.7 % this caveat once gave was measured on the observed "
+             "table, which is not the column's.) He I shows the difference in one row: the core is "
+             "1s\u00b9, the column gives B = 1, and only the first reading returns 1.",
+     "was": "n\u2080's reading is RECONSTRUCTED ... 'first entirely unoccupied n' matches the "
+            "column at 97.7 % and He I settles it."},
 ]
 
 
@@ -355,7 +402,9 @@ CAVEATS = [
 LIMIT_KINDS = [
     ("ionisation-limit", r"^limit [0-9.]+;",
      "a series limit the csv prints for the channel (one electron outside a "
-     "closed shell); the value is shown as printed, no unit added"),
+     "closed shell): the neutral ionisation energy in cm\u207b\u00b9, the unit "
+     "RECOVERED (each of the nine equals NIST's value in cm\u207b\u00b9 to every "
+     "printed digit, and the row's defects recompute from it)"),
     ("unresolved", r"^series unresolved",
      "the series is unresolved above the stated n in any published analysis"),
     ("nuclear", r"^no (long-lived|primordial) isotope|^no nuclide synthesised",
@@ -406,6 +455,50 @@ def limits(spectra):
         "distinct_notes": len(notes),
         "unclassified": unclassified,
     }
+
+
+def b_and_domain(spectra):
+    """The B column's three readings, and the channel equation's domain, each with the measurement
+    that settles it (populate.b_column_census, populate.domain_census, tools/seriesdefect.py)."""
+    bc = populate.b_column_census(spectra)
+    sd = _tool_module("seriesdefect", os.path.join(TOOLS, "seriesdefect.py"))
+    sres = sd.recompute()
+    ssum = sd.summary(sres)
+    b_column = dict(bc, **{
+        "status": {"bound": populate.READ, "range": populate.RECOVERED, "zero": populate.READ},
+        "meaning": {
+            "bound": "the Pauli bound on the aufbau table (n\u2080 the first entirely unoccupied n)",
+            "range": "the range, max \u2212 min, of the series' quantum defects; delta is their median",
+            "zero": "0 in every row of Z = 119 and 120, the bound on neither configuration table"},
+        "range_recomputed": {
+            "rows": ssum["rows"], "delta_is_median": ssum["delta_is_median"],
+            "B_is_range": ssum["B_is_range"], "delta_with_R_inf": ssum["delta_with_R_inf"],
+            "limits_equal_nist": ssum["limits_equal_nist_ie"], "spectra": ssum["spectra"],
+            "unit": "cm\u207b\u00b9", "instrument": "tools/seriesdefect.py",
+            "levels": "NIST ASD energy levels, read 2026-10-17",
+            "rows_detail": [{"symbol": r["symbol"], "term": r["term"], "n": [r["n_min"], r["n_max"]],
+                             "members": r["members"], "delta": r["delta"], "B": r["B"],
+                             "median": round(r["median"], 7), "range": round(r["range"], 7),
+                             "limit_cm1": r["limit"], "mass_u": r["mass_u"]} for r in sres]},
+    })
+    dc = populate.domain_census(spectra)
+    equation_domain = {
+        "status": populate.DERIVED,
+        "rule": [
+            {"exclusion": "Z > 103", "meaning": "the element has no long-lived isotope"},
+            {"exclusion": "charge > 10", "meaning": "no analysed Rydberg data above charge 10"},
+            {"exclusion": "open-shell core", "meaning": "an open-shell core at 3, 16 or 119 parents, "
+                                                        "read from the CSV's note on any row of the stage"},
+            {"exclusion": "series unresolved", "meaning": "the series unresolved above ng, read from "
+                                                          "the channel's own notes where nothing is measured"}],
+        "cells": {"rows": dc["rows"], "verified": dc["verified"], "by_first_exclusion": dc["by_note"],
+                  "record": dc["register_1192"]},
+        "measured": dc["measured"],
+        "measured_out_reasons": dc["out_reasons"],
+        "record_refit": dc["register_1193"],
+        "record_in_region_error": dc["register_1205_in_region_error"],
+    }
+    return b_column, equation_domain
 
 
 def _limit_counts(rec):
@@ -3205,9 +3298,10 @@ INSTRUMENTS = [
     ("core_p", populate.core_p, "tools/populate.py", populate.PINNED,
      "p, the core's orbital count at this l, from the observed ground "
      "configuration of the core"),
-    ("n0_of", populate.n0_of, "tools/populate.py", populate.RECON,
+    ("n0_of", populate.n0_of, "tools/populate.py", populate.RECOVERED,
      "n0, the first entirely unoccupied n at this l; the source names the "
-     "term but not the reading, and He I ns settles it"),
+     "term but not the reading, and the reading reproduces every integer B "
+     "of the spectra index on the table it was built on"),
     ("lambda_constraints", populate.lambda_constraints, "tools/populate.py",
      populate.PINNED, "the seven constraints on Lambda_8, of four origins"),
     ("caps_needed", populate.caps_needed, "tools/populate.py", populate.PINNED,
@@ -3999,6 +4093,9 @@ def unwrap(text, Z=None):
 def _csv_only_element(Z, spectra):
     """Z = 109 to 120: rows READ from COORDINATES-2.13 and nothing else."""
     chans = {}
+    stage_rows = {}
+    for r in spectra.channels(Z):
+        stage_rows.setdefault(int(r["charge"]), []).append(r)
     for r in spectra.channels(Z):
         c, l, m = int(r["charge"]), int(r["l"]), int(r["mult"])
         ch = chans.setdefault((c, l), {
@@ -4006,13 +4103,16 @@ def _csv_only_element(Z, spectra):
             "subshell_letter": populate.LSYM[l] if l < len(populate.LSYM) else str(l),
             "core_Ne": Z - c, "core_symbol": None, "p": None, "n0": None,
             "B_computed": None, "C_of_Z": None, "delta_equation": None,
+            "domain": populate.channel_domain(Z, c, l, stage_rows[c]),
             "measured": [],
         })
         cb = populate.csv_bound(r)
         ch["measured"].append({
             "mult": m, "delta": float(r["delta"]), "grade": r["grade"],
             "witness": r["witness"], "source": r["source"],
-            "bound_note": r["bound"], "B_csv": cb, "B_agrees": None,
+            "bound_note": r["bound"], "B_csv": cb,
+            "B_csv_reading": populate.csv_B_reading(r), "B_csv_raw": r["B"],
+            "B_csv_range": populate.csv_B_range(r), "B_agrees": None,
             "B_csv_is_not_a_bound": cb is None and r.get("B", "") != "",
             "floor_le_B": None, "residual": None,
         })
@@ -4028,7 +4128,9 @@ def _csv_only_element(Z, spectra):
         "channels": [chans[k] for k in sorted(chans)],
         "lambda8": [],
         "populated": False,
-        "note": "COORDINATES-2.13 rows only; the observed configurations stop at Z = 108",
+        "ground_basis": None,
+        "note": "COORDINATES-2.13 rows only; the ground-configuration table stops at Z = 108, "
+                "where NIST's neutral ground levels stop",
     }
 
 
@@ -4109,6 +4211,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     walk_z = {e["Z"] for e in (walk or {}).get("entrants", []) if e["displaced"]}
     walk_lx_z = {e["Z"] for e in ((walk or {}).get("fields", {}).get("lx", {}).get("entrants", [])) if e["displaced"]}
     lim_block = limits(spectra)
+    b_column, equation_domain = b_and_domain(spectra)
     fig = figure_source()
     figures = []
     if fig and os.path.exists(fig["path"]):
@@ -4289,6 +4392,8 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
                 relb["statement"], relb["construction"], relb["thorium"]] if t)}),
         "relativistic": relb,
         "limits": lim_block,
+        "b_column": b_column,
+        "equation_domain": equation_domain,
         "figures": figures,
         "fixtures": fixtures(spectra),
         "figure_data": {"equation": equation_points(spectra)},
@@ -4774,6 +4879,29 @@ def selftest(warp_root=WARP_ROOT):
     og = element_record(118, spectra)
     check("Og: CSV-only, not populated", og["populated"], False)
     check("Og: period 7 group 18", (og["period"], og["group"]), (7, 18))
+    uue = element_record(119, spectra)
+    zrows = [m for ch in uue["channels"] for m in ch["measured"]]
+    check("Z = 119: every row's B is 0, named as a zero and not read as a bound",
+          {(m["B_csv_reading"], m["B_csv"], m["B_csv_raw"]) for m in zrows}, {("zero", None, "0")})
+    check("Z = 119: every channel is outside the equation's domain (Z > 103)",
+          all(ch["domain"]["validated"] is False for ch in uue["channels"]), True)
+    na = element_record(11, spectra)
+    na1 = [m for ch in na["channels"] if ch["charge"] == 1 for m in ch["measured"]]
+    check("Na I: six rows carry the range of their series' defects, none read as a bound",
+          sorted(m["B_csv_range"] for m in na1 if m["B_csv_reading"] == "range"),
+          [3e-05, 0.00015, 0.0005, 0.00466, 0.02475, 0.02842])
+    check("Na I: the series limit is READ, 41449.451 cm^-1", (na["series_limit"]["value"], na["series_limit"]["status"]),
+          (41449.451, populate.READ))
+    check("Na I: in the equation's domain; Fe IV outside it (open-shell core at 16 parents)",
+          ([ch["domain"]["validated"] for ch in na["channels"] if ch["charge"] == 1 and ch["l"] == 0],
+           [ch["domain"]["reasons"] for ch in element_record(26, spectra)["channels"]
+            if ch["charge"] == 4 and ch["l"] == 0]),
+          ([True], [["open-shell core at 16 parents"]]))
+    rf = element_record(104, spectra)
+    check("Rf: the ground level is NIST's lone level, its ionisation energy ab initio (6.02)",
+          (rf["ground_basis"]["levels_held_by_nist"], rf["ground_basis"]["ionisation_energy_eV"]), (1, "(6.02)"))
+    check("only Lr to Hs carry a ground basis",
+          [z for z in range(1, 109) if element_record(z, spectra)["ground_basis"]], [103, 104, 105, 106, 107, 108])
     check("layout rows", len(index["layout"]), 120)
     check("manifest rows", len(index["manifest"]), 120)
 
@@ -4960,8 +5088,38 @@ def selftest(warp_root=WARP_ROOT):
           ins["op_order"]["file"], "tools/cypher.py")
     check("instruments: collapse_C is RECOVERED",
           ins["collapse_C"]["status"], populate.RECOVERED)
-    check("instruments: n0_of is RECONSTRUCTED",
-          ins["n0_of"]["status"], populate.RECON)
+    check("instruments: n0_of is RECOVERED (the reading reproduces the B column)",
+          ins["n0_of"]["status"], populate.RECOVERED)
+
+    # --- the caveats, as reviewed 2026-10-17 ----------------------------------
+    cv = {c["id"]: c for c in index["caveats"]}
+    check("caveats: eleven, each with a state and a review date",
+          (len(cv), all(c.get("state") in ("repaired", "measured", "standing", "open")
+                        and c.get("reviewed") for c in cv.values())), (11, True))
+    check("caveats: every repaired caveat keeps what it said before",
+          all(c.get("was") for c in cv.values() if c["state"] == "repaired"), True)
+    check("caveats: the stale claim that measurement stops at 108 is gone from the text",
+          "because measurement does" in cv["above-108"]["text"], False)
+    bc = index["b_column"]
+    check("B column: 101,303 bounds, 25 ranges, 3,504 zeros; aufbau reproduces every bound",
+          (bc["readings"], bc["aufbau_reproduces"], bc["integer_rows"]),
+          ({"bound": 101303, "range": 25, "zero": 3504}, 101303, 101303))
+    check("B column: on the observed table 1,104 of 99,687 rows differ",
+          (bc["observed_differs"], bc["observed_compared"]), (1104, 99687))
+    rr = bc["range_recomputed"]
+    check("B column: the 25 ranges recompute from NIST's levels, 25 of 25; R_inf gives none",
+          (rr["delta_is_median"], rr["B_is_range"], rr["delta_with_R_inf"], rr["limits_equal_nist"]),
+          (25, 25, 0, 9))
+    ed = index["equation_domain"]
+    check("domain: the record's first two exclusions reproduce exactly",
+          (ed["cells"]["by_first_exclusion"]["Z > 103"], ed["cells"]["by_first_exclusion"]["charge > 10"]),
+          (24312, 61748))
+    check("domain: the record's 51 measured exclusions reproduce (24, 15, 12)",
+          (ed["measured"]["out"]["rows"], ed["measured_out_reasons"]),
+          (51, {"open-shell core at 3 parents": 24, "open-shell core at 16 parents": 15,
+                "charge > 10": 12}))
+    check("domain: the in-region rms is the record's 0.147",
+          round(ed["measured"]["in, before the 2026-08-14 fetch"]["rms"], 3), 0.147)
 
     # --- the fixtures ----------------------------------------------------------
     fx = index["fixtures"]

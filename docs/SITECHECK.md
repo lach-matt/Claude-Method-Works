@@ -64,7 +64,7 @@ boot or element load and reports it on the console only, so console errors count
 the harness itself turns away from another host (the fonts). Each scenario has three minutes; one
 that stops responding is reported as failed and the run goes on.
 
-## What it checks — 30 scenarios, 131 checks
+## What it checks — 31 scenarios, 140 checks
 
 Each scenario runs in fresh browser contexts, closed when it ends, so one cannot leak into the next;
 a scenario that throws is reported as a failure and the run goes on.
@@ -103,6 +103,16 @@ a scenario that throws is reported as a failure and the run goes on.
   and lists the three pions rather than choosing one; and the search box offers a particle's plate
   and its gravity by its common name, the gravity suggestion opening the mode on it. These are the
   readings that were refusals or wrong before 2026-10-17 (docs/WEB-INDEX.md, the eleventh mode).
+
+- **`caveats`** — the caveats as reviewed on 2026-10-17 (docs/CAVEATS.md). The root plate lists
+  eleven, each with its state, and every repaired one prints what it read before. The Z > 108 caveat
+  names NIST's neutral ground levels and no longer says "because measurement does". On the plates:
+  - Na I s gives the csv's B as the range of the series' defects, not a bound, and its series limit
+    with its unit, cm⁻¹, inside the equation's domain;
+  - Fe IV s is outside the domain, with the reason;
+  - Rf's ground level is NIST's lone level, its ionisation energy ab initio;
+  - Z = 119's B is named a bare 0, not a bound;
+  - n₀ is `RECOVERED`.
 
 **Each of those was proved to fail on the bug it guards against.** The review that hardened the
 tool put ten known bugs back into copies of the site — the `#paper=` branch removed, `paperAddress`

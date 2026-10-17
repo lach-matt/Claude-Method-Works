@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-10-17T22:14:43+00:00",
-  "commit": "057607f25939",
+  "built": "2026-10-17T23:55:39+00:00",
+  "commit": "8662ea87fe6b",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "057607f25939",
-   "text": "Lach, M. (2026). The Master Index, edition 057607f25939. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 057607f25939}\n}"
+   "commit": "8662ea87fe6b",
+   "text": "Lach, M. (2026). The Master Index, edition 8662ea87fe6b. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 8662ea87fe6b}\n}"
   },
   "history": [
    {
@@ -421,6 +421,13 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "commit": "98300bae",
     "files": 1,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/98300bae9f4bd3b1fdda5a179f70496332267f12",
+    "note": null
+   },
+   {
+    "date": "2026-10-17",
+    "commit": "389c96aa",
+    "files": 4,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/389c96aa45e7024be638e3ca7e88eb5775a5849d",
     "note": null
    }
   ]
@@ -1185,8 +1192,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   },
   {
    "axis": "n0",
-   "status": "RECONSTRUCTED",
-   "source": "first entirely unoccupied n at this l; see n0_of"
+   "status": "RECOVERED",
+   "source": "first entirely unoccupied n at this l; the reading the B column reproduces on all its integer rows (see n0_of)"
   },
   {
    "axis": "B",
@@ -12024,56 +12031,56 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   "channel_delta": {
    "python": "def channel_delta(Z, charge, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    Ne = Z - charge + 1\n    c = charge\n    if Ne < 1 or c < 1:\n        return None\n    core = Ne - 1\n    p = core_p(core, l, table) if core >= 1 else 0\n    if p is None:\n        return None\n    charge_factor = math.log(c + 1) / c\n    if p > 0:\n        e = E0 - E1 * math.log(Ne)\n        return A_COEFF * (p ** e) * (Ne ** K_COEFF) * charge_factor\n    return (H_COEFF * collapse_C(Z, l) * ((Ne - 1) / Ne)\n            * (Ne ** K_COEFF) * charge_factor)\n",
    "file": "tools/populate.py",
-   "line": 317,
+   "line": 353,
    "status": "PINNED",
    "source": "the channel equation, final form; its p = 0 branch carries the RECOVERED collapse ramp C(Z)"
   },
   "collapse_C": {
    "python": "def collapse_C(Z, l):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    z0 = COLLAPSE_Z.get(l)\n    if z0 is None:\n        return 0.0\n    return min(1.0, max(0.0, 0.5 + (Z - z0) / COLLAPSE_WIDTH))\n",
    "file": "tools/populate.py",
-   "line": 288,
+   "line": 324,
    "status": "RECOVERED",
    "source": "C(Z, l), the collapse coordinate, inverted out of COORDINATES-2.13's computed column; no source states its form"
   },
   "pauli_bound": {
    "python": "def pauli_bound(Z, charge, l, config=None):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    core = Z - charge\n    if core < 1:\n        return 0\n    if config is not None:\n        occ = {(n, ll): o for n, ll, o in config}\n        p = sum(1 for n, ll, o in config if ll == l and o > 0)\n        n = l + 1\n        while occ.get((n, l), 0) > 0:\n            n += 1\n    else:\n        p = core_p(core, l)\n        n = n0_of(core, l)\n        if p is None or n is None:\n            return None\n    return max(0, min(p, n - l - 1))\n",
    "file": "tools/populate.py",
-   "line": 251,
+   "line": 287,
    "status": "PINNED",
    "source": "B = min(p, n0 - l - 1), the Pauli bound"
   },
   "core_p": {
    "python": "def core_p(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    return sum(1 for _n, ll, o in cfg if ll == l and o > 0)\n",
    "file": "tools/populate.py",
-   "line": 223,
+   "line": 255,
    "status": "PINNED",
    "source": "p, the core's orbital count at this l, from the observed ground configuration of the core"
   },
   "n0_of": {
    "python": "def n0_of(core_Ne, l, table=\"observed\"):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    cfg = config_of(core_Ne, table)\n    if cfg is None:\n        return None\n    occ = {(n, ll): o for n, ll, o in cfg}\n    n = l + 1\n    while occ.get((n, l), 0) > 0:\n        n += 1\n    return n\n",
    "file": "tools/populate.py",
-   "line": 232,
-   "status": "RECONSTRUCTED",
-   "source": "n0, the first entirely unoccupied n at this l; the source names the term but not the reading, and He I ns settles it"
+   "line": 264,
+   "status": "RECOVERED",
+   "source": "n0, the first entirely unoccupied n at this l; the source names the term but not the reading, and the reading reproduces every integer B of the spectra index on the table it was built on"
   },
   "lambda_constraints": {
    "python": "def lambda_constraints(cell):\n    \"\"\"(docstring withheld on the public site: it cites the author's unpublished notes)\"\"\"\n    n, l, k, q, e, f, g, S2 = cell\n    return [\n        (\"l <= n-1\", l <= n - 1, \"hydrogenic radial solution\"),\n        (\"k <= 2(2l+1)\", k <= 2 * (2 * l + 1), \"Pauli exclusion\"),\n        (\"q <= k\", q <= k, \"counting\"),\n        (\"f <= e-1\", f <= e - 1, \"hydrogenic radial solution\"),\n        (\"g <= 2(2f+1)\", g <= 2 * (2 * f + 1), \"Pauli exclusion\"),\n        (\"g <= q\", g <= q, \"counting\"),\n        (\"2S <= k\", S2 <= k, \"vector coupling (an envelope)\"),\n    ]\n",
    "file": "tools/populate.py",
-   "line": 401,
+   "line": 568,
    "status": "PINNED",
    "source": "the seven constraints on Lambda_8, of four origins"
   },
   "caps_needed": {
    "python": "def caps_needed(cell):\n    n, l, k, q, e, f, g, _S2 = cell\n    return dict(n=n, e=e, l=l, f=f, k=k)\n",
    "file": "tools/populate.py",
-   "line": 415,
+   "line": 582,
    "status": "PINNED",
    "source": "the caps a Lambda_8 cell needs, read against the standing (n, e, l, k, f) = (3, 3, 1, 3, 1); the cell it is applied to is the RECONSTRUCTED ionisation-ladder mapping and carries its own status"
   },
   "within_caps": {
    "python": "def within_caps(cell, caps=CAPS):\n    need = caps_needed(cell)\n    return {ax: need[ax] <= caps[ax] for ax in caps}\n",
    "file": "tools/populate.py",
-   "line": 420,
+   "line": 587,
    "status": "PINNED",
    "source": "the standing caps; a cell outside them is reported OUTSIDE, never truncated"
   },
@@ -19712,7 +19719,7 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    {
     "kind": "ionisation-limit",
     "regex": "^limit [0-9.]+;",
-    "meaning": "a series limit the csv prints for the channel (one electron outside a closed shell); the value is shown as printed, no unit added"
+    "meaning": "a series limit the csv prints for the channel (one electron outside a closed shell): the neutral ionisation energy in cm⁻¹, the unit RECOVERED (each of the nine equals NIST's value in cm⁻¹ to every printed digit, and the row's defects recompute from it)"
    },
    {
     "kind": "unresolved",
@@ -19898,6 +19905,480 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   ],
   "distinct_notes": 22,
   "unclassified": []
+ },
+ "b_column": {
+  "readings": {
+   "bound": 101303,
+   "range": 25,
+   "zero": 3504
+  },
+  "integer_rows": 101303,
+  "aufbau_reproduces": 101303,
+  "observed_compared": 99687,
+  "observed_differs": 1104,
+  "status": {
+   "bound": "READ",
+   "range": "RECOVERED",
+   "zero": "READ"
+  },
+  "meaning": {
+   "bound": "the Pauli bound on the aufbau table (n₀ the first entirely unoccupied n)",
+   "range": "the range, max − min, of the series' quantum defects; delta is their median",
+   "zero": "0 in every row of Z = 119 and 120, the bound on neither configuration table"
+  },
+  "range_recomputed": {
+   "rows": 25,
+   "delta_is_median": 25,
+   "B_is_range": 25,
+   "delta_with_R_inf": 0,
+   "limits_equal_nist": 9,
+   "spectra": 9,
+   "unit": "cm⁻¹",
+   "instrument": "tools/seriesdefect.py",
+   "levels": "NIST ASD energy levels, read 2026-10-17",
+   "rows_detail": [
+    {
+     "symbol": "B",
+     "term": "2P*",
+     "n": [
+      2,
+      9
+     ],
+     "members": 11,
+     "delta": "0.53527",
+     "B": "0.19569",
+     "median": 0.5352655,
+     "range": 0.1956947,
+     "limit_cm1": "66928.04",
+     "mass_u": 10.81
+    },
+    {
+     "symbol": "B",
+     "term": "2D",
+     "n": [
+      3,
+      39
+     ],
+     "members": 38,
+     "delta": "0.03920",
+     "B": "0.10803",
+     "median": 0.0392045,
+     "range": 0.1080261,
+     "limit_cm1": "66928.04",
+     "mass_u": 10.81
+    },
+    {
+     "symbol": "B",
+     "term": "2F*",
+     "n": [
+      4,
+      11
+     ],
+     "members": 9,
+     "delta": "0.01382",
+     "B": "0.00449",
+     "median": 0.0138244,
+     "range": 0.0044948,
+     "limit_cm1": "66928.04",
+     "mass_u": 10.81
+    },
+    {
+     "symbol": "Na",
+     "term": "2S",
+     "n": [
+      3,
+      20
+     ],
+     "members": 18,
+     "delta": "1.34857",
+     "B": "0.02475",
+     "median": 1.348566,
+     "range": 0.024754,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2P*",
+     "n": [
+      3,
+      20
+     ],
+     "members": 36,
+     "delta": "0.85615",
+     "B": "0.02842",
+     "median": 0.8561542,
+     "range": 0.028423,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2D",
+     "n": [
+      3,
+      20
+     ],
+     "members": 29,
+     "delta": "0.01488",
+     "B": "0.00466",
+     "median": 0.0148827,
+     "range": 0.0046564,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2F*",
+     "n": [
+      4,
+      20
+     ],
+     "members": 17,
+     "delta": "0.00160",
+     "B": "0.00050",
+     "median": 0.0016007,
+     "range": 0.0005004,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2G",
+     "n": [
+      5,
+      20
+     ],
+     "members": 18,
+     "delta": "0.00042",
+     "B": "0.00015",
+     "median": 0.0004163,
+     "range": 0.0001489,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Na",
+     "term": "2H*",
+     "n": [
+      6,
+      10
+     ],
+     "members": 6,
+     "delta": "0.00013",
+     "B": "0.00003",
+     "median": 0.0001285,
+     "range": 3.12e-05,
+     "limit_cm1": "41449.451",
+     "mass_u": 22.98976928
+    },
+    {
+     "symbol": "Al",
+     "term": "2F*",
+     "n": [
+      4,
+      10
+     ],
+     "members": 9,
+     "delta": "0.03474",
+     "B": "0.00884",
+     "median": 0.0347353,
+     "range": 0.0088432,
+     "limit_cm1": "48278.48",
+     "mass_u": 26.9815384
+    },
+    {
+     "symbol": "Al",
+     "term": "2G",
+     "n": [
+      5,
+      7
+     ],
+     "members": 3,
+     "delta": "0.00841",
+     "B": "0.00134",
+     "median": 0.0084121,
+     "range": 0.001345,
+     "limit_cm1": "48278.48",
+     "mass_u": 26.9815384
+    },
+    {
+     "symbol": "Ga",
+     "term": "2D",
+     "n": [
+      4,
+      34
+     ],
+     "members": 45,
+     "delta": "1.31599",
+     "B": "0.19230",
+     "median": 1.3159882,
+     "range": 0.1922988,
+     "limit_cm1": "48387.634",
+     "mass_u": 69.723
+    },
+    {
+     "symbol": "Ga",
+     "term": "2F*",
+     "n": [
+      4,
+      8
+     ],
+     "members": 5,
+     "delta": "0.02587",
+     "B": "0.00570",
+     "median": 0.0258722,
+     "range": 0.0056963,
+     "limit_cm1": "48387.634",
+     "mass_u": 69.723
+    },
+    {
+     "symbol": "In",
+     "term": "2F*",
+     "n": [
+      4,
+      12
+     ],
+     "members": 12,
+     "delta": "0.03940",
+     "B": "0.01038",
+     "median": 0.0394037,
+     "range": 0.0103794,
+     "limit_cm1": "46670.107",
+     "mass_u": 114.818
+    },
+    {
+     "symbol": "Cs",
+     "term": "2S",
+     "n": [
+      6,
+      25
+     ],
+     "members": 20,
+     "delta": "4.05120",
+     "B": "0.08085",
+     "median": 4.0511953,
+     "range": 0.0808476,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2P*",
+     "n": [
+      6,
+      25
+     ],
+     "members": 40,
+     "delta": "3.59251",
+     "B": "0.11203",
+     "median": 3.592506,
+     "range": 0.1120297,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2D",
+     "n": [
+      5,
+      25
+     ],
+     "members": 42,
+     "delta": "2.46643",
+     "B": "0.03053",
+     "median": 2.4664257,
+     "range": 0.0305292,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2F*",
+     "n": [
+      4,
+      25
+     ],
+     "members": 44,
+     "delta": "0.03254",
+     "B": "0.01136",
+     "median": 0.0325389,
+     "range": 0.0113587,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Cs",
+     "term": "2G",
+     "n": [
+      5,
+      25
+     ],
+     "members": 28,
+     "delta": "0.00667",
+     "B": "0.00194",
+     "median": 0.0066688,
+     "range": 0.0019364,
+     "limit_cm1": "31406.4677325",
+     "mass_u": 132.90545196
+    },
+    {
+     "symbol": "Lu",
+     "term": "2F*",
+     "n": [
+      5,
+      35
+     ],
+     "members": 60,
+     "delta": "1.12064",
+     "B": "0.15290",
+     "median": 1.120637,
+     "range": 0.1528986,
+     "limit_cm1": "43762.6",
+     "mass_u": 174.96669
+    },
+    {
+     "symbol": "Tl",
+     "term": "2S",
+     "n": [
+      7,
+      20
+     ],
+     "members": 14,
+     "delta": "4.75066",
+     "B": "0.07830",
+     "median": 4.7506601,
+     "range": 0.0782963,
+     "limit_cm1": "49266.66",
+     "mass_u": 204.38
+    },
+    {
+     "symbol": "Tl",
+     "term": "2D",
+     "n": [
+      6,
+      23
+     ],
+     "members": 24,
+     "delta": "3.11838",
+     "B": "0.09181",
+     "median": 3.1183833,
+     "range": 0.0918106,
+     "limit_cm1": "49266.66",
+     "mass_u": 204.38
+    },
+    {
+     "symbol": "Tl",
+     "term": "2F*",
+     "n": [
+      5,
+      8
+     ],
+     "members": 4,
+     "delta": "1.03131",
+     "B": "0.00904",
+     "median": 1.0313086,
+     "range": 0.0090433,
+     "limit_cm1": "49266.66",
+     "mass_u": 204.38
+    },
+    {
+     "symbol": "Fr",
+     "term": "2S",
+     "n": [
+      7,
+      30
+     ],
+     "members": 24,
+     "delta": "5.07221",
+     "B": "0.10117",
+     "median": 5.0722144,
+     "range": 0.1011689,
+     "limit_cm1": "32848.872",
+     "mass_u": 223.01973421
+    },
+    {
+     "symbol": "Fr",
+     "term": "2P*",
+     "n": [
+      7,
+      30
+     ],
+     "members": 48,
+     "delta": "4.59521",
+     "B": "0.19183",
+     "median": 4.5952147,
+     "range": 0.1918349,
+     "limit_cm1": "32848.872",
+     "mass_u": 223.01973421
+    }
+   ]
+  }
+ },
+ "equation_domain": {
+  "status": "DERIVED",
+  "rule": [
+   {
+    "exclusion": "Z > 103",
+    "meaning": "the element has no long-lived isotope"
+   },
+   {
+    "exclusion": "charge > 10",
+    "meaning": "no analysed Rydberg data above charge 10"
+   },
+   {
+    "exclusion": "open-shell core",
+    "meaning": "an open-shell core at 3, 16 or 119 parents, read from the CSV's note on any row of the stage"
+   },
+   {
+    "exclusion": "series unresolved",
+    "meaning": "the series unresolved above ng, read from the channel's own notes where nothing is measured"
+   }
+  ],
+  "cells": {
+   "rows": 101328,
+   "verified": 1287,
+   "by_first_exclusion": {
+    "Z > 103": 24312,
+    "charge > 10": 61748,
+    "series unresolved": 5366,
+    "open-shell core": 5481,
+    "none of the four": 3134
+   },
+   "record": {
+    "Z > 103": 24312,
+    "charge > 10": 61748,
+    "series unresolved": 5367,
+    "open-shell core": 5476
+   }
+  },
+  "measured": {
+   "in, before the 2026-08-14 fetch": {
+    "rows": 282,
+    "rms": 0.14746087452214585
+   },
+   "in, the 2026-08-14 fetch": {
+    "rows": 25,
+    "rms": 0.3770892334732833
+   },
+   "out": {
+    "rows": 51,
+    "rms": 0.1997355886808344
+   }
+  },
+  "measured_out_reasons": {
+   "open-shell core at 3 parents": 24,
+   "charge > 10": 12,
+   "open-shell core at 16 parents": 15
+  },
+  "record_refit": {
+   "in": 277,
+   "out": 51,
+   "three-parent": 24,
+   "sixteen-parent": 15,
+   "charge > 10": 12
+  },
+  "record_in_region_error": 0.147
  },
  "figures": [
   {
@@ -22976,43 +23457,76 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "caveats": [
   {
    "id": "above-108",
-   "text": "Elements above Z = 108 are not populated. The observed configurations stop at 108 because measurement does. COORDINATES-2.13 carries rows to Z = 120 and those are shown READ from the CSV with no configuration, equation or derived value behind them."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "Elements above Z = 108 are not populated. The ground-configuration table the site reads stops at hassium because NIST's compilation of neutral ground levels does: its neutral rows end at Hs I, and meitnerium and darmstadtium appear only as ions (checked 2026-10-17). It does not stop where measurement stops; that is earlier, as the next caveat says. COORDINATES-2.13 carries rows to Z = 120, and those are shown READ from the CSV with no configuration, equation or derived value behind them; its B column holds 0 in every one of them, which is not a bound.",
+   "was": "The observed configurations stop at 108 because measurement does."
+  },
+  {
+   "id": "ground-103-108",
+   "state": "measured",
+   "reviewed": "2026-10-17",
+   "text": "From lawrencium to hassium the ground levels shown are not observed spectra. For each neutral spectrum from Lr I to Hs I, NIST holds the ground level and no excited level, and the ionisation energy it prints is measured only for Lr: for Rf and Db it is ab initio (NIST's parentheses), for Sg, Bh and Hs semi-empirical (NIST's brackets), and those three ground levels carry no term. The configuration is still READ; the plate of each of these six elements shows what it rests on (read from NIST, 2026-10-17)."
   },
   {
    "id": "b-aufbau",
-   "text": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand). The configurations were later corrected and COORDINATES-2.13 was never rebuilt on them. Where the observed table gives a different Pauli bound the site shows both and marks the disagreement."
+   "state": "measured",
+   "reviewed": "2026-10-17",
+   "text": "The spectra index's B column was built on plain Madelung aufbau, the configuration table the record later withdrew. On that table, with n₀ the first entirely unoccupied n, it reproduces all 101,303 integer B values with Z ≤ 118. The CSV was never rebuilt on the observed configurations, and on them the bound differs in 1,104 of the 99,687 rows whose core the observed table holds (the cores of La, Pd, Ce, Ac, Th, Gd, Lr and others). The B this site gives is computed on the observed configurations; the CSV's value is shown beside it, READ, and every disagreement is marked. The CSV itself is not edited.",
+   "was": "The spectra index's B column was built on a withdrawn configuration table (aufbau, patched by hand)."
   },
   {
    "id": "b-overloaded",
-   "text": "25 measured rows carry a float in the B column: a dispersion of the median defect, not a bound. The site says 'B column is not a bound here' on those rows rather than comparing an integer against a spread."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The B column holds something other than the Pauli bound in 3,529 rows, and the site names each for what it is. In 25 measured rows from one NIST fetch (2026-08-14) it is the range, max − min, of the series' quantum defects. Recomputed from NIST's levels, with the printed limit in cm⁻¹ and the reduced-mass Rydberg, the row's delta is the median defect and B the range in all 25 rows (RECOVERED). In all 3,504 rows of Z = 119 and 120 it is 0, the bound on neither configuration table. Neither is compared with a bound.",
+   "was": "25 measured rows carry a float in the B column: a dispersion of the median defect, not a bound."
   },
   {
    "id": "lambda8-mapping",
-   "text": "A Λ₈ cell is a transition, so an element is not a cell. The mapping shown is the element's own ionisation ladder read off the observed configurations. Nothing fixes this mapping; it is RECONSTRUCTED and a later decision can move it."
+   "state": "open",
+   "reviewed": "2026-10-17",
+   "text": "A Λ₈ cell is a transition, so an element is not a cell, and nothing in the record fixes which transitions stand for an element (searched again 2026-10-17). The mapping shown is the element's own ionisation ladder read off the observed configurations, and it is RECONSTRUCTED. Measured: every one of its 5,778 steps (Z = 1 to 108) satisfies the six of Λ₈'s seven constraints that can be decided without the ion's term, and 1,107 of them lie within the standing caps; the seventh, 2S ≤ k, is left undecided because the ion's term is not carried. Choosing the mapping is the author's decision."
   },
   {
    "id": "equation-domain",
-   "text": "The channel equation is validated in its stated domain and extrapolated outside it. A residual on a channel outside that domain is not a finding against the equation."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The channel equation is validated in its stated domain and extrapolated outside it, and every channel now says which. The domain is the record's own: a channel is outside it where the element has no long-lived isotope (Z > 103), the ion is above charge 10, the core is open-shell at 3, 16 or 119 parents, or the series is unresolved above ng, each read from the CSV's own notes (DERIVED). The rule reproduces the record's figures: 24,312 and 61,748 cells for the first two, and of the measured rows exactly the 51 the record left out of its refit (24, 15 and 12). The 282 measured rows inside give an rms residual of 0.147, the figure the record states. A residual outside the domain is not a finding against the equation.",
+   "was": "The channel equation is validated in its stated domain and extrapolated outside it. A residual on a channel outside that domain is not a finding against the equation."
   },
   {
-   "id": "relativistic-not-held",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the paper's eleven are READ from the paper's own sentence and carried as the reading it printed, superseded."
+   "id": "relativistic-recovered",
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the eleven the paper first printed are carried as the reading it printed, superseded."
   },
   {
    "id": "record-eleven",
-   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Repaired by the author's decision (2026-09-24): the displaced set this site states is the recovered instrument's — the chain at c → ∞ differs from the chain at c = 137 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else — RECOVERED; the paper's eleven are shown as the reading the paper printed, superseded, and the paper's own text is shown as it stands until the author reissues it."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "The paper's eleven were computed by its own final session as the elements where the chain's entrant differs from a second table the project had sealed as its c → ∞ walk. The project's own fault record F59.3, written before the paper, established that the second table ran at c = 137 in restart mode (each step from the observed configuration), so the eleven measure the chain's memory against a memoryless restart at one c, not the constant. Re-derived here, both tables reproduce and the eleven reproduce from them; at eight of the eleven the restart entrant is the observed one. Repaired by the author's decision (2026-09-24): the displaced set this site states is the recovered instrument's — the chain at c → ∞ differs from the chain at c = 137 at thorium and rutherfordium among the measured elements and at Z = 120 beyond them, and nowhere else — RECOVERED. The paper was corrected in the store the same day, and the text this site shows is the corrected one: it names the eleven as the disagreements it first printed and withdraws them.",
+   "was": "... the paper's own text is shown as it stands until the author reissues it."
   },
   {
    "id": "walk-reconstructed",
+   "state": "standing",
+   "reviewed": "2026-10-17",
    "text": "The reconstructed walk (tools/lowdin_walk.py) is this site's own rebuild of the paper's construction from its statement, run in two fields, and is kept beside the record's recovered instrument as a second measurement, not in its place. Where it agrees with the record that is a measurement; where it disagrees that is a measurement too. It is never the paper's number."
   },
   {
    "id": "limit-kind",
-   "text": "A limit kind is a classification of the csv's own bound note by the stated rule: the note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis located' is, as the note itself says, not a bound on existence; a series limit is printed as the csv prints it, with no unit added."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "A limit kind is a classification of the CSV's own bound note by the stated rule: the note is READ, the kind is DERIVED, and the rule is shown beside it. 'no analysis located' is, as the note itself says, not a bound on existence. A series limit is shown with its unit, cm⁻¹, which the CSV does not print: each of the nine it prints equals NIST's ionisation energy for that neutral spectrum in cm⁻¹ to every printed digit, and is the denominator the row's defects recompute from (RECOVERED). The nine are carried on the series-limit axis too, READ.",
+   "was": "... a series limit is printed as the csv prints it, with no unit added."
   },
   {
    "id": "n0-reading",
-   "text": "n₀'s reading is RECONSTRUCTED. The definition of B = min(p, n₀ − ℓ − 1) names its terms but not whether a partially filled subshell counts; 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
+   "state": "repaired",
+   "reviewed": "2026-10-17",
+   "text": "n₀'s reading is RECOVERED. The definition B = min(p, n₀ − ℓ − 1) names its terms but not whether a partially filled subshell counts. Measured on the configuration table the CSV's B column was built on, 'first entirely unoccupied n' reproduces all 101,303 integer B values with Z ≤ 118, and 'first n with room' 88.9 %. (The 97.7 % this caveat once gave was measured on the observed table, which is not the column's.) He I shows the difference in one row: the core is 1s¹, the column gives B = 1, and only the first reading returns 1.",
+   "was": "n₀'s reading is RECONSTRUCTED ... 'first entirely unoccupied n' matches the column at 97.7 % and He I settles it."
   }
  ],
  "totals": {
@@ -27768,962 +28282,962 @@ window.__mi = window.__mi || {}; window.__mi.index = {
   {
    "Z": 1,
    "file": "elements/1.js",
-   "bytes": 5576,
-   "md5": "3340a779b4c4334154693c8d33e8aef2",
-   "payload_bytes": 5496,
-   "payload_md5": "8f5f584e9b70d16be9878b8ed96b6e21"
+   "bytes": 6268,
+   "md5": "0ec2e9a7100e64fe5aa16c6143102d1f",
+   "payload_bytes": 6188,
+   "payload_md5": "ab137d3c3124915204fc2fbe53028095"
   },
   {
    "Z": 2,
    "file": "elements/2.js",
-   "bytes": 17607,
-   "md5": "d3cc0015ca4a24e5dbe7d93701967a89",
-   "payload_bytes": 17527,
-   "payload_md5": "23b299374ccd8ab0229725fd77495dce"
+   "bytes": 19402,
+   "md5": "f200b109789776a9d8d5d3b2ed85a7a3",
+   "payload_bytes": 19322,
+   "payload_md5": "f14f13f8977f3bf3f9048c1c766bcfe1"
   },
   {
    "Z": 3,
    "file": "elements/3.js",
-   "bytes": 21352,
-   "md5": "60d8499eb683cdac5ecdf3159a125cbf",
-   "payload_bytes": 21272,
-   "payload_md5": "483615346417849c9368ddd9137545bf"
+   "bytes": 23906,
+   "md5": "1528d333c4d830e5d27c097f026e7d5c",
+   "payload_bytes": 23826,
+   "payload_md5": "14a9e269c24f66f26beb6feeff49c199"
   },
   {
    "Z": 4,
    "file": "elements/4.js",
-   "bytes": 27527,
-   "md5": "39b5d41f27df6b748f1cd5447e333431",
-   "payload_bytes": 27447,
-   "payload_md5": "76adf11ee131a4736332fde0ba4b1708"
+   "bytes": 31184,
+   "md5": "ecbc419ebeb67de71f23160118cee9a9",
+   "payload_bytes": 31104,
+   "payload_md5": "b7674f344eae4efd1bf097beb83b5338"
   },
   {
    "Z": 5,
    "file": "elements/5.js",
-   "bytes": 32080,
-   "md5": "b3ce3b5c2e1da65f09b682347b49b9cd",
-   "payload_bytes": 32000,
-   "payload_md5": "e21acaf19caf477c3bcf0525bfc2b8ad"
+   "bytes": 36656,
+   "md5": "58b7eaa9916d9db3881cb9b4b7dda6f8",
+   "payload_bytes": 36576,
+   "payload_md5": "2a087b230c7eb607f1ecb174ba7c598c"
   },
   {
    "Z": 6,
    "file": "elements/6.js",
-   "bytes": 37997,
-   "md5": "c6a333a24e1bb94ac0ab57d0ee8d052f",
-   "payload_bytes": 37917,
-   "payload_md5": "6857a69b17d90c9eb132f79d5ce0ea19"
+   "bytes": 43516,
+   "md5": "61c256deccdb73d5e3e6ca878ed62662",
+   "payload_bytes": 43436,
+   "payload_md5": "164f7c8d4e7fda8cbeb47455d0ef1217"
   },
   {
    "Z": 7,
    "file": "elements/7.js",
-   "bytes": 44813,
-   "md5": "c9a76fcb0dd5bdec3df8557e1ab2871e",
-   "payload_bytes": 44733,
-   "payload_md5": "70c686884b7484045fd898545164eb52"
+   "bytes": 51683,
+   "md5": "b96170a3f8756b79126fda2255540377",
+   "payload_bytes": 51603,
+   "payload_md5": "ffe605f49f2543168276821b11f7ad8b"
   },
   {
    "Z": 8,
    "file": "elements/8.js",
-   "bytes": 51192,
-   "md5": "a997bdb3643798b4cc2e0d2eb6387fdd",
-   "payload_bytes": 51112,
-   "payload_md5": "438004591f767d1a6a92499743c72204"
+   "bytes": 59413,
+   "md5": "c97b89d8913ea919c23ae2af68c35865",
+   "payload_bytes": 59333,
+   "payload_md5": "3acc052013b2620b2566f9542f15d8b2"
   },
   {
    "Z": 9,
    "file": "elements/9.js",
-   "bytes": 57625,
-   "md5": "fb3602deb1df12f263f6c73d002075cc",
-   "payload_bytes": 57545,
-   "payload_md5": "16d3a09f039dc0a0c4ee7414350797e8"
+   "bytes": 67197,
+   "md5": "5667ac4cea0288822cb95ba67135ef51",
+   "payload_bytes": 67117,
+   "payload_md5": "11f4b70b2bee194894980a6e1c25d23f"
   },
   {
    "Z": 10,
    "file": "elements/10.js",
-   "bytes": 63876,
-   "md5": "962db19c9393a273dfbfee9bd82653ab",
-   "payload_bytes": 63795,
-   "payload_md5": "b70c3316771ecf56d3a2456cef6a32ba"
+   "bytes": 74551,
+   "md5": "f1799dcdfe818987a1ec3f5dd455a07d",
+   "payload_bytes": 74470,
+   "payload_md5": "5a3d4a76937354d2d0e9d025711b6cc7"
   },
   {
    "Z": 11,
    "file": "elements/11.js",
-   "bytes": 68884,
-   "md5": "caa9475aae0db084178ceb0903f22c62",
-   "payload_bytes": 68803,
-   "payload_md5": "aa847f61707febdc8e2da6a00690b56e"
+   "bytes": 80777,
+   "md5": "c49a080780f4173e460a53bd6aa4a3f6",
+   "payload_bytes": 80696,
+   "payload_md5": "803aa1ca77547c4e9b7f54a87febc04f"
   },
   {
    "Z": 12,
    "file": "elements/12.js",
-   "bytes": 74348,
-   "md5": "94b467b9a6fc01a2e17902eedf4ea98e",
-   "payload_bytes": 74267,
-   "payload_md5": "ae29cd231b0c092bcea4e8a1f4033c09"
+   "bytes": 87525,
+   "md5": "8fef77f7471604565cdb43b22e4d5da7",
+   "payload_bytes": 87444,
+   "payload_md5": "ea1887d28dfe23228610ab981af21122"
   },
   {
    "Z": 13,
    "file": "elements/13.js",
-   "bytes": 78424,
-   "md5": "409c356c4d95bc431a96add0b11b1bd2",
-   "payload_bytes": 78343,
-   "payload_md5": "ece6b4525847f5c2fdf4015edaf2193e"
+   "bytes": 92838,
+   "md5": "e920a0952890c6086f4d0ad6de25da88",
+   "payload_bytes": 92757,
+   "payload_md5": "e129a3263581c1bc74e0f09bf3e1a01c"
   },
   {
    "Z": 14,
    "file": "elements/14.js",
-   "bytes": 84281,
-   "md5": "3a679d1053d2c78a693df757e14a3ecb",
-   "payload_bytes": 84200,
-   "payload_md5": "3353a97b9df2e7340df1a2d2913cd91f"
+   "bytes": 99960,
+   "md5": "3dd299f238765ade5680c8b231628860",
+   "payload_bytes": 99879,
+   "payload_md5": "74d284d70d478d5681f00242d60032dd"
   },
   {
    "Z": 15,
    "file": "elements/15.js",
-   "bytes": 90626,
-   "md5": "a3b4b52f89fe5322e46c5b7dd9de89c6",
-   "payload_bytes": 90545,
-   "payload_md5": "fa99c515e057f33651aede51ff0c0ec9"
+   "bytes": 107976,
+   "md5": "34902dc7991dd6da1b7e8d570c3bb514",
+   "payload_bytes": 107895,
+   "payload_md5": "6348173dea34e7271d9af9d56fc5bc5e"
   },
   {
    "Z": 16,
    "file": "elements/16.js",
-   "bytes": 96300,
-   "md5": "4b233555f8dec43c695bd44127cd0bb6",
-   "payload_bytes": 96219,
-   "payload_md5": "2516f8dd2c30bc71e55861afe67e8a70"
+   "bytes": 115321,
+   "md5": "d885a2853e06bb903f22c66fd125a5c4",
+   "payload_bytes": 115240,
+   "payload_md5": "029d53f1e618f984ae294ba43b978041"
   },
   {
    "Z": 17,
    "file": "elements/17.js",
-   "bytes": 103416,
-   "md5": "e80d6b8b401fc766da1219ba086cbfbd",
-   "payload_bytes": 103335,
-   "payload_md5": "dee0c30892d8ba5e600e52083850e98e"
+   "bytes": 124108,
+   "md5": "75013fef6c41814d14bf45c9b49ed1ef",
+   "payload_bytes": 124027,
+   "payload_md5": "b7e5a1639f2948b308e272ee3463ed70"
   },
   {
    "Z": 18,
    "file": "elements/18.js",
-   "bytes": 110699,
-   "md5": "aae8498ddf6cd0ca6561ba7ab90ddc7e",
-   "payload_bytes": 110618,
-   "payload_md5": "0b56fb5c04053559818074022b19afc0"
+   "bytes": 132814,
+   "md5": "b34e59a4d592755a9693aa07d36e2410",
+   "payload_bytes": 132733,
+   "payload_md5": "0c28fefa1f92b8323ff8bf9696110468"
   },
   {
    "Z": 19,
    "file": "elements/19.js",
-   "bytes": 114925,
-   "md5": "7c8a9b26e1ad418eda4506b735f61db5",
-   "payload_bytes": 114844,
-   "payload_md5": "a4b5767dd2f34c910e22c5ee885de798"
+   "bytes": 138119,
+   "md5": "592b47673c9c488bbe18bc9300a46ccb",
+   "payload_bytes": 138038,
+   "payload_md5": "1e487284929423888e75cf1eeb47f8df"
   },
   {
    "Z": 20,
    "file": "elements/20.js",
-   "bytes": 120566,
-   "md5": "816717abaebcfaf9224d668fa7aeb4fb",
-   "payload_bytes": 120485,
-   "payload_md5": "1678f3a09b0cdd7869a5dfddce497d92"
+   "bytes": 145183,
+   "md5": "f22c7deab09a233559c54f98f5330c8c",
+   "payload_bytes": 145102,
+   "payload_md5": "fd8b9cbef650d2d0df0a65270f0b763c"
   },
   {
    "Z": 21,
    "file": "elements/21.js",
-   "bytes": 125147,
-   "md5": "725ada29e4a4568ba915b7cbb55dc96e",
-   "payload_bytes": 125066,
-   "payload_md5": "5561430ea5e51fdf8f40df4642e3c6d4"
+   "bytes": 150843,
+   "md5": "8cb21baf9d845c7f47f50aa0678d3820",
+   "payload_bytes": 150762,
+   "payload_md5": "9dddae345a6856f830fc317ae45bea2b"
   },
   {
    "Z": 22,
    "file": "elements/22.js",
-   "bytes": 131250,
-   "md5": "2b0ad66cb36e82a215be9a6721512b70",
-   "payload_bytes": 131169,
-   "payload_md5": "2d25bd7dafd819299b99120577f989fb"
+   "bytes": 158369,
+   "md5": "ddcd338b3563df15eba081b87cae0768",
+   "payload_bytes": 158288,
+   "payload_md5": "177a4d2def3cbf20a8838c2b41847163"
   },
   {
    "Z": 23,
    "file": "elements/23.js",
-   "bytes": 138077,
-   "md5": "8fbd0088c4fd5fffe43b9f9a5b55738c",
-   "payload_bytes": 137996,
-   "payload_md5": "672605d2a2440d5e1b4f5fe9a450a162"
+   "bytes": 166875,
+   "md5": "8a322c9874d6b30b944b1c1875ac898b",
+   "payload_bytes": 166794,
+   "payload_md5": "b8a352273ca7ee3132a3b28501d1203c"
   },
   {
    "Z": 24,
    "file": "elements/24.js",
-   "bytes": 144291,
-   "md5": "f3081ad17059a34ef8e851ed5629c33e",
-   "payload_bytes": 144210,
-   "payload_md5": "57e65a2afa3f05d9f37274e73de26426"
+   "bytes": 174768,
+   "md5": "4332c7e7a2dbd71f7495b6bc6b506aec",
+   "payload_bytes": 174687,
+   "payload_md5": "86400d817ba5a0e071f544e79a37494f"
   },
   {
    "Z": 25,
    "file": "elements/25.js",
-   "bytes": 150328,
-   "md5": "a4ed702e730cf855f00fa9cd4bae3f13",
-   "payload_bytes": 150247,
-   "payload_md5": "1d869547fdb98936f0ec55b12f71431d"
+   "bytes": 182484,
+   "md5": "46426f6b3c6bd3b6df4c2bd01d9f55c2",
+   "payload_bytes": 182403,
+   "payload_md5": "7e0821e11cb4fb4ebf4c4816b0edc97f"
   },
   {
    "Z": 26,
    "file": "elements/26.js",
-   "bytes": 155912,
-   "md5": "62ace3b4172d95503e441242ad78657a",
-   "payload_bytes": 155831,
-   "payload_md5": "bfac3e74ffef0e256ad39df1272e1b2a"
+   "bytes": 189747,
+   "md5": "cc36983db6c8ab6312a5abbc957f4a0c",
+   "payload_bytes": 189666,
+   "payload_md5": "94a5dbf4c1e669ea4429b62fc5258270"
   },
   {
    "Z": 27,
    "file": "elements/27.js",
-   "bytes": 162423,
-   "md5": "420083d9d740f75cbc2dff090c38d143",
-   "payload_bytes": 162342,
-   "payload_md5": "c102e4971287b25f7797b31019d3dfa3"
+   "bytes": 197937,
+   "md5": "decfb5b8d61956fa3c4117378fc673bb",
+   "payload_bytes": 197856,
+   "payload_md5": "d31f14ee626c166dbfb7251301e170c2"
   },
   {
    "Z": 28,
    "file": "elements/28.js",
-   "bytes": 168847,
-   "md5": "66eb1be1c9fa1aedfb5bd86547d16977",
-   "payload_bytes": 168766,
-   "payload_md5": "9cd2155cc5b785cb23bec50e8f9f6216"
+   "bytes": 206040,
+   "md5": "69a92eceec411ce75c04b88ffa95a8cb",
+   "payload_bytes": 205959,
+   "payload_md5": "ef1bc45a252269fda0afa872e5d2bba4"
   },
   {
    "Z": 29,
    "file": "elements/29.js",
-   "bytes": 174552,
-   "md5": "2742c30cce737bd31472ab198204df13",
-   "payload_bytes": 174471,
-   "payload_md5": "33ce813a0fddaf40780d6da3b28c3c25"
+   "bytes": 213424,
+   "md5": "7187eea3021bd306598c1846d3831076",
+   "payload_bytes": 213343,
+   "payload_md5": "83264fa56019591abfaafb460db34a5d"
   },
   {
    "Z": 30,
    "file": "elements/30.js",
-   "bytes": 180418,
-   "md5": "19328c796c78b24296701bd7b989a93a",
-   "payload_bytes": 180337,
-   "payload_md5": "2309c096f61a6922a1f93be47dc580f4"
+   "bytes": 220713,
+   "md5": "787f53a0890474b35f7fb029b45f668e",
+   "payload_bytes": 220632,
+   "payload_md5": "6ca05593778f23ce1ce6b564dbabbdd7"
   },
   {
    "Z": 31,
    "file": "elements/31.js",
-   "bytes": 184368,
-   "md5": "19e250061cb6a3f346902df74209d086",
-   "payload_bytes": 184287,
-   "payload_md5": "7630c79a2b1ec908f3e4a1bb7cec8445"
+   "bytes": 225899,
+   "md5": "c059bbfc3746574eb65a204753b8f67f",
+   "payload_bytes": 225818,
+   "payload_md5": "2198a4ad02cb25a1b72d814457b0b4b7"
   },
   {
    "Z": 32,
    "file": "elements/32.js",
-   "bytes": 190531,
-   "md5": "5871e92d60dfea435b435ed3cd7a500e",
-   "payload_bytes": 190450,
-   "payload_md5": "aec568062cb29fc0c6bbf27b075482d4"
+   "bytes": 233328,
+   "md5": "4b39f2e8f5fd8e57471b4cc7cc8729f9",
+   "payload_bytes": 233247,
+   "payload_md5": "a6a8e43036924ad6d4d1baa4f50134d9"
   },
   {
    "Z": 33,
    "file": "elements/33.js",
-   "bytes": 197084,
-   "md5": "c079fdc21c47991bf1f2d70ce38a9b64",
-   "payload_bytes": 197003,
-   "payload_md5": "fa7e05bf39d8ac4e7934334b90b70452"
+   "bytes": 241552,
+   "md5": "7aa4ec8b6fd2481d8756e604273ab252",
+   "payload_bytes": 241471,
+   "payload_md5": "f008677c3db506b0a262e3e9f4125dab"
   },
   {
    "Z": 34,
    "file": "elements/34.js",
-   "bytes": 203140,
-   "md5": "03dd4771b18477f1dccd89774a5ea62c",
-   "payload_bytes": 203059,
-   "payload_md5": "d9ad03cb52605ba1b4088974d82ece27"
+   "bytes": 249279,
+   "md5": "cfd6bca1292177c67a69f5ad1f31f834",
+   "payload_bytes": 249198,
+   "payload_md5": "bad59bcfd0c2a156d9307bbc6faa5418"
   },
   {
    "Z": 35,
    "file": "elements/35.js",
-   "bytes": 209240,
-   "md5": "8d0d6f545543b87255c302f6f209fcf0",
-   "payload_bytes": 209159,
-   "payload_md5": "1f36191d0e256d5d72df9d5f74cd9e56"
+   "bytes": 257050,
+   "md5": "64403678fe69b9c3d41bbe245a94e466",
+   "payload_bytes": 256969,
+   "payload_md5": "bc118624ef24fe93d555c5215eaa2e19"
   },
   {
    "Z": 36,
    "file": "elements/36.js",
-   "bytes": 215693,
-   "md5": "585c15d0bfafff4e0389dc86a0355d93",
-   "payload_bytes": 215612,
-   "payload_md5": "2fc8991f31c4c9423cb239f8b601123e"
+   "bytes": 264926,
+   "md5": "dce9cc178a7a5a18185fddc962c6a2c6",
+   "payload_bytes": 264845,
+   "payload_md5": "81242aa69403a67f488344e154680045"
   },
   {
    "Z": 37,
    "file": "elements/37.js",
-   "bytes": 219452,
-   "md5": "0c17181c974c42c2fe16a571133cec87",
-   "payload_bytes": 219371,
-   "payload_md5": "e009adc88b3de22fe167248260f0da3d"
+   "bytes": 269764,
+   "md5": "4fa08495f3172d0acc842019b12598de",
+   "payload_bytes": 269683,
+   "payload_md5": "89c2973e7507517ec58837aba216365c"
   },
   {
    "Z": 38,
    "file": "elements/38.js",
-   "bytes": 225902,
-   "md5": "e45839a6f641da7dc451986cab1a1a1e",
-   "payload_bytes": 225821,
-   "payload_md5": "4063d1a08fbd64311377a1a424d04cbd"
+   "bytes": 277637,
+   "md5": "2bb7f04ac76f04a241ec495673376079",
+   "payload_bytes": 277556,
+   "payload_md5": "dc144982f458c727304583246691a18b"
   },
   {
    "Z": 39,
    "file": "elements/39.js",
-   "bytes": 229932,
-   "md5": "7f20bfa38d6ff214820c0dcbfe4bfcb6",
-   "payload_bytes": 229851,
-   "payload_md5": "a14871cd817165a5c58930b4726d3796"
+   "bytes": 282746,
+   "md5": "b05753c713919f31026bdd716465f758",
+   "payload_bytes": 282665,
+   "payload_md5": "c24dfbc33548d3512ba71294e7a07e6d"
   },
   {
    "Z": 40,
    "file": "elements/40.js",
-   "bytes": 236883,
-   "md5": "5b11c8a6fcdfb78ebf556a2af6a12fa3",
-   "payload_bytes": 236802,
-   "payload_md5": "2c31b85630a9e34e1ae485c2847759fc"
+   "bytes": 291120,
+   "md5": "477c8392661ed58781b9016f9c4d278d",
+   "payload_bytes": 291039,
+   "payload_md5": "054c2f5306a7a2ee01578fe6376b4817"
   },
   {
    "Z": 41,
    "file": "elements/41.js",
-   "bytes": 243072,
-   "md5": "4ed0d025b7e20b0427f43fac1303841a",
-   "payload_bytes": 242991,
-   "payload_md5": "0d3508da8d50385cf78b299f0095cc5c"
+   "bytes": 298988,
+   "md5": "6ee679e99ce7adcf84bcf52af192f533",
+   "payload_bytes": 298907,
+   "payload_md5": "9a0aa4136d1d50e4d1a8bda94913b5e4"
   },
   {
    "Z": 42,
    "file": "elements/42.js",
-   "bytes": 249212,
-   "md5": "bb8df00724ba8d79ada83dbed0fbaffe",
-   "payload_bytes": 249131,
-   "payload_md5": "0250ade73b4b024c0deeafd0a98367af"
+   "bytes": 306807,
+   "md5": "9376a70b0b9b33a4fd839fd8969a9894",
+   "payload_bytes": 306726,
+   "payload_md5": "e0303aa7ec8931383051b82804e3b798"
   },
   {
    "Z": 43,
    "file": "elements/43.js",
-   "bytes": 254989,
-   "md5": "1a48499afc81902f20988ceb5662eeba",
-   "payload_bytes": 254908,
-   "payload_md5": "1a40df6701b618fb222daed9ff6d14ab"
+   "bytes": 314263,
+   "md5": "835fe0d12a3eef90ecd1f553d076f182",
+   "payload_bytes": 314182,
+   "payload_md5": "af6a51e7881bf32ca31a415aef39057b"
   },
   {
    "Z": 44,
    "file": "elements/44.js",
-   "bytes": 261273,
-   "md5": "06431155a7dd462bfad4af4aa1623a1c",
-   "payload_bytes": 261192,
-   "payload_md5": "5fe9ff49afc2a8f4f55b8d1b34bf0649"
+   "bytes": 322226,
+   "md5": "b53c3ec1704ea1e5bb6799a0a6f8efa8",
+   "payload_bytes": 322145,
+   "payload_md5": "38eccc72632f405ae60c3e8ce8fdae31"
   },
   {
    "Z": 45,
    "file": "elements/45.js",
-   "bytes": 267245,
-   "md5": "4de6b9f24b59c8f547701deb9a4d8ea8",
-   "payload_bytes": 267164,
-   "payload_md5": "728635b42cd0698f5024297088eb33b7"
+   "bytes": 329877,
+   "md5": "1dde2545a3db69a4f38ef45a72cb1be8",
+   "payload_bytes": 329796,
+   "payload_md5": "a8617855d36aa8c44681570dcefcbf5e"
   },
   {
    "Z": 46,
    "file": "elements/46.js",
-   "bytes": 273299,
-   "md5": "0a47482e8df321a79b9c3297420b6d31",
-   "payload_bytes": 273218,
-   "payload_md5": "d863d8c089a6660cec1e5a16dcf75e5e"
+   "bytes": 337610,
+   "md5": "e95df25d2e4f2620d60d3d92d8e7cf4d",
+   "payload_bytes": 337529,
+   "payload_md5": "3c47884aa5d73fd4bbd9b08e47e33392"
   },
   {
    "Z": 47,
    "file": "elements/47.js",
-   "bytes": 279205,
-   "md5": "1f8acb77f3ff1c3842e7d7df9587cda7",
-   "payload_bytes": 279124,
-   "payload_md5": "6c9f0a0bdd9010a0982846f6c9acc6ad"
+   "bytes": 345195,
+   "md5": "cde9e2bff6e5a47845c93440b615e4f1",
+   "payload_bytes": 345114,
+   "payload_md5": "ec659b8e576e194f41a5fea4431d24fe"
   },
   {
    "Z": 48,
    "file": "elements/48.js",
-   "bytes": 285016,
-   "md5": "cd566710947ee14bb7e089083ed163f0",
-   "payload_bytes": 284935,
-   "payload_md5": "50c75af773c0d9b57725c3de1e63fb42"
+   "bytes": 352429,
+   "md5": "3768f9a6a24d56d8ff452837baeee5ad",
+   "payload_bytes": 352348,
+   "payload_md5": "9fa9044ff3bc89eddb06d4d2962071ba"
   },
   {
    "Z": 49,
    "file": "elements/49.js",
-   "bytes": 289714,
-   "md5": "a63fba3f3380c5409d9b63fda4f4c202",
-   "payload_bytes": 289633,
-   "payload_md5": "8c9c25c921a004fdb2e234566640a4cf"
+   "bytes": 358362,
+   "md5": "cf05af0c34e0f7de23faa2bf133517a6",
+   "payload_bytes": 358281,
+   "payload_md5": "ab2ab331ae8e69d6418a5fdd334b3b41"
   },
   {
    "Z": 50,
    "file": "elements/50.js",
-   "bytes": 296345,
-   "md5": "e01b654bf444d42917edf1b901f70587",
-   "payload_bytes": 296264,
-   "payload_md5": "14bb465acbc5f36302abc52d690c764b"
+   "bytes": 366260,
+   "md5": "09c19ac3d5eb15109e6a4e517c91a80a",
+   "payload_bytes": 366179,
+   "payload_md5": "757becbef73f724d04dcc71478c24115"
   },
   {
    "Z": 51,
    "file": "elements/51.js",
-   "bytes": 302077,
-   "md5": "1185969d792704fe0aef8bc3588a3075",
-   "payload_bytes": 301996,
-   "payload_md5": "c6a6caebbbb5acaf91c7925b576fcea4"
+   "bytes": 373663,
+   "md5": "3ec1336a5061a741a263352160fba1a9",
+   "payload_bytes": 373582,
+   "payload_md5": "56dfa4b9f2d04724c643d269a0c5a6ae"
   },
   {
    "Z": 52,
    "file": "elements/52.js",
-   "bytes": 308226,
-   "md5": "8926a1e4150fd0306a780f61796905b7",
-   "payload_bytes": 308145,
-   "payload_md5": "2258f3fb12b8c2fd560c4dc4311ee5ad"
+   "bytes": 381483,
+   "md5": "7469d23ff171e316b334f86702298d8b",
+   "payload_bytes": 381402,
+   "payload_md5": "6784dc376a767fb1b30c5877ab7d4784"
   },
   {
    "Z": 53,
    "file": "elements/53.js",
-   "bytes": 314078,
-   "md5": "ee82613ca509f445cf5492cad4199ff1",
-   "payload_bytes": 313997,
-   "payload_md5": "93f1b958c5d9e279a3e3375fe002e335"
+   "bytes": 389006,
+   "md5": "a6b255c8f2f756abc81ab8599216a979",
+   "payload_bytes": 388925,
+   "payload_md5": "2ac6c8a8779b9b6621c70f645533204d"
   },
   {
    "Z": 54,
    "file": "elements/54.js",
-   "bytes": 323799,
-   "md5": "41ac1cb3fc4eb694505b66d721795c40",
-   "payload_bytes": 323718,
-   "payload_md5": "7ca827bfd8f252e9795c0d41ed0e59df"
+   "bytes": 400150,
+   "md5": "57afc15008547138e5beb0ef0ea606c9",
+   "payload_bytes": 400069,
+   "payload_md5": "a27a59b09afcbec6c49457465ebf6896"
   },
   {
    "Z": 55,
    "file": "elements/55.js",
-   "bytes": 327825,
-   "md5": "34e2c2afc9626c079b15d91ff328eac0",
-   "payload_bytes": 327744,
-   "payload_md5": "378af26538aa2b25a7931803887d79ca"
+   "bytes": 405427,
+   "md5": "39c6989e87d5f0d7f95a882a4bfc1484",
+   "payload_bytes": 405346,
+   "payload_md5": "db89cba5ffbbab237113575eee0fbafa"
   },
   {
    "Z": 56,
    "file": "elements/56.js",
-   "bytes": 333836,
-   "md5": "c7b17265c6d4a4fc3fe7725a0342f2eb",
-   "payload_bytes": 333755,
-   "payload_md5": "aaf7f324a00d8672f4cadcf58a256a02"
+   "bytes": 412689,
+   "md5": "de61320f41d7cc96746390774545a405",
+   "payload_bytes": 412608,
+   "payload_md5": "48018c2ccd34178d9aa8d583d0e49feb"
   },
   {
    "Z": 57,
    "file": "elements/57.js",
-   "bytes": 338053,
-   "md5": "8ecc0b67e51e1ec7f44adb595b23b758",
-   "payload_bytes": 337972,
-   "payload_md5": "52425b785d3258cb4bbdf16766c67614"
+   "bytes": 417985,
+   "md5": "8fe7ca10be6b95a7e0a5d43c520a9b81",
+   "payload_bytes": 417904,
+   "payload_md5": "7d43378a015f34f40fa015ebc5e1f157"
   },
   {
    "Z": 58,
    "file": "elements/58.js",
-   "bytes": 344611,
-   "md5": "2626a10332f511acd23d3ef860e1c060",
-   "payload_bytes": 344530,
-   "payload_md5": "a198ea1c58ea48e31a0e04ae7b5f6311"
+   "bytes": 425966,
+   "md5": "2551db52b5979a5c1cde746fe9a870d2",
+   "payload_bytes": 425885,
+   "payload_md5": "0c30d35021927a151f92e9ab8fee0f45"
   },
   {
    "Z": 59,
    "file": "elements/59.js",
-   "bytes": 350532,
-   "md5": "59f54bcb5147ec79f3ad747956c23bf8",
-   "payload_bytes": 350451,
-   "payload_md5": "cb83b6db082fc42244524bb1477e4a84"
+   "bytes": 433574,
+   "md5": "03726f98a314ae9a72565d6e67377945",
+   "payload_bytes": 433493,
+   "payload_md5": "5a76e048c95d580a3ca63a68dd218929"
   },
   {
    "Z": 60,
    "file": "elements/60.js",
-   "bytes": 356480,
-   "md5": "c3c2ff4e38c4f470575399cd2eb5f257",
-   "payload_bytes": 356399,
-   "payload_md5": "d6981b8ccd85bac7da44a776dc15aee0"
+   "bytes": 441209,
+   "md5": "66834081c31f948432bd362ca78e85eb",
+   "payload_bytes": 441128,
+   "payload_md5": "28bf9fb6b17d1cba5b7cf0a107b518c9"
   },
   {
    "Z": 61,
    "file": "elements/61.js",
-   "bytes": 362329,
-   "md5": "ae06754121d4583b69536eb69c127385",
-   "payload_bytes": 362248,
-   "payload_md5": "15674b7744aae51ce2a0f389f3648697"
+   "bytes": 448745,
+   "md5": "2cad2483ca67fd4c376a3312abafff8a",
+   "payload_bytes": 448664,
+   "payload_md5": "160c97ea19cbc73358b1252e1e8099be"
   },
   {
    "Z": 62,
    "file": "elements/62.js",
-   "bytes": 368552,
-   "md5": "d219c2fb0d51bcf3a63b8cb6279163be",
-   "payload_bytes": 368471,
-   "payload_md5": "c00a509617e6ba429287b21f335c8942"
+   "bytes": 456655,
+   "md5": "0e406fdaa3107e666aea85e9e7c5928a",
+   "payload_bytes": 456574,
+   "payload_md5": "e09272824e82bdde9946660483e3850f"
   },
   {
    "Z": 63,
    "file": "elements/63.js",
-   "bytes": 374542,
-   "md5": "3d0aeb0e6f07892c59c727d95e9efc2f",
-   "payload_bytes": 374461,
-   "payload_md5": "05c8dbb8097047868b5bfc62c4cf0e68"
+   "bytes": 464332,
+   "md5": "28b50f5982f127d1cbeeaf94bf206d53",
+   "payload_bytes": 464251,
+   "payload_md5": "302f187558be283ee6c3e8116a6b5ea1"
   },
   {
    "Z": 64,
    "file": "elements/64.js",
-   "bytes": 380574,
-   "md5": "0f6ff6b3f8772f1a01b29fc2c480d253",
-   "payload_bytes": 380493,
-   "payload_md5": "c6586e3f98caa7bcf106d0cfe51a3a6a"
+   "bytes": 472051,
+   "md5": "14bf26680cad06790c8fb88e4fb41095",
+   "payload_bytes": 471970,
+   "payload_md5": "f5f4f750a12b0e1e35f10b0bf0b79dbe"
   },
   {
    "Z": 65,
    "file": "elements/65.js",
-   "bytes": 386524,
-   "md5": "964f10e026753c69f3d0ce42cc7d4436",
-   "payload_bytes": 386443,
-   "payload_md5": "fe3ab65726d80df489bc8cc76ed85215"
+   "bytes": 479688,
+   "md5": "a17a3314de6f6e8392ac907fe15dc07c",
+   "payload_bytes": 479607,
+   "payload_md5": "380592da377593f722eeec9296d04ab4"
   },
   {
    "Z": 66,
    "file": "elements/66.js",
-   "bytes": 392418,
-   "md5": "c3051c9b9fb2453dbdba1c3efe221220",
-   "payload_bytes": 392337,
-   "payload_md5": "9ace8e498167b8357430f8cd8618baf3"
+   "bytes": 487269,
+   "md5": "40e26cbf8c36489a90567cd162d20a3c",
+   "payload_bytes": 487188,
+   "payload_md5": "da46d0503d041e53da6f11652d475c97"
   },
   {
    "Z": 67,
    "file": "elements/67.js",
-   "bytes": 398405,
-   "md5": "9508b2a4410015ea71672c3219195533",
-   "payload_bytes": 398324,
-   "payload_md5": "c72c98dcecf91264b732cc65452cc5f6"
+   "bytes": 494943,
+   "md5": "713c1f3f67e396dd53ec893464d710c2",
+   "payload_bytes": 494862,
+   "payload_md5": "4e8c7802557c518fa90206f1f26e31d6"
   },
   {
    "Z": 68,
    "file": "elements/68.js",
-   "bytes": 404429,
-   "md5": "63f76b430a26b6c4333f096b50664622",
-   "payload_bytes": 404348,
-   "payload_md5": "db11e6321be37e64ace765b2cbe8a437"
+   "bytes": 502654,
+   "md5": "019ef6798db1686bbea32c49a188fa5a",
+   "payload_bytes": 502573,
+   "payload_md5": "4ff7ace35601043ed695bfc9074bdb05"
   },
   {
    "Z": 69,
    "file": "elements/69.js",
-   "bytes": 410507,
-   "md5": "aae8d23b25296f617ff3775757603993",
-   "payload_bytes": 410426,
-   "payload_md5": "a892e978b07429db3c05283afb4ea692"
+   "bytes": 510419,
+   "md5": "11d358ec92e435152ccfcc985b934bc7",
+   "payload_bytes": 510338,
+   "payload_md5": "3266a423d95a43798f0c88ff528b470a"
   },
   {
    "Z": 70,
    "file": "elements/70.js",
-   "bytes": 416692,
-   "md5": "c123a14bc381f98e0e543ee3a45f410a",
-   "payload_bytes": 416611,
-   "payload_md5": "4a245086e720d9fd31ad809fc1f6afbd"
+   "bytes": 518027,
+   "md5": "6857de9d211b7ee78bfaad325f0565ca",
+   "payload_bytes": 517946,
+   "payload_md5": "562958b6da39e19c6064d0f85ab28e11"
   },
   {
    "Z": 71,
    "file": "elements/71.js",
-   "bytes": 421003,
-   "md5": "e8ec707b08a03771506ae21ba4953583",
-   "payload_bytes": 420922,
-   "payload_md5": "f51c93afd7fff37d1bad0c533b7e982f"
+   "bytes": 523570,
+   "md5": "d4e36c4cf47aee6195a36f0bedc49bf7",
+   "payload_bytes": 523489,
+   "payload_md5": "388f8b92b874db359723e40099ecefc0"
   },
   {
    "Z": 72,
    "file": "elements/72.js",
-   "bytes": 427129,
-   "md5": "cf7da0546a692df6a23e8cfe7b326f9b",
-   "payload_bytes": 427048,
-   "payload_md5": "ee6055170bffc49616e5ec0f5efed4ab"
+   "bytes": 530966,
+   "md5": "3d65df065ee55ff488db4282043871a4",
+   "payload_bytes": 530885,
+   "payload_md5": "6c1048837f316bd60452ed06a2389507"
   },
   {
    "Z": 73,
    "file": "elements/73.js",
-   "bytes": 433415,
-   "md5": "e9c8a225f364c4ec03b46bf1050f87f1",
-   "payload_bytes": 433334,
-   "payload_md5": "444f80d451f2e0b30f8337c61f5950bf"
+   "bytes": 538931,
+   "md5": "7af817bf17929d65b15ff5da32cbf92f",
+   "payload_bytes": 538850,
+   "payload_md5": "e7437aeb809a351e3d4b9e9bba2e2026"
   },
   {
    "Z": 74,
    "file": "elements/74.js",
-   "bytes": 439476,
-   "md5": "8a9684d1d4c41defdb0a795c3acf523b",
-   "payload_bytes": 439395,
-   "payload_md5": "0ea40dd41021bb36b4d94f0a574f9da7"
+   "bytes": 546671,
+   "md5": "498ba00e0f6d604dabe6f7911605ba14",
+   "payload_bytes": 546590,
+   "payload_md5": "5fd11bf540c4313d254ec8d3c3a1cd08"
   },
   {
    "Z": 75,
    "file": "elements/75.js",
-   "bytes": 445469,
-   "md5": "545c4a06e4f332ea181cc31330627c2b",
-   "payload_bytes": 445388,
-   "payload_md5": "03fbda1cc1e21a7313e65a2f065c10c7"
+   "bytes": 554343,
+   "md5": "2edf650ab62a7c9610d56ad283a8ac8f",
+   "payload_bytes": 554262,
+   "payload_md5": "e2e18b5e44487589a32d5603604212e9"
   },
   {
    "Z": 76,
    "file": "elements/76.js",
-   "bytes": 451670,
-   "md5": "164ee9637ffa6f826f4c3270384bbaaf",
-   "payload_bytes": 451589,
-   "payload_md5": "18cd5ab1c0b424e011a104201c63244e"
+   "bytes": 562223,
+   "md5": "22d96a73e850f1612625f1a696d1830d",
+   "payload_bytes": 562142,
+   "payload_md5": "1adc823137092c98e0194a682001ca70"
   },
   {
    "Z": 77,
    "file": "elements/77.js",
-   "bytes": 457781,
-   "md5": "510f931c8e93f1b5093f33dd4665c8bb",
-   "payload_bytes": 457700,
-   "payload_md5": "32a9c8d43b960317cb734da4fbb9d405"
+   "bytes": 570013,
+   "md5": "184c9252eddbebfbf40a8829e1bbfa0d",
+   "payload_bytes": 569932,
+   "payload_md5": "bb270e1a861e6a5b3e41cd89db51972b"
   },
   {
    "Z": 78,
    "file": "elements/78.js",
-   "bytes": 464038,
-   "md5": "8391805fb80e5b710dab78c357c98231",
-   "payload_bytes": 463957,
-   "payload_md5": "9f9e51494c209a7966ac8766a78d4620"
+   "bytes": 577949,
+   "md5": "2906d92c039438c7fd61d4a78cb525be",
+   "payload_bytes": 577868,
+   "payload_md5": "1dfc84caaa81926051a5bc1de0cf5f99"
   },
   {
    "Z": 79,
    "file": "elements/79.js",
-   "bytes": 469955,
-   "md5": "abf35f3c1f9b2fc1537489696a9d889a",
-   "payload_bytes": 469874,
-   "payload_md5": "4604b9f80812af13e04ded5153ce06ae"
+   "bytes": 585545,
+   "md5": "64e43338d87fa2aa2d7dd9bcb81876d7",
+   "payload_bytes": 585464,
+   "payload_md5": "c02b82e1dcafbea825d8f045241ef066"
   },
   {
    "Z": 80,
    "file": "elements/80.js",
-   "bytes": 476675,
-   "md5": "5c4160751cf466d791556800e1b6697a",
-   "payload_bytes": 476594,
-   "payload_md5": "57991434478f5b63ba91f309f648a30e"
+   "bytes": 593688,
+   "md5": "0e69cbdf389e439d6d8ed694299ebb7e",
+   "payload_bytes": 593607,
+   "payload_md5": "8d9131b4b3159837101c03676425a448"
   },
   {
    "Z": 81,
    "file": "elements/81.js",
-   "bytes": 480402,
-   "md5": "2ff52e9e29d920401f279801f374e542",
-   "payload_bytes": 480321,
-   "payload_md5": "24ba1e7bf6568cd519af5aba42a48ae6"
+   "bytes": 598654,
+   "md5": "9a02915d5c7718f793642acfd825fca4",
+   "payload_bytes": 598573,
+   "payload_md5": "f0af123a05a568be1e0fec435807578b"
   },
   {
    "Z": 82,
    "file": "elements/82.js",
-   "bytes": 486862,
-   "md5": "50886507af1b58f6b85a90cf1d9294c4",
-   "payload_bytes": 486781,
-   "payload_md5": "fd011d5ac8ce04f628057dae32e9ca33"
+   "bytes": 606377,
+   "md5": "97e9cf799f90a02eaa6cb719ecd7026f",
+   "payload_bytes": 606296,
+   "payload_md5": "1c0c089ebdbd11ff9b3c663fcf13bfee"
   },
   {
    "Z": 83,
    "file": "elements/83.js",
-   "bytes": 492282,
-   "md5": "459a33b01da15567fd59df22d1d391a1",
-   "payload_bytes": 492201,
-   "payload_md5": "ab43c26d494e5e76b02b634c0a67d1c6"
+   "bytes": 613468,
+   "md5": "b57588615989265a96b0cb36358af958",
+   "payload_bytes": 613387,
+   "payload_md5": "0f2acb95141d26bb03a8f075fe6f6866"
   },
   {
    "Z": 84,
    "file": "elements/84.js",
-   "bytes": 498701,
-   "md5": "22356567a8acab87ee7600a755d65efe",
-   "payload_bytes": 498620,
-   "payload_md5": "2a46c7ba379514b4f187deeb65db4ca2"
+   "bytes": 621558,
+   "md5": "f1385215dd7d4b8951264c51b193ecd3",
+   "payload_bytes": 621477,
+   "payload_md5": "72ec61489a824f3769dbca34cd5981c5"
   },
   {
    "Z": 85,
    "file": "elements/85.js",
-   "bytes": 504193,
-   "md5": "2386220bac61e432ad326631af398d54",
-   "payload_bytes": 504112,
-   "payload_md5": "3791daeec2a5aa1a2cc7054375f3e8d4"
+   "bytes": 628721,
+   "md5": "f53978ba4b1d249fd5af88d2230295f1",
+   "payload_bytes": 628640,
+   "payload_md5": "5eaf74ae57ac83418864cfc6c5399db0"
   },
   {
    "Z": 86,
    "file": "elements/86.js",
-   "bytes": 510628,
-   "md5": "003d56f24d6b0dfa37bffda6ddf1f8c0",
-   "payload_bytes": 510547,
-   "payload_md5": "04a9b523a057a3335fe55c033f597e3c"
+   "bytes": 636579,
+   "md5": "8b4aa507ee7859d3d54904db668473f1",
+   "payload_bytes": 636498,
+   "payload_md5": "ce1ec3f625d28ac98ea4e371415bf20c"
   },
   {
    "Z": 87,
    "file": "elements/87.js",
-   "bytes": 514391,
-   "md5": "948b57db9f4cb6bf6812a05d0f07047e",
-   "payload_bytes": 514310,
-   "payload_md5": "87f0f63e9ffcbe519f91390f24209322"
+   "bytes": 641580,
+   "md5": "e9c49bea149962a2276f638a47c3b288",
+   "payload_bytes": 641499,
+   "payload_md5": "8cebf09af0c923b66fc99ddfd8db8fc8"
   },
   {
    "Z": 88,
    "file": "elements/88.js",
-   "bytes": 520451,
-   "md5": "4defba39d149d903a082207f8090f6f8",
-   "payload_bytes": 520370,
-   "payload_md5": "546b119f290c32d88d6dfa56f3ee9696"
+   "bytes": 648904,
+   "md5": "196282c91211de70a243bdbc990e0045",
+   "payload_bytes": 648823,
+   "payload_md5": "58c1dbbbfff195c1e142c7be3a50641e"
   },
   {
    "Z": 89,
    "file": "elements/89.js",
-   "bytes": 524156,
-   "md5": "2dd40bdadad5e6b6f4b17afd4d6adde9",
-   "payload_bytes": 524075,
-   "payload_md5": "9c092f87d45310243f95b36cbd06378f"
+   "bytes": 653688,
+   "md5": "d75edb5ee775fa453dd9b83d84118b80",
+   "payload_bytes": 653607,
+   "payload_md5": "6244f3505dad849db463b564ea5a4db2"
   },
   {
    "Z": 90,
    "file": "elements/90.js",
-   "bytes": 530512,
-   "md5": "8764ab845aeeb5e63c2ca88327149c80",
-   "payload_bytes": 530431,
-   "payload_md5": "e8f8b358a8e56f342a1face70b387c1a"
+   "bytes": 661467,
+   "md5": "8d7bd1354d7f71272416d73bb196f7e7",
+   "payload_bytes": 661386,
+   "payload_md5": "06d6e2bce1440c5af8840f4f9e0f1de7"
   },
   {
    "Z": 91,
    "file": "elements/91.js",
-   "bytes": 536492,
-   "md5": "8114d7333cdb9b610d2136cc3874a402",
-   "payload_bytes": 536411,
-   "payload_md5": "8b8f8e88d5a487ed605a004f4dedf420"
+   "bytes": 669134,
+   "md5": "7e300dfbd7bdfd00bd6e571d1be8f12e",
+   "payload_bytes": 669053,
+   "payload_md5": "6576f4d73ff330e28d180a0388dfe101"
   },
   {
    "Z": 92,
    "file": "elements/92.js",
-   "bytes": 542116,
-   "md5": "6dcd972f94233792a82f2358b21940ba",
-   "payload_bytes": 542035,
-   "payload_md5": "eededcf6938e2ad11ef1b13a1027330f"
+   "bytes": 676445,
+   "md5": "2a45d21bf0be8e9d41b361063ecdb635",
+   "payload_bytes": 676364,
+   "payload_md5": "0721e475cfd8380efc538e9eed5c1f24"
   },
   {
    "Z": 93,
    "file": "elements/93.js",
-   "bytes": 547965,
-   "md5": "9013d153e12286d7fb876ed311eb8ef9",
-   "payload_bytes": 547884,
-   "payload_md5": "cd441a6a8a09fc0fa74e43640a7e0cff"
+   "bytes": 683981,
+   "md5": "f9aab5fc1a12e3935b371d835bdc60c3",
+   "payload_bytes": 683900,
+   "payload_md5": "f6fd2f2a9b38bb60f241d22bcfc2eea1"
   },
   {
    "Z": 94,
    "file": "elements/94.js",
-   "bytes": 553784,
-   "md5": "6beac337fd417c8b3197e63dfeeb0a31",
-   "payload_bytes": 553703,
-   "payload_md5": "764845b57446924f7b807265faec115b"
+   "bytes": 691487,
+   "md5": "d9e7b1da53a17394d6010aee45ad70b4",
+   "payload_bytes": 691406,
+   "payload_md5": "cd07833af9323f117f130c189058d268"
   },
   {
    "Z": 95,
    "file": "elements/95.js",
-   "bytes": 559890,
-   "md5": "e73feaade70468ca84634e7b816b69b8",
-   "payload_bytes": 559809,
-   "payload_md5": "3edf1b24294c860b224e099ee2e3e0e1"
+   "bytes": 699280,
+   "md5": "cb08953f4cd3b15dd376178ae03dd1cb",
+   "payload_bytes": 699199,
+   "payload_md5": "8d76f3dcd51f08f162dd1c94d679056d"
   },
   {
    "Z": 96,
    "file": "elements/96.js",
-   "bytes": 565118,
-   "md5": "fb5792960e5df2af740d0e2f15b1d3f4",
-   "payload_bytes": 565037,
-   "payload_md5": "8f647f04aaa64d7e82e5b338ffbb7162"
+   "bytes": 706195,
+   "md5": "314676d48a754a8c541d8304df8cfed1",
+   "payload_bytes": 706114,
+   "payload_md5": "c0e9d8ecd07abc2157a37873d3f3d1ce"
   },
   {
    "Z": 97,
    "file": "elements/97.js",
-   "bytes": 571140,
-   "md5": "386958e4b66a62dfa92c33196a187e24",
-   "payload_bytes": 571059,
-   "payload_md5": "23037fa30953078195496b216981837b"
+   "bytes": 713904,
+   "md5": "c0028d9b0c757c6b8c91543e68afc8c7",
+   "payload_bytes": 713823,
+   "payload_md5": "cceeeafa4245e0133a9150fc3709519f"
   },
   {
    "Z": 98,
    "file": "elements/98.js",
-   "bytes": 576796,
-   "md5": "d04d964f26d6fcca3a19eb2d2db8579d",
-   "payload_bytes": 576715,
-   "payload_md5": "0e736101923507923a296e88c59be45c"
+   "bytes": 721247,
+   "md5": "61a663efd6053d51a7fe40f91ba54bb9",
+   "payload_bytes": 721166,
+   "payload_md5": "f4f6735ca829ef567c83ea412de9c2df"
   },
   {
    "Z": 99,
    "file": "elements/99.js",
-   "bytes": 582787,
-   "md5": "e888a16aa80ab5a7a398e36d258457b0",
-   "payload_bytes": 582706,
-   "payload_md5": "b3dbfea45390d26bcaff71eaa1c76151"
+   "bytes": 728925,
+   "md5": "c78154805c6076e0faa3a1622d6dafff",
+   "payload_bytes": 728844,
+   "payload_md5": "8305557f3d4740e51c1018a45282da4c"
   },
   {
    "Z": 100,
    "file": "elements/100.js",
-   "bytes": 588885,
-   "md5": "bc1b522556cc95b7732a8217245c3bca",
-   "payload_bytes": 588803,
-   "payload_md5": "088b58d493851bddbfff24a0412c89cb"
+   "bytes": 736710,
+   "md5": "76289cc6c3f9fc3d379b2bad0bc2ab3d",
+   "payload_bytes": 736628,
+   "payload_md5": "d92143a9d4c4e3e3d106eb0e1508c8e7"
   },
   {
    "Z": 101,
    "file": "elements/101.js",
-   "bytes": 594755,
-   "md5": "43216fd3292a4aff6980e696e3940799",
-   "payload_bytes": 594673,
-   "payload_md5": "828145a5663f14bfc5f648a1cfc80c68"
+   "bytes": 744267,
+   "md5": "f3204912deb9c0791b7b46ca7abfe328",
+   "payload_bytes": 744185,
+   "payload_md5": "4d829a346e64e1853fd8efc8c85d6c2e"
   },
   {
    "Z": 102,
    "file": "elements/102.js",
-   "bytes": 600861,
-   "md5": "7e63d81a80bec5d5fe93fac7d41309eb",
-   "payload_bytes": 600779,
-   "payload_md5": "ee81086f739e73fe68d0831fdf1ab980"
+   "bytes": 751796,
+   "md5": "7a7122a57fd51627f4a132b49091a490",
+   "payload_bytes": 751714,
+   "payload_md5": "1c7dbadac30c022c2510b825102e910b"
   },
   {
    "Z": 103,
    "file": "elements/103.js",
-   "bytes": 604950,
-   "md5": "4a7409fbc745cb951600356e6fb50196",
-   "payload_bytes": 604868,
-   "payload_md5": "6623caa276f800c98af7c83993506aa9"
+   "bytes": 757262,
+   "md5": "7e33263730373600ec377b83357ee540",
+   "payload_bytes": 757180,
+   "payload_md5": "0b773b69d1855ec183e92c76d1f38b8c"
   },
   {
    "Z": 104,
    "file": "elements/104.js",
-   "bytes": 575793,
-   "md5": "0e6714cafed2cb782dab983efa7045bb",
-   "payload_bytes": 575711,
-   "payload_md5": "6c3a20035f220d9b802600db53efe5d3"
+   "bytes": 733177,
+   "md5": "e73fa7845b7ba4558949d0dfe68d97dd",
+   "payload_bytes": 733095,
+   "payload_md5": "4b4f8d97035b6942f9a44a962e7a38d0"
   },
   {
    "Z": 105,
    "file": "elements/105.js",
-   "bytes": 581604,
-   "md5": "b0d4dd8471111d313b87f06065424edd",
-   "payload_bytes": 581522,
-   "payload_md5": "cd6463aa4ab4cb9a340a8ce64c67f9eb"
+   "bytes": 740587,
+   "md5": "ea95a4df4b54cb5b9947956e12ba71df",
+   "payload_bytes": 740505,
+   "payload_md5": "90901bfc7c74b061b77c2bfebb2c8c5a"
   },
   {
    "Z": 106,
    "file": "elements/106.js",
-   "bytes": 587380,
-   "md5": "4c3254d4fdf5a833860150676ed2ff2a",
-   "payload_bytes": 587298,
-   "payload_md5": "5ddb397e8b85bbbad5beb5549f515131"
+   "bytes": 747967,
+   "md5": "1b7c31c6775372e5f3110f0cbcf5f1b8",
+   "payload_bytes": 747885,
+   "payload_md5": "b5585818e7357763ff6941e11c9b6530"
   },
   {
    "Z": 107,
    "file": "elements/107.js",
-   "bytes": 593723,
-   "md5": "005187f2db0b17882906650554be12ed",
-   "payload_bytes": 593641,
-   "payload_md5": "03505a213545b5dd3412740252afc9a5"
+   "bytes": 755910,
+   "md5": "5f59a0a1e70848992a571fbb0312e811",
+   "payload_bytes": 755828,
+   "payload_md5": "bb5d62e113851a4a8c876e352c083cfa"
   },
   {
    "Z": 108,
    "file": "elements/108.js",
-   "bytes": 599312,
-   "md5": "27a199000eba07152a8e398a4e1ed041",
-   "payload_bytes": 599230,
-   "payload_md5": "f1fcdd261e864e4b76d9d0f1311b9552"
+   "bytes": 763099,
+   "md5": "ffe1af8d98d961a66642ca54915f01f4",
+   "payload_bytes": 763017,
+   "payload_md5": "b2b4ed95a582b5f03d91b21c51a56f64"
   },
   {
    "Z": 109,
    "file": "elements/109.js",
-   "bytes": 516245,
-   "md5": "9cc0780669581d46f2a48b75349cf3e7",
-   "payload_bytes": 516163,
-   "payload_md5": "8fb88dde48ba1e1628b771b0f3f214e0"
+   "bytes": 706918,
+   "md5": "f3a13a77ff9d8eec014da32a552034f6",
+   "payload_bytes": 706836,
+   "payload_md5": "7d9b49361f5b803c70d9f3cc9c93dff2"
   },
   {
    "Z": 110,
    "file": "elements/110.js",
-   "bytes": 521184,
-   "md5": "58c731d72fde15ad5df1490d4b6b9e54",
-   "payload_bytes": 521102,
-   "payload_md5": "ec4914a5fd8b75f7d99b354fe9f7467d"
+   "bytes": 713713,
+   "md5": "cecd34f29ed1a2560d9fc4139b79b31c",
+   "payload_bytes": 713631,
+   "payload_md5": "6e539570e749c10a481ca99f08b6f805"
   },
   {
    "Z": 111,
    "file": "elements/111.js",
-   "bytes": 525616,
-   "md5": "5e71bd03b9bc69dabf0cabd5a45bc74c",
-   "payload_bytes": 525534,
-   "payload_md5": "29ea8696e0e96e5a0005e70a6e957be1"
+   "bytes": 720001,
+   "md5": "b642769caf30b692e7c02803e9450b5d",
+   "payload_bytes": 719919,
+   "payload_md5": "113f266bcc7bcd8d1470e9b4beabe615"
   },
   {
    "Z": 112,
    "file": "elements/112.js",
-   "bytes": 530328,
-   "md5": "9cb2d0fc5073af09e731a2d15a6ed544",
-   "payload_bytes": 530246,
-   "payload_md5": "46919451b861569d33e2027cffae9026"
+   "bytes": 726569,
+   "md5": "ac23193e98c74abb36f6fda959210db3",
+   "payload_bytes": 726487,
+   "payload_md5": "c76c0e8fcdf0d4694dd864f440c6588e"
   },
   {
    "Z": 113,
    "file": "elements/113.js",
-   "bytes": 533310,
-   "md5": "eee71dccb332279e8788cb896dccd187",
-   "payload_bytes": 533228,
-   "payload_md5": "66708902b9eb2140b97e44a81cf08190"
+   "bytes": 730935,
+   "md5": "e2d03ddfcb55998964e195830d7709cb",
+   "payload_bytes": 730853,
+   "payload_md5": "cdfac3b6c2a0c06b98312f499518dc92"
   },
   {
    "Z": 114,
    "file": "elements/114.js",
-   "bytes": 537542,
-   "md5": "2a9920c653bc0fd8e02f9514366223d4",
-   "payload_bytes": 537460,
-   "payload_md5": "dad523f170bbf3a77e4487cbd305ebd1"
+   "bytes": 737023,
+   "md5": "e655f0ca08aaec5ce31de089cd945bcc",
+   "payload_bytes": 736941,
+   "payload_md5": "6c102eacf8094983026614aeb11fd584"
   },
   {
    "Z": 115,
    "file": "elements/115.js",
-   "bytes": 542253,
-   "md5": "acacf4fa4298f3b0dbe0cfbb15aade11",
-   "payload_bytes": 542171,
-   "payload_md5": "28b496aef9d088982553ccafa51e5e3e"
+   "bytes": 743590,
+   "md5": "d27c338ffd5e21f39ebf9f0f6538f056",
+   "payload_bytes": 743508,
+   "payload_md5": "bfa7ce822719b82c5fdb7cc0c29b9001"
   },
   {
    "Z": 116,
    "file": "elements/116.js",
-   "bytes": 547012,
-   "md5": "7717ea183b349c423e6c87019af210ff",
-   "payload_bytes": 546930,
-   "payload_md5": "39753db851f4342e8e4c7ee61841ade4"
+   "bytes": 750205,
+   "md5": "bac6f9a64dda335479d6299877288390",
+   "payload_bytes": 750123,
+   "payload_md5": "0a6d8aaf034c7a14ca798201e9a57336"
   },
   {
    "Z": 117,
    "file": "elements/117.js",
-   "bytes": 551851,
-   "md5": "ace89b62f4473b720a491b3688d5b706",
-   "payload_bytes": 551769,
-   "payload_md5": "842e34ca30a7b76c0b08aef2fef87f4a"
+   "bytes": 756900,
+   "md5": "5cfae03cf48a9171e2da5db204580810",
+   "payload_bytes": 756818,
+   "payload_md5": "df5bbe6c43b30c9e6aa03a0607b87f02"
   },
   {
    "Z": 118,
    "file": "elements/118.js",
-   "bytes": 556680,
-   "md5": "1471a4c48822c205ea44dc89f1274e85",
-   "payload_bytes": 556598,
-   "payload_md5": "3aa882921d2269e74a40a1d42b22d11e"
+   "bytes": 763585,
+   "md5": "2fce38776727190e8447ca59b54ad2f9",
+   "payload_bytes": 763503,
+   "payload_md5": "b287dc2465f7efc3e31e34b8aa8d2ea8"
   },
   {
    "Z": 119,
    "file": "elements/119.js",
-   "bytes": 677718,
-   "md5": "67937fe2f661f9a9db81dcbe0e2597dd",
-   "payload_bytes": 677636,
-   "payload_md5": "0e3006889f3d154c0dce94d99955bf81"
+   "bytes": 887751,
+   "md5": "a4935948bc6a24883c3882eaef8f7be2",
+   "payload_bytes": 887669,
+   "payload_md5": "e478dbe443dae478e65e6da475012f01"
   },
   {
    "Z": 120,
    "file": "elements/120.js",
-   "bytes": 722578,
-   "md5": "4b9215c036c7ace867e6dd75717106f7",
-   "payload_bytes": 722496,
-   "payload_md5": "9acda13adede8c18386af9fab08f9a72"
+   "bytes": 934483,
+   "md5": "f784f31e8b031c4a19cc8e0cf6dea1a3",
+   "payload_bytes": 934401,
+   "payload_md5": "2439e324c20fae5882f3a5d404831b83"
   }
  ],
  "protocol": {

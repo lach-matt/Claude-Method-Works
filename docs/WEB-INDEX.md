@@ -227,12 +227,39 @@ figure. A `READ` δ is printed with the digits the csv carries (`0.09803`, not `
 residual below 10⁻³ is printed in exponent form on the plates as it is in the solver, so
 `6.0329e-7` never reads as `0.0000`.
 
-Six caveats travel with the data and are shown where they bite (`index.js` → `caveats`): the
-Z > 108 boundary; the B column built on the withdrawn aufbau table (register 1306); the 25 measured
-rows whose B is a dispersion, not a bound; the Λ₈ mapping being one reconstruction; the equation's
-validated domain; and n₀'s reading. Each is drawn from `docs/POPULATE.md`'s "Known gaps" and
-"Two findings", and a cell where B disagrees between the csv and the observed configurations
-shows **both** values with the disagreement marked — recorded, never repaired.
+Eleven caveats travel with the data and are shown where they bite (`index.js` → `caveats`). On
+2026-10-17 each was reviewed against the evidence (`docs/CAVEATS.md`), and each now carries a
+`state`, `repaired`, `measured`, `standing` or `open`, with the review date; a repaired caveat keeps
+what it said before as `was`, which the root plate and Help print under it.
+
+- **Repaired:**
+  - the Z > 108 boundary, which is where NIST's neutral ground levels stop, not "where measurement
+    does";
+  - the B column's overloads: the 25 floats are the range of each series' quantum defects
+    (`tools/seriesdefect.py`, 25 of 25), and the 3,504 rows at Z = 119–120 hold a bare 0;
+  - the equation's domain, which is now stated on every channel and plate (`domain`, `DERIVED`) and
+    reproduces registers 1192–1193;
+  - the limit kind, whose printed limits are now shown in cm⁻¹;
+  - n₀'s reading, now `RECOVERED`;
+  - the Löwdin caveats: `relativistic-not-held` is renamed `relativistic-recovered`, and
+    `record-eleven` no longer says the paper's text is uncorrected.
+- **Measured:**
+  - the B column built on the withdrawn aufbau table, with all 101,303 integer rows reproduced and
+    the 1,104 that differ on the observed table marked;
+  - the new `ground-103-108`: from Lr to Hs NIST holds only the ground level, with a calculated
+    ionisation energy from Rf on, shown on those six element plates.
+- **Standing:** the reconstructed walk.
+- **Open:** the Λ₈ mapping, the author's decision.
+
+A cell where B disagrees between the csv and the observed configurations shows **both** values with
+the disagreement marked. The csv is never edited.
+
+`index.js` carries two blocks the review added:
+- `b_column`: the three readings, both tables' reproduction, and the 25 recomputed rows;
+- `equation_domain`: the rule, the census against the registers' figures, and the rms residual on
+  each side.
+
+The selftest pins every figure.
 
 ## What `index.js` carries beyond the layout
 
