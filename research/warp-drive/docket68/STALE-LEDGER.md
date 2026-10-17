@@ -43,6 +43,7 @@ stale, and what stands now.
 | S28 | Section 33, step 4 at the large end: "supported, not computed: Hollands, Wald and Zahn (READ)"; H-CORE-DELIVERS "derived on that READ support". | core_large.py K1-K7 (478). | Computed on the exact warped string; the READ support no longer needed. | None. |
 | S29 | phase2: 177 and 183 "re-derived on the averaged null condition (proved)", with no instrument. | 478: Z3b's content in five dimensions is z3b_large Z1-Z3, Z5 and pair_math P1-P3. | The re-derivation cites its computations (phase2 REDERIVED). | None. |
 | S30 | 478-479: transition_qt5 as 273's transition in five dimensions ("the README's null shell crosses a regular centre and leaves through a white hole"), and point (b), the inner horizon under the README's spread (Q8). | 464, 471, 480; 273's option: "no Cauchy horizon". The route passes through an inner horizon r_- (Q2, Q4, Q8). | Withdrawn as 273's mechanism; its checks stand as computed. Q8 and (b) moot. 273's form is transition_aos's: a transition surface from trapped to anti-trapped, with no inner horizon. | Register notes, phase2, BOUNCE-RESEARCH 34 corrected at 480. |
+| S31 | BOUNCE-RESEARCH section 33, steps 2-4: computed at r+ = 1.8 ell on p3_double_null (D7, D11, D12), the charged P3 model built for an inner horizon. | 482: work resting on the inner-horizon programme is redone. | Replaced on the uncharged forms: transition5 F8 (small end, Tangherlini) and core_large K1-K7 (large end, the exact string). | None. |
 
 ## Not stale, and why
 

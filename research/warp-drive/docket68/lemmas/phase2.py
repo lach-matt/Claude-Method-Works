@@ -82,7 +82,8 @@ REMAINS = {
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
     "273": ("BEYOND", [], "quantum gravity; long time scales unstable (prior art); [478] computed in 4D with no inner "
-                          "horizon (transition_aos); [480] transition_qt5's route withdrawn: it runs through an inner horizon"),
+                          "horizon (transition_aos); [480] transition_qt5's route withdrawn: it runs through an inner horizon; "
+                          "[482] realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5)"),
     "390": ("COMPUTED", ["junction_own.py"], "position 2's face closes when empty"),
     "426": ("COMPUTED", ["encode_read.py"], "the least write by the size"),
     "432": ("COMPUTED", ["settle_arrival.py"], "the shell carries E at the opening (its N part unused)"),

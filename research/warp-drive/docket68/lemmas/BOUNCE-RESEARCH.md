@@ -2187,3 +2187,39 @@ passage" and "the inner horizon under the README's own spread" are not 273's tra
 (STALE-LEDGER S30); transition_qt5's checks stand as computations of that theory. 273's own form is a transition
 surface straight from trapped to anti-trapped, with no inner horizon. transition_aos computes that form in four
 dimensions. It is owed in the five-dimensional core.
+
+## 35. Everything that relied on an inner horizon, redone (482; `lemmas/transition5.py`, 8/8, mutants 3/3)
+
+M (482): "Go back and redo/re-derive AND prove with calculations all the work you did that relies on an inner horizon."
+
+**The audit.** No register row cites the inner-horizon programme of 446-463; it was withdrawn at 464-465. Two pieces
+relied on it: 273's 5D route (transition_qt5, withdrawn at 480), and section 33's steps 2-4 at r+ = 1.8 ell, which ran
+on the charged P3 model built for an inner horizon (S31).
+
+**Held against the exclusions first (481).**
+- No inner horizon: f has exactly the two roots +-r_h.
+- No classical bounce: null energy fails, and only inside the quantum region.
+- No semiclassical bounce: that region is x >= 1.
+
+**273 in the five-dimensional core, in its own form.** Haggard and Rovelli's construction carried to five dimensions:
+ds^2 = -f dt^2 + dr^2/f + R^2 dOmega_3^2, f = 1 - mu/R^2, R^2 = r^2 + a^2 S(r), with S a smooth step that vanishes for
+|r| >= r2 <= r_q and a^4 = mu l5^2/4. Computed:
+- exact Tangherlini on both sides wherever x < 1, Ricci = 0 (F1);
+- exactly two horizons, +-r_h, with f < 0 between: no inner horizon, no Cauchy horizon (F2);
+- one transition surface, R = a, trapped for r > 0 and anti-trapped for r < 0 (F3);
+- R_kk = -3R''/R, negative at the surface and zero outside |r| < r2, all inside x >= 1 (F4);
+- l5^4 K_max = 256 for mu/l5^2 = 1e4 to 2.2e42 (the record's 5D forms are 7e40 and 2.2e42) (F5);
+- radial null rays dr/dlam = +-E, r monotone along every causal curve inside, so the README passes one way in finite
+  affine length (F6);
+- r -> -r symmetric: position 2's exterior has the same mass (F7);
+- a regular core of Hayward's kind, with its inner horizon, is caught by the F2 check (mutant).
+
+**Section 33's core steps, on the uncharged forms.** At the small end, Tangherlini's K = 72 mu^2/r^8 rises
+monotonically, x reaches 1 at r_q > 0, and the fall from r_h takes at most r_h of proper time (F8). At the large end,
+core_large K1-K7 on the exact string. The charged P3 model is no longer used.
+
+**What this proves and does not.** 273's transition in the 5D core is realized by a spacetime that is exact GR wherever
+x < 1. It has no inner horizon, and its null energy fails only inside the region. Its curvature is bounded at the l5
+scale for every mass, and the README passes one way into position 2 of equal mass. Inside x >= 1 the geometry is
+specified, as 273 states it, not derived from a quantum theory in five dimensions; in four, transition_aos computes the
+form. The transition's probability and time are not computed.

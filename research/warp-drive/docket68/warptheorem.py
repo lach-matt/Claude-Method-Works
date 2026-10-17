@@ -824,8 +824,11 @@ PROVED_478 = ("G1", "H2", "H2tu", "H2txs", "H2tx", "O3s", "O3", "Z1t", "Z2r", "Z
               "R4", "R5", "ENCODE", "M1P2x", "FARs", "FAR", "WRITEs", "WRITE", "ARRIVALs", "ARRIVAL", "CLOSEs", "CLOSE")
 NOTE_273_478 = ("  [Item 478] 273 is owed, not a standing premise (443; 477): computed in four dimensions in effective loop "
                 "quantum gravity, a transition surface from trapped to anti-trapped with no inner horizon "
-                "(transition_aos.py T1-T5); not in the five-dimensional core (T6).  [Item 480: transition_qt5's route "
-                "runs through an inner horizon, excluded by 464, 471 and 273; withdrawn as 273's mechanism]")
+                "(transition_aos.py T1-T5).  [Item 482] In five dimensions realized in that form (transition5.py F1-F8): "
+                "exact general relativity wherever x < 1, two horizons only (no inner horizon), one transition surface, "
+                "null energy failing only inside the region, curvature bounded at the l5 scale for every mass, the "
+                "README one way into position 2 of equal mass; the geometry inside x >= 1 specified, as 273 states it, "
+                "not derived.  [Item 480: transition_qt5's route withdrawn: an inner horizon]")
 LEMMAS_NOW = [(c, n, "PROVED", t + "  [Item 478] PROVED: the claim computed by its owners (T1), every reading proved "
                "(phase2 Q3)") if s_ == "DERIVED" and n.split()[0] in PROVED_478 else
               (c, n, s_, t + NOTE_273_478 + ("; H-CORE-DELIVERS computed on the exact warped black string (core_large.py "
@@ -1011,7 +1014,9 @@ def lemma_selftests():
               # item 456 (3), approved: the corridor's second rung
               "corridor_p2.py",
               # item 478: the core computed, 273's prior art computed, the re-derivations (phase2 Q4)
-              "core_large.py", "transition_aos.py", "rederive.py", "transition_qt5.py"):
+              "core_large.py", "transition_aos.py", "rederive.py", "transition_qt5.py",
+              # item 482: 273 in the five-dimensional core, no inner horizon
+              "transition5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
