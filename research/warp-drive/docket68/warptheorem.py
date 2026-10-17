@@ -823,11 +823,9 @@ PROVED_478 = ("G1", "H2", "H2tu", "H2txs", "H2tx", "O3s", "O3", "Z1t", "Z2r", "Z
               "B5pu", "B5px", "B5b", "B7", "I1", "E1us", "E1u", "E2us", "E2u", "E1xs", "E1x", "E2xs", "E2x", "E3", "E4r",
               "R4", "R5", "ENCODE", "M1P2x", "FARs", "FAR", "WRITEs", "WRITE", "ARRIVALs", "ARRIVAL", "CLOSEs", "CLOSE")
 NOTE_273_478 = ("  [Item 478] 273 is owed, not a standing premise (443; 477): computed in four dimensions in effective loop "
-                "quantum gravity (transition_aos.py T1-T5); in five dimensions from the gravitational effective action "
-                "(transition_qt5.py Q1-Q7, Bueno et al.): the README's null shell crosses a regular centre and leaves "
-                "through a white hole into a new universe, one way.  Not proved: that nature's higher-curvature "
-                "coefficients meet the regularity conditions (the ultraviolet's), and the passage of the README's own "
-                "spread, whose counter-streaming flux at the inner horizon runs 1e23 e-folds (Q8)")
+                "quantum gravity, a transition surface from trapped to anti-trapped with no inner horizon "
+                "(transition_aos.py T1-T5); not in the five-dimensional core (T6).  [Item 480: transition_qt5's route "
+                "runs through an inner horizon, excluded by 464, 471 and 273; withdrawn as 273's mechanism]")
 LEMMAS_NOW = [(c, n, "PROVED", t + "  [Item 478] PROVED: the claim computed by its owners (T1), every reading proved "
                "(phase2 Q3)") if s_ == "DERIVED" and n.split()[0] in PROVED_478 else
               (c, n, s_, t + NOTE_273_478 + ("; H-CORE-DELIVERS computed on the exact warped black string (core_large.py "

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """transition_qt5.py -- item 478: 273's transition in five dimensions, against the prior art that computes one there.
+[Item 480: WITHDRAWN as 273's mechanism -- these cores reach the white hole only through an inner horizon r_-, which
+464 and 471 rule out and 273 gives up ("no Cauchy horizon"); the checks below stand as computations of the theory.]
 transition_aos T6 found the loop-quantum-gravity interior four-dimensional, short of the record's core.  Bueno, Cano,
 Hennigar and Murcia (arXiv 2412.02742v2, READ below) compute, in D >= 5 and from the gravitational action alone, the
 collapse of a shell to a regular black hole and its bounce into a new universe through a white hole.  Reproduced here in

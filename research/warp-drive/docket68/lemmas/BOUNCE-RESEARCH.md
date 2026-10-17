@@ -2179,3 +2179,11 @@ README:
   hole needs that evolution in the theory's spherical dynamics: second-order equations, a 2D Horndeski reduction
   (2412.02740v2). It is not computed.
 The ten rows stay derived. The board does not record them as unprovable (443).
+
+**[Item 480] Withdrawn.** M: "the inner horizon has surface gravity 1/l5.  - AGAIN, why are you chasing an inner
+horizon?" The regular cores above reach the white hole only through an inner horizon r- (Q2, Q4, Q8). 464 and 471 rule
+the inner horizon out, and 273 gives it up ("no Cauchy horizon"). So "273 in five dimensions", "the README's own
+passage" and "the inner horizon under the README's own spread" are not 273's transition. They are withdrawn as such
+(STALE-LEDGER S30); transition_qt5's checks stand as computations of that theory. 273's own form is a transition
+surface straight from trapped to anti-trapped, with no inner horizon. transition_aos computes that form in four
+dimensions. It is owed in the five-dimensional core.
