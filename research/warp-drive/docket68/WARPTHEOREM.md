@@ -1297,6 +1297,27 @@ state was rebuilt first.
     extremality and stage 2's near-extremal threshold hold off the plane; notes stand beside sections 14 and 15.
   - Put to M: what carries the hole's charge on the plane, (i) a field living there, (ii) the bulk U(1) alone, or
     (iii) the bulk U(1) with a field term there; whether corridor_p1.py joins T1.
+- **Item 455** (M: "1 - yes, likely (iii) / 2 - yes", and the full map page updated in full at every render).
+  - P2 runs the bulk U(1) with a field term on the plane, lam a parameter, from lam = 0; "likely" keeps (i) and (ii)
+    open. corridor_p1.py joins T1.
+  - **The map page brought current in full.** Its body had stood at items 443-445, with later work in the header
+    alone. Now:
+    - the theorem's key and the strip note carry the corridor's state through 455;
+    - Crossing carries the passage through the bulk, stage by stage;
+    - a new panel, "The passage through the bulk", tables every step from 443 to P3;
+    - the readings panel names the twelve rows and their six readings;
+    - "What comes next" is P2, P3, the ten rows re-posed, the twelve re-derived, verification, SOURCE;
+    - the unfixed-scales panel adds g5 (446) and lam (455).
+    Superseded text is kept in folds, not deleted.
+  - **`lemmas/map_audit.py`** (8/8, mutants 5/5) checks the page against the record before every render:
+    - the header's last item;
+    - every item since 441 cited in the body, not the header alone;
+    - every instrument T1 runs since 441 named;
+    - the tally against the register;
+    - the footer's row count;
+    - BOUNCE-RESEARCH cited through its last section;
+    - the elements nest.
+    Run on the page as it stood (v100) it scores 3/8: items 448-455 in the header alone, fifteen instruments unnamed.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
