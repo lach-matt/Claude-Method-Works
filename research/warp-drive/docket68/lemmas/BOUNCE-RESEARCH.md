@@ -2271,3 +2271,76 @@ a chaucy horizon, you have already failed".
 - transition5q H10 computes that the passage has no Cauchy horizon. B never falls below B_T > 0, K is bounded, T is a
   time function, and there are two horizons only. With no singular or timelike boundary, the development of a slice is
   the whole interior.
+
+## 37. What the ten rows on 273 rest on, proved (485, M's item 3; `lemmas/transition5r.py`, 6/6, mutants 4/4)
+
+M (485): "do 3 first, then 1." Item 3: loop quantum gravity's effective dynamics, carried to five dimensions with its
+scales fixed by 415, proved. The board read it as two things: derive the dynamics from its quantum theory, and hold it
+against the choices particular to loop quantum gravity.
+
+**Held against the exclusions first (481, 484).** Every interior computed below, for every choice, was checked for:
+- two horizons only, with A > 0 between;
+- a sphere bounded away from zero and a finite positive lapse (no Cauchy horizon, as H10 argues);
+- a bounce that needs the quantum term, with the correction order one (g' = 0 at the turn).
+
+**Prior art (442).**
+- Loop quantum gravity exists in every dimension (Bodendorfer, Thiemann and Thurn, arXiv 1105.3703-5).
+- Loop quantum cosmology bounces in every dimension (Zhang, arXiv 1506.05597).
+- In 4D the white hole's mass depends on the polymerization: Corichi and Singh 2016 find m_WH ~ m_BH^3, and Olmedo,
+  Saini and Singh (arXiv 1707.07333) find a symmetric bounce, with identical masses, under a condition on the loops.
+  All READ.
+
+**(a) Derived from its quantum theory.**
+- **The sphere sector** is quantized as loop quantum gravity does: P_c on a lattice of spacing d_c hbar, holonomies
+  shifting it, H_c = (P_c S + S P_c)/2d_c. A Gaussian state is evolved exactly (Chebyshev) from our horizon to position
+  2's.
+  - The norm holds to 1e-13: the probability is 1, now on the lattice.
+  - <P_c> stays above the effective minimum: the bounce is quantum.
+  - <P_c> follows the effective trajectory within 0.163 hbar/mu at d_c = 1/15 and 0.166 at 1/30, halving exactly as
+    hbar halves (R1).
+  - For the theorem's holes hbar_eff/mu = 8 l5^3/(pi r_h^3), so the correction is 2e-62 at r0 = 20 ell and 1e-64 at
+    the Earth cap (R6).
+- **The b sector**: H_b = (3/2)(G P_b + P_b G) with P_b = (i hbar/6) d/db. Its Schroedinger equation is, identically,
+  the continuity equation along the effective flow db/dT = -G/2 (R2).
+  - The quantum distribution of every b observable is therefore the effective flow's push-forward.
+  - Nothing is lost through the transition: the pushed norm is 1.000000.
+  - <cos(d_b b)> sits on the effective value to O(sigma^2): the difference quarters (4.05) as sigma halves.
+- **A second, independent integrator** reproduces transition5q for g = sin (R3): d_b = sqrt(6 d_c), T_WH = 2 T_T,
+  m_WH = m_BH to 1e-6, l5^4 K_max 0.2917, and tau 2.0000 r_h. It works by quadrature in each sector, under 415's two
+  conditions generalized to any holonomy function g.
+
+**(b) Held against the choices.**
+
+| choice | horizons, A > 0 | transition surfaces | l5^4 K_max | our side at x = 1e-9 | position 2's side at x = 1e-9 | m_WH/m_BH |
+|---|---|---|---|---|---|---|
+| j = 1/2, sin x | 2, yes | 1 | 0.292 | vacuum (Ric^2/K 8e-10) | vacuum (8e-10) | 1.000000 |
+| j = 1, sin 2x/2 | 2, yes | 1 | 0.292 | vacuum | vacuum | 1.000000 |
+| j = 3/2, (sin x + 3 sin 3x)/10 | 2, yes | 1 | 0.265 | vacuum | not: Ric^2/K 5e-4, K r^8/72m^2 - 1 = -0.5 | 0.708 |
+| j = 2, (sin 2x + 2 sin 4x)/10 | 2, yes | 1 | 0.255 | vacuum | not: 1e-3, -0.7 | 0.617 |
+| Chiou-Li, (8 sin x - sin 2x)/6 | 2, yes | 1 | 2.93 | vacuum | not: 4e-4, +7 | 1.520 |
+
+- **Universal**: two horizons, one transition surface, bounded curvature, a sphere bounded away from zero, and a
+  classical side for our hole. The departure from vacuum falls as sqrt(x), which is the b sector's (d_b b)^2.
+- **Position 2's side is classical only for the single harmonic.** j = 1/2 and j = 1 give identical physics.
+  - For every higher representation, the white hole's side keeps an effective stress at curvature 1e-9 of l5's that
+    does not fall as x falls. The slopes of g at its two zeros differ: 0.82, 0.75 and 5/3 against 1.
+  - General relativity is established at low curvature, so those representations are excluded by established physics,
+    not by a ruling.
+  - Their mass ratios are mass-independent (j = 3/2: 0.725, 0.708, 0.706 at mu/l5^2 = 1e8, 1e12, 1e20).
+- **Scale coefficients** d_c -> l_c d_c, d_b -> l_b d_b (R5):
+  - Every pair keeps the structure and both classical sides.
+  - The mass moves as m_WH/m_BH = l_c^2/l_b^4, computed to 1e-4 over six pairs.
+  - The time across the interior is r_h(BH) + r_h(WH), to 1e-3: 3.00 r_h at (2, 1) and 1.25 at (1, 2).
+  - A change of the one scale l5 -- l_c = L, l_b = sqrt(L) -- leaves the mass ratio 1 and the time 2 r_h, with
+    K_max ~ 1/L^4.
+  - So the equal mass rests on one onset curvature shared by both sectors, whatever its value. That sharing is 415's
+    premise: the correction a function of x alone, order one at one x.
+
+**Status.**
+- The effective dynamics that computes 273 is its polymer quantum theory's hbar -> 0 limit in both sectors, with the
+  correction computed and negligible.
+- The passage's structure does not depend on loop quantum gravity's choices.
+- The classical white hole is selected by established physics.
+- The equal mass rests on one onset curvature for both sectors. That is the one premise left, and no available theory
+  computes the pair of onsets.
+- The ten rows stay proved; the register names that premise (warptheorem NOTE_273_485).

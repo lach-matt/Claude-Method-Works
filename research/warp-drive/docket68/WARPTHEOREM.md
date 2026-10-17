@@ -1612,6 +1612,21 @@ state was rebuilt first.
     hole's and position 2's white hole's.
   - The calculators that enter the Cauchy-horizon option only to reject it stand: C4, C5 and C7's "inner" cell is 0,
     and pair_math P3 excludes it.
+- **Item 485** (M: "do 3 first, then 1"). Item 3, what the ten rows on 273 rest on, proved (transition5r.py, 6/6,
+  mutants 4/4; BOUNCE-RESEARCH section 37). Every case was checked against the exclusions first.
+  - **Derived from its quantum theory.**
+    - The sphere sector was evolved exactly on loop quantum gravity's lattice through the transition. The norm holds to
+      1e-13, and <P_c> follows the effective trajectory within 0.163 hbar/mu, halving with hbar: about 1e-62 for the
+      theorem's holes.
+    - The b sector's quantum evolution is the effective flow, identically.
+  - **Independent of the choices.** Two horizons, one transition surface, bounded curvature, no Cauchy horizon and
+    probability 1 hold for holonomies in j = 1/2, 1, 3/2, 2 and Chiou-Li's, and for every scale-coefficient pair.
+  - **Two consequences need choices, each computed.**
+    - The white hole's side is classical only for the single-harmonic holonomy (j = 1/2 or 1, identical physics).
+      Higher representations leave stress at low curvature, so established physics selects it.
+    - The equal mass rests on one onset curvature for both sectors (415). Otherwise m_WH/m_BH = l_c^2/l_b^4, and the
+      time across is r_h(BH) + r_h(WH).
+  - The ten rows stay proved, with that premise named. The register reads 72 proved, 6 definitions, 2 OPEN.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

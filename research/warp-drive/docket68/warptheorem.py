@@ -846,6 +846,21 @@ LEMMAS_NOW = [(c, n, "PROVED", t + "  [Item 483] PROVED: 273 computed from the f
                "established theory reaching x >= 1") if n.split()[0] in ON_273 else (c, n, s_, t)
               for c, n, s_, t in LEMMAS_NOW]
 
+# [item 485] M's item 3: what the ten rows on 273 rest on, proved (transition5r.py R1-R6).  The effective dynamics is
+# the hbar -> 0 limit of its polymer quantum theory in both sectors (the sphere sector evolved on the lattice, deviation
+# 0.163 hbar/mu, under 1e-60 for the theorem's holes; the b sector's quantum evolution is the effective flow, exactly);
+# the transition surface, two horizons only, no Cauchy horizon, bounded curvature and probability 1 hold for every
+# holonomy representation and scale coefficient.  Two consequences need choices, each computed: a classical white hole
+# needs the single-harmonic holonomy (higher representations fail general relativity at low curvature, so established
+# physics selects it); the equal mass needs one onset curvature for both sectors (415), m_WH/m_BH = l_c^2/l_b^4.
+NOTE_273_485 = ("  [Item 485] What it rests on, proved (transition5r.py R1-R6): the effective dynamics is its polymer "
+                "quantum theory's hbar -> 0 limit (lattice evolution, deviation 0.163 hbar/mu, below 1e-60 here; the b "
+                "sector exact); the passage's structure is independent of the holonomy representation and the scale "
+                "coefficients; the classical white hole is selected by established physics (single-harmonic holonomy); "
+                "the equal mass rests on one onset curvature for both sectors (415), m_WH/m_BH = l_c^2/l_b^4 otherwise "
+                "-- the one premise left, named")
+LEMMAS_NOW = [(c, n, s_, t + NOTE_273_485) if n.split()[0] in ON_273 else (c, n, s_, t) for c, n, s_, t in LEMMAS_NOW]
+
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
@@ -1031,7 +1046,9 @@ def lemma_selftests():
               # item 482: 273 in the five-dimensional core, no inner horizon
               "transition5.py",
               # item 483: 273 from the five-dimensional quantum dynamics
-              "transition5q.py"):
+              "transition5q.py",
+              # item 485 (M's item 3): that dynamics derived from its quantum theory and held against LQG's choices
+              "transition5r.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
