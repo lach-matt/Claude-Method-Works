@@ -243,9 +243,9 @@ def selftest(quiet=False):
     passing = sorted(k for k, w in a.items() if not w)
     r = set(["I2", "R3", "Z3a", "B5b", "B6'", "CLOSEs", "E1us", "E1u", "ENCODE", "E1x", "M1s", "O1bs", "B7", "B4a"]) <= \
         set(passing) and {"O1a", "O1b", "O1c", "M1", "Z3b", "Z3bs", "B3", "B3s", "B4d", "B4ds"} <= set(passing) \
-        and {"ARRIVAL", "RECON"} <= set(passing) and not {"SOURCE", "SOURCEs"} & set(passing)
-    ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s) and the ten on 273 (483) among them, "
-                      "SOURCE not: %s" % (len(passing), r))
+        and {"ARRIVAL", "RECON"} <= set(passing) and {"SOURCE", "SOURCEs"} <= set(passing) and len(passing) == len(a)
+    ok.append(r); say("Q3 %d rows pass; the 441 three, B5b, B6', CLOSEs, E1u(s), the ten on 273 (483) and SOURCEs and SOURCE "
+                      "(487) among them, every row: %s" % (len(passing), r))
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)
 

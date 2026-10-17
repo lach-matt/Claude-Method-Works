@@ -1668,6 +1668,13 @@ state was rebuilt first.
     1.2e-25 per atom is the same read held 4.1 times as long as one at 1e-2.
   - The finding beside ARRIVALs and ARRIVAL is resolved. SOURCEs and SOURCE now have every item computed or proved; they
     stay OPEN as you set them. The register reads 72 proved, 6 definitions, 2 OPEN.
+- **Item 487** (M: "update their status, and update the map page accordingly"). SOURCEs and SOURCE moved to proved.
+  - Every item of both is computed or proved: the delivery (source_spec U2-U3), the README's bits (passage_est), the
+    emitter in the bulk (emitter), and the read (read_index).
+  - That makes each a specification met by computed solutions consistent with established physics (441 (1)). The
+    device that reads and the bulk's emitter are named as what each needs, as every row names what it needs.
+  - phase2 Q3: all 80 rows pass. readings: RDUST, RBITS and RSHELL, owed through SOURCE since 356, are discharged.
+  - The register reads 74 proved, 6 definitions, 0 OPEN.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1766,10 +1773,11 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | proved | -- | arrival_large.py A1-A3; b4d_large.py K12; settle_arrival.py A4-A6 (439); at the large end's order; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | proved | -- | close_small.py K1-K9 (335, 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | N | CLOSE the closing at the large end | proved | -- | close_large.py L1-L5 (362, on 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 20, 22 ('a gas of the plane's fields' withdrawn at 386) |
-| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 21, 22 ('a gas' withdrawn at 386) |
+| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | proved | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before |
+| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | proved | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before |
 
-80 rows, 66 lemmas and 14 inputs: 72 proved, 6 definitions, 2 OPEN *[Item 483: the ten on 273 proved, 273 computed from the
+80 rows, 66 lemmas and 14 inputs: 74 proved, 6 definitions *[Item 487: SOURCEs and SOURCE proved; the line read "72 proved, 6
+definitions, 2 OPEN" before.]* *[Item 483: the ten on 273 proved, 273 computed from the
 five-dimensional quantum dynamics (transition5q); the line read "62 proved, 10 derived" at 478.]*
 (SOURCEs and SOURCE, deferred by you and worked last). *[Item 478: 42 rows derived -> proved, each claim computed by its
 owners and every reading proved (phase2 Q3); the line read "20 proved, 52 derived" before.]* *[Item 441: the statuses are the register's and are unchanged; under your 441 three rows pass

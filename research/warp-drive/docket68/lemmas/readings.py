@@ -449,11 +449,13 @@ INVENTORY = (
     ("RASYM", 338, "H-ASYMMETRIC-BOUNCE: our face the life, position 2's at most 33.6 clocks",
      "M1P2xs CLOSEs B4ds", "choice", "proved here (Q20)"),
     ("RDUST", 338, "the README arriving as radial null dust", "ARRIVALs B4ds", "model",              # [Q30] not FARs
-     "through SOURCE (M-SOURCE-LAST): SOURCEs replaces it"),
+     "through SOURCE (M-SOURCE-LAST): SOURCEs replaces it -- discharged at 487, SOURCE proved: the shell exists "
+     "exactly and is the bulk's own radiation (source_spec U2-U3)"),
     ("RBITS", 338, "H-BITS-WITH-ENERGY: the bits come in with the energy", "ARRIVALs", "model",
-     "through SOURCE (M-SOURCE-LAST)"),
+     "through SOURCE (M-SOURCE-LAST) -- discharged at 487: superseded, the bits come in over the long write at the "
+     "face's own emission (passage_est Q4, 486)"),
     ("RSHELL", 337, "the README as Haggard and Rovelli's thin null shell", "O1cs O1bs", "model",
-     "no weight beyond RDUST (Q29); through SOURCE with it (M-SOURCE-LAST)"),
+     "no weight beyond RDUST (Q29); through SOURCE with it (M-SOURCE-LAST) -- discharged with it at 487"),
     ("RHOLE", 349, "H-HOLE-IN-WARP: the hole's isotropic factor under the warp", "FARs", "form",
      "proved here (Q24)"),
     ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form", "proved here (Q23)"),
@@ -1114,7 +1116,7 @@ def checks(o):
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
     owed = sorted(r[0] for r in INVENTORY if "through SOURCE" in r[5])
     add("the inventory accounted: each proved, M's, bearing on no row's claim, or through SOURCE (M-SOURCE-LAST); "
-        "under 356 (b) the three through SOURCE are owed, not done: RBITS, RDUST, RSHELL",       # [item 356]
+        "the three through SOURCE -- RBITS, RDUST, RSHELL -- owed under 356 (b), discharged at 487 with SOURCE proved",
         all(not r[5].startswith("to prove") for r in INVENTORY)
         and all(("Q" in r[5]) or "SOURCE" in r[5] or r[5].startswith("M's") for r in INVENTORY)
         and owed == ["RBITS", "RDUST", "RSHELL"])

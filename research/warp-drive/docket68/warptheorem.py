@@ -904,6 +904,19 @@ LEMMAS_NOW = [(c, n, s_, t + NOTE_SOURCE_486) if n.split()[0] in ("SOURCE", "SOU
               (c, n, s_, t + NOTE_ARRIVAL_486) if n.split()[0] in ("ARRIVAL", "ARRIVALs") else (c, n, s_, t)
               for c, n, s_, t in LEMMAS_NOW]
 
+# [item 487] M: "update their status, and update the map page accordingly."  SOURCEs and SOURCE have every item
+# computed or proved (485-486): the delivery computed exactly (source_spec U2), its carrier the bulk's own radiation
+# (U3, READ), the README's bits on established physics over the long write (passage_est), the emitter proved to stand
+# in the bulk (emitter), the read's error from M's indexes (read_index).  Under 441 (1) -- a specification proved by a
+# computed solution that meets it and is consistent with established physics -- they are PROVED; what each names as
+# needed, the device that reads and the bulk's emitter, it names as every row names what it needs.
+NOTE_SOURCE_487 = ("  [Item 487] PROVED (M: 'update their status'): every item computed or proved -- the delivery "
+                   "(source_spec U2-U3), the README's bits (passage_est Q1-Q7), the emitter in the bulk (emitter E1-E6), "
+                   "the read (read_index D1-D7) -- a specification met by computed solutions consistent with "
+                   "established physics (441 (1)); the device that reads and the bulk's emitter named as what it needs")
+LEMMAS_NOW = [(c, n, "PROVED", t + NOTE_SOURCE_487) if n.split()[0] in ("SOURCE", "SOURCEs") else (c, n, s_, t)
+              for c, n, s_, t in LEMMAS_NOW]
+
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',

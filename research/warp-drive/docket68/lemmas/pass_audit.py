@@ -302,8 +302,8 @@ def selftest(quiet=False):
     cls = classify(rows)
     unclassed = [k for k, v in cls.items() if v[0] == "?"]
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
-    p2 = not unclassed and fail == sorted(["R0", "R1", "R2", "R6", "RECON", "B6'",
-                                           "SOURCEs", "SOURCE"])         # [B5b out at 441, B7 at 442, O1b and O1c at 478]
+    p2 = not unclassed and fail == sorted(["R0", "R1", "R2", "R6", "RECON", "B6'"])
+    # [B5b out at 441, B7 at 442, O1b and O1c at 478, SOURCEs and SOURCE at 487 (PROVED)]
     ok.append(p2); say("P2-P3 every row classed; not passing: %s: %s" % (", ".join(fail), p2))
     v = station_verdicts(cls)
     p4 = any(bad for ends in v.values() for bad in ends.values()) and all(
