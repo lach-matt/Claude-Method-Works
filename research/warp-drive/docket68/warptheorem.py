@@ -805,6 +805,15 @@ LEMMAS_NOW = [
       "conforming to the large hole, e^(2y/ell)-weighted near the plane, reading on the plane as the 4D step with no "
       "matter there (settle_arrival A4, A7); the read, ENCODE's device, is its (399)]")),
 ]
+# [item 476] M approved: the ten rows on 273 name their one premise beyond established physics, and H-CORE-DELIVERS
+# (422) is derived for O1b and O1c (BOUNCE-RESEARCH section 33)
+ON_273 = ("O1a", "O1b", "O1c", "Z3b", "Z3bs", "M1", "B3", "B3s", "B4d", "B4ds")
+PREMISE_273 = ("rests on H-BOUNCE-TO-P2 (M's 273), the one premise beyond established physics: the transition through "
+               "273's quantum region; every other link proved, and no theorem read forbids it (BOUNCE-RESEARCH sections "
+               "32-33)")
+LEMMAS_NOW = [(c, n, s_, t + "  [Item 476] " + PREMISE_273 + (
+    "; H-CORE-DELIVERS (422) now derived, not assumed (section 33)" if n.split()[0] in ("O1b", "O1c") else ""))
+    if n.split()[0] in ON_273 else (c, n, s_, t) for c, n, s_, t in LEMMAS_NOW]
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
