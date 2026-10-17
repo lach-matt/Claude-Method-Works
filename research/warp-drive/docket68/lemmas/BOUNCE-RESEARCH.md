@@ -471,6 +471,9 @@ The passage is released from rest at 2r₊ and counted out to 2r₊ on the far s
 toward extremality hold for the hole without the plane; on the plane they need charge carried there, or a field term
 there above λ_min (P7). "Equatorial to O(r_h/ℓ)" fails down a long throat. How near extremality the static hole on the
 plane comes is P2's to measure.]
+[455, P2 measured it (section 22): with the bulk U(1) alone, only to 4πT R₄ = 1.01, where the chart stops (the
+field's logarithmic tail); with the field held on the plane (λ = 64), as Reissner–Nordström, resolved to
+4πT R₄ = 0.89. Extremality is approached, not reached.]
 
 **The large end (computed; the plane's corrections an estimate).** The plane's view is four-dimensional
 Reissner–Nordström with the same chain. At the Earth cap the passage takes 2.8×10⁻¹⁰ s (r₋/r₊ = 0.5) to 2.9×10⁻¹⁰ s
@@ -1134,3 +1137,118 @@ near-horizon problem, with the bulk field in place of theirs.
 - So P2's field content is put to M:
   - (ii) and (iii) are one code, with λ a parameter;
   - (i) is that code's limit.
+
+## 22. P2, computed: one charged hole on the plane (455; `corridor_p2.py` 12/12, mutants 5/5)
+
+M, verbatim: "1 - yes, likely (iii) / 2 - yes". P2 runs the bulk U(1) with a field term on the plane,
+−(λ/16πG₅)F² (Dvali, Gabadadze and Shifman, READ), λ a parameter from λ = 0.
+
+**How it was run, against section 20's plan.** Section 20 planned P2 at T = 0, with P1's throat at the throat end.
+It was run instead at finite temperature, in Figueras and Wiseman's chart, the family continued toward extremality.
+- At λ = 0 there is no throat to put at that end (P1, P5–P6).
+- The finite-temperature hole is the one with a published fixture, and its family measures what section 14's note
+  asks: how near extremality the static hole on the plane comes.
+- The T = 0 solve with P1's throat at the end, for λ above λ_min, is not run. It is put to you below.
+
+**The problem (READ; deduced).**
+- The chart is Figueras and Wiseman's (1105.2558 (9)), Lorentzian static, ℓ = 1, with the bulk potential A_t = P.
+- The rows are Figueras, Lucietti and Wiseman's (1104.4489 section 4):
+  - the horizon is smooth in r² with T = A and P = 0;
+  - the axis is smooth in x² with S = B;
+  - the Poincaré horizon r = 1 sits at the reference, with P = μ;
+  - the plane carries Israel's three conditions with the field term's stress, ξˣ = 0, F = 0, and the Maxwell jump
+    P_x = (λ/2)√g_xx g_tt DᵢFⁱᵗ.
+- The jump and the stress come from one action with two bulk copies; both reduce to P1's normalization (deduced).
+- The bulk source is checked on five-dimensional Reissner–Nordström–AdS: every component ∝ 4κ² − 3, so κ = √3/2,
+  446 (1)'s normalization (Q1).
+- **A correction to the reading of Figueras and Wiseman.** Their footnote's "T = 4A" belongs to a time rescaled by
+  ℓβ̃. With (9) as printed and their reference metric, the horizon has κ_t = 1/2, so the row is T = A and
+  β = 4πβ̃ℓ, as they state (Q2).
+- **Units.** On the plane's far region g_tt → −β̃², so t_phys = β̃t. Then T = 1/(4πβ̃), the physical potential is
+  μ_phys = μ/β̃, and the four-dimensional charge over the radius is μ̃ = √λ μ_phys.
+
+**Their hole reproduced (computed; READ).**
+- β̃ = 1 gives R₄ = 1.1303 (N = 12), 1.1293 (16) and 1.1288 (20), against their R₄/ℓ = 1.13.
+- β̃ = 5 gives 5.037, against their 5.04.
+- A_H/R₄² rises toward 4π at large R₄: 12.37 at R₄ = 5.04.
+- ξ² off the fictitious boundaries falls from 1.6×10⁻⁵ (N = 12) to 6.8×10⁻⁷ (N = 20): Einstein, not a soliton.
+
+**The soft direction (computed; recorded, not repaired).**
+- The smallest row-equilibrated singular value is isolated, 30 to 100 times below the next, and falls as N⁻⁴·⁸.
+- Its rows are the plane's Israel rows at the far corner, and its field F runs through the bulk.
+- This is the near-null direction the record's own solver carries (items 406–407).
+- It is the far region's weakly held normalization. A Dirichlet T = 1.05 reaches the interior as 1.037, and R₄
+  moves exactly as a hole at β̃√1.037 would.
+- It moves R₄ by 0.3–0.5% between resolutions. A_H/R₄² holds to 2×10⁻⁴.
+
+**The charged hole at λ = 0 (computed).** β̃ = 2; N = 16 and 20 agree within 0.2% in R₄ and 10⁻⁴ in Q.
+
+| μ_phys | 0 | 0.01 | 0.02 | 0.03 | 0.04 | 0.05 | 0.06 | 0.07 | 0.08 |
+|---|---|---|---|---|---|---|---|---|---|
+| 4πT R₄ (N = 20) | 1.046 | 1.045 | 1.044 | 1.040 | 1.036 | 1.030 | 1.022 | 1.012 | 0.998 |
+| Q (N = 20) | 0 | 0.97 | 1.94 | 2.90 | 3.87 | 4.83 | 5.80 | 6.79 | 7.88 |
+| ξ² (N = 20) | 7×10⁻⁷ | 6×10⁻⁷ | 5×10⁻⁷ | 3×10⁻⁷ | 2×10⁻⁷ | 4×10⁻⁸ | 2×10⁻⁷ | 6×10⁻⁷ | 2×10⁻⁶ |
+
+- The flux is the same through every interior row to 0.6%.
+- Past μ_phys ≈ 0.08 the family cannot be followed. By pseudo-arclength it turns at μ_phys = 0.073 (N = 12), 0.083
+  (16) and above 0.084 (20). The turn moves with resolution, so it is not a result (Q9).
+
+**Why: the bulk field's far tail (computed; deduced).**
+- Near r = 1, (μ − P)/f is fitted by a/(c + ln 1/f) 3 times better than by a + b f at N = 12, and 5 to 8 times
+  better at N = 20, on the plane, at mid-bulk and on the axis. The amplitude a grows in proportion to μ.
+- Deduced: the bulk U(1)'s zero mode is not localized (Pomarol; `u1_bulk.py`'s running coupling,
+  1/g₄² ∝ ℓ ln(L_IR/ℓ)). With the IR at the Poincaré horizon, a charge's field falls as 1/(D ln D), and its energy
+  at fixed angle only as 1/ln²D.
+- So the chart's Poincaré-horizon rows, which hold X = 1 + (1 − r)X₁ smooth (Figueras, Lucietti and Wiseman (4.11),
+  READ), fail at O(μ²). The error grows with charge.
+- This is P1's finding seen at infinity: there the field cannot close W at large holes "because the zero mode is
+  not localized"; here it cannot be brought to rest at the far horizon at a power.
+- A field term enters the denominator, a/(λ + ln 1/f + …). It does not remove the tail at any λ. It lowers the
+  bulk's share of the field energy at a fixed charge held on the plane, as 1/λ (an estimate).
+
+**With a field term (computed).**
+- **The total charge** is the bulk flux plus the plane's share, 4πλB, B = g_θθ E on the plane. It is the same
+  through every interior row to 0.4–0.8%, while the bulk flux alone moves by 20–30% (Q8).
+- **At λ = 64** the plane's potential is four-dimensional Coulomb, P = μ(1 − R₄/ρ) to 1%.
+- **The charge shrinks the hole at fixed temperature by most of Reissner–Nordström's amount.** Here
+  (1 − R₄/R₄(0))/μ̃² against Reissner–Nordström's 1 (N = 16):
+
+| R₄/ℓ | 1.13 | 1.61 | 2.10 | 3.08 | 4.06 | 4.59 |
+|---|---|---|---|---|---|---|
+| shrinkage / RN | 0.59 | 0.75 | 0.85 | 0.98 | 1.06 | 1.07 |
+
+- It is four-dimensional from R₄ ≈ 3ℓ. The 6–7% excess is about the bulk's own share of the coupling at λ = 64,
+  ln(R₄/ℓ)/λ (an estimate).
+- The plane's metric agrees: its 1/ρ² term and the shift of R₄ − 2M are 0.9–1.0 of Q̃² at R₄ ≈ 2ℓ.
+
+**The family toward extremality at λ = 64 (computed).** β̃ = 2, charged at fixed T:
+
+| μ̃ | 0.15 | 0.21 | 0.27 | 0.33 | 0.39 | 0.45 | 0.51 | 0.60 | 0.75 |
+|---|---|---|---|---|---|---|---|---|---|
+| 4πT R₄ (N = 20) | 1.025 | 1.006 | 0.981 | 0.951 | 0.915 | 0.875 | 0.830 | 0.754 | 0.606 |
+| 4πT R₄ (N = 16) | 1.028 | 1.009 | 0.984 | 0.952 | 0.914 | 0.870 | 0.820 | 0.733 | 0.557 |
+| RN at fixed T | 1.025 | 1.002 | 0.972 | 0.934 | 0.888 | 0.835 | 0.775 | 0.670 | 0.457 |
+
+- N = 16 and 20 agree within 0.5% down to 4πT R₄ = 0.89 (μ̃ = 0.42). Beyond that they part: 1.2% at μ̃ = 0.51 and
+  8% at 0.75, with ξ² growing to 4×10⁻⁴.
+- |Q| peaks near μ̃ = 0.64 (unresolved: 92 at N = 16, 94 at N = 20) and then falls, as Reissner–Nordström's does at
+  fixed T, Q ∝ μ̃(1 − μ̃²), peaking at 1/√3 = 0.58, on its near-extremal branch where r₊ → 0.
+- At λ = 8 the same family, resolved within 0.5% to μ_phys = 0.10 (4πT R₄ = 0.93), parts in the same way beyond.
+
+**What P2 settles (deduced).**
+- **With the bulk U(1) alone (λ = 0)**, the static charged hole on the plane is computed only at small charge. It
+  stays far from extremality (4πT R₄ ≥ 1.01 at μ_phys ≤ 0.07). Its far field is logarithmic, which the chart cannot
+  carry, so how far the family goes is not settled here.
+- **With the field held on the plane (λ = 64)**, the hole is four-dimensional Reissner–Nordström within 15% at
+  R₄ ≈ 2ℓ and within 7% from R₄ ≈ 3ℓ. Its family heads toward extremality: resolved to 4πT R₄ = 0.89, followed
+  unresolved to 0.56–0.61.
+- Extremality is approached, not reached, at N ≤ 20.
+- This agrees with P1: the throat exists with the field on the plane above λ_min (λ = 64 is above λ_min for
+  L₁ ≲ 3.4ℓ, P1's table interpolated), and not with the bulk field alone.
+
+**Put to you (414).**
+- **(1)** P3(b) runs the interior from P2's horizon through r₋ to the second plane. Should it start from the λ = 64
+  family's resolved member nearest extremality (4πT R₄ ≈ 0.89, R₄ ≈ 1.8ℓ), or first take P2 to T = 0 as section 20
+  planned, with P1's throat at the end, for λ above λ_min?
+- **(2)** Keep the bulk U(1) with a large field term (iii) toward (i)? Or carry λ = 0 further with a chart that
+  holds the logarithmic tail? The latter is a subtraction of the zero mode's far solution, not yet built.

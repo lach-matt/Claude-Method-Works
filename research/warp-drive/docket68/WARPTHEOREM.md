@@ -1299,7 +1299,7 @@ state was rebuilt first.
     (iii) the bulk U(1) with a field term there; whether corridor_p1.py joins T1.
 - **Item 455** (M: "1 - yes, likely (iii) / 2 - yes", and the full map page updated in full at every render).
   - P2 runs the bulk U(1) with a field term on the plane, lam a parameter, from lam = 0; "likely" keeps (i) and (ii)
-    open. corridor_p1.py joins T1.
+    open. corridor_p1.py joins T1. The theorem selftest passes with it, 12/12 (40.9 min).
   - **The map page brought current in full.** Its body had stood at items 443-445, with later work in the header
     alone. Now:
     - the theorem's key and the strip note carry the corridor's state through 455;
@@ -1318,6 +1318,23 @@ state was rebuilt first.
     - BOUNCE-RESEARCH cited through its last section;
     - the elements nest.
     Run on the page as it stood (v100) it scores 3/8: items 448-455 in the header alone, fifteen instruments unnamed.
+  - **P2, computed: one charged hole on the plane** (`lemmas/corridor_p2.py`, 12/12, mutants 5/5; BOUNCE-RESEARCH
+    section 22). It was run at finite temperature in Figueras and Wiseman's chart, not at T = 0 as section 20
+    planned. At lam = 0 P1 gives no throat for that end; the T = 0 solve above lam_min is put to M.
+    - **Their hole reproduced**: R4 = 1.129-1.130 at bt = 1 and 5.037 at bt = 5, against their 1.13 and 5.04
+      (READ); xi^2 falls with N. A correction to the reading: the horizon row is T = A (their footnote's T = 4A is
+      for a rescaled time).
+    - **The record's soft direction** (items 406-407) is the far region's weakly held normalization. It moves R4 by
+      0.3-0.5%; A_H/R4^2 holds to 2e-4.
+    - **lam = 0**: computed to mu_phys = 0.07, 4 pi T R4 from 1.05 to 1.01, N = 16 and 20 within 0.2%. Beyond that
+      the chart cannot follow. The bulk U(1)'s far field is logarithmic (its zero mode is not localized), and the
+      chart's Poincare-horizon rows assume a power. The family's turn moves with resolution: not a result.
+    - **lam = 64**, field held on the plane: four-dimensional Coulomb, and the charge shrinks the hole by 0.59 to
+      1.07 of Reissner-Nordstrom's amount from R4 = 1.13 to 4.59. The family toward extremality is resolved to
+      4 pi T R4 = 0.89. Extremality is approached, not reached, at N <= 20.
+    - A units slip of the board's own, caught before the report: on the plane t_phys = bt t, so mu_phys = mu/bt.
+    - Put to M: P3(b)'s start (the lam = 64 member, or P2 at T = 0 first); lam large or a chart for lam = 0's tail;
+      whether corridor_p2.py joins T1.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
