@@ -39,6 +39,15 @@ not verified; not seated.
      (h = -ln(1 - alpha psi)/alpha) and the Gauss-Bonnet-free tower each give a regular core, K bounded the same at
      M/alpha = 1e2 and 1e6, two horizons with r_- of order sqrt(alpha), and a bound shell's turning point inside r_-.
 
+  Q8 (computed; estimate in its reading) The inner horizon's surface gravity is kappa_- = 1/l5 (GB-free tower, M/alpha
+     = 1e8).  The README is a long wave train (core_face: its quanta 56.96 r0 long at the large end), so its first parts,
+     out through the centre, cross its later parts still falling in: counter-streaming fluxes at r_-, the setting of
+     mass inflation (Poisson and Israel; for regular cores, Carballo-Rubio et al., cited by 2404.07058v2, not read here).
+     By that mechanism the blueshift runs kappa_- dv = 1.0e23 e-folds at r0 = 20 ell and 1.4e29 at 2.8e7 ell: the static
+     core cannot be assumed through the README's own passage.  READ, 2404.07058v2 p. 9: "inner extremal solutions only
+     exist for a specific value of the mass" (kappa_- = 0, no mass inflation, in every quasi-topological theory); READ,
+     2412.02740v2 p. 1: "evidence for a solution-independent upper bound on the curvature" (no singularity, if it holds).
+
 What this proves and does not: 273's transition -- the README falling in through our face, crossing a regular centre
 and leaving through a white hole into a new universe, one way -- is computed in five dimensions from the gravitational
 effective action alone (no exotic matter), the shell's dynamics exact in spherical symmetry, every correction confined
@@ -47,8 +56,9 @@ proved here: (a) that nature's higher-curvature coefficients meet the regularity
 "alpha_n (D - 2n) >= 0 for all n, lim |alpha_n|^(1/n) = C > 0 are sufficient"), which only the ultraviolet theory can
 decide -- their scale is l5 by quantum_onset; and (b) the inner horizon beyond spherical symmetry: in the collapse
 "the inner horizon is no longer a Cauchy horizon" (READ, 2412.02740v2 p. 18), but its stability to non-spherical
-perturbations is not computed.  A delivery spread over its quanta is a family of such shells; their crossing one
-another is not computed.  At the record's scales the bulk's Lambda enters the core at (l5/ell)^2 ~ 1e-40.
+perturbations is not computed -- and Q8 shows the README's own spread is such a perturbation, 1e23 e-folds strong by
+the mass-inflation mechanism; whether the README still leaves through the white hole then needs the counter-streaming
+evolution in the theory's own spherical dynamics, not computed.  At the record's scales the bulk's Lambda enters the core at (l5/ell)^2 ~ 1e-40.
 
 python3 transition_qt5.py [--selftest | --mutants]
 """
@@ -189,6 +199,12 @@ def compute():
         rmin7 = min(R for R, v in zip(np.geomspace(0.02, 3.0, 80), sb) if v is not None)
         q7[model] = dict(core=f_of(1e-3, 1e6, 1.0, model), k=ks, hz=hz7, rmin=rmin7, rm=horizons(1.0, 0.1, model)[0])
     out["q7"] = q7
+    # Q8: the inner horizon's surface gravity at the record's scale, and the README's own spread against it
+    rmq = horizons(1e8, 1.0, "gbfree")[0]
+    kap = abs(f_of(rmq * (1 + 1e-6), 1e8, 1.0, "gbfree") - f_of(rmq * (1 - 1e-6), 1e8, 1.0, "gbfree")) / (4 * rmq * 1e-6)
+    ell_ = QO.onset_4d()["ell"]
+    out["q8"] = dict(kap=kap, efolds={k: kap * 56.96 * r0 / l5 for k, r0 in (("r0 = 20 ell", 20 * ell_),
+                                                                             ("r0 = 2.8e7 ell", 2.8e7 * ell_))})
     return out
 
 
@@ -209,7 +225,8 @@ def checks(o):
     c6 = all(abs(x) < 5 for x in b6) and max(abs(x - y) for x, y in zip(a6, b6)) < 2e-2
     c7 = all(abs(v["core"] - 1) < 1e-5 and max(v["k"]) / min(v["k"]) < 1.5 and len(v["hz"]) == 2 and 0.3 < v["hz"][0] < 3
              and v["rmin"] < v["rm"] for v in q7.values())
-    return dict(Q1=c1, Q2=c2, Q3=c3, Q4=c4, Q5=c5, Q6=c6, Q7=c7)
+    c8 = abs(o["q8"]["kap"] - 1) < 1e-6 and min(o["q8"]["efolds"].values()) > 1e20
+    return dict(Q1=c1, Q2=c2, Q3=c3, Q4=c4, Q5=c5, Q6=c6, Q7=c7, Q8=c8)
 
 
 def report(o=None):
@@ -233,6 +250,8 @@ def report(o=None):
               "bound shell's turning point %.4f < r- %.4f" % (k, v["core"], v["k"][0], v["k"][1], v["hz"][0], v["rmin"],
                                                                v["rm"]))
     print("Q7 the same on three towers: %s" % ck["Q7"])
+    print("Q8 inner horizon kappa_- = %.6f / l5; over the README's spread (56.96 r0) kappa_- dv = %s: %s" % (
+        o["q8"]["kap"], ", ".join("%.2e (%s)" % (v, k) for k, v in o["q8"]["efolds"].items()), ck["Q8"]))
     return all(ck.values())
 
 

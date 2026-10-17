@@ -2163,11 +2163,19 @@ collapse "the inner horizon is no longer a Cauchy horizon". Computed:
 - Hayward, log and Gauss-Bonnet-free towers give the same: regular core, K bounded alike at M/alpha = 1e2 and 1e6, r- of
   order sqrt(alpha), a bound shell turning inside r- (Q7).
 
-**What remains.** 273's transition, the README in through our face, across a regular centre and out through a white
-hole into a new universe, one way, is computed in 5D from the gravitational effective action, for the README's own null
-shell. Two points are not proved:
-- (a) that nature's higher-curvature coefficients meet the regularity conditions (signs and growth, READ 2412.02742v2
-  p. 3), and the resummation of the tower, which goes beyond the effective theory's regime (READ 2412.02740v2 p. 2).
-  Only the ultraviolet theory decides this; the scale is l5 by quantum_onset.
-- (b) the inner horizon's stability beyond spherical symmetry.
-The ten rows stay derived on these two. The board does not record them as unprovable (443).
+**The inner horizon under the README's own spread (transition_qt5 Q8).** kappa_- = 1/l5. The README is a long wave
+train (core_face: quanta 56.96 r0 long at the large end). Its first parts, out through the centre, cross its later
+parts still falling in. That is counter-streaming flux at r-, the setting of mass inflation, and it runs 1.0e23 e-folds
+at r0 = 20 ell and 1.4e29 at 2.8e7 ell. READ:
+- "inner extremal solutions only exist for a specific value of the mass" (2404.07058v2 p. 9). Their kappa_- = 0 is
+  what removes mass inflation, so it is not available at the README's mass.
+- "evidence for a solution-independent upper bound on the curvature" (2412.02740v2 p. 1). No singularity, if it holds.
+
+**What remains.** 273's transition is computed in 5D for a single null shell. Two points stand between it and the
+README:
+- (a) that nature's higher-curvature coefficients meet the regularity conditions, and the tower's resummation. Only the
+  ultraviolet theory decides this.
+- (b) the README's own counter-streaming flux at the inner horizon. Whether the README still leaves through the white
+  hole needs that evolution in the theory's spherical dynamics: second-order equations, a 2D Horndeski reduction
+  (2412.02740v2). It is not computed.
+The ten rows stay derived. The board does not record them as unprovable (443).
