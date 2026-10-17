@@ -21,12 +21,18 @@ stale, and what stands now.
 | S6 | 458: the board's reading listed g5 and the plane's field term lam among the bulk's universal constants, beside ell, G5 and sigma. | S3. | The bulk's universal constants are ell (placed at 2^84 l_P by the 26's hierarchy, bulk26 W5), G5 = G ell, sigma_RS and Lambda_5 = -6/ell^2. The U(1) brings no constant beyond the 26's own g'. | None. 458's reading was the board's. |
 | S7 | Corridor_p1 P6 and P8: the bulk U(1) alone gives the hole no extremal throat on the plane. | S3. | The finding stands as computed, but moot: the physical branch is P7's, the field on the plane, where the throat exists. | None. |
 | S8 | The map's "unfixed scales" panel: g5 (446) and lam (455) open. | S3 and S6. | Recorded on the map with the 461 update. | None. |
+| S9 | Section 24 (BOUNCE-RESEARCH): "xi^2 ~ 1e-6 on both sides of the horizon", taken as certifying P3's interior. | Section 26: inside the horizon g_ss < 0, so xi^2 is not positive and can be small while xi is large. | The reference-free Einstein residual max|R^a_b + 4 delta^a_b| certifies the magnetic static solve to 6e-3 at s = -0.29 (R ~ 1.2 ell on the plane). Nothing deeper is certified. | None. |
+| S10 | Section 24 and bulk26 W10: Reissner-Nordstrom-like to R = 0.94 ell, and the inferred r- rising 0.13 -> 0.27 ell. | S9: those depths lie past the certified one. | Uncertified, not withdrawn. To be recomputed by a convergent evolution. | None. |
+| S11 | bulk26 W15: the wall is the method's, with its evidence "invariants finite". | Section 26: the evidence did not show it; the reference-free residual does. Every slab march leaves Einstein's equations (residual of order one) before the wall. | W15's conclusion stands, on the residual. | None. |
+| S12 | bulk26 W9: r- = 0.316 ell, by Ansorg and Hennig's area product in bits. | Section 26, READ: Ansorg and Hennig's inner horizon rests on the Ernst equation's integrability. Maeda, Okamura and Koga: static charged AdS holes that vary in space have no Cauchy horizon, and their curvature diverges where it would stand. | Conditional, not stale: W9 holds only to the extent that the plane is integrable four-dimensional Einstein-Maxwell, as W9 said. The prior art predicts no regular inner horizon for this hole. P3 is to compute it. | None. |
+| S13 | Section 24's P3 marches on the electric lam = 64 system. | 462 (M-MAGNETIC-CORRIDOR) with bulk26 W11: the physical model is the field on the plane, magnetic. | Section 26 marches the magnetic system. The lam = 64 member remains the electric approximation it was. | 456 (1), M-P3-FROM-LAM64: its start is kept; its model is superseded by 462. |
 
 ## Not stale, and why
 
 - **381, M-ELL-BY-RELATIVITY, and 384** (no object of the theorem forces ell). bulk26's ell = 2^84 l_P is a
   placement by the 26's hierarchy, not a derivation, so 384 stands. The placement is offered beside it.
 - **454, "1 - b"** (position 2's mouth in a second universe). It is untouched. Only the charge's kind changes (S2).
-- **The P2 member and P3's interior** (456 (1), M-P3-FROM-LAM64). The lam = 64 member approximates the physical limit,
-  with a bulk share near 1/64 against the measured 1e-15. Section 22 shows its plane potential four-dimensional to 2%.
-  P3 continues on it.
+- **The P2 member** (456 (1), M-P3-FROM-LAM64). The lam = 64 member approximates the physical limit, with a bulk
+  share near 1/64 against the measured 1e-15. Section 22 shows its plane potential four-dimensional to 2%. P3's
+  model is now the magnetic field-on-the-plane one (S13); its charge constant kappa = 0.2908 is read from this
+  member.

@@ -1613,3 +1613,91 @@ M, verbatim:
 
 None of these is put to M as a new question. Each stands in the ledger with its reason, for M to clarify if the board
 has read it wrong.
+
+## 26. P3 marched as an evolution, on the magnetic corridor (462; `p3_work/p3m.py` and its drivers, not seated)
+
+M, verbatim (462): "Yes, a magnetic corridor.....carry on with P3's march as an evolution."
+
+**Prior art first (READ).**
+- **Maeda, Okamura and Koga** (arXiv:1107.3677). They study static charged AdS black holes that vary in space:
+  - "The perturbation analysis predicts that the Cauchy horizon always disappears for any wavelength perturbation";
+  - "for any wave number q, F(u) blows up towards the Cauchy horizon, and ... the gauge invariant part δK_q(u) of the
+    perturbation of the Kretschmann scalar curvature invariant also does";
+  - analytically, δK diverges as ln(1 − ξu) at the would-be Cauchy horizon;
+  - "the inhomogeneous charged black hole geometries terminate at singularity instead of the appearance of the
+    Cauchy horizon".
+- **Ansorg and Hennig** (arXiv:1103.4635). They find the inner horizon does exist for 4D stationary axisymmetric holes,
+  vacuum or electrovac near the horizon. Their proof rests on the Ernst equation's integrability: "the key point for
+  this method to work is the fact that the two horizons H± are connected by specific axis sections". They evolved
+  the interior "in terms of a single-domain fully pseudo-spectral scheme", Chebyshev in both time and angle.
+- **The uniform interiors** (2006.10056, 2008.12786, 2205.14803, 2511.00877 among them). Whenever Reissner–Nordström's
+  symmetry is broken, "the Einstein-Rosen bridge" collapses "at the would-be Cauchy horizon" and the spacetime ends
+  at a spacelike Kasner singularity.
+- **The reading (deduced, to be computed).** Our hole is five-dimensional, sits in AdS (Λ₅) and varies with x. It is
+  not integrable, so it belongs to Maeda, Okamura and Koga's class, not Ansorg and Hennig's. The prior art predicts
+  **no regular inner horizon**: a singularity where r₋ would be.
+  - Section 25's W9 (r₋ = 0.316ℓ, by Ansorg and Hennig's area product in bits) holds only to the extent that the
+    plane is integrable four-dimensional Einstein–Maxwell, as W9 said. It is a conditional value, not a computed
+    horizon.
+
+**The system (computed).**
+- Under 462 and section 25's W11, the field lives on the plane. There, F = (Q/2) sin θ dθ∧dφ solves Maxwell's
+  equations exactly on any static, spherically symmetric plane. It enters only through Israel's condition, as a
+  stress κ/g_ΩΩ², the same as Reissner–Nordström's.
+- The bulk is vacuum Einstein–DeTurck with R_ab = −4g_ab.
+- Israel's condition is taken with the true unit normal. It equals the old rows exactly when F ≡ 0 along the plane
+  (checked symbolically).
+- κ = 0.2908 is read from P2's λ = 64 member at its horizon. There κ = λE²g_ΩΩ²/2 runs from 0.29 near the hole to 0.24
+  far out, as its bulk share leaks flux.
+- **The static magnetic hole** is solved across its horizon on s ∈ [−0.3, 1]:
+  - R₄ = 1.810ℓ, against the λ = 64 member's 1.791ℓ;
+  - the old uncharged control solves the new system unchanged, to 7.7×10⁻¹⁰, a cross-check of the code.
+
+**A correction of the board's own: the interior monitor.**
+- Inside the horizon g_ss < 0, so ξ² = g_ab ξ^a ξ^b is not positive. It can be small while ξ is large.
+- The "ξ² ≈ 10⁻⁶ on both sides of the horizon" of section 24 therefore did not certify the interior.
+- The check now used needs no reference: the Einstein residual max|R^a_b + 4δ^a_b|. The Ricci tensor is computed
+  numerically from the metric's jets, and the engine is tested on AdS₅ (K = 40), Tangherlini (72μ²/r⁸) and
+  Schwarzschild × ℝ.
+- On the magnetic global solve the residual is:
+  - 4×10⁻⁵ to 5×10⁻⁴ outside;
+  - 7×10⁻⁴ at s = −0.05;
+  - 6×10⁻³ at s = −0.29 (R ≈ 1.2ℓ on the plane).
+- So the interior is certified to about R ≈ 1.2ℓ.
+- Section 24's figures past that depth (Reissner–Nordström-like to R = 0.94ℓ, and the r₋ trend 0.13 → 0.27ℓ) rest
+  on solutions whose residual was never measured. They are uncertified, not withdrawn.
+
+**The march (computed).** Slabs in s, fields even in x, the moving DeTurck reference.
+- **The electric λ = 64 system** (section 24's), diagnosed by x:
+  - the violation is generated at the plane and grows faster with resolution: it stops at s = −0.65 with 14 nodes and
+    at s = −0.50 with 18;
+  - the uncharged control shows a large violation at the plane's node from the first slab: the old plane rows control
+    ξˣ but nothing controls ξˢ there.
+- **The magnetic system, old rows** (ξˣ = 0, F = 0).
+  - The plane-driven growth is gone. Higher resolution now goes further (s = −0.75 against −0.80).
+  - But the reference-free residual grows from 10⁻² at s = −0.3 to 0.1 at −0.4, 1 at −0.5 and 7 at −0.65.
+  - It is largest at the axis, where the cone condition S = B drifts (10⁻⁶ → 1.4×10⁻² by s = −0.7) because the even
+    scheme drops the axis row.
+- **Every repair tried leaves the residual growing faster at higher resolution:**
+  - the regular-axis variable S = B + x²Σ, which removes the drift exactly;
+  - constraint damping at γ = 2, 10 and 40;
+  - finer slabs: slab 0.05 with 14 nodes reaches residual 20 at s = −0.5.
+- **The constraint-preserving rows** (ξˣ = ξˢ = 0, F free) leave the first slab's Newton iteration stalled at
+  |R| = 0.8.
+- **The reading (deduced).** The slab evolution with Einstein–DeTurck rows is not a convergent scheme for this
+  problem. Its growth increases with resolution in both s and x and survives damping, so it lies in the formulation,
+  not the resolution.
+  - The curvature it showed near the plane past s ≈ −0.45 (K falling from +44 to −700 and below, agreeing between
+    resolutions) is not a result: those slices leave Einstein's equations by order one.
+  - Section 25's W15 ("the wall is the method's") stands on firmer ground than it gave: the march leaves Einstein's
+    equations before the wall. Its stated evidence (invariants finite) did not show it.
+
+**What this needs next.** A formulation whose evolution is known to be well-posed. In the conformal (double-null)
+gauge of the (s, x) quotient:
+- the bulk reduces to three wave equations, for the Killing norm, the sphere's radius and the conformal factor;
+- two first-order constraints are propagated by the Bianchi identity;
+- the axis's regularity and the plane's Israel conditions are boundary conditions;
+- the plane is a moving boundary whose path Israel's condition sets.
+
+Here the quotient by the Killing time and the sphere is two-dimensional, (s, x), as it is in spherical collapse,
+where double-null evolution is the standard route. Its construction is put to M before it is built (414).

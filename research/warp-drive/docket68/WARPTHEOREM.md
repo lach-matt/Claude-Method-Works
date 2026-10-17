@@ -1412,6 +1412,30 @@ state was rebuilt first.
     - section 14's electric charge;
     - M-CHARGE-BOTH's lam = 0 route, below the measured floor by fifteen decades.
     None is put to M as a new question.
+- **Item 462** (M: "Yes, a magnetic corridor.....carry on with P3's march as an evolution.").
+  - Carried as M's: M-MAGNETIC-CORRIDOR and M-P3-EVOLUTION. Section 14's electric charge (STALE-LEDGER S2) is
+    replaced on M's word.
+  - **Prior art read first** (BOUNCE-RESEARCH section 26).
+    - Maeda, Okamura and Koga (1107.3677, READ): static charged AdS holes that vary in space "terminate at singularity
+      instead of the appearance of the Cauchy horizon", their curvature diverging as ln(1 - xi u).
+    - Ansorg and Hennig (1103.4635, READ): the inner horizon exists where the Ernst equation is integrable.
+    - Our hole is five-dimensional, in AdS and varying with x: the first class. The prior art predicts no regular
+      inner horizon. Section 25's W9 is conditional on integrability (S12).
+  - **The magnetic system** (`lemmas/p3_work/p3m.py`). The plane's field enters only through Israel's condition, as
+    kappa/g_OmOm^2. kappa = 0.2908 is read from P2's member. The static hole is solved across its horizon:
+    R4 = 1.810 ell against 1.791. The old uncharged control solves the new system unchanged, to 7.7e-10.
+  - **A correction of the board's own.** Inside the horizon xi^2 is not positive. Section 24's interior check did not
+    certify. The reference-free Einstein residual max|R^a_b + 4 delta^a_b| certifies the static solve to 6e-3 at
+    s = -0.29, R ~ 1.2 ell (S9-S11).
+  - **The march does not converge.** Each attempt leaves the residual growing faster at higher resolution:
+    - the old rows: plane growth gone, but the cone condition drifts at the axis;
+    - the regular-axis variable S = B + x^2 Sigma;
+    - constraint damping at gamma 2, 10 and 40;
+    - finer slabs.
+    In every one the residual reaches order one by s = -0.5. The constraint-preserving rows (xi^x = xi^s = 0) stall the
+    first slab's Newton iteration. The fault lies in the slab formulation, not the resolution.
+  - Put to M (414): the next formulation. Conformal (double-null) gauge on the two-dimensional (s, x) quotient, three
+    wave equations, two propagated constraints, and the plane a moving boundary under Israel's condition.
     - P3: evolve the interior between r+ and r- as a hyperbolic problem in (r, x), from the lam = 64 member's horizon
       data, with the plane's rows on its boundary. Take the white hole and the second exterior as the time reverse.
       Integrate section 14's routes.
