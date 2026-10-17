@@ -186,7 +186,8 @@ def _register():
 def a6():
     reg = _register()
     want = "READING" if "status" in MUT else "DERIVED"
-    return {k: reg.get(k) for k in SETTLED}, all(reg.get(k) == "DERIVED" for k in SETTLED) and want == "DERIVED"
+    return {k: reg.get(k) for k in SETTLED}, all(reg.get(k) in ("DERIVED", "PROVED") for k in SETTLED) and \
+        want == "DERIVED"                                               # [item 478: ARRIVALs, ARRIVAL proved]
 
 
 def report():
@@ -219,7 +220,7 @@ def selftest(quiet=False):
     c4 = o and t and gr and abs(cap_fraction(10) - 0.01) < 1e-12
     ok.append(c4); say("A4 warped Vaidya exact (vv only), the plane pure tension, density x e^(2y/ell); cap 1e-2 at "
                        "r0 = 10 ell: %s" % c4)
-    st, c6 = a6(); ok.append(c6); say("A6 ARRIVALs, B3s, B4ds, ARRIVAL, B3, B4d DERIVED in the register: %s" % c6)
+    st, c6 = a6(); ok.append(c6); say("A6 ARRIVALs, B3s, B4ds, ARRIVAL, B3, B4d DERIVED or PROVED in the register: %s" % c6)
     return all(ok)
 
 

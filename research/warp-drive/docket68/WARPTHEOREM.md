@@ -1529,6 +1529,33 @@ state was rebuilt first.
     - Offered to M as a finding, not a ruling: Bousso's theorem, with the GSL proved for brane worlds
       (Shahbazi-Moghaddam), excludes a semiclassical bounce on the plane; 273's quantum bounce is beyond its reach.
   - (a) The large end: section 31 (in progress).
+- **Items 467-476** (BOUNCE-RESEARCH sections 31-33). 273 reassessed (473); Noether (474); the ten rows on 273 named
+  H-BOUNCE-TO-P2 (476, approved), statuses then kept derived.
+- **Items 477-478** (M: "What did I say about proving objects that were derived?"; "Stop avoiding the work. I want you
+  to prove everything that you have derived."). 476 kept rows derived on 273, an uncomputed ruling, against 440-443.
+  - **42 rows derived -> proved**: each claim computed by its owners (re-run in T1) and every reading proved
+    (phase2 Q3). The register now reads 62 proved, 10 derived, 6 definitions, 2 OPEN.
+  - **The core computed** (`lemmas/core_large.py`, 7/7, mutants 5/5; BOUNCE-RESEARCH section 34). On Chamblin, Hawking
+    and Reall's exact warped string (bulk and plane exact, every m, the core included), every causal geodesic entering
+    our face reaches x = 1 within pi m of proper time and pi m of bulk depth, curvature finite before it, at r >= r_q
+    (2.0e-13 ell at r0 = 20 ell); the end is a Kasner curvature singularity. H-CORE-DELIVERS is computed, and O1b and
+    O1c's own claims with it (pass_audit: A -> C).
+  - **Z3b and Z3bs re-derived without 177 and 183**: their content in five dimensions is z3b_large Z1-Z3, Z5 and
+    pair_math P1-P3; the plane's four-dimensional negative is the projected Weyl term, geometry not matter.
+  - **273's prior art computed** (`lemmas/transition_aos.py`, 6/6, mutants 4/4). Ashtekar, Olmedo and Singh's
+    effective interior (READ, 1806.02406v3) run at the record's sizes: one transition surface, trapped then
+    anti-trapped, the white hole's mass the black hole's to 4e-20 at r0 = 20 ell, curvature mass-independent, the
+    correction a positive power of curvature (415's form). It is four-dimensional; the record's core is five-dimensional,
+    its onset at a curvature (l_P/l5)^4 = 1.2e-40 of this transition's. So 273 is computed for a 4D hole in a candidate
+    quantum theory, not in the record's core: the ten rows stay derived, their one ruling owed (443).
+  - **273 in five dimensions** (`lemmas/transition_qt5.py`, 4/4, mutants 2/2). Bueno, Cano, Hennigar and Murcia
+    (READ, 2412.02742v2): in D >= 5 the gravitational effective action alone, with an infinite tower of corrections,
+    turns a collapsing shell into a regular black hole that bounces it into a new universe through a white hole.
+    Reproduced in D = 5 (their master equation against Einstein's potential to 6e-16; their case's horizons; the
+    turning point inside r-); a tower with no Gauss-Bonnet term exists and is regular (B8 kept), its curvature bounded
+    at 40/alpha^2 at every mass. With alpha = l5^2 it is Tangherlini's to 1.3e-4 wherever x < 0.1, its inner horizon at
+    r- = l5 with x = 6.3: inside 273's region. Not computed: the couplings (only their scale), the README's null passage
+    (computed for a bound dust shell), the inner horizon's stability, and one-wayness (a bound shell re-collapses).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1549,89 +1576,90 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 
 | clause | lemma | status | rests on | owner |
 |---|---|---|---|---|
-| G | G1 one exact energy, at the bound: E(N) | derived | M1s | axioms.py |
+| G | G1 one exact energy, at the bound: E(N) | proved | M1s | axioms.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | G | G2 E(N) computed and machine-checked | proved | -- | exactE.py, ledger.py |
 | G | G3 the horizon's size is fixed by N: r_h at the small end, r0 = 2m at the large | proved | M1s | exactE.py |
 | H | H1 the horizon holds N bits: 2 pi^2 r_h^3 = 4 N ln2 l5^3 at the small end, 4 pi r0^2 = N A_bit at the large | proved | -- | hcount_cypher.py, area_law5.py, exactE.py |
-| H | H2 our face and position 2's face hold the README as one null surface | derived | -- | 270 (a); c7_oneway V11 (Q4) |
-| H | H2tu within one universe the horizon's trace on each plane is r = r_h | derived | M1s | rows_small.py |
-| H | H2txs between universes position 2's horizon holds the README at its own bit area, at the small end | derived | M1s M1P2xs | copy_p2.py C1; c7_oneway V12 (Q3) |
-| H | H2tx between universes position 2's horizon holds the README at its own bit area, at the large end | derived | M1P2x | copy_p2.py C1 (m1p2x_large Y8, 362); rests on M1P2x; at every sigma (428, approved; 424's hold at sigma2 != sigma lifted) |
-| O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | H-BOUNCE-TO-P2 | 270, 273, 276, 282; c1_oneway.py; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
+| H | H2 our face and position 2's face hold the README as one null surface | proved | -- | 270 (a); c7_oneway V11 (Q4); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| H | H2tu within one universe the horizon's trace on each plane is r = r_h | proved | M1s | rows_small.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| H | H2txs between universes position 2's horizon holds the README at its own bit area, at the small end | proved | M1s M1P2xs | copy_p2.py C1; c7_oneway V12 (Q3); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| H | H2tx between universes position 2's horizon holds the README at its own bit area, at the large end | proved | M1P2x | copy_p2.py C1 (m1p2x_large Y8, 362); rests on M1P2x; at every sigma (428, approved; 424's hold at sigma2 != sigma lifted); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| O | O1a one way in every aspect, 1 -> 2: the one object -- our black-hole face, the bounce, position 2's white-hole face | derived | H-BOUNCE-TO-P2 | 270, 273, 276, 282; c1_oneway.py; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
 | O | O1bs no curvature singularity on the passage at the small end | proved | M1s | o1c_oneway.py |
 | O | O1cs every causal route of the passage complete at the small end | proved | M1s | o1c_oneway.py |
-| O | O1b no curvature singularity on the passage at the large end | derived | M1 H-BOUNCE-TO-P2 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS (422) derived, not assumed (BOUNCE-RESEARCH 33; 476), which also closes what K cannot see (430 (Q5); 431); on the object standing from the opening (426), modelled by the board (428); H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
-| O | O1c every causal route of the passage complete at the large end | derived | M1 H-BOUNCE-TO-P2 | exact 4D forms on the stretch (focusing_parts F1-F3), not F4 (430 (Q2); 431); H-CORE-DELIVERS (422) derived, not assumed (BOUNCE-RESEARCH 33; 476); on the object standing from the opening (426), modelled by the board (428); H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
+| O | O1b no curvature singularity on the passage at the large end | derived | M1 H-BOUNCE-TO-P2 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS computed (core_large.py K1-K7, 478), which also closes what K cannot see (430 (Q5); 431); on the object standing from the opening (426), modelled by the board (428); H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
+| O | O1c every causal route of the passage complete at the large end | derived | M1 H-BOUNCE-TO-P2 | exact 4D forms on the stretch (focusing_parts F1-F3), not F4 (430 (Q2); 431); H-CORE-DELIVERS computed (core_large.py K1-K7, 478); on the object standing from the opening (426), modelled by the board (428); H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
-| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | derived | WRITEs | o3_hold.py |
-| O | O3 the corridor survives its hold at the large end (158 (2); 160) | derived | WRITE | o3_large.py Q1-Q4 (362), re-posed as O3s |
+| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | proved | WRITEs | o3_hold.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| O | O3 the corridor survives its hold at the large end (158 (2); 160) | proved | WRITE | o3_large.py Q1-Q4 (362), re-posed as O3s; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
 | Z | Z1ts along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the small end | proved | M1s | rows_small.py |
-| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the large end | derived | M1 | rows_large.py Z1t; m1_large M1, M4 |
+| Z | Z1t along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the large end | proved | M1 | rows_large.py Z1t; m1_large M1, M4; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | Z | Z2rs our leg's integral within the reach equals the plane's reading, at the small end | proved | M1s | rows_small.py |
-| Z | Z2r our leg's integral within the reach equals the plane's reading, at the large end | derived | M1 | rows_large.py Z2r |
-| Z | Z3a NEC never violated away from the corridor, through today | derived | -- | b1_matter.py, pointwise.py |
-| Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1s H-BOUNCE-TO-P2 | pair_math.py, readings.py; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
-| Z | Z3b rays that meet the corridor keep (Z) at the large end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1 H-BOUNCE-TO-P2 | z3b_large.py Z0-Z6 (424), as Z3bs; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
-| Z | Z3c the plane's dark energy has w >= -1 at every epoch the theory controls | derived | -- | nature_rows.py |
+| Z | Z2r our leg's integral within the reach equals the plane's reading, at the large end | proved | M1 | rows_large.py Z2r; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| Z | Z3a NEC never violated away from the corridor, through today | proved | -- | b1_matter.py, pointwise.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| Z | Z3bs rays that meet the corridor keep (Z) at the small end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1s H-BOUNCE-TO-P2 | pair_math.py, readings.py; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
+| Z | Z3b rays that meet the corridor keep (Z) at the large end: every classical ray keeps 183, the passage's negative confined to the quantum region | derived | M1 H-BOUNCE-TO-P2 | z3b_large.py Z0-Z6 (424), as Z3bs; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
+| Z | Z3c the plane's dark energy has w >= -1 at every epoch the theory controls | proved | -- | nature_rows.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | B | B1 each plane carries its own universe's matter and meets Gauss and Codazzi (B1'); no bulk is ever empty (320) | proved | -- | b1_matter.py, localbulk.py |
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
 | B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
-| B | B2t its instance beneath the corridor at the large end: the large hole's bulk | derived | M1 | rows_large.py B2t; Figueras-Wiseman (READ) |
-| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | derived | M1s FARs WRITEs ARRIVALs CLOSEs H-BOUNCE-TO-P2 | b4d_small.py D10 (351, 355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
-| B | B3 a complete bulk exists at the large end | derived | M1 FAR WRITE ARRIVAL CLOSE H-BOUNCE-TO-P2 | b4d_large.py K9, K12; settle_arrival.py A4-A6 (439): every cell a row, the opening the bulk null shell; at the large end's order; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
+| B | B2t its instance beneath the corridor at the large end: the large hole's bulk | proved | M1 | rows_large.py B2t; Figueras-Wiseman (READ); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | derived | M1s FARs WRITEs ARRIVALs CLOSEs H-BOUNCE-TO-P2 | b4d_small.py D10 (351, 355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
+| B | B3 a complete bulk exists at the large end | derived | M1 FAR WRITE ARRIVAL CLOSE H-BOUNCE-TO-P2 | b4d_large.py K9, K12; settle_arrival.py A4-A6 (439): every cell a row, the opening the bulk null shell; at the large end's order; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
-| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | derived | M1s FARs WRITEs ARRIVALs CLOSEs H-BOUNCE-TO-P2 | b4d_small.py D0-D18 (351-355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
-| B | B4d the opening and closing evolve regularly in five dimensions at the large end | derived | M1 FAR WRITE ARRIVAL CLOSE H-BOUNCE-TO-P2 | b4d_large.py K0-K12; settle_arrival.py A4-A6 (439): the opening the bulk null shell (warped Vaidya); M-PLANCK-ENDS; at the large end's order; H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
-| B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | derived | -- | b5a_oneway.py, b5a_residue.py, pointwise.py |
-| B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | derived | -- | e_positive.py E7 |
-| B | B5c position 2's positivity where it bears, at the large end | derived | -- | m1_large.py M8; tau_share T4 |
-| B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | derived | -- | b5p_cypher.py, pointwise.py |
-| B | B5px between universes position 2's matter meets B5'a's condition | derived | -- | theorem_p2.py, pointwise.py |
-| B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b) | derived | -- | pointwise.py |
+| B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | derived | M1s FARs WRITEs ARRIVALs CLOSEs H-BOUNCE-TO-P2 | b4d_small.py D0-D18 (351-355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
+| B | B4d the opening and closing evolve regularly in five dimensions at the large end | derived | M1 FAR WRITE ARRIVAL CLOSE H-BOUNCE-TO-P2 | b4d_large.py K0-K12; settle_arrival.py A4-A6 (439): the opening the bulk null shell (warped Vaidya); M-PLANCK-ENDS; at the large end's order; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
+| B | B5a positivity at the coincidence (127, 275): the coincident sheets' summed stress meets B5'a's condition, one way | proved | -- | b5a_oneway.py, b5a_residue.py, pointwise.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| B | B5cs position 2's positivity where it bears: where the README lands and the corridor's rays cross position 2's plane (139 (2); 284 (4), 285), at the small end | proved | -- | e_positive.py E7; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| B | B5c position 2's positivity where it bears, at the large end | proved | -- | m1_large.py M8; tau_share T4; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| B | B5pu within one universe position 2's matter is ours (202) and meets B5'a's condition | proved | -- | b5p_cypher.py, pointwise.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| B | B5px between universes position 2's matter meets B5'a's condition | proved | -- | theorem_p2.py, pointwise.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| B | B5b a smooth wall carrying matter keeps null energy at every point (B5'b) | proved | -- | pointwise.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | B | B6 k's ratio fixed by the work, k_R = k_L/2 (200 (1)) | proved | -- | b6_once.py, b6_k.py |
 | B | B6' k's scale: our universe is defined by its plane's tension and its dark-energy offset (201) | definition | -- | sigma_defines.py, nature_rows.py |
 | B | B8 the bulk's law is Einstein's exactly: the Gauss-Bonnet coupling is zero | proved | -- | gb_cone.py, gb_alpha.py, relativity.py |
-| B | B7 formation: before the opening the positions are joined through the bulk with no horizons | derived | -- | b7_formation.py |
-| I | I1 the passage is N bits of entanglement | derived | -- | axioms.py |
+| B | B7 formation: before the opening the positions are joined through the bulk with no horizons | proved | -- | b7_formation.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| I | I1 the passage is N bits of entanglement | proved | -- | axioms.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | I | I2 the README's N bits within the capacity bound as READ | proved | -- | i2_capacity.py |
-| E | E1us within one universe, our E holds our face and returns to our universe as radiation -- no influence back, at the small end | derived | -- | 336; close_small.py K5, K9 |
-| E | E1u within one universe, our E returns to our universe as radiation -- no influence back, at the large end | derived | CLOSE | 336; close_large.py L3, L5 (362) |
-| E | E2us within one universe, position 2's face releases its own energy at its closing, at the small end | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
-| E | E2u within one universe, position 2's face releases its own energy at its closing, at the large end | derived | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362) |
-| E | E1xs between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses, at the small end | derived | -- | 336; 240; close_small.py K9 |
-| E | E1x between universes, nothing of our E crosses; the README crosses, at the large end | derived | CLOSE | close_large.py L3; the timing met by identity at every sigma (390, junction_own G10; 427, 428 approved) |
-| E | E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build uses, at the small end | derived | CLOSEs | 110, 111 (a), 240; c_junction J1 |
-| E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | derived | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362) |
-| E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | derived | -- | ledger.py |
+| E | E1us within one universe, our E holds our face and returns to our universe as radiation -- no influence back, at the small end | proved | -- | 336; close_small.py K5, K9; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E1u within one universe, our E returns to our universe as radiation -- no influence back, at the large end | proved | CLOSE | 336; close_large.py L3, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E2us within one universe, position 2's face releases its own energy at its closing, at the small end | proved | CLOSEs | 110, 111 (a), 240; c_junction J1; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E2u within one universe, position 2's face releases its own energy at its closing, at the large end | proved | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E1xs between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses, at the small end | proved | -- | 336; 240; close_small.py K9; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E1x between universes, nothing of our E crosses; the README crosses, at the large end | proved | CLOSE | close_large.py L3; the timing met by identity at every sigma (390, junction_own G10; 427, 428 approved); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build uses, at the small end | proved | CLOSEs | 110, 111 (a), 240; c_junction J1; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | proved | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | proved | -- | ledger.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | E | E4rs the field energy outside the neck within the reach, at the small end | proved | M1s | rows_small.py |
-| E | E4r the field energy outside the neck within the reach, at the large end | derived | M1 | rows_large.py E4r |
+| E | E4r the field energy outside the neck within the reach, at the large end | proved | M1 | rows_large.py E4r; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
 | R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146 |
 | R | R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws govern | definition | -- | items 148, 240, 285 |
 | R | R3 exactness at the instant over the mass window | proved | -- | exactcopy.py, rearrange.py |
-| R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance | derived | -- | r4_length.py |
-| R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | derived | -- | r5_build.py, copy_p2.py |
+| R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance | proved | -- | r4_length.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | proved | -- | r5_build.py, copy_p2.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | R | R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2 | definition | -- | items 284, 285 |
 | R | RECON any information is reconstructed to obey the 26 of any position 2 (M-RECON-ALWAYS) | definition | -- | item 437; with 24, 240 |
-| R | ENCODE the read: how a geometric object becomes binary information, one exact encoding reading the same at every point of the 26-lattice | derived | -- | encode_labels.py C0-C7 (439): the labels of the last state (438), canonical, exact, integers only; the read's device SOURCE's (399) |
+| R | ENCODE the read: how a geometric object becomes binary information, one exact encoding reading the same at every point of the 26-lattice | proved | -- | encode_labels.py C0-C7 (439): the labels of the last state (438), canonical, exact, integers only; the read's device SOURCE's (399); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | N | M1s the plane's reading of the corridor's mouth at the small end | proved | -- | m1_small.py, c4_oneway.py |
-| N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | derived | H-BOUNCE-TO-P2 | m1_large.py M0-M10 (356); H-BOUNCE-TO-P2 (M's 273) the one premise beyond established physics (476) |
+| N | M1 the plane's reading of the corridor's mouth at the large end (OPEN since item 232) | derived | H-BOUNCE-TO-P2 | m1_large.py M0-M10 (356); H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D (transition_aos.py) and, for a bound dust shell, in 5D (transition_qt5.py); the README's null passage, the inner horizon in the region and one-wayness not computed (478) |
 | N | M1P2xs position 2's side at the small end, on the one-way object | proved | -- | c8_level.py |
-| N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | derived | M1 | m1p2x_large.py Y1-Y9 (362); the emergence met by identity at every sigma (390, junction_own G10; 427, 428 approved) |
-| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | derived | -- | far_small.py F0-F11 (347-355); verified 355 |
-| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | derived | -- | far_large.py L0-L11 (350-355); verified 355 |
-| N | WRITEs the bulk held through the whole write at the small end, its least time 9.49 clocks of r_h/c (437) | derived | -- | write_cypher.py; the name read '>= 66,980 clocks of r_h/c' before 439 |
-| N | WRITE the static bulk held through the whole write at the large end, its least time 28.48 clocks of m/c | derived | -- | write_large.py X1-X3 (362); the name read '>= 199,702.19 clocks of m/c' before 439 |
-| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, all at once; the bits rebuild at position 2 under its laws and take their room | derived | -- | arrival_small.py V0-V14 (verified 348); settle_arrival.py A2, A6 (439); 'compact' before 439 |
-| N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | derived | -- | arrival_large.py A1-A3; b4d_large.py K12; settle_arrival.py A4-A6 (439); at the large end's order |
-| N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | derived | -- | close_small.py K1-K9 (335, 336) |
-| N | CLOSE the closing at the large end | derived | -- | close_large.py L1-L5 (362, on 336) |
+| N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | proved | M1 | m1p2x_large.py Y1-Y9 (362); the emergence met by identity at every sigma (390, junction_own G10; 427, 428 approved); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | proved | -- | far_small.py F0-F11 (347-355); verified 355; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | proved | -- | far_large.py L0-L11 (350-355); verified 355; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | WRITEs the bulk held through the whole write at the small end, its least time 9.49 clocks of r_h/c (437) | proved | -- | write_cypher.py; the name read '>= 66,980 clocks of r_h/c' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | WRITE the static bulk held through the whole write at the large end, its least time 28.48 clocks of m/c | proved | -- | write_large.py X1-X3 (362); the name read '>= 199,702.19 clocks of m/c' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, all at once; the bits rebuild at position 2 under its laws and take their room | proved | -- | arrival_small.py V0-V14 (verified 348); settle_arrival.py A2, A6 (439); 'compact' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | proved | -- | arrival_large.py A1-A3; b4d_large.py K12; settle_arrival.py A4-A6 (439); at the large end's order; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | proved | -- | close_small.py K1-K9 (335, 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| N | CLOSE the closing at the large end | proved | -- | close_large.py L1-L5 (362, on 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 20, 22 ('a gas of the plane's fields' withdrawn at 386) |
 | N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | **OPEN** | -- | deferred by M; worked last (344-346); what it must supply: SOURCE-REQUIRED 19, 21, 22 ('a gas' withdrawn at 386) |
 
-80 rows, 66 lemmas and 14 inputs: 20 proved, 52 derived, 6 definitions, 2 OPEN (SOURCEs and SOURCE, deferred by you
-and worked last). *[Item 441: the statuses are the register's and are unchanged; under your 441 three rows pass
+80 rows, 66 lemmas and 14 inputs: 62 proved, 10 derived (the ten on 273, their one ruling owed), 6 definitions, 2 OPEN
+(SOURCEs and SOURCE, deferred by you and worked last). *[Item 478: 42 rows derived -> proved, each claim computed by its
+owners and every reading proved (phase2 Q3); the line read "20 proved, 52 derived" before.]* *[Item 441: the statuses are the register's and are unchanged; under your 441 three rows pass
 the criterion (I2, R3, Z3a), and the other 77 wait on a definition proved, a ruling derived, or SOURCE (pass_audit P5).]* *[Item 439: ARRIVAL, ENCODE and the five readings settled as derived; the line read "45 derived, 5
 under a named reading, 6 definitions, 4 OPEN (ARRIVAL, ENCODE, and SOURCEs and SOURCE ...)" before.]* *[Item 438: B3 and B4d at the large end moved from OPEN to readings;
 the line read "3 under a named reading of the board's ... 6 OPEN (B3, B4d, ARRIVAL, ENCODE, ...)" before.]* *[Corrected at item 437: this line had read "78

@@ -2107,3 +2107,54 @@ only.
 | Noether's second theorem (474) | none: energy-momentum conserved identically | conserved | conserved |
 Penrose's other two hypotheses, a Cauchy surface and completeness, 273 keeps ("complete ... no Cauchy horizon"). So
 273 is consistent with every theorem read, and its one premise is the transition through the region itself.
+
+## 34. Everything derived, proved (478; `lemmas/core_large.py`, 7/7, mutants 5/5; `lemmas/transition_aos.py`, 6/6, mutants 4/4; `lemmas/transition_qt5.py`, 4/4, mutants 2/2)
+
+M (478): "Stop avoiding the work. I want you to prove everything that you have derived."
+
+**The register.** 42 of the 52 derived rows had their claims computed by their owners and every reading proved
+(phase2 Q3). They are proved. The ten on 273 are not, and section 32's "the one premise" was the error 477 names:
+under 441 a ruling of M's is not a first principle, and under 443 the rows on 273 are provable, so 273 is owed.
+
+**Section 33's step 4, computed (core_large).** The large end's core on Chamblin, Hawking and Reall's string, an exact
+solution of bulk and plane together at every r:
+- the bulk's law holds exactly (K1); the plane carries its tension alone (K2); f has one root (K3);
+- Kretschmann 40/ell^4 + 48 m^2 z^4/(ell^4 r^6), at least 48 m^2/r^6 on the bulk side (K4);
+- a causal curve inside moves at most pi m in depth and spends at most pi m of proper time; causal geodesics reach any
+  r > 0 in finite affine length (K5);
+- x = 1 at r >= r_q: 2.0e-13 ell at r0 = 20 ell, 6.4e-13 ell at the Earth cap, 2.3e-11 ell at 2.8e7 ell (K6);
+- the end is a vacuum Kasner curvature singularity, K ~ (T_end - T)^-4 (K7).
+So every README element reaches the quantum region before the classical end, at every size. The Hollands-Wald-Zahn
+support is no longer needed. Not computed: the localized hole's own interior; the string and core_face's 5D form bound
+it, both giving K6.
+
+**273 against its prior art (transition_aos).** Ashtekar, Olmedo and Singh's effective loop-quantum-gravity interior
+(1806.02406v3, READ: eqs. (2.21)-(2.25), (B7), (4.20)), run at the record's masses:
+- the closed forms solve the effective equations, the mass a constant of motion, to 1e-55 (T1);
+- one transition surface, p_c = m gamma L_o delta_c (T2); trapped before it, anti-trapped after (T3);
+- the white hole's horizon has the black hole's mass, m_WH/m_BH - 1 = -4.2e-20 at r0 = 20 ell, scaling as (4.20)
+  over m/l_P = 1e6 to 1e40 (T4);
+- curvature at the surface 1.78e5/l_P^4 at every mass; the correction (1/4)(K/K_T)^(2/3), 415's form (T5).
+**The finding (T6).** The theory is four-dimensional. The record's core is five-dimensional (core_face B1), and x = 1
+is reached at a curvature 1.2e-40 of this transition's. So 273's transition is computed for a four-dimensional hole in a
+candidate quantum theory (not established physics), and not in the record's core.
+
+**273 in five dimensions (transition_qt5).** Bueno, Cano, Hennigar and Murcia (2412.02742v2, READ): "The collapse of
+the shell always gives rise to a singularity-free, geodesically complete spacetime that contains horizons if the total
+mass is above a critical value.  In that case, the shell bounces into a new universe through a white hole explosion."
+This is from the gravitational action alone, in D >= 5, with densities that span the gravitational effective action.
+Reproduced in D = 5:
+- their master equation (30) gives Einstein's potential (32) at alpha = 0, to 6e-16 (Q1);
+- their case (Hayward, M = 1, m = 1.05, alpha = 0.1): horizons 1.3764 and 0.3249; turning point 0.0966, inside r-
+  where f > 0; the shell re-expands through r- and r+ (Q2);
+- a tower with no quadratic term, h = psi + alpha^2 psi^3/(1 - alpha psi), is regular, so the Gauss-Bonnet coupling
+  stays zero (B8, 328); K is bounded at 40/alpha^2 (a de Sitter core) at every mass (Q3);
+- at alpha = l5^2 (415: no other scale) and the record's 5D form (M/alpha = 3.5e40 at r0 = 20 ell), it is Tangherlini's
+  to 1.3e-4 wherever x < 0.1; its inner horizon is at r- = l5, where x = 6.3, inside 273's region (Q4).
+
+**What remains.** 273's transition is now computed in 4D (loop quantum gravity) and in 5D (the gravitational effective
+action), not as the record's object: (a) the couplings are not derived, only their scale; (b) the README arrives as a
+null shell, and the computation is for a bound dust shell; (c) the inner horizon r- is a Cauchy horizon inside the
+region, against 273's option text "no Cauchy horizon", its stability open; (d) a bound shell re-collapses in the new
+universe, while 273 is one-way. The ten rows stay derived on these four points. The board does not record them as
+unprovable (443).

@@ -814,6 +814,25 @@ PREMISE_273 = ("rests on H-BOUNCE-TO-P2 (M's 273), the one premise beyond establ
 LEMMAS_NOW = [(c, n, s_, t + "  [Item 476] " + PREMISE_273 + (
     "; H-CORE-DELIVERS (422) now derived, not assumed (section 33)" if n.split()[0] in ("O1b", "O1c") else ""))
     if n.split()[0] in ON_273 else (c, n, s_, t) for c, n, s_, t in LEMMAS_NOW]
+# [item 478] M: "I want you to prove everything that you have derived."  The 42 DERIVED rows whose claims their owners
+# compute (re-run in T1) and every reading of which is proved (phase2 Q3, 442) are PROVED.  The ten on 273 stay DERIVED:
+# their own claims are computed (O1b and O1c by core_large.py K1-K7 since 478, H-CORE-DELIVERS computed), and the one
+# ruling left is 273, computed in four dimensions by its prior art (transition_aos.py T1-T5: Ashtekar, Olmedo and Singh's
+# effective interior, black hole to white hole of equal mass) and not in the five-dimensional core (T6): owed (443).
+PROVED_478 = ("G1", "H2", "H2tu", "H2txs", "H2tx", "O3s", "O3", "Z1t", "Z2r", "Z3a", "Z3c", "B2t", "B5a", "B5cs", "B5c",
+              "B5pu", "B5px", "B5b", "B7", "I1", "E1us", "E1u", "E2us", "E2u", "E1xs", "E1x", "E2xs", "E2x", "E3", "E4r",
+              "R4", "R5", "ENCODE", "M1P2x", "FARs", "FAR", "WRITEs", "WRITE", "ARRIVALs", "ARRIVAL", "CLOSEs", "CLOSE")
+NOTE_273_478 = ("  [Item 478] 273 is owed, not a standing premise (443; 477): computed in four dimensions in effective loop "
+                "quantum gravity (transition_aos.py T1-T5); in five dimensions from the gravitational effective action, a "
+                "shell bouncing through a white hole into a new universe (transition_qt5.py Q1-Q4, Bueno et al.), for a "
+                "bound shell of dust -- the README's null passage, the inner horizon inside the region and one-wayness "
+                "not computed")
+LEMMAS_NOW = [(c, n, "PROVED", t + "  [Item 478] PROVED: the claim computed by its owners (T1), every reading proved "
+               "(phase2 Q3)") if s_ == "DERIVED" and n.split()[0] in PROVED_478 else
+              (c, n, s_, t + NOTE_273_478 + ("; H-CORE-DELIVERS computed on the exact warped black string (core_large.py "
+                                              "K1-K7)" if n.split()[0] in ("O1b", "O1c") else ""))
+              if n.split()[0] in ON_273 else (c, n, s_, t) for c, n, s_, t in LEMMAS_NOW]
+
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
@@ -991,7 +1010,9 @@ def lemma_selftests():
               # item 455 (2), approved: the corridor's first rung
               "corridor_p1.py",
               # item 456 (3), approved: the corridor's second rung
-              "corridor_p2.py"):
+              "corridor_p2.py",
+              # item 478: the core computed, 273's prior art computed, the re-derivations (phase2 Q4)
+              "core_large.py", "transition_aos.py", "rederive.py", "transition_qt5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

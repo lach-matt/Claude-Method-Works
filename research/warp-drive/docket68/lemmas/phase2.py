@@ -81,7 +81,8 @@ REMAINS = {
     "284": ("COMPUTED", ["room_work.py"], "as R6"),
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
-    "273": ("BEYOND", [], "quantum gravity; long time scales unstable (prior art)"),
+    "273": ("BEYOND", [], "quantum gravity; long time scales unstable (prior art); [478] computed in 4D (transition_aos) "
+                          "and, for a bound dust shell, in 5D from the gravitational effective action (transition_qt5)"),
     "390": ("COMPUTED", ["junction_own.py"], "position 2's face closes when empty"),
     "426": ("COMPUTED", ["encode_read.py"], "the least write by the size"),
     "432": ("COMPUTED", ["settle_arrival.py"], "the shell carries E at the opening (its N part unused)"),
@@ -120,7 +121,13 @@ REDERIVED = {("R4", 155): "X1 (155 (2), a definition)", ("R5", 155): "X1 (155 (3
              ("E3", 155): "X2 (the release at position 2's face's closing)", ("ARRIVALs", 109): "X3 (136 (1), 136 G, 162)",
              ("B5pu", 202): "X5 (one universe: our matter, pointwise P4-P5)", ("B5px", 202): "X6 (229's destination)",
              ("B5c", 139): "X9 (Sigma+ > 0 at 229's destination)", ("B5cs", 139): "X9",
-             ("FAR", 139): "X7 (every decaying side)", ("FARs", 139): "X7", ("CLOSE", 139): "X8 (junction_own G8-G9)"}
+             ("FAR", 139): "X7 (every decaying side)", ("FARs", 139): "X7", ("CLOSE", 139): "X8 (junction_own G8-G9)",
+             # [Item 478] Z3b's content stated in five dimensions needs neither reading: the bulk's R_kk = 0, the README's
+             # G_vv >= 0, the tension null on null rays (z3b_large Z1-Z3), the turned rays' negative inside the region
+             # (Z5; pair_math P1-P3 at the small end); the plane's four-dimensional negative, O((ell/r0)^2), is the
+             # projected Weyl term, geometry not matter -- the part 177 and 183 had read as an appearance
+             ("Z3b", 177): "z3b_large Z1-Z3, Z5", ("Z3b", 183): "z3b_large Z1-Z3, Z5",
+             ("Z3bs", 177): "pair_math P1-P3", ("Z3bs", 183): "pair_math P1-P3"}
 
 
 def _load(path, key):
@@ -166,8 +173,9 @@ def audit():
         for n in pa.RULED.get(row, ()):
             if n in DROPPED_P or n in DROPPED_FOR.get(row, ()):
                 continue
-            if n == 422:
-                wait.append("422 the core (TO-COMPUTE)")
+            if n == 422:                                                 # [Item 478] computed: core_large.py K1-K7
+                if "core_owed" in MUT:
+                    wait.append("422 the core (TO-COMPUTE)")
                 continue
             if (row, n) in REDERIVED and "no_rederive" not in MUT:
                 continue

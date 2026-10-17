@@ -57,10 +57,10 @@ CLASS = {
     "H2txs": ("C", "copy_p2 C1: position 2's bit area computed; 240 M's"),
     "H2tx": ("C", "copy_p2 C1, m1p2x_large Y8 computed; 240 M's"),
     "O1a": ("C", "the one-way object constructed and computed (c1_oneway, verified 304); one way M's (270, 276, 277)"),
-    "O1b": ("A", "4D stretch and onset computed (focusing_parts, quantum_onset, core_face); the core's delivery to "
-                 "the bounce assumed (H-CORE-DELIVERS, 422), not derived"),
-    "O1c": ("A", "4D stretch complete by exact forms (focusing_parts F1-F3); the transition and core by "
-                 "H-CORE-DELIVERS, assumed"),
+    "O1b": ("C", "4D stretch and onset computed (focusing_parts, quantum_onset, core_face); the core computed on the "
+                 "exact warped black string to the quantum region (core_large K1-K7, 478; was A, H-CORE-DELIVERS)"),
+    "O1c": ("C", "4D stretch complete by exact forms (focusing_parts F1-F3); every causal geodesic reaches the region "
+                 "in finite affine length and leaves it on position 2's side (core_large K5-K6, 478; was A)"),
     "O3s": ("C", "o3_hold O3e, stability S6 computed; Schlue READ; 334, 336 M's"),
     "O3": ("C", "o3_large Q1-Q4, stability S6 computed; FW and Schlue READ"),
     "Z1t": ("C", "rows_large Z1t computed"), "Z2r": ("C", "rows_large Z2r computed"),
@@ -204,7 +204,7 @@ def classify(rows):
             out[key] = ("OPEN", "deferred by M (M-SOURCE-LAST)" if key.startswith("SOURCE") else "")
         else:
             cls = CLASS.get(key, ("?", "not classified"))
-            if "promote" in MUT and cls[0] in ("D", "A"):
+            if "promote" in MUT and cls[0] in ("D", "A", "X"):          # [478: no D or A row remains]
                 cls = ("C", cls[1])
             out[key] = cls
     return out
@@ -301,8 +301,8 @@ def selftest(quiet=False):
     cls = classify(rows)
     unclassed = [k for k, v in cls.items() if v[0] == "?"]
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
-    p2 = not unclassed and fail == sorted(["O1b", "O1c", "R0", "R1", "R2", "R6", "RECON", "B6'",
-                                           "SOURCEs", "SOURCE"])         # [B5b out at 441, B7 at 442: computed]
+    p2 = not unclassed and fail == sorted(["R0", "R1", "R2", "R6", "RECON", "B6'",
+                                           "SOURCEs", "SOURCE"])         # [B5b out at 441, B7 at 442, O1b and O1c at 478]
     ok.append(p2); say("P2-P3 every row classed; not passing: %s: %s" % (", ".join(fail), p2))
     v = station_verdicts(cls)
     p4 = any(bad for ends in v.values() for bad in ends.values()) and all(

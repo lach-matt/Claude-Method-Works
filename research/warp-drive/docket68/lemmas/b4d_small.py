@@ -216,11 +216,11 @@ N_EX, LIFE = 2742570311524972, 8.573276e14
 CORES = (2.9e-23, 6.4e-24)                      # b_bounce Q5's e and c4_residue R6's r_q (item 310's two estimates)
 COMPACT, SPREAD3, SPREAD4 = 4.79, 5.27, 4.79    # arrival_small V2, V11 (verified 348): the widths named in D2
 # the cells of D10: (stage, the register row that decides it, its status there)
-CELLS = (("before the opening", "B7", "DERIVED"), ("the global shape", "B4a", "PROVED"),
-         ("the opening", "ARRIVALs", "DERIVED"), ("the hold", "O3s", "DERIVED"), ("the write", "WRITEs", "DERIVED"),
+CELLS = (("before the opening", "B7", "PROVED"), ("the global shape", "B4a", "PROVED"),
+         ("the opening", "ARRIVALs", "PROVED"), ("the hold", "O3s", "PROVED"), ("the write", "WRITEs", "PROVED"),
          ("the interior", "O1cs", "PROVED"), ("no singularity on the passage", "O1bs", "PROVED"),
-         ("our face's closing", "CLOSEs", "DERIVED"), ("the far boundary", "FARs", "DERIVED"),   # [item 354]
-         ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2ts", "PROVED"))   # [item 356: split by end]
+         ("our face's closing", "CLOSEs", "PROVED"), ("the far boundary", "FARs", "PROVED"),   # [item 354]
+         ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2ts", "PROVED"))   # [item 356: split by end; 478: proved]
 
 
 def _item(n):

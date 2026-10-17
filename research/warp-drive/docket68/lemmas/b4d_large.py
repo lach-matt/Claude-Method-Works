@@ -141,11 +141,11 @@ LEAST_WRITE_M = 28.4777                     # encode_read E5, clocks of m/c (4D)
 LEAST_WRITE_RH = 9.4926                     # encode_read E5, clocks of r_h/c (5D)
 V11_RAMP, V11_FLOOR = 5.39, 66980           # arrival_small V11 (b)
 ELL, EARTH_R0 = 13.964e-6, 8.870e-3         # earth_cap K3; close_large / bearing26
-CELLS = (("before the opening", "B7", "DERIVED"), ("the global shape", "B4a", "PROVED"),
-         ("the opening", "ARRIVAL", "DERIVED"), ("the hold", "O3", "DERIVED"), ("the write", "WRITE", "DERIVED"),
+CELLS = (("before the opening", "B7", "PROVED"), ("the global shape", "B4a", "PROVED"),
+         ("the opening", "ARRIVAL", "PROVED"), ("the hold", "O3", "PROVED"), ("the write", "WRITE", "PROVED"),
          ("the interior", "O1c", "DERIVED"), ("no singularity on the passage", "O1b", "DERIVED"),
-         ("position 2's face", "M1P2x", "DERIVED"), ("our face's closing", "CLOSE", "DERIVED"),
-         ("the far boundary", "FAR", "DERIVED"), ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2t", "DERIVED"))
+         ("position 2's face", "M1P2x", "PROVED"), ("our face's closing", "CLOSE", "PROVED"),
+         ("the far boundary", "FAR", "PROVED"), ("the bulk's law", "B8", "PROVED"), ("the near bulk", "B2t", "PROVED"))   # [item 478: the rows proved by computation]
 
 
 def _item(n):
