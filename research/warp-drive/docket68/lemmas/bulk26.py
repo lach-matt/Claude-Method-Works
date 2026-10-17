@@ -42,7 +42,7 @@ theorem).  Worked in the conversation; not verified; not seated.  2026-10-17.
      coupling runs (u1_bulk U4): 1/g'^2 = (lam + s ell ln(L/ell))/g5^2.  So g5^2/ell = g'^2 (lam/ell + s ln(L/ell)) --
      one relation for two constants.  lam >= 0 (no ghost) needs g5^2/ell >= s g'^2 ln(L/ell); the corridor's throat
      needs lam >= lam_min (P1, corridor_p1).  The hierarchy does not split g5 from lam: which rank g5^2/ell occupies is
-     the open question it leaves.
+     the open question it leaves.  [W11 decides it from the measured Coulomb law: no binary needed.]
   W9 (READ; computed) The inner horizon, in bits.  Ansorg and Hennig (arXiv:0810.3998; PRL 102, 221102), READ: "the
      remarkable universal relation (8 pi J)^2 + (4 pi Q^2)^2 = A+ A-" for axisymmetric stationary black holes with
      surrounding matter in four-dimensional Einstein-Maxwell theory.  Static (J = 0), in bits N = A/(4 ln2 l_P^2):
@@ -52,6 +52,44 @@ theorem).  Worked in the conversation; not verified; not seated.  2026-10-17.
      to Reissner-Nordstrom with r+ fixed, the inferred r- rises as the computation deepens -- 0.13, 0.18, 0.19, 0.22,
      0.21, 0.25, 0.27 ell from R = 1.57 to 0.775 ell -- toward W9's 0.316 ell.  W9 holds on the plane to the extent the
      plane is four-dimensional Einstein-Maxwell; the bulk's Weyl term is the difference (P2: 15% at R4 ~ 2 ell).
+  W11 (READ; computed; estimate) The g5/lam split, by the measured Coulomb law.  A bulk share runs the U(1)'s coupling
+     (u1_bulk U4): the flux through a sphere of radius r falls by s ell/(lam + s ell ln(r/ell)) per e-fold of r, where
+     Gauss's law keeps it fixed.  Goldhaber and Nieto (0809.1003, READ): Williams, Faller and Hill's experiment "remains
+     the landmark test of Coulomb's Law.  Their limit of [reduced Compton wavelength] >~ 2 x 10^7 m" stands, and for
+     the Proca deviation "the first non-Coulombic term in E is of order (mu r)^2".  Matching the two at the apparatus
+     scale r = 1 m (an estimate of order, not a fit): s ell/lam <= (r/2e7 m)^2 = 2.5e-15, so lam/ell >= 8.0e14, about
+     2^49.5, and g5^2/ell = g'^2 (lam/ell + s ln(L/ell)) >= 1.0e14.  The bulk's kinetic term for the U(1) is at most
+     ~1e-15 of the plane's: the field lives on the plane, Kaus and Reall's limit (corridor_p1 P7: lam -> infinity with
+     lam c^2 held).  g5 is then not a constant of the bulk -- it drops out with g5^2/lam = g'^2 held -- and 446's bulk
+     U(1) is the plane's own.
+  W12 (computed) lam >= lam_min: yes, by 11.4 decades over the largest lam_min P1 computed (3.4e3 ell at L1 = 10 ell).
+     The extremal throat exists on the plane for every hole P1 computed.
+  W13 (READ; computed) Electric charge does not hold.  The 26 carry the electron, charged under the U(1).  At P2's
+     member's horizon (mu-tilde 0.42, R4 = 1.79 ell, ell = 2^84 l_P) the field, |F| = e|E| = Q/(2 r+^2) (Maldacena
+     2004.06084 (2), READ form), is 5.9e17 times Schwinger's m_e^2: pair creation unsuppressed (exponent
+     pi m_e^2/|F| = 5e-18).  Gibbons (Commun. Math. Phys. 44, 245 (1975), abstract, READ): "For large black holes (more
+     massive than 10^17 g) the process is shown to be governed by a Schwinger type formula."  So the hole of section
+     14, electrically charged, discharges: in binary 0, magnitude log10 17.8.
+  W14 (READ; computed) Magnetic charge holds.  Maldacena (2004.06084, READ): "Extremal magnetic black holes are more
+     stable than their electric counterparts, since unit charge magnetic monopoles are much heavier than electrically
+     charged particles, and are thus harder to pair create.  In addition, an electrically charged black hole can be
+     neutralized in conductive medium, while a magnetically charged one cannot be neutralized with ordinary matter."
+     The 26 hold no magnetic charge lighter than a unit magnetic hole, M l_p ~ sqrt(pi)/e (his (3) at Q = 1), so the
+     pair-creation exponent pi Q (M l_p)^2 (his (13)) is pi^2 Q/e^2 = 2.7e26 at the member's Q = r_Q e/(sqrt(pi) l_p)
+     = 2.5e24: in binary 1, magnitude log10 26.4.  Its horizon field is 2.4e7 m_W^2, so the electroweak symmetry is
+     restored there and only hypercharge field survives (his (6)); the corona reaches r_w = sqrt(Q/2)/m_W = 2.7 um (his
+     (10)-(11)), Q under his Q_ew = 3.4e32.  Deduced: on the plane the duality F -> *F leaves the stress tensor, so the
+     geometry, unchanged; P1-P3's computed holes and W9's r- carry over with the charge magnetic (cos theta_W
+     corrections near the horizon, his section 2.3, aside).
+  W15 (deduced) P3's wall is the method's, not the geometry's.  It stands at R = 0.78-0.95 ell (section 24), above W9's
+     r- = 0.316 ell, in the region between the horizons that Reissner-Nordstrom holds regular; there P3's metric
+     function A diverged while the Killing norm and the areal radius, both invariants, stayed finite (g_tt = 0.70),
+     and both candidates section 24 leaves -- the conditioning of a global solve of an initial-value region, and a
+     growing mode of that solve -- are the method's.  So, in binary: is the wall a horizon or a singularity of the
+     geometry?  0.  W9's value does not by itself move it: section 24's two-horizon reference at s- = -2.0 already put
+     the second horizon near R ~ 0.4 ell (estimate) and stopped short of 0.95 ell.  What it calls for is a march in s
+     as an evolution with constraint-preserving rows on the plane and axis, which section 24 records the elliptic rows
+     are not.
 
 python3 bulk26.py [--selftest | --mutants]
 """
@@ -86,6 +124,12 @@ E_I = {172.57: 3.68e10, 172.86: 1.45e10, 172.28: 1.06e11}   # ell_higgs H3: the 
 B6P_ELL_MAX = 13.964e-6                 # m
 MU_T, R4_P2 = 0.42, 1.79                # P2's lam = 64 member (section 22)
 RFIT = [(1.57, 0.13), (1.38, 0.18), (1.20, 0.19), (1.02, 0.22), (0.94, 0.21), (0.86, 0.25), (0.775, 0.27)]
+ALPHA0 = 1 / 137.035999                 # the fine-structure constant at zero momentum (CODATA)
+M_E, M_W = 0.51099895e-3, 80.369        # GeV
+LAMBDA_C_PROCA = 2e7                    # m: Williams, Faller and Hill's reduced Compton wavelength floor (READ)
+R_APP = 1.0                             # m: the apparatus scale the floor is matched at (estimate)
+LAM_MIN_P1 = 3.4e3                      # ell: P1's largest computed lam_min (L1 = 10 ell)
+WALL = (0.78, 0.95)                     # ell: P3's wall (section 24)
 
 
 def words():
@@ -167,6 +211,28 @@ def inner_horizon(mu_t=MU_T, r4=R4_P2):
     return dict(r_minus=ratio * r4, ratio=ratio, Nratio=ratio**2)
 
 
+def coulomb_floor(ell, s=2):
+    """W11: the least lam/ell for which the bulk share's running stays under the Coulomb test's (r/lam_C)^2"""
+    d = (R_APP / LAMBDA_C_PROCA)**(2 if "flux_linear" not in MUT else 1)
+    lam = s / d - s * math.log(R_APP / ell)
+    gp2 = u1(ell, s)["gp2"]
+    return dict(dev=d, lam=lam, bits=math.log2(lam), g5sq_over_ell=gp2 * (lam + s * math.log(setting(ell)["L"] / ell)),
+                margin=math.log10(lam / LAM_MIN_P1))
+
+
+def charge_on_hole(k, mu_t=MU_T, r4=R4_P2):
+    """W13-W14: the member's horizon field in Planck units, |F| = Q/(2 r+^2), Q = r_Q e/sqrt(pi) (Maldacena (2)-(3))"""
+    e = math.sqrt(4 * math.pi * ALPHA0)
+    rp = r4 * 2.0**(3 * k)                                   # l_p
+    Q = mu_t * rp * e / math.sqrt(math.pi)
+    F = Q / (2 * rp**2) * MPL**2                             # GeV^2
+    schwinger = F / M_E**2
+    S = math.pi**2 * Q / e**2 if "no_pair_exponent" not in MUT else 0.0
+    return dict(Q=Q, sqrtF=math.sqrt(F), schwinger=schwinger, electric=schwinger < 1, S=S, magnetic=S > 1,
+                ew=F / M_W**2, Qew=e**2 / (2 * math.pi) * (MPL / M_W)**2,
+                r_w=math.sqrt(Q / 2) / M_W * HBARC)
+
+
 def report():
     first, second, third = orders()
     print("W1 the 26 by dependence: %d first, %d second, %d third = %d" % (len(first), len(second), len(third),
@@ -199,6 +265,17 @@ def report():
     print("W9 inner horizon in bits: N-/N+ = %.4f, r-/r+ = %.4f, r- = %.3f ell" % (ih["Nratio"], ih["ratio"],
                                                                                 ih["r_minus"]))
     print("W10 P3's inferred r- by depth:", ", ".join("%.2f at R %.3g" % (r, R) for R, r in RFIT))
+    cf = coulomb_floor(b["ell"])
+    print("W11 Coulomb: s ell/lam <= %.2g, so lam/ell >= %.3g (2^%.1f), g5^2/ell >= %.3g" % (
+        cf["dev"], cf["lam"], cf["bits"], cf["g5sq_over_ell"]))
+    print("W12 lam >= lam_min: %s, by %.1f decades over %.2g ell" % (cf["lam"] > LAM_MIN_P1, cf["margin"], LAM_MIN_P1))
+    ch = charge_on_hole(b["k"])
+    print("W13 electric: Q %.3g, sqrt|F| %.3g GeV, |F|/m_e^2 %.3g -- holds: %d (log10 %.1f)" % (
+        ch["Q"], ch["sqrtF"], ch["schwinger"], ch["electric"], math.log10(ch["schwinger"])))
+    print("W14 magnetic: pair exponent %.3g -- holds: %d (log10 %.1f); |F|/m_W^2 %.3g, Q_ew %.3g, r_w %.3g um" % (
+        ch["S"], ch["magnetic"], math.log10(ch["S"]), ch["ew"], ch["Qew"], ch["r_w"] * 1e6))
+    print("W15 the wall at R %.2f-%.2f ell lies above r- %.3f ell: %s" % (WALL[0], WALL[1], ih["r_minus"],
+                                                                          WALL[0] > ih["r_minus"]))
 
 
 def selftest(quiet=False):
@@ -234,12 +311,24 @@ def selftest(quiet=False):
     rising = all(RFIT[i + 1][1] >= RFIT[i][1] - 0.011 for i in range(len(RFIT) - 1))
     r = rising and RFIT[-1][1] < inner_horizon()["r_minus"]; ok.append(r)
     say("W10 P3's inferred r- rises toward W9's: %s" % r)
+    cf = coulomb_floor(b["ell"])
+    r = abs(cf["dev"] - 2.5e-15) < 1e-17 and 7.9e14 < cf["lam"] < 8.1e14 and 1.0e14 < cf["g5sq_over_ell"] < 1.05e14
+    ok.append(r); say("W11 Coulomb floor lam/ell %.3g, g5^2/ell %.3g: %s" % (cf["lam"], cf["g5sq_over_ell"], r))
+    r = cf["lam"] > LAM_MIN_P1 and 11.3 < cf["margin"] < 11.5; ok.append(r)
+    say("W12 lam >= lam_min by %.2f decades: %s" % (cf["margin"], r))
+    ch = charge_on_hole(b["k"])
+    r = (not ch["electric"]) and 5.8e17 < ch["schwinger"] < 6.0e17 and 2.4e24 < ch["Q"] < 2.6e24; ok.append(r)
+    say("W13 electric discharges, |F|/m_e^2 %.3g: %s" % (ch["schwinger"], r))
+    r = ch["magnetic"] and 26.3 < math.log10(ch["S"]) < 26.5 and ch["ew"] > 1 and ch["Q"] < ch["Qew"]; ok.append(r)
+    say("W14 magnetic holds, exponent %.3g, EW restored %.3g: %s" % (ch["S"], ch["ew"], r))
+    r = WALL[0] > inner_horizon()["r_minus"] and WALL[1] < R4_P2; ok.append(r)
+    say("W15 the wall between the horizons: %s" % r)
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)
 
 
 def mutants():
-    names = ["base_2", "drop_mixing", "area_sum"]
+    names = ["base_2", "drop_mixing", "area_sum", "flux_linear", "no_pair_exponent"]
     caught = 0
     for m in names:
         MUT.clear(); MUT.add(m)

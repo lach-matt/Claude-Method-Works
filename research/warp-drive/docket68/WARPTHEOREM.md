@@ -1383,6 +1383,35 @@ state was rebuilt first.
   - A correction of the board's own: corridor_p2.py's docstring gave the charge at 4 pi T R4 = 0.89 as 0.84. It is
     0.42 (mt = sqrt(lam) mu/bt, section 22's table); the 0.84 was the units slip. No check changes.
   - Put to M (414): P3's scheme, and the lam = 0 chart's construction (section 23).
+- **Items 457-461** (M: "stay focused on the working and proving the theorem"; "weighing a hierarchy principle to
+  baez's 26"; "find the binary solution/definition instead of dimensional languages"; "446 is stale"; "I should never
+  have to rule on anything more than once"; "weigh the bulk constants against that hierarchy and compute the answers
+  you are struggling to compute in binary of you cannot get a concrete answer in the other languages").
+  - **P3(a), computed so far** (BOUNCE-RESEARCH section 24; `lemmas/p3_work/`, not seated).
+    - The lam = 64 member's interior is solved across the horizon in s = r² and is Reissner-Nordstrom-like to
+      R = 0.94 ell. The uncharged control follows Schwarzschild.
+    - Every global solve, in every gauge tried, stops near R = 0.78-0.95 ell.
+  - **`lemmas/bulk26.py`** (16/16, mutants 5/5; BOUNCE-RESEARCH section 25): the bulk's constants weighed in the 26's
+    hierarchy.
+    - The 26 by dependence: 6 first order, 12 second, 8 third. By size: whole ranks of the Cabibbo number.
+    - Three routes place the bulk's energy within a quarter rank of each other, and in binary at
+      **E5 = 2^-28 M_Pl** and **ell = 2^84 l_P = 0.313 nm**. That is a placement, not a derivation (384).
+    - **The g5/lam split, decided by the measured Coulomb law** (Williams, Faller and Hill, READ via Goldhaber and
+      Nieto): lam/ell >= 8e14, an estimate of order. The U(1)'s field lives on the plane, which is Kaus and Reall's
+      limit. g5 is no independent constant. lam >= lam_min by 11.4 decades. The other languages answered, so binary
+      was not needed.
+    - **The charge must be magnetic.** Under the 26's U(1) the electron discharges an electric hole: its horizon field
+      is 5.9e17 times Schwinger's threshold (Gibbons, READ). A magnetic hole holds, with a pair-creation exponent of
+      2.7e26 (Maldacena 2004.06084, READ). On the plane the duality leaves the geometry, so P1-P3 carry over.
+    - **The inner horizon by the binary definition**, Ansorg and Hennig's area product in bits: r- = 0.316 ell. P3's
+      inferred r- climbs toward it.
+    - **P3's wall is the method's**: it lies between the horizons, where the geometry is regular. What is needed is
+      a march in s as an evolution, with constraint-preserving rows.
+  - **`STALE-LEDGER.md`** (M-RULE-ONCE) records what later work made stale, eight entries. Among them:
+    - 446's dark U(1), by M's word;
+    - section 14's electric charge;
+    - M-CHARGE-BOTH's lam = 0 route, below the measured floor by fifteen decades.
+    None is put to M as a new question.
     - P3: evolve the interior between r+ and r- as a hyperbolic problem in (r, x), from the lam = 64 member's horizon
       data, with the plane's rows on its boundary. Take the white hole and the second exterior as the time reverse.
       Integrate section 14's routes.

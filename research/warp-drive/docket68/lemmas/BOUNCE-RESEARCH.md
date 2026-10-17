@@ -1511,3 +1511,105 @@ to zero at r₋. r₋ is not yet computed.
 - So every global solve, in every gauge tried, stops near R ≈ 0.95ℓ. The wall is not the reference alone. The
   candidates are the conditioning of a global solve of an initial-value region, and a growing static mode toward r₋.
   Neither is yet separated.
+
+## 25. The bulk's constants in the 26's hierarchy; the U(1)'s place; binary where stuck (458–461; `lemmas/bulk26.py`, 16/16, mutants 5/5)
+
+M, verbatim:
+- (458) "I would consider weighing a hierarchy principle to baez's 26, and see if any combination of them gives the
+  universal constants of the bulk"
+- (459) "find the binary solution/definition instead of dimensional languages", and "446 was computed before the baez
+  26 coordinate work, so 446 is stale"
+- (460) "Do the 26 constants behave according to a hierarchy?"
+- (461) "weigh the bulk constants against that hierarchy and compute the answers you are struggling to compute in
+  binary of you cannot get a concrete answer in the other languages"
+
+**The 26 form a hierarchy (computed; W1–W2).**
+- **By dependence.**
+  - First order, set by nothing else among them: the three couplings, v, m_H and Λ (6).
+  - Second order: the twelve masses, each v times a coupling to the Higgs field (12).
+  - Third order: the eight mixing numbers, which exist only as the misalignment of the second-order mass matrices (8).
+- **By size.** On the Cabibbo number λ_C = 0.22501, one of the 26, every scale has a rank n = log(x/M_Pl)/log λ_C:
+  - v at 25.8, the top at 26.0, the electron at 34.5;
+  - within a family the ratios sit near whole ranks: u/t 7.6, c/t 3.3, d/b 4.6, s/b 2.6, e/τ 5.5, μ/τ 1.9; CKM θ₂₃
+    2.1, θ₁₃ 3.8.
+  - The neutrino mixings are large and do not follow.
+
+**The bulk placed (computed; W3–W7).**
+- Once the plane's relations hold, every bulk constant follows from ℓ: G₅ = Gℓ, σ_RS, Λ₅ = −6/ℓ², and
+  E₅ = M_Pl(l_P/ℓ)^(1/3).
+- Three routes place E₅ within a quarter rank of each other:
+  - the midpoint of the top rank, √(v M_Pl) = 5.5×10¹⁰ GeV;
+  - the whole rank 13, 4.6×10¹⁰ GeV;
+  - the Higgs quartic's zero, 3.7×10¹⁰ GeV.
+- **In binary** they meet at k = 28 halvings of the Planck energy, all within 0.31 bit:
+  - **E₅ = 2⁻²⁸ M_Pl = 4.55×10¹⁰ GeV**;
+  - **ℓ = 2⁸⁴ l_P = 0.313 nm**, the bulk's length 84 bits above the Planck length.
+- That ℓ lies inside the window (13.964 μm). The Higgs-vacuum floor holds for a top mass at or below 172.51 GeV, at
+  the edge as the Higgs route itself is.
+- This is a placement, not a derivation: no object of the theorem forces it (384).
+
+**The U(1)'s place, decided by the measured Coulomb law (READ; computed; estimate; W8, W11, W12).**
+- Under 459, the U(1) is the 26's own: hypercharge, which is electromagnetism below the electroweak scale. Its
+  coupling g'² = 0.1278 comes from the 26.
+- The relation that ties it to the bulk (u1_bulk U4), 1/g'² = (λ + sℓ ln(L/ℓ))/g₅², is one relation for two
+  constants. The hierarchy alone does not split them, and the other languages do.
+- **The running is the test.** A bulk share makes the flux through a sphere fall by sℓ/(λ + sℓ ln(r/ℓ)) per e-fold
+  of radius, where Gauss's law keeps it fixed.
+- Goldhaber and Nieto (0809.1003, READ):
+  - Williams, Faller and Hill "remains the landmark test of Coulomb's Law", with a reduced Compton wavelength
+    "≳ 2 × 10⁷ m";
+  - a Proca deviation's "first non-Coulombic term in E is of order (μr)²".
+- Matched at an apparatus scale of 1 m (an estimate of order, not a fit): sℓ/λ ≤ 2.5×10⁻¹⁵. So
+  **λ/ℓ ≥ 8×10¹⁴ (2^49.5)**, and g₅²/ℓ ≥ 1.0×10¹⁴.
+- **What that means.** The bulk's kinetic term for the U(1) is at most about 10⁻¹⁵ of the plane's. The field lives
+  on the plane, which is Kaus and Reall's limit (P1 P7: λ → ∞ with λc² held). g₅ is not an independent constant of
+  the bulk: it drops out, with g₅²/λ = g'² held.
+- **λ ≥ λ_min: yes**, by 11.4 decades over the largest λ_min that P1 computed (3.4×10³ ℓ at L₁ = 10ℓ).
+- **The binary was not needed here.** The other languages gave a concrete answer, so M's condition for binary
+  (461) was not met.
+
+**The charge: electric does not hold, magnetic does (READ; computed; W13, W14).**
+- **Electric discharges.** The 26 carry the electron, which is charged under the U(1).
+  - At P2's member's horizon (μ̃ = 0.42, R₄ = 1.79ℓ, ℓ = 2⁸⁴ l_P), the field |F| = Q/(2r₊²) (Maldacena 2004.06084
+    (2)) is 5.9×10¹⁷ times Schwinger's m_e². Pair creation is unsuppressed.
+  - Gibbons (CMP 44, 245, 1975, abstract, READ): "For large black holes (more massive than 10¹⁷ g) the process is
+    shown to be governed by a Schwinger type formula."
+  - Section 14's electrically charged hole therefore cannot keep its charge. **Binary 0, magnitude log₁₀ 17.8.**
+- **Magnetic holds.**
+  - Maldacena (READ): "Extremal magnetic black holes are more stable than their electric counterparts, since unit
+    charge magnetic monopoles are much heavier than electrically charged particles, and are thus harder to pair
+    create. In addition, an electrically charged black hole can be neutralized in conductive medium, while a
+    magnetically charged one cannot be neutralized with ordinary matter."
+  - The 26 hold no magnetic charge lighter than a unit magnetic hole. So the pair-creation exponent πQ(M l_p)² is
+    π²Q/e² = 2.7×10²⁶, at the member's Q = 2.5×10²⁴. **Binary 1, magnitude log₁₀ 26.4.**
+  - Its horizon field is 2.4×10⁷ m_W². The electroweak symmetry is restored there and only the hypercharge field
+    survives (Maldacena (6)). The corona reaches r_w = 2.7 μm, with Q below his Q_ew = 3.4×10³².
+- **The computed geometry still stands (deduced).** On the plane the duality F → *F leaves the stress tensor
+  unchanged, so it leaves the geometry unchanged. P1–P3's computed holes and W9's r₋ carry over with the charge
+  magnetic. The cos θ_W corrections near the horizon (Maldacena section 2.3) are set aside.
+
+**The inner horizon, by the binary definition (READ; computed; W9–W10).**
+- Ansorg and Hennig (0810.3998, READ) give "(8πJ)² + (4πQ²)² = A₊A₋". Static, and counted in bits, N = A/(4 ln2 l_P²)
+  gives N₊N₋ = N_Q².
+- For the member: **r₋ = 0.316ℓ** and N₋/N₊ = 0.031.
+- P3's inferred r₋ climbs toward that value as its march deepens: 0.13 → 0.27ℓ.
+
+**P3's wall belongs to the method, not the geometry (deduced; W15).**
+- The wall stands at R = 0.78–0.95ℓ. That is above r₋ = 0.316ℓ, between the horizons, where Reissner–Nordström is
+  regular.
+- At the wall, A diverged while the Killing norm and the areal radius stayed finite. Both candidates that section 24
+  left are the method's.
+- **Binary: is the wall a horizon or a singularity of the geometry? 0.**
+- W9's value alone does not move it: section 24's s₋ = −2.0 reference already placed the second horizon near R ~ 0.4ℓ.
+- What it calls for is a march in s as an evolution, with constraint-preserving rows on the plane and the axis.
+
+**What this makes stale (M-RULE-ONCE; `STALE-LEDGER.md`).**
+- 446's dark bulk U(1).
+- Section 14's electric charge.
+- M-CHARGE-BOTH's λ = 0 route (456 (2)). λ = 0 is excluded by fifteen decades once the U(1) is the 26's own; the
+  large-λ route stands and reaches (i).
+- bulk26 W8's "undecided".
+- The map's unfixed g₅ and λ.
+
+None of these is put to M as a new question. Each stands in the ledger with its reason, for M to clarify if the board
+has read it wrong.
