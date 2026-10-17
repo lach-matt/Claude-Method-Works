@@ -1701,3 +1701,73 @@ gauge of the (s, x) quotient:
 
 Here the quotient by the Killing time and the sphere is two-dimensional, (s, x), as it is in spherical collapse,
 where double-null evolution is the standard route. Its construction is put to M before it is built (414).
+
+## 27. The whole chain re-evaluated under a magnetic corridor (463; `lemmas/magnetic_chain.py`, 8/8, mutants 2/2; table in `MAGNETIC-CHAIN.md`)
+
+M, verbatim (463): "We will need to reevaluate the whole warp chain under a magnetic corridor instead of electric".
+
+**The register, row by row (deduced; every class the board's reading, with its reason).**
+- Of the 80 rows:
+  - 38 are **unchanged**: they do not involve the corridor's charge.
+  - 21 are unchanged by the plane's **duality**: they involve the charged hole only through its stress tensor, which a
+    magnetic field leaves as an electric one did (461 W14).
+  - 18 are **changed**.
+  - 3 are **opened**.
+- No row moves on the register (446). The classes are notes beside the rows.
+- The eleven computed stages of the corridor are classed the same way. Stage 2's quantum stress is the plane's dual
+  theory's, N² ≈ 6×10⁵⁰ degrees of freedom. The magnetic hole's 9Q two-dimensional modes are 2×10²⁵ at the small
+  end and 4×10³² at the large, so stage 2 is unchanged.
+
+**Changed in the magnetic corridor's favour.**
+- **O3s and O3**: the charged corridor survives its hold. An electric charge is lost at once (461 W13); a magnetic
+  one is kept (W14).
+- **E1us and E1u**: "discharge aside" becomes exact. Above m_e the hole's emission is enhanced by its charge
+  (Maldacena (16)-(17)).
+- **B2ts and B2t**: the bulk beneath the corridor is vacuum to ~10⁻¹⁵, the field living on the plane (section 25's
+  W11). B2's vacuum then holds for the charged corridor itself.
+- **E4rs and E4r**: the bulk carries no field energy outside the neck. The 446 note's bulk field is gone.
+
+**Changed against it: formation (READ; deduced; computed).**
+- Dowker, Gauntlett, Giddings and Horowitz (hep-th/9312172, READ):
+  - "Pair production of black holes is necessarily a topology changing process";
+  - the Ernst solution "describes two oppositely charged black holes undergoing uniform acceleration in a background
+    magnetic field";
+  - in Garfinkle and Strominger's instanton "the horizons of the two black holes were identified to form a wormhole
+    in space";
+  - the action is S_E = 4πq²(1 − qB)²/(1 − (1 − qB)⁴), which is "the Schwinger result" πm²/(qB) for weak fields, and
+    Γ = e^(−S_E).
+- **Deduced.** The 26 hold no magnetic charge, so dF = 0 on our plane everywhere. The flux through any closed surface
+  that bounds is zero, and B4 (step 2) keeps every surface bounding. So no classical process gives the corridor's
+  mouth a magnetic charge: not the README's arrival, not the opening, not any device built of the 26's matter.
+  - An electric charge, by contrast, can be gathered from charged matter.
+  - So **B7, B4a, B4ds, B4d, ARRIVALs, ARRIVAL, SOURCEs and SOURCE change**: each forms or feeds the corridor, and none
+    can give it its magnetic charge.
+- **The quantum route is pair creation.** It puts both mouths in one universe, with opposite charges and a Wheeler
+  wormhole between them. That is the form Maldacena, Milekhin and Popov's wormhole on our plane takes (445 (2), set
+  aside at 446 as not the corridor).
+- **Computed.** At a magnetar's field (10¹¹ T), S_E ≈ 10⁶⁸ at the small end (r₊ = 1.79ℓ, ℓ = 2⁸⁴ l_P) and ≈ 1.6×10⁷⁵
+  at the large end (the Earth cap). S_E reaches order one only as qB → 1, a background field as strong as the hole's
+  own horizon field (about 10²⁷ T at the small end), over a region holding the pair's mass.
+
+**Changed against it: the closing (READ; deduced).**
+- Maldacena (2004.06084, READ): "Extremal magnetic black holes are more stable than their electric counterparts,
+  since unit charge magnetic monopoles are much heavier than electrically charged particles". Decay by emitting
+  smaller magnetic holes is suppressed as e^(−S), with S > πQ(M l_p)² (his (13)).
+- **Deduced.** A magnetic hole radiates down to extremality and then stops. With no lighter magnetic charge in the
+  26, it does not close by Hawking emission.
+- **CLOSEs and CLOSE** (the face closing by emission over the hole's life) are the uncharged hole's. The magnetic
+  face stays open as an extremal hole unless its charge is cancelled, which only a partner of opposite charge can do.
+
+**Opened.**
+- **O2**: a magnetic hole is driven toward extremality over its life, so its surface gravity falls.
+- **B5cs and B5c**: near a magnetic mouth, the electroweak corona (out to 2.7 μm at the small end, 1.1 cm at the
+  large), the QCD corona, and baryon number violated as near a monopole (Maldacena; Callan–Rubakov) all act on the
+  plane's matter where the README lands.
+
+**What it leaves for M.** Under the 26, neither kind of charge yet gives the corridor a working charge:
+- an electric charge can be gathered but is lost at once;
+- a magnetic charge is kept but cannot be made classically, and its quantum making puts both mouths in one universe
+  (454 chose position 2's mouth in a second universe);
+- and either way the prior art expects no regular inner horizon (section 26).
+
+How the magnetic corridor's charge is to arise is put to M as a clarification under 463, not a ruling made again.

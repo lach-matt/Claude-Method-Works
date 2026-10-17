@@ -1436,6 +1436,34 @@ state was rebuilt first.
     first slab's Newton iteration. The fault lies in the slab formulation, not the resolution.
   - Put to M (414): the next formulation. Conformal (double-null) gauge on the two-dimensional (s, x) quotient, three
     wave equations, two propagated constraints, and the plane a moving boundary under Israel's condition.
+- **Item 463** (M: "We will need to reevaluate the whole warp chain under a magnetic corridor instead of electric").
+  - Carried as M's: M-CHAIN-UNDER-MAGNETIC. **`lemmas/magnetic_chain.py`** (8/8, mutants 2/2; table in
+    `lemmas/MAGNETIC-CHAIN.md`; BOUNCE-RESEARCH section 27) classes every row and stage.
+  - **Of the register's 80 rows:**
+    - 38 unchanged;
+    - 21 unchanged by the plane's duality;
+    - 18 changed;
+    - 3 opened.
+    No row moves (446).
+  - **In the magnetic corridor's favour:**
+    - the charged hold survives (O3s, O3);
+    - "discharge aside" becomes exact (E1us, E1u);
+    - the bulk is vacuum beneath the charged corridor (B2ts, B2t), and carries no field energy outside the neck (E4rs,
+      E4r).
+  - **Against it, formation.** No magnetic charge exists in the 26 and B4 preserves the topology, so no classical
+    process gives a mouth a magnetic charge. This touches B7, B4a, B4ds, B4d, ARRIVALs, ARRIVAL, SOURCEs and SOURCE.
+    Pair creation (Dowker, Gauntlett, Giddings and Horowitz, READ: "necessarily a topology changing process") puts
+    both mouths in one universe. Its action is ~1e68 at a magnetar's field at the small end and ~1.6e75 at the
+    large, of order one only in a field as strong as the hole's own.
+  - **Against it, the closing.** A magnetic hole radiates to extremality and stops, stable in the 26 (Maldacena,
+    READ): CLOSEs and CLOSE are the uncharged hole's (S14).
+  - **Opened:**
+    - O2: the surface gravity falls toward extremality;
+    - B5cs and B5c: the electroweak and QCD coronae, and baryon number violated as near a monopole, where the README
+      lands.
+  - Stage 2 is unchanged: the plane's dual theory outweighs the two-dimensional modes by 1e18-1e25.
+  - Put to M (clarification under 463): how the magnetic corridor's charge is to arise, given that pair creation puts
+    both mouths in one universe (454 (b) chose a second); and, carried from 462, the double-null formulation for P3.
     - P3: evolve the interior between r+ and r- as a hyperbolic problem in (r, x), from the lam = 64 member's horizon
       data, with the plane's rows on its boundary. Take the white hole and the second exterior as the time reverse.
       Integrate section 14's routes.
