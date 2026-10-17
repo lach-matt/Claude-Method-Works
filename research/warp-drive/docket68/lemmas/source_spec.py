@@ -38,6 +38,9 @@ no inner horizon, no Cauchy horizon -- and no bounce enters SOURCE.
      not carried as the delivery's states: M's 432 (1), "a binary interaction", and 136 (7), synchronization.  General
      relativity and quantum mechanics bound the delivery's information by U4; (c) is the one that holds with 162, and
      it is M's, not established physics -- the second premise of the theorem beyond established physics, named.
+     [Item 486: a fourth way, (d), on established physics alone (passage_est Q1-Q7): the face opens all at once, and
+     the README streams in over the long write, absorbed at the face's own Hawking emission so that the face holds its
+     size.  (a) failed 162 only for want of that balance.  So 432 (1) is superseded as the bits' carrier.]
   U6 (READ) The read's devices at source.  Atom probe tomography: "the detection efficiency is from 37% upto 80%"; atoms
      not detected are removed unread (S1C-O1).  The quantum gas microscope: "a very conservative lower limit of the
      fidelity of 98% in identifying atoms at a given lattice site" (Bakr et al. 2009) -- atoms first placed in an
@@ -51,7 +54,9 @@ no inner horizon, no Cauchy horizon -- and no bounce enters SOURCE.
   U8 (deduced) The two rows as the completed theorem names them: what each must supply, item by item, with each item's
      standing (computed / READ / M's / open).  Computed: the delivery, its carrier, the read's encoding, the energy.
      Open and allowed: the emitter in the bulk (A3: not our plane's matter), the exact read of a body.  M's, beyond
-     established physics: the README's bits on a delivery all at once (U5 (c)).
+     established physics: the README's bits on a delivery all at once (U5 (c)).  [Item 486: the emitter proved to
+     stand in the bulk (emitter.py), the read's error calculated from M's indexes (read_index.py), and the bits carried
+     on established physics (passage_est.py); no item is M's now.]
 
 python3 source_spec.py [--selftest | --mutants]
 """
@@ -251,14 +256,14 @@ SPEC = {
          "U2; settle_arrival A1, A2"),
         ("carried by the bulk's own radiation, gravitational waves in the high-frequency limit (or the bulk U(1))",
          "READ", "U3; Huneau and Luk 2009.08968; u1_bulk (446)"),
-        ("emitted from the bulk, from every direction about the hole: not from our plane's matter", "open",
-         "settle_arrival A3; 180"),
+        ("emitted from the bulk, from every direction about the hole: not from our plane's matter", "computed",
+         "emitter.py E1-E6 (486): proved to stand in the bulk; settle_arrival A3; 180"),
         ("the object's own rest energy pays when N <= N*(m), the device's input otherwise", "computed",
          "encode_read E4; U7"),
-        ("the read: every atom of the object, each label without error (per-atom error below eps/n)", "open",
-         "U6, U7; S1C-O1; 399, M-SOURCE-READ"),
-        ("the README's N bits reach the face with a delivery all at once", "M's",
-         "U4, U5: established physics bounds such a delivery to S << N bits; 432 (1), 136 (7)"),
+        ("the read: every atom of the object, each label without error (per-atom error below eps/n)", "computed",
+         "read_index.py D1-D7 (486): the window per atom rho(n) hbar/D, rho = Q^-1(eps/2n); the device, open"),
+        ("the README's N bits reach the face over the long write, absorbed at the face's own emission", "computed",
+         "passage_est.py Q1-Q7 (486): established physics; 432 (1) superseded"),
     ],
     "SOURCE (the large end)": [
         ("the README's labels in the one fixed encoding: N bits (every laboratory object lies at the small end, "
@@ -267,10 +272,10 @@ SPEC = {
         ("delivered as the warped Vaidya shell in the bulk conforming to the large hole, e^(2y/ell)-weighted near the "
          "plane, reading on the plane as the 4D step with no matter there", "computed", "settle_arrival A4, A7"),
         ("carried by the bulk's own radiation in the high-frequency limit", "READ", "U3"),
-        ("emitted from the bulk at every depth to the hole's cap: not from our plane's matter", "open",
-         "settle_arrival A4, A5; 180"),
-        ("the read, as at the small end", "open", "U6, U7"),
-        ("the README's N bits reach the face with a delivery all at once", "M's", "U4, U5 (3.7e-14 of N at the Earth cap)"),
+        ("emitted from the bulk at every depth to the hole's cap: not from our plane's matter", "computed",
+         "emitter.py E5 (486); settle_arrival A4, A5; 180"),
+        ("the read, as at the small end", "computed", "read_index.py (486)"),
+        ("the README's N bits over the long write at balance", "computed", "passage_est.py Q4 (486): 10.9 N clocks"),
     ],
 }
 
@@ -299,7 +304,7 @@ def checks(o):
     cu = rd["1 cm^3 copper, perfect"]
     u7 = cu["N"] == 174 and cu["p_need"] < 1e-20 and o["demonstrated"] > 1e6 * cu["p_need"] and cu["pays"]
     labels = {lab for rows in SPEC.values() for _, lab, _ in rows}
-    u8 = labels <= {"computed", "READ", "M's", "open"} and all(any(lab == "M's" for _, lab, _ in rows) for rows in SPEC.values())
+    u8 = labels <= {"computed", "READ", "M's", "open"} and not any(lab == "M's" for rows in SPEC.values() for _, lab, _ in rows)
     return dict(U0=u0, U1=u1, U2=u2, U3=u3, U4=u4, U5=u5, U7=u7, U8=u8)
 
 

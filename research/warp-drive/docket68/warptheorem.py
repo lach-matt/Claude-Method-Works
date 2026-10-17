@@ -883,6 +883,27 @@ LEMMAS_NOW = [(c, n, s_, t + NOTE_SOURCE_485) if n.split()[0] in ("SOURCE", "SOU
               (c, n, s_, t + NOTE_ARRIVAL_485) if n.split()[0] in ("ARRIVAL", "ARRIVALs") else (c, n, s_, t)
               for c, n, s_, t in LEMMAS_NOW]
 
+# [item 486] M: "shift to the established physics and prove the passage is still true. If so, it supersedes 432(1)".
+# passage_est Q1-Q7: the face opens all at once with E(N); the README streams in over the long write, absorbed at the
+# face's own Hawking emission so the face holds its size (first law, energy conservation), tau_write = (16/15) of the
+# life at the small end, the inflow (8/15) E5(N); every quantum crosses the computed interior unitarily (KG norm, 6e-8).
+# So the passage holds on established physics and 432 (1) is superseded as the bits' carrier.  emitter E1-E6: the round
+# inflow's emitter stands in the bulk, our plane's matter cannot be it (null rays straight in the conformal bulk; the
+# hole's own lensing gives the pole other rays than the equator).  read_index D1-D7: the read's error from M's indexes.
+NOTE_SOURCE_486 = ("  [Item 486] On established physics (passage_est.py Q1-Q7): the README's bits stream in over the long "
+                   "write, absorbed at the face's own emission, the face holding its size (16/15 of the life; the inflow "
+                   "(8/15) E5(N)); 432 (1) superseded as their carrier.  The emitter proved to stand in the bulk, not our "
+                   "plane's matter (emitter.py E1-E6).  The read's error from M's indexes (read_index.py D1-D7): exact "
+                   "for n atoms with a window rho(n) hbar/D per atom, rho = Q^-1(eps/2n) ~ sqrt(2 ln(2n/eps)), D the "
+                   "K-shell gap (2Z -+ 1) R_M h c; the device stays open")
+NOTE_ARRIVAL_486 = ("  [Item 486, the finding of 485 resolved] The face opens with E(N) all at once; the README's bits "
+                    "come in over the long write, absorbed at the face's own Hawking emission so the face stands at its "
+                    "size (passage_est Q3-Q4), and cross to position 2 unitarily (Q5): established physics; 432 (1) "
+                    "superseded as their carrier")
+LEMMAS_NOW = [(c, n, s_, t + NOTE_SOURCE_486) if n.split()[0] in ("SOURCE", "SOURCEs") else
+              (c, n, s_, t + NOTE_ARRIVAL_486) if n.split()[0] in ("ARRIVAL", "ARRIVALs") else (c, n, s_, t)
+              for c, n, s_, t in LEMMAS_NOW]
+
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
@@ -1072,7 +1093,9 @@ def lemma_selftests():
               # item 485 (M's item 3): that dynamics derived from its quantum theory and held against LQG's choices
               "transition5r.py",
               # item 485 (M's item 1): SOURCEs and SOURCE named from the completed theorem, and the read
-              "source_spec.py"):
+              "source_spec.py",
+              # item 486: the passage on established physics; the emitter proved in the bulk; the read from M's indexes
+              "passage_est.py", "emitter.py", "read_index.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

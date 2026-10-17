@@ -5,6 +5,78 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 486: the passage on established physics, the emitter proved, the read from M's indexes
+
+M, 486: "let's shift to the established physics and prove the passage is still true. If so, it supersedes 432(1)"; "an
+emitter standing in the bulk (our plane's matter cannot do it): - prove this please"; "use my indexes and calculate it
+yourself instead of relying on outside numbers". Each part was held against the exclusions first.
+
+**(1) The passage on established physics** (`passage_est.py`, 7/7, mutants 3/3).
+- A delivery all at once carries 7.6e-4 of N (Q1). So the README's bits cannot come in with the energy that opens the
+  face.
+- The first law holds for the face at both ends (Q2). So the face's size holds exactly when its energy does.
+- Hawking emission feeds the face a negative flux worth exactly -P_H. An inflow absorbed at P_in = P_H therefore
+  leaves the face static (Q3). settle_arrival A1's "nothing crosses" holds for the net null energy, and its classical
+  premise is untouched.
+- **The write at that balance (Q4).**
+  - The README comes in at the face's own temperature: tau_write = (16/15) of the life (exact). That is 9.2e14 face
+    clocks (3.4e-14 s) at the example README, and 58 clocks for the copper block's 174 bits.
+  - The inflow carries (8/15) E5(N) (exact), which the face returns to our side as its emission. The face holds E5(N)
+    throughout.
+  - The thermal inflow exactly saturates U4's room bound.
+  - At the large end the write is 10.9 N clocks of GM/c^3, and the inflow (3/8) E(N).
+- **The README crosses unitarily (Q5).** A massless field's modes on transition5q's interior, from our horizon to
+  position 2's, keep the Klein-Gordon norm, and |alpha|^2 - |beta|^2 = 1, to 6e-8.
+  - Quanta near the face's wavelength are squeezed by a known map that position 2 inverts.
+  - Shorter ones pass unmixed (|beta|^2 < 1e-9 at k r_h = 1e5).
+- The face's size fluctuates by 1.6e8 bits of 2.74e15, and by zero in the mean (Q6).
+- **So the passage holds on established physics (Q7).** The README's bits are the inflow's states, and 432 (1) is
+  superseded as their carrier.
+  - Kept: 162 (the face at full size from the opening, held), 163 (one whole at a fixed size), 158 (2) (as long as
+    the write needs), and 426 (M-LONG-WRITE).
+  - 426's open question is answered: the face's own emission balances the inflow.
+  - The supply is E5(N) + (8/15) E5(N).
+  - The one premise left beyond established physics is 273's basis, 415's shared onset.
+- U5 above is corrected beside it: a fourth way, (d), was missed.
+
+**(2) The emitter stands in the bulk** (`emitter.py`, 5/5, mutants 2/2).
+- **E2.** The warped bulk is (ell/z)^2 (eta + dz^2), so its null rays are straight lines (checked). A ray that leaves
+  our plane never meets it again.
+- **E3.** Traced back, every ray of the round shell rises off the plane. The plane's band of the face holds 4 delta/pi
+  of it, which goes to 0.
+- **E4.** The hole's own lensing does not change this. phi_cap(b) rises strictly. The pole is at pi/2 from every
+  emitter on our plane, so it takes only rays with b >= 1.35 r_h, never the radial ones. The arrival from our plane
+  cannot be round, and it lags by 1.14 face clocks.
+- **E5.** The warped shell's generators run at fixed depth, and the plane holds none of its measure.
+- **E6.** The inflow is a solution of the bulk's vacuum equations in the high-frequency limit (Huneau and Luk, READ),
+  so it is allowed. Every part of it began in the bulk. So the emitter stands in the bulk, and no matter of our plane
+  can be it: proved.
+
+**(3) The read from M's indexes** (`read_index.py`, 8/8, mutants 3/3). It uses the element index (populate.py:
+configurations, Pauli capacities) and the isotope index (isotopes.py: AME2020), and no device figure.
+- **Labels (D1).** Z is the configuration's electron count. The valences are H 1, C 4, O 2.
+- **Structure (D2).** Water admits one bond graph, so it has 0 structure bits to read. C2H6O admits two, ethanol and
+  dimethyl ether, so it has 1 bit.
+- **The signal (D3).** The K-shell scale is Z^2 R_M h c, with R_M from AME2020's lightest beta-stable nuclide. The
+  gaps to the neighbouring elements are (2Z -+ 1) R_M h c: 41 eV for H to 776 eV for Cu. The index's own Dirac term
+  moves them by 2.3 % at most.
+- **One atom's error (D4).** It is Q(D t/hbar) per neighbour (the Fourier limit). The thermal floor is e^(-1578).
+- **The formula (D5).** Exact for n atoms with probability 1 - eps:
+  - rho(n) = Q^-1(eps/(2n)), approximately sqrt(2 ln(2n/eps));
+  - the window per atom is t_i = rho hbar/D_i;
+  - the time in sequence is T = rho hbar sum 1/D_i;
+  - presence needs ln(n/eps) quanta a site, and structure needs d/sigma_x >= 2 rho.
+- **The examples (D6).**
+  - Water: rho 2.94, 4.7e-17 s per H.
+  - Ethanol: rho 3.26, and its one structure bit needs d/sigma_x >= 5.2.
+  - A mole of steel (Fe, 1 atom-% C): rho 10.65, 1.0e-17 s per Fe atom.
+  - Stainless steel (Fe 72, Cr 18, Ni 8, Mn 2): rho 10.65.
+  - 1 cm^3 of copper: rho 10.47 at a per-atom error of 1.2e-25.
+  - A read at error 1e-2 has rho = 2.58. Copper's 1.2e-25 is the same read held 4.1 times as long, not 23 orders
+    away.
+- **Mass instead (D7).** A read by mass would have to resolve beta-stable isobars across the elements (54Cr/54Fe at
+  1.4e-5 of the mass). The K-shell signal separates Mn from Fe by 8 %.
+
 ## Item 485: SOURCEs and SOURCE, as the completed theorem names them (`source_spec.py`, 8/8, mutants 4/4)
 
 M, 485: "do 3 first, then 1". Item 1 asks for SOURCEs and SOURCE, so that the completed theorem names what each must

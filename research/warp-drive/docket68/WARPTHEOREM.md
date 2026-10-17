@@ -1649,6 +1649,25 @@ state was rebuilt first.
   - A break of the board's own, found while rerunning the instruments that read the register. pass_audit P1 had
     failed since 484: the register cites transition_qt5 as the route withdrawn at 480, and 484 took it out of T1.
     It is now set aside as cited record, as arrival_cypher is; pass_audit passes, with mutants 2/2.
+- **Item 486** (M: "shift to the established physics and prove the passage is still true. If so, it supersedes 432(1)";
+  prove the emitter; the read from your indexes). Each part was checked against the exclusions first.
+  - **The passage on established physics** (passage_est.py, 7/7, mutants 3/3).
+    - The face opens all at once with E(N).
+    - The README streams in over the long write, absorbed at the face's own Hawking emission. By the first law and
+      energy conservation the face holds its size: 16/15 of the life at the small end, the inflow (8/15) E5(N), exact.
+    - Each quantum crosses the computed interior unitarily (Klein-Gordon norm and |alpha|^2 - |beta|^2 = 1 to 6e-8).
+    - So 432 (1) is superseded as the bits' carrier.
+    - 426's open question is answered: the face's own emission balances the inflow.
+    - The one premise left beyond established physics is 415's shared onset.
+  - **The emitter** (emitter.py, 5/5). Proved to stand in the bulk. The bulk's null rays are straight lines in its
+    conformal frame, so a ray leaving our plane never returns. The round shell's rays all rise off the plane. Even the
+    hole's own lensing gives the pole only rays with b >= 1.35 r_h, never the radial ones.
+  - **The read from your indexes** (read_index.py, 8/8). Exact for n atoms with a window rho(n) hbar/D per atom, rho =
+    Q^-1(eps/2n), about sqrt(2 ln(2n/eps)). D is the K-shell gap (2Z -+ 1) R_M h c (41 eV for H, 694-776 eV for steel's
+    and copper's elements). Water: rho 2.94. Ethanol: rho 3.26 and 1 structure bit. A mole of steel: rho 10.65. Copper's
+    1.2e-25 per atom is the same read held 4.1 times as long as one at 1e-2.
+  - The finding beside ARRIVALs and ARRIVAL is resolved. SOURCEs and SOURCE now have every item computed or proved; they
+    stay OPEN as you set them. The register reads 72 proved, 6 definitions, 2 OPEN.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
