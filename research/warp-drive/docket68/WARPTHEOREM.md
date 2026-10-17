@@ -1627,6 +1627,28 @@ state was rebuilt first.
     - The equal mass rests on one onset curvature for both sectors (415). Otherwise m_WH/m_BH = l_c^2/l_b^4, and the
       time across is r_h(BH) + r_h(WH).
   - The ten rows stay proved, with that premise named. The register reads 72 proved, 6 definitions, 2 OPEN.
+- **Item 485, item 1**: SOURCEs and SOURCE named from the completed theorem, and the read (source_spec.py, 8/8, mutants
+  4/4; SOURCE-REQUIRED "Item 485"). Checked against the exclusions first.
+  - **Computed.**
+    - The delivery exists in general relativity: 5D Vaidya, a null shell with no rest mass, no partner and one root,
+      carrying the ADM energy E5(N). At the large end it is the warped shell.
+    - Its carrier can be the bulk's own gravitational waves, since high-frequency limits are exactly null dust
+      (Huneau and Luk, READ).
+    - The read's encoding and the energy.
+  - **Open and allowed.**
+    - The emitter, which stands in the bulk, not on our plane.
+    - The exact read of a body: every atom, with per-atom error below 1.2e-25 for 1 cm^3 of copper, against 1e-2
+      demonstrated (atomic electron tomography, 2.3e4 atoms). Atom probe tomography detects 37-80 % of atoms; the quantum
+      gas microscope reads atoms placed in a lattice.
+  - **Yours, beyond established physics.** A delivery all at once has room for S/(N ln2) = 7.6e-4 at one face clock at
+    the small end, 3.7e-14 at the Earth cap, and zero at width zero. The README's N bits on it rest on your 432 (1).
+    This is the second premise beyond established physics, after 415's shared onset. A thick delivery fails 162, and
+    1e16 to 1e68 species would be needed otherwise.
+  - The finding is noted beside ARRIVALs and ARRIVAL, not repaired. SOURCEs and SOURCE stay OPEN, now named. The
+    register reads 72 proved, 6 definitions, 2 OPEN.
+  - A break of the board's own, found while rerunning the instruments that read the register. pass_audit P1 had
+    failed since 484: the register cites transition_qt5 as the route withdrawn at 480, and 484 took it out of T1.
+    It is now set aside as cited record, as arrival_cypher is; pass_audit passes, with mutants 2/2.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

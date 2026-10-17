@@ -5,6 +5,72 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 485: SOURCEs and SOURCE, as the completed theorem names them (`source_spec.py`, 8/8, mutants 4/4)
+
+M, 485: "do 3 first, then 1". Item 1 asks for SOURCEs and SOURCE, so that the completed theorem names what each must
+supply, and for the read (399). Held against the exclusions first: the delivery forms an uncharged hole whose lapse has
+one root, so there is no inner and no Cauchy horizon, and no bounce enters.
+
+**Prior art, read (442).**
+- **The carrier.** "all high-frequency limits are isometric to solutions to the Einstein-null dust system; and
+  conversely, all solutions to the Einstein-null dust system also arise locally as high-frequency limits of vacuum
+  spacetimes" (Huneau and Luk, arXiv 2009.08968; 3+1; also Isaacson 1968 and Burnett 1989).
+- **Atom probe tomography.** "the detection efficiency is from 37% upto 80%".
+- **The quantum gas microscope.** "a very conservative lower limit of the fidelity of 98% in identifying atoms at a
+  given lattice site" (Bakr et al. 2009), for atoms first placed in an optical lattice.
+- **Atomic electron tomography.** "6,569 iron atoms and 16,627 platinum atoms" located (Berkeley Lab 2017), species
+  to 99 %.
+
+**Computed.**
+- **The delivery exists in general relativity (U2, exact).** On 5D Vaidya the shell is null (g^vv = 0), so T has trace
+  zero and there is no rest mass. G_vv = 3 mu'/(2 r^3) >= 0 is the only component, so there is no partner. The lapse has
+  one root. The step carries the ADM energy 3 pi c^4 r_h^2/(8 G5), equal to E5(N) at the example README. The large end
+  is settle_arrival A4's warped shell.
+- **Its carrier is the bulk's own radiation (U3).** Gravitational waves in the high-frequency limit are energy with no
+  matter (386). At the example README r_h = 7.3e4 l5, so waves of 10 l5 are 1e10 quanta, each below the 5D Planck
+  energy.
+- **What that delivery can carry (U4).**
+  - Radiation at energy E in a volume V has at most e^S states, with S = (5/4)(a5 V)^(1/5) E^(4/5) in 5D. By
+    Liouville, what crosses the face within w lay in V = A c w. At the large end the black string's area is weighted
+    by Tolman to its cap: V = 4 pi r0^2 c w (r0 - ell), computed.
+  - So S/(N ln2) at one face clock is 7.6e-4 at the small end (Z = 8; 7.0e-4 with the graviton alone), 1.4e-13 at r0 =
+    20 ell, and 3.7e-14 at the Earth cap. It grows only as w^(1/5) and is zero at width zero.
+  - The README's N bits fit only over w_min = 3.9e15 face clocks. That is the record's own 4D figure (source_capacity
+    S2, 1.0e14 at Z = 106.75), scaled by Z^(-1).
+- **What closes the gap (U5).**
+  - (a) A delivery of width w_min: one clock after the onset its face is 1.6e-8 of r_h, and it reaches full size only
+    at w_min. 162 and settle_arrival A1 refuse it.
+  - (b) More species: Z = 3.1e16 at the small end and 1.2e68 at the Earth cap.
+  - (c) The bits not carried as the delivery's states: your 432 (1), "Information is energy in the form of a binary
+    interaction", and 136 (7). (c) is the one that holds with 162, and it is yours, not established physics.
+- **What the read must do (U7).**
+  - Every atom is read: the labels are of the last state, and a crystal's 174 bits assert that no atom differs.
+  - Each atom's error must be below eps/n: 1.2e-25 for 1 cm^3 of copper (8.49e22 atoms, eps = 1e-2). The best
+    demonstrated is 1e-2, 23 orders short, at 2.3e4 atoms.
+  - N and E5(N): water 22 bits and 0.51 J; benzene 122 bits and 1.6 J; the copper block 174 bits and 2.0 J; 99.99 %
+    copper 1.3e21 bits and 7.7e12 J (estimate). The copper pays its own README in both cases.
+
+**What each must supply** (U8; standing in brackets):
+
+| | SOURCEs, the small end | SOURCE, the large end |
+|---|---|---|
+| the README | its labels from the object's last state, ENCODE's one fixed encoding, N bits [computed] | as at the small end (every laboratory object lies below N_L = 5.31e60) [computed] |
+| the energy | exactly E5(N), no rest mass, nothing besides [computed] | exactly E(N) = m c^2, 4 pi r0^2 = 4 N l_P^2 ln2 [computed] |
+| the delivery | a round null shell in the bulk crossing the face's whole 3-sphere at once [computed, exact] | the warped Vaidya shell conforming to the large hole, reading on the plane as the 4D step with no matter there [computed] |
+| the carrier | the bulk's own radiation in the high-frequency limit [READ] | the same [READ] |
+| the emitter | in the bulk, every direction about the hole; not our plane's matter (A3) [open] | in the bulk at every depth to the cap [open] |
+| who pays | the object's own rest energy when N <= N*(m) [computed] | the same [computed] |
+| the read | every atom, each label without error [open] | the same [open] |
+| the bits on the delivery | the README's N bits on a delivery all at once [yours, 432 (1)] | the same [yours] |
+
+**Standing.**
+- SOURCEs and SOURCE are now named in full.
+- Two items are open and allowed by established physics: the emitter in the bulk and the exact read of a body.
+- One item is yours and beyond established physics: the README's bits on a delivery all at once. It joins 415's
+  shared onset, which item 3 named, as the theorem's second premise beyond established physics.
+- ARRIVALs and ARRIVAL carry the finding beside them, recorded and not repaired: that the bits rebuild at position 2
+  from that delivery rests on 432 (1).
+
 ## Item 439: what the completed rows require of SOURCE (`settle_arrival.py` A7, `encode_labels.py` C7)
 
 M, 344: "we need the completed warp theorem to tell us what is required" (M-SOURCE-LAST, 345). With ARRIVAL, ENCODE

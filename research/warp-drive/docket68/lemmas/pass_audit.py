@@ -180,11 +180,12 @@ def t1_list():
 
 def cited_not_in_t1(rows):
     """instruments a row cites (by stem) that T1's lemma list does not run; common words that are also file stems,
-    and the record's superseded arrival_cypher, set aside"""
+    the record's superseded arrival_cypher, and transition_qt5 (cited as the route withdrawn at 480, out of T1 at 484,
+    M-NO-CAUCHY) set aside"""
     paths = glob.glob(os.path.join(HERE, "*.py")) + glob.glob(os.path.join(D68, "bulk", "*.py"))
     stems = {os.path.basename(p)[:-3] for p in paths}
     words_too = {"bulk", "crossing", "horizon", "opening", "plane", "static", "values", "causal", "escape", "umbilic",
-                 "stability", "arrival_cypher"}
+                 "stability", "arrival_cypher", "transition_qt5"}
     t1 = t1_list() | {"exactE", "passage5d", "coin", "localbulk", "stability"}       # T1's own
     found = set()
     for r in rows:

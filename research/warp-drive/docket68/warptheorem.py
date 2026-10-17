@@ -861,6 +861,28 @@ NOTE_273_485 = ("  [Item 485] What it rests on, proved (transition5r.py R1-R6): 
                 "-- the one premise left, named")
 LEMMAS_NOW = [(c, n, s_, t + NOTE_273_485) if n.split()[0] in ON_273 else (c, n, s_, t) for c, n, s_, t in LEMMAS_NOW]
 
+# [item 485] M's item 1: SOURCEs and SOURCE, so the completed theorem names what each must supply, and the read
+# (source_spec.py U0-U8).  Computed: the delivery (5D Vaidya, null, no rest mass, one root, the ADM energy E5(N); the
+# large end's warped shell), its carrier (the bulk's gravitational waves in the high-frequency limit, Huneau and Luk,
+# READ), the encoding and the energy.  Open and allowed: the emitter in the bulk (not our plane's matter, A3) and the
+# exact read of a body (every atom, per-atom error below 1e-25 for 1 cm^3 of copper against 1e-2 demonstrated).  M's,
+# beyond established physics: the README's N bits on a delivery all at once -- its room is S/(N ln2) = 7.6e-4 at one
+# face clock at the small end and 3.7e-14 at the Earth cap, zero at width zero (432 (1)).  The rows stay OPEN: named.
+NOTE_SOURCE_485 = ("  [Item 485] Worked (M's item 1; source_spec.py U0-U8; SOURCE-REQUIRED 'Item 485'): what it must "
+                   "supply, named from the completed theorem -- the README's labels in ENCODE's encoding (computed); "
+                   "E(N), no rest mass (computed); the null shell in the bulk all at once (computed, exact); carried by "
+                   "the bulk's own radiation (READ: high-frequency limits are null dust); emitted from the bulk, not "
+                   "our plane's matter (open); the read of every atom without error (open: 1e-25 per atom needed, 1e-2 "
+                   "demonstrated); the README's N bits on that delivery (M's 432 (1): established physics gives the "
+                   "delivery room for S << N bits, 7.6e-4 N at the small end, 3.7e-14 N at the Earth cap)")
+NOTE_ARRIVAL_485 = ("  [Item 485, a finding recorded, not repaired] The delivery all at once has room for S << N "
+                    "bits (source_spec U4: 7.6e-4 N at one face clock at the small end, 3.7e-14 N at the Earth cap, "
+                    "zero at width zero); that the bits rebuild at position 2 from it rests on M's 432 (1), not on "
+                    "established physics (U5)")
+LEMMAS_NOW = [(c, n, s_, t + NOTE_SOURCE_485) if n.split()[0] in ("SOURCE", "SOURCEs") else
+              (c, n, s_, t + NOTE_ARRIVAL_485) if n.split()[0] in ("ARRIVAL", "ARRIVALs") else (c, n, s_, t)
+              for c, n, s_, t in LEMMAS_NOW]
+
 RESTS_ON_NOW = {'G1': 'M1s', 'G3': 'M1s', 'H2tu': 'M1s', 'H2txs': 'M1s M1P2xs', 'H2tx': 'M1P2x', 'M1P2x': 'M1',
                 'O1bs': 'M1s',
                 'O1cs': 'M1s', 'O1b': 'M1', 'O1c': 'M1', 'O2': 'M1s', 'O3s': 'WRITEs', 'O3': 'WRITE',
@@ -1048,7 +1070,9 @@ def lemma_selftests():
               # item 483: 273 from the five-dimensional quantum dynamics
               "transition5q.py",
               # item 485 (M's item 3): that dynamics derived from its quantum theory and held against LQG's choices
-              "transition5r.py"):
+              "transition5r.py",
+              # item 485 (M's item 1): SOURCEs and SOURCE named from the completed theorem, and the read
+              "source_spec.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
