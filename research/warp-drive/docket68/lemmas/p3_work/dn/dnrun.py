@@ -4,9 +4,9 @@ warnings.filterwarnings("ignore")
 KR = sp.lambdify(dnE.SY, dnE.D["K"], "numpy")
 
 
-def initial(fn, s0, N, kap, Ns):
+def initial(fn, s0, N, kap, Ns, bt=2.0, Nx=20, smin=-0.30):
     U = np.load(fn)
-    chi, d, chk = dninit.conformal(U, s0, N, kap, Ns=Ns)
+    chi, d, chk = dninit.conformal(U, s0, N, kap, Ns=Ns, Nx=Nx, btv=bt, smin=smin)
     sig, A, psi = d["sig"], d["A"], d["psi"]
     S = sig + A / 2
     R = chi * np.exp(sig + psi)

@@ -1909,3 +1909,69 @@ M, verbatim (465): "close origin since it is moot. And continue".
 **A finding, recorded and not repaired (X10).** CLOSEs', E2us' and E2u's register notes cite 139 (1)'s quarter
 figures, 33.6 clocks and 2.7×10⁻³ clocks, though their audited readings omit 139. At the theorem's destination the
 figures are X8's (S25).
+
+## 30. The collapse in the bulk (466 (b); `collapse_bulk.py`, 10/10, mutants 6/6)
+
+M, verbatim (466): "Yes continue please AND ... - an expectation is not proof. We must compute the large end."
+Carried as M's: the collapse in the bulk approved (414 met); M-COMPUTE-LARGE-END. Part (a), the large end, is
+section 31.
+
+**The question.** Inside the corridor's hole, can the bulk's collapse be avoided by a bounce, classically or
+semiclassically, at any size? P3 computes the classical answer one size at a time (section 28; section 31). Here each
+hypothesis of the theorems that answer it at every size is computed, and the theorems are READ.
+
+**What is computed (exact unless marked).**
+- C1. The bulk keeps null energy. Schwarzschild-AdS5 satisfies R_ab = −4 g_ab for every mass, so R(k, k) = 0 for
+  every null k: Λ₅ neither focuses nor defocuses. Its Kretschmann scalar is 40 + 72 μ²/r⁸.
+- C2. The plane focuses every null ray that crosses it. Inverting Israel's condition in D = 5 gives the plane's
+  singular Ricci, and R_sing(k, k) = 8πG₅ δ(n) S(k, k); the normal terms cancel because g(k, k) = 0. P3's plane rows
+  (K^t_t = K^r_r = 1 − q, K^θ_θ = 1 + q, q = κ/R⁴) give S = −σh + τ with σ = 3/(4πG₅) and τ = diag(−ρ, −ρ, ρ, ρ),
+  ρ = q/(4πG₅) ≥ 0, the magnetic field's stress. Then S(k, k) = (σ + ρ)(kⁿ)² + 2ρ((k^θ)² + (k^φ)²), a sum of
+  non-negative terms. Flip the field's sign, or make the tension negative, and a term goes negative (mutants).
+- C3. The jump on an exact plane. On Randall–Sundrum's doubled Poincaré AdS₅ the jump of K gives σ = 3/(4πG₅ℓ),
+  and a planar null congruence has θ = 3c/ℓ before the plane and −3c/ℓ after it:
+  [θ] = −6c/ℓ = −8πG₅ S(k, k)/|kⁿ|, for every c.
+- C4. A smooth wall keeps null energy at every point (`b5b_wall.py`, its selftest run here), and its metric is
+  smooth: A = −b ln cosh(y/w) has every derivative continuous at y = 0. The thin plane's metric is only Lipschitz,
+  [A′] = −2/ℓ.
+- C5. Closed trapped surfaces exist in the computed hole. On P3's start slices (bt = 2) the surface {τ, t fixed}
+  is a closed 3-surface in the doubled bulk (the S² shrinks at both axis ends). Both null expansions equal
+  e^(−S+A/2) ∂_τ(S − 3A/2 + 2 ln r), negative at every χ: in [−0.44, −0.14] at s₀ = −0.05 and [−0.89, −0.24] at
+  s₀ = −0.15. Only ∂_τ of the metric enters, which is tangent to the plane and continuous across it, so the surface
+  stays trapped in a thin enough smooth wall (deduced).
+- C6. Focusing in D = 5. With R(k, k) ≥ 0, θ ≤ 3θ₀/(3 + θ₀λ): every null normal of C5's surface reaches a focal
+  point within λ = 3/|θ₀| ≤ 20.8 ℓ of affine parameter, if it extends that far. A thin plane only lowers θ (C2, C3).
+- C8. An exact collapse in AdS₅, the null dust of a delivery (Vaidya–AdS₅). R_ab + 4g_ab = (3μ′/(2r³)) l_a l_b, so
+  null energy holds iff μ′ ≥ 0; the 3-spheres are trapped where f < 0 (θ_in = −3/r, θ_out = 3f/(2r)); and the
+  Kretschmann scalar's μ-part is 72μ²/r⁸ at every v. The collapse ends in a curvature singularity.
+
+**What the theorems give (READ, then deduced).**
+- C7. Penrose's theorem in n dimensions and regularity C^{1,1} (Kunzinger, Steinbauer and Vickers, arXiv:1502.00287,
+  Theorem 1.1): (i) Ric(X, X) ≥ 0 for null X; (ii) a non-compact Cauchy hypersurface; (iii) a compact achronal
+  spacelike codimension-2 submanifold with past-pointing timelike mean curvature; then "M is not future null
+  complete". (i) is C1 with C4, (iii) is C5, and (ii) is assumed, as the theorem assumes it. So the smooth-wall
+  spacetime is null incomplete, and the incomplete geodesic leaves C5's surface inside the Killing horizon, which
+  future causal curves cross only inward. **The theorem does not say how**: a curvature singularity or a Cauchy
+  horizon. P3 computes which, size by size (section 28: the curvature diverges where r₋ would stand).
+- **A finding, recorded: the thin plane itself is not covered.** Its metric is Lipschitz, and for Lipschitz metrics
+  Penrose's theorem is open: Calisti, Graf, Hafemann, Kunzinger and Steinbauer (arXiv:2501.18450, Commun. Math.
+  Phys. 2025) prove Hawking's theorem there and say of Penrose's, "all issues we reserve for future research". The
+  smooth wall is the route, and the thin plane is its limit (b5b_wall W4, W5).
+- C9. The plane, semiclassically. Bousso (PRL 135, 011501, 2025): "Our result excludes 'bounces' or any other form
+  of singularity avoidance inside black holes, so long as the semiclassical regime remains valid through the
+  bounce". For brane worlds the generalized second law it rests on "can be explicitly proven through a classical
+  bulk computation that is exact in N", and Shahbazi-Moghaddam (arXiv:2212.03881) proves it, "Subject to a
+  technical assumption", on "brane-world semiclassical gravity theories which are holographically dual to Einstein
+  gravity in a higher dimensional anti-de Sitter spacetime" — this bulk's theory.
+
+**What it bears on (a finding, offered to M; not a ruling).**
+- A bounce inside the hole is excluded on the plane so long as the semiclassical regime holds through it, and an
+  information-carrying bounce is excluded in semiclassical gravity (Bousso, note 14: "causal structure would have to
+  be preserved in order to transmit information through a bounce ... the contradiction established in our theorem
+  still excludes the bounce").
+- 273's bounce is a quantum region, beyond the semiclassical regime, so these theorems do not reach it. The ten rows
+  on 273 still rest on it, as at 443 and 465.
+
+**What this does not prove.** That the thin plane's spacetime is incomplete by a theorem (open, above); hypothesis
+(ii) for the hole's own spacetime (assumed); that the incompleteness is a curvature singularity at every size (P3's
+computation, section 31); anything in the full quantum regime.

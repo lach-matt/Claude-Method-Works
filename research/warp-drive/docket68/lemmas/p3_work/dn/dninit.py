@@ -11,7 +11,7 @@ cp2 = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(cp2)
 s, x = sp.symbols("s x")
 FN = ["T", "A", "B", "F", "S"]
 fs = {k: sp.Function(k)(s, x) for k in FN}
-bt = 2
+bt = sp.Symbol("bt", positive=True)
 f, gx = 1 - s, 2 - x**2
 w = (bt * f / (f + bt * (1 - x**2)))**2
 gtt = -w * s * fs["T"]
@@ -41,10 +41,10 @@ def tojet(e):
     return e
 
 
-LAM = {k: sp.lambdify([s, x] + [j[0] for j in jets], tojet(v), "numpy") for k, v in qty.items()}
+LAM = {k: sp.lambdify([s, x, bt] + [j[0] for j in jets], tojet(v), "numpy") for k, v in qty.items()}
 
 
-def slice_data(U, s0, Ns=38, Nx=20, smin=-0.30):
+def slice_data(U, s0, Ns=38, Nx=20, smin=-0.30, btv=2.0):
     t, Dt = cp2.cheb01(Ns)
     sg = 1 - (1 - smin) * t
     Ds = -Dt / (1 - smin)
@@ -57,7 +57,7 @@ def slice_data(U, s0, Ns=38, Nx=20, smin=-0.30):
         v = (I0 @ Fm)[0]
         args += [v, (I0 @ (Ds @ Fm))[0], Dx @ v]
     with np.errstate(all="ignore"):
-        out = {k: lam(s0, xg, *args) * np.ones_like(xg) for k, lam in LAM.items()}
+        out = {k: lam(s0, xg, btv, *args) * np.ones_like(xg) for k, lam in LAM.items()}
     return xg, out
 
 

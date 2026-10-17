@@ -47,8 +47,8 @@ class DNX(dnE.DNE):
         return Yn
 
 
-def run(fn, s0, N, kap, Ns, tmax, Kcut=1e8, cfl=0.25, tag=None, nout=60, quiet=False, cls=None):
-    Y, chk = dnrun.initial(fn, s0, N, kap, Ns)
+def run(fn, s0, N, kap, Ns, tmax, Kcut=1e8, cfl=0.25, tag=None, nout=60, quiet=False, cls=None, bt=2.0, Nx=20, smin=-0.30):
+    Y, chk = dnrun.initial(fn, s0, N, kap, Ns, bt=bt, Nx=Nx, smin=smin)
     ev = (cls or DNX)(N, kap)
     dt = cfl * ev.h
     nst = int(round(tmax / dt))

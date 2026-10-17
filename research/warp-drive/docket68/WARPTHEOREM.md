@@ -1516,6 +1516,19 @@ state was rebuilt first.
     - FAR, FARs, CLOSE, B5c and B5cs on the destination's own sigma2 >= 0.
     phase2.py passes 68 rows (from 56). What remains: the ten rows on 273, and SOURCE and SOURCEs, deferred.
   - A finding, not repaired (S25): CLOSEs', E2us' and E2u's notes cite 139 (1)'s quarter figures.
+- **Item 466** (M: "Yes continue please AND ... - an expectation is not proof. We must compute the large end.").
+  - Carried as M's: the collapse in the bulk approved (414 met); M-COMPUTE-LARGE-END.
+  - **(b) The collapse in the bulk** (`lemmas/collapse_bulk.py` 10/10, mutants 6/6; BOUNCE-RESEARCH section 30).
+    - Computed: the bulk keeps null energy (Lambda_5 adds none); the plane focuses every crossing null ray,
+      S(k, k) = (sigma + rho)(k^n)^2 + 2 rho(k_th^2 + k_ph^2) >= 0 from P3's own rows; the jump [theta] =
+      -8 pi G5 S(k, k)/|k^n| on Randall-Sundrum's exact plane; closed trapped 3-surfaces on P3's start slices
+      (theta in [-0.44, -0.14]); Vaidya-AdS5's collapse to a curvature singularity.
+    - READ: Penrose's theorem in n dimensions, C^{1,1} (Kunzinger, Steinbauer and Vickers). With a smooth wall
+      (b5b_wall) the spacetime is null incomplete inside the hole; how it ends is P3's computation.
+    - A finding: the thin plane's metric is Lipschitz, where Penrose's theorem is open (Calisti et al. 2025).
+    - Offered to M as a finding, not a ruling: Bousso's theorem, with the GSL proved for brane worlds
+      (Shahbazi-Moghaddam), excludes a semiclassical bounce on the plane; 273's quantum bounce is beyond its reach.
+  - (a) The large end: section 31 (in progress).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
