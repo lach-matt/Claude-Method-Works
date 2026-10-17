@@ -2152,9 +2152,22 @@ Reproduced in D = 5:
 - at alpha = l5^2 (415: no other scale) and the record's 5D form (M/alpha = 3.5e40 at r0 = 20 ell), it is Tangherlini's
   to 1.3e-4 wherever x < 0.1; its inner horizon is at r- = l5, where x = 6.3, inside 273's region (Q4).
 
-**What remains.** 273's transition is now computed in 4D (loop quantum gravity) and in 5D (the gravitational effective
-action), not as the record's object: (a) the couplings are not derived, only their scale; (b) the README arrives as a
-null shell, and the computation is for a bound dust shell; (c) the inner horizon r- is a Cauchy horizon inside the
-region, against 273's option text "no Cauchy horizon", its stability open; (d) a bound shell re-collapses in the new
-universe, while 273 is one-way. The ten rows stay derived on these four points. The board does not record them as
-unprovable (443).
+**The README's own passage (479; transition_qt5 Q5-Q7).** READ, 2412.02740v2 p. 15, case (3): "assume that M > m ...
+it will reach R = 0 with finite kinetic energy, so that the shell will cross R = 0 in a smooth way"; p. 18: in the
+collapse "the inner horizon is no longer a Cauchy horizon". Computed:
+- an unbound shell (M = 1, m = 0.5) has Rdot^2 > 0 at every radius on three towers, tending to E at the centre and far
+  off: no turning point, so it crosses the regular centre and expands without end, out through r- and the white hole's
+  r+ into the new universe, one way (Q5);
+- the null limit, the README's case: V(R) converges to a bounded function (m/M = 1e-2 and 1e-3 agree), so the null
+  shell crosses and leaves the same way (Q6); a radial null ray has dr/dlam = +-E exactly, through a smooth centre;
+- Hayward, log and Gauss-Bonnet-free towers give the same: regular core, K bounded alike at M/alpha = 1e2 and 1e6, r- of
+  order sqrt(alpha), a bound shell turning inside r- (Q7).
+
+**What remains.** 273's transition, the README in through our face, across a regular centre and out through a white
+hole into a new universe, one way, is computed in 5D from the gravitational effective action, for the README's own null
+shell. Two points are not proved:
+- (a) that nature's higher-curvature coefficients meet the regularity conditions (signs and growth, READ 2412.02742v2
+  p. 3), and the resummation of the tower, which goes beyond the effective theory's regime (READ 2412.02740v2 p. 2).
+  Only the ultraviolet theory decides this; the scale is l5 by quantum_onset.
+- (b) the inner horizon's stability beyond spherical symmetry.
+The ten rows stay derived on these two. The board does not record them as unprovable (443).

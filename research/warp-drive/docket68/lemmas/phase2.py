@@ -82,7 +82,8 @@ REMAINS = {
     "270": ("COMPUTED", ["h_oneway.py", "i_oneway.py", "c1_oneway.py"], "the one-way object"),
     "276": ("COMPUTED", ["h_oneway.py"], "as 270"), "277": ("COMPUTED", ["i_oneway.py"], "as 270"),
     "273": ("BEYOND", [], "quantum gravity; long time scales unstable (prior art); [478] computed in 4D (transition_aos) "
-                          "and, for a bound dust shell, in 5D from the gravitational effective action (transition_qt5)"),
+                          "and in 5D for the README's null shell from the gravitational effective action (transition_qt5, 479); left: "
+                          "the UV's coefficient conditions, the inner horizon beyond spherical symmetry"),
     "390": ("COMPUTED", ["junction_own.py"], "position 2's face closes when empty"),
     "426": ("COMPUTED", ["encode_read.py"], "the least write by the size"),
     "432": ("COMPUTED", ["settle_arrival.py"], "the shell carries E at the opening (its N part unused)"),

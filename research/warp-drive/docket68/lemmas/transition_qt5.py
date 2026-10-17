@@ -26,13 +26,29 @@ not verified; not seated.
      Tangherlini's wherever x = l5^2 sqrt(K) < 0.1 to better than 2% in 1 - f, and the inner horizon sits at
      r_- ~ l5, where x is of order one -- inside 273's quantum region; no horizon at x < 1 besides our face.
 
-What this proves and does not: 273's transition, a black hole whose matter bounces into a new universe through a white
-hole, is computed in five dimensions from the gravitational effective action alone (no exotic matter), with every
-correction confined to x ~ 1.  Not proved: (a) the couplings alpha_n are not derived, only their scale; (b) the
-inner horizon r_- is a Cauchy horizon inside the region (273's option says "no Cauchy horizon"), its stability open as
-the paper says; (c) the bounce is computed for a bound shell of dust (E < 0); the README arrives as a null shell, which
-reaches the regular centre with the thin-shell description singular there; (d) a bound shell re-collapses in the new
-universe (the paper's cycle), where 273 is one-way.  So 273 is advanced, not closed.
+  Q5 (computed; READ, 2412.02740v2 p. 15, case (3): "assume that M > m ... it will reach R = 0 with finite kinetic
+     energy, so that the shell will cross R = 0 in a smooth way") An unbound shell (M = 1, m = 0.5) on each of three
+     towers has Rdot^2 > 0 at every radius, tending to E = M^2/m^2 - 1 at the centre and far off: no turning point, so it
+     crosses the regular centre and expands without end -- out through r_- and the white hole's r_+ into the new
+     universe, one way (the bound shell's cycle, Q2, needs M < m).
+  Q6 (computed) The null limit, m/M -> 0, the README's own case (a null shell, 438): V(R) = E - Rdot^2 converges to a
+     bounded function (m/M = 1e-2 and 1e-3 agree to 2e-2), so Rdot^2 = E - V never vanishes: the null shell crosses the
+     centre and leaves the same way.  A radial null ray in any of these geometries has dr/dlam = +-E exactly (affine,
+     f-free), through a centre that is smooth.
+  Q7 (computed) The result is the tower's, not one choice of couplings: Hayward (h = psi/(1 - alpha psi)), the log tower
+     (h = -ln(1 - alpha psi)/alpha) and the Gauss-Bonnet-free tower each give a regular core, K bounded the same at
+     M/alpha = 1e2 and 1e6, two horizons with r_- of order sqrt(alpha), and a bound shell's turning point inside r_-.
+
+What this proves and does not: 273's transition -- the README falling in through our face, crossing a regular centre
+and leaving through a white hole into a new universe, one way -- is computed in five dimensions from the gravitational
+effective action alone (no exotic matter), the shell's dynamics exact in spherical symmetry, every correction confined
+to x ~ 1, for the README's own null shell (Q6) and every unbound shell (Q5), on three towers (Q7).  Two things are not
+proved here: (a) that nature's higher-curvature coefficients meet the regularity conditions (READ, 2412.02742v2 p. 3:
+"alpha_n (D - 2n) >= 0 for all n, lim |alpha_n|^(1/n) = C > 0 are sufficient"), which only the ultraviolet theory can
+decide -- their scale is l5 by quantum_onset; and (b) the inner horizon beyond spherical symmetry: in the collapse
+"the inner horizon is no longer a Cauchy horizon" (READ, 2412.02740v2 p. 18), but its stability to non-spherical
+perturbations is not computed.  A delivery spread over its quanta is a family of such shells; their crossing one
+another is not computed.  At the record's scales the bulk's Lambda enters the core at (l5/ell)^2 ~ 1e-40.
 
 python3 transition_qt5.py [--selftest | --mutants]
 """
@@ -59,6 +75,8 @@ def psi_of(r, M, a, model):
         return y
     if model == "hayward":
         return y / (1 + a * y)
+    if model == "log":                                                       # h = -ln(1 - a psi)/a
+        return -math.expm1(-a * y) / a
     # GB-free tower h = psi + a^2 psi^3/(1 - a psi), solved for q = 1 - a psi in log space (q -> 1/(a y) at the centre)
     F = lambda lq: (1 - math.exp(lq)) / a + (1 - math.exp(lq)) ** 3 / (a * math.exp(lq)) - y
     lq = brentq(F, math.log(1 / (10 * a * y + 10)), 0.0, xtol=1e-14, rtol=1e-15, maxiter=500)
@@ -144,6 +162,33 @@ def compute():
     rm_conv = [horizons(Mq, 1.0, "gbfree")[0] for Mq in (1e6, 1e8)]
     x_rm = math.sqrt(kretschmann(rm_conv[-1], 1e8, 1.0, "gbfree"))
     out["q4"] = dict(Mrec=Mrec, dev=max(dev), rm=rm_conv, x_rm=x_rm, nhz=len(hz_rec))
+    # Q5: an unbound shell (M > m): no turning point, it crosses R = 0 with Rdot^2 -> E and expands to infinity
+    Rg = np.geomspace(1e-3, 30.0, 60)
+    q5 = {}
+    for model in ("hayward", "log", "gbfree"):
+        mu = 0.5 if "bound" not in MUT else 1.05
+        Eu = 1.0 / mu ** 2 - 1
+        sv = [rdot2(R, 1.0, mu, 0.1, model) for R in Rg]
+        q5[model] = dict(all=all(v is not None for v in sv),
+                         minv=min(v for v in sv if v is not None) if any(v is not None for v in sv) else -1,
+                         E=Eu, ends=(sv[0], sv[-1]))
+    out["q5"] = q5
+    # Q6: the null limit m/M -> 0: V(R) = E - Rdot^2 converges to a bounded function, no turning point anywhere
+    Vn = {}
+    for mu in (1e-2, 1e-3):
+        En = 1.0 / mu ** 2 - 1
+        Vn[mu] = [En - rdot2(R, 1.0, mu, 0.1, "gbfree") for R in (0.05, 0.2, 0.5, 1.0, 3.0)]
+    out["q6"] = Vn
+    # Q7: three towers (Hayward, log, GB-free): regular core, K bounded and mass-independent, two horizons with r- ~
+    # sqrt(alpha), a bound shell's turning point inside r-
+    q7 = {}
+    for model in ("hayward", "log", "gbfree"):
+        ks = [max(kretschmann(r, Mq, 1.0, model) for r in np.geomspace(1e-3, 3.0, 300)) for Mq in (1e2, 1e6)]
+        hz7 = horizons(1e6, 1.0, model)
+        sb = [rdot2(R, 1.0, 1.05, 0.1, model) for R in np.geomspace(0.02, 3.0, 80)]
+        rmin7 = min(R for R, v in zip(np.geomspace(0.02, 3.0, 80), sb) if v is not None)
+        q7[model] = dict(core=f_of(1e-3, 1e6, 1.0, model), k=ks, hz=hz7, rmin=rmin7, rm=horizons(1.0, 0.1, model)[0])
+    out["q7"] = q7
     return out
 
 
@@ -157,7 +202,14 @@ def checks(o):
     c3 = q3["gb_coeff"] == 0 and q3["hprime_pos"] and abs(q3["core"] - 1) < 1e-5 and max(k) / min(k) < 1.5 \
         and 1 < min(k) < 1e3
     c4 = q4["dev"] < 0.02 and abs(q4["rm"][0] / q4["rm"][1] - 1) < 1e-3 and 0.3 < q4["x_rm"] < 30 and q4["nhz"] == 2
-    return dict(Q1=c1, Q2=c2, Q3=c3, Q4=c4)
+    q5, q6, q7 = o["q5"], o["q6"], o["q7"]
+    c5 = all(v["all"] and v["minv"] > 0 and abs(v["ends"][0] / v["E"] - 1) < 0.05 and abs(v["ends"][1] / v["E"] - 1) < 0.05
+             for v in q5.values())
+    a6, b6 = q6[1e-2], q6[1e-3]
+    c6 = all(abs(x) < 5 for x in b6) and max(abs(x - y) for x, y in zip(a6, b6)) < 2e-2
+    c7 = all(abs(v["core"] - 1) < 1e-5 and max(v["k"]) / min(v["k"]) < 1.5 and len(v["hz"]) == 2 and 0.3 < v["hz"][0] < 3
+             and v["rmin"] < v["rm"] for v in q7.values())
+    return dict(Q1=c1, Q2=c2, Q3=c3, Q4=c4, Q5=c5, Q6=c6, Q7=c7)
 
 
 def report(o=None):
@@ -169,6 +221,18 @@ def report(o=None):
         q3["hprime_pos"], q3["core"], q3["kmax"][1e2], q3["kmax"][1e6], ck["Q3"]))
     print("Q4 record (r0 = 20 ell, 5D form): M/alpha = %.3e; Tangherlini to %.2e where x < 0.1; r- = %.4f l5 (M/alpha "
           "1e6, 1e8: %.4f), x there %.2f: %s" % (q4["Mrec"], q4["dev"], q4["rm"][1], q4["rm"][0], q4["x_rm"], ck["Q4"]))
+    for k, v in o["q5"].items():
+        print("   Q5 %-7s unbound shell (M = 1, m = 0.5, E = %.0f): Rdot^2 > 0 at every R (min %.3f), -> E at R -> 0 (%.3f) "
+              "and at R = 30 (%.3f)" % (k, v["E"], v["minv"], v["ends"][0], v["ends"][1]))
+    print("Q5 no turning point: the shell crosses the regular centre and expands to infinity in the new universe: %s"
+          % ck["Q5"])
+    print("Q6 null limit, V(R) at R = 0.05, 0.2, 0.5, 1, 3: m/M = 1e-2 %s; 1e-3 %s: %s" % (
+        ", ".join("%.4f" % x for x in o["q6"][1e-2]), ", ".join("%.4f" % x for x in o["q6"][1e-3]), ck["Q6"]))
+    for k, v in o["q7"].items():
+        print("   Q7 %-7s f(centre) %.6f, K_max alpha^2 %.2f / %.2f (M/alpha 1e2 / 1e6), r- %.4f sqrt(alpha) at 1e6, "
+              "bound shell's turning point %.4f < r- %.4f" % (k, v["core"], v["k"][0], v["k"][1], v["hz"][0], v["rmin"],
+                                                               v["rm"]))
+    print("Q7 the same on three towers: %s" % ck["Q7"])
     return all(ck.values())
 
 
@@ -180,7 +244,7 @@ def selftest(quiet=False):
 
 
 def mutants():
-    caught = 0; names = ["master", "gb"]
+    caught = 0; names = ["master", "gb", "bound"]
     for mu in names:
         MUT.clear(); MUT.add(mu)
         try:
