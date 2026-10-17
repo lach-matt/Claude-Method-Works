@@ -51,6 +51,14 @@ null constraints reduced to first order.  m is integrated from the axis on every
       expansions of its 2-spheres have the sign of dR/dtau.  That stays negative throughout: -0.24 at the start is its
       largest value and -5.1 at the end its least.  Section 2's semiclassical transition needs an inner trapping horizon to amplify, and here
       there is none: the passage left is 273's quantum bounce.
+  D12 (computed; 467-468, definition (1)) The singularity as M's definition states it: an inextensible geodesic of finite
+      affine length.  The plane is the doubled bulk's mirror and its matter follows the plane's geodesics; the curves at
+      fixed t and angles are timelike geodesics there (nothing depends on t or the angles), with affine parameter the
+      proper time T, dT = (dR/dtau)/(dR/dT) dtau; the radial null geodesic of Killing momentum p_t = 1 has affine
+      dlam = sqrt(N) dT.  Along both, K diverges at finite affine length: T_end = 2.087 ell from s0 = -0.05, with
+      T_end - T ~ K^-0.40 (K ~ (T_end - T)^-2.5), 0.041 ell left once K passes 1e6, and T_end agrees between
+      N = 200 and 400 to 1.2e-3; the null geodesic ends at affine 2.55.  A scalar
+      invariant diverging along the geodesic, it cannot be extended (C^2): incompleteness that is not a horizon.
   Prior art (READ, BOUNCE-RESEARCH section 26):
     - Maeda, Okamura and Koga: in inhomogeneous charged AdS holes the Cauchy horizon disappears and the curvature
       diverges.
@@ -252,6 +260,32 @@ def end_state(hist):
     return dict(Nmax=N[i], RNmax=R[i], Nlast=N[-1], Klast=K[-1], Rlast=R[-1], p=p, Rend=Rend)
 
 
+def geodesics(hist):
+    """the plane's timelike geodesic at fixed t and angles (affine = proper time T) and its radial null geodesic
+    (p_t = 1, affine lam, dlam = sqrt(N) dT), against tau, with K and N"""
+    tau = np.array([h["tau"] for h in hist]); R = np.array([h["Rpl"] for h in hist])
+    dRT = np.array([h["dRpl"] for h in hist]); N = np.array([h["Npl"] for h in hist])
+    K = np.abs(np.array([h["Kpl"] for h in hist]))
+    w = np.gradient(R, tau) / dRT
+    T = np.concatenate([[0.0], np.cumsum(0.5 * (w[1:] + w[:-1]) * np.diff(tau))])
+    wl = np.sqrt(N) * w
+    lam = np.concatenate([[0.0], np.cumsum(0.5 * (wl[1:] + wl[:-1]) * np.diff(tau))])
+    return T, lam, K, N
+
+
+def affine_end(hist):
+    T, lam, K, N = geodesics(hist)
+    late = (K > 1e5) & (np.arange(len(K)) > np.argmax(N)) & (T[-1] - T > 0)
+    p = np.polyfit(np.log(K[late]), np.log(T[-1] - T[late]), 1)[0] if late.sum() > 5 else np.nan
+    j = np.where((K > 1e6) & (np.arange(len(K)) > np.argmax(N)))[0]
+    rest = T[-1] - T[j[0]] if len(j) else np.nan
+    return dict(T=T[-1], lam=lam[-1], K=K[-1], p=p, rest=rest, finite=bool(np.all(np.isfinite(T)) and np.all(w_pos(T))))
+
+
+def w_pos(T):
+    return np.diff(T) > 0
+
+
 def selftest(quiet=False):
     say = (lambda *a: None) if quiet else print
     ok = []
@@ -318,6 +352,12 @@ def selftest(quiet=False):
     r = bool(np.all(d < 0) and d[-1] < 4 * d[0] and d[-1] == d.min() and d.max() == d[0]); ok.append(r)
     say("D11 plane dR/dtau_proper stays negative, %.2f at the start (its largest) to %.2f at the end (its least): no "
         "inner trapping horizon: %s" % (d[0], d[-1], r))
+    a4, a2 = affine_end(h4), affine_end(h2)
+    r = (a4["finite"] and a4["K"] > 1e9 and abs(a4["T"] - a2["T"]) < 5e-3 and a4["rest"] < 0.08
+         and -0.6 < a4["p"] < -0.25 and np.isfinite(a4["lam"])); ok.append(r)
+    say("D12 definition (1): along the plane's timelike geodesic K reaches %.1e at proper time T_end %.4f (N 200: %.4f), "
+        "T_end - T ~ K^%.2f, %.3f left after K passes 1e6; the radial null geodesic ends at affine %.4f: an "
+        "inextensible geodesic of finite affine length: %s" % (a4["K"], a4["T"], a2["T"], a4["p"], a4["rest"], a4["lam"], r))
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)
 
