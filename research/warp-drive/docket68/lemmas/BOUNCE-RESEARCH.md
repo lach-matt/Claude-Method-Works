@@ -1430,3 +1430,76 @@ stations, one the panels. Every finding was checked against the record before it
       logarithms need the same treatment.
   - **The board's reading:** (a) first, with (b)'s leading term as its check. The λ = 0 family then runs past
     μ_phys = 0.08. The same chart serves at λ = 64, where the tail is the same with λ in the denominator.
+
+## 24. P3(a), in progress: the charged hole's interior, computed from its horizon (457; `p3_work/`, not seated)
+
+M, verbatim (457): "We need to continue working through and proving the warp theorem. I just feel like we are not
+making any progress. I need you to stay focused on the working and proving the theorem please". P3's scheme (section
+23) runs on this direction. The hole is P2's λ = 64 member nearest extremality: μ̃ = 0.42, 4πT R₄ = 0.896,
+R₄ = 1.79ℓ (β̃ = 2, N = 20).
+
+**The interior chart (deduced; computed).**
+- Inside the horizon Figueras and Wiseman's chart continues by r² → −ρ². Every component stays real:
+  - g_tt = wρ²T;
+  - g_ρρ = −4wA/f⁴, with f = 1 + ρ²;
+  - g_ρx = −wρxF/f³.
+  The same Einstein–DeTurck–Maxwell operator is generated on it.
+- Fed the exterior's own horizon series, each of the six interior rows equals the exterior row at r = ρ to two digits
+  (computed). The interior operator is the exterior's continuation.
+
+**The horizon's data (deduced, and found the hard way).**
+- The horizon is a Fuchsian point. Read in Euclidean polar form:
+  - T, B, F and S are free there;
+  - T − A is an m = 2 component: it vanishes on the horizon and its σ-coefficient is free;
+  - P is A_t, an m = 1 component: its constant is gauge (P = 0) and its σ-coefficient is the field on the horizon.
+- Imposing T and A both, or P alone, leaves the Jacobian singular (computed, by its null vectors).
+- Those σ-coefficients read from a second Chebyshev derivative of the exterior are noise at O(0.1–1). The interior then
+  carries ξ^ρ/ρ ≈ 0.1–0.6, which is not an Einstein solution.
+
+**One solution across the horizon (computed).**
+- In s = r² the static solution is analytic across the horizon: g_ss = wA/(s f⁴), g_sx = wxF/(2f³), g_tt = −wsT.
+- One spectral solve on s ∈ [s_min, 1] takes the Poincaré-horizon rows at s = 1, the axis and plane rows, P = 0 on the
+  horizon, and the equations everywhere else. No data cross the horizon.
+- Its exterior reproduces P2's member: R₄ = 1.7907ℓ against 1.7914ℓ, and T on the plane at the horizon 1.1879 against
+  1.1884. The 0.04% is the soft direction.
+- ξ² ≈ 10⁻⁶ on both sides of the horizon.
+
+**The interior on the plane (computed).** Areal radius R = β̃√S/f and the Killing norm in physical time,
+g_tt = |s|T, with two resolutions in s agreeing to 3×10⁻⁴:
+
+| s | 0 | −0.10 | −0.20 | −0.30 | −0.40 | −0.45 |
+|---|---|---|---|---|---|---|
+| R/ℓ | 1.79 | 1.57 | 1.38 | 1.20 | 1.02 | 0.94 |
+| g_tt | 0 | 0.123 | 0.258 | 0.408 | 0.587 | 0.701 |
+
+- Four-dimensional Reissner–Nordström at R = 0.94ℓ gives −g_tt = 0.667 with r₋ = 0.25ℓ, and Schwarzschild gives
+  0.91. The interior is Reissner–Nordström-like.
+- **The negative control** (the uncharged hole, β̃ = 2) follows Schwarzschild: g_tt = 0.535 against R₄/R − 1 = 0.497 at
+  R = 1.40ℓ, about 7% high (the bulk's share). Its A falls where the charged hole's climbs.
+
+**Where it stops, and why (computed; deduced).**
+- **The gauge.** The charged solve fails near s = −0.5 at every resolution. A = g_ss/w climbs as 1/(s − s₀), with
+  s₀ ≈ −0.6, while the Killing norm and R stay finite (g_tt = 0.70). That is the harmonic-type gauge's slices piling
+  up, a coordinate collapse, not a horizon: a Killing horizon needs g_tt → 0.
+- **Re-referencing.** With the DeTurck reference moved onto the solution's own Taylor extension at each slab joint,
+  and the fields kept even in x so the axis takes no rows, the march reaches s = −0.55 with ξ² ≤ 2×10⁻⁴:
+  - R = 0.775ℓ, g_tt = 0.855;
+  - T on the plane turns over (1.555), the shape before an inner horizon.
+- **The evolution.** Past that, the constraint violation grows, and grows faster with resolution in x (Np = 14 against
+  18). The plane's and axis's rows, built for an elliptic solve, are not constraint-preserving for an evolution. This
+  is recorded, not repaired.
+
+**The inner horizon, estimated (estimate).** Fitting the plane's g_tt(R) to Reissner–Nordström's
+(r₊ − R)(R − r₋)/R², with r₊ = R₄ fixed, the inferred r₋ settles as the march deepens:
+
+| R/ℓ | 1.57 | 1.38 | 1.20 | 1.02 | 0.94 | 0.86 | 0.775 |
+|---|---|---|---|---|---|---|---|
+| r₋ (ℓ) | 0.13 | 0.18 | 0.19 | 0.22 | 0.21 | 0.25 | 0.27 |
+
+The last two come from the re-referenced march. In Reissner–Nordström the Killing norm peaks near R ≈ 0.5ℓ and returns
+to zero at r₋. r₋ is not yet computed.
+
+**Next (running).**
+- The global solve, its reference turned onto the solution in stages (continuation in the blend), then extended.
+- If that stalls, a chart with both horizons as Fuchsian points, s₋ a gauge choice of the reference. The inner horizon
+  is then a node of one global solve, not the end of an evolution.
