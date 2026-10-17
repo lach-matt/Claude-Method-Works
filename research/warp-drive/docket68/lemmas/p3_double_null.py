@@ -47,6 +47,10 @@ null constraints reduced to first order.  m is integrated from the axis on every
      placed.
   D10 (computed) The result does not depend on the start slice: s0 = -0.05 and s0 = -0.15 give the same N(R) and K(R)
       on the plane.  The test points sit away from the two zeros K crosses, near R = 0.85 and 0.45.
+  D11 (computed; 465) No inner trapping horizon on the plane.  With the plane's t-translation symmetry, both null
+      expansions of its 2-spheres have the sign of dR/dtau.  That stays negative throughout: -0.24 at the start is its
+      largest value and -5.1 at the end its least.  Section 2's semiclassical transition needs an inner trapping horizon to amplify, and here
+      there is none: the passage left is 273's quantum bounce.
   Prior art (READ, BOUNCE-RESEARCH section 26):
     - Maeda, Okamura and Koga: in inhomogeneous charged AdS holes the Cauchy horizon disappears and the curvature
       diverges.
@@ -310,6 +314,10 @@ def selftest(quiet=False):
               for x in (1.0, 0.7, 0.4, 0.35, 0.32))
     r = dev < 3e-3; ok.append(r)
     say("D10 start slice s0 = -0.05 against -0.15: N(R), K(R) agree to %.1e: %s" % (dev, r))
+    d = np.array([h["dRpl"] for h in h4])
+    r = bool(np.all(d < 0) and d[-1] < 4 * d[0] and d[-1] == d.min() and d.max() == d[0]); ok.append(r)
+    say("D11 plane dR/dtau_proper stays negative, %.2f at the start (its largest) to %.2f at the end (its least): no "
+        "inner trapping horizon: %s" % (d[0], d[-1], r))
     say("%d/%d" % (sum(ok), len(ok)))
     return all(ok)
 

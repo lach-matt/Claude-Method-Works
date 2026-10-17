@@ -1496,6 +1496,26 @@ state was rebuilt first.
   - Not computed: the large end (r+/ell ~ 3e7), an evaporating or perturbed hole, any quantum stress.
   - Offered to M as a clarification under 454 (b), not a ruling made again: with no regular r-, position 2's mouth
     in a second universe has no classical route through this hole.
+  - [Corrected at 465 (S24): the passage left is 273's quantum bounce, not section 2's semiclassical one, which needs
+    an inner trapping horizon that the plane does not have (p3_double_null D11).]
+- **Item 465** (M: "close origin since it is moot. And continue").
+  - Carried as M's: M-ORIGIN-CLOSED.
+  - OBSTACLES ranks 2 and 3 are closed. 462's magnetic corridor is touched, not overturned, and the rows S14 and S15
+    touched stand for the uncharged hole as derived (S23).
+  - **A correction of the board's own** (S24). On the plane dR/dtau < 0 to the end, so there is no inner trapping
+    horizon (p3_double_null D11, 12/12). The passage left is 273's quantum bounce.
+  - **The ten rows on 273, re-posed** on 273's bounce as at 443 (BOUNCE-RESEARCH section 29). P3's control, read
+    through the brane duality, shows the static state gives no bounce. A collapse in the "in" vacuum, computed in the
+    bulk, is the next step, put to M (414).
+  - **Rank 4 done** (`lemmas/rederive.py` 10/10, mutants 4/4). The twelve rows are re-derived without their readings:
+    - R4, R5 on 155's own parts;
+    - E3 on position 2's release;
+    - ARRIVALs on 136 (1), 136 G and 162;
+    - B1 with 320 proved by Reeh-Schlieder;
+    - B5pu, B5px on our matter and 229's destination;
+    - FAR, FARs, CLOSE, B5c and B5cs on the destination's own sigma2 >= 0.
+    phase2.py passes 68 rows (from 56). What remains: the ten rows on 273, and SOURCE and SOURCEs, deferred.
+  - A finding, not repaired (S25): CLOSEs', E2us' and E2u's notes cite 139 (1)'s quarter figures.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

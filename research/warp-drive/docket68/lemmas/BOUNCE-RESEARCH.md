@@ -1846,6 +1846,8 @@ K → 1.7×10¹⁰ at τ = 0.70.
     white hole. In this hole there is none.
   - The passage left is section 2's: the semiclassical black-to-white transition at the core, which O1a already names
     as "the bounce".
+    [Corrected at 465 (STALE-LEDGER S24): section 2's transition needs an inner trapping horizon to amplify, and the
+    plane has none (p3_double_null D11). The passage left is 273's quantum bounce; see section 29.]
   - Rank 2 (the charge's origin) and rank 3 (the magnetic closing) of `OBSTACLES.md` serve that classical route. They
     are moot for the passage, as the ranking anticipated.
 - **What is not computed.**
@@ -1853,3 +1855,57 @@ K → 1.7×10¹⁰ at τ = 0.70.
     there for any inhomogeneity.
   - An evaporating or perturbed hole: here the hole is the eternal static one.
   - Any quantum stress.
+
+## 29. The origin closed; the passage left is 273's bounce; rank 4 re-derived (465; `p3_double_null.py` D11; `rederive.py`, 10/10, mutants 4/4)
+
+M, verbatim (465): "close origin since it is moot. And continue".
+
+**The origin closed (M's) and what closes with it (the board's reading).**
+- OBSTACLES rank 2, the magnetic charge and how it arises, is closed as moot.
+- Rank 3, the magnetic face's closing, closes with it. Without a required charge, the rows S14 and S15 touched
+  (CLOSEs, CLOSE; B7, B4a, B4ds, B4d, ARRIVALs, ARRIVAL, SOURCEs, SOURCE) stand for the uncharged hole and the
+  uncharged opening as derived.
+- 462's magnetic corridor is touched, not overturned (S23).
+
+**A correction of the board's own (computed).**
+- 464 named section 2's semiclassical transition as the passage left. That mechanism amplifies the quantum stress at
+  an inner trapping horizon.
+- On the plane both null expansions of the 2-spheres have the sign of dR/dτ. In P3's charged hole dR/dτ stays negative
+  throughout: −0.24 at the start is its largest value and −5.1 at the end its least (D11).
+- So there is no inner trapping horizon on the plane, as C1 and C2 found none for the neutral delivery.
+- The passage left is 273's quantum bounce (H-BOUNCE-TO-P2): Haggard and Rovelli's tunnelling, giving up classical GR
+  in a small quantum region. M holds it provable with deeper research (443).
+
+**The ten rows on 273, re-posed (deduced).**
+- O1a, O1b, O1c, Z3b, Z3bs, M1, B3, B3s, B4d and B4ds return to their 443 form: each rests on 273's quantum region
+  at the core.
+- P3 adds two things:
+  - the classical route through r₋ that the charge was to supply does not exist;
+  - the uncharged corridor's classical interior crunches on the plane as Schwarzschild's does (P3's control), and the
+    quantum region stands in place of that crunch.
+- A reading P3 makes available (deduced, on section 3's duality, which is a conjecture with evidence). The classical
+  bulk is the plane's hole with its dual theory's quantum backreaction at every order in the planar limit.
+  - P3's control is the static hole, and it crunches. So the static state gives no bounce.
+  - A collapse in the "in" vacuum, the case 2011.07331 and 2506.04845 compute, is a different state. Its bulk
+    evolution is not computed.
+  - That is the deeper research's next computation, put to M before it runs (414).
+
+**Rank 4: the twelve rows re-derived without their readings (`rederive.py`).**
+
+| rows | reading dropped | re-derived on |
+|---|---|---|
+| R4, R5 | 155 | 155's own parts: (2) a definition, (3) established. The expansion, part (1), is used by neither (X1). |
+| E3 | 155 (1), the expansion | The release at position 2's face's closing, on which E2us–E2xs already pass (Haggard and Rovelli, READ). The ledger closes at every README, end and G5 reading, and fails without the term at the snapshot (X2). |
+| ARRIVALs | 109 | 136 (1), 136 G and 162, each excluding reading (i) on its own: 2E, and 2^(3/2) N = 2.83 N. The face's end is computed by junction_own G8 (X3). |
+| B1 | 320, proved rather than dropped | 320's information disjunct by Reeh–Schlieder: "every Reeh-Schlieder state contains entanglement between any two spatially separated regions" (RS_ENT, READ) (X4). |
+| B5pu, B5px | 202 | One universe: our matter, pointwise P4–P5. Between universes: 229's destination, term by term (X5, X6). |
+| FAR, FARs | 139 (1) | Σ⁺ = σ + 2σ₂ ≥ σ > 0 at every destination of 229. F3's bound holds on every decaying side; the twelve give ℓ₊/ℓ in [1/6, 1/3] (X7). |
+| CLOSE | 139 (1) | Position 2's face closes at each of the twelve: with its README at σ₂ = σ (G8–G9), at its junction in the 2P family (X8). |
+| B5c, B5cs | 139 (1) | The crossing share Σ⁺ s² + (ρ + p)(1 − s²) > 0 for every s in (0, 1] (z3). E7's lift of the quarter is not needed (X9). |
+
+- With these, phase2's audit has **68 rows passing**, up from 56.
+- What remains: the ten rows on 273, and SOURCE and SOURCEs, deferred by M.
+
+**A finding, recorded and not repaired (X10).** CLOSEs', E2us' and E2u's register notes cite 139 (1)'s quarter
+figures, 33.6 clocks and 2.7×10⁻³ clocks, though their audited readings omit 139. At the theorem's destination the
+figures are X8's (S25).

@@ -75,7 +75,8 @@ def run(fn, s0, N, kap, Ns, tmax, Kcut=1e8, cfl=0.25, tag=None, nout=60, quiet=F
             break
         A, S, r = Y[1], Y[0], Y[2]
         R = np.exp(-A / 2) * r
-        rec = dict(tau=n * dt, jL=ev.jL, chiL=ev.chi[ev.jL], Npl=np.exp(2 * A[-1]), Rpl=R[-1], Kpl=K[-1],
+        dRpl = R[-1] * (Y[5][-1] / r[-1] - Y[4][-1] / 2) * np.exp(-(S[-1] - A[-1] / 2))   # dR/d(proper time)
+        rec = dict(tau=n * dt, jL=ev.jL, chiL=ev.chi[ev.jL], Npl=np.exp(2 * A[-1]), Rpl=R[-1], Kpl=K[-1], dRpl=dRpl,
                    Nmin=np.exp(2 * A[ev.jL:]).min(), Kin=np.nanmax(aK[ev.jL:]), Rmin=np.nanmin(R[max(ev.jL, 1):]))
         hist.append(rec)
         if (n % every == 0 or n == nst) and not quiet:

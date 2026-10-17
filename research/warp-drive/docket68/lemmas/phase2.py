@@ -95,7 +95,9 @@ REMAINS = {
     "177": ("REDERIVE", [], "Z3b, Z3bs: re-derived on the averaged null condition (proved)"),
     "183": ("REDERIVE", [], "as 177"),
     "202": ("REDERIVE", [], "B5pu, B5px: re-derived on 229's ordinary matter instead"),
-    "320": ("REDERIVE", [], "B1: its clause 'no bulk is ever empty' dropped"),
+    "320": ("COMPUTED", ["rederive.py", "b1_matter.py"], "its information disjunct by Reeh-Schlieder: every bulk carries "
+                                                         "the graviton's vacuum, entangled between any two regions "
+                                                         "(RS_ENT; rederive X4, 465)"),
     "328": ("COMPUTED", ["relativity.py"], "observed for gravity; computed for every front"),
     "334": ("COMPUTED", ["o3_large.py", "write_large.py", "o3_hold.py"], "the hold as the face standing"),
 }
@@ -112,6 +114,13 @@ INSIDE_BOUND = {("ENCODE", 437): "the encoding is integers only, the same under 
                 ("ARRIVAL", 437): "ARRIVAL's name bounds its rebuild to the region (443 (1)); its 437 is item 437 (3), "
                                   "the re-wording, not RECON's 437 (4) -- a conflation in refound's table, recorded"}
 DEF_READING = {"R0": "R0", "R1": "R1", "R2": "R2", "R6": "R6", "RECON": "437", "B6'": "201"}
+# item 465, OBSTACLES rank 4: rows re-derived without a REDERIVE reading (rederive.py X1-X9, its selftest the check);
+# the reading keeps its status, the row no longer rests on it
+REDERIVED = {("R4", 155): "X1 (155 (2), a definition)", ("R5", 155): "X1 (155 (3), established)",
+             ("E3", 155): "X2 (the release at position 2's face's closing)", ("ARRIVALs", 109): "X3 (136 (1), 136 G, 162)",
+             ("B5pu", 202): "X5 (one universe: our matter, pointwise P4-P5)", ("B5px", 202): "X6 (229's destination)",
+             ("B5c", 139): "X9 (Sigma+ > 0 at 229's destination)", ("B5cs", 139): "X9",
+             ("FAR", 139): "X7 (every decaying side)", ("FARs", 139): "X7", ("CLOSE", 139): "X8 (junction_own G8-G9)"}
 
 
 def _load(path, key):
@@ -159,6 +168,8 @@ def audit():
                 continue
             if n == 422:
                 wait.append("422 the core (TO-COMPUTE)")
+                continue
+            if (row, n) in REDERIVED and "no_rederive" not in MUT:
                 continue
             key = ROW_PART.get(row, {}).get(n, str(n))
             st = rem[key][0]
