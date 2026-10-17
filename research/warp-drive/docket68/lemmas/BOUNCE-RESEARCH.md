@@ -1013,6 +1013,11 @@ M, verbatim: "Yes to both". The prior art was read first, charged versions inclu
     in a bulk black hole moves (Bowcock, Charmousis and Gregory; Kraus, as section 13 cites them).
 - **(b′) As (b), but on your 139 (1)'s negative plane, a quarter of ours.** On that plane there is no maximum
   principle either (Figueras and Wiseman), and gravity is not held to it (B4d stage 5).
+  [455, beside it, a correction: in Figueras, Lucietti and Wiseman's convention K_ij + λh_ij = 0 (outer normal,
+  their (2.11), READ), our positive-tension Randall–Sundrum plane has λ = −1/ℓ, which they call "negative tension". So
+  Figueras and Wiseman's "for this negative tension orbifold brane there is no maximum principle argument" is about
+  our plane itself, in every case, not about 139 (1)'s. On a physically negative plane their principle would hold
+  (deduced from their convention). Gravity not held to that plane stands.]
 
 **Proposed, in order, each reported before the next.**
 - **P1 (ODE, light): the throat with the plane.**
