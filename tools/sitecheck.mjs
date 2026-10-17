@@ -316,6 +316,67 @@ scenario('review', 'the explorer\'s own keys still act with no dialog open', asy
   await p.keyboard.press('/'); await W(p, 300); ok('/ focuses the search', (await p.evaluate(() => document.activeElement.id)) === 'q', null);
 });
 
+// ---- solvers: the suite runs, and answers what a reader asks of it
+const pickMode = (p, title) => p.evaluate((t) => { const s = document.querySelector('#solver-mode'), o = [...s.options].find((x) => x.textContent === t);
+  if (!o) return false; s.value = o.value; s.dispatchEvent(new Event('change')); return true; }, title);
+const solve = async (p, title, fills = {}) => {
+  if (!(await pickMode(p, title))) return { rows: {}, msg: `no mode "${title}"` };
+  for (const [k, v] of Object.entries(fills)) await p.fill(`#solver-mode-body [data-name="${k}"]`, v);
+  await p.click('#solver-mode-body [data-sv="run"]');
+  await p.waitForFunction(() => !/running …/.test(document.querySelector('[data-sv-out]').innerText), null, { timeout: 60000 });
+  return p.evaluate(() => { const out = document.querySelector('[data-sv-out]'), rows = {};
+    out.querySelectorAll('tbody tr').forEach((tr) => { const td = tr.querySelectorAll('td'); rows[td[0].textContent] = { value: td[1].textContent, status: td[2].textContent.trim(), note: td[3].textContent }; });
+    return { rows, msg: (out.querySelector('.solver-msg') || {}).textContent || '', toGravity: !!out.querySelector('[data-solver="gravity"]') }; });
+};
+const selftestOf = async (p, title) => {
+  if (!(await pickMode(p, title))) return null;
+  await p.click('#solver-mode-body [data-sv="selftest"]');
+  await p.waitForFunction(() => !/selftest running/.test(document.querySelector('[data-sv-test]').innerText), null, { timeout: 120000 });
+  return p.evaluate(() => { const b = [...document.querySelectorAll('[data-sv-test] .selftest-summary b')].map((x) => +x.textContent);
+    return { checked: b[0], failed: b[1], failures: [...document.querySelectorAll('[data-sv-test] tbody tr')].map((tr) => tr.textContent.slice(0, 160)) }; });
+};
+const MODES = ['The channel equation', 'The Pauli bound', 'The collapse coordinate C(Z, l)', 'Order closure, R', 'A Lambda_8 cell against its constraints',
+  'The coefficient calculator', 'The relativistic limit (c = 137 against c → ∞)', 'Chemical equation check', 'Balance a chemical equation',
+  'Relative gravity of a body', 'Build an atom, ion or molecule'];
+for (const [what, from, to] of [['the record\'s own modes', 0, 7], ['the chemistry and gravity modes', 7, 11]]) scenario('solvers', `${what}: each selftest passes`, async ({ open, ok, W }) => {
+  const p = await open(); await p.goto(B); await W(p, 3000);
+  if (from === 0) { const n = await p.evaluate(() => [...document.querySelectorAll('#solver-mode option')].map((o) => o.textContent));
+    ok('the suite loads every mode', JSON.stringify(n) === JSON.stringify(MODES), n); }
+  for (const t of MODES.slice(from, to)) { const r = await selftestOf(p, t); ok(`${t}: selftest passes`, r && r.checked > 0 && r.failed === 0, r); }
+});
+scenario('solvers', 'what a reader asks the builder and the gravity mode, on a phone', async ({ open, ok, W }) => {
+  const p = await open(PHONE, true); await p.goto(B); await W(p, 3000);
+  const B1 = 'Build an atom, ion or molecule', G1 = 'Relative gravity of a body';
+  let r = await solve(p, B1, { formula: 'water' });
+  ok('water: the molar mass 18.015 g/mol and the most abundant isotopologue, A = 18', /^18\.015 g\/mol/.test((r.rows['molar mass (standard atomic weights)'] || {}).value || '') && (r.rows['nucleons A, neutrons N'] || {}).value === '18, 8' && /^18\.010565 u/.test((r.rows['mass M (the most abundant isotopologue)'] || {}).value || ''), r.rows);
+  r = await solve(p, B1, { formula: 'glucose' });
+  ok('glucose: 180.156 g/mol', /^180\.156 g\/mol/.test((r.rows['molar mass (standard atomic weights)'] || {}).value || ''), r.rows['molar mass (standard atomic weights)']);
+  r = await solve(p, B1, { formula: 'electron' });
+  ok('electron: a particle, sent to the gravity mode', /particle e-/.test(r.msg) && r.toGravity, r);
+  r = await solve(p, G1, { species: 'Fe', two_j: '', level: '', reference: '^1H' });
+  ok('Fe: χ from the ground term, the bound decided at D = 4, the χ ratio against ¹H', /^\d\.\d+e[+-]\d+/.test((r.rows['χ, the Kerr spin'] || {}).value || '') && (r.rows['horizon bound at D = 4'] || {}).value === '1 · a bound' && /^\d/.test((r.rows['χ / χ_ref'] || {}).value || ''), r.rows);
+  r = await solve(p, G1, { species: '^12C' });
+  ok('¹²C: exactly 12 u at the ground, J from the ground term, not the banked excited level', /^12\.000000 u/.test((r.rows['mass M'] || {}).value || '') && /ground term 3P0/.test((r.rows['2J'] || {}).note || ''), r.rows);
+  r = await solve(p, G1, { species: 'proton' });
+  ok('proton: read as the baryon p', /^p \(a member of the baryons index\)/.test((r.rows.body || {}).value || ''), r.rows.body || r.msg);
+  r = await solve(p, G1, { species: 'photon' });
+  ok('photon: massless, χ not defined', (r.rows['mass M'] || {}).value === '0 (massless)' && (r.rows['χ, the Kerr spin'] || {}).value === 'not defined', r.rows);
+  r = await solve(p, G1, { species: 'pion' });
+  ok('pion: three particles listed, none chosen', /names 3 particles: pi\+, pi0, pi-/.test(r.msg), r.msg);
+});
+scenario('solvers', 'the search box reads a particle by its name', async ({ open, ok, W }) => {
+  const p = await open(); await p.goto(B); await W(p, 3000);
+  await p.fill('#q', 'proto'); await p.type('#q', 'n', { delay: 30 }); await W(p, 2500);
+  await p.type('#q', ' '); await p.keyboard.press('Backspace'); await W(p, 600);   // again, the indexes now loaded
+  const sug = await p.$$eval('#suggest li', (ls) => ls.map((l) => l.textContent));
+  ok('proton: its plate and its gravity are offered', sug.some((s) => /proton → p.*baryons · its plate/i.test(s)) && sug.some((s) => /proton → p.*relative gravity/.test(s)), sug);
+  const i = sug.findIndex((s) => /relative gravity/.test(s));
+  if (i >= 0) await p.dispatchEvent(`#suggest li:nth-child(${i + 1})`, 'mousedown');
+  await W(p, 1200);
+  const m = await p.evaluate(() => ({ mode: document.querySelector('#solver-mode').selectedOptions[0].textContent, body: (document.querySelector('#solver-mode-body [data-name="species"]') || {}).value }));
+  ok('...and the gravity suggestion opens the mode on it', m.mode === 'Relative gravity of a body' && m.body === 'proton', m);
+});
+
 // ---------------------------------------------------------------- suites
 const KNOWN = [...new Set(SCENARIOS.map((x) => x.suite))];
 if (SUITES.has('all')) SUITES = new Set(KNOWN);
@@ -436,7 +497,7 @@ for (const sc of SCENARIOS) {
     return p;
   };
   let done = false, timer;
-  const ok = (name, cond, got, o = {}) => { if (!done) results.push({ suite: sc.suite, scenario: sc.name, name, status: o.nav && NONAV ? 'n/a' : cond ? 'PASS' : 'FAIL', got: cond ? '' : JSON.stringify(got) }); };
+  const ok = (name, cond, got, o = {}) => { if (!done) results.push({ suite: sc.suite, scenario: sc.name, name, status: o.nav && NONAV ? 'n/a' : cond ? 'PASS' : 'FAIL', got: cond ? '' : String(JSON.stringify(got === undefined ? null : got)) }); };
   const deadline = new Promise((_, rej) => { timer = setTimeout(() => rej(new Error(`did not finish in ${SCENARIO_MS / 1000} s (the page stopped responding?)`)), SCENARIO_MS); });
   try { await Promise.race([sc.fn({ open, st, ok, W, onSite }), deadline]); }
   catch (e) { results.push({ suite: sc.suite, scenario: sc.name, name: 'ran to the end', status: 'FAIL', got: e.message.split('\n')[0] }); }

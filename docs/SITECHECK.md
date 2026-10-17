@@ -64,7 +64,7 @@ boot or element load and reports it on the console only, so console errors count
 the harness itself turns away from another host (the fonts). Each scenario has three minutes; one
 that stops responding is reported as failed and the run goes on.
 
-## What it checks — 26 scenarios, 109 checks
+## What it checks — 30 scenarios, 131 checks
 
 Each scenario runs in fresh browser contexts, closed when it ends, so one cannot leak into the next;
 a scenario that throws is reported as a failure and the run goes on.
@@ -93,12 +93,29 @@ a scenario that throws is reported as a failure and the run goes on.
   the reader put it; and the explorer's own keys still acting, and writing the address, with no
   dialog open.
 
+- **`solvers`** — the solver suite runs, and answers what a reader asks of it: every mode loads and
+  each of the eleven selftests passes, in two scenarios (the record's own modes, then the chemistry
+  and gravity modes); on a phone, the builder gives water its molar mass (18.015 g/mol) and its most
+  abundant isotopologue (A = 18, 18.010565 u), glucose 180.156 g/mol, and sends "electron" to the
+  gravity mode; the gravity mode gives iron a χ from its ground term with the bound decided at
+  D = 4 and the χ ratio against ¹H, gives ¹²C exactly 12 u at the ground (not the banked excited
+  level), reads "proton" as the baryon p, refuses a photon's χ as undefined rather than infinite,
+  and lists the three pions rather than choosing one; and the search box offers a particle's plate
+  and its gravity by its common name, the gravity suggestion opening the mode on it. These are the
+  readings that were refusals or wrong before 2026-10-17 (docs/WEB-INDEX.md, the eleventh mode).
+
 **Each of those was proved to fail on the bug it guards against.** The review that hardened the
 tool put ten known bugs back into copies of the site — the `#paper=` branch removed, `paperAddress`
 replace-only, the dialog key guard removed, `focusPapers` a no-op, `select()` writing the address
 unconditionally, the rotation observer removed, `entryBehind` returning nothing, the first-load
 guard removed, a dead link in a paper, the dialog left open when the address moves on — plus a
 canvas that throws on every draw, and served each with `--root`: every one now fails the run.
+
+**The `solvers` suite was proved the same way, against the site it replaced.** Run on the deployed `main` of
+2026-10-17 (`--target commit --suite solvers`), before the solver fixes, it fails all ten of its reader checks
+and passes the twelve selftest checks. Those selftests had pinned the old behaviour, a mass refused without
+isotopes and an excited level's energy included, which is how a suite that answered nothing useful reported
+itself healthy. The reader checks are there so that cannot happen again.
 
 The checks name specific papers (Löwdin, Tower, Bracket, Lattice, the index paper, Everything Is
 Relative) and elements (Fe, Cu, U III), and pin some of their text, as `--selftest` pins figures: a
