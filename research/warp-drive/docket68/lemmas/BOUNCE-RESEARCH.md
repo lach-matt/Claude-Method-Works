@@ -1975,3 +1975,42 @@ hypothesis of the theorems that answer it at every size is computed, and the the
 **What this does not prove.** That the thin plane's spacetime is incomplete by a theorem (open, above); hypothesis
 (ii) for the hole's own spacetime (assumed); that the incompleteness is a curvature singularity at every size (P3's
 computation, section 31); anything in the full quantum regime.
+
+## 31. P3 at the large end, answered at r+ = 2.8×10⁷ ℓ (466 (a); 469–470)
+
+M (469): "Whatever you are doing is wrong. You should have solved this by now". M (470): "You need to change your
+approach entirely. Everything you keep suggesting keeps putting into days of work with no results." The size ladder
+(r+ = 1.8 to 2.2 ℓ) is set aside: no full five-dimensional solve crosses seven orders of magnitude. At the large end
+ℓ/r+ = 3.6×10⁻⁸, so the plane is four-dimensional magnetic Reissner–Nordström plus the plane's field-theory stress at
+order (ℓ/r+)² = 1.3×10⁻¹⁵ (Stein, READ in section 30; the bulk computation is that backreaction, exact in N,
+Shahbazi-Moghaddam). P3's question at the large end is therefore whether that stress diverges at r₋.
+
+**READ.**
+- Hollands, Wald and Zahn (arXiv:1912.06047): "for any state that is nonsingular (i.e., Hadamard) within the domain of
+  dependence, the expected stress-tensor blows up with affine parameter, V, along a radial null geodesic transverse to
+  the Cauchy horizon as T_VV ∼ C/V² with C independent of the state and C ≠ 0 generically ... This divergence is
+  stronger than in the classical theory and should be sufficient to convert the Cauchy horizon into a strong
+  curvature singularity."
+- Zilberman, Levi and Ori (arXiv:1906.11303, PRL 124, 171302), Reissner–Nordström: "both ⟨T_uu⟩ren and ⟨T_vv⟩ren
+  attain finite asymptotic values at the IH. Depending on Q/M, these asymptotic values are found to be either positive
+  or negative (or vanishing in-between). Note that having a nonvanishing ⟨T_vv⟩ren at the IH implies the formation of
+  a curvature singularity on its ingoing section, the Cauchy horizon."
+- Emparan and Tomašević (arXiv:2002.02083), a brane-world hole computed through its bulk: the BTZ inner horizon "remains
+  non-singular when leading-order backreaction of the quantum fields is computed, but, after next-order backreaction is
+  accounted for, it will become singular."
+
+**Computed (this hole, Q/r+ = 0.4214).** r₋/r+ = 0.17758; κ₊r+ = 0.4112, κ₋r+ = 13.04, κ₋/κ₊ = 31.7. In the conformal
+(s-wave) model the inner-horizon flux in the state regular at the event horizon is 48π⟨T_vv⟩(r₋) = κ₊² − κ₋² =
+−169.9/r+² per unit central charge: not zero (it vanishes only at extremality). A nonzero ⟨T_vv⟩ at r₋ is
+T_VV ~ C/V² in the coordinates regular there. The backreaction is of size (ℓ/r+)² = 1.3×10⁻¹⁵ but multiplies that
+divergence, so it takes over within Kruskal V ~ 10⁻¹⁵ of r₋, about 2.6 r+ of advanced time.
+
+**The answer at the large end.** No regular inner horizon: the stress the bulk carries onto the plane diverges at r₋,
+and the curvature with it; the size only fixes how close to r₋ the singularity sits, and as ℓ/r+ → 0 it closes onto r₋
+(r₋/r+ = 0.178). The computed sizes agree in direction: the singular end at R/r+ = 0.166 (r+ = 1.8 ℓ) and 0.171
+(2.0–2.2 ℓ), rising toward 0.178.
+
+**What this rests on, and its one gap.** The divergence is generic (Hollands, Wald and Zahn: C ≠ 0 generically), and
+for a free scalar on Reissner–Nordström it vanishes at one value of Q/M (Zilberman, Levi and Ori). This hole's Q/M is
+0.716. That the plane's own field theory (strongly coupled, holographic) has C ≠ 0 at Q/M = 0.716 is not shown in
+the sources read; the conformal model gives C ≠ 0 at every Q/M short of extremality.
