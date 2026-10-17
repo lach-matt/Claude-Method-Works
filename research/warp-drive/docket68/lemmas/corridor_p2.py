@@ -49,7 +49,7 @@ deduced, estimate.  Worked in the conversation; not verified; not seated.  2026-
      bulk U(1)'s zero mode is not localized (Pomarol, READ; u1_bulk's running coupling, 446), its field falls as
      1/(D ln D), and the chart's Poincare-horizon rows assume a power.  With the field held on the plane (lam = 64)
      the family follows Reissner-Nordstrom toward extremality; N = 16 and 20 agree within 0.5% down to
-     4 pi T R4 = 0.89 (mt = 0.84) and part beyond it: extremality is approached, not reached, at N <= 20.
+     4 pi T R4 = 0.89 (mt = 0.42) and part beyond it: extremality is approached, not reached, at N <= 20.
 
 python3 corridor_p2.py [--selftest | --mutants | --family]
 """

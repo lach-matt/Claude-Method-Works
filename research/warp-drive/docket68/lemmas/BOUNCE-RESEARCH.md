@@ -1252,3 +1252,137 @@ It was run instead at finite temperature, in Figueras and Wiseman's chart, the f
   planned, with P1's throat at the end, for λ above λ_min?
 - **(2)** Keep the bulk U(1) with a large field term (iii) toward (i)? Or carry λ = 0 further with a chart that
   holds the logarithmic tail? The latter is a subtraction of the zero mode's far solution, not yet built.
+
+## 23. The record's rows against the corridor (456)
+
+M, verbatim: "1 - I agree, the λ = 64 hole. / 2 - both / 3 - yes / and most of the warp theorem map is still stale.
+Review ALL aspects of the map please."
+
+**What 456 settles for the corridor.**
+- P3(b) starts from the λ = 64 family's resolved member nearest extremality: 4πT R₄ ≈ 0.89, R₄ ≈ 1.8ℓ (section 22).
+- Both routes are kept. The large field term is carried toward (i), and a λ = 0 chart that holds the logarithmic tail
+  is built.
+- `corridor_p2.py` joins T1.
+- P3's scheme and the λ = 0 chart's construction are put to M before they run (414).
+
+**The review: every row against `phase2.py` (computed).** The map's 80 register rows (83 entries, three of them on
+two stations) were read against the audit under 442.
+- 56 pass, 12 wait on a reading, 10 rest on 273's bounce, 2 are deferred.
+- The ten on 273 are O1a, O1b, O1c, Z3bs, Z3b, B3s, B3, B4ds, B4d and M1.
+- Before 456, 76 rows showed the register's own green words. Demand, Formation, Address and Crossing were drawn amber,
+  though each holds a row on 273. Each chip, station colour and pill is now drawn from the audit.
+
+**What the corridor's computation bears on (deduced; computed where marked).** It bears on 27 rows: seven of the ten
+on 273 and twenty others. Each carries a note on the map. No row is moved: a row is re-posed when the computation
+says what holds (446).
+
+**Four findings, put to M (414).**
+- **(1) G1, the energy.** The corridor is a charged hole. At the same horizon its energy is 1.01 to 1.98 times the
+  uncharged hole's, as r₋/r₊ runs from 0.1 to 0.99 (computed, section 14). G1's E(N) is the uncharged hole's; the
+  charge adds its field's energy.
+- **(2) H2, the faces.** Our face is the charged hole's outer horizon r₊, and position 2's face is its inner horizon
+  r₋: one hole, two null surfaces (exact, section 14). "One null surface" (270 (a)) is the one-way object's.
+- **(3) O1bs and O1cs, the routes.** In the charged hole at the small end, every massive route and every route with
+  angular momentum turns inside r₋ and passes out through the white hole (computed, section 14). Radial light alone
+  reaches the timelike centre, a set of measure zero. The README travels on the light cone (386). Whether its route
+  can be radial is the passage's question. O3s, proved on the one-way object, carries the same note.
+- **(4) ARRIVAL, ARRIVALs and B7, the charge's source.** The README is energy alone (386), a neutral shell, and a
+  neutral delivery makes no inner horizon (C1, 444). The corridor computed since 446 is charged. The charge's source,
+  the device (446 (2)), is placed by no row. B7 adds: the corridor computed is the eternal charged hole, with a plane in
+  each exterior. How a corridor formed at the opening carries that hole's interior to the second plane is not yet
+  computed.
+
+**The other twenty, noted (deduced; computed where marked).**
+- **Null energy.**
+  - Z1q: where the bulk U(1) is excited, R₅(k,k) = 8πG₅T(k,k) ≥ 0, a sum of squares (`u1_bulk.py`), not zero.
+  - Z1ts and Z1t: along the mouth's radial ray it stays zero in the charged hole, since a radial field has
+    Tᵗₜ = Tʳᵣ.
+  - B5b: the bulk U(1) keeps the null condition at every point (computed).
+- **The bulk's law.**
+  - B8: Einstein–Maxwell, with the U(1) M assumed (`u1_bulk.py`: consistent and established, not derived from first
+    principles); the Gauss–Bonnet coupling stays zero.
+  - B2t: P2 computed the charged hole's bulk (computed, `corridor_p2.py`); its instance is the uncharged hole's.
+  - E4rs and E4r: once the corridor is charged, the bulk carries the field's energy outside the neck.
+- **The temperature.**
+  - E1us and E1u: the charged hole is colder at the same horizon, κ₊r₊ from 0.99 to 0.02 (section 14). "At least
+    2.4 N clocks" stands as a lower bound; discharge needs charged species the record does not hold.
+  - O2: the corridor's surface gravity lies below the uncharged values. P3's start is not extremal (4πT R₄ ≈ 0.89).
+- **The closing.**
+  - O2, CLOSEs and CLOSE: position 2's face is the inner horizon. The plane closes it in about 20 r₋²/(r₊c),
+    1.4–5.7×10⁻¹⁰ s at the Earth cap (computed, 448). The 33.6 clocks are the one-way object's (c_junction J1).
+
+**On the ten (deduced).**
+- M1: P2 computed the charged hole on the plane. With the field held there (λ = 64) it reads four-dimensional
+  Reissner–Nordström, within 15% at R₄ ≈ 2ℓ and 7% from 3ℓ (computed, section 22). M1's Schwarzschild reading is the
+  uncharged corridor's.
+- Z3bs and Z3b wait on 177 and 183 beside 273. Since 448 the passage's negative on the plane is the in vacuum's, which
+  closes the inner horizon.
+- B3s, B3, B4ds and B4d: their 439 settlement is the register's derivation. Under 443 they rest on 273's bounce, now
+  the passage through the charged hole, computed in stages.
+
+**Superseded figures, corrected on the map (READ from the record).** The map still carried the write's free-field floor
+(66,980 clocks at the small end; at the large end, "3.3×10¹⁰ writes"). That floor rested on H-BITS-ARE-STATES, set
+aside by 432 (1), and `encode_read.py` E5 (437) replaced it with the least write. The map now reads:
+- at the small end, 9.49 r_h/c;
+- at the large end, 28.48 m/c;
+- for the large hole's life, 6.63×10¹⁵ clocks at the example README (`close_large.py` L3). That covers the least
+  write 2.33×10¹⁴ times.
+
+**The register's own words, stale in places (recorded, not repaired).** These are register text. They change only
+when the register is re-seated.
+- M1's name still ends "(OPEN since item 232)", though its status is DERIVED (item 356).
+- O3s's text quotes "the write's floor, 66,980 clocks". O3's and CLOSE's quote "3.3e10 times the write's floor", and
+  CLOSEs's "1.28e10 times the write". Each is the floor 432 (1) set aside.
+- CLOSE's text bounds position 2's face by c_junction J2, "≤ 4 clocks at position 2's own sigma". J2 was withdrawn on
+  the one-way object at 277 (WARPTHEOREM.md, after 389).
+
+**A correction of the board's own.** `corridor_p2.py`'s docstring (Q11) gave the charge at 4πT R₄ = 0.89 as
+μ̃ = 0.84. The code computes μ̃ = √λ μ/β̃, and the table in section 22 gives 0.42; 0.84 is the units slip that section
+22 records, left in the docstring. Corrected there; no check changes.
+
+**Put to you (414).**
+- **P3's scheme.** It has three parts: the black hole's interior, the passage through r₋, and the routes.
+  - **(a) Between r₊ and r₋.**
+    - The static hole's functions are smooth in r² at the horizon. Its interior near r₊ is their continuation to
+      r² < 0, where ∂t is spacelike.
+    - There the static Einstein–DeTurck–Maxwell equations are hyperbolic in (r, x). The inward radius is time, and the
+      axis and the plane are boundaries. The plane's Israel rows and the Maxwell jump hold on it as boundary
+      conditions.
+    - P3 evolves them inward from P2's horizon data (the λ = 64 member, N = 16 and 20) until g_tt vanishes again,
+      at r₋. It measures r₋ and κ₋ across the bulk and on the plane.
+    - Four-dimensional Reissner–Nordström puts r₋ at about 0.1–0.2 r₊, that is 0.2–0.3ℓ (an estimate, from the
+      member's temperature and its charge). That is below ℓ, where the bulk is five-dimensional, so r₋ is measured,
+      not read.
+  - **(b) Through r₋ and the white hole to the second plane.**
+    - The eternal hole is time-symmetric. The white-hole region and the second exterior are the time reverses of the
+      first, so the second plane's exterior is P2's again: position 2's mouth at our σ (454).
+    - Inside r₋ the hole is static again, and every massive route turns there (section 14). P3 solves that region
+      from r₋ inward only as far as the routes reach.
+  - **(c) The routes.**
+    - Each route of section 14 is integrated through the computed metric: radial light, massive, and with angular
+      momentum.
+    - On the plane each is held against four-dimensional Reissner–Nordström. In the bulk it is measured.
+  - **Checks before the hole.**
+    - Four-dimensional Reissner–Nordström's interior reproduced on the plane at large λ and R₄.
+    - The uncharged hole as negative control: its g_tt does not vanish again before the curvature grows without
+      bound.
+    - The evolution's constraints and ξ² held to the exterior's, and N = 16 against N = 20.
+  - **Not carried.** The inner horizon's instability is not carried. Stage 2 closed it on the plane in about
+    20 r₋²/(r₊c) (448). P3 is the eternal hole's classical scaffold, on which that closing is read.
+  - **The large field term.** It is carried with P3: λ is raised from 64 toward (i) in P2's own chart, a continuation
+    run beside it.
+- **The λ = 0 chart.** The chart's far rows assume a power at the Poincaré horizon, but the bulk field's tail is
+  a/(c + ln 1/f) (section 22). There are two constructions.
+  - **(a) A far coordinate in which the logarithm is a power**, u = 1/(1 + ln 1/f), on the far part of the grid.
+    - Then a/(c + ln 1/f) = a u/(1 + (c − 1)u) is analytic in u, every power of f is flat at u = 0, and the
+      chart's rows hold in u as they stand.
+    - It needs no far solution.
+    - It costs resolution: points uniform in u crowd toward f = 0, so the map is joined to the present one at
+      intermediate f.
+  - **(b) Subtraction**: P = μ − f[a(x)Φ(f, x) + p̃], where Φ is the zero mode's far solution in the chart and a(x)
+    is solved with the rest.
+    - The remainder p̃ meets the power-law rows, and the grid is kept.
+    - But Φ's dependence on angle at the Poincaré horizon must first be derived, and the metric's own O(μ²)
+      logarithms need the same treatment.
+  - **The board's reading:** (a) first, with (b)'s leading term as its check. The λ = 0 family then runs past
+    μ_phys = 0.08. The same chart serves at λ = 64, where the tail is the same with λ in the denominator.

@@ -980,7 +980,9 @@ def lemma_selftests():
               # item 453 (2), approved: stage 3b's third rung
               "stage3b_v3.py",
               # item 455 (2), approved: the corridor's first rung
-              "corridor_p1.py"):
+              "corridor_p1.py",
+              # item 456 (3), approved: the corridor's second rung
+              "corridor_p2.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

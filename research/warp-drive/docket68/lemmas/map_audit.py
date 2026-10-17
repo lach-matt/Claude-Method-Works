@@ -14,6 +14,16 @@ reads the page against the record).  Worked in the conversation; not verified; n
   A5 (computed) The footer counts the register's rows.
   A6 (computed) The page cites BOUNCE-RESEARCH.md through its last section.
   A7 (computed) The page's elements nest.
+  [456: M, "most of the warp theorem map is still stale.  Review ALL aspects of the map please."  Four more, so that
+  what the review set right is held at every render.]
+  A8 (computed) Every row's chip is phase2's audit (442): Passes, Re-derive with the items it waits on, Beyond 273, or
+     Deferred; its row class agrees; every register row stands on the page.
+  A9 (computed) Every station's colours are its rows': the head's dot the worse end, the strip's two tags each end's,
+     the pills naming exactly the rows that do not pass at each end.
+  A10 (computed) Outside the folds kept as record, every range of items opened at 441, 446 or 450 ends at the
+     rulings' last item, the closed blocks the page names excepted (441-443, your bar; 450-452, the solver's three
+     known solutions); every range of BOUNCE-RESEARCH sections opened at 11 ends at its last section.
+  A11 (computed) No text of the build script stands on the page (a quote-plus-quote join, a format slot).
 
 python3 map_audit.py [--selftest | --mutants]
 """
@@ -32,6 +42,11 @@ THEOREM = os.path.join(D68, "warptheorem.py")
 BOUNCE = os.path.join(HERE, "BOUNCE-RESEARCH.md")
 WORDS = ("please make sure the full map page is being updated in full each time you render it for me",)
 FIRST = 441
+PHASE2 = os.path.join(HERE, "phase2.py")
+COL = {"ok": "green", "def": "def", "read": "amber", "open": "red"}
+RANK = {"ok": 0, "def": 1, "read": 2, "open": 3}
+LMCLS = {"ok": "", "read": " r", "open": " o", "def": " d"}
+CLOSED = ((441, 443), (450, 452))
 
 
 def words():
@@ -66,9 +81,56 @@ def t1_since(first=FIRST):
     return out
 
 
+def phase2_audit():
+    spec = importlib.util.spec_from_file_location("ma_p2", PHASE2)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.audit()
+
+
+def klass(aud, rid):
+    """phase2's standing of a row: ok passes, read waits on a reading, open rests on 273, def deferred"""
+    w = aud[rid]
+    if not w:
+        return "ok"
+    if rid.startswith("SOURCE") and any("OPEN" in x for x in w):
+        return "def"
+    return "open" if any("273" in x for x in w) else "read"
+
+
+def waits(aud, rid):
+    """the item numbers a row waits on, 273 first"""
+    out = {m.group(1) for m in (re.match(r"(\d+)", x) for x in aud[rid]) if m}
+    return sorted(out, key=lambda n: (n != "273", int(n)))
+
+
+def chip(aud, rid):
+    k = klass(aud, rid)
+    return k, {"ok": "Passes", "def": "Deferred", "open": "Beyond · 273"}.get(k) or \
+        "Re-derive · " + ", ".join(waits(aud, rid))
+
+
+def end_of(ids, rid):
+    if rid.endswith("s") and rid[:-1] in ids:
+        return "small"
+    return "large" if rid + "s" in ids else "both"
+
+
+def worst(aud, rows):
+    ks = [klass(aud, r) for r in rows]
+    if ks and all(k == "def" for k in ks):
+        return "def"
+    return max(ks, key=lambda k: RANK[k]) if ks else "ok"
+
+
+def unfolded(page):
+    """the page less its folds kept as record (details.was-note)"""
+    return re.sub(r'<details class="was-note">.*?</details>', "", page, flags=re.S)
+
+
 def body_text(page):
-    """the page less its header block (meta and its fold), tags stripped, entities resolved"""
-    h0 = page.index('<div class="meta">')
+    """the page less its header (title, lede, meta and the fold of rulings), tags stripped, entities resolved"""
+    h0 = page.index("<header")
     h1 = page.index("</header>", h0)
     rest = page[:h0] + page[h1:]
     return html.unescape(re.sub(r"<[^>]+>", " ", rest))
@@ -125,6 +187,56 @@ def audit(page, quiet=False):
     p.feed(page)
     r = p.err == 0 and not p.st
     ok.append(r); say("A7 the elements nest: %s" % r)
+    aud = phase2_audit()
+    rows = re.findall(r'<li class="(lm[^"]*)"><span class="chip (\w+)">([^<]*)</span><div class="what"><b>([^<]+)</b>',
+                      page)
+    bad = []
+    for cls, ck, txt, rid in rows:
+        rid = html.unescape(rid)
+        k, want = chip(aud, rid) if rid in aud else (None, None)
+        if (ck, html.unescape(txt)) != (k, want) or cls not in ("lm shared", "lm" + LMCLS.get(k, "?")):
+            bad.append(rid)
+    on_page = {html.unescape(r[3]) for r in rows}
+    r = bool(rows) and not bad and on_page == set(ids) == set(aud)
+    ok.append(r); say("A8 %d row chips against phase2's audit of %d rows: %s%s" % (
+        len(rows), len(aud), r, (" (wrong %s)" % bad[:6]) if bad else ""))
+    bad = []
+    for sid, body in re.findall(r'<article class="station" id="(\w+)">(.*?)</article>', page, re.S):
+        rids = [html.unescape(x) for x in re.findall(r'<div class="what"><b>([^<]+)</b>', body)]
+        sm = [x for x in rids if end_of(ids, x) in ("small", "both")]
+        lg = [x for x in rids if end_of(ids, x) in ("large", "both")]
+        ks, kl = worst(aud, sm), worst(aud, lg)
+        dot = re.search(r'<div class="head"><div class="dot (\w+)">', body)
+        stop = re.search(r'<div class="stop"><a href="#%s"><div class="dot \w+">.*?<div class="v (\w+)">[^<]*</div>'
+                         r'<div class="lp (\w+)">' % sid, page)
+        pills = re.findall(r'<span class="verdict (\w+)">([^<·]+)·([^<]*)</span>', body)
+        named = {"small": set(), "large": set()}
+        cols = {"small": set(), "large": set()}
+        for col, who, txt in pills:
+            for e in (("small", "large") if who.strip() == "Both ends" else
+                      ("small",) if who.strip() == "Small end" else ("large",)):
+                cols[e].add(col)
+                named[e] |= set(re.findall(r"([A-Za-z0-9′']+) \(", txt))
+        need = {e: {x for x in grp if klass(aud, x) in ("read", "open")} for e, grp in (("small", sm), ("large", lg))}
+        good = (dot and dot.group(1) == COL[max((ks, kl), key=lambda k: RANK[k])] and stop and
+                (stop.group(1), stop.group(2)) == (COL[ks], COL[kl]) and cols == {"small": {COL[ks]}, "large": {COL[kl]}}
+                and named == need)
+        if not good:
+            bad.append(sid)
+    r = not bad
+    ok.append(r); say("A9 every station's dot, strip tags and pills from its rows' standing: %s%s" % (
+        r, (" (wrong %s)" % bad) if bad else ""))
+    live = unfolded(page)
+    stale = [m.group(0) for m in re.finditer(r"(?<![\d.,])(441|446|450)[–-](\d{3})(?!\d)", live)
+             if int(m.group(2)) != n and (int(m.group(1)), int(m.group(2))) not in CLOSED]
+    stale += [m.group(0) for m in re.finditer(r"sections 11[–-](\d+)", live) if int(m.group(1)) != ls]
+    r = not stale
+    ok.append(r); say("A10 every open range of items ends at %d, of sections at %d: %s%s" % (
+        n, ls, r, (" (stale %s)" % stale[:6]) if stale else ""))
+    text = html.unescape(re.sub(r"<style.*?</style>|<script.*?</script>", "", page, flags=re.S))
+    leak = re.findall(r"' \+ |\+ A \+|%[ds]\b|\\n", re.sub(r"<[^>]+>", " ", text))
+    r = not leak
+    ok.append(r); say("A11 no build-script text on the page: %s%s" % (r, (" (%s)" % leak[:4]) if leak else ""))
     return ok
 
 
@@ -148,6 +260,11 @@ def mutants():
         "drop_cell": re.sub(r'<span class="cell [^"]+" title="[^"]+"></span>', "", page, count=1),
         "drop_instrument": page.replace("corridor_p1", "corridor_pX"),
         "unclosed": page.replace("</section>", "", 1),
+        "chip_green": page.replace('<span class="chip open">Beyond · 273</span>', '<span class="chip ok">Passes</span>', 1),
+        "dot_amber": re.sub(r'(<article class="station" id="crossing">\s*<div class="head"><div class="dot )red',
+                            r"\1amber", page, count=1),
+        "stale_range": page.replace("446–%d" % n, "446–%d" % (n - 1), 1),
+        "leak": page.replace("</h2>", " register' + A + 's</h2>", 1),
     }
     caught = 0
     for k, v in cases.items():
