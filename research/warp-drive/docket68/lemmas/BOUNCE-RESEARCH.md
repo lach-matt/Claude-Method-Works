@@ -1285,7 +1285,8 @@ says what holds (446).
 - **(3) O1bs and O1cs, the routes.** In the charged hole at the small end, every massive route and every route with
   angular momentum turns inside r₋ and passes out through the white hole (computed, section 14). Radial light alone
   reaches the timelike centre, a set of measure zero. The README travels on the light cone (386). Whether its route
-  can be radial is the passage's question. O3s, proved on the one-way object, carries the same note.
+  can be radial is the passage's question. O1bs is PROVED, and its note adds that it was proved on the one-way object
+  and is not moved (446).
 - **(4) ARRIVAL, ARRIVALs and B7, the charge's source.** The README is energy alone (386), a neutral shell, and a
   neutral delivery makes no inner horizon (C1, 444). The corridor computed since 446 is charged. The charge's source,
   the device (446 (2)), is placed by no row. B7 adds: the corridor computed is the eternal charged hole, with a plane in
@@ -1308,15 +1309,19 @@ says what holds (446).
     2.4 N clocks" stands as a lower bound; discharge needs charged species the record does not hold.
   - O2: the corridor's surface gravity lies below the uncharged values. P3's start is not extremal (4πT R₄ ≈ 0.89).
 - **The closing.**
-  - O2, CLOSEs and CLOSE: position 2's face is the inner horizon. The plane closes it in about 20 r₋²/(r₊c),
-    1.4–5.7×10⁻¹⁰ s at the Earth cap (computed, 448). The 33.6 clocks are the one-way object's (c_junction J1).
+  - O2, CLOSEs and CLOSE: position 2's face is the inner horizon. The 33.6 clocks are the one-way object's
+    (c_junction J1).
+  - At the Earth cap the plane closes it in about 20 r₋²/(r₊c), 1.4–5.7×10⁻¹⁰ s (computed, 448).
+  - At the small end only stage 2's classical statements hold. Its semiclassical reading lies outside the prior art
+    there (section 15), so CLOSEs's note leaves the closing open.
 
 **On the ten (deduced).**
 - M1: P2 computed the charged hole on the plane. With the field held there (λ = 64) it reads four-dimensional
   Reissner–Nordström, within 15% at R₄ ≈ 2ℓ and 7% from 3ℓ (computed, section 22). M1's Schwarzschild reading is the
   uncharged corridor's.
-- Z3bs and Z3b wait on 177 and 183 beside 273. Since 448 the passage's negative on the plane is the in vacuum's, which
-  closes the inner horizon.
+- Z3bs and Z3b wait on 177 and 183 beside 273. Since 448, at the Earth cap, the passage's negative on the plane is the
+  in vacuum's, which closes the inner horizon. At the small end (Z3bs) only stage 2's classical statements hold
+  (section 15).
 - B3s, B3, B4ds and B4d: their 439 settlement is the register's derivation. Under 443 they rest on 273's bounce, now
   the passage through the charged hole, computed in stages.
 
@@ -1335,6 +1340,37 @@ when the register is re-seated.
   CLOSEs's "1.28e10 times the write". Each is the floor 432 (1) set aside.
 - CLOSE's text bounds position 2's face by c_junction J2, "≤ 4 clocks at position 2's own sigma". J2 was withdrawn on
   the one-way object at 277 (WARPTHEOREM.md, after 389).
+
+**Two independent readers (456).** Two readers checked the page against the record after the first pass: one the
+stations, one the panels. Every finding was checked against the record before it was applied, and all 21 held.
+- **On the stations (10).**
+  - O1c's line credited completeness to `focusing_parts.py` F4. The register has F1–F3, and "F4 gives a focus or an
+    earlier ending, not completeness" (430, wording approved at 431).
+  - H2tx stood "at our σ (424)"; it is derived at every σ (428; 443 (1)).
+  - RECON and ARRIVAL had lost the bound to the reconstructible region (443 (1)) on which phase2 passes them.
+  - SOURCE's block still asked the forks M answered at 438: the geometry as labels, the isotope out, the delivery the
+    math's (the null shell, 439). M-POTENTIAL-IN is marked not yet worked.
+  - WRITEs cited the set-aside floor (C6) in place of `encode_read.py` E5.
+  - CLOSEs and Z3bs carried stage 2's closing to the small end, where only its classical statements hold (section
+    15). Section 23's own two bullets are corrected likewise.
+  - O2 said "damps every disturbance" and "open at most 33.6 clocks" for both ends. The register has the transverse
+    derivatives at κ, and e^33.6 at the small end.
+  - M1P2x's checks were Y1–Y9, not Y1–Y8.
+  - B5b "still rests on B6′"; B6′ was proved at 442.
+  - Section 23 said O3s carries O1bs's note; it does not (above).
+- **On the panels (11).**
+  - The header's fold of rulings skipped 428–439, 373–376, 383 and 400–403. It now lists every item since 372.
+  - The key listed 177 and 183 among the twelve's readings. They bear on two of the ten.
+  - The readings panel said 177 and 183 "are re-derived". They are to be.
+  - The key dated the solver's validation 449–452; it was 450–452.
+  - The scales panel dropped the factor s of 1/g₄² = s(R₅/g₅²) ln(L_IR/R₅) (`u1_bulk.py` U4).
+  - "What comes next" carried P3 without its scheme. It now carries it, citing this section.
+  - The passage panel's headings were brought to P2.
+  - The footer names the rulings file.
+  - The fourth finding is named in full (ARRIVAL, ARRIVALs and B7).
+  - The notes are described as headed by the item that found them.
+  - The review panel claimed more for `map_audit.py` than it checked. The audit now checks it (A12, A13), and the
+    panel says exactly what is checked.
 
 **A correction of the board's own.** `corridor_p2.py`'s docstring (Q11) gave the charge at 4πT R₄ = 0.89 as
 μ̃ = 0.84. The code computes μ̃ = √λ μ/β̃, and the table in section 22 gives 0.42; 0.84 is the units slip that section

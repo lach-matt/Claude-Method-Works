@@ -24,6 +24,9 @@ reads the page against the record).  Worked in the conversation; not verified; n
      rulings' last item, the closed blocks the page names excepted (441-443, your bar; 450-452, the solver's three
      known solutions); every range of BOUNCE-RESEARCH sections opened at 11 ends at its last section.
   A11 (computed) No text of the build script stands on the page (a quote-plus-quote join, a format slot).
+  A12 (computed) Every tally cell is coloured by its row's standing, and the counts the page states -- the tally's
+     label, its key, the review panel -- are phase2's; the key's count of notes is the notes on the page.
+  A13 (computed) The header's fold of rulings lists every item of the rulings file from 372 to the last.
 
 python3 map_audit.py [--selftest | --mutants]
 """
@@ -237,6 +240,29 @@ def audit(page, quiet=False):
     leak = re.findall(r"' \+ |\+ A \+|%[ds]\b|\\n", re.sub(r"<[^>]+>", " ", text))
     r = not leak
     ok.append(r); say("A11 no build-script text on the page: %s%s" % (r, (" (%s)" % leak[:4]) if leak else ""))
+    cellk = {"c-ok": "ok", "c-read": "read", "c-open": "open", "c-def": "def"}
+    wrong = [html.unescape(t) for c, t in re.findall(r'<span class="cell ([\w-]+)" title="([^"]+)"></span>', page)
+             if html.unescape(t) not in aud or cellk.get(c) != klass(aud, html.unescape(t))]
+    cnt = {k: sum(klass(aud, x) == k for x in aud) for k in ("ok", "read", "open", "def")}
+    label = "%d pass, %d wait on a reading" % (cnt["ok"], cnt["read"])
+    key = dict(re.findall(r'<li><span class="sw (c-\w+)"></span><b>(\d+)</b>', page))
+    notes = len(re.findall(r'<div class="left since">', page))
+    key_since = re.search(r'<span class="sw since"></span><b>(\d+)</b>', page)
+    good = (not wrong and page.count(label) >= 2 and
+            {cellk[k]: int(v) for k, v in key.items() if k in cellk} == cnt and
+            key_since is not None and int(key_since.group(1)) == notes)
+    ok.append(good); say("A12 tally cells coloured by standing, the counts %s and %d notes as the audit and page give: %s%s"
+                         % (cnt, notes, good, (" (cells wrong %s)" % wrong[:4]) if wrong else ""))
+    fold = re.search(r"<summary>Every ruling since item (\d+), in order</summary>(.*?)</details>", page, re.S)
+    gap = ["no fold"]
+    if fold:
+        lo, cited = int(fold.group(1)), set()
+        for a, b in re.findall(r"(?<![\d.,])(\d{3})(?:[–-](\d{3}))?(?!\d)", fold.group(2)):
+            cited |= set(range(int(a), int(b or a) + 1))
+        items = {int(m) for m in re.findall(r"^(\d{1,4})\. \*\*", open(RULINGS, encoding="utf-8").read(), re.M)}
+        gap = sorted(k for k in items if lo <= k <= n and k not in cited)
+    r = not gap
+    ok.append(r); say("A13 the fold of rulings lists every item to %d: %s%s" % (n, r, (" (missing %s)" % gap[:8]) if gap else ""))
     return ok
 
 
@@ -265,6 +291,9 @@ def mutants():
                             r"\1amber", page, count=1),
         "stale_range": page.replace("446–%d" % n, "446–%d" % (n - 1), 1),
         "leak": page.replace("</h2>", " register' + A + 's</h2>", 1),
+        "tally_recolour": page.replace('<span class="cell c-open" title="M1"></span>', '<span class="cell c-ok" title="M1"></span>', 1),
+        "fold_gap": page.replace("(437); the delivery", "; the delivery", 1),
+        "key_count": page.replace('<span class="sw c-ok"></span><b>%d</b>' % 56, '<span class="sw c-ok"></span><b>57</b>', 1),
     }
     caught = 0
     for k, v in cases.items():
