@@ -286,14 +286,17 @@ def mutants():
         "drop_cell": re.sub(r'<span class="cell [^"]+" title="[^"]+"></span>', "", page, count=1),
         "drop_instrument": page.replace("corridor_p1", "corridor_pX"),
         "unclosed": page.replace("</section>", "", 1),
-        "chip_green": page.replace('<span class="chip open">Beyond · 273</span>', '<span class="chip ok">Passes</span>', 1),
-        "dot_amber": re.sub(r'(<article class="station" id="crossing">\s*<div class="head"><div class="dot )red',
-                            r"\1amber", page, count=1),
+        # [483: every row but SOURCE passes, so the mutants turn a passing row's marks the other way]
+        "chip_open": page.replace('<span class="chip ok">Passes</span><div class="what"><b>O1a</b>',
+                                  '<span class="chip open">Beyond · 273</span><div class="what"><b>O1a</b>', 1),
+        "dot_red": re.sub(r'(<article class="station" id="crossing">\s*<div class="head"><div class="dot )green',
+                          r"\1red", page, count=1),
         "stale_range": page.replace("446–%d" % n, "446–%d" % (n - 1), 1),
         "leak": page.replace("</h2>", " register' + A + 's</h2>", 1),
-        "tally_recolour": page.replace('<span class="cell c-open" title="M1"></span>', '<span class="cell c-ok" title="M1"></span>', 1),
+        "tally_recolour": page.replace('<span class="cell c-ok" title="M1"></span>', '<span class="cell c-open" title="M1"></span>', 1),
         "fold_gap": page.replace("(437); the delivery", "; the delivery", 1),
-        "key_count": page.replace('<span class="sw c-ok"></span><b>%d</b>' % 56, '<span class="sw c-ok"></span><b>57</b>', 1),
+        "key_count": re.sub(r'<span class="sw c-ok"></span><b>(\d+)</b>',
+                            lambda m_: '<span class="sw c-ok"></span><b>%d</b>' % (int(m_.group(1)) + 1), page, count=1),
     }
     caught = 0
     for k, v in cases.items():
