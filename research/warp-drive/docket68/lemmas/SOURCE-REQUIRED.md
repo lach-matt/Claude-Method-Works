@@ -5,6 +5,61 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 496: the bulk emitter's process for the opening shell, as the theorem's math requires it
+
+M, 496: "Continue with SOURCE: the bulk emitter's process". Set out in 492's four parts. Every line is read off a row
+or a ruling and computed (`emitter_process.py` A1-D4, 8/8, mutants 4/4), or READ where marked.
+
+**A. Definition.**
+- It emits E5(N) as a round null shell converging on the face's 3-sphere, centred on our plane, with no rest mass
+  (settle_arrival A2, A7; source_spec U2).
+- One bit of it is exactly k T_H ln2 (the first law, with S = N k ln2). For the real copper piece: N = 1.28e21,
+  r_h = 8.7e-19 m, E5 = 7.7e12 J, one bit 4.0e-9 J.
+- Its carrier is the bulk's own gravity, and it is round only on average:
+  - No round gravitational wave exists: G^t_r of the round 5D metric is -3 e^(-2a) d_t b / r (Birkhoff).
+  - In five dimensions pure gravity does implode into the round hole: "the 4 + 1 dimensional vacuum Einstein equations
+    admit gravitational waves with radial symmetry", and for large data "a Schwarzschild black hole is formed" (Bizon,
+    Chmaj and Schmidt, READ).
+  - But their squashed 3-sphere has no mirror: no reflection is an isometry of it (least defect above 1; computed). Our
+    two-sided plane is such a mirror.
+  - So the opening shell is the high-frequency average of packets paired across the plane ("all solutions to the
+    Einstein-null dust system also arise locally as high-frequency limits of vacuum spacetimes", Huneau and Luk, READ).
+- It carries the energy and N alone: 141 bits (Elias gamma) for the copper piece. The README comes over the write by
+  the plane's own channel (passage_est Q4; emitter E6).
+
+**B. Start.**
+- The read's completion hands N to the emitter (reader B1).
+- Rays leave our plane into the bulk (emitter E2), so the plane's own fields carry N up: information only (386).
+- Emitted at one coordinate time from a coordinate sphere about the face's centre, the shell arrives at once from
+  every angle (exact: the bulk is conformally flat, its null rays straight lines; spread 0 over 1e4 directions).
+
+**C. Function.**
+- The energy must be E5(N) to within half a bit (162: the size that holds the README upon opening; (H): N whole). That
+  is 2.6e-22 of E5 for the copper piece.
+- The price in time: the energy confined to a one-bit band fixes the least arrival spread at pi hbar/(k T_H ln2), the
+  first Dirichlet eigenvalue (exact).
+  - Small end: 28.5 face clocks, 8.3e-26 s for the copper piece, 4.3e-4 of the write's 66,980-clock floor.
+  - Large end: 113.9 GM/c^3.
+  - The record's compact arrival (4.79 clocks, sigma 0.80) leaves the energy uncertain by at least 5.7 bits.
+- At rest and static (the one static corridor, scope C1): packets symmetric under the bulk's four coordinate
+  reflections, the plane's mirror one of them, carry zero momentum and zero angular momentum.
+- Wavelengths well below r_h (source_spec U3). At r_h/10 the copper piece's shell is 3.4e18 quanta of 14 TeV, fewer
+  quanta than the README has bits. Its power is 9.3e37 W; at the large end c^5/(113.9 G).
+
+**D. Execution.**
+1. The read completes and encodes N. Our plane's fields send its 141 bits up into the bulk.
+2. The emitter stands on a coordinate sphere R > r_h about the face's centre, mirrored across the plane (at the large
+   end at the shell's depths, weighted e^(2y/ell)). At one coordinate time it releases E5(N) as high-frequency bulk
+   gravitational waves aimed at the centre: reflection-symmetric, the total energy band-limited to half a bit.
+3. The shell converges at once from every angle, spread over at least 28.5 face clocks. As 5D Vaidya null dust
+   (source_spec U2) it forms the face holding exactly N, with one horizon, no inner horizon and no partner.
+4. The emitter's part ends there. Then come the write by the plane's channel, position 2's face by the transition
+   (transition5q, not a second emission), and the release whole (face2_release).
+
+**What SOURCE still rests on.** The five-dimensional form of Huneau and Luk's high-frequency limit, which is the
+board's reading (source_spec U3). The one five-dimensional vacuum implosion in prior art is not mirror-symmetric. Who
+or what stands in the bulk and holds E5(N) is no row of the theorem (emitter E6). SOURCEs and SOURCE stay OPEN.
+
 ## Item 492: the device that reads the object into the README, as the theorem's math requires it
 
 M, 492: "Continue with all the SOURCE - -- the device that reads the object into the README-definition of the device,

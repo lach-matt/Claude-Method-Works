@@ -1213,6 +1213,30 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_492_SOURCE
     _rows_492.append((c, n, s_, t))
 LEMMAS_NOW = _rows_492
+# [item 496] SOURCE continued with its last need (M: "Continue with SOURCE: the bulk emitter's process"); still OPEN
+NOTE_496_SOURCE = ("  [Item 496] The bulk emitter's process, from the theorem's math (lemmas/emitter_process.py A1-D4).  "
+                   "Definition: it emits E5(N) as a round null shell converging on the face's 3-sphere, centred on our "
+                   "plane, no rest mass; one bit of it is k T_H ln2 exactly (the first law).  Its carrier is the bulk's "
+                   "own gravity, round only on average: no round gravitational wave exists (Birkhoff), so the shell is the "
+                   "high-frequency average of packets paired across the plane (Bizon-Chmaj-Schmidt's five-dimensional "
+                   "vacuum implosion has no mirror).  It carries the energy and N alone (141 bits for the copper piece), "
+                   "not the README.  Start: the read's completion hands N up from our plane into the bulk (rays leave the "
+                   "plane; information only, 386); emitted at one coordinate time from a coordinate sphere about the "
+                   "face's centre, it arrives at once from every angle (exact).  Function: E5(N) to within half a bit "
+                   "(162, (H)), which costs an arrival spread of at least pi hbar/(k T_H ln2) -- 28.5 face clocks at the "
+                   "small end, 4.3e-4 of the write's floor, and 113.9 GM/c^3 at the large end; the record's compact "
+                   "arrival leaves 5.7 bits.  Zero momentum and angular momentum by symmetry under the bulk's four "
+                   "coordinate reflections (the static corridor); wavelengths below r_h.  Execution: N up; the release "
+                   "from R > r_h, mirrored and band-limited; the shell converges at once and the face forms holding "
+                   "exactly N, with no inner horizon; then the write by the plane's channel, position 2 by the "
+                   "transition, and the release whole.  What SOURCE still rests on: the five-dimensional form of Huneau "
+                   "and Luk's high-frequency limit (the board's reading, source_spec U3)")
+_rows_496 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_496_SOURCE
+    _rows_496.append((c, n, s_, t))
+LEMMAS_NOW = _rows_496
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1400,7 +1424,9 @@ def lemma_selftests():
               # item 489: the 488 verification's findings fixed -- position 2's face over its open period (F1), the
               # theorem's domain and its one static corridor (F4, F9), (Z) against our face's Hawking flux (F10)
               "face2_open.py", "scope.py", "z_hawking.py",
-              "face2_release.py", "r1_exact.py", "reader.py"):
+              "face2_release.py", "r1_exact.py", "reader.py",
+              # item 496: the bulk emitter's process
+              "emitter_process.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

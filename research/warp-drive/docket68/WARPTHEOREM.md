@@ -98,7 +98,7 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 492.** As at 491, with R1's wording corrected and SOURCE's reading device derived from the math (`reader.py`); SOURCEs and SOURCE wait only on the bulk emitter's process.
+**Where it stands, at item 496.** As at 491, with R1's wording corrected and SOURCE's reading device derived from the math (`reader.py`, 492), and the bulk emitter's process derived from it too (`emitter_process.py`, 496). SOURCEs and SOURCE now rest on one point only, the five-dimensional form of the high-frequency limit that makes the opening shell of the bulk's own gravity (Huneau and Luk's theorem, proved in 3+1 and read in five dimensions).
 
 **Where it stood at item 491.** 82 rows: 74 proved, 6 definitions, 2 OPEN -- SOURCEs and SOURCE, which still need
 the device that reads, the structure probe and the bulk emitter's process. Position 2 is what the math computes, the
@@ -1882,6 +1882,25 @@ state was rebuilt first.
     by the anomaly.
   - What remains is 494's corridor, magnetic in its own frame (E.B = 0, |E| < c|B|; crossed fields are it seen
     moving). An electric corridor would need light magnetic monopoles, which the 26 do not hold. No row moved.
+- **Item 496** (M: "Continue with SOURCE: the bulk emitter's process"). Set out in 492's four parts
+  (`emitter_process.py`, 8/8, mutants 4/4; in T1; SOURCE-REQUIRED "Item 496").
+  - **Definition.** The emitter puts out E5(N) as a round null shell converging on the face, with no rest mass. One bit
+    of it is exactly k T_H ln2.
+    - The carrier is the bulk's own gravity, round only on average. Birkhoff forbids a round gravitational wave
+      (exact). Bizon-Chmaj-Schmidt's 5D vacuum implosion has no mirror (computed), so on the plane the shell is the
+      high-frequency average of packets paired across it.
+    - It carries the energy and N alone (141 bits), not the README.
+  - **Start.** The read hands N up from our plane, which is information only. A release at one coordinate time from a
+    sphere about the face's centre arrives at once from every angle (exact).
+  - **Function.**
+    - The energy must be within half a bit of E5(N) (162). That costs an arrival spread of at least
+      pi hbar/(k T_H ln2) (exact): 28.5 face clocks, 4.3e-4 of the write; 113.9 GM/c^3 at the large end. The compact
+      arrival leaves 5.7 bits.
+    - Zero momentum and angular momentum by the bulk's four reflections.
+  - **Execution.** N goes up; the release is mirrored and band-limited; the face forms holding exactly N; the write,
+    position 2 and the release follow.
+  - **Still open.** SOURCEs and SOURCE now rest on one point: the 5D form of Huneau and Luk's high-frequency limit, the
+    board's reading. The register is unchanged at 74 / 6 / 2.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1982,8 +2001,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | FACE2s position 2's face holds through its open period at the small end: open while the README is within it (390; junction_own G10), the write | proved | -- | face2_open.py W1-W6 (489): open 8.63e14 clocks; any perturbation from position 2 forms a trapped surface (Barcelo et al., READ); in position 2's vacuum its own negative flux ends it as a white hole at 35.8 clocks; held only in the time-reversed state, position 2 sending in 0.503 E at T_H, which nothing supplies | [Item 491: proved -- position 2's face open for the release whole, at most 2 r_h/c, and holding (face2_release.py)]
 | N | CLOSE the closing at the large end: our face by Hawking emission; position 2's face closing as the README's last part leaves it (390), its holding until then FACE2's | proved | -- | close_large.py L1-L5 (362, on 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3); corrected at 489: not J2's 4 clocks |
 | N | FACE2 position 2's face holds through its open period at the large end: open while the README is within it (390), the write | proved | -- | face2_open.py W2-W6 (489): open 2.2e56 s at the Earth cap; more than 1e60 perturbing particles in every environment computed; in vacuum its own flux ends it after 155 e-folds | [Item 491: proved -- position 2's face open for the release whole, at most 2 r_h/c, and holding (face2_release.py)]
-| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before; OPEN again at 489: the specification proved, but no computed source meets it -- the reading device, the opening shell's emitter's process and the formation from our plane are not computed (487 went beyond 441 (1)) |
-| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before; OPEN again at 489: as SOURCEs |
+| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before; OPEN again at 489: the specification proved, but no computed source meets it -- the reading device, the opening shell's emitter's process and the formation from our plane are not computed (487 went beyond 441 (1)); the device derived at 492 (reader.py), formation from our plane not a need (491), the bulk emitter's process derived at 496 (emitter_process.py); rests on the 5D high-frequency limit, the board's reading |
+| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before; OPEN again at 489: as SOURCEs; 492 and 496 as SOURCEs |
 
 82 rows, 66 lemmas and 16 inputs: 74 proved, 6 definitions, 2 OPEN *[Item 491: FACE2s and FACE2 proved on 432 (2)
 (face2_release.py), the eight on them back to proved, R1 back to your definition (r1_exact.py); SOURCEs and SOURCE stay
