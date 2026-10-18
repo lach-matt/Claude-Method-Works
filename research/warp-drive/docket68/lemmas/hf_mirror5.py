@@ -463,9 +463,10 @@ def end_stats(hist, v_after=3.75):
                 P=max(h["P"] for h in hist), b=max(h["b"] for h in hist),
                 q_late=max(h["q"] for h in late), W_ex=max(h["W_ex"] for h in hist), mu=late[-1]["mu"],
                 M_end=late[-1]["M_mean"], resx=max(h["resx"] for h in hist), resv=max(h["resv"] for h in hist),
-                r_lo=late[-1].get("r_lo"), r_hi=late[-1].get("r_hi"), nz=max(h.get("nz", 0) for h in hist),
-                dr=max(max(abs(h["r_lo"] - h["mu"]**0.5), abs(h["r_hi"] - h["mu"]**0.5)) for h in late) if "r_lo" in hist[0] else None,
-                dr_all=max(max(abs(h["r_lo"] - h["mu"]**0.5), abs(h["r_hi"] - h["mu"]**0.5)) for h in hist) if "r_lo" in hist[0] else None)
+                r_lo=late[-1]["r_lo"], r_hi=late[-1]["r_hi"], nz=max(h["nz"] for h in hist), nz_min=min(h["nz"] for h in hist),
+                dr=max(max(abs(h["r_lo"] - h["mu"]**0.5), abs(h["r_hi"] - h["mu"]**0.5)) for h in late),
+                width=max(h["r_hi"] - h["r_lo"] for h in late),
+                inside=all(h["r_lo"] <= h["mu"]**0.5 <= h["r_hi"] for h in late))
 
 
 def x5():
@@ -512,6 +513,12 @@ def checks(o):
     c["X7 the shell as three quarters of the mass"] = (all(a5[q] > a6[q] for q in ("spread", "offset", "dW", "dW_all", "P", "b"))
                                                         and a6["W_ex"] < 0 and a6["offset"] < 0.01*(a6["mu"] - 0.25)
                                                         and a6["spread"] < 0.01*(a6["mu"] - 0.25))
+    k4 = key(FOURTH)
+    c["X8 a fourth wavelength: the fall goes on, the mass at second order"] = (
+        all(s[k3][q] > s[k4][q] for q in ("spread", "offset", "dW", "dW_all", "q_all", "P", "b"))
+        and all(0.4 < s[b_]["P"]/s[a_]["P"] < 0.6 for a_, b_ in ((k2, k3), (k3, k4)))            # the amplitude ~ lambda
+        and all(s[b_]["offset"] < 0.3*s[a_]["offset"] for a_, b_ in ((k1, k2), (k2, k3), (k3, k4)))   # ~ lambda^2
+        and s[k4]["W_ex"] < 0)
     if "x6" in o:
         a = o["x6"]
         c["X6 live row reproduces its pinned row"] = a["match"] is not None and a["match"] < 1e-8
