@@ -1289,6 +1289,23 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_501_SOURCE
     _rows_501.append((c, n, s_, t))
 LEMMAS_NOW = _rows_501
+# [items 505-508] 498-503 withdrawn (M: "...you are still assuming there is a inner/chaucy horizon when there is not");
+# redone without it (506), onto the seed (508)
+NOTE_506_SOURCE = ("  [Items 505-508] 498-503 withdrawn as support (505: the classical hole seeded, its core cut out).  Redone "
+                   "with no inner or Cauchy horizon and nothing cut out (src_hole.py, hf_core5.py): with no seed the record's "
+                   "core is seen from infinity at the record's least arrival spread (28.5 r_h; hidden only below 0.45 r_h), so "
+                   "the shell arrives onto a seed, as 508 rules and The Method's sec. 14.5.7 says of every closed index -- at "
+                   "least sqrt(72) l5^2, whose core is inside its horizon throughout; the core takes the shell's energy into "
+                   "its effective stress inside x >= 1 (the mass cannot rise on position 2's side without negative energy in "
+                   "its classical exterior), only information crosses, two horizons only, one transition surface; the exact "
+                   "vacuum sequence onto the seed computed inward to x = 1.  Not: position 2's mass (its own bulk's, 240/285); "
+                   "a proof for every lambda (none to be written yet, 505).  Status put to M")
+_rows_506 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_506_SOURCE
+    _rows_506.append((c, n, s_, t))
+LEMMAS_NOW = _rows_506
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1481,8 +1498,10 @@ def lemma_selftests():
               "emitter_process.py",
               # item 497: the five-dimensional high-frequency limit
               "hf_limit5.py",
-              # item 498: the exact mirror-symmetric sequence for the whole round shell
-              "hf_mirror5.py"):
+              # item 498: the exact mirror-symmetric sequence for the whole round shell (withdrawn as support at 505)
+              "hf_mirror5.py",
+              # items 506-508: redone without the inner horizon -- the seed, the accreting core, the sequence to x = 1
+              "src_hole.py", "hf_core5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

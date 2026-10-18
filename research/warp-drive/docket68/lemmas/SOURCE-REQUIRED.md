@@ -5,6 +5,65 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Items 505-508: the work redone without the inner horizon
+
+M, 505: "This whole your calculations were all wrong because - The excised core ... - you are still assuming there is a
+inner/chaucy horizon when there is not." 506: "Those will be answered by the math. Redo the work without the inner
+horizon". 507: "Keep going." 508: "There is always a seed - refer to the the method corpus materials".
+(`src_hole.py` S0-S8, 8/8, mutants 4/4; `hf_core5.py` C0-C4.)
+
+- **Held against the exclusions first (481, 484).** Nothing below has an inner horizon or a Cauchy horizon, and no part
+  of the hole is cut out. The core is the record's own: one horizon, a transition surface, no inner horizon
+  (core_large, transition5, transition5q).
+- **What the math answers: the seed (computed, in the high-frequency limit).**
+  - The prior art first: Ghosh and Dadhich's 5D null collapse from flat space is naked iff lam <= 1/27, with a Cauchy
+    horizon as its earliest ray out (reproduced).
+  - The record's quantum boundary x = 1 is r_q^4 = sqrt(72) mu l5^2 (exact). It lies inside the apparent horizon iff
+    mu > sqrt(72) l5^2.
+  - Without a seed, the hole's first phase has its core outside its horizon. At the record's least arrival spread,
+    28.5 r_h (emitter_process C2), rays from that core reach infinity at mu_f/l5^2 = 1e4 and 7e40. So the core would be
+    seen from outside, and 273's one-way passage and 484 both fail. It stays hidden only for spreads below 0.45 r_h,
+    sixty times shorter than C2 allows.
+  - With a seed of mu0 >= sqrt(72) l5^2 (r_h >= 2.91 l5) in place, every ray from the core is trapped from the shell's
+    first instant to its last.
+  - So the shell arrives onto a seed, as 508 states and The Method's own sec. 14.5.7-14.5.9 say of any closed index
+    (Registers 1793, 1797: the seed is constructible and is a size, not a set). The math gives its least size.
+- **The core while it takes the shell in (computed, exact).**
+  - On transition5's chart with the mass free, f = 1 - M(r, v)/R^2, the Einstein tensor is derived from the metric.
+    Its null energies are G(n,n) = -3 R''/R and G(l,l) = -3[(M - R^2)^2 R'' - 2 R^2 M_v R']/(4 R^5). The mixed part,
+    G(l,n) + G(e,e), with them decides every null direction.
+  - Outside the modified region our side is exactly 5D Vaidya null dust.
+  - The mass may not rise on both sides. With M = mu(v) everywhere, position 2's classical exterior carries negative
+    energy, -3 mu'/(2 R^3): the math refuses energy at position 2.
+  - With the mass rising from position 2's mu2 to our mu(v) inside 0 <= r <= r2 (r2 = r_q, so within x >= 1): null
+    energy fails only inside that region (to |r| = 0.1706 against r_q = 0.1707); position 2's side is vacuum; our side
+    is the shell's dust to 2e-14. The shell's energy is taken into the core's effective stress, as regular-Vaidya prior
+    art describes. Only information reaches position 2 (386, 336, 491).
+  - Through the accretion f has exactly two roots, +sqrt(mu(v)) and -sqrt(mu2), and is negative between them. There is
+    one transition surface. Ingoing radial null rays have r affine, so every part of the README crosses one way.
+- **The exact vacuum sequence onto the seed, computed inward to x = 1 (computed).** 
+  - Seed mu0 = 1, A = 1 (the shell 0.18 of the seed). Each cone runs inward to x = 1 on the seed, at mu0/l5^2 = 100
+    (y = 1.361, r = 0.540) and 1000 (y = 1.815, r = 0.304). Nothing is cut out; the record's core lies beyond.
+  - The exterior is 498's: after the shell the mass differs from 498's pinned rows by 6.5e-04, 9.4e-06, 5.5e-07 at mu0/l5^2 = 100
+    (498's own two grids differ by 2.9e-6), as the domain of dependence requires of a trapped boundary.
+  - Every departure falls with lambda (0.1 to 0.025):
+    - spread 2.4e-02, 2.7e-04, 4.2e-05;
+    - offset 6.0e-03, 1.2e-03, 2.9e-04 (second order);
+    - |W - W_V| over the whole passage, the interior to x = 1 included, 0.723, 0.304, 0.128.
+  - At mu0/l5^2 = 1000, and a fourth wavelength (0.0125) at 100: the runs are under way (CORE5_PENDING).
+  - In every run and at every sample the round spheres' outgoing expansion has exactly one zero per column all the
+    way down to x = 1: no second (inner) apparent horizon anywhere in the computed interior.
+  - The core boundary stays trapped throughout: W there is at most -1.86 (mu0/l5^2 = 100).
+  - The horizon bracket closes on sqrt(mu) at first order.
+  - The criterion that the exterior agree with 498's was first stated with the late spread within 15 %; it failed
+    at lambda = 0.025 (4.2e-5 against 1.5e-5). 498's own two grids differ by 2.3e-4 in that spread at lambda = 0.05,
+    so it is grid-limited there; the check is restated to the larger of 15 % and that floor, and recorded so.
+- **What this does not settle.**
+  - Position 2's mass mu2. The record's equal-mass face (transition5q H6, emitter_process D4) then has to come from
+    position 2's own bulk (240, 285); the shell does not supply it.
+  - The sequence is numerical over wavelengths, not a proof for every lambda (and no proof is to be written yet, 505).
+- SOURCEs and SOURCE: their status is M's to rule on.
+
 ## Items 501-503: 498's qualifications narrowed by computation
 
 M, 501: "Continue" (502, 503 the same). The status stays with M; the board removed what computation could of 498's

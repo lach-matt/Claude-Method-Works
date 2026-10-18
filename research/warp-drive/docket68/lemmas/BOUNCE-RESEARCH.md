@@ -2672,3 +2672,57 @@ M, 501-503: "Continue". Computed in the conversation, with the pinned rows added
     be 15/16 of the final mass; the trapped region and its bracket close on Vaidya's horizon.
   - Not settled: a proof for every lambda; a seed of zero (excision needs a horizon at the start); the excised core.
 
+## 46. The work redone without the inner horizon: the seed, the core as it takes the shell in, and the sequence to x = 1 (505-508; lemmas/src_hole.py, lemmas/hf_core5.py)
+
+M, 505-508. 498-503 seeded the classical hole and cut its core out; withdrawn at 505. Redone here with nothing cut
+out and no inner or Cauchy horizon anywhere, the core the record's own.
+
+- **Prior art, read and reproduced.**
+  - Ghosh and Dadhich, gr-qc/0105085: 5D Vaidya from flat space, mu = lam v^2, is naked iff lam X^3 - X + 2 = 0 has a
+    positive root (lam <= 1/27, X0 = 3); the earliest ray out of the centre is a Cauchy horizon.
+  - An, arXiv 1207.5271, and An and Luk, 1409.6270: trapped surfaces from incoming vacuum radiation at past null
+    infinity (4D).
+  - Regular-Vaidya geometries, arXiv 2506.14875 (abstract): ingoing null energy taken into the gravitational field of
+    a regular core.
+  - Bizon, Chmaj and Schmidt, gr-qc/0506074: the one 5D vacuum implosion, not mirror-symmetric.
+- **The seed (src_hole S2-S5).**
+  - The record's quantum boundary on Vaidya is r_q^4 = sqrt(72) mu l5^2. Null dust adds no Ricci square, so
+    K = 72 mu^2/r^8.
+  - It is inside the apparent horizon iff mu > sqrt(72) l5^2.
+  - With no seed and the sin^8 flux at the record's least spread (sigma_t = 28.5 r_h, D = 269.2 r_h), outgoing rays
+    integrated in ln r from the core's first phase reach infinity, at mu_f/l5^2 = 1e4, 1e12 and 7e40. The core is
+    hidden only for sigma_t < 0.80, 0.47, 0.449 r_h respectively.
+  - With mu0 = 1.01 sqrt(72) l5^2 in place every core ray is trapped at once, at every time of the shell.
+- **The accreting core (S6-S8).**
+  - ds^2 = -f dv^2 + 2 dv dr + R^2 dOmega_3^2, f = 1 - M(r, v)/R^2, R^2 = r^2 + a^2 S(r), the transition surface held.
+    From the metric:
+    - G(n,n) = -3 R''/R;
+    - G(l,l) = -3[(M - R^2)^2 R'' - 2 R^2 M_v R']/(4 R^5);
+    - the mixed G(l,n) + G(e,e) vanishes on 5D Vaidya.
+  - M = mu(v) on both sides gives position 2's classical exterior G(l,l) = -3 mu'/(2 R^3) < 0. So M rises from mu2
+    to mu(v) across 0 <= r <= r_q, with C^4 steps and exact derivatives.
+  - At mu/l5^2 = 1e4 every null direction keeps null energy except inside |r| < 0.1706 (r_q = 0.1707). Position 2's
+    side is vacuum, and ours is the shell's dust.
+  - f has two roots at every mu, and R' one zero.
+- **The exact sequence to x = 1 (hf_core5 C1-C4).** 
+  - Seed mu0 = 1, A = 1 (the shell 0.18 of the seed). Each cone runs inward to x = 1 on the seed, at mu0/l5^2 = 100
+    (y = 1.361, r = 0.540) and 1000 (y = 1.815, r = 0.304). Nothing is cut out; the record's core lies beyond.
+  - The exterior is 498's: after the shell the mass differs from 498's pinned rows by 6.5e-04, 9.4e-06, 5.5e-07 at mu0/l5^2 = 100
+    (498's own two grids differ by 2.9e-6), as the domain of dependence requires of a trapped boundary.
+  - Every departure falls with lambda (0.1 to 0.025):
+    - spread 2.4e-02, 2.7e-04, 4.2e-05;
+    - offset 6.0e-03, 1.2e-03, 2.9e-04 (second order);
+    - |W - W_V| over the whole passage, the interior to x = 1 included, 0.723, 0.304, 0.128.
+  - At mu0/l5^2 = 1000, and a fourth wavelength (0.0125) at 100: the runs are under way (CORE5_PENDING).
+  - In every run and at every sample the round spheres' outgoing expansion has exactly one zero per column all the
+    way down to x = 1: no second (inner) apparent horizon anywhere in the computed interior.
+  - The core boundary stays trapped throughout: W there is at most -1.86 (mu0/l5^2 = 100).
+  - The horizon bracket closes on sqrt(mu) at first order.
+  - The criterion that the exterior agree with 498's was first stated with the late spread within 15 %; it failed
+    at lambda = 0.025 (4.2e-5 against 1.5e-5). 498's own two grids differ by 2.3e-4 in that spread at lambda = 0.05,
+    so it is grid-limited there; the check is restated to the larger of 15 % and that floor, and recorded so.
+- **What it settles and what it does not.**
+  - Settled: the shell must arrive onto a seed of at least sqrt(72) l5^2, and does. Its energy is taken into the core,
+    and only information crosses. Nowhere is there an inner or Cauchy horizon, and nothing is cut out.
+  - Not settled: position 2's mass (its own bulk's, 240/285); a proof for every lambda (none to be written yet, 505).
+
