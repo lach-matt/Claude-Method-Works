@@ -35,10 +35,25 @@ A seed hole of mass 1 sits inside; the slice is excised at y = 1.15 (r = 0.756),
      round to 11 % at lam = 0.1, and keeps the seed horizon.
   X7 (computed) The shell as three quarters of the final mass (seed 0.25, lam = 0.05, 0.025): spread 2.6e-3, 3.7e-4;
      offset 4.7e-3, 1.16e-3 (0.16 % of the shell); |W - W_V| over the passage 1.17, 0.52.
+  Item 501 ("Continue"): what of 498's qualifications computation removes.
+  X8 (computed) A fourth wavelength, lam = 0.0125 (32 x 16): every departure falls again -- spread 5.9e-6, offset 7.2e-5,
+     |W - W_V| 9.6e-4 after and 0.037 over the passage, P 0.018.  P halves with lam (first order); the offset of the
+     mean mass from mu quarters at each halving, 5.4e-3, 1.16e-3, 2.9e-4, 7.2e-5 (second order).
+  X9 (computed) The shell as fifteen sixteenths of the final mass (seed 1/16, A = 6/sqrt 7 so that the shell brings
+     15/16 and the final mass is 1; excision y = 2.2, r = 0.21, inside the seed's horizon r = 1/4): lam = 0.025,
+     0.0125.  The hole grows sixteenfold about a fixed excision, so the step is held to the excision's outgoing speed
+     y^3 |W|/4 (evolve's cfl); with the fixed step lam = 0.025 lost stability at v ~ 1.8.  At lam = 0.05 the excision
+     is not in the high-frequency regime (lam A r^-3/2 ~ 1.2 there): it stopped being trapped at v ~ 1.25 -- the
+     regime boundary, recorded.
+  X10 (computed) The hole formed.  For the slices' round spheres, k = d_v + W/2 d_r + U d_th is the outgoing null
+     normal and the area form is r^3 cos sin exactly, so 2r/3 Theta_k = W + (2/3) y^3 d_x((1 - x^2) q).  In every run
+     and at every sample it has one zero per column: spheres below the least zero are trapped, above the greatest
+     untrapped, and at the extremes of a marginally trapped surface r = R(x) on the slice the Laplacian's sign holds
+     R between them.  The bracket closes onto Vaidya's apparent horizon sqrt(mu) at first order in lam.
   Not proved: convergence for every lam (shown over a sequence); the shell falls onto a seed; the core inside the
   horizon is excised.
 
-python3 hf_mirror5.py [--selftest | --mutants | --run]
+python3 hf_mirror5.py [--selftest | --mutants | --run i | --merge]
 """
 import sys, os, json, gzip, time, warnings
 import numpy as np
@@ -300,7 +315,7 @@ def horizon(g, d):
     """the round spheres' outgoing expansion, 2r/3 Theta_k = W + (2/3) y^3 d_x((1 - x^2) q), with k = d_v + W/2 d_r + U d_theta
     (the area form is r^3 cos sin exactly); its zero in each column.  Where Theta_k < 0 in every column the sphere is trapped;
     at the extremes of a MOTS r = R(x) on the slice the Laplacian's sign puts R between the least and greatest zero"""
-    T = 1 + g.Y**3*d["w"] + (2/3)*g.Y**3*g.dx((1 - g.X**2)*d["q"])
+    T = 1 + g.Y**3*d["w"] + (0 if "horizon_w_only" in MUT else (2/3)*g.Y**3*g.dx((1 - g.X**2)*d["q"]))
     t, tt = np.cos(np.pi*np.arange(g.Ny + 1)/g.Ny), np.linspace(-1, 1, 4001)
     r, n = [], 0
     for j in range(g.Nx + 1):
@@ -479,6 +494,7 @@ def x6():
     hist = evolve(*LIVE)
     pinned = json.load(open(RUNS)).get(key(LIVE))
     return dict(stats=end_stats(hist), match=(max(abs(a["M_mean"] - b["M_mean"]) + abs(a["dW"] - b["dW"])
+                                                 + abs(a["r_lo"] - b["r_lo"]) + abs(a["r_hi"] - b["r_hi"])
                                                  for a, b in zip(hist, pinned)) if pinned else None))
 
 
@@ -519,6 +535,15 @@ def checks(o):
         and all(0.4 < s[b_]["P"]/s[a_]["P"] < 0.6 for a_, b_ in ((k2, k3), (k3, k4)))            # the amplitude ~ lambda
         and all(s[b_]["offset"] < 0.3*s[a_]["offset"] for a_, b_ in ((k1, k2), (k2, k3), (k3, k4)))   # ~ lambda^2
         and s[k4]["W_ex"] < 0)
+    b5, b6 = s[key(SEED16[0])], s[key(SEED16[1])]
+    c["X9 the shell as fifteen sixteenths of the mass"] = (all(b5[q] > b6[q] for q in ("spread", "offset", "dW", "dW_all", "P", "b"))
+                                                          and b6["W_ex"] < 0 and b6["offset"] < 0.01*(b6["mu"] - 1/16)
+                                                          and b6["spread"] < 0.01*(b6["mu"] - 1/16))
+    fam = [[key(c_) for c_ in SEQUENCE[:3] + [FOURTH]], [key(c_) for c_ in SMALL_SEED], [key(c_) for c_ in SEED16]]
+    c["X10 the hole formed: one zero per column, its horizon onto Vaidya's sqrt(mu) at first order"] = (
+        all(t["nz_min"] == t["nz"] == 1 for t in s.values())
+        and all(s[b_]["dr"] < 0.6*s[a_]["dr"] and s[b_]["width"] < 0.6*s[a_]["width"] for f in fam for a_, b_ in zip(f, f[1:]))
+        and s[k4]["dr"] < 1e-3*s[k4]["mu"]**0.5 and s[k4]["inside"])
     if "x6" in o:
         a = o["x6"]
         c["X6 live row reproduces its pinned row"] = a["match"] is not None and a["match"] < 1e-8
@@ -543,7 +568,8 @@ def report(o=None):
 MUTANTS = {"spike": "the y^3 amplitude imposed by a third derivative at infinity (X4: a growing mode)",
            "pointwise_axis": "the axis division done pointwise instead of exactly (X1)",
            "no_mass_law": "the mass aspect's rate set to zero (X6b: no mass gained)",
-           "in_phase": "the two polarizations in phase: the averaged energy is not round (X6b)"}
+           "in_phase": "the two polarizations in phase: the averaged energy is not round (X6b)",
+           "horizon_w_only": "the spheres' expansion read from W alone, the shift's divergence dropped (X6: the pinned horizon)"}
 
 
 def selftest(quiet=False):
@@ -560,7 +586,7 @@ def mutants():
     for m_, desc in MUTANTS.items():
         MUT.clear(); MUT.add(m_)
         try:
-            c = checks(compute(live=m_ in ("no_mass_law", "in_phase")))
+            c = checks(compute(live=m_ in ("no_mass_law", "in_phase", "horizon_w_only")))
             failed = [k for k, v in c.items() if not v]
         except Exception as ex:
             failed = ["raised %s" % type(ex).__name__]
