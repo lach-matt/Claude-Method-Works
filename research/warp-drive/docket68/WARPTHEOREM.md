@@ -98,7 +98,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 513.** As at 511, with THM-HF5's nonlinear coupling settled by the light cone (513): observation gives relativity, relativity the one light cone (328), the one light cone Einstein's law in five dimensions (alpha = 0); and on the full ansatz the fronts stay null at every lambda, the equations that fix the metric on each cone see no v-derivative at all, the waves propagate linearly along the cone, and the one product of rates is the dust, whose oscillation integrates along the cone to 1e-7 and below. The coupling is O(1) only through the dust, which is the limit itself (`hf_theorem5.py` F5, 7/7, mutants 7/7). What remains is L-UNIF', a remainder estimate in norms rough along v and smooth along the cones, named and not proved. At mu0/l5^2 = 1000, hf_core5's late-spread clause is unsettled, finer grids running. The status is M's.
+**Where it stands, at item 514.** As at 513, with the remaining estimate's coefficients evaluated and anchored in our universe (`hf_anchor5.py`, 5/5): the first order exactly sqrt(2) A, the second exactly (2/9) A^2 int env'^2 (0.45693 for the record's envelope, the runs agreeing to 0.01 %), the rest below 0.1 lambda^3. For the example README's shell at 10 l5 waves the strain is 3.6e-6 at the horizon and 7.2e-3 at x = 1, the second-order mass offset 1.5e-13; the band reaching x = 1 is 10 l5 to 46 l5, and the r_h/10 emitter_process C4 names lies outside it. The inequality for every lambda is not proved: our lambda lies below the computed ones, and the answer there rests on the series staying asymptotic, which the runs show. The status is M's.
+
+**Where it stood at item 513.** As at 511, with THM-HF5's nonlinear coupling settled by the light cone (513): observation gives relativity, relativity the one light cone (328), the one light cone Einstein's law in five dimensions (alpha = 0); and on the full ansatz the fronts stay null at every lambda, the equations that fix the metric on each cone see no v-derivative at all, the waves propagate linearly along the cone, and the one product of rates is the dust, whose oscillation integrates along the cone to 1e-7 and below. The coupling is O(1) only through the dust, which is the limit itself (`hf_theorem5.py` F5, 7/7, mutants 7/7). What remains is L-UNIF', a remainder estimate in norms rough along v and smooth along the cones, named and not proved. At mu0/l5^2 = 1000, hf_core5's late-spread clause is unsettled, finer grids running. The status is M's.
 
 **Where it stood at item 511.** As at 510, with the nonlinear PDE theorem for the shell's sequence built (511, THM-HF5, `hf_theorem5.py` 6/6, mutants 5/5). On the region from past null infinity to the record's quantum boundary x = 1: the boundary is spacelike and every characteristic leaves through it, so nothing is cut out and the record's core continues beyond (proved exactly, Z3); the limit is five-dimensional Vaidya with Isaacson's flux mu' = (2/9) A^2 env^2, null dust along dv only (proved exactly over all fifteen Ricci components; Wolfram cross-check; the form positive definite in Lean and Z3); one horizon and no inner one in the limit. Existence for every lambda and the rates rest on the named lemma L-UNIF, which no published theorem covers (Luk and Rodnianski, Touati, Huneau and Luk are 3+1 or small-background; Bondi gauge is only weakly hyperbolic) and which is not proved here; the sequence meets the theorem's orders at both scales. At mu0/l5^2 = 1000, hf_core5's late-spread clause is unsettled, finer grids running. The status is M's.
 
@@ -2010,6 +2012,16 @@ state was rebuilt first.
   - On the full ansatz: fronts null at every lambda; the cone equations see no v-derivative; the evolution is linear in
     the waves' own rates; the one product of rates is the dust, whose oscillation integrates along the cone to O(lam^9).
   - The coupling is O(1) only through the dust; L-UNIF narrows to L-UNIF', a remainder estimate, open.
+
+- **Item 514** (M: "Prove the remaining estimate please. Anchor you work with real value from our universe so you can
+  calculate what you need to evaluate the coefficients that are preventing a precise answer instead of an estimate").
+  Worked (`hf_anchor5.py` A0-A4, 5/5, mutants 2/2; SOURCE-REQUIRED "Item 514"; BOUNCE-RESEARCH 49). For R1, R2 and R6:
+  - The coefficients, exact: first order sqrt(2) A; second order (2/9) A^2 int env'^2 = 0.45693; the runs agree (to
+    3 % and 0.01 %); the rest below 0.1 lambda^3.
+  - Anchored (the example README, the least shell, the least seed): at 10 l5 waves, strain 3.6e-6 at the horizon and
+    7.2e-3 at x = 1, 99.78 % of the energy in the regime at x = 1; the band reaching x = 1 is 10-46 l5, and emitter C4's
+    r_h/10 lies outside it.
+  - Not an analytic inequality for every lambda: our lambda lies below the computed ones.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

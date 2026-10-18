@@ -101,6 +101,14 @@ What each part rests on.
      are (h(x) = sqrt(2/(1 + x^2))).  Evidence, not proof: F4 at four wavelengths (100) and three (1000), and the
      scheme's linear stability (hf_mirror5 X4).  At mu0/l5^2 = 1000 the late spread against 498's is not yet settled
      (hf_core5 C1; finer grids running).
+     [Item 514 (hf_anchor5.py): the coefficients evaluated and anchored in our universe's values.  The first order is
+     sqrt(2) A exactly, the second order (2/9) A^2 int env'^2 = 5 pi^2/(36 T) exactly (0.45693), both confirmed by the
+     runs (the second to 0.01 %), the rest below 0.1 lam^3 at lam <= 0.05.  For the example README's shell (r_h =
+     72,762 l5, D = 269.15 r_h, the least seed) at 10 l5 waves: strain 3.6e-6 at the horizon and 7.2e-3 at x = 1,
+     99.78 % of the energy in the expansion's regime there; the band reaching x = 1 is 10 l5 to 46 l5, and the r_h/10
+     emitter_process C4 names lies outside it (strain 5.2 at x = 1).  Still not an analytic inequality for every
+     lam: our lam lies below the computed ones, and the answer there is the exact coefficients' as the series stays
+     asymptotic, which the runs show.]
 
 So, at item 513: parts (iv) and the limit of (ii) are proved exactly; (iii) holds exactly in the limit and is computed
 for every lam run; the nonlinear coupling is settled by the light cone (F5): O(1) only through the dust; (i) and the
@@ -386,6 +394,7 @@ STATUS = [("(iv) the boundary spacelike, outflow; the core beyond", "PROVED (exa
           ("(ii) the limit g_0 = Vaidya with Isaacson's flux", "PROVED (exact; formal two-scale)"),
           ("(iii) one horizon, no inner one", "PROVED in the limit; computed at every lam run"),
           ("the nonlinear coupling: O(1) only through the dust", "PROVED (exact; the light cone, F5)"),
+          ("the estimate's coefficients (1st, 2nd order), anchored", "PROVED (exact; runs agree; hf_anchor5, 514)"),
           ("(i) existence on D for every lam; rates of (ii), (iii)", "OPEN: L-UNIF', the estimate in rough-along-v norms")]
 
 

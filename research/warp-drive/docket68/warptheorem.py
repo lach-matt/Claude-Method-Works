@@ -1355,6 +1355,17 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_513_SOURCE
     _rows_513.append((c, n, s_, t))
 LEMMAS_NOW = _rows_513
+# [item 514] the remaining estimate, its coefficients evaluated and anchored in our universe
+NOTE_514_SOURCE = ("  [Item 514] L-UNIF's coefficients (hf_anchor5.py): first order sqrt(2) A, second (2/9) A^2 int env'^2 "
+                   "= 0.45693, exact, the runs agreeing to 3 % and 0.01 %, the rest below 0.1 lam^3; anchored in the "
+                   "example README (r_h = 72,762 l5): at 10 l5 waves strain 3.6e-6 at the horizon and 7.2e-3 at x = 1; the "
+                   "band reaching x = 1 is 10-46 l5, emitter C4's r_h/10 outside it; not an inequality for every lam")
+_rows_514 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_514_SOURCE
+    _rows_514.append((c, n, s_, t))
+LEMMAS_NOW = _rows_514
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1554,7 +1565,9 @@ def lemma_selftests():
               # items 509-510: position 2's matter reconstructs only position 1's; its laws after the instant
               "p2_indep.py",
               # item 511: the nonlinear PDE theorem for the shell's sequence onto the seed (THM-HF5)
-              "hf_theorem5.py"):
+              "hf_theorem5.py",
+              # item 514: its remaining estimate, the coefficients evaluated and anchored in our universe
+              "hf_anchor5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

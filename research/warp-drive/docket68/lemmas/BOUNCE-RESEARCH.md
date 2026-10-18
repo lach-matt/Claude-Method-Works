@@ -2807,3 +2807,36 @@ which is governed by observation, which is a first principle".
   on D. It must be measured in norms rough along v and smooth along the cones (Luk and Rodnianski's framework), with
   the angular coupling of Bondi gauge handled in double null gauge or in norms analytic in x, as the data are. Not
   proved. Evidence: the sequence at four and three wavelengths.
+
+## 49. The remaining estimate: its coefficients evaluated and anchored in our universe (514; lemmas/hf_anchor5.py, 5/5, mutants 2/2)
+
+M, 514: "Prove the remaining estimate please. Anchor you work with real value from our universe so you can calculate
+what you need to evaluate the coefficients that are preventing a precise answer instead of an estimate".
+
+- **What kept it an estimate.** L-UNIF' says the solution stays within C lambda of its approximant, with C and the
+  order beyond it unevaluated and lambda abstract. Here both are made definite.
+- **The coefficients, exact (computed; the runs agree).**
+  - First order: the departure the runs measure is the waves' amplitude rescaled by r^(3/2), which is carried unchanged
+    along each ingoing cone at leading order. So it is sqrt(2) A lambda exactly (sqrt 2 = h(0)). The runs give
+    P/lambda = 1.406 and 1.449 at lambda = 0.025 and 0.0125, within 3 %.
+  - Second order: the scri flux with the data's exact rates, averaged over the phase, is (A^2/6)(env^2 + lambda^2
+    env'^2) at every x. So the mass gained exceeds Vaidya's by (2/9) A^2 lambda^2 int env'^2: 5 pi^2/(36 T) = 0.45693
+    per A^2 for the record's envelope. The runs give 0.4608, 0.4590, 0.4568 (mu0/l5^2 = 100) and 0.459, 0.4589 (1000):
+    converging on it to 0.01 %.
+  - After both, the rest is below 0.1 lambda^3 at every lambda <= 0.05.
+- **Anchored in our universe's values (READ by path).** l5 = 1.54e-25 m; the example README's face, N = 2.74e15 bits,
+  E5 = 1.28e9 J, r_h = 1.12e-20 m = 72,762 l5; the record's least shell, the sin^8 flux over 269.15 r_h; the least
+  seed. The shell's amplitude is then A = 66.7 l5^(1/2). For 10 l5 waves, the window's floor:
+  - the second-order mass offset is 1.5e-13 of the shell;
+  - the strain is 3.6e-6 at the face's horizon and 7.2e-3 at the record's quantum boundary x = 1 (r_q = 460 l5);
+  - onto the least seed, 99.78 % of the energy arrives with the expansion's conditions holding at x = 1, and all but
+    2e-6 of it at the horizon.
+- **A correction the anchoring finds.** The band that reaches x = 1 within the expansion's regime is 10 l5 to 46 l5.
+  The r_h/10 that emitter_process C4 names lies 160 times outside it: its strain at x = 1 is 5.2, not a small
+  perturbation, and none of its energy is in the regime there. So the emitter's waves must be at most 46 l5 for the
+  high-frequency limit to hold down to x = 1. *[A note beside emitter_process C4; the instrument is not edited.]*
+- **What this settles, and what it does not.** The estimate's coefficients are evaluated exactly, not estimated, and
+  our universe's lambda is fixed and bounded below by the window's floor, so lambda -> 0 is never needed. It is still
+  not an analytic inequality for every lambda. Our lambda lies below the computed ones, and the answer there is the
+  exact coefficients' as long as the series stays asymptotic, which the runs show at four wavelengths. A fifth
+  (lambda = 0.00625) is running.

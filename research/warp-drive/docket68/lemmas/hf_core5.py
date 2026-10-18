@@ -55,7 +55,9 @@ RES = [(1000, 0.05, 1.0, 36, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0),
        # they showed the angular grid sets the spread (finer x lowers it, finer y alone does not): complete the x = 20
        # sequence at lam = 0.1, and measure the angular floor at lam = 0.05 with x = 24
        (1000, 0.1, 1.0, 24, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
-       (1000, 0.05, 1.0, 28, 24, 1.0, round(y_core(1.0, 1000), 6), 2.0)]
+       (1000, 0.05, 1.0, 28, 24, 1.0, round(y_core(1.0, 1000), 6), 2.0),
+       # item 514: a fifth wavelength at mu0/l5^2 = 100, nearer our universe's lam, for hf_anchor5's coefficients
+       (100, 0.00625, 1.0, 32, 16, 1.0, round(y_core(1.0, 100), 6), 2.0)]
 RUNLIST = ALL + RES
 key = lambda cfg: "_".join("%g" % c_ for c_ in cfg)
 
