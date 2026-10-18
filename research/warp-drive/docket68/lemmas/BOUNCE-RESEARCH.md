@@ -2623,3 +2623,52 @@ it." Built and run in the conversation. The equations come from `hf_mirror5_deri
 - **What it is not.** It is numerical over a sequence, not a proof for every lambda. The shell falls onto a seed, and
   the core inside the horizon is excised.
 
+## 45. 498's sequence extended: a fourth wavelength, the shell as 15/16 of the mass, and the hole's horizon (501-503; lemmas/hf_mirror5.py X8-X10, 12/12, mutants 5/5)
+
+M, 501-503: "Continue". Computed in the conversation, with the pinned rows added to `data/hf_mirror5_runs.json`.
+
+- **The scheme, sped up.** The hypersurface and aspect equations are now split symbolically into their linear
+  coefficients (load 61 s; right-hand side 0.13 s at 28 x 16). 498's seven rows were rerun and reproduce their
+  pinned values to 3e-9.
+- **lambda = 0.0125 (32 x 16, seed 1, A = 1).** The departures, after the shell, at lambda = 0.1, 0.05, 0.025, 0.0125:
+
+  | quantity | 0.1 | 0.05 | 0.025 | 0.0125 | order |
+  |---|---|---|---|---|---|
+  | spread of M over the sphere | 2.6e-2 | 2.7e-4 | 1.5e-5 | 5.9e-6 | falls |
+  | offset of the mean M from mu | 5.4e-3 | 1.16e-3 | 2.9e-4 | 7.2e-5 | lambda^2 |
+  | the amplitude P | 0.20 | 0.063 | 0.035 | 0.018 | lambda |
+  | \|W - W_V\| over the passage | 0.37 | 0.18 | 0.072 | 0.037 | lambda |
+
+- **The 15/16 shell.**
+  - The setup: seed 1/16, A = 6/sqrt 7 (since (2/9) A^2 x 3 x 35/128 = 15/16), excision at y = 2.2 (r = 0.21).
+  - The excision's outgoing speed y^3 |W|/4 grows from 1.2 to 60 as the hole grows.
+    - With a fixed step, lambda = 0.025 lost stability at v ~ 1.8: the residual jumped from 1e-4 to 1 in a quarter of
+      a unit.
+    - Holding the step to the end spacing over that speed (evolve's cfl = 2) runs it through.
+    - The linearized scheme about the final hole puts dv max|eig| at 0.68, well inside RK4's bound of 2.8.
+  - lambda = 0.05 is outside the regime at this excision (lambda A r^-3/2 ~ 1.2). The excision stopped being trapped
+    at v ~ 1.25, and the run stopped.
+  - At lambda = 0.025 and 0.0125, after the shell:
+    - spread 8.8e-3, 1.0e-3;
+    - offset 1.75e-3, 3.8e-4 (lambda^2);
+    - |W - W_V| 0.72, 0.35 (2.55, 1.16 over the passage);
+    - P 0.097, 0.044;
+    - the least-trapped excision W_ex = -0.16, -0.42.
+  - A late drift in the spread at lambda = 0.025 is the scheme's near-zero modes at the deep excision. Their growth
+    falls with Ny: 0.023 + 0.081i, 0.015 + 0.045i, 0.009 + 0.027i at Ny = 28, 32, 36 (at Ny = 24 the largest is
+    0.030). The drift falls ninefold to lambda = 0.0125.
+- **The horizon.**
+  - The round spheres of a slice have area form r^3 cos sin exactly, and outgoing null normal k = d_v + (W/2) d_r +
+    U d_th. Then (2r/3) Theta_k = W + (2/3) y^3 d_x((1 - x^2) q); the ingoing expansion is -3/r.
+  - Its zero is found per column on the Chebyshev interpolant, refined by Newton.
+  - One zero per column, in every run and at every sample, so spheres inside the least zero are trapped and outside
+    the greatest untrapped.
+  - A marginally trapped cross-section r = R(x) of the slice has expansion Theta_k(R) - c Lap R + O(grad R^2), c > 0.
+    At its greatest R that gives Theta_k <= 0, and at its least Theta_k >= 0, so R lies in the bracket (deduced).
+  - The bracket's width and its distance from sqrt(mu) halve with lambda at every seed. The mutant that drops the
+    shift's divergence moves the pinned bracket, and X6 catches it.
+- **What it settles and what it does not.**
+  - Settled: the trend in lambda holds over four wavelengths, at the order Isaacson's averaging predicts; the shell can
+    be 15/16 of the final mass; the trapped region and its bracket close on Vaidya's horizon.
+  - Not settled: a proof for every lambda; a seed of zero (excision needs a horizon at the start); the excised core.
+

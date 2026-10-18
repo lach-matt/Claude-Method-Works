@@ -1274,6 +1274,21 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_498_SOURCE
     _rows_498.append((c, n, s_, t))
 LEMMAS_NOW = _rows_498
+# [items 501-503] 498's qualifications narrowed by computation (M: "Continue")
+NOTE_501_SOURCE = ("  [Items 501-503] Narrowed (hf_mirror5.py X8-X10): a fourth wavelength, lambda = 0.0125 -- the mean "
+                   "mass's offset from mu 5.4e-3, 1.16e-3, 2.9e-4, 7.2e-5 (second order), the amplitude halving; the shell as "
+                   "15/16 of the final mass (seed 1/16, A = 6/sqrt 7; lambda = 0.025, 0.0125: offset 1.75e-3, 3.8e-4, spread "
+                   "8.8e-3, 1.0e-3, the excision trapped throughout, the step held to its outgoing speed; lambda = 0.05 outside "
+                   "the regime there); the hole formed -- the round spheres' outgoing expansion W + (2/3) y^3 d_x((1 - x^2) q) "
+                   "has one zero per column in every run, the trapped spheres inside, a marginally trapped surface between "
+                   "the zeros, the bracket closing on sqrt(mu) at first order at every seed.  Not: a proof for every lambda; "
+                   "a seed of zero (excision needs a horizon from the start); the excised core.  Status put to M")
+_rows_501 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_501_SOURCE
+    _rows_501.append((c, n, s_, t))
+LEMMAS_NOW = _rows_501
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [

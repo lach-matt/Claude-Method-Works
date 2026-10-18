@@ -44,12 +44,18 @@ A seed hole of mass 1 sits inside; the slice is excised at y = 1.15 (r = 0.756),
      0.0125.  The hole grows sixteenfold about a fixed excision, so the step is held to the excision's outgoing speed
      y^3 |W|/4 (evolve's cfl); with the fixed step lam = 0.025 lost stability at v ~ 1.8.  At lam = 0.05 the excision
      is not in the high-frequency regime (lam A r^-3/2 ~ 1.2 there): it stopped being trapped at v ~ 1.25 -- the
-     regime boundary, recorded.
+     regime boundary, recorded.  After the shell: spread 8.8e-3, 1.0e-3; offset from mu 1.75e-3, 3.8e-4 (second order;
+     0.04 % of the shell); |W - W_V| 0.72, 0.35 after and 2.55, 1.16 over the passage (|W| reaches 22 at the
+     excision); the excision stays trapped (W_ex <= -0.16, -0.42).  The late spread at lam = 0.025 drifts upward after
+     the shell; the scheme's near-zero modes about the final hole at this excision fall with Ny (0.023 + 0.081i,
+     0.015 + 0.045i, 0.009 + 0.027i at Ny = 28, 32, 36), and the drift falls ninefold to lam = 0.0125 at Ny = 32.
   X10 (computed) The hole formed.  For the slices' round spheres, k = d_v + W/2 d_r + U d_th is the outgoing null
      normal and the area form is r^3 cos sin exactly, so 2r/3 Theta_k = W + (2/3) y^3 d_x((1 - x^2) q).  In every run
      and at every sample it has one zero per column: spheres below the least zero are trapped, above the greatest
      untrapped, and at the extremes of a marginally trapped surface r = R(x) on the slice the Laplacian's sign holds
-     R between them.  The bracket closes onto Vaidya's apparent horizon sqrt(mu) at first order in lam.
+     R between them.  The bracket closes onto Vaidya's apparent horizon sqrt(mu) at first order in lam: after the
+     shell, at seed 1 its width is 6.8e-3, 3.3e-3, 1.7e-3, 8.4e-4 and its furthest point from sqrt(mu) 5.4e-3, 2.2e-3,
+     9.7e-4, 4.5e-4 (lam = 0.1 to 0.0125); at seed 1/4, 2.0e-2, 1.0e-2; at seed 1/16, 1.3e-2, 6.5e-3.
   Not proved: convergence for every lam (shown over a sequence); the shell falls onto a seed; the core inside the
   horizon is excised.
 

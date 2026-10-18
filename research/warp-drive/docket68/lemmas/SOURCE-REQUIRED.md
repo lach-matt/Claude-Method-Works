@@ -5,6 +5,58 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Items 501-503: 498's qualifications narrowed by computation
+
+M, 501: "Continue" (502, 503 the same). The status stays with M; the board removed what computation could of 498's
+qualifications. (`hf_mirror5.py` X0-X10, 12/12, mutants 5/5.)
+
+- **Faster, unchanged.** The hypersurface and aspect equations are split symbolically into their linear coefficients,
+  so the right-hand side runs four to five times faster. Every one of 498's seven pinned rows was rerun and reproduces
+  its pinned values to 3e-9.
+- **A fourth wavelength (computed).** At lambda = 0.0125 (A = 1, seed 1) every departure falls again.
+  - After the shell: the mass aspect's spread is 5.9e-6, and |W - W_V| is 9.6e-4 (0.037 over the passage).
+  - The wave's amplitude P halves with lambda (first order): 0.063, 0.035, 0.018.
+  - The mean mass's offset from Vaidya's mu quarters at every halving: 5.4e-3, 1.16e-3, 2.9e-4, 7.2e-5. It is second
+    order, as Isaacson's averaging is.
+- **The shell as fifteen sixteenths of the mass (computed).**
+  - Seed 1/16; the amplitude is A = 6/sqrt 7, so the shell brings exactly 15/16 and the final mass is 1.
+  - The core is excised at r = 0.21, inside the seed's horizon (r = 1/4); the hole then grows sixteenfold around it.
+    Two consequences:
+    - The step is held to the excision's outgoing speed y^3 |W|/4, which reaches 60. With a fixed step, lambda = 0.025
+      lost stability at v ~ 1.8.
+    - At lambda = 0.05 the excision is outside the high-frequency regime (lambda A r^-3/2 ~ 1.2 there). It stopped
+      being trapped at v ~ 1.25. That is the regime's edge, recorded, not a failure of the limit.
+  - At lambda = 0.025 and 0.0125, after the shell:
+    - spread 8.8e-3 and 1.0e-3;
+    - offset from mu 1.75e-3 and 3.8e-4 (second order again; 0.04 % of the shell);
+    - |W - W_V| 0.72 and 0.35 (|W| reaches 22 at the excision).
+  - The excision stays trapped throughout.
+  - At lambda = 0.025 the spread drifts upward after the shell. The drift comes from the scheme's near-zero modes about
+    the final hole at this deep excision, which fall with resolution (growth 0.023, 0.015, 0.009 at 28, 32, 36 points).
+    The drift falls ninefold at lambda = 0.0125.
+- **The hole formed (computed, with a deduced bound).**
+  - For the round spheres of each slice, k = d_v + (W/2) d_r + U d_theta is the outgoing null normal. Their area form
+    is r^3 cos sin exactly, so the outgoing expansion is (2r/3) Theta_k = W + (2/3) y^3 d_x((1 - x^2) q).
+  - In every run and at every sample this has exactly one zero per column. So:
+    - spheres inside the least zero are trapped (both expansions negative);
+    - spheres outside the greatest are untrapped;
+    - at the extremes of any marginally trapped surface on the slice, the Laplacian's sign holds it between the two
+      (deduced).
+  - The bracket closes onto Vaidya's apparent horizon sqrt(mu) at first order in lambda. After the shell:
+    - at seed 1, its width is 6.8e-3, 3.3e-3, 1.7e-3, 8.4e-4 and its furthest point from sqrt(mu) is 5.4e-3, 2.2e-3,
+      9.7e-4, 4.5e-4;
+    - at seed 1/4 the width halves, 2.0e-2 to 1.0e-2;
+    - at seed 1/16 it halves too, 1.3e-2 to 6.5e-3. There the hole's horizon grows from 1/4 to 1 as the shell's own
+      energy enters.
+  - Just after the shell, the bracket sits on the square root of the measured mass at both 1/16 wavelengths
+    ([1.00058, 1.00087] around 1.00075; [1.00011, 1.00026] around 1.00018).
+- **What remains of 498's qualifications.**
+  - Numerical over a sequence: now four wavelengths and three seed masses, still not a proof for every lambda.
+  - A seed: now as small as one sixteenth of the final mass. The seed cannot go to zero in this construction, because
+    excision needs a horizon from the start. Forming the hole from nothing would need the regular centre in the domain.
+  - The core inside the horizon is excised, as before.
+- SOURCEs and SOURCE: their status is M's to rule on.
+
 ## Item 498: the mirror-symmetric vacuum sequence for the whole round shell, constructed
 
 M, 498: "... that is beyond what I can compute here. - why? You have computed so much and are capable of so much more.
