@@ -2526,3 +2526,36 @@ and Bronnikov-Grinyok on scalar wormholes, Bousso-Hawking on neutral pair creati
     holding needs r_e << hbar c/TeV (Standard Model) or r >= 10 R5 (RS2). At 1-2 m the opening needs a field 3e7 times
     a magnetar's, tuned to 1e-34.
   - Neutral pairs opened by vacuum energy (Bousso-Hawking) carry no flux to hold a throat.
+
+## 43. The same with an electromagnetic field (495; lemmas/em_open.py, 5/5, mutants 3/3)
+
+M, 495: "EM?" Read as 494's question with the electric field admitted. Run with field_open (494), mag2m (493),
+mmp_corridor, and prior art read for this item: MMP's appendices A and G (1807.04726), Gibbons on the loss of charge,
+and the chiral anomaly in parallel fields.
+
+- **Gravity cannot tell electric from magnetic (E1, exact).** The Maxwell stress tensor is unchanged by the duality
+  rotation of (E, B). So the hole, the throat's marginal rho + p_r = 0 and the pair-creation action are the same for
+  any mix. Classically an electromagnetic field does what 494's magnetic field does, and no more.
+- **What differs is frame-invariant (E2, exact).** B^2 - E^2 and E.B are invariant. A field is a magnetic field seen
+  from some frame iff E.B = 0 and |E| < c|B|: v = E x B/B^2 removes E. A magnetic force does no work, so such a field
+  cannot supply a pair's rest energy.
+- **The electric part discharges in our matter (E3).** The light charges are electric.
+  - A 1 m mouth's field, as electric, is 1.04e27 V/m = 7.9e8 times Schwinger's 1.32e18 V/m.
+  - Schwinger's rate there, 6.8e73 pairs per m^3 per s, removes the mouth's 7.2e35 charges in 2.6e-39 s, against a
+    light-crossing time of 3.3e-9 s.
+  - An extremal electric mouth keeps its charge only above 7.9e8 m (5.3e5 solar masses). Gibbons: large holes lose
+    charge by "a Schwinger type formula".
+  - The opening fails the same way. At 494's opening field the electron's exponent pi E_S/E is 4.0e-9 (1 m) and
+    2.2e-42 (one Dirac charge), so the field makes electrons first, by more than e^563.
+  - A magnetic mouth does not discharge: the 26 hold no light magnetic charge.
+- **The hold needs magnetic flux (E4).**
+  - MMP's zero modes number "q, where q is an integer specifying the quantized magnetic flux through the sphere".
+  - A purely electric mouth has none: c2 = 0, and E(l) falls for every l, so nothing holds (exact).
+  - An electric field along the field lines (E.B != 0, a dyonic mouth) is screened by the holding fermions (MMP App.
+    G) and pumped into the throat by the anomaly, (e^2/2 pi^2) E.B, with no suppression. Its energy fills the throat.
+    At 1 m the stray E along B must stay below about 3.5e19 V/m, 3.4e-8 of the mouth's field.
+- **So (E5): an electromagnetic field adds no condition and opens no new route.**
+  - Crossed fields with E.B = 0 and |E| < c|B| are 494's magnetic corridor seen from a moving frame.
+  - Any other electric part discharges the mouths or fills the throat.
+  - By duality an electric corridor would need light magnetic monopoles, which the 26 do not hold.
+  - 494 stands, magnetic in the corridor's own frame. It is not the theorem's corridor.

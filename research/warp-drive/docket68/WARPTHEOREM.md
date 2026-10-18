@@ -1869,6 +1869,19 @@ state was rebuilt first.
       where the record had 96. But `b5a_residue`, `c8_level`, `far_small`, `far_large` and `arrival_small` still
       pinned 96. They are re-pinned to the computed counts, with the record's beside them. Every answer is unchanged:
       1, "both" and refused stand where they stood; only the counts moved (every-language 60/36 is now 14/10).]
+- **Item 495** (M: "EM?", read as 494's question with the electric field admitted). Run (`em_open.py`, 5/5, mutants
+  3/3; BOUNCE-RESEARCH §43). **No new route: an electromagnetic field adds nothing to 494, and its electric part can
+  only harm.**
+  - Gravity cannot tell electric from magnetic. The stress tensor is duality-invariant, so the hole, the marginal
+    throat and the pair-creation action are the same for any mix (exact).
+  - Our light charges are electric. A 1 m mouth's field as electric is 7.9e8 Schwinger fields and discharges in
+    about 1e-39 s. An electric mouth holds its charge only above 7.9e8 m (5.3e5 solar masses). At 494's opening field
+    the electron's pair exponent is 4e-9, so the field makes electrons first.
+  - The hold needs magnetic flux through the mouth (MMP's zero modes number the flux quanta). An electric mouth has
+    none, so it is not held (exact). An electric field along the field lines is screened and pumped into the throat
+    by the anomaly.
+  - What remains is 494's corridor, magnetic in its own frame (E.B = 0, |E| < c|B|; crossed fields are it seen
+    moving). An electric corridor would need light magnetic monopoles, which the 26 do not hold. No row moved.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
