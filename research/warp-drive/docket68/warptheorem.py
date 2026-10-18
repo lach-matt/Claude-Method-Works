@@ -1306,6 +1306,19 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_506_SOURCE
     _rows_506.append((c, n, s_, t))
 LEMMAS_NOW = _rows_506
+# [item 509] position 2's matter reconstructs only position 1's (M: "... - prove this")
+NOTE_509_SOURCE = ("  [Item 509] Position 2's matter enters as material, never content (p2_indep.py): a reconstruction exact "
+                   "for every prior state is exactly the replacement map; realized by displacing the room's matter (284-285) "
+                   "under every conservation law; its information all in what was displaced (no-hiding); identical particles "
+                   "make the copy position 1's matter in every observable; the composition changes only the energy (Cu-63 from "
+                   "five kinds of matter, AME2020) and the clearing cost, given the copy's baryons.  The proof for every lambda "
+                   "is built once SOURCE is finished (509)")
+_rows_509 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_509_SOURCE
+    _rows_509.append((c, n, s_, t))
+LEMMAS_NOW = _rows_509
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1501,7 +1514,9 @@ def lemma_selftests():
               # item 498: the exact mirror-symmetric sequence for the whole round shell (withdrawn as support at 505)
               "hf_mirror5.py",
               # items 506-508: redone without the inner horizon -- the seed, the accreting core, the sequence to x = 1
-              "src_hole.py", "hf_core5.py"):
+              "src_hole.py", "hf_core5.py",
+              # item 509: position 2's matter reconstructs only position 1's
+              "p2_indep.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

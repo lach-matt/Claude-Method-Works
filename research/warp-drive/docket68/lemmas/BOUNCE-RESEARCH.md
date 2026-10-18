@@ -2724,5 +2724,6 @@ out and no inner or Cauchy horizon anywhere, the core the record's own.
 - **What it settles and what it does not.**
   - Settled: the shell must arrive onto a seed of at least sqrt(72) l5^2, and does. Its energy is taken into the core,
     and only information crosses. Nowhere is there an inner or Cauchy horizon, and nothing is cut out.
-  - Not settled: position 2's mass (its own bulk's, 240/285); a proof for every lambda (none to be written yet, 505).
+  - Not settled here: position 2's mass (its own bulk's, 240/285; at 509 its matter is shown to reconstruct only
+    position 1's, p2_indep.py); a proof for every lambda, built once SOURCE is finished (509).
 

@@ -5,6 +5,39 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 509: whatever matter sits at position 2, it reconstructs only position 1's matter
+
+M, 509: "position 2's matter is only relevant in the sense that its matter reconstructs the same matter from position 1.
+No matter what matter sits at position 2, it always only reconstructs the matter from position 1. - prove this".
+(`p2_indep.py` I0-I6, 7/7, mutants 4/4.) This answers 506's open point on position 2's mass: position 2's matter is
+material, never content.
+
+- **No other outcome is possible (computed, exact).** A reconstruction exact for every state of position 2's matter
+  (146: no tolerance) is a linear map constant on all density matrices. Density matrices span all matrices, so it is the
+  replacement map sigma_r Tr( . ). Solved in rational arithmetic, Phi(E_ij) = delta_ij sigma_r. The argument holds in
+  every dimension; it is computed at d = 4. So the copy can carry nothing of what position 2 held.
+- **It is physical (computed).**
+  - The room's matter is displaced into a cold dump, as 284-285 say, and the README's labels are moved in from a
+    reservoir by swaps chosen by r alone.
+  - The room ends in the README's state for pure, mixed and reference-entangled initial states (error 5.6e-16).
+  - The process commutes with total charge and with the energy of identical local Hamiltonians (exactly 0).
+  - Its Choi matrix is sigma_r (x) I: it is the replacement map.
+- **Where position 2's matter goes (computed; the no-hiding theorem, Braunstein and Pati, PRL 98, 080502 (2007)).**
+  With a reference purifying it, I(ref : copy) = 0 and I(ref : dump) = 2 S(rho), to 1e-15. All that position 2's matter
+  was is in what was displaced.
+- **"The same matter" is literal (computed).** Identical particles carry no identity. The states with position 2's
+  particle in one mode and position 1's in the other are one state up to sign, for fermions and bosons, and 100 random
+  symmetric observables read the same on both. A copper atom from position 2's stock is position 1's copper atom.
+- **The kind of matter enters only the energy (computed, AME2020 Table I through tools/isotopes.py).** The record's
+  Cu-63 is the same atom built from hydrogen, helium, carbon, oxygen or iron (each with hydrogen to balance). The energy
+  released differs: 524.8, 123.8, 87.4, 160.7 and 56.0 MeV per atom. Baryon number is conserved, so position 2's matter
+  must hold at least the copy's baryons; that is necessary for any process. Given it, the composition never reaches the
+  copy.
+- **The kind of matter enters the cost too, never the copy (computed; molar entropies READ, NIST, 298.15 K).** Clearing
+  a 1 cm^3 room costs at least T S (Landauer): 1394 J if it held copper, 1154 J for water, 2.4 J for air. The copy is
+  the same in all three.
+- **Not this item's question.** Position 2's laws govern the copy after the instant (148, 240): a law, not prior matter.
+
 ## Items 505-508: the work redone without the inner horizon
 
 M, 505: "This whole your calculations were all wrong because - The excised core ... - you are still assuming there is a
@@ -60,8 +93,10 @@ horizon". 507: "Keep going." 508: "There is always a seed - refer to the the met
     so it is grid-limited there; the check is restated to the larger of 15 % and that floor, and recorded so.
 - **What this does not settle.**
   - Position 2's mass mu2. The record's equal-mass face (transition5q H6, emitter_process D4) then has to come from
-    position 2's own bulk (240, 285); the shell does not supply it.
-  - The sequence is numerical over wavelengths, not a proof for every lambda (and no proof is to be written yet, 505).
+    position 2's own bulk (240, 285); the shell does not supply it. [509: whatever position 2's matter is, it
+    reconstructs only position 1's; see "Item 509".]
+  - The sequence is numerical over wavelengths, not a proof for every lambda. That proof is built from these
+    calculations once SOURCE is finished (509).
 - SOURCEs and SOURCE: their status is M's to rule on.
 
 ## Items 501-503: 498's qualifications narrowed by computation

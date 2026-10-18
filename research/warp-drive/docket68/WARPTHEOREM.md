@@ -98,7 +98,7 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 508.** SOURCEs and SOURCE rest on the shell delivered onto the README's own hole, redone at 506-508 without the inner horizon and with nothing cut out (498-503 withdrawn at 505). The math answers what 505 asked: with no seed the record's core would be seen from infinity at the record's least arrival spread, so the shell arrives onto a seed (508; The Method sec. 14.5.7), at least sqrt(72) l5^2, whose core lies inside its horizon throughout. The core takes the shell's energy into its effective stress inside x >= 1 and only information crosses to position 2, with two horizons only and one transition surface (`src_hole.py`). The exact vacuum sequence onto the seed is computed inward to the record's quantum boundary (`hf_core5.py`). Not settled: position 2's mass, which has to come from its own bulk (240, 285); a proof for every lambda (none to be written yet, 505). The status is M's.
+**Where it stands, at item 509.** SOURCEs and SOURCE rest on the shell delivered onto the README's own hole, redone at 506-508 without the inner horizon and with nothing cut out (498-503 withdrawn at 505). The math answers what 505 asked: with no seed the record's core would be seen from infinity at the record's least arrival spread, so the shell arrives onto a seed (508; The Method sec. 14.5.7), at least sqrt(72) l5^2, whose core lies inside its horizon throughout. The core takes the shell's energy into its effective stress inside x >= 1 and only information crosses to position 2, with two horizons only and one transition surface (`src_hole.py`). The exact vacuum sequence onto the seed is computed inward to the record's quantum boundary (`hf_core5.py`). Position 2's mass comes from its own bulk (240, 285), and whatever its matter is, it reconstructs only position 1's: it enters as material, never as content (509, `p2_indep.py`). The proof for every lambda is built from these calculations once SOURCE is finished (509). The status is M's.
 
 **Where it stood at item 503.** As at 497. The one point SOURCEs and SOURCE rested on is computed (498) and now narrowed (501-503): an exact mirror-symmetric vacuum sequence in five dimensions, of cohomogeneity three, built in compactified ingoing Bondi coordinates with the incoming gravitational wave as free data at past null infinity. It converges to 5D Vaidya with the shell's averaged flux over four wavelengths (lambda = 0.1 to 0.0125), the mean mass at second order in lambda, and with the shell as much as fifteen sixteenths of the final mass; the round spheres' trapped region closes on Vaidya's horizon sqrt(mu) at first order (`hf_mirror5.py`, 12/12). It is numerical over a sequence, falls onto a seed (now 1/16 of the mass; excision needs a horizon from the start), and excises the core inside the horizon; the status is M's (499-503: continue). *[Item 505: M finds 498-503 built on the wrong premise -- the classical hole seeded and its core cut out, where the record's hole has a computed core with one horizon and no inner or Cauchy horizon (core_large, transition_aos, 273), and the route not held against it first (481). 498-503 are withdrawn as SOURCEs' and SOURCE's support; no proof is to be written yet.]*
 
@@ -1957,6 +1957,15 @@ state was rebuilt first.
   - **The sequence onto the seed, inward to x = 1.** The exterior is 498's; every departure falls with lambda; the
     round spheres' expansion has one zero per column down to the core boundary, which stays trapped.
   - **What remains.** Position 2's mass, from its own bulk; numerical over a sequence; no proof yet. Status put to M.
+- **Item 509** (M: "No matter what matter sits at position 2, it always only reconstructs the matter from position 1.
+  - prove this"; and the proof for every lambda is built once SOURCE is finished). Proved (`p2_indep.py`, 7/7, mutants
+  4/4; SOURCE-REQUIRED "Item 509"). For R1, R2 and R6:
+  - A reconstruction exact for every prior state is, exactly, the replacement map. It is realized by displacing the
+    room's matter (284-285) under every conservation law.
+  - Position 2's matter's information goes entirely into what was displaced (no-hiding), and identical particles make
+    the copy position 1's matter in every observable.
+  - The composition of position 2's matter changes only the energy (Cu-63 from five kinds of matter, AME2020) and the
+    clearing cost. It never changes the copy. Its baryons must at least match the copy's.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
