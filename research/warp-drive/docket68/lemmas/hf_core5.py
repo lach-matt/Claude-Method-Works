@@ -47,11 +47,17 @@ SEQ = {100: [(0.1, 1.0, 20, 16), (0.05, 1.0, 24, 16), (0.025, 1.0, 28, 16)],
 ALL = [(L,) + c + (1.0, round(y_core(1.0, L), 6), 2.0) for L in (100, 1000) for c in SEQ[L]]
 FOURTH = (100, 0.0125, 1.0, 32, 16, 1.0, round(y_core(1.0, 100), 6), 2.0)          # a fourth wavelength at L = 100
 ALL.append(FOURTH)
+# Resolution rows at mu0/l5^2 = 1000 (C6): the late spread there exceeded 498's at lam = 0.05 and 0.025; run finer in y,
+# in x, and in both, to tell a grid limit from a physical departure.  Not part of the three-row sequence.
+RES = [(1000, 0.05, 1.0, 36, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0),
+       (1000, 0.05, 1.0, 28, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
+       (1000, 0.025, 1.0, 36, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0)]
+RUNLIST = ALL + RES
 key = lambda cfg: "_".join("%g" % c_ for c_ in cfg)
 
 
 def run_one(i):
-    cfg = ALL[i]
+    cfg = RUNLIST[i]
     t0 = time.time()
     hist = H.evolve(*cfg[1:], log=lambda h: print(h, flush=True))
     json.dump({key(cfg): hist}, open(RUNS.replace(".json", "_%d.json" % i), "w"))
@@ -60,7 +66,7 @@ def run_one(i):
 
 def merge():
     out = json.load(open(RUNS)) if os.path.exists(RUNS) else {}
-    for i in range(len(ALL)):
+    for i in range(len(RUNLIST)):
         f = RUNS.replace(".json", "_%d.json" % i)
         if os.path.exists(f):
             out.update(json.load(open(f)))
@@ -72,16 +78,21 @@ def words():
     return "Redo the work without the inner horizon" in s and "There is always a seed" in s
 
 
+MAIN498 = {0.1: "0.1_1_20_16", 0.05: "0.05_1_24_16", 0.025: "0.025_1_28_16", 0.0125: "0.0125_1_32_16"}
+
+
 def stats():
     R = json.load(open(RUNS))
     P = json.load(open(H.RUNS))
     out = {}
-    for cfg in ALL:
+    for cfg in RUNLIST:
         k = key(cfg)
         if k not in R:
             continue
         h = R[k]; e = H.end_stats(h)
         pk = H.key(cfg[1:5])                                  # 498's pinned row at the same (lam, A, Ny, Nx), excised at 1.15
+        if pk not in P:                                       # [the L = 1000 grids are finer than any 498 row: compare at
+            pk = MAIN498.get(cfg[1])                          #  the same lam with 498's sequence row; at L = 100 unchanged]
         ext = None
         if pk in P:                                           # the exterior after the shell: mass and spread at infinity
             f = H.end_stats(P[pk])
