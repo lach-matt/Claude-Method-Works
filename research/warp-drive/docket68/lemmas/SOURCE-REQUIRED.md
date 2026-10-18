@@ -5,6 +5,26 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 490: work started on the open objects -- what changes here
+
+M, 490: "Start the work on the new open objects of the warp theorem".
+- **Our plane's matter can open the face** (`open_plane.py` Y1-Y6). Two pieces of it, colliding head-on along a line
+  in the plane, form a closed trapped surface on their shock fronts (Eardley and Giddings, PRD 66, 044011 (2002), READ).
+  The trapped mass is M_AH >= 0.665 sqrt(s) in five dimensions; their Table I is reproduced exactly, 0.66533 and at
+  D = 11 0.58105. Head-on means J = 0. The one static end is Tangherlini (Gibbons-Ida-Shiromizu, READ), which is stable
+  (Ishibashi-Kodama, READ), and the face rings down to round within 65 clocks (WKB estimate). The collision energy lies
+  between E5(N) and 1.50 E5(N), its exact value set by the radiated fraction (numerical relativity, not computed here).
+  - So `emitter.py` E3-E6 bind the round, all-at-once null shell, and nothing else. M's 486 ("our plane's matter cannot
+    do it") conflicts with this for every other opening. **Whether the theorem requires the round shell is M's**
+    (414); if it does not, the gaps of the opening shell's emitter and of the formation from our plane close on this
+    computation.
+  - Two gaps remain either way: the device that reads, and the structure probe's wavelength (S1C-O1).
+- **The delivery at position 2** (`face2_hold.py`): no state of position 2's fields holds a white-hole face through the
+  write, so what the source delivers into waits on M's choice of what stands at position 2.
+- **The README's accuracy** (`r1_realize.py`): zero error is impossible at any block length; error below any epsilon
+  (1e-100 for the example) is realized, at a fraction 0.112 of the inflow's entropy with heterodyne decoding, so the
+  write lasts tau_w / 0.112 with that code (tau_w / 0.27 at best).
+
 ## Item 489: the 488 verification's findings fixed -- what changes here
 
 M, 489: "Fix all the findings".

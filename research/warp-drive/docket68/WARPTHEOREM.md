@@ -97,8 +97,12 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
 **Where it stands, at item 489.** 82 rows: 64 proved, 5 definitions, 13 OPEN. The OPEN rows are FACE2s and FACE2
 (position 2's face over its open period); E2us, E2xs, E2u, E2x, E3, R5, B3s and B3 (resting on them); SOURCEs and
 SOURCE (the specification proved, no computed source meeting it); and R1. The theorem is not proved, and position 2's
-face is where it stops. *The paragraphs below are the record of how it got here; their first sentence is long
-superseded.*
+face is where it stops. *[Item 490: work started on these. FACE2s and FACE2 as posed are refuted on established
+physics -- no state of position 2's fields holds a semiclassical white-hole face through the write (`face2_hold.py`) --
+so what stands at position 2 is yours to choose. R1's "no tolerance" cannot be realized and its realizable form is
+(`r1_realize.py`), the wording yours. Our plane's matter can open the face by a head-on collision (`open_plane.py`),
+against 486 for every opening but the round shell, yours to rule on. The register is unchanged.]* *The paragraphs
+below are the record of how it got here; their first sentence is long superseded.*
 
 **Where it stood at item 331.** At the small end, where the example README sits, three lemmas stay OPEN: **B3, B4d and FAR**.
 CLOSE is closed there on your item 336 (CLOSEs). Two rows rest on named readings:
@@ -1754,6 +1758,35 @@ state was rebuilt first.
     near-zone 1.0039 is the O(ρ/ℓ) term (coefficient 2.73 at two distances), now pinned.
   - The register reads 64 proved, 5 definitions, 13 OPEN, of 82 rows. The theorem is not proved; position 2's face is
     where it stops.
+- **Item 490** (M: "Start the work on the new open objects of the warp theorem"). Prior art first, each step computed;
+  no status changed, since each open object now turns on a choice that is yours (414).
+  - **FACE2s and FACE2, position 2's face.** `face2_hold.py` (5/5, mutants 3/3) asks what `face2_open.py` did not:
+    could anything hold the face?
+    - Prior art (READ): Eardley 1974 (classical), Zel'dovich-Novikov-Starobinsky 1974 (the stress diverges along a white
+      hole's horizon), Wald-Ramaswamy 1980, Barcelo et al. 2016 (the white phase must be short), Rovelli-Vidotto 2018
+      (only a Planck-size face escapes, by loop quantum gravity's area gap -- not established physics).
+    - The white phase cannot be cut: at fixed entropy through the face the least time goes as E^-3, so it is at least
+      tau_w/27 = 3.2e13 clocks, against 35.8.
+    - A bath from position 2 holds the face only at T_H, to 10^(-3.75e14). The face's own quanta move T_H by 4.7e-16,
+      which ends it within 70.4 clocks.
+    - The correlated, time-reversed state is excluded by monogamy: its partners are already pure with our Hawking
+      radiation (mutual information 0 against the 2 g(n) per mode required).
+    - So the rows as posed -- a semiclassical white-hole face held through the write -- are refuted on established
+      physics, not merely unproved. What stands at position 2 must change. Two candidates remain: a black hole there,
+      the README emerging in its radiation (a change to 447's dictionary), or a horizonless mouth (as 445 (2)). **Yours.**
+  - **R1.** `r1_realize.py` (2/2, mutants 2/2): the channel is the quantum-limited amplifier followed by classical noise.
+    Every output is faithful, no two are orthogonal, and the zero-error capacity is exactly 0: "no tolerance" cannot be
+    realized at any block length. The realizable form is realized: heterodyne decoding with Gallager's bound delivers
+    the example README with total error below 1e-100, at 0.112 of the inflow's entropy (Holevo's best, 0.27). The
+    wording, "error below any epsilon > 0 chosen in advance, at a rate below the channel's capacity", is **yours to
+    adopt**.
+  - **SOURCEs and SOURCE.** `open_plane.py` (3/3, mutants 2/2): our plane's matter can open the face. A head-on collision
+    of two pieces of it forms a trapped surface (Eardley-Giddings, READ; 0.665 sqrt(s) in 5D, their Table I reproduced).
+    It settles to the static J = 0 Tangherlini face within 65 clocks, at a collision energy between E5(N) and
+    1.50 E5(N). `emitter.py` binds only the round, all-at-once shell, so your 486 ("our plane's matter cannot do it")
+    conflicts with this for every other opening. **Whether the round shell is required is yours.** The reading device
+    and the structure probe remain.
+  - The register still reads 64 proved, 5 definitions, 13 OPEN, of 82 rows.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

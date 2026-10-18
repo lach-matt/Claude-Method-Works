@@ -2376,3 +2376,36 @@ junction model's, withdrawn at 427.
 
 What it does not claim: the quantum state at position 2's face beyond the s-wave model, or that no mechanism could hold
 it -- only that none in the theorem does, and that the vacuum the board's position 2 carries does not.
+
+## 39. Can anything hold position 2's face? (490; lemmas/face2_hold.py)
+
+M, 490: "Start the work on the new open objects of the warp theorem". Section 38 left the question it did not claim:
+whether any state or mechanism, not only the vacuum the theorem gives position 2, holds the face through its open period.
+
+- **Prior art first (K1; READ).** A white-hole face is unstable to matter from its own side (Eardley, PRL 33, 442
+  (1974)). Its first-order quantum stress diverges along its horizon (Zel'dovich, Novikov and Starobinsky, JETP 39, 933
+  (1974)). Where its horizon ends there is an infinite flux at future null infinity (Wald and Ramaswamy, PRD 21, 2736
+  (1980)). So a white phase must be short (Barcelo, Carballo-Rubio and Garay, JHEP 01 (2016) 157). A white hole is
+  stable only to perturbations of its future data. Only a Planck-size face escapes this, by loop quantum gravity's area
+  gap (Rovelli and Vidotto, arXiv:1805.03872), which is not established physics.
+- **The white phase cannot be cut (K2; exact).** Through the face's area, at fixed entropy, the least time goes as E^-3.
+  The face can give out at most what it holds, E_in + E. That gives t_min >= tau_w/27 = 3.2e13 clocks at the example
+  and (3/11)^3 tau_w = 3.0e65 at the Earth cap, against t_q = 35.8 and 620.
+- **A bath holds it only at T_H, to 10^(-3.75e14) (K3; exact in the s-wave model).** A bath at T from position 2 gives
+  T_vv = (pi/12)(T^2 - T_H^2) at the face. That is zero only at T = T_H, where it vanishes as f^2. Otherwise the face
+  lasts t_q + ln(1/|2 delta + delta^2|). Too hot traps the face (Eardley); too cold leaves section 38's negative mass. A
+  2.725 K background on the Earth-cap face (T_H 0.0205 K) ends it after 145 e-folds.
+- **The face's own quanta floor the match (K4).** Each quantum is 2.701 k T_H, or 3.90 bits by the first law, and moves
+  T_H by 4.7e-16 at the example and 1.4e-66 at the Earth cap. The face then lasts 70.4 clocks and 306 e-folds. The
+  write's drift, 4.6e-8 of N, gives 53.1 clocks.
+- **The correlated state is excluded by monogamy (K5; exact).** The time reverse needs position 2's incoming radiation to
+  purify the partners the face emits, with mutual information 2 g(n) per mode (0.0272 nats at k r_h = 1, 2.96 at 0.1).
+  Those partners are pure with our Hawking radiation, so their mutual information with any third system is 0 (the
+  covariance matrices are computed). No channel brings our Hawking radiation to position 2's past null infinity: the
+  corridor is one way and emerges at the face.
+- **So (K6).** FACE2s and FACE2 as posed -- a semiclassical white-hole face at position 2 held through the write -- are
+  refuted on established physics, not merely unproved. What stands at position 2 must change, and that is M's to decide
+  (414). Established physics leaves two candidates: a black hole at position 2, stable to its past data, with the README
+  emerging in its radiation (this changes 447's dictionary); or a horizonless mouth, its throat held open as in 445 (2).
+
+What it does not claim: anything beyond the s-wave model for the stress, or about either candidate beyond naming it.

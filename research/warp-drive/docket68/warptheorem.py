@@ -102,6 +102,12 @@ OPEN.  The OPEN rows: FACE2s and FACE2, position 2's face holding through its op
 write (face2_open); E2us, E2xs, E2u, E2x, E3, R5, B3s and B3, which rest on them; SOURCEs and SOURCE, whose
 specification is proved but met by no computed source (487 went beyond 441 (1)); and R1, "no tolerance", which no
 finite encoding realizes (passage_est Q5).  The theorem is not proved: position 2's face is where it stops.]
+[Item 490, work started on the new open objects; the register unchanged, 64 / 5 / 13.  FACE2s and FACE2 as posed are
+refuted on established physics (face2_hold): no state of position 2's fields holds a semiclassical white-hole face
+through the write, and the white phase cannot be cut to fit -- what stands at position 2 must change, M's to decide.
+R1: zero error is impossible at any block length; error below any epsilon is realized (r1_realize) -- the wording M's.
+SOURCE: our plane's matter can open the face by a head-on collision (open_plane), against 486 for every opening but the
+round shell -- M's to decide; the reading device and the structure probe remain.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1105,6 +1111,43 @@ LEMMAS_NOW = _rows_489
 RESTS_ON_NOW.update({'E2us': 'CLOSEs FACE2s', 'E2xs': 'CLOSEs FACE2s', 'E2u': 'CLOSE FACE2', 'E2x': 'CLOSE FACE2',
                      'E3': 'FACE2s FACE2', 'R5': 'FACE2s FACE2', 'B3s': 'M1s FARs WRITEs ARRIVALs CLOSEs FACE2s',
                      'B3': 'M1 FAR WRITE ARRIVAL CLOSE FACE2'})
+# [item 490] Work started on the new open objects: notes only, statuses unchanged (414: a change of approach is M's)
+NOTE_490_FACE2 = ("  [Item 490] Worked (lemmas/face2_hold.py K1-K6): as posed -- a semiclassical white-hole face held "
+                  "through the write -- established physics refutes it, not merely leaves it unproved.  The white phase "
+                  "cannot be cut to fit: at fixed entropy through the face t_min goes as E^-3, at least tau_w/27 = "
+                  "3.2e13 clocks (K2).  A bath from position 2 holds the face only at T_H to 10^(-3.75e14) (K3), and "
+                  "the face's own quanta move T_H by 4.7e-16, ending it within 70.4 clocks (K4).  The correlated "
+                  "time-reversed state would need position 2's incoming radiation to purify partners already pure with "
+                  "our Hawking radiation: monogamy gives 0 against 2 g(n) per mode (K5).  Prior art (READ): Eardley "
+                  "1974; Zel'dovich-Novikov-Starobinsky 1974; Wald-Ramaswamy 1980; Barcelo et al. 2016; Rovelli-"
+                  "Vidotto 2018.  What stands at position 2 must change -- a black hole there, or a horizonless mouth -- "
+                  "put to M (414)")
+NOTE_490_R1 = ("  [Item 490] Worked (lemmas/r1_realize.py Z1-Z3): 'no tolerance' cannot be realized -- the channel is the "
+               "quantum-limited amplifier followed by classical noise (G - 1) n > 0, every output faithful, so no two "
+               "outputs are orthogonal and the zero-error capacity is exactly 0 (Duan-Severini-Winter, READ).  The "
+               "realizable form is realized: heterodyne with Gallager's bound delivers the example README with total "
+               "error below 1e-100 at a fraction 0.112 of the inflow's entropy (Holevo F = 0.27).  The wording 'error "
+               "below any epsilon > 0 chosen in advance, at a rate below the channel's capacity' is M's to adopt "
+               "(414); OPEN until then")
+NOTE_490_SOURCE = ("  [Item 490] Worked (lemmas/open_plane.py Y1-Y6): our plane's matter can open the face.  Two pieces "
+                   "of it colliding head-on form a trapped surface (Eardley-Giddings, READ; M_AH >= 0.665 sqrt(s) in "
+                   "5D, their Table I reproduced).  It settles to the static J = 0 Tangherlini face (Gibbons-Ida-"
+                   "Shiromizu; Ishibashi-Kodama, READ) within 65 clocks (WKB estimate), at a collision energy between "
+                   "E5(N) and 1.50 E5(N).  emitter E3-E6 bind the round, all-at-once shell only; M's 486 ('our plane's "
+                   "matter cannot do it') conflicts with this for every other opening -- put to M (414).  If the round "
+                   "shell is not required, the emitter and formation gaps close on this computation, and the reading "
+                   "device and the structure probe remain")
+_rows_490 = []
+for c, n, s_, t in LEMMAS_NOW:
+    nm = n.split()[0]
+    if nm in ("FACE2s", "FACE2"):
+        t = t + NOTE_490_FACE2
+    elif nm == "R1":
+        t = t + NOTE_490_R1
+    elif nm in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_490_SOURCE
+    _rows_490.append((c, n, s_, t))
+LEMMAS_NOW = _rows_490
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1291,7 +1334,8 @@ def lemma_selftests():
               "passage_est.py", "emitter.py", "read_index.py",
               # item 489: the 488 verification's findings fixed -- position 2's face over its open period (F1), the
               # theorem's domain and its one static corridor (F4, F9), (Z) against our face's Hawking flux (F10)
-              "face2_open.py", "scope.py", "z_hawking.py"):
+              "face2_open.py", "scope.py", "z_hawking.py",
+              "face2_hold.py", "r1_realize.py", "open_plane.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
