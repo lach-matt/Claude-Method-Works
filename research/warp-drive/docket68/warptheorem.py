@@ -117,6 +117,10 @@ README's release whole at the write's end, at most 2 r_h/c, and holding through 
 whole through the interior's unitary map and is inverted exactly (r1_exact).  82 rows: 74 PROVED, 6 DEFINITION, 2 OPEN
 -- SOURCEs and SOURCE, which still need the device that reads, the structure probe and the bulk emitter's process.  The
 theorem stops at SOURCE.]
+[Item 492: R1's wording corrected to what its lemma solved -- one true complete reconstruction at position 2, exact, no
+tolerance: the README arrives whole and position 2 recovers it exactly; its two witnesses, the README and the corridor,
+hold one N.  SOURCE's reading device derived from the math (reader.py): defined, started, required and executed as the
+theorem requires.  SOURCE stays OPEN on the bulk emitter's process.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1182,6 +1186,33 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_491_F3
     _rows_491.append((c, n, s_, t))
 LEMMAS_NOW = _rows_491
+# [item 492] R1's wording corrected now its lemma is solved (M: "Correct R1's wording"); SOURCE's reading device derived
+R1_492 = ("R1 one true complete reconstruction at position 2, exact, no tolerance (145, 146): the README arrives whole -- "
+          "held whole with whatever falls in and released whole at the write's end (163, 418, 432 (2)) -- and position 2 "
+          "recovers it exactly by inverting the interior's unitary map; its two witnesses, the README and the corridor, "
+          "hold one N (145)")
+NOTE_492_R1 = ("  [Item 492] Wording corrected (M: \"Correct R1's wording\"): it read \"exact reconstruction, no tolerance\"; "
+               "now it states what the lemma solved at 491 (r1_exact X1-X5) and 145's two witnesses")
+NOTE_492_SOURCE = ("  [Item 492] The device that reads, derived from the theorem's math (lemmas/reader.py A1-D5).  Definition: R = "
+                   "encode o measure, one projective measurement of the object's labels in its last state, ENCODE's "
+                   "canonical code, N its length -- the trip's input (130), fixing r_h and E5(N).  Start: the user's choice "
+                   "of the object starts the read; the read completes before the opening (dE5/dN = (2/3) E5/N > 0) and "
+                   "within the object's label lifetime (464 label changes per second per cm^3 of copper at 300 K: 2.2 ms; "
+                   "none at 77 K).  Function: exact -- orthogonal records (Helstrom's error zero only there); each within "
+                   "pi hbar/(2D), 1.3e-18 s for copper; a probe at or above the K shell (11.4 keV) and the spacing "
+                   "(4.85 keV); every atom; the README's bits each (3/2) k T_H ln2 at the face.  Execution: read, encode, "
+                   "hand N to the opening (the bulk emitter's), write the README into our face as radiation at T_H at "
+                   "5.20 bits per quantum over (1 + b) of the life, power matched to 1/N; the release whole.  What SOURCE "
+                   "still needs: the bulk emitter's process for the opening shell")
+_rows_492 = []
+for c, n, s_, t in LEMMAS_NOW:
+    nm = n.split()[0]
+    if nm == "R1":
+        n, t = R1_492, t + NOTE_492_R1
+    elif nm in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_492_SOURCE
+    _rows_492.append((c, n, s_, t))
+LEMMAS_NOW = _rows_492
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1369,7 +1400,7 @@ def lemma_selftests():
               # item 489: the 488 verification's findings fixed -- position 2's face over its open period (F1), the
               # theorem's domain and its one static corridor (F4, F9), (Z) against our face's Hawking flux (F10)
               "face2_open.py", "scope.py", "z_hawking.py",
-              "face2_release.py", "r1_exact.py"):
+              "face2_release.py", "r1_exact.py", "reader.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

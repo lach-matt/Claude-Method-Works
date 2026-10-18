@@ -5,6 +5,76 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 492: the device that reads the object into the README, as the theorem's math requires it
+
+M, 492: "Continue with all the SOURCE - -- the device that reads the object into the README-definition of the device,
+how its start is initiated, what is required of its function, and how that function is executed - as determined by
+what the theorem math requires". Every line below is read off a row or a ruling and computed (`reader.py` A1-D5, 10/10,
+mutants 3/3) from the instrument that row rests on. Only information travels (386, 491): the object's matter does not.
+
+**Definition of the device** (A1-A2)
+- The device is the map **R = encode ∘ measure** from the object's last state at position 1 (438) to the README.
+- *measure* is one projective measurement of the object's labels: each site's Z, each site's occupancy, which site bonds
+  to which, and its defects. No isotope and no motion (M-GEOMETRY-AS-LABELS, M-ISOTOPE-OUT, 147).
+- *encode* is ENCODE's canonical Elias-gamma code (`encode_labels.py`): integers only, independent of the order the atoms
+  are met, decoded exactly. Water reads to 22 bits; ethanol and dimethyl ether to two different strings of 79; a perfect
+  cm³ copper block to 174; a 99.99 % piece to 1.3e21 (estimate).
+- **N = len(R(object)) is the trip's input** (130) and fixes the corridor: r_h, E5(N), and the domain N ≥ 7.12e9. A
+  molecule's README and a perfect crystal's lie below the domain. The real copper piece's lies inside: r_h = 8.7e-19 m,
+  E5 = 7.7e12 J.
+
+**How its start is initiated** (B1-B2)
+- **The user's choice of the object starts the read** (130).
+- **The read completes before the opening.** E5 grows as N^(2/3) (dE5/dN = (2/3) E5/N > 0), so the opening's energy
+  and the face's size are fixed only once N is: one defect label more moves E5 by 7.9e-20 of itself, which the face, at
+  the size that holds the README upon opening (162), does not tolerate.
+- **The read's completion starts the corridor.** The order is: N; then the opening, E5(N) all at once, both faces at
+  once (136 A, 136 (7)); then the write; then the release whole at its end (432 (2)).
+- **One instant.** The README holds the last state only (438), so the read finishes before any label of the object
+  changes: T_read < 1/Γ. In copper (vacancies hopping; standard values, not READ) Γ = 464 per second per cm³ at 300 K, so
+  the read finishes within 2.2 ms; at 77 K, Γ = 2.2e-94 per second, and the labels hold indefinitely.
+
+**What is required of its function** (C1-C5)
+1. **Exact** (R1, 146). Each label's record is a pointer state orthogonal to every other value's. Helstrom's least
+   error, (1 - √(1 - s²))/2 for records of overlap s, is zero only at s = 0. A spectroscopic read with a finite window
+   (`read_index.py` D4) errs at every window and cannot meet R1. A projective read can, and quantum mechanics admits it
+   for every label: Z (a superselected charge), occupancy and site (a partition of space into cells), bond (a pair).
+2. **Fast enough.** An orthogonal record takes at least π ħ/(2 ΔE) (Mandelstam-Tamm, Margolus-Levitin, READ). With the
+   K-shell gap as ΔE that is 2.5e-17 s (H), 5.1e-18 s (O), 1.5e-18 s (Fe) and 1.3e-18 s (Cu) per atom -- 6.7 times faster
+   than read_index's conservative window, and exact.
+3. **Fine enough.** A site is fixed to within half a spacing only by a probe whose wavelength is at most the spacing:
+   ≥ 4.85 keV photons or ≥ 23 eV electrons in copper. Z is told by the K shell, 11.4 keV on the index's scale, so one
+   hard X-ray probe at or above E_K meets both. It must reach every atom the read keeps, or the read takes atoms one by
+   one, each read as it goes (requirement 15; the destroying read, 136 (4)).
+4. **Complete and parallel.** Every atom is read: 8.49e22 records for the cm³ piece, 1.1e5 s in sequence. Within 2.2 ms
+   that means at least 5.3e7 parallel channels at 300 K; cooled, any number.
+5. **Its energy.** Each README bit carries (3/2) k T_H ln2 at the face (`encode_read.py` E2, exact): the README is E5(N)
+   of information as energy (432 (1)). The read's own least energy for N orthogonal records is π ħ N/(2 T_read): 9.9e-11 J
+   for the piece. Resetting the device's memory costs N k T ln2, 3.7 J at 300 K. E5(N) is paid by the object's own rest
+   energy when N ≤ N*(m) (136 (4)): the piece's N* = 1.37e24 is above its N, and E5 is 0.96 % of its m c². Otherwise the
+   device's input makes up the rest (130 (2)).
+
+**How that function is executed** (D1-D5)
+1. **Read**: on the user's choice, the projective read of every label with the probe of (3), on the channels of (4),
+   within the instant -- or the object cooled until the instant holds.
+2. **Encode**: the labels to the canonical code; N is its length; decoded back to the same graph exactly.
+3. **Hand-off**: N fixes r_h and E5(N), and the opening shell delivers E5(N) all at once (`source_spec.py` U2). That
+   shell is the bulk emitter's (486, proved), the remaining need of SOURCE and not the device's.
+4. **Write**: the device emits the README into our face as radiation at T_H, the plane's own, so its energy stays in our
+   universe (336). For the piece:
+   - T_H = 4.2e14 K, a mean quantum of 98 GeV, wavelengths 1.8e-19 to 5.5e-17 m across the absorbed band;
+   - 5.20 bits per quantum, the thermal entropy per quantum, exact, so N bits ride on 2.5e20 quanta, the README their
+     state;
+   - the inflow E5/2 over τ_w = (1 + b) of the hole's life, 1.2e-6 s, its power matched to the face's to 1/N (Q6),
+     round in the mean.
+5. **Release**: the passage is held whole and released at the write's end (432 (2)). Position 2's face, open at most
+   2 r_h/c, holds (`face2_release.py`), and position 2 inverts the interior's map exactly (`r1_exact.py`). The device
+   does nothing after the write.
+
+**What SOURCE still needs**: the bulk emitter's process for the opening shell (D3). The structure probe of 489's list
+is item (3) above, now derived. The device is defined, started, required and executed by the math. That claims no built
+device: it gives what the theorem requires of one, consistent with quantum mechanics and general relativity.
+
 ## Item 491: only information travels -- what changes here
 
 M, 491: "SOURCE, the opening - matter may open the mouth at position, but the whole theorem relies entirely only

@@ -98,7 +98,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 491.** 82 rows: 74 proved, 6 definitions, 2 OPEN -- SOURCEs and SOURCE, which still need
+**Where it stands, at item 492.** As at 491, with R1's wording corrected and SOURCE's reading device derived from the math (`reader.py`); SOURCEs and SOURCE wait only on the bulk emitter's process.
+
+**Where it stood at item 491.** 82 rows: 74 proved, 6 definitions, 2 OPEN -- SOURCEs and SOURCE, which still need
 the device that reads, the structure probe and the bulk emitter's process. Position 2 is what the math computes, the
 white hole of our hole's mass, its face open only for the README's release and holding; the README is recovered there
 exactly. The theorem stops at SOURCE. *[489's F1 and F3, and 490 built on them, are withdrawn: their premises went
@@ -1818,6 +1820,22 @@ state was rebuilt first.
     reads, the structure probe and the bulk emitter's process.
   - Withdrawn and marked so: `face2_hold.py`, `r1_realize.py`, `open_plane.py`; `face2_open.py` W2, W5, W6;
     `passage_est.py` Q5's 489 reading. The register reads 74 proved, 6 definitions, 2 OPEN, of 82 rows.
+- **Item 492** (M: "Correct R1's wording. AND Continue with all the SOURCE -- the device that reads the object into the
+  README..."). R1 now reads: one true complete reconstruction at position 2, exact, no tolerance -- the README arrives
+  whole (held whole with whatever falls in, released whole at the write's end) and position 2 recovers it exactly by
+  inverting the interior's unitary map; its two witnesses, the README and the corridor, hold one N. **The device that
+  reads** (`reader.py`, 10/10, mutants 3/3; SOURCE-REQUIRED "Item 492"):
+  - **Definition:** R = encode ∘ measure, one projective measurement of the object's labels in its last state, ENCODE's
+    canonical code, N its length -- the trip's input, which fixes r_h and E5(N).
+  - **Start:** the user's choice of the object starts it. It completes before the opening (dE5/dN = (2/3) E5/N > 0),
+    and within the object's label lifetime (2.2 ms for copper at 300 K; indefinitely at 77 K).
+  - **Function:** exact (orthogonal records), each record within π ħ/(2D) (1.3e-18 s for copper). A probe at or above
+    the K shell (11.4 keV) and the spacing (4.85 keV); every atom (5.3e7 channels at 300 K); each bit (3/2) k T_H ln2.
+  - **Execution:** read, encode, hand N to the opening (the bulk emitter's), then write the README into our face at T_H.
+    That is 5.20 bits per quantum, 2.5e20 quanta over 1.2e-6 s for the copper piece, power matched to 1/N; then the
+    release whole.
+  - SOURCEs and SOURCE stay OPEN on the bulk emitter's process for the opening shell. The register is unchanged at
+    74 / 6 / 2.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1896,7 +1914,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | E | E4rs the field energy outside the neck within the reach, at the small end | proved | M1s | rows_small.py |
 | E | E4r the field energy outside the neck within the reach, at the large end | proved | M1 | rows_large.py E4r; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
-| R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146; OPEN at 489: 'no tolerance' is not realizable (441 (2)) -- position 2 holds each README mode without its partner, error below any epsilon by coding, not zero (passage_est.py Q5) | [Item 491: your definition again, realized: the README released whole through a unitary map, inverted exactly (r1_exact.py); 489's premise withdrawn]
+| R | R1 one true complete reconstruction at position 2, exact, no tolerance (145, 146): the README arrives whole -- held whole with whatever falls in and released whole at the write's end (163, 418, 432 (2)) -- and position 2 recovers it exactly by inverting the interior's unitary map; its two witnesses, the README and the corridor, hold one N (145) [Item 492: the wording corrected; it read "exact reconstruction, no tolerance"] | definition | -- | items 145, 146; OPEN at 489: 'no tolerance' is not realizable (441 (2)) -- position 2 holds each README mode without its partner, error below any epsilon by coding, not zero (passage_est.py Q5) | [Item 491: your definition again, realized: the README released whole through a unitary map, inverted exactly (r1_exact.py); 489's premise withdrawn]
 | R | R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws govern | definition | -- | items 148, 240, 285 |
 | R | R3 exactness at the instant over the mass window | proved | -- | exactcopy.py, rearrange.py |
 | R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance | proved | -- | r4_length.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
