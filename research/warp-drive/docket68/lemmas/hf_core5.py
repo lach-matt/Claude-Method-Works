@@ -51,7 +51,11 @@ ALL.append(FOURTH)
 # in x, and in both, to tell a grid limit from a physical departure.  Not part of the three-row sequence.
 RES = [(1000, 0.05, 1.0, 36, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0),
        (1000, 0.05, 1.0, 28, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
-       (1000, 0.025, 1.0, 36, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0)]
+       (1000, 0.025, 1.0, 36, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
+       # they showed the angular grid sets the spread (finer x lowers it, finer y alone does not): complete the x = 20
+       # sequence at lam = 0.1, and measure the angular floor at lam = 0.05 with x = 24
+       (1000, 0.1, 1.0, 24, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
+       (1000, 0.05, 1.0, 28, 24, 1.0, round(y_core(1.0, 1000), 6), 2.0)]
 RUNLIST = ALL + RES
 key = lambda cfg: "_".join("%g" % c_ for c_ in cfg)
 
