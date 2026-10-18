@@ -443,10 +443,10 @@ def a4():
     for k in (2, 3):
         out[k] = sum((CR._ask_one(("f",), F, k, tf=tf, mf=mf, c4row=(1, 1))
                       for tf, mf in itertools.product((0, 1), repeat=2)), Counter())
-    kmap = dict(zip(CR.NAMES4, range(4)))
+    kmap = dict(zip(CR.NAMES4, range(len(CR.NAMES4))))
     kn = CR._cells("f", kmap, F, ("quantum", 1, 1), CR.A4, CR.CD4)
     au = IA.audit_index(["K", "t", "m", "f"], kn)
-    _A4[key] = dict(F=F, out=out, audit=bool(au["keys"] or au["onehot"]))
+    _A4[key] = dict(F=F, out=out, audit=bool(au["keys"] or au["onehot"]), n=4 * CR.NPERM)  # [item 489] 4 x 3! = 24 codings: the inner horizon's interior excluded under 484 (96 on the record)
     return _A4[key]
 
 
@@ -544,9 +544,9 @@ def checks(o):
         "117/120 iff Q <= 0, ingoing and outgoing", ok)
     z = o["a4"]
     ok = z["F"] == {(1, 1): {1}, (1, 0): {1}, (0, 1): {0, 1}, (0, 0): {0, 1}}
-    ok &= all(z["out"][k] == Counter({(1,): 96}) for k in (2, 3)) and not z["audit"]
+    ok &= all(z["out"][k] == Counter({(1,): z["n"]}) for k in (2, 3)) and not z["audit"] and z["n"] == 24
     add("A4 B5a's question through the calculator: the clause realized per class from its law; 1 at orders 2 and 3 "
-        "under all 96 codings; audit clean", ok)
+        "under all 24 codings (96 on the record; 484, item 489); audit clean", ok)
     add("A6 (item 339 (Q5)) Israel's condition with each side's own coupling: Sigma^- + Sigma^+ = 2 (S1 + S2) for every "
         "pair of five-dimensional couplings, so A1's side total and A2's readings need no single kappa",
         o["a6"]["free"] and o["a6"]["form"])

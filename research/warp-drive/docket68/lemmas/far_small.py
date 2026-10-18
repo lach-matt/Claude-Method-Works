@@ -499,11 +499,11 @@ def f7():
         flagged = 0
         for tf, mf in itertools.product((0, 1), repeat=2):
             Ff = {(t ^ tf, m ^ mf): v for (t, m), v in F.items()}
-            for perm in itertools.permutations(range(4)):
+            for perm in itertools.permutations(range(len(CR.NAMES4))):
                 kn = CR._cells("f", dict(zip(CR.NAMES4, perm)), Ff, ("quantum", 1 ^ tf, 1 ^ mf), CR.A4, CR.CD4)
                 au = IA.audit_index(["K", "t", "m", "f"], kn)
                 flagged += bool(au["keys"] or au["onehot"])
-        res[name] = dict(F=F, out=out, out_all=out_all, flagged=flagged)
+        res[name] = dict(F=F, out=out, out_all=out_all, flagged=flagged, n=4 * CR.NPERM)  # [item 489] 4 x 3! = 24 codings: the inner horizon's interior excluded under 484 (96 on the record)
     _F7[key] = res
     return res
 
@@ -544,7 +544,7 @@ def report(o):
                                             d["HU"]))
     print("F6 each side Einstein, R_ab = -(4/ell^2) g_ab: %s" % o["f6"])
     for name, r in o["f7"].items():
-        print("F7 %s: population %s; order 2 %s, order 3 %s; with every language %s, %s; audit flagged %d of 96" % (
+        print("F7 %s: population %s; order 2 %s, order 3 %s; with every language %s, %s; audit flagged %d of 24" % (
             name, r["F"], dict(r["out"][2]), dict(r["out"][3]), dict(r["out_all"][2]), dict(r["out_all"][3]),
             r["flagged"]))
 
@@ -594,15 +594,17 @@ def checks(o):
         all(o["f6"].values()))
     z = o["f7"]
     add("F7 the calculator decides neither clause: f1 (untrapped at every ell) \"both\" at order 2 and refused at "
-        "order 3 under all 96 codings, its audit clean; f2 ((Z) kept) 1 at order 2, refused at order 3, its index "
-        "flagged under all 96 (m and f one-hot: forced, void as evidence); with every language, f1 both 24, 1 in 36, "
-        "refused 36 and f2 1 in 60, refused 36 at order 2, both refused at order 3",
-        z["f1"]["out"][2] == Counter({("both",): 96}) and z["f1"]["out"][3] == Counter({("refused",): 96})
-        and z["f1"]["flagged"] == 0 and z["f2"]["out"][2] == Counter({(1,): 96})
-        and z["f2"]["out"][3] == Counter({("refused",): 96}) and z["f2"]["flagged"] == 96
-        and z["f1"]["out_all"][2] == Counter({("both",): 24, (1,): 36, ("refused",): 36})
-        and z["f2"]["out_all"][2] == Counter({(1,): 60, ("refused",): 36})
-        and all(z[n]["out_all"][3] == Counter({("refused",): 96}) for n in ("f1", "f2")))
+        "order 3 under all 24 codings (96 on the record; 484, item 489), its audit clean; f2 ((Z) kept) 1 at order 2, "
+        "refused at order 3, its index flagged under all 24 (m and f one-hot: forced, void as evidence); with every "
+        "language, f1 both 6, 1 in 8, refused 10 and f2 1 in 14, refused 10 at order 2, both refused at order 3 (on the "
+        "record's 96: f1 both 24, 1 in 36, refused 36; f2 1 in 60, refused 36)",
+        z["f1"]["n"] == 24 and z["f1"]["out"][2] == Counter({("both",): 24})
+        and z["f1"]["out"][3] == Counter({("refused",): 24})
+        and z["f1"]["flagged"] == 0 and z["f2"]["out"][2] == Counter({(1,): 24})
+        and z["f2"]["out"][3] == Counter({("refused",): 24}) and z["f2"]["flagged"] == 24
+        and z["f1"]["out_all"][2] == Counter({("both",): 6, (1,): 8, ("refused",): 10})
+        and z["f2"]["out_all"][2] == Counter({(1,): 14, ("refused",): 10})
+        and all(z[n]["out_all"][3] == Counter({("refused",): 24}) for n in ("f1", "f2")))
     q = o["f9"]
     add("F9 (item 349) the residue pass's figures: U/ell 1.29e-10 and 8.95e-11 under the G5 readings; the sheets' "
         "dark energy 3.6e-63 of sigma; ell = 1.25e15 r_h at the example, far above the near zone's 140,660 r_h",

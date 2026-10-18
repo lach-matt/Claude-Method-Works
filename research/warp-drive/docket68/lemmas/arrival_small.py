@@ -602,7 +602,7 @@ def v9():
         for cell in ((1, 1), (0, 1)):
             out = {k: sum((CR._ask_one(("f",), F, k, tf=tf, mf=mf, c4row=cell)
                            for tf, mf in itertools.product((0, 1), repeat=2)), Counter()) for k in (2, 3)}
-            kn = CR._cells("f", dict(zip(CR.NAMES4, range(4))), F, ("quantum",) + cell, CR.A4, CR.CD4)
+            kn = CR._cells("f", dict(zip(CR.NAMES4, range(len(CR.NAMES4)))), F, ("quantum",) + cell, CR.A4, CR.CD4)
             au = IA.audit_index(["K", "t", "m", "f"], kn)
             res[(name, cell)] = dict(F=F, out=out, flagged=bool(au["keys"] or au["onehot"]))
     _V9[key] = res
@@ -646,7 +646,7 @@ def v13():
         for cell in ((1, 1), (0, 1)):
             for tf, mf in codings:
                 Ff = {(t ^ tf, m ^ mf): v for (t, m), v in Q[(name, cell)]["F"].items()}
-                for perm in itertools.permutations(range(4)):
+                for perm in itertools.permutations(range(len(CR.NAMES4))):
                     kn = CR._cells("f", dict(zip(CR.NAMES4, perm)), Ff, ("quantum", cell[0] ^ tf, cell[1] ^ mf),
                                    CR.A4, CR.CD4)
                     au = IA.audit_index(["K", "t", "m", "f"], kn)
@@ -809,10 +809,11 @@ def checks(o):
         and all(abs(x - 1) < 1e-12 for n, dd in o["v7"]["dest"].items() for x in dd.values()
                 if o["v6"][n]["law"] == "ours"))
     z = o["v9"]
-    ones = Counter({(1,): 96})
+    NC = 4 * _load("c4_residue.py", "arr_cr").NPERM  # [item 489] 4 x 3! = 24 codings: the inner horizon's interior excluded under 484 (96 on the record)
+    ones = Counter({(1,): NC})
     ok = all(z[("f1", c_)]["out"][k] == ones for c_ in ((1, 1), (0, 1)) for k in (2, 3))
     ok &= all(z[("f2", (1, 1))]["out"][k] == ones for k in (2, 3))
-    ok &= z[("f2", (0, 1))]["F"][(0, 1)] == {0, 1} and z[("f2", (0, 1))]["out"][2] == Counter({("both",): 96})
+    ok &= z[("f2", (0, 1))]["F"][(0, 1)] == {0, 1} and z[("f2", (0, 1))]["out"][2] == Counter({("both",): NC}) and NC == 24
     ok &= not any(r["flagged"] for r in z.values())
     add("V9 the calculator: f1 (forms, no partner, (Z), its own E) 1 at orders 2 and 3 for the README compact or "
         "spread; f2 (the onset behind the face or regular) 1 for the compact README, and for the spread \"both\" at "
@@ -831,26 +832,27 @@ def checks(o):
     pr = {k: round(v, 2) for k, v in u["per"].items()}
     add("V13 (item 344) the accounting before the hand-off: J1's 33.60 clocks, 33.06 and 34.53 with sigma fixed, 33.47 "
         "and 33.83 with sigma by G5, each at least 6.9 times the compact width; position 2's clock no shorter than ours "
-        "under 240 (b); the floor's only symbols N and Z; r_h/ell = 8.0e-16; the audit clean under all 384 codings",
+        "under 240 (b); the floor's only symbols N and Z; r_h/ell = 8.0e-16; the audit clean under all 96 codings (384 on "
+        "the record; 484, item 489)",
         round(u["per0"], 2) == 33.60 and pr == {(1.5, "sigma fixed"): 33.06, (1.5, "sigma by G5"): 33.47,
                                                  (0.5, "sigma fixed"): 34.53, (0.5, "sigma by G5"): 33.83}
         and min(u["per"].values()) / u["wstar"] >= 6.9 and min(u["clock2"].values()) >= 1 - 1e-12
-        and u["floor_syms"] == ["N", "Z"] and "%.1e" % u["warp"] == "8.0e-16" and u["asked"] == 384
+        and u["floor_syms"] == ["N", "Z"] and "%.1e" % u["warp"] == "8.0e-16" and u["asked"] == 4 * NC
         and u["flagged"] == 0)
     x = o["v14"]
-    c60 = Counter({(1,): 60, ("refused",): 36})
+    c60 = Counter({(1,): 14, ("refused",): 10})          # [489] 60 / 36 on the record's 96
     ok = all(r["escape"] > 150 and r["r_end"] < 1e-6 and abs(r["ratio"] - 1) < 1e-2 and r["K"] > 1e25
              for r in x["rays"].values())
     ok &= all(r["hidden"] is False for r in x["rays"].values() if r["hidden"] is not None)
     ok &= all(x["counts"][(nm, c)][k] == c60 for nm, c in (("f1", (1, 1)), ("f1", (0, 1)), ("f2", (1, 1)))
               for k in (2, 3))
-    ok &= x["counts"][("f2", (0, 1))][2] == Counter({("both",): 36, ("refused",): 36, (1,): 24})
+    ok &= x["counts"][("f2", (0, 1))][2] == Counter({("both",): 8, ("refused",): 10, (1,): 6})   # [489] 36/36/24
     ok &= "%.2f" % x["per2"][0] == "32.60" and "%.2f" % x["per2"][1] == "34.53" and x["ratio"] >= 6.9
     ok &= ["%.3g" % v for v in x["g5"]] == ["9.18e-16", "6.37e-16"] and ["%.3g" % v for v in x["R_ell"]] == [
         "6.15e-11", "4.26e-11"]
     add("V14 (item 348) the verifier's points: at orders 3 and 4 born at the onset, rays escape from the onset along "
-        "the trapping horizon, K diverging; V9 with every language 1 in 60/96, refused 36 (the spread's f2 both 36, "
-        "refused 36, 1 in 24); J1 at each destination's face 32.60-34.53 position-2 clocks, at least 6.9 w*; the G5 "
+        "the trapping horizon, K diverging; V9 with every language 1 in 14/24, refused 10 (the spread's f2 both 8, "
+        "refused 10, 1 in 6; 60/96 and 36/36/24 on the record, 484, item 489); J1 at each destination's face 32.60-34.53 position-2 clocks, at least 6.9 w*; the G5 "
         "readings of r_h/ell and R/ell", ok)
     return res
 

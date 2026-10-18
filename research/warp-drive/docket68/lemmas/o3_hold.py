@@ -62,6 +62,9 @@ states, NOT bits (p.2).
          bounded by the face's open period, at most 33.6 clocks (c_junction J1): e^33.6 = 3.9e14 (J5; c7_oneway V12
          (Q1), verified).  A blackbody bath of position 2 over that period lands 27 to 65 orders below Barcelo's 0.28 E
          (V12 (Q1)); position 2's other ambient fields are its variances (240), not claimed.
+         [Item 491: position 2's face is open for the release whole at the write's end, at most 2 r_h/c (432 (2);
+         face2_release V2; stability S6), so its blueshift is at most e^2 = 7.4; the 33.6 clocks above (c_junction
+         J1) remain an upper bound and the bath's margin only widens.]
        At the large end (four-dimensional Schwarzschild, kappa = 1/(4M), S6) the same identity holds, damping one
        e-fold per four clocks of m/c on our face, and Schlue's n = 3 covers it; the write there is the record's
        199,702.19 clocks (o3_write), and the large end's open period on position 2's face is not computed -- OPEN with
@@ -147,7 +150,7 @@ def o3e(st):
     if MUT.get("extremal_kept"):
         st.MUT["extremal_reading"] = True                            # the mutant: eq. (17)'s extremal horizon kept
     if MUT.get("open_through_write"):
-        st.MUT["open_through_write"] = True                          # the mutant: face open through the write
+        st.MUT["whole_write"] = True                                 # the mutant: face open the whole write (489)
     try:
         x = st.nonextremal()
     finally:
@@ -205,16 +208,16 @@ def checks(d):
     e = d["o3e"]
     chk("O3e (item 331): the corridor's hold is the write -- C6's floor 66,980 clocks, within the life 8.57e14 clocks "
         "(1.28e10 x); our face damps every transverse derivative at kappa (stability S6), bounded by 3/2 of the "
-        "tangential bound; position 2's face's blueshift at most e^33.6 = 3.9e14 over its open period",
+        "tangential bound; position 2's face's blueshift at most e^2 = 7.4 over its open period, the release (item 491)",
         round(e["floor"]) == 66980 and "%.3g" % e["life"] == "8.57e+14" and "%.3g" % e["over"] == "1.28e+10"
         and sp.simplify(e["damp"] + e["kap"]) == 0 and sp.simplify(e["grow"] - e["kap"]) == 0
-        and e["sup_ratio"] == sp.Rational(3, 2) and "%.1f" % e["open_clocks"] == "33.6"
-        and "%.2g" % 10 ** e["log10_blue"] == "3.9e+14")
+        and e["sup_ratio"] == sp.Rational(3, 2) and "%.1f" % e["open_clocks"] == "2.0"
+        and "%.2g" % 10 ** e["log10_blue"] == "7.4")
     return out
 
 
 MUTANTS = {"extremal_kept": "the corridor's horizon read as eq. (17)'s, extremal (O3e; item 251)",
-           "open_through_write": "position 2's face held open through the write's floor (O3e; item 271 (3))"}
+           "open_through_write": "position 2's face held open the whole write, 489's premise (O3e; items 271 (3), 491)"}
 
 
 def selftest():

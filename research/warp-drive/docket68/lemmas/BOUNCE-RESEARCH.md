@@ -2467,3 +2467,62 @@ meters." Run with the board's own magnetic instruments (magnetic_chain, mmp_corr
 - **Without a README (G5, M's).** The theorem's corridor opens because of the README, takes its size, and closes when
   empty (390, 162, 109). A README-less magnetic corridor between two spacetimes is no corridor of the theorem, and
   physics gives none: what stays without a README is an extremal magnetic black hole in one spacetime.
+
+## 42. A field that opens and holds a corridor by itself, with no README (494; lemmas/field_open.py, 6/6, mutants 3/3)
+
+M, 494: "Can we possibly conceive a condition where a magnetic or non electric field can open and hold a corridor that
+either information or matter can pass without an initial readme, opened by the field itself?" Run with magnetic_chain
+(the Ernst-instanton action), mmp_corridor (MMP and MM), 493's result, and prior art read for this item: MMP in full
+again (1807.04726), Geroch and Tipler on topology change (through Borde gr-qc/9406053 and 1010.2311), Barcelo-Visser
+and Bronnikov-Grinyok on scalar wormholes, Bousso-Hawking on neutral pair creation.
+
+- **A classical field cannot hold a throat (F1, exact).** Flare-out needs 8 pi (rho + p_r) = (b'(r0) - 1)/r0^2 < 0.
+  - A magnetic field (any Maxwell or Yang-Mills field) has T_kk = |F.k|^2/(4 pi) >= 0 for every null k. A radial field
+    gives rho + p_r = 0 exactly: the marginal throat b' = 1, which is the extremal hole's infinite throat, not a passage.
+  - A canonical scalar gives 0 at the throat.
+  - Only the phantom Ellis field goes negative, -a^2/(4 pi (l^2 + a^2)^2). It is a ghost, and it is unstable (as are
+    the non-minimal scalar's wormholes, READ).
+  - MMP: such solutions "are forbidden in classical physics because of the average null energy condition", and a
+    non-abelian field "can be screened", so the field must be U(1).
+- **The field opens it only by tunnelling, at the hole's own field strength (F2).**
+  - Classical topology change needs a closed timelike curve (Geroch) or negative energy (Tipler), READ. So the route is
+    pair creation of magnetic holes with identified horizons: a wormhole made by the field, its flux the field's own
+    lines, so no monopole is needed.
+  - S_E = 16 pi q^2/15 at qB = 1/2 (exact): of order the pair's area unless qB -> 1.
+  - At qB = 1 the field is the mouth's own horizon field. Its energy within the mouth is 1/6 of the mouth's mass, 1/3 of
+    the way to its own horizon (exact).
+  - Once in the observable universe's history, were the field to fill it, S_E = 563:
+    - the smallest magnetic mouth (one Dirac charge, 5.85 l_P) needs 6.3e51 T;
+    - 1/10 of hbar c/TeV needs qB tuned to 1 within 5.5e-15;
+    - 1 m needs 3.5e18 T tuned within 1.1e-34, and 2 m 1.7e18 T within 5.4e-35, against a magnetar's 1e11 T.
+- **The field that opens cannot be the field that holds (F3, exact Newtonian forms).**
+  - The pair is made at rest at d0 = 2/B. It stays bound only if the field ends within one mouth radius beyond d0,
+    whatever B. If the field goes on, the pair runs away, the return path is infinite, and the hold is gone (493).
+  - No static field holds the mouths apart: the potential's Laplacian is zero (Earnshaw).
+  - They must orbit. Gravity plus the magnetic pull give MMP's Omega = 2 sqrt(r_e/d^3) exactly.
+  - A pair made at rest has no angular momentum and falls back. Taking it to MMP's orbit is open in prior art ("we did
+    not describe a simple procedure for taking the system to that solution", MMP 9.3) and is not computed here.
+- **Held, it passes information and matter (F4).**
+  - The hold is the field's own quantum modes: massless charged fermions on the closed field lines (MMP; MM's bulk U(1)
+    in RS2).
+  - At 1 m on our plane: l = 3.0e5 m, held below 7.5e-9 K, binding 1.3e33 J, destroyed by 2.1e34 J (MMP's q/l).
+  - No mouth in MM's regime holds in the 2.725 K background. The floor (10 R5) holds below 0.85 K, and the bound falls
+    with size.
+  - Information passes as low-energy waves. Matter passes if smaller than the mouth (large N_f) and well below the
+    destroying energy.
+  - It is never a shortcut: pi l / d = 211 at 1 m ("a long wormhole that does not lead to causality violations").
+  - It has no horizon (MMP), so no inner or Cauchy horizon is used (481, 484).
+- **No README, and not the theorem's corridor (F5, M's).**
+  - The energy, the hold and the size (r = 1/B) are all the field's. It opens because of the field, not a README
+    (390), and takes the field's size, not the README's (162).
+  - It joins two places in one universe only (493).
+- **So (F6): yes, conceivable, under these conditions together.**
+  - (i) A U(1) magnetic field at the mouth's own horizon strength over a few mouth radii.
+  - (ii) The field ending within one mouth radius of the pair, and the pair orbiting.
+  - (iii) Massless charged species threading the throat, colder than its gap.
+  - (iv) One universe, a long wormhole.
+  - The one uncomputed step is the made pair's way into orbit.
+  - Its scales part: the opening is real only near the Planck size, where semiclassical physics is not trusted; the
+    holding needs r_e << hbar c/TeV (Standard Model) or r >= 10 R5 (RS2). At 1-2 m the opening needs a field 3e7 times
+    a magnetar's, tuned to 1e-34.
+  - Neutral pairs opened by vacuum energy (Bousso-Hawking) carry no flux to hold a throat.

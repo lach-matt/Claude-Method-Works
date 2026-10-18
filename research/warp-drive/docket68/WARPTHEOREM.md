@@ -1845,6 +1845,30 @@ state was rebuilt first.
     zero, and the throat runs to extremality.
   - What stays without a README is an extremal magnetic black hole of 1.35e27 kg (1 m), closed to passage (P3; 484).
   - No row moved.
+- **Item 494** (M's question: can a magnetic or other non-electric field open and hold, by itself and with no README,
+  a corridor that information or matter can pass?). Run on the board and prior art (`field_open.py`, 6/6, mutants
+  3/3; BOUNCE-RESEARCH §42). **Yes, conceivable, in one universe only and under four conditions together.**
+  - **Not classically.** A magnetic or any gauge field gives rho + p_r = 0 at best (exact), the marginal extremal
+    throat. Only a phantom scalar goes below zero, and it is a ghost and unstable.
+  - **Opened by tunnelling.** The field makes a pair of magnetic holes with identified horizons. It needs the mouth's
+    own horizon field over a few mouth radii: 6.3e51 T at the smallest (Planck-size) mouth. At 1 m it needs 3.5e18 T
+    tuned to 1e-34.
+  - **Held by the field's own fermion modes** on closed field lines (MMP; MM's bulk U(1)).
+    - The field must end within one mouth radius of the pair (exact), and the mouths must orbit at MMP's frequency;
+      no static field holds them (Earnshaw).
+    - The throat must be colder than its gap. On our plane that is below 0.85 K at MM's floor, and 7.5e-9 K at 1 m.
+  - **Passage.** Information and small, light matter pass, never faster than outside (pi l / d = 211 at 1 m).
+  - **Not computed:** taking the made pair, which has no angular momentum, into the orbit. Prior art leaves it open
+    (MMP 9.3).
+  - **Scales.** The opening is real only near the Planck size, and the holding only far above it.
+  - It is not the theorem's corridor (390, 162). No row moved.
+  - [Also fixed: the full theorem selftest stopped at T1 (11/12) on two stale pins.
+    - `o3_hold.py` O3e and `write_cypher.py` W5 still read position 2's face as open for 33.6 clocks. Both now read
+      491's release, at most 2 clocks, e^2 = 7.4.
+    - 489 took the inner horizon's interior out of the calculator under 484, leaving 3! = 6 orderings and 24 codings
+      where the record had 96. But `b5a_residue`, `c8_level`, `far_small`, `far_large` and `arrival_small` still
+      pinned 96. They are re-pinned to the computed counts, with the record's beside them. Every answer is unchanged:
+      1, "both" and refused stand where they stood; only the counts moved (every-language 60/36 is now 14/10).]
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
