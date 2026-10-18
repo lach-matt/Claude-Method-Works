@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""emitter.py -- item 486 (2): the emitter of SOURCE's round inflow stands in the bulk, and our plane's matter cannot
-be it -- proved.  M, 486: "an emitter standing in the bulk (our plane's matter cannot do it): - prove this please".
+"""emitter.py -- item 486 (2): the emitter of SOURCE's round opening shell stands in the bulk, and our plane's matter
+cannot be it -- proved [489: the opening shell only; the README's inflow is the plane's own radiation, E6].  M, 486: "an emitter standing in the bulk (our plane's matter cannot do it): - prove this please".
 Labels: computed (exact unless marked), deduced, READ, M's.  Worked in the conversation; not verified; not seated.
 
 Held against the exclusions first (481, 484): the hole here is the uncharged one (Tangherlini at the small end, the
@@ -30,12 +30,18 @@ warped string at the large); no inner or Cauchy horizon enters, and no bounce.
   E5 (computed, exact) The large end.  The warped Vaidya shell's generators run at fixed depth (d/dr along v = const,
      dy = 0, is null), weighted e^(2y/ell): each began at its own depth, and the plane's depth y = 0 holds none of the
      shell's measure.  By E2 no ray from our plane reaches depth y > 0 and comes back.
-  E6 (READ; deduced) Allowed by established physics.  The round inflow -- the shell that opens the face and the README's
-     inflow that writes it (passage_est Q4) -- is in the high-frequency limit a solution of the bulk's own vacuum
-     equations ("all solutions to the Einstein-null dust system also arise locally as high-frequency limits of vacuum
-     spacetimes", Huneau and Luk, READ), so the theory admits it as data on a slice in the bulk; traced back along its
-     rays (E2-E5) every part of it began in the bulk.  So the emitter stands in the bulk, and no matter of our plane can
-     be it: proved.  Who or what stands there is no row of the theorem; the theorem names that it must.
+  E6 (READ; deduced; corrected at 489, F2 of the 488 verification) Allowed by established physics.  The round shell
+     that opens the face, E(N) all at once, is in the high-frequency limit a solution of the bulk's own vacuum equations
+     ("all solutions to the Einstein-null dust system also arise locally as high-frequency limits of vacuum spacetimes",
+     Huneau and Luk, READ), so the theory admits it as data on a slice in the bulk; traced back along its rays (E2-E5)
+     every part of it began in the bulk.  So the opening shell's emitter stands in the bulk, and no matter of our plane
+     can be it: proved.  Who or what stands there is no row of the theorem; the theorem names that it must.
+     [First written: "the round inflow -- the shell that opens the face and the README's inflow that writes it".  The
+     second half is withdrawn: the README's inflow is the plane's own radiation at T_H, absorbed at the plane's share
+     of the face's power (passage_est Q4 as corrected) -- the faster of the two channels, and one our plane's fields
+     can emit; E3-E4 bind a round shell all at once, not an inflow over the write that need not be round at any
+     instant, only on the average the face's balance asks (passage_est Q3, Q6).  The bulk is needed for the opening
+     shell alone.]
 
 python3 emitter.py [--selftest | --mutants]
 """

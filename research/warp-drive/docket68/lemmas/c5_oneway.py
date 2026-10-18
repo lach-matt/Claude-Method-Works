@@ -46,7 +46,9 @@ session; not seated); 2026-10-12.
      quantum 1, shell 1); U2-U4 (capture, emission and life, that life against the floor) are computed outside the
      hole and hold where the exterior is Tangherlini -- every interior but the inner horizon, whose charge or spin
      (B3) changes it (the C1 verifier's qualification (5)): singular 1, inner 0, quantum 1, shell 1.  Result: each of
-     U1-U5 is 1 at orders 2 and 3, the lawful orders, under all 96 codings (24 orderings x 4 orientations); 211's audit
+     U1-U5 is 1 at orders 2 and 3, the lawful orders, under all 96 codings (24 orderings x 4 orientations) [item 489:
+     under M-NO-CAUCHY (484) the inner horizon's row is not computed (--record keeps it); over the three interiors left
+     the same, under all 24 codings, no key and no one-hot]; 211's audit
      flags no key and no one-hot on any clause.  Control: the continuation alone, without tension and matter, is
      refused on every clause at both orders, and the audit flags every clause -- the population is what the admission
      rests on, as in C4.  Two qualifications, stated: (i) the answer is read back from the quantum bounce's own rows
@@ -415,6 +417,13 @@ C5VALS = {"U1": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},     # the
           "U3": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # emission and life of a neutral 5D hole
           "U4": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # that life against the write's floor
           "U5": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}}     # one spacetime: formed, evaporating, passing
+# [item 489, F11 of the 488 verification] M-NO-CAUCHY (484): the inner horizon's row (a Cauchy horizon, b_interior B3)
+# is not computed unless the record is asked for (--record); U7 is taken over the three interiors left.
+RECORD = "--record" in sys.argv
+if not RECORD:
+    INTERIORS = tuple(k for k in INTERIORS if k != "inner")
+    C5VALS = {c: {k: v for k, v in row.items() if k != "inner"} for c, row in C5VALS.items()}
+NCOD = math.factorial(len(INTERIORS)) * 4                            # orderings x orientations: 24 (96 on the record)
 F18 = {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
 _U7 = {}
 
@@ -442,7 +451,7 @@ def calc_question():
     out, audit = {}, {}
     for k in (2, 3):
         res = Counter()
-        for perm in itertools.permutations(range(4)):
+        for perm in itertools.permutations(range(len(INTERIORS))):
             kmap = dict(zip(INTERIORS, perm))
             for tf, mf in itertools.product((0, 1), repeat=2):
                 tq, mq = 1 ^ tf, 1 ^ mf
@@ -460,7 +469,7 @@ def calc_question():
                                 continue
                             kn.append(((kmap[kk], tt, mm) if pop else (kmap[kk],)) + (vals[cl][kk],))
                     ans.append(C4._staged(CA, HL, names + [cl], kn, at, views, k)["answer"])
-                    if k == 2 and perm == (0, 1, 2, 3) and (tf, mf) == (0, 0):
+                    if k == 2 and perm == tuple(range(len(INTERIORS))) and (tf, mf) == (0, 0):
                         a = IA.audit_index(names + [cl], kn)
                         audit[cl] = bool(a["keys"] or a["onehot"])
                 res[tuple(ans)] += 1
@@ -653,7 +662,7 @@ def report(o):
     cq = o["cq"]
     print("U7 C5's clauses by interior %s" % C5VALS)
     for k in (2, 3):
-        print("U7 order %d over 96 codings (24 orderings x 4 orientations): %s" % (k, dict(cq["out"][k])))
+        print("U7 order %d over %d codings: %s" % (k, NCOD, dict(cq["out"][k])))
     print("U7 211's audit (keys or one-hot) per clause: %s" % cq["audit"])
     _report_u9(o)
     _report_u10(o)
@@ -722,8 +731,9 @@ def checks(o):
     add("U5 the object's regularity outside, where the life is computed (c1_oneway K4)", o["rt"]["K4"])
     cq = o["cq"]
     add("U7 C5's question through the calculator, clause by clause in C4's settled form: the clauses' rows read from "
-        "b_interior's cells; U1-U5 each 1 at orders 2 and 3 under all 96 codings; no key or one-hot",
-        cq["vals"] == C5VALS and all(cq["out"][k] == Counter({(1,) * 5: 96}) for k in (2, 3))
+        "b_interior's cells; U1-U5 each 1 at orders 2 and 3 under all %d codings; no key or one-hot (the inner "
+        "horizon's row excluded, 484, item 489)" % NCOD,
+        cq["vals"] == C5VALS and all(cq["out"][k] == Counter({(1,) * 5: NCOD}) for k in (2, 3))
         and not any(cq["audit"].values()))
     rs = o["rs"]
     add("U8 the residue: the core crossed in 1.6e-7 of a clock (R6's model figure, pinned, item 310), the passage "
@@ -779,7 +789,7 @@ def checks(o):
 MUTANTS = {"eternal": "the hole read as eternal, losing no mass",
            "slice_passage": "the passage restored to the slice's join of the exteriors",
            "u7_no_population": "C5's question without tension and matter, the continuation alone (U7)",
-           "u7_inner_outside_kept": "the inner horizon's exterior read as Tangherlini (U7)",
+           **({"u7_inner_outside_kept": "the inner horizon's exterior read as Tangherlini (U7)"} if RECORD else {}),
            "u8_no_margin": "a hold shorter than the write's floor (U8)",
            "u9_rh_in_metres": "r_h held in metres while G5 changes, not fixed by the README's bits (U9)",
            "u9_parts_as_image": "every part of the README read as leaving by its own image through R6's core (U9)",

@@ -14,8 +14,14 @@ it are the theorem's current statement. Everything from **What you said** to **N
 register as it stood at item 247. It is kept word for word as the record: nine instruments read it in code and pin what
 they computed on it. The instrument carries both registers: `LEMMAS` (the record, 51 rows) and `LEMMAS_NOW` (current).
 
-> **For an object whose README has N bits, there is exactly one corridor, fixed by N and by our plane's tension. Through
-> it the README becomes the object at position 2, exactly, and the passage is one way in every aspect.**
+> **For an object whose README has N bits, N ≥ 7.12e9, there is exactly one static corridor, fixed by N and by our
+> plane's tension. Through it the README becomes the object at position 2 with error below any ε > 0, not exactly, and
+> the passage is one way in every aspect. The delivery at position 2 rests on position 2's face holding through its open
+> period, which is OPEN.** *[Item 489: the 488 verification's findings fixed. The statement read "exactly one corridor
+> ... the object at position 2, exactly". The domain is the computed one (scope.py C2); "static" because at one N a
+> spinning hole carries more energy (C1); "not exactly" because position 2 holds each README mode without its partner
+> (passage_est.py Q5); position 2's face is FACE2s/FACE2 (face2_open.py). Your definitions R0, R2, R6, RECON and B6'
+> stand as realizable, not as proved true (441 (2)); R1, "no tolerance", is OPEN.]*
 
 - **(G) Geometry.** The corridor is the brane hole whose horizon holds N bits. It is one family with two ends (256).
   - **Small end:** the README's own localized five-dimensional hole. It is Tangherlini in the flat limit, with our plane
@@ -26,7 +32,13 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - At the small end r_h = (2N ln2/π²)^(1/3) l₅ and **E = 3πc⁴r_h²/(8G₅)**. At the example README these are
     **1.12008e-20 m and 1.28098e9 J**, with r_h/ℓ = 8.0e-16.
   - At the large end **E = 459,404,002.42 J × √N** and r₀ = 2m.
-- **(H) Holding.** The horizon holds exactly the README.
+  - **Static, and unique as such.** At one N a spinning hole carries more energy: 1.021 to 4.061 E at a/R = 0.25 to 2,
+    without bound. The round delivery carries no angular momentum, and the inflow's random spin gives a/r_h = 7.6e-8.
+    Among static holes the hole is unique (Gibbons-Ida-Shiromizu, READ) (`scope.py` C1, item 489).
+  - **The domain is N ≥ 7.12e9**, where the five-dimensional interior is computed; a classical horizon needs N > 1.76e5.
+    A 174-bit README would give r_h = 2.90 l₅, a Planck-scale corridor, and the theorem claims nothing there (C2).
+- **(H) Holding.** The horizon holds the README: exactly once written, in the mean during the write (it fluctuates by
+  1.3e8 bits of 2.74e15, and the inflow must match the face's power to 1/N; `passage_est.py` Q6, item 489).
   - Small end: **2π²r_h³ = 4N ln2 l₅³** (C2 verified).
   - Large end: 4πr₀² = N A_bit.
 - **(O) One way.**
@@ -36,15 +48,25 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - Its faces begin at the opening. Before that, the two positions are joined through the bulk with no horizons
     (282 (2)).
   - **Its horizon is not extremal.** Surface gravity is c²/r_h at the small end and 1/(4M) at the large (251, 271).
-    Our face damps every disturbance, and position 2's face is open at most 33.6 clocks (`bulk/stability.py` S6).
+    Our face damps every disturbance (`bulk/stability.py` S6).
   - The static bulk, its horizon and the passage are regular and complete. The hole's interior singularity is off the
     passage (259; `o1c_oneway.py`, verified at item 337).
-  - **Our face closes by Hawking emission over the hole's life**, 8.57e14 clocks, and its energy stays in our universe
-    (336). Position 2's face closes within its open period, at most 33.6 clocks.
+  - The two faces have equal mass on one onset curvature for both sectors of the transition (415's P1–P4, P4 your
+    405; `transition5r.py` R5): a computed solution consistent with established physics, not derived as nature's.
+  - **Our face is held at its size through the write by the plane's inflow, then closes by Hawking emission over the
+    hole's life**, 8.57e14 clocks, and its energy stays in our universe (336).
+  - **Position 2's face is open while the README is within it** (390): the whole write, 8.63e14 clocks at the example
+    README, not c_junction J1's 33.6 clocks, which went with the junction model at 427. It closes as the README's last
+    part leaves it. **Its holding through that period is not given by established physics** (`face2_open.py`, item 489):
+    any perturbation from position 2 forms a trapped surface (Barcelo et al., READ), and in position 2's vacuum the
+    face's own negative flux, crossing the emerging README, ends it as a white hole after 35.8 clocks. Only the time
+    reverse of our face's state holds it, with position 2 sending in 0.503 E at T_H; nothing supplies that. FACE2s and
+    FACE2 are OPEN.
 - **(Z) Null energy never violated**, net along each light ray (183).
-  - Every classical ray keeps it: the passage's classical segments are Ricci-flat, and the README's null energy is
-    non-negative.
-  - The passage's negative null energy is confined to the quantum region. That is 177's appearance (318;
+  - Every classical ray keeps it: the passage's classical segments are Ricci-flat, the README's null energy is
+    non-negative, and our face's own Hawking influx -- outside the quantum region, on the outgoing rays -- is paired on
+    the same rays by the inflow during the write and by the README's E after it (`z_hawking.py` H1–H4, item 489).
+  - The bounce's negative null energy is confined to the quantum region. That is 177's appearance (318;
     `pair_math.py` P1–P4).
 - **(B) Bulk.**
   - **The bulk's law is Einstein's exactly; the Gauss–Bonnet coupling is zero.** C9 is verified (332), under
@@ -55,19 +77,30 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
     the README lands (284, 285). Matter keeps null energy at every point (320).
   - k's ratio is k_R = k_L/2. Its scale is our plane's tension and offset (201).
   - Position 2's offset is 2.625e-10 J/m³ (322).
-- **(I) Information.** The passage is N bits of entanglement, and it carries the N-bit README.
+- **(I) Information.** The passage is N bits of entanglement, and it carries the N-bit README: the plane's own
+  radiation at T_H over the write, E/2 in, crossing the interior unitarily and mixed with the partners the core keeps,
+  so recovered at position 2 with error below any ε by coding, at a fraction 0.27–0.30 of the inflow's entropy
+  (`passage_est.py` Q4–Q5, corrected at 489).
 - **(E) Energy.**
-  - One exact energy E, the hole's own, holds our face and returns to our universe as radiation over the hole's life
-    (336).
+  - One exact energy E, the hole's own, holds our face (in the mean through the write, the inflow passing through it as
+    its emission) and returns to our universe as radiation over the hole's life (336).
   - Position 2's face, as it closes, releases position 2's own energy into position 2, and the build uses exactly it
-    (110, 111 (a), 240). The build's need is what that energy activates (239).
+    (110, 111 (a), 240). The build's need is what that energy activates (239). *OPEN at 489: E2us, E2xs, E2u, E2x and E3
+    rest on FACE2s/FACE2.*
   - What crosses is the README: the one value read from two sides (111 (b), 240).
 - **(R) Reconstruction.**
-  - Position 2 builds an exact copy of the object from its own bulk. The copy then obeys position 2's laws (240, 285).
+  - Position 2 builds a copy of the object from its own bulk, exact to the README it receives (R2, your definition).
+    The copy then obeys position 2's laws (240, 285). *OPEN at 489: R5, the build's mechanism, rests on FACE2s/FACE2.*
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands.** At the small end, where the example README sits, three lemmas stay OPEN: **B3, B4d and FAR**.
+**Where it stands, at item 489.** 82 rows: 64 proved, 5 definitions, 13 OPEN. The OPEN rows are FACE2s and FACE2
+(position 2's face over its open period); E2us, E2xs, E2u, E2x, E3, R5, B3s and B3 (resting on them); SOURCEs and
+SOURCE (the specification proved, no computed source meeting it); and R1. The theorem is not proved, and position 2's
+face is where it stops. *The paragraphs below are the record of how it got here; their first sentence is long
+superseded.*
+
+**Where it stood at item 331.** At the small end, where the example README sits, three lemmas stay OPEN: **B3, B4d and FAR**.
 CLOSE is closed there on your item 336 (CLOSEs). Two rows rest on named readings:
 - Z3bs, on item 318's reading;
 - ARRIVALs (items 338, 340), on the board's reading of your item 340, "for the math", with your guess A. On your
@@ -1655,6 +1688,8 @@ state was rebuilt first.
     - The face opens all at once with E(N).
     - The README streams in over the long write, absorbed at the face's own Hawking emission. By the first law and
       energy conservation the face holds its size: 16/15 of the life at the small end, the inflow (8/15) E5(N), exact.
+      *[Corrected at 489: (1 + b) of the life and E5(N)/2 -- the first figures mixed the bulk's entropy with the plane's
+      power (F2).]*
     - Each quantum crosses the computed interior unitarily (Klein-Gordon norm and |alpha|^2 - |beta|^2 = 1 to 6e-8).
     - So 432 (1) is superseded as the bits' carrier.
     - 426's open question is answered: the face's own emission balances the inflow.
@@ -1675,6 +1710,50 @@ state was rebuilt first.
     device that reads and the bulk's emitter are named as what each needs, as every row names what it needs.
   - phase2 Q3: all 80 rows pass. readings: RDUST, RBITS and RSHELL, owed through SOURCE since 356, are discharged.
   - The register reads 74 proved, 6 definitions, 0 OPEN.
+- **Item 488** (M: "verify advasarially and exhaustively as one single warp theorem statement"). Verified here, inline,
+  all findings reported together and nothing repaired: thirteen, F1-F13. The full selftest passed 12/12 while carrying
+  F1 (it checks the arithmetic, not whether a premise is still in force).
+- **Item 489** (M: "Fix all the findings"). Each fixed by computation where computation settles it, each status set to
+  what 441 (1) allows.
+  - **F1, position 2's face.** On 390 it is open while the README is within it: the whole write, 8.63e14 clocks at the
+    example README, 2.2e56 s at the Earth cap. J1's 33.6 clocks went with the junction model at 427, and six proved rows
+    still rested on it. `face2_open.py` (7/7, mutants 2/2):
+    - any perturbation from position 2 forms a trapped surface (Barcelo et al., JHEP 01 (2016) 157, READ): 63 clocks for
+      1 eV; the expected count over the period is 2.1e-36 in a 3 K bath, 1.3e-15 among a metal's electrons, 0.43 inside
+      a nucleus, above 1e60 at the Earth cap;
+    - in position 2's vacuum the face's own negative flux (the Boulware value, -κ²/48π) crosses the emerging README;
+      by Dray-'t Hooft-Redmount it builds a negative mass reaching the face's own after 35.8 clocks;
+    - only the time reverse of our face's state holds it, position 2 sending in 0.503 E at T_H, and nothing supplies it.
+    - So FACE2s and FACE2 are added, OPEN, and E2us, E2xs, E2u, E2x, E3, R5, B3s and B3 rest on them. CLOSEs and CLOSE
+      keep the closing law (390), O2, O3s, O3, B4ds, B4d and M1P2x their own claims, with the position-2 figures
+      corrected. `bulk/stability.py` S6 now reports the 390 period (12/12, the withdrawn period its mutant).
+  - **F2, the write.** `passage_est.py` Q4 mixed the bulk's entropy with the plane's power. One channel at a time: the
+    plane's gives the inflow E5(N)/2 and τ_write = (1 + b) of the life, 8.63e14 clocks (b = 0.0062, the bulk gravitons);
+    the bulk's alone needs T_in = 1.98 T_H, 2.12 lives, 1.06 E5(N). 16/15 and 8/15 are withdrawn everywhere. The
+    emitter is the opening shell's only (`emitter.py` E6): the plane's own fields write the README.
+  - **F3, exactly.** The README's quanta are mixed with the interior partners (|β|² 0.16 to 20 across the inflow's band)
+    and the core keeps the partners (B4ds D15, your 336), so position 2 has an amplifier channel: no finite k inverts
+    exactly, and coding gives error below any ε, the thermal write delivering 0.27-0.30 of its entropy (Q5, 7/7,
+    mutants 4/4). R1, "no tolerance", is OPEN; the statement reads "with error below any ε".
+  - **F4, the domain.** N ≥ 7.12e9, the computed interior (`scope.py` C2); laboratory READMEs lie outside.
+  - **F5, SOURCE.** OPEN again: 487 went beyond 441 (1). The specification is proved; no computed source meets it.
+  - **F6, the equal mass.** Named in the statement: one onset curvature for both sectors (415's P1-P4), a consistent
+    computed solution, not derived as nature's.
+  - **F7, your definitions.** Named in the statement as yours, standing as realizable (441 (2)).
+  - **F8, in the mean.** H1 and the write's balance hold in the mean (1.3e8 bits of 2.74e15; the inflow matched to 1/N).
+  - **F9, exactly one.** Exactly one static corridor (`scope.py` C1, 2/2, mutants 2/2).
+  - **F10, (Z).** Our face's Hawking influx lies outside the quantum region and is paired on its own rays
+    (`z_hawking.py` H1-H4, 3/3, mutants 2/2); the statement says so.
+  - **F11, no Cauchy horizon.** c1_oneway, c4_oneway, c4_residue, c5_oneway and c7_oneway no longer compute the inner
+    horizon's row (`--record` keeps it). Their verdicts stand over the interiors left -- C1 more firmly (24 of 24 codes)
+    -- except c1_oneway K7's channel reading, which had leaned on that row and is not cited; c4_oneway's continuation
+    tables are the record only.
+  - **F12, stale text.** The statement, "Where it stands", WRITEs/WRITE's least times, the ARRIVALs name, O3s's "the life
+    covers the write", the 16/15 and 8/15 figures.
+  - **F13, the quadrature.** `readings.py` Q24: no warnings, error at most 1e-10, a 25-digit cross-check to 1e-14; the
+    near-zone 1.0039 is the O(ρ/ℓ) term (coefficient 2.73 at two distances), now pinned.
+  - The register reads 64 proved, 5 definitions, 13 OPEN, of 82 rows. The theorem is not proved; position 2's face is
+    where it stops.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
@@ -1709,7 +1788,7 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | O | O1b no curvature singularity on the passage at the large end | proved | M1 H-BOUNCE-TO-P2 | quantum_onset.py, focusing_parts.py, core_face.py; H-CORE-DELIVERS computed (core_large.py K1-K7, 478), which also closes what K cannot see (430 (Q5); 431); on the object standing from the opening (426), modelled by the board (428); H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415 |
 | O | O1c every causal route of the passage complete at the large end | proved | M1 H-BOUNCE-TO-P2 | exact 4D forms on the stretch (focusing_parts F1-F3), not F4 (430 (Q2); 431); H-CORE-DELIVERS computed (core_large.py K1-K7, 478); on the object standing from the opening (426), modelled by the board (428); H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415 |
 | O | O2 the horizon is not extremal: surface gravity c^2/r_h at the small end, 1/(4M) at the large | proved | M1s | rows_small.py, stability.py |
-| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | proved | WRITEs | o3_hold.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| O | O3s the corridor survives its hold at the small end, for Wall E's scalar wave: the face standing from the opening through the hole's life (334, 336) | proved | WRITEs | o3_hold.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); 489: the face held at its size through the write by the inflow, its life after it; position 2's face is FACE2s's, not 'bounded by e^33.6' |
 | O | O3 the corridor survives its hold at the large end (158 (2); 160) | proved | WRITE | o3_large.py Q1-Q4 (362), re-posed as O3s; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | Z | Z1q for a Z2-symmetric plane of tension q sigma_RS bounding the vacuum bulk, q 8 pi G tau(k,k) + kappa5^4 pi(k,k) = R4(k,k) + R5(n,k,n,k); R5(k,k) = 0 in the vacuum bulk; our plane is q = 1 | proved | -- | f1_audit.py |
 | Z | Z1ts along the mouth's radial ray, our leg: the five-dimensional null energy zero, and the plane's reading, at the small end | proved | M1s | rows_small.py |
@@ -1724,8 +1803,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | B | B2 a local vacuum bulk exists, unique among analytic ones, beneath any plane meeting B1 (B2') | proved | -- | b1_matter.py, localbulk.py |
 | B | B2ts its instance beneath the corridor: Tangherlini at the small end, the plane totally geodesic | proved | M1s | localized_hole.py |
 | B | B2t its instance beneath the corridor at the large end: the large hole's bulk | proved | M1 | rows_large.py B2t; Figueras-Wiseman (READ); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | proved | M1s FARs WRITEs ARRIVALs CLOSEs H-BOUNCE-TO-P2 | b4d_small.py D10 (351, 355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415 |
-| B | B3 a complete bulk exists at the large end | proved | M1 FAR WRITE ARRIVAL CLOSE H-BOUNCE-TO-P2 | b4d_large.py K9, K12; settle_arrival.py A4-A6 (439): every cell a row, the opening the bulk null shell; at the large end's order; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415 |
+| B | B3s a complete bulk exists at the small end: the one-way object's spacetime, cell by cell (247) | open | M1s FARs WRITEs ARRIVALs CLOSEs FACE2s H-BOUNCE-TO-P2 | b4d_small.py D10 (351, 355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415; OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py) |
+| B | B3 a complete bulk exists at the large end | open | M1 FAR WRITE ARRIVAL CLOSE FACE2 H-BOUNCE-TO-P2 | b4d_large.py K9, K12; settle_arrival.py A4-A6 (439): every cell a row, the opening the bulk null shell; at the large end's order; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415; OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py) |
 | B | B4a the global bulk's shape: the plane's two ends one end of the bulk; the positions joined through the bulk with no horizons until the opening | proved | -- | b4_global.py; 282 (2) |
 | B | B4ds the opening and closing evolve regularly in five dimensions at the small end, wherever classical GR is kept, and data beyond the opening's causal future join the untouched exterior | proved | M1s FARs WRITEs ARRIVALs CLOSEs H-BOUNCE-TO-P2 | b4d_small.py D0-D18 (351-355); settle_arrival.py A2, A6 (439); M-PLANCK-ENDS; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415 |
 | B | B4d the opening and closing evolve regularly in five dimensions at the large end | proved | M1 FAR WRITE ARRIVAL CLOSE H-BOUNCE-TO-P2 | b4d_large.py K0-K12; settle_arrival.py A4-A6 (439): the opening the bulk null shell (warped Vaidya); M-PLANCK-ENDS; at the large end's order; H-BOUNCE-TO-P2 (M's 273) owed (443): computed in 4D with no inner horizon (transition_aos.py); realized in the 5D core with no inner horizon, exact GR wherever x < 1 (transition5.py F1-F8, 482); inside x >= 1 specified, not derived; proved at 483: 273 computed from the 5D quantum dynamics (transition5q.py H1-H9), resting on loop quantum gravity's effective dynamics, scales by 415 |
@@ -1743,21 +1822,21 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | I | I2 the README's N bits within the capacity bound as READ | proved | -- | i2_capacity.py |
 | E | E1us within one universe, our E holds our face and returns to our universe as radiation -- no influence back, at the small end | proved | -- | 336; close_small.py K5, K9; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | E | E1u within one universe, our E returns to our universe as radiation -- no influence back, at the large end | proved | CLOSE | 336; close_large.py L3, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| E | E2us within one universe, position 2's face releases its own energy at its closing, at the small end | proved | CLOSEs | 110, 111 (a), 240; c_junction J1; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| E | E2u within one universe, position 2's face releases its own energy at its closing, at the large end | proved | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E2us within one universe, position 2's face releases its own energy at its closing, at the small end | open | CLOSEs FACE2s | 110, 111 (a), 240; c_junction J1; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py); c_junction J1's period withdrawn at 427 |
+| E | E2u within one universe, position 2's face releases its own energy at its closing, at the large end | open | CLOSE FACE2 | 110, 111 (a), 240; close_large.py L4, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3); OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py) |
 | E | E1xs between universes, nothing of our E crosses: our E stays ours, position 2's energy its own; the README crosses, at the small end | proved | -- | 336; 240; close_small.py K9; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | E | E1x between universes, nothing of our E crosses; the README crosses, at the large end | proved | CLOSE | close_large.py L3; the timing met by identity at every sigma (390, junction_own G10; 427, 428 approved); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| E | E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build uses, at the small end | proved | CLOSEs | 110, 111 (a), 240; c_junction J1; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | proved | CLOSE | 110, 111 (a), 240; close_large.py L4, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | proved | -- | ledger.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| E | E2xs between universes, position 2's face releases position 2's own energy at its closing, which the build uses, at the small end | open | CLOSEs FACE2s | 110, 111 (a), 240; c_junction J1; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py); c_junction J1's period withdrawn at 427 |
+| E | E2x between universes, position 2's face releases its own energy at its closing, at the large end | open | CLOSE FACE2 | 110, 111 (a), 240; close_large.py L4, L5 (362); proved at 478: claim computed by its owners, every reading proved (phase2 Q3); OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py) |
+| E | E3 the ledger closes: position 2's closing energy goes into position 2 (110) and the build uses exactly it (111 (a)); the need is what it activates (239) | open | FACE2s FACE2 | ledger.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py) |
 | E | E4rs the field energy outside the neck within the reach, at the small end | proved | M1s | rows_small.py |
 | E | E4r the field energy outside the neck within the reach, at the large end | proved | M1 | rows_large.py E4r; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | R | R0 the read: the corridor takes the README as its inflow at the opening; N is read from the README | definition | -- | items 70, 101 (8), 115 (c), 130 (2) |
-| R | R1 exact reconstruction, no tolerance | definition | -- | items 145, 146 |
+| R | R1 exact reconstruction, no tolerance | open | -- | items 145, 146; OPEN at 489: 'no tolerance' is not realizable (441 (2)) -- position 2 holds each README mode without its partner, error below any epsilon by coding, not zero (passage_est.py Q5) |
 | R | R2 position 2 builds an exact copy of the object from its own bulk, under position 2's laws; then its laws govern | definition | -- | items 148, 240, 285 |
 | R | R3 exactness at the instant over the mass window | proved | -- | exactcopy.py, rearrange.py |
 | R | R4 the corridor's length as the trajectory difference, given a measure -- not a distance | proved | -- | r4_length.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | proved | -- | r5_build.py, copy_p2.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
+| R | R5 the build's mechanism: what the closing energy activates (239), the copy under position 2's laws (240) | open | FACE2s FACE2 | r5_build.py, copy_p2.py; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); OPEN at 489: rests on FACE2s/FACE2, position 2's face holding through its open period (face2_open.py) |
 | R | R6 the room: the copy takes room by displacing what is there and stays as the new whole of position 2 | definition | -- | items 284, 285 |
 | R | RECON any information is reconstructed to obey the 26 of any position 2 (M-RECON-ALWAYS) | definition | -- | item 437; with 24, 240 |
 | R | ENCODE the read: how a geometric object becomes binary information, one exact encoding reading the same at every point of the 26-lattice | proved | -- | encode_labels.py C0-C7 (439): the labels of the last state (438), canonical, exact, integers only; the read's device SOURCE's (399); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
@@ -1767,16 +1846,22 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | M1P2x position 2's side reads eq. (17)'s other leg at the large end | proved | M1 | m1p2x_large.py Y1-Y9 (362); the emergence met by identity at every sigma (390, junction_own G10; 427, 428 approved); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | N | FARs a far boundary at the small end: on the coincident pair's two-sided bulk, a far surface enclosing the README's hole, strictly untrapped at every ell through the write, the arrival and the hole's life | proved | -- | far_small.py F0-F11 (347-355); verified 355; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
 | N | FAR a far boundary at the large end: on the coincident pair's two-sided bulk with the record's four-dimensional hole, a far surface enclosing it, strictly untrapped at every ell | proved | -- | far_large.py L0-L11 (350-355); verified 355; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | WRITEs the bulk held through the whole write at the small end, its least time 9.49 clocks of r_h/c (437) | proved | -- | write_cypher.py; the name read '>= 66,980 clocks of r_h/c' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | WRITE the static bulk held through the whole write at the large end, its least time 28.48 clocks of m/c | proved | -- | write_large.py X1-X3 (362); the name read '>= 199,702.19 clocks of m/c' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | ARRIVALs the arrival at the small end: the README forms our face as it arrives, one E, all at once; the bits rebuild at position 2 under its laws and take their room | proved | -- | arrival_small.py V0-V14 (verified 348); settle_arrival.py A2, A6 (439); 'compact' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | ARRIVAL the arrival at the large end: the README forms the corridor at the opening (198, M's guess; re-worded at 437 (3)) | proved | -- | arrival_large.py A1-A3; b4d_large.py K12; settle_arrival.py A4-A6 (439); at the large end's order; proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face within its open period | proved | -- | close_small.py K1-K9 (335, 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | CLOSE the closing at the large end | proved | -- | close_large.py L1-L5 (362, on 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3) |
-| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | proved | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before |
-| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | proved | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before |
+| N | WRITEs the bulk held through the whole write at the small end, its least time with the face at its size the balance write, 8.63e14 clocks of r_h/c (the energy's delivery 9.49 clocks, 437) | proved | -- | write_cypher.py; the name read '>= 66,980 clocks of r_h/c' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); the least time corrected at 489 (passage_est.py Q4); the face's size held in the mean (Q6) |
+| N | WRITE the static bulk held through the whole write at the large end, its least time with the face at its size the balance write, 3 N ln2/(32 pi alpha) clocks of GM/c^3 (the energy's delivery 28.48 clocks) | proved | -- | write_large.py X1-X3 (362); the name read '>= 199,702.19 clocks of m/c' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); the least time corrected at 489 |
+| N | ARRIVALs the arrival at the small end: E(N) forms our face as it arrives, all at once; the README's bits follow over the write (passage_est), their rebuild at position 2 R5's and E3's | proved | -- | arrival_small.py V0-V14 (verified 348); settle_arrival.py A2, A6 (439); 'compact' before 439; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); name corrected at 489: the bits do not come all at once (486), and the rebuild is R5's and E3's (OPEN on FACE2s) |
+| N | ARRIVAL the arrival at the large end: the README's E forms the corridor at the opening, its bits following over the write; the rebuild inside the reconstructible region R5's (198, M's guess; 437 (3); 443 (1)) | proved | -- | arrival_large.py A1-A3; b4d_large.py K12; settle_arrival.py A4-A6 (439); at the large end's order; proved at 478: claim computed by its owners, every reading proved (phase2 Q3); name corrected at 489 |
+| N | CLOSEs the closing at the small end: our face by Hawking emission over the hole's life, the energy ours; position 2's face closing as the README's last part leaves it (390), its holding until then FACE2s's | proved | -- | close_small.py K1-K9 (335, 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3); corrected at 489: position 2's face open the write on 390, not J1's 33.6 clocks (withdrawn at 427) |
+| N | FACE2s position 2's face holds through its open period at the small end: open while the README is within it (390; junction_own G10), the write | open | -- | face2_open.py W1-W6 (489): open 8.63e14 clocks; any perturbation from position 2 forms a trapped surface (Barcelo et al., READ); in position 2's vacuum its own negative flux ends it as a white hole at 35.8 clocks; held only in the time-reversed state, position 2 sending in 0.503 E at T_H, which nothing supplies |
+| N | CLOSE the closing at the large end: our face by Hawking emission; position 2's face closing as the README's last part leaves it (390), its holding until then FACE2's | proved | -- | close_large.py L1-L5 (362, on 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3); corrected at 489: not J2's 4 clocks |
+| N | FACE2 position 2's face holds through its open period at the large end: open while the README is within it (390), the write | open | -- | face2_open.py W2-W6 (489): open 2.2e56 s at the Earth cap; more than 1e60 perturbing particles in every environment computed; in vacuum its own flux ends it after 155 e-folds |
+| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before; OPEN again at 489: the specification proved, but no computed source meets it -- the reading device, the opening shell's emitter's process and the formation from our plane are not computed (487 went beyond 441 (1)) |
+| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before; OPEN again at 489: as SOURCEs |
 
-80 rows, 66 lemmas and 14 inputs: 74 proved, 6 definitions *[Item 487: SOURCEs and SOURCE proved; the line read "72 proved, 6
+82 rows, 66 lemmas and 16 inputs: 64 proved, 5 definitions, 13 OPEN *[Item 489, the 488 verification's findings fixed:
+FACE2s and FACE2 added, OPEN -- position 2's face holding through its open period, which on 390 is the whole write
+(face2_open.py); E2us, E2xs, E2u, E2x, E3, R5, B3s and B3, resting on them, OPEN; SOURCEs and SOURCE OPEN again (487
+went beyond 441 (1)); R1 OPEN ("no tolerance" not realizable, passage_est.py Q5).  The line read "80 rows ... 74 proved,
+6 definitions" before.]* *[Item 487: SOURCEs and SOURCE proved; the line read "72 proved, 6
 definitions, 2 OPEN" before.]* *[Item 483: the ten on 273 proved, 273 computed from the
 five-dimensional quantum dynamics (transition5q); the line read "62 proved, 10 derived" at 478.]*
 (SOURCEs and SOURCE, deferred by you and worked last). *[Item 478: 42 rows derived -> proved, each claim computed by its

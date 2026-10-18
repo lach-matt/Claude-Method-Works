@@ -92,10 +92,13 @@ def phase2_audit():
 
 
 def klass(aud, rid):
-    """phase2's standing of a row: ok passes, read waits on a reading, open rests on 273, def deferred"""
+    """phase2's standing of a row: ok passes, read waits on a reading, open rests on 273 or is OPEN on its own claim
+    (item 489: FACE2s, FACE2 and the rows on them, SOURCEs and SOURCE, R1), def deferred"""
     w = aud[rid]
     if not w:
         return "ok"
+    if any("own claim (OPEN)" in x for x in w):
+        return "open"
     if rid.startswith("SOURCE") and any("OPEN" in x for x in w):
         return "def"
     return "open" if any("273" in x for x in w) else "read"
@@ -109,6 +112,8 @@ def waits(aud, rid):
 
 def chip(aud, rid):
     k = klass(aud, rid)
+    if k == "open" and any("own claim (OPEN)" in x for x in aud[rid]):
+        return k, "Open"
     return k, {"ok": "Passes", "def": "Deferred", "open": "Beyond · 273"}.get(k) or \
         "Re-derive · " + ", ".join(waits(aud, rid))
 

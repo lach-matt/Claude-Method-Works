@@ -5,6 +5,28 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 489: the 488 verification's findings fixed -- what changes here
+
+M, 489: "Fix all the findings".
+- **SOURCEs and SOURCE are OPEN again** (F5). 487 set them proved, which went beyond 441 (1): the specification is
+  proved -- every item of what a source must supply is computed -- but no computed solution meets it. The device that
+  reads is not computed (read_index gives the per-atom window, not a device); the structure probe's wavelength is too
+  long (S1C-O1 open); the opening shell's emitter has no process; the corridor's formation cannot start from our plane.
+- **The write, corrected** (F2; `passage_est.py` Q4). Item 486's Q4 mixed the bulk's entropy, (5/4) E/T, with the
+  plane's power, giving 16/15 and 8/15. One channel at a time:
+  - the plane's own radiation at T_H, entropy (4/3) E/T: the inflow is **E5(N)/2** and tau_write = **(1 + b) of the
+    life**, 8.63e14 face clocks (b = 0.0062, the bulk gravitons' share);
+  - the bulk's radiation alone holds the face only at T_in = 1.98 T_H: 2.12 lives, the inflow 1.06 E5(N).
+  - The plane's is the faster, and the theorem's. The supply is E5(N) plus E5(N)/2 per write.
+- **The emitter is the opening shell's only** (`emitter.py` E6 corrected). The README's inflow is the plane's own
+  radiation, which our plane's fields can emit; the bulk is needed for the round shell that opens the face.
+- **"Position 2 inverts exactly" is withdrawn** (F3; Q5). The README's quanta are mixed with the interior partners,
+  which the core keeps; position 2 holds each mode alone, an amplifier channel. The README arrives with error below any
+  epsilon by coding, not exactly, the thermal write delivering 0.27-0.30 of its entropy.
+- **The copper block's 174 bits lie outside the theorem's domain** (F4; `scope.py` C2): N >= 7.12e9.
+- **Position 2's face** (F1; `face2_open.py`): open the whole write on 390, its holding OPEN (FACE2s). Whatever the
+  source supplies, the delivery at position 2 waits on that.
+
 ## Item 486: the passage on established physics, the emitter proved, the read from M's indexes
 
 M, 486: "let's shift to the established physics and prove the passage is still true. If so, it supersedes 432(1)"; "an
@@ -20,14 +42,16 @@ yourself instead of relying on outside numbers". Each part was held against the 
   premise is untouched.
 - **The write at that balance (Q4).**
   - The README comes in at the face's own temperature: tau_write = (16/15) of the life (exact). That is 9.2e14 face
-    clocks (3.4e-14 s) at the example README, and 58 clocks for the copper block's 174 bits.
+    clocks (3.4e-14 s) at the example README, and 58 clocks for the copper block's 174 bits. *[Corrected at 489:
+    (1 + b) of the life, 8.63e14 clocks; the 174 bits lie outside the domain.]*
   - The inflow carries (8/15) E5(N) (exact), which the face returns to our side as its emission. The face holds E5(N)
-    throughout.
+    throughout. *[Corrected at 489: E5(N)/2; the face holds E5(N) in the mean.]*
   - The thermal inflow exactly saturates U4's room bound.
   - At the large end the write is 10.9 N clocks of GM/c^3, and the inflow (3/8) E(N).
 - **The README crosses unitarily (Q5).** A massless field's modes on transition5q's interior, from our horizon to
   position 2's, keep the Klein-Gordon norm, and |alpha|^2 - |beta|^2 = 1, to 6e-8.
-  - Quanta near the face's wavelength are squeezed by a known map that position 2 inverts.
+  - Quanta near the face's wavelength are squeezed by a known map that position 2 inverts. *[Withdrawn at 489: the
+    inversion needs the partners, which the core keeps; recovery is to error below any epsilon.]*
   - Shorter ones pass unmixed (|beta|^2 < 1e-9 at k r_h = 1e5).
 - The face's size fluctuates by 1.6e8 bits of 2.74e15, and by zero in the mean (Q6).
 - **So the passage holds on established physics (Q7).** The README's bits are the inflow's states, and 432 (1) is
@@ -35,7 +59,7 @@ yourself instead of relying on outside numbers". Each part was held against the 
   - Kept: 162 (the face at full size from the opening, held), 163 (one whole at a fixed size), 158 (2) (as long as
     the write needs), and 426 (M-LONG-WRITE).
   - 426's open question is answered: the face's own emission balances the inflow.
-  - The supply is E5(N) + (8/15) E5(N).
+  - The supply is E5(N) + (8/15) E5(N). *[Corrected at 489: E5(N) + E5(N)/2.]*
   - The one premise left beyond established physics is 273's basis, 415's shared onset.
 - U5 above is corrected beside it: a fourth way, (d), was missed.
 
@@ -50,7 +74,7 @@ yourself instead of relying on outside numbers". Each part was held against the 
 - **E5.** The warped shell's generators run at fixed depth, and the plane holds none of its measure.
 - **E6.** The inflow is a solution of the bulk's vacuum equations in the high-frequency limit (Huneau and Luk, READ),
   so it is allowed. Every part of it began in the bulk. So the emitter stands in the bulk, and no matter of our plane
-  can be it: proved.
+  can be it: proved. *[Corrected at 489: the opening shell's only; the README's inflow is the plane's own radiation.]*
 
 **(3) The read from M's indexes** (`read_index.py`, 8/8, mutants 3/3). It uses the element index (populate.py:
 configurations, Pauli capacities) and the isotope index (isotopes.py: AME2020), and no device figure.

@@ -22,29 +22,41 @@ propagation of a quantum field on a globally hyperbolic background.
      exactly -P_H (energy conservation: an isolated face loses P_H), so an inflow absorbed at P_in = P_H gives mu' = 0
      and the face static (theta = 0, sigma = 0 for a round inflow).  settle_arrival A1's "nothing crosses after the
      opening" holds for the net null energy; its premise, null energy >= 0 on classical rays (183), is untouched.
-  Q4 (computed) The write, at that balance.  The inflow carries the README at the face's own temperature (detailed
-     balance fixes T_in = T_H for a round, full-capture inflow absorbed at P_H), with entropy (5/4) E/T in the bulk:
-     tau_write = (4/5) N ln2 kT_H / P_H = (16/15) of the record's life (hold_small L5, exact), 48 N ln2/(g* gamma) face
-     clocks -- 9.2e14 clocks, 3.4e-14 s, at the example README; 58 clocks for the copper block's 174 bits.  The inflow's
-     energy is (8/15) E5(N), exactly; the face returns it to our side as its Hawking emission and holds E5(N) the whole
-     time.  The thermal inflow saturates source_spec's room bound exactly (S = N ln2 in the volume it sweeps).  At the
-     large end: tau_write = 3 N ln2/(32 pi alpha) clocks of GM/c^3 = 10.9 N (Z = 108.75), the inflow (3/8) E(N).
-  Q5 (computed) The README's quanta cross to position 2, unitarily.  A massless field's modes e^(ikx) on the interior
-     transition5q computes (ds^2 = -N^2 dT^2 + A^2 dx^2 + B^2 dOmega_3^2), evolved from our horizon to position 2's: the
-     Klein-Gordon norm is kept to 6e-8 and |alpha|^2 - |beta|^2 = 1 to 6e-8 for every k -- the passage is a unitary map.
-     Quanta near the face's own wavelength are squeezed by the transition (|beta|^2 from 0.7 to 7.7) by a known map that
-     position 2 inverts exactly; once the adiabatic parameter falls below 0.1 they pass unmixed (|beta|^2 < 1e-9 at
-     k r_h = 1e5), the threshold in k r_h growing as mu^(3/4).
-  Q6 (computed; estimate in its quantum count) The face's size at balance fluctuates as the quanta cross: about
-     sqrt(n) quanta's worth, 1.6e8 bits of 2.74e15 at the example README (5.7e-8), zero in the mean.
-  Q7 (deduced) So the passage holds on established physics.  The face opens all at once with E5(N) (source_spec U2);
-     the README streams in over tau_write, absorbed at the face's own emission so the face stands at its size (162,
-     163's "one whole" at a fixed size, 158 (2) "exactly as long as the write needs", 426 M-LONG-WRITE -- and 426's open
-     question, what balances the face while energy crosses, answered: its own Hawking emission); each quantum crosses
-     the interior in 2 r_h/c (H9), unitarily (Q5), into position 2's white hole; one way (O1a).  The README's bits are
-     the inflow's states: 432 (1) is not needed and is superseded as their carrier.  What it costs: the supply is E5(N)
-     plus (8/15) E5(N), the face holding exactly E5(N) throughout; the passage's interior rests, as before, on 273's
-     basis (transition5r: 415's shared onset), which is the one premise left beyond established physics.
+  Q4 (computed; corrected at 489, F2 of the 488 verification) The write, at that balance, by one channel at a time.
+     First written mixing two: the bulk's entropy, (5/4) E/T, against the plane's power -- giving 16/15 and 8/15, wrong.
+     The plane's channel: the README as the plane's own radiation at T_H (detailed balance for a round inflow absorbed
+     at the plane's share of the power), entropy (4/3) E/T; with N ln2 k T_H = (2/3) E5 (first law) the inflow is
+     E5(N)/2 exactly, and tau_write = E_in / P_plane = (1 + b) of the life (hold_small L5, which counts every channel;
+     b = 0.0062 the bulk gravitons' share): 8.63e14 face clocks, 3.2e-14 s, at the example README.  The bulk's
+     channel, done on its own: 5D radiation absorbed on the capture ball of radius 2 r_h holds the face only at
+     T_in = 1.98 T_H, tau = 2.12 lives, the inflow 1.06 E5(N).  The plane's channel is the faster, and the one the
+     theorem uses; its thermal inflow saturates the 4D room bound exactly (S = (4/3) E_in / T = N ln2).  At the large
+     end (one channel, the plane's): tau_write = 3 N ln2/(32 pi alpha) clocks of GM/c^3 = 10.9 N (Z = 108.75), the
+     inflow (3/8) E(N).  [The copper block's 174 bits, quoted here first, lie outside the computed domain, N >= 7.12e9
+     (scope.py C2): withdrawn.]
+  Q5 (computed; corrected at 489, F3) The README's quanta cross the computed interior unitarily: the Klein-Gordon norm
+     kept to 6e-8 and |alpha|^2 - |beta|^2 = 1 to 6e-8 for every k computed.  Quanta in the inflow's band (k r_h 0.1 to 30 at
+     mu/l5^2 = 1e6) are mixed by the transition, |beta|^2 from 0.16 to 20, with the partner modes -k: the interior
+     partners of our face's Hawking quanta, entangled with our Hawking radiation.  First written: "a known map that
+     position 2 inverts exactly" -- that needs the partners at position 2, and the theorem keeps them in the core (B4ds
+     D7, D15; M's 336, E1x: only the README crosses).  So position 2 holds each README mode alone: an amplifier channel
+     of gain 1 + |beta|^2 with the partner's thermal noise.  No finite k inverts exactly (|beta|^2 > 0 at every k, below
+     1e-9 only past the adiabatic threshold, k r_h > 5.1e7 at the example); by channel coding (Shannon; the Gaussian
+     capacity of phase-insensitive channels, Giovannetti et al., Nat. Photon. 8, 796 (2014), READ) the README is
+     recovered with error below any epsilon > 0, not zero, at a rate the channel's capacity bounds: of the thermal
+     inflow's entropy, position 2 alone can recover the fraction F computed here (0.30 at mu/l5^2 = 1e4, 0.27 at 1e6,
+     falling as the mixing grows with mu), so the write lasts at least tau_write / F.
+  Q6 (computed; estimate in its quantum count; worded at 489, F8) The face's size at balance holds in the mean, not at
+     every instant: it fluctuates by about sqrt(n) quanta's worth, 1.3e8 bits of 2.74e15 at the example README (4.6e-8),
+     and the inflow must match P_H to 1/N (3.6e-16) for the drift over the write to stay below one bit.
+  Q7 (deduced) So the passage holds on established physics, with Q5's and Q6's qualifications.  The face opens all at
+     once with E5(N) (source_spec U2); the README streams in over tau_write / F, absorbed at the face's own emission so
+     the face stands at its size in the mean (162, 163's "one whole" at a fixed size, 426 M-LONG-WRITE); each quantum
+     crosses the interior in 2 r_h/c (H9), unitarily (Q5), toward position 2's white hole -- whose holding through the
+     write is face2_open's, OPEN (489, F1); one way (O1a).  The README's bits are the inflow's states, recovered at
+     position 2 with error below any epsilon, not exactly: 432 (1) is not needed and is superseded as their carrier.
+     What it costs: the supply is E5(N) plus E5(N)/2 per tau_write, the face holding E5(N) in the mean throughout; the
+     passage's interior rests, as before, on 273's basis (transition5r: 415's shared onset).
 
 python3 passage_est.py [--selftest | --mutants]
 """
@@ -110,42 +122,49 @@ def balance():
 
 # ------------------------------------------------------------------ Q4
 def write_time(A):
+    """Q4 (corrected at 489): the plane's channel and the bulk's, each consistent; the plane's the theorem's"""
     k, d = A["k"], A["d"]
     N, E5, rh = d["N"], d["E"], d["rh"]
     ln2 = math.log(2)
-    gstar, gam = 106.75, 0.93                                        # hold_small L5: the record's species and greybody
-    life = 45 * N * ln2 / (gstar * gam)                              # face clocks, hold_small L5
+    HS = _load("hold_small.py", "pe_hs")
+    dof = sum(n_ for n_, _ in HS.GREY_SPIN.values())
+    gam = sum(n_ * g for n_, g in HS.GREY_SPIN.values()) / dof
+    b = HS.GRAV_BULK_DOF / (gam * dof)
+    life = 45 * N * ln2 / (dof * gam * (1 + b))                      # face clocks, hold_small L5, every channel
+    clock = rh / k["c"]
     kT = k["hbar"] * k["c"] / (2 * math.pi * rh)
-    PH = E5 / (2 * life * rh / k["c"])                               # the record's power: life = E/(2P)
-    ent = 1.25 if "entropy" not in MUT else 4 / 3                    # bulk inflow: S = (5/4) E/T
-    tau = (1 / ent) * N * ln2 * kT / PH
-    tau_cl = tau * k["c"] / rh
-    E_in = PH * tau
-    # the copper block's README, 174 bits
-    L = _load("ledger.py", "pe_ledger")
-    Ec, rhc, _ = L.e_small(174, 1.0)
-    tau_cu = (1 / ent) * 174 * ln2 * (45 * 174 * ln2 / (gstar * gam)) * 2 * (k["hbar"] * k["c"] / (2 * math.pi * rhc)) / Ec
-    # exact ratios
-    n_, kT_, life_ = sp.symbols("N kT life", positive=True)
+    P_tot = E5 / (2 * life * clock)                                  # life = E/(2P) at the small end
+    P_pl = P_tot / (1 + b)
+    if "entropy" in MUT:                                             # the first version's mix: bulk entropy, plane's power
+        ent, P_in = 1.25, P_pl
+    else:
+        ent, P_in = 4 / 3, P_pl
+    E_in = N * ln2 * kT / ent
+    tau = E_in / P_in
+    tau_cl = tau / clock
+    # the bulk's own channel: 5D thermal radiation (Z = 8) on the capture ball radius 2 r_h, at T_in holding the face
+    a5 = 8 * 2 * math.pi ** 2 * 24 * ZETA5 / (2 * math.pi * k["hbar"] * k["c"]) ** 4
+    vol = 4 / 3 * math.pi * (2 * rh) ** 3
+    P_bulk = lambda kTx: k["c"] * a5 * kTx ** 5 * vol
+    Tin = (P_tot / P_bulk(kT)) ** 0.2
+    tau_bk = 0.8 * N * ln2 * kT * Tin / P_tot / clock
+    # exact ratios on the plane's channel
+    n_, kT_, life_, bb = sp.symbols("N kT life b", positive=True)
     E5s = sp.Rational(3, 2) * n_ * kT_ * sp.log(2)
-    PHs = E5s / (2 * life_)
-    taus = sp.Rational(4, 5) * n_ * sp.log(2) * kT_ / PHs
-    ratio_life = sp.simplify(taus / life_); ratio_E = sp.simplify(PHs * taus / E5s)
-    # the room bound, saturated: S_max(E_in, V swept) for a 5D thermal gas at T_H equals N ln2
-    SS = _load("source_spec.py", "pe_ss2")
-    a5 = SS.a5(8, k); u = a5 * kT ** 5
-    V = E_in / u
-    S_room = SS.s5(E_in, V, 8, k) / (N * ln2)
-    # large end: P = alpha/M^2, T = 1/(8 pi M), life >= M^3/(3 alpha) (close_large L3), 4D inflow S = (4/3) E/T
+    Ptot_s = E5s / (2 * life_)
+    taus = sp.Rational(3, 4) * n_ * sp.log(2) * kT_ / (Ptot_s / (1 + bb))
+    ratio_life = sp.simplify(taus / life_); ratio_E = sp.simplify(sp.Rational(3, 4) * n_ * sp.log(2) * kT_ / E5s)
+    S_room4 = (4 / 3) * E_in / kT / (N * ln2)                        # the 4D thermal inflow's entropy against N ln2
+    # large end: P = alpha/M^2, T = 1/(8 pi M), 4D inflow S = (4/3) E/T
     Z = 108.75; alpha = 27 * Z / (491520 * math.pi)
     per_N = 3 * ln2 / (32 * math.pi * alpha)                         # clocks of GM/c^3 per bit
     M_, al_ = sp.symbols("M alpha", positive=True)
     E4 = M_; PH4 = al_ / M_ ** 2; T4 = 1 / (8 * sp.pi * M_); N4ln2 = 4 * sp.pi * M_ ** 2
     tau4 = sp.Rational(3, 4) * N4ln2 * T4 / PH4
     ratio_E4 = sp.simplify(PH4 * tau4 / E4)
-    return dict(life=life, tau=tau, tau_cl=tau_cl, tau_ratio=tau_cl / life, E_ratio=E_in / E5, tau_cu=tau_cu,
-                ratio_life=ratio_life, ratio_E=ratio_E, S_room=S_room, per_N=per_N, ratio_E4=ratio_E4, kT=kT, PH=PH,
-                E_in=E_in)
+    return dict(life=life, tau=tau, tau_cl=tau_cl, tau_ratio=tau_cl / life, E_ratio=E_in / E5, b=b,
+                ratio_life=ratio_life, ratio_E=ratio_E, S_room4=S_room4, per_N=per_N, ratio_E4=ratio_E4, kT=kT,
+                PH=P_tot, E_in=E_in, Tin_bulk=Tin, tau_bulk=tau_bk / life, Ein_bulk=P_tot * tau_bk * clock / E5)
 
 
 # ------------------------------------------------------------------ Q5
@@ -193,16 +212,41 @@ def modes(mu, kr, qtol=1e-4):
     return dict(Wdrift=abs(W[-1] / W[0] - 1), unit=abs(abs(a) ** 2 - abs(b) ** 2 - 1), b2=abs(b) ** 2, qmax=qs.max())
 
 
+def _g(x):
+    return (x + 1) * math.log(x + 1) - (x * math.log(x) if x > 0 else 0.0)
+
+
+def capacity(mu, krs=(0.1, 0.3, 1.0, 3.0, 10.0, 30.0)):
+    """Q5 (489, F3): position 2 holds each README mode alone -- a' = alpha a + beta b^+, the partner b thermal at T_H and
+    kept in the core.  Per mode the Gaussian classical capacity at the inflow's own occupation n = 1/(e^(2 pi k r_h) - 1):
+    C = g(G n + (G - 1)(n + 1)) - g((G - 1)(n + 1)), G = 1 + |beta|^2; F = int k^2 C dk / int k^2 g(n) dk"""
+    rows = []
+    for kr in krs:
+        b2 = 0.0 if "partners_cross" in MUT else modes(mu, kr)["b2"]
+        G = 1 + b2
+        n = 1 / math.expm1(2 * math.pi * kr)
+        noise = (G - 1) * (n + 1)
+        C = _g(G * n + noise) - _g(noise)
+        rows.append((kr, b2, n, C, _g(n)))
+    # trapezoid in ln k with weight k^3 (k^2 dk = k^3 d ln k)
+    lk = [math.log(r[0]) for r in rows]
+    num = sum((lk[i + 1] - lk[i]) * (rows[i][0] ** 3 * rows[i][3] + rows[i + 1][0] ** 3 * rows[i + 1][3]) / 2
+              for i in range(len(rows) - 1))
+    den = sum((lk[i + 1] - lk[i]) * (rows[i][0] ** 3 * rows[i][4] + rows[i + 1][0] ** 3 * rows[i + 1][4]) / 2
+              for i in range(len(rows) - 1))
+    return dict(rows=rows, F=num / den)
+
+
 # ------------------------------------------------------------------ Q6
 def fluctuation(A, Wt):
     N, E5 = A["d"]["N"], A["d"]["E"]
     kT = Wt["kT"]
-    e_in = 5 * ZETA6 / ZETA5 * kT                                    # mean quantum, 5D thermal inflow
+    e_in = 3 * ZETA4 / ZETA3 * kT                                    # mean quantum, the plane's thermal inflow (4D)
     e_out = 3 * ZETA4 / ZETA3 * kT                                   # mean quantum, the plane's emission (4D)
     n_in = Wt["E_in"] / e_in; n_out = Wt["E_in"] / e_out
     dM = math.sqrt(n_in * e_in ** 2 + n_out * e_out ** 2)
     dbits = dM / (kT * math.log(2))
-    return dict(dbits=dbits, rel=dbits / N)
+    return dict(dbits=dbits, rel=dbits / N, match=1 / N)
 
 
 def compute():
@@ -211,6 +255,7 @@ def compute():
     o["modes"] = {(mu, kr): modes(mu, kr) for mu, kr in ((1e4, 0.3), (1e4, 1.0), (1e4, 10.0), (1e4, 100.0),
                                                           (1e4, 1e3), (1e4, 1e5), (1e6, 1.0), (1e6, 1e5))}
     o["fluct"] = fluctuation(o["A"], o["W"])
+    o["cap"] = {mu: capacity(mu) for mu in (1e4, 1e6)}
     return o
 
 
@@ -220,15 +265,21 @@ def checks(o):
     q1 = A["small"] < 1e-2 and A["cap"] < 1e-10
     q2 = fl["ok5"] and fl["ok4"] and fl["e5"] == sp.Rational(3, 2) and fl["e4"] == 2
     q3 = b["static"] and b["grows"]
-    q4 = (W["ratio_life"] == sp.Rational(16, 15) and W["ratio_E"] == sp.Rational(8, 15) and W["ratio_E4"] == sp.Rational(3, 8)
-          and abs(W["tau_ratio"] - 16 / 15) < 1e-9 and abs(W["E_ratio"] - 8 / 15) < 1e-9 and abs(W["S_room"] - 1) < 1e-9
-          and 9.0e14 < W["tau_cl"] < 9.3e14 and 50 < W["tau_cu"] < 70 and 10 < W["per_N"] < 12)
+    bb = sp.Symbol("b", positive=True)
+    q4 = (sp.simplify(W["ratio_life"] - (1 + bb)) == 0 and W["ratio_E"] == sp.Rational(1, 2)
+          and W["ratio_E4"] == sp.Rational(3, 8) and abs(W["tau_ratio"] - (1 + W["b"])) < 1e-9
+          and abs(W["E_ratio"] - 0.5) < 1e-9 and abs(W["S_room4"] - 1) < 1e-9 and "%.3g" % W["tau_cl"] == "8.63e+14"
+          and "%.2f" % W["Tin_bulk"] == "1.98" and "%.2f" % W["tau_bulk"] == "2.12"
+          and "%.2f" % W["Ein_bulk"] == "1.06" and 10 < W["per_N"] < 12)
     unit = all(m["unit"] < 1e-5 and m["Wdrift"] < 1e-6 for m in Mo.values())
     mixed = all(Mo[(1e4, kr)]["b2"] > 0.1 for kr in (0.3, 1.0, 10.0)) and Mo[(1e6, 1.0)]["b2"] > 0.1
     clean = Mo[(1e4, 1e5)]["b2"] < 1e-8 and Mo[(1e6, 1e5)]["b2"] < 1e-8
     expo = math.log(Mo[(1e6, 1.0)]["qmax"] / Mo[(1e4, 1.0)]["qmax"]) / math.log(100)
     q5 = unit and mixed and clean and abs(expo - 0.75) < 0.05
-    q6 = 1e-9 < F["rel"] < 1e-5
+    Cp = o["cap"]
+    q5 = q5 and all(0 < c["F"] < 1 for c in Cp.values()) and Cp[1e6]["F"] < Cp[1e4]["F"] \
+        and all(r[1] > 0 for c in Cp.values() for r in c["rows"])
+    q6 = 1e-9 < F["rel"] < 1e-5 and F["match"] < 1e-15
     return dict(Q0=q0, Q1=q1, Q2=q2, Q3=q3, Q4=q4, Q5=q5, Q6=q6)
 
 
@@ -240,15 +291,20 @@ def report(o=None):
         o["fl"]["ok5"], o["fl"]["ok4"], o["fl"]["e5"], o["fl"]["e4"]))
     print("Q3 the net flux sets mu': static at P_in = P_H %s; grows without the Hawking flux %s" % (
         o["bal"]["static"], o["bal"]["grows"]))
-    print("Q4 small end: tau_write = %s of the life, the inflow %s of E5(N) (exact); %.3g face clocks = %.2g s at the "
-          "example README (life %.3g clocks); %.3g clocks for 174 bits; the room saturated, S/(N ln2) = %.12f.  Large "
-          "end: tau_write = %.3g N clocks of GM/c^3, the inflow %s of E(N)" % (
-              W["ratio_life"], W["ratio_E"], W["tau_cl"], W["tau"], W["life"], W["tau_cu"], W["S_room"], W["per_N"],
-              W["ratio_E4"]))
+    print("Q4 small end, the plane's channel: tau_write = %s of the life (b = %.4f), the inflow %s of E5(N) (exact); "
+          "%.3g face clocks = %.2g s at the example README (life %.3g clocks); the 4D room saturated, S/(N ln2) = %.12f."
+          "  The bulk's channel: T_in = %.2f T_H, tau = %.2f lives, inflow %.2f E5(N).  Large end: tau_write = %.3g N "
+          "clocks of GM/c^3, the inflow %s of E(N)" % (
+              W["ratio_life"], W["b"], W["ratio_E"], W["tau_cl"], W["tau"], W["life"], W["S_room4"],
+              W["Tin_bulk"], W["tau_bulk"], W["Ein_bulk"], W["per_N"], W["ratio_E4"]))
     for (mu, kr), m in o["modes"].items():
         print("Q5 mu/l5^2 %.0e, k r_h %-7g: KG norm drift %.1e, |alpha|^2 - |beta|^2 - 1 = %.1e, |beta|^2 %.3e, "
               "adiabatic Q max %.2e" % (mu, kr, m["Wdrift"], m["unit"], m["b2"], m["qmax"]))
-    print("Q6 the face at balance fluctuates by %.2g bits of N (%.1e)" % (o["fluct"]["dbits"], o["fluct"]["rel"]))
+    for mu, c in o["cap"].items():
+        print("Q5 position 2 alone, mu/l5^2 %.0e: " % mu + "; ".join("k r_h %g |beta|^2 %.3g C %.3g of %.3g nats" % (
+            r[0], r[1], r[3], r[4]) for r in c["rows"]) + "; recoverable fraction F = %.3f" % c["F"])
+    print("Q6 the face at balance holds in the mean: fluctuates by %.2g bits of N (%.1e); P_in must match P_H to %.1e" % (
+        o["fluct"]["dbits"], o["fluct"]["rel"], o["fluct"]["match"]))
     for kk, vv in ck.items():
         print("%s %s" % (kk, vv))
     return all(ck.values())
@@ -262,7 +318,7 @@ def selftest(quiet=False):
 
 
 def mutants():
-    caught = 0; names = ["nohawking", "entropy", "lossy"]
+    caught = 0; names = ["nohawking", "entropy", "lossy", "partners_cross"]
     for m_ in names:
         MUT.clear(); MUT.add(m_)
         try:

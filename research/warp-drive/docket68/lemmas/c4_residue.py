@@ -4,6 +4,10 @@ with its notes), one section per item, each closed where reasoning and computati
 stated exactly with what would close it.  Worked in the conversation (computed with sympy, exact where marked; READ
 where marked, the source quoted; deduced where marked; estimates marked; not verified by a separate session; not
 seated); 2026-10-12.
+[Item 489, beside the text (F11 of the 488 verification): under M-NO-CAUCHY (484) R5 -- the inner horizon's exterior
+itself -- is not computed unless the record is asked for (--record), and the one-condition form (R4, R9, R10) runs over
+the three interiors left, singular, quantum bounce and shell: R4's statistics rank agrees under all 24 codings, R9 under
+all 6 orderings, R10 as before; R4's parts imported from c4_oneway's continuation tables are on the record only.]
 
   R0 (read) M's item-307 words, verbatim in the rulings file.
   R1 (P21 (2), (5): the kink through the faces; KTN's profile) Closed by scope, and its condition by a theorem.  M1 is
@@ -267,6 +271,13 @@ def r3():
 
 
 NAMES4 = ("singular", "inner", "quantum", "shell")
+# [item 489, F11 of the 488 verification] M-NO-CAUCHY (484): the inner horizon's row (a Cauchy horizon, b_interior B3)
+# is not computed unless the record is asked for (--record); the one-condition form is taken over the three interiors
+# left, and R5 -- the inner horizon's exterior itself -- is not computed at all.
+RECORD = "--record" in sys.argv
+if not RECORD:
+    NAMES4 = tuple(k for k in NAMES4 if k != "inner")
+NPERM = math.factorial(len(NAMES4))                                  # orderings: 6 (24 on the record)
 A4 = {"singular": 1, "inner": 0, "quantum": 1, "shell": 0}       # (a): the inner horizon's charge or spin (B3)
 BE4 = {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}      # (b)/(e): b_interior B6
 CD4 = {"singular": 1, "inner": 0, "quantum": 1, "shell": 1}      # the outside clauses kept from C1 ((c), (d), N1)
@@ -295,7 +306,7 @@ def _ask_one(cls, F, k, views_kind="stat", A=None, extra=None, tf=0, mf=0, c4row
     res = Counter()
     Ff = {(t ^ tf, m ^ mf): v for (t, m), v in F.items()}
     tq, mq = c4row[0] ^ tf, c4row[1] ^ mf
-    for perm in itertools.permutations(range(4)):
+    for perm in itertools.permutations(range(len(NAMES4))):
         kmap = dict(zip(NAMES4, perm))
         at = (kmap["quantum"], tq, mq)
         views = dict(order=(0,), algebra=(0,), geometry=(0,), information=(0,), statistics=(0, 1, 2)) \
@@ -314,15 +325,15 @@ def r4():
     EP = _load("e_positive.py", "c4r_ep")
     R = sp.Float(EP.example()["R_rh"] ** 3, 20)
     rel = C4.relative(R)["realized"]
-    sv = C4.higher(survive=True)
-    mc = C4.more_continuations()
+    sv = C4.higher(survive=True) if RECORD else None                 # [489] c4_oneway's continuation tables: record
+    mc = C4.more_continuations() if RECORD else None
     peers = {k: sum((_ask_one(("a", "be", "f"), F18, k, "peers", tf=tf, mf=mf) for tf, mf in
                      itertools.product((0, 1), repeat=2)), Counter()) for k in (2, 3)}
     stat = {k: sum((_ask_one(("a", "be", "f"), F18, k, "stat", tf=tf, mf=mf) for tf, mf in
                     itertools.product((0, 1), repeat=2)), Counter()) for k in (2, 3)}
     shell_vac = {k: _ask_one(("a",), F18, k, A={"singular": 1, "inner": 0, "quantum": 1, "shell": 1}) for k in (2, 3)}
-    return dict(density=rel == {1}, one3=sv["one"][3], bits3=sv["bits"][3], mc3=mc["all"][3], peers=peers, stat=stat,
-                shell_vac=shell_vac)
+    return dict(density=rel == {1}, one3=sv["one"][3] if sv else None, bits3=sv["bits"][3] if sv else None,
+                mc3=mc["all"][3] if mc else None, peers=peers, stat=stat, shell_vac=shell_vac)
 
 
 def r5():
@@ -452,8 +463,9 @@ def r10():
     C4, CA, HL = tools()
     BI = _load("b_interior.py", "c4r_bi")
     cells = BI.cells()
-    inter = {"singular": cells[(0, "none", "ours")], "inner": cells[(1, "none", "pos2")],
-             "quantum": cells[(0, "quantum", "pos2")], "shell": cells[(0, "shell", "pos2")]}
+    keys = {"singular": (0, "none", "ours"), "inner": (1, "none", "pos2"), "quantum": (0, "quantum", "pos2"),
+            "shell": (0, "shell", "pos2")}
+    inter = {k: cells[keys[k]] for k in NAMES4}                      # [489] the inner horizon's row only on the record
     names = list(inter)
     own = tuple((inter[k]["nec"], inter[k]["readme_only"]) for k in names)
     cm = dict(zip(names, own))
@@ -514,8 +526,8 @@ def r13():
 
 
 def compute():
-    return dict(r1=r1(), r2=r2(), r3=r3(), r4=r4(), r5=r5(), r6=r6(), r7=r7(), r8=r8(), r9=r9(), r10=r10(),
-                r11=r11(), r13=r13())
+    return dict(r1=r1(), r2=r2(), r3=r3(), r4=r4(), r5=r5() if RECORD else None, r6=r6(), r7=r7(), r8=r8(), r9=r9(),
+                r10=r10(), r11=r11(), r13=r13())
 
 
 def report(o):
@@ -527,13 +539,16 @@ def report(o):
           "order zero: %s" % (r3["gamma"], r3["ratio"], r3["ratio_max"], r3["K_max"], r3["flat"]))
     r4 = o["r4"]
     print("R4 density = survival built in: %s; one-condition order 3 %s; two bits %s; four interiors %s" % (
-        r4["density"], dict(r4["one3"]), dict(r4["bits3"]), dict(r4["mc3"])))
+        r4["density"], dict(r4["one3"] or {}), dict(r4["bits3"] or {}), dict(r4["mc3"] or {})))
     for k in (2, 3):
-        print("R4 order %d over 96 codings: statistics' rank %s; peers %s; (a) with the shell vacuum %s" % (
-            k, dict(r4["stat"][k]), dict(r4["peers"][k]), dict(r4["shell_vac"][k])))
-    print("R5 the inner horizon's exterior entered (its (a) 0, the outside clauses 0), four interiors: order 2 %s, "
-          "order 3 %s; (a) over three interiors alone: %s" % (dict(o["r5"]["four"][2]), dict(o["r5"]["four"][3]),
-                                                              {k: dict(v) for k, v in o["r5"]["three"].items()}))
+        print("R4 order %d over %d codings: statistics' rank %s; peers %s; (a) with the shell vacuum %s" % (
+            k, 4 * NPERM, dict(r4["stat"][k]), dict(r4["peers"][k]), dict(r4["shell_vac"][k])))
+    if o["r5"] is not None:
+        print("R5 the inner horizon's exterior entered (its (a) 0, the outside clauses 0), four interiors: order 2 %s, "
+              "order 3 %s; (a) over three interiors alone: %s" % (dict(o["r5"]["four"][2]), dict(o["r5"]["four"][3]),
+                                                                  {k: dict(v) for k, v in o["r5"]["three"].items()}))
+    else:
+        print("R5 not computed: the inner horizon's exterior (M-NO-CAUCHY, 484; --record keeps it)")
     r6 = o["r6"]
     print("R6 vacuum where R'^2 = r_h^2/R^2 - 1: %s; null energy negative at the bounce: %s; d_T geodesics: %s; finite "
           "there: %s; core crossing r_q^2/(2 r_h): %s, %.2g clocks" % (r6["vac"], r6["neg"], r6["geod"], r6["finite"],
@@ -565,17 +580,20 @@ def checks(o):
         "(pinned, item 310), zero at flat order" % r3["ratio_max"], r3["gamma"] < 1 and "%.2f" % r3["ratio"] == "0.29"
         and r3["ratio_max"] < 0.32 and "%.2g" % r3["K_max"] == "7.4e-16" and r3["flat"])
     r4 = o["r4"]
-    ok = r4["density"] and r4["one3"] == Counter({(1, 1, 1): 6}) and r4["bits3"] == Counter({(1, 1, 1): 24})
-    ok &= r4["mc3"] == Counter({(1, 1, 1): 24}) and all(r4["stat"][k] == Counter({(1, 1, 1): 96}) for k in (2, 3))
-    ok &= all(r4["shell_vac"][k] == Counter({(1,): 24}) for k in (2, 3))
+    ok = r4["density"] and all(r4["stat"][k] == Counter({(1, 1, 1): 4 * NPERM}) for k in (2, 3))
+    if RECORD:
+        ok &= r4["one3"] == Counter({(1, 1, 1): 6}) and r4["bits3"] == Counter({(1, 1, 1): 24})
+        ok &= r4["mc3"] == Counter({(1, 1, 1): 24})
+    ok &= all(r4["shell_vac"][k] == Counter({(1,): NPERM}) for k in (2, 3))
     add("R4 the readings reduced: the density scaling is 300's survival; at order 3 every coding agrees; statistics' "
-        "rank agrees under all 96 codings of the four interiors at orders 2 and 3; (a) is 1 under every classical "
-        "reading", ok)
-    r5 = o["r5"]
-    add("R5 with the inner horizon's exterior entered, C4's four clauses 1, 1, 1, 1 at orders 2 and 3 over the four "
-        "interiors; over three alone the top order refuses (a), the quantum bounce then the only vacuum interior",
-        all(r5["four"][k] == Counter({(1, 1, 1, 1): 24}) for k in (2, 3)) and r5["three"][2] == Counter({1: 6})
-        and r5["three"][3] == Counter({"refused": 6}))
+        "rank agrees under all %d codings of the %s interiors at orders 2 and 3; (a) is 1 under every classical "
+        "reading" % (4 * NPERM, "four" if RECORD else "three (the inner horizon's row excluded, 484, item 489)"), ok)
+    if RECORD:                                              # [item 489] the inner horizon's exterior: the record only
+        r5 = o["r5"]
+        add("R5 with the inner horizon's exterior entered, C4's four clauses 1, 1, 1, 1 at orders 2 and 3 over the four "
+            "interiors; over three alone the top order refuses (a), the quantum bounce then the only vacuum interior",
+            all(r5["four"][k] == Counter({(1, 1, 1, 1): 24}) for k in (2, 3)) and r5["three"][2] == Counter({1: 6})
+            and r5["three"][3] == Counter({"refused": 6}))
     r6 = o["r6"]
     add("R6 the bounce as an effective metric: vacuum exactly on Tangherlini's interior, null energy negative at the "
         "bounce, the E~ = 0 route a geodesic through it, finite there; the core crossed in 1.6e-7 of a clock (pinned, "
@@ -585,8 +603,9 @@ def checks(o):
         o["r7"]["pV"] and "%.1f" % o["r7"]["dtau"] == "33.6")
     add("R8 position 2's mass at warp order differs by -(3/4)(r_h/ell)^2 = -4.8e-31",
         o["r8"]["coef"] == -sp.Rational(3, 4) and "%.2g" % o["r8"]["value"] == "-4.8e-31")
-    add("R9 refined tension and matter classes: 1, 1, 1 at orders 2 and 3 under all 24 orderings of the four interiors",
-        all(o["r9"]["out"][k] == Counter({(1, 1, 1): 24}) for k in (2, 3)))
+    add("R9 refined tension and matter classes: 1, 1, 1 at orders 2 and 3 under all %d orderings of the %s interiors"
+        % (NPERM, "four" if RECORD else "three (484, item 489)"),
+        all(o["r9"]["out"][k] == Counter({(1, 1, 1): NPERM}) for k in (2, 3)))
     r10 = o["r10"]
     add("R10 the singular interior's (f) read as vacuous: C4's (f) 1 at orders 2 and 3 and under the channel reading; "
         "left out, 1 at orders 2 and 3, the channel then lacking the fourth code (P20)",
@@ -608,7 +627,8 @@ def checks(o):
 
 
 MUTANTS = {"greybody_ignored": "the greybody bound dropped (R3)",
-           "inner_vacuum": "the inner horizon's exterior taken as vacuum, its outside clauses kept (R5)",
+           **({"inner_vacuum": "the inner horizon's exterior taken as vacuum, its outside clauses kept (R5)"}
+              if RECORD else {}),
            "no_bounce": "a maximum of R, not a minimum (R6)",
            "wrong_killing": "the Killing field's V component made constant (R7)",
            "same_bulk": "position 2's side at our curvature (R8)",

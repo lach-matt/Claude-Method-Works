@@ -2344,3 +2344,35 @@ against the choices particular to loop quantum gravity.
 - The equal mass rests on one onset curvature for both sectors. That is the one premise left, and no available theory
   computes the pair of onsets.
 - The ten rows stay proved; the register names that premise (warptheorem NOTE_273_485).
+
+## 38. Position 2's face over its open period (489, F1 of the 488 verification; `lemmas/face2_open.py`, 7/7, mutants 2/2)
+
+M, 390: "it closes when there is nothing contained within the corridor". So position 2's face is open exactly while the
+README is within it (junction_own G10): the whole write. The 33.6 clocks the rows carried were c_junction J1's, the
+junction model's, withdrawn at 427.
+
+- **The period (W1, W2).** At the face's balance the README comes in as the plane's own radiation at T_H, the inflow
+  E/2, the write (1 + b) of the life: 8.63e14 clocks at the example README, 3.2e-14 s. At the large end 3 N ln2/(32 pi
+  alpha) clocks of GM/c^3, 2.2e56 s at the Earth cap. No write is shorter with the face at its size: thermal radiation at
+  T_H is the most entropy per energy the face's own area passes at its own power.
+- **A perturbation (W3; prior art read).** Barcelo, Carballo-Rubio and Garay, JHEP 01 (2016) 157 (arXiv:1511.00633):
+  black-to-white transitions with long characteristic times are unstable to imperceptibly small perturbations; short
+  ones are robust. On the criterion the record used (0.28 E), 1 eV from position 2 forms a trapped surface after 63.0
+  clocks. Over the open period the expected number of perturbing particles on the capture disc pi (2 r_h)^2 is 2.1e-36
+  (a 3 K bath), 6.4e-25 (air), 1.3e-15 (a metal's electrons), 0.43 (inside a nucleus); at the Earth cap's 8.9 mm face,
+  above 1e60 in every environment.
+- **Position 2's vacuum (W4; computed).** With nothing coming in from position 2, the ingoing stress at the face is the
+  Boulware value, -M(2r - 3M)/(48 pi r^4) in the s-wave model, -kappa^2/(48 pi) at the face. It crosses the emerging
+  README near the face. Dray-'t Hooft-Redmount at r_h + delta, in 5D: mu_fut = -(Delta |epsilon|)/(2 delta r_h), a
+  negative mass between them, growing as e^(kappa t). It reaches the face's own mass at t_q = ln(2E/|epsilon|) = 35.8
+  clocks (31.2 at one percent); 155 e-folds at the Earth cap. With epsilon > 0 the same algebra gives Eardley's black
+  hole.
+- **What would hold it (W5).** The time reverse of our face's state, regular at the white hole's horizon, needs position 2
+  to send in the face's own power at T_H (3.3e16 K): 0.503 E over the open period, correlated as our face's Hawking
+  radiation. Nothing in the theorem supplies it.
+- **So (W6).** T_open / t_q = 2.4e13 at the example, 2.4e64 at the Earth cap. Position 2's face holding through its open
+  period is not given by established physics: FACE2s and FACE2, OPEN, and every row that needs the README to emerge at
+  position 2 rests on them. The record's 33.6 clocks lay just below t_q, which is why the old rows passed.
+
+What it does not claim: the quantum state at position 2's face beyond the s-wave model, or that no mechanism could hold
+it -- only that none in the theorem does, and that the vacuum the board's position 2 carries does not.
