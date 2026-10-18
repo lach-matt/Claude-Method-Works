@@ -1378,6 +1378,19 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_515_SOURCE
     _rows_515.append((c, n, s_, t))
 LEMMAS_NOW = _rows_515
+# [item 516] every gauge for L-UNIF' measured against its five needs
+NOTE_516_SOURCE = ("  [Item 516] Gauges for L-UNIF' (gauge5.py): ten families against its five needs; none meets all five; "
+                   "maximal and puncture slicings freeze at sqrt(2/3) r_h, 129x outside x = 1; CMC reaches x = 1 but five-"
+                   "dimensional scri is not smooth; the T^2 areal coordinate turns null inside; no Teukolsky decoupling in "
+                   "D > 4.  Stack: Bondi (computation), double null (shell, high frequency, interior), wave-map relative to "
+                   "Vaidya (exterior, long time; 5D decay integrable).  N2, the growing hole's linear control, is met by no "
+                   "gauge: L-UNIF' OPEN")
+_rows_516 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_516_SOURCE
+    _rows_516.append((c, n, s_, t))
+LEMMAS_NOW = _rows_516
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1579,7 +1592,9 @@ def lemma_selftests():
               # item 511: the nonlinear PDE theorem for the shell's sequence onto the seed (THM-HF5)
               "hf_theorem5.py",
               # item 514: its remaining estimate, the coefficients evaluated and anchored in our universe
-              "hf_anchor5.py"):
+              "hf_anchor5.py",
+              # item 516: every gauge for L-UNIF' measured against its five needs
+              "gauge5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

@@ -5,6 +5,88 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 516: every gauge for L-UNIF', measured against its five needs
+
+M, 516: "Deep research all gauges applicable to our specific needs".
+(`gauge5.py` G0-G6, 7/7, mutants 5/5.)
+
+- **The needs** (item 515):
+  - N1, a well-posed problem on the theorem's domain: data at scri, the spacelike outflow boundary at x = 1, five
+    dimensions;
+  - N2, uniform linear control of the growing hole in the T^2-mirror class over 269 r_h;
+  - N3, the high-frequency remainder;
+  - N4, the interior reached to x = 1 with nothing cut out (505);
+  - N5, the nonlinear closure.
+- **Ten gauge families, read:** Bondi-Sachs; double null; wave-map (generalized harmonic); maximal slicing with spatial
+  elliptic conditions; CMC (York time, hyperboloidal); puncture (1+log, Gamma-driver); the GCM/Teukolsky frame;
+  gauge-invariant variables (Kodama-Ishibashi, Hollands-Wald canonical energy); the T^2 areal gauge; Friedrich's
+  conformal gauge.
+- **What the five-dimensional computation adds (exact).**
+  - **Maximal slicing stops 129 times outside x = 1.** A spherically symmetric maximal slice through the vacuum at
+    radius r needs C^2 >= mu r^4 - r^6. The maximum, 4 mu^3/27, sits at r_lim = sqrt(2/3) r_h (the 4D control gives
+    3M/2). Independently, the interior r = const slices have mean curvature K(r) = (3r^2 - 2mu)/(r^2 sqrt(mu - r^2)),
+    zero exactly at r_lim, so the two derivations agree. In the T^2-reduced 2+1 Einstein frame, the frame of Huneau and
+    Luk's elliptic gauge, the torus moves the limit out to (2/sqrt5) r_h. For the example README's hole that is
+    59,410 l5 and 65,080 l5, against r_q = 460 l5. The maximal foliation and every stationary 1+log-type trumpet freeze
+    there (maximal is their f -> infinity limit; READ 0905.0450). Going further would need excision, which 505 excludes.
+  - **CMC slicing does reach x = 1.** |K| rises monotonically inward to 0.687 l5^-1 at r_q. But a slice with K != 0
+    is hyperboloidal and reaches null infinity, where five-dimensional radiation falls as r^(-3/2). That half-integer
+    power rules out a smooth conformal compactification (READ Tanabe, Kinoshita and Shiromizu, PRD 84, 044055 (2011);
+    Hollands and Ishibashi). So CMC fails N1 for data posed at scri.
+  - **The T^2 areal gauge degenerates inside the hole.** rho = (r^2/2) sin 2theta has |grad rho|^2 = r^2 - mu sin^2
+    2theta. It turns null on r = r_h |sin 2theta|, which meets every interior radius (r_q at |sin 2theta| = 0.0063). So
+    the areal coordinate of the T^2 cosmologies is neither a time nor a space coordinate across the hole.
+  - **Five dimensions ease N5.** Waves decay as t^(-3/2), whose integral from 1 to infinity is 2; four dimensions'
+    t^(-1) diverges. So wave coordinates need no null condition (READ Choquet-Bruhat, Chrusciel and Loizelet, CQG 23,
+    7383 (2006), for Minkowski). Near the hole the decay comes from Laul and Metcalfe and from Schlue, with a loss of
+    derivatives at trapping.
+- **What the reading adds.**
+  - The Kerr proofs' geometric route (GCM spheres, Klainerman and Szeftel 2104.11857) runs on the Teukolsky equation.
+    In D > 4 that decouples only on Kundt spacetimes, and "decoupling does not occur in higher-dimensional black hole
+    spacetimes" (Durkee and Reall, 1009.0015, READ).
+  - Kodama-Ishibashi master equations (hep-th/0305185) and Hollands-Wald canonical energy (1201.0463) control a static
+    hole linearly; neither evolves the nonlinear problem.
+  - The only nonlinear 5D black-hole stability results are cohomogeneity two, in double null (Dafermos and Holzegel,
+    gr-qc/0510051).
+  - High frequency has been handled in three gauges, all in 3+1:
+    - double null with angular regularity (Luk and Rodnianski 2009.08968), oscillation along at most two null
+      families -- ours oscillates along one;
+    - an elliptic gauge under U(1) symmetry (Huneau and Luk 1706.09499). Five-dimensional vacuum with a diagonal T^2
+      reduces to 2+1 Einstein-scalar fields, the same structure (deduced);
+    - generalized wave coordinates (Touati 2402.17530; Huneau and Luk 2403.03470).
+  - A refinement of item 515's point 1. As a free-evolution system Bondi gauge is weakly hyperbolic in the simplest
+    norms (2111.14794). But Gundlach (2404.16720) gives a symmetric-hyperbolic Bondi formulation, linearized about
+    four-dimensional Schwarzschild, well posed in a special energy norm.
+- **The matrix** (M meets, P partial, F fails, O open):
+
+  | gauge | N1 | N2 | N3 | N4 | N5 |
+  |---|---|---|---|---|---|
+  | Bondi-Sachs | P | O | P | M | O |
+  | double null | P | P | P | M | P |
+  | wave-map / generalized harmonic | M | P | P | O | P |
+  | maximal + spatial elliptic | M | O | P | F | O |
+  | CMC (York time, hyperboloidal) | F | O | P | M | O |
+  | puncture (1+log, Gamma-driver) | P | O | O | F | O |
+  | GCM / Teukolsky frame | P | F | O | O | P |
+  | gauge-invariant variables | P | P | O | F | F |
+  | T^2 areal | P | O | O | F | O |
+  | conformal (Friedrich) | F | O | O | O | O |
+
+  Each cell's ground is in `gauge5.py` (MATRIX).
+- **What the matrix says (deduced).**
+  - No gauge meets all five needs.
+  - Seven families are excluded by a computed or READ failure: maximal, puncture and T^2 areal at N4; CMC and conformal
+    at N1; GCM/Teukolsky at N2; gauge-invariant variables at N4 and N5.
+  - No gauge meets N2. The obstruction there is the linear engine for a slowly growing five-dimensional hole, not the
+    choice of gauge.
+- **Recommendation.**
+  - Bondi stays the computation gauge: F1-F7 live there, and its v is null.
+  - Double null, angularly regular, for the shell, the high frequencies and the interior to x = 1. Bondi's v serves as
+    its v.
+  - A wave-map gauge relative to the Vaidya approximant, with constraint damping (Hintz 2302.13804), for the exterior's
+    long time, where the integrable decay closes the nonlinearity.
+  - Still open: N2's linear engine, and matching the two gauges across the shell. L-UNIF' stays OPEN.
+
 ## Item 515: what proving the inequality needs -- determined; a correction to 514
 
 M, 515: "Check on the background tasks please. Then, -What is still not proved.- determine what is needed to prove the

@@ -98,7 +98,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 515.** As at 514, with two changes. 514's anchoring is corrected: at x = 1 the curvature radius is l5 for every hole, so 10 l5 waves are high-frequency down to x = 1e-4 and a small perturbation (strain 7.2e-3) below it, and r_h/10 waves are neither. And what the inequality needs is determined: a well-posed gauge; uniform linear control of the growing 5D black hole in the T^2-mirror class over the whole shell (269 r_h); the high-frequency remainder over that time; the interior near x = 1; the nonlinear closure. Together that is long-time nonlinear stability of a 5D black hole in a cohomogeneity-three class, proved in the literature only in cohomogeneity two (Dafermos and Holzegel, a class the mirror excludes) and not proved here. The status is M's.
+**Where it stands, at item 516.** As at 515, with every gauge applicable to L-UNIF' researched and measured against its five needs (`gauge5.py`, 7/7, mutants 5/5). No gauge meets all five. Seven families are excluded by a computed or READ failure. Maximal slicing and the puncture trumpets freeze at sqrt(2/3) r_h, 129 times outside x = 1, so reaching x = 1 would need the excision 505 excludes. CMC reaches x = 1 but meets null infinity, which is not smooth in five dimensions. The T^2 areal coordinate turns null inside the hole. The Teukolsky route has no decoupling in D > 4. The recommended stack: Bondi for the computation; double null, angularly regular, for the shell, the high frequencies and the interior; a wave-map gauge relative to the Vaidya approximant for the exterior's long time, where five-dimensional decay (t^(-3/2), integrable) closes the nonlinearity. No gauge supplies N2, the linear control of the growing hole: that engine, not the gauge, is what L-UNIF' still lacks. The status is M's.
+
+**Where it stood at item 515.** As at 514, with two changes. 514's anchoring is corrected: at x = 1 the curvature radius is l5 for every hole, so 10 l5 waves are high-frequency down to x = 1e-4 and a small perturbation (strain 7.2e-3) below it, and r_h/10 waves are neither. And what the inequality needs is determined: a well-posed gauge; uniform linear control of the growing 5D black hole in the T^2-mirror class over the whole shell (269 r_h); the high-frequency remainder over that time; the interior near x = 1; the nonlinear closure. Together that is long-time nonlinear stability of a 5D black hole in a cohomogeneity-three class, proved in the literature only in cohomogeneity two (Dafermos and Holzegel, a class the mirror excludes) and not proved here. The status is M's.
 
 **Where it stood at item 514.** As at 513, with the remaining estimate's coefficients evaluated and anchored in our universe (`hf_anchor5.py`, 5/5): the first order exactly sqrt(2) A, the second exactly (2/9) A^2 int env'^2 (0.45693 for the record's envelope, the runs agreeing to 0.01 %), the rest below 0.1 lambda^3. For the example README's shell at 10 l5 waves the strain is 3.6e-6 at the horizon and 7.2e-3 at x = 1, the second-order mass offset 1.5e-13; the band reaching x = 1 is 10 l5 to 46 l5, and the r_h/10 emitter_process C4 names lies outside it. The inequality for every lambda is not proved: our lambda lies below the computed ones, and the answer there rests on the series staying asymptotic, which the runs show. The status is M's.
 
@@ -2034,6 +2036,17 @@ state was rebuilt first.
   - That is long-time nonlinear stability of a 5D black hole in cohomogeneity three -- in the literature only in
     cohomogeneity two (Dafermos-Holzegel), open in general (Schlue). Exact without it: the final face (Hollands-
     Yazadjiev; Gibbons-Ida-Shiromizu), given existence and settling.
+
+- **Item 516** (M: "Deep research all gauges applicable to our specific needs"). Researched and measured (`gauge5.py` G0-G6,
+  7/7, mutants 5/5; SOURCE-REQUIRED "Item 516"; BOUNCE-RESEARCH 51). For R1, R2 and R6:
+  - Ten gauge families against N1-N5. None meets all five; seven are excluded by a computed or READ failure.
+  - Computed: maximal slicing's limit sqrt(2/3) r_h (2/sqrt5 r_h in the T^2-reduced frame), 59,410 l5 against
+    r_q = 460 l5; CMC reaches x = 1 at |K| = 0.687/l5 but is hyperboloidal, and five-dimensional scri is not
+    smooth; the areal coordinate turns null on r = r_h |sin 2theta|; decay t^(-3/2) is integrable.
+  - READ: no Teukolsky decoupling in D > 4 (Durkee-Reall); Gundlach's symmetric-hyperbolic Bondi (refining
+    515's point 1).
+  - Recommended: Bondi (computation), double null (shell, high frequency, interior), wave-map relative to
+    Vaidya (exterior, long time). N2's linear engine is met by no gauge; L-UNIF' stays OPEN.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
