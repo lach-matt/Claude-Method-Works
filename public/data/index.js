@@ -2,8 +2,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
  "meta": {
   "title": "The Master Index",
   "subtitle": "Every element on every axis of every index, each value carrying the status the data gives it",
-  "built": "2026-10-17T23:55:39+00:00",
-  "commit": "8662ea87fe6b",
+  "built": "2026-10-18T00:14:36+00:00",
+  "commit": "ee4733e83048",
   "generator": "tools/webindex.py over tools/populate.py",
   "names_note": "Element names are IUPAC labels for search only; they are not a figure of the index, which carries symbols.",
   "url": "https://lach-matt.github.io/Claude-Method-Works/",
@@ -12,9 +12,9 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "title": "The Master Index",
    "year": 2026,
    "url": "https://lach-matt.github.io/Claude-Method-Works/",
-   "commit": "8662ea87fe6b",
-   "text": "Lach, M. (2026). The Master Index, edition 8662ea87fe6b. https://lach-matt.github.io/Claude-Method-Works/",
-   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition 8662ea87fe6b}\n}"
+   "commit": "ee4733e83048",
+   "text": "Lach, M. (2026). The Master Index, edition ee4733e83048. https://lach-matt.github.io/Claude-Method-Works/",
+   "bibtex": "@misc{lach2026_method_index,\n  author = {Lach, M.},\n  title = {The Master Index},\n  year = {2026},\n  howpublished = {\\url{https://lach-matt.github.io/Claude-Method-Works/}},\n  note = {edition ee4733e83048}\n}"
   },
   "history": [
    {
@@ -428,6 +428,20 @@ window.__mi = window.__mi || {}; window.__mi.index = {
     "commit": "389c96aa",
     "files": 4,
     "url": "https://github.com/lach-matt/Claude-Method-Works/commit/389c96aa45e7024be638e3ca7e88eb5775a5849d",
+    "note": null
+   },
+   {
+    "date": "2026-10-17",
+    "commit": "14f7d1e0",
+    "files": 125,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/14f7d1e0df7e7e133f60ddb1345a86347172c3cf",
+    "note": null
+   },
+   {
+    "date": "2026-10-18",
+    "commit": "ee4733e8",
+    "files": 1,
+    "url": "https://github.com/lach-matt/Claude-Method-Works/commit/ee4733e83048f4f13c77b5d47172c7b257539321",
     "note": null
    }
   ]
@@ -23499,7 +23513,8 @@ window.__mi = window.__mi || {}; window.__mi.index = {
    "id": "relativistic-recovered",
    "state": "repaired",
    "reviewed": "2026-10-17",
-   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the eleven the paper first printed are carried as the reading it printed, superseded."
+   "text": "The scalar-relativistic construction (Koelling–Harmon Hartree–Fock at c = 137) behind the Löwdin paper was never banked as an archive; its code has since been RECOVERED from the project's own conversations (every file written, edited and printed by tool calls, rebuilt and held against every printed window) and run here. The displaced set this site states is what that recovered instrument returns (RECOVERED); the eleven the paper first printed are carried as the reading it printed, superseded.",
+   "was": "Filed as “relativistic-not-held”: the identifier still said the construction was not held after its code had been recovered and run, so the list, the console and the Ask prompt contradicted the plate."
   },
   {
    "id": "record-eleven",
