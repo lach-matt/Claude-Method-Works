@@ -73,10 +73,22 @@ def eqs():
         ns = {k: getattr(sp, k) for k in dir(sp)}
         y, x = sp.symbols("y x", real=True)
         S = [y, x] + [sp.Symbol(n) for n in NAMES]
+        lam = lambda e: sp.lambdify(S, e, modules=[{"phi1": phi1}, "numpy"], cse=True)
         for k, s in raw.items():
             e = eval(s, ns)
-            _E[k] = sp.lambdify(S, e, modules=[{"phi1": phi1}, "numpy"], cse=True)
+            _E[k] = lam(e)
+            if k in LINEAR:                              # each equation is affine in its unknowns: split it once
+                us = [sp.Symbol(n) for n in LINEAR[k]]
+                _E[k + "_zero"] = lam(e.xreplace({u: 0 for u in us}))
+                _E[k + "_lin"] = [lam(sp.diff(e, u)) for u in us]
     return _E
+
+
+LINEAR = {"Eb": ["b", "b_y"], "Eq": ["q", "q_y", "q_yy"], "EW": ["w", "w_y"], "Evx": ["q_v", "q_vy"], "Evv": ["w_v", "w_vy"]}
+def split(k, d):
+    """the equation k at d with its unknowns set to zero, and its coefficients of them"""
+    E = eqs(); a = args(d); one = np.ones_like(d["y"])
+    return E[k + "_zero"](d["y"], d["x"], *a)*one, [f(d["y"], d["x"], *a)*one for f in E[k + "_lin"]]
 
 
 def cheb(N):
@@ -186,13 +198,13 @@ def slice_fields(g, st, v, data):
         d[nm + "_x"] = g.dx(A); d[nm + "_xx"] = g.dx(A, 2); d[nm + "_xy"] = g.dx(PA)
         d[nm + "_xyy"] = g.dx(d[nm + "_yy"]); d[nm + "_xxy"] = g.dx(PA, 2)
     Z = np.zeros_like(g.Y)
-    s0, (cb, cby) = lin_coeffs(E["Eb"], {**d, "b": Z, "b_y": Z}, ["b", "b_y"])
+    s0, (cb, cby) = split("Eb", d)
     b = np.empty_like(Z)
     for j in range(g.Nx + 1):
         b[:, j] = np.linalg.solve(np.diag(cb[:, j]) + np.diag(cby[:, j]) @ g.Dy, -s0[:, j])
     d.update(b=b, b_y=g.Dy @ b); d["b_yy"] = g.Dy @ d["b_y"]
     d["b_x"] = g.dx(b); d["b_xx"] = g.dx(b, 2); d["b_xy"] = g.dx(d["b_y"])
-    s0, (c0, c1, c2) = lin_coeffs(E["Eq"], {**d, "q": Z, "q_y": Z, "q_yy": Z}, ["q", "q_y", "q_yy"])
+    s0, (c0, c1, c2) = split("Eq", d)
     q = np.empty_like(Z); qh = np.empty_like(Z)
     for j in range(g.Nx + 1):
         Lm = np.diag(c0[:, j]) + np.diag(c1[:, j]) @ g.Dy + np.diag(c2[:, j]) @ g.Dy2
@@ -205,7 +217,7 @@ def slice_fields(g, st, v, data):
         q[:, j] = qp + (Qex[j] - qp[-1])*hn; qh[:, j] = hn
     d["q"] = q; d["q_y"] = g.Dy @ q; d["q_yy"] = g.Dy @ d["q_y"]; d["q_yyy"] = g.Dy @ d["q_yy"]
     d["q_x"] = g.dx(q); d["q_xx"] = g.dx(q, 2); d["q_xy"] = g.dx(d["q_y"]); d["q_xyy"] = g.dx(d["q_yy"])
-    s0, (cw, cwy) = lin_coeffs(E["EW"], {**d, "w": Z, "w_y": Z}, ["w", "w_y"])
+    s0, (cw, cwy) = split("EW", d)
     w = np.empty_like(Z); wh = np.empty_like(Z)
     for j in range(g.Nx + 1):
         wp, hn = null_solve(np.diag(cw[:, j]) + np.diag(cwy[:, j]) @ g.Dy, -s0[:, j])
@@ -249,14 +261,14 @@ def aspect_rates(g, st, v, data, d0, Fv, Gv, h=1e-5, ycut=0.35):
         dp = slice_fields(g, [a + h*b for a, b in zip(st, k)], v + h, data)
         return with_vders(dm, d0, dp, h)
     dd = vfields([Fv, Gv, zero, zero])
-    R0 = E["Evx"](dd["y"], dd["x"], *args(dd))*np.ones_like(g.Y)
-    _, (aq, aqy) = lin_coeffs(E["Evx"], dd, ["q_v", "q_vy"])
+    R0, (aq, aqy) = split("Evx", dd)
+    R0 = R0 + aq*dd["q_v"] + aqy*dd["q_vy"]
     Rh = aq*d0["qh"] + aqy*(g.Dy @ d0["qh"])
     Qv = -np.sum(R0[rows]*Rh[rows], axis=0)/np.sum(Rh[rows]**2, axis=0)
     resx = np.abs(R0[rows] + Qv*Rh[rows]).max()
     dd2 = vfields([Fv, Gv, zero, Qv])
-    D0 = E["Evv"](dd2["y"], dd2["x"], *args(dd2))*np.ones_like(g.Y)
-    _, (aw, awy) = lin_coeffs(E["Evv"], dd2, ["w_v", "w_vy"])
+    D0, (aw, awy) = split("Evv", dd2)
+    D0 = D0 + aw*dd2["w_v"] + awy*dd2["w_vy"]
     Dh = aw*d0["wh"] + awy*(g.Dy @ d0["wh"])
     Wv = -np.sum(D0[rows]*Dh[rows], axis=0)/np.sum(Dh[rows]**2, axis=0)
     resv = np.abs(D0[rows] + Wv*Dh[rows]).max()
@@ -284,14 +296,36 @@ def filters(g, drop=2, alpha=36.0, p=32):
     return (lambda A: Fy @ A @ Fx.T), (lambda a: Fx @ a)
 
 
+def horizon(g, d):
+    """the round spheres' outgoing expansion, 2r/3 Theta_k = W + (2/3) y^3 d_x((1 - x^2) q), with k = d_v + W/2 d_r + U d_theta
+    (the area form is r^3 cos sin exactly); its zero in each column.  Where Theta_k < 0 in every column the sphere is trapped;
+    at the extremes of a MOTS r = R(x) on the slice the Laplacian's sign puts R between the least and greatest zero"""
+    T = 1 + g.Y**3*d["w"] + (2/3)*g.Y**3*g.dx((1 - g.X**2)*d["q"])
+    t, tt = np.cos(np.pi*np.arange(g.Ny + 1)/g.Ny), np.linspace(-1, 1, 4001)
+    r, n = [], 0
+    for j in range(g.Nx + 1):
+        c = np.polynomial.chebyshev.chebfit(t, T[:, j], g.Ny); c1 = np.polynomial.chebyshev.chebder(c)
+        f = np.polynomial.chebyshev.chebval(tt, c)
+        i = np.nonzero(np.sign(f[1:]) != np.sign(f[:-1]))[0]
+        n = max(n, len(i))
+        if len(i):
+            k = i[0]; t0 = tt[k] - f[k]*(tt[k + 1] - tt[k])/(f[k + 1] - f[k])
+            for _ in range(3):
+                t0 -= np.polynomial.chebyshev.chebval(t0, c)/np.polynomial.chebyshev.chebval(t0, c1)
+            r.append((g.yex*(1 - t0)/2)**-2)
+    return (min(r), max(r), n) if len(r) == g.Nx + 1 else (np.nan, np.nan, n)
+
+
 def diag(g, st, d, v, data):
     W = 1 + g.Y**3*d["w"]
+    r_lo, r_hi, nz = horizon(g, d)
     Mas = -d["w_y"][0]                                   # the mass aspect at past null infinity
     mu = data.mu_pred(v)
     return dict(v=round(v, 6), M_min=float(Mas.min()), M_max=float(Mas.max()), M_mean=float(Mas.mean()), mu=float(mu),
                 dW=float(np.abs(W - (1 - mu*g.Y**4)).max()), P=float(max(np.abs(d["F"]).max(), np.abs(d["G"]).max())),
                 b=float(np.abs(d["b"]).max()), q=float(np.abs(d["q"]).max()), W_ex=float(W[-1].max()),
-                axis=float(d["axis"]), resx=float(d["info"]["resx"]), resv=float(d["info"]["resv"]))
+                axis=float(d["axis"]), resx=float(d["info"]["resx"]), resv=float(d["info"]["resv"]),
+                r_lo=float(r_lo), r_hi=float(r_hi), nz=int(nz))
 
 
 def evolve(lam, A, Ny, Nx, m0=1.0, yex=YEX, v_end=4.5, dvf=0.125, every=0.25, log=None):
@@ -321,12 +355,16 @@ def evolve(lam, A, Ny, Nx, m0=1.0, yex=YEX, v_end=4.5, dvf=0.125, every=0.25, lo
 SEQUENCE = [(0.1, 1.0, 20, 16), (0.05, 1.0, 24, 16), (0.025, 1.0, 28, 16), (0.05, 1.0, 32, 20)]
 LIVE = (0.1, 1.0, 16, 10)
 SMALL_SEED = [(0.05, 2.0, 24, 16, 0.25, 1.6), (0.025, 2.0, 28, 16, 0.25, 1.6)]    # the shell is 3/4 of the final mass
+FOURTH = (0.0125, 1.0, 32, 16)                                                      # item 501: a fourth wavelength
+A16 = 6/np.sqrt(7)                                    # (2/9) A^2 x 3 x 35/128 = 15/16: the shell is 15/16 of the final mass 1
+SEED16 = [(0.05, A16, 24, 16, 1/16, 2.2), (0.025, A16, 28, 16, 1/16, 2.2)]
+ALL = SEQUENCE + [LIVE] + SMALL_SEED + [FOURTH] + SEED16
 key = lambda cfg: "_".join("%g" % c_ for c_ in cfg)
 
 
 def run_one(i):
     """one row of the pinned sequence (--run i; i = 4 is the live row); about an hour for the finest"""
-    cfg = (SEQUENCE + [LIVE] + SMALL_SEED)[i]
+    cfg = ALL[i]
     t0 = time.time()
     hist = evolve(*cfg, log=lambda h: print(h, flush=True))
     json.dump({key(cfg): hist}, open(RUNS.replace(".json", "_%d.json" % i), "w"))
@@ -334,9 +372,11 @@ def run_one(i):
 
 
 def merge():
-    out = {}
-    for i in range(len(SEQUENCE) + 1 + len(SMALL_SEED)):
-        out.update(json.load(open(RUNS.replace(".json", "_%d.json" % i))))
+    out = json.load(open(RUNS)) if os.path.exists(RUNS) else {}
+    for i in range(len(ALL)):
+        f = RUNS.replace(".json", "_%d.json" % i)
+        if os.path.exists(f):
+            out.update(json.load(open(f)))
     json.dump(out, open(RUNS, "w"), indent=1)
 
 
@@ -362,7 +402,7 @@ def test_slice(g):
 def x2():
     g = Grid(20, 10); st, data, v = test_slice(g); E = eqs()
     d = slice_fields(g, st, v, data)
-    finite = all(np.all(np.isfinite(E[k](d["y"], d["x"], *args(d)))) for k in E)
+    finite = all(np.all(np.isfinite(E[k](d["y"], d["x"], *args(d)))) for k in E if callable(E[k]))
     yv, xv = 1e-3, 0.2
     def co(k, names):
         dd = {n: 0.1 for n in NAMES}; dd.update(y=yv, x=xv)
@@ -417,7 +457,10 @@ def end_stats(hist, v_after=3.75):
                 dW=max(h["dW"] for h in late), dW_all=max(h["dW"] for h in hist), q_all=max(h["q"] for h in hist),
                 P=max(h["P"] for h in hist), b=max(h["b"] for h in hist),
                 q_late=max(h["q"] for h in late), W_ex=max(h["W_ex"] for h in hist), mu=late[-1]["mu"],
-                M_end=late[-1]["M_mean"], resx=max(h["resx"] for h in hist), resv=max(h["resv"] for h in hist))
+                M_end=late[-1]["M_mean"], resx=max(h["resx"] for h in hist), resv=max(h["resv"] for h in hist),
+                r_lo=late[-1].get("r_lo"), r_hi=late[-1].get("r_hi"), nz=max(h.get("nz", 0) for h in hist),
+                dr=max(max(abs(h["r_lo"] - h["mu"]**0.5), abs(h["r_hi"] - h["mu"]**0.5)) for h in late) if "r_lo" in hist[0] else None,
+                dr_all=max(max(abs(h["r_lo"] - h["mu"]**0.5), abs(h["r_hi"] - h["mu"]**0.5)) for h in hist) if "r_lo" in hist[0] else None)
 
 
 def x5():
