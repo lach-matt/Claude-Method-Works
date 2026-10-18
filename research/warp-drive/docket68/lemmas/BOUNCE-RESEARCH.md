@@ -2559,3 +2559,67 @@ and the chiral anomaly in parallel fields.
   - Any other electric part discharges the mouths or fills the throat.
   - By duality an electric corridor would need light magnetic monopoles, which the 26 do not hold.
   - 494 stands, magnetic in the corridor's own frame. It is not the theorem's corridor.
+
+## 44. The exact mirror-symmetric vacuum sequence for the whole round shell (498; lemmas/hf_mirror5.py, 9/9, mutants 4/4)
+
+M, 498, quoting 497's report: "that is beyond what I can compute here. - why? ... I absolutely believe you can do
+it." Built and run in the conversation. The equations come from `hf_mirror5_derive.py`; the pinned runs, in
+`data/hf_mirror5_runs.json`, were written by `hf_mirror5.py --run`.
+
+- **The system.** The metric is
+  ds^2 = -e^{2b} W dv^2 + 2 e^{2b} dv dr + r^2 [e^{-2(P1+P2)} (dth - U dv)^2 + cos^2 th e^{2P1} dphi1^2 + sin^2 th e^{2P2} dphi2^2],
+  with r = y^-2 and x = cos 2 th.
+  - The regular fields: P1 = y^3 (2 c^2 G - s^2 F)/3, P2 = y^3 (2 s^2 F - c^2 G)/3, beta = y^6 b,
+    V = y^5 (1 - x^2) q, W = 1 + y^3 w.
+  - The hierarchy on each ingoing null slice:
+    - beta: -12 (6 b + y b_y) = S (nonsingular);
+    - the shift: (y^2 q'' + 3 y q' - 15 q)/16 = S (exponents -5 and 3: the y^3 amplitude is the angular-momentum
+      aspect);
+    - W, the trace of the angular equations: (3/2)(y w' - w) = S (the y amplitude is the mass aspect).
+  - Evolution: d_v d_y F and d_v d_y G from (A1 + 2 A2) and (2 A1 + A2). Their v-derivative terms carry (x - 1) and
+    (x + 1) exactly. Their remainders vanish on the axes only on-shell, so the division is done exactly on the
+    polynomial interpolant.
+  - Past null infinity is characteristic: d_v d_y F = 0 there, and no boundary condition is set for the evolved
+    fields at either end (excision is outflow).
+- **The equations at infinity.**
+  - Every exponential is written e^z = 1 + z phi1(z), so each cancellation of a negative power of y is an exact
+    polynomial identity.
+  - Every equation was binned in powers of y, with every power below the lowest surviving one checked to vanish
+    identically: E_yy at y^4, E_yx at y^2, the W trace at y^7, A1 and A2 at y^6, E_vy at y^4, E_vx at y^3, and E_vv at
+    y^5 (6811 s of symbolic work).
+- **What failed first, and why.**
+  - A finite worldtube r = R0 with the wave prescribed on it. The tube's E_vtheta made the angular-momentum aspect
+    obey a backward heat equation in theta: d_v U_r = -(1/3 R0) d_th^2 U_r + ..., growing as 4 n^2/(3 R0). The
+    Jacobian showed it (real eigenvalues growing with resolution), and it is the ill-posedness of Dirichlet data on a
+    timelike boundary. At past null infinity the term vanishes.
+  - The angular-momentum aspect imposed as q_yyy(0)/6. The functional has norm ~N^6, so a high-mode perturbation
+    satisfies it at almost no cost: condition 1e9 at N = 16, and growth rates near 2000 in the full Jacobian. The
+    aspects are instead pinned by q and w at the excision; the discrete operators' one-dimensional null vectors are
+    exact.
+  - The aspects' rates. The law at infinity read off the expanded equations needs the y^3 Taylor coefficient of F_v
+    there, which noise amplifies as N^4. Instead, E_vx = 0 is imposed in the interior (y >= 0.35 y_ex), and then
+    E_vv = 0. By Bondi's lemma, E_vx/y^3 is constant in y once the main equations hold (verified to 2.6e-6), so this
+    is the same law.
+  - A separately derived r-form E_vv was found inconsistent: it showed a second radial power, which Bianchi forbids.
+    The x-form E_vv obeys Bianchi to 1e-6, and only the x-form is used.
+  - The top Chebyshev mode in x is dropped each step, and a gentle filter in y (modes below 0.8 N kept to 3 %) is
+    applied. The scheme is stable unfiltered too (largest growth rate 6e-3; 6e-4 filtered).
+- **Results.** A = 1, seed 1 (shell 0.182), lambda = 0.1, 0.05, 0.025:
+
+  | lambda | spread of M after | |M - mu| after | |W - W_V| after | |W - W_V| all v | max shift | max beta |
+  |---|---|---|---|---|---|---|
+  | 0.1 | 2.6e-2 | 5.4e-3 | 1.5e-2 | 0.37 | 0.20 | 1.4e-3 |
+  | 0.05 | 2.7e-4 | 1.16e-3 | 5.3e-3 | 0.18 | 0.14 | 2.5e-4 |
+  | 0.025 | 1.5e-5 | 2.9e-4 | 2.2e-3 | 0.072 | 0.059 | 5.1e-5 |
+
+  - mu(v) = 1 + (2/9) A^2 int env^2, from Isaacson's effective stress: 8 pi T_vv = (1/4) <d_v h_ij d_v h^ij>
+    = 2 <P1v^2 + P1v P2v + P2v^2> r^-3, against 5D Vaidya's G_vv = 3 mu'/(2 r^3). The offset falls as lambda^2, so the
+    computation confirms the formula independently.
+  - The grid check at lambda = 0.05 (32 x 20 against 24 x 16) agrees to 1e-5 in M.
+  - Seed 0.25 (the shell 3/4 of the final mass), lambda = 0.05, 0.025: spread 2.6e-3, 3.7e-4; |M - mu| 4.7e-3, 1.16e-3; |W - W_V| after 0.18, 0.081 and over the passage 1.17, 0.52; max shift 0.31, 0.14; max beta 2.0e-3, 2.1e-4.
+- **What it is.** An exact vacuum solution for each lambda: mirror-symmetric, of cohomogeneity three, with no inner
+  horizon and no bounce, converging to 5D Vaidya. It is the five-dimensional, mirror-symmetric counterpart of Huneau
+  and Luk's high-frequency limit, built for this shell.
+- **What it is not.** It is numerical over a sequence, not a proof for every lambda. The shell falls onto a seed, and
+  the core inside the horizon is excised.
+

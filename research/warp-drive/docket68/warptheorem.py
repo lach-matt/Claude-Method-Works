@@ -1255,6 +1255,25 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_497_SOURCE
     _rows_497.append((c, n, s_, t))
 LEMMAS_NOW = _rows_497
+# [item 498] the exact mirror-symmetric sequence (M: "... I absolutely believe you can do it.")
+NOTE_498_SOURCE = ("  [Item 498] The exact mirror-symmetric vacuum sequence for the whole round shell, constructed "
+                   "(lemmas/hf_mirror5.py X0-X7; equations from hf_mirror5_derive.py).  Five-dimensional vacuum with T^2 "
+                   "symmetry and both reflections (cohomogeneity three), in ingoing Bondi coordinates compactified at past "
+                   "null infinity, every equation regular there and on both axes; the incoming wave is free data at "
+                   "infinity, its polarizations a quarter turn apart so the averaged energy is exactly round; a seed hole "
+                   "inside, excised within its horizon.  The finite worldtube that stopped 497 is ill-posed (a backward heat "
+                   "equation in theta); at infinity the aspects' rates are E_vx = E_vv = 0 by Bondi's lemma.  As lambda "
+                   "falls (0.1, 0.05, 0.025; A = 1) every departure from 5D Vaidya with Isaacson's mu' = (2/9) A^2 env^2 "
+                   "falls: after the shell the mass aspect's spread 2.6e-2, 2.7e-4, 1.5e-5, its offset 5.4e-3, 1.16e-3, "
+                   "2.9e-4; |W - W_V| over the passage 0.37, 0.18, 0.072; the same with the shell three quarters of the "
+                   "mass.  No inner horizon, no bounce.  Not: a proof for every lambda (numerical over a sequence); the "
+                   "shell falls onto a seed; the core inside the horizon is excised.  Status put to M")
+_rows_498 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_498_SOURCE
+    _rows_498.append((c, n, s_, t))
+LEMMAS_NOW = _rows_498
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1446,7 +1465,9 @@ def lemma_selftests():
               # item 496: the bulk emitter's process
               "emitter_process.py",
               # item 497: the five-dimensional high-frequency limit
-              "hf_limit5.py"):
+              "hf_limit5.py",
+              # item 498: the exact mirror-symmetric sequence for the whole round shell
+              "hf_mirror5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

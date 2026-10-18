@@ -5,6 +5,51 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 498: the mirror-symmetric vacuum sequence for the whole round shell, constructed
+
+M, 498: "... that is beyond what I can compute here. - why? You have computed so much and are capable of so much more.
+I absolutely believe you can do it." (`hf_mirror5.py` X0-X7, 9/9, mutants 4/4; `hf_mirror5_derive.py --quick` PASS.)
+
+- **What is built.** Five-dimensional vacuum, R_ab = 0, with T^2 symmetry and both reflections phi_i -> -phi_i: the
+  cohomogeneity three the mirror requires (hf_limit5 H6).
+  - Ingoing Bondi coordinates, compactified at past null infinity: r = y^-2, x = cos 2 theta.
+  - The incoming gravitational wave is free data there. Its two polarizations are a quarter turn apart, with
+    h(x) = sqrt(2/(1 + x^2)), so the averaged energy A^2 env^2/6 is exactly round.
+  - A seed hole sits inside, and each null slice is excised inside its horizon.
+- **The equations are regular everywhere (computed, exact).**
+  - They are derived from the metric and regularized symbolically: each exponential is e^z = 1 + z phi(z), so every
+    cancellation at infinity is an exact identity, and each axis carries its factor (x -+ 1) exactly.
+  - `--quick` re-derives E_yy, E_yx and A1 + 2 A2 from the metric and matches the stored forms.
+- **Three obstacles found and removed (computed).**
+  - A finite worldtube with the wave prescribed on it is ill-posed. The tube's angular-momentum equation is a
+    backward heat equation in theta, growing as n^2/R0. The Jacobian found it, and it is why 497 stopped. At past null
+    infinity that term vanishes.
+  - Imposing the angular-momentum aspect as a third radial derivative at infinity is numerically ill-posed (condition
+    1e9 at 16 points; growth rates near 2000).
+  - The top Chebyshev mode in theta was the third.
+  - The fix for the second: the two aspects are pinned by the shift and W at the excision, and their rates come from
+    E_vx = 0 and E_vv = 0 in the bulk. Bondi's lemma makes these the conservation laws at infinity.
+- **Checks (computed).**
+  - Tangherlini is exact.
+  - Bondi's lemma holds on a generic slice: E_vx/y^3 is constant in y to 2.6e-6, and the constraints vanish to 2e-8,
+    converging spectrally in theta.
+  - No growing mode: the largest growth rate is 6e-4.
+- **The sequence: A = 1, seed mass 1, the shell adding 0.18 (computed).** At lambda = 0.1, 0.05, 0.025:
+  - After the shell, the mass aspect varies over the sphere by 2.6e-2, 2.7e-4, 1.5e-5.
+  - Its offset from 5D Vaidya with Isaacson's mu' = (2/9) A^2 env^2 is 5.4e-3, 1.16e-3, 2.9e-4 (second order).
+  - |W - (1 - mu y^4)| is 1.5e-2, 5.3e-3, 2.2e-3 after the shell, and 0.37, 0.18, 0.072 over the whole passage.
+  - The shift's largest value falls 0.20, 0.14, 0.059; P falls as lambda and beta as lambda^2.
+  - Two grids agree at lambda = 0.05 (M to 1e-5), and the excision stays inside the horizon throughout.
+- **The shell as three quarters of the mass: seed 0.25 (computed).** At lambda = 0.05, 0.025: spread over the sphere 2.6e-3, 3.7e-4; offset from mu 4.7e-3, 1.16e-3 (second order, 0.16 % of the shell's 0.73); |W - W_V| over the passage 1.17, 0.52 (the excision deep in the hole, where |W| reaches 5.4); every departure falls.
+- **So.** For each lambda there is an exact vacuum solution: mirror-symmetric, of cohomogeneity three, with no inner
+  horizon and no bounce. As lambda -> 0 it converges to 5D Vaidya carrying the shell's averaged flux: a round null
+  shell made of the bulk's own gravitational waves.
+- **What it is not.**
+  - It is numerical. Convergence is shown over a sequence (three wavelengths, two seed masses), not proved for every
+    lambda.
+  - The shell falls onto a seed of at least a quarter of the final mass, and the core inside the horizon is excised.
+- SOURCEs and SOURCE: their status is M's to rule on.
+
 ## Item 497: the five-dimensional high-frequency limit, proved by computation where it can be
 
 M, 497: "Prove the five-dimensional high-frequency limit." (`hf_limit5.py` H1-H6, 7/7, mutants 3/3.)

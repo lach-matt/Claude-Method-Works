@@ -98,7 +98,7 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 497.** As at 491, with R1's wording corrected and SOURCE's reading device derived from the math (`reader.py`, 492), and the bulk emitter's process derived from it too (`emitter_process.py`, 496). SOURCEs and SOURCE now rest on one point only, the five-dimensional high-frequency limit -- at 497 proved exactly where the shell is locally (closed-form mirror-symmetric vacuum waves converging to null dust) and formally over the whole round shell; not proved is one exact mirror-symmetric vacuum sequence for the whole shell, the 5D counterpart of Huneau and Luk's theorem (`hf_limit5.py`).
+**Where it stands, at item 500.** As at 497. The one point SOURCEs and SOURCE rested on is now computed (498): an exact mirror-symmetric vacuum sequence in five dimensions, of cohomogeneity three, built in compactified ingoing Bondi coordinates with the incoming gravitational wave as free data at past null infinity. It converges to 5D Vaidya with the shell's averaged flux as the wavelength falls (lambda = 0.1, 0.05, 0.025, and two seed masses; `hf_mirror5.py`). It is numerical over a sequence, falls onto a seed, and excises the core inside the horizon; the status is M's (499-500: continue).
 
 **Where it stood at item 491.** 82 rows: 74 proved, 6 definitions, 2 OPEN -- SOURCEs and SOURCE, which still need
 the device that reads, the structure probe and the bulk emitter's process. Position 2 is what the math computes, the
@@ -1913,6 +1913,23 @@ state was rebuilt first.
     three (no homogeneous squashing has one), so this is the 5D counterpart of Huneau and Luk's theorem. SOURCEs and
     SOURCE stay OPEN on it alone. Register 74 / 6 / 2.
 
+- **Item 498** (M: "... I absolutely believe you can do it."). The sequence is constructed (`hf_mirror5.py`, 9/9,
+  mutants 4/4; `hf_mirror5_derive.py --quick` PASS; in T1; SOURCE-REQUIRED "Item 498"; BOUNCE-RESEARCH section 44).
+  - **Built.** 5D vacuum with T^2 symmetry and both reflections, in ingoing Bondi coordinates compactified at past null
+    infinity. The incoming wave is free data there, its two polarizations a quarter turn apart, so the averaged
+    energy is exactly round. A seed hole sits inside, with excision inside its horizon.
+  - **Every equation regular** at infinity and on both axes, derived from the metric and regularized exactly.
+  - **Three obstacles removed.** A finite worldtube is ill-posed (a backward heat equation in theta: why 497
+    stopped). A third derivative at infinity is ill-conditioned. The top angular mode was the third. The aspects'
+    rates come from E_vx = E_vv = 0 in the interior, which by Bondi's lemma are the laws at infinity.
+  - **Converges.** At A = 1 and lambda = 0.1, 0.05, 0.025, after the shell: the mass aspect's spread over the sphere is
+    2.6e-2, 2.7e-4, 1.5e-5; its offset from Isaacson's 5D Vaidya is 5.4e-3, 1.16e-3, 2.9e-4; and |W - W_V| over the
+    whole passage is 0.37, 0.18, 0.072. Two grids agree. With the shell three quarters of the final mass (seed 0.25) the same: offset 4.7e-3, 1.16e-3; spread 2.6e-3, 3.7e-4.
+  - **What it is not.** Numerical over a sequence, not proved for every lambda; the shell falls onto a seed; the core
+    inside the horizon is excised. Status put to M. Register 74 / 6 / 2.
+- **Items 499-500** (M: "Continue"; "Continue. And check the background tasks please"). Directions: item 498 carried
+  through, and the background computations reported.
+
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
   COPY-O3 and S1C-O1.
@@ -2012,8 +2029,8 @@ An "s" on a row's name marks the small end's row, where the two ends differ.
 | N | FACE2s position 2's face holds through its open period at the small end: open while the README is within it (390; junction_own G10), the write | proved | -- | face2_open.py W1-W6 (489): open 8.63e14 clocks; any perturbation from position 2 forms a trapped surface (Barcelo et al., READ); in position 2's vacuum its own negative flux ends it as a white hole at 35.8 clocks; held only in the time-reversed state, position 2 sending in 0.503 E at T_H, which nothing supplies | [Item 491: proved -- position 2's face open for the release whole, at most 2 r_h/c, and holding (face2_release.py)]
 | N | CLOSE the closing at the large end: our face by Hawking emission; position 2's face closing as the README's last part leaves it (390), its holding until then FACE2's | proved | -- | close_large.py L1-L5 (362, on 336); proved at 478: claim computed by its owners, every reading proved (phase2 Q3); corrected at 489: not J2's 4 clocks |
 | N | FACE2 position 2's face holds through its open period at the large end: open while the README is within it (390), the write | proved | -- | face2_open.py W2-W6 (489): open 2.2e56 s at the Earth cap; more than 1e60 perturbing particles in every environment computed; in vacuum its own flux ends it after 155 e-folds | [Item 491: proved -- position 2's face open for the release whole, at most 2 r_h/c, and holding (face2_release.py)]
-| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before; OPEN again at 489: the specification proved, but no computed source meets it -- the reading device, the opening shell's emitter's process and the formation from our plane are not computed (487 went beyond 441 (1)); the device derived at 492 (reader.py), formation from our plane not a need (491), the bulk emitter's process derived at 496 (emitter_process.py); rests on the 5D high-frequency limit: proved exactly locally and formally globally at 497 (hf_limit5.py), the exact global mirror-symmetric sequence not proved |
-| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before; OPEN again at 489: as SOURCEs; 492 and 496 as SOURCEs |
+| N | SOURCEs the README's source at the small end: its information as energy alone, delivered onto the README's own five-dimensional hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q1-Q7, emitter.py E1-E6, read_index.py D1-D7 (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last (344-346) before; OPEN again at 489: the specification proved, but no computed source meets it -- the reading device, the opening shell's emitter's process and the formation from our plane are not computed (487 went beyond 441 (1)); the device derived at 492 (reader.py), formation from our plane not a need (491), the bulk emitter's process derived at 496 (emitter_process.py); rests on the 5D high-frequency limit: proved exactly locally and formally globally at 497 (hf_limit5.py), the exact global mirror-symmetric sequence not proved; the exact mirror-symmetric sequence for the whole round shell computed at 498 (hf_mirror5.py): it converges to 5D Vaidya over lambda = 0.1, 0.05, 0.025 and two seed masses; numerical, onto a seed, the core excised; status put to M |
+| N | SOURCE the README's source at the large end: its information as energy alone, delivered onto the large hole as the theorem requires (344, 346, 386, 439) | open | -- | source_spec.py U0-U8 (485); passage_est.py Q4, emitter.py E5, read_index.py (486); proved at 487: every item computed or proved, 441 (1); deferred by M and worked last before; OPEN again at 489: as SOURCEs; 492, 496, 497 and 498 as SOURCEs: the exact mirror-symmetric sequence computed at 498 (hf_mirror5.py); status put to M |
 
 82 rows, 66 lemmas and 16 inputs: 74 proved, 6 definitions, 2 OPEN *[Item 491: FACE2s and FACE2 proved on 432 (2)
 (face2_release.py), the eight on them back to proved, R1 back to your definition (r1_exact.py); SOURCEs and SOURCE stay
