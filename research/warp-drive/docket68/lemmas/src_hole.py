@@ -21,6 +21,9 @@ semiclassical one (C9) -- null energy fails only inside x = l5^2 sqrt(K) >= 1 (S
      of hf_mirror5 over D = 269.2 r_h), outgoing rays from the core in its first phase (mu < sqrt(72) l5^2, where r_q >
      sqrt(mu)) reach infinity, at mu_f/l5^2 = 1e4 and 7e40: the core is seen from outside, 273's one-way passage and
      484 both fail.  The core stays hidden only for sigma_t below ~0.5-0.8 r_h, some 40-60 times shorter than C2 allows.
+  S3b (computed) The same for the record's own optimal shell, the band-limited state of C2 (energy amplitude a half-
+     sine across the band; arrival flux cos^2(pi t/tau)/(1 - 4 t^2/tau^2)^2, sigma_t = tau/2 = 28.5 r_h exactly, its
+     t^-4 tail reaching back without end): a ray from the core's first phase reaches infinity at 1e4 and 7e40.
   S4 (computed) A seed of mu0 = 1.01 sqrt(72) l5^2 in place before the shell: every outgoing ray from the core, from the
      shell's first instant to its last, is trapped at once (r_q < sqrt(mu) throughout), at 1e4 and 7e40.  So the math
      answers 506's question as 508 states it: the shell arrives onto a seed, and the least seed is the one whose quantum
@@ -143,6 +146,39 @@ def s3():
     return dict(rays=out, sigma_c=hi*SIG, D=D)
 
 
+def _g(t):
+    """the record's optimal band-limited shell (emitter_process C2): energy amplitude a half-sine across the band, so the
+    arrival flux is |its Fourier transform|^2 ~ cos^2(pi t/tau)/(1 - 4 t^2/tau^2)^2, t in units of tau"""
+    return np.cos(np.pi*t)**2/(1 - 4*t**2)**2 if abs(abs(t) - 0.5) > 1e-9 else (np.pi/4)**2
+
+
+_Z = 2*quad(_g, 0, 60, limit=400)[0] + 2*quad(lambda t: 0.5/(16*t**4), 60, np.inf)[0]
+
+
+def _frac(u):
+    if u < -60:
+        return 0.5/(16*3*abs(u)**3)/_Z
+    pts = [p_ for p_ in (-0.5, 0.5) if -60 < p_ < u]
+    return (quad(lambda t: 0.5/(16*t**4), -np.inf, -60)[0] + quad(_g, -60, u, limit=400, points=pts or None)[0])/_Z
+
+
+def s3b():
+    """no seed, the record's own optimal shell at sigma_t = 28.5 r_h: a ray from the core in its first phase"""
+    var = 2*quad(lambda t: t*t*_g(t), 0, 60, limit=400)[0]/_Z + 2*quad(lambda t: t*t*0.5/(16*t**4), 60, np.inf)[0]/_Z
+    tau = 28.5/np.sqrt(var)
+    out = {}
+    for L in (1e4, 7e40):
+        target = 0.5*np.sqrt(72)/L
+        v0 = -(0.5/(16*3*target*_Z))**(1/3)*tau
+        m0 = _frac(v0/tau)
+        f = lambda v, s_: [0.5*np.exp(-s_[0])*(1 - _frac(v/tau)*np.exp(-2*s_[0]))]
+        tr = lambda v, s_: s_[0] - 0.5*np.log(max(_frac(v/tau), 1e-300))
+        tr.terminal, tr.direction = True, -1
+        sol = solve_ivp(f, (v0, 5*tau), [np.log(r_q(m0, L))], method="LSODA", rtol=1e-8, atol=1e-10, events=[tr])
+        out[L] = "trapped" if sol.t_events[0].size else ("escapes" if np.exp(sol.y[0][-1]) > 1.01 else "undecided")
+    return dict(rays=out, sig_over_tau=np.sqrt(var))
+
+
 def s4():
     out = {}
     for L in (1e4, 7e40):
@@ -252,7 +288,7 @@ def core_model(mix, L=1e4, mu0=1.0, mu2=1.18229, dmu=0.18229):
 
 def compute():
     a6 = s6()
-    return dict(words=words(), s1=s1(), s2=s2(), s3=s3(), s4=s4(), s6=a6, s7=core_model(a6["mix"]))
+    return dict(words=words(), s1=s1(), s2=s2(), s3=s3(), s3b=s3b(), s4=s4(), s6=a6, s7=core_model(a6["mix"]))
 
 
 def checks(o):
@@ -265,6 +301,9 @@ def checks(o):
     a = o["s3"]
     c["S3 no seed: the core seen from infinity at the record's spread"] = (all(x == "escapes" for v in a["rays"].values() for x in v)
                                                                           and 0.3 < a["sigma_c"] < 1.0 and a["D"] == D_REC)
+    a = o["s3b"]
+    c["S3b no seed, the record's own optimal shell: the core seen from infinity"] = (
+        all(x == "escapes" for x in a["rays"].values()) and abs(a["sig_over_tau"] - 0.5) < 1e-6)
     a = o["s4"]
     c["S4 the seed mu0 >= sqrt(72) l5^2: every core ray trapped throughout"] = all(x == "trapped" for v in a.values() for x in v)
     a = o["s6"]
