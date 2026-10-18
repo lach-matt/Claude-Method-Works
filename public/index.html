@@ -198,7 +198,7 @@
       <dl>
         <dt>the channel equation</dt><dd>The one equation that predicts δ for every channel from the ion's own configuration, in two branches: one where the core holds electrons at this ℓ (p &gt; 0) and one where it does not (p = 0). Its five constants A, K, H, E₀ and E₁ are PINNED. Solver mode 1 evaluates it term by term.</dd>
         <dt>p</dt><dd>The number of orbitals the ion's core already holds at this ℓ, read from the observed ground configuration.</dd>
-        <dt>n₀</dt><dd>The first principal quantum number at this ℓ that the core leaves entirely unoccupied. Its reading is RECONSTRUCTED; the helium s series settles it.</dd>
+        <dt>n₀</dt><dd>The first principal quantum number at this ℓ that the core leaves entirely unoccupied. Its reading is RECOVERED: on the configuration table the spectra index was built on it reproduces every integer B the index prints, and the other reading does not.</dd>
         <dt>B, the Pauli bound</dt><dd>B = min(p, n₀ − ℓ − 1): how many core orbitals at this ℓ lie below the series, and so how many nodes exclusion forces on the running electron. Solver mode 2.</dd>
         <dt>C(Z, ℓ), the collapse coordinate</dt><dd>A ramp from 0 to 1 across the eight elements where the ℓ-orbital collapses into the core (opening at Sc for d, at La for f), carried by the p = 0 branch. Its form is RECOVERED from the computed column. Solver mode 3.</dd>
         <dt>Nₑ and the exponent</dt><dd>Nₑ is the ion's electron count; the equation's exponent falls as e(Nₑ) = E₀ − E₁ ln Nₑ. At Nₑ = 1 the (Nₑ − 1)/Nₑ factor vanishes and the equation returns 0 exactly.</dd>

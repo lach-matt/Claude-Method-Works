@@ -1843,6 +1843,16 @@
     else btn.textContent = 'Copy unavailable';
   }
   const caveat = (id) => { const c = (state.index.caveats || []).find((v) => v.id === id); return c ? c.text : ''; };
+  // Each caveat carries its state since the 2026-10-17 review: repaired (it named something wrong,
+  // now put right; what it said before is kept), measured (a property of the data that stays true),
+  // standing (a permanent qualification of what a value is), open (the author's decision).
+  // The equation's domain on a channel (DERIVED: the record's rule over the csv's notes), and what
+  // the csv's B column holds in a row: the bound, the range of the series' defects, or a bare 0.
+  const domainRow = (d) => !d ? '' : row('equation domain', d.validated === null ? '— <span class="plain">(' + esc(d.reasons.join('; ')) + ')</span>' : d.validated ? '<span class="ok">validated</span>' : `<span class="bad">extrapolated</span> <span class="plain">— ${esc(d.reasons.join('; '))}</span>`, d.validated === null ? null : 'DERIVED', 'the record’s rule: outside where Z > 103, the charge is above 10, the core is open-shell at 3, 16 or 119 parents, or the series is unresolved above ng; a residual outside is not a finding against the equation', true);
+  const bCsvShort = (m) => m.B_csv_reading === 'range' ? `<span class="plain" title="the range of the series' quantum defects, not a bound">range ${fmtRead(m.B_csv_range)}</span>` : m.B_csv_reading === 'zero' ? '<span class="bad" title="0 in every row of Z = 119 and 120; the bound on neither table">0, not a bound</span>' : m.B_csv_is_not_a_bound ? '<span class="bad">not a bound</span>' : fmt(m.B_csv);
+  const bCsvRow = (m) => m.B_csv_reading === 'range' ? row('B in the csv', `${fmtRead(m.B_csv_range)} <span class="plain">— the range of the series’ quantum defects, not a bound</span>`, 'RECOVERED', 'COORDINATES-2.13, B column: recomputed from NIST’s levels, max − min of the defects whose median is this row’s δ (tools/seriesdefect.py)', true) : m.B_csv_reading === 'zero' ? row('B in the csv', '0 <span class="plain">— not a bound</span>', 'READ', 'COORDINATES-2.13, B column: 0 in every row of Z = 119 and 120, the bound on neither configuration table', true) : row('B in the csv', m.B_csv_is_not_a_bound ? '<span class="bad">not a bound here</span>' : fmt(m.B_csv), 'READ', 'COORDINATES-2.13, B column');
+  const CAVEAT_STATE = { repaired: 'Repaired', measured: 'Measured', standing: 'Standing', open: 'Open — the author’s decision' };
+  const caveatItem = (v) => `<li>${v.state ? `<span class="cv-state cv-${esc(v.state)}" title="${esc('reviewed ' + (v.reviewed || ''))}">${esc(CAVEAT_STATE[v.state] || v.state)}</span> ` : ''}${esc(v.text)}${v.was ? `<span class="cv-was"> Before the review it read: “${esc(v.was)}”</span>` : ''}</li>`;
   // E = admitted − held carries one status wherever the data's own figure is quoted: PINNED, as
   // the generator's fixtures pin the structural half (90 held, 126 admitted, E = 36) and as
   // cypher.py's selftest asserts it; the closure solver's own E over any cell set is the same row.
@@ -1880,7 +1890,7 @@
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, set aside below the table')}
       </div>${c.placement && (state.layout === 'table' || state.layout === 'table3d') ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (IUPAC)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
       ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${rel.repair ? row('displaced at c → ∞', esc(rel.repair.displaced.join(', ')) + ` <span class="plain">(${esc(rel.repair.witnessed.join(', '))} among the measured elements; ${esc(rel.repair.unwitnessed.join(', '))} beyond them)</span>`, 'RECOVERED', esc(rel.repair.comparison), true) + row('as the paper printed it', esc(rel.repair.paper_eleven.join(', ')) + ' <span class="plain">— superseded</span>', 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}; ${esc(rel.repair.paper_eleven_status)}`, true) : row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${rel.record ? row('instrument', 'recovered — the record\'s own code, run here', 'RECOVERED', esc((rel.instrument && rel.instrument.note) || ''), true) : row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
-      ${section('Caveats that travel with every value', `<ul class="note">${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>`)}
+      ${section('Caveats that travel with every value', `<p class="note">Each was reviewed against the evidence on ${esc(((ix.caveats || [])[0] || {}).reviewed || '—')}: ${['repaired', 'measured', 'standing', 'open'].map((k) => `${(ix.caveats || []).filter((v) => v.state === k).length} ${k}`).join(', ')}.</p><ul class="note cv-list">${(ix.caveats || []).map(caveatItem).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
       <div class="cite">${esc(citation(rootNode))}</div>`;
   }
@@ -2080,9 +2090,10 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${axRow('symbol', esc(e.symbol), 'symbol')}
       ${axRow('ground shells', esc(e.shells), 'configuration')}
       ${axRow('ground level', esc(e.level), 'level')}
+      ${rec && rec.ground_basis ? row('what it rests on', esc(rec.ground_basis.note), 'READ', rec.ground_basis.source, true) : ''}
       ${rec ? row('electron count', `${rec.electron_count} ${rec.electron_count_ok ? '<span class="ok">= Z</span>' : '<span class="bad">≠ Z</span>'}`, 'DERIVED', 'occupancies summed against Z') : ''}
       ${row('name', esc(e.name || '—'), null, 'IUPAC label; not a figure of the index', true)}
-    </div>`);
+    </div>${rec && rec.ground_basis ? `<div class="callout is-finding">${esc(caveat('ground-103-108'))}</div>` : ''}`);
     html += section('Layout', `<div class="fields">
       ${axRow('period', e.period, 'period')}
       ${axRow('group', e.set_aside ? 'set aside' : e.group, 'group')}
@@ -2243,11 +2254,12 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${axRow('B = min(p, n₀−ℓ−1)', fmt(r.B_computed), 'B')}
       ${axRow('C(Z, ℓ)', fmt(r.C_of_Z, 3), 'C(Z)')}
       ${axRow('δ by equation', fmt(r.delta_equation), 'delta equation')}
+      ${domainRow(r.domain)}
     </div>${populated ? '' : `<div class="callout is-finding">${esc(caveat('above-108'))}</div>`}`);
     html += section('Cells, one per multiplicity', `<div class="tbl-wrap"><table class="t"><thead><tr><th class="num">2S+1</th><th class="num">δ</th><th>grade</th><th class="num">residual</th><th class="num">B (csv)</th><th>agrees</th><th>witness</th></tr></thead><tbody>
       ${node.cells.map((c) => {
         const m = c.rec;
-        return `<tr class="is-link" data-go="${node.Z}/${node.charge}/${node.l}/${c.mult}"><td class="num">${c.mult}</td><td class="num">${fmtRead(m.delta)}</td><td><span class="dot dot-${esc(m.grade)}"></span>${esc(m.grade)}</td><td class="num">${fmt(m.residual)}</td><td class="num">${m.B_csv_is_not_a_bound ? '<span class="bad">not a bound</span>' : fmt(m.B_csv)}</td><td>${m.B_agrees === null ? '—' : m.B_agrees ? '<span class="ok">yes</span>' : '<span class="bad">no</span>'}</td><td>${m.witness === 'witnessed' ? '<span class="ok">witnessed</span>' : '<span class="note">unwitnessed</span>'}</td></tr>`;
+        return `<tr class="is-link" data-go="${node.Z}/${node.charge}/${node.l}/${c.mult}"><td class="num">${c.mult}</td><td class="num">${fmtRead(m.delta)}</td><td><span class="dot dot-${esc(m.grade)}"></span>${esc(m.grade)}</td><td class="num">${fmt(m.residual)}</td><td class="num">${bCsvShort(m)}</td><td>${m.B_agrees === null ? '—' : m.B_agrees ? '<span class="ok">yes</span>' : '<span class="bad">no</span>'}</td><td>${m.witness === 'witnessed' ? '<span class="ok">witnessed</span>' : '<span class="note">unwitnessed</span>'}</td></tr>`;
       }).join('')}
     </tbody></table></div>
     <p class="note" style="margin-top:6px">δ ${badge('READ', 'COORDINATES-2.13, grade as the row states it')} · residual = δ − δ equation ${badge('DERIVED')} · B (csv) ${badge('READ', 'COORDINATES-2.13, B column')}</p>`);
@@ -2273,11 +2285,12 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${row('grade', esc(m.grade), 'READ', 'COORDINATES-2.13, grade column', true)}
       ${axRow('δ by equation', fmt(ch.delta_equation), 'delta equation')}
       ${row('residual', fmt(m.residual), m.residual === null ? null : 'DERIVED', 'δ − δ equation')}
+      ${domainRow(ch.domain)}
       ${row('⌊δ⌋ ≤ B', m.floor_le_B === null ? '—' : m.floor_le_B ? '<span class="ok">yes</span>' : '<span class="bad">no</span>', m.floor_le_B === null ? null : 'DERIVED', 'the integer part of δ against the Pauli bound')}
     </div>`);
     html += section('Pauli bound', `<div class="fields">
       ${axRow('B computed', fmt(ch.B_computed), 'B')}
-      ${row('B in the csv', m.B_csv_is_not_a_bound ? '<span class="bad">not a bound here</span>' : fmt(m.B_csv), 'READ', 'COORDINATES-2.13, B column')}
+      ${bCsvRow(m)}
       ${row('agree', m.B_agrees === null ? '—' : m.B_agrees ? '<span class="ok">yes</span>' : '<span class="bad">no — both shown, neither repaired</span>', m.B_agrees === null ? null : 'DERIVED', 'equality of the two')}
     </div>
     ${m.B_csv_is_not_a_bound ? `<div class="callout is-finding">${esc(caveat('b-overloaded'))}</div>` : ''}
@@ -2288,7 +2301,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       ${(() => { const L = cellSourceLink(node, m); if (!L) return ''; const v = (L.url ? ext(L.url, L.text) : esc(L.text)) + (L.doi ? ' · ' + ext(L.doi, 'DOI') : ''); return row('resolved to', v, L.status, L.note, true); })()}
       ${axRow('bound note', esc(m.bound_note), 'bound', true)}
       ${(() => { const k = limitKind(m.bound_note); const r = limitRule(k); return row('limit kind', k ? `<span class="dot dot-lim-${k}"></span>${esc(LIMIT_LABEL[k] || k)}` : '—', k ? 'DERIVED' : null, r ? `rule ${esc(r.regex)}: ${esc(r.meaning)}` : 'no rule matched'); })()}
-      ${(() => { const mm = /^limit ([0-9.]+);/.exec(m.bound_note); return mm ? row('series limit, as printed', mm[1], 'READ', 'COORDINATES-2.13, bound column; no unit is carried and none is added') : ''; })()}
+      ${(() => { const mm = /^limit ([0-9.]+);/.exec(m.bound_note); return mm ? row('series limit', `${mm[1]} cm⁻¹`, 'READ', 'COORDINATES-2.13, bound column, the value as printed') + row('its unit', 'cm⁻¹, the neutral ionisation energy', 'RECOVERED', 'the csv prints no unit: the value equals NIST’s ionisation energy for this spectrum in cm⁻¹ to every printed digit, and the row’s defects recompute from it in that unit (tools/seriesdefect.py)') : ''; })()}
     </div>`);
     html += actions(node, { Z: node.Z, charge: node.charge, l: node.l, ...m, delta_equation: ch.delta_equation, B_computed: ch.B_computed });
     return html;
@@ -3830,7 +3843,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       <h3>Status vocabulary</h3>
       <div class="fields">${Object.entries(ix.status_legend || {}).map(([k, v]) => row(k, esc(v), k, undefined, true)).join('')}</div>
       <h3>Caveats</h3>
-      <ul>${(ix.caveats || []).map((v) => `<li>${esc(v.text)}</li>`).join('')}</ul>
+      <ul class="cv-list">${(ix.caveats || []).map(caveatItem).join('')}</ul>
       <h3>Element files</h3>
       <p class="note">${(ix.manifest || []).length} files under <code>data/elements/</code>, ${((ix.manifest || []).reduce((a, x) => a + (x.bytes || 0), 0) / 1e6).toFixed(1)} MB, each md5 recorded in <code>data/index.js</code>; <code>python3 tools/webindex.py --verify</code> checks them.${ix.protocol ? ` Protocol: ${esc(ix.protocol.index)}; ${esc(ix.protocol.element)} — ${esc(ix.protocol.why)}.` : ''}</p>`;
     const cite = m.cite || null, dls = ix.downloads || [], hist = m.history || [];
@@ -4419,7 +4432,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
       case 'sources':
         return (ix.sources || []).map((s) => `${s.ok ? 'match' : 'DRIFT'}  ${s.file}\n       recorded ${(s.md5_recorded || '?').slice(0, 12)}  measured ${(s.md5_measured || '?').slice(0, 12)}  — ${s.role}`).join('\n') || 'no sources carried';
       case 'caveats':
-        return (ix.caveats || []).map((v) => `${v.id}: ${v.text}`).join('\n\n') || 'no caveats carried';
+        return (ix.caveats || []).map((v) => `${v.id} [${v.state || '—'}]: ${v.text}${v.was ? `\n  (before the review: ${v.was})` : ''}`).join('\n\n') || 'no caveats carried';
       case 'count': {
         const t = ix.totals;
         return `elements populated ${t.populated} · spectra rows only ${t.csv_only}\ncells ${t.rows} = measured ${t.measured} + exact ${t.exact} + computed ${t.computed}; witnessed ${t.witnessed}\ncommit ${ix.meta.commit || '?'} · built ${ix.meta.built}`;
@@ -4431,11 +4444,11 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
             const k = limitKind(m.bound_note) || 'unclassified';
             counts[k] = (counts[k] || 0) + 1;
             const mm = /^limit ([0-9.]+);/.exec(m.bound_note);
-            if (mm) lims.push(`${cellName(e.symbol, ch, m).padEnd(22)} limit ${mm[1]} (as printed)`);
+            if (mm) lims.push(`${cellName(e.symbol, ch, m).padEnd(22)} limit ${mm[1]} cm⁻¹`);
           }
           const lines = [`${e.symbol}: bound note ${st('READ')} · kind ${st('DERIVED')} by the rule data/index.js carries`];
           for (const k of LIMIT_KIND_ORDER) if (counts[k]) lines.push(`${(LIMIT_LABEL[k] || k).padEnd(34)} ${counts[k]}`);
-          if (lims.length) lines.push('', 'series limits printed in the csv (no unit carried):', ...lims);
+          if (lims.length) lines.push('', `series limits printed in the csv ${st('READ')}; the unit, which the csv does not print, ${st('RECOVERED')}: NIST's neutral ionisation energy in cm⁻¹`, ...lims);
           return lines.join('\n');
         });
       case 'relativistic': {
@@ -4535,7 +4548,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           for (const { ch, m } of dis.slice(0, cap)) lines.push(`${cellName(e.symbol, ch, m).padEnd(22)} B csv=${m.B_csv}  B computed=${ch.B_computed}  (p=${ch.p}, n₀=${ch.n0})`);
           if (dis.length) lines.push(`caveat b-aufbau: ${caveat('b-aufbau')}`);
           lines.push(`\n${nb.length} rows where B in the csv is not a bound`);
-          for (const { ch, m } of nb) lines.push(`${cellName(e.symbol, ch, m).padEnd(22)} B csv=${m.B_csv}  (a float; a dispersion, not a bound)  B computed=${ch.B_computed}`);
+          for (const { ch, m } of nb) lines.push(`${cellName(e.symbol, ch, m).padEnd(22)} B csv=${m.B_csv_reading === 'range' ? m.B_csv_range + '  (the range of the series\' quantum defects ' + st('RECOVERED') + ', not a bound)' : (m.B_csv_raw || '0') + '  (0 at Z = 119 and 120, not a bound)'}  B computed=${fmtRead(ch.B_computed)}`);
           if (nb.length) lines.push(`caveat b-overloaded: ${caveat('b-overloaded')}`);
           return lines.join('\n');
         });
@@ -4605,14 +4618,14 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     if (node.kind === 'isotopes') return { kind: 'isotopes', Z: node.Z, symbol: e.symbol, source: node.rec.source, status: node.rec.status, nuclides: node.rec.rows };
     if (node.kind === 'nuclide') return { kind: 'nuclide', Z: node.Z, symbol: e.symbol, source: node.parent.rec.source, status: node.parent.rec.status, nuclide: node.rec };
     if (node.kind === 'channel') return { kind: 'channel', Z: node.Z, symbol: e.symbol, charge: node.charge, l: node.l, channel: node.rec };
-    if (node.kind === 'cell') return { kind: 'cell', Z: node.Z, symbol: e.symbol, charge: node.charge, l: node.l, mult: node.mult, cell: node.rec, channel: { p: node.parent.rec.p, n0: node.parent.rec.n0, B_computed: node.parent.rec.B_computed, C_of_Z: node.parent.rec.C_of_Z, delta_equation: node.parent.rec.delta_equation } };
+    if (node.kind === 'cell') return { kind: 'cell', Z: node.Z, symbol: e.symbol, charge: node.charge, l: node.l, mult: node.mult, cell: node.rec, channel: { p: node.parent.rec.p, n0: node.parent.rec.n0, B_computed: node.parent.rec.B_computed, C_of_Z: node.parent.rec.C_of_Z, delta_equation: node.parent.rec.delta_equation, domain: node.parent.rec.domain } };
     return null;
   }
   function claudePrompt(question) {
     const node = state.selected || rootNode;
     const rec = recordForClaude(node);
     const axes = (state.index.axes || []).map((a) => `${a.axis} | ${a.status} | ${a.source}`).join('\n');
-    const cav = (state.index.caveats || []).map((c) => `- ${c.text}`).join('\n');
+    const cav = (state.index.caveats || []).map((c) => `- [${c.state || 'standing'}] ${c.text}`).join('\n');
     return `You are answering a question about ONE record of The Master Index (read by tools/populate.py and serialised by tools/webindex.py). Strict rules:
 - Answer ONLY from the RECORD, the AXIS/STATUS TABLE and the CAVEATS below. Nothing else is known to you.
 - Every number you quote must be followed by its status in square brackets — READ, PINNED, DERIVED, RECOVERED or RECONSTRUCTED — as the axis table or the record gives it. If no status is given for a value, say so.
@@ -4648,7 +4661,7 @@ QUESTION: ${question}`;
   }
   function saveAskSettings(s) { try { localStorage.setItem(ASK_KEY, JSON.stringify(s)); } catch (e) { /* storage unavailable */ } }
   const ASK_STATUS = {
-    delta: 'READ', delta_equation: 'PINNED', p: 'PINNED', n0: 'RECONSTRUCTED', B_computed: 'PINNED', B: 'PINNED', limit: 'READ', residual: 'DERIVED',
+    delta: 'READ', delta_equation: 'PINNED', p: 'PINNED', n0: 'RECOVERED', B_computed: 'PINNED', B: 'PINNED', limit: 'READ', residual: 'DERIVED',
     shells_as_printed: 'READ', configuration: 'READ', level: 'READ', symbol: 'READ', electron_count: 'DERIVED', E: 'PINNED', held: 'PINNED', admitted: 'PINNED',
     A: 'PINNED', K: 'PINNED', H: 'PINNED', E0: 'PINNED', E1: 'PINNED', mass_MeV: 'READ', width_MeV: 'READ',
   };
@@ -4685,7 +4698,7 @@ QUESTION: ${question}`;
       (rec.channels || []).forEach((ch, i) => {
         if (n > 90) return;
         const cb = `${b}/channels/${i}`;
-        push(cb + '/charge', ch.charge, 'READ'); push(cb + '/l', ch.l, 'READ'); push(cb + '/p', ch.p, 'PINNED'); push(cb + '/n0', ch.n0, 'RECONSTRUCTED'); push(cb + '/B_computed', ch.B_computed, 'PINNED'); push(cb + '/delta_equation', ch.delta_equation, 'PINNED'); n += 6;
+        push(cb + '/charge', ch.charge, 'READ'); push(cb + '/l', ch.l, 'READ'); push(cb + '/p', ch.p, 'PINNED'); push(cb + '/n0', ch.n0, 'RECOVERED'); push(cb + '/B_computed', ch.B_computed, 'PINNED'); push(cb + '/delta_equation', ch.delta_equation, 'PINNED'); n += 6;
         (ch.measured || []).forEach((mr, j) => { push(`${cb}/measured/${j}/mult`, mr.mult, 'READ'); push(`${cb}/measured/${j}/delta`, mr.delta, 'READ'); if (mr.limit !== null && mr.limit !== undefined) push(`${cb}/measured/${j}/limit`, mr.limit, 'READ'); n += 3; });
       });
       (rec.lambda8 || []).slice(0, 12).forEach((st, i) => push(`${b}/lambda8/${i}`, { charge: st.charge, from: st.from, to: st.to, cell: st.cell }, 'RECONSTRUCTED'));
@@ -6009,6 +6022,15 @@ var SOLVERS, LIB;
         });
       }
       if (coef.fallback.length) rows.push(row('coefficients', coef.note, PINNED));
+      // the record's domain: the channel's own classification where the record carries one, else
+      // the two exclusions decidable from Z and the charge alone (the other two need the csv's notes)
+      if (ch && ch.domain) rows.push(row('equation domain', ch.domain.validated === null ? 'not classified: ' + ch.domain.reasons.join('; ') : ch.domain.validated ? 'validated' : 'extrapolated: ' + ch.domain.reasons.join('; '), ch.domain.validated === null ? null : DERIVED, 'the record\'s rule over the csv\'s notes; a residual outside the domain is not a finding against the equation'));
+      else {
+        var why = [];
+        if (Z > 103) why.push('Z > 103: no long-lived isotope');
+        if (charge > 10) why.push('charge > 10: no analysed Rydberg data');
+        rows.push(row('equation domain', why.length ? 'extrapolated: ' + why.join('; ') : 'not decided here: the core\'s parents and the series need the record\'s channel', why.length ? DERIVED : null, 'the record\'s rule, the part decidable from Z and the charge'));
+      }
       var dom = caveat(ctx.index, 'equation-domain');
       if (dom) rows.push(row('caveat', dom));
       return { rows: rows, ok: true };
@@ -6045,7 +6067,7 @@ var SOLVERS, LIB;
     id: 'pauli-bound',
     title: 'The Pauli bound',
     status: PINNED,
-    statusNote: 'The Pauli bound, B = min(p, n0 - l - 1), Pauli 1925 and Janet 1929; n0\'s reading is RECONSTRUCTED.',
+    statusNote: 'The Pauli bound, B = min(p, n0 - l - 1), Pauli 1925 and Janet 1929; n0\'s reading is RECOVERED: the first entirely unoccupied n reproduces every integer B of the spectra index on the table it was built on.',
     description: 'B = max(0, min(p, n0 - l - 1)) for a channel. p is the core\'s orbital count at this l and n0 the first entirely unoccupied n; both are taken from the selected channel\'s record unless typed. n0\'s reading is a reconstruction: the definition names the term but not whether a partly filled subshell counts, and He I ns settles it for "first entirely unoccupied n". Where the record carries the CSV\'s B the two are set side by side and a disagreement is recorded, not repaired.',
     inputs: [sel('Z'), sel('charge'), sel('l'),
              { name: 'p', label: 'p', type: 'number', default: '', help: 'blank: from the selected channel\'s record' },
@@ -6081,19 +6103,21 @@ var SOLVERS, LIB;
       if (n0 === null) return fail('n0 is not carried for this channel; type it');
       var B = pauliBound(p, n0, l);
       rows.push(row('p', p, pSrc === 'typed' ? null : PINNED, pSrc === 'typed' ? 'typed, not a figure of the index' : pSrc));
-      rows.push(row('n0', n0, nSrc === 'typed' ? null : RECONSTRUCTED, nSrc === 'typed' ? 'typed, not a figure of the index' : nSrc + '; first entirely unoccupied n at this l'));
+      rows.push(row('n0', n0, nSrc === 'typed' ? null : RECOVERED, nSrc === 'typed' ? 'typed, not a figure of the index' : nSrc + '; first entirely unoccupied n at this l'));
       rows.push(row('l', l, ch ? READ : null, ch ? 'the channel\'s l' : 'typed'));
       rows.push(row('n0 - l - 1', n0 - l - 1, DERIVED));
       rows.push(row('B = max(0, min(p, n0 - l - 1))', B, PINNED, 'the Pauli bound'));
       if (ch) {
         rows.push(row('B_computed exported', ch.B_computed, PINNED, ch.B_computed === B ? 'agrees' : 'DIFFERS from the value computed here'));
         (ch.measured || []).forEach(function (m) {
-          if (m.B_csv_is_not_a_bound) rows.push(row('B in the CSV, mult ' + m.mult, 'not a bound', READ, caveat(ctx.index, 'b-overloaded') || 'a dispersion, not a bound'));
+          if (m.B_csv_reading === 'range') rows.push(row('B in the CSV, mult ' + m.mult, m.B_csv_range + ' (the range of the series\' quantum defects, not a bound)', RECOVERED, caveat(ctx.index, 'b-overloaded') || 'the range of the defects, not a bound'));
+          else if (m.B_csv_reading === 'zero') rows.push(row('B in the CSV, mult ' + m.mult, '0 (not a bound)', READ, caveat(ctx.index, 'b-overloaded') || '0 at Z = 119 and 120, the bound on neither table'));
+          else if (m.B_csv_is_not_a_bound) rows.push(row('B in the CSV, mult ' + m.mult, 'not a bound', READ, caveat(ctx.index, 'b-overloaded') || 'not a bound'));
           else if (m.B_csv !== null && m.B_csv !== undefined) rows.push(row('B in the CSV, mult ' + m.mult, m.B_csv, READ, m.B_csv === B ? 'agrees' : 'DISAGREES: ' + (caveat(ctx.index, 'b-aufbau') || 'the column was built on the withdrawn aufbau table')));
         });
       }
       var cv = caveat(ctx.index, 'n0-reading');
-      rows.push(row('caveat', cv || 'n0\'s reading is RECONSTRUCTED (caveat n0-reading is not carried by this build of data/index.js)'));
+      rows.push(row('caveat', cv || 'n0\'s reading (caveat n0-reading is not carried by this build of data/index.js)'));
       return { rows: rows, ok: true };
     },
     selftest: async function (ctx) {
@@ -6127,11 +6151,11 @@ var SOLVERS, LIB;
       });
       ck.ok('every loaded channel: B = max(0, min(p, n0-l-1)) reproduces B_computed (' + n + ' channels)', bad === 0, first || bad, 0);
       ck.ok('every loaded channel with a loaded core: core_p and n0_of over the core\'s configuration reproduce p and n0 (' + nCore + ' channels)', badCore === 0, badCore, 0);
-      // a typed p with a blank n0: n0 comes from the record and keeps its RECONSTRUCTED status
+      // a typed p with a blank n0: n0 comes from the record and keeps its RECOVERED status
       var fe = ctx.element(26) || await ctx.load(26);
       if (fe) {
         var typed = await MODE_PAULI.run({ Z: 26, charge: 1, l: 0, p: '4', n0: '' }, ctx);
-        ck.eq('typed p, blank n0 (Fe I s): n0 read from the record is RECONSTRUCTED', typed.rows[1].status, RECONSTRUCTED);
+        ck.eq('typed p, blank n0 (Fe I s): n0 read from the record is RECOVERED', typed.rows[1].status, RECOVERED);
         ck.eq('typed p, blank n0 (Fe I s): the typed p carries no status', typed.rows[0].status, null);
         ck.eq('typed p, blank n0 (Fe I s): n0 is the record\'s', typed.rows[1].value, findChannel(fe, 1, 0).n0);
       }

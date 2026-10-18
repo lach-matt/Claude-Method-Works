@@ -377,6 +377,27 @@ scenario('solvers', 'the search box reads a particle by its name', async ({ open
   ok('...and the gravity suggestion opens the mode on it', m.mode === 'Relative gravity of a body' && m.body === 'proton', m);
 });
 
+// ---- caveats: the list as reviewed on 2026-10-17, and each repair where a reader meets it
+const plate = (p) => p.evaluate(() => document.querySelector('#inspector-body').textContent.replace(/\s+/g, ' '));
+scenario('caveats', 'the caveats carry their state, and each repair shows on its plate', async ({ open, ok, W }) => {
+  const p = await open(); await p.goto(B + '#/'); await W(p, 3000);
+  const cv = await p.evaluate(() => [...document.querySelectorAll('#inspector-body .cv-list li')].map((li) => ({ state: (li.querySelector('.cv-state') || {}).textContent || null, was: !!li.querySelector('.cv-was'), text: li.textContent })));
+  ok('eleven caveats, each with a state; every repaired one says what it read before', cv.length === 11 && cv.every((c) => c.state) && cv.filter((c) => /^Repaired/.test(c.state)).every((c) => c.was), cv.map((c) => [c.state, c.was]));
+  ok('the table stops where NIST\'s neutral ground levels stop, not "because measurement does"', cv.some((c) => /NIST's compilation of neutral ground levels/.test(c.text)) && !cv.some((c) => /because measurement does/.test(c.text.replace(/Before the review it read:.*$/, ''))), cv[0] && cv[0].text);
+  await p.goto(B + '#/Na/I/s/2'); await W(p, 3000); let t = await plate(p);
+  ok('Na I s: the csv\'s B is the range of the series\' defects, not a bound', /range of the series’ quantum defects, not a bound/.test(t) && /0\.02475/.test(t), t.slice(0, 600));
+  ok('Na I s: the series limit carries its unit, cm⁻¹', /41449\.451 cm⁻¹/.test(t) && /cm⁻¹, the neutral ionisation energy/.test(t), t.match(/series limit.{0,120}/));
+  ok('Na I s: inside the equation\'s domain', /equation domain\s*validated/.test(t), t.match(/equation domain.{0,60}/));
+  await p.goto(B + '#/Fe/IV/s'); await W(p, 3000); t = await plate(p);
+  ok('Fe IV s: outside the domain, with the reason', /equation domain\s*extrapolated — open-shell core at 16 parents/.test(t), t.match(/equation domain.{0,80}/));
+  await p.goto(B + '#/Rf'); await W(p, 3500); t = await plate(p);
+  ok('Rf: the ground level is NIST\'s lone level, its ionisation energy ab initio', /NIST holds the ground level of Rf I and no excited level/.test(t) && /ab initio/.test(t), t.match(/what it rests on.{0,160}/));
+  await p.goto(B + '#/Uue/XI/s'); await W(p, 3500); t = await plate(p);
+  ok('Z = 119: the csv\'s B is named a bare 0, not a bound', /0, not a bound/.test(t), t.slice(0, 500));
+  await p.goto(B + '#/Fe/I/s'); await W(p, 3000); t = await plate(p);
+  ok('Fe I s: n₀ is RECOVERED', /n₀\s*\d+\s*RECOVERED/.test(t), t.match(/n₀.{0,40}/));
+});
+
 // ---------------------------------------------------------------- suites
 const KNOWN = [...new Set(SCENARIOS.map((x) => x.suite))];
 if (SUITES.has('all')) SUITES = new Set(KNOWN);
