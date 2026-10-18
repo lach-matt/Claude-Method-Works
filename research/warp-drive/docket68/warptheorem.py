@@ -1237,6 +1237,24 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_496_SOURCE
     _rows_496.append((c, n, s_, t))
 LEMMAS_NOW = _rows_496
+# [item 497] the five-dimensional high-frequency limit (M: "Prove the five-dimensional high-frequency limit.")
+NOTE_497_SOURCE = ("  [Item 497] The five-dimensional high-frequency limit, by computation (lemmas/hf_limit5.py H1-H6).  "
+                   "Exact where the shell is locally: 5D vacuum plane waves beta_a = ln w + lambda a sin(u/lambda + "
+                   "2 pi a/3), the phases a third of a turn apart, are exact vacuum for every lambda (closed form for "
+                   "constant a, w = cos(a u/sqrt2)), mirror-symmetric in every transverse direction, and converge "
+                   "uniformly with bounded derivatives to null dust R_uu = (3/2) a^2 -- every density profile arises, "
+                   "never negative.  The opening shell is locally that wave: 5D Vaidya G_vv = 3 mu'/(2 r^3), and at the "
+                   "least spread the scales separate (focusing 11.9 r_h, 36 times the local region).  Formal over the whole "
+                   "round shell: Bizon-Chmaj-Schmidt's exact radial vacuum averages to dm ^ dpsi = 0 with psi null -- "
+                   "5D Vaidya.  Not proved: one exact mirror-symmetric vacuum sequence for the whole shell (the mirror "
+                   "forces cohomogeneity three; no homogeneous squashing has a mirror), the 5D counterpart of Huneau "
+                   "and Luk's nonlinear theorem")
+_rows_497 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_497_SOURCE
+    _rows_497.append((c, n, s_, t))
+LEMMAS_NOW = _rows_497
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1426,7 +1444,9 @@ def lemma_selftests():
               "face2_open.py", "scope.py", "z_hawking.py",
               "face2_release.py", "r1_exact.py", "reader.py",
               # item 496: the bulk emitter's process
-              "emitter_process.py"):
+              "emitter_process.py",
+              # item 497: the five-dimensional high-frequency limit
+              "hf_limit5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

@@ -5,6 +5,34 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 497: the five-dimensional high-frequency limit, proved by computation where it can be
+
+M, 497: "Prove the five-dimensional high-frequency limit." (`hf_limit5.py` H1-H6, 7/7, mutants 3/3.)
+
+- **Exact, where the shell is locally (H1-H3).**
+  - A 5D plane wave -2 du dv + sum e^(2 beta_a(u)) dx_a^2 has one Ricci component, R_uu = -sum (beta_a'' + beta_a'^2).
+  - Take beta_a = ln w + lambda a sin(u/lambda + 2 pi a/3), the three phases a third of a turn apart. The 1/lambda
+    term cancels, and the squared derivatives sum to (3/2) a^2 exactly.
+  - So with w = cos(a u/sqrt2) every g_lambda is exact vacuum, a gravitational wave of wavelength 2 pi lambda,
+    mirror-symmetric in each transverse direction.
+  - As lambda -> 0 it converges uniformly (error 2.2e-1, 2.0e-2, 2.0e-3), its derivatives bounded at 2.2. The limit
+    is null dust, R_uu = (3/2) a^2: energy, no rest mass, never negative.
+  - With a slowly varying amplitude the exact condition is w'' + (a^2 + lambda^2 a'^2) w/2 = 0, and every density
+    profile arises, the error falling as lambda^2.
+- **This is the opening shell, locally (H4).** 5D Vaidya has G_vv = 3 mu'/(2 r^3). At the least spread (28.5 face
+  clocks) the shell peaks at mu'/r_h^2 = 4/(pi^2 sigma), so a r_h = 0.119 and it focuses over 11.9 r_h. Waves of r_h/10
+  fit 3.3 to a region of r_h/3, which is 36 times smaller than the focusing length.
+- **Formal, over the whole round shell (H5).**
+  - In Bizon, Chmaj and Schmidt's exact radial vacuum, high-frequency squashing waves leave no potential (16 r B^2).
+  - Averaged, they give dm ^ dpsi = 0 with psi null: the mass depends only on the null phase. The limit is round:
+    5D Vaidya.
+- **Not proved (H6).** One exact mirror-symmetric vacuum sequence for the whole round shell.
+  - No homogeneous squashing of the 3-sphere has a mirror: the reflection swaps SU(2)_L and SU(2)_R, so a metric
+    invariant under both is round, and the round vacuum is static.
+  - So such a sequence lives in cohomogeneity three. Its existence is the 5D counterpart of Huneau and Luk's
+    nonlinear theorem.
+  - SOURCEs and SOURCE stay OPEN on that theorem alone.
+
 ## Item 496: the bulk emitter's process for the opening shell, as the theorem's math requires it
 
 M, 496: "Continue with SOURCE: the bulk emitter's process". Set out in 492's four parts. Every line is read off a row
