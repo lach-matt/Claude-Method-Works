@@ -328,19 +328,24 @@ def diag(g, st, d, v, data):
                 r_lo=float(r_lo), r_hi=float(r_hi), nz=int(nz))
 
 
-def evolve(lam, A, Ny, Nx, m0=1.0, yex=YEX, v_end=4.5, dvf=0.125, every=0.25, log=None):
+def evolve(lam, A, Ny, Nx, m0=1.0, yex=YEX, cfl=None, v_end=4.5, dvf=0.125, every=0.25, log=None):
+    """RK4 at dv = lam dvf; with cfl, dv is also held to cfl x (the end spacing in y)/(the excision's outgoing speed
+    y^3 |W|/4) and lands on every sample time -- a deep excision in a growing hole is otherwise stiff"""
     g = Grid(Ny, Nx, yex); data = Data(lam, A, m0=m0); fb, fa = filters(g)
-    dv = lam*dvf
+    dv = dv0 = lam*dvf
     Z = np.zeros((Ny + 1, Nx + 1))
     st = [Z.copy(), Z.copy(), np.full(Nx + 1, -m0*yex), np.zeros(Nx + 1)]   # seed: W = 1 - m0 y^4, U = 0
     v, hist, nxt = 0.0, [], 0.0
-    for i in range(int(round(v_end/dv)) + 1):
+    for i in range(10**7):
         k1, d = rhs(g, st, v, data)
         if v >= nxt - 1e-9:
             hist.append(diag(g, st, d, v, data)); nxt += every
             if log: log(hist[-1])
-        if i == int(round(v_end/dv)):
+        if (cfl is None and i == int(round(v_end/dv0))) or (cfl is not None and v >= v_end - 1e-9):
             break
+        if cfl is not None:
+            speed = max(1.0, yex**3*np.abs(1 + yex**3*st[2]).max()/4)
+            dv = min(dv0, cfl*(g.y[1] - g.y[0])/speed, nxt - v)
         s2 = [a + 0.5*dv*b for a, b in zip(st, k1)]; k2 = rhs(g, s2, v + dv/2, data)[0]
         s3 = [a + 0.5*dv*b for a, b in zip(st, k2)]; k3 = rhs(g, s3, v + dv/2, data)[0]
         s4 = [a + dv*b for a, b in zip(st, k3)]; k4 = rhs(g, s4, v + dv, data)[0]
@@ -357,7 +362,7 @@ LIVE = (0.1, 1.0, 16, 10)
 SMALL_SEED = [(0.05, 2.0, 24, 16, 0.25, 1.6), (0.025, 2.0, 28, 16, 0.25, 1.6)]    # the shell is 3/4 of the final mass
 FOURTH = (0.0125, 1.0, 32, 16)                                                      # item 501: a fourth wavelength
 A16 = 6/np.sqrt(7)                                    # (2/9) A^2 x 3 x 35/128 = 15/16: the shell is 15/16 of the final mass 1
-SEED16 = [(0.05, A16, 24, 16, 1/16, 2.2), (0.025, A16, 28, 16, 1/16, 2.2)]
+SEED16 = [(0.025, A16, 28, 16, 1/16, 2.2, 2.0), (0.0125, A16, 32, 16, 1/16, 2.2, 2.0)]   # the 7th entry: cfl
 ALL = SEQUENCE + [LIVE] + SMALL_SEED + [FOURTH] + SEED16
 key = lambda cfg: "_".join("%g" % c_ for c_ in cfg)
 
