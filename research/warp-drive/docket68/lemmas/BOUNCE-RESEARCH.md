@@ -2440,3 +2440,30 @@ just information."
   realized; its wording is unchanged.
 - **So.** FACE2s and FACE2 are proved, and the eight rows on them return to proved; R1 returns to M's definition. The
   register reads 74 proved, 6 definitions, 2 open: SOURCEs and SOURCE.
+
+## 41. A magnetic corridor of 1-2 m between two spacetimes, without a README (493; lemmas/mag2m.py, 4/4)
+
+M, 493: "Don't guess, run the hypothesis whit all we know so far. - Can a magnetic warp corridor of be opened between
+two different spacetimes, and be held/remain open, without a README? - the mouth size should be assumed to be 1 to 2
+meters." Run with the board's own magnetic instruments (magnetic_chain, mmp_corridor), section 19, P3 (464) and M's
+109, 162, 390.
+
+- **The mouth (G1).** A magnetic hole that stays radiates to extremality and stops (K5), so the mouth that stays is
+  extremal: 1.35e27 kg at 1 m (225 Earths), 1.06e34 Dirac charges, a horizon field of 3.5e18 T; twice the mass and
+  charge at 2 m. Its face would hold 1.7e70 bits (6.9e70 at 2 m), 1.3e4 to 5.1e4 times the theorem's own cap (372).
+- **Opened: no (G2).** Classically the mouth needs 1e34 Dirac charges, and the 26 hold none: dF = 0 on our plane and
+  the topology is preserved (B4). Quantum pair creation (Dowker-Gauntlett-Giddings-Horowitz, READ) has S_E = 4.2e77 at
+  1 m in a magnetar's field (8.4e77 at 2 m), reaching order one only in a background as strong as the hole's own horizon
+  field, 3.5e18 T. And it makes both mouths in one universe, never two.
+- **Held open as a corridor between two spacetimes: no (G3).** The magnetic throat is held only by the negative energy
+  of field-line circles, E(l) = r^3/(G l^2) - c2/(8 L). The circle closes through the space outside, L = l + d. Between
+  two spacetimes there is no return path: L is infinite, dE/dl = -2 r^3/(G l^3) < 0 for every l, and the throat runs out
+  to extremality. Topological censorship (FSW, READ; disputed by Krasnikov) and the achronal ANEC (Graham-Olum, READ; a
+  conjecture) say the same; the flux argument stands without them. In one universe it holds (MM): at 1 m, l = 3.0e5 m,
+  binding 1.3e33 J, below 7.5e-9 K, the binding falling as the return path grows.
+- **Held open as a hole: yes, but closed to passage (G4).** The extremal magnetic hole stays, held by its charge, not
+  by any README. Its passage to another spacetime would cross its degenerate horizon, a Cauchy horizon (484), and P3
+  computed its interior singular, with no regular inner horizon.
+- **Without a README (G5, M's).** The theorem's corridor opens because of the README, takes its size, and closes when
+  empty (390, 162, 109). A README-less magnetic corridor between two spacetimes is no corridor of the theorem, and
+  physics gives none: what stays without a README is an extremal magnetic black hole in one spacetime.

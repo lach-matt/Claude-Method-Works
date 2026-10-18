@@ -1836,6 +1836,15 @@ state was rebuilt first.
     release whole.
   - SOURCEs and SOURCE stay OPEN on the bulk emitter's process for the opening shell. The register is unchanged at
     74 / 6 / 2.
+- **Item 493** (M's question: can a magnetic corridor of 1-2 m be opened between two different spacetimes, and be held
+  open, without a README?). Run, not answered from memory (`mag2m.py`, 4/4; BOUNCE-RESEARCH §41). **No, on both
+  counts.**
+  - It cannot be opened: the mouth needs 1e34 Dirac charges, which the 26 do not hold. Pair creation has S_E = 4.2e77
+    in a magnetar's field, and puts both mouths in one universe.
+  - It cannot be held open between two spacetimes: with no return path the field-line circles' negative energy is
+    zero, and the throat runs to extremality.
+  - What stays without a README is an extremal magnetic black hole of 1.35e27 kg (1 m), closed to passage (P3; 484).
+  - No row moved.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
