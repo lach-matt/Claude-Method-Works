@@ -350,7 +350,10 @@ CAVEATS = [
              "edited and printed by tool calls, rebuilt and held against every printed window) "
              "and run here. The displaced set this site states is what that recovered instrument "
              "returns (RECOVERED); the eleven the paper first printed are carried as the reading "
-             "it printed, superseded."},
+             "it printed, superseded.",
+     "was": "Filed as “relativistic-not-held”: the identifier still said the construction "
+            "was not held after its code had been recovered and run, so the list, the console and "
+            "the Ask prompt contradicted the plate."},
     {"id": "record-eleven", "state": "repaired", "reviewed": "2026-10-17",
      "text": "The paper's eleven were computed by its own final session as the elements where the "
              "chain's entrant differs from a second table the project had sealed as its "
