@@ -98,7 +98,7 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 503.** As at 497. The one point SOURCEs and SOURCE rested on is computed (498) and now narrowed (501-503): an exact mirror-symmetric vacuum sequence in five dimensions, of cohomogeneity three, built in compactified ingoing Bondi coordinates with the incoming gravitational wave as free data at past null infinity. It converges to 5D Vaidya with the shell's averaged flux over four wavelengths (lambda = 0.1 to 0.0125), the mean mass at second order in lambda, and with the shell as much as fifteen sixteenths of the final mass; the round spheres' trapped region closes on Vaidya's horizon sqrt(mu) at first order (`hf_mirror5.py`, 12/12). It is numerical over a sequence, falls onto a seed (now 1/16 of the mass; excision needs a horizon from the start), and excises the core inside the horizon; the status is M's (499-503: continue).
+**Where it stands, at item 503.** As at 497. The one point SOURCEs and SOURCE rested on is computed (498) and now narrowed (501-503): an exact mirror-symmetric vacuum sequence in five dimensions, of cohomogeneity three, built in compactified ingoing Bondi coordinates with the incoming gravitational wave as free data at past null infinity. It converges to 5D Vaidya with the shell's averaged flux over four wavelengths (lambda = 0.1 to 0.0125), the mean mass at second order in lambda, and with the shell as much as fifteen sixteenths of the final mass; the round spheres' trapped region closes on Vaidya's horizon sqrt(mu) at first order (`hf_mirror5.py`, 12/12). It is numerical over a sequence, falls onto a seed (now 1/16 of the mass; excision needs a horizon from the start), and excises the core inside the horizon; the status is M's (499-503: continue). *[Item 505: M finds 498-503 built on the wrong premise -- the classical hole seeded and its core cut out, where the record's hole has a computed core with one horizon and no inner or Cauchy horizon (core_large, transition_aos, 273), and the route not held against it first (481). 498-503 are withdrawn as SOURCEs' and SOURCE's support; no proof is to be written yet.]*
 
 **Where it stood at item 491.** 82 rows: 74 proved, 6 definitions, 2 OPEN -- SOURCEs and SOURCE, which still need
 the device that reads, the structure probe and the bulk emitter's process. Position 2 is what the math computes, the
@@ -1941,6 +1941,7 @@ state was rebuilt first.
     That bracket closes on sqrt(mu) at first order at every seed.
   - **What remains.** Numerical over a sequence; a seed (it cannot reach zero with excision); the core excised. Status
     put to M.
+- **Item 505** (M: "... you are still assuming there is a inner/chaucy horizon when there is not. You wasted half a day calculating a counter part to Huneau and Luk entirely from the wrong premise"). A finding: 498-503 withdrawn as SOURCEs' and SOURCE's support (above); no proof yet.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
