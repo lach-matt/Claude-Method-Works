@@ -2409,3 +2409,34 @@ whether any state or mechanism, not only the vacuum the theorem gives position 2
   emerging in its radiation (this changes 447's dictionary); or a horizonless mouth, its throat held open as in 445 (2).
 
 What it does not claim: anything beyond the s-wave model for the stress, or about either candidate beyond naming it.
+
+## 40. What the math puts at position 2 (491; lemmas/face2_release.py, lemmas/r1_exact.py) -- §38's and §39's premise withdrawn
+
+M, 491: "what does the physics say should stand at position 2?" ... "what does the math say it needs to be?" ... "R1,
+"no tolerance" - this is wrong because your model and premise are both wrong" ... "our plane's matter doesn't travel,
+just information."
+
+- **The premise of §38 and §39 was against the rulings.** §38 took position 2's face to be open the whole write, the
+  README emerging over it. But 432 (2) has the passage held whole through the write and released at the end; 163 has the
+  README held as one whole; 336 and 386 let only information travel. §39 then asked what could hold a face for a period
+  it never has. Both are withdrawn. §38's W1 (the write's length, on our side), W3's rates and W4's t_q stand.
+- **What stands at position 2 (V1; transition5q, run here).** The interior crosses one transition surface into position
+  2's white hole, whose mass is our hole's to 1e-30, in 2 r_h/c, the two halves equal. That is what the math says, and it
+  is 447's dictionary. Nothing there has to change.
+- **Its open period (V2).** The face opens with the README's release and closes when nothing is within it (390). Released
+  whole at the end, the README crosses the anti-trapped half once: the face is open at most 2 r_h/c (1.000 for the half),
+  4 clocks of GM/c^3 at the large end.
+- **It holds (V3-V4).** Within that period position 2's vacuum builds a negative mass of 2.2e-15 of the face's (1.4e-67
+  at the Earth cap); t_q is 17.9 (155) times longer. A perturbation would need 4.9e7 J (5.5e40 J) to trap it. This is
+  Barcelo, Carballo-Rubio and Garay's own case: a black hole that turns white fast is robust.
+- **The README passes whole (V5).** Position 2's face has our area, and N ln2 = A/(4 l5^3) exactly: the release meets
+  the covariant entropy bound at equality, at any duration. §39's K2 priced the README as free radiation carrying our
+  energy out of position 2, which 336 and 386 exclude.
+- **R1 (r1_exact X1-X5).** Whatever falls in is the README (418), held whole and released whole, so the interior's mixing
+  of a mode with its partner is a unitary on the README's own modes: the two-mode squeezer, symplectic exactly, inverted
+  exactly (round trip 1.5e-14 on the computed |beta|^2). A unitary keeps orthogonal states orthogonal, so the passage is
+  exact, and position 2's equal-area face holds exactly the README's N: the two witnesses agree (145). The amplifier
+  channel of 489 and 490 came from tracing out a partner the rulings never separate. R1 stands as M's definition,
+  realized; its wording is unchanged.
+- **So.** FACE2s and FACE2 are proved, and the eight rows on them return to proved; R1 returns to M's definition. The
+  register reads 74 proved, 6 definitions, 2 open: SOURCEs and SOURCE.

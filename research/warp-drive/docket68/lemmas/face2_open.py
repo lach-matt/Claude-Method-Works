@@ -15,6 +15,9 @@ against established physics over it.  Labels: computed (exact unless marked), de
      At the large end (4D: N ln2 k T_H = E/2) the inflow is (3/8) E and tau_w = 3 N ln2 / (32 pi alpha) clocks of GM/c^3.
      Thermal radiation at T_H is the most entropy per energy that the face's own area passes at its own power, so
      tau_w is the write's least time with the face at its size (162-163).
+  [Item 491: W2, W5 and W6 rest on a premise against 432 (2) -- the README held whole through the write and released
+  whole at its end -- and are withdrawn: position 2's face is open only for the release, at most 2 r_h/c, and holds
+  (face2_release.py).  W1 (the write), W3's rates and W4's t_q stand and are used there.]
   W2 (computed, exact on 390 and junction_own G10) Position 2's face is open exactly while the README is within it:
      from the first part's emergence to the last part's, T_open = tau_w -- 8.63e14 clocks (3.2e-14 s) at the example,
      1.5e67 clocks of GM/c^3 (2.2e56 s) at the Earth cap.  J1's 33.6 clocks and J2's 4 are not its period.

@@ -109,7 +109,7 @@ CLASS = {
     "B6'": ("X", "M's definition (201), its consistency computed (sigma_defines T1-T4, nature_rows B1-B3)"),
 }
 PASSING = ("PROVED", "C")
-OPEN_489 = ["FACE2s", "FACE2", "E2us", "E2xs", "E2u", "E2x", "E3", "R5", "B3s", "B3", "SOURCEs", "SOURCE", "R1"]
+OPEN_489 = ["SOURCEs", "SOURCE"]                                   # [item 491] the rest of 489's thirteen back
 # P5 (item 441): each row's premises among M's rulings (substantive; verifier and work-item numbers set aside)
 RULED = {
     "G1": (101, 131, 132, 133), "H2": (270,), "H2txs": (240,), "H2tx": (240, 390, 427),
@@ -304,7 +304,7 @@ def selftest(quiet=False):
     cls = classify(rows)
     unclassed = [k for k, v in cls.items() if v[0] == "?"]
     fail = sorted(k for k, v in cls.items() if v[0] not in PASSING)
-    p2 = not unclassed and fail == sorted(["R0", "R2", "R6", "RECON", "B6'"] + OPEN_489)
+    p2 = not unclassed and fail == sorted(["R0", "R1", "R2", "R6", "RECON", "B6'"] + OPEN_489)
     # [B5b out at 441, B7 at 442, O1b and O1c at 478, SOURCEs and SOURCE at 487 (PROVED); item 489: thirteen OPEN --
     # FACE2s, FACE2 and the eight resting on them, SOURCEs and SOURCE again, R1]
     ok.append(p2); say("P2-P3 every row classed; not passing: %s: %s" % (", ".join(fail), p2))

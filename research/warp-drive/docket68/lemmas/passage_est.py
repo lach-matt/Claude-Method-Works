@@ -34,6 +34,12 @@ propagation of a quantum field on a globally hyperbolic background.
      end (one channel, the plane's): tau_write = 3 N ln2/(32 pi alpha) clocks of GM/c^3 = 10.9 N (Z = 108.75), the
      inflow (3/8) E(N).  [The copper block's 174 bits, quoted here first, lie outside the computed domain, N >= 7.12e9
      (scope.py C2): withdrawn.]
+  [Item 491, M: R1's "model and premise are both wrong".  Q5's 489 reading -- each mode alone at position 2, its
+  partner kept in the core, an amplifier channel, "error below any epsilon, not exactly" -- is against 418 (whatever
+  falls in is the README), 163 (held as one whole), 432 (2) (released whole at the end) and 386, and is withdrawn.  The
+  mixing Q5 computes, a' = alpha a + beta b^+, is a unitary on the README's own modes, inverted exactly at position 2
+  (r1_exact.py).  Q5's numbers stand as computed; F is the withdrawn premise's figure.  In Q7, "each quantum crosses
+  ... toward position 2's white hole" reads: the README, held whole, crosses whole at the write's end.]
   Q5 (computed; corrected at 489, F3) The README's quanta cross the computed interior unitarily: the Klein-Gordon norm
      kept to 6e-8 and |alpha|^2 - |beta|^2 = 1 to 6e-8 for every k computed.  Quanta in the inflow's band (k r_h 0.1 to 30 at
      mu/l5^2 = 1e6) are mixed by the transition, |beta|^2 from 0.16 to 20, with the partner modes -k: the interior

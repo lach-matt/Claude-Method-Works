@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""r1_realize.py -- item 490: R1's realizability (opened at 489).
+"""r1_realize.py -- [WITHDRAWN at 491, M: "your model and premise are both wrong".  Its premise -- each README
+mode alone at position 2, its partner kept in the core -- is against 418, 163, 432 (2) and 386, and its amplifier
+channel was that premise's artefact.  On the rulings the README passes whole through a unitary map and is inverted
+exactly: r1_exact.py.  Kept as the record of what was computed.]  item 490: R1's realizability (opened at 489).
 
 R1 is M's definition: position 2 reconstructs the README with no tolerance.  Item 441 (2) requires a definition to be
 realizable.  489 set R1 OPEN because position 2 holds each README mode alone: the mode's partner is kept in the core,

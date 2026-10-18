@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-"""face2_hold.py -- item 490: work on FACE2s / FACE2 (opened at 489), position 2's face holding through its open period.
+"""face2_hold.py -- [WITHDRAWN at 491: built on 489's premise that position 2's face is open the whole
+write, against 432 (2) (the README held whole and released at the end), 163 and 336/386.  On the rulings the face is
+open only for the release and holds: face2_release.py.  Kept as the record of what was computed.]  item 490: work on FACE2s / FACE2 (opened at 489), position 2's face holding through its open period.
 
 face2_open (489) showed that in position 2's vacuum the face lasts t_q = 35.8 clocks against an open period of 8.63e14,
 and that one state would hold it: the time reverse of our face's state.  It did not claim that no other state or

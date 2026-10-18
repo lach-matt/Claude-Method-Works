@@ -6,13 +6,14 @@ the pieces that defines the warp theory as a single statement".  So the board's 
 statement, and what is not yet proved is a named lemma of it -- never a separate theorem fitted to a part.
 
 THE WARP THEOREM, AS IT STANDS (item 331, M-UPDATE-STALE-NOW; corrected at item 489 for the 488 verification's
-findings F1-F13; the register LEMMAS_NOW below).  For an object whose README -- its one fixed exact encoding, labels
+findings F1-F13, and at 491 where 489's F1 and F3 had gone against M's rulings; the register LEMMAS_NOW below).  For an object whose README -- its one fixed exact encoding, labels
 and values, written in what every universe shares -- has N bits, N >= 7.12e9 (the computed domain, scope C2; below it
 the corridor is Planck-scale and nothing is claimed), there is exactly one static corridor (J = 0, the round delivery's;
-scope C1), fixed by N and by our plane's tension, and through it the README becomes, one way in every aspect and with
-error below any epsilon > 0 -- not exactly (R1 OPEN; passage_est Q5) -- the object at position 2, the delivery there
-resting on position 2's face holding through its open period (FACE2s, FACE2: OPEN).  M's definitions -- R0, R2, R6,
-RECON, B6' -- stand as realizable, not as proved true (441 (2)):
+scope C1), fixed by N and by our plane's tension, and through it the README becomes, one way in every aspect and
+exactly (R1, M's definition, realized: r1_exact), the object at position 2 -- where the math puts the white hole of our
+hole's mass, its face open only for the README's release whole at the write's end and holding through it (FACE2s,
+FACE2: face2_release).  M's definitions -- R0, R1, R2, R6, RECON, B6' -- stand as realizable, not as proved true
+(441 (2)):
 
   (G) GEOMETRY   the corridor is the brane hole whose horizon holds N bits, one family with two ends (256): small, the
                  README's own localized five-dimensional hole -- Tangherlini in the flat limit, our plane through its
@@ -35,11 +36,11 @@ RECON, B6' -- stand as realizable, not as proved true (441 (2)):
                  passage (259; o1c_oneway, verified 337); the two faces of equal mass on one onset curvature for both
                  sectors of the transition (415's P1-P4; transition5r R5); our face held at its size through the write
                  by the plane's inflow, then closing by Hawking emission over the hole's life, 8.57e14 clocks, its
-                 energy staying in our universe (336); position 2's face open while the README is within it, the
-                 write, 8.63e14 clocks (390; face2_open W2), and closing as the README's last part leaves it -- its
-                 holding through that period not given by established physics (any perturbation from position 2, and
-                 in position 2's vacuum its own flux after 35.8 clocks, end it as a white hole; face2_open W3-W6:
-                 FACE2s, FACE2 OPEN);
+                 energy staying in our universe (336); position 2's face, the white hole of our hole's mass
+                 (transition5q), open while the README is within it (390) -- the release whole at the write's end
+                 (432 (2)), at most 2 r_h/c, 4 clocks of GM/c^3 at the large end -- and holding through it: in
+                 position 2's vacuum t_q = 35.8 clocks (620) is 17.9 (155) times longer, and no perturbation reaches
+                 it (face2_release V1-V5; Barcelo et al., READ);
   (Z) NULL ENERGY NEVER VIOLATED   net along each light ray (183): every classical ray keeps it -- the passage's
                  classical segments are Ricci-flat, the README's null energy non-negative, and our face's own Hawking
                  influx, outside the quantum region, is paired on the same rays by the inflow during the write and by
@@ -51,19 +52,19 @@ RECON, B6' -- stand as realizable, not as proved true (441 (2)):
                  -- the coincident sheets' summed stress (B5a) and position 2's where the README lands (284, 285) --
                  matter keeping null energy at every point (320); k's ratio k_R = k_L/2 and its scale our plane's
                  tension and offset (201); position 2's offset 2.625e-10 J/m^3 (322);
-  (I) INFORMATION  the passage is N bits of entanglement, and carries the N-bit README -- the plane's own radiation at
-                 T_H over the write, E/2 in, crossing the interior unitarily and mixed with the partners the core
-                 keeps, so recovered at position 2 with error below any epsilon by coding, at a fraction of the
-                 inflow's entropy (passage_est Q4-Q5);
+  (I) INFORMATION  the passage is N bits of entanglement, and carries the N-bit README -- written in over the long
+                 write by the plane's own radiation at T_H, E/2 in (passage_est Q4), held whole in the corridor with
+                 whatever falls in (163, 418) and released whole at the write's end (432 (2)) through the interior's
+                 unitary map, which position 2 inverts exactly (r1_exact); only information crosses (336, 386);
   (E) ENERGY     one exact energy E, the hole's own, holds our face -- in the mean through the write, the inflow passing
                  through it as its emission -- and returns to our universe as radiation over the hole's life (336);
                  position 2's face, closing, releases position 2's own energy into position 2, which the build uses
-                 exactly (110, 111 (a), 240) -- the need what it activates (239) -- OPEN on FACE2s/FACE2; what crosses
+                 exactly (110, 111 (a), 240) -- the need what it activates (239); what crosses
                  is the README, the one value read from two sides (111 (b), 240);
   (R) RECONSTRUCTION  position 2 builds from its own bulk a copy of the object exact to the README it receives (R2,
                  M's definition), which then obeys position 2's laws (240, 285), taking its room by displacing what is
-                 there and keeping it as the new whole of position 2 (284, 285) -- the build's mechanism OPEN on
-                 FACE2s/FACE2; the corridor's length is the difference of the trajectories.
+                 there and keeping it as the new whole of position 2 (284, 285) -- the build's mechanism R5's; the
+                 corridor's length is the difference of the trajectories.
 
 At the small end, where the example README sits, three lemmas stay OPEN -- B3, B4d, FAR -- CLOSE closed there on
 M's 336 (CLOSEs), and two rows stand on named readings: Z3bs, on 318's, and ARRIVALs (items 338, 340), on the board's
@@ -108,6 +109,14 @@ through the write, and the white phase cannot be cut to fit -- what stands at po
 R1: zero error is impossible at any block length; error below any epsilon is realized (r1_realize) -- the wording M's.
 SOURCE: our plane's matter can open the face by a head-on collision (open_plane), against 486 for every opening but the
 round shell -- M's to decide; the reading device and the structure probe remain.]
+[Item 491, M: "what does the math say it needs to be?"; R1's "model and premise are both wrong"; "our plane's matter
+doesn't travel, just information".  489's F1 (position 2's face open the whole write) and F3 (each README mode crossing
+alone, its partner kept apart) went against 432 (2), 163, 418 and 336/386, and 490 built on them: withdrawn.  On the
+rulings the math puts at position 2 the white hole of our hole's mass (transition5q), its face open only for the
+README's release whole at the write's end, at most 2 r_h/c, and holding through it (face2_release); the README passes
+whole through the interior's unitary map and is inverted exactly (r1_exact).  82 rows: 74 PROVED, 6 DEFINITION, 2 OPEN
+-- SOURCEs and SOURCE, which still need the device that reads, the structure probe and the bulk emitter's process.  The
+theorem stops at SOURCE.]
 
 THE WARP THEOREM AS FIRST STATED (item 150; kept as the record -- 251 dropped (O)'s "extremal", 256 made (G) and (H)
 one family with two ends, and 270-330 re-read the rest, as stated above).
@@ -1040,6 +1049,7 @@ FACE2_ROWS = [
       "e-folds, 620 clocks (W4): T_open / t_q = 2.4e64 (W6).  Needed: as FACE2s")),
 ]
 _OPEN_489 = {"E2us", "E2xs", "E2u", "E2x", "E3", "R5", "B3s", "B3"}
+_PRE_489 = {n.split()[0]: s_ for c, n, s_, t in LEMMAS_NOW}          # [item 491] each row's standing before 489
 _F1_FIX = {"O2", "O3s", "B4ds", "M1P2xs"}
 _F1L_FIX = {"O3", "B4d", "M1P2x"}
 _rows_489 = []
@@ -1111,43 +1121,67 @@ LEMMAS_NOW = _rows_489
 RESTS_ON_NOW.update({'E2us': 'CLOSEs FACE2s', 'E2xs': 'CLOSEs FACE2s', 'E2u': 'CLOSE FACE2', 'E2x': 'CLOSE FACE2',
                      'E3': 'FACE2s FACE2', 'R5': 'FACE2s FACE2', 'B3s': 'M1s FARs WRITEs ARRIVALs CLOSEs FACE2s',
                      'B3': 'M1 FAR WRITE ARRIVAL CLOSE FACE2'})
-# [item 490] Work started on the new open objects: notes only, statuses unchanged (414: a change of approach is M's)
-NOTE_490_FACE2 = ("  [Item 490] Worked (lemmas/face2_hold.py K1-K6): as posed -- a semiclassical white-hole face held "
-                  "through the write -- established physics refutes it, not merely leaves it unproved.  The white phase "
-                  "cannot be cut to fit: at fixed entropy through the face t_min goes as E^-3, at least tau_w/27 = "
-                  "3.2e13 clocks (K2).  A bath from position 2 holds the face only at T_H to 10^(-3.75e14) (K3), and "
-                  "the face's own quanta move T_H by 4.7e-16, ending it within 70.4 clocks (K4).  The correlated "
-                  "time-reversed state would need position 2's incoming radiation to purify partners already pure with "
-                  "our Hawking radiation: monogamy gives 0 against 2 g(n) per mode (K5).  Prior art (READ): Eardley "
-                  "1974; Zel'dovich-Novikov-Starobinsky 1974; Wald-Ramaswamy 1980; Barcelo et al. 2016; Rovelli-"
-                  "Vidotto 2018.  What stands at position 2 must change -- a black hole there, or a horizonless mouth -- "
-                  "put to M (414)")
-NOTE_490_R1 = ("  [Item 490] Worked (lemmas/r1_realize.py Z1-Z3): 'no tolerance' cannot be realized -- the channel is the "
-               "quantum-limited amplifier followed by classical noise (G - 1) n > 0, every output faithful, so no two "
-               "outputs are orthogonal and the zero-error capacity is exactly 0 (Duan-Severini-Winter, READ).  The "
-               "realizable form is realized: heterodyne with Gallager's bound delivers the example README with total "
-               "error below 1e-100 at a fraction 0.112 of the inflow's entropy (Holevo F = 0.27).  The wording 'error "
-               "below any epsilon > 0 chosen in advance, at a rate below the channel's capacity' is M's to adopt "
-               "(414); OPEN until then")
-NOTE_490_SOURCE = ("  [Item 490] Worked (lemmas/open_plane.py Y1-Y6): our plane's matter can open the face.  Two pieces "
-                   "of it colliding head-on form a trapped surface (Eardley-Giddings, READ; M_AH >= 0.665 sqrt(s) in "
-                   "5D, their Table I reproduced).  It settles to the static J = 0 Tangherlini face (Gibbons-Ida-"
-                   "Shiromizu; Ishibashi-Kodama, READ) within 65 clocks (WKB estimate), at a collision energy between "
-                   "E5(N) and 1.50 E5(N).  emitter E3-E6 bind the round, all-at-once shell only; M's 486 ('our plane's "
-                   "matter cannot do it') conflicts with this for every other opening -- put to M (414).  If the round "
-                   "shell is not required, the emitter and formation gaps close on this computation, and the reading "
-                   "device and the structure probe remain")
-_rows_490 = []
+# [item 490] Work started on the new open objects -- worked on 489's premise and withdrawn at 491 (M: "your model and
+# premise are both wrong"; "our plane's matter doesn't travel, just information"); its notes stand as a pointer only
+NOTE_490_W = ("  [Item 490, withdrawn at 491] Worked on 489's premise; superseded by the item-491 note")
+# [item 491] What the math says on M's rulings: 432 (2) the passage held whole and released at the end; 163 one whole;
+# 418 whatever falls in is the README; 336 and 386 only information travels
+NOTE_491_FACE2 = ("  [Item 491] Proved (lemmas/face2_release.py V0-V6).  What stands at position 2 is what the math computes: "
+                  "the white hole of our hole's mass (transition5q H5, H6, run here; 447).  Its face opens with the "
+                  "README's release whole at the write's end (432 (2)) and closes as it leaves (390): open at most 2 r_h/c "
+                  "(H9; the anti-trapped half 1.000), 4 clocks of GM/c^3 at the large end.  In position 2's vacuum the "
+                  "negative mass reaches 2.2e-15 of the face's within it (1.4e-67 at the Earth cap), t_q being 17.9 (155) "
+                  "times longer.  Trapping it needs 4.9e7 J (5.5e40 J) within that period (Barcelo et al., READ: a short "
+                  "white phase is robust).  The README passes it whole at the covariant bound, N ln2 = A/(4 l5^3).  489's "
+                  "open period (the write) and 490's refutation rested on a premise against 432 (2), 163 and 336/386, and "
+                  "are withdrawn")
+NOTE_491_F1 = ("  [Item 491] Corrected: on 432 (2) the README is held whole through the write and released at its end, so "
+               "position 2's face is open only for the release, at most 2 r_h/c (4 clocks of GM/c^3 at the large end), and "
+               "holds through it (face2_release V2-V4): the 489 note's open period, the write, is withdrawn with its OPEN")
+NOTE_491_ROW = ("  [Item 491] Back to its standing before 489: FACE2s and FACE2, on which it rests, are proved "
+                "(face2_release)")
+NOTE_491_R1 = ("  [Item 491] Back to M's definition, realizable and realized (lemmas/r1_exact.py X0-X5).  489's model (an "
+               "amplifier channel) and premise (each mode alone, its partner kept apart) were against 418, 163, 432 (2) "
+               "and 386, and are withdrawn.  Whatever falls in is the README, held whole and released whole, so the "
+               "interior's map on the README's modes is the two-mode squeezer: symplectic exactly, its inverse exact, "
+               "the round trip to roundoff on passage_est's computed |beta|^2.  A unitary keeps orthogonal states "
+               "orthogonal: zero error.  The witnesses agree: position 2's equal-area face holds exactly the README's "
+               "N.  Wording unchanged (491)")
+NOTE_491_F3 = ("  [Item 491] Corrected: the README, held whole (163) and released whole (432 (2)) with whatever fell in "
+               "(418), is recovered at position 2 exactly, by the exact inverse of the interior's unitary map "
+               "(r1_exact); 'error below any epsilon, not exactly' is withdrawn")
+NOTE_491_SOURCE = ("  [Item 491] 490's note -- the face opened by a collision of our plane's matter -- answered the wrong "
+                   "question and is withdrawn: the theorem rests only on information passing through the corridor; our "
+                   "plane's matter does not travel (386, 491).  Not a need either: formation from our plane -- the "
+                   "emitter stands in the bulk (486, proved).  What SOURCE still needs: the device that reads, the "
+                   "structure probe's wavelength (S1C-O1), and the bulk emitter's process for the README's own energy")
+_rows_491 = []
 for c, n, s_, t in LEMMAS_NOW:
     nm = n.split()[0]
-    if nm in ("FACE2s", "FACE2"):
-        t = t + NOTE_490_FACE2
+    if nm == "FACE2s":
+        n = ("FACE2s position 2's face holds through its open period at the small end: the white hole of our hole's mass "
+             "(transition5q), open while the README is within it (390), the release whole at the write's end (432 (2)), "
+             "at most 2 r_h/c")
+        s_, t = "PROVED", t + NOTE_490_W + NOTE_491_FACE2
+    elif nm == "FACE2":
+        n = ("FACE2 position 2's face holds through its open period at the large end: the white hole of our hole's mass, "
+             "open while the README is within it (390), the release whole at the write's end (432 (2)), at most 4 "
+             "clocks of GM/c^3")
+        s_, t = "PROVED", t + NOTE_490_W + NOTE_491_FACE2
+    elif nm in _OPEN_489:
+        s_, t = _PRE_489[nm], t + NOTE_491_ROW
     elif nm == "R1":
-        t = t + NOTE_490_R1
+        s_, t = _PRE_489[nm], t + NOTE_490_W + NOTE_491_R1
     elif nm in ("SOURCEs", "SOURCE"):
-        t = t + NOTE_490_SOURCE
-    _rows_490.append((c, n, s_, t))
-LEMMAS_NOW = _rows_490
+        t = t + NOTE_490_W + NOTE_491_SOURCE
+    if nm in _F1_FIX or nm in _F1L_FIX or nm in ("CLOSEs", "CLOSE"):
+        t = t + NOTE_491_F1
+    if nm in ("E1xs", "E1x", "O1a"):
+        t = t + "  [Item 491] FACE2s and FACE2 are proved: the README emerges whole at position 2 (face2_release)"
+    if nm in ("ARRIVALs", "ARRIVAL"):
+        t = t + NOTE_491_F3
+    _rows_491.append((c, n, s_, t))
+LEMMAS_NOW = _rows_491
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1202,7 +1236,7 @@ def t1():
             "O2_now": sp.simplify(s6["ends"]["small"]["kappa"] - 1 / rh) == 0
             and sp.simplify(s6["ends"]["large"]["kappa"] - 1 / (4 * M_)) == 0
             and sp.simplify(s6["bh"]["damp"] + kap) == 0
-            and s6["open_clocks"] > 1e12 * s6["t_q"]}               # [item 489] position 2's face open on 390, not J1
+            and s6["open_clocks"] < s6["t_q"]}                     # [item 491] open for the release, below t_q
 
 
 def lemma_selftests():
@@ -1335,7 +1369,7 @@ def lemma_selftests():
               # item 489: the 488 verification's findings fixed -- position 2's face over its open period (F1), the
               # theorem's domain and its one static corridor (F4, F9), (Z) against our face's Hawking flux (F10)
               "face2_open.py", "scope.py", "z_hawking.py",
-              "face2_hold.py", "r1_realize.py", "open_plane.py"):
+              "face2_release.py", "r1_exact.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
@@ -1440,8 +1474,8 @@ def selftest():
     chk("T1: B1, the Gauss condition with K = -g/ell (localbulk.py); the record's O2, eq. (17)'s surface gravity zero "
         "(stability.py S1)", a["B1"] and a["O2"])
     chk("T1 (item 331): O2 now -- the corridor's horizon not extremal, kappa = 1/r_h at the small end and 1/(4M) at "
-        "the large; our face damped; position 2's face open on 390 for the write, its holding face2_open's (stability.py "
-        "S6, item 489)", a["O2_now"])
+        "the large; our face damped; position 2's face open for the release whole at the write's end, below t_q "
+        "(stability.py S6, item 491)", a["O2_now"])
     chk("T1: the lemma instruments' selftests pass (%s)" % ", ".join(d["lemmas"]), all(d["lemmas"].values()))
     chk("T2 (STRUCTURAL): the theorem follows from its lemmas, and each OPEN lemma is needed",
         b["entailed"] and all(b["needed"].values()))

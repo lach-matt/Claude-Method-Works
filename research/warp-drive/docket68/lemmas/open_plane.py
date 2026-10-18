@@ -1,5 +1,8 @@
 #!/usr/bin/env python3
-"""open_plane.py -- item 490: SOURCE's opening from our plane (one of the four gaps 489 named).
+"""open_plane.py -- [WITHDRAWN at 491 as bearing on SOURCE, M: "our plane's matter doesn't travel, just
+information ... You worked this question on completely the wrong premise."  The theorem rests only on information
+passing through the corridor; a mouth opened by a collision of our plane's matter answers no question it asks.  The
+trapped-surface computation stands as computed and bears on no row.]  item 490: SOURCE's opening from our plane (one of the four gaps 489 named).
 
 489 named four gaps on SOURCE's own claim: the device that reads, the structure probe's wavelength (S1C-O1), the opening
 shell's emitter, and the corridor's formation from our plane.  The last two rest on emitter E3-E6.  E3-E6 prove that a

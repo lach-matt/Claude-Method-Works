@@ -5,7 +5,23 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
-## Item 490: work started on the open objects -- what changes here
+## Item 491: only information travels -- what changes here
+
+M, 491: "SOURCE, the opening - matter may open the mouth at position, but the whole theorem relies entirely only
+information passing through the warp corridor" ... "our plane's matter doesn't travel, just information. I cannot
+believe I am still reminding you of this. You worked this question on completely the wrong premise."
+- **The 490 collision opening is withdrawn as bearing on SOURCE** (`open_plane.py` marked so). It asked whether our
+  plane's matter could open the face; the theorem asks only what information passes through the corridor (386, 336),
+  and the corridor is the README's own (416, 418; the energy at the opening is the README itself, 432 (1)).
+- **"Formation from our plane" is not a need.** 489 listed it among SOURCE's gaps; it is M's 486, proved (`emitter.py`):
+  the opening shell's emitter stands in the bulk.
+- **What SOURCE still needs**: the device that reads (object to README), the structure probe's wavelength (S1C-O1),
+  and the bulk emitter's process for the README's own energy. SOURCEs and SOURCE stay OPEN on those.
+- **The delivery at position 2 is no longer waiting** (`face2_release.py`): position 2's face, the white hole of our
+  hole's mass, is open only for the release and holds. **The README's accuracy is exact** (`r1_exact.py`): released
+  whole, it is inverted exactly at position 2. The 490 entries below on both are withdrawn.
+
+## Item 490: work started on the open objects -- what changes here [withdrawn at 491: worked on 489's premise]
 
 M, 490: "Start the work on the new open objects of the warp theorem".
 - **Our plane's matter can open the face** (`open_plane.py` Y1-Y6). Two pieces of it, colliding head-on along a line
