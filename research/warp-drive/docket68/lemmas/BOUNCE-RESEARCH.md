@@ -2840,3 +2840,59 @@ what you need to evaluate the coefficients that are preventing a precise answer 
   not an analytic inequality for every lambda. Our lambda lies below the computed ones, and the answer there is the
   exact coefficients' as long as the series stays asymptotic, which the runs show at four wavelengths. A fifth
   (lambda = 0.00625) is running.
+
+## 50. What proving the inequality needs -- determined; a correction to section 49 (515; lemmas/hf_anchor5.py A4 corrected)
+
+M, 515: "Check on the background tasks please. Then, -What is still not proved.- determine what is needed to prove the
+inequality, and then prove it. We cannot complete the warp theorem as it is without it. Use every tool available to
+you."
+
+- **The background runs.** At mu0/l5^2 = 1000 the late spread converges with the angular grid at lambda = 0.05:
+  1.2e-3, 4.3e-4 and 2.9e-4 at x = 16, 20 and 24, onto 498's 2.7e-4, with the exterior mass within 1.4e-6 of 498's.
+  At lambda = 0.1 it does not (1.3e-2, 1.5e-2 against 2.6e-2). There the core boundary is outside the high-frequency
+  regime: lambda A r^(-3/2) = 0.6 at mu0/l5^2 = 1000. So the sequence at 1000 is lambda = 0.05, 0.025, 0.0125 on the
+  x = 20 grid; the 0.0125 run and a fifth wavelength at 100 (0.00625) are running.
+- **A correction to item 514.** The anchored instrument took r_q as the scale at x = 1. The scale that decides high
+  frequency is the local curvature radius K^(-1/4), and at x = 1 it is l5 for every hole, by the definition of x. So no
+  wave of a physical length is high-frequency at x = 1. Corrected (`hf_anchor5.py` A4):
+  - 10 l5 waves are high-frequency from infinity down to r = 4,604 l5 (x = 1e-4), and a small perturbation all the way
+    to x = 1 (strain 7.2e-3 there, 3.6e-6 at the horizon);
+  - r_h/10 waves are high-frequency only beyond r = 124,186 l5, outside the horizon (that needs w < 2,498 l5), and not
+    small at x = 1 (strain 5.2).
+  - The band "10-46 l5 reaching x = 1" that 514 reported is withdrawn.
+- **What proving the inequality needs (determined).**
+  1. A gauge in which the problem is well posed in energy norms: double null or wave gauge. Bondi gauge is only weakly
+     hyperbolic (Giannakopoulos, Hilditch and Zilhao 2020).
+  2. Uniform control of linear perturbations of the growing five-dimensional black hole, in the T^2-mirror class, for
+     the whole shell: 269 r_h for the record's least shell, about 2e6 periods of 10 l5 waves. That control is needed at
+     the horizon (red-shift), outside it (decay past the photon sphere at r = sqrt(2) r_h) and inside it down to x = 1.
+     Prior art (READ): mode stability for every perturbation type (Ishibashi and Kodama, Prog. Theor. Phys. 110, 901
+     (2003)), and decay for scalar waves on higher-dimensional Schwarzschild (Schlue, Anal. PDE 6, 515 (2013); Laul and
+     Metcalfe, Proc. AMS 140, 3247 (2012)). It is not yet known for linearized gravity in this class on a growing
+     background.
+  3. The high-frequency remainder over that time. Only the remainder after the geometric-optics approximant is small:
+     the waves themselves carry O(1) energy, because the shell is the hole's mass. Crude estimates grow like
+     exp(||d g_app|| T) = exp(0.16 x 269), about e^43, over the shell. The oscillation's averaging must be used, which
+     is what F5's light-cone structure supplies.
+  4. Near x = 1, where the curvature radius is l5, the waves are long against it but small (strain 7.2e-3). There the
+     approximant is linear perturbation theory with its power-law growth inward, not geometric optics.
+  5. The nonlinear closure of 2-4.
+- **Its status.** Items 2-5 together are nonlinear stability of a five-dimensional black hole, over a long time, in a
+  cohomogeneity-three symmetry class.
+  - The literature proves that only in cohomogeneity two: Dafermos and Holzegel, gr-qc/0510051, triaxial Bianchi IX,
+    a class the plane's mirror excludes here (hf_limit5 H6).
+  - Schlue 2013 names the general problem as open: his estimates are "in principle required in a nonlinear stability
+    problem".
+  - It is not proved here. It cannot be settled by computation at our universe's values either: a direct run would
+    have to follow about 2e6 wave periods across a factor of 5e4 in scale. The proof has to be analytic and two-scale.
+- **What holds exactly without it, and what it leaves to the inequality.**
+  - The runs' mass gain matches the exact incoming flux to 0.01 % (item 514).
+  - A stationary final state with the mirror carries no angular momentum. With T^2 symmetry such a black hole is
+    fixed by its mass, angular momenta and rod structure: "identical if and only if their masses, angular momenta, and
+    their 'rod structures' coincide" (Hollands and Yazadjiev, Commun. Math. Phys. 283, 749 (2008), READ). The static
+    one is Tangherlini (Gibbons, Ida and Shiromizu, PRL 89, 041101 (2002), READ). So the final face is Tangherlini of
+    the final mass, and holds the N of the energy kept.
+  - What is left to the inequality is that the solution exists through the shell and settles, and that what escapes
+    to future null infinity stays below half a bit (2.6e-22 of E5, emitter_process C1). In odd dimensions even the
+    Bondi energy's definition needs care: Hollands and Ishibashi's "definitions and constructions fail in odd spacetime
+    dimensions" (J. Math. Phys. 46, 022503 (2005), READ).

@@ -30,14 +30,18 @@ C (and the order beyond it) left unevaluated, and lam left abstract.  Here both 
      A = (16.457 Delta mu / D)^(1/2) = 66.7 l5^(1/2).  Then for waves of wavelength w (lam = w/2 pi):
      - the relative second-order mass offset is 0.5714 (w/D)^2: 1.5e-13 at w = 10 l5, 7.9e-8 at w = r_h/10;
      - the strain at the face's horizon at the end is (2/3) lam A r_h^(-3/2): 3.6e-6 at 10 l5, 2.6e-3 at r_h/10;
-     - at the record's quantum boundary x = 1 (r_q = (sqrt72 mu l5^2)^(1/4) = 461 l5 at the end), 7.1e-3 at 10 l5 and
-       5.2 at r_h/10 -- the r_h/10 shell is not a small perturbation there, so the high-frequency limit cannot reach
-       x = 1 with the r_h/10 the emitter names, while 10 l5 waves can;
-     - onto the least seed the shell's first part sees a hole smaller than its wavelength: at x = 1 the expansion's
-       conditions (wavelength below a tenth of the radius, strain below a tenth) hold for the last 99.78 % of the
-       energy at 10 l5 and for none of it at r_h/10; at the horizon for all but 2e-6 of it at 10 l5;
-     - so the band that reaches x = 1 in the expansion's regime is 10 l5 to 46 l5 (a tenth of r_q at the end; the
-       strain bound alone would allow 140 l5): the r_h/10 the emitter names lies outside it, by 160 times.
+     - at the record's quantum boundary x = 1 (r_q = (sqrt72 mu l5^2)^(1/4) = 460 l5 at the end), 7.2e-3 at 10 l5 and
+       5.2 at r_h/10;
+     - the high-frequency condition is a wavelength below a tenth of the local curvature radius K^(-1/4) =
+       r^2/(72^(1/4) sqrt(mu)); at x = 1 that radius is l5 for every hole (the definition of x), so no wave of a
+       physical length is high-frequency there.  10 l5 waves are high-frequency from infinity down to r = 4,604 l5
+       (x = 1e-4) and are a small perturbation (strain below a tenth) all the way to x = 1, for all of the shell's
+       energy; they are high-frequency at the horizon for all but 1.6e-5 of it;
+     - r_h/10 waves are neither: high-frequency only beyond r = 124,186 l5, outside the horizon (which needs
+       w < r_h/(10 x 72^(1/4)) = 2,498 l5), and not small at x = 1 (strain 5.2).  The r_h/10 emitter_process C4 names
+       is outside both.
+     [Item 515 corrects the first version of A4, which took r_q in place of the curvature radius at x = 1 and so
+     reported a band of 10-46 l5 reaching x = 1 at high frequency; at x = 1 the curvature radius is l5.]
   A5 (deduced) What this settles of L-UNIF'.  The coefficients the estimate left open are evaluated: the first order
      exactly (sqrt(2) A), the second order exactly (5 pi^2/(36 T) per A^2), both confirmed by the nonlinear runs, the
      remainder after them measured below 0.1 lam^3; and lam is our universe's, bounded below by the Planck scale (the
@@ -117,7 +121,9 @@ def a2_a3():
 
 
 def a4(R, c2f):
-    """our universe's shell: amplitude, strains at the horizon and at x = 1, the share in the expansion's regime"""
+    """our universe's shell: amplitude; strains at the horizon and at x = 1; where the waves are high-frequency (shorter
+    than a tenth of the local curvature radius K^(-1/4) = r^2/(72^(1/4) sqrt(mu)), which is l5 at x = 1 for every hole)
+    and where they are a small perturbation (strain below a tenth)"""
     rh, D_rh, seed = R["rh_l5"], R["D"], R["seed"]
     D = D_rh*rh                                              # duration in l5
     dmu = rh**2 - seed
@@ -127,21 +133,23 @@ def a4(R, c2f):
     env = np.sin(np.pi*v/D)**4
     flux = (2/9)*A**2*env**2
     mu = seed + np.concatenate([[0], np.cumsum((flux[1:] + flux[:-1])/2*np.diff(v))])
+    c4 = 72**0.25
     rq_end = (np.sqrt(72)*rh**2)**0.25
-    out = dict(A=A, D=D, dmu=dmu, mu_end=mu[-1], w_max_cone=0.1*rq_end,
-               w_max_strain=0.1*2*np.pi*rq_end**1.5/((2/3)*A))
+    curv_q = rq_end**2/(c4*rh)                               # K^(-1/4) at x = 1: l5, by the definition of x
+    share = lambda m: float(np.sum(flux[:-1][m[:-1]]*np.diff(v)[m[:-1]])/np.sum(flux[:-1]*np.diff(v))) if m.any() else 0.0
+    out = dict(A=A, D=D, dmu=dmu, mu_end=mu[-1], curv_q=curv_q, w_max_h=0.1*rh/c4)
     for name, w in (("10 l5", 10.0), ("r_h/10", rh/10)):
         lam = w/(2*np.pi)
         rq = (np.sqrt(72)*mu)**0.25
         s_h = (2/3)*lam*A*env*mu**-0.75
         s_q = (2/3)*lam*A*env*rq**-1.5
-        ok_q = (w/rq < 0.1) & (s_q < 0.1)
-        ok_h = (w/np.sqrt(mu) < 0.1) & (s_h < 0.1)
-        share = lambda m: float(np.sum(flux[m][:-1]*np.diff(v)[m[:-1]])/np.sum(flux[:-1]*np.diff(v))) if m.any() else 0.0
-        rq_end = (np.sqrt(72)*rh**2)**0.25
+        hf_h = (w < 0.1*np.sqrt(mu)/c4) & (s_h < 0.1)
+        small_q = s_q < 0.1
+        r_hf = np.sqrt(10*w*c4*rh)                          # deepest radius, at the end, where w < K^(-1/4)/10
         out[name] = dict(lam=lam, rel_offset=(5*np.pi**2/8/D)*(2/9)*A**2*lam**2/dmu,
                          strain_h_end=(2/3)*lam*A*rh**-1.5, strain_q_end=(2/3)*lam*A*rq_end**-1.5, rq_end=rq_end,
-                         share_q=share(ok_q), share_h=share(ok_h))
+                         r_hf=r_hf, x_hf=(rq_end/r_hf)**4, hf_at_q=w < 0.1*curv_q,
+                         share_h=share(hf_h), share_q_small=share(small_q))
     return out
 
 
@@ -164,11 +172,17 @@ def checks(o):
         c["exact_avg"] and abs(c["c2f"] - 0.45693) < 1e-4
         and all(abs(off/c["c2f"] - 1) < 0.01 and res < 0.1 for L in a for lam_, _, off, res in a[L] if lam_ <= 0.05))
     b = o["a4"]
-    ch["A4 anchored: 10 l5 waves reach x = 1 as a small perturbation, r_h/10 waves do not"] = (
-        b["10 l5"]["strain_q_end"] < 0.01 and b["r_h/10"]["strain_q_end"] > 1 and b["10 l5"]["share_q"] > 0.95
-        and b["r_h/10"]["share_q"] < 0.01 and b["10 l5"]["share_h"] > 0.9999 and b["10 l5"]["rel_offset"] < 1e-12
-        and 10 < b["w_max_cone"] < b["w_max_strain"] < 7276)
+    ch["A4 anchored: x = 1's curvature radius is l5; 10 l5 waves are high-frequency to x ~ 1e-4 and small at x = 1; "
+       "r_h/10 waves are neither"] = (
+        abs(b["curv_q"] - 1) < 1e-9 and not b["10 l5"]["hf_at_q"] and b["10 l5"]["strain_q_end"] < 0.01
+        and b["10 l5"]["share_h"] > 0.9999 and b["10 l5"]["share_q_small"] > 0.95 and b["10 l5"]["rel_offset"] < 1e-12
+        and b["10 l5"]["r_hf"] > b["10 l5"]["rq_end"] and b["r_h/10"]["strain_q_end"] > 1
+        and rh_over_10_not_hf(b))
     return ch
+
+
+def rh_over_10_not_hf(b):
+    return b["r_h/10"]["share_h"] == 0.0 and b["r_h/10"]["share_q_small"] < 0.01
 
 
 def report(o=None):
@@ -183,14 +197,14 @@ def report(o=None):
     for L, rows in c["meas"].items():
         print("  A2/A3 mu0/l5^2 = %d: " % L + "; ".join("lam %g: P/lam %.3f, offset/lam^2 %.4f, rest/lam^3 %.3f" % r for r in rows))
     b = o["a4"]
-    print("  A4 A = %.2f l5^1/2, D = %.4g l5, Delta mu = %.4g l5^2; the band reaching x = 1: 10 l5 to %.1f l5 (strain "
-          "bound alone %.0f l5)" % (b["A"], b["D"], b["dmu"], b["w_max_cone"], b["w_max_strain"]))
+    print("  A4 A = %.2f l5^1/2, D = %.4g l5, Delta mu = %.4g l5^2; curvature radius at x = 1: %.3g l5; high-frequency at "
+          "the horizon needs w < %.0f l5" % (b["A"], b["D"], b["dmu"], b["curv_q"], b["w_max_h"]))
     for name in ("10 l5", "r_h/10"):
         z = b[name]
         print("     w = %-7s lam %.4g: relative 2nd-order offset %.2e; strain at the horizon %.2e, at x = 1 (r_q %.0f l5) "
-              "%.2e; share of the energy in the regime at x = 1 %.4f, at the horizon %.7f" % (
-                  name, z["lam"], z["rel_offset"], z["strain_h_end"], z["rq_end"], z["strain_q_end"], z["share_q"],
-                  z["share_h"]))
+              "%.2e; high-frequency down to r = %.0f l5 (x = %.1e); energy share high-frequency at the horizon %.7f, "
+              "small at x = 1 %.4f" % (name, z["lam"], z["rel_offset"], z["strain_h_end"], z["rq_end"], z["strain_q_end"],
+                                       z["r_hf"], z["x_hf"], z["share_h"], z["share_q_small"]))
     return o
 
 

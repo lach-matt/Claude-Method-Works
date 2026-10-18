@@ -1366,6 +1366,18 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_514_SOURCE
     _rows_514.append((c, n, s_, t))
 LEMMAS_NOW = _rows_514
+# [item 515] what proving the inequality needs, determined; 514 corrected
+NOTE_515_SOURCE = ("  [Item 515] What L-UNIF' needs, determined: a well-posed gauge; uniform linear control of the growing 5D "
+                   "black hole in the T^2-mirror class over the shell (269 r_h); the high-frequency remainder over that time; "
+                   "the interior near x = 1 (curvature radius l5 there); the nonlinear closure -- long-time nonlinear "
+                   "stability in cohomogeneity three, proved in the literature only in cohomogeneity two; not proved here.  "
+                   "514 corrected: no wave is high-frequency at x = 1")
+_rows_515 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_515_SOURCE
+    _rows_515.append((c, n, s_, t))
+LEMMAS_NOW = _rows_515
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [

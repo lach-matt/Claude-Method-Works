@@ -98,7 +98,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 514.** As at 513, with the remaining estimate's coefficients evaluated and anchored in our universe (`hf_anchor5.py`, 5/5): the first order exactly sqrt(2) A, the second exactly (2/9) A^2 int env'^2 (0.45693 for the record's envelope, the runs agreeing to 0.01 %), the rest below 0.1 lambda^3. For the example README's shell at 10 l5 waves the strain is 3.6e-6 at the horizon and 7.2e-3 at x = 1, the second-order mass offset 1.5e-13; the band reaching x = 1 is 10 l5 to 46 l5, and the r_h/10 emitter_process C4 names lies outside it. The inequality for every lambda is not proved: our lambda lies below the computed ones, and the answer there rests on the series staying asymptotic, which the runs show. The status is M's.
+**Where it stands, at item 515.** As at 514, with two changes. 514's anchoring is corrected: at x = 1 the curvature radius is l5 for every hole, so 10 l5 waves are high-frequency down to x = 1e-4 and a small perturbation (strain 7.2e-3) below it, and r_h/10 waves are neither. And what the inequality needs is determined: a well-posed gauge; uniform linear control of the growing 5D black hole in the T^2-mirror class over the whole shell (269 r_h); the high-frequency remainder over that time; the interior near x = 1; the nonlinear closure. Together that is long-time nonlinear stability of a 5D black hole in a cohomogeneity-three class, proved in the literature only in cohomogeneity two (Dafermos and Holzegel, a class the mirror excludes) and not proved here. The status is M's.
+
+**Where it stood at item 514.** As at 513, with the remaining estimate's coefficients evaluated and anchored in our universe (`hf_anchor5.py`, 5/5): the first order exactly sqrt(2) A, the second exactly (2/9) A^2 int env'^2 (0.45693 for the record's envelope, the runs agreeing to 0.01 %), the rest below 0.1 lambda^3. For the example README's shell at 10 l5 waves the strain is 3.6e-6 at the horizon and 7.2e-3 at x = 1, the second-order mass offset 1.5e-13; the band reaching x = 1 is 10 l5 to 46 l5, and the r_h/10 emitter_process C4 names lies outside it. The inequality for every lambda is not proved: our lambda lies below the computed ones, and the answer there rests on the series staying asymptotic, which the runs show. The status is M's.
 
 **Where it stood at item 513.** As at 511, with THM-HF5's nonlinear coupling settled by the light cone (513): observation gives relativity, relativity the one light cone (328), the one light cone Einstein's law in five dimensions (alpha = 0); and on the full ansatz the fronts stay null at every lambda, the equations that fix the metric on each cone see no v-derivative at all, the waves propagate linearly along the cone, and the one product of rates is the dust, whose oscillation integrates along the cone to 1e-7 and below. The coupling is O(1) only through the dust, which is the limit itself (`hf_theorem5.py` F5, 7/7, mutants 7/7). What remains is L-UNIF', a remainder estimate in norms rough along v and smooth along the cones, named and not proved. At mu0/l5^2 = 1000, hf_core5's late-spread clause is unsettled, finer grids running. The status is M's.
 
@@ -2022,6 +2024,16 @@ state was rebuilt first.
     7.2e-3 at x = 1, 99.78 % of the energy in the regime at x = 1; the band reaching x = 1 is 10-46 l5, and emitter C4's
     r_h/10 lies outside it.
   - Not an analytic inequality for every lambda: our lambda lies below the computed ones.
+
+- **Item 515** (M: "determine what is needed to prove the inequality, and then prove it. We cannot complete the warp
+  theorem as it is without it. Use every tool available to you."). Determined; not proved (SOURCE-REQUIRED "Item 515";
+  BOUNCE-RESEARCH 50; `hf_anchor5.py` A4 corrected). For R1, R2 and R6:
+  - Correction: at x = 1 the curvature radius is l5; 514's "10-46 l5 band reaching x = 1" is withdrawn.
+  - Needed: a well-posed gauge; uniform linear control in the T^2-mirror class over 269 r_h; the high-frequency
+    remainder over that time (crude bounds grow e^43); the interior near x = 1; the nonlinear closure.
+  - That is long-time nonlinear stability of a 5D black hole in cohomogeneity three -- in the literature only in
+    cohomogeneity two (Dafermos-Holzegel), open in general (Schlue). Exact without it: the final face (Hollands-
+    Yazadjiev; Gibbons-Ida-Shiromizu), given existence and settling.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
