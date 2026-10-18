@@ -1319,6 +1319,18 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_509_SOURCE
     _rows_509.append((c, n, s_, t))
 LEMMAS_NOW = _rows_509
+# [item 510] position 2's laws after the instant, proved as 509's continuation
+NOTE_510_SOURCE = ("  [Item 510] After the instant position 2's own values of Baez's 26 govern the copy and hold nothing of "
+                   "what sat there (p2_indep.py Part II): the laws are one Lagrangian at its 26 values (10 + 10 Yukawa "
+                   "parameters from the flavour orbit, 3 gauge, 2 Higgs, 1 cosmological); the README's labels carry no value "
+                   "of the 26 (anomaly cancellation); the composite after the instant is again a replacement map; position "
+                   "2's displaced matter acts only from outside, as surroundings (240's conditions, survivability)")
+_rows_510 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_510_SOURCE
+    _rows_510.append((c, n, s_, t))
+LEMMAS_NOW = _rows_510
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [

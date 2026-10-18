@@ -5,6 +5,51 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 510: after the instant, position 2's own values of the 26 govern the copy, and they hold nothing of what sat there
+
+M, 510, to 509's closing line "position 2's laws still govern the copy after the instant (148, 240). That is a law, not
+prior matter, so it falls outside 509": "this can be proven, as a continuation of the proof. Remember position 2's laws
+are determined by its variations its own baez's list (same constants with different values)". (`p2_indep.py` Part II,
+I0'-I11; 13/13 with Part I; mutants 8/8.) The line is withdrawn and proved.
+
+- **Position 2's laws are its 26 (computed; Baez READ in address26 A1; Uzan READ).** The Yukawa sector's physical
+  parameters, counted from the flavour rotations' orbit at random couplings, are 10 for the quarks and 10 for the leptons
+  with right-handed neutrinos. Add three gauge couplings, the Higgs mass and expectation value, and the cosmological
+  constant: 26. That is Baez's composition, and Uzan's count (Living Rev. Relativ. 14, 2 (2011), Table 1: 19
+  dimensionless with theta_QCD among them; "at least seven new constants" for massive neutrinos): 19 - 1 + 7 + 1 = 26.
+  The strong CP angle is the 27th only once the axion is excluded (434); G is the unit. So position 2's laws are one
+  Lagrangian at position 2's values.
+- **The labels are the same at every position (computed, exact).** Hypercharges solved from anomaly cancellation and the
+  gauge invariance of each Yukawa term give one ray (Geng and Marshak 1989). With right-handed neutrinos the family is
+  Y and B - L (Foot, Lew and Volkas 1993), and the gauged generator is the theory's own content, which "the same
+  constants" keeps. No value of the 26 enters any condition. The charges u 2/3, d -1/3, nu 0, e -1 are the same at every
+  position, so the README's labels name the same states under every set of values.
+- **After the instant (exact, and computed).** The evolution exp(-i H(c2) t) does not depend on what sat at position 2,
+  so the composite is again a replacement map: its output is position 1's README carried by position 2's law. Computed
+  for four laws, three times and six prior states:
+  - the copy is U_t sigma_r U_t^+ (5.6e-16);
+  - I(ref : copy) = 0, and the Choi matrix is U_t sigma_r U_t^+ (x) I/8;
+  - the laws govern: the copies differ between laws by at least 1.3e-3 and move from the README by 0.10.
+
+  This rests on the 26 being constants. A "constant" set by position 2's prior matter breaks it (the mutant), and that
+  is excluded twice: by 434 ("Anything conditional cannot by definition be a constant") and by Uzan ("Any constant
+  varying in space and/or time would reflect the existence of an almost massless field that couples to matter" -- a
+  field, not one of the 26).
+- **The surroundings (computed).** Position 2's matter is displaced, not removed (284). It lies beside the copy holding
+  all it was. Coupled to the copy under the same law, it changes the copy at first order in the coupling: copies of two
+  priors differ by 3.5e-3 at g = 0.02 (ratio 2.008 at 2g), and by 6e-16 at g = 0. That is 240's "conditions" acting on
+  an object once it exists, which survivability meets. It is not reconstruction.
+- **Mass and fate (computed; exact where marked).**
+  - The hydrogen README's labels are bound states for every alpha and every mass (exact). At alpha x 1.1 and m_e x 0.9
+    the binding is 14.809 eV against 13.598, the atom is 51.1 keV lighter and 1.010 times the size: position 2 assembles
+    its own mass on the same labels (240).
+  - A finite well holds a label only in a window (exactcopy X3). The Morse model's top level v = 16 is bound only while
+    the mass ratio is at least 0.8981 of ours. Below that, position 2's law moves the README's state (survivability,
+    240), decided by position 2's values and the README alone.
+- **So 509 continues past the instant.** The copy is position 1's matter at the instant, and after it is governed by
+  position 2's own values of the 26, which hold nothing of what sat at position 2. Position 2's former matter can still
+  act from outside, as surroundings act on any object.
+
 ## Item 509: whatever matter sits at position 2, it reconstructs only position 1's matter
 
 M, 509: "position 2's matter is only relevant in the sense that its matter reconstructs the same matter from position 1.
@@ -36,7 +81,9 @@ material, never content.
 - **The kind of matter enters the cost too, never the copy (computed; molar entropies READ, NIST, 298.15 K).** Clearing
   a 1 cm^3 room costs at least T S (Landauer): 1394 J if it held copper, 1154 J for water, 2.4 J for air. The copy is
   the same in all three.
-- **Not this item's question.** Position 2's laws govern the copy after the instant (148, 240): a law, not prior matter.
+- *[Item 510: this line read "Not this item's question. Position 2's laws govern the copy after the instant (148, 240):
+  a law, not prior matter." M: "this can be proven, as a continuation of the proof". Proved as 509's continuation;
+  see "Item 510" above.]*
 
 ## Items 505-508: the work redone without the inner horizon
 
