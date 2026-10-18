@@ -5,6 +5,60 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 511: the nonlinear PDE theorem for the shell's sequence onto the seed (THM-HF5)
+
+M, 511: "I think you can now build nonlinear PDE theorem for this, and fairly quickly now that you have done the
+computations ... Utilize outside research and publications, and utilize all the proof building tools available to
+you." (`hf_theorem5.py` F0-F4, 6/6, mutants 5/5; Z3; Lean 4.33 core; Wolfram Language 15.) It is built on the redone
+work (506-508), with the exclusions (481, 484) held first.
+
+- **The theorem.** Take a seed mu0 >= sqrt(72) l5^2 and the record's wave data at past null infinity. Let D be the region
+  from past null infinity to the record's quantum boundary x = 1. Then the five-dimensional vacuum solutions g_lam
+  (T^2 symmetry, both reflections):
+  - (i) exist on D for every lam <= lam0;
+  - (ii) converge uniformly to five-dimensional Vaidya with mu' = (2/9) A^2 env^2, at O(lam) in the metric and
+    O(lam^2) in the mean mass;
+  - (iii) have one horizon and no inner one;
+  - (iv) end at a spacelike boundary that every characteristic leaves, beyond which the record's core continues the
+    limit.
+- **Proved (exact).**
+  - Part (iv): inside the horizon the boundary's normal is timelike, g^-1(dPhi, dPhi) = f - 2 r_q' < 0, and outgoing
+    rays move inward faster than the boundary (Z3). Nothing inside the boundary reaches D, so D is the data's domain of
+    dependence and nothing is cut out.
+  - The limit. In the full ansatz only R_vv carries the waves at O(1), as -2(P1_v^2 + P1_v P2_v + P2_v^2). No component
+    of the Ricci tensor carries them at O(1/lam), because v is null. With the round average A^2 env^2/6 and Vaidya's
+    G_vv = 3 mu'/(2 r^3), mu' = (2/9) A^2 env^2: Isaacson's flux, derived. Both results are cross-checked in Wolfram
+    Language 15. The form is positive definite (Lean, Z3), so the dust's energy is never negative.
+  - Part (iii), in the limit: f = 1 - mu/r^2 has one positive root, and x = 1 lies inside it whenever
+    mu > sqrt(72) l5^2. Beyond it the record's core has its two roots on opposite sides of one transition surface.
+- **Computed.** The sequence meets the theorem's orders at both scales:
+  - P halves with lam (2.48, 2.32, 1.94 at mu0/l5^2 = 100; 2.43, 2.33 at 1000);
+  - the mean-mass offset quarters (5.17, 4.01, 4.02; 4.65, 3.84);
+  - the horizon's departure halves, and every run has exactly one horizon.
+- **Prior art (READ).**
+  - Luk and Rodnianski (arXiv:2009.08968) prove both directions of Burnett's limit in 3+1 dimensions, for data rough
+    along the null directions and smooth along the spheres, locally.
+  - Touati (Ann. PDE 11, 22 (2025)) constructs the vacuum families for a background with a small parameter, on
+    [0, 1] x R^3.
+  - Huneau and Luk (Duke Math. J. 167 (2018); arXiv:1907.10743) do the polarized U(1) case, reduced to 2+1, for small
+    generic backgrounds. That is the structure here, with two scalars.
+  - Giannakopoulos, Hilditch and Zilhao (PRD 102, 064035 (2020)) show Bondi-like gauges are only weakly hyperbolic, so
+    the proof of (i) belongs in a double null or wave gauge.
+  - None covers a five-dimensional black-hole background on a fixed region reaching inside the horizon.
+- **Open, named: L-UNIF.** The vacuum solution exists on D for every lam <= lam0 and stays within C lam of the
+  geometric-optics approximant built on the limit. Part (i), and the rates for every lam, need it.
+  - The route: the reduced 2+1 system in double null gauge (the data are rough only along v), with the published
+    stability arguments carried from a small background to the limit on D. The limit is smooth on D, and D's boundary
+    is outflow.
+  - Test waves on the limit already have energy bounded uniformly in lam, since the boundary flux leaves with the right
+    sign. The nonlinear coupling is what is open.
+  - Evidence, not proof: the sequence at four wavelengths and at three.
+- **Beside it.** At mu0/l5^2 = 1000 the late spread against 498's is not settled (hf_core5 C1, 9/10); finer grids are
+  running.
+
+Status: part (iv) and the limit are PROVED; part (iii) is PROVED in the limit and computed for every lam run; part (i)
+and the rates are OPEN on L-UNIF.
+
 ## Item 510: after the instant, position 2's own values of the 26 govern the copy, and they hold nothing of what sat there
 
 M, 510, to 509's closing line "position 2's laws still govern the copy after the instant (148, 240). That is a law, not

@@ -1331,6 +1331,19 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_510_SOURCE
     _rows_510.append((c, n, s_, t))
 LEMMAS_NOW = _rows_510
+# [item 511] the nonlinear PDE theorem for the shell's sequence onto the seed (THM-HF5)
+NOTE_511_SOURCE = ("  [Item 511] THM-HF5 (hf_theorem5.py): on D, from past null infinity to the record's quantum boundary "
+                   "x = 1, the vacuum solutions with the record's wave data (i) exist for every lam <= lam0, (ii) converge "
+                   "to 5D Vaidya with mu' = (2/9) A^2 env^2, (iii) hold one horizon and no inner one, (iv) end at a spacelike "
+                   "boundary every characteristic leaves, the record's core beyond.  (iv) and the limit proved exactly "
+                   "(Z3, sympy, Lean, Wolfram); (iii) in the limit; (i) and the rates rest on the named lemma L-UNIF, which "
+                   "no published theorem covers and which is not proved; the sequence meets the theorem's orders")
+_rows_511 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_511_SOURCE
+    _rows_511.append((c, n, s_, t))
+LEMMAS_NOW = _rows_511
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1527,8 +1540,10 @@ def lemma_selftests():
               "hf_mirror5.py",
               # items 506-508: redone without the inner horizon -- the seed, the accreting core, the sequence to x = 1
               "src_hole.py", "hf_core5.py",
-              # item 509: position 2's matter reconstructs only position 1's
-              "p2_indep.py"):
+              # items 509-510: position 2's matter reconstructs only position 1's; its laws after the instant
+              "p2_indep.py",
+              # item 511: the nonlinear PDE theorem for the shell's sequence onto the seed (THM-HF5)
+              "hf_theorem5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

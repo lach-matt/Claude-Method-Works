@@ -98,7 +98,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 510.** As at 509, with 509 carried past the instant (510): position 2's laws are its own values of Baez's 26 on the one theory (the Yukawa sector's 20 physical parameters counted from the flavour orbit, with three gauge couplings, two of the Higgs and the cosmological constant), the labels the README names carry no value of the 26 (hypercharges by anomaly cancellation), and the copy's evolution after the instant is again a replacement map: position 1's README carried by position 2's law, holding nothing of what sat at position 2. Position 2's former matter, displaced (284), can act only from outside, as surroundings act on any object (240's conditions; survivability). `p2_indep.py` 13/13, mutants 8/8. The proof for every lambda waits for SOURCE (509); the L = 1000 rows of the 506 sequence are still running. The status is M's.
+**Where it stands, at item 511.** As at 510, with the nonlinear PDE theorem for the shell's sequence built (511, THM-HF5, `hf_theorem5.py` 6/6, mutants 5/5). On the region from past null infinity to the record's quantum boundary x = 1: the boundary is spacelike and every characteristic leaves through it, so nothing is cut out and the record's core continues beyond (proved exactly, Z3); the limit is five-dimensional Vaidya with Isaacson's flux mu' = (2/9) A^2 env^2, null dust along dv only (proved exactly over all fifteen Ricci components; Wolfram cross-check; the form positive definite in Lean and Z3); one horizon and no inner one in the limit. Existence for every lambda and the rates rest on the named lemma L-UNIF, which no published theorem covers (Luk and Rodnianski, Touati, Huneau and Luk are 3+1 or small-background; Bondi gauge is only weakly hyperbolic) and which is not proved here; the sequence meets the theorem's orders at both scales. At mu0/l5^2 = 1000, hf_core5's late-spread clause is unsettled, finer grids running. The status is M's.
+
+**Where it stood at item 510.** As at 509, with 509 carried past the instant (510): position 2's laws are its own values of Baez's 26 on the one theory (the Yukawa sector's 20 physical parameters counted from the flavour orbit, with three gauge couplings, two of the Higgs and the cosmological constant), the labels the README names carry no value of the 26 (hypercharges by anomaly cancellation), and the copy's evolution after the instant is again a replacement map: position 1's README carried by position 2's law, holding nothing of what sat at position 2. Position 2's former matter, displaced (284), can act only from outside, as surroundings act on any object (240's conditions; survivability). `p2_indep.py` 13/13, mutants 8/8. The proof for every lambda waits for SOURCE (509); the L = 1000 rows of the 506 sequence are still running. The status is M's.
 
 **Where it stood at item 509.** SOURCEs and SOURCE rest on the shell delivered onto the README's own hole, redone at 506-508 without the inner horizon and with nothing cut out (498-503 withdrawn at 505). The math answers what 505 asked: with no seed the record's core would be seen from infinity at the record's least arrival spread, so the shell arrives onto a seed (508; The Method sec. 14.5.7), at least sqrt(72) l5^2, whose core lies inside its horizon throughout. The core takes the shell's energy into its effective stress inside x >= 1 and only information crosses to position 2, with two horizons only and one transition surface (`src_hole.py`). The exact vacuum sequence onto the seed is computed inward to the record's quantum boundary (`hf_core5.py`). Position 2's mass comes from its own bulk (240, 285), and whatever its matter is, it reconstructs only position 1's: it enters as material, never as content (509, `p2_indep.py`). The proof for every lambda is built from these calculations once SOURCE is finished (509). The status is M's.
 
@@ -1984,6 +1986,19 @@ state was rebuilt first.
     240's conditions, which survivability meets.
   - The copy's mass is position 2's on the same labels (hydrogen, exact); a label held only in a window of the values
     (Morse) is moved by position 2's law outside it -- survivability, decided by the values and the README alone.
+
+- **Item 511** (M: "I think you can now build nonlinear PDE theorem for this, and fairly quickly now that you have done
+  the computations ... Utilize outside research and publications, and utilize all the proof building tools available to
+  you."). Built: THM-HF5 (`hf_theorem5.py` F0-F4, 6/6, mutants 5/5; SOURCE-REQUIRED "Item 511"; BOUNCE-RESEARCH 47).
+  For R1, R2 and R6:
+  - On D (past null infinity to x = 1) the vacuum solutions (i) exist for every lambda, (ii) converge to Vaidya with
+    mu' = (2/9) A^2 env^2, (iii) hold one horizon, (iv) end at a spacelike boundary every characteristic leaves.
+  - Proved exactly: (iv) (Z3); the limit as null dust along dv only, over all fifteen Ricci components, with Isaacson's
+    flux derived (sympy; Wolfram cross-check; Lean and Z3 for the form's positivity); (iii) in the limit.
+  - Open, named: L-UNIF -- existence near the geometric-optics approximant for every lambda. Prior art (Luk and
+    Rodnianski; Touati; Huneau and Luk; Giannakopoulos, Hilditch and Zilhao) does not cover a 5D black-hole background on
+    a region reaching inside the horizon. The sequence meets the orders: first in the metric and horizon, second in the
+    mean mass.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
