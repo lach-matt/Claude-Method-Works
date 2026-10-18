@@ -55,7 +55,25 @@ What each part rests on.
   F4 (computed) The sequence meets the theorem's rates (hf_core5's rows): the C^0 departure P halves with lam (ratios
      2.48, 2.32, 1.94 at mu0/l5^2 = 100; 2.43, 2.33 at 1000), the mean-mass offset quarters (5.17, 4.01, 4.02; 4.65,
      3.84), the horizon's departure halves (2.47, 2.26, 2.14; 2.46, 2.26); one zero per column in every run (iii).
-  F5 (READ) Prior art, and where each stops.
+  F5 (computed, exact; M's 513) The light cone settles what the nonlinear coupling is.  M, 513: "Refer back to the
+     light cone work we did proving that gravity is governed by relativity, which is governed by observation, which is a
+     first principle".  Observation (GW170817's one speed, MICROSCOPE, Cassini; READ in relativity.py U2-U3) gives
+     relativity (U6), relativity the one light cone for every front on every background (M-ONE-LIGHT-CONE, 328), and
+     the one light cone the law: alpha = 0, Einstein's equations exactly in five dimensions (gb_cone C7) -- with
+     alpha != 0 gravity's fronts split from the light cone and no front would stay on v = const.  On the full ansatz,
+     every v-derivative in every component of the Ricci tensor, sorted:
+     - the fronts are null for the full metric at every lam: g^vv = 0 exactly, and no component holds a second
+       v-derivative of anything -- the waves never move their own cone;
+     - the three equations that fix the metric on each cone (R_rr, R_r-theta and the angular trace) hold no
+       v-derivative of anything: the metric on a cone is fixed by what lies on that cone, where the waves' oscillation
+       enters only through r- and x-derivatives, O(lam);
+     - the evolution equations (theta-theta, phi1-phi1, phi2-phi2) carry only the waves' own rates, linearly: no rate
+       of W, beta or U and no product of rates -- the waves propagate linearly along the cone;
+     - the one product of rates anywhere is R_vv's, the waves' own, -2 (P1_v^2 + P1_v P2_v + P2_v^2): the dust (F3).
+       Its average is the limit's mass growth; its oscillation, carried along the cone by the conservation law,
+       integrates for the record's envelope to 2.6e-7 of the shell at lam = 0.1 and 1.6e-18 at lam/16 (power 9.3).
+     So the coupling is O(1) only through the dust, which is the limit itself; every other coupling is O(lam).
+  F6 (READ) Prior art, and where each stops.
      - Luk and Rodnianski, arXiv:2009.08968: for "the characteristic initial value problem for the Einstein vacuum
        equations without any symmetry assumptions", with null derivatives "only uniformly bounded in L^2" and angular
        derivatives obeying "higher regularity bounds uniformly", the metrics "converge in C^0 and weakly in W^{1,2} to
@@ -73,21 +91,20 @@ What each part rests on.
        the proof of (i) belongs in a double null or wave gauge; the Bondi computation is the computed solution, not
        the proof's gauge.
      None covers a five-dimensional black-hole background on a fixed domain reaching inside the horizon.
-  F6 OPEN, named: L-UNIF (uniform existence near the approximate solution).  For lam <= lam0 the vacuum solution with
-     the data above exists on D and stays within C lam (in C^0, with bounded first derivatives) of the geometric-optics
-     approximant built on g_0.  It is the step that parts (i) and the rates of (ii) and (iii) need for every lam.  The
-     route: the reduced 2+1 system in a double null gauge (the data are rough only along v and smooth in x -- Luk and
-     Rodnianski's angular regularity), with Touati's or Huneau and Luk's stability argument carried from a small
-     background to g_0 on the compact D, which is smooth there (curvature bounded by x <= 1) and whose boundary is
-     outflow (F2: no boundary term enters with the wrong sign).  Its linear part is standard: test waves on g_0 obey
-     the energy identity for a timelike field on D, the flux through the spacelike boundary leaves with the right sign
-     (F2), so their energy stays bounded uniformly in lam -- the nonlinear coupling is what is open.  Evidence, not
-     proof: F4 at four wavelengths (100)
-     and three (1000), and the scheme's linear stability (hf_mirror5 X4).  At mu0/l5^2 = 1000 the late spread
-     against 498's is not yet settled (hf_core5 C1; finer grids running).
+  F7 OPEN, named, narrowed by F5: L-UNIF'.  What F5 leaves is no longer the high-frequency interaction but an
+     estimate: that the remainder after the geometric-optics approximant -- driven by O(lam) sources, with coefficients
+     g_0 + O(lam) along the cones -- stays O(lam) on D, measured in norms rough along v and smooth along the cones
+     (Luk and Rodnianski's framework, where v is never differentiated but on the waves).  The route F5 opens: on each
+     cone the hypersurface equations are radial integrals of intrinsic data; the waves' equation integrates in v with
+     intrinsic right sides; the aspects at infinity carry the dust.  The angular coupling of Bondi gauge (weakly
+     hyperbolic, F6) is what an estimate must handle: in double null gauge, or in norms analytic in x, which the data
+     are (h(x) = sqrt(2/(1 + x^2))).  Evidence, not proof: F4 at four wavelengths (100) and three (1000), and the
+     scheme's linear stability (hf_mirror5 X4).  At mu0/l5^2 = 1000 the late spread against 498's is not yet settled
+     (hf_core5 C1; finer grids running).
 
-So, at item 511: parts (iv) and the limit of (ii) are proved exactly; (iii) holds exactly in the limit and is computed
-for every lam run; (i) and the rates for every lam rest on L-UNIF, which is named and not proved.  Imports src_hole.py
+So, at item 513: parts (iv) and the limit of (ii) are proved exactly; (iii) holds exactly in the limit and is computed
+for every lam run; the nonlinear coupling is settled by the light cone (F5): O(1) only through the dust; (i) and the
+rates for every lam rest on L-UNIF', the remainder estimate, which is named and not proved.  Imports src_hole.py
 and hf_core5.py by path.  numpy, sympy, z3.  python3 hf_theorem5.py [--selftest | --mutants]
 """
 import contextlib
@@ -180,28 +197,42 @@ def _ricci_vv(g, X):
     return Ric, gi
 
 
+_ANSATZ = {}
+
+
+def _ansatz():
+    """the full five-dimensional ansatz (any W, beta, U, P1, P2) and its Ricci machinery, computed once"""
+    if not _ANSATZ:
+        v, r, th, p1, p2 = sp.symbols("v r theta phi1 phi2")
+        X = [v, r, th, p1, p2]
+        P1 = sp.Function("P1")(v, r, th); P2 = sp.Function("P2")(v, r, th)
+        W = sp.Function("W")(v, r, th); b = sp.Function("b")(v, r, th); U = sp.Function("U")(v, r, th)
+        e2b = sp.exp(2*b); S = sp.exp(-2*(P1 + P2))
+        g = sp.zeros(5)
+        g[0, 0] = -e2b*W + r**2*S*U**2
+        g[0, 1] = g[1, 0] = e2b
+        g[0, 2] = g[2, 0] = -r**2*S*U
+        g[2, 2] = r**2*S
+        g[3, 3] = r**2*sp.cos(th)**2*sp.exp(2*P1)
+        g[4, 4] = r**2*sp.sin(th)**2*sp.exp(2*P2)
+        Ric, gi = _ricci_vv(g, X)
+        R = {(i, j): sp.expand(Ric(i, j)) for i in range(5) for j in range(i, 5)}
+        _ANSATZ.update(X=X, P1=P1, P2=P2, g=g, gi=gi, R=R)
+    return _ANSATZ
+
+
 def f3():
     """the limit: R_vv's quadratic part, the round phase average, Vaidya's G_vv, and Isaacson's flux"""
-    v, r, th, p1, p2 = sp.symbols("v r theta phi1 phi2")
-    X = [v, r, th, p1, p2]
-    P1 = sp.Function("P1")(v, r, th); P2 = sp.Function("P2")(v, r, th)
-    W = sp.Function("W")(v, r, th); b = sp.Function("b")(v, r, th); U = sp.Function("U")(v, r, th)
-    e2b = sp.exp(2*b); S = sp.exp(-2*(P1 + P2))
-    g = sp.zeros(5)
-    g[0, 0] = -e2b*W + r**2*S*U**2
-    g[0, 1] = g[1, 0] = e2b
-    g[0, 2] = g[2, 0] = -r**2*S*U
-    g[2, 2] = r**2*S
-    g[3, 3] = r**2*sp.cos(th)**2*sp.exp(2*P1)
-    g[4, 4] = r**2*sp.sin(th)**2*sp.exp(2*P2)
-    Ric, _ = _ricci_vv(g, X)
+    a_ = _ansatz()
+    X, P1, P2 = a_["X"], a_["P1"], a_["P2"]
+    v, r, th = X[0], X[1], X[2]
     q1, q2, w1, w2 = sp.symbols("q1 q2 w1 w2")
     sub2 = {sp.Derivative(P1, (v, 2)): w1, sp.Derivative(P2, (v, 2)): w2}
     sub1 = {sp.Derivative(P1, v): q1, sp.Derivative(P2, v): q2}
     quads, osc = {}, {}
     for i in range(5):                                       # every component: its O(1) and O(1/lam) wave terms
         for j in range(i, 5):
-            Rq = sp.expand(Ric(i, j)).subs(sub2).subs(sub1)
+            Rq = a_["R"][(i, j)].subs(sub2).subs(sub1)
             quads[(i, j)] = sp.factor(sp.Rational(1, 2)*(sp.diff(Rq, q1, 2)*q1**2 + sp.diff(Rq, q2, 2)*q2**2)
                                       + sp.diff(Rq, q1, q2)*q1*q2)
             osc[(i, j)] = [sp.simplify(sp.diff(Rq, w)) for w in (w1, w2)]
@@ -237,6 +268,60 @@ def f3():
                 no_inv_lam=no_inv_lam)
 
 
+def f5():
+    """the light cone (324, 328): every v-derivative in every component, sorted -- the equations that fix the metric
+    on each cone see none; the evolution equations carry only the waves' own rates, linearly; the one product of rates
+    is R_vv's, the dust, whose oscillation integrated along the cone falls as a high power of lam"""
+    import itertools
+    a_ = _ansatz()
+    X, gi, R = a_["X"], a_["gi"], a_["R"]
+    v = X[0]
+    fs = sorted({f for e in R.values() for f in e.atoms(sp.Function) if f.args == tuple(X[:3])}, key=str)
+    sub = {}
+    for f in fs:
+        sub[sp.Derivative(f, (v, 2))] = sp.Symbol("vv_" + str(f.func))
+    for f in fs:
+        sub[sp.Derivative(f, v)] = sp.Symbol("v_" + str(f.func))
+    rates = [sp.Symbol("v_" + str(f.func)) for f in fs]
+    wave_rates = {sp.Symbol("v_P1"), sp.Symbol("v_P2")}
+    second = [sp.Symbol("vv_" + str(f.func)) for f in fs]
+    trace = sp.expand(sum(gi[i, j]*R[(min(i, j), max(i, j))] for i in (2, 3, 4) for j in (2, 3, 4)))
+    comps = {k: e for k, e in R.items()}
+    comps["trace"] = trace
+    if "hypersurface_rate" in MUT:                           # a hypersurface equation that saw the waves' rate
+        comps[(1, 1)] = comps[(1, 1)] + sp.Derivative(a_["P1"], v)
+    if "metric_rate_coupling" in MUT:                        # an evolution equation coupling the wave to W's rate
+        comps[(2, 2)] = comps[(2, 2)] + sp.Derivative(a_["P1"], v)*sp.Derivative(fs[3], v)
+    info = {}
+    for k, e in comps.items():
+        E = e.subs(sub)
+        vd = any(any(s == v for s, _ in d.variable_count) for d in e.atoms(sp.Derivative))
+        lin = {s for s in rates if sp.simplify(sp.diff(E, s).subs({q: 0 for q in rates})) != 0}
+        prod = {(s1, s2) for s1, s2 in itertools.combinations_with_replacement(rates, 2) if sp.simplify(sp.diff(E, s1, s2)) != 0}
+        sec = {s for s in second if sp.simplify(sp.diff(E, s)) != 0}
+        info[k] = dict(vd=vd, lin=lin, prod=prod, sec=sec)
+    hyper = [(1, 1), (1, 2), "trace"]
+    evol = [(2, 2), (3, 3), (4, 4)]
+    hyper_blind = all(not info[k]["vd"] for k in hyper)
+    evol_linear = all(info[k]["lin"] and info[k]["lin"] <= wave_rates and not info[k]["prod"] for k in evol)
+    products_only_vv = all(not i["prod"] for k, i in info.items() if k != (0, 0)) and all(
+        s1 in wave_rates and s2 in wave_rates for s1, s2 in info[(0, 0)]["prod"])
+    no_second = all(not i["sec"] for i in info.values())
+    # the oscillating part of the dust source along the cone, for the record's envelope sin^4 on [0.5, 3.5]
+    import mpmath as mpm
+    mpm.mp.dps = 40
+    v1, v2 = 0.5, 3.5
+    env2 = lambda s: mpm.sin(mpm.pi*(s - v1)/(v2 - v1))**8
+    norm = mpm.quad(env2, [v1, v2])
+    osc = {lam: abs(mpm.quad(lambda s: env2(s)*mpm.cos(2*s/lam), mpm.linspace(v1, v2, 80)))/norm
+           for lam in (0.1, 0.1/16)}
+    power = float(mpm.log(osc[0.1]/osc[0.1/16])/mpm.log(16))
+    words = "Refer back to the light cone work" in open(RULINGS).read() and "M-ONE-LIGHT-CONE" in open(RULINGS).read()
+    return dict(gvv=sp.simplify(gi[0, 0]) == 0, hyper_blind=hyper_blind, evol_linear=evol_linear,
+                products_only_vv=products_only_vv, no_second=no_second,
+                osc={k: float(x) for k, x in osc.items()}, power=power, words=words)
+
+
 def f4():
     """the sequence's rates against the theorem's orders (hf_core5's rows)"""
     C = _load("hf_core5.py", "thm_hf_core5b")
@@ -263,7 +348,7 @@ def lean_check():
 
 
 def compute():
-    return dict(words=words(), f1=f1(), f2=f2(), f3=f3(), f4=f4(), lean=lean_check())
+    return dict(words=words(), f1=f1(), f2=f2(), f3=f3(), f4=f4(), f5=f5(), lean=lean_check())
 
 
 def checks(o):
@@ -289,13 +374,19 @@ def checks(o):
     c["F4 the sequence meets the orders: P and the horizon at first order, the offset at second"] = all(
         all(1.7 < q < 2.7 for q in a[L]["P"]) and all(3.3 < q < 5.5 for q in a[L]["offset"])
         and all(1.6 < q < 2.8 for q in a[L]["dr"]) and a[L]["nz"] for L in (100, 1000))
+    a = o["f5"]
+    c["F5 the light cone (513; 324, 328): fronts null; cone equations blind to every rate; evolution linear in the "
+      "waves' rate; the one product of rates is the dust"] = (
+        a["words"] and a["gvv"] and a["hyper_blind"] and a["evol_linear"] and a["products_only_vv"] and a["no_second"]
+        and a["power"] > 8)
     return c
 
 
 STATUS = [("(iv) the boundary spacelike, outflow; the core beyond", "PROVED (exact; Z3)"),
           ("(ii) the limit g_0 = Vaidya with Isaacson's flux", "PROVED (exact; formal two-scale)"),
           ("(iii) one horizon, no inner one", "PROVED in the limit; computed at every lam run"),
-          ("(i) existence on D for every lam; rates of (ii), (iii)", "OPEN: L-UNIF (named); computed at 4 + 3 lam")]
+          ("the nonlinear coupling: O(1) only through the dust", "PROVED (exact; the light cone, F5)"),
+          ("(i) existence on D for every lam; rates of (ii), (iii)", "OPEN: L-UNIF', the estimate in rough-along-v norms")]
 
 
 def report(o=None):
@@ -308,6 +399,12 @@ def report(o=None):
     a = o["f2"]
     print("  F2 W at the computed boundary at most: %s; Lean: %s" % (
         ", ".join("%g: %.2f" % kv for kv in a["wex"].items()), o["lean"]))
+    a = o["f5"]
+    print("  F5 g^vv = 0: %s; cone (hypersurface) equations blind to every v-derivative: %s; evolution linear in the "
+          "waves' own rates: %s; products of rates only in R_vv, the waves' own: %s; no second v-derivative: %s; the "
+          "dust's oscillation along the cone %.1e at lam = 0.1, %.1e at lam/16 (power %.1f)" % (
+              a["gvv"], a["hyper_blind"], a["evol_linear"], a["products_only_vv"], a["no_second"], a["osc"][0.1],
+              a["osc"][0.1/16], a["power"]))
     for L, a in o["f4"].items():
         print("  F4 mu0/l5^2 = %d, lam %s: P ratios %s, offset ratios %s, horizon ratios %s" % (
             L, a["lam"], ["%.2f" % q for q in a["P"]], ["%.2f" % q for q in a["offset"]], ["%.2f" % q for q in a["dr"]]))
@@ -321,7 +418,9 @@ MUTANTS = {"below_seed": "a seed below sqrt(72) l5^2: x = 1 outside the horizon 
            "outside_boundary": "the boundary taken outside the horizon (F2)",
            "single_polarization": "one polarization only: the average is not round (F3)",
            "in_phase": "the polarizations in phase, not a quarter turn apart (F3)",
-           "no_backreaction": "the waves' quadratic term dropped (F3: no flux)"}
+           "no_backreaction": "the waves' quadratic term dropped (F3: no flux)",
+           "hypersurface_rate": "a hypersurface equation that sees the waves' rate (F5)",
+           "metric_rate_coupling": "an evolution equation coupling the wave's rate to W's (F5)"}
 
 
 def selftest():

@@ -2779,3 +2779,31 @@ you." It is built on the redone work of section 46, with the exclusions held fir
 
 Status: part (iv) and the limit are PROVED; part (iii) is PROVED in the limit and computed for every lam run; part (i)
 and the rates are OPEN on L-UNIF.
+
+## 48. The light cone settles THM-HF5's nonlinear coupling (512-513; lemmas/hf_theorem5.py F5, 7/7, mutants 7/7)
+
+M, 512: "The nonlinear coupling is what is open. - the interaction between different Baez list values of two different
+spacetimes?" -- no: it is gravity acting on itself within position 1's side; no Baez value enters the five-dimensional
+vacuum equations. M, 513: "Refer back to the light cone work we did proving that gravity is governed by relativity,
+which is governed by observation, which is a first principle".
+
+- **The chain, as the record proved it.** Observation (GW170817's one speed, MICROSCOPE, Cassini; READ) gives relativity
+  (relativity.py U6). Relativity gives the one light cone for every front on every background (M-ONE-LIGHT-CONE, 328).
+  The one light cone gives the law: alpha = 0, Einstein's equations exactly in five dimensions (gb_cone C7). With
+  alpha != 0, gravity's fronts would split from the light cone.
+- **What the light cone makes of the coupling (computed, exact, every v-derivative of every Ricci component).**
+  - The fronts are null for the full metric at every lam (g^vv = 0), and no component holds a second v-derivative of
+    anything. The waves never move their own cone.
+  - The three equations that fix the metric on each cone (R_rr, R_r-theta, the angular trace) hold no v-derivative of
+    anything. The metric on a cone is fixed by what lies on that cone, where the oscillation enters only at O(lam).
+  - The evolution equations carry only the waves' own rates, linearly: no rate of W, beta or U, and no product of
+    rates. The waves propagate linearly along the cone.
+  - The one product of rates anywhere is R_vv's: the waves' own, the dust. Its average is the limit's mass growth. Its
+    oscillation, carried along the cone, integrates for the record's envelope to 2.6e-7 of the shell at lam = 0.1 and
+    1.6e-18 at lam/16 (falling as lam^9.3).
+  - So the nonlinear coupling is O(1) only through the dust, which is the limit itself. Everything else is O(lam).
+- **What remains: L-UNIF', narrowed.** It is no longer the waves' interaction but an estimate: the remainder after the
+  geometric-optics approximant, driven by O(lam) sources with coefficients g_0 + O(lam) along the cones, stays O(lam)
+  on D. It must be measured in norms rough along v and smooth along the cones (Luk and Rodnianski's framework), with
+  the angular coupling of Bondi gauge handled in double null gauge or in norms analytic in x, as the data are. Not
+  proved. Evidence: the sequence at four and three wavelengths.

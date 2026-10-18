@@ -1344,6 +1344,17 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_511_SOURCE
     _rows_511.append((c, n, s_, t))
 LEMMAS_NOW = _rows_511
+# [item 513] the light cone settles THM-HF5's nonlinear coupling
+NOTE_513_SOURCE = ("  [Item 513] THM-HF5's coupling, by the light cone (hf_theorem5.py F5): fronts null at every lam; the "
+                   "equations fixing the metric on each cone see no v-derivative; the evolution is linear in the waves' own "
+                   "rates; the one product of rates is the dust, whose oscillation integrates along the cone to O(lam^9).  "
+                   "The coupling is O(1) only through the dust; L-UNIF narrows to L-UNIF', a remainder estimate, open")
+_rows_513 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_513_SOURCE
+    _rows_513.append((c, n, s_, t))
+LEMMAS_NOW = _rows_513
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
