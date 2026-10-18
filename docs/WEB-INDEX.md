@@ -249,7 +249,11 @@ what it said before as `was`, which the root plate and Help print under it.
   - the new `ground-103-108`: from Lr to Hs NIST holds only the ground level, with a calculated
     ionisation energy from Rf on, shown on those six element plates.
 - **Standing:** the reconstructed walk.
-- **Open:** the Λ₈ mapping, the author's decision.
+- **Repaired on 2026-10-18, from the book:** the Λ₈ mapping. The first review left it "open, the
+  author's decision", but the main volume's §12.11.1.6 builds an element's cells itself: every
+  transition among its own occupied subshells. Each element's plate now lists them (`lambda8_cells`,
+  `RECOVERED`), with the census in `lambda8_elements`, and every figure the record prints reproduces.
+  The ionisation ladder is kept beside them, relabelled a reconstruction.
 
 A cell where B disagrees between the csv and the observed configurations shows **both** values with
 the disagreement marked. The csv is never edited.

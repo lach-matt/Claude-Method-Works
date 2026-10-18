@@ -36,7 +36,8 @@ computed), and the tower is `tower-2.py`; both are imported **by path** and neve
 | structural half | ℛ over the layout: 90 held, 126 admitted, E = 36 | `PINNED` |
 | channels, per ion | charge, Nₑ, ℓ, mult, p, n₀, B, δ measured, δ by equation, residual, grade, witness, bound | `READ` + `PINNED` |
 | collapse | C(Z, ℓ) | `RECOVERED` |
-| Λ₈ | the ionisation ladder as transition cells, the seven constraints, the caps each needs | `RECONSTRUCTED` |
+| Λ₈ | the element's cells as the record builds them (every transition among its occupied subshells) | `RECOVERED` |
+| ionisation ladder | the steps between the ions as transition cells, the seven constraints, the caps each needs | `RECONSTRUCTED` |
 | **series limit** | the measured ionisation limit, its uncertainty and its provenance | `READ` / `FITTED` |
 | equation domain | per channel: validated, or extrapolated and why (the record's rule over the csv's notes) | `DERIVED` |
 | ground basis | Z = 103 to 108: NIST holds the ground level alone; the ionisation energy's basis | `READ` |
@@ -231,24 +232,45 @@ by 1 and 5, and the in-region set has five rows more than the record's 277. The 
 than the survey, and the rows that moved are not identified. The 25 rows of the 2026-08-14 fetch fall
 inside the domain, with an rms of 0.377.
 
-## Λ₈, and why an element is not a cell
+## Λ₈, and how an element maps onto its cells
 
-Chapter 7 makes a Λ₈ cell a **transition** — a source configuration, a target configuration and the
-electron count moved between them — so an element is not a cell and a mapping has to be chosen. The
-one chosen here is the element's own **ionisation ladder**, read off the observed configurations:
-at each step the electrons lost leave a source subshell and the subshell that differs identifies the
-target. Nothing in the store fixes this mapping (searched again 2026-10-17: the Register, `DEFERRED.md`,
-`DOCKET.md` and `RULINGS-R2.md` carry no ruling on it), so it is `RECONSTRUCTED` and a later ruling
-can move it. 2S is left `None` where the ion's term is not carried — the envelope 2S ≤ k admits
-values no k electrons can hold (§7.1), so it may not be inferred.
+Chapter 7 makes a Λ₈ cell a **transition**: a source configuration, a target configuration and the
+electron count moved between them. So an element is not a cell, and the book says which cells
+stand for it. §12.11.1.6 (main L3318): *"Λ has no Z. Every constraint is internal to one atom … Building
+cells (Z, n, ℓ, k, q, e, f, g) from real occupied subshells gives 4,325"* (register 628).
 
-What the mapping does satisfy is measured: all **5,778** ladder steps of Z = 1 to 108 satisfy the six
-of §7.1's seven constraints that can be decided without the ion's term, and **1,107** lie within
-§7.4's standing caps. The seventh, 2S ≤ k, is undecided at every step for the reason above.
+`element_cells(Z)` builds them by the record's own rule, the enumeration in `close_L118.py`'s `run()`
+(the instrument behind register 529's 18,288 tests, in the restore point at
+`extracted/archives/restore-point-2-13/`):
+
+- the source is an occupied subshell (n, ℓ) with its real occupancy k;
+- the target is another subshell (e, f) the same atom holds;
+- q = 1 … k electrons are moved, and g = 1 … min(q, 4f + 2) placed.
+
+The table is read from that file by path, after its md5 is checked; its tail runs the test pass and
+exits, so only the table is executed. The cells are **`RECOVERED`**. `element_cells_census()`
+reproduces every figure the record prints of them: 118 elements, 247 subshells, 18,288 tests, 4,325
+cells, 982 composable within one element and 3,686 across the table, and register 629's
+selection-rule splits. `--element-cells-E` re-measures E = 972,862 with Z and 28,503 without it, in
+about three minutes.
+
+Λ closes because it has no Z. For Z = 1 to 108 every subshell the record's table lists carries
+`LW1-ground.py`'s occupancy. The selftest checks that, and that every cell satisfies the six
+constraints decidable without 2S. Fifteen elements have one listed subshell and so no cell. See
+`docs/CAVEATS.md`.
+
+**The ionisation ladder** (`ionisation_cells`) is a different object, kept beside the cells as a
+`RECONSTRUCTED` reading: the steps between an element's ions, read off the observed configurations.
+At each step the electrons lost leave a source subshell, and the subshell that differs identifies the
+target. It stood in the record's place until 2026-10-18; an earlier search had looked for a ruling only
+in the governance files, and missed the book's own construction. 2S is left `None` where the ion's
+term is not carried: the envelope 2S ≤ k admits values no k electrons can hold (§7.1), so it may not
+be inferred. Measured: all **5,778** ladder steps of Z = 1 to 108 satisfy the six decidable
+constraints, and **1,107** lie within §7.4's standing caps.
 
 ## `--selftest`
 
-132 fixtures. The seated members as imported (108 elements, 108 of 108 electron counts, |Λ₈| = 976
+137 fixtures. The seated members as imported (108 elements, 108 of 108 electron counts, |Λ₈| = 976
 and the whole tower 1,654 / 2,535 / 13,585 / 70,905 / 199,130); chapter 6's ninety main-table cells
 and the twenty-eight set aside; **ℛ reproducing the thirty-six by identity**, not merely by count —
 (p1,g2)…(p1,g17), (p2,g3)…(p2,g12), (p3,g3)…(p3,g12); the Janet blocks opening at Sc, La and Ac;
@@ -259,7 +281,8 @@ equation reproducing the computed column under both configuration tables. Since 
 n₀'s reading reproducing all 101,303 integer B values on the aufbau table, with the other reading
 held below 90 %; the B column's three readings counted (101,303 / 25 / 3,504); the nine neutral
 limits held against the CSV's notes; the deficit refused at every stage that is not one-electron;
-the ground basis of Lr to Hs; and the domain census against registers 1192 and 1193.
+the ground basis of Lr to Hs; and the domain census against registers 1192 and 1193. Since
+2026-10-18, the record's element cells against registers 529, 628 and 629.
 
 Current state: `SELFTEST OK`.
 
@@ -279,4 +302,4 @@ Current state: `SELFTEST OK`.
 **Closed on 2026-10-17** (see `docs/CAVEATS.md`): n₀'s reading, once `RECONSTRUCTED` at 97.7 % against
 87.0 % on the observed table, is `RECOVERED` at 101,303 of 101,303 on the column's own table; the
 equation's domain, once "not re-stated per channel", is now stated on every channel.
-- **The ionisation ladder is one mapping, not the mapping.** See above.
+- **The ionisation ladder is a reconstruction beside the record's cells.** See above.

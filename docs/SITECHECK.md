@@ -64,7 +64,7 @@ boot or element load and reports it on the console only, so console errors count
 the harness itself turns away from another host (the fonts). Each scenario has three minutes; one
 that stops responding is reported as failed and the run goes on.
 
-## What it checks — 31 scenarios, 140 checks
+## What it checks — 31 scenarios, 142 checks
 
 Each scenario runs in fresh browser contexts, closed when it ends, so one cannot leak into the next;
 a scenario that throws is reported as a failure and the run goes on.
@@ -112,7 +112,10 @@ a scenario that throws is reported as a failure and the run goes on.
   - Fe IV s is outside the domain, with the reason;
   - Rf's ground level is NIST's lone level, its ionisation energy ab initio;
   - Z = 119's B is named a bare 0, not a bound;
-  - n₀ is `RECOVERED`.
+  - n₀ is `RECOVERED`;
+  - Fe's plate lists its Λ cells as the record builds them (14, five composable within iron), with
+    the ionisation ladder labelled a reconstruction;
+  - H, with one listed subshell, has no cell.
 
 **Each of those was proved to fail on the bug it guards against.** The review that hardened the
 tool put ten known bugs back into copies of the site — the `#paper=` branch removed, `paperAddress`

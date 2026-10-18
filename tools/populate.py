@@ -592,15 +592,14 @@ def within_caps(cell, caps=CAPS):
 def ionisation_cells(Z):
     """The ionisation ladder as Lambda_8 transition cells.
 
-    RECONSTRUCTED, and the reconstruction is stated rather than assumed.
-    Chapter 7 makes a Lambda_8 cell a TRANSITION -- a source configuration, a
-    target configuration and the electron count moved between them -- so an
-    element is not a cell and a mapping has to be chosen. The one chosen here
-    is the element's own ionisation ladder, read off the observed
-    configurations: at each step, the electrons the ion loses relative to the
-    neutral atom leave a source subshell, and the subshell that differs
-    identifies the target. Nothing else in the store fixes this mapping, so it
-    is marked RECONSTRUCTED and a later ruling can move it.
+    RECONSTRUCTED, and NOT the record's mapping of an element onto Lambda's
+    cells -- that is element_cells() below, the cells built from the element's
+    own occupied subshells. This is a different object kept beside it: the
+    steps between the element's ions, read off the observed configurations.
+    At each step the electrons the ion loses relative to the neutral atom
+    leave a source subshell, and the subshell that differs identifies the
+    target. It was shown in the record's place until 2026-10-18, when the
+    record's own construction was found (docs/CAVEATS.md).
 
     2S is the ion's own ground multiplicity where the term is known, else the
     envelope 2S <= k leaves it undetermined and it is reported as None."""
@@ -629,6 +628,153 @@ def ionisation_cells(Z):
             "cell": (sn, sl, k, q, tn, tl, g, None),
         })
     return out
+
+
+# ---------------------------------------------------------------------------
+# An element's Lambda cells, as the record builds them
+# ---------------------------------------------------------------------------
+# Lambda has no Z: every constraint is internal to one atom (main volume
+# section 12.11.1.6), and the record maps an element onto Lambda's cells by
+# building them from the element's own real occupied subshells -- "a cell is
+# (Z, n, l, k, q, e, f, g) where the source subshell (n, l) really holds k in
+# element Z, and the target (e, f) really exists in Z", q = 1..k electrons
+# moved and g = 1..min(q, 4f+2) placed. The enumeration is close_L118.py's
+# own: the instrument behind register 529's 18,288 tests (247 subshells x 4
+# constraints + 4,325 transitions x 4) walks exactly these cells, and over its
+# 118 configurations they are the 4,325 that register 628 counts -- 982
+# composable within one element, 3,686 across the table. RECOVERED: the book
+# states the rule, the record's instrument enumerates it, the chat instrument
+# behind register 628 builds it the same way, and every count the record
+# prints reproduces (the selftest). 2S is not enumerated, as in the record.
+RECORD_CONFIGS = os.path.join(REPO, "extracted", "archives", "restore-point-2-13",
+                              "close_L118.py")
+RECORD_CONFIGS_MD5 = "c6104968a8c61847975a5d5c8c4a0724"
+# What the record prints of these cells (registers 628, 629 and section
+# 12.11.1.6), held for the selftest. E with and without Z are re-measured by
+# element_cells_E(), which takes minutes and is run on request (--element-cells-E).
+RECORD_ELEMENT_CELLS = {"elements": 118, "subshells": 247, "cells": 4325,
+                        "composable_within": 982, "composable_across": 3686,
+                        "tests": 18288, "E_with_Z": 972862, "E_without_Z": 28503}
+_EC = {}
+
+
+def record_configurations():
+    """{Z: (symbol, [(n, l, k)])} -- the 118 ground configurations the record's
+    element cells are built on, READ from close_L118.py by path (its table only:
+    the file's tail runs its own test pass and exits). The valence beyond the
+    preceding noble core as that instrument lists it; Z >= 104 predicted. For
+    Z = 1 to 108 every subshell it lists carries LW1-ground.py's occupancy."""
+    if "configs" not in _EC:
+        import hashlib
+        with open(RECORD_CONFIGS, "rb") as fh:
+            raw = fh.read()
+        got = hashlib.md5(raw).hexdigest()
+        if got != RECORD_CONFIGS_MD5:
+            raise ValueError("close_L118.py is not the record's (md5 %s)" % got)
+        src = raw.decode("utf-8")
+        head = src[:src.index("def run():")].replace("from zeno import State, step", "")
+        ns = {}
+        exec(compile(head, RECORD_CONFIGS, "exec"), ns)
+        lmap = ns["L"]
+        _EC["configs"] = {Z: (sym, [(n, lmap[s], k) for (n, s, k) in sh])
+                          for Z, (sym, sh) in sorted(ns["C"].items())}
+    return _EC["configs"]
+
+
+def _cells_of(sh):
+    occ = {(n, l): k for n, l, k in sh}
+    out = []
+    for (n, l), k in occ.items():
+        for (e, f) in occ:
+            if (n, l) == (e, f):
+                continue
+            for q in range(1, k + 1):
+                for g in range(1, min(q, 4 * f + 2) + 1):
+                    out.append((n, l, k, q, e, f, g))
+    return out
+
+
+def element_cells(Z):
+    """The element's Lambda cells as the record builds them, or None where the
+    record's table has no row (Z = 119, 120). Each cell is (n, l, k, q, e, f, g);
+    'composable' means its target (e, f, g) is the source (n, l, k) of another
+    of this element's cells, the within-one-element reading of register 628."""
+    cfg = record_configurations().get(Z)
+    if cfg is None:
+        return None
+    sym, sh = cfg
+    cells = _cells_of(sh)
+    sources = {c[:3] for c in cells}
+    caps = lambda c: (c[0] <= CAPS["n"] and c[4] <= CAPS["e"] and c[1] <= CAPS["l"]
+                      and c[5] <= CAPS["f"] and c[2] <= CAPS["k"])
+    return {
+        "symbol": sym, "status": RECOVERED, "predicted": Z >= 104,
+        "subshells": [{"n": n, "l": l, "k": k} for n, l, k in sh],
+        "coords": ["n", "l", "k", "q", "e", "f", "g"],
+        "cells": [list(c) + [int((c[4], c[5], c[6]) in sources), int(caps(c))] for c in cells],
+        "count": len(cells),
+        "composable_within": sum(1 for c in cells if (c[4], c[5], c[6]) in sources),
+        "within_caps": sum(1 for c in cells if caps(c)),
+        "source": "the record's own construction: every transition among the element's "
+                  "occupied subshells, on the record's 118 ground configurations",
+    }
+
+
+def element_cells_census():
+    """The whole population against what the record prints of it."""
+    configs = record_configurations()
+    X = {(Z,) + c for Z, (_s, sh) in configs.items() for c in _cells_of(sh)}
+    by_z = {}
+    for c in X:
+        by_z.setdefault(c[0], set()).add(c[1:4])
+    across_sources = {c[1:4] for c in X}
+    within = sum(1 for c in X if c[5:8] in by_z[c[0]])
+    across = sum(1 for c in X if c[5:8] in across_sources)
+
+    def split(pred):
+        cs = [c for c in X if pred(c)]
+        return {"cells": len(cs), "within": sum(1 for c in cs if c[5:8] in by_z[c[0]]),
+                "across": sum(1 for c in cs if c[5:8] in across_sources)}
+    subshells = sum(len(sh) for _s, sh in configs.values())
+    return {
+        "elements": len(configs), "subshells": subshells, "cells": len(X),
+        "composable_within": within, "composable_across": across,
+        "cells_without_Z": len({c[1:] for c in X}),
+        "tests": 4 * subshells + 4 * len(X),
+        "em_allowed": split(lambda c: abs(c[2] - c[6]) == 1),
+        "em_forbidden": split(lambda c: abs(c[2] - c[6]) != 1),
+        "parity_changing": split(lambda c: (c[2] - c[6]) % 2 == 1),
+        "parity_conserving": split(lambda c: (c[2] - c[6]) % 2 == 0),
+        "record": RECORD_ELEMENT_CELLS,
+    }
+
+
+def element_cells_E():
+    """E over the record's cells with Z as a coordinate and with Z stripped, by the
+    closure the record used (each coordinate bounded by the running maximum of
+    another, the binary projections of section 14). Minutes, not seconds."""
+    import itertools
+    configs = record_configurations()
+    X = {(Z,) + c for Z, (_s, sh) in configs.items() for c in _cells_of(sh)}
+
+    def clos(cells, d):
+        cells = list(cells)
+        axes = [sorted({c[i] for c in cells}) for i in range(d)]
+
+        def env(a, b):
+            m = {}
+            for c in cells:
+                m[c[b]] = max(m.get(c[b], -99), c[a])
+            z, o = -99, {}
+            for t in sorted(m):
+                z = max(z, m[t])
+                o[t] = z
+            return o
+        ph = {(a, b): env(a, b) for a in range(d) for b in range(d) if a != b}
+        return sum(1 for x in itertools.product(*axes)
+                   if all(x[a] <= ph[(a, b)][x[b]] for a in range(d) for b in range(d) if a != b))
+    Y = {c[1:] for c in X}
+    return {"E_with_Z": clos(X, 8) - len(X), "E_without_Z": clos(Y, 7) - len(Y)}
 
 
 # ---------------------------------------------------------------------------
@@ -778,7 +924,11 @@ AXES = [
     ("C(Z)", RECOVERED, "the collapse coordinate, inverted out of COORDINATES-2.13's computed column (registers 1188-1190); see collapse_C"),
     ("witness", READ, "COORDINATES-2.13"),
     ("bound", READ, "COORDINATES-2.13"),
-    ("Lambda_8 cell", RECON, "the ionisation ladder as transitions; see ionisation_cells"),
+    ("Lambda_8 cell", RECOVERED, "the element's cells as the record builds them: every "
+                                 "transition among its own occupied subshells, on the "
+                                 "record's 118 ground configurations; see element_cells. "
+                                 "The ionisation ladder beside them is RECONSTRUCTED "
+                                 "(ionisation_cells)"),
     ("caps", PINNED, "section 7.4's (n,e,l,k,f) = (3,3,1,3,1)"),
     ("series limit", READ, "the measured ionisation limit; READ or FITTED per "
                            "registers 3249/3313/3401, never computed. The "
@@ -899,6 +1049,7 @@ def populate(Z, spectra, charge=None, table="observed"):
             chans.append(ch)
     out["config_table"] = table
     out["channels"] = chans
+    out["lambda8_cells"] = element_cells(Z)
     out["lambda8"] = []
     for step in ionisation_cells(Z):
         cell = step["cell"]
@@ -1458,6 +1609,25 @@ def selftest(spectra):
           and limit_deficit(11, 1) is None,
           "a deficit is reported for a stage that is not one-electron")
     check(limit_deficit(3, 3) is not None, "Li III's deficit is lost")
+    # The record's mapping of an element onto Lambda's cells, against every
+    # count the record prints of it (registers 529, 628, 629).
+    ec = element_cells_census()
+    check(all(ec[k] == RECORD_ELEMENT_CELLS[k] for k in
+              ("elements", "subshells", "cells", "composable_within", "composable_across", "tests")),
+          "the record's element cells do not reproduce: %r" % {k: ec[k] for k in RECORD_ELEMENT_CELLS if k in ec})
+    check((ec["em_allowed"], ec["em_forbidden"], ec["parity_changing"], ec["parity_conserving"]) == (
+        {"cells": 2673, "within": 309, "across": 2399}, {"cells": 1652, "within": 673, "across": 1287},
+        {"cells": 3719, "within": 749, "across": 3142}, {"cells": 606, "within": 233, "across": 544}),
+          "register 629's selection-rule table does not reproduce")
+    check(all(all(h for _r, h, _o in lambda_constraints(tuple(c[:7]) + (0,))[:6])
+              for Z in range(1, 119) for c in element_cells(Z)["cells"]),
+          "an element cell breaks one of the six decidable constraints")
+    fe = element_cells(26)
+    check((fe["count"], fe["composable_within"]) == (14, 5), "Fe's cells: %r" % ((fe["count"], fe["composable_within"]),))
+    check(all(record_configurations()[Z][1] and all(
+        dict(((n, l), o) for n, l, o in LW1.expand(Z)).get((n, l)) == k
+        for n, l, k in record_configurations()[Z][1]) for Z in range(1, 109)),
+          "a subshell of the record's table disagrees with LW1-ground.py")
     check(sorted(GROUND_ONLY) == [103, 104, 105, 106, 107, 108]
           and ground_basis(102) is None and ground_basis(104)["ionisation_energy_eV"] == "(6.02)",
           "the ground-level basis of Lr to Hs")
@@ -1533,6 +1703,9 @@ def main(argv=None):
     ap.add_argument("--equation", action="store_true")
     ap.add_argument("--check-B", dest="check_b", action="store_true")
     ap.add_argument("--json", action="store_true")
+    ap.add_argument("--element-cells-E", action="store_true",
+                    help="re-measure E over the record's element cells, with and without Z "
+                         "(registers 628: 972,862 and 28,503); minutes")
     ap.add_argument("--selftest", action="store_true")
     args = ap.parse_args(argv)
 
@@ -1543,6 +1716,13 @@ def main(argv=None):
 
     if args.selftest:
         return selftest(spectra)
+    if args.element_cells_E:
+        got = element_cells_E()
+        for k in ("E_with_Z", "E_without_Z"):
+            print("  %-12s %10s   the record prints %s   %s" % (
+                k, format(got[k], ","), format(RECORD_ELEMENT_CELLS[k], ","),
+                "reproduced" if got[k] == RECORD_ELEMENT_CELLS[k] else "DIFFERS"))
+        return 0 if all(got[k] == RECORD_ELEMENT_CELLS[k] for k in got) else 1
     if args.equation:
         return equation_report(spectra, table=args.config)
     if args.check_b:

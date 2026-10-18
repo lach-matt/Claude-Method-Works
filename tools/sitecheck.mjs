@@ -396,6 +396,10 @@ scenario('caveats', 'the caveats carry their state, and each repair shows on its
   ok('Z = 119: the csv\'s B is named a bare 0, not a bound', /0, not a bound/.test(t), t.slice(0, 500));
   await p.goto(B + '#/Fe/I/s'); await W(p, 3000); t = await plate(p);
   ok('Fe I s: n₀ is RECOVERED', /n₀\s*\d+\s*RECOVERED/.test(t), t.match(/n₀.{0,40}/));
+  await p.goto(B + '#/Fe'); await W(p, 3500); t = await plate(p);
+  ok('Fe: its Λ cells as the record builds them, 14, five composable within iron; the ladder labelled a reconstruction', /Λ cells, as the record builds them/.test(t) && /cells\s*14\s*RECOVERED/.test(t) && /composable within the element\s*5 of 14/.test(t) && /The ionisation ladder, a reconstruction/.test(t), t.match(/Λ cells, as the record.{0,300}/));
+  await p.goto(B + '#/H'); await W(p, 3500); t = await plate(p);
+  ok('H: one subshell listed, so no Λ cell', /One subshell is listed[^.]*: the element has no cell/.test(t), t.match(/Λ cells, as the record.{0,300}/));
 });
 
 // ---------------------------------------------------------------- suites
