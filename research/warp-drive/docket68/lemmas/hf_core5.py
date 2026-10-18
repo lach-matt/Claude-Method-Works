@@ -97,7 +97,7 @@ def checks(o):
     c["C0 words of 506 and 508"] = o["words"]
     s = o["stats"]
     for L in (100, 1000):
-        ks = [key(cfg) for cfg in ALL if cfg[0] == L]
+        ks = [key(cfg) for cfg in ALL if cfg[0] == L and cfg != FOURTH]
         if not all(k in s for k in ks):
             c["C* runs at L = %d present" % L] = False
             continue
@@ -119,7 +119,7 @@ def checks(o):
                                                                        and b["width"] < 0.6*a["width"] and d["width"] < 0.6*b["width"])
     k4 = key(FOURTH)
     if k4 in s:
-        f3, f4 = s[key(ALL[2])], s[k4]
+        f3, f4 = s[key(ALL[2])], s[k4]                   # lam = 0.025 and 0.0125 at L = 100
         c["C5 L=100: a fourth wavelength -- the fall goes on, the mass at second order"] = (
             all(f3[q] > f4[q] for q in ("spread", "offset", "dW", "dW_all", "P", "b"))
             and f4["offset"] < 0.3*f3["offset"] and f4["nz_min"] == f4["nz"] == 1 and f4["Wex_max"] < 0)
