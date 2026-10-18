@@ -709,7 +709,7 @@
     return { x: f.cx, y: f.cy + CELL * 0.03 };
   }
 
-  // The Λ₈ ionisation ladder: one line per step of the record's own ladder, joining the
+  // The ionisation ladder (a reconstruction, not the record's Λ cells): one line per step, joining the
   // ion at charge − 1 to the ion at charge. Nothing that is not a step is drawn.
   function drawLadder(e, tree, ox, oy) {
     const rec = state.elements.get(e.Z);
@@ -953,7 +953,7 @@
   }
 
   // one element: its slab, stage up (y = charge − 1), ℓ into the page (z = ℓ), the cells of a
-  // site along x, and the Λ₈ ladder climbing the front-left edge one rung per recorded step
+  // site along x, and the ionisation ladder climbing the front-left edge one rung per step
   function buildElementScene(Z) {
     const rec = state.elements.get(Z), tree = state.trees.get(Z);
     const e = state.index.layout.find((x) => x.Z === Z);
@@ -1878,7 +1878,7 @@
         <div class="stat"><b>${t.exact}</b><span>exact ${badge('DERIVED', 'count over COORDINATES-2.13\'s grade column')}</span></div>
         <div class="stat"><b>${t.computed.toLocaleString()}</b><span>computed ${badge('DERIVED', 'count over COORDINATES-2.13\'s grade column')}</span></div>
       </div>
-      ${section('How to read it', `<p class="note">Tap any element: its ions appear inside it in spectroscopic order (I is neutral), joined by the Λ₈ ionisation ladder; each ion opens into its ℓ channels, each channel into its cells, one per multiplicity, coloured by grade. Every value in this plate carries the status the data gives it: ${Object.keys(ix.status_legend || {}).map((s) => badge(s)).join(' ')}. The explorer computes nothing; the solver suite below does, and every solver carries a selftest.</p>`)}
+      ${section('How to read it', `<p class="note">Tap any element: its ions appear inside it in spectroscopic order (I is neutral), joined by the ionisation ladder (a reconstruction of the steps between ions; the element's Λ cells, as the record builds them, are on its plate); each ion opens into its ℓ channels, each channel into its cells, one per multiplicity, coloured by grade. Every value in this plate carries the status the data gives it: ${Object.keys(ix.status_legend || {}).map((s) => badge(s)).join(' ')}. The explorer computes nothing; the solver suite below does, and every solver carries a selftest.</p>`)}
       ${section('Closure of this layout', `<div class="fields">
         ${row('index', esc(c.index), 'PINNED', 'the drawn layout', true)}
         ${row('operator', esc(c.operator), 'PINNED', 'the order operator', true)}
@@ -1890,7 +1890,7 @@
         ${row('set aside', c.set_aside, 'PINNED', 'the lanthanides and actinides, set aside below the table')}
       </div>${c.placement && (state.layout === 'table' || state.layout === 'table3d') ? `<div class="actions"><button type="button" data-act="helium-toggle">${state.heliumAt === 2 ? 'Draw helium at group 18 (IUPAC)' : 'Draw helium at group 2 (E = ' + c.placement.helium_at_2.E + ')'}</button></div>` : ''}`)}
       ${(() => { const rel = ix.relativistic, lim = ix.limits; if (!rel && !lim) return ''; let b = ''; if (rel) { const paper = (rel.sources || {}).paper || {}; b += `<div class="fields">${rel.repair ? row('displaced at c → ∞', esc(rel.repair.displaced.join(', ')) + ` <span class="plain">(${esc(rel.repair.witnessed.join(', '))} among the measured elements; ${esc(rel.repair.unwitnessed.join(', '))} beyond them)</span>`, 'RECOVERED', esc(rel.repair.comparison), true) + row('as the paper printed it', esc(rel.repair.paper_eleven.join(', ')) + ' <span class="plain">— superseded</span>', 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}; ${esc(rel.repair.paper_eleven_status)}`, true) : row('displaced at c → ∞', esc((rel.eleven || []).map((x) => x.symbol).join(', ')), 'READ', `${(paper.title || 'the Löwdin paper')} L${paper.eleven_line}`, true)}${rel.record ? row('instrument', 'recovered — the record\'s own code, run here', 'RECOVERED', esc((rel.instrument && rel.instrument.note) || ''), true) : row('instrument', 'not held — the construction is record-carried; nothing here computes it', null, esc((rel.instrument && rel.instrument.note) || ''), true)}${rel.walk && rel.walk.summary && rel.walk.summary.compare ? row('the walk, reconstructed', esc(`${rel.walk.summary.compare.displaced.length} displaced at c → ∞ in the ${rel.walk.primary === 'hf' ? 'Hartree–Fock' : 'local-exchange'} field (${rel.walk.summary.compare.displaced.map((d) => d.symbol).join(', ') || 'none'}); ${rel.walk.summary.compare.in_eleven.length} of the record's eleven`), 'RECONSTRUCTED', 'tools/lowdin_walk.py over LOWDIN-WALK.tsv: the record\'s construction rebuilt from its statement; placed beside the record, never in its place', true) : ''}</div>`; } if (lim) { b += `<p class="note" style="margin-top:8px">Every cell carries the bound the csv records; by kind: ${(lim.kinds || []).map((k) => `<span class="dot dot-lim-${k.kind}"></span>${esc(LIMIT_LABEL[k.kind] || k.kind)} ${k.count.toLocaleString()}`).join(' · ')} ${badge('DERIVED', 'kind by the stated rule; the note is READ')}</p><div class="actions"><button type="button" data-act="color-limit">Colour cells by limit</button><button type="button" data-act="color-grade">by grade</button></div>`; } return section('The relativistic limit and the bounds', b); })()}
-      ${section('Caveats that travel with every value', `<p class="note">Each was reviewed against the evidence on ${esc(((ix.caveats || [])[0] || {}).reviewed || '—')}: ${['repaired', 'measured', 'standing', 'open'].map((k) => `${(ix.caveats || []).filter((v) => v.state === k).length} ${k}`).join(', ')}.</p><ul class="note cv-list">${(ix.caveats || []).map(caveatItem).join('')}</ul>`)}
+      ${section('Caveats that travel with every value', `<p class="note">Each was reviewed against the evidence on ${esc([...new Set((ix.caveats || []).map((v) => v.reviewed).filter(Boolean))].sort().join(' and ') || '—')}: ${['repaired', 'measured', 'standing', 'open'].map((k) => `${(ix.caveats || []).filter((v) => v.state === k).length} ${k}`).join(', ')}.</p><ul class="note cv-list">${(ix.caveats || []).map(caveatItem).join('')}</ul>`)}
       <div class="actions"><button type="button" data-act="open-prov">Provenance and sources</button></div>
       <div class="cite">${esc(citation(rootNode))}</div>`;
   }
@@ -1944,7 +1944,7 @@
     const n = rec ? rec.channels.reduce((a, ch) => a + ch.measured.length, 0) : (e.counts ? e.counts.rows : 0);
     const k = rec ? rec.channels.reduce((a, ch) => a + ch.measured.filter((m) => m.grade !== 'computed').length, 0) : ((e.counts ? e.counts.measured + e.counts.exact : 0));
     const on = state.view === 'lattice' && state.scene && state.scene.kind === 'element' && state.scene.Z === e.Z;
-    return section('The lattice', `<p class="note">${esc(e.symbol)} as its slab of Λ_spectra, on the record's own axes: ionisation stage up, ℓ into the page, one node per cell, the cells of a site side by side where it holds two multiplicities. Nodes carry the same marks as the nested view — a filled sphere for a measured cell, a ringed disc for an exact one, a small grey dot for a computed one — and the ladder climbs the front edge, one rung per recorded step.</p>
+    return section('The lattice', `<p class="note">${esc(e.symbol)} as its slab of Λ_spectra, on the record's own axes: ionisation stage up, ℓ into the page, one node per cell, the cells of a site side by side where it holds two multiplicities. Nodes carry the same marks as the nested view — a filled sphere for a measured cell, a ringed disc for an exact one, a small grey dot for a computed one — and the ionisation ladder, a reconstruction, climbs the front edge, one rung per step.</p>
       <div class="fields">
         ${row('axes', 'element across · stage up · ℓ into the page', 'READ', lat.source || 'Index of Indices, Figure 6')}
         ${row('cells drawn', `${n.toLocaleString()} (${k} known)`, 'DERIVED', 'one cube per row of COORDINATES-2.13 for this element; nothing computed')}
@@ -2079,6 +2079,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           ${row('ions', e.counts.ions, 'DERIVED', "counts over the record's COORDINATES-2.13 rows")}
         </div>`)}
         ${ions ? section('Ions', `<div class="chips">${ions.map((i) => `<button type="button" class="chip is-csv" data-go="${node.Z}/${i.charge}">${esc(e.symbol)} ${roman(i.charge)}</button>`).join('')}</div>`) : loadNote()}
+        ${rec ? lambdaCellsSection(rec) : ''}
         ${isotopeSection(node.Z, rec)}
         ${walkSection(e, rec, state.index.relativistic || {})}
         ${limitsSection(e)}
@@ -2113,9 +2114,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           const nM = i.nMeasured;
           return `<button type="button" class="chip" data-go="${node.Z}/${i.charge}" title="${nM} measured">${esc(e.symbol)} ${roman(i.charge)}${nM ? ` <span class="dot dot-measured" style="margin:0 0 0 4px"></span>` : ''}</button>`;
         }).join('')}</div>`);
+      html += lambdaCellsSection(rec);
       if (rec.lambda8 && rec.lambda8.length) {
-        html += section('Λ₈ ionisation ladder', `<div class="callout">${esc(caveat('lambda8-mapping'))}</div>
-          <p class="note">Drawn on the canvas as the glowing lines between consecutive ions: ${rec.lambda8.length} steps, each linking the ion at charge − 1 to the ion at charge.</p>
+        html += section('The ionisation ladder, a reconstruction', `<p class="note">Not the record's mapping of the element onto Λ's cells, which is the section above: the steps between the element's ions, read off the observed configurations, kept beside the record's cells as what it is ${badge('RECONSTRUCTED', 'the steps between the element\'s ions, read off the observed configurations: a reconstruction, not the record\'s mapping of an element onto Λ\'s cells')}. Drawn on the canvas as the glowing lines between consecutive ions: ${rec.lambda8.length} steps, each linking the ion at charge − 1 to the ion at charge.</p>
           <div class="tbl-wrap"><table class="t"><thead><tr><th>step</th><th>stage</th><th>transition</th><th>(n, ℓ, k, q, e, f, g, 2S)</th><th>7.1</th><th>within 7.4 caps</th></tr></thead><tbody>
           ${rec.lambda8.map((s, i) => {
             const holds = s.constraints.filter((c) => c.holds).length;
@@ -2123,7 +2124,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
             const need = Object.entries(s.caps_needed).filter(([k, v]) => v > state.index.caps[k]).map(([k, v]) => `${k}≥${v}`).join(' ');
             return `<tr class="is-link" data-go="${node.Z}/${s.charge}"><td class="num">${i + 1}</td><td>${roman(s.charge)}</td><td>${esc(s.from)} → ${esc(s.to)}</td><td>(${s.cell.map((v) => v === null ? '·' : v).join(', ')})</td><td>${holds}/${s.constraints.length}</td><td>${within ? 'within' : `<span class="bad">outside</span> ${esc(need)}`}</td></tr>`;
           }).join('')}
-          </tbody></table></div>`, badge('RECONSTRUCTED', (axisStatus('Lambda_8 cell') || {}).source));
+          </tbody></table></div>`, badge('RECONSTRUCTED', 'the steps between the element\'s ions, read off the observed configurations: a reconstruction, not the record\'s mapping of an element onto Λ\'s cells'));
       }
       html += isotopeSection(node.Z, rec) + relSection(e, rec) + limitsSection(e) + elementReferences(e, rec);
       html += actions(node, { ...rec, channels: `${rec.channels.length} channels — see the ion nodes` });
@@ -2134,6 +2135,27 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   }
 
   const sup = (n) => String(n).split('').map((c) => '⁰¹²³⁴⁵⁶⁷⁸⁹'[+c]).join('');
+  // An element's Λ cells as the record builds them: every transition among its own occupied
+  // subshells, source (n, ℓ) holding its real k, target (e, f) another subshell of the atom,
+  // q = 1…k moved, g = 1…min(q, 4f+2) placed. RECOVERED; each cell carries two flags the
+  // generator computed: composable within the element (its target is another cell's source)
+  // and within the standing caps.
+  function lambdaCellsSection(rec) {
+    const lc = rec && rec.lambda8_cells;
+    if (!lc) return rec ? section('Λ cells, as the record builds them', '<p class="note">The record\'s configuration table has no row for this element, so it has no Λ cells.</p>') : '';
+    const sh = lc.subshells.map((x) => `${x.n}${LSYM[x.l]}${sup(x.k)}`).join(' ');
+    const head = `<p class="note">${esc(caveat('lambda8-mapping'))}</p>
+      <div class="fields">
+        ${row('subshells', `${sh}${lc.predicted ? ' <span class="plain">(predicted configuration)</span>' : ''}`, 'READ', 'the record\'s ground configuration of the element, valence beyond the noble core', true)}
+        ${row('cells', lc.count, 'RECOVERED', lc.source)}
+        ${row('composable within the element', `${lc.composable_within} of ${lc.count}`, 'DERIVED', 'the cell\'s target (e, f, g) is the source (n, ℓ, k) of another of this element\'s cells')}
+        ${row('within the standing caps', `${lc.within_caps} of ${lc.count}`, 'DERIVED', 'n ≤ 3, e ≤ 3, ℓ ≤ 1, f ≤ 1, k ≤ 3: the caps at which Λ₈ counts 976 cells')}
+      </div>`;
+    if (!lc.count) return section('Λ cells, as the record builds them', head + '<p class="note">One subshell is listed, so no transition runs between two of its subshells: the element has no cell.</p>');
+    return section('Λ cells, as the record builds them', head + `<div class="tbl-wrap"><table class="t"><thead><tr><th>source → target</th><th class="num">q</th><th class="num">g</th><th>(n, ℓ, k, q, e, f, g)</th><th>composable</th><th>caps</th></tr></thead><tbody>
+      ${lc.cells.map((c) => `<tr><td>${c[0]}${LSYM[c[1]]}${sup(c[2])} → ${c[4]}${LSYM[c[5]]}</td><td class="num">${c[3]}</td><td class="num">${c[6]}</td><td>(${c.slice(0, 7).join(', ')})</td><td>${c[7] ? '<span class="ok">yes</span>' : '—'}</td><td>${c[8] ? 'within' : 'outside'}</td></tr>`).join('')}
+      </tbody></table></div>`);
+  }
   function nuclideChip(Z, r) {
     return `<button type="button" class="pchip${r.quality === 'M' ? '' : ' is-est'}" data-iso="${Z}/${r.A}" title="${esc(r.quality === 'M' ? 'mass measured' : 'mass estimated from systematics')}">${sup(r.A)}${esc(symbolOf(Z))}</button>`;
   }
@@ -2222,9 +2244,9 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
     <p class="note" style="margin-top:6px">${[['p', 'p'], ['n₀', 'n0'], ['B', 'B'], ['C(Z)', 'C(Z)'], ['δ equation', 'delta equation']].map(([k, ax]) => { const a = axisStatus(ax) || {}; return `${k} ${badge(a.status, a.source)}`; }).join(' · ')} · cells, meas. ${badge('DERIVED', 'counts over the record')}${populated ? '' : ' · none carried above Z = 108'}</p>`);
     if (node.step) {
       const s = node.step, cm = state.index.lambda_meaning || {};
-      html += section('Λ₈ step at this stage', `<div class="callout is-accent">Step <b>${node.stepIndex + 1} of ${nSteps}</b> on the ladder: ${esc(s.from)} → ${esc(s.to)}, the line drawn from stage ${roman(node.charge - 1)} to stage ${roman(node.charge)} — the bright one while this ion is selected.</div>
+      html += section('Ionisation-ladder step at this stage', `<div class="callout is-accent">Step <b>${node.stepIndex + 1} of ${nSteps}</b> on the ladder: ${esc(s.from)} → ${esc(s.to)}, the line drawn from stage ${roman(node.charge - 1)} to stage ${roman(node.charge)} — the bright one while this ion is selected.</div>
         <div class="fields">
-        ${row('transition', `${esc(s.from)} → ${esc(s.to)}`, 'RECONSTRUCTED', (axisStatus('Lambda_8 cell') || {}).source, true)}
+        ${row('transition', `${esc(s.from)} → ${esc(s.to)}`, 'RECONSTRUCTED', 'the steps between the element\'s ions, read off the observed configurations: a reconstruction, not the record\'s mapping of an element onto Λ\'s cells', true)}
         ${Object.entries(s.coords).map(([k, v]) => row(k, v === null ? '— (not carried)' : v, v === null ? null : 'RECONSTRUCTED', v === null ? 'the ion\'s term is not carried, so 2S may not be inferred' : (cm[k] || 'Λ₈ coordinate'))).join('')}
       </div>
       <div class="tbl-wrap" style="margin-top:8px"><table class="t"><thead><tr><th>constraint</th><th>holds</th><th>origin</th></tr></thead><tbody>
@@ -2235,7 +2257,7 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
         ${row('caps needed', Object.entries(s.caps_needed).map(([k, v]) => `${esc(k)}≥${esc(v)}`).join(' '), 'DERIVED', 'the cap at which this cell would be admitted')}
       </div>`);
     } else if (nSteps) {
-      html += section('Λ₈ step at this stage', `<p class="note">${node.charge === 1 ? `No step arrives at stage I: it is the neutral atom the ladder's ${nSteps} steps leave from.` : 'The record carries no Λ₈ step arriving at this stage.'}</p>`);
+      html += section('Ionisation-ladder step at this stage', `<p class="note">${node.charge === 1 ? `No step arrives at stage I: it is the neutral atom the ladder's ${nSteps} steps leave from.` : 'The ladder, a reconstruction, has no step arriving at this stage.'}</p>`);
     }
     html += actions(node, { Z: node.Z, charge: node.charge, channels: node.rec, lambda8_step: node.step });
     return html;
@@ -4295,7 +4317,8 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
   measured <El>       the element's measured rows
   residuals <El>      its measured rows: δ, δ by equation, residual
   B <El>              rows where B in the csv disagrees with B computed, and rows where B is not a bound
-  ladder <El>         the Λ₈ steps, with any failing constraint
+  cells <El>          the element's Λ cells as the record builds them (RECOVERED)
+  ladder <El>         the ionisation ladder's steps, a reconstruction, with any failing constraint
   limits <El>         the bound the csv records on its cells, by kind; series limits as printed
   relativistic        the elements displaced at c → ∞ by the recovered instrument (RECOVERED), the paper's eleven beside them (READ, superseded), and the reconstruction
   walk <El>           the element in the reconstructed walk at both settings (RECONSTRUCTED; tools/lowdin_walk.py)
@@ -4552,10 +4575,18 @@ const WALK_FIELD_LABEL = { hf: 'Hartree–Fock, non-local exchange (the paper\'s
           if (nb.length) lines.push(`caveat b-overloaded: ${caveat('b-overloaded')}`);
           return lines.join('\n');
         });
+      case 'cells':
+        return withElement(toks[1], (e, rec) => {
+          const lc = rec.lambda8_cells;
+          if (!lc) return `${e.symbol}: the record's configuration table has no row for Z = ${e.Z}`;
+          const lines = [`${e.symbol}: ${lc.count} Λ cells ${st('RECOVERED')} — every transition among its occupied subshells (${lc.subshells.map((x) => `${x.n}${LSYM[x.l]}${x.k}`).join(' ')})${lc.predicted ? ', configuration predicted' : ''}; ${lc.composable_within} composable within ${e.symbol}, ${lc.within_caps} within the standing caps`];
+          for (const c of lc.cells) lines.push(`  ${c[0]}${LSYM[c[1]]}${sup(c[2])} → ${c[4]}${LSYM[c[5]]}  q=${c[3]} g=${c[6]}  (${c.slice(0, 7).join(', ')})${c[7] ? '  composable' : ''}${c[8] ? '  within caps' : ''}`);
+          return lines.join('\n');
+        });
       case 'ladder':
         return withElement(toks[1], (e, rec) => {
           if (!rec.lambda8 || !rec.lambda8.length) return `${e.symbol}: no Λ₈ ladder carried (${e.populated ? 'no steps in the record' : 'not populated above Z = 108'})`;
-          const lines = [`${e.symbol}: ${rec.lambda8.length} Λ₈ steps ${st(ax('Lambda_8 cell'))} — the ionisation-ladder mapping; caps ${st(ax('caps'))}`];
+          const lines = [`${e.symbol}: ${rec.lambda8.length} ionisation-ladder steps ${st('RECONSTRUCTED')} — a reconstruction, not the record's mapping (see: cells ${e.symbol}); caps ${st(ax('caps'))}`];
           rec.lambda8.forEach((s, i) => {
             const fails = s.constraints.filter((c) => !c.holds);
             const within = Object.values(s.within_caps).every(Boolean);
@@ -4838,7 +4869,7 @@ List a blocked or empty route as honestly as an open one; the page counts the op
       const c = respBlock('console', 'is-console');
       c.note.textContent = 'deterministic, from the loaded data';
       c.body.textContent = '…';
-      const isCommand = /^(help|go|axes|closure|sources|caveats|count|measured|residuals|B|ladder|limits|relativistic|walk|lattice|particles|particle|references|refs|papers|figures|cite|history|editions|glossary|check)\b/i.test(q.trim());
+      const isCommand = /^(help|go|axes|closure|sources|caveats|count|measured|residuals|B|cells|ladder|limits|relativistic|walk|lattice|particles|particle|references|refs|papers|figures|cite|history|editions|glossary|check)\b/i.test(q.trim());
       if (!isCommand && q.trim() && askSettings().key) c.body.textContent = 'not a console command; the question goes to the model below (type help for the commands)';
       else { try { c.body.textContent = await consoleAnswer(q); } catch (err) { c.body.textContent = `console error: ${err.message}`; } }
       if (claude.fn && q.trim()) {
@@ -4860,7 +4891,7 @@ List a blocked or empty route as honestly as an open one; the page counts the op
         } finally { stop.hidden = true; run.disabled = false; claude.ctl = null; }
       }
       const settings = askSettings();
-      if (settings.key && q.trim() && !/^(help|go|axes|closure|sources|caveats|count|measured|residuals|B|ladder|limits|relativistic|walk|lattice|particles|particle|references|refs|papers|figures|cite|history|editions|glossary|check)\b/i.test(q.trim())) {
+      if (settings.key && q.trim() && !/^(help|go|axes|closure|sources|caveats|count|measured|residuals|B|cells|ladder|limits|relativistic|walk|lattice|particles|particle|references|refs|papers|figures|cite|history|editions|glossary|check)\b/i.test(q.trim())) {
         const k = respBlock('model', 'is-model');
         k.note.textContent = `${settings.model}${settings.search ? ' with web search' : ''} · grounded on the loaded data · checked by the page after it answers`;
         const bodyHost = k.body; bodyHost.textContent = 'Loading the records the question names …';
@@ -6410,7 +6441,7 @@ var SOLVERS, LIB;
     id: 'lambda8',
     title: 'A Lambda_8 cell against its constraints',
     status: RECONSTRUCTED,
-    statusNote: 'The seven constraints and the standing caps are PINNED; the mapping of an element to cells (the ionisation ladder) is RECONSTRUCTED, and a typed cell carries no status of its own.',
+    statusNote: 'The seven constraints and the standing caps are PINNED; an element\'s cells, as the record builds them (every transition among its own occupied subshells), are RECOVERED and shown on its plate; a typed cell carries no status of its own.',
     description: 'Tests one cell (n, l, k, q, e, f, g, 2S) against the seven constraints, each with its origin, and against the standing caps (n, e, l, k, f) = (3, 3, 1, 3, 1). A cell can satisfy all seven and still lie outside the caps; that is reported OUTSIDE with the caps it needs, never truncated. 2S may be left blank, and is then probed as 0 exactly as tools/populate.py does.',
     inputs: [
       { name: 'n', label: 'n (source shell)', type: 'number', default: 3 },

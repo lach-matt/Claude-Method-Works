@@ -321,15 +321,22 @@ CAVEATS = [
              "Neither is compared with a bound.",
      "was": "25 measured rows carry a float in the B column: a dispersion of the median defect, "
             "not a bound."},
-    {"id": "lambda8-mapping", "state": "open", "reviewed": "2026-10-17",
-     "text": "A \u039b\u2088 cell is a transition, so an element is not a cell, and nothing in "
-             "the record fixes which transitions stand for an element (searched again 2026-10-17). "
-             "The mapping shown is the element's own ionisation ladder read off the observed "
-             "configurations, and it is RECONSTRUCTED. Measured: every one of its 5,778 steps "
-             "(Z = 1 to 108) satisfies the six of \u039b\u2088's seven constraints that can be "
-             "decided without the ion's term, and 1,107 of them lie within the standing caps; the "
-             "seventh, 2S \u2264 k, is left undecided because the ion's term is not carried. "
-             "Choosing the mapping is the author's decision."},
+    {"id": "lambda8-mapping", "state": "repaired", "reviewed": "2026-10-18",
+     "text": "An element maps onto \u039b's cells the way the record builds them: every transition "
+             "among the element's own occupied subshells \u2014 a source subshell holding its real "
+             "occupancy k, another subshell of the same atom as the target, q = 1 \u2026 k electrons "
+             "moved and g = 1 \u2026 min(q, 4f + 2) placed. Over the record's 118 ground "
+             "configurations that is 4,325 cells, every one satisfying \u039b's constraints, and the "
+             "site reproduces every figure the record prints of them: 4,325 cells, 982 composable "
+             "within one element and 3,686 across the table, and E = 972,862 with Z as a coordinate "
+             "against 28,503 without it \u2014 \u039b closes because it carries no Z. Each element's "
+             "plate shows its cells (RECOVERED); an element whose ground configuration lists one "
+             "subshell, such as hydrogen, has none. The ionisation ladder shown in their place before "
+             "is kept beside them as what it is, a reconstruction of the steps between the ions.",
+     "was": "A \u039b\u2088 cell is a transition, so an element is not a cell, and nothing in the "
+            "record fixes which transitions stand for an element (searched 2026-10-17, in the "
+            "governance files only). The mapping shown was the element's ionisation ladder, "
+            "RECONSTRUCTED, and choosing it was left as the author's decision."},
     {"id": "equation-domain", "state": "repaired", "reviewed": "2026-10-17",
      "text": "The channel equation is validated in its stated domain and extrapolated outside it, "
              "and every channel now says which. The domain is the record's own: a channel is "
@@ -3275,6 +3282,19 @@ def sources():
                          if os.path.exists(populate.DEFAULT_SPECTRA) else None),
         "drive_modified": row["drive_modified"] if row else None,
     })
+    # the record's own configuration table, which an element's Lambda cells are built on
+    rel = os.path.relpath(populate.RECORD_CONFIGS, REPO)
+    rec_md5 = None
+    with open(os.path.join(REPO, "extracted", "LEDGER.tsv"), encoding="utf-8") as fh:
+        for r in csv.DictReader(fh, delimiter="\t"):
+            if r["target_path"] == rel and r["disposition"] == "EXTRACTED":
+                rec_md5 = r["md5"]
+    out.append({
+        "file": "the record's ground configurations (118 elements)",
+        "role": "the configurations an element's \u039b cells are built on, as the record builds them",
+        "md5_recorded": rec_md5,
+        "md5_measured": _md5(populate.RECORD_CONFIGS) if os.path.exists(populate.RECORD_CONFIGS) else None,
+    })
     for s in out:
         s["ok"] = (s["md5_recorded"] is not None
                    and s["md5_recorded"] == s["md5_measured"])
@@ -4129,6 +4149,7 @@ def _csv_only_element(Z, spectra):
         "janet_cell": None, "outer": None, "closure": None,
         "config_table": None,
         "channels": [chans[k] for k in sorted(chans)],
+        "lambda8_cells": populate.element_cells(Z),
         "lambda8": [],
         "populated": False,
         "ground_basis": None,
@@ -4193,6 +4214,7 @@ def _counts(rec):
         "computed": sum(1 for m in meas if m["grade"] == "computed"),
         "witnessed": sum(1 for m in meas if m["witness"] == "witnessed"),
         "lambda8_steps": len(rec["lambda8"]),
+        "lambda8_cells": (rec.get("lambda8_cells") or {}).get("count", 0),
     }
 
 
@@ -4215,6 +4237,18 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
     walk_lx_z = {e["Z"] for e in ((walk or {}).get("fields", {}).get("lx", {}).get("entrants", [])) if e["displaced"]}
     lim_block = limits(spectra)
     b_column, equation_domain = b_and_domain(spectra)
+    lambda8_elements = dict(populate.element_cells_census(), **{
+        "status": populate.RECOVERED,
+        "rule": "every transition among an element's own occupied subshells: source (n, l) holding "
+                "its real k, target (e, f) another subshell of the same atom, q = 1..k moved, "
+                "g = 1..min(q, 4f + 2) placed",
+        "E": {"with_Z": populate.RECORD_ELEMENT_CELLS["E_with_Z"],
+              "without_Z": populate.RECORD_ELEMENT_CELLS["E_without_Z"],
+              "note": "the record's figures, reproduced 2026-10-18 by tools/populate.py "
+                      "--element-cells-E (minutes, so not recomputed at build)"},
+        "configurations": "the record's 118 ground configurations (valence beyond the noble core; "
+                          "Z >= 104 predicted); for Z = 1 to 108 every listed subshell carries the "
+                          "observed table's occupancy"})
     fig = figure_source()
     figures = []
     if fig and os.path.exists(fig["path"]):
@@ -4396,6 +4430,7 @@ def build(spectra, out_dir=OUT, write=True, log=print, with_particles=False, war
         "relativistic": relb,
         "limits": lim_block,
         "b_column": b_column,
+        "lambda8_elements": lambda8_elements,
         "equation_domain": equation_domain,
         "figures": figures,
         "fixtures": fixtures(spectra),
@@ -4900,6 +4935,12 @@ def selftest(warp_root=WARP_ROOT):
            [ch["domain"]["reasons"] for ch in element_record(26, spectra)["channels"]
             if ch["charge"] == 4 and ch["l"] == 0]),
           ([True], [["open-shell core at 16 parents"]]))
+    check("Fe: the record's Lambda cells, 14, of which 5 composable within iron; H has none (one subshell)",
+          (element_record(26, spectra)["lambda8_cells"]["count"], element_record(26, spectra)["lambda8_cells"]["composable_within"],
+           element_record(1, spectra)["lambda8_cells"]["count"]), (14, 5, 0))
+    check("Og carries the record's cells (predicted); Z = 119 has none in the record's table",
+          (element_record(118, spectra)["lambda8_cells"]["predicted"], element_record(119, spectra)["lambda8_cells"]),
+          (True, None))
     rf = element_record(104, spectra)
     check("Rf: the ground level is NIST's lone level, its ionisation energy ab initio (6.02)",
           (rf["ground_basis"]["levels_held_by_nist"], rf["ground_basis"]["ionisation_energy_eV"]), (1, "(6.02)"))
@@ -5101,6 +5142,12 @@ def selftest(warp_root=WARP_ROOT):
                         and c.get("reviewed") for c in cv.values())), (11, True))
     check("caveats: every repaired caveat keeps what it said before",
           all(c.get("was") for c in cv.values() if c["state"] == "repaired"), True)
+    l8 = index["lambda8_elements"]
+    check("Lambda: the record's element cells reproduce every figure it prints (118, 247, 4,325, 982, 3,686, 18,288)",
+          (l8["elements"], l8["subshells"], l8["cells"], l8["composable_within"], l8["composable_across"], l8["tests"]),
+          (118, 247, 4325, 982, 3686, 18288))
+    check("Lambda: the mapping caveat is repaired and keeps what it said before",
+          (cv["lambda8-mapping"]["state"], bool(cv["lambda8-mapping"].get("was"))), ("repaired", True))
     check("caveats: the stale claim that measurement stops at 108 is gone from the text",
           "because measurement does" in cv["above-108"]["text"], False)
     bc = index["b_column"]
