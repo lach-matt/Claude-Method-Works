@@ -1417,6 +1417,18 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_520_SOURCE
     _rows_520.append((c, n, s_, t))
 LEMMAS_NOW = _rows_520
+# [item 521] SOURCE does not rest on N1*
+NOTE_521_SOURCE = ("  [Item 521] SOURCE does not rest on N1*: N1* is the proof for every lambda, which M placed after SOURCE "
+                   "(509), and with lam0 uncontrolled it would not settle the emitter's wavelength.  SOURCE rests on the "
+                   "exact limit and the computed sequence onto the seed (in hand) and on E5(N) within half a bit "
+                   "(2.6e-22 of E5) at the emitter's wavelength; open there: at 10 l5 the seed phase holds 7.7e-6 of the "
+                   "energy (3.0e16 half-bits), its absorption by the seed not computed")
+_rows_521 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_521_SOURCE
+    _rows_521.append((c, n, s_, t))
+LEMMAS_NOW = _rows_521
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [

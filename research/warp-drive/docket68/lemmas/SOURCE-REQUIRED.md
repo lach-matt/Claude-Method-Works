@@ -5,6 +5,39 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 521: does SOURCE need N1*? No -- what SOURCE rests on instead
+
+M, 521: "Does SOURCE rely on or need N1* ?" Answered from SOURCE's own statement and the record (no new instrument;
+the numbers are counterpart5's and emitter_process's).
+
+- **No. SOURCE does not rest on N1*.**
+  - N1* is the lemma of THM-HF5's part (i): existence for every lam <= lam0 with lam-uniform estimates (520 P5). That
+    is the proof for every lambda.
+  - M placed that proof after SOURCE, verbatim at 509: "No proof for every λ - we will build this proof from the
+    calculations when the SOURCE work is finished". The record carries it the same way ("The proof for every lambda is
+    built from these calculations once SOURCE is finished", Where it stood at item 509).
+  - N1* could not settle SOURCE either way. It is a statement as lam -> 0 with lam0 not controlled; every constant is
+    fixed but large (the crude exponent 1.384e4, 520 P1). So it would not say whether the emitter's own wavelength
+    lies below lam0. It is neither needed for SOURCE nor enough for it.
+- **What SOURCE does rest on, for its carrier (497-511).**
+  - That the round null shell is made of the bulk's own gravitational waves. In hand: the limit, exact (THM-HF5 F3:
+    averaged 5D vacuum waves are null dust, giving Vaidya with Isaacson's flux); the vacuum sequence onto the seed,
+    computed inward to x = 1 (hf_core5, both seeds, rates F4).
+  - That the face receives E5(N) to within half a bit: 2.6e-22 of E5 (emitter_process C1). At the emitter's
+    wavelength this is a question about that wavelength, not about lam -> 0.
+- **Open there, and not N1*: the seed phase at 10 l5.**
+  - At 10 l5 the waves arrive while the seed is under 20 wavelengths for the first 11 % of the shell. That part holds
+    7.7e-6 of the energy (counterpart5 P1), about 3.0e16 half-bits.
+  - How much of it the small seed absorbs, and how much scatters back out to infinity, is not computed. It has to be
+    known to half a bit.
+  - The seed phase disappears for waves below 0.144 l5 at the least seed, or for a seed whose horizon exceeds about
+    20 wavelengths (sqrt(mu0) > 202 l5 at 10 l5). The record fixes the seed only from below (at least sqrt(72) l5^2,
+    508).
+- **SOURCE's other named open points stand as before.**
+  - Who or what in the bulk holds E5(N) is no row of the theorem (emitter E6).
+  - The status of the computed sequence is M's (498, 506-508).
+- SOURCEs and SOURCE stay OPEN. N1* is not among their dependencies.
+
 ## Item 520: the counterpart proof -- what finishing it takes, measured; 517's N1 and N2 corrected
 
 M, 520: "Can you finish the counterpart proof?" The board's reading: THM-HF5 (511), the proof 497-498 named "the 5D

@@ -2077,6 +2077,16 @@ state was rebuilt first.
   - What remains for the counterpart theorem is N1*: existence on D_T with lam-uniform estimates, without loss, regular across
     the axes, on the large background. Prior art (Touati, Huneau-Luk, Luk-Rodnianski) does not reach it. OPEN.
 
+- **Item 521** (M: "Does SOURCE rely on or need N1* ?"). No (SOURCE-REQUIRED "Item 521").
+  - N1* is the proof for every lambda, which M placed after SOURCE (509). It would not settle the emitter's own
+    wavelength either (lam0 uncontrolled).
+  - SOURCE rests on the exact limit and the computed sequence onto the seed, which are in hand, and on E5(N)
+    within half a bit (2.6e-22 of E5) at the emitter's wavelength.
+  - Open there, not N1*: at 10 l5 the seed phase holds 7.7e-6 of the energy, about 3.0e16 half-bits, and how
+    much of it the seed absorbs is not computed. It disappears below 0.144 l5, or with a seed over about 20
+    wavelengths.
+  - Who holds E5(N) in the bulk (E6), and the sequence's status, are M's as before. SOURCEs and SOURCE stay OPEN.
+
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
   COPY-O3 and S1C-O1.
