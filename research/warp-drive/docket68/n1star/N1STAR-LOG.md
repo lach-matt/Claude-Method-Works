@@ -164,3 +164,35 @@ expansions are in powers of lam with a remainder, not polynomials; Step 5's boun
 (E1) restricted to the wave (already done at D11); Step 8: Sogge's theorem assumes coefficients near Minkowski's and
 is dropped, the data are re-extended at each restart, and the standard theorems the proof invokes are labelled as not
 yet READ at source (section 7 lists them).
+
+## M's words, continued (2)
+
+**2026-10-19, after the report that Theorem E is proved and verified, Theorem A written and the data open, verbatim:**
+
+> Two outside papers that may be useful to you, the noether theorem, and the navier-stokes equations that anthropic
+> released a couple of months ago
+
+**D13 (2026-10-19) The two papers, identified and read, and one conflict of instructions.** (1) *Noether.* Read at
+source: E. Noether, "Invariante Variationsprobleme", Nachr. Ges. Wiss. Goettingen (1918) 235-257, in M. A. Tavel's
+translation, arXiv:physics/0503066v3. Theorem II, verbatim: "If the integral I is invariant with respect to a G_inf rho
+in which the arbitrary functions occur up to the sigma-th derivative, then there subsist rho identity relationships
+between the Lagrange expressions and their derivatives up to the sigma-th order"; for general relativity "the
+familiar n dependencies between the Lagrange expressions and their first derivatives" (the contracted Bianchi
+identity), and section 6 on why energy conservation there is "improper". Use here: the Bianchi identity is what
+propagates the gauge and the constraints, order by order, in the data hierarchy (section 6 of the proof), and the
+improper character of the conserved charges is the exact identity that turns the one remaining gluing obstruction
+(the static KID) into a difference of boundary mass fluxes, so that it can be removed by the interior mass. (2) *The
+"Navier-Stokes" paper.* No Navier-Stokes paper released by Anthropic was found (web search, 2026-10-19; external
+results treated as data). The nearest match is the work of L. Alpoge (an Anthropic researcher) and T. Buckmaster,
+September 2026, on finite-time blowup with smooth forcing for the incompressible porous medium, Boussinesq and 3D Euler
+equations, presented as a step toward Navier-Stokes, with Lean verifications; read at source here: "Blowup for the
+Boussinesq equations with smooth forcing" (cims.nyu.edu/~tristanb/boussinesq.pdf), sections 1-2. (OpenAI's separate
+Navier-Stokes announcement of 2026-09-08 was not read.) If M meant another paper, the identification is to be
+corrected. Use here: its architecture is the one this proof adopted at D10 -- an approximate solution corrected "to
+successively higher orders" until the residual is beaten (their forces absorb the residual; a vacuum solution
+admits no force, so here the exact solution of section 4 does), and it kills the obstruction to compactly supported
+corrections (zero circulation and first moments) by a point-reflection parity, as section 6 kills the rotation KIDs
+by T^2 x Z2 x Z2. (3) *Ultracode and the commission.* The session's harness reports a standing setting to orchestrate
+multi-agent workflows; the commission (instructions section 8) says "Work inline, with no multi-agent workflows. Send
+one independent verifier at a time (249)." The commission is M's specific rule for this work and is followed; M may
+lift it.
