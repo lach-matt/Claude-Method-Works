@@ -8,19 +8,23 @@ M, 527: "it must be derived then proven"; 529: "Continue".  Labels: computed, de
   N0 (M's) 527 and 529, verbatim.
   N1 (computed) The configuration.  hf_core5's equations and scheme (hf_mirror5.evolve: T^2-mirror five-dimensional
      vacuum in compactified ingoing Bondi coordinates, nothing cut out, the inner boundary at the record's x = 1 on
-     the seed), with the seed mu0 = 0.04 (r_h0 = 0.2 in the code's units) at L = mu0/l5^2 = 116 (copper's seed at
-     2 pi l5, seed_derive D3; the boundary y = (sqrt 72 mu0^2/L)^(-1/8) = 3.10, r_q = 0.52 r_h0), the reduced wavelength
-     lam = 0.095 so that w r_h0 = 2.1 -- an escape of order 1e-2, which a grid resolves; at the derived point w r_h0 is
-     10.7 and the escape 1e-14, below any grid -- Ny = 28, Nx = 12, cfl 2, to v = 5 (the shell over 0.5 < v < 3.5).
-     Two shells: A = 0.3 (0.016, 0.41 of the seed: the linear regime) and A = 1.5 (0.41, ten times the seed: the hole
-     grows from w r_h = 2.1 to 7.1, as it does through the seed phase of the delivery).
+     the seed), in the scheme's own regime: the seed mu0 = 1 (r_h0 = 1 in the code's units) at L = mu0/l5^2 = 102
+     (copper's derived seed, seed_derive D3; the boundary y = (sqrt 72 mu0^2/L)^(-1/8) = 1.365, r_q = 0.54 r_h0), the
+     reduced wavelength lam = 0.475 so that w r_h0 = 2.1 -- an escape of order 3e-2, which a grid resolves; at the
+     derived point w r_h0 is 10.7 and the escape 1e-14, below any grid -- the envelope over 0.5 < v < 9.5 (three
+     waves), Ny = 28, Nx = 16, cfl 2, to v = 12.  Two shells: A = 0.1 (0.0055 of the seed, strain lam A = 0.05 at the
+     horizon) and A = 0.3 (0.049, strain 0.14): the first order's regime, with the second order's size changing nine
+     times between them.  [A first configuration at mu0 = 0.04 (r_h0 = 0.2, lam = 0.095, the shell 0.4 and 10 times
+     the seed, strain 0.3 and 1.5) was tried first: the scheme lost the horizon when the shell reached the hole
+     (v = 1.25-1.5) at A = 0.2, 0.3 and 1.5, at Ny = 28 and 36 alike, and at A = 0.1 the mass at infinity scattered
+     by 1.5e-3 after the shell, as large as the shell; a hole a fifth of the grid's design size is outside its reach.]
   N2 (computed) The measurement.  The escaped energy is the mass at infinity on the last cone less the hole's mass:
-     (M_mean - r_AH^2)/(M_mean - mu0) at v = 5, r_AH the horizon bracket's midpoint; the ringdown's remainder is read
+     (M_mean - r_AH^2)/(M_mean - mu0) at v = 12, r_AH the horizon bracket's midpoint; the ringdown's remainder is read
      from its change over the last half unit of v.
   N3 (computed) The linear prediction.  The pulse's energy spectrum (the rate of lam A env sin(v/lam); the carrier at
-     w = 11.0, FWHM w r_h0 = 1.8-2.6) weights S(x) of the exact split at the hole's size as it grows:
-     1.29e-2 (A = 0.3), 1.08e-3 (A = 1.5).  Monochromatic at the carrier, growth-weighted: 9.4e-3 and 8.5e-4; the
-     spectrum's width matters because S falls steeply (0.21 at x = 1.5, 1.3e-2 at 2.1, 3.1e-3 at 3).
+     w = 2.36, FWHM w r_h0 = 1.75-2.97) weights S(x) of the exact split at the hole's size as it grows: 3.08e-2
+     (A = 0.1), 2.92e-2 (A = 0.3); at the seed's size 3.10e-2, monochromatic at the carrier 1.33e-2 -- the spectrum's
+     width matters because S falls steeply (0.21 at x = 1.5, 1.3e-2 at 2.1, 3.1e-3 at 3).
   N4 (computed) The comparison: filled from the runs (--build, about an hour on two processes, or --import of runs made
      by the same code with the same arguments).
   N5 (deduced) What it says of the second order.
@@ -45,8 +49,8 @@ import numpy as np
 HERE = os.path.dirname(os.path.abspath(__file__))
 RULINGS = os.path.join(HERE, "..", "M-RULINGS-2026-10-03.md")
 DATA = os.path.join(HERE, "data", "seed_nonlinear.json")
-LAM, M0, LSEED, NY, NX, VEND = 0.095, 0.04, 116.0, 28, 12, 5.0
-AMPS = (0.3, 1.5)
+LAM, M0, LSEED, NY, NX, VEND, V1, V2 = 0.475, 1.0, 102.0, 28, 16, 12.0, 0.5, 9.5
+AMPS = (0.1, 0.3)
 MUT = set()
 MUTANTS = {"no_spectrum": "the prediction monochromatic at the carrier (N3)",
            "fixed_hole": "the prediction at the seed's size, the growth ignored (N3)",
@@ -79,10 +83,11 @@ def yex():
 
 def _hash():
     src = "".join(inspect.getsource(f) for f in (H.evolve, H.rhs, H.diag, H.horizon, H.Data, H.Grid))
-    return hashlib.md5((src + repr((LAM, M0, LSEED, NY, NX, VEND, AMPS, round(yex(), 9)))).encode()).hexdigest()
+    return hashlib.md5((src + repr((LAM, M0, LSEED, NY, NX, VEND, V1, V2, AMPS, round(yex(), 9)))).encode()).hexdigest()
 
 
 def _one(A):
+    H.Data.__init__.__defaults__ = (V1, V2, 1.0)                 # the envelope over [V1, V2]
     return H.evolve(LAM, A, NY, NX, m0=M0, yex=yex(), cfl=2.0, v_end=VEND, every=0.25)
 
 
@@ -98,10 +103,10 @@ def build():
 
 
 def import_runs(src):
-    """runs made by hf_mirror5.evolve with these arguments (run_<lam>_<A>_<Ny>_<Nx>_<m0>_<L>_<vend>.json), seated"""
+    """runs made by hf_mirror5.evolve with these arguments (run_<lam>_<A>_<Ny>_<Nx>_<m0>_<L>_<vend>_<v1>_<v2>.json)"""
     runs = {}
     for A in AMPS:
-        name = "run_%s.json" % "_".join("%g" % x for x in (LAM, A, NY, NX, M0, LSEED, VEND))
+        name = "run_%s.json" % "_".join("%g" % x for x in (LAM, A, NY, NX, M0, LSEED, VEND, V1, V2))
         runs[str(A)] = json.load(open(os.path.join(src, name)))
     d = dict(hash=_hash(), runs=runs)
     os.makedirs(os.path.dirname(DATA), exist_ok=True)
@@ -138,9 +143,9 @@ def _S():
 def predict():
     """the linear escape for each shell: the pulse's energy spectrum weighting S at the hole's size as it grows"""
     Sx = _S()
-    v = np.linspace(0.5, 3.5, 300001); env = np.sin(np.pi*(v - 0.5)/3)**4
+    v = np.linspace(V1, V2, 600001); env = np.sin(np.pi*(v - V1)/(V2 - V1))**4
     dF = np.gradient(LAM*env*np.sin(v/LAM), v)
-    w = np.linspace(0.1, 40, 8000)
+    w = np.linspace(0.02, 12, 6000)
     P = abs(np.array([np.trapezoid(dF*np.exp(-1j*om*v), v) for om in w]))**2; P /= np.trapezoid(P, w)
     half = w[P > P.max()/2]
     if "no_spectrum" in MUT:
@@ -153,7 +158,7 @@ def predict():
         rh = np.sqrt(M0 + dmu); rate = np.gradient(dmu, v)
         if "fixed_hole" in MUT:
             rh = np.full_like(rh, rh[0])
-        rr = rh[::1000]; sb = np.array([Sbar(r) for r in rr])
+        rr = rh[::2000]; sb = np.array([Sbar(r) for r in rr])
         out[str(A)] = dict(esc=float(np.trapezoid(np.interp(rh, rr, sb)*rate, v)/dmu[-1]), shell=float(dmu[-1]),
                            x0=float(rh[0]/LAM), xf=float(rh[-1]/LAM), S0=float(Sbar(rh[0])), Sf=float(Sbar(rh[-1])))
     return dict(runs=out, carrier=float(w[P.argmax()]), fwhm=(float(half[0]*np.sqrt(M0)), float(half[-1]*np.sqrt(M0))))
@@ -169,13 +174,13 @@ def compute():
 def checks(o):
     ch = {}
     ch["N0 words of 527 and 529"] = o["words"]
-    ch["N1 the inner boundary at x = 1 on the seed: y = 3.10 (r_q = 0.52 r_h0), inside the horizon y = 2.24"] = (
-        abs(o["yex"] - 3.098) < 0.01 and o["yex"] > M0**-0.25)
+    ch["N1 the inner boundary at x = 1 on the seed: y = 1.365 (r_q = 0.54 r_h0), inside the horizon y = 1"] = (
+        abs(o["yex"] - 1.3646) < 0.002 and o["yex"] > M0**-0.25)
     p = o["pr"]
-    ch["N3 the pulse: carrier w = 11.0 (1/lam 10.5), FWHM w r_h0 1.8-2.6; linear 1.29e-2 (A 0.3), 1.08e-3 (A 1.5)"] = (
-        abs(p["carrier"] - 11.03) < 0.1 and abs(p["fwhm"][0] - 1.82) < 0.05 and abs(p["fwhm"][1] - 2.58) < 0.05
-        and abs(p["runs"]["0.3"]["esc"]/1.29e-2 - 1) < 0.02 and abs(p["runs"]["1.5"]["esc"]/1.08e-3 - 1) < 0.02
-        and abs(p["runs"]["1.5"]["xf"] - 7.06) < 0.02)
+    ch["N3 the pulse: carrier w = 2.36 (1/lam 2.11), FWHM w r_h0 1.75-2.97; linear 3.08e-2 (A 0.1), 2.92e-2 (A 0.3)"] = (
+        abs(p["carrier"] - 2.364) < 0.02 and abs(p["fwhm"][0] - 1.75) < 0.03 and abs(p["fwhm"][1] - 2.97) < 0.03
+        and abs(p["runs"]["0.1"]["esc"]/3.08e-2 - 1) < 0.02 and abs(p["runs"]["0.3"]["esc"]/2.92e-2 - 1) < 0.02
+        and abs(p["runs"]["0.3"]["xf"] - 2.156) < 0.005)
     return ch
 
 
