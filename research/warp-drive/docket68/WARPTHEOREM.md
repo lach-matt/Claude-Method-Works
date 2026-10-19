@@ -2087,6 +2087,11 @@ state was rebuilt first.
     wavelengths.
   - Who holds E5(N) in the bulk (E6), and the sequence's status, are M's as before. SOURCEs and SOURCE stay OPEN.
 
+- **Item 522** (M: continue SOURCE; hand N1* and the counterpart theorem to another session, then a response paper to Huneau
+  and Luk). Handoff done: `research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`, `docket68/handoff-n1star/`
+  (MANIFEST.tsv, 54 files with md5s; the scratch derivations pushed). The other session works on its own branch and leaves
+  the shared record to this board. SOURCE continues here.
+
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
   COPY-O3 and S1C-O1.

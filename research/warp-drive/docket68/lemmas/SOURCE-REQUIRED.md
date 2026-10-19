@@ -5,6 +5,24 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 522: SOURCE continued; N1* and the response paper handed to another session
+
+M, 522: "Two tasks: Continue SOURCE AND Prepare instructions for another session to finish N1* and the counterpart
+theorem, and then right a formal response paper to the Huneau and Luk's theorem. That session will need access to all
+you work on the proof, so it'll all need to be pushed to the repo and identified there for the other session"
+
+- **The handoff (done).**
+  - Instructions: `research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`. They cover the commission
+    verbatim; what is proved and what was corrected; the read-first order; reproduction; the sources to re-READ;
+    routes W (5D wave gauge, Touati's construction carried to 4+1 and a large background) and D (5D double null);
+    M's rules; the response paper; and the audit.
+  - `docket68/handoff-n1star/MANIFEST.tsv` lists 54 files of the proof with md5s: instruments, data, Lean, the
+    record's write-ups, and the scratch derivations, now in the repository under `handoff-n1star/scratch/` with
+    their own README.
+  - The other session works on its own branch, based on this one. It leaves the board's shared record (rulings,
+    WARPTHEOREM, map, register, write-ups) untouched and logs its own work; this board integrates on M's direction.
+- **SOURCE continues here** (below, once computed).
+
 ## Item 521: does SOURCE need N1*? No -- what SOURCE rests on instead
 
 M, 521: "Does SOURCE rely on or need N1* ?" Answered from SOURCE's own statement and the record (no new instrument;
