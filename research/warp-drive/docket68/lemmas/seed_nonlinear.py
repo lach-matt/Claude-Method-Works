@@ -25,12 +25,27 @@ M, 527: "it must be derived then proven"; 529: "Continue".  Labels: computed, de
      w = 2.36, FWHM w r_h0 = 1.75-2.97) weights S(x) of the exact split at the hole's size as it grows: 3.08e-2
      (A = 0.1), 2.92e-2 (A = 0.3); at the seed's size 3.10e-2, monochromatic at the carrier 1.33e-2 -- the spectrum's
      width matters because S falls steeply (0.21 at x = 1.5, 1.3e-2 at 2.1, 3.1e-3 at 3).
-  N4 (computed) The comparison: filled from the runs (--build, about an hour on two processes, or --import of runs made
-     by the same code with the same arguments).
-  N5 (deduced) What it says of the second order.
-  Caveats.  One wavelength and one seed size, in the resolvable regime; the delivery's own regime (w r_h0 = 10.7) is
-  reached by the exponential law the linear computation proves, not by the grid.  Ny = 28 on a Chebyshev grid is the
-  resolution the step size allows in reasonable time; the runs' own residuals are reported.
+  N4 (computed) The outcome: not resolved.  Both runs reach v = 12 with the angular residual at most 1.4e-3 (A = 0.1)
+     and 1.2e-2 (A = 0.3), the v-residual at its worst sample 0.15 and 1.3, and the hole takes the shell -- but neither
+     reading of the escaped energy reaches the predicted size.  (a) The mass at the compactified infinity, constant
+     in the exact solution once the shell is in, swings by
+     0.045 after the shell at A = 0.1 -- 8.3 times the whole shell (0.00547) -- and by 0.145 (3.0 shells) at A = 0.3:
+     the reflected wave, of wavelength 3 in r, is compressed to nothing in y = r^(-1/2) as it runs out, and the
+     expansion the mass aspect is read from breaks down; the "escape" it gives is -7.0 and -0.26 shells.  (b) The
+     horizon, bracketed between the round spheres' first and last zeros of expansion, is still ringing at v = 12:
+     0.995-1.009 (A = 0.1; mu +-0.028, 5.1 shells; its narrowest 0.0045 at v = 10.25, 1.6 shells) and 1.005-1.046
+     (A = 0.3; 1.7 shells), lost outright at five samples while the l = 2 pulse deforms it; its reading of the
+     escape is 0.27 and -0.03 shells.  The predicted escape, 1.7e-4 and 1.4e-3 in absolute mass, lies 100-260 times
+     below these floors.
+  N5 (deduced) The scheme's own regime cannot resolve the seed phase's escape with its present diagnostics (the mass
+     aspect at the compactified infinity is made for ingoing data; the horizon finder for a round hole after the
+     shell).  What would: a flux read through a worldtube at finite radius, a MOTS solved rather than bracketed, and
+     a ringdown of some tens of r_h; and even then only the x = 2 regime, never the derived point's x = 10.7.  So the
+     second order on the exact equations is not checked here; it stays an estimate on model couplings (seed_types T7,
+     seed_derive D6), and the route that reaches the derived point is the second-order source derived symbolically
+     from the record's own equations.
+  Caveats.  The runs are the record's exact equations and are kept as record of what they show.  Ny = 28 on a
+  Chebyshev grid is the resolution the step size allows in reasonable time.
 
 Imports hf_core5.py (and through it hf_mirror5.py) and seed_types.py by path.  numpy, scipy, sympy, mpmath.
 python3 seed_nonlinear.py [--selftest | --mutants | --build | --import DIR]
@@ -105,9 +120,15 @@ def build():
 def import_runs(src):
     """runs made by hf_mirror5.evolve with these arguments (run_<lam>_<A>_<Ny>_<Nx>_<m0>_<L>_<vend>_<v1>_<v2>.json)"""
     runs = {}
+    files = {}
+    for f in os.listdir(src):
+        if f.startswith("run_") and f.endswith(".json"):
+            try:
+                files[tuple(float(x) for x in f[4:-5].split("_"))] = f
+            except ValueError:
+                pass
     for A in AMPS:
-        name = "run_%s.json" % "_".join("%g" % x for x in (LAM, A, NY, NX, M0, LSEED, VEND, V1, V2))
-        runs[str(A)] = json.load(open(os.path.join(src, name)))
+        runs[str(A)] = json.load(open(os.path.join(src, files[(LAM, A, float(NY), float(NX), M0, LSEED, VEND, V1, V2)])))
     d = dict(hash=_hash(), runs=runs)
     os.makedirs(os.path.dirname(DATA), exist_ok=True)
     json.dump(d, open(DATA, "w"))
@@ -126,10 +147,14 @@ def measure(hist):
         hole = h["mu"] if "vaidya_mass" in MUT else ((h["r_lo"] + h["r_hi"])/2)**2
         return (h["M_mean"] - hole)/(h["M_mean"] - M0), h
     e1, h1 = at(VEND); e0, h0 = at(VEND - 0.5)
-    return dict(esc=e1, esc_prev=e0, drift=e1 - e0, shell=h1["M_mean"] - M0, mu_end=h1["mu"], M_end=h1["M_mean"],
-                rh_end=(h1["r_lo"] + h1["r_hi"])/2, width=h1["r_hi"] - h1["r_lo"], nz=max(h["nz"] for h in hist),
-                resx=max(h["resx"] for h in hist), resv=max(h["resv"] for h in hist),
-                spread=h1["M_max"] - h1["M_min"])
+    late = [h for h in hist if h["v"] >= V2 + 0.25]
+    Ms = [h["M_mean"] for h in late]; shell = h1["mu"] - M0
+    rh = (h1["r_lo"] + h1["r_hi"])/2
+    return dict(esc=e1, esc_prev=e0, drift=e1 - e0, shell=shell, mu_end=h1["mu"], M_end=h1["M_mean"], rh_end=rh,
+                esc_h=(h1["mu"] - rh**2)/shell, width=h1["r_hi"] - h1["r_lo"], swing=max(Ms) - min(Ms),
+                narrow=min((h["r_hi"] - h["r_lo"], h["v"]) for h in late if h["r_lo"] == h["r_lo"]),
+                nans=sum(1 for h in hist if h["r_lo"] != h["r_lo"]), nz=max(h["nz"] for h in hist),
+                resx=max(h["resx"] for h in hist), resv=max(h["resv"] for h in hist), spread=h1["M_max"] - h1["M_min"])
 
 
 def _S():
@@ -167,8 +192,8 @@ def predict():
 def compute():
     d = data(); pr = predict()
     ms = {A: measure(d["runs"][A]) for A in d["runs"]}
-    return dict(words=words(), yex=yex(), pr=pr, ms=ms,
-                ratio={A: ms[A]["esc"]/pr["runs"][A]["esc"] for A in ms})
+    resolved = all(max(2*ms[A]["width"], ms[A]["swing"]) < pr["runs"][A]["esc"]*ms[A]["shell"]/3 for A in ms)
+    return dict(words=words(), yex=yex(), pr=pr, ms=ms, resolved=resolved)
 
 
 def checks(o):
@@ -181,6 +206,16 @@ def checks(o):
         abs(p["carrier"] - 2.364) < 0.02 and abs(p["fwhm"][0] - 1.75) < 0.03 and abs(p["fwhm"][1] - 2.97) < 0.03
         and abs(p["runs"]["0.1"]["esc"]/3.08e-2 - 1) < 0.02 and abs(p["runs"]["0.3"]["esc"]/2.92e-2 - 1) < 0.02
         and abs(p["runs"]["0.3"]["xf"] - 2.156) < 0.005)
+    m1, m3 = o["ms"]["0.1"], o["ms"]["0.3"]; p1, p3 = p["runs"]["0.1"], p["runs"]["0.3"]
+    ch["N4 A = 0.1: the shell 0.00547; M at infinity swings 0.045 after it (8 shells); the bracket 0.014 at v = 12"] = (
+        abs(m1["shell"] - 0.005469) < 2e-5 and abs(m1["swing"] - 0.0451) < 0.002 and abs(m1["width"] - 0.0139) < 0.001
+        and abs(m1["esc"] + 7.04) < 0.3 and abs(m1["esc_h"] - 0.267) < 0.02 and m1["resx"] < 2e-3)
+    ch["N4 A = 0.3: the shell 0.0492; the swing 0.145 (3 shells); the bracket 0.041; the horizon lost at 5 samples"] = (
+        abs(m3["shell"] - 0.04922) < 1e-4 and abs(m3["swing"] - 0.1453) < 0.003 and abs(m3["width"] - 0.0409) < 0.002
+        and m3["nans"] == 5 and abs(m3["esc_h"] + 0.029) < 0.01)
+    ch["N4 unresolved: the floors (2 x bracket, the swing) exceed the predicted escape 100-260 times, both runs"] = (
+        all(min(2*o["ms"][A]["width"], o["ms"][A]["swing"]) > 50*p["runs"][A]["esc"]*o["ms"][A]["shell"]
+            for A in o["ms"]) and not o["resolved"])
     return ch
 
 
@@ -195,10 +230,12 @@ def report(o=None):
         print("  A %-4s shell %.4f (x %.2f -> %.2f): linear %.4e (Sbar %.3e -> %.3e)" % (A, q["shell"], q["x0"], q["xf"],
                                                                                     q["esc"], q["S0"], q["Sf"]))
         if m:
-            print("        measured %.4e (at v - 1/2: %.4e, drift %.1e); shell %.4f, M_end %.6f, mu_end %.6f, r_AH %.5f "
-                  "(width %.1e), nz %d, resx %.1e, resv %.1e, spread %.1e; measured/linear %.3f"
-                  % (m["esc"], m["esc_prev"], m["drift"], m["shell"], m["M_end"], m["mu_end"], m["rh_end"], m["width"],
-                     m["nz"], m["resx"], m["resv"], m["spread"], o["ratio"][A]))
+            print("        shell %.5f; after it M at infinity swings %.4f (%.1f shells); r_AH at v = %g %.4f (bracket"
+                  " %.4f, narrowest %.4f at v %.2f; lost at %d samples); 'escape' by M %.2f, by mu - r_AH^2 %.3f shells;"
+                  " predicted %.2e abs; resx %.1e resv %.1e"
+                  % (m["shell"], m["swing"], m["swing"]/m["shell"], VEND, m["rh_end"], m["width"], m["narrow"][0],
+                     m["narrow"][1], m["nans"], m["esc"], m["esc_h"], q["esc"]*m["shell"], m["resx"], m["resv"]))
+    print("  N4 resolved: %s" % o["resolved"])
 
 
 def selftest():

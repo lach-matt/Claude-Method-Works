@@ -3218,5 +3218,13 @@ math decides this"; "Continue with all SOURCE work".
 - **The sequence**: complete on D, nothing cut out, at its parameters (shell 0.18 of the seed; its first row at the
   derived point); not the delivery of E5(N). Counts as computed for THM-HF5's rates on D (M-SEQUENCE-FULL).
 - **E6**: closed by the math (emitter E1-E6, emitter_process D2).
-- **Status.** Open: the second order on the exact equations; the exact-code check of the seed phase at w r_h0 = 2.1
-  is running. SOURCEs and SOURCE stay OPEN.
+- **The exact-code check, run and not resolved** (`lemmas/seed_nonlinear.py`, 6/6, mutants 3/3). hf_core5's scheme
+  at mu0 = 1, L = 102, lam-bar = 0.475 (w r_h0 = 2.1), a three-wave envelope, shells of 0.5 % and 5 % of the seed,
+  to v = 12. The evolutions hold, but the mass at the compactified infinity swings 8.3 and 3.0 shells once the
+  reflected wave runs out, and the horizon bracket is 5.1 and 1.7 shells wide at the end (lost at five samples at the
+  larger shell): the predicted escape (3 % of the shell) is 100-260 times below both floors. A small-hole
+  configuration (mu0 = 0.04) broke the scheme. What would resolve it: a worldtube flux, a solved MOTS, a long
+  ringdown -- and only at x = 2, never at the derived point's x = 10.7.
+- **Status.** Open: the second order on the exact equations, by the second-order source derived symbolically from the
+  record's own equations (the board's recommendation; the exact code's route cannot reach the derived point).
+  SOURCEs and SOURCE stay OPEN.

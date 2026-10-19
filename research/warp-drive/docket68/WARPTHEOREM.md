@@ -104,11 +104,14 @@ of its own (a criterion; U3's 2 pi l5 is 1.056 lam_P). The least seed rises with
 the floor: 102 l5^2 for copper, 61 for the example README, 808 for r0 = 20 ell and 917 for the Earth cap, growing as (ln
 r_hf)^2 because the escape at large w r_h is set by the modes at their barrier tops, whose share of the record's power
 falls as (1 + sqrt 2)^(-2k). Delivery within half a bit holds at every anchor to first order on the exact barriers, with
-the second order estimated at 1.2e-15 half bits (copper) on model couplings; a check in the record's exact equations is
-running. The large end is computed: its seed phase is Tangherlini to (r_h0/ell)^2 = 1e-37. The computed sequence counts
-as computed for THM-HF5's rates on D, its first row at the derived point; it is not the delivery of E5(N), which rests
-on the scattering computation. E6 is closed by the math. N1* is with another session (524). No inner or Cauchy horizon
-enters. SOURCEs and SOURCE stay OPEN for the exact second order and M's ruling under 441.
+the second order estimated at 1.2e-15 half bits (copper) on model couplings; the check in the record's exact equations
+was run and does not resolve it (`seed_nonlinear.py`: the mass at the compactified infinity and the horizon bracket are
+3-8 shells wide against an escape of 3 % of the shell), so the exact second order stays open, its route the second-order
+source derived from the record's own equations. The large end is computed: its seed phase is Tangherlini to (r_h0/ell)^2
+= 1e-37. The computed sequence counts as computed for THM-HF5's rates on D, its first row at the derived point; it is
+not the delivery of E5(N), which rests on the scattering computation. E6 is closed by the math. N1* is with another
+session (524). No inner or Cauchy horizon enters. SOURCEs and SOURCE stay OPEN for the exact second order and M's ruling
+under 441.
 
 **Where it stood at item 525.** SOURCE continued (`seed_types.py`, 12/12, mutants 5/5): the two points 522 left open
 are computed. The record's waves split exactly into Kodama and Ishibashi's scalar type (0.639) and tensor type (0.361),
@@ -2153,10 +2156,14 @@ state was rebuilt first.
   (SOURCE-REQUIRED "Item 527"; `lemmas/seed_derive.py`, 10/10, mutants 4/4; BOUNCE-RESEARCH 56).
   - The floor lam_P = (64 pi^2/3)^(1/3) l5 = 5.949 l5 (a criterion); the least seed is at the floor: copper 102 l5^2,
     the example 61, r0 = 20 ell 808, the Earth cap 917; x0* = 0.577 ln(r_hf/l5) + 1.75. 10 l5 superseded.
-  - Proved to first order on the exact barriers; the second order estimated (1.2e-15 half bits, copper), its check
-    in the exact equations running. The large end computed. The sequence counts as computed for THM-HF5's rates on
-    D; E6 closed by the math. Open: the exact second order. The 525 theorem selftest passed 12/12, and the 527 one
-    with `seed_derive.py` in T1 passed 12/12.
+  - Proved to first order on the exact barriers; the second order estimated (1.2e-15 half bits, copper). The large
+    end computed. The sequence counts as computed for THM-HF5's rates on D; E6 closed by the math. The 525 theorem
+    selftest passed 12/12, and the 527 one with `seed_derive.py` in T1 passed 12/12.
+  - The check of the second order in the record's exact equations (`lemmas/seed_nonlinear.py`, 6/6, mutants 3/3):
+    run at mu0 = 1, w r_h0 = 2.1, shells of 0.5 % and 5 % of the seed, and not resolved -- the mass at the
+    compactified infinity swings 8.3 and 3.0 shells after the shell, the horizon bracket is 5.1 and 1.7 shells wide at
+    v = 12, the predicted escape 100-260 times below. A small-hole configuration broke the scheme. Open: the exact
+    second order, by the second-order source derived from the record's equations (the board's recommendation).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

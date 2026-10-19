@@ -1701,7 +1701,9 @@ def lemma_selftests():
               # item 525: SOURCE continued -- the exact KI split, the scalar-type barrier, the second order
               "seed_types.py",
               # item 527: the seed and the wavelength derived and proved; the large end
-              "seed_derive.py"):
+              "seed_derive.py",
+              # item 527: the seed phase in the exact equations -- run, and not resolved by the scheme's diagnostics
+              "seed_nonlinear.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

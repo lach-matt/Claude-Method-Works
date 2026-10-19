@@ -31,8 +31,15 @@ this" (E6); "Continue with all SOURCE work".
   - Where escape is decided the strain at the horizon is 1.3e-4 (copper), 8.5e-4 (the example), 9.3e-11 and 1.9e-11
     (the large end), the growth per crossing 3.8e-6, 9.0e-5, 1.4e-17, 7.0e-19: the first order is the expansion.
   - The second order at 2w (seed_types T7's bound, slope 3 from x = 3): 1.2e-15 half bits (copper), 2.4e-13 (the
-    example), below 1e-35 at the large end. On model couplings; a check in the record's own exact equations is
-    running (the seed phase at w r_h0 = 2.1, where escape is resolvable, light and heavy shells).
+    example), below 1e-35 at the large end. On model couplings.
+  - The check in the record's own exact equations was run and does not resolve it (`lemmas/seed_nonlinear.py`, 6/6,
+    mutants 3/3): hf_core5's scheme, nothing cut out, the seed mu0 = 1 at L = 102, w r_h0 = 2.1 (escape of order 3 %
+    of the shell), shells of 0.5 % and 5 % of the seed, to v = 12. The evolutions hold (angular residual <= 1.4e-3
+    and 1.2e-2), but the mass read at the compactified infinity swings by 8.3 and 3.0 shells once the reflected wave
+    runs out through y = r^(-1/2), and the horizon bracket is still 5.1 and 1.7 shells wide at v = 12 (lost at five
+    samples at the larger shell): the predicted escape lies 100-260 times below both floors. A first configuration
+    at a small hole (mu0 = 0.04) broke the scheme outright. Recorded as what the exact code shows; the second order
+    stays an estimate on model couplings.
 - **The large end, computed** (526's item 2). The derived seed is 28-30 l5 against ell = 9.07e19 l5, so the seed
   phase is five-dimensional Tangherlini ((r_h0/ell)^2 = 1e-37); half a bit there is hbar c^3 ln2/(16 pi G M) with
   M = r0 c^2/(2G) (emitter_process C2), equal to E/(4N) of earth_cap's figures; its shell (sigma_t = 113.9 GM/c^3)
@@ -46,8 +53,12 @@ this" (E6); "Continue with all SOURCE work".
 - **E6, closed by the math** (M-E6-BY-MATH). emitter.py E1-E6 and emitter_process D2: the opening shell's emitter
   stands in the bulk, on a coordinate sphere of radius R > r_h about the face's centre, mirrored across the plane, a
   source of the bulk's own vacuum gravitational waves; our plane's matter cannot be it. No question remains.
-- **Open after 527:** the second order on the exact equations (an estimate now, with the exact-code check running).
-  SOURCEs and SOURCE stay OPEN until that check lands and M rules on PROVED under 441.
+- **Open after 527:** the second order on the exact equations, an estimate on model couplings now. Two routes:
+  (a) the exact code with new diagnostics -- a flux through a worldtube at finite radius, a MOTS solved rather than
+  bracketed, a ringdown of tens of r_h -- which can reach only the x = 2 regime, never the derived point's x = 10.7;
+  (b) the second-order source derived symbolically from the record's own equations (hf_mirror5's, about Tangherlini,
+  the l = 2 mode squared), which gives the exact coupling at the derived point: the route that closes the item. The
+  board's recommendation is (b). SOURCEs and SOURCE stay OPEN until it is done and M rules on PROVED under 441.
 
 ## Item 526: what is left to finish SOURCE
 
