@@ -24,13 +24,18 @@ The board session that built the proof keeps working on other parts of the theor
   git fetch origin claude/warp-drive-theory-ditjk4
   git checkout -b <your branch> origin/claude/warp-drive-theory-ditjk4
   ```
-  The commit that adds this file is the handoff point:
+  The last commit that touches this file is the handoff point (first made at item 522, brought forward to the
+  branch's head at item 524):
   ```
   git log -1 -- research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md
   ```
 - **Every file of the proof is listed with its md5 in `research/warp-drive/docket68/handoff-n1star/MANIFEST.tsv`.**
   The md5s are those of the handoff commit. The record files (rulings, write-ups, register) keep growing on the board
   branch after it, so check their md5s at the handoff commit.
+- **Since the first handoff (522) the board has continued SOURCE, not N1*.** `docket68/lemmas/seed_escape.py`
+  computes the seed's escape at 10 l5 by linear scattering (SOURCE-REQUIRED "Item 522", BOUNCE-RESEARCH section 54).
+  It is not part of the commission and N1* does not rest on it, nor it on N1* (521). Nothing else in the proof has
+  changed: the instruments listed in the manifest are byte-identical to 522's.
 - **The scratch derivations** behind items 517-520 are in `research/warp-drive/docket68/handoff-n1star/scratch/`, with a
   README saying what each derives. The seated instruments are authoritative.
 
@@ -109,11 +114,11 @@ exact.
 1. `docket68/lemmas/hf_theorem5.py`: the theorem, F1-F7, and its notes at 514 and 520.
 2. `docket68/lemmas/counterpart5.py`: P0-P5, the measurement of what is left.
 3. `docket68/lemmas/kn_gauge.py`: the reduction (K1-K4), the multiplier (K5), K8, and the 520 notes on K5, K6 and K8.
-4. `docket68/lemmas/SOURCE-REQUIRED.md`: items 497 to 521, newest first.
-5. `docket68/lemmas/BOUNCE-RESEARCH.md`: sections 44-53.
+4. `docket68/lemmas/SOURCE-REQUIRED.md`: items 497 to 521, newest first (522's SOURCE part is not N1*).
+5. `docket68/lemmas/BOUNCE-RESEARCH.md`: sections 44-53 (section 54 is SOURCE's).
 6. `docket68/lemmas/hf_core5.py` and `src_hole.py`: the computed sequence and the seed.
 7. `docket68/lemmas/gauge5.py`: ten gauges against the five needs.
-8. M's words for items 497-522 in `docket68/M-RULINGS-2026-10-03.md`. The rulings that bind you are listed in section 8
+8. M's words for items 497-524 in `docket68/M-RULINGS-2026-10-03.md`. The rulings that bind you are listed in section 8
    below.
 
 ## 5. Reproduce before you work

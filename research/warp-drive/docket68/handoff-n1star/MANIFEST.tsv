@@ -16,11 +16,11 @@ research/warp-drive/docket68/lemmas/data/hf_core5_runs.json	125986	3e360c45bc443
 research/warp-drive/docket68/lemmas/data/hf_mirror5_eqs.json.gz	144269	20415f3ba2798f4150daaec199266954	498	the derived equations hf_mirror5 reads	data
 research/warp-drive/docket68/lemmas/data/hf_mirror5_runs.json	89886	3435c9fec330308cef8658bc45c6ef82	498-503	hf_mirror5's runs	data
 research/warp-drive/docket68/lemmas/data/kn_gauge_k8.json	1939	7b2db8922dbac0e4b0a081e89b4a9b96	517-520	kn_gauge's cached K8 core, keyed by the hash of the code that computes it	data
-research/warp-drive/docket68/warptheorem.py	176108	40be1657e9509f78162dee1ea7320950	all	the theorem's register and T1 (runs every instrument above in its selftest; 12/12 at 520)	register
-research/warp-drive/docket68/M-RULINGS-2026-10-03.md	709415	bd51fb46649d44dd126729a168d15527	497-522	M's words verbatim, items 497-522 for this proof	M's
-research/warp-drive/docket68/lemmas/SOURCE-REQUIRED.md	128014	8788c48c8e9e2f34bffff1ec160fa1a0	497-521	the write-up of every item, newest first	record
-research/warp-drive/docket68/lemmas/BOUNCE-RESEARCH.md	239546	ea62229075205ee7256729f444044cf5	498-520	sections 44-53	record
-research/warp-drive/docket68/WARPTHEOREM.md	443986	df2b90edfa7168bf04ea3aea3552bd25	497-521	history bullets and 'Where it stands' paragraphs	record
+research/warp-drive/docket68/warptheorem.py	177448	4cf78b38adad9dc3d078f56fc485f7fe	all	the theorem's register and T1 (runs every instrument above in its selftest; 12/12 at 520)	register
+research/warp-drive/docket68/M-RULINGS-2026-10-03.md	710346	4798ab7e972c6eb35aa12888c0ebb05d	497-522	M's words verbatim, items 497-522 for this proof	M's
+research/warp-drive/docket68/lemmas/SOURCE-REQUIRED.md	131162	eed0555d2399e174db9329b256bbfb8c	497-521	the write-up of every item, newest first	record
+research/warp-drive/docket68/lemmas/BOUNCE-RESEARCH.md	242398	fda8e4f05abe2c7923fd8b2e0472f012	498-520	sections 44-53	record
+research/warp-drive/docket68/WARPTHEOREM.md	446295	2dd0894d766ce72cbe8698be11c1db1f	497-521	history bullets and 'Where it stands' paragraphs	record
 research/warp-drive/docket68/handoff-n1star/scratch/README.md	2225	2b6325766023100a3a18a196d0dca246	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
 research/warp-drive/docket68/handoff-n1star/scratch/cp/couple.py	1046	ceb3f7d53315c8f7ce180fe08de42422	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
 research/warp-drive/docket68/handoff-n1star/scratch/cp/hier.py	1662	c78b587aea15c7b44e00e1a98a26cdf9	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated

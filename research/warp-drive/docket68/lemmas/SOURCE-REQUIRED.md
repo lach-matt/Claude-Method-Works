@@ -21,6 +21,9 @@ you work on the proof, so it'll all need to be pushed to the repo and identified
     their own README.
   - The other session works on its own branch, based on this one. It leaves the board's shared record (rulings,
     WARPTHEOREM, map, register, write-ups) untouched and logs its own work; this board integrates on M's direction.
+  - Brought forward at 524 (M: "Please bring forward the handoff and instructions for the N1 session"): the
+    manifest re-taken at the branch's head, the instructions noting that the SOURCE work below is not N1*, and the
+    message that starts the session in `handoff-n1star/README.md`.
 - **SOURCE continued: the seed's escape at 10 l5 (computed; `lemmas/seed_escape.py`, 11/11, mutants 4/4).**
   - The question. 517-521 left the seed phase open: while the hole is small against the wavelength, it reflects part
     of what arrives, and that part leaves. SOURCE needs E5(N) in the hole to within half a bit, which is 1/(3N) of it

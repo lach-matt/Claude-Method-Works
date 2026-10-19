@@ -2109,6 +2109,11 @@ state was rebuilt first.
   - The record's least seed (sqrt 72 l5^2) lets 1.5e7 half bits out (copper; 2.0e5 for the example README).
     Delivery within half a bit needs mu0 >= 322 l5^2 (copper; 195 for the example); hf_core5's 1000 meets it.
   - The labelling moved by one keeps the verdicts. Open: the scalar-type barrier at low l, nonlinear scattering.
+- **Item 523** (M: "Continue"). Interrupted by 524 before any work beyond checking the running theorem selftest.
+- **Item 524** (M: "Please bring forward the handoff and instructions for the N1 session"). The handoff brought to
+  the branch's head: `handoff-n1star/MANIFEST.tsv` re-taken (the proof's instruments byte-identical to 522's; only
+  the record files moved), the instructions noting that 522's SOURCE work (`seed_escape.py`) is not N1*, and the
+  message that starts the session added to `handoff-n1star/README.md`.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
