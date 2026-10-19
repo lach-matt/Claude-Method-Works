@@ -42,25 +42,26 @@ def y_core(m, L):
 
 
 # (lam, A, Ny, Nx, seed m0, inner boundary y at x = 1 on the seed, cfl); L = mu0/l5^2 = 100 and 1000
+# [items 515-518] at mu0/l5^2 = 1000 the core boundary is deeper (lam A y^3 = 0.6 at lam = 0.1: outside the high-
+# frequency regime) and the late spread is set by the angular grid, so the sequence there is lam = 0.05, 0.025, 0.0125
+# on the x = 20 grid; the first sequence (x = 16, lam = 0.1, 0.05, 0.025) is kept below as resolution rows.
 SEQ = {100: [(0.1, 1.0, 20, 16), (0.05, 1.0, 24, 16), (0.025, 1.0, 28, 16)],
-       1000: [(0.1, 1.0, 24, 16), (0.05, 1.0, 28, 16), (0.025, 1.0, 32, 16)]}
+       1000: [(0.05, 1.0, 28, 20), (0.025, 1.0, 36, 20), (0.0125, 1.0, 40, 20)]}
 ALL = [(L,) + c + (1.0, round(y_core(1.0, L), 6), 2.0) for L in (100, 1000) for c in SEQ[L]]
 FOURTH = (100, 0.0125, 1.0, 32, 16, 1.0, round(y_core(1.0, 100), 6), 2.0)          # a fourth wavelength at L = 100
 ALL.append(FOURTH)
 # Resolution rows at mu0/l5^2 = 1000 (C6): the late spread there exceeded 498's at lam = 0.05 and 0.025; run finer in y,
 # in x, and in both, to tell a grid limit from a physical departure.  Not part of the three-row sequence.
 RES = [(1000, 0.05, 1.0, 36, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0),
-       (1000, 0.05, 1.0, 28, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
-       (1000, 0.025, 1.0, 36, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
+       (1000, 0.1, 1.0, 24, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0),          # [518] the first sequence, x = 16
+       (1000, 0.05, 1.0, 28, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0),
        # they showed the angular grid sets the spread (finer x lowers it, finer y alone does not): complete the x = 20
        # sequence at lam = 0.1, and measure the angular floor at lam = 0.05 with x = 24
        (1000, 0.1, 1.0, 24, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0),
        (1000, 0.05, 1.0, 28, 24, 1.0, round(y_core(1.0, 1000), 6), 2.0),
        # item 514: a fifth wavelength at mu0/l5^2 = 100, nearer our universe's lam, for hf_anchor5's coefficients
        (100, 0.00625, 1.0, 32, 16, 1.0, round(y_core(1.0, 100), 6), 2.0),
-       # item 515: at mu0/l5^2 = 1000 the core boundary is deeper (lam A y^3 = 0.6 at lam = 0.1, outside the
-       # high-frequency regime), so the sequence there is lam = 0.05, 0.025, 0.0125 at x = 20
-       (1000, 0.0125, 1.0, 40, 20, 1.0, round(y_core(1.0, 1000), 6), 2.0)]
+       (1000, 0.025, 1.0, 32, 16, 1.0, round(y_core(1.0, 1000), 6), 2.0)]       # [518] the first sequence, x = 16
 RUNLIST = ALL + RES
 key = lambda cfg: "_".join("%g" % c_ for c_ in cfg)
 

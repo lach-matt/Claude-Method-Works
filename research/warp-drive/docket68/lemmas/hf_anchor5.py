@@ -18,7 +18,9 @@ C (and the order beyond it) left unevaluated, and lam left abstract.  Here both 
      is the largest |F|, |G| -- the waves' amplitude rescaled by r^(3/2), which at leading order is carried unchanged
      along each ingoing cone (amplitude ~ area^(-1/2) = r^(-3/2) in five dimensions).  So P = sqrt(2) lam A max(env)
      (1 + O(lam)), the sqrt(2) being h(0).  The runs give P/lam = 1.406, 1.449 at lam = 0.025, 0.0125 (mu0/l5^2 =
-     100) and 1.406 at 0.025 (1000): within 3 % of sqrt(2) = 1.414.  The strain on the metric itself is at most
+     100) and 1.406, 1.455 at 0.025, 0.0125 (1000, item 518): within 3 % of sqrt(2) = 1.414.  [Item 518: the fifth
+     wavelength, lam = 0.00625 at 100, ran on the fourth's grid (32 x 16) and is grid-limited -- P/lam 1.306, offset/lam^2
+     0.4537 -- so it is recorded and not used.]  The strain on the metric itself is at most
      (2/3) lam A env r^(-3/2) (at the axes x = +-1, where h = 1).
   A3 (computed, exact; checked against the sequence) The second-order coefficient.  The scri flux with the data's
      exact rates, averaged over the phase, is (A^2/6)(env^2 + lam^2 env'^2) at every x (symbolic): the mass gained
@@ -111,7 +113,7 @@ def a2_a3():
         if kk in st and cfg[2] == 1.0:
             rows[(cfg[0], cfg[1], cfg[3], cfg[4])] = st[kk]
     seqs = {100: [(0.1, 20, 16), (0.05, 24, 16), (0.025, 28, 16), (0.0125, 32, 16)],
-            1000: [(0.05, 28, 20), (0.025, 36, 20)]}
+            1000: [(0.05, 28, 20), (0.025, 36, 20), (0.0125, 40, 20)]}
     meas = {}
     for L, s in seqs.items():
         meas[L] = [(lam_, rows[(L, lam_, ny, nx)]["P"]/lam_, rows[(L, lam_, ny, nx)]["offset"]/lam_**2,
