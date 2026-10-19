@@ -2155,7 +2155,8 @@ state was rebuilt first.
     the example 61, r0 = 20 ell 808, the Earth cap 917; x0* = 0.577 ln(r_hf/l5) + 1.75. 10 l5 superseded.
   - Proved to first order on the exact barriers; the second order estimated (1.2e-15 half bits, copper), its check
     in the exact equations running. The large end computed. The sequence counts as computed for THM-HF5's rates on
-    D; E6 closed by the math. Open: the exact second order. The 525 theorem selftest passed 12/12.
+    D; E6 closed by the math. Open: the exact second order. The 525 theorem selftest passed 12/12, and the 527 one
+    with `seed_derive.py` in T1 passed 12/12.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open
