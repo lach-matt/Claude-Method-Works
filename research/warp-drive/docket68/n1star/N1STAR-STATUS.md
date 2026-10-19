@@ -7,7 +7,8 @@ large background g0 (five-dimensional Vaidya with its black hole, inside to x = 
 
 **Verdict: N1* is not proved.** Route W (the instructions' recommended route) was followed. Its exact pieces are
 computed and seated (`ansatz5.py`, `foliation5.py`); the analytic core is audited against Touati's proof and stays
-OPEN. The field lists the problem as open: Huneau and Luk's review, arXiv:2404.07659v1, section 8.5, p. 28, READ
+OPEN. Huneau and Luk's review (arXiv:2404.07659v1, April 2024; no later literature checked) lists the problem as open,
+section 8.5, p. 28, READ
 2026-10-19: "The only construction that we have which allows for large data is in the angularly regular setting of
 Section 2. In particular, the constructions discussed in Sections 5, 6 and 7.2 all used that the solutions are close
 to Minkowski." and "Problem 8.6. Construct local high-frequency solutions as in Sections 5, 6 and 7.2 but such that
@@ -17,34 +18,43 @@ and 9).
 Labels: computed (an instrument here, with selftest and mutants), READ (verbatim at source, 2026-10-19), deduced
 (a standard argument, stated with its basis), OPEN.
 
-## 1. What this session proved (computed)
+## 1. What this session computed
 
 - **A1** Touati's weak polarized null identities (3.17), (3.18) hold in 4+1 dimensions for general symmetric T, S; with
   Pol(T) = 0, Q(T,T) = E(T,T) du du and E(T,T) = -1/2 |T_AB|^2 over the three transverse directions. Evidence:
   `ansatz5.py` A1.
 - **A2** 5D Vaidya: Ric(g0) = F0^2 dv dv, F0^2 = 3 mu'/(2 r^3); v eikonal; L0 = -d_r null geodesic; box v = 3/r.
   Evidence: `ansatz5.py` A2.
-- **A3** The record's first-order wave is Touati-polarized (traceless, transverse), transported as r^(-3/2) by (2.29),
-  smooth at both axes. Evidence: `ansatz5.py` A3.
+- **A3** The record's first-order wave is Touati-polarized (traceless, transverse), transported as r^(-3/2) by (2.29);
+  the linear axis-matching conditions hold at both axes (necessary for smoothness, not a proof of it). Evidence:
+  `ansatz5.py` A3.
 - **A4** The ansatz to order lam^2: R^(-1) = 0; R^(0) = 0 exactly when mu' = (2/9) A^2 env^2 (F3's dust identity, now
-  from the wave-type ansatz: the 5D energy condition is Touati's (2.28) verbatim, averaged over the two quadratures)
+  from the wave-type ansatz: the 4+1 analogue of Touati's energy condition (2.28), derived here as the R^(0) = 0
+  condition mu' = (2/9) A^2 env^2 H^2 (c^4 + s^4), averaged over the two quadratures)
   and g2 carries two explicit, axis-regular polarization terms. Evidence: `ansatz5.py` A4.
-- **A5** R^(1)'s structure: tangential components first harmonics only (Touati's (2.56) transport); one non-oscillating
+- **A5** R^(1)'s structure: tangential components first harmonics only (the transport of g2's
+  transverse-traceless part, Touati's (5.2)); one non-oscillating
   term, new: R^(1)_v th = F0^2 d_th phi with phi = (1/2) arctan(cos 2th), the averaged dust tilted at O(lam) toward
   grad(v + lam phi); zero for Touati's single-cosine ansatz; zero angular mean on S^3. Evidence: `ansatz5.py` A5.
-- **B1** The slices tau = v - r are spacelike everywhere (g0^-1(dtau, dtau) = -1 - mu/r^2), L0(tau) = 1: Touati's
+- **B1** For mu >= 0 the slices tau = v - r are spacelike everywhere (g0^-1(dtau, dtau) = -1 - mu/r^2), L0(tau) = 1:
+  Touati's
   (5.48) without smallness. Evidence: `foliation5.py` B1.
 - **B2** Touati's background null frame on Vaidya, explicit; the leaves are round 3-spheres (no planar condition (2.10)
   needed). Evidence: `foliation5.py` B2.
-- **B3** Touati's Lemma 3.1 as an identity: [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u), the mass dropping
-  out. Evidence: `foliation5.py` B3.
-- **B4** D_T cap {tau >= tau0} is compact, bounded by a spacelike past slice, a null and a spacelike future boundary.
-  Evidence: `foliation5.py` B4; `lemmas/hf_theorem5.py` F2.
+- **B3** The structure of Touati's Lemma 3.1, exactly: for the principal part box~ = g0^{mn} d_m d_n,
+  [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u), the mass dropping out; for the covariant wave operator of g0
+  (Touati's operator, equal to box~ only under his wave condition (2.7), which these coordinates do not satisfy)
+  [L0, box_g0] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box_g0 u) - (3/r^2) d_v u - (3/r^2 + mu/r^4) d_r u, a first-order
+  remainder within the ||d u|| term of (3.32). Evidence: `foliation5.py` B3.
+- **B4** On D_T cap {tau >= tau0}, r_q(mu0) <= r <= V - tau0 (Z3, mu nondecreasing, mu0 > 0), and the slices'
+  induced metric is bounded there. Evidence: `foliation5.py` B4. Deduced from it and `lemmas/hf_theorem5.py` F2: the
+  region is compact, bounded by a spacelike past slice, a null and a spacelike future boundary.
 
 A5 is the one structural difference this session found between the record's problem and Touati's: the record's
 data need both polarizations a quarter turn apart for a round average (F3), and with both, the order-lam Ricci has a
-non-oscillating meridional term that no oscillating corrector absorbs (by Touati's (3.21), the mean of R^(1) is
-fixed once g1 and the polarization of g2's first harmonic are). Closing the hierarchy at order lam therefore
+non-oscillating meridional term. Deduced (not computed): no oscillating corrector absorbs it, since an oscillating
+term of g2 or g3 enters the mean of R^(1) only through its products with g1, which are fixed once g1 and the
+polarization of g2's first harmonic are. Closing the hierarchy at order lam therefore
 needs a mean O(lam) metric correction lam m1, solving the linearized equations on Vaidya with that source, which
 Touati's ansatz never needs. Its zero angular mean is consistent with the record's runs (F4: the mean mass converges at
 O(lam^2), the horizon at O(lam)).
@@ -80,8 +90,8 @@ inside a black hole.
 
 ## 3. The audit: where Touati's proof uses smallness, and what replaces it on D_T
 
-Touati's eps measures the background's distance from Minkowski and the waves' amplitude together. Every site found
-(READ, arXiv:2206.12318v4):
+Touati's eps measures the background's distance from Minkowski and the waves' amplitude together. The sites found
+(READ, arXiv:2206.12318v4, in the text as retrieved 2026-10-19):
 
 - **1. (2.9)-(2.11).** Use: background near Minkowski; grad u0 near a constant, no critical points. On D_T: dv
   restricted to Sigma_tau is dr, nonzero on r > 0; leaves compact (B1, B2). Status: computed.
@@ -89,14 +99,17 @@ Touati's eps measures the background's distance from Minkowski and the waves' am
   L0 = -d_r exactly (B1). Status: computed.
 - **3. (5.52).** Use: energy equivalence. On D_T: spacelike slices with induced metric (1 + mu/r^2) dr^2 + r^2 dOmega^2
   on a compact region (B1, B4). Status: deduced.
-- **4. Theorem 6.1.** Use: background transport system solvable "if eps is small enough". On D_T: transport along -d_r
+- **4. Theorem 6.1 (p. 39).** Use: background transport system solvable "if eps is small enough". On D_T: transport
+  along -d_r
   on explicit smooth Vaidya; g1 solved exactly (A3); g2's polarization terms explicit (A4). Status: computed (to order
   lam^0).
 - **4'. --.** Use: (no counterpart in Touati). On D_T: the mean O(lam) correction m1 (A5). Status: OPEN.
 - **5. Prop. 7.1, (7.9)-(7.11).** Use: the coupling L0 F = Pi<=(h) F(1) with ||F(1)|| ~ eps gives A3 eps^2 << A1 eps.
   On D_T: on a slab of lam-independent length delta the coupling enters as delta C A3, a time integral. Status: deduced
   sketch, OPEN.
-- **6. Lemmas 7.3, 7.7, 7.8.** Use: "A1 eps + A3 eps^2 / lam^r"; "Since we can assume lam <= eps". On D_T: these feed
+- **6. Lemmas 7.3, 7.7, 7.8 (pp. 45-49).** Use: "A1 eps + A3 eps^2 / lam^r"; "Since we can assume lam <= eps" (proof
+  of Lemma 7.8, p. 49; the verifier could not retrieve it through its route; it is in the text read here). On D_T:
+  these feed
   the transport estimate (7.22) for box_g0 F, a time integral; lam <= eps becomes lam <= 1. Status: deduced sketch,
   OPEN.
 - **7. Prop. 7.3, (7.45).** Use: fixed-time products, e.g. "lam^2 ||grad^4 h|| ||d^2 F||_Loo ... <~ A1 A3 eps^2 /
@@ -123,9 +136,12 @@ by the background alone, with constants growing by a fixed factor per slab, and 
 Every term that sits under a time integral (items 5, 6, 8) is then multiplied by delta. The argument closes on a
 lam-independent domain only if the reduced problem for (F, h) is linear up to terms carrying a positive power of lam;
 otherwise a quadratic fixed-time term can make the constants grow doubly exponentially from slab to slab, the slab
-lengths shrink with them, and their sum need not reach T. Touati's counting of (7.45) gives lam^0 (A1 A3 eps^2 at the
-BA2 level, harmless only because eps is small). A Gagliardo-Nirenberg refinement of the L^oo factor (in three space
-dimensions ||u||_Loo <~ ||u||_L2^(1/4) ||u||_H2^(3/4); here the T^2 quotient) gains lam^(1/2) for that term. Whether
+lengths shrink with them, and their sum need not reach T. Touati's (7.45) as printed is <~ A1 A3 eps^2 / lam^4; at
+the weight lam^4 of (7.39) (p. 50) that is lam^0, harmless only because eps is small. A Gagliardo-Nirenberg
+refinement of the L^oo factor (in three space
+dimensions ||u||_Loo <~ ||u||_L2^(1/4) ||u||_H2^(3/4); here the T^2 quotient) gains lam^(1/2) for that term; the
+arithmetic is checked, its validity on the 4+1 T^2-quotient (dimension,
+weights, measure) is not yet established, so the gain is conditional. Whether
 every fixed-time product in sections 7.2-7.5 gains a positive power of lam is the precise analytic statement left,
 together with items 4', 10, 11 and 12.
 

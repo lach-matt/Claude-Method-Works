@@ -19,20 +19,27 @@ Labels: computed (exact, sympy), READ, deduced.
      null geodesic generator; the conjugate null vector Lb0 = 2 d_v + (1 - mu/r^2) d_r has g0(Lb0, Lb0) = 0 and
      g0(L0, Lb0) = -2; e_A = r^-1 (d_th, d_phi1/cos th, d_phi2/sin th) complete Touati's background null frame (2.14).
      The leaves P_{tau, v} = Sigma_tau cap {v = const} are the round 3-spheres r = v - tau: compact, so Touati's
-     asymptotically-planar condition (2.10) has no counterpart to meet.  The foliation is regular on {r > 0}; its only
-     caustic is r = 0, outside D (r >= r_q > 0).
-  B3 (computed, exact) Touati's Lemma 3.1 on Vaidya, as an identity.  For any u(v, r, th, phi1, phi2), with
-     F = 1 - mu/r^2 and box~ = g0^{mn} d_m d_n,
+     asymptotically-planar condition (2.10) has no counterpart to meet.  (Deduced, not computed: the foliation is
+     regular on {r > 0}, its generators -d_r reaching r = 0 only, outside D.)
+  B3 (computed, exact) Touati's Lemma 3.1 on Vaidya, its structure exactly.  For any u(v, r, th, phi1, phi2), with
+     F = 1 - mu/r^2 and the principal part box~ = g0^{mn} d_m d_n,
         [L0, box~] u = (d_r F + 2F/r) d_r(L0 u) + (4/r) d_v(L0 u) + (2/r) box~ u = (2/r) (d_r(L0 u)
                        + 2 d_v(L0 u) + box~ u)
-     exactly: d_r F + 2F/r = 2/r, the mass drops out, and there is no lower-order remainder.  On D the coefficient is
-     at most 2/r_q.  The only second derivatives are d(L0 u) and box~ u, as (3.32) needs; no null frame, no Appendix B
-     and no smallness enter.  The same holds for T^2-invariant u.
-  B4 (computed, exact) The domain is compact and a domain of dependence.  For tau >= tau0 and v <= V = v_end + T,
-     r = v - tau <= V - tau0; with r >= r_q(v) > 0 (F2) the region D_T cap {tau >= tau0} is closed and bounded in
-     (v, r) times S^3.  Its boundary is Sigma_tau0 (spacelike, past), {v = V} (null, future) and {r = r_q(v)}
-     (spacelike, future: hf_theorem5 F2), so the standard energy identity on it has nonnegative fluxes on the
-     future boundaries.  The induced metric on the slices is bounded above and below on it, which replaces (5.52).
+     exactly (d_r F + 2F/r = 2/r: the mass drops out).  Touati's lemma is stated for the wave operator of g0, which
+     equals box~ only under his wave condition (2.7); in these coordinates box_g0 = box~ + (3/r) d_v
+     + (3/r - mu/r^3) d_r + (2/(r^2 tan 2th)) d_th, and for it
+        [L0, box_g0] u = (2/r) (d_r(L0 u) + 2 d_v(L0 u) + box_g0 u) - (3/r^2) d_v u - (3/r^2 + mu/r^4) d_r u,
+     a first-order remainder, bounded on D by the ||d u|| term of (3.32).  In both forms the only second derivatives
+     are d(L0 u) and the wave operator, as (3.32) needs; no null frame, no Appendix B and no smallness enter.  The same
+     holds for T^2-invariant u.  (Found by the session's verifier, 2026-10-19: an earlier wording claimed "no
+     remainder" for Touati's operator.)
+  B4 (computed, exact, for mu >= mu0 > 0) The domain is bounded away from r = 0 and from infinity.  For tau >= tau0
+     and v <= V = v_end + T, r = v - tau <= V - tau0, and r >= r_q(v) = (sqrt(72) mu(v) l5^2)^(1/4)
+     >= (sqrt(72) mu0 l5^2)^(1/4) > 0 since mu is nondecreasing; so D_T cap {tau >= tau0} lies in
+     r_q(mu0) <= r <= V - tau0, where the slices' induced metric (1 + mu/r^2) dr^2 + r^2 dOmega^2 has eigenvalues
+     between 1 and 1 + mu(V)/r_q(mu0)^2 relative to the flat one: this replaces (5.52).  (Deduced, not computed here:
+     its boundary is Sigma_tau0 (spacelike, past), {v = V} (null, future) and {r = r_q(v)} (spacelike, future:
+     hf_theorem5 F2), so the energy identity on it has nonnegative fluxes on the future boundaries.)
 
 Deduced, not computed here (see N1STAR-STATUS.md): T^2-invariant functions on the slices obey H^2 in L^oo (the orbits
 of T^2 on {r > 0} are circles on the axes and tori elsewhere, so near an axis an invariant function is a function on
@@ -49,7 +56,8 @@ MUT = set()
 MUTANTS = {"wrong_slice": "the slices tau = v + r: timelike (B1)",
            "L0_past": "L0 = +d_r, the past-directed generator: transversality fails (B1)",
            "no_box_term": "the box~ u term dropped from the commutator decomposition (B3)",
-           "bad_Lb": "Lb0 = 2 d_v + d_r: not null for mu != 0 (B2)"}
+           "bad_Lb": "Lb0 = 2 d_v + d_r: not null for mu != 0 (B2)",
+           "no_seed_floor": "the seed mass allowed to vanish: no positive lower bound on r (B4)"}
 
 v, r, th, p1, p2 = sp.symbols("v r theta phi1 phi2", real=True)
 X = [v, r, th, p1, p2]
@@ -99,6 +107,8 @@ def b2():
 
 def b3():
     g, gi = metric()
+    sq = r**3*C*S
+    boxc = lambda w: sp.expand(sum(sp.diff(sq*gi[i, j]*sp.diff(w, X[j]), X[i]) for i in range(5) for j in range(5))/sq)
     u = sp.Function("u")(*X)
     box = lambda w: sp.expand(sum(gi[i, j]*sp.diff(w, X[i], X[j]) for i in range(5) for j in range(5)))
     L0 = lambda w: -sp.diff(w, r)
@@ -115,15 +125,34 @@ def b3():
     model_w = (sp.diff(F, r) + 2*F/r)*sp.diff(L0(w), r) + (4/r)*sp.diff(L0(w), v) + cb*box(w)
     second_w = [d for d in sp.expand(comm_w - model_w).atoms(sp.Derivative)
                 if sum(k for _, k in d.variable_count) >= 2]
-    return dict(second=second, second_w=second_w, exact=exact, coeffs=[sp.simplify(sp.diff(F, r) + 2*F/r), 4/r, cb])
+    # the covariant wave operator of g0: its commutator with L0 differs by the stated first-order remainder
+    uc = sp.Function("u")(*X)
+    commc = sp.expand(-sp.diff(boxc(uc), r) + boxc(sp.diff(uc, r)))
+    L0c = -sp.diff(uc, r)
+    remc = sp.simplify(commc - (2/r)*(sp.diff(L0c, r) + 2*sp.diff(L0c, v) + boxc(uc))
+                       - (-(3/r**2)*sp.diff(uc, v) - (3/r**2 + mu/r**4)*sp.diff(uc, r)))
+    return dict(second=second, second_w=second_w, exact=exact, coeffs=[sp.simplify(sp.diff(F, r) + 2*F/r), 4/r, cb],
+                cov_rem=remc)
 
 
 def b4():
-    tau0, V, rq = sp.symbols("tau0 V r_q", positive=True)
-    # on D_T cap {tau >= tau0}: r = v - tau <= V - tau0, and r >= r_q > 0
-    vv, tt = sp.symbols("vv tt", real=True)
-    rmax = sp.simplify((vv - tt).subs({vv: V, tt: tau0}))
-    return dict(rmax=rmax)
+    """r is bounded on D_T cap {tau >= tau0}: above by V - tau0, below by r_q(mu0) > 0 (mu nondecreasing)"""
+    import z3
+    R, Vv, T0, tau, vv, m0, m, l, s72 = z3.Reals("R V tau0 tau v m0 m l s72")
+    rq = z3.Real("rq")
+    seed = (m0 >= 0) if "no_seed_floor" in MUT else (m0 > 0)
+    hyp = [s72 > 0, s72*s72 == 72, l > 0, seed, m >= m0, tau >= T0, vv <= Vv, R == vv - tau,
+           rq >= 0, rq*rq*rq*rq == s72*m*l*l, R >= rq]
+    lo = z3.Real("lo")
+    hyp += [lo >= 0, lo*lo*lo*lo == s72*m0*l*l]
+    s = z3.Solver()
+    s.add(*hyp)
+    s.add(z3.Not(z3.And(R <= Vv - T0, R >= lo, lo > 0)))
+    bounded = s.check() == z3.unsat
+    # induced metric on Sigma_tau: dr^2 coefficient 1 + mu/r^2, between 1 and 1 + mu/r^2 at the extremes
+    g, _ = metric()
+    ind = sp.simplify(g[0, 0] + 2*g[0, 1])
+    return dict(bounded=bounded, ind=ind)
 
 
 def compute():
@@ -140,11 +169,11 @@ def checks(o):
     c["B2 Touati's null frame on Vaidya: L0 = -d_r, Lb0 = 2 d_v + F d_r, g(L0, Lb0) = -2, e_A orthonormal"] = (
         q["frame"] and q["L0"] == [0, -1, 0, 0, 0])
     q = o["b3"]
-    c["B3 [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u) exactly: Touati's Lemma 3.1 with no remainder"] = (
-        not q["second"] and not q["second_w"] and q["exact"] and q["coeffs"][0] == 2/r)
+    c["B3 [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u) exactly; for box_g0 a first-order remainder only"] = (
+        not q["second"] and not q["second_w"] and q["exact"] and q["coeffs"][0] == 2/r and q["cov_rem"] == 0)
     q = o["b4"]
-    c["B4 D_T cap {tau >= tau0} bounded: r <= V - tau0"] = q["rmax"] == sp.Symbol("V", positive=True) - sp.Symbol(
-        "tau0", positive=True)
+    c["B4 on D_T cap {tau >= tau0}: r_q(mu0) <= r <= V - tau0 (Z3); induced dr^2 coefficient 1 + mu/r^2"] = (
+        q["bounded"] and sp.simplify(q["ind"] - (1 + mu/r**2)) == 0)
     return c
 
 

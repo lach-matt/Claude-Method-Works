@@ -39,7 +39,7 @@ Labels: computed (exact, sympy, unless marked), READ (verbatim at source, 2026-1
      round metric; K dth is a function of x = cos 2th times dx).  This is the 5D energy condition: Touati's (2.28)
      holds verbatim, with the two quadratures averaged, (1/16)(|F_c|^2 + |F_s|^2) = F0^2.
   A5 (computed, exact) What R^(1) holds, and what is new.  At order lam the tangential components (th th, phi phi)
-     hold first harmonics only (the transport of g2's transverse-traceless part, Touati's (2.56)); the components
+     hold first harmonics only (the transport of g2's transverse-traceless part, Touati's (5.2)); the components
      with a v index hold first and second harmonics (non-tangential: Touati's Pol(g3), Remark 2.6).  And one
      non-oscillating term, absent from Touati's ansatz: R^(1)_v th = -A^2 E^2 H^2 sin 2th/(6 r^3).  It is
      F0^2 d_th phi with phi = (1/2) arctan(cos 2th), a smooth function on S^3: to order lam the averaged stress is
