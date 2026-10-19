@@ -86,6 +86,11 @@ deduced where marked; not verified by a separate session; not seated); 2026-10-1
      open).  Order 4: the operator refuses all three, each a binary communication (302) -- (B) carried by README-only
      (the shell its neighbour), K2 and K3-K4 by NEC (the singular interior its neighbour); under the channel reading
      (c4_oneway P20) 1, 1, 1 in every code, and each interior entered as the question returns its own three clauses.
+     [Item 489, beside the text: under M-NO-CAUCHY (484) the inner horizon's row is not computed (--record keeps it).
+     Over the three interiors left C1 holds as before and more firmly: each clause 1 at orders 2 and 3 in all 24 codes.
+     The channel reading's "every code" leaned on the inner horizon's row: without it 1, 1, 1 in 8 of 24 codes and on
+     the own code, and the singular and shell interiors entered as the question are refused.  Nothing cited from K7
+     rests on that half.]
      The continuation alone, without tension and matter, refuses all three at orders 1 and 2: the quantum bounce's
      clauses do not follow from the other three interiors' -- what decides them is the quantum bounce's own other
      configurations, which the population of tensions and matters supplies (293: they stay in the question).  So the
@@ -275,6 +280,11 @@ def _load_path(path, key):
 _K7 = {}
 CLAUSES1 = ("B", "K2", "K34")
 INTERIORS = ["singular", "inner", "quantum", "shell"]
+# [item 489, F11 of the 488 verification] M-NO-CAUCHY (484): the inner horizon's row (a Cauchy horizon, b_interior B3)
+# is not computed unless the record is asked for (--record); K7 is taken over the three interiors left.
+RECORD = "--record" in sys.argv
+if not RECORD:
+    INTERIORS = [k for k in INTERIORS if k != "inner"]
 
 
 def calc_question():
@@ -320,7 +330,7 @@ def calc_question():
         return tuple(r["answer"] for r in rs), all(r["lawful"] for r in rs)
 
     ownc = tuple(own[k] for k in INTERIORS)
-    codes = list(itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], 4))
+    codes = list(itertools.permutations([(0, 0), (0, 1), (1, 0), (1, 1)], len(INTERIORS)))
     out = dict(vals=vals, own=own, ownrun={k: run(ownc, k) for k in (1, 2, 3, 4)},
                all={k: Counter(run(c, k)[0] for c in codes) for k in (2, 3, 4)},
                rule=run(ownc, 4, rule=True)[0], allrule=Counter(run(c, 4, rule=True)[0] for c in codes),
@@ -405,19 +415,32 @@ def checks(o):
     if "cq" not in o:
         return res
     cq = o["cq"]
-    ok = cq["vals"] == {"B": {"singular": 1, "inner": 1, "quantum": 1, "shell": 0},
-                        "K2": {"singular": 0, "inner": 1, "quantum": 1, "shell": 1},
-                        "K34": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}}
+    if RECORD:                                              # the four-interior record (the inner horizon's row in)
+        ok = cq["vals"] == {"B": {"singular": 1, "inner": 1, "quantum": 1, "shell": 0},
+                            "K2": {"singular": 0, "inner": 1, "quantum": 1, "shell": 1},
+                            "K34": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1}}
+        ok &= cq["all"][3] == Counter({(1, 1, 1): 24}) and cq["all"][2] == Counter({(1, 1, 1): 22, (1, 1, "both"): 2})
+    else:                                                   # [item 489] M-NO-CAUCHY: three interiors
+        ok = cq["vals"] == {"B": {"singular": 1, "quantum": 1, "shell": 0},
+                            "K2": {"singular": 0, "quantum": 1, "shell": 1},
+                            "K34": {"singular": 0, "quantum": 1, "shell": 1}}
+        ok &= cq["all"][3] == Counter({(1, 1, 1): 24}) and cq["all"][2] == Counter({(1, 1, 1): 24})
     ok &= cq["ownrun"][2] == ((1, 1, 1), True) and cq["ownrun"][3] == ((1, 1, 1), True)
-    ok &= cq["all"][3] == Counter({(1, 1, 1): 24}) and cq["all"][2] == Counter({(1, 1, 1): 22, (1, 1, "both"): 2})
     ok &= cq["alone"][1] == cq["alone"][2] == ("refused",) * 3
     add("K7 C1's question through the calculator, clause by clause in C4's settled form: (B), K2 and K3-K4 each 1 at "
         "orders 2 and 3, logic joining 1 -- C1 holds; lawful; the continuation alone refuses -- the quantum bounce's "
-        "own other configurations decide", ok)
+        "own other configurations decide (the inner horizon's row excluded, 484, item 489: 24 of 24 codes at both "
+        "orders)", ok)
     ok = cq["ownrun"][4] == (("refused",) * 3, True) and cq["rule"] == (1, 1, 1)
-    ok &= cq["allrule"] == Counter({(1, 1, 1): 24}) and all(g == t for g, t in cq["control"].values())
+    if RECORD:
+        ok &= cq["allrule"] == Counter({(1, 1, 1): 24}) and all(g == t for g, t in cq["control"].values())
+    else:                                                   # [item 489] the channel reading leaned on the inner row
+        ok &= cq["allrule"] == Counter({(1, 1, 1): 8, ("refused",) * 3: 16})
+        ok &= cq["control"]["quantum"][0] == (1, 1, 1) and all(cq["control"][q][0] == ("refused",) * 3
+                                                               for q in ("singular", "shell"))
     add("K7 at order 4 the operator refuses all three, each a binary communication; the channel reading (302) gives 1, "
-        "1, 1 under every code, and each interior as the question returns its own clauses", ok)
+        "1, 1 on the own code [item 489: under every code only with the inner horizon's row, which 484 excludes -- "
+        "without it 8 of 24 codes, and the singular and shell interiors as the question are refused]", ok)
     return res
 
 
@@ -426,7 +449,7 @@ MUTANTS = {"opens_at_bifurcation": "our face opened at U = V = 0",
            "slice_route": "the eternal slice's join of the exteriors restored",
            "reverse_edge": "a way back from position 2's exterior to ours",
            "k7_no_population": "C1's question without tension and matter, the continuation alone (K7)",
-           "k7_singular_opens": "the singular interior given a face in position 2 (K7)",
+           "k7_singular_opens": "the singular interior given a face in position 2 (K7)",  # caught at orders 2 and 3
            "k7_channel_off": "the continuation bits held to the one-flip rule (K7)",
            "ext_to_p2past": "our exterior joined to position 2's past interior (item 304 (7))"}
 

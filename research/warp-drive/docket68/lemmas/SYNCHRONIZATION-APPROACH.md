@@ -87,3 +87,30 @@ Every test carries mutants. Each result is labelled deduced or computed, and non
 - If none passes, the failing step is named and the board's other candidates go to M: (a) exchange, (c) for the math.
 - What this does not do: it overrules nothing of M's, uses no outside result before it is READ (122 (2): "read then
   compute"), and seats nothing before verification.
+
+## Items 429-431: stages 1 and 2 run (`sync_face.py`, selftest 4/4, mutants 3/3)
+
+M approved the approach at 429 and released the work at 431. The 26 constants leave it standing: in its own Planck
+units the face depends only on N, sigma and the cosmological constant (`address26.py` A5).
+- **Stage 1, READ at page.**
+  - Ryu-Takayanagi eq. (1.5).
+  - Maldacena's two-sided state eq. (2.3), each side thermal and "The entropy is the entanglement entropy".
+  - Van Raamsdonk: the separating area goes to zero with the entanglement.
+  - Maldacena-Qi eq. (4.26), the two boundary clocks locked (t_l = t_r), and (4.40), the coupled ground state's
+    negative energy.
+- **T0 (exact).** A face of the README's size encloses exactly E(N) whenever it stands. As a marginally trapped
+  surface its Misner-Sharp mass is r/2; as an event horizon, a generator held at fixed r0 needs m(v) = r0/2 at every v.
+- **Y1 (exact).** The passage's N bits (137 (1)), through RT's normalization, give the area N A_bit, the record's own
+  bit area. The entanglement sets the size from the formation, with no ramp (162).
+- **Y2 (exact; deduced).** The energy is not lifted. Each side of a two-sided state is thermal with the entanglement as
+  its entropy, so each face holds its own E(N) = 4.594e8 J sqrt(N) from the formation.
+  - (ii), our E(N) supplied from position 2, is excluded by E1x.
+  - (iii), a coupling's negative energy, is excluded as the holder: no horizon (MQ-53), against 132.
+  - (i) survives: the README's energy whole inside each face from the opening, the long write being its exact state
+    set on it, 141's cubes present from the start and solving. It reads 426's "written in" as the state. **That
+    reading is put to M**, and T0 leaves no third way.
+- **Y3 (deduced).** The README's state needs a channel that can cross a horizon (143 A). Maldacena-Stanford-Yang's
+  bound admits N bits through a passage of N bits at equality.
+- **Y4 (deduced).** Spent bit by bit, the entanglement would shrink the area during the write, against 162. Held whole
+  and released at the end, the faces close as 390 says. **This reading is put to M.**
+- **What is left to SOURCE, now exact:** our side's E(N), whole, at the opening (the device's input, 130 (2)).

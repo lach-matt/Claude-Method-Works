@@ -95,7 +95,8 @@ THE CELLS (every value from an instrument or note already run; U = not computed,
      C1 H1-H2, verified -- coded as eq17-static-flat is; the bounce's negative null energy sits in the quantum region at
      the core, outside the bulk held through the write: pair_math P2, 318's reading); survives 1 (bulk/stability.py S6:
      our face damps every transverse derivative at kappa = 1/r_h; Schlue's uniform boundedness READ for the scalar wave,
-     arXiv:1012.5963v1 Prop. 5.2; position 2's face bounded by e^33.6 over its open period, c7_oneway V12 (Q1) -- the
+     arXiv:1012.5963v1 Prop. 5.2; position 2's face bounded by e^33.6 over its open period, c7_oneway V12 (Q1)
+     [item 491: open only for the release, at most 2 r_h/c, so e^2 = 7.4; face2_release V2, stability S6] -- the
      scalar model, as W3's hole is coded on Ishibashi-Kodama; gravitational perturbations hold mode stability only);
      stands 1 (251; 162 held to 1.95e-11; 166's both planes -- the hole's trace is r = r_h on each, rows_small H2tu-s);
      ell 1 (r_h << ell, the flat limit).  With it T_WRITE and T_O3 are each a computed cell, admitted as data by all
@@ -545,10 +546,10 @@ def small_end():
     floor = x["floor"]
     dE = floor / (2 * life)                                               # E^2 falls linearly: dE/E = t/(2 life)
     damped = sp.simplify(x["bh"]["damp"] + x["bh"]["syms"][0]) == 0      # our face: -kappa (S6)
-    survives = 1 if damped and "%.1f" % x["open_clocks"] == "33.6" else U   # + Schlue (READ); position 2's bounded
+    survives = 1 if damped and "%.1f" % x["open_clocks"] == "2.0" else U    # + Schlue (READ); position 2's bounded (491)
     cell = (1, 1, 1 if life > floor else 0, 1, survives, 1, 1)
     why = ("item 251 (the corridor's small end); Tangherlini static, dE/E %.2g over the floor; life/floor %.3g (C5 "
-           "U4); vacuum bulk (C1 H1-H2); stability S6 + Schlue Prop. 5.2 (READ), e^33.6 on position 2's face"
+           "U4); vacuum bulk (C1 H1-H2); stability S6 + Schlue Prop. 5.2 (READ), e^2 on position 2's face (491)"
            % (dE, life / floor))
     return dict(cell=cell, why=why, life=life, floor=floor, dE=dE, dr=dE / 2, damped=damped)
 

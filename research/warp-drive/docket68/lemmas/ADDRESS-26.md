@@ -124,3 +124,32 @@ every value of them is a position, and beside them stands any further true unive
 - **The face carries none of the 26 but Lambda** (A5, exact). In its own Planck units the face is fixed by N, sigma
   and the cosmological constant. So the synchronization work stands as approved, and the other 25 constants bear on
   what position 2 builds, the length, and the copy's survival.
+
+## Item 432: the strong CP angle proved and entered; the lattice exact (`navlattice.py`, selftest 7/7, mutants 3/3)
+
+- **Theta-bar is not in Baez's list in another form** (P1, exact). Masses and the CKM matrix come from M M^dagger. A
+  phase rotation of the up-type mass matrix keeps M M^dagger exactly, so every one of the 26 is unchanged, while
+  det(M_u M_d) gains e^(3 i phi). Theta-bar moves freely at fixed 26; the CKM phase is a different parameter.
+- **It is physical** (P2): it could be rotated away only with a massless quark, and m_u differs from zero by more than
+  30 standard errors (PDG 2024, READ).
+- **It is a constant with the 26's standing** (P3): a fixed coefficient of the Standard Model Lagrangian. Baez omits
+  it for its value, and under 431 (2) every value is a position. The one condition: a Peccei-Quinn axion would make it
+  a field (PDG, READ). None is established.
+- **So it enters as the 27th coordinate**, with that proof and that condition. Our value is BOUND, |Theta-bar| <~
+  1e-10.
+- **The navigational lattice** (L1-L5).
+  - Our universe is the origin, exactly. Each axis's unit is its binary step: a doubling for a scale, a half turn
+    for a phase. The neutrino masses are charted by the two measured splittings and the lightest mass, which is not
+    measured.
+  - The length L = sum log2(1 + |D_i|) is exact (146), a metric, and costs one bit per binary step.
+  - Navigation is exact. Our own position is known to 219 bits over the calibrated axes, limited per axis by
+    measurement (the mass axes by G).
+  - Recalculated: 2b at G2/G = 2 and 4 is 10.60 and 17.49 bits.
+
+*[Items 434-435, beside the item-432 section above: "So it enters as the 27th coordinate" is withdrawn. M: "Anything
+conditional cannot by definition be a constant, and thus could not be a coordinate value" -- the angle enters only if
+the Peccei-Quinn axion condition is proved false. Settled (navlattice P5-P8): no such proof is available. The QCD axion
+is excluded only in windows (PDG 2024, READ); quantum gravity's ban on global symmetries makes the Peccei-Quinn solution
+"unnatural", not impossible (READ); and the axion's gauge couplings keep the one light cone (computed: the Bianchi
+identity leaves the principal part Maxwell's), so 328 excludes only axions with a gravitational Chern-Simons coupling.
+The angle is conditional; **the lattice has 26 coordinates**, and our own position is known to 185 bits.]*

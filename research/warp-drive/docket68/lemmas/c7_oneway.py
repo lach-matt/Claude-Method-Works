@@ -51,6 +51,9 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      passage needs B6's complete route (singular 0, inner 0, quantum 1, shell 1).  Result: every clause 1 at orders 2
      and 3, the lawful orders, under all 96 codings (24 orderings x 4 orientations); 211's audit flags no key and no
      one-hot on any clause.  Control: the continuation alone, without tension and matter, is refused on every clause.
+     [Item 489, beside the text: under M-NO-CAUCHY (484) the inner horizon's row is not computed (--record keeps it):
+     over the three interiors left the result is the same, every clause 1 at orders 2 and 3 under all 24 codings, no
+     key and no one-hot -- the inner horizon's row never carried the answer.]
      As for C4 and C5 (item 310 (4); c5_oneway U11 (13)), the agreement is a result about the rows, not a further
      computation of them: C7's rows do not turn on tension or matter once the interior is fixed, and the answer at the
      bounce is its own row read back.  [Item 317 (V11 (Q6)): the first half is the entered constancy read back.]
@@ -160,6 +163,9 @@ marked; STRUCTURAL where marked; deduced where marked; not verified by a separat
      of position 2 from 3 K to 1e10 K delivers onto the face's sphere over the open period, with that blueshift, 3.6e-57
      to 4.4e-19 J -- 65 and 27 orders below (computed).  C7 claims that bound; the face's stability against position 2's
      other ambient fields is its variances (240) and not claimed.
+     [Item 489, beside the text (F1 of the 488 verification): J1's period was withdrawn at 427.  On 390 the face is
+     open while the README is within it, the write, 8.63e14 clocks (face2_open W2); over that the bound above is void,
+     and the face's holding is face2_open's (W3-W6): FACE2s, OPEN.  V12's figures stand as the withdrawn model's.]
      (Q2) V9 (2): with the measured G held, r_h moves as g^(1/3), g = G5/(G ell), and both 4D-G readings -- H2tu-s =
      (2/pi)(G5/G)/r_h and E4r-s, their ratio -2/3 -- as g^(+2/3): 1.04e15 N and -6.93e14 E at (3/2) G ell, 5.00e14 N and
      -3.33e14 E at G ell/2 (computed).  K2's 33.6 clocks, ln(1 + (pi/10)(ell/r_h)), moves to 33.47 and 33.83 (computed);
@@ -265,6 +271,14 @@ C7VALS = {"G1s": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},     # ou
           "E4r-s": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1},
           "V4": {"singular": 0, "inner": 0, "quantum": 1, "shell": 1},      # B6's complete route
           "V5": {"singular": 1, "inner": 0, "quantum": 1, "shell": 1}}
+# [item 489, F11 of the 488 verification] M-NO-CAUCHY (484): "there are no chaucy horizons. If you are calculating
+# anything involving a chaucy horizon, you have already failed."  The inner horizon's row (a Cauchy horizon, b_interior
+# B3) is not computed unless the record is asked for (--record); V8 is taken over the three interiors left.
+RECORD = "--record" in sys.argv
+if not RECORD:
+    INTERIORS = tuple(k for k in INTERIORS if k != "inner")
+    C7VALS = {c: {k: v for k, v in row.items() if k != "inner"} for c, row in C7VALS.items()}
+NCOD = math.factorial(len(INTERIORS)) * 4                            # orderings x orientations: 24 (96 on the record)
 F18 = {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
 _V8 = {}
 
@@ -294,7 +308,7 @@ def calc_question():
     out, audit = {}, {}
     for k in (2, 3):
         res = Counter()
-        for perm in itertools.permutations(range(4)):
+        for perm in itertools.permutations(range(len(INTERIORS))):
             kmap = dict(zip(INTERIORS, perm))
             for tf, mf in itertools.product((0, 1), repeat=2):
                 tq, mq = 1 ^ tf, 1 ^ mf
@@ -312,7 +326,7 @@ def calc_question():
                                 continue
                             kn.append(((kmap[kk], tt, mm) if pop else (kmap[kk],)) + (vals[cl][kk],))
                     ans.append(C4._staged(CA, HL, names + [cl], kn, at, views, k)["answer"])
-                    if k == 2 and perm == (0, 1, 2, 3) and (tf, mf) == (0, 0):
+                    if k == 2 and perm == tuple(range(len(INTERIORS))) and (tf, mf) == (0, 0):
                         a = IA.audit_index(names + [cl], kn)
                         audit[cl] = bool(a["keys"] or a["onehot"])
                 res[tuple(ans)] += 1
@@ -373,7 +387,7 @@ def report(o):
         print("  %s %s" % (k, o[k]))
     cq = o["cq"]
     for k in (2, 3):
-        print("V8 order %d over 96 codings: %s" % (k, dict(cq["out"][k])))
+        print("V8 order %d over %d codings: %s" % (k, NCOD, dict(cq["out"][k])))
     print("V8 211's audit per clause: %s" % cq["audit"])
     for g, v in o["ag"]["g5"].items():
         print("V9/V12 G5 = %.1f G ell: E %.4g J (below the ceiling: %s), H2tu-s %.3g N, E4r-s %.3g E, K2 %.2f clocks"
@@ -401,13 +415,14 @@ def checks(o):
         "(V9 (1), item 315)", o["bb"].get("Q1"))
     add("V4 the passage through the bounce (c5_oneway U1)", o["c5"].get("U1"))
     h = o["hg"]
-    add("V5 kappa = c^2/r_h (rows_small O2s); the white-hole blueshift bounded over the face's open period (V12 (Q1), "
-        "item 319)", rs.get("O2s") and "%.2g" % h["blue"] == "3.9e+14")
+    add("V5 kappa = c^2/r_h (rows_small O2s); the white-hole blueshift bounded over J1's open period (V12 (Q1), "
+        "item 319; that period withdrawn at 427, face2_open at 489)", rs.get("O2s") and "%.2g" % h["blue"] == "3.9e+14")
     add("V6 Z1t-s/Z2r-s and E4r-s, outside the hole (rows_small)", rs.get("Z1t-s/Z2r-s") and rs.get("E4r-s"))
     cq = o["cq"]
     add("V8 C7's question through the calculator in R12's form: the rows read from b_interior's cells; every clause 1 "
-        "at orders 2 and 3 under all 96 codings; no key or one-hot (item 315)",
-        cq["vals"] == C7VALS and all(cq["out"][k] == Counter({(1,) * len(C7VALS): 96}) for k in (2, 3))
+        "at orders 2 and 3 under all %d codings; no key or one-hot (item 315; the inner horizon's row excluded, 484, "
+        "item 489)" % NCOD,
+        cq["vals"] == C7VALS and all(cq["out"][k] == Counter({(1,) * len(C7VALS): NCOD}) for k in (2, 3))
         and not any(cq["audit"].values()))
     ag = o["ag"]
     rul_ok = "The mass on position 2's side is not equal to ours" in rul
@@ -425,7 +440,7 @@ def checks(o):
     ok &= "%.2g" % h["blue"] == "3.9e+14" and ["%.2g" % h["dose"][T] for T in (3.0, 1e10)] == ["3.6e-57", "4.4e-19"]
     ok &= all(v > 26 for v in h["orders"].values())
     add("V12 (item 319) the blueshift rides on rays that hug the face: s = 4 E1 E2/f, one e-fold per clock; bounded by "
-        "e^33.6 = 3.9e14 over the open period; a blackbody bath with it 3.6e-57 to 4.4e-19 J, 27 orders or more below "
+        "e^33.6 = 3.9e14 over J1's open period (withdrawn, 427; face2_open, 489); a blackbody bath with it 3.6e-57 to 4.4e-19 J, 27 orders or more below "
         "0.28 E; the G5 readings as g^(2/3), K2 33.47-33.83 (V9)", ok)
     return res
 
@@ -434,7 +449,7 @@ MUTANTS = {"faces_at_bifurcation": "our face opened at U = V = 0 (through c1_one
            "v12_no_hugging": "rays hugging position 2's face read as excluded, no blueshift (V12 (Q1))",
            "v12_g5_old": "the 4D-G readings moved as g^(-1/3) (V12 (Q2))",
            "v8_no_population": "C7's question without tension and matter, the continuation alone (V8)",
-           "v8_inner_tangherlini": "the inner horizon's exterior read as Tangherlini (V8)",
+           **({"v8_inner_tangherlini": "the inner horizon's exterior read as Tangherlini (V8)"} if RECORD else {}),
            "v9_past_allowed": "a past-directed step admitted toward position 2's face (V9)"}
 
 

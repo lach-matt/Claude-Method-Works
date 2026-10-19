@@ -70,13 +70,15 @@ derivatives of psi do not decay and H[psi] = 0").  Theorem 3 p.15 ("asympoticall
       with the wave operator (standard, not READ).  Gravitational perturbations are not Schlue's: for them the record
       holds Ishibashi-Kodama's mode stability (rows_small O2s), which is not a bound.
       Position 2's face (the white-hole side): the transverse derivative grows as e^(kappa u) -- Eardley's blueshift,
-      present (computed: the sign).  It is bounded by the face's open period: position 2's face stays open at most
-      ln(1 + (pi/10)(ell/r_h)) = 33.6 clocks (c_junction J1), so at most e^33.6 = 1 + (pi/10)(ell/r_h) = 3.9e14
-      (c_junction J5; c7_oneway V12 (Q1), verified), not e^66,980 (item 271 (3), which took the face open through the
-      write).  What arrives at the face from position 2 over that period is position 2's to mitigate (240); a
-      blackbody bath of it is 27 to 65 orders below Barcelo's 0.28 E (c7_oneway V12 (Q1)).  The face's stability
-      against position 2's other ambient fields is not claimed (240).
-Imports copy/chain.py's exact throat coefficient and lemmas/c_junction.py, lemmas/write_small.py by path.  Stdlib +
+      present (computed: the sign).  [Item 491, correcting 489: the face's open period is 390's, open exactly while the
+      README is within it (junction_own G10), and on 432 (2) the README is held whole through the write and released
+      whole at its end -- so the face is open for the release, at most 2 r_h/c (transition5q H9; lemmas/face2_release.py
+      V2), not the write (489's premise, the mutant) nor J1's withdrawn 33.6 clocks.  Over it the growth is at most e^2,
+      and in position 2's vacuum the face's own flux ends a white hole only at t_q = 35.8 clocks (face2_open W4):
+      FACE2s / FACE2, proved at 491.]  S6 claims the black-hole face's damping and the white-hole face's growth (the
+      signs) over the open period.
+Imports copy/chain.py's exact throat coefficient and lemmas/c_junction.py, lemmas/write_small.py, lemmas/face2_open.py by
+path.  Stdlib +
 sympy.  python3 stability.py [--selftest | --mutants]
 """
 import contextlib
@@ -196,10 +198,14 @@ def nonextremal():
     ode_ok = sp.simplify(sp.diff(sol, v) + k * sol + c_ * s_) == 0 and sp.simplify(sol.subs(v, 0) - H0) == 0
     CJ = _load(os.path.join(D68, "lemmas", "c_junction.py"), "st_cj")
     ex = CJ.example(CJ.seen())
-    open_clocks = ex["floor"] if MUT.get("open_through_write") else ex["t_full"]   # the mutant: open through the write
+    # [item 491] position 2's face open for the release whole at the write's end (432 (2); face2_release V2), at most
+    # 2 r_h/c -- not the write (489's premise, the mutant)
+    F2 = _load(os.path.join(D68, "lemmas", "face2_open.py"), "st_f2")
+    wo = F2.write_and_open()
+    open_clocks = wo["tau_w"] if MUT.get("whole_write") else 2.0
     return dict(bh=bh, wh=wh, reduces=reduces, ends=ends, ode_ok=ode_ok, sup=sp.limit(sol, v, sp.oo),
                 open_clocks=open_clocks, log10_blue=open_clocks / math.log(10), floor=ex["floor"],
-                blue_exact=1 + math.pi / 10 * ex["ell_over_rh"], log10_damp_floor=-ex["floor"] / math.log(10))
+                t_q=F2.t_quantum(wo)["t_q"], log10_damp_floor=-ex["floor"] / math.log(10))
 
 
 def compute():
@@ -249,10 +255,9 @@ def report(d):
     for name, e in x["ends"].items():
         print("   %s end: kappa = %s, source n R'/(2R) = %s, bound on H's forced part = %s sup|dpsi/dv|"
               % (name, e["kappa"], e["source"], e["sup_ratio"]))
-    print("   our face over C6's write floor (%.0f clocks): damped by 10^(%.0f); position 2's face open %.2f clocks: "
-          "blueshift at most 10^%.2f = %.3g (1 + (pi/10) ell/r_h = %.3g)"
-          % (x["floor"], x["log10_damp_floor"], x["open_clocks"], x["log10_blue"], 10 ** x["log10_blue"],
-             x["blue_exact"]))
+    print("   our face over C6's write floor (%.0f clocks): damped by 10^(%.0f); position 2's face open %.3g clocks for "
+          "the release (432 (2)): growth 10^(%.3g), below t_q = %.1f clocks in position 2's vacuum"
+          % (x["floor"], x["log10_damp_floor"], x["open_clocks"], x["log10_blue"], x["t_q"]))
 
 
 def checks(d):
@@ -296,17 +301,17 @@ def checks(d):
         sp.simplify(e["small"]["kappa"] - 1 / rh) == 0 and sp.simplify(e["small"]["source"] - 3 / (2 * rh)) == 0
         and e["small"]["sup_ratio"] == sp.Rational(3, 2) and sp.simplify(e["large"]["kappa"] - 1 / (4 * M)) == 0
         and sp.simplify(e["large"]["source"] - 1 / (2 * M)) == 0 and e["large"]["sup_ratio"] == 2 and x["ode_ok"])
-    chk("S6: position 2's face open at most 33.6 clocks (c_junction J1), its blueshift at most e^33.6 = "
-        "1 + (pi/10) ell/r_h = 3.9e14 (J5; c7_oneway V12 (Q1)); our face damped by e^-66,980 over C6's write floor",
-        "%.1f" % x["open_clocks"] == "33.6" and "%.2g" % 10 ** x["log10_blue"] == "3.9e+14"
-        and abs(10 ** x["log10_blue"] / x["blue_exact"] - 1) < 1e-9 and round(x["floor"]) == 66980
-        and x["log10_damp_floor"] < -29000)
+    chk("S6 (item 491): position 2's face open for the release whole at the write's end, at most 2 r_h/c (432 (2); "
+        "face2_release V2), its growth at most e^2, below t_q = 35.8 clocks; our face damped by e^-66,980 over C6's "
+        "write floor",
+        x["open_clocks"] == 2.0 and x["open_clocks"] < x["t_q"] and "%.1f" % x["t_q"] == "35.8"
+        and round(x["floor"]) == 66980 and x["log10_damp_floor"] < -29000)
     return out
 
 
 MUTANTS = {"extremal_reading": "the corridor's horizon read as extremal, D' = 0, as eq. (17)'s S1 (S6)",
            "wh_damped": "the white-hole face read as damping, as the black-hole face (S6)",
-           "open_through_write": "position 2's face held open through C6's write floor (item 271 (3); S6)"}
+           "whole_write": "position 2's face open the whole write, 489's premise (S6, item 491)"}
 
 
 def selftest():

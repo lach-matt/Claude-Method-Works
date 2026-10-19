@@ -1,0 +1,55 @@
+path	bytes	md5	items	role	label
+research/warp-drive/docket68/lemmas/hf_limit5.py	18635	2cbc5e9d60bb77cb1973047d7c226074	497	the 5D high-frequency limit where computation reaches: exact mirror-symmetric vacuum plane waves -> null dust; BCS radial waves average to Vaidya	computed
+research/warp-drive/docket68/lemmas/hf_mirror5_derive.py	9841	ad7e6858f27f4538f401de3cf1dcdf64	498	derives the compactified ingoing-Bondi equations of the T^2-mirror class (regular at scri^- and both axes)	computed
+research/warp-drive/docket68/lemmas/hf_mirror5.py	32667	bbe7d6df6092609ee3c420f97b1dd733	498-503	the first mirror-symmetric vacuum sequence (excised seed); withdrawn as support at 505, kept as record	computed (superseded)
+research/warp-drive/docket68/lemmas/src_hole.py	19897	5935cebbad8800816a56c48d335156fb	505-508	the seed (mu0 >= sqrt(72) l5^2) and the record's core inside x >= 1; one transition surface, no inner horizon	computed
+research/warp-drive/docket68/lemmas/hf_core5.py	10225	84b715eb461838abcb5e018cd455eb5c	506-508, 515, 518	the vacuum sequence onto the seed, inward to x = 1, mu0/l5^2 = 100 and 1000, lam halving: THM-HF5's evidence F4	computed (numerical)
+research/warp-drive/docket68/lemmas/hf_theorem5.py	28856	81e96f5af9eb31fc80669d582763d5be	511, 513	THM-HF5: statement, F1-F7; (iv) and the limit exact; F5 the light cone; F7 the open lemma	computed / deduced / OPEN
+research/warp-drive/docket68/lemmas/lean/HFTarget.lean	1320	2a31af1982b7c14e4f84cc40ee7f0ad4	511	positive definiteness of the dust form 4(a^2 + ab + b^2), Lean 4 core	machine-checked
+research/warp-drive/docket68/lemmas/hf_anchor5.py	13519	f9fc3e19be2c05e2ed1c4aeabfb603b6	514-515	the expansion's coefficients exact; anchored at our universe's values (10 l5 waves); the curvature-radius criterion	computed
+research/warp-drive/docket68/lemmas/gauge5.py	16419	7688902a069142d1a140f726311c6e1c	516	ten gauge families measured against the five needs N1-N5	computed / READ
+research/warp-drive/docket68/lemmas/kn_gauge.py	41367	7e9e9ef8ec12e670f1717ec4fe8bd491	517-520	the torus-frame reduction (exact), the KN gauge, the test-field multiplier (constant 35), the first-order oscillation K8	computed (K5 test fields; K6 withdrawn)
+research/warp-drive/docket68/lemmas/counterpart5.py	17630	e7dcf7bf898c2147492d28c5fb888d18	520	what finishing takes: lam-scan (P1), the KN hierarchy's two-derivative loss (P2), the O(1) coupling (P3), prior art (P4), N1* (P5)	computed / READ / OPEN
+research/warp-drive/docket68/lemmas/source_spec.py	21954	94f26ce356373df35fb6c0e2920da1bb	485	what SOURCE must supply; U3 the board's reading of Huneau-Luk	context
+research/warp-drive/docket68/lemmas/emitter_process.py	22649	6f2406d488d3e36c634b7b6fc7d82b2c	496	the bulk emitter's process; C1 the half-bit band (2.6e-22 of E5)	context
+research/warp-drive/docket68/lemmas/data/hf_core5_runs.json	125986	3e360c45bc4436c2e9012b9f88f7e1ed	506-518	the 14 runs hf_core5 reads (merged runs 12-13 at 518)	data
+research/warp-drive/docket68/lemmas/data/hf_mirror5_eqs.json.gz	144269	20415f3ba2798f4150daaec199266954	498	the derived equations hf_mirror5 reads	data
+research/warp-drive/docket68/lemmas/data/hf_mirror5_runs.json	89886	3435c9fec330308cef8658bc45c6ef82	498-503	hf_mirror5's runs	data
+research/warp-drive/docket68/lemmas/data/kn_gauge_k8.json	1939	7b2db8922dbac0e4b0a081e89b4a9b96	517-520	kn_gauge's cached K8 core, keyed by the hash of the code that computes it	data
+research/warp-drive/docket68/warptheorem.py	177448	4cf78b38adad9dc3d078f56fc485f7fe	all	the theorem's register and T1 (runs every instrument above in its selftest; 12/12 at 520)	register
+research/warp-drive/docket68/M-RULINGS-2026-10-03.md	710346	4798ab7e972c6eb35aa12888c0ebb05d	497-522	M's words verbatim, items 497-522 for this proof	M's
+research/warp-drive/docket68/lemmas/SOURCE-REQUIRED.md	131162	eed0555d2399e174db9329b256bbfb8c	497-521	the write-up of every item, newest first	record
+research/warp-drive/docket68/lemmas/BOUNCE-RESEARCH.md	242398	fda8e4f05abe2c7923fd8b2e0472f012	498-520	sections 44-53	record
+research/warp-drive/docket68/WARPTHEOREM.md	446295	2dd0894d766ce72cbe8698be11c1db1f	497-521	history bullets and 'Where it stands' paragraphs	record
+research/warp-drive/docket68/handoff-n1star/scratch/README.md	2225	2b6325766023100a3a18a196d0dca246	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/cp/couple.py	1046	ceb3f7d53315c8f7ce180fe08de42422	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/cp/hier.py	1662	c78b587aea15c7b44e00e1a98a26cdf9	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/dbg9.pkl	15755	131a8fab01d6ae6b2f0d0afdc96004c1	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/dbg9.py	1755	64dac9dc691aa4fdf67a6187e401a1a9	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/design.py	907	190f984bd1bcb47ac45844cc57533097	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hlin.pkl	8065	3ac514b9c68a344686b4a03e72d2c972	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hlin.py	1377	e97b8ab8920445b992a7bc20bd4f2a62	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve.py	733	e4eeda5e49364979257c40d332663f51	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve2.pkl	6091	8c45014dca8364ec0dccedb08efed042	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve2.py	1167	939207c1893fb3cc56dfb1637ff9ed08	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve3.pkl	886	1987cf6e6045a7edc512b6f9d4a9bec2	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve3.py	854	e78f2a94c061bc32d6094b6f4fa20474	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve4.pkl	3258	a3260889e9387219d90f63b2b8cd3311	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve4.py	1001	3b0956100dfa66a0061a6853546bfc29	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve5.py	1246	b260344f8cdbf2aabc6fffc556547994	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve6.pkl	44654	a8d3f550893e076e3de2b4547180c2ec	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve6.py	1817	73f1287faaa41b9f47a30d9dfd076316	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/hsolve7.py	547	370e6d520fce04e0eb03b7fbcb9ac930	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/k8.pkl	2118	7d3382b17956e17872c3f8c0cc600f02	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/k8.py	2399	8f9dcaa6a47d1c06c1b4ee7628119bab	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/k8ext.py	1693	0e1fa2ef043710ea32cdd11fef599ad0	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/k8m.py	2277	f7b0645c783deac926831d2f5cffdaf2	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/k8v.py	2239	5afcbd1406809abc4969e1301ba7d81f	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/lin.py	1779	ba19da826bbd6d64146e0afec1f1730a	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/lin2.py	1168	893f2a91e9ed4e0ada030e0ee123d007	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/mproof.py	1682	345174634e0343f6ad8eddfd4627b932	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/mq.pkl	894	a179b8707ea70a066c402079c3ee12c4	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/mult.py	916	b7e9694df70adb6e8dd343dbc4c9b47e	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/red.py	1870	182f91e25d2b06905f892a30643f90c8	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/red2.py	1626	fa17c60ab325531dbc3439075cf598f3	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated
+research/warp-drive/docket68/handoff-n1star/scratch/kn/run1.py	636	9f5378dec2b5141eb7d4d9d4a2a7a1db	517-520	scratch derivation (see handoff-n1star/scratch/README.md)	working file, not seated

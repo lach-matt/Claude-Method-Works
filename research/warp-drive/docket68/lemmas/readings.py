@@ -171,7 +171,13 @@ goes to M; the board does not rule on M's meaning.
      its small-k limit is 2 ell/Z^2, eq. (16)'s zero mode. With eq. (12) at every depth (Q23 (a)) and m ell = (3 pi/8) mu
      (F5 (c)) this is the hole's linear field in the RS gauge at every distance (computed by quadrature): near the hole
      h00 = (mu/rho^2)(1 + O(rho/ell)) -- Tangherlini's, the brane's tension entering at first order in rho/ell, the
-     coefficient about 2.7 -- and far away Q23's closed forms, matched to 1e-3. (c) theta+ on T_E in that field, to first
+     coefficient about 2.7 -- and far away Q23's closed forms, matched to 1e-3.  [Item 489, F13 of the 488 verification:
+     the first quadrature (one quad over [0, a], a QAWF tail) raised roundoff and non-convergence warnings.  Now the
+     tail is cut where e^(-k w) < e^(-60) (K2(kZ)/K1(k) ~ e^(-k w)/sqrt(Z), exact asymptotics) and [0, A] is taken in
+     chunks of four periods with an absolute tolerance from the integral's size: no warnings, the error estimates'
+     sum at most 1e-10 of each integral, and a table point agreeing with a 25-digit mpmath quadrature to 1e-14.  The
+     near-zone figure is unchanged, 1.0039 at rho = 1.41e-3 ell, and ten times closer it is 1.00039: the coefficient
+     2.73 at both, so the 0.39% is the O(rho/ell) term, not quadrature error.] (c) theta+ on T_E in that field, to first
      order (computed, sampled at U/ell from 1e-3 to 1e3, W/U = 1, 1.5^(1/2), 3^(1/2), w >= 0.02 U and u >= 1e-3 U, the
      rim by continuity): its relative lowering never exceeds 5 mu/min(U, ell)^2. In the near zone it is about 0.7 mu/U^2,
      the test form's own figure 0.75 to 0.89; far out the elongated surface's falls as m/U and the round tip's tends to
@@ -253,6 +259,11 @@ goes to M; the board does not rule on M's meaning.
      any converging matter, as o1c_oneway's item-337 note records (Z8 (Q2), (Q7), (Q8)): "Z2b's causal argument needs
      neither". So the shell carries nothing RDUST does not; the README's true form, a gas of our plane's fields (344), is
      SOURCEs's to define, and RSHELL goes through SOURCE with RDUST (M-SOURCE-LAST).
+     [Items 438-439, beside Q29, not repairing it: RDUST and RSHELL are no longer readings.  "Gas" was withdrawn at 386
+     (SOURCE-REQUIRED 1', 2'); the math requires the README to come in as the null shell, all at once (b4d_large K12,
+     from M's 386, 162 and T0 with 324), and the step exists exactly at the small end's order (settle_arrival A2) and
+     in the bulk at the large end's (A4).  That SOURCE supplies it is SOURCE's (344-345); the rows resting on RDUST --
+     ARRIVALs, B3s, B4ds -- are DERIVED at 439.]
   Q30 (computed, exact; deduced; estimate where marked) FARs rests on neither of the two readings the inventory listed
      for it that go through SOURCE.  (a) RGAS, the carrier a free gas, enters FARs only through the write's floor T,
      which sets the reach the cover must enclose; FARs holds at every U past the reach whatever T is (Q25).  (b) RDUST,
@@ -442,13 +453,16 @@ INVENTORY = (
     ("R192", 304, "clause (B)'s vacuum bulk is no classical stress on the route", "O1a", "words", "proved here (Q18)"),
     ("R152", 152, "152 (1) as CENSOR5D's escape (a), one end", "B4a", "words", "proved here (Q19)"),
     ("RASYM", 338, "H-ASYMMETRIC-BOUNCE: our face the life, position 2's at most 33.6 clocks",
-     "M1P2xs CLOSEs B4ds", "choice", "proved here (Q20)"),
+     "M1P2xs CLOSEs B4ds", "choice", "proved here (Q20) for our face's half; position 2's half -- the 33.6 clocks -- "
+     "withdrawn with J1 at 427: on 390 the face is open the write, its holding FACE2s's, OPEN (face2_open, 489)"),
     ("RDUST", 338, "the README arriving as radial null dust", "ARRIVALs B4ds", "model",              # [Q30] not FARs
-     "through SOURCE (M-SOURCE-LAST): SOURCEs replaces it"),
+     "through SOURCE (M-SOURCE-LAST): SOURCEs replaces it -- discharged at 487 by computation: the shell exists "
+     "exactly and is the bulk's own radiation (source_spec U2-U3), whatever SOURCE's status (OPEN again at 489)"),
     ("RBITS", 338, "H-BITS-WITH-ENERGY: the bits come in with the energy", "ARRIVALs", "model",
-     "through SOURCE (M-SOURCE-LAST)"),
+     "through SOURCE (M-SOURCE-LAST) -- discharged at 487: superseded, the bits come in over the long write at the "
+     "face's own emission (passage_est Q4, 486)"),
     ("RSHELL", 337, "the README as Haggard and Rovelli's thin null shell", "O1cs O1bs", "model",
-     "no weight beyond RDUST (Q29); through SOURCE with it (M-SOURCE-LAST)"),
+     "no weight beyond RDUST (Q29); through SOURCE with it (M-SOURCE-LAST) -- discharged with it at 487"),
     ("RHOLE", 349, "H-HOLE-IN-WARP: the hole's isotropic factor under the warp", "FARs", "form",
      "proved here (Q24)"),
     ("RGT", 350, "H-GT-IN-WARP: Garriga-Tanaka's far field under the warp", "FAR", "form", "proved here (Q23)"),
@@ -716,9 +730,23 @@ def q21():
 
 
 # ---------------------------------------------------------------------------------- Q24 the hole's exact linear field
+Q24_ERR = []
+
+
+def _rs_j0_mp(r, Z, dps=25):
+    """J0 = int_0^oo K2(kZ)/K1(k) sin(k r) dk at 25 digits (mpmath), the tail cut where e^(-k w) < e^(-60)"""
+    import mpmath as mp
+    mp.mp.dps = dps
+    w = Z - 1
+    a = max(40.0 / max(r, w), 60.0 / w); step = min(a, 8 * math.pi / r)
+    cuts = [0.0] + [min(a, step * (i + 1)) for i in range(int(math.ceil(a / step)))]
+    f = lambda k: mp.besselk(2, k * Z) / mp.besselk(1, k) * mp.sin(k * r) if k > 0 else mp.mpf(0)
+    return float(mp.quad(f, [mp.mpf(x) for x in cuts]))
+
+
 def _rs_field(r, Z, flat=False):
     """the exact linear RS field of a brane point mass at (r, Z), mu = ell = 1: A, C, A_r, A_Z, C_r, C_Z, v"""
-    import numpy as np
+    import numpy as np, warnings
     from scipy import integrate, special
     w = Z - 1.0
     if flat:                                                           # the mutant: flat five-dimensional space
@@ -732,9 +760,24 @@ def _rs_field(r, Z, flat=False):
     def s_(k):
         x = k * r
         return k * r ** 3 / 3 * (1 - x * x / 10) if x < 1e-3 else (math.sin(x) - x * math.cos(x)) / k ** 2
-    a = 40.0 / max(r, w)
-    q = lambda g: integrate.quad(g, 0, a, limit=800, epsabs=0, epsrel=1e-10)[0]
-    qf = lambda g, kind: integrate.quad(g, a, np.inf, weight=kind, wvar=r, limlst=400)[0]
+    # [item 489, F13 of the 488 verification] the tail is cut where e^(-k w) < e^(-60) (f ~ e^(-k w)/sqrt(Z) at large k,
+    # exact asymptotics of K2(kZ)/K1(k)), and [0, A] is integrated chunk by chunk, each a few of sin(k r)'s periods:
+    # the first version's single quad over [0, a] and QAWF tail raised roundoff and non-convergence warnings
+    a = max(40.0 / max(r, w), 60.0 / w)
+    step = min(a, 8 * math.pi / r)
+    cuts = [0.0] + [min(a, step * (i + 1)) for i in range(int(math.ceil(a / step)))]
+    def q(g):                                                       # absolute tolerance set from the integral's own size
+        segs = list(zip(cuts, cuts[1:]))
+        # QUADPACK's roundoff notice fires at tolerances below what double precision resolves; the error is measured
+        # instead (Q24_ERR, the estimates' sum against the integral's size) and cross-checked at 25 digits (q24 'mp')
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore", integrate.IntegrationWarning)
+            scale = sum(abs(integrate.quad(g, x0, x1, limit=200, epsrel=1e-6, epsabs=0)[0]) for x0, x1 in segs) or 1.0
+            tol = 1e-12 * scale / len(segs)
+            res = [integrate.quad(g, x0, x1, limit=200, epsabs=tol, epsrel=1e-10) for x0, x1 in segs]
+        Q24_ERR.append(sum(e for _, e in res) / scale)
+        return sum(v for v, _ in res)
+    qf = lambda g, kind: 0.0                                           # below e^(-60) of the whole, by the cut
     J0 = q(lambda k: f(k) * math.sin(k * r)) + qf(f, "sin")
     J1 = q(lambda k: k * f(k) * math.cos(k * r)) + qf(lambda k: k * f(k), "cos")
     Jz = q(lambda k: fZ(k) * math.sin(k * r)) + qf(fZ, "sin")
@@ -762,8 +805,12 @@ def q24():
     zero_mode = sp.limit(sp.besselk(2, k * Zs) / sp.besselk(1, k * ell) * k, k, 0) == 2 * ell / Zs ** 2
     flat = bool(MUT.get("flat_green"))
     # the field: near the hole against Tangherlini's h00, far away against Q23's closed forms
+    del Q24_ERR[:]
     v = _rs_field(1e-3, 1.001, flat)[6]
     near = -8 / 3 * v * 2e-6                                           # h00 rho^2/mu at rho^2 = 2e-6 ell^2
+    near_in = -8 / 3 * _rs_field(1e-4, 1.0001, flat)[6] * 2e-8         # [489] ten times closer: the deviation falls
+    j0_sc = _rs_field(9.8078, 3.389, flat)[6] * 9.8078 / (-3 / 8 * 3.389 ** 2)   # one table point, against 25 digits
+    mp_rel = abs(j0_sc / _rs_j0_mp(9.8078, 3.389) - 1)
     m = 3 * math.pi / 8
     A, C = _rs_field(1000.0, 400.0, flat)[:2]
     d = math.hypot(1000.0, 400.0)
@@ -797,6 +844,7 @@ def q24():
             table[(Uv, Kv)] = worst * min(Uv, 1.0) ** 2                # in units of mu/min(U, ell)^2
     beta_ex = (math.pi / 8) * 5.05e-11 * (1 + 1 / 1.5)
     return dict(slice_ok=slice_ok, mode_ok=mode_ok, jump_ok=jump_ok, zero_mode=zero_mode, near=near, far=far,
+                near_in=near_in, mp_rel=mp_rel, err_max=max(Q24_ERR),
                 table=table, smax=max(table.values()), example=5 * 5.05e-11, bend=math.sqrt(beta_ex) / (2 + 1 / 1.5))
 
 
@@ -1061,6 +1109,8 @@ def checks(o):
         "Tangherlini's near the hole and Garriga-Tanaka's far away; theta+ on T_E lowered by at most 5 "
         "mu/min(U, ell)^2, the round tip far out by 2m/ell; at the example 2.5e-10",
         h["slice_ok"] and h["mode_ok"] and h["jump_ok"] and h["zero_mode"] and abs(h["near"] - 1) < 0.01
+        and abs((h["near"] - 1) / 2e-6 ** 0.5 - (h["near_in"] - 1) / 2e-8 ** 0.5) < 0.05     # [489] the O(rho/ell) term
+        and "%.2f" % ((h["near"] - 1) / 2e-6 ** 0.5) == "2.73" and h["mp_rel"] < 1e-10 and h["err_max"] < 1e-8
         and h["far"] < 1e-3 and h["smax"] < 5 and abs(h["table"][(1e3, 1.0)] / (3 * math.pi / 4) - 1) < 0.01
         and h["table"][(1e-3, 1.0)] < 0.75 and "%.1e" % h["example"] == "2.5e-10" and "%.1e" % h["bend"] == "2.2e-06")
     c = o["q25"]
@@ -1109,7 +1159,8 @@ def checks(o):
         and all(("Q" in r[5]) for r in INVENTORY if r[5].startswith("proved here")))
     owed = sorted(r[0] for r in INVENTORY if "through SOURCE" in r[5])
     add("the inventory accounted: each proved, M's, bearing on no row's claim, or through SOURCE (M-SOURCE-LAST); "
-        "under 356 (b) the three through SOURCE are owed, not done: RBITS, RDUST, RSHELL",       # [item 356]
+        "the three through SOURCE -- RBITS, RDUST, RSHELL -- owed under 356 (b), discharged at 487 by computation "
+        "(source_spec U2-U3, passage_est), standing with SOURCE OPEN again (489)",
         all(not r[5].startswith("to prove") for r in INVENTORY)
         and all(("Q" in r[5]) or "SOURCE" in r[5] or r[5].startswith("M's") for r in INVENTORY)
         and owed == ["RBITS", "RDUST", "RSHELL"])

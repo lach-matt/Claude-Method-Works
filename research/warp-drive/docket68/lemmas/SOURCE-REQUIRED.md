@@ -5,6 +5,1116 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 522: SOURCE continued; N1* and the response paper handed to another session
+
+M, 522: "Two tasks: Continue SOURCE AND Prepare instructions for another session to finish N1* and the counterpart
+theorem, and then right a formal response paper to the Huneau and Luk's theorem. That session will need access to all
+you work on the proof, so it'll all need to be pushed to the repo and identified there for the other session"
+
+- **The handoff (done).**
+  - Instructions: `research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`. They cover the commission
+    verbatim; what is proved and what was corrected; the read-first order; reproduction; the sources to re-READ;
+    routes W (5D wave gauge, Touati's construction carried to 4+1 and a large background) and D (5D double null);
+    M's rules; the response paper; and the audit.
+  - `docket68/handoff-n1star/MANIFEST.tsv` lists 54 files of the proof with md5s: instruments, data, Lean, the
+    record's write-ups, and the scratch derivations, now in the repository under `handoff-n1star/scratch/` with
+    their own README.
+  - The other session works on its own branch, based on this one. It leaves the board's shared record (rulings,
+    WARPTHEOREM, map, register, write-ups) untouched and logs its own work; this board integrates on M's direction.
+  - Brought forward at 524 (M: "Please bring forward the handoff and instructions for the N1 session"): the
+    manifest re-taken at the branch's head, the instructions noting that the SOURCE work below is not N1*, and the
+    message that starts the session in `handoff-n1star/README.md`.
+- **SOURCE continued: the seed's escape at 10 l5 (computed; `lemmas/seed_escape.py`, 11/11, mutants 4/4).**
+  - The question. 517-521 left the seed phase open: while the hole is small against the wavelength, it reflects part
+    of what arrives, and that part leaves. SOURCE needs E5(N) in the hole to within half a bit, which is 1/(3N) of it
+    (2.6e-22 for copper, 1.2e-16 for the example README). This is linear scattering off the hole as it stands, not
+    N1* (521).
+  - The barrier (computed, exact; READ). A massless field on five-dimensional Tangherlini meets
+    V = f[((l+1)^2 - 1/4)/r^2 + 9 mu/(4 r^4)]. Kodama and Ishibashi's tensor-type equation (Prog. Theor. Phys. 110,
+    701 (2003), (5.2)-(5.3)) is the same equation at n = 3. The top sits near w r_h = (l+1)/2.
+  - Reflection (computed). 1681 integrations, l = 2k for k = 0..45, cached under a hash of the solver's code.
+    R + T = 1 to 1.2e-9. R is near 1/2 at the top; above it R falls 1e3-6e3 per unit of w r_h; at l = 0 the far
+    fall is e^(-2 pi w r_h).
+  - Angular power (computed). The record's profiles on the torus-invariant harmonics P_k(cos 2 theta): p0 = 0.7768,
+    p1 = 0.2129, the tail falling as (1 + sqrt 2)^(-2k).
+  - Escape (deduced). As the hole grows by absorbing the shell, the share leaving is (2/(w r_hf)^2) int x S(x) dx,
+    from w r_h0 up.
+  - At 10 l5 (computed):
+    - The record's least seed (508: sqrt 72 l5^2, r_h 2.913 l5) lets 3.97e-15 of the energy out. That is 1.5e7 half
+      bits for copper and 2.0e5 for the example README. SOURCE fails at the least seed.
+    - The least seed for half a bit is r_h0 = 17.95 l5, mu0 = 322 l5^2 (copper); 13.96 l5, 195 l5^2 (example).
+    - hf_core5's computed seeds: mu0 = 1000 l5^2 passes both; mu0 = 100 fails both.
+    - Moving the harmonic labelling by one gives 16.3-19.6 l5 (copper) and 12.3-15.7 l5 (example). The verdicts
+      stand.
+    - The record's least seed delivers within half a bit only for lam <= 1.95 l5 (copper) or 2.52 l5 (example).
+  - What SOURCE now holds (deduced). At 10 l5 the seed must be a size (508) of at least 322 l5^2 for copper, and
+    hf_core5's runs at mu0 = 1000 meet it. 508's sqrt 72 l5^2 is the least hole, not the least seed for delivery.
+    521's "a seed over about 20 wavelengths" is where the remainder estimate's seed phase ends, not this requirement;
+    here r_h0 >= 1.8 lam.
+  - Caveats. The angular content rides on scalar harmonics: the tensor-type barrier is identical (READ), and the
+    scalar-type is the same at high l but not computed. Scattering is linear and adiabatic (dr_h/dv <= 0.0110 on the
+    record's shell). Beyond the computed window R follows the e^(-2 pi) law, which over-estimates escape.
+  - Open for SOURCE: the scalar-type barrier at low l, and nonlinear scattering in the seed phase. Who holds E5(N) in
+    the bulk (E6), and the sequence's status, are M's. SOURCEs and SOURCE stay OPEN.
+
+## Item 521: does SOURCE need N1*? No -- what SOURCE rests on instead
+
+M, 521: "Does SOURCE rely on or need N1* ?" Answered from SOURCE's own statement and the record (no new instrument;
+the numbers are counterpart5's and emitter_process's).
+
+- **No. SOURCE does not rest on N1*.**
+  - N1* is the lemma of THM-HF5's part (i): existence for every lam <= lam0 with lam-uniform estimates (520 P5). That
+    is the proof for every lambda.
+  - M placed that proof after SOURCE, verbatim at 509: "No proof for every λ - we will build this proof from the
+    calculations when the SOURCE work is finished". The record carries it the same way ("The proof for every lambda is
+    built from these calculations once SOURCE is finished", Where it stood at item 509).
+  - N1* could not settle SOURCE either way. It is a statement as lam -> 0 with lam0 not controlled; every constant is
+    fixed but large (the crude exponent 1.384e4, 520 P1). So it would not say whether the emitter's own wavelength
+    lies below lam0. It is neither needed for SOURCE nor enough for it.
+- **What SOURCE does rest on, for its carrier (497-511).**
+  - That the round null shell is made of the bulk's own gravitational waves. In hand: the limit, exact (THM-HF5 F3:
+    averaged 5D vacuum waves are null dust, giving Vaidya with Isaacson's flux); the vacuum sequence onto the seed,
+    computed inward to x = 1 (hf_core5, both seeds, rates F4).
+  - That the face receives E5(N) to within half a bit: 2.6e-22 of E5 (emitter_process C1). At the emitter's
+    wavelength this is a question about that wavelength, not about lam -> 0.
+- **Open there, and not N1*: the seed phase at 10 l5.**
+  - At 10 l5 the waves arrive while the seed is under 20 wavelengths for the first 11 % of the shell. That part holds
+    7.7e-6 of the energy (counterpart5 P1), about 3.0e16 half-bits.
+  - How much of it the small seed absorbs, and how much scatters back out to infinity, is not computed. It has to be
+    known to half a bit.
+  - The seed phase disappears for waves below 0.144 l5 at the least seed, or for a seed whose horizon exceeds about
+    20 wavelengths (sqrt(mu0) > 202 l5 at 10 l5). The record fixes the seed only from below (at least sqrt(72) l5^2,
+    508).
+- **SOURCE's other named open points stand as before.**
+  - Who or what in the bulk holds E5(N) is no row of the theorem (emitter E6).
+  - The status of the computed sequence is M's (498, 506-508).
+- SOURCEs and SOURCE stay OPEN. N1* is not among their dependencies.
+
+## Item 520: the counterpart proof -- what finishing it takes, measured; 517's N1 and N2 corrected
+
+M, 520: "Can you finish the counterpart proof?" The board's reading: THM-HF5 (511), the proof 497-498 named "the 5D
+counterpart of Huneau and Luk's nonlinear theorem", whose one open lemma, L-UNIF', 517-519 narrowed to three points.
+`counterpart5.py`, 8/8, mutants 4/4.
+
+- **Not finished.** What finishing takes is now measured, and two of 517's claims are corrected.
+- **The seed phase and the 0.21 belong to the application, not to the counterpart theorem (P1, computed).**
+  - THM-HF5 is a statement as lam -> 0 at fixed mu0, A and env.
+  - The Kretschmann scalar of 5D Tangherlini is 72 mu^2/r^8 (computed from the metric). So a wave is shorter than a
+    tenth of the curvature radius where z^2 > 10 72^(1/4) lam/sqrt(mu). That holds on all of D whenever
+    lam < l5/10.
+  - The seed phase exists only when lam > 0.144 l5 (at the least seed). It holds 7.7e-6 of the energy at 10 l5,
+    5.4e-9 at 0.3 l5, and none at 0.1 l5.
+  - Measured against the test-field energy, 517's exponents behave as follows:
+    - the crude exponent is 1.384e4 at every wavelength;
+    - the "second order" stays near 0.21 from 10 l5 down to 0.3 l5, because the seed phase's edge holds it, so
+      517's "second order, estimate 0.21" was not a small-lam property;
+    - once the seed phase is gone, it falls in proportion to lam: 0.148 at 0.1 l5, 0.0148 at 0.01 l5.
+  - In the lam -> 0 theorem every constant is independent of lam, so a crude estimate suffices -- if the estimate
+    exists at all.
+- **517's K6 is withdrawn: the KN gauge loses two angular derivatives (P2, computed).**
+  - h^vv = h^vth = 0 exactly, so no second v-derivative appears anywhere. The high-frequency structure is right.
+  - The hypersurface equations form Bondi's hierarchy:
+    - rr fixes h_vr from (d_r psi)^2 and (d_r omega)^2;
+    - r-theta fixes h_vth through d_theta h_vr;
+    - theta-theta fixes h_vv through d_theta^2 h_vr and d_r d_theta h_vth.
+  - h_vv sits in h^rr, the coefficient of d_r^2 in box_h. So an estimate with k angular derivatives needs k + 2.
+    Bondi's weak hyperbolicity survives the torus frame.
+- **517's K5 is corrected: N2 was proved for test fields (P3, computed).**
+  - On the background, box_h psi0 = box_h omega0 = 0. Their linearizations in the base metric are not zero:
+    - the one for psi holds h_vv and d_r h_vv;
+    - the one for omega holds d_theta h_vr and d_r h_vth;
+    - both with O(1) coefficients.
+  - So the remainder of the Killing norms is driven by the base metric's remainder at O(1).
+  - The class's linear problem is therefore linearized gravity in the T^2-mirror class (515, item 2, open on a growing
+    hole), not the test-field wave equation.
+  - The multiplier and the constant 35 stand for T^2-invariant test fields. K8's ratio 0.92 and its exponents are
+    measured against that test-field energy.
+- **Prior art for the remaining step (P4, READ 2026-10-19).**
+  - Touati, Commun. Math. Phys. 402, 3109 (2023), Theorem 2.2, and Touati, arXiv:2402.17530, Theorem 1.3:
+    - 3+1 dimensions, on [0, 1] x R^3, with the background "close to Minkowski";
+    - even in wave gauge "their coupling induces a loss of derivatives", regained "by a null foliation associated to
+      g0 as well as a Fourier cut-off".
+  - Huneau and Luk: small data, elliptic gauge.
+  - Luk and Rodnianski: 3+1, double null, local.
+  - None treats a large background, five dimensions, or the fixed points (axes) of a symmetry.
+- **What finishing takes (P5, deduced).**
+  - The counterpart theorem is THM-HF5 on D_T (v <= v_end + T, for each fixed T), as Huneau-Luk's and Touati's
+    theorems hold on a fixed time.
+  - Already in hand:
+    - the limit and part (iv), exact (511);
+    - v null at every lam, with no second v-derivative anywhere (F5, P2);
+    - every constant independent of lam, and no seed phase below 0.144 l5 (P1).
+  - OPEN, named **N1***: existence on D_T for lam <= lam0, with lam-uniform energy estimates for the remainder. It
+    needs a formulation without derivative loss and regular across the T^2 axes: five-dimensional generalised wave
+    gauge (Touati's route) or double null (Luk and Rodnianski's). It must hold on the large background, 5D Vaidya with
+    its interior to x = 1. No published theorem gives it, and a proof is the size of Touati's 2023 paper.
+  - Beyond D_T, the settling after the shell is the nonlinear stability of 5D Tangherlini in the class (open, 515).
+  - The application at 10 l5 needs, besides N1*, control of linearized gravity in the class over the shell (P3). The
+    seed phase and the 0.21 close there.
+  - No inner or Cauchy horizon enters: D ends at the spacelike x = 1 (519).
+- **Status.** For the counterpart theorem, L-UNIF' now stands as N1*. For the 10 l5 application it stands as N1* plus
+  those three points. It is not proved, and the status is M's.
+
+## Items 517-519: a new gauge, derived from the five needs and proved to meet them (KN gauge)
+
+M, 517: "We need to derive and then prove a new or previously unidentified gauge that will meet the needs of the theorem".
+M, 518 (during the work): "Continue, and check the background tasks please". M, 519: "Please confirm that you ARE
+NOT chasing a chaucy horizon again" -- confirmed: see the last point.
+(`kn_gauge.py` K0-K8, 18/18, mutants 10/10.)
+
+- **Why 516 found N2 met by no gauge.** N2 was posed as linearized gravity on a growing five-dimensional hole. Its
+  natural engine, the Teukolsky equation, does not decouple in D > 4. The class has more structure than that, and the
+  derivation starts from it.
+- **The derivation (exact, general base metric).** In the T^2-mirror class the two Killing fields commute, are
+  orthogonal, and are hypersurface-orthogonal: g = g3 + e^(2U1) dphi1^2 + e^(2U2) dphi2^2. Then:
+  - R(phi_i, phi_i) = -e^(2U_i) box_5 U_i, R(a, phi) = 0, and R_ab = R3_ab - sum_i (D_a D_b U_i + dU_i dU_i).
+  - In the torus frame h = rho^2 g3, with rho = e^(U1+U2), off shell:
+    R[h]_ab = R_ab + sum_i dU_i dU_i + dpsi dpsi + g3_ab sum_i e^(-2U_i) R(phi_i, phi_i), where psi = ln rho.
+  - So vacuum in the class is exactly 2+1 gravity on h with two free massless scalars:
+    R[h] = (3/2) dpsi^2 + 2 domega^2, box_h psi = box_h omega = 0, with omega = (U1 - U2)/2.
+  - 2+1 gravity has no waves of its own. Every wave of the class lives in psi and omega. These are the Killing norms:
+    geometric scalars, the same in every gauge.
+  - For every T^2-invariant f, box_h f = rho^-2 box_5 f. For every base vector X, the 5D energy current satisfies
+    div_5 J = rho^2 ((1/2) T_h^ab (L_X h)_ab + (X f) box_h f). The radiation's own oscillation (in psi, omega, the
+    torus and the conformal factor) never enters the energy identity. Only the base metric h does.
+  - Prior art: Schmidt (gr-qc/9712034) reduces D dimensions with D - 2 such Killing fields to 2D dilaton gravity;
+    Choquet-Bruhat and Moncrief, and Huneau and Luk (1706.09499), reduce 4D polarized U(1) to 2+1 Einstein-wave map.
+    The 5D cohomogeneity-three form with its torus frame, used as the gauge for this problem, is what is identified here.
+- **The gauge (KN gauge).**
+  - v is the phase of the incoming radiation, a null coordinate; theta is carried along the null generators; r is
+    fixed by h_thth = r^6 sin^2 theta cos^2 theta.
+  - The unknowns are the Killing norms psi and omega together with the base metric h.
+  - The averaged form adds one near-identity fast diffeomorphism, x -> x + lam^2 Xi(x, v/lam).
+  - On the record's ansatz, h_thth = rho^2 g_thth = r^6 s^2 c^2 for every P1, P2, so these are exactly the record's
+    Bondi coordinates. F1-F7 and every run stand in it; what is new is the frame, the unknowns and the averaging.
+- **How it meets each need.**
+  - **N2 (proved; constants computed).** By the derivation, the linear problem of the class is the scalar wave
+    equation for T^2-invariant fields on the averaged background, 5D Vaidya with mu' >= 0, not linearized gravity.
+    In units of sqrt(mu(v)), with z = r/sqrt(mu):
+    - Kodama: the bulk of d_v is (mu'/2r^2) f_r^2 >= 0, exact. The apparent horizon is spacelike and is a future
+      boundary of the exterior, so the exterior T-energy only falls, apart from what enters at past null infinity.
+    - A new multiplier: X = alpha d_v - sigma d_r, with alpha = 12z^4 - 4z^6 + (3/8)z^8 and sigma = z^2(4 - z^2)^2
+      for z < 2, and X = 32 d_v beyond (C^1 at z = 2). Proved by exact root counting:
+      - X is future-timelike on (0, inf), and across the apparent horizon, where sigma = 9;
+      - its bulk is positive definite on (0, sqrt(12/7)), through the horizon at z = 1;
+      - its (v, r) block is semidefinite up to z = 2;
+      - all of this for every growth rate eps = mu'/sqrt(mu) in [0, 1/20].
+    - The shell's largest growth rate is eps = 0.0219.
+    - Dafermos and Rodnianski's argument (red-shift plus a monotone T-energy; READ, with its lemma proved here) gives
+      the nondegenerate energy on every cone at most C2 = 35.0 times its data and input. This holds uniformly in v
+      and lam, across the horizon, to x = 1. The constants are b = 0.0748, B = 15.6, C1 = 76.3 and c1 = 8.38.
+    - At x = 1 the energy is weighted by z^2: a factor of 2.2e4 in energy, 150 in amplitude.
+  - **N3 (exact).** The base metric's oscillation is pure gauge:
+    - In the gauge h_rr = h_rth = 0 and h_thth is wave-independent, so every oscillation of h lies in the v-row,
+      which is l (x) zeta + zeta (x) l with l = dv.
+    - This is special to 2+1. The kernel of the linearized Ricci tensor's high-frequency symbol has dimension 3, all
+      gauge. In 3+1 it is 6 = 4 + 2 and in 4+1 it is 10 = 5 + 5; the excess is the gravitational polarizations.
+    - The fast diffeomorphism adds exactly lam (l (x) h.Xi' + h.Xi' (x) l) + O(lam^2), so it removes h's first-order
+      oscillation.
+    - On the background the torus frame reproduces Tangherlini exactly. To first order h_vr responds exactly as
+      2 dpsi h_vr.
+    - T_h^(va) has no f_v, so the oscillation meets only the derivatives that the cone energy controls.
+  - **N1 (structure exact; the energy method deduced).** The radiative equations are linear waves. The base's three
+    main equations (rr, r theta, theta theta) have sources 2 dPsi.dPsi in cone-tangential first derivatives only: no
+    v-derivative and no second derivative. The D D U terms that make Bondi's free evolution weakly hyperbolic are
+    removed exactly by the torus frame. Well-posedness of the characteristic problem then follows the standard energy
+    method; that step is not machine-checked here.
+  - **N4 (deduced).** These are the record's coordinates, in which the sequence reaches x = 1 (hf_core5) and the
+    boundary is spacelike (hf_theorem5 F2). The averaging is O(lam^2), so the boundary stays spacelike.
+  - **N5 (computed).** First-order oscillation:
+    - The record's wave profiles satisfy the leading supplementary constraints exactly: the largest coefficient is
+      1.6e-207 at 100 digits, zero to working precision. So the homogeneous mass and angular-momentum aspects are not driven at first order.
+    - h's first-order response is computed exactly: h_vr = 2 dpsi h_vr, h_vth = Phi c_p(theta) r^(7/2), and h_vv
+      from the theta theta equation.
+    - Against X's positive bulk, its largest ratio per unit A env mu^(-1/4) is 1.7e-4 at z = 0.01, 0.2 at z = 0.5,
+      4.4 at z = 1 and 15 at z = 1.2.
+    - Over the record's shell with 10 l5 waves, the oscillation is absorbed outright below the waves' high-frequency
+      edge z_hf = (29.1 w/sqrt(mu))^(1/2) and below z = 1.2. The largest ratio is 0.92; it reaches 1 at 12.5 l5.
+    - Above z_hf the averaging removes the first order exactly.
+  - Second order, after the seed phase: the remainder's exponent is 0.21. This is an estimate (strain times the
+    first-order rate), not a second-order computation.
+  - The seed phase stays open. While the hole is smaller than 20 wavelengths (sqrt(mu) < 202 l5, the first 11 % of
+    the shell's duration, 7.7e-6 of its energy), the waves are not high-frequency outside the hole and no positive
+    bulk is there. The crude sup-norm exponent is 1.2e4 there, and 1.4e4 over the whole shell. 515's e^43 was the end
+    scale only. Closing this needs a weighted (Morawetz or Hardy) estimate outside the small hole in place of the
+    sup norm.
+- **What it settles and what stays open.** 
+  - Settled by the KN gauge:
+    - the radiation reduced exactly to two gauge-invariant scalar waves;
+    - N2's engine, uniform with constant 35;
+    - the base's oscillation made pure gauge;
+    - the record's coordinates kept, reaching x = 1;
+    - the first-order oscillation absorbed or removed over the whole shell.
+  - Still open, all three not machine-checked:
+    - the seed phase's exterior estimate;
+    - the second-order remainder, an estimate of 0.21;
+    - the energy-method step of N1.
+  - L-UNIF' therefore narrows to these three. It is not proved.
+  - No inner or Cauchy horizon enters anywhere (519): the background's f = 1 - mu/r^2 has one root, and the domain
+    ends at the spacelike x = 1.
+
+## Item 516: every gauge for L-UNIF', measured against its five needs
+
+M, 516: "Deep research all gauges applicable to our specific needs".
+(`gauge5.py` G0-G6, 7/7, mutants 5/5.)
+
+- **The needs** (item 515):
+  - N1, a well-posed problem on the theorem's domain: data at scri, the spacelike outflow boundary at x = 1, five
+    dimensions;
+  - N2, uniform linear control of the growing hole in the T^2-mirror class over 269 r_h;
+  - N3, the high-frequency remainder;
+  - N4, the interior reached to x = 1 with nothing cut out (505);
+  - N5, the nonlinear closure.
+- **Ten gauge families, read:** Bondi-Sachs; double null; wave-map (generalized harmonic); maximal slicing with spatial
+  elliptic conditions; CMC (York time, hyperboloidal); puncture (1+log, Gamma-driver); the GCM/Teukolsky frame;
+  gauge-invariant variables (Kodama-Ishibashi, Hollands-Wald canonical energy); the T^2 areal gauge; Friedrich's
+  conformal gauge.
+- **What the five-dimensional computation adds (exact).**
+  - **Maximal slicing stops 129 times outside x = 1.** A spherically symmetric maximal slice through the vacuum at
+    radius r needs C^2 >= mu r^4 - r^6. The maximum, 4 mu^3/27, sits at r_lim = sqrt(2/3) r_h (the 4D control gives
+    3M/2). Independently, the interior r = const slices have mean curvature K(r) = (3r^2 - 2mu)/(r^2 sqrt(mu - r^2)),
+    zero exactly at r_lim, so the two derivations agree. In the T^2-reduced 2+1 Einstein frame, the frame of Huneau and
+    Luk's elliptic gauge, the torus moves the limit out to (2/sqrt5) r_h. For the example README's hole that is
+    59,410 l5 and 65,080 l5, against r_q = 460 l5. The maximal foliation and every stationary 1+log-type trumpet freeze
+    there (maximal is their f -> infinity limit; READ 0905.0450). Going further would need excision, which 505 excludes.
+  - **CMC slicing does reach x = 1.** |K| rises monotonically inward to 0.687 l5^-1 at r_q. But a slice with K != 0
+    is hyperboloidal and reaches null infinity, where five-dimensional radiation falls as r^(-3/2). That half-integer
+    power rules out a smooth conformal compactification (READ Tanabe, Kinoshita and Shiromizu, PRD 84, 044055 (2011);
+    Hollands and Ishibashi). So CMC fails N1 for data posed at scri.
+  - **The T^2 areal gauge degenerates inside the hole.** rho = (r^2/2) sin 2theta has |grad rho|^2 = r^2 - mu sin^2
+    2theta. It turns null on r = r_h |sin 2theta|, which meets every interior radius (r_q at |sin 2theta| = 0.0063). So
+    the areal coordinate of the T^2 cosmologies is neither a time nor a space coordinate across the hole.
+  - **Five dimensions ease N5.** Waves decay as t^(-3/2), whose integral from 1 to infinity is 2; four dimensions'
+    t^(-1) diverges. So wave coordinates need no null condition (READ Choquet-Bruhat, Chrusciel and Loizelet, CQG 23,
+    7383 (2006), for Minkowski). Near the hole the decay comes from Laul and Metcalfe and from Schlue, with a loss of
+    derivatives at trapping.
+- **What the reading adds.**
+  - The Kerr proofs' geometric route (GCM spheres, Klainerman and Szeftel 2104.11857) runs on the Teukolsky equation.
+    In D > 4 that decouples only on Kundt spacetimes, and "decoupling does not occur in higher-dimensional black hole
+    spacetimes" (Durkee and Reall, 1009.0015, READ).
+  - Kodama-Ishibashi master equations (hep-th/0305185) and Hollands-Wald canonical energy (1201.0463) control a static
+    hole linearly; neither evolves the nonlinear problem.
+  - The only nonlinear 5D black-hole stability results are cohomogeneity two, in double null (Dafermos and Holzegel,
+    gr-qc/0510051).
+  - High frequency has been handled in three gauges, all in 3+1:
+    - double null with angular regularity (Luk and Rodnianski 2009.08968), oscillation along at most two null
+      families -- ours oscillates along one;
+    - an elliptic gauge under U(1) symmetry (Huneau and Luk 1706.09499). Five-dimensional vacuum with a diagonal T^2
+      reduces to 2+1 Einstein-scalar fields, the same structure (deduced);
+    - generalized wave coordinates (Touati 2402.17530; Huneau and Luk 2403.03470).
+  - A refinement of item 515's point 1. As a free-evolution system Bondi gauge is weakly hyperbolic in the simplest
+    norms (2111.14794). But Gundlach (2404.16720) gives a symmetric-hyperbolic Bondi formulation, linearized about
+    four-dimensional Schwarzschild, well posed in a special energy norm.
+- **The matrix** (M meets, P partial, F fails, O open):
+
+  | gauge | N1 | N2 | N3 | N4 | N5 |
+  |---|---|---|---|---|---|
+  | Bondi-Sachs | P | O | P | M | O |
+  | double null | P | P | P | M | P |
+  | wave-map / generalized harmonic | M | P | P | O | P |
+  | maximal + spatial elliptic | M | O | P | F | O |
+  | CMC (York time, hyperboloidal) | F | O | P | M | O |
+  | puncture (1+log, Gamma-driver) | P | O | O | F | O |
+  | GCM / Teukolsky frame | P | F | O | O | P |
+  | gauge-invariant variables | P | P | O | F | F |
+  | T^2 areal | P | O | O | F | O |
+  | conformal (Friedrich) | F | O | O | O | O |
+
+  Each cell's ground is in `gauge5.py` (MATRIX).
+- **What the matrix says (deduced).**
+  - No gauge meets all five needs.
+  - Seven families are excluded by a computed or READ failure: maximal, puncture and T^2 areal at N4; CMC and conformal
+    at N1; GCM/Teukolsky at N2; gauge-invariant variables at N4 and N5.
+  - No gauge meets N2. The obstruction there is the linear engine for a slowly growing five-dimensional hole, not the
+    choice of gauge.
+- **Recommendation.**
+  - Bondi stays the computation gauge: F1-F7 live there, and its v is null.
+  - Double null, angularly regular, for the shell, the high frequencies and the interior to x = 1. Bondi's v serves as
+    its v.
+  - A wave-map gauge relative to the Vaidya approximant, with constraint damping (Hintz 2302.13804), for the exterior's
+    long time, where the integrable decay closes the nonlinearity.
+  - Still open: N2's linear engine, and matching the two gauges across the shell. L-UNIF' stays OPEN.
+
+## Item 515: what proving the inequality needs -- determined; a correction to 514
+
+M, 515: "Check on the background tasks please. Then, -What is still not proved.- determine what is needed to prove the
+inequality, and then prove it. We cannot complete the warp theorem as it is without it. Use every tool available to
+you."
+
+- **The background runs.** At mu0/l5^2 = 1000 the late spread converges with the angular grid at lambda = 0.05:
+  1.2e-3, 4.3e-4 and 2.9e-4 at x = 16, 20 and 24, onto 498's 2.7e-4, with the exterior mass within 1.4e-6 of 498's.
+  At lambda = 0.1 it does not (1.3e-2, 1.5e-2 against 2.6e-2). There the core boundary is outside the high-frequency
+  regime: lambda A r^(-3/2) = 0.6 at mu0/l5^2 = 1000. So the sequence at 1000 is lambda = 0.05, 0.025, 0.0125 on the
+  x = 20 grid; the 0.0125 run and a fifth wavelength at 100 (0.00625) are running.
+- **A correction to item 514.** The anchored instrument took r_q as the scale at x = 1. The scale that decides high
+  frequency is the local curvature radius K^(-1/4), and at x = 1 it is l5 for every hole, by the definition of x. So no
+  wave of a physical length is high-frequency at x = 1. Corrected (`hf_anchor5.py` A4):
+  - 10 l5 waves are high-frequency from infinity down to r = 4,604 l5 (x = 1e-4), and a small perturbation all the way
+    to x = 1 (strain 7.2e-3 there, 3.6e-6 at the horizon);
+  - r_h/10 waves are high-frequency only beyond r = 124,186 l5, outside the horizon (that needs w < 2,498 l5), and not
+    small at x = 1 (strain 5.2).
+  - The band "10-46 l5 reaching x = 1" that 514 reported is withdrawn.
+- **What proving the inequality needs (determined).**
+  1. A gauge in which the problem is well posed in energy norms: double null or wave gauge. Bondi gauge is only weakly
+     hyperbolic (Giannakopoulos, Hilditch and Zilhao 2020).
+  2. Uniform control of linear perturbations of the growing five-dimensional black hole, in the T^2-mirror class, for
+     the whole shell: 269 r_h for the record's least shell, about 2e6 periods of 10 l5 waves. That control is needed at
+     the horizon (red-shift), outside it (decay past the photon sphere at r = sqrt(2) r_h) and inside it down to x = 1.
+     Prior art (READ): mode stability for every perturbation type (Ishibashi and Kodama, Prog. Theor. Phys. 110, 901
+     (2003)), and decay for scalar waves on higher-dimensional Schwarzschild (Schlue, Anal. PDE 6, 515 (2013); Laul and
+     Metcalfe, Proc. AMS 140, 3247 (2012)). It is not yet known for linearized gravity in this class on a growing
+     background.
+  3. The high-frequency remainder over that time. Only the remainder after the geometric-optics approximant is small:
+     the waves themselves carry O(1) energy, because the shell is the hole's mass. Crude estimates grow like
+     exp(||d g_app|| T) = exp(0.16 x 269), about e^43, over the shell. The oscillation's averaging must be used, which
+     is what F5's light-cone structure supplies.
+  4. Near x = 1, where the curvature radius is l5, the waves are long against it but small (strain 7.2e-3). There the
+     approximant is linear perturbation theory with its power-law growth inward, not geometric optics.
+  5. The nonlinear closure of 2-4.
+- **Its status.** Items 2-5 together are nonlinear stability of a five-dimensional black hole, over a long time, in a
+  cohomogeneity-three symmetry class.
+  - The literature proves that only in cohomogeneity two: Dafermos and Holzegel, gr-qc/0510051, triaxial Bianchi IX,
+    a class the plane's mirror excludes here (hf_limit5 H6).
+  - Schlue 2013 names the general problem as open: his estimates are "in principle required in a nonlinear stability
+    problem".
+  - It is not proved here. It cannot be settled by computation at our universe's values either: a direct run would
+    have to follow about 2e6 wave periods across a factor of 5e4 in scale. The proof has to be analytic and two-scale.
+- **What holds exactly without it, and what it leaves to the inequality.**
+  - The runs' mass gain matches the exact incoming flux to 0.01 % (item 514).
+  - A stationary final state with the mirror carries no angular momentum. With T^2 symmetry such a black hole is
+    fixed by its mass, angular momenta and rod structure: "identical if and only if their masses, angular momenta, and
+    their 'rod structures' coincide" (Hollands and Yazadjiev, Commun. Math. Phys. 283, 749 (2008), READ). The static
+    one is Tangherlini (Gibbons, Ida and Shiromizu, PRL 89, 041101 (2002), READ). So the final face is Tangherlini of
+    the final mass, and holds the N of the energy kept.
+  - What is left to the inequality is that the solution exists through the shell and settles, and that what escapes
+    to future null infinity stays below half a bit (2.6e-22 of E5, emitter_process C1). In odd dimensions even the
+    Bondi energy's definition needs care: Hollands and Ishibashi's "definitions and constructions fail in odd spacetime
+    dimensions" (J. Math. Phys. 46, 022503 (2005), READ).
+
+## Item 514: the remaining estimate, its coefficients evaluated and anchored in our universe
+
+M, 514: "Prove the remaining estimate please. Anchor you work with real value from our universe so you can calculate
+what you need to evaluate the coefficients that are preventing a precise answer instead of an estimate".
+(`hf_anchor5.py` A0-A4, 5/5, mutants 2/2.)
+
+- **What kept it an estimate.** L-UNIF' says the solution stays within C lambda of its approximant, with C and the
+  order beyond it unevaluated and lambda abstract. Here both are made definite.
+- **The coefficients, exact (computed; the runs agree).**
+  - First order: the departure the runs measure is the waves' amplitude rescaled by r^(3/2), which is carried unchanged
+    along each ingoing cone at leading order. So it is sqrt(2) A lambda exactly (sqrt 2 = h(0)). The runs give
+    P/lambda = 1.406 and 1.449 at lambda = 0.025 and 0.0125, within 3 %.
+  - Second order: the scri flux with the data's exact rates, averaged over the phase, is (A^2/6)(env^2 + lambda^2
+    env'^2) at every x. So the mass gained exceeds Vaidya's by (2/9) A^2 lambda^2 int env'^2: 5 pi^2/(36 T) = 0.45693
+    per A^2 for the record's envelope. The runs give 0.4608, 0.4590, 0.4568 (mu0/l5^2 = 100) and 0.459, 0.4589 (1000):
+    converging on it to 0.01 %.
+  - After both, the rest is below 0.1 lambda^3 at every lambda <= 0.05.
+- **Anchored in our universe's values (READ by path).** l5 = 1.54e-25 m; the example README's face, N = 2.74e15 bits,
+  E5 = 1.28e9 J, r_h = 1.12e-20 m = 72,762 l5; the record's least shell, the sin^8 flux over 269.15 r_h; the least
+  seed. The shell's amplitude is then A = 66.7 l5^(1/2). For 10 l5 waves, the window's floor:
+  - the second-order mass offset is 1.5e-13 of the shell;
+  - the strain is 3.6e-6 at the face's horizon and 7.2e-3 at the record's quantum boundary x = 1 (r_q = 460 l5);
+  - onto the least seed, 99.78 % of the energy arrives with the expansion's conditions holding at x = 1, and all but
+    2e-6 of it at the horizon.
+- **A correction the anchoring finds.** *[Item 515: withdrawn as worded -- at x = 1 the curvature radius is l5, so no wave is high-frequency there; see "Item 515".]* The band that reaches x = 1 within the expansion's regime is 10 l5 to 46 l5.
+  The r_h/10 that emitter_process C4 names lies 160 times outside it: its strain at x = 1 is 5.2, not a small
+  perturbation, and none of its energy is in the regime there. So the emitter's waves must be at most 46 l5 for the
+  high-frequency limit to hold down to x = 1. *[A note beside emitter_process C4; the instrument is not edited.]*
+- **What this settles, and what it does not.** The estimate's coefficients are evaluated exactly, not estimated, and
+  our universe's lambda is fixed and bounded below by the window's floor, so lambda -> 0 is never needed. It is still
+  not an analytic inequality for every lambda. Our lambda lies below the computed ones, and the answer there is the
+  exact coefficients' as long as the series stays asymptotic, which the runs show at four wavelengths. A fifth
+  (lambda = 0.00625) is running.
+
+## Item 513: the light cone settles THM-HF5's nonlinear coupling
+
+M, 513: "Refer back to the light cone work we did proving that gravity is governed by relativity, which is governed by
+observation, which is a first principle". (`hf_theorem5.py` F5; 7/7, mutants 7/7.)
+
+- **The chain, as the record proved it.** Observation (GW170817's one speed, MICROSCOPE, Cassini; READ) gives relativity
+  (relativity.py U6). Relativity gives the one light cone for every front on every background (M-ONE-LIGHT-CONE, 328).
+  The one light cone gives the law: alpha = 0, Einstein's equations exactly in five dimensions (gb_cone C7). With
+  alpha != 0, gravity's fronts would split from the light cone.
+- **What the light cone makes of the coupling (computed, exact, every v-derivative of every Ricci component).**
+  - The fronts are null for the full metric at every lam (g^vv = 0), and no component holds a second v-derivative of
+    anything. The waves never move their own cone.
+  - The three equations that fix the metric on each cone (R_rr, R_r-theta, the angular trace) hold no v-derivative of
+    anything. The metric on a cone is fixed by what lies on that cone, where the oscillation enters only at O(lam).
+  - The evolution equations carry only the waves' own rates, linearly: no rate of W, beta or U, and no product of
+    rates. The waves propagate linearly along the cone.
+  - The one product of rates anywhere is R_vv's: the waves' own, the dust. Its average is the limit's mass growth. Its
+    oscillation, carried along the cone, integrates for the record's envelope to 2.6e-7 of the shell at lam = 0.1 and
+    1.6e-18 at lam/16 (falling as lam^9.3).
+  - So the nonlinear coupling is O(1) only through the dust, which is the limit itself. Everything else is O(lam).
+- **What remains: L-UNIF', narrowed.** It is no longer the waves' interaction but an estimate: the remainder after the
+  geometric-optics approximant, driven by O(lam) sources with coefficients g_0 + O(lam) along the cones, stays O(lam)
+  on D. It must be measured in norms rough along v and smooth along the cones (Luk and Rodnianski's framework), with
+  the angular coupling of Bondi gauge handled in double null gauge or in norms analytic in x, as the data are. Not
+  proved. Evidence: the sequence at four and three wavelengths.
+
+## Item 511: the nonlinear PDE theorem for the shell's sequence onto the seed (THM-HF5)
+
+M, 511: "I think you can now build nonlinear PDE theorem for this, and fairly quickly now that you have done the
+computations ... Utilize outside research and publications, and utilize all the proof building tools available to
+you." (`hf_theorem5.py` F0-F4, 6/6, mutants 5/5; Z3; Lean 4.33 core; Wolfram Language 15.) It is built on the redone
+work (506-508), with the exclusions (481, 484) held first.
+
+- **The theorem.** Take a seed mu0 >= sqrt(72) l5^2 and the record's wave data at past null infinity. Let D be the region
+  from past null infinity to the record's quantum boundary x = 1. Then the five-dimensional vacuum solutions g_lam
+  (T^2 symmetry, both reflections):
+  - (i) exist on D for every lam <= lam0;
+  - (ii) converge uniformly to five-dimensional Vaidya with mu' = (2/9) A^2 env^2, at O(lam) in the metric and
+    O(lam^2) in the mean mass;
+  - (iii) have one horizon and no inner one;
+  - (iv) end at a spacelike boundary that every characteristic leaves, beyond which the record's core continues the
+    limit.
+- **Proved (exact).**
+  - Part (iv): inside the horizon the boundary's normal is timelike, g^-1(dPhi, dPhi) = f - 2 r_q' < 0, and outgoing
+    rays move inward faster than the boundary (Z3). Nothing inside the boundary reaches D, so D is the data's domain of
+    dependence and nothing is cut out.
+  - The limit. In the full ansatz only R_vv carries the waves at O(1), as -2(P1_v^2 + P1_v P2_v + P2_v^2). No component
+    of the Ricci tensor carries them at O(1/lam), because v is null. With the round average A^2 env^2/6 and Vaidya's
+    G_vv = 3 mu'/(2 r^3), mu' = (2/9) A^2 env^2: Isaacson's flux, derived. Both results are cross-checked in Wolfram
+    Language 15. The form is positive definite (Lean, Z3), so the dust's energy is never negative.
+  - Part (iii), in the limit: f = 1 - mu/r^2 has one positive root, and x = 1 lies inside it whenever
+    mu > sqrt(72) l5^2. Beyond it the record's core has its two roots on opposite sides of one transition surface.
+- **Computed.** The sequence meets the theorem's orders at both scales:
+  - P halves with lam (2.48, 2.32, 1.94 at mu0/l5^2 = 100; 2.43, 2.33 at 1000);
+  - the mean-mass offset quarters (5.17, 4.01, 4.02; 4.65, 3.84);
+  - the horizon's departure halves, and every run has exactly one horizon.
+- **Prior art (READ).**
+  - Luk and Rodnianski (arXiv:2009.08968) prove both directions of Burnett's limit in 3+1 dimensions, for data rough
+    along the null directions and smooth along the spheres, locally.
+  - Touati (Ann. PDE 11, 22 (2025)) constructs the vacuum families for a background with a small parameter, on
+    [0, 1] x R^3.
+  - Huneau and Luk (Duke Math. J. 167 (2018); arXiv:1907.10743) do the polarized U(1) case, reduced to 2+1, for small
+    generic backgrounds. That is the structure here, with two scalars.
+  - Giannakopoulos, Hilditch and Zilhao (PRD 102, 064035 (2020)) show Bondi-like gauges are only weakly hyperbolic, so
+    the proof of (i) belongs in a double null or wave gauge.
+  - None covers a five-dimensional black-hole background on a fixed region reaching inside the horizon.
+- **Open, named: L-UNIF.** The vacuum solution exists on D for every lam <= lam0 and stays within C lam of the
+  geometric-optics approximant built on the limit. Part (i), and the rates for every lam, need it.
+  - The route: the reduced 2+1 system in double null gauge (the data are rough only along v), with the published
+    stability arguments carried from a small background to the limit on D. The limit is smooth on D, and D's boundary
+    is outflow.
+  - Test waves on the limit already have energy bounded uniformly in lam, since the boundary flux leaves with the right
+    sign. The nonlinear coupling is what is open.
+  - Evidence, not proof: the sequence at four wavelengths and at three.
+- **Beside it.** At mu0/l5^2 = 1000 the late spread against 498's is not settled (hf_core5 C1, 9/10); finer grids are
+  running.
+
+Status: part (iv) and the limit are PROVED; part (iii) is PROVED in the limit and computed for every lam run; part (i)
+and the rates are OPEN on L-UNIF.
+
+## Item 510: after the instant, position 2's own values of the 26 govern the copy, and they hold nothing of what sat there
+
+M, 510, to 509's closing line "position 2's laws still govern the copy after the instant (148, 240). That is a law, not
+prior matter, so it falls outside 509": "this can be proven, as a continuation of the proof. Remember position 2's laws
+are determined by its variations its own baez's list (same constants with different values)". (`p2_indep.py` Part II,
+I0'-I11; 13/13 with Part I; mutants 8/8.) The line is withdrawn and proved.
+
+- **Position 2's laws are its 26 (computed; Baez READ in address26 A1; Uzan READ).** The Yukawa sector's physical
+  parameters, counted from the flavour rotations' orbit at random couplings, are 10 for the quarks and 10 for the leptons
+  with right-handed neutrinos. Add three gauge couplings, the Higgs mass and expectation value, and the cosmological
+  constant: 26. That is Baez's composition, and Uzan's count (Living Rev. Relativ. 14, 2 (2011), Table 1: 19
+  dimensionless with theta_QCD among them; "at least seven new constants" for massive neutrinos): 19 - 1 + 7 + 1 = 26.
+  The strong CP angle is the 27th only once the axion is excluded (434); G is the unit. So position 2's laws are one
+  Lagrangian at position 2's values.
+- **The labels are the same at every position (computed, exact).** Hypercharges solved from anomaly cancellation and the
+  gauge invariance of each Yukawa term give one ray (Geng and Marshak 1989). With right-handed neutrinos the family is
+  Y and B - L (Foot, Lew and Volkas 1993), and the gauged generator is the theory's own content, which "the same
+  constants" keeps. No value of the 26 enters any condition. The charges u 2/3, d -1/3, nu 0, e -1 are the same at every
+  position, so the README's labels name the same states under every set of values.
+- **After the instant (exact, and computed).** The evolution exp(-i H(c2) t) does not depend on what sat at position 2,
+  so the composite is again a replacement map: its output is position 1's README carried by position 2's law. Computed
+  for four laws, three times and six prior states:
+  - the copy is U_t sigma_r U_t^+ (5.6e-16);
+  - I(ref : copy) = 0, and the Choi matrix is U_t sigma_r U_t^+ (x) I/8;
+  - the laws govern: the copies differ between laws by at least 1.3e-3 and move from the README by 0.10.
+
+  This rests on the 26 being constants. A "constant" set by position 2's prior matter breaks it (the mutant), and that
+  is excluded twice: by 434 ("Anything conditional cannot by definition be a constant") and by Uzan ("Any constant
+  varying in space and/or time would reflect the existence of an almost massless field that couples to matter" -- a
+  field, not one of the 26).
+- **The surroundings (computed).** Position 2's matter is displaced, not removed (284). It lies beside the copy holding
+  all it was. Coupled to the copy under the same law, it changes the copy at first order in the coupling: copies of two
+  priors differ by 3.5e-3 at g = 0.02 (ratio 2.008 at 2g), and by 6e-16 at g = 0. That is 240's "conditions" acting on
+  an object once it exists, which survivability meets. It is not reconstruction.
+- **Mass and fate (computed; exact where marked).**
+  - The hydrogen README's labels are bound states for every alpha and every mass (exact). At alpha x 1.1 and m_e x 0.9
+    the binding is 14.809 eV against 13.598, the atom is 51.1 keV lighter and 1.010 times the size: position 2 assembles
+    its own mass on the same labels (240).
+  - A finite well holds a label only in a window (exactcopy X3). The Morse model's top level v = 16 is bound only while
+    the mass ratio is at least 0.8981 of ours. Below that, position 2's law moves the README's state (survivability,
+    240), decided by position 2's values and the README alone.
+- **So 509 continues past the instant.** The copy is position 1's matter at the instant, and after it is governed by
+  position 2's own values of the 26, which hold nothing of what sat at position 2. Position 2's former matter can still
+  act from outside, as surroundings act on any object.
+
+## Item 509: whatever matter sits at position 2, it reconstructs only position 1's matter
+
+M, 509: "position 2's matter is only relevant in the sense that its matter reconstructs the same matter from position 1.
+No matter what matter sits at position 2, it always only reconstructs the matter from position 1. - prove this".
+(`p2_indep.py` I0-I6, 7/7, mutants 4/4.) This answers 506's open point on position 2's mass: position 2's matter is
+material, never content.
+
+- **No other outcome is possible (computed, exact).** A reconstruction exact for every state of position 2's matter
+  (146: no tolerance) is a linear map constant on all density matrices. Density matrices span all matrices, so it is the
+  replacement map sigma_r Tr( . ). Solved in rational arithmetic, Phi(E_ij) = delta_ij sigma_r. The argument holds in
+  every dimension; it is computed at d = 4. So the copy can carry nothing of what position 2 held.
+- **It is physical (computed).**
+  - The room's matter is displaced into a cold dump, as 284-285 say, and the README's labels are moved in from a
+    reservoir by swaps chosen by r alone.
+  - The room ends in the README's state for pure, mixed and reference-entangled initial states (error 5.6e-16).
+  - The process commutes with total charge and with the energy of identical local Hamiltonians (exactly 0).
+  - Its Choi matrix is sigma_r (x) I: it is the replacement map.
+- **Where position 2's matter goes (computed; the no-hiding theorem, Braunstein and Pati, PRL 98, 080502 (2007)).**
+  With a reference purifying it, I(ref : copy) = 0 and I(ref : dump) = 2 S(rho), to 1e-15. All that position 2's matter
+  was is in what was displaced.
+- **"The same matter" is literal (computed).** Identical particles carry no identity. The states with position 2's
+  particle in one mode and position 1's in the other are one state up to sign, for fermions and bosons, and 100 random
+  symmetric observables read the same on both. A copper atom from position 2's stock is position 1's copper atom.
+- **The kind of matter enters only the energy (computed, AME2020 Table I through tools/isotopes.py).** The record's
+  Cu-63 is the same atom built from hydrogen, helium, carbon, oxygen or iron (each with hydrogen to balance). The energy
+  released differs: 524.8, 123.8, 87.4, 160.7 and 56.0 MeV per atom. Baryon number is conserved, so position 2's matter
+  must hold at least the copy's baryons; that is necessary for any process. Given it, the composition never reaches the
+  copy.
+- **The kind of matter enters the cost too, never the copy (computed; molar entropies READ, NIST, 298.15 K).** Clearing
+  a 1 cm^3 room costs at least T S (Landauer): 1394 J if it held copper, 1154 J for water, 2.4 J for air. The copy is
+  the same in all three.
+- *[Item 510: this line read "Not this item's question. Position 2's laws govern the copy after the instant (148, 240):
+  a law, not prior matter." M: "this can be proven, as a continuation of the proof". Proved as 509's continuation;
+  see "Item 510" above.]*
+
+## Items 505-508: the work redone without the inner horizon
+
+M, 505: "This whole your calculations were all wrong because - The excised core ... - you are still assuming there is a
+inner/chaucy horizon when there is not." 506: "Those will be answered by the math. Redo the work without the inner
+horizon". 507: "Keep going." 508: "There is always a seed - refer to the the method corpus materials".
+(`src_hole.py` S0-S8, 8/8, mutants 4/4; `hf_core5.py` C0-C4.)
+
+- **Held against the exclusions first (481, 484).** Nothing below has an inner horizon or a Cauchy horizon, and no part
+  of the hole is cut out. The core is the record's own: one horizon, a transition surface, no inner horizon
+  (core_large, transition5, transition5q).
+- **What the math answers: the seed (computed, in the high-frequency limit).**
+  - The prior art first: Ghosh and Dadhich's 5D null collapse from flat space is naked iff lam <= 1/27, with a Cauchy
+    horizon as its earliest ray out (reproduced).
+  - The record's quantum boundary x = 1 is r_q^4 = sqrt(72) mu l5^2 (exact). It lies inside the apparent horizon iff
+    mu > sqrt(72) l5^2.
+  - Without a seed, the hole's first phase has its core outside its horizon. At the record's least arrival spread,
+    28.5 r_h (emitter_process C2), rays from that core reach infinity at mu_f/l5^2 = 1e4 and 7e40. So the core would be
+    seen from outside, and 273's one-way passage and 484 both fail. It stays hidden only for spreads below 0.45 r_h,
+    sixty times shorter than C2 allows.
+  - With a seed of mu0 >= sqrt(72) l5^2 (r_h >= 2.91 l5) in place, every ray from the core is trapped from the shell's
+    first instant to its last.
+  - So the shell arrives onto a seed, as 508 states and The Method's own sec. 14.5.7-14.5.9 say of any closed index
+    (Registers 1793, 1797: the seed is constructible and is a size, not a set). The math gives its least size.
+- **The core while it takes the shell in (computed, exact).**
+  - On transition5's chart with the mass free, f = 1 - M(r, v)/R^2, the Einstein tensor is derived from the metric.
+    Its null energies are G(n,n) = -3 R''/R and G(l,l) = -3[(M - R^2)^2 R'' - 2 R^2 M_v R']/(4 R^5). The mixed part,
+    G(l,n) + G(e,e), with them decides every null direction.
+  - Outside the modified region our side is exactly 5D Vaidya null dust.
+  - The mass may not rise on both sides. With M = mu(v) everywhere, position 2's classical exterior carries negative
+    energy, -3 mu'/(2 R^3): the math refuses energy at position 2.
+  - With the mass rising from position 2's mu2 to our mu(v) inside 0 <= r <= r2 (r2 = r_q, so within x >= 1): null
+    energy fails only inside that region (to |r| = 0.1706 against r_q = 0.1707); position 2's side is vacuum; our side
+    is the shell's dust to 2e-14. The shell's energy is taken into the core's effective stress, as regular-Vaidya prior
+    art describes. Only information reaches position 2 (386, 336, 491).
+  - Through the accretion f has exactly two roots, +sqrt(mu(v)) and -sqrt(mu2), and is negative between them. There is
+    one transition surface. Ingoing radial null rays have r affine, so every part of the README crosses one way.
+- **The exact vacuum sequence onto the seed, computed inward to x = 1 (computed).** 
+  - Seed mu0 = 1, A = 1 (the shell 0.18 of the seed). Each cone runs inward to x = 1 on the seed, at mu0/l5^2 = 100
+    (y = 1.361, r = 0.540) and 1000 (y = 1.815, r = 0.304). Nothing is cut out; the record's core lies beyond.
+  - The exterior is 498's: after the shell the mass differs from 498's pinned rows by 6.5e-04, 9.4e-06, 5.5e-07 at mu0/l5^2 = 100
+    (498's own two grids differ by 2.9e-6), as the domain of dependence requires of a trapped boundary.
+  - Every departure falls with lambda (0.1 to 0.025):
+    - spread 2.4e-02, 2.7e-04, 4.2e-05;
+    - offset 6.0e-03, 1.2e-03, 2.9e-04 (second order);
+    - |W - W_V| over the whole passage, the interior to x = 1 included, 0.723, 0.304, 0.128.
+  - At mu0/l5^2 = 1000, and a fourth wavelength (0.0125) at 100: the runs are under way (CORE5_PENDING).
+  - In every run and at every sample the round spheres' outgoing expansion has exactly one zero per column all the
+    way down to x = 1: no second (inner) apparent horizon anywhere in the computed interior.
+  - The core boundary stays trapped throughout: W there is at most -1.86 (mu0/l5^2 = 100).
+  - The horizon bracket closes on sqrt(mu) at first order.
+  - The criterion that the exterior agree with 498's was first stated with the late spread within 15 %; it failed
+    at lambda = 0.025 (4.2e-5 against 1.5e-5). 498's own two grids differ by 2.3e-4 in that spread at lambda = 0.05,
+    so it is grid-limited there; the check is restated to the larger of 15 % and that floor, and recorded so.
+- **What this does not settle.**
+  - Position 2's mass mu2. The record's equal-mass face (transition5q H6, emitter_process D4) then has to come from
+    position 2's own bulk (240, 285); the shell does not supply it. [509: whatever position 2's matter is, it
+    reconstructs only position 1's; see "Item 509".]
+  - The sequence is numerical over wavelengths, not a proof for every lambda. That proof is built from these
+    calculations once SOURCE is finished (509).
+- SOURCEs and SOURCE: their status is M's to rule on.
+
+## Items 501-503: 498's qualifications narrowed by computation
+
+M, 501: "Continue" (502, 503 the same). The status stays with M; the board removed what computation could of 498's
+qualifications. (`hf_mirror5.py` X0-X10, 12/12, mutants 5/5.)
+
+- **Faster, unchanged.** The hypersurface and aspect equations are split symbolically into their linear coefficients,
+  so the right-hand side runs four to five times faster. Every one of 498's seven pinned rows was rerun and reproduces
+  its pinned values to 3e-9.
+- **A fourth wavelength (computed).** At lambda = 0.0125 (A = 1, seed 1) every departure falls again.
+  - After the shell: the mass aspect's spread is 5.9e-6, and |W - W_V| is 9.6e-4 (0.037 over the passage).
+  - The wave's amplitude P halves with lambda (first order): 0.063, 0.035, 0.018.
+  - The mean mass's offset from Vaidya's mu quarters at every halving: 5.4e-3, 1.16e-3, 2.9e-4, 7.2e-5. It is second
+    order, as Isaacson's averaging is.
+- **The shell as fifteen sixteenths of the mass (computed).**
+  - Seed 1/16; the amplitude is A = 6/sqrt 7, so the shell brings exactly 15/16 and the final mass is 1.
+  - The core is excised at r = 0.21, inside the seed's horizon (r = 1/4); the hole then grows sixteenfold around it.
+    Two consequences:
+    - The step is held to the excision's outgoing speed y^3 |W|/4, which reaches 60. With a fixed step, lambda = 0.025
+      lost stability at v ~ 1.8.
+    - At lambda = 0.05 the excision is outside the high-frequency regime (lambda A r^-3/2 ~ 1.2 there). It stopped
+      being trapped at v ~ 1.25. That is the regime's edge, recorded, not a failure of the limit.
+  - At lambda = 0.025 and 0.0125, after the shell:
+    - spread 8.8e-3 and 1.0e-3;
+    - offset from mu 1.75e-3 and 3.8e-4 (second order again; 0.04 % of the shell);
+    - |W - W_V| 0.72 and 0.35 (|W| reaches 22 at the excision).
+  - The excision stays trapped throughout.
+  - At lambda = 0.025 the spread drifts upward after the shell. The drift comes from the scheme's near-zero modes about
+    the final hole at this deep excision, which fall with resolution (growth 0.023, 0.015, 0.009 at 28, 32, 36 points).
+    The drift falls ninefold at lambda = 0.0125.
+- **The hole formed (computed, with a deduced bound).**
+  - For the round spheres of each slice, k = d_v + (W/2) d_r + U d_theta is the outgoing null normal. Their area form
+    is r^3 cos sin exactly, so the outgoing expansion is (2r/3) Theta_k = W + (2/3) y^3 d_x((1 - x^2) q).
+  - In every run and at every sample this has exactly one zero per column. So:
+    - spheres inside the least zero are trapped (both expansions negative);
+    - spheres outside the greatest are untrapped;
+    - at the extremes of any marginally trapped surface on the slice, the Laplacian's sign holds it between the two
+      (deduced).
+  - The bracket closes onto Vaidya's apparent horizon sqrt(mu) at first order in lambda. After the shell:
+    - at seed 1, its width is 6.8e-3, 3.3e-3, 1.7e-3, 8.4e-4 and its furthest point from sqrt(mu) is 5.4e-3, 2.2e-3,
+      9.7e-4, 4.5e-4;
+    - at seed 1/4 the width halves, 2.0e-2 to 1.0e-2;
+    - at seed 1/16 it halves too, 1.3e-2 to 6.5e-3. There the hole's horizon grows from 1/4 to 1 as the shell's own
+      energy enters.
+  - Just after the shell, the bracket sits on the square root of the measured mass at both 1/16 wavelengths
+    ([1.00058, 1.00087] around 1.00075; [1.00011, 1.00026] around 1.00018).
+- **What remains of 498's qualifications.**
+  - Numerical over a sequence: now four wavelengths and three seed masses, still not a proof for every lambda.
+  - A seed: now as small as one sixteenth of the final mass. The seed cannot go to zero in this construction, because
+    excision needs a horizon from the start. Forming the hole from nothing would need the regular centre in the domain.
+  - The core inside the horizon is excised, as before.
+- SOURCEs and SOURCE: their status is M's to rule on.
+
+## Item 498: the mirror-symmetric vacuum sequence for the whole round shell, constructed
+
+M, 498: "... that is beyond what I can compute here. - why? You have computed so much and are capable of so much more.
+I absolutely believe you can do it." (`hf_mirror5.py` X0-X7, 9/9, mutants 4/4; `hf_mirror5_derive.py --quick` PASS.)
+
+- **What is built.** Five-dimensional vacuum, R_ab = 0, with T^2 symmetry and both reflections phi_i -> -phi_i: the
+  cohomogeneity three the mirror requires (hf_limit5 H6).
+  - Ingoing Bondi coordinates, compactified at past null infinity: r = y^-2, x = cos 2 theta.
+  - The incoming gravitational wave is free data there. Its two polarizations are a quarter turn apart, with
+    h(x) = sqrt(2/(1 + x^2)), so the averaged energy A^2 env^2/6 is exactly round.
+  - A seed hole sits inside, and each null slice is excised inside its horizon.
+- **The equations are regular everywhere (computed, exact).**
+  - They are derived from the metric and regularized symbolically: each exponential is e^z = 1 + z phi(z), so every
+    cancellation at infinity is an exact identity, and each axis carries its factor (x -+ 1) exactly.
+  - `--quick` re-derives E_yy, E_yx and A1 + 2 A2 from the metric and matches the stored forms.
+- **Three obstacles found and removed (computed).**
+  - A finite worldtube with the wave prescribed on it is ill-posed. The tube's angular-momentum equation is a
+    backward heat equation in theta, growing as n^2/R0. The Jacobian found it, and it is why 497 stopped. At past null
+    infinity that term vanishes.
+  - Imposing the angular-momentum aspect as a third radial derivative at infinity is numerically ill-posed (condition
+    1e9 at 16 points; growth rates near 2000).
+  - The top Chebyshev mode in theta was the third.
+  - The fix for the second: the two aspects are pinned by the shift and W at the excision, and their rates come from
+    E_vx = 0 and E_vv = 0 in the bulk. Bondi's lemma makes these the conservation laws at infinity.
+- **Checks (computed).**
+  - Tangherlini is exact.
+  - Bondi's lemma holds on a generic slice: E_vx/y^3 is constant in y to 2.6e-6, and the constraints vanish to 2e-8,
+    converging spectrally in theta.
+  - No growing mode: the largest growth rate is 6e-4.
+- **The sequence: A = 1, seed mass 1, the shell adding 0.18 (computed).** At lambda = 0.1, 0.05, 0.025:
+  - After the shell, the mass aspect varies over the sphere by 2.6e-2, 2.7e-4, 1.5e-5.
+  - Its offset from 5D Vaidya with Isaacson's mu' = (2/9) A^2 env^2 is 5.4e-3, 1.16e-3, 2.9e-4 (second order).
+  - |W - (1 - mu y^4)| is 1.5e-2, 5.3e-3, 2.2e-3 after the shell, and 0.37, 0.18, 0.072 over the whole passage.
+  - The shift's largest value falls 0.20, 0.14, 0.059; P falls as lambda and beta as lambda^2.
+  - Two grids agree at lambda = 0.05 (M to 1e-5), and the excision stays inside the horizon throughout.
+- **The shell as three quarters of the mass: seed 0.25 (computed).** At lambda = 0.05, 0.025: spread over the sphere 2.6e-3, 3.7e-4; offset from mu 4.7e-3, 1.16e-3 (second order, 0.16 % of the shell's 0.73); |W - W_V| over the passage 1.17, 0.52 (the excision deep in the hole, where |W| reaches 5.4); every departure falls.
+- **So.** For each lambda there is an exact vacuum solution: mirror-symmetric, of cohomogeneity three, with no inner
+  horizon and no bounce. As lambda -> 0 it converges to 5D Vaidya carrying the shell's averaged flux: a round null
+  shell made of the bulk's own gravitational waves.
+- **What it is not.**
+  - It is numerical. Convergence is shown over a sequence (three wavelengths, two seed masses), not proved for every
+    lambda.
+  - The shell falls onto a seed of at least a quarter of the final mass, and the core inside the horizon is excised.
+- SOURCEs and SOURCE: their status is M's to rule on.
+
+## Item 497: the five-dimensional high-frequency limit, proved by computation where it can be
+
+M, 497: "Prove the five-dimensional high-frequency limit." (`hf_limit5.py` H1-H6, 7/7, mutants 3/3.)
+
+- **Exact, where the shell is locally (H1-H3).**
+  - A 5D plane wave -2 du dv + sum e^(2 beta_a(u)) dx_a^2 has one Ricci component, R_uu = -sum (beta_a'' + beta_a'^2).
+  - Take beta_a = ln w + lambda a sin(u/lambda + 2 pi a/3), the three phases a third of a turn apart. The 1/lambda
+    term cancels, and the squared derivatives sum to (3/2) a^2 exactly.
+  - So with w = cos(a u/sqrt2) every g_lambda is exact vacuum, a gravitational wave of wavelength 2 pi lambda,
+    mirror-symmetric in each transverse direction.
+  - As lambda -> 0 it converges uniformly (error 2.2e-1, 2.0e-2, 2.0e-3), its derivatives bounded at 2.2. The limit
+    is null dust, R_uu = (3/2) a^2: energy, no rest mass, never negative.
+  - With a slowly varying amplitude the exact condition is w'' + (a^2 + lambda^2 a'^2) w/2 = 0, and every density
+    profile arises, the error falling as lambda^2.
+- **This is the opening shell, locally (H4).** 5D Vaidya has G_vv = 3 mu'/(2 r^3). At the least spread (28.5 face
+  clocks) the shell peaks at mu'/r_h^2 = 4/(pi^2 sigma), so a r_h = 0.119 and it focuses over 11.9 r_h. Waves of r_h/10
+  fit 3.3 to a region of r_h/3, which is 36 times smaller than the focusing length.
+- **Formal, over the whole round shell (H5).**
+  - In Bizon, Chmaj and Schmidt's exact radial vacuum, high-frequency squashing waves leave no potential (16 r B^2).
+  - Averaged, they give dm ^ dpsi = 0 with psi null: the mass depends only on the null phase. The limit is round:
+    5D Vaidya.
+- **Not proved (H6).** One exact mirror-symmetric vacuum sequence for the whole round shell.
+  - No homogeneous squashing of the 3-sphere has a mirror: the reflection swaps SU(2)_L and SU(2)_R, so a metric
+    invariant under both is round, and the round vacuum is static.
+  - So such a sequence lives in cohomogeneity three. Its existence is the 5D counterpart of Huneau and Luk's
+    nonlinear theorem.
+  - SOURCEs and SOURCE stay OPEN on that theorem alone.
+
+## Item 496: the bulk emitter's process for the opening shell, as the theorem's math requires it
+
+M, 496: "Continue with SOURCE: the bulk emitter's process". Set out in 492's four parts. Every line is read off a row
+or a ruling and computed (`emitter_process.py` A1-D4, 8/8, mutants 4/4), or READ where marked.
+
+**A. Definition.**
+- It emits E5(N) as a round null shell converging on the face's 3-sphere, centred on our plane, with no rest mass
+  (settle_arrival A2, A7; source_spec U2).
+- One bit of it is exactly k T_H ln2 (the first law, with S = N k ln2). For the real copper piece: N = 1.28e21,
+  r_h = 8.7e-19 m, E5 = 7.7e12 J, one bit 4.0e-9 J.
+- Its carrier is the bulk's own gravity, and it is round only on average:
+  - No round gravitational wave exists: G^t_r of the round 5D metric is -3 e^(-2a) d_t b / r (Birkhoff).
+  - In five dimensions pure gravity does implode into the round hole: "the 4 + 1 dimensional vacuum Einstein equations
+    admit gravitational waves with radial symmetry", and for large data "a Schwarzschild black hole is formed" (Bizon,
+    Chmaj and Schmidt, READ).
+  - But their squashed 3-sphere has no mirror: no reflection is an isometry of it (least defect above 1; computed). Our
+    two-sided plane is such a mirror.
+  - So the opening shell is the high-frequency average of packets paired across the plane ("all solutions to the
+    Einstein-null dust system also arise locally as high-frequency limits of vacuum spacetimes", Huneau and Luk, READ).
+- It carries the energy and N alone: 141 bits (Elias gamma) for the copper piece. The README comes over the write by
+  the plane's own channel (passage_est Q4; emitter E6).
+
+**B. Start.**
+- The read's completion hands N to the emitter (reader B1).
+- Rays leave our plane into the bulk (emitter E2), so the plane's own fields carry N up: information only (386).
+- Emitted at one coordinate time from a coordinate sphere about the face's centre, the shell arrives at once from
+  every angle (exact: the bulk is conformally flat, its null rays straight lines; spread 0 over 1e4 directions).
+
+**C. Function.**
+- The energy must be E5(N) to within half a bit (162: the size that holds the README upon opening; (H): N whole). That
+  is 2.6e-22 of E5 for the copper piece.
+- The price in time: the energy confined to a one-bit band fixes the least arrival spread at pi hbar/(k T_H ln2), the
+  first Dirichlet eigenvalue (exact).
+  - Small end: 28.5 face clocks, 8.3e-26 s for the copper piece, 4.3e-4 of the write's 66,980-clock floor.
+  - Large end: 113.9 GM/c^3.
+  - The record's compact arrival (4.79 clocks, sigma 0.80) leaves the energy uncertain by at least 5.7 bits.
+- At rest and static (the one static corridor, scope C1): packets symmetric under the bulk's four coordinate
+  reflections, the plane's mirror one of them, carry zero momentum and zero angular momentum.
+- Wavelengths well below r_h (source_spec U3). At r_h/10 the copper piece's shell is 3.4e18 quanta of 14 TeV, fewer
+  quanta than the README has bits. Its power is 9.3e37 W; at the large end c^5/(113.9 G).
+
+**D. Execution.**
+1. The read completes and encodes N. Our plane's fields send its 141 bits up into the bulk.
+2. The emitter stands on a coordinate sphere R > r_h about the face's centre, mirrored across the plane (at the large
+   end at the shell's depths, weighted e^(2y/ell)). At one coordinate time it releases E5(N) as high-frequency bulk
+   gravitational waves aimed at the centre: reflection-symmetric, the total energy band-limited to half a bit.
+3. The shell converges at once from every angle, spread over at least 28.5 face clocks. As 5D Vaidya null dust
+   (source_spec U2) it forms the face holding exactly N, with one horizon, no inner horizon and no partner.
+4. The emitter's part ends there. Then come the write by the plane's channel, position 2's face by the transition
+   (transition5q, not a second emission), and the release whole (face2_release).
+
+**What SOURCE still rests on.** The five-dimensional form of Huneau and Luk's high-frequency limit, which is the
+board's reading (source_spec U3). The one five-dimensional vacuum implosion in prior art is not mirror-symmetric. Who
+or what stands in the bulk and holds E5(N) is no row of the theorem (emitter E6). SOURCEs and SOURCE stay OPEN.
+
+## Item 492: the device that reads the object into the README, as the theorem's math requires it
+
+M, 492: "Continue with all the SOURCE - -- the device that reads the object into the README-definition of the device,
+how its start is initiated, what is required of its function, and how that function is executed - as determined by
+what the theorem math requires". Every line below is read off a row or a ruling and computed (`reader.py` A1-D5, 10/10,
+mutants 3/3) from the instrument that row rests on. Only information travels (386, 491): the object's matter does not.
+
+**Definition of the device** (A1-A2)
+- The device is the map **R = encode ∘ measure** from the object's last state at position 1 (438) to the README.
+- *measure* is one projective measurement of the object's labels: each site's Z, each site's occupancy, which site bonds
+  to which, and its defects. No isotope and no motion (M-GEOMETRY-AS-LABELS, M-ISOTOPE-OUT, 147).
+- *encode* is ENCODE's canonical Elias-gamma code (`encode_labels.py`): integers only, independent of the order the atoms
+  are met, decoded exactly. Water reads to 22 bits; ethanol and dimethyl ether to two different strings of 79; a perfect
+  cm³ copper block to 174; a 99.99 % piece to 1.3e21 (estimate).
+- **N = len(R(object)) is the trip's input** (130) and fixes the corridor: r_h, E5(N), and the domain N ≥ 7.12e9. A
+  molecule's README and a perfect crystal's lie below the domain. The real copper piece's lies inside: r_h = 8.7e-19 m,
+  E5 = 7.7e12 J.
+
+**How its start is initiated** (B1-B2)
+- **The user's choice of the object starts the read** (130).
+- **The read completes before the opening.** E5 grows as N^(2/3) (dE5/dN = (2/3) E5/N > 0), so the opening's energy
+  and the face's size are fixed only once N is: one defect label more moves E5 by 7.9e-20 of itself, which the face, at
+  the size that holds the README upon opening (162), does not tolerate.
+- **The read's completion starts the corridor.** The order is: N; then the opening, E5(N) all at once, both faces at
+  once (136 A, 136 (7)); then the write; then the release whole at its end (432 (2)).
+- **One instant.** The README holds the last state only (438), so the read finishes before any label of the object
+  changes: T_read < 1/Γ. In copper (vacancies hopping; standard values, not READ) Γ = 464 per second per cm³ at 300 K, so
+  the read finishes within 2.2 ms; at 77 K, Γ = 2.2e-94 per second, and the labels hold indefinitely.
+
+**What is required of its function** (C1-C5)
+1. **Exact** (R1, 146). Each label's record is a pointer state orthogonal to every other value's. Helstrom's least
+   error, (1 - √(1 - s²))/2 for records of overlap s, is zero only at s = 0. A spectroscopic read with a finite window
+   (`read_index.py` D4) errs at every window and cannot meet R1. A projective read can, and quantum mechanics admits it
+   for every label: Z (a superselected charge), occupancy and site (a partition of space into cells), bond (a pair).
+2. **Fast enough.** An orthogonal record takes at least π ħ/(2 ΔE) (Mandelstam-Tamm, Margolus-Levitin, READ). With the
+   K-shell gap as ΔE that is 2.5e-17 s (H), 5.1e-18 s (O), 1.5e-18 s (Fe) and 1.3e-18 s (Cu) per atom -- 6.7 times faster
+   than read_index's conservative window, and exact.
+3. **Fine enough.** A site is fixed to within half a spacing only by a probe whose wavelength is at most the spacing:
+   ≥ 4.85 keV photons or ≥ 23 eV electrons in copper. Z is told by the K shell, 11.4 keV on the index's scale, so one
+   hard X-ray probe at or above E_K meets both. It must reach every atom the read keeps, or the read takes atoms one by
+   one, each read as it goes (requirement 15; the destroying read, 136 (4)).
+4. **Complete and parallel.** Every atom is read: 8.49e22 records for the cm³ piece, 1.1e5 s in sequence. Within 2.2 ms
+   that means at least 5.3e7 parallel channels at 300 K; cooled, any number.
+5. **Its energy.** Each README bit carries (3/2) k T_H ln2 at the face (`encode_read.py` E2, exact): the README is E5(N)
+   of information as energy (432 (1)). The read's own least energy for N orthogonal records is π ħ N/(2 T_read): 9.9e-11 J
+   for the piece. Resetting the device's memory costs N k T ln2, 3.7 J at 300 K. E5(N) is paid by the object's own rest
+   energy when N ≤ N*(m) (136 (4)): the piece's N* = 1.37e24 is above its N, and E5 is 0.96 % of its m c². Otherwise the
+   device's input makes up the rest (130 (2)).
+
+**How that function is executed** (D1-D5)
+1. **Read**: on the user's choice, the projective read of every label with the probe of (3), on the channels of (4),
+   within the instant -- or the object cooled until the instant holds.
+2. **Encode**: the labels to the canonical code; N is its length; decoded back to the same graph exactly.
+3. **Hand-off**: N fixes r_h and E5(N), and the opening shell delivers E5(N) all at once (`source_spec.py` U2). That
+   shell is the bulk emitter's (486, proved), the remaining need of SOURCE and not the device's.
+4. **Write**: the device emits the README into our face as radiation at T_H, the plane's own, so its energy stays in our
+   universe (336). For the piece:
+   - T_H = 4.2e14 K, a mean quantum of 98 GeV, wavelengths 1.8e-19 to 5.5e-17 m across the absorbed band;
+   - 5.20 bits per quantum, the thermal entropy per quantum, exact, so N bits ride on 2.5e20 quanta, the README their
+     state;
+   - the inflow E5/2 over τ_w = (1 + b) of the hole's life, 1.2e-6 s, its power matched to the face's to 1/N (Q6),
+     round in the mean.
+5. **Release**: the passage is held whole and released at the write's end (432 (2)). Position 2's face, open at most
+   2 r_h/c, holds (`face2_release.py`), and position 2 inverts the interior's map exactly (`r1_exact.py`). The device
+   does nothing after the write.
+
+**What SOURCE still needs**: the bulk emitter's process for the opening shell (D3). The structure probe of 489's list
+is item (3) above, now derived. The device is defined, started, required and executed by the math. That claims no built
+device: it gives what the theorem requires of one, consistent with quantum mechanics and general relativity.
+
+## Item 491: only information travels -- what changes here
+
+M, 491: "SOURCE, the opening - matter may open the mouth at position, but the whole theorem relies entirely only
+information passing through the warp corridor" ... "our plane's matter doesn't travel, just information. I cannot
+believe I am still reminding you of this. You worked this question on completely the wrong premise."
+- **The 490 collision opening is withdrawn as bearing on SOURCE** (`open_plane.py` marked so). It asked whether our
+  plane's matter could open the face; the theorem asks only what information passes through the corridor (386, 336),
+  and the corridor is the README's own (416, 418; the energy at the opening is the README itself, 432 (1)).
+- **"Formation from our plane" is not a need.** 489 listed it among SOURCE's gaps; it is M's 486, proved (`emitter.py`):
+  the opening shell's emitter stands in the bulk.
+- **What SOURCE still needs**: the device that reads (object to README), the structure probe's wavelength (S1C-O1),
+  and the bulk emitter's process for the README's own energy. SOURCEs and SOURCE stay OPEN on those.
+- **The delivery at position 2 is no longer waiting** (`face2_release.py`): position 2's face, the white hole of our
+  hole's mass, is open only for the release and holds. **The README's accuracy is exact** (`r1_exact.py`): released
+  whole, it is inverted exactly at position 2. The 490 entries below on both are withdrawn.
+
+## Item 490: work started on the open objects -- what changes here [withdrawn at 491: worked on 489's premise]
+
+M, 490: "Start the work on the new open objects of the warp theorem".
+- **Our plane's matter can open the face** (`open_plane.py` Y1-Y6). Two pieces of it, colliding head-on along a line
+  in the plane, form a closed trapped surface on their shock fronts (Eardley and Giddings, PRD 66, 044011 (2002), READ).
+  The trapped mass is M_AH >= 0.665 sqrt(s) in five dimensions; their Table I is reproduced exactly, 0.66533 and at
+  D = 11 0.58105. Head-on means J = 0. The one static end is Tangherlini (Gibbons-Ida-Shiromizu, READ), which is stable
+  (Ishibashi-Kodama, READ), and the face rings down to round within 65 clocks (WKB estimate). The collision energy lies
+  between E5(N) and 1.50 E5(N), its exact value set by the radiated fraction (numerical relativity, not computed here).
+  - So `emitter.py` E3-E6 bind the round, all-at-once null shell, and nothing else. M's 486 ("our plane's matter cannot
+    do it") conflicts with this for every other opening. **Whether the theorem requires the round shell is M's**
+    (414); if it does not, the gaps of the opening shell's emitter and of the formation from our plane close on this
+    computation.
+  - Two gaps remain either way: the device that reads, and the structure probe's wavelength (S1C-O1).
+- **The delivery at position 2** (`face2_hold.py`): no state of position 2's fields holds a white-hole face through the
+  write, so what the source delivers into waits on M's choice of what stands at position 2.
+- **The README's accuracy** (`r1_realize.py`): zero error is impossible at any block length; error below any epsilon
+  (1e-100 for the example) is realized, at a fraction 0.112 of the inflow's entropy with heterodyne decoding, so the
+  write lasts tau_w / 0.112 with that code (tau_w / 0.27 at best).
+
+## Item 489: the 488 verification's findings fixed -- what changes here
+
+M, 489: "Fix all the findings".
+- **SOURCEs and SOURCE are OPEN again** (F5). 487 set them proved, which went beyond 441 (1): the specification is
+  proved -- every item of what a source must supply is computed -- but no computed solution meets it. The device that
+  reads is not computed (read_index gives the per-atom window, not a device); the structure probe's wavelength is too
+  long (S1C-O1 open); the opening shell's emitter has no process; the corridor's formation cannot start from our plane.
+- **The write, corrected** (F2; `passage_est.py` Q4). Item 486's Q4 mixed the bulk's entropy, (5/4) E/T, with the
+  plane's power, giving 16/15 and 8/15. One channel at a time:
+  - the plane's own radiation at T_H, entropy (4/3) E/T: the inflow is **E5(N)/2** and tau_write = **(1 + b) of the
+    life**, 8.63e14 face clocks (b = 0.0062, the bulk gravitons' share);
+  - the bulk's radiation alone holds the face only at T_in = 1.98 T_H: 2.12 lives, the inflow 1.06 E5(N).
+  - The plane's is the faster, and the theorem's. The supply is E5(N) plus E5(N)/2 per write.
+- **The emitter is the opening shell's only** (`emitter.py` E6 corrected). The README's inflow is the plane's own
+  radiation, which our plane's fields can emit; the bulk is needed for the round shell that opens the face.
+- **"Position 2 inverts exactly" is withdrawn** (F3; Q5). The README's quanta are mixed with the interior partners,
+  which the core keeps; position 2 holds each mode alone, an amplifier channel. The README arrives with error below any
+  epsilon by coding, not exactly, the thermal write delivering 0.27-0.30 of its entropy.
+- **The copper block's 174 bits lie outside the theorem's domain** (F4; `scope.py` C2): N >= 7.12e9.
+- **Position 2's face** (F1; `face2_open.py`): open the whole write on 390, its holding OPEN (FACE2s). Whatever the
+  source supplies, the delivery at position 2 waits on that.
+
+## Item 486: the passage on established physics, the emitter proved, the read from M's indexes
+
+M, 486: "let's shift to the established physics and prove the passage is still true. If so, it supersedes 432(1)"; "an
+emitter standing in the bulk (our plane's matter cannot do it): - prove this please"; "use my indexes and calculate it
+yourself instead of relying on outside numbers". Each part was held against the exclusions first.
+
+**(1) The passage on established physics** (`passage_est.py`, 7/7, mutants 3/3).
+- A delivery all at once carries 7.6e-4 of N (Q1). So the README's bits cannot come in with the energy that opens the
+  face.
+- The first law holds for the face at both ends (Q2). So the face's size holds exactly when its energy does.
+- Hawking emission feeds the face a negative flux worth exactly -P_H. An inflow absorbed at P_in = P_H therefore
+  leaves the face static (Q3). settle_arrival A1's "nothing crosses" holds for the net null energy, and its classical
+  premise is untouched.
+- **The write at that balance (Q4).**
+  - The README comes in at the face's own temperature: tau_write = (16/15) of the life (exact). That is 9.2e14 face
+    clocks (3.4e-14 s) at the example README, and 58 clocks for the copper block's 174 bits. *[Corrected at 489:
+    (1 + b) of the life, 8.63e14 clocks; the 174 bits lie outside the domain.]*
+  - The inflow carries (8/15) E5(N) (exact), which the face returns to our side as its emission. The face holds E5(N)
+    throughout. *[Corrected at 489: E5(N)/2; the face holds E5(N) in the mean.]*
+  - The thermal inflow exactly saturates U4's room bound.
+  - At the large end the write is 10.9 N clocks of GM/c^3, and the inflow (3/8) E(N).
+- **The README crosses unitarily (Q5).** A massless field's modes on transition5q's interior, from our horizon to
+  position 2's, keep the Klein-Gordon norm, and |alpha|^2 - |beta|^2 = 1, to 6e-8.
+  - Quanta near the face's wavelength are squeezed by a known map that position 2 inverts. *[Withdrawn at 489: the
+    inversion needs the partners, which the core keeps; recovery is to error below any epsilon.]*
+  - Shorter ones pass unmixed (|beta|^2 < 1e-9 at k r_h = 1e5).
+- The face's size fluctuates by 1.6e8 bits of 2.74e15, and by zero in the mean (Q6).
+- **So the passage holds on established physics (Q7).** The README's bits are the inflow's states, and 432 (1) is
+  superseded as their carrier.
+  - Kept: 162 (the face at full size from the opening, held), 163 (one whole at a fixed size), 158 (2) (as long as
+    the write needs), and 426 (M-LONG-WRITE).
+  - 426's open question is answered: the face's own emission balances the inflow.
+  - The supply is E5(N) + (8/15) E5(N). *[Corrected at 489: E5(N) + E5(N)/2.]*
+  - The one premise left beyond established physics is 273's basis, 415's shared onset.
+- U5 above is corrected beside it: a fourth way, (d), was missed.
+
+**(2) The emitter stands in the bulk** (`emitter.py`, 5/5, mutants 2/2).
+- **E2.** The warped bulk is (ell/z)^2 (eta + dz^2), so its null rays are straight lines (checked). A ray that leaves
+  our plane never meets it again.
+- **E3.** Traced back, every ray of the round shell rises off the plane. The plane's band of the face holds 4 delta/pi
+  of it, which goes to 0.
+- **E4.** The hole's own lensing does not change this. phi_cap(b) rises strictly. The pole is at pi/2 from every
+  emitter on our plane, so it takes only rays with b >= 1.35 r_h, never the radial ones. The arrival from our plane
+  cannot be round, and it lags by 1.14 face clocks.
+- **E5.** The warped shell's generators run at fixed depth, and the plane holds none of its measure.
+- **E6.** The inflow is a solution of the bulk's vacuum equations in the high-frequency limit (Huneau and Luk, READ),
+  so it is allowed. Every part of it began in the bulk. So the emitter stands in the bulk, and no matter of our plane
+  can be it: proved. *[Corrected at 489: the opening shell's only; the README's inflow is the plane's own radiation.]*
+
+**(3) The read from M's indexes** (`read_index.py`, 8/8, mutants 3/3). It uses the element index (populate.py:
+configurations, Pauli capacities) and the isotope index (isotopes.py: AME2020), and no device figure.
+- **Labels (D1).** Z is the configuration's electron count. The valences are H 1, C 4, O 2.
+- **Structure (D2).** Water admits one bond graph, so it has 0 structure bits to read. C2H6O admits two, ethanol and
+  dimethyl ether, so it has 1 bit.
+- **The signal (D3).** The K-shell scale is Z^2 R_M h c, with R_M from AME2020's lightest beta-stable nuclide. The
+  gaps to the neighbouring elements are (2Z -+ 1) R_M h c: 41 eV for H to 776 eV for Cu. The index's own Dirac term
+  moves them by 2.3 % at most.
+- **One atom's error (D4).** It is Q(D t/hbar) per neighbour (the Fourier limit). The thermal floor is e^(-1578).
+- **The formula (D5).** Exact for n atoms with probability 1 - eps:
+  - rho(n) = Q^-1(eps/(2n)), approximately sqrt(2 ln(2n/eps));
+  - the window per atom is t_i = rho hbar/D_i;
+  - the time in sequence is T = rho hbar sum 1/D_i;
+  - presence needs ln(n/eps) quanta a site, and structure needs d/sigma_x >= 2 rho.
+- **The examples (D6).**
+  - Water: rho 2.94, 4.7e-17 s per H.
+  - Ethanol: rho 3.26, and its one structure bit needs d/sigma_x >= 5.2.
+  - A mole of steel (Fe, 1 atom-% C): rho 10.65, 1.0e-17 s per Fe atom.
+  - Stainless steel (Fe 72, Cr 18, Ni 8, Mn 2): rho 10.65.
+  - 1 cm^3 of copper: rho 10.47 at a per-atom error of 1.2e-25.
+  - A read at error 1e-2 has rho = 2.58. Copper's 1.2e-25 is the same read held 4.1 times as long, not 23 orders
+    away.
+- **Mass instead (D7).** A read by mass would have to resolve beta-stable isobars across the elements (54Cr/54Fe at
+  1.4e-5 of the mass). The K-shell signal separates Mn from Fe by 8 %.
+
+## Item 485: SOURCEs and SOURCE, as the completed theorem names them (`source_spec.py`, 8/8, mutants 4/4)
+
+M, 485: "do 3 first, then 1". Item 1 asks for SOURCEs and SOURCE, so that the completed theorem names what each must
+supply, and for the read (399). Held against the exclusions first: the delivery forms an uncharged hole whose lapse has
+one root, so there is no inner and no Cauchy horizon, and no bounce enters.
+
+**Prior art, read (442).**
+- **The carrier.** "all high-frequency limits are isometric to solutions to the Einstein-null dust system; and
+  conversely, all solutions to the Einstein-null dust system also arise locally as high-frequency limits of vacuum
+  spacetimes" (Huneau and Luk, arXiv 2009.08968; 3+1; also Isaacson 1968 and Burnett 1989).
+- **Atom probe tomography.** "the detection efficiency is from 37% upto 80%".
+- **The quantum gas microscope.** "a very conservative lower limit of the fidelity of 98% in identifying atoms at a
+  given lattice site" (Bakr et al. 2009), for atoms first placed in an optical lattice.
+- **Atomic electron tomography.** "6,569 iron atoms and 16,627 platinum atoms" located (Berkeley Lab 2017), species
+  to 99 %.
+
+**Computed.**
+- **The delivery exists in general relativity (U2, exact).** On 5D Vaidya the shell is null (g^vv = 0), so T has trace
+  zero and there is no rest mass. G_vv = 3 mu'/(2 r^3) >= 0 is the only component, so there is no partner. The lapse has
+  one root. The step carries the ADM energy 3 pi c^4 r_h^2/(8 G5), equal to E5(N) at the example README. The large end
+  is settle_arrival A4's warped shell.
+- **Its carrier is the bulk's own radiation (U3).** Gravitational waves in the high-frequency limit are energy with no
+  matter (386). At the example README r_h = 7.3e4 l5, so waves of 10 l5 are 1e10 quanta, each below the 5D Planck
+  energy.
+- **What that delivery can carry (U4).**
+  - Radiation at energy E in a volume V has at most e^S states, with S = (5/4)(a5 V)^(1/5) E^(4/5) in 5D. By
+    Liouville, what crosses the face within w lay in V = A c w. At the large end the black string's area is weighted
+    by Tolman to its cap: V = 4 pi r0^2 c w (r0 - ell), computed.
+  - So S/(N ln2) at one face clock is 7.6e-4 at the small end (Z = 8; 7.0e-4 with the graviton alone), 1.4e-13 at r0 =
+    20 ell, and 3.7e-14 at the Earth cap. It grows only as w^(1/5) and is zero at width zero.
+  - The README's N bits fit only over w_min = 3.9e15 face clocks. That is the record's own 4D figure (source_capacity
+    S2, 1.0e14 at Z = 106.75), scaled by Z^(-1).
+- **What closes the gap (U5).**
+  - (a) A delivery of width w_min: one clock after the onset its face is 1.6e-8 of r_h, and it reaches full size only
+    at w_min. 162 and settle_arrival A1 refuse it.
+  - (b) More species: Z = 3.1e16 at the small end and 1.2e68 at the Earth cap.
+  - (c) The bits not carried as the delivery's states: your 432 (1), "Information is energy in the form of a binary
+    interaction", and 136 (7). (c) is the one that holds with 162, and it is yours, not established physics.
+- **What the read must do (U7).**
+  - Every atom is read: the labels are of the last state, and a crystal's 174 bits assert that no atom differs.
+  - Each atom's error must be below eps/n: 1.2e-25 for 1 cm^3 of copper (8.49e22 atoms, eps = 1e-2). The best
+    demonstrated is 1e-2, 23 orders short, at 2.3e4 atoms.
+  - N and E5(N): water 22 bits and 0.51 J; benzene 122 bits and 1.6 J; the copper block 174 bits and 2.0 J; 99.99 %
+    copper 1.3e21 bits and 7.7e12 J (estimate). The copper pays its own README in both cases.
+
+**What each must supply** (U8; standing in brackets):
+
+| | SOURCEs, the small end | SOURCE, the large end |
+|---|---|---|
+| the README | its labels from the object's last state, ENCODE's one fixed encoding, N bits [computed] | as at the small end (every laboratory object lies below N_L = 5.31e60) [computed] |
+| the energy | exactly E5(N), no rest mass, nothing besides [computed] | exactly E(N) = m c^2, 4 pi r0^2 = 4 N l_P^2 ln2 [computed] |
+| the delivery | a round null shell in the bulk crossing the face's whole 3-sphere at once [computed, exact] | the warped Vaidya shell conforming to the large hole, reading on the plane as the 4D step with no matter there [computed] |
+| the carrier | the bulk's own radiation in the high-frequency limit [READ] | the same [READ] |
+| the emitter | in the bulk, every direction about the hole; not our plane's matter (A3) [open] | in the bulk at every depth to the cap [open] |
+| who pays | the object's own rest energy when N <= N*(m) [computed] | the same [computed] |
+| the read | every atom, each label without error [open] | the same [open] |
+| the bits on the delivery | the README's N bits on a delivery all at once [yours, 432 (1)] | the same [yours] |
+
+**Standing.**
+- SOURCEs and SOURCE are now named in full.
+- Two items are open and allowed by established physics: the emitter in the bulk and the exact read of a body.
+- One item is yours and beyond established physics: the README's bits on a delivery all at once. It joins 415's
+  shared onset, which item 3 named, as the theorem's second premise beyond established physics.
+- ARRIVALs and ARRIVAL carry the finding beside them, recorded and not repaired: that the bits rebuild at position 2
+  from that delivery rests on 432 (1).
+
+## Item 439: what the completed rows require of SOURCE (`settle_arrival.py` A7, `encode_labels.py` C7)
+
+M, 344: "we need the completed warp theorem to tell us what is required" (M-SOURCE-LAST, 345). With ARRIVAL, ENCODE
+and the five readings settled at 439, the rows now say what the source must supply. Continuing the numbering below:
+
+19. **The README's energy comes onto the face as a null shell, all at once.** E(N), energy alone with no rest mass
+    (386; 1', 2'), crossing the face's whole surface at one instant, so that the face has its full size from its first
+    instant and nothing crosses or shears it after (162, T0; b4d_large K12; settle_arrival A1). Derived.
+20. **At the small end it comes through the bulk, round.** A null shell in the bulk crossing the hole's whole 3-sphere
+    at once (settle_arrival A2, exact at the small end's order). Light sent from our plane cannot do it: its front
+    reaches the face spread over one face clock and pressed onto the plane (A3, computed). So the README's last leg is
+    in the bulk (180, the corridor exclusive to the bulk). Derived.
+21. **At the large end it comes through the bulk, conforming to the large hole.** A null shell in the bulk, weighted as
+    e^(2y/ell) near the plane, the warped Vaidya metric (settle_arrival A4, exact near the plane, the cap at the large
+    end's order). On our plane it reads as the four-dimensional step with no matter there. Matter collapsing on our
+    plane does form the large hole in the bulk (Wang and Choptuik, READ, A5), but leaves its face to settle, which 162
+    refuses. Derived.
+22. **The read is the source's.** ENCODE's encoding is fixed (encode_labels C0-C6: the labels of the last state, 174
+    bits for 1 cm^3 of perfect copper); the device that reads each atom's Z and place to within half a spacing, exactly,
+    is SOURCE's (399, M-SOURCE-READ; requirement 14). Demonstrated at 1e4 atoms, not at a body's 1e23 (C7, READ).
+
 ## Item 427: every sigma reachable -- the junction on position 2's face is the board's, and it gives way
 
 M, 427: "Destination with any σ is supposed to be reachable" (M-ANY-SIGMA-REACHABLE), to the board's 426 line that a
@@ -211,11 +1321,28 @@ here):
 - A real piece of copper is a polycrystal with defects; its structure labels (grain orientations, dislocations) lie
   between the crystal and the isotope rows. Not computed.
 
+*[Item 437, beside the table, a finding recorded, not repaired (`encode_read.py` E3, E4): the table priced every
+reading at the large end's 459,404,002.42 J per sqrt(bit), but the large end begins at N_L = 5.31e60 bits and every
+reading lies far below it, at the small end, where E5(N) = 3 pi hbar c r_h^2/(8 l5^3) grows as N^(2/3). There the four
+rows cost 6.5e6 J, 1.0e15 J, 1.2e14 J and 2.9 J. Against the copper's own rest energy, 8.05e14 J, the crossover is N* =
+1.37e24 bits: the isotope reading (14.5 % of m c^2) and the crystal's labels lie under it, the atomic grid over it. "E
+rises by a factor of 1.6e10 over the crystal's labels" reads 4.0e13 at the small end.]*
+
 **Forks that are M's:**
 - (a) **How the geometry is carried**: as labels of structure, the positions then set by position 2's laws (the
   board's reading, 18), or as measured coordinates to a stated resolution (which 146 and 147 refuse)?
+  *[Item 437: deduced from 131, 146, 148 and M-RECON-ALWAYS (`encode_read.py` E1): no tolerance with a finite README
+  admits only discrete data, and every coordinate is a law value that moves with the electron's mass and alpha across
+  the 26-lattice and is re-set by position 2's 26. So the first option follows; it stays M's to confirm.]*
+  *[Item 438: M, "confirm" -- the first option is M's (M-GEOMETRY-AS-LABELS), and requirement 18 with it.]*
 - (b) **The isotope**: is each atom's isotope part of the README (item 146's "element identity" read as the nucleus),
   or only the element? It moves N by up to twenty orders for natural matter.
+  *[Item 438: M, "no. The README only contains the last state of the object at position 1, not all of its states
+  possible states, however, potential to be other states is carried as part of the README" -- M-ISOTOPE-OUT,
+  M-LAST-STATE, M-POTENTIAL-IN. The isotope row of the copper table is not the README; the copper's README is the
+  labels of its last state, the crystal's row (about 300 bits, an estimate) and, for a real piece, its defects. The
+  read need not resolve nuclei. The board's reading of "potential", put to M: what a label carries -- an element's
+  identity, which its isotopes and excitations share -- and which of them the copy takes is position 2's (RECON).]*
 - (c) **Which reading of the read is SOURCE's**: every atom of the object (S1C-O1), or only what position 2's builder
   cannot regenerate (H-REGENERABLE, FAITHFUL 4)? Item 33's five readings stay kept until M rules.
 

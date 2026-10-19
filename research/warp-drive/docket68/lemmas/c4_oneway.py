@@ -3,6 +3,11 @@
 the glued one-way object.  C4 as verified (m1_small.py, items 262, 269) is kept as written with its item-281 note;
 this is its one-way form, after C1's (c1_oneway.py).  Worked in the conversation (computed with sympy, exact where
 marked; estimates marked; deduced where marked; not verified by a separate session; not seated); 2026-10-12.
+[Item 489, beside the text (F11 of the 488 verification): under M-NO-CAUCHY (484) the continuation tables -- P7-P13,
+P17, P18, P20, which enter the inner horizon (a Cauchy horizon, b_interior B3) as a candidate row -- are not computed
+unless the record is asked for (python3 c4_oneway.py --selftest --record).  Without them the selftest runs P0-P6, P14,
+P15, P19 and P22 (10 checks), none of which carries an inner horizon; C4's claim rests on m1_small (verified 269) and
+these.  The excluded tables stand as the record of what was computed with the inner horizon in, not as evidence.]
 
   P0 (read) M's item-282 words, verbatim in the rulings file.
   P1 (computed, exact; imported from m1_small) 203, kept: the hole's Komar mass over the 3-sphere in our exterior is
@@ -377,6 +382,11 @@ D68 = os.path.dirname(HERE)
 RULINGS = os.path.join(D68, "M-RULINGS-2026-10-03.md")
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(D68)))
 MUT = {}
+# [item 489, F11 of the 488 verification] M-NO-CAUCHY (484): "there are no chaucy horizons. If you are calculating
+# anything involving a chaucy horizon, you have already failed."  The continuation tables (P7-P13, P17, P18, P20) enter
+# the inner horizon -- a Cauchy horizon (b_interior B3) -- as a candidate row; they are not computed unless the record is
+# asked for (--record).  C4's other parts (P1-P6, P14, P15, P19, P22) carry no inner horizon and run as before.
+RECORD = "--record" in sys.argv
 OPTS = {"statistics_order": 2, "algebra_budget": 10 ** 6}
 FIVE = ["order", "algebra", "geometry", "information", "statistics"]
 PROPS = ["complete", "readme_only", "keeps139", "p2pos"]
@@ -1138,11 +1148,13 @@ def residue():
 
 
 def compute():
-    return dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), ch=choices(), ca=calc(),
-                wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(), fb=flux_bend(), fc=faces(),
-                hi=higher(), sv=higher(survive=True), rl=relative(sp.Float(_load("e_positive.py", "c4o_ep6").example()[
-                    "R_rh"] ** 3, 20)), ac=as_condition(), tc=tau_check(),
-                mc=more_continuations(), rs=residue())
+    o = dict(k=komar(), eq=equator(), c1=c1_parts(), pos=positive(), st=state(), fb=flux_bend(), fc=faces(),
+             tc=tau_check(), rs=residue())
+    if RECORD:                                              # [item 489] the continuation tables: the record only
+        o.update(ch=choices(), ca=calc(), wd=widen(), cl=clauses(), rk=ranks(), pl=placements(), fm=form(),
+                 hi=higher(), sv=higher(survive=True), rl=relative(sp.Float(_load("e_positive.py", "c4o_ep6").example()[
+                     "R_rh"] ** 3, 20)), ac=as_condition(), mc=more_continuations())
+    return o
 
 
 def report(o):
@@ -1256,94 +1268,95 @@ def checks(o):
     s = o["st"]
     add("P5 the collapse-formed state's outgoing flux on P1 at r_h is 0.29 sigma, the order of N4's bath",
         "%.2f" % s["ratio"] == "0.29")
-    ch = o["ch"]
-    ok = ch["n"] == 12 and len(ch["held"]) == 9 and ch["holders"] == [(0, "quantum", "-sigma/4", 1)]
-    ok &= [ch["E"][L] for L in FIVE] == [3, 3, 0, 0, 0] and ch["langclose"] and ch["agreeing"] == 4
-    ok &= not ch["audit"]["keys"] and not ch["audit"]["onehot"]
-    add("P7 the all-four cell only by the quantum bounce with P2 at -sigma/4 and the README where it lands; E 3, 3, 0, "
-        "0, 0, langclose holds, audit clean", ok)
-    ca = o["ca"]
-    tb = dict((t[0], t[1]) for t in ca["board"]["trace"])
-    ok = ca["board"]["answer"] == "both" and ca["board"]["by"] == "statistics" and ca["board"]["ranked"] == 1
-    ok &= all(tb[L] == [0, 1] for L in ("order", "algebra", "geometry", "information", "statistics"))
-    ok &= tb["analysis"] == "both" and "%.3g" % ca["board"]["magnitudes"][1] == "15.8" and ca["board"]["lawful"]
-    ok &= ca["with139"]["answer"] == 0 and ca["with139"]["lawful"] and "%.2g" % ca["ratio"] == "5.9e+15"
-    add("P8 through the calculator, broadest first: logic returns both (undecided), by statistics, analysis ranking 1 "
-        "at +15.8 decades over 0; the control with 139 (1) as a coordinate 0 (the AND limit); the law's containments "
-        "hold", ok)
-    w = o["wd"]
-    ok = w["n"] == 1024 and w["extra"] == 10 and w["both"] and w["mono"] and w["k4"] == "silent"
-    ok &= w["positives"] == [(0, "quantum", "+sigma", 0), (0, "quantum", "+sigma", 1)] and all(w["alone"])
-    add("P9 every widening of the known cells (1024, the encoding's whole ambient) leaves both answers open in every "
-        "closure language at statistics orders 1-3, each monotone; order 4 refused (reg 1175); 1 open by extensivity "
-        "(the quantum bounce at +sigma), 0 because each clause is seen failing alone", ok)
-    c = o["cl"]
-    nm = c["named"]
-    ok = nm["ans"] == (1, 1, 1) and nm["join"] == 1
-    for cl, _, _ in CLAUSES:
-        r = nm["out"][cl]
-        tr = dict((t[0], t[1]) for t in r["trace"])
-        ok &= r["by"] == "statistics" and tr["statistics"] == [1] and tr["geometry"] == [1] and tr["analysis"] == "both"
-        ok &= r["extensive"] and r["lawful"] and not r["void"] and tr["documentary"] == "citations"
-    ok &= "%.3g" % nm["out"]["f"]["magnitudes"][1] == "15.8" and nm["out"]["a"]["magnitudes"][1] is None
-    add("P10 clause by clause, b_interior's code, keeps 139 (1) = 1, README = 1: (a), (b)/(e) and (f) each 1 by "
-        "statistics, geometry 1 alone, (f) at +15.8 decades; logic joins 1 -- M1 holds; extensive, lawful, no key or "
-        "one-hot", ok)
-    sw = c["sweep"].values()
-    conv = [v for (cd, tf, mf), v in c["sweep"].items() if (tf, mf) == (0, 0)]
-    ok = len(conv) == 24 and all(v["ans"] == (1, 1, 1) for v in conv)
-    ok &= sum(v["ans"] == (1, 1, 1) for v in sw) == 54 and sum(v["ans"] == ("refused",) * 3 for v in sw) == 42
-    ok &= all(v["reach"] == (v["ans"] == (1, 1, 1)) for v in sw) and not any(r["void"] for v in sw
-                                                                             for r in v["out"].values())
-    ok &= not any(a in (0, "both") for v in sw for a in v["ans"])
-    add("P10 every code: with the board's coding all 24 continuation codes give 1, 1, 1; over all 96 codings 54 give "
-        "1, 1, 1 and 42 are refused, exactly where C4's row is not a join of the rows below it (information); no clause "
-        "is ever 0 or undecided; none voided", ok)
-    od = c["orders"]
-    ok = all(a == (1, 1, 1) for k in (1, 2) for a in od[k]) and all(a == ("refused",) * 3 for a in od[4])
-    ok &= sum(a == (1, 1, "refused") for a in od[3]) == 16 and sum(a == (1, 1, 1) for a in od[3]) == 8
-    ok &= not any(x in (0, "both") for k in od for a in od[k] for x in a)
-    add("P10 by statistics order, the board's coding: orders 1 and 2 give 1, 1, 1 in all 24 codes; order 3 refuses (f) "
-        "in 16 and gives 1, 1, 1 in 8; order 4 refuses all three; never 0 or undecided", ok)
-    rk = o["rk"]["out"]
-    at = lambda pl, k: [v for kk, v in rk[pl].items() if kk[3] == k]
-    n1 = lambda pl, k: sum(v[1] == 1 for v in at(pl, k))
-    ok = [n1("peers", k) for k in (1, 2, 3, 4)] == [54, 54, 22, 0]
-    ok &= all(n1(pl, k) == 96 for pl in ("own", "first") for k in (1, 2, 3, 4))
-    ok &= [n1("last", k) for k in (1, 2, 3, 4)] == [96, 96, 96, 0]
-    ok &= all(v[0] == (1, 1, "refused") for v in at("last", 4))
-    ok &= not any(a in (0, "both") for pl in PLACES for v in rk[pl].values() for a in v[0])
-    add("P11 with P2's tension and matter at each place among M1's clauses, 96 codings x orders 1-4: beside the "
-        "continuation (P10) 54, 54, 22, 0 decided; on (f)'s own rank, or ranked first, 1, 1, 1 in every coding at every "
-        "order; ranked last, 1, 1, 1 at orders 1-3 and (f) refused at order 4; never 0 or undecided", ok)
-    pl_ = o["pl"]
-    tally = lambda sc, k: Counter((x["ans"], x["join"]) for kk, x in pl_[sc].items() if kk[3] == k)
-    R3, B2 = ("refused",) * 3, ("both", "both", 1)
-    ok = [tally("peers", k)[((1, 1, 1), 1)] for k in (1, 2, 3, 4)] == [54, 54, 22, 0]
-    for sc, first in (("statistics' rank", (1, 1, "both")), ("broad ranks", B2)):
-        ok &= tally(sc, 1) == Counter({(first, "not binary"): 96}) and tally(sc, 2) == Counter({((1, 1, 1), 1): 96})
-        ok &= tally(sc, 3) == Counter({((1, 1, "refused"), "not binary"): 64, ((1, 1, 1), 1): 32})
-        ok &= tally(sc, 4) == Counter({(R3, "not binary"): 96})
-    ok &= tally("given", 1) == Counter({(R3, "not binary"): 88, ((1, 1, 1), 1): 8})
-    ok &= tally("given", 2) == Counter({(R3, "not binary"): 88, (("refused", "refused", 1), "not binary"): 8})
-    ok &= all(tally("given", k) == Counter({(R3, "not binary"): 96}) for k in (3, 4))
-    ok &= all(x["known"] == 2 for kk, x in pl_["given"].items())
-    ok &= all(x["lawful"] == (kk[3] != 1) for sc in SCEN for kk, x in pl_[sc].items())
-    ok &= not any(0 in x["ans"] for sc in SCEN for x in pl_[sc].values())
-    ok &= all("%.3g" % x["mag"] == "15.8" for sc in SCEN for x in pl_[sc].values())
-    add("P12 tension and matter kept in every clause, 96 codings x orders 1-4: at statistics' rank or at the broad ranks "
-        "1, 1, 1 in every coding at order 2, undecided on the clause whose conditions enter only at statistics at order "
-        "1, (f) refused in 64 at order 3, all refused at order 4; as the given (2 configurations) refused but for 8 "
-        "codings at orders 1-2; P10's placement 54, 54, 22, 0; the law's containments hold at orders 2-4 and fail at "
-        "order 1 in every placement; never 0", ok)
-    fm = o["fm"]["out"]
-    ok = fm["form"] == Counter({(1, 1, 1): 96}) and fm["geometry too"] == fm["form"]
-    ok &= fm["all but information"] == fm["form"]
-    ok &= fm["information too"] == Counter({(1, 1, 1): 54, ("refused",) * 3: 42})
-    ok &= o["fm"]["seen"] == {"cont": True, "pstate": True, "combo": False}
-    add("P13 the form: tension and matter in every clause, read at statistics' rank -- the cypher agrees, 1, 1, 1 in all "
-        "96 codings at order 2; it agrees too with geometry or every language but information reading them, and refuses "
-        "in 42 whenever information does; C4's continuation and its P2 state are each seen, their combination not", ok)
+    if RECORD:                                              # [item 489] P7-P13: the continuation tables
+        ch = o["ch"]
+        ok = ch["n"] == 12 and len(ch["held"]) == 9 and ch["holders"] == [(0, "quantum", "-sigma/4", 1)]
+        ok &= [ch["E"][L] for L in FIVE] == [3, 3, 0, 0, 0] and ch["langclose"] and ch["agreeing"] == 4
+        ok &= not ch["audit"]["keys"] and not ch["audit"]["onehot"]
+        add("P7 the all-four cell only by the quantum bounce with P2 at -sigma/4 and the README where it lands; E 3, 3, 0, "
+            "0, 0, langclose holds, audit clean", ok)
+        ca = o["ca"]
+        tb = dict((t[0], t[1]) for t in ca["board"]["trace"])
+        ok = ca["board"]["answer"] == "both" and ca["board"]["by"] == "statistics" and ca["board"]["ranked"] == 1
+        ok &= all(tb[L] == [0, 1] for L in ("order", "algebra", "geometry", "information", "statistics"))
+        ok &= tb["analysis"] == "both" and "%.3g" % ca["board"]["magnitudes"][1] == "15.8" and ca["board"]["lawful"]
+        ok &= ca["with139"]["answer"] == 0 and ca["with139"]["lawful"] and "%.2g" % ca["ratio"] == "5.9e+15"
+        add("P8 through the calculator, broadest first: logic returns both (undecided), by statistics, analysis ranking 1 "
+            "at +15.8 decades over 0; the control with 139 (1) as a coordinate 0 (the AND limit); the law's containments "
+            "hold", ok)
+        w = o["wd"]
+        ok = w["n"] == 1024 and w["extra"] == 10 and w["both"] and w["mono"] and w["k4"] == "silent"
+        ok &= w["positives"] == [(0, "quantum", "+sigma", 0), (0, "quantum", "+sigma", 1)] and all(w["alone"])
+        add("P9 every widening of the known cells (1024, the encoding's whole ambient) leaves both answers open in every "
+            "closure language at statistics orders 1-3, each monotone; order 4 refused (reg 1175); 1 open by extensivity "
+            "(the quantum bounce at +sigma), 0 because each clause is seen failing alone", ok)
+        c = o["cl"]
+        nm = c["named"]
+        ok = nm["ans"] == (1, 1, 1) and nm["join"] == 1
+        for cl, _, _ in CLAUSES:
+            r = nm["out"][cl]
+            tr = dict((t[0], t[1]) for t in r["trace"])
+            ok &= r["by"] == "statistics" and tr["statistics"] == [1] and tr["geometry"] == [1] and tr["analysis"] == "both"
+            ok &= r["extensive"] and r["lawful"] and not r["void"] and tr["documentary"] == "citations"
+        ok &= "%.3g" % nm["out"]["f"]["magnitudes"][1] == "15.8" and nm["out"]["a"]["magnitudes"][1] is None
+        add("P10 clause by clause, b_interior's code, keeps 139 (1) = 1, README = 1: (a), (b)/(e) and (f) each 1 by "
+            "statistics, geometry 1 alone, (f) at +15.8 decades; logic joins 1 -- M1 holds; extensive, lawful, no key or "
+            "one-hot", ok)
+        sw = c["sweep"].values()
+        conv = [v for (cd, tf, mf), v in c["sweep"].items() if (tf, mf) == (0, 0)]
+        ok = len(conv) == 24 and all(v["ans"] == (1, 1, 1) for v in conv)
+        ok &= sum(v["ans"] == (1, 1, 1) for v in sw) == 54 and sum(v["ans"] == ("refused",) * 3 for v in sw) == 42
+        ok &= all(v["reach"] == (v["ans"] == (1, 1, 1)) for v in sw) and not any(r["void"] for v in sw
+                                                                                 for r in v["out"].values())
+        ok &= not any(a in (0, "both") for v in sw for a in v["ans"])
+        add("P10 every code: with the board's coding all 24 continuation codes give 1, 1, 1; over all 96 codings 54 give "
+            "1, 1, 1 and 42 are refused, exactly where C4's row is not a join of the rows below it (information); no clause "
+            "is ever 0 or undecided; none voided", ok)
+        od = c["orders"]
+        ok = all(a == (1, 1, 1) for k in (1, 2) for a in od[k]) and all(a == ("refused",) * 3 for a in od[4])
+        ok &= sum(a == (1, 1, "refused") for a in od[3]) == 16 and sum(a == (1, 1, 1) for a in od[3]) == 8
+        ok &= not any(x in (0, "both") for k in od for a in od[k] for x in a)
+        add("P10 by statistics order, the board's coding: orders 1 and 2 give 1, 1, 1 in all 24 codes; order 3 refuses (f) "
+            "in 16 and gives 1, 1, 1 in 8; order 4 refuses all three; never 0 or undecided", ok)
+        rk = o["rk"]["out"]
+        at = lambda pl, k: [v for kk, v in rk[pl].items() if kk[3] == k]
+        n1 = lambda pl, k: sum(v[1] == 1 for v in at(pl, k))
+        ok = [n1("peers", k) for k in (1, 2, 3, 4)] == [54, 54, 22, 0]
+        ok &= all(n1(pl, k) == 96 for pl in ("own", "first") for k in (1, 2, 3, 4))
+        ok &= [n1("last", k) for k in (1, 2, 3, 4)] == [96, 96, 96, 0]
+        ok &= all(v[0] == (1, 1, "refused") for v in at("last", 4))
+        ok &= not any(a in (0, "both") for pl in PLACES for v in rk[pl].values() for a in v[0])
+        add("P11 with P2's tension and matter at each place among M1's clauses, 96 codings x orders 1-4: beside the "
+            "continuation (P10) 54, 54, 22, 0 decided; on (f)'s own rank, or ranked first, 1, 1, 1 in every coding at every "
+            "order; ranked last, 1, 1, 1 at orders 1-3 and (f) refused at order 4; never 0 or undecided", ok)
+        pl_ = o["pl"]
+        tally = lambda sc, k: Counter((x["ans"], x["join"]) for kk, x in pl_[sc].items() if kk[3] == k)
+        R3, B2 = ("refused",) * 3, ("both", "both", 1)
+        ok = [tally("peers", k)[((1, 1, 1), 1)] for k in (1, 2, 3, 4)] == [54, 54, 22, 0]
+        for sc, first in (("statistics' rank", (1, 1, "both")), ("broad ranks", B2)):
+            ok &= tally(sc, 1) == Counter({(first, "not binary"): 96}) and tally(sc, 2) == Counter({((1, 1, 1), 1): 96})
+            ok &= tally(sc, 3) == Counter({((1, 1, "refused"), "not binary"): 64, ((1, 1, 1), 1): 32})
+            ok &= tally(sc, 4) == Counter({(R3, "not binary"): 96})
+        ok &= tally("given", 1) == Counter({(R3, "not binary"): 88, ((1, 1, 1), 1): 8})
+        ok &= tally("given", 2) == Counter({(R3, "not binary"): 88, (("refused", "refused", 1), "not binary"): 8})
+        ok &= all(tally("given", k) == Counter({(R3, "not binary"): 96}) for k in (3, 4))
+        ok &= all(x["known"] == 2 for kk, x in pl_["given"].items())
+        ok &= all(x["lawful"] == (kk[3] != 1) for sc in SCEN for kk, x in pl_[sc].items())
+        ok &= not any(0 in x["ans"] for sc in SCEN for x in pl_[sc].values())
+        ok &= all("%.3g" % x["mag"] == "15.8" for sc in SCEN for x in pl_[sc].values())
+        add("P12 tension and matter kept in every clause, 96 codings x orders 1-4: at statistics' rank or at the broad ranks "
+            "1, 1, 1 in every coding at order 2, undecided on the clause whose conditions enter only at statistics at order "
+            "1, (f) refused in 64 at order 3, all refused at order 4; as the given (2 configurations) refused but for 8 "
+            "codings at orders 1-2; P10's placement 54, 54, 22, 0; the law's containments hold at orders 2-4 and fail at "
+            "order 1 in every placement; never 0", ok)
+        fm = o["fm"]["out"]
+        ok = fm["form"] == Counter({(1, 1, 1): 96}) and fm["geometry too"] == fm["form"]
+        ok &= fm["all but information"] == fm["form"]
+        ok &= fm["information too"] == Counter({(1, 1, 1): 54, ("refused",) * 3: 42})
+        ok &= o["fm"]["seen"] == {"cont": True, "pstate": True, "combo": False}
+        add("P13 the form: tension and matter in every clause, read at statistics' rank -- the cypher agrees, 1, 1, 1 in all "
+            "96 codings at order 2; it agrees too with geometry or every language but information reading them, and refuses "
+            "in 42 whenever information does; C4's continuation and its P2 state are each seen, their combination not", ok)
     fb = o["fb"]
     add("P14 the outgoing flux is traceless; by Israel it bends P1 3 rho/sigma = 0.86 as much as the tension at r_h "
         "(K r_h 6.9e-16 against 8.0e-16), falling as (r_h/r)^2", fb["traceless"] and str(fb["ratio_sym"]) == "3*rho/sigma"
@@ -1352,47 +1365,50 @@ def checks(o):
     add("P15 the horizon is non-extremal (kappa = 1/r_h; SAdS's root simple), d(UV)/dr = -e^2/(2 r_h) at r_h: r is "
         "analytic in UV across both faces; the bounce's map keeps UV", fc["analytic"] and fc["ok_rstar"]
         and fc["sads_simple"] and fc["bounce_keeps"] and str(fc["kappa"]) == "1/r_h")
-    hi = o["hi"]
-    ok = hi["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {0, 1}, (0, 0): {0, 1}} and hi["inside"]
-    ok &= hi["one"][3] == Counter({(1, 1, 1): 6}) and hi["one"][2] == Counter({(1, 1, "both"): 6})
-    ok &= hi["one"][4] == Counter({(1, 1, "both"): 6}) and hi["silent4"]
-    ok &= hi["bits"][3] == Counter({(1, 1, 1): 24}) and hi["bits"][2] == Counter({(1, 1, "both"): 24})
-    ok &= hi["bits"][4] == Counter({("refused",) * 3: 16, ("refused", "refused", 1): 8})
-    ok &= hi["flip_ok"] and hi["flip_n"] == 36 and hi["extensive"] and all(hi["lawful"][k] for k in (2, 3, 4))
-    add("P17 the higher orders: with the population of tensions and matters (295) the cypher agrees at order 3, 1, 1, 1, "
-        "under every ordering and every two-bit code; order 2 leaves (f) open, its law three-way; with the continuation "
-        "one condition the top order is 3, order 4 silent; as two bits order 4 refuses, by the one-flip rule (exact on "
-        "36 cases); lawful at 2-4", ok)
-    rl, sv, ac = o["rl"], o["sv"], o["ac"]
-    ok = rl["pos_side"] and rl["neg_side"] and rl["zero"] and rl["realized"] == {1}
-    ok &= sv["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
-    ok &= all(sv["one"][k] == Counter({(1, 1, 1): 6}) for k in (2, 3)) and sv["silent4"]
-    ok &= all(sv["bits"][k] == Counter({(1, 1, 1): 24}) for k in (2, 3))
-    ok &= sv["bits"][4] == Counter({("refused",) * 3: 16, ("refused", "refused", 1): 8})
-    ok &= sv["flip_ok"] and sv["extensive"] and all(sv["lawful"][k] for k in (2, 3, 4))
-    add("P18 survivability built in (300): the object's total positive at every relative tension, exact; the cypher "
-        "agrees at orders 2 and 3, 1, 1, 1, under every ordering and every two-bit code; the order-4 refusals left are the "
-        "two-bit code's alone; lawful, extensive", ok)
-    ok = all(ac["out"][k] == Counter({(1, 1, 1): 6}) for k in (3, 4)) and ac["out"][2] == Counter({(1, 1, "both"): 6})
-    ok &= all(ac["lawful"][k] for k in (2, 3, 4))
-    add("P18 contrast: survivability a varying condition gives a fourth order that agrees, with order 3, and reopens (f) "
-        "at order 2", ok)
+    if RECORD:                                              # [item 489] P17-P18
+        hi = o["hi"]
+        ok = hi["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {0, 1}, (0, 0): {0, 1}} and hi["inside"]
+        ok &= hi["one"][3] == Counter({(1, 1, 1): 6}) and hi["one"][2] == Counter({(1, 1, "both"): 6})
+        ok &= hi["one"][4] == Counter({(1, 1, "both"): 6}) and hi["silent4"]
+        ok &= hi["bits"][3] == Counter({(1, 1, 1): 24}) and hi["bits"][2] == Counter({(1, 1, "both"): 24})
+        ok &= hi["bits"][4] == Counter({("refused",) * 3: 16, ("refused", "refused", 1): 8})
+        ok &= hi["flip_ok"] and hi["flip_n"] == 36 and hi["extensive"] and all(hi["lawful"][k] for k in (2, 3, 4))
+        add("P17 the higher orders: with the population of tensions and matters (295) the cypher agrees at order 3, 1, 1, 1, "
+            "under every ordering and every two-bit code; order 2 leaves (f) open, its law three-way; with the continuation "
+            "one condition the top order is 3, order 4 silent; as two bits order 4 refuses, by the one-flip rule (exact on "
+            "36 cases); lawful at 2-4", ok)
+        rl, sv, ac = o["rl"], o["sv"], o["ac"]
+        ok = rl["pos_side"] and rl["neg_side"] and rl["zero"] and rl["realized"] == {1}
+        ok &= sv["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}
+        ok &= all(sv["one"][k] == Counter({(1, 1, 1): 6}) for k in (2, 3)) and sv["silent4"]
+        ok &= all(sv["bits"][k] == Counter({(1, 1, 1): 24}) for k in (2, 3))
+        ok &= sv["bits"][4] == Counter({("refused",) * 3: 16, ("refused", "refused", 1): 8})
+        ok &= sv["flip_ok"] and sv["extensive"] and all(sv["lawful"][k] for k in (2, 3, 4))
+        add("P18 survivability built in (300): the object's total positive at every relative tension, exact; the cypher "
+            "agrees at orders 2 and 3, 1, 1, 1, under every ordering and every two-bit code; the order-4 refusals left are the "
+            "two-bit code's alone; lawful, extensive", ok)
+        ok = all(ac["out"][k] == Counter({(1, 1, 1): 6}) for k in (3, 4)) and ac["out"][2] == Counter({(1, 1, "both"): 6})
+        ok &= all(ac["lawful"][k] for k in (2, 3, 4))
+        add("P18 contrast: survivability a varying condition gives a fourth order that agrees, with order 3, and reopens (f) "
+            "at order 2", ok)
     tc = o["tc"]
     add("P19 tau calculated before the verifier (tau_share.py): 3/4, position 2 receiving the summed tension lambda_RS; "
         "P4's crossing share positive at it (T5)", tc["tau"] == sp.Rational(3, 4) and tc["side2"] == sp.Rational(2, 3)
         and all(tc["checks"].values()))
-    mc = o["mc"]
-    ok = mc["own"] == {"singular": (1, 1), "inner": (1, 0), "quantum": (0, 1), "shell": (0, 0)}
-    ok &= mc["ownrun"][2] == mc["ownrun"][3] == (1, 1, 1) and mc["ownrun"][4] == ("refused", "refused", 1)
-    ok &= mc["all"][3] == Counter({(1, 1, 1): 24}) and mc["all"][2] == Counter({(1, 1, 1): 22, (1, "both", 1): 2})
-    ok &= mc["all"][4] == Counter({("refused", "refused", 1): 16, (1, "refused", 1): 8})
-    add("P20 the fourth interior entered (b_interior's singular, the code none held): orders 2 and 3 1, 1, 1; at order 4 "
-        "(f) admitted, (a) and (b)/(e) refused, each carried by one continuation clause -- binary communications", ok)
-    ok = mc["ownrule"] == (1, 1, 1) and mc["allrule"] == Counter({(1, 1, 1): 24}) and len(mc["control"]) == 4
-    ok &= all(g == t for g, t in mc["control"].values())
-    add("P20 the channel reading (302 (b)): the top order 1, 1, 1 under every code; each interior as the question returns "
-        "its own answers", ok)
-    add("P22 the residue closed (c4_residue R0-R11, item 307; R13, item 310)", len(o["rs"]["checks"]) == 13 and
+    if RECORD:                                              # [item 489] P20
+        mc = o["mc"]
+        ok = mc["own"] == {"singular": (1, 1), "inner": (1, 0), "quantum": (0, 1), "shell": (0, 0)}
+        ok &= mc["ownrun"][2] == mc["ownrun"][3] == (1, 1, 1) and mc["ownrun"][4] == ("refused", "refused", 1)
+        ok &= mc["all"][3] == Counter({(1, 1, 1): 24}) and mc["all"][2] == Counter({(1, 1, 1): 22, (1, "both", 1): 2})
+        ok &= mc["all"][4] == Counter({("refused", "refused", 1): 16, (1, "refused", 1): 8})
+        add("P20 the fourth interior entered (b_interior's singular, the code none held): orders 2 and 3 1, 1, 1; at order 4 "
+            "(f) admitted, (a) and (b)/(e) refused, each carried by one continuation clause -- binary communications", ok)
+        ok = mc["ownrule"] == (1, 1, 1) and mc["allrule"] == Counter({(1, 1, 1): 24}) and len(mc["control"]) == 4
+        ok &= all(g == t for g, t in mc["control"].values())
+        add("P20 the channel reading (302 (b)): the top order 1, 1, 1 under every code; each interior as the question returns "
+            "its own answers", ok)
+    add("P22 the residue closed (c4_residue R0-R11, item 307; R13, item 310; R5 on the record only, 489)",
+        len(o["rs"]["checks"]) == (13 if RECORD else 12) and
         all(o["rs"]["checks"].values()))
     return res
 
@@ -1420,6 +1436,8 @@ MUTANTS = {"bent_equator": "the reflection chi -> pi - chi broken in the angular
            "three_continuations": "the fourth interior left out (P20)",
            "channel_off": "the continuation bits held to the one-flip rule (P20)",
            "channel_biased": "every neighbour taken as agreeing with 1 (P20)"}
+if not RECORD:                                              # [item 489] mutants of the continuation tables: record only
+    MUTANTS = {k: v for k, v in MUTANTS.items() if k not in ['p2_free_positive', 'readme_thin', 'fails_alone_dropped', 'm1_or', 'no_readme_coordinate', 'shell_continuation', 'tm_with_continuation', 'c4_without_readme', 'info_sees_all', 'given_by_tension', 'info_reads_order', 'bounded_tension', 'finite_grid', 'two_bits', 'absolute_readme', 'three_continuations', 'channel_off', 'channel_biased']}
 
 
 def selftest():

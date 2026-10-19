@@ -357,7 +357,7 @@ _V8 = {}
 def _ask(CR, IA, F):
     out = {k: sum((CR._ask_one(("f",), F, k, tf=tf, mf=mf, c4row=(1, 1)) for tf, mf in
                    itertools.product((0, 1), repeat=2)), Counter()) for k in (2, 3)}
-    kn = CR._cells("f", dict(zip(CR.NAMES4, range(4))), F, ("quantum", 1, 1), CR.A4, CR.CD4)
+    kn = CR._cells("f", dict(zip(CR.NAMES4, range(len(CR.NAMES4)))), F, ("quantum", 1, 1), CR.A4, CR.CD4)
     au = IA.audit_index(["K", "t", "m", "f"], kn)
     return dict(F=F, out=out, flagged=bool(au["keys"] or au["onehot"]))
 
@@ -369,7 +369,7 @@ def v8():
     CR = _load("c4_residue.py", "c8l_cr")
     IA = _load("index_audit.py", "c8l_ia")
     res = {name: _ask(CR, IA, F) for name, F in populations().items()}
-    ones = Counter({(1,): 96})
+    ones = Counter({(1,): 4 * CR.NPERM})  # [item 489] 4 x 3! = 24 codings: the inner horizon's interior excluded under 484 (96 on the record)
     res["join"] = int(all(res[c]["out"][2] == ones and res[c]["out"][3] == ones for c in ("rising", "z_net")))
     _V8[key] = res
     return res
@@ -451,8 +451,9 @@ def checks(o):
         == [8.0, 9.2, 6.4] and [round(g5[g]["R"] * 1e15, 2) for g in gs] == [2.02, 1.93, 2.18])
     add("V7 position 2's offset x+ (read in p2_offset) is 7.1e-63 of sigma/4: s2's sign and V3 stand",
         d["read"] and 1e-63 < d["ratio"] < 1e-62)
-    ones = Counter({(1,): 96})
-    add("V8 clause by clause (291): rising and z_net (F18, survival built in) each 1 at orders 2 and 3 in 96/96, "
+    ones = Counter({(1,): 4 * _load("c4_residue.py", "c8l_cr").NPERM})
+    add("V8 clause by clause (291): rising and z_net (F18, survival built in) each 1 at orders 2 and 3 in 24/24 (96/96 on "
+        "the record; 484, item 489), "
         "audits clean, the join 1; the conjunction kept 0 open at its corner",
         e["rising"]["F"] == {(1, 1): {1}, (1, 0): {1}, (0, 1): {0, 1}, (0, 0): {0, 1}}
         and e["z_net"]["F"] == {(1, 1): {1}, (1, 0): {0, 1}, (0, 1): {1}, (0, 0): {0, 1}}

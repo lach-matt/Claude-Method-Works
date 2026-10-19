@@ -372,7 +372,7 @@ def checks(o):
     z = fs["f7"]
     r_ = c["rim"]
     add("L8 the calculator: FARs' populations at the large end, its answers F7's -- neither clause decided",
-        z["f1"]["out"][2].get(("both",)) == 96 and z["f2"]["flagged"] == 96)
+        z["f1"]["out"][2].get(("both",)) == z["f1"]["n"] == 24 and z["f2"]["flagged"] == 24)   # [489] 96 on the record
     add("L9 the residue's figures: the least theta+ U over T_E at the rim, 2 + 1/K with no hole, lowered by 5.1e-6 at "
         "the record's cover; the bound's spare factor 6.2e4 at K = 1.5", r_["at"] == 0 and abs(r_["bare"] - 8 / 3.0)
         < 1e-4 and "%.2g" % r_["low"] == "5.1e-06" and "%.2g" % d["spare"] == "6.2e+04")
