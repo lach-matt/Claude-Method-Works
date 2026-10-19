@@ -523,26 +523,26 @@ dW in H^1_0 (integration by parts, n = 4), while Poincare's inequality on A_f ha
 once eps is small, and Lax-Milgram applies. No compactness argument and no smallness of the waves is used, only that
 the far region is weakly curved.
 
-*(D2)-(D5), not yet done (D4's main tool READ):* (D2) the formal constraint hierarchy (D-a) with the means' data supported in r >= R_in
-(at each order the lam-independent version of the D1 problem with Dirichlet conditions, then the collar step below);
-(D3) the exact correction: the D1 problem with the O(lam^K) error and quadratic terms, by contraction in scaled norms
-(scaled elliptic regularity on balls of radius lam, polynomial losses absorbed by lam^K); (D4) the collar: the
-corrected data meet the seed's at r = R_in only continuously; interpolate with a cut-off in the wave-free collar
-R_in < r < R_in + 1 (where every correction is smooth with lam-independent bounds, the coefficients there being the
-seed's) and remove the O(lam^K') constraint error there by a localized deformation of Tangherlini data. READ at
-source (Chrusciel and Delay, Mem. SMF 94 (2003), arXiv:gr-qc/0301073v2, 2026-10-19): "These are the general
-relativistic constraint equations whatever the space-dimension n. ... in the remainder of this paper we shall assume
-that n >= 2" (section 2); their Theorem 5.9, on a compact manifold with boundary with exponentially weighted spaces,
-gives for data (K, g) close to (K0, g0) and small (dJ, drho) a solution (dK, dg) = e^(-2s/x) Phi^2 P*(Y, N) of
+*(D2)-(D5), not yet done (D4's main tool READ):* (D2) the formal constraint hierarchy (D-a) with the means' data
+supported in r >= R_in (at each order the lam-independent version of the D1 problem with Dirichlet conditions, then
+the collar step below); (D3) the exact correction: the D1 problem with the O(lam^K) error and quadratic terms, by
+contraction in scaled norms (scaled elliptic regularity on balls of radius lam, polynomial losses absorbed by lam^K);
+(D4) the collar: the corrected data meet the seed's at r = R_in only continuously; interpolate with a cut-off in the
+wave-free collar R_in < r < R_in + 1 (where every correction is smooth with lam-independent bounds, the coefficients
+there being the seed's) and remove the O(lam^K') constraint error there by a localized deformation of Tangherlini
+data. READ at source (Chrusciel and Delay, Mem. SMF 94 (2003), arXiv:gr-qc/0301073v2, 2026-10-19): "These are the
+general relativistic constraint equations whatever the space-dimension n. ... in the remainder of this paper we shall
+assume that n >= 2" (section 2); their Theorem 5.9, on a compact manifold with boundary with exponentially weighted
+spaces, gives for data (K, g) close to (K0, g0) and small (dJ, drho) a solution (dK, dg) = e^(-2s/x) Phi^2 P*(Y, N) of
 pi_{K-perp} e^(2s/x) {(J, rho)(K + dK, g + dg) - (J, rho)(K, g)} = pi_{K-perp} e^(2s/x)(dJ, drho), which by their
 Corollary 5.11 extends smoothly by zero -- solvability modulo the projection onto the KIDs, in any dimension. In the
 T^2 x Z2 x Z2-invariant class the projections onto the six rotation KIDs of Tangherlini vanish (deduced: an invariant
 covector field has no d phi_i component, and the four other generators average to zero over T^2), and the equivariant
-construction stays in the class; the static KID's projection remains and is to be removed by the interior
-Tangherlini mass mu0 + O(lam^K'), by a continuity argument in the mass as in their section 8.6 (Theorem 8.14 is
-stated for three space dimensions, and their Remark 8.2 notes that higher dimensions need the reference family): that
-argument, written for four space dimensions, is not yet done; (D5) the restatement of (i) on D_T cap {tau >= tau0} for each tau0 below a threshold, with
-the seed mass mu0 + O(lam^K') (equivalent to the record's data to that order).
+construction stays in the class; the static KID's projection remains and is to be removed by the interior Tangherlini
+mass mu0 + O(lam^K'), by a continuity argument in the mass as in their section 8.6 (Theorem 8.14 is stated for three
+space dimensions, and their Remark 8.2 notes that higher dimensions need the reference family): that argument, written
+for four space dimensions, is not yet done; (D5) the restatement of (i) on D_T cap {tau >= tau0} for each tau0 below a
+threshold, with the seed mass mu0 + O(lam^K') (equivalent to the record's data to that order).
 
 ## 7. What is left
 
@@ -553,3 +553,4 @@ the seed mass mu0 + O(lam^K') (equivalent to the record's data to that order).
   (0.2); local existence, uniqueness, continuation and finite speed of propagation for quasilinear wave systems
   (Step 8); the propagation of the gauge (0.7); Sobolev embedding and extension on the annuli (Lemma 2.1).
 - Regularity of chi at the axes (section 5.1), by an instrument.
+
