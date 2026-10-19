@@ -46,14 +46,14 @@ The gauge is the wave-map gauge relative to g0. For a Lorentzian metric g put
               = -(1/2) g^{ab} d_a d_b g_mn + Q_mn(X; g)(dg, dg),                                              (0.2)
 
 Dh the covariant derivative of g0. D is a vector field and Ric^H a tensor, built from g and g0 alone, so both are
-invariant under the isometries of g0 (O(4), with T^2 and both reflections) and may be computed in any coordinates.
-In the coordinates of 0.1, Q is a quadratic polynomial in dg (with a linear and a constant part) whose coefficients
-are rational in g and smooth in X through Gamma[g0] and its first derivatives (smooth on r > 0; its trace is H0 of
-K5). (Deduced: the standard decomposition Ric_mn = -(1/2) g^{ab} d_a d_b g_mn + (1/2)(g_{m rho} d_n G^rho +
-g_{n rho} d_m G^rho) + (quadratic in dg), G^rho = g^{ab} Gamma[g]^rho_ab, READ e.g. Ringstrom, *The Cauchy problem in
-general relativity*, EMS 2009, ch. 13; D differs from G by g^{ab} Gamma[g0]_ab, which has no derivative of g, and
-Dh D from d D by Gamma[g0] D.) Second derivatives of g enter (0.2) only through -(1/2) g^{ab} d_a d_b g. D(g0) = 0,
-so Ric^H(g0) = Ric(g0). Ric^H(g) = 0 is a quasilinear wave system; a solution with D = 0 is vacuum.
+invariant under the isometries of g0 (O(4), with T^2 and both reflections) and may be computed in any coordinates. In
+the coordinates of 0.1, Q is a quadratic polynomial in dg (with a linear and a constant part) whose coefficients are
+rational in g and smooth in X through Gamma[g0] and its first derivatives (smooth on r > 0; its trace is H0 of K5).
+(Deduced: the standard decomposition Ric_mn = -(1/2) g^{ab} d_a d_b g_mn + (1/2)(g_{m rho} d_n G^rho + g_{n rho} d_m
+G^rho) + (quadratic in dg), G^rho = g^{ab} Gamma[g]^rho_ab, standard, e.g. Ringstrom, *The Cauchy problem in general
+relativity*, EMS 2009; D differs from G by g^{ab} Gamma[g0]_ab, which has no derivative of g, and Dh D from d
+D by Gamma[g0] D.) Second derivatives of g enter (0.2) only through -(1/2) g^{ab} d_a d_b g. D(g0) = 0, so Ric^H(g0) =
+Ric(g0). Ric^H(g) = 0 is a quasilinear wave system; a solution with D = 0 is vacuum.
 
 ### 0.3 Profiles and scaled norms
 
@@ -107,7 +107,7 @@ gauge condition D = 0 imposed through d_tau g, whose w satisfies (E4).
 
 Given A and D, Theorem E gives g_lam on Omega. D(g_lam) solves a homogeneous linear wave system (contracted Bianchi
 identity) with D = d_tau D = 0 on Sigma_tau0 (the gauge condition and the constraints), so D = 0 on Omega and g_lam is
-vacuum (deduced; READ the standard argument, Ringstrom ch. 14, with Omega inside the domain of dependence of
+vacuum (deduced; the standard argument, e.g. Ringstrom 2009, with Omega inside the domain of dependence of
 Sigma_tau0 cap Omega, Lemma 1.1(e)). Its T^2 x Z2 x Z2 invariance follows from uniqueness, since Ric^H and D are built
 from g and the O(4)-invariant g0 alone (0.2) and the data are invariant. D_T cap {tau >= tau0} lies in Omega (Lemma
 1.1). Hence (i) on D_T cap {tau >= tau0} with the data on Sigma_tau0 (the instructions' route W item 4: "construct
@@ -151,13 +151,13 @@ r >= r_q(v) >= q0 > a and tau = v - r <= v - r_q(v) <= tau_end. []
 
 ## 2. Inequalities on the slices
 
-All constants below depend on Omega (through a, b(tau0), delta0) and not on lam; 0 < lam <= lam1 := delta0/10.
+All constants below depend on Omega (through a, b(tau0), delta0) and not on lam; 0 < lam <= lam1 := min(1, delta0)/10.
 
 **Lemma 2.1 (Sobolev, products; deduced).** On A(tau), ||f||_{L^inf} <= C sum_{i<=3} ||d_x^i f||, hence
 ||d^i f||_{L^inf} <= C lam^(-3-i) |f|_{i+3}. For k = 6, |f g|_k <= C lam^-3 |f|_k |g|_k, and if a is a profile,
 |[a] f|_k <= C |f|_k. *Proof.* The annuli A(tau) are images of the fixed annulus {a <= |x| <= a + 1 + delta0} under
 radial maps with uniformly bounded derivatives of all orders (b - a in [1 + delta0, b(tau0) - a]), so Sobolev's
-embedding H^3 into L^inf in four dimensions (READ, any text) holds with a uniform constant; scaling each derivative
+embedding H^3 into L^inf in four dimensions (standard) holds with a uniform constant; scaling each derivative
 by lam gives the second form. For products, distribute lam^k d^k and put the factor with at most three derivatives
 in L^inf. The last claim is (0.3)'s chain-rule remark. []
 
@@ -169,7 +169,7 @@ Phi(x) := x + 2 lam sigma xhat and
 
 Near the inner sphere the ball is shifted outward by 2 lam, near the outer one inward, so Phi(x) - lam z lies in
 A(tau): |x + 2 lam xhat - lam z| >= xhat.(x + 2 lam xhat - lam z) >= |x| + lam, and in the middle third the
-distance to the boundary is at least 1/3 > 3 lam. DPhi = I + lam E with E bounded with all derivatives.
+distance to the boundary is at least (b - a)/3 >= 1/3 > 3 lam. DPhi = I + lam E with E bounded with all derivatives.
 
 **Lemma 2.2 (the mollifier; deduced).** For f on A(tau) and a smooth bounded function or profile a:
 (M1) ||P f|| <= C ||f||;  (M2) ||d_x P f|| <= C lam^-1 ||f||;  (M3) ||f - P f|| <= C lam ||d_x f||;
@@ -248,8 +248,8 @@ where lam n1 := g_app^-1(dv, dv) = -lam <g1>(ell, ell) + O(lam^2) by (E1): the p
 *Proof.* Differentiate (3.1) for G = the profile of g_app at c = 0: the linearisation of R at G in the direction
 d_th G equals d_th R[G]. d_th G = lam d_th g1 + lam^2 d_th g2 + ..., and P([Y]) = [D_G R[Y]], so the left side is
 lam^-1 T(lam d_th g1 + lam^2 d_th g2 + ...) + P_0(lam d_th g1 + ...) = T(d_th g1) + O(lam). The right side is
-d_th(lam^-1 R^(-1) + R^(0)) + O(lam) = O(lam) by section 3.1 and (E2). Both sides are polynomial in lam with profile
-coefficients. []
+d_th(lam^-1 R^(-1) + R^(0)) + O(lam) = O(lam) by section 3.1 and (E2). Both sides are expansions in powers of lam with
+profile coefficients, the remainders lam times bounded profiles. []
 
 This is the analytic content of Touati's transport and polarization at first order, in one line: a constant phase
 shift of the wave is a symmetry of the leading equation, so its generator d_th g1 is annihilated by the 1/lam part of
@@ -310,7 +310,7 @@ with bounded coefficients, of L0 P s, d_x P s, d phi and the spatial Hessian d_x
 L0(d_x^2 phi) = -(1/2) d_x^2 P s + (d_x xhat) * d_x^2 phi + (d_x^2 xhat) * d_x phi.
 
 *Proof.* (0.1) applied to phi with L0 phi = -(1/2) P s. For the second claim, d_tau = L0 + xhat.d_x, L0 L0 phi =
--(1/2) L0 P s and L0 d_i phi = d_i L0 phi - (d_i xhat^m) d_m phi, and [L0, d_i] involves spatial derivatives only
+-(1/2) L0 P s and L0 d_i phi = d_i L0 phi + (d_i xhat^m) d_m phi, and [L0, d_i] involves spatial derivatives only
 since L0^tau = 1. []
 
 ## 4. Proof of Theorem E
@@ -326,7 +326,7 @@ C lam^(-3-i) N for i <= 4, and |d w|_k <= lam^-1 |w|_{k+1} <= C lam^-1 N.
 
 **Step 2 (data; deduced).** phi = 0 on Sigma_tau0, so h = w there; the derivatives of h, phi, Psi on Sigma_tau0 of
 order up to k + 1 in tau are fixed by (3.4), (3.5) and the equation for w, whose coefficients obey the scaled bounds
-of (0.3); solving for d_tau^2 by induction gives N(tau0) <= C (Data(w) + lam^K) <= C(C_D + 1) lam^K. (d_tau phi =
+of (0.3); solving for d_tau^2 by induction gives N(tau0) <= C (Data(w) + lam^K) <= C (C_D + C_R) lam^K. (d_tau phi =
 -(1/2) P s on Sigma_tau0, and d_x P s = P d_x s + O(lam) P d_x s by (M4): no 1/lam enters.)
 
 **Step 3 (the bootstrap).** Suppose N <= 2 M lam^K on [tau0, tau*] with M to be fixed. Then (Step 1) |w| <=
@@ -354,7 +354,7 @@ lam^(K+1). So
 P s|| <= C sum_{i<=j} lam^i ||d^i s|| <= C N by (M1), (M4), (M6). The same for d phi (with d P s <= C P d s). For
 lam d_x^2 phi use the transport of Lemma 3.4: lam^(j+1) ||d^alpha d_x^2 P s|| = lam^(j+1) ||d_x P(d^alpha d_x s)||
 + (commutators) <= C lam^j ||d^j d s|| by Bernstein (M2) in the one spatial derivative. Lemma 2.4 then gives the
-phi-part of N(tau) at most C int_{tau0}^{tau} N.
+phi-part of N(tau) at most C (N(tau0) + int_{tau0}^{tau} N) (d_tau phi does not vanish on Sigma_tau0).
 
 **Step 6 (Psi; deduced).** Apply d^alpha to (3.6) and Lemma 2.4 (c = 2/r <= 2/a). The term box~ P s = P box~ s +
 [box~, P] s. By Lemma 3.3, box~ s is first order in (h, phi) up to F, the nonlinear terms and sum c^{ai} d_a d_i h;
@@ -363,7 +363,10 @@ for the last, P(c d_a d_i h) = P d_i(c d_a h) - P((d_i c) d_a h) and ||P d_i f||
 sum_i ||d^i c||_inf ||d^(j-i) d h|| <= C N since ||d^i c||_inf <= C lam^(1-i). For the commutator, [g0^{ab}, P]
 d_a d_b s with at least one spatial index is bounded by C ||d s|| by (M5); the tau-tau term is rewritten with
 d_tau^2 s = (box~ s - 2 g0^{tau i} d_tau d_i s - g0^{ij} d_i d_j s)/g0^{tautau} (g0^{tautau} = -1 - mu/r^2), after which
-(M5) applies to the spatial terms and the box~ s term gains the factor lam of (M5). The terms of
+(M5) applies to the spatial terms; in box~ s (Lemma 3.3) the first-order terms gain the factor lam of (M5)'s
+second form, and the terms c^{ai} d_a d_i h are written d_i(c d_a h) - (d_i c) d_a h, so that (M5)'s first form bounds
+them by C ||c d h|| + C ||d c||_inf ||d h|| <= C N (at level j likewise; applying the second form to them would cost a
+derivative at j = k). The terms of
 g0^{ab}(d_a d_b P - P d_a d_b) s carry, by (M4) and (M6), a factor lam and a spatial derivative inside P, so they are
 at most C ||d s|| by (M4); likewise at level j. The other terms of (3.6) are
 first order in P s and phi. So the Psi-part of N(tau) is at most C (N(tau0) + int (N + C_R lam^K + C M^2 lam^(K+1))).
@@ -375,14 +378,15 @@ small that C3 C M^2 lam0 <= 1 and Step 3 holds; then N <= M lam^K < 2 M lam^K on
 bootstrap. N is continuous in tau for a smooth solution, so the bootstrap set is open and closed in the interval of
 existence.
 
-**Step 8 (existence and continuation; deduced, READ).** Local existence, uniqueness and the continuation criterion for
-quasilinear wave systems -(1/2) g^{ab}(u) d_a d_b u = F(X, u, du) with data in H^(k+1) x H^k, k + 1 > 4/2 + 1, READ
-Ringstrom 2009 ch. 9 (or Sogge, *Lectures on nonlinear wave equations*, ch. I, Theorem 4.1): the solution extends as
-long as its H^(k+1) x H^k norm and |du| stay bounded and the metric stays uniformly Lorentzian with the slices
-spacelike. On Omega: extend the data from Sigma_tau0 to R^4 with a bounded extension operator and Gamma[g0] smoothly;
-by finite speed of propagation (READ, same references) and Lemma 1.1(e) the solution on Omega depends only on the data
-on Sigma_tau0 cap Omega. Step 7 bounds the criterion's quantities (|w|_{k+1} <= C N, |d w| small) for each fixed lam,
-so the solution exists on all of Omega with (0.5). The bounds after (0.5) are Step 1. []
+**Step 8 (existence and continuation; deduced from standard theorems not yet READ at source, section 7).** Local
+existence, uniqueness and the continuation criterion for quasilinear wave systems -(1/2) g^{ab}(u) d_a d_b u = F(X, u,
+du) with data in H^(k+1) x H^k, k + 1 > 4/2 + 1 (Ringstrom 2009; Sogge's version assumes coefficients near Minkowski's
+and is not the one to use): the solution extends as long as its H^(k+1) x H^k norm and |du| stay bounded and the
+metric stays uniformly Lorentzian with the slices spacelike. On Omega: extend the data from Sigma_tau0 to R^4 with a
+bounded extension operator and Gamma[g0] smoothly, and re-extend at each restart time; by finite speed of propagation
+and Lemma 1.1(e) the solution on Omega depends only on the data on Sigma_tau0 cap Omega. Step 7 bounds the criterion's
+quantities (|w|_{k+1} <= C N, |d w| small) for each fixed lam, so the solution exists on all of Omega with (0.5). The
+bounds after (0.5) are Step 1. []
 
 ## 5. Theorem A: the approximant
 
@@ -489,35 +493,54 @@ Theorem 2.1 solves the constraints by the conformal method (conformal factor phi
 curvature tau and a TT-tensor sigma as oscillating parameters), inverting the flat operators Delta_e and div_e L_e
 and closing each fixed point by the smallness of the background: "taking eps small enough ensures that Psi is a
 contraction" (section 5.4.2, p. 29), with the background eps-close to Euclidean, (2.1): "‖g0 - e‖_{H^{N+1}_delta} +
-‖K0‖_{H^N_{delta+1}} <= eps".
-Here the background is large. Worse, in the wave-map gauge the leading wave carries the second harmonic chi dv dv
-(section 5.1, `lead5.py` L4), whose trace on any spacelike slice is chi |dv|^2_slice != 0; so tr K oscillates at
-O(1), d tau = O(1/lam), and in the linearised conformal system the coupling 3 psi^3 d tau delta psi of the momentum
-equation is O(1) in H^-1 -- not small. (Touati sets tau = lam tau^(1), possible in his gauge.)
+‖K0‖_{H^N_{delta+1}} <= eps". On Sigma_tau0 the background is the slice of five-dimensional Vaidya through the
+hole: the trace-free part of K0 and d tau0 are of order one near r = a, so the coupling terms of the linearised
+conformal system are not small there, and whether that system is invertible on the slice is not known. (The second
+harmonic chi dv dv does not add to this: chi = 0 on Sigma_tau0 is a free choice (5.1), and then chi and d_th chi
+vanish on the slice, tr K oscillates there only at O(lam), and d tau = d tau0 + O(1).)
 
-**6.3 The route: the far slice (proposed, not yet carried out).** Take tau0 so negative that on Sigma_tau0 the shell
-lies at r >= R0 with R0 large; for r < R0 the data are exactly the seed's (no waves yet: v < v_start), and in the far
-annulus mu/r^2 <= mu1/R0^2 and the wave's amplitude is A env r^(-3/2), so the background is eps-close to flat with
-eps -> 0 as R0 -> infinity, *with no smallness of the data*. There:
-- the linearised conformal operator at the approximate data, (delta psi, delta W) -> (-6 Delta delta psi + V delta psi
-  - 2 sigma . L delta W, div L delta W - 3 d tau delta psi) (four space dimensions: g = psi^2 gamma, exponents
-  psi^3, psi^-5, psi^4), is uniformly invertible H^1_0 x H^1_0 -> H^-1 for eps small, uniformly in lam: V = R + 5
-  |sigma|^2 + (9/4) tau^2 = 6 |sigma|^2 + (3/2) tau^2 + O(lam^K) >= 0 where the Hamiltonian constraint nearly holds;
-  the vector form int |L delta W|^2 is uniformly coercive (Korn, uniform by a compactness argument, since L's
-  coefficients are bounded and converge weakly); the off-diagonal terms are O(eps) in H^-1, the O(1/lam) part of
-  d tau included after one integration by parts in r (its amplitude is chi's, O(A^2/R0^3));
-- the corrected data are glued, in a wave-free collar r ~ R_in < R0, to an exact Tangherlini interior of mass
-  mu0 + O(lam^K'), and at the formal level (D-a) the means' linearised constraints are solved by localized
-  (Corvino-Schoen) solutions; in the T^2 x Z2 x Z2-invariant class the only obstruction is the static KID, absorbed by
-  the seed mass.
+**6.3 The route: the far slice (proposed; D1 is written below, D2-D5 are not yet done).** Take tau0 so negative
+that on Sigma_tau0 the shell lies at r >= R0 with R0 large, and take Omega's outer boundary v + delta1 (tau - tau_end)
+= V + 1 with delta1 := 1/|tau0| (any delta1 > 0 serves Lemma 1.1), so that the slice beyond R0 has width
+W_f = O(1) independent of tau0. For r < R0 the approximant's data are exactly the seed's (no waves: v < v_start; chi
+and the means vanish there by the choice of their data). In the far annulus A_f = {R_in <= r <= R_out}, R_in = R0 - 2,
+the background is eps-close to flat, eps <= C(mu1/R0^2 + A/R0^(3/2)) -> 0 as tau0 -> -infinity, *with no smallness
+of the data*.
 
-What this route rests on and is not yet done: (D1) the uniform inversion lemma above, written out; (D2) the formal
-constraint hierarchy (D-a); (D3) the gluing theorems in four space dimensions (Corvino-Schoen, Chrusciel-Delay) READ
-with hypotheses checked, in the invariant class; (D4) scaled elliptic regularity giving (E4); (D5) the restatement of
-(i) on D_T cap {tau >= tau0} for each tau0 below a threshold.
+*(D1) Uniform inversion in the far annulus (deduced).* For (gamma, K) the approximant's data restricted to A_f, with
+|gamma - e| + |d gamma| + |K| + |d tau| <= C eps (d tau has no 1/lam part on Sigma_tau0, by 6.2) and the Hamiltonian
+constraint holding to O(lam^K), the linearised conformal operator (four space dimensions: gamma' = psi^2 gamma,
+K' = psi^-2 (sigma + L W) + (1/4) psi^2 tau gamma; Lichnerowicz -6 Delta psi + R psi - |sigma + L W|^2 psi^-5
++ (3/4) tau^2 psi^3 = 0, momentum div(sigma + L W) = (3/4) psi^4 d tau)
+
+    (dpsi, dW) -> ( -6 Delta_gamma dpsi + V dpsi - 2 sigma . L dW ,  div_gamma L dW - 3 d tau dpsi ),
+    V = R + 5 |sigma|^2 + (9/4) tau^2 = 6 |sigma|^2 + (3/2) tau^2 + O(lam^K),
+
+is invertible H^1_0(A_f)^2 -> H^-1 with a bound independent of lam and tau0, for eps small. Its bilinear form B
+satisfies B(u, u) >= 6 (1 - C eps) ||grad dpsi||^2 - C eps ||dpsi||^2 + (1/2)(1 - C eps)||L_e dW||^2 - C eps
+(||dpsi||_{H^1}^2 + ||dW||_{H^1}^2), and int |L_e dW|^2 = 2 int |grad dW|^2 + int (div dW)^2 >= 2 ||grad dW||^2 for
+dW in H^1_0 (integration by parts, n = 4), while Poincare's inequality on A_f has a constant C(W_f); so B is coercive
+once eps is small, and Lax-Milgram applies. No compactness argument and no smallness of the waves is used, only that
+the far region is weakly curved.
+
+*(D2)-(D5), not yet done:* (D2) the formal constraint hierarchy (D-a) with the means' data supported in r >= R_in
+(at each order the lam-independent version of the D1 problem with Dirichlet conditions, then the collar step below);
+(D3) the exact correction: the D1 problem with the O(lam^K) error and quadratic terms, by contraction in scaled norms
+(scaled elliptic regularity on balls of radius lam, polynomial losses absorbed by lam^K); (D4) the collar: the
+corrected data meet the seed's at r = R_in only continuously; interpolate with a cut-off in the wave-free collar
+R_in < r < R_in + 1 (where every correction is smooth with lam-independent bounds, the coefficients there being the
+seed's) and remove the O(lam^K') constraint error there by a localized deformation of Tangherlini data
+(Corvino-Schoen; in four space dimensions, Chrusciel-Delay), whose obstruction in the T^2 x Z2 x Z2-invariant class
+is the static KID alone, absorbed by taking the interior Tangherlini mass mu0 + O(lam^K'): READ with hypotheses
+checked, not yet done; (D5) the restatement of (i) on D_T cap {tau >= tau0} for each tau0 below a threshold, with
+the seed mass mu0 + O(lam^K') (equivalent to the record's data to that order).
 
 ## 7. What is left
 
-- **The data (section 6): OPEN.** The one remaining part of N1*.
-- **Independent verification** of sections 1-5 (one verifier on sections 0-4 is running).
+- **The data (section 6): OPEN.** The one remaining part of N1*: D2-D5 of section 6.3.
+- **Verification.** Sections 0-4 were checked by one independent verifier (N1STAR-LOG.md D12): no major gap, one
+  minor gap (Step 6 at the top level, repaired) and seven notes (repaired). Sections 5-6 are not yet verified.
+- **READ at source** of the standard theorems the proof invokes: the decomposition of Ricci in wave coordinates
+  (0.2); local existence, uniqueness, continuation and finite speed of propagation for quasilinear wave systems
+  (Step 8); the propagation of the gauge (0.7); Sobolev embedding and extension on the annuli (Lemma 2.1).
 - Regularity of chi at the axes (section 5.1), by an instrument.
