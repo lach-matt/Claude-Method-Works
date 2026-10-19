@@ -2130,6 +2130,12 @@ state was rebuilt first.
     V_S (READ, checked against Zerilli). Delivery at 10 l5 needs mu0 >= 324 l5^2 (copper; 199 for the example).
   - The strain where escape is decided is <= 2.6e-4 (copper); the second order at 2w escapes as e^(-s w r_h),
     s = 5.7-6.9 on model couplings: <= 1.1e-16 half bits. Open: the exact second-order equations.
+- **Item 526** (M: "So what is left to finish SOURCE?"). Answered (SOURCE-REQUIRED "Item 526").
+  - The board's: the second order on the exact equations; the large end (522 and 525 computed the small end).
+  - M's ruling or a derivation: the seed's size, tied to the emitter's wavelength. Within the window lam > 2 pi l5
+    (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
+    (`seed_types.py` T5, 13/13).
+  - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

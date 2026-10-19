@@ -5,6 +5,37 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 526: what is left to finish SOURCE
+
+M, 526: "So what is left to finish SOURCE?"
+
+- **In hand** (each computed or READ):
+  - the specification (`source_spec.py` U0-U8);
+  - the device that reads (`reader.py`, 492) and the bulk emitter's process (`emitter_process.py`, 496);
+  - the high-frequency limit, exact where the shell is locally (`hf_limit5.py`, 497);
+  - the sequence onto the seed with no inner horizon, computed numerically (`hf_core5.py`, `src_hole.py`, 505-508);
+  - THM-HF5's limit and (iv), exact (`hf_theorem5.py`, 511, 513);
+  - delivery within half a bit at 10 l5, to first order on the exact barriers (`seed_escape.py`, `seed_types.py`,
+    522-525), with the second order estimated far below.
+- **Left, which the board can compute:**
+  1. *The second order on the exact equations.* 525's bound uses model couplings c = f/r^p. The record's own
+     second-order equations (hf_mirror5's, expanded about Tangherlini) give the exact coupling; T7 is rerun on it.
+  2. *The large end.* 522 and 525 computed the small end (copper, the example README): SOURCEs. SOURCE proper is the
+     large end, and the same instrument runs at its N and r_h.
+- **Left, which needs M's ruling or a derivation the record does not hold:**
+  3. *The seed's size, tied to the emitter's wavelength* (computed, `seed_types.py` T5). The record gives only the
+     least seed (sqrt 72 l5^2, 508) and the window's floor lam > 2 pi l5 (`source_spec.py` U3: each quantum below the
+     5D Planck energy); 10 l5 is a round value in the window, not derived. Within the window the least seed never
+     delivers: copper needs mu0 >= 116 l5^2 at 2 pi l5, 324 at 10 l5 and 1477 at 20 l5, where hf_core5's 1000 fails;
+     the example README needs 69, 199 and 924. Nothing in the record yet fixes the seed or the wavelength: is the seed
+     the emitter's to set, or to be derived?
+- **M's, standing:**
+  4. *The status of the computed sequence*: numerical (lam = 0.1 to 0.0125), onto the seed; the proof for every lam is
+     N1*, with the other session (509, 522, 524). Whether it is 441 (1)'s "computed solution" was put to M at 498 and
+     505-508.
+  5. *Who or what stands in the bulk and holds E5(N) before the release* (emitter E6), not a row of the theorem.
+- **Then.** With 1 and 2 done and 3-5 decided, SOURCEs and SOURCE can be put to M for PROVED under 441.
+
 ## Item 525: SOURCE continued -- the scalar-type barrier and the second order
 
 M, 525: "Continue with SOURCE please"

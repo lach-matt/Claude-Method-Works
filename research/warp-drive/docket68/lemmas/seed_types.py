@@ -32,7 +32,10 @@ named two points open: the scalar-type barrier at low l, and nonlinear scatterin
      least seed lets 4.87e-15 out (1.87e7 half bits; 522: 1.53e7), the least seed for half a bit is r_h0 17.99 l5,
      mu0 324 l5^2 (522: 17.95, 322); the example README's 2.41e5 half bits, 14.10 l5, 199 l5^2 (522: 13.96, 195);
      hf_core5's mu0 = 1000 passes both, 100 fails both; the least seed suffices only for lam <= 1.94 l5 (copper),
-     2.51 l5 (example).  522's verdicts stand, its numbers moved by under 1%.
+     2.51 l5 (example).  522's verdicts stand, its numbers moved by under 1%.  Across the emitter's window -- its floor
+     lam > 2 pi l5, each quantum below the 5D Planck energy (source_spec U3: 2 pi hbar c/lam < hbar c/l5) -- the least
+     seed never delivers: copper needs mu0 >= 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5 (where hf_core5's 1000
+     fails); the example README 69, 199, 924.  The seed's size is tied to the emitter's wavelength (526).
   T6 (computed; estimate) How far the seed phase is from linear.  On the record's shell (kn_gauge K8's profile, scaled
      to each case's r_hf) the wave's strain at the horizon is h_H = sqrt 2 lam_rec sqrt(mu') mu^(-3/4) (hf_mirror5's
      P1 at r = r_h, with mu' = (2/9) A^2 env^2) and the hole's growth per light-crossing is mu'/sqrt(mu).  Both are
@@ -381,7 +384,8 @@ def compute():
     nl = nonlinear(cs, esc, lam)
     return dict(words=words(), vec=vector_free(), tt=tt_ode(), zer=zerilli(), d=d, n=len(d["rows"]),
                 flux=max(abs(R + T - 1) for k, x, R, T in d["rows"]), top=top, esc=esc, lamleast=lam_least(I, cs),
-                nl=nl, so=so_bound(esc, nl), pS=pS, pT=pT)
+                nl=nl, so=so_bound(esc, nl), pS=pS, pT=pT,
+                scan={w: escape(I, cs, w) for w in (2*np.pi, 10.0, 20.0)})
 
 
 def checks(o):
@@ -411,6 +415,12 @@ def checks(o):
     ll = o["lamleast"]
     ch["T5 the least seed suffices only for lam <= 1.943 l5 (copper), 2.509 l5 (example)"] = (
         abs(ll["copper"] - 1.943) < 0.002 and abs(ll["example"] - 2.509) < 0.002)
+    sc = o["scan"]
+    ch["T5 across the window (lam > 2 pi l5): copper 116, 324, 1477 l5^2 at 2 pi, 10, 20 l5; the least seed never"] = (
+        abs(sc[2*np.pi]["copper"]["mu0"] - 116) < 1 and abs(sc[10.0]["copper"]["mu0"] - 324) < 1
+        and abs(sc[20.0]["copper"]["mu0"] - 1477) < 2 and abs(sc[2*np.pi]["example"]["mu0"] - 69) < 1
+        and abs(sc[20.0]["example"]["mu0"] - 924) < 2 and not sc[20.0]["copper"]["ok"][1000.0]
+        and all(v[n_]["nhalf"] > 1 for v in sc.values() for n_ in v))
     n = o["nl"]
     ch["T6 where escape is decided: h_H <= 2.6e-4 / 1.62e-3, growth per crossing <= 7.6e-6 / 1.8e-4"] = (
         abs(n["copper"]["hH"] - 2.60e-4) < 0.05e-4 and abs(n["example"]["hH"] - 1.62e-3) < 0.02e-3
@@ -439,6 +449,9 @@ def report(o=None):
               " mu0 %.0f l5^2; mu0 100 %s, 1000 %s" % (n_, e["esc0"], e["nhalf"], e["x"], e["rh"], e["mu0"],
                                                        e["ok"][100.0], e["ok"][1000.0]))
     print("  T5 the least seed delivers for lam <= %s l5" % {k: round(v, 3) for k, v in o["lamleast"].items()})
+    for w, e in o["scan"].items():
+        print("  T5 lam %5.2f l5: %s" % (w, "; ".join("%s mu0 >= %.0f l5^2 (least seed %.2g half bits)"
+                                                    % (n_, v["mu0"], v["nhalf"]) for n_, v in e.items())))
     for n_, e in o["nl"].items():
         print("  T6 %-8s strain at the horizon <= %.3g (squared %.3g = %.3g half bits), growth per crossing <= %.3g,"
               " over s in %s" % (n_, e["hH"], e["hH2"], e["hH2"]/o["esc"][n_]["half"], e["eps"], e["s_win"]))

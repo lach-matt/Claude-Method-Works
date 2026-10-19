@@ -1460,6 +1460,18 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_525_SOURCE
     _rows_525.append((c, n, s_, t))
 LEMMAS_NOW = _rows_525
+# [item 526] what is left to finish SOURCE
+NOTE_526_SOURCE = ("  [Item 526] What is left (SOURCE-REQUIRED \"Item 526\"): the board's -- the second order on "
+                   "the exact equations, and the large end; M's ruling or a derivation -- the seed's size, tied to the emitter's "
+                   "wavelength (within the window lam > 2 pi l5 the least seed never delivers: copper needs 116 l5^2 at "
+                   "2 pi l5, 324 at 10 l5, 1477 at 20 l5); M's -- the computed sequence's status, and who holds E5(N) "
+                   "in the bulk (E6)")
+_rows_526 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_526_SOURCE
+    _rows_526.append((c, n, s_, t))
+LEMMAS_NOW = _rows_526
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
