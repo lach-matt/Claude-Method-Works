@@ -61,7 +61,7 @@ is audited against Touati's proof equation by equation, and what is not proved i
 that claims the theorem."), no response paper is written unless N1* is proved and verified.
 
 **D5 (2026-10-19) Route W, what was computed.** Seated `ansatz5.py` (A1-A5; selftest 5/5, mutants 5/5) and
-`foliation5.py` (B1-B4; selftest 4/4, mutants 4/4). Two results beyond the handoff: (1) the structure of Touati's
+`foliation5.py` (B1-B4; selftest 4/4, mutants 4/4, 5/5 after D8). Two results beyond the handoff: (1) the structure of Touati's
 commutator lemma holds on five-dimensional Vaidya exactly, [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u)
 for the principal part, with a first-order remainder for the covariant operator (B3, corrected at D8); (2) the
 record's two-quadrature waves produce, at order lam, a non-oscillating term
@@ -113,3 +113,13 @@ D3's "exactly that" softened to "as this session reads it"; the GN gain marked c
 axis regularity stated as necessary conditions only; mu >= 0 stated for B1; the review's date given. The verifier's
 note that Lemma 7.8's "Since we can assume lam <= eps" was not retrievable through its route: the sentence is on p. 49
 of the text read here, and the page is now cited.
+
+**D9 (2026-10-19) The coordinates of the proof.** The proof runs on R x R^4 in ingoing Kerr-Schild form,
+g0 = eta + (mu(v)/r^2) dv dv, v = tau + r, where the T^2 axes are regular points and every tensor is a Cartesian
+array. Seated `ks5.py` (K1-K5; selftest 5/5, mutants 4/4): the pullback to the record's Vaidya metric, the inverse
+eta^-1 - (mu/r^2) L0 L0 with L0 = d_tau - xhat.d_x null and det g0 = -1, Touati's Lemma 3.1 as the exact identity
+[L0, box~] u = (2/r)(box~ u + (d_tau + d_r) L0 u) - (3/r^2) d_r u (the mass drops out; checked at exact rational
+points on every monomial of degree <= 3, and separately with symbolic base point: no nonzero coefficient), div L0 =
+-3/r with box v = 3/r (the scalar transport is L^2-neutral in the flat measure), and the background gauge source
+H0 = (-mu/r^3, mu xhat/r^3). The instructions (section 5, route W item 4) allow the data to be Cauchy data on a slice
+before the shell reaches the hole, with (i) restated on it; that is the choice taken.

@@ -4,11 +4,14 @@ The session commissioned at item 522 (`../../paper/INSTRUCTIONS-N1STAR-AND-HL-RE
 `N1STAR-STATUS.md`: N1* is **not proved**; what is proved, what is reduced and what is open are listed there, with
 the audit of every place Touati's proof uses smallness.
 
-- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D4).
+- `N1STAR-LOG.md`: M's words to this session, verbatim, and the session's decisions (D1-D9).
 - `N1STAR-STATUS.md`: the result.
 - `ansatz5.py`: route W step 1, the geometric-optics ansatz on 5D Vaidya with the phase v (A1-A5).
   `python3 ansatz5.py --selftest` (5/5, about 3 minutes), `--mutants` (5/5).
 - `foliation5.py`: route W steps 3 and 5, the null foliation, Touati's commutator lemma as an identity, the slices and
-  the domain (B1-B4). `python3 foliation5.py --selftest` (4/4, seconds), `--mutants` (4/4).
+  the domain (B1-B4). `python3 foliation5.py --selftest` (4/4, seconds), `--mutants` (5/5).
+- `ks5.py`: the coordinates of the proof, 5D Vaidya in ingoing Kerr-Schild form on R x R^4, regular at the T^2 axes;
+  Touati's commutator lemma there as an exact identity (K1-K5). `python3 ks5.py --selftest` (5/5, about 2 minutes),
+  `--mutants` (4/4, about 8 minutes).
 
-Both are stdlib plus sympy, and import nothing from the tree. The board's shared record is not edited here.
+All three are stdlib plus sympy, and import nothing from the tree. The board's shared record is not edited here.
