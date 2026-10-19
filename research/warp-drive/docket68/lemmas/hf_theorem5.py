@@ -109,6 +109,11 @@ What each part rests on.
      emitter_process C4 names lies outside it (strain 5.2 at x = 1).  Still not an analytic inequality for every
      lam: our lam lies below the computed ones, and the answer there is the exact coefficients' as the series stays
      asymptotic, which the runs show.]
+     [Item 520 (counterpart5.py): for this theorem L-UNIF' is N1* -- existence on D_T (v <= v_end + T) with
+     lam-uniform estimates for the remainder, without derivative loss and regular across the T^2 axes, on the large
+     background: five-dimensional generalised wave gauge or double null.  Touati's theorems (3+1, close to Minkowski)
+     and Huneau-Luk's (small data) do not reach it; the KN gauge loses two angular derivatives; the seed phase and the
+     0.21 belong to the 10 l5 application.  OPEN.]
 
 So, at item 513: parts (iv) and the limit of (ii) are proved exactly; (iii) holds exactly in the limit and is computed
 for every lam run; the nonlinear coupling is settled by the light cone (F5): O(1) only through the dust; (i) and the

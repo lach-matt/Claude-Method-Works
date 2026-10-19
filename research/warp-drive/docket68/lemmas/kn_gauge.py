@@ -63,6 +63,12 @@ closure.  516 found that no published gauge meets all five, and that none meets 
      v-derivative, no second derivative (K1).  The second derivatives that make Bondi's free evolution weakly
      hyperbolic (D D U in R3) are removed exactly by the torus frame.  Well-posedness of the characteristic problem
      then follows the standard energy method; that step is not machine-checked here.
+     [Item 520, counterpart5.py: K6 withdrawn.  The KN gauge's hypersurface equations are Bondi's hierarchy:
+     theta-theta fixes h_vv through d_theta^2 h_vr, and h_vv is in h^rr, so an estimate loses two angular derivatives
+     (P2).  And K5 corrected: the background Killing norms' wave operator, linearized in the base metric, holds h_vv,
+     d_r h_vv, d_theta h_vr and d_r h_vth with O(1) coefficients (P3), so the class's linear problem is linearized
+     gravity; K5's multiplier and constant 35 hold for T^2-invariant test fields, and K8's ratios are measured against
+     that energy.]
   K7 (deduced) N4.  The coordinates are the record's (K3): the sequence reaches x = 1 in them (hf_core5) and the
      boundary there is spacelike with every characteristic leaving (hf_theorem5 F2); the averaging diffeomorphism is
      O(lam^2), so the boundary stays spacelike.
@@ -79,6 +85,8 @@ closure.  516 found that no published gauge meets all five, and that none meets 
      where the waves are not high-frequency outside the hole and no positive bulk is there: the crude sup-norm
      exponent is 1.2e4 (the whole shell crude: 1.4e4; 515's e^43 was the end scale only).  That part of N5 stays
      open: it needs a weighted (Morawetz or Hardy) estimate outside the small hole in place of the sup.
+     [Item 520: the seed phase exists only above 0.144 l5 and the 0.21 is held by its edge (counterpart5 P1): both
+     belong to the 10 l5 application, not to the lam -> 0 theorem.]
 
 numpy, sympy.  Imports hf_anchor5.py (our universe's values) by path.
 python3 kn_gauge.py [--selftest | --mutants | --build-k8]   (the K8 core is cached in data/kn_gauge_k8.json, keyed by the hash of
@@ -576,8 +584,9 @@ def _k8_core():
                 kap_ext=kap_ext)
 
 
-def _k8_shell(core):
-    """over the record's shell with our universe's values: where the oscillation is absorbed, removed, or left open"""
+def _k8_shell(core, w=None):
+    """over the record's shell with our universe's values: where the oscillation is absorbed, removed, or left open
+    (w the wavelength in l5, the record's 10 by default; item 520 scans it)"""
     Zi, lam_in, kap_ext = core["Zi"], core["lam_in"], core["kap_ext"]
     A5 = _load("hf_anchor5.py", "kn8_hf_anchor5")
     R = A5.a1()
@@ -587,18 +596,20 @@ def _k8_shell(core):
     mup = dmu*env**2/((35/128)*Dd)
     muv = mu0 + np.concatenate([[0], np.cumsum((mup[1:] + mup[:-1])/2*np.diff(s*Dd))])
     Ap = np.sqrt(9*dmu/(2*Dd*(35/128)))*env/muv**0.25
-    w = 20.0 if "w20" in MUT else 10.0
+    w = w if w is not None else (20.0 if "w20" in MUT else 10.0)
     zhf = np.sqrt(10*w*72**0.25/(np.sqrt(muv)*rh))
     ratio = Ap*np.interp(np.minimum(zhf, Z_G), Zi, lam_in)
     seedph = zhf > Z_G
     f = kap_ext*Ap/np.sqrt(muv)
     strain = (2/3)*(w/(2*np.pi)/rh)*Ap/np.sqrt(muv)/Z_G**1.5
     late = np.trapezoid(np.where(~seedph, f*(1 if "no_averaging" in MUT else strain), 0), s*Dd)
+    sp_ = seedph.any()
     return dict(core, ratio=float(ratio.max()), s_ratio=float(s[ratio.argmax()]),
-                seed_s=float(s[seedph].max()), seed_sqrtmu=float(np.sqrt(muv[seedph].max())*rh),
+                seed_s=float(s[seedph].max()) if sp_ else 0.0,
+                seed_sqrtmu=float(np.sqrt(muv[seedph].max())*rh) if sp_ else 0.0,
                 seed_energy=float(mup[seedph].sum()/mup.sum()),
                 seed_crude=float(np.trapezoid(np.where(seedph, f, 0), s*Dd)), late=float(late),
-                late_strain=float(strain[~seedph].max()), crude_all=float(np.trapezoid(f, s*Dd)))
+                late_strain=float(strain[~seedph].max()), crude_all=float(np.trapezoid(f, s*Dd)), w=w)
 
 
 def compute():

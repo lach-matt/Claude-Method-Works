@@ -3076,3 +3076,68 @@ NOT chasing a chaucy horizon again" -- confirmed: see the last point.
   - L-UNIF' therefore narrows to these three. It is not proved.
   - No inner or Cauchy horizon enters anywhere (519): the background's f = 1 - mu/r^2 has one root, and the domain
     ends at the spacelike x = 1.
+
+## 53. The counterpart proof: what finishing it takes, measured; 517's N1 and N2 corrected (520; lemmas/counterpart5.py, 8/8, mutants 4/4)
+
+M, 520: "Can you finish the counterpart proof?" The board's reading: THM-HF5 (511), the proof 497-498 named "the 5D
+counterpart of Huneau and Luk's nonlinear theorem", whose one open lemma, L-UNIF', 517-519 narrowed to three points.
+`counterpart5.py`, 8/8, mutants 4/4.
+
+- **Not finished.** What finishing takes is now measured, and two of 517's claims are corrected.
+- **The seed phase and the 0.21 belong to the application, not to the counterpart theorem (P1, computed).**
+  - THM-HF5 is a statement as lam -> 0 at fixed mu0, A and env.
+  - The Kretschmann scalar of 5D Tangherlini is 72 mu^2/r^8 (computed from the metric). So a wave is shorter than a
+    tenth of the curvature radius where z^2 > 10 72^(1/4) lam/sqrt(mu). That holds on all of D whenever
+    lam < l5/10.
+  - The seed phase exists only when lam > 0.144 l5 (at the least seed). It holds 7.7e-6 of the energy at 10 l5,
+    5.4e-9 at 0.3 l5, and none at 0.1 l5.
+  - Measured against the test-field energy, 517's exponents behave as follows:
+    - the crude exponent is 1.384e4 at every wavelength;
+    - the "second order" stays near 0.21 from 10 l5 down to 0.3 l5, because the seed phase's edge holds it, so
+      517's "second order, estimate 0.21" was not a small-lam property;
+    - once the seed phase is gone, it falls in proportion to lam: 0.148 at 0.1 l5, 0.0148 at 0.01 l5.
+  - In the lam -> 0 theorem every constant is independent of lam, so a crude estimate suffices -- if the estimate
+    exists at all.
+- **517's K6 is withdrawn: the KN gauge loses two angular derivatives (P2, computed).**
+  - h^vv = h^vth = 0 exactly, so no second v-derivative appears anywhere. The high-frequency structure is right.
+  - The hypersurface equations form Bondi's hierarchy:
+    - rr fixes h_vr from (d_r psi)^2 and (d_r omega)^2;
+    - r-theta fixes h_vth through d_theta h_vr;
+    - theta-theta fixes h_vv through d_theta^2 h_vr and d_r d_theta h_vth.
+  - h_vv sits in h^rr, the coefficient of d_r^2 in box_h. So an estimate with k angular derivatives needs k + 2.
+    Bondi's weak hyperbolicity survives the torus frame.
+- **517's K5 is corrected: N2 was proved for test fields (P3, computed).**
+  - On the background, box_h psi0 = box_h omega0 = 0. Their linearizations in the base metric are not zero:
+    - the one for psi holds h_vv and d_r h_vv;
+    - the one for omega holds d_theta h_vr and d_r h_vth;
+    - both with O(1) coefficients.
+  - So the remainder of the Killing norms is driven by the base metric's remainder at O(1).
+  - The class's linear problem is therefore linearized gravity in the T^2-mirror class (515, item 2, open on a growing
+    hole), not the test-field wave equation.
+  - The multiplier and the constant 35 stand for T^2-invariant test fields. K8's ratio 0.92 and its exponents are
+    measured against that test-field energy.
+- **Prior art for the remaining step (P4, READ 2026-10-19).**
+  - Touati, Commun. Math. Phys. 402, 3109 (2023), Theorem 2.2, and Touati, arXiv:2402.17530, Theorem 1.3:
+    - 3+1 dimensions, on [0, 1] x R^3, with the background "close to Minkowski";
+    - even in wave gauge "their coupling induces a loss of derivatives", regained "by a null foliation associated to
+      g0 as well as a Fourier cut-off".
+  - Huneau and Luk: small data, elliptic gauge.
+  - Luk and Rodnianski: 3+1, double null, local.
+  - None treats a large background, five dimensions, or the fixed points (axes) of a symmetry.
+- **What finishing takes (P5, deduced).**
+  - The counterpart theorem is THM-HF5 on D_T (v <= v_end + T, for each fixed T), as Huneau-Luk's and Touati's
+    theorems hold on a fixed time.
+  - Already in hand:
+    - the limit and part (iv), exact (511);
+    - v null at every lam, with no second v-derivative anywhere (F5, P2);
+    - every constant independent of lam, and no seed phase below 0.144 l5 (P1).
+  - OPEN, named **N1***: existence on D_T for lam <= lam0, with lam-uniform energy estimates for the remainder. It
+    needs a formulation without derivative loss and regular across the T^2 axes: five-dimensional generalised wave
+    gauge (Touati's route) or double null (Luk and Rodnianski's). It must hold on the large background, 5D Vaidya with
+    its interior to x = 1. No published theorem gives it, and a proof is the size of Touati's 2023 paper.
+  - Beyond D_T, the settling after the shell is the nonlinear stability of 5D Tangherlini in the class (open, 515).
+  - The application at 10 l5 needs, besides N1*, control of linearized gravity in the class over the shell (P3). The
+    seed phase and the 0.21 close there.
+  - No inner or Cauchy horizon enters: D ends at the spacelike x = 1 (519).
+- **Status.** For the counterpart theorem, L-UNIF' now stands as N1*. For the 10 l5 application it stands as N1* plus
+  those three points. It is not proved, and the status is M's.

@@ -1404,6 +1404,19 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_517_SOURCE
     _rows_517.append((c, n, s_, t))
 LEMMAS_NOW = _rows_517
+# [item 520] the counterpart proof: what finishing it takes, measured; 517's N1 withdrawn and N2 corrected
+NOTE_520_SOURCE = ("  [Item 520] The counterpart proof (counterpart5.py): not finished.  517's N1 withdrawn -- the KN gauge "
+                   "loses two angular derivatives (Bondi's hierarchy); 517's N2 holds for test fields -- the Killing norms' "
+                   "remainder couples to the base metric at O(1), so the class's linear problem is linearized gravity.  "
+                   "The seed phase and the 0.21 belong to the 10 l5 application; the lam -> 0 theorem needs one lemma, "
+                   "N1*: existence on D_T with lam-uniform estimates without loss, regular across the axes, on the large "
+                   "background.  OPEN")
+_rows_520 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_520_SOURCE
+    _rows_520.append((c, n, s_, t))
+LEMMAS_NOW = _rows_520
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1609,7 +1622,9 @@ def lemma_selftests():
               # item 516: every gauge for L-UNIF' measured against its five needs
               "gauge5.py",
               # items 517-519: the KN gauge, derived from the five needs and proved to meet them in part
-              "kn_gauge.py"):
+              "kn_gauge.py",
+              # item 520: what finishing the counterpart proof takes; 517's N1 and N2 corrected
+              "counterpart5.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
