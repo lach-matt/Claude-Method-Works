@@ -3141,3 +3141,36 @@ counterpart of Huneau and Luk's nonlinear theorem", whose one open lemma, L-UNIF
   - No inner or Cauchy horizon enters: D ends at the spacelike x = 1 (519).
 - **Status.** For the counterpart theorem, L-UNIF' now stands as N1*. For the 10 l5 application it stands as N1* plus
   those three points. It is not proved, and the status is M's.
+
+## 54. SOURCE continued: the seed's escape at 10 l5 (522; lemmas/seed_escape.py, 11/11, mutants 4/4)
+
+M, 522: "Two tasks: Continue SOURCE AND Prepare instructions for another session ...". The handoff is done
+(`research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`). This section is SOURCE.
+- **The question.** While the hole is small against the wavelength it reflects part of the shell, and that part
+  leaves. SOURCE needs E5(N) in the hole to within half a bit, 1/(3N) of it (E5 ~ N^(2/3); emitter_process C1).
+- **The barrier** (computed, exact; READ). V = f[((l+1)^2 - 1/4)/r^2 + 9 mu/(4 r^4)] for a massless field on
+  five-dimensional Tangherlini. Kodama and Ishibashi (Prog. Theor. Phys. 110, 701 (2003)): "k_T^2 = l(l + n - 1) - 2"
+  (5.2) and "box H_T + (n/r) Dr.DH_T - (k_T^2 + 2K)/r^2 H_T = 0" (5.3). At n = 3, K = 1 the tensor-type wave obeys
+  the massless scalar's equation.
+- **Reflection** (computed). 1681 integrations (DOP853, rtol 1e-11, matched to Hankel waves at r* = 150 r_h), l = 2k,
+  k = 0..45, cached in `lemmas/data/seed_escape_R.json` under a hash of the solver's code.
+  - R + T = 1 to 1.2e-9; R near 1/2 at the top, w r_h = (l+1)/2.
+  - Above the top R falls 1e3-6e3 per unit of w r_h. At l = 0 the far slope is 2 pi, the law set by the potential's
+    singularity at r = 0 (Im r* = pi r_h/2).
+- **Angular power** (computed). On P_k(cos 2 theta), l = 2k: p0 = 0.7768, p1 = 0.2129, sum 1; successive ratios
+  alternate about (1 + sqrt 2)^(-2), the poles of h at x = +-i.
+- **Escape** (deduced). The share leaving as the hole grows from r_h0 is (2/(w r_hf)^2) int x S(x) dx, with
+  S = sum p_k R_2k, to first order in S.
+- **At 10 l5** (computed):
+  - The record's least seed (sqrt 72 l5^2): 3.97e-15 of the energy out, 1.5e7 half bits (copper), 2.0e5 (example).
+  - Least seed for half a bit: r_h0 17.95 l5, mu0 322 l5^2 (copper); 13.96 l5, 195 l5^2 (example).
+  - hf_core5's seeds: mu0 = 1000 passes both, mu0 = 100 fails both.
+  - Labelling moved by one: 16.3-19.6 l5 (copper), 12.3-15.7 l5 (example); the verdicts stand.
+  - The least seed suffices only for lam <= 1.95 l5 (copper), 2.52 l5 (example).
+- **Deduced.** SOURCE at 10 l5 needs a seed of at least 322 l5^2 (copper); 508's sqrt 72 l5^2 is the least hole,
+  not the least seed for delivery. 521's twenty wavelengths is the remainder estimate's edge, not this requirement.
+- **Caveats.** Scalar harmonics carry the angular content (tensor-type barrier identical, READ; scalar-type the same
+  at high l, not computed). Linear adiabatic scattering (dr_h/dv <= 0.0110 on the record's shell). Beyond the window
+  R follows the e^(-2 pi) law, an over-estimate of escape.
+- **Status.** Open for SOURCE: the scalar-type barrier at low l and nonlinear scattering in the seed phase. SOURCEs
+  and SOURCE stay OPEN; who holds E5(N) in the bulk (E6) is M's.

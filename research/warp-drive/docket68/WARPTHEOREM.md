@@ -98,7 +98,20 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 520.** M asked to finish the counterpart proof (THM-HF5). It is not finished; what finishing takes is measured (`counterpart5.py`, 8/8, mutants 4/4), and two of 517's claims are corrected. The KN gauge loses two angular derivatives (its theta-theta equation fixes h_vv through d_theta^2 h_vr, and h_vv is the coefficient of d_r^2 in box_h), so 517's N1 is withdrawn. N2 was proved for test fields: the background Killing norms' wave operator, linearized in the base metric, holds h_vv and its derivatives with O(1) coefficients, so the class's linear problem is linearized gravity (515, item 2, open). The seed phase (only above 0.144 l5) and the 0.21 (held by the seed phase's edge) belong to the 10 l5 application, not to the lam -> 0 theorem, in which every constant is independent of lam. What the counterpart theorem still needs is one lemma, N1*: existence on D_T with lam-uniform estimates, in a formulation without derivative loss and regular across the T^2 axes (five-dimensional wave gauge or double null), on the large background. Touati's theorems (3+1, close to Minkowski) and Huneau-Luk's (small) do not reach it. No inner or Cauchy horizon enters. The status is M's.
+**Where it stands, at item 522.** SOURCE continued (`seed_escape.py`, 11/11, mutants 4/4). The seed phase is
+computed at the anchored wavelength as linear scattering off the growing hole: the barrier is exact (Kodama and
+Ishibashi's tensor-type potential is the massless scalar's, READ), with 1681 reflection integrations and the record's
+angular power. At 10 l5 the record's least seed (sqrt 72 l5^2) lets 3.97e-15 of the shell's energy out, 1.5e7 half
+bits for copper and 2.0e5 for the example README: SOURCE fails at the least seed. Delivery within half a bit needs
+r_h0 >= 17.95 l5, mu0 >= 322 l5^2 (copper; 13.96 l5 and 195 l5^2 for the example). hf_core5's seed mu0 = 1000 l5^2
+meets both, mu0 = 100 neither, and moving the harmonic labelling by one keeps the verdicts. 508's sqrt 72 l5^2 is
+the least hole, not the least seed for delivery; it suffices only for lam <= 1.95 l5 (copper). Open for SOURCE: the
+scalar-type barrier at low l and nonlinear scattering in the seed phase. SOURCE does not rest on N1* (521). N1* and
+the counterpart theorem, with a response paper to Huneau and Luk, are handed to another session:
+`research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`. No inner or Cauchy horizon enters. The status
+is M's.
+
+**Where it stood at item 520.** M asked to finish the counterpart proof (THM-HF5). It is not finished; what finishing takes is measured (`counterpart5.py`, 8/8, mutants 4/4), and two of 517's claims are corrected. The KN gauge loses two angular derivatives (its theta-theta equation fixes h_vv through d_theta^2 h_vr, and h_vv is the coefficient of d_r^2 in box_h), so 517's N1 is withdrawn. N2 was proved for test fields: the background Killing norms' wave operator, linearized in the base metric, holds h_vv and its derivatives with O(1) coefficients, so the class's linear problem is linearized gravity (515, item 2, open). The seed phase (only above 0.144 l5) and the 0.21 (held by the seed phase's edge) belong to the 10 l5 application, not to the lam -> 0 theorem, in which every constant is independent of lam. What the counterpart theorem still needs is one lemma, N1*: existence on D_T with lam-uniform estimates, in a formulation without derivative loss and regular across the T^2 axes (five-dimensional wave gauge or double null), on the large background. Touati's theorems (3+1, close to Minkowski) and Huneau-Luk's (small) do not reach it. No inner or Cauchy horizon enters. The status is M's.
 
 **Where it stood at item 519.** As at 516, with a new gauge derived from L-UNIF''s five needs and proved to meet them in part (`kn_gauge.py`, 18/18, mutants 10/10). In the T^2-mirror class, five-dimensional vacuum is exactly 2+1 gravity on the torus frame h = rho^2 g3 with two free scalars, the Killing norms; 2+1 gravity carries no waves, so all the radiation is in gauge-invariant scalars obeying linear wave equations, and the energy identity of any such field sees only h. The KN gauge is the record's own Bondi coordinates read in that frame with those unknowns, averaged by one fast near-identity diffeomorphism. N2 is proved: the linear problem is the scalar wave equation on growing Vaidya, and a new multiplier with Dafermos-Rodnianski's argument bounds its energy uniformly, across the horizon to x = 1, with constant 35. N3 is exact: the base metric's oscillation is pure gauge (2+1 has no polarizations) and is removed. N4 is the record's coordinates. N1's structure is exact, its energy method not machine-checked. N5: the first-order oscillation is absorbed or removed over the whole shell; the second order after the seed phase is an estimate (exponent 0.21); the seed phase, while the hole is under 20 wavelengths, stays open (crude exponent 1.2e4). L-UNIF' narrows to those; no inner or Cauchy horizon enters (519). The background tasks: runs 12 and 13 merged, the mu0/l5^2 = 1000 sequence on the x = 20 grid, hf_core5 10/10. The status is M's.
 
@@ -2090,7 +2103,12 @@ state was rebuilt first.
 - **Item 522** (M: continue SOURCE; hand N1* and the counterpart theorem to another session, then a response paper to Huneau
   and Luk). Handoff done: `research/warp-drive/paper/INSTRUCTIONS-N1STAR-AND-HL-RESPONSE.md`, `docket68/handoff-n1star/`
   (MANIFEST.tsv, 54 files with md5s; the scratch derivations pushed). The other session works on its own branch and leaves
-  the shared record to this board. SOURCE continues here.
+  the shared record to this board.
+  - SOURCE continued (`lemmas/seed_escape.py`, 11/11, mutants 4/4; SOURCE-REQUIRED "Item 522"; BOUNCE-RESEARCH 54).
+    The seed's escape at 10 l5, by linear scattering on the exact barrier (KI's tensor-type potential, READ).
+  - The record's least seed (sqrt 72 l5^2) lets 1.5e7 half bits out (copper; 2.0e5 for the example README).
+    Delivery within half a bit needs mu0 >= 322 l5^2 (copper; 195 for the example); hf_core5's 1000 meets it.
+  - The labelling moved by one keeps the verdicts. Open: the scalar-type barrier at low l, nonlinear scattering.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

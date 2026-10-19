@@ -21,7 +21,38 @@ you work on the proof, so it'll all need to be pushed to the repo and identified
     their own README.
   - The other session works on its own branch, based on this one. It leaves the board's shared record (rulings,
     WARPTHEOREM, map, register, write-ups) untouched and logs its own work; this board integrates on M's direction.
-- **SOURCE continues here** (below, once computed).
+- **SOURCE continued: the seed's escape at 10 l5 (computed; `lemmas/seed_escape.py`, 11/11, mutants 4/4).**
+  - The question. 517-521 left the seed phase open: while the hole is small against the wavelength, it reflects part
+    of what arrives, and that part leaves. SOURCE needs E5(N) in the hole to within half a bit, which is 1/(3N) of it
+    (2.6e-22 for copper, 1.2e-16 for the example README). This is linear scattering off the hole as it stands, not
+    N1* (521).
+  - The barrier (computed, exact; READ). A massless field on five-dimensional Tangherlini meets
+    V = f[((l+1)^2 - 1/4)/r^2 + 9 mu/(4 r^4)]. Kodama and Ishibashi's tensor-type equation (Prog. Theor. Phys. 110,
+    701 (2003), (5.2)-(5.3)) is the same equation at n = 3. The top sits near w r_h = (l+1)/2.
+  - Reflection (computed). 1681 integrations, l = 2k for k = 0..45, cached under a hash of the solver's code.
+    R + T = 1 to 1.2e-9. R is near 1/2 at the top; above it R falls 1e3-6e3 per unit of w r_h; at l = 0 the far
+    fall is e^(-2 pi w r_h).
+  - Angular power (computed). The record's profiles on the torus-invariant harmonics P_k(cos 2 theta): p0 = 0.7768,
+    p1 = 0.2129, the tail falling as (1 + sqrt 2)^(-2k).
+  - Escape (deduced). As the hole grows by absorbing the shell, the share leaving is (2/(w r_hf)^2) int x S(x) dx,
+    from w r_h0 up.
+  - At 10 l5 (computed):
+    - The record's least seed (508: sqrt 72 l5^2, r_h 2.913 l5) lets 3.97e-15 of the energy out. That is 1.5e7 half
+      bits for copper and 2.0e5 for the example README. SOURCE fails at the least seed.
+    - The least seed for half a bit is r_h0 = 17.95 l5, mu0 = 322 l5^2 (copper); 13.96 l5, 195 l5^2 (example).
+    - hf_core5's computed seeds: mu0 = 1000 l5^2 passes both; mu0 = 100 fails both.
+    - Moving the harmonic labelling by one gives 16.3-19.6 l5 (copper) and 12.3-15.7 l5 (example). The verdicts
+      stand.
+    - The record's least seed delivers within half a bit only for lam <= 1.95 l5 (copper) or 2.52 l5 (example).
+  - What SOURCE now holds (deduced). At 10 l5 the seed must be a size (508) of at least 322 l5^2 for copper, and
+    hf_core5's runs at mu0 = 1000 meet it. 508's sqrt 72 l5^2 is the least hole, not the least seed for delivery.
+    521's "a seed over about 20 wavelengths" is where the remainder estimate's seed phase ends, not this requirement;
+    here r_h0 >= 1.8 lam.
+  - Caveats. The angular content rides on scalar harmonics: the tensor-type barrier is identical (READ), and the
+    scalar-type is the same at high l but not computed. Scattering is linear and adiabatic (dr_h/dv <= 0.0110 on the
+    record's shell). Beyond the computed window R follows the e^(-2 pi) law, which over-estimates escape.
+  - Open for SOURCE: the scalar-type barrier at low l, and nonlinear scattering in the seed phase. Who holds E5(N) in
+    the bulk (E6), and the sequence's status, are M's. SOURCEs and SOURCE stay OPEN.
 
 ## Item 521: does SOURCE need N1*? No -- what SOURCE rests on instead
 

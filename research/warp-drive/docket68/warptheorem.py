@@ -1429,6 +1429,21 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_521_SOURCE
     _rows_521.append((c, n, s_, t))
 LEMMAS_NOW = _rows_521
+# [item 522] SOURCE continued: the seed's escape at the anchored wavelength, and the least seed for half a bit
+NOTE_522_SOURCE = ("  [Item 522] The seed phase computed (seed_escape.py): linear scattering off the growing hole, the "
+                   "barrier exact (KI's tensor-type potential is the massless scalar's, READ), 1681 reflection "
+                   "integrations, the record's angular power.  At 10 l5 the record's least seed (sqrt 72 l5^2) lets "
+                   "3.97e-15 of the energy out (copper: 1.5e7 half bits; the example README 2.0e5): SOURCE fails there.  "
+                   "Within half a bit needs r_h0 >= 17.95 l5, mu0 >= 322 l5^2 (copper; 13.96 l5, 195 l5^2 for the "
+                   "example); hf_core5's mu0 = 1000 passes both, 100 fails both; the labelling moved by one keeps the "
+                   "verdicts.  The least seed suffices only for lam <= 1.95 l5 (copper).  Open: the scalar-type "
+                   "barrier at low l and nonlinear scattering in the seed phase")
+_rows_522 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_522_SOURCE
+    _rows_522.append((c, n, s_, t))
+LEMMAS_NOW = _rows_522
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1636,7 +1651,9 @@ def lemma_selftests():
               # items 517-519: the KN gauge, derived from the five needs and proved to meet them in part
               "kn_gauge.py",
               # item 520: what finishing the counterpart proof takes; 517's N1 and N2 corrected
-              "counterpart5.py"):
+              "counterpart5.py",
+              # item 522: SOURCE continued -- the seed's escape at 10 l5 and the least seed for half a bit
+              "seed_escape.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
