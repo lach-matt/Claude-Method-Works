@@ -122,3 +122,17 @@ points on every monomial of degree <= 3, and separately with symbolic base point
 -3/r with box v = 3/r (the scalar transport is L^2-neutral in the flat measure), and the background gauge source
 H0 = (-mu/r^3, mu xhat/r^3). The instructions (section 5, route W item 4) allow the data to be Cauchy data on a slice
 before the shell reaches the hole, with (i) restated on it; that is the choice taken.
+
+**2026-10-19, M, verbatim (while the proof of the evolution theorem was being written):**
+
+> Continue
+
+**D10 (2026-10-19) The architecture of the proof, and the evolution theorem written.** `N1STAR-PROOF.md` splits
+N1* into Theorem E (evolution), Theorem A (the approximant to order K) and Theorem D (exact data). The decision that
+removes Touati's smallness: carry the approximant to order K >= 6, so the remainder is O(lam^K) in lam-scaled norms
+and every nonlinear term is beaten by a power of lam; what must be uniform is then a linear estimate on the large
+background. Its one 1/lam coefficient, (1/2) lam^-1 w(ell, ell) d_th^2 g1, is removed by the phase shift phi d_th g1
+(phi transported by a mollified w(ell, ell)), because a constant phase shift is a symmetry of the leading equation
+(Lemma 3.1: the 1/lam part of the linearised operator annihilates d_th g1); the second derivatives of phi are
+recovered by `ks5.py` K3 and the w(ell, ell) equation, which has no 1/lam term (Lemma 3.3). Sections 1-4 prove
+Theorem E (deduced); A and D are OPEN. N1* is not yet proved.
