@@ -5,6 +5,47 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 525: SOURCE continued -- the scalar-type barrier and the second order
+
+M, 525: "Continue with SOURCE please"
+
+- **What 522 left open:** the scalar-type barrier at low l, and nonlinear scattering in the seed phase. Both are
+  computed here (`lemmas/seed_types.py`, 12/12, mutants 5/5).
+- **The record's waves, split exactly into Kodama and Ishibashi's types** (computed, exact).
+  - The class holds scalar-type and tensor-type perturbations only. Its reflections forbid every component odd in
+    phi1 or phi2, and a divergence-free vector on S^3 with only a theta component is C/(s c), singular at both axes.
+  - The class's tensor-type harmonics solve Gegenbauer's equation, A'' + 6 cot(2 theta) A' + (k_T^2 - 6) A = 0:
+    A_j = C_j^(3/2)(cos 2 theta), l = 2j + 2.
+  - Projected in the energy norm, the record's F and G radiation is 0.639 scalar type and 0.361 tensor type, summing
+    to 1 to 1e-15. l = 2 holds 0.988. 522's proxy had put 0.777 at l = 0, which carries no radiation.
+- **The scalar-type barrier** (READ; computed). Kodama and Ishibashi, Prog. Theor. Phys. 110, 701 (2003), (3.6)-(3.7):
+  "V_S(r) = f(r) Q(r) / (16 r^2 H^2)". The transcription reproduces Zerilli's potential exactly at n = 2. 1655
+  reflection integrations, cached under a hash of their code. The scalar type reflects far less at low l: at l = 2
+  its top reflects 0.0018, against the tensor type's 0.557.
+- **Escape and the least seed at 10 l5** (computed).
+  - Copper: the least seed (sqrt 72 l5^2) lets 1.87e7 half bits out. Delivery needs r_h0 >= 17.99 l5,
+    mu0 >= 324 l5^2.
+  - The example README: 2.41e5 half bits; 14.10 l5, 199 l5^2.
+  - hf_core5's mu0 = 1000 passes both, and 100 fails both. The least seed suffices only for lam <= 1.94 l5 (copper).
+  - 522's verdicts stand; its numbers move by under 1%. The escape near w r_h = 11 is decided by modes of l near 20
+    at their barrier tops, where the two types differ less.
+- **How far from linear** (computed). Where the escape is decided, the wave's strain at the horizon is <= 2.6e-4
+  (copper) and 1.6e-3 (example), and the hole grows by <= 7.6e-6 and 1.8e-4 per light-crossing. The first order is a
+  good expansion. But h_H^2 is 2.6e14 half bits (copper): whether the second order leaves decides delivery.
+- **Whether the second order leaves** (computed on model couplings; estimate).
+  - The steady second-order part is the round dust, l = 0. By Birkhoff it changes the mass and radiates nothing.
+  - The part at 2w is driven by c(r) psi1^2, with model couplings c = f/r^p, p = 3, 6, rational and singular only at
+    r = 0, as the second-order couplings on Tangherlini are. Its outgoing-to-ingoing amplitude ratio falls as
+    e^(-s w r_h), s = 5.7-6.9, near the 2 pi set by the phase mismatch against the singularity at Im r* = pi r_h/2,
+    for l2 = 2, 4 and both types.
+  - A passing seed starts at w r_h >= 11.3 (copper) and only grows. With a deliberately low slope of 3, the escaping
+    second order is <= 1.1e-16 half bits (copper) and 2.1e-14 (example).
+- **What SOURCE now holds** (deduced). At 10 l5 the seed delivers E5(N) within half a bit if mu0 >= 324 l5^2 (copper),
+  199 l5^2 (example): to first order on the exact barriers, with the second order estimated far below. hf_core5's
+  computed seed, 1000 l5^2, meets it.
+- **Open:** the second order on the exact second-order Einstein equations (here model couplings). Who holds E5(N) in
+  the bulk (E6), and the sequence's status, are M's. SOURCEs and SOURCE stay OPEN.
+
 ## Item 522: SOURCE continued; N1* and the response paper handed to another session
 
 M, 522: "Two tasks: Continue SOURCE AND Prepare instructions for another session to finish N1* and the counterpart

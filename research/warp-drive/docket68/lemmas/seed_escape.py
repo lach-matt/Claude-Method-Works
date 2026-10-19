@@ -48,6 +48,9 @@ not N1* (521): it is linear scattering off the hole as it stands, at the anchore
   rate).  Beyond the computed window R is extended by the e^(-2 pi) law from its last value above 1e-15 -- slower than
   the computed fall, so an over-estimate of escape.
 
+At 525 (seed_types.py) E3's scalar-harmonic proxy is replaced by the exact split into Kodama and Ishibashi's scalar
+and tensor types, the scalar type on its own barrier; the verdicts stand and the numbers move by under 1%.
+
 Imports emitter_process.py and hf_anchor5.py by path.  numpy, scipy, sympy, mpmath.
 python3 seed_escape.py [--selftest | --mutants | --build-grid]
 """

@@ -98,7 +98,17 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 522.** SOURCE continued (`seed_escape.py`, 11/11, mutants 4/4). The seed phase is
+**Where it stands, at item 525.** SOURCE continued (`seed_types.py`, 12/12, mutants 5/5): the two points 522 left open
+are computed. The record's waves split exactly into Kodama and Ishibashi's scalar type (0.639) and tensor type (0.361),
+with no vector type, and the scalar type gets its own barrier, KI's V_S (READ, checked against Zerilli at n = 2). At 10
+l5, delivery within half a bit needs mu0 >= 324 l5^2 (copper) and 199 l5^2 (the example README), against 522's 322 and
+195: the verdicts stand. Where escape is decided, the wave's strain at the horizon is <= 2.6e-4 (copper), so the first
+order holds; but its square is 2.6e14 half bits, so the second order decides. On model couplings the second order at 2w
+escapes as e^(-s w r_h), s = 5.7-6.9, which from w r_h >= 11.3 gives <= 1.1e-16 half bits even at a slope of 3.
+hf_core5's seed (1000 l5^2) meets the requirement; 508's sqrt 72 l5^2 does not. Open for SOURCE: the second order on the
+exact second-order equations. N1* is with another session (524). No inner or Cauchy horizon enters. The status is M's.
+
+**Where it stood at item 522.** SOURCE continued (`seed_escape.py`, 11/11, mutants 4/4). The seed phase is
 computed at the anchored wavelength as linear scattering off the growing hole: the barrier is exact (Kodama and
 Ishibashi's tensor-type potential is the massless scalar's, READ), with 1681 reflection integrations and the record's
 angular power. At 10 l5 the record's least seed (sqrt 72 l5^2) lets 3.97e-15 of the shell's energy out, 1.5e7 half
@@ -2114,6 +2124,12 @@ state was rebuilt first.
   the branch's head: `handoff-n1star/MANIFEST.tsv` re-taken (the proof's instruments byte-identical to 522's; only
   the record files moved), the instructions noting that 522's SOURCE work (`seed_escape.py`) is not N1*, and the
   message that starts the session added to `handoff-n1star/README.md`.
+- **Item 525** (M: "Continue with SOURCE please"). The two points 522 left open, computed (`lemmas/seed_types.py`,
+  12/12, mutants 5/5; SOURCE-REQUIRED "Item 525"; BOUNCE-RESEARCH 55).
+  - The record's waves split exactly into KI's scalar type (0.639) and tensor type (0.361); the scalar type on KI's
+    V_S (READ, checked against Zerilli). Delivery at 10 l5 needs mu0 >= 324 l5^2 (copper; 199 for the example).
+  - The strain where escape is decided is <= 2.6e-4 (copper); the second order at 2w escapes as e^(-s w r_h),
+    s = 5.7-6.9 on model couplings: <= 1.1e-16 half bits. Open: the exact second-order equations.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

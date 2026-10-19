@@ -3174,3 +3174,26 @@ M, 522: "Two tasks: Continue SOURCE AND Prepare instructions for another session
   R follows the e^(-2 pi) law, an over-estimate of escape.
 - **Status.** Open for SOURCE: the scalar-type barrier at low l and nonlinear scattering in the seed phase. SOURCEs
   and SOURCE stay OPEN; who holds E5(N) in the bulk (E6) is M's.
+
+## 55. SOURCE continued: the scalar-type barrier and the second order (525; lemmas/seed_types.py, 12/12, mutants 5/5)
+
+M, 525: "Continue with SOURCE please". The two points 522 (section 54) left open, computed.
+- **The split** (computed, exact). The record's class holds Kodama and Ishibashi's scalar and tensor types only (the
+  reflections forbid the rest; a theta-only divergence-free vector on S^3 is singular). Its tensor-type harmonics are
+  C_j^(3/2)(cos 2 theta), l = 2j + 2 (Gegenbauer's equation, computed). The record's F and G radiation is 0.639 scalar
+  type and 0.361 tensor type, to 1e-15; l = 2 holds 0.988.
+- **The scalar-type barrier** (READ; computed). KI (3.6)-(3.7), transcribed and checked against Zerilli at n = 2;
+  1655 integrations. At l = 2 the top reflects 0.0018 (tensor type 0.557).
+- **At 10 l5** (computed). Copper: the least seed lets 1.87e7 half bits out; delivery needs mu0 >= 324 l5^2
+  (r_h0 17.99 l5). The example README: 2.41e5 half bits; 199 l5^2 (14.10 l5). mu0 = 1000 passes both, 100 fails
+  both; the least seed suffices only for lam <= 1.94 l5 (copper). Section 54's numbers move by under 1%.
+- **Linearity** (computed). Where escape is decided the strain at the horizon is <= 2.6e-4 (copper), 1.6e-3
+  (example); the growth per crossing <= 7.6e-6, 1.8e-4. The square of the strain is 2.6e14 half bits, so the second
+  order decides.
+- **The second order** (computed on model couplings; estimate). Steady part: the round dust, l = 0, radiating
+  nothing (Birkhoff). At 2w, driven by c(r) psi1^2 (c = f/r^p, p = 3, 6): outgoing over ingoing falls as e^(-s w r_h),
+  s = 5.7-6.9, for l2 = 2, 4 and both types. From w r_h >= 11.3, with a slope of 3, it is <= 1.1e-16 half bits
+  (copper), 2.1e-14 (example).
+- **Status.** Delivery within half a bit at 10 l5 needs mu0 >= 324 l5^2 (copper), to first order exactly and the
+  second order estimated far below. Open: the second order on the exact second-order equations. SOURCEs and SOURCE
+  stay OPEN; who holds E5(N) in the bulk (E6) is M's.

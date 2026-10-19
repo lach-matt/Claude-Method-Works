@@ -1444,6 +1444,22 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_522_SOURCE
     _rows_522.append((c, n, s_, t))
 LEMMAS_NOW = _rows_522
+# [item 525] SOURCE continued: the exact KI split, the scalar-type barrier, and the second order
+NOTE_525_SOURCE = ("  [Item 525] The two points 522 left open, computed (seed_types.py).  The record's waves "
+                   "split exactly into KI's scalar type (0.639) and tensor type (0.361), no vector type; KI's "
+                   "scalar-type barrier (checked against Zerilli at n = 2), 1655 integrations.  At 10 l5 "
+                   "delivery within half a bit needs "
+                   "mu0 >= 324 l5^2 (copper; 199 for the example README): 522's verdicts stand, its numbers moved by "
+                   "under 1%.  The strain where escape is decided is <= 2.6e-4 (copper), so the first order holds, but "
+                   "its square is 2.6e14 half bits; the second order at 2w escapes as e^(-s w r_h), s 5.7-6.9 on model "
+                   "couplings, <= 1.1e-16 half bits with a slope of 3.  Open: the second order on the exact "
+                   "second-order equations")
+_rows_525 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_525_SOURCE
+    _rows_525.append((c, n, s_, t))
+LEMMAS_NOW = _rows_525
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1653,7 +1669,9 @@ def lemma_selftests():
               # item 520: what finishing the counterpart proof takes; 517's N1 and N2 corrected
               "counterpart5.py",
               # item 522: SOURCE continued -- the seed's escape at 10 l5 and the least seed for half a bit
-              "seed_escape.py"):
+              "seed_escape.py",
+              # item 525: SOURCE continued -- the exact KI split, the scalar-type barrier, the second order
+              "seed_types.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
