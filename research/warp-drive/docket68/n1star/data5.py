@@ -4,11 +4,11 @@
 Commissioned at item 522 (N1STAR-LOG.md D14).  The slice is Sigma = {tau = tau0} of the coordinates of ks5.py, written
 in (r, th, phi1, phi2), so that v = tau0 + r on it.  The approximant's slice data are those of g0 + lam [W], W the
 record's wave W_TT (lead5.py), with or without its second harmonic chi dv dv on Sigma; a profile f(v, r, th, s),
-s = v/lam, is differentiated along Sigma by d_r -> d_r + d_v + lam^-1 d_s and in tau by d_v + lam^-1 d_s.  The constraint map is
-(J, rho)(K, g) = (2(-div K + d tr K), R(g) - |K|^2 + (tr K)^2), as in Chrusciel and Delay (2003), (2.1).  The
-correction is parametrised as in Racz (2016): h = a dr dr (the lapse of the foliation by the spheres r = const),
-Q = w Pi + q (dth dr + dr dth) (Pi the metric induced on the spheres, q tangential), the other components free and
-set to zero.  Labels: computed (exact, sympy).
+s = v/lam, is differentiated along Sigma by d_r -> d_r + d_v + lam^-1 d_s and in tau by d_v + lam^-1 d_s. The
+constraint map is (J, rho)(K, g) = (2(-div K + d tr K), R(g) - |K|^2 + (tr K)^2), as in Chrusciel and Delay (2003),
+(2.1). The correction is parametrised as in Racz (2016): h = a dr dr (the lapse of the foliation by the spheres r =
+const), Q = w Pi + q (dth dr + dr dth) (Pi the metric induced on the spheres, q tangential), the other components free
+and set to zero. Labels: computed (exact, sympy).
 
   S0 The background slice data: (J, rho)(g0's data) vanish where mu' = 0 (the seed's data are vacuum) and are
      proportional to mu' in the shell.
@@ -23,6 +23,10 @@ set to zero.  Labels: computed (exact, sympy).
      (hyperbolic in r); a enters dJ to first order only.
   S4 S2 holds also when the second harmonic chi dv dv is nonzero on Sigma: oscillations of the radial components
      (gamma_rr, K_rr, the shift) do not reach the coefficients (the d_r K_rr terms of div K and d tr K cancel).
+  S5 The inverse of the slice metric used above is correct through order lam^2 (an instrument check).
+  S6 At the approximant's data, with or without chi on Sigma, the order-0 coefficients of the principal terms (a_rr,
+     a_rt, a_r, a_tt in rho; w_r, w_t, q_r, q_t in J) equal the background's: alpha and the symmetrized A0 keep their
+     signs.  (Lower-order coefficients may oscillate at O(1): that of d_th a in J_th does.)
 python3 data5.py [--selftest | --mutants]
 """
 import os
@@ -35,7 +39,8 @@ MUTANTS = {"trace_slip": "a1 in place of a2 in W_phi2phi2: W not traceless, 1/la
            "trace_W": "an oscillating trace in place of W_TT: 1/lam coefficients appear (S2)",
            "conformal_h": "h = a gamma in place of a dr dr: d_r^2 a appears, not parabolic (S3)",
            "Q_on_dr2": "w on dr dr in place of Pi: the d_r part loses w, not hyperbolic (S3)",
-           "no_lapse": "K without the factor 1/(2N): the seed's data are not vacuum (S0)"}
+           "no_lapse": "K without the factor 1/(2N): the seed's data are not vacuum (S0)",
+           "inverse_slip": "an extra factor lam in the inverse metric's series: gamma^-1 gamma != 1 at O(lam) (S5)"}
 
 v, th, s, lam, eps, A = sp.symbols("v theta s lam epsilon A", real=True)
 r = sp.Symbol("r", positive=True)
@@ -71,7 +76,10 @@ def orders(e):
     e = sp.expand(e)
     for term in (e.args if isinstance(e, sp.Add) else [e]):
         pw = term.as_powers_dict()
-        k = int(pw.get(lam, 0)) - int(pw.get(IL, 0))
+        p_, q_ = sp.sympify(pw.get(lam, 0)), sp.sympify(pw.get(IL, 0))
+        if not (p_.is_integer and q_.is_integer):
+            raise ValueError("a non-integer power of lam: %s" % str(term)[:120])
+        k = int(p_) - int(q_)
         rest = term/(lam**pw.get(lam, 0)*IL**pw.get(IL, 0))
         if rest.has(lam) or rest.has(IL):
             raise ValueError("lam hidden inside a factor: %s" % str(term)[:120])
@@ -110,14 +118,17 @@ def slice_data(with_w=True, with_chi=False):
     gtt = -1 + m + lam*ch
     btr = m + lam*ch
     gam = sp.diag(1 + m + lam*ch, r**2 + lam*Wa[0], r**2*C**2 + lam*Wa[1], r**2*S_**2 + lam*Wa[2])
-    gi = sp.diag(*[trunc(1/gam[i, i].subs(lam, 0) - lam*(gam[i, i] - gam[i, i].subs(lam, 0))/gam[i, i].subs(lam, 0)**2
-                         + lam**2*(gam[i, i] - gam[i, i].subs(lam, 0))**2/gam[i, i].subs(lam, 0)**3, 2)
-                   for i in range(4)])
+    gi = sp.zeros(4)
+    for i in range(4):
+        g0_, d_ = gam[i, i].subs(lam, 0), gam[i, i] - gam[i, i].subs(lam, 0)    # d_ carries its own factor lam
+        if "inverse_slip" in MUT:
+            d_ = lam*d_
+        gi[i, i] = trunc(1/g0_ - d_/g0_**2 + d_**2/g0_**3, 2)
     beta = [btr, 0, 0, 0]
     N2 = trunc(-gtt + gi[0, 0]*btr**2, 2)
     N20 = N2.subs(lam, 0)
     dl = trunc((N2 - N20)/(2*N20), 1)
-    Ninv = (1 - dl + dl**2)/sp.sqrt(N20)
+    Ninv = (1 - dl + sp.Rational(3, 2)*dl**2)/sp.sqrt(N20)
     if "no_lapse" in MUT:
         Ninv = 1
     G = christoffel(gam, gi)
@@ -210,8 +221,27 @@ def jet(e):
     return e, sym
 
 
+def canonical(e):
+    """an exact rational normal form: the jets of mu, E, H become symbols, mu = P^2 - r^2, r = R^2, and cos, sin of s
+    and th become rational functions of z and y; an expression vanishes identically iff its normal form is 0"""
+    P, R, z, y = sp.symbols("P R z y", positive=True)
+    jets = {}
+    for f_, x_, nm in ((mu, v, "m"), (Ef, v, "e"), (Hf, th, "h")):
+        for k in (3, 2, 1):
+            jets[sp.Derivative(f_, (x_, k))] = sp.Symbol("%s%d" % (nm, k))
+    x = e
+    for d_ in sorted(jets, key=lambda d_: -d_.derivative_count):
+        x = x.subs(d_, jets[d_])
+    x = x.subs({Ef: sp.Symbol("e0"), Hf: sp.Symbol("h0")}).subs(mu, P**2 - r**2).subs(r, R**2)
+    x = sp.expand_trig(x.rewrite(sp.sin).rewrite(sp.cos))
+    x = x.subs({sp.cos(s): (z + 1/z)/2, sp.sin(s): (z - 1/z)/(2*sp.I),
+                sp.cos(th): (y + 1/y)/2, sp.sin(th): (y - 1/y)/(2*sp.I)})
+    return sp.cancel(sp.together(x))
+
+
 def is_zero(e):
-    """exact zero test: a 50-digit evaluation at two sample points rejects at once; zero is confirmed by simplify"""
+    """exact zero test: a 50-digit evaluation at two sample points rejects at once; zero is confirmed exactly by the
+    rational normal form"""
     q_ = sp.Symbol("q_")
     fns = {mu.func: sp.Lambda(q_, 1 + q_**2/7), Ef.func: sp.Lambda(q_, 1 + q_/3), Hf.func: sp.Lambda(q_, 1 + q_**2/5)}
     for pt in ((sp.Rational(7, 3), sp.Rational(2, 5), sp.Rational(5, 7), sp.Rational(3, 11)),
@@ -223,14 +253,16 @@ def is_zero(e):
         x = x.subs({z: sp.Rational(k + 2, k + 5) for k, z in enumerate(sorted(x.free_symbols, key=str))})
         if abs(sp.N(x, 50)) > 1e-30:
             return False
-    return sp.simplify(e) == 0
+    return canonical(e) == 0
 
 
 def compute():
     lin_w, _ = perturbed(True)
     lin_0, base_0 = perturbed(False)
     lin_c, _ = perturbed(True, True)
-    return dict(lin_w=lin_w, lin_0=lin_0, base_0=base_0, lin_c=lin_c)
+    gam, gi, _ = slice_data(True, True)
+    inv = [orders(x) for x in (gi*gam - sp.eye(4))]
+    return dict(lin_w=lin_w, lin_0=lin_0, base_0=base_0, lin_c=lin_c, inv=inv)
 
 
 def checks(o):
@@ -269,6 +301,15 @@ def checks(o):
     c["S3 parabolic-hyperbolic in r at the background (rho in a; (J_r, J_th) in (w, q))"] = par and hyp
     c["S4 S2 holds also with a second harmonic chi dv dv nonzero on Sigma (radial oscillations do not reach)"] = (
         no_inverse(o["lin_c"]))
+    c["S5 the slice data's inverse metric: gamma^-1 gamma = 1 through order lam^2"] = all(
+        is_zero(c_) for d_ in o["inv"] for k_, c_ in d_.items() if k_ <= 2)
+    names = (("w_r", "w_t", "q_r", "q_t"), ("w_r", "w_t", "q_r", "q_t"), ("a_rr", "a_rt", "a_r", "a_tt"))
+
+    def principal(lin):                               # (J_r, J_th) principal in (w, q); rho principal in a
+        return [sp.expand(jet(coeff(x, 0))[0]).coeff(g[nm]) for x, nms in zip(lin, names) for nm in nms]
+    p0 = principal(o["lin_0"])
+    c["S6 at the approximant's data (chi = 0 or not) the order-0 principal coefficients equal the background's"] = all(
+        is_zero(sp.expand(x - y)) for lin in (o["lin_w"], o["lin_c"]) for x, y in zip(principal(lin), p0))
     return {k: bool(v_) for k, v_ in c.items()}
 
 

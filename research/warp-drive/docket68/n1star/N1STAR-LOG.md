@@ -222,3 +222,25 @@ another factor. The same pattern was probed in lead5.py (859 terms) and ansatz5.
 their denominators being monomials. Two mutants first written were wrong rather than missed: an oscillating dr dr
 component and a reversed shift (time reversal) leave the checks true, as they should; they were replaced and the first
 became check S4.
+
+**D15 (2026-10-19, session decision): the second verifier's findings on sections 5-6, and their repairs.** One
+independent verifier (one at a time, as section 8 asks) checked sections 5 and 6 at 79a6e4c, reran every instrument
+(lead5 5/5; data5 5/5, mutants 5/5) and re-derived the principal coefficients by hand. It found no major gap, two minor
+gaps and ten notes, all repaired here as it proposed. (m1) Lemma 6.2(iii) asserted that the first derivatives of the
+lower D^(j) vanish on the slice from conditions on the slice alone; that needs the propagation of Lemma 6.1 on Omega,
+now applied with N := m after solving stage m with any data (on which D^(j), j < m, does not depend). (m2) Proposition
+6.5 claimed a contraction in the high norm, which a quasilinear system does not give; now the iterates are bounded in a
+high norm and contract in a lower one (Kato, Majda), Lemma 6.4 is stated with a symmetrizer and with tame dependence on
+the coefficients, d_r of the symmetrized coefficient entering only integrated in r, and smoothness comes from
+persistence of regularity. Notes: the sign of q_2 in (5.2); e_(N+1) is not zero but unused; a missing term in the proof
+of Lemma 5.1 (already in T); Pol onto everywhere by GL(5)-equivalence of (metric, null covector) pairs; Pol^+ built on
+the O(4)-invariant Cartesian structure, so the symmetry holds; the principal coefficients at the approximant equal the
+background's at order 0 (now computed, data5.py S6, which also found that one lower-order coefficient, that of d_th a
+in J_th, oscillates at O(1), as Lemma 6.4 allows; the verifier had listed it among the equal ones); the explicit
+symmetrizer S = diag(1, -1/(2 r^2)); the symmetric sector and the one-point sign check stated; chi's regularity at the
+axes deduced from W_TT's (ansatz5 A3), so that open item is closed. One note was an instrument error: data5.py's
+inverse slice metric carried an extra factor lam at first order, so it was wrong at O(lam) though no check used that
+order (the verifier showed the order -1 coefficients unchanged with the corrected inverse); fixed, and check S5 with
+mutant inverse_slip now guards it. The status of N1* is: proved modulo the READ at source of the standard theorems
+listed in section 7 of the proof (Lindblad-Rodnianski and Rendall READ for the gauge's propagation and data; the
+textbook statements not reachable here). Not claimed as PROVED, and no paper begun.
