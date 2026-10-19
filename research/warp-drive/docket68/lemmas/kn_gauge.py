@@ -82,7 +82,7 @@ closure.  516 found that no published gauge meets all five, and that none meets 
 
 numpy, sympy.  Imports hf_anchor5.py (our universe's values) by path.
 python3 kn_gauge.py [--selftest | --mutants | --build-k8]   (the K8 core is cached in data/kn_gauge_k8.json, keyed by the hash of
-the code that computes it; --build-k8 recomputes it, about twenty minutes)
+the code that computes it; --build-k8 recomputes it, about three minutes)
 """
 import contextlib
 import importlib.util
@@ -330,15 +330,18 @@ def k5():
     qvvn = sp.Poly(sp.expand(sp.cancel(qvv/z**3)), z)
     out["qvv"] = (qvvn.count_roots(0, sp.Rational(199, 100)) == 0 and qvvn.eval(0) > 0)
     Dz = sp.cancel(det/(sp.Rational(3, 4)*z**2*(z - 2)**2*(z + 2)**2))
-    dres = []
-    for E in (0, EPS_STAR):
+    dres = [] if not sp.fraction(Dz)[1].has(z) else [(False, False)]  # det carries q_vv's factor z^2 (z^2 - 4)^2
+    for E in ((0, EPS_STAR) if not dres else ()):
         Dp = sp.Poly(sp.expand(Dz.subs(eps, E)), z)
         roots = [x for x in Dp.real_roots() if 0 <= x < 2]
         dres.append((len(roots) == 0, Dp.eval(0) > 0))
     out["det"] = all(a and b for a, b in dres)
     qtn = []
     for E in (0, EPS_STAR):
-        qp = sp.Poly(sp.expand(sp.cancel(qtt.subs(eps, E)*4*z/(4 - z**2))), z)
+        qq = sp.cancel(qtt.subs(eps, E)*4*z/(4 - z**2))
+        if sp.fraction(qq)[1].has(z):                                # q_thth carries the factor (z^2 - 4)
+            qtn.append(0.0); continue
+        qp = sp.Poly(sp.expand(qq), z)
         qtn.append(min([float(x) for x in qp.real_roots() if 0 < x < 2] or [9]))
     out["qtt_zero"] = qtn                                         # first zero of the angular coefficient
     out["qtt_pos"] = (abs(qtn[0] - float(sp.sqrt(sp.Rational(12, 7)))) < 1e-9 and qtn[1] > qtn[0])
@@ -439,8 +442,8 @@ def _rsplit(ex, r):
     d = {}
     for t in sp.Add.make_args(sp.expand(ex)):
         e_, c = split(t)
-        d[e_] = d.get(e_, 0) + c
-    return d
+        d.setdefault(e_, []).append(c)
+    return {e_: sp.Add(*cs) for e_, cs in d.items()}
 
 
 _K8CORE = {}
@@ -456,7 +459,7 @@ def _k8_hash():
 
 
 def build_k8():
-    """compute the core (about twenty minutes) and store it with the hash of the code that produced it"""
+    """compute the core (about three minutes) and store it with the hash of the code that produced it"""
     import json
     core = _k8_core()
     out = dict(core, lam_in=[float(x) for x in core["lam_in"]], Zi=[float(x) for x in core["Zi"]],
@@ -495,7 +498,9 @@ def _k8_core():
                                                   cc: cpf*Phi*r**sp.Rational(7, 2)}).doit()))
     cp = sp.simplify(sp.solve(sp.expand(sp.simplify(Ert/Phi)), cpf)[0])
     Af = sp.Function("A")(v, r, th)
-    sub0 = {dps: p1*Phi*r**k, dom: p2*Phi*r**k, b: 2*p1*Phi*r**k*hvr, cc: Phi*cp*r**sp.Rational(7, 2) + Kf*r**2, a: Af}
+    # cp stays an undefined function of theta through the expansions (its trigonometric form multiplies their cost
+    # many hundredfold) and is put in only where a number is evaluated
+    sub0 = {dps: p1*Phi*r**k, dom: p2*Phi*r**k, b: 2*p1*Phi*r**k*hvr, cc: Phi*cpf*r**sp.Rational(7, 2) + Kf*r**2, a: Af}
     E = sp.expand(sp.numer(sp.together(L[(2, 2)].subs(sub0).doit())))
     cAr = E.coeff(sp.Derivative(Af, r)); E0 = sp.expand(E.subs(sp.Derivative(Af, r), 0))
     cA = E0.coeff(Af); rest = sp.expand(E0.subs(Af, 0))
@@ -520,28 +525,32 @@ def _k8_core():
             cph = sp.expand(cf).coeff(sp.Derivative(Phi, v))
             if cph != 0:
                 for pn, (P1, P2) in pol.items():
-                    val = cph.subs({p1: P1, p2: P2}).doit()
+                    val = cph.subs(cpf, cp).doit().subs({p1: P1, p2: P2}).doit()
                     lead += [abs(float(sp.N(val.subs(th, sp.Rational(t).limit_denominator(1000)), 100))) for t in (0.3, 0.7, 1.1)]
     drives = [jk for jk in sup for pw, cf in sup[jk].items() if cf.has(sp.Derivative(Mf, v))]
     P1F, P2F = pol["F"]
-    ode = abs(float(sp.N(ode_res.subs({p1: P1F, p2: P2F, Kf: sn*v}).doit().subs({Phi: 1, mu: 1}).doit()
+    ode = abs(float(sp.N(ode_res.subs(cpf, cp).doit().subs({p1: P1F, p2: P2F, Kf: sn*v}).doit().subs({Phi: 1, mu: 1}).doit()
                          .subs({r: sp.Rational(3, 2), th: sp.Rational(7, 10), v: 1}), 60)))
     # the error form err = (1/2) rho^-2 T5^ab d_v dh_ab per unit alpha Phi', in units sqrt(mu) = 1
     import mpmath as mpm
     mpm.mp.dps = 160
     fr, ft = sp.symbols("f_r f_t", real=True)
     Fm = 1 - 1/r**2; rhob = r**2*sn*cs
+    A0 = (Apart.subs(Kf, 0).doit()/Phi).subs(mu, 1)
+    if "drop_dh_vv" in MUT:
+        A0 = 2*p1*r**k*(-rhob**2*Fm)
+    err = sp.expand(sp.Rational(1, 2)*rhob**(-2)*(fr**2*A0 + 2*(Fm*fr**2/2 - ft**2/(2*r**2))*2*p1*r**k*rhob**2
+                                                  + 2*fr*ft/r**2*cpf*r**sp.Rational(7, 2)))
+    comps = [_rsplit(c_, r) for c_ in (err.coeff(fr, 2).subs(ft, 0), err.coeff(fr, 1).coeff(ft, 1),
+                                       err.coeff(ft, 2).subs(fr, 0))]
+    TH = np.linspace(0.03, np.pi/2 - 0.03, 25)
+    # each component is a sum of powers of r with coefficients in theta: those coefficients at the 25 angles, once
     Ef = {}
     for pn, (P1, P2) in pol.items():
         rep = {p1: P1, p2: P2}
-        A_ = (Apart.subs(Kf, 0).doit()/Phi).subs(rep).doit().subs(mu, 1)
-        C_ = (cp*r**sp.Rational(7, 2)).subs(rep).doit()
-        B_ = 2*P1*r**k*rhob**2
-        if "drop_dh_vv" in MUT:
-            A_ = 2*P1*r**k*(-rhob**2*Fm)
-        err = sp.expand(sp.Rational(1, 2)*rhob**(-2)*(fr**2*A_ + 2*(Fm*fr**2/2 - ft**2/(2*r**2))*B_ + 2*fr*ft/r**2*C_))
-        Ef[pn] = sp.lambdify((r, th), [err.coeff(fr, 2).subs(ft, 0), err.coeff(fr, 1).coeff(ft, 1),
-                                       err.coeff(ft, 2).subs(fr, 0)], "mpmath")
+        Ef[pn] = [[(mpm.mpf(int(sp.Rational(e_).p))/int(sp.Rational(e_).q),
+                    [sp.lambdify(th, cf.subs(cpf, cp).doit().subs(rep).doit(), "mpmath")(mpm.mpf(t)) for t in TH])
+                   for e_, cf in d.items()] for d in comps]
     z, eps = sp.symbols("z epsilon", positive=True)
     al = 12*z**4 - 4*z**6 + sp.Rational(3, 8)*z**8
     f5 = k5_forms()
@@ -552,9 +561,9 @@ def _k8_core():
 
     def gen(zz, coef):
         w_ = 0
-        for t in np.linspace(0.03, np.pi/2 - 0.03, 25):
-            eF = np.array([float(x) for x in Ef["F"](mpm.mpf(zz), mpm.mpf(t))])
-            eG = np.array([float(x) for x in Ef["G"](mpm.mpf(zz), mpm.mpf(t))])
+        Zm = mpm.mpf(zz)
+        for i in range(len(TH)):
+            eF, eG = [np.array([float(sum(Zm**ex*vals[i] for ex, vals in cmp)) for cmp in Ef[pn]]) for pn in ("F", "G")]
             e_ = coef*(np.cos(PH)[:, None]*eF[None, :] - np.sin(PH)[:, None]*eG[None, :])
             aa, bb = (float(Dq(zz)), float(qt(zz))) if coef != 1 else (0.5*(1 - 1/zz**2), 0.5/zz**2)
             Pp = np.abs(e_[:, 0])/aa; Ss = np.abs(e_[:, 2])/bb; Qn = np.abs(e_[:, 1])/(2*np.sqrt(aa*bb))

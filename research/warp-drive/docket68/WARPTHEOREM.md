@@ -98,7 +98,9 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 516.** As at 515, with every gauge applicable to L-UNIF' researched and measured against its five needs (`gauge5.py`, 7/7, mutants 5/5). No gauge meets all five. Seven families are excluded by a computed or READ failure. Maximal slicing and the puncture trumpets freeze at sqrt(2/3) r_h, 129 times outside x = 1, so reaching x = 1 would need the excision 505 excludes. CMC reaches x = 1 but meets null infinity, which is not smooth in five dimensions. The T^2 areal coordinate turns null inside the hole. The Teukolsky route has no decoupling in D > 4. The recommended stack: Bondi for the computation; double null, angularly regular, for the shell, the high frequencies and the interior; a wave-map gauge relative to the Vaidya approximant for the exterior's long time, where five-dimensional decay (t^(-3/2), integrable) closes the nonlinearity. No gauge supplies N2, the linear control of the growing hole: that engine, not the gauge, is what L-UNIF' still lacks. The status is M's.
+**Where it stands, at item 519.** As at 516, with a new gauge derived from L-UNIF''s five needs and proved to meet them in part (`kn_gauge.py`, 18/18, mutants 10/10). In the T^2-mirror class, five-dimensional vacuum is exactly 2+1 gravity on the torus frame h = rho^2 g3 with two free scalars, the Killing norms; 2+1 gravity carries no waves, so all the radiation is in gauge-invariant scalars obeying linear wave equations, and the energy identity of any such field sees only h. The KN gauge is the record's own Bondi coordinates read in that frame with those unknowns, averaged by one fast near-identity diffeomorphism. N2 is proved: the linear problem is the scalar wave equation on growing Vaidya, and a new multiplier with Dafermos-Rodnianski's argument bounds its energy uniformly, across the horizon to x = 1, with constant 35. N3 is exact: the base metric's oscillation is pure gauge (2+1 has no polarizations) and is removed. N4 is the record's coordinates. N1's structure is exact, its energy method not machine-checked. N5: the first-order oscillation is absorbed or removed over the whole shell; the second order after the seed phase is an estimate (exponent 0.21); the seed phase, while the hole is under 20 wavelengths, stays open (crude exponent 1.2e4). L-UNIF' narrows to those; no inner or Cauchy horizon enters (519). The background tasks: runs 12 and 13 merged, the mu0/l5^2 = 1000 sequence on the x = 20 grid, hf_core5 10/10. The status is M's.
+
+**Where it stood at item 516.** As at 515, with every gauge applicable to L-UNIF' researched and measured against its five needs (`gauge5.py`, 7/7, mutants 5/5). No gauge meets all five. Seven families are excluded by a computed or READ failure. Maximal slicing and the puncture trumpets freeze at sqrt(2/3) r_h, 129 times outside x = 1, so reaching x = 1 would need the excision 505 excludes. CMC reaches x = 1 but meets null infinity, which is not smooth in five dimensions. The T^2 areal coordinate turns null inside the hole. The Teukolsky route has no decoupling in D > 4. The recommended stack: Bondi for the computation; double null, angularly regular, for the shell, the high frequencies and the interior; a wave-map gauge relative to the Vaidya approximant for the exterior's long time, where five-dimensional decay (t^(-3/2), integrable) closes the nonlinearity. No gauge supplies N2, the linear control of the growing hole: that engine, not the gauge, is what L-UNIF' still lacks. The status is M's.
 
 **Where it stood at item 515.** As at 514, with two changes. 514's anchoring is corrected: at x = 1 the curvature radius is l5 for every hole, so 10 l5 waves are high-frequency down to x = 1e-4 and a small perturbation (strain 7.2e-3) below it, and r_h/10 waves are neither. And what the inequality needs is determined: a well-posed gauge; uniform linear control of the growing 5D black hole in the T^2-mirror class over the whole shell (269 r_h); the high-frequency remainder over that time; the interior near x = 1; the nonlinear closure. Together that is long-time nonlinear stability of a 5D black hole in a cohomogeneity-three class, proved in the literature only in cohomogeneity two (Dafermos and Holzegel, a class the mirror excludes) and not proved here. The status is M's.
 
@@ -2047,6 +2049,21 @@ state was rebuilt first.
     515's point 1).
   - Recommended: Bondi (computation), double null (shell, high frequency, interior), wave-map relative to
     Vaidya (exterior, long time). N2's linear engine is met by no gauge; L-UNIF' stays OPEN.
+
+- **Items 517-519** (M: "derive and then prove a new or previously unidentified gauge that will meet the needs of
+  the theorem"; "Continue, and check the background tasks please"; "Please confirm that you ARE NOT chasing a chaucy
+  horizon again"). Derived and proved in part (`kn_gauge.py` K0-K8, 18/18, mutants 10/10; SOURCE-REQUIRED "Items 517-519";
+  BOUNCE-RESEARCH 52). For R1, R2 and R6:
+  - Exact: the class is 2+1 gravity on h = rho^2 g3 with two free Killing-norm scalars; the energy identity sees only h;
+    the record's Bondi coordinates are the KN gauge; 2+1's high-frequency symbol has no polarizations, so h's oscillation
+    is pure gauge and a fast diffeomorphism removes it.
+  - N2 proved: Kodama sign; the multiplier alpha = 12z^4 - 4z^6 + (3/8)z^8, sigma = z^2(4 - z^2)^2 (timelike, positive
+    bulk through the horizon, by root counts, for growth rates to 1/20; the shell's is 0.0219); uniform constant 35.
+  - N5: first order absorbed (ratio 0.92 for 10 l5 waves) or removed; second order after the seed phase 0.21
+    (estimate); the seed phase open (crude 1.2e4). N1's energy method not machine-checked.
+  - 519: no inner or Cauchy horizon anywhere (one root of 1 - mu/r^2; the domain ends at x = 1).
+  - Background (518): runs 12, 13 merged; the mu0/l5^2 = 1000 sequence on x = 20; hf_core5 10/10 (the theorem selftest's
+    one failure); the fifth wavelength grid-limited, recorded.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

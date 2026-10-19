@@ -2978,3 +2978,101 @@ M, 516: "Deep research all gauges applicable to our specific needs".
   - A wave-map gauge relative to the Vaidya approximant, with constraint damping (Hintz 2302.13804), for the exterior's
     long time, where the integrable decay closes the nonlinearity.
   - Still open: N2's linear engine, and matching the two gauges across the shell. L-UNIF' stays OPEN.
+
+## 52. A new gauge, derived from the five needs and proved to meet them -- the KN gauge (517-519; lemmas/kn_gauge.py, 18/18, mutants 10/10)
+
+M, 517: "We need to derive and then prove a new or previously unidentified gauge that will meet the needs of the theorem".
+M, 518 (during the work): "Continue, and check the background tasks please". M, 519: "Please confirm that you ARE
+NOT chasing a chaucy horizon again" -- confirmed: see the last point.
+(`kn_gauge.py` K0-K8, 18/18, mutants 10/10.)
+
+- **Why 516 found N2 met by no gauge.** N2 was posed as linearized gravity on a growing five-dimensional hole. Its
+  natural engine, the Teukolsky equation, does not decouple in D > 4. The class has more structure than that, and the
+  derivation starts from it.
+- **The derivation (exact, general base metric).** In the T^2-mirror class the two Killing fields commute, are
+  orthogonal, and are hypersurface-orthogonal: g = g3 + e^(2U1) dphi1^2 + e^(2U2) dphi2^2. Then:
+  - R(phi_i, phi_i) = -e^(2U_i) box_5 U_i, R(a, phi) = 0, and R_ab = R3_ab - sum_i (D_a D_b U_i + dU_i dU_i).
+  - In the torus frame h = rho^2 g3, with rho = e^(U1+U2), off shell:
+    R[h]_ab = R_ab + sum_i dU_i dU_i + dpsi dpsi + g3_ab sum_i e^(-2U_i) R(phi_i, phi_i), where psi = ln rho.
+  - So vacuum in the class is exactly 2+1 gravity on h with two free massless scalars:
+    R[h] = (3/2) dpsi^2 + 2 domega^2, box_h psi = box_h omega = 0, with omega = (U1 - U2)/2.
+  - 2+1 gravity has no waves of its own. Every wave of the class lives in psi and omega. These are the Killing norms:
+    geometric scalars, the same in every gauge.
+  - For every T^2-invariant f, box_h f = rho^-2 box_5 f. For every base vector X, the 5D energy current satisfies
+    div_5 J = rho^2 ((1/2) T_h^ab (L_X h)_ab + (X f) box_h f). The radiation's own oscillation (in psi, omega, the
+    torus and the conformal factor) never enters the energy identity. Only the base metric h does.
+  - Prior art: Schmidt (gr-qc/9712034) reduces D dimensions with D - 2 such Killing fields to 2D dilaton gravity;
+    Choquet-Bruhat and Moncrief, and Huneau and Luk (1706.09499), reduce 4D polarized U(1) to 2+1 Einstein-wave map.
+    The 5D cohomogeneity-three form with its torus frame, used as the gauge for this problem, is what is identified here.
+- **The gauge (KN gauge).**
+  - v is the phase of the incoming radiation, a null coordinate; theta is carried along the null generators; r is
+    fixed by h_thth = r^6 sin^2 theta cos^2 theta.
+  - The unknowns are the Killing norms psi and omega together with the base metric h.
+  - The averaged form adds one near-identity fast diffeomorphism, x -> x + lam^2 Xi(x, v/lam).
+  - On the record's ansatz, h_thth = rho^2 g_thth = r^6 s^2 c^2 for every P1, P2, so these are exactly the record's
+    Bondi coordinates. F1-F7 and every run stand in it; what is new is the frame, the unknowns and the averaging.
+- **How it meets each need.**
+  - **N2 (proved; constants computed).** By the derivation, the linear problem of the class is the scalar wave
+    equation for T^2-invariant fields on the averaged background, 5D Vaidya with mu' >= 0, not linearized gravity.
+    In units of sqrt(mu(v)), with z = r/sqrt(mu):
+    - Kodama: the bulk of d_v is (mu'/2r^2) f_r^2 >= 0, exact. The apparent horizon is spacelike and is a future
+      boundary of the exterior, so the exterior T-energy only falls, apart from what enters at past null infinity.
+    - A new multiplier: X = alpha d_v - sigma d_r, with alpha = 12z^4 - 4z^6 + (3/8)z^8 and sigma = z^2(4 - z^2)^2
+      for z < 2, and X = 32 d_v beyond (C^1 at z = 2). Proved by exact root counting:
+      - X is future-timelike on (0, inf), and across the apparent horizon, where sigma = 9;
+      - its bulk is positive definite on (0, sqrt(12/7)), through the horizon at z = 1;
+      - its (v, r) block is semidefinite up to z = 2;
+      - all of this for every growth rate eps = mu'/sqrt(mu) in [0, 1/20].
+    - The shell's largest growth rate is eps = 0.0219.
+    - Dafermos and Rodnianski's argument (red-shift plus a monotone T-energy; READ, with its lemma proved here) gives
+      the nondegenerate energy on every cone at most C2 = 35.0 times its data and input. This holds uniformly in v
+      and lam, across the horizon, to x = 1. The constants are b = 0.0748, B = 15.6, C1 = 76.3 and c1 = 8.38.
+    - At x = 1 the energy is weighted by z^2: a factor of 2.2e4 in energy, 150 in amplitude.
+  - **N3 (exact).** The base metric's oscillation is pure gauge:
+    - In the gauge h_rr = h_rth = 0 and h_thth is wave-independent, so every oscillation of h lies in the v-row,
+      which is l (x) zeta + zeta (x) l with l = dv.
+    - This is special to 2+1. The kernel of the linearized Ricci tensor's high-frequency symbol has dimension 3, all
+      gauge. In 3+1 it is 6 = 4 + 2 and in 4+1 it is 10 = 5 + 5; the excess is the gravitational polarizations.
+    - The fast diffeomorphism adds exactly lam (l (x) h.Xi' + h.Xi' (x) l) + O(lam^2), so it removes h's first-order
+      oscillation.
+    - On the background the torus frame reproduces Tangherlini exactly. To first order h_vr responds exactly as
+      2 dpsi h_vr.
+    - T_h^(va) has no f_v, so the oscillation meets only the derivatives that the cone energy controls.
+  - **N1 (structure exact; the energy method deduced).** The radiative equations are linear waves. The base's three
+    main equations (rr, r theta, theta theta) have sources 2 dPsi.dPsi in cone-tangential first derivatives only: no
+    v-derivative and no second derivative. The D D U terms that make Bondi's free evolution weakly hyperbolic are
+    removed exactly by the torus frame. Well-posedness of the characteristic problem then follows the standard energy
+    method; that step is not machine-checked here.
+  - **N4 (deduced).** These are the record's coordinates, in which the sequence reaches x = 1 (hf_core5) and the
+    boundary is spacelike (hf_theorem5 F2). The averaging is O(lam^2), so the boundary stays spacelike.
+  - **N5 (computed).** First-order oscillation:
+    - The record's wave profiles satisfy the leading supplementary constraints exactly: the largest coefficient is
+      1.6e-207 at 100 digits, zero to working precision. So the homogeneous mass and angular-momentum aspects are not driven at first order.
+    - h's first-order response is computed exactly: h_vr = 2 dpsi h_vr, h_vth = Phi c_p(theta) r^(7/2), and h_vv
+      from the theta theta equation.
+    - Against X's positive bulk, its largest ratio per unit A env mu^(-1/4) is 1.7e-4 at z = 0.01, 0.2 at z = 0.5,
+      4.4 at z = 1 and 15 at z = 1.2.
+    - Over the record's shell with 10 l5 waves, the oscillation is absorbed outright below the waves' high-frequency
+      edge z_hf = (29.1 w/sqrt(mu))^(1/2) and below z = 1.2. The largest ratio is 0.92; it reaches 1 at 12.5 l5.
+    - Above z_hf the averaging removes the first order exactly.
+  - Second order, after the seed phase: the remainder's exponent is 0.21. This is an estimate (strain times the
+    first-order rate), not a second-order computation.
+  - The seed phase stays open. While the hole is smaller than 20 wavelengths (sqrt(mu) < 202 l5, the first 11 % of
+    the shell's duration, 7.7e-6 of its energy), the waves are not high-frequency outside the hole and no positive
+    bulk is there. The crude sup-norm exponent is 1.2e4 there, and 1.4e4 over the whole shell. 515's e^43 was the end
+    scale only. Closing this needs a weighted (Morawetz or Hardy) estimate outside the small hole in place of the
+    sup norm.
+- **What it settles and what stays open.** 
+  - Settled by the KN gauge:
+    - the radiation reduced exactly to two gauge-invariant scalar waves;
+    - N2's engine, uniform with constant 35;
+    - the base's oscillation made pure gauge;
+    - the record's coordinates kept, reaching x = 1;
+    - the first-order oscillation absorbed or removed over the whole shell.
+  - Still open, all three not machine-checked:
+    - the seed phase's exterior estimate;
+    - the second-order remainder, an estimate of 0.21;
+    - the energy-method step of N1.
+  - L-UNIF' therefore narrows to these three. It is not proved.
+  - No inner or Cauchy horizon enters anywhere (519): the background's f = 1 - mu/r^2 has one root, and the domain
+    ends at the spacelike x = 1.

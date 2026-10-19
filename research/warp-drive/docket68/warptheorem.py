@@ -1391,6 +1391,19 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_516_SOURCE
     _rows_516.append((c, n, s_, t))
 LEMMAS_NOW = _rows_516
+# [items 517-519] the KN gauge, derived from L-UNIF''s needs and proved to meet them in part
+NOTE_517_SOURCE = ("  [Items 517-519] The KN gauge (kn_gauge.py): the T^2-mirror class is 2+1 gravity on h = rho^2 g3 with two "
+                   "free Killing-norm scalars; the record's Bondi coordinates read in that frame, averaged by a fast "
+                   "diffeomorphism.  N2 proved (uniform constant 35, a new multiplier through the horizon to x = 1); N3 exact "
+                   "(h's oscillation pure gauge in 2+1); N4 the record's coordinates; N1 structure exact; N5 first order "
+                   "absorbed or removed, second order after the seed phase an estimate (0.21), the seed phase open.  No inner "
+                   "or Cauchy horizon (519).  L-UNIF' narrowed, not proved")
+_rows_517 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_517_SOURCE
+    _rows_517.append((c, n, s_, t))
+LEMMAS_NOW = _rows_517
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1594,7 +1607,9 @@ def lemma_selftests():
               # item 514: its remaining estimate, the coefficients evaluated and anchored in our universe
               "hf_anchor5.py",
               # item 516: every gauge for L-UNIF' measured against its five needs
-              "gauge5.py"):
+              "gauge5.py",
+              # items 517-519: the KN gauge, derived from the five needs and proved to meet them in part
+              "kn_gauge.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
