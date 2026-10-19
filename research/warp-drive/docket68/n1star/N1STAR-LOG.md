@@ -136,3 +136,17 @@ background. Its one 1/lam coefficient, (1/2) lam^-1 w(ell, ell) d_th^2 g1, is re
 (Lemma 3.1: the 1/lam part of the linearised operator annihilates d_th g1); the second derivatives of phi are
 recovered by `ks5.py` K3 and the w(ell, ell) equation, which has no 1/lam term (Lemma 3.3). Sections 1-4 prove
 Theorem E (deduced); A and D are OPEN. N1* is not yet proved.
+
+**D11 (2026-10-19) The gauge, Theorem A, and the data.** (1) The gauge is changed to the wave-map gauge relative to
+g0, D = g^{ab}(Gamma[g] - Gamma[g0])_ab, which makes Ric^H a tensor (computable in the record's coordinates) and the
+leading equation covariant; (E1) is weakened to the transversality of the wave alone (the first-order mean m1 is
+not transverse), with the resulting 1/lam piece of the principal term kept in T (Lemma 3.1 unchanged). (2) Seated
+`lead5.py` (L1-L5; selftest 5/5, mutants 4/4): in this gauge the record's waves satisfy the leading equation once a
+second harmonic chi dv dv, transported along ell, is added; the mean is the record's energy condition. (3) Theorem A
+written (section 5): the phase is the eikonal of the mean metric, so every stage is a linear system (a wave equation
+for the mean, a transport for the phase, a transport for the oscillating profile, the commutator variable box~ phi
+removing the derivative loss); the approximant of any order from any smooth stage data satisfies Theorem E's
+hypotheses. (4) READ, Touati's constraint paper (arXiv:2206.13062v2): its fixed points close by the smallness of a
+near-Euclidean background. Here chi makes tr K oscillate at O(1) on every spacelike slice, so the conformal method's
+coupling is O(1) in H^-1. The data are OPEN; the route proposed (section 6.3) puts the data slice far out, where the
+background is close to flat with no smallness of the data, and glues to the seed in a wave-free collar.
