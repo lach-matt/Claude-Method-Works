@@ -196,3 +196,29 @@ by T^2 x Z2 x Z2. (3) *Ultracode and the commission.* The session's harness repo
 multi-agent workflows; the commission (instructions section 8) says "Work inline, with no multi-agent workflows. Send
 one independent verifier at a time (249)." The commission is M's specific rule for this work and is followed; M may
 lift it.
+
+**D14 (2026-10-19, session decision): the data are solved outward in r, not by the conformal method and gluing.**
+Section 6 of the proof as committed at 3bf3172 proposed a far slice (tau0 -> -infinity), the conformal method with a
+coercivity estimate in the weakly curved far annulus (D1 there), and a gluing collar at the inner edge closed by
+Chrusciel and Delay's Theorem 5.9 modulo the Killing initial data, the static one to be removed by the interior mass.
+Working out the formal hierarchy showed two costs of that route: the linear problems for the means are coupled at
+zeroth order to the oscillating data (a term of the size of the shell's own curvature, with no uniform inverse to
+absorb it), and every step needed an inverse whose bound was not uniform in tau0. Both disappear if the constraints are
+solved as an evolution in r: with h = a dr dr and Q = w Pi + q dr + dr q (Bartnik's quasi-spherical idea, in the
+parabolic-hyperbolic form READ in I. Racz, Class. Quantum Grav. 33 (2016) 015014, arXiv:1508.01810v3), the Hamiltonian
+constraint is parabolic in r wherever the spheres have positive mean curvature (on the Kerr-Schild slice everywhere, H
+= 3/(r^2 + mu)^(1/2)) and the momentum constraint symmetric hyperbolic. Solved outward from a sphere inside the shell,
+where the approximant's data are the seed's exactly, it imposes nothing further out, so there is no collar, no KID
+obstruction, no mass shift, no smallness of the background, and the data live on the slice of section 1, before the
+shell reaches the hole (route W item 4), with no restatement. Uniformity in lam reduces to one structural fact,
+computed in data5.py S2: the linearised constraints at the approximant's slice data have no coefficient of order 1/lam
+(W_TT traceless on the spheres; an oscillating trace fails, while oscillations of the radial components, such as chi dv
+dv on the slice, are harmless, S4). The far-slice text (D1 and the gluing plan) is removed from the proof as unused; it
+is in the file's history at 3bf3172. Of D13's uses of Noether's paper, (1) stands (Lemma 6.1 is the Bianchi identity
+order by order); (2) is no longer needed, since nothing is glued. Instrument note: the first runs of data5.py passed S2
+vacuously. Expansion folded the factor 1/lam into denominators such as 1/(2 lam + 2 lam mu/r^2), where `coeff` does not
+see it; the mutants (MISSED) exposed it. Fixed by carrying 1/lam as its own symbol and failing on any lam inside
+another factor. The same pattern was probed in lead5.py (859 terms) and ansatz5.py (43,392 terms): no hidden 1/lam,
+their denominators being monomials. Two mutants first written were wrong rather than missed: an oscillating dr dr
+component and a reversed shift (time reversal) leave the checks true, as they should; they were replaced and the first
+became check S4.
