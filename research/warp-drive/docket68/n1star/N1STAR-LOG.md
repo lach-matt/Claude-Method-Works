@@ -61,8 +61,8 @@ is audited against Touati's proof equation by equation, and what is not proved i
 that claims the theorem."), no response paper is written unless N1* is proved and verified.
 
 **D5 (2026-10-19) Route W, what was computed.** Seated `ansatz5.py` (A1-A5; selftest 5/5, mutants 5/5) and
-`foliation5.py` (B1-B4; selftest 4/4, mutants 4/4, 5/5 after D8). Two results beyond the handoff: (1) the structure of Touati's
-commutator lemma holds on five-dimensional Vaidya exactly, [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u)
+`foliation5.py` (B1-B4; selftest 4/4, mutants 4/4, 5/5 after D8). Two results beyond the handoff: (1) the
+structure of Touati's commutator lemma holds on five-dimensional Vaidya exactly, [L0, box~] u = (2/r)(d_r(L0 u) + 2 d_v(L0 u) + box~ u)
 for the principal part, with a first-order remainder for the covariant operator (B3, corrected at D8); (2) the
 record's two-quadrature waves produce, at order lam, a non-oscillating term
 R_v th = F0^2 d_th phi, phi = (1/2) arctan(cos 2th), which Touati's single-cosine ansatz never has and which needs a
