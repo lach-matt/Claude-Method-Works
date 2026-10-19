@@ -1473,6 +1473,21 @@ for c, n, s_, t in LEMMAS_NOW:
         t = t + NOTE_526_SOURCE
     _rows_526.append((c, n, s_, t))
 LEMMAS_NOW = _rows_526
+# [item 527] the seed and the wavelength derived and proved; the sequence's status; E6 by the math; the large end
+NOTE_527_SOURCE = ("  [Item 527] The seed derived (seed_derive.py): the window's floor lam_P = (64 pi^2/3)^(1/3) l5 = "
+                   "5.949 l5 (a quantum of the shell not a hole of its own; a criterion), the least seed monotone in "
+                   "lam so least at the floor: copper 102 l5^2, the example README 61, r0 = 20 ell 808, the Earth cap "
+                   "917 (2 pi l5: 116, 69, 906, 1028); x0* = 0.577 ln(r_hf/l5) + 1.75, the slope 1/ln((1+sqrt2)^2).  "
+                   "Proved to first order on the exact barriers, the second order estimated (1.2e-15 half bits, "
+                   "copper).  The large end computed (its seed phase Tangherlini, (r_h0/ell)^2 = 1e-37).  The "
+                   "sequence counts as computed for THM-HF5's rates on D (its first row sits at the derived point); "
+                   "E6 closed by the math (emitter E1-E6, D2).  Open: the second order on the exact equations")
+_rows_527 = []
+for c, n, s_, t in LEMMAS_NOW:
+    if n.split()[0] in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_527_SOURCE
+    _rows_527.append((c, n, s_, t))
+LEMMAS_NOW = _rows_527
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
@@ -1684,7 +1699,9 @@ def lemma_selftests():
               # item 522: SOURCE continued -- the seed's escape at 10 l5 and the least seed for half a bit
               "seed_escape.py",
               # item 525: SOURCE continued -- the exact KI split, the scalar-type barrier, the second order
-              "seed_types.py"):
+              "seed_types.py",
+              # item 527: the seed and the wavelength derived and proved; the large end
+              "seed_derive.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()

@@ -3197,3 +3197,26 @@ M, 525: "Continue with SOURCE please". The two points 522 (section 54) left open
 - **Status.** Delivery within half a bit at 10 l5 needs mu0 >= 324 l5^2 (copper), to first order exactly and the
   second order estimated far below. Open: the second order on the exact second-order equations. SOURCEs and SOURCE
   stay OPEN; who holds E5(N) in the bulk (E6) is M's.
+
+## 56. The seed and the wavelength derived and proved; the large end (527-529; lemmas/seed_derive.py, 10/10, mutants 4/4)
+
+M, 527: the seed "must be derived then proven"; the sequence counts "if it was FULLY computed"; E6 "was ruled, this
+math decides this"; "Continue with all SOURCE work".
+- **The floor** (criterion). A quantum of the shell, energy 2 pi hbar c/lam, has r_q^2 = (16/3) l5^3/lam by the
+  record's E5(r_h); it is not its own hole while lam/(2 pi) > r_q: lam > lam_P = (64 pi^2/3)^(1/3) l5 = 5.949 l5.
+  U3's 2 pi l5 = 1.056 lam_P.
+- **Monotone** (exact in the law). E_esc = (3/(16 pi)) (lam/l5)^2 I(2 pi r_h0/lam) E_P5, I decreasing: the least
+  seed increases with lam, so it is least at the floor (checked at 60 wavelengths, four anchors).
+- **The derived seed at lam_P**: copper 102 l5^2, the example README 61, r0 = 20 ell 808, the Earth cap 917 (at 2 pi
+  l5: 116, 69, 906, 1028; at 10 l5: 324, 199, 2368, 2682). x0* = 0.577 ln(r_hf/l5) + 1.75, the slope
+  1/ln((1 + sqrt 2)^2) to 2 %: the escape at large x is set by the modes at their barrier tops, whose power falls as
+  (1 + sqrt 2)^(-2k).
+- **Proved**: first order exact on KI's V_T and V_S; strain 1.3e-4 (copper) to 1.9e-11 (Earth cap) where escape is
+  decided; the second order (model couplings) 1.2e-15 half bits (copper), 2.4e-13 (example), < 1e-35 (large end).
+- **The large end**: (r_h0/ell)^2 = 1e-37, the seed phase Tangherlini; half a bit = hbar c^3 ln2/(16 pi G M) =
+  E/(4N) of earth_cap's figures.
+- **The sequence**: complete on D, nothing cut out, at its parameters (shell 0.18 of the seed; its first row at the
+  derived point); not the delivery of E5(N). Counts as computed for THM-HF5's rates on D (M-SEQUENCE-FULL).
+- **E6**: closed by the math (emitter E1-E6, emitter_process D2).
+- **Status.** Open: the second order on the exact equations; the exact-code check of the seed phase at w r_h0 = 2.1
+  is running. SOURCEs and SOURCE stay OPEN.

@@ -98,7 +98,19 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 525.** SOURCE continued (`seed_types.py`, 12/12, mutants 5/5): the two points 522 left open
+**Where it stands, at item 527.** The seed and the emitter's wavelength are derived and proved (`seed_derive.py`, 10/10,
+mutants 4/4). The window's floor is lam_P = (64 pi^2/3)^(1/3) l5 = 5.949 l5: below it a quantum of the shell is a hole
+of its own (a criterion; U3's 2 pi l5 is 1.056 lam_P). The least seed rises with the wavelength, so the least seed is at
+the floor: 102 l5^2 for copper, 61 for the example README, 808 for r0 = 20 ell and 917 for the Earth cap, growing as (ln
+r_hf)^2 because the escape at large w r_h is set by the modes at their barrier tops, whose share of the record's power
+falls as (1 + sqrt 2)^(-2k). Delivery within half a bit holds at every anchor to first order on the exact barriers, with
+the second order estimated at 1.2e-15 half bits (copper) on model couplings; a check in the record's exact equations is
+running. The large end is computed: its seed phase is Tangherlini to (r_h0/ell)^2 = 1e-37. The computed sequence counts
+as computed for THM-HF5's rates on D, its first row at the derived point; it is not the delivery of E5(N), which rests
+on the scattering computation. E6 is closed by the math. N1* is with another session (524). No inner or Cauchy horizon
+enters. SOURCEs and SOURCE stay OPEN for the exact second order and M's ruling under 441.
+
+**Where it stood at item 525.** SOURCE continued (`seed_types.py`, 12/12, mutants 5/5): the two points 522 left open
 are computed. The record's waves split exactly into Kodama and Ishibashi's scalar type (0.639) and tensor type (0.361),
 with no vector type, and the scalar type gets its own barrier, KI's V_S (READ, checked against Zerilli at n = 2). At 10
 l5, delivery within half a bit needs mu0 >= 324 l5^2 (copper) and 199 l5^2 (the example README), against 522's 322 and
@@ -2136,6 +2148,14 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Items 527-529** (M: the seed "must be derived then proven"; the sequence counts "if it was FULLY computed"; E6
+  "was ruled, this math decides this"; "Continue with all SOURCE work"; 528 a re-send, 529 "Continue"). Answered
+  (SOURCE-REQUIRED "Item 527"; `lemmas/seed_derive.py`, 10/10, mutants 4/4; BOUNCE-RESEARCH 56).
+  - The floor lam_P = (64 pi^2/3)^(1/3) l5 = 5.949 l5 (a criterion); the least seed is at the floor: copper 102 l5^2,
+    the example 61, r0 = 20 ell 808, the Earth cap 917; x0* = 0.577 ln(r_hf/l5) + 1.75. 10 l5 superseded.
+  - Proved to first order on the exact barriers; the second order estimated (1.2e-15 half bits, copper), its check
+    in the exact equations running. The large end computed. The sequence counts as computed for THM-HF5's rates on
+    D; E6 closed by the math. Open: the exact second order. The 525 theorem selftest passed 12/12.
 
 **Items 398-399: the read, the next part of SOURCE** (`lemmas/SOURCE-REQUIRED.md`, "Item 399").
 - **The read sits before the write**: object, then its README of N bits, then the write. It is the record's open

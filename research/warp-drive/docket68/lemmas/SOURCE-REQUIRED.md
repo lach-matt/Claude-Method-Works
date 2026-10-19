@@ -5,6 +5,50 @@ conversation from M's rulings and the rows already proved; no runs. This is SOUR
 construction: SOURCEs and SOURCE stay last (345, 358). Each requirement names where it comes from. Labels: M's (a
 ruling), proved/derived (a row), computed (a number from a named instrument), estimate.
 
+## Item 527: the seed derived and proved; the sequence's status; E6 by the math; the large end
+
+M, 527 (re-sent as 528; "Continue" at 529): "it must be derived then proven" (the seed's size, and with it the
+wavelength); "if it was FULLY computed, then it counts as computed" (the sequence); "this was ruled, this math decides
+this" (E6); "Continue with all SOURCE work".
+
+- **The seed and the wavelength, derived** (`lemmas/seed_derive.py`, 10/10, mutants 4/4).
+  - *The floor* (criterion). From the record's E5 = 3 pi hbar c r_h^2/(8 l5^3), a quantum of the shell of energy
+    2 pi hbar c/lam has horizon radius r_q^2 = (16/3) l5^3/lam; it is not a hole of its own while its reduced
+    wavelength exceeds r_q: lam > lam_P = (64 pi^2/3)^(1/3) l5 = 5.949 l5. U3's reading (each quantum below
+    hbar c/l5) is 2 pi l5 = 1.056 lam_P. The floor's constant is an order-one criterion, not a theorem.
+  - *Monotone* (exact in the law; checked on the grid). The energy let out is (3/(16 pi)) (lam/l5)^2 I(2 pi r_h0/lam)
+    E_P5 with I decreasing, so the least seed mu0(lam) increases with lam: the least seed over the window is at the
+    floor. Checked at 60 wavelengths for all four anchors.
+  - *The derived seed at lam_P*: copper 102 l5^2 (r_h0 10.1 l5); the example README 61 l5^2; r0 = 20 ell 808 l5^2
+    (28.4 l5); the Earth cap 917 l5^2 (30.3 l5). At 2 pi l5: 116, 69, 906, 1028. The 10 l5 of 522-525 was a value in
+    the window; as the wavelength it is superseded by the derived floor (its seeds, 324 and 199, stand as computed).
+  - *The law*: x0* = 0.577 ln(r_hf/l5) + 1.75, the slope 1/ln((1 + sqrt 2)^2) to 2 %: at large x the escape is set by
+    the modes at their barrier tops, l near 2x, whose share of the record's power falls as (1 + sqrt 2)^(-2k) (the
+    poles of h(x) at x = +-i). The seed grows as (ln r_hf)^2 across sixteen orders of magnitude in N.
+- **The seed, proved** (what "proven" rests on).
+  - First order, exact: the barriers are Kodama and Ishibashi's V_T and V_S (READ), the angular content split exactly
+    (seed_types T2-T4); at (lam_P, mu0*) the shell delivers E5(N) within half a bit at every anchor.
+  - Where escape is decided the strain at the horizon is 1.3e-4 (copper), 8.5e-4 (the example), 9.3e-11 and 1.9e-11
+    (the large end), the growth per crossing 3.8e-6, 9.0e-5, 1.4e-17, 7.0e-19: the first order is the expansion.
+  - The second order at 2w (seed_types T7's bound, slope 3 from x = 3): 1.2e-15 half bits (copper), 2.4e-13 (the
+    example), below 1e-35 at the large end. On model couplings; a check in the record's own exact equations is
+    running (the seed phase at w r_h0 = 2.1, where escape is resolvable, light and heavy shells).
+- **The large end, computed** (526's item 2). The derived seed is 28-30 l5 against ell = 9.07e19 l5, so the seed
+  phase is five-dimensional Tangherlini ((r_h0/ell)^2 = 1e-37); half a bit there is hbar c^3 ln2/(16 pi G M) with
+  M = r0 c^2/(2G) (emitter_process C2), equal to E/(4N) of earth_cap's figures; its shell (sigma_t = 113.9 GM/c^3)
+  reaches the seed phase at 3e-5 of its length.
+- **The sequence's status** (M-SEQUENCE-FULL). hf_core5's sequence is complete on D with nothing cut out: four
+  wavelengths at mu0 = 100 l5^2 and three at 1000, lam-bar/r_h0 = 0.1 to 0.00625, the shell 0.18 of the seed. Its
+  first row (L = 100, lam-bar = 0.1 r_h0) is a wavelength of 2 pi l5 on a seed of 100 l5^2: the derived point to 2 %.
+  It is not the delivery of E5(N), whose shell is 1e11 times the seed; that growth is beyond direct computation, and
+  the delivery at the derived point rests on the scattering computation above. Under M's rule the sequence counts as
+  computed for what it computes: THM-HF5's rates on D.
+- **E6, closed by the math** (M-E6-BY-MATH). emitter.py E1-E6 and emitter_process D2: the opening shell's emitter
+  stands in the bulk, on a coordinate sphere of radius R > r_h about the face's centre, mirrored across the plane, a
+  source of the bulk's own vacuum gravitational waves; our plane's matter cannot be it. No question remains.
+- **Open after 527:** the second order on the exact equations (an estimate now, with the exact-code check running).
+  SOURCEs and SOURCE stay OPEN until that check lands and M rules on PROVED under 441.
+
 ## Item 526: what is left to finish SOURCE
 
 M, 526: "So what is left to finish SOURCE?"
