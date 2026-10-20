@@ -1746,6 +1746,157 @@ LEMMAS_NOW = _rows_542
 # at position 2, which E1xs, E1x and O1a carry, is FACE2s's and FACE2's (face2_release)
 RESTS_ON_NOW.update({"E1us": "CLOSEs", "E1xs": "CLOSEs FACE2s", "E1x": RESTS_ON_NOW["E1x"] + " FACE2",
                      "O1a": RESTS_ON_NOW["O1a"] + " FACE2s FACE2"})
+# [542, M-GAPS-EXPAND and M-WEAK-STRENGTHEN] The three gaps' lemmas -- G0s, GMID, I3s and I3 -- and the four weak
+# rows' support -- O3gs and O3g, Z3q, Z3d, SETTLEs and SETTLE -- added; the weak rows' claims strengthened, none
+# narrowed (lemmas/GAP-ANALYSIS.md, section E).  G0s, GMID and the SETTLE rows are inputs (N) so that rows can rest on
+# them.
+NOTE_542_M = ("item 542 (M: 'add lemmas to close these gaps. nothing gets narrowed, only expanded to complete the "
+              "statement')")
+NOTE_542_W = "item 542 (M: 'strengthen the existing lemmas, and ad more for support')"
+ROWS_542 = {
+    "G0s": ('N', "G0s the static corridor at the small end is unique, order by order in r_h/ell: Tangherlini's static "
+                 "perturbations of every type and degree l >= 2 have no zero mode regular at the horizon and decaying "
+                 "outward; l = 0 is the mass, fixed by N, and l = 1 normal to the plane the position (g0_small)",
+            "PROVED",
+            NOTE_542_M + "; 541's A2.  lemmas/g0_small.py Z0-Z6: the master potentials of every type strictly positive "
+            "on the whole exterior (Z1, exact), so a horizon-regular static solution never decays and the static "
+            "operator's kernel is trivial (Z2, exact; Z3 integrated for l = 2-8); below l = 2 a change of mass and "
+            "rotations, excluded at J = 0 by both reflections (Hung, Keller and Wang, READ); order by order the matched "
+            "expansion's free coefficients fixed by the junction, constant surface gravity and the first law "
+            "(Karasik, Sahabandu, Suranyi and Wijewardhana, gr-qc/0404015v2, READ), every homogeneous solution growing "
+            "or singular (Z5).  Gibbons, Ida and Shiromizu hold exactly at r_h/ell = 0; above it this row carries the "
+            "uniqueness.  Named, not claimed: a proof that no static brane hole exists on a separate branch, away "
+            "from Tangherlini, is not in the field"),
+    "GMID": ('N', "GMID the static corridor's family through the middle, its radius on the plane from 0.2 to 20 ell: "
+                  "one member for each N, E(N) increasing and fixed by the first law between the two ends' laws, the "
+                  "surface gravity positive, no fold and no zero mode (gmid)",
+             "PROVED",
+             NOTE_542_M + "; 541's A1.  lemmas/gmid.py G0-G7 on corridor_p2's Einstein-DeTurck solver (Figueras and "
+             "Wiseman's hole, reproduced at 455) at two resolutions, pinned, with a live check: residuals below 1e-7, "
+             "the DeTurck norm below 1.5e-4 at all members but one (2.3e-3), the resolutions agreeing on the area to "
+             "1.1e-2 at worst and 8e-4 at the median (G1); R4 and the area strictly increasing in 1/T (G2); the small "
+             "end's area 0.60 r_h/ell below Tangherlini's, first order, and the large end four-dimensional "
+             "Schwarzschild (G3); E carried from the small end's law by dE = T dS arrives at the large end's to 2.2e-4 "
+             "(G4); at R4 = 10 ell, N = 3.37e62 and E = 8.44e39 J at the window's top (G5); Figueras and Wiseman's "
+             "single negative mode and no zero modes (1105.2558v2 p. 4, READ, G6).  Named: through the middle "
+             "uniqueness is the absence of zero modes, not a global theorem"),
+    "SETTLEs": ('N', "SETTLEs the formed hole settles at the small end to Tangherlini of its final mass: the end state "
+                     "proved, linear settling proved with the metric, the nonlinear evolution computed to the "
+                     "scheme's resolution, its proof theorized (settle_late)",
+                "COMPUTED-THEORIZED",
+                NOTE_542_W + "; 541's B4.  Determined at 540 (M: 'whether the hole settles at late times - for the "
+                "math to determine'): lemmas/settle_late.py S0-S5.  Complete proof of its computations "
+                "lemmas/SETTLE-PROOF.md (M-CT-PROOF).  Theorized, named: nonlinear settling in the class, the "
+                "five-dimensional counterpart of Klainerman and Szeftel's polarized axisymmetric case, open in the "
+                "field; the 10 l5 wavelength is the N1* session's (540)"),
+    "SETTLE": ('N', "SETTLE the formed hole settles at the large end, nonlinearly, to Schwarzschild of its final mass, "
+                    "to O((ell/r0)^2): on the plane its data are axisymmetric with zero Komar angular momentum, within "
+                    "Dafermos, Holzegel, Rodnianski and Taylor's corollary (settle_large)",
+               "PROVED",
+               NOTE_542_W + "; 541's B4.  lemmas/settle_large.py E0-E4: the plane is the fixed set of one reflection, "
+               "so one rotation survives, and the other reflection makes the Komar angular momentum vanish "
+               "identically (E1, exact; normalised on slowly rotating Kerr); Corollary III.3.1 (2104.08222v1 p. 16, "
+               "READ); the data's distance from Schwarzschild O((ell/r0)^2), 2.5e-3 at r0 = 20 ell, and the "
+               "formation's roundness 10 l5/r0, at most 4.4e-18 (E3).  The corollary's threshold is not quantified "
+               "in the paper; both margins fall with N, so it holds for every N above a finite value"),
+    "O3gs": ('O', "O3gs our face under every gravitational perturbation at the small end: the master quantities of "
+                  "every type decay, the metric with them, the vector type ringing down at omega r_h = 1.134 - 0.328 "
+                  "i; below l = 2 the mass, or with the inflow's spin the member of that spin (face_grav)",
+             "PROVED",
+             NOTE_542_W + "; 541's B2.  lemmas/face_grav.py W0-W4, W6: Hung, Keller and Wang's decay of every type "
+             "in dimension six and below (1809.05144v1 Theorem 2, READ); the reconstruction's coefficients regular "
+             "on the whole exterior for every type, the vector's included (W2, exact); the vector ringdown within 1% "
+             "of Cardoso, Lemos and Yoshida's continued fraction (W3, numerical, falling 7.7e4 over 50 r_h); l < 2 "
+             "a change of mass, or with the inflow's random spin a/r_h = 7.6e-8 the Myers-Perry member of it (W4)"),
+    "O3g": ('O', "O3g our face under every gravitational perturbation at the large end: linearised gravity around "
+                 "Schwarzschild stays bounded and decays to a linearised Kerr metric, at J = 0 a change of mass "
+                 "(face_grav)",
+            "PROVED",
+            NOTE_542_W + "; 541's B2.  face_grav W5: Dafermos, Holzegel and Rodnianski (1601.06467v1, abstract, "
+            "READ); the plane reads the large hole as Schwarzschild to O((ell/r0)^2) (C3, verified 261; m1_large); "
+            "Figueras and Wiseman's family dynamically stable (READ)"),
+    "Z3q": ('Z', "Z3q where the passage's negative sits on QB: outside the horizon zero, Schwarzschild-AdS5 exactly; "
+                 "inside it a positive tail below 1.3 (x/x_b)^2; the mass's drop where QB departs at order one, x > "
+                 "0.37 x_b; net zero along every ray (z3q)",
+            "PROVED on QB",
+            NOTE_542_W + "; 541's B1.  lemmas/z3q.py Q0-Q6 on QB's symmetric state (bounce_close C3's parameters): "
+            "Birkhoff in five dimensions (C2, exact); the tail checked for x/x_b = 0.03-0.25, largest ratio 1.287 "
+            "(Q2); the crossing at 0.365 (Q3); in and out equal to 1e-9 of mu (Q4); at the horizon (x_h/x_b)^2 = "
+            "2.6e-18 at the small end, 1.4e-80 at the large (Q5).  Below the state's own width the tail is not "
+            "resolved and not claimed." + NOTE_542_ONQB),
+    "Z3d": ('Z', "Z3d the measured dark energy against Z3c: (Z) bounds every component's true w and the whole's dH/dt "
+                 "<= 0; DESI DR2's preferred backgrounds keep the whole's null energy at every epoch, rho + p >= 0.42 "
+                 "rho, and an exchanging vacuum and cold dark matter that each keep it reproduce them exactly (z3d)",
+            "PROVED",
+            NOTE_542_W + "; 541's B3.  lemmas/z3d.py D0-D5: dH/dt = -4 pi G (rho + p) - 2 C'/a^4 (D1, exact); DESI "
+            "DR2's four w0waCDM fits (2503.14738v3 Table V, READ; 3.1, 2.8, 3.8 and 4.2 sigma), the phantom "
+            "crossing at z = 0.35-0.50 (D3); rho_vac = -w rho_DE and rho_c' = rho_c + (1 + w) rho_DE conserve the "
+            "total (D4, exact), each keeping null energy at every z, cold dark matter's least ratio 0.90; the "
+            "mechanism Das, Corasaniti and Khoury's (astro-ph/0510628v2, READ).  The falsifier: dH/dt > 0 at any "
+            "epoch, or rho_c + (1 + w) rho_DE < 0.  The background is reproduced, not the perturbations: growth "
+            "and CMB lensing are not computed"),
+    "I3s": ('I', "I3s our universe's information over the hole's life at the small end: after the release the face's "
+                 "fine-grained entropy never exceeds its area's, the information leaving in its radiation; the island "
+                 "inside our face a scrambling time back, on the classical interior; nothing crossing; the end "
+                 "holding at most its own 176 bits (i3_info)",
+            "COMPUTED-THEORIZED",
+            NOTE_542_M + "; 541's A3.  lemmas/i3_info.py I0-I8: E^2 linear in t, S = S0 (1 - t/tau)^(3/4) (I1); "
+            "the radiation 4/3 of the entropy the face loses, Page at 0.526 tau from a pure start (I2); Penington's "
+            "quantum extremal surface (1905.08255v3, READ), 9.7e-17 r_h inside the event horizon and 35.2 r_h back, "
+            "where QB departs by 2.6e-18 (I3); the write at T' = T leaves the face at S0, past its Page time from "
+            "the release (I4-I5); the end at 2.91 l5 holds 176 bits, not 1.6e13 times them (I6).  Complete proof "
+            "lemmas/I3-PROOF.md (M-CT-PROOF).  Theorized, named: the island formula, semiclassical gravity beyond "
+            "the established core, contested for a massless graviton by Geng and Karch (2006.02438v2, READ); on "
+            "Laddha, Prabhu, Raju and Shrivastava's reading (2002.02448v2, READ) unitary with no Page curve.  D14's "
+            "choice, complete evaporation or a remnant of at most 2.05 J, stays the quantum region's"),
+    "I3": ('I', "I3 our universe's information over the hole's life at the large end: the same, E^3 falling "
+                "linearly, Page at 0.568 tau from a pure start, the surface at most 0.18/N of r0 inside the event "
+                "horizon; the face shrinking through the middle into I3s's end (i3_info)",
+           "COMPUTED-THEORIZED",
+           NOTE_542_M + "; 541's A3.  i3_info I9 with I4-I5 and I7-I8.  Complete proof lemmas/I3-PROOF.md.  "
+           "Theorized as I3s"),
+}
+AFTER_542 = {"ARRIVAL": ("G0s", "GMID", "SETTLEs", "SETTLE"), "O3": ("O3gs", "O3g"), "Z3b": ("Z3q",),
+             "Z3c": ("Z3d",), "I2": ("I3s", "I3")}
+GROW_542 = {
+    "G1": " -- at both ends and through the middle by the first law (GMID), the static corridor of each N unique at "
+          "the small end (G0s)",
+    "G3": "; between them the family's own radius, one member for each N (GMID)",
+    "O3s": None, "O3": None,
+    "Z3bs": ", on QB located exactly (Z3q): zero outside the horizon, a positive tail inside it, the mass's drop where "
+            "QB departs at order one, net zero along every ray",
+    "Z3b": ", on QB located exactly (Z3q): zero outside the horizon, a positive tail inside it, the mass's drop where "
+           "QB departs at order one, net zero along every ray",
+    "Z3c": ": every component's true w and the whole's dH/dt <= 0, which DESI DR2's preferred backgrounds keep (Z3d)"}
+NOTE_542_GROW = ("  [Item 542, M-WEAK-STRENGTHEN] Strengthened, not narrowed: the claim now carries what its new "
+                 "support lemma gives (named in it); the name read before '%s'")
+NOTE_542_ELL = ("  [Item 542, M-ELL-SI] At the small end r_h goes as ell^(1/3) and E as ell^(-1/3); the figures quoted "
+                "are at the window's top, 13.964 um, one end of ell_H = 0.611 nm <= ell <= 13.964 um: 1.12008e-20 m "
+                "and 1.28098e9 J there, 9.07553e-21 m and 1.58096e9 J at the dark-energy tie, 3.94781e-22 m and "
+                "3.63442e10 J at ell_H (ell_si L1-L4).  The large end is free of ell")
+_rows_542b = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k in GROW_542:
+        old = n
+        if k == "O3s":
+            n = n.replace("for Wall E's scalar wave:", "for Wall E's scalar wave and every gravitational perturbation, "
+                          "the metric included (O3gs), the formed hole settling to it (SETTLEs):")
+        elif k == "O3":
+            n = n.replace("at the large end (158 (2); 160)", "at the large end, under every gravitational perturbation "
+                          "(O3g), the formed hole settling to it (SETTLE) (158 (2); 160)")
+        else:
+            n = n + GROW_542[k]
+        t = t + NOTE_542_GROW % old
+    if k in ("G1", "G3"):
+        t = t + NOTE_542_ELL
+    _rows_542b.append((c, n, s_, t))
+    for k2 in AFTER_542.get(k, ()):
+        _rows_542b.append(ROWS_542[k2])
+LEMMAS_NOW = _rows_542b
+RESTS_ON_NOW.update({"G1": RESTS_ON_NOW["G1"] + " G0s GMID", "G3": RESTS_ON_NOW["G3"] + " G0s GMID",
+                     "O3s": RESTS_ON_NOW["O3s"] + " SETTLEs", "O3": RESTS_ON_NOW["O3"] + " SETTLE",
+                     "SETTLEs": "ARRIVALs", "SETTLE": "ARRIVAL", "Z3q": "QB", "I3s": "CLOSEs", "I3": "CLOSE GMID"})
 # [item 356] G1, G3 and H2tu rest at the large end on C3 (verified), not on the record's M1; B7 on M's rulings
 # Rows set aside since item 247, kept on record with the status and record they were seated with.
 SUPERSEDED_NOW = SUPERSEDED + [
