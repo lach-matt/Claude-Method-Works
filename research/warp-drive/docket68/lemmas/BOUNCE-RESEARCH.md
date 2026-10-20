@@ -3258,3 +3258,44 @@ M, 530: "Yes , b please" -- route (b) of the 527 report.
 - **Standing**: the second order is computed on the record's own equations, not estimated; SOURCEs and SOURCE go to M
   for PROVED under 441 on the exact first and second orders, the strain 1.3e-4 as the expansion parameter, the
   monochromatic peak as the bound and a Tangherlini hole of fixed mass through the passage.
+
+## 58. The warp theorem reevaluated: what is still open (533)
+
+M, 533: "Please reevaluate the warp theorem and let's determine what is still open".
+- **How.** The 82 rows of LEMMAS_NOW read with their latest notes against 441 (PROVED: a computed solution meeting
+  the specification, consistent with established physics); every claim scanned for wording stale or against the
+  exclusions (464, 471, 481, 484); OBSTACLES.md, STALE-LEDGER.md and the map's panels read; the N1* session's branch
+  (ccr-66909215-gi0qa5) read; T1 re-run.
+- **The register.** 80 rows stand: 74 PROVED, 6 DEFINITION. The open mentions inside PROVED rows are history: 489's F1
+  (position 2's face held through the write; reversed at 491 by face2_release), item 362's (superseded at 424-428),
+  the READINGs (settled at 439). Open: SOURCEs and SOURCE. Their needs named at 491 -- the device that reads, the
+  structure probe's wavelength (S1C-O1), the emitter's process -- were derived at 492 (reader A1-D5; the probe at or
+  above the K shell) and 496 (emitter_process A1-D4); the delivery onto the seed computed at 522-530, the second order
+  exactly. Put to M for PROVED under 441.
+- **Open outside the register.**
+  - *The proof for every lambda* (THM-HF5 (i) and its rates, on N1*). The other session claims N1* PROVED (its D21:
+    Theorems E, A and D written out, every standard theorem READ at source, seven verifiers with no major gap; a clause
+    of Lemma 6.4 restated and three notes applied after the last verifier). Not checked or seated here. By 509 it is
+    built after SOURCE, and SOURCE does not rest on it (521).
+  - *The response paper to Huneau and Luk* (522): not begun; the other session waits for M.
+  - *The whole-theorem verification* (OBSTACLES rank 6): 488's verification predates 489-532 (FACE2s and FACE2 seated,
+    R1 realized, SOURCE's notes); owed once SOURCE is ruled.
+- **What PROVED rests on, named** (the limits of the claim, not open rows).
+  - 273's transition: computed in loop quantum gravity's effective dynamics carried to five dimensions (transition5q
+    H1-H9, transition5r R1-R6), a candidate quantum theory; no established theory reaches x >= 1. On it: O1a, O1b,
+    O1c, Z3b, Z3bs, M1, B3, B3s, B4d, B4ds; FACE2s and FACE2 cite transition5q.
+  - The faces' equal mass: one onset curvature for both sectors (415's P1-P3, M's P4 at 405); otherwise
+    m_WH/m_BH = l_c^2/l_b^4 (transition5r R5). H2 and the ten rows.
+  - Six definitions of M's (R0, R1, R2, R6, RECON, B6'): realizable under 441 (2), R1 realized (r1_exact, 491).
+  - The hold (O3s, O3): the scalar wave uniformly bounded (Schlue, READ), gravitational perturbations mode-stable
+    (Ishibashi-Kodama); the corridor's nonlinear stability is not claimed.
+  - The large end's core (O1b, O1c): the warped black string to (ell/r0)^2 at the horizon and core_face's
+    five-dimensional form, both giving H-CORE-DELIVERS; the localized hole's interior not computed (core_large).
+  - SOURCE, if ruled PROVED: monochromatic at the envelope's peak; the hole's mass fixed through the passage; C taken
+    from x = 3.0 to x* by a slope of 6 in ln C against the measured 13.5-15.4; the seed's floor lam_P a criterion.
+- **Wording for M** (491 (2)'s lemmas solved). M1's claim still ends "(OPEN since item 232)"; it is PROVED since 478.
+  O1a's claim names "the bounce"; the passage is 273's quantum transition surface, not the classical or semiclassical
+  bounce the record excludes (318; collapse_bulk C9).
+- **The map's panel** "The passage through the bulk · computed in the conversation, not verified, not seated" (446-466):
+  stages 1-2 and P3's interior rest on the charged hole's inner horizon, ruled out (471, 481; STALE-LEDGER S32); no
+  row cites wh5_dictionary, stage2_inner, corridor_p1-p3 or p3_double_null (checked). Record only.

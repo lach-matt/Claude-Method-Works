@@ -98,7 +98,23 @@ they computed on it. The instrument carries both registers: `LEMMAS` (the record
   - The copy takes its room by displacing what is there, and keeps it as the new whole of position 2 (284, 285).
   - The corridor's length is the difference of the trajectories.
 
-**Where it stands, at item 530.** The second order of the record's own equations at 2w is computed exactly
+**Where it stands, at item 533 (the theorem reevaluated).** Every one of the 82 rows was read against its latest notes
+and 441's standard, the claims scanned for stale or excluded wording, and the record's other open lists, the N1*
+session's branch and T1 read. 80 rows stand: 74 PROVED and 6 DEFINITION. Every "OPEN" inside a PROVED row's notes is
+history (489's F1 on position 2's face, reversed at 491 by face2_release; item 362's notes, superseded at 424-428; the
+READINGs, settled at 439); no live note contradicts its status. Open in the register: SOURCEs and SOURCE, every named
+item computed (the device 492, the emitter 496, the limit 497/506/511, the seed 527, the delivery 522-530), put to M
+for PROVED under 441. Open outside it: (1) the proof for every lambda (THM-HF5 (i), on N1*), which the other session
+claims PROVED (D21, seven verifiers; branch ccr-66909215-gi0qa5), not yet checked or seated here and, by 509, built
+after SOURCE; (2) the response paper to Huneau and Luk, not begun, waiting for M; (3) the whole-theorem verification
+(OBSTACLES rank 6), owed once SOURCE is ruled, 488's predating 489-532. What PROVED rests on, named: 273's transition
+in loop quantum gravity's effective dynamics carried to five dimensions (a candidate quantum theory; ten rows and
+FACE2s/FACE2); the faces' equal mass on one onset curvature (415, M's P4); six definitions of M's, realizable; the hold
+for the scalar wave with gravitational mode stability (nonlinear stability not claimed); the large end's core between
+the warped string and core_face's form. Wording for M: M1's claim still ends "(OPEN since item 232)"; O1a's names "the
+bounce" where the passage is 273's transition surface. Details in BOUNCE-RESEARCH section 58.
+
+**Where it stood at item 530.** The second order of the record's own equations at 2w is computed exactly
 (`seed_second.py`, 9/9, mutants 3/3): the 2+1 equations expanded to second order about Tangherlini, the l = 2 waves of
 both Kodama-Ishibashi types in the record's own variables (tensor Ps = -1/2, Om = -(3/4) x; scalar Ps = (2/3) x, Om = 1;
 three modes close the tower exactly), the first order reproducing KI's barriers to 1e-4 at x = 1.0-3.0, the second
@@ -2161,6 +2177,12 @@ state was rebuilt first.
     (source_spec U3) the least seed never delivers; copper needs 116 l5^2 at 2 pi l5, 324 at 10 l5, 1477 at 20 l5
     (`seed_types.py` T5, 13/13).
   - M's, standing: the computed sequence's status; who holds E5(N) in the bulk (E6).
+- **Items 531-533** (531 and 532: "Yes , b please" re-sent after two container restarts during the build; 533: "Please
+  reevaluate the warp theorem and let's determine what is still open"). The 82 rows re-read against 441: 80 stand
+  (74 PROVED, 6 DEFINITION), every open mention in a PROVED row's notes is history; open are SOURCEs and SOURCE (put to
+  M), the proof for every lambda (N1* claimed PROVED in the other session, unchecked here), the Huneau-Luk response
+  paper (waiting for M) and the whole-theorem verification after SOURCE. Two claims' wording put to M (M1, O1a).
+  BOUNCE-RESEARCH section 58.
 - **Item 530** (M: "Yes , b please"). Route (b) built: the second-order source derived symbolically from the record's
   own equations and solved for the outgoing amplitude at 2w (`lemmas/seed_second.py`, 9/9, mutants 3/3). The first
   order reproduces Kodama-Ishibashi's l = 2 barriers of both types to 1e-4 in the record's own gauge and variables;
