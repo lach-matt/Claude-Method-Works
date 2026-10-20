@@ -41,6 +41,9 @@ ingredient changed must fail, so that a check which passes is not passing vacuou
      For lam = 10 l5 the ratio lam/L is 10 on x = 1 and 2.913 (mu = 100 l5^2), 0.921 (mu = 1000 l5^2) at the horizon.
      Against the scale on which the curvature varies, r, the ratio is lam/sqrt(mu) = 1.000, 0.316 at the horizon and
      lam/r_q = 1.853, 1.042 on x = 1 (mu = 100, 1000 l5^2).  Control: 48 in place of 72.
+  R8 The mass law's coefficient for the numerical solver's envelope, sin^4(pi (v - 1/2)/3) on [1/2, 7/2], A = 1:
+     (2/9) int env'^2 = 5 pi^2/108 = 0.456926 (Theorem 3, section 6), and the shell's mass (2/9) int env^2 = 35/192.
+     Control: a sin^2 envelope gives pi^2/27.
 
 python3 response5.py [--selftest] [--full]
 --full also runs the selftests of the five proof instruments (about 20 minutes; data5.py takes about 14).
@@ -402,13 +405,30 @@ def r7(control=False):
     ok &= all(abs(a - b) < 1e-3 for a, b in zip(vals, [1.0, 0.316228, 1.85296, 1.04198]))
     return bool(ok)
 
+def r8(control=False):
+    """the law's coefficient for the solver's envelope: (2/9) int env'^2 over [1/2, 7/2] with env = sin^4(pi (v - 1/2)/3)
+    and A = 1 is (2/9)(5 pi^2/24) = 5 pi^2/108 = 0.456926, the number bondi5.py B4 reads off the runs (0.4568 at lam =
+    0.0125); the shell's mass (2/9) int env^2 = (2/9)(3)(35/128) = 35/192 = 0.18229, the solver's mu_end - 1.  With
+    phi := pi (v - 1/2)/3 on [0, pi], dv = (3/pi) dphi and d/dv = (pi/3) d/dphi."""
+    ph = sp.symbols("phi", real=True)
+    n = 2 if control else 4
+    env = sp.sin(ph)**n
+    denv = sp.pi/3*sp.diff(env, ph)
+    coef = sp.Rational(2, 9)*sp.integrate(sp.expand(denv**2), (ph, 0, sp.pi))*3/sp.pi
+    gain = sp.Rational(2, 9)*sp.integrate(sp.expand(env**2), (ph, 0, sp.pi))*3/sp.pi
+    ok = sp.simplify(coef - 5*sp.pi**2/108) == 0 and abs(sp.N(coef) - sp.Float("0.456926")) < 1e-6
+    ok &= sp.simplify(gain - sp.Rational(35, 192)) == 0
+    return bool(ok)
+
+
 CHECKS = [("R1 the reduction: 2+1 gravity on h = e^(2 psi) g3 with target (3/2) dpsi^2 + 2 domega^2", r1, 1),
           ("R2 the background is 5D Vaidya, Ric(g0) = (3 mu'/(2 r^3)) dv dv", r2, 1),
           ("R3 Kretschmann 72 mu^2/r^8 (mu constant, and mu(v)); x = 1 at r_q; r_q <= sqrt(mu) iff ...", r3, 2),
           ("R4 ell null geodesic; the contractions of the domain; tau-lines spacelike where r^2 < mu", r4, 1),
           ("R5 the constraints at the background: parabolic in a, symmetric hyperbolic in (w, q)", r5, 1),
           ("R6 the dust is round and positive; g0^-1(dPhi, dPhi) = 1 - mu/r^2 - 2 r_q' at x = 1", r6, 4),
-          ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)", r7, 1)]
+          ("R7 lam = 10 l5 against the curvature length (10; 2.91, 0.92) and against r (1.85, 1.04; 1.00, 0.32)", r7, 1),
+          ("R8 the mass law's coefficient for the solver's envelope: (2/9) int env'^2 = 5 pi^2/108; the shell 35/192", r8, 1)]
 
 INSTRUMENTS = ["ks5.py", "foliation5.py", "lead5.py", "ansatz5.py", "data5.py"]
 
