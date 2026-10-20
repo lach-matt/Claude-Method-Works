@@ -1927,6 +1927,44 @@ LEMMAS_NOW = _rows_542b
 RESTS_ON_NOW.update({"G1": RESTS_ON_NOW["G1"] + " G0s GMID", "G3": RESTS_ON_NOW["G3"] + " G0s GMID",
                      "O3s": RESTS_ON_NOW["O3s"] + " SETTLEs", "O3": RESTS_ON_NOW["O3"] + " SETTLE",
                      "SETTLEs": "ARRIVALs", "SETTLE": "ARRIVAL", "Z3q": "QB", "I3s": "CLOSEs", "I3": "CLOSE GMID"})
+# [item 544] M: "Theorem P carried, and 10 l5 left with the N1* seesion - are now ready. The nonlinear settlings are
+# still being worked" (M-N1STAR-READY, M-SETTLING-IN-PROGRESS).  Main's PRs 62-64 merged; the N1* session's
+# instruments re-run here; derived_go.py runs that session's go/no-go at the record's own derived point.  No status
+# moves; one finding put to M.
+NOTE_544_SOURCE = ("  [Item 544] Carried from the N1* session and re-run here (bondi5 4/4, growth5, wavegauge5 5/5, "
+                   "settle5 6/6, routes5 2/2, response5): Theorem M, the solution's Bondi mass at past null infinity -- "
+                   "the five-dimensional mass law pointwise, the mean mass mu(v) + O(lam) in the shell and mu + (2/9) "
+                   "lam^2 A^2 int env'^2 + O(lam^3) after it, the record's runs at 0.4569 against 0.45693 -- deduced, "
+                   "verified by a twelfth and a thirteenth verifier with every finding repaired, the last repairs not "
+                   "yet read.  The physical wavelength (growth5 G0-G5): at 10 l5 the record's own scheme fails its "
+                   "premise at both seeds before the shell's peak, the interior of the seed's horizon untrapping from "
+                   "the inside outward in the scheme's gauge (a second zero of the round spheres' expansion persisting "
+                   "from v = 1.500 and 1.583), so no approximant there comes from it; the exterior of the event "
+                   "horizon is unaffected.  At the record's own derived point, lam_P on the least seeds (derived_go "
+                   "D0-D4), the same: copper's premise fails from v = 1.398 (1.403 on a finer grid) and the example "
+                   "README's from 1.5125, both before the shell's peak, and r0 = 20 ell's at 1.833, at the peak "
+                   "(1.8326 on a finer grid), the mass aspect at past null infinity then off the mass law's exact "
+                   "value and not converged.  So the passage at the physical wavelength through the seed's "
+                   "interior is not computed: named theorized (SOURCE-PROOF Part E).  The delivery within half a bit "
+                   "is Part D's scattering outside the horizon and is not touched.  Re-posed there as the "
+                   "characteristic problem in double-null gauge, not built.  Finding put to M: in the scheme's gauge an "
+                   "inner marginally trapped surface forms inside the seed's horizon while the shell passes; whether "
+                   "your 519 (no inner or Cauchy horizon) bears on it is yours")
+NOTE_544_SETTLE = ("  [Item 544] From the N1* session (re-run here): every metric component settles linearly in Kodama "
+                   "and Ishibashi's gauge (Proposition 10.1; settle5 T5-T6: no growing mode for l = 2..10, the tail "
+                   "t^-7); the harmonic gauge's objects computed (Proposition 10.2, wavegauge5 W1-W5), its decay "
+                   "estimate not attempted.  At the physical wavelength the record's scheme fails before the shell's "
+                   "peak (growth5; derived_go at lam_P), so S3-S4's run at lam/sqrt(mu0) = 0.1 is not repeated there.  "
+                   "The nonlinear settling is still being worked in the N1* session (M, 544): theorized, named")
+_rows_544 = []
+for c, n, s_, t in LEMMAS_NOW:
+    k = n.split()[0]
+    if k in ("SOURCEs", "SOURCE"):
+        t = t + NOTE_544_SOURCE
+    if k == "SETTLEs":
+        t = t + NOTE_544_SETTLE
+    _rows_544.append((c, n, s_, t))
+LEMMAS_NOW = _rows_544
 # [542, M-BASIS-LINE] One current-basis line per row (M: 'yes'): what the row rests on now, with the superseded notes
 # left in the row's record.  The selftest checks every row has exactly one; the map shows it.
 CURRENT_BASIS = {
@@ -2062,8 +2100,9 @@ CURRENT_BASIS = {
            "rotations; every order fixed (Karasik et al., READ)",
     "GMID": "gmid G0-G7: corridor_p2's family at two resolutions, monotone, its ends matched, the first law closing to "
             "2.2e-4; Figueras and Wiseman's no zero modes (READ)",
-    "SETTLEs": "settle_late S0-S5: the end state Tangherlini (proved), linear settling (proved), the nonlinear "
-               "evolution computed -- theorized, its proof (named); SETTLE-PROOF.md",
+    "SETTLEs": "settle_late S0-S5: the end state Tangherlini (proved), linear settling (proved; every component, N1*'s "
+               "Proposition 10.1, 544), the nonlinear evolution computed -- theorized, its proof (named), being "
+               "worked in the N1* session; SETTLE-PROOF.md",
     "SETTLE": "settle_large E0-E4: axisymmetric with zero Komar J on the plane (exact); Dafermos, Holzegel, "
               "Rodnianski and Taylor's Corollary III.3.1 (READ), to O((ell/r0)^2)",
     "CLOSEs": "M-ENERGY-STAYS (336), close_small K1-K9: our face closes by Hawking emission after 8.57e14 clocks; "
@@ -2075,7 +2114,8 @@ CURRENT_BASIS = {
     "FACE2": "face2_release at the large end: open at most 4 clocks of GM/c^3 and holding through it; the white hole "
              "bounce_qm's reflected state -- on QB",
     "SOURCEs": "SOURCE-PROOF.md: THM-SOURCE parts A-E (the read, the emitter, the high-frequency limit, delivery within "
-               "half a bit); N1* and Theorem P proved -- theorized steps named",
+               "half a bit); N1* and Theorem P proved, Theorem M deduced -- theorized steps named, the passage at "
+               "the physical wavelength among them (544)",
     "SOURCE": "SOURCE-PROOF.md at the large end, as SOURCEs -- theorized steps named",
     "QB": "BOUNCE-PROOF.md L1-L14 (bounce_qm Q1-Q9, bounce_close C1-C6, bounce_proof P1-P6): unitary reflection at r "
           "= 0, two horizons only -- theorized, quantum mechanics at Planckian curvature",
@@ -2309,7 +2349,9 @@ def lemma_selftests():
               "settle_late.py",
               # item 542: the gaps' lemmas and the weak rows' support; the SI figures' ell
               "ell_si.py", "g0_small.py", "gmid.py", "i3_info.py", "z3q.py", "face_grav.py", "z3d.py",
-              "settle_large.py"):
+              "settle_large.py",
+              # item 544: the N1* session's go/no-go at 10 l5, run at the record's own derived point lam_P
+              "derived_go.py"):
         mod = _load(os.path.join(HERE, "lemmas", f), "wt_" + f[:-3])
         with contextlib.redirect_stdout(io.StringIO()):
             out[f] = mod.selftest()
