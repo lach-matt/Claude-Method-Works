@@ -40,6 +40,22 @@ computed on g = -f dt^2 + dr^2/f + r^2 (dth^2 + cos^2 th dphi1^2 + sin^2 th dphi
   W5 (computed, exact) The tensor type is already in harmonic gauge: for h_ij = 2 r^2 H(t, r) T_ij(th) with T
      traceless and divergence-free on S^3 (the mirror-even T^2-invariant form T = diag(a, cos^2 th b, sin^2 th c),
      a + b + c = 0, D^i T_ij = 0), Gamma[h] = 0 identically.  Control: without the divergence condition it does not.
+  W6 (computed, exact) The gauge-vector system is triangular.  With S := div X, F := dX, P := F_tr/S_l, Q_t := -F_{t
+     th}/S_l' and Q_r := -F_{r th}/S_l' (S_l the harmonic) and box_l := -f^-1 d_t^2 + f d_r^2 + ((3r^2 - mu)/r^3) d_r -
+     k^2/r^2 the scalar wave operator at mode l, seven identities hold in X, exactly (W6; at l = 2 in the selftest, at l
+     = 4 under --l4, where all seven pass and the control fails, in 72 minutes): div(box X) = box_l(div
+     X); (box X)_t = box_l X_t + (2 mu/r^3) P; (box X)_r = d_r S - f^-1 d_t P - (k^2/r^2) Q_r; r (box X)_L = box_l(r
+     X_L) - (2 k f/r) Q_r; (box X)_t = d_t S - (f/r^3) d_r(r^3 P) - (k^2/r^2) Q_t; d(box X)_tr = box_l P - ((3 r^2 - 9
+     mu)/r^4) P - (2 k^2/r^3) Q_t; and, the last two combined, box_l(r P) + (4 mu/r^4) r P = r d(box X)_tr + 2 (d_t S -
+     (box X)_t). So for box X = J the system is triangular: S solves the free scalar wave equation with source div J; r
+     P solves the scalar wave equation with the potential -4 mu/r^4 and a source in S and J (the Maxwell master equation
+     of [KI03b] (5.20) at n = 3, A = -r^3 P/k^2, in another normalisation); X_t solves box_l X_t = J_t - (2 mu/r^3) P
+     with no potential; r X_L solves the scalar wave equation with source (2 k f/r) Q_r + r J_L, Q_r = (r^2/k^2)(d_r S -
+     f^-1 d_t P - J_r) algebraic in the rungs below; and X_r = Q_r - d_r(r X_L)/k is algebraic. Hung's condition (A.3),
+     k^2/r^2 + V >= 0, holds on every rung: V = 0 for S, X_t and r X_L, and V = -4 mu/r^4 for r P gives k^2/r^2 - 4
+     mu/r^4 >= 0 for r^2 >= 4 mu/k^2, true on the exterior for k^2 >= 8 (equality would need r^2 = mu/2). The
+     counterpart of [Hun19] (4.21) carries no potential where four dimensions has 2M/r^3.  Control: the sign of the term
+     2 mu/r^3 (and of 4 mu/r^4) reversed.
 
 READ (alphaXiv, 2026-10-20).  [Hun19] P.-K. Hung, arXiv:1909.06733v1, "The linear stability of the Schwarzschild
 spacetime in the harmonic gauge: even part": abstract ("the energy decays at a rate tau^{-2+} for the solution of the
@@ -49,7 +65,7 @@ other is the deformation tensor of a stationary one form"); (1.3)-(1.5) pp. 2; T
 (4.10)-(4.13), (4.21) p. 26-27 (the gauge vector to the Regge-Wheeler gauge and its wave equations with the Zerilli
 source); (8.1) p. 58 W* = dt/r + 2M dr/(r^2 f); (8.38)-(8.39) p. 69 W** and K*.
 
-sympy.  python3 wavegauge5.py [--selftest | --mutants]   (about 1 minute)
+sympy.  python3 wavegauge5.py [--selftest | --mutants]   (about a minute and a half)
 """
 import sys
 import time
@@ -348,11 +364,64 @@ def w5(control=0, verbose=False):
     return chk.ok
 
 
+# ---------------------------------------------------------------------------------------------------------- W6
+def w6(control=0, verbose=False, ls=(2,)):
+    """the structure of box X = J for the scalar-type one-form of W4: with S := div X, F := dX, P := F_tr/S_l,
+    Q_t := -F_{t th}/S_l', Q_r := -F_{r th}/S_l' and box_l the scalar wave operator at mode l, seven identities in X;
+    l = 2 by default (about half a minute), l = 2 and 4 under --l4 (about 72 minutes with the control)"""
+    chk = Checklist(verbose, quiet=control != 0)
+    D = sp.diff
+
+    def vanishes(e, funcs):                  # e linear in the derivatives of funcs: every coefficient is zero,
+        for pt in SAMPLE_POINTS:             # evaluated at the sample points to forty digits (as W1 does); the
+            ep = sp.expand(e.subs(th, pt[th]).doit())            # angle goes in first, which keeps the expansion small
+            rep = {d: sp.Symbol("D%d" % n) for n, d in enumerate(sorted(ep.atoms(sp.Derivative), key=str))}
+            rep.update({fn: sp.Symbol("F%d" % n) for n, fn in enumerate(funcs)})
+            lin = sp.expand(ep.xreplace(rep))
+            syms = [q for q in rep.values() if lin.has(q)]
+            coeffs = sp.Poly(lin, *syms).coeffs() if syms else [lin]
+            if not all(abs(sp.N(c.subs(pt), 40)) < sp.Float("1e-30") for c in coeffs):
+                return False
+        return True
+    sign = -1 if control == 1 else 1
+    for l in ls:
+        S, k2 = harmonic(l)
+        k = sp.sqrt(k2)
+        Sth = D(S, th)
+        Si = -Sth/k
+        Xt, Xr, XL = [sp.Function(nm)(t, r) for nm in ("Xt", "Xr", "XL")]
+        Xv = [Xt*S, Xr*S, XL*r*Si, 0, 0]
+        bX = box1(Xv, simp=False)
+        box_l = lambda u: -D(u, t, 2)/f + f*D(u, r, 2) + (3*r**2 - mu)/r**3*D(u, r) - k2/r**2*u    # noqa: E731
+        Sd = sum(gi[a, b]*D1(Xv, a, b) for a in range(N) for b in range(N) if gi[a, b] != 0)/S
+        P = D(Xr, t) - D(Xt, r)
+        Qt = (D(Xv[2], t) - D(Xv[0], th))/(-Sth)
+        Qr = (D(Xv[2], r) - D(Xv[1], th))/(-Sth)
+        Jt, Jr = bX[0]/S, bX[1]/S
+        divbox = sum(gi[a, b]*D1(bX, a, b) for a in range(N) for b in range(N) if gi[a, b] != 0)/S
+        items = [
+            ("div(box X) = box_l(div X)", divbox - box_l(Sd)),
+            ("(box X)_t = box_l X_t + (2 mu/r^3) F_tr", Jt - box_l(Xt) - sign*2*mu/r**3*P),
+            ("(box X)_r = d_r S - f^-1 d_t F_tr - (k^2/r^2) Q_r", Jr - (D(Sd, r) - D(P, t)/f - k2/r**2*Qr)),
+            ("r (box X)_L = box_l(r X_L) - (2 k f/r) Q_r", r*bX[2]/(r*Si) - box_l(r*XL) + 2*k*f/r*Qr),
+            ("(box X)_t = d_t S - (f/r^3) d_r(r^3 F_tr) - (k^2/r^2) Q_t",
+             Jt - (D(Sd, t) - f/r**3*D(r**3*P, r) - k2/r**2*Qt)),
+            ("d(box X)_tr = box_l F_tr - ((3 r^2 - 9 mu)/r^4) F_tr - (2 k^2/r^3) Q_t",
+             D(Jr, t) - D(Jt, r) - (box_l(P) - (3*r**2 - 9*mu)/r**4*P - 2*k2/r**3*Qt)),
+            ("box_l(r F_tr) + (4 mu/r^4) r F_tr = r d(box X)_tr + 2 (d_t S - (box X)_t)",
+             box_l(r*P) + sign*4*mu/r**4*r*P - r*(D(Jr, t) - D(Jt, r)) - 2*(D(Sd, t) - Jt)),
+        ]
+        for name, e in items:
+            chk("l = %d: %s" % (l, name), vanishes(e, (Xt, Xr, XL)))
+    return chk.ok
+
+
 CHECKS = [("W1 the Lichnerowicz identity in the class, and Gamma[pi_X] = box X", w1, 1),
           ("W2 the l = 0 stationary one-form W* = dt/r^2 + sqrt(mu) dr/(r^3 f), regular at the horizon", w2, 1),
           ("W3 the gauge-fixed mass change K* = K + pi_{W**}, harmonic and linear in t", w3, 1),
           ("W4 the scalar gauge vector: three 1+1 wave equations per mode, sources in F, F_ab (l = 2, 4)", w4, 1),
-          ("W5 the tensor type is in harmonic gauge already", w5, 1)]
+          ("W5 the tensor type is in harmonic gauge already", w5, 1),
+          ("W6 the gauge-vector system is triangular: S, then F_tr, then X_t and r X_L, X_r algebraic", w6, 1)]
 
 
 def selftest(verbose=False):
@@ -382,6 +451,8 @@ def mutants():
 
 
 if __name__ == "__main__":
+    if "--l4" in sys.argv:
+        w6.__defaults__ = (0, False, (2, 4))
     if "--mutants" in sys.argv:
         sys.exit(0 if mutants() else 1)
     sys.exit(0 if selftest("--verbose" in sys.argv) else 1)

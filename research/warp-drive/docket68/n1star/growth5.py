@@ -92,6 +92,27 @@ FIELDS, DERS = ("P1", "P2", "beta", "rU", "dW"), ("v", "r", "th")
 MAXIMA = [f + "_" + d for f in FIELDS for d in DERS]
 
 
+def zeros_of(g, d):
+    """every zero of the round spheres' outgoing expansion in each column, as r in units of sqrt(mu0):
+    hf_mirror5.horizon's Chebyshev fit per column, every sign change refined by Newton (horizon() keeps the first zero
+    only, and the pair (r_lo, r_hi) only when every column has one -- which is why the direction of the untrapping could
+    not be read from the runs before D45)"""
+    T = 1 + g.Y**3*d["w"] + (2/3)*g.Y**3*g.dx((1 - g.X**2)*d["q"])
+    t, tt = np.cos(np.pi*np.arange(g.Ny + 1)/g.Ny), np.linspace(-1, 1, 4001)
+    out = []
+    for j in range(g.Nx + 1):
+        c = np.polynomial.chebyshev.chebfit(t, T[:, j], g.Ny); c1 = np.polynomial.chebyshev.chebder(c)
+        fv = np.polynomial.chebyshev.chebval(tt, c)
+        col = []
+        for k in np.nonzero(np.sign(fv[1:]) != np.sign(fv[:-1]))[0]:
+            t0 = tt[k] - fv[k]*(tt[k + 1] - tt[k])/(fv[k + 1] - fv[k])
+            for _ in range(3):
+                t0 -= np.polynomial.chebyshev.chebval(t0, c)/np.polynomial.chebyshev.chebval(t0, c1)
+            col.append(round(float((g.yex*(1 - t0)/2)**-2), 5))
+        out.append(col)
+    return out
+
+
 def K_measures(g, st, v, data, k1, d, h=1e-5):
     """K_v and K_all on the slice at v; the slice at v - h is rebuilt from the state and its rate"""
     dm = H.slice_fields(g, [a - h*b for a, b in zip(st, k1)], v - h, data)
@@ -142,7 +163,9 @@ def run(L, lam, Ny, Nx, delta=0.0, v_end=V_END, log=print, yex=None):
             r_lo, r_hi, nz = H.horizon(g, d)
             Wex = float(W[-1].max())
             finite = bool(np.all(np.isfinite(st[0])) and np.isfinite(Kall))
-            out["steps"].append([round(v, 6), Kv, Kall, lab, int(nz), Wex, maxima])
+            # the eighth entry, every zero of the expansion per column, is recorded from D45 on (the pinned runs of
+            # 2026-10-20 predate it)
+            out["steps"].append([round(v, 6), Kv, Kall, lab, int(nz), Wex, maxima, zeros_of(g, d)])
             if out["v_break"] is None and (nz > 1 or Wex >= 0 or not finite):
                 out["v_break"] = round(v, 6)
                 out["break_why"] = "nz=%d" % nz if nz > 1 else ("W_ex=%.3f" % Wex if Wex >= 0 else "not finite")
