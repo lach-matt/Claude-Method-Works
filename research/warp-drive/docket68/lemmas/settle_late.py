@@ -40,8 +40,9 @@ def probe(g, d, mu):
 
 def run(name):
     lam, A, Ny, Nx, m0, v_end = RUNS[name]
-    ck = os.path.join(DATA, "settle_late_%s.ckpt.npz" % name)
-    hj = os.path.join(DATA, "settle_late_%s.json" % name)
+    wd = os.environ.get("SETTLE_DIR", DATA)                  # the runs write elsewhere; the pinned histories land here
+    ck = os.path.join(wd, "settle_late_%s.ckpt.npz" % name)
+    hj = os.path.join(wd, "settle_late_%s.json" % name)
     g = H.Grid(Ny, Nx, H.YEX)
     data = H.Data(lam, A, m0=m0)
     fb, fa = H.filters(g)
